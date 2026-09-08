@@ -8,14 +8,60 @@ struct RecoveredGlobal_8043395C_lbl_805D2200 {
     u8 remaining[0x3FC];
 };
 
+struct RecoveredGlobal_80432688_lbl_805D2200 {
+    M2C_UNK value;
+    u8 remaining[0x3FC];
+};
+
+struct RecoveredGlobal_80433890_lbl_805D2200 {
+    M2C_UNK value;
+    u8 remaining[0x3FC];
+};
+
 extern "C" {
 extern RecoveredGlobal_8043395C_lbl_805D2200 lbl_805D2200;
 void TLobby__sub_8043395C(s32 arg0);
+extern RecoveredGlobal_8043395C_lbl_805D2200 lbl_805D2200;
+void TLobby__sub_80432688(s32 arg0);
+extern s32 lbl_805D7CF8;
+s32 TLobby__sub_80432848(void);
+M2C_UNK memcpy(int, void *, int);
+extern RecoveredGlobal_8043395C_lbl_805D2200 lbl_805D2200;
+void TLobby__sub_80433890(s32 arg0);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_8043395C_lbl_805D2200_size[sizeof(RecoveredGlobal_8043395C_lbl_805D2200) == 0x400 ? 1 : -1];
+
+typedef char RecoveredGlobal_80432688_lbl_805D2200_size[sizeof(RecoveredGlobal_80432688_lbl_805D2200) == 0x400 ? 1 : -1];
+void TLobby__sub_80432688(s32 arg0) {
+    u8 *temp_r3;
+    temp_r3 = (u8 *)&(*(RecoveredGlobal_80432688_lbl_805D2200 *)&lbl_805D2200).value + (arg0 << 8);
+    if ((s32) M2C_FIELD(temp_r3, s32 *, 0x20) == 0) {
+        if (((u8) M2C_FIELD(temp_r3, u8 *, 5) != 0) || ((u8) M2C_FIELD(temp_r3, u8 *, 6) != 4)) {
+            M2C_FIELD(temp_r3, s32 *, 0x20) = 1;
+            return;
+        }
+        *M2C_FIELD(temp_r3, s8 **, 0x14) = M2C_FIELD(temp_r3, u8 *, 7) & 0x3A;
+    }
+}
+
+s32 TLobby__sub_80432848(void) {
+    lbl_805D7CF8 = 1;
+    return 1;
+}
+
+typedef char RecoveredGlobal_80433890_lbl_805D2200_size[sizeof(RecoveredGlobal_80433890_lbl_805D2200) == 0x400 ? 1 : -1];
+void TLobby__sub_80433890(s32 arg0) {
+    u8 *temp_r31;
+    temp_r31 = (u8 *)&(*(RecoveredGlobal_80433890_lbl_805D2200 *)&lbl_805D2200).value + (arg0 << 8);
+    if ((s32) M2C_FIELD(temp_r31, s32 *, 0x20) == 0) {
+        memcpy((int) (M2C_FIELD(temp_r31, s32 *, 0x18)), (void *) (temp_r31 + 5), (int) (4));
+        *M2C_FIELD(temp_r31, s8 **, 0x14) = M2C_FIELD(temp_r31, u8 *, 9) & 0x3A;
+    }
+}
+
 void TLobby__sub_8043395C(s32 arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)&lbl_805D2200.value + (arg0 << 8);

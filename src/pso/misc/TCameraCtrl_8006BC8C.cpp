@@ -1,5 +1,65 @@
 #include "pso/misc/CameraHelpers.h"
-extern "C" void* camera_controller_registry[];
+#include <stddef.h>
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+#include <stddef.h>
+struct Stack_8006C03C {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+    f32 sp14;
+    f32 sp18;
+    f32 sp1C;
+    f32 sp20;
+    f32 sp24;
+    f32 sp28;
+};
+
+struct RecoveredGlobal_8006C03C_lbl_804383E0 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+struct RecoveredGlobal_8006C03C_lbl_804FF5E8 {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
+struct RecoveredFields_8006C03C_arg0 {
+    u8 unknown_0[0x3C];
+    f32 field_3C;
+    f32 field_40;
+    f32 field_44;
+    f32 field_48;
+    f32 field_4C;
+    f32 field_50;
+};
+
+struct RecoveredFields_8006C03C_lbl_805D4DF0 {
+    u8 unknown_0[0x178];
+    f32 field_178;
+    f32 field_17C;
+    f32 field_180;
+    f32 field_184;
+    f32 field_188;
+    f32 field_18C;
+};
+
+extern "C" {
+void TCameraCtrl__sub_8006BE00(u8 *arg0, s32 *arg1, s32 *arg2);
+s32 TCameraCtrl__sub_803D65FC(void *, void *, void *);
+extern RecoveredGlobal_8006C03C_lbl_804383E0 lbl_804383E0;
+extern RecoveredGlobal_8006C03C_lbl_804FF5E8 lbl_804FF5E8;
+extern void *lbl_805D4DF0;
+void TCameraCtrl__sub_8006C03C(u8 *arg0);
+}
+
+extern "C" {
+void* camera_controller_registry[];
+}
 
 struct CameraMotionData;
 struct CameraPathMode { u32 field_00; u32 flags; };
@@ -142,6 +202,50 @@ void set_scripted_camera_pose(const Vec* position, const Vec* target, const Came
 extern void *lbl_805D4DF0;
 extern s32 lbl_805D4E18;
 extern s32 lbl_805D4E1C;
+
+#pragma push
+#pragma opt_common_subs off
+typedef char RecoveredGlobal_8006C03C_lbl_804383E0_size[sizeof(RecoveredGlobal_8006C03C_lbl_804383E0) == 0x10 ? 1 : -1];
+typedef char RecoveredGlobal_8006C03C_lbl_804FF5E8_size[sizeof(RecoveredGlobal_8006C03C_lbl_804FF5E8) == 0x28 ? 1 : -1];
+typedef char RecoveredFields_8006C03C_arg0_3C_offset[offsetof(RecoveredFields_8006C03C_arg0, field_3C) == 0x3C ? 1 : -1];
+typedef char RecoveredFields_8006C03C_arg0_40_offset[offsetof(RecoveredFields_8006C03C_arg0, field_40) == 0x40 ? 1 : -1];
+typedef char RecoveredFields_8006C03C_arg0_44_offset[offsetof(RecoveredFields_8006C03C_arg0, field_44) == 0x44 ? 1 : -1];
+typedef char RecoveredFields_8006C03C_arg0_48_offset[offsetof(RecoveredFields_8006C03C_arg0, field_48) == 0x48 ? 1 : -1];
+typedef char RecoveredFields_8006C03C_arg0_4C_offset[offsetof(RecoveredFields_8006C03C_arg0, field_4C) == 0x4C ? 1 : -1];
+typedef char RecoveredFields_8006C03C_arg0_50_offset[offsetof(RecoveredFields_8006C03C_arg0, field_50) == 0x50 ? 1 : -1];
+typedef char RecoveredFields_8006C03C_lbl_805D4DF0_178_offset[offsetof(RecoveredFields_8006C03C_lbl_805D4DF0, field_178) == 0x178 ? 1 : -1];
+typedef char RecoveredFields_8006C03C_lbl_805D4DF0_17C_offset[offsetof(RecoveredFields_8006C03C_lbl_805D4DF0, field_17C) == 0x17C ? 1 : -1];
+typedef char RecoveredFields_8006C03C_lbl_805D4DF0_180_offset[offsetof(RecoveredFields_8006C03C_lbl_805D4DF0, field_180) == 0x180 ? 1 : -1];
+typedef char RecoveredFields_8006C03C_lbl_805D4DF0_184_offset[offsetof(RecoveredFields_8006C03C_lbl_805D4DF0, field_184) == 0x184 ? 1 : -1];
+typedef char RecoveredFields_8006C03C_lbl_805D4DF0_188_offset[offsetof(RecoveredFields_8006C03C_lbl_805D4DF0, field_188) == 0x188 ? 1 : -1];
+typedef char RecoveredFields_8006C03C_lbl_805D4DF0_18C_offset[offsetof(RecoveredFields_8006C03C_lbl_805D4DF0, field_18C) == 0x18C ? 1 : -1];
+void TCameraCtrl__sub_8006C03C(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_8006C03C, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_8006C03C, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_8006C03C, sp10) == 0x8) ? 1 : -1];
+    typedef char sp14_offset[(offsetof(Stack_8006C03C, sp14) == 0xC) ? 1 : -1];
+    typedef char sp18_offset[(offsetof(Stack_8006C03C, sp18) == 0x10) ? 1 : -1];
+    typedef char sp1C_offset[(offsetof(Stack_8006C03C, sp1C) == 0x14) ? 1 : -1];
+    typedef char sp20_offset[(offsetof(Stack_8006C03C, sp20) == 0x18) ? 1 : -1];
+    typedef char sp24_offset[(offsetof(Stack_8006C03C, sp24) == 0x1C) ? 1 : -1];
+    typedef char sp28_offset[(offsetof(Stack_8006C03C, sp28) == 0x20) ? 1 : -1];
+    Stack_8006C03C stack;
+    stack.sp14 = ((RecoveredFields_8006C03C_arg0 *)arg0)->field_48 - ((RecoveredFields_8006C03C_arg0 *)arg0)->field_3C;
+    stack.sp18 = ((RecoveredFields_8006C03C_arg0 *)arg0)->field_4C - ((RecoveredFields_8006C03C_arg0 *)arg0)->field_40;
+    stack.sp1C = ((RecoveredFields_8006C03C_arg0 *)arg0)->field_50 - ((RecoveredFields_8006C03C_arg0 *)arg0)->field_44;
+    TCameraCtrl__sub_8006BE00((u8 *)((void *) (&stack.sp14)), (s32 *)((void *) ((*(u8 * *)&lbl_805D4DF0) + 0x190)), (s32 *)((void *) ((*(u8 * *)&lbl_805D4DF0) + 0x194)));
+    stack.sp20 = ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&lbl_805D4DF0))->field_184;
+    stack.sp24 = ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&lbl_805D4DF0))->field_188;
+    stack.sp28 = ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&lbl_805D4DF0))->field_18C;
+    stack.sp8 = M2C_FIELD(&lbl_804383E0.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&lbl_804383E0.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&lbl_804383E0.value, s32 *, 8);
+    TCameraCtrl__sub_803D65FC((void *) ((*(u8 * *)&lbl_805D4DF0) + 0x178), (void *) (&stack.sp20), (void *) (&stack.sp8));
+    M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&lbl_805D4DF0))->field_178;
+    M2C_FIELD(&lbl_804FF5E8.value, f32 *, 4) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&lbl_805D4DF0))->field_17C;
+    M2C_FIELD(&lbl_804FF5E8.value, f32 *, 8) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&lbl_805D4DF0))->field_180;
+}
+#pragma pop
 
 void cache_target_and_forward__11TCameraCtrlFii(s32 arg0, s32 arg1) {
     if ((void *) lbl_805D4DF0 != NULL) {

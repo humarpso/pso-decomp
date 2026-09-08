@@ -2,6 +2,16 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+M2C_UNK queue_destruction__7TObjectFv();
+extern u32 lbl_805D4D10;
+extern const f32 lbl_805D8850;
+extern const f32 lbl_805D8858;
+void TBoss3Volopt__sub_80048AA0(u8 *arg0);
+}
+
 extern "C" {
 
 void *TBoss3Volopt__sub_80048988(void *arg0, s16 arg1);
@@ -58,6 +68,24 @@ void *init_fade_color__12TBoss3VoloptFPvPvPv(void *arg0, void *arg1, void *arg2)
 }
 
 extern M2C_UNK lbl_804848B8[];
+
+#pragma push
+#pragma opt_common_subs off
+void TBoss3Volopt__sub_80048AA0(u8 *arg0) {
+    M2C_UNK (*temp_r12)();
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) + lbl_805D8850);
+    if (M2C_FIELD(arg0, f32 *, 0x1C) >= lbl_805D8858) {
+        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805D8858;
+        temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x24);
+        if (temp_r12 != NULL) {
+            temp_r12();
+        } else {
+            queue_destruction__7TObjectFv();
+        }
+        (*(s32 *)&lbl_805D4D10) = 1;
+    }
+}
+#pragma pop
 
 void *TBoss3Volopt__sub_80048B08(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

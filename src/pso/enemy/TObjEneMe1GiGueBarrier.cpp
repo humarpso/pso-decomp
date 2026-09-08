@@ -10,10 +10,24 @@ typedef char RecoveredGlobal_80325BCC_lbl_804ECD40_size[sizeof(RecoveredGlobal_8
 struct RecoveredGlobal_80325BCC___vt__22TObjEneMe1GiGueBarrier { M2C_UNK value; u8 remaining[0x34]; };
 typedef char RecoveredGlobal_80325BCC___vt__22TObjEneMe1GiGueBarrier_size[sizeof(RecoveredGlobal_80325BCC___vt__22TObjEneMe1GiGueBarrier) == 0x38 ? 1 : -1];
 
+struct VBase_18_ca64a0 { char pad[0x18]; };
+
+struct VObj_18_ca64a0 : VBase_18_ca64a0 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual s32 m9(f32, f32, f32);
+};
+
 extern "C" {
 void *__nw__7TObjectFUl(int);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
-M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
@@ -37,6 +51,22 @@ extern M2C_UNK __vt__22TObjEneMe1GiGueBarrier[];
 extern s32 lbl_805D4198;
 extern s32 lbl_805D6C60;
 u8 *TObjEneMe1GiGueBarrier__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+s32 get_global_state__14TOKeyMachine01Fv();
+s32 toggle_flag_9__10TObjPlayerFPv(void *);
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+extern s32 lbl_805D6C60;
+extern const f32 lbl_805DF620;
+extern const f32 lbl_805DF624;
+extern const f32 lbl_805DF628;
+extern const f32 lbl_805DF62C;
+void render__22TObjEneMe1GiGueBarrierFv(u8 *arg0);
 }
 
 extern "C" {
@@ -50,6 +80,34 @@ void clear_flag388_bit80000__22TObjEneMe1GiGueBarrierFPv(void *);
 s32 get_barrier_count__15TObjEneMe1GiGueFv();
 
 extern M2C_UNK __vt__22TObjEneMe1GiGueBarrier[];
+
+#pragma push
+#pragma opt_common_subs off
+void render__22TObjEneMe1GiGueBarrierFv(u8 *arg0) {
+    if ((u32) (*(u32 *)&lbl_805D6C60) == 0U) {
+        queue_destruction__7TObjectFv((void *)(arg0));
+        return;
+    }
+    if (get_global_state__14TOKeyMachine01Fv() == 0x23) {
+        if (((VObj_18_ca64a0 *)(arg0))->m9(lbl_805DF620, lbl_805DF620, lbl_805DF624) == 0) {
+            return;
+        }
+        goto block_6;
+    }
+    if (((VObj_18_ca64a0 *)(arg0))->m9(lbl_805DF628, lbl_805DF62C, lbl_805DF624) != 0) {
+block_6:
+        if (toggle_flag_9__10TObjPlayerFPv((void *) (arg0)) == 0) {
+            TObjPlayer__sub_803D9B2C();
+            TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+            TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+            set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+            end_effect_render__13TParticleCtrlFv();
+            draw__16TObjEneRe7BeruraFPv((void *) (arg0));
+            TObjPlayer__sub_803D9B78();
+        }
+    }
+}
+#pragma pop
 
 void run_task__22TObjEneMe1GiGueBarrierFv(u8 *arg0) {
     s32 temp_r0_2;

@@ -45,6 +45,19 @@ void TObjWarpBase__vt14(void);
 u8 TWindowShortListCtrl__check_controller_button(void *, int);
 extern RecoveredGlobal_8019D850_lbl_8050E208 lbl_8050E208;
 void TObjWarpBase__vt15(M2C_UNK arg0, s32 arg1);
+s32 fn_8019DD24(void *, int);
+void *TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 TWindow__close(int);
+void TObjMapWarp__sub_8019D644(s32 arg0, u16 arg1);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+s32 TWindowSubTradeMain__sub_80266200(s32, s32, s32, s32, s32);
+s32 TCheckRoomSequence__sub_802664A8(s32, s32, s32);
+s32 TWindowSubComCard__sub_8026CBB8(s32);
+M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(int);
+M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
+M2C_UNK TWindowSubComCard__sub_80265C30(int);
+M2C_UNK TWindowSubComCard__sub_80265F60(int);
+void TObjMapWarp__sub_8019D5AC(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -95,6 +108,41 @@ u8 can_warp__11TObjMapWarpFiUs(s32 arg0, u16 arg1) {
 }
 
 extern M2C_UNK __vt__11TObjMapWarp[];
+
+#pragma push
+#pragma opt_common_subs off
+void TObjMapWarp__sub_8019D5AC(s32 arg0, s32 arg1) {
+    u8 *temp_r31;
+    temp_r31 = (u8 *)(arg0 + (arg1 * 4));
+    if ((u32) M2C_FIELD(temp_r31, u32 *, 0xEC) == 0U) {
+        M2C_FIELD(temp_r31, u32 *, 0xEC) = TCheckRoomSequence__sub_802664A8(TWindowSubComCard__sub_8026CBB8(0x33), 1, arg1);
+        TWindowSubTradeMain__sub_80266200(M2C_FIELD(temp_r31, u32 *, 0xEC), TAdSinglePlyChrSelectGC__sub_80132F2C(9, 0x25), 2, 0, -1);
+        TWindowSubComCard__sub_80265F60((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
+        TWindowSubComCard__sub_80265C30((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
+        set_flag70_bit10__16TObjCityMainWarpFPv((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
+        set_flag_40__16TAdChrSelASlotGCFPv((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs off
+void TObjMapWarp__sub_8019D644(s32 arg0, u16 arg1) {
+    u32 temp_r3;
+    u32 temp_r3_2;
+    u8 *temp_r31;
+    temp_r31 = (u8 *)(arg0 + ((arg1 * 4) & 0x3FFFC));
+    temp_r3 = M2C_FIELD(temp_r31, u32 *, 0xEC);
+    if (temp_r3 != 0U) {
+        TWindow__close((int) (temp_r3));
+        M2C_FIELD(temp_r31, u32 *, 0xEC) = 0U;
+        temp_r3_2 = ((u32)TPlayerBattleCtrl4P__sub_801BA74C((u32)((void *) ((s32) arg1))));
+        if (temp_r3_2 != 0U) {
+            fn_8019DD24((void *) (temp_r3_2 + 0x550), (int) (4));
+        }
+    }
+}
+#pragma pop
 
 void *__dt__11TObjMapWarpFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -109,6 +109,10 @@ void TBoss6Type1__sub_802B64B4(u8 *arg0);
 extern const f32 TBoss6Type1__data_805DE2E4;
 extern const f32 lbl_805DE374;
 void TBoss6Type1__sub_802B64DC(u8 *arg0);
+s32 request_destroy__11TBoss4Type2FUi(int);
+void TBoss6Type1__sub_802B4B64(s32 arg0, s32 arg1);
+void TBoss6Type1__sub_802B4B64(s32 arg0, s32 arg1);
+void TBoss6Type1__sub_802B4CF4(s32 arg0);
 }
 
 extern "C" {
@@ -116,7 +120,6 @@ extern "C" {
 int TBoss6Type1__sub_802B4A70(void* p);
 void TBoss6Type1__sub_802B4A90(void* p);
 int TBoss6Type1__sub_802B4B14(void* p);
-void TBoss6Type1__sub_802B4CF4(void* p);
 void TBoss6Type1__sub_802B59A8(void);
 void TBoss6Type1__sub_802B5AB0(void);
 int TBoss6Type1__sub_802B5DD4(void);
@@ -131,7 +134,6 @@ void set_flag_on_threshold__11TBoss6Type1FPv(void *arg0);
 void set_part_default_value__11TBoss6Type1FiPv(int a0, void* a1);
 s32 TBoss6PlotFalz__sub_802AAC74(s32);
 int TBoss6Type1__sub_802B4A9C(void*);
-int TBoss6Type1__sub_802B4B64(void*, void*);
 M2C_UNK TBoss6Type1__sub_802B5AD4(f32);
 int TBoss6Type1__sub_802B60E8(void*);
 s32 calc_field4b0_delta__11TBoss6Type1FPv(void *arg0);
@@ -146,7 +148,19 @@ void TBoss6Type1__sub_802B4B04(u8 *arg0) {
 
 int TBoss6Type1__sub_802B4B14(void* p) { return TBoss6Type1__sub_802B4A9C(p); }
 
-void TBoss6Type1__sub_802B4CF4(void* p) { { int i; for (i = 0; i < 4; i++) { TBoss6Type1__sub_802B4B64(p, (void*)i); } } }
+#pragma push
+#pragma opt_common_subs off
+void TBoss6Type1__sub_802B4B64(s32 arg0, s32 arg1) {
+    u32 temp_r3;
+    u8 *temp_r31;
+    temp_r31 = (u8 *)(arg0 + (arg1 * 4));
+    temp_r3 = M2C_FIELD(temp_r31, u32 *, 0x4F8);
+    if (temp_r3 != 0U) {
+        request_destroy__11TBoss4Type2FUi((int) (temp_r3));
+        M2C_FIELD(temp_r31, u32 *, 0x4F8) = 0U;
+    }
+}
+#pragma pop
 
 #pragma push
 #pragma opt_common_subs off
@@ -154,6 +168,16 @@ void TBoss6Type1__sub_802B4CF4(void* p) { { int i; for (i = 0; i < 4; i++) { TBo
 #pragma fp_contract on
 typedef char RecoveredGlobal_802B5140_lbl_80470CD4_size[sizeof(RecoveredGlobal_802B5140_lbl_80470CD4) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_802B5140_lbl_80470CE0_size[sizeof(RecoveredGlobal_802B5140_lbl_80470CE0) == 0xC ? 1 : -1];
+
+void TBoss6Type1__sub_802B4CF4(s32 arg0) {
+    s32 var_r31;
+    var_r31 = 0;
+    do {
+        TBoss6Type1__sub_802B4B64(arg0, var_r31);
+        var_r31 += 1;
+    } while (var_r31 < 4);
+}
+
 void TBoss6Type1__sub_802B5140(s32 arg0, s32 arg1, s32 arg2) {
     typedef char sp8_offset[(offsetof(Stack_802B5140, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802B5140, spC) == 0x4) ? 1 : -1];

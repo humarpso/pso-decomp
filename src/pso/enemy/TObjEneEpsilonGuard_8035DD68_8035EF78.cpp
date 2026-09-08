@@ -123,6 +123,11 @@ s32 TPhotonMylla__sub_80154CB4(int);
 M2C_UNK update_guard_state__19TObjEneEpsilonGuardFPv(void *);
 M2C_UNK update_center_position__19TObjEneEpsilonGuardFPv(void *);
 void run_task__19TObjEneEpsilonGuardFv(u8 *arg0);
+M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern f32 *TObjEneEpsilonGuard__data_805D6F74;
+void TObjEneEpsilonGuard__sub_8035EFD8(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -134,7 +139,6 @@ void TObjEneEpsilonGuard__vt61(void);
 s32 calc_angle_to_target__19TObjEneEpsilonGuardFPv(u8 *arg0);
 void * create__19TObjEneEpsilonGuardFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void *TObjEneEpsilonGuard__ct(void *, void *, void *, void *, void *, void *, void *);
-M2C_UNK TObjEneEpsilon__sub_800B96A4();
 void *__nw__7TObjectFUl(int);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32, f32);
 
@@ -143,10 +147,19 @@ extern const f64 lbl_80479C88;
 s32 calc_angle_to_target__19TObjEneEpsilonGuardFPv(u8 *arg0) {
     f32 temp_f3;
 
-    TObjEneEpsilon__sub_800B96A4();
+    TObjEneEpsilon__sub_800B96A4((void *)(arg0));
     temp_f3 = M2C_FIELD(arg0, f32 *, 0x38);
     return (s32) (lbl_80479C88 * get_ad_end_text_start__10TObjPlayerFv((f32) (temp_f3 - M2C_FIELD(arg0, f32 *, 0x394)), (f32) (M2C_FIELD(arg0, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x39C)), (f32) (temp_f3)));
 }
+
+#pragma push
+#pragma fp_contract on
+void TObjEneEpsilonGuard__sub_8035EFD8(u8 *arg0, s32 arg1) {
+    TObjEneEpsilon__sub_800B96A4((void *)(arg0));
+    M2C_FIELD(arg0, f32 *, 0x394) = (f32) ((M2C_FIELD(TObjEneEpsilonGuard__data_805D6F74, f32 *, 0) * TBoss8Dragon__sub_803D64C0(arg1)) + M2C_FIELD(arg0, f32 *, 0x394));
+    M2C_FIELD(arg0, f32 *, 0x39C) = (f32) ((M2C_FIELD(TObjEneEpsilonGuard__data_805D6F74, f32 *, 0) * TBoss8Dragon__sub_803D64DC(arg1)) + M2C_FIELD(arg0, f32 *, 0x39C));
+}
+#pragma pop
 
 void TObjEneEpsilonGuard__vt59(void) {  }
 void TObjEneEpsilonGuard__vt60(void) {  }

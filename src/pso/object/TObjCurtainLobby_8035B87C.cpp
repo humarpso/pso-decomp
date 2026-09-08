@@ -5,8 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TLobby__sub_80351DFC(void);
+s32 TObjCurtainLobby__sub_8035B87C(void);
+}
 
-int TObjCurtainLobby__sub_8035B87C(void);
+extern "C" {
+
 void TObjCurtainLobby__sub_8035B8B4(void);
 void render__16TObjCurtainLobbyFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -19,7 +23,21 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK set_global_param__8TObjFishFi(int);
 
-int TObjCurtainLobby__sub_8035B87C(void) { return 0; }
+#pragma push
+#pragma opt_propagation off
+s32 TObjCurtainLobby__sub_8035B87C(void) {
+    s32 var_r3;
+    var_r3 = TLobby__sub_80351DFC();
+    if (var_r3 < 0xE) {
+        if (var_r3 < 0xC) {
+            return var_r3;
+        }
+        var_r3 = 0xC;
+        return var_r3;
+    }
+    return var_r3;
+}
+#pragma pop
 
 void TObjCurtainLobby__sub_8035B8B4(void) {  }
 

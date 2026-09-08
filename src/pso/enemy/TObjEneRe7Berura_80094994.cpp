@@ -163,6 +163,7 @@ s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 extern const f32 TObjEneRe7Berura__data_805D9764;
 extern const f32 lbl_805D9770;
 void TObjEneRe7Berura__sub_80094BFC(u8 *arg0);
+void TObjEneRe7Berura__sub_80094D98(u8 *arg0);
 }
 
 extern "C" {
@@ -219,6 +220,15 @@ void TObjEneRe7Berura__sub_80094BFC(u8 *arg0) {
     if ((objInBand__FP7GameObjf(arg0, lbl_805D9770) != 0) || (objInBand__FP7GameObjf(arg0, TObjEneRe7Berura__data_805D9764) != 0)) {
         TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003BC1F)), (u32) (arg0 + 0x38), 0, 0);
     }
+}
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs off
+void TObjEneRe7Berura__sub_80094D98(u8 *arg0) {
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(arg0 + (M2C_FIELD(arg0, s32 *, 0x3F4) * 4));
+    M2C_FIELD(temp_r3, s32 *, 0x418) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x418) & 0xFFFFFFFD);
 }
 #pragma pop
 

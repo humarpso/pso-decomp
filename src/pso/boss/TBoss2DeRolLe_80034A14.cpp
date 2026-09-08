@@ -22,6 +22,17 @@ struct RecoveredGlobal_80034C90_lbl_8043567C {
     u8 remaining[0x2C];
 };
 
+#include <stddef.h>
+struct RecoveredGlobal_80034C2C_lbl_8043567C {
+    M2C_UNK value;
+    u8 remaining[0x2C];
+};
+
+struct RecoveredFields_80034C2C_arg0 {
+    u8 unknown_0[0x3AC];
+    f32 field_3AC;
+};
+
 extern "C" {
 f32 TBoss2DeRolLe__sub_80034CEC(void);
 f32 TBoss2DeRolLe__sub_80034CF8(void);
@@ -44,6 +55,11 @@ s32 VecCopy__FP3VecPC3Vec(s32, s32);
 extern RecoveredGlobal_80034C90_lbl_8043567C lbl_8043567C;
 extern f32 TBoss2DeRolLe__data_805D827C;
 void TBoss2DeRolLe__sub_80034C90(u8 *arg0, s32 arg1);
+s32 VecCopy__FP3VecPC3Vec(s32, s32);
+f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+f32 TBoss6Type1__sub_803D9370(void *, void *);
+extern RecoveredGlobal_80034C90_lbl_8043567C lbl_8043567C;
+void TBoss2DeRolLe__sub_80034C2C(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -111,6 +127,19 @@ void set_move_direction__13TBoss2DeRolLeFPv(void *arg0) {
 extern u8 *TBoss2DeRolLe__data_805D4BA0;
 
 typedef char RecoveredGlobal_80034C90_lbl_8043567C_size[sizeof(RecoveredGlobal_80034C90_lbl_8043567C) == 0x30 ? 1 : -1];
+
+#pragma push
+#pragma opt_common_subs off
+typedef char RecoveredGlobal_80034C2C_lbl_8043567C_size[sizeof(RecoveredGlobal_80034C2C_lbl_8043567C) == 0x30 ? 1 : -1];
+typedef char RecoveredFields_80034C2C_arg0_3AC_offset[offsetof(RecoveredFields_80034C2C_arg0, field_3AC) == 0x3AC ? 1 : -1];
+void TBoss2DeRolLe__sub_80034C2C(u8 *arg0, s32 arg1) {
+    VecCopy__FP3VecPC3Vec((s32)((void *) (arg0 + 0x394)), (s32)((void *) ((u8 *)&(*(RecoveredGlobal_80034C2C_lbl_8043567C *)&lbl_8043567C).value + (arg1 * 0xC))));
+    VecCopy__FP3VecPC3Vec((s32)((void *) (arg0 + 0x3A0)), (s32)((void *) (arg0 + 0x394)));
+    TBoss6Type1__sub_803D9370((void *) (arg0 + 0x3A0), (void *) (arg0 + 0x38));
+    ((RecoveredFields_80034C2C_arg0 *)arg0)->field_3AC = clamp_velocity__15TObjBoss2TunnelFPv((void *) (arg0 + 0x3A0));
+}
+#pragma pop
+
 void TBoss2DeRolLe__sub_80034C90(u8 *arg0, s32 arg1) {
     VecCopy__FP3VecPC3Vec((s32)(arg0 + 0x38), (s32)((u8 *)&lbl_8043567C.value + (arg1 * 0xC)));
     M2C_FIELD(arg0, f32 *, 0x6A4) = (f32) (*(const f32 *)&TBoss2DeRolLe__data_805D827C);

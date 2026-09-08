@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void queue_destruction__7TObjectFv(void *);
+extern s32 *lbl_805D4C04;
+extern s32 *lbl_805D4C08;
+extern f32 TObjBoss2Tunnel__data_805D8614;
+extern const f32 lbl_805D8654;
+void TObjBoss2Tunnel__sub_8003C6D0(u8 *arg0);
+}
+
+extern "C" {
 
 void TObjBoss2Tunnel__sub_8003C648(void);
 void *__dt__15TObjBoss2TunnelFv(void *arg0, s16 arg1);
@@ -106,6 +115,25 @@ void clear_target_flags__15TObjBoss2TunnelFv(void) {
 }
 
 extern M2C_UNK lbl_804835D8[];
+
+#pragma push
+#pragma opt_common_subs off
+void TObjBoss2Tunnel__sub_8003C6D0(u8 *arg0) {
+    f32 temp_f1;
+    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) + 1);
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) > 0x1E) {
+        M2C_FIELD(arg0, f32 *, 0x20) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) + TObjBoss2Tunnel__data_805D8614);
+        temp_f1 = M2C_FIELD(arg0, f32 *, 0x20);
+        if (temp_f1 > lbl_805D8654) {
+            M2C_FIELD(arg0, f32 *, 0x20) = (f32) lbl_805D8654;
+            queue_destruction__7TObjectFv(arg0);
+            return;
+        }
+        M2C_FIELD((*(u8 * *)&lbl_805D4C04), f32 *, 8) = (f32) -temp_f1;
+        M2C_FIELD((*(u8 * *)&lbl_805D4C08), f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 0x20);
+    }
+}
+#pragma pop
 
 void *__dt_deleting__15TObjBoss2TunnelFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

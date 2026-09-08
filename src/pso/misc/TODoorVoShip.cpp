@@ -47,6 +47,14 @@ extern const f32 lbl_805DB53C;
 extern const f32 lbl_805DB540;
 extern const f32 lbl_805DB544;
 u8 *TODoorVoShip__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+s32 get_main_phase(void);
+M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
+void update_anim_phase__17TOBarrierEnergy01FPv(void *);
+s32 TODoorVoShip__sub_801F44BC(s32);
+extern const f32 lbl_805DB530;
+extern const f32 lbl_805DB534;
+extern const f32 lbl_805DB538;
+void run_task__12TODoorVoShipFv(u8 *arg0);
 }
 
 extern "C" {
@@ -62,6 +70,41 @@ void *__nw__7TObjectFUl(int);
 M2C_UNK destroy_key_base__5TOKeyFPvs(void *, M2C_UNK);
 
 extern void *tl_05;
+
+#pragma push
+#pragma opt_common_subs off
+void run_task__12TODoorVoShipFv(u8 *arg0) {
+    if (M2C_FIELD(arg0, s32 *, 0xCC) & 0xE) {
+        update_anim_phase__17TOBarrierEnergy01FPv(arg0);
+        if (M2C_FIELD(arg0, s32 *, 0xCC) & 0x10) {
+            M2C_FIELD(arg0, f32 *, 0xDC) = (f32) (M2C_FIELD(arg0, f32 *, 0xDC) + lbl_805DB530);
+            if (lbl_805DB534 <= M2C_FIELD(arg0, f32 *, 0xDC)) {
+                M2C_FIELD(arg0, f32 *, 0xDC) = (f32) lbl_805DB534;
+                M2C_FIELD(arg0, s32 *, 0xCC) = (s32) (M2C_FIELD(arg0, s32 *, 0xCC) & 0xFFFFFFEF);
+            }
+        } else {
+            M2C_FIELD(arg0, f32 *, 0xDC) = (f32) (M2C_FIELD(arg0, f32 *, 0xDC) - lbl_805DB530);
+            if (M2C_FIELD(arg0, f32 *, 0xDC) <= lbl_805DB538) {
+                M2C_FIELD(arg0, f32 *, 0xDC) = (f32) lbl_805DB538;
+                M2C_FIELD(arg0, s32 *, 0xCC) = (s32) (M2C_FIELD(arg0, s32 *, 0xCC) | 0x10);
+            }
+        }
+        if (TODoorVoShip__sub_801F44BC((s32)((int) (0x2C))) != 0) {
+            M2C_FIELD(arg0, s32 *, 0xCC) = (s32) (M2C_FIELD(arg0, s32 *, 0xCC) & 0xFFFFFFFD);
+        }
+        if (TODoorVoShip__sub_801F44BC((s32)((int) (0x2D))) != 0) {
+            M2C_FIELD(arg0, s32 *, 0xCC) = (s32) (M2C_FIELD(arg0, s32 *, 0xCC) & 0xFFFFFFFB);
+        }
+        if (TODoorVoShip__sub_801F44BC((s32)((int) (0x2E))) != 0) {
+            M2C_FIELD(arg0, s32 *, 0xCC) = (s32) (M2C_FIELD(arg0, s32 *, 0xCC) & 0xFFFFFFF7);
+        }
+        if ((TODoorVoShip__sub_801F44BC((s32)((int) (0x2F))) != 0) || (get_main_phase() == 0xF)) {
+            M2C_FIELD(arg0, s32 *, 0xCC) = (s32) (M2C_FIELD(arg0, s32 *, 0xCC) & 0xFFFFFFF1);
+            clear_player_status_flag__10TObjPlayerFPviUi((void *)(arg0), (int)(0), (int)(1U));
+        }
+    }
+}
+#pragma pop
 
 void *create__12TODoorVoShipFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xEC);

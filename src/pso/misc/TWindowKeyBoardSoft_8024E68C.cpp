@@ -9,6 +9,10 @@ u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 u32 init_layout__19TWindowKeyBoardSoftFPv(void* a0);
 extern u32 lbl_805D6420;
 u32 TWindowKeyBoardSoft__sub_8024EDF8(void);
+s32 __cvt_fp2unsigned(f32);
+extern const f32 lbl_805DCC84;
+extern const f32 lbl_805DCC88;
+void TWindowKeyBoardSoft__sub_8024E7B8(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -24,6 +28,18 @@ int TWindowKeyBoardSoft__sub_8024E6D8(s32, s32);
 s32 TWindowKeyBoardSoft__sub_8024E8E8();
 M2C_UNK TWindowKeyBoardSoft__sub_8024EA50(u32, s32, s32, s32, s32);
 M2C_UNK __dl__FPv(u32);
+
+#pragma push
+#pragma opt_common_subs off
+void TWindowKeyBoardSoft__sub_8024E7B8(u8 *arg0, s32 arg1) {
+    s32 temp_r0;
+    M2C_FIELD(arg0, s32 *, 0x30) = arg1;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x30);
+    if (temp_r0 < 0) {
+        M2C_FIELD(arg0, s32 *, 0x34) = (s32) ((__cvt_fp2unsigned(lbl_805DCC84 * ((lbl_805DCC88 + (f32) temp_r0) / lbl_805DCC88)) << 0x18) | 0xFF0000 | 0xFFFF);
+    }
+}
+#pragma pop
 
 void set_bounds__19TWindowKeyBoardSoftFPvffff(void* p, f32 a, f32 b, f32 c, f32 d) { *(f32*)((char*)p + 0x3c) = a; *(f32*)((char*)p + 0x40) = b; *(f32*)((char*)p + 0x44) = c; *(f32*)((char*)p + 0x48) = d; }
 

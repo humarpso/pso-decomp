@@ -39,6 +39,11 @@ void TLobby__sub_803CB7F8(M2C_UNK arg0, s32 arg1);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_800F8A78_lbl_80501178 lbl_80575B40;
 void TLobby__sub_803CB71C(void);
+s32 set_scroll_offset__6TLobbyFPvi(void *, s32);
+s32 send_with_offset4_alt__6TLobbyFPv(int);
+M2C_UNK set_field_3c__6TLobbyFPvi(int, int);
+M2C_UNK set_scroll_position__6TLobbyFPvi(void *, int);
+void TLobby__sub_803CB194(u8 *arg0);
 }
 
 extern "C" {
@@ -222,6 +227,19 @@ void TLobby__sub_803C9DB4(u8 *arg0) {
     M2C_FIELD(arg0, void ***, 0x14) = NULL;
     M2C_FIELD(arg0, s8 *, 1) = 0;
     release_ref__6TLobbyFv();
+}
+
+void TLobby__sub_803CB194(u8 *arg0) {
+    s32 temp_r3;
+    u8 *temp_r31;
+    temp_r31 = (u8 *)(M2C_FIELD(arg0, u8 **, 8));
+    temp_r3 = send_with_offset4_alt__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 4)));
+    if ((s8) M2C_FIELD(arg0, u8 *, 0x6C) == 0) {
+        set_field_3c__6TLobbyFPvi((int) (M2C_FIELD(arg0, s32 *, 4)), (int) (-1));
+        set_scroll_position__6TLobbyFPvi((void *) (M2C_FIELD(arg0, u8 **, 8)), (int) (0x7FFFFFFF));
+        return;
+    }
+    set_scroll_offset__6TLobbyFPvi(temp_r31, temp_r3 / 2048);
 }
 
 void update_receive_check__6TLobbyFPv(u8 *arg0) {

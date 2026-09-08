@@ -21,6 +21,13 @@ struct Entry_80288C78_80288B5C {
 };
 
 extern "C" {
+s32 TLobby__sub_80222C28(int, int, int);
+s32 select_cursor_entry__6TLobbyFPv(s32);
+extern s32 TQuestListChallenge__data_805D64B0;
+s32 TQuestListChallenge__sub_80288B04(void);
+}
+
+extern "C" {
 
 void * TObjNpcKenkyu__create(void *arg0);
 void TQuestListChallenge__sub_80288BE4(void);
@@ -44,6 +51,20 @@ s32 is_visible__17TWindowSubComCardFPv(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 select_cursor_entry__6TLobbyFPv(s32);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
+
+#pragma push
+#pragma opt_common_subs off
+s32 TQuestListChallenge__sub_80288B04(void) {
+    u32 temp_r3;
+    if ((void *) (*(u8 * *)&TQuestListChallenge__data_805D64B0) != NULL) {
+        temp_r3 = M2C_FIELD((*(u8 * *)&TQuestListChallenge__data_805D64B0), u32 *, 0x38);
+        if (temp_r3 != 0U) {
+            return TLobby__sub_80222C28((int) (M2C_FIELD((*(u8 * *)&TQuestListChallenge__data_805D64B0), s32 *, 0x50)), (int) (M2C_FIELD((M2C_FIELD((*(u8 * *)&TQuestListChallenge__data_805D64B0), s32 *, 0x58) + (select_cursor_entry__6TLobbyFPv((s32)((int) (temp_r3))) * 0x10)), s32 *, 0)), (int) ((*(u8 * *)&TQuestListChallenge__data_805D64B0)));
+        }
+    }
+    return 0;
+}
+#pragma pop
 
 void close_windows__19TQuestListChallengeFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) {

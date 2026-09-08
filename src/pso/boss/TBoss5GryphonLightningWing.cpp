@@ -17,6 +17,12 @@ struct Stack_80351DA8 {
 
 #include <stddef.h>
 
+#pragma opt_lifetimes off
+struct Stack_80351A80 {
+    M2C_UNK sp8;
+    u8 trailing_storage[0x8];
+};
+
 extern "C" {
 void fn_80351DA8(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -25,6 +31,14 @@ s32 __nw__7TObjectFUl(int);
 s32 __ct__26TBoss5GryphonLightningWingFv(int, void *, void *, void *, void *, void *, void *);
 extern const f32 lbl_805D8D48;
 s32 TBoss8Dragon__sub_80351CF0(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
+s32 queue_destruction__7TObjectFv(void *);
+s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK get_wing_position__26TBoss5GryphonLightningWingFii(s32, M2C_UNK *);
+s32 update_wing_segments(void *);
+s32 fn_80324E10(void *);
+void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0);
+extern const f32 lbl_805DFED4;
+void run_task__26TBoss5GryphonLightningWingFv(u8 *arg0);
 }
 
 extern "C" {
@@ -52,6 +66,31 @@ void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0) {
 }
 
 void render__26TBoss5GryphonLightningWingFv(void) {  }
+
+#pragma push
+#pragma opt_common_subs off
+void run_task__26TBoss5GryphonLightningWingFv(u8 *arg0) {
+    Stack_80351A80 stack;
+    M2C_FIELD(arg0, f32 *, 0x88) = (f32) ((f32) M2C_FIELD(arg0, s32 *, 0x94) / (f32) M2C_FIELD(arg0, s32 *, 0x9C));
+    if (M2C_FIELD(arg0, f32 *, 0x88) > lbl_805DFED4) {
+        M2C_FIELD(arg0, f32 *, 0x88) = (f32) lbl_805DFED4;
+    }
+    M2C_FIELD(arg0, f32 *, 0x8C) = (f32) ((f32) M2C_FIELD(arg0, s32 *, 0x94) / (f32) M2C_FIELD(arg0, s32 *, 0x98));
+    if (M2C_FIELD(arg0, f32 *, 0x8C) > lbl_805DFED4) {
+        M2C_FIELD(arg0, f32 *, 0x8C) = (f32) lbl_805DFED4;
+    }
+    update_wing_segments((void *) (arg0));
+    apply_lightning_effect__26TBoss5GryphonLightningWingFi((s32)((void *) (arg0)));
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x94) == (s32) M2C_FIELD(arg0, s32 *, 0x98)) {
+        get_wing_position__26TBoss5GryphonLightningWingFii((s32)((void *) (arg0)), (M2C_UNK *)((void *) (&stack.sp8)));
+        TBoss3Volopt__sub_8022675C((int) (0x40032516), (void *) (&stack.sp8), (int) (0), (int) (0));
+    }
+    fn_80324E10((void *) (arg0));
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x94) >= (s32) M2C_FIELD(arg0, s32 *, 0x9C)) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+    }
+}
+#pragma pop
 
 s32 TBoss8Dragon__sub_80351CF0(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     Vec position;

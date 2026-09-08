@@ -4,6 +4,42 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include <stddef.h>
+struct Stack_80059450 {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+    s32 sp14;
+    s32 sp18;
+    s32 sp1C;
+    s32 sp20;
+    s32 sp24;
+    s32 sp28;
+    s32 sp2C;
+    s32 sp30;
+    s32 sp34;
+};
+
+struct RecoveredGlobal_80059450_lbl_80437854 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_80059450_lbl_80437860 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_80059450_lbl_8043786C {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_80059450_lbl_80437878 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 extern const f32 TBoss4Type3__data_805D8C34;
@@ -12,6 +48,12 @@ extern const f32 lbl_805D8C90;
 extern const f32 lbl_805D8C94;
 extern const f32 lbl_805D8C98;
 void TBoss4Type3__sub_80059FC4(u8 *arg0);
+s32 TCameraCtrl__sub_8006D2B0(void *, void *, int);
+extern RecoveredGlobal_80059450_lbl_80437854 lbl_80437854;
+extern RecoveredGlobal_80059450_lbl_80437860 lbl_80437860;
+extern RecoveredGlobal_80059450_lbl_8043786C lbl_8043786C;
+extern RecoveredGlobal_80059450_lbl_80437878 lbl_80437878;
+void TBoss4Type3__sub_80059450(u8 *arg0);
 }
 
 extern "C" {
@@ -35,6 +77,46 @@ void TBoss4Type3__vt0(void* p) { *(s32*)((char*)p + 0x398) = 147; }
 extern s32 lbl_805D4D80;
 extern u8 lbl_805D4D84;
 extern s32 lbl_805D53A0;
+
+#pragma push
+#pragma opt_common_subs off
+typedef char RecoveredGlobal_80059450_lbl_80437854_size[sizeof(RecoveredGlobal_80059450_lbl_80437854) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_80059450_lbl_80437860_size[sizeof(RecoveredGlobal_80059450_lbl_80437860) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_80059450_lbl_8043786C_size[sizeof(RecoveredGlobal_80059450_lbl_8043786C) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_80059450_lbl_80437878_size[sizeof(RecoveredGlobal_80059450_lbl_80437878) == 0x10 ? 1 : -1];
+void TBoss4Type3__sub_80059450(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_80059450, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_80059450, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_80059450, sp10) == 0x8) ? 1 : -1];
+    typedef char sp14_offset[(offsetof(Stack_80059450, sp14) == 0xC) ? 1 : -1];
+    typedef char sp18_offset[(offsetof(Stack_80059450, sp18) == 0x10) ? 1 : -1];
+    typedef char sp1C_offset[(offsetof(Stack_80059450, sp1C) == 0x14) ? 1 : -1];
+    typedef char sp20_offset[(offsetof(Stack_80059450, sp20) == 0x18) ? 1 : -1];
+    typedef char sp24_offset[(offsetof(Stack_80059450, sp24) == 0x1C) ? 1 : -1];
+    typedef char sp28_offset[(offsetof(Stack_80059450, sp28) == 0x20) ? 1 : -1];
+    typedef char sp2C_offset[(offsetof(Stack_80059450, sp2C) == 0x24) ? 1 : -1];
+    typedef char sp30_offset[(offsetof(Stack_80059450, sp30) == 0x28) ? 1 : -1];
+    typedef char sp34_offset[(offsetof(Stack_80059450, sp34) == 0x2C) ? 1 : -1];
+    Stack_80059450 stack;
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x52C) == 1) {
+        stack.sp2C = M2C_FIELD(&lbl_80437854.value, s32 *, 0);
+        stack.sp30 = M2C_FIELD(&lbl_80437854.value, s32 *, 4);
+        stack.sp34 = M2C_FIELD(&lbl_80437854.value, s32 *, 8);
+        stack.sp20 = M2C_FIELD(&lbl_80437860.value, s32 *, 0);
+        stack.sp24 = M2C_FIELD(&lbl_80437860.value, s32 *, 4);
+        stack.sp28 = M2C_FIELD(&lbl_80437860.value, s32 *, 8);
+        TCameraCtrl__sub_8006D2B0((void *) (&stack.sp20), (void *) (&stack.sp2C), (int) (0xFFFFU));
+        return;
+    }
+    stack.sp14 = M2C_FIELD(&lbl_8043786C.value, s32 *, 0);
+    stack.sp18 = M2C_FIELD(&lbl_8043786C.value, s32 *, 4);
+    stack.sp1C = M2C_FIELD(&lbl_8043786C.value, s32 *, 8);
+    stack.sp8 = M2C_FIELD(&lbl_80437878.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&lbl_80437878.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&lbl_80437878.value, s32 *, 8);
+    TCameraCtrl__sub_8006D2B0((void *) (&stack.sp8), (void *) (&stack.sp14), (int) (0xFFFFU));
+}
+#pragma pop
 
 void update_target_effect_timer__11TBoss4Type3FPv(void *arg0) {
     s32 temp_r30;

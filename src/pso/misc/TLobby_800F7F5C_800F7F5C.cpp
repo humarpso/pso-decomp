@@ -15,6 +15,15 @@ s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_800F81A8_lbl_80499970 lbl_80499970;
 extern void *lbl_805D5330;
 u8 *TLobby__sub_800F81A8(u8 *arg0, s16 arg1);
+extern const f32 lbl_805DA8F8;
+extern const f32 lbl_805DA8FC;
+void TLobby__sub_800F7FB8(u8 *arg0);
+extern const f32 lbl_805DA900;
+extern const f32 lbl_805DA904;
+void TLobby__sub_800F8024(u8 *arg0);
+extern const f32 lbl_805DA8E8;
+extern const f32 lbl_805DA900;
+void TLobby__sub_800F80D8(u8 *arg0);
 }
 
 extern "C" {
@@ -23,9 +32,6 @@ void dispatch_state__6TLobbyFPv(void *arg0);
 s32 get_quest_thread_state__6TLobbyFv(void);
 void init_fadeout_state__6TLobbyFi(s32 arg0);
 void set_fade_params__6TLobbyFi(s32 arg0);
-M2C_UNK TLobby__sub_800F7FB8();
-M2C_UNK TLobby__sub_800F8024();
-M2C_UNK TLobby__sub_800F80D8();
 
 void dispatch_state__6TLobbyFPv(void *arg0) {
     s32 temp_r0;
@@ -33,13 +39,13 @@ void dispatch_state__6TLobbyFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x24);
     switch (temp_r0) {
     case 1:
-        TLobby__sub_800F80D8();
+        TLobby__sub_800F80D8((u8 *)(arg0));
         return;
     case 2:
-        TLobby__sub_800F8024();
+        TLobby__sub_800F8024((u8 *)(arg0));
         return;
     case 3:
-        TLobby__sub_800F7FB8();
+        TLobby__sub_800F7FB8((u8 *)(arg0));
     case 0:
         return;
     }
@@ -47,6 +53,38 @@ void dispatch_state__6TLobbyFPv(void *arg0) {
 
 extern void *lbl_805D5330;
 extern const f32 lbl_805DA8E8;
+
+#pragma push
+#pragma opt_common_subs off
+void TLobby__sub_800F7FB8(u8 *arg0) {
+    M2C_UNK (*temp_r12)();
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) + lbl_805DA8F8);
+    if (M2C_FIELD(arg0, f32 *, 0x1C) >= lbl_805DA8FC) {
+        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DA8FC;
+        temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x28);
+        if (temp_r12 != NULL) {
+            temp_r12();
+        }
+        M2C_FIELD(arg0, s32 *, 0x24) = 0;
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs off
+void TLobby__sub_800F8024(u8 *arg0) {
+    M2C_UNK (*temp_r12)();
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) + lbl_805DA900);
+    if (M2C_FIELD(arg0, f32 *, 0x1C) >= lbl_805DA904) {
+        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DA904;
+        temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x28);
+        if (temp_r12 != NULL) {
+            temp_r12();
+        }
+        M2C_FIELD(arg0, s32 *, 0x24) = 0;
+    }
+}
+#pragma pop
 
 void init_fadeout_state__6TLobbyFi(s32 arg0) {
     if ((void *) lbl_805D5330 != NULL) {
@@ -61,6 +99,22 @@ void init_fadeout_state__6TLobbyFi(s32 arg0) {
 
 extern void *lbl_805D5330;
 extern const f32 lbl_805DA904;
+
+#pragma push
+#pragma opt_common_subs off
+void TLobby__sub_800F80D8(u8 *arg0) {
+    M2C_UNK (*temp_r12)();
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) - lbl_805DA900);
+    if (M2C_FIELD(arg0, f32 *, 0x1C) <= lbl_805DA8E8) {
+        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DA8E8;
+        temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x28);
+        if (temp_r12 != NULL) {
+            temp_r12();
+        }
+        M2C_FIELD(arg0, s32 *, 0x24) = 0;
+    }
+}
+#pragma pop
 
 void set_fade_params__6TLobbyFi(s32 arg0) {
     if ((void *) lbl_805D5330 != NULL) {

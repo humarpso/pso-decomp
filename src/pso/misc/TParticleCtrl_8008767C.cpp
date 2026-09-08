@@ -64,6 +64,27 @@ struct Stack_80088844 {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+
+struct RecoveredGlobal_8008C21C_TParticleCtrl__data_8048E7A8 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 {
+    M2C_UNK value;
+    u8 remaining[0x1AC];
+};
+
+struct RecoveredGlobal_8008BF58_TParticleCtrl__data_8048E7A8 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8008BF58_TParticleCtrl__data_80511F70 {
+    M2C_UNK value;
+    u8 remaining[0x1AC];
+};
+
 extern "C" {
 void TParticleCtrl__sub_80088514(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *, void *);
@@ -115,10 +136,8 @@ void free_from_heap__13TParticleCtrlFPv(void *);
 extern M2C_UNK TParticleCtrl__data_8048E790[];
 void *TParticleCtrl__sub_8008ABCC(void *arg0, s16 arg1);
 void *TParticleCtrl__sub_8008673C(int);
-u8 * TParticleCtrl__sub_8008BF58(void *, void *, void *, s32, u16, s16);
 u8 *TParticleCtrl__sub_8008B478(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4);
 void *TParticleCtrl__sub_8008673C(int);
-void *TParticleCtrl__sub_8008C21C(void *, void *, void *, void *);
 void * TParticleCtrl__sub_8008B4E0(void *arg0, void *arg1, void *arg2);
 int queue_destruction__7TObjectFv(void *);
 extern const f32 TParticleCtrl__data_805D9558;
@@ -135,6 +154,26 @@ int TKeyBoardControl__sub_8000F9CC(int);
 int TLobby__sub_80227248(void);
 int TLobby__sub_8022743C(void);
 void destroy_keyboard_objects(void * _w0);
+u8 * TParticleCtrl__sub_800865BC(void *, void *, s32);
+int get_object__13TParticleCtrlFPv(void *);
+s32 rand__11TOBoss4RockFv(void);
+extern M2C_UNK TParticleCtrl__data_8048E7A8[];
+extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
+extern const f32 TParticleCtrl__data_805D9558;
+extern const f32 TParticleCtrl__data_805D955C;
+extern const f32 lbl_805D9568;
+extern const f32 lbl_805D956C;
+u8 *TParticleCtrl__sub_8008C21C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3);
+u8 * TParticleCtrl__sub_800865BC(void *, void *, s32);
+int get_object__13TParticleCtrlFPv(void *);
+s32 rand__11TOBoss4RockFv(void);
+extern M2C_UNK TParticleCtrl__data_8048E7A8[];
+extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
+extern const f32 TParticleCtrl__data_805D9558;
+extern const f32 TParticleCtrl__data_805D955C;
+extern const f32 lbl_805D9568;
+extern const f32 lbl_805D956C;
+u8 *TParticleCtrl__sub_8008BF58(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 }
 
 extern "C" {
@@ -447,7 +486,7 @@ u8 *TParticleCtrl__sub_8008B478(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4
     temp_r3 = (u8 *)(((u8 *)TParticleCtrl__sub_8008673C((int)(0xC4))));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TParticleCtrl__sub_8008BF58(temp_r3, arg0, arg1, arg2, arg3, arg4));
+        var_r0 = (u8 *)(TParticleCtrl__sub_8008BF58((u8 *)(temp_r3), (u8 *)(arg0), (u8 *)(arg1), (s32)(arg2), arg3, arg4));
     }
     return var_r0;
 }
@@ -455,7 +494,7 @@ void * TParticleCtrl__sub_8008B4E0(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = TParticleCtrl__sub_8008673C(0xc4);
     if (o != NULL) {
-        o = TParticleCtrl__sub_8008C21C(o, arg0, arg1, arg2);
+        o = TParticleCtrl__sub_8008C21C((u8 *)(o), (u8 *)(arg0), (u8 *)(arg1), (s32)(arg2));
     }
     return o;
 }
@@ -474,6 +513,85 @@ void *TParticleCtrl__sub_8008BF00(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+#pragma push
+#pragma fp_contract on
+typedef char RecoveredGlobal_8008C21C_TParticleCtrl__data_8048E7A8_size[sizeof(RecoveredGlobal_8008C21C_TParticleCtrl__data_8048E7A8) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70_size[sizeof(RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70) == 0x1B0 ? 1 : -1];
+
+#pragma push
+#pragma fp_contract on
+typedef char RecoveredGlobal_8008BF58_TParticleCtrl__data_8048E7A8_size[sizeof(RecoveredGlobal_8008BF58_TParticleCtrl__data_8048E7A8) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_8008BF58_TParticleCtrl__data_80511F70_size[sizeof(RecoveredGlobal_8008BF58_TParticleCtrl__data_80511F70) == 0x1B0 ? 1 : -1];
+u8 *TParticleCtrl__sub_8008BF58(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5) {
+    struct Fields_arg0 { u8 pad_0[24]; M2C_UNK * field_18; u16 field_1C; u8 pad_1E[6]; u16 field_24; s16 field_26; f32 field_28; f32 field_2C; f32 field_30; f32 field_34; f32 field_38; f32 field_3C; f32 field_40; f32 field_44; u8 pad_48[20]; f32 field_5C; u8 pad_60[8]; f32 field_68; u8 pad_6C[4]; f32 field_70; f32 field_74; f32 field_78; u8 pad_7C[25]; s8 field_95; };
+    struct Fields_arg1 { u8 pad_0[24]; f32 field_18; f32 field_1C; f32 field_20; f32 field_24; f32 field_28; u8 pad_2C[4]; f32 field_30; u8 pad_34[4]; f32 field_38; u8 pad_3C[12]; s32 field_48; s32 field_4C; u8 pad_50[56]; u8 field_88; };
+    struct Fields_arg2 { f32 field_0; f32 field_4; f32 field_8; };
+    s32 temp_r0;
+    TParticleCtrl__sub_800865BC(arg0, arg1, arg3);
+    ((Fields_arg0*)arg0)->field_18 = &(*(RecoveredGlobal_8008BF58_TParticleCtrl__data_8048E7A8 *)&TParticleCtrl__data_8048E7A8).value;
+    ((Fields_arg0*)arg0)->field_70 = (f32) ((((Fields_arg1*)arg1)->field_18 * ((lbl_805D9568 * (f32) rand__11TOBoss4RockFv()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_0);
+    ((Fields_arg0*)arg0)->field_74 = (f32) ((((Fields_arg1*)arg1)->field_1C * ((lbl_805D9568 * (f32) rand__11TOBoss4RockFv()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_4);
+    ((Fields_arg0*)arg0)->field_78 = (f32) ((((Fields_arg1*)arg1)->field_20 * ((lbl_805D9568 * (f32) rand__11TOBoss4RockFv()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_8);
+    ((Fields_arg0*)arg0)->field_24 = arg4;
+    if (((Fields_arg0*)arg0)->field_24 & 0x80) {
+        ((Fields_arg0*)arg0)->field_95 = 1;
+    }
+    ((Fields_arg0*)arg0)->field_26 = arg5;
+    ((Fields_arg0*)arg0)->field_30 = (f32) ((Fields_arg2*)arg2)->field_0;
+    ((Fields_arg0*)arg0)->field_34 = (f32) ((Fields_arg2*)arg2)->field_4;
+    ((Fields_arg0*)arg0)->field_38 = (f32) ((Fields_arg2*)arg2)->field_8;
+    ((Fields_arg0*)arg0)->field_28 = (f32) ((((Fields_arg1*)arg1)->field_28 * (lbl_805D9568 * (f32) rand__11TOBoss4RockFv())) + ((Fields_arg1*)arg1)->field_24);
+    ((Fields_arg0*)arg0)->field_2C = (f32) ((Fields_arg0*)arg0)->field_28;
+    temp_r0 = (s32) (((f32) ((Fields_arg1*)arg1)->field_4C * (lbl_805D9568 * (f32) rand__11TOBoss4RockFv())) + (f32) ((Fields_arg1*)arg1)->field_48);
+    if (((Fields_arg1*)arg1)->field_88 & 1) {
+        ((Fields_arg0*)arg0)->field_5C = (f32) (TParticleCtrl__data_805D9558 / (f32) M2C_FIELD(M2C_FIELD(M2C_FIELD(&(*(RecoveredGlobal_8008BF58_TParticleCtrl__data_80511F70 *)&TParticleCtrl__data_80511F70).value, M2C_UNK *, (((Fields_arg0*)arg0)->field_1C * 4)), void **, 0x28), s32 *, 0xC));
+    } else {
+        ((Fields_arg0*)arg0)->field_5C = (f32) (TParticleCtrl__data_805D9558 / (f32) temp_r0);
+    }
+    ((Fields_arg0*)arg0)->field_68 = (f32) ((((Fields_arg1*)arg1)->field_38 * (lbl_805D9568 * (f32) rand__11TOBoss4RockFv())) + ((Fields_arg1*)arg1)->field_30);
+    ((Fields_arg0*)arg0)->field_3C = (f32) TParticleCtrl__data_805D955C;
+    ((Fields_arg0*)arg0)->field_40 = (f32) TParticleCtrl__data_805D955C;
+    ((Fields_arg0*)arg0)->field_44 = (f32) TParticleCtrl__data_805D955C;
+    if (((Fields_arg0*)arg0)->field_24 & 0x2000) {
+        get_object__13TParticleCtrlFPv((void *)0x1F);
+    }
+    return arg0;
+}
+#pragma pop
+
+u8 *TParticleCtrl__sub_8008C21C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3) {
+    struct Fields_arg0 { u8 pad_0[24]; M2C_UNK * field_18; u16 field_1C; u8 pad_1E[6]; u16 field_24; u8 pad_26[2]; f32 field_28; f32 field_2C; f32 field_30; f32 field_34; f32 field_38; f32 field_3C; f32 field_40; f32 field_44; u8 pad_48[20]; f32 field_5C; u8 pad_60[8]; f32 field_68; u8 pad_6C[4]; f32 field_70; f32 field_74; f32 field_78; };
+    struct Fields_arg1 { u8 pad_0[24]; f32 field_18; f32 field_1C; f32 field_20; f32 field_24; f32 field_28; u8 pad_2C[4]; f32 field_30; u8 pad_34[4]; f32 field_38; u8 pad_3C[12]; s32 field_48; s32 field_4C; u8 pad_50[56]; u8 field_88; };
+    struct Fields_arg2 { f32 field_0; f32 field_4; f32 field_8; };
+    s32 temp_r0;
+    TParticleCtrl__sub_800865BC(arg0, arg1, arg3);
+    ((Fields_arg0*)arg0)->field_18 = &(*(RecoveredGlobal_8008C21C_TParticleCtrl__data_8048E7A8 *)&TParticleCtrl__data_8048E7A8).value;
+    ((Fields_arg0*)arg0)->field_70 = (f32) ((((Fields_arg1*)arg1)->field_18 * ((lbl_805D9568 * (f32) rand__11TOBoss4RockFv()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_0);
+    ((Fields_arg0*)arg0)->field_74 = (f32) ((((Fields_arg1*)arg1)->field_1C * ((lbl_805D9568 * (f32) rand__11TOBoss4RockFv()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_4);
+    ((Fields_arg0*)arg0)->field_78 = (f32) ((((Fields_arg1*)arg1)->field_20 * ((lbl_805D9568 * (f32) rand__11TOBoss4RockFv()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_8);
+    ((Fields_arg0*)arg0)->field_30 = (f32) ((Fields_arg2*)arg2)->field_0;
+    ((Fields_arg0*)arg0)->field_34 = (f32) ((Fields_arg2*)arg2)->field_4;
+    ((Fields_arg0*)arg0)->field_38 = (f32) ((Fields_arg2*)arg2)->field_8;
+    ((Fields_arg0*)arg0)->field_28 = (f32) ((((Fields_arg1*)arg1)->field_28 * (lbl_805D9568 * (f32) rand__11TOBoss4RockFv())) + ((Fields_arg1*)arg1)->field_24);
+    ((Fields_arg0*)arg0)->field_2C = (f32) ((Fields_arg0*)arg0)->field_28;
+    temp_r0 = (s32) (((f32) ((Fields_arg1*)arg1)->field_4C * (lbl_805D9568 * (f32) rand__11TOBoss4RockFv())) + (f32) ((Fields_arg1*)arg1)->field_48);
+    if (((Fields_arg1*)arg1)->field_88 & 1) {
+        ((Fields_arg0*)arg0)->field_5C = (f32) (TParticleCtrl__data_805D9558 / (f32) M2C_FIELD(M2C_FIELD(M2C_FIELD(&TParticleCtrl__data_80511F70.value, M2C_UNK *, (((Fields_arg0*)arg0)->field_1C * 4)), void **, 0x28), s32 *, 0xC));
+    } else {
+        ((Fields_arg0*)arg0)->field_5C = (f32) (TParticleCtrl__data_805D9558 / (f32) temp_r0);
+    }
+    ((Fields_arg0*)arg0)->field_68 = (f32) ((((Fields_arg1*)arg1)->field_38 * (lbl_805D9568 * (f32) rand__11TOBoss4RockFv())) + ((Fields_arg1*)arg1)->field_30);
+    ((Fields_arg0*)arg0)->field_3C = (f32) TParticleCtrl__data_805D955C;
+    ((Fields_arg0*)arg0)->field_40 = (f32) TParticleCtrl__data_805D955C;
+    ((Fields_arg0*)arg0)->field_44 = (f32) TParticleCtrl__data_805D955C;
+    if (((Fields_arg0*)arg0)->field_24 & 0x2000) {
+        get_object__13TParticleCtrlFPv((void *)0x1F);
+    }
+    return arg0;
+}
+#pragma pop
+
 void destroy_keyboard_objects(void * _w0) { queue_destruction__7TObjectFv((void *)(_w0)); TKeyBoardControl__sub_8000F91C(2); TKeyBoardControl__sub_8000F9CC(18); TLobby__sub_8022743C(); TLobby__sub_80227248(); }
 
 }

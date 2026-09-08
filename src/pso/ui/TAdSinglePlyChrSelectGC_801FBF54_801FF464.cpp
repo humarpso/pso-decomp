@@ -10,8 +10,12 @@ struct M2CCopy_FC0 { u8 bytes[0xfc0]; };
 #pragma auto_inline on
 #pragma dont_inline off
 
+struct M2CCopy_C0
+{
+  u8 bytes[0xc0];
+};
+
 extern "C" {
-M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFCFC(void *, void *);
 u8 *TAdSinglePlyChrSelectGC__sub_801FFC74(u8 *arg0, u8 *arg1);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 update_elapsed_time__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -24,6 +28,8 @@ s32 TLobby__sub_8030A770(void);
 M2C_UNK TCameraCtrl__sub_8006B324();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FF4F0(void);
+M2C_UNK TWindowSubComCard__sub_8007A9C0(int, int);
+s32 TAdSinglePlyChrSelectGC__sub_801FFCFC(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -140,11 +146,33 @@ block_9:
 }
 u8 *TAdSinglePlyChrSelectGC__sub_801FFC74(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
-    TAdSinglePlyChrSelectGC__sub_801FFCFC((void *) (arg0 + 4), (void *) (arg1 + 4));
+    TAdSinglePlyChrSelectGC__sub_801FFCFC((s32)((void *) (arg0 + 4)), (s32)((void *) (arg1 + 4)));
     *(M2CCopy_FC0 *)((s32) (arg0 + 0xD2C0) + 4) = *(const M2CCopy_FC0 *)((s32) (arg1 + 0xD2C0) + 4);
     M2C_FIELD(arg0, s32 *, 0xE284) = (s32) M2C_FIELD(arg1, s32 *, 0xE284);
     M2C_FIELD(arg0, s32 *, 0xE288) = (s32) M2C_FIELD(arg1, s32 *, 0xE288);
     return arg0;
+}
+typedef struct M2CCopy_C0 M2CCopy_C0;
+#pragma inline_depth(1)
+#pragma auto_inline on
+#pragma dont_inline off
+s32 TAdSinglePlyChrSelectGC__sub_801FFCFC(s32 arg0, s32 arg1) {
+  u32 end;
+  u32 var_r30;
+  s32 var_r29;
+  *((M2CCopy_C0 *) arg0) = *((const M2CCopy_C0 *) arg1);
+  var_r30 = arg0 + 0xC0;
+  end = arg0;
+  end = end + 0xD2C0;
+  var_r29 = arg1 + 0xC0;
+  do
+  {
+    TWindowSubComCard__sub_8007A9C0((int) var_r30, (int) var_r29);
+    var_r30 += 0x100;
+    var_r29 += 0x100;
+  }
+  while (var_r30 < end);
+  return arg0;
 }
 
 }

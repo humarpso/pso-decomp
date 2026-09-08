@@ -27,6 +27,15 @@ struct VObj_8035F5C8 : Base_8035F5C8 {
 };
 
 extern "C" {
+extern const f32 lbl_805E0208;
+extern const f32 lbl_805E0210;
+extern const f32 lbl_805E0220;
+extern const f32 lbl_805E023C;
+extern const f32 lbl_805E0240;
+void TObjEneEpsilonGuard__sub_80361E78(u8 *arg0);
+}
+
+extern "C" {
 
 void TObjEneEpsilonGuard__sub_80361D4C(u8 *arg0, s32 arg1);
 void TObjEneEpsilonGuard__sub_80361E20(void);
@@ -72,5 +81,28 @@ void update_guard_flag__19TObjEneEpsilonGuardFPv(u8 *arg0) {
     }
     M2C_FIELD(arg0, s32 *, 0x438) = (s32) (M2C_FIELD(arg0, s32 *, 0x438) | 0x80);
 }
+#pragma push
+#pragma opt_common_subs off
+void TObjEneEpsilonGuard__sub_80361E78(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0x458) = (f32) (lbl_805E023C + M2C_FIELD(arg0, f32 *, 0x354));
+    if (M2C_FIELD(arg0, f32 *, 0x458) < lbl_805E0208) {
+        M2C_FIELD(arg0, f32 *, 0x458) = (f32) lbl_805E0208;
+    }
+    M2C_FIELD(arg0, s32 *, 0x45C) = (s32) (lbl_805E0240 + M2C_FIELD(arg0, f32 *, 0x358));
+    if (M2C_FIELD(arg0, f32 *, 0x458) <= lbl_805E0208) {
+        M2C_FIELD(arg0, f32 *, 0x458) = (f32) lbl_805E0208;
+    }
+    M2C_FIELD(arg0, s32 *, 0x450) = (s32) (lbl_805E0210 + M2C_FIELD(arg0, f32 *, 0x35C));
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x450) < 5) {
+        M2C_FIELD(arg0, s32 *, 0x450) = 5;
+    }
+    M2C_FIELD(arg0, s32 *, 0x450) = (s32) ((f32) M2C_FIELD(arg0, s32 *, 0x450) * lbl_805E0220);
+    M2C_FIELD(arg0, s32 *, 0x454) = (s32) (lbl_805E0210 + M2C_FIELD(arg0, f32 *, 0x360));
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x454) < 5) {
+        M2C_FIELD(arg0, s32 *, 0x454) = 5;
+    }
+    M2C_FIELD(arg0, s32 *, 0x454) = (s32) ((f32) M2C_FIELD(arg0, s32 *, 0x454) * lbl_805E0220);
+}
+#pragma pop
 
 }

@@ -19,6 +19,25 @@ extern const f32 lbl_805DE3F8;
 extern f32 lbl_805DE4DC;
 extern const f32 lbl_805DE4F0;
 void TBoss6Type2__sub_802BF424(u8 *arg0);
+M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK TBoss6Type2__sub_802B9BBC(void *, M2C_UNK);
+M2C_UNK copy_anim_state__11TBoss6Type2FPv(void *);
+s32 TBoss6Type2__sub_802BD014(void * a0, s32 a1);
+extern const f32 lbl_805DE4E0;
+extern const f32 lbl_805DE4E4;
+void TBoss6Type2__sub_802BE8B8(u8 *arg0);
+M2C_UNK TBoss6Type2__sub_802B9BBC(void *, M2C_UNK);
+M2C_UNK copy_anim_state__11TBoss6Type2FPv(void *);
+s32 TBoss6Type2__sub_802BD014(void * a0, s32 a1);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 check_target__11TBoss6Type2FPv(void *);
+s32 is_target_valid__11TBoss6Type2FPv(void *);
+extern const f32 lbl_805DE4E0;
+extern const f32 lbl_805DE4E4;
+void TBoss6Type2__sub_802BEC28(u8 *arg0);
 }
 
 extern "C" {
@@ -178,6 +197,31 @@ void init_speed_from_ratio__11TBoss6Type2FPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x420) = (s32) (M2C_FIELD(arg0, s32 *, 0x420) + 1);
 }
 
+#pragma push
+#pragma opt_common_subs off
+void TBoss6Type2__sub_802BE8B8(u8 *arg0) {
+    f32 temp_f1;
+    s32 temp_r0;
+    M2C_FIELD(arg0, f32 *, 0x41C) = (f32) ((f32) M2C_FIELD(arg0, s32 *, 0x460) / (f32) M2C_FIELD(arg0, s32 *, 0x45C));
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x41C);
+    if (temp_f1 < lbl_805DE4E0) {
+        M2C_FIELD(arg0, f32 *, 0x41C) = (f32) lbl_805DE4E0;
+    } else if (temp_f1 > lbl_805DE4E4) {
+        M2C_FIELD(arg0, f32 *, 0x41C) = (f32) lbl_805DE4E4;
+    }
+    TOTrapAncient01__sub_80226578((int)(0x4006A30B), (void *)((s32) arg0), (void *)(0U), (int)(0), (int)(0));
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x460) - 1;
+    M2C_FIELD(arg0, s32 *, 0x460) = temp_r0;
+    if (temp_r0 < 0) {
+        M2C_FIELD(arg0, s32 *, 0x418) = 0;
+        M2C_FIELD(arg0, f32 *, 0x41C) = (f32) lbl_805DE4E0;
+        copy_anim_state__11TBoss6Type2FPv((void *) (arg0));
+        TBoss6Type2__sub_802B9BBC((void *)((void *) (arg0)), (M2C_UNK)((int) (7)));
+        TBoss6Type2__sub_802BD014((void *)((void *) (arg0)), (s32)((int) (0)));
+    }
+}
+#pragma pop
+
 void update_attack_timer__11TBoss6Type2FPv(u8 *arg0) {
     s32 temp_r0;
     u32 temp_r3;
@@ -198,6 +242,42 @@ void update_attack_timer__11TBoss6Type2FPv(u8 *arg0) {
         TBoss6Type2__sub_802BD014((void *)((void *) (arg0)), (s32)((int) (0x1B)));
     }
 }
+
+#pragma push
+#pragma opt_common_subs off
+#pragma fp_contract on
+void TBoss6Type2__sub_802BEC28(u8 *arg0) {
+    f32 temp_f1;
+    s32 temp_r0;
+    u32 temp_r3;
+    M2C_FIELD(arg0, f32 *, 0x41C) = (f32) (lbl_805DE4E4 - ((f32) M2C_FIELD(arg0, s32 *, 0x460) / (f32) M2C_FIELD(arg0, s32 *, 0x45C)));
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x41C);
+    if (temp_f1 < lbl_805DE4E0) {
+        M2C_FIELD(arg0, f32 *, 0x41C) = (f32) lbl_805DE4E0;
+    } else if (temp_f1 > lbl_805DE4E4) {
+        M2C_FIELD(arg0, f32 *, 0x41C) = (f32) lbl_805DE4E4;
+    }
+    TOTrapAncient01__sub_80226578((int) (0x4006A30B), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (1));
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x460) - 1;
+    M2C_FIELD(arg0, s32 *, 0x460) = temp_r0;
+    if (temp_r0 < 0) {
+        M2C_FIELD(arg0, s32 *, 0x418) = 1;
+        M2C_FIELD(arg0, f32 *, 0x41C) = (f32) lbl_805DE4E4;
+        if (check_target__11TBoss6Type2FPv((void *) (arg0)) != 0) {
+            if (is_target_valid__11TBoss6Type2FPv((void *) (arg0)) == 0) {
+                TBoss3Volopt__sub_8022675C((int) (0x40069E13), (void *) (arg0 + 0x38), (int) (0), (int) (1));
+            }
+            temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int) ((s32) M2C_FIELD(arg0, u16 *, 0x55C)));
+            if (temp_r3 != 0U) {
+                TObjEneDellBiter__sub_80087350((void *) (temp_r3 + 0x38), (int) (0x36));
+            }
+        }
+        copy_anim_state__11TBoss6Type2FPv((void *) (arg0));
+        TBoss6Type2__sub_802B9BBC((void *)((void *) (arg0)), (M2C_UNK)((int) (6)));
+        TBoss6Type2__sub_802BD014((void *)((void *) (arg0)), (s32)((int) (0x1B)));
+    }
+}
+#pragma pop
 
 void check_state_0x460_eq4__11TBoss6Type2FPv(void* p) { if (*(int*)((char*)p + 0x460) == 4) { TBoss6Type2__sub_802BAFEC(p, (void*)0); } }
 

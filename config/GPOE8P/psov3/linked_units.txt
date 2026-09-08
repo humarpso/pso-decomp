@@ -11,6 +11,7 @@ pso/boss/TBoss3VoloptHiraisin_8004155C.cpp
 pso/boss/TBoss3VoloptP01_80043EA4.cpp
 pso/boss/TBoss3VoloptP01_80043EE8.cpp
 pso/boss/TBoss3Volopt_80040F7C.cpp
+pso/boss/TBoss3Volopt_800485C8_80048988.cpp
 pso/boss/TBoss3Volopt_800C7458.cpp
 pso/boss/TBoss3Volopt_800C7458_800C7544.cpp
 pso/boss/TBoss3Volopt_80131700.cpp
@@ -266,6 +267,7 @@ pso/enemy/TObjEneMe1Gee_800CC788.cpp
 pso/enemy/TObjEneMe1Gee_800CC89C.cpp
 pso/enemy/TObjEneMe1Gee_800CC900.cpp
 pso/enemy/TObjEneMe1Gee_802A4BB8.cpp
+pso/enemy/TObjEneMe1GiGueBarrier.cpp
 pso/enemy/TObjEneMe1GiGueMissile.cpp
 pso/enemy/TObjEneMe1GiGueMissile_802A4628.cpp
 pso/enemy/TObjEneMe1GiGue_80040B3C.cpp
@@ -401,6 +403,7 @@ pso/item/TItemDropSub_80107C40.cpp
 pso/item/TItemDrop_800F9C00_800F9CA4.cpp
 pso/item/TItemEffArmor.cpp
 pso/item/TItemEffArmorParticle_80364328.cpp
+pso/item/TItemEffArmor_80107DA4.cpp
 pso/item/TItemEffCane.cpp
 pso/item/TItemEffEquip_801088D0.cpp
 pso/item/TItemEffEquip_801088F8.cpp
@@ -693,18 +696,6 @@ pso/misc/TLobby_8006F278_8006FA28.cpp
 pso/misc/TLobby_8006F278_8006FA54.cpp
 pso/misc/TLobby_80070A00_80071410.cpp
 pso/misc/TLobby_80070A00_80071500.cpp
-pso/misc/TLobby_800726F0_800726F0.cpp
-pso/misc/TLobby_800726F0_80072880.cpp
-pso/misc/TLobby_800726F0_80072910.cpp
-pso/misc/TLobby_800726F0_8007294C.cpp
-pso/misc/TLobby_800726F0_80072A78.cpp
-pso/misc/TLobby_800726F0_80072B10.cpp
-pso/misc/TLobby_800726F0_80072DA0.cpp
-pso/misc/TLobby_800726F0_80072E10.cpp
-pso/misc/TLobby_800726F0_80072E74.cpp
-pso/misc/TLobby_800726F0_80072ED4.cpp
-pso/misc/TLobby_800726F0_80072FD8.cpp
-pso/misc/TLobby_800726F0_800730C0.cpp
 pso/misc/TLobby_8007340C.cpp
 pso/misc/TLobby_80073DAC.cpp
 pso/misc/TLobby_80074A5C.cpp
@@ -716,7 +707,10 @@ pso/misc/TLobby_8008350C.cpp
 pso/misc/TLobby_800C80FC.cpp
 pso/misc/TLobby_800F5CF0.cpp
 pso/misc/TLobby_800F7744.cpp
+pso/misc/TLobby_800F7F5C_800F7F5C.cpp
 pso/misc/TLobby_800F7F5C_800F85C0.cpp
+pso/misc/TLobby_800F7F5C_800F8628.cpp
+pso/misc/TLobby_800F7F5C_800F86FC.cpp
 pso/misc/TLobby_800F8AA8_800F8AA8.cpp
 pso/misc/TLobby_800F8AA8_800F8C2C.cpp
 pso/misc/TLobby_800F8AA8_800F8F40.cpp
@@ -2365,6 +2359,7 @@ pso/slices/pso_carve_802fbdf8.cpp
 pso/slices/pso_carve_802fdefc.cpp
 pso/slices/pso_carve_8030b480.cpp
 pso/slices/pso_carve_8031abc0.cpp
+pso/slices/pso_carve_8031de88.cpp
 pso/slices/pso_carve_8031df94.cpp
 pso/slices/run_80010550.cpp
 pso/slices/run_80123E2C.cpp
@@ -2803,6 +2798,7 @@ pso/unk/text_8024AD30.cpp
 pso/unk/text_802530D0.cpp
 pso/unk/text_80253154.cpp
 pso/unk/text_80253630.cpp
+pso/unk/text_80253698.cpp
 pso/unk/text_80263A20.cpp
 pso/unk/text_80266378.cpp
 pso/unk/text_80266388.cpp
