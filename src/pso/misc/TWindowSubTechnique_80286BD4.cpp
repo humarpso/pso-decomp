@@ -30,6 +30,14 @@ s32 TObjPlayer__sub_801D7DA4(s32, M2C_UNK, u8);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 lookup_technique__19TWindowSubTechniqueFii(s32 arg0, s32 arg1);
 s32 TWindowSubTechnique__sub_80286BF4(s32 arg0, s32 arg1);
+s32 get_message_10__20TWindowSubStatusDispFPv(int);
+M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
+M2C_UNK set_field_1c__6TLobbyFPvf(int);
+M2C_UNK set_flag70_bit100__17TWindowOptionCtrlFPv(int);
+f32 TWindowSubEquip__sub_80263AF8(int, int);
+s32 fn_8026652C(int, int, int, int);
+s32 TWindowSubComCard__sub_8026CBB8(int);
+s32 TWindowSubTechnique__sub_80286E0C(u8 *arg0);
 }
 
 extern "C" {
@@ -80,6 +88,18 @@ void draw_technique_row__19TWindowSubTechniqueFiii(s32 arg0, s32 arg1, s32 arg2)
         return;
     }
     forward_trade_action_default__16TObjCityMainWarpFPviii(arg2, temp_r31, 6, arg0);
+}
+#pragma fp_contract on
+s32 TWindowSubTechnique__sub_80286E0C(u8 *arg0) {
+  s32 temp_r31;
+  s32 temp_r31_2;
+  temp_r31_2 = (0, get_message_10__20TWindowSubStatusDispFPv((int) 0x30));
+  temp_r31 = fn_8026652C((int) TWindowSubComCard__sub_8026CBB8((int) 0x13), (int) 5, (int) temp_r31_2, (int) (*((s32 *) (((s8 *) arg0) + 0x28))));
+  TWindowSubEquip__sub_80263AF8((int) (*((s32 *) (((s8 *) arg0) + 0x30))), (int) 1);
+  set_field_1c__6TLobbyFPvf((int) temp_r31);
+  set_flag70_bit100__17TWindowOptionCtrlFPv((int) temp_r31);
+  set_flag70_bit10__16TObjCityMainWarpFPv((int) temp_r31);
+  return temp_r31;
 }
 
 }

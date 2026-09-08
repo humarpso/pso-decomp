@@ -4,6 +4,27 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8022B6FC_lbl_804CC510
+{
+  M2C_UNK value;
+  u8 remaining[0x48];
+};
+
+struct RecoveredGlobal_8022B6FC_lbl_804CC55C
+{
+  M2C_UNK value;
+  u8 remaining[0x94];
+};
+
+extern "C" {
+s32 TTecCtrl__sub_8022DBC4(int, int, int);
+s32 is_technique_ready__8TTecCtrlFv();
+s32 TTecAnti__sub_8022B35C(void *, int);
+extern RecoveredGlobal_8022B6FC_lbl_804CC510 lbl_804CC510;
+extern RecoveredGlobal_8022B6FC_lbl_804CC55C lbl_804CC55C;
+void TTecBarta__sub_8022B6FC(u8 *arg0);
+}
+
 extern "C" {
 
 void TObjPlayer__sub_8022BD70(void);
@@ -52,6 +73,30 @@ void update_technique_by_state__9TTecBartaFPv(u8 *arg0) {
         }
         break;
     }
+}
+
+typedef struct RecoveredGlobal_8022B6FC_lbl_804CC510 RecoveredGlobal_8022B6FC_lbl_804CC510;
+typedef struct RecoveredGlobal_8022B6FC_lbl_804CC55C RecoveredGlobal_8022B6FC_lbl_804CC55C;
+typedef char RecoveredGlobal_8022B6FC_lbl_804CC510_size[((sizeof(RecoveredGlobal_8022B6FC_lbl_804CC510)) == 0x4C) ? (1) : (-1)];
+typedef char RecoveredGlobal_8022B6FC_lbl_804CC55C_size[((sizeof(RecoveredGlobal_8022B6FC_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
+void TTecBarta__sub_8022B6FC(u8 *arg0) {
+  int new_var;
+  new_var = (int) TTecCtrl__sub_8022DBC4((int) 3, (int) (*((s16 *) (((s8 *) arg0) + 0xC4))), (int) 0xFFFF);
+  TTecAnti__sub_8022B35C((void *) (arg0 + 0xCC), new_var);
+  if ((((s16) (*((s16 *) (((s8 *) arg0) + 0xC4)))) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
+  {
+    *((f32 *) (((s8 *) arg0) + 0xCC)) = (f32) ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0xC))) + ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0xE))) * (*((s16 *) (((s8 *) arg0) + 0xC4)))));
+  }
+  else
+  {
+    *((f32 *) (((s8 *) arg0) + 0xCC)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xCC))) + ((f32) ((*((s16 *) (((s8 *) arg0) + 0xF0))) * (*((s16 *) (((s8 *) arg0) + 0xC4))))));
+    if (is_technique_ready__8TTecCtrlFv() != 0)
+    {
+      *((f32 *) (((s8 *) arg0) + 0xCC)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xCC))) * (*((f32 *) (((s8 *) (&lbl_804CC55C.value)) + 0x18))));
+    }
+  }
+  *((f32 *) (((s8 *) arg0) + 0x64)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xD0))) + ((f32) ((((s16) (*((s16 *) (((s8 *) arg0) + 0xC4)))) / 5) * 2)));
+  *((f32 *) (((s8 *) arg0) + 0x70)) = (f32) (*((f32 *) (((s8 *) arg0) + 0xD4)));
 }
 
 void create__9TTecBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {

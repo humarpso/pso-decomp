@@ -20,6 +20,7 @@ void TObjPlayer__sub_801422A8(u8 *arg0, s32 *arg1, s32 *arg2);
 f32 TBoss8Dragon__sub_803D64C0();
 f32 TBoss8Dragon__sub_803D64DC(s32);
 void TObjPlayer__sub_80141DCC(s32 arg0, void *arg1, void *arg2, f32 farg0);
+f32 TObjPlayer__sub_8014241C(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -157,6 +158,19 @@ void vsub(void *arg0, void *arg1, void *arg2) {
 
 extern f32 lbl_805DB15C;
 extern f32 lbl_805DB160;
+
+#pragma fp_contract on
+f32 TObjPlayer__sub_8014241C(u8 *arg0, u8 *arg1) {
+  f32 *new_var;
+  f32 temp_f3;
+  f32 temp_f1;
+  f32 temp_f4;
+  new_var = (f32 *) (((s8 *) arg0) + 4);
+  ;
+  temp_f3 = (*((f32 *) (((s8 *) arg1) + 0))) - (*((f32 *) (((s8 *) arg0) + 0)));
+  temp_f1 = (*((f32 *) (((s8 *) arg1) + 8))) - (*((f32 *) (((s8 *) arg0) + 8)));
+  return (temp_f1 * temp_f1) + ((temp_f3 * temp_f3) + (((*((f32 *) (((s8 *) arg1) + 4))) - (*new_var)) * ((*((f32 *) (((s8 *) arg1) + 4))) - (*new_var))));
+}
 
 s32 is_in_range__10TObjPlayerFf(f32 farg0) {
     if ((lbl_805DB160 < farg0) && (farg0 < lbl_805DB15C)) {

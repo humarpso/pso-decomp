@@ -9,6 +9,12 @@ struct RecoveredGlobal_80239C48___vt__9TTecResta {
     u8 remaining[0x1C];
 };
 
+struct RecoveredGlobal_802394B0_lbl_804CC55C
+{
+  M2C_UNK value;
+  u8 remaining[0x94];
+};
+
 extern "C" {
 s32 obj_getField1c(int);
 s32 TObjPlayer__sub_8004433C(void *);
@@ -20,6 +26,10 @@ extern M2C_UNK __vt__9TTecResta[];
 extern s32 lbl_805D3810;
 extern const f32 TTecResta__data_805DC908;
 u8 *TTecResta__sub_80239C48(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+f32 *TTecCtrl__sub_8022DBC4(M2C_UNK, s32, M2C_UNK);
+s32 is_technique_ready__8TTecCtrlFv(int);
+extern RecoveredGlobal_802394B0_lbl_804CC55C lbl_804CC55C;
+f32 TTecResta__sub_802394B0(s32 arg0);
 }
 
 extern "C" {
@@ -40,6 +50,21 @@ int fn_80236EE8(void*);
 M2C_UNK queue_destruction__7TObjectFv();
 
 int init_cast__9TTecRestaFPv(void* p) { return fn_80236EE8(p); }
+
+typedef struct RecoveredGlobal_802394B0_lbl_804CC55C RecoveredGlobal_802394B0_lbl_804CC55C;
+typedef char RecoveredGlobal_802394B0_lbl_804CC55C_size[((sizeof(RecoveredGlobal_802394B0_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
+f32 TTecResta__sub_802394B0(s32 arg0) {
+  f32 *temp_r3;
+  f32 var_f31;
+  temp_r3 = (f32 *) TTecCtrl__sub_8022DBC4(0xF, arg0, 0xFFFF);
+  var_f31 = *((f32 *) (((s8 *) temp_r3) + 0));
+  var_f31 = var_f31 + ((f32) (arg0 * 5));
+  if (is_technique_ready__8TTecCtrlFv((int) temp_r3) != 0)
+  {
+    var_f31 *= *((f32 *) (((s8 *) (&lbl_804CC55C.value)) + 0x78));
+  }
+  return var_f31;
+}
 
 void tick_lifetime__9TTecRestaFPv(void *arg0) {
     s32 temp_r4;

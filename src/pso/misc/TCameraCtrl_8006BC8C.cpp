@@ -48,13 +48,32 @@ struct RecoveredFields_8006C03C_lbl_805D4DF0 {
     f32 field_18C;
 };
 
+struct RecoveredGlobal_8006C140_camera_controller_registry {
+    M2C_UNK value;
+    u8 remaining[0x64];
+};
+
+struct RecoveredGlobal_8006C140_lbl_80488C50 {
+    M2C_UNK value;
+    u8 remaining[0x11C];
+};
+
+struct RecoveredGlobal_8006C140_TCameraCtrl__data_804FF7C0 {
+    M2C_UNK value;
+    u8 remaining[0x3C];
+};
+
 extern "C" {
 void TCameraCtrl__sub_8006BE00(u8 *arg0, s32 *arg1, s32 *arg2);
-s32 TCameraCtrl__sub_803D65FC(void *, void *, void *);
+s32 set_camera_look_at(void *, void *, void *);
 extern RecoveredGlobal_8006C03C_lbl_804383E0 lbl_804383E0;
 extern RecoveredGlobal_8006C03C_lbl_804FF5E8 lbl_804FF5E8;
 extern void *lbl_805D4DF0;
 void TCameraCtrl__sub_8006C03C(u8 *arg0);
+s32 get_global_state__14TOKeyMachine01Fv();
+extern void* camera_controller_registry[];
+extern RecoveredGlobal_8006C140_lbl_80488C50 lbl_80488C50;
+extern RecoveredGlobal_8006C140_TCameraCtrl__data_804FF7C0 TCameraCtrl__data_804FF7C0;
 }
 
 extern "C" {
@@ -111,7 +130,6 @@ void cache_target_and_forward__11TCameraCtrlFii(s32 arg0, s32 arg1);
 s32 clamp_distance__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
 void* init_defaults__11TCameraCtrlFPv(void* a0);
 int TCameraCtrl__sub_80068714(void);
-M2C_UNK TCameraCtrl__sub_8006C140(s32, s32);
 s32 TObjPlayer__sub_80141F84(s32, s32);
 s32 TObjPlayer__sub_801423A4(s32, s32, s32);
 void *__nw__7TObjectFUl(int);
@@ -240,7 +258,7 @@ void TCameraCtrl__sub_8006C03C(u8 *arg0) {
     stack.sp8 = M2C_FIELD(&lbl_804383E0.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_804383E0.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_804383E0.value, s32 *, 8);
-    TCameraCtrl__sub_803D65FC((void *) ((*(u8 * *)&lbl_805D4DF0) + 0x178), (void *) (&stack.sp20), (void *) (&stack.sp8));
+    set_camera_look_at((void *) ((*(u8 * *)&lbl_805D4DF0) + 0x178), (void *) (&stack.sp20), (void *) (&stack.sp8));
     M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&lbl_805D4DF0))->field_178;
     M2C_FIELD(&lbl_804FF5E8.value, f32 *, 4) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&lbl_805D4DF0))->field_17C;
     M2C_FIELD(&lbl_804FF5E8.value, f32 *, 8) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&lbl_805D4DF0))->field_180;
@@ -252,7 +270,29 @@ void cache_target_and_forward__11TCameraCtrlFii(s32 arg0, s32 arg1) {
         lbl_805D4E18 = M2C_FIELD(lbl_805D4DF0, s32 *, 0x19C);
         lbl_805D4E1C = arg1;
     }
-    TCameraCtrl__sub_8006C140(arg0, arg1);
+    configure_scripted_camera_playback((u8 *)(arg0), (s32)(arg1));
+}
+
+typedef char RecoveredGlobal_8006C140_camera_controller_registry_size[sizeof(RecoveredGlobal_8006C140_camera_controller_registry) == 0x68 ? 1 : -1];
+typedef char RecoveredGlobal_8006C140_lbl_80488C50_size[sizeof(RecoveredGlobal_8006C140_lbl_80488C50) == 0x120 ? 1 : -1];
+typedef char RecoveredGlobal_8006C140_TCameraCtrl__data_804FF7C0_size[sizeof(RecoveredGlobal_8006C140_TCameraCtrl__data_804FF7C0) == 0x40 ? 1 : -1];
+void configure_scripted_camera_playback(u8* playback_data, s32 unused) {
+    struct MotionDirectory { CameraMotionData** entries; };
+    struct MotionBank { MotionDirectory* directory; u32 unknown_04; };
+    struct PathBank { CameraPathMode* modes; u32 unknown_04; };
+    const CameraPlayback* playback = (const CameraPlayback*)playback_data;
+    ScriptedCameraState* camera = (ScriptedCameraState*)camera_controller_registry[5];
+    if (camera != NULL) {
+        camera->playback.index = playback->index;
+        camera->playback.bank = playback->bank;
+        camera->playback.flags = playback->flags;
+        camera->playback.frame = playback->frame;
+        camera->playback.frame_step = playback->frame_step;
+        const PathBank* paths = (const PathBank*)&lbl_80488C50.value;
+        const MotionBank* motions = (const MotionBank*)&TCameraCtrl__data_804FF7C0.value;
+        camera->mode = &paths[get_global_state__14TOKeyMachine01Fv()].modes[camera->playback.bank];
+        camera->motion_data = motions[playback->bank].directory->entries[camera->playback.index];
+    }
 }
 
 CameraPlayback* get_scripted_camera_playback() {

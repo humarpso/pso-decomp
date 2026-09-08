@@ -12,11 +12,21 @@ s32 TBoss8Dragon__sub_80289710(int, void *, void *);
 s32 TBoss8Dragon__sub_8028A900(int, void *, void *);
 extern u8 *lbl_805D4DE0;
 void TBoss8Dragon__sub_80067074(s32 arg0, s32 arg1);
+s32 TBoss8Dragon__sub_80067034(u8 *arg0, u8 *arg1, f32 farg0);
 }
 
 extern "C" {
 
 f32 calc_sq_offset__12TBoss8DragonFPvf(void *arg0, f32 farg0);
+
+#pragma fp_contract on
+s32 TBoss8Dragon__sub_80067034(u8 *arg0, u8 *arg1, f32 farg0) {
+  f32 temp_f2;
+  f32 temp_f4;
+  temp_f2 = (*((f32 *) (((s8 *) arg0) + 0))) - (*((f32 *) (((s8 *) arg1) + 8)));
+  temp_f4 = (*((f32 *) (((s8 *) arg0) + 8))) - (*((f32 *) (((s8 *) arg1) + 0x10)));
+  return ((temp_f2 * temp_f2) + (temp_f4 * temp_f4)) < farg0;
+}
 
 f32 calc_sq_offset__12TBoss8DragonFPvf(void *arg0, f32 farg0) {
     f32 temp_f0;

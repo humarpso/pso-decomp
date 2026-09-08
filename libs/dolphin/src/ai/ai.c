@@ -81,18 +81,18 @@ void AIInitDMA(u32 start_addr, u32 length)
 
 void AIStartDMA(void) { __DSPRegs[27] = __DSPRegs[27] | 0x8000; }
 
-u32 AIGetStreamSampleCount(void) {
+inline u32 AIGetStreamSampleCount(void) {
     return __AIRegs[2];
 }
 
-void AIResetStreamSampleCount(void)
+inline void AIResetStreamSampleCount(void)
 {
 	__AIRegs[0] = (__AIRegs[0] & ~0x20) | 0x20;
 }
 
 inline void AISetStreamTrigger(u32 trigger) { __AIRegs[3] = trigger; }
 
-u32 AIGetStreamTrigger(void) {
+inline u32 AIGetStreamTrigger(void) {
     return __AIRegs[3];
 }
 
@@ -155,7 +155,7 @@ void AISetDSPSampleRate(u32 rate)
 
 u32 AIGetDSPSampleRate(void) { return GET_REG_FIELD(__AIRegs[0], 1, 6) ^ 1; }
 
-void AISetStreamSampleRate(u32 rate)
+inline void AISetStreamSampleRate(u32 rate)
 {
 	if (rate == AI_SAMPLERATE_48KHZ) {
 		__AI_set_stream_sample_rate(rate);

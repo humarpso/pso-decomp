@@ -21,6 +21,12 @@ struct RecoveredGlobal_8026D18C_lbl_80515BA0 {
     u8 remaining[0x24];
 };
 
+struct RecoveredGlobal_8026D40C___vt__17TWindowReturnCity
+{
+  M2C_UNK value;
+  u8 remaining[0x14];
+};
+
 extern "C" {
 s32 get_dest_area__17TObjAreaWarpQuestFPv(void *);
 void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
@@ -33,6 +39,19 @@ extern RecoveredGlobal_8026D18C_lbl_80515BA0 lbl_80515BA0;
 extern s32 lbl_805D55C0;
 extern int TWindowReturnCity__data_805D6468;
 void TWindowReturnCity__sub_8026D18C(void);
+s32 get_message_10__20TWindowSubStatusDispFPv(int);
+s32 set_close_flag__11TWindowCtrlFv();
+s32 __ct__7TObjectFP7TObject(void *, void *);
+s32 fn_8024AC64(int);
+s32 TWindowSubComCard__sub_8026CBB8(int);
+void TWindowCtrl__sub_8026D4E8(void);
+s32 free_member__17TWindowSubComCardFPv(int, int);
+s32 forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(int, int, int, f32);
+s32 TWindowMessageYesNo__sub_802A59D8(void *, int, int, int);
+extern M2C_UNK __vt__17TWindowReturnCity[];
+extern s32 lbl_805D39B8;
+extern const f32 lbl_805DD2E8;
+u8 *TWindowReturnCity__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -85,6 +104,29 @@ void *__dt__17TWindowReturnCityFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+typedef struct RecoveredGlobal_8026D40C___vt__17TWindowReturnCity RecoveredGlobal_8026D40C___vt__17TWindowReturnCity;
+typedef char RecoveredGlobal_8026D40C___vt__17TWindowReturnCity_size[((sizeof(RecoveredGlobal_8026D40C___vt__17TWindowReturnCity)) == 0x18) ? (1) : (-1)];
+u8 *TWindowReturnCity__ct(u8 *arg0, s32 arg1, s32 arg2) {
+  s32 temp_r31;
+  __ct__7TObjectFP7TObject((void *) arg0, (void *) arg1);
+  *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_8026D40C___vt__17TWindowReturnCity *)&__vt__17TWindowReturnCity).value;
+  *((s32 *) (((s8 *) arg0) + 0)) = (s32) lbl_805D39B8;
+  *((s32 *) (((s8 *) arg0) + 0x24)) = arg2;
+  temp_r31 = TWindowMessageYesNo__sub_802A59D8((void *) arg0, (int) (*((s32 *) (((s8 *) arg0) + 0x24))), (int) 0, (int) 0);
+  *((s32 *) (((s8 *) arg0) + 0x1C)) = temp_r31;
+  if (arg0)
+  {
+  }
+  temp_r31 = TWindowSubComCard__sub_8026CBB8((int) 0x23);
+  forward_slot_selection__16TAdChrSelASlotGCFPvPvPv((int) (*((s32 *) (((s8 *) arg0) + 0x1C))), (int) get_message_10__20TWindowSubStatusDispFPv((int) 0x43), (int) temp_r31, (f32) lbl_805DD2E8);
+  free_member__17TWindowSubComCardFPv((int) (*((s32 *) (((s8 *) arg0) + 0x1C))), (int) 1);
+  fn_8024AC64((int) (*((s32 *) (((s8 *) arg0) + 0x24))));
+  set_close_flag__11TWindowCtrlFv();
+  TWindowCtrl__sub_8026D4E8();
+  *((s32 *) (((s8 *) arg0) + 0x20)) = 0;
+  return arg0;
 }
 
 void TWindowReturnCity__sub_8026D4BC(void) {  }

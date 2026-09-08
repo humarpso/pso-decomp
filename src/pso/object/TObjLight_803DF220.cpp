@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 #pragma scheduling off
 extern "C" {
-M2C_UNK TObjPlayer__sub_803E2190();
+M2C_UNK load_camera_view_matrix();
 M2C_UNK TObjPlayer__sub_803E21B8();
 M2C_UNK TObjPlayer__sub_803E21DC();
 void TObjPlayer__sub_803DF768(s32 arg0);
@@ -20,7 +20,7 @@ void reset_player_transform(void) {
     TObjPlayer__sub_803E2248();
 }
 void TObjPlayer__sub_803DF768(s32 arg0) {
-    TObjPlayer__sub_803E2190();
+    load_camera_view_matrix();
     if (arg0 != 0) {
         TObjPlayer__sub_803E21DC();
         return;

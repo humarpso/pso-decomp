@@ -1,1 +1,40 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+struct RecoveredGlobal_8007FA24_lbl_8048DF88
+{
+  M2C_UNK value;
+  u8 remaining[0x8];
+};
 
+extern "C" {
+M2C_UNK fn_8007F970(int);
+s32 TLobby__sub_8014618C();
+M2C_UNK TAdTrialModemChkGC__sub_8042EA10();
+extern RecoveredGlobal_8007FA24_lbl_8048DF88 lbl_8048DF88;
+void TAdTrialModemChkGC__sub_8007FA24(s32 arg0);
+}
+
+extern "C" {
+
+typedef struct RecoveredGlobal_8007FA24_lbl_8048DF88 RecoveredGlobal_8007FA24_lbl_8048DF88;
+typedef char RecoveredGlobal_8007FA24_lbl_8048DF88_size[((sizeof(RecoveredGlobal_8007FA24_lbl_8048DF88)) == 0xC) ? (1) : (-1)];
+void TAdTrialModemChkGC__sub_8007FA24(s32 arg0) {
+  s32 temp_r31;
+  s32 var_r31;
+  var_r31 = 0;
+  TAdTrialModemChkGC__sub_8042EA10();
+  if (TLobby__sub_8014618C() != 0)
+  {
+    var_r31 = 1;
+  }
+  temp_r31 = ~(0 - (arg0 == 0));
+  temp_r31 = (var_r31 + 1) & temp_r31;
+  if ((temp_r31 == 1) != 0)
+  {
+    TAdTrialModemChkGC__sub_8042EA10();
+  }
+  fn_8007F970((int) (*((s32 *) (((s8 *) (((u8 *) (&lbl_8048DF88.value)) + (temp_r31 * 4))) + 0))));
+}
+
+}

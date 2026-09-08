@@ -91,6 +91,12 @@ struct VObj_801793A8_8017939C : Base_801793A8_8017939C {
     virtual void m83();
 };
 
+struct RecoveredGlobal_80179E34_lbl_804B4834
+{
+  M2C_UNK value;
+  u8 remaining[0xC];
+};
+
 extern "C" {
 void TOTrap__sub_80178F54(void *, void *, f32);
 void TOTrapAncient01__vt20(void *arg0, void *arg1, f32 farg0);
@@ -102,6 +108,16 @@ s32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern s32 lbl_805D53A0;
 void TOTrapAncient01__sub_8017940C(u8 *arg0);
+s32 TObjFish__sub_8001EDB0(void *, s32);
+s32 TObjFish__sub_8001EDC4(void *, s32);
+u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+M2C_UNK add_entry__11TMotorcycleFsiiff(int, int, int, f32, f32);
+extern RecoveredGlobal_80179E34_lbl_804B4834 lbl_804B4834;
+extern u32 TOTrapAncient01__data_805D5AD0;
+extern const f32 TOTrapAncient01__data_805DBA4C;
+extern const f32 lbl_805DBA5C;
+void TOTrapAncient01__sub_80179E34(void);
 }
 
 extern "C" {
@@ -190,6 +206,25 @@ void release_static_resource__15TOTrapAncient01Fv(void) {
 
 extern M2C_UNK lbl_8050BEE0[];
 extern M2C_UNK lbl_804A7468[];
+
+typedef struct RecoveredGlobal_80179E34_lbl_804B4834 RecoveredGlobal_80179E34_lbl_804B4834;
+void TOTrapAncient01__sub_80179E34(void) {
+  s32 temp_r31;
+  int new_var;
+  s32 temp_r3;
+  s32 var_r0;
+  temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *) 0x440);
+  var_r0 = temp_r3;
+  temp_r31 = var_r0;
+  new_var = 0;
+  if (temp_r31 != new_var)
+  {
+    var_r0 = (long) TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B4834.value, 0, 0, 0);
+  }
+  (*(u8 * *)&TOTrapAncient01__data_805D5AD0) = (unsigned char *) ((void *) var_r0);
+  temp_r31 = TObjFish__sub_8001EDB0((void *) var_r0, 3);
+  add_entry__11TMotorcycleFsiiff((int) 0x39, (int) TObjFish__sub_8001EDC4((*(u8 * *)&TOTrapAncient01__data_805D5AD0), 3), (int) temp_r31, (f32) lbl_805DBA5C, (f32) TOTrapAncient01__data_805DBA4C);
+}
 
 void TOTrapAncient02R__vt84(void *arg0) {
     s32 x;

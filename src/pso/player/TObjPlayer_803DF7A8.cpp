@@ -4,6 +4,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_803E1D1C_lbl_804FC780 {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
+extern "C" {
+M2C_UNK GXLoadPosMtxImm(void *, int);
+extern RecoveredGlobal_803E1D1C_lbl_804FC780 lbl_804FC780;
+extern s32 lbl_805D7774;
+void TObjPlayer__sub_803E1D1C(s32 arg0);
+}
+
 extern "C" {
 
 void calc_bounds__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
@@ -40,6 +52,14 @@ void calc_bounds__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
 }
 
 extern s8 lbl_805D77C8;
+
+#pragma push
+#pragma scheduling off
+typedef char RecoveredGlobal_803E1D1C_lbl_804FC780_size[sizeof(RecoveredGlobal_803E1D1C_lbl_804FC780) == 0x28 ? 1 : -1];
+void TObjPlayer__sub_803E1D1C(s32 arg0) {
+    GXLoadPosMtxImm((void *) (lbl_805D7774), (int) (M2C_FIELD(((u8 *)(&lbl_804FC780.value) + (arg0 * 4)), s32 *, 0)));
+}
+#pragma pop
 
 void set_effect_active__10TObjPlayerFv(void) {
     lbl_805D77C8 = 1;

@@ -152,6 +152,10 @@ extern const f32 lbl_805DA034;
     extern const float lbl_805DA060;
     extern const float lbl_805DA064;
 void* init_enemy_base__10TObjPlayerFPv(void* a0);
+s32 TObjPlayer__sub_80016D78(void *);
+s32 obj_clearFlags30(void * a0, s32 a1);
+int clear_player_status_flag__10TObjPlayerFPviUi(void*, void*, void*);
+s32 TObjPlayer__sub_800C56E8(u8 *arg0);
 }
 
 extern "C" {
@@ -261,6 +265,30 @@ void enter_state7__10TObjPlayerFPv(void *arg0) {
 }
 void TObjPlayer__sub_800C53B4(void) {  }
 int clear_flag_0x100__10TObjPlayerFPv(void* p) { return obj_clearFlags30(p, 256); }
+
+s32 TObjPlayer__sub_800C56E8(u8 *arg0) {
+  if (TObjPlayer__sub_80016D78((void *) arg0) != 0)
+  {
+    if ((*((s16 *) (((s8 *) arg0) + 0x326))) != 0)
+    {
+      if (((!arg0) && (!arg0)) && (!arg0))
+      {
+      }
+    }
+    else
+    {
+      *((s32 *) (((s8 *) arg0) + 0x390)) = 0;
+      *((s16 *) (((s8 *) arg0) + 0x326)) = 1;
+      *((s16 *) (((s8 *) arg0) + 0x328)) = 0;
+      *((s16 *) (((s8 *) arg0) + 0xB8)) = 0;
+      obj_clearFlags30((void *)((void *) arg0), (s32)((int) 0x04040000));
+      clear_player_status_flag__10TObjPlayerFPviUi((void*)((void *) arg0), (void*)((int) 0), (void*)((int) 0x0A000000));
+    }
+    return 1;
+  }
+  return 0;
+}
+
 void tick_freeze_state__10TObjPlayerFPv(void *arg0) {
     s16 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);

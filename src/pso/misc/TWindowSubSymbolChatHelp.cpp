@@ -14,6 +14,12 @@ struct RecoveredGlobal_80284B84___vt__24TWindowSubSymbolChatHelp {
     u8 remaining[0x18];
 };
 
+struct RecoveredGlobal_80284A28_lbl_8050E208
+{
+  M2C_UNK value;
+  u8 remaining[0x1AC];
+};
+
 extern "C" {
 void draw_help_entries__24TWindowSubSymbolChatHelpFPvPv(void *arg0, void *arg1);
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
@@ -26,6 +32,9 @@ extern RecoveredGlobal_80284B84_lbl_804D2D10 lbl_804D2D10;
 extern M2C_UNK __vt__24TWindowSubSymbolChatHelp[];
 extern s32 lbl_805D3AB8;
 u8 *TWindowSubSymbolChatHelp__ct(u8 *arg0, s32 arg1, s32 arg2);
+s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
+extern s8 lbl_8050E208[];
+void TWindowSubSymbolChatHelp__sub_80284A28(u8 *arg0);
 }
 
 extern "C" {
@@ -40,7 +49,6 @@ M2C_UNK TWindowSubStatusDisp__sub_803DF160(M2C_UNK, M2C_UNK);
 M2C_UNK TWindowSubSymbolChatHelp__sub_8028429C(void *, void *);
 M2C_UNK TWindowSubSymbolChatHelp__sub_802844C8(void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TWindowSubSymbolChatHelp__sub_802845EC(void *, void *, M2C_UNK, M2C_UNK);
-int TWindowSubSymbolChatHelp__sub_80284A28(void*);
 void __dl__7TObjectFPv(void *);
 M2C_UNK begin_render__20TWindowSubStatusDispFv();
 void destroy_window_base__9TWindowDDFPvs(void *, int);
@@ -132,6 +140,27 @@ void handle_toggle_input__24TWindowSubSymbolChatHelpFPv(void *arg0) {
 
 }
 extern "C" {
+
+typedef struct RecoveredGlobal_80284A28_lbl_8050E208 RecoveredGlobal_80284A28_lbl_8050E208;
+void TWindowSubSymbolChatHelp__sub_80284A28(u8 *arg0) {
+  u8 *temp_r4;
+  u8 *temp_r4_2;
+  int new_var;
+  u8 temp_r3;
+  new_var = (int) 0x200;
+  if (((*((u8 *) (((s8 *) arg0) + 0x60))) & 2) && (TWindowShortListCtrl__check_controller_button((void *)((void *) (((u8 *) (&(*(RecoveredGlobal_80284A28_lbl_8050E208 *)&lbl_8050E208).value)) + 0x20)), (M2C_UNK)(new_var)) != 0))
+  {
+    temp_r4 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0x64)));
+    *temp_r4 += 1;
+    temp_r4_2 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0x64)));
+    ;
+    if (((s8) (*temp_r4_2)) >= 8)
+    {
+      *temp_r4_2 = (*temp_r4_2) - 8;
+    }
+  }
+}
+
 void render__24TWindowSubSymbolChatHelpFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFi();
@@ -139,7 +168,7 @@ void render__24TWindowSubSymbolChatHelpFv(s32 arg0) {
     draw_help_entries__24TWindowSubSymbolChatHelpFPvPv((void *)((void *) (arg0)), (void *)((int) (temp_r3)));
 }
 
-void run_task__24TWindowSubSymbolChatHelpFv(void* p) { TWindowSubSymbolChatHelp__sub_80284A28(p); handle_toggle_input__24TWindowSubSymbolChatHelpFPv((void *)(p)); initialize_subwindow__9TWindowDDFPv(p); }
+void run_task__24TWindowSubSymbolChatHelpFv(void* p) { TWindowSubSymbolChatHelp__sub_80284A28((u8 *)(p)); handle_toggle_input__24TWindowSubSymbolChatHelpFPv((void *)(p)); initialize_subwindow__9TWindowDDFPv(p); }
 
 extern M2C_UNK __vt__24TWindowSubSymbolChatHelp[];
 

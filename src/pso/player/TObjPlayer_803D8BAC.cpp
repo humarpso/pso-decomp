@@ -6,6 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 f32 TCameraCtrl__sub_803D8D00(u8 *arg0);
+f32 TObjPlayer__sub_803D8CA8(void *);
+extern u8 *lbl_805D7774;
+void TObjPlayer__sub_803D8CD4(u8 *arg0);
+M2C_UNK PSMTXMultVecSR(int);
+extern u8 *lbl_805D7774;
+void TScene__sub_803D8DB4(u32 arg0);
 }
 
 extern "C" {
@@ -22,6 +28,19 @@ void set_monitor_position_vec3__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
 void set_position_vec3__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     TObjPlayer__sub_803D9624((f32) (M2C_FIELD(arg1, f32 *, 0)), (f32) (M2C_FIELD(arg1, f32 *, 4)), (f32) (M2C_FIELD(arg1, f32 *, 8)));
 }
+
+#pragma push
+#pragma scheduling off
+void TObjPlayer__sub_803D8CD4(u8 *arg0) {
+    u8 *var_r3;
+    var_r3 = (u8 *)(arg0);
+    if (var_r3 == NULL) {
+        var_r3 = (u8 *)(lbl_805D7774);
+    }
+    TObjPlayer__sub_803D8CA8(var_r3);
+}
+#pragma pop
+
 #pragma push
 #pragma fp_contract on
 f32 TCameraCtrl__sub_803D8D00(u8 *arg0) {
@@ -32,6 +51,18 @@ f32 TCameraCtrl__sub_803D8D00(u8 *arg0) {
     temp_f1 = M2C_FIELD(arg0, f32 *, 4);
     temp_f2 = M2C_FIELD(arg0, f32 *, 8);
     return (temp_f2 * temp_f2) + ((temp_f1 * temp_f1) + (temp_f0 * temp_f0));
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+void TScene__sub_803D8DB4(u32 arg0) {
+    u32 var_r3;
+    var_r3 = arg0;
+    if (var_r3 == 0U) {
+        var_r3 = (*(u32 *)&lbl_805D7774);
+    }
+    PSMTXMultVecSR((int) (var_r3));
 }
 #pragma pop
 

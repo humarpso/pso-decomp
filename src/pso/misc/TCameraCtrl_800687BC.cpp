@@ -204,6 +204,32 @@ struct RecoveredGlobal_80069D7C_TCameraCtrl__data_804FF628 {
     u8 remaining[0x8];
 };
 
+struct VBase_18_f8ef8c
+{
+  char pad[0x18];
+};
+
+struct VObj_18_f8ef8c : VBase_18_f8ef8c {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5();
+};
+
+struct RecoveredGlobal_80069E7C_camera_controller_registry
+{
+  M2C_UNK value;
+  u8 remaining[0x64];
+};
+
+struct RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628
+{
+  M2C_UNK value;
+  u8 remaining[0x8];
+};
+
 extern "C" {
 void TCameraCtrl__sub_800689E8(void);
 void update_position__11TCameraCtrlFPv(u8 *arg0);
@@ -358,6 +384,9 @@ extern RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 TCameraCtrl__data_804
 void TCameraCtrl__sub_80069534(void);
 extern RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
 s32 TCameraCtrl__sub_80069D7C(void);
+extern RecoveredGlobal_80069094_camera_controller_registry camera_controller_registry;
+extern RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
+s32 TCameraCtrl__sub_80069E7C(s32 arg0);
 }
 
 extern "C" {
@@ -823,5 +852,42 @@ s32 TCameraCtrl__sub_80069D7C(void) {
     return 0;
 }
 #pragma pop
+
+typedef struct RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628 RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628;
+typedef struct RecoveredGlobal_80069E7C_camera_controller_registry RecoveredGlobal_80069E7C_camera_controller_registry;
+typedef struct VBase_18_f8ef8c VBase_18_f8ef8c;
+typedef struct VObj_18_f8ef8c VObj_18_f8ef8c;
+typedef char RecoveredGlobal_80069E7C_camera_controller_registry_size[((sizeof(RecoveredGlobal_80069E7C_camera_controller_registry)) == 0x68) ? (1) : (-1)];
+typedef char RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628_size[((sizeof(RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628)) == 0xC) ? (1) : (-1)];
+#define PSO_VCALL_VObj_18_f8ef8c_m5(_self) (((VObj_18_f8ef8c *)(_self))->m5())
+s32 TCameraCtrl__sub_80069E7C(s32 arg0) {
+  u8 *temp_r3;
+  short new_var;
+  if ((*((s32 *) (((s8 *) (&(*(RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value)) + 8))) & 4)
+  {
+    return 0;
+  }
+  *((s32 *) (((s8 *) (&(*(RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value)) + 8)) = *((s32 *) (((s8 *) (&(*(RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value)) + 8));
+  new_var = 8;
+  *((s32 *) (((s8 *) (&(*(RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value)) + new_var)) = (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value)) + new_var))) | 4;
+  if (arg0 == (*((u8 *) (((s8 *) (&(*(RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value)) + 0))))
+  {
+    *((u8 *) (((s8 *) (&(*(RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value)) + 0)) = arg0;
+  }
+  else
+  {
+    if (((*((u8 *) (((s8 *) (&(*(RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value)) + 0))) != 5) && ((*((u8 *) (((s8 *) (&(*(RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value)) + 0))) != 9))
+    {
+      *((u8 *) (((s8 *) (&(*(RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value)) + 1)) = *((u8 *) (((s8 *) (&(*(RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value)) + 0));
+    }
+    *((u8 *) (((s8 *) (&(*(RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value)) + 0)) = arg0;
+  }
+  temp_r3 = (u8 *) (*((void **) (((s8 *) (((u8 *) (&(*(RecoveredGlobal_80069E7C_camera_controller_registry *)&camera_controller_registry).value)) + ((*((u8 *) (((s8 *) (&(*(RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value)) + 0))) * 4))) + 0)));
+  if (temp_r3 != 0)
+  {
+    PSO_VCALL_VObj_18_f8ef8c_m5(temp_r3);
+  }
+  return 1;
+}
 
 }

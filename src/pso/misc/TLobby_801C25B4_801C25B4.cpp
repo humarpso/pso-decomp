@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 is_not_split_screen__13TRaderMapCoreFv(void);
+u8 TPlayerBattleCtrl4P__sub_803102C8(void);
+extern u8 *TLobby__data_805D5D98;
+u8 TLobby__sub_801C2614(void);
+}
+
+extern "C" {
 
 struct S801C295C_801C25B4 { M2C_UNK f0; s8 f4; s8 pad[0x13]; };
 
@@ -31,6 +38,30 @@ loop_1:
         return 1;
     }
     goto loop_1;
+}
+
+u8 TLobby__sub_801C2614(void) {
+  u8 var_r0;
+  u8 *var_r3;
+  if (is_not_split_screen__13TRaderMapCoreFv() == 1)
+  {
+    var_r0 = TPlayerBattleCtrl4P__sub_803102C8();
+    return var_r0;
+  }
+  var_r3 = (u8 *) TLobby__data_805D5D98;
+  if (var_r3 != 0)
+  {
+    var_r3 = (u8 *) (*((u8 **) (((s8 *) var_r3) + 0x1C)));
+    var_r0 = 0;
+    if ((((s32) var_r3) == 1) || (((s32) var_r3) == 2))
+    {
+      var_r0 = 1;
+    }
+    var_r3 = (u8 *) ((void *) var_r0);
+    return (u8) var_r3;
+  }
+  var_r3 = (u8 *) 0;
+  return 0U;
 }
 
 void send_battle_mode_data__6TLobbyFv(void) {

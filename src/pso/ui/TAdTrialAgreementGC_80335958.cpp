@@ -20,6 +20,18 @@ struct RecoveredGlobal_80335A58_lbl_8050E3B8 {
     u8 remaining[0x1AC];
 };
 
+struct RecoveredGlobal_80335974_lbl_8050E208
+{
+  M2C_UNK value;
+  u8 remaining[0x1AC];
+};
+
+struct RecoveredGlobal_80335974_lbl_8050E3B8
+{
+  M2C_UNK value;
+  u8 remaining[0x1AC];
+};
+
 extern "C" {
 u8 TAdTrialAgreementGC__sub_80335958(u8 *arg0);
 s32 get_state_flag__9TMainTaskFv();
@@ -51,6 +63,16 @@ extern RecoveredGlobal_80335A58_lbl_8050E208 lbl_8050E208;
 extern RecoveredGlobal_80335A58_lbl_8050E3B8 lbl_8050E3B8;
 extern const f32 lbl_805DF8B4;
 void TAdTrialAgreementGC__sub_80335A58(u8 *arg0);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
+s32 TWindowShortListCtrl__check_controller_button(int, int);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
+extern RecoveredGlobal_80335A58_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_80335A58_lbl_8050E3B8 lbl_8050E3B8;
+extern const f32 lbl_805DF8B4;
+extern const f32 lbl_805DF8B8;
+extern const f32 lbl_805DF8BC;
+void TAdTrialAgreementGC__sub_80335974(u8 *arg0);
 }
 
 extern "C" {
@@ -58,7 +80,6 @@ extern "C" {
 void *destroy_object_804EE458(void *arg0, s16 arg1);
 s32 TAdTrialAgreementGC__sub_8033596C(void* p);
 void run_state__19TAdTrialAgreementGCFPv(void *arg0);
-M2C_UNK TAdTrialAgreementGC__sub_80335974();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -70,6 +91,20 @@ s32 TAdTrialAgreementGC__sub_8033596C(void* p) { return *(s32*)((char*)p + 0x20)
 
 typedef char RecoveredGlobal_80335A58_lbl_8050E208_size[sizeof(RecoveredGlobal_80335A58_lbl_8050E208) == 0x1B0 ? 1 : -1];
 typedef char RecoveredGlobal_80335A58_lbl_8050E3B8_size[sizeof(RecoveredGlobal_80335A58_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
+
+typedef struct RecoveredGlobal_80335974_lbl_8050E208 RecoveredGlobal_80335974_lbl_8050E208;
+typedef struct RecoveredGlobal_80335974_lbl_8050E3B8 RecoveredGlobal_80335974_lbl_8050E3B8;
+void TAdTrialAgreementGC__sub_80335974(u8 *arg0) {
+  float new_var;
+  if ((TWindowShortListCtrl__check_controller_button((int)((void *) (((u8 *) (&(*(RecoveredGlobal_80335974_lbl_8050E3B8 *)&lbl_8050E3B8).value)) + 0x20)), (int)((int) 8)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) (((u8 *) (&(*(RecoveredGlobal_80335974_lbl_8050E208 *)&lbl_8050E208).value)) + 0x160), (int) 4) != 0))
+  {
+    TBoss3Volopt__sub_8022675C((int) 0x52D01, (int) 0, (int) 0, (int) 0);
+    *((s32 *) (((s8 *) arg0) + 0x24)) = 1;
+  }
+  new_var = lbl_805DF8B4 + TBoss8Dragon__sub_803D64C0((s32) (lbl_805DF8B8 * ((f32) (((*((s32 *) (((s8 *) arg0) + 0x38))) % 120) * 3))));
+  *((f32 *) (((s8 *) arg0) + 0x28)) = (f32) (new_var * lbl_805DF8BC);
+}
+
 void TAdTrialAgreementGC__sub_80335A58(u8 *arg0) {
     u8 *temp_r30;
     temp_r30 = (u8 *)&lbl_8050E3B8.value + 0x20;
@@ -144,7 +179,7 @@ void run_state__19TAdTrialAgreementGCFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x24);
     switch (temp_r0) {
     case 0:
-        TAdTrialAgreementGC__sub_80335974();
+        TAdTrialAgreementGC__sub_80335974((u8 *)(arg0));
         break;
     case 1:
         TAdTrialAgreementGC__sub_80335A58((u8 *)(arg0));

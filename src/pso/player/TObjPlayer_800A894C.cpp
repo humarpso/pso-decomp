@@ -82,6 +82,12 @@ struct VObj_18 : VBase_18 {
     virtual M2C_UNK m63(M2C_UNK, void *);
 };
 
+struct RecoveredGlobal_800A8B8C_lbl_804910F4
+{
+  M2C_UNK value;
+  u8 remaining[0x168];
+};
+
 extern "C" {
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK TBoss3Volopt__sub_800D8D88(void *);
@@ -104,7 +110,6 @@ M2C_UNK TObjPlayer__sub_800C6A18(void *);
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK TObjPlayer__sub_800A8B8C(void *);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 obj_testFlags30(void *, M2C_UNK);
 void update_synced_state__10TObjPlayerFPv(u8 *arg0);
@@ -115,6 +120,10 @@ extern void *tl_04;
 void * create_dubchik__10TObjPlayerFPv(void *arg0);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, s32);
 void TObjPlayer__sub_800A89B0(u8 *arg0);
+f32 TObjPlayer__sub_800AAF78(void *, s32);
+M2C_UNK TObjPlayer__sub_800AAFF0(int);
+extern RecoveredGlobal_800A8B8C_lbl_804910F4 lbl_804910F4;
+void TObjPlayer__sub_800A8B8C(u8 *arg0);
 }
 
 extern "C" {
@@ -169,6 +178,42 @@ void TObjPlayer__sub_800A8B0C(u8 *arg0) {
     ((VObj_18 *)(arg0))->m63(0x13, arg0 + 0x3D4);
     ((VObj_18 *)(arg0))->m63(0x28, arg0 + 0x3E0);
     ((VObj_18 *)(arg0))->m63(0x29, arg0 + 0x3EC);
+}
+
+typedef struct RecoveredGlobal_800A8B8C_lbl_804910F4 RecoveredGlobal_800A8B8C_lbl_804910F4;
+typedef char RecoveredGlobal_800A8B8C_lbl_804910F4_size[((sizeof(RecoveredGlobal_800A8B8C_lbl_804910F4)) == 0x16C) ? (1) : (-1)];
+void TObjPlayer__sub_800A8B8C(u8 *arg0) {
+  M2C_UNK *var_r4;
+  M2C_UNK *var_r5;
+  f32 temp_f1;
+  f32 temp_f1_2;
+  u8 *var_r31;
+  u8 *var_r3;
+  var_r4 = (M2C_UNK *) ((u8 *) 0);
+  var_r31 = (u8 *) arg0;
+  var_r4 = (M2C_UNK *) (&lbl_804910F4.value);
+  var_r3 = (u8 *) var_r31;
+  var_r5 = (M2C_UNK *) (&lbl_804910F4.value);
+  var_r4 = (M2C_UNK *) ((u8 *) ((M2C_UNK *) 3));
+  *((f32 *) (((s8 *) (&lbl_804910F4.value)) + 0x28)) = TObjPlayer__sub_800AAF78(arg0, 0);
+  temp_f1 = TObjPlayer__sub_800AAF78(var_r3, 3);
+  var_r5 = (var_r4 = (M2C_UNK *) (&lbl_804910F4.value));
+  var_r3 = (u8 *) var_r31;
+  var_r4 = (M2C_UNK *) ((u8 *) ((M2C_UNK *) 4));
+  *((f32 *) (((s8 *) (&lbl_804910F4.value)) + 0x78)) = temp_f1;
+  temp_f1_2 = TObjPlayer__sub_800AAF78(var_r3, 4);
+  var_r4 = (M2C_UNK *) (&lbl_804910F4.value);
+  var_r3 = (u8 *) var_r31;
+  var_r5 = (M2C_UNK *) (&lbl_804910F4.value);
+  var_r4 = (M2C_UNK *) ((u8 *) ((M2C_UNK *) 1));
+  *((f32 *) (((s8 *) (&lbl_804910F4.value)) + 0xC8)) = temp_f1_2;
+  if ((s16) (*((s16 *) (((s8 *) var_r31) + 0x392))))
+  {
+    var_r4 = (M2C_UNK *) ((u8 *) ((M2C_UNK *) 5));
+  }
+  TObjPlayer__sub_800AAF78(var_r3, (s32) var_r4);
+  var_r3 = (u8 *) (*((u8 **) (((s8 *) var_r31) + 0x318)));
+  TObjPlayer__sub_800AAFF0((int) var_r3);
 }
 
 void TObjPlayer__sub_800A8C1C(u8 *arg0) {
@@ -237,7 +282,7 @@ void update_synced_state__10TObjPlayerFPv(u8 *arg0) {
         TObjPlayer__sub_800AA330((void *)(arg0));
         return;
     }
-    TObjPlayer__sub_800A8B8C(arg0);
+    TObjPlayer__sub_800A8B8C((u8 *)(arg0));
     M2C_FIELD(arg0, s32 *, 0x2A8) = TNpcPlayer__sub_800D87EC(M2C_FIELD(arg0, u16 *, 0x338));
     TObjPlayer__sub_800C6A18(arg0);
     TObjPlayer__sub_800AA10C(arg0);

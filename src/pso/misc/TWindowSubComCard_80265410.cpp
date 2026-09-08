@@ -35,16 +35,18 @@ u32 reset_selection__20TWindowSubStatusDispFPv(int, void *);
 extern const f32 lbl_805DD150;
 extern const f32 lbl_805DD15C;
 void TWindowSubComCard__sub_8026556C(u8 *arg0);
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+void TWindowSubComCard__sub_80265680(u8 *arg0, s16 arg1);
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+s32 get_selected_entry__17TWindowSubComCardFPv(u8 *arg0);
 }
 
 extern "C" {
 
 void clear_flag_and_release2__17TWindowSubComCardFPv(void *arg0);
 int get_flag__17TWindowSubComCardFPv(void* p);
-s32 get_selected_entry__17TWindowSubComCardFPv(void *arg0);
 void update_chat_window(void* p);
 int TWindowChat__sub_80247D2C(void*);
-s32 get_array_entry__20TWindowSubStatusDispFPvi();
 s32 set_entry_state__20TWindowSubStatusDispFPvc(s32 a0 = 0, s32 a1 = 0);
 
 void update_chat_window(void* p) { void* m = *(void**)((char*)p + 0x20); if (m) TWindowChat__sub_80247D2C(m); }
@@ -104,9 +106,28 @@ void TWindowSubComCard__sub_8026556C(u8 *arg0) {
     }
 }
 
-s32 get_selected_entry__17TWindowSubComCardFPv(void *arg0) {
+void TWindowSubComCard__sub_80265680(u8 *arg0, s16 arg1) {
+  M2C_UNK *new_var;
+  s16 var_r31;
+  s16 var_r4;
+  s32 temp_r3;
+  s32 var_r3;
+  s32 var_r5;
+  u8 *var_r30;
+  var_r31 = arg1;
+  var_r30 = (u8 *) arg0;
+  var_r4 = var_r31;
+  temp_r3 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (s32)((s32) var_r4));
+  var_r4 = 0xFF910000;
+  var_r5 = *((s32 *) (((s8 *) var_r30) + 0x80));
+  var_r4 = var_r31;
+  new_var = (M2C_UNK *) (((s8 *) var_r5) + (var_r4 * 8));
+  *((s32 *) (((s8 *) temp_r3) + 0x24)) = 0xFF909090;
+  ;
+  *new_var = (*new_var) | 0x10;
+}
+s32 get_selected_entry__17TWindowSubComCardFPv(u8 *arg0) {
     s16 temp_r4;
-
     temp_r4 = M2C_FIELD(arg0, s16 *, 0x78);
     if (temp_r4 < 0) {
         return 0;
@@ -114,7 +135,7 @@ s32 get_selected_entry__17TWindowSubComCardFPv(void *arg0) {
     if (temp_r4 >= (s16) M2C_FIELD(arg0, s16 *, 0x76)) {
         return 0;
     }
-    return get_array_entry__20TWindowSubStatusDispFPvi();
+    return get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (s32)((s32) temp_r4));
 }
 
 }

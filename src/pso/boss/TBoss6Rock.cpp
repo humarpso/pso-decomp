@@ -14,6 +14,16 @@ struct RecoveredGlobal_80353DC4_TBoss6Rock__data_80543778 {
     u8 remaining[0x7C];
 };
 
+struct RecoveredGlobal_80354148_TBoss6Rock__data_80479258 {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
+struct RecoveredGlobal_80354148_TBoss6Rock__data_80543778 {
+    M2C_UNK value;
+    u8 remaining[0x7C];
+};
+
 extern "C" {
 void release_object__10TBoss6RockFPv(void* p);
 void TBoss6Rock__sub_803542E8(void *, s32);
@@ -28,7 +38,6 @@ extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543
 s32 TBoss6Rock__sub_80353E10(s32 arg0);
 extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
 u8 TBoss6Rock__sub_80353DC4(s32 arg0);
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 rand__11TOBoss4RockFv();
 extern const f32 TBoss6Rock__data_805DFF4C;
 extern const f32 lbl_805DFF68;
@@ -49,6 +58,14 @@ extern const f32 lbl_805DFF98;
 extern const f32 lbl_805DFF9C;
 extern const f32 lbl_805DFFA0;
 void TBoss6Rock__sub_80354520(u8 *arg0);
+extern RecoveredGlobal_80354148_TBoss6Rock__data_80479258 TBoss6Rock__data_80479258;
+extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
+u8 *TBoss6Rock__sub_80354148(s32 arg0);
+s32 TBoss6Rock__sub_80353E10(s32 arg0);
+u8 *TBoss6Rock__sub_80354148(s32 arg0);
+void VecCopy__FP3VecPC3Vec(void *, const void *);
+extern u8 TBoss6Rock__data_805437F8[];
+s32 get_point__10TBoss6RockFiPvPv(s32 arg0, s32 arg1, f32 *arg2);
 }
 
 extern "C" {
@@ -58,14 +75,12 @@ int TBoss6Rock__sub_80353A0C(void);
 void check_and_destroy__10TBoss6RockFPv(void* p);
 void *create__10TBoss6RockFv(void);
 void *destroy__10TBoss6RockFPvs(void *arg0, s16 arg1);
-s32 get_point__10TBoss6RockFiPvPv(s32 arg0, void *arg1, f32 *arg2);
 void *init_object__10TBoss6RockFPvPv(void *arg0, void *);
 void release_object__10TBoss6RockFPv(void* p);
 void render_if_active__10TBoss6RockFPv(u8 *arg0);
 void set_target__10TBoss6RockFPviiiiif(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0);
 s32 TBoss6PlotFalz__sub_802AB6CC(void *, f32);
 M2C_UNK TBoss6PlotFalz__sub_802ABF44(f32);
-void *TBoss6Rock__sub_80354148(s32);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
@@ -73,7 +88,6 @@ M2C_UNK TObjContainerIdo__sub_803D96A8(int, int);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -155,18 +169,21 @@ int TBoss6Rock__sub_80353A0C(void) {  return TBoss6Rock__data_805D6EF0; }
 
 extern u8 TBoss6Rock__data_805437F8[];
 
-s32 get_point__10TBoss6RockFiPvPv(s32 arg0, void *arg1, f32 *arg2) {
-    if (TBoss6Rock__sub_80353E10((s32)(arg0)) == 0) {
-        return 0;
-    }
-    VecCopy__FP3VecPC3Vec((void *)(arg1), (const void *)(&TBoss6Rock__data_805437F8[arg0 * 0xC]));
-    *arg2 = M2C_FIELD(TBoss6Rock__sub_80354148(arg0), f32 *, 4);
-    return 1;
-}
-
 typedef char RecoveredGlobal_80353E10_TBoss6Rock__data_80543778_size[sizeof(RecoveredGlobal_80353E10_TBoss6Rock__data_80543778) == 0x80 ? 1 : -1];
 
 typedef char RecoveredGlobal_80353DC4_TBoss6Rock__data_80543778_size[sizeof(RecoveredGlobal_80353DC4_TBoss6Rock__data_80543778) == 0x80 ? 1 : -1];
+
+s32 get_point__10TBoss6RockFiPvPv(s32 arg0, s32 arg1, f32 *arg2) {
+    s32 temp_r5;
+    if (TBoss6Rock__sub_80353E10(arg0) == 0) {
+        return 0;
+    }
+    temp_r5 = arg0 * 0xC;
+    VecCopy__FP3VecPC3Vec((void *)((void *) (arg1)), (const void *)((void *) ((u8 *)(&TBoss6Rock__data_805437F8) + temp_r5)));
+    M2C_FIELD(arg2, f32 *, 0) = M2C_FIELD(TBoss6Rock__sub_80354148(arg0), f32 *, 4);
+    return 1;
+}
+
 u8 TBoss6Rock__sub_80353DC4(s32 arg0) {
     u8 *temp_r3;
     if ((arg0 < 0) || (arg0 >= 0x20)) {
@@ -202,6 +219,18 @@ void TBoss6Rock__sub_80353FF0(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (lbl_805DFF74 * ((lbl_805DFF6C * (f32) rand__11TOBoss4RockFv()) - TBoss6Rock__data_805DFF4C));
     VecCopy__FP3VecPC3Vec((void *)((void *) ((u8 *)(arg0) + 0x38)), (const void *)((void *) ((u8 *)(arg0) + 0xD4)));
     M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805DFF78;
+}
+#pragma pop
+
+#pragma push
+#pragma peephole off
+typedef char RecoveredGlobal_80354148_TBoss6Rock__data_80479258_size[sizeof(RecoveredGlobal_80354148_TBoss6Rock__data_80479258) == 0x28 ? 1 : -1];
+typedef char RecoveredGlobal_80354148_TBoss6Rock__data_80543778_size[sizeof(RecoveredGlobal_80354148_TBoss6Rock__data_80543778) == 0x80 ? 1 : -1];
+u8 *TBoss6Rock__sub_80354148(s32 arg0) {
+    if ((arg0 < 0) || (arg0 >= 0x20)) {
+        return NULL;
+    }
+    return (u8 *)(&TBoss6Rock__data_80479258.value) + (M2C_FIELD(M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_80354148_TBoss6Rock__data_80543778 *)&TBoss6Rock__data_80543778).value) + (arg0 * 4)), u8 **, 0), s32 *, 0xB4) * 0x14);
 }
 #pragma pop
 

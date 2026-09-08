@@ -27,6 +27,13 @@ struct VObj_80118A48_8011892C : Base_80118A48_8011892C {
 
 extern "C" {
 void TItemProUnit__vt12(u8 *arg0);
+s32 get_id__13TItemProArmorFPv(void *);
+s32 construct_timer_event__10TObjPlayerFPv(int, int, void *, int);
+s32 init_item_timer_event__10TObjPlayerFPv(int, int, void *, int);
+s32 init_timer_event__12TItemProUnitFPv(int, int, void *, int);
+s32 alloc__13TItemProArmorFi(int);
+extern const f32 lbl_805DABFC;
+void TItemProUnit__vt42(u8 *arg0);
 }
 
 extern "C" {
@@ -82,6 +89,49 @@ void TItemProUnit__vt43(void *arg0) {
 extern M2C_UNK __vt__12TItemProUnit[];
 extern s32 lbl_805D2C40;
 extern const f32 TItemProUnit__data_805DABF8;
+
+void TItemProUnit__vt42(u8 *arg0) {
+  s16 temp_r0;
+  s32 temp_r3;
+  s32 temp_r3_2;
+  s32 temp_r3_3;
+  temp_r0 = *((s16 *) (((s8 *) arg0) + 0x18C));
+  switch (temp_r0)
+  {
+    case 15:
+      if (((u32) (*((u32 *) (((s8 *) arg0) + 0x174)))) != 0U)
+    {
+      temp_r3 = alloc__13TItemProArmorFi((int) 0x2C);
+      if (temp_r3 != 0)
+      {
+        init_item_timer_event__10TObjPlayerFPv((int) temp_r3, (int) (*((u32 *) (((s8 *) arg0) + 0x174))), (void *) get_id__13TItemProArmorFPv((void *) arg0), (int) ((s32) (lbl_805DABFC * ((f32) (*((s16 *) (((s8 *) arg0) + 0x18E)))))));
+      }
+    }
+      return;
+      return;
+    case 16:
+      if (((u32) (*((u32 *) (((s8 *) arg0) + 0x174)))) != 0U)
+    {
+      temp_r3_2 = alloc__13TItemProArmorFi((int) 0x2C);
+      if (temp_r3_2 != 0)
+      {
+        construct_timer_event__10TObjPlayerFPv((int) temp_r3_2, (int) (*((u32 *) (((s8 *) arg0) + 0x174))), (void *) get_id__13TItemProArmorFPv((void *) arg0), (int) ((s32) (lbl_805DABFC * ((f32) (*((s16 *) (((s8 *) arg0) + 0x18E)))))));
+        return;
+      }
+    }
+      break;
+    case 17:
+      if (((u32) (*((u32 *) (((s8 *) arg0) + 0x174)))) != 0U)
+    {
+      temp_r3_3 = alloc__13TItemProArmorFi((int) 0x2C);
+      if (temp_r3_3 != 0)
+      {
+        init_timer_event__12TItemProUnitFPv((int) temp_r3_3, (int) (*((u32 *) (((s8 *) arg0) + 0x174))), (void *) get_id__13TItemProArmorFPv((void *) arg0), (int) ((s32) (lbl_805DABFC * ((f32) (*((s16 *) (((s8 *) arg0) + 0x18E)))))));
+      }
+    }
+      break;
+  }
+}
 
 u8 *TItemProUnit__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     s16 temp_r0;

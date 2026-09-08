@@ -4,6 +4,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8032DC94_lbl_8050BEC0
+{
+  M2C_UNK value;
+  u8 remaining[0x1C];
+};
+
+struct RecoveredGlobal_8032DC94_lbl_8058D4C0
+{
+  M2C_UNK value;
+  u8 remaining[0xC];
+};
+
 extern "C" {
 void TObjPlayer__sub_8032DDD8(u8 *arg0);
 void * init_variant_2_dc28__10TObjPlayerFPv(void *, M2C_UNK, void *);
@@ -14,6 +26,24 @@ extern const f32 lbl_805DF7D8;
 extern const f32 lbl_805DF7DC;
 extern const f32 lbl_805DF7E0;
 void TObjPlayer__sub_8032DD7C(u8 *arg0);
+M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+M2C_UNK *query_game_join_id__10TObjPlayerFv(M2C_UNK *);
+M2C_UNK get_entity_id__10TObjPlayerFPv(int);
+s32 all_parents_unqueued_for_destruction__7TObjectFv();
+M2C_UNK notify_fish_if_valid__10TObjPlayerFUi();
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TBoss7Tentacle__sub_803D9BA0(int);
+M2C_UNK TOHangerMachine01__sub_803D9C00(int);
+M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
+M2C_UNK TObjPlayer__sub_803DED84(int);
+extern RecoveredGlobal_8032DC94_lbl_8050BEC0 lbl_8050BEC0;
+extern RecoveredGlobal_8032DC94_lbl_8058D4C0 lbl_8058D4C0;
+extern s32 lbl_805D5660;
+extern s32 some_id_805c6f74;
+extern const f32 lbl_805DF7D8;
+void TObjPlayer__sub_8032DC94(u8 *arg0);
 }
 
 extern "C" {
@@ -100,6 +130,66 @@ void *TObjPlayer__sub_8032DC3C(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+typedef struct RecoveredGlobal_8032DC94_lbl_8050BEC0 RecoveredGlobal_8032DC94_lbl_8050BEC0;
+typedef struct RecoveredGlobal_8032DC94_lbl_8058D4C0 RecoveredGlobal_8032DC94_lbl_8058D4C0;
+typedef char RecoveredGlobal_8032DC94_lbl_8050BEC0_size[((sizeof(RecoveredGlobal_8032DC94_lbl_8050BEC0)) == 0x20) ? (1) : (-1)];
+typedef char RecoveredGlobal_8032DC94_lbl_8058D4C0_size[((sizeof(RecoveredGlobal_8032DC94_lbl_8058D4C0)) == 0x10) ? (1) : (-1)];
+void TObjPlayer__sub_8032DC94(u8 *arg0) {
+  M2C_UNK *var_r30;
+  M2C_UNK *var_r31;
+  M2C_UNK *var_r3;
+  M2C_UNK *var_r4;
+  M2C_UNK *new_var;
+  f32 var_f0;
+  f32 var_f1;
+  u8 *var_r29;
+  var_f0 = lbl_805DF7D8;
+  var_r29 = (u8 *) arg0;
+  var_f1 = *((f32 *) (((s8 *) arg0) + 0x80));
+  if ((!(var_f1 <= var_f0)) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0))
+  {
+    var_r3 = (M2C_UNK *) (*((M2C_UNK **) (((s8 *) var_r29) + 0x60)));
+    var_r31 = (M2C_UNK *) query_game_join_id__10TObjPlayerFv(var_r3);
+    if (var_r31 != 0)
+    {
+      new_var = (M2C_UNK *) (*((M2C_UNK **) (((s8 *) var_r31) + 0x188)));
+      var_r30 = new_var;
+      if (var_r30 != 0)
+      {
+        var_r3 = (M2C_UNK *) (&lbl_8050BEC0.value);
+        var_r4 = (M2C_UNK *) (&lbl_8058D4C0.value);
+        lbl_805D5660 = some_id_805c6f74;
+        var_r3 = (M2C_UNK *) (&lbl_8050BEC0.value);
+        var_r4 = (M2C_UNK *) (&lbl_8058D4C0.value);
+        copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8050BEC0.value), (void *) (&lbl_8058D4C0.value));
+        var_r3 = (M2C_UNK *) (var_r29 + 0x80);
+        some_id_805c6f74 |= 0x20;
+        TObjPlayer__sub_803DED84((int) var_r3);
+        var_r3 = (M2C_UNK *) var_r31;
+        get_entity_id__10TObjPlayerFPv((int) var_r3);
+        notify_fish_if_valid__10TObjPlayerFUi();
+        TObjPlayer__sub_803D9B2C();
+        var_r3 = (M2C_UNK *) (var_r29 + 0x64);
+        TOHangerMachine01__sub_803D9C00((int) var_r3);
+        var_r4 = (M2C_UNK *) (*((M2C_UNK **) (((s8 *) var_r29) + 0x58)));
+        var_r3 = (M2C_UNK *) ((u8 *) 0);
+        TObjPlayer__sub_803D9214((int) 0, (int) var_r4);
+        var_r3 = (M2C_UNK *) (var_r29 + 0x74);
+        TBoss7Tentacle__sub_803D9BA0((int) var_r3);
+        var_r3 = (M2C_UNK *) var_r30;
+        TObjBoss2Tunnel__sub_803DB470((int) var_r3);
+        TObjPlayer__sub_803D9B78();
+        var_r3 = (M2C_UNK *) (&lbl_8058D4C0.value);
+        var_r4 = (M2C_UNK *) (&lbl_8050BEC0.value);
+        var_r3 = (M2C_UNK *) (&lbl_8058D4C0.value);
+        var_r4 = (M2C_UNK *) (&lbl_8050BEC0.value);
+        copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) (&lbl_8050BEC0.value));
+        some_id_805c6f74 = lbl_805D5660;
+      }
+    }
+  }
 }
 
 #pragma push

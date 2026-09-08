@@ -38,6 +38,9 @@ M2C_UNK TObjPlayer__sub_803E3B38(int);
 extern s32 lbl_805D7788;
 extern M2C_UNK (*lbl_805D77DC)();
 void TObjPlayer__sub_803E4468(void);
+M2C_UNK TObjPlayer__sub_803E1D90(int, int, int, int);
+extern s32 lbl_805D77EC;
+void TObjPlayer__sub_803E3914(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -56,6 +59,37 @@ void TLobby__sub_803E2EE4(s32 arg0) {
     }
     TObjPlayer__sub_803E224C();
 }
+
+#pragma push
+#pragma opt_common_subs off
+#pragma scheduling off
+#pragma peephole off
+void TObjPlayer__sub_803E3914(s32 arg0, s32 arg1) {
+    s32 var_r31;
+    s32 var_r3;
+    s32 var_r4;
+    s32 var_r5;
+    s32 var_r6;
+    var_r5 = 1;
+    var_r6 = 1;
+    if ((u32) (arg0 & 0x2000) != 0) {
+        var_r6 = 0;
+    } else if ((u32) (arg0 & 0x8000) != 0) {
+        var_r6 = 2;
+    }
+    if ((u32) (arg0 & 0x1000) != 0) {
+        var_r5 = 0;
+    } else if ((u32) (arg0 & 0x4000) != 0) {
+        var_r5 = 2;
+    }
+    var_r31 = arg1 & 0x1FFF;
+    var_r3 = var_r31;
+    var_r4 = var_r6;
+    var_r6 = 0;
+    TObjPlayer__sub_803E1D90((int) (var_r3), (int) (var_r4), (int) (var_r5), (int) (0));
+    lbl_805D77EC = var_r31;
+}
+#pragma pop
 
 void TObjPlayer__sub_803E39A0(void) {
     GXSetNumTevStages((int) (1));

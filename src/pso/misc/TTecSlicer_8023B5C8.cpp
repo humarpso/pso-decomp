@@ -4,6 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8023B770_lbl_8044DC20
+{
+  M2C_UNK value;
+  u8 remaining[0x44];
+};
+
+struct RecoveredFields_8023B770_var_r29
+{
+  u8 unknown_0[0x5C];
+  s32 field_5C;
+  s32 field_60;
+  s32 field_64;
+};
+
 extern "C" {
 M2C_UNK TBoss6Type1__sub_803D9370(s32, s32);
 M2C_UNK TNpcPlayer__sub_803D97B4(s32);
@@ -33,6 +47,12 @@ extern M2C_UNK __vt__10TTecSlicer[];
 void *__dt__10TTecSlicerFv(void *arg0, s16 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 void TTecSlicer__sub_8023B6BC(u8 *arg0);
+int has_valid_handle__10TObjPlayerFPv(void *);
+s16 get_remain_count__10TTecSlicerFPv(void *);
+s32 TObjPlayer__sub_803D9B2C(void);
+s32 TObjPlayer__sub_803D9B78(void);
+extern RecoveredGlobal_8023B770_lbl_8044DC20 lbl_8044DC20;
+void TTecSlicer__sub_8023B770(M2C_UNK *arg0, M2C_UNK *arg1, s32 arg2);
 }
 
 extern "C" {
@@ -58,6 +78,31 @@ void TTecSlicer__sub_8023B6BC(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x40) = (f32) ((M2C_FIELD(arg0, f32 *, 0x98) * M2C_FIELD(arg0, f32 *, 0xB4)) + M2C_FIELD(arg0, f32 *, 0x40));
 }
 #pragma pop
+
+typedef struct RecoveredFields_8023B770_var_r29 RecoveredFields_8023B770_var_r29;
+typedef struct RecoveredGlobal_8023B770_lbl_8044DC20 RecoveredGlobal_8023B770_lbl_8044DC20;
+typedef char RecoveredGlobal_8023B770_lbl_8044DC20_size[((sizeof(RecoveredGlobal_8023B770_lbl_8044DC20)) == 0x48) ? (1) : (-1)];
+void TTecSlicer__sub_8023B770(M2C_UNK *arg0, M2C_UNK *arg1, s32 arg2) {
+  M2C_UNK *var_r29;
+  M2C_UNK *var_r30;
+  M2C_UNK *var_r3;
+  s32 temp_r0;
+  s32 var_r31;
+  var_r29 = arg0;
+  var_r30 = (M2C_UNK *) arg1;
+  var_r31 = arg2;
+  TObjPlayer__sub_803D9B2C();
+  ((RecoveredFields_8023B770_var_r29 *) var_r29)->field_60 = var_r31;
+  var_r3 = (M2C_UNK *) var_r29;
+  ((RecoveredFields_8023B770_var_r29 *) var_r29)->field_5C = -0x4000;
+  var_r31 = (s32) get_remain_count__10TTecSlicerFPv(var_r3);
+  var_r3 = (M2C_UNK *) var_r30;
+  temp_r0 = has_valid_handle__10TObjPlayerFPv(var_r3) * 3;
+  var_r3 = (M2C_UNK *) (&lbl_8044DC20.value);
+  var_r3 = (M2C_UNK *) (&lbl_8044DC20.value);
+  ((RecoveredFields_8023B770_var_r29 *) var_r29)->field_64 = (s32) (*((M2C_UNK *) (((s8 *) (&lbl_8044DC20.value)) + ((var_r31 + temp_r0) * 4))));
+  TObjPlayer__sub_803D9B78();
+}
 
 void update__10TTecSlicerFi(s32 arg0) {
     if (TObjPlayer__sub_80141CF8(arg0 + 0x38, arg0 + 0xA8) < lbl_805DC958) {

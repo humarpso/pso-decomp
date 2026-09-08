@@ -1,6 +1,7 @@
 # Units linked into the DOL from compiled source
 PowerPC_EABI_Support/Runtime/Src/CPlusLibPPC.cp
 PowerPC_EABI_Support/Runtime/Src/ptmf.c
+ai/ai.c
 pso/boss/TBoss1DragonEffBullet.cpp
 pso/boss/TBoss2DeRolLe_800340A0.cpp
 pso/boss/TBoss2Mine.cpp
@@ -68,6 +69,7 @@ pso/boss/TBoss7LaserPtcl.cpp
 pso/boss/TBoss7LaserPtcl_802ECDA0.cpp
 pso/boss/TBoss7LaserPtcl_8035A934.cpp
 pso/boss/TBoss7LaserPtcl_8035A9B8.cpp
+pso/boss/TBoss7LaserPtcl_8035AA98.cpp
 pso/boss/TBoss7TentacleNeedle_802EFBA4.cpp
 pso/boss/TBoss8Dragon.cpp
 pso/boss/TBoss8DragonEffBullet.cpp
@@ -93,6 +95,7 @@ pso/boss/TBoss8Dragon_8005F71C.cpp
 pso/boss/TBoss8Dragon_8005FA08.cpp
 pso/boss/TBoss8Dragon_8005FA78.cpp
 pso/boss/TBoss8Dragon_8005FAFC.cpp
+pso/boss/TBoss8Dragon_80067034.cpp
 pso/boss/TBoss8Dragon_801E3CFC.cpp
 pso/boss/TBoss8Dragon_802F3504.cpp
 pso/boss/TBoss8Dragon_802F36DC.cpp
@@ -754,15 +757,6 @@ pso/misc/TLobby_80137188_80138D0C.cpp
 pso/misc/TLobby_8013A874.cpp
 pso/misc/TLobby_8013AD38.cpp
 pso/misc/TLobby_8013ADF0.cpp
-pso/misc/TLobby_8013FFA8_8013FFA8.cpp
-pso/misc/TLobby_8013FFA8_8014008C.cpp
-pso/misc/TLobby_8013FFA8_801403B4.cpp
-pso/misc/TLobby_8013FFA8_801405EC.cpp
-pso/misc/TLobby_8013FFA8_8014074C.cpp
-pso/misc/TLobby_8013FFA8_8014077C.cpp
-pso/misc/TLobby_8013FFA8_80140830.cpp
-pso/misc/TLobby_8013FFA8_801409B0.cpp
-pso/misc/TLobby_8013FFA8_80140AEC.cpp
 pso/misc/TLobby_80140FF4.cpp
 pso/misc/TLobby_80145E40.cpp
 pso/misc/TLobby_80156B18.cpp
@@ -1024,6 +1018,7 @@ pso/misc/TOBoss4Rock_8035A7FC.cpp
 pso/misc/TOBoss4Tower.cpp
 pso/misc/TOCapsuleAncient01.cpp
 pso/misc/TOCapsuleLabo.cpp
+pso/misc/TOCapsuleMachine01.cpp
 pso/misc/TOChatSensorCapture.cpp
 pso/misc/TOChatSensorFolder.cpp
 pso/misc/TOChatSensor_8015B214.cpp
@@ -2498,6 +2493,7 @@ pso/unk/text_80066F5C.cpp
 pso/unk/text_8006EBC4.cpp
 pso/unk/text_8006EF80.cpp
 pso/unk/text_80072004.cpp
+pso/unk/text_8007313C.cpp
 pso/unk/text_80074BD0.cpp
 pso/unk/text_80076BC4_80076C68.cpp
 pso/unk/text_80076BC4_80076D1C.cpp
@@ -2506,6 +2502,7 @@ pso/unk/text_80077AE8.cpp
 pso/unk/text_8007A7A0.cpp
 pso/unk/text_8007A7B8.cpp
 pso/unk/text_8007B370.cpp
+pso/unk/text_8007FA24.cpp
 pso/unk/text_80081B7C.cpp
 pso/unk/text_800832EC.cpp
 pso/unk/text_8008C4F4.cpp

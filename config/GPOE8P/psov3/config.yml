@@ -14,6 +14,15 @@ detect_strings: true
 mw_comment_version: 10
 # --- force_active (BEGIN) ---
 force_active:
+  - AIGetDSPSampleRate
+  - AIGetStreamPlayState
+  - AIGetStreamSampleRate
+  - AIGetStreamVolLeft
+  - AIGetStreamVolRight
+  - AISetDSPSampleRate
+  - AISetStreamPlayState
+  - AISetStreamVolLeft
+  - AISetStreamVolRight
   - TAdSinglePlyChrSelectGC__sub_80133530
   - TItemEquipBase__sub_8022F1F4
   - TKeyBoardControl__sub_80290D10

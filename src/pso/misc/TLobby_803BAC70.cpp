@@ -14,6 +14,11 @@ struct RecoveredGlobal_803C0AD8_lbl_80570AC0 {
     u8 remaining[0x9BC];
 };
 
+struct RecoveredGlobal_803BD5C4_lbl_805663D8 {
+    M2C_UNK value;
+    u8 remaining[0x6DC];
+};
+
 extern "C" {
 extern s8 lbl_805D74B8;
 void set_global_flag__6TLobbyFc(s8 arg0);
@@ -92,6 +97,8 @@ s32 EXIGetID(void *);
 s32 TLobby__sub_803C0F98(void *);
 s32 TLobby__sub_803C133C(void *);
 void TLobby__sub_803C0B3C(u8 *arg0);
+extern RecoveredGlobal_803BD5C4_lbl_805663D8 lbl_805663D8;
+void TLobby__sub_803BD5C4(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 }
 
 extern "C" {
@@ -134,6 +141,20 @@ void TLobby__sub_803BD240(s32 arg0, s32 arg1) {
     M2C_FIELD(temp_r3, u16 *, 0xCE) = (u16) M2C_FIELD(((u8 *)(&lbl_805D4640) + ((arg1 * 2) & 0x1FE)), u16 *, 0);
     M2C_FIELD(temp_r3, s32 *, 0x24) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x24) | 0x80);
 }
+
+#pragma push
+#pragma scheduling off
+typedef char RecoveredGlobal_803BD5C4_lbl_805663D8_size[sizeof(RecoveredGlobal_803BD5C4_lbl_805663D8) == 0x6E0 ? 1 : -1];
+void TLobby__sub_803BD5C4(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+    u8 *temp_r3;
+    temp_r3 = (u8 *)&lbl_805663D8.value + (arg0 * 0xBC);
+    M2C_FIELD(temp_r3, s32 *, 0xAC) = arg1;
+    M2C_FIELD(temp_r3, s32 *, 0xB4) = arg2;
+    M2C_FIELD(temp_r3, s32 *, 0xB0) = arg3;
+    M2C_FIELD(temp_r3, s32 *, 0xB8) = arg4;
+}
+#pragma pop
+
 void TLobby__sub_803BD824(void) {
 }
 void TLobby__sub_803BD9E0(void) {

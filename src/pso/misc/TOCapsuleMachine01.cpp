@@ -25,6 +25,18 @@ struct RecoveredGlobal_8015A814___vt__18TOCapsuleMachine01 {
     u8 remaining[0x38];
 };
 
+struct RecoveredGlobal_8015A734_lbl_804AFF00
+{
+  M2C_UNK value;
+  u8 remaining[0xC];
+};
+
+struct RecoveredFields_8015A734_var_r4
+{
+  u8 unknown_0[0x42C];
+  u8 *field_42C;
+};
+
 extern "C" {
 u8 * TLobby__sub_8001FE7C(void *, s16);
 extern u8 *TOCapsuleMachine01__data_805D58C0;
@@ -43,6 +55,13 @@ extern s32 tl_05;
 extern const f32 lbl_805DB380;
 extern const f32 lbl_805DB384;
 u8 *TOCapsuleMachine01__ct(u8 *arg0, s32 arg1);
+u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+extern RecoveredGlobal_8015A734_lbl_804AFF00 lbl_804AFF00;
+extern u8 *TOCapsuleMachine01__data_805D58C0;
+extern s32 TOCapsuleMachine01__data_805D58C8;
+extern s32 lbl_805D58CC;
+void TOCapsuleMachine01__sub_8015A734(void);
 }
 
 extern "C" {
@@ -118,6 +137,25 @@ void TOCapsuleMachine01__sub_8015A6F0(void) {
         TLobby__sub_8001FE7C(TOCapsuleMachine01__data_805D58C0, 1);
         TOCapsuleMachine01__data_805D58C0 = NULL;
     }
+}
+
+typedef struct RecoveredFields_8015A734_var_r4 RecoveredFields_8015A734_var_r4;
+typedef struct RecoveredGlobal_8015A734_lbl_804AFF00 RecoveredGlobal_8015A734_lbl_804AFF00;
+void TOCapsuleMachine01__sub_8015A734(void) {
+  int temp_r3;
+  long long new_var2;
+  int var_r4;
+  void **new_var;
+  temp_r3 = (new_var2 = alloc__23TAdSinglePlyChrSelectGCFPv((void *) 0x440));
+  var_r4 = temp_r3;
+  if (var_r4 != 0)
+  {
+    var_r4 = (long) TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804AFF00.value, 0, 0, 0);
+  }
+  TOCapsuleMachine01__data_805D58C0 = (unsigned char *) ((void *) var_r4);
+  new_var = (void **) (((s8 *) (*((void **) (((s8 *) (*((void **) (((s8 *) ((RecoveredFields_8015A734_var_r4 *) var_r4)->field_42C) + 8)))) + 0x2C)))) + 0x30);
+  lbl_805D58CC = *((int *) (((s8 *) (*((void **) (((s8 *) (*((void **) (((s8 *) (*new_var)) + 0x2C)))) + 0x30)))) + 4));
+  TOCapsuleMachine01__data_805D58C8 = 0;
 }
 
 void *__dt__18TOCapsuleMachine01Fv(void *arg0, s16 arg1) {

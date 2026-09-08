@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TOHangceilingCave01KeyQuick__ct(int, int, void *);
+s32 TOHangceilingCave01Key__ct(int, int, void *);
+s32 TOHangceilingCave01Normal__ct(int, int, void *);
+s32 __nw__7TObjectFUl(int);
+extern s32 tl_05;
+s32 TOHangceilingCave01__create(u8 *arg0);
+}
+
+extern "C" {
 
 struct VBase_80168588 { char pad[0x18]; };
 struct VObj_80168588 : VBase_80168588 {
@@ -181,6 +190,51 @@ void check_player_trigger__19TOHangceilingCave01FPv(u8 *arg0) {
 
 extern u32 lbl_805D59D0;
 extern void *lbl_805D59D4;
+
+s32 TOHangceilingCave01__create(u8 *arg0) {
+  s32 temp_r0;
+  s32 temp_r3;
+  s32 temp_r3_2;
+  s32 temp_r3_3;
+  s32 var_r0;
+  s32 var_r0_2;
+  s32 var_r0_3;
+  if (arg0 != 0)
+  {
+    temp_r0 = *((s32 *) (((s8 *) arg0) + 0x38));
+    switch (temp_r0)
+    {
+      case 0:
+        temp_r3 = __nw__7TObjectFUl((int) 0x360);
+        var_r0 = temp_r3;
+        if (var_r0 != 0)
+      {
+        var_r0 = TOHangceilingCave01Normal__ct((int) temp_r3, (int) tl_05, (void *) arg0);
+      }
+        return var_r0;
+      case 1:
+        temp_r3_2 = __nw__7TObjectFUl((int) 0x360);
+        var_r0_2 = temp_r3_2;
+        if (var_r0_2 != 0)
+      {
+        var_r0_2 = TOHangceilingCave01Key__ct((int) temp_r3_2, (int) tl_05, (void *) arg0);
+      }
+        return var_r0_2;
+      case 2:
+        temp_r3_3 = __nw__7TObjectFUl((int) 0x360);
+        var_r0_3 = temp_r3_3;
+        if (var_r0_3 != 0)
+      {
+        var_r0_3 = TOHangceilingCave01KeyQuick__ct((int) temp_r3_3, (int) tl_05, (void *) arg0);
+      }
+        return var_r0_3;
+    }
+  }
+  else
+  {
+  }
+  return 0;
+}
 
 void destroy_instance__19TOHangceilingCave01Fv(void) {
     if ((void *) lbl_805D59D4 != NULL) {

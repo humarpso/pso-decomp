@@ -4198,6 +4198,7 @@ pso/item/TItemProShield_801181D0.cpp:
 
 pso/unk/text_8011892C.cpp:
 	.text       start:0x8011892C end:0x80118F5C
+	.rodata     start:0x8043E670 end:0x8043E678
 
 pso/item/TItemProUnit.cpp:
 	.text       start:0x80118F5C end:0x80119060
@@ -6171,44 +6172,8 @@ pso/misc/TLogo.cpp:
 pso/unk/text_8013F810.cpp:
 	.text       start:0x8013F810 end:0x8013FFA8
 
-pso/misc/TLobby_8013FFA8_8013FFA8.cpp:
-	.text       start:0x8013FFA8 end:0x8014008C
-
-pso/misc/TLobby_8013FFA8_8014008C.cpp:
-	.text       start:0x8014008C end:0x80140124
-
 pso/misc/TLobby_8013FFA8.cpp:
-	.text       start:0x80140124 end:0x80140308
-
-pso/misc/TLobby_8013FFA8_80140308.cpp:
-	.text       start:0x80140308 end:0x801403B4
-
-pso/misc/TLobby_8013FFA8_801403B4.cpp:
-	.text       start:0x801403B4 end:0x801404CC
-
-pso/misc/TLobby_8013FFA8_801404CC.cpp:
-	.text       start:0x801404CC end:0x801405EC
-
-pso/misc/TLobby_8013FFA8_801405EC.cpp:
-	.text       start:0x801405EC end:0x8014074C
-
-pso/misc/TLobby_8013FFA8_8014074C.cpp:
-	.text       start:0x8014074C end:0x8014077C
-
-pso/misc/TLobby_8013FFA8_8014077C.cpp:
-	.text       start:0x8014077C end:0x80140830
-
-pso/misc/TLobby_8013FFA8_80140830.cpp:
-	.text       start:0x80140830 end:0x801409B0
-
-pso/misc/TLobby_8013FFA8_801409B0.cpp:
-	.text       start:0x801409B0 end:0x80140AEC
-
-pso/misc/TLobby_8013FFA8_80140AEC.cpp:
-	.text       start:0x80140AEC end:0x80140BAC
-
-pso/misc/TLobby_8013FFA8_80140BAC.cpp:
-	.text       start:0x80140BAC end:0x80140D50
+	.text       start:0x8013FFA8 end:0x80140D50
 
 pso/unk/text_80140D50.cpp:
 	.text       start:0x80140D50 end:0x80140F44
@@ -11431,6 +11396,7 @@ pso/misc/TTecAnti.cpp:
 
 pso/misc/TTecBarta.cpp:
 	.text       start:0x8022B418 end:0x8022BE64
+	.rodata     start:0x8044CDD8 end:0x8044CDE0
 
 pso/unk/text_8022BE64.cpp:
 	.text       start:0x8022BE64 end:0x8022C03C
@@ -11512,6 +11478,7 @@ pso/misc/TTecGiZonde.cpp:
 
 pso/unk/text_80232830.cpp:
 	.text       start:0x80232830 end:0x80232934
+	.rodata     start:0x8044D5C8 end:0x8044D5D0
 
 pso/unk/text_80232934.cpp:
 	.text       start:0x80232934 end:0x80232AA4
@@ -11601,6 +11568,7 @@ pso/misc/TTecRaZonde.cpp:
 
 pso/misc/TTecResta.cpp:
 	.text       start:0x80239490 end:0x80239D8C
+	.rodata     start:0x8044DB98 end:0x8044DBA0
 
 pso/misc/TTecReverser.cpp:
 	.text       start:0x80239D8C end:0x8023A434
@@ -12187,6 +12155,7 @@ pso/misc/TWindowFukidasi_80251AC0.cpp:
 
 pso/misc/TWindowFukidasi_80251BA0.cpp:
 	.text       start:0x80251BA0 end:0x80251D28
+	.rodata     start:0x8044ED68 end:0x8044ED70
 
 pso/misc/TWindowFukidasi_80251D28.cpp:
 	.text       start:0x80251D28 end:0x80251DF0
@@ -14024,6 +13993,7 @@ pso/misc/TWindowSubSymbolChat_802ACF5C.cpp:
 
 pso/misc/TWindowEffectLight.cpp:
 	.text       start:0x802ACF9C end:0x802AD538
+	.rodata     start:0x80470620 end:0x80470628
 
 pso/misc/TWindowMainMenu_802AD538_802AD538.cpp:
 	.text       start:0x802AD538 end:0x802ADB34
@@ -16177,6 +16147,7 @@ pso/ui/TAdTrialAgreementGC_8033573C.cpp:
 
 pso/ui/TAdTrialAgreementGC_80335958.cpp:
 	.text       start:0x80335958 end:0x80335E08
+	.rodata     start:0x80477660 end:0x80477668
 
 pso/misc/TLobby_80335E08.cpp:
 	.text       start:0x80335E08 end:0x80336054
