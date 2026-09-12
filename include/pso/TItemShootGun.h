@@ -10,6 +10,7 @@ public:
  u32 m_70;
 
 public:
+    TItemShootGun(void* owner, const Vec* pos, const Vec* endpoint, f32 life);
     virtual ~TItemShootGun();
     virtual void render();
     virtual void hook();

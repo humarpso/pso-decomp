@@ -9,6 +9,11 @@ u8 fn_8010319C(u8 *arg0);
 void init__9TItemDataFv(void *);
 extern const f32 lbl_805DAA88;
 void TLobby__sub_8010314C(u8 *arg0);
+s32 __ct__13TItemAttackerFv(void *, void *, void *, s32, void *);
+M2C_UNK spawn_item_timer__13TItemAttackerFiii(int, void *, void *);
+s32 __nw__7TObjectFUl(int);
+void TItemAttacker__sub_8010349C(u32);
+void TObjPlayer__sub_801032CC(s32 arg0, u32 arg1, s32 arg2, u8 *arg3);
 }
 
 extern "C" {
@@ -59,5 +64,15 @@ u8 fn_8010319C(u8 *arg0) {
 }
 
 void TItem__sub_801031C0(void* p) { *(s32*)((char*)p + 0x0) = 4; }
+void TObjPlayer__sub_801032CC(s32 arg0, u32 arg1, s32 arg2, u8 *arg3) {
+    s32 var_r0;
+    if ((arg0 != 0) && (arg3 != NULL) && (arg1 != 0U) && ((u16) M2C_FIELD(arg3, u16 *, 0xC) != 65535U) && ((u16) M2C_FIELD(arg3, u16 *, 0xE) != 65535U)) {
+        var_r0 = __nw__7TObjectFUl((int) (0x50));
+        if (var_r0 != 0) {
+            var_r0 = __ct__13TItemAttackerFv((void*)var_r0, (void *) (arg0), (void *) (arg1), arg2, (void *) (arg3));
+        }
+        spawn_item_timer__13TItemAttackerFiii((int) (var_r0), (void *) (&TItemAttacker__sub_8010349C), (void *) (arg2));
+    }
+}
 
 }
