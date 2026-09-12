@@ -14,6 +14,22 @@ struct Stack_801B8A80 {
     u8 trailing_storage[0x4];
 };
 
+#include "pso/player/TObjPlayer.h"
+struct DeathDropRecord {
+    s32 state;
+    s32 source_id;
+    TItemData item;
+};
+
+struct DeathItemPosition { f32 x,y,z; };
+
+struct PlayerDeathItemFields {
+    u8 before_position[0x38];
+    DeathItemPosition position;
+    u8 before_inventory[0xD00-0x44];
+    u8* inventory_owner;
+};
+
 extern "C" {
 s32 init__9TItemDataFv(void *);
 s32 count_items_by_id__10TObjPlayerFPvi(int, void *);
@@ -24,6 +40,25 @@ s32 set_action_flag_2__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801BF914(void *);
 s32 insert_item_node__10TObjPlayerFiiiii(int, void *, void *, void *, int);
 void TObjPlayer__sub_801B8A80(u8 *arg0, s32 arg1);
+s32 obj_getPtr2B0_20(TObjPlayer*);
+s32 obj_isState3_324(TObjPlayer*);
+void* TObjPlayer__sub_80019704(TObjPlayer*);
+s32 fn_80099EF8(void*);
+s32 fn_801058F8(TObjPlayer*);
+void fn_8010ECD0(TItemData*,s32);
+s32 fn_801B0730(TObjPlayer*);
+s32 fn_801B0EE8();
+void fn_801B9EDC(TObjPlayer*,s32);
+void fn_801BEA4C(TObjPlayer*);
+TItemData* TObjPlayer__sub_801C2058(DeathDropRecord*);
+void set_field4__10TObjPlayerFPvi(DeathDropRecord*,s32);
+void fn_801D35FC(u8*,DeathItemPosition*,TObjPlayer*,DeathDropRecord*,s32);
+s32 fn_801D4C84(u8*,TObjPlayer*,DeathDropRecord*);
+void* TObjPlayer__sub_801C2068(void*);
+void __construct_array(void*,void*(*)(void*),void*,u32,u32);
+extern DeathItemPosition lbl_8050BF60;
+extern const f32 lbl_805DC2BC;
+void TObjPlayer__sub_801B864C(TObjPlayer* player);
 }
 
 extern "C" {
@@ -46,6 +81,52 @@ s32 try_buy_item(s32 arg0, void *arg1) {
         return 0;
     }
     return 2;
+}
+
+typedef char DeathDropRecordSize[(sizeof(DeathDropRecord)==0x1C)?1:-1];
+typedef char DeathDropItemOffset[(offsetof(DeathDropRecord,item)==8)?1:-1];
+typedef char DeathPlayerInventoryOffset[(offsetof(PlayerDeathItemFields,inventory_owner)==0xD00)?1:-1];
+void TObjPlayer__sub_801B864C(TObjPlayer* player) {
+    DeathDropRecord records[9];
+    s32 count;
+    DeathDropRecord* record;
+    TItemData* item;
+    void* equipped;
+    PlayerDeathItemFields* fields=(PlayerDeathItemFields*)player;
+    if (fields->inventory_owner!=NULL && obj_isState3_324(player)==0) {
+        if (fn_801058F8(player)!=0) {
+            return;
+        }
+        __construct_array(records,TObjPlayer__sub_801C2068,NULL,sizeof(DeathDropRecord),9);
+        count=0;
+        if (fn_801B0EE8()!=0) {
+            if (fn_801B0730(player)==0) {
+                count=fn_801D4C84(fields->inventory_owner,player,records);
+            }
+            if (obj_getPtr2B0_20(player)!=0) {
+                record=&records[count];
+                set_field4__10TObjPlayerFPvi(record,-1);
+                item=TObjPlayer__sub_801C2058(record);
+                fn_8010ECD0(item,obj_getPtr2B0_20(player));
+                count+=1;
+                item->id=-1;
+            }
+        } else if (fn_801B0730(player)==0) {
+            count=fn_801D4C84(fields->inventory_owner,player,records);
+        } else {
+            equipped=TObjPlayer__sub_80019704(player);
+            if (equipped!=NULL) {
+                fn_801B9EDC(player,fn_80099EF8(equipped));
+            }
+        }
+        if (count>0) {
+            lbl_8050BF60.x=fields->position.x;
+            lbl_8050BF60.y=lbl_805DC2BC+fields->position.y;
+            lbl_8050BF60.z=fields->position.z;
+            fn_801D35FC(fields->inventory_owner+0x20,&lbl_8050BF60,player,records,count);
+            fn_801BEA4C(player);
+        }
+    }
 }
 
 void TObjPlayer__sub_801B8A80(u8 *arg0, s32 arg1) {

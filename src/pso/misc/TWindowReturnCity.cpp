@@ -52,6 +52,21 @@ extern M2C_UNK __vt__17TWindowReturnCity[];
 extern s32 lbl_805D39B8;
 extern const f32 lbl_805DD2E8;
 u8 *TWindowReturnCity__ct(u8 *arg0, s32 arg1, s32 arg2);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK init__22THunterGuildSeqOfflineFPvPvPv(u32, s32, void (*)());
+M2C_UNK clear_flag_2__11TWindowCtrlFv();
+u32 __nw__7TObjectFUl(M2C_UNK);
+M2C_UNK TWindowReturnCity__sub_8024ACA8(s32);
+s32 query_battle_state__17TWindowReturnCityFPv(void *arg0);
+void clear_flag_bit5__17TWindowReturnCityFv(void);
+s32 get_slot_or_neg1__17TWindowSubComCardFPv(s32);
+s32 get_card_data__17TWindowSubComCardFPv(s32);
+s32 TWindowSubComCard__sub_802A57FC(s32);
+void TWindowReturnCity__sub_8026D18C(void);
+extern s32 lbl_805D55C0;
+extern s32 tl_00;
+extern int TWindowReturnCity__data_805D6468;
+void run_task__17TWindowReturnCityFv(void *arg0);
 }
 
 extern "C" {
@@ -93,6 +108,55 @@ s32 query_battle_state__17TWindowReturnCityFPv(void *arg0) {
 void render__17TWindowReturnCityFv(void) {  }
 
 extern M2C_UNK __vt__17TWindowReturnCity[];
+
+void run_task__17TWindowReturnCityFv(void *arg0) {
+    s32 temp_r0;
+    s32 temp_r3;
+    if ((s32) lbl_805D55C0 != 1) {
+        temp_r0 = M2C_FIELD(arg0, s32 *, 0x20);
+        switch (temp_r0) {
+        default: return;
+        case 0:
+            M2C_FIELD(arg0, s32 *, 0x20) = 1;
+        case 1:
+            if ((query_battle_state__17TWindowReturnCityFPv(arg0) == 0) || ((s32) (*(s32 *)&TWindowReturnCity__data_805D6468) != 4)) {
+                clear_flag_bit5__17TWindowReturnCityFv();
+                TWindowReturnCity__sub_8024ACA8(M2C_FIELD(arg0, s32 *, 0x24));
+                clear_flag_2__11TWindowCtrlFv();
+                queue_destruction__7TObjectFv(arg0);
+                M2C_FIELD(arg0, s32 *, 0x20) = 2;
+                return;
+            }
+            if (get_card_data__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x1C)) != 0) {
+                clear_flag_bit5__17TWindowReturnCityFv();
+                TWindowReturnCity__sub_8024ACA8(M2C_FIELD(arg0, s32 *, 0x24));
+                clear_flag_2__11TWindowCtrlFv();
+                queue_destruction__7TObjectFv(arg0);
+                M2C_FIELD(arg0, s32 *, 0x20) = 2;
+                return;
+            }
+            if (TWindowSubComCard__sub_802A57FC(M2C_FIELD(arg0, s32 *, 0x1C)) != 0) {
+                temp_r3 = get_slot_or_neg1__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x1C));
+                if (temp_r3 == 0) {
+                    (*(s32 *)&TWindowReturnCity__data_805D6468) = M2C_FIELD(arg0, s32 *, 0x24);
+                    u32 task = __nw__7TObjectFUl(0x28);
+                    if (task != 0U) {
+                        init__22THunterGuildSeqOfflineFPvPvPv(task, tl_00, TWindowReturnCity__sub_8026D18C);
+                    }
+                    M2C_FIELD(arg0, s32 *, 0x20) = 2;
+                }
+                if (temp_r3 == 1) {
+                    clear_flag_bit5__17TWindowReturnCityFv();
+                    TWindowReturnCity__sub_8024ACA8(M2C_FIELD(arg0, s32 *, 0x24));
+                    clear_flag_2__11TWindowCtrlFv();
+                    queue_destruction__7TObjectFv(arg0);
+                    M2C_FIELD(arg0, s32 *, 0x20) = 2;
+                }
+            }
+            break;
+        }
+    }
+}
 
 void *__dt__17TWindowReturnCityFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

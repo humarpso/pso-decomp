@@ -207,6 +207,10 @@ s16 get_handle_value__10TObjPlayerFPv(void *);
 int has_valid_handle__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_801D8FB4_lbl_804C495C lbl_804C495C;
 f32 TObjPlayer__sub_801D8FB4(s32 arg0);
+u16 obj_getField1c(void *);
+s32 get_instance__6TLobbyFv(void);
+extern u8 *lbl_804C49E0[];
+u8 *get_hospital_position__10TObjPlayerFPv(void *player);
 }
 
 extern "C" {
@@ -355,6 +359,12 @@ s32 TObjPlayer__sub_801D8C9C(void) {
 
 s32 TObjPlayer__sub_801D8D14(void) {
     return M2C_FIELD(&lbl_804491CC.value, M2C_UNK *, (get_instance__6TLobbyFv() * 4));
+}
+
+u8 *get_hospital_position__10TObjPlayerFPv(void *player) {
+    s32 temp_r31;
+    temp_r31 = obj_getField1c(player) * 0xC;
+    return lbl_804C49E0[get_instance__6TLobbyFv()] + temp_r31;
 }
 
 s32 TObjPlayer__sub_801D8D8C(s8 arg0) {

@@ -9,9 +9,14 @@ struct RecoveredGlobal_801C5F54_TObjPlayer__data_8050E920 {
     u8 remaining[0xEC];
 };
 
+struct ArrivalOverrides { u8 bytes[0xF0]; };
+
 extern "C" {
 extern RecoveredGlobal_801C5F54_TObjPlayer__data_8050E920 TObjPlayer__data_8050E920;
 void TObjPlayer__sub_801C5F54(u16 arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+extern RecoveredGlobal_801C5F54_TObjPlayer__data_8050E920 TObjPlayer__data_8050E920;
+void TObjPlayer__sub_801C5F84(u16 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -54,5 +59,13 @@ void TObjPlayer__sub_801C5F54(u16 arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg
     M2C_FIELD(temp_r3, f32 *, 0x10) = farg2;
 }
 #pragma pop
+
+void TObjPlayer__sub_801C5F84(u16 arg0, s32 arg1, s32 arg2) {
+    u8 *temp_r7;
+    temp_r7 = (u8 *)&TObjPlayer__data_8050E920 + (arg0 * 0x14);
+    M2C_FIELD(temp_r7, s32 *, 0) = 1;
+    M2C_FIELD(temp_r7, s32 *, 4) = arg1;
+    VecCopy__FP3VecPC3Vec((void *) (temp_r7 + 8), (void *) (arg2));
+}
 
 }
