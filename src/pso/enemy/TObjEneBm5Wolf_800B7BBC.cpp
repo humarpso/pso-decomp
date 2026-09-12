@@ -4,11 +4,30 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include "pso/enemy/TObjEneBm5Wolf.h"
+#include <stddef.h>
+struct Stack_800B7C14 {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+};
+
 extern "C" {
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 extern u8 *TObjEneBm5Wolf__data_805D5120;
 extern const f32 TObjEneBm5Wolf__data_805D9D8C;
 void TObjEneBm5Wolf__sub_800B7EA0(u8 *arg0);
+f32 calc_boss4_scale__10TObjPlayerFi(void *actor);
+f32 rand_range__9TObjEneDDFff(void *actor, f32 low, f32 high);
+void *TObjButterflyLobby__sub_8007A5D8(void *from, void *to, u32 flags);
+void TObjBoss2Tunnel__sub_8007E7D8(f32 *x, f32 *z, s32 angle);
+f32 clamp_velocity__15TObjBoss2TunnelFPv(f32 *vector);
+extern const f32 TObjEneBm5Wolf__data_805D9D78;
+extern const f32 TObjEneBm5Wolf__data_805D9D84;
+extern const f32 TObjEneBm5Wolf__data_805D9D8C;
+extern const f32 lbl_805D9E18;
+extern const f32 lbl_805D9E54;
+extern const f32 lbl_805D9E58;
 }
 
 extern "C" {
@@ -40,6 +59,37 @@ void approach_target__14TObjEneBm5WolfFPvf(void *arg0, f32 farg0) {
 }
 
 extern f32 TObjEneBm5Wolf__data_805D9DB4;
+
+#pragma push
+#pragma fp_contract on
+void TObjEneBm5Wolf::choose_roaming_destination() {
+    typedef char sp8_offset[(offsetof(Stack_800B7C14, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_800B7C14, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_800B7C14, sp10) == 0x8) ? 1 : -1];
+    Stack_800B7C14 stack;
+    f32 temp_f3;
+    f32 temp_f3_2;
+    u8 *temp_r3;
+    u8 *temp_r4;
+    stack.sp8 = this->position[0] - this->groupAnchor[0];
+    stack.spC = TObjEneBm5Wolf__data_805D9D78;
+    stack.sp10 = this->position[2] - this->groupAnchor[2];
+    clamp_velocity__15TObjBoss2TunnelFPv(&stack.sp8);
+    TObjBoss2Tunnel__sub_8007E7D8(&stack.sp8, &stack.sp10, (s32) (lbl_805D9E54 * calc_boss4_scale__10TObjPlayerFi(this)) + 0x4000);
+    temp_f3 = lbl_805D9E18 * rand_range__9TObjEneDDFff(this, TObjEneBm5Wolf__data_805D9D84, TObjEneBm5Wolf__data_805D9D8C);
+    this->destination[0] = (f32) ((stack.sp8 * temp_f3) + this->groupAnchor[0]);
+    this->destination[2] = (f32) ((stack.sp10 * temp_f3) + this->groupAnchor[2]);
+    temp_r3 = (u8 *)(TObjButterflyLobby__sub_8007A5D8((u8 *)(this) + 0x2FC, (u8 *)(this) + 0x394, 0x88E0U));
+    if (temp_r3 != NULL) {
+        temp_r4 = (u8 *)(M2C_FIELD(temp_r3, u8 **, 4));
+        stack.sp8 = M2C_FIELD(temp_r4, f32 *, 0) - this->position[0];
+        stack.sp10 = M2C_FIELD(temp_r4, f32 *, 8) - this->position[2];
+        temp_f3_2 = clamp_velocity__15TObjBoss2TunnelFPv(&stack.sp8) - lbl_805D9E58;
+        this->destination[0] = (f32) ((stack.sp8 * temp_f3_2) + this->position[0]);
+        this->destination[2] = (f32) ((stack.sp10 * temp_f3_2) + this->position[2]);
+    }
+}
+#pragma pop
 
 void TObjEneBm5Wolf__sub_800B7EA0(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3DC) = (s32) get_random_float__21TObjEneMe3ShinowaRealFv((f32) (M2C_FIELD(arg0, f32 *, 0x354)));

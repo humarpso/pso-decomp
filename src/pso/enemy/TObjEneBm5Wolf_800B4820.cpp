@@ -213,8 +213,114 @@ struct VObj_18_4225ac : VBase_18_4225ac {
     virtual M2C_UNK m94();
 };
 
+#include "pso/enemy/TObjEneBm5Wolf.h"
+struct VBase_18_8bca97 { char pad[0x18]; };
+
+struct VObj_18_8bca97 : VBase_18_8bca97 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual M2C_UNK m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual void m93();
+    virtual M2C_UNK m94();
+    virtual void m95();
+    virtual void m96();
+    virtual void m97();
+    virtual void m98();
+    virtual void m99();
+    virtual M2C_UNK m100();
+};
+
 extern "C" {
-void play_variant_sound__14TObjEneBm5WolfFPv(void *);
 void TObjEneBm5Wolf__sub_800B7D44(void *);
 s32 TObjEneEpsilon__sub_800B95E0(void *);
 void TObjEneEpsilon__sub_800B96A4(void *);
@@ -226,13 +332,11 @@ M2C_UNK TBoss1Dragon__sub_80143504(void *);
 extern const f32 TObjEneBm5Wolf__data_805D9DEC;
 void TObjEneBm5Wolf__sub_800B6D04(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
-void play_variant_sound__14TObjEneBm5WolfFPv(void *);
 void set_anim_state__14TObjEneBm5WolfFPv(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 extern const f32 lbl_805D9E38;
 void TObjEneBm5Wolf__sub_800B6E10(u8 *arg0, s32 arg1);
-void play_variant_sound__14TObjEneBm5WolfFPv(void *);
 void set_attack_flag__14TObjEneBm5WolfFPv(void *);
 void set_anim_state__14TObjEneBm5WolfFPv(void *);
 void TObjEneEpsilon__sub_800B96A4(void *);
@@ -265,6 +369,38 @@ extern const f32 TObjEneBm5Wolf__data_805D9DE0;
 extern const f32 TObjEneBm5Wolf__data_805D9DF4;
 extern const f32 lbl_805D9E10;
 void TObjEneBm5Wolf__sub_800B6554(u8 *arg0, s32 arg1);
+f32 calc_boss4_scale__10TObjPlayerFi(s32);
+f32 calc_scaled_value__15TObjBoss2TunnelFif(s32 angle, f32 speed);
+void TObjEneBm5Wolf__sub_800B7794(void *actor);
+s32 play_variant_sound__14TObjEneBm5WolfFPv(void *);
+void set_state_by_timer__14TObjEneBm5WolfFi(void *actor);
+void approach_target__14TObjEneBm5WolfFPvf(void *, f32);
+void TObjEneBm5Wolf__sub_800B7D44(void *);
+M2C_UNK TObjEneBm5Wolf__sub_800B7DDC(void *, s32);
+s32 TObjEneBm5Wolf__sub_800B8A9C(void *actor, s32 max);
+void TObjEneEpsilon__sub_800B9344(void *, s32, f32);
+void update_velocity__9TObjEneDDFPv(void *);
+f32 rand_range__9TObjEneDDFff(void *actor, f32 low, f32 high);
+int TObjEneDD__sub_800BABA4(void *, s32);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+f32 TBoss8Dragon__sub_803D64C0(s32 angle);
+f32 TBoss8Dragon__sub_803D64DC(s32 angle);
+extern const f32 TObjEneBm5Wolf__data_805D9D78;
+extern const f32 TObjEneBm5Wolf__data_805D9D84;
+extern const f32 TObjEneBm5Wolf__data_805D9D8C;
+extern const f32 TObjEneBm5Wolf__data_805D9DA8;
+extern const f32 TObjEneBm5Wolf__data_805D9DBC;
+extern const f32 TObjEneBm5Wolf__data_805D9DD0;
+extern const f32 lbl_805D9DF8;
+extern const f32 lbl_805D9E14;
+extern const f32 lbl_805D9E18;
+extern const f32 lbl_805D9E1C;
+extern const f32 lbl_805D9E20;
+extern const f32 lbl_805D9E24;
+extern const f32 lbl_805D9E28;
+extern const f32 lbl_805D9E2C;
+extern const f32 lbl_805D9E30;
 }
 
 extern "C" {
@@ -435,6 +571,110 @@ void TObjEneBm5Wolf__sub_800B6554(u8 *arg0, s32 arg1) {
         break;
     }
 }
+
+#pragma push
+#pragma fp_contract on
+void TObjEneBm5Wolf::roaming_state(int event) {
+    f32 temp_f1;
+    f32 temp_f1_2;
+    f32 temp_f1_3;
+    f32 temp_f31;
+    f32 temp_f3;
+    f32 square;
+    s32 temp_r0;
+    s32 temp_r30;
+    u8 *temp_r3;
+    switch (event) {
+    case 4:
+        this->requestedAction = 1;
+        set_field_378__9TObjEneDDFPvi((void *)(this), (M2C_UNK)(7));
+        ((VObj_18_8bca97 *)(this))->m94();
+        this->roamingTimer = 0;
+        this->roamingSubstate = 0;
+        this->randomPhase = TObjEneBm5Wolf__sub_800B8A9C(this, 0x14);
+        this->nearTarget = 0;
+        temp_r30 = (s32) (lbl_805D9E14 * calc_boss4_scale__10TObjPlayerFi((s32)(this)));
+        temp_f31 = lbl_805D9E18 * calc_boss4_scale__10TObjPlayerFi((s32)(this));
+        this->destination[0] = (f32) ((temp_f31 * TBoss8Dragon__sub_803D64C0(temp_r30)) + this->groupAnchor[0]);
+        this->destination[2] = (f32) ((temp_f31 * TBoss8Dragon__sub_803D64DC(temp_r30)) + this->groupAnchor[2]);
+        this->desiredSpeed = (f32) ((lbl_805D9DF8 * calc_boss4_scale__10TObjPlayerFi((s32)(this))) + TObjEneBm5Wolf__data_805D9D84);
+        this->currentSpeed = (f32) TObjEneBm5Wolf__data_805D9D78;
+        this->stoppingDistance = (f32) (TObjEneBm5Wolf__data_805D9DBC + calc_scaled_value__15TObjBoss2TunnelFif(0x200, this->desiredSpeed));
+        update_velocity__9TObjEneDDFPv(this);
+        return;
+    case 3:
+        if ((s32) this->nearTarget != 0) {
+            set_state_by_timer__14TObjEneBm5WolfFi(this);
+        }
+    case 5:
+        return;
+    case 0:
+        TBoss1Dragon__sub_80143504(this);
+        if (play_variant_sound__14TObjEneBm5WolfFPv(this) != 0) {
+            temp_r3 = (u8 *)(this->target);
+            temp_f3 = M2C_FIELD(temp_r3, f32 *, 0x38) - this->position[0];
+            temp_f1 = M2C_FIELD(temp_r3, f32 *, 0x40) - this->position[2];
+            square = temp_f3 * temp_f3;
+            square = (temp_f1 * temp_f1) + square;
+            if (square < lbl_805D9E1C) {
+                this->nearTarget = 1;
+            }
+            TObjEneBm5Wolf__sub_800B7D44(this);
+        } else {
+            TObjEneBm5Wolf__sub_800B7DDC(this, this->facing);
+        }
+        temp_r0 = this->roamingSubstate;
+        switch (temp_r0) {
+        case 0:
+            TObjEneBm5Wolf__sub_800B7794(this);
+            update_velocity__9TObjEneDDFPv(this);
+            approach_target__14TObjEneBm5WolfFPvf(this, lbl_805D9E20);
+            this->roamingTimer = (s32) (this->roamingTimer + 1);
+            if ((this->destinationDistance < this->stoppingDistance) || ((s32) this->roamingTimer > 0x64)) {
+                this->roamingSubstate = 1;
+                this->desiredSpeed = (f32) TObjEneBm5Wolf__data_805D9D78;
+            } else if (((s32)TObjEneDD__sub_800BABA4(this, 0x14)) != 0) {
+                this->roamingTimer = 0;
+                choose_roaming_destination();
+                this->desiredSpeed = rand_range__9TObjEneDDFff(this, TObjEneBm5Wolf__data_805D9D84, TObjEneBm5Wolf__data_805D9D8C);
+                this->stoppingDistance = (f32) (TObjEneBm5Wolf__data_805D9DBC + calc_scaled_value__15TObjBoss2TunnelFif(0x200, this->desiredSpeed));
+            }
+            this->playbackSpeed = (f32) (TObjEneBm5Wolf__data_805D9DD0 * this->currentSpeed);
+            temp_f1_2 = this->currentSpeed;
+            TObjEneEpsilon__sub_800B9344(this, (s32) (lbl_805D9E24 * temp_f1_2), temp_f1_2);
+            break;
+        case 1:
+            TObjEneBm5Wolf__sub_800B7794(this);
+            update_velocity__9TObjEneDDFPv(this);
+            approach_target__14TObjEneBm5WolfFPvf(this, lbl_805D9E28);
+            if (this->currentSpeed <= TObjEneBm5Wolf__data_805D9DA8) {
+                this->roamingSubstate = 2;
+                this->roamingTimer = (s32) rand_range__9TObjEneDDFff(this, lbl_805D9E2C, lbl_805D9E30);
+                this->requestedAction = 0;
+            }
+            this->playbackSpeed = (f32) (TObjEneBm5Wolf__data_805D9DD0 * this->currentSpeed);
+            temp_f1_3 = this->currentSpeed;
+            TObjEneEpsilon__sub_800B9344(this, (s32) (lbl_805D9E24 * temp_f1_3), temp_f1_3);
+            break;
+        case 2:
+            this->requestedAction = 0;
+            this->roamingTimer = (s32) (this->roamingTimer - 1);
+            if ((s32) this->roamingTimer <= 0) {
+                choose_roaming_destination();
+                this->desiredSpeed = rand_range__9TObjEneDDFff(this, TObjEneBm5Wolf__data_805D9D84, TObjEneBm5Wolf__data_805D9D8C);
+                this->currentSpeed = (f32) TObjEneBm5Wolf__data_805D9D78;
+                this->stoppingDistance = (f32) (TObjEneBm5Wolf__data_805D9DBC + calc_scaled_value__15TObjBoss2TunnelFif(0x200, this->desiredSpeed));
+                this->roamingSubstate = 0;
+                this->requestedAction = 1;
+            }
+            ((VObj_18_8bca97 *)(this))->m100();
+            break;
+        }
+        ((VObj_18_8bca97 *)(this))->m87();
+        break;
+    }
+}
+#pragma pop
 
 void TObjEneBm5Wolf__sub_800B6B4C(void) {  }
 
