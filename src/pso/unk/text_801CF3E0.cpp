@@ -3,7 +3,7 @@ extern "C" {
 s32 reset_lockon__10TObjPlayerFPv(void *);
 s32 update_action_state__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_801CF080(void *);
-s32 TObjPlayer__sub_801CF1E4(void *);
+s32 request_normal_attack_stage1__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_801CF2AC();
 s32 TObjPlayer__sub_801CF2B0(void *);
 s32 update_active_item__10TObjPlayerFi(void *);
@@ -30,7 +30,7 @@ void TObjPlayer__sub_801CF3E0(s32 arg0, s16 arg1) {
         TObjPlayer__sub_801CF2AC();
         return;
       case 5:
-        TObjPlayer__sub_801CF1E4((void *) arg0);
+        request_normal_attack_stage1__10TObjPlayerFv((void *) arg0);
         return;
       case 0:
         TObjPlayer__sub_801CF080((void *) arg0);

@@ -23,7 +23,7 @@ s32 TObjPlayer__sub_80236154(void *, int, void *, void *);
 void TObjPlayer__sub_80236780(u8 *arg0, s32 arg1);
 void TObjPlayer__sub_802367AC(u8 *arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u32 TObjPlayer__sub_80155FBC(void *, int, f32);
+u32 find_actor_body_contact(void *, int, f32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
 s32 TObjPlayer__sub_80236D14();
 extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
@@ -63,7 +63,7 @@ M2C_UNK *TObjPlayer__sub_80236290(s32 arg0, u32 arg1, s32 _w2, s32 _w3) {
     var_r29 = 0;
 loop_3:
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int) (var_r29));
-    if ((temp_r3 != 0) && (temp_r3_2 = TObjPlayer__sub_80155FBC((void *) (arg1), (int) (temp_r3), (f32) (lbl_805DC89C)), ((temp_r3_2 == 0U) == 0)) && (M2C_FIELD(((u8 *)&lbl_80516150.value + (M2C_FIELD(&lbl_80516150.value, s32 *, 0x80) * 4)), u32 *, 0x40) = temp_r3_2, M2C_FIELD(&lbl_80516150.value, M2C_UNK *, (M2C_FIELD(&lbl_80516150.value, s32 *, 0x80) * 4)) = temp_r3, temp_r0 = M2C_FIELD(&lbl_80516150.value, s32 *, 0x80) + 1, M2C_FIELD(&lbl_80516150.value, s32 *, 0x80) = temp_r0, ((temp_r0 < 0x10) == 0))) {
+    if ((temp_r3 != 0) && (temp_r3_2 = find_actor_body_contact((void *) (arg1), (int) (temp_r3), (f32) (lbl_805DC89C)), ((temp_r3_2 == 0U) == 0)) && (M2C_FIELD(((u8 *)&lbl_80516150.value + (M2C_FIELD(&lbl_80516150.value, s32 *, 0x80) * 4)), u32 *, 0x40) = temp_r3_2, M2C_FIELD(&lbl_80516150.value, M2C_UNK *, (M2C_FIELD(&lbl_80516150.value, s32 *, 0x80) * 4)) = temp_r3, temp_r0 = M2C_FIELD(&lbl_80516150.value, s32 *, 0x80) + 1, M2C_FIELD(&lbl_80516150.value, s32 *, 0x80) = temp_r0, ((temp_r0 < 0x10) == 0))) {
         M2C_FIELD(&lbl_80516150.value, s32 *, 0x80) = 0xF;
     } else {
         var_r29 += 1;

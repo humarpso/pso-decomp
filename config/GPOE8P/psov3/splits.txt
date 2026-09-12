@@ -9651,11 +9651,8 @@ pso/player/TObjPlayer_801CF014.cpp:
 pso/player/TObjPlayer_801CF060.cpp:
 	.text       start:0x801CF060 end:0x801CF080
 
-pso/unk/text_801CF080.cpp:
-	.text       start:0x801CF080 end:0x801CF1E4
-
-pso/slices/pso_carve_801cf1e4.cpp:
-	.text       start:0x801CF1E4 end:0x801CF2AC
+pso/player/NormalAttack.cpp:
+	.text       start:0x801CF080 end:0x801CF2AC
 
 pso/player/TObjPlayer_801CF2AC.cpp:
 	.text       start:0x801CF2AC end:0x801CF2B0
