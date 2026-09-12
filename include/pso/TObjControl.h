@@ -6,6 +6,9 @@
 
 class TObjControl : public TObject {
 public:
+    s16 m_decision_mode;
+    u16 m_reserved;
+
     virtual ~TObjControl();
     virtual void run_task();
 };
