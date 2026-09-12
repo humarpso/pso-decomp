@@ -1,8 +1,40 @@
 #include "types.h"
+#include "pso/misc/TLockOnCursor.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct RecoveredGlobal_8013D7E0_lbl_804A7164 {
+    M2C_UNK value;
+    u8 remaining[0x5C];
+};
+
+extern "C" {
+s32 check_visible__11TMainCursorFPv(void *, int, void *, void *);
+M2C_UNK get_cursor_state__11TMainCursorFv();
+u16 get_target_id__11TMainCursorFPv(void *);
+s32 is_inactive__13TLockOnCursorFPv(TLockOnCursor*);
+M2C_UNK TLockOnCursor__sub_8013EB34();
+M2C_UNK play_sound_with_arg__15TPlyPhotonChairFPvPv(void *, void *);
+M2C_UNK update_parts__15TPlyPhotonChairFPv(void *);
+M2C_UNK update_parts2__15TPlyPhotonChairFPv(void *);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK fn_8023601C(void *, void *, f32);
+M2C_UNK set_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK set_global_param__8TObjFishFi(void *);
+M2C_UNK TObjFish__sub_803E46BC();
+extern u8 lbl_8048E5A0[];
+extern RecoveredGlobal_8013D7E0_lbl_804A7164 lbl_804A7164;
+extern u8 *lbl_805D4DF0;
+extern const f32 TMainCursor__data_805DB0C0;
+}
 
 extern "C" {
 
@@ -74,5 +106,41 @@ void sort_list__11TMainCursorFii(s32 arg0, s32 arg1) {
         quick_sort__11TMainCursorFiiii(temp_r30, TMainCursor__sub_8013F154(temp_r30 + 0x40, 0), 0, temp_r31 - 1);
     }
 }
+}
 
+typedef char RecoveredGlobal_8013D7E0_lbl_804A7164_size[sizeof(RecoveredGlobal_8013D7E0_lbl_804A7164) == 0x60 ? 1 : -1];
+void TLockOnCursor::renderSecondaryCursor(u8 *arg1, s32 arg2, s32 arg3) {
+    const s32 arg0 = (s32)this;
+    f32 sp8[3];
+    f32 temp_f31;
+    s32 temp_r3_2;
+    u32 temp_r3;
+    if (is_inactive__13TLockOnCursorFPv(this) != 0) {
+        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((void *) (get_target_id__11TMainCursorFPv((void *) (this))));
+        if (temp_r3 != 0U) {
+            temp_r3_2 = check_visible__11TMainCursorFPv((void *) (temp_r3 + 0x500), (int) (temp_r3), (void *) (arg2), (void *) (arg3));
+            if (temp_r3_2 != -1) {
+                set_global_param__8TObjFishFi((void *) (&lbl_8048E5A0));
+                temp_f31 = M2C_FIELD(arg1, f32 *, 0xC);
+                TObjPlayer__sub_803D9B2C();
+                fn_8023601C((void *) (arg1 + 0x1C), (void *) (&sp8), (f32) (temp_f31));
+                set_position_vec3__10TObjPlayerFPvPv((int) (0), (void *) (&sp8));
+                TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(lbl_805D4DF0, s32 *, 0x194)));
+                begin_effect_render__13TParticleCtrlFv();
+                TObjPlayer__sub_803D9B2C();
+                TObjPlayer__sub_803D9624((int) (0), (f32) (TMainCursor__data_805DB0C0), (f32) (temp_f31), (f32) (TMainCursor__data_805DB0C0));
+                update_parts2__15TPlyPhotonChairFPv((void *) (arg0 + 0x48));
+                play_sound_with_arg__15TPlyPhotonChairFPvPv((void *) (arg0 + 0x48), (void *) ((u8 *)&lbl_804A7164.value + 0x50));
+                get_cursor_state__11TMainCursorFv();
+                TObjFish__sub_803E46BC();
+                play_sound_with_arg__15TPlyPhotonChairFPvPv((void *) (arg0 + 0x48), (void *) ((u8 *)&lbl_804A7164.value + (temp_r3_2 * 0x10)));
+                TLockOnCursor__sub_8013EB34();
+                TObjFish__sub_803E46BC();
+                update_parts__15TPlyPhotonChairFPv((void *) (arg0 + 0x48));
+                TObjPlayer__sub_803D9B78();
+                end_effect_render__13TParticleCtrlFv();
+                TObjPlayer__sub_803D9B78();
+            }
+        }
+    }
 }
