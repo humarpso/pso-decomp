@@ -21,3 +21,70 @@ s32 get_player_ctrl_field__6TSceneFUs(u16 arg0) {
 }
 
 }
+
+#include "pso/misc/TSceneMaterial.h"
+extern "C" {
+extern SceneMaterialRoot* TScene__data_805D5FCC;
+extern void* TScene__data_805D6004;
+SceneMaterialNode* TScene__sub_80203324(void*,SceneMaterialStatic*);
+SceneMaterialNode* TScene__sub_80203304(void*,SceneMaterialAnimated*);
+s32 TScene__sub_80205D24(void*,SceneMaterialCycle*);
+
+f32 get_random_float__8TObjFishFv(f32);
+void offset_position__6TSceneFPvii(void*,s32,s32);
+void free_children__12TObjDoorJungFPvPv(void*,u16);
+void PPCSync();
+extern const f32 lbl_805DC5D4;
+void TScene__sub_80203640(void* task) {
+    if(!TScene__data_805D6004||!TScene__data_805D5FCC)return;
+    SceneMaterialRoot* root=TScene__data_805D5FCC;
+    for(s32 section=0;section<root->count;++section) {
+        SceneMaterialSection* room=&root->sections[section];
+        for(s32 i=0;i<room->count;++i)room->objects[i].flags&=~0x20000;
+        for(s32 i=0;i<room->animatedCount;++i)room->animated[i].flags&=~0x20000;
+    }
+    for(s32 section=0;section<root->count;++section) {
+        SceneMaterialSection* room=&root->sections[section];
+        for(s32 i=0;i<room->count;++i) {
+            SceneMaterialStatic* object=&room->objects[i];
+            if(object->flags&(0x20000|0x04000000))continue;
+            SceneMaterialNode* node=TScene__sub_80203324(task,object);
+            if(object->flags&0x20) {
+                SceneMaterialUv* uv=object->uv;uv->u+=uv->du;uv->v+=uv->dv;
+                if(get_random_float__8TObjFishFv(uv->u)>=lbl_805DC5D4||get_random_float__8TObjFishFv(uv->v)>=lbl_805DC5D4) {
+                    if(uv->buffer)offset_position__6TSceneFPvii(uv->buffer,(s32)uv->u,(s32)uv->v);
+                    uv->u-=(f32)(s32)uv->u;uv->v-=(f32)(s32)uv->v;
+                }
+            }
+            if(object->flags&0x40) {
+                if(--object->cycle->timer<0) {
+                    ++object->cycle->index;TScene__sub_80205D24(task,object->cycle);
+                    free_children__12TObjDoorJungFPvPv(node->model,object->cycle->texture);
+                    if(object->flags&0x20)object->uv->texture=object->cycle->texture;
+                }
+            }
+            object->flags|=0x20000;
+        }
+        for(s32 i=0;i<room->animatedCount;++i) {
+            SceneMaterialAnimated* object=&room->animated[i];
+            if(object->flags&(0x20000|0x04000000))continue;
+            SceneMaterialNode* node=TScene__sub_80203304(task,object);
+            if(object->flags&0x20) {
+                SceneMaterialUv* uv=object->uv;uv->u+=uv->du;uv->v+=uv->dv;
+                if(uv->u>=lbl_805DC5D4||uv->v>=lbl_805DC5D4) {
+                    if(uv->buffer)offset_position__6TSceneFPvii(uv->buffer,(s32)uv->u,(s32)uv->v);
+                    uv->u-=(f32)(s32)uv->u;uv->v-=(f32)(s32)uv->v;
+                }
+            }
+            if(object->flags&0x40) {
+                if(--object->cycle->timer<0) {
+                    ++object->cycle->index;TScene__sub_80205D24(task,object->cycle);
+                    free_children__12TObjDoorJungFPvPv(node->model,object->cycle->texture);
+                }
+            }
+            object->flags|=0x20000;
+        }
+    }
+    PPCSync();
+}
+}

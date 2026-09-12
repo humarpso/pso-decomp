@@ -42,3 +42,57 @@ void copy_header_and_vec__6TSceneFPvPv(void* p, void* q) { *(u16*)((char*)p + 0x
 void TScene__sub_80205FD0(void) {  }
 
 }
+
+#include "pso/misc/TSceneMaterial.h"
+extern "C" {
+extern SceneMaterialRoot* TScene__data_805D5FCC;
+extern void* TScene__data_805D6004;
+SceneMaterialNode* TScene__sub_80203324(void*,SceneMaterialStatic*);
+SceneMaterialNode* TScene__sub_80203304(void*,SceneMaterialAnimated*);
+s32 TScene__sub_80205D24(void*,SceneMaterialCycle*);
+
+s32 TScene__sub_80205DE4(void*,SceneMaterialUv*);
+void* alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+void* init_buffers__6TSceneFPvii(void*,SceneMaterialNode*,u16);
+void TScene__sub_80206058(void* task) {
+    if(!TScene__data_805D6004||!TScene__data_805D5FCC)return;
+    SceneMaterialRoot* root=TScene__data_805D5FCC;
+    for(s32 section=0;section<root->count;++section) {
+        SceneMaterialSection* room=&root->sections[section];
+        for(s32 i=0;i<room->count;++i) {
+            SceneMaterialStatic* object=&room->objects[i];
+            if(object->flags&0x20) {
+                SceneMaterialUv* uv=object->uv;
+                if(uv->buffer)continue;
+                SceneMaterialUv definition;definition.id=uv->id;
+                if(TScene__sub_80205DE4(task,&definition)==1) {
+                    uv->id=definition.id;uv->texture=definition.texture;
+                    uv->u=definition.u;uv->v=definition.v;uv->du=definition.du;uv->dv=definition.dv;
+                    SceneMaterialNode* node=TScene__sub_80203324(task,object);
+                    void* buffer=alloc__23TAdSinglePlyChrSelectGCFPv(20);
+                    if(buffer)buffer=init_buffers__6TSceneFPvii(buffer,node,uv->texture);
+                    uv->buffer=buffer;
+                } else object->flags&=~0x20;
+            }
+            if((object->flags&0x40)&&!TScene__sub_80205D24(task,object->cycle))object->flags&=~0x40;
+        }
+        for(s32 i=0;i<room->animatedCount;++i) {
+            SceneMaterialAnimated* object=&room->animated[i];
+            if(object->flags&0x20) {
+                SceneMaterialUv* uv=object->uv;
+                if(uv->buffer)continue;
+                SceneMaterialUv definition;definition.id=uv->id;
+                if(TScene__sub_80205DE4(task,&definition)==1) {
+                    uv->id=definition.id;uv->texture=definition.texture;
+                    uv->u=definition.u;uv->v=definition.v;uv->du=definition.du;uv->dv=definition.dv;
+                    SceneMaterialNode* node=TScene__sub_80203304(task,object);
+                    void* buffer=alloc__23TAdSinglePlyChrSelectGCFPv(20);
+                    if(buffer)buffer=init_buffers__6TSceneFPvii(buffer,node,uv->texture);
+                    uv->buffer=buffer;
+                } else object->flags&=~0x20;
+            }
+            if((object->flags&0x40)&&!TScene__sub_80205D24(task,object->cycle))object->flags&=~0x40;
+        }
+    }
+}
+}

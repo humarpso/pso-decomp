@@ -42,6 +42,79 @@ s32 test_aabb_overlap__10TObjPlayerFPvPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2, u8 *a
     return (u32) __cntlzw(M2C_FIELD(arg0, f32 *, 8) > M2C_FIELD(arg3, f32 *, 8)) >> 5;
 }
 
+#pragma push
+#pragma fp_contract off
+struct CollisionPoint { f32 x,y,z; };
+struct CollisionSphere { CollisionPoint center; f32 radius; };
+extern const s32 lbl_8047E498[6][4],lbl_8047E4F8[6][4];
+extern const f32 lbl_805E1000,lbl_805E1018,lbl_805E101C;
+extern const f64 lbl_805E1008,lbl_805E1010;
+static inline CollisionPoint collisionSubtract(CollisionPoint a,CollisionPoint b) {
+    CollisionPoint r={a.x-b.x,a.y-b.y,a.z-b.z};return r;
+}
+static inline f32 collisionDot(CollisionPoint a,CollisionPoint b) {
+    return a.z*b.z+(a.x*b.x+a.y*b.y);
+}
+static inline f32 collisionRoot(f32 squared) {
+    if(squared>lbl_805E1000) {
+        f64 inverse=__frsqrte(squared);
+        inverse=(lbl_805E1008*inverse)*(lbl_805E1010-squared*(inverse*inverse));
+        inverse=(lbl_805E1008*inverse)*(lbl_805E1010-squared*(inverse*inverse));
+        inverse=(lbl_805E1008*inverse)*(lbl_805E1010-squared*(inverse*inverse));
+        return (f32)(squared*inverse);
+    }
+    return squared;
+}
+static inline CollisionPoint collisionScale(CollisionPoint a,f32 scale) {
+    CollisionPoint r={a.x*scale,a.y*scale,a.z*scale};return r;
+}
+static inline CollisionPoint collisionProject(CollisionPoint a,CollisionPoint v,f32 scale) {
+    CollisionPoint r={a.x+v.x*scale,a.y+v.y*scale,a.z+v.z*scale};return r;
+}
+static inline int collisionNormalEquals(CollisionPoint a,CollisionPoint b) {
+    return (f32)__fabs(a.x-b.x)<=lbl_805E101C && (f32)__fabs(a.y-b.y)<=lbl_805E101C && (f32)__fabs(a.z-b.z)<=lbl_805E101C;
+}
+static inline CollisionPoint collisionNormalize(CollisionPoint p) {
+    return collisionScale(p,lbl_805E1018/collisionRoot(collisionDot(p,p)));
+}
+s32 TObjPlayer__sub_803E112C(CollisionPoint* box,CollisionSphere* sphere) {
+    CollisionPoint lo=box[0],hi=box[0];
+    for(int i=1;i<8;++i) {
+        if(box[i].x<lo.x)lo.x=box[i].x;if(box[i].y<lo.y)lo.y=box[i].y;if(box[i].z<lo.z)lo.z=box[i].z;
+        if(box[i].x>hi.x)hi.x=box[i].x;if(box[i].y>hi.y)hi.y=box[i].y;if(box[i].z>hi.z)hi.z=box[i].z;
+    }
+    CollisionPoint c=sphere->center;f32 radius=sphere->radius;
+    if(hi.x<c.x-radius||lo.x>c.x+radius||hi.y<c.y-radius||lo.y>c.y+radius||hi.z<c.z-radius||lo.z>c.z+radius)return 0;
+    CollisionPoint normals[6];
+    for(int i=0;i<6;++i) {
+        const s32* f=lbl_8047E498[i];
+        CollisionPoint a=collisionSubtract(box[f[1]],box[f[0]]),b=collisionSubtract(box[f[2]],box[f[0]]);
+        CollisionPoint n={-(a.y*b.z-a.z*b.y),-(a.z*b.x-a.x*b.z),-(a.x*b.y-a.y*b.x)};
+        normals[i]=collisionNormalize(n);
+    }
+    int inside=1;
+    for(int i=0;i<6;++i) {
+        const s32* f=lbl_8047E498[i];CollisionPoint n=normals[i];
+        f32 t=-(-collisionDot(n,box[f[0]])+collisionDot(c,n))/collisionDot(n,n);
+        CollisionPoint projected=collisionProject(c,n,t),delta=collisionSubtract(projected,c);
+        f32 distance=collisionRoot(collisionDot(delta,delta));
+        int faceHit=1;
+        for(int j=0;j<4;++j) {
+            CollisionPoint a=box[f[j]],edge=collisionSubtract(a,box[f[(j+1)%4]]);
+            f32 fraction=collisionDot(edge,collisionSubtract(projected,a))/collisionDot(edge,edge);
+            CollisionPoint foot=collisionProject(a,edge,fraction),edgeDelta=collisionSubtract(foot,projected);
+            if(collisionNormalEquals(normals[lbl_8047E4F8[i][j]],collisionNormalize(edgeDelta))&&radius>=distance) {}
+            else if(distance<=radius&&collisionDot(edgeDelta,edgeDelta)<=radius*radius-distance*distance) {}
+            else faceHit=0;
+        }
+        if(faceHit)return 1;
+        if(!collisionNormalEquals(n,collisionNormalize(delta)))inside=0;
+    }
+    return inside;
+}
+
+#pragma pop
+
 void calc_bounds__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
     M2C_FIELD(arg1, f32 *, 0) = (f32) (M2C_FIELD(arg0, f32 *, 0) - M2C_FIELD(arg0, f32 *, 0xC));
     M2C_FIELD(arg1, f32 *, 4) = (f32) (M2C_FIELD(arg0, f32 *, 4) - M2C_FIELD(arg0, f32 *, 0xC));

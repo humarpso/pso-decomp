@@ -8,45 +8,33 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_80229100_TSwitch__data_80515CC8 {
-    M2C_UNK value;
-    u8 remaining[0x23C];
-};
-
-struct RecoveredGlobal_8022942C_TSwitch__data_80515CC8 {
-    M2C_UNK value;
-    u8 remaining[0x23C];
-};
-
-struct RecoveredGlobal_8022945C_TSwitch__data_80515CC8 {
-    M2C_UNK value;
-    u8 remaining[0x23C];
-};
-
 extern "C" {
 void TSwitch__sub_802292E0(s32 arg0);
-void TSwitch__sub_80229258(void* p, s16 v);
+void TSwitch__sub_80229258(u32 id, s16 floor);
 s16 TObjPlayer__sub_800196EC();
-void TSwitch__sub_80229258(void* p, s16 v);
+void TSwitch__sub_80229258(u32 id, s16 floor);
 void TSwitch__sub_802292E0(s32 arg0);
 void TSwitch__sub_802293A0(s32 arg0);
-void TSwitch__sub_80229318(void* p, s16 v);
+void TSwitch__sub_80229318(u32 id, s16 floor);
 s16 TObjPlayer__sub_800196EC();
-void TSwitch__sub_80229318(void* p, s16 v);
+void TSwitch__sub_80229318(u32 id, s16 floor);
 void TSwitch__sub_802293A0(s32 arg0);
 void TODoorAncient08__sub_80229220(s32 arg0);
-u8 TSwitch__sub_802291F4(void* p = 0, s16 v = 0);
+u8 TSwitch__sub_802291F4(u32 id, s16 floor);
 s16 TObjPlayer__sub_800196EC();
 void TODoorAncient08__sub_80229220(s32 arg0);
 M2C_UNK memcpy(void *, void *, void *);
-extern RecoveredGlobal_80229100_TSwitch__data_80515CC8 TSwitch__data_80515CC8;
+extern u8 TSwitch__data_80515CC8[18][32];
 void TSwitch__sub_80229100(s32 arg0, s32 arg1);
 M2C_UNK memset(void *, int, int);
-extern RecoveredGlobal_80229100_TSwitch__data_80515CC8 TSwitch__data_80515CC8;
+extern u8 TSwitch__data_80515CC8[18][32];
 void TSwitch__sub_8022942C(void);
 M2C_UNK memset(void *, int, int);
-extern RecoveredGlobal_80229100_TSwitch__data_80515CC8 TSwitch__data_80515CC8;
+extern u8 TSwitch__data_80515CC8[18][32];
 void TSwitch__sub_8022945C(void);
+extern u8 TSwitch__data_80515CC8[18][32];
+M2C_UNK memcpy(void *, void *, void *);
+u32 copy_switch_table(void* destination);
 }
 
 extern "C" {
@@ -54,19 +42,29 @@ extern "C" {
 void *__ct__7TSwitchFv(void *arg0);
 void render__7TSwitchFv(void);
 void run_task__7TSwitchFv(void);
-s32 TSwitch__sub_80229164();
+s32 TSwitch__sub_80229164(u32 id,s16 floor);
 void __ct__7TObjectFP7TObject(void *);
 
 void render__7TSwitchFv(void) {  }
 void run_task__7TSwitchFv(void) {  }
 
-typedef char RecoveredGlobal_80229100_TSwitch__data_80515CC8_size[sizeof(RecoveredGlobal_80229100_TSwitch__data_80515CC8) == 0x240 ? 1 : -1];
 void TSwitch__sub_80229100(s32 arg0, s32 arg1) {
-    memcpy((void *) (&TSwitch__data_80515CC8.value), (void *) (arg0), (void *) (arg1));
+    memcpy((void *) TSwitch__data_80515CC8, (void *) (arg0), (void *) (arg1));
 }
 
-u8 TSwitch__sub_802291F4(void* _w0, s16 _w1) {
-    return (u8) (TSwitch__sub_80229164() != 0);
+u32 copy_switch_table(void* destination) {
+    memcpy((void *)(destination), (void *)(TSwitch__data_80515CC8), (void *)(0x240));
+    return 0x240;
+}
+
+s32 TSwitch__sub_80229164(u32 id,s16 floor) {
+    id=(u16)id;
+    if(floor<0||floor>17||id>255)return -1;
+    return (TSwitch__data_80515CC8[floor][id/8]>>(7-id%8))&1;
+}
+
+u8 TSwitch__sub_802291F4(u32 id, s16 floor) {
+    return (u8) (TSwitch__sub_80229164(id,floor) != 0);
 }
 
 extern M2C_UNK __vt__7TSwitch[];
@@ -78,17 +76,29 @@ extern "C" {
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 void TODoorAncient08__sub_80229220(s32 arg0) {
-    TSwitch__sub_802291F4((void*)((void*)((void *) (arg0))), (s16)((s16)((int) (TObjPlayer__sub_800196EC()))));
+    TSwitch__sub_802291F4((u32)arg0, (s16)((s16)((int) (TObjPlayer__sub_800196EC()))));
+}
+
+void TSwitch__sub_80229258(u32 id,s16 floor) {
+    id=(u16)id;
+    if(floor<0||floor>17||id>255)return;
+    TSwitch__data_80515CC8[floor][id/8]&=~(1<<(7-id%8));
 }
 
 void TSwitch__sub_802292E0(s32 arg0) {
-    TSwitch__sub_80229258((void*)((void *) (arg0)), (s16)((int) (TObjPlayer__sub_800196EC())));
+    TSwitch__sub_80229258((u32)arg0, (s16)((int) (TObjPlayer__sub_800196EC())));
 }
 }
 
 extern "C" {
+void TSwitch__sub_80229318(u32 id,s16 floor) {
+    id=(u16)id;
+    if(floor<0||floor>17||id>255)return;
+    TSwitch__data_80515CC8[floor][id/8]|=1<<(7-id%8);
+}
+
 void TSwitch__sub_802293A0(s32 arg0) {
-    TSwitch__sub_80229318((void*)((void *) (arg0)), (s16)((int) (TObjPlayer__sub_800196EC())));
+    TSwitch__sub_80229318((u32)arg0, (s16)((int) (TObjPlayer__sub_800196EC())));
 }
 }
 
@@ -101,13 +111,11 @@ void *__ct__7TSwitchFv(void *arg0) {
     M2C_FIELD(arg0, u32 *, 0x24) = 0;
     return arg0;
 }
-typedef char RecoveredGlobal_8022942C_TSwitch__data_80515CC8_size[sizeof(RecoveredGlobal_8022942C_TSwitch__data_80515CC8) == 0x240 ? 1 : -1];
 void TSwitch__sub_8022942C(void) {
-    memset((void *) (&(*(RecoveredGlobal_8022942C_TSwitch__data_80515CC8 *)&TSwitch__data_80515CC8).value), (int) (0), (int) (0x240));
+    memset((void *) TSwitch__data_80515CC8, (int) (0), (int) (0x240));
 }
-typedef char RecoveredGlobal_8022945C_TSwitch__data_80515CC8_size[sizeof(RecoveredGlobal_8022945C_TSwitch__data_80515CC8) == 0x240 ? 1 : -1];
 void TSwitch__sub_8022945C(void) {
-    memset((void *) (&(*(RecoveredGlobal_8022945C_TSwitch__data_80515CC8 *)&TSwitch__data_80515CC8).value), (int) (0), (int) (0x240));
+    memset((void *) TSwitch__data_80515CC8, (int) (0), (int) (0x240));
 }
 
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjDoor.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -7,8 +8,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void TObjDoor__sub_8018E8BC(void);
 f32 TBoss8Dragon__sub_803D64C0(s32);
-extern f32 lbl_805DBDD0;
-extern f32 lbl_805DBDD4;
+extern const f32 lbl_805DBDD0;
+extern const f32 lbl_805DBDD4;
 void update_anim__8TObjDoorFPv(void *arg0);
 f32 fn_801315A0(void *, void *);
 M2C_UNK TParticleCtrl__sub_803D8D1C(int, void *, void *);
@@ -41,6 +42,22 @@ void TObjDoor__sub_8018E894(u8 *arg0);
 
 extern "C" {
 
+struct DoorMotionHeader { void* rows; u32 frameCount; };
+extern const f32 lbl_805DBDC8,lbl_805DBDCC;
+
+void VecCopy__FP3VecPC3Vec(f32*,const f32*);
+void TCameraCtrl__sub_80069C94(f32*,f32*);
+void TCameraCtrl__sub_80069DA8();
+s32 TCameraCtrl__sub_80069E7C(s32);
+void clear_player_status_flag__10TObjPlayerFPviUi(TObjDoor*,s32,u32);
+void set_indexed_flags(TObjDoor*,s32,u32);
+s32 fn_8018E258(TObjDoor*,s32,f32);
+void TOTrapAncient01__sub_80226578(s32,TObjDoor*,f32*,s32,s32);
+u8 TODoorAncient08__sub_80229220(u16);
+extern DoorMotionHeader* TObjDoor__data_8050DC78[];
+extern s32 TObjDoor__data_805D5BC8;
+extern const f32 TObjDoor__data_805DBDC4,lbl_805DBDD8,lbl_805DBDE8,lbl_805DBDEC,lbl_805DBDF0;
+
 void TObjDoor__sub_8018E890(void);
 void update_timer__8TObjDoorFPv(void *arg0);
 M2C_UNK TObjDoor__sub_8018E5F4();
@@ -67,12 +84,26 @@ void TObjDoor__sub_8018E894(u8 *arg0) {
 #pragma pop
 
 void TObjDoor__sub_8018E8BC(void) {  }
+void TObjDoor__sub_8018E8C0(TObjDoor* door) {
+    door->frame+=lbl_805DBDC8;
+    if(door->frame>(f32)(TObjDoor__data_8050DC78[0]->frameCount-1))door->frame=TObjDoor__data_805DBDC4;
+    door->glow+=lbl_805DBDC0;
+    if(door->glow>lbl_805DBDCC)door->glow=lbl_805DBDCC;
+}
+
 #pragma push
 #pragma fp_contract on
 void update_anim__8TObjDoorFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0xC8) = (s32) (M2C_FIELD(arg0, s32 *, 0xC8) + 0x300);
     M2C_FIELD(arg0, f32 *, 0xC4) = lbl_805DBDD4 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0xC8)) + lbl_805DBDD0;
 }
+void TObjDoor__sub_8018E98C(TObjDoor* door) {
+    door->accentFrame+=lbl_805DBDD8;
+    if(door->accentFrame>(f32)(TObjDoor__data_8050DC78[1]->frameCount-1))door->accentFrame=TObjDoor__data_805DBDC4;
+    door->phase+=0x300;
+    door->glow=lbl_805DBDD4*TBoss8Dragon__sub_803D64C0(door->phase)+lbl_805DBDD0;
+}
+
 #pragma push
 #pragma fp_contract on
 s32 TObjDoor__sub_8018EA2C(s32 arg0, f32 farg0, f32 farg1) {
@@ -92,6 +123,56 @@ s32 TObjDoor__sub_8018EA2C(s32 arg0, f32 farg0, f32 farg1) {
     return 0;
 }
 #pragma pop
+
+void TObjDoor__sub_8018EC84(TObjDoor* door) {
+    f32 target[3],position[3];
+    switch(door->state) {
+    case 0:
+        if(TODoorAncient08__sub_80229220((u16)door->switchId)==1) {
+            if(TObjDoor__data_805D5BC8==0)door->accentFrame=TObjDoor__data_805DBDC4;
+            if(door->cameraMode==0)door->state=2;
+            else door->state=1;
+        }
+        set_indexed_flags(door,0,1);return;
+    case 1:
+        if(door->cameraMode==1 && TCameraCtrl__sub_80069E7C(9)!=0) {
+            VecCopy__FP3VecPC3Vec(target,door->position);
+            VecCopy__FP3VecPC3Vec(position,door->cameraPosition);
+            TCameraCtrl__sub_80069C94(position,target);door->cameraMode=2;
+        }
+        if(door->cameraMode==2) {
+            s32 ticks=door->cameraTicks-1;door->cameraTicks=ticks;
+            if(ticks==0) {TCameraCtrl__sub_80069DA8();door->state=2;return;}
+        }
+        if(door->cameraTicks>60) {
+            door->accentFrame+=lbl_805DBDD8;
+            if(door->accentFrame>(f32)(TObjDoor__data_8050DC78[1]->frameCount-1))door->accentFrame=TObjDoor__data_805DBDC4;
+        }
+        return;
+    case 2:
+        set_indexed_flags(door,0,1);
+        if(fn_8018E258(door,0,lbl_805DBDE8)!=0) {
+            door->frame=TObjDoor__data_805DBDC4;door->state=4;clear_player_status_flag__10TObjPlayerFPviUi(door,0,1);
+        }
+        break;
+    case 4:
+        TOTrapAncient01__sub_80226578(0x49e08,door,door->position,0,0);
+        door->frame+=lbl_805DBDEC;
+        if(door->frame>(f32)(TObjDoor__data_8050DC78[0]->frameCount-1)) {
+            door->frame=(f32)(TObjDoor__data_8050DC78[0]->frameCount-1);door->state=5;
+        }
+        break;
+    case 3:
+        TOTrapAncient01__sub_80226578(0x49e08,door,door->position,0,0);
+        door->frame-=lbl_805DBDEC;
+        if(door->frame<TObjDoor__data_805DBDC4) {door->frame=TObjDoor__data_805DBDC4;door->state=2;}
+        break;
+    case 5:
+        clear_player_status_flag__10TObjPlayerFPviUi(door,0,1);
+        if(fn_8018E258(door,1,lbl_805DBDF0)!=0) {door->state=3;set_indexed_flags(door,0,1);}
+        break;
+    }
+}
 
 void *__dt__8TObjDoorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
