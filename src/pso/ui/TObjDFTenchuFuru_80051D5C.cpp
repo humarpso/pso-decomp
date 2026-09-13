@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/CharacterAppearance.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -9,7 +10,6 @@ extern "C" {
 M2C_UNK render__16TObjDFTenchuFuruFPv(u32);
 M2C_UNK sync_player_globals__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_80052390(f32);
-M2C_UNK TCharaMaking__sub_8028DD18(u32, s32, M2C_UNK, f32);
 M2C_UNK clear_flag_bit0__12TCharaMakingFv();
 M2C_UNK enable_making__12TCharaMakingFv();
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -54,7 +54,7 @@ void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u3
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(lbl_804FF228);
             set_global_param__8TObjFishFi(arg1);
-            TCharaMaking__sub_8028DD18(arg5, arg7, 0, farg0);
+            TCharaMaking__draw_colored_hair(farg0, (s32)arg5, (CharacterAppearanceFields *)arg7, 0);
             TObjPlayer__sub_803D9B78();
             clear_flag_bit0__12TCharaMakingFv();
         }

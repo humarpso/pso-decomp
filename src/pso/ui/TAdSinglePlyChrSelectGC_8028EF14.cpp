@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/CharacterAppearance.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -19,6 +20,14 @@ s32 TAdSinglePlyChrSelectGC__sub_8028FBCC(u8 *arg0);
 void TAdSinglePlyChrSelectGC__sub_802905A4(void* p, void* q);
 extern RecoveredGlobal_8029057C_lbl_804D3F74 lbl_804D3F74;
 void TAdSinglePlyChrSelectGC__sub_8029057C(s32 arg0);
+extern CreationHeadModelStates lbl_8051C0E8;
+extern CreationHeadModelStates lbl_8051C110[7];
+extern void ***lbl_805D6550;
+void TAdSinglePlyChrSelectGC__sub_802904F0();
+void clear_next_entry__10TObjPlayerFiPv(void *,void *);
+extern CreationBodyModelStates lbl_8051C228;
+extern CreationBodyModelStates lbl_8051C430[7];
+void TAdSinglePlyChrSelectGC__sub_80290464();
 }
 
 extern "C" {
@@ -113,6 +122,24 @@ void free_field_FC__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
 }
 
 typedef char RecoveredGlobal_8029057C_lbl_804D3F74_size[sizeof(RecoveredGlobal_8029057C_lbl_804D3F74) == 0x38 ? 1 : -1];
+
+void TCharaMaking__bind_head_shape_nodes(CharacterAppearanceFields *appearance, void *model) {
+    TAdSinglePlyChrSelectGC__sub_802904F0();
+    clear_next_entry__10TObjPlayerFiPv(model, &lbl_8051C0E8);
+    s32 head = appearance->head + 1;
+    for (s32 i = 0; i < 7; ++i) {
+        clear_next_entry__10TObjPlayerFiPv(lbl_805D6550[head][i], &lbl_8051C110[i]);
+    }
+}
+
+void TCharaMaking__bind_body_shape_nodes(CharacterAppearanceFields *appearance, void *model) {
+    TAdSinglePlyChrSelectGC__sub_80290464();
+    clear_next_entry__10TObjPlayerFiPv(model, &lbl_8051C228);
+    for (s32 i = 0; i < 7; ++i) {
+        clear_next_entry__10TObjPlayerFiPv(lbl_805D6550[0][i], &lbl_8051C430[i]);
+    }
+}
+
 void TAdSinglePlyChrSelectGC__sub_8029057C(s32 arg0) {
     TAdSinglePlyChrSelectGC__sub_802905A4((void*)((void *) (arg0)), (void*)((void *) (&lbl_804D3F74.value)));
 }
