@@ -31,11 +31,32 @@ extern const f32 lbl_805DD968;
 extern const f32 lbl_805DD96C;
 extern const f32 lbl_805DD970;
 void fn_802911E8(f32 farg0);
+extern u8 lbl_804D9578[];
+extern s32 lbl_805D656C;
+void TCharaMaking__resolve_creation_sprite_table(u8 **table, s32 *id);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_80291138_lbl_804D9668_size[sizeof(RecoveredGlobal_80291138_lbl_804D9668) == 0x12DC ? 1 : -1];
+
+void TCharaMaking__resolve_creation_sprite_table(u8 **table, s32 *id) {
+  s32 index = *id;
+  u8 *base = lbl_804D9578;
+  if ((*id) < 143)
+  {
+    *table = base + 0xf8;
+    return;
+  }
+  *id = (*id) - 143;
+  if (lbl_805D656C == 0)
+  {
+    *table = base + 0xc24;
+    return;
+  }
+  *table = base + 0xff8;
+}
+
 void fn_80291138(void) {
     if ((u32) lbl_805D6568 != 0U) {
         queue_destruction__7TObjectFv((void *) (lbl_805D6568));

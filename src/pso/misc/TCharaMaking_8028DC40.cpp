@@ -23,7 +23,7 @@ void update_body_parts__12TCharaMakingFPv(u8 *arg0);
 f32 TCharaMaking__sub_8028DCCC(void *);
 M2C_UNK TCharaMaking__sub_8028DD18(M2C_UNK, M2C_UNK, f32, M2C_UNK);
 M2C_UNK TCharaMaking__sub_8028DF98(void *);
-M2C_UNK TCharaMaking__sub_8028E2B8(void *, void *, void *, void *);
+M2C_UNK TCharaMaking__bind_appearance_texture_lists(void *, void *, void *, void *);
 M2C_UNK TLobby__sub_803DA16C(void *);
 s32 TObjCMMainMenu__sub_8028EBCC(void*);
 M2C_UNK create__12TChCrLoadReqFPv(void *);
@@ -77,7 +77,7 @@ void free_loaded_buffers__12TCharaMakingFPv(u8 *arg0) {
 void update_body_parts__12TCharaMakingFPv(u8 *arg0) {
     TCharaMaking__sub_8028DF98(arg0 + 0x85C);
     M2C_FIELD(arg0, f32 *, 0xD48) = TCharaMaking__sub_8028DCCC(arg0 + 0x85C);
-    TCharaMaking__sub_8028E2B8(arg0 + 0x8B8, arg0 + 0xA24, arg0 + 0xB90, arg0 + 0x85C);
+    TCharaMaking__bind_appearance_texture_lists(arg0 + 0x8B8, arg0 + 0xA24, arg0 + 0xB90, arg0 + 0x85C);
     create__12TChCrLoadReqFPv(arg0);
 }
 

@@ -15,7 +15,7 @@ struct Stack_80290E28 {
 extern "C" {
 s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 s32 draw_ui_sprite_scaled(f32, f32, void *, void *, void *);
-s32 fn_802910EC(void *, void *);
+s32 TCharaMaking__resolve_creation_sprite_table(void *, void *);
 void fn_80290E28(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
 }
 
@@ -32,7 +32,7 @@ void fn_80290E28(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
     u8 *temp_r6;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (&stack.sp10), (void *) (arg1));
     stack.sp8 = arg0;
-    fn_802910EC((void *) (&stack.spC), (void *) (&stack.sp8));
+    TCharaMaking__resolve_creation_sprite_table((void *) (&stack.spC), (void *) (&stack.sp8));
     temp_r6 = (u8 *)(stack.spC + (stack.sp8 * 0x14));
     stack.sp10 += (f32) M2C_FIELD(temp_r6, s16 *, 4);
     stack.sp14 += (f32) M2C_FIELD(temp_r6, s16 *, 6);

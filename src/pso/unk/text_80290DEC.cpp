@@ -4,7 +4,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-M2C_UNK fn_802910EC(void *, void *);
+M2C_UNK TCharaMaking__resolve_creation_sprite_table(void *, void *);
 s16 TObjCMMainMenu__sub_80290DEC(s32 arg0);
 }
 
@@ -14,7 +14,7 @@ s16 TObjCMMainMenu__sub_80290DEC(s32 arg0) {
     s32 spC;
     s32 sp8;
     sp8 = arg0;
-    fn_802910EC((void *) (&spC), (void *) (&sp8));
+    TCharaMaking__resolve_creation_sprite_table((void *) (&spC), (void *) (&sp8));
     return M2C_FIELD((spC + (sp8 * 0x14)), s16 *, 0);
 }
 
