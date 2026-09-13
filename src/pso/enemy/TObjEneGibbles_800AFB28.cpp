@@ -10,6 +10,15 @@ struct VObj800AFB60_800AFB28 : VBase800AFB60_800AFB28 {
     virtual s32 m8(f32, f32);
 };
 
+#include "pso/enemy/TObjEneMoja.h"
+struct MojaResourceEntry {u8 unknown[8];void* model;void* textures;};
+
+struct MojaResources {u8 unknown[0x42C];MojaResourceEntry* models;};
+
+extern "C" {
+extern MojaResources* lbl_805D50D8;
+}
+
 extern "C" {
 
 struct BaseB0_800AFB28 { char pad[0x18]; };
@@ -141,6 +150,11 @@ f32 get_pos_x__14TObjEneGibblesFPv(void* p) { return *(f32*)((char*)p + 0x10); }
 
 extern const f32 lbl_805D9C68;
 extern const f32 TObjEneBm3Fly__data_805D9C6C;
+
+void TObjEneMoja::bindModel(int index) {
+    model=lbl_805D50D8->models[index].model;
+    textures=lbl_805D50D8->models[index].textures;
+}
 
 void TObjEneBm3Fly__vt104(u8 *arg0) {
     if (((VObj800AFB60_800AFB28 *) arg0)->m8(lbl_805D9C68, TObjEneBm3Fly__data_805D9C6C) != 0) {

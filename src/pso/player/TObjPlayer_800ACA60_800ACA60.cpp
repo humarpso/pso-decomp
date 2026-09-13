@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 void set_param__12TObjEneLappyFPvi(void *, s32);
-M2C_UNK TObjPlayer__sub_800AFB30(void *, int);
+M2C_UNK bindModel__11TObjEneMojaFi(void *, int);
 extern const f32 lbl_805D9BE0;
 void TObjPlayer__sub_800ACAA8(u8 *arg0);
 s32 TObjEneDellBiter__sub_80087350(s32, s32);
@@ -38,19 +38,19 @@ void TObjPlayer__sub_800ACAA8(u8 *arg0) {
     if (temp_r0 >= 1) {
         M2C_FIELD(arg0, s32 *, 0x368) = 1;
         set_param__12TObjEneLappyFPvi(arg0, 2);
-        TObjPlayer__sub_800AFB30((void *) (arg0), (int) (2));
+        bindModel__11TObjEneMojaFi((void *) (arg0), (int) (2));
         return;
     }
     if (temp_r0 <= 0) {
         if (calc_boss4_scale__10TObjPlayerFi((s32) arg0) < lbl_805D9BE0) {
             M2C_FIELD(arg0, s32 *, 0x368) = 1;
             set_param__12TObjEneLappyFPvi(arg0, 2);
-            TObjPlayer__sub_800AFB30((void *) (arg0), (int) (2));
+            bindModel__11TObjEneMojaFi((void *) (arg0), (int) (2));
             return;
         }
         M2C_FIELD(arg0, s32 *, 0x368) = 0;
         set_param__12TObjEneLappyFPvi(arg0, 1);
-        TObjPlayer__sub_800AFB30((void *) (arg0), (int) (1));
+        bindModel__11TObjEneMojaFi((void *) (arg0), (int) (1));
     }
 }
 void TObjPlayer__sub_800ACD00(u8 *arg0) {

@@ -1,40 +1,45 @@
 #ifndef PSO_ENEMY_TOBJENEMOJA_H
 #define PSO_ENEMY_TOBJENEMOJA_H
-
 #include "types.h"
 
-struct TObjEneMoja
-{
-    u8 _pad1C[0x14];
-    u32 m_30;
-    u8 _pad34[0x84];
-    s16 m_b8;
-    u8 _padBA[0x1E];
-    u32 m_d8;
-    u32 m_dc;
-    u8 _padE0[0x246];
-    u16 m_326;
-    u16 m_328;
-    u8 _pad32A[0x2];
-    s16 m_32c;
-    u8 _pad32E[0x6];
-    u32 m_334;
-    u8 _pad338[0x2];
-    s16 m_33a;
-    u16 m_33c;
-    u16 m_33e;
-    u8 _pad340[0x10];
-    u32 m_350;
-    u8 _pad354[0x14];
-    u32 m_368;
-    u8 _pad36C[0x10];
-    u32 m_37c;
-    u32 m_380;
-    u32 m_384;
-    u32 m_388;
-    u8 _pad38C[0xC];
-    u32 m_398;
-    void* m_39c;
+struct MojaBattleStat {
+    u8 unknown_00[0x18];
+    s32 techniqueLevel;
 };
-
+struct TObjEneMoja {
+    void bindModel(int index);
+    u8 unknown_00[0x24];
+    void* textures;
+    u8 unknown_28[0xC];
+    void* model;
+    u8 unknown_38[0x278];
+    MojaBattleStat* battleStat;
+    u8 unknown_2B4[0x72];
+    s16 mode;
+    s16 phase;
+    u8 unknown_32A[0xA];
+    s32 localControl;
+    u16 targetId;
+    s16 resetTimer;
+    s16 timer;
+    s16 referenceHp;
+    u8 unknown_340[0x14];
+    f32 authoredAppearance;
+    f32 authoredTechniqueChance;
+    f32 authoredJumpChance;
+    u8 unknown_360[8];
+    s32 rare;
+    u8 unknown_36C[8];
+    s32 appearance;
+    f32 jumpSpeed;
+    s32 unused_37C;
+    s32 attack;
+    s32 attackSequence;
+    s32 roar;
+    f32 sinkOffset;
+    f32 techniqueChance;
+    f32 jumpChance;
+    u8 unknown_398[0x74];
+};
+typedef char MojaSize[(sizeof(TObjEneMoja)==0x40C)?1:-1];
 #endif
