@@ -14,15 +14,20 @@ struct RecoveredGlobal_800B2948_lbl_80500B00 {
     u8 remaining[0x3C];
 };
 
+struct NestAttachmentPoint { f32 x,y,z; };
+
 extern "C" {
-void get_camera_ctrl__9TObjEneDDFPv(s32, s32);
-M2C_UNK TObjEneBm3FlyNest__sub_800B29B8(void *);
 extern RecoveredGlobal_800B2948_lbl_8043B2A4 lbl_8043B2A4;
 extern RecoveredGlobal_800B2948_lbl_80500B00 lbl_80500B00;
 extern s32 lbl_805D510C;
 extern s32 lbl_805D5114;
 extern s32 lbl_805D5118;
 void TObjEneBm3FlyNest__sub_800B2948(s32 arg0);
+extern RecoveredGlobal_800B2948_lbl_80500B00 lbl_80500B00;
+extern s32 lbl_805D510C;
+extern NestAttachmentPoint *lbl_805D5110;
+extern void get_camera_ctrl__9TObjEneDDFPv(s32, s32);
+void capture_attachment__17TObjEneBm3FlyNestFv(void * _w0);
 }
 
 extern "C" {
@@ -77,7 +82,16 @@ void TObjEneBm3FlyNest__sub_800B2948(s32 arg0) {
         lbl_805D5114 = temp_r4 + 0xC;
         get_camera_ctrl__9TObjEneDDFPv((s32) &lbl_80500B00.value, temp_r4);
     }
-    TObjEneBm3FlyNest__sub_800B29B8((void *) (arg0));
+    capture_attachment__17TObjEneBm3FlyNestFv((void *)((void *) (arg0)));
+}
+
+void capture_attachment__17TObjEneBm3FlyNestFv(void * _w0) {
+    switch (lbl_805D510C) {
+    case 36: case 45:
+        get_camera_ctrl__9TObjEneDDFPv((s32)(&lbl_80500B00), (s32)(lbl_805D5110++));
+        break;
+    }
+    ++lbl_805D510C;
 }
 
 int init__17TObjEneBm3FlyNestFPv(void* p) { return init_params__17TObjEneBm3FlyNestFPv(p); }
