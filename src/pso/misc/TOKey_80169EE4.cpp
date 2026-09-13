@@ -23,6 +23,15 @@ struct VObj_8016A0E0_80169EE4 : Base_8016A0E0_80169EE4 {
     virtual void m24(); virtual void m25(void *);
 };
 
+struct SwitchPacket {u8 code,words;u16 object,zero,reserved,switchId;u8 area,flags;};
+
+extern "C" {
+void init_6x05_switch_changed__6TLobbyFPv(void*);
+void finalize_and_send_60__6TLobbyFPv(void*);
+s32 TObjPlayer__sub_800196EC();
+void send_switch_on__5TOKeyFv(void* key);
+}
+
 extern "C" {
 
 void TOKey__sub_80169FB0(void* p);
@@ -149,6 +158,17 @@ void trigger_camera_pan__5TOKeyFPvi(u8 *arg0, s32 arg1) {
 }
 
 extern s8 lbl_8050E208[];
+
+void send_switch_on__5TOKeyFv(void* key) {
+    SwitchPacket packet;
+    init_6x05_switch_changed__6TLobbyFPv(&packet);
+    packet.object=*(u16*)((u8*)key+0x1c);
+    packet.zero=0;
+    packet.switchId=*(s32*)((u8*)key+0xc8);
+    packet.area=((s8)TObjPlayer__sub_800196EC());
+    packet.flags=1;
+    finalize_and_send_60__6TLobbyFPv(&packet);
+}
 
 s32 is_confirm_pressed__5TOKeyFPv(void *arg0) {
     s32 temp_r0;
