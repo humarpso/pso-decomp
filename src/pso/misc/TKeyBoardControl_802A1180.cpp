@@ -47,7 +47,7 @@ M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
 M2C_UNK TKeyBoardControl__sub_801A66B8();
 M2C_UNK TLobby__sub_801E2F44(M2C_UNK, M2C_UNK, M2C_UNK);
 u32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK fn_802A1324();
+M2C_UNK create_opening_movie_sequence();
 M2C_UNK free_keyboard_soft_resources__6TLobbyFv();
 M2C_UNK render_tick__Fv();
 M2C_UNK update_keyboard_menu__6TLobbyFv();
@@ -106,7 +106,7 @@ void update_menu_scene__16TKeyBoardControlFv(void) {
     }
     lbl_805D6638 = 0;
     if (__nw__7TObjectFUl(0x24) != 0U) {
-        fn_802A1324();
+        create_opening_movie_sequence();
     }
     render_tick__Fv();
 }

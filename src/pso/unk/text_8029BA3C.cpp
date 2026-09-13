@@ -12,12 +12,12 @@ extern const f32 lbl_805DDCF8;
 extern const f32 lbl_805DDCFC;
 extern const f32 lbl_805DDD00;
 extern const f32 lbl_805DDD04;
-void fn_8029BA3C(u8 *arg0, s32 arg1, s32 arg2);
+void draw_character_background_frame(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
 
-void fn_8029BA3C(u8 *arg0, s32 arg1, s32 arg2) {
+void draw_character_background_frame(u8 *arg0, s32 arg1, s32 arg2) {
   f32 buffer_8[8];
   TWindowSubStatusDisp__sub_803DEE6C((int) 1);
   set_global_param__8TObjFishFi((void *) lbl_805D65C0);

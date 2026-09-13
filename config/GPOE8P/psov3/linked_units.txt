@@ -1004,6 +1004,7 @@ pso/misc/TMovie_80143C94.cpp
 pso/misc/TMovie_80143CA4.cpp
 pso/misc/TMovie_80143CC8.cpp
 pso/misc/TMovie_80143CE8.cpp
+pso/misc/TMovie_80143DF0.cpp
 pso/misc/TMovie_80143E90.cpp
 pso/misc/TMovie_80143ECC.cpp
 pso/misc/TMovie_80143EFC.cpp
@@ -2942,6 +2943,7 @@ pso/unk/text_8029EE2C.cpp
 pso/unk/text_802A0A30.cpp
 pso/unk/text_802A1144.cpp
 pso/unk/text_802A1154.cpp
+pso/unk/text_802A1324.cpp
 pso/unk/text_802A3138.cpp
 pso/unk/text_802A4D74.cpp
 pso/unk/text_802AA8FC_802AABEC.cpp
