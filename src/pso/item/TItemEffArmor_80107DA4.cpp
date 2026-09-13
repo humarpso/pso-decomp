@@ -40,7 +40,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjDoor__sub_803DC894(int, int, f32);
-M2C_UNK TObjPlayer__sub_803DED84(void *);
+M2C_UNK set_chunk_material_color(void *);
 extern RecoveredGlobal_80107DF0_lbl_8050BEC0 lbl_8050BEC0;
 extern RecoveredGlobal_80107DF0_lbl_8058D4C0 lbl_8058D4C0;
 extern s32 lbl_805D5660;
@@ -72,7 +72,7 @@ void render__13TItemEffArmorFv(u8 *arg0) {
     lbl_805D5660 = some_id_805c6f74;
     some_id_805c6f74 |= 0x10;
     copy_vec4__13TRaderMapCoreFPvPv(&lbl_8050BEC0.value, &lbl_8058D4C0.value);
-    TObjPlayer__sub_803DED84((void *) ((u8 *)(arg0) + 0x38));
+    set_chunk_material_color((void *) ((u8 *)(arg0) + 0x38));
     notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, u32 *, 0x78));
     TObjDoor__sub_803DC894((int) (M2C_FIELD(arg0, s32 *, 0x70)), (int) (M2C_FIELD(arg0, s32 *, 0x74)), (f32) (M2C_FIELD(arg0, f32 *, 0x24)));
     copy_vec4__13TRaderMapCoreFPvPv(&lbl_8058D4C0.value, &lbl_8050BEC0.value);

@@ -31,7 +31,7 @@ s32 TObjPlayer__sub_800196EC();
 M2C_UNK TObjPlayer__sub_801B130C(s32);
 s32 TObjPlayer__sub_801C5C38(s32);
 s32 TObjPlayer__sub_801C6F90();
-int TObjPlayer__sub_803DED84(void*);
+int set_chunk_material_color(void*);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 int clear_flags__11TAdRicoRingFPvUi(void*, void*);
 M2C_UNK clear_target_lock_flag__10TObjPlayerFPv(s32);
@@ -39,7 +39,7 @@ s32 fn_801C6F2C(void *);
 s32 fn_8020C354(s32, s32);
 s32 get_stat_by_key_state__10TObjPlayerFPv(s32);
 int set_flags__10TObjPlayerFPvUi(void*, void*);
-int set_global_pair__10TObjPlayerFii(void*, void*);
+int set_chunk_material_override_pair(void*, void*);
 s32 set_lock_flag__10TObjPlayerFPv(s32);
 int set_lock_timer__10TObjPlayerFPvi(void*, void*);
 int set_some_id__FUl(void*);
@@ -59,7 +59,7 @@ void enter_battle_state__10TObjPlayerFPv(void *arg0) {
     extern const float lbl_805DC320;
 void TObjPlayer__sub_801C5B18(void* a0) { *(float*)((char*)a0 + 0x1c) = lbl_805DC320; }
 
-void write_ids__10TObjPlayerFPv(void* p) { set_some_id__FUl(*(void**)((char*)p + 0x0)); set_global_pair__10TObjPlayerFii(*(void**)((char*)p + 0x4), *(void**)((char*)p + 0x8)); TObjPlayer__sub_803DED84((char*)p + 0xc); }
+void write_ids__10TObjPlayerFPv(void* p) { set_some_id__FUl(*(void**)((char*)p + 0x0)); set_chunk_material_override_pair(*(void**)((char*)p + 0x4), *(void**)((char*)p + 0x8)); set_chunk_material_color((char*)p + 0xc); }
 
     extern const float lbl_805DC320;
 

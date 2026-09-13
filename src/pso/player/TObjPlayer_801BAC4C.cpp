@@ -41,7 +41,7 @@ s32 TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK set_global_param__8TObjFishFi(void *);
 s32 set_some_id__FUl(int);
-s32 set_global_pair__10TObjPlayerFii(int, int);
+s32 set_chunk_material_override_pair(int, int);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
 extern s32 some_id_805c6f74;
@@ -111,7 +111,7 @@ void TObjPlayer__sub_801BAD60(u8 *arg0, s32 arg1) {
     TObjPlayer__sub_801B4C34((void *) (arg0));
     if (M2C_FIELD(arg0, u16 *, 4) & 0x400) {
         some_id_805c6f74 |= 0x810;
-        set_global_pair__10TObjPlayerFii((int) (-1), (int) (0x800));
+        set_chunk_material_override_pair((int) (-1), (int) (0x800));
         TObjPlayer__sub_801415BC();
     }
     set_global_param__8TObjFishFi((void *) (arg0 + 0xCF4));

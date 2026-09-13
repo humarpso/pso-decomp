@@ -17,8 +17,8 @@ extern const f32 TBoss6PlotFalz__data_805DE09C;
 extern const f32 lbl_805DE0C0;
 extern const f32 lbl_805DE0C4;
 void TBoss6PlotFalz__sub_802AC008(f32 farg0, f32 farg1);
-M2C_UNK set_global_pair__10TObjPlayerFii(int, int, int, void *, void *, int);
-M2C_UNK TObjPlayer__sub_803DED84(void *, f32, f32, f32, f32);
+M2C_UNK set_chunk_material_override_pair(int, int, int, void *, void *, int);
+M2C_UNK set_chunk_material_color(void *, f32, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803E38FC(int);
 extern f32 TBoss6PlotFalz__data_805D3E54;
 extern s32 lbl_805D5660;
@@ -95,7 +95,7 @@ void TBoss6PlotFalz__sub_802AC040(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
         lbl_805D5664 = lbl_805D7784;
         lbl_805D5668 = lbl_805D7780;
         some_id_805c6f74 = temp_r5 | lbl_805DE0C8;
-        set_global_pair__10TObjPlayerFii((int) (0), (int) (0x800), (int) (temp_r5), (void *) (lbl_805D7780), (void *) (lbl_805D7784), (int) (temp_r8));
+        set_chunk_material_override_pair((int) (0), (int) (0x800), (int) (temp_r5), (void *) (lbl_805D7780), (void *) (lbl_805D7784), (int) (temp_r8));
         TObjPlayer__sub_803E38FC((int) (0x2500));
         stack.sp8 = TBoss6PlotFalz__data_805DE09C;
         temp_f2 = -((TBoss6PlotFalz__data_805D3E54 * (TBoss6PlotFalz__data_805DE09C - farg1)) - TBoss6PlotFalz__data_805DE09C);
@@ -103,7 +103,7 @@ void TBoss6PlotFalz__sub_802AC040(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
         stack.spC = temp_f2;
         stack.sp10 = temp_f1;
         stack.sp14 = -((TBoss6PlotFalz__data_805D3E54 * (TBoss6PlotFalz__data_805DE09C - farg3)) - TBoss6PlotFalz__data_805DE09C);
-        TObjPlayer__sub_803DED84((void *) (&stack.sp8), (f32) (temp_f1), (f32) (temp_f2), (f32) (TBoss6PlotFalz__data_805DE09C), (f32) (TBoss6PlotFalz__data_805D3E54));
+        set_chunk_material_color((void *) (&stack.sp8), (f32) (temp_f1), (f32) (temp_f2), (f32) (TBoss6PlotFalz__data_805DE09C), (f32) (TBoss6PlotFalz__data_805D3E54));
     }
 }
 #pragma pop

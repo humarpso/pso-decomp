@@ -8,15 +8,15 @@ extern "C" {
 
 s32 advance_toward_max__10TObjPlayerFPv(void *arg0);
 void set_flags_and_apply_damage_color__10TObjPlayerFv(void);
-M2C_UNK TObjPlayer__sub_803DED84();
-M2C_UNK set_global_pair__10TObjPlayerFii(M2C_UNK, M2C_UNK);
+M2C_UNK set_chunk_material_color();
+M2C_UNK set_chunk_material_override_pair(M2C_UNK, M2C_UNK);
 
 extern s32 some_id_805c6f74;
 
 void set_flags_and_apply_damage_color__10TObjPlayerFv(void) {
     some_id_805c6f74 |= 0x8820;
-    TObjPlayer__sub_803DED84();
-    set_global_pair__10TObjPlayerFii(0xFF00, 0x800);
+    set_chunk_material_color();
+    set_chunk_material_override_pair(0xFF00, 0x800);
 }
 
 extern f32 lbl_805DA3DC;

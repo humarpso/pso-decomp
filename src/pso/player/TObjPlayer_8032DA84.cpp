@@ -37,7 +37,7 @@ M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(int);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
-M2C_UNK TObjPlayer__sub_803DED84(int);
+M2C_UNK set_chunk_material_color(int);
 extern RecoveredGlobal_8032DC94_lbl_8050BEC0 lbl_8050BEC0;
 extern RecoveredGlobal_8032DC94_lbl_8058D4C0 lbl_8058D4C0;
 extern s32 lbl_805D5660;
@@ -166,7 +166,7 @@ void TObjPlayer__sub_8032DC94(u8 *arg0) {
         copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8050BEC0.value), (void *) (&lbl_8058D4C0.value));
         var_r3 = (M2C_UNK *) (var_r29 + 0x80);
         some_id_805c6f74 |= 0x20;
-        TObjPlayer__sub_803DED84((int) var_r3);
+        set_chunk_material_color((int) var_r3);
         var_r3 = (M2C_UNK *) var_r31;
         get_entity_id__10TObjPlayerFPv((int) var_r3);
         notify_fish_if_valid__10TObjPlayerFUi();

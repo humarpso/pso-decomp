@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 f32 get_mag_scale_f__10TObjPlayerFPv(void *);
 M2C_UNK reset_transform_state__10TObjPlayerFv();
-M2C_UNK set_global_pair__10TObjPlayerFii(int, int);
-M2C_UNK TObjPlayer__sub_803DED84(void *);
+M2C_UNK set_chunk_material_override_pair(int, int);
+M2C_UNK set_chunk_material_color(void *);
 extern s32 some_id_805c6f74;
 extern f32 TObjPlayer__data_805DC294;
 void TObjPlayer__sub_801B4C34(s32 arg0);
@@ -44,8 +44,8 @@ void TObjPlayer__sub_801B4C34(s32 arg0) {
     if (!(get_mag_scale_f__10TObjPlayerFPv((void *) (arg0 + 0x608)) >= TObjPlayer__data_805DC294)) {
         reset_transform_state__10TObjPlayerFv();
         some_id_805c6f74 |= 0x810;
-        set_global_pair__10TObjPlayerFii((int) (-1), (int) (0x800));
-        TObjPlayer__sub_803DED84((void *) (arg0 + 0x624));
+        set_chunk_material_override_pair((int) (-1), (int) (0x800));
+        set_chunk_material_color((void *) (arg0 + 0x624));
     }
 }
 

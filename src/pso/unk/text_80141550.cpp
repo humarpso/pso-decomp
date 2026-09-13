@@ -12,7 +12,7 @@ struct Stack_801415BC {
 };
 
 extern "C" {
-M2C_UNK TObjPlayer__sub_803DED84(void *, f32);
+M2C_UNK set_chunk_material_color(void *, f32);
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DB150;
 extern const f32 lbl_805DB154;
@@ -35,7 +35,7 @@ void TObjPlayer__sub_801415BC(void) {
     stack.sp10 = lbl_805DB150;
     stack.sp14 = lbl_805DB150;
     stack.sp8 = lbl_805DB154;
-    TObjPlayer__sub_803DED84((void *) (&stack.sp8), (f32) (lbl_805DB150));
+    set_chunk_material_color((void *) (&stack.sp8), (f32) (lbl_805DB150));
     some_id_805c6f74 |= 0x400;
 }
 

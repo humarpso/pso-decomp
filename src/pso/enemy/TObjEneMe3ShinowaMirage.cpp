@@ -382,14 +382,14 @@ M2C_UNK TBoss8Dragon__sub_800B9958(void *, int);
 int TObjEneDD__sub_800BBA18(void*, int);
 void *TObjEneMe3ShinowaMirage__ct(void *, void *, void *, void *, void *);
 s32 TObjEneMe3ShinowaReal__sub_800E45CC(int, int);
-M2C_UNK TObjPlayer__sub_803DED84(s32);
+M2C_UNK set_chunk_material_color(s32);
 s32 TPhotonMylla__sub_80154CB4(int);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__17TObjEneMe3ShinowaFv(void *, int);
 void *__nw__7TObjectFUl(int);
 M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
-M2C_UNK set_global_pair__10TObjPlayerFii(M2C_UNK, M2C_UNK);
+M2C_UNK set_chunk_material_override_pair(M2C_UNK, M2C_UNK);
 
 void render__23TObjEneMe3ShinowaMirageFv(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x3C4) & 0x100)) {
@@ -410,8 +410,8 @@ extern s32 some_id_805c6f74;
 
 s32 TObjEneMe3ShinowaMirage__vt107(s32 arg0) {
     some_id_805c6f74 |= 0x820;
-    TObjPlayer__sub_803DED84(arg0 + 0x430);
-    set_global_pair__10TObjPlayerFii(0xFF00, 0x800);
+    set_chunk_material_color(arg0 + 0x430);
+    set_chunk_material_override_pair(0xFF00, 0x800);
     return 0;
 }
 

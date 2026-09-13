@@ -14,8 +14,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 void play_phase_transition_sound__10TObjPlayerFi(s32);
-void set_global_pair__10TObjPlayerFii(s32, s32);
-void TObjPlayer__sub_803DED84(void *);
+void set_chunk_material_override_pair(s32, s32);
+void set_chunk_material_color(void *);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -59,13 +59,13 @@ void TObjPlayer__sub_802E0468(long long arg1, u8 *arg2, f32 farg0) {
   new_var = 1;
   if (farg0 < lbl_805DE8A8)
   {
-    set_global_pair__10TObjPlayerFii(-new_var, 0x800);
+    set_chunk_material_override_pair(-new_var, 0x800);
   }
   stack.sp8 = farg0;
   stack.spC = lbl_805DE8AC * ((f32) (*((s16 *) (((s8 *) arg2) + 0x42))));
   stack.sp10 = lbl_805DE8AC * ((f32) (*((s16 *) (((s8 *) arg2) + 0x44))));
   stack.sp14 = lbl_805DE8AC * ((f32) (*((s16 *) (((s8 *) arg2) + 0x46))));
-  TObjPlayer__sub_803DED84(&stack.sp8);
+  set_chunk_material_color(&stack.sp8);
   play_phase_transition_sound__10TObjPlayerFi(arg1);
   lbl_805D7784 = lbl_805D5664;
   lbl_805D7780 = lbl_805D5668;

@@ -17,7 +17,7 @@ M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 void* __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK set_global_pair__10TObjPlayerFii(int, int, void *, void *);
+M2C_UNK set_chunk_material_override_pair(int, int, void *, void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 
 void TObjBoss1Floor__sub_8002CB40(void) {  }
@@ -52,7 +52,7 @@ void render_boss_effect_object(u8 *arg0) {
         lbl_805D5664 = lbl_805D7784;
         lbl_805D5668 = lbl_805D7780;
         some_id_805c6f74 |= 0x800;
-        set_global_pair__10TObjPlayerFii((int) (0xFF00), (int) (0x100), (void *) (lbl_805D7780), (void *) (lbl_805D7784));
+        set_chunk_material_override_pair((int) (0xFF00), (int) (0x100), (void *) (lbl_805D7780), (void *) (lbl_805D7784));
         TObjFish__sub_803E46BC((void *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), s32 *, 0x38)));
         lbl_805D7784 = lbl_805D5664;
         lbl_805D7780 = lbl_805D5668;

@@ -13,7 +13,7 @@ extern "C" {
 void TBoss5GryphonLightningEff__sub_80325064(void* p);
 void render__25TBoss5GryphonLightningEffFv(void *arg0);
 s32 TBoss5GryphonLightningEff__sub_80325070(void *, void *);
-M2C_UNK TObjPlayer__sub_803DED84(void *);
+M2C_UNK set_chunk_material_color(void *);
 M2C_UNK TTecZondeEff__sub_8023CED4(void *, void *, void *, void *, void *);
 M2C_UNK TTecZondeEff__sub_8023D128(void *, void *, void *, void *);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -52,7 +52,7 @@ void render__25TBoss5GryphonLightningEffFv(void *arg0) {
     }
     reset_transform_state__10TObjPlayerFv();
     end_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803DED84(lbl_804A7418);
+    set_chunk_material_color(lbl_804A7418);
     some_id_805c6f74 = lbl_805D5660;
     fn_80141A30();
 }

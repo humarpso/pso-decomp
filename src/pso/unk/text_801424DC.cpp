@@ -12,8 +12,8 @@ struct Stack_801424DC {
 
 extern "C" {
 void TPlyPhotonChair__sub_801426C0(s32, s32);
-void set_global_pair__10TObjPlayerFii(s32, s32);
-M2C_UNK TObjPlayer__sub_803DED84(void *);
+void set_chunk_material_override_pair(s32, s32);
+M2C_UNK set_chunk_material_color(void *);
 void fn_801424DC(s32 arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3);
 }
 
@@ -26,8 +26,8 @@ void fn_801424DC(s32 arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
     stack.sp10 = farg2;
     stack.sp14 = farg3;
     TPlyPhotonChair__sub_801426C0(arg0, 0x810);
-    set_global_pair__10TObjPlayerFii(-1, 0x800);
-    TObjPlayer__sub_803DED84((void *) (&stack.sp8));
+    set_chunk_material_override_pair(-1, 0x800);
+    set_chunk_material_color((void *) (&stack.sp8));
 }
 
 }

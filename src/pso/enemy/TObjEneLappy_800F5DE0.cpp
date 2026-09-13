@@ -17,7 +17,7 @@ s32 obj_testFlags30(void *, s32);
 void clear_shadow_flag__10TObjPlayerFPv(void *);
 void set_shadow_flag__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801415BC(void);
-void set_global_pair__10TObjPlayerFii(s32, s32);
+void set_chunk_material_override_pair(s32, s32);
 extern s32 some_id_805c6f74;
 void TObjPlayer__sub_800F5E08(u8 *arg0);
 }
@@ -36,7 +36,7 @@ void TObjPlayer__sub_800F5E08(u8 *arg0) {
     if (obj_testFlags30(arg0, 0x800) == 0) {
         set_shadow_flag__10TObjPlayerFPv(arg0);
         some_id_805c6f74 |= 0xC10;
-        set_global_pair__10TObjPlayerFii(-1, 0x800);
+        set_chunk_material_override_pair(-1, 0x800);
         TObjPlayer__sub_801415BC();
         ((VObj_18_2f517b *)(arg0))->m2();
         clear_shadow_flag__10TObjPlayerFPv(arg0);

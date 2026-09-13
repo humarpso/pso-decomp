@@ -74,12 +74,12 @@ void play_sound__15TPlyPhotonChairFPv(void* p);
 void play_sound_with_arg__15TPlyPhotonChairFPvPv(void* p, void* a1);
 void update_parts2__15TPlyPhotonChairFPv(void* p);
 void update_parts__15TPlyPhotonChairFPv(void* p);
-int TObjPlayer__sub_803DED84(void*);
-int set_global_pair__10TObjPlayerFii(void*, void*);
+int set_chunk_material_color(void*);
+int set_chunk_material_override_pair(void*, void*);
 
-void play_sound_with_arg__15TPlyPhotonChairFPvPv(void* p, void* a1) { TPlyPhotonChair__sub_801426C0((s32)(p), (s32)((void*)2064)); set_global_pair__10TObjPlayerFii((void*)-1, (void*)2048); TObjPlayer__sub_803DED84(a1); }
+void play_sound_with_arg__15TPlyPhotonChairFPvPv(void* p, void* a1) { TPlyPhotonChair__sub_801426C0((s32)(p), (s32)((void*)2064)); set_chunk_material_override_pair((void*)-1, (void*)2048); set_chunk_material_color(a1); }
 
-void play_sound__15TPlyPhotonChairFPv(void* p) { TPlyPhotonChair__sub_801426C0((s32)(p), (s32)((void*)2064)); set_global_pair__10TObjPlayerFii((void*)-1, (void*)2048); TObjPlayer__sub_803DED84(p); }
+void play_sound__15TPlyPhotonChairFPv(void* p) { TPlyPhotonChair__sub_801426C0((s32)(p), (s32)((void*)2064)); set_chunk_material_override_pair((void*)-1, (void*)2048); set_chunk_material_color(p); }
 
 void update_parts__15TPlyPhotonChairFPv(void* p) { TPlyPhotonChair__sub_8014270C((s32)(p)); TPlyPhotonChair__sub_801426DC((s32)(p)); restore_state__15TPlyPhotonChairFv((s32)(p)); }
 
