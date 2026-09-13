@@ -59,6 +59,16 @@ s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(s32);
 extern RecoveredGlobal_802D4570_lbl_80472510 lbl_80472510;
 extern RecoveredGlobal_802D4730_lbl_8050E208 lbl_8050E208;
 void TAdSinglePlyChrSelectGC__sub_802D4570(u8 *arg0);
+M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
+M2C_UNK TKeyBoardControl__sub_8000F9CC(M2C_UNK);
+M2C_UNK request_transition__21TAdMultiChgGameModeGCFv();
+M2C_UNK set_game_mode_changed__21TAdMultiChgGameModeGCFv();
+void TWindow__close(void *);
+void set_opening_movie_purpose(s32);
+int close__17TWindowSubComCardFPv(void *);
+int get_data__23TAdSinglePlyChrSelectGCFv(void);
+extern const f32 lbl_805DE780;
+void finish_character_selection_transition(void *arg0);
 }
 
 extern "C" {
@@ -102,6 +112,50 @@ s32 create_chr_warp__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1) {
     TWindowSubComCard__sub_80265F60(var_r31);
     TWindowSubComCard__sub_80265C30(var_r31);
     return var_r31;
+}
+
+void finish_character_selection_transition(void *arg0) {
+    s32 temp_r0;
+    s32 temp_r4;
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) {
+        TWindow__close(M2C_FIELD(arg0, void **, 0x38));
+        M2C_FIELD(arg0, u32 *, 0x38) = 0U;
+    }
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x44) != 0U) {
+        close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x44));
+        M2C_FIELD(arg0, u32 *, 0x44) = 0U;
+    }
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x4C) != 0U) {
+        close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x4C));
+        M2C_FIELD(arg0, u32 *, 0x4C) = 0U;
+    }
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x50) != 0U) {
+        close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x50));
+        M2C_FIELD(arg0, u32 *, 0x50) = 0U;
+    }
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0x1C) + 1;
+    M2C_FIELD(arg0, s32 *, 0x1C) = temp_r4;
+    if ((f32) temp_r4 > lbl_805DE780) {
+        temp_r0 = M2C_FIELD(arg0, s32 *, 0x5C);
+        switch (temp_r0) {
+        case 0:
+            if (((s32)get_data__23TAdSinglePlyChrSelectGCFv()) == 0) {
+                request_transition__21TAdMultiChgGameModeGCFv();
+                return;
+            }
+            TKeyBoardControl__sub_8000F91C(0xE);
+            set_game_mode_changed__21TAdMultiChgGameModeGCFv();
+            return;
+        case 1:
+            TKeyBoardControl__sub_8000F9CC(5);
+            return;
+        case 2: break;
+        case 3:
+            set_opening_movie_purpose(1);
+            TKeyBoardControl__sub_8000F9CC(3);
+            break;
+        }
+    }
 }
 
 void TAdSinglePlyChrSelectGC__sub_802D3D5C(u8 *arg0) {

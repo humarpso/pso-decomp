@@ -341,7 +341,7 @@ M2C_UNK fn_801449E4();
 M2C_UNK fn_801449F0();
 s32 check_reset_button__16TKeyBoardControlFv();
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, M2C_UNK);
-s8 fn_802A1144();
+s8 get_opening_movie_purpose();
 s8 func_801A5E54__Fv();
 
 extern s8 lbl_8050E208[];
@@ -361,7 +361,7 @@ s32 check_skip_input__6TMovieFPv(void *arg0) {
         }
         goto block_return0;
     }
-    temp_r3 = fn_802A1144();
+    temp_r3 = get_opening_movie_purpose();
     switch (temp_r3) {
     case 0:
         var_r31 = lbl_8050E3B8 + 0x20;

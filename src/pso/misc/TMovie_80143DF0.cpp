@@ -11,7 +11,7 @@ extern s8 lbl_8043F30C[];
 extern s8 lbl_8043F31C[];
 extern s8 lbl_8043F330[];
 s32 fn_801449DC();
-s8 fn_802A1144();
+s8 get_opening_movie_purpose();
 u8 *initialize_movie_with_soundtrack(u8 *arg0, s8 *arg1, s32 arg2, s32 arg3, s32 arg4);
 }
 
@@ -24,7 +24,7 @@ u8 *initialize_movie_with_soundtrack(u8 *arg0, s8 *arg1, s32 arg2, s32 arg3, s32
     TMovie__sub_80143FB0(arg0, arg3, arg4);
     if (arg3 != 0) {
         TObjBgmColCtrl__sub_802274B8(lbl_8043F30C);
-    } else if ((fn_802A1144() == 0) && (fn_801449DC() == 1)) {
+    } else if ((get_opening_movie_purpose() == 0) && (fn_801449DC() == 1)) {
         TObjBgmColCtrl__sub_802274B8(lbl_8043F31C);
     } else {
         TObjBgmColCtrl__sub_802274B8(lbl_8043F330);
