@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TFontSmallTask.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -6,6 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 f32 get_view_scale__11TCameraCtrlFv(void);
+void allow_rendering__7TObjectFv(TObject*);
+void disallow_rendering__7TObjectFv(TObject*);
+void queue_destruction__7TObjectFv(TObject*);
+extern const f32 lbl_805DAA30;
 extern const f64 lbl_8043DAE0;
 extern const f32 lbl_805DAA00;
 extern const f32 lbl_805DAA04;
@@ -42,6 +47,28 @@ f32 TFontSmallTask__sub_800FCCFC(void) {
     }
     return lbl_805DAA04 / temp_f1;
 }
+
+}
+
+void TFontSmallTask::run_task() {
+    switch (active) {
+    case 0:
+        if (--delay < 0) {
+            active = 1;
+            allow_rendering__7TObjectFv(this);
+        }
+        break;
+    default:
+        offset_y += lbl_805DAA30;
+        if (++age >= lifetime) {
+            disallow_rendering__7TObjectFv(this);
+            queue_destruction__7TObjectFv(this);
+        }
+        break;
+    }
+}
+
+extern "C" {
 
 s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, M2C_UNK *arg4, s32 arg5, s32 arg6) {
     s32 var_r31;
