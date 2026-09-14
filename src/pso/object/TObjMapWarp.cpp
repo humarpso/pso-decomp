@@ -38,6 +38,7 @@ struct RecoveredGlobal_8019D818_lbl_8050E208 {
     u8 remaining[0x1AC];
 };
 
+#include "pso/object/TObjMapWarp.h"
 extern "C" {
 u8 TWindowShortListCtrl__check_controller_button(void *, int);
 extern RecoveredGlobal_8019D850_lbl_8050E208 lbl_8050E208;
@@ -143,6 +144,10 @@ void TObjMapWarp__sub_8019D644(s32 arg0, u16 arg1) {
     }
 }
 #pragma pop
+
+void TObjMapWarp::closeAllPlayerWindows() {
+    for(s32 slot=0;slot<4;++slot)closePlayerWindow((u16)slot);
+}
 
 void *__dt__11TObjMapWarpFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
