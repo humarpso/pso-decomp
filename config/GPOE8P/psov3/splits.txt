@@ -13351,7 +13351,7 @@ pso/misc/TLobby_8028EA28.cpp:
 pso/object/TObjCMMainMenu_8028EA88.cpp:
 	.text       start:0x8028EA88 end:0x8028EC40
 
-pso/unk/text_8028EC40.cpp:
+pso/misc/CreationMotion.cpp:
 	.text       start:0x8028EC40 end:0x8028EC70
 
 pso/unk/text_8028EC70.cpp:
@@ -13403,7 +13403,7 @@ pso/unk/text_80291290.cpp:
 pso/unk/text_802914B8.cpp:
 	.text       start:0x802914B8 end:0x80291538
 
-pso/unk/text_80291538.cpp:
+pso/camera/CreationCamera.cpp:
 	.text       start:0x80291538 end:0x802918B8
 
 pso/unk/text_802918B8.cpp:

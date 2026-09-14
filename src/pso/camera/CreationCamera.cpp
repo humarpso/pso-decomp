@@ -9,6 +9,8 @@ struct RecoveredGlobal_802916D4_lbl_804DAA18 {
     u8 remaining[0x5C];
 };
 
+#include "pso/camera/CreationCamera.h"
+
 extern "C" {
 s32 TObjCMProportion__sub_8029916C(M2C_UNK);
 extern s32 lbl_805D6570;
@@ -23,6 +25,10 @@ extern const f32 lbl_805DD978;
 extern const f32 lbl_805DD99C;
 extern const f32 lbl_805DD9A0;
 void fn_802916D4(u8 *arg0);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern s32 lbl_805D6570;
+extern const f32 lbl_805DD96C,lbl_805DD978,lbl_805DD998;
+void advance_creation_review_camera(CreationCameraFields* camera);
 }
 
 extern "C" {
@@ -72,6 +78,17 @@ void fn_80291538(void *arg0) {
 #pragma opt_common_subs off
 #pragma fp_contract on
 typedef char RecoveredGlobal_802916D4_lbl_804DAA18_size[sizeof(RecoveredGlobal_802916D4_lbl_804DAA18) == 0x60 ? 1 : -1];
+
+#pragma push
+#pragma fp_contract on
+void advance_creation_review_camera(CreationCameraFields* camera) {
+ if(--camera->ticks<=0) {camera->ticks=0;lbl_805D6570=3;return;}
+ const f32 weight=lbl_805DD96C*(lbl_805DD978+TBoss8Dragon__sub_803D64DC((camera->ticks<<15)/120));
+ const f32 start=camera->startDistance;
+ camera->distance=weight*(lbl_805DD998-start)+start;
+}
+#pragma pop
+
 void fn_802916D4(u8 *arg0) {
     f32 temp_f2;
     s32 temp_r7;

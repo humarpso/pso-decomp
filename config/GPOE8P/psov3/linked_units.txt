@@ -615,6 +615,7 @@ pso/menu/TAdEndText_803A2C8C.cpp
 pso/menu/TAdRicoRing_8001BEE8.cpp
 pso/menu/TObjTagChallenge_80074B44.cpp
 pso/menu/TObjTagChallenge_80074B88.cpp
+pso/misc/CreationMotion.cpp
 pso/misc/TBGLightningCtrl_802A9C8C.cpp
 pso/misc/TBGLightningCtrl_802A9CD8.cpp
 pso/misc/TBGLightningCtrl_802A9D14.cpp
