@@ -13406,8 +13406,9 @@ pso/unk/text_802914B8.cpp:
 pso/camera/CreationCamera.cpp:
 	.text       start:0x80291538 end:0x802918B8
 
-pso/unk/text_802918B8.cpp:
+pso/camera/CreationManualCamera.cpp:
 	.text       start:0x802918B8 end:0x80291B80
+	.rodata     start:0x80464E38 end:0x80464E40
 
 pso/misc/TCameraCtrl_80291B80.cpp:
 	.text       start:0x80291B80 end:0x80291D94
@@ -13611,6 +13612,7 @@ pso/unk/text_8029A97C.cpp:
 
 pso/misc/TChCrEffTag.cpp:
 	.text       start:0x8029AA34 end:0x8029AC44
+	.rodata     start:0x804652D8 end:0x804652E0
 
 pso/misc/TChCrEffTag_8029AC44.cpp:
 	.text       start:0x8029AC44 end:0x8029ACA8

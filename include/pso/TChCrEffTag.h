@@ -5,6 +5,10 @@
 
 class TChCrEffTag : public TObject {
 public:
+    virtual void run_task();
+    s32 heading;
+    f32 width,targetWidth;
+    TObject* label;
     virtual ~TChCrEffTag();
 };
 

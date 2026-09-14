@@ -1,7 +1,5 @@
 #include "pso/TChCrEffTag.h"
 
-TChCrEffTag::~TChCrEffTag() {}
-
 #include "types.h"
 
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -60,3 +58,64 @@ void TChCrEffTag__sub_8029AA74(u8 *arg0) {
 }
 
 }
+
+extern "C" {
+s32 TObjCMMainMenu__sub_80290DEC(int);
+extern const f32 lbl_805DDC98,lbl_805DDC9C,lbl_805DDCA0,lbl_805DDCA4,lbl_805DDCA8;
+}
+#pragma push
+#pragma fp_contract on
+void TChCrEffTag::run_task()
+{
+  f32 temp_f0;
+  f32 temp_f0_2;
+  f32 temp_f1;
+  f32 temp_f2;
+  f32 temp_f3;
+  s32 temp_r0;
+  if (((s32) heading) != ((s32) TChCrEffTag__data_805D3D0C))
+  {
+    TChCrEffTag__sub_8029AA74((u8*)this);
+  }
+  temp_r0 = heading;
+  if (temp_r0 >= 0)
+  {
+    targetWidth = (f32) (lbl_805DDC98 + ((f32) TObjCMMainMenu__sub_80290DEC((int) ((s32*)&lbl_804652A4)[temp_r0])));
+  }
+  width = width;
+  temp_f2 = width;
+  temp_f3 = targetWidth;
+  temp_f0 = lbl_805DDC9C + temp_f2;
+  if (temp_f0 < temp_f3)
+  {
+    width = temp_f0;
+  }
+  else
+  {
+    temp_f0_2 = temp_f2 - lbl_805DDC9C;
+    if (temp_f0_2 > temp_f3)
+    {
+      width = temp_f0_2;
+    }
+    else
+    {
+      width = (f32) ((lbl_805DDCA0 * (temp_f3 - temp_f2)) + temp_f2);
+    }
+  }
+  temp_f1 = width;
+  if (temp_f1 < lbl_805DDCA4)
+  {
+    width = (f32) lbl_805DDCA4;
+    return;
+  }
+  if ((temp_f3 && temp_f3) && temp_f3)
+  {
+  }
+  if (temp_f1 > lbl_805DDCA8)
+  {
+    width = (f32) lbl_805DDCA8;
+  }
+}
+#pragma pop
+
+TChCrEffTag::~TChCrEffTag() {}
