@@ -1,13 +1,14 @@
 #ifndef PSO_OBJECT_TOBJCMPROPORTION_H
 #define PSO_OBJECT_TOBJCMPROPORTION_H
-
-#include "types.h"
-
-struct TObjCMProportion
-{
-    u32 m_1c;
-    u32 m_20;
-    u32 m_24;
+#include "pso/TObject.h"
+#include "pso/misc/CharacterAppearance.h"
+class TObjCMProportion : public TObject {
+public:
+    CharacterAppearanceFields* appearance;
+    s32 initialized,active;
+    f32 fade;
+    virtual ~TObjCMProportion();
+    virtual void run_task();
+    virtual void render();
 };
-
 #endif
