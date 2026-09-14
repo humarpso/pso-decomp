@@ -75,6 +75,7 @@ force_active:
   - free_item_pmt
   - init__18TObjAreaWarpForestFPvPvPv
   - init_default_fields__6TLobbyFPv
+  - initialize__16TItemWeaponRifleFlPUc
   - initialize__21TItemProArmorParticleFPvPvPvPvPv
   - is_target_in_range__11TObjInfoColFf
   - load_item_pmt

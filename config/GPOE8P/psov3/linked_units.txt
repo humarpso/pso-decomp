@@ -2702,6 +2702,7 @@ pso/unk/text_8012B524.cpp
 pso/unk/text_8012BCD4.cpp
 pso/unk/text_8012BEFC.cpp
 pso/unk/text_8012C0D0.cpp
+pso/unk/text_8012C268.cpp
 pso/unk/text_8012C8F8.cpp
 pso/unk/text_8012CB2C.cpp
 pso/unk/text_8012CE44.cpp
