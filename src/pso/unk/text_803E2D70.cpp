@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/ChunkMaterialState.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -6,6 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 #pragma scheduling off
 #pragma scheduling off
+
+struct FloatColor { f32 a, r, g, b; };
+
+struct ByteColor { u8 r, g, b, a; };
 
 extern "C" {
 M2C_UNK TObjPlayer__sub_803E20B0();
@@ -41,6 +46,12 @@ void TObjPlayer__sub_803E4468(void);
 M2C_UNK TObjPlayer__sub_803E1D90(int, int, int, int);
 extern s32 lbl_805D77EC;
 void TObjPlayer__sub_803E3914(s32 arg0, s32 arg1);
+void GXSetChanMatColor(s32, ByteColor);
+void TObjPlayer__sub_803D7FE0(const FloatColor*,ByteColor*);
+void TObjPlayer__sub_803D8008(const ByteColor*,FloatColor*);
+extern FloatColor lbl_8058D4C0;
+extern const ByteColor lbl_805E1090;
+extern s32 some_id_805c6f74,lbl_805D7788;
 }
 
 extern "C" {
@@ -59,6 +70,38 @@ void TLobby__sub_803E2EE4(s32 arg0) {
     }
     TObjPlayer__sub_803E224C();
 }
+
+#pragma push
+#pragma scheduling off
+#pragma peephole off
+void submit_chunk_material_color(u8 type, s16* data) {
+    FloatColor add;
+    ByteColor color;
+    ByteColor fallback=lbl_805E1090;
+    ByteColor converted;
+    ByteColor convertedAdd;
+    if ((u32)((type-0x10)&1)!=0U) {
+        s16 gb=data[0],ar=data[1];
+        color.a=(ar>>8)&255;
+        color.r=(u8)ar;
+        color.g=(gb>>8)&255;
+        color.b=(u8)gb;
+        if ((u32)(some_id_805c6f74&0x10)!=0U) {
+            TObjPlayer__sub_803D7FE0(&lbl_8058D4C0,&converted);
+            GXSetChanMatColor(4,converted);
+        } else if ((u32)(some_id_805c6f74&0x20)!=0U) {
+            TObjPlayer__sub_803D8008(&color,&add);
+            add.a+=lbl_8058D4C0.a;
+            add.r+=lbl_8058D4C0.r;
+            add.g+=lbl_8058D4C0.g;
+            add.b+=lbl_8058D4C0.b;
+            TObjPlayer__sub_803D7FE0(&add,&convertedAdd);
+            GXSetChanMatColor(4,convertedAdd);
+        } else GXSetChanMatColor(4,color);
+    }
+    if ((u32)(lbl_805D7788&2)!=0U) GXSetChanMatColor(4,fallback);
+}
+#pragma pop
 
 #pragma push
 #pragma opt_common_subs off

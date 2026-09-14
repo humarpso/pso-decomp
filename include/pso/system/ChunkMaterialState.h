@@ -4,5 +4,6 @@
 extern "C" {
 void set_chunk_material_override_pair(s32 first, s32 second);
 void set_chunk_material_color(f32 *argb);
+void submit_chunk_material_color(u8 chunkType, s16 *packedMaterial);
 }
 #endif
