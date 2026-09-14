@@ -1,16 +1,18 @@
 #ifndef PSO_OBJECT_TOBJHASHIBASE_H
 #define PSO_OBJECT_TOBJHASHIBASE_H
-
 #include "types.h"
-
-struct TObjHashiBase
-{
-    u8 _pad1C[0x68];
-    u32 m_84;
-    u8 _pad88[0x24];
-    u32 m_ac;
-    u8 _padB0[0x18];
-    u32 m_c8;
+struct TObjHashiBase {
+    void update();
+    u8 _pad00[0x38];
+    f32 position[3];
+    u8 _pad44[0x60];
+    void* colliders;
+    s32 colliderCount;
+    s32 phase;
+    f32 frame,frameEnd,frameStep;
+    void* motion;
+    f32 farVisibility,nearVisibility;
+    s32 switchId;
+    f32 raisedHeight,riseSpeed;
 };
-
 #endif

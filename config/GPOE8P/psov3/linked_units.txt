@@ -1664,6 +1664,7 @@ pso/object/TObjGbAdvance_80187D90.cpp
 pso/object/TObjGbAdvance_80187E18.cpp
 pso/object/TObjGoalWarpAncient.cpp
 pso/object/TObjHashi.cpp
+pso/object/TObjHashiBase.cpp
 pso/object/TObjHashiVersus1.cpp
 pso/object/TObjHashiVersus2.cpp
 pso/object/TObjIllGillKage.cpp

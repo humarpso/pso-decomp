@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjHashiBase.h"
+#include <stddef.h>
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -135,6 +137,42 @@ void TObjHashiBase__sub_80191A38(u8 *arg0) {
     }
 }
 
+extern "C" void set_indexed_flags(void*,s32,u32);
+}
+typedef char BridgeSize[sizeof(TObjHashiBase)==0xD4?1:-1];
+typedef char BridgePhase[offsetof(TObjHashiBase,phase)==0xAC?1:-1];
+typedef char BridgeRaisedY[offsetof(TObjHashiBase,raisedHeight)==0xCC?1:-1];
+void TObjHashiBase::update() {
+    f32 height;
+    s32 index;
+    switch (phase) {
+    case 0:
+        if (((u8 (*)(u16))TODoorAncient08__sub_80229220)((u16)switchId) != 0) {
+            phase=1;
+            return;
+        }
+        break;
+    case 1:
+        position[1]=position[1]+riseSpeed;
+        if(position[1]>(height=raisedHeight)) {
+            position[1]=height;
+            phase=2;
+            return;
+        }
+        break;
+    case 2:
+        index=0;
+        while(index<colliderCount) {
+            set_indexed_flags(this,index,8);
+            ++index;
+        }
+        phase=3;
+        break;
+    case 3:break;
+    }
+}
+
+extern "C" {
 void *__dt__13TObjHashiBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjHashiBase;
