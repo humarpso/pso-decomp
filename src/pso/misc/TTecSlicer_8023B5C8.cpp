@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecSlicer.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -53,6 +54,12 @@ s32 TObjPlayer__sub_803D9B2C(void);
 s32 TObjPlayer__sub_803D9B78(void);
 extern RecoveredGlobal_8023B770_lbl_8044DC20 lbl_8044DC20;
 void TTecSlicer__sub_8023B770(M2C_UNK *arg0, M2C_UNK *arg1, s32 arg2);
+M2C_UNK spawn_item_timer__13TItemAttackerFiii(int, void *, int);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u32 __nw__7TObjectFUl(M2C_UNK);
+s32 TTecSlicer__ct(void *, void *, void *, void *, int);
+void destroy_if_set__10TTecSlicerFUi(u32);
+
 }
 
 extern "C" {
@@ -116,6 +123,29 @@ void update__10TTecSlicerFi(s32 arg0) {
         TNpcPlayer__sub_803D97B4(arg0 + 0x90);
     }
 }
+
+}
+
+s32 TTecSlicer::create(u16 *arg0) {
+    s32 var_r0;
+    s32 var_r31;
+    u8 *temp_r3;
+    var_r31 = 0;
+    if (arg0 != NULL) {
+        temp_r3 = (u8 *)(((u8 *)TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0))));
+        if (temp_r3 != NULL) {
+            var_r0 = ((s32)__nw__7TObjectFUl((M2C_UNK)((int) (0x140))));
+            if (var_r0 != 0) {
+                var_r0 = TTecSlicer__ct((void *)var_r0, (void *)arg0, (void *)temp_r3, (void *) ((u8 *)(temp_r3) + 0x38), (int) (M2C_FIELD(temp_r3, s32 *, 0x60)));
+            }
+            var_r31 = var_r0;
+            spawn_item_timer__13TItemAttackerFiii((int) (var_r0), (void *) (&destroy_if_set__10TTecSlicerFUi), (int) (0x5A));
+        }
+    }
+    return var_r31;
+}
+
+extern "C" {
 void run_task__10TTecSlicerFv(u8 *arg0) {
     s32 temp_r4;
     u8 *var_r31;

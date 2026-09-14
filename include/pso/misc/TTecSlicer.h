@@ -1,48 +1,44 @@
 #ifndef PSO_MISC_TTECSLICER_H
 #define PSO_MISC_TTECSLICER_H
-
 #include "types.h"
+#include <stddef.h>
 
-struct TTecSlicer
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0x10];
-    void* m_38;
-    u8 _pad3C[0x20];
-    u32 m_5c;
-    u32 m_60;
-    u32 m_64;
-    void* m_68;
-    u8 _pad6C[0x24];
-    void* m_90;
-    u8 _pad94[0x8];
-    void* m_9c;
-    u8 _padA0[0x8];
-    void* m_a8;
-    u8 _padAC[0x14];
-    void* m_c0;
-    u16 m_c4;
-    u8 m_c6;
-    u8 _padC7[0x1];
-    void* m_c8;
-    u8 _padCC[0x1C];
-    void* m_e8;
-    u8 _padEC[0x1C];
-    u32 m_108;
-    u32 m_10c;
-    u32 m_110;
-    u16 m_114;
-    u8 _pad116[0x2];
-    u32 m_118;
-    u16 m_11c;
-    u16 m_11e;
-    u8 _pad120[0x4];
-    u32 m_124;
-    void* m_128;
-    u8 _pad12C[0xC];
-    u32 m_138;
-    u32 m_13c;
+struct TTecSlicer {
+    static s32 create(u16* launch);
+
+    u8 base[0x24];
+    u32 textureHandle;
+    u8 unknown28[0x10];
+    f32 position[3];
+    f32 previousPosition[3];
+    u8 unknown50[0xC];
+    s32 spin, yaw, roll;
+    f32 scale[3];
+    u8 unknown74[0x1C];
+    f32 direction[3];
+    f32 origin[3];
+    f32 destination[3];
+    f32 speed, range, radius;
+    u32 flags;
+    u16 targetId;
+    u8 targetPart, paddingC7;
+    u8 capturedTargets[0x20];
+    u8 secondaryTargets[0x20];
+    void* currentWeapon;
+    void* currentPlayer;
+    void* model;
+    u16 playerId, padding116;
+    u32 weaponHandle;
+    s16 attackKind, comboStage;
+    f32 damageMultiplier;
+    void* star;
+    f32 argb[4];
+    s32 spinVelocity;
+    s32 useColorOverride;
 };
-
+typedef char SlicerSize[(sizeof(TTecSlicer)==0x140)?1:-1];
+typedef char SlicerPosition[(offsetof(TTecSlicer,position)==0x38)?1:-1];
+typedef char SlicerDirection[(offsetof(TTecSlicer,direction)==0x90)?1:-1];
+typedef char SlicerCapturedTargets[(offsetof(TTecSlicer,capturedTargets)==0xC8)?1:-1];
+typedef char SlicerColor[(offsetof(TTecSlicer,argb)==0x128)?1:-1];
 #endif
