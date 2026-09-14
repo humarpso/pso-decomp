@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemData.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -16,7 +17,7 @@ s32 TItemData__sub_8010CC68(u8 *arg0);
 
 extern "C" {
 
-int TItemData__sub_8010C940(void);
+u32 TLobby__sub_80101AB0(u32);
 int TItemData__sub_8010CACC(void);
 int TItemData__sub_8010CB10(void);
 void TItemData__sub_8010CCB0(void);
@@ -31,7 +32,32 @@ s32 fn_80101A48(u8, u8);
 s32 lookup_item_def__9TItemDataFPv();
 int register_item_drop__10TObjPlayerFPv(void*);
 
-int TItemData__sub_8010C940(void) { return 0; }
+}
+int TItemData::isValidGroundDrop() {
+    u8 category;
+    u8 group;
+    if (TLobby__sub_80101AB0(id) == 0U) {
+        category=data1.data_u8[0];
+        switch ((s32)category) {
+        case 3:
+        case 0:
+            if (((u32 (*)(TItemData*))TItemData__sub_8010EA38)(this) == 0U) return 0;
+            break;
+        case 1:
+            group=data1.data_u8[1];
+            if ((group == 0) && (group >= 4U)) return 0;
+            break;
+        case 2:return 1;
+        case 4:
+            if ((s32)data2.data_u32 == 0) return 0;
+            break;
+        default:return 0;
+        }
+        return 1;
+    } else return 0;
+}
+
+extern "C" {
 
 void TItemData__sub_8010CA08(void *arg0, u32 arg1, u8 arg2) {
     s8 sp8[10];

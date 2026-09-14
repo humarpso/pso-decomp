@@ -5,6 +5,7 @@
 #include "pso/protocol.h"
 
 struct TItemData {
+    int isValidGroundDrop();
     void init() {
         data1.data_u8[0] = 0;
         data1.data_u8[1] = 0;
