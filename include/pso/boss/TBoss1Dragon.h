@@ -3,8 +3,23 @@
 
 #include "types.h"
 
+struct DragonModelVector { f32 x, y, z; };
+struct DragonModelAngles { s32 x, y, z; };
+struct DragonModelNode {
+    u32 flags;
+    void* model;
+    DragonModelVector position;
+    DragonModelAngles rotation;
+    DragonModelVector scale;
+    DragonModelNode* child;
+    DragonModelNode* sibling;
+    f32 unknown34;
+};
+
 struct TBoss1Dragon {
     static bool isV2Mode();
+    static DragonModelNode* cloneModelHierarchy(DragonModelNode* source, DragonModelNode* output, void* model);
+    static s32 countModelNodes(DragonModelNode* source);
     void updateFacingPosition();
     int setState1();
     int initDefault();
@@ -64,6 +79,8 @@ struct TBoss1Dragon {
 #include <stddef.h>
 #define DRAGON_OFFSET(member, offset) \
     typedef char DragonOffset_##member[(offsetof(TBoss1Dragon, member) == offset) ? 1 : -1]
+typedef char DragonModelNodeSize[(sizeof(DragonModelNode) == 0x38) ? 1 : -1];
+typedef char DragonModelNodeChild[(offsetof(DragonModelNode, child) == 0x2C) ? 1 : -1];
 DRAGON_OFFSET(positionX, 0x38);
 DRAGON_OFFSET(maxHp, 0x2B8);
 DRAGON_OFFSET(hp, 0x32C);

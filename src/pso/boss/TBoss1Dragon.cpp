@@ -623,7 +623,6 @@ void TBoss1Dragon__sub_80027A80(u8 *arg0, u8 *arg1);
 M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, s16);
 void TBoss1Dragon__sub_80028598(u8 *arg0, u8 *arg1);
-s32 TBoss1Dragon__sub_8002AD54(u8 *arg0);
 M2C_UNK get_position__12TBoss1DragonFPv(void *);
 M2C_UNK get_position__12TBoss1DragonFPv(void *);
 void TBoss1Dragon__sub_800275BC(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3);
@@ -852,7 +851,6 @@ void free_resources__12TBoss1DragonFv(void);
 s32 get_instance__12TBoss1DragonFv(void);
 void *dt__12TBoss1DragonFPvs(void *arg0, s16 arg1);
 void *init_base__12TBoss1DragonFPv(void *arg0);
-int TBoss1Dragon__sub_8002AC4C(void);
 void TBoss1Dragon__sub_8002ADAC(void);
 void TBoss1Dragon__sub_8002ADB0(void);
 void TBoss1Dragon__sub_8002ADB4(void);
@@ -2178,7 +2176,25 @@ void *init_base__12TBoss1DragonFPv(void *arg0) {
     return arg0;
 }
 
-int TBoss1Dragon__sub_8002AC4C(void) { return 0; }
+}
+
+DragonModelNode* TBoss1Dragon::cloneModelHierarchy(DragonModelNode* source, DragonModelNode* output, void* model) {
+    DragonModelNode* current = output;
+    ++output;
+    TBoss1Dragon__sub_8002ACE0((u8*)current, (u8*)source);
+    current->model = model;
+    if (source->child != 0) {
+        current->child = output;
+        output = cloneModelHierarchy(source->child, output, model);
+    }
+    if (source->sibling != 0) {
+        current->sibling = output;
+        output = cloneModelHierarchy(source->sibling, output, model);
+    }
+    return output;
+}
+
+extern "C" {
 
 void TBoss1Dragon__sub_8002ACE0(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
@@ -2191,21 +2207,18 @@ void TBoss1Dragon__sub_8002ACE0(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, f32 *, 0x34) = (f32) M2C_FIELD(arg1, f32 *, 0x34);
 }
 
-s32 TBoss1Dragon__sub_8002AD54(u8 *arg0) {
-    s32 var_r31;
-    u8 *temp_r3;
-    u8 *temp_r3_2;
-    var_r31 = 1;
-    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x2C));
-    if (temp_r3 != NULL) {
-        var_r31 = TBoss1Dragon__sub_8002AD54(temp_r3) + 1;
-    }
-    temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x30));
-    if (temp_r3_2 != NULL) {
-        var_r31 += TBoss1Dragon__sub_8002AD54(temp_r3_2);
-    }
-    return var_r31;
 }
+
+s32 TBoss1Dragon::countModelNodes(DragonModelNode* source) {
+    s32 count=1;
+    DragonModelNode* child=source->child;
+    if(child!=0)count=countModelNodes(child)+1;
+    DragonModelNode* sibling=source->sibling;
+    if(sibling!=0)count+=countModelNodes(sibling);
+    return count;
+}
+
+extern "C" {
 
 void TBoss1Dragon__sub_8002ADAC(void) {  }
 
