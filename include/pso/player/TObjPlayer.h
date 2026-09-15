@@ -12,6 +12,7 @@ struct TObjPlayer
 
     ActionPalette* select_action_palette(int secondary);
     void request_normal_attack_stage1();
+    void show_miss_for_collider(int collider);
 
     u8 _object_header[0x1C];
     u16 m_1c;

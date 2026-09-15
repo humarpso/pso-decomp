@@ -75,7 +75,7 @@ void update_angle__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2);
 s32 update_flag30_timer__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TObjPlayer__sub_80010128(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_800101B0(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_800162B0(void *, s32);
+M2C_UNK show_miss_for_collider__10TObjPlayerFi(void *, s32);
 M2C_UNK TObjPlayer__sub_800192DC(void *);
 s32 TObjPlayer__sub_800194AC(void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80141F84(s32, s32);
@@ -91,7 +91,7 @@ s32 try_start_action__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
     if (((VObj_800163F8 *)arg0)->m25() != 0) {
         return 1;
     }
-    TObjPlayer__sub_800162B0(arg0, arg2);
+    show_miss_for_collider__10TObjPlayerFi(arg0, arg2);
     return 0;
 }
 
