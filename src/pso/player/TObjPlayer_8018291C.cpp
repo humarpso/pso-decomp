@@ -64,6 +64,27 @@ struct RecoveredGlobal_80182D8C_lbl_804B5BA8 {
     u8 remaining[0x5C];
 };
 
+#define F(o,t,p) (*(t*)((u8*)(o)+(p)))
+struct CityDoorProbeBase {char pad[0x18];};
+
+struct CityDoorProbe : CityDoorProbeBase {
+virtual void m0();
+virtual void m1();
+virtual void m2();
+virtual void m3();
+virtual void m4();
+virtual void m5();
+virtual void m6();
+virtual void m7();
+virtual void m8();
+virtual void m9();
+virtual void m10();
+virtual void m11();
+virtual s32 m12(f32);
+virtual void m13();virtual void m14();virtual void m15();virtual void m16();
+virtual void m17();virtual void m18();virtual void m19();virtual s32 m20();
+};
+
 extern "C" {
 s32 is_player_in_range__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0);
 s32 check_player_in_range__10TObjPlayerFPv(void *arg0, s32 _w1, f32 _w2);
@@ -84,6 +105,7 @@ extern RecoveredGlobal_80182D8C_lbl_80443F20 lbl_80443F20;
 extern M2C_UNK lbl_804B5BA8[];
 extern const f32 lbl_805DBBE8;
 u8 *TObjPlayer__sub_80182D8C(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3);
+void city_door_tick_opening(void* o);
 }
 
 extern "C" {
@@ -165,6 +187,16 @@ void check_ground_or_fall__10TObjPlayerFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 3;
         ((VObj_80182A58_8018291C *)arg0)->m17();
     }
+}
+
+void city_door_tick_opening(void* o) {
+void* params=F(o,void*,0xB8);
+if(((CityDoorProbe*)o)->m12(F(params,f32,8))==0) {
+ F(o,s32,0xAC)=3;((CityDoorProbe*)o)->m17();return;
+}
+F(o,f32,0xB4)=F(o,f32,0xB4)+F(F(o,void*,0xB8),f32,0);
+f32 last=F(o,f32,0xB0);
+if(F(o,f32,0xB4)>=last) {F(o,f32,0xB4)=F(o,f32,0xB0);F(o,s32,0xAC)=2;}
 }
 
 void begin_state_1__10TObjPlayerFPv(void *arg0) {
