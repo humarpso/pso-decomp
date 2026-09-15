@@ -8,11 +8,11 @@ extern "C" {
 
 void apply_choice__20TWindowChoiceSettingFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 pack_flags__13TRaderMapCoreFii();
-M2C_UNK fn_801A6FF8(s32, s32, s32, s32);
+M2C_UNK input_press_or_repeat(s32, s32, s32, s32);
 
 void apply_choice__20TWindowChoiceSettingFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 t = pack_flags__13TRaderMapCoreFii();
-    fn_801A6FF8(arg0, t, arg2, arg3);
+    input_press_or_repeat(arg0, t, arg2, arg3);
 }
 
 }

@@ -15,11 +15,11 @@ extern "C" {
 
 void dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 pack_color_bits__13TRaderMapCoreFii();
-M2C_UNK fn_801A6FF8(s32, s32, s32, s32);
+M2C_UNK input_press_or_repeat(s32, s32, s32, s32);
 
 void dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 t = pack_color_bits__13TRaderMapCoreFii();
-    fn_801A6FF8(arg0, t, arg2, arg3);
+    input_press_or_repeat(arg0, t, arg2, arg3);
 }
 
 void TRaderMapCore__sub_801A6EEC(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
