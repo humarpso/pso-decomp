@@ -102,6 +102,7 @@ pso/boss/TBoss8Dragon_8005FA08.cpp
 pso/boss/TBoss8Dragon_8005FA78.cpp
 pso/boss/TBoss8Dragon_8005FAFC.cpp
 pso/boss/TBoss8Dragon_80067034.cpp
+pso/boss/TBoss8Dragon_800BC53C.cpp
 pso/boss/TBoss8Dragon_801E3CFC.cpp
 pso/boss/TBoss8Dragon_802F3504.cpp
 pso/boss/TBoss8Dragon_802F36DC.cpp

@@ -4,6 +4,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct AreaAttackHistory {
+    void** entries;
+    void* empty;
+    s32 count;
+    s32 capacity;
+};
+
 extern "C" {
 s32 TBoss8Dragon__sub_800BC5A0(s32 arg0, s16 arg1);
 s32 __dl__FPv(u32 *);
@@ -13,12 +20,12 @@ extern M2C_UNK TLockOnCursor__sub_8013EFB8[];
 extern M2C_UNK __dt_deleting__13TLockOnCursorFis[];
 extern void *lbl_805D2CB4;
 s32 TBoss8Dragon__sub_800BC5A0(s32 arg0, s16 arg1);
-int fn_800BC71C(void *, void *);
 s32 fn_800BC758(u8 *arg0);
 s32 TObjPlayer__sub_800BC53C(s32 arg0, s32 arg1);
 s32 fn_800BC6E4(u8 *arg0, s32 arg1);
 void *init_buffer__12TBoss8DragonFPvii(void *arg0, s32 arg1, s32 arg2);
 u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
+int fn_800BC71C(void* object, void* target);
 }
 
 extern "C" {
@@ -35,7 +42,7 @@ int queue_destruction__7TObjectFv(void*);
 struct VOff_8013DE3C_arg0_8013D91C { char pad_0[0x1C]; char f_1C[1]; };
 
 s32 TObjPlayer__sub_800BC53C(s32 arg0, s32 arg1) {
-    if ((fn_800BC758((u8 *)(arg0)) != 0) && (((s32)fn_800BC71C((void *)((void *) (arg0)), (void *)((void *) (arg1)))) == 0)) {
+    if ((fn_800BC758((u8 *)(arg0)) != 0) && (((s32)fn_800BC71C((void*)((void *)((void *) (arg0))), (void*)((void *)((void *) (arg1))))) == 0)) {
         ((M2C_UNK)fn_800BC6E4((u8 *)((void *)((void *) (arg0))), (s32)((void *)((void *) (arg1)))));
         return 1;
     }
@@ -95,7 +102,13 @@ s32 fn_800BC6E4(u8 *arg0, s32 arg1) {
     return -1;
 }
 
-int fn_800BC71C(void * _w0, void * _w1) { return 0; }
+int fn_800BC71C(void* object, void* target) {
+    AreaAttackHistory* history = static_cast<AreaAttackHistory*>(object);
+    for (s32 i = 0; i < history->count; ++i) {
+        if (history->entries[i] == target) return 1;
+    }
+    return 0;
+}
 
 s32 fn_800BC758(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 8) < M2C_FIELD(arg0, s32 *, 0xC);
