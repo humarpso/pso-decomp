@@ -10,6 +10,7 @@ struct TObjPlayer
         u8 bindings[2][4][4];
     };
 
+    u32 find_revival_item();
     ActionPalette* select_action_palette(int secondary);
     void request_normal_attack_stage1();
     void show_miss_for_collider(int collider);
@@ -95,7 +96,8 @@ struct TObjPlayer
     u8 _pad850[0x8];
     void* m_858;
     void* m_85c;
-    u8 _pad860[0x4A4];
+    u8 _pad860[0x4A0];
+    void* inventory_objects;
     void* m_d04;
     u8 _padD08[0xA4];
     void* m_dac;
@@ -108,5 +110,6 @@ typedef char PlayerHeaderSize[(offsetof(TObjPlayer, m_1c) == 0x1C) ? 1 : -1];
 typedef char PlayerPaletteModifierOffset[(offsetof(TObjPlayer, m_4ac) == 0x4AC) ? 1 : -1];
 typedef char PlayerActionPalettesOffset[(offsetof(TObjPlayer, action_palettes) == 0x500) ? 1 : -1];
 typedef char PlayerStateAfterPalettes[(offsetof(TObjPlayer, m_550) == 0x550) ? 1 : -1];
+typedef char PlayerInventoryObjectOffset[(offsetof(TObjPlayer, inventory_objects) == 0xD00) ? 1 : -1];
 
 #endif
