@@ -226,7 +226,10 @@ s32 TWindowSubMag__sub_8027C0B0(s32 arg0) {
     return M2C_FIELD(M2C_FIELD(lbl_805D553C, s32 *, 0x20), M2C_UNK *, (arg0 * 4));
 }
 
-int TWindowSubMag__sub_8027C0C4(s32) { return 0; }
+int TWindowSubMag__sub_8027C0C4(s32 window) {
+    s32 slot = M2C_FIELD(window, s8 *, 0x61);
+    return M2C_FIELD(window, s32 *, 0x64 + slot * 4);
+}
 
 int get_active_flag__13TWindowSubMagFPv(void* p) { return *(u8*)((char*)p + 0x60) & 0x1; }
 int TWindowSubMag__sub_8027C0E8(void* p) { return *(u8*)((char*)p + 0x60) & 0x2; }

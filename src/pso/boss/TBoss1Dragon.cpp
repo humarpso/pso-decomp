@@ -596,6 +596,106 @@ struct RecoveredGlobal_800277D8_TBoss1Dragon__data_804FE17C {
     u8 remaining[0x8];
 };
 
+struct VBase_18_444bc5 { char pad[0x18]; };
+
+struct VObj_18_444bc5 : VBase_18_444bc5 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual void m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual void m93();
+    virtual M2C_UNK m94();
+};
+
 extern "C" {
 s32 objInBand__FP7GameObjf(void *, f32);
 void play_se_at_pos__12TBoss1DragonFii(s32 arg0, s32 arg1);
@@ -684,7 +784,6 @@ extern const RecoveredGlobal_80027AAC_lbl_80434EB4 lbl_80434EB4;
 void TBoss1Dragon__sub_80027AAC(s32 arg0);
 s32 isV2Mode__12TBoss1DragonFv(void);
 s32 update_max_hp_phase__12TBoss1DragonFPv(void *arg0);
-void TBoss1Dragon__sub_8002830C(void *);
 extern RecoveredGlobal_8002826C_lbl_80480D00 lbl_80480D00;
 extern RecoveredGlobal_8002826C_lbl_80480D48 lbl_80480D48;
 void TBoss1Dragon__sub_8002826C(u8 *arg0);
@@ -720,7 +819,6 @@ f32 TBoss8Dragon__sub_803D64DC(s32);
 extern const f32 lbl_805D80BC;
 void TBoss1Dragon__sub_80029328(u8 *arg0, f32 *arg1, f32 *arg2);
 s32 TBoss1Dragon__sub_80027320(void *);
-void TBoss1Dragon__sub_8002830C(void *);
 M2C_UNK TBoss1Dragon__sub_800284B4(void *, M2C_UNK);
 void TBoss1Dragon__sub_80026C98(u8 *arg0, u32 arg1);
 void action__12TBoss1DragonFPvi(void *arg0, s32 arg1);
@@ -744,7 +842,6 @@ s32 TBoss1Dragon__sub_80024314(void *, void *);
 s32 TBoss1Dragon__sub_80024914(void *, void *);
 s32 TBoss1Dragon__sub_80024A24(void *, void *);
 s32 TBoss1Dragon__sub_80024B48(void *, void *);
-s32 TBoss1Dragon__sub_80024E50(void *, void *);
 s32 TBoss1Dragon__sub_80025168(void *, void *);
 s32 TBoss1DragonEffBullet__sub_80025710(void *, void *);
 s32 TBoss1Dragon__sub_80025C68(void *, void *);
@@ -755,7 +852,6 @@ s32 TBoss1Dragon__sub_800267B8(void *, void *);
 s32 TBoss1Dragon__sub_80026B98(void *, void *);
 void TBoss1Dragon__sub_80026C98(u8 *arg0, u32 arg1);
 void TBoss1Dragon__sub_80026D04(s32 arg0, u32 arg1, s32 arg2);
-void TBoss1Dragon__sub_8002830C(void *);
 s32 isHpPhasePending__12TBoss1DragonFv(void *);
 s32 reset_lobby_model__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801B1E54(int, int, int);
@@ -783,6 +879,24 @@ void setup_instance__9TObjEneDDFiiPvi(s32, s32, void *, s32);
 extern RecoveredGlobal_800277D8_lbl_80435310 lbl_80435310;
 extern RecoveredGlobal_80027634_TBoss1Dragon__data_804FE17C TBoss1Dragon__data_804FE17C;
 void TBoss1Dragon__sub_800277D8(u8 *arg0);
+void update_switch_attack__12TBoss1DragonFPv(u8 *arg0);
+void TBoss1Dragon__sub_80027E78(s32 arg0);
+M2C_UNK TBoss1Dragon__sub_8002830C(void *);
+M2C_UNK TBoss1Dragon__sub_800284B4(void *, M2C_UNK);
+void TBoss1Dragon__sub_80028B28(u8 *arg0);
+void play_se_at_pos__12TBoss1DragonFii(s32 arg0, s32 arg1);
+f32 TBoss1Dragon__sub_80029238(void *);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
+s32 set_shake_preset__11TCameraCtrlFi(int);
+M2C_UNK TOSwitchAttack__sub_80087278(void *, s32, M2C_UNK);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK TBoss1Dragon__sub_80143504();
+extern const f32 lbl_805D4AF4;
+extern const f32 TBoss1Dragon__data_805D7F24;
+extern const f32 TBoss1Dragon__data_805D7F28;
+extern const f32 TBoss1Dragon__data_805D8008;
+extern const f32 lbl_805D8020;
+extern const f32 lbl_805D8024;
 }
 
 extern "C" {
@@ -991,6 +1105,125 @@ void update_wander_state__12TBoss1DragonFPvi(void *arg0, s32 arg1) {
     }
 }
 
+}
+
+void TBoss1Dragon::handleFallState(u32 reason) {
+    f32 temp_f1;
+    f32 temp_f2;
+    f32 temp_f3;
+    s16 temp_r0;
+    s32 temp_r0_2;
+    s32 temp_r0_3;
+    switch (reason) {
+    case 4:
+        this->animationAction = 0x11;
+        ((VObj_18_444bc5 *)(this))->m94();
+        this->clearState();
+        TBoss1Dragon__sub_80028B28((u8 *)((void *) (this)));
+        this->flags = (s32) (this->flags | 0xE80);
+        this->stateStep = 0;
+        this->fallVelocity = (f32) TBoss1Dragon__data_805D7F28;
+        this->impactAge = 0;
+        return;
+    case 2:
+    case 11:
+        this->controlTimer = 0;
+        if (get_flag_b4__21TObjEneMe3ShinowaRealFPv((void *) (this)) != 0) {
+            TBoss1Dragon__sub_800284B4((void *)((void *) (this)), (M2C_UNK)((int) (0x17)));
+        }
+    default:
+        return;
+    case 9:
+        if (get_flag_b4__21TObjEneMe3ShinowaRealFPv((void *) (this)) != 0) {
+            temp_r0 = this->state;
+            switch (temp_r0) {
+            default:
+            case 8:
+                TBoss1Dragon__sub_8002830C((void *) (this));
+                return;
+            case 10:
+                TBoss1Dragon__sub_800284B4((void *)((void *) (this)), (M2C_UNK)((int) (9)));
+                return;
+            case 11:
+                TBoss1Dragon__sub_800284B4((void *)((void *) (this)), (M2C_UNK)((int) (0xD)));
+                return;
+            case 12:
+                TBoss1Dragon__sub_800284B4((void *)((void *) (this)), (M2C_UNK)((int) (0x15)));
+                return;
+            }
+        }
+        break;
+    case 7:
+        this->restorePosition();
+        return;
+    case 6:
+        this->saveCurrentDestination();
+        return;
+    case 0:
+        temp_r0_2 = this->stateStep;
+        switch (temp_r0_2) {
+        case 1:
+            break;
+        case 0:
+            TBoss1Dragon__sub_80143504();
+            this->rootHeight = TBoss1Dragon__sub_80029238((void *) (this));
+            if (this->animationFrame >= lbl_805D8020) {
+                this->stateStep = 1;
+            }
+            if (objInBand__FP7GameObjf((void *) (this), (f32) (TBoss1Dragon__data_805D7F24)) != 0) {
+                play_se_at_pos__12TBoss1DragonFii((s32)((void *) (this)), (s32)((int) (0x4003A804)));
+            }
+            if (objInBand__FP7GameObjf((void *) (this), (f32) (lbl_805D8024)) != 0) {
+                update_switch_attack__12TBoss1DragonFPv((u8 *)((void *) (this)));
+            }
+            break;
+        case 2:
+            TBoss1Dragon__sub_80143504();
+            break;
+        }
+        temp_r0_3 = this->stateStep;
+        switch (temp_r0_3) {
+        case 0:
+            if (this->animationFrame > TBoss1Dragon__data_805D8008) {
+                this->fallVelocity = (f32) (this->fallVelocity + lbl_805D4AF4);
+                this->height = (f32) (this->height + this->fallVelocity);
+            }
+            this->heightOffset = (f32) (this->defaultHeightOffset + ((this->height - this->rootHeight) - this->positionY));
+            return;
+        case 1:
+            this->fallVelocity = (f32) (this->fallVelocity + lbl_805D4AF4);
+            this->height = (f32) (this->height + this->fallVelocity);
+            temp_f3 = this->positionY;
+            temp_f1 = this->rootHeight;
+            temp_f2 = this->height;
+            if (temp_f2 < (temp_f3 + temp_f1)) {
+                this->stateStep = 2;
+                this->height = (f32) this->positionY;
+                this->heightOffset = (f32) this->defaultHeightOffset;
+                play_se_at_pos__12TBoss1DragonFii((s32)((void *) (this)), (s32)((int) (0x4003AD0E)));
+                return;
+            }
+            this->heightOffset = (f32) (this->defaultHeightOffset + ((temp_f2 - temp_f1) - temp_f3));
+            return;
+        case 2:
+            this->impactAge = (s32) (this->impactAge + 1);
+            if ((s32) this->impactAge == 4) {
+                TOSwitchAttack__sub_80087278((void *)((void *) &this->positionX), (s32)((void *) (this->effectResource->data)), (M2C_UNK)((int) (0x40)));
+                set_shake_preset__11TCameraCtrlFi((int) (1));
+                TBoss1Dragon__sub_80027E78((s32)((void *) (this)));
+                return;
+            }
+            break;
+        }
+        break;
+    case 5:
+        this->beginHeightTransition();
+        break;
+    }
+}
+
+extern "C" {
+
 void TBoss1Dragon__sub_80026C98(u8 *arg0, u32 arg1) {
     switch (arg1) {
     case 4:
@@ -1041,7 +1274,7 @@ void TBoss1Dragon__sub_80026D04(s32 arg0, u32 arg1, s32 arg2) {
     case 10:
     case 11:
     case 12:
-        TBoss1Dragon__sub_80024E50((void *) (arg0), (void *) (arg2));
+        ((TBoss1Dragon*)arg0)->handleFallState(arg2);
         return;
     case 9:
         TBoss1Dragon__sub_80024B48((void *) (arg0), (void *) (arg2));

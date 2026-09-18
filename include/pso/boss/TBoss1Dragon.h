@@ -16,11 +16,14 @@ struct DragonModelNode {
     f32 unknown34;
 };
 
+struct DragonEffectResource { u32 unknown00[2]; void* data; };
+
 struct TBoss1Dragon {
     static bool isV2Mode();
     static DragonModelNode* cloneModelHierarchy(DragonModelNode* source, DragonModelNode* output, void* model);
     static s32 countModelNodes(DragonModelNode* source);
     void updateFacingPosition();
+    void handleFallState(u32 reason);
     int setState1();
     int initDefault();
     void saveCurrentDestination();
@@ -46,9 +49,15 @@ struct TBoss1Dragon {
     f32 positionX;
     f32 positionY;
     f32 positionZ;
-    u8 unknown044[0x2B8 - 0x044];
+    u8 unknown044[0xB8 - 0x044];
+    s16 animationAction;
+    u8 unknown0BA[0xC0 - 0xBA];
+    f32 animationFrame;
+    u8 unknown0C4[0x2B8 - 0xC4];
     s16 maxHp;
-    u8 unknown2BA[0x32C - 0x2BA];
+    u8 unknown2BA[0x326 - 0x2BA];
+    s16 state;
+    u8 unknown328[0x32C - 0x328];
     s16 hp;
     u8 unknown32E[0x394 - 0x32E];
     f32 targetX;
@@ -71,9 +80,18 @@ struct TBoss1Dragon {
     f32 destinationZ;
     f32 savedX;
     f32 savedZ;
-    u8 unknown6A0[0x76C - 0x6A0];
+    u8 unknown6A0[0x768 - 0x6A0];
+    s32 controlTimer;
     s32 facingAngle;
-    u8 unknown770[0x8BC - 0x770];
+    u8 unknown770[0x778 - 0x770];
+    DragonEffectResource* effectResource;
+    u8 unknown77C[0x864 - 0x77C];
+    s32 stateStep;
+    s32 impactAge;
+    u8 unknown86C[0x87C - 0x86C];
+    f32 fallVelocity;
+    f32 rootHeight;
+    u8 unknown884[0x8BC - 0x884];
 };
 
 #include <stddef.h>
@@ -81,6 +99,15 @@ struct TBoss1Dragon {
     typedef char DragonOffset_##member[(offsetof(TBoss1Dragon, member) == offset) ? 1 : -1]
 typedef char DragonModelNodeSize[(sizeof(DragonModelNode) == 0x38) ? 1 : -1];
 typedef char DragonModelNodeChild[(offsetof(DragonModelNode, child) == 0x2C) ? 1 : -1];
+DRAGON_OFFSET(animationAction, 0xB8);
+DRAGON_OFFSET(animationFrame, 0xC0);
+DRAGON_OFFSET(state, 0x326);
+DRAGON_OFFSET(controlTimer, 0x768);
+DRAGON_OFFSET(effectResource, 0x778);
+DRAGON_OFFSET(stateStep, 0x864);
+DRAGON_OFFSET(impactAge, 0x868);
+DRAGON_OFFSET(fallVelocity, 0x87C);
+DRAGON_OFFSET(rootHeight, 0x880);
 DRAGON_OFFSET(positionX, 0x38);
 DRAGON_OFFSET(maxHp, 0x2B8);
 DRAGON_OFFSET(hp, 0x32C);
