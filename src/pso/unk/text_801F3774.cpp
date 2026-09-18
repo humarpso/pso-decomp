@@ -37,6 +37,11 @@ void TLobby__sub_801F39C4(void *arg0);
 s32 fn_801F4560(int, int);
 s32 fn_801F469C(int, int);
 void handle_6x75_update_quest_flag_dc(u8 *arg0);
+extern s32 lbl_805D5544;
+extern char lbl_80512790[],lbl_805127B0[];
+extern char lbl_80449CD8[],lbl_80449CE0[],lbl_80449CE8[],lbl_80449CF0[],lbl_80449CF8[],lbl_80449D00[];
+void TLobby__sub_801317E4(char*,const char*,const char*);
+void prepare_offline_quest_filenames(const char* identity);
 }
 
 extern "C" {
@@ -84,6 +89,18 @@ void handle_6x75_update_quest_flag_dc(u8 *arg0) {
     if (temp_r0 == 1) {
         fn_801F4560((int) ((s32) M2C_FIELD(arg0, s16 *, 8)), (int) ((s32) M2C_FIELD(arg0, u16 *, 4)));
     }
+}
+
+void prepare_offline_quest_filenames(const char* identity) {
+ switch(lbl_805D5544) {
+ case 0:TLobby__sub_801317E4(lbl_80512790,identity,lbl_80449CD8);break;
+ case 1:TLobby__sub_801317E4(lbl_80512790,identity,lbl_80449CE0);break;
+ case 2:TLobby__sub_801317E4(lbl_80512790,identity,lbl_80449CE8);break;
+ case 3:TLobby__sub_801317E4(lbl_80512790,identity,lbl_80449CF0);break;
+ case 4:TLobby__sub_801317E4(lbl_80512790,identity,lbl_80449CF8);break;
+ default:TLobby__sub_801317E4(lbl_80512790,identity,lbl_80449CE0);break;
+ }
+ TLobby__sub_801317E4(lbl_805127B0,identity,lbl_80449D00);
 }
 
 void TLobby__sub_801F3990(void *arg0) {

@@ -38,7 +38,7 @@ void handle_confirm_select__19TQuestListChallengeFPv(void *arg0);
 void invoke_callback_and_destroy__19TQuestListChallengeFPv(void *arg0);
 void reset_globals2__19TQuestListChallengeFv(void);
 void reset_globals__19TQuestListChallengeFv(void);
-M2C_UNK TLobby__sub_801F387C(s32, s32);
+M2C_UNK prepare_offline_quest_filenames(s32, s32);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcKenkyu__ct(void *, void *, void *);
 s32 TWindowSubComCard__sub_80265BF8(u32);
@@ -121,7 +121,7 @@ void handle_confirm_select__19TQuestListChallengeFPv(void *arg0) {
             if (temp_r3_2 == 0) {
                 temp_r0 = select_cursor_entry__6TLobbyFPv(M2C_FIELD(arg0, s32 *, 0x38));
                 temp_r4 = M2C_FIELD(arg0, Entry_80288C78_80288B5C **, 0x58);
-                TLobby__sub_801F387C(temp_r4[temp_r0].fieldC, (s32) temp_r4);
+                prepare_offline_quest_filenames(temp_r4[temp_r0].fieldC, (s32) temp_r4);
                 set_field_20__12TQuestListVMFPvi(arg0, 3);
                 return;
             }
