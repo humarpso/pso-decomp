@@ -34,9 +34,7 @@ struct Stack_8030A1E4
 };
 
 extern "C" {
-void TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2);
 int TObjEneDellBiter__sub_80087350(void*, void*);
-void TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2);
 void *__nw__7TObjectFUl(int);
 void *TPlyPtclObjectRightHand__ct(void *, void *);
 void TObjPlayer__sub_8030A030(void *arg0, void *arg1);
@@ -54,15 +52,16 @@ u32 TPhotonMylla__sub_80154CB4(s32);
 s32 TObjPlayer__sub_8030A1E4(unsigned long long arg1, s32 arg2);
 s32 TOSwitchAttack__sub_80087278(s32, s32, M2C_UNK);
 void TObjPlayer__sub_8030A150(M2C_UNK arg0, s32 arg1, s32 arg2);
-s32 TObjPlayer__sub_8030A180(M2C_UNK, M2C_UNK, M2C_UNK, s32);
-void TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2);
 void TObjPlayer__sub_80309F78(s32 arg0, s32 arg1);
-s32 TObjPlayer__sub_8030A180(M2C_UNK, M2C_UNK, M2C_UNK, s32);
-void TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2);
 void TObjPlayer__sub_80309FD4(s32 arg0, s32 arg1);
 void TObjPlayer__sub_8030A150(M2C_UNK arg0, s32 arg1, s32 arg2);
-s32 TObjPlayer__sub_8030A180(M2C_UNK, M2C_UNK, M2C_UNK, s32);
 void TObjPlayer__sub_80309F30(s32 arg0, s32 arg1);
+s32 TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2);
+s32 get_instance__13TParticleCtrlFv();
+s32 TParticleCtrl__sub_80086884(s32);
+void TObjFish__sub_800660D4(s32, s32, s32, s32, s32, f32);
+extern f32 lbl_805DF134;
+s32 emit_player_model_particle(s32 owner, s32 position, s32 entry, s32 model);
 }
 
 extern "C" {
@@ -120,18 +119,18 @@ s32 check_hit_by_id_431__10TObjPlayerFPvi(void* p, int a1) { return check_hit_by
 
 void TObjPlayer__sub_80309F30(s32 arg0, s32 arg1) {
     TObjPlayer__sub_8030A150((M2C_UNK)((void *) (arg0)), (s32)((void *) (arg1)), (s32)((int) (0xA2)));
-    TObjPlayer__sub_8030A180((M2C_UNK)((void *) (arg0)), (M2C_UNK)((void *) (arg1)), (M2C_UNK)((int) (0xA6)), (s32)((int) (2)));
+    emit_player_model_particle((s32)((M2C_UNK)((void *) (arg0))), (s32)((M2C_UNK)((void *) (arg1))), (s32)((M2C_UNK)((int) (0xA6))), (s32)((s32)((int) (2))));
 }
 
 void TObjPlayer__sub_80309F78(s32 arg0, s32 arg1) {
-    TObjPlayer__sub_8030A180(arg0, arg1, 0x23D, 2);
-    TObjPlayer__sub_8030A180(arg0, arg1, 0x23F, 0);
+    emit_player_model_particle((s32)(arg0), (s32)(arg1), (s32)(0x23D), (s32)(2));
+    emit_player_model_particle((s32)(arg0), (s32)(arg1), (s32)(0x23F), (s32)(0));
     TObjPlayer__sub_8030A2CC((void*)((void *) (arg0)), (void*)((void *) (arg1)), (void*)((int) (0x23E)));
 }
 
 void TObjPlayer__sub_80309FD4(s32 arg0, s32 arg1) {
-    TObjPlayer__sub_8030A180(arg0, arg1, 0x237, 2);
-    TObjPlayer__sub_8030A180(arg0, arg1, 0x239, 0);
+    emit_player_model_particle((s32)(arg0), (s32)(arg1), (s32)(0x237), (s32)(2));
+    emit_player_model_particle((s32)(arg0), (s32)(arg1), (s32)(0x239), (s32)(0));
     TObjPlayer__sub_8030A2CC((void*)((void *) (arg0)), (void*)((void *) (arg1)), (void*)((int) (0x238)));
 }
 
@@ -170,6 +169,15 @@ void TObjPlayer__sub_8030A150(M2C_UNK arg0, s32 arg1, s32 arg2) {
     TOSwitchAttack__sub_80087278((s32)((void *) (arg1)), (s32)((void *) (arg2)), (M2C_UNK)((int) (0x2000)));
 }
 
+s32 emit_player_model_particle(s32 owner, s32 position, s32 entry, s32 model) {
+  s32 emitter = TObjPlayer__sub_8030A2CC((void*)(owner), (void*)(position), (void*)(entry));
+  if (emitter)
+  {
+    TObjFish__sub_800660D4(emitter, TParticleCtrl__sub_80086884(model), get_instance__13TParticleCtrlFv(), 0, 1, lbl_805DF134);
+  }
+  return emitter;
+}
+
 s32 TObjPlayer__sub_8030A1E4(unsigned long long arg1, s32 arg2) {
   Stack_8030A1E4 stack;
   s32 temp_r3;
@@ -205,7 +213,7 @@ s32 check_hit_by_id__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     return temp_r3;
 }
 
-void TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2) { TObjEneDellBiter__sub_80087350(a1, a2); }
+s32 TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2) { return TObjEneDellBiter__sub_80087350(a1, a2); }
 s32 TPlyPtclObjectRightHand__vt7(s32 arg0) {
     void *temp_r3;
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16) get_lifetime__22TPlyFollowParticleCtrlFPv());

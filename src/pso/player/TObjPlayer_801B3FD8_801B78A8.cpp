@@ -42,7 +42,7 @@ M2C_UNK TObjPlayer__sub_801BF840(void *);
 M2C_UNK set_flag_4__10TObjPlayerFPv(void *);
 M2C_UNK check_flag_2__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801BF8AC(void *);
-s32 TObjPlayer__sub_802032AC();
+s32 player_auxiliary_surfaces_enabled();
 u8 *TObjPlayer__vt16(u8 *arg0, u8 *arg1);
 }
 
@@ -113,11 +113,11 @@ u8 *TObjPlayer__vt16(u8 *arg0, u8 *arg1) {
         check_flag_2__10TObjPlayerFPv((void *) (arg0 + 0x360));
         TObjPlayer__sub_801BF3C4((void *) (arg0 + 0x384), (void *) (M2C_FIELD(temp_r3, u8 **, 4) + 0x1C));
     }
-    if ((temp_r31 & 4) && (TObjPlayer__sub_802032AC() != 0)) {
+    if ((temp_r31 & 4) && (player_auxiliary_surfaces_enabled() != 0)) {
         set_flag_4__10TObjPlayerFPv((void *) (arg0 + 0x360));
         TObjPlayer__sub_801BF3A0((void *) (arg0 + 0x384), (void *) (M2C_FIELD(temp_r3, u8 **, 4) + 0x38));
     }
-    if ((temp_r31 & 2) && (TObjPlayer__sub_802032AC() != 0)) {
+    if ((temp_r31 & 2) && (player_auxiliary_surfaces_enabled() != 0)) {
         TObjPlayer__sub_801BF840((void *) (arg0 + 0x360));
         TObjPlayer__sub_801BF3A0((void *) (arg0 + 0x384), (void *) (M2C_FIELD(temp_r3, u8 **, 4) + 0x54));
     }
