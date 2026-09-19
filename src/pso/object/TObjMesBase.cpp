@@ -13,6 +13,16 @@ struct TObjMesBase80194_80194C98 : TObjBase80194_80194C98 {
     virtual void ct(s32);
 };
 
+#include "pso/object/TObjMesBase.h"
+extern "C" {
+extern void* lbl_805D5EE8;
+extern void* lbl_805D5EEC;
+extern void* tl_00;
+void* __nw__7TObjectFUl(unsigned long);
+void* __ct__12TQuestThreadFv(void*, void*, s32);
+void set_parent__7TObjectFP7TObject(void*, void*);
+}
+
 extern "C" {
 
 struct Base_80194CE8_80194C98 { char pad[0x18]; };
@@ -46,6 +56,32 @@ void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 f32 fn_8013157C(s32, s32);
 s32 fn_801A2340(s32, f32, f32);
 
+}
+
+void TObjMesBase::start_message() {
+    s32 label = messageLabel;
+    if (label != 0) {
+        void* root = 0;
+        switch (messageBank) {
+        case 0: root = lbl_805D5EE8; break;
+        case 1: root = lbl_805D5EEC; break;
+        }
+        switch (messagePhase) {
+        case 0:
+            if (!messageChild && label != 0 && root) {
+                void* child = __nw__7TObjectFUl(0x194);
+                if (child) child = __ct__12TQuestThreadFv(child, root, messageLabel);
+                messageChild = child;
+                if (messageChild) set_parent__7TObjectFP7TObject(messageChild, tl_00);
+                messagePhase = 1;
+            }
+            break;
+        case 1: break;
+        }
+    }
+}
+
+extern "C" {
 void clear_ref_if_destroyed__11TObjMesBaseFPv(void *arg0) {
     void *p = M2C_FIELD(arg0, void **, 0xAC);
     if ((p != 0) && (all_parents_unqueued_for_destruction__7TObjectFv(p) == 0)) {
