@@ -252,7 +252,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
 extern M2C_UNK lbl_80493450[];
 void *TObjPlayer__sub_800C68FC(void *arg0, s16 arg1);
-int TObjEnemy__ct(void);
+int initialize__9TObjEnemyFPv(void);
 extern M2C_UNK lbl_80493450[];
 extern const f32 lbl_805DA034;
     extern const float lbl_805DA058;
@@ -546,6 +546,6 @@ void *TObjPlayer__sub_800C68FC(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void* init_enemy_base__10TObjPlayerFPv(void* a0) { TObjEnemy__ct(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_80493450); *(short*)((char*)a0 + 0x326) = 0; *(short*)((char*)a0 + 0x328) = 0; *(short*)((char*)a0 + 0x374) = 0; *(short*)((char*)a0 + 0x376) = 0; *(int*)((char*)a0 + 0x378) = 0; *(int*)((char*)a0 + 0x37c) = 0; *(float*)((char*)a0 + 0x380) = (*(const float *)&lbl_805DA034); *(float*)((char*)a0 + 0x384) = lbl_805DA058; *(float*)((char*)a0 + 0x388) = lbl_805DA05C; *(int*)((char*)a0 + 0x38c) = 0; *(int*)((char*)a0 + 0x390) = 0; *(float*)((char*)a0 + 0x398) = lbl_805DA060; *(float*)((char*)a0 + 0x39c) = lbl_805DA064; *(float*)((char*)a0 + 0x394) = lbl_805DA060; *(float*)((char*)a0 + 0x3a0) = lbl_805DA060; *(float*)((char*)a0 + 0x3a4) = lbl_805DA064; return a0; }
+void* init_enemy_base__10TObjPlayerFPv(void* a0) { initialize__9TObjEnemyFPv(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_80493450); *(short*)((char*)a0 + 0x326) = 0; *(short*)((char*)a0 + 0x328) = 0; *(short*)((char*)a0 + 0x374) = 0; *(short*)((char*)a0 + 0x376) = 0; *(int*)((char*)a0 + 0x378) = 0; *(int*)((char*)a0 + 0x37c) = 0; *(float*)((char*)a0 + 0x380) = (*(const float *)&lbl_805DA034); *(float*)((char*)a0 + 0x384) = lbl_805DA058; *(float*)((char*)a0 + 0x388) = lbl_805DA05C; *(int*)((char*)a0 + 0x38c) = 0; *(int*)((char*)a0 + 0x390) = 0; *(float*)((char*)a0 + 0x398) = lbl_805DA060; *(float*)((char*)a0 + 0x39c) = lbl_805DA064; *(float*)((char*)a0 + 0x394) = lbl_805DA060; *(float*)((char*)a0 + 0x3a0) = lbl_805DA060; *(float*)((char*)a0 + 0x3a4) = lbl_805DA064; return a0; }
 
 }

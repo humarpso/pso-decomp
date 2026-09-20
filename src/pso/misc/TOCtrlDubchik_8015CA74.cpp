@@ -211,7 +211,7 @@ s32 TObjPlayer__sub_800162E0(void *, void *, void *, f32);
 s32 TOCtrlDubchik__vt25(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 init_position_vectors__10TObjPlayerFi(void *);
-s32 TObjEnemy__ct(void *);
+s32 initialize__9TObjEnemyFPv(void *);
 void set_indexed_flags(void *, s32, s32);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_80154E3C(void *);
@@ -400,7 +400,7 @@ void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8015D3CC_lbl_804B0A20_size[sizeof(RecoveredGlobal_8015D3CC_lbl_804B0A20) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik_size[sizeof(RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik) == 0x14C ? 1 : -1];
 u8 *TOCtrlDubchik__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    TObjEnemy__ct((void *) (arg0));
+    initialize__9TObjEnemyFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik *)&__vt__13TOCtrlDubchik).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F1C;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

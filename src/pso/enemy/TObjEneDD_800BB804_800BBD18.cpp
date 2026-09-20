@@ -6,7 +6,7 @@ extern "C" {
 
 void *TObjEneDD__ct(void *arg0);
 void *TObjEneDD__vt0(void *arg0, s16 arg1);
-void TObjEnemy__ct(void *);
+void initialize__9TObjEnemyFPv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
 
@@ -28,7 +28,7 @@ extern const f32 lbl_805D9EA8;
 extern void *lbl_805D2A30;
 
 void *TObjEneDD__ct(void *arg0) {
-    TObjEnemy__ct(arg0);
+    initialize__9TObjEnemyFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TObjEneDD;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2A30;
     M2C_FIELD(arg0, u32 *, 0x374) = 0;

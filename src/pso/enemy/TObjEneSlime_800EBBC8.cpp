@@ -100,7 +100,7 @@ s32 reset_photon_effect__12TBoss3VoloptFPv(void *);
 s32 TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 TObjEneSlime__sub_800EB984(void *);
-s32 TObjEnemy__ct(void *);
+s32 initialize__9TObjEnemyFPv(void *);
 extern M2C_UNK __vt__12TObjEneSlime[];
 extern s32 lbl_805D2AD8;
 u8 *TObjEneSlime__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
@@ -134,7 +134,7 @@ extern u32 lbl_805D52B0;
 typedef char RecoveredGlobal_800EBC28___vt__12TObjEneSlime_size[sizeof(RecoveredGlobal_800EBC28___vt__12TObjEneSlime) == 0x150 ? 1 : -1];
 u8 *TObjEneSlime__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     s32 temp_r0;
-    TObjEnemy__ct((void *) (arg0));
+    initialize__9TObjEnemyFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800EBC28___vt__12TObjEneSlime *)&__vt__12TObjEneSlime).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2AD8;
     ((VObj_18_fe72f9 *)(arg0))->m79(arg2);

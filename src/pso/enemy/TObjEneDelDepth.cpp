@@ -96,7 +96,7 @@ struct RecoveredGlobal_80315A40___vt__15TObjEneDelDepth {
 
 extern "C" {
 s32 add_flags_2e4__10TObjPlayerFPvUi(void *, int);
-s32 TObjEnemy__ct(void *);
+s32 initialize__9TObjEnemyFPv(void *);
 s32 TObjPlayer__sub_80156844(void *, void *, int);
 s32 TObjEneDelDepth__sub_803154A8(void *, int);
 s32 TObjEneDelDepth__sub_803158B0(void *);
@@ -156,7 +156,7 @@ void TObjEneDelDepth__sub_80315888(u8 *arg0) {
 #pragma pop
 
 u8 *TObjEneDelDepth__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    TObjEnemy__ct((void *) (arg0));
+    initialize__9TObjEnemyFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80315A40___vt__15TObjEneDelDepth *)&__vt__15TObjEneDelDepth).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4118;
     add_flags_2e4__10TObjPlayerFPvUi((void *) (arg0), (int) (8));

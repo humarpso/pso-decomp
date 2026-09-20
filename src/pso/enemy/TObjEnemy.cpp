@@ -4,6 +4,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include "pso/enemy/TObjEnemy.h"
+extern "C" {
+void* TObjPlayer__sub_80019038(TObjEnemy*,void*);
+extern M2C_UNK __vt__9TObjEnemy[];
+extern void* lbl_805D2B00;
+extern const f32 lbl_805DA8E0;
+}
+
 extern "C" {
 
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
@@ -42,6 +50,33 @@ void *__dt__9TObjEnemyFv(void *arg0, s16 arg1) {
 
 extern s32 TLobby__data_805D6144;
 
+}
+
+TObjEnemy* TObjEnemy::initialize(void* parent) {
+    TObjEnemy* self=this;
+    TObjPlayer__sub_80019038(self,parent);
+    self->dispatch=((u32 *)&__vt__9TObjEnemy);
+    self->typeName=lbl_805D2B00;
+    self->targetId=0xFFFF;
+    self->variant=0;
+    self->state36C=0;
+    self->control=0;
+    self->subtype=0;
+    self->group=0;
+    self->previous=0;
+    self->next=0;
+    self->children=0;
+    self->movementParameters=0;
+    self->resetTimer=0;
+    self->timer=0;
+    self->referenceHp=self->hp;
+    for(int i=0;i<5;++i)self->parameters[i]=lbl_805DA8E0;
+    self->actorFlags|=0x20000000;
+    self->animationFlags|=1;
+    return self;
+}
+
+extern "C" {
 s32 apply_by_index__9TObjEnemyFs(s16 arg0) {
     if (arg0 > 0xB4F) {
         return 0;

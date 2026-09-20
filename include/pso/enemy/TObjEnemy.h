@@ -1,31 +1,32 @@
 #ifndef PSO_ENEMY_TOBJENEMY_H
 #define PSO_ENEMY_TOBJENEMY_H
-
 #include "types.h"
-
-struct TObjEnemy
-{
-    u8 _pad1C[0x14];
-    u32 m_30;
-    u8 _pad34[0x7C];
-    u32 m_b0;
-    u8 _padB4[0x278];
-    s16 m_32c;
-    u8 _pad32E[0x6];
-    u32 m_334;
-    u16 m_338;
-    u16 m_33a;
-    u16 m_33c;
-    u16 m_33e;
-    u32 m_340;
-    u32 m_344;
-    u32 m_348;
-    u32 m_34c;
-    u32 m_350;
-    u8 _pad354[0x14];
-    u32 m_368;
-    u32 m_36c;
-    u32 m_370;
+struct TObjEnemy {
+    TObjEnemy* initialize(void* parent);
+    void* typeName;
+    u8 unknown04[0x14];
+    void* dispatch;
+    u8 unknown1C[0x14];
+    u32 actorFlags;
+    u8 unknown34[0x7C];
+    u32 animationFlags;
+    u8 unknownB4[0x278];
+    s16 hp;
+    u8 unknown32E[6];
+    u32 subtype;
+    u16 targetId;
+    u16 resetTimer;
+    u16 timer;
+    s16 referenceHp;
+    TObjEnemy* group;
+    TObjEnemy* previous;
+    TObjEnemy* next;
+    TObjEnemy* children;
+    void* movementParameters;
+    f32 parameters[5];
+    u32 variant;
+    u32 state36C;
+    void* control;
 };
-
+typedef char EnemyBaseSize[(sizeof(TObjEnemy)==0x374)?1:-1];
 #endif

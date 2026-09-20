@@ -10,7 +10,7 @@ struct RecoveredGlobal_800C7F80___vt__15TObjEnemyCustom {
 };
 
 extern "C" {
-u8 * TObjEnemy__ct(void *);
+u8 * initialize__9TObjEnemyFPv(void *);
 extern M2C_UNK __vt__15TObjEnemyCustom[];
 extern s32 lbl_805D2A60;
 u8 *TObjEnemyCustom__ct(u8 *arg0);
@@ -41,7 +41,7 @@ extern s32 lbl_805D5198;
 
 typedef char RecoveredGlobal_800C7F80___vt__15TObjEnemyCustom_size[sizeof(RecoveredGlobal_800C7F80___vt__15TObjEnemyCustom) == 0x14C ? 1 : -1];
 u8 *TObjEnemyCustom__ct(u8 *arg0) {
-    TObjEnemy__ct(arg0);
+    initialize__9TObjEnemyFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800C7F80___vt__15TObjEnemyCustom *)&__vt__15TObjEnemyCustom).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2A60;
     M2C_FIELD(arg0, s32 *, 0x374) = 0;
