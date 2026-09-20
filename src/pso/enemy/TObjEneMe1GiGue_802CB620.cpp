@@ -33,7 +33,7 @@ M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TBoss3VoloptMonitor__sub_8004292C();
 M2C_UNK TObjEneMe1GiGueBarrier__sub_80325CC4(void *, void *);
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
-M2C_UNK TObjPlayer__sub_80017BA8(void *, s32, f32, f32, f32);
+M2C_UNK enemy_wander_home(void *, s32, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(M2C_UNK);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -92,7 +92,7 @@ void action__15TObjEneMe1GiGueFPv(void *arg0) {
         update_collisions__10TObjPlayerFPv(arg0);
         return;
     case 2:
-        TObjPlayer__sub_80017BA8(arg0, M2C_FIELD(M2C_FIELD(arg0, void **, 0x350), s32 *, 8), M2C_FIELD(arg0, f32 *, 0x3E4), TObjEneMe1GiGue__data_805DE694, TObjEneMe1GiGue__data_805DE694);
+        enemy_wander_home(arg0, M2C_FIELD(M2C_FIELD(arg0, void **, 0x350), s32 *, 8), M2C_FIELD(arg0, f32 *, 0x3E4), TObjEneMe1GiGue__data_805DE694, TObjEneMe1GiGue__data_805DE694);
         TBoss1Dragon__sub_80143504(arg0);
         TObjPlayer__sub_80011734(arg0, 0, TObjEneMe1GiGue__data_805DE660);
         update_collisions__10TObjPlayerFPv(arg0);

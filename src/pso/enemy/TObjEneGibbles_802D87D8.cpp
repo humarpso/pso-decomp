@@ -20,7 +20,7 @@ struct VObj802DAAC8_802daac8_802D87D8 : VBase802DAAC8_802daac8_802D87D8 {
 };
 
 extern "C" {
-f32 TObjPlayer__sub_80017BA8(void *, s32, f32, f32, f32);
+f32 enemy_wander_home(void *, s32, f32, f32, f32);
 M2C_UNK minimap_render_dot(void *, int, int, int);
 M2C_UNK obj_clearFlags30(void *, int);
 M2C_UNK TBoss1Dragon__sub_80143504(int);
@@ -277,7 +277,7 @@ void TObjEneGibbles__sub_802DA96C(u8 *arg0) {
     var_f3 = var_f2;
     var_f1 = M2C_FIELD(var_r4, f32 *, 4);
     var_r4 = (u8 *)(M2C_FIELD(var_r4, u8 **, 8));
-    TObjPlayer__sub_80017BA8(var_r3, (s32) var_r4, var_f1, var_f2, var_f3);
+    enemy_wander_home(var_r3, (s32) var_r4, var_f1, var_f2, var_f3);
     var_r3 = (u8 *)(var_r31);
     TObjPlayer__sub_80154E3C((void *)((int) (var_r3)));
     var_r3 = (u8 *)(var_r31);

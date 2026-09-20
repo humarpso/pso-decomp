@@ -87,13 +87,14 @@ struct VObj_800F6960 : Base_800F6960 {
 
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include "pso/enemy/TObjEnemy.h"
 extern "C" {
 int TObjPlayer__sub_800F6B68(void*);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805DA8DC;
 void update_prev_position__10TObjPlayerFPv(u8 *arg0);
-s32 TObjPlayer__sub_800F7450();
-s32 is_action_available__10TObjPlayerFv(void);
+s32 is_action_available__10TObjPlayerFv(TObjEnemy* _w0);
+
 }
 
 extern "C" {
@@ -123,8 +124,28 @@ void update_prev_position__10TObjPlayerFPv(u8 *arg0) {
 }
 #pragma pop
 
-s32 is_action_available__10TObjPlayerFv(void) {
-    return TObjPlayer__sub_800F7450() ? 1 : 0;
 }
+s32 TObjEnemy::countChildren() {
+    TObjEnemy* child=children;
+    s32 count=0;
+    if(child) {
+        while(child->next) {child=child->next;++count;}
+        ++count;
+    }
+    return count;
+}
+extern "C" {
+s32 is_action_available__10TObjPlayerFv(TObjEnemy* _w0) {
+    return ((s32)_w0->groupRoot()) ? 1 : 0;
+}
+}
+TObjEnemy* TObjEnemy::groupRoot() {
+    TObjEnemy* current=this;
+    while(current->previous) current=current->previous;
+    TObjEnemy* group=current->group;
+    if(group) return group;
+    return 0;
+}
+extern "C" {
 
 }

@@ -3,6 +3,8 @@
 #include "types.h"
 struct TObjEnemy {
     TObjEnemy* initialize(void* parent);
+    s32 countChildren();
+    TObjEnemy* groupRoot();
     void* typeName;
     u8 unknown04[0x14];
     void* dispatch;

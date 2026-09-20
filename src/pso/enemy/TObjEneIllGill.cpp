@@ -113,7 +113,7 @@ void *TObjEneIllGill__ct(void *, void *, void *);
 M2C_UNK TObjEneIllGill__sub_80367B00(void *);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
-M2C_UNK TObjPlayer__sub_80017BA8(void *, int, f32, f32, f32);
+M2C_UNK enemy_wander_home(void *, int, f32, f32, f32);
 f32 TObjPlayer__sub_80141CF8(void *, void *);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
 void __dl__7TObjectFPv(void *);
@@ -297,7 +297,7 @@ void run_attack_phase__14TObjEneIllGillFPv(u8 *arg0) {
         } else {
             M2C_FIELD(arg0, f32 *, 0x300) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) + TObjEneIllGill__data_805E02DC);
             temp_r4 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x350));
-            TObjPlayer__sub_80017BA8((void *) (arg0), (int) (M2C_FIELD(temp_r4, s32 *, 8)), (f32) (lbl_805E02E8 * M2C_FIELD(temp_r4, f32 *, 4)), (f32) (lbl_805E02C4), (f32) (lbl_805E02FC));
+            enemy_wander_home((void *) (arg0), (int) (M2C_FIELD(temp_r4, s32 *, 8)), (f32) (lbl_805E02E8 * M2C_FIELD(temp_r4, f32 *, 4)), (f32) (lbl_805E02C4), (f32) (lbl_805E02FC));
         }
         TObjPlayer__sub_80154E3C((void *) (arg0));
         break;
