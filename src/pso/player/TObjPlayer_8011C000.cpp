@@ -31,6 +31,8 @@ extern void *item_mgr;
 void TObjPlayer__sub_8011C328(u32 arg0, s32 arg1);
 extern void *item_pmt_tbl;
 u8 TObjPlayer__sub_8011CA98(u8 arg0);
+extern void *item_pmt_tbl;
+u8 TObjPlayer__sub_8011C1C8(s8 arg0, u8 arg1);
 }
 
 extern "C" {
@@ -64,6 +66,10 @@ s32 get_shield_pmt_entry__10TObjPlayerFUc(u8 arg0) {
 }
 
 extern void *item_mgr;
+
+u8 TObjPlayer__sub_8011C1C8(s8 arg0, u8 arg1) {
+    return (*(u8 (**)[12])((s8 *)(*(u8 * *)&item_pmt_tbl) + 0x40))[arg1][arg0];
+}
 
 void register_item_drop__10TObjPlayerFPv(void *arg0) {
     Thing *p = (Thing *) arg0;

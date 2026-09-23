@@ -1124,6 +1124,7 @@ pso/misc/TOTrapChainSawDamage_802C9BF8.cpp
 pso/misc/TOTrapChainSaw_802C9BE4.cpp
 pso/misc/TOTrap_80179140.cpp
 pso/misc/TOTrap_801792AC.cpp
+pso/misc/TOVS2Wall01.cpp
 pso/misc/TOVS2Wall01_8017BCC8.cpp
 pso/misc/TOVS2Wall01_8017C7A4.cpp
 pso/misc/TOVS2Wreck01.cpp
@@ -2365,6 +2366,7 @@ pso/slices/pso_carve_80124760.cpp
 pso/slices/pso_carve_8012480c.cpp
 pso/slices/pso_carve_80124810.cpp
 pso/slices/pso_carve_8012484c.cpp
+pso/slices/pso_carve_8013e134.cpp
 pso/slices/pso_carve_8013e5e8.cpp
 pso/slices/pso_carve_8013e72c.cpp
 pso/slices/pso_carve_8013e75c.cpp
@@ -2744,6 +2746,7 @@ pso/unk/text_8013ADD0.cpp
 pso/unk/text_8013ADE4.cpp
 pso/unk/text_801418C4.cpp
 pso/unk/text_801424DC.cpp
+pso/unk/text_80143818.cpp
 pso/unk/text_80144AC8.cpp
 pso/unk/text_80145750.cpp
 pso/unk/text_80145A44.cpp

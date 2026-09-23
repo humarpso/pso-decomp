@@ -20,11 +20,43 @@ struct Entry_80288C78_80288B5C {
     s32 fieldC;
 };
 
+struct RecoveredGlobal_80289200___vt__19TQuestListChallenge {
+    M2C_UNK value;
+    u8 remaining[0x2C];
+};
+
+struct RecoveredGlobal_80289200_lbl_8045080C {
+    M2C_UNK value;
+    u8 remaining[0x4C];
+};
+
+struct RecoveredGlobal_80289200_lbl_80450910 {
+    M2C_UNK value;
+    u8 remaining[0x8C];
+};
+
+struct RecoveredGlobal_80289200_lbl_80450A20 {
+    M2C_UNK value;
+    u8 remaining[0x7C];
+};
+
 extern "C" {
 s32 TLobby__sub_80222C28(int, int, int);
 s32 select_cursor_entry__6TLobbyFPv(s32);
 extern s32 TQuestListChallenge__data_805D64B0;
 s32 TQuestListChallenge__sub_80288B04(void);
+s32 TLobby__sub_8030A7B0();
+M2C_UNK __ct__15TShopWindowBaseFv();
+s32 calc_min_challenge_progress__6TLobbyFv();
+s32 get_instance__6TLobbyFv();
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
+extern s32 TQuestListChallenge__data_805D64B0;
+extern M2C_UNK __vt__19TQuestListChallenge[];
+extern RecoveredGlobal_80289200_lbl_8045080C lbl_8045080C;
+extern RecoveredGlobal_80289200_lbl_80450910 lbl_80450910;
+extern RecoveredGlobal_80289200_lbl_80450A20 lbl_80450A20;
+extern s32 lbl_805D3AF8;
+u8 *TQuestListChallenge__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -167,6 +199,59 @@ void *__dt__19TQuestListChallengeFv(void *arg0, s16 arg1) {
 extern s32 lbl_805D64A8;
 extern s32 lbl_805D64AC;
 extern s32 TQuestListChallenge__data_805D64B0;
+
+typedef char RecoveredGlobal_80289200___vt__19TQuestListChallenge_size[sizeof(RecoveredGlobal_80289200___vt__19TQuestListChallenge) == 0x30 ? 1 : -1];
+typedef char RecoveredGlobal_80289200_lbl_8045080C_size[sizeof(RecoveredGlobal_80289200_lbl_8045080C) == 0x50 ? 1 : -1];
+typedef char RecoveredGlobal_80289200_lbl_80450910_size[sizeof(RecoveredGlobal_80289200_lbl_80450910) == 0x90 ? 1 : -1];
+typedef char RecoveredGlobal_80289200_lbl_80450A20_size[sizeof(RecoveredGlobal_80289200_lbl_80450A20) == 0x80 ? 1 : -1];
+u8 *TQuestListChallenge__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
+    s32 temp_r3;
+    s32 var_r3;
+    __ct__15TShopWindowBaseFv();
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80289200___vt__19TQuestListChallenge *)&__vt__19TQuestListChallenge).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3AF8;
+    if ((void *) (*(u8 * *)&TQuestListChallenge__data_805D64B0) != NULL) {
+        return arg0;
+    }
+    M2C_FIELD(arg0, s32 *, 0x28) = 0;
+    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x30) = arg2;
+    M2C_FIELD(arg0, s32 *, 0x34) = 0;
+    M2C_FIELD(arg0, s32 *, 0x38) = 0;
+    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x40) = 0;
+    M2C_FIELD(arg0, s32 *, 0x24) = arg3;
+    M2C_FIELD(arg0, s32 *, 0x44) = 0;
+    M2C_FIELD(arg0, s32 *, 0x48) = 0;
+    temp_r3 = TLobby__sub_8030A7B0();
+    switch (temp_r3) {
+    case 1:
+        if (get_instance__6TLobbyFv() == 0) {
+            M2C_FIELD(arg0, M2C_UNK **, 0x58) = &lbl_80450910.value;
+        } else {
+            M2C_FIELD(arg0, M2C_UNK **, 0x58) = &lbl_8045080C.value;
+        }
+        M2C_FIELD(arg0, s32 *, 0x50) = 0xF;
+        M2C_FIELD(arg0, s32 *, 0x54) = (s32) (calc_min_challenge_progress__6TLobbyFv() + 1);
+        temp_r3 = get_instance__6TLobbyFv();
+        var_r3 = 5;
+        if (temp_r3 == 0) {
+            var_r3 = 9;
+        }
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x54) > var_r3) {
+            M2C_FIELD(arg0, s32 *, 0x54) = var_r3;
+        }
+        break;
+    case 2:
+        M2C_FIELD(arg0, s32 *, 0x50) = 0x10;
+        M2C_FIELD(arg0, M2C_UNK **, 0x58) = &lbl_80450A20.value;
+        M2C_FIELD(arg0, s32 *, 0x54) = 8;
+        break;
+    }
+    set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (M2C_UNK)((int) (0)));
+    (*(u8 * *)&TQuestListChallenge__data_805D64B0) = arg0;
+    return arg0;
+}
 
 void reset_globals__19TQuestListChallengeFv(void) {
     lbl_805D64A8 = 0;

@@ -47,6 +47,18 @@ extern s32 lbl_805D6058;
 extern const f32 lbl_805DC608;
 extern const f32 lbl_805DC60C;
 u8 *TSceneSora__ct(u8 *arg0, s32 _w1);
+M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
+M2C_UNK TObjDoor__sub_803DC894(int, int, f32);
+s32 TObjFish__sub_8001EDB0(int, int);
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK set_global_param__8TObjFishFi();
+extern s32 TSceneSora__data_805D3620;
+extern u32 TSceneSora__data_805D6054;
+void render__10TSceneSoraFv(u8 *arg0);
 }
 
 extern "C" {
@@ -60,6 +72,24 @@ extern u32 TSceneSora__data_805D6054;
 extern s32 tl_05;
 
 typedef char RecoveredGlobal_802072E0___vt__10TSceneSora_size[sizeof(RecoveredGlobal_802072E0___vt__10TSceneSora) == 0x38 ? 1 : -1];
+
+void render__10TSceneSoraFv(u8 *arg0) {
+    if ((s32) TSceneSora__data_805D3620 != 0) {
+        begin_effect_render__13TParticleCtrlFv();
+        TObjFish__sub_8001EDB0((int) ((*(s32 *)&TSceneSora__data_805D6054)), (int) (0));
+        set_global_param__8TObjFishFi();
+        TObjPlayer__sub_803D9B2C();
+        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x94) != 0U) {
+            TObjDoor__sub_803DC894((int) (M2C_FIELD(arg0, s32 *, 0x90)), (int) (M2C_FIELD(arg0, s32 *, 0x94)), (f32) (M2C_FIELD(arg0, f32 *, 0xA0)));
+        } else {
+            TObjBoss2Tunnel__sub_803DB470((int) (M2C_FIELD(arg0, s32 *, 0x90)));
+        }
+        TObjPlayer__sub_803D9B78();
+        end_effect_render__13TParticleCtrlFv();
+    }
+}
+
 u8 *__dt__10TSceneSoraFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__10TSceneSora.value;

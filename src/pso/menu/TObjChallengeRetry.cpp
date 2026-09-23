@@ -23,13 +23,16 @@ s32 is_ready_to_draw__6TLobbyFv();
 M2C_UNK TLobby__sub_80072B70(void *);
 M2C_UNK close_window_2c__6TLobbyFPv(void *);
 M2C_UNK send_45_and_close_windows__6TLobbyFv(void *);
-s32 is_challenge_lobby__6TLobbyFv();
+s32 is_challenge_lobby__6TLobbyFv(void *);
 M2C_UNK update_destroy_countdown__6TLobbyFPv(void *);
 M2C_UNK handle_loss_sequence(void *);
 M2C_UNK update_challenge_retry__6TLobbyFPv(void *);
 M2C_UNK handle_challenge_retry_confirm(void *);
 M2C_UNK fn_8007313C(void *);
 void *fn_800733C4(void *arg0);
+void *__ct__7TObjectFP7TObject(void *, void *);
+extern M2C_UNK __vt__18TObjChallengeRetry[];
+extern s32 lbl_805D2860;
 void *TObjChallengeRetry__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 void *fn_800733C4(void *arg0);
@@ -42,7 +45,7 @@ void set_loss_flag__6TLobbyFPv(void* p);
 
 void run_task__18TObjChallengeRetryFv(u8 *arg0) {
     s32 temp_r0;
-    M2C_FIELD(arg0, s32 *, 0x20) = is_challenge_lobby__6TLobbyFv();
+    M2C_FIELD(arg0, s32 *, 0x20) = is_challenge_lobby__6TLobbyFv((void *) (arg0));
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
     switch (temp_r0) {
     case 0:
@@ -67,6 +70,18 @@ void run_task__18TObjChallengeRetryFv(u8 *arg0) {
         TLobby__sub_80072B70((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
     }
+}
+
+void *TObjChallengeRetry__ct(void *arg0, void *parent) {
+    __ct__7TObjectFP7TObject(arg0, parent);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjChallengeRetry;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2860;
+    M2C_FIELD(arg0, s32 *, 0x20) = is_challenge_lobby__6TLobbyFv(arg0);
+    M2C_FIELD(arg0, s32 *, 0x24) = 0;
+    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x30) = 0;
+    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+    return arg0;
 }
 
 void *fn_800733C4(void *arg0) {

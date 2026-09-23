@@ -42,22 +42,20 @@ s32 insert_item_node__10TObjPlayerFiiiii(int, void *, void *, void *, int);
 void TObjPlayer__sub_801B8A80(u8 *arg0, s32 arg1);
 s32 obj_getPtr2B0_20(TObjPlayer*);
 s32 obj_isState3_324(TObjPlayer*);
-void* TObjPlayer__sub_80019704(TObjPlayer*);
-s32 fn_80099EF8(void*);
-s32 fn_801058F8(TObjPlayer*);
-void fn_8010ECD0(TItemData*,s32);
-s32 fn_801B0730(TObjPlayer*);
-s32 fn_801B0EE8();
-void fn_801B9EDC(TObjPlayer*,s32);
-void fn_801BEA4C(TObjPlayer*);
+void* get_item_field_6__10TObjPlayerFPv(TObjPlayer*);
+s32 get_field_d8__10TObjPlayerFPv(void*);
+s32 TWindowSubComCard__sub_801058F8(TObjPlayer*);
+s32 check_flag_01000000__10TObjPlayerFPv(TObjPlayer*);
+s32 is_technique_ready__8TTecCtrlFv();
+void TObjPlayer__sub_801B9EDC(TObjPlayer*,s32);
 TItemData* TObjPlayer__sub_801C2058(DeathDropRecord*);
 void set_field4__10TObjPlayerFPvi(DeathDropRecord*,s32);
-void fn_801D35FC(u8*,DeathItemPosition*,TObjPlayer*,DeathDropRecord*,s32);
-s32 fn_801D4C84(u8*,TObjPlayer*,DeathDropRecord*);
-void* TObjPlayer__sub_801C2068(void*);
+void TItemList__sub_801D35FC(u8*,DeathItemPosition*,TObjPlayer*,DeathDropRecord*,s32);
+s32 set_globals_and_notify__6TLobbyFPvii(u8*,TObjPlayer*,DeathDropRecord*);
+void* init_c2098_return_self__10TObjPlayerFPv(void*);
 void __construct_array(void*,void*(*)(void*),void*,u32,u32);
 extern DeathItemPosition lbl_8050BF60;
-extern const f32 lbl_805DC2BC;
+extern const f32 TObjPlayer__data_805DC2BC;
 void TObjPlayer__sub_801B864C(TObjPlayer* player);
 }
 
@@ -88,44 +86,42 @@ typedef char DeathDropItemOffset[(offsetof(DeathDropRecord,item)==8)?1:-1];
 typedef char DeathPlayerInventoryOffset[(offsetof(PlayerDeathItemFields,inventory_owner)==0xD00)?1:-1];
 void TObjPlayer__sub_801B864C(TObjPlayer* player) {
     DeathDropRecord records[9];
-    s32 count;
     DeathDropRecord* record;
+    s32 count;
     TItemData* item;
     void* equipped;
     PlayerDeathItemFields* fields=(PlayerDeathItemFields*)player;
-    if (fields->inventory_owner!=NULL && obj_isState3_324(player)==0) {
-        if (fn_801058F8(player)!=0) {
-            return;
+    if (fields->inventory_owner==NULL || obj_isState3_324(player)!=0 || TWindowSubComCard__sub_801058F8(player)!=0) {
+        return;
+    }
+    __construct_array(records,init_c2098_return_self__10TObjPlayerFPv,NULL,sizeof(DeathDropRecord),9);
+    count=0;
+    if (is_technique_ready__8TTecCtrlFv()!=0) {
+        if (check_flag_01000000__10TObjPlayerFPv(player)==0) {
+            count=set_globals_and_notify__6TLobbyFPvii(fields->inventory_owner,player,records);
         }
-        __construct_array(records,TObjPlayer__sub_801C2068,NULL,sizeof(DeathDropRecord),9);
-        count=0;
-        if (fn_801B0EE8()!=0) {
-            if (fn_801B0730(player)==0) {
-                count=fn_801D4C84(fields->inventory_owner,player,records);
-            }
-            if (obj_getPtr2B0_20(player)!=0) {
-                record=&records[count];
-                set_field4__10TObjPlayerFPvi(record,-1);
-                item=TObjPlayer__sub_801C2058(record);
-                fn_8010ECD0(item,obj_getPtr2B0_20(player));
-                count+=1;
-                item->id=-1;
-            }
-        } else if (fn_801B0730(player)==0) {
-            count=fn_801D4C84(fields->inventory_owner,player,records);
-        } else {
-            equipped=TObjPlayer__sub_80019704(player);
-            if (equipped!=NULL) {
-                fn_801B9EDC(player,fn_80099EF8(equipped));
-            }
+        if (obj_getPtr2B0_20(player)!=0) {
+            record=&records[count];
+            set_field4__10TObjPlayerFPvi(record,-1);
+            item=TObjPlayer__sub_801C2058(record);
+            init_item_data__10TObjPlayerFPvi(item,(void*)obj_getPtr2B0_20(player));
+            count+=1;
+            item->id=-1;
         }
-        if (count>0) {
-            lbl_8050BF60.x=fields->position.x;
-            lbl_8050BF60.y=lbl_805DC2BC+fields->position.y;
-            lbl_8050BF60.z=fields->position.z;
-            fn_801D35FC(fields->inventory_owner+0x20,&lbl_8050BF60,player,records,count);
-            fn_801BEA4C(player);
+    } else if (check_flag_01000000__10TObjPlayerFPv(player)==0) {
+        count=set_globals_and_notify__6TLobbyFPvii(fields->inventory_owner,player,records);
+    } else {
+        equipped=get_item_field_6__10TObjPlayerFPv(player);
+        if (equipped!=NULL) {
+            TObjPlayer__sub_801B9EDC(player,get_field_d8__10TObjPlayerFPv(equipped));
         }
+    }
+    if (count>0) {
+        lbl_8050BF60.x=fields->position.x;
+        lbl_8050BF60.y=TObjPlayer__data_805DC2BC+fields->position.y;
+        lbl_8050BF60.z=fields->position.z;
+        TItemList__sub_801D35FC(fields->inventory_owner+0x20,&lbl_8050BF60,player,records,count);
+        set_action_flag_2__10TObjPlayerFPv(player);
     }
 }
 

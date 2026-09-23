@@ -36,6 +36,35 @@ struct VObj_14_aa9368 : VBase_14_aa9368 {
     virtual M2C_UNK m7();
 };
 
+struct VBase_18_582a4f { char pad[0x18]; };
+
+struct VObj_18_582a4f : VBase_18_582a4f {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual M2C_UNK m18();
+};
+
+struct RecoveredGlobal_80193B4C_lbl_8050DCF0 {
+    u8 * value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 extern RecoveredGlobal_80193A84_lbl_8050DCF0 lbl_8050DCF0;
 void TLazerFenceSw__vt14(u8 *arg0);
@@ -49,6 +78,9 @@ M2C_UNK set_current_scene__6TSceneFi(int);
 extern const f32 lbl_805DBE7C;
 extern const f32 lbl_805DBE80;
 void render__13TLazerFenceSwFv(u8 *arg0);
+extern const f32 TLazerFenceSw__data_805DBE84;
+extern RecoveredGlobal_80193A84_lbl_8050DCF0 lbl_8050DCF0;
+void TLazerFenceSw__vt15(u8 *arg0);
 }
 
 extern "C" {
@@ -157,6 +189,15 @@ void TLazerFenceSw__vt14(u8 *arg0) {
     if (M2C_FIELD(arg0, f32 *, 0xEC) > (f32) temp_r4_2) {
         M2C_FIELD(arg0, f32 *, 0xEC) = (f32) temp_r4_2;
     }
+}
+
+typedef char RecoveredGlobal_80193B4C_lbl_8050DCF0_size[sizeof(RecoveredGlobal_80193B4C_lbl_8050DCF0) == 0x18 ? 1 : -1];
+void TLazerFenceSw__vt15(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (M2C_FIELD(arg0, f32 *, 0xB0) + M2C_FIELD(arg0, f32 *, 0xB8));
+    if (M2C_FIELD(arg0, f32 *, 0xB0) > (f32) (u32) (M2C_FIELD((*(RecoveredGlobal_80193B4C_lbl_8050DCF0 *)&lbl_8050DCF0).value, s32 *, 4) - 1)) {
+        M2C_FIELD(arg0, f32 *, 0xB0) = (f32) TLazerFenceSw__data_805DBE84;
+    }
+    ((VObj_18_582a4f *)(arg0))->m18();
 }
 
 void run_task__13TLazerFenceSwFv(u8 *arg0) {
