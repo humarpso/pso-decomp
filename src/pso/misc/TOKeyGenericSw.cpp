@@ -22,6 +22,47 @@ struct VObj_8016CBE4_8016CA60 : Base_8016CBE4_8016CA60 {
     virtual void m18();
 };
 
+struct Base_8016CA64 { char pad[0x18]; };
+
+struct Obj_8016CA64 : Base_8016CA64 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual s32 m8(f32, f32);
+    u8 pad1c[0x8];
+    s32 x24;
+    u8 pad28[0xC];
+    s32 x34;
+    u8 x38[0x28];
+    s32 x60;
+    u8 pad64[0x4C];
+    f32 xb0;
+    u8 padb4[0x8];
+    s32 xbc;
+    f32 xc0;
+    f32 xc4;
+    u8 padc8[0xC];
+    s32 xd4;
+};
+
+struct Area_8016CA64 { u8 pad[8]; s32 x8; };
+
+struct Map_8016CA64 { u8 pad[0x42C]; Area_8016CA64 *area; };
+
+extern "C" {
+s32 TObjPlayer__sub_803D9B2C();
+s32 TOHangerMachine01__sub_803D9C00(void *);
+s32 TObjPlayer__sub_803D9214(s32, s32);
+s32 set_global_param__8TObjFishFi(s32);
+s32 TObjBoss2Tunnel__sub_803DB470(s32);
+s32 TObjPlayer__sub_803D9B78();
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 TObjDoor__sub_803DC894(s32, s32, f32);
+extern s32 *TOKeyGenericSw__data_805D5A28;
+extern Map_8016CA64 *TOKeyGenericSw__data_8050DB60[];
+void render__14TOKeyGenericSwFv(Obj_8016CA64 *self);
+}
+
 extern "C" {
 
 void TOKeyGenericSw__vt14(void *arg0);
@@ -38,6 +79,35 @@ void *__nw__7TObjectFUl(int);
 M2C_UNK update_anim_phase__17TOBarrierEnergy01FPv();
 
 void TOKeyGenericSw__vt23(void) {  }
+
+void render__14TOKeyGenericSwFv(Obj_8016CA64 *self) {
+    if (self->m8(self->xc0, self->xc4) == 0) return;
+    TObjPlayer__sub_803D9B2C();
+    self->x24 = TOKeyGenericSw__data_805D5A28[0];
+    self->x34 = TOKeyGenericSw__data_8050DB60[0]->area->x8;
+    TOHangerMachine01__sub_803D9C00(self->x38);
+    TObjPlayer__sub_803D9214(0, self->x60);
+    set_global_param__8TObjFishFi(self->x24);
+    TObjBoss2Tunnel__sub_803DB470(self->x34);
+    TObjPlayer__sub_803D9B78();
+    begin_effect_render__13TParticleCtrlFv();
+    TObjPlayer__sub_803D9B2C();
+    switch (self->xd4) {
+    case 0:
+        self->x24 = TOKeyGenericSw__data_805D5A28[1];
+        break;
+    case 1:
+        self->x24 = TOKeyGenericSw__data_805D5A28[2];
+        break;
+    }
+    self->x34 = TOKeyGenericSw__data_8050DB60[1]->area->x8;
+    TOHangerMachine01__sub_803D9C00(self->x38);
+    TObjPlayer__sub_803D9214(0, self->x60);
+    set_global_param__8TObjFishFi(self->x24);
+    TObjDoor__sub_803DC894(self->x34, self->xbc, self->xb0);
+    TObjPlayer__sub_803D9B78();
+    end_effect_render__13TParticleCtrlFv();
+}
 
 void TOKeyGenericSw__vt15(void *arg0) {
     update_anim_phase__17TOBarrierEnergy01FPv();

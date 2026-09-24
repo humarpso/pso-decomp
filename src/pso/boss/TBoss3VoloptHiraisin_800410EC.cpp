@@ -36,6 +36,8 @@ struct RecoveredFields_800413C8_arg0 {
     s32 field_38C;
 };
 
+struct Obj_8004118C { u8 pad[0xb8]; s16 anim; u8 pad2[0x37c - 0xba]; s32 state; u8 pad3[0x38c - 0x380]; s32 angle; };
+
 extern "C" {
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDC4(int, int);
@@ -67,6 +69,8 @@ extern const f32 lbl_805D8728;
 extern const f32 lbl_805D872C;
 extern const f32 lbl_805D8730;
 void render__20TBoss3VoloptHiraisinFv(u8 *arg0);
+s32 TObjPlayer__sub_80154E3C(void *);
+void TBoss3VoloptHiraisin__sub_8004118C(Obj_8004118C *self);
 }
 
 extern "C" {
@@ -108,6 +112,22 @@ typedef char RecoveredFields_800413C8_arg0_40_offset[offsetof(RecoveredFields_80
 typedef char RecoveredFields_800413C8_arg0_60_offset[offsetof(RecoveredFields_800413C8_arg0, field_60) == 0x60 ? 1 : -1];
 typedef char RecoveredFields_800413C8_arg0_B4_offset[offsetof(RecoveredFields_800413C8_arg0, field_B4) == 0xB4 ? 1 : -1];
 typedef char RecoveredFields_800413C8_arg0_38C_offset[offsetof(RecoveredFields_800413C8_arg0, field_38C) == 0x38C ? 1 : -1];
+
+void TBoss3VoloptHiraisin__sub_8004118C(Obj_8004118C *self) {
+    switch (self->state) {
+    case 0:
+        self->anim = 0;
+        self->state = 1;
+        break;
+    case 1:
+        break;
+    case -1:
+        break;
+    }
+    TObjPlayer__sub_80154E3C(self);
+    self->angle += 0x800;
+}
+
 void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
     f32 temp_f31;
     if (!(((RecoveredFields_800413C8_arg0 *)arg0)->field_30 & 0x02000000) && (((VObj_18_26a62c *)(arg0))->m8(lbl_805D8718, lbl_805D871C) != 0)) {

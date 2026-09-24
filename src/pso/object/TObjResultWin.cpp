@@ -11,6 +11,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_8007445C_lbl_8050E208 { M2C_UNK value; u8 remaining[0x1AC]; };
 typedef char RecoveredGlobal_8007445C_lbl_8050E208_size[sizeof(RecoveredGlobal_8007445C_lbl_8050E208) == 0x1B0 ? 1 : -1];
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct V_80074664 { s32 x, y, z; };
+
+struct Sub_80074664 { s32 w[5]; };
+
+struct Rec_80074664 { V_80074664 v; Sub_80074664 a; Sub_80074664 b; };
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 void create_window__13TObjResultWinFPv(u8 *arg0);
@@ -19,6 +28,7 @@ M2C_UNK TWindow__close(int);
 s32 TWindowCtrlMain__sub_8024CE58();
 extern RecoveredGlobal_8007445C_lbl_8050E208 lbl_8050E208;
 void run_task__13TObjResultWinFv(u8 *arg0);
+Rec_80074664 *TObjResultWin__sub_80074664(Rec_80074664 *d, Rec_80074664 *s);
 }
 
 extern "C" {
@@ -26,7 +36,6 @@ extern "C" {
 void *__ct__13TObjResultWinFv(void *arg0, void *arg1, void *arg2);
 void *create__13TObjResultWinFPv(void *arg0);
 void create_window__13TObjResultWinFPv(u8 *arg0);
-void TObjResultWin__sub_80074664(void *, void *);
 void TQuestVmDownLoadServer__sub_80074114(void *);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 void __ct__7TObjectFP7TObject(void *);
@@ -83,7 +92,7 @@ void *__ct__13TObjResultWinFv(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjResultWin;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2878;
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;
-    TObjResultWin__sub_80074664((void *)((char *)arg0 + 296), arg2);
+    TObjResultWin__sub_80074664((Rec_80074664 *)((void *)((char *)arg0 + 296)), (Rec_80074664 *)(arg2));
     M2C_FIELD(arg0, u32 *, 0x24) = 60;
     M2C_FIELD(arg0, u32 *, 0x20) = 0;
     TQuestVmDownLoadServer__sub_80074114(arg0);
@@ -91,6 +100,13 @@ void *__ct__13TObjResultWinFv(void *arg0, void *arg1, void *arg2) {
 }
 
 extern void *tl_07;
+
+Rec_80074664 *TObjResultWin__sub_80074664(Rec_80074664 *d, Rec_80074664 *s) {
+    d->v = s->v;
+    d->a = s->a;
+    d->b = s->b;
+    return d;
+}
 
 void *create__13TObjResultWinFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x15C);

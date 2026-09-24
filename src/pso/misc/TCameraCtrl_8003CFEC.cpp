@@ -89,6 +89,11 @@ extern s32 lbl_805D4D14;
 extern const f32 lbl_805D8660;
 extern const f32 lbl_805D8678;
 void TCameraCtrl__sub_8003D648(u8 *arg0);
+void *TPhotonMylla__sub_80154CB4(u16);
+s32 is_photon_blast_active__11TCameraCtrlFPv();
+s32 TObjPlayer__sub_80042EC0(void *);
+extern u16 lbl_80483770[];
+s32 TCameraCtrl__sub_8003D2C4(void);
 }
 
 extern "C" {
@@ -125,6 +130,19 @@ s32 is_photon_ready__11TCameraCtrlFv(void) {
     }
     return 0;
 }
+
+s32 TCameraCtrl__sub_8003D2C4(void) {
+    s32 i;
+    void *p;
+    for (i = 0; i < 6; i++) {
+        p = TPhotonMylla__sub_80154CB4(lbl_80483770[i]);
+        if (p != 0 && is_photon_blast_active__11TCameraCtrlFPv() == 0 && TObjPlayer__sub_80042EC0(p) == 0) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
 void update_volopt_seq__11TCameraCtrlFPv(void *arg0) {
     s32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);

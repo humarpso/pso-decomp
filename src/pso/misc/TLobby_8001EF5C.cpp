@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Obj_8001F8D8 { u8 pad0[4]; s32 f4; s32 f8; s32 fc; u8 pad10[0x418 - 0x10]; s32 f418; u8 pad41c[0x434 - 0x41c]; s32 f434; s32 f438; s32 f43c; };
+
 extern "C" {
 M2C_UNK TItemDrop__sub_800FE2DC();
 s32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
@@ -13,9 +15,7 @@ extern s32 lbl_805D4ACC;
 extern s32 lbl_805D4AD4;
 extern u32 lbl_805D4AD8;
 void init_download_buffers__6TLobbyFv(void);
-M2C_UNK TLobby__sub_8001F8D8(void *, void *);
 void increment_ref_and_set_flag__6TLobbyFPv(void *arg0);
-M2C_UNK TLobby__sub_8001F8D8(void *, void *);
 s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
 extern s32 lbl_805D4ACC;
@@ -23,6 +23,10 @@ extern M2C_UNK lbl_80434C48[];
 void load_bin_motion_callback(void *arg0);
 extern s32 lbl_805D4AD0;
 void reset_battle_state__6TLobbyFPv(void *arg0);
+void set_flag_and_notify__6TLobbyFPv(void *arg0);
+void TLobby__sub_8001EE48(const char *s);
+extern char lbl_80434C38[];
+void TLobby__sub_8001F8D8(Obj_8001F8D8 *self, void * _w1);
 }
 
 extern "C" {
@@ -86,12 +90,21 @@ void init_download_buffers__6TLobbyFv(void) {
     lbl_805D4AD4 = 1;
     lbl_804FE148[0] = 0;
 }
+
+void TLobby__sub_8001F8D8(Obj_8001F8D8 *self, void * _w1) {
+    if (self->f434 <= self->f4 && self->f438 <= self->f8 && self->f43c <= self->fc) {
+        set_flag_and_notify__6TLobbyFPv(self);
+        self->f418 = 0;
+        TLobby__sub_8001EE48(lbl_80434C38);
+    }
+}
+
 void increment_ref_and_set_flag__6TLobbyFPv(void *arg0) {
     s32 *temp_r3;
     void *temp_r4;
     temp_r4 = M2C_FIELD(arg0, void **, 0);
     M2C_FIELD(temp_r4, s32 *, 0xC) = (s32) (M2C_FIELD(temp_r4, s32 *, 0xC) + 1);
-    TLobby__sub_8001F8D8(M2C_FIELD(arg0, void **, 0), temp_r4);
+    TLobby__sub_8001F8D8((Obj_8001F8D8 *)(M2C_FIELD(arg0, void **, 0)), (void *)(temp_r4));
     temp_r3 = M2C_FIELD(arg0, s32 **, 4);
     *temp_r3 |= 1;
 }
@@ -109,7 +122,7 @@ void load_bin_motion_callback(void *arg0) {
     *M2C_FIELD(arg0, s32 **, 0) = temp_r3;
     temp_r4 = M2C_FIELD(arg0, void **, 4);
     M2C_FIELD(temp_r4, s32 *, 8) = (s32) (M2C_FIELD(temp_r4, s32 *, 8) + 1);
-    TLobby__sub_8001F8D8(M2C_FIELD(arg0, void **, 4), temp_r4);
+    TLobby__sub_8001F8D8((Obj_8001F8D8 *)(M2C_FIELD(arg0, void **, 4)), (void *)(temp_r4));
 }
 void reset_battle_state__6TLobbyFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x42C) = 0;

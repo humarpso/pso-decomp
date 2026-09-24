@@ -18,6 +18,14 @@ struct RecoveredGlobal_80433890_lbl_805D2200 {
     u8 remaining[0x3FC];
 };
 
+typedef s32 M2C_UNK;
+struct RecoveredGlobal_80433C94_lbl_805D2200 {
+    M2C_UNK value;
+    u8 remaining[0x3FC];
+};
+
+struct Ent_80433C94 { u8 pad[0x30]; u64 v; u8 pad2[0xC8]; };
+
 extern "C" {
 extern RecoveredGlobal_8043395C_lbl_805D2200 lbl_805D2200;
 void TLobby__sub_8043395C(s32 arg0);
@@ -28,6 +36,8 @@ s32 TLobby__sub_80432848(void);
 M2C_UNK memcpy(int, void *, int);
 extern RecoveredGlobal_8043395C_lbl_805D2200 lbl_805D2200;
 void TLobby__sub_80433890(s32 arg0);
+extern RecoveredGlobal_8043395C_lbl_805D2200 lbl_805D2200;
+u64 TLobby__sub_80433C94(s32 i, u64 v);
 }
 
 extern "C" {
@@ -68,6 +78,12 @@ void TLobby__sub_8043395C(s32 arg0) {
     if ((s32) M2C_FIELD(temp_r3, s32 *, 0x20) == 0) {
         *M2C_FIELD(temp_r3, s8 **, 0x14) = M2C_FIELD(temp_r3, u8 *, 5) & 0x3A;
     }
+}
+u64 TLobby__sub_80433C94(s32 i, u64 v) {
+    Ent_80433C94 *e = &((Ent_80433C94 *)&lbl_805D2200)[i];
+    u64 old = e->v;
+    e->v = v;
+    return old;
 }
 
 }

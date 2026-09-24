@@ -16,6 +16,8 @@ struct RecoveredGlobal_8008683C_lbl_804393F0 {
     u8 remaining[0x8];
 };
 
+struct Ent_800868C4 { u8 data[0x98]; };
+
 extern "C" {
 s32 TObjFish__sub_8001EDC4(void *, s32);
 extern u8 *TParticleCtrl__data_805D4F00;
@@ -23,6 +25,12 @@ s32 TParticleCtrl__sub_80086884(s32 arg0);
 s32 TParticleCtrl__sub_80089FEC(void *, void *, void *, void *);
 extern RecoveredGlobal_8008683C_lbl_804393F0 lbl_804393F0;
 void TParticleCtrl__sub_8008683C(s32 arg0, s32 arg1, s32 arg2);
+extern s32 lbl_805D2948;
+extern Ent_800868C4 *lbl_805D4EF8;
+extern Ent_800868C4 *lbl_805D4EFC;
+void *__nw__7TObjectFUl(int);
+void *initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(void *, void *, void *, s32, s32, s32, s32, s32);
+void *TObjPlayer__sub_800868C4(void *pos, s32 id, s32 a, s32 b, s32 c);
 }
 
 extern "C" {
@@ -67,5 +75,28 @@ s32 TParticleCtrl__sub_80086884(s32 arg0) {
 }
 
 int get_instance__13TParticleCtrlFv(void) {  return TParticleCtrl__data_805D4F04; }
+#pragma push
+#pragma opt_propagation off
+void *TObjPlayer__sub_800868C4(void *pos, s32 id, s32 a, s32 b, s32 c) {
+    void *p;
+    s32 idx = id;
+    if (lbl_805D2948 > idx) {
+        p = __nw__7TObjectFUl(0x78);
+        if (p != 0) {
+            p = initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(p, pos, &lbl_805D4EF8[idx], 0, a, b, 0, c);
+        }
+        return p;
+    }
+    if (lbl_805D2948 + 0x40 > idx) {
+        idx -= 0x200;
+        p = __nw__7TObjectFUl(0x78);
+        if (p != 0) {
+            p = initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(p, pos, &lbl_805D4EFC[idx], 0, a, b, 0, c);
+        }
+        return p;
+    }
+    return 0;
+}
+#pragma pop
 
 }

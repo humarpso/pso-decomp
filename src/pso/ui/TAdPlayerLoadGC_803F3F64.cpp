@@ -13,6 +13,7 @@ s32 TLobby__sub_803F4AD8(s32 arg0);
 s32 TLobby__sub_803F4AB4(void);
 s32 TLobby__sub_803F4B10(s32 arg0);
 s32 TLobby__sub_803F4AEC(void);
+s32 TLobby__sub_803F4B68(s32 mode);
 }
 
 extern "C" {
@@ -56,6 +57,17 @@ void TLobby__sub_803F4B2C(s32 arg0) {
         TAdSinglePlyChrSelectGC__sub_803F47BC();
     }
 }
+
+#pragma push
+#pragma scheduling off
+s32 TLobby__sub_803F4B68(s32 mode) {
+    s32 n = 0x19D4;
+    if (mode == 1) {
+        n <<= 1;
+    }
+    return n;
+}
+#pragma pop
 
 s32 TAdPlayerLoadGC__sub_803F4B80(void) {
     return 0x8000;

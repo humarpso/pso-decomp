@@ -6,6 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct O_80058D70 { u8 pad[0x398]; s32 f398; u8 pad2[0x1c]; u16 f3b8; };
 
+struct Obj_80059010 { u8 pad[0x398]; s32 f398; u8 pad39c[0x1C]; u16 f3b8; u16 f3ba; };
+
+struct Obj_80059390 { u8 pad[0x30]; u32 flags; u8 pad34[0x384]; u16 f3b8; u16 f3ba; };
+
 extern "C" {
 void TBoss4Type3__vt2(void *arg0);
 M2C_UNK TBoss4Type3__sub_8005A398(void *, M2C_UNK);
@@ -38,6 +42,12 @@ extern const f32 lbl_805D8C50;
 void TBoss4Type3__vt24(u8 *arg0);
 int TBoss4Type3__sub_80059F64(void*, void*);
 void TBoss4Type3__vt29(O_80058D70 *self);
+int TBoss4Type3__sub_80059F64(void*, void*);
+void TBoss4Type3__sub_80059EA8(void *, s32, s32);
+s32 TBoss4Type3__sub_8004AE60(void);
+void TBoss4Type3__vt23(Obj_80059010 *self);
+int TBoss4Type3__sub_80059F64(void*, void*);
+void TBoss4Type3__vt3(Obj_80059390 *self);
 }
 
 extern "C" {
@@ -45,7 +55,6 @@ extern "C" {
 void TBoss4Type3__vt22(u8 *arg0);
 void TBoss4Type3__vt25(u8 *arg0);
 void TBoss4Type3__vt28(void *arg0);
-int TBoss4Type3__vt3(void);
 void TBoss4Type3__vt31(void *arg0);
 void TBoss4Type3__vt32(void* p);
 void TBoss4Type3__vt34(void *arg0);
@@ -156,6 +165,22 @@ void TBoss4Type3__vt24(u8 *arg0) {
     }
 }
 
+void TBoss4Type3__vt23(Obj_80059010 *self) {
+    s32 id;
+    if (self->f398 == 0) {
+        if (self->f3ba != 0xFFFF) {
+            TBoss4Type3__sub_80059F64((void*)(self), (void*)((void *)0xD));
+        } else {
+            id = TBoss4Type3__sub_8004AE60();
+            if ((u16)id != 0xFFFF) {
+                TBoss4Type3__sub_80059EA8(self, 0xB, id);
+            } else {
+                TBoss4Type3__sub_80059F64((void*)(self), (void*)((void *)0xC));
+            }
+        }
+    }
+}
+
 void TBoss4Type3__vt22(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3A4) = (s32) M2C_FIELD(arg0, s32 *, 0x3A0);
     M2C_FIELD(arg0, s32 *, 0x3A0) = 0x11;
@@ -204,7 +229,15 @@ void TBoss4Type3__vt4(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x398) = 0x31;
 }
 
-int TBoss4Type3__vt3(void) { return 0; }
+void TBoss4Type3__vt3(Obj_80059390 *self) {
+    if (self->flags & 0x800) {
+        TBoss4Type3__sub_80059F64((void*)(self), (void*)((void *)2));
+    } else {
+        self->f3b8 = 0xFFFF;
+        self->f3ba = 0xFFFF;
+        TBoss4Type3__sub_80059F64((void*)(self), (void*)((void *)10));
+    }
+}
 
 void TBoss4Type3__vt2(void *arg0) {
     s32 temp_r0;

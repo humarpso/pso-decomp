@@ -40,6 +40,14 @@ struct RecoveredGlobal_80059450_lbl_80437878 {
     u8 remaining[0xC];
 };
 
+struct Obj_80059EA8 { u8 pad[0x38C]; void *target; u8 pad390[0x10]; s32 f3a0; u8 pad3a4[4]; s32 f3a8; u8 pad3ac[0xC]; u16 f3b8; u16 f3ba; };
+
+struct Obj_80059F04 { u8 pad[0x38C]; void *target; u8 pad390[0x10]; s32 f3a0; u8 pad3a4[4]; s32 f3a8; u8 pad3ac[0xC]; u16 f3b8; u16 f3ba; };
+
+struct Obj_80059F64 { u8 pad[0x38C]; void *target; u8 pad390[0x10]; s32 f3a0; u8 pad3a4[4]; s32 f3a8; u8 pad3ac[0xC]; u16 f3b8; u16 f3ba; };
+
+struct Obj_8005A2A4 { u8 pad[0x404]; void *parts[13]; };
+
 extern "C" {
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 extern const f32 TBoss4Type3__data_805D8C34;
@@ -54,6 +62,14 @@ extern RecoveredGlobal_80059450_lbl_80437860 lbl_80437860;
 extern RecoveredGlobal_80059450_lbl_8043786C lbl_8043786C;
 extern RecoveredGlobal_80059450_lbl_80437878 lbl_80437878;
 void TBoss4Type3__sub_80059450(u8 *arg0);
+void TBoss4DarkFalz__sub_8004B16C(void *, s32);
+void TBoss4Type3__sub_80059EA8(Obj_80059EA8 *self, s32 arg1, s32 arg2);
+void TBoss4DarkFalz__sub_8004B16C(void *, s32);
+void TBoss4Type3__sub_80059F04(Obj_80059F04 *self, s32 arg1, s32 arg2, s32 arg3);
+void TBoss4DarkFalz__sub_8004B16C(void *, s32);
+void TBoss4Type3__sub_80059F64(Obj_80059F64 *self, s32 arg1);
+void request_destroy__11TBoss4Type2FUi(void *p);
+void TBoss4Type3__sub_8005A2A4(Obj_8005A2A4 *self);
 }
 
 extern "C" {
@@ -66,7 +82,6 @@ void spawn_random_effect__11TBoss4Type3Fi(s32 arg0);
 void update_target_effect_timer__11TBoss4Type3FPv(void *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 int TBoss4Type3__sub_800599F4(void*, void*, void*);
-M2C_UNK TBoss4Type3__sub_80059F04(s32, M2C_UNK, s32, s32);
 f32 calc_boss4_scale__10TObjPlayerFi();
 s32 is_split_screen();
 M2C_UNK spawn_effect__11TBoss4Type3Fsss(M2C_UNK, M2C_UNK, s16);
@@ -168,8 +183,27 @@ void spawn_random_effect__11TBoss4Type3Fi(s32 arg0) {
     s32 temp_r5;
 
     temp_r5 = (s32) (lbl_805D8C8C * calc_boss4_scale__10TObjPlayerFi());
-    TBoss4Type3__sub_80059F04(arg0, 0xF, temp_r5, temp_r5);
+    TBoss4Type3__sub_80059F04((Obj_80059F04 *)(arg0), (s32)(0xF), (s32)(temp_r5), (s32)(temp_r5));
 }
+
+void TBoss4Type3__sub_80059EA8(Obj_80059EA8 *self, s32 arg1, s32 arg2) {
+    if (self->target != 0) {
+        TBoss4DarkFalz__sub_8004B16C(self->target, (arg1 & 0x1F) | ((self->f3a0 & 0x1F) << 5) | ((self->f3a0 & 0x1F) << 10) | ((self->f3a8 & 0xF) << 15) | ((self->f3a8 & 0xF) << 19) | ((arg2 & 0xF) << 23) | ((self->f3ba & 0xF) << 27));
+    }
+}
+
+void TBoss4Type3__sub_80059F04(Obj_80059F04 *self, s32 arg1, s32 arg2, s32 arg3) {
+    if (self->target != 0) {
+        TBoss4DarkFalz__sub_8004B16C(self->target, (arg1 & 0x1F) | ((self->f3a0 & 0x1F) << 5) | ((arg2 & 0x1F) << 10) | ((self->f3a8 & 0xF) << 15) | ((arg3 & 0xF) << 19) | ((self->f3b8 & 0xF) << 23) | ((self->f3ba & 0xF) << 27));
+    }
+}
+
+void TBoss4Type3__sub_80059F64(Obj_80059F64 *self, s32 arg1) {
+    if (self->target != 0) {
+        TBoss4DarkFalz__sub_8004B16C(self->target, (arg1 & 0x1F) | ((self->f3a0 & 0x1F) << 5) | ((self->f3a0 & 0x1F) << 10) | ((self->f3a8 & 0xF) << 15) | ((self->f3a8 & 0xF) << 19) | ((self->f3b8 & 0xF) << 23) | ((self->f3ba & 0xF) << 27));
+    }
+}
+
 #pragma push
 #pragma opt_common_subs off
 void TBoss4Type3__sub_80059FC4(u8 *arg0) {
@@ -236,5 +270,15 @@ void TBoss4Type3__sub_80059FC4(u8 *arg0) {
     }
 }
 #pragma pop
+
+void TBoss4Type3__sub_8005A2A4(Obj_8005A2A4 *self) {
+    s32 i;
+    for (i = 0; i < 13; i++) {
+        if (self->parts[i] != 0) {
+            request_destroy__11TBoss4Type2FUi(self->parts[i]);
+            self->parts[i] = 0;
+        }
+    }
+}
 
 }

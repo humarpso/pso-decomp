@@ -5,6 +5,22 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u8 *alloc_buffer__11TOBoss4RockFPv(u32 size);
+void clamp_difficulty__6TLobbyFi(s32 arg0);
+M2C_UNK get_instance__6TLobbyFv();
+M2C_UNK set_difficulty__6TLobbyFi();
+M2C_UNK TLobby__sub_8001DC30();
+extern u32 TLobby__data_805D4AA0;
+extern s32 TLobby__data_805D4AA4;
+extern s32 TLobby__data_805D4AA8;
+extern s32 TLobby__data_805D4AAC;
+extern s32 TLobby__data_805D4AB0;
+extern s32 TLobby__data_805D4ABC;
+extern s32 lbl_805D5550;
+void TLobby__sub_8001E3A0(void);
+}
+
+extern "C" {
 
 void bswap__12player_statsFv(void *arg0);
 void byteswap_packet__6TLobbyFPv(void* p);
@@ -71,6 +87,24 @@ void free_boss4_rock__6TLobbyFv(void) {
     TLobby__data_805D4AA8 = 0;
     TLobby__data_805D4AAC = 0;
     TLobby__data_805D4AB0 = 0;
+}
+
+void TLobby__sub_8001E3A0(void) {
+    u8 *buf = alloc_buffer__11TOBoss4RockFPv(0x3d80);
+    s32 i;
+    for (i = 0; i < 0x3d80; i++) {
+        buf[i] = 0;
+    }
+    TLobby__data_805D4AA0 = (u32)buf;
+    TLobby__data_805D4AA4 = (s32)buf;
+    TLobby__data_805D4AA8 = (s32)(buf + 0xd80);
+    TLobby__data_805D4AAC = (s32)(buf + 0x1f80);
+    TLobby__data_805D4AB0 = (s32)(buf + 0x2b80);
+    clamp_difficulty__6TLobbyFi(lbl_805D5550);
+    get_instance__6TLobbyFv();
+    set_difficulty__6TLobbyFi();
+    TLobby__sub_8001DC30();
+    TLobby__data_805D4ABC = 0;
 }
 
 void swap_endian__6TLobbyFPv(void* p) { bswap_16__FPUs((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x2)); bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); bswap_16__FPUs((void*)((char*)p + 0x8)); bswap_16__FPUs((void*)((char*)p + 0xa)); bswap_32__FPUl((void*)((char*)p + 0xc)); bswap_32__FPUl((void*)((char*)p + 0x10)); bswap_32__FPUl((void*)((char*)p + 0x14)); bswap_32__FPUl((void*)((char*)p + 0x18)); bswap_32__FPUl((void*)((char*)p + 0x1c)); }

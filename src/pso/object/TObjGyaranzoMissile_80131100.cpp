@@ -26,6 +26,10 @@ struct VObj_18 : VBase_18 {
 
 struct Obj_80131334 { u8 pad[0x1f8]; s32 state; };
 
+struct Ent_80131488 { void *p; s32 a; s32 b; };
+
+struct Obj_80131488 { Ent_80131488 *ents; u32 count; };
+
 extern "C" {
 void* init_missile__19TObjGyaranzoMissileFPv(void *, M2C_UNK, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
@@ -62,6 +66,8 @@ void TObjGyaranzoMissile__sub_80131214(u8 *arg0);
 void draw_status_icon__10TObjPlayerFPvi(void *self, void *buf);
 void TObjEneDellBiter__sub_80087350(void *buf, s32 n);
 void TObjGyaranzoMissile__sub_80131334(Obj_80131334 *self);
+extern u8 lbl_80506250[];
+void TObjGyaranzoMissile__sub_80131488(Obj_80131488 *self);
 }
 
 extern "C" {
@@ -175,6 +181,14 @@ u8 *TObjGyaranzoMissile__sub_80131430(u8 *arg0) {
     }
     return NULL;
 }
+
+void TObjGyaranzoMissile__sub_80131488(Obj_80131488 *self) {
+    u32 i;
+    for (i = 0; i < self->count; i++) {
+        self->ents[i].p = lbl_80506250;
+    }
+}
+
 f32 scale_velocity__19TObjGyaranzoMissileFPvf(void *arg0, f32 farg0) {
     f32 temp_f1;
     f32 temp_f2;

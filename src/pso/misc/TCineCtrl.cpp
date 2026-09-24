@@ -9,6 +9,8 @@ struct RecoveredGlobal_80077FA0___vt__9TCineCtrl {
     u8 remaining[0x14];
 };
 
+struct Obj_80077F58 { u8 pad[0x28]; s32 state; };
+
 extern "C" {
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
@@ -24,6 +26,9 @@ extern const f32 TCineCtrl__data_805D91D0;
 extern const f32 lbl_805D91E0;
 extern const f32 lbl_805D91E4;
 void TCineCtrl__sub_80077D84(u8 *arg0);
+void TCineCtrl__sub_80077E70(u8 *arg0);
+void TCineCtrl__sub_80077D84(u8 *arg0);
+void run_task__9TCineCtrlFv(Obj_80077F58 *self);
 }
 
 extern "C" {
@@ -111,6 +116,20 @@ extern void *lbl_805D28A8;
 extern void * lbl_805D4E60;
 
 typedef char RecoveredGlobal_80077FA0___vt__9TCineCtrl_size[sizeof(RecoveredGlobal_80077FA0___vt__9TCineCtrl) == 0x18 ? 1 : -1];
+
+void run_task__9TCineCtrlFv(Obj_80077F58 *self) {
+    switch (self->state) {
+    case 0:
+        break;
+    case 1:
+        TCineCtrl__sub_80077E70((u8 *)self);
+        break;
+    case 2:
+        TCineCtrl__sub_80077D84((u8 *)self);
+        break;
+    }
+}
+
 u8 *__dt__9TCineCtrlFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80077FA0___vt__9TCineCtrl *)&__vt__9TCineCtrl).value;

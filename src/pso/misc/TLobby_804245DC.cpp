@@ -39,6 +39,8 @@ struct RecoveredGlobal_8042DD70_lbl_805D1D20 {
     u8 remaining[0x18];
 };
 
+typedef s32 M2C_UNK;
+
 extern "C" {
 void TLobby__sub_803F95E4(u32);
 extern u32 lbl_805D7BA8;
@@ -122,6 +124,16 @@ void TAdSinglePlyChrSelectGC__sub_8042DDE4(int, int);
 extern RecoveredGlobal_8042E768_lbl_805D1D20 lbl_805D1D20;
 extern s32 lbl_805D7C98;
 s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32 arg0, s32 arg1, s32 arg2);
+M2C_UNK memcpy(void *, void *, int);
+extern M2C_UNK lbl_805D7C30;
+void TLobby__sub_8042B538(void *dst);
+void TLobby__sub_80425DC8(void *q, void *a, void *b);
+extern u8 lbl_805CF3C8[];
+void TLobby__sub_80426A70(void *a, void *b);
+s32 OSSendMessage(void *mq, void *msg, s32 flags);
+extern u8 lbl_805CF380[];
+extern s32 lbl_805D7BCC;
+void TLobby__sub_80425D88(u8 v);
 }
 
 extern "C" {
@@ -163,12 +175,24 @@ void TLobby__sub_80425BD0(void) {
     }
 }
 
+void TLobby__sub_80425D88(u8 v) {
+    lbl_805D7BCC++;
+    OSSendMessage(lbl_805CF380, (void *)v, 0);
+}
+
 s32 TLobby__sub_80426440(void) {
     return 0;
 }
 
 void TLobby__sub_804264D4(s32 arg0) {
     TLobby__sub_804253A0(arg0);
+}
+
+void TLobby__sub_80426A70(void *a, void *b) {
+    if (a != NULL) {
+        void *q = lbl_805CF3C8;
+        TLobby__sub_80425DC8(q, a, b);
+    }
 }
 
 s16 TLobby__sub_80426BD8(void) {
@@ -306,6 +330,10 @@ void TLobby__sub_8042B334(s32 arg0, s32 arg1, s32 arg2) {
     lbl_805D7C40 = 1;
     lbl_805D7C54 = arg2;
     TLobby__sub_8042B370((int) (0), (int) (0));
+}
+
+void TLobby__sub_8042B538(void *dst) {
+    memcpy(dst, &lbl_805D7C30, 6);
 }
 
 void TLobby__sub_8042B560(s32 arg0) {

@@ -32,6 +32,14 @@ struct RecoveredGlobal_8004B0F8_TBoss4DarkFalz__data_80485108 {
     u8 remaining[0x33C];
 };
 
+struct Obj_8004B16C { u8 pad[0x1C]; u16 id; };
+
+struct Msg_8004B16C { u8 code; u8 size; u16 id; s16 a; u8 pad6[2]; s32 b; u8 padc[4]; };
+
+struct Obj_8004B1BC { u8 pad[0x1C]; u16 id; };
+
+struct Msg_8004B1BC { u8 code; u8 size; u16 id; s16 a; u8 pad6[2]; s32 b; u8 padc[4]; };
+
 extern "C" {
 s32 TBoss4DarkFalz__sub_8004AF5C(u8 *arg0, s16 *arg1, s16 *arg2);
 void fn_803594B4(void *, s32, f32);
@@ -42,6 +50,31 @@ extern RecoveredGlobal_8004B084_TBoss4DarkFalz__data_80485108 TBoss4DarkFalz__da
 void TBoss4DarkFalz__sub_8004B084(u8 *arg0);
 extern RecoveredGlobal_8004B084_TBoss4DarkFalz__data_80485108 TBoss4DarkFalz__data_80485108;
 void TBoss4DarkFalz__sub_8004B0F8(u8 *arg0);
+void *get_player_data__10TObjPlayerFi(s32 i);
+extern s32 lbl_805D586C;
+s32 TBoss4DarkFalz__sub_8004AFC4(void);
+void set_code_25_4__14TBoss4DarkFalzFPv(void *p);
+void swap_and_send__14TBoss4DarkFalzFPv(void *p);
+void TBoss4DarkFalz__sub_8004B16C(Obj_8004B16C *self, s32 arg);
+void set_code_25_4__14TBoss4DarkFalzFPv(void *p);
+void swap_and_send__14TBoss4DarkFalzFPv(void *p);
+void TBoss4DarkFalz__sub_8004B1BC(Obj_8004B1BC *self, s32 arg);
+void *get_player_data__10TObjPlayerFi(s32 i);
+s32 get_field_3e0__12TBoss3VoloptFPv(void *p);
+void TObjPlayer__sub_801B0FF4(void *p);
+extern s32 lbl_805D586C;
+void TBoss4DarkFalz__sub_8004B77C(void *self);
+void *get_player_data__10TObjPlayerFi(s32 i);
+s32 init_all_slots2__11TWindowCtrlFv();
+s32 end_camera_pan__10TObjPlayerFPv(void *p);
+s32 TObjPlayer__sub_801CBF7C();
+extern s32 lbl_805D586C;
+void TBoss4DarkFalz__sub_8004BA18(void *self);
+void *get_player_data__10TObjPlayerFi(s32 i);
+s32 init_all_slots__11TWindowCtrlFv();
+s32 start_freeze__10TObjPlayerFPv(void *p);
+extern s32 lbl_805D586C;
+void TBoss4DarkFalz__sub_8004BA70(void *self);
 }
 
 extern "C" {
@@ -73,6 +106,20 @@ s32 TBoss4DarkFalz__sub_8004AF5C(u8 *arg0, s16 *arg1, s16 *arg2) {
 }
 
 void TBoss4DarkFalz__sub_8004AFB8(void* p) { *(s32*)((char*)p + 0x384) = 1; }
+
+s32 TBoss4DarkFalz__sub_8004AFC4(void) {
+    s32 count = 0;
+    s32 i;
+    for (i = 0; i < lbl_805D586C; i++) {
+        if (get_player_data__10TObjPlayerFi(i) != 0) {
+            count++;
+        }
+    }
+    if (count == 0 || count > 4) {
+        return 1;
+    }
+    return count;
+}
 
 u8 is_ending_or_split_screen__14TBoss4DarkFalzFv(void) {
     int var_r31;
@@ -119,6 +166,24 @@ void TBoss4DarkFalz__sub_8004B0F8(u8 *arg0) {
   }
 }
 
+void TBoss4DarkFalz__sub_8004B16C(Obj_8004B16C *self, s32 arg) {
+    Msg_8004B16C msg;
+    set_code_25_4__14TBoss4DarkFalzFPv(&msg);
+    msg.id = self->id;
+    msg.a = -1;
+    msg.b = arg;
+    swap_and_send__14TBoss4DarkFalzFPv(&msg);
+}
+
+void TBoss4DarkFalz__sub_8004B1BC(Obj_8004B1BC *self, s32 arg) {
+    Msg_8004B1BC msg;
+    set_code_25_4__14TBoss4DarkFalzFPv(&msg);
+    msg.id = self->id;
+    msg.a = arg;
+    msg.b = -1;
+    swap_and_send__14TBoss4DarkFalzFPv(&msg);
+}
+
 void update_visible_flag__14TBoss4DarkFalzFPv(void *arg0) {
     if (TLobby__sub_800C6C10() != 0) {
         M2C_FIELD(arg0, s32 *, 0x378) = 0;
@@ -159,6 +224,41 @@ void TBoss4DarkFalz__sub_8004B730(u8 *arg0, s32 arg1, f32 farg0) {
             var_f1 = lbl_805D8910;
         }
         fn_803594B4(temp_r3, arg1, var_f1);
+    }
+}
+void TBoss4DarkFalz__sub_8004B77C(void *self) {
+    s32 i;
+    void *p;
+    for (i = 0; i < lbl_805D586C; i++) {
+        p = get_player_data__10TObjPlayerFi(i);
+        if (p != 0) {
+            if (get_field_3e0__12TBoss3VoloptFPv(p) == 0xE) {
+                TObjPlayer__sub_801B0FF4(p);
+            }
+        }
+    }
+}
+void TBoss4DarkFalz__sub_8004BA18(void *self) {
+    s32 i;
+    void *p;
+    init_all_slots2__11TWindowCtrlFv();
+    for (i = 0; i < lbl_805D586C; i++) {
+        p = get_player_data__10TObjPlayerFi(i);
+        if (p != 0) {
+            end_camera_pan__10TObjPlayerFPv(p);
+        }
+    }
+    TObjPlayer__sub_801CBF7C();
+}
+void TBoss4DarkFalz__sub_8004BA70(void *self) {
+    s32 i;
+    void *p;
+    init_all_slots__11TWindowCtrlFv();
+    for (i = 0; i < lbl_805D586C; i++) {
+        p = get_player_data__10TObjPlayerFi(i);
+        if (p != 0) {
+            start_freeze__10TObjPlayerFPv(p);
+        }
     }
 }
 

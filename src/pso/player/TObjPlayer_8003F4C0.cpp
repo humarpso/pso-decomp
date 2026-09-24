@@ -189,6 +189,10 @@ struct VObj_18_b8f5cb : VBase_18_b8f5cb {
     virtual M2C_UNK m61();
 };
 
+struct Obj_80040038 { u8 pad[0xb8]; s16 anim; u8 pad2[0x37c - 0xba]; s32 state; };
+
+struct Obj_8003FFE4 { u8 pad[0x30]; u32 flags; u8 pad2[0x37c - 0x34]; s32 state; };
+
 extern "C" {
 s32 obj_testFlags30(void *, s32);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
@@ -243,6 +247,10 @@ int register_object__6TLobbyFPv(void*);
     extern int lbl_805D4C5C;
     extern int lbl_805D4C60;
 void cache_volopt_resource_ptrs(void);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+void TObjPlayer__sub_80040038(void *arg0);
+extern s32 lbl_805D4C64;
+void TObjPlayer__sub_8003FFE4(void *arg0);
 }
 
 extern "C" {
@@ -406,6 +414,37 @@ void update_state_spin__10TObjPlayerFPv(void *arg0) {
         break;
     }
 }
+
+void TObjPlayer__sub_8003FFE4(void *arg0) {
+    Obj_8003FFE4 *self = (Obj_8003FFE4 *)arg0;
+    switch (self->state) {
+    case 0:
+        lbl_805D4C64 = 1;
+        self->flags |= 0x02040000;
+        self->state = 1;
+        break;
+    case 1:
+        break;
+    case -1:
+        self->flags &= ~0x02040000;
+        break;
+    }
+}
+
+void TObjPlayer__sub_80040038(void *arg0) {
+    Obj_80040038 *self = (Obj_80040038 *)arg0;
+    switch (self->state) {
+    case 0:
+        self->anim = 4;
+        self->state = 1;
+    case 1:
+        ((s32)TBoss1Dragon__sub_80143504(self));
+        break;
+    case -1:
+        return;
+    }
+}
+
 void update_grabbed_state__10TObjPlayerFPv(void *arg0) {
     s32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);

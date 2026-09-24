@@ -4,6 +4,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Ent_8001D768 { u32 f0; u32 f4; u32 f8; u32 fc; };
+
+struct Obj_8001D768 { Ent_8001D768 *ents; u32 count; };
+
 extern "C" {
 extern s32 lbl_805D4A90;
 void TLobby__sub_8001D9DC(void);
@@ -15,6 +19,7 @@ M2C_UNK TWindowSubComCard__sub_80225E80(void *, int);
 M2C_UNK strncpy(int, int, int);
 extern s32 TLobby__data_805D4A98;
 void TLobby__sub_8001DAB4(s32 arg0);
+Ent_8001D768 *TLobby__sub_8001D768(Obj_8001D768 *self);
 }
 
 extern "C" {
@@ -37,6 +42,18 @@ void send_or_handle_packet__6TLobbyFPvPvPvPvUi(void *arg0, void *arg1, void *arg
         return;
     }
     TLobby__sub_8001D568(0, M2C_FIELD(arg1, s32 *, 8));
+}
+
+Ent_8001D768 *TLobby__sub_8001D768(Obj_8001D768 *self) {
+    u32 i;
+    if (self->ents != 0) {
+        for (i = 1; i < self->count; i++) {
+            if (self->ents[i].fc == 0) {
+                return &self->ents[i];
+            }
+        }
+    }
+    return 0;
 }
 
 u32 *free_and_delete__6TLobbyFPvs(u32 *arg0, s16 arg1) {

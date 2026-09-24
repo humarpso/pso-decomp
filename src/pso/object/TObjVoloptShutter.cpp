@@ -13,6 +13,8 @@ struct RecoveredGlobal_8004A86C___vt__17TObjVoloptShutter {
     u8 remaining[0x14];
 };
 
+struct Obj_8004A7CC { u8 pad[0x20]; s32 state; };
+
 extern "C" {
 extern const f32 lbl_805D88F0;
 extern const f32 lbl_805D88F8;
@@ -30,6 +32,9 @@ extern u8 *tl_04;
 extern const f32 TObjVoloptShutter__data_805D88F4;
 extern const f32 lbl_805D8904;
 u8 *__ct__17TObjVoloptShutterFv(u8 *arg0, s32 arg1);
+void TObjVoloptShutter__sub_8004A634(u8 *arg0);
+void TObjVoloptShutter__sub_8004A6B4(u8 *arg0);
+void run_task__17TObjVoloptShutterFv(Obj_8004A7CC *self);
 }
 
 extern "C" {
@@ -117,6 +122,20 @@ void render__17TObjVoloptShutterFv(void *arg0) {
     end_effect_render__13TParticleCtrlFv();
 }
 typedef char RecoveredGlobal_8004A86C___vt__17TObjVoloptShutter_size[sizeof(RecoveredGlobal_8004A86C___vt__17TObjVoloptShutter) == 0x18 ? 1 : -1];
+
+void run_task__17TObjVoloptShutterFv(Obj_8004A7CC *self) {
+    switch (self->state) {
+    case 0:
+        break;
+    case 1:
+        TObjVoloptShutter__sub_8004A634((u8 *)self);
+        break;
+    case 2:
+        TObjVoloptShutter__sub_8004A6B4((u8 *)self);
+        break;
+    }
+}
+
 u8 *__ct__17TObjVoloptShutterFv(u8 *arg0, s32 arg1) {
     __ct__7TObjectFP7TObject(arg0, tl_04);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__17TObjVoloptShutter.value;

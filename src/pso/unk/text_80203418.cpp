@@ -13,9 +13,21 @@ s32 TLobby__sub_802077CC(void *, void *);
 extern s32 lbl_805D5FC0;
 extern s32 lbl_805D5FC4;
 void TLobby__sub_80203470(s32 arg0);
+extern s32 lbl_8044A814[];
+s32 get_global_state__14TOKeyMachine01Fv(void);
+s32 TObjPlayer__sub_80203418(void);
 }
 
 extern "C" {
+
+s32 TObjPlayer__sub_80203418(void) {
+    s32 state = get_global_state__14TOKeyMachine01Fv();
+    s32 i = 0;
+    while (lbl_8044A814[i] != -1) {
+        if (state == lbl_8044A814[i++]) return 1;
+    }
+    return 0;
+}
 
 void TLobby__sub_80203470(s32 arg0) {
     Stack_80203470 stack;

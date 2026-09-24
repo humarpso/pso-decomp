@@ -232,6 +232,10 @@ struct RecoveredGlobal_80036A90_lbl_80435A68 {
     u8 remaining[0x1C];
 };
 
+struct V3_80037178 { f32 x, y, z; };
+
+struct Obj_80037178 { u8 pad[0x1c]; V3_80037178 ring[20]; s32 idx; };
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 M2C_UNK TBoss2Joint__sub_80036940(void *);
@@ -261,6 +265,9 @@ s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_80036A90_lbl_80435A68 lbl_80435A68;
 extern const f32 TBoss2Joint__data_805D8474;
 void TBoss2Joint__sub_80036A90(u8 *arg0, s32 arg1);
+s32 VecCopy__FP3VecPC3Vec(s32, s32);
+extern const f32 lbl_805D8498;
+void TBoss2DeRolLe__sub_80037178(Obj_80037178 *self, V3_80037178 *src);
 }
 
 extern "C" {
@@ -436,5 +443,13 @@ void TBoss2Joint__vt45(void) {  }
 void TBoss2Joint__vt46(void) {  }
 void TBoss2Joint__vt47(void) {  }
 void TBoss2Joint__vt48(void) {  }
+void TBoss2DeRolLe__sub_80037178(Obj_80037178 *self, V3_80037178 *src) {
+    VecCopy__FP3VecPC3Vec((s32)&self->ring[self->idx], (s32)src);
+    self->ring[self->idx].y += lbl_805D8498;
+    self->idx++;
+    if (self->idx >= 20) {
+        self->idx = 0;
+    }
+}
 
 }

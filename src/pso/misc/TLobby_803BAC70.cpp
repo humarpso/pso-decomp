@@ -103,6 +103,17 @@ struct Obj_803BDCB8 { u8 pad[0x281]; volatile u8 busy; };
 
 struct Rec_803BE1EC { u32 f0; u32 f4; u32 f8; u32 fc; };
 
+struct Slot_803BD138 {
+    u8 pad_0[0x1c]; s32 f1c; u32 f20; u32 f24[4]; u8 pad_34[0x70 - 0x34];
+    u16 f70; u8 pad_72[0x90 - 0x72]; u8 f90; u8 pad_91[3]; s32 f94; s32 f98;
+    u8 f9c; u8 pad_9d[3]; u8 fa0; u8 pad_a1[0xd4 - 0xa1]; u8 fd4; u8 pad_d5[0xec - 0xd5];
+    u8 fec; u8 pad_ed[0xf4 - 0xed];
+};
+
+struct Rec_803BD62C { u8 pad[0xBC]; };
+
+struct Rec_803BD660 { u8 pad[0xBC]; };
+
 extern "C" {
 extern s8 lbl_805D74B8;
 void set_global_flag__6TLobbyFc(s8 arg0);
@@ -251,6 +262,15 @@ extern Rec_803BE1EC lbl_8056E660[];
 u32 TLobby__sub_803BE1EC(u8 i, u32 *out);
 void AIStartDMA(void);
 void TLobby__sub_803BE508(void);
+extern s32 lbl_805D748C;
+extern s8 lbl_805D74B8; void TLobby__sub_803B8910(Slot_803BD138 *s, s32 x);
+void TLobby__sub_803BD138(s32 i, s32 x);
+extern RecoveredGlobal_803BD5C4_lbl_805663D8 lbl_805663D8;
+void TLobby__sub_803B8A14(Rec_803BD62C *r, void *p);
+void TLobby__sub_803BD62C(u8 i, void *p);
+extern RecoveredGlobal_803BD5C4_lbl_805663D8 lbl_805663D8;
+void TLobby__sub_803B8ABC(Rec_803BD660 *r, u32 x);
+void TLobby__sub_803BD660(u8 i, u32 x);
 }
 
 extern "C" {
@@ -355,6 +375,10 @@ void TLobby__sub_803BD124(s32 i, u8 v) {
     (*(Slot_803BD124 * *)&lbl_805D748C)[i].fa0 = v;
 }
 
+void TLobby__sub_803BD138(s32 i, s32 x) {
+    (*(Slot_803BD138 * *)&lbl_805D748C)[i].fd4 = lbl_805D74B8; TLobby__sub_803B8910(&(*(Slot_803BD138 * *)&lbl_805D748C)[i], x);
+}
+
 void TLobby__sub_803BD174(s32 i) {
     (*(Slot_803BD174 * *)&lbl_805D748C)[i].f24[(u8)lbl_805D74B8] |= 0x40;
 }
@@ -389,6 +413,14 @@ void TLobby__sub_803BD5EC(u8 i, s32 a, s32 b) {
 
 void TLobby__sub_803BD60C(u8 i) {
     TLobby__sub_803B59E4(i);
+}
+
+void TLobby__sub_803BD62C(u8 i, void *p) {
+    TLobby__sub_803B8A14(&((Rec_803BD62C *)&lbl_805663D8)[i], p);
+}
+
+void TLobby__sub_803BD660(u8 i, u32 x) {
+    TLobby__sub_803B8ABC(&((Rec_803BD660 *)&lbl_805663D8)[i], x);
 }
 
 void *TLobby__sub_803BD7C0(u32 size) {

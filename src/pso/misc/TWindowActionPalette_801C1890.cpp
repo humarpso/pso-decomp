@@ -340,6 +340,10 @@ u8 *TWindowActionPalette__sub_801C1DE0(s32 arg0, s32 arg1, s32 arg2);
 u8 get_enabled__11TMainCursorFPv(void *);
 u8 *TWindowActionPalette__sub_801C1D7C(s32 arg0, s32 arg1, s32 arg2);
 void *TWindowActionPalette__sub_801C1C68(O_801C1C68 *self, s32 i);
+s32 get_field_ed__10TObjPlayerFPv(void *p);
+s32 get_field_ec__12TOSwitchItemFPv(void *p);
+s32 fn_80101A48(u8, u8);
+void TObjPlayer__sub_801C1AC8(void *self);
 }
 
 extern "C" {
@@ -426,6 +430,10 @@ u8 TObjPlayer__sub_801C1A70(u8 *arg0) {
     var_r31 = 1;
   }
   return var_r31;
+}
+
+void TObjPlayer__sub_801C1AC8(void *self) {
+    fn_80101A48(get_field_ec__12TOSwitchItemFPv(self), get_field_ed__10TObjPlayerFPv(self));
 }
 
 void TObjPlayer__sub_801C1B0C(void) {  }

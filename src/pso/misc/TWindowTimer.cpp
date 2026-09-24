@@ -37,6 +37,17 @@ extern RecoveredGlobal_80287FBC_lbl_804D2E74 lbl_804D2E74;
 extern M2C_UNK __vt__12TWindowTimer[];
 extern s32 lbl_805D3AD8;
 u8 *TWindowTimer__ct(u8 *arg0);
+s32 TLobby__sub_8001DC24();
+M2C_UNK TWindowChallengeResult__sub_80228DB4(s32, M2C_UNK);
+M2C_UNK TWindowSubStatusDisp__sub_80229080(M2C_UNK *);
+M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+M2C_UNK TWindowSubStatusDisp__sub_8025AC50(s32, s32, M2C_UNK);
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
+M2C_UNK reset_float_field__15TWindowHelpItemFPv(s32);
+extern s32 lbl_8044FCE8[];
+extern s32 lbl_805DD888;
+extern s32 lbl_805DD88C;
+void TWindowTimer__sub_80287D20(void *self, u32 secs);
 }
 
 extern "C" {
@@ -91,6 +102,29 @@ void draw__12TWindowTimerFPvii(void *arg0, s32 arg1, s32 arg2) {
     TWindowChallengeResult__sub_80228DB4(arg2, 3);
     TWindowSubStatusDisp__sub_8025AC50(temp_r31, TLobby__sub_8001DC24(), 0x20);
     reset_float_field__15TWindowHelpItemFPv(temp_r31);
+}
+
+void TWindowTimer__sub_80287D20(void *self, u32 secs) {
+    s32 entry;
+    u32 hours;
+    u32 mins;
+    entry = get_array_entry__20TWindowSubStatusDispFPvi((void *)(self), (M2C_UNK)(0));
+    TWindowSubStatusDisp__sub_802290E0();
+    hours = secs / 3600;
+    secs %= 3600;
+    if (hours > 9) {
+        TWindowSubStatusDisp__sub_80229080((M2C_UNK *)(lbl_8044FCE8));
+    } else {
+        TWindowChallengeResult__sub_80228DB4((s32)(hours), (M2C_UNK)(1));
+        TWindowSubStatusDisp__sub_80229080((M2C_UNK *)(&lbl_805DD888));
+        mins = secs / 60;
+        secs %= 60;
+        TWindowChallengeResult__sub_80228DB4((s32)(mins), (M2C_UNK)(2));
+        TWindowSubStatusDisp__sub_80229080((M2C_UNK *)(&lbl_805DD88C));
+        TWindowChallengeResult__sub_80228DB4((s32)(secs), (M2C_UNK)(2));
+    }
+    TWindowSubStatusDisp__sub_8025AC50((s32)(entry), (s32)(TLobby__sub_8001DC24()), (M2C_UNK)(0x20));
+    reset_float_field__15TWindowHelpItemFPv(entry);
 }
 
 void TWindowTimer__sub_80287DD8(M2C_UNK arg0, s32 arg1) {

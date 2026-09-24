@@ -5,6 +5,22 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Pkt_801CF128 { u8 cmd; u8 size; u16 player; s16 heading; s16 kind; };
+
+extern "C" {
+M2C_UNK TNpcPlayer__sub_80152C28(void *);
+void TObjPlayer__sub_801D24B0(Pkt_801CF128 *, void *);
+void TNpcPlayer__sub_80152BEC(Pkt_801CF128 *);
+s32 validate_6x43_attack(Pkt_801CF128 *);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+s32 is_in_tl03_state__10TObjPlayerFPv(void *);
+s32 reset_volopt_state__10TObjPlayerFv(void *);
+s32 TLobby__sub_800822E8(void *, s32);
+void set_action_type__10TObjPlayerFPvs(void *p, s16 v);
+M2C_UNK TObjPlayer__sub_801D0BC0(void *, int, int);
+void handle_6x43_attack(void *src);
+}
+
 extern "C" {
 
 void TObjPlayer__sub_801CF080(u8 *arg0);
@@ -42,6 +58,22 @@ void TObjPlayer__sub_801CF080(u8 *arg0) {
     TObjPlayer__sub_801CE3EC((void *) (arg0));
     set_action_state__10TObjPlayerFPvss((void *) (arg0), (int) (5), (void *) (call_subobject_m15__10TObjPlayerFPv((void *) (arg0))));
     apply_speed_scale__10TObjPlayerFif((void *) (arg0), (f32) (TObjPlayer__sub_801D2640((void *) (arg0)) * TObjPlayer__sub_801D2CDC((void *) (arg0 + 0x7CC))));
+}
+void handle_6x43_attack(void *src) {
+    Pkt_801CF128 pkt;
+    u8 *player;
+    TNpcPlayer__sub_80152C28(&pkt);
+    TObjPlayer__sub_801D24B0(&pkt, src);
+    TNpcPlayer__sub_80152BEC(&pkt);
+    if (validate_6x43_attack(&pkt) == 0) return;
+    player = TPlayerBattleCtrl4P__sub_801BA74C(pkt.player);
+    if (player == 0) return;
+    if (is_in_tl03_state__10TObjPlayerFPv(player) == 0) return;
+    if (reset_volopt_state__10TObjPlayerFv(player) == 0) return;
+    if (TLobby__sub_800822E8(player, 0x8200) != 0) return;
+    set_action_type__10TObjPlayerFPvs(player + 0x7CC, pkt.kind);
+    *(s32 *)(player + 0x3F0) = pkt.heading;
+    TObjPlayer__sub_801D0BC0(player, 5, 0);
 }
 
 }

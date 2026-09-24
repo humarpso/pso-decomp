@@ -4,6 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Obj_8002CACC { s32 f0; u8 pad4[0x14]; void *vt; f32 f1c; f32 f20; f32 f24; s32 f28[4]; };
+
+extern "C" {
+void __ct__7TObjectFP7TObject(void *self, void *parent);
+extern char __vt__14TObjBoss1Floor[];
+extern s32 lbl_805D2690;
+extern const f32 lbl_805D8174;
+Obj_8002CACC *TObjBoss1Floor__ct(Obj_8002CACC *self, void *parent);
+}
+
 extern "C" {
 
 int forward_floor_2CB44__6TLobbyFPv(void* p);
@@ -67,6 +77,19 @@ void render__14TObjBoss1FloorFv(void) {
         TObjPlayer__sub_803D9B78();
         some_id_805c6f74 = lbl_805D5660;
     }
+}
+Obj_8002CACC *TObjBoss1Floor__ct(Obj_8002CACC *self, void *parent) {
+    s32 i;
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vt = __vt__14TObjBoss1Floor;
+    self->f0 = lbl_805D2690;
+    self->f1c = lbl_805D8174;
+    self->f20 = lbl_805D8174;
+    self->f24 = lbl_805D8174;
+    for (i = 0; i < 4; i++) {
+        self->f28[i] = 0;
+    }
+    return self;
 }
 
 }

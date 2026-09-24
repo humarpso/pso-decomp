@@ -10,6 +10,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Ent_80073CEC { u8 b; u8 pad[0xF]; };
+
+struct Obj_80073CEC {
+    const char *name;
+    u8 pad4[0x14];
+    void *vt;
+    s32 f1c;
+    s32 f20;
+    s32 f24;
+    Ent_80073CEC e[4];
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 void update_countdown__15TObjDeadListWinFPv(void *arg0);
@@ -17,6 +29,10 @@ M2C_UNK TObjDeadListWin__sub_80073B38(void *);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern s32 lbl_805D53A0;
 void run_task__15TObjDeadListWinFv(u8 *arg0);
+void *__ct__7TObjectFP7TObject(void *, void *);
+extern char __vt__15TObjDeadListWin[];
+extern const char *lbl_805D2868;
+void *TObjDeadListWin__ct(Obj_80073CEC *self, void *parent);
 }
 
 extern "C" {
@@ -25,7 +41,6 @@ void build_dead_list_window__15TObjDeadListWinFPv(u8 *arg0);
 void *create__15TObjDeadListWinFPv(void *arg0);
 void update_countdown__15TObjDeadListWinFPv(void *arg0);
 M2C_UNK strcat(void *, void *);
-void *TObjDeadListWin__ct(void *, void *);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK TWindow__close(void *);
@@ -109,10 +124,24 @@ void run_task__15TObjDeadListWinFv(u8 *arg0) {
     }
 }
 
+void *TObjDeadListWin__ct(Obj_80073CEC *self, void *parent) {
+    s32 i;
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vt = __vt__15TObjDeadListWin;
+    self->name = lbl_805D2868;
+    self->f20 = 0;
+    self->f24 = 0x12C;
+    for (i = 0; i < 4; i++) {
+        self->e[i].b = 0;
+    }
+    self->f1c = 0;
+    return self;
+}
+
 void *create__15TObjDeadListWinFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x68);
     if (o != NULL) {
-        o = TObjDeadListWin__ct(o, arg0);
+        o = TObjDeadListWin__ct((Obj_80073CEC *)(o), (void *)(arg0));
     }
     return o;
 }

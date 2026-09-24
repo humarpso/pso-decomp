@@ -25,6 +25,12 @@ struct RecoveredGlobal_8001CAD4_lbl_8058D490 {
     u8 remaining[0x2C];
 };
 
+struct Vec_8001CBC4 { f32 x, y, z; };
+
+struct Tbl_8001CBC4 { Vec_8001CBC4 base; Vec_8001CBC4 dir; };
+
+struct Obj_8001CBC4 { u8 pad[0x44]; Vec_8001CBC4 pos; };
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
@@ -39,6 +45,10 @@ extern RecoveredGlobal_8001CAD4_lbl_804349FC lbl_804349FC;
 extern RecoveredGlobal_8001CAD4_lbl_804FF5E8 lbl_804FF5E8;
 extern RecoveredGlobal_8001CAD4_lbl_8058D490 lbl_8058D490;
 void fn_8001CAD4(u8 *arg0);
+extern u32 lbl_805D4DF0;
+extern RecoveredGlobal_8001CAD4_lbl_804FF5E8 lbl_804FF5E8;
+extern const f32 lbl_805D7E90;
+Vec_8001CBC4 fn_8001CBC4(Obj_8001CBC4 *o);
 }
 
 extern "C" {
@@ -69,5 +79,16 @@ void fn_8001CAD4(u8 *arg0) {
         copy_pos__11TNowLoadingFPvPv((int) (M2C_FIELD(arg0, u32 *, 0x1C)), (void *) (arg0 + 0x2C));
     }
 }
+#pragma push
+#pragma fp_contract on
+Vec_8001CBC4 fn_8001CBC4(Obj_8001CBC4 *o) {
+    if (lbl_805D4DF0 != 0) {
+        o->pos.x = lbl_805D7E90 * (*(Tbl_8001CBC4 *)&lbl_804FF5E8).dir.x + (*(Tbl_8001CBC4 *)&lbl_804FF5E8).base.x;
+        o->pos.y = lbl_805D7E90 * (*(Tbl_8001CBC4 *)&lbl_804FF5E8).dir.y + (*(Tbl_8001CBC4 *)&lbl_804FF5E8).base.y;
+        o->pos.z = lbl_805D7E90 * (*(Tbl_8001CBC4 *)&lbl_804FF5E8).dir.z + (*(Tbl_8001CBC4 *)&lbl_804FF5E8).base.z;
+    }
+    return o->pos;
+}
+#pragma pop
 
 }

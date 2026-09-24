@@ -104,7 +104,6 @@ struct RecoveredGlobal_80044174_lbl_804FEE68 {
 struct O_800443BC { u16 a; u16 b; f32 c; };
 
 extern "C" {
-int TObjPlayer__sub_8004433C(s32);
 u8 * __ct__17TObjVoloptShutterFv(void *, s32);
 u8 * TObjEnemyCustom__ct(void *);
 M2C_UNK TBoss3VoloptP01__sub_80044038(void *);
@@ -113,7 +112,6 @@ extern M2C_UNK __vt__15TBoss3VoloptP01[];
 extern s32 lbl_805D2748;
 u8 *TBoss3VoloptP01__sub_800442A0(u8 *arg0, M2C_UNK arg1, s32 arg2);
 M2C_UNK TBoss3VoloptP01__sub_80044038(void *);
-int TObjPlayer__sub_8004433C(s32 _w0);
 u8 * __ct__17TObjVoloptShutterFv(void *, s32);
 u8 * TObjEnemyCustom__ct(void *);
 void *__nw__7TObjectFUl(int);
@@ -128,6 +126,10 @@ extern const f32 lbl_805D8798;
 u8 *TBoss3VoloptP01__ct(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3, s16 arg4);
 extern const f32 lbl_805D8764;
 void TBoss3VoloptP01__sub_800443BC(O_800443BC *self);
+void *__construct_array(void *, void *, void *, u32, u32);
+void fn_80044330(void* p);
+void* fn_8004438C(void* p);
+int TObjPlayer__sub_8004433C(s32 _w0);
 }
 
 extern "C" {
@@ -175,7 +177,7 @@ u8 *TBoss3VoloptP01__ct(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3, s16 arg4) {
     s32 var_r0;
     TObjEnemyCustom__ct((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80044174___vt__15TBoss3VoloptP01 *)&__vt__15TBoss3VoloptP01).value;
-    TObjPlayer__sub_8004433C((s32)((void *) (arg0 + 0x3BC)));
+    TObjPlayer__sub_8004433C((s32)((s32)((void *) (arg0 + 0x3BC))));
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2748;
     M2C_FIELD(arg0, s16 *, 0x1C) = arg3;
     M2C_FIELD(arg0, s16 *, 0x2C) = arg4;
@@ -203,7 +205,7 @@ u8 *TBoss3VoloptP01__sub_800442A0(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     u8 *var_r0;
     TObjEnemyCustom__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800442A0___vt__15TBoss3VoloptP01 *)&__vt__15TBoss3VoloptP01).value;
-    TObjPlayer__sub_8004433C((s32)((s32) (arg0 + 0x3BC)));
+    TObjPlayer__sub_8004433C((s32)((s32)((s32) (arg0 + 0x3BC))));
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2748;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     TBoss3VoloptP01__sub_80044038((void *) (arg0));
@@ -217,7 +219,13 @@ u8 *TBoss3VoloptP01__sub_800442A0(u8 *arg0, M2C_UNK arg1, s32 arg2) {
 }
 
 void fn_80044330(void* p) { *(s32*)((char*)p + 0x0) = 0; }
-int TObjPlayer__sub_8004433C(s32 _w0) { return 0; }
+
+int TObjPlayer__sub_8004433C(s32 _w0) {
+    __construct_array((void *)(_w0 + 4), (void *)fn_8004438C, 0, 8, 11);
+    fn_80044330((void *)_w0);
+    return _w0;
+}
+
 void* fn_8004438C(void* p) { TBoss3VoloptP01__sub_800443BC((O_800443BC *)(p)); return p; }
 void TBoss3VoloptP01__sub_800443BC(O_800443BC *self) {
     self->a = 0xFFFF;

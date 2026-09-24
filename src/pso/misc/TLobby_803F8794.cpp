@@ -248,6 +248,22 @@ struct RecoveredFields_803F88E4_arg0
   u8 *field_18;
 };
 
+struct Ent_803F8D84 { s32 active; s32 unk4; u32 key; };
+
+struct Inner_80401CAC { u8 pad[4]; u16 f4; };
+
+struct Outer_80401CAC { Inner_80401CAC *p; };
+
+struct Sub_803FC480 { u8 f0; u8 f1; u8 f2; u8 f3; u8 f4; };
+
+struct Obj_803FC480 { u8 f0; u8 f1; u8 f2; u8 pad3[0x9D]; Sub_803FC480 sub; };
+
+struct Ent_80408718 { s16 f0; u8 pad[0x16]; };
+
+struct Tbl_80408718 { s16 count; u8 pad[0xE]; Ent_80408718 *list; };
+
+struct Obj_80405304 { u8 pad[0x18]; u8 f18; };
+
 extern "C" {
 s32 TLobby__sub_803FA150(M2C_UNK arg0, u8 *arg1);
 extern RecoveredGlobal_803F8AA0_lbl_805BA5C0 lbl_805BA5C0;
@@ -313,7 +329,6 @@ s32 TLobby__sub_803F9EC4(void *, void *, int);
 void TUdpSocket__sub_803F9EE4(void *, int, int);
 void TLobby__sub_803F9F04(void *, void *, int);
 s32 TLobby__sub_803FA17C(u8 *arg0, s32 arg1);
-s32 TLobby__sub_80405304(void *);
 void TLobby__sub_803FA284(s32 arg0);
 void TLobby__sub_803F7678(void);
 void TLobby__sub_803F7A30(void);
@@ -332,9 +347,7 @@ void TLobby__sub_803FE820(s32 arg0);
 s32 TLobby__sub_803FF138(s16 arg0, u8 *arg1);
 s32 set_flags_and_state__6TLobbyFPv(u8 *arg0);
 s32 TLobby__sub_803FF304(u8 *arg0);
-void TLobby__sub_80405000(u32);
 void TLobby__sub_803FF34C(u8 *arg0);
-s32 TLobby__sub_80405304(void *);
 void TLobby__sub_803FF468(s32 arg0);
 void TLobby__sub_803FD85C(void *);
 void TLobby__sub_80400B34(u8 *arg0);
@@ -352,7 +365,6 @@ void TLobby__sub_80402B60(void);
 M2C_UNK TLobby__sub_803F7790(void *);
 extern RecoveredGlobal_80402B60_lbl_805C0620 lbl_805C0620;
 s32 TLobby__sub_80402B88(void);
-s32 TLobby__sub_80405304(void *);
 void TLobby__sub_80403218(u8 *arg0);
 s32 TLobby__sub_803F811C(void *);
 s32 TLobby__sub_804036FC(u8 *arg0);
@@ -474,7 +486,6 @@ extern M2C_UNK lbl_805D7A58;
 void TLobby__sub_803F8B7C(u8 *arg0);
 s32 TLobby__sub_803FE6CC(void *, int, int, void *);
 s32 TLobby__sub_803FE658(u8 *arg0);
-void TLobby__sub_80405000(u32);
 void TLobby__sub_803FF430(u8 *arg0);
 u8 *TLobby__sub_80401B8C(struct RecoveredFields_80401B8C_arg0 *arg0, s16 arg1);
 s32 TLobby__sub_803F81C4(u16, s32);
@@ -529,11 +540,29 @@ void init_msg__6TLobbyFPvi(u8 *arg0, s32 arg1);
 void set_value_and_enable__6TLobbyFPvi(u8 *arg0, s32 arg1);
 s16 TLobby__sub_80415954(void *, int, int);
 s32 TLobby__sub_8041ECA4(u8 *arg0);
-s32 TLobby__sub_80405304(void *);
 void TLobby__sub_803FA248(s8 *arg0);
 s32 TLobby__sub_803FE6CC(void *, int, int, void *);
 void TLobby__sub_80405328(u8 *arg0);
 void TLobby__sub_803FD958(u8 *arg0);
+extern u16 lbl_805D7A60;
+extern Ent_803F8D84 *lbl_805D7A64;
+void TLobby__sub_803F8D84(u32 key);
+void TLobby__sub_80401CAC(Outer_80401CAC *o, u16 v);
+void TLobby__sub_804050DC(s16 arg0);
+s32 TLobby__sub_803FAEA0(s32 cmd, s32 arg);
+s32 TLobby__sub_803FC480(Obj_803FC480 *self);
+u16 TLobby__sub_80402ADC(u8 *p);
+extern u16 lbl_805D7A78;
+void TLobby__sub_803FC144(u16 v);
+u32 TLobby__sub_80402AFC(u8 *p);
+u8 *TLobby__sub_80402B3C(u8 *p, u32 v);
+void TLobby__sub_80405000(u32 arg0);
+u8 *TLobby__sub_80402B28(u8 *p, u16 v);
+extern Tbl_80408718 lbl_805C1AB0;
+Ent_80408718 *TLobby__sub_80408718(void);
+s32 TLobby__sub_80405304(void *arg0);
+u16 TLobby__sub_80406BD8(void);
+u16 TLobby__sub_8040ECEC(void);
 }
 
 extern "C" {
@@ -764,6 +793,18 @@ void TLobby__sub_803F8B7C(u8 *arg0) {
     M2C_FIELD(arg0, M2C_UNK **, 0x14) = &lbl_805BD66C.value;
 }
 
+void TLobby__sub_803F8D84(u32 key) {
+    Ent_803F8D84 *e = lbl_805D7A64;
+    s32 i;
+    for (i = 0; i < lbl_805D7A60; i++) {
+        if (e->key == key) {
+            e->active = 0;
+            return;
+        }
+        e++;
+    }
+}
+
 void NetStoreTick(s32 *arg0) {
     *arg0 = OSGetTick();
 }
@@ -920,7 +961,7 @@ void TLobby__sub_803FA238(u8 *arg0) {
 void TLobby__sub_803FA248(s8 *arg0) {
   s8 *new_var;
   new_var = (s8 *) (((s8 *) arg0) + ((0, 0)));
-  TLobby__sub_80405304((void *) (((u8 *) arg0) + 0x10));
+  TLobby__sub_80405304((void *)((void *) (((u8 *) arg0) + 0x10)));
   *new_var = 5;
 }
 
@@ -933,7 +974,16 @@ extern u16 lbl_805D7A78;
 typedef char RecoveredGlobal_803FB110_lbl_805BFF68_size[sizeof(RecoveredGlobal_803FB110_lbl_805BFF68) == 0xD0 ? 1 : -1];
 
 void TLobby__sub_803FA284(s32 arg0) {
-    TLobby__sub_80405304((void *) (arg0 + 0x10));
+    TLobby__sub_80405304((void *)((void *) (arg0 + 0x10)));
+}
+
+s32 TLobby__sub_803FAEA0(s32 cmd, s32 arg) {
+    switch (cmd) {
+    case 1:
+        TLobby__sub_804050DC(arg);
+        return 0;
+    }
+    return -1;
 }
 
 s32 TLobby__sub_803FAFDC(void) {
@@ -961,6 +1011,17 @@ s32 get_remaining__6TLobbyFi(s32 arg0) {
 }
 
 typedef char RecoveredGlobal_803FC178_lbl_805C02D0_size[sizeof(RecoveredGlobal_803FC178_lbl_805C02D0) == 0x40 ? 1 : -1];
+
+void TLobby__sub_803FC144(u16 v) {
+    if (v == 0xC023) {
+        lbl_805D7A78 = 0x80;
+    } else if (v == 0xC223) {
+        lbl_805D7A78 = 0x82;
+    } else {
+        lbl_805D7A78 = v;
+    }
+}
+
 void TLobby__sub_803FC178(void) {
     TLobby__sub_803F76F0((void *) (&lbl_805C02D0.value));
 }
@@ -975,6 +1036,15 @@ s32 set_active_flag__6TLobbyFPv(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 0xA0) = 2;
     M2C_FIELD(arg0, u8 *, 0xA2) = (u8) (M2C_FIELD(arg0, u8 *, 0xA2) | 0x20);
     M2C_FIELD(arg0, u8 *, 2) = (u8) (M2C_FIELD(arg0, u8 *, 2) | 0x20);
+    return 0;
+}
+
+s32 TLobby__sub_803FC480(Obj_803FC480 *self) {
+    Sub_803FC480 *s = &self->sub;
+    s->f0 = 1;
+    s->f2 |= 0x10;
+    self->f2 |= 0x10;
+    s->f3 = s->f4;
     return 0;
 }
 
@@ -1206,7 +1276,7 @@ s32 TLobby__sub_803FF304(u8 *arg0) {
 
 void TLobby__sub_803FF34C(u8 *arg0) {
     struct Fields_arg0 { u8 pad_0[48]; u8 * field_30; };
-    TLobby__sub_80405000(M2C_FIELD(((Fields_arg0*)arg0)->field_30, u32 *, 0x98));
+    TLobby__sub_80405000((u32)(M2C_FIELD(((Fields_arg0*)arg0)->field_30, u32 *, 0x98)));
 }
 
 void TLobby__sub_803FF374(u8 *arg0) {
@@ -1217,12 +1287,12 @@ void TLobby__sub_803FF374(u8 *arg0) {
 void TLobby__sub_803FF430(u8 *arg0) {
     u8 *temp_r31;
     temp_r31 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x30));
-    TLobby__sub_80405000((u32)((int) (M2C_FIELD(temp_r31, s32 *, 0x98))));
+    TLobby__sub_80405000((u32)((u32)((int) (M2C_FIELD(temp_r31, s32 *, 0x98)))));
     M2C_FIELD(temp_r31, s32 *, 0x98) = 0;
 }
 
 void TLobby__sub_803FF468(s32 arg0) {
-    TLobby__sub_80405304((void *) (arg0 + 0x10));
+    TLobby__sub_80405304((void *)((void *) (arg0 + 0x10)));
 }
 
 void TLobby__sub_80400988(void) {
@@ -1270,6 +1340,13 @@ u8 *TLobby__sub_80401B8C(struct RecoveredFields_80401B8C_arg0 *arg0, s16 arg1) {
     return NULL;
 }
 
+void TLobby__sub_80401CAC(Outer_80401CAC *o, u16 v) {
+    if (o == NULL || o->p == NULL) return;
+    if (v == 0) return;
+    if (o->p->f4 < v) return;
+    o->p->f4 = v;
+}
+
 u16 get_field_4__6TLobbyFPv(u8 *arg0) {
     return M2C_FIELD(arg0, u16 *, 4);
 }
@@ -1285,6 +1362,39 @@ void TLobby__sub_80401FA8(u8 *arg0) {
 }
 
 typedef char RecoveredGlobal_80402B60_lbl_805C0620_size[sizeof(RecoveredGlobal_80402B60_lbl_805C0620) == 0x18 ? 1 : -1];
+
+u16 TLobby__sub_80402ADC(u8 *p) {
+    u16 v = *p++;
+    v <<= 8;
+    v |= *p;
+    return v;
+}
+
+u32 TLobby__sub_80402AFC(u8 *p) {
+    u32 v = *p++;
+    v <<= 8;
+    v |= *p++;
+    v <<= 8;
+    v |= *p++;
+    v <<= 8;
+    v |= *p;
+    return v;
+}
+
+u8 *TLobby__sub_80402B28(u8 *p, u16 v) {
+    *p++ = v >> 8;
+    *p++ = v;
+    return p;
+}
+
+u8 *TLobby__sub_80402B3C(u8 *p, u32 v) {
+    *p++ = v >> 24;
+    *p++ = v >> 16;
+    *p++ = v >> 8;
+    *p++ = v;
+    return p;
+}
+
 void TLobby__sub_80402B60(void) {
     TLobby__sub_803F778C((void *) (&lbl_805C0620.value));
 }
@@ -1332,7 +1442,7 @@ void TLobby__sub_80403218(u8 *arg0) {
                 goto block_10;
             }
         } else {
-            TLobby__sub_80405304((void *) ((u8 *)(arg0) + 0x10));
+            TLobby__sub_80405304((void *)((void *) ((u8 *)(arg0) + 0x10)));
 block_10:
             ((Fields_arg0*)arg0)->field_0 = 0U;
         }
@@ -1373,6 +1483,12 @@ s32 TLobby__sub_80403D28(M2C_UNK arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s
     return temp_r31;
 }
 
+void TLobby__sub_80405000(u32 arg0) {
+    if (arg0 == 0) {
+        return;
+    }
+}
+
 void TLobby__sub_804050DC(s16 arg0) {
     M2C_FIELD(&lbl_805C18A0.value, s16 *, 8) = arg0;
 }
@@ -1391,6 +1507,14 @@ s32 TLobby__sub_80405114(void) {
 s32 TLobby__sub_80405140(void) {
     lbl_805D7AC8 = 0;
     return 0;
+}
+
+s32 TLobby__sub_80405304(void *arg0) {
+    Obj_80405304 *o = (Obj_80405304 *)arg0;
+    if (o == NULL || o->f18 != 1) {
+        return;
+    }
+    o->f18 = 0;
 }
 
 void TLobby__sub_80405328(u8 *arg0) {
@@ -1455,6 +1579,19 @@ void TLobby__sub_804074C8(s16 arg0, u8 *arg1, u8 *arg2) {
 
 void TLobby__sub_804074E8(s16 arg0, s16 arg1, s16 arg2, s16 arg3, s16 arg4, s32 arg5, s8 arg6, s32 arg7) {
     TLobby__sub_80407F20(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+}
+
+Ent_80408718 *TLobby__sub_80408718(void) {
+    s16 n = lbl_805C1AB0.count;
+    Ent_80408718 *e = lbl_805C1AB0.list;
+    while (n > 0) {
+        if (e->f0 == 0) {
+            return e;
+        }
+        n--;
+        e++;
+    }
+    return NULL;
 }
 
 void TLobby__sub_8040874C(void) {
@@ -1691,6 +1828,14 @@ s32 TLobby__sub_8040DD68(void) {
 }
 
 typedef char RecoveredGlobal_8040ED28_lbl_805C1B60_size[sizeof(RecoveredGlobal_8040ED28_lbl_805C1B60) == 0x18 ? 1 : -1];
+
+u16 TLobby__sub_8040ECEC(void) {
+    u32 s = TLobby__sub_80406BD8();
+    s = (s >> 16) + (s & 0xFFFF);
+    s += (s >> 16);
+    return ~s;
+}
+
 s32 TLobby__sub_8040ED28(void) {
     TLobby__sub_803F8958((void *)((void *) (&(*(RecoveredGlobal_8040ED28_lbl_805C1B60 *)&lbl_805C1B60).value)));
     M2C_FIELD(&(*(RecoveredGlobal_8040ED28_lbl_805C1B60 *)&lbl_805C1B60).value, s16 *, 0) = 0;

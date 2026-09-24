@@ -75,6 +75,10 @@ struct Vec_80018660 { f32 x, y, z; };
 
 struct Obj_80018660 { u8 pad[0x38]; Vec_80018660 pos; u8 pad44[0x1c]; s32 angle; u8 pad64[0x238]; Vec_80018660 dest; };
 
+struct Vec_80018570 { f32 x, y, z; };
+
+struct Obj_80018570 { u8 pad[0x38]; Vec_80018570 pos; u8 pad44[0x1c]; s32 angle; u8 pad64[0x238]; Vec_80018570 dest; };
+
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK TObjPlayer__sub_80017E6C(void *);
@@ -106,6 +110,13 @@ s32 TObjPlayer__sub_801423A4(s32, s32, s32);
 M2C_UNK TObjPlayer__sub_80141F84(s32, s32);
 extern const f64 TObjPlayer__data_804340B8;
 void TObjPlayer__sub_80018660(Obj_80018660 *self, s32 turn);
+M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
+void TBoss6Type1__sub_803D9370(void *a, void *b);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 lerp_angle_half__10TObjPlayerFUsUs(s32, s32);
+M2C_UNK TObjPlayer__sub_80141F84(s32, s32);
+extern const f64 TObjPlayer__data_804340B8;
+void TObjPlayer__sub_80018570(Obj_80018570 *self);
 }
 
 extern "C" {
@@ -243,6 +254,16 @@ s32 copy_position_if_valid__10TObjPlayerFii(s32 arg0, s32 arg1) {
 }
 
 extern const f64 TObjPlayer__data_804340B8;
+
+void TObjPlayer__sub_80018570(Obj_80018570 *self) {
+    Vec_80018570 d;
+    s32 a;
+    VecCopy__FP3VecPC3Vec((s32)&d, (s32)&self->dest);
+    TBoss6Type1__sub_803D9370(&d, &self->pos);
+    a = (s32)(TObjPlayer__data_804340B8 * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z));
+    self->angle = lerp_angle_half__10TObjPlayerFUsUs(self->angle, a);
+    TObjPlayer__sub_80141F84(self->angle, a);
+}
 
 void update_angle__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2) {
     s32 temp_r31;

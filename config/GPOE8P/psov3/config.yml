@@ -40,6 +40,7 @@ force_active:
   - TItemProShield__sub_80116B28
   - TItemProShield__sub_80116C44
   - TKeyBoardControl__sub_80290D10
+  - TLobby__sub_8001DF0C
   - TLobby__sub_800F7FB8
   - TLobby__sub_800F8024
   - TLobby__sub_800F80D8
@@ -151,6 +152,8 @@ force_active:
   - TWindowSubEquipList__ct
   - TWindowSubItemList__ct
   - TWindowSubSymbolChat__sub_80283850
+  - TWindowTimer__ct
+  - TWindowTimer__sub_80287DD8
   - __ct__19TObjEZBoneRotPlayerFv
   - __ct__9TEffGuardFPC3Vec
   - __dt__10TDPBShowerFv
@@ -199,6 +202,7 @@ force_active:
   - build_6x75_update_quest_flag_dc
   - byteswap_entry__20TWindowSubSymbolChatFPv
   - check_card_file__19TAdTrialAgreementGCFi
+  - clamp_difficulty__6TLobbyFi
   - construct__13TItemProArmorFPv
   - construct__24TObjWaitEntryHairMoveSimFPvi
   - copy__16TPlyGuildCardTagFPvPv
@@ -211,6 +215,7 @@ force_active:
   - create_icon__10TObjPlayerFiii
   - ct__12TBoss8DragonFPvPvPv
   - dispatch_state__20TBoss3VoloptHiraisinFPv
+  - draw__12TWindowTimerFPvii
   - draw__18TWindowPartyStatusFPv
   - draw_model_with_arg__10TObjPlayerFPvPv
   - draw_value__13TWindowMesetaFPvi
@@ -219,6 +224,8 @@ force_active:
   - fire_attack_b__14TObjEneEpsilonFPviif
   - fire_attack_c__14TObjEneEpsilonFPviif
   - fn_80076C68
+  - fn_800779FC
+  - fn_80077A28
   - fn_8009E2DC
   - fn_800BC6E4
   - fn_800BC71C
@@ -288,6 +295,7 @@ force_active:
   - update_and_send_lobby__9TWindowDDFPv
   - update_chair__11TMainCursorFPv
   - update_chara_making__10TObjPlayerFPv
+  - update_chat_parts__12TWindowTimerFPv
   - update_load_state__9TItemLoadFPv
   - update_main_menu__12TCharaMakingFi
   - update_transition_anim__22TAdMultiPlyChrSelectGCFPv

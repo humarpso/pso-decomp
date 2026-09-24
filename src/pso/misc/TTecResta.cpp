@@ -15,6 +15,12 @@ struct RecoveredGlobal_802394B0_lbl_804CC55C
   u8 remaining[0x94];
 };
 
+struct Vec_8023967C { f32 x, y, z; };
+
+struct Row_8023967C { s32 delay; s32 duration; s32 entry; u32 flags; };
+
+struct Resta_8023967C { u8 pad[0x18]; s32 *vt; void *emitters[3]; s32 owner; s32 x2c; };
+
 extern "C" {
 s32 obj_getField1c(int);
 s32 TObjPlayer__sub_8004433C(void *);
@@ -30,6 +36,15 @@ f32 *TTecCtrl__sub_8022DBC4(M2C_UNK, s32, M2C_UNK);
 s32 is_technique_ready__8TTecCtrlFv(int);
 extern RecoveredGlobal_802394B0_lbl_804CC55C lbl_804CC55C;
 f32 TTecResta__sub_802394B0(s32 arg0);
+extern M2C_UNK lbl_804CCBC0[];
+extern Row_8023967C lbl_804CCB90[];
+extern const f32 TTecResta__data_805DC908;
+void __ct__7TObjectFP7TObject(void *, void *);
+Vec_8023967C *VecCopy__FP3VecPC3Vec(Vec_8023967C *, const Vec_8023967C *);
+void *TObjPlayer__sub_800868C4(void *pos, s32 id, s32 a, s32 b, s32 c);
+s32 obj_getField1c(int);
+void TObjPlayer__sub_80087638(void *, s32);
+Resta_8023967C *TTecResta__sub_8023967C(Resta_8023967C *self, Vec_8023967C *pos, s32 owner, void *parent);
 }
 
 extern "C" {
@@ -88,6 +103,38 @@ void *__dt__9TTecRestaFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+#pragma push
+#pragma opt_common_subs off
+Resta_8023967C *TTecResta__sub_8023967C(Resta_8023967C *self, Vec_8023967C *pos, s32 owner, void *parent) {
+    Vec_8023967C v;
+    s32 i;
+    Row_8023967C *row;
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vt = ((s32 *)&lbl_804CCBC0);
+    self->x2c = 0;
+    for (i = 0; i < 3; i++) {
+        self->emitters[i] = 0;
+    }
+    self->owner = owner;
+    for (i = 0; i < 3; i++) {
+        VecCopy__FP3VecPC3Vec(&v, pos);
+        row = &lbl_804CCB90[i];
+        if (row->flags & 1) {
+            v.y -= TTecResta__data_805DC908;
+        }
+        if (i == 2) {
+            self->emitters[i] = TObjPlayer__sub_800868C4(&v, row->entry, row->delay, row->duration, 0x30);
+        } else {
+            self->emitters[i] = TObjPlayer__sub_800868C4(&v, row->entry, row->delay, row->duration, 0x10);
+        }
+        if (self->emitters[i] != 0) {
+            TObjPlayer__sub_80087638(self->emitters[i], obj_getField1c(self->owner));
+        }
+    }
+    return self;
+}
+#pragma pop
 
 void create__9TTecRestaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;

@@ -25,6 +25,27 @@ struct VObj_18 : VBase_18 {
 
 struct Obj_80113CA8 { u8 pad[0x70]; s32 arr[1]; };
 
+struct Base_801139F4 { s32 x0; u8 pad[0x14]; };
+
+struct Mag_801139F4 : Base_801139F4 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(s32);
+    u8 pad1c[0x170];
+    s32 x18c;
+    f32 x190;
+    f32 x194;
+    u8 data198[0xC];
+    u8 flags1a4;
+    u8 pad1a5[3];
+    s32 x1a8[2];
+    s32 x1b0[2];
+    u8 pad1b8[0x10];
+    f32 x1c8;
+};
+
 extern "C" {
 M2C_UNK refresh_if_current_player__20TWindowSubStatusDispFPv(void *);
 int TItemData__sub_8010EE40(void*);
@@ -53,11 +74,22 @@ M2C_UNK init_feed_timer__8TItemMagFPv(void *);
 M2C_UNK TFontSmallLobby__sub_801D5FC0(void *);
 M2C_UNK TItemMag__sub_801D7964(void *);
 void TItemMag__vt43(u8 *arg0);
-u8 * TItemMag__ct(void *, M2C_UNK, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TItemMag__sub_80113AD4(s32 arg0);
 void TItemMag__sub_80113CA8(Obj_80113CA8 *self, s32 i, s32 v);
+extern M2C_UNK __vt__8TItemMag[];
+extern s32 lbl_805D2C00;
+extern const f32 TItemMag__data_805DABA4;
+extern const f32 lbl_805DABB0;
+extern const f32 lbl_805DABB8;
+u8 *TItemEquipBase__ct(u8 *arg0, s32 arg1, s32 arg2);
+void *initialize_mag_data__9TItemDataFPv(void *p);
+void TItemData__sub_8010D614(void *src, void *dst);
+s16 TItemMagSub__sub_8011455C(void *);
+void set_field_EE__8TItemMagFPvUc(void *p, u8 v);
+void copy_owner_data__8TItemMagFPv(void *);
+u8 *TItemMag__ct(Mag_801139F4 *self, s32 a, s32 src);
 }
 
 extern "C" {
@@ -216,6 +248,31 @@ void *__dt__8TItemMagFv(void *arg0, s16 arg1) {
     extern int lbl_805D54AC;
     extern int lbl_805D54B0;
 
+#pragma push
+#pragma opt_common_subs off
+u8 *TItemMag__ct(Mag_801139F4 *self, s32 a, s32 src) {
+    s32 i;
+    TItemEquipBase__ct((u8 *)self, a, src);
+    *(s32 **)((u8 *)self + 0x18) = ((s32 *)&__vt__8TItemMag);
+    initialize_mag_data__9TItemDataFPv(self->data198);
+    self->x0 = lbl_805D2C00;
+    self->x1c8 = TItemMag__data_805DABA4;
+    self->x190 = lbl_805DABB0;
+    self->x194 = lbl_805DABB8;
+    TItemData__sub_8010D614((void *)src, self->data198);
+    self->flags1a4 &= ~0x40;
+    set_field_EE__8TItemMagFPvUc(self, TItemMagSub__sub_8011455C(self->data198));
+    self->m17(1);
+    self->x18c = 0;
+    for (i = 0; i < 2; i++) {
+        self->x1a8[i] = 0;
+        self->x1b0[i] = 0;
+    }
+    copy_owner_data__8TItemMagFPv(self);
+    return (u8 *)self;
+}
+#pragma pop
+
 u8 *TItemMag__sub_80113AD4(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
@@ -223,7 +280,7 @@ u8 *TItemMag__sub_80113AD4(s32 arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1E0));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(TItemMag__ct(temp_r3, tl_05, arg0));
+            var_r0 = (u8 *)(TItemMag__ct((Mag_801139F4 *)(temp_r3), (s32)(tl_05), (s32)(arg0)));
         }
         return var_r0;
     }

@@ -37,6 +37,15 @@ extern RecoveredGlobal_8001B3BC_lbl_804F5800 lbl_804F5800;
 s32 TAdEndText__sub_8001B3D4(u8 arg0);
 extern RecoveredGlobal_8001B3BC_lbl_804F5800 lbl_804F5800;
 s32 TAdEndText__sub_8001B404(u8 arg0);
+extern char lbl_8048098C[];
+extern char lbl_804347B0[];
+extern char lbl_804347C0[];
+extern u32 TAdEndText__data_805D49F4;
+extern u32 TAdEndText__data_805D49F8;
+extern s32 TAdEndText__data_805D49F0;
+void TScene__sub_8023E638(const char *name, void *data);
+void *create_named_object(const char *name);
+void TAdEndText__sub_8001B370(void);
 }
 
 extern "C" {
@@ -77,6 +86,14 @@ void free_resources__10TAdEndTextFv(void) {
 extern s32 lbl_805D6A58;
 
 typedef char RecoveredGlobal_8001B3BC_lbl_804F5800_size[sizeof(RecoveredGlobal_8001B3BC_lbl_804F5800) == 0x100 ? 1 : -1];
+
+void TAdEndText__sub_8001B370(void) {
+    TAdEndText__data_805D49F4 = (u32)lbl_8048098C;
+    TScene__sub_8023E638(lbl_804347B0, lbl_8048098C);
+    TAdEndText__data_805D49F8 = (u32)create_named_object(lbl_804347C0);
+    TAdEndText__data_805D49F0 = 0;
+}
+
 s32 TAdEndText__sub_8001B3BC(u8 arg0) {
     return M2C_FIELD(((u8 *)(&lbl_804F5800.value) + arg0), u8 *, 0) & 0x10;
 }

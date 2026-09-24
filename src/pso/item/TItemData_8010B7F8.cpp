@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Parm_8010C1E0 { u8 pad[8]; s16 dfp; s16 evp; u8 pad2[5]; s8 x11; s8 x12; s8 x13; s8 x14; s8 x15; };
+
 extern "C" {
 void TItemData__sub_8010B848(u8 *arg0, s32 arg1);
 s32 TItemData__sub_8010B8B0(u8 *arg0);
@@ -11,6 +13,19 @@ s32 get_minutes__6TLobbyFv(void);
 extern M2C_UNK lbl_8043E348;
 extern const f32 lbl_805DAB6C;
 f32 TItemData__sub_8010C5DC(u8 *arg0);
+f32 TItemData__sub_8010DD6C(void *, s32);
+f32 TItemData__sub_8010C5DC(u8 *arg0);
+Parm_8010C1E0 *TItemData__sub_8010EA38(void *);
+s32 getS16_06__9TItemDataFPv(void *);
+s16 get_bswap16_field8__9TItemDataFPv(void *);
+void add_stat_ptr__9TItemDataFPvi(s16 *arg0, s32 arg1);
+void add_bonus__9TItemDataFPvs(void *arg0, s16 arg1);
+void adjust_count__9TItemDataFPvi(void *arg0, s32 arg1);
+void TItemData__sub_8010EDD8(void *arg0, s32 arg1);
+void TItemData__sub_8010EDC8(void *arg0, s32 arg1);
+void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
+void add_quantity__9TItemDataFPvi(void *arg0, s32 arg1);
+void TItemData__sub_8010C1E0(u8 *self, s32 player, s32 unused, s16 *out);
 }
 
 extern "C" {
@@ -78,6 +93,31 @@ s32 TItemData__sub_8010B8B0(u8 *arg0) {
         return 0;
     }
 }
+
+#pragma push
+#pragma fp_contract on
+void TItemData__sub_8010C1E0(u8 *self, s32 player, s32 unused, s16 *out) {
+    s32 dfpBonus;
+    Parm_8010C1E0 *parm;
+    f32 mult = TItemData__sub_8010DD6C(self, player);
+    f32 add = ((f32 (*)(u8 *, s32))TItemData__sub_8010C5DC)(self, player);
+    parm = TItemData__sub_8010EA38(self);
+    if (parm != 0) {
+        dfpBonus = getS16_06__9TItemDataFPv(self);
+        s16 evpBonus = get_bswap16_field8__9TItemDataFPv(self);
+        s32 dfp = (s32)(parm->dfp * mult + add);
+        if (out != 0) {
+            add_stat_ptr__9TItemDataFPvi(out, (s16)(parm->evp + evpBonus));
+            add_bonus__9TItemDataFPvs(out, dfp + dfpBonus);
+            adjust_count__9TItemDataFPvi(out, parm->x11);
+            TItemData__sub_8010EDD8(out, parm->x13);
+            TItemData__sub_8010EDC8(out, parm->x12);
+            TItemData__sub_8010EDA8(out, parm->x15);
+            add_quantity__9TItemDataFPvi(out, parm->x14);
+        }
+    }
+}
+#pragma pop
 
 f32 TItemData__sub_8010C5DC(u8 *arg0) {
     M2C_UNK *var_r4;

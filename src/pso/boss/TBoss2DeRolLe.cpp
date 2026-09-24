@@ -16,6 +16,8 @@ struct RecoveredGlobal_800339BC_lbl_804FF5E8 {
     u8 remaining[0x24];
 };
 
+struct Obj_80034034 { u8 pad[0x326]; s16 f326; };
+
 extern "C" {
 M2C_UNK TObjBoss2Tunnel__sub_8003B1D8(void *);
 void TBoss2DeRolLe__sub_80033A80(M2C_UNK arg0, s32 arg1);
@@ -44,6 +46,9 @@ s32 TBoss2DeRolLe__sub_80032B28(void *, void *);
 s32 TBoss2DeRolLe__sub_80032E38(void *, void *);
 s32 TBoss2DeRolLe__sub_800333F4(void *, void *);
 void TBoss2DeRolLe__sub_8003344C(s32 arg0, u32 arg1, s32 arg2);
+void TBoss2DeRolLe__sub_80033D44(Obj_80034034 *self);
+void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
+void TBoss2DeRolLe__sub_80034034(Obj_80034034 *self);
 }
 
 extern "C" {
@@ -264,6 +269,18 @@ void handle_6x13_de_rol_le_boss_actions(void *arg0) {
     x = get_enemy_entity(M2C_FIELD(arg0, u16 *, 0x2));
     if (x != NULL) {
         init_from_param__13TBoss2DeRolLeFPvPv((void *)(x), (void *)(arg0));
+    }
+}
+void TBoss2DeRolLe__sub_80034034(Obj_80034034 *self) {
+    s16 st = self->f326;
+    if (st != 0x1f && st != 0x20) {
+        if (st == 0x14 || st == 0x15) {
+            TBoss2DeRolLe__sub_80033D44(self);
+        } else if (st == 0x16 || st == 0x17) {
+            TBoss2DeRolLe__sub_80034E90(self, 0x1f);
+        } else {
+            TBoss2DeRolLe__sub_80034E90(self, 0x1e);
+        }
     }
 }
 

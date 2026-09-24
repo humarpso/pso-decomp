@@ -4,9 +4,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct S_803DA218 { s32 a; u32 c; s32 b; };
+
 extern "C" {
 extern s32 lbl_805D7758;
 void TObjPlayer__sub_803DA6E0(u8 *arg0);
+void TObjPlayer__sub_803DA218(S_803DA218 *self, s32 a, s32 b, u32 c);
 }
 
 extern "C" {
@@ -19,6 +22,24 @@ void set_render_rect__10TObjPlayerFPviiii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3
     M2C_FIELD(arg0, s32 *, 0x14) = arg4;
     M2C_FIELD(arg0, s32 *, 4) = arg2;
 }
+
+#pragma push
+#pragma scheduling off
+#pragma peephole off
+#pragma optimize_for_size off
+void TObjPlayer__sub_803DA218(S_803DA218 *self, s32 a, s32 b, u32 c) {
+    if (c & 0x40000000) {
+        self->a = a;
+        self->c = c;
+        self->b = b;
+    } else {
+        self->a = a;
+        self->c = c;
+        self->b = b;
+    }
+}
+#pragma pop
+
 void TObjPlayer__sub_803DA6E0(u8 *arg0) {
     u8 *temp_r4;
     temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xC));

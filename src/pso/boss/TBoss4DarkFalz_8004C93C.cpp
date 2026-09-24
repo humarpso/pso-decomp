@@ -4,15 +4,22 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct Obj_8004D8C8 { u8 pad[0x2D4]; u16 f2d4; u16 f2d6; };
+
+struct Obj_8004D92C { u8 pad[0x2D4]; u16 f2d4; u16 f2d6; };
+
 extern "C" {
 s32 TBoss4DarkFalz__sub_8004D990(u8 *arg0);
+u16 obj_getArrU16_FC(void *obj, s32 i);
+void TBoss4DarkFalz__sub_8004D8C8(Obj_8004D8C8 *self, u16 *a, u16 *b, u16 *out);
+u16 obj_getArrU16_FC(void *obj, s32 i);
+void TBoss4DarkFalz__sub_8004D92C(Obj_8004D92C *self, u16 *a, u16 *b, u16 *out);
 }
 
 extern "C" {
 
 void TBoss4DarkFalz__sub_8004D29C(void* p);
-int TBoss4DarkFalz__sub_8004D8C8(void);
-int TBoss4DarkFalz__sub_8004D92C(void);
 void TBoss4DarkFalz__sub_8004D9A0(void* p, s32 v);
 void init_timer__14TBoss4DarkFalzFPv(void* a0);
 void start_demo__14TBoss4DarkFalzFPv(void* p);
@@ -34,8 +41,23 @@ void start_demo__14TBoss4DarkFalzFPv(void* p) { TBoss4DarkFalz__sub_8004B8F8(p);
 
 void TBoss4DarkFalz__sub_8004D29C(void* p) { if (check_demo_mode__10TObjPlayerFv(p) == 0) { TBoss4DarkFalz__sub_8004B20C(p, (void*)1); } }
 
-int TBoss4DarkFalz__sub_8004D8C8(void) { return 0; }
-int TBoss4DarkFalz__sub_8004D92C(void) { return 0; }
+void TBoss4DarkFalz__sub_8004D8C8(Obj_8004D8C8 *self, u16 *a, u16 *b, u16 *out) {
+    s32 i;
+    *a = self->f2d6;
+    *b = self->f2d4;
+    for (i = 0; i < 4; i++) {
+        out[i] = obj_getArrU16_FC(self, i);
+    }
+}
+
+void TBoss4DarkFalz__sub_8004D92C(Obj_8004D92C *self, u16 *a, u16 *b, u16 *out) {
+    s32 i;
+    *a = self->f2d6;
+    *b = self->f2d4;
+    for (i = 0; i < 4; i++) {
+        out[i] = obj_getArrU16_FC(self, i);
+    }
+}
 
 s32 TBoss4DarkFalz__sub_8004D990(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x388) - M2C_FIELD(arg0, s32 *, 0x38C);

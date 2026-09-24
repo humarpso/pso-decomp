@@ -35,6 +35,14 @@ struct Pos_801D2964 { u8 bytes[0x8]; };
 
 struct Pkt_801D2964 { u8 hdr[4]; Pos_801D2964 pos; };
 
+struct Ent_801D32A0 { u16 a; s16 b; };
+
+struct Self_801D32A0 { u8 pad[0x20]; f32 f20; f32 f24; f32 f28; f32 f2c; s32 count; Ent_801D32A0 ents[1]; };
+
+struct Cur_801D32A0 { u8 pad[0x28]; f32 x28; f32 x2c; f32 x30; u8 pad2[8]; f32 x3c; u8 pad3[0x5C]; u8 lock[4]; };
+
+struct Pl_801D32A0 { u8 pad[0x424]; void *cursor; };
+
 extern "C" {
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
@@ -67,6 +75,18 @@ void TObjPlayer__sub_801D2E20(s32 *arg0, void * _w1, f32 _w2, f32 _w3);
 Ent_801D2AB0 *TObjPlayer__sub_801D2AB0(Obj_801D2AB0 *p, s32 i);
 int TFontSmallLobby__sub_801C0228(void*);
 void *TObjPlayer__sub_801D2964(void *arg0, void *arg1);
+void TObjPlayer__sub_801D2E20(s32 *arg0, void * _w1, f32 _w2, f32 _w3);
+Cur_801D32A0 *TObjPlayer__sub_801B57E8(void *);
+u8 TMainCursor__sub_8013E900(void *);
+s32 get_target__13TLockOnCursorFPv(void* p);
+void set_state__10TNpcPlayerFPvi(void* p, s32 v);
+void *TObjPlayer__sub_80116620(void *, s32);
+s16 get_type_id__10TObjPlayerFPv(void* p);
+s16 get_obj_id__10TObjPlayerFPv(void* p);
+void set_field_0__10TNpcPlayerFPvs(void* p, s16 v);
+void set_field2__10TNpcPlayerFPvs(void* p, s16 v);
+void set_cursor_pos__11TMainCursorFiUsi(void *arg0, u16 arg1, s32 arg2);
+void *TObjPlayer__sub_801D32A0(Self_801D32A0 *self, Pl_801D32A0 *player);
 }
 
 extern "C" {
@@ -366,6 +386,34 @@ void TObjPlayer__sub_801D31A8(u8 *arg0, M2C_UNK arg1, s16 arg2, s32 arg3) {
   {
     *((f32 *) (((s8 *) arg0) + 4)) = (f32) ((*((f32 *) (new_var + 4))) * lbl_805DC3B8);
   }
+}
+
+void *TObjPlayer__sub_801D32A0(Self_801D32A0 *self, Pl_801D32A0 *player) {
+    Cur_801D32A0 *cur;
+    s32 n;
+    Ent_801D32A0 *e;
+    s32 i;
+    void *obj;
+    if (player->cursor == 0) return 0;
+    ((void (*)(void *))TObjPlayer__sub_801D2E20)(&self->count);
+    cur = TObjPlayer__sub_801B57E8(player);
+    if (cur == 0) return 0;
+    if (TMainCursor__sub_8013E900(cur) != 2) return 0;
+    self->f20 = cur->x28;
+    self->f24 = cur->x2c;
+    self->f28 = cur->x30;
+    self->f2c = cur->x3c;
+    n = get_target__13TLockOnCursorFPv(cur->lock);
+    e = self->ents;
+    set_state__10TNpcPlayerFPvi(&self->count, n);
+    for (i = 0; i != n; i++) {
+        obj = TObjPlayer__sub_80116620(cur->lock, i);
+        set_field_0__10TNpcPlayerFPvs(e, get_type_id__10TObjPlayerFPv(obj));
+        set_field2__10TNpcPlayerFPvs(e, get_obj_id__10TObjPlayerFPv(obj));
+        e++;
+    }
+    set_cursor_pos__11TMainCursorFiUsi(player->cursor, self->ents[0].a, self->ents[0].b);
+    return &self->count;
 }
 
 void reset_movement_state__10TObjPlayerFPv(u8 *arg0) {

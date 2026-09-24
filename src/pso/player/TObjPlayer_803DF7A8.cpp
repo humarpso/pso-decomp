@@ -23,6 +23,7 @@ extern s32 lbl_805D7774;
 extern s32 lbl_804FC7A8[];
 void GXLoadTexMtxImm(void *mtx, u32 id, s32 type);
 void TObjPlayer__sub_803E1D54(s32 i);
+s32 TObjPlayer__sub_803E1864(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -126,6 +127,19 @@ s32 TObjPlayer__sub_803E112C(CollisionPoint* box,CollisionSphere* sphere) {
 
 __declspec(section ".sdata2") extern const f64 lbl_805E1040;
 __declspec(section ".sdata2") extern const f64 lbl_805E1048;
+
+s32 TObjPlayer__sub_803E1864(u8 *arg0, u8 *arg1) {
+    f32 temp_f2;
+    f32 temp_f3;
+    f32 temp_f4;
+    f32 temp_f5;
+    temp_f3 = M2C_FIELD(arg1, f32 *, 0) - M2C_FIELD(arg0, f32 *, 0);
+    temp_f4 = M2C_FIELD(arg1, f32 *, 4) - M2C_FIELD(arg0, f32 *, 4);
+    temp_f2 = M2C_FIELD(arg1, f32 *, 8) - M2C_FIELD(arg0, f32 *, 8);
+    temp_f5 = M2C_FIELD(arg0, f32 *, 0xC) + M2C_FIELD(arg1, f32 *, 0xC);
+    return ((temp_f2 * temp_f2) + ((temp_f3 * temp_f3) + (temp_f4 * temp_f4))) <= (temp_f5 * temp_f5);
+}
+
 #pragma push
 #pragma scheduling off
 f32 TObjPlayer__sub_803E1A58(Vec_803E1A58 *a, Vec_803E1A58 *b) {

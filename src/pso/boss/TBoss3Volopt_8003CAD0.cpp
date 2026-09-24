@@ -4,9 +4,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct V3_8003CC18 { f32 x, y, z; };
+
+struct Msg_8003CC18 { u8 hdr[2]; s16 id; V3_8003CC18 pos; s32 arg; };
+
 extern "C" {
 extern s32 lbl_805D4C24;
 bool TBoss3Volopt__sub_8003CB94(void);
+void TBoss3Volopt__sub_8003F22C(void *);
+s32 obj_getField1c(void *);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+void send_state__12TBoss3VoloptFPv(void *);
+void TBoss3Volopt__sub_8003CC18(void *obj, V3_8003CC18 *pos, s32 arg);
 }
 
 extern "C" {
@@ -74,6 +83,17 @@ void handle_6x17_set_entity_position_and_angle(u8 *arg0) {
 
 extern M2C_UNK lbl_804FEE74[];
 extern u32 lbl_805D4C44;
+
+void TBoss3Volopt__sub_8003CC18(void *obj, V3_8003CC18 *pos, s32 arg) {
+    Msg_8003CC18 m;
+    if (obj != 0) {
+        TBoss3Volopt__sub_8003F22C(&m);
+        m.id = obj_getField1c(obj);
+        VecCopy__FP3VecPC3Vec(&m.pos, pos);
+        m.arg = arg;
+        send_state__12TBoss3VoloptFPv(&m);
+    }
+}
 
 void handle_6x16_vol_opt_boss_actions(void *arg0) {
     swap_6x16_fields__12TBoss3VoloptFPv(arg0);

@@ -14,6 +14,8 @@ struct RecoveredGlobal_8005A6A4_TBoss4Type3__data_80486FC8 {
     u8 remaining[0xC4];
 };
 
+struct Obj_8005ACBC { u8 pad[0x374]; s32 f374; u8 pad378[0x40]; u16 f3b8; u16 f3ba; };
+
 extern "C" {
 extern RecoveredGlobal_8005A678_TBoss4Type3__data_80486FC8 TBoss4Type3__data_80486FC8;
 extern const f32 TBoss4Type3__data_805D8C40;
@@ -23,6 +25,8 @@ extern const f32 TBoss4Type3__data_805D8C40;
 extern const f32 lbl_805D8C9C;
 extern const f32 lbl_805D8CA0;
 void TBoss4Type3__sub_8005A6A4(u8 *arg0);
+s32 TBoss4Type3__sub_8005A398(void *, s32);
+void TBoss4Type3__sub_8005ACBC(Obj_8005ACBC *self);
 }
 
 extern "C" {
@@ -123,6 +127,14 @@ void advance_afterimage__11TBoss4Type3FPv(u8 *arg0) {
 void TBoss4Type3__sub_8005A86C(void* p) { draw__11TBoss4Type3FPv((void *)(p)); }
 
 extern const f32 TBoss4Type3__data_805D8C34;
+
+void TBoss4Type3__sub_8005ACBC(Obj_8005ACBC *self) {
+    if (self->f374 != 3 && self->f374 != 2) {
+        self->f3b8 = 0xFFFF;
+        self->f3ba = 0xFFFF;
+        TBoss4Type3__sub_8005A398(self, 3);
+    }
+}
 
 void init_effect__11TBoss4Type3FPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFFDFF);

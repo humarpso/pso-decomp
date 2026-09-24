@@ -43,11 +43,11 @@
     "use_lmw_stmw": "off"
   },
   "pso/player/TObjPlayer_803DA204.cpp": {
-    "mw_version": "GC/1.2.5n",
-    "optimization": "-O4,p",
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
     "inline": "off",
-    "use_lmw_stmw": "off",
-    "opt": "nocse"
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
   },
   "pso/unk/text_803A3858.cpp": {
     "mw_version": "GC/1.2.5n",
@@ -63,11 +63,11 @@
     "use_lmw_stmw": "on"
   },
   "pso/unk/text_803DD5E0.cpp": {
-    "mw_version": "GC/1.2.5n",
-    "optimization": "-O4,p",
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
     "inline": "off",
-    "use_lmw_stmw": "off",
-    "opt": "nocse"
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
   },
   "pso/unk/text_803F7678.cpp": {
     "mw_version": "GC/1.2.5n",
@@ -116,5 +116,647 @@
     "optimization": "-O4,p",
     "inline": "off",
     "use_lmw_stmw": "on"
+  },
+  "pso/boss/TObjBoss2Tunnel_803E2BAC.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/menu/TAdEndText_8039F7FC.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/misc/TCameraCtrl_803D6538.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/misc/TKeyBoardControl_803DD2E0.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/misc/TLobby_803BFE50.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/misc/TLobby_803C1A58_803C1A58.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/misc/TLobby_803C1A58_803C4698.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/misc/TParticleCtrl_803E29FC.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/misc/TQuestVmDownLoadServer_803F63F0.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/misc/TWindowSubStatusDisp_803DEE6C.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/npc/TObjNpcEnemy_803D8090.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/object/TObjLight_803DF220.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/player/TObjPlayer_803D8BAC.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/player/TObjPlayer_803DF7A8.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/player/TObjPlayer_803E21B8.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/player/TObjPlayer_803E4954.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/ui/TAdPlayerLoadGC_803F3F64.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_803820C0.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_8039739C.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_80397520.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_8039A924.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_803CBCF8.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_803CC294.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_803CD840.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_803CE240.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_803CE568.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_803CFEA0.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_803D0C34.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_803D0F90.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_803D204C.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_803D2640.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_803D2C84.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_803D31A4.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_803D3BE8.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_803D4448.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_803D4714.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_803D4CA0.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_803D81D0.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803D853C.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803D8F74.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803D96A8.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DA038.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DA754.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DA798.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DAFA8.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DB23C.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DB470.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DC88C.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DD080.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DD430.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DE8BC.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803E29B0.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803E2D70.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "off",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803E4CE8.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803E4D8C.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803F3DD4.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_803F4D84.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_803F71BC.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/unk/text_803D8030.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803D8DE0.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803D9650.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803D9FF0.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DA12C.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DA16C.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DAF30.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/misc/TLanguage_803DAF68.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DB390.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/enemy/TObjEneMe3Stelth_803DC82C.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/player/TObjPlayer_803DC834.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DC86C.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/misc/TScene_803DCDA8.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DCDB0.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DCDFC.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DCEC8.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DCF0C.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DCF2C.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/misc/TMovie_803DCFE4.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DD3C8.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/misc/TKeyBoardControl_803DD428.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/misc/TLobby_803DE778.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DE7E0.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DE838.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DE864.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DE890.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/misc/TKeyBoardControl_803DE9C4.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/system/ChunkMaterialState.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DEE48.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/misc/TLobby_803DF1FC.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803DF204.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803E1FC8.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803E2008.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803E2070.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/unk/text_803E20B0.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/misc/TLobby_803E2D50.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/enemy/TObjEneRe7Berura_803E4CE0.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
+  },
+  "pso/player/TObjPlayer_803E5470.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
   }
 }

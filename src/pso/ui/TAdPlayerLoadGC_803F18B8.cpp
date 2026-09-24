@@ -13,6 +13,10 @@ M2C_UNK TLobby__sub_803F4B2C(int);
 extern s32 __OSCurrHeap;
 extern s32 lbl_805D79B0;
 extern u32 lbl_805D79C0;
+extern s32 lbl_805D7940;
+s32 TAdPlayerLoadGC__sub_803F31BC(void);
+s32 CARDUnmount(s32 chan);
+void TAdPlayerLoadGC__sub_803F389C(s32 chan);
 }
 
 extern "C" {
@@ -36,6 +40,15 @@ extern s32 lbl_805D7940;
 
 s32 get_load_state__15TAdPlayerLoadGCFv(void) {
     return lbl_805D7940;
+}
+s32 TAdPlayerLoadGC__sub_803F31BC(void) {
+    if (lbl_805D7940 == 0) {
+        return -1;
+    }
+    return 0;
+}
+void TAdPlayerLoadGC__sub_803F389C(s32 chan) {
+    CARDUnmount(chan);
 }
 
 }

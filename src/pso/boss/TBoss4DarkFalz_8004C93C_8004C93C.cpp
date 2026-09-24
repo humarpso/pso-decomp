@@ -9,6 +9,12 @@ struct RecoveredGlobal_8004CBC0_lbl_80485448 {
     u8 remaining[0x8];
 };
 
+struct Obj_8004CD08 { u8 pad0[0x1C]; u16 id; u8 pad1e[0xE]; s16 f2c; u8 pad2e[0x352]; s32 f380; };
+
+struct Sub_8004CD08 { s16 x; u8 pad2[4]; s16 id; s16 f8; u8 pada[0x42]; };
+
+struct Params_8004CD08 { void *owner; Sub_8004CD08 sub; };
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 u8 * create_demo1__14TBoss4DarkFalzFPvPvPv(void *, void *, void *);
@@ -17,6 +23,13 @@ s32 TBoss4DarkFalz__sub_8004BA70();
 extern RecoveredGlobal_8004CBC0_lbl_80485448 lbl_80485448;
 extern u32 TBoss4DarkFalz__data_805D4D5C;
 void TBoss4DarkFalz__sub_8004CBC0(u8 *arg0);
+extern u8 TBoss4DarkFalz__data_804FF1E8[];
+extern u32 TBoss4DarkFalz__data_805D4D5C;
+void TBoss4DarkFalz__sub_8004B4F0(void *dst, void *src);
+s32 create__11TBoss4Type1Fi(void *params);
+int TBoss4DarkFalz__sub_8004B77C(void*);
+int TBoss4DarkFalz__sub_8004BA18(void*);
+void TBoss4DarkFalz__sub_8004CD08(Obj_8004CD08 *self);
 }
 
 extern "C" {
@@ -91,6 +104,19 @@ void request_action_7__14TBoss4DarkFalzFi(s32 arg0) {
     if (((u32) TBoss4DarkFalz__data_805D4D5C == 0U) || (get_state__14TBoss4DarkFalzFPv(TBoss4DarkFalz__data_805D4D5C) == 3) || (get_state__14TBoss4DarkFalzFPv(TBoss4DarkFalz__data_805D4D5C) == 4) || (TBoss4DarkFalz__sub_8004B07C(arg0) != 0)) {
         TBoss4DarkFalz__sub_8004B1BC((s32)(arg0), (s32)(7));
     }
+}
+
+void TBoss4DarkFalz__sub_8004CD08(Obj_8004CD08 *self) {
+    Params_8004CD08 params;
+    params.owner = self;
+    TBoss4DarkFalz__sub_8004B4F0(&params.sub, TBoss4DarkFalz__data_804FF1E8);
+    params.sub.f8 = 1;
+    params.sub.x = self->f2c + 0x200;
+    params.sub.id = self->id + 0x200;
+    TBoss4DarkFalz__data_805D4D5C = create__11TBoss4Type1Fi(&params);
+    self->f380 = 0;
+    TBoss4DarkFalz__sub_8004BA18((void*)(self));
+    TBoss4DarkFalz__sub_8004B77C((void*)(self));
 }
 
 void TBoss4DarkFalz__sub_8004CE90(void) {  }

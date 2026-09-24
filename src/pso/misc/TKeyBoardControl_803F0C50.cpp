@@ -22,6 +22,10 @@ void TKeyBoardControl__sub_803F0CF4(s32 arg0, u32 arg1);
 s32 SIDisablePolling(u32);
 extern s32 lbl_805D793C;
 void TKeyBoardControl__sub_803F15C4(s32 arg0);
+extern s32 lbl_805D793C;
+extern s32 lbl_805D7930;
+void TKeyBoardControl__sub_803F15C4(s32 arg0);
+s32 TKeyBoardControl__sub_803F0F44(void);
 }
 
 extern "C" {
@@ -61,6 +65,16 @@ void TKeyBoardControl__sub_803F0E8C(void) {
 
 }
 typedef char RecoveredGlobal_803F1548_lbl_805A2720_size[sizeof(RecoveredGlobal_803F1548_lbl_805A2720) == 0x1A0 ? 1 : -1];
+
+s32 TKeyBoardControl__sub_803F0F44(void) {
+    u32 v;
+    while ((v = (u32)lbl_805D793C) != 0) {
+        TKeyBoardControl__sub_803F15C4(__cntlzw(v));
+    }
+    lbl_805D7930 = 1;
+    return 1;
+}
+
 u8 TKeyBoardControl__sub_803F1548(s32 arg0) {
     return M2C_FIELD(((u8 *)&lbl_805A2720.value + (arg0 * 0x68)), u8 *, 1);
 }
