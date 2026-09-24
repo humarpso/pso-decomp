@@ -8,6 +8,10 @@ struct Raw_8010D614 { u8 b[4]; u16 s[4]; u32 id; u8 c[4]; };
 
 struct Mag_8010D614 { u16 a0; u16 a2; u16 s[4]; u8 c; u8 d; u8 e; };
 
+struct Pair_8010E344 { u8 a; u8 b; };
+
+struct TItemData_8010E344 { u8 data[6]; Pair_8010E344 stats[3]; s32 id; s32 f10; };
+
 extern "C" {
 int bswap_16__FPUs(void*);
 void TItemData__sub_8010CDC8(u8 *arg0, s16 arg1);
@@ -32,6 +36,7 @@ extern f32 TItemData__data_805DAB78;
 f32 TItemData__sub_8010D6CC(u8 *arg0, u8 *arg1);
 void bswap_fields__9TItemDataFPv(void* p);
 void TItemData__sub_8010D614(Raw_8010D614 *src, Mag_8010D614 *dst);
+void init__9TItemDataFv(TItemData_8010E344 *self);
 }
 
 extern "C" {
@@ -288,6 +293,22 @@ void apply_equip_effects__9TItemDataFPviiiii(void *arg0, s32 arg1, s32 arg2, s32
 }
 
 extern s32 lbl_805D2B10;
+
+void init__9TItemDataFv(TItemData_8010E344 *self) {
+    s32 i;
+    self->data[0] = 0;
+    self->data[1] = 0;
+    self->data[2] = 0;
+    self->data[3] = 0;
+    self->data[4] = 0;
+    self->data[5] = 0;
+    self->f10 = 0;
+    for (i = 0; i < 3; i++) {
+        self->stats[i].a = 0;
+        self->stats[i].b = 0;
+    }
+    self->id = -1;
+}
 
 s32 calc_buy_price__9TItemDataFPv(void *arg0) {
     u8 temp_r0;

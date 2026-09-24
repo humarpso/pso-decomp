@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct O_80347940 { u8 pad[0x20]; s32 base; void *items[1]; };
+
 extern "C" {
 void TWindowDD__sub_80348688(s32, void *);
 void TWindowDD__sub_8034886C(s32, s32, void *);
@@ -20,6 +22,9 @@ s32 TWindowDD__sub_80347CC8(void *, void *);
 s32 TWindowDD__sub_80347FA0(void *, int);
 s32 TWindowDD__sub_80348DD8(void *, int);
 void TWindowDD__sub_80347A4C(u8 *arg0, s32 arg1);
+void set_pos_and_data__9TWindowDDFPvf(void *p, f32 v);
+extern const f32 lbl_805DFB94;
+void TWindowDD__sub_80347940(O_80347940 *self, s32 i);
 }
 
 extern "C" {
@@ -132,6 +137,13 @@ s32 TWindowDD_is_id_in_range_5AC_5F9(s16 arg0) {
         var_r3 = 1;
     }
     return var_r3;
+}
+
+void TWindowDD__sub_80347940(O_80347940 *self, s32 i) {
+    void *p = self->items[self->base + i];
+    if (p != NULL) {
+        set_pos_and_data__9TWindowDDFPvf(p, lbl_805DFB94);
+    }
 }
 
 void TWindowDD__sub_80347A4C(u8 *arg0, s32 arg1) {

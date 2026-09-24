@@ -22,6 +22,7 @@ M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803D2E94_lbl_8058A880 lbl_8058A880;
 extern s32 lbl_805D7650;
 void TLobby__sub_803D2E94(void);
+void TLobby__sub_803D2E90(void);
 }
 
 extern "C" {
@@ -36,6 +37,12 @@ void TLobby__sub_803D2E04(void) {
     }
 }
 typedef char RecoveredGlobal_803D2E94_lbl_8058A880_size[sizeof(RecoveredGlobal_803D2E94_lbl_8058A880) == 0xC00 ? 1 : -1];
+
+void TLobby__sub_803D2E90(void) {
+    while (1) {
+    }
+}
+
 void TLobby__sub_803D2E94(void) {
     s32 temp_r0;
     temp_r0 = lbl_805D7650 - 1;

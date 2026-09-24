@@ -24,6 +24,10 @@ struct RecoveredGlobal_80354148_TBoss6Rock__data_80543778 {
     u8 remaining[0x7C];
 };
 
+struct Rock_80353EDC { u8 pad[0xb8]; s32 b8; u8 pad2[4]; s32 c0; u8 pad3[4]; s32 state; };
+
+struct Rock_80353EA4 { u8 pad[0xc8]; s32 state; };
+
 extern "C" {
 void release_object__10TBoss6RockFPv(void* p);
 void TBoss6Rock__sub_803542E8(void *, s32);
@@ -66,6 +70,10 @@ u8 *TBoss6Rock__sub_80354148(s32 arg0);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 extern u8 TBoss6Rock__data_805437F8[];
 s32 get_point__10TBoss6RockFiPvPv(s32 arg0, s32 arg1, f32 *arg2);
+extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
+void TBoss6Rock__sub_80353EDC(s32 i, s32 a, s32 b);
+extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
+void TBoss6Rock__sub_80353EA4(s32 i);
 }
 
 extern "C" {
@@ -206,6 +214,30 @@ s32 TBoss6Rock__sub_80353E10(s32 arg0) {
         return 0U;
     }
     return (u8) (M2C_FIELD(temp_r3, s32 *, 0xC4) == 2);
+}
+
+void TBoss6Rock__sub_80353EA4(s32 i) {
+    Rock_80353EA4 *p;
+    if (i < 0 || i >= 0x20) {
+        return;
+    }
+    p = ((Rock_80353EA4 **)&TBoss6Rock__data_80543778)[i];
+    if (p != NULL) {
+        p->state = 0;
+    }
+}
+
+void TBoss6Rock__sub_80353EDC(s32 i, s32 a, s32 b) {
+    Rock_80353EDC *p;
+    if (i < 0 || i >= 0x20) {
+        return;
+    }
+    p = ((Rock_80353EDC **)&TBoss6Rock__data_80543778)[i];
+    if (p != NULL) {
+        p->state = 2;
+        p->b8 = a;
+        p->c0 = b;
+    }
 }
 
 void release_object__10TBoss6RockFPv(void* p) { if (*(unsigned int*)((char*)p + 0xb0) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)p + 0xb0)); *(int*)((char*)p + 0xb0) = 0; } }

@@ -20,6 +20,10 @@ void GXBegin(u32, u32, u16);
 extern s32 lbl_805D77B0;
 extern const f32 lbl_805E0FC8;
 void TWindowSubComCard__sub_803DEECC(f32 *q, f32 depth);
+s64 OSGetTime(void);
+u32 TLobby__sub_803DF1CC(void);
+extern s32 lbl_805D77B0;
+void TWindowKeyBoardSoft__sub_803DF1B0(u32 x);
 }
 
 extern "C" {
@@ -79,6 +83,22 @@ void TWindowSubComCard__sub_803DEECC(f32 *q, f32 depth) {
 void TWindowSubStatusDisp__sub_803DF160(s32 arg0, s32 arg1) {
     TObjPlayer__sub_803E1D90((void *) (arg0), (int) (0), (int) (0), (int) (0));
     lbl_805D77B0 = ((arg1 & 0xFFFFFF) << 8) | ((u32) (arg1 & 0xFF000000) >> 0x18U);
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+#pragma peephole off
+void TWindowKeyBoardSoft__sub_803DF1B0(u32 x) {
+    (*(u32 *)&lbl_805D77B0) = ((x & 0xFFFFFF) << 8) | ((x & 0xFF000000) >> 24);
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+#pragma peephole off
+u32 TLobby__sub_803DF1CC(void) {
+    return OSGetTime() >> 6;
 }
 #pragma pop
 

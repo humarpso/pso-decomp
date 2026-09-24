@@ -9,6 +9,8 @@ struct RecoveredGlobal_80355414___vt__19TAdPlyPltAnimCtrlGC {
     u8 remaining[0x14];
 };
 
+struct O_80355148 { u8 pad[0x1c]; s32 state; };
+
 extern "C" {
 int get_table_value__19TAdPlyPltAnimCtrlGCFi(int a0);
 M2C_UNK TAdPlyPltAnimCtrlGC__sub_80355D38();
@@ -19,16 +21,17 @@ s32 TAdPlyPltAnimGC__sub_803560F0(void *, int);
 extern M2C_UNK __vt__19TAdPlyPltAnimCtrlGC[];
 extern s32 lbl_805D4390;
 u8 *TAdPlyPltAnimCtrlGC__ct(u8 *arg0, s32 arg1);
+s32 TAdPlyPltAnimCtrlGC__sub_80355148(O_80355148 *self);
+s32 get_state_flag__9TMainTaskFv();
+void render__19TAdPlyPltAnimCtrlGCFv(void *self);
 }
 
 extern "C" {
 
-int TAdPlyPltAnimCtrlGC__sub_80355148(void);
 void *__dt__19TAdPlyPltAnimCtrlGCFv(void *arg0, s16 arg1);
 u32 get_instance__19TAdPlyPltAnimCtrlGCFi(s32 arg0);
 int get_table_value__19TAdPlyPltAnimCtrlGCFi(int a0);
 void init__19TAdPlyPltAnimCtrlGCFPvPv(void* p, void* a1);
-int render__19TAdPlyPltAnimCtrlGCFv(void);
 int TObjPlayer__sub_8001BEF8(void*, int);
 void TObjPlayer__sub_80354F8C(void* p);
 int TObjPlayer__sub_80354FB0(void* p);
@@ -55,8 +58,19 @@ u8 fn_8035510C(s32 *arg0, s32 arg1) {
     return (u8) (arg1 == (arg1 & *arg0));
 }
 
-int render__19TAdPlyPltAnimCtrlGCFv(void) { return 0; }
-int TAdPlyPltAnimCtrlGC__sub_80355148(void) { return 0; }
+void render__19TAdPlyPltAnimCtrlGCFv(void *self) {
+    if (get_state_flag__9TMainTaskFv() == 1) {
+        return;
+    }
+}
+
+s32 TAdPlyPltAnimCtrlGC__sub_80355148(O_80355148 *self) {
+    s32 r = 1;
+    if (self->state == 7 || self->state == 0) {
+        r = 0;
+    }
+    return r;
+}
 
 void TAdPlyPltAnimCtrlGC__sub_80355168(u8 *arg0) {
     s32 var_r31;

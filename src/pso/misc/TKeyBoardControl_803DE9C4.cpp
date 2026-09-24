@@ -12,6 +12,7 @@ struct RecoveredGlobal_803DEB74_lbl_8058D8E0 {
 extern "C" {
 extern RecoveredGlobal_803DEB74_lbl_8058D8E0 lbl_8058D8E0;
 u8 *TKeyBoardControl__sub_803DEB74(u32 arg0);
+s16 TKeyBoardControl__sub_803DEC10(s16 x);
 }
 
 extern "C" {
@@ -56,6 +57,14 @@ u8 *TKeyBoardControl__sub_803DEB74(u32 arg0) {
         break;
     }
     return (u8 *)(&lbl_8058D8E0.value) + (var_r5 * 0x34);
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+#pragma optimize_for_size off
+s16 TKeyBoardControl__sub_803DEC10(s16 x) {
+    return (x * 128) / 89;
 }
 #pragma pop
 

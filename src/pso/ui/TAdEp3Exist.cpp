@@ -16,6 +16,8 @@ extern const f32 lbl_805E0440;
 extern const f32 lbl_805E0444;
 extern const f32 lbl_805E0448;
 void TAdEp3Exist__sub_8036EFBC(s32 arg0, s32 arg1);
+s32 get_state_flag__9TMainTaskFv();
+void render__11TAdEp3ExistFv(void);
 }
 
 extern "C" {
@@ -26,7 +28,6 @@ void TAdEp3Exist__sub_8036F5A4(void* p);
 void *__dt__11TAdEp3ExistFv(void *arg0, s16 arg1);
 void close_window__11TAdEp3ExistFPv(void* p);
 s32 free_if_valid__11TAdEp3ExistFis(s32 arg0, s16 arg1);
-int render__11TAdEp3ExistFv(void);
 int request_game_mode_transition__11TAdEp3ExistFPv(void* p);
 int request_scene_change__11TAdEp3ExistFPv(void* p);
 void __dl__7TObjectFPv(void *);
@@ -45,7 +46,11 @@ void TAdEp3Exist__sub_8036EFBC(s32 arg0, s32 arg1) {
     render_status_line__15TAdSubPlyItemGCFPvi((int) (TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x2C), (int) (0xA))), (int) (-1), (f32) (temp_f31), (f32) (lbl_805E0444), (f32) (lbl_805E0448));
 }
 
-int render__11TAdEp3ExistFv(void) { return 0; }
+void render__11TAdEp3ExistFv(void) {
+    if (get_state_flag__9TMainTaskFv() == 1) {
+        return;
+    }
+}
 
 int request_game_mode_transition__11TAdEp3ExistFPv(void* p) { return request_transition__21TAdMultiChgGameModeGCFv(p); }
 int request_scene_change__11TAdEp3ExistFPv(void* p) { return request_scene_change__21TAdMultiChgGameModeGCFv(p); }

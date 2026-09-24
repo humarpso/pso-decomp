@@ -12,6 +12,22 @@ struct RecoveredFields_803DA84C_arg0 {
     s32 field_1C;
 };
 
+struct S_803DA7E0 { s32 a, b, c, d, e; };
+
+struct Obj_803DA7A8 { u8 pad[8]; s32 f8; s32 fc; };
+
+struct Ent_803DA7A8 { s32 a; s32 b; Obj_803DA7A8 *p; };
+
+struct Tbl_803DA7A8 { Ent_803DA7A8 *arr; };
+
+struct G_803DA7A8 { u8 pad[8]; s32 f8; u8 pad2[0xc]; s32 f18; u8 pad3[4]; Tbl_803DA7A8 *f20; };
+
+struct E_803DAB7C { u8 pad[0x18]; };
+
+struct Ent_803DAB7C { s32 a; s32 b; E_803DAB7C *p; };
+
+struct Obj_803DAB7C { Ent_803DAB7C *arr; };
+
 extern "C" {
 extern s32 lbl_805D7768;
 void TObjPlayer__sub_803DAC1C(s32 arg0);
@@ -27,6 +43,12 @@ extern s32 lbl_805D7768;
 s32 TObjPlayer__sub_803DAD28(u32 arg0);
 s32 TObjPlayer__sub_803DA808(int, void *, int);
 s32 TObjPlayer__sub_803DA8B4(u8 *arg0, s32 arg1);
+extern S_803DA7E0 lbl_8058D470;
+void TObjPlayer__sub_803DA7E0(void);
+extern u8 *lbl_805D774C;
+s32 TParticleCtrl__sub_803DA7A8(s32 i);
+extern s32 lbl_805D7768;
+void TObjPlayer__sub_803DAB7C(Obj_803DAB7C *self, s32 i, s32 j);
 }
 
 extern "C" {
@@ -47,6 +69,30 @@ s32 set_global_param__8TObjFishFi(s32 arg0) {
 #pragma peephole off
 typedef char RecoveredFields_803DA84C_arg0_14_offset[offsetof(RecoveredFields_803DA84C_arg0, field_14) == 0x14 ? 1 : -1];
 typedef char RecoveredFields_803DA84C_arg0_1C_offset[offsetof(RecoveredFields_803DA84C_arg0, field_1C) == 0x1C ? 1 : -1];
+
+#pragma push
+#pragma scheduling off
+#pragma peephole off
+s32 TParticleCtrl__sub_803DA7A8(s32 i) {
+    Obj_803DA7A8 *o = ((G_803DA7A8 *)lbl_805D774C)->f20->arr[i].p;
+    ((G_803DA7A8 *)lbl_805D774C)->f8 = o->fc + 4;
+    ((G_803DA7A8 *)lbl_805D774C)->f18 = o->f8;
+    return 1;
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+#pragma peephole off
+void TObjPlayer__sub_803DA7E0(void) {
+    lbl_8058D470.a = -1;
+    lbl_8058D470.b = -1;
+    lbl_8058D470.c = 0;
+    lbl_8058D470.d = 0;
+    lbl_8058D470.e = 0;
+}
+#pragma pop
+
 s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 temp_r0;
     u32 temp_r6;
@@ -75,6 +121,14 @@ s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
 s32 TObjPlayer__sub_803DA8B4(u8 *arg0, s32 arg1) {
     TObjPlayer__sub_803DA808((int) (M2C_FIELD(arg0, s32 *, 0x1C)), (void *) (arg1), (int) (M2C_FIELD(arg0, s32 *, 0x14)));
     return 0;
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+#pragma peephole off
+void TObjPlayer__sub_803DAB7C(Obj_803DAB7C *self, s32 i, s32 j) {
+    self->arr[i].p = (E_803DAB7C *)lbl_805D7768 + j;
 }
 #pragma pop
 

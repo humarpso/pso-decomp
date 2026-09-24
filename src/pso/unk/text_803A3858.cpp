@@ -14,6 +14,12 @@ struct RecoveredGlobal_803A98F0_lbl_80556F88 {
     u8 remaining[0x3BC];
 };
 
+struct Rec_803B59E4 { u8 pad[0x50]; u8 f50; u8 pad2[0xBC - 0x51]; };
+
+struct Node_803B2598 { Node_803B2598 *next; u32 pad; u32 key; };
+
+struct Rec_803A9944 { u8 pad[0x2d]; u8 f2d; u8 pad2[2]; };
+
 extern "C" {
 void TLobby__sub_803A49C8(s32);
 void TLobby__sub_803A4B7C(s32);
@@ -78,6 +84,13 @@ extern s32 lbl_805D73A8;
 s32 TLobby__sub_803A98F0(u8 arg0);
 s32 TLobby__sub_803B5398(u16, u16, s32, s32, u8, s32);
 void TLobby__sub_803B54D8(u16 arg0, u16 arg1, s32 arg2, s32 arg3, s32 arg4);
+extern Rec_803B59E4 lbl_805663D8[];
+void TLobby__sub_803B59E4(u8 i);
+extern Node_803B2598 *lbl_805D743C;
+Node_803B2598 *TLobby__sub_803B2598(u32 key);
+extern u8 lbl_805D7380;
+extern Rec_803A9944 lbl_8055755C[];
+void TLobby__sub_803A9944(u8 i, u8 v);
 }
 
 extern "C" {
@@ -129,6 +142,12 @@ s32 TLobby__sub_803A98F0(u8 arg0) {
         return 1;
     }
     return 0;
+}
+
+void TLobby__sub_803A9944(u8 i, u8 v) {
+    if (lbl_805D7380 != 0) {
+        lbl_8055755C[i].f2d = v;
+    }
 }
 
 void TLobby__sub_803A9F80(s32 arg0, s16 arg1) {
@@ -225,6 +244,19 @@ s32 TLobby__sub_803AE75C(u16 *arg0, u16 *arg1) {
     return *arg0 - *arg1;
 }
 
+Node_803B2598 *TLobby__sub_803B2598(u32 key) {
+    Node_803B2598 *n;
+    for (n = lbl_805D743C; n != 0; n = n->next) {
+        if (n->key == key) {
+            return n;
+        }
+        if (n->key > key) {
+            break;
+        }
+    }
+    return 0;
+}
+
 s32 TLobby__sub_803B2920(u8 *arg0) {
     M2C_FIELD(arg0, void **, 0xFC) = (void *) M2C_FIELD(arg0, void **, 0xF8);
     return M2C_FIELD(M2C_FIELD(arg0, void **, 0xF8), s32 *, 8);
@@ -250,6 +282,11 @@ void TLobby__sub_803B58A4(void) {
     memset((void *) (lbl_805D7480), (int) (0), (int) (0x100));
     DCFlushRangeNoSync((void *) (lbl_805D7480), (int) (0x100));
 }
+
+void TLobby__sub_803B59E4(u8 i) {
+    lbl_805663D8[i].f50 = 0;
+}
+
 s32 TLobby__sub_803B88CC(u8 *arg0, s32 arg1) {
     struct Fields_arg0 { u8 pad_0[24]; s32 field_18; };
     if (((s32 (*)(s32, s32)) lbl_805D7490) == NULL) {

@@ -3,38 +3,38 @@
     "mw_version": "GC/1.2.5n",
     "optimization": "-O4,p",
     "inline": "off",
-    "use_lmw_stmw": "off"
+    "use_lmw_stmw": "on"
   },
   "pso/misc/TLobby_803C1A58.cpp": {
     "mw_version": "GC/1.3",
     "optimization": "-O4,p",
     "inline": "auto",
-    "use_lmw_stmw": "off"
+    "use_lmw_stmw": "on"
   },
   "pso/misc/TLobby_803F8794.cpp": {
     "mw_version": "GC/1.2.5n",
     "optimization": "-O4,p",
     "inline": "off",
-    "use_lmw_stmw": "off",
+    "use_lmw_stmw": "on",
     "opt": "nocse"
   },
   "pso/misc/TLobby_804245DC.cpp": {
     "mw_version": "GC/1.2.5n",
     "optimization": "-O4,p",
     "inline": "off",
-    "use_lmw_stmw": "off"
+    "use_lmw_stmw": "on"
   },
   "pso/misc/TQuestVmDownLoadServer_803E5668.cpp": {
     "mw_version": "GC/1.2.5n",
     "optimization": "-O4,p",
     "inline": "off",
-    "use_lmw_stmw": "off"
+    "use_lmw_stmw": "on"
   },
   "pso/misc/TQuestVmDownLoadServer_803E6970.cpp": {
     "mw_version": "GC/1.2.5n",
     "optimization": "-O4,p",
     "inline": "off",
-    "use_lmw_stmw": "off"
+    "use_lmw_stmw": "on"
   },
   "pso/misc/TWindowKeyBoardSoft_803E6610.cpp": {
     "mw_version": "GC/1.2.5n",
@@ -53,14 +53,14 @@
     "mw_version": "GC/1.2.5n",
     "optimization": "-O4,p",
     "inline": "off",
-    "use_lmw_stmw": "off",
+    "use_lmw_stmw": "on",
     "opt": "nocse"
   },
   "pso/unk/text_803C1780.cpp": {
     "mw_version": "GC/1.3",
     "optimization": "-O4,p",
     "inline": "off",
-    "use_lmw_stmw": "off"
+    "use_lmw_stmw": "on"
   },
   "pso/unk/text_803DD5E0.cpp": {
     "mw_version": "GC/1.2.5n",
@@ -73,37 +73,37 @@
     "mw_version": "GC/1.2.5n",
     "optimization": "-O4,p",
     "inline": "off",
-    "use_lmw_stmw": "off"
+    "use_lmw_stmw": "on"
   },
   "pso/unk/text_80421620.cpp": {
     "mw_version": "GC/1.2.5n",
     "optimization": "-O4,p",
     "inline": "off",
-    "use_lmw_stmw": "off"
+    "use_lmw_stmw": "on"
   },
   "pso/misc/TLobby_803C1A58_803C9348.cpp": {
     "mw_version": "GC/1.3",
     "optimization": "-O4,p",
     "inline": "auto",
-    "use_lmw_stmw": "off"
+    "use_lmw_stmw": "on"
   },
   "pso/unk/text_8041ED8C.cpp": {
     "mw_version": "GC/1.2.5n",
     "optimization": "-O4,p",
     "inline": "off",
-    "use_lmw_stmw": "off"
+    "use_lmw_stmw": "on"
   },
   "pso/unk/text_80432688.cpp": {
     "mw_version": "GC/1.2.5n",
     "optimization": "-O4,p",
     "inline": "off",
-    "use_lmw_stmw": "off"
+    "use_lmw_stmw": "on"
   },
   "pso/ui/TAdPlayerLoadGC_803F18B8.cpp": {
     "mw_version": "GC/1.2.5n",
     "optimization": "-O4,p",
     "inline": "off",
-    "use_lmw_stmw": "off"
+    "use_lmw_stmw": "on"
   },
   "pso/unk/text_803F1804.cpp": {
     "mw_version": "GC/1.2.5n",
@@ -115,6 +115,6 @@
     "mw_version": "GC/1.2.5n",
     "optimization": "-O4,p",
     "inline": "off",
-    "use_lmw_stmw": "off"
+    "use_lmw_stmw": "on"
   }
 }

@@ -235,6 +235,10 @@ struct RecoveredFields_8035E578_arg0 {
     s32 field_46C;
 };
 
+struct O_8035DDC8 { u8 pad[0x30]; u32 f30; u8 pad2[0x46c - 0x34]; u32 f46c; };
+
+struct O_8035DE08 { u8 pad[0x30]; u32 f30; u8 pad2[0x46c - 0x34]; u32 f46c; };
+
 extern "C" {
 s32 TObjEneEpsilonGuard__sub_8035DD74(u8 *arg0);
 s32 TObjEneEpsilonGuard__sub_8035DD94(u8 *arg0);
@@ -261,6 +265,8 @@ M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 void TObjEneEpsilonGuard__sub_8035E578(u8 *arg0, s32 arg1);
+s32 TObjEneEpsilonGuard__sub_8035DDC8(O_8035DDC8 *self);
+s32 TObjEneEpsilonGuard__sub_8035DE08(O_8035DE08 *self);
 }
 
 extern "C" {
@@ -312,8 +318,6 @@ struct VObj_8035E3B8_8035DD68 : Base_8035E3B8_8035DD68 {
 };
 
 int TObjEneEpsilonGuard__sub_8035DD68(void* p);
-int TObjEneEpsilonGuard__sub_8035DDC8(void);
-int TObjEneEpsilonGuard__sub_8035DE08(void);
 void handle_event__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1);
 void handle_message__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1);
 void render_guard_effect__19TObjEneEpsilonGuardFPv(u8 *arg0);
@@ -361,8 +365,31 @@ s32 TObjEneEpsilonGuard__sub_8035DD94(u8 *arg0) {
     return ((u32) M2C_FIELD(arg0, u32 *, 0x46C) >> 9U) & 1;
 }
 
-int TObjEneEpsilonGuard__sub_8035DDC8(void) { return 0; }
-int TObjEneEpsilonGuard__sub_8035DE08(void) { return 0; }
+s32 TObjEneEpsilonGuard__sub_8035DDC8(O_8035DDC8 *self) {
+    if (self->f30 & 0xa00) {
+        return 0;
+    }
+    if (self->f46c & 0x10) {
+        return 0;
+    }
+    if (self->f46c & 0x20) {
+        return 0;
+    }
+    return (self->f46c & 4) ? 1 : 0;
+}
+
+s32 TObjEneEpsilonGuard__sub_8035DE08(O_8035DE08 *self) {
+    if (self->f30 & 0xa00) {
+        return 0;
+    }
+    if (self->f46c & 0x10) {
+        return 0;
+    }
+    if (self->f46c & 0x20) {
+        return 0;
+    }
+    return (self->f46c & 4) ? 1 : 0;
+}
 
 void TObjEneEpsilonGuard__sub_8035DE48(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x44C) = 0;

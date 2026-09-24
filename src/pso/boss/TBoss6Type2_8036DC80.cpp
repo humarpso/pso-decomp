@@ -4,6 +4,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct E_8036DDE8 { s32 f0; u8 pad[0x28]; };
+
+extern "C" {
+extern s8 lbl_804F36F8[];
+void TLobby__sub_8036DDE8(void);
+}
+
 extern "C" {
 
 void apply_pending_effect__11TBoss6Type2FPv(u8 *arg0);
@@ -32,6 +39,12 @@ void apply_pending_effect__11TBoss6Type2FPv(u8 *arg0) {
                 M2C_FIELD(arg0, s32 *, 0x8B4) = (s32) M2C_FIELD(temp_r31, s32 *, 0x28);
             }
         }
+    }
+}
+void TLobby__sub_8036DDE8(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        ((E_8036DDE8 *)lbl_804F36F8)[i].f0 = 0;
     }
 }
 

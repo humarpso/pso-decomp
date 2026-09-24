@@ -23,6 +23,7 @@ void move_data__6TLobbyFv(void *, void *, int);
 extern u32 lbl_805D7774;
 extern u32 lbl_805D776C;
 s32 TObjPlayer__sub_803D97F0(void *src);
+void TObjPlayer__sub_803D9C60(u32 *p);
 }
 
 extern "C" {
@@ -99,6 +100,15 @@ s32 TObjPlayer__sub_803D9B78(void) {
     }
     lbl_805D7774 = temp_r3;
     return 1;
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+#pragma peephole off
+void TObjPlayer__sub_803D9C60(u32 *p) {
+    u32 v = *p;
+    *p = ((v & 0xFF000000) >> 24) | ((v & 0xFF0000) >> 8) | ((v & 0xFF00) << 8) | ((v & 0xFF) << 24);
 }
 #pragma pop
 

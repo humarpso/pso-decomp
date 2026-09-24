@@ -93,6 +93,13 @@ extern char lbl_80514F58[];
 void TLobby__sub_80228118(void);
 char *strcpy(char *dst, const char *src);
 void TLobby__sub_80228A74(O_80228A74 *self, const char *src);
+void TLobby__sub_80228A74(O_80228A74 *self, const char *src);
+void clear_work_buffer(u8 *arg0);
+void TLobby__sub_802288B8(O_80228A74 *self, char *s);
+extern char lbl_805DC788[4];
+u32 strlen(const char *s);
+char *strcpy(char *dst, const char *src);
+void TLobby__sub_80228B54(char *s);
 }
 
 extern "C" {
@@ -285,6 +292,47 @@ s32 init_range_zero__6TLobbyFPv(void* arg0) {
     return (s32)arg0;
 }
 
+struct O_80228A74;
+void TLobby__sub_802288B8(O_80228A74 *self, char *s) {
+    char *start;
+    s32 quoted;
+    clear_work_buffer((u8 *)self);
+    start = s;
+    quoted = 0;
+    for (;;) {
+        switch (*s) {
+        case 0:
+            TLobby__sub_80228A74(self, start);
+            return;
+        case '"':
+            if (quoted) {
+                quoted = 0;
+                *s = 0;
+                s++;
+            } else {
+                s++;
+                quoted = 1;
+                start = s;
+            }
+            break;
+        case '\t':
+        case '\n':
+            if (quoted) {
+                s++;
+            } else {
+                *s = 0;
+                s++;
+                TLobby__sub_80228A74(self, start);
+                start = s;
+            }
+            break;
+        default:
+            s++;
+            break;
+        }
+    }
+}
+
 void TLobby__sub_80228A74(O_80228A74 *self, const char *src) {
     strcpy(self->names[((P_80228A74 *)self)->count++], src);
 }
@@ -304,6 +352,20 @@ void *construct__6TLobbyFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3
     memset((void *)((void *)((char *)arg0 + 28)), (int)(0), (int)(4096));
     M2C_FIELD(arg0, u32 *, 0x109C) = 0;
     return arg0;
+}
+void TLobby__sub_80228B54(char *s) {
+    s32 len = strlen(s);
+    s32 i;
+    for (i = 0; i <= len && ((u8 *)s)[i] <= ' '; i++) {
+    }
+    if (i > len) {
+        strcpy(s, lbl_805DC788);
+    } else {
+        for (; ((u8 *)s)[len] <= ' '; len--) {
+            s[len] = 0;
+        }
+        strcpy(s, s + i);
+    }
 }
 
 }

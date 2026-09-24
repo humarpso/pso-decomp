@@ -18,6 +18,8 @@ struct RecoveredGlobal_803404A4_lbl_8050E208
   u8 remaining[0x1AC];
 };
 
+struct E_803403F8 { f32 a; f32 b; f32 c; f32 d; f32 e; s32 f; };
+
 extern "C" {
 void TWindowDD__sub_803407F0(u8 *arg0, s32 arg1);
 M2C_UNK spawn_window__9TWindowDDFv();
@@ -36,6 +38,16 @@ s32 TWindowDD__sub_803404A4(M2C_UNK arg0, s32 arg1);
 s32 TWindowDD__sub_803404A4(M2C_UNK arg0, s32 arg1);
 M2C_UNK spawn_window__9TWindowDDFv();
 void TWindowDD__sub_80340828(u8 *arg0);
+extern f32 lbl_804EFB90[];
+extern f32 lbl_804EFB98[];
+extern const f32 TWindowDD__data_805DFBFC;
+extern const f32 lbl_805DFC00;
+extern const f32 lbl_805DFC04;
+extern const f32 lbl_805DFC08;
+extern const f32 lbl_805DFC2C;
+void TWindowDD__sub_80340A44(void);
+extern const f32 lbl_805DFC30;
+void TWindowDD__sub_803403F8(E_803403F8 *p, f32 v);
 }
 
 extern "C" {
@@ -53,6 +65,19 @@ void *__nw__7TObjectFUl(int);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 int initialize_subwindow__9TWindowDDFPv(void*);
 int update_fade__17TWindowSubComCardFPv(void*);
+
+void TWindowDD__sub_803403F8(E_803403F8 *p, f32 v) {
+    s32 i;
+    for (i = 0; i < 8; i++) {
+        p->a = lbl_805DFC30;
+        p->b = lbl_805DFC30;
+        p->c = v;
+        p->d = lbl_805DFC30;
+        p->e = lbl_805DFC30;
+        p->f = -1;
+        p++;
+    }
+}
 
 void TWindowDD__sub_8034042C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
   f32 temp_f0;
@@ -194,6 +219,14 @@ void *create__9TWindowDDFv(void) {
         o = TWindowDD__sub_803409A4(o);
     }
     return o;
+}
+
+void TWindowDD__sub_80340A44(void) {
+    lbl_804EFB90[0] = TWindowDD__data_805DFBFC;
+    lbl_804EFB90[1] = lbl_805DFC00;
+    lbl_804EFB98[0] = lbl_805DFC04;
+    lbl_804EFB98[1] = lbl_805DFC08;
+    lbl_804EFB98[2] = lbl_805DFC2C;
 }
 
 void init__9TWindowDDFPv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); }

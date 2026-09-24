@@ -9,6 +9,8 @@ struct RecoveredGlobal_803E5458_lbl_8058DC00 {
     u8 remaining[0x44];
 };
 
+struct Ctx_803E53BC { s32 f0; s32 f4; s32 f8; s32 fc; s32 f10; s32 f14; s32 f18; s32 f1c; };
+
 extern "C" {
 void TObjPlayer__sub_803E5378(s32);
 extern u8 *lbl_805D7818;
@@ -16,9 +18,23 @@ void TObjPlayer__sub_803E53F8(u8 *arg0, f32 farg0);
 extern RecoveredGlobal_803E5458_lbl_8058DC00 lbl_8058DC00;
 extern u8 *lbl_805D7818;
 void TObjPlayer__sub_803E5458(s32 arg0);
+extern u8 *lbl_805D7818;
+void TObjPlayer__sub_803E53BC(void);
 }
 
 extern "C" {
+
+#pragma push
+#pragma scheduling off
+void TObjPlayer__sub_803E53BC(void) {
+    s32 v = ((Ctx_803E53BC *)lbl_805D7818)->f0;
+    v += ((Ctx_803E53BC *)lbl_805D7818)->f8;
+    ((Ctx_803E53BC *)lbl_805D7818)->f0 = v;
+    ((Ctx_803E53BC *)lbl_805D7818)->fc = v;
+    ((Ctx_803E53BC *)lbl_805D7818)->f10 = v + ((Ctx_803E53BC *)lbl_805D7818)->f4;
+    ((Ctx_803E53BC *)lbl_805D7818)->f1c = 0;
+}
+#pragma pop
 
 #pragma push
 #pragma scheduling off

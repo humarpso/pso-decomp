@@ -20,9 +20,7 @@ typedef char RecoveredGlobal_80356B18___vt__15TBoss6SwordWave_size[sizeof(Recove
 extern "C" {
 u8 *__nw__7TObjectFUl(M2C_UNK);
 u8 *TBoss6SwordWave__sub_80356C10(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
-void TBoss6SwordWave__sub_80356CDC(M2C_UNK, u8, void *, void *);
 u8 TBoss6SwordWave__sub_80356C80(s32 arg0, u8 arg1);
-void TBoss6SwordWave__sub_80356CDC(M2C_UNK, u8, void *, void *);
 void TBoss6SwordWave__sub_80356DDC(s32 arg0, u8 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 *dispatch_shared_handler_a__6TLobbyFPv(s32);
@@ -41,6 +39,7 @@ M2C_UNK TBoss6SwordWave__sub_803567D0(void *);
 extern const f32 lbl_805E0010;
 extern const f32 lbl_805E0014;
 void run_task__15TBoss6SwordWaveFv(u8 *arg0);
+void TBoss6SwordWave__sub_80356CDC(s32 arg0, u8 v, void *a, void *b);
 }
 
 extern "C" {
@@ -119,8 +118,14 @@ u8 TBoss6SwordWave__sub_80356C80(s32 arg0, u8 arg1) {
     typedef char sp8_offset[(offsetof(Stack_80356C80, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80356C80, spC) == 0x4) ? 1 : -1];
     Stack_80356C80 stack;
-    TBoss6SwordWave__sub_80356CDC(arg0, arg1, &stack.spC, &stack.sp8);
+    TBoss6SwordWave__sub_80356CDC((s32)(arg0), arg1, (void *)(&stack.spC), (void *)(&stack.sp8));
     return (u8) (((1 << stack.sp8) & M2C_FIELD(arg0, M2C_UNK *, (stack.spC * 4))) != 0);
+}
+
+void TBoss6SwordWave__sub_80356CDC(s32 arg0, u8 v, void *a, void *b) {
+    s32 x = v;
+    *(s32 *)a = x / 32;
+    *(s32 *)b = x % 32;
 }
 
 u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2) {
@@ -131,7 +136,7 @@ void TBoss6SwordWave__sub_80356DDC(s32 arg0, u8 arg1) {
   s32 sp8;
   s32 temp_r5;
   s8 *new_var;
-  TBoss6SwordWave__sub_80356CDC(arg0, arg1, &spC, &sp8);
+  TBoss6SwordWave__sub_80356CDC((s32)(arg0), arg1, (void *)(&spC), (void *)(&sp8));
   temp_r5 = spC * 4;
   new_var = ((s8 *) arg0) + temp_r5;
   *((M2C_UNK *) (((s8 *) arg0) + temp_r5)) = (*((M2C_UNK *) new_var)) | (1 << sp8);

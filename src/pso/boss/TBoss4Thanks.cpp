@@ -9,13 +9,14 @@ typedef char RecoveredGlobal_8035C83C___vt__12TBoss4Thanks_size[sizeof(Recovered
 
 struct RecoveredGlobal_8035C7D4___vt__12TBoss4Thanks { M2C_UNK value; u8 remaining[0x14]; };
 
+struct O_8035C480 { u8 pad[0x44]; s32 arr[4]; };
+
 extern "C" {
 s32 TObjFish__sub_8001ED9C(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 TObjFish__sub_8001EDC4(void *, s32);
 int get_instance_count__9TBoss4UroFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
-void TBoss4Thanks__sub_8035C480(s32);
 extern RecoveredGlobal_8035C83C___vt__12TBoss4Thanks __vt__12TBoss4Thanks;
 extern s32 lbl_805D4438;
 extern const f32 lbl_805E0184;
@@ -27,6 +28,7 @@ int dispatch_main_phase_153__12TBoss4ThanksFv(void);
 void TBoss4Thanks__sub_8035C424(s32);
 extern RecoveredGlobal_8035C83C___vt__12TBoss4Thanks __vt__12TBoss4Thanks;
 u8 *__dt__12TBoss4ThanksFv(u8 *arg0, s16 arg1);
+void TBoss4Thanks__sub_8035C480(s32 arg0);
 }
 
 extern "C" {
@@ -58,6 +60,14 @@ extern M2C_UNK lbl_80479B88;
 extern const f32 lbl_805E0188;
 extern const f32 lbl_805E018C;
 extern const f32 lbl_805E0190;
+
+void TBoss4Thanks__sub_8035C480(s32 arg0) {
+    O_8035C480 *self = (O_8035C480 *)arg0;
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        self->arr[i] = 0;
+    }
+}
 
 void update_fade_out__12TBoss4ThanksFPv(void *arg0) {
     s32 temp_r3;
@@ -110,7 +120,7 @@ u8 *TBoss4Thanks__ct(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0x38) = TObjFish__sub_8001EDB0(temp_r3, 1);
     M2C_FIELD(arg0, s32 *, 0x3C) = TObjFish__sub_8001ED9C(temp_r3, 0x46);
     M2C_FIELD(arg0, s32 *, 0x40) = TObjFish__sub_8001ED9C(temp_r3, 0x47);
-    TBoss4Thanks__sub_8035C480((s32) arg0);
+    TBoss4Thanks__sub_8035C480((s32)((s32) arg0));
     M2C_FIELD(arg0, s32 *, 0x1C) = 0;
     M2C_FIELD(arg0, s32 *, 0x24) = 0;
     M2C_FIELD(arg0, s32 *, 0x20) = 0;

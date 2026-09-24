@@ -39,6 +39,8 @@ s32 fn_80324E10(void *);
 void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0);
 extern const f32 lbl_805DFED4;
 void run_task__26TBoss5GryphonLightningWingFv(u8 *arg0);
+extern s32 lbl_805D55A0;
+s32 TLobby__sub_80351DFC(void);
 }
 
 extern "C" {
@@ -48,7 +50,6 @@ void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0);
 u8 is_lobby_event_active(void);
 void render__26TBoss5GryphonLightningWingFv(void);
 M2C_UNK TBoss8Dragon__sub_80063FB8(s32, M2C_UNK *, f32);
-s32 TLobby__sub_80351DFC();
 s32 get_instance_count__12TBoss8DragonFv();
 M2C_UNK get_wing_position__26TBoss5GryphonLightningWingFii(s32, M2C_UNK *);
 
@@ -127,6 +128,14 @@ void fn_80351DA8(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4) {
 }
 
 void TLobby__sub_80351DF8(void) {  }
+
+s32 TLobby__sub_80351DFC(void) {
+    switch (lbl_805D55A0) {
+    case 1: case 3: case 4: case 5: case 7: case 8: case 9: case 10: case 11: case 12: case 13:
+        return lbl_805D55A0;
+    }
+    return 0;
+}
 
 u8 is_lobby_event_active(void) {
     return (u8) (TLobby__sub_80351DFC() != 0);

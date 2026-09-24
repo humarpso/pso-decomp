@@ -19,6 +19,10 @@ void TObjPlayer__sub_803E1D1C(s32 arg0);
 extern const f32 lbl_805E1038;
 extern const f32 lbl_805E103C;
 f32 TObjPlayer__sub_803E1A58(Vec_803E1A58 *a, Vec_803E1A58 *b);
+extern s32 lbl_805D7774;
+extern s32 lbl_804FC7A8[];
+void GXLoadTexMtxImm(void *mtx, u32 id, s32 type);
+void TObjPlayer__sub_803E1D54(s32 i);
 }
 
 extern "C" {
@@ -161,6 +165,13 @@ extern s8 lbl_805D77C8;
 typedef char RecoveredGlobal_803E1D1C_lbl_804FC780_size[sizeof(RecoveredGlobal_803E1D1C_lbl_804FC780) == 0x28 ? 1 : -1];
 void TObjPlayer__sub_803E1D1C(s32 arg0) {
     GXLoadPosMtxImm((void *) (lbl_805D7774), (int) (M2C_FIELD(((u8 *)(&lbl_804FC780.value) + (arg0 * 4)), s32 *, 0)));
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+void TObjPlayer__sub_803E1D54(s32 i) {
+    GXLoadTexMtxImm((void *)lbl_805D7774, lbl_804FC7A8[i], 0);
 }
 #pragma pop
 

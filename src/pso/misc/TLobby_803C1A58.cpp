@@ -56,6 +56,7 @@ s32 DVDLowRead(void *);
 void TLobby__sub_803C6064(u8 *arg0);
 s32 TLobby__sub_803CF1A8(int);
 s32 TLobby__sub_803C85AC(u8 *arg0, s32 *arg1);
+s32 TLobby__sub_803C9284(u16 *p, s32 size, s32 *out);
 }
 
 extern "C" {
@@ -340,6 +341,16 @@ s32 TLobby__sub_803C90B0(void) {
 
 void on_set_mode__6TLobbyFv(void) {
     set_global_805D7520__6TLobbyFi();
+}
+s32 TLobby__sub_803C9284(u16 *p, s32 size, s32 *out) {
+    if (size < 2) {
+        return 0;
+    }
+    if (*p != 0x8001) {
+        return 0;
+    }
+    *out = size;
+    return 1;
 }
 
 }

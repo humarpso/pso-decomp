@@ -21,6 +21,9 @@ M2C_UNK memset(void *, int, int);
 void TLobby__sub_803CB71C(void);
 extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80571480;
 void TLobby__sub_803C406C(void);
+int memcmp(const void *a, const void *b, unsigned long n);
+extern const char lbl_805E0CE0[4];
+s32 TLobby__sub_803C40A0(void *p);
 }
 
 extern "C" {
@@ -208,6 +211,12 @@ typedef char RecoveredGlobal_803C0AD8_lbl_80570AC0_size[sizeof(RecoveredGlobal_8
 void TLobby__sub_803C406C(void) {
     TLobby__sub_803CB71C();
     memset((void *) (&lbl_80571480.value), (int) (0), (int) (0xb80));
+}
+s32 TLobby__sub_803C40A0(void *p) {
+    if (memcmp(p, lbl_805E0CE0, 4) == 0) {
+        return 1;
+    }
+    return 0;
 }
 
 }

@@ -33,6 +33,8 @@ s32 get_map_id__13TRaderMapCoreFPv();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
 extern u8 lbl_8050E208[];
 void TChallenge4PResult__sub_8034BA68(TChallenge4PResult *arg0);
+extern M2C_UNK TChallenge4PResult__data_805436A8[];
+void TChallenge4PResult__sub_8034B66C(void);
 }
 
 extern "C" {
@@ -91,6 +93,13 @@ void create__18TChallenge4PResultFii(int arg0, s32 arg1) {
         if (temp != NULL) {
             TChallenge4PResult__ct(temp, tl_01, arg0, arg1);
         }
+    }
+}
+
+void TChallenge4PResult__sub_8034B66C(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        ((s32 *)&TChallenge4PResult__data_805436A8)[i] = 0;
     }
 }
 

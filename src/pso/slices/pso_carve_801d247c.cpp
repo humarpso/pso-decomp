@@ -13,6 +13,13 @@ struct M2CCopy_C { u8 bytes[0xc]; };
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Vec_801D24F4 { u8 bytes[0xC]; };
+
+struct Pkt_801D24F4 { u8 hdr[4]; Vec_801D24F4 pos; };
+
 extern "C" {
 s32 TObjPlayer__sub_8012125C(s32);
 u8 TObjPlayer__sub_801D247C(s32 arg0);
@@ -28,6 +35,8 @@ void * TObjPlayer__sub_801D24B0(void *arg0, void *arg1);
 u8 *TObjPlayer__sub_801D2540(u8 *arg0, u8 *arg1);
 int TFontSmallLobby__sub_801C0228(void*);
 u8 *TObjPlayer__sub_801D25AC(u8 *arg0, u8 *arg1);
+int TFontSmallLobby__sub_801C0228(void*);
+void *TObjPlayer__sub_801D24F4(void *arg0, void *arg1);
 }
 
 extern "C" {
@@ -64,7 +73,11 @@ void *TObjPlayer__sub_801D24B0(void *arg0, void *arg1) {
     return arg0;
 }
 
-int TObjPlayer__sub_801D24F4(void) { return 0; }
+void *TObjPlayer__sub_801D24F4(void *arg0, void *arg1) {
+    TFontSmallLobby__sub_801C0228(arg0);
+    ((Pkt_801D24F4 *)arg0)->pos = ((Pkt_801D24F4 *)arg1)->pos;
+    return arg0;
+}
 
 u8 *TObjPlayer__sub_801D2540(u8 *arg0, u8 *arg1) {
     TFontSmallLobby__sub_801C0228((void*)((void*)(arg0)));

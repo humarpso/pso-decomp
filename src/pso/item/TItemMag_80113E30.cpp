@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Obj_80113EDC { u8 pad[0x44]; u8 arr[1]; };
 
+struct MagData_80113F64 { u8 pad[0xC]; u8 flags; u8 blasts; };
+
 extern "C" {
 void TItemMag__sub_80113E48(u8 *arg0, u8 *arg1);
 u8 TItemMag__sub_80113EC8(u8 *arg0);
@@ -22,6 +24,10 @@ s16 TItemMagSub__sub_8011455C(void *);
 s16 TItemData__sub_801146F8(void *);
 void TItemMag__sub_801142E0(u8 *arg0, s16 arg1);
 void TItemMag__sub_80113EDC(Obj_80113EDC *self, s16 i, u8 v);
+extern const u8 lbl_805DABC4[3];
+extern const u8 lbl_805DABC0[2];
+s32 is_pb_registered__8TItemMagFiUc(s32 arg0, u8 arg1);
+void TItemMag__sub_80113F64(MagData_80113F64 *data, u8 blast);
 }
 
 extern "C" {
@@ -101,6 +107,35 @@ int check_state_flag_1__8TItemMagFPv(void* p) { return TObjPlayer__sub_8001BEF8(
 void clear_feed_flags__8TItemMagFPvUi(void* p, u32 v) { *(u32*)((char*)p + 0x4) &= ~v; }
 void set_flags__8TItemMagFPvUi(void* p, u32 v) { *(u32*)((char*)p + 0x4) |= v; }
 int test_flags__8TItemMagFPvUi(void* p, u32 m) { return *(u32*)((char*)p + 0x4) & m; }
+
+void TItemMag__sub_80113F64(MagData_80113F64 *data, u8 blast) {
+    u8 ord;
+    if (blast >= 6) {
+        return;
+    }
+    if (is_pb_registered__8TItemMagFiUc((s32)data, blast) != 0) {
+        return;
+    }
+    if (!(data->flags & lbl_805DABC4[0])) {
+        data->blasts |= blast;
+        data->flags |= lbl_805DABC4[0];
+    } else if (!(data->flags & 2)) {
+        data->blasts |= blast << 3;
+        data->flags |= lbl_805DABC4[1];
+    } else if (!(data->flags & 4)) {
+        ord = blast;
+        if ((data->blasts & lbl_805DABC0[0]) < blast) {
+            ord--;
+        }
+        if (((data->blasts & lbl_805DABC0[1]) >> 3) < blast) {
+            ord--;
+        }
+        if (ord < 4) {
+            data->blasts |= ord << 6;
+        }
+        data->flags |= lbl_805DABC4[2];
+    }
+}
 
 void add_clamped_stat__8TItemMagFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s16 *, 2) = (s16) (M2C_FIELD(arg0, s16 *, 2) + arg1);

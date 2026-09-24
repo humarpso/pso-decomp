@@ -18,6 +18,9 @@ void TObjBoss2Tunnel__sub_803D929C(void *, s32);
 void TObjContainerIdo__sub_803D96A8(void *, s32);
 void TObjPlayer__sub_803D9214(void *, s32);
 void TBoss7Tentacle__sub_803D8A6C(void *m, s32 x, s32 y, s32 z);
+extern s32 lbl_805D7774;
+void PSMTXCopy(void *src, void *dst);
+void TObjPlayer__sub_803D898C(void *m);
 }
 
 extern "C" {
@@ -47,6 +50,18 @@ void TObjPlayer__sub_803D8960(u32 arg0, s32 arg1) {
         var_r3 = (u32) lbl_805D7774;
     }
     PSMTXMultVecArray((s32) var_r3, arg1);
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+#pragma peephole off
+void TObjPlayer__sub_803D898C(void *m) {
+    void *src = (*(void * *)&lbl_805D7774);
+    if (m == 0) {
+        m = src;
+    }
+    PSMTXCopy(src, m);
 }
 #pragma pop
 

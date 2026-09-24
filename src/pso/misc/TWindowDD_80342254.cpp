@@ -7,6 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_80342384_TWindowDD__data_804EFC50 { M2C_UNK value; u8 remaining[0x3C]; };
 typedef char RecoveredGlobal_80342384_TWindowDD__data_804EFC50_size[sizeof(RecoveredGlobal_80342384_TWindowDD__data_804EFC50) == 0x40 ? 1 : -1];
 
+struct O_80342268 { u8 pad[0x60]; s32 f; };
+
+struct O_80342254 { u8 pad[0x60]; s32 f; };
+
 extern "C" {
 s16 TWindowDD__sub_80342158(int);
 M2C_UNK TWindowDD__sub_8034330C(void *);
@@ -23,12 +27,12 @@ s32 __nw__7TObjectFUl(int);
 s32 TWindowDD__sub_803422F0(int, void *, void *);
 extern RecoveredGlobal_80342384_TWindowDD__data_804EFC50 TWindowDD__data_804EFC50;
 s32 TWindowDD__sub_80342384(s32 arg0, s32 arg1);
+u8 TWindowDD__sub_80342268(O_80342268 *self);
+u8 TWindowDD__sub_80342254(O_80342254 *self);
 }
 
 extern "C" {
 
-int TWindowDD__sub_80342254(void);
-int TWindowDD__sub_80342268(void);
 void *destroy__9TWindowDDFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
@@ -36,10 +40,15 @@ void free__11TOBoss4RockFUi(void *);
 s32 get_field_68__9TWindowDDFPv(void* p);
 int spawn_window__9TWindowDDFv(void);
 
-int TWindowDD__sub_80342254(void) { return 0; }
-int TWindowDD__sub_80342268(void) { return 0; }
-
 extern M2C_UNK lbl_804EFC90[];
+
+u8 TWindowDD__sub_80342254(O_80342254 *self) {
+    return !(self->f & 1);
+}
+
+u8 TWindowDD__sub_80342268(O_80342268 *self) {
+    return !(self->f & 1);
+}
 
 void *destroy__9TWindowDDFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

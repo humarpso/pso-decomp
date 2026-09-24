@@ -103,6 +103,16 @@ struct RecoveredGlobal_8000F91C_lbl_804FE120 {
     u8 remaining[0x14];
 };
 
+struct Args_801F1A0C { u32 idx; char *text; u8 pad8[0x18]; };
+
+struct Base_801F1A0C { u8 pad[0x18]; };
+
+struct List_801F1A0C : Base_801F1A0C {
+    virtual ~List_801F1A0C();
+    char names[0x84][0x20];
+    s32 count;
+};
+
 extern "C" {
 s32 TLobby__sub_8020C1F0(int, int, void *);
 void qst_op_if_zone_clear(s32 arg0, s32 arg1);
@@ -244,6 +254,29 @@ M2C_UNK TLobby__sub_8022727C(int);
 extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
 extern s32 lbl_804C69D0[];
 void qst_op_bgm(void);
+extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
+extern s32 TLobby__data_805D5E84;
+extern int* TLobby__data_805D5E78;
+extern u8 TLobby__data_805D5E88;
+extern int TLobby__data_805D5E98;
+extern s32 lbl_805D53A0;
+extern const f32 lbl_805DC4D8;
+void *__nw__7TObjectFUl(u32 size);
+void *construct__6TLobbyFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
+char *strncpy(char *dst, const char *src, u32 n);
+void TLobby__sub_80228B54(char *s);
+void TLobby__sub_802288B8(void *self, char *s);
+s32 TWindowSubComCard__sub_8026CBB8(s32 id);
+s32 check_room_seq_4__16TAdChrSelASlotGCFii(s32 a, s32 b);
+void forward_trade_action_default__16TObjCityMainWarpFPviii(s32 win, char *name, s32 kind, s32 i);
+void TWindowSubComCard__sub_80265F60(s32 win);
+void TWindowSubComCard__sub_80265C30(s32 win);
+void set_ready_flag__18TCheckRoomSequenceFPv(s32 win);
+void set_field_1c__6TLobbyFPvf(s32 win, f32 v);
+s32 close_window_if_active(void *);
+s32 request_active_window_close();
+s32 set_close_flag__11TWindowCtrlFv();
+void qst_op_list(void);
 }
 
 extern "C" {
@@ -505,6 +538,39 @@ void qst_op_fadeout(void) { init_fadeout_state__6TLobbyFi((void*)0); TLobby__dat
 void qst_op_fadein(void) { set_fade_params__6TLobbyFi((void*)0); TLobby__data_805D5E98 = 8; }
 
     extern int* TLobby__data_805D5E78;
+
+void qst_op_list(void) {
+    char *text;
+    List_801F1A0C *list;
+    u8 idx;
+    s32 i;
+    char buf[0x200];
+    idx = (*(Args_801F1A0C *)&TLobby__data_80512220).idx;
+    text = (*(Args_801F1A0C *)&TLobby__data_80512220).text;
+    list = (List_801F1A0C *)__nw__7TObjectFUl(0x10A8);
+    if (list != 0) {
+        list = (List_801F1A0C *)construct__6TLobbyFPvPvPvPv(list, 0, 0, 0);
+    }
+    strncpy(buf, text, 0x1FF);
+    TLobby__sub_80228B54(buf);
+    TLobby__sub_802288B8(list, buf);
+    TLobby__data_805D5E84 = check_room_seq_4__16TAdChrSelASlotGCFii(TWindowSubComCard__sub_8026CBB8(0x37), list->count);
+    for (i = 0; i < list->count; i++) {
+        forward_trade_action_default__16TObjCityMainWarpFPviii(TLobby__data_805D5E84, list->names[i], 7, i);
+    }
+    TWindowSubComCard__sub_80265F60(TLobby__data_805D5E84);
+    TWindowSubComCard__sub_80265C30(TLobby__data_805D5E84);
+    set_ready_flag__18TCheckRoomSequenceFPv(TLobby__data_805D5E84);
+    set_field_1c__6TLobbyFPvf(TLobby__data_805D5E84, lbl_805DC4D8);
+    (*(int * *)&TLobby__data_805D5E78)[idx] = 0;
+    TLobby__data_805D5E88 = idx;
+    TLobby__data_805D5E98 = 7;
+    close_window_if_active((void *)lbl_805D53A0);
+    request_active_window_close();
+    set_close_flag__11TWindowCtrlFv();
+    delete list;
+}
+
 void set_slot__6TLobbyFi(int a0) { TLobby__data_805D5E78[(unsigned char)(a0)] = TLobby__sub_801F2BCC(); }
 
     extern int* TLobby__data_805D5E74;

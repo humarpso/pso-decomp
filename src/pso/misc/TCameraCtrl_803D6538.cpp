@@ -47,6 +47,8 @@ struct RecoveredGlobal_803D78A8_lbl_8058CAB8 {
     u8 remaining[0x7C];
 };
 
+struct St_803D7784 { s32 a0, a4, a8, ac, b0, b4, b8, x1c; };
+
 extern "C" {
 void TObjPlayer__sub_803D7A54(void *, s32, s32, void *, void *, void *, f32);
 void TObjPlayer__sub_803D6DDC(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
@@ -76,6 +78,12 @@ void TObjPlayer__sub_803D7B68(s32 arg0, f32 farg0);
 extern RecoveredGlobal_803D78A8_lbl_8058CAB8 lbl_8058CAB8;
 extern u8 *lbl_805D76BC;
 void TBoss8Dragon__sub_803D78A8(s32 arg0);
+s32 TObjPlayer__sub_803D9624(s32, f32, f32, f32);
+s32 TCameraCtrl__sub_803D65C8(f32 x, f32 y, f32 z);
+extern u8 *lbl_805D76BC;
+void TObjPlayer__sub_803D7784(void);
+u32 TObjPlayer__sub_803D78C0(u8 *base, u32 stride, u32 hi, u32 key);
+u32 TObjPlayer__sub_803D7900(u8 *base, u32 stride, u32 hi, u32 key);
 }
 
 extern "C" {
@@ -83,12 +91,18 @@ extern "C" {
 void TCameraCtrl__sub_803D65F8(void);
 s32 TObjPlayer__sub_803D7FD0(void);
 s32 TObjPlayer__sub_803D7FD8(void);
-void update_camera_state__11TCameraCtrlFv(void);
-M2C_UNK TCameraCtrl__sub_803D65C8();
+void update_camera_state__11TCameraCtrlFv(f32 _w0, f32 _w1, f32 _w2);
 
-void update_camera_state__11TCameraCtrlFv(void) {
-    TCameraCtrl__sub_803D65C8();
+void update_camera_state__11TCameraCtrlFv(f32 _w0, f32 _w1, f32 _w2) {
+    TCameraCtrl__sub_803D65C8(_w0, _w1, _w2);
 }
+
+#pragma push
+#pragma scheduling off
+s32 TCameraCtrl__sub_803D65C8(f32 x, f32 y, f32 z) {
+    return TObjPlayer__sub_803D9624(0, -x, -y, -z);
+}
+#pragma pop
 
 void TCameraCtrl__sub_803D65F8(void) {
 
@@ -184,6 +198,19 @@ typedef char RecoveredGlobal_803D77C0_lbl_8047E3C8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_803D77C0_lbl_804FA500_size[sizeof(RecoveredGlobal_803D77C0_lbl_804FA500) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_803D77C0_lbl_804FA50C_size[sizeof(RecoveredGlobal_803D77C0_lbl_804FA50C) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_803D77C0_lbl_804FA51C_size[sizeof(RecoveredGlobal_803D77C0_lbl_804FA51C) == 0x24 ? 1 : -1];
+
+#pragma push
+#pragma scheduling off
+void TObjPlayer__sub_803D7784(void) {
+    s32 v = ((St_803D7784 *)lbl_805D76BC)->a0;
+    v += ((St_803D7784 *)lbl_805D76BC)->a8;
+    ((St_803D7784 *)lbl_805D76BC)->a0 = v;
+    ((St_803D7784 *)lbl_805D76BC)->ac = v;
+    ((St_803D7784 *)lbl_805D76BC)->b0 = v + ((St_803D7784 *)lbl_805D76BC)->a4;
+    ((St_803D7784 *)lbl_805D76BC)->x1c = 0;
+}
+#pragma pop
+
 void TObjPlayer__sub_803D77C0(M2C_UNK *arg0, f32 farg0) {
     M2C_UNK *var_r3;
     s32 temp_r31;
@@ -217,6 +244,32 @@ void TBoss8Dragon__sub_803D78A8(s32 arg0) {
     lbl_805D76BC = (u8 *)(&lbl_8058CAB8.value) + (arg0 << 6);
 }
 #pragma pop
+
+u32 TObjPlayer__sub_803D78C0(u8 *base, u32 stride, u32 hi, u32 key) {
+    u32 lo = 0;
+    while (hi - lo > 1) {
+        u32 mid = (lo + hi) >> 1;
+        if (key >= *(u32 *)(base + mid * stride)) {
+            lo = mid;
+        } else {
+            hi = mid;
+        }
+    }
+    return lo;
+}
+
+u32 TObjPlayer__sub_803D7900(u8 *base, u32 stride, u32 hi, u32 key) {
+    u32 lo = 0;
+    while (hi - lo > 1) {
+        u32 mid = (lo + hi) >> 1;
+        if (key >= *(u16 *)(base + mid * stride)) {
+            lo = mid;
+        } else {
+            hi = mid;
+        }
+    }
+    return lo;
+}
 
 #pragma push
 #pragma scheduling off

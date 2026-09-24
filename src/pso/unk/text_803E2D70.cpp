@@ -39,7 +39,6 @@ M2C_UNK GXSetZCompLoc(int);
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK set_effect_active__10TObjPlayerFv();
 M2C_UNK TParticleCtrl__sub_803E2010();
-M2C_UNK TObjPlayer__sub_803E3B38(int);
 extern s32 lbl_805D7788;
 extern M2C_UNK (*lbl_805D77DC)();
 void TObjPlayer__sub_803E4468(void);
@@ -52,6 +51,20 @@ void TObjPlayer__sub_803D8008(const ByteColor*,FloatColor*);
 extern FloatColor lbl_8058D4C0;
 extern const ByteColor lbl_805E1090;
 extern s32 some_id_805c6f74,lbl_805D7788;
+extern u32 lbl_805D77F0;
+extern u32 lbl_805D77D4;
+void TObjPlayer__sub_803E38FC(u32 x);
+void GXSetAlphaCompare(int comp0, int ref0, int op, int comp1, int ref1);
+s32 TObjPlayer__sub_803E3B38(int ref);
+extern s32 lbl_805D7800;
+extern s32 lbl_805D77FC;
+extern s32 lbl_805D77F8;
+void TObjPlayer__sub_803E492C(s32 a, s32 b);
+void TObjPlayer__sub_803E4354(void *);
+void TObjPlayer__sub_803E44D4(void *);
+void TObjPlayer__sub_803E2F78(void *, void (*)(void *));
+void TObjPlayer__sub_803E4468(void);
+void TObjFish__sub_803E46BC(void *arg0);
 }
 
 extern "C" {
@@ -100,6 +113,15 @@ void submit_chunk_material_color(u8 type, s16* data) {
         } else GXSetChanMatColor(4,color);
     }
     if ((u32)(lbl_805D7788&2)!=0U) GXSetChanMatColor(4,fallback);
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+#pragma peephole off
+void TObjPlayer__sub_803E38FC(u32 x) {
+    lbl_805D77F0 = x & 0x3F00;
+    lbl_805D77D4 |= 8;
 }
 #pragma pop
 
@@ -157,6 +179,13 @@ void TObjPlayer__sub_803E39EC(void) {
 #pragma pop
 
 #pragma push
+#pragma scheduling off
+s32 TObjPlayer__sub_803E3B38(int ref) {
+    GXSetAlphaCompare(4, ref, 0, 7, 0);
+}
+#pragma pop
+
+#pragma push
 #pragma peephole off
 void TObjPlayer__sub_803E4468(void) {
     if ((u32) (lbl_805D7788 & 2) != 0) {
@@ -166,7 +195,7 @@ void TObjPlayer__sub_803E4468(void) {
     TObjPlayer__sub_803D9B78();
     GXSetZCompLoc((int) (1));
     GXSetZMode((int) (1), (int) (1), (int) (1));
-    TObjPlayer__sub_803E3B38((int) (0));
+    TObjPlayer__sub_803E3B38((int)((int) (0)));
     if (((M2C_UNK (*)()) lbl_805D77DC) != NULL) {
         lbl_805D77DC();
     }
@@ -178,6 +207,24 @@ void TObjPlayer__sub_803E4684(void *arg0) {
     TObjPlayer__sub_803E44D4(arg0);
     TObjPlayer__sub_803E4468();
 }
+
+#pragma push
+#pragma scheduling off
+void TObjFish__sub_803E46BC(void *arg0) {
+    TObjPlayer__sub_803E4354(arg0);
+    TObjPlayer__sub_803E2F78(arg0, TObjPlayer__sub_803E44D4);
+    TObjPlayer__sub_803E4468();
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+void TObjPlayer__sub_803E492C(s32 a, s32 b) {
+    lbl_805D7800 = a;
+    lbl_805D77FC = b;
+    lbl_805D77F8 = 0;
+}
+#pragma pop
 
 void func_803e11e8__FUl(s32 arg0) {
     lbl_805D77F8 = arg0;

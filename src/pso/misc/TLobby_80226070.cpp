@@ -4,11 +4,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Ent_80226294 { u32 flags; u8 pad4[4]; s32 f8; u8 padC[0xC]; s16 f18; u8 pad1a[0xE]; };
+
 extern "C" {
 u8 *get_global_state__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK set_mode__6TLobbyFi(int);
 M2C_UNK OSSetSoundMode(int);
 void TLobby__sub_802263A8(s32 arg0);
+extern Ent_80226294 lbl_805145F0[];
+extern u32 lbl_805DC748;
+extern s32 lbl_805D62B0;
+void TLobby__sub_80227D14(s32 idx);
+void TLobby__sub_80226294(s32 idx);
 }
 
 extern "C" {
@@ -30,6 +37,15 @@ extern s32 lbl_805D62B0;
 void update_technique_slot__10TTecRaFoieFi(s32 arg0) {
     if (((s32) lbl_805D62B0 != 0) && (arg0 >= 0) && (arg0 < 0x28)) {
         TLobby__sub_8023F8F4();
+    }
+}
+
+void TLobby__sub_80226294(s32 idx) {
+    if (lbl_805D62B0 != 0 && idx >= 0 && idx < 0x28) {
+        TLobby__sub_80227D14(idx);
+        lbl_805145F0[idx].flags &= lbl_805DC748;
+        lbl_805145F0[idx].f18 = 0;
+        lbl_805145F0[idx].f8 = 0;
     }
 }
 

@@ -21,6 +21,10 @@ struct Win_80265E60 { u8 pad[0x2c]; u32 flags; u8 pad30[8]; f32 x; f32 y; u8 pad
 
 struct Ent_80265E60 { u8 pad[0x14]; f32 h; };
 
+struct Ent_80265F60 { u8 pad[0x10]; f32 w; f32 h; };
+
+struct Win_80265F60 { u8 pad[0x2C]; u32 flags; u8 pad30[8]; f32 x; f32 y; u8 pad40[0x36]; s16 count; u8 pad78[4]; f32 height; };
+
 extern "C" {
 M2C_UNK TWindowSubComCard__sub_8026D740(int, void *, void *);
 extern const f32 lbl_805DD150;
@@ -46,6 +50,16 @@ extern const f32 lbl_805DD158;
 extern const f32 lbl_805DD16C;
 extern const f64 lbl_8044F330;
 void TWindowSubComCard__sub_80265E60(Win_80265E60 *self, f32 x);
+extern const f32 lbl_805DD150;
+extern const f32 lbl_805DD154;
+extern const f32 lbl_805DD158;
+extern const f32 lbl_805DD15C;
+extern const f32 lbl_805DD16C;
+extern const f64 lbl_8044F330;
+Ent_80265C30 *get_array_entry__20TWindowSubStatusDispFPvi(void *w, s32 i);
+void *get_field_20__17TWindowSubComCardFPv(void *e);
+M2C_UNK save_position__17TWindowSubComCardFPv(void *);
+void TWindowSubComCard__sub_80265F60(Win_80265F60 *self);
 }
 
 extern "C" {
@@ -134,6 +148,32 @@ void TWindowSubComCard__sub_80265E60(Win_80265E60 *self, f32 x) {
     self->x = x;
     self->y = lbl_805DD154 + sum;
     self->height = sum;
+    save_position__17TWindowSubComCardFPv(self);
+}
+
+struct Ent_80265C30;
+void TWindowSubComCard__sub_80265F60(Win_80265F60 *self) {
+    f32 width = lbl_805DD150;
+    f32 sum = width;
+    u32 i;
+    for (i = 0; i < self->count; i++) {
+        Ent_80265F60 *e = (Ent_80265F60 *)get_array_entry__20TWindowSubStatusDispFPvi(self, i);
+        if (get_field_20__17TWindowSubComCardFPv(e) != 0) {
+            if (e->w > width) {
+                width = e->w;
+            }
+            if (!(e->h <= lbl_8044F330)) {
+                sum += lbl_805DD16C + e->h;
+            }
+        }
+    }
+    sum -= lbl_805DD16C;
+    self->height = sum;
+    if (self->flags & 0x40) {
+        sum += lbl_805DD158;
+    }
+    self->x = lbl_805DD15C + width;
+    self->y = lbl_805DD154 + sum;
     save_position__17TWindowSubComCardFPv(self);
 }
 

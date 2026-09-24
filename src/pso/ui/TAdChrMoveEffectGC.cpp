@@ -4,6 +4,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct E_803490AC { u32 flags; u8 pad[0x34]; };
+
+struct O_803490AC { u8 pad[0x20]; s32 n; u8 pad2[0x30]; E_803490AC e[16]; };
+
+extern "C" {
+void TAdChrMoveEffectGC__sub_803490AC(O_803490AC *self);
+}
+
 extern "C" {
 
 void *TAdChrMoveEffectGC__ct(void *arg0);
@@ -20,6 +28,14 @@ void render__18TAdChrMoveEffectGCFv(void* p) { if (get_state_flag__9TMainTaskFv(
 
 extern M2C_UNK __vt__18TAdChrMoveEffectGC[];
 extern u32 lbl_805D6E78;
+
+void TAdChrMoveEffectGC__sub_803490AC(O_803490AC *self) {
+    s32 i;
+    self->n = 0;
+    for (i = 0; i < 16; i++) {
+        self->e[i].flags &= ~1;
+    }
+}
 
 void *__dt__18TAdChrMoveEffectGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

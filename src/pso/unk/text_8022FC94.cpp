@@ -32,6 +32,24 @@ struct RecoveredFields_8022FE84_arg0
   s16 field_F0;
 };
 
+struct Dmg_80230004 { s32 kind; f32 amount; };
+
+struct Base_80230004 { u8 pad[0x18]; };
+
+struct Target_80230004 : Base_80230004 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20();
+    virtual void receive(s32 owner, Dmg_80230004 d, s32 x, s32 y, s32 z);
+    u8 pad1c[0x38 - 0x1C];
+    f32 pos[3];
+};
+
+struct Tec_80230004 { u8 pad[0x1C]; s32 owner; u8 pad20[0xCC - 0x20]; f32 power; u8 padd0[0xF8 - 0xD0]; s32 f8; };
+
 extern "C" {
 s32 TTecCtrl__sub_8022DBC4(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
@@ -40,6 +58,9 @@ s32 TTecCtrl__sub_8022EF78(int);
 extern RecoveredGlobal_8022FE84_lbl_804CC510 lbl_804CC510;
 extern RecoveredGlobal_8022FE84_lbl_804CC55C lbl_804CC55C;
 void TTecFoie__sub_8022FE84(u8 *arg0);
+s32 TBoss3Volopt__sub_8022675C(s32 id, void *pos, s32 a, s32 b);
+void queue_destruction__7TObjectFv(void *self);
+void TTecFoie__vt6(Tec_80230004 *self, Target_80230004 *target);
 }
 
 extern "C" {
@@ -80,6 +101,15 @@ void TTecFoie__sub_8022FE84(u8 *arg0) {
 void TTecFoie__vt4(s32 arg0) {
     TObjEneDellBiter__sub_80087350(arg0 + 0x20, 0x1DC);
     TObjEneDellBiter__sub_80087350(arg0 + 0x20, 0x1DD);
+}
+
+void TTecFoie__vt6(Tec_80230004 *self, Target_80230004 *target) {
+    Dmg_80230004 d;
+    d.kind = 1;
+    d.amount = self->power;
+    target->receive(self->owner, d, self->f8, 0, -1);
+    TBoss3Volopt__sub_8022675C(0x4002A828, target->pos, 0, 0);
+    queue_destruction__7TObjectFv(self);
 }
 
 void create_ex__8TTecFoieFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {

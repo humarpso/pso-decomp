@@ -45,7 +45,9 @@ force_active:
   - TLobby__sub_800F80D8
   - TLobby__sub_801F3990
   - TLobby__sub_801F39C4
+  - TLobby__sub_8034C1D0
   - TLobby__sub_803CBE40
+  - TLobby__sub_803D0F1C
   - TLockOnCursor__sub_8013ED68
   - TMainCursor__sub_8013E1C0
   - TMainCursor__sub_8013E290
@@ -274,6 +276,7 @@ force_active:
   - run_task__9TEffGuardFv
   - run_task__9TSaveChCrFv
   - set_code_43_6__10TObjPlayerFPv
+  - set_index__9TLanguageFPvi
   - set_page__17TWindowSubComCardFPvs
   - setup_state_helper__10TObjPlayerFPv
   - show_sub_status_window

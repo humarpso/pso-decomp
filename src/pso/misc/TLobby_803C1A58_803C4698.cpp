@@ -14,6 +14,8 @@ struct RecoveredGlobal_803C588C_lbl_80572020 {
     u8 remaining[0xFC];
 };
 
+struct Hdr_803C46A4 { u16 type; s16 len; };
+
 extern "C" {
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
@@ -25,6 +27,14 @@ extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
 extern s32 lbl_805D7528;
 extern s32 lbl_805D752C;
 void TLobby__sub_803C588C(void);
+extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
+extern s32 lbl_805D7528;
+extern s32 lbl_805D752C;
+char *strncpy(char *dst, const char *src, u32 n);
+void TQuestVmDownLoadServer__sub_8039DC24(char *buf, s32 arg, s32 n);
+void TLobby__sub_803D38B4(const char *fmt, ...);
+void TLobby__sub_803C5744(const char *msg, s32 arg);
+s32 TLobby__sub_803C46A4(Hdr_803C46A4 *p, s32 size, s16 *out);
 }
 
 extern "C" {
@@ -62,6 +72,17 @@ void TLobby__sub_803C4698(void) {
 
 extern s32 lbl_805D7520;
 
+s32 TLobby__sub_803C46A4(Hdr_803C46A4 *p, s32 size, s16 *out) {
+    if (size < 0x10) {
+        return -1;
+    }
+    if (p->type != 0x8001) {
+        return -2;
+    }
+    *out = p->len + 4;
+    return 0;
+}
+
 void set_global_805D7520__6TLobbyFi(s32 arg0) {
     lbl_805D7520 = arg0;
 }
@@ -78,6 +99,16 @@ void dispatch_receive_update__6TLobbyFv(void) {
 
 extern s32 lbl_805D7528;
 extern s32 lbl_805D752C;
+
+typedef void (*Callback_803C5744)(s32 ctx, char *msg);
+void TLobby__sub_803C5744(const char *msg, s32 arg) {
+    strncpy(((char *)&lbl_80572020), msg, 0xFF);
+    TQuestVmDownLoadServer__sub_8039DC24(((char *)&lbl_80572020), arg, 0xFF);
+    if ((*(Callback_803C5744 *)&lbl_805D7528) != 0) {
+        (*(Callback_803C5744 *)&lbl_805D7528)(lbl_805D752C, ((char *)&lbl_80572020));
+    }
+    TLobby__sub_803D38B4(((char *)&lbl_80572020));
+}
 
 void set_params__6TLobbyFii(s32 arg0, s32 arg1) {
     lbl_805D7528 = arg0;

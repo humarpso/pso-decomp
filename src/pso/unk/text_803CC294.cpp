@@ -18,6 +18,8 @@ struct RecoveredGlobal_803CCB5C_lbl_8047CA28 {
     u8 remaining[0x150];
 };
 
+struct Obj_803CC4C0 { u8 a; s8 b; };
+
 extern "C" {
 M2C_UNK TLobby__sub_803C57C8(void *);
 extern RecoveredGlobal_803CC500_lbl_8047C910 lbl_8047C910;
@@ -29,11 +31,23 @@ M2C_UNK TLobby__sub_803C57C8(void *);
 s32 TLobby__sub_803CCB98();
 extern RecoveredGlobal_803CCB5C_lbl_8047CA28 lbl_8047CA28;
 s32 TLobby__sub_803CCB5C(M2C_UNK arg0, M2C_UNK arg1, s32 arg2);
+M2C_UNK TLobby__sub_803C57C8(void *);
+extern char lbl_8047C88C[];
+s32 TLobby__sub_803CC4C0(Obj_803CC4C0 *p);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_803CC500_lbl_8047C910_size[sizeof(RecoveredGlobal_803CC500_lbl_8047C910) == 0x2C ? 1 : -1];
+
+s32 TLobby__sub_803CC4C0(Obj_803CC4C0 *p) {
+    if (p == 0) {
+        TLobby__sub_803C57C8(lbl_8047C88C);
+        return -3;
+    }
+    return p->b;
+}
+
 s32 TLobby__sub_803CC500(u8 *arg0) {
     if (arg0 == NULL) {
         TLobby__sub_803C57C8((void *) (&lbl_8047C910.value));

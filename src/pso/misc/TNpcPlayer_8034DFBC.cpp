@@ -46,6 +46,8 @@ struct Stack_8034EB08 {
     s16 sp12;
 };
 
+struct E_8034E02C { u8 flag; u8 pad[0x35]; };
+
 extern "C" {
     extern int lbl_805D6EA0;
 void TNpcPlayer__sub_8034E420(void);
@@ -97,6 +99,8 @@ void byteswap_header__10TNpcPlayerFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 void send_state_60__10TNpcPlayerFPv(void* p);
 void build_6x69_npc_control(void* p);
+extern E_8034E02C lbl_804F0280[];
+void TNpcPlayer__sub_8034E02C(void);
 }
 
 extern "C" {
@@ -107,6 +111,13 @@ M2C_UNK play_effect_default__10TObjPlayerFii(s32, M2C_UNK);
 M2C_UNK send_code_45_1__10TObjPlayerFi(s32);
 
 s32 obj_isState2_324();
+
+void TNpcPlayer__sub_8034E02C(void) {
+    s32 i;
+    for (i = 0; i < 25; i++) {
+        lbl_804F0280[i].flag = 0;
+    }
+}
 
 void send_code_45_to_player__10TNpcPlayerFi(int arg0) {
     s32 temp_r3;

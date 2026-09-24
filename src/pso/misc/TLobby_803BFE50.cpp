@@ -19,6 +19,8 @@ struct RecoveredGlobal_803BD5C4_lbl_805663D8 {
     u8 remaining[0x6DC];
 };
 
+struct Obj_803C07E8 { u8 a; s8 b; };
+
 extern "C" {
 extern s8 lbl_805D74B8;
 void set_global_flag__6TLobbyFc(s8 arg0);
@@ -100,6 +102,7 @@ void TLobby__sub_803C0B3C(u8 *arg0);
 extern RecoveredGlobal_803BD5C4_lbl_805663D8 lbl_805663D8;
 void TLobby__sub_803BD5C4(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 u8 TLobby__sub_803BC774(u8 arg0);
+s32 TLobby__sub_803C07E8(Obj_803C07E8 *self);
 }
 
 extern "C" {
@@ -187,6 +190,11 @@ void set_param_and_notify__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 8) = arg1;
     TLobby__sub_803C1A24((int) (M2C_FIELD(arg0, s32 *, 4)));
 }
+
+s32 TLobby__sub_803C07E8(Obj_803C07E8 *self) {
+    return self->b;
+}
+
 void TLobby__sub_803C07F4(u8 *arg0) {
     u8 *temp_r3;
     if (arg0 != NULL) {

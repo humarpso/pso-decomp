@@ -15,6 +15,51 @@ struct RecoveredGlobal_800F8A78_lbl_80501178 {
     u8 remaining[0xC];
 };
 
+struct VT_803C9FCC { u8 pad[0x14]; void (*update)(void *self); };
+
+struct Part_803C9FCC { VT_803C9FCC *vt; };
+
+struct Stream_803C9FCC {
+    u8 f0;
+    u8 active;
+    u8 f2;
+    s8 count;
+    void *f4;
+    void *f8;
+    u8 padc[0x10 - 0xC];
+    s32 f10;
+    s32 f14;
+    Part_803C9FCC *parts[9];
+    s16 f3c;
+    s16 f3e;
+    u8 pad40[0x4C - 0x40];
+    s32 f4c;
+    u8 pad50[0x71 - 0x50];
+    u8 f71;
+    u8 pad72[0x8C - 0x72];
+    s32 f8c;
+    s32 f90;
+    u8 pad94[0x9C - 0x94];
+    s32 f9c;
+    s32 fa0;
+    s32 fa4;
+};
+
+struct Stream_803CA824 {
+    u8 f0;
+    u8 state;
+    u8 pad2[0x8 - 0x2];
+    void *handle;
+    u8 padc[0x10 - 0xC];
+    s32 f10;
+    u8 pad14[0x60 - 0x14];
+    s16 f60;
+    u8 pad62[0x98 - 0x62];
+    u8 f98;
+};
+
+struct Obj_803C96E0 { u8 pad[0x42]; s16 vals[1]; };
+
 extern "C" {
 M2C_UNK reset_flag__6TLobbyFPv(int);
 M2C_UNK release_ref__6TLobbyFv();
@@ -46,6 +91,30 @@ M2C_UNK set_scroll_position__6TLobbyFPvi(void *, int);
 void TLobby__sub_803CB194(u8 *arg0);
 extern s32 lbl_805D7590;
 s32 TLobby__sub_803CB844(void);
+extern s32 lbl_805D7540;
+void set_range__6TLobbyFPvii(void *, int, int);
+M2C_UNK set_scroll_position__6TLobbyFPvi(void *, int);
+void TLobby__sub_803C8A14(void *);
+void set_param_and_notify__6TLobbyFPvi(void *, int);
+void TLobby__sub_803C0758(void *);
+void TLobby__sub_803C9FCC(Stream_803C9FCC *self);
+extern char lbl_8047C6F0[];
+void TLobby__sub_803C9CBC(u8 *arg0);
+M2C_UNK init_once__6TLobbyFv();
+M2C_UNK release_ref__6TLobbyFv();
+void *TLobby__sub_803C8BAC(const char *name, s32 arg);
+void TLobby__sub_803C5744(const char *msg, const char *arg);
+void TLobby__sub_803C9FCC(Stream_803C9FCC *self);
+void TLobby__sub_803CA824(Stream_803CA824 *self, const char *name);
+s16 TLobby__sub_803C96E0(Obj_803C96E0 *self, s32 i);
+extern volatile s32 lbl_805D759C;
+extern volatile s32 lbl_805D75C8;
+extern s32 lbl_805D75C4;
+void TLobby__sub_803CBBB0(void);
+extern const char *const volatile lbl_805E0D78;
+void TLobby__sub_803C9608(void);
+void ARAlloc(void);
+void TLobby__sub_803CB81C(void);
 }
 
 extern "C" {
@@ -121,6 +190,10 @@ s16 TLobby__sub_803C96B0(u8 *arg0) {
 void set_field_40_and_notify__6TLobbyFPvs(u8 *arg0, s16 arg1) {
     M2C_FIELD(arg0, s16 *, 0x40) = arg1;
     trigger_sub_task__6TLobbyFv((int) (M2C_FIELD(arg0, s32 *, 0xC)));
+}
+
+s16 TLobby__sub_803C96E0(Obj_803C96E0 *self, s32 i) {
+    return self->vals[i];
 }
 
 s32 TLobby__sub_803C9740(u8 *arg0) {
@@ -229,6 +302,49 @@ void TLobby__sub_803C9DB4(u8 *arg0) {
     M2C_FIELD(arg0, void ***, 0x14) = NULL;
     M2C_FIELD(arg0, s8 *, 1) = 0;
     release_ref__6TLobbyFv();
+}
+
+void TLobby__sub_803C9FCC(Stream_803C9FCC *self) {
+    s32 i;
+    s32 v;
+    Stream_803C9FCC *pp;
+    set_range__6TLobbyFPvii(self->f8, self->f3e << 11, self->f3c << 11);
+    set_scroll_position__6TLobbyFPvi(self->f8, 0x19);
+    TLobby__sub_803C8A14(self->f8);
+    v = self->f10;
+    pp = self;
+    for (i = 0; i < self->count; i++) {
+        pp->parts[0]->vt->update(pp->parts[0]);
+        pp = (Stream_803C9FCC *)((u8 *)pp + 4);
+    }
+    set_param_and_notify__6TLobbyFPvi(self->f4, v);
+    self->f14 = v;
+    TLobby__sub_803C0758(self->f4);
+    self->active = 1;
+    self->f4c = 0;
+    self->f71 = 0;
+    self->f8c = 0x7FFFFFFF;
+    self->f90 = -1;
+    self->f9c = 0;
+    self->fa4 = 0;
+    self->fa0 = lbl_805D7540;
+    self->f2 = 0;
+}
+
+struct Stream_803C9FCC;
+void TLobby__sub_803CA824(Stream_803CA824 *self, const char *name) {
+    TLobby__sub_803C9CBC((u8 *)self);
+    init_once__6TLobbyFv();
+    if ((self->handle = TLobby__sub_803C8BAC(name, self->f10)) == 0) {
+        release_ref__6TLobbyFv();
+        TLobby__sub_803C5744(lbl_8047C6F0, name);
+        self->f60 = -1;
+        self->state = 6;
+    } else {
+        TLobby__sub_803C9FCC((Stream_803C9FCC *)self);
+        self->f98 = 0;
+        release_ref__6TLobbyFv();
+    }
 }
 
 void TLobby__sub_803CB194(u8 *arg0) {
@@ -346,6 +462,12 @@ void TLobby__sub_803CB7F8(M2C_UNK arg0, s32 arg1) {
     TLobby__sub_803C57C8((void *) (arg1));
 }
 
+void TLobby__sub_803CB81C(void) {
+    lbl_805E0D78;
+    TLobby__sub_803C9608();
+    ARAlloc();
+}
+
 s32 TLobby__sub_803CB844(void) {
     return lbl_805D7590 != 0;
 }
@@ -356,6 +478,12 @@ void TLobby__sub_803CBA18(void) {
 
 void TLobby__sub_803CBA38(void) {
     TLobby__sub_803D3344();
+}
+void TLobby__sub_803CBBB0(void) {
+    while (lbl_805D75C8 == 1) {
+        lbl_805D759C++;
+    }
+    lbl_805D75C4 = 1;
 }
 
 }

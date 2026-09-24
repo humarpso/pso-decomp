@@ -28,6 +28,13 @@ struct Ent_801D2AB0 { u8 d[4]; };
 
 struct Obj_801D2AB0 { u8 pad[0x14]; Ent_801D2AB0 arr[1]; };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Pos_801D2964 { u8 bytes[0x8]; };
+
+struct Pkt_801D2964 { u8 hdr[4]; Pos_801D2964 pos; };
+
 extern "C" {
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
@@ -58,6 +65,8 @@ void TObjPlayer__sub_801D2834(u8 *arg0, f32 farg0);
 void TObjPlayer__sub_8012AF80(void *);
 void TObjPlayer__sub_801D2E20(s32 *arg0, void * _w1, f32 _w2, f32 _w3);
 Ent_801D2AB0 *TObjPlayer__sub_801D2AB0(Obj_801D2AB0 *p, s32 i);
+int TFontSmallLobby__sub_801C0228(void*);
+void *TObjPlayer__sub_801D2964(void *arg0, void *arg1);
 }
 
 extern "C" {
@@ -69,7 +78,6 @@ s32 TObjPlayer__sub_801D2870(void* p);
 s32 TObjPlayer__sub_801D2878(void* p);
 void* TObjPlayer__sub_801D28A0(void* p, void* a1);
 void TObjPlayer__sub_801D28DC(void* p);
-int TObjPlayer__sub_801D2964(void);
 int TObjPlayer__sub_801D2A50(void* p);
 void TObjPlayer__sub_801D2A78(void* p, f32 v);
 s32 TObjPlayer__sub_801D2A80(void* p);
@@ -166,7 +174,11 @@ u8 *TObjPlayer__sub_801D2910(u8 *arg0, u8 *arg1) {
     return arg0;
 }
 
-int TObjPlayer__sub_801D2964(void) { return 0; }
+void *TObjPlayer__sub_801D2964(void *arg0, void *arg1) {
+    TFontSmallLobby__sub_801C0228(arg0);
+    ((Pkt_801D2964 *)arg0)->pos = ((Pkt_801D2964 *)arg1)->pos;
+    return arg0;
+}
 
 int clear_photon_blast_state__10TObjPlayerFPv(void* p) { return clear_flags__11TAdRicoRingFPvUi((char*)p + 0x40, 62); }
 int trigger_photon_blast__10TObjPlayerFPv(void* p) { return clear_flags__11TAdRicoRingFPvUi((char*)p + 0x40, 4); }

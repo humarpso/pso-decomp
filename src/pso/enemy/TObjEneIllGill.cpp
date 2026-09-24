@@ -45,6 +45,8 @@ struct RecoveredFields_80367F6C_arg0
   s32 field_390;
 };
 
+struct O_80367DA4 { u8 pad[0x3e0]; s32 arr[4]; };
+
 extern "C" {
 int obj_clearFlags30(void*, int);
 void free_resources__14TObjEneIllGillFPv(void *arg0);
@@ -94,6 +96,7 @@ s32 TObjEneIllGill__vt37(u8 *arg0);
 s32 TObjPlayer__sub_80016FF8(void *);
 int obj_clearFlags30(void*, int);
 s32 TObjEneIllGill__vt34(u8 *arg0);
+void TObjEneIllGill__sub_80367DA4(s32 arg0);
 }
 
 extern "C" {
@@ -316,6 +319,15 @@ extern void *tl_04;
 
 typedef char RecoveredGlobal_80367DC8_lbl_8050BF00_size[sizeof(RecoveredGlobal_80367DC8_lbl_8050BF00) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_80367DC8_lbl_8058D490_size[sizeof(RecoveredGlobal_80367DC8_lbl_8058D490) == 0x30 ? 1 : -1];
+
+void TObjEneIllGill__sub_80367DA4(s32 arg0) {
+    O_80367DA4 *self = (O_80367DA4 *)arg0;
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        self->arr[i] = 0;
+    }
+}
+
 void TObjEneIllGill__sub_80367DC8(u8 *arg0, s32 arg1) {
     M2C_FIELD(&lbl_8050BF00.value, f32 *, 4) = (f32) TObjEneIllGill__data_805E02BC;
     M2C_FIELD(&lbl_8050BF00.value, f32 *, 0) = (f32) TObjEneIllGill__data_805E02BC;

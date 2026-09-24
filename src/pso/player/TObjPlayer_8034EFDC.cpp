@@ -96,6 +96,8 @@ struct RecoveredGlobal_8034F754_lbl_804F0A00 {
     u8 remaining[0xF4];
 };
 
+struct O_8034F590 { u8 pad[0x40]; u32 flags; u8 pad2[0x70 - 0x44]; void *f70; void *f74; };
+
 extern "C" {
 void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1);
 int fn_80308244(void);
@@ -118,6 +120,9 @@ void TObjPlayer__sub_80120D50(void *, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
 extern M2C_UNK lbl_804F0A00[];
 u8 *TObjPlayer__sub_8034F754(u8 *arg0, u8 *arg1, s32 _w2);
+void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1);
+void TObjPlayer__sub_8034F4AC(void);
+void TObjPlayer__sub_8034F590(void *a, O_8034F590 *o);
 }
 
 extern "C" {
@@ -245,6 +250,12 @@ void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1) {
     if (temp_r3 != 0U) {
         TObjPlayer__sub_8034F4FC(temp_r3, arg1);
     }
+}
+
+void TObjPlayer__sub_8034F590(void *a, O_8034F590 *o) {
+    o->f74 = (void *)TObjPlayer__sub_8034F4AC;
+    o->f70 = (void *)TObjPlayer__sub_8034F470;
+    o->flags |= 0x80;
 }
 
 void handle_turn_input__10TObjPlayerFPv(void *arg0) {

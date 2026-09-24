@@ -93,6 +93,10 @@ struct RecoveredGlobal_80359420___vt__14TObjNpcNgcBase {
     u8 remaining[0x174];
 };
 
+struct E_803594B4 { s32 a; s32 b; f32 c; };
+
+struct O_803594B4 { u8 pad[0x1c]; s32 idx; E_803594B4 e[2]; };
+
 extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 TObjFish__sub_8001EDC4(void *, int);
@@ -102,6 +106,7 @@ s32 fn_8014B8A4(void *);
 extern RecoveredGlobal_80359420___vt__14TObjNpcNgcBase __vt__14TObjNpcNgcBase;
 extern s32 lbl_805D43F0;
 u8 *TObjNpcNgcBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
+void fn_803594B4(O_803594B4 *self, s32 v, f32 f);
 }
 
 extern "C" {
@@ -117,6 +122,11 @@ u8 *TObjNpcNgcBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *) (arg3), (int) (0));
     fn_80148274((void *) (arg0));
     return arg0;
+}
+void fn_803594B4(O_803594B4 *self, s32 v, f32 f) {
+    self->e[self->idx].a = 1;
+    self->e[self->idx].b = v;
+    self->e[self->idx].c = f;
 }
 
 }

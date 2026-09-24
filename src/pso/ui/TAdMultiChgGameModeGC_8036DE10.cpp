@@ -87,7 +87,6 @@ s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 void TAdMultiChgGameModeGC__sub_8036E6F0(s32 arg0);
 void TAdMultiChgGameModeGC__sub_8036E750(void);
 int TAdMultiChgGameModeGC__sub_8036E754(void);
-int TAdMultiChgGameModeGC__sub_8036E7DC(void);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 int request_scene_change_vt__21TAdMultiChgGameModeGCFPv(void* p);
 void TAdMultiChgGameModeGC__sub_8036E830(void);
@@ -122,6 +121,11 @@ extern RecoveredGlobal_8036EA24_lbl_804F3908 lbl_804F3908;
 void TAdMultiChgGameModeGC__sub_8036EA24(u8 *arg0);
 extern RecoveredGlobal_8036EA24_lbl_804F3908 lbl_804F3908;
 void TAdMultiChgGameModeGC__sub_8036E858(u8 *arg0, s32 arg1);
+s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
+u32 TAdSinglePlyChrSelectGC__sub_801FF2D4(void);
+void TAdMultiChgGameModeGC__sub_8036E7DC(void *self);
+s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
+void TAdMultiChgGameModeGC__sub_8036DEDC(void *self);
 }
 
 extern "C" {
@@ -165,6 +169,12 @@ void close_windows_on_selection__21TAdMultiChgGameModeGCFPv(void *arg0) {
             M2C_FIELD(arg0, u32 *, 0x34) = 0U;
         }
         TAdMultiChgGameModeGC__sub_8036E858((u8 *)(arg0), (s32)(3));
+    }
+}
+
+void TAdMultiChgGameModeGC__sub_8036DEDC(void *self) {
+    if (handle_mode_selection__21TAdMultiChgGameModeGCFPv(self) != 0) {
+        return;
     }
 }
 
@@ -363,7 +373,16 @@ void TAdMultiChgGameModeGC__sub_8036E6F0(s32 arg0) {
 }
 void TAdMultiChgGameModeGC__sub_8036E750(void) {  }
 int TAdMultiChgGameModeGC__sub_8036E754(void) { return 0; }
-int TAdMultiChgGameModeGC__sub_8036E7DC(void) { return 0; }
+
+void TAdMultiChgGameModeGC__sub_8036E7DC(void *self) {
+    if (handle_mode_selection__21TAdMultiChgGameModeGCFPv(self) != 0) {
+        return;
+    }
+    if (TAdSinglePlyChrSelectGC__sub_801FF2D4() == 0xFFFFFF05) {
+        return;
+    }
+}
+
 int request_scene_change_vt__21TAdMultiChgGameModeGCFPv(void* p) { return request_scene_change__21TAdMultiChgGameModeGCFv(p); }
 void TAdMultiChgGameModeGC__sub_8036E830(void) {  }
 int init_change_mode__21TAdMultiChgGameModeGCFPv(void* p) { return init_change_mode__21TAdMultiChgGameModeGCFv(p); }
