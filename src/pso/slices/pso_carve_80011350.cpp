@@ -5,6 +5,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct O_80011378 { u8 pad[0x2bc]; s16 v; };
+
 extern "C" {
 s32 TObjPlayer__sub_800113A8(u8 *arg0, s16 *arg1);
 s32 TObjPlayer__sub_800113A8(u8 *arg0, s16 *arg1);
@@ -12,6 +14,7 @@ void TObjPlayer__sub_800113E4(u8 *arg0, s16 arg1);
 s32 TItemProShield__sub_8001140C(u8 *arg0, s16 arg1);
 int TObjPlayer__sub_80011350(u8 *arg0);
 s32 TObjectV8047c128_subtract_hp(u8 *arg0, s16 arg1);
+s32 TObjPlayer__sub_80011378(O_80011378 *self, s32 x);
 }
 
 extern "C" {
@@ -35,7 +38,14 @@ int TObjPlayer__sub_80011350(u8 *arg0) {
   return 0xFAU;
 }
 
-int TObjPlayer__sub_80011378(void) { return 0; }
+s32 TObjPlayer__sub_80011378(O_80011378 *self, s32 x) {
+    self->v += x;
+    if (self->v < 0) {
+        self->v = 0;
+        return 0;
+    }
+    return 1;
+}
 
 s32 TObjPlayer__sub_800113A8(u8 *arg0, s16 *arg1) {
     s16 temp_r0;

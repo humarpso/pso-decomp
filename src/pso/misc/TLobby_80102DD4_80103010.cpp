@@ -4,9 +4,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct O_80103044 { u8 f0; u8 f1; u8 pad[2]; u16 f4; u16 f6; s32 f8; };
+
+extern "C" {
+void TLobby__sub_80103044(O_80103044 *self);
+}
+
 extern "C" {
 
-int TLobby__sub_80103044(void);
 void send_pick_up_item__6TLobbyFi(s32 arg0);
 M2C_UNK TLobby__send_and_handle_60(void *);
 s32 TLobby__sub_8010314C();
@@ -31,6 +36,13 @@ void send_pick_up_item__6TLobbyFi(s32 arg0) {
     bswap_pick_up_item_packet__6TLobbyFi();
     TLobby__send_and_handle_60((void *) (arg0));
 }
+void TLobby__sub_80103044(O_80103044 *self) {
+    self->f4 = 0xFFFF;
+    self->f6 = 0;
+    self->f8 = -1;
+    self->f0 = 0x59;
+    self->f1 = 3;
+}
 
 }
 
@@ -46,7 +58,6 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 }
-int TLobby__sub_80103044(void) { return 0; }
 
 }
 

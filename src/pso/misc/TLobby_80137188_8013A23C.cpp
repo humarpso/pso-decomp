@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern u8 TLobby__data_80506A6C[];
+void __dt__18TPlyJoinLobbyEntryFv(void *self, s16 flag);
+void __destroy_arr(void *arr, void *dtor, u32 size, u32 count);
+void TLobby__sub_8013A26C(void);
+}
+
+extern "C" {
 
 s32 TLobby__sub_8013A23C(s32 arg0);
 M2C_UNK __ct__16TPlyGuildCardTagFv();
@@ -12,6 +19,9 @@ M2C_UNK __ct__16TPlyGuildCardTagFv();
 s32 TLobby__sub_8013A23C(s32 arg0) {
     __ct__16TPlyGuildCardTagFv();
     return arg0;
+}
+void TLobby__sub_8013A26C(void) {
+    __destroy_arr(TLobby__data_80506A6C, (void *)__dt__18TPlyJoinLobbyEntryFv, 0x43c, 0xc);
 }
 
 }

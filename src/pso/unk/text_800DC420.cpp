@@ -5,6 +5,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct D_800DC420 { u8 pad[0x18]; s32 arr[1]; };
+
+struct E_800DC448 { s32 f0; s32 f4; s32 f8; s32 fc; };
+
+struct D_800DC448 { u8 pad[0x42c]; E_800DC448 *entries; };
+
+struct O_800DC448 { u8 pad[0x24]; s32 f24; u8 pad2[0xc]; s32 f34; };
+
 extern "C" {
 s32 TObjPlayer__sub_800DC478(u8 *arg0, s32 arg1, f32 farg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
@@ -12,6 +20,10 @@ u8 *TBoss8Dragon__sub_8007A544(s32, M2C_UNK);
 s32 TObjPlayer__sub_800DC5F4(M2C_UNK arg0, s32 arg1);
 extern s32 lbl_805D5254;
 f32 TObjPlayer__sub_800DC434(M2C_UNK arg0, s32 arg1);
+extern s32 lbl_805D5254;
+s32 TObjPlayer__sub_800DC420(void *self, s32 i);
+extern D_800DC448 *lbl_805D5258;
+void TObjPlayer__sub_800DC448(O_800DC448 *self, s32 i);
 }
 
 extern "C" {
@@ -22,6 +34,10 @@ void __dl__7TObjectFPv(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
+s32 TObjPlayer__sub_800DC420(void *self, s32 i) {
+    return (*(D_800DC420 * *)&lbl_805D5254)->arr[i];
+}
+
 f32 TObjPlayer__sub_800DC434(M2C_UNK arg0, s32 arg1) {
     return M2C_FIELD((lbl_805D5254 + (arg1 * 4)), f32 *, 0);
 }
@@ -29,6 +45,11 @@ f32 TObjPlayer__sub_800DC434(M2C_UNK arg0, s32 arg1) {
 void TObjPlayer__sub_800DC444(void) {  }
 
 extern M2C_UNK lbl_80494E10[];
+
+void TObjPlayer__sub_800DC448(O_800DC448 *self, s32 i) {
+    self->f34 = lbl_805D5258->entries[i].f8;
+    self->f24 = lbl_805D5258->entries[i].fc;
+}
 
 s32 TObjPlayer__sub_800DC478(u8 *arg0, s32 arg1, f32 farg0) {
     f32 temp_f2;

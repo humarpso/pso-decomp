@@ -120,6 +120,12 @@ s32 TObjPlayer__sub_80141F84(int, void *);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
 extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
 void TCameraCtrl__sub_8006D610(void);
+extern u8 TCameraCtrl__data_805D4E20;
+extern u16 TCameraCtrl__data_805D2840;
+extern void *lbl_805D53A0;
+s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+void TCameraCtrl__sub_8006A410(void *p, s32 x);
+void TCameraCtrl__sub_8006CCEC(void);
 }
 
 extern "C" {
@@ -149,6 +155,13 @@ typedef char RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8_size[sizeof(Rec
 typedef char RecoveredGlobal_8006CD78_lbl_80488DF4_size[sizeof(RecoveredGlobal_8006CD78_lbl_80488DF4) == 0xC ? 1 : -1];
 
 typedef char RecoveredGlobal_8006CD2C_TCameraCtrl__data_80488DE8_size[sizeof(RecoveredGlobal_8006CD2C_TCameraCtrl__data_80488DE8) == 0xC ? 1 : -1];
+
+void TCameraCtrl__sub_8006CCEC(void) {
+    TCameraCtrl__data_805D4E20 = 0;
+    TCameraCtrl__data_805D2840 = 0xFFFF;
+    TCameraCtrl__sub_8006A410(((void *)TPlayerBattleCtrl4P__sub_801BA74C((u32)(lbl_805D53A0))), 0);
+}
+
 void TCameraCtrl__sub_8006CD2C(u8 *arg0, s16 arg1) {
     TCameraCtrl__data_805D4E20 |= 2;
     VecCopy__FP3VecPC3Vec(&(*(RecoveredGlobal_8006CD2C_TCameraCtrl__data_80488DE8 *)&TCameraCtrl__data_80488DE8).value, arg0);

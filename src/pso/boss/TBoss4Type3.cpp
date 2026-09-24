@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct O_80058D70 { u8 pad[0x398]; s32 f398; u8 pad2[0x1c]; u16 f3b8; };
+
 extern "C" {
 void TBoss4Type3__vt2(void *arg0);
 M2C_UNK TBoss4Type3__sub_8005A398(void *, M2C_UNK);
@@ -34,6 +36,8 @@ M2C_UNK TBoss4Type3__sub_8005A398(void *, M2C_UNK);
 extern const f32 TBoss4Type3__data_805D8C34;
 extern const f32 lbl_805D8C50;
 void TBoss4Type3__vt24(u8 *arg0);
+int TBoss4Type3__sub_80059F64(void*, void*);
+void TBoss4Type3__vt29(O_80058D70 *self);
 }
 
 extern "C" {
@@ -99,6 +103,13 @@ void TBoss4Type3__vt31(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3AC) = (s32) M2C_FIELD(arg0, s32 *, 0x3A8);
     M2C_FIELD(arg0, s32 *, 0x52C) = 1;
     M2C_FIELD(arg0, s32 *, 0x398) = 0x93;
+}
+
+void TBoss4Type3__vt29(O_80058D70 *self) {
+    if (self->f398 == 0) {
+        self->f3b8 = 0xFFFF;
+        TBoss4Type3__sub_80059F64((void*)(self), (void*)(0xc));
+    }
 }
 
 void TBoss4Type3__vt28(void *arg0) {

@@ -4,6 +4,17 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct E_800AC9DC { u8 pad[8]; s32 x8; s32 xc; };
+
+struct G_800AC9DC { u8 pad[0x42c]; E_800AC9DC *tbl; };
+
+struct O_800AC9DC { u8 pad[0x24]; s32 x24; u8 pad2[0xc]; s32 x34; };
+
+extern "C" {
+extern u32 lbl_805D50B8;
+void TObjPlayer__sub_800AC9DC(O_800AC9DC *self, s32 i);
+}
+
 extern "C" {
 
 void TObjPlayer__sub_800AC9D8(void);
@@ -73,6 +84,11 @@ void free_resources__12TObjEneSharkFv(void) {
 }
 
 void TObjPlayer__sub_800AC9D8(void) {  }
+
+void TObjPlayer__sub_800AC9DC(O_800AC9DC *self, s32 i) {
+    self->x34 = (*(G_800AC9DC * *)&lbl_805D50B8)->tbl[i].x8;
+    self->x24 = (*(G_800AC9DC * *)&lbl_805D50B8)->tbl[i].xc;
+}
 
 void TObjPlayer__sub_800ACA0C(void) {  }
 

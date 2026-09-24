@@ -59,6 +59,8 @@ struct VObj_18_1a504b : VBase_18_1a504b {
 
 struct RecoveredGlobal_8016BD60___vt__14TOKeyAncient03 { M2C_UNK value; u8 remaining[0x6C]; };
 
+struct Obj_8016B9A4 { u8 pad[0x6c]; f32 f; };
+
 extern "C" {
 s32 is_split_screen();
 s32 TOKey__sub_8016A280(void *);
@@ -108,6 +110,9 @@ extern const f32 lbl_805DB720;
 extern const f32 lbl_805DB72C;
 extern const f32 lbl_805DB730;
 u8 *TOKeyAncient03__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+extern const f32 lbl_805DB728;
+extern const f32 lbl_805DB724;
+void TOKeyAncient03__vt14(Obj_8016B9A4 *self);
 }
 
 extern "C" {
@@ -152,6 +157,12 @@ void TOKeyAncient03__vt15(u8 *arg0) {
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x6C);
     if (temp_f1 < lbl_805DB720) {
         M2C_FIELD(arg0, f32 *, 0x6C) = (f32) (temp_f1 - lbl_805DB724);
+    }
+}
+
+void TOKeyAncient03__vt14(Obj_8016B9A4 *self) {
+    if (lbl_805DB728 < self->f) {
+        self->f += lbl_805DB724;
     }
 }
 

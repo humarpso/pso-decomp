@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TBoss8Dragon__sub_8005D700(void *self);
+extern u8 lbl_80437F40[];
+extern void *lbl_805D4DC8;
+void TBoss8Dragon__sub_80066A50(void *self);
+}
+
+extern "C" {
 
 u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8 *arg4, s32 arg5, s16 arg6);
 void TBoss8Dragon__sub_80066A4C(void);
@@ -67,5 +74,12 @@ u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8
 }
 
 void TBoss8Dragon__sub_80066A4C(void) {  }
+void TBoss8Dragon__sub_80066A50(void *self) {
+    switch (TBoss8Dragon__sub_8005D700(self)) {
+    case 0:
+        lbl_805D4DC8 = lbl_80437F40;
+        break;
+    }
+}
 
 }

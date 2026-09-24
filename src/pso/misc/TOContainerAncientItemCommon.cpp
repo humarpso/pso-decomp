@@ -87,6 +87,8 @@ struct VObj_8015B8E8 : Base_8015B8E8 {
     virtual void m77();
 };
 
+struct Obj_8015C48C { u8 pad[0x326]; s16 a326; u8 pad2[0x364 - 0x328]; s32 a364; };
+
 extern "C" {
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -106,6 +108,8 @@ s32 __nw__7TObjectFUl(int);
 s32 TLobby__sub_8030A7B0();
 extern s32 enable_v2_features;
 s32 TOContainerAncientItemCommon__sub_8015C108(s32 arg0);
+void TObjPlayer__sub_801B4A18(Obj_8015C48C *self, s32 x);
+void TObjPlayer__sub_8015C48C(Obj_8015C48C *self);
 }
 
 extern "C" {
@@ -230,6 +234,15 @@ void TObjPlayer__sub_8015C3C8(u8 *arg0) {
             TObjPlayer__sub_803D9B78();
             break;
         }
+    }
+}
+void TObjPlayer__sub_8015C48C(Obj_8015C48C *self) {
+    switch (self->a326) {
+    case 0:
+        if (self->a364 != 0) {
+            TObjPlayer__sub_801B4A18(self, -1);
+        }
+        break;
     }
 }
 

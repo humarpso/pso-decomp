@@ -18,18 +18,22 @@ int TWindowKeyBoardSoft__sub_80076E2C(s32);
 s32 fn_80076D68(s32 arg0, s32 arg1);
 int TWindowKeyBoardSoft__sub_80076E2C(s32 _w0);
 bool TWindowKeyBoardSoft__sub_80076E00(s32 arg0);
+int TWindowKeyBoardSoft__sub_80076E2C(s32 _w0);
+void fn_80076D40(s32 i);
 }
 
 extern "C" {
 
-int fn_80076D40(void);
 s32 TLobby__sub_80076BC8(void *);
 s32 TWindowDD__sub_80348C78(void *);
 void TWindowShortListCtrl__sub_80076D1C(void);
 s32 TWindowSubSymbolChat__sub_80076F88(void *);
 int fn_80076CD0(void);
 
-int fn_80076D40(void) { return 0; }
+void fn_80076D40(s32 i) {
+    void **p = ((void **)TWindowKeyBoardSoft__sub_80076E2C(i));
+    *p = 0;
+}
 
 s32 fn_80076D68(s32 arg0, s32 arg1) { return TAdSinglePlyChrSelectGC__sub_80076D9C(((s32)TWindowKeyBoardSoft__sub_80076E2C((s32)(arg0))), arg1); }
 

@@ -4,14 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct O_80019664 { u8 f0; u8 f1; u8 pad[2]; u16 f4; u8 f6; u8 f7; };
+
 extern "C" {
 extern s32 lbl_805D34B8;
 bool is_split_screen(void);
+void TObjPlayer__sub_80019664(O_80019664 *self);
 }
 
 extern "C" {
 
-int TObjPlayer__sub_80019664(void);
 s32 TObjPlayer__sub_800196EC(void);
 void bswap_head16__10TObjPlayerFPv(void* p);
 f32 calc_random_ratio__10TObjPlayerFv(void);
@@ -33,10 +35,16 @@ void bswap_head16__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(
 int read_be16_field2__10TObjPlayerFPv(void* p) { return bswap_16__FPUs((char*)p + 0x2); }
 void send_head__10TObjPlayerFPv(void* p) { bswap_head16__10TObjPlayerFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 
-int TObjPlayer__sub_80019664(void) { return 0; }
-
 extern M2C_UNK lbl_80434088;
 extern const f32 lbl_805D7D3C;
+
+void TObjPlayer__sub_80019664(O_80019664 *self) {
+    self->f4 = 0xFFFF;
+    self->f6 = 0;
+    self->f7 = 0;
+    self->f0 = 0x9a;
+    self->f1 = 2;
+}
 
 bool is_split_screen(void) {
     return lbl_805D34B8 != 1;

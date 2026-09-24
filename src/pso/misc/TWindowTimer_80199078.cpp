@@ -17,6 +17,8 @@ struct RecoveredGlobal_80199470_lbl_8050DDAC {
     u8 remaining[0x18];
 };
 
+struct G_80199078 { u8 pad[0x10]; s16 flags; };
+
 extern "C" {
 void TWindowTimer__sub_801992EC(u8 *arg0, u8 *arg1);
 s32 get_minutes__6TLobbyFv(void);
@@ -29,6 +31,8 @@ M2C_UNK bswap_6x79_gogo_ball__12TWindowTimerFi();
 extern RecoveredGlobal_80199470_lbl_8050DDAC lbl_8050DDAC;
 extern const f32 lbl_805DBF58;
 void handle_6x79_gogo_ball(u8 *arg0);
+extern RecoveredGlobal_80199470_lbl_8050DDAC lbl_8050DDAC;
+void TWindowTimer__sub_80199078(void);
 }
 
 extern "C" {
@@ -39,6 +43,13 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
 extern M2C_UNK lbl_804B8E00[];
+
+void TWindowTimer__sub_80199078(void) {
+    (*(G_80199078 *)&lbl_8050DDAC).flags &= ~1;
+    (*(G_80199078 *)&lbl_8050DDAC).flags &= ~2;
+    (*(G_80199078 *)&lbl_8050DDAC).flags &= ~0x10;
+    (*(G_80199078 *)&lbl_8050DDAC).flags &= ~0x20;
+}
 
 void TWindowTimer__sub_801992EC(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, f32 *, 0) = (f32) M2C_FIELD(arg1, f32 *, 0);

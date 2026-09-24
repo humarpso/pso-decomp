@@ -15,6 +15,8 @@ struct RecoveredGlobal_8016D2A4_lbl_80441D84 {
     u8 remaining[0x8C];
 };
 
+struct Obj_8016D428 { u8 pad[0x6c]; f32 f; };
+
 extern "C" {
 s32 is_split_screen();
 s32 TOKey__sub_8016A280(void *);
@@ -35,6 +37,9 @@ s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
 extern RecoveredGlobal_8016D1A8_lbl_80441D84 lbl_80441D84;
 extern s32 enable_v2_features;
 void TOKeyMachine01__vt16(s32 arg0);
+extern const f32 lbl_805DB790;
+extern const f32 lbl_805DB78C;
+void TOKeyMachine01__vt14(Obj_8016D428 *self);
 }
 
 extern "C" {
@@ -128,6 +133,11 @@ void TOKeyMachine01__vt15(u8 *arg0) {
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x6C);
     if (temp_f1 < lbl_805DB788) {
         M2C_FIELD(arg0, f32 *, 0x6C) = (f32) (temp_f1 - lbl_805DB78C);
+    }
+}
+void TOKeyMachine01__vt14(Obj_8016D428 *self) {
+    if (lbl_805DB790 < self->f) {
+        self->f += lbl_805DB78C;
     }
 }
 

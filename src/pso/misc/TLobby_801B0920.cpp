@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern void *lbl_8050EA10[];
+s32 TLobby__sub_801B0974(void);
+}
+
+extern "C" {
 
 s32 check_switch_available__6TLobbyFPvi(void *arg0, s32 arg1);
 void send_font_state__6TLobbyFi(s32 arg0);
@@ -30,6 +35,19 @@ void send_font_state__6TLobbyFi(s32 arg0) {
 }
 
 extern M2C_UNK lbl_8050EA40[];
+
+s32 TLobby__sub_801B0974(void) {
+    void **p = lbl_8050EA10;
+    s32 n = 0;
+    s32 i;
+    for (i = 0; i < 12; i++) {
+        if (*p) {
+            n++;
+        }
+        p++;
+    }
+    return n;
+}
 
 s32 check_switch_available__6TLobbyFPvi(void *arg0, s32 arg1) {
     if (is_technique_ready__8TTecCtrlFv() != 0) {

@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Obj_80152F28 { u16 a; u16 b; };
+
 extern "C" {
 void TNpcPlayer__sub_80152D64(void* p);
 void* fn_80152EF8(void* p);
@@ -20,13 +22,13 @@ int TNpcPlayer__sub_80152C8C(void* p);
 int TLobby__send_and_handle_60(void*);
 u8 TNpcPlayer__sub_80152CE8(u8 *arg0);
 void TNpcPlayer__sub_80152C48(u8 *arg0);
+void TNpcPlayer__sub_80152A78(s16 *self);
+void TFontSmallLobby__sub_80152F28(Obj_80152F28 *self);
 }
 
 extern "C" {
 
-int TFontSmallLobby__sub_80152F28(void*);
 void TNpcPlayer__sub_80152A30(void);
-int TNpcPlayer__sub_80152A78(void*);
 void TNpcPlayer__sub_80152ACC(void* p);
 void TNpcPlayer__sub_80152B5C(void* p);
 void TNpcPlayer__sub_80152BEC(void* p);
@@ -79,9 +81,14 @@ void TNpcPlayer__sub_80152A34(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x84) = arg2;
 }
 
-void* init__10TNpcPlayerFPv(void* p) { TNpcPlayer__sub_80152A78((void*)(p)); return p; }
+void* init__10TNpcPlayerFPv(void* p) { TNpcPlayer__sub_80152A78((s16 *)((void*)(p))); return p; }
 
-int TNpcPlayer__sub_80152A78(void*) { return 0; }
+void TNpcPlayer__sub_80152A78(s16 *self) {
+    s32 i;
+    for (i = 0; i < 11; i++) {
+        self[i] = 0;
+    }
+}
 
 void update__10TNpcPlayerFPv(void* p) { TNpcPlayer__sub_80152ACC((void*)(p)); update_players__6TLobbyFi(p); }
 
@@ -157,10 +164,15 @@ void byteswap_pos__10TNpcPlayerFPv(void* p) { bswap_16__FPUs((void*)(p)); bswap_
 void set_state__10TNpcPlayerFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
 void set_type__10TNpcPlayerFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
 
-void* fn_80152EF8(void* p) { TFontSmallLobby__sub_80152F28((void*)(p)); return p; }
-int TFontSmallLobby__sub_80152F28(void*) { return 0; }
+void* fn_80152EF8(void* p) { TFontSmallLobby__sub_80152F28((Obj_80152F28 *)((void*)(p))); return p; }
 
     extern int TObjPlayer__data_805D5874;
+
+void TFontSmallLobby__sub_80152F28(Obj_80152F28 *self) {
+    self->a = 0xFFFF;
+    self->b = 0;
+}
+
 int TObjPlayer__sub_80152F40(void) {  return TObjPlayer__data_805D5874; }
 
 u16 get_action_flags__10TNpcPlayerFPv(void* p) { return *(u16*)((char*)p + 0x678); }

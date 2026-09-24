@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct RecoveredGlobal_801520B8___vt__10TNpcPlayer { M2C_UNK value; u8 remaining[0x14]; };
 
+struct Obj_801528A8 { u8 pad[0x5c]; u8 arr[1]; };
+
 extern "C" {
 void TNpcPlayer__sub_801528C8(s32 arg0, s32 arg1);
 void TNpcPlayer__sub_801528B8(s32 arg0, s32 arg1);
@@ -17,11 +19,17 @@ M2C_UNK __dt__7TObjectFv(void *, int);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
 extern RecoveredGlobal_801520B8___vt__10TNpcPlayer __vt__10TNpcPlayer;
 u8 *__dt__10TNpcPlayerFv(u8 *arg0, s16 arg1);
+void TNpcPlayer__sub_801528A8(Obj_801528A8 *self, s16 i, u8 v);
+void *__ct__12TPlyCharDataFv(void *self);
+void __dt__12TPlyCharDataFv(void *self, s32 flag);
+void __register_global_object(void *obj, void *dtor, void *link);
+extern u8 lbl_8050CFC4[];
+extern u8 lbl_8050CFB8[];
+void TNpcPlayer__sub_8015286C(void);
 }
 
 extern "C" {
 
-int TNpcPlayer__sub_801528A8(void);
 s32 TNpcPlayer__sub_801528DC(void* p);
 void copy__10TNpcPlayerFPvPv(void* p, void* q);
 void ensure_rock_singleton__10TNpcPlayerFv(void);
@@ -112,7 +120,13 @@ void ensure_rock_singleton__10TNpcPlayerFv(void) {
     }
 }
 
-int TNpcPlayer__sub_801528A8(void) { return 0; }
+void TNpcPlayer__sub_8015286C(void) {
+    __register_global_object(__ct__12TPlyCharDataFv(lbl_8050CFC4), (void *)__dt__12TPlyCharDataFv, lbl_8050CFB8);
+}
+
+void TNpcPlayer__sub_801528A8(Obj_801528A8 *self, s16 i, u8 v) {
+    self->arr[i] = v;
+}
 
 void TNpcPlayer__sub_801528B8(s32 arg0, s32 arg1) {
     M2C_FIELD((arg0 + (arg1 * 2)), s16 *, 0) = 0;

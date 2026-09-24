@@ -150,7 +150,6 @@ void TObjEneRe4Bit__sub_800ECC14(u8 *arg0, s32 arg1);
 void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1);
 void TObjEneRe4Bit__sub_800ECED0(void *arg0, s32 arg1);
 s32 handle_event__13TObjEneRe4BitFPvi(void *arg0, s32 arg1);
-s32 TObjEneRe4Bit__sub_800ED090(void *, void *);
 void TObjEneRe4Bit__vt85(s32 arg0, u32 arg1, s32 arg2);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
@@ -159,6 +158,8 @@ void update_position_flag__13TObjEneRe4BitFPv(void *);
 extern const f32 TObjEneRe4Bit__data_805DA770;
 extern const f32 lbl_805DA778;
 void TObjEneRe4Bit__sub_800ECE04(u8 *arg0, s32 arg1);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+void TObjEneRe4Bit__sub_800ED090(void *self, s32 msg);
 }
 
 extern "C" {
@@ -344,10 +345,20 @@ s32 handle_event__13TObjEneRe4BitFPvi(void *arg0, s32 arg1) {
 
 extern const f32 TObjEneRe4Bit__data_805DA770;
 
+void TObjEneRe4Bit__sub_800ED090(void *self, s32 msg) {
+    switch (msg) {
+    case 0:
+        return;
+    case 3:
+        TObjEneDD__sub_800BBA18((void *)(self), (M2C_UNK)(1));
+        return;
+    }
+}
+
 void TObjEneRe4Bit__vt85(s32 arg0, u32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
-        TObjEneRe4Bit__sub_800ED090((void *) (arg0), (void *) (arg2));
+        TObjEneRe4Bit__sub_800ED090((void *)((void *) (arg0)), (s32)((void *) (arg2)));
         return;
     case 1:
         handle_event__13TObjEneRe4BitFPvi((void *)((void *) (arg0)), (s32)((void *) (arg2)));

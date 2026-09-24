@@ -11,6 +11,10 @@ extern s32 *lbl_805D4C08;
 extern f32 TObjBoss2Tunnel__data_805D8614;
 extern const f32 lbl_805D8654;
 void TObjBoss2Tunnel__sub_8003C6D0(u8 *arg0);
+extern s32 TObjBoss2Tunnel__data_805D4C00;
+void TObjBoss2Tunnel__sub_8003C5F8(void);
+extern s32 TObjBoss2Tunnel__data_805D4C00;
+void TObjBoss2Tunnel__sub_8003C610(void);
 }
 
 extern "C" {
@@ -73,6 +77,16 @@ void clear_global_flag_3000__15TObjBoss2TunnelFv(void) {
 }
 
 extern s32 TObjBoss2Tunnel__data_805D4C00;
+
+void TObjBoss2Tunnel__sub_8003C5F8(void) {
+    (*(u32 *)&TObjBoss2Tunnel__data_805D4C00) |= 0x2000;
+    (*(u32 *)&TObjBoss2Tunnel__data_805D4C00) &= ~0x1000;
+}
+
+void TObjBoss2Tunnel__sub_8003C610(void) {
+    (*(u32 *)&TObjBoss2Tunnel__data_805D4C00) |= 0x1000;
+    (*(u32 *)&TObjBoss2Tunnel__data_805D4C00) &= ~0x2000;
+}
 
 void set_global_flag_800__15TObjBoss2TunnelFv(void) {
     TObjBoss2Tunnel__data_805D4C00 |= 0x800;

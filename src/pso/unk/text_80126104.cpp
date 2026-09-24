@@ -81,9 +81,15 @@ struct VObj_18_f15a7b : VBase_18_f15a7b {
     virtual M2C_UNK m72(M2C_UNK);
 };
 
+struct Obj_80126180 { u8 pad[0x1f8]; s32 a; s32 b; s32 c; };
+
+struct Out_80126180 { u8 pad0[0x10]; s32 f10; u8 pad1[0x4c - 0x14]; f32 f4c; s32 f50; u8 pad2[0x74 - 0x54]; void *f74; s32 f78; };
+
 extern "C" {
 s32 TObjPlayer__sub_80019570(void *);
 void TObjPlayer__sub_80126104(int arg0, u8 *arg1);
+extern const f32 lbl_805DAD70;
+void TObjPlayer__sub_80126180(Obj_80126180 *self, Out_80126180 *o);
 }
 
 extern "C" {
@@ -99,5 +105,15 @@ void TObjPlayer__sub_80126104(int arg0, u8 *arg1) {
     }
 }
 #pragma pop
+
+void TObjPlayer__sub_80126180(Obj_80126180 *self, Out_80126180 *o) {
+    if (self->b == 0) {
+        o->f74 = (void *)TObjPlayer__sub_80126104;
+    }
+    o->f10 = self->a;
+    o->f50 = 0x4000;
+    o->f4c = lbl_805DAD70;
+    o->f78 = self->c;
+}
 
 }

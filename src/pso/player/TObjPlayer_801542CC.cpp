@@ -30,6 +30,10 @@ struct CollisionVector_80155FBC { f32 x,y,z; };
 
 struct CollisionBody_80155FBC { void* colliders; s32 count; CollisionVector_80155FBC position; s32 facing; };
 
+struct E_801547E0 { u8 pad[0xc]; f32 f; u8 pad2[0x2c - 0x10]; };
+
+struct Obj_801547E0 { u8 pad[0xa4]; E_801547E0 *arr; };
+
 extern "C" {
 void TObjPlayer__sub_801550B8(u8 *arg0, u8 *arg1);
 u8 * TObjPlayer__sub_80155028(s32 arg0, s32 arg1);
@@ -69,10 +73,8 @@ int TObjEneGibbles__sub_80156720(void);
 int TObjEneGibbles__sub_80156780(void);
 int TObjPlayer__sub_80019828(void*);
 void release_member_90__10TObjPlayerFPv(void* p);
-int TObjPlayer__sub_801549D0(void);
 void init_all_slots__10TObjPlayerFv(void);
 void TObjPlayer__sub_80156934(void);
-int TObjPlayer__sub_801549D0(void);
 void init_all_slots__10TObjPlayerFv(void);
 extern s32 lbl_805D5868;
 extern s32 lbl_805D586C;
@@ -112,6 +114,11 @@ f32 TObjPlayer__sub_80141CF8(void *, void *);
 s32 find_or_alloc_slot__10TObjPlayerFUi(u32 arg0);
 void* TObjPlayer__sub_80155C54(CollisionBody_80155FBC, CollisionBody_80155FBC);
 void* find_actor_body_contact(u8* arg0, u8* arg1, f32 limit);
+extern const f32 TObjPlayer__data_805DB270;
+f32 TObjPlayer__sub_801547E0(Obj_801547E0 *self, s32 i);
+extern s32 TObjPlayer__data_8050D460[];
+extern s32 lbl_805D5868;
+void TObjPlayer__sub_801549D0(void);
 }
 
 extern "C" {
@@ -183,6 +190,21 @@ u8 test_elt_flag__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
         return (u8) ((arg2 & temp_r3[arg1].f18) != 0);
     }
     return 0U;
+}
+
+f32 TObjPlayer__sub_801547E0(Obj_801547E0 *self, s32 i) {
+    if (self->arr != 0) {
+        return self->arr[i].f;
+    }
+    return TObjPlayer__data_805DB270;
+}
+
+void TObjPlayer__sub_801549D0(void) {
+    s32 i;
+    for (i = 0; i < 0x18c; i++) {
+        TObjPlayer__data_8050D460[i] = 0;
+    }
+    lbl_805D5868 = 0;
 }
 
 void reset_photon_effect__10TObjPlayerFPv(void* p) { TLobby__sub_801A1FDC(p, (void*)0); TObjPlayer__sub_80154B60(p); }

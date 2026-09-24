@@ -4,6 +4,21 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct G_80040AE4 { u8 pad[0x18]; s32 arr[1]; };
+
+struct E_80040AF8 { s32 f0; s32 f4; s32 f8; s32 fc; };
+
+struct G_80040AF8 { u8 pad[0x42c]; E_80040AF8 *entries; };
+
+struct O_80040AF8 { u8 pad[0x24]; s32 f24; u8 pad2[0x34 - 0x28]; s32 f34; };
+
+extern "C" {
+extern G_80040AE4 *lbl_805D4C5C;
+s32 TObjPlayer__sub_80040AE4(s32 i);
+extern G_80040AF8 *lbl_805D4C60;
+void TObjPlayer__sub_80040AF8(O_80040AF8 *self, s32 i);
+}
+
 extern "C" {
 
 void *create_TBoss3VoloptCore(void *arg0, void *arg1, s16 arg2, s16 arg3);
@@ -59,5 +74,12 @@ void *create_TBoss3VoloptCore(void *arg0, void *arg1, s16 arg2, s16 arg3) {
 }
 
 int TObjPlayer__sub_80040ADC(void) { return 0; }
+s32 TObjPlayer__sub_80040AE4(s32 i) {
+    return lbl_805D4C5C->arr[i];
+}
+void TObjPlayer__sub_80040AF8(O_80040AF8 *self, s32 i) {
+    self->f34 = lbl_805D4C60->entries[i].f8;
+    self->f24 = lbl_805D4C60->entries[i].fc;
+}
 
 }

@@ -100,6 +100,10 @@ struct VBase_8003508C_80035084 {
 #pragma dont_inline off
 struct M2CCopy_C { u8 bytes[0xc]; };
 
+struct O_801C0708 { u8 a; u8 b; u8 pad[2]; s32 c; u16 d; u16 e; };
+
+struct O_801C0350 { u8 a; u8 b; u8 pad[2]; u16 c; u16 d; };
+
 extern "C" {
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
@@ -280,6 +284,8 @@ void TFontSmallLobby__sub_801C041C(u8 *arg0);
 void* TFontSmallLobby__sub_801C0228(void* p, void* _w1);
 u8 *TObjPlayer__sub_801C07B4(u8 *arg0, u8 *arg1);
 void TFontSmallLobby__sub_801C0258(void* p, void* q);
+void TObjPlayer__sub_801C0708(O_801C0708 *p);
+void TFontSmallLobby__sub_801C0350(O_801C0350 *p);
 }
 
 extern "C" {
@@ -327,6 +333,13 @@ void TFontSmallLobby__sub_801C029C(void* p) { TFontSmallLobby__sub_801C01BC((voi
 void TFontSmallLobby__sub_801C02D0(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 
 void* TFontSmallLobby__sub_801C030C(void* p, void* a1) { TFontSmallLobby__sub_801C0228(p, a1); *(short*)((char*)p + 0x4) = *(unsigned short*)((char*)a1 + 0x4); *(short*)((char*)p + 0x6) = *(short*)((char*)a1 + 0x6); return p; }
+
+void TFontSmallLobby__sub_801C0350(O_801C0350 *p) {
+    p->c = 0xFFFF;
+    p->d = 0;
+    p->a = 0x8f;
+    p->b = 2;
+}
 
 void TFontSmallLobby__sub_801C0378(void* p) { TFontSmallLobby__sub_801C02D0((void*)(p)); TLobby__sub_801E4534(p); }
 
@@ -389,6 +402,14 @@ void *TObjPlayer__sub_801C06BC(void *arg0, void *arg1) {
     M2C_FIELD(arg0, u16 *, 0x8) = M2C_FIELD(arg1, s16 *, 0x8);
     M2C_FIELD(arg0, u16 *, 0xA) = M2C_FIELD(arg1, u16 *, 0xA);
     return arg0;
+}
+
+void TObjPlayer__sub_801C0708(O_801C0708 *p) {
+    p->c = 0;
+    p->d = 0;
+    p->e = 0xFFFF;
+    p->a = 0x2f;
+    p->b = 3;
 }
 
 void TObjPlayer__sub_801C0734(void* p) { TObjPlayer__sub_801C0678((void *)((void*)(p))); TLobby__send_and_handle_60(p); }

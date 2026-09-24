@@ -427,6 +427,8 @@ extern const f32 TObjEneBm5GibonU__data_805DA188;
 extern const f32 lbl_805DA238;
 extern const f32 lbl_805DA23C;
 s32 TObjEneBm5GibonU__sub_800D0968(u8 *arg0);
+void queue_destruction__7TObjectFv(void *self);
+void TObjEneBm5GibonU__sub_800CD5B8(void *self, s32 msg);
 }
 
 extern "C" {
@@ -507,6 +509,16 @@ void advance_anim_frame__16TObjEneBm5GibonUFv(void) {
 }
 
 extern const f32 TObjEneBm5GibonU__data_805DA178;
+
+void TObjEneBm5GibonU__sub_800CD5B8(void *self, s32 msg) {
+    switch (msg) {
+    case 0:
+        return;
+    case 3:
+        queue_destruction__7TObjectFv(self);
+        return;
+    }
+}
 
 void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r0;

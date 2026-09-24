@@ -4,9 +4,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct O_801BEC50 { u16 a; u16 b; f32 x; f32 y; f32 z; };
+
+struct O_801BEC78 { u16 a; u16 pad; s32 b; };
+
+extern "C" {
+extern const f32 TObjPlayer__data_805DC278;
+void TObjPlayer__sub_801BEC50(O_801BEC50 *p);
+void TObjPlayer__sub_801BEC78(O_801BEC78 *p);
+}
+
 extern "C" {
 
-int TObjPlayer__sub_801BEC78(void);
 s32 TObjPlayer__sub_801BEC90(void* p);
 int is_mounted__15TPlyPhotonChairFPv(void* p);
 int TFontSmallLobby__sub_801C0228(void*);
@@ -86,7 +95,16 @@ int unregister_sub__10TObjPlayerFPv(void* p);
 
 int is_mounted__15TPlyPhotonChairFPv(void* p) { return (*(u32*)((char*)p + 0x334) >> 26) & 0x1; }
 
-int TObjPlayer__sub_801BEC78(void) { return 0; }
+void TObjPlayer__sub_801BEC50(O_801BEC50 *p) {
+    p->a = 0xFFFF;
+    p->b = 0;
+    p->x = p->y = p->z = TObjPlayer__data_805DC278;
+}
+
+void TObjPlayer__sub_801BEC78(O_801BEC78 *p) {
+    p->a = 0xFFFF;
+    p->b = 0;
+}
 
 s32 TObjPlayer__sub_801BEC90(void* p) { return *(s32*)((char*)p + 0x3c8); }
 

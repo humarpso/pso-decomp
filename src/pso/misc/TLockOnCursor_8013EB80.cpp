@@ -1,5 +1,11 @@
 #include "types.h"
 
+struct Obj_8013EC1C { u16 a; u16 b; u16 c; };
+
+extern "C" {
+void TLockOnCursor__sub_8013EC1C(Obj_8013EC1C *self);
+}
+
 extern "C" {
 
 void TLockOnCursor__sub_8013EB80(void* p);
@@ -7,7 +13,6 @@ void TLockOnCursor__sub_8013EB8C(void* p);
 s32 TLockOnCursor__sub_8013EBBC(void* p);
 s32 TLockOnCursor__sub_8013EBE8(void* p);
 s32 TLockOnCursor__sub_8013EC14(void* p);
-int TLockOnCursor__sub_8013EC1C(void);
 s32 cleanup_field_3c__13TLockOnCursorFPv(void* p);
 s32 cleanup_field__13TLockOnCursorFPv(void* p);
 s32 release_target__13TLockOnCursorFPv(void* p);
@@ -23,7 +28,10 @@ s32 cleanup_field__13TLockOnCursorFPv(void* p) { return TLockOnCursor__sub_8013E
 s32 TLockOnCursor__sub_8013EBE8(void* p) { return *(s32*)((char*)p + 0x4); }
 s32 cleanup_field_3c__13TLockOnCursorFPv(void* p) { return TLockOnCursor__sub_8013EC14((void*)((char*)p + 0x3c)); }
 s32 TLockOnCursor__sub_8013EC14(void* p) { return *(s32*)((char*)p + 0x0); }
-
-int TLockOnCursor__sub_8013EC1C(void) { return 0; }
+void TLockOnCursor__sub_8013EC1C(Obj_8013EC1C *self) {
+    self->a = 0xffff;
+    self->b = 0;
+    self->c = 0;
+}
 
 }

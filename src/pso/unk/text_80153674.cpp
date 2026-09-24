@@ -7,6 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern const f32 lbl_805DB250;
 s32 TObjFogCollisionSwitch__sub_80153A0C(u8 *arg0);
+s32 TObjFogCollision__sub_80153F70(void *self);
+s32 TObjFogCollision__sub_80153F68(void *self);
+void run_task__22TObjFogCollisionPoisonFv(void *self);
 }
 
 extern "C" {
@@ -26,6 +29,15 @@ extern const f32 lbl_805DB250;
 extern const f32 lbl_805DB254;
 extern const f32 lbl_805DB258;
 extern const f32 lbl_805DB25C;
+
+void run_task__22TObjFogCollisionPoisonFv(void *self) {
+    if (TObjFogCollision__sub_80153F70(self)) {
+        return;
+    }
+    if (TObjFogCollision__sub_80153F68(self)) {
+        return;
+    }
+}
 
 void TObjFogCollisionPoison__vt11(void *arg0) {
     f32 var_f2;

@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Obj_80131070 { u8 pad[0x208]; s32 state; };
+
 extern "C" {
 extern const f32 lbl_805DB038;
 void fn_80130EF8(u8 *arg0);
@@ -18,6 +20,9 @@ extern const f32 lbl_805DB040;
 extern const f32 lbl_805DB044;
 extern const f32 lbl_805DB048;
 void fn_80130F50(u8 *arg0);
+void draw_status_icon__10TObjPlayerFPvi(void *self, void *buf);
+void TObjEneDellBiter__sub_80087350(void *buf, s32 n);
+void fn_80131070(Obj_80131070 *self);
 }
 
 extern "C" {
@@ -81,5 +86,12 @@ void fn_80130F50(u8 *arg0) {
     }
 }
 #pragma pop
+
+void fn_80131070(Obj_80131070 *self) {
+    u8 buf[0x18];
+    self->state = 2;
+    draw_status_icon__10TObjPlayerFPvi(self, buf);
+    TObjEneDellBiter__sub_80087350(buf, 9);
+}
 
 }

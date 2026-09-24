@@ -5,11 +5,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Obj_8013E020 { u16 a; u16 b; s32 c; };
+
 extern "C" {
 void TMainCursor__sub_8013DFC4(u8 *arg0);
 u8 get_enabled__11TMainCursorFPv(void* p);
 u8 get_type__11TMainCursorFPv(void* p);
 int TMainCursor__sub_8013DF5C(s32 arg0, u8 arg1, u8 arg2);
+void fn_8013E020(Obj_8013E020 *self);
 }
 
 extern "C" {
@@ -18,7 +21,6 @@ u16 TMainCursor__sub_8013E03C(void* p);
 s32 destroy__13TForceOperateFis(s32 arg0, s16 arg1);
 void *destroy_cursor__11TMainCursorFPvs(void *arg0, s16 arg1);
 void destroy_lock_on__11TMainCursorFPvi(void* p, s32 a1);
-int fn_8013E020(void);
 s32 get_state__11TMainCursorFPv(void* p);
 void set_field_0__13TForceOperateFPvs(void* p, s16 v);
 void TLockOnCursor__sub_8013E0D0(void* p, s32 v);
@@ -54,7 +56,10 @@ s32 destroy__13TForceOperateFis(s32 arg0, s16 arg1) {
 }
 void set_field_0__13TForceOperateFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
 
-int fn_8013E020(void) { return 0; }
+void fn_8013E020(Obj_8013E020 *self) {
+    self->a = self->b = 0xffff;
+    self->c = 0;
+}
 
 u16 TMainCursor__sub_8013E03C(void* p) { return *(u16*)((char*)p + 0x0); }
 

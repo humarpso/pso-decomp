@@ -4,9 +4,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct O_800DFB44 { u8 pad[0x378]; s32 state; };
+
+extern "C" {
+s32 TObjEnePanarms__sub_800DFB44(O_800DFB44 *self);
+}
+
 extern "C" {
 
-int TObjEnePanarms__sub_800DFB44(void);
 s32 create__14TObjEnePanarmsFi(s32 arg0);
 int get_state_flag__14TObjEnePanarmsFPv(void* p);
 void init__14TObjEnePanarmsFPvPv(void* p, void* a1);
@@ -37,7 +42,9 @@ s32 create__14TObjEnePanarmsFi(s32 arg0) {
 
 void init__14TObjEnePanarmsFPvPv(void* p, void* a1) { fn_800660B8(p); TObjPlayer__sub_80143198(p, a1); fn_8002AE64(p); }
 
-int TObjEnePanarms__sub_800DFB44(void) { return 0; }
+s32 TObjEnePanarms__sub_800DFB44(O_800DFB44 *self) {
+    return self->state == 7 || self->state == 8;
+}
 
 int get_state_flag__14TObjEnePanarmsFPv(void* p) { return (*(u32*)((char*)p + 0x30) >> 4) & 0x1; }
 

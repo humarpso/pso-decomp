@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct G_800A3210 { u8 pad[0x18]; s32 arr[1]; };
+
 extern "C" {
 M2C_UNK obj_clearFlags30(void *, s32);
 M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
@@ -75,6 +77,8 @@ s32 TObjPlayer__sub_800A1FEC(void *);
 s32 TObjPlayer__sub_800A2390(void *);
 s32 TObjPlayer__sub_800A27CC(void *);
 void TObjPlayer__sub_800A1520(u8 *arg0);
+extern s32 lbl_805D5004;
+s32 TObjPlayer__sub_800A3210(s32 i, s32 _w1, s32 _w2);
 }
 
 extern "C" {
@@ -82,7 +86,6 @@ extern "C" {
 void trigger_action_if_not_flagged__10TObjPlayerFPv(void *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
-s16 TObjPlayer__sub_800A3210(M2C_UNK, s32, s32);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK obj_clearFlags30(void *, s32);
@@ -106,7 +109,7 @@ s32 update_hide_sequence__10TObjPlayerFPv(u8 *arg0) {
         temp_r4 = temp_r5 & 0xFFB7FFFF;
         M2C_FIELD(arg0, s32 *, 0x388) = temp_r4;
         M2C_FIELD(arg0, s16 *, 0xB8) = 8;
-        M2C_FIELD(arg0, s16 *, 0x39C) = TObjPlayer__sub_800A3210(1, temp_r4, temp_r5);
+        M2C_FIELD(arg0, s16 *, 0x39C) = TObjPlayer__sub_800A3210((s32)(1), (s32)(temp_r4), (s32)(temp_r5));
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
         TBoss1Dragon__sub_80143504(arg0);
@@ -239,6 +242,10 @@ void TObjPlayer__sub_800A31FC(void) {  }
 
 f32 TObjPlayer__sub_800A3200(s32 arg0) {
     return M2C_FIELD((lbl_805D5004 + (arg0 * 4)), f32 *, 0);
+}
+
+s32 TObjPlayer__sub_800A3210(s32 i, s32 _w1, s32 _w2) {
+    return (*(G_800A3210 * *)&lbl_805D5004)->arr[i];
 }
 
 int is_flag_set_388_bit26__10TObjPlayerFPv(void* p) { return (*(u32*)((char*)p + 0x388) >> 26) & 0x1; }

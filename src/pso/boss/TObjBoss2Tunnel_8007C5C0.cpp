@@ -34,6 +34,9 @@ extern const f32 lbl_805D9228;
 extern const f32 lbl_805D922C;
 extern const f32 lbl_805D9230;
 void TObjBoss2Tunnel__sub_8007CAE8(u32 arg0);
+extern M2C_UNK TObjBoss2Tunnel__data_80438A08[];
+void poll_load_status__15TAdPlayerLoadGCFi(s32 a, void *b);
+void TObjBoss2Tunnel__sub_8007C880(void);
 }
 
 extern "C" {
@@ -43,6 +46,10 @@ s32 load_player_slot__23TAdSinglePlyChrSelectGCFPvii(M2C_UNK, M2C_UNK *, s32);
 extern M2C_UNK TObjBoss2Tunnel__data_80438A08[];
 extern s16 TObjBoss2Tunnel__data_805D4E8A;
 extern s32 TObjBoss2Tunnel__data_805D4E90;
+
+void TObjBoss2Tunnel__sub_8007C880(void) {
+    poll_load_status__15TAdPlayerLoadGCFi(1, ((u8 *)&TObjBoss2Tunnel__data_80438A08));
+}
 
 void TObjBoss2Tunnel__sub_8007CAE8(u32 arg0) {
     Stack_8007CAE8 stack;

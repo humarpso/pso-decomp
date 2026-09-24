@@ -37,6 +37,10 @@ s32 TObjPlayer__sub_803D9B78();
 extern RecoveredGlobal_80114DB8_lbl_8043E5A8 lbl_8043E5A8;
 extern RecoveredGlobal_80114DB8_lbl_8058D490 lbl_8058D490;
 s32 TItemMagSub__sub_80114DB8(u8 *arg0, u32 arg1);
+extern void *TItemMagSub__data_805D54B8;
+extern s32 TItemMagSub__data_805D54BC;
+void TItemMagSub__sub_80114AB4(void *a, void *b);
+void TItemMagSub__sub_80114C40(void *arg);
 }
 
 extern "C" {
@@ -69,6 +73,13 @@ void reset_stats__11TItemMagSubFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x9C) = (f32) TItemMagSub__data_805DABC8;
     M2C_FIELD(arg0, f32 *, 0x98) = (f32) TItemMagSub__data_805DABC8;
     M2C_FIELD(arg0, f32 *, 0x94) = (f32) TItemMagSub__data_805DABC8;
+}
+
+void TItemMagSub__sub_80114C40(void *arg) {
+    if (TItemMagSub__data_805D54B8 != 0) {
+        TItemMagSub__sub_80114AB4(TItemMagSub__data_805D54B8, arg);
+        TItemMagSub__data_805D54BC++;
+    }
 }
 
 void accumulate_stat__11TItemMagSubFPvPvPv(f32 *arg0, s32 *arg1, void *arg2) {

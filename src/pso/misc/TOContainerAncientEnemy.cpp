@@ -95,6 +95,8 @@ struct RecoveredGlobal_8015BD68___vt__23TOContainerAncientEnemy {
     u8 remaining[0x148];
 };
 
+struct Obj_8015BCC0 { u8 pad[0x326]; s16 a326; u8 pad2[0x364 - 0x328]; s32 a364; };
+
 extern "C" {
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -118,6 +120,8 @@ extern s32 lbl_805D2F08;
 extern u32 lbl_805D58E8;
 extern s32 tl_05;
 u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1);
+void TObjPlayer__sub_801B4A18(Obj_8015BCC0 *self, s32 x);
+void TOContainerAncientEnemy__sub_8015BCC0(Obj_8015BCC0 *self);
 }
 
 extern "C" {
@@ -175,6 +179,16 @@ void TOContainerAncientEnemy__sub_8015BBFC(u8 *arg0) {
             TObjPlayer__sub_803D9B78();
             break;
         }
+    }
+}
+
+void TOContainerAncientEnemy__sub_8015BCC0(Obj_8015BCC0 *self) {
+    switch (self->a326) {
+    case 0:
+        if (self->a364 != 0) {
+            TObjPlayer__sub_801B4A18(self, -1);
+        }
+        break;
     }
 }
 

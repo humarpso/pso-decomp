@@ -21,14 +21,15 @@ f32 TBoss8Dragon__sub_803D64C0();
 f32 TBoss8Dragon__sub_803D64DC(s32);
 void TObjPlayer__sub_80141DCC(s32 arg0, void *arg1, void *arg2, f32 farg0);
 f32 TObjPlayer__sub_8014241C(u8 *arg0, u8 *arg1);
+u16 TObjPlayer__sub_80142344(s32 a0, s32 b0);
+f32 TAdSinglePlyChrSelectGC__sub_80141EA0(s32 v);
+s32 TAdSinglePlyChrSelectGC__sub_80141E8C(f32 v);
+u16 TObjPlayer__sub_80141F84(s32 a, s32 b);
+s16 TBoss4Type2__sub_80141FA8(s32 a, s32 b);
 }
 
 extern "C" {
 
-int TAdSinglePlyChrSelectGC__sub_80141E8C(void);
-int TAdSinglePlyChrSelectGC__sub_80141EA0(void);
-int TBoss4Type2__sub_80141FA8(void);
-int TObjPlayer__sub_80141F84(void);
 s32 calc_angle_to__10TObjPlayerFPvPv(void *arg0, void *arg1);
 void calc_direction_vector__10TObjPlayerFiPvf(s32 arg0, void *arg1, f32 farg0);
 s32 check_camera_distance__10TObjPlayerFi(s32 arg0);
@@ -85,8 +86,14 @@ s32 calc_angle_to__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     return (s32) (lbl_8043F2C0 * get_ad_end_text_start__10TObjPlayerFv(temp_f3 - M2C_FIELD(arg0, f32 *, 0), M2C_FIELD(arg1, f32 *, 8) - M2C_FIELD(arg0, f32 *, 8)));
 }
 
-int TAdSinglePlyChrSelectGC__sub_80141E8C(void) { return 0; }
-int TAdSinglePlyChrSelectGC__sub_80141EA0(void) { return 0; }
+s32 TAdSinglePlyChrSelectGC__sub_80141E8C(f32 v) {
+    return *(s32 *)&v;
+}
+
+f32 TAdSinglePlyChrSelectGC__sub_80141EA0(s32 v) {
+    return *(f32 *)&v;
+}
+
 void fn_80141EB4(void) { abs__4cXyzCFv(0, 5); abs__4cXyzCFv(1, 6); }
 void setSpriteInverseColorBlend(void) { abs__4cXyzCFv(0, 5); abs__4cXyzCFv(1, 7); }
 
@@ -94,8 +101,17 @@ void reset_transform_state__10TObjPlayerFv(void) { abs__4cXyzCFv(0, 8); abs__4cX
 
 void init_xyz_limits__10TObjPlayerFv(void) { abs__4cXyzCFv(0, 8); abs__4cXyzCFv(1, 10); }
 
-int TObjPlayer__sub_80141F84(void) { return 0; }
-int TBoss4Type2__sub_80141FA8(void) { return 0; }
+u16 TObjPlayer__sub_80141F84(s32 a, s32 b) {
+    s16 d = (u16)b - (u16)a;
+    if (d < 0) {
+        d = -d;
+    }
+    return d;
+}
+
+s16 TBoss4Type2__sub_80141FA8(s32 a, s32 b) {
+    return (u16)b - (u16)a;
+}
 
 s32 clamp_s32__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 var_r3;
@@ -145,6 +161,19 @@ void TObjPlayer__sub_801422A8(u8 *arg0, s32 *arg1, s32 *arg2) {
     *arg2 = (s32) (lbl_8043F2C0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0)), (f32) (TObjPlayer__sub_8001978C((f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0))))));
 }
 #pragma pop
+
+u16 TObjPlayer__sub_80142344(s32 a0, s32 b0) {
+    u16 a = a0;
+    u16 b = b0;
+    s16 d = b - a;
+    s32 r;
+    if (d > -0x3000 && d < 0x3000) {
+        r = (d >> 1) - (d >> 2);
+    } else {
+        r = d >> 1;
+    }
+    return a + r;
+}
 
 u16 lerp_angle_half__10TObjPlayerFUsUs(u16 arg0, u16 arg1) {
     return (u16) (arg0 + ((s16) ((u16) arg1 - arg0) >> 1));

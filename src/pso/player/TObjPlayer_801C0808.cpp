@@ -72,6 +72,9 @@ struct M2CCopy_14 { u8 bytes[0x14]; };
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+
+struct O_801C12C8 { u8 a; u8 b; u8 pad[2]; s32 c; s32 arr[30]; };
+
 extern "C" {
 u8 *TObjPlayer__sub_801C1268(u8 *arg0, u8 *arg1);
 extern const f32 TObjPlayer__data_805DC278;
@@ -95,6 +98,7 @@ M2C_UNK TFontSmallLobby__sub_801C0228(void *, void *);
 u8 *TObjPlayer__sub_801C106C(u8 *arg0, u8 *arg1);
 extern const f32 TObjPlayer__data_805DC278;
 void init_6x2A__10TObjPlayerFPv(u8 *arg0);
+void TObjPlayer__sub_801C12C8(O_801C12C8 *p);
 }
 
 extern "C" {
@@ -200,6 +204,16 @@ u8 *TObjPlayer__sub_801C1268(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
     *(M2CCopy_78 *)(arg0 + 4 + 4) = *(const M2CCopy_78 *)((s32) (arg1 + 4) + 4);
     return arg0;
+}
+
+void TObjPlayer__sub_801C12C8(O_801C12C8 *p) {
+    s32 i;
+    p->c = 0;
+    for (i = 0; i < 30; i++) {
+        p->arr[i] = -1;
+    }
+    p->a = 0xac;
+    p->b = 0x20;
 }
 
 void bswap_body_dwords3__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_32__FPUl((char*)p + 0x4); bswap_32__FPUl((char*)p + 0x8); }

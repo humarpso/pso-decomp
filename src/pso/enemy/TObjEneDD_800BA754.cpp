@@ -29,6 +29,10 @@ struct VObj_800BA8E8_800BA754 : Base_800BA8E8_800BA754 {
     virtual void m84(); virtual void m85(); virtual void m86();
 };
 
+struct E_800BA8A8 { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
+
+struct O_800BA8A8 { u8 pad[0xa4]; E_800BA8A8 *entries; s32 count; };
+
 extern "C" {
 u32 TObjEneDD__sub_800BA828(u16 arg0);
 u32 TObjPlayer__sub_8007A3AC(void *, void *);
@@ -38,13 +42,13 @@ void TObjEneDD__sub_800BA870(u8 *arg0);
 void TObjEneDD__sub_800BA88C(u8 *arg0);
 void TObjEneDD__sub_800BA838(u8 *arg0, f32 farg0);
 int TObjEneDD__sub_800BA804(u16 arg0);
+s32 TObjEneDD__vt87(O_800BA8A8 *self);
 }
 
 extern "C" {
 
 void TObjEneDD__vt85(void);
 void TObjEneDD__vt86(void *arg0);
-int TObjEneDD__vt87(void);
 u8 is_valid_target__9TObjEneDDFPv(void *arg0);
 int TObjEneDD__sub_800BA6B8(void* p);
 int TObjEneDD__sub_800BA6C4(void* p);
@@ -106,7 +110,15 @@ void TObjEneDD__sub_800BA88C(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x18) = (s32) (M2C_FIELD(arg0, s32 *, 0x18) & 0xFFFFFFFD);
 }
 
-int TObjEneDD__vt87(void) { return 0; }
+s32 TObjEneDD__vt87(O_800BA8A8 *self) {
+    s32 i;
+    for (i = 0; i < self->count; i++) {
+        if (self->entries[i].flags & 0x380000) {
+            return 1;
+        }
+    }
+    return 0;
+}
 
 void TObjEneDD__vt86(void *arg0) {
     struct VObj_800BA8E8_800BA754 *o = (struct VObj_800BA8E8_800BA754 *)arg0;

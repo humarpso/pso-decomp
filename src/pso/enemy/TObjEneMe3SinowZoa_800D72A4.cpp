@@ -5,6 +5,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct O_800D72A4 { u8 pad[0x18]; f32 f18; };
+
 extern "C" {
 extern const float lbl_805DA348;
 s32 TObjEneMe3SinowZoa__sub_800D72D0(u8 *arg0);
@@ -19,6 +21,9 @@ extern const float lbl_805DA350;
 extern const f32 lbl_805DA354;
 extern const f32 lbl_805DA358;
 void TObjEneMe3SinowZoa__sub_800D741C(u8 *arg0);
+extern const float lbl_805DA348;
+extern const f32 lbl_805DA34C;
+s32 TObjEneMe3SinowZoa__sub_800D72A4(O_800D72A4 *self);
 }
 
 extern "C" {
@@ -28,6 +33,10 @@ void apply_player_damage_8448__18TObjEneMe3SinowZoaFv(void);
 void copy_position_vector__18TObjEneMe3SinowZoaFPvPv(void* p, void* q);
 int TObjPlayer__sub_803E38FC(int);
 int set_flags_and_apply_damage_color__10TObjPlayerFv(void);
+
+s32 TObjEneMe3SinowZoa__sub_800D72A4(O_800D72A4 *self) {
+    return self->f18 > (*(const f32 *)&lbl_805DA348) && self->f18 < lbl_805DA34C;
+}
 
 s32 TObjEneMe3SinowZoa__sub_800D72D0(u8 *arg0) {
     return M2C_FIELD(arg0, f32 *, 0x18) > (*(const f32 *)&lbl_805DA348);

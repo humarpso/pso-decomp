@@ -30,6 +30,28 @@ struct RecoveredGlobal_8018BD00___vt__19TContainerAncient01 {
     u8 remaining[0x13C];
 };
 
+struct B_8018BE30 { u8 pad[0x18]; };
+
+struct V_8018BE30 : B_8018BE30 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(s32 a, f32 b);
+};
+
+struct B_8018BE98 { u8 pad[0x18]; };
+
+struct V_8018BE98 : B_8018BE98 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(s32 a, f32 b);
+};
+
 extern "C" {
 s32 TObjPlayer__sub_80019038(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -48,6 +70,12 @@ extern s32 lbl_805D3300;
 extern s32 TContainerAncient01__data_805D5B90;
 extern const f32 lbl_805DBD5C;
 u8 *TContainerAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+extern const f32 TContainerAncient01__data_805DBD10;
+extern const f32 TContainerAncient01__data_805DBD14;
+f32 TContainerAncient01__sub_8018BE30(V_8018BE30 *self);
+extern const f32 TContainerAncient01__data_805DBD10;
+extern const f32 TContainerAncient01__data_805DBD14;
+f32 TContainerAncient01__vt22(V_8018BE98 *self);
 }
 
 extern "C" {
@@ -111,6 +139,11 @@ u8 *TContainerAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
 }
 #pragma pop
 
+f32 TContainerAncient01__sub_8018BE30(V_8018BE30 *self) {
+    self->m20(0, TContainerAncient01__data_805DBD10);
+    return TContainerAncient01__data_805DBD14;
+}
+
 void TContainerAncient01__sub_8018BE68(void) {  }
 int TContainerAncient01__sub_8018BE6C(void) { return 1; }
 int TContainerAncient01__sub_8018BE74(void) { return 1; }
@@ -122,6 +155,11 @@ extern s32 TContainerAncient01__data_805D5B90;
 
 s32 TContainerAncient01__sub_8018BE90(void) {
     return TContainerAncient01__data_805D5B90;
+}
+
+f32 TContainerAncient01__vt22(V_8018BE98 *self) {
+    self->m20(0, TContainerAncient01__data_805DBD10);
+    return TContainerAncient01__data_805DBD14;
 }
 
 void TContainerAncient01__vt23(void) {  }

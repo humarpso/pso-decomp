@@ -4,6 +4,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct E_801BE8F4 { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
+
+struct O_801BE8F4 { u8 pad[0xa4]; E_801BE8F4 *entries; };
+
+extern "C" {
+u8 TObjPlayer__sub_801BE8F4(O_801BE8F4 *self, s32 i, u32 mask);
+}
+
 extern "C" {
 
 s32 get_max_level__10TObjPlayerFv();
@@ -82,6 +90,8 @@ int TObjPlayer__sub_801BEDA8(void*);
 int TObjPlayer__sub_801BEDB0(void*);
 int TObjPlayer__sub_801BEDB8(void*);
 
-int TObjPlayer__sub_801BE8F4(void) { return 0; }
+u8 TObjPlayer__sub_801BE8F4(O_801BE8F4 *self, s32 i, u32 mask) {
+    return (self->entries[i].flags & mask) != 0;
+}
 
 }

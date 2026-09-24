@@ -4,8 +4,12 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 void fn_8002C7EC(u8 *arg0, s32 arg1);
+extern s32 TObjBoss1Crater__data_805D4B58;
+extern s32 TObjBoss1Crater__data_804FE1E8[];
+void TObjBoss1Crater__sub_8002C7B8(void);
 }
 
 extern "C" {
@@ -15,7 +19,6 @@ s32 TObjBoss1Crater__sub_8002C7E4(void* p);
 void * create__15TObjBoss1CraterFPvPv(void *arg0, void *arg1);
 int TBoss8Dragon__sub_8002D5F8(void);
 void *TObjBoss1Crater__ct(void *, void *, void *, void *);
-int TObjBoss1Crater__sub_8002C7B8(void);
 int TObjBoss1Floor__sub_8002CB40(void);
 int TObjBoss1Floor__sub_8002CB78(void);
 int TObjBoss1Rock__sub_8002E3CC(void);
@@ -49,6 +52,14 @@ void * create__15TObjBoss1CraterFPvPv(void *arg0, void *arg1) {
 }
 
 void TObjBoss1Crater__sub_8002C7B4(void) {  }
+
+void TObjBoss1Crater__sub_8002C7B8(void) {
+    s32 i;
+    TObjBoss1Crater__data_805D4B58 = 0;
+    for (i = 0; i < 20; i++) {
+        TObjBoss1Crater__data_804FE1E8[i] = 0;
+    }
+}
 
 s32 TObjBoss1Crater__sub_8002C7E4(void* p) { return *(s32*)((char*)p + 0x8); }
 void fn_8002C7EC(u8 *arg0, s32 arg1) {

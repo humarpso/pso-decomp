@@ -401,6 +401,8 @@ extern const f32 lbl_805D9E24;
 extern const f32 lbl_805D9E28;
 extern const f32 lbl_805D9E2C;
 extern const f32 lbl_805D9E30;
+void queue_destruction__7TObjectFv(void *self);
+void TObjEneBm5Wolf__sub_800B4D4C(void *self, s32 msg);
 }
 
 extern "C" {
@@ -482,6 +484,16 @@ void advance_spawn_timer__14TObjEneBm5WolfFv(void) {
 }
 
 extern const f32 TObjEneBm5Wolf__data_805D9DB4;
+
+void TObjEneBm5Wolf__sub_800B4D4C(void *self, s32 msg) {
+    switch (msg) {
+    case 0:
+        return;
+    case 3:
+        queue_destruction__7TObjectFv(self);
+        break;
+    }
+}
 
 void action__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {

@@ -9,15 +9,17 @@ struct RecoveredGlobal_801BFBEC_lbl_804C3E38 {
     u8 remaining[0x8];
 };
 
+struct O_801BFC90 { u16 a; u16 b; s32 c; };
+
 extern "C" {
 s32 reset_type__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_801BFBEC_lbl_804C3E38 lbl_804C3E38;
 u8 *TObjPlayer__sub_801BFBEC(u8 *arg0);
+void TObjPlayer__sub_801BFC90(O_801BFC90 *p);
 }
 
 extern "C" {
 
-int TObjPlayer__sub_801BFC90(void*);
 void TObjPlayer__sub_801BFD3C(void* p);
 void* init_members__10TObjPlayerFPv(void* p);
 void* init_sub__10TObjPlayerFPv(void* p);
@@ -53,9 +55,13 @@ u8 *TObjPlayer__sub_801BFBEC(u8 *arg0) {
 }
 
 void* reset_and_clear__10TObjPlayerFPv(void* p) { init_forward__10TObjPlayerFPv(p); reset_counter_field4__10TObjPlayerFPv(p); return p; }
-void* wrap_update__10TObjPlayerFPv(void* p) { TObjPlayer__sub_801BFC90((void*)(p)); return p; }
+void* wrap_update__10TObjPlayerFPv(void* p) { TObjPlayer__sub_801BFC90((O_801BFC90 *)((void*)(p))); return p; }
 
-int TObjPlayer__sub_801BFC90(void*) { return 0; }
+void TObjPlayer__sub_801BFC90(O_801BFC90 *p) {
+    p->c = 0;
+    p->a = 0xFFFF;
+    p->b = 0;
+}
 
 void* set_vec4_const_wrapper__10TObjPlayerFPv(void* p) { set_vec4_const__10TObjPlayerFPv(p); return p; }
 void* init_members__10TObjPlayerFPv(void* p) { TObjPlayer__sub_801BF964(p); return p; }

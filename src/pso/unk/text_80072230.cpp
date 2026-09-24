@@ -26,6 +26,8 @@ struct Stack_80072308 {
     u8 trailing_storage[0x8];
 };
 
+struct Pkt_800725E0 { u8 pad[4]; u16 f4; u8 pad2[0x102]; };
+
 extern "C" {
 M2C_UNK send_challenge_packet__6TLobbyFPv(void *);
 M2C_UNK TLobby__sub_800728FC(void *);
@@ -46,6 +48,9 @@ s32 send_and_handle_60_wrapper__6TLobbyFPv(void *);
 s32 TLobby__sub_800727EC(void *);
 extern s32 lbl_805D53A0;
 void TLobby__sub_80072308(s32 arg0);
+s32 init_pkt_cmd_7C__6TLobbyFPv(void *);
+s32 send_6x7C_packet__6TLobbyFi(void *);
+void TLobby__sub_800725E0(void);
 }
 
 extern "C" {
@@ -99,6 +104,14 @@ void TLobby__sub_800724F0(M2C_UNK arg0, s32 arg1) {
     stack.spC = arg1;
     send_challenge_packet__6TLobbyFPv((void *) (&stack.sp8));
 }
+
+void TLobby__sub_800725E0(void) {
+    Pkt_800725E0 pkt;
+    init_pkt_cmd_7C__6TLobbyFPv(&pkt);
+    pkt.f4 = 0xFFFF;
+    send_6x7C_packet__6TLobbyFi(&pkt);
+}
+
 void TLobby__sub_800726A0(void) {
     G_SetChallengeRecords_V3_6x7C packet;
     init_pkt_cmd_7C__6TLobbyFPv((void *) (&packet.__base_G_SetChallengeRecordsBase_6x7C.header));

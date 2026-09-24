@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u32 TLobby__sub_80071640(u32 c);
+s32 TLobby__sub_80071670(u32 x);
+}
+
+extern "C" {
 
 s32 TLobby__sub_80071654(s32 arg0);
 s32 set_split_screen_flag__6TLobbyFi(s32 arg0);
@@ -36,8 +41,22 @@ s32 set_split_screen_flag__6TLobbyFi(s32 arg0) {
     return 1;
 }
 
+u32 TLobby__sub_80071640(u32 c) {
+    return ((c >> 9) & 0x7C00) | ((c >> 6) & 0x3E0) | ((c >> 3) & 0x1F);
+}
+
 s32 TLobby__sub_80071654(s32 arg0) {
     return ((arg0 * 8) & 0xF8) | (((arg0 << 9) & 0xF80000) | 0xFF000000 | ((arg0 << 6) & 0xF800));
+}
+s32 TLobby__sub_80071670(u32 x) {
+    s32 n = 0;
+    while (x != 0) {
+        if (x & 1) {
+            n++;
+        }
+        x >>= 1;
+    }
+    return n;
 }
 
 }

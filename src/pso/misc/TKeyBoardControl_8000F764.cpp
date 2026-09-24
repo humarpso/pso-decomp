@@ -44,6 +44,10 @@ struct RecoveredGlobal_8000F91C_lbl_804FE120 {
     u8 remaining[0x14];
 };
 
+struct G_8000F92C { s32 f0; s32 f4; s32 f8; s32 fc; s32 f10; };
+
+struct G_8000F9B0 { s32 f0; s32 f4; s32 f8; s32 fc; s32 f10; };
+
 extern "C" {
 extern s32 lbl_805D49C0;
 void TKeyBoardControl__sub_8000F950(void);
@@ -81,6 +85,10 @@ extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
 void TKeyBoardControl__sub_8000F91C(s32 arg0);
 extern s32 lbl_805D49BC;
 bool TKeyBoardControl__sub_8000F968(void);
+extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
+s32 TKeyBoardControl__sub_8000F92C(void);
+extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
+s32 TKeyBoardControl__sub_8000F9B0(void);
 }
 
 extern "C" {
@@ -186,6 +194,11 @@ void TKeyBoardControl__sub_8000F91C(s32 arg0) {
     M2C_FIELD(&(*(RecoveredGlobal_8000F91C_lbl_804FE120 *)&lbl_804FE120).value, s32 *, 8) = arg0;
 }
 
+s32 TKeyBoardControl__sub_8000F92C(void) {
+    (*(G_8000F92C *)&lbl_804FE120).f10 = 3;
+    return (*(G_8000F92C *)&lbl_804FE120).f4 = (*(G_8000F92C *)&lbl_804FE120).fc;
+}
+
 s32 get_input__16TKeyBoardControlFv(void) {
     return lbl_805D49C0;
 }
@@ -226,6 +239,12 @@ void TKeyBoardControl__sub_8000F9A4(void) {
 typedef char RecoveredGlobal_8000F9E4_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9E4_lbl_804FE120) == 0x18 ? 1 : -1];
 
 typedef char RecoveredGlobal_8000F9CC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9CC_lbl_804FE120) == 0x18 ? 1 : -1];
+
+s32 TKeyBoardControl__sub_8000F9B0(void) {
+    (*(G_8000F9B0 *)&lbl_804FE120).f10 = 2;
+    return (*(G_8000F9B0 *)&lbl_804FE120).f4 = (*(G_8000F9B0 *)&lbl_804FE120).f8;
+}
+
 void TKeyBoardControl__sub_8000F9CC(s32 arg0) {
     M2C_FIELD(&(*(RecoveredGlobal_8000F9CC_lbl_804FE120 *)&lbl_804FE120).value, s32 *, 4) = arg0;
     M2C_FIELD(&(*(RecoveredGlobal_8000F9CC_lbl_804FE120 *)&lbl_804FE120).value, s32 *, 0x10) = 1;

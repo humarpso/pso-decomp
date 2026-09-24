@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Obj_80113EDC { u8 pad[0x44]; u8 arr[1]; };
+
 extern "C" {
 void TItemMag__sub_80113E48(u8 *arg0, u8 *arg1);
 u8 TItemMag__sub_80113EC8(u8 *arg0);
@@ -19,13 +21,13 @@ void TItemMag__sub_8011423C(u8 *arg0, s16 arg1);
 s16 TItemMagSub__sub_8011455C(void *);
 s16 TItemData__sub_801146F8(void *);
 void TItemMag__sub_801142E0(u8 *arg0, s16 arg1);
+void TItemMag__sub_80113EDC(Obj_80113EDC *self, s16 i, u8 v);
 }
 
 extern "C" {
 
 void TItemMag__sub_80113E3C(void* p);
 u8 TItemMag__sub_80113E74(void* p);
-int TItemMag__sub_80113EDC(void);
 f32 TItemMag__sub_80113EEC(void* p);
 void add_clamped_stat__8TItemMagFPvi(void *arg0, s32 arg1);
 void add_stat_clamped__8TItemMagFPvi(s16 *arg0, s32 arg1);
@@ -81,7 +83,9 @@ u8 TItemMag__sub_80113EC8(u8 *arg0) {
     return (u8) (M2C_FIELD(arg0, s16 *, 0x324) == 7);
 }
 
-int TItemMag__sub_80113EDC(void) { return 0; }
+void TItemMag__sub_80113EDC(Obj_80113EDC *self, s16 i, u8 v) {
+    self->arr[i] = v;
+}
 
 f32 TItemMag__sub_80113EEC(void* p) { return *(f32*)((char*)p + 0x3c); }
 

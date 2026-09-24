@@ -4,6 +4,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct E_8005E9D8 { s32 a; s32 b; };
+
+struct O_8005E9D8 { u8 pad[8]; E_8005E9D8 e[1]; };
+
 extern "C" {
 s32 calc_product__12TBoss8DragonFiiii(void *, void *, int, int);
 void TBoss8Dragon__sub_8005EB6C(s32 arg0, u8 *arg1, s32 arg2);
@@ -15,9 +19,14 @@ extern const f64 lbl_80437EB0;
 void TBoss8Dragon__sub_8005EBDC(u8 *arg0, u8 *arg1, u8 *arg2);
 f32 TBoss8Dragon__sub_8005EA5C(int, f32, f32);
 f32 TBoss8Dragon__sub_8005EAD0(void *arg0, void *arg1, int arg2);
+s32 TBoss8Dragon__sub_8005E9D8(void *self, O_8005E9D8 *o, s32 i);
 }
 
 extern "C" {
+
+s32 TBoss8Dragon__sub_8005E9D8(void *self, O_8005E9D8 *o, s32 i) {
+    return o->e[i].a;
+}
 
 #pragma push
 #pragma scheduling off

@@ -51,6 +51,16 @@ struct VObj_800386A4_80038610 : Base_800386A4_80038610 {
     virtual void m106(s32);
 };
 
+struct N_80038908 { u8 pad[0x14]; s32 f14; u8 pad2[0x30 - 0x18]; N_80038908 *next; };
+
+struct M_80038908 { u8 pad[0x2c]; N_80038908 *first; };
+
+struct O_80038908 { u8 pad[0x34]; M_80038908 *m; u8 pad2[0x3a8 - 0x38]; s32 f3a8; };
+
+extern "C" {
+void TBoss2Mine__sub_80038908(O_80038908 *self);
+}
+
 extern "C" {
 
 struct Base_80038948_80038610 {
@@ -242,6 +252,21 @@ void init_params__10TBoss2MineFPvif(u8 *arg0, s32 arg1, f32 farg0) {
     M2C_FIELD(arg0, s32 *, 0x3C4) = 0;
     M2C_FIELD(arg0, f32 *, 0x3B4) = (f32) TBoss2Mine__data_805D84D4;
     M2C_FIELD(arg0, s32 *, 0x3BC) = 0;
+}
+
+void TBoss2Mine__sub_80038908(O_80038908 *self) {
+    N_80038908 *n = self->m->first;
+    s32 i;
+    s32 v = -self->f3a8;
+    for (i = 0; i < 4; i++) {
+        n->f14 = v;
+        n = n->next;
+    }
+    v = self->f3a8;
+    for (i = 0; i < 4; i++) {
+        n->f14 = v;
+        n = n->next;
+    }
 }
 
 void update_move_flag__10TBoss2MineFPv(void *arg0) {

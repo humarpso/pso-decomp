@@ -1,8 +1,15 @@
 #include "types.h"
 
+struct Rec_80116620 { u8 pad[0xC]; };
+
+struct Obj_80116620 { u8 pad[0x4]; Rec_80116620 recs[1]; };
+
+extern "C" {
+Rec_80116620 *TObjPlayer__sub_80116620(Obj_80116620 *self, s32 i);
+}
+
 extern "C" {
 
-int TObjPlayer__sub_80116620(void);
 void bswap_and_send_item__10TObjPlayerFPv(void* p);
 void bswap_fields_x4__10TObjPlayerFPv(void* p);
 s32 get_item_flags__10TObjPlayerFPv(void* p);
@@ -18,7 +25,8 @@ void bswap_and_send_item__10TObjPlayerFPv(void* p) { bswap_fields_x4__10TObjPlay
 void set_type_bytes__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x0) = 102; *(u8*)((char*)p + 0x1) = 3; }
 
 u16 get_type_id__10TObjPlayerFPv(void* p) { return *(u16*)((char*)p + 0x0); }
-
-int TObjPlayer__sub_80116620(void) { return 0; }
+Rec_80116620 *TObjPlayer__sub_80116620(Obj_80116620 *self, s32 i) {
+    return &self->recs[i];
+}
 
 }

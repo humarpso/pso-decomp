@@ -7,6 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #include <dolphin/mtx.h>
 #include <stddef.h>
 
+struct D_800D40FC { u8 pad[0x18]; s32 arr[1]; };
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjPlayer__sub_80156844(void *, void *, int);
@@ -15,6 +17,8 @@ extern const f32 lbl_805DA2A4;
 void TObjGyaranzoMissile__sub_800D4110(u8 *arg0, M2C_UNK *arg1, f32 farg0);
 extern s32 lbl_805D51EC;
 f32 TObjGyaranzoMissile__sub_800D40EC(s32 arg0);
+extern s32 lbl_805D51EC;
+s32 TObjGyaranzoMissile__sub_800D40FC(s32 i);
 }
 
 extern "C" {
@@ -41,6 +45,10 @@ extern s32 some_id_805c6f74;
 
 f32 TObjGyaranzoMissile__sub_800D40EC(s32 arg0) {
     return M2C_FIELD((lbl_805D51EC + (arg0 * 4)), f32 *, 0);
+}
+
+s32 TObjGyaranzoMissile__sub_800D40FC(s32 i) {
+    return (*(D_800D40FC * *)&lbl_805D51EC)->arr[i];
 }
 
 void TObjGyaranzoMissile__sub_800D4110(u8 *arg0, M2C_UNK *arg1, f32 farg0) {

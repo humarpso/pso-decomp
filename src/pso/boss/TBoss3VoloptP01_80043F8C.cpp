@@ -101,6 +101,8 @@ struct RecoveredGlobal_80044174_lbl_804FEE68 {
     u8 remaining[0x8];
 };
 
+struct O_800443BC { u16 a; u16 b; f32 c; };
+
 extern "C" {
 int TObjPlayer__sub_8004433C(s32);
 u8 * __ct__17TObjVoloptShutterFv(void *, s32);
@@ -124,6 +126,8 @@ extern const f32 lbl_805D8764;
 extern const f32 lbl_805D8794;
 extern const f32 lbl_805D8798;
 u8 *TBoss3VoloptP01__ct(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3, s16 arg4);
+extern const f32 lbl_805D8764;
+void TBoss3VoloptP01__sub_800443BC(O_800443BC *self);
 }
 
 extern "C" {
@@ -132,7 +136,6 @@ void *__dt__15TBoss3VoloptP01Fv(void *arg0, s16 arg1);
 void *create__15TBoss3VoloptP01FPv(void *arg0);
 void fn_80044330(void* p);
 void* fn_8004438C(void* p);
-int TBoss3VoloptP01__sub_800443BC(void*);
 void TObjEneGibbles__sub_80156720(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
@@ -215,6 +218,11 @@ u8 *TBoss3VoloptP01__sub_800442A0(u8 *arg0, M2C_UNK arg1, s32 arg2) {
 
 void fn_80044330(void* p) { *(s32*)((char*)p + 0x0) = 0; }
 int TObjPlayer__sub_8004433C(s32 _w0) { return 0; }
-void* fn_8004438C(void* p) { TBoss3VoloptP01__sub_800443BC(p); return p; }
+void* fn_8004438C(void* p) { TBoss3VoloptP01__sub_800443BC((O_800443BC *)(p)); return p; }
+void TBoss3VoloptP01__sub_800443BC(O_800443BC *self) {
+    self->a = 0xFFFF;
+    self->b = 0;
+    self->c = lbl_805D8764;
+}
 
 }

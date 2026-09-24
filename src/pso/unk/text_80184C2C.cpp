@@ -5,13 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern int lbl_8050DC20[];
+void TLobby__sub_80184D00(void* _w0);
+}
+
+extern "C" {
 
 int TLobby__sub_80184C2C(int a0);
 int TLobby__sub_80184C40(int a0);
 u8 TLobby__sub_80184C54(void);
 int TLobby__sub_80184C6C(int a0);
-int TLobby__sub_80184CE0(void* p);
-int TLobby__sub_80184D00(void*);
+void TLobby__sub_80184CE0(void* p);
 
     extern int lbl_8050DC50[];
 int TLobby__sub_80184C2C(int a0) {  return lbl_8050DC50[a0]; }
@@ -28,6 +32,12 @@ u8 TLobby__sub_80184C54(void) {
     extern int lbl_8050DC20[];
 int TLobby__sub_80184C6C(int a0) {  return lbl_8050DC20[a0]; }
 
-int TLobby__sub_80184CE0(void* p) { return TLobby__sub_80184D00(p); }
+void TLobby__sub_80184CE0(void* p) { TLobby__sub_80184D00((void*)(p)); }
+void TLobby__sub_80184D00(void* _w0) {
+    s32 i;
+    for (i = 0; i < 6; i++) {
+        ((s32 *)&lbl_8050DC20)[i] = 0;
+    }
+}
 
 }

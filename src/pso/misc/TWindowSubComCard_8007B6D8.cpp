@@ -2,10 +2,15 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+struct O_8007B6F4 { u8 pad[0x8c]; u8 flags; };
+
+extern "C" {
+s32 TWindowSubComCard__sub_8007B6F4(O_8007B6F4 *self);
+}
+
 extern "C" {
 
 u8 TWindowSubComCard__sub_8007B6EC(void* p);
-int TWindowSubComCard__sub_8007B6F4(void);
 void bswap_guild_card__17TWindowSubComCardFPv(void* p);
 int bswap_guild_card_tag__17TWindowSubComCardFPv(void* p);
 s32 get_card_id__17TWindowSubComCardFPv(void* p);
@@ -22,7 +27,12 @@ s32 get_card_id__17TWindowSubComCardFPv(void* p) { return *(s32*)((char*)p + 0x4
 int is_active__17TWindowSubComCardFPv(void* p) { return *(u8*)((char*)p + 0x8c) & 0x1; }
 u8 TWindowSubComCard__sub_8007B6EC(void* p) { return *(u8*)((char*)p + 0x8f); }
 
-int TWindowSubComCard__sub_8007B6F4(void) { return 0; }
+s32 TWindowSubComCard__sub_8007B6F4(O_8007B6F4 *self) {
+    if (self->flags & 2) {
+        return 0;
+    }
+    return 1;
+}
 
 void bswap_guild_card__17TWindowSubComCardFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_guild_card_tag__17TWindowSubComCardFPv((void*)((char*)p + 0x4)); }
 int bswap_guild_card_tag__17TWindowSubComCardFPv(void* p) { return bswap__16TPlyGuildCardTagFv(p); }

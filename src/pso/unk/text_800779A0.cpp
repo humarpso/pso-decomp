@@ -3,12 +3,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
-void fn_800779FC(void *, void *);
 s32 fn_80077A28(s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern u8 *lbl_805D4E5C;
 void fn_800779A0(u8 *arg0);
+u32 *fn_800779FC(u32 *dst, u32 *src);
 }
 
 extern "C" {
@@ -24,7 +25,21 @@ void fn_800779A0(u8 *arg0) {
         }
         lbl_805D4E5C = (unsigned char *) ((void *) var_r0);
     }
-    fn_800779FC(lbl_805D4E5C, arg0);
+    fn_800779FC((u32 *)(lbl_805D4E5C), (u32 *)(arg0));
+}
+u32 *fn_800779FC(u32 *dst, u32 *src) {
+    u32 *d = dst;
+    u32 b;
+    u32 a;
+    s32 i;
+    *dst = *src;
+    for (i = 0; i < 0x350; i++) {
+        a = src[1];
+        b = *(src += 2);
+        d[1] = a;
+        *(d += 2) = b;
+    }
+    return dst;
 }
 
 }

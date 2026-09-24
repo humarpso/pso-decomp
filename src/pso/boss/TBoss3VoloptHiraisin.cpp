@@ -186,6 +186,14 @@ struct RecoveredGlobal_80041AA0___vt__20TBoss3VoloptHiraisin {
     u8 remaining[0x148];
 };
 
+struct E_80041B34 { s32 f0; s32 f4; s32 f8; s32 fc; };
+
+struct G_80041B34 { u8 pad[0x42c]; E_80041B34 *entries; };
+
+struct O_80041B34 { u8 pad[0x24]; s32 f24; u8 pad2[0x34 - 0x28]; s32 f34; };
+
+struct O_80041D0C { u8 pad[0x30]; u32 f30; u8 pad2[0x37c - 0x34]; s32 f37c; };
+
 extern "C" {
 void obj_setFlags30(void *, u32);
 void TBoss3VoloptHiraisin__sub_80041B64(u8 *arg0);
@@ -197,6 +205,9 @@ s32 TObjEnemyCustom__ct(void *);
 extern M2C_UNK __vt__20TBoss3VoloptHiraisin[];
 extern s32 lbl_805D2738;
 u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, M2C_UNK arg1, s32 arg2);
+extern s32 TBoss3VoloptHiraisin__data_805D4C80;
+void TBoss3VoloptHiraisin__sub_80041B34(O_80041B34 *self, s32 i);
+void TBoss3VoloptHiraisin__sub_80041D0C(O_80041D0C *self);
 }
 
 extern "C" {
@@ -290,6 +301,11 @@ void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0) {
 
 extern s32 lbl_805D4C14;
 
+void TBoss3VoloptHiraisin__sub_80041B34(O_80041B34 *self, s32 i) {
+    self->f34 = (*(G_80041B34 * *)&TBoss3VoloptHiraisin__data_805D4C80)->entries[i].f8;
+    self->f24 = (*(G_80041B34 * *)&TBoss3VoloptHiraisin__data_805D4C80)->entries[i].fc;
+}
+
 void TBoss3VoloptHiraisin__sub_80041B64(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 0x40000);
     obj_setFlags30(arg0, 0x800U);
@@ -333,6 +349,18 @@ void update_state__20TBoss3VoloptHiraisinFPv(void *arg0) {
         break;
     case -1:
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFDFBFFFF);
+        break;
+    }
+}
+void TBoss3VoloptHiraisin__sub_80041D0C(O_80041D0C *self) {
+    switch (self->f37c) {
+    case -1:
+        break;
+    case 0:
+        self->f30 &= ~0x40000;
+        self->f37c = 1;
+        break;
+    case 1:
         break;
     }
 }

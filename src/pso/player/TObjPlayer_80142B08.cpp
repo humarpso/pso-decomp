@@ -6,6 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct E16_80142b8c_80142B08 { u8 a[4]; s32 f4; u8 b[8]; };
 struct E8_80142b8c_80142B08  { u8 a[4]; s32 f4; };
 
+struct E1_80142BB4 { s32 a; s32 idx; s32 c; s32 d; };
+
+struct E2_80142BB4 { s32 a; s32 b; };
+
+struct Obj_80142BB4 { u8 pad[0xd8]; E1_80142BB4 *e1; E2_80142BB4 *e2; };
+
+extern "C" {
+s32 TObjPlayer__sub_80142BB4(Obj_80142BB4 *self, s16 i);
+}
+
 extern "C" {
 
 s32 is_anim_finished__10TObjPlayerFPv(void *arg0);
@@ -30,6 +40,10 @@ void update_animation_frame__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
 }
 
 extern u8 *lbl_805D5684;
+
+s32 TObjPlayer__sub_80142BB4(Obj_80142BB4 *self, s16 i) {
+    return self->e2[self->e1[i].idx].b;
+}
 
 void serialize_node_flags__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r4;

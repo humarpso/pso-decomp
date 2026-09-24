@@ -4,6 +4,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct O_8009518C { u8 pad[0x3f4]; s32 idx; u8 pad2[0x418 - 0x3f8]; u32 flags[1]; };
+
+extern "C" {
+u8 TObjEneRe7Berura__sub_8009518C(O_8009518C *self);
+}
+
 extern "C" {
 
 void apply_attack_params__16TObjEneRe7BeruraFiPv(s32 arg0, u8 *arg1);
@@ -61,6 +67,9 @@ void apply_attack_params__16TObjEneRe7BeruraFiPv(s32 arg0, u8 *arg1) {
     TObjPlayer__sub_803D97F0((void *) (lbl_8058D490), (int) (temp_r4), (int) (temp_r5), (int) (temp_r6));
     TObjEneRe7Berura__sub_8009503C((void *) (arg0), (int) (0));
     TObjPlayer__sub_803D9B78();
+}
+u8 TObjEneRe7Berura__sub_8009518C(O_8009518C *self) {
+    return !(self->flags[self->idx] & 2);
 }
 
 }

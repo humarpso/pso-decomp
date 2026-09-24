@@ -1,10 +1,17 @@
 #include "types.h"
 
+struct Rec_8013EB6C { u8 pad[0x124]; };
+
+struct Obj_8013EB6C { u8 pad[0x5c]; Rec_8013EB6C recs[1]; };
+
+extern "C" {
+Rec_8013EB6C *TLockOnCursor__sub_8013EB6C(Obj_8013EB6C *self, s32 i);
+}
+
 extern "C" {
 
 s32 TLockOnCursor__sub_8013EB2C(void* p);
 int TLockOnCursor__sub_8013EB34(void);
-int TLockOnCursor__sub_8013EB6C(void);
 s32 get_target__13TLockOnCursorFPv(void* p);
 int is_bit1_set__13TLockOnCursorFPv(void* p);
 int is_inactive__13TLockOnCursorFPv(void* p);
@@ -103,7 +110,8 @@ int TLockOnCursor__sub_8013EB34(void) {  return TLockOnCursor__data_805D5648; }
 
 int test_flag_1_at_8__13TLockOnCursorFPv(void* p) { return TObjPlayer__sub_8001BEF8((char*)p + 0x8, 1); }
 s32 get_target__13TLockOnCursorFPv(void* p) { return *(s32*)((char*)p + 0x0); }
-
-int TLockOnCursor__sub_8013EB6C(void) { return 0; }
+Rec_8013EB6C *TLockOnCursor__sub_8013EB6C(Obj_8013EB6C *self, s32 i) {
+    return &self->recs[i];
+}
 
 }

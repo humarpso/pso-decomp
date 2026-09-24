@@ -1,6 +1,11 @@
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+
+struct E_8007F574 { s32 a; f32 b; };
+
+struct O_8007F574 { u8 pad[0x40]; s32 x40; E_8007F574 e[4]; };
+
 extern "C" {
 f32 get_random_float__8TObjFishFv();
 s32 __cvt_fp2unsigned(f32, f32);
@@ -10,11 +15,23 @@ extern const f32 lbl_805D92C0;
 extern const f32 lbl_805D92C4;
 extern const f32 lbl_805D92C8;
 void fn_8007F5A4(u8 *arg0);
+extern const f32 lbl_805D92B8;
+void fn_8007F574(O_8007F574 *self);
 }
 
 extern "C" {
 
 #pragma fp_contract on
+
+void fn_8007F574(O_8007F574 *self) {
+    s32 i;
+    self->x40 = 0;
+    for (i = 0; i < 4; i++) {
+        self->e[i].a = -1;
+        self->e[i].b = lbl_805D92B8;
+    }
+}
+
 void fn_8007F5A4(u8 *arg0) {
   int new_var;
   s32 temp_r3;

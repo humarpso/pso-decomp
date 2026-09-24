@@ -23,6 +23,8 @@ struct VObj_18 : VBase_18 {
     virtual s16 m14();
 };
 
+struct Obj_80113CA8 { u8 pad[0x70]; s32 arr[1]; };
+
 extern "C" {
 M2C_UNK refresh_if_current_player__20TWindowSubStatusDispFPv(void *);
 int TItemData__sub_8010EE40(void*);
@@ -55,11 +57,11 @@ u8 * TItemMag__ct(void *, M2C_UNK, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TItemMag__sub_80113AD4(s32 arg0);
+void TItemMag__sub_80113CA8(Obj_80113CA8 *self, s32 i, s32 v);
 }
 
 extern "C" {
 
-int TItemMag__sub_80113CA8(void);
 void TItemMag__sub_80113CB8(u8 *arg0, s32 arg1, u32 arg2);
 int TItemMag__vt13(void* p);
 void TItemMag__vt16(s32 arg0, s32 arg1);
@@ -239,8 +241,6 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 
-int TItemMag__sub_80113CA8(void) { return 0; }
-
 }
 
 #include "types.h"
@@ -249,6 +249,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
+
+void TItemMag__sub_80113CA8(Obj_80113CA8 *self, s32 i, s32 v) {
+    self->arr[i] = v;
+}
 
 void TItemMag__sub_80113CB8(u8 *arg0, s32 arg1, u32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x70) = arg1;

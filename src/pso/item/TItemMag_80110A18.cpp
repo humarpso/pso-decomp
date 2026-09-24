@@ -4,6 +4,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct O_80110F04 { u8 pad[0x190]; f32 f190; f32 f194; };
+
+extern "C" {
+extern const f32 TItemMag__data_805DABA4;
+extern const f32 TItemMag__data_805DABA8;
+void TItemMag__sub_80110F04(O_80110F04 *self);
+}
+
 extern "C" {
 
 void call_preserve_flag__8TItemMagFPvi(void *arg0, s32 arg1);
@@ -120,6 +128,14 @@ void copy_owner_data__8TItemMagFPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x1B8) = (s32) M2C_FIELD(temp_r3, s16 *, 8);
         M2C_FIELD(arg0, u8 *, 0x1BC) = (u8) M2C_FIELD(temp_r3, u8 *, 0xB);
         TItemMag__sub_80111140(arg0, temp_r3 + 0xC, temp_r3 + 0x10);
+    }
+}
+void TItemMag__sub_80110F04(O_80110F04 *self) {
+    if (TItemMag__data_805DABA4 != self->f190) {
+        self->f190 -= TItemMag__data_805DABA8;
+        if (TItemMag__data_805DABA4 == self->f190) {
+            self->f194 = TItemMag__data_805DABA4;
+        }
     }
 }
 

@@ -14,6 +14,10 @@ void *THeap::operator new(size_t size) {
     return NULL;
 }
 
+extern "C" {
+u32 TObjPlayer__sub_801413D8(u32 x, u32 y, s16 w);
+}
+
 void xfree(void *ptr) {
 
 }
@@ -122,7 +126,6 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-int TObjPlayer__sub_801413D8(void);
 void __dl__5THeapFPv(void);
 void __nw__5THeapFUl(void);
 int GXSetTevSwapMode(int, int, int);
@@ -138,7 +141,11 @@ void __dl__5THeapFPv(void) {
 void __nw__5THeapFUl(void) {
     xmalloc__FUl();
 }
-
-int TObjPlayer__sub_801413D8(void) { return 0; }
+u32 TObjPlayer__sub_801413D8(u32 x, u32 y, s16 w) {
+    u32 r = ((x >> 2) << 4) + (x & 3);
+    r += ((y >> 2) * w) << 2;
+    r += (y & 3) << 2;
+    return r;
+}
 
 }

@@ -9,11 +9,19 @@ struct RecoveredGlobal_8013F1F0_lbl_804A7254 {
     u8 remaining[0x8];
 };
 
+struct Rec_8013F154 { u8 pad[0x8]; };
+
+struct Obj_8013F154 { u8 pad[0x4]; Rec_8013F154 recs[1]; };
+
+struct Obj_8013F24C { u8 pad[0x44]; u8 arr[1]; };
+
 extern "C" {
 void TMainCursor__sub_8013F13C(s32 *arg0);
 void TMainCursor__sub_8013F22C(void* a0);
 extern M2C_UNK lbl_804A7254[];
 u8 *TMainCursor__sub_8013F1F0(u8 *arg0);
+Rec_8013F154 *TMainCursor__sub_8013F154(Obj_8013F154 *self, s32 i);
+u8 fn_8013F24C(Obj_8013F24C *self, s16 i);
 }
 
 extern "C" {
@@ -22,14 +30,12 @@ void TMainCursor__sub_8013F104(void* p, s32 v);
 void TMainCursor__sub_8013F10C(void* p, s32 v);
 void TMainCursor__sub_8013F114(void* p);
 f32 TMainCursor__sub_8013F14C(void* p);
-int TMainCursor__sub_8013F154(void);
 s32 TMainCursor__sub_8013F168(void* p);
 void TMainCursor__sub_8013F170(void* p, s32 v);
 void TMainCursor__sub_8013F180(void* p, f32 v);
 void TMainCursor__sub_8013F22C(void* a0);
 int TMainCursor__sub_8013F244(void);
 void *destroy__11TMainCursorFPvs(void *arg0, s16 arg1);
-int fn_8013F24C(void);
 f32 get_pos__11TMainCursorFPv(void* p);
 int get_rader_map__11TMainCursorFPv(void* p);
 void set_cursor_id__11TMainCursorFPvs(void* p, s16 v);
@@ -60,7 +66,9 @@ void TMainCursor__sub_8013F13C(s32 *arg0) {
 
 f32 TMainCursor__sub_8013F14C(void* p) { return *(f32*)((char*)p + 0x4); }
 
-int TMainCursor__sub_8013F154(void) { return 0; }
+Rec_8013F154 *TMainCursor__sub_8013F154(Obj_8013F154 *self, s32 i) {
+    return &self->recs[i];
+}
 
 s32 TMainCursor__sub_8013F168(void* p) { return *(s32*)((char*)p + 0x0); }
 void TMainCursor__sub_8013F170(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
@@ -94,7 +102,8 @@ u8 *TMainCursor__sub_8013F1F0(u8 *arg0) {
 void TMainCursor__sub_8013F22C(void* a0) { *(float*)((char*)a0 + 0xc) = TMainCursor__data_805DB0C0; *(float*)((char*)a0 + 0x8) = TMainCursor__data_805DB0C0; *(float*)((char*)a0 + 0x4) = TMainCursor__data_805DB0C0; *(float*)((char*)a0 + 0x0) = TMainCursor__data_805DB0C0; }
 
 int TMainCursor__sub_8013F244(void) { return -1; }
-
-int fn_8013F24C(void) { return 0; }
+u8 fn_8013F24C(Obj_8013F24C *self, s16 i) {
+    return self->arr[i];
+}
 
 }

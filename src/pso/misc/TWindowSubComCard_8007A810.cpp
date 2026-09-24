@@ -7,6 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 typedef struct Big { u8 b[144]; } Big;
 
+struct O_8007B26C { u8 pad[0x8c]; s8 flags; };
+
 extern "C" {
 u32 TWindowSubComCard__sub_8007B070(u8 *arg0);
 M2C_UNK strncpy(void *, void *, int);
@@ -16,6 +18,7 @@ M2C_UNK init_card__17TWindowSubComCardFPvPv(M2C_UNK *, s32);
 s32 get_keyboard_mode__17TWindowSubComCardFv();
 M2C_UNK init_guild_card__17TWindowSubComCardFPv(M2C_UNK *);
 void TWindowSubComCard__sub_8007AF10(s32 arg0);
+void TWindowSubComCard__sub_8007B26C(O_8007B26C *self);
 }
 
 extern "C" {
@@ -65,7 +68,10 @@ void TWindowSubComCard__sub_8007B230(u8 *arg0, void *arg1) {
     M2C_FIELD(arg0, s8 *, 0x8B) = 0;
 }
 
-int TWindowSubComCard__sub_8007B26C(void) { return 0; }
+void TWindowSubComCard__sub_8007B26C(O_8007B26C *self) {
+    self->flags &= ~1;
+}
+
 int clear(void* p) { return memset(p, 0, 144); }
 
 }

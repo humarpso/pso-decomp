@@ -5,15 +5,28 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 #include <stddef.h>
+
+struct O_80011704 { u8 pad[0x1c]; u16 f1c; };
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjPlayer__sub_80156844(void *, void *, void *);
 extern const f32 TObjPlayer__data_805D7D24;
 extern const f32 lbl_805D7D48;
 void TObjPlayer__sub_80011734(u8 *arg0, M2C_UNK *arg1, f32 farg0);
+extern s32 lbl_805D53A4;
+s32 TObjPlayer__sub_80011704(O_80011704 *self, s32 x);
 }
 
 extern "C" {
+
+s32 TObjPlayer__sub_80011704(O_80011704 *self, s32 x) {
+    s32 g = lbl_805D53A4 % x;
+    if ((self->f1c % x) == g) {
+        return 1;
+    }
+    return 0;
+}
 
 void TObjPlayer__sub_80011734(u8 *arg0, M2C_UNK *arg1, f32 farg0) {
     Vec position;

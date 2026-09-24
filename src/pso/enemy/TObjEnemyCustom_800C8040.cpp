@@ -14,6 +14,8 @@ void bswap_packet_header__6TLobbyFPv(s32);
 u32 get_enemy_entity(u16);
 extern RecoveredGlobal_800C8068_lbl_80500C38 lbl_80500C38;
 void handle_6x09_legacy_kill_enemy(s32 arg0);
+extern RecoveredGlobal_800C8068_lbl_80500C38 lbl_80500C38;
+void TLobby__sub_800C80D4(void);
 }
 
 extern "C" {
@@ -43,5 +45,11 @@ void handle_6x09_legacy_kill_enemy(s32 arg0) {
 }
 
 void TLobby__sub_800C80D0(void) {  }
+void TLobby__sub_800C80D4(void) {
+    s32 i;
+    for (i = 0; i < 0x80; i++) {
+        ((s32 *)&lbl_80500C38)[i] = 0;
+    }
+}
 
 }

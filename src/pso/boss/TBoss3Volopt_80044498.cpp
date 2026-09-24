@@ -316,6 +316,30 @@ struct RecoveredGlobal_8004585C_lbl_804FF04C {
     u8 remaining[0x7C];
 };
 
+struct O_80044CB8 { u8 pad[6]; s16 arr[3]; };
+
+struct Base_80047408 { char pad[0x18]; };
+
+struct V_80047408 : Base_80047408 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
+    virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27();
+    virtual void m28(); virtual void m29(); virtual void m30(); virtual void m31();
+    virtual void m32(); virtual void m33(); virtual void m34(); virtual void m35();
+    virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
+    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43();
+    virtual void m44(); virtual void m45(); virtual void m46(); virtual void m47();
+    virtual void m48(); virtual void m49(); virtual void m50(); virtual void m51();
+    virtual void m52(); virtual void m53(); virtual void m54(); virtual void m55();
+    virtual void m56();
+    u8 pad2[0x37c - 0x1c];
+    s32 state;
+};
+
 extern "C" {
 u32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK fn_80048C04();
@@ -442,6 +466,9 @@ extern RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8 TBoss3Volopt__data_8
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804FF038 TBoss3Volopt__data_804FF038;
 extern RecoveredGlobal_8004585C_lbl_804FF04C lbl_804FF04C;
 void TBoss3Volopt__sub_8004585C(u8 *arg0);
+extern s16 lbl_804FF030[];
+void TBoss3Volopt__sub_80044CB8(O_80044CB8 *self);
+void TBoss3Volopt__sub_80047408(V_80047408 *self);
 }
 
 extern "C" {
@@ -464,6 +491,13 @@ void apply_hit_reaction__12TBoss3VoloptFPvf(void *arg0, f32 farg0) {
         M2C_FIELD(arg0, f32 *, 0x508) = (f32) (lbl_805D87B8 + farg0);
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
         update_if_active__15TObjEneMe1GiGueFPv(arg0, 0xC);
+    }
+}
+
+void TBoss3Volopt__sub_80044CB8(O_80044CB8 *self) {
+    s32 i;
+    for (i = 0; i < 3; i++) {
+        lbl_804FF030[i] = self->arr[i];
     }
 }
 
@@ -668,6 +702,17 @@ void update_state__12TBoss3VoloptFPv(void *arg0) {
         break;
     }
 }
+
+void TBoss3Volopt__sub_80047408(V_80047408 *self) {
+    switch (self->state) {
+    case 0:
+        self->m56();
+        break;
+    case -1:
+        break;
+    }
+}
+
 void set_action_wait__12TBoss3VoloptFPvUs(void *arg0, u16 arg1) {
     if ((obj_testFlags30((void*)((void *)(arg0)), (M2C_UNK)((s32)(0x800))) == 0) && !(M2C_FIELD(arg0, s32 *, 0x388) & 0x80000) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 0xA)) {
         check_and_notify__12TBoss3VoloptFv((s32)(arg0));

@@ -4,6 +4,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct E_800BFB8C { s32 f0; s32 f4; s32 f8; s32 fc; };
+
+struct D_800BFB8C { u8 pad[0x42c]; E_800BFB8C *entries; };
+
+struct O_800BFB8C { u8 pad[0x24]; s32 f24; u8 pad2[0xc]; s32 f34; };
+
+struct O_800BFB68 { u8 pad[0x3d4]; s32 arr[12]; };
+
 extern "C" {
 s32 TObjEneDellBiter__sub_80087350(s32, s32);
 void refresh_lobby_state__10TObjPlayerFPv(void *);
@@ -22,6 +30,9 @@ M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK)
 s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 extern const f32 TObjGrass__data_805D9EB8;
 void TObjGrass__sub_800BCE44(u8 *arg0);
+extern u32 TObjGrass__data_805D5154;
+void TObjGrass__sub_800BFB8C(O_800BFB8C *self, s32 i);
+void TObjGrass__sub_800BFB68(O_800BFB68 *self);
 }
 
 extern "C" {
@@ -41,7 +52,6 @@ void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 void *TObjControl__ct(void *, void *);
 void *TObjGrass__ct(void *, void *, void *);
-M2C_UNK TObjGrass__sub_800BFB68();
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
 s32 TObjPlayer__sub_80016D78();
 s32 TObjPlayer__sub_80016FF8();
@@ -163,7 +173,7 @@ void TObjGrass__vt58(void *arg0) {
     case 2:
         M2C_FIELD(arg0, s16 *, 0x326) = 4;
         M2C_FIELD(arg0, f32 *, 0x398) = (f32) TObjGrass__data_805D9EB8;
-        TObjGrass__sub_800BFB68();
+        TObjGrass__sub_800BFB68((O_800BFB68 *)(arg0));
         break;
     }
     M2C_FIELD(arg0, s16 *, 0x328) = 0;
@@ -254,6 +264,18 @@ void destroy_all__9TObjGrassFv(void) {
         TLobby__sub_8001FE7C((void*)TObjGrass__data_805D5154, 1);
         TObjGrass__data_805D5154 = 0U;
     }
+}
+
+void TObjGrass__sub_800BFB68(O_800BFB68 *self) {
+    s32 i;
+    for (i = 0; i < 12; i++) {
+        self->arr[i] = 0;
+    }
+}
+
+void TObjGrass__sub_800BFB8C(O_800BFB8C *self, s32 i) {
+    self->f34 = (*(D_800BFB8C * *)&TObjGrass__data_805D5154)->entries[i].f8;
+    self->f24 = (*(D_800BFB8C * *)&TObjGrass__data_805D5154)->entries[i].fc;
 }
 
 }

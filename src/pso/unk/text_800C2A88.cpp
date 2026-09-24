@@ -170,6 +170,8 @@ extern const f32 lbl_805D9FC4;
 extern const f32 lbl_805D9FC8;
 extern const f32 lbl_805D9FCC;
 void fn_800C2AC4(u8 *arg0, int arg1);
+void queue_destruction__7TObjectFv(void *self);
+void fn_800C2A88(void *self, s32 msg);
 }
 
 extern "C" {
@@ -183,6 +185,17 @@ typedef struct VObj_18_9c7b63 VObj_18_9c7b63;
 #define PSO_VCALL_VObj_18_9c7b63_m94(_self) (((VObj_18_9c7b63 *)(_self))->m94())
 #define PSO_VCALL_VObj_18_9c7b63_m100(_self) (((VObj_18_9c7b63 *)(_self))->m100())
 #define PSO_VCALL_VObj_14_00f1d1_m4(_self) (((VObj_14_00f1d1 *)(_self))->m4())
+
+void fn_800C2A88(void *self, s32 msg) {
+    switch (msg) {
+    case 0:
+        return;
+    case 3:
+        queue_destruction__7TObjectFv(self);
+        return;
+    }
+}
+
 void fn_800C2AC4(u8 *arg0, int arg1) {
   Stack_800C2AC4 stack;
   f32 temp_f1;

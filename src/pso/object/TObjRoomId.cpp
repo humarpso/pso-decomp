@@ -26,6 +26,7 @@ extern M2C_UNK __vt__10TObjRoomId[];
 extern s32 lbl_805D34B0;
 extern const f32 lbl_805DC094;
 u8 *TObjRoomId__ct(u8 *arg0, s32 arg1, s32 arg2);
+u16 TObjRoomId__sub_801A1DB8(u16 x);
 }
 
 extern "C" {
@@ -92,6 +93,16 @@ void TObjRoomId__sub_801A1D94(void *arg0) {
 }
 
 extern s32 lbl_805D53A0;
+
+u16 TObjRoomId__sub_801A1DB8(u16 x) {
+    u16 r;
+    if (x == 0xFFFF) {
+        r = 0xFFFF;
+    } else {
+        r = x & 0x5000;
+    }
+    return r;
+}
 
 u8 is_current_room__10TObjRoomIdFPv(void *arg0) {
     if (is_split_screen() != 0) {

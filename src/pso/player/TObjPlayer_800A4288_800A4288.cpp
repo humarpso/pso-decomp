@@ -4,6 +4,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct C_800A4294 { s32 x0; };
+
+struct B_800A4294 { u8 pad[0xc]; C_800A4294 *c; };
+
+struct A_800A4294 { u8 pad[0x8]; B_800A4294 *b; };
+
+struct G_800A4294 { A_800A4294 *p; s32 n; u8 pad[0x8]; };
+
+extern "C" {
+extern A_800A4294 lbl_804CC8C8;
+extern G_800A4294 lbl_80500970;
+extern int lbl_805D5038;
+void TObjPlayer__sub_800A4294(void);
+}
+
 extern "C" {
 
 struct VDisp_800a42c4_800A4288 { char pad[0x18]; virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(void *, void *); };
@@ -34,6 +49,12 @@ M2C_UNK step_angle_clamped__10TObjPlayerFPvi(void *, int);
 
     extern int lbl_805D5038;
 void reset_effect_count__10TObjPlayerFv(void) { lbl_805D5038 = 0; }
+
+void TObjPlayer__sub_800A4294(void) {
+    lbl_80500970.p = &lbl_804CC8C8;
+    lbl_80500970.n = 0x10;
+    (*(s32 *)&lbl_805D5038) = lbl_80500970.p->b->c->x0;
+}
 
 void TObjPlayer__sub_800A42C0(void) {  }
 

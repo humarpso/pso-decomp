@@ -175,8 +175,9 @@ s32 TObjEneRe7Berura__sub_80094470(void *, void *);
 s32 TObjEneRe7Berura__sub_80094624(void *, void *);
 s32 TObjEneRe7Berura__sub_8009472C(void *, void *);
 void state_attack__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1);
-s32 TObjEneRe7Berura__sub_80094A9C(void *, void *);
 void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 arg2);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+void TObjEneRe7Berura__sub_80094A9C(void *self, s32 msg);
 }
 
 extern "C" {
@@ -219,10 +220,20 @@ void state_attack__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1) {
     }
 }
 
+void TObjEneRe7Berura__sub_80094A9C(void *self, s32 msg) {
+    switch (msg) {
+    case 0:
+        return;
+    case 3:
+        TObjEneDD__sub_800BBA18((void *)(self), (M2C_UNK)(1));
+        break;
+    }
+}
+
 void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
-        TObjEneRe7Berura__sub_80094A9C((void *) (arg0), (void *) (arg2));
+        TObjEneRe7Berura__sub_80094A9C((void *)((void *) (arg0)), (s32)((void *) (arg2)));
         return;
     case 1:
         state_attack__16TObjEneRe7BeruraFPvi((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));

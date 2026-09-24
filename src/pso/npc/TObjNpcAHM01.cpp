@@ -105,6 +105,13 @@ extern s32 lbl_805D2D08;
 extern u32 TObjNpcAHM01__data_805D5720;
 extern u32 TObjNpcAHM01__data_805D5724;
 u8 *TObjNpcAHM01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+void *create_named_object(const char *name);
+void *TLanguage__sub_801E4874(const char *name);
+extern u32 TObjNpcAHM01__data_805D5720;
+extern u32 TObjNpcAHM01__data_805D5724;
+extern char lbl_8043F438[];
+extern char lbl_8043F44C[];
+void TObjNpcAHM01__sub_80147B84(void);
 }
 
 extern "C" {
@@ -138,6 +145,11 @@ void free_resources__12TObjNpcAHM01Fv(void) {
 }
 
 extern M2C_UNK __vt__12TObjNpcAHM01[];
+
+void TObjNpcAHM01__sub_80147B84(void) {
+    TObjNpcAHM01__data_805D5720 = (u32)create_named_object(lbl_8043F438);
+    TObjNpcAHM01__data_805D5724 = (u32)TLanguage__sub_801E4874(lbl_8043F44C);
+}
 
 void *__dt__12TObjNpcAHM01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

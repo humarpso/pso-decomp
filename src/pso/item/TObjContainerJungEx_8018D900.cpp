@@ -7,6 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_8018D9B0_lbl_804B7158 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8018D9B0_lbl_804B7158_size[sizeof(RecoveredGlobal_8018D9B0_lbl_804B7158) == 0x10 ? 1 : -1];
 
+struct O_8018DB94 { u8 pad[0xac]; s32 state; f32 pos; f32 max; f32 speed; };
+
 extern "C" {
 u8 * TObjFish__sub_8001EDB0(void *, int);
 extern u32 TObjContainerJungEx__data_805D5BA8;
@@ -22,6 +24,8 @@ void TObjContainerJungEx__sub_8018D9B0(void);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
 extern const f32 TObjDoaEx01__data_805DBDA0;
 void TObjDoaEx01__vt16(u8 *arg0);
+extern const f32 TObjDoaEx01__data_805DBDA8;
+void TObjDoaEx01__vt14(O_8018DB94 *self);
 }
 
 extern "C" {
@@ -73,5 +77,13 @@ void TObjDoaEx01__vt16(u8 *arg0) {
     }
 }
 #pragma pop
+
+void TObjDoaEx01__vt14(O_8018DB94 *self) {
+    self->pos += self->speed;
+    if (self->pos > self->max - TObjDoaEx01__data_805DBDA8) {
+        self->pos = self->max - TObjDoaEx01__data_805DBDA8;
+        self->state = 2;
+    }
+}
 
 }

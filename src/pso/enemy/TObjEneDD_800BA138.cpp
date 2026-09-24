@@ -62,6 +62,14 @@ struct RecoveredGlobal_800BA318_lbl_8043B68C {
     u8 remaining[0x8];
 };
 
+struct E_800BA1C8 { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
+
+struct O_800BA1C8 { u8 pad[0xa4]; E_800BA1C8 *entries; s32 count; };
+
+struct E_800BA190 { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
+
+struct O_800BA190 { u8 pad[0xa4]; E_800BA190 *entries; s32 count; };
+
 extern "C" {
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B68C;
 void TObjEneDD__sub_800BA318(s32 arg0, u8 *arg1);
@@ -71,6 +79,8 @@ extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B67C;
 void TObjEneDD__sub_800BA3D8(s32 arg0, u8 *arg1);
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B674;
 void TObjEneDD__sub_800BA438(s32 arg0, u8 *arg1);
+void TObjEneDD__vt90(O_800BA1C8 *self);
+void TObjEneDD__vt91(O_800BA190 *self);
 }
 
 extern "C" {
@@ -119,8 +129,6 @@ int TObjEneDD__sub_800BA6B8(void* p);
 int TObjEneDD__sub_800BA6C4(void* p);
 int TObjEneDD__vt88(void);
 int TObjEneDD__vt89(void);
-int TObjEneDD__vt90(void);
-int TObjEneDD__vt91(void);
 void TObjEneDD__vt92(void *arg0);
 int check_state_flag_1__9TObjEneDDFPv(void* p);
 int check_state_flag_2__9TObjEneDDFPv(void* p);
@@ -145,8 +153,20 @@ void TObjEneDD__vt92(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x04040000);
 }
 
-int TObjEneDD__vt91(void) { return 0; }
-int TObjEneDD__vt90(void) { return 0; }
+void TObjEneDD__vt91(O_800BA190 *self) {
+    s32 i;
+    for (i = 0; i < self->count; i++) {
+        self->entries[i].flags &= ~1;
+    }
+}
+
+void TObjEneDD__vt90(O_800BA1C8 *self) {
+    s32 i;
+    for (i = 0; i < self->count; i++) {
+        self->entries[i].flags |= 1;
+    }
+}
+
 int TObjEneDD__vt89(void) { return 0; }
 int TObjEneDD__vt88(void) { return 0; }
 

@@ -4,15 +4,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct O_8005D6B0 { u8 pad[0x374]; s32 f374; };
+
 extern "C" {
 u8 TBoss4Uro__sub_8005D698(u8 *arg0);
 void TBoss4Uro__sub_8005D6D4(u8 *arg0);
 void fn_8005D6E4(u8 *arg0);
+u8 TBoss4Zako__sub_8005D6B0(O_8005D6B0 *self);
 }
 
 extern "C" {
 
-int TBoss4Zako__sub_8005D6B0(void);
 void *__dt__10TBoss4ZakoFPvs(void *arg0, s16 arg1);
 s32 create__10TBoss4ZakoFi(s32 arg0);
 void update_state3__10TBoss4ZakoFPv(void* p);
@@ -69,7 +71,9 @@ u8 TBoss4Uro__sub_8005D698(u8 *arg0) {
     return (u8) (M2C_FIELD(arg0, s32 *, 0x374) != 3);
 }
 
-int TBoss4Zako__sub_8005D6B0(void) { return 0; }
+u8 TBoss4Zako__sub_8005D6B0(O_8005D6B0 *self) {
+    return self->f374 == 1 || self->f374 == 2;
+}
 
 void TBoss4Uro__sub_8005D6D4(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x38C) = (s32) (M2C_FIELD(arg0, s32 *, 0x38C) + 1);

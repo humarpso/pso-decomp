@@ -9,6 +9,10 @@ struct RecoveredGlobal_80125FD8_lbl_804A2868 {
     u8 remaining[0xF4];
 };
 
+struct Obj_80125FB8 { u8 pad[0x1f8]; s32 a; };
+
+struct Out_80125FB8 { u8 pad0[0x10]; s32 f10; u8 pad1[0x74 - 0x14]; void *f74; s32 f78; };
+
 extern "C" {
 u8 * TObjPlayer__sub_80125F24(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
@@ -23,6 +27,8 @@ void set_status_flags__10TObjPlayerFPvUi(void *, s32);
 extern RecoveredGlobal_80125FD8_lbl_804A2868 lbl_804A2868;
 extern const f32 lbl_805DAD68;
 u8 *TObjPlayer__sub_80125FD8(u8 *arg0, u8 *arg1, s32 _w2);
+void fn_80108F8C();
+void TObjPlayer__sub_80125FB8(Obj_80125FB8 *self, Out_80125FB8 *o);
 }
 
 extern "C" {
@@ -42,6 +48,13 @@ u8 *TObjPlayer__sub_80125F60(u8 *arg0) {
 }
 
 typedef char RecoveredGlobal_80125FD8_lbl_804A2868_size[sizeof(RecoveredGlobal_80125FD8_lbl_804A2868) == 0xF8 ? 1 : -1];
+
+void TObjPlayer__sub_80125FB8(Obj_80125FB8 *self, Out_80125FB8 *o) {
+    o->f78 = 0x1bb;
+    o->f74 = (void *)fn_80108F8C;
+    o->f10 = self->a;
+}
+
 u8 *TObjPlayer__sub_80125FD8(u8 *arg0, u8 *arg1, s32 _w2) {
     TObjPlayer__sub_80120D50(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804A2868.value;

@@ -4,8 +4,15 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct Rec_8013E870 { u8 pad[0x124]; };
+
+struct Obj_8013E870 { u8 pad[0x5c]; Rec_8013E870 recs[1]; };
+
 extern "C" {
 void TMainCursor__sub_8013E854(u8 *arg0, u8 *arg1);
+int TMainCursor__sub_8013E8A0(void* p);
+void TMainCursor__sub_8013E870(Obj_8013E870 *self, s32 i);
 }
 
 extern "C" {
@@ -89,7 +96,8 @@ void TMainCursor__sub_8013E854(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s16 *, 2) = (s16) M2C_FIELD(arg1, s16 *, 2);
     M2C_FIELD(arg0, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
 }
-
-int TMainCursor__sub_8013E870(void) { return 0; }
+void TMainCursor__sub_8013E870(Obj_8013E870 *self, s32 i) {
+    TMainCursor__sub_8013E8A0((void*)(&self->recs[i]));
+}
 
 }

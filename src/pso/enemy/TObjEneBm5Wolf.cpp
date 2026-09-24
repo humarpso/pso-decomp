@@ -4,16 +4,18 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct O_800B8A24 { s32 a; s32 b; u16 c; };
+
 extern "C" {
 void TObjEneBm5Wolf__sub_800B896C(u8 *arg0, void **arg1, void **arg2);
 void TObjEneBm5Wolf__sub_800B89A4(u8 *arg0, void ***arg1, void **arg2);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 s32 TObjEneBm5Wolf__sub_800B8A9C(s32 arg0, s32 arg1);
+void TObjEneBm5Wolf__sub_800B8A24(O_800B8A24 *self);
 }
 
 extern "C" {
 
-int TObjEneBm5Wolf__sub_800B8A24(void);
 s32 TObjEneBm5Wolf__sub_800B8AF8(void* p);
 s32 __dt__14TObjEneBm5WolfFis(s32 arg0, s16 arg1);
 void apply_to_position__14TObjEneBm5WolfFPvPv(void* p, void* a1);
@@ -96,7 +98,11 @@ s32 destroy__14TObjEneBm5WolfFis(s32 arg0, s16 arg1) {
     return arg0;
 }
 
-int TObjEneBm5Wolf__sub_800B8A24(void) { return 0; }
+void TObjEneBm5Wolf__sub_800B8A24(O_800B8A24 *self) {
+    self->a = 0;
+    self->b = 0;
+    self->c = 0xFFFF;
+}
 
 s32 TObjEneBm5Wolf__sub_800B8A9C(s32 arg0, s32 arg1) {
     return (s32) ((f32) arg1 * calc_boss4_scale__10TObjPlayerFi(arg0));

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void TObjPlayer__sub_801BF8EC(s32 arg0, s32 arg1, s32 arg2);
+void TObjPlayer__sub_801BF8F8(s32 *p);
 }
 
 extern "C" {
 
-int TObjPlayer__sub_801BF8F8(void);
 void TObjPlayer__sub_801BF914(void);
 s32 TObjPlayer__sub_801BF548();
 s32 TObjPlayer__sub_801BF640();
@@ -52,7 +52,12 @@ void TObjPlayer__sub_801BF8EC(s32 arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK *, (arg1 * 4)) = arg2;
 }
 
-int TObjPlayer__sub_801BF8F8(void) { return 0; }
+void TObjPlayer__sub_801BF8F8(s32 *p) {
+    s32 i;
+    for (i = 0; i < 13; i++) {
+        *p++ = 0;
+    }
+}
 
 void TObjPlayer__sub_801BF914(void) {  }
 

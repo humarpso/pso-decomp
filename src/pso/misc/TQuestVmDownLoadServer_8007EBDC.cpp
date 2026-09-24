@@ -6,6 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern u8 lbl_805005A4[];
+extern u8 lbl_80500598[];
+void *TQuestVmDownLoadServer__sub_8007ECB0(void *arg0);
+void *TQuestVmDownLoadServer__sub_8007EC58(void *arg0, s16 arg1);
+void __register_global_object(void *obj, void *dtor, void *entry);
+void TQuestVmDownLoadServer__sub_8007EC1C(void);
+}
+
+extern "C" {
 
 int TQuestVmDownLoadServer__sub_8007EBDC(void* p);
 void *TQuestVmDownLoadServer__sub_8007EC58(void *arg0, s16 arg1);
@@ -23,6 +32,10 @@ int TQuestVmDownLoadServer__sub_8007EBDC(void* p) { return fn_803DE864(p); }
 int alloc__22TQuestVmDownLoadServerFPv(void* p) { return xmalloc__FUl(p); }
 
 extern M2C_UNK lbl_8048DF58[];
+
+void TQuestVmDownLoadServer__sub_8007EC1C(void) {
+    __register_global_object(TQuestVmDownLoadServer__sub_8007ECB0(lbl_805005A4), (void *)TQuestVmDownLoadServer__sub_8007EC58, lbl_80500598);
+}
 
 void *TQuestVmDownLoadServer__sub_8007EC58(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

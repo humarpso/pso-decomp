@@ -133,6 +133,8 @@ struct RecoveredGlobal_800D18DC_TObjEneBm5GibonU__data_80500EB0 {
     u8 remaining[0x10];
 };
 
+struct O_800D1CF8 { s32 f0; s32 f4; u16 f8; };
+
 extern "C" {
 void TObjEneBm5GibonU__sub_800D1C40(u8 *arg0, void **arg1, void **arg2);
 void TObjEneBm5GibonU__sub_800D1C78(u8 *arg0, void ***arg1, void **arg2);
@@ -158,6 +160,7 @@ void TObjEneBm5GibonU__sub_800D18AC(s32 arg0);
 void init_child__16TObjEneBm5GibonUFPvPv(void* p, void* a1);
 extern RecoveredGlobal_800D18AC_TObjEneBm5GibonU__data_80500EB0 TObjEneBm5GibonU__data_80500EB0;
 void TObjEneBm5GibonU__sub_800D18DC(s32 arg0);
+void TObjEneBm5GibonU__sub_800D1CF8(O_800D1CF8 *self);
 }
 
 extern "C" {
@@ -165,7 +168,6 @@ extern "C" {
 void TObjEneBm5GibonU__sub_800D119C(u8 *arg0);
 void TObjEneBm5GibonU__sub_800D11F8(void);
 void TObjEneBm5GibonU__sub_800D1264(void);
-int TObjEneBm5GibonU__sub_800D1CF8(void);
 s32 TObjEneBm5GibonU__sub_800D1D70(void* p);
 void* TObjEneBm5GibonU__sub_800D1D78(void* p);
 s32 __dt__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1);
@@ -351,7 +353,11 @@ s32 destroy__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1) {
     return arg0;
 }
 
-int TObjEneBm5GibonU__sub_800D1CF8(void) { return 0; }
+void TObjEneBm5GibonU__sub_800D1CF8(O_800D1CF8 *self) {
+    self->f0 = 0;
+    self->f4 = 0;
+    self->f8 = 0xFFFF;
+}
 
 s32 TObjEneBm5GibonU__sub_800D1D70(void* p) { return *(s32*)((char*)p + 0x46c); }
 void* TObjEneBm5GibonU__sub_800D1D78(void* p) { return (char*)p + 0x47c; }

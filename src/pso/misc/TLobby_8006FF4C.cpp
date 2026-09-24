@@ -9,13 +9,18 @@ struct RecoveredGlobal_80070358_lbl_8048C9D8 {
     u8 remaining[0x744];
 };
 
+struct E_8007032C { u8 pad[0x104]; };
+
+struct G_8007032C { u8 pad[0x270]; E_8007032C e[4]; };
+
 extern "C" {
 s32 get_card_window__17TWindowSubComCardFUi(u32);
-M2C_UNK TLobby__sub_8007032C();
 int TLobby__sub_800703D0(void *, void *);
 extern M2C_UNK lbl_8048C9D8[];
 extern s32 lbl_805D53A0;
 void TLobby__sub_80070358(void);
+extern M2C_UNK lbl_8048C9D8[];
+void TLobby__sub_8007032C(void);
 }
 
 extern "C" {
@@ -74,6 +79,14 @@ void update_battle_cleanup_flag__6TLobbyFPv(void *arg0) {
 }
 
 typedef char RecoveredGlobal_80070358_lbl_8048C9D8_size[sizeof(RecoveredGlobal_80070358_lbl_8048C9D8) == 0x748 ? 1 : -1];
+
+void TLobby__sub_8007032C(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        *(s32 *)&(*(G_8007032C *)&lbl_8048C9D8).e[i] = 0;
+    }
+}
+
 void TLobby__sub_80070358(void) {
     s32 *temp_r31;
     TLobby__sub_8007032C();

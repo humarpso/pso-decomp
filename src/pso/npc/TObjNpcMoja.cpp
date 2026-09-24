@@ -5,6 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void *create_named_object(const char *name);
+void *TLanguage__sub_801E4874(const char *name);
+extern u32 TObjNpcNFM00__data_805D5810;
+extern u32 TObjNpcNFM00__data_805D5814;
+extern char lbl_8043FD20[];
+extern char lbl_8043FD34[];
+void TObjNpcNFM00__sub_8014C940(void);
+}
+
+extern "C" {
 
 void * TObjNpcNFM00__create(void *arg0);
 void * create__11TObjNpcMojaFPv(void *arg0);
@@ -78,6 +88,10 @@ void free_resources__12TObjNpcNFM00Fv(void) {
         TLobby__sub_800F957C((void*)TObjNpcNFM00__data_805D5810);
         TObjNpcNFM00__data_805D5810 = 0U;
     }
+}
+void TObjNpcNFM00__sub_8014C940(void) {
+    TObjNpcNFM00__data_805D5810 = (u32)create_named_object(lbl_8043FD20);
+    TObjNpcNFM00__data_805D5814 = (u32)TLanguage__sub_801E4874(lbl_8043FD34);
 }
 
 }

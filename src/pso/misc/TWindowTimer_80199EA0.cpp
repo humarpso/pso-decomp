@@ -38,6 +38,12 @@ extern const f32 lbl_805DBF58;
 extern const f32 lbl_805DBF64;
 extern const f32 lbl_805DBF74;
 u8 *TWindowTimer__sub_8019A574(u8 *arg0);
+extern int lbl_8050DD50[];
+s16 TWindowTimer__sub_8019A70C(s32 i);
+extern int lbl_8050DD50[];
+void TWindowTimer__sub_8019A738(s32 i);
+extern int lbl_8050DD50[];
+void TWindowTimer__sub_8019A754(s32 i);
 }
 
 extern "C" {
@@ -140,7 +146,21 @@ void bswap_6x79_gogo_ball__12TWindowTimerFi(s32 arg0) {
     bswap_32__FPUl(arg0 + 0x10);
 }
 void TWindowTimer__sub_8019A6F8(void* p) { *(u8*)((char*)p + 0x0) = 121; *(u8*)((char*)p + 0x1) = 6; }
+
+s16 TWindowTimer__sub_8019A70C(s32 i) {
+    return ((s32 *)&lbl_8050DD50)[i];
+}
+
 int set_timer_value__12TWindowTimerFii(int a0, int a1) { lbl_8050DD50[a0] = a1; return (int)lbl_8050DD50; }
+
+void TWindowTimer__sub_8019A738(s32 i) {
+    ((s32 *)&lbl_8050DD50)[i] += 3;
+}
+
+void TWindowTimer__sub_8019A754(s32 i) {
+    ((s32 *)&lbl_8050DD50)[i] += 1;
+}
+
 int TWindowTimer__sub_8019A770(void* p) { return TWindowCtrl__sub_8024A4EC(p); }
 
 }

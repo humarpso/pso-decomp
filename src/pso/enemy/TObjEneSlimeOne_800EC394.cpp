@@ -4,18 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct O_800EC39C { u8 pad[0x384]; s32 state; };
+
 extern "C" {
 s32 TObjPlayer__sub_800114D8(void *, void *, f32);
 int TObjEneSlimeOne__sub_800EC428(u8 *arg0, s32 arg1, f32 farg0);
 s32 TObjPlayer__sub_800114D8(void *, void *, f32);
 int TObjEneSlimeOne__sub_800EC3D0(u8 *arg0, f32 farg0);
+s32 TObjEneSlimeOne__sub_800EC39C(O_800EC39C *self);
 }
 
 extern "C" {
 
 void TObjEneRe4Bit__vt103(void);
 void TObjEneRe4Bit__vt104(void);
-int TObjEneSlimeOne__sub_800EC39C(void);
 void TObjEneSlimeOne__sub_800EC470(void* p);
 s32 __dt__15TObjEneSlimeOneFis(s32 arg0, s16 arg1);
 int check_player_field_7cc__15TObjEneSlimeOneFPv(void* p);
@@ -29,9 +31,12 @@ int __dl__FPv();
 
 s32 get_attack_target__15TObjEneSlimeOneFPv(void* p) { return *(s32*)((char*)p + 0x3f4); }
 
-int TObjEneSlimeOne__sub_800EC39C(void) { return 0; }
-
     extern int lbl_805D52B0;
+
+s32 TObjEneSlimeOne__sub_800EC39C(O_800EC39C *self) {
+    return self->state == 11 || self->state == 12 || self->state == 13;
+}
+
 int get_instance__15TObjEneSlimeOneFv(void) {  return lbl_805D52B0; }
 
 int TObjEneSlimeOne__sub_800EC3D0(u8 *arg0, f32 farg0) {

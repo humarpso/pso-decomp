@@ -14,6 +14,8 @@ struct RecoveredGlobal_800FB8A0_TFogCtrl__data_80501188 {
     u8 remaining[0xC];
 };
 
+struct O_800FB400 { u8 pad[0x174]; s32 arr[1]; };
+
 extern "C" {
 M2C_UNK get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 extern f32 TFogCtrl__data_805DA948;
@@ -26,6 +28,7 @@ void fn_803E2070(void);
 extern RecoveredGlobal_800FB8A0___vt__8TFogCtrl __vt__8TFogCtrl;
 extern RecoveredGlobal_800FB8A0_TFogCtrl__data_80501188 TFogCtrl__data_80501188;
 u8 *__dt__8TFogCtrlFv(u8 *arg0, s16 arg1);
+void TFogCtrl__sub_800FB400(O_800FB400 *self, s32 i, s32 j);
 }
 
 extern "C" {
@@ -71,6 +74,12 @@ s32 TFogCtrl__sub_800FB31C(s32 arg0, s32 arg1) {
     return 1;
   }
   return 0;
+}
+
+void TFogCtrl__sub_800FB400(O_800FB400 *self, s32 i, s32 j) {
+    s32 t = self->arr[i];
+    self->arr[i] = self->arr[j];
+    self->arr[j] = t;
 }
 
 void render__8TFogCtrlFv(void) {  }

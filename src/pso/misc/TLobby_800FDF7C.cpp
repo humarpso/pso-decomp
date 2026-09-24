@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern s32 lbl_805D53D8;
+void TLobby__sub_800FDFEC(void *self, s32 n);
+}
+
+extern "C" {
 
 void read_data_sync__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK reset_read_state__6TLobbyFv();
@@ -28,6 +33,9 @@ loop_1:
     }
     reset_read_state__6TLobbyFv();
     lbl_805D53D4 += arg1 << 0xB;
+}
+void TLobby__sub_800FDFEC(void *self, s32 n) {
+    lbl_805D53D8 = n * ((lbl_805D53D8 + n - 1) / n);
 }
 
 }

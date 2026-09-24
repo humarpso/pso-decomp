@@ -99,16 +99,23 @@ struct RecoveredGlobal_80042888___vt__19TBoss3VoloptMonitor {
     u8 remaining[0x14C];
 };
 
+struct E_80042944 { s32 f0; s32 f4; s32 f8; s32 fc; };
+
+struct G_80042944 { u8 pad[0x42c]; E_80042944 *entries; };
+
+struct O_80042944 { u8 pad[0x34]; s32 f34; };
+
 extern "C" {
 void TBoss3VoloptMonitor__sub_8004292C(u8 *arg0);
 s32 TBoss3VoloptMonitor__sub_80042510(void *);
-s32 TBoss3VoloptMonitor__sub_80042944(void *, int);
 s32 TObjEnemyCustom__ct(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
 extern RecoveredGlobal_80042888_lbl_80483DD4 lbl_80483DD4;
 extern M2C_UNK __vt__19TBoss3VoloptMonitor[];
 extern s32 lbl_805D2740;
 u8 *TBoss3VoloptMonitor__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+extern G_80042944 *lbl_805D4CA0;
+void TBoss3VoloptMonitor__sub_80042944(O_80042944 *self, s32 i);
 }
 
 extern "C" {
@@ -194,7 +201,7 @@ u8 *TBoss3VoloptMonitor__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s16 *, 0x33C) = 0;
     TBoss3VoloptMonitor__sub_80042510((void *) (arg0));
     TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_80483DD4.value), (int) (1));
-    TBoss3VoloptMonitor__sub_80042944((void *) (arg0), (int) (1));
+    TBoss3VoloptMonitor__sub_80042944((O_80042944 *)((void *) (arg0)), (s32)((int) (1)));
     return arg0;
 }
 
@@ -202,6 +209,9 @@ void set_flags_30__19TBoss3VoloptMonitorFPv(void* p) { *(u32*)((char*)p + 0x30) 
 
 void TBoss3VoloptMonitor__sub_8004292C(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFBFBFFFF);
+}
+void TBoss3VoloptMonitor__sub_80042944(O_80042944 *self, s32 i) {
+    self->f34 = lbl_805D4CA0->entries[i].f8;
 }
 
 }

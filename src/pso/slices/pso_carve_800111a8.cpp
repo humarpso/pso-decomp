@@ -5,12 +5,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct O_80011274 { u8 pad[0x2be]; s16 v; };
+
+struct O_800112D4 { u8 pad[0x32e]; s16 v; };
+
 extern "C" {
 s32 TObjPlayer__sub_800111A8(u8 *arg0, s32 arg1);
 s32 TObjPlayer__sub_800111D8(u8 *arg0, s32 arg1);
 s32 TObjPlayer__sub_800112A4(u8 *arg0, s32 arg1);
 int TObjPlayer__sub_8001124C(u8 *arg0);
 s32 TObjPlayer__sub_80011210(u8 *arg0, s32 arg1);
+s32 TObjPlayer__sub_80011274(O_80011274 *self, s32 x);
+s32 TObjPlayer__sub_800112D4(O_800112D4 *self, s32 x);
 }
 
 extern "C" {
@@ -72,7 +78,14 @@ int TObjPlayer__sub_8001124C(u8 *arg0) {
   return 0xFAU;
 }
 
-int TObjPlayer__sub_80011274(void) { return 0; }
+s32 TObjPlayer__sub_80011274(O_80011274 *self, s32 x) {
+    self->v += x;
+    if (self->v < 0) {
+        self->v = 0;
+        return 0;
+    }
+    return 1;
+}
 
 s32 TObjPlayer__sub_800112A4(u8 *arg0, s32 arg1) {
     s16 temp_r4;
@@ -83,7 +96,13 @@ s32 TObjPlayer__sub_800112A4(u8 *arg0, s32 arg1) {
     }
     return 1;
 }
-
-int TObjPlayer__sub_800112D4(void* a0 = 0, void* a1 = 0) { return 0; }
+s32 TObjPlayer__sub_800112D4(O_800112D4 *self, s32 x) {
+    self->v -= x;
+    if (self->v < 0) {
+        self->v = 0;
+        return 0;
+    }
+    return 1;
+}
 
 }

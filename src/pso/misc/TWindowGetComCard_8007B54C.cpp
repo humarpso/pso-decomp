@@ -32,6 +32,10 @@ M2C_UNK TWindowSubComCard__sub_8007B26C(s32);
 void TWindowCtrl__sub_8024A08C(void);
 extern RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158 TWindowGetComCard__data_80500158;
 void TWindowGetComCard__sub_8007B60C(s32 _w0);
+extern RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158 TWindowGetComCard__data_80500158;
+void init_guild_card_tag__17TWindowSubComCardFi(void *);
+void __construct_array(void *ptr, void *ctor, void *dtor, u32 size, u32 n);
+void TWindowGetComCard__sub_8007B69C(void);
 }
 
 extern "C" {
@@ -87,5 +91,8 @@ void TWindowGetComCard__sub_8007B60C(s32 _w0) {
 
 void TWindowGetComCard__sub_8007B65C(void* p) { TWindowGetComCard__sub_8007B60C((s32)(p)); }
 void TWindowGetComCard__sub_8007B67C(void* p) { TWindowGetComCard__sub_8007B60C((s32)(p)); }
+void TWindowGetComCard__sub_8007B69C(void) {
+    __construct_array(((u8 *)&TWindowGetComCard__data_80500158), (void *)init_guild_card_tag__17TWindowSubComCardFi, 0, 0x90, 4);
+}
 
 }

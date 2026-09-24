@@ -1,5 +1,11 @@
 #include "types.h"
 
+struct Obj_8013E800 { u16 a; };
+
+extern "C" {
+void TMainCursor__sub_8013E800(Obj_8013E800 *self);
+}
+
 extern "C" {
 
 s32 free_if_valid__14TPlyDispConfigFis(s32, s32);
@@ -77,6 +83,8 @@ int set_mode__20TWindowActionPaletteFPvUc(void*);
 int TMainCursor__sub_8013DFC4(void*);
 int set_target_index__11TMainCursorFPvs(void*, void* a1 = 0);
 
-int TMainCursor__sub_8013E800(void) { return 0; }
+void TMainCursor__sub_8013E800(Obj_8013E800 *self) {
+    self->a = 0xffff;
+}
 
 }

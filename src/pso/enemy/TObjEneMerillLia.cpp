@@ -178,6 +178,12 @@ struct RecoveredFields_800D6810_arg0
   f32 field_380;
 };
 
+struct E_800D7274 { s32 f0; s32 f4; s32 f8; s32 fc; };
+
+struct D_800D7274 { u8 pad[0x42c]; E_800D7274 *entries; };
+
+struct O_800D7274 { u8 pad[0x24]; s32 f24; u8 pad2[0xc]; s32 f34; };
+
 extern "C" {
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
 void TObjEneMerillLia__sub_800D5480(u8 *arg0);
@@ -258,6 +264,8 @@ extern const f32 lbl_805DA328;
 extern const f32 lbl_805DA32C;
 extern const f32 lbl_805DA330;
 void TObjEneMerillLia__sub_800D6810(u8 *arg0);
+extern u32 TObjEneMerillLia__data_805D5220;
+void TObjEneMerillLia__sub_800D7274(O_800D7274 *self, s32 i);
 }
 
 extern "C" {
@@ -627,6 +635,10 @@ void *__dt__16TObjEneMerillLiaFPvs(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+void TObjEneMerillLia__sub_800D7274(O_800D7274 *self, s32 i) {
+    self->f34 = (*(D_800D7274 * *)&TObjEneMerillLia__data_805D5220)->entries[i].f8;
+    self->f24 = (*(D_800D7274 * *)&TObjEneMerillLia__data_805D5220)->entries[i].fc;
 }
 
 }

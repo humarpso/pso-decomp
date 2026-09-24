@@ -4,17 +4,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct O_800E2FB4 { u8 pad[0x378]; s32 state; };
+
 extern "C" {
 void TObjEnePanarms__sub_800E2DE4(void *arg0, s32 arg1);
 s32 TObjPlayer__sub_800114D8(void *, void *, f32);
 int TObjEnePanarms__sub_800E2F6C(u8 *arg0, s32 arg1, f32 farg0);
+s32 TObjEnePanarms__sub_800E2FB4(O_800E2FB4 *self);
 }
 
 extern "C" {
 
 u8 TObjEnePanarms__sub_800E2E54(void *arg0);
 u8 TObjEnePanarms__sub_800E2E68(void *arg0);
-int TObjEnePanarms__sub_800E2FB4(void);
 u8 check_can_attack__14TObjEnePanarmsFPv(void *arg0);
 int clear_render_callback__8TObjFishFv(void);
 s32 create_bara__14TObjEnePanarmsFii(s32 arg0, s32 arg1);
@@ -91,7 +93,9 @@ int TObjEnePanarms__sub_800E2F6C(u8 *arg0, s32 arg1, f32 farg0) {
     return temp_r3;
 }
 
-int TObjEnePanarms__sub_800E2FB4(void) { return 0; }
+s32 TObjEnePanarms__sub_800E2FB4(O_800E2FB4 *self) {
+    return self->state == 9 || self->state == 11;
+}
 
 int clear_render_callback__8TObjFishFv(void) { return set_global_state__16TObjEneRe7BeruraFi((void*)(0)); }
 

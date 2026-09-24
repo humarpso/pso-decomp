@@ -12,6 +12,10 @@ struct RecoveredGlobal_800773BC_lbl_80438830 {
     u8 remaining[0x20];
 };
 
+struct E_80077480 { u8 pad[0x58]; };
+
+struct X_80077480 { u8 pad[0x15a0]; u8 sub[0x58]; };
+
 extern "C" {
 u8 *get_symbol_chat_data__20TWindowSubSymbolChatFPv(u8 *arg0);
 s32 TWindowSubSymbolChat__sub_80077464();
@@ -76,7 +80,6 @@ int TWindowSubSymbolChat__sub_80076FE0(void* p);
 M2C_UNK strncpy(void *, void *, int);
 void TWindowSubSymbolChat__sub_80076FEC(u8 *arg0, void *arg1);
 s32 TLobby__sub_80076F48(void *, void *);
-int TWindowSubSymbolChat__sub_80077480(void *);
 s32 send_symbol_chat__20TWindowSubSymbolChatFPv(void *);
 s32 TWindowSubSymbolChat__sub_80077704(void *);
 extern s32 lbl_805D53A0;
@@ -84,6 +87,8 @@ void TWindowSubSymbolChat__sub_80076F88(s32 *arg0);
 s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
 extern RecoveredGlobal_800773BC_lbl_80438830 lbl_80438830;
 void TWindowSubSymbolChat__sub_800773BC(s32 arg0);
+E_80077480 *get_card_window__17TWindowSubComCardFUi(u32 id);
+u8 *TWindowSubSymbolChat__sub_80077480(s32 i);
 }
 
 extern "C" {
@@ -149,7 +154,7 @@ void TWindowSubSymbolChat__sub_80076F88(s32 *arg0) {
     G_SymbolChat_6x07 packet;
     s32 temp_r4;
     TWindowSubSymbolChat__sub_80077704((void *) (&packet.header));
-    temp_r4 = ((s32)TWindowSubSymbolChat__sub_80077480((void *)((void *) (*arg0))));
+    temp_r4 = ((s32)((int)TWindowSubSymbolChat__sub_80077480((s32)((void *)((void *) (*arg0))))));
     packet.client_id = lbl_805D53A0;
     TLobby__sub_80076F48((void *) (&packet.data[0]), (void *) (temp_r4 + 0x1C));
     send_symbol_chat__20TWindowSubSymbolChatFPv((void *) (&packet.header));
@@ -216,7 +221,7 @@ void refresh_parts__20TWindowSubSymbolChatFPv(void* p) { get_instance__20TWindow
 
 void update_layout__20TWindowSubSymbolChatFPv(void* p) { get_instance__20TWindowSubSymbolChatFv(p); TWindowSubSymbolChat__sub_800770D0(); }
 
-void update_symbol_chat_result__20TWindowSubSymbolChatFv(void * _w0) { lbl_805D4E50 = TWindowSubSymbolChat__sub_80077480((void *)(_w0)); }
+void update_symbol_chat_result__20TWindowSubSymbolChatFv(void * _w0) { lbl_805D4E50 = ((int)TWindowSubSymbolChat__sub_80077480((s32)((void *)(_w0)))); }
 
 void update_selected_symbol__20TWindowSubSymbolChatFPv(void *arg0) {
     if (is_initialized__20TWindowSubSymbolChatFPv() != 0) {
@@ -239,6 +244,10 @@ u8 *get_symbol_chat_data__20TWindowSubSymbolChatFPv(u8 *arg0) {
         return get_message_10__20TWindowSubStatusDispFPv(0xCD);
     }
     return arg0 + 4;
+}
+u8 *TWindowSubSymbolChat__sub_80077480(s32 i) {
+    E_80077480 *e = &get_card_window__17TWindowSubComCardFUi(0xFFFF)[i];
+    return ((X_80077480 *)e)->sub;
 }
 
 }

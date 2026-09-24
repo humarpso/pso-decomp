@@ -32,6 +32,7 @@ force_active:
   - TButterfly__ct
   - TCameraCtrl__sub_800677D4
   - TDPBShower__ct
+  - TFontSmallLobby__sub_801C0258
   - TItemEquipBase__sub_8022F1F4
   - TItemProArmor__sub_8011751C
   - TItemProShield__sub_80116B28
@@ -49,6 +50,7 @@ force_active:
   - TMainCursor__sub_8013E4A0
   - TMainCursor__sub_8013E570
   - TMainCursor__sub_8013E694
+  - TMainCursor__sub_8013F22C
   - TMainTask__sub_8022988C
   - TOBind__ct
   - TOBind__sub_8015860C
@@ -75,6 +77,7 @@ force_active:
   - TOVS2Wreck04__ct
   - TOVS2Wreck05__ct
   - TOVS2Wreck06__ct
+  - TObjBoss2Tunnel__sub_8003C1C8
   - TObjButterflyLobby__ct
   - TObjCity_Season_ValentineHeart__ct
   - TObjCity_Season_XmasTree__ct
@@ -88,6 +91,7 @@ force_active:
   - TObjEneMe1GiGueBarrier__ct
   - TObjEneMe1GiGueMissile__ct
   - TObjEneMe3SinowZoaReal__ct
+  - TObjEneMe3SinowZoa__sub_800D741C
   - TObjEneMe3SinowZoa__sub_8031AC74
   - TObjEneMe3StelthReal__ct
   - TObjEneMe3Stelth__sub_800F0B4C
@@ -101,12 +105,14 @@ force_active:
   - TObjNpcCloakroomBase__ct
   - TObjNpcFemaleBase__ct
   - TObjPlayerSet__ct
+  - TObjPlayer__sub_800113A8
   - TObjPlayer__sub_80066F5C
   - TObjPlayer__sub_801224D4
   - TObjPlayer__sub_80123904
   - TObjPlayer__sub_80123EC4
   - TObjPlayer__sub_801250F8
   - TObjPlayer__sub_801258A0
+  - TObjPlayer__sub_80125FD8
   - TObjPlayer__sub_80126334
   - TObjPlayer__sub_80126BC4
   - TObjPlayer__sub_8012B524
@@ -121,6 +127,7 @@ force_active:
   - TObjPlayer__sub_801BF7B8
   - TObjPlayer__sub_801BF8CC
   - TObjPlayer__sub_801BFE88
+  - TObjPlayer__sub_801C0F10
   - TObjPlayer__sub_801D2448
   - TObjPlayer__sub_8023A510
   - TObjPlayer__sub_802E0580
@@ -183,6 +190,7 @@ force_active:
   - advance_bone_rotation__19TObjEZBoneRotPlayerFPv
   - apply_player_54a00__9TObjEnemyFPv
   - attack_target__15TObjIllGillKageFPv
+  - bswap_guild_card_tag__17TWindowSubComCardFPv
   - build_6x75_update_quest_flag_dc
   - byteswap_entry__20TWindowSubSymbolChatFPv
   - check_card_file__19TAdTrialAgreementGCFi
@@ -261,6 +269,7 @@ force_active:
   - run_task__7TEndingFv
   - run_task__9TEffGuardFv
   - run_task__9TSaveChCrFv
+  - set_code_43_6__10TObjPlayerFPv
   - set_page__17TWindowSubComCardFPvs
   - setup_state_helper__10TObjPlayerFPv
   - show_sub_status_window

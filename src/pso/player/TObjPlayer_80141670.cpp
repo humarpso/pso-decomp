@@ -44,6 +44,8 @@ struct RecoveredGlobal_8014175C_lbl_8050C000 {
     u8 remaining[0x24];
 };
 
+struct G_80141820 { u8 pad[0xd]; u8 scene; };
+
 extern "C" {
 void GXSetZMode(u8, s32, s32);
 void GXSetZCompLoc(s32);
@@ -68,6 +70,10 @@ void TObjPlayer__sub_801417E8(void);
 s32 set_depth_buffer_id__16TObjEneMe3StelthFi(int);
 extern RecoveredGlobal_80141860_lbl_8050C000 lbl_8050C000;
 void set_depth_buffer_settings_id__FUl(s32 arg0);
+extern RecoveredGlobal_80141860_lbl_8050C000 lbl_8050C000;
+extern s32 some_id_805c6f74;
+void set_current_scene__6TSceneFi(s32);
+void TObjPlayer__sub_80141820(u8 scene);
 }
 
 extern "C" {
@@ -105,6 +111,12 @@ typedef char RecoveredGlobal_801417E8_lbl_8050C028_size[sizeof(RecoveredGlobal_8
 void TObjPlayer__sub_801417E8(void) {
     some_id_805c6f74 &= 0xFFFFFFFE;
     set_current_scene__6TSceneFi((s32)((int) ((s32) M2C_FIELD(&(*(RecoveredGlobal_801417E8_lbl_8050C028 *)&lbl_8050C028).value, u8 *, 0xD))));
+}
+
+void TObjPlayer__sub_80141820(u8 scene) {
+    some_id_805c6f74 |= 1;
+    (*(G_80141820 *)&lbl_8050C000).scene = scene;
+    set_current_scene__6TSceneFi(scene);
 }
 
 void set_depth_buffer_settings_2__Fv(void) {
