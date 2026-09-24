@@ -13,6 +13,10 @@ struct V3_80039DE0 { f32 x, y, z; };
 
 struct Obj_80039DE0 { u8 pad[0x30]; V3_80039DE0 pts[14]; s32 vals[14]; };
 
+struct G_80039C44 { u8 pad[4]; u32 count; };
+
+struct Obj_80039C44 { u8 pad[0x114]; f32 pos; f32 speed; };
+
 extern "C" {
 u8 TBoss2Tentacle__sub_80039CA0(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -22,6 +26,8 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 extern V3_80039DE0 TBoss2Tentacle__data_804FE8E8[];
 extern s32 lbl_804FE990[];
 void TBoss2Tentacle__sub_80039DE0(Obj_80039DE0 *self);
+extern G_80039C44 *TBoss2Tentacle__data_805D4BD4;
+void TBoss2Tentacle__sub_80039C44(Obj_80039C44 *self);
 }
 
 extern "C" {
@@ -47,6 +53,14 @@ void reset__14TBoss2TentacleFPv(void* a0);
 
 void TBoss2Tentacle__sub_8003998C(void) {  }
 void TBoss2Tentacle__sub_80039990(void) {  }
+
+void TBoss2Tentacle__sub_80039C44(Obj_80039C44 *self) {
+    f32 n = (f32)(TBoss2Tentacle__data_805D4BD4->count - 1);
+    self->pos += self->speed;
+    if (self->pos >= n) {
+        self->pos -= n;
+    }
+}
 
 u8 TBoss2Tentacle__sub_80039CA0(u8 *arg0) {
     return (u8) (M2C_FIELD(arg0, s32 *, 0x1C) == 4);

@@ -10,14 +10,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void TSwitch__sub_802292E0(s32 arg0);
-void TSwitch__sub_80229258(u32 id, s16 floor);
 s16 TObjPlayer__sub_800196EC();
-void TSwitch__sub_80229258(u32 id, s16 floor);
 void TSwitch__sub_802292E0(s32 arg0);
 void TSwitch__sub_802293A0(s32 arg0);
-void TSwitch__sub_80229318(u32 id, s16 floor);
 s16 TObjPlayer__sub_800196EC();
-void TSwitch__sub_80229318(u32 id, s16 floor);
 void TSwitch__sub_802293A0(s32 arg0);
 void TODoorAncient08__sub_80229220(s32 arg0);
 u8 TSwitch__sub_802291F4(u32 id, s16 floor);
@@ -35,6 +31,12 @@ void TSwitch__sub_8022945C(void);
 extern u8 TSwitch__data_80515CC8[18][32];
 M2C_UNK memcpy(void *, void *, void *);
 u32 copy_switch_table(void* destination);
+extern u8 TSwitch__data_80515CC8[18][32];
+s32 TSwitch__sub_80229164(u32 id, s16 floor);
+extern u8 TSwitch__data_80515CC8[18][32];
+void TSwitch__sub_80229258(u32 id, s16 floor);
+extern u8 TSwitch__data_80515CC8[18][32];
+void TSwitch__sub_80229318(u32 id, s16 floor);
 }
 
 extern "C" {
@@ -42,7 +44,6 @@ extern "C" {
 void *__ct__7TSwitchFv(void *arg0);
 void render__7TSwitchFv(void);
 void run_task__7TSwitchFv(void);
-s32 TSwitch__sub_80229164(u32 id,s16 floor);
 void __ct__7TObjectFP7TObject(void *);
 
 void render__7TSwitchFv(void) {  }
@@ -57,14 +58,28 @@ u32 copy_switch_table(void* destination) {
     return 0x240;
 }
 
-s32 TSwitch__sub_80229164(u32 id,s16 floor) {
-    id=(u16)id;
-    if(floor<0||floor>17||id>255)return -1;
-    return (TSwitch__data_80515CC8[floor][id/8]>>(7-id%8))&1;
+s32 TSwitch__sub_80229164(u32 id, s16 floor) {
+    u8 *row;
+    s32 idx;
+    s32 bit;
+    if (floor < 0 || floor > 17) {
+        return -1;
+    }
+    if ((u16)id > 0xFF) {
+        return -1;
+    }
+    id++;
+    row = TSwitch__data_80515CC8[floor];
+    idx = (u16)id / 8;
+    bit = (u16)id % 8;
+    if (bit > 0) {
+        return (row[idx] & (1 << (8 - bit))) >> (8 - bit);
+    }
+    return row[idx - 1] & 1;
 }
 
 u8 TSwitch__sub_802291F4(u32 id, s16 floor) {
-    return (u8) (TSwitch__sub_80229164(id,floor) != 0);
+    return (u8) (TSwitch__sub_80229164((u32)(id), floor) != 0);
 }
 
 extern M2C_UNK __vt__7TSwitch[];
@@ -79,26 +94,57 @@ void TODoorAncient08__sub_80229220(s32 arg0) {
     TSwitch__sub_802291F4((u32)arg0, (s16)((s16)((int) (TObjPlayer__sub_800196EC()))));
 }
 
-void TSwitch__sub_80229258(u32 id,s16 floor) {
-    id=(u16)id;
-    if(floor<0||floor>17||id>255)return;
-    TSwitch__data_80515CC8[floor][id/8]&=~(1<<(7-id%8));
+void TSwitch__sub_80229258(u32 id, s16 floor) {
+    u8 *row;
+    s32 idx;
+    s32 bit;
+    if (floor < 0 || floor > 17) {
+        return;
+    }
+    if ((u16)id > 0xFF) {
+        return;
+    }
+    id++;
+    row = TSwitch__data_80515CC8[floor];
+    idx = (u16)id / 8;
+    bit = (u16)id % 8;
+    if (bit != 0) {
+        row[idx] &= ~(1 << (8 - bit));
+    } else {
+        row[idx - 1] &= ~1;
+    }
 }
 
 void TSwitch__sub_802292E0(s32 arg0) {
-    TSwitch__sub_80229258((u32)arg0, (s16)((int) (TObjPlayer__sub_800196EC())));
+    TSwitch__sub_80229258((u32)((u32)arg0), (s16)((s16)((int) (TObjPlayer__sub_800196EC()))));
 }
 }
 
 extern "C" {
-void TSwitch__sub_80229318(u32 id,s16 floor) {
-    id=(u16)id;
-    if(floor<0||floor>17||id>255)return;
-    TSwitch__data_80515CC8[floor][id/8]|=1<<(7-id%8);
+
+void TSwitch__sub_80229318(u32 id, s16 floor) {
+    u8 *row;
+    s32 idx;
+    s32 bit;
+    if (floor < 0 || floor > 17) {
+        return;
+    }
+    if ((u16)id > 0xFF) {
+        return;
+    }
+    id++;
+    row = TSwitch__data_80515CC8[floor];
+    idx = (u16)id / 8;
+    bit = (u16)id % 8;
+    if (bit > 0) {
+        row[idx] |= 1 << (8 - bit);
+    } else {
+        row[idx - 1] |= 1;
+    }
 }
 
 void TSwitch__sub_802293A0(s32 arg0) {
-    TSwitch__sub_80229318((u32)arg0, (s16)((int) (TObjPlayer__sub_800196EC())));
+    TSwitch__sub_80229318((u32)((u32)arg0), (s16)((s16)((int) (TObjPlayer__sub_800196EC()))));
 }
 }
 

@@ -127,6 +127,8 @@ struct RecoveredGlobal_801D8FB4_lbl_804C495C
   u8 remaining[0x14];
 };
 
+struct Vec_801D8CCC { f32 x, y, z; };
+
 extern "C" {
 s8 TObjPlayer__sub_801AFDBC(s8);
 s32 clamp_index_to_max__10TObjPlayerFi(s32);
@@ -215,6 +217,10 @@ s32 get_max_level__10TObjPlayerFv(s32);
 s32 get_current_state_field__10TObjPlayerFv(s8 _w0, s32 _w1);
 s8 TObjPlayer__sub_801AFDB0(s32 _w0);
 s32 TObjPlayer__sub_801D91B8(s32 arg0);
+u16 obj_getField1c(void *);
+s32 get_instance__6TLobbyFv(void);
+extern Vec_801D8CCC *lbl_804C49E8[];
+Vec_801D8CCC *TObjPlayer__sub_801D8CCC(void *player);
 }
 
 extern "C" {
@@ -359,6 +365,10 @@ typedef char RecoveredGlobal_801D8D8C_lbl_804C49B0_size[sizeof(RecoveredGlobal_8
 
 s32 TObjPlayer__sub_801D8C9C(void) {
     return M2C_FIELD(&lbl_80449234.value, M2C_UNK *, (get_instance__6TLobbyFv() * 4));
+}
+
+Vec_801D8CCC *TObjPlayer__sub_801D8CCC(void *player) {
+    return lbl_804C49E8[get_instance__6TLobbyFv()] + obj_getField1c(player);
 }
 
 s32 TObjPlayer__sub_801D8D14(void) {

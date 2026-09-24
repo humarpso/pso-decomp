@@ -14,6 +14,10 @@ M2C_UNK TWindowSubStatusDisp__sub_803DF160(s32, M2C_UNK);
 extern s32 TEndingAB__data_805D4F10;
 extern const f32 lbl_805D9580;
 void TEndingAB__sub_8008CB54(u8 *arg0);
+extern s32 lbl_805D5550;
+extern s32 lbl_805D4F14;
+s32 set_global_param__8TObjFishFi(s32);
+void TEndingAB__sub_8008CC5C(void);
 }
 
 extern "C" {
@@ -118,5 +122,20 @@ void TEndingAB__sub_8008CB54(u8 *arg0) {
     }
 }
 #pragma pop
+
+void TEndingAB__sub_8008CC5C(void) {
+    switch (lbl_805D5550) {
+    case 0:
+    case 1:
+        set_global_param__8TObjFishFi(lbl_805D4F14);
+        break;
+    case 2:
+        set_global_param__8TObjFishFi(lbl_805D4F14);
+        break;
+    case 3:
+        set_global_param__8TObjFishFi(lbl_805D4F14);
+        break;
+    }
+}
 
 }

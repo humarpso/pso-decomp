@@ -7,6 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_8008DB6C___vt__14TObjEneBalClaw { M2C_UNK value; u8 remaining[0x148]; };
 typedef char RecoveredGlobal_8008DB6C___vt__14TObjEneBalClaw_size[sizeof(RecoveredGlobal_8008DB6C___vt__14TObjEneBalClaw) == 0x14C ? 1 : -1];
 
+struct Ent_8008D68C { void *obj; u32 x4; s16 a; s16 b; s16 c; s16 d; };
+
 extern "C" {
 void set_state__15TObjEneMe1GiGueFPvi(void *, s32);
 void TObjEneBalClaw__vt60(u8 *arg0);
@@ -18,6 +20,11 @@ extern M2C_UNK __vt__14TObjEneBalClaw[];
 extern s32 lbl_805D2968;
 extern const f32 lbl_805D960C;
 u8 *TObjEneBalClaw__ct(u8 *arg0);
+extern Ent_8008D68C lbl_8048EC1C[];
+extern s32 lbl_805D4F24;
+extern s32 lbl_805D53A4;
+void TObjPlayer__sub_8023DEE0(void *obj, s32 a, s32 b, u16 c);
+void TObjEneBalClaw__sub_8008D68C(void);
 }
 
 extern "C" {
@@ -36,6 +43,17 @@ void __dl__7TObjectFPv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
 
 extern f32 lbl_805D9600;
+
+void TObjEneBalClaw__sub_8008D68C(void) {
+    s32 i;
+    if (lbl_805D4F24 != lbl_805D53A4) {
+        lbl_805D4F24 = lbl_805D53A4;
+        for (i = 0; i < 7; i++) {
+            Ent_8008D68C *e = &lbl_8048EC1C[i];
+            TObjPlayer__sub_8023DEE0(e->obj, e->a, e->b, e->c);
+        }
+    }
+}
 
 void update_claw_angle__14TObjEneBalClawFPv(void *arg0) {
     f32 temp_f0;

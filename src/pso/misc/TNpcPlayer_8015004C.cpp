@@ -10,6 +10,18 @@ struct Stack_801515E0 {
     f32 sp10;
 };
 
+struct Msg_80150DE8 { u8 hdr[2]; u16 type; f32 x; f32 z; };
+
+struct Npc_80150DE8 { u8 pad[0x78]; void *owner; u8 pad7c[0xAC - 0x7C]; f32 x; f32 y; f32 z; };
+
+struct Msg_80150E44 { u8 hdr[2]; u16 type; f32 x; f32 z; u32 flags; };
+
+struct Obj_80150E44 { u8 pad[0x30]; u32 flags; };
+
+struct Owner_80150E44 { u8 pad[0x94]; Obj_80150E44 *obj; };
+
+struct Npc_80150E44 { u8 pad[0x78]; Owner_80150E44 *owner; u8 pad7c[0xAC - 0x7C]; f32 x; f32 y; f32 z; };
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(int, f32, f32, f32);
@@ -34,6 +46,14 @@ f32 TObjPlayer__sub_80141CF8(void *, void *, int);
 extern const f32 lbl_805DB1FC;
 extern const f32 lbl_805DB238;
 s32 TNpcPlayer__sub_801500F4(u8 *arg0, void * _w1, int _w2);
+void reset_move_state__10TNpcPlayerFPv(void *m);
+u16 get_npc_type__10TNpcPlayerFPv(void *);
+void reset_model__10TNpcPlayerFPv(void *m);
+void TNpcPlayer__sub_80150DE8(Npc_80150DE8 *self);
+void TNpcPlayer__sub_80152E74(void *m);
+u16 get_npc_type__10TNpcPlayerFPv(void *);
+void sync_from_lobby__10TNpcPlayerFPv(void *m);
+void TNpcPlayer__sub_80150E44(Npc_80150E44 *self);
 }
 
 extern "C" {
@@ -178,6 +198,33 @@ void init_state__10TNpcPlayerFPv(void *arg0) {
         return;
     }
 }
+
+void TNpcPlayer__sub_80150DE8(Npc_80150DE8 *self) {
+    Msg_80150DE8 m;
+    reset_move_state__10TNpcPlayerFPv(&m);
+    if (self->owner != 0) {
+        m.type = get_npc_type__10TNpcPlayerFPv(self->owner);
+        m.x = self->x;
+        m.z = self->z;
+        reset_model__10TNpcPlayerFPv(&m);
+    }
+}
+
+void TNpcPlayer__sub_80150E44(Npc_80150E44 *self) {
+    Msg_80150E44 m;
+    TNpcPlayer__sub_80152E74(&m);
+    if (self->owner != 0) {
+        m.type = get_npc_type__10TNpcPlayerFPv(self->owner);
+        m.x = self->x;
+        m.z = self->z;
+        m.flags = 0;
+        if (self->owner->obj->flags & 0x100000) {
+            m.flags |= 8;
+        }
+        sync_from_lobby__10TNpcPlayerFPv(&m);
+    }
+}
+
 #pragma push
 #pragma fp_contract on
 s32 TNpcPlayer__sub_801515E0(u8 *arg0) {

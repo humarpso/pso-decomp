@@ -8,6 +8,14 @@ struct Ent_8001D768 { u32 f0; u32 f4; u32 f8; u32 fc; };
 
 struct Obj_8001D768 { Ent_8001D768 *ents; u32 count; };
 
+struct Node_8001D7AC { Node_8001D7AC *next; Node_8001D7AC *prev; u32 addr; u32 size; };
+
+struct Pool_8001D7AC { u8 pad[0x2C]; Node_8001D7AC *head; };
+
+struct Node_8001D808 { Node_8001D808 *next; Node_8001D808 *prev; u32 addr; u32 size; };
+
+struct Pool_8001D808 { u8 pad[0x2C]; Node_8001D808 *head; };
+
 extern "C" {
 extern s32 lbl_805D4A90;
 void TLobby__sub_8001D9DC(void);
@@ -20,6 +28,10 @@ M2C_UNK strncpy(int, int, int);
 extern s32 TLobby__data_805D4A98;
 void TLobby__sub_8001DAB4(s32 arg0);
 Ent_8001D768 *TLobby__sub_8001D768(Obj_8001D768 *self);
+void TLobby__sub_8001D6E0(Pool_8001D7AC *pool);
+void TLobby__sub_8001D7AC(Pool_8001D7AC *pool, Node_8001D7AC *node);
+Ent_8001D768 *TLobby__sub_8001D768(Obj_8001D768 *self);
+Node_8001D808 *TLobby__sub_8001D808(Pool_8001D808 *pool, u32 size);
 }
 
 extern "C" {
@@ -50,6 +62,56 @@ Ent_8001D768 *TLobby__sub_8001D768(Obj_8001D768 *self) {
         for (i = 1; i < self->count; i++) {
             if (self->ents[i].fc == 0) {
                 return &self->ents[i];
+            }
+        }
+    }
+    return 0;
+}
+
+void TLobby__sub_8001D7AC(Pool_8001D7AC *pool, Node_8001D7AC *node) {
+    Node_8001D7AC *prev;
+    Node_8001D7AC *cur;
+    for (prev = pool->head; (cur = prev->next) != 0; prev = cur) {
+        if (node->addr < cur->addr) {
+            prev->next = node;
+            node->next = cur;
+            node->prev = prev;
+            cur->prev = node;
+            TLobby__sub_8001D6E0(pool);
+            return;
+        }
+    }
+}
+
+struct Ent_8001D768;
+struct Obj_8001D768;
+Node_8001D808 *TLobby__sub_8001D808(Pool_8001D808 *pool, u32 size) {
+    u32 sz = (size + 0x1F) & ~0x1F;
+    Node_8001D808 *prev;
+    Node_8001D808 *cur;
+    Node_8001D808 *n;
+    for (prev = pool->head; (cur = prev->next) != 0; prev = cur) {
+        if (cur->size >= sz) {
+            if (cur->size == sz) {
+                prev->next = cur->next;
+                if (cur->next != 0) {
+                    cur->next->prev = prev;
+                }
+                cur->next = 0;
+                cur->prev = 0;
+                return cur;
+            }
+            if (cur->size > sz) {
+                n = (Node_8001D808 *)TLobby__sub_8001D768((Obj_8001D768 *)pool);
+                if (n != 0) {
+                    n->next = 0;
+                    n->prev = 0;
+                    n->addr = cur->addr;
+                    n->size = sz;
+                    cur->addr += sz;
+                    cur->size -= sz;
+                    return n;
+                }
             }
         }
     }

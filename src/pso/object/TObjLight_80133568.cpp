@@ -181,6 +181,17 @@ extern RecoveredGlobal_80133D78_lbl_804A6F34 lbl_804A6F34;
 extern u32 TObjLight__data_805D5574;
 extern const f32 lbl_805DB0A4;
 void TObjLight__sub_80133D78(void);
+extern void *TObjLight__data_80506370[3];
+extern s32 TObjLight__data_805D5568;
+void __dl__FPv(void *);
+void TObjLight__sub_801335F0(void *p);
+extern u32 TObjLight__data_805D5574;
+extern s32 lbl_805D5578;
+extern char lbl_8043ED80[];
+s32 update_lobby_scene__6TSceneFPv(void *);
+u32 alloc__22TQuestVmDownLoadServerFPv(s32);
+s32 TLobby__sub_800F9DF4(void *, u32);
+void TObjLight__sub_80133E7C(void);
 }
 
 extern "C" {
@@ -225,6 +236,20 @@ void safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
 void* init_light__9TObjLightFPvi(void* a0, int a1) { *(int*)((char*)a0 + 0x0) = lbl_804A6F28[a1]; *(float*)((char*)a0 + 0x10) = TObjLight__data_805DB088; *(float*)((char*)a0 + 0xc) = TObjLight__data_805DB088; *(float*)((char*)a0 + 0x8) = TObjLight__data_805DB088; TAdSinglePlyChrSelectGC__sub_80133548(); *(float*)((char*)a0 + 0x14) = lbl_805DB08C; *(float*)((char*)a0 + 0x18) = lbl_805DB090; TAdSinglePlyChrSelectGC__sub_80133544(a0); *(float*)((char*)a0 + 0x20) = lbl_805DB094; *(float*)((char*)a0 + 0x24) = lbl_805DB094; *(float*)((char*)a0 + 0x28) = lbl_805DB094; TAdSinglePlyChrSelectGC__sub_801334E4(a0); return a0; }
 
 void TObjLight__sub_801335EC(void) {  }
+
+void TObjLight__sub_801335F0(void *p) {
+    s32 i;
+    void **q = TObjLight__data_80506370;
+    for (i = 0; i < 3; i++) {
+        if (*q == p) {
+            *q = 0;
+            TObjLight__data_805D5568--;
+            break;
+        }
+        q++;
+    }
+    __dl__FPv(p);
+}
 
 void TObjLight__sub_801336DC(void) {  }
 
@@ -412,6 +437,17 @@ void free_shared_data__9TObjLightFv(void) {
 }
 
 extern M2C_UNK lbl_804A6FC0[];
+
+void TObjLight__sub_80133E7C(void) {
+    TObjLight__data_805D5574 = 0;
+    lbl_805D5578 = update_lobby_scene__6TSceneFPv(lbl_8043ED80);
+    if (lbl_805D5578 > 0) {
+        TObjLight__data_805D5574 = alloc__22TQuestVmDownLoadServerFPv(lbl_805D5578);
+        if (TObjLight__data_805D5574) {
+            TLobby__sub_800F9DF4(lbl_8043ED80, TObjLight__data_805D5574);
+        }
+    }
+}
 
 void *dt2__9TObjLightFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

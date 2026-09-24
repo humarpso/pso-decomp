@@ -17,6 +17,12 @@ struct A_800845F8 { u8 pad[0x8]; B_800845F8 *b; };
 
 struct G_800845F8 { A_800845F8 *a; u8 pad[0x1c]; };
 
+struct Rect_80083F38 { u8 data[0x20]; };
+
+struct Rect_800846C8 { u8 data[0x20]; };
+
+struct G_800846C8 { void *a; u8 pad[0x1c]; };
+
 extern "C" {
 extern int lbl_805D4EE0;
 void TObjPlayer__sub_80083FB0(void);
@@ -28,10 +34,8 @@ s32 check_all_players_ready__10TObjPlayerFv(void);
 int TObjPlayer__sub_80084694(void);
     extern unsigned char lbl_805D4EE4;
 void TObjPlayer__sub_80084614(void);
-int TObjPlayer__sub_800846C8(void*);
 extern unsigned char lbl_805D4EE4;
 void TObjPlayer__sub_8008463C(void);
-int TObjPlayer__sub_800846C8(void*);
 extern unsigned char lbl_805D4EE4;
 void reset_movie_state__10TObjPlayerFv(void);
 extern unsigned char lbl_805D4EE4;
@@ -61,6 +65,17 @@ extern G_800845F8 lbl_8048E5B4;
 M2C_UNK set_global_param__8TObjFishFi(M2C_UNK *);
 M2C_UNK TObjPlayer__sub_803E1D90(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 void TObjPlayer__sub_80084500(void);
+extern M2C_UNK lbl_8048E5C8[];
+extern int lbl_805D4EE0;
+void set_render_rect__10TObjPlayerFPviiii(void *, int, int, int, int);
+void TObjPlayer__sub_803DA218(void *, void *, int, int);
+s32 TObjPlayer__sub_803DDC50(void *);
+void TObjPlayer__sub_80083F38(void);
+extern G_800845F8 lbl_8048E5B4;
+void set_render_rect__10TObjPlayerFPviiii(void *, int, int, int, int);
+void TObjPlayer__sub_803DA218(void *, void *, int, int);
+s32 TObjPlayer__sub_803DDC50(void *);
+void TObjPlayer__sub_800846C8(s32 wide);
 }
 
 extern "C" {
@@ -110,6 +125,14 @@ void **TObjPlayer__sub_80083F04(void) {
     return phi_r3;
 }
 
+void TObjPlayer__sub_80083F38(void) {
+    Rect_80083F38 r;
+    set_render_rect__10TObjPlayerFPviiii(&r, 0, 2, 0x100, 0x100);
+    TObjPlayer__sub_803DA218((void *)((s32 *)&lbl_8048E5C8)[0], &r, 0x2EE1, 0x08800000);
+    TObjPlayer__sub_803DDC50(((s32 *)&lbl_8048E5C8));
+    lbl_805D4EE0 = 0;
+}
+
 int TObjPlayer__sub_80083F9C(void) {  return lbl_805D4EE0; }
 
     extern int lbl_805D4EE0;
@@ -144,8 +167,28 @@ s32 TObjPlayer__sub_800845F8(void) {
 }
 
 void TObjPlayer__sub_80084614(void) { lbl_805D4EE4 = 0; TObjPlayer__sub_80084694(); }
-void TObjPlayer__sub_8008463C(void) { lbl_805D4EE4 = 0; TObjPlayer__sub_800846C8((void*)0); }
-void reset_movie_state__10TObjPlayerFv(void) { lbl_805D4EE4 = 0; TObjPlayer__sub_800846C8((void*)1); }
+void TObjPlayer__sub_8008463C(void) { lbl_805D4EE4 = 0; TObjPlayer__sub_800846C8((s32)((void*)0)); }
+void reset_movie_state__10TObjPlayerFv(void) { lbl_805D4EE4 = 0; TObjPlayer__sub_800846C8((s32)((void*)1)); }
+
+void TObjPlayer__sub_800846C8(s32 wide) {
+    Rect_800846C8 r;
+    s32 mode;
+    u16 w;
+    u16 h;
+    if (wide != 0) {
+        mode = 6;
+        w = 640;
+        h = 480;
+    } else {
+        mode = 4;
+        w = 640;
+        h = 480;
+    }
+    set_render_rect__10TObjPlayerFPviiii(&r, 0, mode, w, h);
+    TObjPlayer__sub_803DA218((*(G_800846C8 *)&lbl_8048E5B4).a, &r, 0x2EE0, 0x08800000);
+    TObjPlayer__sub_803DDC50(&lbl_8048E5B4);
+}
+
 void TObjPlayer__sub_80084744(void) { (*(u8 *)&lbl_805D4EE4) = ((*(u8 *)&lbl_805D4EE4) & 0xfffffffb); }
 void TObjPlayer__sub_80084754(void) { (*(u8 *)&lbl_805D4EE4) = ((*(u8 *)&lbl_805D4EE4) | 0x4); }
 void TObjPlayer__sub_80084764(void) { (*(u8 *)&lbl_805D4EE4) = ((*(u8 *)&lbl_805D4EE4) & 0xffffffef); }

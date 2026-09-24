@@ -6,10 +6,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Field_80080D1C { u16 *buffer; s32 cursor; u32 width; u32 linePixels; s32 scroll; u32 capacity; };
 
+struct Field_80080C64 { u16 *buffer; u32 cursor; u32 width; u32 linePixels; s32 length; };
+
+struct Field_80080ABC { u16 *buffer; u32 cursor; };
+
+struct Field_80080CC0 { u16 *buffer; u32 cursor; u32 width; u32 linePixels; s32 length; };
+
+struct Field_800809C0 { u16 *buffer; u32 cursor; };
+
 extern "C" {
 u16 TWindowSubStatusDisp__sub_80145054(u16);
 u8 TWindowSubStatusDisp__sub_80144FCC(u16);
 s32 TWindowKeyBoardSoft__sub_80080D1C(Field_80080D1C *f, u16 code, u32 *x, u32 *y, u32 *count);
+void TWindowKeyBoardSoft__sub_80080C64(Field_80080C64 *f, s32 pos, s32 n);
+extern u16 lbl_8048E020[];
+s32 TWindowKeyBoardSoft__sub_80080ABC(Field_80080ABC *f);
+void TWindowKeyBoardSoft__sub_80080CC0(Field_80080CC0 *f);
+s32 TWindowKeyBoardSoft__sub_800809C0(Field_800809C0 *f);
 }
 
 extern "C" {
@@ -21,6 +34,41 @@ void reset_state__19TWindowKeyBoardSoftFPv(void *arg0);
 void clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void* p);
 
 int TWindowKeyBoardSoft__sub_80080798(void) { return 0; }
+
+s32 TWindowKeyBoardSoft__sub_800809C0(Field_800809C0 *f) {
+    u16 *p;
+    if (f->buffer == NULL) {
+        return 1;
+    }
+    p = f->buffer;
+    while ((s32)*p != 0) {
+        if ((s32)*p++ != 0x20) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+s32 TWindowKeyBoardSoft__sub_80080ABC(Field_80080ABC *f) {
+    u16 *last;
+    u16 c;
+    s32 i;
+    if (f->cursor == 0) {
+        return 0;
+    }
+    last = &f->buffer[f->cursor];
+    c = last[-1];
+    if (c >= 0x8340) {
+        c -= 0xA1;
+    }
+    for (i = 0; i < 5; i++) {
+        if (c == lbl_8048E020[i]) {
+            last[-1] += 2;
+            return 1;
+        }
+    }
+    return 0;
+}
 
 void delete_chars__19TWindowKeyBoardSoftFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     u16 *var_r4;
@@ -56,6 +104,40 @@ void delete_char__19TWindowKeyBoardSoftFPv(u8 *arg0) {
         } while ((s32) temp_r0 != 0);
         M2C_FIELD(arg0, s32 *, 0x10) = (s32) (M2C_FIELD(arg0, s32 *, 0x10) - 1);
     }
+}
+
+void TWindowKeyBoardSoft__sub_80080C64(Field_80080C64 *f, s32 pos, s32 n) {
+    u32 len;
+    u16 *p;
+    u16 *q;
+    p = &f->buffer[pos];
+    len = 0;
+    while ((s32)*p != 0) {
+        p++;
+        len++;
+    }
+    q = p + n;
+    do {
+        *q-- = *p--;
+    } while (len-- != 0);
+    f->length += n;
+}
+
+void TWindowKeyBoardSoft__sub_80080CC0(Field_80080CC0 *f) {
+    u32 len;
+    u16 *p;
+    u16 *q;
+    p = &f->buffer[f->cursor];
+    len = 0;
+    while ((s32)*p != 0) {
+        p++;
+        len++;
+    }
+    q = p + 1;
+    do {
+        *q-- = *p--;
+    } while (len-- != 0);
+    f->length++;
 }
 
 s32 TWindowKeyBoardSoft__sub_80080D1C(Field_80080D1C *f, u16 code, u32 *x, u32 *y, u32 *count) {

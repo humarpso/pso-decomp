@@ -79,6 +79,10 @@ struct Vec_80018570 { f32 x, y, z; };
 
 struct Obj_80018570 { u8 pad[0x38]; Vec_80018570 pos; u8 pad44[0x1c]; s32 angle; u8 pad64[0x238]; Vec_80018570 dest; };
 
+struct Vec_800180E8 { f32 x, y, z; };
+
+struct Obj_800180E8 { u8 pad[0x308]; f32 vx; f32 vy; f32 vz; };
+
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK TObjPlayer__sub_80017E6C(void *);
@@ -117,6 +121,18 @@ s32 lerp_angle_half__10TObjPlayerFUsUs(s32, s32);
 M2C_UNK TObjPlayer__sub_80141F84(s32, s32);
 extern const f64 TObjPlayer__data_804340B8;
 void TObjPlayer__sub_80018570(Obj_80018570 *self);
+M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
+void TBoss6Type1__sub_803D9370(void *a, void *b);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 TScene__sub_803D8DB4(int, void *, void *);
+s32 TObjPlayer__sub_803D9214(int, void *);
+s32 TObjPlayer__sub_803D97F0(void *);
+s32 TObjPlayer__sub_803D9B78();
+extern const f32 TObjPlayer__data_805D7D24;
+extern const f32 TObjPlayer__data_805D7D80;
+extern const f64 TObjPlayer__data_804340B8;
+extern RecoveredGlobal_8001806C_lbl_8058D490 lbl_8058D490;
+void TObjPlayer__sub_800180E8(Obj_800180E8 *self, Vec_800180E8 *pos, Vec_800180E8 *dest, f32 speed);
 }
 
 extern "C" {
@@ -243,6 +259,28 @@ void TObjPlayer__sub_8001806C(u8 *arg0, s32 arg1, f32 farg0) {
     TObjPlayer__sub_803D9B78();
     M2C_FIELD(arg0, f32 *, 0x308) = stack.sp8;
     M2C_FIELD(arg0, f32 *, 0x310) = stack.sp10;
+}
+
+struct RecoveredGlobal_8001806C_lbl_8058D490;
+void TObjPlayer__sub_800180E8(Obj_800180E8 *self, Vec_800180E8 *pos, Vec_800180E8 *dest, f32 speed) {
+    Vec_800180E8 d;
+    s32 a;
+    VecCopy__FP3VecPC3Vec((s32)&d, (s32)dest);
+    TBoss6Type1__sub_803D9370(&d, pos);
+    if (d.x * d.x + d.z * d.z < TObjPlayer__data_805D7D80) {
+        self->vz = TObjPlayer__data_805D7D24;
+        self->vx = TObjPlayer__data_805D7D24;
+    } else {
+        a = (s32)(TObjPlayer__data_804340B8 * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z));
+        d.z = speed;
+        d.x = d.y = TObjPlayer__data_805D7D24;
+        TObjPlayer__sub_803D97F0(&lbl_8058D490);
+        TObjPlayer__sub_803D9214(0, (void *)a);
+        TScene__sub_803D8DB4(0, &d, &d);
+        TObjPlayer__sub_803D9B78();
+        self->vx = d.x;
+        self->vz = d.z;
+    }
 }
 
 s32 copy_position_if_valid__10TObjPlayerFii(s32 arg0, s32 arg1) {

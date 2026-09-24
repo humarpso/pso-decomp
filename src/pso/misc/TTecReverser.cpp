@@ -19,6 +19,20 @@ typedef char RecoveredGlobal_8023A094_lbl_804CC1CC_size[sizeof(RecoveredGlobal_8
 struct RecoveredGlobal_8023A094___vt__12TTecReverser { M2C_UNK value; u8 remaining[0x24]; };
 typedef char RecoveredGlobal_8023A094___vt__12TTecReverser_size[sizeof(RecoveredGlobal_8023A094___vt__12TTecReverser) == 0x28 ? 1 : -1];
 
+struct Vec_80239E44 { f32 x, y, z; };
+
+struct Entry_80239E44 { s32 a; s32 b; s32 c; s32 pad; };
+
+struct Player_80239E44 { u8 pad[0x2FC]; Vec_80239E44 pos; };
+
+struct Obj_80239E44 {
+    u8 pad[0x18];
+    void *vtable;
+    void *parts[3];
+    s32 f28;
+    Vec_80239E44 pos;
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u32 TPhotonMylla__sub_80154CB4(int);
@@ -36,6 +50,13 @@ extern RecoveredGlobal_8023A094_lbl_804CC1CC lbl_804CC1CC;
 extern M2C_UNK __vt__12TTecReverser[];
 extern s32 lbl_805D3818;
 u8 *TTecReverser__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+void __ct__7TObjectFP7TObject(void *self, void *parent);
+void VecCopy__FP3VecPC3Vec(Vec_80239E44 *, Vec_80239E44 *);
+void *TLobby__sub_800869A4(void *owner, s32 idx, s32 b, s32 c);
+extern M2C_UNK lbl_804CCC28[];
+extern Entry_80239E44 lbl_804CCBF8[];
+extern const f32 lbl_805DC910;
+Obj_80239E44 *TTecReverser__sub_80239E44(Obj_80239E44 *self, Player_80239E44 *player, void *parent);
 }
 
 extern "C" {
@@ -73,6 +94,26 @@ void update__12TTecReverserFPv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x28) > 0xC8) {
         queue_destruction__7TObjectFv(arg0);
     }
+}
+
+typedef s32 M2C_UNK;
+Obj_80239E44 *TTecReverser__sub_80239E44(Obj_80239E44 *self, Player_80239E44 *player, void *parent) {
+    s32 i;
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vtable = lbl_804CCC28;
+    self->f28 = 0;
+    VecCopy__FP3VecPC3Vec(&self->pos, &player->pos);
+    for (i = 0; i < 3; i++) {
+        if (i == 0) {
+            Vec_80239E44 v;
+            VecCopy__FP3VecPC3Vec(&v, &self->pos);
+            v.y += lbl_805DC910;
+            self->parts[i] = TLobby__sub_800869A4(&v, lbl_804CCBF8[i].c, lbl_804CCBF8[i].a, lbl_804CCBF8[i].b);
+        } else {
+            self->parts[i] = TLobby__sub_800869A4(&self->pos, lbl_804CCBF8[i].c, lbl_804CCBF8[i].a, lbl_804CCBF8[i].b);
+        }
+    }
+    return self;
 }
 
 void render__12TTecReverserFv(void) {  }

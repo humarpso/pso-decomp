@@ -10,9 +10,15 @@ struct G_800AC9DC { u8 pad[0x42c]; E_800AC9DC *tbl; };
 
 struct O_800AC9DC { u8 pad[0x24]; s32 x24; u8 pad2[0xc]; s32 x34; };
 
+struct Sub_800ACA10 { u8 pad[0x18]; s32 level; };
+
+struct Obj_800ACA10 { u8 pad[0x2B0]; Sub_800ACA10 *sub; };
+
 extern "C" {
 extern u32 lbl_805D50B8;
 void TObjPlayer__sub_800AC9DC(O_800AC9DC *self, s32 i);
+extern s32 lbl_805D5550;
+s32 TObjPlayer__sub_800ACA10(Obj_800ACA10 *self);
 }
 
 extern "C" {
@@ -91,5 +97,25 @@ void TObjPlayer__sub_800AC9DC(O_800AC9DC *self, s32 i) {
 }
 
 void TObjPlayer__sub_800ACA0C(void) {  }
+s32 TObjPlayer__sub_800ACA10(Obj_800ACA10 *self) {
+    Sub_800ACA10 *p = self->sub;
+    s32 v = 0;
+    if (p != 0) {
+        v = p->level;
+        if (v < 0) {
+            return 0;
+        }
+        if (lbl_805D5550 == 3) {
+            if (v > 0x1D) {
+                v = 0x1D;
+            }
+            return v;
+        }
+        if (v > 0xE) {
+            v = 0xE;
+        }
+    }
+    return v;
+}
 
 }

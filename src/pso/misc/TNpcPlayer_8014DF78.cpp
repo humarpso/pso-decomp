@@ -9,6 +9,20 @@ struct Stack_8014F728 {
     f32 spC;
 };
 
+struct Text_8014E250 { char text[0x36]; };
+
+struct Owner_8014E250 { u8 pad[0x94]; void *obj; };
+
+struct Npc_8014E250 {
+    u8 pad[0x24];
+    s32 state;
+    u8 pad28[0x5C - 0x28];
+    u8 timer[0x78 - 0x5C];
+    Owner_8014E250 *owner;
+    u8 pad7c[4];
+    u32 flags;
+};
+
 extern "C" {
 void TNpcPlayer__sub_801528B8(s32, s32);
 void TNpcPlayer__sub_8014E33C(u8 *arg0, u32 arg1);
@@ -21,6 +35,13 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u8 *TObjButterflyLobby__sub_8007A5D8(s32, s32, M2C_UNK);
 s32 TNpcPlayer__sub_800D87EC(void *);
 bool TNpcPlayer__sub_8014F728(u8 *arg0, u16 arg1);
+s32 is_any_teammate_in_state__10TObjPlayerFv(void *self);
+s32 obj_getField1c(void *obj);
+char *fn_8034D9E0(s32 state, u16 id);
+void open__11TWindowCtrlFiii(u16 id, char *text, s32 kind);
+s32 TNpcPlayer__sub_80152900(void *timer, s32 a, s32 b);
+extern Text_8014E250 lbl_804F0280[];
+void TNpcPlayer__sub_8014E250(Npc_8014E250 *self);
 }
 
 extern "C" {
@@ -128,6 +149,35 @@ void handle_action__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
             fn_801B7F4C(M2C_FIELD(temp_r5_3, s32 *, 0x94), temp_r3_3, temp_r5_3);
         }
         break;
+    }
+}
+
+void TNpcPlayer__sub_8014E250(Npc_8014E250 *self) {
+    u16 id;
+    char *text;
+    if (self->state >= 0x19) {
+        self->flags &= ~4;
+        self->state = 0x19;
+        return;
+    }
+    if (is_any_teammate_in_state__10TObjPlayerFv(self) != 0) {
+        return;
+    }
+    id = obj_getField1c(self->owner->obj);
+    if (id != 0xFFFF) {
+        text = fn_8034D9E0(self->state, id);
+        if (text != 0) {
+            open__11TWindowCtrlFiii(id, text, 0x1B);
+        } else {
+            text = lbl_804F0280[self->state].text;
+            if (text[0] != 0) {
+                open__11TWindowCtrlFiii(id, text, 0x1B);
+            }
+        }
+    }
+    self->flags &= ~4;
+    if (TNpcPlayer__sub_80152900(self->timer, 0, 0x190) != 0) {
+        self->state = 0x19;
     }
 }
 

@@ -35,6 +35,10 @@ struct RecoveredGlobal_80085E78_lbl_8048E6DC {
     u8 remaining[0x30];
 };
 
+struct Col_80085798 { u32 r; u32 g; u32 b; u32 a; };
+
+struct Obj_80085798 { u8 pad[0x38]; u8 target[0x10]; };
+
 extern "C" {
 s32 is_split_screen(void);
 u8 *__nw__7TObjectFUl(M2C_UNK);
@@ -58,6 +62,11 @@ extern M2C_UNK lbl_8048E6DC[];
 extern s32 lbl_805D2930;
 extern const f32 lbl_805D9484;
 u8 *TParticleCtrl__sub_80085E78(u8 *arg0, s32 arg1, s32 arg2);
+extern Col_80085798 lbl_804393DC;
+extern const f32 lbl_805D9478;
+s32 check_demo_mode__10TObjPlayerFv(void);
+void TObjRoomId__sub_80141CF4(void *dst, Col_80085798 *src, f32 t);
+void TParticleCtrl__sub_80085798(Obj_80085798 *self);
 }
 
 extern "C" {
@@ -76,6 +85,13 @@ extern s32 lbl_805D2930;
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805D947C;
 extern const f32 lbl_805D9480;
+
+void TParticleCtrl__sub_80085798(Obj_80085798 *self) {
+    if (check_demo_mode__10TObjPlayerFv() != 0) {
+        Col_80085798 c = lbl_804393DC;
+        TObjRoomId__sub_80141CF4(self->target, &c, lbl_805D9478);
+    }
+}
 
 void check_player_proximity__13TParticleCtrlFPv(u8 *arg0) {
     u32 temp_r3;

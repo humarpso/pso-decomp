@@ -49,7 +49,11 @@ force_active:
   - TLobby__sub_8034C1D0
   - TLobby__sub_803CBE40
   - TLobby__sub_803D0F1C
+  - TLockOnCursor__sub_8013EBBC
+  - TLockOnCursor__sub_8013EBE8
+  - TLockOnCursor__sub_8013EC14
   - TLockOnCursor__sub_8013ED68
+  - TLockOnCursor__sub_8013F000
   - TMainCursor__sub_8013E1C0
   - TMainCursor__sub_8013E290
   - TMainCursor__sub_8013E4A0
@@ -124,6 +128,7 @@ force_active:
   - TObjPlayer__sub_8012BCD4
   - TObjPlayer__sub_8012D354
   - TObjPlayer__sub_801301D0
+  - TObjPlayer__sub_8013A788
   - TObjPlayer__sub_801AA6E4
   - TObjPlayer__sub_801BBBD0
   - TObjPlayer__sub_801BF5F0
@@ -139,6 +144,7 @@ force_active:
   - TObjPlayer__sub_802E0580
   - TObjQuestColALock2__ct
   - TObjTank__ct
+  - TPlyDispConfig__sub_80071EA8
   - TPlyDispConfig__sub_801E0A68
   - TPlyGuildCardTag__sub_8013ACA4
   - TRecvGenerateID__sub_801DFBC4
@@ -199,6 +205,7 @@ force_active:
   - apply_player_54a00__9TObjEnemyFPv
   - attack_target__15TObjIllGillKageFPv
   - bswap_guild_card_tag__17TWindowSubComCardFPv
+  - bswap_header_fields__6TLobbyFi
   - build_6x75_update_quest_flag_dc
   - byteswap_entry__20TWindowSubSymbolChatFPv
   - check_card_file__19TAdTrialAgreementGCFi
@@ -223,6 +230,7 @@ force_active:
   - fire_attack_a__14TObjEneEpsilonFPviif
   - fire_attack_b__14TObjEneEpsilonFPviif
   - fire_attack_c__14TObjEneEpsilonFPviif
+  - fn_80010F4C
   - fn_80076C68
   - fn_800779FC
   - fn_80077A28
@@ -247,6 +255,7 @@ force_active:
   - init_item_object__14TItemProShieldFPv
   - init_object__15TAdPlayerLoadGCFPv
   - init_player__22TAdMultiPlyChrSelectGCFPvPvPvPvPv
+  - init_sub__13TLockOnCursorFPv
   - init_sub_object_vectors__10TObjPlayerFi
   - init_vtable_1f8__10TObjPlayerFPv
   - init_vtable_and_status__10TObjPlayerFPv

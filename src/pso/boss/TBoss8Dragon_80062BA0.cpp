@@ -171,6 +171,10 @@ struct RecoveredGlobal_80064114_lbl_804FF5B4 {
     u8 remaining[0x8];
 };
 
+struct O_80064AB0 { u8 pad[0x1c]; u16 id; u8 pad2[0x38c - 0x1e]; u16 kind; u8 pad3[6]; f32 x; u8 pad4[4]; f32 z; };
+
+struct P_80064AB0 { u16 a; u16 id; u32 kind; f32 x; f32 z; };
+
 extern "C" {
 s32 objInBand__FP7GameObjf(void *, f32);
 extern const f32 lbl_805D8EBC;
@@ -254,6 +258,9 @@ void setup_instance__9TObjEneDDFiiPvi(s32, s32, void *, s32);
 extern RecoveredGlobal_80064114_lbl_80437D68 lbl_80437D68;
 extern RecoveredGlobal_800646F0_lbl_804FF5B4 lbl_804FF5B4;
 void TBoss8Dragon__sub_80064114(s32 arg0, s32 arg1);
+void TBoss8Dragon__sub_800660A4(void *);
+void TBoss8Dragon__sub_8006602C(void *);
+void TBoss8Dragon__sub_80064AB0(O_80064AB0 *self);
 }
 
 extern "C" {
@@ -559,6 +566,16 @@ void TBoss8Dragon__sub_800648C8(u8 *arg0) {
 }
 
 void copy_spawn_params__12TBoss8DragonFPvPv(void* p, void* a1) { *(short*)((char*)a1 + 0x2) = *(unsigned short*)((char*)p + 0x1c); VecCopy__FP3VecPC3Vec((void*)((char*)a1 + 0x4), (void*)((char*)p + 0x38)); *(void**)((char*)a1 + 0x10) = *(void**)((char*)p + 0x60); TBoss8Dragon__sub_80065F4C(a1); }
+
+void TBoss8Dragon__sub_80064AB0(O_80064AB0 *self) {
+    P_80064AB0 p;
+    TBoss8Dragon__sub_800660A4(&p);
+    p.id = self->id;
+    p.kind = self->kind;
+    p.x = self->x;
+    p.z = self->z;
+    TBoss8Dragon__sub_8006602C(&p);
+}
 
 void TBoss8Dragon__sub_80064B08(u8 *arg0, u8 *arg1) {
     s16 temp_r4;

@@ -4,6 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Vec2_8007DD28 { f32 x; f32 y; f32 z; };
+
+extern "C" {
+extern Vec2_8007DD28 TObjBoss2Tunnel__data_8048DF2C;
+extern const f32 lbl_805D9280;
+extern const f32 lbl_805D9284;
+extern u8 lbl_805D4E88;
+extern s16 TObjBoss2Tunnel__data_805D4E8A;
+extern u32 TObjBoss2Tunnel__data_805D4E90;
+extern s32 TObjBoss2Tunnel__data_805D4E94;
+void reset__12TQuestListVMFv(void);
+void TObjBoss2Tunnel__sub_8007DD28(void);
+}
+
 extern "C" {
 
 void TObjBoss2Tunnel__sub_8007DD24(void);
@@ -135,5 +149,14 @@ s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
 }
 
 void TObjBoss2Tunnel__sub_8007DD24(void) {  }
+void TObjBoss2Tunnel__sub_8007DD28(void) {
+    TObjBoss2Tunnel__data_8048DF2C.x = lbl_805D9280;
+    lbl_805D4E88 = 0;
+    TObjBoss2Tunnel__data_8048DF2C.y = lbl_805D9284;
+    TObjBoss2Tunnel__data_805D4E90 = 0;
+    TObjBoss2Tunnel__data_805D4E8A = 0;
+    TObjBoss2Tunnel__data_805D4E94 = 0;
+    reset__12TQuestListVMFv();
+}
 
 }

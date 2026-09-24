@@ -6,6 +6,32 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Tbl_8011C914 { u8 pad[0x2c]; u8 *p; };
 
+struct Rule_8011CB18 { u8 type; u8 slots; u8 idx; u8 mode; };
+
+struct RuleTbl_8011CB18 { s32 count; Rule_8011CB18 *rules; };
+
+struct Entry_8011CB18 { u8 data[0x14]; };
+
+struct Entries_8011CB18 { Entry_8011CB18 a[0xAA]; Entry_8011CB18 b[1]; };
+
+struct Pmt_8011CB18 { u8 pad[0x1C]; Entry_8011CB18 *entries; u8 pad2[0x58 - 0x20]; RuleTbl_8011CB18 *rules; };
+
+struct Base_8011CB18 { u8 pad[0x18]; };
+
+struct Item_8011CB18 : Base_8011CB18 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
+    virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27();
+    virtual void m28(); virtual void m29(); virtual void m30(); virtual void m31();
+    virtual void m32(); virtual s32 m33(); virtual void m34(); virtual void m35();
+    virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
+    virtual void m40(); virtual u8 m41();
+};
+
 extern "C" {
 M2C_UNK TItemDrop__sub_8010663C(u32, s32, s32, s32);
 M2C_UNK TLobby__sub_801044B8(s32 *);
@@ -36,6 +62,10 @@ extern void *item_pmt_tbl;
 u8 TObjPlayer__sub_8011C1C8(s8 arg0, u8 arg1);
 extern void *item_pmt_tbl;
 s32 TObjPlayer__sub_8011C914(s32 id);
+u8 get_field_ed__10TObjPlayerFPv(void *p);
+u8 get_slot_count__14TItemProShieldFPv(void *p);
+extern void *item_pmt_tbl;
+Entry_8011CB18 *TObjPlayer__sub_8011CB18(Item_8011CB18 *item, s16 mode);
 }
 
 extern "C" {
@@ -163,6 +193,27 @@ s32 get_item_by_slot_flag__10TObjPlayerFUc(u8 arg0) {
     }
 block_6:
     return lbl_805D2B10;
+}
+Entry_8011CB18 *TObjPlayer__sub_8011CB18(Item_8011CB18 *item, s16 mode) {
+    if (item != 0) {
+        u8 id = get_field_ed__10TObjPlayerFPv(item);
+        if (id < 0xAA) {
+            u8 slots = get_slot_count__14TItemProShieldFPv(item);
+            Rule_8011CB18 *r = (*(Pmt_8011CB18 **)&item_pmt_tbl)->rules->rules;
+            s32 v = item->m33();
+            s32 i;
+            for (i = 0; i != (*(Pmt_8011CB18 **)&item_pmt_tbl)->rules->count; i++) {
+                if (r->type == id && (r->slots == 0xFF || r->slots == slots) &&
+                    (r->mode == 1 || (r->mode == 0 && mode == 2 && v == 1))) {
+                    return &((Entries_8011CB18 *)(*(Pmt_8011CB18 **)&item_pmt_tbl)->entries)->b[r->idx];
+                }
+                r++;
+            }
+            return &(*(Pmt_8011CB18 **)&item_pmt_tbl)->entries[id];
+        }
+        return &(*(Pmt_8011CB18 **)&item_pmt_tbl)->entries[item->m41()];
+    }
+    return (*(Pmt_8011CB18 **)&item_pmt_tbl)->entries;
 }
 
 }

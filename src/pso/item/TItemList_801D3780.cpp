@@ -33,6 +33,18 @@ struct Actor_801D3E20 {
     s32 count;
 };
 
+struct Search_801D3F3C {
+    u8 pad[0x1d];
+    s8 ring;
+    s8 sample;
+    s8 count;
+    u8 pad20[8];
+    u32 heading;
+    s32 step;
+    u32 angle;
+    f32 radius;
+};
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
@@ -46,13 +58,11 @@ s32 check_player_action_allowed(void);
 s32 fn_801D4270(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FD21C(void);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TItemList__sub_801D3F3C(void *);
 M2C_UNK fn_801D41B4(int);
 M2C_UNK TItemList__sub_801D5884(void *, int);
 u8 *TItemList__sub_801D58E4(void *);
 extern M2C_UNK lbl_804C4468[];
 u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8 arg5);
-M2C_UNK TItemList__sub_801D3F3C(void *);
 u8 *TItemList__sub_801D401C(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4);
 M2C_UNK TItemList__sub_801D5884(void *, int);
 extern M2C_UNK lbl_804C4480[];
@@ -66,6 +76,8 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void *TObjPlayer__sub_80155C54(Body_801D3E20, Body_801D3E20);
 extern const f32 lbl_805DC3D0;
 void *TItemList__sub_801D3E20(void *self, Body_801D3E20 *s);
+extern const f32 lbl_805DC3C8;
+s32 TItemList__sub_801D3F3C(void *arg0);
 }
 
 extern "C" {
@@ -116,7 +128,7 @@ u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801D39C8_lbl_804C4468 *)&lbl_804C4468).value;
     M2C_FIELD(arg0, s32 *, 0x54) = arg2;
     TItemList__sub_801D5884((void *) (arg0), (int) (1));
-    TItemList__sub_801D3F3C((void *) (arg0));
+    TItemList__sub_801D3F3C((void *)((void *) (arg0)));
     if (check_player_action_allowed() != 0) {
         temp_r3 = (u8 *)(TItemList__sub_801D58E4(arg0));
         if (fn_801D4270(M2C_FIELD(temp_r3, s32 *, 4)) != 0) {
@@ -165,7 +177,7 @@ u8 *TItemList__sub_801D3BD4(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801D3BD4_lbl_804C4480 *)&lbl_804C4480).value;
     M2C_FIELD(arg0, s32 *, 0x54) = arg2;
     TItemList__sub_801D5884((void *)(arg0), (int)(0U));
-    TItemList__sub_801D3F3C(arg0);
+    TItemList__sub_801D3F3C((void *)(arg0));
     return arg0;
 }
 
@@ -190,6 +202,19 @@ void *TItemList__sub_801D3E20(void *self, Body_801D3E20 *s) {
         }
     }
     return 0;
+}
+
+s32 TItemList__sub_801D3F3C(void *arg0) {
+    Search_801D3F3C *s = (Search_801D3F3C *)arg0;
+    s->sample = 0;
+    if (s->ring == 0) {
+        s->count = 1;
+    } else {
+        s->count = s->ring * 4;
+    }
+    s->step = 0x10000 / s->count;
+    s->angle = s->heading;
+    s->radius = lbl_805DC3C8 * s->ring;
 }
 
 void *TItemList__sub_801D3FC4(void *arg0, s16 arg1) {

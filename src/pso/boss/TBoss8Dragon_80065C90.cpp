@@ -20,6 +20,14 @@ struct RecoveredGlobal_80065F08_lbl_80437938_80065C90 {
     u8 remaining[0x8];
 };
 
+struct O_80065FD4 { u16 a; u16 b; u32 c[4]; };
+
+extern "C" {
+void bswap_16__FPUs(u16 *);
+s32 bswap_32__FPUl(s32);
+void TBoss8Dragon__sub_80065FD4(O_80065FD4 *p);
+}
+
 extern "C" {
 
 void TBoss8Dragon__sub_80065DB4(u8 *arg0, u8 *arg1, u8 *arg2);
@@ -34,7 +42,6 @@ void TBoss8Dragon__sub_80065F30(void);
 void TBoss8Dragon__sub_80065F34(void);
 void TBoss8Dragon__sub_80065F4C(void* p);
 void TBoss8Dragon__sub_80065F80(void *arg0);
-int TBoss8Dragon__sub_80065FD4(void * _w0);
 void TBoss8Dragon__sub_8006602C(void* p);
 void TBoss8Dragon__sub_800660A4(void* p);
 void TBoss8Dragon__sub_80066108(void);
@@ -124,14 +131,21 @@ void TBoss8Dragon__sub_80065F4C(void* p) { TBoss8Dragon__sub_80065F80((void *)((
 
 void TBoss8Dragon__sub_80065F80(void *arg0) {
     read_be16_field2__10TObjPlayerFPv((void *)(arg0));
-    TBoss8Dragon__sub_80065FD4((void *)((void *)((void *)((char *)arg0 + 20))));
+    TBoss8Dragon__sub_80065FD4((O_80065FD4 *)((void *)((void *)((void *)((char *)arg0 + 20)))));
     bswap_32__FPUl((s32)((void *)((char *)arg0 + 4)));
     bswap_32__FPUl((s32)((void *)((char *)arg0 + 8)));
     bswap_32__FPUl((s32)((void *)((char *)arg0 + 12)));
     bswap_32__FPUl((s32)((void *)((char *)arg0 + 16)));
 }
 
-int TBoss8Dragon__sub_80065FD4(void * _w0) { return 0; }
+void TBoss8Dragon__sub_80065FD4(O_80065FD4 *p) {
+    s32 i;
+    bswap_16__FPUs(&p->a);
+    bswap_16__FPUs(&p->b);
+    for (i = 0; i < 4; i++) {
+        bswap_32__FPUl((s32)&p->c[i]);
+    }
+}
 
 void TBoss8Dragon__sub_8006602C(void* p) { bswap_boss_actions__12TBoss8DragonFi((s32)((s32)((void*)(p)))); TLobby__send_and_handle_60(p); }
 

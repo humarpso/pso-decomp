@@ -17,6 +17,8 @@ struct Stack_8007CAE8 {
     f32 sp14;
 };
 
+struct Load_8007CB50 { u8 pad[0x58]; s32 *data; u32 size; };
+
 extern "C" {
 M2C_UNK DCFlushRange(int, int);
 s32 TObjPlayer__sub_800845F8();
@@ -37,6 +39,10 @@ void TObjBoss2Tunnel__sub_8007CAE8(u32 arg0);
 extern M2C_UNK TObjBoss2Tunnel__data_80438A08[];
 void poll_load_status__15TAdPlayerLoadGCFi(s32 a, void *b);
 void TObjBoss2Tunnel__sub_8007C880(void);
+s32 TAdPlayerLoadGC__sub_801E1538(void *, int);
+s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, s32);
+extern s32 TObjBoss2Tunnel__data_805D4E90;
+bool TObjBoss2Tunnel__sub_8007CB50(void);
 }
 
 extern "C" {
@@ -62,6 +68,22 @@ void TObjBoss2Tunnel__sub_8007CAE8(u32 arg0) {
     stack.sp8 = lbl_805D922C;
     stack.spC = lbl_805D9230;
     TObjPlayer__sub_800842A4((int) (-1), (void *) (&stack.sp10), (void *) (&stack.sp8), (int) (1), (f32) (lbl_805D922C));
+}
+
+bool TObjBoss2Tunnel__sub_8007CB50(void) {
+    Load_8007CB50 ld;
+    s32 *p;
+    s32 saved;
+    s32 sum;
+    if ((u32)TAdPlayerLoadGC__sub_801E1538(&ld, TObjBoss2Tunnel__data_805D4E90) == 0xFFFFFF20) {
+        return false;
+    }
+    p = ld.data;
+    saved = *p;
+    *p = 0;
+    sum = TAdSinglePlyChrSelectGC__sub_80201204(ld.data, 0x1818C);
+    *p = saved;
+    return sum == saved;
 }
 
 s32 TObjBoss2Tunnel__sub_8007CBC4(void) {

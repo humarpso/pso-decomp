@@ -20,6 +20,13 @@ struct M2CCopy_24 { u8 bytes[0x24]; };
 
 struct M2CCopy_14 { u8 bytes[0x14]; };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct P8_8013A5D4 { u32 w[2]; };
+
+struct Rec_8013A5D4 { P8_8013A5D4 f0; u32 f8; u32 fc; P8_8013A5D4 f10; P8_8013A5D4 f18; u8 f20[0x41c]; };
+
 extern "C" {
 void TObjPlayer__sub_8013A820(void *arg0, void *arg1);
     extern int lbl_805D60D0;
@@ -30,6 +37,8 @@ void* TObjPlayer__sub_8013A788(void* p, void* a1);
 void *TObjPlayer__sub_8013A748(void *arg0, void *arg1);
 void *TObjPlayer__sub_8013A748(void *arg0, void *arg1);
 u8 *TProtocol__sub_8013A650(u8 *arg0, u8 *arg1);
+u8 *TProtocol__sub_8013A650(u8 *arg0, u8 *arg1);
+Rec_8013A5D4 *TLobby__sub_8013A5D4(Rec_8013A5D4 *dst, Rec_8013A5D4 *src);
 }
 
 extern "C" {
@@ -38,7 +47,6 @@ void TLobby__sub_8013A4A8(void* p, void* a1);
 void TLobby__sub_8013A4E4(void* p);
 void TLobby__sub_8013A578(void* p);
 void TLobby__sub_8013A5C0(void* p);
-int TLobby__sub_8013A5D4(void);
 void bswap_and_handle_packet__6TLobbyFii(s32 arg0, s32 arg1);
 void bswap_header_fields__6TLobbyFi(s32 arg0);
 void send_packet_60__6TLobbyFi(s32 arg0);
@@ -68,7 +76,15 @@ void send_packet_60__6TLobbyFi(s32 arg0) {
 }
 void TLobby__sub_8013A5C0(void* p) { *(u8*)((char*)p + 0x0) = 114; *(u8*)((char*)p + 0x1) = 1; }
 
-int TLobby__sub_8013A5D4(void) { return 0; }
+Rec_8013A5D4 *TLobby__sub_8013A5D4(Rec_8013A5D4 *dst, Rec_8013A5D4 *src) {
+    dst->f0 = src->f0;
+    dst->f8 = src->f8;
+    dst->fc = src->fc;
+    dst->f10 = src->f10;
+    dst->f18 = src->f18;
+    TProtocol__sub_8013A650(dst->f20, src->f20);
+    return dst;
+}
 
 u8 *TProtocol__sub_8013A650(u8 *arg0, u8 *arg1) {
     u8 *temp_r4;

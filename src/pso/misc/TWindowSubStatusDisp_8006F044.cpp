@@ -16,6 +16,12 @@ struct RecoveredGlobal_8006F1EC_lbl_8048C9D8
   u8 remaining[0x744];
 };
 
+struct O_8006F0D8 { u8 pad[4]; s32 a[(0xec - 4) / 4]; s32 def; };
+
+struct E_8006F134 { s32 a; s32 b; };
+
+struct O_8006F134 { u8 pad[0xc0]; E_8006F134 e[4]; s32 pad2; E_8006F134 def; };
+
 extern "C" {
 s32 is_flag_set__6TLobbyFv();
 extern RecoveredGlobal_8006F23C_lbl_8048C9D8 lbl_8048C9D8;
@@ -23,18 +29,28 @@ s32 TLobby__sub_8006F23C(void);
 s32 is_flag_set__6TLobbyFv();
 extern RecoveredGlobal_8006F23C_lbl_8048C9D8 lbl_8048C9D8;
 s32 TLobby__sub_8006F1EC(s32 arg0);
+s32 is_split_screen(void);
+s32 get_instance__6TLobbyFv(void);
+s32 TWindowSubStatusDisp__sub_8006F190(s32 slot);
+extern s32 lbl_80438590[];
+s32 TWindowSubStatusDisp__sub_8006F190(s32 slot);
+s32 *TWindowSubStatusDisp__sub_8006F0D8(O_8006F0D8 *self, s32 slot);
+extern s32 lbl_80438584[];
+s32 TWindowSubStatusDisp__sub_8006F190(s32 slot);
+E_8006F134 *TWindowSubStatusDisp__sub_8006F134(O_8006F134 *self, s32 slot);
 }
 
 extern "C" {
 
 s32 get_layout_id__20TWindowSubStatusDispFv(void);
-s32 TWindowSubStatusDisp__sub_8006F190();
 
 extern M2C_UNK lbl_8043859C[];
 
+typedef s32 (*SlotQueryNoArgs_8006F094)(void);
+
 s32 get_layout_id__20TWindowSubStatusDispFv(void) {
-    if (TWindowSubStatusDisp__sub_8006F190() < 3) {
-        return lbl_8043859C[TWindowSubStatusDisp__sub_8006F190()];
+    if (((SlotQueryNoArgs_8006F094)TWindowSubStatusDisp__sub_8006F190)() < 3) {
+        return lbl_8043859C[((SlotQueryNoArgs_8006F094)TWindowSubStatusDisp__sub_8006F190)()];
     }
     return 5;
 }
@@ -43,6 +59,39 @@ typedef char RecoveredGlobal_8006F23C_lbl_8048C9D8_size[sizeof(RecoveredGlobal_8
 typedef struct RecoveredGlobal_8006F1EC_lbl_8048C9D8 RecoveredGlobal_8006F1EC_lbl_8048C9D8;
 #pragma optimize_for_size off
 typedef char RecoveredGlobal_8006F1EC_lbl_8048C9D8_size[((sizeof(RecoveredGlobal_8006F1EC_lbl_8048C9D8)) == 0x748) ? (1) : (-1)];
+
+s32 *TWindowSubStatusDisp__sub_8006F0D8(O_8006F0D8 *self, s32 slot) {
+    s32 idx = TWindowSubStatusDisp__sub_8006F190(slot);
+    if (idx < 3) {
+        return &self->a[lbl_80438590[idx]];
+    }
+    return &self->def;
+}
+
+E_8006F134 *TWindowSubStatusDisp__sub_8006F134(O_8006F134 *self, s32 slot) {
+    s32 idx = TWindowSubStatusDisp__sub_8006F190(slot);
+    if (idx < 3) {
+        return &self->e[lbl_80438584[idx]];
+    }
+    return &self->def;
+}
+
+s32 TWindowSubStatusDisp__sub_8006F190(s32 slot) {
+    switch (slot) {
+    case -1:
+        if (is_split_screen()) {
+            s32 inst = get_instance__6TLobbyFv();
+            s32 r = 2;
+            if (inst == 1) {
+                r = 3;
+            }
+            return r;
+        }
+        return (get_instance__6TLobbyFv() == 1) ? 1 : 0;
+    }
+    return slot;
+}
+
 s32 TLobby__sub_8006F1EC(s32 arg0) {
   u8 *new_var;
   if (is_flag_set__6TLobbyFv() != 0)

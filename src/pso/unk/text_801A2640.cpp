@@ -2,6 +2,41 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+struct Vec_801A2640 { f32 x, y, z; };
+
+struct Obj_801A2640 {
+    u8 pad[0x18];
+    void *vtable;
+    u16 f1c;
+    s16 f1e;
+    s32 f20;
+    s32 f24;
+    s16 f28;
+    s16 f2a;
+    s16 f2c;
+    u8 pad2e[2];
+    s32 f30;
+    s32 f34;
+    Vec_801A2640 v38;
+    Vec_801A2640 v44;
+    Vec_801A2640 v50;
+    s32 f5c;
+    s32 f60;
+    s32 f64;
+    Vec_801A2640 v68;
+    Vec_801A2640 v74;
+    s32 f80;
+};
+
+extern "C" {
+void __ct__7TObjectFP7TObject(void *self, void *parent);
+void VecCopy__FP3VecPC3Vec(Vec_801A2640 *, Vec_801A2640 *);
+extern u8 lbl_804B9870[];
+extern const f32 lbl_805DC098;
+extern const f32 lbl_805DC0A0;
+Obj_801A2640 *TPhotonMagicSquare__sub_801A2640(Obj_801A2640 *self, void *parent);
+}
+
 extern "C" {
 
 void *TODoorFourLightRuins__create(void *arg0);
@@ -33,6 +68,36 @@ void *TObjWarpLobby__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
+
+Obj_801A2640 *TPhotonMagicSquare__sub_801A2640(Obj_801A2640 *self, void *parent) {
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vtable = lbl_804B9870;
+    self->f30 = 0;
+    self->f1c = 0xFFFF;
+    self->f28 = -1;
+    self->f2a = 0;
+    self->f2c = -1;
+    self->f20 = 1;
+    self->f24 = 0;
+    self->f34 = 0;
+    self->f80 = 0;
+    self->v38.x = lbl_805DC098;
+    self->v38.y = lbl_805DC098;
+    self->v38.z = lbl_805DC098;
+    VecCopy__FP3VecPC3Vec(&self->v44, &self->v38);
+    VecCopy__FP3VecPC3Vec(&self->v50, &self->v38);
+    self->f5c = 0;
+    self->f60 = 0;
+    self->f64 = 0;
+    self->v68.x = lbl_805DC0A0;
+    self->v68.y = lbl_805DC0A0;
+    self->v68.z = lbl_805DC0A0;
+    self->v74.x = lbl_805DC098;
+    self->v74.y = lbl_805DC098;
+    self->v74.z = lbl_805DC098;
+    self->f1e = 0;
+    return self;
+}
 
 void *TODoorFourLightSeabed__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xFC);

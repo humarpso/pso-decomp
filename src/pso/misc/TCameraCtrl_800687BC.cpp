@@ -232,6 +232,19 @@ struct RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628
 
 struct Cam_80068958 { u8 pad[0x10]; s32 ids[4]; };
 
+struct G_800695A0 { s32 a; s32 b; u32 flags; };
+
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M_80068FCC { f32 m[3][4]; };
+
+struct V_80068FCC { f32 x, y, z; };
+
+struct W_80068FCC { f32 x, y; };
+
+struct O_80068FCC { M_80068FCC m; W_80068FCC a; W_80068FCC b; W_80068FCC c; };
+
 extern "C" {
 void TCameraCtrl__sub_800689E8(void);
 void update_position__11TCameraCtrlFPv(u8 *arg0);
@@ -261,7 +274,6 @@ extern RecoveredGlobal_80069094_camera_controller_registry camera_controller_reg
 extern u8 *lbl_805D4DF0;
 s32 TCameraCtrl__sub_80069094(s32 arg0);
 s32 is_split_screen();
-void TCameraCtrl__sub_80068FCC(s32, s32);
 void TCameraCtrl__sub_801E32D8(f32, f32);
 s32 GXSetScissor(int, int, int, int);
 s32 GXSetScissorBoxOffset(int, int);
@@ -395,6 +407,10 @@ extern s32 lbl_805D53A0;
 s32 is_split_screen();
 Cam_80068958 *TCameraCtrl__sub_8006B324(void);
 u16 TCameraCtrl__sub_80068958(s32 n);
+extern RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
+void TCameraCtrl__sub_8006961C(u8 *arg0);
+s32 TCameraCtrl__sub_800695A0(u8 *arg0);
+void TCameraCtrl__sub_80068FCC(s32 dst, s32 src);
 }
 
 extern "C" {
@@ -519,9 +535,14 @@ extern s32 tl_camera;
 
 typedef char RecoveredGlobal_80069024_TCameraCtrl__data_804FF634_size[sizeof(RecoveredGlobal_80069024_TCameraCtrl__data_804FF634) == 0x48 ? 1 : -1];
 typedef char RecoveredGlobal_80069024_lbl_804FF67C_size[sizeof(RecoveredGlobal_80069024_lbl_804FF67C) == 0x48 ? 1 : -1];
+
+void TCameraCtrl__sub_80068FCC(s32 dst, s32 src) {
+    *(O_80068FCC *)dst = *(O_80068FCC *)src;
+}
+
 void TCameraCtrl__sub_80069024(void) {
     if (is_split_screen() == 0) {
-        TCameraCtrl__sub_80068FCC((s32) &lbl_804FF67C.value, (s32) &TCameraCtrl__data_804FF634.value);
+        TCameraCtrl__sub_80068FCC((s32)((s32) &lbl_804FF67C.value), (s32)((s32) &TCameraCtrl__data_804FF634.value));
         TCameraCtrl__sub_801E32D8(TCameraCtrl__data_805D8FC0, TCameraCtrl__data_805D8FC4);
         GXSetScissorBoxOffset((int)(0), (int)(0));
         GXSetScissor((int)(0), (int)(0), (int)(0x280), (int)(0x1E0));
@@ -738,6 +759,15 @@ void TCameraCtrl__sub_80069534(void) {
     TCameraCtrl__sub_801E317C((int) (0), (void *) (&stack.sp8));
 }
 #pragma pop
+
+s32 TCameraCtrl__sub_800695A0(u8 *arg0) {
+    if ((*(G_800695A0 *)&TCameraCtrl__data_804FF628).flags & 0x400) {
+        return 0;
+    }
+    (*(G_800695A0 *)&TCameraCtrl__data_804FF628).flags |= 0x400;
+    TCameraCtrl__sub_8006961C(arg0);
+    return 1;
+}
 
 void TCameraCtrl__sub_800695E8(u8 *arg0) {
     if (M2C_FIELD(&TCameraCtrl__data_804FF628.value, s32 *, 8) & 0x400) {

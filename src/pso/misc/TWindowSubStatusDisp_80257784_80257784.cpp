@@ -19,11 +19,21 @@ struct Item_80257BC0 : Base_80257BC0 {
 
 struct List_80257BC0 { u32 count; Item_80257BC0 **items; };
 
+struct Base_80257C28 { u32 x0; };
+
+struct Ent_80257C28 : Base_80257C28 { virtual void m0(); virtual void m1(); };
+
+struct List_80257C28 { u32 count; Ent_80257C28 **items; };
+
+struct Win_80257C28 { u8 pad[0x2C]; u32 flags; u8 pad2[0x2C]; s32 counter; };
+
 extern "C" {
 M2C_UNK init_from__20TWindowSubStatusDispFPvPvi();
 extern M2C_UNK lbl_804CF948[];
 u8 *TWindowSubStatusDisp__sub_80257B4C(u8 *arg0, u8 *arg1);
 void TWindowSubStatusDisp__sub_80257BC0(void *self, List_80257BC0 *list, void *ctx);
+extern const f32 lbl_805DCEF0;
+void TWindowSubStatusDisp__sub_80257C28(Win_80257C28 *self, List_80257C28 *list);
 }
 
 extern "C" {
@@ -68,6 +78,18 @@ void TWindowSubStatusDisp__sub_80257BC0(void *self, List_80257BC0 *list, void *c
         if (!((*p)->flags & 2)) {
             (*p)->draw(ctx);
         }
+    }
+}
+
+void TWindowSubStatusDisp__sub_80257C28(Win_80257C28 *self, List_80257C28 *list) {
+    Ent_80257C28 **p;
+    u32 n;
+    if (!(self->flags & 0x2000) && (f32)self->counter < lbl_805DCEF0) return;
+    n = list->count;
+    p = list->items;
+    while (n-- != 0) {
+        (*p)->m1();
+        p++;
     }
 }
 

@@ -33,6 +33,10 @@ struct RecoveredGlobal_8013561C_lbl_805127F8 {
     u8 remaining[0x1FC];
 };
 
+struct Base_80136000 { u8 pad[0x18]; };
+
+struct Obj_80136000 : Base_80136000 { virtual ~Obj_80136000(); };
+
 extern "C" {
 int bswap_packet_header__6TLobbyFPv(void *);
 M2C_UNK TLobby__sub_801E44D8(void *, void *);
@@ -63,6 +67,14 @@ extern RecoveredGlobal_80135974_lbl_805127F8 lbl_805127F8;
 extern s32 TLobby__data_805D5594;
 extern s16 TLobby__data_805D5CE8;
 void handle_6x6F_set_quest_flags_v2(s32 arg0);
+extern s32 TLobby__data_805D53AC;
+extern char lbl_8043EF04[];
+extern char TLobby__data_8050AAE8[][16];
+extern const char TLobby__data_805DB0B0[4];
+s32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+void TLobby__sub_8013A170(const char *fmt, ...);
+char *strncpy(char *, const char *, u32);
+void TLobby__sub_80136000(s32 idx, s32 v);
 }
 
 extern "C" {
@@ -127,5 +139,15 @@ void TLobby__sub_80135974(s32 arg0) {
 }
 
 void TLobby__sub_80135FFC(void) {  }
+void TLobby__sub_80136000(s32 idx, s32 v) {
+    Obj_80136000 *p;
+    TLobby__data_805D53AC = v;
+    p = (Obj_80136000 *)TPlayerBattleCtrl4P__sub_801BA74C((void *)idx);
+    if (p) {
+        delete p;
+        TLobby__sub_8013A170(lbl_8043EF04, idx);
+    }
+    strncpy(TLobby__data_8050AAE8[idx], TLobby__data_805DB0B0, 0x10);
+}
 
 }

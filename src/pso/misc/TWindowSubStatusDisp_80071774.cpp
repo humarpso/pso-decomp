@@ -9,6 +9,10 @@ struct RecoveredGlobal_80071820_lbl_804FF820 {
     u8 remaining[0x8];
 };
 
+struct E_80071868 { s32 a; s32 b; };
+
+struct W_80071868 { u8 pad[0x2288]; E_80071868 e[3]; u8 pad2[0xc]; s32 def; };
+
 extern "C" {
 s32 get_layout_id__20TWindowSubStatusDispFv(void *);
 s32 TWindowSubStatusDisp__sub_8006F0D8(void *, void *);
@@ -19,6 +23,10 @@ s32 TLobby__sub_8006F888(void *, void *, int);
 extern RecoveredGlobal_80071820_lbl_804FF820 lbl_804FF820;
 extern M2C_UNK lbl_805D2858;
 M2C_UNK *TWindowSubStatusDisp__sub_80071820(u32 arg0);
+u32 get_card_window__17TWindowSubComCardFUi(u32);
+s32 TWindowSubStatusDisp__sub_8006F190(s32 slot);
+s32 get_slot_clamped__6TLobbyFv(s32);
+s32 TWindowSubStatusDisp__sub_80071868(u16 id, s32 slot);
 }
 
 extern "C" {
@@ -65,6 +73,22 @@ M2C_UNK *TWindowSubStatusDisp__sub_80071820(u32 arg0) {
     }
     TLobby__sub_8006F888((void *) (&lbl_804FF820.value), (void *) (arg0 + 0xD8), (int) (0xC));
     return &lbl_804FF820.value;
+}
+
+s32 TWindowSubStatusDisp__sub_80071868(u16 id, s32 slot) {
+    W_80071868 *w = (W_80071868 *)get_card_window__17TWindowSubComCardFUi(id);
+    s32 idx;
+    s32 v;
+    if (w == 0) {
+        return 0;
+    }
+    idx = TWindowSubStatusDisp__sub_8006F190(slot);
+    if (idx < 3) {
+        v = w->e[idx].a;
+    } else {
+        v = w->def;
+    }
+    return get_slot_clamped__6TLobbyFv(v);
 }
 
 s32 TWindowSubStatusDisp__sub_80071A24(s32 arg0, u16 arg1, s32 arg2) {

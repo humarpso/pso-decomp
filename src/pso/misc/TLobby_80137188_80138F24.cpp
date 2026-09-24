@@ -4,6 +4,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Pad_80139094 { u8 pad[0x10]; u32 flags; };
+
+extern "C" {
+extern s8 lbl_8050E208[];
+extern s32 TLobby__data_805D55B4;
+void init__23TAdSinglePlyChrSelectGCFv(void);
+void TKeyBoardControl__sub_8000F91C(s32);
+void TKeyBoardControl__sub_8000F9CC(s32);
+void queue_destruction__7TObjectFv(void *);
+void TLobby__sub_80139094(void *self);
+}
+
 extern "C" {
 
 void handle_com_card__6TLobbyFv(void);
@@ -89,6 +101,15 @@ void update__6TLobbyFv(void) {
 }
 
 extern u32 lbl_805D55E4;
+
+void TLobby__sub_80139094(void *self) {
+    if (((*(Pad_80139094 **)lbl_8050E208)->flags & 8) || TLobby__data_805D55B4++ > 0xe10) {
+        init__23TAdSinglePlyChrSelectGCFv();
+        TKeyBoardControl__sub_8000F91C(2);
+        TKeyBoardControl__sub_8000F9CC(0x12);
+        queue_destruction__7TObjectFv(self);
+    }
+}
 
 void handle_com_card__6TLobbyFv(void) {
     s32 temp_r3;

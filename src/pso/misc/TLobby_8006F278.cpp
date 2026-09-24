@@ -18,7 +18,6 @@ s32 TWindowSubStatusDisp__sub_8006F0D8(void *, int);
 s32 TWindowSubStatusDisp__sub_8006F190(int);
 s32 is_id_out_of_range__6TLobbyFi(s32 arg0);
 s32 TLobby__sub_8006F48C();
-s32 TLobby__sub_8006F994(int);
 s32 mix_seed_checked__6TLobbyFi(void *);
 u32 get_card_window__17TWindowSubComCardFUi(int);
 extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 lbl_8048C9D8;
@@ -26,6 +25,9 @@ s32 TLobby__sub_8006F5B0(s32 arg0);
 M2C_UNK strncpy(void *, void *, int);
 extern RecoveredGlobal_8006F848_lbl_804FF800 lbl_804FF800;
 void TLobby__sub_8006F848(s32 arg0);
+s32 decode_slot__6TLobbyFUi(u32 id);
+s32 is_id_out_of_range__6TLobbyFi(s32 arg0);
+s32 TLobby__sub_8006F994(int id);
 }
 
 extern "C" {
@@ -71,7 +73,7 @@ s32 TLobby__sub_8006F5B0(s32 arg0) {
         var_r28 = 1;
         goto block_12;
     }
-    temp_r3_4 = TLobby__sub_8006F994((int) (temp_r3_3));
+    temp_r3_4 = TLobby__sub_8006F994((int)((int) (temp_r3_3)));
     if (is_id_out_of_range__6TLobbyFi((s32)((int) (temp_r3_4))) != 0) {
         M2C_FIELD(temp_r3_2, M2C_UNK *, temp_r30) = 0;
         return 0;
@@ -90,6 +92,14 @@ typedef char RecoveredGlobal_8006F848_lbl_804FF800_size[sizeof(RecoveredGlobal_8
 void TLobby__sub_8006F848(s32 arg0) {
     strncpy((void *) (&lbl_804FF800.value), (void *) (arg0), (int) (0x1F));
     M2C_FIELD(&lbl_804FF800.value, s8 *, 0x1F) = 0;
+}
+s32 TLobby__sub_8006F994(int id) {
+    s32 slot;
+    if (id == 0) {
+        return 0;
+    }
+    slot = decode_slot__6TLobbyFUi(id);
+    return is_id_out_of_range__6TLobbyFi(slot) ? 0 : slot;
 }
 
 }

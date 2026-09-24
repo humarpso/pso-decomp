@@ -9,6 +9,11 @@ struct RecoveredGlobal_80137B50___vt__6TLobby {
     u8 remaining[0x14];
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Pair_80137C10 { s32 a; s32 b; };
+
 extern "C" {
 s32 __dt__7TObjectFv(void *, int);
 void destroy_all_objects__6TLobbyFv(void);
@@ -37,6 +42,14 @@ extern s32 TLobby__data_805D55FC;
 extern s32 lbl_805D5600;
 extern s32 TLobby__data_805D5604;
 u8 *__dt__6TLobbyFv(u8 *arg0, s16 arg1);
+extern u32 TLobby__data_805D55CC;
+extern s32 TLobby__data_805D5594;
+extern const Pair_80137C10 lbl_8043EE00[];
+s32 TWindowSubComCard__sub_8026CBB8(s32);
+void TQuestListOnline__sub_8013ACF4(s32);
+u32 update_window_mode_from_progress__6TLobbyFiPv(s32 arg0, void *arg1);
+int send_and_handle__6TLobbyFPvii(u32 p, int a1, int a2);
+void TLobby__sub_80137C10(s32 arg0);
 }
 
 extern "C" {
@@ -156,6 +169,16 @@ u8 *__dt__6TLobbyFv(u8 *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+void TLobby__sub_80137C10(s32 arg0) {
+    if (TLobby__data_805D55CC == 0) {
+        Pair_80137C10 tmp = lbl_8043EE00[0];
+        TLobby__data_805D55CC = update_window_mode_from_progress__6TLobbyFiPv(TWindowSubComCard__sub_8026CBB8(0xc6), &tmp);
+    }
+    send_and_handle__6TLobbyFPvii(TLobby__data_805D55CC, arg0, 3);
+    TLobby__data_805D5594 = 0x14;
+    TQuestListOnline__sub_8013ACF4(0xb);
 }
 
 void update_player_window__6TLobbyFv(void) {

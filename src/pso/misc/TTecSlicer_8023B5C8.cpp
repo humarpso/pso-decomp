@@ -19,6 +19,10 @@ struct RecoveredFields_8023B770_var_r29
   s32 field_64;
 };
 
+struct Vec_8023B72C { f32 x, y, z; };
+
+struct Obj_8023B72C { u8 pad[0x38]; Vec_8023B72C mid; };
+
 extern "C" {
 M2C_UNK TBoss6Type1__sub_803D9370(s32, s32);
 M2C_UNK TNpcPlayer__sub_803D97B4(s32);
@@ -60,6 +64,8 @@ u32 __nw__7TObjectFUl(M2C_UNK);
 s32 TTecSlicer__ct(void *, void *, void *, void *, int);
 void destroy_if_set__10TTecSlicerFUi(u32);
 
+extern const f32 lbl_805DC954;
+void TTecSlicer__sub_8023B72C(Obj_8023B72C *self, void *unused, Vec_8023B72C *a, Vec_8023B72C *b);
 }
 
 extern "C" {
@@ -89,6 +95,20 @@ void TTecSlicer__sub_8023B6BC(u8 *arg0) {
 typedef struct RecoveredFields_8023B770_var_r29 RecoveredFields_8023B770_var_r29;
 typedef struct RecoveredGlobal_8023B770_lbl_8044DC20 RecoveredGlobal_8023B770_lbl_8044DC20;
 typedef char RecoveredGlobal_8023B770_lbl_8044DC20_size[((sizeof(RecoveredGlobal_8023B770_lbl_8044DC20)) == 0x48) ? (1) : (-1)];
+
+void TTecSlicer__sub_8023B72C(Obj_8023B72C *self, void *unused, Vec_8023B72C *a, Vec_8023B72C *b) {
+    f32 t;
+    t = a->x + b->x;
+    t *= lbl_805DC954;
+    self->mid.x = t;
+    t = a->y + b->y;
+    t *= lbl_805DC954;
+    self->mid.y = t;
+    t = a->z + b->z;
+    t *= lbl_805DC954;
+    self->mid.z = t;
+}
+
 void TTecSlicer__sub_8023B770(M2C_UNK *arg0, M2C_UNK *arg1, s32 arg2) {
   M2C_UNK *var_r29;
   M2C_UNK *var_r30;

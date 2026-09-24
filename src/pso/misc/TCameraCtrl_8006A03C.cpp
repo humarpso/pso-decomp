@@ -4,6 +4,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct O_8006A044 { u8 pad[0x1c0]; s32 id; f32 v; };
+
+extern "C" {
+extern void *lbl_805D4DF0;
+M2C_UNK queue_event_1D__12TBoss3VoloptFss(M2C_UNK, M2C_UNK, void *);
+void TCameraCtrl__sub_8006A044(s32 id, f32 v);
+}
+
 extern "C" {
 
 void* get_params__11TCameraCtrlFPv(void* p);
@@ -16,6 +24,16 @@ extern void *lbl_805D4DF0;
 extern const f32 lbl_805D8FE8;
 extern const f32 lbl_805D8FEC;
 extern const f32 lbl_805D8FF0;
+
+void TCameraCtrl__sub_8006A044(s32 id, f32 v) {
+    O_8006A044 *p;
+    if ((*(O_8006A044 * *)&lbl_805D4DF0) != 0) {
+        (*(O_8006A044 * *)&lbl_805D4DF0)->v = v;
+        p = (*(O_8006A044 * *)&lbl_805D4DF0);
+        p->id = id;
+        queue_event_1D__12TBoss3VoloptFss((M2C_UNK)(0x60), (M2C_UNK)((s16)id), (void *)(p));
+    }
+}
 
 void set_shake_preset__11TCameraCtrlFi(s32 arg0) {
     void *p;

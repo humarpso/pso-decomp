@@ -4,6 +4,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Obj_80010F54 { u8 pad[0x2D4]; u16 id; u16 id2; };
+
+extern "C" {
+s32 TObjPlayer__sub_80010C04(s32 id);
+s32 add_id_to_slots__10TObjPlayerFiUs(void *, s32);
+s32 is_split_screen();
+void TOMineTrap__sub_80010F54(Obj_80010F54 *self, s32 id);
+}
+
 extern "C" {
 
 s32 add_id_to_slots__10TObjPlayerFiUs(void *, s32);
@@ -39,6 +48,17 @@ void assign_slots_from_list(void *arg0, s32 arg1) {
     }
 }
 u16 fn_80010F4C(void* p) { return *(u16*)((char*)p + 0x2d6); }
-int TOMineTrap__sub_80010F54(void* a0 = 0, void* a1 = 0) { return 0; }
+void TOMineTrap__sub_80010F54(Obj_80010F54 *self, s32 id) {
+    if ((u16)id != 0xFFFF) {
+        self->id = id;
+        if (self->id < 0x1000 && TObjPlayer__sub_80010C04(self->id) != 0) {
+            if (is_split_screen() == 0) {
+                self->id2 = self->id;
+            } else {
+                add_id_to_slots__10TObjPlayerFiUs(self, id);
+            }
+        }
+    }
+}
 
 }

@@ -85,6 +85,13 @@ struct RecoveredGlobal_8006D610_TCameraCtrl__data_804FF628 {
     u8 remaining[0xB];
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct V_8006CC7C { f32 x, y, z; };
+
+struct O_8006CC7C { u8 pad[0x1c]; V_8006CC7C pos; };
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8 TCameraCtrl__data_80488DE8;
@@ -126,6 +133,10 @@ extern void *lbl_805D53A0;
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
 void TCameraCtrl__sub_8006A410(void *p, s32 x);
 void TCameraCtrl__sub_8006CCEC(void);
+extern O_8006CC7C *lbl_805005D0[];
+extern const V_8006CC7C lbl_804384E8;
+extern s16 lbl_805D4EC8;
+V_8006CC7C TCameraCtrl__sub_8006CC7C(void);
 }
 
 extern "C" {
@@ -155,6 +166,15 @@ typedef char RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8_size[sizeof(Rec
 typedef char RecoveredGlobal_8006CD78_lbl_80488DF4_size[sizeof(RecoveredGlobal_8006CD78_lbl_80488DF4) == 0xC ? 1 : -1];
 
 typedef char RecoveredGlobal_8006CD2C_TCameraCtrl__data_80488DE8_size[sizeof(RecoveredGlobal_8006CD2C_TCameraCtrl__data_80488DE8) == 0xC ? 1 : -1];
+
+V_8006CC7C TCameraCtrl__sub_8006CC7C(void) {
+    V_8006CC7C def = lbl_804384E8;
+    O_8006CC7C *o = lbl_805005D0[lbl_805D4EC8];
+    if (o != 0) {
+        return o->pos;
+    }
+    return def;
+}
 
 void TCameraCtrl__sub_8006CCEC(void) {
     TCameraCtrl__data_805D4E20 = 0;
