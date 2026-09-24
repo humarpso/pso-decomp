@@ -34,7 +34,7 @@ void calc_direction_vector__10TObjPlayerFiPvf(s32 arg0, void *arg1, f32 farg0);
 s32 check_camera_distance__10TObjPlayerFi(s32 arg0);
 s32 clamp_s32__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 void fn_80141EB4(void);
-void fn_80141EE8(void);
+void setSpriteInverseColorBlend(void);
 void init_xyz_limits__10TObjPlayerFv(void);
 s32 is_in_range__10TObjPlayerFf(f32 farg0);
 u16 lerp_angle_half__10TObjPlayerFUsUs(u16 arg0, u16 arg1);
@@ -88,7 +88,7 @@ s32 calc_angle_to__10TObjPlayerFPvPv(void *arg0, void *arg1) {
 int TAdSinglePlyChrSelectGC__sub_80141E8C(void) { return 0; }
 int TAdSinglePlyChrSelectGC__sub_80141EA0(void) { return 0; }
 void fn_80141EB4(void) { abs__4cXyzCFv(0, 5); abs__4cXyzCFv(1, 6); }
-void fn_80141EE8(void) { abs__4cXyzCFv(0, 5); abs__4cXyzCFv(1, 7); }
+void setSpriteInverseColorBlend(void) { abs__4cXyzCFv(0, 5); abs__4cXyzCFv(1, 7); }
 
 void reset_transform_state__10TObjPlayerFv(void) { abs__4cXyzCFv(0, 8); abs__4cXyzCFv(1, 6); }
 

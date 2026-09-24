@@ -4,6 +4,15 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include "pso/effect/TechniqueChargeEmitter.h"
+extern "C" {
+extern u32 lbl_804CCD00[];
+void* TObjEneDellBiter__sub_80087350(float*,u32);
+int check_flag_0x80__10TObjPlayerFPv(void*);
+int queue_destruction__7TObjectFv(void*);
+void TTecSlicer__updateLightningTechniqueCharge(TechniqueChargeEmitter* state);
+}
+
 extern "C" {
 
 void destroy_if_set__10TTecSlicerFUi(u32 arg0);
@@ -19,13 +28,12 @@ M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 int __dl__FPv();
 void __dt__7TObjectFv(void *, int);
-int queue_destruction__7TObjectFv();
 
 s32 get_field_110__10TTecSlicerFPv(void* p) { return *(s32*)((char*)p + 0x110); }
 s16 get_remain_count__10TTecSlicerFPv(void* p) { return *(s16*)((char*)p + 0x11e); }
 void destroy_if_set__10TTecSlicerFUi(u32 arg0) {
     if (arg0 != 0U) {
-        queue_destruction__7TObjectFv();
+        queue_destruction__7TObjectFv((void*)(arg0));
     }
 }
 s32 dt__10TTecSlicerFis(s32 arg0, s16 arg1) {
@@ -36,6 +44,15 @@ s32 dt__10TTecSlicerFis(s32 arg0, s16 arg1) {
 }
 
 extern M2C_UNK lbl_804CCD0C[];
+
+void TTecSlicer__updateLightningTechniqueCharge(TechniqueChargeEmitter* state) {
+    ++state->age;
+    if(state->age%10==0) {
+        for(int i=0;i<3;++i)TObjEneDellBiter__sub_80087350(state->position,lbl_804CCD00[i]);
+    }
+    if(!check_flag_0x80__10TObjPlayerFPv(state->actor))queue_destruction__7TObjectFv((void*)(state));
+    else if(state->age>=180)queue_destruction__7TObjectFv((void*)(state));
+}
 
 void *dt__10TTecSlicerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

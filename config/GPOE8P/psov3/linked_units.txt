@@ -1272,6 +1272,7 @@ pso/misc/TTecLuker_802360E4.cpp
 pso/misc/TTecMegid_80235B24.cpp
 pso/misc/TTecRaFoie.cpp
 pso/misc/TTecReverser_8034DED4.cpp
+pso/misc/TTecSlicer.cpp
 pso/misc/TUdpSocket.cpp
 pso/misc/TUserAns.cpp
 pso/misc/TWindowActionPalette_8013DF4C.cpp
@@ -1678,7 +1679,9 @@ pso/object/TObjLaboMapWarp.cpp
 pso/object/TObjLaboMapWarp_801854DC.cpp
 pso/object/TObjLazerFence4.cpp
 pso/object/TObjLazerFenceNorm.cpp
+pso/object/TObjLight_8022F9E8.cpp
 pso/object/TObjLight_8023347C.cpp
+pso/object/TObjLight_80236D60.cpp
 pso/object/TObjLiveCamera.cpp
 pso/object/TObjLiveMonitor_8030B4FC.cpp
 pso/object/TObjLiveMonitor_8030B574.cpp
@@ -2884,6 +2887,7 @@ pso/unk/text_80231AF0.cpp
 pso/unk/text_80232830.cpp
 pso/unk/text_80232AA4.cpp
 pso/unk/text_80232B24.cpp
+pso/unk/text_802333D4.cpp
 pso/unk/text_80235A20.cpp
 pso/unk/text_80235A8C.cpp
 pso/unk/text_80235BDC.cpp

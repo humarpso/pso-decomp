@@ -4,6 +4,15 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include "pso/effect/TechniqueChargeEmitter.h"
+extern "C" {
+extern u32 lbl_804CC788[];
+void* TObjEneDellBiter__sub_80087350(float*,u32);
+int check_flag_0x80__10TObjPlayerFPv(void*);
+void queue_destruction__7TObjectFv(void*);
+void TObjLight__updateFireTechniqueCharge(TechniqueChargeEmitter* state);
+}
+
 extern "C" {
 
 void *__dt__9TObjLightFPvs(void *arg0, s16 arg1);
@@ -16,6 +25,15 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
 extern M2C_UNK lbl_804CC794[];
+
+void TObjLight__updateFireTechniqueCharge(TechniqueChargeEmitter* state) {
+    ++state->age;
+    if(state->age%10==0) {
+        for(int i=0;i<3;++i)TObjEneDellBiter__sub_80087350(state->position,lbl_804CC788[i]);
+    }
+    if(!check_flag_0x80__10TObjPlayerFPv(state->actor))queue_destruction__7TObjectFv(state);
+    else if(state->age>=180)queue_destruction__7TObjectFv(state);
+}
 
 void *__dt__9TObjLightFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

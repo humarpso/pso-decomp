@@ -29,6 +29,7 @@ struct RecoveredGlobal_80233D18_lbl_804CC9D4 {
     u8 remaining[0x34];
 };
 
+#include "pso/effect/TechniqueChargeEmitter.h"
 extern "C" {
 void TTecLuker__sub_80234F7C(void* p);
 void TTecLuker__sub_80234F7C(void* p);
@@ -81,6 +82,11 @@ extern RecoveredGlobal_80233D18_lbl_804CC9A8 lbl_804CC9A8;
 extern M2C_UNK lbl_804CC9D4[];
 u8 *TTecLuker__sub_80233D18(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 bool TTecLuker__sub_8023401C(u8 *arg0);
+extern u32 lbl_804CC988[];
+void* TObjEneDellBiter__sub_80087350(float*,u32);
+int check_flag_0x80__10TObjPlayerFPv(void*);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+void TTecLuker__updateRecoveryTechniqueCharge(TechniqueChargeEmitter* state);
 }
 
 extern "C" {
@@ -116,6 +122,15 @@ s32 is_split_screen();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern M2C_UNK lbl_804CC990[];
+
+void TTecLuker__updateRecoveryTechniqueCharge(TechniqueChargeEmitter* state) {
+    ++state->age;
+    if(state->age%10==0) {
+        for(int i=0;i<2;++i)TObjEneDellBiter__sub_80087350(state->position,lbl_804CC988[i]);
+    }
+    if(!check_flag_0x80__10TObjPlayerFPv(state->actor))queue_destruction__7TObjectFv((void *)(state));
+    else if(state->age>=180)queue_destruction__7TObjectFv((void *)(state));
+}
 
 void *destroy__9TTecLukerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
