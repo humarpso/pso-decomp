@@ -4,6 +4,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Field_80080D1C { u16 *buffer; s32 cursor; u32 width; u32 linePixels; s32 scroll; u32 capacity; };
+
+extern "C" {
+u16 TWindowSubStatusDisp__sub_80145054(u16);
+u8 TWindowSubStatusDisp__sub_80144FCC(u16);
+s32 TWindowKeyBoardSoft__sub_80080D1C(Field_80080D1C *f, u16 code, u32 *x, u32 *y, u32 *count);
+}
+
 extern "C" {
 
 int TWindowKeyBoardSoft__sub_80080798(void);
@@ -48,6 +56,29 @@ void delete_char__19TWindowKeyBoardSoftFPv(u8 *arg0) {
         } while ((s32) temp_r0 != 0);
         M2C_FIELD(arg0, s32 *, 0x10) = (s32) (M2C_FIELD(arg0, s32 *, 0x10) - 1);
     }
+}
+
+s32 TWindowKeyBoardSoft__sub_80080D1C(Field_80080D1C *f, u16 code, u32 *x, u32 *y, u32 *count) {
+    u8 w;
+    code = TWindowSubStatusDisp__sub_80145054(code);
+    (*count)++;
+    if (code & 0xFF00) {
+        (*count)++;
+    }
+    if (*count > f->capacity) {
+        return 1;
+    }
+    if (f->linePixels == 0) {
+        return 0;
+    }
+    w = TWindowSubStatusDisp__sub_80144FCC(code);
+    *x += w;
+    if (*x <= f->width) {
+        return 0;
+    }
+    *y += 0x14;
+    *x = w;
+    return (*y >= f->linePixels) ? 1 : 0;
 }
 
 void reset_state__19TWindowKeyBoardSoftFPv(void *arg0) {

@@ -4,6 +4,45 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Obj_801D6F60 { u8 pad[0x16]; s16 v; };
+
+struct Obj_801D7030 { u8 pad[0xB]; u8 v; };
+
+struct Obj_801D6F94 { u8 pad[0xE]; u8 v; };
+
+struct Obj_801D6FC8 { u8 pad[0xD]; u8 v; };
+
+struct Obj_801D6FFC { u8 pad[0xC]; u8 v; };
+
+struct Obj_801D7064 { u8 pad[0xA]; u8 v; };
+
+struct Obj_801D70CC { u8 pad[0x8]; u8 v; };
+
+struct Obj_801D7098 { u8 pad[0x9]; u8 v; };
+
+struct Obj_801D7100 { u8 pad[0x7]; u8 v; };
+
+extern "C" {
+u8 ret_801D78EC(Obj_801D6F60 *p);
+s16 TLobby__sub_801D6F60(Obj_801D6F60 *p);
+u8 ret_801D790C(Obj_801D7030 *p);
+u8 TLobby__sub_801D7030(Obj_801D7030 *p);
+u8 ret_801D78F4(Obj_801D6F94 *p);
+u8 TLobby__sub_801D6F94(Obj_801D6F94 *p);
+u8 ret_801D78FC(Obj_801D6FC8 *p);
+u8 TLobby__sub_801D6FC8(Obj_801D6FC8 *p);
+u8 ret_801D7904(Obj_801D6FFC *p);
+u8 TLobby__sub_801D6FFC(Obj_801D6FFC *p);
+u8 ret_801D7914(Obj_801D7064 *p);
+u8 TLobby__sub_801D7064(Obj_801D7064 *p);
+u8 ret_801D7924(Obj_801D70CC *p);
+u8 TLobby__sub_801D70CC(Obj_801D70CC *p);
+u8 ret_801D791C(Obj_801D7098 *p);
+u8 TLobby__sub_801D7098(Obj_801D7098 *p);
+u8 ret_801D792C(Obj_801D7100 *p);
+u8 TLobby__sub_801D7100(Obj_801D7100 *p);
+}
+
 extern "C" {
 
 s16 clamp_player_index__6TLobbyFPv(void *arg0);
@@ -74,6 +113,66 @@ u8 get_clamped_level__6TLobbyFPv(void *arg0) {
         return ret_801D78E4();
     }
     return (u8) temp_r0;
+}
+s16 TLobby__sub_801D6F60(Obj_801D6F60 *p) {
+    if (p->v >= 200) {
+        return ret_801D78EC(p);
+    }
+    return p->v;
+}
+
+u8 TLobby__sub_801D6F94(Obj_801D6F94 *p) {
+    if (p->v >= 2) {
+        return ret_801D78F4(p);
+    }
+    return p->v;
+}
+
+u8 TLobby__sub_801D6FC8(Obj_801D6FC8 *p) {
+    if (p->v >= 2) {
+        return ret_801D78FC(p);
+    }
+    return p->v;
+}
+
+u8 TLobby__sub_801D6FFC(Obj_801D6FFC *p) {
+    if (p->v >= 3) {
+        return ret_801D7904(p);
+    }
+    return p->v;
+}
+
+u8 TLobby__sub_801D7030(Obj_801D7030 *p) {
+    if (p->v >= 2) {
+        return ret_801D790C(p);
+    }
+    return p->v;
+}
+u8 TLobby__sub_801D7064(Obj_801D7064 *p) {
+    if (p->v >= 2) {
+        return ret_801D7914(p);
+    }
+    return p->v;
+}
+
+u8 TLobby__sub_801D7098(Obj_801D7098 *p) {
+    if (p->v >= 2) {
+        return ret_801D791C(p);
+    }
+    return p->v;
+}
+
+u8 TLobby__sub_801D70CC(Obj_801D70CC *p) {
+    if (p->v >= 2) {
+        return ret_801D7924(p);
+    }
+    return p->v;
+}
+u8 TLobby__sub_801D7100(Obj_801D7100 *p) {
+    if (p->v >= 3) {
+        return ret_801D792C(p);
+    }
+    return p->v;
 }
 
 }

@@ -22,6 +22,7 @@ extern RecoveredGlobal_8022F068_lbl_804CC934 lbl_804CC934;
 extern u8 *lbl_805D63AC;
 extern void **lbl_805D63B0;
 void TLobby__sub_8022F068(void);
+s32 TTecCtrl__sub_8022EF78(s32 x);
 }
 
 extern "C" {
@@ -36,6 +37,14 @@ void __ct__7TObjectFP7TObject(void *);
 void render__8TTecCtrlFv(void) {  }
 
     extern unsigned char lbl_804CC1CC[];
+
+s32 TTecCtrl__sub_8022EF78(s32 x) {
+    if (x <= 0) {
+        x = 0;
+    }
+    return x;
+}
+
 void* TTecCtrl__sub_8022EF88(int a0) {  return (char*)lbl_804CC1CC + a0 * 44; }
 
 extern s8 lbl_805D63A8;

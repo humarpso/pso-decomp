@@ -1,5 +1,12 @@
 #include "types.h"
 
+struct T_803374C4 { u8 b[8]; void *p; };
+
+extern "C" {
+extern char lbl_804C3E44[];
+T_803374C4 *TObjPlayer__sub_803374C4(T_803374C4 *self);
+}
+
 extern "C" {
 
 s32 try_add_item_count__10TObjPlayerFiiiUc(s32 arg0, s32 arg1, s32 arg2, u8 arg3);
@@ -17,6 +24,14 @@ s32 try_add_item_count__10TObjPlayerFiiiUc(s32 arg0, s32 arg1, s32 arg2, u8 arg3
     }
     fn_803374F0(arg0, arg2, (u8) (arg3 + fn_803374F8(arg0, arg2)));
     return 1;
+}
+T_803374C4 *TObjPlayer__sub_803374C4(T_803374C4 *self) {
+    s32 i;
+    self->p = lbl_804C3E44;
+    for (i = 0; i < 8; i++) {
+        self->b[i] = 0;
+    }
+    return self;
 }
 
 }

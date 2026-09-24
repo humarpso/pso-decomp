@@ -46,6 +46,21 @@ struct RecoveredGlobal_802B5140_lbl_80470CE0 {
     u8 remaining[0x8];
 };
 
+struct Obj_802B4B34 { u8 pad[0x508]; s32 f508; s32 arr[1]; };
+
+struct Obj_802B5E48 { u8 pad[0x498]; s32 f498; };
+
+struct Obj_802B4D38 { u8 pad[0x4f8]; s32 arr[4]; };
+
+struct Obj_802B5100 { u8 pad[0x3c]; f32 f3c; u8 pad2[0x424 - 0x40]; f32 f424; };
+
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Blk_802B8624 { s32 a; s32 b; s32 rest[14]; };
+
+struct Obj_802B5DD4 { u8 pad[0x4e0]; s32 f4e0; s32 f4e4; };
+
 extern "C" {
 void TBoss6Type1__sub_802B4B04(u8 *arg0);
 u8 TBoss6Type1__sub_802B5D9C(u8 *arg0);
@@ -121,6 +136,16 @@ void TBoss6Type1__sub_802B59CC(void *);
 void TBoss6Type1__sub_802B5AB0(void);
 extern const f32 lbl_805DE348;
 void TBoss6Type1__sub_802B5CB4(u8 *arg0);
+extern const s32 lbl_805DE2D4;
+void TBoss6Type1__sub_802B4B34(Obj_802B4B34 *self);
+s32 calc_field4b0_delta__11TBoss6Type1FPv(void *arg0);
+int TBoss6Type1__sub_802B5E48(Obj_802B5E48 *self);
+void TBoss6Type1__sub_802B4D38(Obj_802B4D38 *self);
+extern const f32 lbl_805DE2F0;
+extern const f32 lbl_805DE2EC;
+void TBoss6Type1__sub_802B5100(Obj_802B5100 *self, s32 a, s32 b);
+Blk_802B8624 *TBoss6Type1__sub_802B8624(Blk_802B8624 *d, Blk_802B8624 *s);
+void TBoss6Type1__sub_802B5DD4(Obj_802B5DD4 *self);
 }
 
 extern "C" {
@@ -130,8 +155,6 @@ void TBoss6Type1__sub_802B4A90(void* p);
 int TBoss6Type1__sub_802B4B14(void* p);
 void TBoss6Type1__sub_802B59A8(void);
 void TBoss6Type1__sub_802B5AB0(void);
-int TBoss6Type1__sub_802B5DD4(void);
-int TBoss6Type1__sub_802B5E48(void);
 void handle_6xa4_action__11TBoss6Type1FPv(void* p, u8 * _w1);
 void init_parts__11TBoss6Type1FPv(void* p);
 s32 is_field3F8_over_0x20__11TBoss6Type1FPv(void *arg0);
@@ -155,6 +178,12 @@ void TBoss6Type1__sub_802B4B04(u8 *arg0) {
 }
 
 int TBoss6Type1__sub_802B4B14(void* p) { return TBoss6Type1__sub_802B4A9C(p); }
+
+void TBoss6Type1__sub_802B4B34(Obj_802B4B34 *self) {
+    s32 i;
+    self->f508 = 0;
+    for (i = 0; i < lbl_805DE2D4; i++) self->arr[i] = 0;
+}
 
 #pragma push
 #pragma opt_common_subs off
@@ -185,6 +214,20 @@ void TBoss6Type1__sub_802B4CF4(s32 arg0) {
         var_r31 += 1;
     } while (var_r31 < 4);
 }
+
+void TBoss6Type1__sub_802B4D38(Obj_802B4D38 *self) {
+    s32 i;
+    for (i = 0; i < 4; i++) self->arr[i] = 0;
+}
+
+#pragma push
+#pragma fp_contract on
+void TBoss6Type1__sub_802B5100(Obj_802B5100 *self, s32 a, s32 b) {
+    s32 h = b / 2;
+    if (b <= 0 || a <= h) return;
+    self->f3c += lbl_805DE2EC * ((lbl_805DE2F0 + self->f424) - self->f3c);
+}
+#pragma pop
 
 void TBoss6Type1__sub_802B5140(s32 arg0, s32 arg1, s32 arg2) {
     typedef char sp8_offset[(offsetof(Stack_802B5140, sp8) == 0x0) ? 1 : -1];
@@ -374,14 +417,19 @@ u8 TBoss6Type1__sub_802B5D9C(u8 *arg0) {
     return (u8) (temp_r5 <= temp_r0);
 }
 
-int TBoss6Type1__sub_802B5DD4(void) { return 0; }
+void TBoss6Type1__sub_802B5DD4(Obj_802B5DD4 *self) {
+    if (self->f4e0 <= 0 || self->f4e4 < 0) return;
+    self->f4e4++;
+}
 
 void reset_fields_4e0__11TBoss6Type1FPv(void* p) { *(s32*)((char*)p + 0x4e0) = 0; *(s32*)((char*)p + 0x4e4) = 0; }
 s32 is_field3F8_over_0x20__11TBoss6Type1FPv(void *arg0) {
     return TBoss6PlotFalz__sub_802AAC74(M2C_FIELD(arg0, s32 *, 0x3F8)) > 0x20;
 }
 
-int TBoss6Type1__sub_802B5E48(void) { return 0; }
+int TBoss6Type1__sub_802B5E48(Obj_802B5E48 *self) {
+    return calc_field4b0_delta__11TBoss6Type1FPv(self) >= self->f498 ? 1 : 0;
+}
 
 s32 is_ready__11TBoss6Type1FPv(void *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x414) == 0) && (calc_field4b0_delta__11TBoss6Type1FPv(arg0) >= (s32) M2C_FIELD(arg0, s32 *, 0x48C))) {
@@ -482,7 +530,6 @@ void TBoss6Type1__sub_802B9204(u8 *arg0, s8 arg1);
 
 extern "C" {
 
-int TBoss6Type1__sub_802B8624(void);
 void TBoss6Type1__vt42(void);
 void TBoss6Type1__vt43(void);
 void TBoss6Type1__vt44(void);
@@ -719,7 +766,10 @@ void TBoss6Type1__sub_802B7E88(u8 *arg0) {
 
 void copy_transform__11TBoss6Type1FPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(u32*)((char*)p + 0x14) = *(u32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); }
 
-int TBoss6Type1__sub_802B8624(void) { return 0; }
+Blk_802B8624 *TBoss6Type1__sub_802B8624(Blk_802B8624 *d, Blk_802B8624 *s) {
+    *d = *s;
+    return d;
+}
 
 void render_shadows__11TBoss6Type1Fv(u8 *arg0) {
     if (M2C_FIELD(arg0, f32 *, 0x3C) >= lbl_805DE3D0) {

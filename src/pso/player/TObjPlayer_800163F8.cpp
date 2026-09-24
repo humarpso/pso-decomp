@@ -71,11 +71,14 @@ struct VObj_18_cc39a7 : VBase_18_cc39a7 {
     virtual s32 m17(M2C_UNK);
 };
 
+struct Vec_80018660 { f32 x, y, z; };
+
+struct Obj_80018660 { u8 pad[0x38]; Vec_80018660 pos; u8 pad44[0x1c]; s32 angle; u8 pad64[0x238]; Vec_80018660 dest; };
+
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK TObjPlayer__sub_80017E6C(void *);
 M2C_UNK TObjPlayer__sub_800182A0(void *, void *, int);
-M2C_UNK TObjPlayer__sub_80018660(void *, int);
 f32 TObjPlayer__sub_80141CF8(void *, void *);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
 extern const f32 TObjPlayer__data_805D7D44;
@@ -96,6 +99,13 @@ s32 TObjPlayer__sub_803D9B78();
 extern RecoveredGlobal_8001806C_lbl_8058D490 lbl_8058D490;
 extern const f32 TObjPlayer__data_805D7D24;
 void TObjPlayer__sub_8001806C(u8 *arg0, s32 arg1, f32 farg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
+void TBoss6Type1__sub_803D9370(void *a, void *b);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 TObjPlayer__sub_801423A4(s32, s32, s32);
+M2C_UNK TObjPlayer__sub_80141F84(s32, s32);
+extern const f64 TObjPlayer__data_804340B8;
+void TObjPlayer__sub_80018660(Obj_80018660 *self, s32 turn);
 }
 
 extern "C" {
@@ -199,7 +209,7 @@ f32 enemy_wander_home(u8 *arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2) {
         M2C_FIELD(arg0, f32 *, 0x308) = (f32) TObjPlayer__data_805D7D24;
         M2C_FIELD(arg0, s32 *, 0x2AC) = 0;
     } else {
-        TObjPlayer__sub_80018660(arg0,arg1);
+        TObjPlayer__sub_80018660((Obj_80018660 *)(arg0), (s32)(arg1));
         TObjPlayer__sub_8001806C(arg0, (int) (M2C_FIELD(arg0, s32 *, 0x60)), (f32) (farg0));
         TObjPlayer__sub_80017E6C((void *) (arg0));
         var_f31 = TObjPlayer__sub_80141CF8((void *) (arg0 + 0x29C), (void *) (arg0 + 0x2FC));
@@ -242,6 +252,17 @@ void update_angle__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2) {
     TObjPlayer__sub_80141F84(M2C_FIELD(arg0, s32 *, 0x60), temp_r31);
 }
 typedef struct Stack_80018780 Stack_80018780;
+
+void TObjPlayer__sub_80018660(Obj_80018660 *self, s32 turn) {
+    Vec_80018660 d;
+    s32 a;
+    VecCopy__FP3VecPC3Vec((s32)&d, (s32)&self->dest);
+    TBoss6Type1__sub_803D9370(&d, &self->pos);
+    a = (s32)(TObjPlayer__data_804340B8 * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z));
+    self->angle = TObjPlayer__sub_801423A4(self->angle, a, turn);
+    TObjPlayer__sub_80141F84(self->angle, a);
+}
+
 f32 TObjPlayer__sub_80018780(s32 arg0, u16 arg1, u32 arg2) {
   Stack_80018780 stack;
   f32 var_f31;

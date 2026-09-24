@@ -18,6 +18,9 @@ M2C_UNK TObjPlayer__sub_80011160(s32, s32);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern s32 TLobby__data_80512220[];
 void qst_op_pl_add_meseta(void);
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801F3D3C(s16, s32, s32, s32);
+void TLobby__sub_801EE728(u32 first);
 }
 
 extern "C" {
@@ -52,6 +55,15 @@ void update_doors__6TLobbyFv(void) { TObjDoor__sub_801F3760(); TObjDoor__sub_801
 
 extern s32 TLobby__data_80512220[];
 extern s32 lbl_805D53A0;
+
+void TLobby__sub_801EE728(u32 first) {
+    u32 i = first;
+    s32 floor = (*(s32 * *)&TLobby__data_805D5E78)[(u8)i++];
+    s16 mode = (*(s32 * *)&TLobby__data_805D5E78)[(u8)i++];
+    s32 terrain = (*(s32 * *)&TLobby__data_805D5E78)[(u8)i++];
+    s32 extra = (*(s32 * *)&TLobby__data_805D5E78)[(u8)i];
+    TLobby__sub_801F3D3C(mode, floor, terrain, extra);
+}
 
 void qst_op_del_obj_param(s32 arg0) {
     TQuestColCtrl__sub_80195DE0((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__data_805D5E78)));

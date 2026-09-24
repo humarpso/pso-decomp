@@ -24,6 +24,9 @@ void fn_8028D940(void);
 s32 queue_destruction__7TObjectFv(int);
 extern RecoveredGlobal_8028D940_lbl_8051C070 lbl_8051C070;
 void fn_8028D8F4(void);
+void *alloc__22TQuestVmDownLoadServerFPv(u32 size);
+extern void *lbl_805D6518;
+void fn_8028D8B8(void);
 }
 
 extern "C" {
@@ -31,6 +34,13 @@ extern "C" {
 typedef char RecoveredGlobal_8028D940_lbl_8051C070_size[sizeof(RecoveredGlobal_8028D940_lbl_8051C070) == 0xC ? 1 : -1];
 
 typedef char RecoveredGlobal_8028D8F4_lbl_8051C070_size[sizeof(RecoveredGlobal_8028D8F4_lbl_8051C070) == 0xC ? 1 : -1];
+
+void fn_8028D8B8(void) {
+    if (lbl_805D6518 == 0) {
+        if ((lbl_805D6518 = alloc__22TQuestVmDownLoadServerFPv(0x28000)) == 0) return;
+    }
+}
+
 void fn_8028D8F4(void) {
     if ((u32) M2C_FIELD(&(*(RecoveredGlobal_8028D8F4_lbl_8051C070 *)&lbl_8051C070).value, u32 *, 0) != 0U) {
         queue_destruction__7TObjectFv((int) (M2C_FIELD(&(*(RecoveredGlobal_8028D8F4_lbl_8051C070 *)&lbl_8051C070).value, u32 *, 0)));

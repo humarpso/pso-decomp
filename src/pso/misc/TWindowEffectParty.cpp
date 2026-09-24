@@ -4,12 +4,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Obj_8024FB80 { u8 pad[0x78]; void *arr[1]; };
+
+extern "C" {
+extern Obj_8024FB80 *TWindowCtrl__data_805D63F8;
+void *TWindowCtrl__sub_8024FB80(s8 i);
+}
+
 extern "C" {
 
 void *__dt__18TWindowEffectPartyFv(void *arg0, s16 arg1);
 void render__18TWindowEffectPartyFv(void);
 void run_task__18TWindowEffectPartyFv(void *arg0);
-u32 TWindowCtrl__sub_8024FB80(s8);
 s32 TWindowEffectParty__sub_8024F690(void *, f32, f32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -29,7 +35,7 @@ void run_task__18TWindowEffectPartyFv(void *arg0) {
     u8 temp_r3;
 
     temp_r3 = M2C_FIELD(arg0, u8 *, 0x1E);
-    if (((s8) temp_r3 > 0) && ((TWindowCtrl__sub_8024FB80((s8) (temp_r3 - 1)) == 0U) || (fn_80244994() == 0))) {
+    if (((s8) temp_r3 > 0) && ((((u32)TWindowCtrl__sub_8024FB80((s8)((s8) (temp_r3 - 1)))) == 0U) || (fn_80244994() == 0))) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
@@ -74,6 +80,10 @@ void *__dt__18TWindowEffectPartyFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+void *TWindowCtrl__sub_8024FB80(s8 i) {
+    if (TWindowCtrl__data_805D63F8 == 0) return 0;
+    return TWindowCtrl__data_805D63F8->arr[i];
 }
 
 }

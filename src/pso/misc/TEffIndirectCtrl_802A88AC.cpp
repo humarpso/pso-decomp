@@ -19,6 +19,7 @@ extern RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0 TEffIndirectCtrl
 s32 TEffIndirectCtrl__sub_802A9234(u8 arg0);
 extern RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0 TEffIndirectCtrl__data_80540AF0;
 s32 TEffIndirectCtrl__sub_802A925C(u8 arg0);
+u32 TEffIndirectCtrl__sub_802A920C(u32 x, u32 y, u32 w);
 }
 
 extern "C" {
@@ -57,6 +58,14 @@ void *__dt__16TEffIndirectCtrlFv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0_size[sizeof(RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0) == 0x20 ? 1 : -1];
+
+u32 TEffIndirectCtrl__sub_802A920C(u32 x, u32 y, u32 w) {
+    u32 r = (((x >> 3) & 0x1F) << 5) + (x & 7);
+    r += (((y >> 2) & 0x3F) * w) << 2;
+    r += (y & 3) << 3;
+    return r;
+}
+
 s32 TEffIndirectCtrl__sub_802A9234(u8 arg0) {
     u8 var_r3;
     var_r3 = arg0;

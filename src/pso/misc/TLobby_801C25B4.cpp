@@ -47,6 +47,10 @@ M2C_UNK request_active_window_close();
 void close_and_play_effect__6TLobbyFii(int arg0, s32 arg1);
 extern s32 TLobby__data_805D5DA0;
 s32 TLobby__sub_801C417C(void);
+extern void *lbl_805D5DB8;
+void fn_8039667C(void *, void *);
+void destroy_char_data__10TObjPlayerFis(int, s16);
+void TLobby__sub_801C3A40(void);
 }
 
 extern "C" {
@@ -156,6 +160,14 @@ void init_battle_ctrl__6TLobbyFii(s32 arg0, s32 arg1) {
         TLobby__data_805D5DA0 = arg0;
     }
 }
+
+void TLobby__sub_801C3A40(void) {
+    if (lbl_805D5DB8 != 0) {
+        fn_8039667C(lbl_805D5DB8, (void *)destroy_char_data__10TObjPlayerFis);
+        lbl_805D5DB8 = 0;
+    }
+}
+
 void TLobby__sub_801C3CFC(s8 arg0, s32 arg1, s32 arg2) {
     Stack_801C3CFC stack;
     build_6x7D_set_battle_mode_data(&stack.sp8);

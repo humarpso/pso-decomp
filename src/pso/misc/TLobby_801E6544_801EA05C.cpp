@@ -72,6 +72,8 @@ struct M2CCopy_20 { u8 bytes[0x20]; };
 #pragma dont_inline off
 struct M2CCopy_24 { u8 bytes[0x24]; };
 
+struct G_801EA7E8 { u8 pad[0x13]; u8 f13; u8 pad14[0x18]; };
+
 extern "C" {
 extern s32 lbl_805D4C24;
 void TLobby__sub_801EA240(s32 arg0);
@@ -140,6 +142,10 @@ M2C_UNK copy_data__6TLobbyFPv(void *);
 M2C_UNK bswap__12player_statsFv(void *);
 int get_indexed_offset__6TLobbyFi(int);
 void TLobby__sub_801EAC48(int _w0);
+extern RecoveredGlobal_801EA274_TLobby__data_80512220 TLobby__data_80512220;
+extern RecoveredGlobal_801EA274_TLobby__data_80512360 TLobby__data_80512360;
+extern s32 lbl_80449B10[];
+void TLobby__sub_801EA7E8(void);
 }
 
 extern "C" {
@@ -254,6 +260,13 @@ void TLobby__sub_801EA7A0(s32 arg0) {
     if (temp_r3 != 0) {
         send_code_49_1__10TObjPlayerFi();
         send_code50_packet__10TObjPlayerFi((int) (temp_r3));
+    }
+}
+
+void TLobby__sub_801EA7E8(void) {
+    u32 v = ((u32 *)&TLobby__data_80512220)[0];
+    if (v < 2) {
+        (*(G_801EA7E8 *)&TLobby__data_80512360).f13 = lbl_80449B10[v];
     }
 }
 

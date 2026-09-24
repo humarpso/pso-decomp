@@ -4,9 +4,22 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct E_802CDAEC { s32 a; s32 b; s32 c; s32 d; };
+
+struct G_802CDAEC { u8 pad[0x42c]; E_802CDAEC *e; };
+
+struct O_802CDAEC { u8 pad[0x24]; s32 f24; u8 pad2[0xc]; s32 f34; };
+
+struct G_802CDAC4 { u8 pad[0x18]; s32 v[1]; };
+
 extern "C" {
 extern s32 TObjEneMe1GiGue__data_805D6834;
 f32 TObjEneMe1GiGue__sub_802CDAD8(M2C_UNK arg0, s32 arg1);
+extern G_802CDAEC *TObjEneMe1GiGue__data_805D6838;
+void TObjEneMe1GiGue__sub_802CDAEC(O_802CDAEC *self, s32 i);
+extern s32 TObjEneMe1GiGue__data_805D6834;
+s32 TObjEneMe1GiGue__sub_802CDAC4(void *self, s32 i);
 }
 
 extern "C" {
@@ -47,6 +60,10 @@ void TObjEneMe1GiGue__sub_802CDAB8(void) {  }
 void TObjEneMe1GiGue__sub_802CDABC(void) {  }
 void TObjEneMe1GiGue__sub_802CDAC0(void) {  }
 
+s32 TObjEneMe1GiGue__sub_802CDAC4(void *self, s32 i) {
+    return (*(G_802CDAC4 * *)&TObjEneMe1GiGue__data_805D6834)->v[i];
+}
+
 f32 TObjEneMe1GiGue__sub_802CDAD8(M2C_UNK arg0, s32 arg1) {
     return M2C_FIELD((TObjEneMe1GiGue__data_805D6834 + (arg1 * 4)), f32 *, 0);
 }
@@ -54,6 +71,11 @@ f32 TObjEneMe1GiGue__sub_802CDAD8(M2C_UNK arg0, s32 arg1) {
 void TObjEneMe1GiGue__sub_802CDAE8(void) {  }
 
 extern M2C_UNK lbl_804E14E8[];
+
+void TObjEneMe1GiGue__sub_802CDAEC(O_802CDAEC *self, s32 i) {
+    self->f34 = TObjEneMe1GiGue__data_805D6838->e[i].c;
+    self->f24 = TObjEneMe1GiGue__data_805D6838->e[i].d;
+}
 
 void *TObjPlayer__sub_802CDE28(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

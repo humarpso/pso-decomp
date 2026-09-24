@@ -410,6 +410,8 @@ s32 TObjEneBm9Mericarol__sub_802D0854(void *);
 M2C_UNK TObjEneBm9Mericarol__sub_802D093C(void *);
 s32 construct__19TObjEneBm9MericarolFPvii(int, void *, int);
 void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1);
+void queue_destruction__7TObjectFv(void *self);
+void TObjEneBm9Mericarol__sub_802CF178(void *self, s32 msg);
 }
 
 extern "C" {
@@ -487,6 +489,17 @@ typedef struct VBase_18_9c7b63 VBase_18_9c7b63;
 typedef struct VObj_18_9c7b63 VObj_18_9c7b63;
 #define PSO_VCALL_VObj_18_9c7b63_m94(_self) (((VObj_18_9c7b63 *)(_self))->m94())
 #define PSO_VCALL_VObj_18_9c7b63_m100(_self) (((VObj_18_9c7b63 *)(_self))->m100())
+
+void TObjEneBm9Mericarol__sub_802CF178(void *self, s32 msg) {
+    switch (msg) {
+    case 0:
+        return;
+    case 3:
+        queue_destruction__7TObjectFv(self);
+        return;
+    }
+}
+
 void TObjEneBm9Mericarol__sub_802CF1B4(u8 *arg0, s32 arg1) {
   f32 temp_f1;
   Stack_802CF1B4 stack;

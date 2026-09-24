@@ -89,6 +89,24 @@ struct RecoveredGlobal_801E9F74_TLobby__data_80512220 {
     u8 remaining[0x1C];
 };
 
+union U_801E8784 { s32 i; f32 f; };
+
+union U_801E871C { s32 i; f32 f; };
+
+union U_801E8750 { s32 i; f32 f; };
+
+union U_801E87EC { s32 i; f32 f; };
+
+union U_801E8854 { s32 i; f32 f; };
+
+union U_801E87B8 { s32 i; f32 f; };
+
+struct E_801E93B4 { u8 pad[0x20]; s32 f20; u8 pad24[4]; s32 f28; u8 pad2c[0x24]; };
+
+union U_801E8888 { s32 i; f32 f; };
+
+union U_801E8820 { s32 i; f32 f; };
+
 extern "C" {
 M2C_UNK TWindowCtrl__sub_8024B328(int, void *);
 extern s32 TLobby__data_805D5E78;
@@ -180,6 +198,25 @@ void TLobby__sub_801E9F50(void);
 extern RecoveredGlobal_801E8560_TLobby__data_80512220 TLobby__data_80512220;
 extern s32 TLobby__data_805D5E78;
 void TLobby__sub_801E9F74(void);
+extern s32 TLobby__data_805D5E78;
+void TLobby__sub_801E8784(u8 reg, s32 val);
+extern s32 TLobby__data_805D5E78;
+void TLobby__sub_801E871C(u8 reg, s32 val);
+extern s32 TLobby__data_805D5E78;
+void TLobby__sub_801E8750(u8 reg, u8 src);
+extern s32 TLobby__data_805D5E78;
+void TLobby__sub_801E87EC(u8 reg, s32 val);
+extern s32 TLobby__data_805D5E78;
+void TLobby__sub_801E8854(u8 reg, s32 val);
+extern s32 TLobby__data_805D5E78;
+void TLobby__sub_801E87B8(u8 reg, u8 src);
+extern E_801E93B4 lbl_8050E208[];
+extern s32 TLobby__data_805D5E78;
+void TLobby__sub_801E93B4(u8 src, u8 dst);
+extern s32 TLobby__data_805D5E78;
+void TLobby__sub_801E8888(u8 reg, u8 src);
+extern s32 TLobby__data_805D5E78;
+void TLobby__sub_801E8820(u8 reg, u8 src);
 }
 
 extern "C" {
@@ -256,6 +293,70 @@ void TLobby__sub_801E85B4(void) {
     M2C_FIELD((TLobby__data_805D5E78 + ((temp_r31 * 4) & 0x3FC)), s32 *, 0) = (s32) (lbl_80449CC0 * get_ad_end_text_start__10TObjPlayerFv((void *) (&(*(RecoveredGlobal_801E85B4_TLobby__data_80512220 *)&TLobby__data_80512220).value), (f32) (M2C_FIELD(&(*(RecoveredGlobal_801E85B4_TLobby__data_80512220 *)&TLobby__data_80512220).value, f32 *, 4)), (f32) (M2C_FIELD(&(*(RecoveredGlobal_801E85B4_TLobby__data_80512220 *)&TLobby__data_80512220).value, f32 *, 8))));
 }
 
+void TLobby__sub_801E871C(u8 reg, s32 val) {
+    U_801E871C b;
+    U_801E871C a;
+    a.i = val;
+    b.f = *(f32 *)(TLobby__data_805D5E78 + reg * 4);
+    b.f /= a.f;
+    *(s32 *)(TLobby__data_805D5E78 + reg * 4) = b.i;
+}
+
+void TLobby__sub_801E8750(u8 reg, u8 src) {
+    U_801E8750 b;
+    b.f = *(f32 *)(TLobby__data_805D5E78 + reg * 4);
+    b.f /= *(f32 *)(TLobby__data_805D5E78 + src * 4);
+    *(s32 *)(TLobby__data_805D5E78 + reg * 4) = b.i;
+}
+
+void TLobby__sub_801E8784(u8 reg, s32 val) {
+    U_801E8784 b;
+    U_801E8784 a;
+    a.i = val;
+    b.f = *(f32 *)(TLobby__data_805D5E78 + reg * 4);
+    b.f *= a.f;
+    *(s32 *)(TLobby__data_805D5E78 + reg * 4) = b.i;
+}
+
+void TLobby__sub_801E87B8(u8 reg, u8 src) {
+    U_801E87B8 b;
+    b.f = *(f32 *)(TLobby__data_805D5E78 + reg * 4);
+    b.f *= *(f32 *)(TLobby__data_805D5E78 + src * 4);
+    *(s32 *)(TLobby__data_805D5E78 + reg * 4) = b.i;
+}
+
+void TLobby__sub_801E87EC(u8 reg, s32 val) {
+    U_801E87EC b;
+    U_801E87EC a;
+    a.i = val;
+    b.f = *(f32 *)(TLobby__data_805D5E78 + reg * 4);
+    b.f -= a.f;
+    *(s32 *)(TLobby__data_805D5E78 + reg * 4) = b.i;
+}
+
+void TLobby__sub_801E8820(u8 reg, u8 src) {
+    U_801E8820 b;
+    b.f = *(f32 *)(TLobby__data_805D5E78 + reg * 4);
+    b.f -= *(f32 *)(TLobby__data_805D5E78 + src * 4);
+    *(s32 *)(TLobby__data_805D5E78 + reg * 4) = b.i;
+}
+
+void TLobby__sub_801E8854(u8 reg, s32 val) {
+    U_801E8854 b;
+    U_801E8854 a;
+    a.i = val;
+    b.f = *(f32 *)(TLobby__data_805D5E78 + reg * 4);
+    b.f += a.f;
+    *(s32 *)(TLobby__data_805D5E78 + reg * 4) = b.i;
+}
+
+void TLobby__sub_801E8888(u8 reg, u8 src) {
+    U_801E8888 b;
+    b.f = *(f32 *)(TLobby__data_805D5E78 + reg * 4);
+    b.f += *(f32 *)(TLobby__data_805D5E78 + src * 4);
+    *(s32 *)(TLobby__data_805D5E78 + reg * 4) = b.i;
+}
+
 void TLobby__sub_801E88BC(s32 arg0, s32 arg1) {
     M2C_FIELD((TLobby__data_805D5E78 + ((arg0 * 4) & 0x3FC)), s32 *, 0) = (s32) M2C_FIELD((TLobby__data_805D5E78 + ((arg1 * 4) & 0x3FC)), f32 *, 0);
 }
@@ -290,6 +391,10 @@ void free_child__6TLobbyFv(void) {
     if (temp != 0) {
         TMainTask__sub_801F34D0(temp);
     }
+}
+
+void TLobby__sub_801E93B4(u8 src, u8 dst) {
+    *(s32 *)(TLobby__data_805D5E78 + dst * 4) = lbl_8050E208[*(s32 *)(TLobby__data_805D5E78 + src * 4)].f20;
 }
 
 int TLobby__sub_801E93E0(void* p) { return TCameraCtrl__sub_8006CCEC(p); }

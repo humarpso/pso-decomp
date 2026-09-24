@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 get_percent__9TItemDataFPv(void *);
+s32 get_stat_percent__9TItemDataFPv(void *);
+s32 TItemData__sub_8010EE40(void *);
+s32 get_level__9TItemDataFPv(void *);
+s16 TItemMagSub__sub_8011455C(void *mag);
+}
+
+extern "C" {
 
 void TItemMagSub__sub_80114524(void *arg0);
 void update_stat__11TItemMagSubFPv(void *arg0);
@@ -20,6 +28,10 @@ void TItemMagSub__sub_80114524(void *arg0) {
     M2C_FIELD(arg0, s16 *, 0) = 0;
     M2C_FIELD(arg0, s16 *, 2) = 0x28;
     M2C_FIELD(arg0, s8 *, 0xE) = 0x12;
+}
+
+s16 TItemMagSub__sub_8011455C(void *mag) {
+    return get_stat_percent__9TItemDataFPv(mag) + get_percent__9TItemDataFPv(mag) + TItemData__sub_8010EE40(mag) + get_level__9TItemDataFPv(mag);
 }
 
 void update_stat__11TItemMagSubFPv(void *arg0) {

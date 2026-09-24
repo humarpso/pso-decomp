@@ -5,12 +5,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Pkt_801D698C { u8 cmd; u8 size; u8 pad[2]; u16 a; u16 b; };
+
+struct Obj_801D6A18 { s32 a[4]; s32 x10; s32 x14; };
+
 extern "C" {
 extern const f32 lbl_805DC3DC;
 s32 TFontSmallLobby__sub_801D67AC(u8 *arg0);
 f32 fn_801D6AB4(void *, s32, s32);
 s32 TOMineTrap__sub_801D6A44(u8 *arg0, s32 arg1, s32 arg2);
 int TFontSmallLobby__sub_801D6614(s16 arg0);
+void TFontSmallLobby__sub_801D698C(Pkt_801D698C *p);
+void fn_801D6A18(Obj_801D6A18 *p);
 }
 
 extern "C" {
@@ -21,12 +27,10 @@ int TFontSmallLobby__sub_801D677C(void* p);
 void TFontSmallLobby__sub_801D67C8(void* p);
 void* TFontSmallLobby__sub_801D6804(void* p);
 void* TFontSmallLobby__sub_801D6948(void* p, void* a1);
-int TFontSmallLobby__sub_801D698C(void);
 void bswap_fields__15TFontSmallLobbyFPv(void* p);
 int check_flag_at_40__15TFontSmallLobbyFPv(void* p);
 void* clear_photon_blast_ready_flag__15TFontSmallLobbyFPv(void* p);
 void draw_and_send__15TFontSmallLobbyFPv(void* p);
-int fn_801D6A18(void);
 s32 get_field_04__15TFontSmallLobbyFPv(void* p);
 s32 get_state__15TFontSmallLobbyFPv(void* p);
 u16 get_type__15TFontSmallLobbyFPv(void* p);
@@ -105,12 +109,25 @@ void bswap_fields__15TFontSmallLobbyFPv(void* p) { read_be16_field2__10TObjPlaye
 
 void* TFontSmallLobby__sub_801D6948(void* p, void* a1) { TFontSmallLobby__sub_801C0228(p); *(short*)((char*)p + 0x4) = *(unsigned short*)((char*)a1 + 0x4); *(short*)((char*)p + 0x6) = *(short*)((char*)a1 + 0x6); return p; }
 
-int TFontSmallLobby__sub_801D698C(void) { return 0; }
+void TFontSmallLobby__sub_801D698C(Pkt_801D698C *p) {
+    p->a = 0xFFFF;
+    p->b = 0;
+    p->cmd = 0x38;
+    p->size = 2;
+}
 
 void send_state__15TFontSmallLobbyFPv(void* p) { bswap_fields__15TFontSmallLobbyFPv((void*)((void*)(p))); TLobby__send_and_handle_60(p); }
 void* handle_photon_blast_ready__15TFontSmallLobbyFPv(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
 
-int fn_801D6A18(void) { return 0; }
+void fn_801D6A18(Obj_801D6A18 *p) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        p->a[i] = 0;
+    }
+    p->x10 = 0;
+    p->x14 = 0;
+}
+
 s32 TOMineTrap__sub_801D6A44(u8 *arg0, s32 arg1, s32 arg2) {
   f32 new_var;
   f32 temp_f1;

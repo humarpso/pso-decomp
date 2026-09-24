@@ -11,6 +11,10 @@ struct RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC {
 
 struct RecoveredGlobal_802DFD9C___vt__22TAdMultiPlyChrSelectGC { M2C_UNK value; u8 remaining[0x14]; };
 
+struct O_802DFFE8 { u8 pad[0x4ac]; s32 tbl[4][3]; u8 pad2[0x4ec - 0x4ac - 0x30]; s32 idx; };
+
+struct O_802E0024 { u8 pad[0x4ac]; s32 tbl[4][3]; u8 pad2[0x4ec - 0x4ac - 0x30]; s32 idx; };
+
 extern "C" {
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern u8 *lbl_805D68D0;
@@ -30,6 +34,10 @@ M2C_UNK __dt__7TObjectFv(void *, int);
 extern RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC __vt__22TAdMultiPlyChrSelectGC;
 extern u8 *lbl_805D68D0;
 u8 *__dt__22TAdMultiPlyChrSelectGCFv(u8 *arg0, s16 arg1);
+extern s32 TAdMultiPlyChrSelectGC__data_805D67D8;
+s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(O_802DFFE8 *self);
+extern s32 TAdMultiPlyChrSelectGC__data_805D67D8;
+void TAdMultiPlyChrSelectGC__sub_802E0024(O_802E0024 *self, s32 v);
 }
 
 extern "C" {
@@ -46,7 +54,6 @@ void set_state_ready__22TAdMultiPlyChrSelectGCFPv(void* p);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5BCC(void *, s32 *, s32 *);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C658C();
 void * TAdMultiPlyChrSelectGC__sub_802C6920();
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802E0024(s32, s32);
 M2C_UNK init__22TAdMultiPlyChrSelectGCFv();
 s32 is_slot_active__23TAdSinglePlyChrSelectGCFUi();
 M2C_UNK set_field_4ec__22TAdMultiPlyChrSelectGCFPvi(s32, s32);
@@ -64,7 +71,7 @@ void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1) {
         TAdMultiPlyChrSelectGC__sub_802C5BCC(temp_r3, &sp14, &sp10);
         init__22TAdMultiPlyChrSelectGCFv();
         set_field_4ec__22TAdMultiPlyChrSelectGCFPvi(M2C_FIELD(arg0, s32 *, 0x5C), sp14);
-        TAdMultiPlyChrSelectGC__sub_802E0024(M2C_FIELD(arg0, s32 *, 0x5C), sp10);
+        TAdMultiPlyChrSelectGC__sub_802E0024((O_802E0024 *)(M2C_FIELD(arg0, s32 *, 0x5C)), (s32)(sp10));
         M2C_FIELD(arg0, s32 *, 0x9C) = 1;
         return;
     case 4:
@@ -75,7 +82,7 @@ void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1) {
             TAdMultiPlyChrSelectGC__sub_802C5BCC(temp_r3, &spC, &sp8);
             init__22TAdMultiPlyChrSelectGCFv();
             set_field_4ec__22TAdMultiPlyChrSelectGCFPvi(M2C_FIELD(arg0, s32 *, 0x5C), spC);
-            TAdMultiPlyChrSelectGC__sub_802E0024(M2C_FIELD(arg0, s32 *, 0x5C), sp8);
+            TAdMultiPlyChrSelectGC__sub_802E0024((O_802E0024 *)(M2C_FIELD(arg0, s32 *, 0x5C)), (s32)(sp8));
         }
         M2C_FIELD(arg0, s32 *, 0x9C) = 1;
         return;
@@ -192,9 +199,17 @@ u8 *TAdMultiPlyChrSelectGC__sub_802DFF78(s32 arg0, s32 arg1) {
 
 int get_instance__22TAdMultiPlyChrSelectGCFv(void) {  return TAdMultiPlyChrSelectGC__data_805D67E0; }
 
+s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(O_802DFFE8 *self) {
+    return self->tbl[TAdMultiPlyChrSelectGC__data_805D67D8][self->idx];
+}
+
 void set_state_ready__22TAdMultiPlyChrSelectGCFPv(void* p) { *(s32*)((char*)p + 0x4fc) = 1; }
 s32 get_cursor__22TAdMultiPlyChrSelectGCFPv(void* p) { return *(s32*)((char*)p + 0x4ec); }
 void set_state__22TAdMultiPlyChrSelectGCFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x4f8) = v; }
+
+void TAdMultiPlyChrSelectGC__sub_802E0024(O_802E0024 *self, s32 v) {
+    self->tbl[TAdMultiPlyChrSelectGC__data_805D67D8][self->idx] = v;
+}
 
 s32 get_card_index__22TAdMultiPlyChrSelectGCFPv(void* p) { return *(s32*)((char*)p + 0x4e8); }
 

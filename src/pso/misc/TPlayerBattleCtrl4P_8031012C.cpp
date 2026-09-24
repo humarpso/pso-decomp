@@ -23,9 +23,16 @@ struct RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 {
     u8 remaining[0x1C];
 };
 
+struct T_803102A4 { u8 pad[0x28]; s32 arr[4]; };
+
+struct T_803102C8 { u8 pad[0x298]; s32 mode; };
+
 extern "C" {
 extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 TPlayerBattleCtrl4P__data_80542E90;
 M2C_UNK *TPlayerBattleCtrl4P__sub_80310300(void);
+void TPlayerBattleCtrl4P__sub_803102A4(T_803102A4 *self);
+extern void *TPlayerBattleCtrl4P__data_805D6AA8;
+u8 TPlayerBattleCtrl4P__sub_803102C8(void);
 }
 
 extern "C" {
@@ -48,6 +55,22 @@ int fn_801C23A8(void*, void*);
 M2C_UNK inc_player_count__10TObjPlayerFv();
 
 typedef char RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90_size[sizeof(RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90) == 0x20 ? 1 : -1];
+
+void TPlayerBattleCtrl4P__sub_803102A4(T_803102A4 *self) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        self->arr[i] = 0;
+    }
+}
+
+u8 TPlayerBattleCtrl4P__sub_803102C8(void) {
+    T_803102C8 *p = (*(T_803102C8 * *)&TPlayerBattleCtrl4P__data_805D6AA8);
+    if (p != 0) {
+        return p->mode == 1 || p->mode == 2;
+    }
+    return 0;
+}
+
 M2C_UNK *TPlayerBattleCtrl4P__sub_80310300(void) {
     return &TPlayerBattleCtrl4P__data_80542E90.value;
 }

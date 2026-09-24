@@ -40,6 +40,24 @@ extern u8 *TLobby__data_805D5E78;
 extern s32 TLobby__data_805D5E90;
 extern int TLobby__data_805D5EA4;
 void TLobby__sub_801E7084(s32 arg0);
+extern int TLobby__data_80512220[];
+extern int TLobby__data_805D5EA4;
+void TLobby__sub_801E6FF0(u16 a0);
+extern int TLobby__data_80512220[];
+extern int TLobby__data_805D5EA4;
+void TLobby__sub_801E7014(u8 a0);
+extern int TLobby__data_80512220[];
+extern u8 *TLobby__data_805D5E78;
+extern int TLobby__data_805D5EA4;
+void TLobby__sub_801E6FC4(u8 a0);
+extern int TLobby__data_80512220[];
+extern s32 TLobby__data_805D5E74;
+extern int TLobby__data_805D5EA4;
+void TLobby__sub_801E6F98(u16 a0);
+extern int TLobby__data_80512220[];
+extern u8 *TLobby__data_805D5E78;
+extern int TLobby__data_805D5EA4;
+void TLobby__sub_801E7058(u8 a0);
 }
 
 extern "C" {
@@ -69,6 +87,30 @@ void TLobby__sub_801E6F40(void) {
 void TLobby__sub_801E6F78(int a0) { int old = TLobby__data_805D5EA4; TLobby__data_805D5EA4 = old + 1; TLobby__data_80512220[old] = a0; }
 typedef struct RecoveredGlobal_801E7084_TLobby__data_80512220 RecoveredGlobal_801E7084_TLobby__data_80512220;
 typedef char RecoveredGlobal_801E7084_TLobby__data_80512220_size[((sizeof(RecoveredGlobal_801E7084_TLobby__data_80512220)) == 0x20) ? (1) : (-1)];
+
+void TLobby__sub_801E6F98(u16 a0) {
+    TLobby__data_80512220[TLobby__data_805D5EA4++] = TLobby__data_805D5E74 + a0 * 4;
+}
+
+void TLobby__sub_801E6FC4(u8 a0) {
+    TLobby__data_80512220[TLobby__data_805D5EA4++] = (int)(TLobby__data_805D5E78 + a0 * 4);
+}
+
+void TLobby__sub_801E6FF0(u16 a0) {
+    TLobby__data_80512220[TLobby__data_805D5EA4++] = a0;
+}
+
+void TLobby__sub_801E7014(u8 a0) {
+    TLobby__data_80512220[TLobby__data_805D5EA4++] = a0;
+}
+
+void TLobby__sub_801E7058(u8 a0) {
+    int v = *(int *)(TLobby__data_805D5E78 + a0 * 4);
+    int old = TLobby__data_805D5EA4;
+    TLobby__data_805D5EA4 = old + 1;
+    TLobby__data_80512220[old] = v;
+}
+
 void TLobby__sub_801E7084(s32 arg0) {
   int new_var;
   (*(s32 *)&TLobby__data_805D5EA4) = 0;

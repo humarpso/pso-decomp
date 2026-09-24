@@ -8,6 +8,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #pragma dont_inline off
 struct M2CCopy_50 { u8 bytes[0x50]; };
 
+struct Dst_8028ED24 { u8 pad[4]; s16 a[5]; u8 b; };
+
+struct Src_8028ED24 { u8 pad[0x30]; u8 b; u8 pad2[7]; s16 a[5]; };
+
 extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_8028EE20(void *, void *);
 s32 TAdSinglePlyChrSelectGC__sub_8028EF90(int);
@@ -17,9 +21,16 @@ s32 TAdSinglePlyChrSelectGC__sub_8028F198(void *);
 s32 TAdSinglePlyChrSelectGC__sub_8028F210();
 extern s32 lbl_805D6520;
 void TAdSinglePlyChrSelectGC__sub_8028ED54(s32 arg0);
+void TAdSinglePlyChrSelectGC__sub_8028ED24(Dst_8028ED24 *d, Src_8028ED24 *s);
 }
 
 extern "C" {
+
+void TAdSinglePlyChrSelectGC__sub_8028ED24(Dst_8028ED24 *d, Src_8028ED24 *s) {
+    s32 i;
+    for (i = 0; i < 5; i++) d->a[i] = s->a[i];
+    d->b = s->b;
+}
 
 #pragma push
 #pragma fp_contract on

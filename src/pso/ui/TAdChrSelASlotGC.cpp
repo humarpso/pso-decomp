@@ -63,6 +63,8 @@ extern const f32 lbl_805DF218;
 void TAdChrSelASlotGC__sub_8030CEEC(u8 *arg0);
 u8 * TAdSinglePlyChrSelectGC__sub_801FE4BC(u32);
 bool TAdChrSelASlotGC__sub_8030C3C0(M2C_UNK arg0, u32 arg1);
+s32 get_state_flag__9TMainTaskFv();
+void render__16TAdChrSelASlotGCFv(void *self);
 }
 
 extern "C" {
@@ -116,6 +118,11 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK reset_all_slots__15TAdChrSelSlotGCFPv(s32);
 
 extern f32 lbl_805DF210;
+
+void render__16TAdChrSelASlotGCFv(void *self) {
+    if (get_state_flag__9TMainTaskFv() == 1) { return;
+    }
+}
 
 bool TAdChrSelASlotGC__sub_8030C3C0(M2C_UNK arg0, u32 arg1) {
     u8 *temp_r3;

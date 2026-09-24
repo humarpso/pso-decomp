@@ -14,6 +14,10 @@ void TObjPlayer__sub_803D89E8(u32 arg0);
 M2C_UNK PSMTXMultVec(int);
 extern s32 lbl_805D7774;
 void TCameraCtrl__sub_803D8934(u32 arg0);
+void TObjBoss2Tunnel__sub_803D929C(void *, s32);
+void TObjContainerIdo__sub_803D96A8(void *, s32);
+void TObjPlayer__sub_803D9214(void *, s32);
+void TBoss7Tentacle__sub_803D8A6C(void *m, s32 x, s32 y, s32 z);
 }
 
 extern "C" {
@@ -55,6 +59,22 @@ void TObjPlayer__sub_803D89E8(u32 arg0) {
         var_r3 = (*(u32 *)&lbl_805D7774);
     }
     PSMTXInverse((int) (var_r3), (int) (var_r3));
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+#pragma optimize_for_size off
+void TBoss7Tentacle__sub_803D8A6C(void *m, s32 x, s32 y, s32 z) {
+    if (z != 0) {
+        TObjBoss2Tunnel__sub_803D929C(m, z);
+    }
+    if (y != 0) {
+        TObjPlayer__sub_803D9214(m, y);
+    }
+    if (x != 0) {
+        TObjContainerIdo__sub_803D96A8(m, x);
+    }
 }
 #pragma pop
 

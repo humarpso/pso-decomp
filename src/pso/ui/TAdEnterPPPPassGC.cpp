@@ -39,6 +39,8 @@ extern RecoveredGlobal_803392F4_lbl_80477C20 lbl_80477C20;
 extern u8 *lbl_805D6CA0;
 extern s32 lbl_805D6CA4;
 void TAdEnterPPPPassGC__sub_803392F4(u8 *arg0);
+s32 get_state_flag__9TMainTaskFv();
+void render__17TAdEnterPPPPassGCFv(void *self);
 }
 
 extern "C" {
@@ -50,6 +52,11 @@ void __dl__7TObjectFPv(void *);
 void __dt__14TAdEnterBaseGCFv(void *, int);
 int request_transition__21TAdMultiChgGameModeGCFv(void*);
 int reset_mode_state__21TAdMultiChgGameModeGCFv(void*);
+
+void render__17TAdEnterPPPPassGCFv(void *self) {
+    if (get_state_flag__9TMainTaskFv() == 1) { return;
+    }
+}
 
 void TAdEnterPPPPassGC__sub_80338FC0(u8 *arg0) {
     s32 temp_r4;

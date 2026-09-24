@@ -112,6 +112,10 @@ s32 TShopEquipmentSequence__sub_8021D7B8(void *);
 s32 TShopEquipmentSequence__sub_8021D948(u8 *arg0);
 s32 restore_player_state__13TShopSequenceFPv(void *);
 void TShopEquipmentSequence__vt9(u8 *arg0);
+extern RecoveredGlobal_8021DA90_TShopEquipmentSequence__data_80513EC0 TShopEquipmentSequence__data_80513EC0;
+void TShopEquipmentSequence__sub_8021DC08(void);
+extern RecoveredGlobal_8021DA90_TShopEquipmentSequence__data_80513EC0 TShopEquipmentSequence__data_80513EC0;
+void TShopEquipmentSequence__sub_8021DBE0(void);
 }
 
 extern "C" {
@@ -269,6 +273,20 @@ u8 *TShopEquipmentSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     lbl_805D6230 = 0;
     M2C_FIELD(&(*(RecoveredGlobal_8021DB58_TShopEquipmentSequence__data_80513EC0 *)&TShopEquipmentSequence__data_80513EC0).value, M2C_UNK *, (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 1;
     return arg0;
+}
+
+void TShopEquipmentSequence__sub_8021DBE0(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        ((s32 *)&TShopEquipmentSequence__data_80513EC0)[i] = 0;
+    }
+}
+
+void TShopEquipmentSequence__sub_8021DC08(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        ((s32 *)&TShopEquipmentSequence__data_80513EC0)[i] = 0;
+    }
 }
 
 }

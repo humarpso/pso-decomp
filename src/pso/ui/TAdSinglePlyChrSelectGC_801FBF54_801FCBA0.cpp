@@ -26,6 +26,18 @@ struct RecoveredGlobal_801FDAAC_lbl_804C88C0 {
     u8 remaining[0x50];
 };
 
+struct Ent_801FCD04 { u8 pad[0x41C]; s32 x; s32 v; u8 pad2[0x2798 - 0x424]; };
+
+struct Obj_801FCD04 { s32 hdr; Ent_801FCD04 e[7]; };
+
+struct Ent_801FCD3C { u8 pad[0x41C]; s32 x; s32 v; u8 pad2[0x2798 - 0x424]; };
+
+struct Obj_801FCD3C { s32 hdr; Ent_801FCD3C e[7]; };
+
+struct Ent_801FCCDC { u8 pad[0x41C]; s32 x; s32 v; u8 pad2[0x2798 - 0x424]; };
+
+struct Obj_801FCCDC { s32 hdr; Ent_801FCCDC e[7]; };
+
 extern "C" {
 void TAdSinglePlyChrSelectGC__sub_801FCCB4(u8 *arg0, s32 arg1);
 s32 TAdSinglePlyChrSelectGC__sub_801FCCC0(u8 *arg0);
@@ -69,20 +81,28 @@ extern s32 lbl_805D5F7C;
 extern s32 lbl_805D5F84;
 extern s32 lbl_805D5F94;
 s32 TAdSinglePlyChrSelectGC__sub_801FDAAC(void);
+int draw_window_bg__23TAdSinglePlyChrSelectGCFiiii(void*, void*, void*, void*);
+extern int lbl_805D49B4;
+extern s32 lbl_805D5F8C;
+extern s32 lbl_805D5F9C;
+extern s32 lbl_805D5F90;
+extern M2C_UNK lbl_804C8914[];
+int TAdSinglePlyChrSelectGC__sub_801FD990(s32 a0);
+s32 get_selection__23TAdSinglePlyChrSelectGCFv(void *self);
+Ent_801FCD04 *TAdSinglePlyChrSelectGC__sub_801FCD04(Obj_801FCD04 *self);
+s32 get_selection__23TAdSinglePlyChrSelectGCFv(void *self);
+s32 *TAdSinglePlyChrSelectGC__sub_801FCD3C(Obj_801FCD3C *self);
+bool TAdSinglePlyChrSelectGC__sub_801FCCDC(Obj_801FCCDC *self, s32 i);
 }
 
 extern "C" {
 
 int TAdSinglePlyChrSelectGC__sub_801FCBA0(void);
-int TAdSinglePlyChrSelectGC__sub_801FCCDC(void);
-int TAdSinglePlyChrSelectGC__sub_801FCD04(void);
-int TAdSinglePlyChrSelectGC__sub_801FCD3C(void);
 s32 get_type__23TAdSinglePlyChrSelectGCFPv(void* p);
 s32 pso_system_load_gc(void);
 void set_id__23TAdSinglePlyChrSelectGCFPvi(void* p, s32 v);
 void setup__23TAdSinglePlyChrSelectGCFi(int a0);
 s32 TAdPlayerLoadGC__sub_801E2048(s32, M2C_UNK *);
-s32 TAdSinglePlyChrSelectGC__sub_801FD990(s32);
 int draw_window_bg__23TAdSinglePlyChrSelectGCFiiii(void*, void*, void*, void*);
 s32 get_instance__15TAdPlayerLoadGCFv();
 M2C_UNK set_player_index__23TAdSinglePlyChrSelectGCFi(M2C_UNK);
@@ -137,9 +157,14 @@ s32 TAdSinglePlyChrSelectGC__sub_801FCCC0(u8 *arg0) {
 void set_id__23TAdSinglePlyChrSelectGCFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
 s32 get_type__23TAdSinglePlyChrSelectGCFPv(void* p) { return *(s32*)((char*)p + 0x0); }
 
-int TAdSinglePlyChrSelectGC__sub_801FCCDC(void) { return 0; }
-int TAdSinglePlyChrSelectGC__sub_801FCD04(void) { return 0; }
-int TAdSinglePlyChrSelectGC__sub_801FCD3C(void) { return 0; }
+bool TAdSinglePlyChrSelectGC__sub_801FCCDC(Obj_801FCCDC *self, s32 i) {
+    if (i >= 7) return 0;
+    return self->e[i].v != 0;
+}
+
+Ent_801FCD04 *TAdSinglePlyChrSelectGC__sub_801FCD04(Obj_801FCD04 *self) {
+    return &self->e[get_selection__23TAdSinglePlyChrSelectGCFv(self)];
+}
 
     extern unsigned char lbl_804C89BC[];
     extern int lbl_805D49B4;
@@ -148,6 +173,11 @@ int TAdSinglePlyChrSelectGC__sub_801FCD3C(void) { return 0; }
     extern int lbl_805D5F98;
 
 typedef char RecoveredGlobal_801FCD74_main_task_size[sizeof(RecoveredGlobal_801FCD74_main_task) == 0x34 ? 1 : -1];
+
+s32 *TAdSinglePlyChrSelectGC__sub_801FCD3C(Obj_801FCD3C *self) {
+    return &self->e[get_selection__23TAdSinglePlyChrSelectGCFv(self)].x;
+}
+
 void TAdSinglePlyChrSelectGC__sub_801FCD74(void) {
     if ((void *) lbl_805D4DF0 != NULL) {
         some_empty_func__9TMainTaskFv((void *) (&main_task.value));
@@ -184,6 +214,12 @@ extern M2C_UNK lbl_804C8914[];
 extern u32 lbl_805D5F6C;
 extern s32 lbl_805D5F8C;
 
+int TAdSinglePlyChrSelectGC__sub_801FD990(s32 a0) {
+    lbl_805D5F8C = a0;
+    lbl_805D49B4 = 1;
+    return draw_window_bg__23TAdSinglePlyChrSelectGCFiiii((void *)a0, ((s32 *)&lbl_804C8914), (void *)lbl_805D5F9C, (void *)lbl_805D5F90);
+}
+
 s32 pso_system_load_gc(void) {
     s32 var_r31;
 
@@ -192,7 +228,7 @@ s32 pso_system_load_gc(void) {
         var_r31 = TAdPlayerLoadGC__sub_801E2048(lbl_805D5F8C, lbl_804C8914);
         if (var_r31 == 0) {
             if (try_confirm_selection__23TAdSinglePlyChrSelectGCFv() != 0) {
-                var_r31 = TAdSinglePlyChrSelectGC__sub_801FD990(lbl_805D5F8C);
+                var_r31 = TAdSinglePlyChrSelectGC__sub_801FD990((s32)(lbl_805D5F8C));
                 if (var_r31 == 0) {
                     set_player_index__23TAdSinglePlyChrSelectGCFi(0xF);
                 }

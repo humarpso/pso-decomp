@@ -20,6 +20,10 @@ struct Stack_8026556C {
     f32 spC;
 };
 
+struct E_80265660 { u32 flags; u32 b; };
+
+struct Obj_80265660 { u8 pad[0x80]; E_80265660 *entries; };
+
 extern "C" {
 M2C_UNK TWindowSubComCard__sub_8026D740(int, void *, void *);
 extern const f32 lbl_805DD150;
@@ -39,6 +43,7 @@ s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void TWindowSubComCard__sub_80265680(u8 *arg0, s16 arg1);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 s32 get_selected_entry__17TWindowSubComCardFPv(u8 *arg0);
+s32 TWindowSubComCard__sub_80265660(Obj_80265660 *o, s16 i);
 }
 
 extern "C" {
@@ -104,6 +109,11 @@ void TWindowSubComCard__sub_8026556C(u8 *arg0) {
         M2C_FIELD(arg0, u32 *, 0x84) = var_r0;
         M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) | 0x80);
     }
+}
+
+s32 TWindowSubComCard__sub_80265660(Obj_80265660 *o, s16 i) {
+    if (o->entries[i].flags & 0x10) return 0;
+    return 1;
 }
 
 void TWindowSubComCard__sub_80265680(u8 *arg0, s16 arg1) {

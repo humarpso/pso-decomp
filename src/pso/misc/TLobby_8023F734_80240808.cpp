@@ -7,6 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern const f32 lbl_805DC9D8;
 void TLobby__sub_80240858(u8 *arg0);
+void __destroy_arr(void *arr, void *dtor, u32 size, u32 n);
+void TLobby__sub_80242148(void *self, s32 x);
+extern char lbl_805162EC[];
+void TLobby__sub_80240974(void);
+u16 TLobby__sub_802408EC(u16 crc, u8 c);
 }
 
 extern "C" {
@@ -45,6 +50,23 @@ void TLobby__sub_80240858(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x2A8) = 0;
     M2C_FIELD(arg0, f32 *, 0x2A4) = (f32) lbl_805DC9D8;
     M2C_FIELD(arg0, s32 *, 0x2AC) = 0x1E240;
+}
+
+u16 TLobby__sub_802408EC(u16 crc, u8 c) {
+    s32 i;
+    u32 r = crc;
+    r ^= c << 8;
+    for (i = 0; i < 8; i++) {
+        r <<= 1;
+        if (r & 0x10000) {
+            r ^= 0x1021;
+        }
+    }
+    return r;
+}
+
+void TLobby__sub_80240974(void) {
+    __destroy_arr(lbl_805162EC, (void *)TLobby__sub_80242148, 0xa0, 0x28);
 }
 
 void set_field0__6TLobbyFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }

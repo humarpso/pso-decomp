@@ -19,6 +19,8 @@ struct RecoveredGlobal_8032BB34___vt__18TAdEnterPasswordGC {
     u8 remaining[0x18];
 };
 
+struct T_8032BBF0 { u8 pad[0x20]; s32 arr[24]; s32 count; };
+
 extern "C" {
 void TAdEnterPasswordGC__sub_8032BC94(u8 *arg0, s32 arg1);
 void queue_destruction__7TObjectFv(void *);
@@ -54,6 +56,9 @@ extern M2C_UNK __vt__18TAdEnterPasswordGC[];
 extern s32 lbl_805D41E8;
 extern s32 lbl_805D6CA4;
 u8 *TAdEnterPasswordGC__ct(u8 *arg0);
+s32 get_state_flag__9TMainTaskFv();
+void render__18TAdEnterPasswordGCFv(void *self);
+void TAdEnterPasswordGC__sub_8032BBF0(T_8032BBF0 *self);
 }
 
 extern "C" {
@@ -67,6 +72,11 @@ void __dt__14TAdEnterBaseGCFv(void *, int);
 s32 get_confirm_state__20TAdSnAkPassConfirmGCFPv(u32);
 int request_transition__21TAdMultiChgGameModeGCFv(void*);
 int set_mode_0x14__21TAdMultiChgGameModeGCFv(void*);
+
+void render__18TAdEnterPasswordGCFv(void *self) {
+    if (get_state_flag__9TMainTaskFv() == 1) { return;
+    }
+}
 
 void TAdEnterPasswordGC__sub_8032B5B0(u8 *arg0) {
     s32 temp_r4;
@@ -150,6 +160,14 @@ u8 *TAdEnterPasswordGC__ct(u8 *arg0) {
         __ct__10TAdTitleGCFv((int) (temp_r3), (void *) (arg0), (int) (0xC));
     }
     return arg0;
+}
+
+void TAdEnterPasswordGC__sub_8032BBF0(T_8032BBF0 *self) {
+    s32 i;
+    for (i = 0; i < 24; i++) {
+        self->arr[i] = 0;
+    }
+    self->count = 0;
 }
 
 void TAdEnterPasswordGC__sub_8032BC94(u8 *arg0, s32 arg1) {

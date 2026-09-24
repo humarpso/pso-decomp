@@ -4,11 +4,34 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Base_8019DAC0 { s32 f0; u8 pad4[0x14]; };
+
+struct Warp_8019DAC0 : Base_8019DAC0 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5(void *set);
+    u8 pad1c[0x90];
+    f32 fac;
+    s32 fb0;
+    void *fb4;
+    u16 fb8;
+};
+
 extern "C" {
 int check_flag_100__10TObjPlayerFPv(void *);
 f32 fn_8013157C(void *, void *);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 u8 *TObjWarpBase__sub_8019D9CC(s32 arg0, short arg1, f32 farg0);
+void TObjPlayer__sub_801569F4(Warp_8019DAC0 *, void *, void *);
+void *TTecLuker__sub_80233D18(void *, void *, Warp_8019DAC0 *, s32);
+void *__nw__7TObjectFUl(u32);
+extern M2C_UNK __vt__12TObjWarpBase[];
+extern s32 lbl_805D345C;
+extern const f32 lbl_805DBFEC;
+Warp_8019DAC0 *TObjWarpBase__ct(Warp_8019DAC0 *self, void *parent, void *set);
 }
 
 extern "C" {
@@ -79,6 +102,23 @@ void *TObjWarpBase__vt0(void *arg0, s16 arg1) {
 
 extern s32 lbl_805D5C78;
 extern u32 lbl_805D5C7C;
+
+Warp_8019DAC0 *TObjWarpBase__ct(Warp_8019DAC0 *self, void *parent, void *set) {
+    void *o;
+    TObjPlayer__sub_801569F4(self, parent, set);
+    *(void **)((u8 *)self + 0x18) = ((u8 *)&__vt__12TObjWarpBase);
+    self->f0 = lbl_805D345C;
+    self->m5(set);
+    self->fac = lbl_805DBFEC;
+    self->fb0 = 0;
+    o = __nw__7TObjectFUl(0xB4);
+    if (o != 0) {
+        o = TTecLuker__sub_80233D18(o, (u8 *)self + 0x38, self, 1);
+    }
+    self->fb4 = o;
+    self->fb8 = 0xFFFF;
+    return self;
+}
 
 void free_globals__12TObjWarpBaseFv(void) {
     if ((u32) lbl_805D5C7C != 0U) {

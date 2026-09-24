@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Obj_80246948 { u8 pad[0x2c]; u32 f2c; };
+
 extern "C" {
 u32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 M2C_UNK clear_visible_flag__20TWindowSubStatusDispFPv(int);
@@ -13,12 +15,12 @@ s32 is_active__19TWindowSubShortMailFv();
 s32 fn_80246CD0();
 s32 fn_80246CDC();
 void TWindowSubStatusDisp__sub_80246980(s32 arg0);
+u8 TWindowSubAreaMapDisp__sub_80246948(Obj_80246948 *self);
 }
 
 extern "C" {
 
 int TWindowFukidasi__sub_8024695C(void* p);
-int TWindowSubAreaMapDisp__sub_80246948(void);
 void free_window__15TWindowCtrlMainFv(void);
 int get_visible_flag__15TWindowFukidasiFPv(void* p);
 int is_bit10_set__15TWindowFukidasiFPv(void* p);
@@ -33,7 +35,9 @@ void free_window__15TWindowCtrlMainFv(void) {
     }
 }
 
-int TWindowSubAreaMapDisp__sub_80246948(void) { return 0; }
+u8 TWindowSubAreaMapDisp__sub_80246948(Obj_80246948 *self) {
+    return !(self->f2c & 1);
+}
 
 int TWindowFukidasi__sub_8024695C(void* p) { return (*(u32*)((char*)p + 0x2c) >> 8) & 0x1; }
 

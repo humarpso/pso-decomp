@@ -13,12 +13,13 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_802FF0D8_lbl_804E6570 lbl_804E6570;
 extern u32 lbl_805D69E0;
 void TAdMultiSaveGC__sub_802FF0D8(void);
+s32 get_state_flag__9TMainTaskFv(void);
+void render__14TAdMultiSaveGCFv(void *self);
 }
 
 extern "C" {
 
 void free_window__14TAdMultiSaveGCFv(void);
-int render__14TAdMultiSaveGCFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 int begin_change_game_mode__21TAdMultiChgGameModeGCFv(void);
 void queue_destruction__14TAdMultiSaveGCFv(void);
@@ -43,7 +44,8 @@ void TAdMultiSaveGC__sub_802FF0D8(void) {
     }
     (*(s32 *)&lbl_805D69E0) = var_r0;
 }
-
-int render__14TAdMultiSaveGCFv(void) { return 0; }
+void render__14TAdMultiSaveGCFv(void *self) {
+    if (get_state_flag__9TMainTaskFv() == 1) return;
+}
 
 }

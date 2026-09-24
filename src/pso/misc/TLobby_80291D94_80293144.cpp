@@ -24,11 +24,17 @@ struct RecoveredGlobal_8029379C_lbl_804DB1F0 {
     u8 remaining[0x6AC];
 };
 
+struct Rec_802934E0 { s32 f; u8 pad[0x100]; };
+
+struct G_802934E0 { u8 pad[0x270]; Rec_802934E0 r[4]; };
+
 extern "C" {
 void TLobby__sub_802932B0(u8 *arg0, u8 *arg1);
 extern RecoveredGlobal_8029379C_lbl_804DAB60 lbl_804DAB60;
 extern M2C_UNK lbl_804DB1F0[];
 void TLobby__sub_8029379C(void);
+extern M2C_UNK lbl_804DB1F0[];
+void TLobby__sub_802934E0(void);
 }
 
 extern "C" {
@@ -107,6 +113,11 @@ void create_time_window2__6TLobbyFv(void) {
     if ((s32) M2C_FIELD(lbl_804DB1F0, s32 *, 0x30) == 0) {
         create_solo_play_win__6TLobbyFPv(tl_07);
     }
+}
+
+void TLobby__sub_802934E0(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) (*(G_802934E0 *)&lbl_804DB1F0).r[i].f = 0;
 }
 
 void maybe_handle_destruction__6TLobbyFPv(void* p) { if (TLobby__sub_8029359C((void*)(p)) == 0) { TLobby__sub_802933FC(p); } }

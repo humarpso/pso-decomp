@@ -11,12 +11,18 @@ struct RecoveredGlobal_801C5F54_TObjPlayer__data_8050E920 {
 
 struct ArrivalOverrides { u8 bytes[0xF0]; };
 
+struct Pair_801C5FCC { f32 a; f32 b; };
+
+struct Obj_801C5FCC { s32 n; Pair_801C5FCC e[16]; };
+
 extern "C" {
 extern RecoveredGlobal_801C5F54_TObjPlayer__data_8050E920 TObjPlayer__data_8050E920;
 void TObjPlayer__sub_801C5F54(u16 arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 extern RecoveredGlobal_801C5F54_TObjPlayer__data_8050E920 TObjPlayer__data_8050E920;
 void TObjPlayer__sub_801C5F84(u16 arg0, s32 arg1, s32 arg2);
+extern const f32 lbl_805DC32C;
+void TObjPlayer__sub_801C5FCC(Obj_801C5FCC *p);
 }
 
 extern "C" {
@@ -66,6 +72,17 @@ void TObjPlayer__sub_801C5F84(u16 arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(temp_r7, s32 *, 0) = 1;
     M2C_FIELD(temp_r7, s32 *, 4) = arg1;
     VecCopy__FP3VecPC3Vec((void *) (temp_r7 + 8), (void *) (arg2));
+}
+void TObjPlayer__sub_801C5FCC(Obj_801C5FCC *p) {
+    s32 i;
+    Pair_801C5FCC *e;
+    p->n = 0;
+    e = p->e;
+    for (i = 0; i < 16; i++) {
+        e->b = lbl_805DC32C;
+        e->a = lbl_805DC32C;
+        e++;
+    }
 }
 
 }

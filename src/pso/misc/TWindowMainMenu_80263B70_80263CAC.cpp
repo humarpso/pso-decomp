@@ -5,6 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 struct Elt80263D94_80263d94_80263B70 { s16 f0; s16 f2; s32 f4; };
 
+struct Obj_80263D7C { u8 pad[0x50]; s16 f50; u8 pad3[0x5c - 0x52]; s32 f5c; };
+
+struct E_80263DBC { s16 a; s32 b; };
+
+struct Obj_80263DBC { u8 pad[0x28]; E_80263DBC arr[4]; u8 pad2[0x50 - 0x48]; s16 f50; s16 f52; u8 pad3[0x5c - 0x54]; u32 f5c; };
+
+extern "C" {
+void TWindowMainMenu__sub_80263D7C(Obj_80263D7C *o);
+void TWindowMainMenu__sub_80263DBC(Obj_80263DBC *o);
+}
+
 extern "C" {
 
 void add_menu_entry__15TWindowMainMenuFPvs(u8 *arg0, s16 arg1);
@@ -48,12 +59,24 @@ void open__15TWindowMainMenuFPvi(void *arg0, s32 arg1) {
     }
 }
 
+void TWindowMainMenu__sub_80263D7C(Obj_80263D7C *o) {
+    o->f5c = *(s32 *)((u8 *)o + o->f50 * 8 + 0x2c);
+}
+
 void add_menu_entry__15TWindowMainMenuFPvs(u8 *arg0, s16 arg1) {
     struct Elt80263D94_80263d94_80263B70 *arr = (struct Elt80263D94_80263d94_80263B70 *)arg0;
     struct Elt80263D94_80263d94_80263B70 *e = (struct Elt80263D94_80263d94_80263B70 *)((char *)&arr[M2C_FIELD(arg0, s16 *, 0x50)] + 0x28);
     e->f0 = (s16) M2C_FIELD(arg0, s16 *, 0x52);
     e->f2 = arg1;
     e->f4 = (s32) M2C_FIELD(arg0, s32 *, 0x5C);
+}
+void TWindowMainMenu__sub_80263DBC(Obj_80263DBC *o) {
+    E_80263DBC *e = &o->arr[o->f50];
+    if (e->b != o->f5c) {
+        o->f52 = 0;
+    } else {
+        o->f52 = e->a;
+    }
 }
 
 }

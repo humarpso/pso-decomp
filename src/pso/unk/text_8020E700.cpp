@@ -18,12 +18,16 @@ struct RecoveredGlobal_8020ECA8_lbl_80513D58 {
     u8 remaining[0xC];
 };
 
+struct Ent_8020EC68 { u8 pad[0x10]; s32 v; };
+
 extern "C" {
 extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
 void TLobby__sub_8020ECD8(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_8020ECA8_lbl_80513D58 lbl_80513D58;
 void TLobby__sub_8020ECA8(void);
+extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
+void TLobby__sub_8020EC68(s32 i, s32 j);
 }
 
 extern "C" {
@@ -31,6 +35,14 @@ extern "C" {
 typedef char RecoveredGlobal_8020ECD8_lbl_80513D78_size[sizeof(RecoveredGlobal_8020ECD8_lbl_80513D78) == 0x10 ? 1 : -1];
 
 typedef char RecoveredGlobal_8020ECA8_lbl_80513D58_size[sizeof(RecoveredGlobal_8020ECA8_lbl_80513D58) == 0x10 ? 1 : -1];
+
+void TLobby__sub_8020EC68(s32 i, s32 j) {
+    Ent_8020EC68 *e = ((Ent_8020EC68 * *)&lbl_80513D78)[j];
+    if (i >= 0 && i <= 0x14) {
+        if (e[i].v != -1) e[i].v = -1;
+    }
+}
+
 void TLobby__sub_8020ECA8(void) {
     memset((void *) (&lbl_80513D58.value), (int) (0), (int) (0x10));
 }

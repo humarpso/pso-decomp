@@ -4,9 +4,15 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct Ent_801D2640 { u8 pad[8]; f32 f; u8 pad2[4]; };
+
+struct Obj_801D2640 { u8 pad[0xB8]; s16 idx; u8 pad2[0xD8 - 0xBA]; Ent_801D2640 *arr; };
+
 extern "C" {
 void set_flags_B0__10TObjPlayerFPvUi(void *, u32);
 void TObjPlayer__sub_801D2658(u8 *arg0, f32 farg0);
+f32 TObjPlayer__sub_801D2640(Obj_801D2640 *p);
 }
 
 extern "C" {
@@ -32,7 +38,10 @@ int read_swapped_fields__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801D2B2C(void*);
 int TObjPlayer__sub_801D2C18(void*);
 
-int TObjPlayer__sub_801D2640(void) { return 0; }
+f32 TObjPlayer__sub_801D2640(Obj_801D2640 *p) {
+    return p->arr[p->idx].f;
+}
+
 void TObjPlayer__sub_801D2658(u8 *arg0, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 0xD4) = farg0;
     set_flags_B0__10TObjPlayerFPvUi(arg0, 0x200U);

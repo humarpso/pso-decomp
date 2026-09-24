@@ -24,6 +24,10 @@ struct RecoveredGlobal_801D2CF4_lbl_804C43D8 {
     u8 remaining[0xC];
 };
 
+struct Ent_801D2AB0 { u8 d[4]; };
+
+struct Obj_801D2AB0 { u8 pad[0x14]; Ent_801D2AB0 arr[1]; };
+
 extern "C" {
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
@@ -53,6 +57,7 @@ extern const f32 TObjPlayer__data_805DC360;
 void TObjPlayer__sub_801D2834(u8 *arg0, f32 farg0);
 void TObjPlayer__sub_8012AF80(void *);
 void TObjPlayer__sub_801D2E20(s32 *arg0, void * _w1, f32 _w2, f32 _w3);
+Ent_801D2AB0 *TObjPlayer__sub_801D2AB0(Obj_801D2AB0 *p, s32 i);
 }
 
 extern "C" {
@@ -69,7 +74,6 @@ int TObjPlayer__sub_801D2A50(void* p);
 void TObjPlayer__sub_801D2A78(void* p, f32 v);
 s32 TObjPlayer__sub_801D2A80(void* p);
 f32 TObjPlayer__sub_801D2A98(void* p);
-int TObjPlayer__sub_801D2AB0(void);
 int TObjPlayer__sub_801D2B08(void* p);
 int TObjPlayer__sub_801D2B2C(void);
 int TObjPlayer__sub_801D2C18(void);
@@ -180,7 +184,9 @@ f32 TObjPlayer__sub_801D2A98(void* p) { return *(f32*)((char*)p + 0xc); }
 void set_field_0c__10TObjPlayerFPvf(void* p, f32 v) { *(f32*)((char*)p + 0xc) = v; }
 void set_field8__10TObjPlayerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x8) = v; }
 
-int TObjPlayer__sub_801D2AB0(void) { return 0; }
+Ent_801D2AB0 *TObjPlayer__sub_801D2AB0(Obj_801D2AB0 *p, s32 i) {
+    return &p->arr[i];
+}
 
 void set_field_3c__10TObjPlayerFPvf(void* p, f32 v) { *(f32*)((char*)p + 0x3c) = v; }
 int start_photon_blast_action__10TObjPlayerFPv(void* p) { return set_flags__10TObjPlayerFPvUi((void*)((char*)p + 0x40), (int)(4)); }

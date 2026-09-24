@@ -4,15 +4,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct T_803131B4 { u8 pad[0x8]; s32 arr[1]; };
+
 extern "C" {
 s16 TObjPlayer__sub_80313114(u8 *arg0);
+s32 *TObjPlayer__sub_803131B4(T_803131B4 *self, s32 i);
 }
 
 extern "C" {
 
 int TObjPlayer__sub_80313138(void* a0 = 0);
 int TObjPlayer__sub_803131AC(void);
-int TObjPlayer__sub_803131B4(void);
 int TObjPlayer__sub_80313218(void* p);
 void TObjPlayer__sub_80313250(void *arg0, s32 arg1);
 int check_flag_at_4__10TObjPlayerFPv(void* p);
@@ -41,7 +43,9 @@ int TObjPlayer__sub_80313138(void* a0) { return 0; }
 int query_field40__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_8001BEF8((char*)p + 0x40, 4); }
 int TObjPlayer__sub_803131AC(void) { return 4; }
 
-int TObjPlayer__sub_803131B4(void) { return 0; }
+s32 *TObjPlayer__sub_803131B4(T_803131B4 *self, s32 i) {
+    return &self->arr[i];
+}
 
 void process_indexed_element__10TObjPlayerFii(s32 arg0, s32 arg1) {
     TObjPlayer__sub_80313138((void*)((void*)(arg0 + (arg1 * 0x18))));

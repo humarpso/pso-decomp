@@ -25,6 +25,13 @@ struct RecoveredFields_801DF4FC_arg1
   s32 field_0;
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Inner_801DF774 { u32 w[5]; };
+
+struct Blk_801DF774 { u32 a; Inner_801DF774 b; };
+
 extern "C" {
 s32 fn_801E0900(s32);
 int bswap_32__FPUl(void* a0);
@@ -90,6 +97,7 @@ void* fn_801DF3F0(void* p, void* a1);
 s32 *fn_801DF394(s32 *arg0, s32 *arg1);
 int fn_801DF558(int, int);
 s32 *fn_801DF4FC(s32 *arg0, s32 *arg1);
+Blk_801DF774 *TProtocol__sub_801DF774(Blk_801DF774 *d, const Blk_801DF774 *s);
 }
 
 extern "C" {
@@ -184,7 +192,12 @@ void fn_801DF6F0(void* p) { bswap_32__FPUl(p); { int i; for (i = 0; i < 5; i++) 
 
 void fn_801DF740(void* p) { bswap_16__FPUs((s32)((void*)(p))); bswap_16__FPUs((s32)((void*)((char*)p + 0x2))); }
 
-int TProtocol__sub_801DF774(void) { return 0; }
+Blk_801DF774 *TProtocol__sub_801DF774(Blk_801DF774 *d, const Blk_801DF774 *s) {
+    d->a = s->a;
+    d->b = s->b;
+    return d;
+}
+
 void bswap_c0_lobby_entries(void* p) { bswap__13packet_headerFv(p); { int i; for (i = 0; i < 56; i++) { fn_801DF7F8((void*)((char*)p + 0x4 + i * 32)); } } }
 
 }

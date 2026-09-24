@@ -9,11 +9,15 @@ struct RecoveredGlobal_80208D28_lbl_805139F8 {
     u8 remaining[0x44];
 };
 
+struct Ent_80208A04 { u8 pad[8]; s32 n; };
+
 extern "C" {
 u8 * heap_alloc__5THeapFUl(void *, s32);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
 extern u8 *lbl_805D6094;
 u8 *TLobby__sub_80208D28(s32 arg0, s32 arg1);
+extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
+s32 TLobby__sub_80208A04(void);
 }
 
 extern "C" {
@@ -51,6 +55,16 @@ void spawn_destroy_event__6TLobbyFPv(void *arg0) {
 
 void TLobby__sub_80208900(void) {  }
 typedef char RecoveredGlobal_80208D28_lbl_805139F8_size[sizeof(RecoveredGlobal_80208D28_lbl_805139F8) == 0x48 ? 1 : -1];
+
+s32 TLobby__sub_80208A04(void) {
+    s32 sum = 0;
+    s32 i;
+    for (i = 0; i < 18; i++) {
+        if (((Ent_80208A04 * *)&lbl_805139F8)[i] != 0) sum += ((Ent_80208A04 * *)&lbl_805139F8)[i]->n;
+    }
+    return sum * 2;
+}
+
 u8 *TLobby__sub_80208D28(s32 arg0, s32 arg1) {
     s32 temp_r30;
     u8 *temp_r3;

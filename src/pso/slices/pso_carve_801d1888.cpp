@@ -1,5 +1,11 @@
 #include "types.h"
 
+struct Pkt_801D1888 { u8 cmd; u8 size; u8 pad[2]; u16 a; u16 b; };
+
+extern "C" {
+void TObjPlayer__sub_801D1888(Pkt_801D1888 *p);
+}
+
 extern "C" {
 void bswap_fields__10TObjPlayerFPv(void* p);
 
@@ -17,6 +23,11 @@ void set_type_53__10TObjPlayerFPv(void* p);
 void set_revived_state__10TObjPlayerFPv(void* p);
 void init_revive_packet__10TObjPlayerFPv(void* p);
 
-int TObjPlayer__sub_801D1888(void) { return 0; }
+void TObjPlayer__sub_801D1888(Pkt_801D1888 *p) {
+    p->a = 0xFFFF;
+    p->b = 0;
+    p->cmd = 0x89;
+    p->size = 2;
+}
 
 }

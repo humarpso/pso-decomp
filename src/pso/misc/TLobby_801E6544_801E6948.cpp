@@ -5,6 +5,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int sprintf(char *, const char *, ...);
+void append_string(s32 arg0);
+extern s32 *TLobby__data_805D5E78;
+extern char lbl_805DC4B4[4];
+void TLobby__sub_801E6AA0(s32 arg0);
+int sprintf(char *, const char *, ...);
+void append_string(s32 arg0);
+extern char lbl_80449C90[];
+void TLobby__sub_801E6AE0(void);
+int sprintf(char *, const char *, ...);
+void append_string(s32 arg0);
+extern s32 *TLobby__data_805D5E78;
+extern char lbl_805DC4B0[4];
+void TLobby__sub_801E6A60(s32 arg0);
+}
+
+extern "C" {
 
 u8 TLobby__sub_801E6BB8(void);
 void append_string(s32 arg0);
@@ -28,6 +45,24 @@ s32 parse_r_index(s32 arg0) {
 }
 
 extern u8 *TLobby__data_805D5ED0;
+
+void TLobby__sub_801E6A60(s32 arg0) {
+    char buf[64];
+    sprintf(buf, lbl_805DC4B0, ((f32 *)TLobby__data_805D5E78)[arg0]);
+    append_string((s32)buf);
+}
+
+void TLobby__sub_801E6AA0(s32 arg0) {
+    char buf[64];
+    sprintf(buf, lbl_805DC4B4, TLobby__data_805D5E78[arg0]);
+    append_string((s32)buf);
+}
+
+void TLobby__sub_801E6AE0(void) {
+    char buf[64];
+    sprintf(buf, lbl_80449C90, 1, 12);
+    append_string((s32)buf);
+}
 
 u8 TLobby__sub_801E6BB8(void) {
     return (u8) ((s8) *TLobby__data_805D5ED0 == 0);

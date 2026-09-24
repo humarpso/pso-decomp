@@ -19,12 +19,16 @@ struct RecoveredGlobal_802243D4_lbl_80513F10 {
     u8 remaining[0xC];
 };
 
+struct E_8022444C { u8 pad[0x10]; s32 f10; };
+
 extern "C" {
 extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
 void TLobby__sub_80224404(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_802243D4_lbl_80513F10 lbl_80513F10;
 void TLobby__sub_802243D4(void);
+extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
+void TLobby__sub_8022444C(s32 a, s32 b);
 }
 
 extern "C" {
@@ -125,6 +129,14 @@ void TLobby__sub_802243D4(void) {
 
 void TLobby__sub_80224404(s32 arg0, s32 arg1, s32 arg2) {
     *(M2CCopy_14 *)(arg0) = *(const M2CCopy_14 *)(M2C_FIELD(&lbl_80513F20.value, M2C_UNK *, (arg2 * 4)) + (arg1 * 0x14));
+}
+void TLobby__sub_8022444C(s32 a, s32 b) {
+    E_8022444C *arr = ((E_8022444C * *)&lbl_80513F20)[b];
+    if (a >= 0 && a <= 0x11) {
+        if (arr[a].f10 != -1) {
+            arr[a].f10 = -1;
+        }
+    }
 }
 
 }

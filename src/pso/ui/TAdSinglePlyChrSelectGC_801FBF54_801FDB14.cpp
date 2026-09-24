@@ -14,6 +14,10 @@ struct RecoveredGlobal_801FE3E4_lbl_805137C8 {
     u8 remaining[0xC];
 };
 
+struct Ent_801FE2D0 { u8 pad[0x2790]; s32 a; s32 b; };
+
+struct Ent_801FE304 { u8 pad[0x2790]; s32 a; s32 b; };
+
 extern "C" {
 s32 TAdPlayerLoadGC__sub_801E2048(int, void *);
 M2C_UNK load_player_slot__23TAdSinglePlyChrSelectGCFPvii(int, void *, void *);
@@ -31,6 +35,10 @@ extern unsigned char lbl_804C8914[];
 extern int lbl_805D49B4;
 extern int lbl_805D5F9C;
 void TAdSinglePlyChrSelectGC__sub_801FDBC4(void);
+extern u32 lbl_805D5F58;
+void TAdSinglePlyChrSelectGC__sub_801FE2D0(s32 i);
+extern u32 lbl_805D5F5C;
+void TAdSinglePlyChrSelectGC__sub_801FE304(s32 i);
 }
 
 extern "C" {
@@ -124,6 +132,21 @@ s32 check_page_cross__23TAdSinglePlyChrSelectGCFiiii(s32 arg1, s32 arg2, s32 arg
     return 0;
 }
 typedef char RecoveredGlobal_801FE3E4_lbl_805137C8_size[sizeof(RecoveredGlobal_801FE3E4_lbl_805137C8) == 0x10 ? 1 : -1];
+
+void TAdSinglePlyChrSelectGC__sub_801FE2D0(s32 i) {
+    if ((*(Ent_801FE2D0 * *)&lbl_805D5F58) == 0) return;
+    if (i >= 4) return;
+    (*(Ent_801FE2D0 * *)&lbl_805D5F58)[i].a = 0;
+    (*(Ent_801FE2D0 * *)&lbl_805D5F58)[i].b = 0;
+}
+
+void TAdSinglePlyChrSelectGC__sub_801FE304(s32 i) {
+    if ((*(Ent_801FE304 * *)&lbl_805D5F5C) == 0) return;
+    if (i >= 4) return;
+    (*(Ent_801FE304 * *)&lbl_805D5F5C)[i].a = 0;
+    (*(Ent_801FE304 * *)&lbl_805D5F5C)[i].b = 0;
+}
+
 M2C_UNK *TAdSinglePlyChrSelectGC__sub_801FE3E4(u32 arg0) {
     u8 *temp_r4;
     if (arg0 >= 7U) {

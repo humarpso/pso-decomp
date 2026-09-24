@@ -160,6 +160,8 @@ extern RecoveredGlobal_802A7444_lbl_804DDBD8 lbl_804ED7C8;
 int TLobby__sub_802A7260(void* a0 = 0);
 int TLobby__sub_802A7278(void* a0 = 0);
 s32 TLobby__sub_80329100(M2C_UNK arg0, s32 arg1, s32 arg2);
+extern RecoveredGlobal_802A7444_lbl_804DDBD8 lbl_804ED7C8;
+s32 TLobby__sub_803290DC(void *self, s32 a, s32 b, s32 c);
 }
 
 extern "C" {
@@ -220,6 +222,11 @@ M2C_UNK *TLobby__sub_80329088(s32 arg0, s32 _w1) {
     }
 }
 typedef char RecoveredGlobal_802A7444_lbl_804DDBD8_size[sizeof(RecoveredGlobal_802A7444_lbl_804DDBD8) == 0x18 ? 1 : -1];
+
+s32 TLobby__sub_803290DC(void *self, s32 a, s32 b, s32 c) {
+    return ((s32 ** *)&lbl_804ED7C8)[a][b][c];
+}
+
 s32 TLobby__sub_80329100(M2C_UNK arg0, s32 arg1, s32 arg2) {
     if (((s32)TLobby__sub_802A7278((void*)((void *) (arg1)))) == 0) {
         return 0;

@@ -4,6 +4,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Obj_802B0204 { u8 pad[0xbe]; s16 fbe; };
+
+extern "C" {
+void TPlayerFootStamp__sub_802B0204(Obj_802B0204 *self, s32 v);
+}
+
 extern "C" {
 
 void TBoss6PlotFalz__sub_802B0228(void *arg0);
@@ -18,6 +24,14 @@ int create__16TObjOnlineEndingFPv(void*);
     extern unsigned char lbl_80470908[];
     extern int lbl_805D6710;
 void load_player_footstamp(void) { lbl_805D6710 = TLanguage__sub_801E4874(lbl_80470908); }
+
+void TPlayerFootStamp__sub_802B0204(Obj_802B0204 *self, s32 v) {
+    if (v < 0 || v > 1) {
+        self->fbe = 0;
+    } else {
+        self->fbe = v;
+    }
+}
 
 void TBoss6PlotFalz__sub_802B0228(void *arg0) {
     s32 temp_r0;

@@ -4,17 +4,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Obj_8027C0C4 { u8 pad[0x61]; s8 f61; u8 pad2[2]; s32 arr[1]; };
+
 extern "C" {
 extern u8 *lbl_805D553C;
 s32 TWindowSubMag__sub_8027C0B0(s32 arg0);
 extern const f32 lbl_805DD668;
 bool TWindowSubMag__sub_8027C0F4(u8 *arg0);
+s32 TWindowSubMag__sub_8027C0C4(Obj_8027C0C4 *o);
 }
 
 extern "C" {
 
 void *TWindowSubMag__ct(void *arg0, s32 arg1, s32 arg2);
-int TWindowSubMag__sub_8027C0C4(s32);
 int TWindowSubMag__sub_8027C0E8(void* p);
 void *__dt__13TWindowSubMagFv(void *arg0, s16 arg1);
 void clear_flag60_bit8__13TWindowSubMagFPv(void* p);
@@ -60,7 +62,7 @@ void update_mag_help__13TWindowSubMagFPv(void *arg0) {
     s32 temp_r3;
 
     fn_80263A20(M2C_FIELD(arg0, s32 *, 0x4C), M2C_FIELD(arg0, s32 *, 0x28));
-    temp_r3 = TWindowSubMag__sub_8027C0C4((s32)(M2C_FIELD(arg0, s32 *, 0x48)));
+    temp_r3 = TWindowSubMag__sub_8027C0C4((Obj_8027C0C4 *)((s32)(M2C_FIELD(arg0, s32 *, 0x48))));
     if (temp_r3 != (s8) M2C_FIELD(arg0, u8 *, 0x1D)) {
         M2C_FIELD(arg0, u8 *, 0x1D) = (u8) temp_r3;
         if (temp_r3 == -1) {
@@ -226,9 +228,8 @@ s32 TWindowSubMag__sub_8027C0B0(s32 arg0) {
     return M2C_FIELD(M2C_FIELD(lbl_805D553C, s32 *, 0x20), M2C_UNK *, (arg0 * 4));
 }
 
-int TWindowSubMag__sub_8027C0C4(s32 window) {
-    s32 slot = M2C_FIELD(window, s8 *, 0x61);
-    return M2C_FIELD(window, s32 *, 0x64 + slot * 4);
+s32 TWindowSubMag__sub_8027C0C4(Obj_8027C0C4 *o) {
+    return o->arr[o->f61];
 }
 
 int get_active_flag__13TWindowSubMagFPv(void* p) { return *(u8*)((char*)p + 0x60) & 0x1; }

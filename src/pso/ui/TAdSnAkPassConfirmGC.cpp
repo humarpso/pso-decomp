@@ -31,6 +31,11 @@ struct VObj_8032BF64_8032BE48 : Base_8032BF64_8032BE48 {
 };
 
 extern "C" {
+s32 get_state_flag__9TMainTaskFv();
+void TAdYesNoBaseGC__vt7(void *self);
+}
+
+extern "C" {
 
 int TAdSnAkPassConfirmGC__vt4(void* p);
 int TAdSnAkPassConfirmGC__vt5(void* p);
@@ -79,6 +84,10 @@ void *__dt__20TAdSnAkPassConfirmGCFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+void TAdYesNoBaseGC__vt7(void *self) {
+    if (get_state_flag__9TMainTaskFv() == 1) { return;
+    }
 }
 
 }

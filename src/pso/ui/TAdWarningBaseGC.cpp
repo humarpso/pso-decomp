@@ -9,6 +9,8 @@ M2C_UNK render_status_disp__23TAdSinglePlyChrSelectGCFPvff(s32, f32, f32, f32);
 extern const f32 lbl_805DF7B8;
 extern const f32 lbl_805DF7BC;
 void TAdWarningBaseGC__sub_8032D514(void *arg0, s32 arg1, s32 arg2);
+s32 get_state_flag__9TMainTaskFv();
+void TAdWarningBaseGC__vt5(void *self);
 }
 
 extern "C" {
@@ -34,6 +36,11 @@ M2C_UNK set_global_param__8TObjFishFi(u32);
 void TAdWarningBaseGC__sub_8032D1E4(void) { lbl_805D6CF4 = 0; }
 
 extern M2C_UNK __vt__16TAdWarningBaseGC[];
+
+void TAdWarningBaseGC__vt5(void *self) {
+    if (get_state_flag__9TMainTaskFv() == 1) { return;
+    }
+}
 
 void *TAdWarningBaseGC__vt0(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

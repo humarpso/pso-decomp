@@ -10,9 +10,12 @@ struct Stack_802B9D90
   s32 spC;
 };
 
+struct Obj_802B9D6C { u8 pad[0x77c]; s32 arr[14]; };
+
+struct Obj_802BA158 { u8 pad[0x55c]; u16 f55c; u8 pad2[0x570 - 0x55e]; s32 f570; u8 pad3[0x58c - 0x574]; s32 f58c; s32 f590; s32 f594; s32 f598; };
+
 extern "C" {
 u8 *TPlayerBattleCtrl4P__sub_801BA74C(u32);
-int TBoss6Type2__sub_802BA158(void *);
 void copy_vec2__11TBoss6Type2FPvPv(void* p, void* q);
 void TBoss6Type2__sub_802BA180(u8 *arg0);
 s32 request_destroy__11TBoss4Type2FUi(int);
@@ -31,6 +34,8 @@ extern const f32 lbl_805DE424;
 extern const f32 lbl_805DE428;
 extern const f32 lbl_805DE42C;
 void TBoss6Type2__sub_802B9D90(u8 *arg0);
+void TBoss6Type2__sub_802B9D6C(Obj_802B9D6C *self);
+void TBoss6Type2__sub_802BA158(Obj_802BA158 *self);
 }
 
 extern "C" {
@@ -76,6 +81,12 @@ typedef struct Stack_802B9D90 Stack_802B9D90;
 #pragma opt_common_subs off
 #pragma opt_propagation off
 #pragma opt_dead_assignments off
+
+void TBoss6Type2__sub_802B9D6C(Obj_802B9D6C *self) {
+    s32 i;
+    for (i = 0; i < 14; i++) self->arr[i] = 0;
+}
+
 void TBoss6Type2__sub_802B9D90(u8 *arg0) {
   Stack_802B9D90 stack;
   s32 temp_r4;
@@ -136,14 +147,22 @@ void set_fields_554__11TBoss6Type2FPv(void* p) { *(s32*)((char*)p + 0x554) = 1; 
 int TBoss6Type2__sub_802B9EE4(void) { return 0; }
 int TBoss6Type2__sub_802B9F0C(void) { return 0; }
 
-int TBoss6Type2__sub_802BA158(void * _w0) { return 0; }
+void TBoss6Type2__sub_802BA158(Obj_802BA158 *self) {
+    self->f55c = 0xFFFF;
+    self->f570 = 0;
+    self->f58c = 0;
+    self->f590 = 0;
+    self->f594 = 0;
+    self->f598 = 0;
+}
+
 void TBoss6Type2__sub_802BA180(u8 *arg0) {
     u8 *temp_r3;
     u32 id = M2C_FIELD(arg0, u16 *, 0x55C);
     if (id != 0xFFFF) {
         temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(id);
         if (temp_r3 == NULL) {
-            TBoss6Type2__sub_802BA158((void *)((void *) (arg0)));
+            TBoss6Type2__sub_802BA158((Obj_802BA158 *)((void *)((void *) (arg0))));
             return;
         }
         copy_vec2__11TBoss6Type2FPvPv((void*)((void *) (temp_r3 + 0xCF4)), (void*)((void *) (arg0 + 0x574)));
@@ -152,7 +171,7 @@ void TBoss6Type2__sub_802BA180(u8 *arg0) {
         M2C_FIELD(temp_r3, s32 *, 0x8B0) = (s32) M2C_FIELD(arg0, s32 *, 0x590);
         M2C_FIELD(temp_r3, s32 *, 0x8AC) = (s32) M2C_FIELD(arg0, s32 *, 0x594);
         M2C_FIELD(temp_r3, s32 *, 0x8B4) = (s32) M2C_FIELD(arg0, s32 *, 0x598);
-        TBoss6Type2__sub_802BA158((void *)((void *) (arg0)));
+        TBoss6Type2__sub_802BA158((Obj_802BA158 *)((void *)((void *) (arg0))));
     }
 }
 

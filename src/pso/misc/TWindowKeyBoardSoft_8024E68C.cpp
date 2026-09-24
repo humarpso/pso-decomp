@@ -11,6 +11,8 @@ struct RecoveredFields_8024E754_arg0
   f32 field_2C;
 };
 
+struct Ctx_8024E6D8 { u8 pad[0x20]; f32 pivot[2]; f32 scale[2]; };
+
 extern "C" {
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 u32 init_layout__19TWindowKeyBoardSoftFPv(void* a0);
@@ -24,6 +26,8 @@ extern const float lbl_805DCC78;
 extern const f32 lbl_805DCC7C;
 extern const f32 lbl_805DCC80;
 void TWindowKeyBoardSoft__sub_8024E754(u8 *arg0, int arg1);
+extern const float lbl_805DCC78;
+void TWindowKeyBoardSoft__sub_8024E6D8(Ctx_8024E6D8 *c, f32 *q);
 }
 
 extern "C" {
@@ -35,13 +39,27 @@ s32 is_point_in_bounds__19TWindowKeyBoardSoftFPvPv(void *arg0, void *arg1);
 u32 open_singleton__19TWindowKeyBoardSoftFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void set_bounds__19TWindowKeyBoardSoftFPvffff(void* p, f32 a, f32 b, f32 c, f32 d);
 s32 try_open__19TWindowKeyBoardSoftFii(s32 arg0, s32 arg1);
-int TWindowKeyBoardSoft__sub_8024E6D8(s32, s32);
 s32 TWindowKeyBoardSoft__sub_8024E8E8();
 M2C_UNK TWindowKeyBoardSoft__sub_8024EA50(u32, s32, s32, s32, s32);
 M2C_UNK __dl__FPv(u32);
 
 typedef struct RecoveredFields_8024E754_arg0 RecoveredFields_8024E754_arg0;
 #pragma fp_contract on
+
+#pragma push
+#pragma fp_contract on
+void TWindowKeyBoardSoft__sub_8024E6D8(Ctx_8024E6D8 *c, f32 *q) {
+    if ((*(const f32 *)&lbl_805DCC78) != c->scale[0]) {
+        q[0] = c->scale[0] * (q[0] - c->pivot[0]) + c->pivot[0];
+        q[2] = c->scale[0] * (q[2] - c->pivot[0]) + c->pivot[0];
+    }
+    if ((*(const f32 *)&lbl_805DCC78) != c->scale[1]) {
+        q[1] = c->scale[1] * (q[1] - c->pivot[1]) + c->pivot[1];
+        q[3] = c->scale[1] * (q[3] - c->pivot[1]) + c->pivot[1];
+    }
+}
+#pragma pop
+
 void TWindowKeyBoardSoft__sub_8024E754(u8 *arg0, int arg1) {
   f32 temp_f2;
   RecoveredFields_8024E754_arg0 *new_var;
@@ -95,7 +113,7 @@ s32 try_open__19TWindowKeyBoardSoftFii(s32 arg0, s32 arg1) {
     if (TWindowKeyBoardSoft__sub_8024E8E8() == 0) {
         return 0;
     }
-    TWindowKeyBoardSoft__sub_8024E6D8(arg0, arg1);
+    TWindowKeyBoardSoft__sub_8024E6D8((Ctx_8024E6D8 *)(arg0), (f32 *)(arg1));
     return 1;
 }
 

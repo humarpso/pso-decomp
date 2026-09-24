@@ -30,6 +30,31 @@ struct RecoveredGlobal_80233D18_lbl_804CC9D4 {
 };
 
 #include "pso/effect/TechniqueChargeEmitter.h"
+
+struct O_802340A0 { u16 h0; u16 h2; s32 w4; f32 f8; f32 fc; f32 f10; s32 w14; };
+
+struct Vec_80233E78 { f32 x, y, z; };
+
+struct Player_80233E78 { u8 pad[0x838]; Vec_80233E78 pipe_pos; s32 pipe_heading; u8 arrival[4]; };
+
+struct Vec_8023402C { f32 x, y, z; };
+
+struct Rec_8023402C { u16 owner; s16 floor; s32 section; Vec_8023402C pos; s32 heading; };
+
+struct Vec_802347B4 { f32 x, y, z; };
+
+struct Pipe_802347B4 {
+    u8 pad[0x1c];
+    u8 *player;
+    u8 pad20[0xd0];
+    void *collider;
+    s16 floor;
+    u16 traveller;
+    void *visual;
+    Vec_802347B4 pos;
+    s32 phase;
+};
+
 extern "C" {
 void TTecLuker__sub_80234F7C(void* p);
 void TTecLuker__sub_80234F7C(void* p);
@@ -87,6 +112,44 @@ void* TObjEneDellBiter__sub_80087350(float*,u32);
 int check_flag_0x80__10TObjPlayerFPv(void*);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 void TTecLuker__updateRecoveryTechniqueCharge(TechniqueChargeEmitter* state);
+extern u8 TTecLuker__data_805D37E0[4];
+void TTecLuker__sub_80234F28(void);
+extern u8 TTecLuker__data_805D37E0[4];
+void TTecLuker__sub_80234F08(void);
+extern const f32 lbl_805DC85C;
+void TTecLuker__sub_802340A0(O_802340A0 *o);
+extern u8 TTecLuker__data_805D37E0[4];
+void TTecLuker__sub_80234F48(void);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 TObjPlayer__sub_801BFFA0(void *p);
+void set_state__9TTecLukerFPvi(void *p, s32 v);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+extern s32 lbl_8044D798[];
+extern Vec_80233E78 lbl_8044D738[];
+extern Vec_80233E78 lbl_8044D768[];
+Vec_80233E78 *TTecLuker__sub_80233E78(u16 slot, s32 *heading);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
+s16 get_field_2__9TTecLukerFPv(void* p);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+s32 TObjPlayer__sub_800196EC(void);
+void TTecLuker__sub_80233F8C(void);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+extern const f32 lbl_805DC85C;
+extern const f32 lbl_805DC860;
+s32 TTecLuker__sub_8023402C(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unused);
+void *__nw__7TObjectFUl(int);
+s32 obj_getField1c(void *);
+s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_800196EC(void);
+void *TTecLuker__sub_8023453C(void *self, Vec_802347B4 *pos, u16 id, s32 res);
+u8 *TTecLuker__sub_80233D18(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+void TBoss4DarkFalz__sub_8004C220(void *c, Vec_802347B4 *pos);
+void TTecLuker__sub_80234148(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
+void TTecLuker__sub_802340E4(u8 *arg0);
+extern s32 tl_07;
+extern s32 tl_05;
+void TTecLuker__sub_802347B4(Pipe_802347B4 *s);
 }
 
 extern "C" {
@@ -110,7 +173,6 @@ M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 void *TTecLuker__ct(void *, void *, void *, void *, void *);
-M2C_UNK TTecLuker__sub_802340A0(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -211,7 +273,7 @@ void apply_all_players__9TTecLukerFv(void) {
     do {
         temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((s32)(var_r31));
         if (temp_r3 != 0U) {
-            TTecLuker__sub_802340A0(temp_r3 + 0x830);
+            TTecLuker__sub_802340A0((O_802340A0 *)(temp_r3 + 0x830));
         }
         var_r31 += 1;
     } while (var_r31 < 4);
@@ -232,8 +294,79 @@ void TTecLuker__sub_80233E3C(u16 arg0) {
     }
 }
 
+Vec_80233E78 *TTecLuker__sub_80233E78(u16 slot, s32 *heading) {
+    Player_80233E78 *p;
+    u16 owner;
+    if (slot >= 4) {
+        return 0;
+    }
+    p = (Player_80233E78 *)TPlayerBattleCtrl4P__sub_801BA74C(slot);
+    if (p != 0) {
+        owner = TObjPlayer__sub_801BFFA0(p->arrival);
+        if (owner == 0xffff) {
+            return 0;
+        }
+        set_state__9TTecLukerFPvi(p->arrival, 0xffff);
+        if (get_global_state__14TOKeyMachine01Fv() == 0) {
+            *heading = lbl_8044D798[slot];
+            return &lbl_8044D738[slot];
+        }
+        if (get_global_state__14TOKeyMachine01Fv() == 0x12) {
+            *heading = lbl_8044D798[slot];
+            return &lbl_8044D768[slot];
+        }
+        p = (Player_80233E78 *)TPlayerBattleCtrl4P__sub_801BA74C(owner);
+        if (p == 0) {
+            return 0;
+        }
+        *heading = p->pipe_heading;
+        return &p->pipe_pos;
+    }
+    return 0;
+}
+
+typedef s32 (*GetField2_80233F8C)(void *);
+void TTecLuker__sub_80233F8C(void) {
+    s32 area = get_global_state__14TOKeyMachine01Fv();
+    s32 i;
+    if (area == 15 || area == 0 || area == 18) {
+        return;
+    }
+    for (i = 0; i < 4; i++) {
+        u8 *p = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(i);
+        if (p != 0) {
+            if (((GetField2_80233F8C)get_field_2__9TTecLukerFPv)(p + 0x830) == TObjPlayer__sub_800196EC()) {
+                create__9TTecLukerFPvPvPvPv(p, p + 0x38, p + 0x838, (void *)10);
+            }
+        }
+    }
+}
+
 bool TTecLuker__sub_8023401C(u8 *arg0) {
     return M2C_FIELD(arg0, s16 *, 2) != 0;
+}
+
+s32 TTecLuker__sub_8023402C(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unused) {
+    Vec_8023402C d;
+    if (r->floor == floor) {
+        d.x = r->pos.x - p->x;
+        d.y = lbl_805DC85C;
+        d.z = r->pos.z - p->z;
+        if (TBoss6Kakusan__sub_803D8BD8(&d) < lbl_805DC860) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+void TTecLuker__sub_802340A0(O_802340A0 *o) {
+    o->h0 = 0xffff;
+    o->w4 = 0;
+    o->h2 = 0;
+    o->f8 = lbl_805DC85C;
+    o->fc = lbl_805DC85C;
+    o->f10 = lbl_805DC85C;
+    o->w14 = 0;
 }
 
 void init_fields__9TTecLukerFPvs(void *arg0, s16 arg1) {
@@ -277,6 +410,33 @@ void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3)
 
 extern void* __vt__9TTecLuker[];
 
+typedef void (*Write_802347B4)(u8 *, s32, s16, u8 *, s32);
+void TTecLuker__sub_802347B4(Pipe_802347B4 *s) {
+    u16 id = obj_getField1c(s->player);
+    void *v = __nw__7TObjectFUl(0x44);
+    if (v != 0) {
+        v = TTecLuker__sub_8023453C(v, &s->pos, id, tl_07);
+    }
+    s->visual = v;
+    s->phase = 1;
+    if (s->collider != 0) {
+        TBoss4DarkFalz__sub_8004C220(s->collider, &s->pos);
+    } else {
+        u8 *c = (u8 *)__nw__7TObjectFUl(0xb4);
+        if (c != 0) {
+            c = TTecLuker__sub_80233D18(c, (s32)&s->pos, tl_05, 0);
+        }
+        s->collider = c;
+    }
+    if (s->traveller == (u16)obj_getField1c(s->player)) {
+        s16 h;
+        s->floor = TObjPlayer__sub_800196EC();
+        h = get_stat_by_key_state__10TObjPlayerFPv(s->player);
+        ((Write_802347B4)TTecLuker__sub_80234148)(s->player + 0x830, obj_getField1c(s->player), s->floor, (u8 *)&s->pos, h);
+        TTecLuker__sub_802340E4(s->player + 0x830);
+    }
+}
+
 void *__dt__9TTecLukerFv(void *arg0, s16 arg1) {
     s32 temp_cr0_eq;
     void *temp_r3;
@@ -305,6 +465,27 @@ void *__dt__9TTecLukerFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+void TTecLuker__sub_80234F08(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        TTecLuker__data_805D37E0[i] = 0;
+    }
+}
+
+void TTecLuker__sub_80234F28(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        TTecLuker__data_805D37E0[i] = 0;
+    }
+}
+
+void TTecLuker__sub_80234F48(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        TTecLuker__data_805D37E0[i] = 0;
+    }
 }
 
 void TTecLuker__sub_80234F68(void* p) { *(s32*)((char*)p + 0x0) = 6; }

@@ -92,6 +92,8 @@ void TLobby__sub_80335E7C(void);
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(M2C_UNK *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_804EE584;
 void TLobby__sub_80336008(void);
+extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_804EE584;
+void *TLobby__sub_80335FE8(void);
 }
 
 extern "C" {
@@ -153,6 +155,11 @@ void *ct_with_parent__6TLobbyFPvPv(void *arg0, void *arg1) {
 }
 void TLobby__sub_80335FE0(void) {  }
 void TLobby__sub_80335FE4(void) {  }
+
+void *TLobby__sub_80335FE8(void) {
+    return ((char *)&lbl_804EE584);
+}
+
 void* get_record__6TLobbyFi(int a0) {  return (char*)lbl_804EE9A4 + a0 * 32; }
 
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];

@@ -4,6 +4,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Raw_8010D614 { u8 b[4]; u16 s[4]; u32 id; u8 c[4]; };
+
+struct Mag_8010D614 { u16 a0; u16 a2; u16 s[4]; u8 c; u8 d; u8 e; };
+
 extern "C" {
 int bswap_16__FPUs(void*);
 void TItemData__sub_8010CDC8(u8 *arg0, s16 arg1);
@@ -26,6 +30,8 @@ extern f32 TItemData__data_805DAB70;
 extern const f32 lbl_805DAB74;
 extern f32 TItemData__data_805DAB78;
 f32 TItemData__sub_8010D6CC(u8 *arg0, u8 *arg1);
+void bswap_fields__9TItemDataFPv(void* p);
+void TItemData__sub_8010D614(Raw_8010D614 *src, Mag_8010D614 *dst);
 }
 
 extern "C" {
@@ -122,6 +128,22 @@ s16 get_technique_level__9TItemDataFPv(void *arg0) {
 void bswap_fields__9TItemDataFPv(void* p) { bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); bswap_16__FPUs((void*)((char*)p + 0x8)); bswap_16__FPUs((void*)((char*)p + 0xa)); }
 
 extern s32 lbl_805D53A0;
+
+void TItemData__sub_8010D614(Raw_8010D614 *src, Mag_8010D614 *dst) {
+    if (dst != 0) {
+        Raw_8010D614 tmp = *src;
+        bswap_fields__9TItemDataFPv((void*)(&tmp));
+        dst->d = tmp.b[3];
+        dst->s[0] = tmp.s[0] & 0x7ffe;
+        dst->s[1] = tmp.s[1] & 0x7ffe;
+        dst->s[2] = tmp.s[2] & 0x7ffe;
+        dst->s[3] = tmp.s[3] & 0x7ffe;
+        dst->a2 = tmp.c[0];
+        dst->a0 = tmp.c[1];
+        dst->c = tmp.c[2];
+        dst->e = tmp.c[3];
+    }
+}
 
 f32 TItemData__sub_8010D6CC(u8 *arg0, u8 *arg1) {
   s32 temp_r31;

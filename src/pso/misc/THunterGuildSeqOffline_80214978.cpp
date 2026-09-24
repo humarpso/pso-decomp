@@ -20,9 +20,27 @@ extern RecoveredGlobal_80214A84_lbl_804C97F0 lbl_804C97F0;
 extern RecoveredGlobal_80214A84_lbl_80513E60 lbl_80513E60;
 extern s32 lbl_805D61B8;
 u8 *THunterGuildSeqOffline__sub_80214A84(u8 *arg0, s16 arg1);
+extern RecoveredGlobal_80214A84_lbl_80513E60 lbl_80513E60;
+void THunterGuildSeqOffline__sub_80214A5C(void);
+extern RecoveredGlobal_80214A84_lbl_80513E60 lbl_80513E60;
+void THunterGuildSeqOffline__sub_80214A34(void);
 }
 
 extern "C" {
+
+void THunterGuildSeqOffline__sub_80214A34(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        ((s32 *)&lbl_80513E60)[i] = 0;
+    }
+}
+
+void THunterGuildSeqOffline__sub_80214A5C(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        ((s32 *)&lbl_80513E60)[i] = 0;
+    }
+}
 
 u8 *THunterGuildSeqOffline__sub_80214A84(u8 *arg0, s16 arg1) {
     u32 temp_r3;

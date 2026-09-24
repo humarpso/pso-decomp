@@ -63,6 +63,7 @@ extern const f32 lbl_805DB198;
 void TWindowSubStatusDisp__sub_80144BF4(u8 arg0, u8 *arg1);
 extern RecoveredGlobal_80144FCC_lbl_804A74F0 lbl_804A74F0;
 u32 TWindowSubStatusDisp__sub_80144FCC(u16 arg0);
+u16 TWindowSubStatusDisp__sub_80145054(u16 c);
 }
 
 extern "C" {
@@ -116,6 +117,39 @@ s32 is_alpha_char__20TWindowSubStatusDispFUs(u16 arg0) {
         return 1;
     }
     return arg0 <= 0x5AU ? 1 : 0;
+}
+
+u16 TWindowSubStatusDisp__sub_80145054(u16 c) {
+    if (c & 0x80) {
+        c = c - 1;
+    }
+    if (c < 0x9F) {
+    } else if (c < 0x8140) {
+        c -= 0x1F;
+    } else if (c < 0x824F) {
+        c += 0x5EC0;
+    } else if (c < 0x829E) {
+        c += 0x5E6E;
+    } else if (c < 0x8340) {
+        c += 0x5E6B;
+    } else if (c < 0x839E) {
+        c += 0x5E1C;
+    } else if (c < 0x8440) {
+        c += 0x5E15;
+    } else if (c < 0x849E) {
+        c += 0x5DAB;
+    } else if (c < 0x889E) {
+        c += 0x5D9F;
+    } else if (c < 0xF040) {
+        if (c > 0xA000) {
+            c -= 0x4000;
+        }
+        c -= (u8)((u32)(c - 0x8800) >> 8) * 0x44;
+        c += 0x59BF;
+    } else {
+        c += 0xB1B;
+    }
+    return c;
 }
 
 void pack_status_flags__20TWindowSubStatusDispFPvUi(void *arg0, u32 arg1) {

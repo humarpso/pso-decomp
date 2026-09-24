@@ -18,6 +18,9 @@ extern RecoveredGlobal_801FEBBC_lbl_80513904 lbl_80513904;
 extern u32 lbl_805D5F5C;
 extern s32 lbl_805D5F78;
 s32 TAdSinglePlyChrSelectGC__sub_801FEBBC(void);
+s32 load_pso_system(void);
+extern s32 lbl_805D5FA8;
+void TAdSinglePlyChrSelectGC__sub_801FEB84(void);
 }
 
 extern "C" {
@@ -58,6 +61,13 @@ s32 try_confirm_selection__23TAdSinglePlyChrSelectGCFv(void) {
     return var_r3;
 }
 typedef char RecoveredGlobal_801FEBBC_lbl_80513904_size[sizeof(RecoveredGlobal_801FEBBC_lbl_80513904) == 0xC ? 1 : -1];
+
+void TAdSinglePlyChrSelectGC__sub_801FEB84(void) {
+    s32 r = load_pso_system();
+    lbl_805D5FA8 = 0;
+    if (r == 0) lbl_805D5FA8 = 1;
+}
+
 s32 TAdSinglePlyChrSelectGC__sub_801FEBBC(void) {
     s32 var_r31;
     var_r31 = 0xFFFF0000;

@@ -5,6 +5,27 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Ent_80208E8C { u8 pad[4]; void *data; u8 pad2[4]; };
+
+struct Terr_80208E8C { Ent_80208E8C *ents; s32 count; };
+
+struct Area_80208E8C { Terr_80208E8C *terrs; s32 count; };
+
+struct Buf_80208E8C { u8 data[0x20]; };
+
+extern "C" {
+extern Area_80208E8C *TLobby__data_805D6068;
+extern u8 lbl_8044BAC8[];
+extern s32 lbl_805D6094;
+extern M2C_UNK lbl_805139F8[];
+void TLobby__sub_801317E4(Buf_80208E8C *, void *, void *);
+s32 update_lobby_scene__6TSceneFPv(Buf_80208E8C *);
+s32 heap_alloc__5THeapFUl(s32, s32);
+void TLobby__sub_800F9DF4(Buf_80208E8C *, void *);
+M2C_UNK TLobby__sub_80208904(s32);
+s32 TLobby__sub_80208E8C(s32 floor, s32 area, s32 terrain, s32 entities);
+}
+
 extern "C" {
 
 s32 add_player__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
@@ -32,6 +53,29 @@ s32 add_player__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
         *((s32 *)((s8 *)lbl_805139F8 + temp_r29)) = temp_r3;
         TLobby__sub_80208904(arg0);
         return 1;
+    }
+    return 0;
+}
+s32 TLobby__sub_80208E8C(s32 floor, s32 area, s32 terrain, s32 entities) {
+    Buf_80208E8C buf;
+    s32 n;
+    void *p;
+    if (TLobby__data_805D6068[area].terrs == 0 || TLobby__data_805D6068[area].count - 1 < terrain) {
+        return 0;
+    }
+    if (TLobby__data_805D6068[area].terrs[terrain].ents == 0 || TLobby__data_805D6068[area].terrs[terrain].count - 1 < entities) {
+        return 0;
+    }
+    TLobby__sub_801317E4(&buf, TLobby__data_805D6068[area].terrs[terrain].ents[entities].data, lbl_8044BAC8);
+    n = update_lobby_scene__6TSceneFPv(&buf);
+    if (n > 0) {
+        p = ((void *)heap_alloc__5THeapFUl((s32)((*(void * *)&lbl_805D6094)), (s32)(n)));
+        if (p != 0) {
+            TLobby__sub_800F9DF4(&buf, p);
+            ((void * *)&lbl_805139F8)[floor] = p;
+            TLobby__sub_80208904(floor);
+            return 1;
+        }
     }
     return 0;
 }

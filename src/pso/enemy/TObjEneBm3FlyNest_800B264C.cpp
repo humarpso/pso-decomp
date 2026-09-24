@@ -16,6 +16,10 @@ struct RecoveredGlobal_800B2948_lbl_80500B00 {
 
 struct NestAttachmentPoint { f32 x,y,z; };
 
+struct Obj_800B2A5C { u8 pad[0x3b0]; s32 count; u8 pad2[4]; u16 ids[6]; };
+
+struct Obj_800B2AF4 { u8 pad[0x3b0]; s32 count; u8 pad2[4]; u16 ids[6]; };
+
 extern "C" {
 extern RecoveredGlobal_800B2948_lbl_8043B2A4 lbl_8043B2A4;
 extern RecoveredGlobal_800B2948_lbl_80500B00 lbl_80500B00;
@@ -28,6 +32,12 @@ extern s32 lbl_805D510C;
 extern NestAttachmentPoint *lbl_805D5110;
 extern void get_camera_ctrl__9TObjEneDDFPv(s32, s32);
 void capture_attachment__17TObjEneBm3FlyNestFv(void * _w0);
+u8 *TPhotonMylla__sub_80154CB4(u16);
+void TObjEneBm3FlyNest__sub_800B2A5C(Obj_800B2A5C *self, u8 *child);
+u8 *TPhotonMylla__sub_80154CB4(u16);
+u16 get_active_id__13TObjEneBm3FlyFPv(void *);
+s32 check_v2_mode__9TObjEneDDFv();
+s32 TObjEneBm3FlyNest__sub_800B2AF4(Obj_800B2AF4 *self, u16 id);
 }
 
 extern "C" {
@@ -62,8 +72,6 @@ struct VObj_800B2BAC_800B2A14 : Base_800B2BAC_800B2A14 {
 };
 
 void* TObjEneBm3FlyNest__sub_800B2A54(void* p);
-int TObjEneBm3FlyNest__sub_800B2A5C(void);
-int TObjEneBm3FlyNest__sub_800B2AF4(void);
 int copy_target_state__17TObjEneBm3FlyNestFPv(void* p);
 void handle_state__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
 int init__17TObjEneBm3FlyNestFPv(void* p);
@@ -98,8 +106,32 @@ int init__17TObjEneBm3FlyNestFPv(void* p) { return init_params__17TObjEneBm3FlyN
 int copy_target_state__17TObjEneBm3FlyNestFPv(void* p) { return copy_target_state__14TObjEnePanarmsFPvPv(p); }
 void* TObjEneBm3FlyNest__sub_800B2A54(void* p) { return (char*)p + 0x3d4; }
 
-int TObjEneBm3FlyNest__sub_800B2A5C(void) { return 0; }
-int TObjEneBm3FlyNest__sub_800B2AF4(void) { return 0; }
+void TObjEneBm3FlyNest__sub_800B2A5C(Obj_800B2A5C *self, u8 *child) {
+    s32 i;
+    for (i = 0; i < 6; i++) {
+        if (TPhotonMylla__sub_80154CB4(self->ids[i]) == child) {
+            self->count--;
+            self->ids[i] = self->ids[self->count];
+            self->ids[self->count] = 0xFFFF;
+            return;
+        }
+    }
+}
+
+s32 TObjEneBm3FlyNest__sub_800B2AF4(Obj_800B2AF4 *self, u16 id) {
+    s32 n = 0;
+    s32 i;
+    for (i = 0; i < self->count; i++) {
+        u8 *p = TPhotonMylla__sub_80154CB4(self->ids[i]);
+        if (p != 0 && id == get_active_id__13TObjEneBm3FlyFPv(p)) {
+            n++;
+        }
+    }
+    if (check_v2_mode__9TObjEneDDFv()) {
+        return n < 4;
+    }
+    return n < 2;
+}
 
 void handle_state__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
     switch (arg1) {

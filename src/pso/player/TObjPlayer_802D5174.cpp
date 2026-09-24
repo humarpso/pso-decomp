@@ -5,12 +5,15 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct O_802D576C { u8 pad[0x24a]; s16 v; };
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_801012DC(void *, s16);
 M2C_UNK TObjPlayer__sub_802D577C(void *);
 void TObjPlayer__sub_802D5894(void *arg0);
 M2C_UNK spawn_item__10TObjPlayerFi(void *);
 void TObjPlayer__sub_802D5628(M2C_UNK arg0, s32 arg1);
+void TObjPlayer__sub_802D576C(O_802D576C *self, s32 x);
 }
 
 extern "C" {
@@ -38,6 +41,10 @@ void set_radar_marker_pos__10TObjPlayerFiPv(int a0, void* a1) { set_radar_marker
 
 void TObjPlayer__sub_802D5628(M2C_UNK arg0, s32 arg1) {
     spawn_item__10TObjPlayerFi((void *) (arg1));
+}
+
+void TObjPlayer__sub_802D576C(O_802D576C *self, s32 x) {
+    if (x < 5) self->v = x;
 }
 
 void TObjPlayer__sub_802D5894(void *arg0) {

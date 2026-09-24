@@ -18,7 +18,6 @@ void fn_8026A62C(u8 *arg0, s32 arg1);
 M2C_UNK heap_free__5THeapFPv(s32, void *);
 u8 *heap_alloc__5THeapFUl(s32, s32);
 s32 measure_string_len__20TWindowSubStatusDispFPv(void *);
-s32 TLobby__sub_8026A76C(void *);
 M2C_UNK strncpy(int, void *, int);
 extern s32 lbl_805D5544;
 extern s32 lbl_805D6460;
@@ -29,6 +28,10 @@ s32 TLobby__sub_803DE7BC(int, void *, void *);
 extern RecoveredGlobal_8026A6DC_lbl_805187D8 lbl_805187D8;
 extern s32 lbl_805D6460;
 void TLobby__sub_8026A6DC(s32 arg0);
+extern RecoveredGlobal_8026A6DC_lbl_805187D8 lbl_805187D8;
+void TLobby__sub_8026A6DC(s32 arg0);
+s32 TLobby__sub_8026A680(void);
+s32 TLobby__sub_8026A76C(const char *text);
 }
 
 extern "C" {
@@ -57,6 +60,18 @@ void TWindowSubLog__sub_8026A664(u8 *arg0, f32 farg0) {
 }
 
 typedef char RecoveredGlobal_8026A6DC_lbl_805187D8_size[sizeof(RecoveredGlobal_8026A6DC_lbl_805187D8) == 0x78 ? 1 : -1];
+
+s32 TLobby__sub_8026A680(void) {
+    s32 i;
+    for (i = 0; i < 30; i++) {
+        if (((char * *)&lbl_805187D8)[i] == 0) {
+            return i;
+        }
+    }
+    TLobby__sub_8026A6DC(0);
+    return 29;
+}
+
 void TLobby__sub_8026A6DC(s32 arg0) {
     u32 *temp_r31;
     u32 temp_r4;
@@ -72,6 +87,18 @@ void TLobby__sub_8026A6DC(s32 arg0) {
     }
 }
 
+s32 TLobby__sub_8026A76C(const char *text) {
+    if (text[0] != 9) {
+        return 1;
+    }
+    switch (text[1]) {
+    case 'J':
+    case 'E':
+        return 0;
+    }
+    return 1;
+}
+
 void TLobby__sub_8026A7B0(u32 arg0) {
     s32 temp_r31;
     s32 var_r30;
@@ -81,7 +108,7 @@ void TLobby__sub_8026A7B0(u32 arg0) {
         lbl_805D6464 = NULL;
     }
     if (arg0 != 0U) {
-        temp_r31 = TLobby__sub_8026A76C((void *) (arg0));
+        temp_r31 = TLobby__sub_8026A76C((const char *)((void *) (arg0)));
         var_r30 = measure_string_len__20TWindowSubStatusDispFPv((void *) (arg0)) + 1;
         if (temp_r31 != 0) {
             var_r30 += 2;

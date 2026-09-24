@@ -23,6 +23,14 @@ struct RecoveredGlobal_8023DA10___vt__12TTecZondeEff {
     u8 remaining[0x14];
 };
 
+struct P_8023DBB4 { void *vt; s32 n; u8 pad[4]; };
+
+struct C_8023DBB4 { s32 v; };
+
+struct B_8023DBB4 { u8 pad[0xc]; C_8023DBB4 *c; };
+
+struct A_8023DBB4 { u8 pad[0xc8]; B_8023DBB4 *b; };
+
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8023D988___vt__12TTecZondeEff __vt__12TTecZondeEff;
@@ -43,6 +51,11 @@ void TTecZondeEff__sub_8023D568(void *);
 extern RecoveredGlobal_8023D988___vt__12TTecZondeEff __vt__12TTecZondeEff;
 extern s32 lbl_805D3840;
 u8 *TTecZonde__sub_8023DA10(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
+extern P_8023DBB4 lbl_805161D8;
+extern char lbl_804CC8C8[];
+extern A_8023DBB4 *lbl_8048E5A0[];
+extern s32 TTecZondeEff__data_805D63B8;
+void TTecZondeEff__sub_8023DBB4(void);
 }
 
 extern "C" {
@@ -137,6 +150,11 @@ u8 *TTecZondeEff__sub_8023DADC(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, f32 farg0
 
 void TTecZondeEff__sub_8023DBA8(void) {
     TTecZondeEff__data_805D63B8 = 0;
+}
+void TTecZondeEff__sub_8023DBB4(void) {
+    lbl_805161D8.vt = lbl_804CC8C8;
+    lbl_805161D8.n = 0x10;
+    TTecZondeEff__data_805D63B8 = lbl_8048E5A0[0]->b->c->v;
 }
 
 }

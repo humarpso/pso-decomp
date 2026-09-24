@@ -84,6 +84,11 @@ struct RecoveredGlobal_802BD938_TBoss6Type2__data_8047105C {
     u8 remaining[0x8];
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Blk_802BCFD4 { s32 a; s32 b; s32 rest[7]; };
+
 extern "C" {
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 s32 add_damage__11TBoss6Type2FPvi(void *, int);
@@ -130,11 +135,13 @@ extern const f32 TBoss6Type2__data_805DE490;
 extern const f32 lbl_805DE4C8;
 extern const f32 lbl_805DE4CC;
 void TBoss6Type2__sub_802BD938(u8 *arg0, u8 *arg1);
+extern int lbl_804710BC[];
+s32 TBoss6Type2__sub_802BD870(u32 v);
+Blk_802BCFD4 *TBoss6Type2__sub_802BCFD4(Blk_802BCFD4 *d, Blk_802BCFD4 *s);
 }
 
 extern "C" {
 
-int TBoss6Type2__sub_802BCFD4(void);
 void TBoss6Type2__sub_802BD340(void);
 int TBoss6Type2__sub_802BD378(void);
 int TBoss6Type2__sub_802BD3CC(void);
@@ -305,7 +312,10 @@ void TBoss6Type2__sub_802BC754(u8 *arg0) {
 
 void copy_transform__11TBoss6Type2FPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(u32*)((char*)p + 0x14) = *(u32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); }
 
-int TBoss6Type2__sub_802BCFD4(void) { return 0; }
+Blk_802BCFD4 *TBoss6Type2__sub_802BCFD4(Blk_802BCFD4 *d, Blk_802BCFD4 *s) {
+    *d = *s;
+    return d;
+}
 
 void copy_pos_620__11TBoss6Type2Fii(s32 arg0, s32 arg1) {
     VecCopy__FP3VecPC3Vec(arg1, arg0 + 0x620);
@@ -411,6 +421,15 @@ void set_target_state__11TBoss6Type2FPvii(void *arg0, s32 arg1, s32 arg2) {
 }
 
     extern int lbl_804710BC[];
+
+s32 TBoss6Type2__sub_802BD870(u32 v) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        if (v == ((u32 *)&lbl_804710BC)[i]) return i;
+    }
+    return 0;
+}
+
 int get_table_entry__11TBoss6Type2Fi(int a0) {  return lbl_804710BC[a0]; }
 
 #pragma push

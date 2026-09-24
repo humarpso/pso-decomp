@@ -9,6 +9,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 struct S802C7498_802C70AC { u8 pad[0x118]; s32 arr[1]; };
 
+struct O_802C754C { u8 pad[0x110]; s32 v[1]; };
+
+extern "C" {
+void TAdChrSelSlotGC__sub_802C754C(O_802C754C *self, s32 i);
+}
+
 extern "C" {
 
 void TAdChrSelSlotGC__sub_802C70AC(void);
@@ -18,7 +24,6 @@ void *destroy__15TAdChrSelSlotGCFPvs(void *arg0, s16 arg1);
 void render__15TAdChrSelSlotGCFv(void *arg0);
 void reset_all_slots__15TAdChrSelSlotGCFPv(void* p);
 M2C_UNK TAdChrSelSlotGC__sub_802C7314(void *);
-int TAdChrSelSlotGC__sub_802C754C(void*, void*);
 void TLobby__sub_803DA16C(void*);
 M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -75,13 +80,17 @@ block_5:
     }
 }
 
-void reset_all_slots__15TAdChrSelSlotGCFPv(void* p) { TAdChrSelSlotGC__sub_802C754C(p, (void*)0); TAdChrSelSlotGC__sub_802C754C(p, (void*)1); TAdChrSelSlotGC__sub_802C7498((struct S802C7498_802C70AC *)((struct S802C7498_802C70AC *)(p)), (s32)((s32)((void*)0))); TAdChrSelSlotGC__sub_802C7498((struct S802C7498_802C70AC *)((struct S802C7498_802C70AC *)(p)), (s32)((s32)((void*)1))); TAdChrSelSlotGC__sub_802C7498((struct S802C7498_802C70AC *)((struct S802C7498_802C70AC *)(p)), (s32)((s32)((void*)2))); }
+void reset_all_slots__15TAdChrSelSlotGCFPv(void* p) { TAdChrSelSlotGC__sub_802C754C((O_802C754C *)(p), (s32)((void*)0)); TAdChrSelSlotGC__sub_802C754C((O_802C754C *)(p), (s32)((void*)1)); TAdChrSelSlotGC__sub_802C7498((struct S802C7498_802C70AC *)((struct S802C7498_802C70AC *)(p)), (s32)((s32)((void*)0))); TAdChrSelSlotGC__sub_802C7498((struct S802C7498_802C70AC *)((struct S802C7498_802C70AC *)(p)), (s32)((s32)((void*)1))); TAdChrSelSlotGC__sub_802C7498((struct S802C7498_802C70AC *)((struct S802C7498_802C70AC *)(p)), (s32)((s32)((void*)2))); }
 
 void TAdChrSelSlotGC__sub_802C7498(struct S802C7498_802C70AC *arg0, s32 arg1) {
     arg0->arr[arg1] = 0;
 }
 
 extern u32 lbl_805D67F0;
+
+void TAdChrSelSlotGC__sub_802C754C(O_802C754C *self, s32 i) {
+    self->v[i] = 0;
+}
 
 void TLobby__sub_802C78EC(void) {
     if ((u32) lbl_805D67F0 != 0U) {

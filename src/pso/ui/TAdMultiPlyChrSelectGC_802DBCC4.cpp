@@ -21,6 +21,8 @@ M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, in
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(void *, int);
 extern const f32 lbl_805DE890;
 s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(unsigned long long arg1);
+s32 get_state_flag__9TMainTaskFv(void);
+void render__22TAdMultiPlyChrSelectGCFv(void *self);
 }
 
 extern "C" {
@@ -38,6 +40,10 @@ s32 queue_destruction__7TObjectFv(void *);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 s32 set_cursor_index__22TAdMultiPlyChrSelectGCFPvi(s32, s32);
 s32 set_field_1c__22TAdMultiPlyChrSelectGCFPvi(s32, s32);
+
+void render__22TAdMultiPlyChrSelectGCFv(void *self) {
+    if (get_state_flag__9TMainTaskFv() == 1) return;
+}
 
 s32 TAdMultiPlyChrSelectGC__sub_802DBE4C(long long arg1) {
   s32 temp_r31;

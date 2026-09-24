@@ -69,6 +69,8 @@ int close__17TWindowSubComCardFPv(void *);
 int get_data__23TAdSinglePlyChrSelectGCFv(void);
 extern const f32 lbl_805DE780;
 void finish_character_selection_transition(void *arg0);
+s32 get_state_flag__9TMainTaskFv(void);
+void render__23TAdSinglePlyChrSelectGCFv(void *self);
 }
 
 extern "C" {
@@ -93,6 +95,10 @@ s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(s32);
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(s32);
 M2C_UNK set_cursor_index__22TAdMultiPlyChrSelectGCFPvi(s32, M2C_UNK);
 M2C_UNK set_selection_state__21TAdMultiSelGameModeGCFPvi(s32, M2C_UNK);
+
+void render__23TAdSinglePlyChrSelectGCFv(void *self) {
+    if (get_state_flag__9TMainTaskFv() == 1) return;
+}
 
 s32 create_chr_warp__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1) {
     s32 var_r31 = arg1;

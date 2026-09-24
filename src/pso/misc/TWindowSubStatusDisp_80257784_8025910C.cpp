@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 is_flag_4_set__20TWindowSubStatusDispFPv(void *p);
+void TWindowSubStatusDisp__sub_80259814(void *p);
+}
+
+extern "C" {
 
 void* get_entry_ptr__20TWindowSubStatusDispFi(int a0);
 void init_display__20TWindowSubStatusDispFPvii(void *arg0, s32 arg1, s32 arg2);
@@ -55,5 +60,8 @@ void init_display__20TWindowSubStatusDispFPvii(void *arg0, s32 arg1, s32 arg2) {
 
     extern unsigned char lbl_8044EE60[];
 void* get_entry_ptr__20TWindowSubStatusDispFi(int a0) {  return (char*)lbl_8044EE60 + (unsigned char)(a0) * 8; }
+void TWindowSubStatusDisp__sub_80259814(void *p) {
+    if (is_flag_4_set__20TWindowSubStatusDispFPv(p)) return;
+}
 
 }

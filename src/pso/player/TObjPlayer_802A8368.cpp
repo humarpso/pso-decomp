@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern M2C_UNK lbl_80540B10[];
+extern u8 lbl_805D66AC;
+void TObjPlayer__sub_802A841C(void);
+extern M2C_UNK lbl_80540B10[];
+void TObjPlayer__sub_802A83F4(void);
+}
+
+extern "C" {
 
 int TEffIndirectCtrl__sub_802A8728(void);
 void eff_indirect_update_and_flush(void *arg0);
@@ -33,6 +41,17 @@ void play_particle_at_active_slot__10TObjPlayerFiiiiii(s32 arg0, s32 arg1, s32 a
         }
         TObjPlayer__sub_802A8448(lbl_80540B10[temp_r3], arg1, arg2, arg5);
     }
+}
+
+void TObjPlayer__sub_802A83F4(void) {
+    s32 i;
+    for (i = 0; i < 6; i++) ((s32 *)&lbl_80540B10)[i] = 0;
+}
+
+void TObjPlayer__sub_802A841C(void) {
+    s32 i;
+    lbl_805D66AC = 0;
+    for (i = 0; i < 6; i++) ((s32 *)&lbl_80540B10)[i] = 0;
 }
 
 int TEffIndirectCtrl__sub_802A8728(void) { return 0; }

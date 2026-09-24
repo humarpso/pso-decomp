@@ -17,6 +17,22 @@ struct RecoveredGlobal_801D3BD4_lbl_804C4480 {
     u8 remaining[0x14];
 };
 
+struct Vec_801D3E20 { f32 x, y, z; };
+
+struct Body_801D3E20 { void *colliders; s32 count; Vec_801D3E20 position; s32 facing; };
+
+struct Actor_801D3E20 {
+    u8 pad[0x30];
+    u32 flags;
+    u8 pad34[4];
+    Vec_801D3E20 pos;
+    u8 pad44[0x1c];
+    s32 facing;
+    u8 pad64[0x40];
+    void *colliders;
+    s32 count;
+};
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
@@ -41,6 +57,15 @@ u8 *TItemList__sub_801D401C(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4);
 M2C_UNK TItemList__sub_801D5884(void *, int);
 extern M2C_UNK lbl_804C4480[];
 u8 *TItemList__sub_801D3BD4(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8 arg5);
+s32 get_lobby_flag__6TLobbyFv(void);
+s32 get_enemy_count__9TObjEneDDFv(void);
+s32 get_game_mode__6TLobbyFv(void);
+Actor_801D3E20 *get_player_data__10TObjPlayerFi(s32 i);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void *TObjPlayer__sub_80155C54(Body_801D3E20, Body_801D3E20);
+extern const f32 lbl_805DC3D0;
+void *TItemList__sub_801D3E20(void *self, Body_801D3E20 *s);
 }
 
 extern "C" {
@@ -142,6 +167,29 @@ u8 *TItemList__sub_801D3BD4(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8
     TItemList__sub_801D5884((void *)(arg0), (int)(0U));
     TItemList__sub_801D3F3C(arg0);
     return arg0;
+}
+
+void *TItemList__sub_801D3E20(void *self, Body_801D3E20 *s) {
+    s32 end = get_lobby_flag__6TLobbyFv();
+    s32 i;
+    for (i = get_game_mode__6TLobbyFv() + get_enemy_count__9TObjEneDDFv(); i < end; i++) {
+        Actor_801D3E20 *a = get_player_data__10TObjPlayerFi(i);
+        if (a != 0 && a->colliders != 0 && !(a->flags & 0x800)) {
+            if (lbl_805DC3D0 > TObjPlayer__sub_80141CF8(&s->position, &a->pos)) {
+                Body_801D3E20 b;
+                void *r;
+                b.colliders = a->colliders;
+                b.count = a->count;
+                VecCopy__FP3VecPC3Vec(&b.position, &a->pos);
+                b.facing = a->facing;
+                r = TObjPlayer__sub_80155C54(*s, b);
+                if (r != 0) {
+                    return r;
+                }
+            }
+        }
+    }
+    return 0;
 }
 
 void *TItemList__sub_801D3FC4(void *arg0, s16 arg1) {

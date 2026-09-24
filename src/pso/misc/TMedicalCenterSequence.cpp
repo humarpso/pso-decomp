@@ -134,6 +134,10 @@ void handle_window_result__22TMedicalCenterSequenceFPv(void *arg0);
 void handle_confirm__22TMedicalCenterSequenceFPv(void *arg0);
 M2C_UNK TMedicalCenterSequence__sub_80216830(u8 *arg0);
 void TMedicalCenterSequence__vt9(u8 *arg0);
+extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
+void TMedicalCenterSequence__sub_80216B14(void);
+extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
+void TMedicalCenterSequence__sub_80216AEC(void);
 }
 
 extern "C" {
@@ -326,6 +330,20 @@ u8 *TMedicalCenterSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x34) = 0;
     M2C_FIELD(&(*(RecoveredGlobal_80216A70_TMedicalCenterSequence__data_80513E90 *)&TMedicalCenterSequence__data_80513E90).value, M2C_UNK *, (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 1;
     return arg0;
+}
+
+void TMedicalCenterSequence__sub_80216AEC(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        ((s32 *)&TMedicalCenterSequence__data_80513E90)[i] = 0;
+    }
+}
+
+void TMedicalCenterSequence__sub_80216B14(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        ((s32 *)&TMedicalCenterSequence__data_80513E90)[i] = 0;
+    }
 }
 
 }

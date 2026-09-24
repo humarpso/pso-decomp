@@ -5,10 +5,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Item_802ADADC { u8 pad[0x12]; u8 f12; };
+
+struct Obj_802ADADC { u8 pad[0x61]; s8 idx; u8 pad2[0x124 - 0x62]; Item_802ADADC *items[8]; };
+
+struct Item_802ADAAC { u8 pad[0x11]; s8 f11; };
+
+struct Obj_802ADAAC { u8 pad[0x61]; s8 idx; u8 pad2[0x124 - 0x62]; Item_802ADAAC *items[8]; };
+
 extern "C" {
 int copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void TWindowMainMenu__sub_802AD790(u8 *arg0, s32 arg1, s8 arg2, s8 arg3);
 int TWindowMainMenu__sub_802ADB00(u8 *arg0);
+void TWindowMainMenu__sub_802ADADC(Obj_802ADADC *self, s8 i);
+int TWindowMainMenu__sub_802ADAAC(Obj_802ADAAC *self);
 }
 
 extern "C" {
@@ -17,8 +27,6 @@ void TWindowMainMenu__sub_802AD74C(void* p);
 int TWindowMainMenu__sub_802AD90C(void);
 int TWindowMainMenu__sub_802AD980(void);
 int TWindowMainMenu__sub_802ADA48(void);
-int TWindowMainMenu__sub_802ADAAC(void);
-int TWindowMainMenu__sub_802ADADC(void);
 void clear_menu_flags__15TWindowMainMenuFPv(void* p);
 int get_menu_flag__15TWindowMainMenuFPv(void* p);
 int is_flag_set__15TWindowMainMenuFPv(void* p);
@@ -57,8 +65,17 @@ void TWindowMainMenu__sub_802AD790(u8 *arg0, s32 arg1, s8 arg2, s8 arg3) {
 int TWindowMainMenu__sub_802AD90C(void) { return 0; }
 int TWindowMainMenu__sub_802AD980(void) { return 0; }
 int TWindowMainMenu__sub_802ADA48(void) { return 0; }
-int TWindowMainMenu__sub_802ADAAC(void) { return 0; }
-int TWindowMainMenu__sub_802ADADC(void) { return 0; }
+
+int TWindowMainMenu__sub_802ADAAC(Obj_802ADAAC *self) {
+    Item_802ADAAC *p = self->items[self->idx];
+    if (p == 0) return 0x1f;
+    return p->f11;
+}
+
+void TWindowMainMenu__sub_802ADADC(Obj_802ADADC *self, s8 i) {
+    self->idx = i;
+    self->items[self->idx]->f12 = 1;
+}
 
 int TWindowMainMenu__sub_802ADB00(u8 *arg0) {
   long long new_var;

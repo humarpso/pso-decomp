@@ -28,12 +28,18 @@ extern const f32 lbl_805DDDA0;
 extern const f32 lbl_805DDDA4;
 extern const f32 lbl_805DDDA8;
 void TObjPlayer__sub_8029EEAC(s32 arg0, s32 arg1, s32 arg2);
+void TObjPlayer__sub_8029EEAC(s32 arg0, s32 arg1, s32 arg2);
+void clear_state_if_flag80__10TObjPlayerFi(s32 arg0);
+void TObjPlayer__sub_8029EE2C(void);
+void set_id__6TSceneFi(void *f);
+void set_active_scene__6TSceneFi(void *f);
+int set_instance__6TSceneFi(void *f);
+int TScene__sub_8029F3E8(void);
 }
 
 extern "C" {
 
 void TSceneSora__sub_8029F3E4(void);
-int TScene__sub_8029F3E8(void);
 void clear_state_if_flag80__10TObjPlayerFi(s32 arg0);
 M2C_UNK TObjPlayer__sub_803DC83C(M2C_UNK);
 M2C_UNK TObjPlayer__sub_803DC850(M2C_UNK);
@@ -81,7 +87,10 @@ void TObjPlayer__sub_8029EEAC(s32 arg0, s32 arg1, s32 arg2) {
 }
 
 void TSceneSora__sub_8029F3E4(void) {  }
-
-int TScene__sub_8029F3E8(void) { return 0; }
+int TScene__sub_8029F3E8(void) {
+    set_id__6TSceneFi((void *)TObjPlayer__sub_8029EEAC);
+    set_active_scene__6TSceneFi((void *)clear_state_if_flag80__10TObjPlayerFi);
+    return set_instance__6TSceneFi((void *)TObjPlayer__sub_8029EE2C);
+}
 
 }

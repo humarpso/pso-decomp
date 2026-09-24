@@ -43,6 +43,10 @@ struct RecoveredFields_8024A688_temp_r3
   f32 field_40;
 };
 
+struct Ctrl_8024A928 { u8 pad[0x84]; void *slots[4]; };
+
+struct Obj_8024A7CC { u8 pad[0x84]; void *arr[4]; };
+
 extern "C" {
 s32 TWindowCtrl__sub_8024A314(void);
 s32 TWindowCtrl__sub_8024701C(u32);
@@ -83,6 +87,15 @@ bool TWindowCtrl__sub_8024A26C(void);
 u8 *TPhotonMylla__sub_80154CB4(u16);
 extern const f32 lbl_805DCBE0;
 f32 TWindowCtrl__sub_8024A688(M2C_UNK arg0, RecoveredFields_8024A688_arg1 *arg1, u16 arg2);
+void *TWindowCtrl__sub_8024A800(Ctrl_8024A928 *, s32, s32, void *);
+void TWindowFukidasi__sub_802501F4(void *, s32);
+s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
+s32 check_card_match_enabled__15TWindowFukidasiFPvi(void *, void *);
+u16 get_flags__11TWindowCtrlFPv(void *);
+extern void *TWindowCtrl__data_805D63F8;
+void *TWindowCtrl__sub_8024A928(Ctrl_8024A928 *self, s32 player, s32 flags, void *text, void *local);
+char *TWindowCtrl__sub_8024A570(void *self, char *s);
+s32 TWindowCtrl__sub_8024A7CC(Obj_8024A7CC *self);
 }
 
 extern "C" {
@@ -252,6 +265,16 @@ void create_alt_timer__11TWindowCtrlFv(void) {
 
 typedef struct RecoveredFields_8024A688_arg1 RecoveredFields_8024A688_arg1;
 typedef struct RecoveredFields_8024A688_temp_r3 RecoveredFields_8024A688_temp_r3;
+
+char *TWindowCtrl__sub_8024A570(void *self, char *s) {
+    char *p;
+    for (p = s; *p != '\0'; p++) {
+        if (*p == '\t') break;
+    }
+    if (*p == '\0') return s;
+    return p + 1;
+}
+
 f32 TWindowCtrl__sub_8024A688(M2C_UNK arg0, RecoveredFields_8024A688_arg1 *arg1, u16 arg2) {
   f32 temp_f2;
   f32 temp_f3;
@@ -270,6 +293,35 @@ f32 TWindowCtrl__sub_8024A688(M2C_UNK arg0, RecoveredFields_8024A688_arg1 *arg1,
   temp_f3 = arg1->field_3C - ((RecoveredFields_8024A688_temp_r3 *) temp_r3)->field_3C;
   temp_f2 = arg1->field_40 - ((RecoveredFields_8024A688_temp_r3 *) temp_r3)->field_40;
   return (temp_f2 * temp_f2) + ((temp_f4 * temp_f4) + (temp_f3 * temp_f3));
+}
+
+s32 TWindowCtrl__sub_8024A7CC(Obj_8024A7CC *self) {
+    s32 n = 0;
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        if (self->arr[i] == 0) break;
+        n++;
+    }
+    return n;
+}
+
+void *TWindowCtrl__sub_8024A928(Ctrl_8024A928 *self, s32 player, s32 flags, void *text, void *local) {
+    u32 i;
+    if ((*(Ctrl_8024A928 * *)&TWindowCtrl__data_805D63F8) == 0) {
+        return 0;
+    }
+    if (flags & 8) {
+        for (i = 0; i < 4; i++) {
+            void *b = self->slots[i];
+            if (b != 0 && all_parents_unqueued_for_destruction__7TObjectFv(b) != 0 &&
+                (u16)player == get_flags__11TWindowCtrlFPv(b) &&
+                check_card_match_enabled__15TWindowFukidasiFPvi(b, text) != 0) {
+                TWindowFukidasi__sub_802501F4(b, flags);
+                return 0;
+            }
+        }
+    }
+    return TWindowCtrl__sub_8024A800((*(Ctrl_8024A928 * *)&TWindowCtrl__data_805D63F8), player, flags, local);
 }
 
 void TLobby__sub_8024AAA0(s32 arg0, s32 arg1) {

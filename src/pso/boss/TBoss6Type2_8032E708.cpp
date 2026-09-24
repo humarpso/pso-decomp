@@ -56,6 +56,19 @@ struct RecoveredGlobal_803301B8_lbl_804EF028 {
     u8 remaining[0xD4];
 };
 
+struct T_8032E748 { u8 pad[0x380]; s32 phase; };
+
+struct T_8032EA10 { u8 pad[0x43C]; s32 arr[4]; };
+
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct In_80330178 { s32 w[7]; };
+
+struct S_80330178 { s32 a; s32 b; In_80330178 c; };
+
+struct T_8032F2C4 { u8 pad[0x3B8]; f32 v[2]; };
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 apply_direction_sign__11TBoss6Type2FPvf(void *arg0, f32 farg0);
@@ -69,7 +82,6 @@ extern const f32 lbl_805DF7F8;
 extern const f32 lbl_805DF7FC;
 void TBoss6Type2__sub_8032EAE4(u8 *arg0);
 int TBoss6Type2__sub_8032F304(void);
-int TBoss6Type2__sub_8032F360(void);
 void TBoss6Type2__sub_8032F5C4(void *arg0);
 void update_segment_angles__11TBoss6Type2FPv(void *arg0);
 M2C_UNK apply_damage__11TBoss6Type2FPvi(s32, s32);
@@ -92,7 +104,6 @@ extern RecoveredGlobal_803300C8_lbl_80477428 lbl_80477428;
 extern RecoveredGlobal_803300C8_lbl_804EDD94 lbl_804EDD94;
 void TBoss6Type2__sub_803300C8(u8 *arg0);
 void copy_state__11TBoss6Type2FPvPv(void* p, void* q);
-int TBoss6Type2__sub_80330178(s32 _w0, s32 _w1);
 s32 TObjFish__sub_8001ED9C(int, int);
 extern RecoveredGlobal_803300C8_lbl_804EDD94 lbl_804EDD94;
 extern const f32 lbl_805DF7FC;
@@ -109,12 +120,20 @@ s32 TBoss6Type2__sub_8032F174(u8 *arg0);
 void TBoss6Type2__sub_8032FF24(u8 *arg0, s32 arg1);
 extern RecoveredGlobal_803301B8_lbl_804EF028 lbl_804EF028;
 void TBoss6Type2__sub_803301B8(u8 *arg0, s32 arg1);
+s32 TBoss6Type2__sub_8032E748(T_8032E748 *self);
+void TBoss6Type2__sub_8032EA10(T_8032EA10 *self);
+int TBoss6Type2__sub_80330178(s32 _w0, s32 _w1);
+int TBoss6Type2__sub_8032F360(void *, void *, s32);
+extern void *lbl_804EDDE4[];
+void TBoss6Type2__sub_8032F3E0(s32 i, void *pts, s32 n);
+void TBoss6Type2__sub_8032F2F0(void* p, void* q);
+extern char lbl_80477450[];
+void TBoss6Type2__sub_8032F2C4(T_8032F2C4 *self);
 }
 
 extern "C" {
 
 void TBoss6Type2__sub_8032E708(void* p, s32 v);
-int TBoss6Type2__sub_8032E748(void);
 s32 TBoss6Type2__sub_8032EAB8(void *arg0, s32 arg1);
 void TBoss6Type2__sub_8032F2F0(void* p, void* q);
 f32 apply_direction_sign__11TBoss6Type2FPvf(void *arg0, f32 farg0);
@@ -136,7 +155,14 @@ void set_action_field_0x408__11TBoss6Type2FPvs(void* p, s16 v) { *(s16*)((char*)
 void set_target_nodes__11TBoss6Type2FPvPvPv(void* p, void* a1, void* a2) { *(void**)((char*)p + 0x2e4) = a1; *(void**)((char*)p + 0x390) = a2; update_segment_angles__11TBoss6Type2FPv((void *)(p)); }
 void set_anim_frame__11TBoss6Type2FPvi(void* p, s32 v) { *(s32*)((char*)p + 0x37c) = v; }
 
-int TBoss6Type2__sub_8032E748(void) { return 0; }
+s32 TBoss6Type2__sub_8032E748(T_8032E748 *self) {
+    switch (self->phase) {
+    case 4:
+    case 5:
+        return 0;
+    }
+    return 1;
+}
 
 #pragma push
 #pragma opt_common_subs off
@@ -159,6 +185,13 @@ void update_all_parts__11TBoss6Type2FPv(s32 arg0) {
         TBoss6Type2__sub_8032E770(arg0, var_r31);
         var_r31 += 1;
     } while (var_r31 < 4);
+}
+
+void TBoss6Type2__sub_8032EA10(T_8032EA10 *self) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        self->arr[i] = 0;
+    }
 }
 
 s32 TBoss6Type2__sub_8032EAB8(void *arg0, s32 arg1) {
@@ -261,9 +294,21 @@ void update_rotation_ramp__11TBoss6Type2FPv(void *arg0) {
     }
 }
 
+void TBoss6Type2__sub_8032F2C4(T_8032F2C4 *self) {
+    TBoss6Type2__sub_8032F2F0((void*)(self->v), (void*)(lbl_80477450));
+}
+
 void TBoss6Type2__sub_8032F2F0(void* p, void* q) { *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); }
 int TBoss6Type2__sub_8032F304(void) { return 0; }
-int TBoss6Type2__sub_8032F360(void) { return 0; }
+int TBoss6Type2__sub_8032F360(void * _w0, void * _w1, s32 _w2) { return 0; }
+
+void TBoss6Type2__sub_8032F3E0(s32 i, void *pts, s32 n) {
+    void *p = lbl_804EDDE4[i];
+    if (p != 0) {
+        TBoss6Type2__sub_8032F360((void *)(p), (void *)(pts), (s32)(n));
+    }
+}
+
 void TBoss6Type2__sub_8032F5C4(void *arg0) {
     s32 temp_r4;
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x30);
@@ -380,7 +425,7 @@ void TBoss6Type2__sub_8032FF24(u8 *arg0, s32 arg1) {
 
 void TBoss6Type2__sub_803300C8(u8 *arg0) {
     s32 temp_r3;
-    TBoss6Type2__sub_80330178((s32)((void *) (arg0 + 0x3D4)), (s32)((void *) (&lbl_80477404.value)));
+    TBoss6Type2__sub_80330178((s32)((s32)((void *) (arg0 + 0x3D4))), (s32)((s32)((void *) (&lbl_80477404.value))));
     copy_state__11TBoss6Type2FPvPv((void*)((void *) (arg0 + 0x3DC)), (void*)((void *) (&lbl_80477428.value)));
     temp_r3 = TObjFish__sub_8001ED9C((int) (M2C_FIELD(arg0, s32 *, 0x374)), (int) (M2C_FIELD(&lbl_804EDD94.value, s32 *, 8)));
     M2C_FIELD(arg0, s32 *, 0x3F0) = temp_r3;
@@ -388,9 +433,19 @@ void TBoss6Type2__sub_803300C8(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x3E4) = (f32) M2C_FIELD(&lbl_804EDD94.value, f32 *, 0xC);
 }
 void copy_state__11TBoss6Type2FPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(u32*)((char*)p + 0x14) = *(u32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); }
-int TBoss6Type2__sub_80330178(s32 _w0, s32 _w1) { return 0; }
+
 typedef char MemberActionStorage_803301B8_size[sizeof(MemberActionStorage_803301B8) == 12 ? 1 : -1];
 typedef char RecoveredGlobal_803301B8_lbl_804EF028_size[sizeof(RecoveredGlobal_803301B8_lbl_804EF028) == 0xD8 ? 1 : -1];
+
+int TBoss6Type2__sub_80330178(s32 _w0, s32 _w1) {
+    S_80330178 *d = (S_80330178 *)_w0;
+    S_80330178 *s = (S_80330178 *)_w1;
+    d->a = s->a;
+    d->b = s->b;
+    d->c = s->c;
+    return _w0;
+}
+
 void TBoss6Type2__sub_803301B8(u8 *arg0, s32 arg1) {
     MemberActionStorage_803301B8 member_action;
     u8 *temp_r31;

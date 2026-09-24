@@ -211,6 +211,10 @@ u16 obj_getField1c(void *);
 s32 get_instance__6TLobbyFv(void);
 extern u8 *lbl_804C49E0[];
 u8 *get_hospital_position__10TObjPlayerFPv(void *player);
+s32 get_max_level__10TObjPlayerFv(s32);
+s32 get_current_state_field__10TObjPlayerFv(s8 _w0, s32 _w1);
+s8 TObjPlayer__sub_801AFDB0(s32 _w0);
+s32 TObjPlayer__sub_801D91B8(s32 arg0);
 }
 
 extern "C" {
@@ -429,6 +433,10 @@ void TObjPlayer__sub_801D9078(u8 *arg0) {
 }
 
 #pragma pop
+
+s32 TObjPlayer__sub_801D91B8(s32 arg0) {
+    return get_current_state_field__10TObjPlayerFv(TObjPlayer__sub_801AFDB0(arg0), get_max_level__10TObjPlayerFv(arg0));
+}
 
 s32 get_current_state_field__10TObjPlayerFv(s8 _w0, s32 _w1) {
     return M2C_FIELD(TObjPlayer__sub_801D9250(_w0, (s32)(_w1)), s32 *, 8);

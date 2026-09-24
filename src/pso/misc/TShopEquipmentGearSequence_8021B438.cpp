@@ -127,6 +127,10 @@ s32 TShopEquipmentGearSequence__sub_8021B518(void *);
 s32 TShopEquipmentGearSequence__sub_8021B6A8(u8 *arg0);
 s32 restore_player_state__13TShopSequenceFPv(void *);
 void TShopEquipmentGearSequence__vt9(u8 *arg0);
+extern RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0 TShopEquipmentGearSequence__data_80513EB0;
+void TShopEquipmentGearSequence__sub_8021B94C(void);
+extern RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0 TShopEquipmentGearSequence__data_80513EB0;
+void TShopEquipmentGearSequence__sub_8021B924(void);
 }
 
 extern "C" {
@@ -219,6 +223,20 @@ u8 *TShopEquipmentGearSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     lbl_805D621C = 0;
     M2C_FIELD(&(*(RecoveredGlobal_8021B89C_TShopEquipmentGearSequence__data_80513EB0 *)&TShopEquipmentGearSequence__data_80513EB0).value, M2C_UNK *, (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 1;
     return arg0;
+}
+
+void TShopEquipmentGearSequence__sub_8021B924(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        ((s32 *)&TShopEquipmentGearSequence__data_80513EB0)[i] = 0;
+    }
+}
+
+void TShopEquipmentGearSequence__sub_8021B94C(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        ((s32 *)&TShopEquipmentGearSequence__data_80513EB0)[i] = 0;
+    }
 }
 
 }

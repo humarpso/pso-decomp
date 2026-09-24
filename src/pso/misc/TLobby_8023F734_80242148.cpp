@@ -16,6 +16,7 @@ M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_8024259C_TLobby__data_8050AAAC TLobby__data_8050AAAC;
 extern u32 TLobby__data_805D5580;
 void TLobby__sub_8024259C(s32 arg0);
+char *TLobby__sub_802424A4(char *s, s32 a, s32 b);
 }
 
 extern "C" {
@@ -51,6 +52,16 @@ void TLobby__sub_802422EC(void *arg0, void *arg1) {
     extern unsigned char lbl_80517F9C[];
 void* get_com_card_entry__6TLobbyFi(int a0) {  return (char*)lbl_80517F9C + a0 * 188; }
 typedef char RecoveredGlobal_8024259C_TLobby__data_8050AAAC_size[sizeof(RecoveredGlobal_8024259C_TLobby__data_8050AAAC) == 0x28 ? 1 : -1];
+
+char *TLobby__sub_802424A4(char *s, s32 a, s32 b) {
+    s32 i;
+    for (i = a + 1; i < b;) {
+        if (*s == '\0') return s;
+        if (*s++ == ',') i++;
+    }
+    return s;
+}
+
 void TLobby__sub_8024259C(s32 arg0) {
     if ((u32) TLobby__data_805D5580 != 0U) {
         memset((void *) (&TLobby__data_8050AAAC.value), (int) (0), (int) (0x11));

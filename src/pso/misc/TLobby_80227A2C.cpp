@@ -44,6 +44,10 @@ struct RecoveredGlobal_802287F0_lbl_80515BA0 {
     u8 remaining[0x24];
 };
 
+struct O_80228A74 { u8 pad[0x1c]; char names[1][0x20]; };
+
+struct P_80228A74 { u8 pad[0x109c]; s32 count; };
+
 extern "C" {
 s32 get_instance__6TLobbyFv();
 s32 get_player_floor__6TLobbyFi(s32);
@@ -81,6 +85,14 @@ void TLobby__sub_802280C4(void);
 s32 init_range_zero__6TLobbyFPv(void* arg0);
 extern RecoveredGlobal_802287F0_lbl_80515BA0 lbl_80515BA0;
 s32 TLobby__sub_802287F0(void);
+void *TLobby__sub_80240858(void *self);
+void TLobby__sub_80240808(void *self, s32 x);
+void *__register_global_object(void *obj, void *dtor, void *entry);
+extern unsigned char lbl_80514F64[];
+extern char lbl_80514F58[];
+void TLobby__sub_80228118(void);
+char *strcpy(char *dst, const char *src);
+void TLobby__sub_80228A74(O_80228A74 *self, const char *src);
 }
 
 extern "C" {
@@ -132,6 +144,10 @@ void TLobby__sub_802280C4(void) {
         TLobby__sub_803CB81C();
         render_tick__Fv();
     } while (TLobby__sub_80227F54() == 0);
+}
+
+void TLobby__sub_80228118(void) {
+    __register_global_object(TLobby__sub_80240858(((char *)&lbl_80514F64)), (void *)TLobby__sub_80240808, lbl_80514F58);
 }
 
 void clear_ready_flag_unless_locked__6TLobbyFPv(void *arg0) {
@@ -267,6 +283,10 @@ s32 TLobby__sub_802287F0(void) { return init_range_zero__6TLobbyFPv((void*)((s32
 s32 init_range_zero__6TLobbyFPv(void* arg0) {
     init_range__6TLobbyFPvi(arg0, 0);
     return (s32)arg0;
+}
+
+void TLobby__sub_80228A74(O_80228A74 *self, const char *src) {
+    strcpy(self->names[((P_80228A74 *)self)->count++], src);
 }
 
 void clear_work_buffer(u8 *arg0) {

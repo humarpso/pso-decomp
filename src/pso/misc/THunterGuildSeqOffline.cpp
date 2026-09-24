@@ -143,18 +143,23 @@ s32 TWindow__close(int);
 s32 TWindowSubComCard__sub_80265BF8(void *);
 extern s32 THunterGuildSeqOffline__data_80513DC8[];
 void THunterGuildSeqOffline__sub_8021354C(u8 *arg0);
+extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGuildSeqOffline__data_80513DD8;
+void THunterGuildSeqOffline__sub_80213374(void);
+extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGuildSeqOffline__data_80513DD8;
+void THunterGuildSeqOffline__sub_8021339C(void);
+extern s32 THunterGuildSeqOffline__data_80513DC8[];
+void THunterGuildSeqOffline__sub_80213430(void* _w0);
 }
 
 extern "C" {
 
-int THunterGuildSeqOffline__sub_80213410(void* p);
+void THunterGuildSeqOffline__sub_80213410(void* p);
 s32 THunterGuildSeqOffline__sub_80213458(void);
 void THunterGuildSeqOffline__vt10(void* p);
 void handle_select__22THunterGuildSeqOfflineFPv(void *arg0);
 void notify_quest_thread__22THunterGuildSeqOfflineFv(void);
 void open_judgment_item_window__22THunterGuildSeqOfflineFPv(void *arg0);
 void open_judgment_window__22THunterGuildSeqOfflineFPv(void *arg0);
-int THunterGuildSeqOffline__sub_80213430(void*);
 s32 TShopJudgmentItemWindow__sub_80266388(s32, u16, s32, s32);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
@@ -296,6 +301,16 @@ u8 *THunterGuildSeqOffline__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     return arg0;
 }
 
+void THunterGuildSeqOffline__sub_80213374(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) ((s32 *)&THunterGuildSeqOffline__data_80513DD8)[i] = 0;
+}
+
+void THunterGuildSeqOffline__sub_8021339C(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) ((s32 *)&THunterGuildSeqOffline__data_80513DD8)[i] = 0;
+}
+
 void notify_quest_thread__22THunterGuildSeqOfflineFv(void) {
     s32 v = THunterGuildSeqOffline__data_80513DC8[3];
     if (v != -1) {
@@ -306,9 +321,14 @@ void notify_quest_thread__22THunterGuildSeqOfflineFv(void) {
     }
 }
 
-int THunterGuildSeqOffline__sub_80213410(void* p) { return THunterGuildSeqOffline__sub_80213430(p); }
+void THunterGuildSeqOffline__sub_80213410(void* p) { THunterGuildSeqOffline__sub_80213430((void*)(p)); }
 
 extern void *lbl_805D61BC;
+
+void THunterGuildSeqOffline__sub_80213430(void* _w0) {
+    s32 i;
+    for (i = 0; i < 4; i++) THunterGuildSeqOffline__data_80513DC8[i] = -1;
+}
 
 s32 THunterGuildSeqOffline__sub_80213458(void) {
     if ((void *) lbl_805D61BC != NULL) {

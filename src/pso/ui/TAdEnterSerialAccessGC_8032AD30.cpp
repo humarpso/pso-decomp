@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void create_callback__22TAdEnterSerialAccessGCFPvPvPv(void *, void *, void *);
+void fn_8032AC9C();
+extern char lbl_80477188[];
+extern char lbl_80477190[];
+void TAdEnterSerialAccessGC__sub_8032AE1C(void);
+}
+
+extern "C" {
 
 void clear_serial_buffer__22TAdEnterSerialAccessGCFv(void);
 void clear_state(void);
@@ -17,6 +25,10 @@ s32 TAdPsoPassSaveGC__sub_8032B584();
 s32 get_instance__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK memset(s32, M2C_UNK, M2C_UNK);
 M2C_UNK strncpy(s32, s32, M2C_UNK);
+
+void TAdEnterSerialAccessGC__sub_8032AE1C(void) {
+    create_callback__22TAdEnterSerialAccessGCFPvPvPv(lbl_80477188, lbl_80477190, (void *)fn_8032AC9C);
+}
 
 s32 has_serial_input__22TAdEnterSerialAccessGCFv(void) {
     return (s8) *TAdEnterSerialAccessGC__sub_8032AEB4() ? 1 : 0;

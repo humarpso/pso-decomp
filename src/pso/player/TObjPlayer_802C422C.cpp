@@ -4,15 +4,34 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Rec_802C456C { u8 pad[6]; u8 f6; u8 pad2[0x1c - 7]; };
+
+struct Obj_802C456C { Rec_802C456C recs[1]; };
+
+struct O_802C4688 { u8 pad[0x408]; u8 buf[1]; };
+
+struct Obj_802C4648 { u8 pad[0x77]; u8 f77; u8 pad2[0x93 - 0x78]; u8 f93; u8 pad3[0xaf - 0x94]; u8 faf; u8 pad4[0xcb - 0xb0]; u8 fcb; };
+
+struct E_802C4668 { u8 pad[7]; u8 v; u8 pad2[0x14]; };
+
+struct O_802C4668 { E_802C4668 e[4]; };
+
+struct E_802C4698 { u8 pad[0x1c]; };
+
+struct O_802C4698 { u8 pad[6]; E_802C4698 e[1]; };
+
+extern "C" {
+void TObjPlayer__sub_802C456C(Obj_802C456C *self, s32 i, u8 v);
+u8 *TObjPlayer__sub_802C4688(O_802C4688 *self, s32 i);
+void TObjPlayer__sub_802C4648(Obj_802C4648 *self, u32 v);
+void TObjPlayer__sub_802C4668(O_802C4668 *self, u32 c);
+E_802C4698 *TObjPlayer__sub_802C4698(O_802C4698 *self, s32 i);
+}
+
 extern "C" {
 
-int TObjPlayer__sub_802C456C(void);
 int TObjPlayer__sub_802C457C(void);
 void TObjPlayer__sub_802C4600(s32 arg0);
-int TObjPlayer__sub_802C4648(void* a0, void* a1);
-int TObjPlayer__sub_802C4668(void);
-int TObjPlayer__sub_802C4688(void);
-int TObjPlayer__sub_802C4698(void);
 int TObjPlayer__sub_802C46BC(void* p);
 int TObjPlayer__sub_802C46E0(void* p);
 void clear_item_slots__10TObjPlayerFPv(void* p);
@@ -51,7 +70,10 @@ void init_battle_selection__10TObjPlayerFv(void) { get_char_index__23TAdSinglePl
 void set_action_state__10TObjPlayerFPvUc(void* p, u8 v) { *(u8*)((char*)p + 0x173) = v; }
 void clear_item_slots__10TObjPlayerFPv(void* p) { { int i; for (i = 0; i < 30; i++) { TAdSinglePlyChrSelectGC__sub_80203220((char*)p + 0x4 + i * 28); } } }
 
-int TObjPlayer__sub_802C456C(void) { return 0; }
+void TObjPlayer__sub_802C456C(Obj_802C456C *self, s32 i, u8 v) {
+    self->recs[i].f6 = v;
+}
+
 int TObjPlayer__sub_802C457C(void) { return 0; }
 
 void* get_action_data__10TObjPlayerFPv(void* p) { return (char*)p + 0x408; }
@@ -68,13 +90,30 @@ void TObjPlayer__sub_802C4600(s32 arg0) {
     s32 sp8;
     getDateStamp__FP9DateStamp((s32 *)((void *) (&spC)));
     DateToSeconds__FP9DateStampPi((s32 *)((void *) (&spC)), (s32 *)((void *) (&sp8)));
-    TObjPlayer__sub_802C4648((void*)((void*)((void *) (arg0))), (void*)((void*)((int) (sp8))));
+    TObjPlayer__sub_802C4648((Obj_802C4648 *)((void*)((void*)((void *) (arg0)))), (u32)((void*)((void*)((int) (sp8)))));
 }
 
-int TObjPlayer__sub_802C4648(void* a0, void* a1) { return 0; }
-int TObjPlayer__sub_802C4668(void) { return 0; }
-int TObjPlayer__sub_802C4688(void) { return 0; }
-int TObjPlayer__sub_802C4698(void) { return 0; }
+void TObjPlayer__sub_802C4648(Obj_802C4648 *self, u32 v) {
+    self->f77 = v;
+    self->f93 = v >> 8;
+    self->faf = v >> 16;
+    self->fcb = v >> 24;
+}
+
+void TObjPlayer__sub_802C4668(O_802C4668 *self, u32 c) {
+    self->e[0].v = c;
+    self->e[1].v = c >> 8;
+    self->e[2].v = c >> 16;
+    self->e[3].v = c >> 24;
+}
+
+u8 *TObjPlayer__sub_802C4688(O_802C4688 *self, s32 i) {
+    return &self->buf[i];
+}
+
+E_802C4698 *TObjPlayer__sub_802C4698(O_802C4698 *self, s32 i) {
+    return &self->e[i];
+}
 
 void set_flag_40__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x7) |= 0x40; }
 int TObjPlayer__sub_802C46BC(void* p) { return TObjPlayer__sub_801D7D4C((char*)p + 0x24); }

@@ -18,6 +18,10 @@ extern s32 lbl_805D49B4;
 extern s32 lbl_805D5F80;
 extern s32 lbl_805D5F98;
 s32 TAdSinglePlyChrSelectGC__sub_801FC564(s32 arg0);
+u32 CARDGetDiskID();
+M2C_UNK strncpy(M2C_UNK *, M2C_UNK *, M2C_UNK);
+extern s32 lbl_8044A7E0[];
+void TAdSinglePlyChrSelectGC__sub_801FBF90(s32 arg0);
 }
 
 extern "C" {
@@ -71,6 +75,16 @@ void copy_name__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
         var_r3 = CARDGetDiskID();
         if (var_r3 != 0U) {
             strncpy((M2C_UNK *)var_r3, &lbl_805D5FB0, 4);
+        }
+    }
+}
+
+void TAdSinglePlyChrSelectGC__sub_801FBF90(s32 arg0) {
+    u32 var_r3;
+    if (arg0 >= 0) {
+        var_r3 = CARDGetDiskID();
+        if (var_r3 != 0U) {
+            strncpy((M2C_UNK *)((s32 *)var_r3), (M2C_UNK *)(lbl_8044A7E0), (M2C_UNK)(4));
         }
     }
 }

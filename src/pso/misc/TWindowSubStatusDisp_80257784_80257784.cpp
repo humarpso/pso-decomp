@@ -9,10 +9,21 @@ struct RecoveredGlobal_80257B4C_lbl_804CF948 {
     u8 remaining[0x14];
 };
 
+struct Base_80257BC0 { u16 flags; u8 pad[2]; };
+
+struct Item_80257BC0 : Base_80257BC0 {
+    virtual void m0();
+    virtual void m1();
+    virtual void draw(void *ctx);
+};
+
+struct List_80257BC0 { u32 count; Item_80257BC0 **items; };
+
 extern "C" {
 M2C_UNK init_from__20TWindowSubStatusDispFPvPvi();
 extern M2C_UNK lbl_804CF948[];
 u8 *TWindowSubStatusDisp__sub_80257B4C(u8 *arg0, u8 *arg1);
+void TWindowSubStatusDisp__sub_80257BC0(void *self, List_80257BC0 *list, void *ctx);
 }
 
 extern "C" {
@@ -48,6 +59,16 @@ u8 *TWindowSubStatusDisp__sub_80257B4C(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0x2C) = (s32) M2C_FIELD(arg0, s32 *, 0x18);
     M2C_FIELD(arg0, s16 *, 0x2A) = 0;
     return arg0;
+}
+
+void TWindowSubStatusDisp__sub_80257BC0(void *self, List_80257BC0 *list, void *ctx) {
+    Item_80257BC0 **p;
+    u32 n;
+    for (n = list->count, p = list->items; n != 0; n--, p++) {
+        if (!((*p)->flags & 2)) {
+            (*p)->draw(ctx);
+        }
+    }
 }
 
 void TWindowSubStatusDisp__sub_80258050(void) {  }

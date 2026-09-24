@@ -37,6 +37,9 @@ extern RecoveredGlobal_8028E9A4___vt__12TCharaMaking __vt__12TCharaMaking;
 extern void *lbl_805D6520;
 extern s32 lbl_805D6524;
 u8 *__dt__12TCharaMakingFv(u8 *arg0, s16 arg1);
+s32 is_active__23TAdSinglePlyChrSelectGCFv(void *self);
+s32 update_main_menu__12TCharaMakingFi(s32 arg0);
+void run_task__12TCharaMakingFv(void *self);
 }
 
 extern "C" {
@@ -91,6 +94,11 @@ s32 update_main_menu__12TCharaMakingFi(s32 arg0) {
 }
 
 extern void *lbl_805D6520;
+
+void run_task__12TCharaMakingFv(void *self) {
+    if (!is_active__23TAdSinglePlyChrSelectGCFv(self)) return;
+    if (update_main_menu__12TCharaMakingFi((s32)(self))) return;
+}
 
 void *create__12TCharaMakingFPvPv(void *arg0, void *arg1) {
     void *o;

@@ -27,6 +27,10 @@ extern s32 TLobby__data_805D60EC;
 extern s32 TLobby__data_805D60F4;
 extern s16 TLobby__data_805D6134;
 void TLobby__sub_8020B118(void);
+extern s32 TLobby__data_80513CC8[];
+s32 TLobby__sub_8020B2DC(void);
+extern s32 TLobby__data_80513C80[];
+s32 TLobby__sub_8020B308(void);
 }
 
 extern "C" {
@@ -60,6 +64,18 @@ void TLobby__sub_8020B118(void) {
         free_data_60F0__6TLobbyFv();
         TLobby__data_805D6134 |= 1;
     }
+}
+s32 TLobby__sub_8020B2DC(void) {
+    s32 sum = 0;
+    s32 i;
+    for (i = 0; i < 18; i++) sum += TLobby__data_80513CC8[i];
+    return sum;
+}
+s32 TLobby__sub_8020B308(void) {
+    s32 sum = 0;
+    s32 i;
+    for (i = 0; i < 18; i++) sum += TLobby__data_80513C80[i];
+    return sum;
 }
 
 }

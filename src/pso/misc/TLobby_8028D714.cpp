@@ -15,12 +15,14 @@ struct RecoveredGlobal_8028D738_lbl_80518860 {
 };
 
 extern "C" {
-void TLobby__sub_8028D7D0(s32);
 extern RecoveredGlobal_8028D738_lbl_80518850 lbl_80518850;
 extern RecoveredGlobal_8028D738_lbl_80518860 lbl_80518860;
 extern u32 lbl_805D6518;
 extern u32 lbl_805D651C;
 s32 TLobby__sub_8028D738(s32 arg0);
+extern u32 lbl_805D6518;
+extern u32 lbl_805D651C;
+void TLobby__sub_8028D7D0(s32 i);
 }
 
 extern "C" {
@@ -47,7 +49,7 @@ s32 TLobby__sub_8028D738(s32 arg0) {
     if ((u32) lbl_805D6518 == 0U) {
         return 0;
     }
-    TLobby__sub_8028D7D0(arg0);
+    TLobby__sub_8028D7D0((s32)(arg0));
     if (arg0 < 4) {
         temp_r3_2 = lbl_805D6518 + (arg0 * 0xA000);
         M2C_FIELD(&lbl_80518850.value, M2C_UNK *, (arg0 * 4)) = temp_r3_2;
@@ -57,6 +59,14 @@ s32 TLobby__sub_8028D738(s32 arg0) {
     temp_r3 = (*(s32 *)&lbl_805D651C) + (temp_r4 * 0xA000);
     M2C_FIELD(&lbl_80518860.value, M2C_UNK *, (temp_r4 * 4)) = temp_r3;
     return temp_r3;
+}
+
+void TLobby__sub_8028D7D0(s32 i) {
+    s32 n = 4;
+    if (lbl_805D6518 == 0) return;
+    if (lbl_805D651C != 0) n = 12;
+    if (i < 0) return;
+    if (i >= n) return;
 }
 
 void free_single_player_chr_select__6TLobbyFv(void) {

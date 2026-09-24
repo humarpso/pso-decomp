@@ -4,6 +4,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Cursor_801B4A18 { u8 pad[0x124]; };
+
+struct Menu_801B4A18 { u8 pad[0x5c]; Cursor_801B4A18 cursors[4]; };
+
+struct Owner_801B4A18 { u8 pad[0x424]; Menu_801B4A18 *menu; };
+
+extern "C" {
+s32 get_selected_entry__11TMainCursorFPv(void *c);
+void TMainCursor__sub_8013C288(void *c, void *self, void *owner, void *p);
+extern Owner_801B4A18 *lbl_8050EA10[];
+void TObjPlayer__sub_801B4A18(void *self);
+}
+
 extern "C" {
 
 s32 get_battle_ctrl_id__10TObjPlayerFUs(u16 arg0);
@@ -96,6 +109,27 @@ s32 get_battle_ctrl_id__10TObjPlayerFUs(u16 arg0) {
 }
 
 extern const f32 TObjPlayer__data_805DC278;
+
+void TObjPlayer__sub_801B4A18(void *self) {
+    s32 j;
+    s32 i;
+    Owner_801B4A18 *o;
+    Owner_801B4A18 **pp;
+    if (self != 0) {
+        pp = lbl_8050EA10;
+        for (i = 0; i < 4; i++) {
+            o = *pp++;
+            if (o != 0 && o->menu != 0) {
+                for (j = 0; j < 4; j++) {
+                    Cursor_801B4A18 *c = &o->menu->cursors[j];
+                    if (get_selected_entry__11TMainCursorFPv(c) != 0) {
+                        TMainCursor__sub_8013C288(c, self, o, (u8 *)o->menu + 0x510);
+                    }
+                }
+            }
+        }
+    }
+}
 
 void update_facing_vector__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x404) = TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));

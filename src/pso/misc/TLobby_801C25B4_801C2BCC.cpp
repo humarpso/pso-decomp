@@ -16,6 +16,8 @@ M2C_UNK send_set_battle_mode_data__6TLobbyFPv(void *);
 M2C_UNK build_6x7D_set_battle_mode_data(void *);
 extern s32 lbl_805D53A0;
 void TLobby__sub_801C2C34(void);
+extern u8 lbl_805D5DBC;
+void TLobby__sub_801C2C70(void);
 }
 
 extern "C" {
@@ -69,6 +71,13 @@ void TLobby__sub_801C2C34(void) {
     stack.spC = 4;
     stack.sp10 = lbl_805D53A0;
     send_set_battle_mode_data__6TLobbyFPv((void *) (&stack.sp8));
+}
+
+void TLobby__sub_801C2C70(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        (&lbl_805D5DBC)[i] = 0;
+    }
 }
 
 void init__6TLobbyFPv(void *arg0) {

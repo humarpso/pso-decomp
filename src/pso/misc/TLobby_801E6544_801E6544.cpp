@@ -51,6 +51,10 @@ void TLobby__sub_801E6818(void);
 M2C_UNK append_string(void *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_80512340;
 void TLobby__sub_801E6840(void);
+int sprintf(char *, const char *, ...);
+M2C_UNK append_string(void *);
+extern char lbl_80449C74[];
+void TLobby__sub_801E6868(s32 arg0);
 }
 
 extern "C" {
@@ -100,6 +104,13 @@ typedef char RecoveredGlobal_8000F9CC_lbl_804FE120_size[sizeof(RecoveredGlobal_8
 
 void TLobby__sub_801E6840(void) {
     append_string((void *)((M2C_UNK *)(&lbl_80512340.value)));
+}
+
+typedef s32 M2C_UNK;
+void TLobby__sub_801E6868(s32 arg0) {
+    char buf[64];
+    sprintf(buf, lbl_80449C74, arg0);
+    append_string(buf);
 }
 
 s32 parse_f_index(s32 a0) {

@@ -6,6 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern s32 lbl_805D53A0;
+extern s32 *TLobby__data_805D5E78;
+void TLobby__sub_801EDFF4(u8 reg);
+extern s32 TLobby__data_805D53AC;
+extern s32 *TLobby__data_805D5E78;
+void TLobby__sub_801EDFE0(u8 reg);
+}
+
+extern "C" {
 
 int TLobby__sub_801EE028(void* p);
 void TLobby__sub_801EE09C(void* p);
@@ -23,6 +32,14 @@ void create_quest_bgm_ctrl__6TLobbyFv(void) {
     if (obj != 0) {
         TQuestBgmCtrl__ct(obj, tl_05);
     }
+}
+
+void TLobby__sub_801EDFE0(u8 reg) {
+    TLobby__data_805D5E78[reg] = TLobby__data_805D53AC;
+}
+
+void TLobby__sub_801EDFF4(u8 reg) {
+    TLobby__data_805D5E78[reg] = lbl_805D53A0;
 }
 
 int forward_801F36E4__6TLobbyFPv(void* p) { return TLobby__sub_801F36E4(p); }

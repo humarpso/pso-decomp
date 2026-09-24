@@ -36,7 +36,6 @@ M2C_UNK TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 u32 create__11TBoss6Type2Fi(void *, int);
 extern u32 TBoss6PlotFalz__data_805D66F4;
 void TBoss6PlotFalz__sub_802ABC64(u8 *arg0);
-s32 TBoss6Type1__sub_802ABDEC(void *);
 extern const f32 lbl_805DE0B4;
 f32 TBoss6Mine__sub_802ABD88(s32 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -47,6 +46,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 extern RecoveredGlobal_802ABC14_lbl_804705C0 lbl_804705C0;
 extern u32 TBoss6PlotFalz__data_805D66F0;
 s32 TBoss6PlotFalz__sub_802ABC14(M2C_UNK arg0, s32 arg1);
+s32 TBoss6Type1__sub_802ABDEC(s32 seed);
 }
 
 extern "C" {
@@ -122,8 +122,15 @@ void ensure_field384__14TBoss6PlotFalzFPv(void *arg0) {
     extern int some_id_805c6f74;
 
 f32 TBoss6Mine__sub_802ABD88(s32 *arg0) {
-    *arg0 = TBoss6Type1__sub_802ABDEC((void *) (*arg0));
+    *arg0 = TBoss6Type1__sub_802ABDEC((s32)((void *) (*arg0)));
     return (f32) (*arg0 & 0x7FFF) / lbl_805DE0B4;
+}
+
+s32 TBoss6Type1__sub_802ABDEC(s32 seed) {
+    seed = seed * 0x41C64E6D + 12345;
+    seed = seed / 65536;
+    seed = seed % 32768;
+    return seed & 0x7FFF;
 }
 
 void reset_fish_globals__8TObjFishFv(void) { lbl_805D7784 = lbl_805D5664; lbl_805D7780 = lbl_805D5668; some_id_805c6f74 = lbl_805D5660; }

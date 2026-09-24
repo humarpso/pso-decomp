@@ -43,6 +43,8 @@ u8 * TObjPlayer__sub_80120D50(void *, void *);
 M2C_UNK set_status_flags__10TObjPlayerFPvUi(void *, M2C_UNK);
 extern M2C_UNK lbl_804E70A8[];
 u8 *TObjPlayer__sub_80307784(u8 *arg0, u8 *arg1, s32 _w2);
+extern char lbl_8048E5B4[];
+char *TObjPlayer__sub_803078B0(void);
 }
 
 extern "C" {
@@ -148,6 +150,10 @@ u8 *TObjPlayer__sub_80307800(s32 arg0) {
 #include "types.h"
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+char *TObjPlayer__sub_803078B0(void) {
+    return lbl_8048E5B4;
+}
 
 void TObjPlayer__sub_803078BC(void) {  }
 

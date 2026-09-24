@@ -1,5 +1,11 @@
 #include "types.h"
 
+struct Pkt_801D209C { u8 cmd; u8 size; u8 pad[2]; u16 a; u16 b; };
+
+extern "C" {
+void TObjPlayer__sub_801D209C(Pkt_801D209C *p);
+}
+
 extern "C" {
 void swap_endian16__10TObjPlayerFPv(void* p);
 
@@ -32,6 +38,11 @@ int read_swapped_fields__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801D2B2C(void*);
 int TObjPlayer__sub_801D2C18(void*);
 
-int TObjPlayer__sub_801D209C(void) { return 0; }
+void TObjPlayer__sub_801D209C(Pkt_801D209C *p) {
+    p->a = 0xFFFF;
+    p->b = 0;
+    p->cmd = 0x33;
+    p->size = 2;
+}
 
 }

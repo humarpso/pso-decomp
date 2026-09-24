@@ -4,6 +4,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Field_8025C974 { u16 *buffer; s32 cursor; u32 width; u32 linePixels; s32 scroll; u32 capacity; };
+
+struct Base_8025C974 { u8 pad[0x6c]; Field_8025C974 field; u8 pad2[0x30]; s32 fb4; };
+
 extern "C" {
 void TWindowKeyBoardSoft__sub_8025BA44(u8 *arg0);
 s32 TWindowKeyBoardSoft__sub_80076E00(int);
@@ -91,6 +95,11 @@ void init__19TWindowKeyBoardSoftFPv(u8 *arg0);
 s32 update__19TWindowKeyBoardSoftFPv(void *);
 void TWindowKeyBoardSoft__sub_8025C24C(u8 *arg0);
 bool TWindowKeyBoardSoft__sub_8025B85C(u16 arg0);
+extern s32 lbl_805D5544;
+u16 TWindowSubStatusDisp__sub_80145054(u16);
+u8 TWindowSubStatusDisp__sub_80144FCC(u16);
+s32 TWindowKeyBoardSoft__sub_80080D1C(Field_8025C974 *, u16, u32 *, u32 *, u32 *);
+void TWindowKeyBoardSoft__sub_8025C974(Base_8025C974 *base, char *out);
 }
 
 extern "C" {
@@ -595,6 +604,37 @@ void init__19TWindowKeyBoardSoftFPv(u8 *arg0) {
     reset_state__19TWindowKeyBoardSoftFPv(arg0 + 0x84);
     M2C_FIELD(arg0, s32 *, 0x68) = (s32) (arg0 + 0x6C);
     M2C_FIELD(arg0, u16 *, 0x60) = (u16) (M2C_FIELD(arg0, u16 *, 0x60) & ~0x86);
+}
+
+void TWindowKeyBoardSoft__sub_8025C974(Base_8025C974 *base, char *out) {
+    u32 a = 0;
+    u32 b = 0;
+    u32 c = 0;
+    u16 code;
+    u16 *in = base->field.buffer;
+    if (!(base->fb4 & 0x10) && (s32)*in != 0) {
+        out[0] = 9;
+        if (lbl_805D5544 == 0) {
+            out[1] = 'J';
+            out += 2;
+        } else {
+            out[1] = 'E';
+            out += 2;
+        }
+    }
+    while ((s32)*in != 0) {
+        code = *in++;
+        TWindowSubStatusDisp__sub_80144FCC(TWindowSubStatusDisp__sub_80145054(code));
+        if (TWindowKeyBoardSoft__sub_80080D1C(&base->field, code, &a, &b, &c)) {
+            *out = 0;
+            return;
+        }
+        if (code & 0xFF00) {
+            *out++ = (code >> 8) & 0xFF;
+        }
+        *out++ = code;
+    }
+    *out = 0;
 }
 
 int TWindowKeyBoardSoft__sub_8025CA70(void) { return 0; }

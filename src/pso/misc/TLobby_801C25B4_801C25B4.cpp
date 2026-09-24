@@ -9,6 +9,9 @@ s32 is_not_split_screen__13TRaderMapCoreFv(void);
 u8 TPlayerBattleCtrl4P__sub_803102C8(void);
 extern u8 *TLobby__data_805D5D98;
 u8 TLobby__sub_801C2614(void);
+s32 TLobby__sub_801C26A8(void);
+extern s32 TLobby__data_805D5DC0;
+s32 TLobby__sub_801C2678(void);
 }
 
 extern "C" {
@@ -62,6 +65,13 @@ u8 TLobby__sub_801C2614(void) {
   }
   var_r3 = (u8 *) 0;
   return 0U;
+}
+
+s32 TLobby__sub_801C2678(void) {
+    if (TLobby__sub_801C26A8() != 0) {
+        return 0;
+    }
+    return TLobby__data_805D5DC0;
 }
 
 void send_battle_mode_data__6TLobbyFv(void) {

@@ -31,6 +31,8 @@ force_active:
   - TBoss8Dragon__sub_802F3C94
   - TButterfly__ct
   - TCameraCtrl__sub_800677D4
+  - TCharaMaking__ct
+  - TCharaMaking__sub_8028E794
   - TDPBShower__ct
   - TFontSmallLobby__sub_801C0258
   - TItemEquipBase__sub_8022F1F4
@@ -128,6 +130,7 @@ force_active:
   - TObjPlayer__sub_801BF8CC
   - TObjPlayer__sub_801BFE88
   - TObjPlayer__sub_801C0F10
+  - TObjPlayer__sub_801C5C38
   - TObjPlayer__sub_801D2448
   - TObjPlayer__sub_8023A510
   - TObjPlayer__sub_802E0580
@@ -231,6 +234,7 @@ force_active:
   - init_buffer__12TBoss8DragonFPvii
   - init_default_fields__6TLobbyFPv
   - init_header__6TLobbyFPv
+  - init_header__9TWindowDDFPv
   - init_item_object__14TItemProShieldFPv
   - init_object__15TAdPlayerLoadGCFPv
   - init_player__22TAdMultiPlyChrSelectGCFPvPvPvPvPv
@@ -278,9 +282,11 @@ force_active:
   - swap_endian_field__10TObjPlayerFPv
   - update__10TSceneSoraFv
   - update_and_destroy__10TObjPlayerFPv
+  - update_and_send_lobby__9TWindowDDFPv
   - update_chair__11TMainCursorFPv
   - update_chara_making__10TObjPlayerFPv
   - update_load_state__9TItemLoadFPv
+  - update_main_menu__12TCharaMakingFi
   - update_transition_anim__22TAdMultiPlyChrSelectGCFPv
   - walk_linked_switches__23TObjSeabedSuisoBrakableFPv
 # --- force_active (END) ---

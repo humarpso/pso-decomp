@@ -14,6 +14,8 @@ struct RecoveredGlobal_8030ABF4_lbl_80541E58 {
     u8 remaining[0xF04];
 };
 
+struct E_8030AD08 { s32 a; u8 pad[0x780]; };
+
 extern "C" {
 s32 is_split_screen();
 u8 *TObjFish__sub_8001EDC4(s32, s32);
@@ -26,6 +28,9 @@ extern RecoveredGlobal_8030ABF4_lbl_80541E58 lbl_80541E58;
 extern s32 lbl_805D6A70;
 extern s32 lbl_805D6A74;
 void TCameraCtrl__sub_8030ABF4(void);
+extern RecoveredGlobal_8030ABF4_lbl_80541E58 lbl_80541E58;
+extern s32 lbl_805D6A70;
+void TBoss4DarkFalz__sub_8030AD08(void);
 }
 
 extern "C" {
@@ -65,6 +70,13 @@ void TCameraCtrl__sub_8030ABF4(void) {
         TObjPlayer__sub_8030AB48();
         TObjPlayer__sub_8030A9B0();
     }
+}
+void TBoss4DarkFalz__sub_8030AD08(void) {
+    s32 i;
+    for (i = 0; i < 2; i++) {
+        ((E_8030AD08 *)&lbl_80541E58)[i].a = 0;
+    }
+    lbl_805D6A70 = 0;
 }
 
 }

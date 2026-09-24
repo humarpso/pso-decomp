@@ -19,6 +19,12 @@ struct VObj802DAAC8_802daac8_802D87D8 : VBase802DAAC8_802daac8_802D87D8 {
     virtual M2C_UNK m8();
 };
 
+struct E_802DBC94 { s32 a; s32 b; s32 c; s32 d; };
+
+struct G_802DBC94 { u8 pad[0x42c]; E_802DBC94 *e; };
+
+struct O_802DBC94 { u8 pad[0x24]; s32 f24; u8 pad2[0xc]; s32 f34; };
+
 extern "C" {
 f32 enemy_wander_home(void *, s32, f32, f32, f32);
 M2C_UNK minimap_render_dot(void *, int, int, int);
@@ -32,6 +38,8 @@ M2C_UNK TObjPlayer__sub_801B4A18(int, int);
 M2C_UNK TObjEneGibbles__sub_802D7DAC(int);
 extern f32 lbl_805DE878;
 void TObjEneGibbles__sub_802DA96C(u8 *arg0);
+extern u32 TObjEneGibbles__data_805D68B8;
+void TObjEneGibbles__sub_802DBC94(O_802DBC94 *self, s32 i);
 }
 
 extern "C" {
@@ -422,5 +430,9 @@ void free_static__14TObjEneGibblesFv(void) {
 }
 
 void* TObjEneGibbles__sub_802DBC8C(void* p) { return (char*)p + 0x2fc; }
+void TObjEneGibbles__sub_802DBC94(O_802DBC94 *self, s32 i) {
+    self->f34 = (*(G_802DBC94 * *)&TObjEneGibbles__data_805D68B8)->e[i].c;
+    self->f24 = (*(G_802DBC94 * *)&TObjEneGibbles__data_805D68B8)->e[i].d;
+}
 
 }

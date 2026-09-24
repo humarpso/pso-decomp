@@ -17,6 +17,8 @@ struct VObj18B_802582c4_80257784 : VBase18B_802582c4_80257784 {
     virtual s32 vm8C();
 };
 
+struct Obj_80258BB8 { u8 pad[8]; f32 f8; };
+
 extern "C" {
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 s32 TWindowSubStatusDisp__sub_80259268(void *, s32, s32, s32, s32);
@@ -41,6 +43,9 @@ s32 TWindowSubStatusDisp__sub_802290E0();
 s32 TWindowSubStatusDisp__sub_80259268(void *, s32, s32, s32, s32);
 extern const f32 lbl_805DCF08;
 void TWindowSubStatusDisp__sub_80258A28(u8 *arg0, s32 arg1, s32 arg2);
+void TWindowSubStatusDisp__sub_80258CB8(Obj_80258BB8 *o, s32 x);
+extern const f32 lbl_805DCF04;
+void TWindowSubStatusDisp__sub_80258BB8(Obj_80258BB8 *o, s32 x);
 }
 
 extern "C" {
@@ -288,6 +293,10 @@ void setup_stat_line__20TWindowSubStatusDispFPviii(void *arg0, s32 arg1, s32 arg
         M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 0x45);
     }
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(arg0, s32 *, 0x30);
+}
+void TWindowSubStatusDisp__sub_80258BB8(Obj_80258BB8 *o, s32 x) {
+    TWindowSubStatusDisp__sub_80258CB8(o, x ? 0x14 : 0x15);
+    o->f8 = lbl_805DCF04;
 }
 
 }

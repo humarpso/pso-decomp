@@ -19,6 +19,10 @@ extern u32 lbl_805D7774;
 void TCameraCtrl__sub_803D976C(u32 arg0, u32 arg1);
 s32 TObjPlayer__sub_803DB244();
 s32 TObjPlayer__sub_803D9E04(void);
+void move_data__6TLobbyFv(void *, void *, int);
+extern u32 lbl_805D7774;
+extern u32 lbl_805D776C;
+s32 TObjPlayer__sub_803D97F0(void *src);
 }
 
 extern "C" {
@@ -56,6 +60,19 @@ void TCameraCtrl__sub_803D976C(u32 arg0, u32 arg1) {
         var_r4 = lbl_805D7774;
     }
     PSMTXConcat((int) (var_r4), (int) (var_r5), (int) (var_r5));
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+s32 TObjPlayer__sub_803D97F0(void *src) {
+    u32 next = lbl_805D7774 + 0x30;
+    if (next > lbl_805D776C) {
+        return 0;
+    }
+    move_data__6TLobbyFv((void *)next, (src == 0) ? (void *)lbl_805D7774 : src, 0x30);
+    lbl_805D7774 = next;
+    return 1;
 }
 #pragma pop
 

@@ -190,6 +190,12 @@ struct RecoveredFields_8030247C_arg0
   s32 field_3E4;
 };
 
+struct E_80302D80 { s32 a; s32 b; s32 c; s32 d; };
+
+struct G_80302D80 { u8 pad[0x42c]; E_80302D80 *e; };
+
+struct O_80302D80 { u8 pad[0x24]; s32 f24; u8 pad2[0xc]; s32 f34; };
+
 extern "C" {
 s32 TObjEneDolmOlm__sub_80300CF0(void);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -241,6 +247,8 @@ M2C_UNK TObjEneDolmOlm__sub_80301C3C(void *);
 M2C_UNK set_active__12TObjEneReconFv();
 extern const f32 TObjEneDolmOlm__data_805DEF50;
 void TObjEneDolmOlm__sub_8030247C(u8 *arg0);
+extern u32 TObjEneDolmOlm__data_805D6A10;
+void TObjEneDolmOlm__sub_80302D80(O_80302D80 *self, s32 i);
 }
 
 extern "C" {
@@ -555,6 +563,10 @@ void free_shared_resources__14TObjEneDolmOlmFv(void) {
         TLobby__sub_8001FE7C((void*)TObjEneDolmOlm__data_805D6A10, 1);
         TObjEneDolmOlm__data_805D6A10 = 0U;
     }
+}
+void TObjEneDolmOlm__sub_80302D80(O_80302D80 *self, s32 i) {
+    self->f34 = (*(G_80302D80 * *)&TObjEneDolmOlm__data_805D6A10)->e[i].c;
+    self->f24 = (*(G_80302D80 * *)&TObjEneDolmOlm__data_805D6A10)->e[i].d;
 }
 
 }

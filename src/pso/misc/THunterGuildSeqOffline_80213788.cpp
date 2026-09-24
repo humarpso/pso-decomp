@@ -84,6 +84,10 @@ extern RecoveredGlobal_80213CCC_lbl_804C9740 lbl_804C9740;
 extern RecoveredGlobal_80213CCC_lbl_80513E70 lbl_80513E70;
 extern s32 lbl_805D61BC;
 u8 *THunterGuildSeqOffline__sub_80213CCC(u8 *arg0, s16 arg1);
+extern RecoveredGlobal_80213CCC_lbl_80513E70 lbl_80513E70;
+void THunterGuildSeqOffline__sub_80213CA4(void);
+extern RecoveredGlobal_80213CCC_lbl_80513E70 lbl_80513E70;
+void THunterGuildSeqOffline__sub_80213C7C(void);
 }
 
 extern "C" {
@@ -163,6 +167,18 @@ void restore_and_init_quest_list__22THunterGuildSeqOfflineFPv(void *arg0) {
 }
 
     extern int evt2_random_enemies_mode;
+
+void THunterGuildSeqOffline__sub_80213C7C(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) ((s32 *)&lbl_80513E70)[i] = 0;
+}
+
+void THunterGuildSeqOffline__sub_80213CA4(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        ((s32 *)&lbl_80513E70)[i] = 0;
+    }
+}
 
 u8 *THunterGuildSeqOffline__sub_80213CCC(u8 *arg0, s16 arg1) {
     u32 temp_r3;

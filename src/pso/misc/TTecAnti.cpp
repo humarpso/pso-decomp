@@ -11,6 +11,13 @@ typedef char RecoveredGlobal_8022B288___vt__8TTecAnti_size[sizeof(RecoveredGloba
 struct RecoveredGlobal_8022B288_lbl_804CC1CC { M2C_UNK value; u8 remaining[0x340]; };
 typedef char RecoveredGlobal_8022B288_lbl_804CC1CC_size[sizeof(RecoveredGlobal_8022B288_lbl_804CC1CC) == 0x344 ? 1 : -1];
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Sub_8022B3E8 { s32 w[22]; };
+
+struct S_8022B3E8 { s32 f0; Sub_8022B3E8 sub; };
+
 extern "C" {
 void TTecAnti__sub_8022B35C(u8 *arg0, u8 *arg1);
 s32 obj_getField1c(int);
@@ -19,13 +26,13 @@ s32 fn_8022ACB4(void *);
 int TTecAnti__sub_8022AD74(void* p);
 void TTecAnti__sub_8022AD94(void *);
 void TTecAnti__sub_8022B35C(u8 *arg0, u8 *arg1);
-int TTecAnti__sub_8022B3E8(void *, void *);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 extern M2C_UNK __vt__8TTecAnti[];
 extern RecoveredGlobal_8022B288_lbl_804CC1CC lbl_804CC1CC;
 extern s32 lbl_805D3790;
 extern const f32 lbl_805DC798;
 u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+S_8022B3E8 *TTecAnti__sub_8022B3E8(S_8022B3E8 *d, S_8022B3E8 *s);
 }
 
 extern "C" {
@@ -89,7 +96,7 @@ u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     TObjPlayer__sub_8004433C((void *) (arg0 + 0xE0));
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3790;
     M2C_FIELD(arg0, s32 *, 0x13C) = 1;
-    TTecAnti__sub_8022B3E8((void *)((void *) (arg0 + 0xE0)), (void *)((void *) (arg3)));
+    TTecAnti__sub_8022B3E8((S_8022B3E8 *)((void *)((void *) (arg0 + 0xE0))), (S_8022B3E8 *)((void *)((void *) (arg3))));
     TTecAnti__sub_8022B35C((u8 *)((void *) (arg0 + 0x74)), (u8 *)((void *) ((u8 *)&lbl_804CC1CC.value + 0x2C0)));
     TTecAnti__sub_8022AD94((void *)((void *) (arg0)));
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xDC));
@@ -127,7 +134,11 @@ void TTecAnti__sub_8022B35C(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s16 *, 0x2A) = (s16) M2C_FIELD(arg1, s16 *, 0x2A);
 }
 
-int TTecAnti__sub_8022B3E8(void * _w0, void * _w1) { return 0; }
+S_8022B3E8 *TTecAnti__sub_8022B3E8(S_8022B3E8 *d, S_8022B3E8 *s) {
+    d->f0 = s->f0;
+    d->sub = s->sub;
+    return d;
+}
 
 void render__8TTecAntiFv(void) {  }
 

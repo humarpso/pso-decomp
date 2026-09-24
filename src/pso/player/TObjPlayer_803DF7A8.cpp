@@ -9,11 +9,16 @@ struct RecoveredGlobal_803E1D1C_lbl_804FC780 {
     u8 remaining[0x24];
 };
 
+struct Vec_803E1A58 { f32 x, y, z; };
+
 extern "C" {
 M2C_UNK GXLoadPosMtxImm(void *, int);
 extern RecoveredGlobal_803E1D1C_lbl_804FC780 lbl_804FC780;
 extern s32 lbl_805D7774;
 void TObjPlayer__sub_803E1D1C(s32 arg0);
+extern const f32 lbl_805E1038;
+extern const f32 lbl_805E103C;
+f32 TObjPlayer__sub_803E1A58(Vec_803E1A58 *a, Vec_803E1A58 *b);
 }
 
 extern "C" {
@@ -113,6 +118,31 @@ s32 TObjPlayer__sub_803E112C(CollisionPoint* box,CollisionSphere* sphere) {
     return inside;
 }
 
+#pragma pop
+
+__declspec(section ".sdata2") extern const f64 lbl_805E1040;
+__declspec(section ".sdata2") extern const f64 lbl_805E1048;
+#pragma push
+#pragma scheduling off
+f32 TObjPlayer__sub_803E1A58(Vec_803E1A58 *a, Vec_803E1A58 *b) {
+    f32 x = (a->z - b->z) * (a->z - b->z) + ((a->x - b->x) * (a->x - b->x) + (a->y - b->y) * (a->y - b->y));
+    f32 r;
+    if (x < lbl_805E1038) {
+        return lbl_805E103C;
+    }
+    if (x > lbl_805E103C) {
+        volatile f32 y;
+        f64 g = __frsqrte(x);
+        g = lbl_805E1040 * g * (lbl_805E1048 - g * g * x);
+        g = lbl_805E1040 * g * (lbl_805E1048 - g * g * x);
+        g = lbl_805E1040 * g * (lbl_805E1048 - g * g * x);
+        y = (f32)(x * g);
+        r = y;
+    } else {
+        r = x;
+    }
+    return r;
+}
 #pragma pop
 
 void calc_bounds__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {

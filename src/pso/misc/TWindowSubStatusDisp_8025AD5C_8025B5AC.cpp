@@ -21,6 +21,8 @@ extern const f32 lbl_805DD020;
 extern M2C_UNK lbl_805DD024;
 extern const f32 lbl_805DD028;
 void TWindowSubStatusDisp__sub_8025B660(u8 *arg0, u8 *arg1);
+int is_flag_4_set__17TWindowSubComCardFPv(void *);
+void TWindowSubStatusDisp__sub_8025B760(void *p);
 }
 
 extern "C" {
@@ -65,6 +67,9 @@ void TWindowSubStatusDisp__sub_8025B660(u8 *arg0, u8 *arg1) {
         stack.sp8 += lbl_805DD028;
         TWindowSubStatusDisp__sub_8024FD8C(&stack.sp8, M2C_FIELD(arg0, u8 **, 0x20), M2C_FIELD(arg0, s32 *, 0x24), 1, lbl_805DD01C);
     }
+}
+void TWindowSubStatusDisp__sub_8025B760(void *p) {
+    if (is_flag_4_set__17TWindowSubComCardFPv(p)) return;
 }
 
 }

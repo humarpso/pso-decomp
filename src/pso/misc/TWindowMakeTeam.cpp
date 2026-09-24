@@ -4,6 +4,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Obj_80264B38 { u8 pad[0x24]; void *f24; };
+
+struct Obj_80264B24 { u8 pad[0x28]; void *f28; };
+
+extern "C" {
+extern void *lbl_805D395C;
+void *TWindowMakeTeam__sub_80264B38(Obj_80264B38 *o);
+extern void *lbl_805D395C;
+void *TWindowMakeTeam__sub_80264B24(Obj_80264B24 *o);
+}
+
 extern "C" {
 
 void draw_entry_0x110__15TWindowMakeTeamFc(s8 arg0);
@@ -32,6 +43,16 @@ u8 is_enabled__15TWindowMakeTeamFPv(void *arg0) {
         return 0U;
     }
     return M2C_FIELD(arg0, u8 *, 0x1F);
+}
+
+void *TWindowMakeTeam__sub_80264B24(Obj_80264B24 *o) {
+    if (o->f28) return o->f28;
+    return lbl_805D395C;
+}
+
+void *TWindowMakeTeam__sub_80264B38(Obj_80264B38 *o) {
+    if (o->f24) return o->f24;
+    return lbl_805D395C;
 }
 
 void set_state__15TWindowMakeTeamFPvi(void *arg0, s32 arg1) {

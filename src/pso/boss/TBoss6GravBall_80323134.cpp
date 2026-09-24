@@ -14,6 +14,8 @@ struct RecoveredGlobal_80323278_lbl_80476658 {
     u8 remaining[0x20];
 };
 
+struct T_80323320 { u8 pad[0xD4]; s32 arr[9]; };
+
 extern "C" {
 s32 TBoss4Type2__sub_800874F4(s32, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, s32);
@@ -27,11 +29,11 @@ s32 request_destroy__11TBoss4Type2FUi(int);
 void TBoss6GravBall__sub_803231D0(s32 arg0, s32 arg1);
 void TBoss6GravBall__sub_803231D0(s32 arg0, s32 arg1);
 void init_parts__14TBoss6GravBallFPv(s32 arg0);
+void TBoss6GravBall__sub_80323320(T_80323320 *self);
 }
 
 extern "C" {
 
-int TBoss6GravBall__sub_80323320(void);
 int fn_80323134(void);
 void render__14TBoss6GravBallFv(void);
 int TAdEndText__sub_803997FC(void*);
@@ -101,7 +103,12 @@ void init_parts__14TBoss6GravBallFPv(s32 arg0) {
     } while (var_r31 < 9);
 }
 
-int TBoss6GravBall__sub_80323320(void) { return 0; }
+void TBoss6GravBall__sub_80323320(T_80323320 *self) {
+    s32 i;
+    for (i = 0; i < 9; i++) {
+        self->arr[i] = 0;
+    }
+}
 
 void render__14TBoss6GravBallFv(void) {  }
 

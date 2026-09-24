@@ -13,6 +13,8 @@ struct RecoveredGlobal_802A300C___vt__18TChCrTagOccupation {
     u8 remaining[0x1C];
 };
 
+struct Obj_802A2F78 { u8 pad[0x20]; s32 f20; };
+
 extern "C" {
 u8 * __ct__8TChCrTagFv(void *, s32);
 extern RecoveredGlobal_802A300C___vt__18TChCrTagOccupation __vt__18TChCrTagOccupation;
@@ -25,11 +27,12 @@ extern const f32 lbl_805DDF0C;
 extern const f32 lbl_805DDF10;
 extern const f32 lbl_805DDF14;
 u8 *__ct__18TChCrTagOccupationFv(u8 *arg0, s32 arg1, s32 _w2);
+s32 get_selected_char__15TChCrCharSelectFv(void *self);
+int TChCrTagOccupation__vt4(Obj_802A2F78 *self);
 }
 
 extern "C" {
 
-int TChCrTagOccupation__vt4(void);
 void *create__18TChCrTagOccupationFPv(void *arg0);
 void create_all__18TChCrTagOccupationFv(void);
 int render__18TChCrTagOccupationFv(void* p);
@@ -38,13 +41,17 @@ int fn_802A2DF4(void*);
 
 int render__18TChCrTagOccupationFv(void* p) { return fn_802A2DF4(p); }
 
-int TChCrTagOccupation__vt4(void) { return 0; }
-
 extern void *tl_03;
 
 #pragma push
 #pragma fp_contract on
 typedef char RecoveredGlobal_802A300C___vt__18TChCrTagOccupation_size[sizeof(RecoveredGlobal_802A300C___vt__18TChCrTagOccupation) == 0x20 ? 1 : -1];
+
+int TChCrTagOccupation__vt4(Obj_802A2F78 *self) {
+    if (get_selected_char__15TChCrCharSelectFv(self) == self->f20) return 1;
+    return 0;
+}
+
 u8 *__ct__18TChCrTagOccupationFv(u8 *arg0, s32 arg1, s32 _w2) {
     __ct__8TChCrTagFv(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__18TChCrTagOccupation.value;

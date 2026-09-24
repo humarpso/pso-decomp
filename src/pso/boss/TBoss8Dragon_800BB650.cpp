@@ -4,16 +4,21 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct Part_800BB780 { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
+
+struct Obj_800BB780 { u8 pad[0x30]; u32 flags; u8 pad1[0x70]; Part_800BB780 *parts; s32 count; u8 pad2[0x230]; s32 f2dc; u8 pad3[0x4c]; s16 f32c; u8 pad4[0x10]; s16 f33e; };
+
 extern "C" {
 void TBoss8Dragon__sub_800BB664(f32 farg0);
 int TBoss8Dragon__sub_800BB688(f32 = 0);
 void TBoss8Dragon__sub_800BB664(f32 farg0);
+void TBoss8Dragon__sub_800BB780(Obj_800BB780 *self);
 }
 
 extern "C" {
 
 void TBoss8Dragon__sub_800BB650(void* p, void* q);
-int TBoss8Dragon__sub_800BB780(void);
 void TBoss8Dragon__sub_800BB7D4(void);
 void TBoss8Dragon__sub_800BB7D8(void);
 void TBoss8Dragon__sub_800BB7DC(void);
@@ -37,7 +42,15 @@ void refresh_and_send_entity_flags__12TBoss8DragonFPv(void* p) { refresh_lobby_s
 
 int TObjEneBm3Fly__sub_800BB774(void* p) { return (*(u32*)((char*)p + 0x2dc) >> 1) & 0x1; }
 
-int TBoss8Dragon__sub_800BB780(void) { return 0; }
+void TBoss8Dragon__sub_800BB780(Obj_800BB780 *self) {
+    s32 i;
+    self->f33e = self->f32c;
+    self->flags &= ~0x200;
+    self->f2dc = 0;
+    for (i = 0; i < self->count; i++) {
+        self->parts[i].flags &= ~0x04000000;
+    }
+}
 
 void noop__12TBoss8DragonFv(void) {  }
 void TBoss8Dragon__sub_800BB7D4(void) {  }

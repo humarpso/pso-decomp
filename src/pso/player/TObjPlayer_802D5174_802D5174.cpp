@@ -4,18 +4,23 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct Vec_802D52E8 { f32 x, y, z; };
+
 extern "C" {
 void * init_state_513__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_802D51BC(u8 *arg0);
+void TObjPlayer__sub_802D5B78(void *a, void *b);
+int do_action_447__10TObjPlayerFPv(void* p);
+void TObjPlayer__sub_802D52E8(void *self, void *arg);
 }
 
 extern "C" {
 
 void *item_equip_variant_deleting_dtor_802D5214(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_802D526C(void *arg0, s16 arg1);
-int TObjPlayer__sub_802D52E8(void);
 int do_action_447__10TObjPlayerFPv(void* p);
 int TObjEneDellBiter__sub_80087350(void*, int);
 void TObjPlayer__sub_80120D50(void *);
@@ -76,7 +81,10 @@ u8 *TObjPlayer__sub_802D51BC(u8 *arg0) {
 }
 
 int do_action_447__10TObjPlayerFPv(void* p) { return TObjEneDellBiter__sub_80087350(p, 447); }
-
-int TObjPlayer__sub_802D52E8(void) { return 0; }
+void TObjPlayer__sub_802D52E8(void *self, void *arg) {
+    Vec_802D52E8 v;
+    TObjPlayer__sub_802D5B78(arg, &v);
+    do_action_447__10TObjPlayerFPv(&v);
+}
 
 }

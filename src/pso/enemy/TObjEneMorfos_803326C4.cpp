@@ -632,6 +632,8 @@ extern RecoveredGlobal_80332B7C_lbl_804775D8 lbl_804775D8;
 extern s32 TObjEneMorfos__data_805D6D18;
 extern s32 TObjEneMorfos__data_805D6D1C;
 void TObjEneMorfos__sub_80332B7C(void);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+void TObjEneMorfos__sub_803343E8(void *self, s32 ev);
 }
 
 extern "C" {
@@ -925,6 +927,16 @@ void TObjEneMorfos__sub_803342B8(u8 *arg0, s32 arg1) {
         return;
     case 5:
         M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) & 0xFFFFFFFD);
+        break;
+    }
+}
+
+void TObjEneMorfos__sub_803343E8(void *self, s32 ev) {
+    switch (ev) {
+    case 0:
+        return;
+    case 3:
+        TObjEneDD__sub_800BBA18((void *)(self), (M2C_UNK)(1));
         break;
     }
 }

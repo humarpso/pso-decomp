@@ -21,6 +21,10 @@ struct RecoveredGlobal_801F5CB0___vt__12TQuestThread {
     u8 remaining[0x14];
 };
 
+struct Inner_801F5E58 { u8 pad[0x14]; char name[1]; };
+
+struct Obj_801F5E58 { u8 pad[0x198]; Inner_801F5E58 *inner; };
+
 extern "C" {
 s32 TQuestThread__sub_801F5EAC(u8 *arg0, s32 arg1);
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -43,14 +47,22 @@ s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_801F5CB0___vt__12TQuestThread __vt__12TQuestThread;
 extern s32 lbl_805D35D0;
 u8 *__ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2);
+extern u32 lbl_805D5EE8;
+extern char lbl_8044A5D0[];
+char *TQuestThread__sub_801F5E58(void);
+extern RecoveredGlobal_801F5B5C_TQuestThread__data_80512AD0 TQuestThread__data_80512AD0;
+void TQuestThread__sub_801F5D60(s32 i, s32 v);
+extern RecoveredGlobal_801F5B5C_TQuestThread__data_80512AD0 TQuestThread__data_80512AD0;
+void TQuestThread__sub_801F5D34(s32 i);
+extern RecoveredGlobal_801F5B5C_TQuestThread__data_80512AD0 TQuestThread__data_80512AD0;
+void TQuestThread__sub_801F5DA8(void* _w0);
 }
 
 extern "C" {
 
-int TQuestThread__sub_801F5D88(void* p);
+void TQuestThread__sub_801F5D88(void* p);
 void clear_buffer__12TQuestThreadFPv(void* p);
 u32 create__12TQuestThreadFi(s32 arg0);
-int TQuestThread__sub_801F5DA8(void*);
 void TQuestThread__sub_801F5ECC(void);
 u32 __nw__7TObjectFUl(M2C_UNK);
 int memset(void*, void*, void*);
@@ -120,7 +132,28 @@ u8 *__ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-int TQuestThread__sub_801F5D88(void* p) { return TQuestThread__sub_801F5DA8(p); }
+void TQuestThread__sub_801F5D34(s32 i) {
+    if (i < 0 || i > 0x11) {
+        return;
+    }
+    ((s32 *)&TQuestThread__data_80512AD0)[i] = -1;
+}
+
+void TQuestThread__sub_801F5D60(s32 i, s32 v) {
+    if (i < 0 || i > 0x11) {
+        return;
+    }
+    ((s32 *)&TQuestThread__data_80512AD0)[i] = v;
+}
+
+void TQuestThread__sub_801F5D88(void* p) { TQuestThread__sub_801F5DA8((void*)(p)); }
+
+void TQuestThread__sub_801F5DA8(void* _w0) {
+    s32 i;
+    for (i = 0; i < 0x12; i++) {
+        ((s32 *)&TQuestThread__data_80512AD0)[i] = -1;
+    }
+}
 
 void clear_buffer__12TQuestThreadFPv(void* p) { if (*(unsigned int*)((char*)p + 0x2c) != 0) { memset(*(void**)((char*)p + 0x2c), (void*)0, (void*)1024); } }
 
@@ -143,6 +176,14 @@ void handle_6x77_sync_quest_register(u8 *arg0) {
 }
 
 typedef char RecoveredGlobal_801F5E7C_lbl_805129F8_size[sizeof(RecoveredGlobal_801F5E7C_lbl_805129F8) == 0xD8 ? 1 : -1];
+
+char *TQuestThread__sub_801F5E58(void) {
+    if ((*(Obj_801F5E58 * *)&lbl_805D5EE8) != 0) {
+        return (*(Obj_801F5E58 * *)&lbl_805D5EE8)->inner->name;
+    }
+    return lbl_8044A5D0;
+}
+
 void TQuestThread__sub_801F5E7C(void) {
     memset((void*)((void *) (&lbl_805129F8.value)), (void*)((int) (0)), (void*)((int) (0xD8)));
 }

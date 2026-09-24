@@ -4,14 +4,17 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct Obj_802ADC04 { u8 pad[0x124]; void *items[8]; };
+
 extern "C" {
 s32 is_item_active__15TWindowMainMenuFPv(s32);
 u8 *TWindowMainMenu__sub_802ADB34(s32 arg0, s32 arg1);
+int TWindowMainMenu__sub_802ADC04(Obj_802ADC04 *self);
 }
 
 extern "C" {
 
-int TWindowMainMenu__sub_802ADC04(void);
 s32 find_free_slot__15TWindowMainMenuFi(s32 arg0);
 void clear_menu_flags__15TWindowMainMenuFPv(void* p);
 int get_menu_flag__15TWindowMainMenuFPv(void* p);
@@ -60,7 +63,12 @@ loop_1:
     }
     goto loop_1;
 }
-
-int TWindowMainMenu__sub_802ADC04(void) { return 0; }
+int TWindowMainMenu__sub_802ADC04(Obj_802ADC04 *self) {
+    s32 i;
+    for (i = 0; i < 8; i++) {
+        if (self->items[i] == 0) return i;
+    }
+    return 8;
+}
 
 }

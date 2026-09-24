@@ -8,6 +8,8 @@ extern "C" {
 u32 get_mc_count__13TAdMcSelectGCFv();
 s32 get_slot_index__13TAdMcSelectGCFPv(void *);
 s32 TAdMcSelectGC__sub_80329DD0(void);
+s32 get_state_flag__9TMainTaskFv();
+void render__13TAdMcSelectGCFv(void *self);
 }
 
 extern "C" {
@@ -21,6 +23,11 @@ int TAdMcSelectGC__sub_8032A15C();
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 u32 get_mc_count__13TAdMcSelectGCFv();
+
+void render__13TAdMcSelectGCFv(void *self) {
+    if (get_state_flag__9TMainTaskFv() == 1) { return;
+    }
+}
 
 void update_state__13TAdMcSelectGCFv(void) {
     if (get_mc_count__13TAdMcSelectGCFv() != 0U) {

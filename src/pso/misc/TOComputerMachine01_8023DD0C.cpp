@@ -3,11 +3,94 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct Ent_8023DD0C { u8 type; u8 pad[3]; u32 f4; };
+
+struct Tbl_8023DD0C { Ent_8023DD0C *entries; u32 count; };
+
+struct Ent_8023DD60 { u8 type; u8 pad[3]; u32 f4; };
+
+struct Tbl_8023DD60 { Ent_8023DD60 *entries; u32 count; };
+
+struct UV_8023DDC8 { s16 u; s16 v; };
+
+struct Arr_8023DDC8 { u8 type; u8 pad; u16 count; u8 pad2[4]; UV_8023DDC8 *uv; u8 pad3[4]; };
+
+struct Model_8023DDC8 { Arr_8023DDC8 *arrays; u8 pad[4]; void *s0; void *s1; };
+
 extern "C" {
 void TObjPlayer__sub_8023E034(void **arg0);
+s32 TOComputerMachine01__sub_8023DD0C(Tbl_8023DD0C *t, u16 id);
+void TOComputerMachine01__sub_8023DD60(Tbl_8023DD60 *t);
+s32 TOComputerMachine01__sub_8023DD0C(Tbl_8023DD0C *t, u16 id);
+void TOComputerMachine01__sub_8023DD60(Tbl_8023DD60 *t);
+void DCFlushRangeNoSync(void *, u32);
+void TOComputerMachine01__sub_8023DDC8(Model_8023DDC8 *self, s16 du, s16 dv, u16 cmd, s32 rewrite);
 }
 
 extern "C" {
+
+s32 TOComputerMachine01__sub_8023DD0C(Tbl_8023DD0C *t, u16 id) {
+    s32 found = 0;
+    if (t != 0) {
+        Ent_8023DD0C *e = t->entries;
+        u32 i;
+        for (i = 0; i < t->count; i++) {
+            if (e->type == 8 && id == (e->f4 & 0x1FFF)) {
+                found = 1;
+            }
+            e++;
+        }
+    }
+    return found;
+}
+
+void TOComputerMachine01__sub_8023DD60(Tbl_8023DD60 *t) {
+    if (t != 0) {
+        Ent_8023DD60 *e = t->entries;
+        u32 i;
+        for (i = 0; i < t->count; i++, e++) {
+            if (e->type == 8) {
+                e->f4 &= ~0xC0000;
+                e->f4 |= 0x40000;
+                e->f4 &= ~0x30000;
+                e->f4 |= 0x10000;
+            }
+        }
+    }
+}
+
+void TOComputerMachine01__sub_8023DDC8(Model_8023DDC8 *self, s16 du, s16 dv, u16 cmd, s32 rewrite) {
+    s32 found = 0;
+    Arr_8023DDC8 *a;
+    if (self->s0 != 0 && TOComputerMachine01__sub_8023DD0C((Tbl_8023DD0C *)(self->s0), cmd) == 1) {
+        found = 1;
+        if (rewrite != 0) {
+            TOComputerMachine01__sub_8023DD60((Tbl_8023DD60 *)(self->s0));
+        }
+    }
+    if (self->s1 != 0 && TOComputerMachine01__sub_8023DD0C((Tbl_8023DD0C *)(self->s1), cmd) == 1) {
+        found = 1;
+        if (rewrite != 0) {
+            TOComputerMachine01__sub_8023DD60((Tbl_8023DD60 *)(self->s1));
+        }
+    }
+    if (found != 0) {
+        for (a = self->arrays; a != 0 && a->type != 0xFF; a++) {
+            if (a->type == 5 || a->type == 6) {
+                u16 n = a->count;
+                UV_8023DDC8 *uv = a->uv;
+                s32 i;
+                for (i = 0; i < n; i++) {
+                    uv->u += du;
+                    uv->v += dv;
+                    uv++;
+                }
+                DCFlushRangeNoSync(a->uv, a->count * 4);
+            }
+        }
+    }
+}
 
 void TObjPlayer__sub_8023E034(void **arg0) {
     s16 temp_r0;

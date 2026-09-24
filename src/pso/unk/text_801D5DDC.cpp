@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Pkt_801D60B4 { s16 a; u16 b; };
+
 extern "C" {
 s32 TObjPlayer__sub_800196EC();
 s32 get_field_3e4__10TObjPlayerFPv(int);
@@ -16,6 +18,9 @@ M2C_UNK handle_photon_blast_ready__15TFontSmallLobbyFPv(void *, void *);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 validate_6x39_set_photon_blast_ready_flag(void *);
 void handle_6x39_set_photon_blast_ready_flag(s32 arg0);
+M2C_UNK init_6x39_packet__15TFontSmallLobbyFPv(void *);
+void update_and_send_60__15TFontSmallLobbyFPv(void *p);
+void TFontSmallLobby__sub_801D60B4(u16 *p);
 }
 
 extern "C" {
@@ -50,6 +55,13 @@ void handle_6x39_set_photon_blast_ready_flag(s32 arg0) {
             }
         }
     }
+}
+typedef s32 M2C_UNK_801D60B4;
+void TFontSmallLobby__sub_801D60B4(u16 *p) {
+    Pkt_801D60B4 pk;
+    init_6x39_packet__15TFontSmallLobbyFPv(&pk);
+    pk.b = *p;
+    update_and_send_60__15TFontSmallLobbyFPv(&pk);
 }
 
 }

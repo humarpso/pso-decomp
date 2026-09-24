@@ -57,6 +57,10 @@ extern const f32 lbl_805D9434;
 s32 TObjPlayer__sub_80083CEC(u8 *arg0, f32 farg0);
 extern G_800845F8 lbl_8048E5B4;
 s32 TObjPlayer__sub_800845F8(void);
+extern G_800845F8 lbl_8048E5B4;
+M2C_UNK set_global_param__8TObjFishFi(M2C_UNK *);
+M2C_UNK TObjPlayer__sub_803E1D90(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+void TObjPlayer__sub_80084500(void);
 }
 
 extern "C" {
@@ -128,6 +132,11 @@ s32 check_all_players_ready__10TObjPlayerFv(void) {
         } while (counter < 4);
     }
     return flag;
+}
+
+void TObjPlayer__sub_80084500(void) {
+    set_global_param__8TObjFishFi((M2C_UNK *)(((u8 *)&lbl_8048E5B4)));
+    TObjPlayer__sub_803E1D90((M2C_UNK)(0), (M2C_UNK)(0), (M2C_UNK)(0), (M2C_UNK)(0));
 }
 
 s32 TObjPlayer__sub_800845F8(void) {

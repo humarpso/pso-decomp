@@ -10,6 +10,9 @@ M2C_UNK TLobby__sub_801E3FA4(void *);
 extern u32 TLobby__data_805D5580;
 extern s32 lbl_805D5E50;
 void TLobby__send_and_handle_60(u8 *arg0);
+M2C_UNK TProtocol__send_60(int, int, int);
+extern u32 TLobby__data_805D5580;
+void TLobby__sub_801E4534(u8 *arg0);
 }
 
 extern "C" {
@@ -69,6 +72,14 @@ void dispatch_packet__6TLobbyFPv(void *arg0) {
 extern s32 TLobby__data_805D5598;
 extern void *lbl_805D5E48;
 extern s32 lbl_805D5E50;
+
+typedef s32 M2C_UNK;
+void TLobby__sub_801E4534(u8 *arg0) {
+    int size = arg0[1] * 4;
+    if (TLobby__data_805D5580 != 0) {
+        TProtocol__send_60(TLobby__data_805D5580, (int)arg0, size);
+    }
+}
 
 void TLobby__send_and_handle_60(u8 *arg0) {
     s32 var_r5;

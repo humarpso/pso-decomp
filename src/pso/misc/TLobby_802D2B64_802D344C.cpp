@@ -4,6 +4,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct O_802D361C { u8 pad[5]; u8 state; };
+
+struct O_802D3654 { u8 pad[5]; u8 state; };
+
 extern "C" {
 M2C_UNK TLobby__sub_8001DC24();
 M2C_UNK get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
@@ -18,6 +22,12 @@ extern s8 TLobby__data_805D688A;
 extern s8 TLobby__data_805D688B;
 extern s32 TLobby__data_805D688C;
 void TLobby__sub_802D36E0(void *arg0);
+s32 TWindowTradeRequest__sub_80249FCC();
+void reset__6TLobbyFv(void);
+void TLobby__sub_802D361C(O_802D361C *self);
+s32 TWindowTradeRequest__sub_80249FCC();
+void reset__6TLobbyFv(void);
+void TLobby__sub_802D3654(O_802D3654 *self);
 }
 
 extern "C" {
@@ -71,6 +81,30 @@ void update_flag_by_state__6TLobbyFPv(void *arg0) {
         break;
     }
 }
+
+void TLobby__sub_802D361C(O_802D361C *self) {
+    switch (self->state) {
+    case 0:
+        TWindowTradeRequest__sub_80249FCC();
+        reset__6TLobbyFv();
+        break;
+    case 1:
+    case 2:
+        break;
+    }
+}
+
+void TLobby__sub_802D3654(O_802D3654 *self) {
+    switch (self->state) {
+    case 3:
+        break;
+    case 4:
+        TWindowTradeRequest__sub_80249FCC();
+        reset__6TLobbyFv();
+        break;
+    }
+}
+
 void TLobby__sub_802D36E0(void *arg0) {
     u8 temp_r0;
     temp_r0 = M2C_FIELD(arg0, u8 *, 5);

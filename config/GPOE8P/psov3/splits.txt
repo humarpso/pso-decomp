@@ -17738,8 +17738,11 @@ pso/unk/text_803A3858.cpp:
 pso/misc/TLobby_803BAC70.cpp:
 	extab       start:0x8000EA38 end:0x8000EC58
 	extabindex  start:0x8000F3D4 end:0x8000F704
-	.text       start:0x803BAC70 end:0x803C1668
+	.text       start:0x803BAC70 end:0x803BFE50
 	.data       start:0x804F7140 end:0x804F7164
+
+pso/misc/TLobby_803BFE50.cpp:
+	.text       start:0x803BFE50 end:0x803C1668
 
 pso/unk/text_803C1668.cpp:
 	.text       start:0x803C1668 end:0x803C1780
@@ -18194,7 +18197,10 @@ pso/unk/text_803F1804.cpp:
 	.text       start:0x803F1804 end:0x803F18B8
 
 pso/ui/TAdPlayerLoadGC_803F18B8.cpp:
-	.text       start:0x803F18B8 end:0x803F3DD4
+	.text       start:0x803F18B8 end:0x803F3CF4
+
+pso/ui/TAdPlayerLoadGC_803F3CF4.cpp:
+	.text       start:0x803F3CF4 end:0x803F3DD4
 
 pso/unk/text_803F3DD4.cpp:
 	.text       start:0x803F3DD4 end:0x803F3F64

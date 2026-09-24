@@ -22,6 +22,8 @@ struct RecoveredGlobal_802258C8_lbl_80513F70
   u8 remaining[0x67C];
 };
 
+struct O_80225B90 { u8 pad[0x20]; char name[1]; };
+
 extern "C" {
 extern unsigned char lbl_80513F70[];
 void *TLobby__sub_8022598C(int a0);
@@ -39,6 +41,7 @@ int is_flag_set__6TLobbyFPv(void* p);
 void TLobby__sub_80225C8C(void* p);
 extern unsigned char lbl_80513F70[];
 void TLobby__sub_802258C8(void);
+s32 TLobby__sub_80225B90(O_80225B90 *o);
 }
 
 extern "C" {
@@ -67,7 +70,6 @@ int TLobby__sub_802244B0(void);
 int TLobby__sub_8022525C(void);
 int TLobby__sub_80225A08(void*);
 int TLobby__sub_80225B40(void*);
-int TLobby__sub_80225B90(void*);
 M2C_UNK free__11TOBoss4RockFUi(u32);
 
     extern int lbl_805D6264;
@@ -295,7 +297,7 @@ void TLobby__sub_8022559C(void) {
     memset((void *) (&lbl_80513F50.value), (int) (0), (int) (0x10));
 }
 
-void try_close__6TLobbyFPv(void* p) { if (TLobby__sub_80225B90(p) == 0) { TLobby__sub_80225A08(p); } }
+void try_close__6TLobbyFPv(void* p) { if (TLobby__sub_80225B90((O_80225B90 *)(p)) == 0) { TLobby__sub_80225A08(p); } }
 
 typedef struct RecoveredGlobal_802258C8_lbl_80513F70 RecoveredGlobal_802258C8_lbl_80513F70;
 typedef char RecoveredGlobal_802258C8_lbl_80513F70_size[((sizeof(RecoveredGlobal_802258C8_lbl_80513F70)) == 0x680) ? (1) : (-1)];
@@ -345,6 +347,18 @@ s32 TLobby__sub_802259A0(void) {
     return 7;
   }
   goto loop_1;
+}
+
+s32 TLobby__sub_80225B90(O_80225B90 *o) {
+    s32 i = 0;
+    char *p = o->name;
+    while (*p++ != 0) {
+        if (i > 0xaa) {
+            return 1;
+        }
+        i++;
+    }
+    return 0;
 }
 
 void TLobby__sub_80225BC8(u8 *arg0, u8 *arg1) {
