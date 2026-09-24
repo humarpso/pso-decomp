@@ -16,6 +16,7 @@ struct RecoveredGlobal_8022B6FC_lbl_804CC55C
   u8 remaining[0x94];
 };
 
+#include "pso/misc/TTecBarta.h"
 extern "C" {
 s32 TTecCtrl__sub_8022DBC4(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
@@ -23,6 +24,13 @@ s32 TTecAnti__sub_8022B35C(void *, int);
 extern RecoveredGlobal_8022B6FC_lbl_804CC510 lbl_804CC510;
 extern RecoveredGlobal_8022B6FC_lbl_804CC55C lbl_804CC55C;
 void TTecBarta__sub_8022B6FC(u8 *arg0);
+extern TechniqueContactVtable __vt__9TTecBarta;
+extern TechniqueEmitterSourceTable TTecBarta__data_8044CD98[];
+void queue_destruction__7TObjectFv(TechniqueParticleEmitter*);
+void free__11TOBoss4RockFUi(TechniqueParticleEmitter**);
+void destroy_technique_effect_resources__10TObjPlayerFPvs(TTecBarta*,s16);
+void __dl__7TObjectFPv(TTecBarta*);
+TTecBarta* __dt__9TTecBartaFv(TTecBarta* self,s16 deleting);
 }
 
 extern "C" {
@@ -113,6 +121,22 @@ void create_ex__9TTecBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *ar
     if (o != NULL) {
         TTecBarta__sub_8022BCB8(o, arg0, arg1, arg2, arg3);
     }
+}
+
+TTecBarta* __dt__9TTecBartaFv(TTecBarta* self,s16 deleting) {
+    if(self) {
+        self->vtable=&__vt__9TTecBarta;
+        for(u32 i=0;i<TTecBarta__data_8044CD98[self->band].count;++i) {
+            if(self->emitters[i]) {
+                queue_destruction__7TObjectFv(self->emitters[i]);
+                self->emitters[i]=0;
+            }
+        }
+        free__11TOBoss4RockFUi(self->emitters);
+        destroy_technique_effect_resources__10TObjPlayerFPvs(self,0);
+        if(deleting>0)__dl__7TObjectFPv(self);
+    }
+    return self;
 }
 
 void render__9TTecBartaFv(void) {  }

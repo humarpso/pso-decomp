@@ -2,24 +2,52 @@
 #define PSO_MISC_TTECBARTA_H
 
 #include "types.h"
+#include "pso/technique/TechniqueContact.h"
 
-struct TTecBarta
-{
-    u32 m_1c;
-    u32 m_20;
-    u32 m_24;
-    u32 m_28;
-    u8 _pad2C[0x9A];
-    s16 m_c6;
-    u16 m_c8;
-    u8 _padCA[0x2E];
-    u32 m_f8;
-    u8 _padFC[0x18];
-    u32 m_114;
-    u8 _pad118[0x18];
-    u32 m_130;
-    u8 _pad134[0x40];
-    u32 m_174;
+struct TechniqueDamagePayload { s32 kind; f32 power; };
+struct TechniqueHitRecipient;
+struct TechniqueHitRecipientVtable {
+    u8 beforeReceive[0x5c];
+    void (*receive)(TechniqueHitRecipient*, TechniqueHitRecipient*,
+        const TechniqueDamagePayload*, TechniqueContactBody*, s32, s32);
 };
+struct TechniqueHitRecipient {
+    u8 task[0x18];
+    TechniqueHitRecipientVtable* vtable;
+};
+struct TechniqueParticleEmitter;
+struct TechniqueEmitterSourceRow { u32 entry; u32 flags; f32 scale; };
+struct TechniqueEmitterSourceTable { TechniqueEmitterSourceRow* rows; u32 count; };
+
+struct TTecBarta {
+    u8 task[0x18];
+    TechniqueContactVtable* vtable;
+    TechniqueHitRecipient* source;
+    f32 position[3];
+    u8 beforeDirection[0x1c];
+    f32 direction[3];
+    s32 angles[3];
+    u32 unknown60;
+    f32 speed;
+    u8 beforeRange[8];
+    f32 range;
+    f32 traveled;
+    f32 previous[3];
+    u8 beforeLevel[0x40];
+    s16 level;
+    s16 band;
+    u16 sourceId;
+    u16 unknownCa;
+    f32 power;
+    u8 parameters[0x28];
+    TechniqueContactBody* contact;
+    u8 beforeProxy[0x2c];
+    TechniqueContactActor* proxy;
+    f32 halfWidth;
+    TechniqueParticleEmitter** emitters;
+    u16 hitIds[32];
+    s32 hitCursor;
+};
+typedef char TTecBarta_size[sizeof(TTecBarta)==0x178?1:-1];
 
 #endif
