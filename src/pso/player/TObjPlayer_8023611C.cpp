@@ -14,6 +14,7 @@ struct RecoveredGlobal_80236290_lbl_80516150 {
     u8 remaining[0x84];
 };
 
+#include "pso/technique/TechniqueContact.h"
 extern "C" {
 s32 TObjPlayer__sub_80236378(void *, int, void *, void *);
 void TObjPlayer__sub_80236728(u8 *arg0, s32 arg1);
@@ -25,10 +26,11 @@ void TObjPlayer__sub_802367AC(u8 *arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 find_actor_body_contact(void *, int, f32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
-s32 TObjPlayer__sub_80236D14();
 extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
 extern const f32 lbl_805DC89C;
 M2C_UNK *TObjPlayer__sub_80236290(s32 arg0, u32 arg1, s32 _w2, s32 _w3);
+extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
+void resetTechniqueContactQuery();
 }
 
 extern "C" {
@@ -55,7 +57,7 @@ M2C_UNK *TObjPlayer__sub_80236290(s32 arg0, u32 arg1, s32 _w2, s32 _w3) {
     s32 var_r29;
     u32 temp_r3_2;
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x20));
-    TObjPlayer__sub_80236D14();
+    resetTechniqueContactQuery();
     if (arg1 == 0U) {
         return &lbl_80516150.value;
     }
@@ -88,6 +90,14 @@ void TObjPlayer__sub_80236780(u8 *arg0, s32 arg1) {
 
 void TObjPlayer__sub_802367AC(u8 *arg0, s32 arg1) {
     TObjPlayer__sub_80236290((s32)((void *) (arg0)), (u32)((int) (M2C_FIELD(arg0, s32 *, 0xdc))), (s32)((void *) (arg0 + 0xb0)), (s32)((void *) (arg1)));
+}
+
+void resetTechniqueContactQuery() {
+    for (s32 i=0;i<16;++i) {
+        (*(TechniqueContactList *)&lbl_80516150).actors[i]=0;
+        (*(TechniqueContactList *)&lbl_80516150).bodies[i]=0;
+    }
+    (*(TechniqueContactList *)&lbl_80516150).count=0;
 }
 
 void* get_pos_ptr__10TObjPlayerFPv(void* p) { return (char*)p + 0x78; }
