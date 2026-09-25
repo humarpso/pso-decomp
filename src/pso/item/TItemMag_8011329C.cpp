@@ -46,6 +46,8 @@ struct Mag_801139F4 : Base_801139F4 {
     f32 x1c8;
 };
 
+struct TItemMag_801138F0 { u8 pad[0x1a8]; void *subs[2]; };
+
 extern "C" {
 M2C_UNK refresh_if_current_player__20TWindowSubStatusDispFPv(void *);
 int TItemData__sub_8010EE40(void*);
@@ -90,6 +92,9 @@ s16 TItemMagSub__sub_8011455C(void *);
 void set_field_EE__8TItemMagFPvUc(void *p, u8 v);
 void copy_owner_data__8TItemMagFPv(void *);
 u8 *TItemMag__ct(Mag_801139F4 *self, s32 a, s32 src);
+void fn_8011491C(void *);
+void release__14TItemEquipBaseFPv(void *arg0);
+void TItemMag__vt45(TItemMag_801138F0 *self);
 }
 
 extern "C" {
@@ -217,6 +222,17 @@ void TItemMag__vt42(u8 *arg0) {
     if ((get_flag_40__8TItemMagFPv((void *) (arg0)) == 0) && (TItemMag__sub_80113EC8((void *) (M2C_FIELD(arg0, u8 **, 0xF0))) == 0)) {
         TBoss3Volopt__sub_8022675C((int) (0x4000B20A), (void *) (M2C_FIELD(arg0, u8 **, 0xF0) + 0x38), (int) (0), (int) (0));
     }
+}
+
+void TItemMag__vt45(TItemMag_801138F0 *self) {
+    s32 i;
+    for (i = 0; i != 2; i++) {
+        if (self->subs[i] != 0) {
+            fn_8011491C(self->subs[i]);
+            self->subs[i] = 0;
+        }
+    }
+    release__14TItemEquipBaseFPv(self);
 }
 
 void TItemMag__vt44(s32 arg0) {

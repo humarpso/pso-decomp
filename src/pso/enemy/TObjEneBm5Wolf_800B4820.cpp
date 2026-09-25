@@ -320,6 +320,32 @@ struct VObj_18_8bca97 : VBase_18_8bca97 {
     virtual M2C_UNK m100();
 };
 
+struct Arg_800B7530 { s32 kind; s32 val; s32 kind2; f32 fval; };
+
+struct Base_800B7530 { u8 pad[0x18]; };
+
+struct Obj_800B7530 : Base_800B7530 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
+    virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8(); virtual void m9();
+    virtual void m10(); virtual void m11(); virtual void m12(); virtual void m13(); virtual void m14();
+    virtual void m15(); virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21(void *target, Arg_800B7530 *arg, s32, s32, s32);
+    u8 pad2[0x3e0 - 0x1c]; u16 target_id;
+};
+
+struct Arg_800B74B8 { s32 kind; s32 val; s32 kind2; f32 fval; };
+
+struct Base_800B74B8 { u8 pad[0x18]; };
+
+struct Obj_800B74B8 : Base_800B74B8 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
+    virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8(); virtual void m9();
+    virtual void m10(); virtual void m11(); virtual void m12(); virtual void m13(); virtual void m14();
+    virtual void m15(); virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21(void *target, Arg_800B74B8 *arg, s32, s32, s32);
+    u8 pad2[0x3e0 - 0x1c]; u16 target_id;
+};
+
 extern "C" {
 void TObjEneBm5Wolf__sub_800B7D44(void *);
 s32 TObjEneEpsilon__sub_800B95E0(void *);
@@ -403,6 +429,12 @@ extern const f32 lbl_805D9E2C;
 extern const f32 lbl_805D9E30;
 void queue_destruction__7TObjectFv(void *self);
 void TObjEneBm5Wolf__sub_800B4D4C(void *self, s32 msg);
+u8 *TPhotonMylla__sub_80154CB4(u16);
+extern const f32 TObjEneBm5Wolf__data_805D9D8C;
+void TObjEneBm5Wolf__sub_800B7530(Obj_800B7530 *self);
+u8 *TPhotonMylla__sub_80154CB4(u16);
+extern const f32 TObjEneBm5Wolf__data_805D9D8C;
+void TObjEneBm5Wolf__sub_800B74B8(Obj_800B74B8 *self);
 }
 
 extern "C" {
@@ -434,8 +466,6 @@ void action__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 void advance_spawn_timer__14TObjEneBm5WolfFv(void);
 void update_state__14TObjEneBm5WolfFPv(void *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
-M2C_UNK TObjEneBm5Wolf__sub_800B74B8(void *);
-M2C_UNK TObjEneBm5Wolf__sub_800B7530(void *);
 M2C_UNK TObjEneBm5Wolf__sub_800B7DDC(void *, s32);
 M2C_UNK TObjEneBm5Wolf__sub_800B7EA0(void *);
 u32 TObjEneBm5Wolf__sub_800B850C(s32);
@@ -519,9 +549,9 @@ void action__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
         }
         M2C_FIELD(arg0, s32 *, 0x41C) = (s32) (M2C_FIELD(arg0, s32 *, 0x41C) + 1);
         if (M2C_FIELD(arg0, s32 *, 0x41C) == 0x1E) {
-            TObjEneBm5Wolf__sub_800B7530(arg0);
+            TObjEneBm5Wolf__sub_800B7530((Obj_800B7530 *)(arg0));
         } else if (M2C_FIELD(arg0, s32 *, 0x41C) == 0x28) {
-            TObjEneBm5Wolf__sub_800B74B8(arg0);
+            TObjEneBm5Wolf__sub_800B74B8((Obj_800B74B8 *)(arg0));
         }
         ((VEne_800B4820 *)arg0)->m87();
         break;
@@ -839,6 +869,30 @@ void TObjEneBm5Wolf__sub_800B72B4(u8 *arg0, s32 arg1) {
         }
         M2C_FIELD(arg0, s32 *, 0x420) = (s32) (M2C_FIELD(arg0, s32 *, 0x420) + 1);
         break;
+    }
+}
+
+void TObjEneBm5Wolf__sub_800B74B8(Obj_800B74B8 *self) {
+    u8 *target = TPhotonMylla__sub_80154CB4(self->target_id);
+    if (target != 0) {
+        Arg_800B74B8 arg;
+        arg.kind = 0xb;
+        arg.fval = TObjEneBm5Wolf__data_805D9D8C;
+        arg.val = *(s32 *)&arg.fval;
+        arg.kind2 = 0xb;
+        self->m21(target, &arg, 0, -1, -1);
+    }
+}
+
+void TObjEneBm5Wolf__sub_800B7530(Obj_800B7530 *self) {
+    u8 *target = TPhotonMylla__sub_80154CB4(self->target_id);
+    if (target != 0) {
+        Arg_800B7530 arg;
+        arg.kind = 0xc;
+        arg.fval = TObjEneBm5Wolf__data_805D9D8C;
+        arg.val = *(s32 *)&arg.fval;
+        arg.kind2 = 0xc;
+        self->m21(target, &arg, 0, -1, -1);
     }
 }
 

@@ -17,6 +17,8 @@ struct Ctrl_801A0CE8 { u8 pad[0x832]; s16 target; };
 
 struct Obj_801A0CE8 { u8 pad[0x90]; void *wins[4]; s32 cur; u8 pad2[4]; u16 id; };
 
+struct Obj_801A0C38 { u8 pad[0x90]; void *parts[1]; };
+
 extern "C" {
 void allow_rendering__7TObjectFv(void *);
 void clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
@@ -48,6 +50,9 @@ void TWindowSubTradeMain__sub_80266200(void *w, s32 a, s32 b, s32 c, s32 d);
 void TWindowSubComCard__sub_80265F60(void *w);
 void TWindowSubComCard__sub_80265C30(void *w);
 void TObjLuker__sub_801A0CE8(Obj_801A0CE8 *self);
+void set_flag_4__9TObjLukerFPv(void *w);
+void disallow_rendering__7TObjectFv(void *w);
+void TObjLuker__sub_801A0C38(Obj_801A0C38 *self, u16 i);
 }
 
 extern "C" {
@@ -56,6 +61,13 @@ void *TObjLuker__create(void *arg0);
 void render__9TObjLukerFv(void);
 void *TObjLuker__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
+
+void TObjLuker__sub_801A0C38(Obj_801A0C38 *self, u16 i) {
+    if (self->parts[i] != 0) {
+        set_flag_4__9TObjLukerFPv(self->parts[i]);
+        disallow_rendering__7TObjectFv(self->parts[i]);
+    }
+}
 
 #pragma push
 #pragma opt_common_subs off

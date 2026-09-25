@@ -6,10 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct O_80110F04 { u8 pad[0x190]; f32 f190; f32 f194; };
 
+struct TItemMag_80110B94 { u8 pad[0x1a8]; void *subs[2]; };
+
 extern "C" {
 extern const f32 TItemMag__data_805DABA4;
 extern const f32 TItemMag__data_805DABA8;
 void TItemMag__sub_80110F04(O_80110F04 *self);
+void set_flags64__8TItemMagFPvUi(void *p, u32 v);
+void spawn_item_timer__13TItemAttackerFiii(void *a, void *fn, s32 t);
+void clear_flag2__11TItemMagSubFPv(void *arg0);
+void TItemMag__vt40(TItemMag_80110B94 *self);
 }
 
 extern "C" {
@@ -46,6 +52,16 @@ void call_preserve_flag__8TItemMagFPvi(void *arg0, s32 arg1) {
 void try_add_action__8TItemMagFii(s32 arg0, s32 arg1) {
     if (TItemMag__sub_801117C0() < 4) {
         fn_80100D9C(arg0, arg1);
+    }
+}
+
+void TItemMag__vt40(TItemMag_80110B94 *self) {
+    s32 i;
+    for (i = 0; i != 2; i++) {
+        if (self->subs[i] != 0) {
+            set_flags64__8TItemMagFPvUi(self->subs[i], 2);
+            spawn_item_timer__13TItemAttackerFiii(self->subs[i], (void *)clear_flag2__11TItemMagSubFPv, 0x1e);
+        }
     }
 }
 

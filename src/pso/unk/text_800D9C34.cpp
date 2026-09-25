@@ -78,6 +78,8 @@ struct RecoveredGlobal_800D9E8C_lbl_8058D490 {
     u8 remaining[0x2C];
 };
 
+struct Obj_800D9F4C { u8 pad[0x3b4]; s32 f3b4; };
+
 extern "C" {
 s32 TObjPlayer__sub_800DC420(void *, int);
 f32 TObjPlayer__sub_800DC434(void *, int);
@@ -96,6 +98,12 @@ M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
 extern RecoveredGlobal_800D9E8C_lbl_8058D490 lbl_8058D490;
 void TObjPlayer__sub_800D9E8C(u8 *arg0);
+extern s32 lbl_805D586C;
+extern s32 lbl_805D5870;
+void *get_player_data__10TObjPlayerFi(s32 i);
+s32 is_valid_and_active__10TObjPlayerFUi(void *p);
+void TObjPlayer__sub_800D9FC4(Obj_800D9F4C *self, void *p);
+s32 TObjPlayer__sub_800D9F4C(Obj_800D9F4C *self);
 }
 
 extern "C" {
@@ -131,6 +139,18 @@ void TObjPlayer__sub_800D9E8C(u8 *arg0) {
     TObjPlayer__sub_803D9B78();
     ((VObj_18_fe09eb *)(arg0))->m63(0x55, (u8 *)(arg0) + 0x39C);
     ((VObj_18_fe09eb *)(arg0))->m63(0x54, (u8 *)(arg0) + 0x3A8);
+}
+s32 TObjPlayer__sub_800D9F4C(Obj_800D9F4C *self) {
+    s32 i;
+    void *p;
+    self->f3b4 = 0;
+    for (i = 0; i < lbl_805D586C + lbl_805D5870; i++) {
+        p = get_player_data__10TObjPlayerFi(i);
+        if (is_valid_and_active__10TObjPlayerFUi(p) != 0) {
+            TObjPlayer__sub_800D9FC4(self, p);
+        }
+    }
+    return self->f3b4;
 }
 
 }

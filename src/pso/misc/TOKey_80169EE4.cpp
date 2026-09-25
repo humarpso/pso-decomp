@@ -25,11 +25,19 @@ struct VObj_8016A0E0_80169EE4 : Base_8016A0E0_80169EE4 {
 
 struct SwitchPacket {u8 code,words;u16 object,zero,reserved,switchId;u8 area,flags;};
 
+struct Self_8016A310 { u8 pad[0x38]; u8 pos[0xCC - 0x38]; f32 range; };
+
 extern "C" {
 void init_6x05_switch_changed__6TLobbyFPv(void*);
 void finalize_and_send_60__6TLobbyFPv(void*);
 s32 TObjPlayer__sub_800196EC();
 void send_switch_on__5TOKeyFv(void* key);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 TObjPlayer__sub_800196EC();
+s32 get_field_3e4__10TObjPlayerFPv(void *);
+f32 fn_801315A0(void *, void *);
+extern s32 lbl_805D53A0;
+s32 TOKey__sub_8016A310(Self_8016A310 *self);
 }
 
 extern "C" {
@@ -43,10 +51,8 @@ s32 is_confirm_pressed__5TOKeyFPv(void *arg0);
 s32 set_ready_if_pressed__5TOKeyFPv(void *arg0);
 void trigger_camera_pan__5TOKeyFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-s32 TOKey__sub_8016A310();
 s32 TObjPlayer__sub_800196EC();
 void *TPhotonMylla__sub_80154CB4(u16);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 M2C_UNK TSwitch__sub_80229258(u16, s32);
 M2C_UNK TSwitch__sub_802292E0(u16);
 M2C_UNK TSwitch__sub_80229318(u16, s32);
@@ -148,7 +154,7 @@ void trigger_camera_pan__5TOKeyFPvi(u8 *arg0, s32 arg1) {
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xD0);
     if ((temp_r0 != 2) && ((temp_r0 != 0) || ((s32) M2C_FIELD(arg0, s32 *, 0xD4) != 1))) {
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16)arg1);
+        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16)((u16)arg1));
         if (temp_r3 != 0) {
             start_camera_pan__10TObjPlayerFPvs(temp_r3, 0xC, calc_angle_to__10TObjPlayerFPvPv(temp_r3 + 0x38, arg0 + 0x38));
             M2C_FIELD(arg0, s32 *, 0xDC) = (s32) M2C_FIELD(arg0, s32 *, 0xD8);
@@ -170,6 +176,18 @@ void send_switch_on__5TOKeyFv(void* key) {
     finalize_and_send_60__6TLobbyFPv(&packet);
 }
 
+s32 TOKey__sub_8016A310(Self_8016A310 *self) {
+    u8 *p = (u8 *)((void *)TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0));
+    if (p != 0) {
+        if (get_field_3e4__10TObjPlayerFPv(p) == TObjPlayer__sub_800196EC()) {
+            if (fn_801315A0(p + 0x38, self->pos) < self->range * self->range) {
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+
 s32 is_confirm_pressed__5TOKeyFPv(void *arg0) {
     s32 temp_r0;
 
@@ -180,7 +198,7 @@ s32 is_confirm_pressed__5TOKeyFPv(void *arg0) {
     if ((temp_r0 == 0) && ((s32) M2C_FIELD(arg0, s32 *, 0xD4) == 1)) {
         return 0;
     }
-    if ((TOKey__sub_8016A310() != 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0)) {
+    if ((TOKey__sub_8016A310((Self_8016A310 *)(arg0)) != 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0)) {
         return 1;
     }
     return 0;

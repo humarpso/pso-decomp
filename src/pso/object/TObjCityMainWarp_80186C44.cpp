@@ -4,6 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Pkt_80186CC8 { u8 cmd; u8 size; u16 id; u16 value; u16 pad; };
+
+struct Obj_80186CC8 { u8 pad[0x1c]; u16 id; };
+
+extern "C" {
+void init_pkt_cmd_6A__19TWindowSubTradeMainFPv(void *p);
+void send_60_update__19TWindowSubTradeMainFPv(void *p);
+void TObjCityMainWarp__sub_80186CC8(Obj_80186CC8 *self, u16 value);
+}
+
 extern "C" {
 
 void close_windows__16TObjCityMainWarpFPv(void *arg0);
@@ -38,6 +48,14 @@ void close_windows__16TObjCityMainWarpFPv(void *arg0) {
     TWindowChat__sub_8024AD30(lbl_805D53A0);
     clear_flag__11TWindowCtrlFv();
     TWindowCtrl__sub_8024AEF0(lbl_805D53A0);
+}
+
+void TObjCityMainWarp__sub_80186CC8(Obj_80186CC8 *self, u16 value) {
+    Pkt_80186CC8 pkt;
+    init_pkt_cmd_6A__19TWindowSubTradeMainFPv(&pkt);
+    pkt.id = self->id;
+    pkt.value = value;
+    send_60_update__19TWindowSubTradeMainFPv(&pkt);
 }
 
 void notify_player_warp__16TObjCityMainWarpFPvi(void *arg0, s32 arg1) {

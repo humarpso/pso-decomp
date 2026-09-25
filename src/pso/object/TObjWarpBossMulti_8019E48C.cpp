@@ -4,6 +4,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Pkt_8019E6C0 { u8 cmd; u8 size; u16 id; u16 value; u16 pad; };
+
+struct Obj_8019E6C0 { u8 pad[0x1c]; u16 id; };
+
 extern "C" {
 s32 TObjPlayer__sub_800196EC();
 s32 get_field_3e4__10TObjPlayerFPv(s32);
@@ -14,6 +18,9 @@ s32 TObjWarpBossMulti__sub_8019E570(s32 arg0, f32 farg0);
 s32 get_main_phase();
 extern s32 lbl_805D55C0;
 s32 TObjWarpBossMulti__sub_8019E4B4(void);
+void init_pkt_cmd_6A__19TWindowSubTradeMainFPv(void *p);
+void send_60_update__19TWindowSubTradeMainFPv(void *p);
+void TObjWarpBossMulti__sub_8019E6C0(Obj_8019E6C0 *self, u16 value);
 }
 
 extern "C" {
@@ -84,6 +91,13 @@ void handle_6x6A_set_boss_warp_flags(void *arg0) {
     if (temp_r3 != NULL) {
         M2C_FIELD(temp_r3, s16 *, 0xDC) = (s16) M2C_FIELD(arg0, s16 *, 4);
     }
+}
+void TObjWarpBossMulti__sub_8019E6C0(Obj_8019E6C0 *self, u16 value) {
+    Pkt_8019E6C0 pkt;
+    init_pkt_cmd_6A__19TWindowSubTradeMainFPv(&pkt);
+    pkt.id = self->id;
+    pkt.value = value;
+    send_60_update__19TWindowSubTradeMainFPv(&pkt);
 }
 
 }

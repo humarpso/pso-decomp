@@ -9,6 +9,20 @@ struct VObj_801104C4_80110010 : Base_801104C4_80110010 {
     virtual int m1();
 };
 
+struct Node_801100F0 { u8 pad[0xC]; Node_801100F0 *next; u8 pad10[4]; Node_801100F0 *child; };
+
+struct Node_8011038C { u8 pad[0xC]; Node_8011038C *next; u8 pad10[4]; Node_8011038C *child; };
+
+extern "C" {
+s32 TItemLoad__sub_801107E4(void *p);
+extern u32 TItemLoad__data_805D5488;
+s32 TItemLoad__sub_801100F0(s32 id);
+s32 TItemLoad__sub_801107E4(void *p);
+void *TItemLoad__sub_801107EC(void *p);
+extern u32 TItemLoad__data_805D5488;
+void *TItemLoad__sub_8011038C(s32 id);
+}
+
 extern "C" {
 
 void *TItemLoad__sub_80110010(void *arg0, s16 arg1);
@@ -42,6 +56,18 @@ void *TItemLoad__sub_80110010(void *arg0, s16 arg1) {
 }
 
 extern s32 TItemLoad__data_805D5480;
+
+s32 TItemLoad__sub_801100F0(s32 id) {
+    Node_801100F0 *n;
+    if (TItemLoad__data_805D5488 != 0) {
+        for (n = ((Node_801100F0 *)TItemLoad__data_805D5488)->child; n != NULL; n = n->next) {
+            if (id == TItemLoad__sub_801107E4(n)) {
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
 
 void get_data_entry__9TItemLoadFiPv(s32 arg0, s32 *arg1) {
     if (arg1 != NULL) {
@@ -78,6 +104,18 @@ void get_model_ids__9TItemLoadFUcPvPv(u8 arg0, s32 *arg1, s32 *arg2) {
 
 extern void *TItemLoad__data_805D5484;
 extern u32 TItemLoad__data_805D5488;
+
+void *TItemLoad__sub_8011038C(s32 id) {
+    Node_8011038C *n;
+    if (TItemLoad__data_805D5488 != 0) {
+        for (n = ((Node_8011038C *)TItemLoad__data_805D5488)->child; n != NULL; n = n->next) {
+            if (id == TItemLoad__sub_801107E4(n)) {
+                return TItemLoad__sub_801107EC(n);
+            }
+        }
+    }
+    return NULL;
+}
 
 void update__9TItemLoadFv(void) {
     void *temp_r31;

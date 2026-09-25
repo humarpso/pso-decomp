@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int get_flag_0x388_b24__10TObjPlayerFPv(void *p);
+int update_if_active__15TObjEneMe1GiGueFPv(void*, int);
+void TObjPlayer__sub_8008E708(void *self);
+}
+
+extern "C" {
 
 struct VBase18_8008e74c_8008DCF0 { char pad[0x18]; };
 struct VObj18_8008e74c_8008DCF0 : VBase18_8008e74c_8008DCF0 {
@@ -49,6 +55,10 @@ extern const f32 lbl_805D9620;
 extern const f32 lbl_805D9628;
 extern const f32 lbl_805D963C;
 extern const f32 lbl_805D9640;
+
+void TObjPlayer__sub_8008E708(void *self) {
+    update_if_active__15TObjEneMe1GiGueFPv((void*)(self), (int)(get_flag_0x388_b24__10TObjPlayerFPv(self) ? 9 : 2));
+}
 
 void draw_main__10TObjPlayerFPv(u8 *arg0) {
     M2C_UNK var_r30;

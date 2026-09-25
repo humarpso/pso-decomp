@@ -71,6 +71,16 @@ struct EnemyControlDispatch : EnemyControlDispatchBase {
     virtual M2C_UNK m61();
 };
 
+struct Msg_800F641C { u8 code; u8 size; u16 id; s32 arg; };
+
+struct Obj_800F641C { u8 pad[0x1c]; u16 id; };
+
+extern "C" {
+void TLobby__sub_800F79C4(u8 *arg0);
+void broadcast_state__6TLobbyFPv(void* p);
+void TLobby__sub_800F641C(Obj_800F641C *self, s32 arg);
+}
+
 extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -180,6 +190,13 @@ void *TObjControl__ct(void *arg0) {
     M2C_FIELD(arg0, u16 *, 0x1C) = 2;
     M2C_FIELD(arg0, u16 *, 0x1E) = 0;
     return arg0;
+}
+void TLobby__sub_800F641C(Obj_800F641C *self, s32 arg) {
+    Msg_800F641C msg;
+    TLobby__sub_800F79C4((u8 *)&msg);
+    msg.id = self->id;
+    msg.arg = arg;
+    broadcast_state__6TLobbyFPv(&msg);
 }
 
 }

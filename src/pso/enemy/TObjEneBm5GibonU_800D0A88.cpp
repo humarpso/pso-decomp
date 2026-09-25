@@ -4,6 +4,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Vec_800D0AE8 { f32 x, y, z; };
+
+struct Obj_800D0AE8 { u8 pad[0x38]; Vec_800D0AE8 pos; };
+
+extern "C" {
+void VecCopy__FP3VecPC3Vec(Vec_800D0AE8 *dst, const Vec_800D0AE8 *src);
+int TObjEneBm5GibonU__sub_800CCC6C(void *, void *);
+extern const f32 lbl_805DA240;
+void TObjEneBm5GibonU__sub_800D0AE8(Obj_800D0AE8 *self, Vec_800D0AE8 *dir);
+}
+
 extern "C" {
 
 int is_active__16TObjEneBm5GibonUFPv(void* p);
@@ -19,6 +30,17 @@ int is_active__16TObjEneBm5GibonUFPv(void* p) { return *(u16*)((char*)p + 0x1c) 
 
 extern f32 lbl_805DA244;
 extern f32 lbl_805DA248;
+
+#pragma push
+#pragma fp_contract on
+void TObjEneBm5GibonU__sub_800D0AE8(Obj_800D0AE8 *self, Vec_800D0AE8 *dir) {
+    Vec_800D0AE8 v;
+    VecCopy__FP3VecPC3Vec(&v, &self->pos);
+    v.x = lbl_805DA240 * dir->x + v.x;
+    v.z = lbl_805DA240 * dir->z + v.z;
+    TObjEneBm5GibonU__sub_800CCC6C(self, &v);
+}
+#pragma pop
 
 void play_sound_variant__16TObjEneBm5GibonUFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x464) != 0) {

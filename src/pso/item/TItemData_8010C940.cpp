@@ -13,12 +13,12 @@ M2C_UNK memset(s8 *, M2C_UNK, M2C_UNK);
 void TItemData__sub_8010CA08(void *arg0, u32 arg1, u8 arg2);
 s32 TItemData__sub_8010CAB0(M2C_UNK arg0, s8 arg1);
 s32 TItemData__sub_8010CC68(u8 *arg0);
+s8 TItemData__sub_8010CACC(void *self, s8 c);
 }
 
 extern "C" {
 
 u32 TLobby__sub_80101AB0(u32);
-int TItemData__sub_8010CACC(void);
 int TItemData__sub_8010CB10(void);
 void TItemData__sub_8010CCB0(void);
 void TItemData__sub_8010CCB4(void);
@@ -77,7 +77,16 @@ s32 TItemData__sub_8010CAB0(M2C_UNK arg0, s8 arg1) {
     return (arg1 != 0) ? (s8) (arg1 + 0x40) : 0;
 }
 
-int TItemData__sub_8010CACC(void) { return 0; }
+s8 TItemData__sub_8010CACC(void *self, s8 c) {
+    s8 r = 0;
+    if (c >= 'a' && c <= 'z') {
+        r = c - 0x60;
+    } else if (c >= 'A' && c <= 'Z') {
+        r = c - 0x40;
+    }
+    return r;
+}
+
 int TItemData__sub_8010CB10(void) { return 0; }
 int TItemData__sub_8010CBAC(void * _w0, s8 * _w1) { return 0; }
 

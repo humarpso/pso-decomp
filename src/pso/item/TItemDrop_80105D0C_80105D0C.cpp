@@ -5,6 +5,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TLobby__sub_8030A7B0();
+s32 get_instance__6TLobbyFv();
+s32 TItemDrop__sub_80105D60(void);
+void *memset(void *dst, int c, u32 n);
+void init_drop_table__9TItemDropFv(void);
+extern u8 *TItemDrop__data_805D5468;
+extern u8 *TItemDrop__data_805D546C;
+void TItemDrop__sub_801063D8(void);
+s32 get_task_id__14TFontSmallTaskFPv(void *p);
+s32 calc_drop_offset__9TItemDropFi(s32 arg0);
+s32 TItemDrop__sub_80105D60(void);
+void TItemDrop__vt0(void);
+extern u8 TLobby__data_805011D8[];
+extern s32 lbl_805D2B78;
+extern s32 TItemDrop__data_805D5470;
+extern s32 TItemDrop__data_805D5474;
+void TItemDrop__sub_8010643C(void);
+}
+
+extern "C" {
 
 void TItemDrop__sub_80105D0C(void);
 void TItemDrop__sub_80105D10(void);
@@ -31,6 +51,21 @@ void TItemDrop__sub_80105D10(void) { lbl_805D5450 = 0; }
 void clear_item_if_player_picked_up__9TItemDropFPvPv(void* p, void* a1) { if (TObjPlayer__sub_8011C030(a1) == 1) { TItemData__sub_8010C638(a1, (void*)0); } }
 
 extern s32 lbl_805D5550;
+
+s32 TItemDrop__sub_80105D60(void) {
+    s32 f = 0;
+    if (TLobby__sub_8030A7B0() == 1) {
+        f |= 1;
+    } else {
+        f &= ~1;
+    }
+    if (get_instance__6TLobbyFv() == 1) {
+        f |= 2;
+    } else {
+        f &= ~2;
+    }
+    return f;
+}
 
 s32 calc_drop_offset__9TItemDropFi(s32 arg0) {
     s32 var_r31;
@@ -97,6 +132,25 @@ void init_drop_table__9TItemDropFv(void) {
         *var_r30 = TObjPlayer__sub_8011C914(var_r31 + 0x2AF);
         var_r30 += 1;
         var_r31 += 1;
+    }
+}
+void TItemDrop__sub_801063D8(void) {
+    s32 i;
+    u8 v;
+    memset(TItemDrop__data_805D546C, 0, 0xD);
+    init_drop_table__9TItemDropFv();
+    for (i = 0; i < 0x88; i++) {
+        v = TItemDrop__data_805D5468[i];
+        if (v < 0xD) {
+            TItemDrop__data_805D546C[v]++;
+        }
+    }
+}
+void TItemDrop__sub_8010643C(void) {
+    if (lbl_805D2B78 != calc_drop_offset__9TItemDropFi(get_task_id__14TFontSmallTaskFPv(TLobby__data_805011D8)) ||
+        TItemDrop__data_805D5470 != TItemDrop__sub_80105D60()) {
+        TItemDrop__data_805D5474 = get_task_id__14TFontSmallTaskFPv(TLobby__data_805011D8);
+        TItemDrop__vt0();
     }
 }
 

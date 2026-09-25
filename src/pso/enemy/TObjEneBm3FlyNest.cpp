@@ -112,6 +112,8 @@ struct VObj_18 : VBase_18 {
     virtual M2C_UNK m102();
 };
 
+struct Obj_800B3E40 { u8 pad[0x18]; void *vtbl; u8 pad2[0x440 - 0x1c]; u8 arr[4][0x1c]; };
+
 extern "C" {
 s32 TObjEneBm3FlyNest__sub_800B3AC8(u8 *arg0);
 void TObjEneBm3FlyNest__sub_800B3ADC(u8 *arg0);
@@ -131,6 +133,13 @@ s32 state_wait__17TObjEneBm3FlyNestFPvi(void *, void *);
 s32 TObjEneBm3FlyNest__sub_800B34F0(void *, void *);
 s32 TObjEneBm3FlyNest__sub_800B36F8(void *, void *);
 void TObjEneBm3FlyNest__sub_800B3CC0(s32 arg0, u32 arg1, s32 arg2);
+extern u8 lbl_80491EE4[];
+void TObjEneGibbles__sub_80156720(void *);
+void TObjPlayer__sub_800D7C58(void *);
+void __destroy_arr(void *, void *, u32, u32);
+void TObjEneDD__vt0(void *, int);
+void __dl__7TObjectFPv(void *);
+Obj_800B3E40 *TObjEneBm3FlyNest__sub_800B3E40(Obj_800B3E40 *self, s16 flag);
 }
 
 extern "C" {
@@ -300,6 +309,19 @@ void TObjEneBm3FlyNest__sub_800B3D70(u8 *arg0) {
     ((VObj_18 *)(arg0))->m98();
 }
 #pragma pop
+
+Obj_800B3E40 *TObjEneBm3FlyNest__sub_800B3E40(Obj_800B3E40 *self, s16 flag) {
+    if (self != 0) {
+        self->vtbl = lbl_80491EE4;
+        TObjEneGibbles__sub_80156720(self);
+        __destroy_arr(self->arr, (void *)TObjPlayer__sub_800D7C58, 0x1c, 4);
+        TObjEneDD__vt0(self, 0);
+        if (flag > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
+}
 
 int TObjEneBm3FlyNest__sub_800B4158(void) {  return lbl_805D5108; }
 

@@ -25,6 +25,28 @@ struct VObj_80118A48_8011892C : Base_80118A48_8011892C {
 };
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Base_80118958 { char pad[0x18]; };
+
+struct VObj_80118958 : Base_80118958 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
+    virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27();
+    virtual void m28(); virtual void m29(); virtual void m30();
+    virtual s32 m31();
+};
+
+struct Self_80118958 : VObj_80118958 { u8 pad[0x1bc - 0x1c]; s16 s1bc; };
+
+struct Out_80118958 { u8 pad[4]; s8 b4; };
+
+struct Data_80118A78 { u8 pad[0x7cc]; u8 unit[4]; };
+
+struct Self_80118A78 { u8 pad[0xf0]; Data_80118A78 *data; u8 padf4[0x18c - 0xf4]; s16 s18c; u8 pad18e[0x1b8 - 0x18e]; f32 evp; };
+
 extern "C" {
 void TItemProUnit__vt12(u8 *arg0);
 s32 get_id__13TItemProArmorFPv(void *);
@@ -38,6 +60,11 @@ M2C_UNK set_flags__10TObjPlayerFPvUi(void *, int);
 extern const f32 TItemProUnit__data_805DABF8;
 extern const f32 lbl_805DAC00;
 void TItemProUnit__sub_80118D58(u8 *arg0);
+void TItemData__sub_8010CDC8(Out_80118958 *out, s16 v);
+void TItemProUnit__vt16(Self_80118958 *self, Out_80118958 *out);
+f32 TItemProUnit__sub_8011901C(void *);
+void set_evp__12TItemProUnitFPvf(void *, f32);
+void TItemProUnit__vt14(Self_80118A78 *self);
 }
 
 extern "C" {
@@ -84,6 +111,11 @@ void TItemProUnit__vt12(u8 *arg0) {
     }
 }
 
+void TItemProUnit__vt16(Self_80118958 *self, Out_80118958 *out) {
+    out->b4 = (s8)self->m31() - 9;
+    TItemData__sub_8010CDC8(out, self->s1bc);
+}
+
 void TItemProUnit__vt43(void *arg0) {
     struct VObj_80118A48_8011892C *o = (struct VObj_80118A48_8011892C *)arg0;
     o->m17(9);
@@ -92,6 +124,14 @@ void TItemProUnit__vt43(void *arg0) {
 extern M2C_UNK __vt__12TItemProUnit[];
 extern s32 lbl_805D2C40;
 extern const f32 TItemProUnit__data_805DABF8;
+
+void TItemProUnit__vt14(Self_80118A78 *self) {
+    if (self->s18c == 0x13) {
+        if (TItemProUnit__sub_8011901C(self->data->unit) < self->evp) {
+            set_evp__12TItemProUnitFPvf(self->data->unit, self->evp);
+        }
+    }
+}
 
 void TItemProUnit__vt42(u8 *arg0) {
   s16 temp_r0;

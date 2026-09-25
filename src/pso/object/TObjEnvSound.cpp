@@ -4,11 +4,19 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct Pkt_80190BA0 { u32 header; s32 target; s32 event; };
+
 extern "C" {
 s32 fn_80190884(void *, int);
 s32 fn_801908F8(f32);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
 void run_task__12TObjEnvSoundFv(u8 *arg0);
+void byteswap_event_packet__6TLobbyFi(Pkt_80190BA0 *pkt);
+s32 TObjPlayer__sub_800196EC(void);
+void TLobby__sub_80208B7C(s32, s32, s32);
+void TLobby__sub_80208C78(s32, s32);
+void handle_6x67_trigger_set_event(Pkt_80190BA0 *pkt);
 }
 
 extern "C" {
@@ -50,6 +58,14 @@ void *__dt__12TObjEnvSoundFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+void handle_6x67_trigger_set_event(Pkt_80190BA0 *pkt) {
+    byteswap_event_packet__6TLobbyFi(pkt);
+    if (pkt->target != TObjPlayer__sub_800196EC()) {
+        TLobby__sub_80208B7C(pkt->target, pkt->event, 4);
+    } else {
+        TLobby__sub_80208C78(pkt->target, pkt->event);
+    }
 }
 
 }

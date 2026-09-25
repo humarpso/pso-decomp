@@ -20,6 +20,16 @@ struct RecoveredGlobal_800A6BE0_lbl_80500978 {
     u8 remaining[0xC];
 };
 
+struct Vec_800A6B14 { f32 x, y, z; };
+
+struct Tgt_800A6B14 { u8 pad[0x2fc]; Vec_800A6B14 pos; };
+
+struct Obj_800A6B14 {
+    u8 pad[0x60]; s32 angle;
+    u8 pad2[0x2a8 - 0x64]; Tgt_800A6B14 *target;
+    u8 pad3[0x2fc - 0x2ac]; Vec_800A6B14 pos;
+};
+
 extern "C" {
 M2C_UNK TObjBoss2Tunnel__sub_8007E884(void *, void *, void *);
 M2C_UNK TObjContainerIdo__sub_803D96A8(int, void *);
@@ -29,6 +39,13 @@ extern s32 lbl_805D505C;
 extern s32 lbl_805D5060;
 extern const f32 lbl_805D9A14;
 void TObjPlayer__sub_800A6BE0(void);
+void VecCopy__FP3VecPC3Vec(Vec_800A6B14 *dst, const Vec_800A6B14 *src);
+f32 TBoss6Type1__sub_803D9370(void *, void *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 TBoss4Type2__sub_80141FA8(s32, s32);
+void step_angle_clamped__10TObjPlayerFPvi(void *arg0, s32 arg1);
+extern const f64 lbl_8043A8D0;
+void TObjPlayer__sub_800A6B14(Obj_800A6B14 *self);
 }
 
 extern "C" {
@@ -151,6 +168,14 @@ void TObjPlayer__sub_800A64E8(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x374) = (s32) (M2C_FIELD(arg0, s32 *, 0x374) | 0x40);
         break;
     }
+}
+
+void TObjPlayer__sub_800A6B14(Obj_800A6B14 *self) {
+    Vec_800A6B14 d;
+    VecCopy__FP3VecPC3Vec(&d, &self->target->pos);
+    TBoss6Type1__sub_803D9370(&d, &self->pos);
+    step_angle_clamped__10TObjPlayerFPvi(self,
+        TBoss4Type2__sub_80141FA8(self->angle, (s32)(lbl_8043A8D0 * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z))));
 }
 
 void step_angle_clamped__10TObjPlayerFPvi(void *arg0, s32 arg1) {

@@ -12,6 +12,8 @@ struct O_800BFB8C { u8 pad[0x24]; s32 f24; u8 pad2[0xc]; s32 f34; };
 
 struct O_800BFB68 { u8 pad[0x3d4]; s32 arr[12]; };
 
+struct Obj_800BEE2C { u8 pad[0xb8]; s16 fb8; u8 pad2[0x326 - 0xba]; s16 f326; s16 f328; u8 pad3[0x3ac - 0x32a]; s32 f3ac; };
+
 extern "C" {
 s32 TObjEneDellBiter__sub_80087350(s32, s32);
 void refresh_lobby_state__10TObjPlayerFPv(void *);
@@ -33,6 +35,7 @@ void TObjGrass__sub_800BCE44(u8 *arg0);
 extern u32 TObjGrass__data_805D5154;
 void TObjGrass__sub_800BFB8C(O_800BFB8C *self, s32 i);
 void TObjGrass__sub_800BFB68(O_800BFB68 *self);
+void TObjGrass__vt56(Obj_800BEE2C *self);
 }
 
 extern "C" {
@@ -195,6 +198,34 @@ void TObjGrass__vt57(void *arg0) {
         }
         M2C_FIELD(arg0, s16 *, 0x328) = 0;
         obj_clearFlags30((void *)(arg0), (u32)(0x04040000));
+    }
+}
+
+void TObjGrass__vt56(Obj_800BEE2C *self) {
+    switch (self->f326) {
+    case 0:
+        switch (self->f328) {
+        case 0:
+        case 1:
+            break;
+        default:
+            self->f328 = 2;
+        case 2:
+            if (self->f3ac != 0) {
+                self->f328 = 0;
+            }
+            break;
+        }
+        break;
+    default:
+        self->f326 = 0;
+        if (self->f3ac != 0) {
+            self->f328 = 0;
+        } else {
+            self->f328 = 2;
+        }
+        self->fb8 = 1;
+        break;
     }
 }
 

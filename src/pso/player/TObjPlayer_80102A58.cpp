@@ -5,6 +5,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u32 alloc_buffer__11TOBoss4RockFPv(s32 size);
+void *memset(void *dst, int c, u32 n);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(s32 size);
+u32 init_bosses__6TLobbyFPv(void *p);
+void alloc_and_init_object_b4__10TObjPlayerFv(void);
+void alloc_and_run_object__10TObjPlayerFv(void);
+void TObjPlayer__sub_801058AC(void);
+void inc_player_count__10TObjPlayerFv(void);
+extern s32 lbl_805D53F0;
+extern u32 lbl_805D53F4;
+extern u32 lbl_805D5400;
+void TObjPlayer__sub_80102B44(void);
+}
+
+extern "C" {
 
 int TObjPlayer__sub_80102BD0(void);
 int TObjPlayer__sub_80102BD8(void);
@@ -82,6 +97,22 @@ void free_globals__10TObjPlayerFv(void) {
 }
 
 extern M2C_UNK lbl_805D53EC;
+
+void TObjPlayer__sub_80102B44(void) {
+    void *p;
+    lbl_805D53F0 = 0;
+    lbl_805D53F4 = alloc_buffer__11TOBoss4RockFPv(0x1000);
+    memset((void *)lbl_805D53F4, 0, 0x1000);
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(1);
+    if (p != NULL) {
+        p = (void *)init_bosses__6TLobbyFPv(p);
+    }
+    lbl_805D5400 = (u32)p;
+    alloc_and_init_object_b4__10TObjPlayerFv();
+    alloc_and_run_object__10TObjPlayerFv();
+    TObjPlayer__sub_801058AC();
+    inc_player_count__10TObjPlayerFv();
+}
 
 void init_forward_default__10TObjPlayerFv(void) {
     init_forward__10TObjPlayerFPv(&lbl_805D53EC);

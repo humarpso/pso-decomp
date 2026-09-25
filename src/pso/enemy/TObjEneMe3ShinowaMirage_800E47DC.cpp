@@ -534,6 +534,10 @@ struct RecoveredFields_800E50D8_arg0
   s32 field_404;
 };
 
+struct Info_800E6F0C { u8 pad[0x18]; s32 frame; };
+
+struct Obj_800E6F0C { u8 pad[0x38]; u8 pos[0x3c0 - 0x38]; s32 kind; };
+
 extern "C" {
 extern const f32 TObjEneMe3ShinowaMirage__data_805DA5DC;
 s32 TObjEneMe3ShinowaMirage__sub_800E6FE0(u8 *arg0);
@@ -561,6 +565,10 @@ M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TBoss1Dragon__sub_80143504(void *, s32);
 void TObjEneMe3ShinowaMirage__sub_800E50D8(u8 *arg0, s32 arg1);
+s32 clamp_frame_index__9TObjEneDDFi(s32);
+s32 create__9TTecRestaFPvPvPv(void *, void *, int);
+extern Info_800E6F0C *TObjEneMe3ShinowaMirage__data_80500FE4[];
+void TObjEneMe3ShinowaMirage__sub_800E6F0C(Obj_800E6F0C *self);
 }
 
 extern "C" {
@@ -773,6 +781,12 @@ void action__23TObjEneMe3ShinowaMirageFPvi(u8 *arg0, s32 arg1) {
 }
 
 typedef char RecoveredGlobal_800F4758_lbl_8050110C_size[sizeof(RecoveredGlobal_800F4758_lbl_8050110C) == 0x14 ? 1 : -1];
+
+void TObjEneMe3ShinowaMirage__sub_800E6F0C(Obj_800E6F0C *self) {
+    s32 f = clamp_frame_index__9TObjEneDDFi(TObjEneMe3ShinowaMirage__data_80500FE4[self->kind]->frame);
+    create__9TTecRestaFPvPvPv(self, self->pos, f);
+}
+
 void TObjEneMe3ShinowaMirage__sub_800E6F64(u8 *arg0) {
     if (TObjEneMe3ShinowaMirage__sub_800E6FE0((u8 *)((void *) (arg0))) != 0) {
         M2C_FIELD(arg0, M2C_UNK **, 0x24) = &lbl_80500FEC.value;

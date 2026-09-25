@@ -95,10 +95,32 @@ struct VObj_18 : VBase_18 {
     virtual void m76();
     virtual M2C_UNK m77();
 };
+
+struct Obj_80188884 { u8 pad0[0x38]; u8 pos[0x28]; s32 id; u8 pad1[0x326 - 0x64]; s16 state; };
+
+struct Obj_80188814 { u8 pad0[0x38]; u8 pos[0x4c]; s32 id; };
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
 void TObjContainerAbeEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2);
+s32 set_global_param__8TObjFishFi(s32);
+s32 TObjPlayer__sub_803D9B2C();
+s32 TOHangerMachine01__sub_803D9C00(void *);
+s32 TObjPlayer__sub_803D9214(s32, s32);
+void dispatch_fish_event__6TLobbyFPv(void *a0);
+void fn_801FBA6C(void);
+s32 TObjPlayer__sub_803D9B78();
+extern void *lbl_805D5B88;
+extern s32 lbl_805D5B8C;
+void TObjContainerAbeEnemy__vt79(Obj_80188884 *self);
+void set_global_count__12TObjNpcEnemyFi(s32 arg0);
+void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void TObjRoomId__sub_80141CF4(void *dst, void *src, f32 t);
+extern char lbl_80444EF4[];
+extern u8 lbl_804A7448[];
+extern const f32 lbl_805DBCF8;
+void TObjContainerAbeEnemy__vt80(Obj_80188814 *self);
 }
 
 extern "C" {
@@ -200,6 +222,31 @@ void TObjContainerAbeEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
         set_flag8__6TLobbyFPv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
         M2C_FIELD(arg0, s16 *, 0x326) = 1;
+    }
+}
+
+void TObjContainerAbeEnemy__vt80(Obj_80188814 *self) {
+    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_80444EF4, self->id);
+    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+    TObjRoomId__sub_80141CF4(self->pos, lbl_804A7448, lbl_805DBCF8);
+}
+
+void TObjContainerAbeEnemy__vt79(Obj_80188884 *self) {
+    if (lbl_805D5B88 != 0) {
+        switch (self->state) {
+        case 0:
+            set_global_param__8TObjFishFi(lbl_805D5B8C);
+            TObjPlayer__sub_803D9B2C();
+            TOHangerMachine01__sub_803D9C00(self->pos);
+            TObjPlayer__sub_803D9214(0, self->id);
+            dispatch_fish_event__6TLobbyFPv((void *)2);
+            fn_801FBA6C();
+            TObjPlayer__sub_803D9B78();
+            break;
+        case 1:
+            break;
+        }
     }
 }
 

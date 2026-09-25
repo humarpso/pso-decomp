@@ -3,10 +3,25 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct TItemShootParticle_8011B77C { u8 pad[0x18]; void *vt; u8 pad1c[0x58 - 0x1c]; u32 parts[2]; };
+
+struct TItemShootParticle_8011B7FC { u32 f0; u8 pad4[0x14]; void *vt; u8 pad1c[0x58 - 0x1c]; void *parts[2]; s16 s60; };
+
 extern "C" {
 void request_destroy__11TBoss4Type2FUi(u32);
 s32 TObjParticle__sub_800870BC(s32, s32, s32, s32);
 s32 TItemShootParticle__sub_8011B704(u8 *arg0, s32 arg1, s32 arg2);
+void request_destroy__11TBoss4Type2FUi(u32);
+void __dt__10TItemShootFv(void *self, s32 flag);
+void __dl__7TObjectFPv(void *p);
+extern void *__vt__18TItemShootParticle[];
+TItemShootParticle_8011B77C *__dt__18TItemShootParticleFv(TItemShootParticle_8011B77C *self, s16 flag);
+void __ct__10TItemShootFPvPC3VecPC3Vecf(void *self, void *a, void *b, void *c, f32 f);
+void disallow_rendering__7TObjectFv(void *self);
+extern void *__vt__18TItemShootParticle[];
+extern u32 lbl_805D2C68;
+TItemShootParticle_8011B7FC *TItemShootParticle__ct(TItemShootParticle_8011B7FC *self, void *a, void *b, void *c, f32 f);
 }
 
 extern "C" {
@@ -24,5 +39,32 @@ s32 TItemShootParticle__sub_8011B704(u8 *arg0, s32 arg1, s32 arg2) {
     return 0;
 }
 #pragma pop
+
+TItemShootParticle_8011B77C *__dt__18TItemShootParticleFv(TItemShootParticle_8011B77C *self, s16 flag) {
+    s32 i;
+    if (self != 0) {
+        self->vt = __vt__18TItemShootParticle;
+        for (i = 0; i != 2; i++) {
+            request_destroy__11TBoss4Type2FUi(self->parts[i]);
+        }
+        __dt__10TItemShootFv(self, 0);
+        if (flag > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
+}
+TItemShootParticle_8011B7FC *TItemShootParticle__ct(TItemShootParticle_8011B7FC *self, void *a, void *b, void *c, f32 f) {
+    s32 i;
+    __ct__10TItemShootFPvPC3VecPC3Vecf(self, a, b, c, f);
+    self->vt = __vt__18TItemShootParticle;
+    self->f0 = lbl_805D2C68;
+    self->s60 = 0;
+    for (i = 0; i < 2; i++) {
+        self->parts[i] = 0;
+    }
+    disallow_rendering__7TObjectFv(self);
+    return self;
+}
 
 }

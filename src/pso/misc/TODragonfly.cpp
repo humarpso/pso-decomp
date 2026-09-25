@@ -28,6 +28,8 @@ struct RecoveredGlobal_80164764_lbl_8058D490 {
 
 struct RecoveredGlobal_80164DEC___vt__11TODragonfly { M2C_UNK value; u8 remaining[0x38]; };
 
+struct Self_8016492C { u8 pad[0x38]; u8 pos[0x70 - 0x38]; f32 radius; u8 pad74[0xAC - 0x74]; s32 state; u8 padb0[0xD4 - 0xB0]; u8 target[0xE0 - 0xD4]; u8 vec[0xC]; };
+
 extern "C" {
 s32 TODragonfly__sub_80158360(s32, f32);
 s32 rand__11TOBoss4RockFv(void);
@@ -80,6 +82,10 @@ extern const f32 lbl_805DB57C;
 extern const f32 lbl_805DB580;
 extern const f32 lbl_805DB594;
 u8 *TODragonfly__ct(u8 *arg0);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 TBoss4Zako__sub_803D8910(void *, void *);
+extern const f32 lbl_805DB584;
+void TODragonfly__sub_8016492C(Self_8016492C *self);
 }
 
 extern "C" {
@@ -102,7 +108,6 @@ void *__dt__11TODragonflyFv(void *arg0, s16 arg1);
 void draw_model__11TODragonflyFPv(u8 *arg0);
 void update__11TODragonflyFPv(void *arg0);
 f32 TBoss8Dragon__sub_803D64C0(s32);
-M2C_UNK TODragonfly__sub_8016492C(void *);
 M2C_UNK TODragonfly__sub_80164A90(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
@@ -145,6 +150,15 @@ s32 TODragonfly__sub_80164764(u8 *arg0, f32 farg0) {
         return 1;
     }
     return 0;
+}
+
+void TODragonfly__sub_8016492C(Self_8016492C *self) {
+    f32 d = TObjPlayer__sub_80141CF8(self->target, self->pos);
+    if (d < (lbl_805DB584 + self->radius) * (lbl_805DB584 + self->radius)) {
+        self->state = 2;
+    } else {
+        TBoss4Zako__sub_803D8910(self->pos, self->vec);
+    }
 }
 
 #pragma push
@@ -221,7 +235,7 @@ void update__11TODragonflyFPv(void *arg0) {
         TODragonfly__sub_80164990((u8 *)(arg0));
         return;
     case 3:
-        TODragonfly__sub_8016492C(arg0);
+        TODragonfly__sub_8016492C((Self_8016492C *)(arg0));
         return;
     }
 }

@@ -33,6 +33,10 @@ struct RecoveredGlobal_8016B6A4_lbl_804B2A8C { M2C_UNK value; u8 remaining[0x28]
 
 struct RecoveredGlobal_8016B6A4___vt__14TOKeyAncient02 { M2C_UNK value; u8 remaining[0x6C]; };
 
+struct Pkt_8016B84C { u8 code, words; u16 object, zero, reserved, switchId; u8 area, flags; };
+
+struct Self_8016B84C { u8 pad[0x1C]; u16 id; u8 pad1e[0xC8 - 0x1E]; s32 switchId; };
+
 extern "C" {
 s32 is_split_screen();
 s32 TOKey__sub_8016A280(void *);
@@ -77,6 +81,11 @@ extern const f32 TOKeyAncient02__data_805DB70C;
 extern const f32 lbl_805DB710;
 extern const f32 lbl_805DB714;
 u8 *TOKeyAncient02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+void init_6x05_switch_changed__6TLobbyFPv(void *);
+void finalize_and_send_60__6TLobbyFPv(void *);
+s32 TObjPlayer__sub_800196EC();
+extern s32 lbl_805D53A0;
+void TOKeyAncient03__sub_8016B84C(Self_8016B84C *self, s32 flags);
 }
 
 extern "C" {
@@ -254,6 +263,16 @@ s32 TOKeyAncient03__vt13(u8 *arg0) {
         break;
     }
     return var_r31;
+}
+void TOKeyAncient03__sub_8016B84C(Self_8016B84C *self, s32 flags) {
+    Pkt_8016B84C pkt;
+    init_6x05_switch_changed__6TLobbyFPv(&pkt);
+    pkt.object = self->id;
+    pkt.zero = lbl_805D53A0;
+    pkt.switchId = self->switchId;
+    pkt.area = TObjPlayer__sub_800196EC();
+    pkt.flags = flags;
+    finalize_and_send_60__6TLobbyFPv(&pkt);
 }
 
 }

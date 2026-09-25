@@ -7,6 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 TObjPlayer__sub_80104A94(void *, void *, s32);
 s32 TObjPlayer__sub_801049C8(u8 *arg0, u8 *arg1);
+M2C_UNK TObjPlayer__sub_8011C8BC(u8, s16 *, s16 *);
+u8 TObjPlayer__sub_8010494C(u8 arg0);
 }
 
 extern "C" {
@@ -53,6 +55,24 @@ u8 find_adjacent_matching_slot__10TObjPlayerFUc(u8 arg0) {
     }
     return arg0;
 }
+
+u8 TObjPlayer__sub_8010494C(u8 arg0) {
+    s16 spC;
+    s16 spA;
+    s16 sp8;
+    int next;
+    TObjPlayer__sub_8011C8BC(arg0, &spC, &sp8);
+    next = (u8)arg0 + 1;
+    TObjPlayer__sub_8011C8BC((u8)next, &spA, &sp8);
+    if ((spC != -1) && (spA != -1)) {
+        if (spC == spA) {
+            return (u8)next;
+        }
+        return arg0;
+    }
+    return arg0;
+}
+
 s32 TObjPlayer__sub_801049C8(u8 *arg0, u8 *arg1) {
   s32 var_r3;
   u8 var_r5;

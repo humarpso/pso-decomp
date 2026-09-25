@@ -42,6 +42,10 @@ s32 TWindowSubComCard__sub_80265BF8(void *);
 extern RecoveredGlobal_8018605C_lbl_804447F4 lbl_804447F4;
 extern RecoveredGlobal_8018605C_lbl_80444834 lbl_80444834;
 s32 TObjCityMainWarp__vt15(u8 *arg0);
+s32 get_instance__6TLobbyFv(void);
+void set_active_bit__16TObjCityMainWarpFv(s32 id);
+s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
+void TObjCityMainWarp__sub_801865B4(s32 id);
 }
 
 extern "C" {
@@ -165,6 +169,24 @@ void *__dt__16TObjCityMainWarpFv(void *arg0, s16 arg1) {
 }
 
 extern s32 TObjCityMainWarp__data_805D5B50;
+
+void TObjCityMainWarp__sub_801865B4(s32 id) {
+    if (get_instance__6TLobbyFv() == 0) {
+        set_active_bit__16TObjCityMainWarpFv(id);
+        if (id == 8) {
+            dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x30);
+        }
+    } else {
+        switch (id) {
+        case 5: case 6: case 7: case 8: case 9:
+        case 12: case 13: case 14: case 15:
+            break;
+        default:
+            set_active_bit__16TObjCityMainWarpFv(id);
+            break;
+        }
+    }
+}
 
 void TObjCityMainWarp__sub_80186634(void) { TObjCityMainWarp__data_805D5B50 = 0; }
 

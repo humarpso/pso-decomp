@@ -156,6 +156,8 @@ struct VObj_80094BA4_80094994 : Base_80094BA4_80094994 {
     virtual s32  m97();
 };
 
+struct Obj_80094D3C { u8 pad[0x438]; void *parts[2]; };
+
 extern "C" {
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
@@ -178,6 +180,16 @@ void state_attack__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1);
 void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 arg2);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 void TObjEneRe7Berura__sub_80094A9C(void *self, s32 msg);
+int TObjEneDD__sub_800B9E84(void *self, void *a, void *b, void *c);
+extern s32 TObjEneRe7Berura__data_80439DA8[];
+extern s32 TObjEneRe7Berura__data_80439DB0[];
+extern s32 TObjEneRe7Berura__data_80439DB8[];
+extern void *TObjEneRe7Berura__data_805D4F58[2];
+extern void *TObjEneRe7Berura__data_805007D4[];
+extern void *TObjEneRe7Berura__data_805D4F5C[2];
+void TObjEneRe7Berura__sub_80094CD0(void *self);
+void queue_destruction__7TObjectFv(void *);
+void TObjEneRe7Berura__sub_80094D3C(Obj_80094D3C *self);
 }
 
 extern "C" {
@@ -288,6 +300,22 @@ void TObjEneRe7Berura__sub_80094BFC(u8 *arg0) {
     }
 }
 #pragma pop
+
+void TObjEneRe7Berura__sub_80094CD0(void *self) {
+    TObjEneDD__sub_800B9E84(self, TObjEneRe7Berura__data_805D4F58[TObjEneRe7Berura__data_80439DA8[1]],
+                            TObjEneRe7Berura__data_805007D4[TObjEneRe7Berura__data_80439DB0[1]],
+                            TObjEneRe7Berura__data_805D4F5C[TObjEneRe7Berura__data_80439DB8[1]]);
+}
+
+void TObjEneRe7Berura__sub_80094D3C(Obj_80094D3C *self) {
+    s32 i;
+    for (i = 0; i < 2; i++) {
+        if (self->parts[i] != 0) {
+            queue_destruction__7TObjectFv(self->parts[i]);
+            self->parts[i] = 0;
+        }
+    }
+}
 
 #pragma push
 #pragma opt_common_subs off

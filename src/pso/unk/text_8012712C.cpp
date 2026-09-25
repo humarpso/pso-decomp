@@ -3,14 +3,36 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct Self_8012712C { u8 pad[0x18]; void *vt; u8 pad1c[0x1e4 - 0x1c]; f32 f1e4; u8 pad1e8[0x1f0 - 0x1e8]; void *f1f0; };
+
 extern "C" {
-u8 * TObjPlayer__sub_8012712C(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_801271A4(u8 *arg0);
+void TObjPlayer__sub_80120D50(void *, s32, void *);
+void set_status_flags__10TObjPlayerFPvUi(void *, u32);
+u8 get_slot_count__14TItemProShieldFPv(void *);
+void fn_80109710(void);
+extern void *lbl_804A3070[];
+extern const f32 lbl_805DADB8;
+u8 *TObjPlayer__sub_8012712C(void *self_, s32 a, void *b);
 }
 
 extern "C" {
+
+u8 *TObjPlayer__sub_8012712C(void *self_, s32 a, void *b) {
+    Self_8012712C *self = (Self_8012712C *)self_;
+    TObjPlayer__sub_80120D50(self, a, b);
+    self->vt = lbl_804A3070;
+    set_status_flags__10TObjPlayerFPvUi(self, 2);
+    if (get_slot_count__14TItemProShieldFPv(self) == 0) {
+        set_status_flags__10TObjPlayerFPvUi(self, 0x20);
+        self->f1f0 = (void *)fn_80109710;
+        self->f1e4 = lbl_805DADB8;
+    }
+    return (u8 *)self;
+}
 
 u8 *TObjPlayer__sub_801271A4(u8 *arg0) {
     u8 *temp_r3;
@@ -19,7 +41,7 @@ u8 *TObjPlayer__sub_801271A4(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(TObjPlayer__sub_8012712C(temp_r3, tl_05, arg0));
+            var_r0 = (u8 *)(TObjPlayer__sub_8012712C((void *)(temp_r3), (s32)(tl_05), (void *)(arg0)));
         }
         return var_r0;
     }

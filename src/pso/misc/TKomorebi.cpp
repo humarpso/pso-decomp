@@ -31,6 +31,12 @@ extern M2C_UNK __vt__9TKomorebi[];
 extern s32 lbl_805D339C;
 extern u32 lbl_805D5C20;
 u8 *TKomorebi__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+extern u8 lbl_804B7ED8[];
+extern u32 lbl_805D5C20;
+extern s32 lbl_805D5C24;
+void TKomorebi__sub_801923DC(void);
 }
 
 extern "C" {
@@ -130,6 +136,14 @@ void free_static__9TKomorebiFv(void) {
         TLobby__sub_8001FE7C((void*)lbl_805D5C20, 1);
         lbl_805D5C20 = 0U;
     }
+    lbl_805D5C24 = 0;
+}
+void TKomorebi__sub_801923DC(void) {
+    u8 *p = (u8 *)alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    if (p != 0) {
+        p = TLobby__sub_80020004(p, 1, lbl_804B7ED8, 0, 0, 0);
+    }
+    lbl_805D5C20 = (u32)p;
     lbl_805D5C24 = 0;
 }
 

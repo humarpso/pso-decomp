@@ -19,6 +19,10 @@ struct RecoveredGlobal_8019A574_lbl_8050DDAC {
     u8 remaining[0x18];
 };
 
+struct Pkt_8019A098 { u8 cmd; u8 size; u16 id; f32 x; f32 z; s32 flag; };
+
+struct Player_8019A098 { u8 pad[0x60]; s32 area; };
+
 extern "C" {
 s32 bswap_32__FPUl(s32);
 s32 read_be16_field2__10TObjPlayerFPv();
@@ -44,6 +48,12 @@ extern int lbl_8050DD50[];
 void TWindowTimer__sub_8019A738(s32 i);
 extern int lbl_8050DD50[];
 void TWindowTimer__sub_8019A754(s32 i);
+void TNpcPlayer__sub_80152E74(void *cmd);
+Player_8019A098 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void TObjPlayer__sub_801CFD5C(void *arg0, s32 arg1, f32 *arg2, f32 *arg3);
+void sync_from_lobby__10TNpcPlayerFPv(void *p);
+extern s32 lbl_805D53A0;
+void TWindowTimer__sub_8019A098(void);
 }
 
 extern "C" {
@@ -74,6 +84,23 @@ void update_best_time__12TWindowTimerFPv(void *arg0) {
 }
 
 extern M2C_UNK lbl_804B8E18[];
+
+void TWindowTimer__sub_8019A098(void) {
+    Pkt_8019A098 pkt;
+    f32 x;
+    f32 z;
+    Player_8019A098 *p;
+    TNpcPlayer__sub_80152E74(&pkt);
+    p = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    if (p != 0) {
+        pkt.id = lbl_805D53A0;
+        TObjPlayer__sub_801CFD5C(p, p->area, &x, &z);
+        pkt.x = x;
+        pkt.z = z;
+        pkt.flag = 0;
+        sync_from_lobby__10TNpcPlayerFPv(&pkt);
+    }
+}
 
 void *destroy_player_obj__12TWindowTimerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

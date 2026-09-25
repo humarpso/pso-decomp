@@ -298,6 +298,57 @@ struct V_800BBA18 : Base_800BBA18 {
     s16 state;
 };
 
+struct B_800BBB18 { u8 pad[0x18]; };
+
+struct V_800BBB18 : B_800BBB18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual s32 m34();
+    virtual void m35();
+    virtual void m36();
+    virtual s32 m37();
+    virtual s32 m38();
+};
+
+struct Obj_800BB88C {
+    u8 pad0[0x28]; s16 f28; s16 f2a; u8 pad2c[0xc];
+    f32 f38; f32 f3c; f32 f40; u8 pad44[0x18];
+    s32 f5c; s32 f60; s32 f64; u8 pad68[0x354 - 0x68];
+    f32 f354[5]; s32 f368; s32 f36c;
+};
+
 extern "C" {
 void TObjEneDD__sub_800BB980(u8 *arg0, u8 *arg1);
 void TObjEneDD__sub_800BB940(s32 arg0, s32 arg1);
@@ -308,6 +359,9 @@ u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 TObjEneDD__sub_800BB9AC(u8 *arg0);
 void TObjEneDD__sub_800BBA18(V_800BBA18 *self, s16 state);
+s32 TObjEneDD__vt82(V_800BBB18 *self);
+extern const f32 TObjEneDD__data_805D9E8C;
+void TObjEneDD__sub_800BB88C(Obj_800BB88C *self);
 }
 
 extern "C" {
@@ -323,7 +377,6 @@ void init_position_vectors__9TObjEneDDFPv(u8 *arg0);
 void invoke_initialization_hook__9TObjEneDDFPv(void *arg0);
 void set_field_378__9TObjEneDDFPvi(void* p, s32 v);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8007C48C(void *, int);
-M2C_UNK TObjEneDD__sub_800BB88C();
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK call_vt78__10TObjPlayerFPv();
 int fn_800FD8A0(void*);
@@ -332,7 +385,7 @@ M2C_UNK reset_photon_effect__12TBoss3VoloptFPv(void *);
 extern s32 lbl_805D5328;
 
 void init_common_from__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1) {
-    TObjEneDD__sub_800BB88C();
+    TObjEneDD__sub_800BB88C((Obj_800BB88C *)(arg0));
     M2C_FIELD(arg0, s16 *, 0x28) = (s16) M2C_FIELD(arg1, s16 *, 0x28);
     M2C_FIELD(arg0, s16 *, 0x2A) = (s16) M2C_FIELD(arg1, s16 *, 0x2A);
     TAdSinglePlyChrSelectGC__sub_8007C48C((void *) (arg0 + 0x160), (int) (M2C_FIELD(arg0, u16 *, 0x1C) + lbl_805D5328));
@@ -342,6 +395,23 @@ int get_target_info__9TObjEneDDFPv(void* p) { return fn_800FD8A0(p); }
 
 s32 TObjEneDD__sub_800BB878(s32 arg0, s32 arg1) {
     return ((arg0 + 0x13) << 0x10) | (arg1 + 0x1A);
+}
+
+void TObjEneDD__sub_800BB88C(Obj_800BB88C *self) {
+    s32 i;
+    self->f38 = TObjEneDD__data_805D9E8C;
+    self->f3c = TObjEneDD__data_805D9E8C;
+    self->f40 = TObjEneDD__data_805D9E8C;
+    self->f5c = 0;
+    self->f60 = 0;
+    self->f64 = 0;
+    for (i = 0; i < 5; i++) {
+        self->f354[i] = TObjEneDD__data_805D9E8C;
+    }
+    self->f368 = 0;
+    self->f36c = 0;
+    self->f28 = -1;
+    self->f2a = -1;
 }
 
 void invoke_initialization_hook__9TObjEneDDFPv(void *arg0) {
@@ -407,6 +477,13 @@ void TObjEneDD__vt83(void *arg0) {
     }
     ((VObj_18 *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 0);
     TObjEneDD__sub_800BBA0C((u8 *)(arg0));
+}
+
+s32 TObjEneDD__vt82(V_800BBB18 *self) {
+    s32 r = self->m34();
+    r |= self->m38();
+    r |= self->m37();
+    return r;
 }
 
 s32 TObjEneDD__vt81(u8 *arg0) {

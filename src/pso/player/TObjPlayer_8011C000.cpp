@@ -32,6 +32,16 @@ struct Item_8011CB18 : Base_8011CB18 {
     virtual void m40(); virtual u8 m41();
 };
 
+struct Entry_8011C030 { u8 id[3]; u8 pad; };
+
+struct List_8011C030 { s32 count; Entry_8011C030 *entries; };
+
+struct Tbl_8011C030 { u8 pad[0x54]; List_8011C030 *list; };
+
+struct Pair_8011C8BC { s16 a; s16 b; };
+
+struct Tbl_8011C8BC { u8 pad[0x30]; Pair_8011C8BC *pairs; };
+
 extern "C" {
 M2C_UNK TItemDrop__sub_8010663C(u32, s32, s32, s32);
 M2C_UNK TLobby__sub_801044B8(s32 *);
@@ -66,6 +76,10 @@ u8 get_field_ed__10TObjPlayerFPv(void *p);
 u8 get_slot_count__14TItemProShieldFPv(void *p);
 extern void *item_pmt_tbl;
 Entry_8011CB18 *TObjPlayer__sub_8011CB18(Item_8011CB18 *item, s16 mode);
+extern void *item_pmt_tbl;
+s32 TObjPlayer__sub_8011C030(u8 *id);
+extern void *item_pmt_tbl;
+void TObjPlayer__sub_8011C8BC(u32 x, s16 *a, s16 *b);
 }
 
 extern "C" {
@@ -90,6 +104,20 @@ s32 get_item_pmt_entry__10TObjPlayerFUc(u8 arg0) {
 }
 
 extern void *item_pmt_tbl;
+
+s32 TObjPlayer__sub_8011C030(u8 *id) {
+    List_8011C030 *l = ((Tbl_8011C030 *)item_pmt_tbl)->list;
+    s32 n = l->count;
+    Entry_8011C030 *e = l->entries;
+    s32 i;
+    for (i = 0; i != n; i++) {
+        if (id[0] == e->id[0] && id[1] == e->id[1] && id[2] == e->id[2]) {
+            return 1;
+        }
+        e++;
+    }
+    return 0;
+}
 
 s32 get_shield_pmt_entry__10TObjPlayerFUc(u8 arg0) {
     if (arg0 == 0) {
@@ -158,6 +186,17 @@ s32 get_unit_attribute_index__10TObjPlayerFUc(u8 arg0) {
         return TObjPlayer__sub_8011C914((s32)(arg0 + 0x1CB));
     }
     return 0;
+}
+
+void TObjPlayer__sub_8011C8BC(u32 x, s16 *a, s16 *b) {
+    u8 idx = x & 0x3f;
+    if (idx < 0x29 && a != 0 && b != 0) {
+        *a = ((Tbl_8011C8BC *)item_pmt_tbl)->pairs[idx].a;
+        *b = ((Tbl_8011C8BC *)item_pmt_tbl)->pairs[idx].b;
+        return;
+    }
+    *a = -1;
+    *b = -1;
 }
 
 s32 TObjPlayer__sub_8011C914(s32 id) {

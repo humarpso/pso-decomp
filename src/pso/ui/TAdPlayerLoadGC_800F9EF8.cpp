@@ -5,6 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void *construct__9TItemDropFPv(void *p);
+void *destroy__9TItemDropFPvs(void *p, s16 flag);
+void __register_global_object(void *obj, void *dtor, void *link);
+extern u8 lbl_8050113C[];
+extern u8 lbl_80501130[];
+extern s32 lbl_805D2B10;
+extern s32 lbl_805D5338;
+void TLobby__sub_800F9F08(void);
+}
+
+extern "C" {
 
 s32 TLoadCtrl__sub_800F9F00(void);
 void set_state__15TAdPlayerLoadGCFi(int a0);
@@ -16,6 +27,10 @@ extern s32 TLoadCtrl__data_805D4A88;
 
 s32 TLoadCtrl__sub_800F9F00(void) {
     return TLoadCtrl__data_805D4A88;
+}
+void TLobby__sub_800F9F08(void) {
+    __register_global_object(construct__9TItemDropFPv(lbl_8050113C), (void *)destroy__9TItemDropFPvs, lbl_80501130);
+    lbl_805D5338 = lbl_805D2B10;
 }
 
 }

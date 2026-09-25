@@ -131,6 +131,13 @@ struct Stack_8009AA64 {
 struct RecoveredGlobal_8009AA64_lbl_8048FE94 { M2C_UNK value; u8 remaining[0x18]; };
 typedef char RecoveredGlobal_8009AA64_lbl_8048FE94_size[sizeof(RecoveredGlobal_8009AA64_lbl_8048FE94) == 0x1C ? 1 : -1];
 
+struct Obj_8009B3C0 {
+    u8 pad[0x3c8]; u32 flags;
+    u8 pad2[0x4d0 - 0x3cc]; s32 count; void *members[1];
+};
+
+struct Obj_8009B638 { u8 pad[0x46c]; s32 step; };
+
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TObjEneMe1CanadinLeader__sub_8009AF54(void *);
@@ -157,6 +164,11 @@ extern M2C_UNK lbl_8048FE94[];
 extern s32 lbl_805D29A8;
 extern const f32 lbl_805D9860;
 u8 *TObjEneMe1CanadinLeader__sub_8009AA64(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
+s32 TObjEneDD__sub_800BBA18(void *, s16);
+void set_flag3c8_bit40__23TObjEneMe1CanadinLeaderFPv(void *);
+s32 TObjEneMe1CanadinLeader__vt106(Obj_8009B3C0 *self);
+s32 TObjEneDD__sub_800BBA18(void *, s16);
+void TObjEneMe1CanadinLeader__vt103(Obj_8009B638 *self);
 }
 
 extern "C" {
@@ -254,6 +266,33 @@ void TObjEneMe1CanadinLeader__vt111(void *arg0) {
 }
 
 extern void *lbl_805D4FD0;
+
+s32 TObjEneMe1CanadinLeader__vt106(Obj_8009B3C0 *self) {
+    s32 i;
+    if (self->flags & 0x40) {
+        self->flags &= ~0x40;
+        TObjEneDD__sub_800BBA18(self, 0xb);
+        for (i = 0; i < self->count; i++) {
+            set_flag3c8_bit40__23TObjEneMe1CanadinLeaderFPv(self->members[i]);
+        }
+        return 1;
+    }
+    return 0;
+}
+
+void TObjEneMe1CanadinLeader__vt103(Obj_8009B638 *self) {
+    switch (self->step) {
+    case 0:
+    case 1:
+        self->step++;
+        TObjEneDD__sub_800BBA18(self, 6);
+        break;
+    case 2:
+        self->step = 0;
+        TObjEneDD__sub_800BBA18(self, 7);
+        break;
+    }
+}
 
 void TObjEneMe1CanadinLeader__vt104(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D4FD0, void **, 0x42C), s32 *, 0x18);

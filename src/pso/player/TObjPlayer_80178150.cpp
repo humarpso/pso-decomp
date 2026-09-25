@@ -17,11 +17,18 @@ struct Stack_801781D8 {
     s8 sp1C;
 };
 
+struct Pkt_80178178 { u8 pad[4]; s16 area; u16 id; u8 mode; };
+
 extern "C" {
 s32 send_state__12TOChatSensorFPv(void *);
 s32 init_packet_type__12TOChatSensorFPv(void *);
 s32 TSwitch__sub_80229258(int, int);
 void TOChatSensor__sub_801781D8(u8 *arg0);
+void TOChatSensor__sub_8015B274(void *);
+s32 TSwitch__sub_80229258(int, int);
+s32 TSwitch__sub_80229318(int, int);
+s32 TObjPlayer__sub_800196EC();
+void handle_6x93_set_switch_flag_from_timer(Pkt_80178178 *p);
 }
 
 extern "C" {
@@ -37,6 +44,16 @@ u8 is_state_ec1_ed3__10TObjPlayerFPv(void *arg0) {
     }
     return (u8)var_r4;
 }
+
+void handle_6x93_set_switch_flag_from_timer(Pkt_80178178 *p) {
+    TOChatSensor__sub_8015B274(p);
+    if (p->mode == 1) {
+        TSwitch__sub_80229318(p->id, p->area);
+    } else if (p->area != TObjPlayer__sub_800196EC()) {
+        TSwitch__sub_80229258(p->id, p->area);
+    }
+}
+
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off

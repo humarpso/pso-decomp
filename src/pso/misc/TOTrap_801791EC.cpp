@@ -2,6 +2,17 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK;
+struct Self_80179244 { s32 type; u8 pad4[0x18 - 4]; M2C_UNK *vt; u8 pad1c[0x334 - 0x1C]; f32 f334; f32 f338; u16 s33c; u8 pad33e[2]; s32 f340; };
+
+extern "C" {
+void *TObjPlayer__sub_80019038(void *, void *, void *);
+extern M2C_UNK __vt__6TOTrap[];
+extern s32 lbl_805D3198;
+extern const f32 TOTrap__data_805DBA3C;
+Self_80179244 *TOTrap__ct(Self_80179244 *self, void *a, void *b);
+}
+
 extern "C" {
 
 void TOTrap__vt82(void);
@@ -22,6 +33,16 @@ void *__dt__6TOTrapFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+Self_80179244 *TOTrap__ct(Self_80179244 *self, void *a, void *b) {
+    TObjPlayer__sub_80019038(self, a, b);
+    self->vt = __vt__6TOTrap;
+    self->type = lbl_805D3198;
+    self->f334 = self->f338 = TOTrap__data_805DBA3C;
+    self->s33c = 0xFFFF;
+    self->f340 = 1;
+    return self;
 }
 
 void TOTrap__vt82(void) {  }

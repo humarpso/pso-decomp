@@ -27,6 +27,8 @@ struct RecoveredGlobal_8018925C___vt__19TObjContainerNoItem {
     u8 remaining[0x148];
 };
 
+struct Obj_801895A4 { u8 pad0[0x38]; u8 pos[0x4c]; s32 id; };
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
@@ -41,6 +43,13 @@ extern RecoveredGlobal_8018925C_lbl_804B63BC lbl_804B63BC;
 extern M2C_UNK __vt__19TObjContainerNoItem[];
 extern s32 lbl_805D32F4;
 u8 *TObjContainerNoItem__ct(u8 *arg0, s32 arg1, s32 arg2);
+void set_global_count__12TObjNpcEnemyFi(s32 arg0);
+void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void TObjRoomId__sub_80141CF4(void *dst, void *src, f32 t);
+extern char lbl_80444EF4[];
+extern u8 lbl_804A7448[];
+extern const f32 lbl_805DBCF8;
+void TObjContainerEnemy__vt80(Obj_801895A4 *self);
 }
 
 extern "C" {
@@ -126,6 +135,12 @@ void TObjContainerEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
         queue_destruction__7TObjectFv((void *) (arg0));
         M2C_FIELD(arg0, s16 *, 0x326) = 1;
     }
+}
+void TObjContainerEnemy__vt80(Obj_801895A4 *self) {
+    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_80444EF4, self->id);
+    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+    TObjRoomId__sub_80141CF4(self->pos, lbl_804A7448, lbl_805DBCF8);
 }
 
 }

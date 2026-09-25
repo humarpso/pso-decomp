@@ -9,17 +9,22 @@ struct O_800B98C0 { u8 pad[0x38c]; u16 f38c; u8 pad2[2]; s32 f390; };
 
 struct Obj_800B9958 { u8 pad[0x38c]; u16 id; u8 pad2[2]; s32 ptr; };
 
+struct Obj_800B98D8 { u8 pad[0x38c]; u16 target_id; u8 pad2[2]; void *target; };
+
 extern "C" {
 void fn_800B98A4(u8 *arg0, s32 arg1);
 s32 TObjEneEpsilon__sub_800B9848(void *self, u16 x);
 void fn_800B98C0(O_800B98C0 *self, u16 _w1);
 s32 TNpcPlayer__sub_800D87EC(u16);
 void TBoss8Dragon__sub_800B9958(Obj_800B9958 *self, u16 id);
+s32 get_game_mode__6TLobbyFv(void);
+void *get_player_data__10TObjPlayerFi(s32);
+u16 obj_getField1c(void *);
+void TBoss2DeRolLe__sub_800B98D8(Obj_800B98D8 *self, void *player);
 }
 
 extern "C" {
 
-int TBoss2DeRolLe__sub_800B98D8(void);
 int TObjEneEpsilon__vt101(void* p);
 int spawn_part__14TObjEneEpsilonFi(void*);
 
@@ -44,7 +49,21 @@ void fn_800B98C0(O_800B98C0 *self, u16 _w1) {
     self->f38c = 0xFFFF;
 }
 
-int TBoss2DeRolLe__sub_800B98D8(void) { return 0; }
+void TBoss2DeRolLe__sub_800B98D8(Obj_800B98D8 *self, void *player) {
+    s32 n;
+    s32 i;
+    self->target_id = 0xFFFF;
+    self->target = 0;
+    n = get_game_mode__6TLobbyFv();
+    for (i = 0; i < n; i++) {
+        if (player == get_player_data__10TObjPlayerFi(i)) {
+            self->target_id = obj_getField1c(player);
+            self->target = player;
+            return;
+        }
+    }
+}
+
 void TBoss8Dragon__sub_800B9958(Obj_800B9958 *self, u16 id) {
     self->id = id;
     if (id != 0xFFFF) {

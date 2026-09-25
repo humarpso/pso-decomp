@@ -101,6 +101,9 @@ struct E_8017A1A4 { u8 pad[0xc]; f32 f; u8 pad2[0x2c - 0x10]; };
 
 struct Obj_8017A1A4 { u8 pad[0xa4]; E_8017A1A4 *arr; };
 
+typedef s32 M2C_UNK;
+struct Self_80179EC0 { u8 pad[0x18]; M2C_UNK *vt; u8 pad1c[0x358 - 0x1C]; u8 arr[4][0x1C]; };
+
 extern "C" {
 void TOTrap__sub_80178F54(void *, void *, f32);
 void TOTrapAncient01__vt20(void *arg0, void *arg1, f32 farg0);
@@ -123,6 +126,14 @@ extern const f32 TOTrapAncient01__data_805DBA4C;
 extern const f32 lbl_805DBA5C;
 void TOTrapAncient01__sub_80179E34(void);
 f32 TObjPlayer__sub_8017A1A4(Obj_8017A1A4 *self, s32 i);
+M2C_UNK TObjPlayer__sub_80154A00(void *);
+M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK __destroy_arr(void *, void *, int, int);
+void TObjPlayer__sub_800D7C58(void);
+void *__dt__6TOTrapFv(void *arg0, s16 arg1);
+void __dl__7TObjectFPv(void *);
+extern M2C_UNK __vt__15TOTrapAncient01[];
+Self_80179EC0 *__dt__15TOTrapAncient01Fv(Self_80179EC0 *self, s16 flag);
 }
 
 extern "C" {
@@ -229,6 +240,20 @@ void TOTrapAncient01__sub_80179E34(void) {
   (*(u8 * *)&TOTrapAncient01__data_805D5AD0) = (unsigned char *) ((void *) var_r0);
   temp_r31 = TObjFish__sub_8001EDB0((void *) var_r0, 3);
   add_entry__11TMotorcycleFsiiff((int) 0x39, (int) TObjFish__sub_8001EDC4((*(u8 * *)&TOTrapAncient01__data_805D5AD0), 3), (int) temp_r31, (f32) lbl_805DBA5C, (f32) TOTrapAncient01__data_805DBA4C);
+}
+
+Self_80179EC0 *__dt__15TOTrapAncient01Fv(Self_80179EC0 *self, s16 flag) {
+    if (self != 0) {
+        self->vt = __vt__15TOTrapAncient01;
+        TObjPlayer__sub_80154A00(self);
+        TObjEneGibbles__sub_80156720(self);
+        __destroy_arr(self->arr, (void *)TObjPlayer__sub_800D7C58, 0x1C, 4);
+        __dt__6TOTrapFv(self, 0);
+        if (flag > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
 }
 
 f32 TObjPlayer__sub_8017A1A4(Obj_8017A1A4 *self, s32 i) {

@@ -133,6 +133,10 @@ struct RecoveredGlobal_800B8600_TObjEneBm5Wolf__data_80500B78 {
     u8 remaining[0x10];
 };
 
+struct Node_800B850C { void *obj; Node_800B850C *next; };
+
+struct Wolf_800B850C { u8 pad[0x3dc]; s32 id; };
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -154,6 +158,9 @@ void TObjEneBm5Wolf__sub_800B85A0(s32 arg0);
 void apply_to_position__14TObjEneBm5WolfFPvPv(s32, s32);
 extern RecoveredGlobal_800B85D0_TObjEneBm5Wolf__data_80500B78 TObjEneBm5Wolf__data_80500B78;
 void TObjEneBm5Wolf__sub_800B8600(s32 arg0);
+extern RecoveredGlobal_800B8570_TObjEneBm5Wolf__data_80500B8C TObjEneBm5Wolf__data_80500B8C;
+Wolf_800B850C *play_sound__14TObjEneBm5WolfFPv(Node_800B850C *);
+Wolf_800B850C *TObjEneBm5Wolf__sub_800B850C(s32 id);
 }
 
 extern "C" {
@@ -232,6 +239,18 @@ void TObjEneBm5Wolf__sub_800B8024(u8 *arg0) {
 }
 
 typedef char RecoveredGlobal_800B8570_TObjEneBm5Wolf__data_80500B8C_size[sizeof(RecoveredGlobal_800B8570_TObjEneBm5Wolf__data_80500B8C) == 0xC ? 1 : -1];
+
+Wolf_800B850C *TObjEneBm5Wolf__sub_800B850C(s32 id) {
+    Node_800B850C *n;
+    for (n = ((Node_800B850C * *)&TObjEneBm5Wolf__data_80500B8C)[0]; n != 0; n = n->next) {
+        Wolf_800B850C *w = play_sound__14TObjEneBm5WolfFPv(n);
+        if (w != 0 && w->id == id) {
+            return w;
+        }
+    }
+    return 0;
+}
+
 void TObjEneBm5Wolf__sub_800B8570(s32 arg0) {
     update__14TObjEneBm5WolfFPvPv((s32) &TObjEneBm5Wolf__data_80500B8C.value, arg0 + 0x3CC);
 }

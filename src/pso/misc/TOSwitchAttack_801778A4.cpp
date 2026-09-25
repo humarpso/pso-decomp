@@ -20,12 +20,21 @@ struct RecoveredGlobal_80177C80___vt__14TOSwitchAttack {
     u8 remaining[0x34];
 };
 
+struct Pkt_80177CF4 { u8 code, words; u16 object, zero, reserved, switchId; u8 area, flags; };
+
+struct Self_80177CF4 { u8 pad[0xC8]; s32 switchId; u8 padcc[0xEC - 0xCC]; s32 on; };
+
 extern "C" {
 s32 init_params__14TOSwitchAttackFPv(void *);
 s32 TPhotonMagicSquare__sub_801A2640(void *);
 extern M2C_UNK __vt__14TOSwitchAttack[];
 extern s32 lbl_805D3178;
 u8 *TOSwitchAttack__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+void init_6x05_switch_changed__6TLobbyFPv(void *);
+void finalize_and_send_60__6TLobbyFPv(void *);
+s32 TObjPlayer__sub_800196EC();
+u16 obj_getField1c(void *);
+void TOSwitchItem__vt19(Self_80177CF4 *self);
 }
 
 extern "C" {
@@ -76,6 +85,16 @@ u8 *TOSwitchAttack__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s8 *, 0xA6) = 0;
     M2C_FIELD(arg0, s32 *, 0xA8) = 0;
     return arg0;
+}
+void TOSwitchItem__vt19(Self_80177CF4 *self) {
+    Pkt_80177CF4 pkt;
+    init_6x05_switch_changed__6TLobbyFPv(&pkt);
+    pkt.object = obj_getField1c(self);
+    pkt.zero = 0;
+    pkt.switchId = self->switchId;
+    pkt.area = TObjPlayer__sub_800196EC();
+    pkt.flags = self->on != 0;
+    finalize_and_send_60__6TLobbyFPv(&pkt);
 }
 
 }

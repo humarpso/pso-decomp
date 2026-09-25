@@ -4,9 +4,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Load_8010F838 { u8 pad[0x14]; void *vtbl; u8 pad18[0xC]; s32 id; s32 f28; s32 f2c[4]; s32 f3c; };
+
+struct Load_8010F61C { u8 pad[0x24]; s32 id; s32 f28; s32 f2c[4]; s32 f3c; };
+
 extern "C" {
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
-s32 TItemLoad__sub_8010F838(int, void *, int, int);
 void * construct__9TItemLoadFPv(void *, void *, int, int);
 s32 alloc_buffer__11TOBoss4RockFPv(int);
 extern s32 lbl_805D2BE8;
@@ -15,6 +18,11 @@ extern void *lbl_805D549C;
 extern void *lbl_805D54A0;
 extern s32 lbl_805D54A4;
 void TItemLoad__sub_8010F5A0(void);
+void init__9TItemLoadFPv(void *, void *, int, int);
+extern M2C_UNK lbl_8049F40C[];
+s32 TItemLoad__sub_8010F838(int arg0, void *a1, int a2, int a3);
+s32 begin_load__9TItemLoadFPvi(void *, s32);
+void TItemLoad__sub_8010F61C(Load_8010F61C *self, s32 id, s32 arg2);
 }
 
 extern "C" {
@@ -74,10 +82,22 @@ void TItemLoad__sub_8010F5A0(void) {
     temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x40));
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
-        var_r0_2 = TItemLoad__sub_8010F838((int) (temp_r3_2), (void *) (lbl_805D2BEC), (int) (0xB4), (int) (0x12F));
+        var_r0_2 = TItemLoad__sub_8010F838((int)((int) (temp_r3_2)), (void *)((void *) (lbl_805D2BEC)), (int)((int) (0xB4)), (int)((int) (0x12F)));
     }
     (*(s32 *)&lbl_805D54A0) = var_r0_2;
     lbl_805D54A4 = alloc_buffer__11TOBoss4RockFPv((int) (0x21000));
+}
+
+void TItemLoad__sub_8010F61C(Load_8010F61C *self, s32 id, s32 arg2) {
+    s32 i;
+    if (id != 0 && begin_load__9TItemLoadFPvi(self, arg2) == 1) {
+        self->id = id;
+        self->f28 = 0;
+        for (i = 0; i < 4; i++) {
+            self->f2c[i] = 0;
+        }
+        self->f3c = 0;
+    }
 }
 
 void *dt__9TItemLoadFPvs(void *arg0, s16 arg1) {
@@ -89,6 +109,20 @@ void *dt__9TItemLoadFPvs(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+s32 TItemLoad__sub_8010F838(int arg0, void *a1, int a2, int a3) {
+    Load_8010F838 *self = (Load_8010F838 *)arg0;
+    s32 i;
+    init__9TItemLoadFPv(self, a1, a2, a3);
+    self->vtbl = ((s32 *)&lbl_8049F40C);
+    self->id = 0;
+    for (i = 0; i < 4; i++) {
+        self->f2c[i] = 0;
+    }
+    self->f28 = 0;
+    self->f3c = 0;
+    return (s32)self;
 }
 
 void begin_load_if_pending__9TItemLoadFPvii(void *arg0, s32 arg1, s32 arg2) {

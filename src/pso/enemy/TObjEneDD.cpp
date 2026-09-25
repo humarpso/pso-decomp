@@ -32,6 +32,21 @@ struct VObj_800BA0D8_800B9FE8 : Base_800BA0D8_800B9FE8 {
     virtual void m91();
 };
 
+struct Part_800BA030 { u8 pad[0x2c]; };
+
+struct Obj_800BA030 { u8 pad[0xa4]; Part_800BA030 *parts; s32 count; };
+
+struct Part_800BA084 { u8 pad[0x2c]; };
+
+struct Obj_800BA084 { u8 pad[0xa4]; Part_800BA084 *parts; s32 count; };
+
+extern "C" {
+void TObjEneDD__sub_800BA870(Part_800BA030 *);
+void TObjEneDD__vt95(Obj_800BA030 *self);
+void TObjEneDD__sub_800BA88C(Part_800BA084 *);
+void TObjEneDD__vt94(Obj_800BA084 *self);
+}
+
 extern "C" {
 
 void TObjEneDD__vt93(void *arg0);
@@ -48,6 +63,20 @@ f32 calc_elapsed_scaled__9TObjEneDDFv(void) {
 
 u8 TObjEneDD__vt96(void *arg0) {
     return (u8) (((M2C_FIELD(arg0, s32 *, 0x30) & 0x10) - 0x10) == 0);
+}
+
+void TObjEneDD__vt95(Obj_800BA030 *self) {
+    s32 i;
+    for (i = 0; i < self->count; i++) {
+        TObjEneDD__sub_800BA870(&self->parts[i]);
+    }
+}
+
+void TObjEneDD__vt94(Obj_800BA084 *self) {
+    s32 i;
+    for (i = 0; i < self->count; i++) {
+        TObjEneDD__sub_800BA88C(&self->parts[i]);
+    }
 }
 
 void TObjEneDD__vt93(void *arg0) {

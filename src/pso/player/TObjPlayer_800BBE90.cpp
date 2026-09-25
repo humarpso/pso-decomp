@@ -23,11 +23,19 @@ struct VBase { char pad[0x18]; };
 
 struct VObj : VBase { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11(); virtual void m12(); virtual void m13(f32); virtual void m14(); virtual void m15(); virtual void m16(f32); };
 
+struct Vec_800BBFD0 { f32 x, y, z; };
+
+struct Obj_800BBFD0 { u8 pad[0x38]; Vec_800BBFD0 pos; u8 pad2[0x308 - 0x44]; f32 f308; f32 f30c; f32 f310; };
+
 extern "C" {
 extern const f32 lbl_805D9EB4;
 void TObjPlayer__sub_800BC1F0(u8 *arg0);
 extern const f32 lbl_805D9EB4;
 void TObjPlayer__sub_800BC394(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(Vec_800BBFD0 *dst, const Vec_800BBFD0 *src);
+void TBoss6Type1__sub_803D9370(Vec_800BBFD0 *a, Vec_800BBFD0 *b);
+void clamp_velocity__15TObjBoss2TunnelFPv(void *p);
+void TObjPlayer__sub_800BBFD0(Obj_800BBFD0 *a, Obj_800BBFD0 *b, f32 s);
 }
 
 extern "C" {
@@ -70,6 +78,18 @@ void apply_hit_if_active__10TObjPlayerFPvPvPv(void *arg0, void *arg1, f32 *arg2)
         ((VObj_800bbe90*)arg0)->m18(arg1, *arg2);
     }
 }
+
+#pragma push
+#pragma fp_contract on
+void TObjPlayer__sub_800BBFD0(Obj_800BBFD0 *a, Obj_800BBFD0 *b, f32 s) {
+    Vec_800BBFD0 v;
+    VecCopy__FP3VecPC3Vec(&v, &b->pos);
+    TBoss6Type1__sub_803D9370(&v, &a->pos);
+    clamp_velocity__15TObjBoss2TunnelFPv(&v);
+    b->f308 = v.x * s + b->f308;
+    b->f310 = v.z * s + b->f310;
+}
+#pragma pop
 
 void dispatch_vt15__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     ((VObj800BC050_800bc050_800BBE90*)arg0)->m15(arg1, 0);

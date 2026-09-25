@@ -36,6 +36,8 @@ struct VObj_80103748 : Base_80103748 {
     virtual void m27();
 };
 
+struct Player_801036CC { u8 pad[0x10]; void *owner; };
+
 extern "C" {
 extern s32 lbl_805D5420;
 s32 TLobby__sub_8010385C(s32 arg0);
@@ -46,6 +48,13 @@ u16 TLobby__sub_80103AD4(void);
 extern s32 lbl_805D5424;
 extern s32 lbl_805D5428;
 s32 TLobby__sub_80103B04(u16 arg0);
+Player_801036CC *get_player_data__10TObjPlayerFi(s32 i);
+s32 test_elt_flag__10TObjPlayerFPvii(void *p, s32 a, s32 mask);
+void queue_destruction__7TObjectFv(void *);
+s32 get_lobby_flag__6TLobbyFv(void);
+void TLobby__sub_80103F68(void);
+extern void *tl_05;
+void TLobby__sub_801036CC(void);
 }
 
 extern "C" {
@@ -53,6 +62,18 @@ extern "C" {
 void *TLobby__sub_80101AB0(s32);
 M2C_UNK TLobby__sub_80103BFC(s32, s32);
 M2C_UNK bswap_player_packet__6TLobbyFPv();
+
+void TLobby__sub_801036CC(void) {
+    s32 i;
+    Player_801036CC *p;
+    for (i = 0; i != get_lobby_flag__6TLobbyFv(); i++) {
+        p = get_player_data__10TObjPlayerFi(i);
+        if (p != NULL && test_elt_flag__10TObjPlayerFPvii(p, 0, 0x20000) != 0 && p->owner == tl_05) {
+            queue_destruction__7TObjectFv(p);
+        }
+    }
+    TLobby__sub_80103F68();
+}
 
 void handle_6x63_destroy_floor_item(void *arg0) {
     struct VObj_80103748 *o;

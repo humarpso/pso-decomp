@@ -93,6 +93,8 @@ struct Stack_8011F7CC {
     s32 sp18;
 };
 
+struct Item_8011F760 { u8 pad[0x10]; s32 count; };
+
 extern "C" {
 s32 obj_getField1c(void *);
 s8 get_field_ed__10TObjPlayerFPv(void *);
@@ -107,9 +109,27 @@ extern s32 tl_05;
 extern const f32 lbl_805DAC94;
 extern const f32 lbl_805DAC98;
 void TObjPlayer__sub_8011F7CC(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0);
+s32 lookup_item_data__20TWindowSubStatusDispFPv(void *);
+Item_8011F760 *TObjPlayer__sub_8011CB18(void *, s32);
+u32 TObjPlayer__sub_8011F760(void *self);
 }
 
 extern "C" {
+
+u32 TObjPlayer__sub_8011F760(void *self) {
+    u32 flags = 0;
+    Item_8011F760 *it;
+    if (lookup_item_data__20TWindowSubStatusDispFPv(self) == 3) {
+        flags |= 2;
+    } else {
+        flags |= 1;
+    }
+    it = TObjPlayer__sub_8011CB18(self, 0);
+    if (it != 0 && it->count > 1) {
+        flags |= 4;
+    }
+    return flags;
+}
 
 void TObjPlayer__sub_8011F7CC(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_8011F7CC, sp8) == 0x0) ? 1 : -1];

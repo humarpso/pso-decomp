@@ -14,6 +14,9 @@ extern "C" {
 Vec_801A1F48 *VecCopy__FP3VecPC3Vec(Vec_801A1F48 *, const Vec_801A1F48 *);
 void copy_xyz__10TObjPlayerFPvPv(void *, void *);
 void fn_801A1F48(Dst_801A1F48 *self, Src_801A1F48 *src);
+extern u16 lbl_805D5CD4;
+extern u16 lbl_805D5CD6;
+u16 TLobby__sub_801A2078(s32 arg);
 }
 
 extern "C" {
@@ -22,7 +25,6 @@ void TLobby__sub_801A1FD8(void);
 u16 TLobby__sub_801A1FDC(void *arg0, s32 arg1);
 s16 get_stat_by_key_state__10TObjPlayerFPv(void *arg0);
 s32 TContainerAncient01__sub_8020335C(void);
-u16 TLobby__sub_801A2078(s32);
 u16 TLobby__sub_801A20C8(s32);
 int TObjRoomId__sub_801A1E2C(void);
 u16 fn_801A210C(s32);
@@ -71,11 +73,23 @@ u16 TLobby__sub_801A1FDC(void *arg0, s32 arg1) {
             break;
         default:
         case 0x40000000:
-            M2C_FIELD(arg0, u16 *, 0x1C) = TLobby__sub_801A2078(arg1);
+            M2C_FIELD(arg0, u16 *, 0x1C) = TLobby__sub_801A2078((s32)(arg1));
             break;
         }
     }
     return M2C_FIELD(arg0, u16 *, 0x1C);
+}
+u16 TLobby__sub_801A2078(s32 arg) {
+    u16 n = arg;
+    s32 id = lbl_805D5CD4;
+    if (id + n + 1 >= 0xFFFF) {
+        lbl_805D5CD4 = lbl_805D5CD6;
+        id = lbl_805D5CD4;
+        lbl_805D5CD4 = id + (n + 1);
+    } else {
+        lbl_805D5CD4 = id + (n + 1);
+    }
+    return id;
 }
 
 }

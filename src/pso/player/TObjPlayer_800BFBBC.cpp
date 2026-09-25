@@ -131,6 +131,12 @@ struct RecoveredFields_800C1478_temp_r3_2 {
     s32 field_18;
 };
 
+struct Sub_800BFCD4 { u8 pad[0xc]; f32 fc; };
+
+struct Obj_800BFCD4 { u8 pad[0xa4]; Sub_800BFCD4 *fa4; u8 pad2[0x368 - 0xa8]; s32 f368; };
+
+struct G_800BFCD4 { u8 pad[0x68]; f32 f68; u8 pad2[0x1c]; f32 f88; };
+
 extern "C" {
 s32 TObjPlayer__sub_800F06B4(s32, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -203,7 +209,6 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_testFlags30(void *, M2C_UNK);
 s32 get_instance__6TLobbyFv();
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_800BFCD4(void *);
 void TObjPlayer__sub_800BFF54(void *);
 void set_boss4_state__10TObjPlayerFPv(void *arg0);
 M2C_UNK apply_move_friction__10TObjPlayerFPv(void *arg0);
@@ -225,6 +230,9 @@ M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 extern const f32 lbl_805D9F4C;
 void update_invuln_timer__10TObjPlayerFPv(u8 *arg0);
+extern f32 *lbl_80500BF8[];
+extern G_800BFCD4 lbl_80492E18;
+void TObjPlayer__sub_800BFCD4(Obj_800BFCD4 *self);
 }
 
 extern "C" {
@@ -275,6 +283,18 @@ void set_flag_and_notify__10TObjPlayerFPv(void *arg0) {
         send_entity_set_flags__6TLobbyFPv();
     }
 }
+
+void TObjPlayer__sub_800BFCD4(Obj_800BFCD4 *self) {
+    f32 *p;
+    if (self->f368 >= 2) {
+        return;
+    }
+    self->fa4->fc = lbl_80500BF8[self->f368][0];
+    p = lbl_80500BF8[self->f368];
+    lbl_80492E18.f68 = p[1];
+    lbl_80492E18.f88 = p[2];
+}
+
 void TObjPlayer__sub_800BFEDC(u8 *arg0) {
     if (((s16) M2C_FIELD(arg0, s16 *, 0xB8) == 3) && ((objInBand__FP7GameObjf(arg0, lbl_805D9F28) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805D9F2C) != 0))) {
         TBoss3Volopt__sub_8022675C(TObjPlayer__sub_800F06B4(0x3D20C, 5), (u32) (arg0 + 0x38), 0, 0);
@@ -460,7 +480,7 @@ void TObjPlayer__sub_800C1478(u8 *arg0) {
     u8 *temp_r3_2;
     fn_800C20C0();
     if (check_demo_mode__10TObjPlayerFv() == 1) {
-        TObjPlayer__sub_800BFCD4((void *) (arg0));
+        TObjPlayer__sub_800BFCD4((Obj_800BFCD4 *)((void *) (arg0)));
         TObjPlayer__sub_800BFF54((void *)((void *) (arg0)));
         return;
     }

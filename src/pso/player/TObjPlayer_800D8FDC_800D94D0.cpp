@@ -7,6 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern const f32 lbl_805DA3D8;
 s32 TObjPlayer__sub_800D9560(f32 *arg0);
+extern u32 lbl_805D5228;
+extern s32 lbl_805D522C;
+extern u8 lbl_80494A48[];
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+void TObjPlayer__sub_800D9508(void);
 }
 
 extern "C" {
@@ -27,6 +33,15 @@ void destroy_static_lobby__10TObjPlayerFv(void) {
 }
 
 extern s32 some_id_805c6f74;
+
+void TObjPlayer__sub_800D9508(void) {
+    u8 *p = (u8 *)alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    if (p != 0) {
+        p = TLobby__sub_80020004(p, 1, lbl_80494A48, 0, 0, 0);
+    }
+    lbl_805D5228 = (u32)p;
+    lbl_805D522C = 1;
+}
 
 s32 TObjPlayer__sub_800D9560(f32 *arg0) {
     return *arg0 > lbl_805DA3D8;

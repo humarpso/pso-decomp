@@ -42,6 +42,8 @@ struct VObj : Base {
     virtual s32 m8(f32, f32);
 };
 
+struct Obj_8018CBF0 { u8 pad0[0x84]; s32 id; };
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
@@ -55,6 +57,12 @@ u8 * TLanguage__sub_801E4874(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80445130;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 lbl_804B70A4;
 void TObjContainerIdo__sub_8018C6E8(void);
+void load_models__22TObjContainerJungEnemyFPv(void *arg0);
+void set_global_count__12TObjNpcEnemyFi(s32 arg0);
+void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+extern char lbl_80445430[];
+extern char lbl_8044543C[];
+void TObjContainerJungEnemy__vt80(Obj_8018CBF0 *self);
 }
 
 extern "C" {
@@ -144,6 +152,14 @@ void TObjContainerJungEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
         queue_destruction__7TObjectFv((void *) (arg0));
         M2C_FIELD(arg0, s16 *, 0x326) = 1;
     }
+}
+
+void TObjContainerJungEnemy__vt80(Obj_8018CBF0 *self) {
+    load_models__22TObjContainerJungEnemyFPv(self);
+    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_80445430, self->id);
+    TObjEneBm5GibonU__sub_803D853C(0x130021, lbl_8044543C);
+    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
 
 void TObjContainerJungEnemy__vt79(u8 *arg0) {

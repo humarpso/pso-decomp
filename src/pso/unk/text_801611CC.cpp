@@ -37,6 +37,14 @@ struct RecoveredGlobal_801611CC___vt__15TODoorAncient09 {
     u8 remaining[0x50];
 };
 
+struct State_80161320 { s16 a; s16 b; };
+
+struct Pkt_80161320 { s16 hdr; u16 id; s32 state; s32 kind; };
+
+struct Obj_80161320 { u8 pad[4]; s16 kind; };
+
+struct Self_80161320 { u8 pad[0x1C]; u16 id; u8 pad1e[0x80 - 0x1E]; Obj_80161320 *obj; };
+
 extern "C" {
 void TODoorCave01__vt4(u8 *arg0, s16 *arg1);
 M2C_UNK set_indexed_flags(void *, int, int);
@@ -59,11 +67,15 @@ extern s32 *TODoorAncient09__data_805D5954;
 extern const f32 lbl_805DB480;
 extern const f32 lbl_805DB484;
 u8 *TODoorAncient09__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+void copy_short_fields__6TLobbyFPvPv(void *, void *);
+s32 TLobby__sub_80156A80(u8 *arg0, s32 arg1, s16 arg2);
+void init__17TOBarrierEnergy01FPv(void *);
+void update_and_send_60__6TLobbyFPv(void *);
+void TODoorCave01__sub_80161320(Self_80161320 *self, State_80161320 *src);
 }
 
 extern "C" {
 
-int TODoorCave01__sub_80161320(void);
 void TODoorCave01__vt15(u8 *arg0);
 s32 TODoorCave01__vt17(void *arg0);
 void TODoorCave01__vt18(void);
@@ -106,7 +118,24 @@ u8 *TODoorAncient09__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
 
 void TODoorCave01__vt18(void) {  }
 
-int TODoorCave01__sub_80161320(void) { return 0; }
+void TODoorCave01__sub_80161320(Self_80161320 *self, State_80161320 *src) {
+    State_80161320 st;
+    Obj_80161320 *obj;
+    if (src != 0) {
+        copy_short_fields__6TLobbyFPvPv(&st, src);
+    } else {
+        TLobby__sub_80156A80((u8 *)self, (s32)&st, 1);
+    }
+    obj = self->obj;
+    if (obj != 0) {
+        Pkt_80161320 pkt;
+        init__17TOBarrierEnergy01FPv(&pkt);
+        pkt.id = self->id;
+        pkt.state = st.a;
+        pkt.kind = obj->kind;
+        update_and_send_60__6TLobbyFPv(&pkt);
+    }
+}
 
 void TODoorCave01__vt4(u8 *arg0, s16 *arg1) {
     if ((s16) *arg1 == 1) {

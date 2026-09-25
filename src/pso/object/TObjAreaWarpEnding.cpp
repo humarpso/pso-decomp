@@ -15,6 +15,8 @@ typedef char RecoveredGlobal_8019BF88___vt__18TObjAreaWarpEnding_size[sizeof(Rec
 struct RecoveredGlobal_8019C454___vt__17TObjAreaWarpQuest { M2C_UNK value; u8 remaining[0x50]; };
 typedef char RecoveredGlobal_8019C454___vt__17TObjAreaWarpQuest_size[sizeof(RecoveredGlobal_8019C454___vt__17TObjAreaWarpQuest) == 0x54 ? 1 : -1];
 
+struct Obj_8019C924 { u8 pad0[0x84]; s32 id; u8 pad1[0xbc - 0x88]; s32 saved_id; };
+
 extern "C" {
 void TObjAreaWarp__sub_8019CAB0(void *);
 extern const f32 lbl_805DBFDC;
@@ -66,6 +68,10 @@ extern s32 lbl_805D3470;
 extern const f32 lbl_805DBFD8;
 extern const f32 lbl_805DBFE4;
 u8 *TObjAreaWarpQuest__ct(u8 *arg0, s32 arg1, s32 arg2);
+void set_global_count__12TObjNpcEnemyFi(s32 arg0);
+void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+extern char lbl_8044641C[];
+void TObjAreaWarp__sub_8019C924(Obj_8019C924 *self);
 }
 
 extern "C" {
@@ -314,6 +320,12 @@ u8 *TObjAreaWarpForest__ct(u8 *arg0, s32 arg1, s32 arg2) {
         M2C_FIELD(arg0, s32 *, 0xC0) = 0;
     }
     return arg0;
+}
+void TObjAreaWarp__sub_8019C924(Obj_8019C924 *self) {
+    self->saved_id = self->id;
+    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_8044641C, self->saved_id);
+    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
 
 }

@@ -299,6 +299,11 @@ int clear_player_status_flag__10TObjPlayerFPviUi(void*, void*, void*);
 s32 obj_clearFlags30(void * a0, s32 a1);
 s32 TObjPlayer__sub_80016FF8(void *);
 s32 TObjPlayer__sub_800C576C(u8 *arg0);
+extern u8 lbl_80500C30[];
+extern void *lbl_805D5188;
+void TLobby__sub_803DA16C(void *);
+void free__11TOBoss4RockFUi(void *);
+void TObjPlayer__sub_800C4D44(void);
 }
 
 extern "C" {
@@ -364,6 +369,17 @@ void *init_target_ref__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
         M2C_FIELD(arg0, s32 *, 0x24) = TBoss8Dragon__sub_8008741C(M2C_FIELD(arg0, s32 *, 0x20) + 0x38, 0xDE, 0x40);
     }
     return arg0;
+}
+
+void TObjPlayer__sub_800C4D44(void) {
+    void *p = lbl_80500C30;
+    if (p != 0) {
+        TLobby__sub_803DA16C(p);
+    }
+    if (lbl_805D5188 != 0) {
+        free__11TOBoss4RockFUi(lbl_805D5188);
+        lbl_805D5188 = 0;
+    }
 }
 
 void TObjPlayer__sub_800C4E08(u8 *arg0) {

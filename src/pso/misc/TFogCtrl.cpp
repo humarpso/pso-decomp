@@ -16,6 +16,10 @@ struct RecoveredGlobal_800FB8A0_TFogCtrl__data_80501188 {
 
 struct O_800FB400 { u8 pad[0x174]; s32 arr[1]; };
 
+struct Fog_800FB424 { u8 pad[0x40]; s32 entry; f32 f44; s32 f48[3]; };
+
+struct Ctrl_800FB424 { u8 pad[0x174]; Fog_800FB424 *fogs[1]; };
+
 extern "C" {
 M2C_UNK get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 extern f32 TFogCtrl__data_805DA948;
@@ -29,6 +33,10 @@ extern RecoveredGlobal_800FB8A0___vt__8TFogCtrl __vt__8TFogCtrl;
 extern RecoveredGlobal_800FB8A0_TFogCtrl__data_80501188 TFogCtrl__data_80501188;
 u8 *__dt__8TFogCtrlFv(u8 *arg0, s16 arg1);
 void TFogCtrl__sub_800FB400(O_800FB400 *self, s32 i, s32 j);
+void TFogCtrl__sub_800FAC90(u8 *arg0, u8 *arg1);
+void *get_entry__8TFogCtrlFi(int a0);
+extern f32 TFogCtrl__data_805DA948;
+void TFogCtrl__sub_800FB424(Ctrl_800FB424 *self, s32 i, s32 entry);
 }
 
 extern "C" {
@@ -80,6 +88,17 @@ void TFogCtrl__sub_800FB400(O_800FB400 *self, s32 i, s32 j) {
     s32 t = self->arr[i];
     self->arr[i] = self->arr[j];
     self->arr[j] = t;
+}
+
+void TFogCtrl__sub_800FB424(Ctrl_800FB424 *self, s32 i, s32 entry) {
+    s32 k;
+    Fog_800FB424 *f = self->fogs[i];
+    f->entry = entry;
+    TFogCtrl__sub_800FAC90((u8 *)f, (u8 *)get_entry__8TFogCtrlFi(entry));
+    f->f44 = TFogCtrl__data_805DA948;
+    for (k = 0; k < 3; k++) {
+        f->f48[k] = 0;
+    }
 }
 
 void render__8TFogCtrlFv(void) {  }

@@ -23,11 +23,18 @@ struct VObj_18 : VBase_18 {
     virtual s16 m14();
 };
 
+struct Self_801223E0 { u8 pad[0x1f8]; f32 f1f8; };
+
 extern "C" {
 u8 * init_state_515__10TObjPlayerFPv(void *, M2C_UNK, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_80122388(s32 arg0);
+u8 get_slot_count__14TItemProShieldFPv(void *);
+s32 get_player_list__10TObjPlayerFv();
+void TOMonitorMachine01__sub_803D8B5C(s32, f32, f32, f32);
+extern const f32 lbl_805DACE0;
+void TObjPlayer__sub_801223E0(Self_801223E0 *self);
 }
 
 extern "C" {
@@ -45,6 +52,18 @@ u8 *TObjPlayer__sub_80122388(s32 arg0) {
     }
     return NULL;
 }
+void TObjPlayer__sub_801223E0(Self_801223E0 *self) {
+    if (get_slot_count__14TItemProShieldFPv(self) == 5) {
+        s32 n = get_player_list__10TObjPlayerFv();
+        switch (n) {
+        case 3:
+        case 4:
+            TOMonitorMachine01__sub_803D8B5C(0, lbl_805DACE0, self->f1f8, self->f1f8);
+            break;
+        }
+    }
+}
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;

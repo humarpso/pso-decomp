@@ -11,6 +11,11 @@ struct Stack_800B9D94 {
     s32 sp10;
 };
 
+struct Obj_800B9E84 {
+    u8 pad[0x2b8]; s16 a; s16 b;
+    u8 pad2[0x32c - 0x2bc]; s16 c; s16 d;
+};
+
 extern "C" {
 M2C_UNK minimap_render_dot(void *, int, int, int);
 void TObjEneDD__vt97(u8 *arg0);
@@ -27,11 +32,12 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 extern const f32 TObjEneDD__data_805D9E8C;
 extern const f32 lbl_805D9E90;
 void TObjEneDD__sub_800B9D94(s32 arg0, s32 arg1, s32 arg2, u32 arg3);
+int TObjPlayer__sub_800F7478(void*);
+void TObjEneDD__sub_800B9E84(Obj_800B9E84 *self);
 }
 
 extern "C" {
 
-int TObjEneDD__sub_800B9E84(void);
 void clear_global_flag_400__9TObjEneDDFv(void);
 int get_camera_ctrl__9TObjEneDDFPv(void* p);
 int initialize_enemy_state__9TObjEneDDFPv(void* p);
@@ -85,7 +91,17 @@ void TObjEneDD__sub_800B9D94(s32 arg0, s32 arg1, s32 arg2, u32 arg3) {
 int update_primary_light__9TObjEneDDFPv(void* p) { return TObjLight__sub_80134098(p); }
 int update_secondary_light__9TObjEneDDFPv(void* p) { return TObjLight__sub_80134194(p); }
 
-int TObjEneDD__sub_800B9E84(void) { return 0; }
+void TObjEneDD__sub_800B9E84(Obj_800B9E84 *self) {
+    s16 a = self->a;
+    s16 c = self->c;
+    s16 b = self->b;
+    s16 d = self->d;
+    TObjPlayer__sub_800F7478((void*)(self));
+    self->a = a;
+    self->c = c;
+    self->b = b;
+    self->d = d;
+}
 
 void reset_hp__9TObjEneDDFPv(void* p) { TObjPlayer__sub_800F7478(p); *(short*)((char*)p + 0x33e) = *(short*)((char*)p + 0x32c); }
 int get_camera_ctrl__9TObjEneDDFPv(void* p) { return TCameraCtrl__sub_80069148(p); }

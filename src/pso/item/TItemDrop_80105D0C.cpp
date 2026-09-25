@@ -10,6 +10,10 @@ struct RecoveredGlobal_80107840_lbl_8049EF88
   u8 remaining[0x14];
 };
 
+struct Pair_80106F4C { u8 type; u8 level; };
+
+struct Obj_80106F4C { u8 pad[6]; Pair_80106F4C e[3]; };
+
 extern "C" {
 M2C_UNK clear_item_if_player_picked_up__9TItemDropFPvPv(void *, void *);
 M2C_UNK TItemDrop__sub_80105EA4(void *, void *);
@@ -51,6 +55,7 @@ extern s32 TItemDrop__data_805D545C;
 u8 *TItemDrop__sub_80107840(u8 *arg0, s16 arg1);
 u32 TItemDrop__sub_801065F8(u8 *arg0, M2C_UNK arg1, u32 arg2);
 u8 TItemDrop__sub_80107790(s32 rng, s32 base, s32 off, s32 count, s32 stride);
+void TItemDrop__sub_80106F4C(void *self, Obj_80106F4C *o);
 }
 
 extern "C" {
@@ -184,6 +189,23 @@ void set_flag__9TItemDropFPvPv(void *arg0, void *arg1) {
 }
 
 extern void *TItemDrop__data_805D5460;
+
+void TItemDrop__sub_80106F4C(void *self, Obj_80106F4C *o) {
+    s32 i;
+    s32 j;
+    for (i = 0; i != 3; i++) {
+        for (j = 0; j != i; j++) {
+            if (o->e[j].type == 0) {
+                o->e[i].type = 0;
+            } else if (o->e[i].type == o->e[j].type) {
+                o->e[i].type = 0;
+            }
+        }
+        if (o->e[i].type == 0) {
+            o->e[i].level = 0;
+        }
+    }
+}
 
 void calc_drop_item__9TItemDropFiPvi(s32 arg0, void *arg1, s32 arg2) {
     if ((u8) M2C_FIELD(arg1, u8 *, 0) == 0) {

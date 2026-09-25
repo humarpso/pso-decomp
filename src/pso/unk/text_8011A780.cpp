@@ -16,6 +16,10 @@ struct Stack_8011AED8 {
     u8 trailing_storage[0x10];
 };
 
+struct Msg_8011A9D8 { u8 pad[2]; u16 u2; u32 u4; s16 s8; };
+
+struct Cmd_8011A9D8 { u8 pad[2]; u16 a; u16 b; s16 c; u32 d; };
+
 extern "C" {
 s32 get_global_state__14TOKeyMachine01Fv();
 extern s32 lbl_805D54E8;
@@ -31,8 +35,19 @@ void handle_6xA2_specializable_item_drop_request(void *arg0);
 s32 copy_item_data__6TLobbyFPvPv(void *, void *);
 s32 drop_stacked_item_passthrough__6TLobbyFi(void *);
 s32 TLobby__sub_80103DD8(void *);
-s32 TLobby__sub_8011A7F8(int);
 void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1);
+s32 get_global_state__14TOKeyMachine01Fv();
+extern s32 lbl_805D54E8;
+void set_boss_buf_entry__6TLobbyFii(s32 v, u16 idx);
+void TLobby__sub_8011A7F8(int id);
+void bswap_pick_up_item_request__6TLobbyFi(Msg_8011A9D8 *msg);
+void *TLobby__sub_80103D10(s16 a, u32 b);
+void TLobby__sub_80103044(Cmd_8011A9D8 *cmd);
+void send_pick_up_item__6TLobbyFi(Cmd_8011A9D8 *cmd);
+void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg);
+extern s32 lbl_805D54E8;
+extern s32 lbl_805D54EC;
+void TLobby__sub_8011AFB8(void);
 }
 
 extern "C" {
@@ -41,9 +56,34 @@ void handle_6x5C_destroy_floor_item(void *arg0);
 void handle_6x62(void);
 M2C_UNK bswap_packet__6TLobbyFPv();
 
+void TLobby__sub_8011A7F8(int id) {
+    if (get_global_state__14TOKeyMachine01Fv() != 0xf) {
+        s32 lo = 0x10000;
+        if (lo < id && id < 0x2010000) {
+            s32 idx = id >> 21;
+            if (((s32 *)lbl_805D54E8)[(u16)idx] <= id) {
+                set_boss_buf_entry__6TLobbyFii(id + 1, idx);
+            }
+        }
+    }
+}
+
 void handle_6x5C_destroy_floor_item(void *arg0) {
     bswap_packet__6TLobbyFPv();
     TLobby__sub_80103BFC(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 4));
+}
+
+void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg) {
+    bswap_pick_up_item_request__6TLobbyFi(msg);
+    if (TLobby__sub_80103D10(msg->s8, msg->u4) != 0) {
+        Cmd_8011A9D8 cmd;
+        TLobby__sub_80103044(&cmd);
+        cmd.a = msg->u2;
+        cmd.b = msg->u2;
+        cmd.c = msg->s8;
+        cmd.d = msg->u4;
+        send_pick_up_item__6TLobbyFi(&cmd);
+    }
 }
 
 void TLobby__sub_8011AA44(s16 arg0, s32 _w1) {
@@ -81,7 +121,7 @@ void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1) {
     stack.sp10 = farg1;
     stack.sp14 = arg1;
     copy_item_data__6TLobbyFPvPv((void *) (&stack.sp18), (void *) (arg2));
-    TLobby__sub_8011A7F8((int) (M2C_FIELD(arg2, s32 *, 0xC)));
+    TLobby__sub_8011A7F8((int)((int) (M2C_FIELD(arg2, s32 *, 0xC))));
     TLobby__sub_80103DD8((void *) (&stack.sp8));
 }
 
@@ -96,6 +136,16 @@ void TLobby__sub_8011AF58(s32 arg0) {
     }
     temp_r4_2 = (arg0 * 4) & 0x3FFFC;
     M2C_FIELD(lbl_805D54E8, M2C_UNK *, temp_r4_2) = M2C_FIELD(lbl_805D54E8, M2C_UNK *, temp_r4_2) + 1;
+}
+void TLobby__sub_8011AFB8(void) {
+    s32 i;
+    if ((s32 *)lbl_805D54E8 == 0 || (s32 *)lbl_805D54EC == 0) {
+        return;
+    }
+    for (i = 0; i < 12; i++) {
+        ((s32 *)lbl_805D54E8)[i] = (i << 21) + 0x10000;
+        ((s32 *)lbl_805D54EC)[i] = (i << 21) + 0x10010000;
+    }
 }
 
 }

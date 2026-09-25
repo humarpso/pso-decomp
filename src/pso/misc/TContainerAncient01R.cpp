@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TContainerAncient01__sub_8018BE90(void);
+int get_table_entry__19TContainerAncient01Fi(int a0);
+extern int TContainerAncient01R__data_805D5B94;
+extern int lbl_8050DC70[];
+void TContainerAncient01R__sub_8018AF80(void);
+}
+
+extern "C" {
 
 void *TContainerAncient01R__create(void *arg0);
 void TContainerAncient01R__sub_8018AF74(void);
@@ -30,6 +38,12 @@ void *TContainerAncient01R__create(void *arg0) {
 void TContainerAncient01R__sub_8018AF74(void) { TContainerAncient01R__data_805D5B94 = 0; }
 
 extern M2C_UNK lbl_804B6E1C[];
+
+void TContainerAncient01R__sub_8018AF80(void) {
+    TContainerAncient01R__data_805D5B94 = TContainerAncient01__sub_8018BE90();
+    lbl_8050DC70[0] = get_table_entry__19TContainerAncient01Fi(0);
+    lbl_8050DC70[1] = get_table_entry__19TContainerAncient01Fi(1);
+}
 
 void *dt__20TContainerAncient01RFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

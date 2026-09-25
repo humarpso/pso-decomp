@@ -32,6 +32,9 @@ extern M2C_UNK lbl_8049C700[];
 extern RecoveredGlobal_800FA95C_lbl_80515F48 lbl_80515F48;
 extern s32 lbl_805D2B1C;
 u8 *TQuestVmDownLoadServer__sub_800FA95C(u8 *arg0);
+s32 TFogCtrl__sub_800FAC84(void *p);
+extern M2C_UNK TFogCtrl__data_80501188[];
+s32 TFogCtrl__sub_800FAAE4(void);
 }
 
 extern "C" {
@@ -117,6 +120,17 @@ s32 apply_all__8TFogCtrlFii(s32 arg0, s32 arg1) {
     } while (var_r29 != 4);
     return 1;
 }
+
+s32 TFogCtrl__sub_800FAAE4(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        if ((void *)((s32 *)&TFogCtrl__data_80501188)[i] != NULL) {
+            return TFogCtrl__sub_800FAC84((void *)((s32 *)&TFogCtrl__data_80501188)[i]);
+        }
+    }
+    return 0;
+}
+
 s32 update_all__8TFogCtrlFi(s32 arg0) {
     s32 var_r29;
     s32 var_r31;

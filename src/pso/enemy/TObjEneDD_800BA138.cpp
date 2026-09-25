@@ -70,6 +70,14 @@ struct E_800BA190 { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
 
 struct O_800BA190 { u8 pad[0xa4]; E_800BA190 *entries; s32 count; };
 
+struct Part_800BA200 { u8 pad[0x18]; u32 flags; u8 pad2[0x2c - 0x1c]; };
+
+struct Obj_800BA200 { u8 pad[0x30]; u32 flags; u8 pad2[0xa4 - 0x34]; Part_800BA200 *parts; s32 count; };
+
+struct Part_800BA244 { u8 pad[0x18]; u32 flags; u8 pad2[0x2c - 0x1c]; };
+
+struct Obj_800BA244 { u8 pad[0x30]; u32 flags; u8 pad2[0xa4 - 0x34]; Part_800BA244 *parts; s32 count; };
+
 extern "C" {
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B68C;
 void TObjEneDD__sub_800BA318(s32 arg0, u8 *arg1);
@@ -81,6 +89,8 @@ extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B674;
 void TObjEneDD__sub_800BA438(s32 arg0, u8 *arg1);
 void TObjEneDD__vt90(O_800BA1C8 *self);
 void TObjEneDD__vt91(O_800BA190 *self);
+void TObjEneDD__vt89(Obj_800BA200 *self);
+void TObjEneDD__vt88(Obj_800BA244 *self);
 }
 
 extern "C" {
@@ -127,8 +137,6 @@ void TObjEneDD__sub_800BA498(void* p, void* a1);
 void TObjEneDD__sub_800BA5A4(void* p, void* a1);
 int TObjEneDD__sub_800BA6B8(void* p);
 int TObjEneDD__sub_800BA6C4(void* p);
-int TObjEneDD__vt88(void);
-int TObjEneDD__vt89(void);
 void TObjEneDD__vt92(void *arg0);
 int check_state_flag_1__9TObjEneDDFPv(void* p);
 int check_state_flag_2__9TObjEneDDFPv(void* p);
@@ -167,8 +175,21 @@ void TObjEneDD__vt90(O_800BA1C8 *self) {
     }
 }
 
-int TObjEneDD__vt89(void) { return 0; }
-int TObjEneDD__vt88(void) { return 0; }
+void TObjEneDD__vt89(Obj_800BA200 *self) {
+    s32 i;
+    self->flags &= ~0x04000000;
+    for (i = 0; i < self->count; i++) {
+        self->parts[i].flags &= ~0x02000000;
+    }
+}
+
+void TObjEneDD__vt88(Obj_800BA244 *self) {
+    s32 i;
+    self->flags |= 0x04000000;
+    for (i = 0; i < self->count; i++) {
+        self->parts[i].flags |= 0x02000000;
+    }
+}
 
 int set_state_8__9TObjEneDDFPv(void* p) { return add_flags_2e4__10TObjPlayerFPvUi(p, 8); }
 int check_state_flag_4__9TObjEneDDFPv(void* p) { return add_flags_2e4__10TObjPlayerFPvUi(p, 4); }

@@ -17,6 +17,10 @@ struct RecoveredGlobal_8016D2A4_lbl_80441D84 {
 
 struct Obj_8016D428 { u8 pad[0x6c]; f32 f; };
 
+struct Pkt_8016D148 { u8 code, words; u16 object, zero, reserved, switchId; u8 area, flags; };
+
+struct Self_8016D148 { u8 pad[0x1C]; u16 id; u8 pad1e[0xC8 - 0x1E]; s32 switchId; };
+
 extern "C" {
 s32 is_split_screen();
 s32 TOKey__sub_8016A280(void *);
@@ -40,6 +44,11 @@ void TOKeyMachine01__vt16(s32 arg0);
 extern const f32 lbl_805DB790;
 extern const f32 lbl_805DB78C;
 void TOKeyMachine01__vt14(Obj_8016D428 *self);
+void init_6x05_switch_changed__6TLobbyFPv(void *);
+void finalize_and_send_60__6TLobbyFPv(void *);
+s32 TObjPlayer__sub_800196EC();
+extern s32 lbl_805D53A0;
+void TOKeyMachine01__sub_8016D148(Self_8016D148 *self, s32 flags);
 }
 
 extern "C" {
@@ -72,6 +81,18 @@ s32 TOKeyMachine01__vt13(u8 *arg0) {
 }
 
 typedef char RecoveredGlobal_8016D1A8_lbl_80441D84_size[sizeof(RecoveredGlobal_8016D1A8_lbl_80441D84) == 0x90 ? 1 : -1];
+
+void TOKeyMachine01__sub_8016D148(Self_8016D148 *self, s32 flags) {
+    Pkt_8016D148 pkt;
+    init_6x05_switch_changed__6TLobbyFPv(&pkt);
+    pkt.object = self->id;
+    pkt.zero = lbl_805D53A0;
+    pkt.switchId = self->switchId;
+    pkt.area = TObjPlayer__sub_800196EC();
+    pkt.flags = flags;
+    finalize_and_send_60__6TLobbyFPv(&pkt);
+}
+
 void TOKeyMachine01__vt17(s32 arg0) {
     s32 temp_r3;
     s32 temp_r3_2;

@@ -7,6 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern int lbl_8050DC20[];
 void TLobby__sub_80184D00(void* _w0);
+extern int lbl_8050DC20[];
+extern s32 lbl_80444268[];
+extern s32 lbl_805D55A0;
+void TLobby__sub_80184D00(void* _w0);
+void TLobby__sub_80184C80(void *p);
 }
 
 extern "C" {
@@ -31,6 +36,17 @@ u8 TLobby__sub_80184C54(void) {
 
     extern int lbl_8050DC20[];
 int TLobby__sub_80184C6C(int a0) {  return lbl_8050DC20[a0]; }
+
+void TLobby__sub_80184C80(void *p) {
+    s32 i;
+    TLobby__sub_80184D00((void*)(p));
+    for (i = 0; i < 6; i++) {
+        if (lbl_805D55A0 == lbl_80444268[i]) {
+            lbl_8050DC20[i] = 1;
+            return;
+        }
+    }
+}
 
 void TLobby__sub_80184CE0(void* p) { TLobby__sub_80184D00((void*)(p)); }
 void TLobby__sub_80184D00(void* _w0) {

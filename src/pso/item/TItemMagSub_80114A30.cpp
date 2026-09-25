@@ -21,6 +21,8 @@ struct RecoveredGlobal_80114DB8_lbl_8058D490 {
     u8 remaining[0x2C];
 };
 
+struct Vec_80114CD8 { f32 x, y, z; };
+
 extern "C" {
 s32 TItemMag__sub_80113EC8(void *);
 s32 calc_feed_level__11TItemMagSubFPv(void *arg0);
@@ -41,6 +43,7 @@ extern void *TItemMagSub__data_805D54B8;
 extern s32 TItemMagSub__data_805D54BC;
 void TItemMagSub__sub_80114AB4(void *a, void *b);
 void TItemMagSub__sub_80114C40(void *arg);
+void TItemMagSub__sub_80114CD8(Vec_80114CD8 *target, Vec_80114CD8 *cur, f32 *t);
 }
 
 extern "C" {
@@ -89,6 +92,16 @@ void accumulate_stat__11TItemMagSubFPvPvPv(f32 *arg0, s32 *arg1, void *arg2) {
 
 typedef char RecoveredGlobal_80114DB8_lbl_8043E5A8_size[sizeof(RecoveredGlobal_80114DB8_lbl_8043E5A8) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_80114DB8_lbl_8058D490_size[sizeof(RecoveredGlobal_80114DB8_lbl_8058D490) == 0x30 ? 1 : -1];
+
+#pragma push
+#pragma fp_contract on
+void TItemMagSub__sub_80114CD8(Vec_80114CD8 *target, Vec_80114CD8 *cur, f32 *t) {
+    cur->x += *t * (target->x - cur->x);
+    cur->y += *t * (target->y - cur->y);
+    cur->z += *t * (target->z - cur->z);
+}
+#pragma pop
+
 s32 TItemMagSub__sub_80114DB8(u8 *arg0, u32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_80114DB8, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80114DB8, spC) == 0x4) ? 1 : -1];

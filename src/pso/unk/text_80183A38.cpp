@@ -24,6 +24,11 @@ s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
 extern RecoveredGlobal_80183A38_lbl_804B5C90 lbl_804B5C90;
 extern s32 lbl_805D3284;
 u8 *TObjCity_Season_Board__ct(u8 *arg0, s32 arg1, s32 arg2);
+s32 TObjCity_Season_SonicAdv2__sub_80183C38(void *arg0);
+void set_global_count__12TObjNpcEnemyFi(s32 arg0);
+void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+extern const char lbl_80444250[];
+void fn_80183AA0(void *self);
 }
 
 extern "C" {
@@ -36,6 +41,12 @@ u8 *TObjCity_Season_Board__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x90) = 0;
     return arg0;
+}
+void fn_80183AA0(void *self) {
+    TObjCity_Season_SonicAdv2__sub_80183C38(self);
+    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_80444250);
+    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
 
 }

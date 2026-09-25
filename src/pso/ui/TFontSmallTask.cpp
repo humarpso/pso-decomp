@@ -48,10 +48,17 @@ struct RecoveredGlobal_8000F91C_lbl_804FE120 {
     u8 remaining[0x14];
 };
 
+struct Ent_800FD6A0 { u32 id; void (*fn)(void); };
+
+struct Ent_800FD6F8 { void (*fn)(void); u32 id; };
+
 extern "C" {
 void TFontSmallTask__sub_800FD604(void* p);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 TLobby__data_805011D8;
 void TLobby__sub_800FD764(void);
+void TLobby__sub_800FD6A0(Ent_800FD6A0 *arr, u32 size);
+s32 TLobby__sub_800F8AE8(void);
+s32 TLobby__sub_800FD6F8(Ent_800FD6F8 *p, u32 size);
 }
 
 extern "C" {
@@ -65,6 +72,34 @@ s32 get_task_id__14TFontSmallTaskFPv(void* p) { return *(s32*)((char*)p + 0x4); 
 void TFontSmallTask__sub_800FD604(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
+
+void TLobby__sub_800FD6A0(Ent_800FD6A0 *arr, u32 size) {
+    s32 n = size / sizeof(Ent_800FD6A0);
+    Ent_800FD6A0 *p = arr + n;
+    while (n > 0) {
+        p--;
+        if (p->fn != NULL) {
+            p->fn();
+        }
+        n--;
+    }
+}
+
+s32 TLobby__sub_800FD6F8(Ent_800FD6F8 *p, u32 size) {
+    s32 n = size / sizeof(Ent_800FD6F8);
+    while (n > 0) {
+        if (TLobby__sub_800F8AE8() != 0) {
+            return 0;
+        }
+        if (p->fn != NULL) {
+            p->fn();
+        }
+        p++;
+        n--;
+    }
+    return 1;
+}
+
 void TLobby__sub_800FD764(void) {
     TFontSmallTask__sub_800FD604((void*)((M2C_UNK *)(&TLobby__data_805011D8.value)));
 }

@@ -6,12 +6,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct O_800B8A24 { s32 a; s32 b; u16 c; };
 
+struct Globals_800B8A40 {
+    u8 pad[0x2c];
+    u8 chain0[0xc];
+    u8 list0[0x8];
+    u8 chain1[0xc];
+    u8 list1[0x8];
+};
+
 extern "C" {
 void TObjEneBm5Wolf__sub_800B896C(u8 *arg0, void **arg1, void **arg2);
 void TObjEneBm5Wolf__sub_800B89A4(u8 *arg0, void ***arg1, void **arg2);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 s32 TObjEneBm5Wolf__sub_800B8A9C(s32 arg0, s32 arg1);
 void TObjEneBm5Wolf__sub_800B8A24(O_800B8A24 *self);
+extern Globals_800B8A40 TObjEneBm5Wolf__data_80500B40;
+void* reset__14TObjEneBm5WolfFPv(void* p);
+s32 __dt__14TObjEneBm5WolfFis(s32 arg0, s16 arg1);
+void __register_global_object(void *obj, void *dtor, void *chain);
+void TObjEneBm5Wolf__sub_800B8A40(void);
 }
 
 extern "C" {
@@ -103,6 +116,15 @@ void TObjEneBm5Wolf__sub_800B8A24(O_800B8A24 *self) {
     self->b = 0;
     self->c = 0xFFFF;
 }
+
+#pragma push
+#pragma opt_propagation off
+void TObjEneBm5Wolf__sub_800B8A40(void) {
+    Globals_800B8A40 *g = &TObjEneBm5Wolf__data_80500B40;
+    __register_global_object(((void *)reset__14TObjEneBm5WolfFPv((void*)(g->list0))), (void *)__dt__14TObjEneBm5WolfFis, g->chain0);
+    __register_global_object(((void *)reset__14TObjEneBm5WolfFPv((void*)(g->list1))), (void *)__dt__14TObjEneBm5WolfFis, g->chain1);
+}
+#pragma pop
 
 s32 TObjEneBm5Wolf__sub_800B8A9C(s32 arg0, s32 arg1) {
     return (s32) ((f32) arg1 * calc_boss4_scale__10TObjPlayerFi(arg0));

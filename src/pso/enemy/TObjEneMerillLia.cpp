@@ -184,6 +184,12 @@ struct D_800D7274 { u8 pad[0x42c]; E_800D7274 *entries; };
 
 struct O_800D7274 { u8 pad[0x24]; s32 f24; u8 pad2[0xc]; s32 f34; };
 
+struct Sub_800D5100 { u8 pad[0x18]; s32 f18; };
+
+struct Obj_800D5100 { u8 pad[0x2b0]; Sub_800D5100 *f2b0; };
+
+struct Obj_800D5150 { u8 pad[0x334]; s32 f334; u8 pad2[0x368 - 0x338]; s32 f368; };
+
 extern "C" {
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
 void TObjEneMerillLia__sub_800D5480(u8 *arg0);
@@ -266,6 +272,10 @@ extern const f32 lbl_805DA330;
 void TObjEneMerillLia__sub_800D6810(u8 *arg0);
 extern u32 TObjEneMerillLia__data_805D5220;
 void TObjEneMerillLia__sub_800D7274(O_800D7274 *self, s32 i);
+extern s32 lbl_805D5550;
+s32 TObjEneMerillLia__sub_800D5100(Obj_800D5100 *self);
+void set_param__12TObjEneLappyFPvi(void *p, s32 v);
+void TObjEneMerillLia__sub_800D5150(Obj_800D5150 *self);
 }
 
 extern "C" {
@@ -337,6 +347,42 @@ void TObjEneMerillLia__sub_800D5060(u8 *arg0) {
 }
 
 void TObjEneMerillLia__sub_800D50FC(void) {  }
+
+s32 TObjEneMerillLia__sub_800D5100(Obj_800D5100 *self) {
+    Sub_800D5100 *p = self->f2b0;
+    s32 v = 0;
+    if (p != 0) {
+        v = p->f18;
+        if (v < 0) {
+            v = 0;
+        } else if (lbl_805D5550 == 3) {
+            if (v > 0x1d) {
+                v = 0x1d;
+            }
+        } else if (v > 0xe) {
+            v = 0xe;
+        }
+    }
+    return v;
+}
+
+void TObjEneMerillLia__sub_800D5150(Obj_800D5150 *self) {
+    if (self->f334 < 0) {
+        self->f334 = 0;
+    } else if (self->f334 > 1) {
+        self->f334 = 1;
+    }
+    switch (self->f334) {
+    case 1:
+        self->f368 = 1;
+        set_param__12TObjEneLappyFPvi(self, 0x35);
+        break;
+    default:
+        self->f368 = 0;
+        set_param__12TObjEneLappyFPvi(self, 0x34);
+        break;
+    }
+}
 
 void update_motion_state__16TObjEneMerillLiaFPv(void *arg0) {
     s32 temp_r0;

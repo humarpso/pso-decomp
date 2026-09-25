@@ -135,6 +135,14 @@ struct RecoveredGlobal_800D18DC_TObjEneBm5GibonU__data_80500EB0 {
 
 struct O_800D1CF8 { s32 f0; s32 f4; u16 f8; };
 
+struct Node_800D17E8 { s32 f0; Node_800D17E8 *next; };
+
+struct Ene_800D17E8 { u8 pad[0x46c]; s32 id; };
+
+struct List_800D17E8 { Node_800D17E8 *head; u8 remaining[0x8]; };
+
+struct G_800D1D14 { u8 pad[0x2c]; u8 chain1[0xc]; u8 obj1[8]; u8 chain2[0xc]; u8 obj2[8]; };
+
 extern "C" {
 void TObjEneBm5GibonU__sub_800D1C40(u8 *arg0, void **arg1, void **arg2);
 void TObjEneBm5GibonU__sub_800D1C78(u8 *arg0, void ***arg1, void **arg2);
@@ -161,6 +169,14 @@ void init_child__16TObjEneBm5GibonUFPvPv(void* p, void* a1);
 extern RecoveredGlobal_800D18AC_TObjEneBm5GibonU__data_80500EB0 TObjEneBm5GibonU__data_80500EB0;
 void TObjEneBm5GibonU__sub_800D18DC(s32 arg0);
 void TObjEneBm5GibonU__sub_800D1CF8(O_800D1CF8 *self);
+extern RecoveredGlobal_800D184C_TObjEneBm5GibonU__data_80500EC4 TObjEneBm5GibonU__data_80500EC4;
+void update_photon_mylla__16TObjEneBm5GibonUFPv(void *arg0);
+Ene_800D17E8 *TObjEneBm5GibonU__sub_800D17E8(s32 id);
+extern G_800D1D14 TObjEneBm5GibonU__data_80500E78;
+s32 __dt__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1);
+void* reset__16TObjEneBm5GibonUFPv(void* p);
+void __register_global_object(void *obj, void *dtor, void *chain);
+void TObjEneBm5GibonU__sub_800D1D14(void);
 }
 
 extern "C" {
@@ -262,6 +278,18 @@ void TObjEneBm5GibonU__sub_800D1268(u8 *arg0) {
 }
 
 typedef char RecoveredGlobal_800D184C_TObjEneBm5GibonU__data_80500EC4_size[sizeof(RecoveredGlobal_800D184C_TObjEneBm5GibonU__data_80500EC4) == 0xC ? 1 : -1];
+
+Ene_800D17E8 *TObjEneBm5GibonU__sub_800D17E8(s32 id) {
+    Node_800D17E8 *n;
+    for (n = (*(List_800D17E8 *)&TObjEneBm5GibonU__data_80500EC4).head; n != 0; n = n->next) {
+        Ene_800D17E8 *e = ((Ene_800D17E8 *(*)(void *))update_photon_mylla__16TObjEneBm5GibonUFPv)(n);
+        if (e != 0 && e->id == id) {
+            return e;
+        }
+    }
+    return 0;
+}
+
 void TObjEneBm5GibonU__sub_800D184C(s32 arg0) {
     forward_hit__16TObjEneBm5GibonUFPvPv((void*)((s32) &TObjEneBm5GibonU__data_80500EC4.value), (void*)(arg0 + 0x3CC));
 }
@@ -358,6 +386,15 @@ void TObjEneBm5GibonU__sub_800D1CF8(O_800D1CF8 *self) {
     self->f4 = 0;
     self->f8 = 0xFFFF;
 }
+
+#pragma push
+#pragma opt_propagation off
+void TObjEneBm5GibonU__sub_800D1D14(void) {
+    G_800D1D14 *g = &TObjEneBm5GibonU__data_80500E78;
+    __register_global_object(reset__16TObjEneBm5GibonUFPv(g->obj1), (void *)__dt__16TObjEneBm5GibonUFis, g->chain1);
+    __register_global_object(reset__16TObjEneBm5GibonUFPv(g->obj2), (void *)__dt__16TObjEneBm5GibonUFis, g->chain2);
+}
+#pragma pop
 
 s32 TObjEneBm5GibonU__sub_800D1D70(void* p) { return *(s32*)((char*)p + 0x46c); }
 void* TObjEneBm5GibonU__sub_800D1D78(void* p) { return (char*)p + 0x47c; }

@@ -39,6 +39,12 @@ extern const f32 lbl_805DB7D8;
 extern const f32 lbl_805DB820;
 extern const f32 lbl_805DB824;
 u8 *TOKurage__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+s32 fn_800FD8B4(void *);
+void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+extern const char lbl_80441EA0[];
+extern const char lbl_80441EB0[];
+extern const char lbl_80441EBC[];
+void TOKurage__sub_8016DA34(void *self);
 }
 
 extern "C" {
@@ -74,6 +80,14 @@ void update_state__8TOKurageFPv(void *arg0) {
 
 extern const f32 lbl_805DB7A8;
 extern const f32 TOKurage__data_805DB7AC;
+
+void TOKurage__sub_8016DA34(void *self) {
+    if (fn_800FD8B4(self) == 1) {
+        TObjEneBm5GibonU__sub_803D853C(0x13001C, lbl_80441EA0);
+        TObjEneBm5GibonU__sub_803D853C(0x13001D, lbl_80441EB0);
+        TObjEneBm5GibonU__sub_803D853C(0x13001E, lbl_80441EBC);
+    }
+}
 
 void init__8TOKurageFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0xCC, arg0 + 0x38);

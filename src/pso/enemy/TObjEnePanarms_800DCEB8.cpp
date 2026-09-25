@@ -26,6 +26,12 @@ struct RecoveredGlobal_800DD9A0_lbl_80494F4C {
     u8 remaining[0x20C];
 };
 
+struct Vec_800DECC4 { f32 x; f32 y; f32 z; };
+
+struct Obj_800DECC4 { u8 pad[0x38]; Vec_800DECC4 pos; u8 pad2[0x248 - 0x44]; u8 f248[0x384 - 0x248]; f32 f384; };
+
+struct Obj_800DF1B8 { u8 pad[0x394]; u32 handles[2]; };
+
 extern "C" {
 void obj_clearFlags30(void *, u32);
 void TObjEnePanarms__sub_800DD738(u8 *arg0);
@@ -132,6 +138,11 @@ extern const f32 lbl_805DA4A8;
 extern const f32 lbl_805DA4AC;
 extern const f32 lbl_805DA4B0;
 void TObjEnePanarms__sub_800DD9A0(u8 *arg0);
+s32 TObjPlayer__sub_80156844(void *, void *, int);
+extern const f32 TObjEnePanarms__data_805DA4A4;
+void TObjEnePanarms__sub_800DECC4(Obj_800DECC4 *self);
+void request_destroy__11TBoss4Type2FUi(u32);
+void TObjEnePanarms__sub_800DF1B8(Obj_800DF1B8 *self);
 }
 
 extern "C" {
@@ -150,7 +161,6 @@ void update_timed_action__14TObjEnePanarmsFPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 void TLobby__sub_8001FE7C(void*, int);
 int TOHangerMachine01__sub_803D9C00(void*);
-M2C_UNK TObjEnePanarms__sub_800DECC4(void *);
 int TObjEnePanarms__sub_800DED30(void*, void*);
 s32 TObjEnePanarms__sub_800DFB44(s32);
 int TObjFish__sub_800E3074(void*);
@@ -519,7 +529,7 @@ void init_state__14TObjEnePanarmsFPv(u8 *arg0) {
     u8 *temp_r4_2;
 
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg0 + 0x50));
-    TObjEnePanarms__sub_800DECC4((void *) (arg0));
+    TObjEnePanarms__sub_800DECC4((Obj_800DECC4 *)((void *) (arg0)));
     M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (lbl_805DA4E0 + M2C_FIELD(arg0, f32 *, 0x384));
     obj_setFlags30((void *) (arg0), (int) (0x04040000));
     temp_r4 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x390));
@@ -548,9 +558,27 @@ void TObjEnePanarms__sub_800DE430(s32 arg0, s32 arg1, s32 arg2) {
     fn_80086B64((void *) (&position.x), (void *) (arg0 + 0x5C), (int) (0x106), (void *) (arg1), (void *) (arg2));
 }
 
+void TObjEnePanarms__sub_800DECC4(Obj_800DECC4 *self) {
+    Vec_800DECC4 v = self->pos;
+    v.y += TObjEnePanarms__data_805DA4A4;
+    if (TObjPlayer__sub_80156844(self, &v, (int)self->f248) != 0) {
+        self->f384 = v.y;
+    }
+}
+
 void TObjEnePanarms__sub_800DEEF8(void* p) { TObjPlayer__sub_803D9B2C(p); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); TObjPlayer__sub_803D9214((void*)0, *(void**)((char*)p + 0x60)); set_global_param__8TObjFishFi(*(void**)((char*)p + 0x24)); TObjFish__sub_800E3074(*(void**)((char*)p + 0x39c)); draw__16TObjEneRe7BeruraFPv(p); clear_render_callback__8TObjFishFv(*(void**)((char*)p + 0x39c)); TObjPlayer__sub_803D9B78(); }
 
 extern u32 TObjEnePanarms__data_805D5278;
+
+void TObjEnePanarms__sub_800DF1B8(Obj_800DF1B8 *self) {
+    s32 i;
+    for (i = 0; i < 2; i++) {
+        if (self->handles[i] != 0) {
+            request_destroy__11TBoss4Type2FUi(self->handles[i]);
+            self->handles[i] = 0;
+        }
+    }
+}
 
 void free_data__14TObjEnePanarmsFv(void) {
     if ((u32) TObjEnePanarms__data_805D5278 != 0U) {

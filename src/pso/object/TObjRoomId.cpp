@@ -20,6 +20,8 @@ struct RecoveredGlobal_801A1CD8___vt__10TObjRoomId {
     u8 remaining[0x34];
 };
 
+struct Obj_801A1888 { u8 pad[0x38]; f32 pos[3]; };
+
 extern "C" {
 s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
 extern M2C_UNK __vt__10TObjRoomId[];
@@ -27,11 +29,13 @@ extern s32 lbl_805D34B0;
 extern const f32 lbl_805DC094;
 u8 *TObjRoomId__ct(u8 *arg0, s32 arg1, s32 arg2);
 u16 TObjRoomId__sub_801A1DB8(u16 x);
+Obj_801A1888 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+f32 TObjPlayer__sub_80141CF8(f32 *a, f32 *b);
+s32 TObjRoomId__sub_801A1888(Obj_801A1888 *self, u16 id, f32 range);
 }
 
 extern "C" {
 
-int TObjRoomId__sub_801A1888(void);
 void TObjRoomId__sub_801A1D94(void *arg0);
 int TObjRoomId__sub_801A1E2C(void);
 void *__dt__10TObjRoomIdFv(void *arg0, s16 arg1);
@@ -51,9 +55,15 @@ s32 is_split_screen();
 void set_state__9TTecLukerFPvi(void* p, s32 v);
 M2C_UNK set_state_flags__10TObjPlayerFPvUi(void *, M2C_UNK);
 
-int TObjRoomId__sub_801A1888(void) { return 0; }
-
 extern M2C_UNK __vt__10TObjRoomId[];
+
+s32 TObjRoomId__sub_801A1888(Obj_801A1888 *self, u16 id, f32 range) {
+    Obj_801A1888 *p = TPlayerBattleCtrl4P__sub_801BA74C(id);
+    if (p == 0) {
+        return 0;
+    }
+    return TObjPlayer__sub_80141CF8(p->pos, self->pos) < range;
+}
 
 void *__dt__10TObjRoomIdFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

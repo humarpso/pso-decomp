@@ -22,6 +22,8 @@ struct RecoveredGlobal_80190484___vt__18TObjEnvSoundGlobal {
 
 struct RecoveredGlobal_801902D8_lbl_804B7A70 { M2C_UNK value; u8 remaining[0x8C]; };
 
+struct Obj_801903B4 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x90 - 0x44]; f32 param; s32 sound; s32 mode; };
+
 extern "C" {
 s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
 extern M2C_UNK __vt__18TObjEnvSoundGlobal[];
@@ -33,6 +35,8 @@ extern RecoveredGlobal_801902D8_lbl_804B7A70 lbl_804B7A70;
 extern const f32 lbl_805DBE10;
 extern const f32 lbl_805DBE14;
 s32 TObjEnvSoundGlobal__sub_801902D8(u8 *arg0);
+void TOTrapAncient01__sub_80226578(s32, void *, f32 *, s32, s32);
+void run_task__18TObjEnvSoundGlobalFv(Obj_801903B4 *self);
 }
 
 extern "C" {
@@ -41,7 +45,6 @@ void * TObjEnvSoundEx__create(void *arg0);
 void *__dt__18TObjEnvSoundGlobalFv(void *arg0, s16 arg1);
 void copy_pair__18TObjEnvSoundGlobalFPvPv(void* p, void* q);
 void render__18TObjEnvSoundGlobalFv(void);
-int run_task__18TObjEnvSoundGlobalFv(void);
 void *TObjEnvSoundEx__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -76,9 +79,20 @@ s32 TObjEnvSoundGlobal__sub_801902D8(u8 *arg0) {
 void copy_pair__18TObjEnvSoundGlobalFPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
 void render__18TObjEnvSoundGlobalFv(void) {  }
 
-int run_task__18TObjEnvSoundGlobalFv(void) { return 0; }
-
 extern M2C_UNK __vt__18TObjEnvSoundGlobal[];
+
+void run_task__18TObjEnvSoundGlobalFv(Obj_801903B4 *self) {
+    switch (self->mode) {
+    case 0:
+        break;
+    case 1:
+        TOTrapAncient01__sub_80226578(self->sound, self, self->pos, 0, 0);
+        break;
+    case 2:
+        TOTrapAncient01__sub_80226578(self->sound, self, 0, (s32)self->param, 2);
+        break;
+    }
+}
 
 void *__dt__18TObjEnvSoundGlobalFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
