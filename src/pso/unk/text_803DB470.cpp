@@ -20,6 +20,8 @@ struct C_803DBAF8 { u8 r, g, b, a; };
 
 struct S_803DBAF8 { u8 pad[0x64]; C_803DBAF8 c; };
 
+struct GinjaTevCache { u8 reserved[0x75]; u8 stageOffset; };
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_803DC460(void *);
 M2C_UNK TObjPlayer__sub_803DC600();
@@ -52,6 +54,13 @@ extern S_803DB560 lbl_8058CD80;
 void TObjPlayer__sub_803DBB38(u32 v);
 extern S_803DB560 lbl_8058CD80;
 void TObjPlayer__sub_803DBAF8(u32 v);
+extern S_803DB560 lbl_8058CD80;
+extern s32 some_id_805c6f74;
+extern s32 lbl_804FC5A4[];
+extern s32 lbl_804FC5C8[];
+void GXSetTevOp(s32, s32);
+void GXSetTevOrder(s32, s32, s32, s32);
+void set_ginja_tev_order(u32 parameter);
 }
 
 extern "C" {
@@ -130,6 +139,21 @@ void TObjPlayer__sub_803DBB78(u32 x) {
     (*(S_803DBB78 *)&lbl_8058CD80).f7c |= 1;
 }
 #pragma pop
+
+void set_ginja_tev_order(u32 parameter) {
+    u32 selectedStage = (parameter & 0xF000) >> 12;
+    if ((u32)some_id_805c6f74 & 0x80000)
+        selectedStage += (*(GinjaTevCache *)&lbl_8058CD80).stageOffset;
+    s32 stage = selectedStage;
+    s32 coordinate = lbl_804FC5A4[(parameter & 0xF00) >> 8];
+    s32 texture = lbl_804FC5C8[(parameter & 0xF0) >> 4];
+    s32 channel = parameter & 0xF;
+    if (texture == 0xFF)
+        GXSetTevOp(selectedStage, 4);
+    else
+        GXSetTevOp(selectedStage, 0);
+    GXSetTevOrder(stage, coordinate, texture, channel);
+}
 
 #pragma push
 #pragma scheduling off
