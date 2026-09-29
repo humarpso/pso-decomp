@@ -74,6 +74,7 @@ struct M2CCopy_24 { u8 bytes[0x24]; };
 
 struct G_801EA7E8 { u8 pad[0x13]; u8 f13; u8 pad14[0x18]; };
 
+#include "pso/player/TObjPlayer.h"
 extern "C" {
 extern s32 lbl_805D4C24;
 void TLobby__sub_801EA240(s32 arg0);
@@ -99,7 +100,6 @@ M2C_UNK TLobby__sub_80070EE4(int);
 M2C_UNK TLobby__sub_80292200(int);
 void TLobby__sub_801EB0A0(s32 arg0);
 void TLobby__sub_801EB0F8(s32 arg0);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(int, void *);
 s32 set_flag_80000__6TLobbyFi(int);
 s32 set_flag_40000__6TLobbyFPv(int);
 s32 TLobby__sub_801F3314(int);
@@ -146,6 +146,11 @@ extern RecoveredGlobal_801EA274_TLobby__data_80512220 TLobby__data_80512220;
 extern RecoveredGlobal_801EA274_TLobby__data_80512360 TLobby__data_80512360;
 extern s32 lbl_80449B10[];
 void TLobby__sub_801EA7E8(void);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(int, void *);
+int obj_isState2_324(TObjPlayer*);
+extern int* TLobby__data_805D5E78;
+void set_speed__10TObjPlayerFPvf(PlayerScaleState*, f32);
+void quest_set_player_shrink_size(s32 player_variable, s32 size_variable);
 }
 
 extern "C" {
@@ -209,6 +214,17 @@ typedef char RecoveredGlobal_801EA274_TLobby__data_80512360_size[sizeof(Recovere
 void TLobby__sub_801EA274(void) {
     if ((u32) TLobby__data_80512220.value <= 0x1DU) {
         M2C_FIELD(&TLobby__data_80512360.value, s16 *, 0x28) = (s16) TLobby__data_80512220.value;
+    }
+}
+
+void quest_set_player_shrink_size(s32 player_variable, s32 size_variable) {
+    TObjPlayer* player = ((TObjPlayer*)TPlayerBattleCtrl4P__sub_801BA74C((int)((*(s32* *)&TLobby__data_805D5E78)[(u8)player_variable]), (void *)(size_variable)));
+    if (player && !obj_isState2_324(player)) {
+        s32 whole = (*(s32* *)&TLobby__data_805D5E78)[(u8)size_variable++];
+        s32 numerator = (*(s32* *)&TLobby__data_805D5E78)[(u8)size_variable++];
+        s32 denominator = (*(s32* *)&TLobby__data_805D5E78)[(u8)size_variable];
+        set_speed__10TObjPlayerFPvf(&player->scale_state,
+            denominator > 0 ? (f32)whole + (f32)numerator / (f32)denominator : (f32)whole);
     }
 }
 

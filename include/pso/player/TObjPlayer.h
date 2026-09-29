@@ -2,6 +2,7 @@
 #define PSO_PLAYER_TOBJPLAYER_H
 
 #include "types.h"
+#include "pso/player/PlayerScaleState.h"
 
 struct TObjPlayer
 {
@@ -52,8 +53,7 @@ struct TObjPlayer
     u8 _pad548[0x8];
     void* m_550;
     u8 _pad554[0x5C];
-    void* m_5b0;
-    u8 _pad5B4[0x2C];
+    PlayerScaleState scale_state;
     void* m_5e0;
     u8 _pad5E4[0xC];
     void* m_5f0;

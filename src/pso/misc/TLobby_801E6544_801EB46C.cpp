@@ -200,11 +200,11 @@ M2C_UNK TLobby__sub_801B1254(int);
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801EBCF0(s32 arg0);
 s32 obj_isState2_324();
-M2C_UNK TObjPlayer__sub_801C6A3C(void *);
+M2C_UNK request_player_size_restore(void *);
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801ED1BC(s32 arg0);
 s32 obj_isState2_324();
-M2C_UNK TObjPlayer__sub_801C6B60(void *);
+M2C_UNK request_player_shrink(void *);
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801ED20C(s32 arg0);
 M2C_UNK TLobby__sub_801F3694(void *);
@@ -725,14 +725,14 @@ void TLobby__sub_801ED1BC(s32 arg0) {
     s32 temp_r3;
     temp_r3 = ((s32)TPlayerBattleCtrl4P__sub_801BA74C((int)((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__data_805D5E78))))));
     if ((temp_r3 != 0) && (obj_isState2_324() == 0)) {
-        TObjPlayer__sub_801C6A3C((void *) (temp_r3 + 0x5B0));
+        request_player_size_restore((void *) (temp_r3 + 0x5B0));
     }
 }
 void TLobby__sub_801ED20C(s32 arg0) {
     s32 temp_r3;
     temp_r3 = ((s32)TPlayerBattleCtrl4P__sub_801BA74C((int)((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__data_805D5E78))))));
     if ((temp_r3 != 0) && (obj_isState2_324() == 0)) {
-        TObjPlayer__sub_801C6B60((void *) (temp_r3 + 0x5B0));
+        request_player_shrink((void *) (temp_r3 + 0x5B0));
     }
 }
 

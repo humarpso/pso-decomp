@@ -73,6 +73,7 @@ force_active:
   - __dt__15TAdDrawLineCtrlFv
   - __dt__15TItemEffLandHitFv
   - __dt__15TItemMagGrowEffFv
+  - __dt__16TBoss3VoloptCtrlFv
   - __dt__16TItemReverseTechFv
   - __dt__17TOSwitchAttackSubFv
   - __dt__17TObjItemNameEntryFv
@@ -116,6 +117,7 @@ force_active:
   - run_task__15TAdDrawLineCtrlFv
   - run_task__15TItemEffLandHitFv
   - run_task__15TItemMagGrowEffFv
+  - run_task__16TBoss3VoloptCtrlFv
   - run_task__16TItemReverseTechFv
   - run_task__17TOSwitchAttackSubFv
   - run_task__18TAdLoadQuestLineGCFv
