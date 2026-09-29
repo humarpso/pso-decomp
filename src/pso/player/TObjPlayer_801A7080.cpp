@@ -18,6 +18,10 @@ struct RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628 {
     u8 remaining[0x8];
 };
 
+struct Ent_801A70C8 { s32 a; f32 b; s32 c; };
+
+struct Ent_801A710C { s32 a; f32 b; s32 c; };
+
 extern "C" {
 s32 TCameraCtrl__sub_8006A5EC(int);
 s32 set_scripted_camera_pose(int, int, void *);
@@ -27,6 +31,14 @@ extern RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628 TCameraCtrl__data_804
 extern const f32 lbl_805DC0D0;
 extern const f32 lbl_805DC0D4;
 void TCameraCtrl__sub_801A7310(u8 *arg0, s8 arg1);
+extern struct Ent_801A70C8 lbl_8050E700[32];
+extern s32 lbl_805D5D1C;
+extern const f32 lbl_805DC0D0;
+void TObjPlayer__sub_801A70C8(void);
+extern struct Ent_801A710C lbl_8050E580[32];
+extern s32 lbl_805D5D14;
+extern const f32 lbl_805DC0D0;
+void TObjPlayer__sub_801A710C(void);
 }
 
 extern "C" {
@@ -41,6 +53,26 @@ M2C_UNK TObjPlayer__sub_801A720C(f32);
 void reset_state_block__10TObjPlayerFPv(void* a0) { *(int*)((char*)a0 + 0x0) = 0; *(int*)((char*)a0 + 0x4) = -1; *(int*)((char*)a0 + 0x8) = 0; *(int*)((char*)a0 + 0xc) = 0; *(short*)((char*)a0 + 0x10) = 0; *(short*)((char*)a0 + 0x12) = 0; *(short*)((char*)a0 + 0x14) = 0; *(short*)((char*)a0 + 0x16) = 0; *(short*)((char*)a0 + 0x18) = 0; *(short*)((char*)a0 + 0x1a) = 0; *(int*)((char*)a0 + 0x1c) = 0; *(int*)((char*)a0 + 0x20) = 0; *(float*)((char*)a0 + 0x24) = lbl_805DC0C0; *(float*)((char*)a0 + 0x28) = lbl_805DC0C0; }
 
 extern const f32 lbl_805DC0D4;
+
+void TObjPlayer__sub_801A70C8(void) {
+    s32 i;
+    lbl_805D5D1C = 0;
+    for (i = 0; i < 32; i++) {
+        lbl_8050E700[i].a = 0xFFFF;
+        lbl_8050E700[i].b = lbl_805DC0D0;
+        lbl_8050E700[i].c = -1;
+    }
+}
+
+void TObjPlayer__sub_801A710C(void) {
+    s32 i;
+    lbl_805D5D14 = 0;
+    for (i = 0; i < 32; i++) {
+        lbl_8050E580[i].a = 0xFFFF;
+        lbl_8050E580[i].b = lbl_805DC0D0;
+        lbl_8050E580[i].c = -1;
+    }
+}
 
 void TObjPlayer__sub_801A72C8(void) {
     TObjPlayer__sub_801A7150(lbl_805DC0D4);

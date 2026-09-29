@@ -1,15 +1,24 @@
+
+
+
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+
 struct RecoveredGlobal_803E1D1C_lbl_804FC780 {
     M2C_UNK value;
     u8 remaining[0x24];
 };
 
+
 struct Vec_803E1A58 { f32 x, y, z; };
+
+
+
 
 extern "C" {
 M2C_UNK GXLoadPosMtxImm(void *, int);
@@ -24,14 +33,21 @@ extern s32 lbl_804FC7A8[];
 void GXLoadTexMtxImm(void *mtx, u32 id, s32 type);
 void TObjPlayer__sub_803E1D54(s32 i);
 s32 TObjPlayer__sub_803E1864(u8 *arg0, u8 *arg1);
+void OSPanic(const char *, int, const char *, ...);
+void TObjPlayer__sub_803DAE1C(void *, int, void *);
+extern char lbl_804FC7F8[];
+extern char lbl_805D46F0[4];
+void TObjPlayer__sub_803E1EE8(void *arg0, s32 arg1, u32 arg2, void *arg3);
 }
 
 extern "C" {
+
 
 void calc_bounds__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 void reset_particle_counter__10TObjPlayerFv(void);
 void set_effect_active__10TObjPlayerFv(void);
 s32 test_aabb_overlap__10TObjPlayerFPvPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
+
 
 s32 test_aabb_overlap__10TObjPlayerFPvPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     if (M2C_FIELD(arg1, f32 *, 0) < M2C_FIELD(arg2, f32 *, 0)) {
@@ -52,8 +68,14 @@ s32 test_aabb_overlap__10TObjPlayerFPvPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2, u8 *a
     return (u32) __cntlzw(M2C_FIELD(arg0, f32 *, 8) > M2C_FIELD(arg3, f32 *, 8)) >> 5;
 }
 
+
+
+
+
 #pragma push
 #pragma fp_contract off
+
+
 struct CollisionPoint { f32 x,y,z; };
 struct CollisionSphere { CollisionPoint center; f32 radius; };
 extern const s32 lbl_8047E498[6][4],lbl_8047E4F8[6][4];
@@ -125,8 +147,11 @@ s32 TObjPlayer__sub_803E112C(CollisionPoint* box,CollisionSphere* sphere) {
 
 #pragma pop
 
+
+
 __declspec(section ".sdata2") extern const f64 lbl_805E1040;
 __declspec(section ".sdata2") extern const f64 lbl_805E1048;
+
 
 s32 TObjPlayer__sub_803E1864(u8 *arg0, u8 *arg1) {
     f32 temp_f2;
@@ -172,7 +197,13 @@ void calc_bounds__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
     M2C_FIELD(arg2, f32 *, 8) = (f32) (M2C_FIELD(arg0, f32 *, 8) + M2C_FIELD(arg0, f32 *, 0xC));
 }
 
+
+
+
+
 extern s8 lbl_805D77C8;
+
+
 
 #pragma push
 #pragma scheduling off
@@ -182,6 +213,8 @@ void TObjPlayer__sub_803E1D1C(s32 arg0) {
 }
 #pragma pop
 
+
+
 #pragma push
 #pragma scheduling off
 void TObjPlayer__sub_803E1D54(s32 i) {
@@ -189,9 +222,24 @@ void TObjPlayer__sub_803E1D54(s32 i) {
 }
 #pragma pop
 
+
+
+void TObjPlayer__sub_803E1EE8(void *arg0, s32 arg1, u32 arg2, void *arg3) {
+    s32 size;
+    if ((arg2 & 0x40000000) != 0) {
+        size = arg1;
+    } else {
+        OSPanic(lbl_804FC7F8, 0x30, lbl_805D46F0);
+    }
+    TObjPlayer__sub_803DAE1C(arg0, size, arg3);
+}
+
 void set_effect_active__10TObjPlayerFv(void) {
     lbl_805D77C8 = 1;
 }
+
+
+
 
 extern s8 lbl_805D77C8;
 

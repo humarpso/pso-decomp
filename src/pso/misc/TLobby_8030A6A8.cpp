@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 get_player_count__10TObjPlayerFv();
+s32 is_flag_set__6TLobbyFv();
+s32 TLobby__sub_80293080();
+s32 TLobby__sub_8030A7B0(void);
+}
+
+extern "C" {
 
 s32 is_online_ready__6TLobbyFv(void);
 s32 is_camera_ctrl_active__6TLobbyFv(void);
@@ -13,7 +20,6 @@ s32 TLobby__sub_8030A770(void);
 s32 get_instance__11TCameraCtrlFv();
 s32 TCameraCtrl__sub_8006B368();
 s32 get_instance__6TLobbyFv();
-s32 TLobby__sub_8030A7B0();
 s32 get_online_ready_flag__6TLobbyFv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
@@ -48,6 +54,22 @@ s32 TLobby__sub_8030A770(void) {
         return 1;
     }
     return 0;
+}
+s32 TLobby__sub_8030A7B0(void) {
+    s32 n;
+    s32 r;
+    if (is_flag_set__6TLobbyFv() == 1) {
+        return 1;
+    }
+    if (TLobby__sub_80293080() == 1) {
+        return 1;
+    }
+    n = get_player_count__10TObjPlayerFv();
+    r = 0;
+    if (n > 0) {
+        r = 2;
+    }
+    return r;
 }
 
 }

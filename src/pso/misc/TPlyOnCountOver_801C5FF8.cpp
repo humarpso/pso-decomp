@@ -14,11 +14,32 @@ extern RecoveredGlobal_801C606C___vt__15TPlyOnCountOver __vt__15TPlyOnCountOver;
 extern s32 lbl_805D355C;
 extern u8 *tl_06;
 u8 *__ct__15TPlyOnCountOverFv(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
+void queue_destruction__7TObjectFv(void *);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+void run_task__15TPlyOnCountOverFv(u8 *arg0);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_801C606C___vt__15TPlyOnCountOver_size[sizeof(RecoveredGlobal_801C606C___vt__15TPlyOnCountOver) == 0x18 ? 1 : -1];
+
+void run_task__15TPlyOnCountOverFv(u8 *arg0) {
+    void (*cb)(u32);
+    u32 p;
+    p = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x1C));
+    if (p == 0U) {
+        queue_destruction__7TObjectFv(arg0);
+        return;
+    }
+    if (--M2C_FIELD(arg0, s16 *, 0x1E) < 0) {
+        cb = M2C_FIELD(arg0, void (**)(u32), 0x20);
+        if (cb != NULL) {
+            cb(p);
+        }
+        queue_destruction__7TObjectFv(arg0);
+    }
+}
+
 u8 *__ct__15TPlyOnCountOverFv(u8 *arg0, s16 arg1, s16 arg2, s32 arg3) {
     __ct__7TObjectFP7TObject(arg0, tl_06);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__15TPlyOnCountOver.value;

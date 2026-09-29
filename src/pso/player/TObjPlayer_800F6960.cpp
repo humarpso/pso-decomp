@@ -88,13 +88,23 @@ struct VObj_800F6960 : Base_800F6960 {
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include "pso/enemy/TObjEnemy.h"
+
+typedef struct TObjPlayer_800F6B68 {
+    u8 pad[0x2D6];
+    u16 attacker_id;
+} TObjPlayer_800F6B68;
+
 extern "C" {
-int TObjPlayer__sub_800F6B68(void*);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805DA8DC;
 void update_prev_position__10TObjPlayerFPv(u8 *arg0);
 s32 is_action_available__10TObjPlayerFv(TObjEnemy* _w0);
 
+u16 obj_getArrU16_FC(void *, int);
+s32 is_split_screen();
+void TObjPlayer__sub_800F6BF0(void *, u16);
+s32 TLobby__sub_800F7A64(void *);
+void TObjPlayer__sub_800F6B68(TObjPlayer_800F6B68 *self);
 }
 
 extern "C" {
@@ -109,9 +119,27 @@ void call_vt78__10TObjPlayerFPv(void *arg0) {
     o->m78();
 }
 
-void refresh_lobby_state__10TObjPlayerFPv(void* p) { TObjPlayer__sub_800F6B68((void*)(p)); query_lobby_state__10TObjPlayerFPv((void*)(p)); }
+void refresh_lobby_state__10TObjPlayerFPv(void* p) { TObjPlayer__sub_800F6B68((TObjPlayer_800F6B68 *)((void*)(p))); query_lobby_state__10TObjPlayerFPv((void*)(p)); }
 int query_lobby_state__10TObjPlayerFPv(void* p) { return TLobby__sub_80105538(p); }
-int TObjPlayer__sub_800F6B68(void*) { return 0; }
+
+void TObjPlayer__sub_800F6B68(TObjPlayer_800F6B68 *self) {
+    s32 count;
+    s32 i;
+    u16 id;
+    if (is_split_screen() == 0) {
+        TObjPlayer__sub_800F6BF0(self, self->attacker_id);
+    } else {
+        count = TLobby__sub_800F7A64(self);
+        for (i = 0; i < count; i++) {
+            id = obj_getArrU16_FC(self, i);
+            if (id == 0xFFFF) {
+                break;
+            }
+            TObjPlayer__sub_800F6BF0(self, id);
+        }
+    }
+}
+
 #pragma push
 #pragma fp_contract on
 void update_prev_position__10TObjPlayerFPv(u8 *arg0) {

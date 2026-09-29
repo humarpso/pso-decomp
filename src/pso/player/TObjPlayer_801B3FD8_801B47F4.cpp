@@ -10,11 +10,21 @@ struct Menu_801B4A18 { u8 pad[0x5c]; Cursor_801B4A18 cursors[4]; };
 
 struct Owner_801B4A18 { u8 pad[0x424]; Menu_801B4A18 *menu; };
 
+struct Slot_801B4AC8 { u8 pad[0x124]; };
+
+struct Cursor_801B4AC8 { u8 pad[0x5C]; Slot_801B4AC8 slots[4]; u8 pad4ec[0x510 - 0x4EC]; u8 f510; };
+
+struct Player_801B4AC8 { u8 pad[0x424]; Cursor_801B4AC8 *cursor; };
+
 extern "C" {
 s32 get_selected_entry__11TMainCursorFPv(void *c);
 void TMainCursor__sub_8013C288(void *c, void *self, void *owner, void *p);
 extern Owner_801B4A18 *lbl_8050EA10[];
 void TObjPlayer__sub_801B4A18(void *self);
+void TMainCursor__sub_8013C288(void *c, void *self, void *owner, void *p);
+s32 get_selected_entry__11TMainCursorFPv(void *c);
+void *TPlayerBattleCtrl4P__sub_801BA74C(u32);
+void TObjPlayer__sub_801B4AC8(void *target, s32 id);
 }
 
 extern "C" {
@@ -126,6 +136,24 @@ void TObjPlayer__sub_801B4A18(void *self) {
                         TMainCursor__sub_8013C288(c, self, o, (u8 *)o->menu + 0x510);
                     }
                 }
+            }
+        }
+    }
+}
+
+void TObjPlayer__sub_801B4AC8(void *target, s32 id) {
+    s32 i;
+    Player_801B4AC8 *player;
+    Slot_801B4AC8 *entry;
+    if (target == NULL || (u16)id == 0xFFFF || (u16)id >= 0x1000) {
+        return;
+    }
+    player = ((Player_801B4AC8 *)TPlayerBattleCtrl4P__sub_801BA74C((u16)id));
+    if (player != NULL && player->cursor != NULL) {
+        for (i = 0; i < 4; i++) {
+            entry = &player->cursor->slots[i];
+            if (get_selected_entry__11TMainCursorFPv(entry) != 0) {
+                TMainCursor__sub_8013C288(entry, target, player, &player->cursor->f510);
             }
         }
     }

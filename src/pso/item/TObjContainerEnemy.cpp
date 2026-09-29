@@ -97,6 +97,15 @@ struct RecoveredGlobal_801897A4___vt__18TObjContainerEnemy {
     u8 remaining[0x148];
 };
 
+struct Box_80189A50 {
+    u8 pad00[0x34];
+    s32 model;
+    u8 pos[0x28];
+    s32 rot;
+    u8 pad64[0x326 - 0x64];
+    s16 state;
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TLobby__sub_8010567C(void *, void *, int);
@@ -112,6 +121,17 @@ extern RecoveredGlobal_801897A4_lbl_804B63BC lbl_804B63BC;
 extern M2C_UNK __vt__18TObjContainerEnemy[];
 extern s32 lbl_805D32F0;
 u8 *TObjContainerEnemy__ct(u8 *arg0, s32 arg1, s32 arg2);
+void fn_801FBA6C(s32);
+void TOMonitorMachine01__sub_803D8B5C(s32, f32, f32, f32);
+void TObjPlayer__sub_803D9214(s32, s32);
+void TObjPlayer__sub_803D9B2C();
+void TObjPlayer__sub_803D9B78();
+void TOHangerMachine01__sub_803D9C00(void *);
+void set_global_param__8TObjFishFi(s32);
+extern u32 lbl_805D5B78;
+extern s32 lbl_805D5B7C;
+extern const f32 lbl_805DBCFC;
+void TObjContainerItem__vt79(struct Box_80189A50 *self);
 }
 
 extern "C" {
@@ -197,6 +217,23 @@ void TObjContainerItem__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
         set_flag8__6TLobbyFPv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
         M2C_FIELD(arg0, s16 *, 0x326) = 1;
+    }
+}
+void TObjContainerItem__vt79(struct Box_80189A50 *self) {
+    if (lbl_805D5B78 != 0) {
+        switch (self->state) {
+        case 0:
+            set_global_param__8TObjFishFi(lbl_805D5B7C);
+            TObjPlayer__sub_803D9B2C();
+            TOHangerMachine01__sub_803D9C00(self->pos);
+            TObjPlayer__sub_803D9214(0, self->rot);
+            TOMonitorMachine01__sub_803D8B5C(0, lbl_805DBCFC, lbl_805DBCFC, lbl_805DBCFC);
+            fn_801FBA6C(self->model);
+            TObjPlayer__sub_803D9B78();
+            break;
+        case 1:
+            break;
+        }
     }
 }
 

@@ -23,6 +23,19 @@ struct RecoveredGlobal_80114DB8_lbl_8058D490 {
 
 struct Vec_80114CD8 { f32 x, y, z; };
 
+typedef struct TItemMagSub_801152AC {
+    u8 pad0[0x34];
+    f32 vec34[3];
+    u8 pad40[0x58 - 0x40];
+    f32 vec58[3];
+    u8 pad64[0x7C - 0x64];
+    f32 timer;
+    u8 pad80[0x94 - 0x80];
+    f32 f94;
+    f32 f98;
+    f32 f9C;
+} TItemMagSub_801152AC;
+
 extern "C" {
 s32 TItemMag__sub_80113EC8(void *);
 s32 calc_feed_level__11TItemMagSubFPv(void *arg0);
@@ -44,6 +57,13 @@ extern s32 TItemMagSub__data_805D54BC;
 void TItemMagSub__sub_80114AB4(void *a, void *b);
 void TItemMagSub__sub_80114C40(void *arg);
 void TItemMagSub__sub_80114CD8(Vec_80114CD8 *target, Vec_80114CD8 *cur, f32 *t);
+void TItemMagSub__sub_80115334(void *);
+M2C_UNK clear_flags64__11TItemMagSubFPvUi(void *, M2C_UNK);
+M2C_UNK memset(void *, int, int);
+extern f32 lbl_805D2C08;
+extern const f32 TItemMagSub__data_805DABC8;
+extern const f32 TItemMagSub__data_805DABD8;
+void TItemMagSub__sub_801152AC(TItemMagSub_801152AC *self);
 }
 
 extern "C" {
@@ -175,6 +195,19 @@ s32 calc_feed_level__11TItemMagSubFPv(void *arg0) {
 }
 
 extern M2C_UNK __vt__11TItemMagSub[];
+
+void TItemMagSub__sub_801152AC(TItemMagSub_801152AC *self) {
+    self->timer += TItemMagSub__data_805DABD8;
+    if (lbl_805D2C08 == self->timer) {
+        clear_flags64__11TItemMagSubFPvUi((void *)(self), (M2C_UNK)(0x18));
+        memset(self->vec34, 0, 0xC);
+        memset(self->vec58, 0, 0xC);
+        self->f9C = TItemMagSub__data_805DABC8;
+        self->f98 = TItemMagSub__data_805DABC8;
+        self->f94 = TItemMagSub__data_805DABC8;
+    }
+    TItemMagSub__sub_80115334(self);
+}
 
 void *TItemMagSub__vt0(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

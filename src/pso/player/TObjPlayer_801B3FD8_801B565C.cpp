@@ -10,6 +10,7 @@ struct Stack_801B6024 {
     M2C_UNK sp10;
 };
 
+#include "types.h"
 extern "C" {
 s32 TObjPlayer__sub_801B58DC(u8 *arg0);
 s32 is_flag_400_set__10TObjPlayerFPv();
@@ -38,12 +39,13 @@ void TObjPlayer__sub_801B5AF8(s32 arg0, s32 arg1);
 u8 *csnVectorUnder(M2C_UNK *, void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801BE918(void *, s32, M2C_UNK *, M2C_UNK *);
 void TObjPlayer__sub_801B6024(u8 *arg0);
+s32 TObjPlayer__sub_801B5AC4(s32 arg0, s32 arg1);
+s32 TObjPlayer__sub_801B5874(u8 *arg0);
 }
 
 extern "C" {
 
 int TObjPlayer__sub_801B57E8(void);
-int TObjPlayer__sub_801B5874(void);
 void action_enable_if_present__10TObjPlayerFPv(void* p);
 int check_flag_100__10TObjPlayerFPv(void* p);
 s32 get_camera_field__10TObjPlayerFPv(void *arg0);
@@ -94,7 +96,20 @@ void release_attached_resource__10TObjPlayerFPv(void* p) { void* m = *(void**)((
 void action_enable_if_present__10TObjPlayerFPv(void* p) { void* m = *(void**)((char*)p + 0x424); if (m) TObjPlayer__sub_801C1B60(m); }
 
 int TObjPlayer__sub_801B57E8(void) { return 0; }
-int TObjPlayer__sub_801B5874(void) { return 0; }
+
+s32 TObjPlayer__sub_801B5874(u8 *arg0) {
+    if (M2C_FIELD(arg0, u32 *, 0x424) == 0U) {
+        return 0;
+    }
+    switch ((u16) TObjPlayer__sub_801B5AC4((s32) arg0, 0)) {
+    case 0:
+    case 2:
+        return 0;
+    case 1:
+    default:
+        return 0;
+    }
+}
 
 s32 TObjPlayer__sub_801B58DC(u8 *arg0) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0x424) != 0U) && (((u16)TObjPlayer__sub_801B5AC4((s32)((void *)((void *)(arg0))), (s32)((int)((int) (0))))) != 0)) {

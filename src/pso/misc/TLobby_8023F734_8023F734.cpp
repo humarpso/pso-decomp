@@ -10,9 +10,20 @@ struct RecoveredGlobal_8023F880_lbl_805162EC
   u8 remaining[0x1B54];
 };
 
+typedef s32 M2C_UNK;
+
 extern "C" {
 extern RecoveredGlobal_8023F880_lbl_805162EC lbl_805162EC;
 s32 TLobby__sub_8023F880(s32 arg0);
+extern RecoveredGlobal_8023F880_lbl_805162EC lbl_805162EC;
+void clamp_field9c__6TLobbyFPvf(void *voice, f32 scale);
+void TLobby__sub_8023F780(s32 slot, f32 scale);
+extern RecoveredGlobal_8023F880_lbl_805162EC lbl_805162EC;
+void TLobby__sub_80241FD8(void *voice, s32 step);
+void TLobby__sub_8023F8B0(s32 slot, s32 step);
+extern RecoveredGlobal_8023F880_lbl_805162EC lbl_805162EC;
+s32 TLobby__sub_80240B40(u8 *arg0, s32 arg1, s32 arg2);
+void TLobby__sub_8023F8F4(s32 slot, s32 pitch, s32 duration);
 }
 
 extern "C" {
@@ -28,6 +39,11 @@ s32 TLobby__sub_803AA35C(s32);
 s32 advance_rng__6TLobbyFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x2AC) = (s32) ((M2C_FIELD(arg0, s32 *, 0x2AC) * 0x10DCD) + 1);
     return M2C_FIELD(arg0, s32 *, 0x2AC);
+}
+
+void TLobby__sub_8023F780(s32 slot, f32 scale) {
+    if (slot < 0 || slot >= 32) return;
+    clamp_field9c__6TLobbyFPvf((u8 *)&lbl_805162EC.value + slot * 0xA0, scale);
 }
 
 f32 get_field_2a4__6TLobbyFPv(void* p) { return *(f32*)((char*)p + 0x2a4); }
@@ -80,6 +96,16 @@ s32 TLobby__sub_8023F880(s32 arg0) {
     return *((s32 *) (new_var2 + 4));
   }
   return -9;
+}
+void TLobby__sub_8023F8B0(s32 slot, s32 step) {
+    if (slot < 0 || slot >= 32) return;
+    TLobby__sub_80241FD8((u8 *)&lbl_805162EC.value + slot * 0xA0, step);
+}
+void TLobby__sub_8023F8F4(s32 slot, s32 pitch, s32 duration) {
+    if (slot < 0 || slot >= 0x20) {
+        return;
+    }
+    TLobby__sub_80240B40((u8 *)&lbl_805162EC.value + slot * 0xA0, (s32)((u32)pitch << 13) / 3072, duration);
 }
 
 }

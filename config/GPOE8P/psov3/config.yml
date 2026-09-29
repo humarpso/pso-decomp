@@ -35,6 +35,7 @@ force_active:
   - TLockOnCursor__sub_8013F000
   - TMainCursor__sub_8013E1C0
   - TMainCursor__sub_8013E290
+  - TMainCursor__sub_8013E40C
   - TMainCursor__sub_8013E4A0
   - TMainCursor__sub_8013E570
   - TMainCursor__sub_8013E694
@@ -82,6 +83,7 @@ force_active:
   - fn_80076C68
   - fn_801692AC
   - fn_8016AD3C
+  - fn_8026D564
   - fn_803CBE00
   - free_item_pmt
   - init__18TObjAreaWarpForestFPvPvPv

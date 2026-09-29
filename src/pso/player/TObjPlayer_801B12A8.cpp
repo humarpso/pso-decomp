@@ -4,6 +4,24 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Vec_801B1FA4 { f32 x, y, z; };
+
+struct pkt_801B1FA4 {
+    u8 hdr[2];
+    u16 slot;
+    s32 heading;
+    struct Vec_801B1FA4 pos;
+};
+
+extern "C" {
+s32 VecCopy__FP3VecPC3Vec(s32, s32);
+s32 obj_isState2_324();
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void init_cmd_6x24__10TObjPlayerFPv(void *);
+void send_lobby_update__10TObjPlayerFPv(void *);
+void TObjPlayer__sub_801B1FA4(u16 slot, void *pos, s32 heading);
+}
+
 extern "C" {
 
 s32 TObjPlayer__vt33(s32 arg0);
@@ -64,6 +82,17 @@ u8 is_in_tl03_state__10TObjPlayerFPv(void *arg0) {
         var_r31 = 1;
     }
     return (u8)var_r31;
+}
+
+void TObjPlayer__sub_801B1FA4(u16 slot, void *pos, s32 heading) {
+    struct pkt_801B1FA4 pkt;
+    init_cmd_6x24__10TObjPlayerFPv(&pkt);
+    if (TPlayerBattleCtrl4P__sub_801BA74C(slot) != 0U && obj_isState2_324() == 0) {
+        pkt.slot = slot;
+        pkt.heading = heading;
+        VecCopy__FP3VecPC3Vec((s32) &pkt.pos, (s32) pos);
+        send_lobby_update__10TObjPlayerFPv(&pkt);
+    }
 }
 
 s32 TObjPlayer__vt40(s32 arg0) {

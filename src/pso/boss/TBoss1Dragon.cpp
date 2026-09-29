@@ -696,6 +696,30 @@ struct VObj_18_444bc5 : VBase_18_444bc5 {
     virtual M2C_UNK m94();
 };
 
+struct pkt_80028530 {
+    u8 hdr[2];
+    u16 target_id;
+    s16 state;
+    s16 cursor;
+    s32 extra;
+    f32 x;
+    f32 z;
+};
+
+struct dragon_80028530 {
+    u8 pad0[0x1C];
+    u16 target_id;
+    u8 pad1[0x326 - 0x1E];
+    s16 mode;
+    u8 pad2[0x38C - 0x328];
+    u16 extra;
+    u8 pad3[0x67C - 0x38E];
+    s32 sequence_cursor;
+    u8 pad4[0x690 - 0x680];
+    f32 outgoing_x;
+    f32 outgoing_z;
+};
+
 extern "C" {
 s32 objInBand__FP7GameObjf(void *, f32);
 void play_se_at_pos__12TBoss1DragonFii(s32 arg0, s32 arg1);
@@ -897,6 +921,9 @@ extern const f32 TBoss1Dragon__data_805D7F28;
 extern const f32 TBoss1Dragon__data_805D8008;
 extern const f32 lbl_805D8020;
 extern const f32 lbl_805D8024;
+void send_6x12_packet__10TObjPlayerFPv(void *);
+void set_type_dragon__10TObjPlayerFPv(void *);
+void TBoss1Dragon__sub_80028530(struct dragon_80028530 *s);
 }
 
 extern "C" {
@@ -1798,6 +1825,18 @@ void TBoss1Dragon__sub_8002826C(u8 *arg0) {
         }
         TBoss1Dragon__sub_8002830C(arg0);
     }
+}
+
+void TBoss1Dragon__sub_80028530(struct dragon_80028530 *s) {
+    struct pkt_80028530 pkt;
+    set_type_dragon__10TObjPlayerFPv(&pkt);
+    pkt.target_id = s->target_id;
+    pkt.state = s->mode;
+    pkt.cursor = (s16) s->sequence_cursor;
+    pkt.extra = s->extra;
+    pkt.x = s->outgoing_x;
+    pkt.z = s->outgoing_z;
+    send_6x12_packet__10TObjPlayerFPv(&pkt);
 }
 
 void TBoss1Dragon__sub_80028598(u8 *arg0, u8 *arg1) {

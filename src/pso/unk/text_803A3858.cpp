@@ -20,6 +20,23 @@ struct Node_803B2598 { Node_803B2598 *next; u32 pad; u32 key; };
 
 struct Rec_803A9944 { u8 pad[0x2d]; u8 f2d; u8 pad2[2]; };
 
+struct Program_803B1DA4 {
+    u8 pad[0x44];
+    Program_803B1DA4 *next;
+    Program_803B1DA4 *prev;
+    u8 pad4c[0x98 - 0x4C];
+    u64 deadline;
+};
+
+struct Envelope_803B431C {
+    u8 mode, phase, pad[2];
+    u32 remaining, level, logLevel;
+    s32 step;
+    u32 attack, decay;
+    u16 sustain, pad2;
+    u32 release;
+};
+
 extern "C" {
 void TLobby__sub_803A49C8(s32);
 void TLobby__sub_803A4B7C(s32);
@@ -91,6 +108,12 @@ Node_803B2598 *TLobby__sub_803B2598(u32 key);
 extern u8 lbl_805D7380;
 extern Rec_803A9944 lbl_8055755C[];
 void TLobby__sub_803A9944(u8 i, u8 v);
+extern u32 TLobby__sub_803B2A30(u32 id);
+u32 TLobby__sub_803AA2B8(u32 id);
+extern Program_803B1DA4 *lbl_805D7420;
+void TLobby__sub_803B1DA4(Program_803B1DA4 *self);
+extern s32 TLobby__sub_803B41C8(struct Envelope_803B431C *e, u32 duration);
+s32 TLobby__sub_803B431C(struct Envelope_803B431C *e);
 }
 
 extern "C" {
@@ -191,6 +214,11 @@ s32 TLobby__sub_803AA1A0(s32 arg0) {
     return var_r3;
 }
 
+u32 TLobby__sub_803AA2B8(u32 id) {
+    if (TLobby__sub_803B2A30(id) != 0xFFFFFFFF) return id;
+    return 0xFFFFFFFF;
+}
+
 void TLobby__sub_803AA2FC(u8 arg0, u16 arg1, u8 arg2) {
     TLobby__sub_803BE738();
     TLobby__sub_803A94E0(arg0, arg1, arg2, 0, -1);
@@ -244,6 +272,36 @@ s32 TLobby__sub_803AE75C(u16 *arg0, u16 *arg1) {
     return *arg0 - *arg1;
 }
 
+void TLobby__sub_803B1DA4(Program_803B1DA4 *self) {
+    Program_803B1DA4 *p;
+    Program_803B1DA4 *prev;
+    p = lbl_805D7420;
+    prev = NULL;
+    while (p != NULL && p->deadline < self->deadline) {
+        prev = p;
+        p = p->next;
+    }
+    if (p == NULL) {
+        if (prev == NULL) {
+            lbl_805D7420 = self;
+            self->next = NULL;
+            self->prev = NULL;
+        } else {
+            prev->next = self;
+            self->prev = prev;
+            self->next = NULL;
+        }
+    } else {
+        self->next = p;
+        if ((self->prev = p->prev) != NULL) {
+            p->prev->next = self;
+        } else {
+            lbl_805D7420 = self;
+        }
+        p->prev = self;
+    }
+}
+
 Node_803B2598 *TLobby__sub_803B2598(u32 key) {
     Node_803B2598 *n;
     for (n = lbl_805D743C; n != 0; n = n->next) {
@@ -268,6 +326,16 @@ void TLobby__sub_803B41A0(u8 *arg0) {
     struct Fields_arg0 { u8 pad_0[1]; s8 field_1; };
     ((Fields_arg0*)arg0)->field_1 = 0;
     TLobby__sub_803B3F2C(arg0);
+}
+
+s32 TLobby__sub_803B431C(struct Envelope_803B431C *e) {
+    switch (e->mode) {
+    case 0:
+    case 1:
+        return TLobby__sub_803B41C8(e, e->release);
+    default:
+        return 0;
+    }
 }
 
 void TLobby__sub_803B4CEC(void) {

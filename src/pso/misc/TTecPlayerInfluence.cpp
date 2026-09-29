@@ -25,6 +25,47 @@ struct RecoveredGlobal_80237194_lbl_8044D8EC {
     u8 remaining[0x8];
 };
 
+struct HitInfo_80237900 { s32 type; f32 power; };
+
+struct VBase_80237900 { char pad[0x18]; };
+
+struct VObj_80237900 : VBase_80237900 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21(void *, HitInfo_80237900 *, void *, s32, s32);
+};
+
+struct Obj_80237900 {
+    u8 pad0[0x1C];
+    void *source;
+    u8 pad20[0x88 - 0x20];
+    f32 power;
+    u8 padP[0xB8 - 0x88 - 4];
+    void *contact;
+    u8 padC[0xF8 - 0xB8 - 4];
+    u16 ids[32];
+    s32 cursor;
+};
+
 extern "C" {
 void TTecPlayerInfluence__sub_80237258(void* p);
 void run_task__19TTecPlayerInfluenceFv(void *arg0);
@@ -35,6 +76,8 @@ s32 TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern RecoveredGlobal_80237194_lbl_8044D8EC lbl_8044D8EC;
 extern const f32 lbl_805DC8A0;
 void render__19TTecPlayerInfluenceFv(u8 *arg0);
+u16 obj_getField1c(void *);
+void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target);
 }
 
 extern "C" {
@@ -129,6 +172,27 @@ void TTecRaBarta__vt7(void *arg0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x100, 0);
         }
         break;
+    }
+}
+void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target) {
+    s32 found = 0;
+    s32 i;
+    for (i = 0; i < 32; i++) {
+        if (self->ids[i] == obj_getField1c(target)) {
+            found = 1;
+        }
+    }
+    if (found == 0) {
+        self->ids[self->cursor] = obj_getField1c(target);
+        self->cursor += 1;
+        if (self->cursor >= 32) {
+            self->cursor = 31;
+        }
+        HitInfo_80237900 tmp;
+        tmp.type = 2;
+        tmp.power = self->power;
+        HitInfo_80237900 info = tmp;
+        target->m21(self->source, &info, self->contact, 5, -1);
     }
 }
 

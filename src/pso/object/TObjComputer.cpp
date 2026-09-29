@@ -100,6 +100,21 @@ struct Obj_80188884 { u8 pad0[0x38]; u8 pos[0x28]; s32 id; u8 pad1[0x326 - 0x64]
 
 struct Obj_80188814 { u8 pad0[0x38]; u8 pos[0x4c]; s32 id; };
 
+struct Obj_801884A0 {
+    s32 unk0;
+    u8 pad4[0x18 - 0x4];
+    void *vtbl;
+    u8 pad1C[0x30 - 0x1C];
+    u32 flags30;
+    u8 pad34[0x88 - 0x34];
+    s32 selector;
+    u8 pad8C[0x98 - 0x8C];
+    u8 aux98[0xBC - 0x98];
+    void *model;
+    f32 unkC0;
+    s32 unkC4;
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
@@ -121,6 +136,19 @@ extern char lbl_80444EF4[];
 extern u8 lbl_804A7448[];
 extern const f32 lbl_805DBCF8;
 void TObjContainerAbeEnemy__vt80(Obj_80188814 *self);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 TObjFish__sub_8001EDC4(void *, s32);
+void reset_photon_effect__10TObjPlayerFPv(void *);
+u32 TObjEneGibbles__sub_80156780(void *, void *, s32);
+void set_type__14TOKeyAncient01FPv(void *);
+void *TObjMesBase__ct(void *, void *, void *);
+extern M2C_UNK lbl_804B6254[];
+extern M2C_UNK __vt__12TObjComputer[];
+extern s32 lbl_805D32CC;
+extern u32 TObjComputer__data_805D5B68;
+extern s16 TObjComputer__data_805DBCD8[2];
+extern const f32 lbl_805DBCEC;
+void *TObjComputer__ct(void *arg0, void *parent, void *row);
 }
 
 extern "C" {
@@ -133,7 +161,6 @@ void free_resources__12TObjComputerFv(void);
 void render__12TObjComputerFv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TLobby__sub_803DA16C(void*);
-void *TObjComputer__ct(void *, void *, void *);
 M2C_UNK TObjComputer__sub_8018807C(void *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjMesBase__vt12();
@@ -176,7 +203,7 @@ extern void *tl_05;
 void *create__12TObjComputerFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC8);
     if (o != NULL) {
-        o = TObjComputer__ct(o, tl_05, arg0);
+        o = TObjComputer__ct((void *)(o), (void *)(tl_05), (void *)(arg0));
     }
     return o;
 }
@@ -210,6 +237,33 @@ void *__dt__12TObjComputerFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+void *TObjComputer__ct(void *arg0, void *parent, void *row) {
+    Obj_801884A0 *self = (Obj_801884A0 *)arg0;
+    TObjMesBase__ct(self, parent, row);
+    self->vtbl = __vt__12TObjComputer;
+    self->unk0 = lbl_805D32CC;
+    if (self->selector < 0) {
+        self->selector = 0;
+    }
+    if (self->selector > 1) {
+        self->selector = 1;
+    }
+    if (TObjComputer__data_805D5B68 != 0U) {
+        self->model = (void *)TObjFish__sub_8001EDC4((void *)TObjComputer__data_805D5B68, TObjComputer__data_805DBCD8[self->selector]);
+    } else {
+        queue_destruction__7TObjectFv(self);
+        return self;
+    }
+    TObjEneGibbles__sub_80156780(self, lbl_804B6254, 1);
+    self->flags30 |= 0x40000000;
+    reset_photon_effect__10TObjPlayerFPv(self);
+    set_type__14TOKeyAncient01FPv(self->aux98);
+    self->unkC0 = lbl_805DBCEC;
+    self->unkC4 = 0;
+    return self;
+}
+
 void TObjContainerAbeEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {

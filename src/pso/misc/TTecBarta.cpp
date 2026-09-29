@@ -17,6 +17,62 @@ struct RecoveredGlobal_8022B6FC_lbl_804CC55C
 };
 
 #include "pso/misc/TTecBarta.h"
+
+struct HitInfo_8022B8F4 { s32 type; f32 power; };
+
+struct VBase_8022B8F4 { char pad[0x18]; };
+
+struct VObj_8022B8F4 : VBase_8022B8F4 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21(void *, HitInfo_8022B8F4 *, void *, s32, s32);
+};
+
+struct Obj_8022B8F4 {
+    u8 pad0[0x1C];
+    void *source;
+    u8 pad20[0xCC - 0x20];
+    f32 power;
+    u8 padD0[0xF8 - 0xD0];
+    void *contact;
+    u8 padFC[0x134 - 0xFC];
+    u16 ids[32];
+    s32 cursor;
+};
+
+struct TTecBarta_8022BC10 {
+    s32 f0;
+    u8 pad4[0x18 - 4];
+    void *vtable;
+    void *owner;
+    u8 pad20[0xC8 - 0x20];
+    s16 fc8;
+    u8 padca[0x114 - 0xCA];
+    u32 f114;
+    u8 pad118[0x134 - 0x118];
+    u16 slots[32];
+    s32 f174;
+};
+
 extern "C" {
 s32 TTecCtrl__sub_8022DBC4(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
@@ -31,6 +87,16 @@ void free__11TOBoss4RockFUi(TechniqueParticleEmitter**);
 void destroy_technique_effect_resources__10TObjPlayerFPvs(TTecBarta*,s16);
 void __dl__7TObjectFPv(TTecBarta*);
 TTecBarta* __dt__9TTecBartaFv(TTecBarta* self,s16 deleting);
+u16 obj_getField1c(void *);
+void TTecBarta__vt6(Obj_8022B8F4 *self, VObj_8022B8F4 *target);
+u16 obj_getField1c(void *);
+void update_technique_by_state__9TTecBartaFPv(u8 *arg0);
+void TTecBarta__sub_8022B540(void *);
+void TTecBarta__sub_8022B6FC(u8 *arg0);
+void TObjPlayer__sub_8023A7B4();
+extern TechniqueContactVtable __vt__9TTecBarta;
+extern s32 lbl_805D3798;
+TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _w2, void * _w3, void * _w4);
 }
 
 extern "C" {
@@ -41,7 +107,6 @@ void create_ex__9TTecBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *ar
 void render__9TTecBartaFv(void);
 void update_technique_by_state__9TTecBartaFPv(u8 *arg0);
 s32 TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
-void *TTecBarta__ct(void *, void *, void *, void *, void *);
 void *TTecBarta__sub_8022BCB8(void *, void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
@@ -111,7 +176,7 @@ void create__9TTecBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3)
     void *o;
     o = __nw__7TObjectFUl(0x178);
     if (o != NULL) {
-        TTecBarta__ct(o, arg0, arg1, arg2, arg3);
+        TTecBarta__ct((TTecBarta_8022BC10 *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (void *)(arg3));
     }
 }
 
@@ -120,6 +185,28 @@ void create_ex__9TTecBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *ar
     o = __nw__7TObjectFUl(0x178);
     if (o != NULL) {
         TTecBarta__sub_8022BCB8(o, arg0, arg1, arg2, arg3);
+    }
+}
+
+void TTecBarta__vt6(Obj_8022B8F4 *self, VObj_8022B8F4 *target) {
+    s32 found = 0;
+    s32 i;
+    for (i = 0; i < 32; i++) {
+        if (self->ids[i] == obj_getField1c(target)) {
+            found = 1;
+        }
+    }
+    if (found == 0) {
+        self->ids[self->cursor] = obj_getField1c(target);
+        self->cursor += 1;
+        if (self->cursor >= 32) {
+            self->cursor = 31;
+        }
+        HitInfo_8022B8F4 tmp;
+        tmp.type = 19;
+        tmp.power = self->power;
+        HitInfo_8022B8F4 info = tmp;
+        target->m21(self->source, &info, self->contact, 3, -1);
     }
 }
 
@@ -140,6 +227,25 @@ TTecBarta* __dt__9TTecBartaFv(TTecBarta* self,s16 deleting) {
 }
 
 void render__9TTecBartaFv(void) {  }
+
+TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _w2, void * _w3, void * _w4) {
+    s32 i;
+    TObjPlayer__sub_8023A7B4();
+    self->vtable = ((void * *)&__vt__9TTecBarta);
+    self->f0 = lbl_805D3798;
+    TTecBarta__sub_8022B6FC((u8 *)self);
+    self->f114 = 0x40003;
+    for (i = 0; i < 32; i++) {
+        self->slots[i] = 0xFFFF;
+    }
+    self->f174 = 0;
+    TTecBarta__sub_8022B540(self);
+    update_technique_by_state__9TTecBartaFPv((u8 *)self);
+    if (self->owner) {
+        self->fc8 = ((s16)obj_getField1c(self->owner));
+    }
+    return self;
+}
 
 void TObjPlayer__sub_8022BD70(void) {  }
 

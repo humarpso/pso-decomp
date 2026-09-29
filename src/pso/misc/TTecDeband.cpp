@@ -9,6 +9,36 @@ struct RecoveredGlobal_8022F948___vt__10TTecDeband {
     u8 remaining[0x1C];
 };
 
+struct VBase_8022F73C { u8 pad[0x18]; };
+
+struct VObj_8022F73C : VBase_8022F73C {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5(u32 target);
+};
+
+struct Target_8022F73C {
+    u16 id;
+    u8 pad[6];
+};
+
+struct Deband_8022F73C {
+    u8 pad0[0x1C];
+    u32 source;
+    u8 pad1[0xA4 - 0x20];
+    s16 level;
+    u8 pad2[0xA8 - 0xA6];
+    u16 source_id;
+    u8 pad3[0xDC - 0xAA];
+    u32 proxy;
+    s32 count;
+    Target_8022F73C targets[11];
+    s32 captured;
+};
+
 extern "C" {
 s32 obj_getField1c(int);
 s32 TObjPlayer__sub_8004433C(void *);
@@ -20,6 +50,12 @@ extern M2C_UNK __vt__10TTecDeband[];
 extern s32 lbl_805D37A8;
 extern const f32 lbl_805DC7F0;
 u8 *TTecDeband__sub_8022F948(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+u32 TPhotonMylla__sub_80154CB4(int);
+s32 is_parents_unqueued__9TTecLukerFUi();
+s32 is_valid_and_active__10TObjPlayerFUi(int);
+M2C_UNK fn_802370D8(void *);
+void run_task__10TTecDebandFv(Deband_8022F73C *self);
 }
 
 extern "C" {
@@ -78,6 +114,41 @@ void *__dt__10TTecDebandFv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_8022F948___vt__10TTecDeband_size[sizeof(RecoveredGlobal_8022F948___vt__10TTecDeband) == 0x20 ? 1 : -1];
+
+void run_task__10TTecDebandFv(Deband_8022F73C *self) {
+    u32 target;
+    s32 i;
+    if (self->proxy == 0) {
+        queue_destruction__7TObjectFv(self);
+        return;
+    }
+    self->source = TPhotonMylla__sub_80154CB4(self->source_id);
+    if (self->source == 0) {
+        queue_destruction__7TObjectFv(self);
+        return;
+    }
+    if (self->captured != 0) {
+        if (self->level <= 1) {
+            ((VObj_8022F73C *)self)->m5(self->source);
+        } else {
+            ((VObj_8022F73C *)self)->m5(self->source);
+            if (self->count != 0) {
+                for (i = 0; i < self->count; i++) {
+                    target = TPhotonMylla__sub_80154CB4(self->targets[i].id);
+                    if ((is_parents_unqueued__9TTecLukerFUi() != 0) && (is_valid_and_active__10TObjPlayerFUi(target) != 0)) {
+                        ((VObj_8022F73C *)self)->m5(target);
+                    }
+                }
+            }
+        }
+    } else if (self->level <= 1) {
+        ((VObj_8022F73C *)self)->m5(self->source);
+    } else {
+        fn_802370D8(self);
+    }
+    queue_destruction__7TObjectFv(self);
+}
+
 u8 *TTecDeband__sub_8022F948(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 temp_r3_2;
     u8 *temp_r3;

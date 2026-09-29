@@ -47,15 +47,57 @@ extern "C" {
 M2C_UNK TObjPlayer__sub_801B1A84(M2C_UNK *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 TObjPlayer__sub_801D0F40;
 void TObjPlayer__sub_801CBF7C(void);
+s32 TObjPlayer__sub_80019248();
+s32 obj_testFlags30(s32, s32);
+u32 activate_d04_slot__10TObjPlayerFPv(s32);
+s32 TObjPlayer__sub_801D2B08(s32, s32);
+void TFontSmallLobby__sub_801D63DC(s32, f32);
+s32 reset_key_machine_state__10TObjPlayerFv();
+void TObjPlayer__vt73(s32 arg0, f32 farg0);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+void clear_flag_200__10TObjPlayerFPv(u32);
+void TObjPlayer__sub_801CBFA4(u16 *p);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
+
+void TObjPlayer__vt73(s32 arg0, f32 farg0) {
+    if (TObjPlayer__sub_80019248() == 0 || obj_testFlags30(arg0, 0x800) != 0 ||
+        activate_d04_slot__10TObjPlayerFPv(arg0) == 0 || TObjPlayer__sub_801D2B08(arg0 + 0x500, 1) != 0 ||
+        reset_key_machine_state__10TObjPlayerFv() == 0) {
+        return;
+    }
+    TFontSmallLobby__sub_801D63DC(arg0 + 0x4AC, farg0);
+}
+
 void TObjPlayer__sub_801CBF7C(void) {
     TObjPlayer__sub_801B1A84((M2C_UNK *)(&TObjPlayer__sub_801D0F40.value));
 }
+void TObjPlayer__sub_801CBFA4(u16 *p) {
+    s32 i;
+    u32 obj;
+    if (p != NULL) {
+        i = 0;
+        while (*p != 0xFFFF) {
+            u32 id = *p++;
+            if (id >= 12) {
+                break;
+            }
+            obj = TPlayerBattleCtrl4P__sub_801BA74C(id);
+            if (obj != 0) {
+                clear_flag_200__10TObjPlayerFPv(obj);
+            }
+            i++;
+            if (i >= 12) {
+                break;
+            }
+        }
+    }
+}
+
 typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8FC_lbl_804FE120) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8000F8EC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8EC_lbl_804FE120) == 0x18 ? 1 : -1];

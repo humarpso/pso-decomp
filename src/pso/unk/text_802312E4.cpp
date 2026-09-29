@@ -9,6 +9,48 @@ struct RecoveredGlobal_80231638___vt__10TTecGiFoie
   u8 remaining[0x24];
 };
 
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct HitInfo_8023154C { s32 type; f32 power; };
+
+struct VBase_8023154C { char pad[0x18]; };
+
+struct VObj_8023154C : VBase_8023154C {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21(void *, HitInfo_8023154C *, void *, s32, s32);
+};
+
+struct Obj_8023154C {
+    u8 pad0[0x1C];
+    void *source;
+    u8 pad20[0x88 - 0x20];
+    f32 power;
+    u8 padP[0xB8 - 0x88 - 4];
+    void *contact;
+    u8 padC[0xF8 - 0xB8 - 4];
+    u16 ids[32];
+    s32 cursor;
+};
+
 extern "C" {
 u8 *destroy_technique_base__9TTecLukerFPvs(void *, s16);
 s32 is_parents_unqueued__9TTecLukerFUi(u32);
@@ -16,6 +58,8 @@ M2C_UNK queue_destruction__7TObjectFv(int);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_80231638___vt__10TTecGiFoie __vt__10TTecGiFoie;
 u8 *__dt__10TTecGiFoieFv(u8 *arg0, s16 arg1);
+u16 obj_getField1c(void *);
+void TTecGiFoie__vt4(Obj_8023154C *self, VObj_8023154C *target);
 }
 
 extern "C" {
@@ -36,6 +80,29 @@ typedef struct RecoveredGlobal_80231638___vt__10TTecGiFoie RecoveredGlobal_80231
 #pragma opt_propagation off
 #pragma opt_dead_assignments off
 typedef char RecoveredGlobal_80231638___vt__10TTecGiFoie_size[((sizeof(RecoveredGlobal_80231638___vt__10TTecGiFoie)) == 0x28) ? (1) : (-1)];
+
+void TTecGiFoie__vt4(Obj_8023154C *self, VObj_8023154C *target) {
+    s32 found = 0;
+    s32 i;
+    for (i = 0; i < 32; i++) {
+        if (self->ids[i] == obj_getField1c(target)) {
+            found = 1;
+        }
+    }
+    if (found == 0) {
+        self->ids[self->cursor] = obj_getField1c(target);
+        self->cursor += 1;
+        if (self->cursor >= 32) {
+            self->cursor = 31;
+        }
+        HitInfo_8023154C tmp;
+        tmp.type = 1;
+        tmp.power = self->power;
+        HitInfo_8023154C info = tmp;
+        target->m21(self->source, &info, self->contact, 1, -1);
+    }
+}
+
 u8 *__dt__10TTecGiFoieFv(u8 *arg0, s16 arg1) {
   s32 temp_r30;
   s32 var_r29;

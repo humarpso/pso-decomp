@@ -4,6 +4,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Lobby_801D6498 {
+    u8 pad[0x14];
+    u32 arr[10];
+    u8 pad2[0x4C - 0x3C];
+    u8 fields[1];
+};
+
 extern "C" {
 M2C_UNK TFontSmallLobby__sub_801D60B4();
 extern const f32 lbl_805DC3DC;
@@ -20,6 +27,13 @@ extern const f32 lbl_805DC3DC;
 extern const f32 lbl_805DC3E0;
 extern const f32 lbl_805DC3E4;
 s32 TFontSmallLobby__sub_801D62D0(u8 *arg0, f32 farg0);
+void init_feed_timer__8TItemMagFPv(void *);
+void TFontSmallLobby__sub_80152F28(void *);
+void clear_photon_blast_state__10TObjPlayerFPv(void *);
+void set_section_index__15TFontSmallLobbyFPvs(void *, s16);
+void reset_fields__15TFontSmallLobbyFPv(void *);
+void TFontSmallLobby__sub_801D67C8(void);
+void TFontSmallLobby__sub_801D6498(struct Lobby_801D6498 *s);
 }
 
 extern "C" {
@@ -98,5 +112,16 @@ void send_photon_blast_ready__15TFontSmallLobbyFv(void) {
 }
 
 void update_if_ready__15TFontSmallLobbyFPv(void* p) { if (TFontSmallLobby__sub_801D67AC(p) != 0) { update_ready__15TFontSmallLobbyFPv((void*)(p)); } }
+void TFontSmallLobby__sub_801D6498(struct Lobby_801D6498 *s) {
+    s32 i;
+    TFontSmallLobby__sub_801D67C8();
+    set_section_index__15TFontSmallLobbyFPvs(s, 0);
+    for (i = 0; i < 10; i++) {
+        TFontSmallLobby__sub_80152F28(&s->arr[i]);
+    }
+    init_feed_timer__8TItemMagFPv(s);
+    clear_photon_blast_state__10TObjPlayerFPv(s);
+    reset_fields__15TFontSmallLobbyFPv(s->fields);
+}
 
 }

@@ -6,6 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Parm_8010C1E0 { u8 pad[8]; s16 dfp; s16 evp; u8 pad2[5]; s8 x11; s8 x12; s8 x13; s8 x14; s8 x15; };
 
+struct Item_8010C498 {
+    u8 kind;
+    u8 b1, b2;
+    u8 b3;
+    u8 b4;
+    u8 pad05[0xD];
+    u8 b12;
+};
+
 extern "C" {
 void TItemData__sub_8010B848(u8 *arg0, s32 arg1);
 s32 TItemData__sub_8010B8B0(u8 *arg0);
@@ -26,6 +35,9 @@ void TItemData__sub_8010EDC8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
 void add_quantity__9TItemDataFPvi(void *arg0, s32 arg1);
 void TItemData__sub_8010C1E0(u8 *self, s32 player, s32 unused, s16 *out);
+s32 lookup_item_def__9TItemDataFPv();
+extern u8 lbl_805DAB68;
+void TItemData__sub_8010C498(struct Item_8010C498 *self);
 }
 
 extern "C" {
@@ -118,6 +130,23 @@ void TItemData__sub_8010C1E0(u8 *self, s32 player, s32 unused, s16 *out) {
     }
 }
 #pragma pop
+
+void TItemData__sub_8010C498(struct Item_8010C498 *self) {
+    switch (self->kind) {
+    case 0:
+    case 1:
+        self->b4 |= lbl_805DAB68;
+        break;
+    case 3:
+        if (lookup_item_def__9TItemDataFPv() == 0) {
+            self->b3 |= lbl_805DAB68;
+        }
+        break;
+    case 2:
+        self->b12 |= lbl_805DAB68;
+        break;
+    }
+}
 
 f32 TItemData__sub_8010C5DC(u8 *arg0) {
     M2C_UNK *var_r4;

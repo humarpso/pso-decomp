@@ -5,6 +5,24 @@ struct B_80082AA8 { u8 pad[0xc]; C_80082AA8 *c; };
 
 struct E_80082AA8 { u32 a; u32 b; B_80082AA8 *node; };
 
+struct Vec_80082954 { s32 x, y, z; };
+
+struct Copy_80082954 {
+    struct Vec_80082954 **animation;
+    struct Vec_80082954 **destination;
+    s32 frame;
+    s32 slot;
+};
+
+struct Vec_800829E0 { s32 x, y, z; };
+
+struct Copy_800829E0 {
+    struct Vec_800829E0 **animation;
+    struct Vec_800829E0 **destination;
+    s32 frame;
+    s32 slot;
+};
+
 extern "C" {
 extern E_80082AA8 *lbl_8048E5A0[];
 extern s32 lbl_80500620[];
@@ -16,6 +34,8 @@ void TScene__sub_8023E638(const char *name, void *data);
 void fn_80082AA8(void);
 extern s32 lbl_80500620[];
 s32 fn_80082910(s32 id);
+void fn_80082954(struct Copy_80082954 *c);
+void fn_800829E0(struct Copy_800829E0 *c);
 }
 
 extern "C" {
@@ -30,6 +50,18 @@ s32 fn_80082910(s32 id) {
         }
     }
     return r;
+}
+
+void fn_80082954(struct Copy_80082954 *c) {
+    (*c->animation)[c->frame].z = (*c->destination)[c->slot].z;
+    (*c->animation)[c->frame].y = (*c->destination)[c->slot].y;
+    (*c->animation)[c->frame].x = (*c->destination)[c->slot].x;
+}
+
+void fn_800829E0(struct Copy_800829E0 *c) {
+    (*c->destination)[c->slot].z = (*c->animation)[c->frame].z;
+    (*c->destination)[c->slot].y = (*c->animation)[c->frame].y;
+    (*c->destination)[c->slot].x = (*c->animation)[c->frame].x;
 }
 
 void fn_80082AA8(void) {

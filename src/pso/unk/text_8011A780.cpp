@@ -48,6 +48,10 @@ void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg);
 extern s32 lbl_805D54E8;
 extern s32 lbl_805D54EC;
 void TLobby__sub_8011AFB8(void);
+s32 get_main_phase();
+s32 TCameraCtrl__sub_8006B368();
+extern s32 lbl_805D54E4;
+u32 TLobby__sub_8011A780(u16 arg0);
 }
 
 extern "C" {
@@ -55,6 +59,22 @@ extern "C" {
 void handle_6x5C_destroy_floor_item(void *arg0);
 void handle_6x62(void);
 M2C_UNK bswap_packet__6TLobbyFPv();
+
+u32 TLobby__sub_8011A780(u16 arg0) {
+    u32 id;
+    if (get_main_phase() == 0xF) {
+        if (TCameraCtrl__sub_8006B368() != 0) {
+            id = arg0 | 0x06030000;
+        } else {
+            id = arg0 | 0x06010000;
+        }
+    } else if (lbl_805D54E4 == 1) {
+        id = arg0 | 0x06020000;
+    } else {
+        id = arg0 | 0x06010000;
+    }
+    return id;
+}
 
 void TLobby__sub_8011A7F8(int id) {
     if (get_global_state__14TOKeyMachine01Fv() != 0xf) {

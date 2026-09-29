@@ -48,6 +48,24 @@ struct Mag_801139F4 : Base_801139F4 {
 
 struct TItemMag_801138F0 { u8 pad[0x1a8]; void *subs[2]; };
 
+struct VBase_18_801134CC { char pad[0x18]; };
+
+struct VObj_18_801134CC : VBase_18_801134CC {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+};
+
+struct Owner_801134CC { u8 pad[0x5B0]; u8 stats[1]; };
+
+struct Self_801134CC {
+    u8 pad0[0xF0];
+    Owner_801134CC *owner;
+    u8 pad1[0x1A8 - 0xF4];
+    VObj_18_801134CC *subs[2];
+};
+
 extern "C" {
 M2C_UNK refresh_if_current_player__20TWindowSubStatusDispFPv(void *);
 int TItemData__sub_8010EE40(void*);
@@ -95,6 +113,16 @@ u8 *TItemMag__ct(Mag_801139F4 *self, s32 a, s32 src);
 void fn_8011491C(void *);
 void release__14TItemEquipBaseFPv(void *arg0);
 void TItemMag__vt45(TItemMag_801138F0 *self);
+s32 obj_testFlags30(void *, M2C_UNK);
+s32 get_flag_40__8TItemMagFPv(void *);
+void scale_field_c8__8TItemMagFPvf(void* p, f32 v);
+int is_feed_empty__8TItemMagFPv(void* p);
+f32 get_stat_f32__8TItemMagFPv(void *);
+s32 check_state_flag_1__8TItemMagFPv(void *);
+s32 TObjPlayer__sub_803D9B2C();
+s32 TObjPlayer__sub_803D9B78();
+extern const f32 TItemMag__data_805DABA8;
+void TItemMag__vt25(Self_801134CC *self);
 }
 
 extern "C" {
@@ -162,6 +190,31 @@ int TItemMag__vt13(void* p) { return TItemMag__sub_80110F04(p); }
 void TItemMag__vt12(s32 arg0) {
     if ((TItemMagSub__sub_8011455C((void *) (arg0 + 0x198)) > 0xC8) || (((s16)get_stat_percent__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_percent__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_level__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)TItemData__sub_8010EE40((void*)((void *) (arg0 + 0x198)))) < 0)) {
         refresh_if_current_player__20TWindowSubStatusDispFPv((void *) (arg0));
+    }
+}
+
+void TItemMag__vt25(Self_801134CC *self) {
+    s32 scaled;
+    VObj_18_801134CC *child;
+    s32 i;
+    f32 scale;
+    if (self->owner != NULL && obj_testFlags30((void *)(self), (M2C_UNK)(0x08000000)) == 0 && get_flag_40__8TItemMagFPv(self) == 0) {
+    scaled = check_state_flag_1__8TItemMagFPv(self->owner->stats);
+    scale = get_stat_f32__8TItemMagFPv(self->owner->stats);
+    TObjPlayer__sub_803D9B2C();
+    for (i = 0; i != 2; i++) {
+        if (self->subs[i] != NULL && is_feed_empty__8TItemMagFPv((void*)(self->subs[i])) != 0) {
+            child = self->subs[i];
+            if (scaled != 0) {
+                scale_field_c8__8TItemMagFPvf((void*)(child), scale);
+                child->m3();
+                scale_field_c8__8TItemMagFPvf((void*)(child), TItemMag__data_805DABA8 / scale);
+            } else {
+                child->m3();
+            }
+        }
+    }
+    TObjPlayer__sub_803D9B78();
     }
 }
 

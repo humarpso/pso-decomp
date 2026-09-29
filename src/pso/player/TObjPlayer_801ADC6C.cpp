@@ -5,6 +5,54 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 typedef struct { f32 x; f32 y; f32 z; } Vec3;
 
+struct Color_801ADDDC { f32 a, r, g, b; };
+
+struct Vec_801ADDDC { f32 x, y, z; };
+
+struct Self_801ADDDC {
+    u8 pad0[0x24];
+    s32 f24;
+    u8 pad1[0x38 - 0x28];
+    Vec_801ADDDC pos;
+    u8 pad2[0x60 - 0x44];
+    s32 f60;
+    u8 pad3[0x14C - 0x64];
+    s16 f14C;
+    u8 pad4[0x180 - 0x14E];
+    Color_801ADDDC color;
+    u8 pad5[0x1A4 - 0x190];
+    s32 started;
+};
+
+extern "C" {
+s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+s32 TObjPlayer__sub_800F5BC0(void *, s16, int);
+s32 draw__16TObjEneRe7BeruraFPv(void *);
+s32 clear_render_context__10TObjPlayerFv(void *);
+s32 TObjPlayer__sub_801A7638(void *);
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 TObjPlayer__sub_803D9214(int, int);
+s32 TObjPlayer__sub_803D9B2C();
+s32 TObjPlayer__sub_803D9B78();
+s32 TObjPlayer__sub_803D9624(int, f32, f32, f32);
+s32 set_global_param__8TObjFishFi(int);
+s32 set_chunk_material_override_pair(int, int);
+s32 set_chunk_material_color(void *);
+s32 set_global_flag__10TObjPlayerFv();
+s32 clear_global_state__10TObjPlayerFv();
+extern Color_801ADDDC lbl_8050BEC0;
+extern Color_801ADDDC lbl_8058D4C0;
+extern s32 lbl_805D5660;
+extern s32 lbl_805D5664;
+extern s32 lbl_805D5668;
+extern void *lbl_805D5D58;
+extern s32 lbl_805D7780;
+extern s32 lbl_805D7784;
+extern s32 some_id_805c6f74;
+void TObjPlayer__sub_801ADDDC(Self_801ADDDC *self);
+}
+
 extern "C" {
 
 void TObjPlayer__sub_801ADC6C(void);
@@ -65,6 +113,35 @@ extern const f32 lbl_805DC248;
 extern const f32 lbl_805DC24C;
 extern const f32 lbl_805DC250;
 extern const f32 lbl_805DC254;
+
+void TObjPlayer__sub_801ADDDC(Self_801ADDDC *self) {
+    if (self->started != 0) {
+        TObjPlayer__sub_800F5BC0(lbl_805D5D58, self->f14C, 0);
+        begin_effect_render__13TParticleCtrlFv();
+        set_global_param__8TObjFishFi(self->f24);
+        TObjPlayer__sub_803D9B2C();
+        TObjPlayer__sub_803D9624(0, self->pos.x, self->pos.y, self->pos.z);
+        TObjPlayer__sub_803D9214(0, self->f60);
+        TObjPlayer__sub_801A7638(self);
+        lbl_805D5660 = some_id_805c6f74;
+        copy_vec4__13TRaderMapCoreFPvPv(&lbl_8050BEC0, &lbl_8058D4C0);
+        lbl_805D5664 = lbl_805D7784;
+        lbl_805D5668 = lbl_805D7780;
+        some_id_805c6f74 |= 0x200820;
+        set_global_flag__10TObjPlayerFv();
+        set_chunk_material_override_pair(-1, 0x800);
+        set_chunk_material_color(&self->color);
+        draw__16TObjEneRe7BeruraFPv(self);
+        clear_global_state__10TObjPlayerFv();
+        lbl_805D7784 = lbl_805D5664;
+        lbl_805D7780 = lbl_805D5668;
+        copy_vec4__13TRaderMapCoreFPvPv(&lbl_8058D4C0, &lbl_8050BEC0);
+        some_id_805c6f74 = lbl_805D5660;
+        clear_render_context__10TObjPlayerFv(self);
+        TObjPlayer__sub_803D9B78();
+        end_effect_render__13TParticleCtrlFv();
+    }
+}
 
 void update_photon_blast(void *arg0) {
     Vec3 sp8;

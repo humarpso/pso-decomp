@@ -4,6 +4,51 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Color_801AE744 { f32 a, r, g, b; };
+
+struct Vec_801AE744 { f32 x, y, z; };
+
+struct Self_801AE744 {
+    u8 pad0[0x24];
+    s32 f24;
+    u8 pad1[0x38 - 0x28];
+    Vec_801AE744 pos;
+    u8 pad2[0x60 - 0x44];
+    s32 f60;
+    u8 pad3[0x184 - 0x64];
+    Color_801AE744 color;
+    u8 pad4[0x1A0 - 0x194];
+    s32 started;
+};
+
+extern "C" {
+s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+s32 draw__16TObjEneRe7BeruraFPv(void *);
+s32 clear_render_context__10TObjPlayerFv(void *);
+s32 TObjPlayer__sub_801A7638(void *);
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 TObjPlayer__sub_803D9214(int, int);
+s32 TObjPlayer__sub_803D9B2C();
+s32 TObjPlayer__sub_803D9B78();
+s32 TOHangerMachine01__sub_803D9C00(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 set_current_scene__6TSceneFi(int);
+s32 set_chunk_material_override_pair(int, int);
+s32 set_chunk_material_color(void *);
+s32 set_global_flag__10TObjPlayerFv();
+s32 clear_global_state__10TObjPlayerFv();
+extern Color_801AE744 lbl_8050BEC0;
+extern Color_801AE744 lbl_8058D4C0;
+extern s32 lbl_805D5660;
+extern s32 lbl_805D5664;
+extern s32 lbl_805D5668;
+extern s32 lbl_805D7780;
+extern s32 lbl_805D7784;
+extern s32 some_id_805c6f74;
+void render__13TPhotonYoullaFv(Self_801AE744 *self);
+}
+
 extern "C" {
 
 void TObjPlayer__sub_801AEB74(void);
@@ -49,6 +94,36 @@ extern const f32 lbl_805DC268;
 extern const f32 lbl_805DC26C;
 extern const f32 lbl_805DC270;
 extern const f32 lbl_805DC274;
+
+void render__13TPhotonYoullaFv(Self_801AE744 *self) {
+    if (self->started != 0) {
+        begin_effect_render__13TParticleCtrlFv();
+        set_global_param__8TObjFishFi(self->f24);
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(&self->pos);
+        TObjPlayer__sub_803D9214(0, self->f60);
+        lbl_805D5660 = some_id_805c6f74;
+        copy_vec4__13TRaderMapCoreFPvPv(&lbl_8050BEC0, &lbl_8058D4C0);
+        lbl_805D5664 = lbl_805D7784;
+        lbl_805D5668 = lbl_805D7780;
+        some_id_805c6f74 |= 0x200820;
+        set_global_flag__10TObjPlayerFv();
+        set_current_scene__6TSceneFi(0);
+        set_chunk_material_override_pair(-1, 0x800);
+        set_chunk_material_color(&self->color);
+        TObjPlayer__sub_801A7638(self);
+        draw__16TObjEneRe7BeruraFPv(self);
+        clear_global_state__10TObjPlayerFv();
+        set_current_scene__6TSceneFi(0xBF);
+        clear_render_context__10TObjPlayerFv(self);
+        lbl_805D7784 = lbl_805D5664;
+        lbl_805D7780 = lbl_805D5668;
+        copy_vec4__13TRaderMapCoreFPvPv(&lbl_8058D4C0, &lbl_8050BEC0);
+        some_id_805c6f74 = lbl_805D5660;
+        TObjPlayer__sub_803D9B78();
+        end_effect_render__13TParticleCtrlFv();
+    }
+}
 
 void run_task__13TPhotonYoullaFv(void *arg0) {
     f32 temp_f1;

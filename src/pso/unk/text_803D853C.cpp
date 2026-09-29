@@ -21,6 +21,14 @@ void TBoss7Tentacle__sub_803D8A6C(void *m, s32 x, s32 y, s32 z);
 extern s32 lbl_805D7774;
 void PSMTXCopy(void *src, void *dst);
 void TObjPlayer__sub_803D898C(void *m);
+void TObjPlayer__sub_803D9214(void *, s32);
+void TObjBoss2Tunnel__sub_803D929C(void *, s32);
+void TObjContainerIdo__sub_803D96A8(void *, s32);
+void TObjChip__sub_803D8AE4(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+extern s32 lbl_805D7774;
+void PSMTXScale(f32 (*m)[4], f32 sx, f32 sy, f32 sz);
+void PSMTXConcat(f32 (*a)[4], f32 (*b)[4], f32 (*ab)[4]);
+void TOMonitorMachine01__sub_803D8B5C(f32 (*m)[4], f32 sx, f32 sy, f32 sz);
 }
 
 extern "C" {
@@ -92,5 +100,26 @@ void TBoss7Tentacle__sub_803D8A6C(void *m, s32 x, s32 y, s32 z) {
     }
 }
 #pragma pop
+
+void TObjChip__sub_803D8AE4(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+    if (arg2 != 0) {
+        TObjPlayer__sub_803D9214((void *)((void *) (arg0)), (s32)((void *) (arg2)));
+    }
+    if (arg1 != 0) {
+        TObjContainerIdo__sub_803D96A8((void *)((void *) (arg0)), (s32)((void *) (arg1)));
+    }
+    if (arg3 != 0) {
+        TObjBoss2Tunnel__sub_803D929C((void *)((void *) (arg0)), (s32)((void *) (arg3)));
+    }
+}
+typedef f32 Mtx_803D8B5C[3][4];
+void TOMonitorMachine01__sub_803D8B5C(f32 (*m)[4], f32 sx, f32 sy, f32 sz) {
+    Mtx_803D8B5C tmp;
+    f32 (*t)[4];
+    if (m == NULL) t = (f32 (*)[4])lbl_805D7774;
+    else t = m;
+    PSMTXScale(tmp, sx, sy, sz);
+    PSMTXConcat(t, tmp, t);
+}
 
 }

@@ -16,12 +16,20 @@ struct M2CCopy_8 { u8 bytes[0x8]; };
 
 struct M2CCopy_20 { u8 bytes[0x20]; };
 
+typedef s32 M2C_UNK;
+struct Row_800FAFE0 { u8 pad[0x40]; s32 identity; };
+
+struct Ctrl_800FAFE0 {
+    u8 pad[0x174];
+    struct Row_800FAFE0 *slots[4];
+    s32 selected;
+};
+
 extern "C" {
 void TFogCtrl__sub_800FB0F8(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_param__8TFogCtrlFPv(void* p);
 s32 TFogCtrl__sub_800FAF3C(u8 *arg0, s32 arg1);
 s32 is_split_screen();
-int TFogCtrl__sub_800FAFE0(s32, s32, s32);
 extern M2C_UNK TFogCtrl__data_80501188[];
 s32 TFogCtrl__sub_800FAB94(s32 arg0, s32 arg1, s32 arg2);
 s32 is_split_screen();
@@ -39,6 +47,10 @@ void clear_active_flag__8TFogCtrlFPv(void *arg0);
 extern M2C_UNK TFogCtrl__data_80501188[];
 void TFogCtrl__sub_800FAD08(void);
 void TFogCtrl__sub_800FAC90(u8 *arg0, u8 *arg1);
+void TFogCtrl__sub_800FB0F8(u8 *arg0, s32 arg1, s32 arg2);
+s32 get_param__8TFogCtrlFPv(void* p);
+M2C_UNK TFogCtrl__sub_800FB424(int, int, int);
+s32 TFogCtrl__sub_800FAFE0(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -56,7 +68,7 @@ s32 TFogCtrl__sub_800FAB94(s32 arg0, s32 arg1, s32 arg2) {
         arg0 = 0;
     }
     if ((arg0 >= 0) && (arg0 < 4) && ((u32) TFogCtrl__data_80501188[arg0] != 0U)) {
-        return ((s32)TFogCtrl__sub_800FAFE0((s32)(TFogCtrl__data_80501188[arg0]), (s32)(arg1), (s32)(arg2)));
+        return ((s32)TFogCtrl__sub_800FAFE0((u8 *)((s32)(TFogCtrl__data_80501188[arg0])), (s32)((s32)(arg1)), (s32)((s32)(arg2))));
     }
     return 0;
 }
@@ -171,7 +183,18 @@ s32 TFogCtrl__sub_800FAF3C(u8 *arg0, s32 arg1) {
     return 1;
 }
 
-int TFogCtrl__sub_800FAFE0(s32 _w0, s32 _w1, s32 _w2) { return 0; }
+s32 TFogCtrl__sub_800FAFE0(u8 *arg0, s32 arg1, s32 arg2) {
+    struct Ctrl_800FAFE0 *self = (struct Ctrl_800FAFE0 *)arg0;
+    if (get_param__8TFogCtrlFPv((void*)((void *)arg0)) != 0) {
+        return 0;
+    }
+    if (self->slots[self->selected]->identity == arg1) {
+        return 1;
+    }
+    TFogCtrl__sub_800FB424((int)arg0, 2, arg1);
+    TFogCtrl__sub_800FB0F8(arg0, 1, arg2);
+    return 1;
+}
 
 s32 TFogCtrl__sub_800FB06C(u8 *arg0, s32 arg1, s32 arg2) {
   s32 var_r30;

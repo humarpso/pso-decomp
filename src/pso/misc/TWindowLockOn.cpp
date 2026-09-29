@@ -4,6 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Win_8026385C {
+    u8 pad00[0x24];
+    u8 m24[0x38];
+    s32 refresh_flags;
+    u8 pad60[4];
+    s32 retention;
+    u8 pad68[8];
+    void (Win_8026385C::*refresh)();
+};
+
 extern "C" {
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 void TWindowHelpItem__sub_80270060(s32, u32);
@@ -13,6 +23,12 @@ s32 obj_testFlags30(s32, M2C_UNK);
 s32 get_target_id__13TWindowLockOnFPv(void *);
 s32 TWindowSubComCard__sub_801058F8(void *);
 bool TWindowLockOn__sub_80262DC4(s32 arg0);
+void TWindow__close(void *);
+void update_fade__17TWindowSubComCardFPv(void *);
+void initialize_subwindow__9TWindowDDFPv(void *);
+void TWindowSubStatusDisp__sub_80257C28(void *, void *);
+void fn_80262C3C(void *);
+void run_task__13TWindowLockOnFv(Win_8026385C *w);
 }
 
 extern "C" {
@@ -83,6 +99,23 @@ void render__13TWindowLockOnFv(u8 *arg0) {
 }
 
 extern M2C_UNK __vt__13TWindowLockOn[];
+
+void run_task__13TWindowLockOnFv(Win_8026385C *w) {
+    s32 old;
+    w->refresh_flags = 0x01000000;
+    if (w->refresh) {
+        (w->*w->refresh)();
+    }
+    fn_80262C3C(w);
+    initialize_subwindow__9TWindowDDFPv(w);
+    update_fade__17TWindowSubComCardFPv(w);
+    TWindowSubStatusDisp__sub_80257C28(w, w->m24);
+    old = w->retention;
+    w->retention = old - 1;
+    if (old < 0) {
+        TWindow__close(w);
+    }
+}
 
 void *__dt__13TWindowLockOnFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

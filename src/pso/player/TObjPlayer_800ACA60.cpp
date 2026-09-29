@@ -4,6 +4,31 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef struct MojaCollision_800ADE48 {
+    u8 pad[0x18];
+    u32 flags;
+} MojaCollision_800ADE48;
+
+typedef struct Moja_800ADE48 {
+    u8 pad0[0x30];
+    u32 flags;
+    u8 pad34[0xA4 - 0x34];
+    MojaCollision_800ADE48 *collision;
+    u8 padA8[0xB8 - 0xA8];
+    s16 action;
+    u8 padBA[0x326 - 0xBA];
+    s16 mode;
+    s16 phase;
+    u8 pad32A[0x374 - 0x32A];
+    s32 f374;
+    u8 pad378[0x380 - 0x378];
+    s32 attack_kind;
+} Moja_800ADE48;
+
+extern "C" {
+void TObjPlayer__sub_800ADE48(Moja_800ADE48 *self);
+}
+
 extern "C" {
 
 void enter_state_3__10TObjPlayerFPv(void *arg0);
@@ -86,6 +111,29 @@ void update_down_state__10TObjPlayerFPv(void *arg0) {
         break;
     }
     M2C_FIELD(arg0, s32 *, 0x374) = 0;
+}
+
+void TObjPlayer__sub_800ADE48(Moja_800ADE48 *self) {
+    switch (self->attack_kind) {
+    case 2:
+        self->mode = 6;
+        self->action = 5;
+        break;
+    case 1:
+        self->mode = 5;
+        self->action = 2;
+        break;
+    case 0:
+    default:
+        self->mode = 4;
+        self->action = 3;
+        break;
+    }
+    self->phase = 0;
+    self->flags |= 0x200000;
+    self->flags &= 0xF9FBFFFF;
+    self->collision->flags |= 1;
+    self->f374 = 0;
 }
 
 void enter_state_3__10TObjPlayerFPv(void *arg0) {

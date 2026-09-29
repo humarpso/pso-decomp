@@ -12,6 +12,26 @@ struct RecoveredGlobal_8020D6F0_TLobby__data_80513AD0 {
     u8 remaining[0x1AC];
 };
 
+typedef struct SpawnVector_8020D36C { f32 x, y, z; } SpawnVector_8020D36C;
+
+typedef struct SpawnAngles_8020D36C { u32 x, y, z; } SpawnAngles_8020D36C;
+
+typedef struct SpawnRecord_8020D36C {
+    s16 type;
+    u16 flags;
+    u16 index;
+    s16 children;
+    u16 reserved;
+    u16 actor_id;
+    s16 room;
+    s16 wave;
+    u32 secondary_wave;
+    SpawnVector_8020D36C position;
+    SpawnAngles_8020D36C angles;
+    f32 parameters[5];
+    s16 integers[4];
+} SpawnRecord_8020D36C;
+
 extern "C" {
 s32 TObjPlayer__sub_803D97F0(u32);
 s32 TObjPlayer__sub_803D9B78(void);
@@ -25,7 +45,6 @@ void TLobby__sub_8020D2B4(s32 arg0, u8 *arg1, u8 *arg2);
 s32 TObjPlayer__sub_800196EC();
 s32 assign_display_objects__6TLobbyFPvi(int, int);
 s32 assign_objects_to_slots__6TLobbyFPvi(int, int);
-s32 TLobby__sub_8020D36C(int, int);
 s32 TLobby__sub_8020D3F0(int, int);
 s32 TLobby__sub_8020D474(void *, int, int);
 extern RecoveredGlobal_8020D6F0_TLobby__data_80513AD0 TLobby__data_80513AD0;
@@ -35,6 +54,9 @@ extern s32 TLobby__data_805D6114;
 extern s32 TLobby__data_805D611C;
 extern s32 TLobby__data_805D6120;
 void TLobby__sub_8020D6F0(u8 *arg0);
+void *TScene__sub_80203600(s32 room);
+void TLobby__sub_8020D2B4(s32 arg0, u8 *arg1, u8 *arg2);
+void TLobby__sub_8020D36C(SpawnRecord_8020D36C *rows, s32 count);
 }
 
 extern "C" {
@@ -55,6 +77,23 @@ void TLobby__sub_8020D2B4(s32 arg0, u8 *arg1, u8 *arg2) {
     M2C_FIELD(arg1, s32 *, 8) = (s32) (M2C_FIELD(arg1, s32 *, 8) + M2C_FIELD(arg2, s32 *, 0x18));
 }
 
+void TLobby__sub_8020D36C(SpawnRecord_8020D36C *rows, s32 count) {
+    SpawnRecord_8020D36C *row;
+    void *cached_room;
+    s16 cached_id = -1;
+    s32 i;
+    for (i = 0; i < count; i++) {
+        row = &rows[i];
+        if (cached_id != row->room) {
+            cached_room = TScene__sub_80203600(row->room);
+            cached_id = row->room;
+        }
+        if (cached_room) {
+            TLobby__sub_8020D2B4((s32)&row->position, (u8 *)&row->angles, (u8 *)cached_room);
+        }
+    }
+}
+
 int TLobby__sub_8020D6D0(void* p) { return TLobby__sub_8020D5AC(p); }
 #pragma push
 #pragma opt_common_subs off
@@ -71,7 +110,7 @@ void TLobby__sub_8020D6F0(u8 *arg0) {
         M2C_FIELD(temp_r30, s32 *, 8) = (s32) (M2C_FIELD(temp_r30, s32 *, 8) | 2);
     }
     if (!(M2C_FIELD(temp_r30, s32 *, 0xC) & 4)) {
-        TLobby__sub_8020D36C((int) (TLobby__data_805D6114), (int) (M2C_FIELD(temp_r30, s32 *, 4)));
+        TLobby__sub_8020D36C((SpawnRecord_8020D36C *)((int) (TLobby__data_805D6114)), (s32)((int) (M2C_FIELD(temp_r30, s32 *, 4))));
         M2C_FIELD(temp_r30, s32 *, 0xC) = (s32) (M2C_FIELD(temp_r30, s32 *, 0xC) | 4);
     }
     if (M2C_FIELD(temp_r30, s32 *, 8) & 2) {

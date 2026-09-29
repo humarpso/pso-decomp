@@ -4,6 +4,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include "pso/misc/TSceneMaterial.h"
+extern "C" {
+extern SceneMaterialRoot* TScene__data_805D5FCC;
+SceneMaterialSection *TScene__sub_80203600(s32 id);
+}
+
 extern "C" {
 
 s32 get_player_ctrl_field__6TSceneFUs(u16 arg0);
@@ -35,6 +41,18 @@ void offset_position__6TSceneFPvii(void*,s32,s32);
 void free_children__12TObjDoorJungFPvPv(void*,u16);
 void PPCSync();
 extern const f32 lbl_805DC5D4;
+
+SceneMaterialSection *TScene__sub_80203600(s32 id) {
+    s32 i;
+    s16 count = TScene__data_805D5FCC->count;
+    for (i = 0; i < count; i++) {
+        if (TScene__data_805D5FCC->sections[i].id == id) {
+            return &TScene__data_805D5FCC->sections[i];
+        }
+    }
+    return NULL;
+}
+
 void TScene__sub_80203640(void* task) {
     if(!TScene__data_805D6004||!TScene__data_805D5FCC)return;
     SceneMaterialRoot* root=TScene__data_805D5FCC;

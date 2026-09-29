@@ -18,6 +18,18 @@ struct Sub_8022B3E8 { s32 w[22]; };
 
 struct S_8022B3E8 { s32 f0; Sub_8022B3E8 sub; };
 
+struct Vec_8022AE10 { f32 x, y, z; };
+
+struct AntiRow_8022AE10 { s32 a; s32 b; s32 c; s32 flags; };
+
+struct Obj_8022AE10 {
+    u8 pad0[0x18];
+    void *vtbl;
+    u8 pad1C[0x30 - 0x1C];
+    Vec_8022AE10 body;
+    Vec_8022AE10 ground;
+};
+
 extern "C" {
 void TTecAnti__sub_8022B35C(u8 *arg0, u8 *arg1);
 s32 obj_getField1c(int);
@@ -33,6 +45,13 @@ extern s32 lbl_805D3790;
 extern const f32 lbl_805DC798;
 u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 S_8022B3E8 *TTecAnti__sub_8022B3E8(S_8022B3E8 *d, S_8022B3E8 *s);
+void VecCopy__FP3VecPC3Vec(Vec_8022AE10 *, const Vec_8022AE10 *);
+void *TObjPlayer__sub_800868C4(Vec_8022AE10 *, s32, s32, s32, s32);
+void TObjPlayer__sub_80087638(void *, s32);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern AntiRow_8022AE10 lbl_804CC0A8[];
+extern M2C_UNK lbl_804CC0E8[];
+Obj_8022AE10 *TTecAnti__sub_8022AE10(Obj_8022AE10 *self, const Vec_8022AE10 *body, const Vec_8022AE10 *ground, s32 actor, void *parent);
 }
 
 extern "C" {
@@ -65,6 +84,30 @@ void *__dt__8TTecAntiFPvs(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+Obj_8022AE10 *TTecAnti__sub_8022AE10(Obj_8022AE10 *self, const Vec_8022AE10 *body, const Vec_8022AE10 *ground, s32 actor, void *parent) {
+    s32 i;
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vtbl = lbl_804CC0E8;
+    VecCopy__FP3VecPC3Vec(&self->body, body);
+    VecCopy__FP3VecPC3Vec(&self->ground, ground);
+    for (i = 0; i < 4; i++) {
+        AntiRow_8022AE10 *row = &lbl_804CC0A8[i];
+        void *p;
+        if (row->flags & 1) {
+            p = TObjPlayer__sub_800868C4(&self->ground, row->c, row->a, row->b, 0x10);
+            if (p != NULL) {
+                TObjPlayer__sub_80087638(p, actor);
+            }
+        } else {
+            p = TObjPlayer__sub_800868C4(&self->body, row->c, row->a, row->b, 0x10);
+            if (p != NULL) {
+                TObjPlayer__sub_80087638(p, actor);
+            }
+        }
+    }
+    return self;
 }
 
 void create__8TTecAntiFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {

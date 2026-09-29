@@ -4,6 +4,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Zone_8017E748 { u8 pad[0x9C]; s32 category; };
+
+extern "C" {
+void TObjBgmColCtrl__sub_8017E1E4();
+s32 check__10TObjBgmColFPv(void *arg0);
+s32 get_bgm_object__13TQuestBgmCtrlFv();
+void TObjBgmColCtrl__sub_802274B8(s32);
+extern s32 lbl_804B5780[];
+extern s32 lbl_805D5B00;
+extern s32 lbl_805D5B04;
+void run_task__10TObjBgmColFv(Zone_8017E748 *zone);
+}
+
 extern "C" {
 
 s32 check__10TObjBgmColFPv(void *arg0);
@@ -26,6 +39,28 @@ s32 check__10TObjBgmColFPv(void *arg0) {
     }
     M2C_FIELD(arg0, s32 *, 0x90) = 1;
     return 3;
+}
+void run_task__10TObjBgmColFv(Zone_8017E748 *zone) {
+    if (get_bgm_object__13TQuestBgmCtrlFv() == 0) {
+        switch (check__10TObjBgmColFPv(zone)) {
+        case 1:
+            if (lbl_805D5B00 != zone->category) {
+                if (zone->category == 4) {
+                    TObjBgmColCtrl__sub_8017E1E4();
+                } else {
+                    TObjBgmColCtrl__sub_802274B8(lbl_804B5780[zone->category]);
+                }
+                lbl_805D5B00 = zone->category;
+            }
+            lbl_805D5B04 = 1;
+            return;
+        case 0:
+            lbl_805D5B04 = 1;
+            break;
+        case 2:
+            break;
+        }
+    }
 }
 
 }

@@ -14,6 +14,8 @@ struct RecoveredGlobal_8026D674___vt__11TWindowRoom {
     u8 remaining[0x14];
 };
 
+struct Pos_8026D740 { f32 x; f32 y; };
+
 extern "C" {
 f32 TWindowSubStatusDisp__sub_802877A4(f32);
 int get_array_entry__20TWindowSubStatusDispFPvi(void*, int);
@@ -28,6 +30,8 @@ extern s32 lbl_805D39C0;
 extern const f32 lbl_805DD2F0;
 extern const f32 lbl_805DD2F4;
 u8 *TWindowRoom__ct(u8 *arg0, s32 arg1);
+extern const f32 lbl_805DD2F8;
+s32 TWindowSubComCard__sub_8026D740(struct Pos_8026D740 *a, struct Pos_8026D740 *b, struct Pos_8026D740 *c);
 }
 
 extern "C" {
@@ -91,6 +95,19 @@ u8 *TWindowRoom__ct(u8 *arg0, s32 arg1) {
     save_position__17TWindowSubComCardFPv((void *) (arg0));
     M2C_FIELD(arg0, f32 *, 0x60) = TWindowSubStatusDisp__sub_802877A4(M2C_FIELD(arg0, f32 *, 0x48) - lbl_805DD2F4);
     return arg0;
+}
+s32 TWindowSubComCard__sub_8026D740(struct Pos_8026D740 *a, struct Pos_8026D740 *b, struct Pos_8026D740 *c) {
+    f32 room;
+    if (a->y < c->y || b->y < lbl_805DD2F8) {
+        b->y = lbl_805DD2F8;
+        return 1;
+    }
+    room = a->y - c->y;
+    if (b->y > room) {
+        b->y = room;
+        return 1;
+    }
+    return 0;
 }
 
 }

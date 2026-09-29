@@ -48,6 +48,21 @@ struct Stack_8034EB08 {
 
 struct E_8034E02C { u8 flag; u8 pad[0x35]; };
 
+struct Global_8034E5A8 { u8 pad[0x46E]; s8 f46e; u8 rest[0x600 - 0x46F]; };
+
+typedef struct NpcCreatePacket_8034EBB0 {
+    u8 header[4];
+    u16 leader;
+    u16 slot;
+    s16 zero;
+    s16 appearance;
+} NpcCreatePacket_8034EBB0;
+
+struct Slot_8034EDC4 {
+    s32 a[6];
+    s32 b[6];
+};
+
 extern "C" {
     extern int lbl_805D6EA0;
 void TNpcPlayer__sub_8034E420(void);
@@ -101,6 +116,24 @@ void send_state_60__10TNpcPlayerFPv(void* p);
 void build_6x69_npc_control(void* p);
 extern E_8034E02C lbl_804F0280[];
 void TNpcPlayer__sub_8034E02C(void);
+s32 obj_isState3_324();
+s32 obj_getField1c(s32);
+s16 get_stat_by_key_state__10TObjPlayerFPv(s32);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void open__11TWindowCtrlFiii(s32, void *, s32);
+extern E_8034E02C lbl_804F0280[];
+extern int lbl_805D6EA0;
+void TNpcPlayer__sub_8034E5A8(s16 key);
+void TObjPlayer__sub_801B1FA4(u16, s32, s32);
+M2C_UNK TObjPlayer__sub_801C5F54(s32, s32, f32, f32, f32);
+void send_state_60__10TNpcPlayerFPv(void* p);
+void build_6x69_npc_control(void* p);
+void TNpcPlayer__sub_8034EBB0(u16 leader, u16 slot, s32 appearance, f32 *p, s32 heading);
+void TNpcPlayer__sub_8034E02C(void);
+extern struct Slot_8034EDC4 lbl_805436B8[];
+extern s32 TNpcPlayer__data_805D5864;
+extern int lbl_805D6EA0;
+void TNpcPlayer__sub_8034EDC4(void);
 }
 
 extern "C" {
@@ -162,6 +195,19 @@ void TNpcPlayer__sub_8034E4B0(u16 arg0) {
         }
     }
 }
+
+void TNpcPlayer__sub_8034E5A8(s16 key) {
+    s32 i;
+    s32 player;
+    for (i = 0; i < 4; i++) {
+        player = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        if (player && obj_isState3_324() && key == get_stat_by_key_state__10TObjPlayerFPv(player)
+            && !(lbl_805D6EA0 & 2) && (*(Global_8034E5A8 *)&lbl_804F0280).f46e) {
+            open__11TWindowCtrlFiii(obj_getField1c(player), &(*(Global_8034E5A8 *)&lbl_804F0280).f46e, 0x1B);
+        }
+    }
+}
+
 void apply_to_players__10TNpcPlayerFiPvi(s32 arg0, void *arg1, s32 arg2) {
     s32 var_r31;
     s32 temp_r3;
@@ -211,6 +257,20 @@ loop_1:
     TObjPlayer__sub_801C5F54((s32)((void *) (arg1)), (s32)((void *) (arg4)), (f32) (M2C_FIELD(arg3, f32 *, 0)), (f32) (M2C_FIELD(arg3, f32 *, 4)), (f32) (M2C_FIELD(arg3, f32 *, 8)));
     send_state_60__10TNpcPlayerFPv((void*)((void *) (&stack.sp8)));
 }
+
+void TNpcPlayer__sub_8034EBB0(u16 leader, u16 slot, s32 appearance, f32 *p, s32 heading) {
+    NpcCreatePacket_8034EBB0 pkt;
+    build_6x69_npc_control((void*)(&pkt));
+    pkt.leader = leader;
+    pkt.slot = 0xFFFF;
+    pkt.zero = 0;
+    pkt.appearance = appearance;
+    pkt.slot = slot;
+    TObjPlayer__sub_801C5F54(slot, heading, p[0], p[1], p[2]);
+    send_state_60__10TNpcPlayerFPv((void*)(&pkt));
+    TObjPlayer__sub_801B1FA4(pkt.slot, (s32)p, heading);
+}
+
 void TNpcPlayer__sub_8034EC40(s16 arg0, s16 arg1, u8 *arg2, s32 arg3) {
     Stack_8034EC40 stack;
     build_6x69_npc_control((void*)(&stack.sp8));
@@ -224,6 +284,21 @@ void TNpcPlayer__sub_8034EC40(s16 arg0, s16 arg1, u8 *arg2, s32 arg3) {
     TObjPlayer__sub_801B1FA4(stack.spE, (s32) arg2, arg3);
 }
 void TNpcPlayer__sub_8034EDB8(void) { lbl_805D6EA0 = 0; }
+
+void TNpcPlayer__sub_8034EDC4(void) {
+    s32 i;
+    s32 j;
+    (*(s32 *)&lbl_805D6EA0) = 0;
+    TNpcPlayer__sub_8034E02C();
+    TNpcPlayer__data_805D5864 = 0;
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 6; j++) {
+            lbl_805436B8[i].a[j] = 0;
+            lbl_805436B8[i].b[j] = 0x19;
+        }
+    }
+}
+
 void TNpcPlayer__sub_8034EE3C(u16 arg0) {
     u32 temp_r3;
     temp_r3 = ((u32)TPlayerBattleCtrl4P__sub_801BA74C((s32)((u32)((void *) (arg0)))));

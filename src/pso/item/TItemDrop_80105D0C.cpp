@@ -14,6 +14,10 @@ struct Pair_80106F4C { u8 type; u8 level; };
 
 struct Obj_80106F4C { u8 pad[6]; Pair_80106F4C e[3]; };
 
+struct RareItem_80106A90 { u8 b[4]; };
+
+struct RareTable_80106A90 { u8 pad[4]; s32 count; s8 *types; RareItem_80106A90 *items; };
+
 extern "C" {
 M2C_UNK clear_item_if_player_picked_up__9TItemDropFPvPv(void *, void *);
 M2C_UNK TItemDrop__sub_80105EA4(void *, void *);
@@ -56,6 +60,10 @@ u8 *TItemDrop__sub_80107840(u8 *arg0, s16 arg1);
 u32 TItemDrop__sub_801065F8(u8 *arg0, M2C_UNK arg1, u32 arg2);
 u8 TItemDrop__sub_80107790(s32 rng, s32 base, s32 off, s32 count, s32 stride);
 void TItemDrop__sub_80106F4C(void *self, Obj_80106F4C *o);
+s32 can_drop__9TItemDropFv();
+s32 TItemDrop__sub_80107460(s32 arg0, u8 *arg1, u8 *arg2);
+extern s32 *TItemDrop__data_805D5464;
+s32 TItemDrop__sub_80106A90(s32 arg0, s32 arg1, u8 *arg2);
 }
 
 extern "C" {
@@ -127,6 +135,22 @@ u32 TItemDrop__sub_801065F8(u8 *arg0, M2C_UNK arg1, u32 arg2) {
     var_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x20));
     var_r3 = (u8 *)(M2C_FIELD(var_r3, u8 **, 0x40));
     return (u32)TItemDrop__sub_80107B0C((s32)((int) (var_r3)), (u32)(arg1));
+}
+
+s32 TItemDrop__sub_80106A90(s32 arg0, s32 arg1, u8 *arg2) {
+    s32 target;
+    s32 i;
+    if ((*(RareTable_80106A90 * *)&TItemDrop__data_805D5464) != NULL && can_drop__9TItemDropFv() == 1) {
+        target = arg1 + 1;
+        for (i = 0; i != (*(RareTable_80106A90 * *)&TItemDrop__data_805D5464)->count; i++) {
+            if (target == (*(RareTable_80106A90 * *)&TItemDrop__data_805D5464)->types[i]) {
+                if (TItemDrop__sub_80107460(arg0, (u8 *)&(*(RareTable_80106A90 * *)&TItemDrop__data_805D5464)->items[i], arg2) != 0) {
+                    return 1;
+                }
+            }
+        }
+    }
+    return 0;
 }
 
 s32 drop_item__9TItemDropFiii(s32 arg0, s32 arg1, s32 arg2) {

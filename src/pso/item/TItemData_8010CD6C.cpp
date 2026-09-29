@@ -12,6 +12,17 @@ struct Pair_8010E344 { u8 a; u8 b; };
 
 struct TItemData_8010E344 { u8 data[6]; Pair_8010E344 stats[3]; s32 id; s32 f10; };
 
+struct Mag_8010D510 { s16 f0; s16 f2; s16 stat[4]; u8 b0c; u8 b0d; u8 b0e; };
+
+struct Item_8010D510 {
+    u8 b0; u8 b1; u8 level; u8 b3;
+    s16 stat[4];
+    u32 word;
+    u8 b16; u8 b17; u8 b18; u8 b19;
+};
+
+struct Parm_8010EBD8 { s32 name; u8 pad04[0xC]; u32 flags; };
+
 extern "C" {
 int bswap_16__FPUs(void*);
 void TItemData__sub_8010CDC8(u8 *arg0, s16 arg1);
@@ -48,6 +59,13 @@ void *get_pmt_record_by_index__10TObjPlayerFi(int i);
 void *get_pmt_record__10TObjPlayerFi(int i);
 void *get_pmt_record_by_type_id__10TObjPlayerFii(int type, int id);
 void *TItemData__sub_8010EA38(u8 *item);
+void copy_item_data__6TLobbyFPvPv(void *, void *);
+void bswap_fields__9TItemDataFPv(void* p);
+u8 TItemMagSub__sub_8011455C(const void *);
+void TItemData__sub_8010D510(Item_8010D510 *item, const Mag_8010D510 *mag);
+void *TItemData__sub_8010EA38(u8 *item);
+s32 TObjPlayer__sub_8011C914(s32);
+s32 TItemData__sub_8010EBD8(u8 *item);
 }
 
 extern "C" {
@@ -74,7 +92,6 @@ M2C_UNK TItemData__sub_8010C5DC(void *, s32);
 void TItemData__sub_8010CCB0(void);
 void TItemData__sub_8010CCB4(void);
 s32 TItemData__sub_8010DF68();
-s32 TItemData__sub_8010EBD8();
 s32 TItemData__sub_8010EEC8(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 void *TTecCtrl__sub_8022DBC4(u8, u8, s32);
@@ -137,6 +154,25 @@ s16 get_technique_level__9TItemDataFPv(void *arg0) {
         }
     }
     return 0;
+}
+
+void TItemData__sub_8010D510(Item_8010D510 *item, const Mag_8010D510 *mag) {
+    Item_8010D510 copy;
+    copy.b0 = item->b0;
+    copy.b1 = item->b1;
+    copy.level = TItemMagSub__sub_8011455C(mag);
+    copy.b3 = mag->b0d;
+    copy.stat[0] = mag->stat[0] & 0x7FFE;
+    copy.stat[1] = mag->stat[1] & 0x7FFE;
+    copy.stat[2] = mag->stat[2] & 0x7FFE;
+    copy.stat[3] = mag->stat[3] & 0x7FFE;
+    copy.word = item->word;
+    copy.b16 = mag->f2;
+    copy.b17 = mag->f0;
+    copy.b18 = mag->b0c;
+    copy.b19 = mag->b0e;
+    bswap_fields__9TItemDataFPv((void*)(&copy));
+    copy_item_data__6TLobbyFPvPv(item, &copy);
 }
 
 void bswap_fields__9TItemDataFPv(void* p) { bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); bswap_16__FPUs((void*)((char*)p + 0x8)); bswap_16__FPUs((void*)((char*)p + 0xa)); }
@@ -389,7 +425,7 @@ int calc_display_grade__9TItemDataFPv(void *arg0) {
     u8 temp_b;
     int var_r31;
 
-    var_r31 = TItemData__sub_8010EBD8();
+    var_r31 = TItemData__sub_8010EBD8((u8 *)(arg0));
     switch ((s32) (u8) M2C_FIELD(arg0, u8 *, 0)) {
     case 0:
         if ((u8) var_r31 < 9U) {
@@ -416,6 +452,31 @@ int calc_display_grade__9TItemDataFPv(void *arg0) {
         var_r31 = 0xC;
     }
     return var_r31;
+}
+
+s32 TItemData__sub_8010EBD8(u8 *item) {
+    struct Parm_8010EBD8 *p;
+    switch (item[0]) {
+    case 0:
+    case 1:
+        p = (struct Parm_8010EBD8 *)TItemData__sub_8010EA38(item);
+        if (p != NULL) {
+            return TObjPlayer__sub_8011C914(p->name);
+        }
+        break;
+    case 3:
+        p = (struct Parm_8010EBD8 *)TItemData__sub_8010EA38(item);
+        if (p != NULL && (p->flags & 0x80)) {
+            return 0xC;
+        }
+        break;
+    case 2:
+        if (item[1] >= 0x28) {
+            return 0xC;
+        }
+        break;
+    }
+    return 0;
 }
 
 void TItemData__sub_8010EC6C(void *arg0) {

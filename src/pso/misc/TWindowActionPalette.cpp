@@ -8,6 +8,13 @@ typedef char palette_scale_offset[offsetof(TWindowActionPalette, scale) == 0x70 
 typedef char palette_size[sizeof(TWindowActionPalette) == 0x78 ? 1 : -1];
 
 extern "C" {
+void* get_array_entry__20TWindowSubStatusDispFPvi(TWindowActionPalette*,int);
+void TWindowHelpItem__sub_8025B08C(void*,float,float);
+extern float lbl_8044E604[][2];
+void TWindowActionPalette__sub_8024391C(TWindowActionPalette* self,unsigned short state);
+}
+
+extern "C" {
 void TWindowActionPalette__sub_80243B6C(void *, int);
 s32 TWindowSubComCard__sub_80244C0C(void *, void *);
 void TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
@@ -22,6 +29,11 @@ void TWindowActionPalette::render() {
     s32 context = TWindowSubComCard__sub_80244C0C(this, &scale);
     TWindowSubStatusDisp__sub_80257BC0(this, &children, context);
     TWindowActionPalette__sub_80243B6C(this, context);
+}
+
+void TWindowActionPalette__sub_8024391C(TWindowActionPalette* self,unsigned short state) {
+    void* sprite=get_array_entry__20TWindowSubStatusDispFPvi(self,1);
+    TWindowHelpItem__sub_8025B08C(sprite,lbl_8044E604[state][0],lbl_8044E604[state][1]);
 }
 
 extern "C" u8 *__dt__20TWindowActionPaletteFv(u8 *self, s16 delete_flag) {

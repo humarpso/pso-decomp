@@ -45,6 +45,35 @@ struct RecoveredFields_80238D10_arg0
   s16 field_AC;
 };
 
+struct Damage_802386F8 { s32 kind; f32 power; };
+
+struct VBase_802386F8 { char pad[0x18]; };
+
+struct VObj_802386F8 : VBase_802386F8 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual s32 m21(s32, Damage_802386F8, s32, s32, s32, void *);
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u32 TPhotonMylla__sub_80154CB4(int);
@@ -80,6 +109,7 @@ s32 TTecAnti__sub_8022B35C(void *, int);
 extern RecoveredGlobal_80238D10_lbl_804CC510 lbl_804CC510;
 extern RecoveredGlobal_80238D10_lbl_804CC55C lbl_804CC55C;
 void TTecRaZonde__sub_80238D10(u8 *arg0);
+void TTecRaFoie__vt4(u8 *self, u8 *target);
 }
 
 extern "C" {
@@ -164,6 +194,13 @@ u8 *TTecRaFoie__sub_802385EC(u8 *arg0, M2C_UNK *arg1, s16 arg2, s32 arg3, f32 fa
     M2C_FIELD(arg0, s32 *, 0x24) = var_r0;
     M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805DC8EC;
     return arg0;
+}
+
+void TTecRaFoie__vt4(u8 *self, u8 *target) {
+    Damage_802386F8 d;
+    d.kind = 1;
+    d.power = *(f32 *)(self + 0x88);
+    ((VObj_802386F8 *)target)->m21(*(s32 *)(self + 0x1C), d, *(s32 *)(self + 0xB8), 2, -1, self);
 }
 
 void render__10TTecRaFoieFv(void) {  }

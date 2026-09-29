@@ -118,6 +118,18 @@ struct RecoveredGlobal_80117B98___vt__13TItemProArmor {
     u8 remaining[0xC8];
 };
 
+typedef struct ArmorParam_8011781C {
+    u8 pad[0x1A];
+    u8 variant;
+} ArmorParam_8011781C;
+
+typedef struct TItemProArmor_8011781C {
+    u8 pad0[0x178];
+    u8 flags178[0x14];
+    ArmorParam_8011781C *param;
+    u16 flags190;
+} TItemProArmor_8011781C;
+
 extern "C" {
 void TItemProArmor__sub_801178B4(u8 *arg0);
 void TItemProArmor__sub_801178D4(u8 *arg0);
@@ -133,7 +145,6 @@ u8 * TItemEquipBase__ct(void *);
 s16 get_bswap16_field8__9TItemDataFPv(void *);
 s16 getS16_06__9TItemDataFPv(void *);
 s32 TItemData__sub_8010EA38(void *);
-int TItemProArmor__sub_8011781C(void *);
 extern M2C_UNK __vt__13TItemProArmor[];
 extern s32 lbl_805D2C30;
 u8 *TItemProArmor__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
@@ -143,6 +154,9 @@ u8 *TItemProArmor__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 s32 TItemProArmorParticle__ct(int, int, void *);
 extern s32 tl_05;
 s32 TItemProArmor__sub_80117C60(s32 arg0);
+void set_flags__10TObjPlayerFPvUi(void *, u32);
+u8 get_slot_count__14TItemProShieldFPv(void *);
+void TItemProArmor__sub_8011781C(TItemProArmor_8011781C *self);
 }
 
 extern "C" {
@@ -240,7 +254,25 @@ u8 *TItemProArmor__sub_801177C4(u8 *arg0) {
     return NULL;
 }
 
-int TItemProArmor__sub_8011781C(void * _w0) { return 0; }
+void TItemProArmor__sub_8011781C(TItemProArmor_8011781C *self) {
+    switch (get_slot_count__14TItemProShieldFPv(self)) {
+    case 0x23:
+        set_flags__10TObjPlayerFPvUi(self->flags178, 2);
+        break;
+    case 0x33:
+        set_flags__10TObjPlayerFPvUi(self->flags178, 0x200);
+        break;
+    }
+    switch (self->param->variant) {
+    case 0:
+        break;
+    case 1:
+        self->flags190 |= 1;
+        break;
+    case 2:
+        break;
+    }
+}
 
 void TItemProArmor__sub_801178A8(void* p, void* q) { *(u8*)((char*)p + 0x5) = *(u8*)((char*)q + 0x192); }
 
@@ -293,7 +325,7 @@ u8 *TItemProArmor__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     if ((u8) M2C_FIELD(arg0, u8 *, 0x192) > 4U) {
         M2C_FIELD(arg0, u8 *, 0x192) = 4U;
     }
-    TItemProArmor__sub_8011781C((void *)((void *) (arg0)));
+    TItemProArmor__sub_8011781C((TItemProArmor_8011781C *)((void *)((void *) (arg0))));
     return arg0;
 }
 

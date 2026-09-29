@@ -106,6 +106,10 @@ struct RecoveredGlobal_80133D78_lbl_804A6F34 {
     u8 remaining[0x40];
 };
 
+struct LightEntry_801344A4 { f32 dir[3]; f32 color[4]; u8 pad[0xC]; u32 id; };
+
+struct LightDefault_801344A4 { u8 pad0[0xC]; f32 dir[3]; u8 pad18[0xC]; f32 color[4]; u8 rest[0x5C - 0x34]; };
+
 extern "C" {
 M2C_UNK TObjLight__sub_803DF268(f32, f32, f32);
 extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
@@ -192,6 +196,12 @@ s32 update_lobby_scene__6TSceneFPv(void *);
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
 s32 TLobby__sub_800F9DF4(void *, u32);
 void TObjLight__sub_80133E7C(void);
+s32 VecCopy__FP3VecPC3Vec(int, void *);
+s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
+extern RecoveredGlobal_80134724_TObjLight__data_8050637C TObjLight__data_8050637C;
+extern s32 TObjLight__data_805D556C;
+void TObjLight__sub_801344A4(f32 *dir, f32 *color, u32 id);
 }
 
 extern "C" {
@@ -508,6 +518,21 @@ void TObjLight__sub_80134098(void) {
 }
 
 typedef char RecoveredGlobal_80134724_TObjLight__data_8050637C_size[sizeof(RecoveredGlobal_80134724_TObjLight__data_8050637C) == 0x580 ? 1 : -1];
+
+void TObjLight__sub_801344A4(f32 *dir, f32 *color, u32 id) {
+    s32 i;
+    for (i = 0; i < TObjLight__data_805D556C; i++) {
+        LightEntry_801344A4 *e = &((LightEntry_801344A4 *)&TObjLight__data_8050637C)[i];
+        if (id == e->id) {
+            VecCopy__FP3VecPC3Vec((int)dir, e->dir);
+            copy_vec4__13TRaderMapCoreFPvPv(color, e->color);
+            return;
+        }
+    }
+    copy_vec4__13TRaderMapCoreFPvPv(color, (*(LightDefault_801344A4 *)&TObjLight__data_80506320).color);
+    VecCopy__FP3VecPC3Vec((int)dir, (*(LightDefault_801344A4 *)&TObjLight__data_80506320).dir);
+}
+
 void TObjLight__sub_80134724(s32 arg0, s32 arg1) {
     u8 *temp_r5;
     if ((s32) TObjLight__data_805D556C < 0x20) {

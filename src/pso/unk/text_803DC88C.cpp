@@ -10,6 +10,14 @@ struct RecoveredGlobal_803DCBD8_lbl_8058D380 {
 };
 
 typedef M2C_UNK (*RecoveredCallback_92513335c3ed)(void *);
+typedef void (*RecoveredCallback_2be3cacebb2e)(void);
+struct MotionCtx_803DC894 {
+    u8 pad[0xC];
+    void (*fn)(void);
+};
+
+struct Mtx_803DC994 { f32 m[3][4]; };
+
 extern "C" {
 extern RecoveredGlobal_803DCBD8_lbl_8058D380 lbl_8058D380;
 extern u8 *lbl_805D774C;
@@ -21,6 +29,21 @@ s32 TObjPlayer__sub_803DB270(int, void *);
 extern s32 lbl_805D7710;
 extern s32 lbl_805D7774;
 void TObjPlayer__sub_803DC904(u8 *arg0);
+void TObjPlayer__sub_803D7B68(void *);
+void TObjPlayer__sub_803DB24C(void *);
+void fn_803DB390(void);
+void TObjPlayer__sub_803DC600(void *);
+void TObjPlayer__sub_803DC904(u8 *arg0);
+void TObjPlayer__sub_803DC460(void);
+extern struct MotionCtx_803DC894 * const lbl_805D4698;
+extern RecoveredCallback_2be3cacebb2e lbl_805D76E4;
+void TObjDoor__sub_803DC894(void *arg0, void *arg1);
+extern s32 lbl_805D7774;
+void TObjPlayer__sub_803DC994(struct Mtx_803DC994 *src);
+void GXSetBlendMode(int, int, int, int);
+extern u32 lbl_8047E408[];
+extern u8 *lbl_805D774C;
+void TObjPlayer__sub_803DCD38(s32 arg0);
 }
 
 extern "C" {
@@ -31,6 +54,18 @@ void set_npc_enemy_param(s32 arg0) {
     lbl_805D7710 = arg0;
 }
 typedef char RecoveredGlobal_803DCBD8_lbl_8058D380_size[sizeof(RecoveredGlobal_803DCBD8_lbl_8058D380) == 0xF0 ? 1 : -1];
+
+void TObjDoor__sub_803DC894(void *arg0, void *arg1) {
+    TObjPlayer__sub_803D7B68(arg1);
+    lbl_805D4698->fn = TObjPlayer__sub_803DC460;
+    TObjPlayer__sub_803DC600(lbl_805D4698);
+    TObjPlayer__sub_803DB24C((void *) TObjPlayer__sub_803DC460);
+    TObjPlayer__sub_803DC904((u8 *)(arg0));
+    fn_803DB390();
+    if (lbl_805D76E4 != NULL) {
+        lbl_805D76E4();
+    }
+}
 
 #pragma push
 #pragma peephole off
@@ -60,8 +95,31 @@ void TObjPlayer__sub_803DC904(u8 *arg0) {
 }
 #pragma pop
 
+void TObjPlayer__sub_803DC994(struct Mtx_803DC994 *src) {
+    struct Mtx_803DC994 *dst = (struct Mtx_803DC994 *)lbl_805D7774;
+    dst->m[0][0] = src->m[0][0];
+    dst->m[0][1] = src->m[0][1];
+    dst->m[0][2] = src->m[0][2];
+    dst->m[1][0] = src->m[1][0];
+    dst->m[1][1] = src->m[1][1];
+    dst->m[1][2] = src->m[1][2];
+    dst->m[2][0] = src->m[2][0];
+    dst->m[2][1] = src->m[2][1];
+    dst->m[2][2] = src->m[2][2];
+}
+
 void TObjPlayer__sub_803DCBD8(s32 arg0) {
     lbl_805D774C = (u8 *)&lbl_8058D380.value + (arg0 * 0x28);
+}
+void TObjPlayer__sub_803DCD38(s32 arg0) {
+    u32 v = M2C_FIELD(lbl_805D774C, u32 *, 0xC);
+    int src = lbl_8047E408[(v & 0xE0000000) >> 29];
+    int dst = lbl_8047E408[(v & 0x1C000000) >> 26];
+    if (arg0 != 0) {
+        GXSetBlendMode(1, src, dst, 0);
+    } else {
+        GXSetBlendMode(0, src, dst, 0);
+    }
 }
 
 }

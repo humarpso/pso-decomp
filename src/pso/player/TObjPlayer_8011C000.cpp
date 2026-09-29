@@ -42,6 +42,14 @@ struct Pair_8011C8BC { s16 a; s16 b; };
 
 struct Tbl_8011C8BC { u8 pad[0x30]; Pair_8011C8BC *pairs; };
 
+struct Cue_8011C7C8 { s32 key; s32 pitch; };
+
+struct WeaponSounds_8011C7C8 { Cue_8011C7C8 owner[2]; Cue_8011C7C8 target[2]; };
+
+struct Pmt_8011C7C8 { u8 pad[0x34]; WeaponSounds_8011C7C8 *weapons; };
+
+struct Ctx_8011C7C8 { u8 group; u8 variant; u8 pad[2]; u8 *owner; };
+
 extern "C" {
 M2C_UNK TItemDrop__sub_8010663C(u32, s32, s32, s32);
 M2C_UNK TLobby__sub_801044B8(s32 *);
@@ -80,6 +88,10 @@ extern void *item_pmt_tbl;
 s32 TObjPlayer__sub_8011C030(u8 *id);
 extern void *item_pmt_tbl;
 void TObjPlayer__sub_8011C8BC(u32 x, s16 *a, s16 *b);
+void update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+extern void *item_pmt_tbl;
+void TObjPlayer__sub_8011C7C8(Ctx_8011C7C8 *c);
 }
 
 extern "C" {
@@ -186,6 +198,37 @@ s32 get_unit_attribute_index__10TObjPlayerFUc(u8 arg0) {
         return TObjPlayer__sub_8011C914((s32)(arg0 + 0x1CB));
     }
     return 0;
+}
+
+void TObjPlayer__sub_8011C7C8(Ctx_8011C7C8 *c) {
+    s32 key[2];
+    s32 pitch[2];
+    u8 group = c->group;
+    u8 *pos;
+    s32 i;
+    if (c->group == 2 && c->variant == 6) {
+        group = 0x32;
+    }
+    if (c->group == 0x89 && c->variant == 3) {
+        group = 0x10;
+    }
+    if (group < 0xAA) {
+        pos = c->owner + 0x38;
+        key[0] = ((Pmt_8011C7C8 *)item_pmt_tbl)->weapons[group].owner[0].key;
+        pitch[0] = ((Pmt_8011C7C8 *)item_pmt_tbl)->weapons[group].owner[0].pitch;
+        key[1] = ((Pmt_8011C7C8 *)item_pmt_tbl)->weapons[group].owner[1].key;
+        pitch[1] = ((Pmt_8011C7C8 *)item_pmt_tbl)->weapons[group].owner[1].pitch;
+        for (i = 0; i != 2; i++) {
+            s32 k = key[i];
+            s32 p = pitch[i];
+            if (k != 0) {
+                s32 handle = TBoss3Volopt__sub_8022675C(k, pos, 0, 0);
+                if (p != 0) {
+                    update_technique_slot__10TTecRaFoieFi(handle, p, 0);
+                }
+            }
+        }
+    }
 }
 
 void TObjPlayer__sub_8011C8BC(u32 x, s16 *a, s16 *b) {

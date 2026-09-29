@@ -21,6 +21,8 @@ struct RecoveredGlobal_801F3268_lbl_80512B18 {
     u8 remaining[0xC];
 };
 
+struct Op_801F2E64 { void (*fn)(s32); u32 pad; };
+
 extern "C" {
 int bswap_32__FPUl(void*);
 void TLobby__sub_801F3640(s32 arg0);
@@ -80,6 +82,10 @@ extern u16 TLobby__data_805D5ECA;
 void TLobby__sub_801F2EF4(u8 *arg0);
 extern RecoveredGlobal_801F3268_lbl_80512B18 lbl_80512B18;
 M2C_UNK *TObjItemOKWindow__sub_801F3268(void);
+unsigned char read_packet_byte__6TLobbyFv(void);
+extern struct Op_801F2E64 lbl_804C69D8[];
+extern s32 TLobby__data_805D5E98;
+s32 dispatch_quest_opcode(void);
 }
 
 extern "C" {
@@ -137,7 +143,6 @@ int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int check_technique_flag__10TObjPlayerFPv(void*);
 M2C_UNK clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void*);
-s32 dispatch_quest_opcode();
 int has_item_flag_4096__10TObjPlayerFPv(void*);
 M2C_UNK queue_destruction__7TObjectFv(s32);
 int read_be16_field2__10TObjPlayerFPv(void*);
@@ -202,6 +207,24 @@ void close_windows__6TLobbyFv(void) {
 }
 
 extern u32 lbl_805D5EE8;
+
+s32 dispatch_quest_opcode(void) {
+    s32 op;
+    TLobby__data_805D5E98 = 0;
+    while (TLobby__data_805D5E98 == 0) {
+        op = read_packet_byte__6TLobbyFv();
+        switch (op) {
+        case 0xF8:
+            op = read_packet_byte__6TLobbyFv() + 0x100;
+            break;
+        case 0xF9:
+            op = read_packet_byte__6TLobbyFv() + 0x200;
+            break;
+        }
+        lbl_804C69D8[op].fn(op);
+    }
+    return TLobby__data_805D5E98;
+}
 
 void TLobby__sub_801F2EF4(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) (*(s32 *)&TLobby__data_805D5E70);

@@ -23,6 +23,37 @@ struct Npc_8014E250 {
     u32 flags;
 };
 
+struct Actor_8014F140 {
+    u8 pad0[0x30];
+    u32 flags30;
+    u8 pad1[0x60 - 0x34];
+    s32 field_0x60;
+};
+
+struct Contact_8014F140 {
+    u8 pad0[0x18];
+    u32 flags18;
+};
+
+struct Probe_8014F140 {
+    u8 pad0[0x38];
+    u8 pos38[0x60 - 0x38];
+    s32 field_0x60;
+};
+
+struct View_8014F140 {
+    u8 pad0[0x8C];
+    u32 flags8c;
+    u8 pad1[0x94 - 0x90];
+    Probe_8014F140 *target94;
+    s32 field_0x98;
+    u8 pad2[0xA8 - 0x9C];
+    Probe_8014F140 *probe;
+    u8 pad3[0xD8 - 0xAC];
+    u8 hit_d8[0x104 - 0xD8];
+    s32 field_0x104;
+};
+
 extern "C" {
 void TNpcPlayer__sub_801528B8(s32, s32);
 void TNpcPlayer__sub_8014E33C(u8 *arg0, u32 arg1);
@@ -42,6 +73,15 @@ void open__11TWindowCtrlFiii(u16 id, char *text, s32 kind);
 s32 TNpcPlayer__sub_80152900(void *timer, s32 a, s32 b);
 extern Text_8014E250 lbl_804F0280[];
 void TNpcPlayer__sub_8014E250(Npc_8014E250 *self);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+Actor_8014F140 *get_player_data__10TObjPlayerFi(s32);
+s32 get_game_mode__6TLobbyFv(void);
+M2C_UNK fn_8002B630(void *, void *);
+s32 get_enemy_count__9TObjEneDDFv(void);
+s32 TObjPlayer__sub_80152F40(void);
+Contact_8014F140 *find_actor_body_contact(void *, void *, f32);
+extern const f32 lbl_805DB210;
+s32 TNpcPlayer__sub_8014F140(View_8014F140 *view);
 }
 
 extern "C" {
@@ -216,6 +256,41 @@ s32 TNpcPlayer__sub_8014F0D4(M2C_UNK arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg
         VecCopy__FP3VecPC3Vec((void *) (arg3), (int) (M2C_FIELD(temp_r3, s32 *, 4)));
         VecCopy__FP3VecPC3Vec((void *) (arg4), (int) (M2C_FIELD(temp_r3, s32 *, 4) + 0xC));
         return 1;
+    }
+    return 0;
+}
+
+s32 TNpcPlayer__sub_8014F140(View_8014F140 *view) {
+    s32 i;
+    Actor_8014F140 *actor;
+    Contact_8014F140 *contact;
+    Probe_8014F140 *probe;
+    probe = view->probe;
+    if (probe == NULL) {
+        return 0;
+    }
+    VecCopy__FP3VecPC3Vec(probe->pos38, (int)(M2C_FIELD(view, s32 *, 0x94) + 0x38));
+    view->probe->field_0x60 = view->field_0x98;
+    for (i = get_game_mode__6TLobbyFv(); i < get_game_mode__6TLobbyFv() + get_enemy_count__9TObjEneDDFv() + TObjPlayer__sub_80152F40(); i++) {
+        actor = get_player_data__10TObjPlayerFi(i);
+        if ((actor != NULL) && !(actor->flags30 & 0x80000000)) {
+            contact = find_actor_body_contact(view->probe, actor, lbl_805DB210);
+            if (contact != NULL) {
+                if (actor->flags30 & 0x40000000) {
+                    if (!(contact->flags18 & 8) && !(contact->flags18 & 0x100) && !(contact->flags18 & 0x200)) {
+                        fn_8002B630(view->hit_d8, contact);
+                        view->field_0x104 = actor->field_0x60;
+                        view->flags8c |= 0x20;
+                        return 1;
+                    }
+                } else if (actor->flags30 & 0x20000000) {
+                    if (!(contact->flags18 & 8) && !(contact->flags18 & 0x100) && !(contact->flags18 & 0x200)) {
+                        view->flags8c |= 0x80;
+                        return 1;
+                    }
+                }
+            }
+        }
     }
     return 0;
 }

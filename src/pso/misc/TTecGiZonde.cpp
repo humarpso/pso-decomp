@@ -4,6 +4,37 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_80232598 { char pad[0x18]; };
+
+struct VObj_80232598 : VBase_80232598 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6(u32 actor);
+};
+
+typedef struct GTarget_80232598 {
+    u16 id;
+    u16 pad2;
+    u32 pad4;
+} GTarget_80232598;
+
+typedef struct GChain_80232598 {
+    u8 pad0[0x130];
+    s32 count;
+    GTarget_80232598 targets[1];
+} GChain_80232598;
+
+extern "C" {
+u32 TPhotonMylla__sub_80154CB4(u16);
+s32 is_parents_unqueued__9TTecLukerFUi();
+s32 is_valid_and_active__10TObjPlayerFUi(u32);
+void TTecGiZonde__sub_80232598(GChain_80232598 *self);
+}
+
 extern "C" {
 
 void *__dt__11TTecGiZondeFv(void *arg0, s16 arg1);
@@ -12,7 +43,6 @@ void run_task__11TTecGiZondeFv(void *arg0);
 u32 TPhotonMylla__sub_80154CB4(u16);
 void *TTecGiZonde__ct(void *, void *, void *, void *, void *);
 s32 TTecGiZonde__sub_80231C58(void *);
-M2C_UNK TTecGiZonde__sub_80232598(void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_technique_effect_resources__10TObjPlayerFPvs(void *, int);
@@ -39,6 +69,17 @@ void *__dt__11TTecGiZondeFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
+void TTecGiZonde__sub_80232598(GChain_80232598 *self) {
+    s32 i;
+    u32 actor;
+    for (i = 0; i < self->count; i++) {
+        actor = TPhotonMylla__sub_80154CB4(self->targets[i].id);
+        if (is_parents_unqueued__9TTecLukerFUi() != 0 && is_valid_and_active__10TObjPlayerFUi(actor) != 0) {
+            ((VObj_80232598 *)self)->m6(actor);
+        }
+    }
+}
+
 void run_task__11TTecGiZondeFv(void *arg0) {
     M2C_FIELD(arg0, u32 *, 0x1C) = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0xC8));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
@@ -50,7 +91,7 @@ void run_task__11TTecGiZondeFv(void *arg0) {
         return;
     }
     if (TTecGiZonde__sub_80231C58(arg0) == 1) {
-        TTecGiZonde__sub_80232598(arg0);
+        TTecGiZonde__sub_80232598((GChain_80232598 *)(arg0));
     }
     queue_destruction__7TObjectFv(arg0);
 }

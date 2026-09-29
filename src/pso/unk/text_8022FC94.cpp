@@ -50,6 +50,17 @@ struct Target_80230004 : Base_80230004 {
 
 struct Tec_80230004 { u8 pad[0x1C]; s32 owner; u8 pad20[0xCC - 0x20]; f32 power; u8 padd0[0xF8 - 0xD0]; s32 f8; };
 
+struct TTecFoieData_80230144 { u8 pad[4]; u32 count; };
+
+struct TTecFoie_80230144 {
+    u8 pad0[0x18];
+    void *vtable;
+    u8 pad1c[0xC6 - 0x1C];
+    s16 band;
+    u8 padc8[0x130 - 0xC8];
+    void **emitters;
+};
+
 extern "C" {
 s32 TTecCtrl__sub_8022DBC4(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
@@ -61,6 +72,13 @@ void TTecFoie__sub_8022FE84(u8 *arg0);
 s32 TBoss3Volopt__sub_8022675C(s32 id, void *pos, s32 a, s32 b);
 void queue_destruction__7TObjectFv(void *self);
 void TTecFoie__vt6(Tec_80230004 *self, Target_80230004 *target);
+void queue_destruction__7TObjectFv(void *self);
+void free__11TOBoss4RockFUi(void **);
+void __dl__7TObjectFPv(void *);
+void destroy_technique_effect_resources__10TObjPlayerFPvs(void *, s16);
+extern TTecFoieData_80230144 TTecFoie__data_8044D13C[];
+extern void *__vt__8TTecFoie[];
+TTecFoie_80230144 *__dt__8TTecFoieFv(TTecFoie_80230144 *self, s16 deleting);
 }
 
 extern "C" {
@@ -126,6 +144,18 @@ void create__8TTecFoieFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) 
     if (o != NULL) {
         TTecFoie__ct(o, arg0, arg1, arg2, arg3);
     }
+}
+TTecFoie_80230144 *__dt__8TTecFoieFv(TTecFoie_80230144 *self, s16 deleting) {
+    if (self) {
+        self->vtable = __vt__8TTecFoie;
+        for (u32 i = 0; i < TTecFoie__data_8044D13C[self->band].count; ++i) {
+            queue_destruction__7TObjectFv(self->emitters[i]);
+        }
+        free__11TOBoss4RockFUi(self->emitters);
+        destroy_technique_effect_resources__10TObjPlayerFPvs(self, 0);
+        if (deleting > 0) __dl__7TObjectFPv(self);
+    }
+    return self;
 }
 
 }
