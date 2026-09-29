@@ -13,6 +13,13 @@ void set_type__10TObjPlayerFPvs(void *, s16);
 u8 *TObjPlayer__sub_80312FB0(u8 *arg0);
 int check_flag_at_4__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_80312F5C(s32 arg0, s16 arg1, s16 arg2);
+u16 get_section_id__10TObjPlayerFPv(void *);
+void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void trigger_photon_blast__10TObjPlayerFPv(void *);
+void check_photon_blast_flag__10TObjPlayerFPv(void *);
+u8 * get_element__10TObjPlayerFPvi(void *, int);
+int TObjPlayer__sub_803131AC(void* a0);
+void TObjPlayer__sub_80312C50(void *registry);
 }
 
 extern "C" {
@@ -33,6 +40,23 @@ int query_field40__10TObjPlayerFPv(void* p);
 void set_field_0__10TObjPlayerFPvs(void* p, s16 v);
 int set_flags__10TObjPlayerFPvUi(void*, int);
 void update_children__10TObjPlayerFPv(void* p);
+
+void TObjPlayer__sub_80312C50(void *registry) {
+    s32 count;
+    s32 i;
+    u8 *owner;
+    count = TObjPlayer__sub_803131AC((void*)(registry));
+    for (i = 0; i < count; i++) {
+        u16 player = get_section_id__10TObjPlayerFPv(get_element__10TObjPlayerFPvi(registry, i));
+        if (player != 0xFFFF) {
+            owner = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(player);
+            if (owner != NULL) {
+                check_photon_blast_flag__10TObjPlayerFPv(owner + 0x4AC);
+                trigger_photon_blast__10TObjPlayerFPv(owner + 0x4AC);
+            }
+        }
+    }
+}
 
 int TObjPlayer__sub_80312E0C(void) { return 0; }
 int TObjPlayer__sub_80312E98(void) { return 0; }

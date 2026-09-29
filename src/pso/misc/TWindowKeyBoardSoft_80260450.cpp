@@ -50,6 +50,9 @@ extern "C" {
 void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg2);
 s32 calc_key_index__19TWindowKeyBoardSoftFiii(s32 arg1, s32 arg2, s32 arg3);
 void update_focus_flags__19TWindowKeyBoardSoftFPv(void *arg0);
+extern const f32 TWindowKeyBoardSoft__data_805DD088;
+extern const f32 lbl_805DD08C;
+void TWindowKeyBoardSoft__sub_80261204(u8 *arg0, s32 arg1);
 s32 TWindowSubMag__sub_802627D8(s32);
 s32 get_flag_bit5__13TWindowSubMagFPv();
 s32 get_flag_bit6__13TWindowSubMagFPv(s32);
@@ -172,6 +175,32 @@ void update_focus_flags__19TWindowKeyBoardSoftFPv(void *arg0) {
     M2C_FIELD(temp_r4_2, s32 *, 0xB4) = (s32) (M2C_FIELD(temp_r4_2, s32 *, 0xB4) & 0xFFFFFFFE);
     temp_r3_2 = M2C_FIELD(arg0, void **, 0x6C);
     M2C_FIELD(temp_r3_2, s32 *, 0xB4) = (s32) (M2C_FIELD(temp_r3_2, s32 *, 0xB4) | 0x40);
+}
+
+void TWindowKeyBoardSoft__sub_80261204(u8 *arg0, s32 arg1) {
+    s32 spC;
+    s32 sp8;
+    u8 *temp_r30;
+    temp_r30 = (u8 *)&lbl_8050E208.value + (arg1 * 0x50) + 0x20;
+    if (((s32 (*)(int, int))TWindowShortListCtrl__check_controller_button)((int) (temp_r30), (int) (0x30000)) != 0) {
+        TBoss3Volopt__sub_8022675C((int) (0x54100), (int) (0), (int) (0), (int) (0));
+        calc_cursor_step__19TWindowKeyBoardSoftFiPvPv((s32) (arg0), &spC, &sp8);
+        if (((s32 (*)(int, int))TWindowShortListCtrl__check_controller_button)((int) (temp_r30), (int) (0x10000)) != 0) {
+            M2C_FIELD(arg0, f32 *, 0x68) = (f32) TWindowKeyBoardSoft__data_805DD088;
+            M2C_FIELD(arg0, u8 *, 0x64) = (u8) (M2C_FIELD(arg0, u8 *, 0x64) + 1);
+        }
+        if (((s32 (*)(int, int))TWindowShortListCtrl__check_controller_button)((int) (temp_r30), (int) (0x20000)) != 0) {
+            M2C_FIELD(arg0, f32 *, 0x68) = (f32) lbl_805DD08C;
+            M2C_FIELD(arg0, u8 *, 0x64) = (u8) (M2C_FIELD(arg0, u8 *, 0x64) - 1);
+        }
+        if ((s8) M2C_FIELD(arg0, u8 *, 0x64) < spC) {
+            M2C_FIELD(arg0, u8 *, 0x64) = (u8) sp8;
+        }
+        if ((s8) M2C_FIELD(arg0, u8 *, 0x64) > sp8) {
+            M2C_FIELD(arg0, u8 *, 0x64) = (u8) spC;
+        }
+        update_focus_flags__19TWindowKeyBoardSoftFPv((void *) (arg0));
+    }
 }
 
 }

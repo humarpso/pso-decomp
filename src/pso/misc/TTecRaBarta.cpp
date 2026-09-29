@@ -17,6 +17,38 @@ struct Obj_80237DAC {
     Vec_80237DAC position;
 };
 
+struct VBase_18_80237CCC { char pad[0x18]; };
+
+struct VObj_18_80237CCC : VBase_18_80237CCC {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6(s32);
+    virtual void m7();
+};
+
+typedef struct Ids_80237CCC { u8 pad[0xF8]; u16 ids[32]; } Ids_80237CCC;
+
+typedef struct Vec_80237FB8 { f32 x, y, z; } Vec_80237FB8;
+
+typedef struct TTecRaFoie_80237FB8 {
+    u8 pad0[0x7C];
+    Vec_80237FB8 target;
+    u8 pad1[0xEC - 0x88];
+    s32 target_count;
+    u16 first_id;
+    u8 pad2[0x148 - 0xF2];
+    s32 explicit_position;
+} TTecRaFoie_80237FB8;
+
+typedef struct TObjPlayer_80237FB8 {
+    u8 pad0[0x2FC];
+    Vec_80237FB8 pos;
+} TObjPlayer_80237FB8;
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u32 TPhotonMylla__sub_80154CB4(int);
@@ -28,6 +60,23 @@ void *TOSwitchAttack__sub_80087278(Vec_80237DAC *, s32, s32);
 extern RafoieBursts_80237DAC lbl_8044DAB4[];
 extern const f32 lbl_805DC8C8;
 void TTecRaFoie__sub_80237DAC(Obj_80237DAC *self);
+u16 obj_getField1c(void *);
+void fn_8022C2A8(void *, void *, void *, void *, void *);
+void TTecRaBarta__sub_802377FC(void *);
+extern M2C_UNK __vt__11TTecRaBarta[];
+extern u32 lbl_805D37F8;
+void *TTecRaBarta__sub_80237CCC(void *self, void *source, void *origin, void *level);
+s32 is_split_screen();
+void *TObjFish__sub_8001EDC4(void *, int);
+void TObjFish__sub_800660D4(void *, void *, void *, int, int, f32);
+void *TObjEneDellBiter__sub_80087350(Vec_80237FB8 *, int);
+u32 TPhotonMylla__sub_80154CB4(int);
+s32 is_parents_unqueued__9TTecLukerFUi();
+s32 is_valid_and_active__10TObjPlayerFUi(TObjPlayer_80237FB8 *);
+extern void *lbl_805D63AC;
+extern void *lbl_805D63B0;
+extern const f32 TTecRaFoie__data_805DC8CC;
+void TTecRaFoie__vt6(TTecRaFoie_80237FB8 *self);
 }
 
 extern "C" {
@@ -38,7 +87,6 @@ void create__11TTecRaBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *ar
 void render__11TTecRaBartaFv(void);
 s32 TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 void *TTecRaBarta__ct(void *, void *, void *, void *, void *);
-void *TTecRaBarta__sub_80237CCC(void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
 
@@ -54,7 +102,7 @@ void create__11TTecRaBartaFPvPvPv(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x13C);
     if (o != NULL) {
-        TTecRaBarta__sub_80237CCC(o, arg0, arg1, arg2);
+        TTecRaBarta__sub_80237CCC((void *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2));
     }
 }
 
@@ -77,6 +125,28 @@ void run_task__11TTecRaBartaFv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x68) > (s16) M2C_FIELD(arg0, s16 *, 0xA8)) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
+}
+
+void *TTecRaBarta__sub_80237CCC(void *self, void *source, void *origin, void *level) {
+    s32 i;
+    fn_8022C2A8(self, source, origin, origin, level);
+    M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__11TTecRaBarta;
+    M2C_FIELD(self, u32 *, 0) = lbl_805D37F8;
+    M2C_FIELD(self, s32 *, 0xF0) = 0;
+    TTecRaBarta__sub_802377FC(self);
+    if (M2C_FIELD(self, u8 **, 0xE8) != NULL) {
+        M2C_FIELD(M2C_FIELD(M2C_FIELD(self, u8 **, 0xE8), u8 **, 0xA4), f32 *, 0xC) = M2C_FIELD(self, f32 *, 0x90);
+    }
+    for (i = 0; i < 32; i++) {
+        ((Ids_80237CCC *) self)->ids[i] = 0xFFFF;
+    }
+    M2C_FIELD(self, s32 *, 0x138) = 0;
+    ((VObj_18_80237CCC *) self)->m6(0);
+    ((VObj_18_80237CCC *) self)->m7();
+    if (M2C_FIELD(self, void **, 0x1C) != NULL) {
+        M2C_FIELD(self, u16 *, 0xB4) = obj_getField1c(M2C_FIELD(self, void **, 0x1C));
+    }
+    return self;
 }
 
 void TTecRaFoie__sub_80237DAC(Obj_80237DAC *self) {
@@ -136,6 +206,34 @@ void TTecRaFoie__vt7(u8 *arg0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x100, 0);
         }
         break;
+    }
+}
+void TTecRaFoie__vt6(TTecRaFoie_80237FB8 *self) {
+    void *emitter;
+    TObjPlayer_80237FB8 *target;
+    if (self->explicit_position == 1) {
+        if (is_split_screen() != 0) {
+            TObjEneDellBiter__sub_80087350(&self->target, 0x39);
+        } else {
+            emitter = TObjEneDellBiter__sub_80087350(&self->target, 0x1A);
+            if (emitter != NULL) {
+                TObjFish__sub_800660D4(emitter, TObjFish__sub_8001EDC4(lbl_805D63AC, 9), lbl_805D63B0, 0, 1, TTecRaFoie__data_805DC8CC);
+            }
+        }
+        TObjEneDellBiter__sub_80087350(&self->target, 0x3A);
+        TObjEneDellBiter__sub_80087350(&self->target, 0x3B);
+        return;
+    }
+    if (self->target_count != 0) {
+        target = (TObjPlayer_80237FB8 *) TPhotonMylla__sub_80154CB4(self->first_id);
+        if (is_parents_unqueued__9TTecLukerFUi() != 0 && is_valid_and_active__10TObjPlayerFUi(target) != 0) {
+            Vec_80237FB8 point = target->pos;
+            TObjEneDellBiter__sub_80087350(&point, 0x39);
+            emitter = TObjEneDellBiter__sub_80087350(&point, 0x1A);
+            if (emitter != NULL) {
+                TObjFish__sub_800660D4(emitter, TObjFish__sub_8001EDC4(lbl_805D63AC, 9), lbl_805D63B0, 0, 1, TTecRaFoie__data_805DC8CC);
+            }
+        }
     }
 }
 

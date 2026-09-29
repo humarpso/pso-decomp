@@ -37,6 +37,9 @@ struct Envelope_803B431C {
     u32 release;
 };
 
+typedef s32 M2C_UNK;
+typedef struct Req_803AE60C { u8 pad0[4]; s16 f4; u8 pad1[2]; } Req_803AE60C;
+
 extern "C" {
 void TLobby__sub_803A49C8(s32);
 void TLobby__sub_803A4B7C(s32);
@@ -114,6 +117,13 @@ extern Program_803B1DA4 *lbl_805D7420;
 void TLobby__sub_803B1DA4(Program_803B1DA4 *self);
 extern s32 TLobby__sub_803B41C8(struct Envelope_803B431C *e, u32 duration);
 s32 TLobby__sub_803B431C(struct Envelope_803B431C *e);
+s32 TLobby__sub_803AE5FC(u8 *arg0, u8 *arg1);
+s32 *TLobby__sub_803BC9A8(Req_803AE60C *, void *, u16, s32, s32 (*)(u8 *, u8 *));
+extern Req_803AE60C lbl_805D73F8;
+extern u8 lbl_8055A470[];
+extern u16 lbl_805D73D2;
+extern s32 *lbl_805D7400;
+s32 TLobby__sub_803AE60C(s16 arg0);
 }
 
 extern "C" {
@@ -262,6 +272,14 @@ s32 TLobby__sub_803AE4C4(u16 *arg0, u16 *arg1) {
 
 s32 TLobby__sub_803AE5FC(u8 *arg0, u8 *arg1) {
     return M2C_FIELD(arg0, u16 *, 4) - M2C_FIELD(arg1, u16 *, 4);
+}
+
+s32 TLobby__sub_803AE60C(s16 arg0) {
+    lbl_805D73F8.f4 = arg0;
+    if ((lbl_805D7400 = TLobby__sub_803BC9A8(&lbl_805D73F8, lbl_8055A470, lbl_805D73D2, 8, TLobby__sub_803AE5FC)) != NULL) {
+        return *lbl_805D7400;
+    }
+    return 0;
 }
 
 s32 TLobby__sub_803AE6CC(u8 *arg0, u8 *arg1) {

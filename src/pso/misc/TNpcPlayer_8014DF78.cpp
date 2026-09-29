@@ -54,6 +54,8 @@ struct View_8014F140 {
     s32 field_0x104;
 };
 
+typedef struct Vec_8014E3B0 { f32 x, y, z; } Vec_8014E3B0;
+
 extern "C" {
 void TNpcPlayer__sub_801528B8(s32, s32);
 void TNpcPlayer__sub_8014E33C(u8 *arg0, u32 arg1);
@@ -82,6 +84,13 @@ s32 TObjPlayer__sub_80152F40(void);
 Contact_8014F140 *find_actor_body_contact(void *, void *, f32);
 extern const f32 lbl_805DB210;
 s32 TNpcPlayer__sub_8014F140(View_8014F140 *view);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+u8 *TObjButterflyLobby__sub_8007A5D8(s32, s32, M2C_UNK);
+f32 TBoss6Kakusan__sub_803D8BD8(Vec_8014E3B0 *);
+void TNpcPlayer__sub_803D97B4(Vec_8014E3B0 *);
+extern const f32 TNpcPlayer__data_805DB1F0;
+extern const f32 TNpcPlayer__data_805DB1F4;
+s32 TNpcPlayer__sub_8014E3B0(void *self, f32 *from, f32 *to, f32 *out);
 }
 
 extern "C" {
@@ -248,6 +257,29 @@ void TNpcPlayer__sub_8014E33C(u8 *arg0, u32 arg1) {
     }
   }
 }
+
+#pragma push
+#pragma fp_contract on
+s32 TNpcPlayer__sub_8014E3B0(void *self, f32 *from, f32 *to, f32 *out) {
+    Vec_8014E3B0 dir;
+    u8 *contact;
+    contact = TObjButterflyLobby__sub_8007A5D8((s32) from, (s32) to, 0x2100);
+    if (contact != NULL) {
+        dir.x = to[0] - from[0];
+        dir.y = TNpcPlayer__data_805DB1F0;
+        dir.z = to[2] - from[2];
+        if (TNpcPlayer__data_805DB1F0 != TBoss6Kakusan__sub_803D8BD8(&dir)) {
+            TNpcPlayer__sub_803D97B4(&dir);
+        }
+        VecCopy__FP3VecPC3Vec(out, M2C_FIELD(contact, s32 *, 4));
+        out[0] = -((TNpcPlayer__data_805DB1F4 * dir.x) - out[0]);
+        out[1] = -((TNpcPlayer__data_805DB1F4 * dir.y) - out[1]);
+        out[2] = -((TNpcPlayer__data_805DB1F4 * dir.z) - out[2]);
+        return 1;
+    }
+    return 0;
+}
+#pragma pop
 
 s32 TNpcPlayer__sub_8014F0D4(M2C_UNK arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u8 *temp_r3;

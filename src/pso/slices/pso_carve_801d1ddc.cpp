@@ -1,5 +1,22 @@
 #include "types.h"
 
+struct Target_801D1DDC { u16 id; s16 part; };
+
+struct Packet_801D1DDC {
+    u8 command, size;
+    u16 player;
+    s8 kind, flags;
+    s16 count, gauge, unused;
+    struct Target_801D1DDC targets[10];
+};
+
+extern "C" {
+int read_be16_field2__10TObjPlayerFPv(void*);
+void byteswap_pos__10TNpcPlayerFPv(void *);
+void swap_endian_shorts__10TObjPlayerFPv(void *);
+void TObjPlayer__sub_801D1DDC(struct Packet_801D1DDC *pkt);
+}
+
 extern "C" {
 void swap_endian16__10TObjPlayerFPv(void* p);
 
@@ -23,6 +40,13 @@ int read_swapped_fields__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801D2B2C(void*);
 int TObjPlayer__sub_801D2C18(void*);
 
-int TObjPlayer__sub_801D1DDC(void) { return 0; }
+void TObjPlayer__sub_801D1DDC(struct Packet_801D1DDC *pkt) {
+    s32 i;
+    read_be16_field2__10TObjPlayerFPv((void*)(pkt));
+    swap_endian_shorts__10TObjPlayerFPv(&pkt->kind);
+    for (i = 0; i < pkt->count; i++) {
+        byteswap_pos__10TNpcPlayerFPv(&pkt->targets[i]);
+    }
+}
 
 }

@@ -24,6 +24,8 @@ s32 TLobby__sub_803CD840(void *, void *, int, void *);
 s32 TKeyBoardControl__sub_803DEA18();
 extern RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
 s32 TKeyBoardControl__sub_801E3E24(s32 arg0, s32 arg1, s32 arg2);
+void bswap_16__FPUs(u16 *p);
+void bswap_32__FPUl(u32 *p);
 }
 
 extern "C" {
@@ -117,6 +119,14 @@ loop_1:
         }
     }
     return temp_r3;
+}
+void bswap_16__FPUs(u16 *p) {
+    u32 v = *p;
+    *p = (u16) (((v >> 8) & 0xFF) | ((v << 8) & 0xFF00));
+}
+void bswap_32__FPUl(u32 *p) {
+    u32 v = *p;
+    *p = (v >> 24) | ((v >> 8) & 0xFF00) | ((v << 8) & 0xFF0000) | (v << 24);
 }
 
 }

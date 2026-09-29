@@ -149,6 +149,18 @@ extern u32 TObjComputer__data_805D5B68;
 extern s16 TObjComputer__data_805DBCD8[2];
 extern const f32 lbl_805DBCEC;
 void *TObjComputer__ct(void *arg0, void *parent, void *row);
+void *TLobby__sub_80020004(void *, int, void *, int, int, int);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+s32 TLanguage__sub_801E4874(char *);
+s32 get_global_state__14TOKeyMachine01Fv();
+extern char lbl_80444B60[];
+extern char lbl_80444B78[];
+extern M2C_UNK lbl_804B6204[];
+extern M2C_UNK lbl_804B6244[];
+extern u32 TObjComputer__data_805D5B68;
+extern u32 lbl_805D5B6C;
+extern s16 lbl_805D5B70;
+void TObjComputer__sub_80188358(void);
 }
 
 extern "C" {
@@ -224,6 +236,31 @@ void free_resources__12TObjComputerFv(void) {
 }
 
 extern M2C_UNK __vt__12TObjComputer[];
+
+void TObjComputer__sub_80188358(void) {
+    void *p;
+    switch (get_global_state__14TOKeyMachine01Fv()) {
+    case 23: case 24: case 25: case 26: case 27: case 28: case 29:
+    case 34: case 35:
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = TLobby__sub_80020004(p, 5, lbl_804B6244, 0, 0, 0);
+        }
+        TObjComputer__data_805D5B68 = (u32) p;
+        lbl_805D5B6C = TLanguage__sub_801E4874(lbl_80444B60);
+        lbl_805D5B70 = 0;
+        break;
+    default:
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = TLobby__sub_80020004(p, 5, lbl_804B6204, 0, 0, 0);
+        }
+        TObjComputer__data_805D5B68 = (u32) p;
+        lbl_805D5B6C = TLanguage__sub_801E4874(lbl_80444B78);
+        lbl_805D5B70 = 1;
+        break;
+    }
+}
 
 void *__dt__12TObjComputerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

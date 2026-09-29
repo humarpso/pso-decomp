@@ -1,6 +1,8 @@
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 M2C_UNK apply_velocity__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_8011E204(void *, int);
@@ -27,9 +29,39 @@ extern f32 TObjPlayer__data_805DC36C;
 extern const f32 lbl_805DC398;
 extern f32 TObjPlayer__data_805DC39C;
 void TObjPlayer__sub_801CC34C(u8 *arg0);
+M2C_UNK obj_getField1c(void *);
+M2C_UNK obj_clearFlags30(void *, int);
+M2C_UNK reset_lobby_model__10TObjPlayerFPv(void *);
+M2C_UNK TObjPlayer__sub_8011E204(void *, int);
+s32 is_final_phase__10TObjPlayerFv();
+M2C_UNK TObjPlayer__sub_801CBD38();
+M2C_UNK update_photon_blast_state__10TObjPlayerFv();
+M2C_UNK TFontSmallLobby__sub_801D6498(void *);
+void TObjPlayer__sub_801CC2B0(u8 *arg0);
 }
 
 extern "C" {
+
+void TObjPlayer__sub_801CC2B0(u8 *arg0) {
+    u8 *temp_r4;
+    M2C_FIELD(arg0, u32 *, 0xB0) &= ~0x40;
+    TObjPlayer__sub_8011E204((void *) (arg0), (int) (0x80));
+    obj_clearFlags30((void *) (arg0), (int) (0x400000));
+    temp_r4 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x424));
+    if (temp_r4 != NULL) {
+        M2C_FIELD(temp_r4, u16 *, 0x508) = 0xFFFF;
+    }
+    TFontSmallLobby__sub_801D6498((void *) (arg0 + 0x4AC));
+    if (is_final_phase__10TObjPlayerFv() != 0) {
+        obj_getField1c((void *) (arg0));
+        TObjPlayer__sub_801CBD38();
+    } else {
+        update_photon_blast_state__10TObjPlayerFv();
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x33C) != 0x13) {
+        reset_lobby_model__10TObjPlayerFPv((void *) (arg0 + 0x644));
+    }
+}
 
 void TObjPlayer__sub_801CC34C(u8 *arg0) {
   s16 temp_r0;

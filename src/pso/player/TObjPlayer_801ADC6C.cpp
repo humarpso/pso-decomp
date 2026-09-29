@@ -24,6 +24,10 @@ struct Self_801ADDDC {
     s32 started;
 };
 
+typedef struct Vec_801ADD10 { f32 x, y, z; } Vec_801ADD10;
+
+typedef struct Packet_801ADD10 { Vec_801ADD10 pos; u32 w[9]; } Packet_801ADD10;
+
 extern "C" {
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 TObjPlayer__sub_800F5BC0(void *, s16, int);
@@ -51,6 +55,13 @@ extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 void TObjPlayer__sub_801ADDDC(Self_801ADDDC *self);
+void TPhotonLaser__ct(void *, void *, void *, u16);
+s32 __nw__7TObjectFUl(M2C_UNK);
+void TBoss4Zako__sub_803D8910(void *, void *);
+extern Packet_801ADD10 lbl_80446EA8;
+extern Vec_801ADD10 lbl_804C3A84[];
+extern const f32 lbl_805DC22C;
+void TObjPlayer__sub_801ADD10(u8 *self);
 }
 
 extern "C" {
@@ -67,7 +78,6 @@ M2C_UNK TObjPlayer__sub_8015610C(void *);
 M2C_UNK TObjPlayer__sub_801A720C(u16, M2C_UNK, M2C_UNK, f32);
 M2C_UNK TObjPlayer__sub_801A7680(void *);
 M2C_UNK TObjPlayer__sub_801A7748(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_801ADD10(void *);
 M2C_UNK TPhotonMagicSquare__ct(s32, void *, M2C_UNK, Vec3 *, M2C_UNK, f32);
 s32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK VecCopy__FP3VecPC3Vec(Vec3 *, s32);
@@ -113,6 +123,24 @@ extern const f32 lbl_805DC248;
 extern const f32 lbl_805DC24C;
 extern const f32 lbl_805DC250;
 extern const f32 lbl_805DC254;
+
+void TObjPlayer__sub_801ADD10(u8 *self) {
+    Vec_801ADD10 position;
+    u8 *laser;
+    position.x = M2C_FIELD(self, f32 *, 0x38);
+    position.y = lbl_805DC22C;
+    position.z = M2C_FIELD(self, f32 *, 0x40);
+    TBoss4Zako__sub_803D8910(&position, &lbl_804C3A84[M2C_FIELD(self, s32 *, 0x194)]);
+    M2C_FIELD(self, s32 *, 0x194)++;
+    Packet_801ADD10 packet = lbl_80446EA8;
+    packet.pos.x = position.x;
+    packet.pos.y = position.y;
+    packet.pos.z = position.z;
+    laser = (u8 *) __nw__7TObjectFUl(0x380);
+    if (laser != NULL) {
+        TPhotonLaser__ct(laser, &packet, self, M2C_FIELD(self, u16 *, 0x17C));
+    }
+}
 
 void TObjPlayer__sub_801ADDDC(Self_801ADDDC *self) {
     if (self->started != 0) {
@@ -176,7 +204,7 @@ void update_photon_blast(void *arg0) {
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (u8) M2C_FIELD(arg0, s16 *, 0x14C);
     temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x1A8);
     if ((lbl_805DC23C == (f32) temp_r3_2) || (lbl_805DC240 == (f32) temp_r3_2) || (lbl_805DC244 == (f32) temp_r3_2) || (lbl_805DC248 == (f32) temp_r3_2) || (lbl_805DC24C == (f32) temp_r3_2) || (lbl_805DC250 == (f32) temp_r3_2)) {
-        TObjPlayer__sub_801ADD10(arg0);
+        TObjPlayer__sub_801ADD10((u8 *)(arg0));
     }
     if (lbl_805DC254 == (f32) M2C_FIELD(arg0, s32 *, 0x1A8)) {
         apply_photon_blast_effects__10TObjPlayerFPv((void *)(arg0));

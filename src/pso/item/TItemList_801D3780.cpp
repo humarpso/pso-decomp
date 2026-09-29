@@ -45,6 +45,7 @@ struct Search_801D3F3C {
     f32 radius;
 };
 
+typedef s32 M2C_UNK;
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
@@ -78,6 +79,12 @@ extern const f32 lbl_805DC3D0;
 void *TItemList__sub_801D3E20(void *self, Body_801D3E20 *s);
 extern const f32 lbl_805DC3C8;
 s32 TItemList__sub_801D3F3C(void *arg0);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 TItemList__sub_801D3C38();
+void TItemList__sub_801D588C(void *, int);
+void TItemList__sub_801D59A0(void *, int);
+void TItemList__sub_801D5A70(void *);
+void TItemList__sub_801D3A80(u8 *arg0);
 }
 
 extern "C" {
@@ -143,6 +150,21 @@ u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8
     }
 block_5:
     return arg0;
+}
+
+void TItemList__sub_801D3A80(u8 *arg0) {
+    switch (TItemList__sub_801D3C38()) {
+    case 0:
+        return;
+    case 1:
+        TItemList__sub_801D59A0(arg0, M2C_FIELD(arg0, s32 *, 0x54));
+        TItemList__sub_801D5A70(arg0);
+        break;
+    case 2:
+        TItemList__sub_801D588C(arg0, M2C_FIELD(arg0, s32 *, 0x54));
+        break;
+    }
+    queue_destruction__7TObjectFv(arg0);
 }
 
 void * TItemList__sub_801D3B00(void *arg0, void *arg1, void *arg2, s8 arg3) {

@@ -66,6 +66,8 @@ void TItemData__sub_8010D510(Item_8010D510 *item, const Mag_8010D510 *mag);
 void *TItemData__sub_8010EA38(u8 *item);
 s32 TObjPlayer__sub_8011C914(s32);
 s32 TItemData__sub_8010EBD8(u8 *item);
+s32 TItemData__sub_8010EBD8(u8 *item);
+s32 TItemData__sub_8010DF68(u8 *item);
 }
 
 extern "C" {
@@ -91,7 +93,6 @@ s32 TItemData__sub_8010C52C();
 M2C_UNK TItemData__sub_8010C5DC(void *, s32);
 void TItemData__sub_8010CCB0(void);
 void TItemData__sub_8010CCB4(void);
-s32 TItemData__sub_8010DF68();
 s32 TItemData__sub_8010EEC8(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 void *TTecCtrl__sub_8022DBC4(u8, u8, s32);
@@ -356,6 +357,10 @@ void apply_equip_effects__9TItemDataFPviiiii(void *arg0, s32 arg1, s32 arg2, s32
 
 extern s32 lbl_805D2B10;
 
+s32 TItemData__sub_8010DF68(u8 *item) {
+    return (u8) TItemData__sub_8010EBD8(item) >= 9 ? 1 : 0;
+}
+
 void init__9TItemDataFv(TItemData_8010E344 *self) {
     s32 i;
     self->data[0] = 0;
@@ -377,7 +382,7 @@ s32 calc_buy_price__9TItemDataFPv(void *arg0) {
 
     if ((u8) M2C_FIELD(arg0, u8 *, 0) == 0) {
         temp_r0 = M2C_FIELD(arg0, u8 *, 4);
-        if ((temp_r0 != 0) && (temp_r0 < 0x29U) && (TItemData__sub_8010DF68() == 0)) {
+        if ((temp_r0 != 0) && (temp_r0 < 0x29U) && (((s32 (*)(void))TItemData__sub_8010DF68)() == 0)) {
             if (check_item_flags__9TItemDataFPv((void *)(arg0)) == 1) {
                 return TItemData__sub_8010EEC8(M2C_FIELD(arg0, u8 *, 4) + 0x1CB);
             }

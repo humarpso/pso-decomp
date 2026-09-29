@@ -36,6 +36,8 @@ typedef struct TItemMagSub_801152AC {
     f32 f9C;
 } TItemMagSub_801152AC;
 
+typedef struct MagSub_80115800 { u8 pad0[0x70]; s32 slots[3]; } MagSub_80115800;
+
 extern "C" {
 s32 TItemMag__sub_80113EC8(void *);
 s32 calc_feed_level__11TItemMagSubFPv(void *arg0);
@@ -64,6 +66,18 @@ extern f32 lbl_805D2C08;
 extern const f32 TItemMagSub__data_805DABC8;
 extern const f32 TItemMagSub__data_805DABD8;
 void TItemMagSub__sub_801152AC(TItemMagSub_801152AC *self);
+void disallow_rendering__7TObjectFv(void *);
+void reset__11TItemMagSubFPv(u8 *arg0);
+void disallow_rendering_shadows__7TObjectFv(void *);
+void init_object__21TItemEffArmorParticleFPv(void *, void *);
+extern const f64 lbl_8043E5D8;
+extern M2C_UNK __vt__11TItemMagSub[];
+extern u32 lbl_805D2C10;
+extern const f32 TItemMagSub__data_805DABC8;
+extern const f32 TItemMagSub__data_805DABD8;
+extern const f32 lbl_805DABDC;
+extern const f32 lbl_805DABE0;
+u8 *TItemMagSub__ct(u8 *self, u8 *player, u8 *item);
 }
 
 extern "C" {
@@ -254,5 +268,34 @@ void reset__11TItemMagSubFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x34) = 0;
     M2C_FIELD(arg0, s32 *, 0x30) = 0;
 }
+#pragma push
+#pragma fp_contract on
+u8 *TItemMagSub__ct(u8 *self, u8 *player, u8 *item) {
+    s32 i;
+    init_object__21TItemEffArmorParticleFPv(self, item);
+    M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__11TItemMagSub;
+    M2C_FIELD(self, u32 *, 0) = lbl_805D2C10;
+    M2C_FIELD(self, u8 **, 0x20) = player;
+    M2C_FIELD(self, s32 *, 0x24) = 0;
+    M2C_FIELD(self, s32 *, 0x2C) = 0;
+    M2C_FIELD(self, s32 *, 0x28) = 0;
+    reset__11TItemMagSubFPv((u8 *)(self));
+    M2C_FIELD(self, s32 *, 0x64) = 0;
+    M2C_FIELD(self, u8 **, 0x1C) = item;
+    M2C_FIELD(self, f32 *, 0x80) = TItemMagSub__data_805DABC8;
+    M2C_FIELD(self, f32 *, 0x7C) = TItemMagSub__data_805DABC8;
+    for (i = 0; i < 3; i++) {
+        ((MagSub_80115800 *) self)->slots[i] = -1;
+    }
+    if (lbl_8043E5D8 < M2C_FIELD(player, f32 *, 0x8A8)) {
+        M2C_FIELD(self, f32 *, 0xC8) = -((lbl_805DABE0 * M2C_FIELD(player, f32 *, 0x8A8)) - lbl_805DABDC);
+    } else {
+        M2C_FIELD(self, f32 *, 0xC8) = TItemMagSub__data_805DABD8;
+    }
+    disallow_rendering__7TObjectFv(self);
+    disallow_rendering_shadows__7TObjectFv(self);
+    return self;
+}
+#pragma pop
 
 }

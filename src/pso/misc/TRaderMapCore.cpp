@@ -59,6 +59,28 @@ struct RecoveredGlobal_801FA9D8_TRaderMapCore__data_80513708 {
     u8 remaining[0x74];
 };
 
+typedef struct RadarInitPiece_801F9474 {
+    s16 id, flags;
+    f32 translation[3]; u32 rotation[3];
+    f32 fade, radius; void *object;
+} RadarInitPiece_801F9474;
+
+typedef struct RadarInitMap_801F9474 { RadarInitPiece_801F9474 *pieces; void *textures; s32 count; } RadarInitMap_801F9474;
+
+struct Region_801F9C54 {
+    s16 id; s16 flags; f32 x, y, z;
+    u32 angles[3]; f32 fade, radius; void *model;
+};
+
+struct Map_801F9C54 { struct Region_801F9C54 *regions; void *textures; s32 count; };
+
+struct Region_801F9CB8 {
+    s16 id; s16 flags; f32 x, y, z;
+    u32 angles[3]; f32 fade, radius; void *model;
+};
+
+struct Map_801F9CB8 { struct Region_801F9CB8 *regions; void *textures; s32 count; };
+
 extern "C" {
 M2C_UNK TCameraCtrl__sub_80068EF0();
 M2C_UNK TCameraCtrl__sub_80069024();
@@ -114,6 +136,15 @@ extern RecoveredGlobal_801FA964_lbl_804C8784 lbl_804C8784;
 extern RecoveredGlobal_801F9720_TRaderMapCore__data_80513708 TRaderMapCore__data_80513708;
 extern const f32 TRaderMapCore__data_805DC534;
 void TRaderMapCore__sub_801FA9D8(s32 arg0, s32 arg1);
+void *heap_zalloc__5THeapFUl(int, u32);
+extern s16 *TRaderMapCore__data_80513780[];
+extern int TRaderMapCore__data_805D5F50;
+s32 TRaderMapCore__sub_801F9474(s32 floor, RadarInitMap_801F9474 *map);
+extern u32 TRaderMapCore__data_805D5F28;
+s32 TRaderMapCore__sub_801F9C54(s16 id);
+extern u32 TRaderMapCore__data_805D5F28;
+extern const f32 TRaderMapCore__data_805DC568;
+s32 TRaderMapCore__sub_801F9CB8(s16 id);
 }
 
 extern "C" {
@@ -172,6 +203,30 @@ void TRaderMapCore__sub_801F9144(void) {
     }
 }
 
+s32 TRaderMapCore__sub_801F9474(s32 floor, RadarInitMap_801F9474 *map) {
+    s16 *saved = TRaderMapCore__data_80513780[floor];
+    s16 *p;
+    RadarInitPiece_801F9474 *piece;
+    s32 i;
+    s32 j;
+    if (saved != NULL) {
+        for (i = 0, piece = map->pieces, p = saved; i < map->count; i++, piece++, p++) {
+            piece->flags = *p;
+        }
+    } else {
+        saved = (s16 *) heap_zalloc__5THeapFUl(TRaderMapCore__data_805D5F50, (u32) map->count * 2);
+        if (saved != NULL) {
+            TRaderMapCore__data_80513780[floor] = saved;
+        } else {
+            return 0;
+        }
+        for (j = 0, piece = map->pieces; j < map->count; j++, piece++) {
+            piece->flags |= 1;
+        }
+    }
+    return 1;
+}
+
 void free_heap__13TRaderMapCoreFv(void) { __dt__5THeapFv((void*)(TRaderMapCore__data_805D5F50), (void*)1); TRaderMapCore__data_805D5F50 = 0; }
 
 typedef char RecoveredGlobal_801F9720_TRaderMapCore__data_80513708_size[sizeof(RecoveredGlobal_801F9720_TRaderMapCore__data_80513708) == 0x78 ? 1 : -1];
@@ -187,6 +242,37 @@ void TRaderMapCore__sub_801F9720(f32 farg0) {
             M2C_FIELD(&TRaderMapCore__data_80513708.value, f32 *, 0x2C) = (f32) lbl_805D35F8;
         }
     }
+}
+
+#define MAP_801F9C54 ((struct Map_801F9C54 *) TRaderMapCore__data_805D5F28)
+s32 TRaderMapCore__sub_801F9C54(s16 id) {
+    s32 i;
+    if (MAP_801F9C54 == NULL) {
+        return 0;
+    }
+    for (i = 0; i < MAP_801F9C54->count; i++) {
+        if (MAP_801F9C54->regions[i].id == id) {
+            MAP_801F9C54->regions[i].flags |= 2;
+            return 1;
+        }
+    }
+    return 0;
+}
+
+#define MAP_801F9CB8 ((struct Map_801F9CB8 *) TRaderMapCore__data_805D5F28)
+s32 TRaderMapCore__sub_801F9CB8(s16 id) {
+    s32 i;
+    if (MAP_801F9CB8 == NULL) {
+        return 0;
+    }
+    for (i = 0; i < MAP_801F9CB8->count; i++) {
+        if (MAP_801F9CB8->regions[i].id == id && (MAP_801F9CB8->regions[i].flags & 1)) {
+            MAP_801F9CB8->regions[i].flags &= ~1;
+            MAP_801F9CB8->regions[i].fade = TRaderMapCore__data_805DC568;
+            return 1;
+        }
+    }
+    return 0;
 }
 
 void copy_transform__13TRaderMapCoreFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(f32*)((char*)p + 0x14) = *(f32*)((char*)q + 0x14); *(u32*)((char*)p + 0x18) = *(u32*)((char*)q + 0x18); *(u32*)((char*)p + 0x1c) = *(u32*)((char*)q + 0x1c); *(f32*)((char*)p + 0x20) = *(f32*)((char*)q + 0x20); *(f32*)((char*)p + 0x24) = *(f32*)((char*)q + 0x24); }

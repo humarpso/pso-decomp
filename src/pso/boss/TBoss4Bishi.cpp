@@ -23,6 +23,18 @@ extern const f32 lbl_805D8CB8;
 extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC0;
 void TBoss4Zako__vt5(u8 *arg0);
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
+u16 TObjPlayer__sub_800115C4(void *, M2C_UNK, f32);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 get_instance__14TBoss4DarkFalzFv();
+s32 get_position_ptr__10TObjPlayerFPv(s32);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern const f32 lbl_805D8CBC;
+extern const f32 lbl_805D8CF4;
+extern const f32 lbl_805D8CF8;
+extern const f32 lbl_805D8CFC;
+void TBoss4Zako__sub_8005C368(u8 *arg0);
 }
 
 extern "C" {
@@ -45,7 +57,6 @@ void try_enter_state_3__11TBoss4BishiFPv(void* p);
 s32 TBoss4Bishi__ct(s32, s32, s32);
 int TBoss4Uro__sub_8005D6D4(void*);
 void TBoss4Zako__sub_8005C218(void *);
-void TBoss4Zako__sub_8005C368(void *);
 void TBoss4Zako__sub_803D8910(void *, void *);
 s32 TObjControl__ct(s32, s32);
 int TObjPlayer__sub_800F6B68(void*);
@@ -153,9 +164,34 @@ void TBoss4Zako__vt5(u8 *arg0) {
     }
 }
 
+#pragma push
+#pragma fp_contract on
+void TBoss4Zako__sub_8005C368(u8 *arg0) {
+    s32 temp_r31;
+    s32 temp_r3;
+    if (!(M2C_FIELD(arg0, s32 *, 0x3B8) & 0x7F)) {
+        if (M2C_FIELD(arg0, s32 *, 0x388) == 0xFFFF) {
+            M2C_FIELD(arg0, u32 *, 0x388) = (u32) TObjPlayer__sub_800115C4(arg0, 0, lbl_805D8CF4);
+            return;
+        }
+        M2C_FIELD(arg0, u32 *, 0x388) = 0xFFFFU;
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x378) != 0U) {
+            temp_r3 = get_instance__14TBoss4DarkFalzFv();
+            if (temp_r3 != 0) {
+                temp_r31 = (s32) (lbl_805D8CF8 * calc_boss4_scale__10TObjPlayerFi(arg0));
+                VecCopy__FP3VecPC3Vec((void *)(arg0 + 0x3C4), (void *)(get_position_ptr__10TObjPlayerFPv(temp_r3)));
+                M2C_FIELD(arg0, f32 *, 0x3C8) = (f32) lbl_805D8CBC;
+                M2C_FIELD(arg0, f32 *, 0x3C4) = (f32) ((lbl_805D8CFC * TBoss8Dragon__sub_803D64C0(temp_r31)) + M2C_FIELD(arg0, f32 *, 0x3C4));
+                M2C_FIELD(arg0, f32 *, 0x3CC) = (f32) ((lbl_805D8CFC * TBoss8Dragon__sub_803D64DC(temp_r31)) + M2C_FIELD(arg0, f32 *, 0x3CC));
+            }
+        }
+    }
+}
+#pragma pop
+
 void TBoss4Zako__vt4(void *arg0) {
     struct VOff_8005C450_arg0_8005BABC *self = (struct VOff_8005C450_arg0_8005BABC *)arg0;
-    TBoss4Zako__sub_8005C368(arg0);
+    TBoss4Zako__sub_8005C368((u8 *)(arg0));
     TBoss4Zako__sub_8005C218(arg0);
     VecCopy__FP3VecPC3Vec((void *)((void *)((char *)arg0 + 68)), (void *)(self->f_38));
     TBoss4Zako__sub_803D8910(self->f_38, (void *)((char *)arg0 + 908));

@@ -27,6 +27,9 @@ typedef struct Moja_800ADE48 {
 
 extern "C" {
 void TObjPlayer__sub_800ADE48(Moja_800ADE48 *self);
+s32 TObjPlayer__sub_80016D78();
+M2C_UNK obj_clearFlags30(void *, M2C_UNK);
+s32 TObjPlayer__sub_800AED14(void *arg0);
 }
 
 extern "C" {
@@ -184,6 +187,28 @@ void update_meseta_anim_state__10TObjPlayerFPv(void *arg0) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         return;
     }
+}
+s32 TObjPlayer__sub_800AED14(void *arg0) {
+    void *temp_r3;
+    if (TObjPlayer__sub_80016D78() != 0) {
+        switch (M2C_FIELD(arg0, s16 *, 0x326)) {
+        case 0:
+        case 1:
+            M2C_FIELD(arg0, s16 *, 0x326) = 0;
+            M2C_FIELD(arg0, s16 *, 0x328) = 0;
+            M2C_FIELD(arg0, s32 *, 0x388) = 1;
+            M2C_FIELD(arg0, s32 *, 0x384) = -1;
+            M2C_FIELD(arg0, s16 *, 0x33C) = 0;
+            M2C_FIELD(arg0, s32 *, 0x374) = 0;
+            M2C_FIELD(arg0, s16 *, 0xB8) = 2;
+            obj_clearFlags30(arg0, 0x06040000);
+            temp_r3 = M2C_FIELD(arg0, void **, 0xA4);
+            M2C_FIELD(temp_r3, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x18) | 1);
+            break;
+        }
+        return 1;
+    }
+    return 0;
 }
 
 }

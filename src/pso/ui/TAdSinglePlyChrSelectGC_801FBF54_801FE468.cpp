@@ -32,6 +32,18 @@ s32 load_player_data__23TAdSinglePlyChrSelectGCFv(void);
 s32 TAdPlayerLoadGC__sub_801E0D8C(s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E2048(s32, M2C_UNK *);
+int load_player_slot__23TAdSinglePlyChrSelectGCFPvii(void *, int, int);
+void set_quest_download_server__23TAdSinglePlyChrSelectGCFi(int);
+struct RecoveredGlobal_801FE75C_lbl_804C88C0 {
+    M2C_UNK value;
+    u8 remaining[0x50];
+};
+typedef char RecoveredGlobal_801FE75C_lbl_804C88C0_size[sizeof(RecoveredGlobal_801FE75C_lbl_804C88C0) == 0x54 ? 1 : -1];
+extern RecoveredGlobal_801FE75C_lbl_804C88C0 lbl_804C88C0;
+extern s32 lbl_805D49B4;
+extern s32 lbl_805D5F7C;
+extern s32 lbl_805D5F94;
+s32 TAdSinglePlyChrSelectGC__sub_801FE75C(void);
 s32 TAdSinglePlyChrSelectGC__sub_801FC564(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FCCDC(s32, s32);
 s32 check_ready__23TAdSinglePlyChrSelectGCFv();
@@ -66,6 +78,23 @@ M2C_UNK *TAdSinglePlyChrSelectGC__sub_801FE4BC(u32 arg0) {
     M2C_FIELD(&lbl_805137C8.value, s32 *, 4) = (s32) M2C_FIELD(temp_r4, s32 *, 0x368);
     M2C_FIELD(&lbl_805137C8.value, s32 *, 8) = (s32) M2C_FIELD(temp_r4, s32 *, 0x2790);
     return &lbl_805137C8.value;
+}
+
+s32 TAdSinglePlyChrSelectGC__sub_801FE75C(void) {
+    s32 var_r0;
+    s8 temp_r3;
+    temp_r3 = ((u8 (*)(void))get_chr_select_state__23TAdSinglePlyChrSelectGCFv)();
+    var_r0 = -1;
+    lbl_805D5F7C = (s32) temp_r3;
+    if ((temp_r3 >= 0) && (temp_r3 <= 7)) {
+        var_r0 = TAdPlayerLoadGC__sub_801E2048((s32) temp_r3, (M2C_UNK *) &lbl_804C88C0.value);
+        if (var_r0 == 0) {
+            set_quest_download_server__23TAdSinglePlyChrSelectGCFi(lbl_805D5F7C);
+            lbl_805D49B4 = 1;
+            var_r0 = load_player_slot__23TAdSinglePlyChrSelectGCFPvii((void *) lbl_805D5F7C, (s32) &lbl_804C88C0.value, lbl_805D5F94);
+        }
+    }
+    return var_r0;
 }
 
 int TAdSinglePlyChrSelectGC__sub_801FE7D4(int a0) {  return lbl_805137D8[a0 + 4]; }

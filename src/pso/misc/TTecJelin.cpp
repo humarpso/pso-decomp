@@ -72,8 +72,36 @@ struct VObj_802386F8 : VBase_802386F8 {
     virtual s32 m21(s32, Damage_802386F8, s32, s32, s32, void *);
 };
 
+struct VBase_18_4560ce { char pad[0x18]; };
+
+struct VObj_18_4560ce : VBase_18_4560ce {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual M2C_UNK m4(u32);
+};
+
+struct Entry_802336F0 { u16 id; u8 pad[6]; };
+
+struct Self_802336F0 {
+    u8 pad0[0x1C];
+    u32 target;
+    u8 pad1[0xB4 - 0x20];
+    u16 owner;
+    u8 pad2[0xEC - 0xB6];
+    s32 flag;
+    s32 count;
+    struct Entry_802336F0 entries[1];
+};
+
 extern "C" {
 void TTecJelin__vt4(u8 *self, u8 *target);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+u32 TPhotonMylla__sub_80154CB4(int);
+M2C_UNK TObjPlayer__sub_8022BD74(void *);
+s32 is_parents_unqueued__9TTecLukerFUi(u32);
+void run_task__9TTecJelinFv(struct Self_802336F0 *self);
 }
 
 extern "C" {
@@ -122,6 +150,27 @@ void create__9TTecJelinFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 void render__9TTecJelinFv(void) {  }
 
 extern M2C_UNK __vt__9TTecJelin[];
+
+void run_task__9TTecJelinFv(struct Self_802336F0 *self) {
+    s32 i;
+    u32 id;
+    self->target = TPhotonMylla__sub_80154CB4(self->owner);
+    if (self->target == 0) {
+        queue_destruction__7TObjectFv((void *) (self));
+        return;
+    }
+    if (self->flag != 0) {
+        for (i = 0; i < self->count; i++) {
+            id = TPhotonMylla__sub_80154CB4(self->entries[i].id);
+            if (is_parents_unqueued__9TTecLukerFUi(id) != 0) {
+                ((VObj_18_4560ce *)(self))->m4(id);
+            }
+        }
+    } else {
+        TObjPlayer__sub_8022BD74((void *) (self));
+    }
+    queue_destruction__7TObjectFv((void *) (self));
+}
 
 void *__dt__9TTecJelinFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -6,6 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Obj_8001F8D8 { u8 pad0[4]; s32 f4; s32 f8; s32 fc; u8 pad10[0x418 - 0x10]; s32 f418; u8 pad41c[0x434 - 0x41c]; s32 f434; s32 f438; s32 f43c; };
 
+typedef s32 M2C_UNK;
+struct Ent_8001FB6C { s32 a; s32 data; };
+
+struct Lobby_8001FB6C { u8 pad[0x430]; struct Ent_8001FB6C *entries; };
+
 extern "C" {
 M2C_UNK TItemDrop__sub_800FE2DC();
 s32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
@@ -27,6 +32,10 @@ void set_flag_and_notify__6TLobbyFPv(void *arg0);
 void TLobby__sub_8001EE48(const char *s);
 extern char lbl_80434C38[];
 void TLobby__sub_8001F8D8(Obj_8001F8D8 *self, void * _w1);
+s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
+extern M2C_UNK lbl_80434CC4[];
+s32 TLobby__sub_8001FB6C(struct Lobby_8001FB6C *self, s32 idx, void *bytes);
 }
 
 extern "C" {
@@ -124,6 +133,22 @@ void load_bin_motion_callback(void *arg0) {
     M2C_FIELD(temp_r4, s32 *, 8) = (s32) (M2C_FIELD(temp_r4, s32 *, 8) + 1);
     TLobby__sub_8001F8D8((Obj_8001F8D8 *)(M2C_FIELD(arg0, void **, 4)), (void *)(temp_r4));
 }
+
+s32 TLobby__sub_8001FB6C(struct Lobby_8001FB6C *self, s32 idx, void *bytes) {
+    s32 spC;
+    s32 sp8;
+    u32 r;
+    self->entries[idx].data = 0;
+    spC = 0;
+    r = alloc_load_data__6TLobbyFPviii(self, (s32) bytes, (s32) &spC, (s32) &sp8);
+    if (r == 0) {
+        debug_print__6TLobbyFii(lbl_80434CC4);
+        return 0;
+    }
+    self->entries[idx].data = r;
+    return 1;
+}
+
 void reset_battle_state__6TLobbyFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x42C) = 0;
     M2C_FIELD(arg0, s32 *, 0x430) = 0;

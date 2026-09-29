@@ -204,6 +204,10 @@ void reset_global_table(void);
 void reset_photon_effect__10TObjPlayerFPv(void* p);
 void set_indexed_flags(void *arg0, s32 index, s32 flags);
 u8 test_elt_flag__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
+s32 TObjPlayer__sub_80019570(void *);
+s32 obj_testFlags30(void *, u32);
+s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
+void *TObjPlayer__sub_80154804(u16 actorId, s16 collider);
 int TLobby__sub_801A1FDC(void*, void*);
 M2C_UNK TObjPlayer__sub_8015434C(s32, s32, s32);
 int TObjPlayer__sub_80154B60(void*);
@@ -266,6 +270,23 @@ f32 TObjPlayer__sub_801547E0(Obj_801547E0 *self, s32 i) {
         return self->arr[i].f;
     }
     return TObjPlayer__data_805DB270;
+}
+
+void *TObjPlayer__sub_80154804(u16 actorId, s16 collider) {
+    void *target = TPhotonMylla__sub_80154CB4(actorId);
+    if (target == NULL) {
+        return NULL;
+    }
+    if (all_parents_unqueued_for_destruction__7TObjectFv(target) == 0 || obj_testFlags30(target, 0x04040800) != 0) {
+        return NULL;
+    }
+    if (((s32 (*)(void *, s32, s32))test_elt_flag__10TObjPlayerFPvii)(target, collider, 1) == 0) {
+        return NULL;
+    }
+    if (TObjPlayer__sub_80019570(target) == 0) {
+        return NULL;
+    }
+    return target;
 }
 
 void TObjPlayer__sub_80154954(Player_80154954 *self, State_80154954 *src) {

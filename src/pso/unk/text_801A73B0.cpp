@@ -8,11 +8,65 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #pragma dont_inline off
 struct M2CCopy_C { u8 bytes[0xc]; };
 
+typedef struct Vec_801A73B0 { f32 x, y, z; } Vec_801A73B0;
+
+struct PbCamera_801A73B0 {
+    u8 pad0[0x104];
+    Vec_801A73B0 target;
+    Vec_801A73B0 position;
+    Vec_801A73B0 destination_target;
+    Vec_801A73B0 destination_position;
+};
+
+struct PbCameraParams_801A73B0 {
+    u8 pad0[0x14];
+    s32 projection;
+    s32 pad18;
+    Vec_801A73B0 position;
+    Vec_801A73B0 target;
+    u8 pad34[0x50 - 0x34];
+};
+
+typedef struct Vec_801A7578 { f32 x, y, z; } Vec_801A7578;
+
+struct Node_801A7578 {
+    u8 pad0[4];
+    Vec_801A7578 pos;
+    s32 id;
+    u8 pad1[0x20 - 0x14];
+};
+
+struct Reg_801A7578 {
+    struct Node_801A7578 *list;
+    s32 count;
+};
+
 extern "C" {
 void fn_801A753C(u8 *arg0, u8 *arg1);
+void VecCopy__FP3VecPC3Vec(Vec_801A73B0 *, const Vec_801A73B0 *);
+void TCameraCtrl__sub_80069D04(struct PbCameraParams_801A73B0 *);
+void TEffStarLightChild__sub_80141FBC(Vec_801A73B0 *, Vec_801A73B0 *, Vec_801A73B0 *, f32);
+extern const f32 lbl_805DC0D8;
+extern const f32 lbl_805DC0DC;
+void fn_801A73B0(struct PbCamera_801A73B0 *self);
+void get_camera_ctrl__9TObjEneDDFPv(Vec_801A7578 *, Vec_801A7578 *);
+extern Vec_801A7578 lbl_80446A44;
+extern struct Reg_801A7578 lbl_8050E578[];
+extern s32 lbl_805D5D10;
+void fn_801A7578(void);
 }
 
 extern "C" {
+
+void fn_801A73B0(struct PbCamera_801A73B0 *self) {
+    struct PbCameraParams_801A73B0 parameters;
+    TEffStarLightChild__sub_80141FBC(&self->position, &self->destination_position, &self->position, lbl_805DC0D8);
+    TEffStarLightChild__sub_80141FBC(&self->target, &self->destination_target, &self->target, lbl_805DC0DC);
+    VecCopy__FP3VecPC3Vec(&parameters.position, &self->position);
+    VecCopy__FP3VecPC3Vec(&parameters.target, &self->target);
+    parameters.projection = 0x4222;
+    TCameraCtrl__sub_80069D04(&parameters);
+}
 
 void fn_801A753C(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
@@ -20,6 +74,17 @@ void fn_801A753C(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 8) = (s32) M2C_FIELD(arg1, s32 *, 8);
     *(M2CCopy_C *)((s32) arg0 + 0xC) = *(const M2CCopy_C *)((s32) arg1 + 0xC);
     M2C_FIELD(arg0, s32 *, 0x18) = (s32) M2C_FIELD(arg1, s32 *, 0x18);
+}
+void fn_801A7578(void) {
+    s32 i;
+    for (i = 0; i < lbl_8050E578->count; i++) {
+        struct Node_801A7578 *node = &lbl_8050E578->list[i];
+        if (lbl_805D5D10 == node->id) {
+            Vec_801A7578 origin = lbl_80446A44;
+            get_camera_ctrl__9TObjEneDDFPv(&origin, &node->pos);
+        }
+    }
+    lbl_805D5D10 += 1;
 }
 
 }

@@ -9,6 +9,13 @@ struct RecoveredGlobal_8012DBF4_lbl_804A5B20 {
     u8 remaining[0xF4];
 };
 
+typedef struct SlicerLaunchData_8012D9C8 {
+    u16 player; u16 pad;
+    void *textures; void *model; u32 weapon;
+    s16 kind, stage; f32 multiplier; f32 color[4];
+    s32 facing, spin; f32 first[3], second[3];
+} SlicerLaunchData_8012D9C8;
+
 extern "C" {
 u8 get_slot_count__14TItemProShieldFPv();
 M2C_UNK approach_value__20TItemEffOrgaFlowShotFPvff(void *, f32, f32);
@@ -35,9 +42,39 @@ extern RecoveredGlobal_8012DBF4_lbl_804A5B20 lbl_804A5B20;
 extern const f32 lbl_805DAF38;
 extern const f32 lbl_805DAF3C;
 u8 *TObjPlayer__sub_8012DBF4(u8 *arg0, u8 *arg1, u8 *arg2);
+void TObjPlayer__sub_801295FC(SlicerLaunchData_8012D9C8 *);
+u16 obj_getField1c(void *);
+u32 get_field_d8__10TObjPlayerFPv(void *);
+s16 TObjPlayer__sub_801D2F4C(void *);
+s16 TObjPlayer__sub_801D2EA8(void *);
+f32 query_extended_state__10TObjPlayerFPv(void *);
+void TObjPlayer__sub_80120304(f32 *, void *);
+void copy_vec4__13TRaderMapCoreFPvPv(f32 *, f32 *);
+void draw_icon__10TObjPlayerFPvii(void *, int, f32 *);
+void create__10TTecSlicerFPUs(SlicerLaunchData_8012D9C8 *);
+void TObjPlayer__sub_8012D9C8(u8 *weapon);
 }
 
 extern "C" {
+
+void TObjPlayer__sub_8012D9C8(u8 *weapon) {
+    f32 tmp[4];
+    SlicerLaunchData_8012D9C8 launch;
+    TObjPlayer__sub_801295FC(&launch);
+    launch.player = obj_getField1c(M2C_FIELD(weapon, u8 **, 0xF0));
+    launch.weapon = get_field_d8__10TObjPlayerFPv(weapon);
+    launch.textures = M2C_FIELD(weapon, void **, 0x24);
+    launch.model = M2C_FIELD(weapon, void **, 0x188);
+    launch.kind = TObjPlayer__sub_801D2F4C(M2C_FIELD(weapon, u8 **, 0xF0) + 0x7CC);
+    launch.stage = TObjPlayer__sub_801D2EA8(M2C_FIELD(weapon, u8 **, 0xF0) + 0x7CC);
+    launch.multiplier = query_extended_state__10TObjPlayerFPv(M2C_FIELD(weapon, u8 **, 0xF0));
+    TObjPlayer__sub_80120304(tmp, weapon);
+    copy_vec4__13TRaderMapCoreFPvPv(launch.color, tmp);
+    launch.facing = M2C_FIELD(M2C_FIELD(weapon, u8 **, 0xF0), s32 *, 0x60);
+    draw_icon__10TObjPlayerFPvii(weapon, 1, launch.first);
+    draw_icon__10TObjPlayerFPvii(weapon, 2, launch.second);
+    create__10TTecSlicerFPUs(&launch);
+}
 
 void TObjPlayer__sub_8012DA98(u8 *arg0) {
   int new_var;

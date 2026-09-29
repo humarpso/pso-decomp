@@ -1,4 +1,6 @@
 #include "types.h"
+typedef s32 M2C_UNK;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
@@ -9,7 +11,20 @@ s32 TObjPlayer__sub_801CB874(s32);
 s32 TObjPlayer__sub_801D0BC0(s32, s32, s32);
 void TObjPlayer__sub_801C999C(void);
 void TObjPlayer__sub_801C9A14(void);
+M2C_UNK set_action_id__10TObjPlayerFPvs(void *, int);
+s16 get_action_id__10TObjPlayerFPv(void *);
+M2C_UNK update_position_from_target__10TObjPlayerFPv(void *);
+void TObjPlayer__sub_801C99A0(u8 *arg0);
 
-int TObjPlayer__sub_801C99A0(void) { return 0; }
+void TObjPlayer__sub_801C99A0(u8 *arg0) {
+    if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x10000)) {
+        if (get_action_id__10TObjPlayerFPv((void *) (arg0 + 0x5F0)) == 0) {
+            update_position_from_target__10TObjPlayerFPv((void *) (arg0));
+            return;
+        }
+        ((M2C_UNK (*)(void *, s16, int))TObjPlayer__sub_801D0BC0)((void *) (arg0), get_action_id__10TObjPlayerFPv((void *) (arg0 + 0x5F0)), (int) (5));
+        set_action_id__10TObjPlayerFPvs((void *) (arg0 + 0x5F0), (int) (0));
+    }
+}
 
 }

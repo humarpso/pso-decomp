@@ -32,6 +32,10 @@ struct RecoveredGlobal_802078A4_lbl_80513920
   u8 remaining[0xD4];
 };
 
+struct Map_80207C60 { s32 map; s32 layout; s32 entities; };
+
+struct Ids_80207C60 { s32 w[18]; };
+
 extern "C" {
 extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
 s32 TLobby__sub_80207798(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -47,6 +51,10 @@ extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
 extern int lbl_805D6060;
 extern const f32 lbl_805DC610;
 void TOBoss4Rock__sub_802078A4(void);
+M2C_UNK memset(void *, int, int);
+extern struct Ids_80207C60 lbl_8044B898;
+extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
+void TLobby__sub_80207C60(void);
 }
 
 extern "C" {
@@ -156,6 +164,18 @@ void TOBoss4Rock__sub_802078A4(void) {
     var_r31 = (M2C_UNK *) (((u8 *) var_r31) + 0xC);
   }
   while (var_r29 < 0x12);
+}
+
+void TLobby__sub_80207C60(void) {
+    struct Ids_80207C60 ids = lbl_8044B898;
+    s32 i;
+    memset((void *) ((struct Map_80207C60 *)&lbl_80513920), 0, 0xD8);
+    for (i = 0; i < 18; i++) {
+        ((struct Map_80207C60 *)&lbl_80513920)[i].map = -1;
+    }
+    for (i = 0; i < 18; i++) {
+        ((struct Map_80207C60 *)&lbl_80513920)[i].map = ids.w[i];
+    }
 }
 
 void reset_story_select_state__6TLobbyFv(void) {

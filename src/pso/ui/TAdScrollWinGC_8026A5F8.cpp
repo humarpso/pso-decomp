@@ -31,6 +31,8 @@ void TLobby__sub_8026A6DC(s32 arg0);
 extern RecoveredGlobal_8026A6DC_lbl_805187D8 lbl_805187D8;
 void TLobby__sub_8026A6DC(s32 arg0);
 s32 TLobby__sub_8026A680(void);
+s32 strlen();
+void TLobby__sub_8026A89C(s32 arg0);
 s32 TLobby__sub_8026A76C(const char *text);
 }
 
@@ -134,6 +136,27 @@ void TLobby__sub_8026A7B0(u32 arg0) {
         }
         strncpy((int) (var_r3), (void *) (arg0), (int) (var_r30));
     }
+}
+
+void TLobby__sub_8026A89C(s32 arg0) {
+    s32 temp_r29;
+    s32 temp_r30;
+    s32 var_r28;
+    s32 var_r30;
+    temp_r29 = strlen();
+    var_r30 = TLobby__sub_8026A680();
+    var_r28 = (s32) heap_alloc__5THeapFUl(lbl_805D6460, temp_r29 + 1);
+    if (var_r28 == 0) {
+        do {
+            TLobby__sub_8026A6DC((s32) (0));
+            var_r28 = (s32) heap_alloc__5THeapFUl(lbl_805D6460, temp_r29 + 1);
+        } while (var_r28 == 0);
+        var_r30 = TLobby__sub_8026A680();
+    }
+    temp_r30 = var_r30 * 4;
+    M2C_FIELD(((u8 *)(&lbl_805187D8.value) + temp_r30), s32 *, 0) = var_r28;
+    strncpy((int) (M2C_FIELD(((u8 *)(&lbl_805187D8.value) + temp_r30), s32 *, 0)), (void *) (arg0), (int) (temp_r29));
+    M2C_FIELD((temp_r29 + M2C_FIELD(((u8 *)(&lbl_805187D8.value) + temp_r30), s32 *, 0)), s8 *, 0) = 0;
 }
 
 }

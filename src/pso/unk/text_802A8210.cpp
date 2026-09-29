@@ -10,9 +10,15 @@ struct RecoveredGlobal_802A8210_lbl_804DDF04 {
 
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
-void fn_802A8260(s32);
 extern RecoveredGlobal_802A8210_lbl_804DDF04 lbl_804DDF04;
 u8 *fn_802A8210(u8 *arg0, s32 arg1, u8 *arg2);
+u8 *__nw__7TObjectFUl(u32);
+s8 fn_802A82DC();
+u8 *TEffIndirectCtrl__ct(u8 *, s32, s32);
+extern u8 *lbl_80540B10[];
+extern s32 tl_01;
+extern u8 lbl_805D66AC;
+void fn_802A8260(s32 arg0);
 }
 
 extern "C" {
@@ -22,8 +28,19 @@ u8 *fn_802A8210(u8 *arg0, s32 arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject(arg0, arg2);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804DDF04.value;
     M2C_FIELD(arg0, s8 *, 0x1C) = arg1;
-    fn_802A8260((s32) arg1);
+    fn_802A8260((s32)((s32) arg1));
     return arg0;
+}
+void fn_802A8260(s32 arg0) {
+    u8 *p;
+    if (fn_802A82DC() < 0 && lbl_805D66AC < 6) {
+        p = __nw__7TObjectFUl(0x54);
+        if (p != NULL) {
+            p = TEffIndirectCtrl__ct(p, arg0, tl_01);
+        }
+        lbl_80540B10[lbl_805D66AC] = p;
+        lbl_805D66AC++;
+    }
 }
 
 }

@@ -11,6 +11,7 @@ struct RecoveredGlobal_801F3DEC_TLobby__data_805127D0 {
 
 struct Sel_801F3E1C { s32 area; s32 terrain; s32 entities; };
 
+struct RecoveredGlobal_801F3DEC_TLobby__data_805127D0;
 extern "C" {
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_801F3DEC_TLobby__data_805127D0 TLobby__data_805127D0;
@@ -40,6 +41,9 @@ void TLobby__sub_801F3E1C(void);
 extern RecoveredGlobal_801F3DEC_TLobby__data_805127D0 TLobby__data_805127D0;
 void TLobby__sub_80207798(s32, s32, s32, s32);
 void TLobby__sub_801F3D3C(s16 mode, s32 floor, s32 terrain, s32 unused);
+void TLobby__sub_80207798(s32, s32, s32, s32);
+extern RecoveredGlobal_801F3DEC_TLobby__data_805127D0 TLobby__data_805127D0;
+void TLobby__sub_801F3C70(s16 mode, s32 floor, s32 area, s32 layout, s32 entities);
 }
 
 extern "C" {
@@ -57,6 +61,28 @@ int init_sub_state__6TLobbyFPv(void);
     extern short TLobby__data_805D6134;
 void rebuild_all__6TLobbyFi(int a0) { TLobby__data_805D5EE0 = a0; TLobby__sub_801F3BC4(); init_sub_state__6TLobbyFPv(); TLobby__sub_8020A2AC(); TLobby__sub_801F3B30(); free_boss4rock__6TLobbyFv(); rebuild_entry__6TLobbyFPv(); TLobby__sub_801F4340(); TLobby__data_805D6134 = 1; TLobby__data_805D5EE0 = 0; }
 typedef char RecoveredGlobal_801F3DEC_TLobby__data_805127D0_size[sizeof(RecoveredGlobal_801F3DEC_TLobby__data_805127D0) == 0x28 ? 1 : -1];
+
+void TLobby__sub_801F3C70(s16 mode, s32 floor, s32 area, s32 layout, s32 entities) {
+    if (floor > 17 || area > 35) {
+        return;
+    }
+    switch (mode) {
+    case 0:
+        TLobby__sub_80207798(floor, area, layout, 0);
+        ((s16 *) &TLobby__data_805127D0)[floor] = mode;
+        break;
+    case 2:
+        TLobby__sub_80207798(floor, area, layout, entities);
+        ((s16 *) &TLobby__data_805127D0)[floor] = mode;
+        break;
+    case 1:
+    case 3:
+        ((s16 *) &TLobby__data_805127D0)[floor] = mode;
+        break;
+    default:
+        return;
+    }
+}
 
 void TLobby__sub_801F3D3C(s16 mode, s32 floor, s32 terrain, s32 unused) {
     if (floor > 17) {

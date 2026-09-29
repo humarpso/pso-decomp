@@ -4,6 +4,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+struct Voice_80241FD8 {
+    u32 pad0; s32 state; u32 pad1; s32 kind; u8 pad2[0x20 - 0x10]; s32 token;
+    u8 pad3[0x48 - 0x24]; s32 fade; s32 fadeStep;
+};
+
 extern "C" {
 s32 TLobby__sub_80240B40(u8 *arg0, s32 arg1, s32 arg2);
 M2C_UNK TLobby__sub_803AA0E0(int, int, int);
@@ -11,6 +17,8 @@ void TLobby__sub_80241AD8(u8 *arg0);
 int TLobby__sub_80240E8C(void);
 extern const f32 lbl_805DC9E4;
 s32 TLobby__sub_80242058(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+M2C_UNK TLobby__sub_803AA1A0(int);
+s32 TLobby__sub_80241FD8(struct Voice_80241FD8 *v, s32 step);
 }
 
 extern "C" {
@@ -93,6 +101,26 @@ void clamp_params__6TLobbyFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x38) = 0x7F;
     }
 }
+
+s32 TLobby__sub_80241FD8(struct Voice_80241FD8 *v, s32 step) {
+    switch (v->kind) {
+    case 0:
+        if (v->fadeStep == 0) {
+            if (step != 0) {
+                v->fadeStep = step;
+                v->fade = -step;
+            } else {
+                if (step == 0 && v->state == 1) {
+                    TLobby__sub_803AA1A0(v->token);
+                }
+                v->state = 0;
+            }
+        }
+        break;
+    }
+    return 0;
+}
+
 #pragma push
 #pragma fp_contract on
 s32 TLobby__sub_80242058(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {

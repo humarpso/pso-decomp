@@ -54,6 +54,7 @@ f32 TObjPlayer__sub_8001978C();
 extern f32 lbl_805DB068;
 extern f32 lbl_805DB06C;
 f32 scale_velocity__19TObjGyaranzoMissileFPvf(void *arg0, f32 farg0);
+void TObjPlayer__sub_8013153C(u8 *arg0, u8 *arg1);
 void TObjPlayer__sub_8012E284(s32, u32, s32, u32, u32);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
@@ -202,5 +203,18 @@ f32 scale_velocity__19TObjGyaranzoMissileFPvf(void *arg0, f32 farg0) {
     }
     return lbl_805DB06C;
 }
+
+#pragma push
+#pragma fp_contract on
+void TObjPlayer__sub_8013153C(u8 *arg0, u8 *arg1) {
+    f32 temp_f1;
+    f32 temp_f2;
+    f32 temp_f3;
+    temp_f2 = M2C_FIELD(arg0, f32 *, 0);
+    temp_f3 = M2C_FIELD(arg0, f32 *, 8) - M2C_FIELD(arg1, f32 *, 8);
+    temp_f1 = temp_f2 - M2C_FIELD(arg1, f32 *, 0);
+    ((f32 (*)(f32, f32, f32))TObjPlayer__sub_8001978C)((temp_f1 * temp_f1) + (temp_f3 * temp_f3), temp_f2, temp_f3);
+}
+#pragma pop
 
 }

@@ -74,6 +74,33 @@ struct VObj_802386F8 : VBase_802386F8 {
     virtual s32 m21(s32, Damage_802386F8, s32, s32, s32, void *);
 };
 
+struct VBase_18_80238BA4 { char pad[0x18]; };
+
+struct VObj_18_80238BA4 : VBase_18_80238BA4 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6(s32);
+    virtual void m7();
+};
+
+typedef struct Point_80238C6C { f32 x, y, z; } Point_80238C6C;
+
+struct Entry_80238C6C { s32 entry; u8 pad[8]; };
+
+struct Profile_80238C6C { struct Entry_80238C6C *entries; u32 count; };
+
+struct Self_80238C6C {
+    u8 pad0[0x7A];
+    s16 band;
+    u8 pad1[0xEC - 0x7C];
+    s32 *emitters;
+    Point_80238C6C points[8];
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u32 TPhotonMylla__sub_80154CB4(int);
@@ -110,6 +137,18 @@ extern RecoveredGlobal_80238D10_lbl_804CC510 lbl_804CC510;
 extern RecoveredGlobal_80238D10_lbl_804CC55C lbl_804CC55C;
 void TTecRaZonde__sub_80238D10(u8 *arg0);
 void TTecRaFoie__vt4(u8 *self, u8 *target);
+u16 obj_getField1c(void *);
+void TObjPlayer__sub_8004433C(void *);
+void TTecAnti__sub_8022B3E8(void *, void *);
+void fn_8022C2A8(void *, void *, void *, void *, int);
+void TTecRaFoie__sub_802380F4(void *);
+extern M2C_UNK __vt__10TTecRaFoie[];
+extern u32 lbl_805D3800;
+u8 *TTecRaFoie__sub_80238BA4(u8 *self, void *source, void *origin, void *targets, int level);
+s32 TBoss4Type2__sub_800874F4(void *, int);
+s32 alloc_buffer__11TOBoss4RockFPv(int);
+extern struct Profile_80238C6C TTecRaZonde__data_8044DB44[];
+void TTecRaZonde__vt6(struct Self_80238C6C *self);
 }
 
 extern "C" {
@@ -119,7 +158,6 @@ void create__10TTecRaFoieFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg
 void create_ex__10TTecRaFoieFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void render__10TTecRaFoieFv(void);
 void *TTecRaFoie__ct(void *, void *, void *, void *, void *);
-void *TTecRaFoie__sub_80238BA4(void *, void *, void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_technique_base__9TTecLukerFPvs(void *, int);
@@ -242,7 +280,7 @@ void create_ex__10TTecRaFoieFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *
     void *o;
     o = __nw__7TObjectFUl(0x14C);
     if (o != NULL) {
-        TTecRaFoie__sub_80238BA4(o, arg0, arg1, arg2, arg3);
+        TTecRaFoie__sub_80238BA4((u8 *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (int)(arg3));
     }
 }
 
@@ -263,6 +301,36 @@ typedef struct RecoveredGlobal_80238D10_lbl_804CC510 RecoveredGlobal_80238D10_lb
 typedef struct RecoveredGlobal_80238D10_lbl_804CC55C RecoveredGlobal_80238D10_lbl_804CC55C;
 typedef char RecoveredGlobal_80238D10_lbl_804CC510_size[((sizeof(RecoveredGlobal_80238D10_lbl_804CC510)) == 0x4C) ? (1) : (-1)];
 typedef char RecoveredGlobal_80238D10_lbl_804CC55C_size[((sizeof(RecoveredGlobal_80238D10_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
+
+u8 *TTecRaFoie__sub_80238BA4(u8 *self, void *source, void *origin, void *targets, int level) {
+    u8 *proxy;
+    fn_8022C2A8(self, source, origin, origin, level);
+    M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__10TTecRaFoie;
+    TObjPlayer__sub_8004433C(self + 0xEC);
+    M2C_FIELD(self, u32 *, 0) = lbl_805D3800;
+    TTecRaFoie__sub_802380F4(self);
+    M2C_FIELD(self, s32 *, 0x148) = 0;
+    TTecAnti__sub_8022B3E8(self + 0xEC, targets);
+    if (M2C_FIELD(self, void **, 0x1C) != NULL) {
+        M2C_FIELD(self, u16 *, 0xB4) = obj_getField1c(M2C_FIELD(self, void **, 0x1C));
+    }
+    proxy = M2C_FIELD(self, u8 **, 0xE8);
+    if (proxy != NULL) {
+        M2C_FIELD(M2C_FIELD(proxy, u8 **, 0xA4), f32 *, 0xC) = M2C_FIELD(self, f32 *, 0x90);
+    }
+    ((VObj_18_80238BA4 *) self)->m6(0);
+    ((VObj_18_80238BA4 *) self)->m7();
+    return self;
+}
+
+void TTecRaZonde__vt6(struct Self_80238C6C *self) {
+    u32 i;
+    self->emitters = (s32 *)alloc_buffer__11TOBoss4RockFPv(TTecRaZonde__data_8044DB44[self->band].count * 4);
+    for (i = 0; i < TTecRaZonde__data_8044DB44[self->band].count; i++) {
+        self->emitters[i] = TBoss4Type2__sub_800874F4(&self->points[i], TTecRaZonde__data_8044DB44[self->band].entries[i].entry);
+    }
+}
+
 void TTecRaZonde__sub_80238D10(u8 *arg0) {
   s32 new_var;
   new_var = TTecCtrl__sub_8022DBC4((int) 8, (int) ((RecoveredFields_80238D10_arg0 *) arg0)->field_78, (int) 0xFFFF);

@@ -18,6 +18,9 @@ M2C_UNK set_code_49_1__10TObjPlayerFPv(void *);
 s32 validate_6x31_use_medical_center(void *);
 s32 update_medical_font__10TObjPlayerFi(s32 arg0, void * _w1);
 void handle_6x31_use_medical_center(void *arg0);
+s32 obj_getArrWord_254(void *, M2C_UNK);
+s32 obj_testFlags30(void *, M2C_UNK);
+s32 TObjPlayer__sub_801B4684(void *arg0);
 }
 
 extern "C" {
@@ -108,6 +111,31 @@ void send_code_49_1__10TObjPlayerFi(s32 arg0) {
         sp8.h = obj_getField1c(arg0);
         bswap_font_lobby__10TObjPlayerFPv(&sp8);
     }
+}
+
+s32 TObjPlayer__sub_801B4684(void *arg0) {
+    s32 var_r31;
+    var_r31 = 0;
+    if ((s16) M2C_FIELD(arg0, s16 *, 0x32C) < (s16) M2C_FIELD(arg0, s16 *, 0x2B8)) {
+        var_r31 |= 1;
+    }
+    if ((s16) M2C_FIELD(arg0, s16 *, 0x32E) < (s16) M2C_FIELD(arg0, s16 *, 0x2BA)) {
+        var_r31 |= 2;
+    }
+    if (obj_testFlags30(arg0, 0x3F) != 0) {
+        var_r31 |= 4;
+    }
+    switch (obj_getArrWord_254(arg0, 2)) {
+    case 0xB:
+        var_r31 |= 4;
+        break;
+    }
+    switch (obj_getArrWord_254(arg0, 3)) {
+    case 0xC:
+        var_r31 |= 4;
+        break;
+    }
+    return var_r31;
 }
 
 s32 can_use_action__10TObjPlayerFi(s32 arg0) {

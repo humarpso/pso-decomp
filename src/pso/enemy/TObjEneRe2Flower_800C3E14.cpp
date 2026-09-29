@@ -121,7 +121,51 @@ struct VObj_18_6eb1ad : VBase_18_6eb1ad {
     virtual M2C_UNK m103();
 };
 
+struct Stack_800C44C4 {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+    s32 sp14;
+};
+struct RecoveredGlobal_800C44C4_lbl_8043BB90 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+typedef char RecoveredGlobal_800C44C4_lbl_8043BB90_size[sizeof(RecoveredGlobal_800C44C4_lbl_8043BB90) == 0x10 ? 1 : -1];
+struct RecoveredGlobal_800C44C4_lbl_8043BBE0 {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+typedef char RecoveredGlobal_800C44C4_lbl_8043BBE0_size[sizeof(RecoveredGlobal_800C44C4_lbl_8043BBE0) == 0x14 ? 1 : -1];
+struct RecoveredGlobal_800C44C4_lbl_8043BBF4 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+typedef char RecoveredGlobal_800C44C4_lbl_8043BBF4_size[sizeof(RecoveredGlobal_800C44C4_lbl_8043BBF4) == 0x18 ? 1 : -1];
+struct RecoveredGlobal_800C44C4_lbl_8049316C {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+typedef char RecoveredGlobal_800C44C4_lbl_8049316C_size[sizeof(RecoveredGlobal_800C44C4_lbl_8049316C) == 0x10 ? 1 : -1];
+
 extern "C" {
+s32 check_v2_mode__9TObjEneDDFv();
+u8 *TObjEneDD__sub_800BB940(M2C_UNK *, M2C_UNK *);
+u8 *TObjEneDD__sub_800BB9AC(M2C_UNK *);
+s32 TObjPlayer__sub_800C4D88();
+s32 TObjPlayer__sub_800F0928();
+s32 get_global_state__14TOKeyMachine01Fv();
+s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
+extern RecoveredGlobal_800C44C4_lbl_8043BB90 lbl_8043BB90;
+extern RecoveredGlobal_800C44C4_lbl_8043BBE0 lbl_8043BBE0;
+extern RecoveredGlobal_800C44C4_lbl_8043BBF4 lbl_8043BBF4;
+extern RecoveredGlobal_800C44C4_lbl_8049316C lbl_8049316C;
+extern s32 lbl_805D5178;
+extern s32 lbl_805D517C;
+extern s32 lbl_805D5180;
+extern const f32 lbl_805D9FAC;
+extern const f32 lbl_805D9FBC;
+void TObjPlayer__sub_800C44C4(void);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 s32 TObjEneDD__sub_800BBA18(void * a0, s32 a1);
@@ -284,6 +328,32 @@ void *create__16TObjEneRe2FlowerFPv(void *arg0) {
         o = TObjEneRe2Flower__ct(o, tl_04, arg0);
     }
     return o;
+}
+
+void TObjPlayer__sub_800C44C4(void) {
+    Stack_800C44C4 stack;
+
+    u8 *temp_r5;
+
+    if (get_global_state__14TOKeyMachine01Fv() == 0x23) {
+        lbl_805D5174 = (u32) TObjEneDD__sub_800BB940(&lbl_8049316C.value, &lbl_8043BBE0.value);
+    } else if (check_v2_mode__9TObjEneDDFv() != 0) {
+        lbl_805D5174 = (u32) TObjEneDD__sub_800BB940(&lbl_8049316C.value, &lbl_8043BBF4.value);
+    } else {
+        lbl_805D5174 = (u32) TObjEneDD__sub_800BB9AC(&lbl_8049316C.value);
+    }
+    lbl_805D5178 = 0;
+    lbl_805D517C = 0;
+    lbl_805D5180 = 0;
+    TObjPlayer__sub_800C4D88();
+    TObjPlayer__sub_800F0928();
+    stack.sp8 = M2C_FIELD(&lbl_8043BB90.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&lbl_8043BB90.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&lbl_8043BB90.value, s32 *, 8);
+    stack.sp14 = M2C_FIELD(&lbl_8043BB90.value, s32 *, 0xC);
+    stack.sp8 = M2C_FIELD(lbl_805D5174, s32 *, 0x430);
+    temp_r5 = (u8 *)(M2C_FIELD(lbl_805D5174, u8 **, 0x42C));
+    spawn_npc_enemy__6TLobbyFsiiiff((int) (0x37), (int) (M2C_FIELD(temp_r5, s32 *, 8)), (int) (M2C_FIELD(temp_r5, s32 *, 0xC)), (void *) (&stack.sp8), (f32) (lbl_805D9FBC), (f32) (lbl_805D9FAC));
 }
 
 }

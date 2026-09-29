@@ -12,6 +12,18 @@ struct GameObj {
     f32 d;
 };
 
+typedef s32 M2C_UNK;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+extern "C" {
+M2C_UNK reset_transform_state__10TObjPlayerFv();
+M2C_UNK TObjPlayer__sub_803E4A94(int, void *, f32);
+M2C_UNK TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
+M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
+void TObjPlayer__sub_80142EEC(void);
+extern int lbl_805D567C;
+void TObjPlayer__sub_80142F1C(u8 *arg0);
+}
+
 int objInBand(GameObj* obj, f32 v) {
     u32 flags = obj->flags;
     if (!((flags & 4) && !(flags & 1)) &&
@@ -31,5 +43,18 @@ int TObjPlayer__sub_803D898C(void*);
 
     extern int lbl_805D567C;
 void TObjPlayer__sub_80142EEC(void) { TObjPlayer__sub_803D898C((void*)(lbl_805D567C)); lbl_805D567C = (lbl_805D567C + 0x30); }
+void TObjPlayer__sub_80142F1C(u8 *arg0) {
+    s32 temp_r3;
+    lbl_805D567C = M2C_FIELD(arg0, s32 *, 0xE0);
+    set_global_state__16TObjEneRe7BeruraFi((void *) TObjPlayer__sub_80142EEC);
+    temp_r3 = M2C_FIELD(arg0, s32 *, 0xB0);
+    if ((temp_r3 & 4) && !(temp_r3 & 0x400)) {
+        TObjPlayer__sub_803E4A94(M2C_FIELD(arg0, s32 *, 0x34), arg0 + 0xE4, M2C_FIELD(arg0, f32 *, 0xC0));
+    } else {
+        TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
+    }
+    set_global_state__16TObjEneRe7BeruraFi(NULL);
+    reset_transform_state__10TObjPlayerFv();
+}
 
 }

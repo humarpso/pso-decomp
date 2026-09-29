@@ -720,7 +720,26 @@ struct dragon_80028530 {
     f32 outgoing_z;
 };
 
+struct Stack_800212D8 {
+    M2C_UNK sp8;
+    f32 spC;
+    u8 trailing_storage[0x4];
+};
+struct Vec_800292C0 { f32 x, y, z; };
+
+struct Vec_80029238 { f32 x, y, z; };
+
 extern "C" {
+f32 TObjPlayer__sub_8001978C(f32);
+f32 TObjPlayer__sub_803D89C0(void *, void *);
+void TBoss6Type1__sub_803D9370(void *, void *);
+extern u8 lbl_804FE1D0[0xC];
+extern u8 lbl_804FE1DC[0xC];
+extern const f32 lbl_805D4B30;
+extern const f32 TBoss1Dragon__data_805D7F40;
+extern const f32 TBoss1Dragon__data_805D7F50;
+s32 TBoss1Dragon__sub_800212D8(f32 farg0);
+s32 TBoss1Dragon__sub_800292C0(u8 *s);
 s32 objInBand__FP7GameObjf(void *, f32);
 void play_se_at_pos__12TBoss1DragonFii(s32 arg0, s32 arg1);
 extern const f32 TBoss1Dragon__data_805D7FF8;
@@ -909,7 +928,6 @@ M2C_UNK TBoss1Dragon__sub_8002830C(void *);
 M2C_UNK TBoss1Dragon__sub_800284B4(void *, M2C_UNK);
 void TBoss1Dragon__sub_80028B28(u8 *arg0);
 void play_se_at_pos__12TBoss1DragonFii(s32 arg0, s32 arg1);
-f32 TBoss1Dragon__sub_80029238(void *);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 s32 set_shake_preset__11TCameraCtrlFi(int);
 M2C_UNK TOSwitchAttack__sub_80087278(void *, s32, M2C_UNK);
@@ -924,6 +942,16 @@ extern const f32 lbl_805D8024;
 void send_6x12_packet__10TObjPlayerFPv(void *);
 void set_type_dragon__10TObjPlayerFPv(void *);
 void TBoss1Dragon__sub_80028530(struct dragon_80028530 *s);
+M2C_UNK TObjPlayer__sub_803D7B68(int, f32);
+M2C_UNK TObjPlayer__sub_803D7CA4(int);
+M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
+M2C_UNK TOMonitorMachine01__sub_803D8B5C(M2C_UNK, f32, f32, f32);
+M2C_UNK TObjPlayer__sub_803D97F0(void *);
+M2C_UNK TObjPlayer__sub_803D9B78();
+extern u8 lbl_8058D490[];
+extern const f32 TBoss1Dragon__data_805D7F24;
+extern const f32 TBoss1Dragon__data_805D7F28;
+f32 TBoss1Dragon__sub_80029238(u8 *arg0);
 }
 
 extern "C" {
@@ -1193,7 +1221,7 @@ void TBoss1Dragon::handleFallState(u32 reason) {
             break;
         case 0:
             TBoss1Dragon__sub_80143504();
-            this->rootHeight = TBoss1Dragon__sub_80029238((void *) (this));
+            this->rootHeight = TBoss1Dragon__sub_80029238((u8 *)((void *) (this)));
             if (this->animationFrame >= lbl_805D8020) {
                 this->stateStep = 1;
             }
@@ -1250,6 +1278,26 @@ void TBoss1Dragon::handleFallState(u32 reason) {
 }
 
 extern "C" {
+
+#pragma push
+#pragma fp_contract on
+s32 TBoss1Dragon__sub_800212D8(f32 farg0) {
+    Stack_800212D8 stack;
+    f32 temp_f1;
+    f32 temp_f31;
+    ((M2C_UNK (*)(void *))VecCopy__FP3VecPC3Vec)((void *) (&stack.sp8));
+    stack.spC = TBoss1Dragon__data_805D7F28;
+    TBoss6Type1__sub_803D9370((void *) (&stack.sp8), (void *) lbl_804FE1D0);
+    temp_f1 = ((f32 (*)(void *))clamp_velocity__15TObjBoss2TunnelFPv)((void *) (&stack.sp8));
+    if ((temp_f1 + farg0) < lbl_805D4B30) {
+        temp_f31 = temp_f1 * (TBoss1Dragon__data_805D7F40 / TObjPlayer__sub_8001978C((f32) ((temp_f1 * temp_f1) + (farg0 * farg0))));
+        if (TObjPlayer__sub_803D89C0((void *) (&stack.sp8), (void *) lbl_804FE1DC) >= temp_f31) {
+            return 1;
+        }
+    }
+    return 0;
+}
+#pragma pop
 
 void TBoss1Dragon__sub_80026C98(u8 *arg0, u32 arg1) {
     switch (arg1) {
@@ -1988,6 +2036,31 @@ void TBoss1Dragon::resetHpPhase() {
 }
 
 extern "C" {
+
+f32 TBoss1Dragon__sub_80029238(u8 *arg0) {
+    struct Vec_80029238 v;
+    v.x = TBoss1Dragon__data_805D7F28;
+    v.y = TBoss1Dragon__data_805D7F28;
+    v.z = TBoss1Dragon__data_805D7F28;
+    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    TOMonitorMachine01__sub_803D8B5C((M2C_UNK)(0), TBoss1Dragon__data_805D7F24, TBoss1Dragon__data_805D7F24, TBoss1Dragon__data_805D7F24);
+    TObjPlayer__sub_803D7B68(M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
+    TObjPlayer__sub_803D7CA4(M2C_FIELD(arg0, s32 *, 0x34));
+    TCameraCtrl__sub_803D8934(0, &v, &v);
+    TObjPlayer__sub_803D9B78();
+    return v.y;
+}
+
+s32 TBoss1Dragon__sub_800292C0(u8 *s) {
+    Vec_800292C0 pt;
+    Vec_800292C0 diff;
+    Vec_800292C0 unused;
+
+    TBoss1Dragon__sub_80029328(s, &pt.x, &pt.z);
+    VecCopy__FP3VecPC3Vec((s32) &diff, (s32) (s + 0x394));
+    TBoss6Type1__sub_803D9370(&diff, &pt);
+    return ((f32 (*)(void *))clamp_velocity__15TObjBoss2TunnelFPv)(&diff) <= TBoss1Dragon__data_805D7F50;
+}
 
 #pragma push
 #pragma fp_contract on

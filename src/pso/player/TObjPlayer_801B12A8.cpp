@@ -13,6 +13,11 @@ struct pkt_801B1FA4 {
     struct Vec_801B1FA4 pos;
 };
 
+typedef s32 M2C_UNK;
+typedef struct Ctx_801B1BA4 { s16 f0; s16 f2; } Ctx_801B1BA4;
+
+typedef struct Ctx_801B1C8C { s16 f0; s16 f2; } Ctx_801B1C8C;
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 s32 obj_isState2_324();
@@ -20,6 +25,18 @@ u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 void init_cmd_6x24__10TObjPlayerFPv(void *);
 void send_lobby_update__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801B1FA4(u16 slot, void *pos, s32 heading);
+s32 obj_isState2_324();
+s16 obj_getField1c(void *);
+void *update_battle_controller__10TObjPlayerFv();
+M2C_UNK fn_801C05E8(Ctx_801B1BA4 *);
+M2C_UNK fn_801C05FC(Ctx_801B1BA4 *);
+void TObjPlayer__sub_801B1BA4(void);
+s32 obj_isState2_324();
+s16 obj_getField1c(void *);
+void *update_battle_controller__10TObjPlayerFv();
+M2C_UNK fn_801C0630(Ctx_801B1C8C *);
+M2C_UNK fn_801C0644(Ctx_801B1C8C *);
+void TObjPlayer__sub_801B1C8C(void);
 }
 
 extern "C" {
@@ -64,6 +81,28 @@ void check_flag_40000__10TObjPlayerFPv(void *arg0) {
 s32 handle_set_visible__10TObjPlayerFi(s32 arg0) {
     TFontSmallLobby__sub_801C0228();
     return arg0;
+}
+
+void TObjPlayer__sub_801B1BA4(void) {
+    Ctx_801B1BA4 ctx;
+    void *p;
+    fn_801C05E8(&ctx);
+    p = update_battle_controller__10TObjPlayerFv();
+    if (p != NULL && (p == NULL || obj_isState2_324() == 0)) {
+        ctx.f2 = obj_getField1c(p);
+        fn_801C05FC(&ctx);
+    }
+}
+
+void TObjPlayer__sub_801B1C8C(void) {
+    Ctx_801B1C8C ctx;
+    void *p;
+    fn_801C0630(&ctx);
+    p = update_battle_controller__10TObjPlayerFv();
+    if (p != NULL && (p == NULL || obj_isState2_324() == 0)) {
+        ctx.f2 = obj_getField1c(p);
+        fn_801C0644(&ctx);
+    }
 }
 
 void send_field_state_if_active__10TObjPlayerFii(s32 arg0, s32 arg1) {

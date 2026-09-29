@@ -8,13 +8,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 int TNpcPlayer__sub_801528F4(s32 arg0, s32 arg1);
 void TNpcPlayer__sub_8015296C(s32 arg0, s32 arg1, s16 arg2);
-int TNpcPlayer__sub_80152950(void);
 s32 TNpcPlayer__sub_80152900(s32 arg0, s32 arg1);
+int TNpcPlayer__sub_80152950(s16 *table, s32 idx, s32 value);
 }
 
 extern "C" {
 
-int TNpcPlayer__sub_80152950(void);
 s32 TNpcPlayer__sub_80152978(void* p);
 s32 get_condition__10TNpcPlayerFPv(void* p);
 s32 TNpcPlayer__sub_801528DC(void* p);
@@ -44,14 +43,16 @@ int TNpcPlayer__sub_801528F4(s32 arg0, s32 arg1) {
 }
 
 s32 TNpcPlayer__sub_80152900(s32 arg0, s32 arg1) {
-    if (((s32)TNpcPlayer__sub_80152950()) != 0) {
+    if (((s32 (*)(void))TNpcPlayer__sub_80152950)() != 0) {
         M2C_FIELD((arg0 + (arg1 * 2)), s16 *, 0) = 0;
         return 1;
     }
     return 0;
 }
 
-int TNpcPlayer__sub_80152950(void) { return 0; }
+int TNpcPlayer__sub_80152950(s16 *table, s32 idx, s32 value) {
+    return value <= table[idx] ? 1 : 0;
+}
 
 void TNpcPlayer__sub_8015296C(s32 arg0, s32 arg1, s16 arg2) {
     M2C_FIELD((arg0 + (arg1 * 2)), s16 *, 0) = arg2;

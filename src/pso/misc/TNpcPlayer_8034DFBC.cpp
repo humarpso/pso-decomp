@@ -63,6 +63,8 @@ struct Slot_8034EDC4 {
     s32 b[6];
 };
 
+struct Pkt_8034E3A0 { u16 hdr; u16 id; s16 flag; s16 arg; u32 pad; f32 x, y, z; };
+
 extern "C" {
     extern int lbl_805D6EA0;
 void TNpcPlayer__sub_8034E420(void);
@@ -134,6 +136,12 @@ extern struct Slot_8034EDC4 lbl_805436B8[];
 extern s32 TNpcPlayer__data_805D5864;
 extern int lbl_805D6EA0;
 void TNpcPlayer__sub_8034EDC4(void);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 obj_testFlags30(void *, int);
+void send_6x3E__10TNpcPlayerFi(void *);
+void init_6x3E_packet__10TNpcPlayerFPv(void *);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void TNpcPlayer__sub_8034E3A0(u16 id, void *pos, s16 arg);
 }
 
 extern "C" {
@@ -171,6 +179,26 @@ void play_effect__10TNpcPlayerFi(int arg0) {
         play_effect_default__10TObjPlayerFii(temp_r3, -1);
     }
 }
+
+void TNpcPlayer__sub_8034E3A0(u16 id, void *pos, s16 arg) {
+    struct Pkt_8034E3A0 pkt;
+    s16 flag;
+    u8 *p;
+    init_6x3E_packet__10TNpcPlayerFPv(&pkt);
+    p = (u8 *) TPlayerBattleCtrl4P__sub_801BA74C(id);
+    flag = 0;
+    if (p != NULL) {
+        if (obj_testFlags30(p, 0x100000) != 0) {
+            flag = 1;
+        }
+        pkt.id = id;
+        VecCopy__FP3VecPC3Vec(&pkt.x, pos);
+        pkt.arg = arg;
+        pkt.flag = flag;
+        send_6x3E__10TNpcPlayerFi(&pkt);
+    }
+}
+
 void TNpcPlayer__sub_8034E420(void) { lbl_805D6EA0 = (lbl_805D6EA0 & 0xfffffffd); }
 void TNpcPlayer__sub_8034E430(void) { lbl_805D6EA0 = (lbl_805D6EA0 | 0x2); }
 void enable_all_battle_ctrl__10TNpcPlayerFv(void) {
