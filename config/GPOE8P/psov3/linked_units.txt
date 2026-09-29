@@ -700,6 +700,7 @@ pso/misc/TEndingC_8008D00C_8008D538.cpp
 pso/misc/TEndingC_8008D00C_8008D56C.cpp
 pso/misc/TEndingC_8008D00C_8008D5A0.cpp
 pso/misc/TFontSmallHelp.cpp
+pso/misc/TFontSmallLobby.cpp
 pso/misc/TFontSmallLobby_801C013C.cpp
 pso/misc/TGStream_800FDCB4.cpp
 pso/misc/TGStream_800FDD28.cpp
@@ -929,8 +930,10 @@ pso/misc/TLobby_80271E48.cpp
 pso/misc/TLobby_8028A7C8.cpp
 pso/misc/TLobby_8028D714.cpp
 pso/misc/TLobby_8028EA28.cpp
+pso/misc/TLobby_80291D94_80291D94.cpp
 pso/misc/TLobby_80291D94_80291E54.cpp
 pso/misc/TLobby_80291D94_80292E90.cpp
+pso/misc/TLobby_80291D94_80292EE4.cpp
 pso/misc/TLobby_80291D94_80293000.cpp
 pso/misc/TLobby_80291D94_80293080.cpp
 pso/misc/TLobby_80291D94_802930A8.cpp
@@ -1325,6 +1328,7 @@ pso/misc/TTecFoie_802301EC.cpp
 pso/misc/TTecGiFoie.cpp
 pso/misc/TTecGiZonde_8023A4CC.cpp
 pso/misc/TTecGiZonde_8023CDC4.cpp
+pso/misc/TTecGrants.cpp
 pso/misc/TTecKafun.cpp
 pso/misc/TTecKafun_802A9688.cpp
 pso/misc/TTecKafun_802A9710.cpp
@@ -1843,6 +1847,7 @@ pso/packages/player/TObjPlayer/80102CE0.cpp
 pso/packages/player/TObjPlayer/801BD424.cpp
 pso/packages/player/TObjPlayer/801D2058.cpp
 pso/player/NormalAttack.cpp
+pso/player/TObjPlayer.cpp
 pso/player/TObjPlayerSet.cpp
 pso/player/TObjPlayer_8000FEAC.cpp
 pso/player/TObjPlayer_8000FF4C.cpp
@@ -2179,12 +2184,15 @@ pso/player/TObjPlayer_801AF8D8.cpp
 pso/player/TObjPlayer_801AF95C.cpp
 pso/player/TObjPlayer_801AFC68.cpp
 pso/player/TObjPlayer_801AFCCC.cpp
+pso/player/TObjPlayer_801B0730.cpp
+pso/player/TObjPlayer_801B0864.cpp
 pso/player/TObjPlayer_801B0FAC.cpp
 pso/player/TObjPlayer_801B12A8_801B12A8.cpp
 pso/player/TObjPlayer_801B12A8_801B1390.cpp
 pso/player/TObjPlayer_801B12A8_801B13EC.cpp
 pso/player/TObjPlayer_801B12A8_801B1438.cpp
 pso/player/TObjPlayer_801B12A8_801B14A8.cpp
+pso/player/TObjPlayer_801B12A8_801B1624.cpp
 pso/player/TObjPlayer_801B3468.cpp
 pso/player/TObjPlayer_801B3FD8_801B4264.cpp
 pso/player/TObjPlayer_801B3FD8_801B47F4.cpp
@@ -2257,6 +2265,7 @@ pso/player/TObjPlayer_801BFE50.cpp
 pso/player/TObjPlayer_801BFED4.cpp
 pso/player/TObjPlayer_801C00C4.cpp
 pso/player/TObjPlayer_801C0808.cpp
+pso/player/TObjPlayer_801C0808_801C0808.cpp
 pso/player/TObjPlayer_801C0808_801C0970.cpp
 pso/player/TObjPlayer_801C0808_801C16F0.cpp
 pso/player/TObjPlayer_801C0B50.cpp
@@ -2690,6 +2699,7 @@ pso/ui/TAdTrialAgreementGC_8033573C.cpp
 pso/ui/TAdTrialAgreementGC_80335958.cpp
 pso/ui/TAdTrialModemChkGC.cpp
 pso/ui/TAdVIConfigGC_80248B8C.cpp
+pso/ui/TAdVIConfigGC_80308200.cpp
 pso/ui/TAdWarningBaseGC_8032D154.cpp
 pso/ui/TAdWarningBaseGC_8032D188.cpp
 pso/ui/TAdWarningBaseGC_8032D1A4.cpp
@@ -2753,6 +2763,7 @@ pso/unk/text_80081B7C.cpp
 pso/unk/text_800832EC.cpp
 pso/unk/text_80086D50.cpp
 pso/unk/text_800870BC.cpp
+pso/unk/text_800871A0.cpp
 pso/unk/text_8008C4F4.cpp
 pso/unk/text_80090464.cpp
 pso/unk/text_80090488.cpp
@@ -2999,6 +3010,7 @@ pso/unk/text_801811FC.cpp
 pso/unk/text_80181278.cpp
 pso/unk/text_8018130C.cpp
 pso/unk/text_801815A0.cpp
+pso/unk/text_80182234.cpp
 pso/unk/text_80182348.cpp
 pso/unk/text_80182E90.cpp
 pso/unk/text_80183018.cpp
@@ -3038,8 +3050,10 @@ pso/unk/text_801A5778.cpp
 pso/unk/text_801A6A28.cpp
 pso/unk/text_801AB018.cpp
 pso/unk/text_801AF454.cpp
+pso/unk/text_801AF904.cpp
 pso/unk/text_801B0520_801B0520.cpp
 pso/unk/text_801B1050.cpp
+pso/unk/text_801B1090.cpp
 pso/unk/text_801B811C.cpp
 pso/unk/text_801B9544.cpp
 pso/unk/text_801BA42C.cpp
@@ -3112,6 +3126,7 @@ pso/unk/text_8020A2AC.cpp
 pso/unk/text_8020A508.cpp
 pso/unk/text_8020B374.cpp
 pso/unk/text_8020CC48.cpp
+pso/unk/text_8020CF40.cpp
 pso/unk/text_8020ED44.cpp
 pso/unk/text_80214254.cpp
 pso/unk/text_80222BCC.cpp
@@ -3226,6 +3241,7 @@ pso/unk/text_802E10D8.cpp
 pso/unk/text_802E3BA8.cpp
 pso/unk/text_802E4A4C.cpp
 pso/unk/text_802EC52C.cpp
+pso/unk/text_802EEE24.cpp
 pso/unk/text_802EFEA8.cpp
 pso/unk/text_802EFEC4.cpp
 pso/unk/text_802F0F04.cpp
@@ -3233,6 +3249,7 @@ pso/unk/text_802F1200.cpp
 pso/unk/text_802F19C0.cpp
 pso/unk/text_802F1F58.cpp
 pso/unk/text_802F1FB0.cpp
+pso/unk/text_802F2E7C.cpp
 pso/unk/text_802FE8CC.cpp
 pso/unk/text_802FE908.cpp
 pso/unk/text_802FE9E0.cpp

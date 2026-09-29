@@ -97,6 +97,12 @@ void TObjPlayer__sub_803D99F8(void *, int);
 void TBoss7Tentacle__sub_803D9BA0(void *);
 void TOHangerMachine01__sub_803D9C00(void *);
 void TObjPlayer__sub_803D7CA4(void *arg0);
+s32 TBoss8Dragon__sub_803D7504(void *, void *, void *, void *, void *);
+void TObjPlayer__sub_803D98E4(void *);
+void TObjPlayer__sub_803D99F8(void *, int);
+void TBoss7Tentacle__sub_803D9BA0(void *);
+void TOHangerMachine01__sub_803D9C00(void *);
+void TObjPlayer__sub_803D76B4(void *arg0);
 }
 
 extern "C" {
@@ -211,6 +217,33 @@ typedef char RecoveredGlobal_803D77C0_lbl_8047E3C8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_803D77C0_lbl_804FA500_size[sizeof(RecoveredGlobal_803D77C0_lbl_804FA500) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_803D77C0_lbl_804FA50C_size[sizeof(RecoveredGlobal_803D77C0_lbl_804FA50C) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_803D77C0_lbl_804FA51C_size[sizeof(RecoveredGlobal_803D77C0_lbl_804FA51C) == 0x24 ? 1 : -1];
+
+#pragma push
+#pragma scheduling off
+#pragma opt_common_subs off
+#pragma peephole off
+void TObjPlayer__sub_803D76B4(void *arg0) {
+    struct Vec_803D7CA4 trans;
+    struct Vec_803D7CA4 scale;
+    struct Angles_803D7CA4 rot;
+    struct Quat_803D7CA4 quat;
+    s32 kind;
+    kind = TBoss8Dragon__sub_803D7504(arg0, &trans, &rot, &scale, &quat);
+    TOHangerMachine01__sub_803D9C00(&trans);
+    switch (kind) {
+    case 0:
+        TObjPlayer__sub_803D99F8(&rot, 0);
+        break;
+    case 1:
+        TObjPlayer__sub_803D99F8(&rot, 1);
+        break;
+    default:
+        TObjPlayer__sub_803D98E4(&quat);
+        break;
+    }
+    TBoss7Tentacle__sub_803D9BA0(&scale);
+}
+#pragma pop
 
 void TObjPlayer__sub_803D7740(s32 n) {
     s32 w = n * 4;

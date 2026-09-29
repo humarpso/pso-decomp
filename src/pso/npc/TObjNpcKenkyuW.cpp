@@ -97,6 +97,17 @@ struct RecoveredGlobal_802A3CD8___vt__14TObjNpcKenkyuW {
     u8 remaining[0x174];
 };
 
+#include "pso/technique/TechniqueContact.h"
+struct Stack_80236290 {
+    M2C_UNK sp8;
+    u8 trailing_storage[0x8];
+};
+
+struct RecoveredGlobal_80236290_lbl_80516150 {
+    M2C_UNK value;
+    u8 remaining[0x84];
+};
+
 extern "C" {
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -114,6 +125,8 @@ extern u32 TObjNpcKenkyuW__data_805D6658;
 u8 *TObjNpcKenkyuW__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 TObjPlayer__sub_80019570(void *);
 bool TObjPlayer__sub_802A3DAC(M2C_UNK arg0, u32 arg1);
+extern RecoveredGlobal_80236290_lbl_80516150 lbl_80540A38;
+void TObjPlayer__sub_802A3D68();
 }
 
 extern "C" {
@@ -168,6 +181,16 @@ u8 *TObjNpcKenkyuW__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     fn_80148274((void *) (arg0));
     return arg0;
 }
+
+typedef char RecoveredGlobal_80236290_lbl_80516150_size[sizeof(RecoveredGlobal_80236290_lbl_80516150) == 0x88 ? 1 : -1];
+void TObjPlayer__sub_802A3D68() {
+    for (s32 i=0;i<16;++i) {
+        (*(TechniqueContactList *)&lbl_80540A38).actors[i]=0;
+        (*(TechniqueContactList *)&lbl_80540A38).bodies[i]=0;
+    }
+    (*(TechniqueContactList *)&lbl_80540A38).count=0;
+}
+
 bool TObjPlayer__sub_802A3DAC(M2C_UNK arg0, u32 arg1) {
     if (arg1 == 0U) {
         return 0;

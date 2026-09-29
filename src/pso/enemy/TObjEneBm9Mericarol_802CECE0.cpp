@@ -370,6 +370,16 @@ struct VObj_18_3b55b6 : VBase_18_3b55b6 {
     virtual M2C_UNK m100(s32);
 };
 
+struct E_800AC9DC { u8 pad[8]; s32 x8; s32 xc; };
+
+struct G_800AC9DC { u8 pad[0x42c]; E_800AC9DC *tbl; };
+
+struct O_800AC9DC { u8 pad[0x24]; s32 x24; u8 pad2[0xc]; s32 x34; };
+
+struct Sub_800ACA10 { u8 pad[0x18]; s32 level; };
+
+struct Obj_800ACA10 { u8 pad[0x2B0]; Sub_800ACA10 *sub; };
+
 extern "C" {
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 s32 refresh_and_send_entity_flags__12TBoss8DragonFPv(void *);
@@ -412,6 +422,8 @@ s32 construct__19TObjEneBm9MericarolFPvii(int, void *, int);
 void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1);
 void queue_destruction__7TObjectFv(void *self);
 void TObjEneBm9Mericarol__sub_802CF178(void *self, s32 msg);
+extern s32 lbl_805D5550;
+s32 TObjEneBm9Mericarol__sub_802CED50(Obj_800ACA10 *self);
 }
 
 extern "C" {
@@ -449,6 +461,27 @@ void TObjEneBm9Mericarol__sub_802CED3C(void) {  }
 void TObjEneBm9Mericarol__sub_802CED40(void* p) { *(u32*)((char*)p + 0x438) |= 0x2; }
 
 extern const f32 lbl_805DE6F4;
+
+s32 TObjEneBm9Mericarol__sub_802CED50(Obj_800ACA10 *self) {
+    Sub_800ACA10 *p = self->sub;
+    s32 v = 0;
+    if (p != 0) {
+        v = p->level;
+        if (v < 0) {
+            return 0;
+        }
+        if (lbl_805D5550 == 3) {
+            if (v > 0x1D) {
+                v = 0x1D;
+            }
+            return v;
+        }
+        if (v > 0xE) {
+            v = 0xE;
+        }
+    }
+    return v;
+}
 
 void handle_motion_event__19TObjEneBm9MericarolFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r4;

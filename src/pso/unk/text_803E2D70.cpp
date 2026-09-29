@@ -12,6 +12,20 @@ struct FloatColor { f32 a, r, g, b; };
 
 struct ByteColor { u8 r, g, b, a; };
 
+typedef M2C_UNK (*RecoveredCallback_92513335c3ed)(void *);
+typedef void (*RecoveredCallback_2be3cacebb2e)(void);
+struct RecoveredGlobal_803DCBD8_lbl_8058D380 {
+    M2C_UNK value;
+    u8 remaining[0xEC];
+};
+
+struct MotionCtx_803DC894 {
+    u8 pad[0xC];
+    void (*fn)(void);
+};
+
+struct Mtx_803DC994 { f32 m[3][4]; };
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_803E20B0();
 M2C_UNK setup_render__10TObjPlayerFv();
@@ -65,6 +79,8 @@ void TObjPlayer__sub_803E44D4(void *);
 void TObjPlayer__sub_803E2F78(void *, void (*)(void *));
 void TObjPlayer__sub_803E4468(void);
 void TObjFish__sub_803E46BC(void *arg0);
+extern s32 lbl_805D7774;
+void TObjPlayer__sub_803E2F28(struct Mtx_803DC994 *src);
 }
 
 extern "C" {
@@ -83,6 +99,24 @@ void TLobby__sub_803E2EE4(s32 arg0) {
     }
     TObjPlayer__sub_803E224C();
 }
+
+#pragma push
+#pragma peephole off
+#pragma scheduling off
+typedef char RecoveredGlobal_803DCBD8_lbl_8058D380_size[sizeof(RecoveredGlobal_803DCBD8_lbl_8058D380) == 0xF0 ? 1 : -1];
+void TObjPlayer__sub_803E2F28(struct Mtx_803DC994 *src) {
+    struct Mtx_803DC994 *dst = (struct Mtx_803DC994 *)lbl_805D7774;
+    dst->m[0][0] = src->m[0][0];
+    dst->m[0][1] = src->m[0][1];
+    dst->m[0][2] = src->m[0][2];
+    dst->m[1][0] = src->m[1][0];
+    dst->m[1][1] = src->m[1][1];
+    dst->m[1][2] = src->m[1][2];
+    dst->m[2][0] = src->m[2][0];
+    dst->m[2][1] = src->m[2][1];
+    dst->m[2][2] = src->m[2][2];
+}
+#pragma pop
 
 #pragma push
 #pragma scheduling off

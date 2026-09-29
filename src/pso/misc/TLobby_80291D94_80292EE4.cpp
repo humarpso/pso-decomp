@@ -9,10 +9,15 @@ struct RecoveredGlobal_8006F23C_lbl_8048C9D8 {
     u8 remaining[0x744];
 };
 
+struct G_8006F2CC { u8 pad[0x28]; s32 x28; };
+
 extern "C" {
 s32 TLobby__sub_80293080();
 extern RecoveredGlobal_8006F23C_lbl_8048C9D8 lbl_804DB1F0;
 s32 TLobby__sub_80292F7C(void);
+extern RecoveredGlobal_8006F23C_lbl_8048C9D8 lbl_804DB1F0;
+s32 TLobby__sub_80293080();
+void TLobby__sub_80292FB8(void);
 }
 
 extern "C" {
@@ -46,5 +51,15 @@ s32 TLobby__sub_80292F7C(void) {
     return 0;
 }
 #pragma pop
+
+void TLobby__sub_80292FB8(void) {
+    if (TLobby__sub_80293080() != 0) {
+        switch ((*(G_8006F2CC *)&lbl_804DB1F0).x28) {
+        case 0:
+            (*(G_8006F2CC *)&lbl_804DB1F0).x28 = 1;
+            break;
+        }
+    }
+}
 
 }

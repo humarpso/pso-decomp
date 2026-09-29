@@ -71,6 +71,11 @@ extern s32 tl_05;
 extern const f32 lbl_805DB390;
 extern const f32 lbl_805DB394;
 u8 *TOComputerMachine01__ct(u8 *arg0, s32 arg1);
+void TLobby__sub_8001FE7C(void *, s32);
+extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__data_8050DB50;
+extern s32 TOComputerMachine01__data_805D58E4;
+extern u8 *TOComputerMachine01__data_805D58E0;
+void TOComputerMachine01__sub_8015B4E4(void);
 }
 
 extern "C" {
@@ -126,6 +131,18 @@ void *create__19TOComputerMachine01FPv(void *arg0) {
 }
 
 extern M2C_UNK __vt__19TOComputerMachine01[];
+
+void TOComputerMachine01__sub_8015B4E4(void) {
+    s32 i;
+    TOComputerMachine01__data_805D58E4 = 0;
+    for (i = 0; i < 0x4; i++) {
+        ((s32 *)&TOComputerMachine01__data_8050DB50)[i] = 0;
+    }
+    if ((*(void * *)&TOComputerMachine01__data_805D58E0) != 0) {
+        TLobby__sub_8001FE7C((*(void * *)&TOComputerMachine01__data_805D58E0), 1);
+        (*(void * *)&TOComputerMachine01__data_805D58E0) = 0;
+    }
+}
 
 void *__dt__19TOComputerMachine01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -89,6 +89,10 @@ struct RecoveredGlobal_802BD938_TBoss6Type2__data_8047105C {
 #pragma dont_inline off
 struct Blk_802BCFD4 { s32 a; s32 b; s32 rest[7]; };
 
+struct Obj_8004D8C8 { u8 pad[0x2D4]; u16 f2d4; u16 f2d6; };
+
+struct Obj_8004D92C { u8 pad[0x2D4]; u16 f2d4; u16 f2d6; };
+
 extern "C" {
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 s32 add_damage__11TBoss6Type2FPvi(void *, int);
@@ -138,13 +142,14 @@ void TBoss6Type2__sub_802BD938(u8 *arg0, u8 *arg1);
 extern int lbl_804710BC[];
 s32 TBoss6Type2__sub_802BD870(u32 v);
 Blk_802BCFD4 *TBoss6Type2__sub_802BCFD4(Blk_802BCFD4 *d, Blk_802BCFD4 *s);
+u16 obj_getArrU16_FC(void *obj, s32 i);
+void TBoss6Type2__sub_802BD3CC(Obj_8004D8C8 *self, u16 *a, u16 *b, u16 *out);
 }
 
 extern "C" {
 
 void TBoss6Type2__sub_802BD340(void);
 int TBoss6Type2__sub_802BD378(void);
-int TBoss6Type2__sub_802BD3CC(void);
 f32 TBoss6Type2__vt20(void *arg0, u32 arg1, f32 farg0);
 void TBoss6Type2__vt42(void);
 void TBoss6Type2__vt43(void);
@@ -340,9 +345,16 @@ int TBoss6Type2__sub_802BD378(void) { return 0; }
 
 s32 get_rotation_timer__11TBoss6Type2FPv(void* p) { return *(s32*)((char*)p + 0x418); }
 
-int TBoss6Type2__sub_802BD3CC(void) { return 0; }
-
 extern const f32 TBoss6Type2__data_805DE410;
+
+void TBoss6Type2__sub_802BD3CC(Obj_8004D8C8 *self, u16 *a, u16 *b, u16 *out) {
+    s32 i;
+    *a = self->f2d6;
+    *b = self->f2d4;
+    for (i = 0; i < 4; i++) {
+        out[i] = obj_getArrU16_FC(self, i);
+    }
+}
 
 f32 TBoss6Type2__vt20(void *arg0, u32 arg1, f32 farg0) {
     s32 var_r31;

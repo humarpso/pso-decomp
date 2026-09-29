@@ -97,6 +97,120 @@ struct RecoveredGlobal_8015BD68___vt__23TOContainerAncientEnemy {
 
 struct Obj_8015BCC0 { u8 pad[0x326]; s16 a326; u8 pad2[0x364 - 0x328]; s32 a364; };
 
+#define CAT2(a, b) a##b
+#define CAT(a, b) CAT2(a, b)
+#define PADV virtual void CAT(pv, __LINE__)();
+#define PADV4 virtual void CAT(pa, __LINE__)(); virtual void CAT(pb, __LINE__)(); virtual void CAT(pc, __LINE__)(); virtual void CAT(pd, __LINE__)();
+struct Base_TOC_801881D4 { char pad[0x18]; };
+
+struct V_TOC_801881D4 : Base_TOC_801881D4 {
+    PADV4
+    PADV4
+    virtual s32 m8(f32, f32);
+};
+
+struct VBase_18 { char pad[0x18]; };
+
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual M2C_UNK m77();
+};
+
+struct Obj_80188884 { u8 pad0[0x38]; u8 pos[0x28]; s32 id; u8 pad1[0x326 - 0x64]; s16 state; };
+
+struct Obj_80188814 { u8 pad0[0x38]; u8 pos[0x4c]; s32 id; };
+
+struct Obj_801884A0 {
+    s32 unk0;
+    u8 pad4[0x18 - 0x4];
+    void *vtbl;
+    u8 pad1C[0x30 - 0x1C];
+    u32 flags30;
+    u8 pad34[0x88 - 0x34];
+    s32 selector;
+    u8 pad8C[0x98 - 0x8C];
+    u8 aux98[0xBC - 0x98];
+    void *model;
+    f32 unkC0;
+    s32 unkC4;
+};
+
 extern "C" {
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -122,6 +236,13 @@ extern s32 tl_05;
 u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1);
 void TObjPlayer__sub_801B4A18(Obj_8015BCC0 *self, s32 x);
 void TOContainerAncientEnemy__sub_8015BCC0(Obj_8015BCC0 *self);
+void set_global_count__12TObjNpcEnemyFi(s32 arg0);
+void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void TObjRoomId__sub_80141CF4(void *dst, void *src, f32 t);
+extern char lbl_80440830[];
+extern u8 lbl_804A7448[];
+extern const f32 lbl_805DB3A0;
+void TOContainerAncientEnemy__sub_8015BB8C(Obj_80188814 *self);
 }
 
 extern "C" {
@@ -147,6 +268,13 @@ void check_and_destroy__23TOContainerAncientEnemyFPvPvi(void *arg0, s16 *arg1, s
 }
 
 extern M2C_UNK __vt__23TOContainerAncientEnemy[];
+
+void TOContainerAncientEnemy__sub_8015BB8C(Obj_80188814 *self) {
+    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_80440830, self->id);
+    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+    TObjRoomId__sub_80141CF4(self->pos, lbl_804A7448, lbl_805DB3A0);
+}
 
 void TOContainerAncientEnemy__sub_8015BBFC(u8 *arg0) {
     u8 *temp_r31;

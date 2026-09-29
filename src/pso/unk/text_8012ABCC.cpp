@@ -121,19 +121,23 @@ struct RecoveredFields_8012ABCC_arg0
   u32 field_F0;
 };
 
+struct Elem_80077A28 { u8 data[0xD4]; };
+
+struct Obj_80077A28 { s32 f0; Elem_80077A28 e[0x20]; };
+
 extern "C" {
 s32 get_minutes__6TLobbyFv();
 M2C_UNK TObjPlayer__sub_801012DC(void *, int);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
 M2C_UNK draw_status_icon__10TObjPlayerFPvi(void *, void *);
 s32 get_extended_state__10TObjPlayerFPv(int);
-M2C_UNK TObjPlayer__sub_8012ADD4(void *, int);
 void TObjPlayer__sub_8012AD24(u8 *arg0);
 s32 TObjPlayer__sub_800196EC();
 s32 get_field_3e4__10TObjPlayerFPv(int);
 s32 TObjPlayer__sub_8012AC68(void *);
 s32 reset_key_machine_state__10TObjPlayerFv();
 void TObjPlayer__sub_8012ABCC(u8 *arg0, s32 arg1);
+u32 *TObjPlayer__sub_8012ADD4(u32 *dst, u32 *src);
 }
 
 extern "C" {
@@ -167,7 +171,7 @@ void TObjPlayer__sub_8012AD24(u8 *arg0) {
     M2C_UNK sp8;
     M2C_UNK var_r31;
     if (is_mode_two_and_ready__10TObjPlayerFPv() != 0) {
-        TObjPlayer__sub_8012ADD4((void *) (arg0 + 0x1F8), (int) (get_extended_state__10TObjPlayerFPv((int) (M2C_FIELD(arg0, s32 *, 0xF0)))));
+        TObjPlayer__sub_8012ADD4((u32 *)((void *) (arg0 + 0x1F8)), (u32 *)((int) (get_extended_state__10TObjPlayerFPv((int) (M2C_FIELD(arg0, s32 *, 0xF0))))));
         draw_status_icon__10TObjPlayerFPvi((void *) (arg0), (void *) (arg0 + 0x224));
         var_r31 = 0;
         if (!((get_minutes__6TLobbyFv() / 100) & 1)) {
@@ -178,6 +182,20 @@ void TObjPlayer__sub_8012AD24(u8 *arg0) {
     }
     draw_status_icon__10TObjPlayerFPvi((void *) (arg0), (void *) (&sp8));
     ((VObj_18 *)(arg0))->m49(&sp8, 0, 0, 1);
+}
+u32 *TObjPlayer__sub_8012ADD4(u32 *dst, u32 *src) {
+    u32 *d = dst;
+    u32 b;
+    u32 a;
+    s32 i;
+    *dst = *src;
+    for (i = 0; i < 0x5; i++) {
+        a = src[1];
+        b = *(src += 2);
+        d[1] = a;
+        *(d += 2) = b;
+    }
+    return dst;
 }
 
 }

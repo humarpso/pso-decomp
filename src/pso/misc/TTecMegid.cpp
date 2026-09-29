@@ -32,6 +32,98 @@ struct RecoveredFields_80235348_arg0
   s16 field_F0;
 };
 
+struct RecoveredGlobal_802308A0_lbl_804CC510
+{
+  M2C_UNK value;
+  u8 remaining[0x48];
+};
+
+struct RecoveredGlobal_802308A0_lbl_804CC55C
+{
+  M2C_UNK value;
+  u8 remaining[0x94];
+};
+
+struct RecoveredFields_802308A0_arg0
+{
+  u8 unknown_0[0x70];
+  f32 field_70;
+  u8 unknown_74[0x50];
+  s16 field_C4;
+  u8 unknown_C6[0x6];
+  f32 field_CC;
+  u8 unknown_D0[0x4];
+  f32 field_D4;
+  u8 unknown_D8[0x18];
+  s16 field_F0;
+};
+
+struct HitInfo_802309AC { s32 type; f32 power; };
+
+struct VBase_802309AC { char pad[0x18]; };
+
+struct VObj_802309AC : VBase_802309AC {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21(void *, HitInfo_802309AC *, void *, s32, s32);
+};
+
+struct Obj_802309AC {
+    u8 pad0[0x1C];
+    void *source;
+    u8 pad20[0xCC - 0x20];
+    f32 power;
+    u8 padD0[0xF8 - 0xD0];
+    void *contact;
+    u8 padFC[0x134 - 0xFC];
+    u16 ids[32];
+    s32 cursor;
+};
+
+struct TTecGiBartaData_80230B48 { u8 pad[4]; u32 count; };
+
+struct TTecGiBarta_80230B48 {
+    u8 pad0[0x18];
+    void *vtable;
+    u8 pad1c[0xC6 - 0x1C];
+    s16 band;
+    u8 padc8[0x130 - 0xC8];
+    void **emitters;
+};
+
+struct TTecGiBarta_80230C58 {
+    s32 f0;
+    u8 pad4[0x18 - 4];
+    void *vtable;
+    void *owner;
+    u8 pad20[0xC8 - 0x20];
+    s16 fc8;
+    u8 padca[0x12C - 0xCA];
+    f32 f12c;
+    u8 pad130[4];
+    u16 slots[32];
+    s32 f174;
+};
+
 extern "C" {
 s32 TTecCtrl__sub_8022DBC4(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
@@ -39,6 +131,13 @@ s32 TTecAnti__sub_8022B35C(void *, int);
 extern RecoveredGlobal_80235348_lbl_804CC510 lbl_804CC510;
 extern RecoveredGlobal_80235348_lbl_804CC55C lbl_804CC55C;
 void TTecMegid__sub_80235348(u8 *arg0);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+void free__11TOBoss4RockFUi(void **);
+void __dl__7TObjectFPv(void *);
+void destroy_technique_effect_resources__10TObjPlayerFPvs(void *, s16);
+extern TTecGiBartaData_80230B48 TTecMegid__data_8044D874[];
+extern void *__vt__9TTecMegid[];
+TTecGiBarta_80230B48 *__dt__9TTecMegidFv(TTecGiBarta_80230B48 *self, s16 deleting);
 }
 
 extern "C" {
@@ -52,7 +151,6 @@ s32 TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 s32 TTecMegid__ct(u32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0, s32 a4 = 0);
 s32 TTecMegid__sub_80235940(u32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0, s32 a4 = 0);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
-M2C_UNK queue_destruction__7TObjectFv();
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
 
 void update_by_state__9TTecMegidFPv(u8 *arg0) {
@@ -133,10 +231,30 @@ void create_ex__9TTecMegidFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 }
 void render__9TTecMegidFv(void) {  }
 
+typedef struct RecoveredFields_802308A0_arg0 RecoveredFields_802308A0_arg0;
+typedef struct RecoveredGlobal_802308A0_lbl_804CC510 RecoveredGlobal_802308A0_lbl_804CC510;
+typedef struct RecoveredGlobal_802308A0_lbl_804CC55C RecoveredGlobal_802308A0_lbl_804CC55C;
+typedef char RecoveredGlobal_802308A0_lbl_804CC510_size[((sizeof(RecoveredGlobal_802308A0_lbl_804CC510)) == 0x4C) ? (1) : (-1)];
+typedef char RecoveredGlobal_802308A0_lbl_804CC55C_size[((sizeof(RecoveredGlobal_802308A0_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
+TTecGiBarta_80230B48 *__dt__9TTecMegidFv(TTecGiBarta_80230B48 *self, s16 deleting) {
+    if (self) {
+        self->vtable = __vt__9TTecMegid;
+        for (u32 i = 0; i < TTecMegid__data_8044D874[self->band].count; ++i) {
+            if (self->emitters[i]) {
+                queue_destruction__7TObjectFv((void *)(self->emitters[i]));
+            }
+        }
+        free__11TOBoss4RockFUi(self->emitters);
+        destroy_technique_effect_resources__10TObjPlayerFPvs(self, 0);
+        if (deleting > 0) __dl__7TObjectFPv(self);
+    }
+    return self;
+}
+
 void fn_802359E4(void *arg0) {
     M2C_FIELD(arg0, s16 *, 0x1E) = (s16) (M2C_FIELD(arg0, s16 *, 0x1E) + 1);
     if ((s16) M2C_FIELD(arg0, s16 *, 0x1E) > (s16) M2C_FIELD(arg0, s16 *, 0x1C)) {
-        queue_destruction__7TObjectFv();
+        queue_destruction__7TObjectFv((void *)((void *)(arg0)));
     }
 }
 

@@ -73,6 +73,7 @@ struct RecoveredGlobal_80358F28_TObjNpcNgcBase__data_805439A8
   u8 remaining[0x34];
 };
 
+typedef s32 M2C_UNK;
 extern "C" {
 s32 TObjControl__ct(int, int);
 s32 __nw__7TObjectFUl(int);
@@ -158,6 +159,9 @@ s32 TObjNpcNgcBase__ct(int, int, void *, int);
 extern RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8 TObjNpcNgcBase__data_805439A8;
 extern s32 tl_04;
 s32 TObjNpcNgcBase__sub_80359148(s32 arg0);
+M2C_UNK TLobby__sub_8001FE7C(void *, M2C_UNK);
+extern RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8 TObjNpcNgcBase__data_805439A8;
+void TObjNpcNgcBase__sub_8035925C(void);
 }
 
 extern "C" {
@@ -527,6 +531,15 @@ s32 TObjNpcNgcBase__create(s32 arg0) {
     return var_r0;
   }
   return 0;
+}
+void TObjNpcNgcBase__sub_8035925C(void) {
+    s32 i;
+    for (i = 0xd; i >= 0; i--) {
+        if (((void * *)&TObjNpcNgcBase__data_805439A8)[i] != 0) {
+            TLobby__sub_8001FE7C(((void * *)&TObjNpcNgcBase__data_805439A8)[i], 1);
+            ((void * *)&TObjNpcNgcBase__data_805439A8)[i] = 0;
+        }
+    }
 }
 
 }

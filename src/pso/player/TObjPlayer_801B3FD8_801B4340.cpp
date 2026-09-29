@@ -4,6 +4,22 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct pkt_801B1674 {
+    u8 hdr[2];
+    u16 player_id;
+};
+
+extern "C" {
+void revive__10TObjPlayerFPv(void *arg0);
+s32 revive_6xA1__10TObjPlayerFi(s32 arg0, void *arg1);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+void TFontSmallLobby__sub_801C01BC(void *);
+M2C_UNK set_code_161_1__10TObjPlayerFPv(void *);
+s32 validate_6xA1_revive_player_v3(void *);
+s32 revive_6xA1__10TObjPlayerFi(s32 arg0, void * _w1);
+void handle_6xA1_revive_player_v3(void *arg0);
+}
+
 extern "C" {
 
 struct Base_801B4340_801B3FD8 { char pad[0x18]; };
@@ -66,7 +82,6 @@ struct VObj_801B4340_801B3FD8 : Base_801B4340_801B3FD8 {
 struct S801B4430_801b4430_801B3FD8 { s8 b[2]; s16 h; };
 
 void TObjPlayer__sub_801B4430(s32 arg0);
-s32 revive_6xA1__10TObjPlayerFi(s32 arg0);
 void revive__10TObjPlayerFPv(void *arg0);
 M2C_UNK TFontSmallLobby__sub_801C0228();
 M2C_UNK TObjPlayer__sub_8011E204(void *, M2C_UNK);
@@ -85,7 +100,20 @@ void revive__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_8011E204(arg0, 1);
 }
 
-s32 revive_6xA1__10TObjPlayerFi(s32 arg0) {
+void handle_6xA1_revive_player_v3(void *arg0) {
+    struct pkt_801B1674 pkt;
+    set_code_161_1__10TObjPlayerFPv((void *)((M2C_UNK *)(&pkt)));
+    revive_6xA1__10TObjPlayerFi((s32)((s32)((s32) &pkt)), (void *)((void *)(arg0)));
+    TFontSmallLobby__sub_801C01BC(&pkt);
+    if (validate_6xA1_revive_player_v3(&pkt) != 0) {
+        u8 *p = (u8 *) TPlayerBattleCtrl4P__sub_801BA74C(pkt.player_id);
+        if (p != NULL) {
+            revive__10TObjPlayerFPv((void *)(p));
+        }
+    }
+}
+
+s32 revive_6xA1__10TObjPlayerFi(s32 arg0, void * _w1) {
     TFontSmallLobby__sub_801C0228();
     return arg0;
 }

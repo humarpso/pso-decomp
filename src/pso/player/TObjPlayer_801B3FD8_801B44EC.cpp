@@ -4,6 +4,22 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct pkt_801B1674 {
+    u8 hdr[2];
+    u16 player_id;
+};
+
+extern "C" {
+void recover_full__10TObjPlayerFPv(void *arg0);
+s32 update_medical_font__10TObjPlayerFi(s32 arg0, void *arg1);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+void TFontSmallLobby__sub_801C01BC(void *);
+M2C_UNK set_code_49_1__10TObjPlayerFPv(void *);
+s32 validate_6x31_use_medical_center(void *);
+s32 update_medical_font__10TObjPlayerFi(s32 arg0, void * _w1);
+void handle_6x31_use_medical_center(void *arg0);
+}
+
 extern "C" {
 
 struct S801B44EC_801b44ec_801B3FD8 { s8 b[2]; s16 h; };
@@ -31,7 +47,6 @@ void recover_full__10TObjPlayerFPv(void *arg0);
 void send_code50_packet__10TObjPlayerFi(s32 arg0);
 void send_code_49_1__10TObjPlayerFi(s32 arg0);
 void send_field_state__10TObjPlayerFPv(void* p);
-s32 update_medical_font__10TObjPlayerFi(s32 arg0);
 M2C_UNK TFontSmallLobby__sub_801C0228();
 s32 TLobby__sub_800822E8(s32, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8011E204(void *, M2C_UNK);
@@ -67,7 +82,20 @@ void recover_full__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_8011E204(arg0, 1);
 }
 
-s32 update_medical_font__10TObjPlayerFi(s32 arg0) {
+void handle_6x31_use_medical_center(void *arg0) {
+    struct pkt_801B1674 pkt;
+    set_code_49_1__10TObjPlayerFPv((void *)((M2C_UNK *)(&pkt)));
+    update_medical_font__10TObjPlayerFi((s32)((s32)((s32) &pkt)), (void *)((void *)(arg0)));
+    TFontSmallLobby__sub_801C01BC(&pkt);
+    if (validate_6x31_use_medical_center(&pkt) != 0) {
+        u8 *p = (u8 *) TPlayerBattleCtrl4P__sub_801BA74C(pkt.player_id);
+        if (p != NULL) {
+            recover_full__10TObjPlayerFPv((void *)(p));
+        }
+    }
+}
+
+s32 update_medical_font__10TObjPlayerFi(s32 arg0, void * _w1) {
     TFontSmallLobby__sub_801C0228();
     return arg0;
 }

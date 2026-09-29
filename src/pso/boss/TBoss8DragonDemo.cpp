@@ -27,6 +27,10 @@ struct RecoveredGlobal_802F2CC4_lbl_804E4A44 {
     u8 remaining[0x8C];
 };
 
+struct O_8002B108 { u8 pad[0x1c]; s32 arr[1]; };
+
+struct Obj_8002B118 { u8 pad[0x1c]; void *colli[3]; };
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TCameraCtrl__sub_80069DA8();
@@ -42,6 +46,8 @@ u8 *__ct__16TBoss8DragonDemoFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 extern RecoveredGlobal_802F2CC4_lbl_804E4A44 lbl_804E4A44;
 extern const f32 lbl_805DE9F4;
 void TBoss8DragonDemo__sub_802F2CC4(void);
+void TBoss8DragonColli__sub_802F3074(void *c);
+void TBoss8Dragon__sub_802F2E30(Obj_8002B118 *self);
 }
 
 extern "C" {
@@ -92,6 +98,12 @@ u8 *__ct__16TBoss8DragonDemoFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
     TCameraCtrl__sub_80069E7C((int) (5));
     cache_target_and_forward__11TCameraCtrlFii((void *) (&stack.sp8), (int) (0x3333));
     return arg0;
+}
+void TBoss8Dragon__sub_802F2E30(Obj_8002B118 *self) {
+    s32 i;
+    for (i = 0; i < 3; i++) {
+        TBoss8DragonColli__sub_802F3074(self->colli[i]);
+    }
 }
 
 }

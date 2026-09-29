@@ -98,6 +98,16 @@ struct RecoveredGlobal_8034F754_lbl_804F0A00 {
 
 struct O_8034F590 { u8 pad[0x40]; u32 flags; u8 pad2[0x70 - 0x44]; void *f70; void *f74; };
 
+struct Elem_80125628 { u8 pad[0x1c]; u8 f1c[0x2c - 0x1c]; };
+
+struct Obj_80125628 { u8 pad[0xa4]; Elem_80125628 *elems; };
+
+struct Ctx_80125628 { Obj_80125628 *obj; s32 idx; };
+
+struct Self_8012573C { u8 pad[0x23c]; u32 f23c; };
+
+struct Out_8012573C { u8 pad[0x40]; u32 f40; u8 pad44[0x50 - 0x44]; s32 f50; u8 pad54[0x70 - 0x54]; void *f70; void *f74; s32 f78; s32 f7c; };
+
 extern "C" {
 void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1);
 int fn_80308244(void);
@@ -121,8 +131,10 @@ void set_status_flags__10TObjPlayerFPvUi(void *, int);
 extern M2C_UNK lbl_804F0A00[];
 u8 *TObjPlayer__sub_8034F754(u8 *arg0, u8 *arg1, s32 _w2);
 void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1);
-void TObjPlayer__sub_8034F4AC(void);
 void TObjPlayer__sub_8034F590(void *a, O_8034F590 *o);
+u32 TLobby__sub_80101AB0(void);
+s32 TObjPlayer__sub_8034F4FC(u32 a0, s32 a1);
+void TObjPlayer__sub_8034F4AC(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -249,6 +261,14 @@ void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1) {
     u32 temp_r3 = TLobby__sub_80101AB0();
     if (temp_r3 != 0U) {
         TObjPlayer__sub_8034F4FC(temp_r3, arg1);
+    }
+}
+
+void TObjPlayer__sub_8034F4AC(s32 arg0, s32 arg1) {
+    Ctx_80125628 *ctx = (Ctx_80125628 *)arg1;
+    u32 p = TLobby__sub_80101AB0();
+    if (p != 0U) {
+        TObjPlayer__sub_8034F4FC(p, (s32)ctx->obj->elems[ctx->idx].f1c);
     }
 }
 

@@ -24,6 +24,7 @@ force_active:
   - AISetStreamVolLeft
   - AISetStreamVolRight
   - TAdSinglePlyChrSelectGC__sub_80133530
+  - TFontSmallLobby__sub_801B117C
   - TFontSmallLobby__sub_801C0258
   - TItemEquipBase__sub_8022F1F4
   - TKeyBoardControl__sub_80290D10
@@ -44,6 +45,16 @@ force_active:
   - TObjPlayer__sub_800113A8
   - TObjPlayer__sub_801AA6E4
   - TObjPlayer__sub_801BBBD0
+  - TObjPlayer__sub_801BEF8C
+  - TObjPlayer__sub_801BF014
+  - TObjPlayer__sub_801BF060
+  - TObjPlayer__sub_801BF0A8
+  - TObjPlayer__sub_801BF134
+  - TObjPlayer__sub_801BF1D4
+  - TObjPlayer__sub_801BF204
+  - TObjPlayer__sub_801BF2F8
+  - TObjPlayer__sub_801BF31C
+  - TObjPlayer__sub_801BF34C
   - TObjPlayer__sub_801BF5F0
   - TObjPlayer__sub_801BF5F8
   - TObjPlayer__sub_801BF60C
@@ -78,6 +89,7 @@ force_active:
   - bswap_guild_card_tag__17TWindowSubComCardFPv
   - create__13TItemProArmorFiUi
   - create_icon__10TObjPlayerFiii
+  - disable_stealth_suit_effect__15TFontSmallLobbyFi
   - draw_value__13TWindowMesetaFPvi
   - fn_80010F4C
   - fn_80076C68

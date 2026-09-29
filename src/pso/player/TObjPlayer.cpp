@@ -19,6 +19,43 @@ struct RecoveredGlobal_801BF414_lbl_804C3FA8 {
     u8 remaining[0x14];
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_2C { u8 bytes[0x2C]; };
+
+struct RecoveredGlobal_801D2CF4_lbl_804C43CC {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_801D2CF4_lbl_804C43D8 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+struct Ent_801D2AB0 { u8 d[4]; };
+
+struct Obj_801D2AB0 { u8 pad[0x14]; Ent_801D2AB0 arr[1]; };
+
+struct Pos_801D2964 { u8 bytes[0x8]; };
+
+struct Pkt_801D2964 { u8 hdr[4]; Pos_801D2964 pos; };
+
+struct Ent_801D32A0 { u16 a; s16 b; };
+
+struct Self_801D32A0 { u8 pad[0x20]; f32 f20; f32 f24; f32 f28; f32 f2c; s32 count; Ent_801D32A0 ents[1]; };
+
+struct Cur_801D32A0 { u8 pad[0x28]; f32 x28; f32 x2c; f32 x30; u8 pad2[8]; f32 x3c; u8 pad3[0x5C]; u8 lock[4]; };
+
+struct Pl_801D32A0 { u8 pad[0x424]; void *cursor; };
+
 extern "C" {
 void TObjPlayer__sub_801BEE24(void* p, s16 v);
 void TObjPlayer__sub_801BEE24(void* p, s16 v);
@@ -109,6 +146,8 @@ void TObjPlayer__sub_801BF134(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_801BF414_lbl_804C3FA8 lbl_804C3FA8;
 u8 *TObjPlayer__sub_801BF414(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3);
+int TFontSmallLobby__sub_801C0228(void*);
+void *TObjPlayer__sub_801BEE68(void *arg0, void *arg1);
 }
 
 extern "C" {
@@ -202,6 +241,20 @@ void TObjPlayer__sub_801BEE34(void *arg0) {
     bswap_32__FPUl(arg0);
     bswap_32__FPUl((void *)((char *)arg0 + 4));
 }
+
+#pragma push
+#pragma opt_common_subs off
+#pragma pop
+void *TObjPlayer__sub_801BEE68(void *arg0, void *arg1) {
+    TFontSmallLobby__sub_801C0228(arg0);
+    ((Pkt_801D2964 *)arg0)->pos = ((Pkt_801D2964 *)arg1)->pos;
+    return arg0;
+}
+#pragma push
+#pragma fp_contract on
+#pragma pop
+typedef char RecoveredGlobal_801D2CF4_lbl_804C43CC_size[sizeof(RecoveredGlobal_801D2CF4_lbl_804C43CC) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_801D2CF4_lbl_804C43D8_size[sizeof(RecoveredGlobal_801D2CF4_lbl_804C43D8) == 0x10 ? 1 : -1];
 
 void TObjPlayer__sub_801BEEAC(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s16 *, 0) = (s16) M2C_FIELD(arg1, s16 *, 0);

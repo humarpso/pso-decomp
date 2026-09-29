@@ -1,9 +1,28 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct Elem_80125628 { u8 pad[0x1c]; u8 f1c[0x2c - 0x1c]; };
+
+struct Obj_80125628 { u8 pad[0xa4]; Elem_80125628 *elems; };
+
+struct Ctx_80125628 { Obj_80125628 *obj; s32 idx; };
+
+struct Self_8012573C { u8 pad[0x23c]; u32 f23c; };
+
+struct Out_8012573C { u8 pad[0x40]; u32 f40; u8 pad44[0x50 - 0x44]; s32 f50; u8 pad54[0x70 - 0x54]; void *f70; void *f74; s32 f78; s32 f7c; };
+
+extern "C" {
+u32 TLobby__sub_80101AB0(void);
+s32 fn_80308294(u32 a0, s32 a1);
+void fn_80308244(s32 arg0, s32 arg1);
+}
+
 extern "C" {
 
 void apply_config_if_valid__13TAdVIConfigGCFii(s32 arg0, s32 arg1);
-int fn_80308244(void);
 void set_field_2c__13TAdVIConfigGCFPvi(void* p, s32 v);
 void TAdYesNoBaseGC__vt4(void);
 void TAdYesNoBaseGC__vt5(void);
@@ -18,7 +37,12 @@ void apply_config_if_valid__13TAdVIConfigGCFii(s32 arg0, s32 arg1) {
         fn_80308294(temp_r3, arg1);
     }
 }
-
-int fn_80308244(void) { return 0; }
+void fn_80308244(s32 arg0, s32 arg1) {
+    Ctx_80125628 *ctx = (Ctx_80125628 *)arg1;
+    u32 p = TLobby__sub_80101AB0();
+    if (p != 0U) {
+        fn_80308294(p, (s32)ctx->obj->elems[ctx->idx].f1c);
+    }
+}
 
 }

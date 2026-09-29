@@ -25,6 +25,34 @@ struct G_802DBC94 { u8 pad[0x42c]; E_802DBC94 *e; };
 
 struct O_802DBC94 { u8 pad[0x24]; s32 f24; u8 pad2[0xc]; s32 f34; };
 
+struct VBase800A64E8_800a64e8_800A4288 { char pad[0x14]; };
+
+struct VObj800A64E8_800a64e8_800A4288 : VBase800A64E8_800a64e8_800A4288 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual M2C_UNK m8();
+};
+
+struct RecoveredGlobal_800A6BE0_lbl_804FF5E8 {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
+struct RecoveredGlobal_800A6BE0_lbl_80500978 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+struct Vec_800A6B14 { f32 x, y, z; };
+
+struct Tgt_800A6B14 { u8 pad[0x2fc]; Vec_800A6B14 pos; };
+
+struct Obj_800A6B14 {
+    u8 pad[0x60]; s32 angle;
+    u8 pad2[0x2a8 - 0x64]; Tgt_800A6B14 *target;
+    u8 pad3[0x2fc - 0x2ac]; Vec_800A6B14 pos;
+};
+
 extern "C" {
 f32 enemy_wander_home(void *, s32, f32, f32, f32);
 M2C_UNK minimap_render_dot(void *, int, int, int);
@@ -40,6 +68,13 @@ extern f32 lbl_805DE878;
 void TObjEneGibbles__sub_802DA96C(u8 *arg0);
 extern u32 TObjEneGibbles__data_805D68B8;
 void TObjEneGibbles__sub_802DBC94(O_802DBC94 *self, s32 i);
+void VecCopy__FP3VecPC3Vec(Vec_800A6B14 *dst, const Vec_800A6B14 *src);
+f32 TBoss6Type1__sub_803D9370(void *, void *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 TBoss4Type2__sub_80141FA8(s32, s32);
+void clamp_angle__14TObjEneGibblesFPvi(void *arg0, s32 arg1);
+extern const f64 TObjEneGibbles__data_80472798;
+void TObjEneGibbles__sub_802DB0F4(Obj_800A6B14 *self);
 }
 
 extern "C" {
@@ -354,6 +389,16 @@ void TObjEneGibbles__sub_802DAAC8(u8 *arg0) {
         break;
     }
 }
+
+void TObjEneGibbles__sub_802DB0F4(Obj_800A6B14 *self) {
+    Vec_800A6B14 d;
+    VecCopy__FP3VecPC3Vec(&d, &self->target->pos);
+    TBoss6Type1__sub_803D9370(&d, &self->pos);
+    clamp_angle__14TObjEneGibblesFPvi(self,
+        TBoss4Type2__sub_80141FA8(self->angle, (s32)(TObjEneGibbles__data_80472798 * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z))));
+}
+typedef char RecoveredGlobal_800A6BE0_lbl_804FF5E8_size[sizeof(RecoveredGlobal_800A6BE0_lbl_804FF5E8) == 0x28 ? 1 : -1];
+typedef char RecoveredGlobal_800A6BE0_lbl_80500978_size[sizeof(RecoveredGlobal_800A6BE0_lbl_80500978) == 0x10 ? 1 : -1];
 
 void clamp_angle__14TObjEneGibblesFPvi(void *arg0, s32 arg1) {
     s32 var_r4;
