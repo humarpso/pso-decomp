@@ -71,6 +71,16 @@ extern const f32 lbl_805DE780;
 void finish_character_selection_transition(void *arg0);
 s32 get_state_flag__9TMainTaskFv(void);
 void render__23TAdSinglePlyChrSelectGCFv(void *self);
+s32 is_visible__17TWindowSubComCardFPv(int);
+s32 get_status_flag__17TWindowSubComCardFPv(int);
+s32 TWindowSubComCard__sub_80265BF8(int);
+M2C_UNK open__17TWindowOptionCtrlFPv(int);
+M2C_UNK set_selection_state__21TAdMultiSelGameModeGCFPvi(s32, M2C_UNK);
+s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(s32);
+s32 TAdChrSelASlotGC__sub_8030C8D8(int, void *, int);
+s32 TAdChrSelASlotGC__sub_8030C978(int, void *, int);
+extern M2C_UNK lbl_80472538[];
+void TAdSinglePlyChrSelectGC__sub_802D4168(u8 *arg0);
 }
 
 extern "C" {
@@ -304,6 +314,41 @@ void update__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
 
 typedef char RecoveredGlobal_802D4570_lbl_80472510_size[sizeof(RecoveredGlobal_802D4570_lbl_80472510) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_802D4570_lbl_8050E208_size[sizeof(RecoveredGlobal_802D4570_lbl_8050E208) == 0x1B0 ? 1 : -1];
+
+void TAdSinglePlyChrSelectGC__sub_802D4168(u8 *arg0) {
+    s32 temp_r0;
+    if (get_player_index__22TAdMultiPlyChrSelectGCFPv((s32)((int) (M2C_FIELD(arg0, s32 *, 0x28)))) == 1) {
+        M2C_FIELD(arg0, s32 *, 0x20) = 0;
+        return;
+    }
+    if (is_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, s32 *, 0x38))) != 0) {
+        M2C_FIELD(arg0, s32 *, 0x5C) = TWindowSubComCard__sub_80265BF8((int) (M2C_FIELD(arg0, s32 *, 0x38)));
+        temp_r0 = M2C_FIELD(arg0, s32 *, 0x5C);
+        switch (temp_r0) {
+        case 0:
+            M2C_FIELD(arg0, s32 *, 0x20) = 0xC;
+            return;
+        case 1:
+            open__17TWindowOptionCtrlFPv((int) (M2C_FIELD(arg0, s32 *, 0x38)));
+            M2C_FIELD(arg0, s32 *, 0x4C) = TAdChrSelASlotGC__sub_8030C8D8((int) (M2C_FIELD(arg0, s32 *, 0x28)), (void *) (lbl_80472538), (int) (0));
+            M2C_FIELD(arg0, s32 *, 0x20) = 9;
+            return;
+        case 2:
+            set_selection_state__21TAdMultiSelGameModeGCFPvi((s32)((int) (M2C_FIELD(arg0, s32 *, 0x2C))), (M2C_UNK)((int) (1)));
+            M2C_FIELD(arg0, s32 *, 0x20) = 5;
+            return;
+        case 3:
+            open__17TWindowOptionCtrlFPv((int) (M2C_FIELD(arg0, s32 *, 0x38)));
+            M2C_FIELD(arg0, s32 *, 0x50) = TAdChrSelASlotGC__sub_8030C978((int) (M2C_FIELD(arg0, s32 *, 0x28)), (void *) (lbl_80472538), (int) (0));
+            M2C_FIELD(arg0, s32 *, 0x20) = 0xA;
+            return;
+        }
+    } else if (get_status_flag__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, s32 *, 0x38))) != 0) {
+        set_selection_state__21TAdMultiSelGameModeGCFPvi((s32)((int) (M2C_FIELD(arg0, s32 *, 0x2C))), (M2C_UNK)((int) (1)));
+        M2C_FIELD(arg0, s32 *, 0x20) = 5;
+    }
+}
+
 void TAdSinglePlyChrSelectGC__sub_802D4570(u8 *arg0) {
     if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&(*(RecoveredGlobal_802D4570_lbl_8050E208 *)&lbl_8050E208).value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&(*(RecoveredGlobal_802D4570_lbl_8050E208 *)&lbl_8050E208).value + 0x160), (int) (2)) != 0)) {
         TBoss3Volopt__sub_8022675C((int) (0x52F16), (int) (0), (int) (0), (int) (0));

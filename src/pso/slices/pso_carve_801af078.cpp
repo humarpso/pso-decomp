@@ -1,6 +1,25 @@
 #include "types.h"
 
 extern "C" {
+s32 check_flag_800000__10TObjPlayerFPv(s32);
+int test_flag_2000000__10TObjPlayerFPv(void*);
+void TObjPlayer__sub_801BEFEC(void *);
+void TObjPlayer__vt70(u8 *arg0);
+s32 check_flag_800000__10TObjPlayerFPv(s32);
+int test_flag_2000000__10TObjPlayerFPv(void*);
+void TObjPlayer__sub_801BF038(void *);
+void TObjPlayer__vt69(u8 *arg0);
+s32 check_flag_800000__10TObjPlayerFPv(s32);
+int test_flag_2000000__10TObjPlayerFPv(void*);
+void TObjPlayer__sub_801BF084(void *);
+void TObjPlayer__vt68(u8 *arg0);
+s32 check_flag_800000__10TObjPlayerFPv(s32);
+int test_flag_2000000__10TObjPlayerFPv(void*);
+void TObjPlayer__sub_801BF110(void *);
+void TObjPlayer__vt67(u8 *arg0);
+}
+
+extern "C" {
 
 s32 check_camera_mode__10TObjPlayerFv();
 s32 TLobby__sub_8030A7B0();
@@ -28,9 +47,31 @@ void update_battle_control_if_unlocked__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801AEB80(void);
 int get_max_level__10TObjPlayerFv(void);
 
-int TObjPlayer__vt70(void) { return 0; }
-int TObjPlayer__vt69(void) { return 0; }
-int TObjPlayer__vt68(void) { return 0; }
-int TObjPlayer__vt67(void) { return 0; }
+void TObjPlayer__vt70(u8 *arg0) {
+    if (test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) != 0 || check_flag_800000__10TObjPlayerFPv((s32)arg0) != 0) {
+        return;
+    }
+    TObjPlayer__sub_801BEFEC(arg0 + 0x384);
+}
+
+void TObjPlayer__vt69(u8 *arg0) {
+    if (test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) != 0 || check_flag_800000__10TObjPlayerFPv((s32)arg0) != 0) {
+        return;
+    }
+    TObjPlayer__sub_801BF038(arg0 + 0x384);
+}
+
+void TObjPlayer__vt68(u8 *arg0) {
+    if (test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) != 0 || check_flag_800000__10TObjPlayerFPv((s32)arg0) != 0) {
+        return;
+    }
+    TObjPlayer__sub_801BF084(arg0 + 0x384);
+}
+void TObjPlayer__vt67(u8 *arg0) {
+    if (test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) != 0 || check_flag_800000__10TObjPlayerFPv((s32)arg0) != 0) {
+        return;
+    }
+    TObjPlayer__sub_801BF110(arg0 + 0x384);
+}
 
 }

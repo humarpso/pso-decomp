@@ -42,6 +42,10 @@ s32 TAdPlayerLoadGC__sub_801E0D8C(s32 arg0);
 extern RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 TAdPlayerLoadGC__data_80511ED0;
 extern s32 TAdPlayerLoadGC__data_805D5E38;
 void TAdPlayerLoadGC__sub_801E14E8(u8 *arg0, s32 arg1);
+void xfree__FPv(void *);
+extern RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 TAdPlayerLoadGC__data_80511ED0;
+extern s32 TAdPlayerLoadGC__data_805D5E38;
+void TAdPlayerLoadGC__sub_801E1350(void);
 }
 
 extern "C" {
@@ -159,6 +163,20 @@ s32 TAdPlayerLoadGC__sub_801E0D8C(s32 arg0) {
     return 0;
 }
 #pragma pop
+
+void TAdPlayerLoadGC__sub_801E1350(void) {
+    s32 i;
+    if ((*(void * *)&TAdPlayerLoadGC__data_805D5E38) != NULL) {
+        xfree__FPv((*(void * *)&TAdPlayerLoadGC__data_805D5E38));
+        (*(void * *)&TAdPlayerLoadGC__data_805D5E38) = NULL;
+    }
+    for (i = 0; i < 6; i++) {
+        if (((void * *)&TAdPlayerLoadGC__data_80511ED0)[i] != NULL) {
+            xfree__FPv(((void * *)&TAdPlayerLoadGC__data_80511ED0)[i]);
+            ((void * *)&TAdPlayerLoadGC__data_80511ED0)[i] = NULL;
+        }
+    }
+}
 
 void TAdPlayerLoadGC__sub_801E14E4(void) {  }
 

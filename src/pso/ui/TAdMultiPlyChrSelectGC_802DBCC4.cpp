@@ -23,6 +23,32 @@ extern const f32 lbl_805DE890;
 s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(unsigned long long arg1);
 s32 get_state_flag__9TMainTaskFv(void);
 void render__22TAdMultiPlyChrSelectGCFv(void *self);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+M2C_UNK free_member__17TWindowSubComCardFPv(int, int);
+M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(int, int, void *, f32);
+s32 TWindowMessageYesNo__sub_802A59D8(void *, int, int, int);
+s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
+extern M2C_UNK lbl_804728A8[];
+extern const f32 lbl_805DE888;
+s32 TAdMultiPlyChrSelectGC__sub_802DBCE8(s32 arg0);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+M2C_UNK free_member__17TWindowSubComCardFPv(int, int);
+M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(int, int, void *, f32);
+s32 TWindowMessageYesNo__sub_802A59D8(void *, int, int, int);
+s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
+extern M2C_UNK lbl_804728A0[];
+extern const f32 lbl_805DE88C;
+s32 TAdMultiPlyChrSelectGC__sub_802DBD64(s32 arg0);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+M2C_UNK set_selected_index__17TWindowSubComCardFPvs(int, int);
+M2C_UNK TWindowSubComCard__sub_80265C30(int);
+M2C_UNK TWindowSubComCard__sub_80265E60(int, f32);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
+s32 TCheckRoomSequence__sub_802664A8(void *, int, int);
+s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
+extern M2C_UNK lbl_80472890[];
+extern const f32 lbl_805DE894;
+s32 TAdMultiPlyChrSelectGC__sub_802DBF3C(void);
 }
 
 extern "C" {
@@ -45,6 +71,22 @@ void render__22TAdMultiPlyChrSelectGCFv(void *self) {
     if (get_state_flag__9TMainTaskFv() == 1) return;
 }
 
+s32 TAdMultiPlyChrSelectGC__sub_802DBCE8(s32 arg0) {
+    s32 temp_r31;
+    temp_r31 = TWindowMessageYesNo__sub_802A59D8((void *) (arg0), (int) (get_clamped_cursor__22TAdMultiPlyChrSelectGCFv()), (int) (0), (int) (0));
+    forward_slot_selection__16TAdChrSelASlotGCFPvPvPv((int) (temp_r31), (int) (TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x1F), (int) (0xA))), (void *) (lbl_804728A8), (f32) (lbl_805DE888));
+    free_member__17TWindowSubComCardFPv((int) (temp_r31), (int) (1));
+    return temp_r31;
+}
+
+s32 TAdMultiPlyChrSelectGC__sub_802DBD64(s32 arg0) {
+    s32 temp_r31;
+    temp_r31 = TWindowMessageYesNo__sub_802A59D8((void *) (arg0), (int) (get_clamped_cursor__22TAdMultiPlyChrSelectGCFv()), (int) (0), (int) (0));
+    forward_slot_selection__16TAdChrSelASlotGCFPvPvPv((int) (temp_r31), (int) (TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x1F), (int) (9))), (void *) (lbl_804728A0), (f32) (lbl_805DE88C));
+    free_member__17TWindowSubComCardFPv((int) (temp_r31), (int) (1));
+    return temp_r31;
+}
+
 s32 TAdMultiPlyChrSelectGC__sub_802DBE4C(long long arg1) {
   s32 temp_r31;
   temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFii((void *) arg1, (int) 1);
@@ -63,6 +105,19 @@ s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(unsigned long long arg1) {
   set_status_flag_80__12TQuestThreadFPv((int) temp_r31);
   TWindowSubComCard__sub_80265CFC((int) temp_r31, (f32) lbl_805DE890);
   return temp_r31;
+}
+
+s32 TAdMultiPlyChrSelectGC__sub_802DBF3C(void) {
+    s32 temp_r31;
+    temp_r31 = TCheckRoomSequence__sub_802664A8((void *) (lbl_80472890), (int) (4), (int) (get_clamped_cursor__22TAdMultiPlyChrSelectGCFv()));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x1F), (int) (2))), (int) (6), (int) (0));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x1F), (int) (3))), (int) (6), (int) (1));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x1F), (int) (4))), (int) (6), (int) (2));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x1F), (int) (5))), (int) (6), (int) (3));
+    TWindowSubComCard__sub_80265E60((int) (temp_r31), (f32) (lbl_805DE894));
+    set_selected_index__17TWindowSubComCardFPvs((int) (temp_r31), (int) (0));
+    TWindowSubComCard__sub_80265C30((int) (temp_r31));
+    return temp_r31;
 }
 
 s32 get_state_result__22TAdMultiPlyChrSelectGCFPv(void *arg0) {

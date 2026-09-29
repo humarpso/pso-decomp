@@ -18,6 +18,17 @@ extern ParticleDefinition lbl_804C5820[];
 extern void *TParticleCtrl__data_80511F70[];
 extern void *tl_particle;
 
+void TParticleCtrl__sub_801E5330(void) {
+    s32 i;
+    for (i = 0; i < 0x6C; i++) {
+        *(s32 *)(lbl_804C5820[i].data + 4) = 0;
+        TParticleCtrl__data_80511F70[i] = 0;
+    }
+    for (i = 0; i < 0x6C; i++) {
+        *(s32 *)(lbl_804C5820[i].data + 4) = 0;
+    }
+}
+
 void create_quad_sprites__13TParticleCtrlFv(void)
 {
     s32 index = 0;

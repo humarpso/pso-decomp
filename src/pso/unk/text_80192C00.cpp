@@ -10,6 +10,26 @@ struct LazerFenceNormVObj_80192C00 : LazerFenceNormBase_80192C00 {
     virtual s32 m8(f32, f32);
 };
 
+struct Motion_80192CCC { u8 pad[4]; u32 frames; };
+
+struct TObjLazerFenceNorm_80192CCC {
+    u8 pad[0xB0];
+    s16 switchId;
+    u8 padb2[2];
+    s32 state;
+    f32 frame;
+    u8 padbc[8];
+    Motion_80192CCC *motion;
+};
+
+extern "C" {
+void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
+u8 TODoorAncient08__sub_80229220(u16);
+extern const f32 lbl_805DBE58;
+extern const f32 lbl_805DBE64;
+void TObjLazerFenceNorm__sub_80192CCC(TObjLazerFenceNorm_80192CCC *self);
+}
+
 extern "C" {
 
 void draw_model__18TObjLazerFenceNormFPv(void *arg0);
@@ -52,6 +72,17 @@ void render__18TObjLazerFenceNormFv(void *arg0) {
             draw_model__18TObjLazerFenceNormFPv((void *)(arg0));
             break;
         }
+    }
+}
+
+void TObjLazerFenceNorm__sub_80192CCC(TObjLazerFenceNorm_80192CCC *self) {
+    self->frame += lbl_805DBE64;
+    if ((f32)(self->motion->frames - 1) < self->frame) {
+        self->frame = lbl_805DBE58;
+    }
+    if (TODoorAncient08__sub_80229220((u16)self->switchId) == 1) {
+        clear_player_status_flag__10TObjPlayerFPviUi(self, 0, 1);
+        self->state = 1;
     }
 }
 

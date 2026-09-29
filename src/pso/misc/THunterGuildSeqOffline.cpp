@@ -101,6 +101,25 @@ struct RecoveredGlobal_8021354C_THunterGuildSeqOffline__data_80513DC8 {
     u8 remaining[0xC];
 };
 
+struct Base_8021317C { u8 pad[0x18]; };
+
+struct Guild_8021317C : Base_8021317C {
+    virtual void f0();
+    virtual void f1();
+    virtual void f2();
+    virtual void f3();
+    virtual void f4();
+    virtual void f5();
+    virtual void f6();
+    virtual void m7(int, int);
+    virtual s32 m8();
+    virtual void m9();
+    virtual void begin();
+    virtual void finish();
+    u32 unknown1c;
+    u32 phase;
+};
+
 extern "C" {
 s32 TWindowSubComCard__sub_8026CBB8(s32);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
@@ -149,6 +168,15 @@ extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGui
 void THunterGuildSeqOffline__sub_8021339C(void);
 extern s32 THunterGuildSeqOffline__data_80513DC8[];
 void THunterGuildSeqOffline__sub_80213430(void* _w0);
+void THunterGuildSeqOffline__sub_802130AC(u8 *arg0);
+void THunterGuildSeqOffline__sub_80212F34(u8 *arg0);
+void open_judgment_window__22THunterGuildSeqOfflineFPv(void *arg0);
+void THunterGuildSeqOffline__sub_80212B88(void *arg0);
+void THunterGuildSeqOffline__sub_802128B0(void *arg0);
+void handle_select__22THunterGuildSeqOfflineFPv(void *arg0);
+void handle_window_input__22THunterGuildSeqOfflineFPv(void *arg0);
+void handle_click__22THunterGuildSeqOfflineFPv(void *arg0);
+void THunterGuildSeqOffline__vt9(Guild_8021317C *self);
 }
 
 extern "C" {
@@ -251,6 +279,22 @@ void THunterGuildSeqOffline__sub_802130AC(u8 *arg0) {
 void THunterGuildSeqOffline__vt10(void* p) { restore_player_state__13TShopSequenceFPv(p); fn_80223480(p); create_instance__19THunterGuildWarningFi((void*)2); set_field_20__12TQuestListVMFPvi((void*)(p), (void*)((void*)1)); }
 
 extern s32 THunterGuildSeqOffline__data_80513DC8[];
+
+void THunterGuildSeqOffline__vt9(Guild_8021317C *self) {
+    switch (self->phase) {
+    case 0: self->begin(); break;
+    case 1: THunterGuildSeqOffline__sub_802130AC((u8 *)self); break;
+    case 2: THunterGuildSeqOffline__sub_80212F34((u8 *)self); break;
+    case 3: open_judgment_window__22THunterGuildSeqOfflineFPv(self); break;
+    case 4: THunterGuildSeqOffline__sub_80212B88(self); break;
+    case 5: self->finish(); break;
+    case 6: THunterGuildSeqOffline__sub_802128B0(self); break;
+    case 7: handle_select__22THunterGuildSeqOfflineFPv(self); break;
+    case 8: handle_window_input__22THunterGuildSeqOfflineFPv(self); break;
+    case 9: handle_click__22THunterGuildSeqOfflineFPv(self); break;
+    case 10: break;
+    }
+}
 
 u8 *__dt__22THunterGuildSeqOfflineFv(u8 *arg0, s16 arg1) {
     u32 temp_r3;

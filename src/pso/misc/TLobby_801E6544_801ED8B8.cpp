@@ -89,6 +89,11 @@ struct RecoveredGlobal_801ED938_TLobby__data_80512360 {
     u8 remaining[0x28];
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Tbl_801EDC98 { u32 w[18]; };
+
 extern "C" {
 extern s32 lbl_805D5550;
 void TLobby__sub_801EDF04(s32 arg0);
@@ -152,6 +157,11 @@ void TLobby__sub_801EDB94(void);
 void TLobby__sub_801F3C70(s16, s32, s32, s32, s32);
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801EDD7C(u32 first);
+void TLobby__sub_80141038(u8 *arg0, s32 arg1, s32 arg2);
+extern Tbl_801EDC98 lbl_80449A40;
+extern u32 TLobby__data_80512220[];
+extern u8 lbl_80515BA0[];
+void TLobby__sub_801EDC98(void);
 }
 
 extern "C" {
@@ -305,6 +315,14 @@ void TLobby__sub_801EDC68(void) {
 }
 
 typedef char RecoveredGlobal_801EDD0C_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801EDD0C_TLobby__data_80512220) == 0x20 ? 1 : -1];
+
+void TLobby__sub_801EDC98(void) {
+    Tbl_801EDC98 t = lbl_80449A40;
+    if (TLobby__data_80512220[0] <= 0x11U) {
+        TLobby__sub_80141038(lbl_80515BA0, t.w[TLobby__data_80512220[0]], 0);
+    }
+}
+
 void TLobby__sub_801EDD0C(void) {
     if (TPlayerBattleCtrl4P__sub_801BA74C((int) ((*(RecoveredGlobal_801EDD0C_TLobby__data_80512220 *)&TLobby__data_80512220).value)) != 0U) {
         send_field1c_packet__6TLobbyFi();

@@ -88,6 +88,8 @@ struct RecoveredGlobal_800A8B8C_lbl_804910F4
   u8 remaining[0x168];
 };
 
+struct Obj_800AA528 { u8 pad0[0x326]; s16 state; };
+
 extern "C" {
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK TBoss3Volopt__sub_800D8D88(void *);
@@ -104,7 +106,6 @@ s32 TNpcPlayer__sub_800D87EC(u16);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_800AA10C(void *);
 void TObjPlayer__sub_800AA330(void *);
-M2C_UNK TObjPlayer__sub_800AA528(void *);
 M2C_UNK TObjPlayer__sub_800AB068(void *);
 M2C_UNK TObjPlayer__sub_800C6A18(void *);
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
@@ -124,6 +125,15 @@ f32 TObjPlayer__sub_800AAF78(void *, s32);
 M2C_UNK TObjPlayer__sub_800AAFF0(int);
 extern RecoveredGlobal_800A8B8C_lbl_804910F4 lbl_804910F4;
 void TObjPlayer__sub_800A8B8C(u8 *arg0);
+void update_timed_state__10TObjPlayerFPv(void *arg0);
+void TObjPlayer__sub_800A9E9C(void *);
+void TObjPlayer__sub_800A93E4(void *);
+void TObjPlayer__sub_800A8FB4(void *);
+void TObjPlayer__sub_800A9C38(void *);
+void TObjPlayer__sub_800A9718(void *);
+void TObjPlayer__sub_800A8E04(u8 *arg0);
+void TObjPlayer__sub_800A8C4C(void *);
+void TObjPlayer__sub_800AA528(Obj_800AA528 *arg0);
 }
 
 extern "C" {
@@ -277,6 +287,20 @@ void update_timed_state__10TObjPlayerFPv(void *arg0) {
     }
 }
 void TObjPlayer__sub_800AA330(void * _w0) {  }
+
+void TObjPlayer__sub_800AA528(Obj_800AA528 *arg0) {
+    switch (arg0->state) {
+    case 0: update_timed_state__10TObjPlayerFPv(arg0); return;
+    case 1: TObjPlayer__sub_800A9E9C(arg0); return;
+    case 2: TObjPlayer__sub_800A93E4(arg0); return;
+    case 9: TObjPlayer__sub_800A8FB4(arg0); return;
+    case 4: TObjPlayer__sub_800A9C38(arg0); return;
+    case 5: TObjPlayer__sub_800A9718(arg0); return;
+    case 7: TObjPlayer__sub_800A8E04((u8 *)(arg0)); return;
+    case 8: TObjPlayer__sub_800A8C4C(arg0); break;
+    }
+}
+
 void update_synced_state__10TObjPlayerFPv(u8 *arg0) {
     if (check_demo_mode__10TObjPlayerFv() == 1) {
         TObjPlayer__sub_800AA330((void *)(arg0));
@@ -289,12 +313,12 @@ void update_synced_state__10TObjPlayerFPv(u8 *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != (s32) M2C_FIELD(arg0, s32 *, 0x374)) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x37C) != -1) {
             M2C_FIELD(arg0, s32 *, 0x37C) = -1;
-            TObjPlayer__sub_800AA528(arg0);
+            TObjPlayer__sub_800AA528((Obj_800AA528 *)(arg0));
         }
         M2C_FIELD(arg0, s16 *, 0x326) = (s16) M2C_FIELD(arg0, s32 *, 0x374);
         M2C_FIELD(arg0, s32 *, 0x37C) = 0;
     }
-    TObjPlayer__sub_800AA528(arg0);
+    TObjPlayer__sub_800AA528((Obj_800AA528 *)(arg0));
     TObjPlayer__sub_800AB068(arg0);
     update_prev_position__10TObjPlayerFPv(arg0);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);

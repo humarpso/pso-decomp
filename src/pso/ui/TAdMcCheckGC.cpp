@@ -4,6 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8033F1C4___vt__12TAdMcCheckGC {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+extern "C" {
+M2C_UNK __dt__7TObjectFv(void *, int);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK __dl__7TObjectFPv(void *);
+extern M2C_UNK lbl_804EFAA0[];
+extern M2C_UNK __vt__12TAdMcCheckGC[];
+u8 *__dt__12TAdMcCheckGCFv(u8 *arg0, s16 arg1);
+}
+
 extern "C" {
 
 void *TAdMcCheckGC__ct(void *arg0, void *arg1, void *arg2);
@@ -142,6 +156,39 @@ void run_task__12TAdMcCheckGCFv(u8 *arg0) {
 
 extern M2C_UNK __vt__12TAdMcCheckGC[];
 extern void *lbl_805D42B8;
+
+typedef char RecoveredGlobal_8033F1C4___vt__12TAdMcCheckGC_size[sizeof(RecoveredGlobal_8033F1C4___vt__12TAdMcCheckGC) == 0x18 ? 1 : -1];
+u8 *__dt__12TAdMcCheckGCFv(u8 *arg0, s16 arg1) {
+    s32 temp_r4;
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8033F1C4___vt__12TAdMcCheckGC *)&__vt__12TAdMcCheckGC).value;
+        temp_r4 = M2C_FIELD(arg0, s32 *, 0x28) * 4;
+        if ((u32) M2C_FIELD(((u8 *)(lbl_804EFAA0) + temp_r4), u32 *, 0) != 0U) {
+            M2C_FIELD(((u8 *)(lbl_804EFAA0) + temp_r4), s32 *, 0) = 0;
+        }
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
+            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x2C));
+            M2C_FIELD(arg0, u32 *, 0x2C) = 0U;
+        }
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
+            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x30));
+            M2C_FIELD(arg0, u32 *, 0x30) = 0U;
+        }
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) {
+            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x34));
+            M2C_FIELD(arg0, u32 *, 0x34) = 0U;
+        }
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) {
+            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x38));
+            M2C_FIELD(arg0, u32 *, 0x38) = 0U;
+        }
+        __dt__7TObjectFv((void *) (arg0), (int) (0));
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((void *) (arg0));
+        }
+    }
+    return arg0;
+}
 
 void *TAdMcCheckGC__ct(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);

@@ -13,6 +13,11 @@ extern "C" {
 extern RecoveredGlobal_803DEB74_lbl_8058D8E0 lbl_8058D8E0;
 u8 *TKeyBoardControl__sub_803DEB74(u32 arg0);
 s16 TKeyBoardControl__sub_803DEC10(s16 x);
+M2C_UNK Dolphin_PADRead(void *, void *);
+extern M2C_UNK lbl_8058D880[];
+extern RecoveredGlobal_803DEB74_lbl_8058D8E0 lbl_8058D8E0;
+extern M2C_UNK lbl_8058D9B0[];
+void TKeyBoardControl__sub_803DE9C4(void);
 }
 
 extern "C" {
@@ -23,6 +28,15 @@ void set_some_id__FUl(s32 arg0);
 #pragma push
 #pragma scheduling off
 typedef char RecoveredGlobal_803DEB74_lbl_8058D8E0_size[sizeof(RecoveredGlobal_803DEB74_lbl_8058D8E0) == 0xD0 ? 1 : -1];
+
+void TKeyBoardControl__sub_803DE9C4(void) {
+    M2C_FIELD(((M2C_UNK *)&lbl_8058D8E0), M2C_UNK **, 0x30) = lbl_8058D9B0;
+    M2C_FIELD(((M2C_UNK *)&lbl_8058D8E0), u8 **, 0x64) = (unsigned char *) ((void *) ((u8 *)lbl_8058D9B0 + 0x78));
+    M2C_FIELD(((M2C_UNK *)&lbl_8058D8E0), u8 **, 0x98) = (unsigned char *) ((void *) ((u8 *)lbl_8058D9B0 + 0xF0));
+    M2C_FIELD(((M2C_UNK *)&lbl_8058D8E0), u8 **, 0xCC) = (unsigned char *) ((void *) ((u8 *)lbl_8058D9B0 + 0x168));
+    Dolphin_PADRead((void *) (lbl_8058D880), (void *) (lbl_8058D9B0));
+}
+
 u8 *TKeyBoardControl__sub_803DEB74(u32 arg0) {
     s32 var_r5;
     var_r5 = 0;

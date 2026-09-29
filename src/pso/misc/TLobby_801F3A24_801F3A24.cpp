@@ -6,14 +6,21 @@ struct QuestObjRow_801F3AD8 {
     u8 pad1[0x40];
 };
 
+struct Ent_801F3A80 {
+    u16 a;
+    s16 b;
+    u8 rest[0x44];
+};
+
 extern "C" {
 void TLobby__sub_802081AC(void *arg0);
 void TLobby__sub_801F3AD8(struct QuestObjRow_801F3AD8 *rows, u32 byte_size);
+void TLobby__sub_802080C0(void*);
+void TLobby__sub_801F3A80(u8* arg0, u32 arg1);
 }
 
 extern "C" {
 
-int TLobby__sub_801F3A80(void);
 void refresh_quest_list__6TLobbyFi(s32 arg0);
 s32 TLobby__send_and_handle_60(s32);
 s32 TLobby__sub_800F9DF4(s32, s32);
@@ -38,7 +45,16 @@ void refresh_quest_list__6TLobbyFi(s32 arg0) {
     }
 }
 
-int TLobby__sub_801F3A80(void) { return 0; }
+void TLobby__sub_801F3A80(u8* arg0, u32 arg1) {
+    Ent_801F3A80* p = (Ent_801F3A80*)arg0;
+    u32 n = arg1 / sizeof(Ent_801F3A80);
+    u32 i;
+    for (i = 0; i < n; i++, p++) {
+        TLobby__sub_802080C0(p);
+        p->b = 0;
+    }
+}
+
 void TLobby__sub_801F3AD8(struct QuestObjRow_801F3AD8 *rows, u32 byte_size) {
     struct QuestObjRow_801F3AD8 *p = rows;
     u32 count = byte_size / 68;

@@ -9,6 +9,8 @@ struct RecoveredFields_80113244_arg0 {
     s32 field_1CC;
 };
 
+typedef struct TargetList_80112BC4 { s32 count; s16 ids[46]; } TargetList_80112BC4;
+
 extern "C" {
 M2C_UNK TItemMag__sub_801112B8(void *, int);
 M2C_UNK TItemMag__sub_80111758(void *, int);
@@ -16,8 +18,14 @@ void apply_feed_delta__8TItemMagFPv(u8 *arg0);
 extern const f32 lbl_805DABB4;
 void TItemMag__sub_80112DB4(u8 *arg0, s32 arg1);
 int TItemMag__sub_80112E20(void*, void*);
-M2C_UNK TItemMag__sub_80112BC4(void *, M2C_UNK);
 void TItemMag__sub_80113244(struct RecoveredFields_80113244_arg0 *arg0);
+s16 obj_getField1c(void *);
+void TObjPlayer__sub_8004433C(void *);
+void create__10TTecDebandFiii(void *, void *, int);
+void create__9TTecRestaFPvPvPv(void *, void *, int);
+void create__12TTecReverserFPvPvPvPv(void *, void *, void *, int);
+void create__9TTecSiftaFPvPvPv(void *, void *, int);
+void TItemMag__sub_80112BC4(u8 *self, s32 technique);
 }
 
 extern "C" {
@@ -34,7 +42,6 @@ void update_feed__8TItemMagFPv(void *arg0);
 void update_feed_timer__8TItemMagFPv(void *arg0);
 u8 TItemMagSub__sub_8011455C(void *);
 M2C_UNK TItemMag__sub_801124C4(void *);
-M2C_UNK TItemMag__sub_80112BC4(void *, M2C_UNK);
 int TItemMag__sub_80112E20(void*, void*);
 M2C_UNK TItemMag__sub_80112FB4();
 M2C_UNK TItemMag__sub_801140F4(void *, int);
@@ -60,6 +67,40 @@ M2C_UNK set_type__10TObjPlayerFPvi(s32, s32);
 u32 test_flags__8TItemMagFPvUi(void *, M2C_UNK);
 
 void TItemMag__sub_8011271C(void) {  }
+
+void TItemMag__sub_80112BC4(u8 *self, s32 technique) {
+    TargetList_80112BC4 targets;
+    s32 level = M2C_FIELD(self, s16 *, 0x198) / 40;
+    if (M2C_FIELD(self, u8 **, 0xF0) == NULL) {
+        return;
+    }
+    switch (technique) {
+    case 13:
+        create__9TTecSiftaFPvPvPv(M2C_FIELD(self, u8 **, 0xF0), M2C_FIELD(self, u8 **, 0xF0) + 0x38, level);
+        break;
+    case 10:
+        create__10TTecDebandFiii(M2C_FIELD(self, u8 **, 0xF0), M2C_FIELD(self, u8 **, 0xF0) + 0x38, level);
+        break;
+    case 15:
+        create__9TTecRestaFPvPvPv(M2C_FIELD(self, u8 **, 0xF0), M2C_FIELD(self, u8 **, 0xF0) + 0x38, level);
+        break;
+    case 17:
+        TObjPlayer__sub_8004433C(&targets);
+        targets.count = 1;
+        targets.ids[0] = obj_getField1c(M2C_FIELD(self, u8 **, 0xF0));
+        targets.ids[1] = 0;
+        create__12TTecReverserFPvPvPvPv(M2C_FIELD(self, u8 **, 0xF0), M2C_FIELD(self, u8 **, 0xF0) + 0x38, &targets, level);
+        break;
+    case 11:
+        return;
+    case 12:
+        return;
+    case 14:
+        return;
+    case 16:
+        return;
+    }
+}
 
 s32 apply_feed_stats__8TItemMagFPvPv(u8 *arg0, u8 *arg1) {
     if (arg1 != NULL) {
@@ -156,7 +197,7 @@ void check_level_cap__8TItemMagFPv(void *arg0) {
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1CC);
     if (temp_r0 == 0x5A) {
-        TItemMag__sub_80112BC4(arg0, 0x11);
+        TItemMag__sub_80112BC4((u8 *)(arg0), (s32)(0x11));
         return;
     }
     if (temp_r0 > 0x5A) {
@@ -170,7 +211,7 @@ void check_level_evolve__8TItemMagFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1CC);
     if (temp_r0 == 0x5A) {
         if (obj_getS16_32C(M2C_FIELD(arg0, s32 *, 0xF0)) > 0) {
-            TItemMag__sub_80112BC4(arg0, 0xF);
+            TItemMag__sub_80112BC4((u8 *)(arg0), (s32)(0xF));
         }
     } else if (temp_r0 > 0x5A) {
         TItemMag__sub_80112E20((void*)(arg0), (void*)(1));
@@ -180,8 +221,8 @@ void TItemMag__sub_80113244(struct RecoveredFields_80113244_arg0 *arg0) {
     s32 temp_r0;
     temp_r0 = arg0->field_1CC;
     if (temp_r0 == 0x5A) {
-        TItemMag__sub_80112BC4((void *)(arg0), (M2C_UNK)(0xD));
-        TItemMag__sub_80112BC4((void *)(arg0), (M2C_UNK)(0xA));
+        TItemMag__sub_80112BC4((u8 *)((void *)(arg0)), (s32)((M2C_UNK)(0xD)));
+        TItemMag__sub_80112BC4((u8 *)((void *)(arg0)), (s32)((M2C_UNK)(0xA)));
         return;
     }
     if (temp_r0 > 0x5A) {

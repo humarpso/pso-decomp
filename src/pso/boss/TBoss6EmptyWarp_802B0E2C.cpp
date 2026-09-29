@@ -2,6 +2,20 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK TObjBgmColCtrl__sub_802274B8(void *);
+s32 is_flag_set__14TBoss6PlotFalzFv();
+M2C_UNK init_warp__15TBoss6EmptyWarpFv();
+M2C_UNK create__12TBoss6ThanksFv();
+s32 TBoss6Thanks__sub_8035D230();
+extern M2C_UNK lbl_804709E0[];
+extern M2C_UNK lbl_804709E8[];
+void run_task__15TBoss6EmptyWarpFv(u8 *arg0);
+}
+
 extern "C" {
 
 void *__dt__15TBoss6EmptyWarpFv(void *arg0, s16 arg1);
@@ -14,6 +28,24 @@ int fn_802B0DCC(void*);
 int render__15TBoss6EmptyWarpFv(void* p) { return fn_802B0DCC(p); }
 
 extern M2C_UNK __vt__15TBoss6EmptyWarp[];
+
+void run_task__15TBoss6EmptyWarpFv(u8 *arg0) {
+    if (is_flag_set__14TBoss6PlotFalzFv() != 0) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return;
+    }
+    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) + 1);
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) > 3) {
+        init_warp__15TBoss6EmptyWarpFv();
+        if (TBoss6Thanks__sub_8035D230() != 0) {
+            create__12TBoss6ThanksFv();
+            TObjBgmColCtrl__sub_802274B8((void *) (lbl_804709E0));
+        } else {
+            TObjBgmColCtrl__sub_802274B8((void *) (lbl_804709E8));
+        }
+        queue_destruction__7TObjectFv((void *) (arg0));
+    }
+}
 
 void *__dt__15TBoss6EmptyWarpFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

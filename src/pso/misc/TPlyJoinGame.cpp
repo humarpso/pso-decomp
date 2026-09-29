@@ -8,12 +8,36 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #pragma dont_inline off
 struct M2CCopy_80 { u8 bytes[0x80]; };
 
+struct Row_801E03B8 { u32 a[2]; };
+
+struct Join_801E03B8 {
+    u32 hdr;
+    Row_801E03B8 e[16];
+    u8 mid[0x88];
+    u32 tail;
+};
+
 extern "C" {
 u8 * fn_801E051C(void *, void *);
 u8 *__ct__12TPlyJoinGameFRC12TPlyJoinGame(u8 *arg0, u8 *arg1);
+void bswap__13packet_headerFv();
+void bswap_32__FPUl(void *);
+void bswap__12TPlyJoinGameFv(Join_801E03B8 *self);
 }
 
 extern "C" {
+
+void bswap__12TPlyJoinGameFv(Join_801E03B8 *self) {
+    int i;
+    int j;
+    bswap__13packet_headerFv();
+    for (i = 0; i < 16; i++) {
+        for (j = 0; j < 2; j++) {
+            bswap_32__FPUl(&self->e[i].a[j]);
+        }
+    }
+    bswap_32__FPUl(&self->tail);
+}
 
 u8 *__ct__12TPlyJoinGameFRC12TPlyJoinGame(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);

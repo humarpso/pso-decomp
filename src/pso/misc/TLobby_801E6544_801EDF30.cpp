@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Pkt_801EE048 {
+    u8 cmd;
+    u8 size;
+    u16 a;
+    s32 b;
+    s32 c;
+    s32 d;
+};
+
 extern "C" {
 extern s32 lbl_805D53A0;
 extern s32 *TLobby__data_805D5E78;
@@ -12,6 +21,10 @@ void TLobby__sub_801EDFF4(u8 reg);
 extern s32 TLobby__data_805D53AC;
 extern s32 *TLobby__data_805D5E78;
 void TLobby__sub_801EDFE0(u8 reg);
+void init_packet_67_04__6TLobbyFPv(void* p);
+void byteswap_and_send__6TLobbyFi(s32 arg0);
+extern s32 TLobby__data_80512220[];
+void TLobby__sub_801EE048(void);
 }
 
 extern "C" {
@@ -44,6 +57,18 @@ void TLobby__sub_801EDFF4(u8 reg) {
 
 int forward_801F36E4__6TLobbyFPv(void* p) { return TLobby__sub_801F36E4(p); }
 int TLobby__sub_801EE028(void* p) { return set_cleanup_flag__6TLobbyFv(p); }
+
+void TLobby__sub_801EE048(void) {
+    Pkt_801EE048 pkt;
+    s32 x = TLobby__data_80512220[0];
+    s32 y = TLobby__data_80512220[1];
+    init_packet_67_04__6TLobbyFPv(&pkt);
+    pkt.b = x;
+    pkt.a = 0;
+    pkt.c = y;
+    pkt.d = 0;
+    byteswap_and_send__6TLobbyFi((s32)&pkt);
+}
 
 void TLobby__sub_801EE09C(void* p) { TBoss1Dragon::requestActionRefresh(); }
 

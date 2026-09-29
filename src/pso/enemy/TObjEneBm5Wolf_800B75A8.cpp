@@ -11,6 +11,14 @@ struct Stack_800B7808 {
     f32 sp10;
 };
 
+struct Seq_800B76E0 { u8 pad0[4]; u32 count; };
+
+struct Ent_800B76E0 { s32 w0; Seq_800B76E0 *seq; };
+
+struct Cur_800B76E0 { u8 pad0[0x94]; s32 idx; };
+
+struct Obj_800B76E0 { u8 pad0[0xD8]; Cur_800B76E0 *cur; Ent_800B76E0 *ents; };
+
 extern "C" {
 s32 TObjEneDellBiter__sub_80087350(s32, s32);
 extern const f32 TObjEneBm5Wolf__data_805D9DE0;
@@ -37,6 +45,8 @@ extern const f32 TObjEneBm5Wolf__data_805D9DEC;
 extern const f32 TObjEneBm5Wolf__data_805D9DF0;
 extern const f32 lbl_805D9E44;
 s32 TObjEneBm5Wolf__sub_800B75B4(u8 *arg0);
+extern const f32 lbl_805D9D9C;
+f32 TObjEneBm5Wolf__sub_800B76E0(Obj_800B76E0 *arg0, f32 farg0);
 }
 
 extern "C" {
@@ -98,6 +108,10 @@ s32 TObjEneBm5Wolf__sub_800B75B4(u8 *arg0) {
 int get_flag_bit0__14TObjEneBm5WolfFPv(void* p) { return *(u16*)((char*)p + 0x1c) & 0x1; }
 
 extern const f32 lbl_805D9E48;
+
+f32 TObjEneBm5Wolf__sub_800B76E0(Obj_800B76E0 *arg0, f32 farg0) {
+    return lbl_805D9D9C / ((f32)(arg0->ents[arg0->cur->idx].seq->count - 1) / farg0);
+}
 
 void play_proximity_effect__14TObjEneBm5WolfFi(s32 arg0) {
     if (objInBand__FP7GameObjf((void *)arg0, lbl_805D9E48) != 0) {

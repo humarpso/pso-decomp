@@ -177,6 +177,40 @@ struct RecoveredGlobal_801EC43C_TLobby__data_80512220 {
 
 struct E_801EB484 { s32 a; s32 b; };
 
+struct Pkt_801ED300 {
+    u8 cmd;
+    u8 size;
+    u16 a;
+    u16 b;
+    u16 pad;
+    u16 c;
+    u8 d;
+    u8 e;
+};
+
+struct Pkt_801ED360 {
+    u8 cmd;
+    u8 size;
+    u16 a;
+    u16 b;
+    u16 pad;
+    u16 c;
+    u8 d;
+    u8 e;
+};
+
+struct E_801EB4C4 { s16 a; s16 b; s32 c; };
+
+struct Ctx_801EB508 { u8 pad[0x10]; u8 buf[0xFD]; };
+
+struct Glob_801EB508 { u32 f0; s32 f4; u8 rest[0x18]; };
+
+struct Ctx_801EB658 { u8 pad[0x10]; u8 buf[0xFF]; };
+
+struct Glob_801EB658 { u32 f0; s32 f4; u8 rest[0x18]; };
+
+struct Item_801EC720 { s8 a; s8 b; s8 c; u8 pad[0x1D]; };
+
 extern "C" {
 M2C_UNK create_instance__12TItemDropSubFi(int, void *);
 void TLobby__sub_801EBF04(s32 arg0);
@@ -226,7 +260,6 @@ s16 get_kill_count__10TObjPlayerFPv(void *);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(int, int);
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801ED400(s32 arg0, s32 arg1);
-s32 get_global_state__23TAdSinglePlyChrSelectGCFv(void);
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801EB85C(s32 arg0, s32 arg1);
 s32 select_download_type__6TLobbyFi(int);
@@ -311,6 +344,35 @@ void TLobby__sub_801EC624(void);
 extern E_801EB484 TLobby__data_80511C80[];
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801EB484(u8 src, u8 dst);
+u8 TODoorAncient08__sub_80229220(int);
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801ED2B0(s32 arg0);
+void finalize_and_send_60__6TLobbyFPv(void* p);
+void* init_6x05_switch_changed__6TLobbyFPv(void* p);
+extern s32 TLobby__data_80512220[];
+void TLobby__sub_801ED300(void);
+void finalize_and_send_60__6TLobbyFPv(void* p);
+void* init_6x05_switch_changed__6TLobbyFPv(void* p);
+extern s32 TLobby__data_80512220[];
+void TLobby__sub_801ED360(void);
+extern E_801EB484 TLobby__data_80511C80[];
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801EB4C4(u8 a0, u8 a1);
+s32 move_data__6TLobbyFv(void *, void *, int);
+extern s32 TLobby__data_80512220[];
+void TLobby__sub_801EB508(void);
+s32 get_global_state__23TAdSinglePlyChrSelectGCFv(void);
+s32 move_data__6TLobbyFv(void *, void *, int);
+extern s32 TLobby__data_80512220[];
+void TLobby__sub_801EB658(void);
+s32 get_serial_access__22TQuestVmDownLoadServerFPv();
+s32 poll_serial_access__22TQuestVmDownLoadServerFPv();
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801EB8C0(u8 arg0);
+s32 forward_to_player__6TLobbyFiPv(int, void *);
+s32 init__9TItemDataFv(void *);
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801EC720(u8 i);
 }
 
 extern "C" {
@@ -360,6 +422,20 @@ void TLobby__sub_801EB484(u8 src, u8 dst) {
     (*(int * *)&TLobby__data_805D5E78)[dst] = e.b;
 }
 
+void TLobby__sub_801EB4C4(u8 a0, u8 a1) {
+    E_801EB4C4 e = ((E_801EB4C4 *)&TLobby__data_80511C80)[(*(int * *)&TLobby__data_805D5E78)[a0]];
+    (*(int * *)&TLobby__data_805D5E78)[a1] = e.b;
+}
+
+void TLobby__sub_801EB508(void) {
+    u32 i = (*(Glob_801EB508 *)&TLobby__data_80512220).f0;
+    s32 v = (*(Glob_801EB508 *)&TLobby__data_80512220).f4;
+    Ctx_801EB508 *w = ((Ctx_801EB508 *)get_global_state__23TAdSinglePlyChrSelectGCFv());
+    if (w != NULL && i < 0xFD) {
+        move_data__6TLobbyFv(&w->buf[i], &v, 4);
+    }
+}
+
 int forward_802272B4__6TLobbyFPv(void* p) { return TLobby__sub_802272B4(p); }
 int TLobby__sub_801EB588(void* p) { return TLobby__sub_8022733C(p); }
 void TLobby__sub_801EB5A8(void) {  }
@@ -385,6 +461,16 @@ void TLobby__sub_801EB604(s32 arg0, s32 arg1) {
 }
 
 typedef char RecoveredGlobal_801EB6B8_lbl_80512350_size[sizeof(RecoveredGlobal_801EB6B8_lbl_80512350) == 0x10 ? 1 : -1];
+
+void TLobby__sub_801EB658(void) {
+    u32 i = (*(Glob_801EB658 *)&TLobby__data_80512220).f0;
+    s16 v = (*(Glob_801EB658 *)&TLobby__data_80512220).f4;
+    Ctx_801EB658 *w = ((Ctx_801EB658 *)get_global_state__23TAdSinglePlyChrSelectGCFv());
+    if (w != NULL && i < 0xFF) {
+        move_data__6TLobbyFv(&w->buf[i], &v, 2);
+    }
+}
+
 void TLobby__sub_801EB6B8(s32 arg0) {
     s32 temp_r31;
     u8 *temp_r3;
@@ -432,6 +518,13 @@ void TLobby__sub_801EB85C(s32 arg0, s32 arg1) {
             var_r3 = (u8 *)((void *) M2C_FIELD(var_r3, u8 *, 0x10));
             M2C_FIELD(var_r4, M2C_UNK *, ((var_r31 * 4) & 0x3FC)) = (long) (var_r3);
         }
+    }
+}
+
+void TLobby__sub_801EB8C0(u8 arg0) {
+    (*(int * *)&TLobby__data_805D5E78)[arg0] = get_serial_access__22TQuestVmDownLoadServerFPv();
+    if ((*(int * *)&TLobby__data_805D5E78)[arg0] == 0) {
+        (*(int * *)&TLobby__data_805D5E78)[arg0] = poll_serial_access__22TQuestVmDownLoadServerFPv();
     }
 }
 
@@ -606,6 +699,16 @@ void TLobby__sub_801EC6F0(void) {
     handle_player_event__6TLobbyFii((int) ((u16) M2C_FIELD(&(*(RecoveredGlobal_801EC6F0_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 0)), (int) (M2C_FIELD(&(*(RecoveredGlobal_801EC6F0_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 4)));
 }
 
+void TLobby__sub_801EC720(u8 i) {
+    Item_801EC720 item;
+    u16 id = (*(int * *)&TLobby__data_805D5E78)[i++];
+    init__9TItemDataFv(&item);
+    item.a = (*(int * *)&TLobby__data_805D5E78)[i++];
+    item.b = (*(int * *)&TLobby__data_805D5E78)[i++];
+    item.c = (*(int * *)&TLobby__data_805D5E78)[i++];
+    forward_to_player__6TLobbyFiPv(id, &item);
+}
+
 int TLobby__sub_801EC7A0(void) { return set_instance__10TOMineTrapFi((void*)(0)); }
 int TLobby__sub_801EC7C4(void) { return set_instance__10TOMineTrapFi((void*)(1)); }
 
@@ -755,6 +858,36 @@ void TLobby__sub_801ED25C(s32 arg0) {
     M2C_FIELD(var_r3, s32 *, 8) = var_r4;
 }
 #pragma pop
+
+void TLobby__sub_801ED2B0(s32 arg0) {
+    TLobby__data_805D5E78[(u8)arg0 + 1] = TODoorAncient08__sub_80229220((u16)TLobby__data_805D5E78[(u8)arg0]);
+}
+
+void TLobby__sub_801ED300(void) {
+    Pkt_801ED300 pkt;
+    s32 x = TLobby__data_80512220[0];
+    s32 y = TLobby__data_80512220[1];
+    init_6x05_switch_changed__6TLobbyFPv(&pkt);
+    pkt.a = 0xFFFF;
+    pkt.b = 0;
+    pkt.c = y;
+    pkt.d = x;
+    pkt.e = 0;
+    finalize_and_send_60__6TLobbyFPv(&pkt);
+}
+
+void TLobby__sub_801ED360(void) {
+    Pkt_801ED360 pkt;
+    s32 x = TLobby__data_80512220[0];
+    s32 y = TLobby__data_80512220[1];
+    init_6x05_switch_changed__6TLobbyFPv(&pkt);
+    pkt.a = 0xFFFF;
+    pkt.b = 0;
+    pkt.c = y;
+    pkt.d = x;
+    pkt.e = 1;
+    finalize_and_send_60__6TLobbyFPv(&pkt);
+}
 
 void TLobby__sub_801ED3C4(s32 arg0) {
     u8 *temp_r3;

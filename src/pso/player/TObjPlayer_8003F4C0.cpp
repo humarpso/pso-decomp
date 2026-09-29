@@ -193,6 +193,8 @@ struct Obj_80040038 { u8 pad[0xb8]; s16 anim; u8 pad2[0x37c - 0xba]; s32 state; 
 
 struct Obj_8003FFE4 { u8 pad[0x30]; u32 flags; u8 pad2[0x37c - 0x34]; s32 state; };
 
+struct Obj_8004055C { u8 pad0[0x326]; s16 state; };
+
 extern "C" {
 s32 obj_testFlags30(void *, s32);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
@@ -229,7 +231,6 @@ M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 M2C_UNK fn_8003CFEC(void *);
 s32 TObjPlayer__sub_8003FBC8();
 void TObjPlayer__sub_80040558(void * _w0);
-M2C_UNK TObjPlayer__sub_8004055C(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
 extern s32 lbl_805D4C14;
@@ -251,6 +252,15 @@ M2C_UNK TBoss1Dragon__sub_80143504(void *);
 void TObjPlayer__sub_80040038(void *arg0);
 extern s32 lbl_805D4C64;
 void TObjPlayer__sub_8003FFE4(void *arg0);
+void update_topple_state__10TObjPlayerFPv(u8 *arg0);
+void TObjPlayer__sub_8003F81C(void *);
+void TObjPlayer__sub_8003F9D4(void *);
+void update_state_spin__10TObjPlayerFPv(void *arg0);
+void TObjPlayer__sub_8003FFE4(void *arg0);
+void TObjPlayer__sub_80040038(void *arg0);
+void update_grabbed_state__10TObjPlayerFPv(void *arg0);
+void TObjPlayer__sub_800401CC(void *);
+void TObjPlayer__sub_8004055C(Obj_8004055C *arg0);
 }
 
 extern "C" {
@@ -507,6 +517,20 @@ void TObjPlayer__sub_80040558(void * _w0) {  }
 #define PSO_VCALL_VObj_18_b8f5cb_m30(_self) (((VObj_18_b8f5cb *)(_self))->m30())
 #define PSO_VCALL_VObj_18_b8f5cb_m60(_self) (((VObj_18_b8f5cb *)(_self))->m60())
 #define PSO_VCALL_VObj_18_b8f5cb_m53(_self) (((VObj_18_b8f5cb *)(_self))->m53())
+
+void TObjPlayer__sub_8004055C(Obj_8004055C *arg0) {
+    switch (arg0->state) {
+    case 0: TObjPlayer__sub_8003FFE4(arg0); return;
+    case 1: TObjPlayer__sub_8003F9D4(arg0); return;
+    case 2: TObjPlayer__sub_800401CC(arg0); return;
+    case 4: update_grabbed_state__10TObjPlayerFPv(arg0); return;
+    case 5: TObjPlayer__sub_80040038(arg0); return;
+    case 7: update_state_spin__10TObjPlayerFPv(arg0); return;
+    case 9: TObjPlayer__sub_8003F81C(arg0); return;
+    case 10: update_topple_state__10TObjPlayerFPv((u8 *)(arg0)); break;
+    }
+}
+
 void TObjPlayer__sub_800405D8(u8 *arg0) {
   f32 var_f1;
   s32 temp_r3;
@@ -553,12 +577,12 @@ void TObjPlayer__sub_800405D8(u8 *arg0) {
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x37C)))) != (-1))
       {
         *((s32 *) (((s8 *) arg0) + 0x37C)) = -1;
-        TObjPlayer__sub_8004055C((void *) arg0);
+        TObjPlayer__sub_8004055C((Obj_8004055C *)((void *) arg0));
       }
       *((s16 *) (((s8 *) arg0) + 0x326)) = (s16) (*((s32 *) (((s8 *) arg0) + 0x374)));
       *((s32 *) (((s8 *) arg0) + 0x37C)) = 0;
     }
-    TObjPlayer__sub_8004055C((void *) arg0);
+    TObjPlayer__sub_8004055C((Obj_8004055C *)((void *) arg0));
     var_f1 = *((f32 *) (((s8 *) arg0) + 0x3C));
     if (var_f1 > lbl_805D86F4)
     {

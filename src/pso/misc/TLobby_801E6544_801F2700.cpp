@@ -4,6 +4,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Entry804C69D8_801F2748 {
+    u32 field0;
+    void (*handler)(void*);
+};
+struct Entry804C69D8_801F2910 {
+    u32 field0;
+    void (*handler)(s32, s32, s32);
+};
+
+extern "C" {
+extern struct Entry804C69D8 lbl_804C69D8[];
+s32 read_packet_byte__6TLobbyFv(void*);
+M2C_UNK read_be_u16(void *);
+void qst_getargs_801F2910(s32 arg0);
+extern u8 lbl_8051238C[];
+void append_string_to_buffer(void*);
+void TLobby__sub_801F2748(s32 arg0);
+}
+
 extern "C" {
 
 M2C_UNK read_be_u16(void *);
@@ -22,6 +41,22 @@ void qst_getargs_801F2700(s32 arg0) {
     temp_r3 += arg0;
     temp_r31 = temp_r3->handler;
     temp_r31(read_be_u16(temp_r3));
+}
+void TLobby__sub_801F2748(s32 arg0) {
+    Entry804C69D8_801F2748 *e = (Entry804C69D8_801F2748 *)&lbl_804C69D8;
+    e += arg0;
+    void (*fn)(void*) = e->handler;
+    append_string_to_buffer(lbl_8051238C);
+    fn(lbl_8051238C);
+}
+
+void qst_getargs_801F2910(s32 arg0) {
+    Entry804C69D8_801F2910* e = ((Entry804C69D8_801F2910 *)&lbl_804C69D8);
+    e += arg0;
+    void (*fn)(s32, s32, s32) = e->handler;
+    s32 a = read_packet_byte__6TLobbyFv(e);
+    s32 b = read_packet_byte__6TLobbyFv((void*)a);
+    fn(a, b, ((s32)read_be_u16((void *)((void*)b))));
 }
 
 }

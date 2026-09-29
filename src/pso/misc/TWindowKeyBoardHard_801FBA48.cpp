@@ -4,6 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
@@ -14,6 +15,11 @@ s32 TBoss7Tentacle__sub_803D9BA0(void *);
 f32 TOHangerMachine01__sub_803D9C00(void *);
 s32 TOSignCave03__sub_803DB510(int);
 void fn_801FBA6C(u8 *arg0);
+s32 TAdPlayerLoadGC__sub_801E1B50(s32);
+s32 TAdPlayerLoadGC__sub_801E1E38(s32);
+void render_tick__Fv();
+void TAdSinglePlyChrSelectGC__sub_801FCD74();
+s32 TAdSinglePlyChrSelectGC__sub_801FBEF4(s32 arg0);
 }
 
 extern "C" {
@@ -56,6 +62,16 @@ void fn_801FBA6C(u8 *arg0) {
         TObjPlayer__sub_803D9B78();
         var_r30 = (u8 *)(M2C_FIELD(var_r30, u8 **, 0x30));
     } while (var_r30 != NULL);
+}
+s32 TAdSinglePlyChrSelectGC__sub_801FBEF4(s32 arg0) {
+    while (TAdPlayerLoadGC__sub_801E1B50(arg0) != 0) {
+        if (TAdPlayerLoadGC__sub_801E1E38(arg0) != 1) {
+            return 0;
+        }
+        TAdSinglePlyChrSelectGC__sub_801FCD74();
+        render_tick__Fv();
+    }
+    return 1;
 }
 
 }

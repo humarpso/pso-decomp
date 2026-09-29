@@ -9,9 +9,13 @@ struct RecoveredGlobal_80147A74_lbl_804EF500 {
     u8 remaining[0x94];
 };
 
+struct S_801472F8 { u8 pad0[4]; s16 a; s16 b; u8 rest[0x38]; };
+
 extern "C" {
 extern RecoveredGlobal_80147A74_lbl_804EF500 lbl_804EF500;
 M2C_UNK *TAdEnterPPPPassGC__sub_80147A74(void);
+s16 TLobby__sub_803FB184(void *);
+void TLobby__sub_801472F8(s16 *arg0, s16 *arg1);
 }
 
 extern "C" {
@@ -45,6 +49,15 @@ s32 TLobby__sub_80147284(void) {
     teardown_boss2__6TLobbyFv();
     lbl_805D2D00 = -1;
     return 0;
+}
+
+void TLobby__sub_801472F8(s16 *arg0, s16 *arg1) {
+    S_801472F8 s;
+    if (TLobby__sub_803FB184(&s) < 0) {
+        s.a = 0;
+    }
+    *arg0 = s.a;
+    *arg1 = s.b;
 }
 
 void TLobby__sub_80147978(void) {  }

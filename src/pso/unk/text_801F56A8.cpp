@@ -10,8 +10,19 @@ struct M2CCopy_20 { u8 bytes[0x20]; };
 
 struct M2CCopy_100 { u8 bytes[0x100]; };
 
+struct Node_801F57B4 {
+    u8 pad0[0xC];
+    Node_801F57B4* next;
+    u8 pad1[4];
+    Node_801F57B4* child;
+};
+
 extern "C" {
 void fn_801F56A8(u8 *arg0, u8 *arg1);
+void queue_destruction__7TObjectFv(void*);
+s32 check_value_equals__13TQuestColCtrlFPvi(void*, s32);
+extern s32 lbl_805D35D0;
+void fn_801F57B4(Node_801F57B4* arg0);
 }
 
 extern "C" {
@@ -67,6 +78,18 @@ void fn_801F56A8(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0x16C) = (s32) M2C_FIELD(arg1, s32 *, 0x16C);
     M2C_FIELD(arg0, u16 *, 0x170) = (u16) M2C_FIELD(arg1, u16 *, 0x170);
     M2C_FIELD(arg0, u16 *, 0x172) = (u16) M2C_FIELD(arg1, u16 *, 0x172);
+}
+void fn_801F57B4(Node_801F57B4* arg0) {
+    Node_801F57B4* n = arg0->child;
+    while (arg0->child != 0 && n != 0) {
+        Node_801F57B4* cur = n;
+        n = n->next;
+        if (check_value_equals__13TQuestColCtrlFPvi(cur, lbl_805D35D0) != 0) {
+            queue_destruction__7TObjectFv(cur);
+        } else {
+            fn_801F57B4(cur);
+        }
+    }
 }
 
 }

@@ -5,10 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct L_8013FF20 { u8 pad0[0x1012]; s16 a[0x1000]; u8 pad1[0x5016 - 0x3012]; s16 b[0x1101]; };
+
 extern "C" {
 void TLobby__sub_8013FF64(u8 *arg0, s8 arg1);
 u8 TLobby__sub_8013FF94(u8 *arg0);
 u8 TLobby__sub_8013FF78(u8 *arg0);
+void TLobby__sub_8013FF20(L_8013FF20 *arg0);
 }
 
 extern "C" {
@@ -20,7 +23,15 @@ int update_current_floor__6TLobbyFv(void);
 int TLobby__sub_8022743C(void);
 int refresh_render_state__6TLobbyFv(void);
 
-int TLobby__sub_8013FF20(void) { return 0; }
+void TLobby__sub_8013FF20(L_8013FF20 *arg0) {
+    s32 i;
+    for (i = 0x1001; i < 0x1101; i++) {
+        arg0->b[i] = 0x1000;
+    }
+    for (i = 0; i < 0x1000; i++) {
+        arg0->a[i] = 0x1000;
+    }
+}
 
 void TLobby__sub_8013FF64(u8 *arg0, s8 arg1) {
     s8 *temp_r5;

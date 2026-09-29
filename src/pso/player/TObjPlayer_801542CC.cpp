@@ -72,6 +72,10 @@ struct Actor_801569F4 {
     s32 fa8;
 };
 
+struct E_801546D0 { u32 a; s32 b; };
+
+struct G_80156720 { u8 pad0[0x9C]; u8 *f9c; u8 pad_A0[4]; void *fa4; };
+
 extern "C" {
 void TObjPlayer__sub_801550B8(u8 *arg0, u8 *arg1);
 u8 * TObjPlayer__sub_80155028(s32 arg0, s32 arg1);
@@ -104,7 +108,6 @@ void update_collisions__10TObjPlayerFPv(void* p);
 void clear_obj_links(void* p);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
 void* initialize_linked_object_reference(void* p, void* a1);
-int TObjEneGibbles__sub_80156720(void);
 int TObjPlayer__sub_80019828(void*);
 void release_member_90__10TObjPlayerFPv(void* p);
 void init_all_slots__10TObjPlayerFv(void);
@@ -188,6 +191,11 @@ void TObjPlayer__sub_80156A74(void* p);
 void TPhotonMagicSquare__sub_801A2640(void);
 extern M2C_UNK lbl_804AF8A0[];
 u8 *TObjPlayer__sub_801569F4(u8 *arg0);
+extern unsigned char lbl_8050DAD0[];
+extern int lbl_805D5878;
+void TObjPlayer__sub_801546D0(u32 arg0, s32 arg1);
+void free__11TOBoss4RockFUi(s32);
+void TObjEneGibbles__sub_80156720(G_80156720 *arg0);
 }
 
 extern "C" {
@@ -232,6 +240,22 @@ void TObjPlayer__sub_801542F4(s32 a) {
 
 void TObjPlayer__sub_8015431C(u8 *arg0) {
     TObjPlayer__sub_8015434C((s32)(arg0), (s32)(lbl_805D586C + lbl_805D5870), (s32)(TObjPlayer__data_805D5874));
+}
+
+void TObjPlayer__sub_801546D0(u32 arg0, s32 arg1) {
+    E_801546D0 *p;
+    s32 i;
+    if ((u32)lbl_805D5878 < 0x10) {
+        p = (E_801546D0 *)((u8 *)&lbl_8050DAD0);
+        for (i = 0; i != lbl_805D5878; i++, p++) {
+            if (p->a == arg0 && p->b == arg1) {
+                return;
+            }
+        }
+        p->a = arg0;
+        p->b = arg1;
+        lbl_805D5878++;
+    }
 }
 
 void reset_global_table(void) { memset(lbl_8050DAD0, (void*)0, (void*)128); lbl_805D5878 = 0; }
@@ -621,7 +645,20 @@ void check_object_collisions__10TObjPlayerFPv(void *arg0) {
 void update_collisions__10TObjPlayerFPv(void* p) { check_object_collisions__10TObjPlayerFPv((void *)(p)); TObjPlayer__sub_801564A0((void *)(p)); }
 void clear_obj_links(void* p) { *(s32*)((char*)p + 0x9c) = 0; *(s32*)((char*)p + 0xa4) = 0; }
 void* initialize_linked_object_reference(void* p, void* a1) { *(int*)((char*)p + 0xa8) = 1; *(void**)((char*)p + 0xa4) = a1; *(void**)((char*)p + 0x9c) = (char*)p + 0xa0; TObjPlayer__sub_80154E3C((void *)(p)); return *(void**)((char*)p + 0xa4); }
-int TObjEneGibbles__sub_80156720(void) { return 0; }
+
+void TObjEneGibbles__sub_80156720(G_80156720 *arg0) {
+    u8 *p = arg0->f9c;
+    if (p != 0) {
+        if (p != 0) {
+            free__11TOBoss4RockFUi((s32)(p - 0x10));
+        }
+        arg0->f9c = 0;
+    }
+    if (arg0->fa4 != 0) {
+        free__11TOBoss4RockFUi((s32)arg0->fa4);
+        arg0->fa4 = 0;
+    }
+}
 
 Part_80156780 *TObjEneGibbles__sub_80156780(Obj_80156780 *self, Part_80156780 *src, s32 count) {
     s32 n;

@@ -19,19 +19,26 @@ s32 start_inventory_update__10TObjPlayerFPvi(void *, void *);
 s32 get_owner_if_alive__10TObjPlayerFPv(int);
 s32 set_field_1c__10TObjPlayerFPvi(int, int);
 s32 TObjPlayer__sub_801D47EC(s32 arg0, s32 arg1, s32 arg2);
+u8 *get_ptr_4__10TObjPlayerFPv();
+s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
+s32 fn_801D4270(s32 arg0);
+void __dl__FPv(void *);
+void free__11TOBoss4RockFUi(int);
+u8 *TObjPlayer__sub_801D4678(u8 *arg0, s16 arg1);
+void *alloc_buffer__11TOBoss4RockFPv(void *);
+s32 TCheckRoomSequence__sub_80396920(void *, void *, int, int, int);
+void TObjPlayer__sub_801D4730(void* p);
+u8 *TObjPlayer__sub_801D46D4(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
 
-int TObjPlayer__sub_801D4678(void);
-int TObjPlayer__sub_801D46D4(void);
 void TObjPlayer__sub_801D4730(void* p);
 int TObjPlayer__sub_801D4744(void);
 void TObjPlayer__sub_801D47D8(void* p, void* q);
 s32 check_player_action_allowed(void);
 int fn_801D40D4(void);
 int fn_801D41B4(void);
-int fn_801D4270(void);
 int reset(void* p);
 s32 TCameraCtrl__sub_8006B368();
 s32 TLobby__sub_8030A7B0();
@@ -48,7 +55,22 @@ s32 check_player_action_allowed(void) {
     return get_game_mode__23TAdSinglePlyChrSelectGCFv();
 }
 int fn_801D41B4(void) { return 0; }
-int fn_801D4270(void) { return 0; }
+
+s32 fn_801D4270(s32 arg0) {
+    s32 i;
+    u8 *p;
+    if ((u32)get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF) == 0) {
+        return 0;
+    }
+    p = get_ptr_4__10TObjPlayerFPv();
+    for (i = 0; i < 30; i++, p += 0x1C) {
+        if (*(s32 *)(p + 0x14) == arg0) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
 int reset(void* p) { return memset(p, 0, 28); }
 
 s32 TObjPlayer__sub_801D4308(s32 arg0, u8 *arg1) {
@@ -78,8 +100,29 @@ void TObjPlayer__sub_801D45B0(s32 *arg0, s32 arg1) {
     }
 }
 
-int TObjPlayer__sub_801D4678(void) { return 0; }
-int TObjPlayer__sub_801D46D4(void) { return 0; }
+u8 *TObjPlayer__sub_801D4678(u8 *arg0, s16 arg1) {
+    u8 *q;
+    if (arg0 != NULL) {
+        q = *(u8 **)(arg0 + 4);
+        if (q != NULL) {
+            if (q != NULL) {
+                free__11TOBoss4RockFUi((int)(q - 0x10));
+            }
+        }
+        if (arg1 > 0) {
+            __dl__FPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+u8 *TObjPlayer__sub_801D46D4(u8 *arg0, s32 arg1) {
+    s32 n;
+    *(s32 *)arg0 = arg1;
+    n = *(s32 *)arg0;
+    *(s32 *)(arg0 + 4) = TCheckRoomSequence__sub_80396920(alloc_buffer__11TOBoss4RockFPv((void *)(n * 8 + 0x10)), TObjPlayer__sub_801D4730, 0, 8, n);
+    return arg0;
+}
 
 void TObjPlayer__sub_801D4730(void* p) { *(s32*)((char*)p + 0x0) = -1; *(s32*)((char*)p + 0x4) = 0; }
 

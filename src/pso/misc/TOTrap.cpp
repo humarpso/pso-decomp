@@ -202,6 +202,9 @@ extern const f32 TOTrap__data_805DBA3C;
 f32 TOTrap__sub_80178F54(u8 *arg0, u32 arg1);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
 void TOTrap__sub_80178DCC(u8 *arg0);
+extern u32 lbl_80442CD0[];
+extern s32 lbl_805D5550;
+f32 TOTrap__sub_80178B78(f32 farg0);
 }
 
 extern "C" {
@@ -237,6 +240,15 @@ s32 obj_getField1c(u32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK send_code_45_1__10TObjPlayerFi(s32);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
+
+f32 TOTrap__sub_80178B78(f32 farg0) {
+    u32 v[4];
+    v[0] = lbl_80442CD0[0];
+    v[1] = lbl_80442CD0[1];
+    v[2] = lbl_80442CD0[2];
+    v[3] = lbl_80442CD0[3];
+    return farg0 * ((f32*)v)[lbl_805D5550];
+}
 
 void TOTrap__sub_80178BC0(void) {  }
 

@@ -16,7 +16,6 @@ void TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2);
 void TObjPlayer__sub_8030A030(void *arg0, void *arg1);
 void fn_80140DFC(s32 arg0, s32 arg1);
 s32 TLobby__sub_80141030(void *);
-M2C_UNK fn_80140E38(void *, void *);
 void TObjPlayer__sub_8030A030(void *arg0, void *arg1);
 void TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2);
 void fn_80140DFC(s32 arg0, s32 arg1);
@@ -27,14 +26,38 @@ s32 TLobby__sub_80141030(void *);
 void fn_80140EA8(s32 arg0, s32 arg1);
 void fn_80140EE4(Obj_80140EE4 *self, void *p);
 void fn_80140F18(Obj_80140F18 *self, Ent_80140F18 *e);
+void fn_80140E38(s32 arg0, u32 arg1);
 }
 
 extern "C" {
 
 struct VOff_80309DD0_arg0_80309dd0_80309D80 { char pad_0[0x4]; char f_4[1]; };
 void fn_80140DFC(s32 arg0, s32 arg1) {
-    fn_80140E38((void *) (arg0), (void *) (TLobby__sub_80141030((void *) (arg1))));
+    fn_80140E38((s32)((void *) (arg0)), (u32)((void *) (TLobby__sub_80141030((void *) (arg1)))));
 }
+
+void fn_80140E38(s32 arg0, u32 arg1) {
+    s32 i;
+    u32 *p;
+    p = (u32 *)(arg0 + 0x1C);
+    for (i = 0; i < 0x200; p++, i++) {
+        if (*p == arg1) {
+            u32 *src;
+            u32 *dst = p;
+            s32 k;
+            src = ++p;
+            for (k = i; k < 0x200; k++) {
+                *dst = *src++;
+                if (*++dst == 0) {
+                    return;
+                }
+            }
+            *p = 0;
+            return;
+        }
+    }
+}
+
 void fn_80140EA8(s32 arg0, s32 arg1) {
     fn_80140EE4((Obj_80140EE4 *)((void *) (arg0)), (void *)((void *) (TLobby__sub_80141030((void *) (arg1)))));
 }

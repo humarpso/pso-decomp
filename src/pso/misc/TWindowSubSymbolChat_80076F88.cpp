@@ -26,7 +26,20 @@ struct Ent_8007714C { s8 id; u8 a, b, c; };
 
 struct Obj_8007714C { u8 pad[0x28]; Ent_8007714C e[12]; };
 
+struct Ent_80077098 { s8 a, b, c; u8 d; };
+struct Obj_80077098 { u8 pad0[0x28]; Ent_80077098 e[12]; };
+struct Obj_800770D0 { u8 pad0[0x20]; u16 s[4]; };
+struct Obj_800771B0 { u8 pad0[0x20]; u16 s[4]; };
+struct Obj_800771C4 { u8 pad0[0x20]; u16 s[4]; };
+struct Ent_800771E4 { s8 a, b, c; u8 d; };
+struct Obj_800771E4 { u8 pad0[0x28]; Ent_800771E4 e[12]; };
+
 extern "C" {
+s32 TWindowSubSymbolChat__sub_80077098(Obj_80077098 *arg0);
+s32 TWindowSubSymbolChat__sub_800770D0(Obj_800770D0 *arg0);
+void TWindowSubSymbolChat__sub_800771B0(Obj_800771B0 *arg0, s32 arg1);
+s32 TWindowSubSymbolChat__sub_800771C4(Obj_800771C4 *arg0, s32 arg1);
+void TWindowSubSymbolChat__sub_800771E4(Obj_800771E4 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6);
 u8 *get_symbol_chat_data__20TWindowSubSymbolChatFPv(u8 *arg0);
 s32 TWindowSubSymbolChat__sub_80077464();
 u8 *get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
@@ -55,16 +68,6 @@ void TWindowSubSymbolChat__sub_800772D8(u8 *arg0, s32 arg1, s32 arg2);
     extern int lbl_805D4E50;
 void add__20TWindowSubSymbolChatFPviiiii(s32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 void add__20TWindowSubSymbolChatFPviiiii(s32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
-int TWindowSubSymbolChat__sub_800771E4(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0, void* a4 = 0, void* a5 = 0, void* a6 = 0);
-int TWindowSubSymbolChat__sub_800771E4(void* a0, void* a1, void* a2, void* a3, void* a4, void* a5, void* a6);
-int TWindowSubSymbolChat__sub_800771C4(void);
-int TWindowSubSymbolChat__sub_800771C4(void);
-int TWindowSubSymbolChat__sub_800771B0(void);
-int TWindowSubSymbolChat__sub_800771B0(void);
-int TWindowSubSymbolChat__sub_800770D0(void);
-int TWindowSubSymbolChat__sub_800770D0(void);
-int TWindowSubSymbolChat__sub_80077098(void);
-int TWindowSubSymbolChat__sub_80077098(void);
 void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
 void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
 void TWindowSubSymbolChat__sub_80077034(u8 *arg0, s32 arg1);
@@ -193,9 +196,28 @@ void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) (M2C_FIELD(arg0, s32 *, 0) | 1);
 }
 
-int TWindowSubSymbolChat__sub_80077098(void) { return 0; }
+s32 TWindowSubSymbolChat__sub_80077098(Obj_80077098 *arg0) {
+    s32 n = 0;
+    s32 i;
+    for (i = 0; i < 12; i++) {
+        if (arg0->e[i].a == -1) {
+            n++;
+        }
+    }
+    return n;
+}
 
-int TWindowSubSymbolChat__sub_800770D0(void) { return 0; }
+s32 TWindowSubSymbolChat__sub_800770D0(Obj_800770D0 *arg0) {
+    s32 n = 0;
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        s32 v = (u8)arg0->s[i];
+        if (v != 0xFF) {
+            n++;
+        }
+    }
+    return n;
+}
 
 s32 TWindowSubSymbolChat__sub_80077108(Obj_80077108 *self, s32 i) {
     for (; i < 12; i++) {
@@ -217,17 +239,28 @@ void TWindowSubSymbolChat__sub_8007714C(Obj_8007714C *self, s32 i) {
     self->e[11].c = 0;
 }
 
-int TWindowSubSymbolChat__sub_800771B0(void) { return 0; }
+void TWindowSubSymbolChat__sub_800771B0(Obj_800771B0 *arg0, s32 arg1) {
+    arg0->s[arg1] = 0xFF;
+}
 
-int TWindowSubSymbolChat__sub_800771C4(void) { return 0; }
+s32 TWindowSubSymbolChat__sub_800771C4(Obj_800771C4 *arg0, s32 arg1) {
+    return ((u8)arg0->s[arg1] - 0xFF) != 0 ? 1 : 0;
+}
 
-int TWindowSubSymbolChat__sub_800771E4(void* a0, void* a1, void* a2, void* a3, void* a4, void* a5, void* a6) { return 0; }
+void TWindowSubSymbolChat__sub_800771E4(Obj_800771E4 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6) {
+    Ent_800771E4 *p = &arg0->e[arg1];
+    p->a = arg2;
+    p->b = arg3;
+    p->c = arg4;
+    p->d = arg5;
+    p->d = p->d | (arg6 * 2);
+}
 
 void add__20TWindowSubSymbolChatFPviiiii(s32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     s32 temp;
     temp = TWindowSubSymbolChat__sub_80077108((Obj_80077108 *)((void*)((void*)((void*)(arg0)))), (s32)((void*)((void*)((void*)(0)))));
     if (temp < 0xC) {
-        TWindowSubSymbolChat__sub_800771E4((void*)((void*)((void*)(arg0))), (void*)((void*)((void*)(temp))), (void*)((void*)((void*)(arg1))), (void*)((void*)((void*)(arg2))), (void*)((void*)((void*)(arg3))), (void*)((void*)((void*)(arg4))), (void*)((void*)((void*)(arg5))));
+        TWindowSubSymbolChat__sub_800771E4((Obj_800771E4 *)arg0, temp, arg1, arg2, arg3, arg4, arg5);
         *arg0 |= 1;
     }
 }
@@ -248,9 +281,9 @@ void TWindowSubSymbolChat__sub_800772D8(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) (M2C_FIELD(arg0, s32 *, 0) | 1);
 }
 
-void refresh_parts__20TWindowSubSymbolChatFPv(void* p) { get_instance__20TWindowSubSymbolChatFv(p); TWindowSubSymbolChat__sub_80077098(); }
+void refresh_parts__20TWindowSubSymbolChatFPv(void* p) { TWindowSubSymbolChat__sub_80077098((Obj_80077098 *)get_instance__20TWindowSubSymbolChatFv(p)); }
 
-void update_layout__20TWindowSubSymbolChatFPv(void* p) { get_instance__20TWindowSubSymbolChatFv(p); TWindowSubSymbolChat__sub_800770D0(); }
+void update_layout__20TWindowSubSymbolChatFPv(void* p) { TWindowSubSymbolChat__sub_800770D0((Obj_800770D0 *)get_instance__20TWindowSubSymbolChatFv(p)); }
 
 void update_symbol_chat_result__20TWindowSubSymbolChatFv(void * _w0) { lbl_805D4E50 = ((int)TWindowSubSymbolChat__sub_80077480((s32)((void *)(_w0)))); }
 

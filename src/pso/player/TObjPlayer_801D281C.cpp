@@ -43,6 +43,14 @@ struct Cur_801D32A0 { u8 pad[0x28]; f32 x28; f32 x2c; f32 x30; u8 pad2[8]; f32 x
 
 struct Pl_801D32A0 { u8 pad[0x424]; void *cursor; };
 
+struct E_801D2B2C { u8 d[4]; };
+
+struct Obj_801D2B2C { s32 n; E_801D2B2C e[1]; };
+
+struct E_801D2C18 { u8 d[4]; };
+
+struct Obj_801D2C18 { s32 n; E_801D2C18 e[1]; };
+
 extern "C" {
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
@@ -87,6 +95,12 @@ void set_field_0__10TNpcPlayerFPvs(void* p, s16 v);
 void set_field2__10TNpcPlayerFPvs(void* p, s16 v);
 void set_cursor_pos__11TMainCursorFiUsi(void *arg0, u16 arg1, s32 arg2);
 void *TObjPlayer__sub_801D32A0(Self_801D32A0 *self, Pl_801D32A0 *player);
+void bswap_u16_pair__10TObjPlayerFPv(void* p);
+int bswap_32__FPUl(void*);
+void TObjPlayer__sub_801D2B2C(Obj_801D2B2C *arg0);
+void bswap_u16_pair__10TObjPlayerFPv(void* p);
+int bswap_32__FPUl(void*);
+void TObjPlayer__sub_801D2C18(Obj_801D2C18 *arg0);
 }
 
 extern "C" {
@@ -103,8 +117,6 @@ void TObjPlayer__sub_801D2A78(void* p, f32 v);
 s32 TObjPlayer__sub_801D2A80(void* p);
 f32 TObjPlayer__sub_801D2A98(void* p);
 int TObjPlayer__sub_801D2B08(void* p);
-int TObjPlayer__sub_801D2B2C(void);
-int TObjPlayer__sub_801D2C18(void);
 void TObjPlayer__sub_801D2CC4(void* p, f32 v);
 f32 TObjPlayer__sub_801D2CDC(void* p);
 void TObjPlayer__sub_801D3424(void* p, s16 v);
@@ -227,7 +239,13 @@ void* get_element__10TObjPlayerFPvi(void* a0, int a1) {  return (char*)a0 + a1 *
 
 int TObjPlayer__sub_801D2B08(void* p) { return fn_801D7BF4((char*)p + 0x24); }
 
-int TObjPlayer__sub_801D2B2C(void) { return 0; }
+void TObjPlayer__sub_801D2B2C(Obj_801D2B2C *arg0) {
+    s32 i;
+    bswap_32__FPUl((void*)(arg0));
+    for (i = 0; i < arg0->n; i++) {
+        bswap_u16_pair__10TObjPlayerFPv((void*)(&arg0->e[i]));
+    }
+}
 
 void bswap_u16_pair__10TObjPlayerFPv(void* p) { bswap_16__FPUs(p); bswap_16__FPUs((char*)p + 0x2); }
 
@@ -240,7 +258,13 @@ s32 TObjPlayer__sub_801D2BB8(s32 arg0, s32 arg1) {
 }
 #pragma pop
 
-int TObjPlayer__sub_801D2C18(void) { return 0; }
+void TObjPlayer__sub_801D2C18(Obj_801D2C18 *arg0) {
+    s32 i;
+    for (i = 0; i < arg0->n; i++) {
+        bswap_u16_pair__10TObjPlayerFPv((void*)(&arg0->e[i]));
+    }
+    bswap_32__FPUl((void*)(arg0));
+}
 
 void set_technique_state__10TObjPlayerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0xc) = v; }
 void set_technique_id__10TObjPlayerFPvUc(void* p, u8 v) { *(u8*)((char*)p + 0x0) = v; }

@@ -203,6 +203,8 @@ struct VObj_18_62ff9d : VBase_18_62ff9d {
     virtual M2C_UNK m56();
 };
 
+struct Obj_80043CAC { u8 pad0[0x326]; s16 state; };
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TObjPlayer__sub_800192DC(void *);
@@ -211,7 +213,6 @@ s32 obj_testFlags30(void *, int);
 M2C_UNK obj_clearFlags30(void *, int);
 M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *, int, f32, f32);
 void TBoss3VoloptP01__sub_80043CA8(void *);
-M2C_UNK TBoss3VoloptP01__sub_80043CAC(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 extern const f32 lbl_805D878C;
 void run_task__15TBoss3VoloptP01Fv(u8 *arg0);
@@ -237,6 +238,12 @@ void TBoss3VoloptP01__sub_80042F84(u8 *arg0);
 extern const f32 lbl_805D876C;
 extern const f32 lbl_805D8770;
 s32 TBoss3VoloptP01__sub_80042FCC(u8 *arg0);
+void TBoss3VoloptP01__sub_800430D0(void *);
+void TBoss3VoloptP01__sub_8004354C(u8 *arg0);
+void TBoss3VoloptP01__sub_80043758(void *);
+void TBoss3VoloptP01__sub_800437F4(void *);
+void update_state__15TBoss3VoloptP01FPv(u8 *arg0);
+void TBoss3VoloptP01__sub_80043CAC(Obj_80043CAC *arg0);
 }
 
 extern "C" {
@@ -486,6 +493,17 @@ void render__15TBoss3VoloptP01Fv(u8 *arg0) {
 }
 
 void TBoss3VoloptP01__sub_80043CA8(void * _w0) {  }
+
+void TBoss3VoloptP01__sub_80043CAC(Obj_80043CAC *arg0) {
+    switch (arg0->state) {
+    case 0: TBoss3VoloptP01__sub_80043758(arg0); return;
+    case 2: TBoss3VoloptP01__sub_800430D0(arg0); return;
+    case 4: update_state__15TBoss3VoloptP01FPv((u8 *)(arg0)); return;
+    case 9: TBoss3VoloptP01__sub_8004354C((u8 *)(arg0)); return;
+    case 5: TBoss3VoloptP01__sub_800437F4(arg0); break;
+    }
+}
+
 void run_task__15TBoss3VoloptP01Fv(u8 *arg0) {
     f32 temp_f2;
     s32 temp_r4_2;
@@ -508,12 +526,12 @@ void run_task__15TBoss3VoloptP01Fv(u8 *arg0) {
         if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != (s32) M2C_FIELD(arg0, s32 *, 0x374)) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x37C) != -1) {
                 M2C_FIELD(arg0, s32 *, 0x37C) = -1;
-                TBoss3VoloptP01__sub_80043CAC((void *) (arg0));
+                TBoss3VoloptP01__sub_80043CAC((Obj_80043CAC *)((void *) (arg0)));
             }
             M2C_FIELD(arg0, s16 *, 0x326) = (s16) M2C_FIELD(arg0, s32 *, 0x374);
             M2C_FIELD(arg0, s32 *, 0x37C) = 0;
         }
-        TBoss3VoloptP01__sub_80043CAC((void *) (arg0));
+        TBoss3VoloptP01__sub_80043CAC((Obj_80043CAC *)((void *) (arg0)));
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
         temp_f2 = M2C_FIELD(arg0, f32 *, 0x300);
         M2C_FIELD(arg0, f32 *, 0x300) = (f32) (temp_f2 + (lbl_805D878C + M2C_FIELD(arg0, f32 *, 0x38C)));

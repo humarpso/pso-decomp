@@ -11,16 +11,22 @@ struct RecoveredGlobal_801C5F54_TObjPlayer__data_8050E920 {
 
 struct ArrivalOverrides { u8 bytes[0xF0]; };
 
+struct Vec_801C5F84 { f32 x, y, z; };
+struct Arrival_801C5F84 {
+    s32 active;
+    s32 yaw;
+    Vec_801C5F84 pos;
+};
+
 struct Pair_801C5FCC { f32 a; f32 b; };
 
 struct Obj_801C5FCC { s32 n; Pair_801C5FCC e[16]; };
 
 extern "C" {
-extern RecoveredGlobal_801C5F54_TObjPlayer__data_8050E920 TObjPlayer__data_8050E920;
+extern Arrival_801C5F84 TObjPlayer__data_8050E920[12];
 void TObjPlayer__sub_801C5F54(u16 arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-extern RecoveredGlobal_801C5F54_TObjPlayer__data_8050E920 TObjPlayer__data_8050E920;
-void TObjPlayer__sub_801C5F84(u16 arg0, s32 arg1, s32 arg2);
+void TObjPlayer__sub_801C5F84(u16 idx, s32 yaw, void *pos);
 extern const f32 lbl_805DC32C;
 void TObjPlayer__sub_801C5FCC(Obj_801C5FCC *p);
 }
@@ -57,8 +63,8 @@ void TObjPlayer__sub_801C5F54(u16 arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg
     s32 temp_r5;
     u8 *temp_r3;
     temp_r5 = arg0 * 0x14;
-    M2C_FIELD(((u8 *)(&TObjPlayer__data_8050E920.value) + temp_r5), s32 *, 0) = 1;
-    temp_r3 = (u8 *)(&TObjPlayer__data_8050E920.value) + temp_r5;
+    M2C_FIELD(((u8 *)TObjPlayer__data_8050E920 + temp_r5), s32 *, 0) = 1;
+    temp_r3 = (u8 *)TObjPlayer__data_8050E920 + temp_r5;
     M2C_FIELD(temp_r3, s32 *, 4) = arg1;
     M2C_FIELD(temp_r3, f32 *, 8) = farg0;
     M2C_FIELD(temp_r3, f32 *, 0xC) = farg1;
@@ -66,12 +72,10 @@ void TObjPlayer__sub_801C5F54(u16 arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg
 }
 #pragma pop
 
-void TObjPlayer__sub_801C5F84(u16 arg0, s32 arg1, s32 arg2) {
-    u8 *temp_r7;
-    temp_r7 = (u8 *)&TObjPlayer__data_8050E920 + (arg0 * 0x14);
-    M2C_FIELD(temp_r7, s32 *, 0) = 1;
-    M2C_FIELD(temp_r7, s32 *, 4) = arg1;
-    VecCopy__FP3VecPC3Vec((void *) (temp_r7 + 8), (void *) (arg2));
+void TObjPlayer__sub_801C5F84(u16 idx, s32 yaw, void *pos) {
+    TObjPlayer__data_8050E920[idx].active = 1;
+    TObjPlayer__data_8050E920[idx].yaw = yaw;
+    VecCopy__FP3VecPC3Vec(&TObjPlayer__data_8050E920[idx].pos, pos);
 }
 void TObjPlayer__sub_801C5FCC(Obj_801C5FCC *p) {
     s32 i;

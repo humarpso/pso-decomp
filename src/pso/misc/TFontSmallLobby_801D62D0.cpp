@@ -17,11 +17,16 @@ s32 TOMineTrap__sub_801D6A44(u8 *arg0, s32 arg1, s32 arg2);
 int TFontSmallLobby__sub_801D6614(s16 arg0);
 void TFontSmallLobby__sub_801D698C(Pkt_801D698C *p);
 void fn_801D6A18(Obj_801D6A18 *p);
+M2C_UNK init_forward__10TObjPlayerFPv(void *);
+M2C_UNK TFontSmallLobby__sub_801D650C(void *);
+void* init_reset_fields__15TFontSmallLobbyFPv(void* p);
+M2C_UNK __construct_array(void *, void *, int, int, int);
+extern M2C_UNK fn_80152EF8[];
+s32 TFontSmallLobby__sub_801D65B4(s32 arg0);
 }
 
 extern "C" {
 
-int TFontSmallLobby__sub_801D65B4(void);
 void TFontSmallLobby__sub_801D671C(void* a0, int a1);
 int TFontSmallLobby__sub_801D677C(void* p);
 void TFontSmallLobby__sub_801D67C8(void* p);
@@ -65,7 +70,13 @@ void set_target__11TMainCursorFPvi(void* p, s32 a1);
 void set_target_index__11TMainCursorFPvs(void* p, s16 v);
 void update_cursor_pos__11TMainCursorFPv(void* p);
 
-int TFontSmallLobby__sub_801D65B4(void) { return 0; }
+s32 TFontSmallLobby__sub_801D65B4(s32 arg0) {
+    __construct_array((void *) (arg0 + 0x14), (void *) (fn_80152EF8), (int) (0), (int) (4), (int) (0xA));
+    init_forward__10TObjPlayerFPv((void *) (arg0 + 0x40));
+    init_reset_fields__15TFontSmallLobbyFPv((void*)((void *) (arg0 + 0x4C)));
+    TFontSmallLobby__sub_801D650C((void *) (arg0));
+    return arg0;
+}
 
 int TFontSmallLobby__sub_801D6614(s16 arg0) {
     u8 var_r4;

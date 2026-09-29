@@ -81,6 +81,30 @@ struct Region_801F9CB8 {
 
 struct Map_801F9CB8 { struct Region_801F9CB8 *regions; void *textures; s32 count; };
 
+struct Piece_801F9418 {
+    s16 a;
+    s16 flags;
+    u8 rest[0x24];
+};
+
+struct Map_801F9418 {
+    Piece_801F9418* pieces;
+    s32 b;
+    s32 count;
+};
+
+struct Piece_801F9630 {
+    s16 a;
+    s16 flags;
+    u8 rest[0x24];
+};
+
+struct Map_801F9630 {
+    Piece_801F9630* pieces;
+    s32 b;
+    s32 count;
+};
+
 extern "C" {
 M2C_UNK TCameraCtrl__sub_80068EF0();
 M2C_UNK TCameraCtrl__sub_80069024();
@@ -145,6 +169,19 @@ s32 TRaderMapCore__sub_801F9C54(s16 id);
 extern u32 TRaderMapCore__data_805D5F28;
 extern const f32 TRaderMapCore__data_805DC568;
 s32 TRaderMapCore__sub_801F9CB8(s16 id);
+extern s16 *TRaderMapCore__data_80513780[];
+s32 TRaderMapCore__sub_801F9418(s32 arg0, Map_801F9418* arg1);
+void heap_free__5THeapFPv(int, void*);
+extern s16 *TRaderMapCore__data_80513780[];
+extern int TRaderMapCore__data_805D5F50;
+void TRaderMapCore__sub_801F9540(void);
+void* __ct__5THeapFUli(void*, u32, s32);
+void* __nw__5THeapFUl(u32);
+extern s16 *TRaderMapCore__data_80513780[];
+extern int TRaderMapCore__data_805D5F50;
+void TRaderMapCore__sub_801F95CC(void);
+extern u32 TRaderMapCore__data_805D5F28;
+void TRaderMapCore__sub_801F9630(s32 arg0);
 }
 
 extern "C" {
@@ -203,6 +240,21 @@ void TRaderMapCore__sub_801F9144(void) {
     }
 }
 
+s32 TRaderMapCore__sub_801F9418(s32 arg0, Map_801F9418* arg1) {
+    s16* saved = ((s16* *)&TRaderMapCore__data_80513780)[arg0];
+    s16* p;
+    Piece_801F9418* piece;
+    s32 i;
+    if (saved != NULL) {
+        for (i = 0, piece = arg1->pieces, p = saved; i < arg1->count; i++, piece++, p++) {
+            *p = piece->flags;
+        }
+    } else {
+        return 0;
+    }
+    return 1;
+}
+
 s32 TRaderMapCore__sub_801F9474(s32 floor, RadarInitMap_801F9474 *map) {
     s16 *saved = TRaderMapCore__data_80513780[floor];
     s16 *p;
@@ -227,9 +279,45 @@ s32 TRaderMapCore__sub_801F9474(s32 floor, RadarInitMap_801F9474 *map) {
     return 1;
 }
 
+void TRaderMapCore__sub_801F9540(void) {
+    s32 i;
+    for (i = 0x11; i >= 0; i--) {
+        if (((s16* *)&TRaderMapCore__data_80513780)[i] != NULL) {
+            heap_free__5THeapFPv(TRaderMapCore__data_805D5F50, ((s16* *)&TRaderMapCore__data_80513780)[i]);
+            ((s16* *)&TRaderMapCore__data_80513780)[i] = NULL;
+        }
+    }
+}
+
 void free_heap__13TRaderMapCoreFv(void) { __dt__5THeapFv((void*)(TRaderMapCore__data_805D5F50), (void*)1); TRaderMapCore__data_805D5F50 = 0; }
 
 typedef char RecoveredGlobal_801F9720_TRaderMapCore__data_80513708_size[sizeof(RecoveredGlobal_801F9720_TRaderMapCore__data_80513708) == 0x78 ? 1 : -1];
+
+void TRaderMapCore__sub_801F95CC(void) {
+    s32 i;
+    void* p = __nw__5THeapFUl(0x14);
+    if (p != NULL) {
+        p = __ct__5THeapFUli(p, 0x1000, 0x20);
+    }
+    TRaderMapCore__data_805D5F50 = (int)p;
+    for (i = 0; i < 0x12; i++) {
+        ((s16* *)&TRaderMapCore__data_80513780)[i] = NULL;
+    }
+}
+
+void TRaderMapCore__sub_801F9630(s32 arg0) {
+    if (TRaderMapCore__data_805D5F28 != 0) {
+        Map_801F9630* m = (Map_801F9630*)TRaderMapCore__data_805D5F28;
+        if (m->pieces != 0) {
+            Piece_801F9630* piece = m->pieces;
+            s32 i;
+            for (i = 0; i < ((Map_801F9630*)TRaderMapCore__data_805D5F28)->count; i++, piece++) {
+                piece->flags |= arg0;
+            }
+        }
+    }
+}
+
 void TRaderMapCore__sub_801F9720(f32 farg0) {
     f32 temp_f0;
     if (((s32) TRaderMapCore__data_805D5F3C == 1) || ((s32) TRaderMapCore__data_805D5F3C == 2)) {

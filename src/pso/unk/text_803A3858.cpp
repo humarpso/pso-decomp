@@ -40,6 +40,7 @@ struct Envelope_803B431C {
 typedef s32 M2C_UNK;
 typedef struct Req_803AE60C { u8 pad0[4]; s16 f4; u8 pad1[2]; } Req_803AE60C;
 
+typedef s32 (*RecoveredCallback_bdb219c29499)(s32, s32);
 extern "C" {
 void TLobby__sub_803A49C8(s32);
 void TLobby__sub_803A4B7C(s32);
@@ -124,6 +125,13 @@ extern u8 lbl_8055A470[];
 extern u16 lbl_805D73D2;
 extern s32 *lbl_805D7400;
 s32 TLobby__sub_803AE60C(s16 arg0);
+s32 TLobby__sub_803AE5FC(u8 *arg0, u8 *arg1);
+s32 *TLobby__sub_803BC9A8(Req_803AE60C *, void *, u16, s32, s32 (*)(u8 *, u8 *));
+extern Req_803AE60C lbl_805D7404;
+extern u8 lbl_8055E470[];
+extern u16 lbl_805D73D4;
+extern s32 *lbl_805D740C;
+s32 TLobby__sub_803AE66C(s16 arg0);
 }
 
 extern "C" {
@@ -278,6 +286,14 @@ s32 TLobby__sub_803AE60C(s16 arg0) {
     lbl_805D73F8.f4 = arg0;
     if ((lbl_805D7400 = TLobby__sub_803BC9A8(&lbl_805D73F8, lbl_8055A470, lbl_805D73D2, 8, TLobby__sub_803AE5FC)) != NULL) {
         return *lbl_805D7400;
+    }
+    return 0;
+}
+
+s32 TLobby__sub_803AE66C(s16 arg0) {
+    lbl_805D7404.f4 = arg0;
+    if ((lbl_805D740C = TLobby__sub_803BC9A8(&lbl_805D7404, lbl_8055E470, lbl_805D73D4, 8, TLobby__sub_803AE5FC)) != NULL) {
+        return *lbl_805D740C;
     }
     return 0;
 }

@@ -38,6 +38,16 @@ void qst_getargs_801F2B0C(s32 arg0) {
     temp_r31(read_packet_byte__6TLobbyFv(temp_r3));
 }
 
+extern s32 TLobby__data_805D5EA4;
+void qst_getargs_801F2B54(s32 arg0) {
+    Ent_801F2B0C *e;
+
+    e = lbl_804C69D8;
+    e += arg0;
+    e->fn((M2C_UNK)e);
+    TLobby__data_805D5EA4 = 0;
+}
+
 extern int TLobby__data_80512240[];
 extern int TLobby__data_805D5E8C;
 void push_op_arg__6TLobbyFi(int a0)

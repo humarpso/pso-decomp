@@ -5,6 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u16 to_be_uint16_t__FUs(u16);
+void handle_command__9TProtocolFP6packet(void *, void *);
+extern void *TLobby__data_805D5580;
+extern s32 lbl_805D5CF8;
+extern s32 lbl_805D5CFC;
+extern s32 lbl_805D5D04;
+void TLobby__sub_801A5350(void);
+}
+
+extern "C" {
 
 void buffer_reset(void);
 void copy_packet__FP6packet(void *arg0);
@@ -44,6 +54,23 @@ void fn_801A5338(void *arg0) {
 
 extern s32 lbl_805D5CF8;
 extern s32 lbl_805D5CFC;
+
+void TLobby__sub_801A5350(void) {
+    lbl_805D5CFC = 0;
+    lbl_805D5D04 = 2;
+    s32 i;
+    while ((i = lbl_805D5CFC) < 0x10000) {
+        u8 *p;
+        u16 n;
+        p = (u8 *)(lbl_805D5CF8 + i);
+        n = (u16)to_be_uint16_t__FUs(*(u16 *)(p + 2));
+        if (p[0] == 0) {
+            break;
+        }
+        handle_command__9TProtocolFP6packet(TLobby__data_805D5580, p);
+        lbl_805D5CFC += n;
+    }
+}
 
 void copy_packet__FP6packet(void *arg0) {
     s32 len;

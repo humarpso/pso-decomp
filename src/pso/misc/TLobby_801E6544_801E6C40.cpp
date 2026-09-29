@@ -15,6 +15,11 @@ struct RecoveredGlobal_801E6E20_TLobby__data_80512220 {
     u8 remaining[0x1C];
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Tbl_801E6CA4 { u32 w[18]; };
+
 extern "C" {
 s32 is_phase_reached__14TBoss6PlotFalzFv();
 extern s32 TLobby__data_805D5E78;
@@ -28,6 +33,11 @@ u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern RecoveredGlobal_801E6D18_TLobby__data_80512220 TLobby__data_80512220;
 extern s32 TLobby__data_805D5E78;
 void TLobby__sub_801E6E20(void);
+void TLobby__sub_80141038(u8 *arg0, s32 arg1, s32 arg2);
+extern Tbl_801E6CA4 lbl_80449B34;
+extern RecoveredGlobal_801E6D18_TLobby__data_80512220 TLobby__data_80512220;
+extern u8 lbl_80515BA0[];
+void TLobby__sub_801E6CA4(void);
 }
 
 extern "C" {
@@ -51,6 +61,14 @@ void TLobby__sub_801E6C4C(s32 arg0) {
 }
 
 typedef char RecoveredGlobal_801E6D18_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801E6D18_TLobby__data_80512220) == 0x20 ? 1 : -1];
+
+void TLobby__sub_801E6CA4(void) {
+    Tbl_801E6CA4 t = lbl_80449B34;
+    if (TLobby__data_80512220.value <= 0x11U) {
+        TLobby__sub_80141038(lbl_80515BA0, t.w[TLobby__data_80512220.value], 0);
+    }
+}
+
 void TLobby__sub_801E6D18(void) {
     u8 temp_r31;
     temp_r31 = (u8) M2C_FIELD(&TLobby__data_80512220.value, s32 *, 4);

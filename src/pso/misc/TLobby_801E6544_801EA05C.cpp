@@ -74,6 +74,12 @@ struct M2CCopy_24 { u8 bytes[0x24]; };
 
 struct G_801EA7E8 { u8 pad[0x13]; u8 f13; u8 pad14[0x18]; };
 
+struct Ctx_801EA5FC { u8 pad[0x10]; u8 buf[0xFD]; };
+
+struct Ctx_801EAA34 { u8 pad[0x10]; u8 buf[0xFD]; };
+
+struct Ctx_801EAAB4 { u8 pad[0x10]; u8 buf[0xFF]; };
+
 extern "C" {
 extern s32 lbl_805D4C24;
 void TLobby__sub_801EA240(s32 arg0);
@@ -146,6 +152,19 @@ extern RecoveredGlobal_801EA274_TLobby__data_80512220 TLobby__data_80512220;
 extern RecoveredGlobal_801EA274_TLobby__data_80512360 TLobby__data_80512360;
 extern s32 lbl_80449B10[];
 void TLobby__sub_801EA7E8(void);
+Ctx_801EA5FC *get_global_state__23TAdSinglePlyChrSelectGCFv();
+s32 move_data__6TLobbyFv(u8 *, void *, int);
+extern int* TLobby__data_805D5E78;
+extern u32 TLobby__data_805D5EC4;
+void TLobby__sub_801EA5FC(u8 arg0);
+Ctx_801EA5FC *get_global_state__23TAdSinglePlyChrSelectGCFv();
+void *memcpy(void *, const void *, u32);
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801EAA34(u8 a0, u8 a1);
+Ctx_801EA5FC *get_global_state__23TAdSinglePlyChrSelectGCFv();
+void *memcpy(void *, const void *, u32);
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801EAAB4(u8 a0, u8 a1);
 }
 
 extern "C" {
@@ -209,6 +228,14 @@ typedef char RecoveredGlobal_801EA274_TLobby__data_80512360_size[sizeof(Recovere
 void TLobby__sub_801EA274(void) {
     if ((u32) TLobby__data_80512220.value <= 0x1DU) {
         M2C_FIELD(&TLobby__data_80512360.value, s16 *, 0x28) = (s16) TLobby__data_80512220.value;
+    }
+}
+
+void TLobby__sub_801EA5FC(u8 arg0) {
+    s32 idx = (*(int * *)&TLobby__data_805D5E78)[arg0];
+    Ctx_801EA5FC *w = get_global_state__23TAdSinglePlyChrSelectGCFv();
+    if (w != NULL && idx >= 0 && idx < 0xFD) {
+        move_data__6TLobbyFv(&w->buf[idx], &TLobby__data_805D5EC4, 4);
     }
 }
 
@@ -347,6 +374,32 @@ void TLobby__sub_801EAA14(s32 arg0, s32 arg1) {
 
 typedef char RecoveredGlobal_80141860_lbl_8050C000_size[sizeof(RecoveredGlobal_80141860_lbl_8050C000) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_80141730_lbl_8050C028_size[sizeof(RecoveredGlobal_80141730_lbl_8050C028) == 0x18 ? 1 : -1];
+
+void TLobby__sub_801EAA34(u8 a0, u8 a1) {
+    s32 v;
+    (*(int * *)&TLobby__data_805D5E78)[a1] = 0;
+    Ctx_801EAA34 *w = ((Ctx_801EAA34 *)get_global_state__23TAdSinglePlyChrSelectGCFv());
+    if (w != NULL) {
+        s32 i = (*(int * *)&TLobby__data_805D5E78)[a0];
+        if (i >= 0 && i < 0xFD) {
+            memcpy(&v, &w->buf[i], 4);
+            (*(int * *)&TLobby__data_805D5E78)[a1] = v;
+        }
+    }
+}
+
+void TLobby__sub_801EAAB4(u8 a0, u8 a1) {
+    s16 v;
+    (*(int * *)&TLobby__data_805D5E78)[a1] = 0;
+    Ctx_801EAAB4 *w = ((Ctx_801EAAB4 *)get_global_state__23TAdSinglePlyChrSelectGCFv());
+    if (w != NULL) {
+        s32 i = (*(int * *)&TLobby__data_805D5E78)[a0];
+        if (i >= 0 && i < 0xFF) {
+            memcpy(&v, &w->buf[i], 2);
+            (*(int * *)&TLobby__data_805D5E78)[a1] = v;
+        }
+    }
+}
 
 void TLobby__sub_801EAB34(s32 arg0) {
     M2CCopy_30 sp8;

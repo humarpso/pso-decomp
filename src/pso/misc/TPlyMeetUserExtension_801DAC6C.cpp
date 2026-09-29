@@ -4,9 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Tags_801DAC6C { u32 w[16]; };
+
+struct Nm_801DAC6C { char c[16]; };
+
+struct Ext_801DAC6C { Tags_801DAC6C tags; u32 m; Nm_801DAC6C a; Nm_801DAC6C b; };
+
 extern "C" {
 M2C_UNK bswap__13packet_headerFv(void *);
 void handle_cmd_9A(u8 *arg0, s32 *arg1);
+Ext_801DAC6C *__as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(Ext_801DAC6C *arg0, const Ext_801DAC6C *arg1);
 }
 
 extern "C" {
@@ -26,6 +33,17 @@ struct VObjDA : BaseDA {
     virtual M2C_UNK m5();
     virtual M2C_UNK m6();
 };
+
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+Ext_801DAC6C *__as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(Ext_801DAC6C *arg0, const Ext_801DAC6C *arg1) {
+    arg0->tags = arg1->tags;
+    arg0->m = arg1->m;
+    arg0->a = arg1->a;
+    arg0->b = arg1->b;
+    return arg0;
+}
 
 void handle_cmd_9A(u8 *arg0, s32 *arg1) {
     s32 sp8;

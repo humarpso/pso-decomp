@@ -30,6 +30,8 @@ struct Stack_801B7998 {
     f32 sp10;
 };
 
+struct P_801B7B58 { u8 pad[0xD00]; void *fD00; };
+
 extern "C" {
 f32 TObjPlayer__sub_803D89C0();
 void TObjPlayer__sub_801B7930(void *arg0, void *arg1, void *arg2);
@@ -44,11 +46,13 @@ M2C_UNK check_flag_2__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801BF8AC(void *);
 s32 player_auxiliary_surfaces_enabled();
 u8 *TObjPlayer__vt16(u8 *arg0, u8 *arg1);
+s32 TObjPlayer__sub_80019248(void * a0);
+void TObjPlayer__sub_801D47EC(void *, s32, s32);
+void TObjPlayer__sub_801B7B58(P_801B7B58 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
 
-int TObjPlayer__sub_801B7B58(void);
 void TObjPlayer__vt15(void *arg0);
 void calc_move_velocity__10TObjPlayerFPvPvf(void *arg0, void *arg1, f32 farg0);
 s32 can_destroy_with_parents__10TObjPlayerFUi(u32 arg0);
@@ -58,7 +62,6 @@ void handle_6x99(void);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32, f32);
 s32 TLobby__sub_800822E8(s32, s32);
-s32 TObjPlayer__sub_80019248(void * a0 = 0);
 s32 TObjPlayer__sub_801D4368(void * a0 = 0);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 check_player_flag1__6TLobbyFPv(s32);
@@ -150,7 +153,18 @@ void close_sub_window__10TObjPlayerFPv(void *arg0) {
 }
 
 void handle_6x98(void) {  }
-int TObjPlayer__sub_801B7B58(void) { return 0; }
+
+void TObjPlayer__sub_801B7B58(P_801B7B58 *arg0, s32 arg1, s32 arg2) {
+    if (TObjPlayer__sub_80019248((void *)(arg0)) == 0) {
+        return;
+    }
+    if (arg1 == -1 || arg2 == -1) {
+        return;
+    }
+    if (arg0->fD00 != 0) {
+        TObjPlayer__sub_801D47EC(arg0->fD00, arg1, arg2);
+    }
+}
 
 s32 can_destroy_with_parents__10TObjPlayerFUi(u32 arg0) {
     if ((arg0 != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0)) {

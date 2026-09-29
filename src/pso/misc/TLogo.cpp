@@ -7,19 +7,34 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 #include "pso/TMainTask.h"
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 s32 TLobby__sub_800FD6A0(void *, int);
 s32 render_tick__Fv();
 s32 delete_all_task_children__9TMainTaskFv(void *);
 extern u8 lbl_804A72D8[0x48];
 void TLogo__sub_8013F5AC();
+M2C_UNK TKeyBoardControl__sub_8000F9CC(int);
+u32 __ct__10TAdADXlogoFv(void *, void *);
+M2C_UNK queue_destruction__7TObjectFv(int);
+u32 __ct__11TAdSEGAlogoFv(void *, void *);
+u32 __ct__12TAdSoniclogoFv(void *, void *);
+int TLogo__sub_8013F7E8(int);
+int TLogo__sub_8013F7F0(int);
+int TLogo__sub_8013F7F8(int);
+s32 TLogo__sub_8013F800(void* p);
+int TLogo__sub_8013F808(void);
+s32 TLobby__sub_80145DB4(int);
+u32 __nw__7TObjectFUl(int);
+u32 TAdVIConfigGC__ct(void *, void *);
+s32 check_progressive_ready__5TLogoFv();
+u32 TAdTrialModemChkGC__ct(void *, void *);
+void run_task__5TLogoFv(u8 *arg0);
 }
 
 extern "C" {
 
-int TLogo__sub_8013F7E8(void);
-int TLogo__sub_8013F7F0(void);
-int TLogo__sub_8013F7F8(void);
 s32 TLogo__sub_8013F800(void* p);
 int TLogo__sub_8013F808(void);
 void *__ct__5TLogoFv(void *arg0);
@@ -34,6 +49,112 @@ void render__5TLogoFv(void) {  }
 
 extern M2C_UNK __vt__5TLogo[];
 extern void *lbl_805D2CC8;
+
+void run_task__5TLogoFv(u8 *arg0) {
+    u32 temp_r0;
+    u32 var_r0;
+    u32 var_r0_2;
+    u32 var_r0_3;
+    u32 var_r0_4;
+    u32 var_r0_5;
+    u32 var_r0_6;
+    u32 var_r0_7;
+    u32 var_r0_8;
+    temp_r0 = M2C_FIELD(arg0, u32 *, 0x20);
+    switch (temp_r0) {
+    case 0:
+        if (check_progressive_ready__5TLogoFv() != 0) {
+            if (((s32)TLogo__sub_8013F808()) != 0) {
+                var_r0 = __nw__7TObjectFUl((int) (0x4C));
+                if (var_r0 != 0U) {
+                    var_r0 = TAdVIConfigGC__ct((void *)var_r0, arg0);
+                }
+                M2C_FIELD(arg0, u32 *, 0x24) = var_r0;
+                M2C_FIELD(arg0, u32 *, 0x20) = 1U;
+                return;
+            }
+            var_r0_2 = __nw__7TObjectFUl((int) (0x20));
+            if (var_r0_2 != 0U) {
+                var_r0_2 = __ct__11TAdSEGAlogoFv((void *)var_r0_2, arg0);
+            }
+            M2C_FIELD(arg0, u32 *, 0x2C) = var_r0_2;
+            M2C_FIELD(arg0, u32 *, 0x20) = 4U;
+            return;
+        }
+        var_r0_3 = __nw__7TObjectFUl((int) (0x20));
+        if (var_r0_3 != 0U) {
+            var_r0_3 = __ct__11TAdSEGAlogoFv((void *)var_r0_3, arg0);
+        }
+        M2C_FIELD(arg0, u32 *, 0x2C) = var_r0_3;
+        M2C_FIELD(arg0, u32 *, 0x20) = 4U;
+        return;
+    case 1:
+        if (((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) && (TLogo__sub_8013F800((void*)(M2C_FIELD(arg0, void **, 0x24))) != 0)) {
+            var_r0_4 = __nw__7TObjectFUl((int) (0x20));
+            if (var_r0_4 != 0U) {
+                var_r0_4 = __ct__11TAdSEGAlogoFv((void *)var_r0_4, arg0);
+            }
+            M2C_FIELD(arg0, u32 *, 0x2C) = var_r0_4;
+            M2C_FIELD(arg0, u32 *, 0x20) = 4U;
+            return;
+        }
+        break;
+    case 2:
+        if (TLobby__sub_80145DB4((int) (1)) == 0) {
+            var_r0_5 = __nw__7TObjectFUl((int) (0x30));
+            if (var_r0_5 != 0U) {
+                var_r0_5 = TAdTrialModemChkGC__ct((void *)var_r0_5, arg0);
+            }
+            M2C_FIELD(arg0, u32 *, 0x28) = var_r0_5;
+            M2C_FIELD(arg0, u32 *, 0x20) = 3U;
+            return;
+        }
+        var_r0_6 = __nw__7TObjectFUl((int) (0x20));
+        if (var_r0_6 != 0U) {
+            var_r0_6 = __ct__11TAdSEGAlogoFv((void *)var_r0_6, arg0);
+        }
+        M2C_FIELD(arg0, u32 *, 0x2C) = var_r0_6;
+        M2C_FIELD(arg0, u32 *, 0x20) = 4U;
+        return;
+    case 4:
+        if (((s32)TLogo__sub_8013F7F8((int)((int) (M2C_FIELD(arg0, u32 *, 0x2C))))) != 0) {
+            queue_destruction__7TObjectFv((int) (M2C_FIELD(arg0, u32 *, 0x2C)));
+            M2C_FIELD(arg0, u32 *, 0x2C) = 0U;
+            var_r0_7 = __nw__7TObjectFUl((int) (0x20));
+            if (var_r0_7 != 0U) {
+                var_r0_7 = __ct__12TAdSoniclogoFv((void *)var_r0_7, arg0);
+            }
+            M2C_FIELD(arg0, u32 *, 0x30) = var_r0_7;
+            M2C_FIELD(arg0, u32 *, 0x20) = 5U;
+            return;
+        }
+        break;
+    case 5:
+        if (((s32)TLogo__sub_8013F7F0((int)((int) (M2C_FIELD(arg0, u32 *, 0x30))))) != 0) {
+            queue_destruction__7TObjectFv((int) (M2C_FIELD(arg0, u32 *, 0x30)));
+            M2C_FIELD(arg0, u32 *, 0x30) = 0U;
+            var_r0_8 = __nw__7TObjectFUl((int) (0x20));
+            if (var_r0_8 != 0U) {
+                var_r0_8 = __ct__10TAdADXlogoFv((void *)var_r0_8, arg0);
+            }
+            M2C_FIELD(arg0, u32 *, 0x34) = var_r0_8;
+            M2C_FIELD(arg0, u32 *, 0x20) = 6U;
+            return;
+        }
+        break;
+    case 6:
+        if (((s32)TLogo__sub_8013F7E8((int)((int) (M2C_FIELD(arg0, u32 *, 0x34))))) != 0) {
+            queue_destruction__7TObjectFv((int) (M2C_FIELD(arg0, u32 *, 0x34)));
+            M2C_FIELD(arg0, u32 *, 0x34) = 0U;
+            M2C_FIELD(arg0, u32 *, 0x20) = 7U;
+            return;
+        }
+        break;
+    case 7:
+        TKeyBoardControl__sub_8000F9CC((int) (0xA));
+        break;
+    }
+}
 
 void *__ct__5TLogoFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
@@ -56,13 +177,13 @@ void TLogo__sub_8013F5AC() {
     render_tick__Fv();
 }
 
-int TLogo__sub_8013F7E8(void) {  return lbl_805D49D0; }
+int TLogo__sub_8013F7E8(int _w0) {  return lbl_805D49D0; }
 
     extern int lbl_805D4A50;
-int TLogo__sub_8013F7F0(void) {  return lbl_805D4A50; }
+int TLogo__sub_8013F7F0(int _w0) {  return lbl_805D4A50; }
 
     extern int lbl_805D4A40;
-int TLogo__sub_8013F7F8(void) {  return lbl_805D4A40; }
+int TLogo__sub_8013F7F8(int _w0) {  return lbl_805D4A40; }
 
 s32 TLogo__sub_8013F800(void* p) { return *(s32*)((char*)p + 0x48); }
 

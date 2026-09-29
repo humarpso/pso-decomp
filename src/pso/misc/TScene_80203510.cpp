@@ -5,9 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include "pso/misc/TSceneMaterial.h"
+
 extern "C" {
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 SceneMaterialSection *TScene__sub_80203600(s32 id);
+void TCameraCtrl__sub_803D8934(int, void *, void *);
+extern const f32 TScene__data_805DC5D8;
+bool TScene__sub_80204188(f32 farg0);
 }
 
 extern "C" {
@@ -105,4 +109,14 @@ void TScene__sub_80203640(void* task) {
     }
     PPCSync();
 }
+bool TScene__sub_80204188(f32 farg0) {
+    f32 sp[6];
+    void *unused;
+    TCameraCtrl__sub_803D8934(0, unused, &sp[0]);
+    if (sp[2] > TScene__data_805DC5D8) {
+        return 0;
+    }
+    return (sp[2] < -farg0) == 0;
+}
+
 }

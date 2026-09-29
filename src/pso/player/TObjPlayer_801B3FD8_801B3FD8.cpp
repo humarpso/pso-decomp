@@ -7,6 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 test_flag_2000000__10TObjPlayerFPv();
 int TObjPlayer__sub_801B40D0(void *, int);
+void enable_foot_stamp__10TObjPlayerFii(void *, void *);
+void clear_foot_stamp__10TObjPlayerFii(void *, void *);
 M2C_UNK TObjPlayer__sub_801BF250(void *);
 M2C_UNK TObjPlayer__sub_801BF288(void *);
 M2C_UNK TObjPlayer__sub_801BF2C0(void *);
@@ -58,7 +60,13 @@ s32 classify_action_state__10TObjPlayerFv(void) {
     }
 }
 
-int TObjPlayer__sub_801B40D0(void * _w0, int _w1) { return 0; }
+int TObjPlayer__sub_801B40D0(void *arg0, int arg1) {
+    if (arg1 == 1) {
+        clear_foot_stamp__10TObjPlayerFii((u8 *)arg0 + 0x384, arg0);
+    } else if (arg1 == 2) {
+        enable_foot_stamp__10TObjPlayerFii((u8 *)arg0 + 0x384, arg0);
+    }
+}
 
 s32 TObjPlayer__sub_801B4118(u8 *arg0, f32 farg0, f32 farg1) {
     if (objInBand__FP7GameObjf(arg0, farg0) != 0) {

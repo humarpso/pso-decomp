@@ -4,6 +4,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Q_801681D0 { f32 w[4]; };
+
+extern "C" {
+extern Q_801681D0 lbl_804417EC;
+extern s32 lbl_805D5550;
+f32 TOHangceilingCave01Normal__sub_801681D0(f32 farg0);
+}
+
 extern "C" {
 
 void *TOHangceilingCave01Normal__ct(void *arg0);
@@ -39,6 +47,11 @@ void *TOHangceilingCave01Normal__ct(void *arg0) {
 }
 
 extern f32 lbl_805DB650;
+
+f32 TOHangceilingCave01Normal__sub_801681D0(f32 farg0) {
+    Q_801681D0 q = lbl_804417EC;
+    return farg0 * q.w[lbl_805D5550];
+}
 
 void advance_wrap_offset__25TOHangceilingCave01NormalFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) (M2C_FIELD(arg0, f32 *, 0xC0) + M2C_FIELD(arg0, f32 *, 0xC8));

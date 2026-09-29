@@ -113,6 +113,10 @@ struct List_801F1A0C : Base_801F1A0C {
     s32 count;
 };
 
+struct Cfg_801F0970 { s32 i; s32 b; f32 c; };
+
+struct Vec3_801F0970 { f32 x, y, z; };
+
 extern "C" {
 s32 TLobby__sub_8020C1F0(int, int, void *);
 void qst_op_if_zone_clear(s32 arg0, s32 arg1);
@@ -277,6 +281,31 @@ s32 close_window_if_active(void *);
 s32 request_active_window_close();
 s32 set_close_flag__11TWindowCtrlFv();
 void qst_op_list(void);
+s32 TLobby__sub_8020C73C(s32, s32, s32, s32);
+extern int* TLobby__data_805D5E78;
+void qst_op_unhide_ene(s32 arg0);
+u32 TLobby__sub_800869A4(void* v, s32 a, s32 b, s32 c);
+void set_flags__11TBoss4Type2FPvUi(void*, s32);
+extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801F0970(void);
+M2C_UNK clear_quest_vm_flag__6TLobbyFv();
+M2C_UNK free_luker_object__6TLobbyFv();
+s32 TNpcPlayer__sub_8034ECD0(s32, s32, s32);
+extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
+void qst_op_npc_crtpk(void);
+void qst_op_message();
+void send_and_handle__6TLobbyFPvii(void*, s32, s32);
+s32 fn_8026B074(int, int, int);
+extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
+extern u8 *TLobby__data_805D5E7C;
+extern u32 TLobby__data_805D5E80;
+extern int TLobby__data_805D5E98;
+extern s32 lbl_805D5EA0;
+void qst_op_add_msg(void);
+int TLobby__sub_801F2BCC(void);
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801F1C38(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -340,6 +369,13 @@ void qst_op_gettime(u8 arg0) {
     ((s32 *) (*(s32 *)&TLobby__data_805D5E78))[arg0] = sp8;
 }
 #pragma pop
+
+void qst_op_unhide_ene(s32 arg0) {
+    s32 v0 = TLobby__data_805D5E78[(u8)arg0];
+    s32 v1 = TLobby__data_805D5E78[(u8)++arg0];
+    s32 v2 = TLobby__data_805D5E78[(u8)++arg0];
+    TLobby__sub_8020C73C(v0, (s16)v1, (s16)v2, arg0);
+}
 
 void qst_op_chk_ene_num(int a0) { TLobby__data_805D5E78[(unsigned char)(a0)] = TLobby__sub_8020C118(); }
 
@@ -426,6 +462,19 @@ void qst_op_p_look_at(void) {
 }
 
 typedef char RecoveredGlobal_801F0ADC_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801F0ADC_TLobby__data_80512220) == 0x20 ? 1 : -1];
+
+void TLobby__sub_801F0970(void) {
+    Vec3_801F0970 v;
+    f32* p = &((f32*)TLobby__data_805D5E78)[(*(Cfg_801F0970 *)&TLobby__data_80512220).i];
+    v.x = p[0];
+    v.y = p[1];
+    v.z = p[2];
+    u32 r = TLobby__sub_800869A4(&v, (*(Cfg_801F0970 *)&TLobby__data_80512220).b, 0, (s32)(*(Cfg_801F0970 *)&TLobby__data_80512220).c);
+    if (r != 0) {
+        set_flags__11TBoss4Type2FPvUi((void*)r, 0x40);
+    }
+}
+
 void qst_op_p_look(void) {
     TNpcPlayer__sub_8034E24C((u16) (*(RecoveredGlobal_801F0ADC_TLobby__data_80512220 *)&TLobby__data_80512220).value);
 }
@@ -472,6 +521,14 @@ void qst_op_npc_stop(void) {
     TNpcPlayer__sub_8034EAC4((int) ((s32) (u16) (*(RecoveredGlobal_801F0D80_TLobby__data_80512220 *)&TLobby__data_80512220).value));
 }
 
+void qst_op_npc_crtpk(void) {
+    s32 a = ((s32 *)&TLobby__data_80512220)[0];
+    s32 b = ((s32 *)&TLobby__data_80512220)[1];
+    free_luker_object__6TLobbyFv();
+    TNpcPlayer__sub_8034ECD0(a & 0xFFFF, 1, b);
+    clear_quest_vm_flag__6TLobbyFv();
+}
+
 void qst_op_npc_crt(void) {
     M2C_UNK *var_r3;
     s32 var_r4;
@@ -493,6 +550,23 @@ void qst_op_winend(void) {
     TLobby__sub_8024AC20((void *) (lbl_805D53A0));
     clear_flag__11TWindowCtrlFv();
     clear_flag_2__11TWindowCtrlFv();
+}
+
+void qst_op_add_msg(void) {
+    s32 x = ((s32 *)&TLobby__data_80512220)[0];
+    if ((*(u8* *)&TLobby__data_805D5E7C) != 0) {
+        fn_8026B074((int)(*(u8* *)&TLobby__data_805D5E7C), x, 3);
+        TLobby__data_805D5E98 = 4;
+        return;
+    }
+    if (TLobby__data_805D5E80 != 0) {
+        send_and_handle__6TLobbyFPvii((void*)TLobby__data_805D5E80, x, 3);
+        TLobby__data_805D5E98 = 5;
+        return;
+    }
+    ((s32 *)&TLobby__data_80512220)[1] = x;
+    ((s32 *)&TLobby__data_80512220)[0] = lbl_805D5EA0;
+    qst_op_message();
 }
 
 void close_window__6TLobbyFv(void) {
@@ -569,6 +643,17 @@ void qst_op_list(void) {
     request_active_window_close();
     set_close_flag__11TWindowCtrlFv();
     delete list;
+}
+
+void TLobby__sub_801F1C38(s32 arg0, s32 arg1) {
+    s32 n = arg1;
+    u8 j = arg0 + arg1;
+    while (n > 0) {
+        int v = TLobby__sub_801F2BCC();
+        j--;
+        TLobby__data_805D5E78[j] = v;
+        n--;
+    }
 }
 
 void set_slot__6TLobbyFi(int a0) { TLobby__data_805D5E78[(unsigned char)(a0)] = TLobby__sub_801F2BCC(); }

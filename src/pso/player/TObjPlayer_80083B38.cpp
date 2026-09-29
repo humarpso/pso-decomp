@@ -23,6 +23,10 @@ struct Rect_800846C8 { u8 data[0x20]; };
 
 struct G_800846C8 { void *a; u8 pad[0x1c]; };
 
+struct A_80084694 { u8 pad[0x8]; u32 f8; };
+
+struct G_80084694 { A_80084694 *a; u8 pad[0x1c]; };
+
 extern "C" {
 extern int lbl_805D4EE0;
 void TObjPlayer__sub_80083FB0(void);
@@ -31,7 +35,6 @@ u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 get_main_phase();
 s32 is_inactive__10TObjPlayerFPv();
 s32 check_all_players_ready__10TObjPlayerFv(void);
-int TObjPlayer__sub_80084694(void);
     extern unsigned char lbl_805D4EE4;
 void TObjPlayer__sub_80084614(void);
 extern unsigned char lbl_805D4EE4;
@@ -76,6 +79,9 @@ void set_render_rect__10TObjPlayerFPviiii(void *, int, int, int, int);
 void TObjPlayer__sub_803DA218(void *, void *, int, int);
 s32 TObjPlayer__sub_803DDC50(void *);
 void TObjPlayer__sub_800846C8(s32 wide);
+void **TLobby__sub_803DA16C();
+extern G_800845F8 lbl_8048E5B4;
+void **TObjPlayer__sub_80084694(void);
 }
 
 extern "C" {
@@ -169,6 +175,15 @@ s32 TObjPlayer__sub_800845F8(void) {
 void TObjPlayer__sub_80084614(void) { lbl_805D4EE4 = 0; TObjPlayer__sub_80084694(); }
 void TObjPlayer__sub_8008463C(void) { lbl_805D4EE4 = 0; TObjPlayer__sub_800846C8((s32)((void*)0)); }
 void reset_movie_state__10TObjPlayerFv(void) { lbl_805D4EE4 = 0; TObjPlayer__sub_800846C8((s32)((void*)1)); }
+
+void **TObjPlayer__sub_80084694(void) {
+    void **var_r3;
+    var_r3 = (void **)&lbl_8048E5B4;
+    if ((*(G_80084694 *)&lbl_8048E5B4).a->f8 != 0) {
+        var_r3 = TLobby__sub_803DA16C();
+    }
+    return var_r3;
+}
 
 void TObjPlayer__sub_800846C8(s32 wide) {
     Rect_800846C8 r;

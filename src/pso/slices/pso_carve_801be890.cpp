@@ -4,6 +4,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Item_801BE890 { u8 b[0x1C]; };
+
+struct Inv_801BE890 { s32 f0; Item_801BE890 items[0x1E]; };
+
+extern "C" {
+void init__17TPlyInventoryItemFv(void *);
+Inv_801BE890 *TObjPlayer__sub_801BE890(Inv_801BE890 *arg0);
+}
+
 extern "C" {
 
 s32 get_max_level__10TObjPlayerFv();
@@ -82,6 +91,13 @@ int TObjPlayer__sub_801BEDA8(void*);
 int TObjPlayer__sub_801BEDB0(void*);
 int TObjPlayer__sub_801BEDB8(void*);
 
-int TObjPlayer__sub_801BE890(void) { return 0; }
+Inv_801BE890 *TObjPlayer__sub_801BE890(Inv_801BE890 *arg0) {
+    s32 i;
+    arg0->f0 = 0;
+    for (i = 0; i < 0x1E; i++) {
+        init__17TPlyInventoryItemFv(&arg0->items[i]);
+    }
+    return arg0;
+}
 
 }

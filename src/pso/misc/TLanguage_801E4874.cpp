@@ -7,6 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern s32 lbl_805D5E58;
 s32 TLanguage__sub_801E4B40(void);
+extern s32 lbl_805D5E58;
+s32 TLanguage__sub_801E4AF0(void);
 }
 
 extern "C" {
@@ -19,7 +21,6 @@ struct VObj_801E4B68_801E4874 : Base_801E4B68_801E4874 {
 void fn_801E4B68(void *arg0);
 u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1);
 void read_into_buffer__9TLanguageFii(s32 arg0, s32 arg1);
-s32 TLanguage__sub_801E4AF0();
 M2C_UNK bswap_16__FPUs(void *);
 M2C_UNK bswap_32__FPUl(void *);
 M2C_UNK fn_801E4BCC(void *);
@@ -47,6 +48,14 @@ extern s32 lbl_805D5E58;
 void read_into_buffer__9TLanguageFii(s32 arg0, s32 arg1) {
     move_data__6TLobbyFv(arg0, lbl_805D5E58, arg1);
     lbl_805D5E58 += arg1;
+}
+
+s32 TLanguage__sub_801E4AF0(void) {
+    s32 v = *(u8 *)lbl_805D5E58++;
+    v |= *(u8 *)lbl_805D5E58++ << 8;
+    v |= *(u8 *)lbl_805D5E58++ << 16;
+    v |= *(u8 *)lbl_805D5E58++ << 24;
+    return v;
 }
 
 s32 TLanguage__sub_801E4B40(void) {

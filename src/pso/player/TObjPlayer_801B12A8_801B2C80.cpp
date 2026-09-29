@@ -24,6 +24,10 @@ struct VObj_18_eecf68 : VBase_18_eecf68 {
     virtual s32 m14();
 };
 
+struct Eff_801B2D88 { u16 f0; u16 f2; u32 f4; u32 f8; };
+
+struct Pair_801B2D88 { u32 a; u32 b; };
+
 extern "C" {
 M2C_UNK set_params__10TObjPlayerFPvPvPviPv(void *, void *, void *, int, int);
 s32 TObjPlayer__sub_801D92F4(void *);
@@ -34,12 +38,20 @@ int get_max_level__10TObjPlayerFv(void);
 s8 TObjPlayer__sub_801AFDB0(void *);
 s32 get_current_state_field__10TObjPlayerFv(s8, s32);
 s32 TObjPlayer__sub_801B2E68(u8 *arg0);
+void TObjPlayer__sub_801B2AE8(u32, Pair_801B2D88 *);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void TObjPlayer__sub_801C092C(void *, void *);
+void apply_status_effect__10TObjPlayerFPv(void *);
+M2C_UNK set_code_12_3__10TObjPlayerFPv(M2C_UNK *);
+s32 fn_8036B770(void *);
+void handle_6x0C_add_or_remove_status_effect(void *arg0);
 }
 
 extern "C" {
 
 void TObjPlayer__vt76(s32 arg0, s32 arg1);
-int TWindowHelpItem__sub_801B3038(void);
+s32 TWindowHelpItem__sub_801B3038(void *self, void *arg1);
+s32 get_quest_id__12TQuestListVMFPv(void *);
 void apply_speed_scale__10TObjPlayerFif(s32 arg0, f32 farg0);
 s32 calc_scaled_value__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 clear_negative_status_effects__10TObjPlayerFi(s32 arg0);
@@ -74,6 +86,22 @@ void send_code_13_3__10TObjPlayerFii(s32 arg0, s32 arg1) {
 s32 clear_negative_status_effects__10TObjPlayerFi(s32 arg0) {
     TFontSmallLobby__sub_801C0228();
     return arg0;
+}
+
+void handle_6x0C_add_or_remove_status_effect(void *arg0) {
+    Eff_801B2D88 e;
+    set_code_12_3__10TObjPlayerFPv((M2C_UNK *)(&e));
+    TObjPlayer__sub_801C092C(&e, arg0);
+    apply_status_effect__10TObjPlayerFPv(&e);
+    if (fn_8036B770(&e) != 0) {
+        u32 p = TPlayerBattleCtrl4P__sub_801BA74C(e.f2);
+        if (p != 0) {
+            Pair_801B2D88 q;
+            q.a = e.f4;
+            q.b = e.f8;
+            TObjPlayer__sub_801B2AE8(p, &q);
+        }
+    }
 }
 
 void TObjPlayer__vt76(s32 arg0, s32 arg1) {
@@ -146,7 +174,13 @@ s32 fn_801B2FC8(s32 arg0, s32 arg1) {
   return 1;
 }
 
-int TWindowHelpItem__sub_801B3038(void) { return 0; }
+#pragma scheduling on
+s32 TWindowHelpItem__sub_801B3038(void *self, void *arg1) {
+    set_params__10TObjPlayerFPvPvPviPv(arg1, self, (void *) get_quest_id__12TQuestListVMFPv(self),
+                                       TObjPlayer__sub_801D92F4(self), TObjPlayer__sub_801D9328());
+    return 1;
+}
+#pragma scheduling off
 int fn_801B309C(void* p) { return recover_full__10TObjPlayerFPv(p); }
 
 }

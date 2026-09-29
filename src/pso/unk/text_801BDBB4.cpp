@@ -16,6 +16,8 @@ struct RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70
   u8 remaining[0x320C];
 };
 
+struct E_801BDC98 { u8 b[0x42C]; };
+
 extern "C" {
 s32 TObjPlayer__sub_80019248();
 u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
@@ -23,6 +25,10 @@ M2C_UNK init_select_txt__10TObjPlayerFPv(int);
 M2C_UNK copy_lobby_header__10TObjPlayerFPvi(int, int);
 extern RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70 TObjPlayer__data_8050EA70;
 void TObjPlayer__sub_801BDCF8(void);
+extern RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70 TObjPlayer__data_8050EA70;
+s32 check_flag_at_428__10TObjPlayerFPv(void *);
+void create__10TObjPlayerFUii(u16, void *);
+void TObjPlayer__sub_801BDC98(void);
 }
 
 extern "C" {
@@ -33,6 +39,21 @@ typedef struct VObj_18_dac7f3 VObj_18_dac7f3;
 #pragma opt_pointer_analysis on
 typedef char RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70_size[((sizeof(RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70)) == 0x3210) ? (1) : (-1)];
 #define PSO_VCALL_VObj_18_dac7f3_m0(_self, _arg0) (((VObj_18_dac7f3 *)(_self))->m0((_arg0)))
+
+void TObjPlayer__sub_801BDC98(void) {
+    s32 i;
+    E_801BDC98 *p;
+    i = 0;
+    p = ((E_801BDC98 *)&TObjPlayer__data_8050EA70);
+    do {
+        if (check_flag_at_428__10TObjPlayerFPv(p) != 0) {
+            create__10TObjPlayerFUii(i, p);
+        }
+        i++;
+        p++;
+    } while (i < 12);
+}
+
 void TObjPlayer__sub_801BDCF8(void) {
   s32 var_r31;
   u8 *temp_r3;

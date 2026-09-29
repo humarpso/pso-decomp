@@ -46,6 +46,12 @@ struct V_A_801d48f8 : Base_A_801d48f8 {
 };
 
 extern "C" {
+void remove_equipped_item__10TObjPlayerFPvii(void *, void *, int);
+s32 start_inventory_update__10TObjPlayerFPvi(void *, s32);
+s32 TObjPlayer__sub_801D49F4(void *arg0, void *arg1, s32 *arg2, s32 arg3);
+}
+
+extern "C" {
 
 int run_and_get_result__10TObjPlayerFPvi(void* a0, int a1);
 int run_state_query__10TObjPlayerFPvi(void* a0, int a1);
@@ -96,6 +102,18 @@ s32 update_inventory_item__10TObjPlayerFPviiiii(void *arg0, s32 arg1, s32 arg2, 
     temp_r4 = M2C_FIELD(arg0, s16 *, 0x1C);
     M2C_FIELD(arg0, s16 *, 0x1C) = (s16) (temp_r4 - 1);
     queue_destruction__7TObjectFv(temp_r3, temp_r4);
+    return 1;
+}
+s32 TObjPlayer__sub_801D49F4(void *arg0, void *arg1, s32 *arg2, s32 arg3) {
+    s32 i;
+    s32 r;
+    for (i = 0; i < arg3; arg2++, i++) {
+        r = start_inventory_update__10TObjPlayerFPvi(arg0, *arg2);
+        if (r == 0) {
+            return 0;
+        }
+        remove_equipped_item__10TObjPlayerFPvii(arg0, arg1, r);
+    }
     return 1;
 }
 

@@ -18,6 +18,8 @@ struct RecoveredGlobal_800339BC_lbl_804FF5E8 {
 
 struct Obj_80034034 { u8 pad[0x326]; s16 f326; };
 
+struct Obj_800333F4 { u8 pad0[0xB8]; s16 f_B8; };
+
 extern "C" {
 M2C_UNK TObjBoss2Tunnel__sub_8003B1D8(void *);
 void TBoss2DeRolLe__sub_80033A80(M2C_UNK arg0, s32 arg1);
@@ -44,11 +46,13 @@ s32 TBoss2DeRolLe__sub_800320B4(void *, void *, int, int);
 s32 TBoss2DeRolLe__sub_800327C8(void *, void *, int, int);
 s32 TBoss2DeRolLe__sub_80032B28(void *, void *);
 s32 TBoss2DeRolLe__sub_80032E38(void *, void *);
-s32 TBoss2DeRolLe__sub_800333F4(void *, void *);
 void TBoss2DeRolLe__sub_8003344C(s32 arg0, u32 arg1, s32 arg2);
 void TBoss2DeRolLe__sub_80033D44(Obj_80034034 *self);
 void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
 void TBoss2DeRolLe__sub_80034034(Obj_80034034 *self);
+void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
+void TBoss1Dragon__sub_80143504(void *);
+void TBoss2DeRolLe__sub_800333F4(Obj_800333F4 *self, u32 arg1);
 }
 
 extern "C" {
@@ -76,10 +80,25 @@ s32 objInBand__FP7GameObjf(void *, f32);
 void swap_6x13_fields__13TBoss2DeRolLeFPv(void *);
 void swap_endian__13TBoss2DeRolLeFPv(void *);
 
+void TBoss2DeRolLe__sub_800333F4(Obj_800333F4 *self, u32 arg1) {
+    switch (arg1) {
+    case 4: self->f_B8 = 1; return;
+    case 2: TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)(self), (s32)(1)); return;
+    case 0: TBoss1Dragon__sub_80143504(self); return;
+    case 1: return;
+    case 3: return;
+    case 5: return;
+    case 6: return;
+    case 7: return;
+    case 8: return;
+    case 9: return;
+    }
+}
+
 void TBoss2DeRolLe__sub_8003344C(s32 arg0, u32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
-        TBoss2DeRolLe__sub_800333F4((void *) (arg0), (void *) (arg2));
+        TBoss2DeRolLe__sub_800333F4((Obj_800333F4 *)((void *) (arg0)), (u32)((void *) (arg2)));
         return;
     case 1:
         TBoss2DeRolLe__sub_80032E38((void *) (arg0), (void *) (arg2));

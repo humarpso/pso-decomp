@@ -18,6 +18,10 @@ typedef struct Ctx_801B1BA4 { s16 f0; s16 f2; } Ctx_801B1BA4;
 
 typedef struct Ctx_801B1C8C { s16 f0; s16 f2; } Ctx_801B1C8C;
 
+struct Eff_801B2C04 { u16 f0; u16 f2; u32 f4; u32 f8; };
+
+struct Pair_801B2C04 { u32 a; u32 b; };
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 s32 obj_isState2_324();
@@ -37,6 +41,13 @@ void *update_battle_controller__10TObjPlayerFv();
 M2C_UNK fn_801C0630(Ctx_801B1C8C *);
 M2C_UNK fn_801C0644(Ctx_801B1C8C *);
 void TObjPlayer__sub_801B1C8C(void);
+void TObjPlayer__sub_801B28AC(u32, Pair_801B2C04 *);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void TObjPlayer__sub_801BEE68(void *, void *);
+void bswap_status_effect__10TObjPlayerFPv(void *);
+void set_code_13_3__10TObjPlayerFPv(void *);
+s32 fn_8036B748(void *);
+void handle_6x0D_add_or_remove_status_effect(void *arg0);
 }
 
 extern "C" {
@@ -209,6 +220,21 @@ s32 is_flag30_8_set__10TObjPlayerFi(s32 arg0) {
         return obj_testFlags30(arg0, 8);
     }
     return 0;
+}
+void handle_6x0D_add_or_remove_status_effect(void *arg0) {
+    Eff_801B2C04 e;
+    set_code_13_3__10TObjPlayerFPv(&e);
+    TObjPlayer__sub_801BEE68(&e, arg0);
+    bswap_status_effect__10TObjPlayerFPv(&e);
+    if (fn_8036B748(&e) != 0) {
+        u32 p = TPlayerBattleCtrl4P__sub_801BA74C(e.f2);
+        if (p != 0) {
+            Pair_801B2C04 q;
+            q.a = e.f4;
+            q.b = e.f8;
+            TObjPlayer__sub_801B28AC(p, &q);
+        }
+    }
 }
 
 }

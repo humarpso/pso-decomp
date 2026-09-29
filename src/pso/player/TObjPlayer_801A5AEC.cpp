@@ -36,6 +36,12 @@ u8 get_key_state_2__16TKeyBoardControlFPv(void *);
 u8 TKeyBoardControl__sub_8013239C(void *, int);
 extern RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
 s32 TKeyBoardControl__sub_801A5B00(void);
+s32 check_reset_button__16TKeyBoardControlFv();
+void reset_system();
+s32 DVDCheckDisk();
+extern s32 lbl_805D49B4;
+extern u8 lbl_805D5D09;
+s32 func_801A5E54__Fv(void);
 }
 
 extern "C" {
@@ -120,6 +126,13 @@ s32 TKeyBoardControl__sub_801A5B00(void) {
       var_r3 = 0;
       return var_r3;
   }
+}
+
+s32 func_801A5E54__Fv(void) {
+    if ((DVDCheckDisk() == 0) && (check_reset_button__16TKeyBoardControlFv() != 0)) {
+        reset_system();
+    }
+    return (lbl_805D49B4 != 0) ? 0 : lbl_805D5D09;
 }
 
 void TKeyBoardControl__sub_801A5EA0(u8 arg0) {

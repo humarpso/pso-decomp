@@ -55,6 +55,10 @@ M2C_UNK memset(void *, int, int);
 extern struct Ids_80207C60 lbl_8044B898;
 extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
 void TLobby__sub_80207C60(void);
+extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
+M2C_UNK memset(void *, int, int);
+extern struct Ids_80207C60 lbl_8044B8E0;
+void TLobby__sub_80207BB0(void);
 }
 
 extern "C" {
@@ -165,6 +169,21 @@ void TOBoss4Rock__sub_802078A4(void) {
   }
   while (var_r29 < 0x12);
 }
+
+#pragma push
+#pragma opt_common_subs off
+void TLobby__sub_80207BB0(void) {
+    struct Ids_80207C60 ids = lbl_8044B8E0;
+    s32 i;
+    memset((void *) ((struct Map_80207C60 *)&lbl_80513920), 0, 0xD8);
+    for (i = 0; i < 18; i++) {
+        ((struct Map_80207C60 *)&lbl_80513920)[i].map = -1;
+    }
+    for (i = 0; i < 18; i++) {
+        ((struct Map_80207C60 *)&lbl_80513920)[i].map = ids.w[i];
+    }
+}
+#pragma pop
 
 void TLobby__sub_80207C60(void) {
     struct Ids_80207C60 ids = lbl_8044B898;

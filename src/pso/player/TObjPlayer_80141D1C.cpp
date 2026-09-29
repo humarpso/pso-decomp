@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct DS_80142108 { u16 y; u8 b2; u8 b3; u8 b4; u8 b5; u8 b6; u8 b7; };
+
 extern "C" {
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 TObjPlayer__sub_8001978C(f32);
@@ -26,6 +28,8 @@ f32 TAdSinglePlyChrSelectGC__sub_80141EA0(s32 v);
 s32 TAdSinglePlyChrSelectGC__sub_80141E8C(f32 v);
 u16 TObjPlayer__sub_80141F84(s32 a, s32 b);
 s16 TBoss4Type2__sub_80141FA8(s32 a, s32 b);
+void getDateStamp__FP9DateStamp(DS_80142108 *);
+void TAdSinglePlyChrSelectGC__sub_80142108(DS_80142108 *arg0);
 }
 
 extern "C" {
@@ -124,6 +128,18 @@ s32 clamp_s32__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
         return arg2;
     }
     return var_r3;
+}
+
+void TAdSinglePlyChrSelectGC__sub_80142108(DS_80142108 *arg0) {
+    DS_80142108 d;
+    getDateStamp__FP9DateStamp(&d);
+    arg0->y = d.y;
+    arg0->b2 = d.b2;
+    arg0->b3 = d.b3;
+    arg0->b4 = d.b4;
+    arg0->b5 = d.b5;
+    arg0->b6 = d.b6;
+    arg0->b7 = d.b7;
 }
 
 #pragma push

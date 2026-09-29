@@ -52,6 +52,28 @@ extern const f32 lbl_805D2900;
 extern const f32 lbl_805D93A8;
 extern const f32 lbl_805D93AC;
 void run_task__12TEffCliticalFv(u8 *arg0);
+void TEffClitical__sub_80082674(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+M2C_UNK fn_80082954(void *);
+M2C_UNK fn_800829E0(void *);
+M2C_UNK set_depth_buffer_settings_1__Fv();
+M2C_UNK fn_80141A30();
+M2C_UNK begin_effect_render__13TParticleCtrlFv(int);
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(void *);
+M2C_UNK set_chunk_material_color(void *);
+M2C_UNK TObjFish__sub_803E46BC(int);
+extern M2C_UNK lbl_8048E2E0[];
+extern M2C_UNK lbl_804CC934[];
+extern u8 *lbl_805D4DF0;
+extern s32 *lbl_805D4ED8;
+extern s32 lbl_805D5660;
+extern s32 some_id_805c6f74;
+void render__12TEffCliticalFv(u8 *arg0);
 }
 
 extern "C" {
@@ -72,6 +94,31 @@ extern const f32 lbl_805D93B0;
 #pragma opt_propagation off
 typedef char RecoveredGlobal_800823E0_lbl_80438EB8_size[sizeof(RecoveredGlobal_800823E0_lbl_80438EB8) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_800823E0_lbl_80438EC8_size[sizeof(RecoveredGlobal_800823E0_lbl_80438EC8) == 0x10 ? 1 : -1];
+
+void render__12TEffCliticalFv(u8 *arg0) {
+    M2C_UNK sp8;
+    s32 temp_r3;
+    set_depth_buffer_settings_1__Fv();
+    TEffClitical__sub_80082674((void *)((void *) (&sp8)), (s32)((void *) (lbl_8048E2E0)), (s32)((void *) (lbl_804CC934)), (s32)((int) (0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x70) + 1)));
+    temp_r3 = some_id_805c6f74;
+    lbl_805D5660 = temp_r3;
+    some_id_805c6f74 = temp_r3 | 0x10;
+    begin_effect_render__13TParticleCtrlFv((int) (temp_r3));
+    set_chunk_material_color((void *) ((u8 *)(arg0) + 0x2C));
+    fn_800829E0((void *) (&sp8));
+    TObjPlayer__sub_803D9B2C();
+    set_global_param__8TObjFishFi((void *) (lbl_8048E2E0));
+    TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x20));
+    TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(lbl_805D4DF0, s32 *, 0x194)));
+    TOMonitorMachine01__sub_803D8B5C((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x3C)), (f32) (M2C_FIELD(arg0, f32 *, 0x40)), (f32) (M2C_FIELD(arg0, f32 *, 0x44)));
+    TObjFish__sub_803E46BC((int) (M2C_FIELD(lbl_805D4ED8, s32 *, 0)));
+    TObjPlayer__sub_803D9B78();
+    fn_80082954((void *) (&sp8));
+    some_id_805c6f74 = lbl_805D5660;
+    end_effect_render__13TParticleCtrlFv();
+    fn_80141A30();
+}
+
 void run_task__12TEffCliticalFv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_800823E0, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800823E0, spC) == 0x4) ? 1 : -1];

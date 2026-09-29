@@ -17,6 +17,9 @@ extern s32 lbl_805D7940;
 s32 TAdPlayerLoadGC__sub_803F31BC(void);
 s32 CARDUnmount(s32 chan);
 void TAdPlayerLoadGC__sub_803F389C(s32 chan);
+M2C_UNK memset(void *, int, int);
+extern M2C_UNK lbl_805A28E0[];
+void TAdPlayerLoadGC__sub_803F32A4(s32 arg0);
 }
 
 extern "C" {
@@ -47,6 +50,22 @@ s32 TAdPlayerLoadGC__sub_803F31BC(void) {
     }
     return 0;
 }
+
+void TAdPlayerLoadGC__sub_803F32A4(s32 arg0) {
+    u8 *temp_r30;
+    temp_r30 = (u8 *)lbl_805A28E0 + (arg0 * 0x68);
+    M2C_FIELD(temp_r30, s32 *, 0) = 0;
+    memset((void *) (temp_r30 + 4), (int) (0), (int) (0x20));
+    memset((void *) (temp_r30 + 0x24), (int) (0), (int) (0x20));
+    M2C_FIELD(temp_r30, s32 *, 0x44) = 0;
+    M2C_FIELD(temp_r30, s32 *, 0x48) = 0;
+    M2C_FIELD(temp_r30, s32 *, 0x4C) = 0;
+    M2C_FIELD(temp_r30, s32 *, 0x50) = 0;
+    M2C_FIELD(temp_r30, s32 *, 0x54) = -1;
+    M2C_FIELD(temp_r30, s32 *, 0x58) = 0;
+    M2C_FIELD(temp_r30, s32 *, 0x5C) = 0;
+}
+
 void TAdPlayerLoadGC__sub_803F389C(s32 chan) {
     CARDUnmount(chan);
 }

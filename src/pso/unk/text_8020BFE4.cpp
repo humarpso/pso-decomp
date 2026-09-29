@@ -9,15 +9,45 @@ struct QuestSavedEnemyRow_8020C1F0 { u16 id; s16 flags; s16 room; u16 unused; };
 
 struct QuestSavedEnemyFloor_8020C1F0 { s32 reserved; s32 count; u32 fields[3]; QuestSavedEnemyRow_8020C1F0 *rows; };
 
+struct Ent_8020BFE4 { s16 id; u8 pad[0xA]; s32 fC; };
+
+struct Ent_8020C030 { s16 id; u8 pad[0xA]; s32 fC; };
+
 extern "C" {
 s32 TObjPlayer__sub_800196EC(void);
 extern QuestSavedEnemyFloor_8020C1F0 TLobby__data_80513AD0[];
 extern QuestEnemyRow_8020C1F0 *TLobby__data_805D6114;
 extern s32 TLobby__data_805D6118;
 s32 TLobby__sub_8020C1F0(s32 floor, s16 room);
+extern Ent_8020BFE4 *lbl_80498E98[];
+s32 TLobby__sub_8020BFE4(s32 arg0, s16 *arg1);
+extern Ent_8020C030 *TLobby__data_804C1ED8[];
+s32 TLobby__sub_8020C030(s32 arg0, s16 *arg1);
 }
 
 extern "C" {
+
+s32 TLobby__sub_8020BFE4(s32 arg0, s16 *arg1) {
+    Ent_8020BFE4 *base = lbl_80498E98[arg0];
+    Ent_8020BFE4 *p = base;
+    for (; base != 0 && p->id != -1; p++) {
+        if (p->id == *arg1) {
+            return p->fC;
+        }
+    }
+    return 0;
+}
+
+s32 TLobby__sub_8020C030(s32 arg0, s16 *arg1) {
+    Ent_8020C030 *base = TLobby__data_804C1ED8[arg0];
+    Ent_8020C030 *p = base;
+    for (; base != 0 && p->id != -1; p++) {
+        if (p->id == *arg1) {
+            return p->fC;
+        }
+    }
+    return 0;
+}
 
 s32 TLobby__sub_8020C1F0(s32 floor, s16 room) {
     s32 i;

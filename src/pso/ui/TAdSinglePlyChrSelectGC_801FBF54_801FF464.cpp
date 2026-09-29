@@ -30,6 +30,11 @@ u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FF4F0(void);
 M2C_UNK TWindowSubComCard__sub_8007A9C0(int, int);
 s32 TAdSinglePlyChrSelectGC__sub_801FFCFC(s32 arg0, s32 arg1);
+void *memset(void *, int, unsigned long);
+extern u32 lbl_805D5F58;
+extern u32 lbl_805D5F60;
+extern u32 lbl_805D5F64;
+void TAdSinglePlyChrSelectGC__sub_801FF58C(void);
 }
 
 extern "C" {
@@ -107,6 +112,14 @@ s32 TAdSinglePlyChrSelectGC__sub_801FF4F0(void) {
   }
   while (((s32) var_r31) < 4);
   return 0xFFFF0000;
+}
+
+void TAdSinglePlyChrSelectGC__sub_801FF58C(void) {
+    if (lbl_805D5F58 != 0) {
+        memset((void *)lbl_805D5F58, 0, 0x1156C);
+        memset((void *)lbl_805D5F60, 0, 0x41C);
+        memset((void *)lbl_805D5F64, 0, 0x2370);
+    }
 }
 
 s32 load_and_verify_data(s32 arg0) {

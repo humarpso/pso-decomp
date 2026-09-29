@@ -30,7 +30,11 @@ struct RecoveredGlobal_8005E1E8_lbl_804FF5D8 {
     u8 remaining[0xC];
 };
 
+struct Vec_8005E058 { f32 x, y, z; };
+struct Obj_8005E058 { u8 pad0[0x3C0]; Vec_8005E058 src[10]; u8 pad438[0xB0]; Vec_8005E058 dst[10]; };
+
 extern "C" {
+extern s32 lbl_80437E6C[];
 void get_camera_ctrl__9TObjEneDDFPv(s32, s32);
 extern RecoveredGlobal_8005E17C_lbl_8043797C lbl_8043797C;
 extern RecoveredGlobal_8005E17C_lbl_804FF5C0 lbl_804FF5C0;
@@ -53,6 +57,14 @@ s32 TBoss8Dragon__sub_8005E1E8(f32 farg0);
 
 extern "C" {
 
+void TBoss8Dragon__sub_8005E058(Obj_8005E058 *self) {
+    s32 i;
+    Vec_8005E058 *d = self->dst;
+    for (i = 0; i < 10; i++) {
+        ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(d, &self->src[lbl_80437E6C[i]]);
+        d++;
+    }
+}
 typedef char RecoveredGlobal_8005E17C_lbl_8043797C_size[sizeof(RecoveredGlobal_8005E17C_lbl_8043797C) == 0x40 ? 1 : -1];
 typedef char RecoveredGlobal_8005E17C_lbl_804FF5C0_size[sizeof(RecoveredGlobal_8005E17C_lbl_804FF5C0) == 0xC ? 1 : -1];
 void TBoss8Dragon__sub_8005E17C(void) {

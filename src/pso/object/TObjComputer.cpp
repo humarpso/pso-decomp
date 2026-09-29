@@ -115,6 +115,26 @@ struct Obj_801884A0 {
     s32 unkC4;
 };
 
+struct Model_8018807C {
+    u32 flags0;
+    u8 pad0[8 - 4];
+    u8 pos8[0x14 - 8];
+    u8 angles14[0x2C - 0x14];
+    u8 *sub2c;
+};
+
+struct Computer_8018807C {
+    u8 pad0[0x38];
+    u8 pos38[0x60 - 0x38];
+    s32 yaw60;
+    u8 pad1[0x88 - 0x64];
+    s32 kind88;
+    u8 pad2[0xBC - 0x8C];
+    Model_8018807C *model;
+    f32 time_c0;
+    u32 tick_c4;
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
@@ -161,6 +181,23 @@ extern u32 TObjComputer__data_805D5B68;
 extern u32 lbl_805D5B6C;
 extern s16 lbl_805D5B70;
 void TObjComputer__sub_80188358(void);
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK TOComputerMachine01__sub_8023DDC8(void *, s32, s32, u16, s32);
+M2C_UNK PPCSync();
+s32 TObjPlayer__sub_803D9214(s32, s32);
+M2C_UNK TObjPlayer__sub_803D99F8(void *, u32);
+s32 TObjPlayer__sub_803D9B2C();
+s32 TObjPlayer__sub_803D9B78();
+s32 TOHangerMachine01__sub_803D9C00(void *);
+s32 set_global_param__8TObjFishFi(s32);
+M2C_UNK TObjBoss2Tunnel__sub_803DB470(void *);
+extern u32 lbl_805D53A4;
+extern u32 lbl_805D5B6C;
+extern s16 lbl_805D5B70;
+extern s16 TObjComputer__data_805DBCD8[2];
+extern const f32 lbl_805DBCE4;
+M2C_UNK TObjComputer__sub_8018807C(void *arg0);
 }
 
 extern "C" {
@@ -173,7 +210,6 @@ void free_resources__12TObjComputerFv(void);
 void render__12TObjComputerFv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TLobby__sub_803DA16C(void*);
-M2C_UNK TObjComputer__sub_8018807C(void *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjMesBase__vt12();
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
@@ -187,9 +223,41 @@ M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 extern const f32 lbl_805DBCDC;
 extern const f32 lbl_805DBCE0;
 
+M2C_UNK TObjComputer__sub_8018807C(void *arg0) {
+    Computer_8018807C *self = (Computer_8018807C *)arg0;
+    if (self->model == NULL) {
+        return;
+    }
+    set_global_param__8TObjFishFi(lbl_805D5B6C);
+    TObjPlayer__sub_803D9B2C();
+    TOHangerMachine01__sub_803D9C00(self->pos38);
+    TObjPlayer__sub_803D9214(0, self->yaw60);
+    if (TObjComputer__data_805DBCD8[self->kind88] == 1) {
+        u32 tick = lbl_805D53A4;
+        if (tick != self->tick_c4 && self->time_c0 >= lbl_805DBCE4) {
+            self->tick_c4 = tick;
+            TOComputerMachine01__sub_8023DDC8(M2C_FIELD(self->model->sub2c, void **, 4), 0, (s32)self->time_c0, (*(u16 *)&lbl_805D5B70), 1);
+            PPCSync();
+            f32 time = self->time_c0;
+            self->time_c0 = time - (f32)(s32)time;
+        }
+        TOHangerMachine01__sub_803D9C00(self->model->pos8);
+        TObjPlayer__sub_803D99F8(self->model->angles14, self->model->flags0 & 0x20);
+        TObjBoss2Tunnel__sub_803DB470(self->model);
+        if (self->model->sub2c != NULL) {
+            begin_effect_render__13TParticleCtrlFv();
+            TObjBoss2Tunnel__sub_803DB470(self->model->sub2c);
+            end_effect_render__13TParticleCtrlFv();
+        }
+    } else {
+        TObjBoss2Tunnel__sub_803DB470(self->model);
+    }
+    TObjPlayer__sub_803D9B78();
+}
+
 void render__12TObjComputerFv(u8 *arg0) {
     if (((V_TOC_801881D4 *)arg0)->m8(lbl_805DBCDC, lbl_805DBCE0) != 0) {
-        TObjComputer__sub_8018807C(arg0);
+        TObjComputer__sub_8018807C((void *)(arg0));
     }
 }
 

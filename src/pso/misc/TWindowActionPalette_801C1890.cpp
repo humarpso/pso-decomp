@@ -96,6 +96,13 @@ struct VBase_8003508C_80035084 {
 
 struct O_801C1C68 { u8 pad[4]; u8 a[0x10]; u8 b[0x10]; };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct C_801C1BA8 { u32 w[5]; };
+
+struct S_801C1BA8 { u8 a; u8 b; u8 c; u8 d; s32 e; C_801C1BA8 f; };
+
 extern "C" {
 int TObjPlayer__sub_80019664(void);
 void TObjPlayer__sub_801C1820(void* p);
@@ -344,6 +351,7 @@ s32 get_field_ed__10TObjPlayerFPv(void *p);
 s32 get_field_ec__12TOSwitchItemFPv(void *p);
 s32 fn_80101A48(u8, u8);
 void TObjPlayer__sub_801C1AC8(void *self);
+S_801C1BA8 *fn_801C1BA8(S_801C1BA8 *arg0, S_801C1BA8 *arg1);
 }
 
 extern "C" {
@@ -451,6 +459,16 @@ f32 fn_801C1B90(void* p) { return *(f32*)((char*)p + 0x8); }
 u16 fn_801C1B98(void* p) { return *(u16*)((char*)p + 0x4); }
 
 s32 fn_801C1BA0(void* p) { return *(s32*)((char*)p + 0x24); }
+
+S_801C1BA8 *fn_801C1BA8(S_801C1BA8 *arg0, S_801C1BA8 *arg1) {
+    arg0->a = arg1->a;
+    arg0->b = arg1->b;
+    arg0->c = arg1->c;
+    arg0->d = arg1->d;
+    arg0->e = arg1->e;
+    arg0->f = arg1->f;
+    return arg0;
+}
 
 int TWindowActionPalette__sub_801C1C00(void* p) { return TWindowActionPalette__sub_801C1C20(p); }
 

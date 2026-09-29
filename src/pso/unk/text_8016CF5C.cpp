@@ -21,6 +21,17 @@ struct Pkt_8016D148 { u8 code, words; u16 object, zero, reserved, switchId; u8 a
 
 struct Self_8016D148 { u8 pad[0x1C]; u16 id; u8 pad1e[0xC8 - 0x1E]; s32 switchId; };
 
+struct VBase_8016CF5C { u8 pad[0x18]; };
+
+struct VObj_8016CF5C : VBase_8016CF5C {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5(void *source);
+};
+
 extern "C" {
 s32 is_split_screen();
 s32 TOKey__sub_8016A280(void *);
@@ -49,11 +60,57 @@ void finalize_and_send_60__6TLobbyFPv(void *);
 s32 TObjPlayer__sub_800196EC();
 extern s32 lbl_805D53A0;
 void TOKeyMachine01__sub_8016D148(Self_8016D148 *self, s32 flags);
+void reset_photon_effect__10TObjPlayerFPv(void *);
+M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK TObjEneGibbles__sub_80156780(void *, void *, s32);
+M2C_UNK init_switch_id__5TOKeyFPv(void *);
+void *TOKey__ct(void *, void *);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+extern void *__vt__14TOKeyGenericSw[];
+extern M2C_UNK lbl_804B2D30[];
+extern void *TOKeyGenericSw__data_8050DB60[];
+extern s32 lbl_805D3050;
+extern u32 *TOKeyGenericSw__data_805D5A28;
+extern const f32 lbl_805DB768;
+extern const f32 lbl_805DB76C;
+extern const f32 lbl_805DB770;
+extern const f32 lbl_805DB774;
+extern const f32 lbl_805DB778;
+void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source);
 }
 
 extern "C" {
 
 void TOKeyMachine01__vt23(void);
+
+void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source) {
+    TOKey__ct(arg0, parent);
+    M2C_FIELD(arg0, void **, 0x18) = __vt__14TOKeyGenericSw;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3050;
+    ((VObj_8016CF5C *)arg0)->m5(source);
+    init_switch_id__5TOKeyFPv(arg0);
+    M2C_FIELD(arg0, s32 *, 0x34) = M2C_FIELD(M2C_FIELD(TOKeyGenericSw__data_8050DB60[1], void **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, void **, 0xBC) = M2C_FIELD(M2C_FIELD(TOKeyGenericSw__data_8050DB60[1], void **, 0x430), void **, 4);
+    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) M2C_FIELD(M2C_FIELD(arg0, void **, 0xBC), u32 *, 4) - lbl_805DB768;
+    M2C_FIELD(arg0, f32 *, 0xB8) = lbl_805DB76C;
+    M2C_FIELD(arg0, u32 *, 0x24) = TOKeyGenericSw__data_805D5A28[1];
+    TObjEneGibbles__sub_80156780(arg0, lbl_804B2D30, 1);
+    TObjPlayer__sub_80154E3C(arg0);
+    reset_photon_effect__10TObjPlayerFPv(arg0);
+    M2C_FIELD(arg0, f32 *, 0xC0) = lbl_805DB770;
+    M2C_FIELD(arg0, f32 *, 0xC4) = lbl_805DB774;
+    if ((M2C_FIELD(arg0, s32 *, 0xD0) != 2) && (M2C_FIELD(arg0, f32 *, 0x68) < lbl_805DB778)) {
+        M2C_FIELD(arg0, s32 *, 0xD0) = 1;
+    } else {
+        M2C_FIELD(arg0, s32 *, 0xD0) = 0;
+    }
+    M2C_FIELD(arg0, u8 *, 0xE8) = get_global_state__14TOKeyMachine01Fv();
+    M2C_FIELD(arg0, s32 *, 0xEC) = 0;
+    M2C_FIELD(arg0, s32 *, 0xF0) = 0;
+    M2C_FIELD(arg0, s32 *, 0xF4) = 0;
+    M2C_FIELD(arg0, s32 *, 0xF8) = 0;
+    return arg0;
+}
 
 void TOKeyMachine01__vt23(void) {  }
 s32 TOKeyMachine01__vt13(u8 *arg0) {

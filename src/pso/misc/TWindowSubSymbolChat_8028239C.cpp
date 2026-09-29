@@ -26,6 +26,11 @@ s32 close__17TWindowSubComCardFPv(int);
 extern M2C_UNK __vt__20TWindowSubSymbolChat[];
 extern void *lbl_805D6490;
 u8 *__dt__20TWindowSubSymbolChatFv(u8 *arg0, s16 arg1);
+s32 __nw__7TObjectFUl(int);
+s32 TWindowChatSymbol__ct(int, void *, void *);
+M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+extern M2C_UNK lbl_8044FB20[];
+s32 TWindowSubSymbolChat__sub_802826E4(M2C_UNK arg0, s32 arg1);
 }
 
 extern "C" {
@@ -94,6 +99,15 @@ s32 open_main_menu__20TWindowSubSymbolChatFv(void) {
 
 void apply_symbol__20TWindowSubSymbolChatFPv(void *arg0) {
     TWindowSubComCard__sub_80265680(M2C_FIELD(arg0, s32 *, 0x38), (s16) M2C_FIELD(arg0, s32 *, 0x20));
+}
+
+s32 TWindowSubSymbolChat__sub_802826E4(M2C_UNK arg0, s32 arg1) {
+    s32 var_r31;
+    var_r31 = __nw__7TObjectFUl((int) (0x68));
+    if (var_r31 != 0) {
+        var_r31 = TWindowChatSymbol__ct((int) (var_r31), (void *) (((s32)TWindowSubComCard__sub_8026CBB8((M2C_UNK)((void *) (arg1 + 0x7B))))), (void *) (lbl_8044FB20));
+    }
+    return var_r31;
 }
 
 void render__20TWindowSubSymbolChatFv(void) {  }

@@ -13,6 +13,10 @@ struct Entry_8020B260 { s16 a; s16 flags; s16 room; s16 group; };
 
 struct Floor_8020B260 { s32 count; u8 pad[0xC]; struct Entry_8020B260 *entries; u8 pad2[4]; };
 
+struct Ent_8020B1E4 { u8 pad[2]; s16 f2; s16 f4; s16 f6; };
+
+struct Grp_8020B1E4 { u8 pad[4]; s32 count; u8 pad2[0xC]; Ent_8020B1E4 *ents; };
+
 extern "C" {
 void TItemDrop__sub_800FDDF4(void);
 void TItemDrop__sub_800FDE7C(s32);
@@ -37,6 +41,8 @@ extern s32 TLobby__data_80513C80[];
 s32 TLobby__sub_8020B308(void);
 extern struct Floor_8020B260 TLobby__data_80513AD0[];
 s32 TLobby__sub_8020B260(s32 floor, s16 room, s16 group, s32 bits);
+extern struct Floor_8020B260 TLobby__data_80513AD0[];
+s32 TLobby__sub_8020B1E4(s32 arg0, s16 arg1, s16 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -70,6 +76,25 @@ void TLobby__sub_8020B118(void) {
         free_data_60F0__6TLobbyFv();
         TLobby__data_805D6134 |= 1;
     }
+}
+
+s32 TLobby__sub_8020B1E4(s32 arg0, s16 arg1, s16 arg2, s32 arg3) {
+    Grp_8020B1E4 *g = &((Grp_8020B1E4 *)&TLobby__data_80513AD0)[arg0];
+    Ent_8020B1E4 *e;
+    s32 n = 0;
+    s32 i;
+    if (g->count > 0) {
+        e = g->ents;
+        if (e != 0) {
+            for (i = 0; i < g->count; i++, e++) {
+                if (e->f4 == arg1 && e->f6 == arg2) {
+                    n++;
+                    e->f2 |= arg3;
+                }
+            }
+        }
+    }
+    return n;
 }
 
 s32 TLobby__sub_8020B260(s32 floor, s16 room, s16 group, s32 bits) {

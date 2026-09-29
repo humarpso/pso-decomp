@@ -5,6 +5,9 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Arr_801D5868 { s32 n; s32 e[1]; };
+struct Ent_801D598C { u8 d[0x10]; };
+struct Obj_801D598C { u8 pad[0x28]; Ent_801D598C e[1]; };
 struct Ent_801D5854 { u8 d[0x1C]; };
 
 struct Obj_801D5854 { u8 pad[0xA8]; Ent_801D5854 arr[1]; };
@@ -15,11 +18,10 @@ u8 get_item_count__9TItemListFPv(void* p);
 void TItemList__sub_801D58E4(u8 *arg0);
 void TItemList__sub_801D58C8(void* p);
 u8 get_item_count__9TItemListFPv(void* p);
-int TItemList__sub_801D5868(s32, s8);
+s32 TItemList__sub_801D5868(Arr_801D5868 *, s32);
 void TItemList__sub_801D588C(u8 *arg0, s32 arg1);
 u8 get_item_count__9TItemListFPv(void* p);
 void TItemList__sub_801D59DC(void* p);
-int TItemList__sub_801D5868(s32 _w0, s8 _w1);
 void TItemList__sub_801D59A0(u8 *arg0, s32 arg1);
 Ent_801D5854 *TItemList__sub_801D5854(Obj_801D5854 *p, s32 i);
 }
@@ -31,8 +33,8 @@ int TItemList__sub_801D5844(void* p);
 void TItemList__sub_801D5884(void* p, u8 v);
 void TItemList__sub_801D58C8(void* p);
 u16 TItemList__sub_801D58DC(void* p);
-int TItemList__sub_801D591C(void);
-int TItemList__sub_801D598C(void);
+void TItemList__sub_801D591C(u8 *arg0);
+s32 TItemList__sub_801D598C(Obj_801D598C *arg0, s32 arg1);
 void *__ct__9TItemListFv(void *arg0);
 int copy_item_data__9TItemListFPv(void* p);
 int copy_position__9TItemListFPv(void* p);
@@ -70,13 +72,15 @@ Ent_801D5854 *TItemList__sub_801D5854(Obj_801D5854 *p, s32 i) {
     return &p->arr[i];
 }
 
-int TItemList__sub_801D5868(s32 _w0, s8 _w1) { return 0; }
+s32 TItemList__sub_801D5868(Arr_801D5868 *arg0, s32 arg1) {
+    return (s32)&arg0->e[arg1];
+}
 
 void* get_ptr_0x44__9TItemListFPv(void* p) { return (char*)p + 0x44; }
 void TItemList__sub_801D5884(void* p, u8 v) { *(u8*)((char*)p + 0x1d) = v; }
 
 void TItemList__sub_801D588C(u8 *arg0, s32 arg1) {
-    TItemList__sub_801D58C8((void*)(((u8 *)TItemList__sub_801D5868((s32)(arg1), (s8)(get_item_count__9TItemListFPv((void*)(arg0)))))));
+    TItemList__sub_801D58C8((void*)(((u8 *)TItemList__sub_801D5868((Arr_801D5868 *)(arg1), (s8)(get_item_count__9TItemListFPv((void*)(arg0)))))));
 }
 
 void TItemList__sub_801D58C8(void* p) { *(s32*)((char*)p + 0x0) = 3; }
@@ -87,13 +91,17 @@ void TItemList__sub_801D58E4(u8 *arg0) {
     ((M2C_UNK)((int)TItemList__sub_801D5854((Obj_801D5854 *)((int)((int) (M2C_FIELD(arg0, s32 *, 0x54)))), (s32)((int)((int) (((s8)get_item_count__9TItemListFPv(arg0))))))));
 }
 
-int TItemList__sub_801D591C(void) { return 0; }
+void TItemList__sub_801D591C(u8 *arg0) {
+    ((void (*)(s32, s32))copy_position__9TItemListFPv)(TItemList__sub_801D598C((Obj_801D598C *)*(s32 *)(arg0 + 0x54), (s8)get_item_count__9TItemListFPv(arg0)), ((s32 (*)(void))get_ptr_0x44__9TItemListFPv)());
+}
 
 int copy_position__9TItemListFPv(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x4); }
 
-int TItemList__sub_801D598C(void) { return 0; }
+s32 TItemList__sub_801D598C(Obj_801D598C *arg0, s32 arg1) {
+    return (s32)&arg0->e[arg1];
+}
 void TItemList__sub_801D59A0(u8 *arg0, s32 arg1) {
-    TItemList__sub_801D59DC((void*)(((u8 *)TItemList__sub_801D5868(arg1, get_item_count__9TItemListFPv((void*)(arg0))))));
+    TItemList__sub_801D59DC((void*)(((u8 *)TItemList__sub_801D5868((Arr_801D5868 *)arg1, (s8)get_item_count__9TItemListFPv((void*)(arg0))))));
 }
 
 }

@@ -102,6 +102,14 @@ extern M2C_UNK __vt__18TObjNpcConnoisseur[];
 extern s32 lbl_805D2D60;
 extern u32 TObjNpcConnoisseur__data_805D574C;
 u8 *TObjNpcConnoisseur__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+void *TLobby__sub_80020004(void *, s32, s32, s32, s32, s32);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+s32 get_task_id__14TFontSmallTaskFPv(void *);
+extern s32 lbl_804A8310[];
+extern u8 TLobby__data_805011D8[];
+extern s32 lbl_805D5748;
+extern u32 TObjNpcConnoisseur__data_805D574C;
+void TObjNpcConnoisseur__sub_80149918(void);
 }
 
 extern "C" {
@@ -126,6 +134,16 @@ void destroy_instance__18TObjNpcConnoisseurFv(void) {
 }
 
 extern M2C_UNK __vt__18TObjNpcConnoisseur[];
+
+void TObjNpcConnoisseur__sub_80149918(void) {
+    void *o;
+    lbl_805D5748 = get_task_id__14TFontSmallTaskFPv(TLobby__data_805011D8);
+    o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    if (o != 0) {
+        o = TLobby__sub_80020004(o, 1, lbl_804A8310[lbl_805D5748], 0, 0, 0);
+    }
+    TObjNpcConnoisseur__data_805D574C = (u32)o;
+}
 
 void *__dt__18TObjNpcConnoisseurFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

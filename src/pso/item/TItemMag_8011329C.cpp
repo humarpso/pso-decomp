@@ -66,6 +66,13 @@ struct Self_801134CC {
     VObj_18_801134CC *subs[2];
 };
 
+struct Self_80113310 {
+    u8 pad0[0x18C];
+    u32 f18C;
+    u8 pad1[0x1CC - 0x190];
+    s32 f1CC;
+};
+
 extern "C" {
 M2C_UNK refresh_if_current_player__20TWindowSubStatusDispFPv(void *);
 int TItemData__sub_8010EE40(void*);
@@ -123,6 +130,22 @@ s32 TObjPlayer__sub_803D9B2C();
 s32 TObjPlayer__sub_803D9B78();
 extern const f32 TItemMag__data_805DABA8;
 void TItemMag__vt25(Self_801134CC *self);
+s32 TItemEquipBase__sub_8010A78C(void *);
+int TItemMag__sub_80110F04(void*);
+void feed_by_item_flags__8TItemMagFPvc(void *, s8);
+void TItemMag__sub_8011271C(void *);
+s8 TItemMag__sub_80112720(void *);
+void update_feed_timer__8TItemMagFPv(void *);
+void feed_if_over_90__8TItemMagFPv(void *);
+void feed_if_over_45__8TItemMagFPv(void *);
+void update_feed__8TItemMagFPv(void *);
+void check_level_cap__8TItemMagFPv(void *);
+void check_level_evolve__8TItemMagFPv(void *);
+void TItemMag__sub_80113244(void *);
+void update__8TItemMagFPv(void *arg0);
+int get_status_flag__8TItemMagFPv(void* p);
+s32 reset_key_machine_state__10TObjPlayerFv();
+void TItemMag__vt14(Self_80113310 *self);
 }
 
 extern "C" {
@@ -183,6 +206,51 @@ void update__8TItemMagFPv(void *arg0) {
         return;
     }
     TItemMag__sub_80111758(arg0, 0);
+}
+
+void TItemMag__vt14(Self_80113310 *self) {
+    s8 events;
+    TItemMag__sub_80110F04((void*)(self));
+    TItemEquipBase__sub_8010A78C(self);
+    if (self->f18C & 0x20) {
+        return;
+    }
+    events = TItemMag__sub_80112720(self);
+    if (get_status_flag__8TItemMagFPv((void*)(self)) != 0) {
+        if (reset_key_machine_state__10TObjPlayerFv() != 0) {
+            feed_by_item_flags__8TItemMagFPvc(self, events);
+            TItemMag__sub_8011271C(self);
+        } else {
+            return;
+        }
+    }
+    switch (self->f18C & 0xF) {
+    case 1:
+        update__8TItemMagFPv(self);
+        break;
+    case 4:
+        TItemMag__sub_80113244(self);
+        break;
+    case 6:
+        check_level_evolve__8TItemMagFPv(self);
+        break;
+    case 7:
+        check_level_cap__8TItemMagFPv(self);
+        break;
+    case 5:
+        update_feed__8TItemMagFPv(self);
+        break;
+    case 2:
+        feed_if_over_45__8TItemMagFPv(self);
+        break;
+    case 3:
+        feed_if_over_90__8TItemMagFPv(self);
+        break;
+    case 8:
+        update_feed_timer__8TItemMagFPv(self);
+        break;
+    }
+    self->f1CC++;
 }
 
 int TItemMag__vt13(void* p) { return TItemMag__sub_80110F04(p); }

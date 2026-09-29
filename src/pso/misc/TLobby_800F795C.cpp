@@ -5,6 +5,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Ent_800F7A8C { u32 a; void (*fn)(); };
+struct Ent_800F7B08 { void (*fn)(); u32 b; };
 struct RecoveredGlobal_800F7A6C_lbl_804DB1F0 {
     M2C_UNK value;
     u8 remaining[0x6AC];
@@ -33,8 +35,10 @@ void bswap_enemy_state__6TLobbyFPv(void* p);
 void bswap_field__6TLobbyFPv(void* p);
 void reset_keyboard_control__6TLobbyFv(void);
 int TLobby__send_and_handle_60(void*);
-int TLobby__sub_800F7A8C(void);
-int TLobby__sub_800F7B08(void);
+void TLobby__sub_800F7A8C(s32 arg0);
+s32 TLobby__sub_800F7B08(s32 arg0);
+extern Ent_800F7A8C *lbl_804998C8[];
+s32 TLobby__sub_800F8AE8();
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int get_global_state__14TOKeyMachine01Fv(void);
@@ -65,6 +69,35 @@ f32 TLobby__sub_800F7A7C(void) {
     return M2C_FIELD(&lbl_8048C9D8.value, f32 *, 4);
 }
 
-void reset_keyboard_control__6TLobbyFv(void) { get_global_state__14TOKeyMachine01Fv(); TLobby__sub_800F7A8C(); }
+void reset_keyboard_control__6TLobbyFv(void) { get_global_state__14TOKeyMachine01Fv(); ((void (*)(void))TLobby__sub_800F7A8C)(); }
+void TLobby__sub_800F7A8C(s32 arg0) {
+    Ent_800F7A8C *p = lbl_804998C8[arg0];
+    s32 n;
+    s32 i;
+    if (p != 0) {
+        n = 0;
+        while (p->fn != 0) { p++; n++; }
+        for (i = 0; i < n; i++) {
+            void (*fn)() = p[-1].fn;
+            p--;
+            fn();
+        }
+    }
+}
+s32 TLobby__sub_800F7B08(s32 arg0) {
+    Ent_800F7B08 *p = (Ent_800F7B08 *)lbl_804998C8[arg0];
+    void (*fn)();
+    if (p == 0) {
+        return 1;
+    }
+    while ((fn = p->fn) != 0) {
+        if (TLobby__sub_800F8AE8() != 0) {
+            return 0;
+        }
+        fn();
+        p++;
+    }
+    return 1;
+}
 
 }

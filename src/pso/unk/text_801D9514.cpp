@@ -11,6 +11,7 @@ extern "C" {
 s8 TObjPlayer__sub_801AFDBC();
 extern RecoveredGlobal_801D9514_lbl_804C49F0 lbl_804C49F0;
 u8 TObjPlayer__sub_801D9514(M2C_UNK arg0, s16 arg1);
+s32 TObjPlayer__sub_801D9E08();
 }
 
 extern "C" {
@@ -21,6 +22,15 @@ u8 TObjPlayer__sub_801D9514(M2C_UNK arg0, s16 arg1) {
   u8 *new_var;
   new_var = ((u8 *) (&lbl_804C49F0.value)) + (TObjPlayer__sub_801AFDBC() * 4);
   return *((u8 *) (((s8 *) ((*((s32 *) (((s8 *) new_var) + 0))) + arg1)) + 0));
+}
+
+void TObjPlayer__sub_801D955C(u8 *arg0, void *arg1) {
+    s32 i;
+    s32 n = TObjPlayer__sub_801D9E08();
+    for (i = 0; i < n; ) {
+        arg0[i + 0x5C] = ((u8 (*)(void *, s16))TObjPlayer__sub_801D9514)(arg1, i);
+        i++;
+    }
 }
 
 }

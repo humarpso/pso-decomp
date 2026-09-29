@@ -729,6 +729,10 @@ struct Vec_800292C0 { f32 x, y, z; };
 
 struct Vec_80029238 { f32 x, y, z; };
 
+struct Obj_80027010 { u8 pad0[0x38]; f32 f38; u8 pad3C[4]; f32 f40; };
+
+struct Vec_80027010 { f32 x, y, z; };
+
 extern "C" {
 f32 TObjPlayer__sub_8001978C(f32);
 f32 TObjPlayer__sub_803D89C0(void *, void *);
@@ -862,7 +866,7 @@ f32 TBoss8Dragon__sub_803D64DC(s32);
 extern const f32 lbl_805D80BC;
 void TBoss1Dragon__sub_80029328(u8 *arg0, f32 *arg1, f32 *arg2);
 s32 TBoss1Dragon__sub_80027320(void *);
-M2C_UNK TBoss1Dragon__sub_800284B4(void *, M2C_UNK);
+M2C_UNK TBoss1Dragon__sub_800284B4(void *, s16);
 void TBoss1Dragon__sub_80026C98(u8 *arg0, u32 arg1);
 void action__12TBoss1DragonFPvi(void *arg0, s32 arg1);
 s32 TBoss1Dragon__sub_80021490(void *, void *);
@@ -925,7 +929,7 @@ void TBoss1Dragon__sub_800277D8(u8 *arg0);
 void update_switch_attack__12TBoss1DragonFPv(u8 *arg0);
 void TBoss1Dragon__sub_80027E78(s32 arg0);
 M2C_UNK TBoss1Dragon__sub_8002830C(void *);
-M2C_UNK TBoss1Dragon__sub_800284B4(void *, M2C_UNK);
+M2C_UNK TBoss1Dragon__sub_800284B4(void *, s16);
 void TBoss1Dragon__sub_80028B28(u8 *arg0);
 void play_se_at_pos__12TBoss1DragonFii(s32 arg0, s32 arg1);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
@@ -952,6 +956,10 @@ extern u8 lbl_8058D490[];
 extern const f32 TBoss1Dragon__data_805D7F24;
 extern const f32 TBoss1Dragon__data_805D7F28;
 f32 TBoss1Dragon__sub_80029238(u8 *arg0);
+f32 TObjPlayer__sub_803D89C0(void *, void *);
+extern const f32 TBoss1Dragon__data_805D7F28;
+extern const f32 lbl_805D808C;
+f32 TBoss1Dragon__sub_80027010(Obj_80027010 *arg0, f32 farg0, f32 farg1, f32 farg2);
 }
 
 extern "C" {
@@ -972,7 +980,7 @@ void handle_6x12_dragon_boss_actions(void *arg0);
 void set_params__12TBoss1DragonFPvPv(void *arg0, void *arg1);
 M2C_UNK TBoss1Dragon__sub_80027B78(f32, f32, f32);
 int TBoss1Dragon__sub_80027F54(void*, int);
-M2C_UNK TBoss1Dragon__sub_800284B4(void *, M2C_UNK);
+M2C_UNK TBoss1Dragon__sub_800284B4(void *, s16);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
 f32 TBoss8Dragon__sub_803D64C0(s32);
@@ -1279,6 +1287,24 @@ void TBoss1Dragon::handleFallState(u32 reason) {
 
 extern "C" {
 
+struct Rec_80021260 { u8 pad0[0xC]; f32 f0C; u8 pad10[0xC]; u8 b1C[0x10]; };
+struct Obj_80021260 { u8 pad0[0xA4]; Rec_80021260 *recs; s32 count; };
+s32 TBoss1Dragon__sub_80021260(s32 arg0, Obj_80021260 *arg1) {
+    s32 off;
+    s32 n;
+    s32 i;
+    i = 0;
+    off = 0;
+    n = arg1->count;
+    for (; i < n; i++, off += sizeof(Rec_80021260)) {
+        Rec_80021260 *r = (Rec_80021260 *)((u8 *)arg1->recs + off);
+        if (((s32 (*)(void *, void *, f32))TBoss1Dragon__sub_800212D8)((void *)arg0, r->b1C, r->f0C) != 0) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
 #pragma push
 #pragma fp_contract on
 s32 TBoss1Dragon__sub_800212D8(f32 farg0) {
@@ -1460,6 +1486,20 @@ u8 check_attack_ready__12TBoss1DragonFPv(void *arg0) {
     }
     return (u8) var_r31;
 }
+
+#pragma push
+#pragma fp_contract on
+f32 TBoss1Dragon__sub_80027010(Obj_80027010 *arg0, f32 farg0, f32 farg1, f32 farg2) {
+    Vec_80027010 v;
+    v.x = farg0 * farg2 + arg0->f38;
+    v.y = TBoss1Dragon__data_805D7F28;
+    v.z = farg1 * farg2 + arg0->f40;
+    if (TObjPlayer__sub_803D89C0(&v, &v) > lbl_805D808C) {
+        farg2 = TBoss1Dragon__data_805D7F28;
+    }
+    return farg2;
+}
+#pragma pop
 
 void TBoss1Dragon__sub_80027080(u8 *arg0) {
     s16 temp_r3_2;
@@ -1875,6 +1915,54 @@ void TBoss1Dragon__sub_8002826C(u8 *arg0) {
     }
 }
 
+struct Pkt_800284B4 {
+    u16 hdr; u16 owner; s16 state; s16 cursor; s32 target; f32 x; f32 z;
+};
+struct Dragon_800284B4 {
+    u8 pad0[0x1C]; u16 owner; u8 pad1[0x38C - 0x1E]; u16 target; u8 pad2[0x67C - 0x38E];
+    s32 cursor; u8 pad3[0x690 - 0x680]; f32 x; f32 z;
+};
+struct VBase_800284B4 { u8 pad[0x18]; };
+struct VObj_800284B4 : VBase_800284B4 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
+    virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27();
+    virtual void m28(); virtual void m29(); virtual void m30(); virtual void m31();
+    virtual void m32(); virtual void m33(); virtual void m34(); virtual void m35();
+    virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
+    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43();
+    virtual void m44(); virtual void m45(); virtual void m46(); virtual void m47();
+    virtual void m48(); virtual void m49(); virtual void m50(); virtual void m51();
+    virtual void m52(); virtual void m53(); virtual void m54(); virtual void m55();
+    virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59();
+    virtual void m60(); virtual void m61(); virtual void m62(); virtual void m63();
+    virtual void m64(); virtual void m65(); virtual void m66(); virtual void m67();
+    virtual void m68(); virtual void m69(); virtual void m70(); virtual void m71();
+    virtual void m72(); virtual void m73(); virtual void m74(); virtual void m75();
+    virtual void m76(); virtual void m77(); virtual void m78(); virtual void m79();
+    virtual void m80(); virtual void m81(); virtual void m82(); virtual void m83();
+    virtual void m84(); virtual void m85(s16, s32);
+};
+
+M2C_UNK TBoss1Dragon__sub_800284B4(void *vself, s16 state32) {
+    struct Dragon_800284B4 *self = (struct Dragon_800284B4 *)vself;
+    struct Pkt_800284B4 pkt;
+
+    ((VObj_800284B4 *) self)->m85(state32, 6);
+    set_type_dragon__10TObjPlayerFPv(&pkt);
+    pkt.owner = self->owner;
+    pkt.state = state32;
+    pkt.cursor = self->cursor;
+    pkt.target = self->target;
+    pkt.x = self->x;
+    pkt.z = self->z;
+    send_6x12_packet__10TObjPlayerFPv(&pkt);
+}
+
 void TBoss1Dragon__sub_80028530(struct dragon_80028530 *s) {
     struct pkt_80028530 pkt;
     set_type_dragon__10TObjPlayerFPv(&pkt);
@@ -2060,6 +2148,20 @@ s32 TBoss1Dragon__sub_800292C0(u8 *s) {
     VecCopy__FP3VecPC3Vec((s32) &diff, (s32) (s + 0x394));
     TBoss6Type1__sub_803D9370(&diff, &pt);
     return ((f32 (*)(void *))clamp_velocity__15TObjBoss2TunnelFPv)(&diff) <= TBoss1Dragon__data_805D7F50;
+}
+
+extern const f32 lbl_805D80B4;
+extern u8 TBoss1Dragon__data_80434E80[0xC];
+void TBoss1Dragon__sub_80028E28(u8 *arg0) {
+    if (((s32 (*)(void))isHpPhasePending__12TBoss1DragonFv)() != 0) {
+        ((M2C_UNK (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x394, arg0 + 0x38);
+        M2C_FIELD(arg0, f32 *, 0x398) = (f32) TBoss1Dragon__data_805D7F28;
+        ((M2C_UNK (*)(void *))clamp_velocity__15TObjBoss2TunnelFPv)(arg0 + 0x394);
+        M2C_FIELD(arg0, f32 *, 0x394) = (f32) (M2C_FIELD(arg0, f32 *, 0x394) * lbl_805D80B4);
+        M2C_FIELD(arg0, f32 *, 0x39C) = (f32) (M2C_FIELD(arg0, f32 *, 0x39C) * lbl_805D80B4);
+        return;
+    }
+    ((M2C_UNK (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x394, TBoss1Dragon__data_80434E80);
 }
 
 #pragma push

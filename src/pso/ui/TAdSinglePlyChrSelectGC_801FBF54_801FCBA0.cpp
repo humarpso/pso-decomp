@@ -38,6 +38,15 @@ struct Ent_801FCCDC { u8 pad[0x41C]; s32 x; s32 v; u8 pad2[0x2798 - 0x424]; };
 
 struct Obj_801FCCDC { s32 hdr; Ent_801FCCDC e[7]; };
 
+struct Obj_801FCBA0 {
+    void* a[4];
+    void* b[4];
+};
+
+struct Ent_801FD668 { u8 pad[0x428]; u32 f428; u8 pad2[0x2798 - 0x42C]; };
+
+struct Ent_801FD728 { u8 pad0[4]; u8 a[0x41C]; u8 b[0x2798 - 0x420]; };
+
 extern "C" {
 void TAdSinglePlyChrSelectGC__sub_801FCCB4(u8 *arg0, s32 arg1);
 s32 TAdSinglePlyChrSelectGC__sub_801FCCC0(u8 *arg0);
@@ -93,11 +102,19 @@ Ent_801FCD04 *TAdSinglePlyChrSelectGC__sub_801FCD04(Obj_801FCD04 *self);
 s32 get_selection__23TAdSinglePlyChrSelectGCFv(void *self);
 s32 *TAdSinglePlyChrSelectGC__sub_801FCD3C(Obj_801FCD3C *self);
 bool TAdSinglePlyChrSelectGC__sub_801FCCDC(Obj_801FCCDC *self, s32 i);
+s32 __dt__12TPlyCharDataFv(s32, s32);
+s32 __dl__FPv(s32);
+void TAdSinglePlyChrSelectGC__sub_801FCBA0(Obj_801FCBA0* arg0);
+extern Ent_801FD668 *lbl_805D5F58;
+s32 TAdSinglePlyChrSelectGC__sub_801FD668(void);
+void TObjPlayer__sub_802C367C(void *);
+void TAdSinglePlyChrSelectGC__sub_801FC0C8(void *);
+extern Ent_801FD668 *lbl_805D5F58;
+void TAdSinglePlyChrSelectGC__sub_801FD728(s32 arg0);
 }
 
 extern "C" {
 
-int TAdSinglePlyChrSelectGC__sub_801FCBA0(void);
 s32 get_type__23TAdSinglePlyChrSelectGCFPv(void* p);
 s32 pso_system_load_gc(void);
 void set_id__23TAdSinglePlyChrSelectGCFPvi(void* p, s32 v);
@@ -108,7 +125,19 @@ s32 get_instance__15TAdPlayerLoadGCFv();
 M2C_UNK set_player_index__23TAdSinglePlyChrSelectGCFi(M2C_UNK);
 s32 try_confirm_selection__23TAdSinglePlyChrSelectGCFv();
 
-int TAdSinglePlyChrSelectGC__sub_801FCBA0(void) { return 0; }
+void TAdSinglePlyChrSelectGC__sub_801FCBA0(Obj_801FCBA0* arg0) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        if (arg0->a[i] != NULL) {
+            __dt__12TPlyCharDataFv((s32)arg0->a[i], 1);
+        }
+        if (arg0->b[i] != NULL) {
+            __dl__FPv((s32)arg0->b[i]);
+        }
+        arg0->a[i] = NULL;
+        arg0->b[i] = NULL;
+    }
+}
 
 void TAdSinglePlyChrSelectGC__sub_801FCC18(s32 arg0) {
   s32 temp_r3_2;
@@ -206,6 +235,23 @@ s32 TAdSinglePlyChrSelectGC__sub_801FCE2C(s32 arg0) {
         return 1;
     }
     return 0;
+}
+
+s32 TAdSinglePlyChrSelectGC__sub_801FD668(void) {
+    s32 i;
+    u32 v;
+    if (lbl_805D5F58 != 0) {
+        for (i = 0; i < 7; i++) {
+            v = lbl_805D5F58[i].f428;
+            if (v != 0 && v + 0x5DFB0000 != 0xB064) return 0;
+        }
+    }
+    return 1;
+}
+
+void TAdSinglePlyChrSelectGC__sub_801FD728(s32 arg0) {
+    TObjPlayer__sub_802C367C((*(Ent_801FD728 * *)&lbl_805D5F58)[arg0].a);
+    TAdSinglePlyChrSelectGC__sub_801FC0C8((*(Ent_801FD728 * *)&lbl_805D5F58)[arg0].b);
 }
 
 void setup__23TAdSinglePlyChrSelectGCFi(int a0) { lbl_805D5F80 = a0; set_quest_download_server__23TAdSinglePlyChrSelectGCFi((int)(a0)); lbl_805D49B4 = 1; draw_window_bg__23TAdSinglePlyChrSelectGCFiiii((void*)(lbl_805D5F80), lbl_804C89BC, (void*)(lbl_805D5F98), (void*)(lbl_805D5F88)); }

@@ -8,11 +8,21 @@ struct Vec_800D0AE8 { f32 x, y, z; };
 
 struct Obj_800D0AE8 { u8 pad[0x38]; Vec_800D0AE8 pos; };
 
+struct Seq_800D0A94 { u8 pad0[4]; u32 count; };
+
+struct Ent_800D0A94 { s32 w0; Seq_800D0A94 *seq; };
+
+struct Cur_800D0A94 { u8 pad0[0x74]; s32 idx; };
+
+struct Obj_800D0A94 { u8 pad0[0xD8]; Cur_800D0A94 *cur; Ent_800D0A94 *ents; };
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(Vec_800D0AE8 *dst, const Vec_800D0AE8 *src);
 int TObjEneBm5GibonU__sub_800CCC6C(void *, void *);
 extern const f32 lbl_805DA240;
 void TObjEneBm5GibonU__sub_800D0AE8(Obj_800D0AE8 *self, Vec_800D0AE8 *dir);
+extern const f32 TObjEneBm5GibonU__data_805DA174;
+f32 TObjEneBm5GibonU__sub_800D0A94(Obj_800D0A94 *arg0, f32 farg0);
 }
 
 extern "C" {
@@ -30,6 +40,10 @@ int is_active__16TObjEneBm5GibonUFPv(void* p) { return *(u16*)((char*)p + 0x1c) 
 
 extern f32 lbl_805DA244;
 extern f32 lbl_805DA248;
+
+f32 TObjEneBm5GibonU__sub_800D0A94(Obj_800D0A94 *arg0, f32 farg0) {
+    return TObjEneBm5GibonU__data_805DA174 / ((f32)(arg0->ents[arg0->cur->idx].seq->count - 1) / farg0);
+}
 
 #pragma push
 #pragma fp_contract on

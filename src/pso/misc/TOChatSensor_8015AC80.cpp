@@ -12,6 +12,8 @@ struct Stack_8015AF10
   f32 sp14;
 };
 
+struct C_8015ACE4 { u8 pad0[0xA4]; s8 buf[0x20]; };
+
 extern "C" {
 void check_player_proximity__12TOChatSensorFPv(u8 *arg0);
 u8 TODoorAncient08__sub_80229220(int);
@@ -23,6 +25,8 @@ M2C_UNK TObjRoomId__sub_80141CF4(void *, void *);
 extern const f32 lbl_805DB388;
 extern const f32 lbl_805DB38C;
 void render__12TOChatSensorFv(u8 *arg0);
+void *strncpy(void *, void *, s32);
+void TOChatSensor__sub_8015ACE4(C_8015ACE4 *arg0, void *arg1);
 }
 
 extern "C" {
@@ -48,6 +52,19 @@ void check_player_proximity__12TOChatSensorFPv(u8 *arg0) {
 }
 
 extern s32 *lbl_805D58D4;
+
+void TOChatSensor__sub_8015ACE4(C_8015ACE4 *arg0, void *arg1) {
+    s32 i;
+    if (arg1 != 0) {
+        strncpy(arg0->buf, arg1, 0x1F);
+        arg0->buf[0x1F] = 0;
+        for (i = 0; i < 0x20; i++) {
+            if (arg0->buf[i] == 0xA) {
+                arg0->buf[i] = 0;
+            }
+        }
+    }
+}
 
 void init_params__12TOChatSensorFPv(void *arg0) {
     f32 temp_f0;

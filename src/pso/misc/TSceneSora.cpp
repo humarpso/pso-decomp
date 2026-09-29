@@ -19,6 +19,18 @@ struct RecoveredGlobal_80207340___vt__10TSceneSora {
     u8 remaining[0x34];
 };
 
+struct SkyMotion_80207238 { u32 rows; u32 frame_count; };
+
+struct TSceneSora_80207238 {
+    u8 pad[0x60];
+    s32 yaw;
+    u8 pad64[0x94 - 0x64];
+    SkyMotion_80207238 *motion;
+    void *textures;
+    f32 rate;
+    f32 frame;
+};
+
 extern "C" {
 u8 * TLobby__sub_8001FE7C(void *, s16);
 extern s32 TSceneSora__data_805D3620;
@@ -59,6 +71,9 @@ M2C_UNK set_global_param__8TObjFishFi();
 extern s32 TSceneSora__data_805D3620;
 extern u32 TSceneSora__data_805D6054;
 void render__10TSceneSoraFv(u8 *arg0);
+s32 get_global_state__14TOKeyMachine01Fv();
+extern const f32 lbl_805DC608;
+void run_task__10TSceneSoraFv(TSceneSora_80207238 *sky);
 }
 
 extern "C" {
@@ -87,6 +102,22 @@ void render__10TSceneSoraFv(u8 *arg0) {
         }
         TObjPlayer__sub_803D9B78();
         end_effect_render__13TParticleCtrlFv();
+    }
+}
+
+void run_task__10TSceneSoraFv(TSceneSora_80207238 *sky) {
+    if (sky->motion != NULL) {
+        sky->frame += sky->rate;
+        if (sky->frame > (f32)(sky->motion->frame_count - 1)) {
+            sky->frame = lbl_805DC608;
+        }
+    } else {
+        switch (get_global_state__14TOKeyMachine01Fv()) {
+        case 1:
+        case 2:
+            sky->yaw++;
+            break;
+        }
     }
 }
 

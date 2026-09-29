@@ -9,9 +9,19 @@ struct RecoveredGlobal_80256BDC_lbl_804CF918 {
     u8 remaining[0x14];
 };
 
+struct Bar_80256C00 {
+    u8 pad0[0x14];
+    f32 scale;
+    u8 pad1[4];
+    f32 width;
+    f32 max;
+    f32 target;
+};
+
 extern "C" {
 extern M2C_UNK lbl_804CF918[];
 void TWindowSubStatusDisp__sub_80256BDC(u8 *arg0, s16 arg1);
+void TWindowSubStatusDisp__sub_80256C00(struct Bar_80256C00 *bar);
 }
 
 extern "C" {
@@ -42,5 +52,16 @@ void TWindowSubStatusDisp__sub_80256BDC(u8 *arg0, s16 arg1) {
 
 void TWindowSubStatusDisp__sub_80256BF8(void) {  }
 void TWindowSubStatusDisp__sub_80256BFC(void) {  }
+void TWindowSubStatusDisp__sub_80256C00(struct Bar_80256C00 *bar) {
+    f32 target;
+    f32 max = bar->max;
+    f32 v;
+    if (max <= 0.0f || (target = bar->target) <= 0.0f) {
+        v = 0.0f;
+    } else {
+        v = (target * bar->scale) / max;
+    }
+    bar->width = v;
+}
 
 }

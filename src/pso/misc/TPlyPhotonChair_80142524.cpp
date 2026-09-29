@@ -46,7 +46,6 @@ extern s32 some_id_805c6f74;
 void save_state__15TPlyPhotonChairFv(s32 _w0);
 void TPlyPhotonChair__sub_80142770(void);
 void TPlyPhotonChair__sub_80142774(void);
-int TPlyPhotonChair__sub_80142778(void);
 M2C_UNK activate__15TPlyPhotonChairFPv();
 extern const f32 lbl_805DB168;
 M2C_UNK activate__15TPlyPhotonChairFPv();
@@ -55,8 +54,7 @@ M2C_UNK activate__15TPlyPhotonChairFPv();
 extern const f32 lbl_805DB16C;
 void TPlyPhotonChair__sub_80142874(u8 *arg0);
 int TObjFish__sub_803E46BC(void);
-int get_id__15TPlyPhotonChairFPv(void);
-void TLobby__sub_80142920(void);
+void TLobby__sub_80142920(void * _w0);
 int TLobby__sub_80142944(void* p);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_801426DC_lbl_8050BFF0 lbl_8050BFF0;
@@ -66,6 +64,11 @@ s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_801426DC_lbl_8050BFF0 lbl_8050BFF0;
 extern RecoveredGlobal_801426DC_lbl_8058D4C0 lbl_8058D4C0;
 void TPlyPhotonChair__sub_80142734(s32 _w0);
+f32 get_float_c__15TPlyPhotonChairFPv(void *);
+s32 TPlyPhotonChair__sub_80143930(void *);
+int get_id__15TPlyPhotonChairFPv(void *);
+void TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
+void TPlyPhotonChair__sub_80142778(void *arg0);
 }
 
 extern "C" {
@@ -111,7 +114,11 @@ void TPlyPhotonChair__sub_80142734(s32 _w0) {
 void save_state__15TPlyPhotonChairFv(s32 _w0) { lbl_805D566C = (*(int *)&some_id_805c6f74); }
 void TPlyPhotonChair__sub_80142770(void) {  }
 void TPlyPhotonChair__sub_80142774(void) {  }
-int TPlyPhotonChair__sub_80142778(void) { return 0; }
+
+void TPlyPhotonChair__sub_80142778(void *arg0) {
+    TObjEneSlimeOne__sub_803E4AF4(((s32)get_id__15TPlyPhotonChairFPv((void *)(arg0))), TPlyPhotonChair__sub_80143930(arg0), get_float_c__15TPlyPhotonChairFPv(arg0));
+}
+
 void TPlyPhotonChair__sub_801427D0(u8 *arg0) {
     f32 var_f31;
     s32 temp_r0;
@@ -160,7 +167,7 @@ void TPlyPhotonChair__sub_80142874(u8 *arg0) {
         return;
     }
 }
-void TLobby__sub_80142920(void) { get_id__15TPlyPhotonChairFPv(); TObjFish__sub_803E46BC(); }
+void TLobby__sub_80142920(void * _w0) { get_id__15TPlyPhotonChairFPv((void *)(_w0)); TObjFish__sub_803E46BC(); }
 int TLobby__sub_80142944(void* p) { return (*(u32*)((char*)p + 0xb0) >> 4) & 0x1; }
 
 }

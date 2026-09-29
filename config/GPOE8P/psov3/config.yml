@@ -40,10 +40,12 @@ force_active:
   - TMainCursor__sub_8013E4A0
   - TMainCursor__sub_8013E570
   - TMainCursor__sub_8013E694
+  - TNpcPlayer__sub_80152CE8
   - TObjEneDD__sub_800BB980
   - TObjFish__sub_800E2FFC
   - TObjPlayer__sub_800113A8
   - TObjPlayer__sub_801AA6E4
+  - TObjPlayer__sub_801B40D0
   - TObjPlayer__sub_801BBBD0
   - TObjPlayer__sub_801BEF8C
   - TObjPlayer__sub_801BF014
@@ -60,8 +62,13 @@ force_active:
   - TObjPlayer__sub_801BF60C
   - TObjPlayer__sub_801BF7B8
   - TObjPlayer__sub_801BF8CC
+  - TObjPlayer__sub_801C1A30
+  - TObjPlayer__sub_801D1FA4
+  - TObjPlayer__sub_801D2004
   - TPlyDispConfig__sub_801E0A68
   - TRecvGenerateID__sub_801DFBC4
+  - TWindowActionPalette__sub_801C1C20
+  - TWindowActionPalette__sub_801C1C30
   - TWindowMainMenu1P__sub_80288520
   - __ct__9TEffGuardFPC3Vec
   - __dt__10TDPBShowerFv
@@ -73,6 +80,7 @@ force_active:
   - __dt__15TAdDrawLineCtrlFv
   - __dt__15TItemEffLandHitFv
   - __dt__15TItemMagGrowEffFv
+  - __dt__16TBoss3VoloptCtrlFv
   - __dt__16TItemReverseTechFv
   - __dt__17TOSwitchAttackSubFv
   - __dt__17TObjItemNameEntryFv
@@ -95,6 +103,9 @@ force_active:
   - fn_80076C68
   - fn_801692AC
   - fn_8016AD3C
+  - fn_801C1E98
+  - fn_801C1EE8
+  - fn_801C1F40
   - fn_8026D564
   - fn_803CBE00
   - free_item_pmt
@@ -116,6 +127,7 @@ force_active:
   - run_task__15TAdDrawLineCtrlFv
   - run_task__15TItemEffLandHitFv
   - run_task__15TItemMagGrowEffFv
+  - run_task__16TBoss3VoloptCtrlFv
   - run_task__16TItemReverseTechFv
   - run_task__17TOSwitchAttackSubFv
   - run_task__18TAdLoadQuestLineGCFv

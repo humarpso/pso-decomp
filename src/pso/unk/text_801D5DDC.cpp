@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Pkt_801D60B4 { s16 a; u16 b; };
 
+struct Pkt_801D5FC0 { u16 hdr; u16 id; };
+
 extern "C" {
 s32 TObjPlayer__sub_800196EC();
 s32 get_field_3e4__10TObjPlayerFPv(int);
@@ -21,6 +23,11 @@ void handle_6x39_set_photon_blast_ready_flag(s32 arg0);
 M2C_UNK init_6x39_packet__15TFontSmallLobbyFPv(void *);
 void update_and_send_60__15TFontSmallLobbyFPv(void *p);
 void TFontSmallLobby__sub_801D60B4(u16 *p);
+s32 obj_isState2_324();
+s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+void init_6x3A_packet__15TFontSmallLobbyFPv(void *);
+void draw_and_send__15TFontSmallLobbyFPv(void *);
+void TFontSmallLobby__sub_801D5FC0(u16 *arg0);
 }
 
 extern "C" {
@@ -36,6 +43,16 @@ void set_section_index__15TFontSmallLobbyFPvs(void *arg0, s16 arg1) {
     }
     M2C_FIELD(arg0, s16 *, 4) = var_r4;
 }
+
+void TFontSmallLobby__sub_801D5FC0(u16 *arg0) {
+    struct Pkt_801D5FC0 pkt;
+    if (((u8 *)TPlayerBattleCtrl4P__sub_801BA74C((int)(*arg0))) == NULL || obj_isState2_324() == 0) {
+        init_6x3A_packet__15TFontSmallLobbyFPv(&pkt);
+        pkt.id = *arg0;
+        draw_and_send__15TFontSmallLobbyFPv(&pkt);
+    }
+}
+
 void handle_6x39_set_photon_blast_ready_flag(s32 arg0) {
     struct { s16 a; u16 b; } sp8;
     s32 temp_r31;

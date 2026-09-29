@@ -5,6 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct In_8010440C { u8 pad0; u8 idx; };
+
+struct In_80104438 { u8 pad0; u8 idx; };
+
 extern "C" {
 M2C_UNK clear_id__10TObjPlayerFPv(M2C_UNK *);
 M2C_UNK free__11TOBoss4RockFUi(s32);
@@ -90,6 +94,12 @@ u32 test_flag3__9TItemDataFPv(s32);
 extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D53AC;
 void handle_player_event__6TLobbyFii(s32 arg0, s32 arg1);
+extern void *lbl_8049EE00[];
+void TItemObject__sub_8011646C();
+void *TLobby__sub_8010440C(In_8010440C *arg0);
+extern void *lbl_8049EB58[];
+void TObjPlayer__sub_80120FC4();
+void *TLobby__sub_80104438(In_80104438 *arg0);
 }
 
 extern "C" {
@@ -154,6 +164,23 @@ void forward_message__6TLobbyFiUi(s32 arg0, u32 arg1) {
 }
 void mark_selected__6TLobbyFv(void) { lbl_805D5448 = 1; }
 int get_drop_flag__6TLobbyFv(void) {  return lbl_805D5448; }
+
+void *TLobby__sub_8010440C(In_8010440C *arg0) {
+    u8 i = arg0->idx;
+    if (i < 0x18) {
+        return lbl_8049EE00[i];
+    }
+    return (void *)TItemObject__sub_8011646C;
+}
+
+void *TLobby__sub_80104438(In_80104438 *arg0) {
+    u8 i = arg0->idx;
+    if (i < 0xAA) {
+        return lbl_8049EB58[i];
+    }
+    return (void *)TObjPlayer__sub_80120FC4;
+}
+
 void TLobby__sub_80104464(void) {  }
 void handle_select_confirm__6TLobbyFv(void) {
     if ((fn_80077790() == 1) || (fn_80077788() == 1)) {

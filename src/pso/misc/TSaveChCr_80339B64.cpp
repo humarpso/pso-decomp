@@ -8,6 +8,11 @@ extern "C" {
 int close_and_advance__9TSaveChCrFPvPv(void*, int);
 int close_window__9TSaveChCrFPv(void*);
 void fn_80339D78(u8 *arg0);
+s32 TAdPlayerLoadGC__sub_801E2048(int, void *);
+extern M2C_UNK lbl_804C88C0[];
+extern M2C_UNK lbl_804C8914[];
+extern M2C_UNK lbl_804C89BC[];
+s32 TAdSinglePlyChrSelectGC__sub_80339DBC(void);
 }
 
 extern "C" {
@@ -86,6 +91,12 @@ void fn_80339D78(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x2C) & 1) {
         ((M2C_UNK)close_and_advance__9TSaveChCrFPvPv((void*)((void *) (arg0)), (int)((int) (0))));
     }
+}
+s32 TAdSinglePlyChrSelectGC__sub_80339DBC(void) {
+    if ((TAdPlayerLoadGC__sub_801E2048((int) (0), (void *) (lbl_804C8914)) != 0) || (TAdPlayerLoadGC__sub_801E2048((int) (0), (void *) (lbl_804C88C0)) != 0) || (TAdPlayerLoadGC__sub_801E2048((int) (0), (void *) (lbl_804C89BC)) != 0)) {
+        return 0;
+    }
+    return 1;
 }
 
 }

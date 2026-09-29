@@ -68,7 +68,6 @@ void TAdMultiChgGameModeGC__sub_8036E49C(void *arg0);
 void TAdMultiChgGameModeGC__sub_8036E49C(void *arg0);
 M2C_UNK TWindow__close(void *);
 M2C_UNK send_and_handle__6TLobbyFPvii(u32, s32, M2C_UNK);
-M2C_UNK TAdMultiChgGameModeGC__sub_8036E19C(void *, M2C_UNK);
 M2C_UNK TAdMultiChgGameModeGC__sub_8036E2AC(void *, M2C_UNK);
 void TAdMultiChgGameModeGC__sub_8036E51C(u8 *arg0);
 s32 get_instance__15TAdPlayerLoadGCFv();
@@ -95,7 +94,6 @@ int init_change_mode__21TAdMultiChgGameModeGCFPv(void* p);
 void TAdMultiChgGameModeGC__sub_8036E854(void);
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 void confirm_mode_selection__21TAdMultiChgGameModeGCFPv(void* p);
-M2C_UNK TAdMultiChgGameModeGC__sub_8036E19C(void *, M2C_UNK);
 void close_window_30__21TAdMultiChgGameModeGCFPv(void *arg0);
 void TAdMultiChgGameModeGC__sub_8036E9EC(void* p);
 void __dl__7TObjectFPv(void *);
@@ -126,6 +124,13 @@ u32 TAdSinglePlyChrSelectGC__sub_801FF2D4(void);
 void TAdMultiChgGameModeGC__sub_8036E7DC(void *self);
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 void TAdMultiChgGameModeGC__sub_8036DEDC(void *self);
+M2C_UNK TWindow__close(void *);
+M2C_UNK send_and_handle__6TLobbyFPvii(u32, s32, M2C_UNK);
+u32 update_window_mode_from_progress__6TLobbyFiPv(void *, void *);
+s32 TAdMultiChgGameModeGC__sub_8036DE10(M2C_UNK arg0, s32 arg1, s32 arg2);
+extern M2C_UNK lbl_8047B8A0[];
+extern M2C_UNK lbl_804F3A10[];
+void TAdMultiChgGameModeGC__sub_8036E19C(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -135,7 +140,6 @@ void close_windows_and_reopen__21TAdMultiChgGameModeGCFPv(void *arg0);
 void close_windows_on_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 void update_card_confirm_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 void update_confirm_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
-M2C_UNK TAdMultiChgGameModeGC__sub_8036E19C(void *, M2C_UNK);
 M2C_UNK TAdMultiChgGameModeGC__sub_8036E2AC(void *, M2C_UNK);
 s32 TWindowSubComCard__sub_80265BF8(void *);
 M2C_UNK TWindow__close(void *);
@@ -191,7 +195,7 @@ void update_confirm_selection__21TAdMultiChgGameModeGCFPv(void *arg0) {
                 case 0:
                     TAdMultiChgGameModeGC__sub_8036E858((u8 *)(arg0), (s32)(6));
                     close_window_30__21TAdMultiChgGameModeGCFPv((void *)(arg0));
-                    TAdMultiChgGameModeGC__sub_8036E19C(arg0, 8);
+                    TAdMultiChgGameModeGC__sub_8036E19C((u8 *)(arg0), (s32)(8));
                     return;
                 case 1:
                     close_window__21TAdMultiChgGameModeGCFPv((void*)(arg0));
@@ -215,7 +219,7 @@ void close_windows_and_cleanup(void *arg0) {
         M2C_FIELD(arg0, u32 *, 0x30) = 0U;
     }
     TAdMultiChgGameModeGC__sub_8036E2AC(arg0, 0);
-    TAdMultiChgGameModeGC__sub_8036E19C(arg0, 4);
+    TAdMultiChgGameModeGC__sub_8036E19C((u8 *)(arg0), (s32)(4));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
         send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, u32 *, 0x30), TAdMultiChgGameModeGC__sub_8036DE10((M2C_UNK)(arg0), (s32)(3), (s32)(M2C_FIELD(arg0, s32 *, 0x24))), 3);
     }
@@ -256,11 +260,23 @@ void close_windows_and_reopen__21TAdMultiChgGameModeGCFPv(void *arg0) {
         M2C_FIELD(arg0, u32 *, 0x30) = 0U;
     }
     TAdMultiChgGameModeGC__sub_8036E2AC(arg0, 0);
-    TAdMultiChgGameModeGC__sub_8036E19C(arg0, 4);
+    TAdMultiChgGameModeGC__sub_8036E19C((u8 *)(arg0), (s32)(4));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
         send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, u32 *, 0x30), TAdMultiChgGameModeGC__sub_8036DE10((M2C_UNK)(arg0), (s32)(1), (s32)(M2C_FIELD(arg0, s32 *, 0x24))), 3);
     }
 }
+
+void TAdMultiChgGameModeGC__sub_8036E19C(u8 *arg0, s32 arg1) {
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
+        TWindow__close(M2C_FIELD(arg0, void **, 0x30));
+        M2C_FIELD(arg0, u32 *, 0x30) = 0U;
+    }
+    M2C_FIELD(arg0, u32 *, 0x30) = update_window_mode_from_progress__6TLobbyFiPv((void *) (lbl_804F3A10), (void *) (lbl_8047B8A0));
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
+        send_and_handle__6TLobbyFPvii((u32)((int) (M2C_FIELD(arg0, u32 *, 0x30))), (s32)((int) (TAdMultiChgGameModeGC__sub_8036DE10((M2C_UNK)((void *) (arg0)), (s32)((void *) (arg1)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x24)))))), (M2C_UNK)((int) (3)));
+    }
+}
+
 void close_window_30__21TAdMultiChgGameModeGCFPv(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0x30);
     if ((u32) temp_r3 != 0U) {
@@ -323,7 +339,7 @@ void TAdMultiChgGameModeGC__sub_8036E51C(u8 *arg0) {
         M2C_FIELD(arg0, u32 *, 0x34) = 0U;
     }
     TAdMultiChgGameModeGC__sub_8036E2AC((void *)((void *) (arg0)), (M2C_UNK)((int) (1)));
-    TAdMultiChgGameModeGC__sub_8036E19C((void *)((void *) (arg0)), (M2C_UNK)((int) (4)));
+    TAdMultiChgGameModeGC__sub_8036E19C((u8 *)((void *)((void *) (arg0))), (s32)((M2C_UNK)((int) (4))));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
         send_and_handle__6TLobbyFPvii((u32)((int) (M2C_FIELD(arg0, u32 *, 0x30))), (s32)((int) (TAdMultiChgGameModeGC__sub_8036DE10((M2C_UNK)((void *)((void *) (arg0))), (s32)((M2C_UNK)((int) (0))), (s32)((s32)((int) (M2C_FIELD(arg0, s32 *, 0x24))))))), (M2C_UNK)((int) (3)));
     }
@@ -429,7 +445,7 @@ s32 TAdSinglePlyChrSelectGC__sub_8036E8DC(void) {
 }
 
 void confirm_mode_selection__21TAdMultiChgGameModeGCFPv(void* p) { if (((int)handle_mode_selection__21TAdMultiChgGameModeGCFPv((void *)((void*)(p)))) == 0) { TAdMultiChgGameModeGC__sub_8036E858((u8 *)((void *)((void*)(p))), (s32)((M2C_UNK)((void*)((void*)1)))); } }
-void TAdMultiChgGameModeGC__sub_8036E9EC(void* p) { close_window_30__21TAdMultiChgGameModeGCFPv((void *)(p)); TAdMultiChgGameModeGC__sub_8036E19C((void *)(p), (M2C_UNK)((void*)4)); }
+void TAdMultiChgGameModeGC__sub_8036E9EC(void* p) { close_window_30__21TAdMultiChgGameModeGCFPv((void *)(p)); TAdMultiChgGameModeGC__sub_8036E19C((u8 *)((void *)(p)), (s32)((M2C_UNK)((void*)4))); }
 
 typedef char MemberActionStorage_8036EA24_size[sizeof(MemberActionStorage_8036EA24) == 12 ? 1 : -1];
 typedef char RecoveredGlobal_8036EA24_lbl_804F3908_size[sizeof(RecoveredGlobal_8036EA24_lbl_804F3908) == 0x108 ? 1 : -1];

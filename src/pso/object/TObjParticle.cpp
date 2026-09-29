@@ -4,12 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct P_8019527C { u8 pad[0x90]; u32 f90; };
+
 extern "C" {
 s32 is_split_screen(void);
 u8 * TObjParticle__ct(void *, M2C_UNK, void *);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjParticle__create(u8 *arg0);
+s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
+void render__12TObjParticleFv(P_8019527C *arg0);
 }
 
 extern "C" {
@@ -29,6 +33,14 @@ extern s32 lbl_805D4DF0;
 extern const f32 lbl_805DBEE0;
 extern const f32 lbl_805DBEE4;
 extern const f32 lbl_805DBEE8;
+
+void render__12TObjParticleFv(P_8019527C *arg0) {
+    if (all_parents_unqueued_for_destruction__7TObjectFv(arg0) != 0) {
+        if (arg0->f90 == 0) {
+            return;
+        }
+    }
+}
 
 void run_task__12TObjParticleFv(u8 *arg0) {
     f32 var_f31;

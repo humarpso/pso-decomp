@@ -11,6 +11,10 @@ struct RecoveredGlobal_80208D28_lbl_805139F8 {
 
 struct Ent_80208A04 { u8 pad[8]; s32 n; };
 
+struct Rec_80208B7C { s32 id; s16 f4; u8 pad[0xE]; };
+
+struct Grp_80208B7C { u8 pad[8]; s32 count; s32 pad3; Rec_80208B7C recs[1]; };
+
 extern "C" {
 u8 * heap_alloc__5THeapFUl(void *, s32);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
@@ -18,6 +22,8 @@ extern u8 *lbl_805D6094;
 u8 *TLobby__sub_80208D28(s32 arg0, s32 arg1);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
 s32 TLobby__sub_80208A04(void);
+extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
+s32 TLobby__sub_80208B7C(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -63,6 +69,25 @@ s32 TLobby__sub_80208A04(void) {
         if (((Ent_80208A04 * *)&lbl_805139F8)[i] != 0) sum += ((Ent_80208A04 * *)&lbl_805139F8)[i]->n;
     }
     return sum * 2;
+}
+
+s32 TLobby__sub_80208B7C(s32 arg0, s32 arg1, s32 arg2) {
+    Grp_80208B7C *g = ((Grp_80208B7C * *)&lbl_805139F8)[arg0];
+    Rec_80208B7C *r;
+    s32 n;
+    if (g == 0) {
+        return 0;
+    }
+    n = g->count;
+    r = g->recs;
+    s32 i;
+    for (i = 0; i < n; i++) {
+        if (r->id == arg1) {
+            r->f4 |= arg2;
+        }
+        r++;
+    }
+    return 1;
 }
 
 u8 *TLobby__sub_80208D28(s32 arg0, s32 arg1) {

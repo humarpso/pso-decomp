@@ -2,6 +2,23 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+struct B_800F957C { u8 pad[0x18]; };
+
+struct N_800F957C : B_800F957C {
+    virtual void m0(s32);
+    void *p1C;
+    u8 pad20[4];
+    u32 id24;
+};
+
+struct Head_800F957C { u8 pad[0x14]; N_800F957C *first; };
+
+extern "C" {
+extern Head_800F957C lbl_8050113C[];
+int safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
+void TLobby__sub_800F957C(u32 arg0);
+}
+
 extern "C" {
 
 int TItemDrop__sub_800F9448(void);
@@ -31,5 +48,17 @@ int TItemDrop__sub_800F9448(void) { return 0; }
 int TItemDrop__sub_800F94BC(void) { return 0; }
 int fn_800F953C(void* p) { return safe_free__23TAdSinglePlyChrSelectGCFUi(p); }
 int fn_800F955C(void* p) { return set_stream_and_load_file__6TLobbyFi(p); }
+void TLobby__sub_800F957C(u32 arg0) {
+    N_800F957C *n = lbl_8050113C->first;
+    while (n != 0) {
+        if (n->id24 == arg0) {
+            safe_free__23TAdSinglePlyChrSelectGCFUi(n->p1C);
+            if (n != 0) {
+                n->m0(1);
+            }
+        }
+        n = *(N_800F957C **)((u8 *)n + 0xC);
+    }
+}
 
 }
