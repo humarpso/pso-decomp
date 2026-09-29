@@ -236,6 +236,15 @@ s32 TLobby__sub_80329100(M2C_UNK arg0, s32 arg1, s32 arg2) {
     }
     return 0;
 }
+extern s32 *lbl_804ED728[];
+s32 TLobby__sub_80329174(void);
+s32 TLobby__sub_80329174(void) {
+    s32 i = ((s32 (*)(void))is_valid_state__6TLobbyFPvi)();
+    if (((s32 (*)(void))TLobby__sub_802A7278)() != 0) {
+        return *lbl_804ED728[i];
+    }
+    return 0;
+}
 typedef char RecoveredGlobal_802A74B8_lbl_804DD9F8_size[sizeof(RecoveredGlobal_802A74B8_lbl_804DD9F8) == 0x18 ? 1 : -1];
 
 }

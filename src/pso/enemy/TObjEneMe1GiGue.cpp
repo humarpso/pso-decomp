@@ -78,6 +78,8 @@ struct RecoveredGlobal_802CB03C_lbl_8058D490 {
     u8 remaining[0x2C];
 };
 
+typedef struct S_802CB10C { u8 pad0[0x3C0]; s32 f3C0; } S_802CB10C;
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK);
@@ -102,6 +104,10 @@ M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 extern RecoveredGlobal_802CB03C_lbl_8058D490 lbl_8058D490;
 void TObjEneMe1GiGue__sub_802CB03C(u8 *arg0);
+s32 get_player_data__10TObjPlayerFi(int);
+void TObjEneMe1GiGue__sub_802CB170(void *, s32);
+extern s32 lbl_805D586C;
+s32 TObjEneMe1GiGue__sub_802CB10C(S_802CB10C *arg0);
 }
 
 extern "C" {
@@ -184,6 +190,15 @@ void TObjEneMe1GiGue__sub_802CB03C(u8 *arg0) {
     ((VObj_18_fe09eb *)(arg0))->m63(0, (u8 *)(arg0) + 0x3B4);
     ((VObj_18_fe09eb *)(arg0))->m63(0x2A, (u8 *)(arg0) + 0x39C);
     ((VObj_18_fe09eb *)(arg0))->m63(0x16, (u8 *)(arg0) + 0x3A8);
+}
+s32 TObjEneMe1GiGue__sub_802CB10C(S_802CB10C *arg0) {
+    s32 i;
+    arg0->f3C0 = 0;
+    for (i = 0; i < lbl_805D586C; i++) {
+        s32 t = get_player_data__10TObjPlayerFi(i);
+        TObjEneMe1GiGue__sub_802CB170(arg0, t);
+    }
+    return arg0->f3C0;
 }
 
 }

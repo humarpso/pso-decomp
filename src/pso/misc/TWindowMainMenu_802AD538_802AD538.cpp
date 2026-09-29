@@ -13,20 +13,37 @@ struct Item_802ADAAC { u8 pad[0x11]; s8 f11; };
 
 struct Obj_802ADAAC { u8 pad[0x61]; s8 idx; u8 pad2[0x124 - 0x62]; Item_802ADAAC *items[8]; };
 
+struct MM_802AD90C {
+    u8 pad0[0x60];
+    u8 flags;
+    u8 pad61;
+    s16 cnt;
+    u8 pad64[0x124 - 0x64];
+    void *slots[8];
+};
+
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Hd_802ADA48 { u32 w[4]; };
+
+struct Col_802ADA48 { Hd_802ADA48 h; u8 b0, b1, b2, b3, b4, b5, b6, b7; };
+
 extern "C" {
 int copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void TWindowMainMenu__sub_802AD790(u8 *arg0, s32 arg1, s8 arg2, s8 arg3);
 int TWindowMainMenu__sub_802ADB00(u8 *arg0);
 void TWindowMainMenu__sub_802ADADC(Obj_802ADADC *self, s8 i);
 int TWindowMainMenu__sub_802ADAAC(Obj_802ADAAC *self);
+void init_color__15TWindowMainMenuFPv(void *);
+void TWindowMainMenu__sub_802AD90C(MM_802AD90C *arg0);
+void TWindowMainMenu__sub_802ADA48(Col_802ADA48 *arg0, Col_802ADA48 *arg1);
 }
 
 extern "C" {
 
 void TWindowMainMenu__sub_802AD74C(void* p);
-int TWindowMainMenu__sub_802AD90C(void);
 int TWindowMainMenu__sub_802AD980(void);
-int TWindowMainMenu__sub_802ADA48(void);
 void clear_menu_flags__15TWindowMainMenuFPv(void* p);
 int get_menu_flag__15TWindowMainMenuFPv(void* p);
 int is_flag_set__15TWindowMainMenuFPv(void* p);
@@ -62,9 +79,31 @@ void TWindowMainMenu__sub_802AD790(u8 *arg0, s32 arg1, s8 arg2, s8 arg3) {
     M2C_FIELD(arg0, u8 *, 0x13) = (u8) (M2C_FIELD(arg0, u8 *, 0x13) | 1);
 }
 
-int TWindowMainMenu__sub_802AD90C(void) { return 0; }
+void TWindowMainMenu__sub_802AD90C(MM_802AD90C *arg0) {
+    s32 i;
+    arg0->cnt--;
+    arg0->flags |= 8;
+    for (i = 0; i < 8; i++) {
+        if (arg0->slots[i] != 0) {
+            init_color__15TWindowMainMenuFPv(arg0->slots[i]);
+            arg0->slots[i] = 0;
+        }
+    }
+}
+
 int TWindowMainMenu__sub_802AD980(void) { return 0; }
-int TWindowMainMenu__sub_802ADA48(void) { return 0; }
+
+void TWindowMainMenu__sub_802ADA48(Col_802ADA48 *arg0, Col_802ADA48 *arg1) {
+    arg0->h = arg1->h;
+    arg0->b0 = arg1->b0;
+    arg0->b1 = arg1->b1;
+    arg0->b2 = arg1->b2;
+    arg0->b3 = arg1->b3;
+    arg0->b4 = arg1->b4;
+    arg0->b5 = arg1->b5;
+    arg0->b6 = arg1->b6;
+    arg0->b7 = arg1->b7;
+}
 
 int TWindowMainMenu__sub_802ADAAC(Obj_802ADAAC *self) {
     Item_802ADAAC *p = self->items[self->idx];

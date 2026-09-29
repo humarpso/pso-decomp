@@ -69,10 +69,12 @@ void TWindowCtrl__sub_8024AFB8(M2C_UNK arg0, s32 arg1);
 s32 TWindowCtrl__sub_8024B098(void *, void *);
 extern RecoveredGlobal_8024AF74_lbl_804CE9EC lbl_804CE9EC;
 void TWindowCtrl__sub_8024AF74(s32 arg0);
-s32 TWindowCtrl__sub_8024AF34(void *, void *);
 extern RecoveredGlobal_8024AEF0_lbl_804CE9F8 lbl_804CE9F8;
 void TWindowCtrl__sub_8024AEF0(s32 arg0);
-s32 TWindowCtrl__sub_8024AF34(void *, void *);
+struct Win_8024AF34 { virtual void m0(); };
+typedef void (Win_8024AF34::*Pmf_8024AF34)();
+void TWindowCtrl__sub_8024AF34(void *, Pmf_8024AF34);
+Win_8024AF34 *get_window__11TWindowCtrlFi(void *self);
 extern RecoveredGlobal_8024AEAC_lbl_804CEA04 lbl_804CEA04;
 void TWindowCtrl__sub_8024AEAC(s32 arg0);
 }
@@ -96,7 +98,7 @@ void TWindowCtrl__sub_8024AEAC(s32 arg0) {
     stack.sp8 = M2C_FIELD(&lbl_804CEA04.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_804CEA04.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_804CEA04.value, s32 *, 8);
-    TWindowCtrl__sub_8024AF34((void *) (arg0), (void *) (&stack.sp8));
+    ((void (*)(void *, void *))TWindowCtrl__sub_8024AF34)((void *) (arg0), (void *) (&stack.sp8));
 }
 
 void TWindowCtrl__sub_8024AEF0(s32 arg0) {
@@ -107,7 +109,14 @@ void TWindowCtrl__sub_8024AEF0(s32 arg0) {
     stack.sp8 = M2C_FIELD(&lbl_804CE9F8.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_804CE9F8.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_804CE9F8.value, s32 *, 8);
-    TWindowCtrl__sub_8024AF34((void *) (arg0), (void *) (&stack.sp8));
+    ((void (*)(void *, void *))TWindowCtrl__sub_8024AF34)((void *) (arg0), (void *) (&stack.sp8));
+}
+
+void TWindowCtrl__sub_8024AF34(void *self, Pmf_8024AF34 pmf) {
+    Win_8024AF34 *w = get_window__11TWindowCtrlFi(self);
+    if (w != NULL) {
+        (w->*pmf)();
+    }
 }
 
 void TWindowCtrl__sub_8024AF74(s32 arg0) {

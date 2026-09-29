@@ -4,6 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef struct S_802BF6CC {
+    u8 pad0[0x374];
+    s32 f374;
+    u8 pad378[0x45C - 0x378];
+    s32 f45C;
+    s32 f460;
+    u8 pad464[0x504 - 0x464];
+    s32 f504;
+} S_802BF6CC;
+
 extern "C" {
 M2C_UNK TOSwitchAttack__sub_80087278(void *, int, int);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
@@ -18,11 +28,13 @@ extern u8 lbl_805D6754;
 extern const f32 lbl_805DE3F4;
 extern const f32 lbl_805DE4DC;
 void TBoss6Type2__sub_802BF9A8(u8 *arg0);
+s32 TBoss6Type2__sub_802B9C00(void *, s32);
+s32 TBoss6Type2__sub_802BB7C0(void *);
+void TBoss6Type2__sub_802BF6CC(S_802BF6CC *arg0);
 }
 
 extern "C" {
 
-int TBoss6Type2__sub_802BF6CC(void);
 void TBoss6Type2__sub_802BF904(void* p);
 void TBoss6Type2__sub_802BFA1C(u8 *arg0);
 void TBoss6Type2__sub_802BFBE4(void* p);
@@ -124,7 +136,19 @@ void TBoss6Type2__sub_802BF65C(u8 *arg0) {
     }
 }
 
-int TBoss6Type2__sub_802BF6CC(void) { return 0; }
+void TBoss6Type2__sub_802BF6CC(S_802BF6CC *arg0) {
+    arg0->f45C = 0x4B;
+    arg0->f460 = 0x4B;
+    arg0->f504 = 0;
+    TBoss6Type2__sub_802BB7C0(arg0);
+    switch (arg0->f374) {
+    case 9:
+    case 10:
+    case 11:
+        TBoss6Type2__sub_802B9C00(arg0, 0xD);
+        break;
+    }
+}
 
 void update_zako_phase__11TBoss6Type2FPv(void *arg0) {
     s32 temp_r0;

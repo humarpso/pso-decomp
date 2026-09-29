@@ -9,12 +9,18 @@ struct RecoveredGlobal_8032BD64_lbl_804EDAC0 {
     u8 remaining[0x14];
 };
 
+struct O_8032BDC4 { u8 pad[0x18]; void *vt; s32 f1c; s32 items[0x18]; s32 n; };
+
 extern "C" {
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8032BD64_lbl_804EDAC0 lbl_804EDAC0;
 extern int lbl_805D6CB8;
 u8 *TLobby__sub_8032BD64(u8 *arg0, s16 arg1);
+void __ct__7TObjectFP7TObject(void *);
+extern RecoveredGlobal_8032BD64_lbl_804EDAC0 lbl_804EDAC0;
+extern int lbl_805D6CB8;
+O_8032BDC4 *TLobby__sub_8032BDC4(O_8032BDC4 *arg0);
 }
 
 extern "C" {
@@ -39,6 +45,19 @@ u8 *TLobby__sub_8032BD64(u8 *arg0, s16 arg1) {
             __dl__7TObjectFPv((s32) arg0);
         }
     }
+    return arg0;
+}
+
+O_8032BDC4 *TLobby__sub_8032BDC4(O_8032BDC4 *arg0) {
+    s32 i;
+    __ct__7TObjectFP7TObject(arg0);
+    arg0->vt = ((u8 *)&lbl_804EDAC0);
+    arg0->n = 0;
+    lbl_805D6CB8 = (int)arg0;
+    for (i = 0; i < 0x18; i++) {
+        arg0->items[i] = 0;
+    }
+    arg0->f1c = 0;
     return arg0;
 }
 

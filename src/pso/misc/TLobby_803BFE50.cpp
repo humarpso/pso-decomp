@@ -103,6 +103,10 @@ extern RecoveredGlobal_803BD5C4_lbl_805663D8 lbl_805663D8;
 void TLobby__sub_803BD5C4(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 u8 TLobby__sub_803BC774(u8 arg0);
 s32 TLobby__sub_803C07E8(Obj_803C07E8 *self);
+s32 memcmp(void *, void *, int);
+extern s32 lbl_805E0CB0;
+extern s32 lbl_805E0CB8;
+s32 TLobby__sub_803C0B88(u8 *arg0);
 }
 
 extern "C" {
@@ -228,6 +232,12 @@ void TLobby__sub_803C0B3C(u8 *arg0) {
     if (temp_r0 == 0) {
         TLobby__sub_803C133C((void *) (arg0));
     }
+}
+s32 TLobby__sub_803C0B88(u8 *arg0) {
+    if (memcmp(arg0, &lbl_805E0CB0, 4) == 0 && memcmp(arg0 + 8, &lbl_805E0CB8, 4) == 0) {
+        return 1;
+    }
+    return 0;
 }
 
 typedef char RecoveredGlobal_803C0B08_lbl_80570AC0_size[sizeof(RecoveredGlobal_803C0B08_lbl_80570AC0) == 0x9C0 ? 1 : -1];

@@ -9,6 +9,10 @@ struct RecoveredGlobal_803DEB74_lbl_8058D8E0 {
     u8 remaining[0xCC];
 };
 
+struct Ent_803DEBC8 { u32 mask; u32 val; };
+
+struct V4_803DECFC { f32 a, b, c, d; };
+
 extern "C" {
 extern RecoveredGlobal_803DEB74_lbl_8058D8E0 lbl_8058D8E0;
 u8 *TKeyBoardControl__sub_803DEB74(u32 arg0);
@@ -18,6 +22,23 @@ extern M2C_UNK lbl_8058D880[];
 extern RecoveredGlobal_803DEB74_lbl_8058D8E0 lbl_8058D8E0;
 extern M2C_UNK lbl_8058D9B0[];
 void TKeyBoardControl__sub_803DE9C4(void);
+extern Ent_803DEBC8 lbl_804FC6E4[];
+extern u32 lbl_805D46E0;
+s32 TKeyBoardControl__sub_803DEBC8(u16 arg0);
+extern V4_803DECFC lbl_8058D4C0;
+extern u8 TObjLight__data_8058D528[];
+extern s32 lbl_805D7780;
+extern s32 lbl_805D7784;
+extern s32 some_id_805c6f74;
+extern f32 lbl_805D7790;
+extern s32 lbl_805D7794;
+extern const f32 lbl_805E0FB0;
+extern const f32 lbl_805E0FB4;
+extern const f32 lbl_805E0FB8;
+extern const f32 lbl_805E0FBC;
+void GXInitLightAttnK(void *, f32, f32, f32);
+void fn_803E2070(void);
+void TObjLight__sub_803DECFC(void);
 }
 
 extern "C" {
@@ -74,6 +95,15 @@ u8 *TKeyBoardControl__sub_803DEB74(u32 arg0) {
 }
 #pragma pop
 
+s32 TKeyBoardControl__sub_803DEBC8(u16 arg0) {
+    s32 r = 0;
+    u32 i;
+    for (i = 0; i < lbl_805D46E0; i++) {
+        if (arg0 & lbl_804FC6E4[i].mask) r |= lbl_804FC6E4[i].val;
+    }
+    return r;
+}
+
 #pragma push
 #pragma scheduling off
 #pragma optimize_for_size off
@@ -103,6 +133,20 @@ void clamp_axes__16TKeyBoardControlFPv(u8 *arg0) {
 }
 
 extern s32 some_id_805c6f74;
+
+void TObjLight__sub_803DECFC(void) {
+    some_id_805c6f74 = 0;
+    lbl_805D7784 = -1;
+    lbl_805D7780 = 0;
+    lbl_8058D4C0.a = lbl_805E0FB0;
+    lbl_8058D4C0.b = lbl_805E0FB4;
+    lbl_8058D4C0.c = lbl_805E0FB4;
+    lbl_8058D4C0.d = lbl_805E0FB4;
+    lbl_805D7794 = 0;
+    lbl_805D7790 = lbl_805E0FB8;
+    GXInitLightAttnK(TObjLight__data_8058D528, lbl_805E0FBC, lbl_805E0FB4, lbl_805E0FB4);
+    fn_803E2070();
+}
 
 void set_some_id__FUl(s32 arg0) {
     some_id_805c6f74 = arg0;

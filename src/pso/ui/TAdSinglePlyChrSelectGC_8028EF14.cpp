@@ -10,6 +10,12 @@ struct RecoveredGlobal_8029057C_lbl_804D3F74 {
     u8 remaining[0x34];
 };
 
+struct Slot_8028F150 { s32 f0; u8 pad[0x468]; };
+
+struct Slot_8028F198 { s32 f0; u8 pad[0x468]; };
+
+struct W_80290250 { u8 pad[0xfc]; s32 bufp; s32 rc; u8 data[4]; };
+
 extern "C" {
 extern const f32 lbl_805DD944;
 extern const f32 lbl_805DD948;
@@ -28,6 +34,22 @@ extern CreationBodyModelStates lbl_8051C228;
 extern CreationBodyModelStates lbl_8051C430[7];
 void reset_creation_body_shapes();
 void reset_creation_head_shapes();
+extern Slot_8028F150 lbl_8051D288[];
+Slot_8028F150 *TAdSinglePlyChrSelectGC__sub_8028F150(void);
+extern Slot_8028F150 lbl_8051D288[];
+s32 TAdSinglePlyChrSelectGC__sub_8028EC70(void *, void *);
+s32 TAdSinglePlyChrSelectGC__sub_8028F198(void *arg0);
+void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
+s32 creation_motion_group(u32);
+extern u32 lbl_805D6520;
+extern u32 lbl_805D653C;
+void TAdSinglePlyChrSelectGC__sub_8028FF64(s32 arg0);
+s32 alloc__22TQuestVmDownLoadServerFPv(int);
+s32 request_file_read__6TLobbyFiiPvPv(int, int, void *, int);
+s32 get_display_index__12TCharaMakingFPv(void *);
+extern s32 lbl_804D886C[];
+extern u32 lbl_805D6520;
+void TAdSinglePlyChrSelectGC__sub_80290250(W_80290250 *arg0);
 }
 
 extern "C" {
@@ -60,6 +82,24 @@ void update_char_panels__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x2F8) != 0) {
         TLobby__sub_803DA16C(arg0 + 0x460);
     }
+}
+
+Slot_8028F150 *TAdSinglePlyChrSelectGC__sub_8028F150(void) {
+    Slot_8028F150 *p;
+    for (p = lbl_8051D288; p < (Slot_8028F150 *)((u8 *)lbl_8051D288 + 0x23600); p++) {
+        if (p->f0 == 0) return p;
+    }
+    return 0;
+}
+
+s32 TAdSinglePlyChrSelectGC__sub_8028F198(void *arg0) {
+    Slot_8028F198 *p;
+    Slot_8028F198 *end;
+    end = (Slot_8028F198 *)((u8 *)((Slot_8028F198 *)&lbl_8051D288) + 0x23600);
+    for (p = ((Slot_8028F198 *)&lbl_8051D288); p < end; p++) {
+        if (p->f0 != 0 && TAdSinglePlyChrSelectGC__sub_8028EC70(p, arg0) != 0) return 1;
+    }
+    return 0;
 }
 
 s32 map_button_code__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
@@ -116,12 +156,31 @@ void close_if_active__23TAdSinglePlyChrSelectGCFv(void) {
 
 void draw_player_model__23TAdSinglePlyChrSelectGCFPv(void* p) { TObjPlayer__sub_8014394C(p); draw_model_with_callback__10TObjPlayerFPv(p); }
 
+void TAdSinglePlyChrSelectGC__sub_8028FF64(s32 arg0) {
+    if (lbl_805D653C == 0 || lbl_805D6520 == 0) {
+        return;
+    }
+    set_field_b8__14TObjEnePanarmsFPvs((void *)lbl_805D653C, arg0 * 3 + creation_motion_group(lbl_805D6520));
+}
+
 void free_field_FC__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     safe_free__23TAdSinglePlyChrSelectGCFUi(M2C_FIELD(arg0, s32 *, 0xFC));
     M2C_FIELD(arg0, s32 *, 0xFC) = 0;
 }
 
 typedef char RecoveredGlobal_8029057C_lbl_804D3F74_size[sizeof(RecoveredGlobal_8029057C_lbl_804D3F74) == 0x38 ? 1 : -1];
+
+void TAdSinglePlyChrSelectGC__sub_80290250(W_80290250 *arg0) {
+    s32 rc;
+    arg0->bufp = alloc__22TQuestVmDownLoadServerFPv(0x44000);
+    rc = request_file_read__6TLobbyFiiPvPv(lbl_804D886C[get_display_index__12TCharaMakingFPv((*(void * *)&lbl_805D6520))], arg0->bufp, arg0->data, 0);
+    arg0->rc = rc;
+    if (rc >= 0) {
+        if (arg0->rc > 0x44000) {
+            return;
+        }
+    }
+}
 
 void TCharaMaking__bind_head_shape_nodes(CharacterAppearanceFields *appearance, void *model) {
     reset_creation_head_shapes();

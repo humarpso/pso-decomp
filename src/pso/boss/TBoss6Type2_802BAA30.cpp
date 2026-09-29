@@ -14,6 +14,22 @@ struct RecoveredGlobal_802BB180_lbl_804DFAD0 {
     u8 remaining[0x8];
 };
 
+struct T2_802BB498 { u8 pad0[0x374]; s32 f374; };
+
+struct T2_802BB554 { u8 pad0[0x374]; s32 f374; };
+
+struct T2_802BB768 { u8 pad0[0x410]; u32 f410; u32 f414; };
+
+struct T2_802BB7C0 { u8 pad0[0x410]; u32 f410; u32 f414; };
+
+struct Ent_802BBD88 { u8 pad0[0x18]; u32 f; u8 pad1c[0x10]; };
+
+struct T1_802BBD88 { u8 pad0[0xA4]; Ent_802BBD88 *p; };
+
+struct V_802BBF54 { f32 x, y, z; };
+
+struct T2_802BBF54 { u8 pad0[0x59C]; V_802BBF54 a[19]; V_802BBF54 b[19]; };
+
 extern "C" {
 s32 TBoss6Type2__sub_8032E748(void *);
 s32 TBoss6Type2__sub_8035DC60(s32, s32, f32);
@@ -24,17 +40,25 @@ void TCameraCtrl__sub_8006D2B0(s32, s32, u16);
 extern RecoveredGlobal_802BB180_lbl_804DFAC4 lbl_804DFAC4;
 extern RecoveredGlobal_802BB180_lbl_804DFAD0 lbl_804DFAD0;
 void TBoss6Type2__sub_802BB180(void);
+void TBoss6Type2__sub_802BB180(void);
+void init_range__11TBoss6Type2Fv(void);
+void TBoss6Type2__sub_802BB498(T2_802BB498 *arg0);
+int TBoss6Type2__sub_802BB4DC(void* p);
+void update_target__11TBoss6Type2FPv(void *arg0);
+void TBoss6Type2__sub_802BB554(T2_802BB554 *arg0);
+void TBoss6Type2__sub_8032E708(u32, int);
+void TBoss6Type2__sub_802BB768(T2_802BB768 *arg0);
+void TBoss6Type2__sub_8032E708(u32, int);
+void TBoss6Type2__sub_802BB7C0(T2_802BB7C0 *arg0);
+void TBoss6Type2__sub_802BBD88(T1_802BBD88 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+void TBoss6Type2__sub_802BBF54(u8 *arg0);
 }
 
 extern "C" {
 
-int TBoss6Type2__sub_802BB498(void);
-int TBoss6Type2__sub_802BB4DC(void* p);
-int TBoss6Type2__sub_802BB554(void);
 int TBoss6Type2__sub_802BB5B4(void);
 int TBoss6Type2__sub_802BB694(void);
-int TBoss6Type2__sub_802BB768(void);
-int TBoss6Type2__sub_802BB7C0(void);
 void advance_position__11TBoss6Type2FPv(u8 *arg0);
 void init_range__11TBoss6Type2Fv(void);
 void set_child_flags__11TBoss6Type2FPv(void *arg0);
@@ -42,10 +66,8 @@ void set_owner_flag_bit0__11TBoss6Type2FPv(void *arg0);
 void trigger_screen_pos__11TBoss6Type2FPv(void *arg0);
 void update_parts_flags__11TBoss6Type2FPv(void *arg0);
 void update_segments__11TBoss6Type2FPv(void *arg0);
-void update_target__11TBoss6Type2FPv(void *arg0);
 int TBoss6Type2__sub_802B9F3C(void*, int);
 M2C_UNK TBoss6Type2__sub_802BB1E0(f32, f32);
-M2C_UNK TBoss6Type2__sub_802BBD88();
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK set_screen_pos__11TBoss6Type2FPv();
@@ -86,7 +108,17 @@ void init_range__11TBoss6Type2Fv(void) {
     TBoss6Type2__sub_802BB1E0(TBoss6Type2__data_805DE460, lbl_805DE47C);
 }
 
-int TBoss6Type2__sub_802BB498(void) { return 0; }
+void TBoss6Type2__sub_802BB498(T2_802BB498 *arg0) {
+    switch (arg0->f374) {
+    case 0xE:
+    case 0x1C:
+        TBoss6Type2__sub_802BB180();
+        break;
+    default:
+        init_range__11TBoss6Type2Fv();
+        break;
+    }
+}
 
 int TBoss6Type2__sub_802BB4DC(void* p) { return TBoss6Type2__sub_802B9F3C(p, 0); }
 void update_target__11TBoss6Type2FPv(void *arg0) {
@@ -100,11 +132,37 @@ void update_target__11TBoss6Type2FPv(void *arg0) {
     TBoss6Type2__sub_802B9F3C(arg0, 0);
 }
 
-int TBoss6Type2__sub_802BB554(void) { return 0; }
+void TBoss6Type2__sub_802BB554(T2_802BB554 *arg0) {
+    switch (arg0->f374) {
+    case 3:
+    case 6: case 7: case 8: case 9: case 10: case 11:
+    case 0x1B: case 0x1C: case 0x1D: case 0x1E: case 0x1F: case 0x20: case 0x21:
+        update_target__11TBoss6Type2FPv((void *)(arg0));
+        break;
+    default:
+        TBoss6Type2__sub_802BB4DC((void*)(arg0));
+        break;
+    }
+}
+
 int TBoss6Type2__sub_802BB5B4(void) { return 0; }
 int TBoss6Type2__sub_802BB694(void) { return 0; }
-int TBoss6Type2__sub_802BB768(void) { return 0; }
-int TBoss6Type2__sub_802BB7C0(void) { return 0; }
+
+void TBoss6Type2__sub_802BB768(T2_802BB768 *arg0) {
+    if (arg0->f410 == 0 || arg0->f414 == 0) {
+        return;
+    }
+    TBoss6Type2__sub_8032E708(arg0->f410, 1);
+    TBoss6Type2__sub_8032E708(arg0->f414, 1);
+}
+
+void TBoss6Type2__sub_802BB7C0(T2_802BB7C0 *arg0) {
+    if (arg0->f410 == 0 || arg0->f414 == 0) {
+        return;
+    }
+    TBoss6Type2__sub_8032E708(arg0->f410, 0);
+    TBoss6Type2__sub_8032E708(arg0->f414, 0);
+}
 
 void set_owner_flag_bit0__11TBoss6Type2FPv(void *arg0) {
     void *temp_r3;
@@ -127,8 +185,18 @@ void set_child_flags__11TBoss6Type2FPv(void *arg0) {
     }
 }
 
+void TBoss6Type2__sub_802BBD88(T1_802BBD88 *arg0) {
+    Ent_802BBD88 *p = arg0->p;
+    if (p != NULL) {
+        Ent_802BBD88 *end = (Ent_802BBD88 *)((u8 *)p + 0x84);
+        for (; p < end; p++) {
+            p->f &= ~1;
+        }
+    }
+}
+
 void update_parts_flags__11TBoss6Type2FPv(void *arg0) {
-    TBoss6Type2__sub_802BBD88();
+    TBoss6Type2__sub_802BBD88((T1_802BBD88 *)(arg0));
     if (M2C_FIELD(arg0, s32 *, 0x474) & 1) {
         set_child_flags__11TBoss6Type2FPv((void *)(arg0));
     }
@@ -142,6 +210,18 @@ extern const f32 lbl_805DE4A4;
 void advance_position__11TBoss6Type2FPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     M2C_FIELD(arg0, f32 *, 0x300) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) + lbl_805DE4A4);
+}
+
+void TBoss6Type2__sub_802BBF54(u8 *arg0) {
+    V_802BBF54 *src;
+    V_802BBF54 *end;
+    V_802BBF54 *dst;
+    src = (V_802BBF54 *)(arg0 + 0x59C);
+    dst = (V_802BBF54 *)(arg0 + 0x680);
+    end = (V_802BBF54 *)((u8 *)src + 0xE4);
+    for (; src < end; src++, dst++) {
+        VecCopy__FP3VecPC3Vec(dst, src);
+    }
 }
 
 void update_segments__11TBoss6Type2FPv(void *arg0) {

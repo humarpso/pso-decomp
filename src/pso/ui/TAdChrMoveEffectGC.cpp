@@ -8,8 +8,15 @@ struct E_803490AC { u32 flags; u8 pad[0x34]; };
 
 struct O_803490AC { u8 pad[0x20]; s32 n; u8 pad2[0x30]; E_803490AC e[16]; };
 
+struct E_80349194 { u8 b[0x38]; };
+
+struct W_80349194 { u8 pad0[0x20]; s32 f20; E_80349194 e[16]; };
+
 extern "C" {
 void TAdChrMoveEffectGC__sub_803490AC(O_803490AC *self);
+void TAdChrMoveEffectGC__sub_80349038(void *);
+void TAdChrMoveEffectGC__sub_803491F8(void *, void *);
+void TAdChrMoveEffectGC__sub_80349194(W_80349194 *arg0, void *arg1);
 }
 
 extern "C" {
@@ -35,6 +42,15 @@ void TAdChrMoveEffectGC__sub_803490AC(O_803490AC *self) {
     for (i = 0; i < 16; i++) {
         self->e[i].flags &= ~1;
     }
+}
+
+void TAdChrMoveEffectGC__sub_80349194(W_80349194 *arg0, void *arg1) {
+    s32 i;
+    for (i = 0; i < 16; i++) {
+        TAdChrMoveEffectGC__sub_803491F8(&arg0->e[i], arg1);
+    }
+    TAdChrMoveEffectGC__sub_80349038(arg0);
+    arg0->f20 = 1;
 }
 
 void *__dt__18TAdChrMoveEffectGCFv(void *arg0, s16 arg1) {

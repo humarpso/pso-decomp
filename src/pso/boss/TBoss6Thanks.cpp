@@ -11,6 +11,10 @@ struct RecoveredGlobal_8035D0A4___vt__12TBoss6Thanks { M2C_UNK value; u8 remaini
 
 struct O_8035CCAC { u8 pad[0x54]; s32 arr[4]; };
 
+struct E_8035CC50 { void *p; };
+
+struct W_8035CC50 { u8 pad0[0x54]; E_8035CC50 e[4]; };
+
 extern "C" {
 s32 TObjFish__sub_8001ED9C(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
@@ -25,10 +29,11 @@ u8 *TBoss6Thanks__ct(u8 *arg0, u8 *arg1);
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 int TBoss6Thanks__sub_8035CB40(void);
-void TBoss6Thanks__sub_8035CC50(s32);
 extern RecoveredGlobal_8035D10C___vt__12TBoss6Thanks __vt__12TBoss6Thanks;
 u8 *__dt__12TBoss6ThanksFv(u8 *arg0, s16 arg1);
 void TBoss6Thanks__sub_8035CCAC(s32 arg0);
+void request_destroy__11TBoss4Type2FUi(void *);
+void TBoss6Thanks__sub_8035CC50(W_8035CC50 *arg0);
 }
 
 extern "C" {
@@ -60,6 +65,16 @@ extern M2C_UNK lbl_80479C08;
 extern const f32 lbl_805E01A4;
 extern const f32 lbl_805E01A8;
 extern const f32 lbl_805E01AC;
+
+void TBoss6Thanks__sub_8035CC50(W_8035CC50 *arg0) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        if (arg0->e[i].p != NULL) {
+            request_destroy__11TBoss4Type2FUi(arg0->e[i].p);
+            arg0->e[i].p = NULL;
+        }
+    }
+}
 
 void TBoss6Thanks__sub_8035CCAC(s32 arg0) {
     O_8035CCAC *self = (O_8035CCAC *)arg0;
@@ -101,7 +116,7 @@ u8 *__dt__12TBoss6ThanksFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8035D0A4___vt__12TBoss6Thanks *)&__vt__12TBoss6Thanks).value;
         TBoss6Thanks__sub_8035CB40();
-        TBoss6Thanks__sub_8035CC50((s32) arg0);
+        TBoss6Thanks__sub_8035CC50((W_8035CC50 *)((s32) arg0));
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);

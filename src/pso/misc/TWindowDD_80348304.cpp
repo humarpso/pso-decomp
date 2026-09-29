@@ -14,6 +14,8 @@ void TWindowDD__sub_803484C4(u8 *arg0);
 s32 TWindowDD__sub_80348470(u8 *arg0);
 int TWindowDD__sub_8034B008(s32, s32);
 void TWindowDD__sub_80348448(M2C_UNK arg0, s16 arg1);
+int TWindowDD__sub_803485F4(s32, s32 *);
+void TWindowDD__sub_80348688(u8 *arg0, s32 *arg1);
 }
 
 extern "C" {
@@ -21,7 +23,6 @@ extern "C" {
 int TWindowDD__sub_80348398(void);
 int TWindowDD__sub_80348424(s32 _w0, s32 _w1);
 int TWindowDD__sub_80348520(void*);
-int TWindowDD__sub_803485F4(void);
 s32 clamp_range_2C9_552__9TWindowDDFs(s16 arg0);
 s32 clamp_range_5FA_682__9TWindowDDFs(s16 arg0);
 void dispatch_state__9TWindowDDFv(void);
@@ -93,7 +94,7 @@ void TWindowDD__sub_803484C4(u8 *arg0) {
 }
 
 int TWindowDD__sub_80348520(void*) { return 0; }
-int TWindowDD__sub_803485F4(void) { return 0; }
+int TWindowDD__sub_803485F4(s32 _w0, s32 * _w1) { return 0; }
 
 extern s32 TWindowDD__data_805D6E08;
 
@@ -115,6 +116,16 @@ void update_state__9TWindowDDFv(void) {
         TWindowDD__sub_80344980();
         return;
     }
+}
+
+void TWindowDD__sub_80348688(u8 *arg0, s32 *arg1) {
+    s32 p = *arg1;
+    if (((s32)TWindowDD__sub_803485F4((s32)(3), (s32 *)(arg1))) != 0) {
+        arg0[p++] = 0xA;
+        arg0[p++] = 0x3E;
+        arg0[p++] = 0x20;
+    }
+    *arg1 = p;
 }
 
 s32 clamp_range_5FA_682__9TWindowDDFs(s16 arg0) {

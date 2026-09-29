@@ -93,6 +93,17 @@ struct Obj_8004D8C8 { u8 pad[0x2D4]; u16 f2d4; u16 f2d6; };
 
 struct Obj_8004D92C { u8 pad[0x2D4]; u16 f2d4; u16 f2d6; };
 
+struct V_802BD378 { f32 x, y, z; };
+
+struct T2_802BD378 { u8 pad0[0x60]; s32 f60; u8 pad64[0x59C - 0x64]; V_802BD378 v[1]; };
+
+struct T1_802BD68C {
+    u8 pad0[0x378];
+    s32 v[0x20];
+};
+
+struct T2_802BD76C { u8 pad0[0x42C]; s32 f42C; };
+
 extern "C" {
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 s32 add_damage__11TBoss6Type2FPvi(void *, int);
@@ -144,12 +155,18 @@ s32 TBoss6Type2__sub_802BD870(u32 v);
 Blk_802BCFD4 *TBoss6Type2__sub_802BCFD4(Blk_802BCFD4 *d, Blk_802BCFD4 *s);
 u16 obj_getArrU16_FC(void *obj, s32 i);
 void TBoss6Type2__sub_802BD3CC(Obj_8004D8C8 *self, u16 *a, u16 *b, u16 *out);
+s32 VecCopy__FP3VecPC3Vec(s32 a0, s32 a1);
+void TBoss6Type2__sub_802BD378(T2_802BD378 *arg0, s32 arg1, void *arg2, s32 *arg3);
+s32 TBoss6Type2__sub_802BD68C(T1_802BD68C *arg0, s32 arg1, s32 arg2);
+s32 rand__11TOBoss4RockFv(void);
+extern const f32 TBoss6Type2__data_805DE468;
+extern const f32 lbl_805DE4C4;
+s32 TBoss6Type2__sub_802BD76C(T2_802BD76C *arg0);
 }
 
 extern "C" {
 
 void TBoss6Type2__sub_802BD340(void);
-int TBoss6Type2__sub_802BD378(void);
 f32 TBoss6Type2__vt20(void *arg0, u32 arg1, f32 farg0);
 void TBoss6Type2__vt42(void);
 void TBoss6Type2__vt43(void);
@@ -341,7 +358,10 @@ void apply_damage__11TBoss6Type2FPvi(void *arg0, s32 arg1) {
     }
 }
 
-int TBoss6Type2__sub_802BD378(void) { return 0; }
+void TBoss6Type2__sub_802BD378(T2_802BD378 *arg0, s32 arg1, void *arg2, s32 *arg3) {
+    VecCopy__FP3VecPC3Vec((s32)(arg2), (s32)(&arg0->v[arg1 + 0xE - 0]));
+    *arg3 = arg0->f60;
+}
 
 s32 get_rotation_timer__11TBoss6Type2FPv(void* p) { return *(s32*)((char*)p + 0x418); }
 
@@ -412,6 +432,21 @@ void TBoss6Type2__vt60(u8 *arg0) {
     }
 }
 
+s32 TBoss6Type2__sub_802BD68C(T1_802BD68C *arg0, s32 arg1, s32 arg2) {
+    s32 i;
+    s32 cnt;
+    if (arg2 > 0x20) {
+        arg2 = 0x20;
+    }
+    cnt = 0;
+    for (i = 0; i < arg2; i++) {
+        if (arg0->v[i] == arg1) {
+            cnt++;
+        }
+    }
+    return cnt;
+}
+
 void set_target_state__11TBoss6Type2FPvii(void *arg0, s32 arg1, s32 arg2) {
     u32 temp_r31;
     s32 temp_r30;
@@ -433,6 +468,15 @@ void set_target_state__11TBoss6Type2FPvii(void *arg0, s32 arg1, s32 arg2) {
 }
 
     extern int lbl_804710BC[];
+
+s32 TBoss6Type2__sub_802BD76C(T2_802BD76C *arg0) {
+    s32 k = (s32)(lbl_805DE4C4 * (TBoss6Type2__data_805DE468 * (f32)rand__11TOBoss4RockFv())) + 1;
+    s32 r = arg0->f42C + k;
+    if (r > 4) {
+        r -= 4;
+    }
+    return r;
+}
 
 s32 TBoss6Type2__sub_802BD870(u32 v) {
     s32 i;

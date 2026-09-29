@@ -63,6 +63,11 @@ void TAdSinglePlyChrSelectGC__sub_8033B9C4(s32 arg0);
 s32 TAdPlayerLoadGC__sub_801E2048(void *, void *);
 extern char lbl_804C8914[];
 bool TAdSinglePlyChrSelectGC__sub_8033BA84(void *self);
+s32 TAdPlayerLoadGC__sub_801E2048(void *, void *);
+extern u8 lbl_804C88C0[];
+extern char lbl_804C8914[];
+extern u8 lbl_804C89BC[];
+s32 TAdSinglePlyChrSelectGC__sub_8033BA0C(void *arg0);
 }
 
 extern "C" {
@@ -147,6 +152,14 @@ void TAdSinglePlyChrSelectGC__sub_8033B9EC(void* p) { *(s32*)((char*)p + 0x4c) =
 u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0) {
     return (u8) (M2C_FIELD(arg0, s32 *, 0x3C) == 1);
 }
+
+s32 TAdSinglePlyChrSelectGC__sub_8033BA0C(void *arg0) {
+    if (TAdPlayerLoadGC__sub_801E2048(arg0, ((u8 *)&lbl_804C8914)) != 0 || TAdPlayerLoadGC__sub_801E2048(arg0, lbl_804C88C0) != 0 || TAdPlayerLoadGC__sub_801E2048(arg0, lbl_804C89BC) != 0) {
+        return 0;
+    }
+    return 1;
+}
+
 bool TAdSinglePlyChrSelectGC__sub_8033BA84(void *self) {
     return !TAdPlayerLoadGC__sub_801E2048(self, lbl_804C8914);
 }

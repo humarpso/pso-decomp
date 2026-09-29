@@ -19,6 +19,8 @@ struct VObj803398CC_803398cc_80339658 : VBase803398CC_803398cc_80339658 {
     virtual M2C_UNK m7();
 };
 
+struct O_80339808 { s32 f0; u8 pad[0x14]; void *vt; s32 f1c; s32 f20; u8 v[8]; f32 f2c; u8 pad2[4]; s32 f34; };
+
 extern "C" {
 M2C_UNK set_depth_buffer_settings_1__Fv();
 M2C_UNK fn_80141A30();
@@ -27,6 +29,14 @@ extern const f32 lbl_805DF9F0;
 extern const f32 lbl_805DF9F4;
 extern const f32 lbl_805DF9F8;
 void render__14TChCrEffCtrlPlFv(u8 *arg0);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void __ct__7TObjectFP7TObject(void *);
+s32 get_clamped_player_index__14TChCrEffCtrlPlFv();
+extern u8 lbl_80477C70[];
+extern u8 __vt__14TChCrEffCtrlPl[];
+extern s32 lbl_805D4270;
+extern const f32 lbl_805DFA08;
+O_80339808 *__ct__14TChCrEffCtrlPlFv(O_80339808 *arg0, void * _w1);
 }
 
 extern "C" {
@@ -34,7 +44,6 @@ extern "C" {
 void TLobby_802D2F7C__sub_80339910(void *arg0);
 void *create__14TChCrEffCtrlPlFPv(void *arg0);
 void reset_impl__15TLobby_802D2F7CFPv(u8 *arg0);
-void *__ct__14TChCrEffCtrlPlFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 u32 fn_80339954();
 
@@ -53,10 +62,22 @@ void render__14TChCrEffCtrlPlFv(u8 *arg0) {
 }
 #pragma pop
 
+O_80339808 *__ct__14TChCrEffCtrlPlFv(O_80339808 *arg0, void * _w1) {
+    __ct__7TObjectFP7TObject(arg0);
+    arg0->vt = __vt__14TChCrEffCtrlPl;
+    arg0->f0 = lbl_805D4270;
+    arg0->f1c = get_clamped_player_index__14TChCrEffCtrlPlFv() + 0x8B;
+    arg0->f20 = get_clamped_player_index__14TChCrEffCtrlPlFv() + 0xBC;
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(arg0->v, lbl_80477C70);
+    arg0->f2c = lbl_805DFA08;
+    arg0->f34 = 0;
+    return arg0;
+}
+
 void *create__14TChCrEffCtrlPlFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x38);
     if (o != NULL) {
-        o = __ct__14TChCrEffCtrlPlFv(o, arg0);
+        o = __ct__14TChCrEffCtrlPlFv((O_80339808 *)(o), (void *)(arg0));
     }
     return o;
 }

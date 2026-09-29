@@ -16,10 +16,22 @@ struct VObj_18 : VBase_18 {
     virtual void m7();
     virtual s32 m8();
 };
+
+struct T_8032C118 { s32 a; s32 b; };
+
+struct O_8032C118 { u8 pad[0x2C]; s32 sel; };
+
 extern "C" {
 M2C_UNK send_and_handle__6TLobbyFPvii(int, void *, int);
 s32 update_window_mode_from_progress__6TLobbyFiPv(void *, void *);
 s32 TAdYesNoBaseGC__sub_8032C0B4(u8 *arg0);
+void set_selected_index__17TWindowSubComCardFPvs(s32, s16);
+void TWindowSubComCard__sub_80265C30(s32);
+void TWindowSubComCard__sub_80265E60(f32);
+s32 init_shop_judgment_window(void *);
+extern T_8032C118 lbl_804772E8[];
+extern const f32 lbl_805DF788;
+s32 TAdYesNoBaseGC__sub_8032C118(O_8032C118 *arg0);
 }
 
 extern "C" {
@@ -40,7 +52,6 @@ void *TAdYesNoBaseGC__ct(void *arg0);
 void *TAdYesNoBaseGC__vt0(void *arg0, s16 arg1);
 void TAdYesNoBaseGC__vt6(void *arg0);
 void init_parts__14TAdYesNoBaseGCFPvPvPv(void *arg0, void *arg1, void *arg2);
-u32 TAdYesNoBaseGC__sub_8032C118(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 s32 TWindowSubComCard__sub_80265BF8(u32);
 M2C_UNK TWindow__close(void *);
@@ -60,6 +71,15 @@ s32 TAdYesNoBaseGC__sub_8032C0B4(u8 *arg0) {
     temp_r31 = update_window_mode_from_progress__6TLobbyFiPv((void *) (arg0 + 0x30), (void *) (arg0 + 0x38));
     send_and_handle__6TLobbyFPvii((int) (temp_r31), (void *) (((VObj_18 *)(arg0))->m8()), (int) (1));
     return temp_r31;
+}
+
+s32 TAdYesNoBaseGC__sub_8032C118(O_8032C118 *arg0) {
+    T_8032C118 t = lbl_804772E8[0];
+    s32 r = init_shop_judgment_window(&t);
+    TWindowSubComCard__sub_80265E60(lbl_805DF788);
+    TWindowSubComCard__sub_80265C30(r);
+    set_selected_index__17TWindowSubComCardFPvs(r, (s16)arg0->sel);
+    return r;
 }
 
 void init_parts__14TAdYesNoBaseGCFPvPvPv(void *arg0, void *arg1, void *arg2) {
@@ -82,7 +102,7 @@ void TAdYesNoBaseGC__vt6(void *arg0) {
     switch (temp_r0) {
     case 0:
         M2C_FIELD(arg0, u32 *, 0x40) = TAdYesNoBaseGC__sub_8032C0B4((u8 *)(arg0));
-        M2C_FIELD(arg0, u32 *, 0x44) = TAdYesNoBaseGC__sub_8032C118(arg0);
+        M2C_FIELD(arg0, u32 *, 0x44) = TAdYesNoBaseGC__sub_8032C118((O_8032C118 *)(arg0));
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;
         break;
     case 1:

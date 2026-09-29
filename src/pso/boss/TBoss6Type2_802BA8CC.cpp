@@ -4,6 +4,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct T2_802BA9E4 { u8 pad0[0x38]; u8 f38[0x438]; s32 f470; };
+
+extern "C" {
+f32 TBoss6PlotFalz__sub_802AB684(void *);
+extern const f32 lbl_805DE444;
+s32 TBoss6Type2__sub_802BA9E4(T2_802BA9E4 *arg0);
+}
+
 extern "C" {
 
 s32 is_phase_complete__11TBoss6Type2FPv(void *arg0);
@@ -21,6 +29,12 @@ s32 is_phase_complete__11TBoss6Type2FPv(void *arg0) {
         return 1;
     }
     return 0;
+}
+s32 TBoss6Type2__sub_802BA9E4(T2_802BA9E4 *arg0) {
+    if (arg0->f470 >= 3) {
+        return 1;
+    }
+    return TBoss6PlotFalz__sub_802AB684(arg0->f38) >= lbl_805DE444;
 }
 
 }

@@ -18,6 +18,10 @@ struct RecoveredGlobal_80243010_lbl_80518580 {
     u8 remaining[0x17C];
 };
 
+struct Ent_80243070 { u8 pad[0x18]; };
+
+struct Pt_80243070 { s16 h; u8 pad[2]; f32 x; f32 y; };
+
 extern "C" {
 extern RecoveredGlobal_802430E8_lbl_80518580 lbl_80518580;
 M2C_UNK *TAdSinglePlyChrSelectGC__sub_802430E8(void);
@@ -27,6 +31,11 @@ M2C_UNK *TBoss3Volopt__sub_80242F94(u32 arg0);
 s32 is_active__12TBoss3VoloptFPv(int);
 extern RecoveredGlobal_802430E8_lbl_80518580 lbl_80518580;
 M2C_UNK *TBoss3Volopt__sub_80243010(void);
+void reset_state__23TAdSinglePlyChrSelectGCFPv(void *);
+extern RecoveredGlobal_802430E8_lbl_80518580 lbl_80518580;
+extern Pt_80243070 lbl_80518700[];
+extern const f32 lbl_805DCA04;
+void TAdSinglePlyChrSelectGC__sub_80243070(s16 arg0);
 }
 
 extern "C" {
@@ -67,6 +76,21 @@ loop_1:
         return NULL;
     }
     goto loop_1;
+}
+
+void TAdSinglePlyChrSelectGC__sub_80243070(s16 arg0) {
+    Ent_80243070 *p = ((Ent_80243070 *)&lbl_80518580);
+    s32 i;
+    Pt_80243070 *q;
+    for (i = 0; i < 16; i++, p++) {
+        reset_state__23TAdSinglePlyChrSelectGCFPv(p);
+    }
+    q = lbl_80518700;
+    for (i = 0; i < 4; i++, q++) {
+        q->h = arg0;
+        q->x = lbl_805DCA04;
+        q->y = lbl_805DCA04;
+    }
 }
 
 M2C_UNK *TAdSinglePlyChrSelectGC__sub_802430E8(void) {

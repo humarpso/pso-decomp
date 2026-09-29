@@ -4,6 +4,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Ent_80272034 { u16 a; u16 b; u8 rest[0x1c]; };
+
+struct Tbl_80272034 { u8 pad0; u8 count; u8 pad2[2]; Ent_80272034 e[1]; };
+
+struct Win_80272034 { u8 pad[0x58]; Tbl_80272034 *tbl; };
+
+struct Key_80272034 { u32 a; u32 b; };
+
 extern "C" {
 u8 *TLobby__sub_8001DC24(void);
 s32 realloc_buffer__17TWindowSubComCardFPv(void *);
@@ -13,11 +21,11 @@ void TWindowSubComCard__sub_80225E80(void *, void *);
 s32 get_id__6TLobbyFPv(void *);
 u8 *TWindowSubComCard__sub_80275228(void);
 void TWindowSubComCard__sub_802721D8(u8 *arg0);
+u8 *TWindowSubComCard__sub_80272034(Win_80272034 *arg0, Key_80272034 *arg1, s32 arg2);
 }
 
 extern "C" {
 
-int TWindowSubComCard__sub_80272034(void);
 void apply_selection__17TWindowSubComCardFi(s32 arg0);
 void cleanup__17TWindowSubComCardFPv(void* p);
 void get_message_10__17TWindowSubComCardFPvPv(void* p, void* a1);
@@ -56,7 +64,18 @@ void send_state_if_dirty__17TWindowSubComCardFPv(u8 *arg0) {
     }
 }
 
-int TWindowSubComCard__sub_80272034(void) { return 0; }
+u8 *TWindowSubComCard__sub_80272034(Win_80272034 *arg0, Key_80272034 *arg1, s32 arg2) {
+    Tbl_80272034 *t = arg0->tbl;
+    Ent_80272034 *e;
+    Key_80272034 *k;
+    s32 i;
+    k = arg1 + arg2;
+    e = t->e;
+    for (i = 0; i < t->count; i++, e++) {
+        if (e->a == k->a && e->b == k->b) return e->rest;
+    }
+    return 0;
+}
 
 void get_message_10__17TWindowSubComCardFPvPv(void* p, void* a1) { get_message_10__20TWindowSubStatusDispFPv((char*)a1 + 0xa6); }
 void apply_selection__17TWindowSubComCardFi(s32 arg0) {

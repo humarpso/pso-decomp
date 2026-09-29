@@ -18,6 +18,8 @@ struct MotionCtx_803DC894 {
 
 struct Mtx_803DC994 { f32 m[3][4]; };
 
+struct C_803DCBF0 { u32 a; u32 b; u32 c; u32 d; u32 e; u32 f; u32 g; u32 h; u32 i; };
+
 extern "C" {
 extern RecoveredGlobal_803DCBD8_lbl_8058D380 lbl_8058D380;
 extern u8 *lbl_805D774C;
@@ -44,6 +46,7 @@ void GXSetBlendMode(int, int, int, int);
 extern u32 lbl_8047E408[];
 extern u8 *lbl_805D774C;
 void TObjPlayer__sub_803DCD38(s32 arg0);
+void TObjPlayer__sub_803DCBF0(C_803DCBF0 *arg0);
 }
 
 extern "C" {
@@ -111,6 +114,18 @@ void TObjPlayer__sub_803DC994(struct Mtx_803DC994 *src) {
 void TObjPlayer__sub_803DCBD8(s32 arg0) {
     lbl_805D774C = (u8 *)&lbl_8058D380.value + (arg0 * 0x28);
 }
+
+void TObjPlayer__sub_803DCBF0(C_803DCBF0 *arg0) {
+    arg0->a = 0x808C0000;
+    arg0->c = 0;
+    arg0->d = 0x949004C0;
+    arg0->e = 0x80012;
+    arg0->f = -1;
+    arg0->g = -1;
+    arg0->h = 0x20000000;
+    arg0->i = 0;
+}
+
 void TObjPlayer__sub_803DCD38(s32 arg0) {
     u32 v = M2C_FIELD(lbl_805D774C, u32 *, 0xC);
     int src = lbl_8047E408[(v & 0xE0000000) >> 29];

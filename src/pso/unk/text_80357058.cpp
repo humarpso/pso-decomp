@@ -7,6 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_80357548___vt__20TItemEffOrgaFlowShot { M2C_UNK value; u8 remaining[0x1C]; };
 typedef char RecoveredGlobal_80357548___vt__20TItemEffOrgaFlowShot_size[sizeof(RecoveredGlobal_80357548___vt__20TItemEffOrgaFlowShot) == 0x20 ? 1 : -1];
 
+struct B_80357058 { u8 hdr[4]; u8 d[0x40]; u8 tail[8+1]; };
+
 extern "C" {
 u8 * fn_802E4A4C(void *, M2C_UNK, void *);
 int TItemEffOrgaFlowShot__sub_80357284(void *);
@@ -23,6 +25,10 @@ u8 *TItemEffOrgaFlowShot__ct(u8 *arg0, s32 arg1, u8 *arg2);
 extern const f32 lbl_805E0028;
 extern const f32 lbl_805E002C;
 void TItemEffOrgaFlowShot__sub_80357358(u8 *arg0);
+s32 TLobby__sub_800C6C10();
+void bswap_6xAD_subordinate_action__20TItemEffOrgaFlowShotFPv(void* p);
+void build_6xAD_olga_flow_subordinate_boss_actions(void* p);
+void send_6xAD_olga_flow_subordinate_boss_actions(u8 *arg0);
 }
 
 extern "C" {
@@ -50,6 +56,18 @@ int read_be16_field2__10TObjPlayerFPv(void*);
 M2C_UNK reset_player_transform();
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK set_depth_buffer_settings_1__Fv();
+
+void send_6xAD_olga_flow_subordinate_boss_actions(u8 *arg0) {
+    B_80357058 b;
+    s32 i;
+    if (TLobby__sub_800C6C10() != 0) {
+        build_6xAD_olga_flow_subordinate_boss_actions((void*)(&b));
+        for (i = 0; i < 0x40; i++) {
+            b.d[i] = arg0[i];
+        }
+        bswap_6xAD_subordinate_action__20TItemEffOrgaFlowShotFPv((void*)(&b));
+    }
+}
 
 void TBoss6Type2__sub_803570C8(s8 *arg0) {
     s32 var_ctr;

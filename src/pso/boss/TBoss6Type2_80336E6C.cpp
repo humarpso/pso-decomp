@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct O_80337054 { u8 pad[0x3CC]; s32 f3cc; u8 pad2[0x410 - 0x3D0]; s32 f410; };
+
 extern "C" {
 void TBoss6Type2__sub_8032F5C4(void *);
 s32 TBoss6Type2__sub_803301B8(void * a0, s32 a1);
@@ -14,13 +16,15 @@ s32 TBoss6Type2__sub_803301B8(void * a0, s32 a1);
 extern const f32 lbl_805DF980;
 extern const f32 lbl_805DF984;
 void TBoss6Type2__sub_80336F54(u8 *arg0);
+int TBoss6Type2__sub_8032E7B4(void*, void*);
+void TBoss6Type2__sub_8032F304();
+void TBoss6Type2__sub_80337054(O_80337054 *arg0);
 }
 
 extern "C" {
 
 void TBoss6Type2__sub_80336F00(void* p);
 void TBoss6Type2__sub_80336FB8(void* p);
-int TBoss6Type2__sub_80337054(void);
 void TBoss6Type2__sub_80337108(void);
 void TBoss6Type2__sub_80337160(void);
 void TBoss6Type2__sub_803371B4(void* p);
@@ -89,7 +93,17 @@ void tick_attack_timer__11TBoss6Type2FPv(void *arg0) {
     }
 }
 
-int TBoss6Type2__sub_80337054(void) { return 0; }
+void TBoss6Type2__sub_80337054(O_80337054 *arg0) {
+    arg0->f3cc = 0x25;
+    switch (arg0->f410) {
+    case 0:
+        TBoss6Type2__sub_8032F304();
+        break;
+    default:
+        break;
+    }
+    TBoss6Type2__sub_8032E7B4((void*)(arg0), (void*)((void *)3));
+}
 
 void update_effect_subsystems__11TBoss6Type2FPv(void *arg0) {
     TBoss6Type2__sub_8032F690();

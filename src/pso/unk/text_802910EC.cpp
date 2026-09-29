@@ -34,6 +34,18 @@ void fn_802911E8(f32 farg0);
 extern u8 lbl_804D9578[];
 extern s32 lbl_805D656C;
 void TCharaMaking__resolve_creation_sprite_table(u8 **table, s32 *id);
+void TLobby__sub_801E468C(int, void *);
+void TObjCMIcon__sub_8029951C();
+s32 create__10TObjCMIconFPv(int);
+extern RecoveredGlobal_80291138_lbl_804D9668 lbl_804D9668;
+extern s32 lbl_804DA944[];
+extern f32 lbl_805D3C98;
+extern s32 lbl_805D5544;
+extern s32 tl_06;
+extern u32 lbl_805D6568;
+extern s32 lbl_805D656C;
+extern const f32 lbl_805DD964;
+void fn_80291178(void);
 }
 
 extern "C" {
@@ -67,6 +79,18 @@ void fn_80291138(void) {
 #pragma push
 #pragma fp_contract on
 typedef char RecoveredGlobal_802911E8_lbl_804DAA78_size[sizeof(RecoveredGlobal_802911E8_lbl_804DAA78) == 0x90 ? 1 : -1];
+
+void fn_80291178(void) {
+    lbl_805D656C = 0;
+    lbl_805D3C98 = lbl_805DD964;
+    if (lbl_805D5544 != 0) {
+        lbl_805D656C = 1;
+    }
+    TObjCMIcon__sub_8029951C();
+    (*(s32 *)&lbl_805D6568) = create__10TObjCMIconFPv(tl_06);
+    TLobby__sub_801E468C(lbl_804DA944[lbl_805D656C], ((s32 *)&lbl_804D9668));
+}
+
 void fn_802911E8(f32 farg0) {
     struct CopyStack_802911E8 { u8 bytes[0x48]; };
     CopyStack_802911E8 copy_storage_802911E8;

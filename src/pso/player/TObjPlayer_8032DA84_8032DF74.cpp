@@ -5,6 +5,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct O_8032DFF8 { u8 pad[0x1C]; void *o[3]; };
+
 extern "C" {
 u32 TBoss4Type2__sub_800874F4(void *, int);
 M2C_UNK TTecLuker__sub_8008764C(u32, int);
@@ -17,11 +19,12 @@ extern const f32 lbl_805DF7E8;
 void TObjPlayer__sub_8032E0A4(u8 *arg0);
 u8 *TPhotonMylla__sub_80154CB4(u16);
 void TObjPlayer__sub_8032DF74(u8 *arg0);
+void queue_destruction__7TObjectFv(void *);
+void TObjPlayer__sub_8032DFF8(O_8032DFF8 *arg0);
 }
 
 extern "C" {
 
-int TObjPlayer__sub_8032DFF8(void);
 void TObjPlayer__sub_8032E054(void);
 
 void TObjPlayer__sub_8032DF74(u8 *arg0) {
@@ -40,7 +43,15 @@ void TObjPlayer__sub_8032DF74(u8 *arg0) {
   }
 }
 
-int TObjPlayer__sub_8032DFF8(void) { return 0; }
+void TObjPlayer__sub_8032DFF8(O_8032DFF8 *arg0) {
+    s32 i;
+    for (i = 0; i != 3; i++) {
+        if (arg0->o[i] != 0) {
+            queue_destruction__7TObjectFv(arg0->o[i]);
+            arg0->o[i] = 0;
+        }
+    }
+}
 
 void TObjPlayer__sub_8032E054(void) {  }
 #pragma push

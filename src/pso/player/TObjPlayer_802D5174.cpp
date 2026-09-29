@@ -7,6 +7,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct O_802D576C { u8 pad[0x24a]; s16 v; };
 
+typedef struct E_802D56F0 { u8 p[0xC]; } E_802D56F0;
+
+typedef struct S_802D56F0 {
+    u8 pad0[0xF4];
+    s32 fF4;
+    u8 padF8[0x20C - 0xF8];
+    E_802D56F0 e[1];
+} S_802D56F0;
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_801012DC(void *, s16);
 M2C_UNK TObjPlayer__sub_802D577C(void *);
@@ -14,6 +23,14 @@ void TObjPlayer__sub_802D5894(void *arg0);
 M2C_UNK spawn_item__10TObjPlayerFi(void *);
 void TObjPlayer__sub_802D5628(M2C_UNK arg0, s32 arg1);
 void TObjPlayer__sub_802D576C(O_802D576C *self, s32 x);
+s32 get_flag_40__8TItemMagFPv(void *);
+void TObjPlayer__sub_80120908(void);
+void TObjContainerIdo__sub_803D96A8(s32, s32);
+void TObjPlayer__sub_803D9B2C(void);
+void TObjPlayer__sub_803D9B78(void);
+void TOHangerMachine01__sub_803D9C00(void *);
+void TObjBoss2Tunnel__sub_803DB470(s32);
+void TObjPlayer__sub_802D56F0(u8 *arg0);
 }
 
 extern "C" {
@@ -41,6 +58,24 @@ void set_radar_marker_pos__10TObjPlayerFiPv(int a0, void* a1) { set_radar_marker
 
 void TObjPlayer__sub_802D5628(M2C_UNK arg0, s32 arg1) {
     spawn_item__10TObjPlayerFi((void *) (arg1));
+}
+
+void TObjPlayer__sub_802D56F0(u8 *arg0) {
+    E_802D56F0 *p;
+    s32 n;
+    TObjPlayer__sub_80120908();
+    if (get_flag_40__8TItemMagFPv(arg0) == 0) {
+        n = *(s16 *)(arg0 + 0x24A);
+        p = ((S_802D56F0 *)arg0)->e;
+        while (n != 0) {
+            TObjPlayer__sub_803D9B2C();
+            TOHangerMachine01__sub_803D9C00(p++);
+            TObjContainerIdo__sub_803D96A8(0, -0x4000);
+            TObjBoss2Tunnel__sub_803DB470(((S_802D56F0 *)arg0)->fF4);
+            TObjPlayer__sub_803D9B78();
+            n--;
+        }
+    }
 }
 
 void TObjPlayer__sub_802D576C(O_802D576C *self, s32 x) {

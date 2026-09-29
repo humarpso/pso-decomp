@@ -9,6 +9,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #pragma dont_inline off
 struct M2CCopy_C { u8 bytes[0xc]; };
 
+struct Item_8033EC40 { u8 b[0x24]; };
+
+struct O_8033EC40 { u8 pad[0x1C]; Item_8033EC40 *items; s32 n; };
+
 extern "C" {
 s32 TCameraCtrl__sub_800689F4();
 M2C_UNK TCameraCtrl__sub_80082FCC(void *, void *);
@@ -33,6 +37,9 @@ extern const f32 lbl_805DFACC;
 extern const f32 lbl_805DFAD0;
 void TObjPlayer__sub_8033E988(void);
 void TObjPlayer__sub_8033EAF0(s32 arg0, s32 arg1);
+void queue_destruction__7TObjectFv(void *);
+void TLobby__sub_8033EE38(void *);
+void TLobby__sub_8033EC40(O_8033EC40 *arg0);
 }
 
 extern "C" {
@@ -96,6 +103,17 @@ void TObjPlayer__sub_8033EAF0(s32 arg0, s32 arg1) {
     M2C_FIELD(arg0, u16 *, 0x20) = (u16) M2C_FIELD(arg1, u16 *, 0x20);
     M2C_FIELD(arg0, u8 *, 0x22) = (u8) M2C_FIELD(arg1, u8 *, 0x22);
     M2C_FIELD(arg0, u8 *, 0x23) = (u8) M2C_FIELD(arg1, u8 *, 0x23);
+}
+void TLobby__sub_8033EC40(O_8033EC40 *arg0) {
+    s32 i;
+    if (arg0->items == 0) {
+        queue_destruction__7TObjectFv(arg0);
+        return;
+    }
+    for (i = 0; i < arg0->n; i++) {
+        TLobby__sub_8033EE38(&arg0->items[i]);
+    }
+    arg0->n = 0;
 }
 
 }

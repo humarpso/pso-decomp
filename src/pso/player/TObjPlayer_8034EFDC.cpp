@@ -108,6 +108,8 @@ struct Self_8012573C { u8 pad[0x23c]; u32 f23c; };
 
 struct Out_8012573C { u8 pad[0x40]; u32 f40; u8 pad44[0x50 - 0x44]; s32 f50; u8 pad54[0x70 - 0x54]; void *f70; void *f74; s32 f78; s32 f7c; };
 
+struct P_8034F020 { u8 pad0[0x1F8]; s32 f1F8; };
+
 extern "C" {
 void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1);
 int fn_80308244(void);
@@ -135,6 +137,9 @@ void TObjPlayer__sub_8034F590(void *a, O_8034F590 *o);
 u32 TLobby__sub_80101AB0(void);
 s32 TObjPlayer__sub_8034F4FC(u32 a0, s32 a1);
 void TObjPlayer__sub_8034F4AC(s32 arg0, s32 arg1);
+s32 get_player_list__10TObjPlayerFv();
+M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
+void TObjPlayer__sub_8034F020(P_8034F020 *arg0);
 }
 
 extern "C" {
@@ -143,7 +148,6 @@ void *item_equip_variant_deleting_dtor_8034F104(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_8034F36C(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_8034F6FC(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_8034F948(void *arg0, s16 arg1);
-int TObjPlayer__sub_8034F020(void);
 void TObjPlayer__sub_8034F8B8(void* p);
 void TObjPlayer__sub_8034F900(void* p);
 int apply_recoil_forward__10TObjPlayerFPv(void* p);
@@ -176,7 +180,13 @@ void spawn_effect__10TObjPlayerFPv(void *arg0) {
     TObjEneDellBiter__sub_80087350(sp8, 0x1D0);
 }
 
-int TObjPlayer__sub_8034F020(void) { return 0; }
+void TObjPlayer__sub_8034F020(P_8034F020 *arg0) {
+    switch (get_player_list__10TObjPlayerFv()) {
+    case 1:
+        ((s32)TObjBoss2Tunnel__sub_803D929C((M2C_UNK)(0), (s32)(arg0->f1F8)));
+        break;
+    }
+}
 
 void reset_shoot_models__10TObjPlayerFPv(void* p) { TObjPlayer__sub_80120BBC(p, (void*)49); TObjPlayer__sub_8011E87C(p, (void*)0); TObjPlayer__sub_8011E87C(p, (void*)1); }
 int apply_recoil_forward__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_80115BC0((void*)((char*)p + 0x1f8), (void*)(1820), (void*)(13653)); }

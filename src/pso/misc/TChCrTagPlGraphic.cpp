@@ -28,6 +28,10 @@ extern const f32 lbl_805DDF18;
 extern const f32 lbl_805DDF2C;
 extern const f32 lbl_805DDF30;
 u8 *__ct__17TChCrTagPlGraphicFv(u8 *arg0, s32 arg1, s32 _w2);
+s32 get_selected_index__15TChCrCharSelectFv();
+s32 get_selected_char__15TChCrCharSelectFv();
+s32 get_instance__15TChCrCharSelectFv();
+s32 TChCrTagPlGraphic__vt4(u8 *arg0);
 }
 
 extern "C" {
@@ -50,6 +54,23 @@ extern void *tl_03;
 
 typedef char RecoveredGlobal_802A3454_TChCrTagPlGraphic__data_804664A4_size[sizeof(TChCrTagPlGraphic__data_804664A4) == 0x120 ? 1 : -1];
 typedef char RecoveredGlobal_802A3454___vt__17TChCrTagPlGraphic_size[sizeof(RecoveredGlobal_802A3454___vt__17TChCrTagPlGraphic) == 0x20 ? 1 : -1];
+
+s32 TChCrTagPlGraphic__vt4(u8 *arg0) {
+    switch (get_selected_index__15TChCrCharSelectFv()) {
+    case 0:
+        if (*(s32 *)(arg0 + 0x20) / 4 == get_selected_char__15TChCrCharSelectFv()) {
+            return 1;
+        }
+        break;
+    default:
+        if (*(s32 *)(arg0 + 0x20) == get_instance__15TChCrCharSelectFv()) {
+            return 1;
+        }
+        break;
+    }
+    return 0;
+}
+
 u8 *__ct__17TChCrTagPlGraphicFv(u8 *arg0, s32 arg1, s32 _w2) {
     u8 *temp_r5;
     __ct__8TChCrTagFv(arg0, arg1);
@@ -73,6 +94,20 @@ void *create__17TChCrTagPlGraphicFPv(void *arg0) {
         o = __ct__17TChCrTagPlGraphicFv((u8 *)(o), (s32)(tl_03), (s32)(arg0));
     }
     return o;
+}
+
+struct Ent_802A3534 { f32 a; f32 b; u8 pad[0x10]; };
+extern f32 lbl_804665C4[];
+
+void TChCrTagPlGraphic__sub_802A3534(void) {
+    s32 i, j;
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 12; j++) {
+            if (((Ent_802A3534 *)&TChCrTagPlGraphic__data_804664A4)[j].b == lbl_804665C4[i]) {
+                create__17TChCrTagPlGraphicFPv((void *)j);
+            }
+        }
+    }
 }
 
 }

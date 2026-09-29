@@ -13127,6 +13127,7 @@ pso/unk/text_8027FCE4.cpp:
 
 pso/unk/text_8027FD88.cpp:
 	.text       start:0x8027FD88 end:0x80281198
+	.rodata     start:0x8044FB00 end:0x8044FB08
 
 pso/misc/TWindowSubStatusDisp_80281198.cpp:
 	.text       start:0x80281198 end:0x80281814

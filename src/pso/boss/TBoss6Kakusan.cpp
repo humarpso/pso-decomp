@@ -7,6 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct RecoveredGlobal_80322994___vt__13TBoss6Kakusan { M2C_UNK value; u8 remaining[0x14]; };
 
+struct V3_80322644 { f32 x; f32 y; f32 z; };
+
+struct Obj_80322644 { u8 pad[0x30]; V3_80322644 pos; };
+
 extern "C" {
 u8 *__nw__7TObjectFUl(M2C_UNK);
 u8 *TBoss6Type1__sub_80322AE0(s32 arg0, u8 *arg1, u8 *arg2, s16 arg3, f32 farg0);
@@ -22,6 +26,12 @@ extern const f32 TBoss6Kakusan__data_805DF518;
 extern const f32 TBoss6Kakusan__data_805DF51C;
 extern const f32 lbl_805DF53C;
 u8 *TBoss6Kakusan__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4, f32 farg0);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+extern const f32 TBoss6Kakusan__data_805DF518;
+extern const f32 lbl_805DF52C;
+extern const f32 lbl_805DF530;
+extern const f32 lbl_805DF534;
+s32 TBoss6Kakusan__sub_80322644(Obj_80322644 *arg0);
 }
 
 extern "C" {
@@ -35,6 +45,15 @@ void render__15TAdLdQuestPrtGCFv(void);
 void request_destroy__11TBoss4Type2FUi(void *);
 
 int TBoss6Kakusan__sub_8032263C(void) { return 0; }
+
+s32 TBoss6Kakusan__sub_80322644(Obj_80322644 *arg0) {
+    if (arg0->pos.y < lbl_805DF52C || arg0->pos.y > lbl_805DF530) {
+        return 1;
+    }
+    V3_80322644 v = arg0->pos;
+    v.y = TBoss6Kakusan__data_805DF518;
+    return TBoss6Kakusan__sub_803D8BD8(&v) > lbl_805DF534;
+}
 
 void render__13TBoss6KakusanFv(void) {  }
 

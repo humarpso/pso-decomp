@@ -96,6 +96,14 @@ void TObjEneGibbles__sub_802D7ED4(u8 *arg0, s32 arg1, s32 arg2);
 extern RecoveredGlobal_802D7A2C_lbl_804E28B0 lbl_804E28B0;
 extern const f32 lbl_805DE7E0;
 void TObjEneGibbles__sub_802D7A2C(M2C_UNK arg0, s32 arg1, f32 farg0);
+s32 get_main_phase();
+s32 is_split_screen();
+void TCameraCtrl__sub_8006A044(s32, f32);
+s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+extern s32 lbl_805D53A0;
+extern const f32 lbl_805DE7E0;
+void TObjEneGibbles__sub_802D7A54(void *arg0);
 }
 
 extern "C" {
@@ -136,6 +144,19 @@ void TObjEneGibbles__sub_802D7A2C(M2C_UNK arg0, s32 arg1, f32 farg0) {
   new_var = (u8 *) (&lbl_804E28B0.value);
   new_var = new_var + (arg1 * 0x10);
   *((f32 *) (((s8 *) new_var) + 8)) = var_f1;
+}
+
+void TObjEneGibbles__sub_802D7A54(void *arg0) {
+    s16 t;
+    s16 u;
+    u32 r;
+    if ((get_main_phase() == 0xF || is_split_screen() == 0) && (r = TPlayerBattleCtrl4P__sub_801BA74C((void *)lbl_805D53A0)) != 0) {
+        t = get_stat_by_key_state__10TObjPlayerFPv((void *)r);
+        u = get_stat_by_key_state__10TObjPlayerFPv(arg0);
+        if (u == t) {
+            TCameraCtrl__sub_8006A044(0x1E, lbl_805DE7E0);
+        }
+    }
 }
 
 s32 TObjEneGibbles__sub_802D7BE0(s32 arg0) {

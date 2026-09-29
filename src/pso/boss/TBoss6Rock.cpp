@@ -28,6 +28,8 @@ struct Rock_80353EDC { u8 pad[0xb8]; s32 b8; u8 pad2[4]; s32 c0; u8 pad3[4]; s32
 
 struct Rock_80353EA4 { u8 pad[0xc8]; s32 state; };
 
+struct R_80353E5C { u8 pad0[0xC4]; s32 fC4; s32 fC8; };
+
 extern "C" {
 void release_object__10TBoss6RockFPv(void* p);
 void TBoss6Rock__sub_803542E8(void *, s32);
@@ -74,6 +76,8 @@ extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543
 void TBoss6Rock__sub_80353EDC(s32 i, s32 a, s32 b);
 extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
 void TBoss6Rock__sub_80353EA4(s32 i);
+extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
+void TBoss6Rock__sub_80353E5C(s32 arg0);
 }
 
 extern "C" {
@@ -214,6 +218,18 @@ s32 TBoss6Rock__sub_80353E10(s32 arg0) {
         return 0U;
     }
     return (u8) (M2C_FIELD(temp_r3, s32 *, 0xC4) == 2);
+}
+
+void TBoss6Rock__sub_80353E5C(s32 arg0) {
+    R_80353E5C *r;
+    if (arg0 < 0 || arg0 >= 0x20) {
+        return;
+    }
+    r = ((R_80353E5C * *)&TBoss6Rock__data_80543778)[arg0];
+    if (r == NULL || r->fC4 != 2) {
+        return;
+    }
+    r->fC8 = 0;
 }
 
 void TBoss6Rock__sub_80353EA4(s32 i) {

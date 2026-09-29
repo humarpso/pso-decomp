@@ -24,12 +24,23 @@ struct VObj_18_373ea7 : VBase_18_373ea7 {
     virtual M2C_UNK m14();
 };
 
+typedef struct S_802C86D4 { u8 pad0[0xE8]; s32 fE8; } S_802C86D4;
+
+typedef struct P_802C86D4 {
+    u8 pad0[2];
+    u16 sA;
+    s16 sC;
+    u8 pad6[2];
+    s16 s10;
+    s8 b12;
+    s8 b13;
+} P_802C86D4;
+
 extern "C" {
 void set_global_param__8TObjFishFi(void *);
 void TObjPlayer__sub_803D9B2C(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 void TObjPlayer__sub_803D9214(int, void *);
-extern M2C_UNK TParticleCtrl__sub_802C8464[];
 void set_npc_enemy_param(void *);
 void TObjPlayer__sub_801E2DE4(void *, void *, f32);
 void begin_effect_render__13TParticleCtrlFv(void);
@@ -40,6 +51,15 @@ M2C_UNK TOTrapChainSaw__ct();
 extern M2C_UNK __vt__18TOTrapChainSawEdge[];
 extern s32 lbl_805D3F0C;
 u8 *TOTrapChainSawEdge__ct(u8 *arg0);
+extern u32 lbl_80540B30[5];
+extern u32 lbl_80540B44[5];
+void begin_effect_render__13TParticleCtrlFv(void);
+void end_effect_render__13TParticleCtrlFv(void);
+void TParticleCtrl__sub_802C8464(u32 arg0);
+s8 TObjPlayer__sub_800196EC(int);
+void finalize_and_send_60__6TLobbyFPv(void *);
+void init_6x05_switch_changed__6TLobbyFPv(void *);
+void TOTrapChainSawKey__vt16(S_802C86D4 *arg0);
 }
 
 extern "C" {
@@ -59,6 +79,23 @@ u8 *TOTrapChainSawEdge__ct(u8 *arg0) {
     return arg0;
 }
 
+void TParticleCtrl__sub_802C8464(u32 arg0) {
+    s32 i;
+    for (i = 0; i < 5; i++) {
+        if (arg0 == lbl_80540B30[i]) {
+            begin_effect_render__13TParticleCtrlFv();
+            return;
+        }
+    }
+    for (i = 0; i < 5; i++) {
+        if (arg0 == lbl_80540B44[i]) {
+            begin_effect_render__13TParticleCtrlFv();
+            return;
+        }
+    }
+    end_effect_render__13TParticleCtrlFv();
+}
+
 void TOTrapChainSawKey__vt25(void) {  }
 void TOTrapChainSawKey__vt15(void* p) { if (*(int*)((char*)p + 0xf0) != 1) { TOTrapChainSaw__sub_802C91DC(p); } }
 
@@ -69,7 +106,7 @@ void TOTrapChainSawKey__vt23(void *arg0) {
     TObjPlayer__sub_803D9B2C();
     TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, void **, 0x60));
     TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, void **, 0xD4));
-    set_npc_enemy_param(TParticleCtrl__sub_802C8464);
+    set_npc_enemy_param(((M2C_UNK *)TParticleCtrl__sub_802C8464));
     TObjPlayer__sub_801E2DE4(M2C_FIELD(arg0, void **, 0xC8), M2C_FIELD(arg0, void **, 0xBC), M2C_FIELD(arg0, f32 *, 0xB4));
     ((void (*)(int))set_npc_enemy_param)(0);
     if (M2C_FIELD(arg0, s32 *, 0xF0) == 1) {
@@ -80,6 +117,16 @@ void TOTrapChainSawKey__vt23(void *arg0) {
     TObjPlayer__sub_803D9B78();
     TObjPlayer__sub_803D9B78();
     end_effect_render__13TParticleCtrlFv();
+}
+void TOTrapChainSawKey__vt16(S_802C86D4 *arg0) {
+    P_802C86D4 p;
+    init_6x05_switch_changed__6TLobbyFPv(&p);
+    p.sC = 0;
+    p.sA = 0xFFFF;
+    p.s10 = arg0->fE8;
+    p.b12 = TObjPlayer__sub_800196EC(0xFFFF);
+    p.b13 = 1;
+    finalize_and_send_60__6TLobbyFPv(&p);
 }
 
 }

@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef struct S_802DC294 { u8 pad0[0x5C]; s32 f5C; } S_802DC294;
+
 extern "C" {
 M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(int);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
@@ -49,11 +51,24 @@ s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
 extern M2C_UNK lbl_80472890[];
 extern const f32 lbl_805DE894;
 s32 TAdMultiPlyChrSelectGC__sub_802DBF3C(void);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+M2C_UNK free_member__17TWindowSubComCardFPv(int, int);
+M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(int, int, void *, f32);
+s32 TWindowMessageYesNo__sub_802A59D8(void *, int, int, int);
+extern u8 lbl_80472898[];
+extern const f32 lbl_805DE88C;
+s32 TAdMultiPlyChrSelectGC__sub_802DBDE0(void);
+extern u8 lbl_80541230[];
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+void *memset(void *, int, u32);
+s32 sprintf(void *, const void *, ...);
+u8 *TAdMultiPlyChrSelectGC__sub_802DC22C(s32 arg0, s32 arg1);
+s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
+s32 TAdMultiPlyChrSelectGC__sub_802DC294(S_802DC294 *arg0, s32 arg1);
 }
 
 extern "C" {
 
-int TAdMultiPlyChrSelectGC__sub_802DC294(void);
 void TAdMultiPlyChrSelectGC__sub_802DC310(void *arg0);
 s32 get_state_result__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 int request_scene_change__22TAdMultiPlyChrSelectGCFPv(void* p);
@@ -85,6 +100,15 @@ s32 TAdMultiPlyChrSelectGC__sub_802DBD64(s32 arg0) {
     forward_slot_selection__16TAdChrSelASlotGCFPvPvPv((int) (temp_r31), (int) (TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x1F), (int) (9))), (void *) (lbl_804728A0), (f32) (lbl_805DE88C));
     free_member__17TWindowSubComCardFPv((int) (temp_r31), (int) (1));
     return temp_r31;
+}
+
+s32 TAdMultiPlyChrSelectGC__sub_802DBDE0(void) {
+    void *u1;
+    int u2;
+    s32 r = TWindowMessageYesNo__sub_802A59D8(u1, u2, 0, 0);
+    forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(r, TAdSinglePlyChrSelectGC__sub_80132F2C(0x1F, 8), lbl_80472898, lbl_805DE88C);
+    free_member__17TWindowSubComCardFPv(r, 1);
+    return r;
 }
 
 s32 TAdMultiPlyChrSelectGC__sub_802DBE4C(long long arg1) {
@@ -140,7 +164,23 @@ s32 get_state_result__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     return var_r4;
 }
 
-int TAdMultiPlyChrSelectGC__sub_802DC294(void) { return 0; }
+u8 *TAdMultiPlyChrSelectGC__sub_802DC22C(s32 arg0, s32 arg1) {
+    memset(lbl_80541230, 0, 0x80);
+    sprintf(lbl_80541230, (const void *)TAdSinglePlyChrSelectGC__sub_80132F2C(0x1F, 0), arg1 + 1);
+    return lbl_80541230;
+}
+
+s32 TAdMultiPlyChrSelectGC__sub_802DC294(S_802DC294 *arg0, s32 arg1) {
+    switch (arg1) {
+    case 0:
+    case 2:
+        return TAdMultiPlyChrSelectGC__sub_802DFFE8(arg0->f5C);
+    case 1:
+        return TAdMultiPlyChrSelectGC__sub_802DFFE8(arg0->f5C) + 4;
+    default:
+        return -1;
+    }
+}
 
 int request_scene_change__22TAdMultiPlyChrSelectGCFPv(void* p) { return request_scene_change__21TAdMultiChgGameModeGCFv(p); }
 void TAdMultiPlyChrSelectGC__sub_802DC310(void *arg0) {

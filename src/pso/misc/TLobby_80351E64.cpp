@@ -22,12 +22,13 @@ int TLanguage__sub_801E4874(void*);
     extern unsigned char lbl_80478E20[];
 extern int lbl_805D6EC4;
 void load_obj_lobby_main(void);
-int fn_80352094(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 TLobby__sub_80351DFC(void);
 extern const M2C_UNK lbl_804F0EA8[];
 extern u8 *tl_00;
 u8 *TLobby__sub_80351FDC(u8 *arg0);
+s32 TLobby__sub_80351DFC(void);
+s32 fn_80352094(void);
 }
 
 extern "C" {
@@ -98,6 +99,17 @@ void TLobby__sub_8035202C(void) {
     }
 }
 void load_obj_lobby_main(void) { lbl_805D6EC4 = TLanguage__sub_801E4874(lbl_80478E20); }
-int fn_80352094(void) { return 0; }
+s32 fn_80352094(void) {
+    s32 r = TLobby__sub_80351DFC();
+    switch (r) {
+    case 12:
+        r = 0;
+        break;
+    case 13:
+        r = 8;
+        break;
+    }
+    return r;
+}
 
 }

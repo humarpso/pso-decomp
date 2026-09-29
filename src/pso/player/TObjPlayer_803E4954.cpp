@@ -17,6 +17,11 @@ M2C_UNK TObjPlayer__sub_803E4468();
 void TObjPlayer__sub_803E44D4();
 M2C_UNK TObjPlayer__sub_803E496C(void *, void *, f32, void (*)());
 void TObjPlayer__sub_803E4A94(void *arg0, void *arg1, f32 farg0);
+M2C_UNK TObjPlayer__sub_803E4354();
+M2C_UNK TObjPlayer__sub_803E4468();
+void TObjPlayer__sub_803E44D4();
+void TObjPlayer__sub_803E4D8C(void *, void *, void *, f32, void (*)(void));
+void TObjEneSlimeOne__sub_803E4B54(void *arg0, void *arg1, void *arg2, f32 farg0);
 }
 
 extern "C" {
@@ -49,6 +54,12 @@ void TObjPlayer__sub_803E4A94(void *arg0, void *arg1, f32 farg0) {
 void TObjEneSlimeOne__sub_803E4AF4(void *arg0, void *arg1, f32 farg0) {
     TObjPlayer__sub_803E4354();
     TObjPlayer__sub_803E4BDC(arg0, arg1, farg0, TObjPlayer__sub_803E44D4);
+    TObjPlayer__sub_803E4468();
+}
+
+void TObjEneSlimeOne__sub_803E4B54(void *arg0, void *arg1, void *arg2, f32 farg0) {
+    TObjPlayer__sub_803E4354();
+    TObjPlayer__sub_803E4D8C(arg0, arg1, arg2, farg0, TObjPlayer__sub_803E44D4);
     TObjPlayer__sub_803E4468();
 }
 

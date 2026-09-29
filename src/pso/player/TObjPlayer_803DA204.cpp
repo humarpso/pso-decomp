@@ -6,10 +6,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct S_803DA218 { s32 a; u32 c; s32 b; };
 
+struct Sub_803DA688 { u32 v; };
+
+struct Rec_803DA688 { u32 a; u32 b; u32 c; Sub_803DA688 *d; u32 e; u32 f; };
+
 extern "C" {
 extern s32 lbl_805D7758;
 void TObjPlayer__sub_803DA6E0(u8 *arg0);
 void TObjPlayer__sub_803DA218(S_803DA218 *self, s32 a, s32 b, u32 c);
+extern s32 lbl_805D7764;
+extern Rec_803DA688 *lbl_805D7768;
+s32 TObjPlayer__sub_803DA688(u32 arg0, u32 arg1);
 }
 
 extern "C" {
@@ -39,6 +46,19 @@ void TObjPlayer__sub_803DA218(S_803DA218 *self, s32 a, s32 b, u32 c) {
     }
 }
 #pragma pop
+
+s32 TObjPlayer__sub_803DA688(u32 arg0, u32 arg1) {
+    Sub_803DA688 *d;
+    s32 i;
+    Rec_803DA688 *p = lbl_805D7768;
+    for (i = 0; i < lbl_805D7764; p++, i++) {
+        if (p->c == arg1) {
+            d = p->d;
+            if (d != 0 && d->v == arg0) return i;
+        }
+    }
+    return -1;
+}
 
 void TObjPlayer__sub_803DA6E0(u8 *arg0) {
     u8 *temp_r4;

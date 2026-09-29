@@ -9,6 +9,13 @@ struct RecoveredGlobal_8028C378___vt__22TChCrLoadAfsTextureReq {
     u8 remaining[0x14];
 };
 
+struct S_8028C310 { u8 pad0[4]; s32 cnt; };
+
+struct R_8028C310 {
+    u8 pad0[0x1c]; s32 f1c; u8 pad20[8]; s32 f28; s32 f2c; S_8028C310 *f30; u8 pad34[4];
+    s32 tab[8]; s32 f58; s32 f5c; u8 pad60[4]; s32 f64; s32 f68;
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *, int, int);
 s32 TLobby__sub_8001ED88(int);
@@ -22,10 +29,10 @@ M2C_UNK TLobby__sub_8028D628(int, int);
 s32 start_load_default__6TLobbyFPv(int);
 void TLobby__sub_8028C530(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
-void TChCrLoadAfsTextureReq__sub_8028C310(void *);
 extern M2C_UNK __vt__22TChCrLoadAfsTextureReq[];
 extern void *lbl_805D3B50;
 u8 *TChCrLoadAfsTextureReq__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 *arg3, s32 arg4);
+void TChCrLoadAfsTextureReq__sub_8028C310(R_8028C310 *arg0);
 }
 
 extern "C" {
@@ -37,7 +44,6 @@ void finish_request__22TChCrLoadAfsTextureReqFPv(void *arg0);
 void *init__22TChCrLoadAfsTextureReqFPvPvPv(void *arg0, void *arg1, void *arg2);
 s32 try_acquire_load_slot__22TChCrLoadAfsTextureReqFPv(void *arg0);
 void try_begin_load__22TChCrLoadAfsTextureReqFPv(void* p);
-void TChCrLoadAfsTextureReq__sub_8028C310(void *);
 void *__nw__7TObjectFUl(int);
 f64 cancel_dvd_async();
 
@@ -78,6 +84,22 @@ extern M2C_UNK __vt__22TChCrLoadAfsTextureReq[];
 extern void *lbl_805D3B50;
 
 typedef char RecoveredGlobal_8028C378___vt__22TChCrLoadAfsTextureReq_size[sizeof(RecoveredGlobal_8028C378___vt__22TChCrLoadAfsTextureReq) == 0x18 ? 1 : -1];
+
+void TChCrLoadAfsTextureReq__sub_8028C310(R_8028C310 *arg0) {
+    s32 i;
+    arg0->f58 = arg0->f30->cnt;
+    if (arg0->f58 <= 0 || arg0->f58 > 8) return;
+    {
+    for (i = 0; i < 8; i++) arg0->tab[i] = 0;
+    arg0->f1c = 0;
+    arg0->f2c = 0;
+    arg0->f5c = 0;
+    arg0->f28 = 0;
+    arg0->f64 = 0x14FA;
+    arg0->f68 = 0;
+    }
+}
+
 u8 *TChCrLoadAfsTextureReq__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 *arg3, s32 arg4) {
     __ct__7TObjectFP7TObject((void *)(arg0), (void *)(arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8028C378___vt__22TChCrLoadAfsTextureReq *)&__vt__22TChCrLoadAfsTextureReq).value;
@@ -87,7 +109,7 @@ u8 *TChCrLoadAfsTextureReq__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 *arg3, s32 arg4
     *M2C_FIELD(arg0, s32 **, 0x34) = 0;
     M2C_FIELD(arg0, s32 *, 0x6C) = 0;
     M2C_FIELD(arg0, s32 *, 0x70) = arg4;
-    TChCrLoadAfsTextureReq__sub_8028C310(arg0);
+    TChCrLoadAfsTextureReq__sub_8028C310((R_8028C310 *)(arg0));
     return arg0;
 }
 
@@ -99,7 +121,7 @@ void *init__22TChCrLoadAfsTextureReqFPvPvPv(void *arg0, void *arg1, void *arg2) 
     M2C_FIELD(arg0, void **, 0x6C) = M2C_FIELD(arg2, void **, 0x4);
     M2C_FIELD(arg0, void **, 0x34) = M2C_FIELD(arg2, void **, 0x8);
     M2C_FIELD(arg0, void **, 0x70) = M2C_FIELD(arg2, void **, 0xC);
-    TChCrLoadAfsTextureReq__sub_8028C310(arg0);
+    TChCrLoadAfsTextureReq__sub_8028C310((R_8028C310 *)(arg0));
     return arg0;
 }
 

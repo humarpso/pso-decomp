@@ -25,6 +25,8 @@ struct RecoveredGlobal_8030CEEC_lbl_80475878 {
     u8 remaining[0x14];
 };
 
+struct Slot_8030C404 { u8 pad[0x34]; void *a; void *b; };
+
 extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
 M2C_UNK free_windows__17TWindowSubComCardFPv(s32);
@@ -65,6 +67,8 @@ u8 * TAdSinglePlyChrSelectGC__sub_801FE4BC(u32);
 bool TAdChrSelASlotGC__sub_8030C3C0(M2C_UNK arg0, u32 arg1);
 s32 get_state_flag__9TMainTaskFv();
 void render__16TAdChrSelASlotGCFv(void *self);
+s32 TAdPlyChrSelPlateGC__sub_802C4D5C(void *, int);
+s32 TAdChrSelASlotGC__sub_8030C404(Slot_8030C404 *o, s32 k);
 }
 
 extern "C" {
@@ -131,6 +135,17 @@ bool TAdChrSelASlotGC__sub_8030C3C0(M2C_UNK arg0, u32 arg1) {
         return 0;
     }
     return M2C_FIELD(temp_r3, s32 *, 8) == 1;
+}
+
+s32 TAdChrSelASlotGC__sub_8030C404(Slot_8030C404 *o, s32 k) {
+    switch (k) {
+    case 0:
+    case 1:
+        return TAdPlyChrSelPlateGC__sub_802C4D5C(o->a, 2);
+    case 2:
+        return TAdPlyChrSelPlateGC__sub_802C4D5C(o->b, 2);
+    }
+    return 0;
 }
 
 #pragma push

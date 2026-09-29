@@ -69,6 +69,10 @@ struct RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80 {
     u8 remaining[0xC];
 };
 
+struct Win_80215CB8 { u8 pad[0x16c]; void *cb0; void *cb1; void *cb2; };
+
+struct Seq_80215CB8 { u8 pad[0x24]; s32 f24; };
+
 extern "C" {
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 u32 TShopSequence__sub_80223600(void *, s32, s32);
@@ -89,13 +93,19 @@ extern RecoveredGlobal_80215EF8___vt__17TJudgmentSequence __vt__17TJudgmentSeque
 extern RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80 TJudgmentSequence__data_80513E80;
 extern s32 lbl_805D61D0;
 u8 *__dt__17TJudgmentSequenceFv(u8 *arg0, s16 arg1);
+int set_field_20__12TQuestListVMFPvi(void*, void*);
+void *__nw__7TObjectFUl(u32);
+void *TShopJudgmentItemWindow__ct(void *, s32, void *, s32);
+void TJudgmentSequence__sub_80215BCC(void *arg0);
+void TJudgmentSequence__sub_80215BA0(void *arg0);
+void TJudgmentSequence__sub_80215BF8(void *arg0);
+extern void *tl_05;
+void TJudgmentSequence__sub_80215CB8(Seq_80215CB8 *self);
 }
 
 extern "C" {
 
-void TJudgmentSequence__sub_80215BA0(void *arg0);
 void TJudgmentSequence__sub_80215BCC(void *arg0);
-void TJudgmentSequence__sub_80215BF8(void *arg0);
 void TJudgmentSequence__vt10(void* p);
 void handle_close_input__17TJudgmentSequenceFPv(void *arg0);
 void handle_confirm__17TJudgmentSequenceFPv(void *arg0);
@@ -131,6 +141,17 @@ void handle_close_input__17TJudgmentSequenceFPv(void *arg0) {
         close_window__13TShopSequenceFPv(arg0);
         queue_destruction__7TObjectFv(arg0);
     }
+}
+
+void TJudgmentSequence__sub_80215CB8(Seq_80215CB8 *self) {
+    Win_80215CB8 *o = (Win_80215CB8 *)__nw__7TObjectFUl(0x178);
+    if (o != 0) {
+        o = (Win_80215CB8 *)TShopJudgmentItemWindow__ct(o, (s32)tl_05, self, self->f24);
+    }
+    o->cb0 = (void *)TJudgmentSequence__sub_80215BCC;
+    o->cb2 = (void *)TJudgmentSequence__sub_80215BA0;
+    o->cb1 = (void *)TJudgmentSequence__sub_80215BF8;
+    set_field_20__12TQuestListVMFPvi(self, (void *)5);
 }
 
 void handle_confirm__17TJudgmentSequenceFPv(void *arg0) {

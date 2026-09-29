@@ -9,14 +9,27 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #pragma dont_inline off
 struct M2CCopy_C { u8 bytes[0xc]; };
 
+struct Src_80320534 { s32 a; u8 *p; };
+
+struct Obj_80320534 { u8 pad[0x24]; s32 n; };
+
+struct Ent_803204B8 { u8 pad[4]; f32 v[3]; };
+
+struct Blk_803204B8 { s32 flag; Ent_803204B8 *ents; };
+
+struct Ef_803204B8 { u8 pad[0x20]; Blk_803204B8 *blk; s32 count; };
+
 extern "C" {
 void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1);
+void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1);
+void TBoss6Zanzo__sub_80320534(Obj_80320534 *arg0, Src_80320534 *arg1, Src_80320534 *arg2);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void copy4__18TAdChrMoveEffectGCFPvPv(void *, void *);
+void TBoss6Type1__sub_803204B8(Ef_803204B8 *o, f32 *a, u32 *b);
 }
 
 extern "C" {
 
-int TBoss6Type1__sub_803204B8(void);
-int TBoss6Zanzo__sub_80320534(void);
 s32 fn_803204B0(void* p);
 void render__11TBoss6ZanzoFv(void* p);
 int TBoss6Zanzo__sub_803205C4(void*);
@@ -24,8 +37,35 @@ int fn_80141A30(void);
 int set_depth_buffer_settings_1__Fv(void*);
 
 s32 fn_803204B0(void* p) { return *(s32*)((char*)p + 0x4); }
-int TBoss6Type1__sub_803204B8(void) { return 0; }
-int TBoss6Zanzo__sub_80320534(void) { return 0; }
+
+void TBoss6Type1__sub_803204B8(Ef_803204B8 *o, f32 *a, u32 *b) {
+    Ent_803204B8 *p;
+    Ent_803204B8 *end;
+    f32 *a2 = a;
+    u32 *b2 = b;
+    o->blk->flag = 1;
+    p = o->blk->ents;
+    end = p + o->count;
+    for (; p < end; p++, a2 += 3, b2++) {
+        VecCopy__FP3VecPC3Vec(&p->v, a2);
+        copy4__18TAdChrMoveEffectGCFPvPv(p, b2);
+    }
+}
+
+void TBoss6Zanzo__sub_80320534(Obj_80320534 *arg0, Src_80320534 *arg1, Src_80320534 *arg2) {
+    u8 *src;
+    u8 *dst;
+    u8 *end;
+    arg1->a = arg2->a;
+    if (arg1->a != 0) {
+        dst = arg1->p;
+        src = arg2->p;
+        end = dst + (arg0->n << 4);
+        for (; dst < end; dst += 0x10, src += 0x10) {
+            TBoss6Zanzo__sub_803205A0((s32 *)dst, (s32 *)src);
+        }
+    }
+}
 
 void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1) {
     *arg0 = *arg1;

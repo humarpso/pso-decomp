@@ -14,6 +14,8 @@ void queue_destruction__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
 extern void *__vt__17TAdFloorLoadPrtGC[];
 TAdFloorLoadPrtGC_8034AD38 *__dt__17TAdFloorLoadPrtGCFv(TAdFloorLoadPrtGC_8034AD38 *self, s16 deleting);
+extern s16 lbl_804F0070[];
+void fn_8034AED4(s16 arg0);
 }
 
 extern "C" {
@@ -36,6 +38,15 @@ TAdFloorLoadPrtGC_8034AD38 *__dt__17TAdFloorLoadPrtGCFv(TAdFloorLoadPrtGC_8034AD
         if (deleting > 0) __dl__7TObjectFPv(self);
     }
     return self;
+}
+void fn_8034AED4(s16 arg0) {
+    s32 i;
+    if (arg0 != lbl_804F0070[0]) {
+        for (i = 15; i > 0; i--) {
+            lbl_804F0070[i] = lbl_804F0070[i - 1];
+        }
+        lbl_804F0070[0] = arg0;
+    }
 }
 
 }

@@ -105,6 +105,16 @@ struct Stack_802E456C {
     s32 sp18;
 };
 
+typedef struct S_802E451C {
+    f32 f0, f4, f8, fC;
+    s32 f10;
+    u16 f14;
+    s16 f16;
+    s32 f18;
+    f32 f1C, f20;
+    s32 f24;
+} S_802E451C;
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 disallow_rendering__7TObjectFv(void *);
@@ -127,6 +137,10 @@ f32 TObjPlayer__sub_801CBF08(int, int);
 extern const f32 lbl_805DE914;
 extern const f32 lbl_805DE928;
 s32 TObjPlayer__sub_802E456C(u8 *arg0, u8 *arg1);
+extern const f32 lbl_805DE914;
+extern const float lbl_805DE918;
+extern const f32 lbl_805DE924;
+void TObjPlayer__sub_802E451C(S_802E451C *arg0);
 }
 
 extern "C" {
@@ -140,7 +154,6 @@ void shift_collision_bounds__14TItemAttackColFPv(void *arg0);
 M2C_UNK TBoss4Zako__sub_803D8910(M2C_UNK *, s32);
 void *TItemAttackCol__ct(void *, void *, void *);
 M2C_UNK TItemAttackCol__sub_802E3D8C(s32, M2C_UNK *);
-int TObjPlayer__sub_802E451C(void);
 M2C_UNK VecCopy__FP3VecPC3Vec(M2C_UNK *, s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -231,7 +244,22 @@ void create__14TItemAttackColFPvPv(void *arg0, void *arg1) {
 
     extern const float lbl_805DE918;
     extern const float lbl_805DE920;
-void* TObjPlayer__sub_802E449C(void* a0) { TObjPlayer__sub_802E451C(); *(int*)((char*)a0 + 0x40) = 0; *(int*)((char*)a0 + 0x44) = 0; *(int*)((char*)a0 + 0x48) = 0; *(float*)((char*)a0 + 0x4c) = lbl_805DE918; *(int*)((char*)a0 + 0x50) = 0; *(int*)((char*)a0 + 0x54) = 0; *(int*)((char*)a0 + 0x58) = 0; *(float*)((char*)a0 + 0x5c) = lbl_805DE920; *(float*)((char*)a0 + 0x60) = lbl_805DE918; *(float*)((char*)a0 + 0x64) = lbl_805DE918; *(float*)((char*)a0 + 0x68) = lbl_805DE918; *(float*)((char*)a0 + 0x6c) = lbl_805DE918; *(int*)((char*)a0 + 0x70) = 0; *(int*)((char*)a0 + 0x74) = 0; *(int*)((char*)a0 + 0x78) = -1; *(int*)((char*)a0 + 0x7c) = -1; return a0; }
+void* TObjPlayer__sub_802E449C(void* a0) { TObjPlayer__sub_802E451C((S_802E451C *)(a0)); *(int*)((char*)a0 + 0x40) = 0; *(int*)((char*)a0 + 0x44) = 0; *(int*)((char*)a0 + 0x48) = 0; *(float*)((char*)a0 + 0x4c) = lbl_805DE918; *(int*)((char*)a0 + 0x50) = 0; *(int*)((char*)a0 + 0x54) = 0; *(int*)((char*)a0 + 0x58) = 0; *(float*)((char*)a0 + 0x5c) = lbl_805DE920; *(float*)((char*)a0 + 0x60) = lbl_805DE918; *(float*)((char*)a0 + 0x64) = lbl_805DE918; *(float*)((char*)a0 + 0x68) = lbl_805DE918; *(float*)((char*)a0 + 0x6c) = lbl_805DE918; *(int*)((char*)a0 + 0x70) = 0; *(int*)((char*)a0 + 0x74) = 0; *(int*)((char*)a0 + 0x78) = -1; *(int*)((char*)a0 + 0x7c) = -1; return a0; }
+
+void TObjPlayer__sub_802E451C(S_802E451C *arg0) {
+    arg0->f0 = lbl_805DE914;
+    arg0->f4 = lbl_805DE914;
+    arg0->f8 = lbl_805DE914;
+    arg0->fC = lbl_805DE924;
+    arg0->f10 = 1;
+    arg0->f14 = 0xFFFF;
+    arg0->f16 = -1;
+    arg0->f18 = -1;
+    arg0->f1C = lbl_805DE914;
+    arg0->f20 = (*(const f32 *)&lbl_805DE918);
+    arg0->f24 = 0;
+}
+
 s32 TObjPlayer__sub_802E456C(u8 *arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_802E456C, sp8) == 0x0) ? 1 : -1];
     typedef char sp9_offset[(offsetof(Stack_802E456C, sp9) == 0x1) ? 1 : -1];

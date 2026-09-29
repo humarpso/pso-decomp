@@ -22,6 +22,12 @@ struct S_803DBAF8 { u8 pad[0x64]; C_803DBAF8 c; };
 
 struct GinjaTevCache { u8 reserved[0x75]; u8 stageOffset; };
 
+struct G_803DBC1C { u8 pad[0x7C]; u32 f7c; u32 f80; u32 f84; u32 f88; };
+
+struct Arr_803DC3BC { u8 idx; u8 stride; u8 pad[6]; void *base; u32 pad2; };
+
+struct G_803DC41C { u8 pad[0x3C]; u32 f3c; u8 pad40[0x18]; s32 f58; s32 f5c; u8 pad60[0xC]; u32 f6c; };
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_803DC460(void *);
 M2C_UNK TObjPlayer__sub_803DC600();
@@ -61,6 +67,20 @@ extern s32 lbl_804FC5C8[];
 void GXSetTevOp(s32, s32);
 void GXSetTevOrder(s32, s32, s32, s32);
 void set_ginja_tev_order(u32 parameter);
+extern s32 lbl_804FC56C[];
+extern s32 lbl_804FC5EC[];
+extern s32 lbl_804FC610[];
+void GXSetVtxAttrFmt(s32, s32, s32, s32, u8);
+void TObjPlayer__sub_803DBBA8(u32 arg0);
+extern S_803DB560 lbl_8058CD80;
+void TObjPlayer__sub_803E1D90(u32, u32, u32, u32);
+void TObjPlayer__sub_803DBC1C(u32 arg0);
+extern s32 lbl_804FC56C[];
+void GXSetArray(s32, void *, u8);
+void TObjPlayer__sub_803DC3BC(Arr_803DC3BC *arg0);
+extern S_803DB560 lbl_8058CD80;
+extern s32 some_id_805c6f74;
+void TObjPlayer__sub_803DC41C(void);
 }
 
 extern "C" {
@@ -140,6 +160,16 @@ void TObjPlayer__sub_803DBB78(u32 x) {
 }
 #pragma pop
 
+void TObjPlayer__sub_803DBBA8(u32 arg0) {
+    GXSetVtxAttrFmt(0, lbl_804FC56C[(arg0 & 0xFF0000) >> 16], lbl_804FC5EC[(arg0 & 0xF000) >> 12], lbl_804FC610[(arg0 & 0xF00) >> 8], arg0);
+}
+
+void TObjPlayer__sub_803DBC1C(u32 arg0) {
+    (*(G_803DBC1C *)&lbl_8058CD80).f88 = arg0;
+    (*(G_803DBC1C *)&lbl_8058CD80).f7c |= 2;
+    TObjPlayer__sub_803E1D90(arg0 & 0x1FFF, (arg0 & 0xC0000) >> 18, (arg0 & 0x30000) >> 16, (arg0 & 0x6000) >> 13);
+}
+
 void set_ginja_tev_order(u32 parameter) {
     u32 selectedStage = (parameter & 0xF000) >> 12;
     if ((u32)some_id_805c6f74 & 0x80000)
@@ -162,6 +192,22 @@ void TObjPlayer__sub_803DBDE8(s32 ref) {
     GXSetAlphaCompare(4, ref, 0, 7, 0);
 }
 #pragma pop
+
+void TObjPlayer__sub_803DC3BC(Arr_803DC3BC *arg0) {
+    while (arg0->idx != 0xFF) {
+        GXSetArray(lbl_804FC56C[arg0->idx], arg0->base, arg0->stride);
+        arg0++;
+    }
+}
+
+void TObjPlayer__sub_803DC41C(void) {
+    if (((*(G_803DC41C *)&lbl_8058CD80).f6c ^ some_id_805c6f74) & 0x80000) {
+        (*(G_803DC41C *)&lbl_8058CD80).f6c = some_id_805c6f74;
+        (*(G_803DC41C *)&lbl_8058CD80).f3c |= 0xF00F3;
+        (*(G_803DC41C *)&lbl_8058CD80).f58 = -1;
+        (*(G_803DC41C *)&lbl_8058CD80).f5c = -1;
+    }
+}
 
 #pragma push
 #pragma peephole off

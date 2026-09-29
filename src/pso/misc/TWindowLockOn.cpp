@@ -98,6 +98,26 @@ void render__13TWindowLockOnFv(u8 *arg0) {
     }
 }
 
+s32 TPhotonMylla__sub_80154CB4(u16);
+void *__nw__7TObjectFUl(u32);
+void *TWindowLockOn__ct(void *, s32, u16);
+void *TWindowLockOn__sub_80263748(s32 arg0, u16 arg1);
+
+void *TWindowLockOn__sub_80263748(s32 arg0, u16 arg1) {
+    void *p;
+    if (arg1 == 0xFFFF) {
+        return NULL;
+    }
+    if (((s32 (*)(s32))TWindowLockOn__sub_80262DC4)(TPhotonMylla__sub_80154CB4(arg1)) == 0) {
+        return NULL;
+    }
+    p = __nw__7TObjectFUl(0x7C);
+    if (p != NULL) {
+        p = TWindowLockOn__ct(p, arg0, arg1);
+    }
+    return p;
+}
+
 extern M2C_UNK __vt__13TWindowLockOn[];
 
 void run_task__13TWindowLockOnFv(Win_8026385C *w) {

@@ -75,6 +75,14 @@ struct RecoveredGlobal_8021DB58_TShopEquipmentSequence__data_80513EC0 {
     u8 remaining[0xC];
 };
 
+struct W_8021D6D8 { u8 pad[0x3a4]; void *cb0; void *cb1; };
+
+struct S_8021D6D8 { u8 pad[0x24]; s32 f24; };
+
+struct W_8021D750 { u8 pad[0x190]; void *cb0; };
+
+struct S_8021D750 { u8 pad[0x24]; s32 f24; };
+
 extern "C" {
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
 u32 TShopSequence__sub_80223600(void *, s32, s32);
@@ -106,8 +114,6 @@ M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 handle_confirm__22TShopEquipmentSequenceFPv(void *arg0);
 s32 TShopEquipmentSequence__sub_8021D65C(void);
 s32 close_if_done__22TShopEquipmentSequenceFPv(void *arg0);
-s32 TShopEquipmentSequence__sub_8021D6D8(void *);
-s32 TShopEquipmentSequence__sub_8021D750(void *);
 s32 TShopEquipmentSequence__sub_8021D7B8(void *);
 s32 TShopEquipmentSequence__sub_8021D948(u8 *arg0);
 s32 restore_player_state__13TShopSequenceFPv(void *);
@@ -116,6 +122,21 @@ extern RecoveredGlobal_8021DA90_TShopEquipmentSequence__data_80513EC0 TShopEquip
 void TShopEquipmentSequence__sub_8021DC08(void);
 extern RecoveredGlobal_8021DA90_TShopEquipmentSequence__data_80513EC0 TShopEquipmentSequence__data_80513EC0;
 void TShopEquipmentSequence__sub_8021DBE0(void);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
+s32 TKeyBoardControl__sub_801A66B8(void);
+void *__nw__7TObjectFUl(u32);
+void *TShopEquipmentSellWindow__ct(void *, s32, void *, s32, s32);
+void exit__22TShopEquipmentSequenceFPv(void *arg0);
+void init_window__22TShopEquipmentSequenceFPv(void *arg0);
+extern void *tl_05;
+void TShopEquipmentSequence__sub_8021D6D8(S_8021D6D8 *self);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
+s32 TKeyBoardControl__sub_801A66B8(void);
+void *__nw__7TObjectFUl(u32);
+void *TShopEquipmentListWindow__ct(void *, s32, void *, s32);
+void exit__22TShopEquipmentSequenceFPv(void *arg0);
+extern void *tl_05;
+void TShopEquipmentSequence__sub_8021D750(S_8021D750 *self);
 }
 
 extern "C" {
@@ -181,6 +202,28 @@ typedef struct Stack_8021D948 Stack_8021D948;
 typedef struct VBase_18_a93f07 VBase_18_a93f07;
 typedef struct VObj_18_a93f07 VObj_18_a93f07;
 #define PSO_VCALL_VObj_18_a93f07_m4(_self, _arg0, _arg1) (((VObj_18_a93f07 *)(_self))->m4((_arg0), (_arg1)))
+
+void TShopEquipmentSequence__sub_8021D6D8(S_8021D6D8 *self) {
+    W_8021D6D8 *o = (W_8021D6D8 *)__nw__7TObjectFUl(0x3ac);
+    if (o != 0) {
+        o = (W_8021D6D8 *)(TShopEquipmentSellWindow__ct(o, (s32)tl_05, self, self->f24, 0x26));
+    }
+    o->cb0 = (void *)exit__22TShopEquipmentSequenceFPv;
+    o->cb1 = (void *)init_window__22TShopEquipmentSequenceFPv;
+    TKeyBoardControl__sub_801A66B8();
+    set_field_20__12TQuestListVMFPvi(self, 7);
+}
+
+void TShopEquipmentSequence__sub_8021D750(S_8021D750 *self) {
+    W_8021D750 *o = (W_8021D750 *)__nw__7TObjectFUl(0x194);
+    if (o != 0) {
+        o = (W_8021D750 *)(TShopEquipmentListWindow__ct(o, (s32)tl_05, self, self->f24));
+    }
+    o->cb0 = (void *)exit__22TShopEquipmentSequenceFPv;
+    TKeyBoardControl__sub_801A66B8();
+    set_field_20__12TQuestListVMFPvi(self, 7);
+}
+
 s32 TShopEquipmentSequence__sub_8021D948(u8 *arg0) {
   Stack_8021D948 stack;
   stack.sp8 = lbl_805DC6E0;
@@ -209,10 +252,10 @@ void TShopEquipmentSequence__vt9(u8 *arg0) {
         TShopEquipmentSequence__sub_8021D7B8((void *) (arg0));
         return;
     case 3:
-        TShopEquipmentSequence__sub_8021D750((void *) (arg0));
+        TShopEquipmentSequence__sub_8021D750((S_8021D750 *)((void *) (arg0)));
         return;
     case 4:
-        TShopEquipmentSequence__sub_8021D6D8((void *) (arg0));
+        TShopEquipmentSequence__sub_8021D6D8((S_8021D6D8 *)((void *) (arg0)));
         return;
     case 5:
         ((s32)set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (s32)((int) (9))));

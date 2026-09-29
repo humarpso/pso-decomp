@@ -21,6 +21,18 @@ struct RecoveredGlobal_8032BB34___vt__18TAdEnterPasswordGC {
 
 struct T_8032BBF0 { u8 pad[0x20]; s32 arr[24]; s32 count; };
 
+struct B_8032BC1C { u8 pad[0x18]; };
+
+struct VObj_8032BC1C : B_8032BC1C {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+};
+
+struct O_8032BC1C { u8 pad[0x20]; VObj_8032BC1C *items[1]; };
+
+struct O2_8032BC1C { u8 pad[0x80]; s32 n; };
+
 extern "C" {
 void TAdEnterPasswordGC__sub_8032BC94(u8 *arg0, s32 arg1);
 void queue_destruction__7TObjectFv(void *);
@@ -59,6 +71,8 @@ u8 *TAdEnterPasswordGC__ct(u8 *arg0);
 s32 get_state_flag__9TMainTaskFv();
 void render__18TAdEnterPasswordGCFv(void *self);
 void TAdEnterPasswordGC__sub_8032BBF0(T_8032BBF0 *self);
+s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
+void TAdEnterPasswordGC__sub_8032BC1C(O_8032BC1C *arg0);
 }
 
 extern "C" {
@@ -168,6 +182,15 @@ void TAdEnterPasswordGC__sub_8032BBF0(T_8032BBF0 *self) {
         self->arr[i] = 0;
     }
     self->count = 0;
+}
+
+void TAdEnterPasswordGC__sub_8032BC1C(O_8032BC1C *arg0) {
+    s32 i;
+    for (i = 0; i < ((O2_8032BC1C *)arg0)->n; i++) {
+        if (arg0->items[i] != 0 && all_parents_unqueued_for_destruction__7TObjectFv(arg0->items[i]) != 0) {
+            arg0->items[i]->m2();
+        }
+    }
 }
 
 void TAdEnterPasswordGC__sub_8032BC94(u8 *arg0, s32 arg1) {

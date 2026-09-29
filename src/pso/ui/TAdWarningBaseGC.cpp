@@ -4,6 +4,17 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct B_8032D214 { u8 pad[0x18]; };
+
+struct V_8032D214 : B_8032D214 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void *m5();
+};
+
 extern "C" {
 M2C_UNK render_status_disp__23TAdSinglePlyChrSelectGCFPvff(s32, f32, f32, f32);
 extern const f32 lbl_805DF7B8;
@@ -11,6 +22,11 @@ extern const f32 lbl_805DF7BC;
 void TAdWarningBaseGC__sub_8032D514(void *arg0, s32 arg1, s32 arg2);
 s32 get_state_flag__9TMainTaskFv();
 void TAdWarningBaseGC__vt5(void *self);
+void send_and_handle__6TLobbyFPvii(s32, void *, int);
+s32 update_window_mode_from_progress__6TLobbyFiPv(void *, void *);
+extern u8 lbl_80477334[];
+extern u8 lbl_8047733C[];
+s32 TAdWarningBaseGC__sub_8032D214(V_8032D214 *arg0);
 }
 
 extern "C" {
@@ -40,6 +56,12 @@ extern M2C_UNK __vt__16TAdWarningBaseGC[];
 void TAdWarningBaseGC__vt5(void *self) {
     if (get_state_flag__9TMainTaskFv() == 1) { return;
     }
+}
+
+s32 TAdWarningBaseGC__sub_8032D214(V_8032D214 *arg0) {
+    s32 r = update_window_mode_from_progress__6TLobbyFiPv(lbl_80477334, lbl_8047733C);
+    send_and_handle__6TLobbyFPvii(r, arg0->m5(), 3);
+    return r;
 }
 
 void *TAdWarningBaseGC__vt0(void *arg0, s16 arg1) {

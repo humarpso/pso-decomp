@@ -26,6 +26,8 @@ struct RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 {
     u8 remaining[0xAC];
 };
 
+struct Ctl_8025F21C { u8 p0[0x60]; u32 f60; };
+
 extern "C" {
 void TKeyBoardControl__sub_8025EC04(u8 *arg0);
 extern RecoveredGlobal_8025ED80_lbl_8049E178 lbl_8049E178;
@@ -39,6 +41,8 @@ u8 get_key_state__16TKeyBoardControlFPv(M2C_UNK *);
 extern M2C_UNK TKeyBoardControl__data_80506270[];
 void TKeyBoardControl__sub_8025FC60(struct RecoveredFields_8025FC60_arg0 *arg0);
 bool TKeyBoardControl__sub_8025EC1C(M2C_UNK arg0, u8 arg1);
+extern s32 lbl_805D5544;
+s32 TKeyBoardControl__sub_8025F21C(Ctl_8025F21C *c);
 }
 
 extern "C" {
@@ -92,6 +96,24 @@ u16 TKeyBoardControl__sub_8025ED80(u8 *arg0, s32 arg1) {
         return M2C_FIELD(((u8 *)(&lbl_8049E278.value) + ((arg1 * 2) & 0x1FE)), u16 *, 0);
     }
     return M2C_FIELD(((u8 *)(&lbl_8049E178.value) + ((arg1 * 2) & 0x1FE)), u16 *, 0);
+}
+
+s32 TKeyBoardControl__sub_8025F21C(Ctl_8025F21C *c) {
+    if (c->f60 & 0x40) {
+        return 3;
+    }
+    switch (lbl_805D5544) {
+    case 1:
+    case 3:
+        return 0;
+    case 4:
+        return 1;
+    case 2:
+        return 2;
+    case 0:
+        return 3;
+    }
+    return (s32)c;
 }
 
 s32 poll_input__16TKeyBoardControlFPv(void *arg0) {

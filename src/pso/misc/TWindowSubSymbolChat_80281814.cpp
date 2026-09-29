@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Win_80281EA8 { u8 pad[0x24]; s32 f24; };
+
 extern "C" {
 s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, int);
 s32 TWindow__close(int);
@@ -21,6 +23,18 @@ extern M2C_UNK TWindowSubSymbolChat__data_805D6498;
 extern M2C_UNK TWindowSubSymbolChat__data_805D649C;
 extern s32 TWindowSubSymbolChat__data_805D64A0;
 void TWindowSubSymbolChat__sub_80281CC4(u8 *arg0);
+s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
+s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+s32 notify_warp_flag70__19TWindowSubShortMailFPv(int);
+s32 TWindowSubShortMail__sub_802A58AC(int, int, int, int, f32);
+s32 TWindowMessageYesNo__sub_802A59D8(void *, s32, M2C_UNK, M2C_UNK);
+extern const f32 lbl_805DD738;
+s32 TWindowSubSymbolChat__sub_80281EA8(Win_80281EA8 *arg0);
+s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
+s32 draw_card_icon__17TWindowSubComCardFiii(s32, M2C_UNK, s32);
+s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+void open_menu__20TWindowSubSymbolChatFii(s32 arg0, s32 arg1);
+s32 TWindowSubSymbolChat__sub_8028233C(s32 arg0);
 }
 
 extern "C" {
@@ -186,6 +200,14 @@ s32 create_confirm_window__20TWindowSubSymbolChatFPv(void *arg0) {
 extern const f32 lbl_805DD73C;
 extern const f32 lbl_805DD740;
 
+typedef s32 M2C_UNK;
+s32 TWindowSubSymbolChat__sub_80281EA8(Win_80281EA8 *arg0) {
+    s32 r = TWindowMessageYesNo__sub_802A59D8(arg0, arg0->f24, 0, 0);
+    TWindowSubShortMail__sub_802A58AC(r, get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0x20)), get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0x44)), TWindowSubComCard__sub_8026CBB8((M2C_UNK)(0x7A)), lbl_805DD738);
+    notify_warp_flag70__19TWindowSubShortMailFPv(r);
+    return r;
+}
+
 s32 create_menu__20TWindowSubSymbolChatFv(void) {
     s32 temp_r31;
 
@@ -272,6 +294,11 @@ void open_menu__20TWindowSubSymbolChatFii(s32 arg0, s32 arg1) {
     set_flag70_bit10__16TObjCityMainWarpFPv(arg1);
     set_scroll_target__17TWindowSubComCardFPvff(arg1, lbl_805DD73C, lbl_805DD744);
     TWindowSubComCard__sub_80265C30(arg1);
+}
+s32 TWindowSubSymbolChat__sub_8028233C(s32 arg0) {
+    s32 r = draw_card_icon__17TWindowSubComCardFiii((s32)(TWindowSubComCard__sub_8026CBB8((M2C_UNK)(0x79))), (M2C_UNK)(6), (s32)(get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xA9))));
+    open_menu__20TWindowSubSymbolChatFii(arg0, r);
+    return r;
 }
 
 }

@@ -4,6 +4,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct P_802A1544 { u8 pad0[0x408]; s8 v[0x14]; };
+
+extern "C" {
+s8 get_item_count_max__10TObjPlayerFv();
+void TObjPlayer__sub_802A1544(P_802A1544 *arg0);
+}
+
 extern "C" {
 
 void TObjPlayer__sub_802A1588(void* p);
@@ -13,7 +20,6 @@ void initialize_player_data__10TObjPlayerFPv(void* p);
 int TAdSelectTxtGC__sub_802A16A8(void*);
 s32 TAdSelectTxtGC__sub_802A16C0(void *);
 int TObjPlayer__sub_801D7D4C(void*);
-int TObjPlayer__sub_802A1544(void*);
 M2C_UNK TObjPlayer__sub_802C3D38(void *, void *);
 int clear_id__10TObjPlayerFPv(void*);
 M2C_UNK copy_header_struct__6TLobbyFPvPv(void *, void *);
@@ -31,7 +37,14 @@ void copy_lobby_header__10TObjPlayerFPvi(s32 *arg0, s32 arg1) {
     TObjPlayer__sub_802C3D38((void *) (arg1), (void *) ((s8 *)arg0 + 0xC));
 }
 
-void initialize_player_data__10TObjPlayerFPv(void* p) { *(unsigned char*)((char*)p + 0x3) = 0; *(unsigned char*)((char*)p + 0x2) = 0; *(unsigned char*)((char*)p + 0x1) = 0; *(unsigned char*)(p) = 0; init_inventory_items__12TPlyCharDataFPv(p); reset_state__14TAdSelectTxtGCFPv((char*)p + 0x34c); fn_802A15BC((char*)p + 0x370); TObjPlayer__sub_802A1588((void*)((char*)p + 0x3c0)); TObjPlayer__sub_802A1544(p); }
+void initialize_player_data__10TObjPlayerFPv(void* p) { *(unsigned char*)((char*)p + 0x3) = 0; *(unsigned char*)((char*)p + 0x2) = 0; *(unsigned char*)((char*)p + 0x1) = 0; *(unsigned char*)(p) = 0; init_inventory_items__12TPlyCharDataFPv(p); reset_state__14TAdSelectTxtGCFPv((char*)p + 0x34c); fn_802A15BC((char*)p + 0x370); TObjPlayer__sub_802A1588((void*)((char*)p + 0x3c0)); TObjPlayer__sub_802A1544((P_802A1544 *)(p)); }
+
+void TObjPlayer__sub_802A1544(P_802A1544 *arg0) {
+    s32 i;
+    for (i = 0; i < 0x14; i++) {
+        arg0->v[i] = get_item_count_max__10TObjPlayerFv();
+    }
+}
 
 void TObjPlayer__sub_802A1588(void* p) { TObjPlayer__sub_801D7D4C(p); TObjPlayer__sub_801D7D4C((char*)p + 0x24); }
 

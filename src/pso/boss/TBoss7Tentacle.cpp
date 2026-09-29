@@ -8,6 +8,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct V_802F0A5C { f32 x, y, z; };
+
+struct Ten_802F0A5C { u8 pad0[0x50]; V_802F0A5C v[14]; u32 w[14]; };
+
 extern "C" {
 u8 TBoss7Tentacle__sub_802F0904(u8 *arg0);
 void TBoss7Tentacle__sub_802F09FC(u8 *arg0);
@@ -24,6 +28,10 @@ extern const float TBoss7Tentacle__data_805DEC04;
 extern const f32 lbl_805DEC34;
 extern const f32 lbl_805DEC38;
 void TBoss7Tentacle__sub_802F00D4(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+extern V_802F0A5C TBoss7Tentacle__data_80541838[];
+extern u32 lbl_805418E0[];
+void TBoss7Tentacle__sub_802F0A5C(Ten_802F0A5C *o);
 }
 
 extern "C" {
@@ -39,7 +47,6 @@ void TObjPlayer__sub_802F0D2C(void);
 void reset_state__14TBoss7TentacleFPv(void* a0);
 void setup_state__14TBoss7TentacleFPv(void* a0);
 void switch_state__14TBoss7TentacleFPv(void *arg0);
-int TBoss7Tentacle__sub_802F0A5C(void);
 
 #pragma push
 #pragma opt_common_subs off
@@ -94,7 +101,7 @@ void TBoss7Tentacle__sub_802F0918(void* p) { *(s32*)((char*)p + 0x13c) = 0; *(s3
     extern const float TBoss7Tentacle__data_805DEC00;
     extern const float TBoss7Tentacle__data_805DEC04;
     extern const float lbl_805DEC48;
-void reset_state__14TBoss7TentacleFPv(void* a0) { *(int*)((char*)a0 + 0x13c) = 0; *(int*)((char*)a0 + 0x140) = 0; *(int*)((char*)a0 + 0x38) = 0; TBoss7Tentacle__sub_802F0A5C(); *(float*)((char*)a0 + 0x158) = lbl_805DEC48; *(int*)((char*)a0 + 0x164) = 0; *(float*)((char*)a0 + 0x15c) = TBoss7Tentacle__data_805DEC04; *(float*)((char*)a0 + 0x160) = TBoss7Tentacle__data_805DEC00; }
+void reset_state__14TBoss7TentacleFPv(void* a0) { *(int*)((char*)a0 + 0x13c) = 0; *(int*)((char*)a0 + 0x140) = 0; *(int*)((char*)a0 + 0x38) = 0; TBoss7Tentacle__sub_802F0A5C((Ten_802F0A5C *)(a0)); *(float*)((char*)a0 + 0x158) = lbl_805DEC48; *(int*)((char*)a0 + 0x164) = 0; *(float*)((char*)a0 + 0x15c) = TBoss7Tentacle__data_805DEC04; *(float*)((char*)a0 + 0x160) = TBoss7Tentacle__data_805DEC00; }
 
     extern int TBoss7Tentacle__data_8047407C[];
 void setup_state__14TBoss7TentacleFPv(void* a0) { *(int*)((char*)a0 + 0x13c) = TBoss7Tentacle__data_8047407C[*(int*)((char*)a0 + 0x4c)]; *(int*)((char*)a0 + 0x140) = 16384; *(int*)((char*)a0 + 0x38) = 0; }
@@ -126,6 +133,14 @@ void TBoss7Tentacle__sub_802F0A2C(u8 *arg0) {
 void TBoss7Tentacle__sub_802F0A44(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x34) = 0;
     M2C_FIELD(arg0, s32 *, 0x3C) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C) & 0xFFFFFFFD);
+}
+
+void TBoss7Tentacle__sub_802F0A5C(Ten_802F0A5C *o) {
+    s32 i;
+    for (i = 0; i < 14; i++) {
+        VecCopy__FP3VecPC3Vec(&o->v[i], &TBoss7Tentacle__data_80541838[i]);
+        o->w[i] = lbl_805418E0[i];
+    }
 }
 
 void TBoss7Tentacle__sub_802F0AD0(void* a0) { *(float*)((char*)a0 + 0x138) = lbl_805DEC5C; *(int*)((char*)a0 + 0x144) = 3038; *(int*)((char*)a0 + 0x140) = 0; *(int*)((char*)a0 + 0x34) = 0; }

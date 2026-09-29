@@ -75,6 +75,14 @@ struct RecoveredGlobal_802204B0_TShopItemTecSequence__data_80513EE0 {
     u8 remaining[0xC];
 };
 
+struct W_80220030 { u8 pad[0x3a4]; void *cb0; void *cb1; };
+
+struct S_80220030 { u8 pad[0x24]; s32 f24; };
+
+struct W_802200A8 { u8 pad[0x1c0]; void *cb0; };
+
+struct S_802200A8 { u8 pad[0x24]; s32 f24; };
+
 extern "C" {
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
 u32 TShopSequence__sub_80223600(void *, s32, s32);
@@ -106,8 +114,6 @@ u8 *TShopItemTecSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 handle_select__20TShopItemTecSequenceFPv(void *arg0);
 s32 close_if_done__20TShopItemTecSequenceFPv(void *arg0);
-s32 TShopItemTecSequence__sub_80220030(void *);
-s32 TShopItemTecSequence__sub_802200A8(void *);
 s32 TShopItemTecSequence__sub_80220110(void *);
 s32 TShopItemTecSequence__sub_802202BC(u8 *arg0);
 s32 restore_player_state__13TShopSequenceFPv(void *);
@@ -116,6 +122,21 @@ extern RecoveredGlobal_802203E4_TShopItemTecSequence__data_80513EE0 TShopItemTec
 void TShopItemTecSequence__sub_80220560(void);
 extern RecoveredGlobal_802203E4_TShopItemTecSequence__data_80513EE0 TShopItemTecSequence__data_80513EE0;
 void TShopItemTecSequence__sub_80220538(void);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
+s32 TKeyBoardControl__sub_801A66B8(void);
+void *__nw__7TObjectFUl(u32);
+void *TShopEquipmentSellWindow__ct(void *, s32, void *, s32, s32);
+void close__20TShopItemTecSequenceFPv(void *arg0);
+void select_and_advance__20TShopItemTecSequenceFPv(void *arg0);
+extern void *tl_05;
+void TShopItemTecSequence__sub_80220030(S_80220030 *self);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
+s32 TKeyBoardControl__sub_801A66B8(void);
+void *__nw__7TObjectFUl(u32);
+void *TShopItemListWindow__ct(void *, s32, void *, s32);
+void close__20TShopItemTecSequenceFPv(void *arg0);
+extern void *tl_05;
+void TShopItemTecSequence__sub_802200A8(S_802200A8 *self);
 }
 
 extern "C" {
@@ -188,6 +209,28 @@ typedef struct Stack_802202BC Stack_802202BC;
 typedef struct VBase_18_a93f07 VBase_18_a93f07;
 typedef struct VObj_18_a93f07 VObj_18_a93f07;
 #define PSO_VCALL_VObj_18_a93f07_m4(_self, _arg0, _arg1) (((VObj_18_a93f07 *)(_self))->m4((_arg0), (_arg1)))
+
+void TShopItemTecSequence__sub_80220030(S_80220030 *self) {
+    W_80220030 *o = (W_80220030 *)__nw__7TObjectFUl(0x3ac);
+    if (o != 0) {
+        o = (W_80220030 *)(TShopEquipmentSellWindow__ct(o, (s32)tl_05, self, self->f24, 0x2d));
+    }
+    o->cb0 = (void *)close__20TShopItemTecSequenceFPv;
+    o->cb1 = (void *)select_and_advance__20TShopItemTecSequenceFPv;
+    TKeyBoardControl__sub_801A66B8();
+    set_field_20__12TQuestListVMFPvi(self, 5);
+}
+
+void TShopItemTecSequence__sub_802200A8(S_802200A8 *self) {
+    W_802200A8 *o = (W_802200A8 *)__nw__7TObjectFUl(0x1c4);
+    if (o != 0) {
+        o = (W_802200A8 *)(TShopItemListWindow__ct(o, (s32)tl_05, self, self->f24));
+    }
+    o->cb0 = (void *)close__20TShopItemTecSequenceFPv;
+    TKeyBoardControl__sub_801A66B8();
+    set_field_20__12TQuestListVMFPvi(self, 5);
+}
+
 s32 TShopItemTecSequence__sub_802202BC(u8 *arg0) {
   Stack_802202BC stack;
   stack.sp8 = lbl_805DC700;
@@ -217,10 +260,10 @@ void TShopItemTecSequence__vt9(u8 *arg0) {
         TShopItemTecSequence__sub_80220110((void *) (arg0));
         return;
     case 3:
-        TShopItemTecSequence__sub_802200A8((void *) (arg0));
+        TShopItemTecSequence__sub_802200A8((S_802200A8 *)((void *) (arg0)));
         return;
     case 4:
-        TShopItemTecSequence__sub_80220030((void *) (arg0));
+        TShopItemTecSequence__sub_80220030((S_80220030 *)((void *) (arg0)));
         return;
     case 7:
         close_if_done__20TShopItemTecSequenceFPv((void *) (arg0));

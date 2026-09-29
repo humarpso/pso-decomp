@@ -17,6 +17,8 @@ struct Stack_80356C80 {
 struct RecoveredGlobal_80356B18___vt__15TBoss6SwordWave { M2C_UNK value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_80356B18___vt__15TBoss6SwordWave_size[sizeof(RecoveredGlobal_80356B18___vt__15TBoss6SwordWave) == 0x18 ? 1 : -1];
 
+struct W_80356D10 { s32 w[1]; };
+
 extern "C" {
 u8 *__nw__7TObjectFUl(M2C_UNK);
 u8 *TBoss6SwordWave__sub_80356C10(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
@@ -40,6 +42,8 @@ extern const f32 lbl_805E0010;
 extern const f32 lbl_805E0014;
 void run_task__15TBoss6SwordWaveFv(u8 *arg0);
 void TBoss6SwordWave__sub_80356CDC(s32 arg0, u8 v, void *a, void *b);
+void TBoss6SwordWave__sub_80356CDC(s32 arg0, u8 v, void *a, void *b);
+void TBoss6SwordWave__sub_80356D10(W_80356D10 *arg0, u8 arg1);
 }
 
 extern "C" {
@@ -131,6 +135,14 @@ void TBoss6SwordWave__sub_80356CDC(s32 arg0, u8 v, void *a, void *b) {
 u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2) {
     return (u8) (arg2 >> 8U);
 }
+
+void TBoss6SwordWave__sub_80356D10(W_80356D10 *arg0, u8 arg1) {
+    s32 idx;
+    s32 bit;
+    TBoss6SwordWave__sub_80356CDC((s32)arg0, arg1, &idx, &bit);
+    arg0->w[idx] &= ~(1 << bit);
+}
+
 void TBoss6SwordWave__sub_80356DDC(s32 arg0, u8 arg1) {
   s32 spC;
   s32 sp8;

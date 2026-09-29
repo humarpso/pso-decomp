@@ -16,6 +16,7 @@ struct RecoveredGlobal_803C588C_lbl_80572020 {
 
 struct Hdr_803C46A4 { u16 type; s16 len; };
 
+typedef void (*RecoveredCallback_e2efd47cbcab)(s32, char *);
 extern "C" {
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
@@ -35,6 +36,13 @@ void TQuestVmDownLoadServer__sub_8039DC24(char *buf, s32 arg, s32 n);
 void TLobby__sub_803D38B4(const char *fmt, ...);
 void TLobby__sub_803C5744(const char *msg, s32 arg);
 s32 TLobby__sub_803C46A4(Hdr_803C46A4 *p, s32 size, s16 *out);
+s32 TLobby__sub_803C4A00(s16 *arg0, s32 arg1, s16 *arg2);
+char *strncpy(char *dst, const char *src, u32 n);
+void TLobby__sub_803D38B4(const char *fmt, ...);
+extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
+extern s32 lbl_805D7528;
+extern s32 lbl_805D752C;
+void TLobby__sub_803C57C8(const char *arg0);
 }
 
 extern "C" {
@@ -83,6 +91,24 @@ s32 TLobby__sub_803C46A4(Hdr_803C46A4 *p, s32 size, s16 *out) {
     return 0;
 }
 
+s32 TLobby__sub_803C4A00(s16 *arg0, s32 arg1, s16 *arg2) {
+    s16 *p = arg0;
+    s32 i;
+    s32 best = 0x7FFFFFFF;
+    for (i = 0; i < arg1 - 1; i += 2, p++) {
+        if (*p == -0x8000) {
+            best = (i < 0x7FFFFFFF) ? i : 0x7FFFFFFF;
+            break;
+        }
+    }
+    if (best != 0x7FFFFFFF) {
+        *arg2 = best;
+        return 0;
+    }
+    *arg2 = 0;
+    return -1;
+}
+
 void set_global_805D7520__6TLobbyFi(s32 arg0) {
     lbl_805D7520 = arg0;
 }
@@ -106,6 +132,14 @@ void TLobby__sub_803C5744(const char *msg, s32 arg) {
     TQuestVmDownLoadServer__sub_8039DC24(((char *)&lbl_80572020), arg, 0xFF);
     if ((*(Callback_803C5744 *)&lbl_805D7528) != 0) {
         (*(Callback_803C5744 *)&lbl_805D7528)(lbl_805D752C, ((char *)&lbl_80572020));
+    }
+    TLobby__sub_803D38B4(((char *)&lbl_80572020));
+}
+
+void TLobby__sub_803C57C8(const char *arg0) {
+    strncpy(((char *)&lbl_80572020), arg0, 0xFF);
+    if ((*(RecoveredCallback_e2efd47cbcab *)&lbl_805D7528) != NULL) {
+        (*(RecoveredCallback_e2efd47cbcab *)&lbl_805D7528)(lbl_805D752C, ((char *)&lbl_80572020));
     }
     TLobby__sub_803D38B4(((char *)&lbl_80572020));
 }

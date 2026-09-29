@@ -4,11 +4,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct O_80326F9C { u8 pad[0x1F8]; f32 f; };
+
 extern "C" {
 void* set_mode_floats__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_80326F44(u8 *arg0);
+void play_particle_effect_once__10TObjPlayerFv();
+s32 get_player_list__10TObjPlayerFv();
+void TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+extern const f32 lbl_805DF680;
+void TObjPlayer__sub_80326F9C(O_80326F9C *arg0);
 }
 
 extern "C" {
@@ -42,6 +49,19 @@ u8 *TObjPlayer__sub_80326F44(u8 *arg0) {
         return var_r0;
     }
     return NULL;
+}
+
+void TObjPlayer__sub_80326F9C(O_80326F9C *arg0) {
+    s32 n = get_player_list__10TObjPlayerFv();
+    switch (n) {
+    case 1:
+    case 2: {
+        f32 f = arg0->f;
+        TOMonitorMachine01__sub_803D8B5C(0, lbl_805DF680, f, f);
+        play_particle_effect_once__10TObjPlayerFv();
+        break;
+    }
+    }
 }
 
 void approach_orgaflow_shot__10TObjPlayerFi(s32 arg0) {

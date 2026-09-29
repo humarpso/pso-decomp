@@ -18,6 +18,10 @@ extern const f32 lbl_805DFCE4;
 f32 TWindowDD__sub_80348AD4(f32 farg0, f32 farg1);
 extern Src_80348A9C TWindowDD__data_805434E8[][8];
 void TWindowDD__sub_80348A9C(Dst_80348A9C *self, s32 idx);
+extern s32 *TWindowDD__data_805D6E18;
+extern s32 *TWindowDD__data_805D6E28;
+extern s16 *lbl_805D6E34;
+s32 TWindowDD__sub_80348B70(s16 arg0);
 }
 
 extern "C" {
@@ -124,6 +128,17 @@ s32 get_draw_count__9TWindowDDFPv(void **arg0) {
 
 extern s32 TWindowDD__data_805D6E30;
 extern s32 lbl_805D6E3C;
+
+s32 TWindowDD__sub_80348B70(s16 arg0) {
+    s32 *t = TWindowDD__data_805D6E18;
+    if (arg0 >= 0x68C && arg0 <= 0x697) {
+        return t[arg0 - 0x68C];
+    }
+    if (arg0 == 0x698) {
+        return 0;
+    }
+    return TWindowDD__data_805D6E28[lbl_805D6E34[arg0]];
+}
 
 s32 get_entry__9TWindowDDFi(s32 arg0) {
     if ((arg0 < 0) || (arg0 >= (s32) lbl_805D6E3C)) {

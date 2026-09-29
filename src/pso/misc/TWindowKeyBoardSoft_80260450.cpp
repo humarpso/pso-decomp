@@ -21,6 +21,8 @@ struct RecoveredGlobal_8026062C_TWindowKeyBoardSoft__data_804CB7C8
   u8 remaining[0x6C];
 };
 
+struct Win_802605DC { u8 p0[0x65]; s8 f65; s8 f66; };
+
 extern "C" {
 extern const f32 TWindowKeyBoardSoft__data_805DD078;
 extern const f32 TWindowKeyBoardSoft__data_805DD07C;
@@ -43,6 +45,10 @@ extern const f32 TWindowKeyBoardSoft__data_805DD078;
 extern const f32 TWindowKeyBoardSoft__data_805DD07C;
 extern const f32 TWindowKeyBoardSoft__data_805DD080;
 f32 TWindowKeyBoardSoft__sub_8026062C(s32 arg0, s32 arg1, s32 arg2);
+s32 calc_key_index__19TWindowKeyBoardSoftFiii(s32 arg1, s32 arg2, s32 arg3);
+extern RecoveredGlobal_8026062C_TWindowKeyBoardSoft__data_804CB7C8 TWindowKeyBoardSoft__data_804CB7C8;
+extern RecoveredGlobal_8026062C_TWindowKeyBoardSoft__data_8044F124 TWindowKeyBoardSoft__data_8044F124;
+s32 TWindowKeyBoardSoft__sub_802605DC(Win_802605DC *w);
 }
 
 extern "C" {
@@ -109,6 +115,12 @@ typedef struct RecoveredGlobal_8026062C_TWindowKeyBoardSoft__data_804CB7C8 Recov
 #pragma fp_contract on
 typedef char RecoveredGlobal_8026062C_TWindowKeyBoardSoft__data_8044F124_size[((sizeof(RecoveredGlobal_8026062C_TWindowKeyBoardSoft__data_8044F124)) == 0x14) ? (1) : (-1)];
 typedef char RecoveredGlobal_8026062C_TWindowKeyBoardSoft__data_804CB7C8_size[((sizeof(RecoveredGlobal_8026062C_TWindowKeyBoardSoft__data_804CB7C8)) == 0x70) ? (1) : (-1)];
+
+s32 TWindowKeyBoardSoft__sub_802605DC(Win_802605DC *w) {
+    s32 idx = calc_key_index__19TWindowKeyBoardSoftFiii((s32)(w), (s32)(w->f65), (s32)(w->f66));
+    return idx + ((s8 *)&TWindowKeyBoardSoft__data_8044F124)[((u8 *)&TWindowKeyBoardSoft__data_804CB7C8)[idx]];
+}
+
 f32 TWindowKeyBoardSoft__sub_8026062C(s32 arg0, s32 arg1, s32 arg2) {
   f32 new_var;
   s32 sp8;

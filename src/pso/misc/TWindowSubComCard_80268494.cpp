@@ -7,7 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 int TWindowMakeTeam__sub_80268650(void);
-int TWindowSubComCard__sub_802684BC(void);
+struct Ent_802684BC { u8 p0[0x1C]; s32 f1C; };
+struct Win_802684BC { u8 p0[0x76]; s16 f76; };
+s32 TWindowSubComCard__sub_802684BC(Win_802684BC *w, s32 arg1);
+s32 is_flag_4_set__17TWindowSubComCardFPv(void *);
 int TWindowSubComCard__sub_8026853C(void);
 int TWindowSubComCard__sub_802685C4(void);
 void update_next_entry__17TWindowSubComCardFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -35,7 +38,17 @@ void update_selected_entry__17TWindowSubComCardFPv(void *arg0) {
     get_entry_id__17TWindowSubComCardFPv();
 }
 
-int TWindowSubComCard__sub_802684BC(void) { return 0; }
+s32 TWindowSubComCard__sub_802684BC(Win_802684BC *w, s32 arg1) {
+    s32 i;
+    Ent_802684BC *e;
+    for (i = 0; i < w->f76; i++) {
+        e = ((Ent_802684BC *(*)(void *, s32))get_array_entry__20TWindowSubStatusDispFPvi)(w, i);
+        if (e != NULL && is_flag_4_set__17TWindowSubComCardFPv(e) != 0 && arg1 == ((s32 (*)(void *))get_entry_id__17TWindowSubComCardFPv)(e)) {
+            return e->f1C;
+        }
+    }
+    return 0;
+}
 int TWindowSubComCard__sub_8026853C(void) { return 0; }
 int TWindowSubComCard__sub_802685C4(void) { return 0; }
 int TWindowMakeTeam__sub_80268650(void) { return 0; }

@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TShopJudgmentItemWindow__sub_80267F9C(void *, int);
+void *__nw__7TObjectFUl(int);
+void *TWindowSubShortCutList__ct(void *, void *, void *);
+extern s32 lbl_8044FAA8[];
+void *TWindowSubShortCutList__sub_8027E3B4(void *arg0, void *arg1);
+}
+
+extern "C" {
 
 void *__dt__22TWindowSubShortCutListFv(void *arg0, s16 arg1);
 void render__22TWindowSubShortCutListFv(u8 *arg0);
@@ -22,6 +30,16 @@ void destroy_item_list_resources__20TWindowSubStatusDispFPvs(void *, int);
 M2C_UNK draw_selected_list_entry(void *, s32);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(s32, s32);
 s32 get_status_flag__6TLobbyFPv(void *);
+
+void *TWindowSubShortCutList__sub_8027E3B4(void *arg0, void *arg1) {
+    void *p;
+    TShopJudgmentItemWindow__sub_80267F9C(lbl_8044FAA8, 4);
+    p = __nw__7TObjectFUl(0x8C);
+    if (p != 0) {
+        p = TWindowSubShortCutList__ct(p, arg0, arg1);
+    }
+    return p;
+}
 
 void render__22TWindowSubShortCutListFv(u8 *arg0) {
     s32 temp_r3;

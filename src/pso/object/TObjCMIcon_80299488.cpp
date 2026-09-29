@@ -34,6 +34,9 @@ extern const f32 lbl_805DDC38;
 void TObjCMIcon__sub_8029951C(void);
 extern RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0 TObjCMIcon__data_805409E0;
 void TObjCMIcon__sub_80299488(void);
+void TObjCMIcon__sub_80299488(void);
+void TObjCMIcon__sub_802994B0(s32 arg0);
+void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1);
 }
 
 extern "C" {
@@ -57,6 +60,15 @@ void TObjCMIcon__sub_802994B0(s32 arg0) {
 
 typedef char RecoveredGlobal_8029951C_lbl_8046518C_size[sizeof(RecoveredGlobal_8029951C_lbl_8046518C) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8029951C_TObjCMIcon__data_805409E0_size[sizeof(RecoveredGlobal_8029951C_TObjCMIcon__data_805409E0) == 0x58 ? 1 : -1];
+
+void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1) {
+    s32 i;
+    TObjCMIcon__sub_80299488();
+    for (i = 0; i < arg0; i++) {
+        TObjCMIcon__sub_802994B0((s32)(arg1[i]));
+    }
+}
+
 void TObjCMIcon__sub_8029951C(void) {
     M2C_UNK *var_r30;
     s32 var_r29;

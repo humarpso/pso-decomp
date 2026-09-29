@@ -4,6 +4,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Win_8027DBB8 { u8 pad[0x20]; s32 f20; };
+
+extern "C" {
+s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
+s32 TWindowSubComCard__sub_8026CBB8(s32 a0);
+M2C_UNK notify_warp_flag70__19TWindowSubShortMailFPv(s32);
+M2C_UNK TWindowSubShortMail__sub_802A58AC(s32, s32, s32, s32, f32);
+s32 TWindowMessageYesNo__sub_802A59D8(void *, s32, M2C_UNK, M2C_UNK);
+extern const f32 lbl_805DD6C0;
+s32 TWindowSubShortCut__sub_8027DBB8(Win_8027DBB8 *arg0);
+}
+
 extern "C" {
 
 void *TWindowSubShortCut__ct(void *arg0, void *arg1, void *arg2);
@@ -51,6 +63,14 @@ s32 open_confirm_message__18TWindowSubShortCutFPv(void *arg0) {
 }
 
 extern const f32 lbl_805DD6C0;
+
+typedef s32 M2C_UNK;
+s32 TWindowSubShortCut__sub_8027DBB8(Win_8027DBB8 *arg0) {
+    s32 r = TWindowMessageYesNo__sub_802A59D8(arg0, arg0->f20, 0, 0);
+    TWindowSubShortMail__sub_802A58AC((s32)(r), (s32)(get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0x20))), (s32)(get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0x3D))), (s32)(TWindowSubComCard__sub_8026CBB8(0x75)), lbl_805DD6C0);
+    notify_warp_flag70__19TWindowSubShortMailFPv((s32)(r));
+    return r;
+}
 
 s32 open_menu__18TWindowSubShortCutFPv(void *arg0) {
     s32 temp_r31;

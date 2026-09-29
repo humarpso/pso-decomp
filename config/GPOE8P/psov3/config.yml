@@ -99,6 +99,7 @@ force_active:
   - create_icon__10TObjPlayerFiii
   - disable_stealth_suit_effect__15TFontSmallLobbyFi
   - draw_value__13TWindowMesetaFPvi
+  - emit_player_model_particle
   - fn_80010F4C
   - fn_80076C68
   - fn_801692AC
@@ -113,6 +114,7 @@ force_active:
   - init_default_fields__6TLobbyFPv
   - initialize__16TItemWeaponRifleFlPUc
   - initialize__21TItemProArmorParticleFPvPvPvPvPv
+  - initialize_player_data__10TObjPlayerFPv
   - is_target_in_range__11TObjInfoColFf
   - load_item_pmt
   - open_windows__22TAdMultiPlyChrSelectGCFPv

@@ -26,6 +26,39 @@ struct VObj_803530C4_80352BB8 : Base_803530C4_80352BB8 {
 struct RecoveredGlobal_80352F6C___vt__10TEndingPic { M2C_UNK value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_80352F6C___vt__10TEndingPic_size[sizeof(RecoveredGlobal_80352F6C___vt__10TEndingPic) == 0x18 ? 1 : -1];
 
+struct VBase_18_c82b17 { char pad[0x18]; };
+
+struct VObj_18_c82b17 : VBase_18_c82b17 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual M2C_UNK m21(void *, void *, s32, s32, s32);
+};
+
+struct Q_80353018 { s32 x; f32 y; };
+
+struct P_80353018 { s32 x; s32 y; };
+
+struct T_80353018 { u8 pad0[0xF0]; VObj_18_c82b17 *obj; };
+
 extern "C" {
 s32 TKeyBoardControl__sub_8000F828(void);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -36,14 +69,16 @@ extern s32 lbl_805D4378;
 extern s32 TEndingPic__data_805D6EE0;
 extern s32 lbl_805D6EE4;
 u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1);
+extern const f32 lbl_805DFF30;
+void TEndingPic__sub_80353018(T_80353018 *arg0, s32 arg1);
 }
 
 extern "C" {
 
 int TEndingPic__sub_80353010(void);
-int TEndingPic__sub_803530A0(void* p);
-int TEndingPic__sub_80353110(void* p);
-int TEndingPic__sub_80353134(void* p);
+void TEndingPic__sub_803530A0(void* p);
+void TEndingPic__sub_80353110(void* p);
+void TEndingPic__sub_80353134(void* p);
 void TEndingPic__sub_80353194(void *arg0);
 void TEndingPic__sub_803531D0(void* a0);
 void TEndingPic__sub_803531F8(void);
@@ -52,10 +87,9 @@ void draw_current_pic__10TEndingPicFPv(u8 *arg0);
 void init_positions__10TEndingPicFPv(void* a0);
 void render__10TEndingPicFv(s32 arg0);
 void run_task__10TEndingPicFv(void* p);
-int set_phase_18__10TEndingPicFPv(void* p);
+void set_phase_18__10TEndingPicFPv(void* p);
 void update_player_object__10TEndingPicFPv(void *arg0);
 void update_shield__10TEndingPicFPv(void *arg0);
-int TEndingPic__sub_80353018(void*, int);
 int TItemObject__sub_80116004(void*, f32);
 s32 TItemProShield__sub_8001140C(s32, s32);
 s32 TObjPlayer__sub_800112A4(s32, s32);
@@ -211,8 +245,21 @@ u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1) {
 
 int TEndingPic__sub_80353010(void) {  return lbl_805D4F14; }
 
-int set_phase_18__10TEndingPicFPv(void* p) { return TEndingPic__sub_80353018(p, 18); }
-int TEndingPic__sub_803530A0(void* p) { return TEndingPic__sub_80353018(p, 17); }
+void TEndingPic__sub_80353018(T_80353018 *arg0, s32 arg1) {
+    VObj_18_c82b17 *o = arg0->obj;
+    if (o != NULL) {
+        Q_80353018 q;
+        P_80353018 p;
+        p.x = arg1;
+        q.y = lbl_805DFF30;
+        q.x = arg1;
+        p.y = *(s32 *)&q.y;
+        o->m21(o, &p, 0, -1, -1);
+    }
+}
+
+void set_phase_18__10TEndingPicFPv(void* p) { TEndingPic__sub_80353018((T_80353018 *)(p), (s32)(18)); }
+void TEndingPic__sub_803530A0(void* p) { TEndingPic__sub_80353018((T_80353018 *)(p), (s32)(17)); }
 
 void update_player_object__10TEndingPicFPv(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0xF0);
@@ -222,8 +269,8 @@ void update_player_object__10TEndingPicFPv(void *arg0) {
     }
 }
 
-int TEndingPic__sub_80353110(void* p) { return TEndingPic__sub_80353018(p, 16); }
-int TEndingPic__sub_80353134(void* p) { return TEndingPic__sub_80353018(p, 15); }
+void TEndingPic__sub_80353110(void* p) { TEndingPic__sub_80353018((T_80353018 *)(p), (s32)(16)); }
+void TEndingPic__sub_80353134(void* p) { TEndingPic__sub_80353018((T_80353018 *)(p), (s32)(15)); }
 void update_shield__10TEndingPicFPv(void *arg0) {
     TItemProShield__sub_8001140C(M2C_FIELD(arg0, s32 *, 0xF0), get_field_2b8__14TItemProShieldFPv(M2C_FIELD(arg0, s32 *, 0xF0)));
 }

@@ -5,6 +5,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TLobby__sub_80020004(s32, int, void *, int, int, int);
+s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
+u32 TLanguage__sub_801E4874(void *);
+M2C_UNK reset_state__10TBoss6TubeFv();
+extern u8 lbl_80470A68[];
+extern u8 lbl_804DE888[];
+extern u32 lbl_805D6718;
+extern u32 lbl_805D671C;
+void TBoss6Tube__sub_802B1760(void);
+}
+
+extern "C" {
 
 void *create__10TBoss6TubeFPv(void *arg0);
 void free_resources__10TBoss6TubeFv(void);
@@ -37,6 +49,19 @@ void free_resources__10TBoss6TubeFv(void) {
         lbl_805D671C = 0U;
     }
     reset_state__10TBoss6TubeFv();
+}
+void TBoss6Tube__sub_802B1760(void) {
+    s32 r;
+    reset_state__10TBoss6TubeFv();
+    r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    if (r != 0) {
+        r = TLobby__sub_80020004(r, 5, lbl_804DE888, 0, 0, 0);
+    }
+    lbl_805D6718 = r;
+    lbl_805D671C = TLanguage__sub_801E4874(lbl_80470A68);
+    if (lbl_805D6718 != 0 && lbl_805D671C != 0) {
+        return;
+    }
 }
 
 }

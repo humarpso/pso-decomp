@@ -9,6 +9,8 @@ struct RecoveredGlobal_802EC7F0_lbl_804E3C2C {
     u8 remaining[0x2C];
 };
 
+struct Ply_802ECAA4 { u8 pad[0x326]; s16 state; };
+
 extern "C" {
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 M2C_UNK TObjFish__sub_802ED62C(void *, int);
@@ -16,6 +18,9 @@ extern RecoveredGlobal_802EC7F0_lbl_804E3C2C lbl_804E3C2C;
 extern s32 lbl_805D5550;
 extern const f32 lbl_805DEA10;
 void TObjFish__sub_802EC7F0(u8 *arg0);
+void TObjFish__sub_802EC7F0(u8 *arg0);
+M2C_UNK TObjFish__sub_802ED62C(void *, int);
+void TObjPlayer__sub_802ECAA4(Ply_802ECAA4 *o);
 }
 
 extern "C" {
@@ -139,6 +144,17 @@ void handle_6xA9_barba_ray_boss_actions(void *arg0) {
     x = get_enemy_entity(M2C_FIELD(arg0, u16 *, 0x2));
     if (x != NULL) {
         fn_802EC9F0((void *)(x), (void *)(arg0));
+    }
+}
+
+void TObjPlayer__sub_802ECAA4(Ply_802ECAA4 *o) {
+    if (o->state == 0x1C || o->state == 0x1D) {
+    } else if (o->state == 0x13 || o->state == 0x14) {
+        TObjFish__sub_802EC7F0((u8 *)o);
+    } else if (o->state == 0x15 || o->state == 0x16) {
+        TObjFish__sub_802ED62C(o, 0x1C);
+    } else {
+        TObjFish__sub_802ED62C(o, 0x1B);
     }
 }
 

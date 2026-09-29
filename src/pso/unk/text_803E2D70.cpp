@@ -26,6 +26,8 @@ struct MotionCtx_803DC894 {
 
 struct Mtx_803DC994 { f32 m[3][4]; };
 
+struct Hdr_803E34B0 { u8 *dst; u8 *src; s32 count; };
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_803E20B0();
 M2C_UNK setup_render__10TObjPlayerFv();
@@ -81,6 +83,10 @@ void TObjPlayer__sub_803E4468(void);
 void TObjFish__sub_803E46BC(void *arg0);
 extern s32 lbl_805D7774;
 void TObjPlayer__sub_803E2F28(struct Mtx_803DC994 *src);
+s32 __cvt_fp2unsigned(f32);
+void TObjPlayer__sub_803D9884(u8 *, u8 *);
+void TObjPlayer__sub_803D9990(u8 *, u8 *);
+void TObjPlayer__sub_803E34B0(Hdr_803E34B0 *arg0);
 }
 
 extern "C" {
@@ -117,6 +123,20 @@ void TObjPlayer__sub_803E2F28(struct Mtx_803DC994 *src) {
     dst->m[2][2] = src->m[2][2];
 }
 #pragma pop
+
+void TObjPlayer__sub_803E34B0(Hdr_803E34B0 *arg0) {
+    s32 n = arg0->count;
+    u8 *src = arg0->src;
+    u8 *dst = arg0->dst;
+    while (n-- > 0) {
+        TObjPlayer__sub_803D9884(src, dst);
+        TObjPlayer__sub_803D9990(src + 0xC, dst + 0xC);
+        f32 t = *(f32 *)(src + 0x18);
+        src += 0x1C;
+        *(s32 *)(dst + 0x18) = __cvt_fp2unsigned(t);
+        dst += 0x20;
+    }
+}
 
 #pragma push
 #pragma scheduling off

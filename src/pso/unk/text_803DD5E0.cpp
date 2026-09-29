@@ -16,6 +16,11 @@ void TLobby__sub_803DDCE8(u32 *p);
 void TLobby__sub_803DE2C0(u32 *p);
 u32 TLobby__sub_803DE2F8(u32 v);
 void TLobby__sub_803DDD94(S_803DDD94 *d, S_803DDD94 *s);
+void TLobby__sub_803DDCE8(u32 *p);
+s32 TLobby__sub_803DDD2C(s32 arg0);
+void TLobby__sub_803DDD40(s32 arg0, s32 arg1);
+void TLobby__sub_803DDF4C(void);
+s32 TLobby__sub_803DDEFC(u16 arg0);
 }
 
 extern "C" {
@@ -93,6 +98,44 @@ void TLobby__sub_803DDD94(S_803DDD94 *d, S_803DDD94 *s) {
     d->d = t;
 }
 #pragma pop
+
+s32 TLobby__sub_803DDEFC(u16 arg0) {
+    s32 r = 2;
+    if (arg0 & 1) r = 0x1E;
+    if (arg0 & 2) r += 2;
+    if (arg0 & 4) r += 2;
+    if (arg0 & 8) r += 4;
+    return r;
+}
+
+void TLobby__sub_803DDF4C(void) {
+    s32 spC;
+    s32 sp8;
+    do {
+        spC = M2C_FIELD(((s32 *)TLobby__sub_803DDD2C((s32)(4))), s32 *, 0);
+        TLobby__sub_803DDCE8((u32 *)((void *) (&spC)));
+        switch (spC) {
+        case 0x4D4D4F43:
+        case 0x564E4F43:
+        case 0x4E4C444D:
+        case 0x494D5650:
+        case 0x4C505647:
+        case 0x43474D49:
+            sp8 = M2C_FIELD(((s32 *)TLobby__sub_803DDD2C((s32)(4))), s32 *, 0);
+            TLobby__sub_803DDCE8((u32 *)((void *) (&sp8)));
+            TLobby__sub_803DDD40((s32)((int) (sp8)), (s32)((int) (1)));
+            break;
+        case 0x54525647:
+            TLobby__sub_803DDD40((s32)((int) (-4)), (s32)((int) (1)));
+            break;
+        default:
+            sp8 = M2C_FIELD(((s32 *)TLobby__sub_803DDD2C((s32)(4))), s32 *, 0);
+            TLobby__sub_803DDCE8((u32 *)((void *) (&sp8)));
+            TLobby__sub_803DDD40((s32)((int) (sp8)), (s32)((int) (1)));
+            break;
+        }
+    } while ((u32) (spC + 0xABAE0000) != 0x5647U);
+}
 
 #pragma push
 #pragma scheduling off

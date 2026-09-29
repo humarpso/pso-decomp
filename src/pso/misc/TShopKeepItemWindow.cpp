@@ -42,6 +42,11 @@ void TShopKeepItemWindow__sub_80221B34(void *arg0);
 s32 TShopKeepItemWindow__sub_80221C38(void *);
 s32 TShopKeepItemWindow__sub_80221F08(void *);
 void TShopKeepItemWindow__vt9(u8 *arg0);
+void memset(void *, int, int);
+int sprintf(char *, const char *, ...);
+M2C_UNK TQuestVmDownLoadServer__sub_80222704(s32, M2C_UNK *);
+extern char lbl_805DC718[4];
+void TQuestVmDownLoadServer__sub_8022236C(s32 arg0);
 }
 
 extern "C" {
@@ -210,6 +215,13 @@ void *TShopKeepItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
 
 extern M2C_UNK lbl_8044C290[];
 extern s32 lbl_805D53A0;
+
+void TQuestVmDownLoadServer__sub_8022236C(s32 arg0) {
+    char buf[0x20];
+    memset(buf, 0, 0x20);
+    sprintf(buf, lbl_805DC718, 2);
+    TQuestVmDownLoadServer__sub_80222704((s32)(arg0), (M2C_UNK *)((s32 *)buf));
+}
 
 void show_message_or_error(s32 arg0) {
     M2C_UNK *temp_r3;

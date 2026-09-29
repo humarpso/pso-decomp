@@ -98,6 +98,10 @@ struct Stack_802FB0DC {
     f32 spC;
 };
 
+struct V3_802FAC08 { f32 x, y, z; };
+
+struct Obj_802FAC08 { u8 pad0[0x38]; f32 x; u8 pad1[4]; f32 z; };
+
 extern "C" {
 s32 objInBand__FP7GameObjf(f32);
 extern const f32 TBoss8Dragon__data_805DEE38;
@@ -138,6 +142,10 @@ s32 is_health_low__12TBoss8DragonFPv(void *);
 extern s32 lbl_805D53A0;
 extern const f32 TBoss8Dragon__data_805DED50;
 void TBoss8Dragon__sub_802FAC78(u8 *arg0);
+f32 TObjPlayer__sub_803D89C0(void *, void *);
+extern const f32 TBoss8Dragon__data_805DED50;
+extern const f32 lbl_805DEEB4;
+f32 TBoss8Dragon__sub_802FAC08(Obj_802FAC08 *o, f32 a, f32 b, f32 s);
 }
 
 extern "C" {
@@ -243,6 +251,20 @@ struct VObj_80098E4C_80098DB0 : Base_80098E4C_80098DB0 {
     virtual void m96();
     virtual int m97();
 };
+
+#pragma push
+#pragma fp_contract on
+f32 TBoss8Dragon__sub_802FAC08(Obj_802FAC08 *o, f32 a, f32 b, f32 s) {
+    V3_802FAC08 v;
+    v.x = a * s + o->x;
+    v.y = TBoss8Dragon__data_805DED50;
+    v.z = b * s + o->z;
+    if (TObjPlayer__sub_803D89C0(&v, &v) > lbl_805DEEB4) {
+        s = TBoss8Dragon__data_805DED50;
+    }
+    return s;
+}
+#pragma pop
 
 void TBoss8Dragon__sub_802FAC78(u8 *arg0) {
     s16 temp_r3_2;

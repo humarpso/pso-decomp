@@ -69,6 +69,24 @@ struct S_80330178 { s32 a; s32 b; In_80330178 c; };
 
 struct T_8032F2C4 { u8 pad[0x3B8]; f32 v[2]; };
 
+struct V3_8032E7B4 { s32 x; s32 y; s32 z; };
+
+struct O_8032E7B4 { u8 pad[0x38]; V3_8032E7B4 pos; u8 pad2[0x43C - 0x44]; u32 arr[4]; };
+
+struct E_8032E7B4 { s32 a; s32 b; };
+
+struct V3_8032F304 { f32 x; f32 y; f32 z; };
+
+struct O_8032F304 { u8 pad[0x414]; s32 n; V3_8032F304 v[4]; s32 pad2; u8 mine[1]; };
+
+struct V3_8032F360 { f32 x; f32 y; f32 z; };
+
+struct O_8032F360 { u8 pad[0x410]; s32 z; s32 n; V3_8032F360 v[3]; };
+
+struct V3_8032FB84 { f32 x; f32 y; f32 z; };
+
+struct O_8032FB84 { u8 pad[0x38]; V3_8032FB84 pos; u8 pad2[0x60 - 0x44]; s32 f60; u8 pad3[0x378 - 0x64]; void *p378; u8 pad4[0x384 - 0x37C]; s32 f384; };
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 apply_direction_sign__11TBoss6Type2FPvf(void *arg0, f32 farg0);
@@ -81,7 +99,6 @@ extern const f32 lbl_805DF7F4;
 extern const f32 lbl_805DF7F8;
 extern const f32 lbl_805DF7FC;
 void TBoss6Type2__sub_8032EAE4(u8 *arg0);
-int TBoss6Type2__sub_8032F304(void);
 void TBoss6Type2__sub_8032F5C4(void *arg0);
 void update_segment_angles__11TBoss6Type2FPv(void *arg0);
 M2C_UNK apply_damage__11TBoss6Type2FPvi(s32, s32);
@@ -123,12 +140,24 @@ void TBoss6Type2__sub_803301B8(u8 *arg0, s32 arg1);
 s32 TBoss6Type2__sub_8032E748(T_8032E748 *self);
 void TBoss6Type2__sub_8032EA10(T_8032EA10 *self);
 int TBoss6Type2__sub_80330178(s32 _w0, s32 _w1);
-int TBoss6Type2__sub_8032F360(void *, void *, s32);
 extern void *lbl_804EDDE4[];
 void TBoss6Type2__sub_8032F3E0(s32 i, void *pts, s32 n);
 void TBoss6Type2__sub_8032F2F0(void* p, void* q);
 extern char lbl_80477450[];
 void TBoss6Type2__sub_8032F2C4(T_8032F2C4 *self);
+u32 TBoss4Type2__sub_800874F4(void *, s32);
+void set_flags__11TBoss4Type2FPvUi(void *, u32);
+extern E_8032E7B4 lbl_804773BC[];
+void TBoss6Type2__sub_8032E7B4(O_8032E7B4 *arg0, s32 arg1);
+void TBoss6MagMine__sub_80369598(void *, void *);
+void TBoss6Type2__sub_8032F304(O_8032F304 *arg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+void TBoss6Type2__sub_803301B8(u8 *arg0, s32 arg1);
+void TBoss6Type2__sub_8032F360(O_8032F360 *arg0, V3_8032F360 *arg1, s32 arg2);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+void TBoss6Type2__sub_802BD378(void *, s32, void *, void *);
+extern const f32 lbl_805DF848;
+s32 TBoss6Type2__sub_8032FB84(O_8032FB84 *arg0);
 }
 
 extern "C" {
@@ -177,6 +206,16 @@ void TBoss6Type2__sub_8032E770(s32 arg0, s32 arg1) {
     }
 }
 #pragma pop
+
+void TBoss6Type2__sub_8032E7B4(O_8032E7B4 *arg0, s32 arg1) {
+    if (arg0->arr[arg1] == 0) {
+        V3_8032E7B4 v = arg0->pos;
+        arg0->arr[arg1] = TBoss4Type2__sub_800874F4(&v, lbl_804773BC[arg1].a);
+        if (arg0->arr[arg1] != 0) {
+            set_flags__11TBoss4Type2FPvUi((void *)arg0->arr[arg1], 0x40);
+        }
+    }
+}
 
 void update_all_parts__11TBoss6Type2FPv(s32 arg0) {
     s32 var_r31;
@@ -299,13 +338,33 @@ void TBoss6Type2__sub_8032F2C4(T_8032F2C4 *self) {
 }
 
 void TBoss6Type2__sub_8032F2F0(void* p, void* q) { *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); }
-int TBoss6Type2__sub_8032F304(void) { return 0; }
-int TBoss6Type2__sub_8032F360(void * _w0, void * _w1, s32 _w2) { return 0; }
+
+void TBoss6Type2__sub_8032F304(O_8032F304 *arg0) {
+    void *m = arg0->mine;
+    s32 i;
+    for (i = 0; i < arg0->n; i++) {
+        TBoss6MagMine__sub_80369598(m, &arg0->v[i]);
+    }
+}
+
+void TBoss6Type2__sub_8032F360(O_8032F360 *arg0, V3_8032F360 *arg1, s32 arg2) {
+    s32 i;
+    s32 n = arg2;
+    arg0->z = 0;
+    if (n > 3) {
+        n = 3;
+    }
+    for (i = 0; i < n; i++) {
+        VecCopy__FP3VecPC3Vec(&arg0->v[i], &arg1[i]);
+    }
+    arg0->n = n;
+    TBoss6Type2__sub_803301B8((u8 *)arg0, 3);
+}
 
 void TBoss6Type2__sub_8032F3E0(s32 i, void *pts, s32 n) {
     void *p = lbl_804EDDE4[i];
     if (p != 0) {
-        TBoss6Type2__sub_8032F360((void *)(p), (void *)(pts), (s32)(n));
+        TBoss6Type2__sub_8032F360((O_8032F360 *)((void *)(p)), (V3_8032F360 *)((void *)(pts)), (s32)((s32)(n)));
     }
 }
 
@@ -316,6 +375,20 @@ void TBoss6Type2__sub_8032F5C4(void *arg0) {
     M2C_FIELD(arg0, s16 *, 0x32C) = (s16) M2C_FIELD(arg0, s32 *, 0x38C);
     sync_hp__11TBoss6Type2FPv((void *)((s32)((s32) arg0)));
 }
+
+s32 TBoss6Type2__sub_8032FB84(O_8032FB84 *arg0) {
+    V3_8032FB84 v;
+    s32 t;
+    if (arg0->p378 == 0) {
+        return 0;
+    }
+    TBoss6Type2__sub_802BD378(arg0->p378, arg0->f384, &v, &t);
+    v.y = v.y + lbl_805DF848;
+    VecCopy__FP3VecPC3Vec(&arg0->pos, &v);
+    arg0->f60 = t;
+    return 1;
+}
+
 void update_segment_angles__11TBoss6Type2FPv(void *arg0) {
     s16 temp_r0;
     s32 temp_r0_2;

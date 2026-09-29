@@ -34,12 +34,20 @@ struct RecoveredFields_802E7F30_temp_r3_2
   u8 *field_4;
 };
 
+struct Fish_802E7B40 { u8 pad[0x6DC]; void* t[4]; };
+
+struct Fish_802E7B94 { u8 pad[0x6DC]; void* t[4]; };
+
 extern "C" {
 s32 collect_and_count__12TBoss3VoloptFUii(u32, s32);
 u32 queue_boss_effect__10TObjPlayerFPv(int);
 extern RecoveredGlobal_802E7F30_lbl_804739AC lbl_804739AC;
 extern RecoveredGlobal_802E7F30_lbl_804739D4 lbl_804739D4;
 void TObjPlayer__sub_802E7F30(void *unused, s32 arg1);
+void TBoss7Tentacle__sub_802F0B80(void* p);
+void TObjFish__sub_802E7B40(Fish_802E7B40* o);
+void TBoss7Tentacle__sub_802F0B70(void* p);
+void TObjFish__sub_802E7B94(Fish_802E7B94* o);
 }
 
 extern "C" {
@@ -52,8 +60,16 @@ void fn_802E7B10(void *arg0) {
         TObjPlayer__sub_800F5E08(arg0);
     }
 }
-int TObjFish__sub_802E7B40(void) { return 0; }
-int TObjFish__sub_802E7B94(void) { return 0; }
+
+void TObjFish__sub_802E7B40(Fish_802E7B40* o) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        if (o->t[i] != 0) {
+            TBoss7Tentacle__sub_802F0B80(o->t[i]);
+        }
+    }
+}
+
 typedef struct RecoveredFields_802E7F30_temp_r3 RecoveredFields_802E7F30_temp_r3;
 typedef struct RecoveredFields_802E7F30_temp_r3_2 RecoveredFields_802E7F30_temp_r3_2;
 typedef struct RecoveredFields_802E7F30_var_r3 RecoveredFields_802E7F30_var_r3;
@@ -61,6 +77,16 @@ typedef struct RecoveredGlobal_802E7F30_lbl_804739AC RecoveredGlobal_802E7F30_lb
 typedef struct RecoveredGlobal_802E7F30_lbl_804739D4 RecoveredGlobal_802E7F30_lbl_804739D4;
 typedef char RecoveredGlobal_802E7F30_lbl_804739AC_size[((sizeof(RecoveredGlobal_802E7F30_lbl_804739AC)) == 0x28) ? (1) : (-1)];
 typedef char RecoveredGlobal_802E7F30_lbl_804739D4_size[((sizeof(RecoveredGlobal_802E7F30_lbl_804739D4)) == 0x28) ? (1) : (-1)];
+
+void TObjFish__sub_802E7B94(Fish_802E7B94* o) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        if (o->t[i] != 0) {
+            TBoss7Tentacle__sub_802F0B70(o->t[i]);
+        }
+    }
+}
+
 void TObjPlayer__sub_802E7F30(void *unused, s32 arg1) {
   M2C_UNK *var_r4;
   s32 var_r31;

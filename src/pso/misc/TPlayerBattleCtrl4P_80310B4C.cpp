@@ -4,9 +4,28 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Node_80311304 { u8 pad0[0xC]; Node_80311304 *next; };
+
+struct Par_80311304 { u8 pad0[0x14]; Node_80311304 *head; };
+
+struct Ctl_80311380 { u8 pad[0x288]; u16 tbl[1]; };
+
 extern "C" {
 s32 TPlayerBattleCtrl4P__sub_80311294(u8 *arg0);
 void TPlayerBattleCtrl4P__sub_803112AC(u8 *arg0, s32 arg1);
+s32 check_value_equals__13TQuestColCtrlFPvi(void *, int);
+void queue_destruction__7TObjectFv(void *);
+extern s32 lbl_805D2A98;
+void TPlayerBattleCtrl4P__sub_80311304(void *self, Par_80311304 *p);
+s32 obj_getField1c(void);
+void TCameraCtrl__sub_8006A410(void *, int);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void TObjPlayer__sub_801BC068(void *, int);
+void destroy__23TAdSinglePlyChrSelectGCFv(void);
+void init_scene_objects__6TLobbyFv(void);
+void TPlayerBattleCtrl4P__sub_80311304(void *self, Par_80311304 *p);
+extern s32 tl_05;
+void TPlayerBattleCtrl4P__sub_80311380(Ctl_80311380 *o);
 }
 
 extern "C" {
@@ -113,6 +132,35 @@ void update_all_players__19TPlayerBattleCtrl4PFv(void) {
 
 extern s32 tl_00;
 extern s32 tl_01;
+
+void TPlayerBattleCtrl4P__sub_80311304(void *self, Par_80311304 *p) {
+    Node_80311304 *n = p->head;
+    Node_80311304 *cur;
+    while (p->head != 0 && n != 0) {
+        cur = n;
+        n = cur->next;
+        if (check_value_equals__13TQuestColCtrlFPvi(cur, lbl_805D2A98) != 0) {
+            queue_destruction__7TObjectFv(cur);
+        } else {
+            TPlayerBattleCtrl4P__sub_80311304(self, (Par_80311304 *)cur);
+        }
+    }
+}
+
+void TPlayerBattleCtrl4P__sub_80311380(Ctl_80311380 *o) {
+    s32 i;
+    void *p;
+    init_scene_objects__6TLobbyFv();
+    for (i = 0; i < 4; i++) {
+        p = (void *)TPlayerBattleCtrl4P__sub_801BA74C(i);
+        if (p != 0) {
+            TObjPlayer__sub_801BC068(p, o->tbl[(u16)obj_getField1c()]);
+            TCameraCtrl__sub_8006A410(p, 0);
+        }
+    }
+    TPlayerBattleCtrl4P__sub_80311304((void *)(o), (Par_80311304 *)(tl_05));
+    destroy__23TAdSinglePlyChrSelectGCFv();
+}
 
 void update__19TPlayerBattleCtrl4PFv(void) {
     s32 var_r31;

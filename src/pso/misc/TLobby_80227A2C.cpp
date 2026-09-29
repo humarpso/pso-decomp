@@ -48,6 +48,8 @@ struct O_80228A74 { u8 pad[0x1c]; char names[1][0x20]; };
 
 struct P_80228A74 { u8 pad[0x109c]; s32 count; };
 
+struct L_8022884C { u8 pad[0x109c]; s32 count; s32 hi; s32 lo; };
+
 extern "C" {
 s32 get_instance__6TLobbyFv();
 s32 get_player_floor__6TLobbyFi(s32);
@@ -100,6 +102,8 @@ extern char lbl_805DC788[4];
 u32 strlen(const char *s);
 char *strcpy(char *dst, const char *src);
 void TLobby__sub_80228B54(char *s);
+s32 TObjEneBm5GibonU__sub_803D853C(u32, void *, ...);
+void TLobby__sub_8022884C(L_8022884C *self);
 }
 
 extern "C" {
@@ -293,6 +297,24 @@ s32 init_range_zero__6TLobbyFPv(void* arg0) {
 }
 
 struct O_80228A74;
+
+#pragma push
+#pragma opt_propagation off
+void TLobby__sub_8022884C(L_8022884C *self) {
+    s32 off;
+    s32 i;
+    s32 t;
+    i = 0;
+    off = 0;
+    while (i < self->count) {
+        t = off + 0x1c;
+        TObjEneBm5GibonU__sub_803D853C((self->hi << 16) | (self->lo + i), (u8 *)self + t);
+        i++;
+        off += 0x20;
+    }
+}
+#pragma pop
+
 void TLobby__sub_802288B8(O_80228A74 *self, char *s) {
     char *start;
     s32 quoted;

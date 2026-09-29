@@ -33,6 +33,10 @@ struct Stack_8030A1E4
   s32 sp10;
 };
 
+struct V_80309E9C { f32 x, y, z; };
+
+struct Fol_80309E9C { u16 a; u16 b; u8 pad[0x8]; V_80309E9C v[3]; };
+
 extern "C" {
 int TObjEneDellBiter__sub_80087350(void*, void*);
 void *__nw__7TObjectFUl(int);
@@ -62,6 +66,9 @@ s32 TParticleCtrl__sub_80086884(s32);
 void TObjFish__sub_800660D4(s32, s32, s32, s32, s32, f32);
 extern f32 lbl_805DF134;
 s32 emit_player_model_particle(s32 owner, s32 position, s32 entry, s32 model);
+void* init_follow_particle_ctrl__10TObjPlayerFPv(void* p);
+extern const f32 lbl_805DF130;
+Fol_80309E9C *TObjPlayer__sub_80309E9C(Fol_80309E9C *o);
 }
 
 extern "C" {
@@ -113,6 +120,21 @@ s32 TObjPlayer__sub_80309E4C(s32 arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+Fol_80309E9C *TObjPlayer__sub_80309E9C(Fol_80309E9C *o) {
+    s32 i;
+    V_80309E9C *p;
+    init_follow_particle_ctrl__10TObjPlayerFPv((void*)((u8 *)o + 4));
+    o->b = 0xFFFF;
+    o->a = 0xFFFF;
+    for (i = 0; i < 3; i++) {
+        p = &o->v[i];
+        p->z = lbl_805DF130;
+        p->y = lbl_805DF130;
+        p->x = lbl_805DF130;
+    }
+    return o;
 }
 
 s32 check_hit_by_id_431__10TObjPlayerFPvi(void* p, int a1) { return check_hit_by_id__10TObjPlayerFiii((s32)(p), (s32)(a1), (s32)(431)); }

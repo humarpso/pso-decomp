@@ -14,6 +14,15 @@ struct Obj_802B9D6C { u8 pad[0x77c]; s32 arr[14]; };
 
 struct Obj_802BA158 { u8 pad[0x55c]; u16 f55c; u8 pad2[0x570 - 0x55e]; s32 f570; u8 pad3[0x58c - 0x574]; s32 f58c; s32 f590; s32 f594; s32 f598; };
 
+struct V3_802B9C00 { s32 x, y, z; };
+
+struct T1_802B9C00 {
+    u8 pad0[0x38];
+    V3_802B9C00 pos;
+};
+
+struct Tbl_802B9C00 { s32 a; s32 b; };
+
 extern "C" {
 u8 *TPlayerBattleCtrl4P__sub_801BA74C(u32);
 void copy_vec2__11TBoss6Type2FPvPv(void* p, void* q);
@@ -36,12 +45,27 @@ extern const f32 lbl_805DE42C;
 void TBoss6Type2__sub_802B9D90(u8 *arg0);
 void TBoss6Type2__sub_802B9D6C(Obj_802B9D6C *self);
 void TBoss6Type2__sub_802BA158(Obj_802BA158 *self);
+u32 TBoss4Type2__sub_800874F4(void *, int);
+void set_flags__11TBoss4Type2FPvUi(u32, int);
+extern Tbl_802B9C00 lbl_804710CC[];
+void TBoss6Type2__sub_802B9C00(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
 
-int TBoss6Type2__sub_802B9EE4(void);
-int TBoss6Type2__sub_802B9F0C(void);
+struct E_802B9EE4 { s32 *p; s32 a; s32 b; };
+struct T2_802B9EE4 { u8 pad0[0x53C]; E_802B9EE4 e[2]; };
+struct O_802BA000 { s32 h; s32 y; };
+struct T2_802BA000 {
+    u8 pad0[0x404];
+    O_802BA000 o[2];
+    u8 pad414[0x53C - 0x414];
+    E_802B9EE4 e[2];
+};
+s32 collect_and_count__12TBoss3VoloptFUii(int, int);
+void TBoss6Type2__sub_802B9EE4(T2_802B9EE4 *arg0);
+void TBoss6Type2__sub_802B9F0C(T2_802B9EE4 *arg0);
+void TBoss6Type2__sub_802BA000(T2_802BA000 *arg0);
 void set_fields_554__11TBoss6Type2FPv(void* p);
 void unpack_path_entry__11TBoss6Type2FPvPv(u8 *arg0, s32 *arg1);
 int TBoss6PlotFalz__sub_802AAFCC(void*);
@@ -67,6 +91,17 @@ void TBoss6Type2__sub_802B9BBC(s32 arg0, s32 arg1) {
     }
 }
 #pragma pop
+
+void TBoss6Type2__sub_802B9C00(u8 *arg0, s32 arg1) {
+    u8 *p = arg0 + arg1 * 4;
+    if (*(u32 *)(p + 0x77C) == 0U) {
+        V3_802B9C00 v = ((T1_802B9C00 *)arg0)->pos;
+        *(u32 *)(p + 0x77C) = TBoss4Type2__sub_800874F4(&v, lbl_804710CC[arg1].a);
+        if (*(u32 *)(p + 0x77C) != 0U) {
+            set_flags__11TBoss4Type2FPvUi(*(u32 *)(p + 0x77C), 0x40);
+        }
+    }
+}
 
 void init_parts__11TBoss6Type2FPv(s32 arg0) {
     s32 var_r31;
@@ -144,8 +179,33 @@ void TBoss6Type2__sub_802B9D90(u8 *arg0) {
 
 void set_fields_554__11TBoss6Type2FPv(void* p) { *(s32*)((char*)p + 0x554) = 1; *(s32*)((char*)p + 0x558) = 1; }
 
-int TBoss6Type2__sub_802B9EE4(void) { return 0; }
-int TBoss6Type2__sub_802B9F0C(void) { return 0; }
+#pragma push
+#pragma opt_common_subs reset
+#pragma opt_propagation reset
+#pragma opt_dead_assignments reset
+void TBoss6Type2__sub_802B9EE4(T2_802B9EE4 *arg0) {
+    s32 i;
+    for (i = 0; i < 2; i++) {
+        *arg0->e[i].p = arg0->e[i].a;
+    }
+}
+
+void TBoss6Type2__sub_802B9F0C(T2_802B9EE4 *arg0) {
+    s32 i;
+    for (i = 0; i < 2; i++) {
+        *arg0->e[i].p = arg0->e[i].a + arg0->e[i].b;
+    }
+}
+
+void TBoss6Type2__sub_802BA000(T2_802BA000 *arg0) {
+    s32 i;
+    for (i = 0; i < 2; i++) {
+        arg0->e[i].p = (s32 *)(collect_and_count__12TBoss3VoloptFUii(arg0->o[i].h, 0x28) + 0x18);
+        arg0->e[i].a = *arg0->e[i].p;
+        arg0->e[i].b = 0;
+    }
+}
+#pragma pop
 
 void TBoss6Type2__sub_802BA158(Obj_802BA158 *self) {
     self->f55c = 0xFFFF;

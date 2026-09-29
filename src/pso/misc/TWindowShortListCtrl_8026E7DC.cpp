@@ -50,6 +50,8 @@ void TWindowShortListCtrl__sub_8026EA48(u8 *arg0);
 void set_card_window_flags__20TWindowShortListCtrlFii(s32 arg0, s32 arg1);
 extern RecoveredGlobal_8026EA60_lbl_8050E208 lbl_8050E208;
 void TWindowShortListCtrl__sub_8026EA60(u8 *arg0);
+s32 get_card_window__17TWindowSubComCardFUi(int);
+void TWindowShortListCtrl__sub_8026E8EC(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -104,6 +106,13 @@ s32 is_technique_usable__20TWindowShortListCtrlFPv(u8 *arg0) {
         return 1;
     }
     return ((u32) M2C_FIELD(temp_r31, u32 *, 0x34) >> 4U) & 1;
+}
+
+void TWindowShortListCtrl__sub_8026E8EC(u8 *arg0, s32 arg1, s32 arg2) {
+    s16 *p = (s16 *)(get_card_window__17TWindowSubComCardFUi(*(s32 *)(arg0 + 0x24)) + 0x22C4);
+    s16 t = p[arg1];
+    p[arg1] = p[arg2];
+    p[arg2] = t;
 }
 
 void TWindowShortListCtrl__sub_8026E93C(u32 arg0, u32 arg1) {

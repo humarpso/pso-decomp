@@ -90,6 +90,13 @@ s32 get_player_floor__6TLobbyFi(s32 idx) {
 
 extern s32 lbl_805D3628;
 
+void TLobby__sub_80207750(s32 arg0, s32 arg1) {
+    if (arg0 <= 0x11) {
+        s32 *p = (s32 *)&lbl_80513920;
+        p[arg0 * 3 + 1] = arg1;
+    }
+}
+
 #pragma push
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_80207798_lbl_80513920_size[sizeof(RecoveredGlobal_80207798_lbl_80513920) == 0xD8 ? 1 : -1];

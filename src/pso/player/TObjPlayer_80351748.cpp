@@ -9,12 +9,13 @@ struct RecoveredGlobal_803518E0_lbl_8050E208 {
     u8 remaining[0x1AC];
 };
 
+struct P_80351974 { u16 a; s16 b; s32 c; s32 d; s32 e; u8 sub[1]; };
+
 extern "C" {
 s32 try_ground_action__10TObjPlayerFPvi(void *arg0, s32 arg1);
 s32 check_action_usable__10TObjPlayerFPvi(void *arg0, s32 arg1);
 int __dl__FPv();
 s32 dt__10TObjPlayerFis(s32 arg0, s16 arg1);
-int TObjPlayer__sub_80351974(void);
 int get_flag_1__10TObjPlayerFPv(void* p);
 s32 TObjPlayer__sub_803519D8(u8 *arg0, s32 arg1);
 s32 TObjPlayer__sub_803519D8(u8 *arg0, s32 arg1);
@@ -27,6 +28,8 @@ int fn_80351A14(u8 *arg0, s32 arg1);
 s32 reset_state_block__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_803518E0_lbl_8050E208 lbl_8050E208;
 void TObjPlayer__sub_803518E0(u8 *arg0, s16 arg1, s16 arg2);
+s32 reset_state_block__10TObjPlayerFPv(void *);
+P_80351974 *TObjPlayer__sub_80351974(P_80351974 *arg0);
 }
 
 extern "C" {
@@ -90,7 +93,17 @@ s32 dt__10TObjPlayerFis(s32 arg0, s16 arg1) {
     }
     return arg0;
 }
-int TObjPlayer__sub_80351974(void) { return 0; }
+
+P_80351974 *TObjPlayer__sub_80351974(P_80351974 *arg0) {
+    arg0->a = 0xFFFF;
+    arg0->b = 0;
+    arg0->c = -1;
+    arg0->d = -1;
+    arg0->e = 0;
+    reset_state_block__10TObjPlayerFPv(arg0->sub);
+    return arg0;
+}
+
 int get_flag_1__10TObjPlayerFPv(void* p) { return (*(u32*)((char*)p + 0x4) >> 1) & 0x1; }
 s32 TObjPlayer__sub_803519D8(u8 *arg0, s32 arg1) {
     return (u8) ((M2C_FIELD(arg0, s32 *, 8) & arg1) != 0);

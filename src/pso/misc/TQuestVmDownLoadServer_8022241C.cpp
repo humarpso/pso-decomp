@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
+int sprintf(char *, const char *, ...);
+void TQuestVmDownLoadServer__sub_80222704(void *arg0, s32 arg1);
+s32 get_field230__22TQuestVmDownLoadServerFv(void);
+extern char lbl_805DC718[4];
+void TQuestVmDownLoadServer__sub_8022241C(s32 arg0);
+}
+
+extern "C" {
 
 void TQuestVmDownLoadServer__sub_80222704(void *arg0, s32 arg1);
 void TQuestVmDownLoadServer__sub_80222754(void *arg0, s8 arg1);
@@ -23,6 +32,14 @@ M2C_UNK TWindowMessagePage__sub_8026AE20(u32, void *, s32);
 s32 is_ready__18TWindowMessagePageFPv(void *);
 M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
 s32 strlen(s32);
+
+void TQuestVmDownLoadServer__sub_8022241C(s32 arg0) {
+    char buf[0x20];
+    s32 v = get_field230__22TQuestVmDownLoadServerFv();
+    memset((void *)(buf), (M2C_UNK)(0), (M2C_UNK)(0x20));
+    sprintf(buf, lbl_805DC718, v);
+    TQuestVmDownLoadServer__sub_80222704((void *)(arg0), (s32)((s32 *)buf));
+}
 
 u8 is_idle__22TQuestVmDownLoadServerFPv(void *arg0) {
     return (u8) ((s8) *M2C_FIELD(arg0, u8 **, 0x204) == 0);

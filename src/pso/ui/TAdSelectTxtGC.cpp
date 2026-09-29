@@ -8,11 +8,21 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Sel_802A16CC {
+    u8 pad0[0xC0];
+    void *slots[7];
+};
+
+extern "C" {
+int queue_destruction__7TObjectFv(void *);
+void TAdSelectTxtGC__sub_802A1838(void *, void *, void *);
+void TAdSelectTxtGC__sub_802A16CC(Sel_802A16CC *arg0, void *arg1, void *arg2);
+}
+
 extern "C" {
 
 void TAdSelectTxtGC__sub_802A16A8(void* p);
 s32 TAdSelectTxtGC__sub_802A16C0(void* p);
-int TAdSelectTxtGC__sub_802A16CC(void);
 void TLobby__sub_802A1918(void);
 void *__ct__14TAdSelectTxtGCFv(void *arg0, void *arg1, void *arg2, void *arg3);
 void render__14TAdSelectTxtGCFv(void);
@@ -30,7 +40,17 @@ s32 TAdSelectTxtGC__sub_802A16C0(void* p) { return *(s32*)((char*)p + 0x3e8); }
 
 void render__14TAdSelectTxtGCFv(void) {  }
 
-int TAdSelectTxtGC__sub_802A16CC(void) { return 0; }
+void TAdSelectTxtGC__sub_802A16CC(Sel_802A16CC *arg0, void *arg1, void *arg2) {
+    s32 i;
+    for (i = 0; i < 7; i++) {
+        if (arg0->slots[i] != 0) {
+            queue_destruction__7TObjectFv(arg0->slots[i]);
+            arg0->slots[i] = 0;
+        }
+    }
+    TAdSelectTxtGC__sub_802A1838(arg0, arg1, arg2);
+}
+
 int run_task__14TAdSelectTxtGCFv(void) { return 0; }
 
 extern M2C_UNK __vt__14TAdSelectTxtGC[];

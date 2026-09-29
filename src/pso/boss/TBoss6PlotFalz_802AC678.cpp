@@ -47,6 +47,15 @@ s32 init_all_slots2__11TWindowCtrlFv();
 s32 end_camera_pan__10TObjPlayerFPv(void *p);
 s32 TObjPlayer__sub_801CBF7C();
 void TBoss6PlotFalz__sub_802AC678(void *self);
+void *get_player_data__10TObjPlayerFi(s32 i);
+void start_freeze__10TObjPlayerFPv();
+void init_all_slots__11TWindowCtrlFv();
+extern s32 lbl_805D586C;
+void TBoss6PlotFalz__sub_802AC6D0(void);
+void TBoss4DarkFalz__sub_8004C220();
+void save_position__14TBoss4DarkFalzFi(void *);
+void set_indexed_flags(void *, int, int);
+void TBoss6PlotFalz__sub_802AC724(u8 *arg0, u32 arg1);
 }
 
 extern "C" {
@@ -71,6 +80,23 @@ void TBoss6PlotFalz__sub_802AC678(void *self) {
     TObjPlayer__sub_801CBF7C();
 }
 
-int TBoss6PlotFalz__sub_802AC724(void) { return 0; }
+void TBoss6PlotFalz__sub_802AC6D0(void) {
+    s32 i;
+    init_all_slots__11TWindowCtrlFv();
+    for (i = 0; i < lbl_805D586C; i++) {
+        if (get_player_data__10TObjPlayerFi(i) != 0) {
+            start_freeze__10TObjPlayerFPv();
+        }
+    }
+}
+void TBoss6PlotFalz__sub_802AC724(u8 *arg0, u32 arg1) {
+    if (arg0 == NULL || arg1 == 0U) {
+        return;
+    }
+    TBoss4DarkFalz__sub_8004C220();
+    save_position__14TBoss4DarkFalzFi(arg0);
+    set_indexed_flags(arg0, 0, 0x900000);
+    *(u32 *)(arg0 + 0x30) &= 0xFFFFFFDF;
+}
 
 }

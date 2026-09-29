@@ -5,6 +5,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TLobby__sub_80020004(s32, int, void *, int, int, int);
+s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
+s32 TLanguage__sub_801E4874(void *);
+extern u8 lbl_80466040[];
+extern u8 lbl_8046605C[];
+extern u8 lbl_804DC854[];
+extern u32 lbl_805D6624;
+extern u32 lbl_805D6628;
+extern u32 lbl_805D662C;
+void TODoorLabo__sub_8029F97C(void);
+}
+
+extern "C" {
 
 s32 TODoorLabo__vt19(void);
 s32 TODoorLabo__vt20(void);
@@ -40,6 +53,16 @@ void free_resources__10TODoorLaboFv(void) {
 }
 
 extern s32 lbl_805D661C;
+
+void TODoorLabo__sub_8029F97C(void) {
+    s32 r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    if (r != 0) {
+        r = TLobby__sub_80020004(r, 5, lbl_804DC854, 0, 0, 0);
+    }
+    (*(s32 *)&lbl_805D6624) = r;
+    (*(s32 *)&lbl_805D6628) = TLanguage__sub_801E4874(lbl_80466040);
+    (*(s32 *)&lbl_805D662C) = TLanguage__sub_801E4874(lbl_8046605C);
+}
 
 s32 TODoorLabo__vt20(void) {
     return lbl_805D661C;

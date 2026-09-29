@@ -41,6 +41,16 @@ s32 advance_rng__6TLobbyFPv(void *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x2AC);
 }
 
+struct Slot_8023F754 { u8 pad[0x88]; s32 f88; u8 pad2[0x14]; };
+void TLobby__sub_8023F754(s32 arg0, s32 arg1);
+void TLobby__sub_8023F754(s32 arg0, s32 arg1) {
+    if (arg0 < 0 || arg0 >= 0x20) {
+        return;
+    }
+    s32 *p = (s32 *)&lbl_805162EC;
+    p[arg0 * 40 + 34] = arg1;
+}
+
 void TLobby__sub_8023F780(s32 slot, f32 scale) {
     if (slot < 0 || slot >= 32) return;
     clamp_field9c__6TLobbyFPvf((u8 *)&lbl_805162EC.value + slot * 0xA0, scale);

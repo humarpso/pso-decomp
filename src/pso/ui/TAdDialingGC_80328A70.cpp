@@ -18,4 +18,22 @@ void init_dialog__12TAdDialingGCFv(void) {
     render_status_disp__23TAdSinglePlyChrSelectGCFPvff(TAdDialingGC__data_805DF6EC, lbl_805DF6F0);
 }
 
+extern const f32 lbl_805DF6F4;
+s32 fn_80145A44(void *);
+s32 call_146CA0_with_5708__6TLobbyFv();
+int sprintf(char *, const char *, ...);
+extern char lbl_804767C8[];
+void TAdDialingGC__sub_80328AA0(void);
+void TAdDialingGC__sub_80328AA0(void) {
+    char a[0x20];
+    char c[0x100];
+    char b[0x100];
+    if (fn_80145A44(a) == 0) {
+        a[0] = 0;
+    }
+    sprintf(b, lbl_804767C8, a, call_146CA0_with_5708__6TLobbyFv());
+    sprintf(c, (char *)TAdDialingGC__sub_8013ADBC(1), b);
+    ((void (*)(void *, f32, f32))render_status_disp__23TAdSinglePlyChrSelectGCFPvff)(c, TAdDialingGC__data_805DF6EC, lbl_805DF6F4);
+}
+
 }

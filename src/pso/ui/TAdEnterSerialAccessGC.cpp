@@ -117,6 +117,8 @@ struct RecoveredGlobal_80321B28_lbl_8050E3B8
   u8 remaining[0x1AC];
 };
 
+struct T_80321738 { s32 a; s32 b; s32 c; };
+
 extern "C" {
 void strncpy(s32, s32, s32);
 M2C_UNK memset(void *, int, int);
@@ -124,18 +126,15 @@ extern RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterSerial
 void TAdEnterSerialAccessGC__sub_8032190C(s32 arg0);
 M2C_UNK memset(void *, int, int);
 s32 get_instance__23TAdSinglePlyChrSelectGCFv();
-s32 TAdEnterSerialAccessGC__sub_80321668(void *, void *, int, void *);
 extern RecoveredGlobal_803216C0_lbl_8047653C lbl_8047653C;
 extern RecoveredGlobal_803216C0_lbl_805430D0 lbl_805430D0;
 M2C_UNK *TAdEnterSerialAccessGC__sub_803216C0(void);
 M2C_UNK memset(void *, int, int);
-s32 TAdEnterSerialAccessGC__sub_80321668(void *, void *, int, void *);
 extern RecoveredGlobal_803217B8_lbl_80476524 lbl_80476524;
 extern RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterSerialAccessGC__data_804EC9C4;
 extern RecoveredGlobal_803217B8_lbl_805430A4 lbl_805430A4;
 M2C_UNK *TAdEnterSerialAccessGC__sub_803217B8(void);
 M2C_UNK memset(void *, int, int);
-s32 TAdEnterSerialAccessGC__sub_80321668(void *, void *, int, void *);
 extern RecoveredGlobal_80321874_lbl_80476518 lbl_80476518;
 extern RecoveredGlobal_80321874_TAdEnterSerialAccessGC__data_804EC9B8 TAdEnterSerialAccessGC__data_804EC9B8;
 extern RecoveredGlobal_80321874_lbl_80543090 lbl_80543090;
@@ -184,6 +183,29 @@ void TAdEnterSerialAccessGC__sub_803212F8();
 extern char lbl_804764D8[];
 extern char lbl_804764E0[];
 void TAdEnterSerialAccessGC__sub_80321A90(void);
+void TAdEnterSerialAccessGC__sub_80321668(u8 *dst, u8 *src, u32 count, u32 *lens);
+s32 get_instance__23TAdSinglePlyChrSelectGCFv();
+void TAdEnterSerialAccessGC__sub_80321668(u8 *dst, u8 *src, u32 count, u32 *lens);
+M2C_UNK memset(void *, int, int);
+extern T_80321738 lbl_80476530;
+extern u8 lbl_805430BC[];
+u8 *TAdEnterSerialAccessGC__sub_80321738(void);
+int sprintf(char *, const char *, ...);
+void TAdEnterSerialAccessGC__sub_8039C8A0(int, const char *, ...);
+M2C_UNK memset(void *, int, int);
+extern char lbl_804765E0[];
+extern char lbl_804765E8[];
+extern char lbl_80543010[];
+extern u32 lbl_805DF508;
+char *TAdEnterSerialAccessGC__sub_80321A24(int arg0);
+extern char lbl_80543050[];
+char *TAdEnterSerialAccessGC__sub_803219AC(int arg0);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, void *);
+void send_and_handle__6TLobbyFPvii(s32, s32, int);
+s32 update_window_mode_from_progress__6TLobbyFiPv(void *, void *);
+extern u8 lbl_804764C8[];
+extern u8 lbl_804764D0[];
+s32 TAdEnterSerialAccessGC__sub_80321AC8(void *arg0, void *arg1);
 }
 
 extern "C" {
@@ -219,6 +241,19 @@ void draw_serial_separators__22TAdEnterSerialAccessGCFv(void) {
 
 typedef char RecoveredGlobal_803216C0_lbl_8047653C_size[sizeof(RecoveredGlobal_803216C0_lbl_8047653C) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_803216C0_lbl_805430D0_size[sizeof(RecoveredGlobal_803216C0_lbl_805430D0) == 0x18 ? 1 : -1];
+
+void TAdEnterSerialAccessGC__sub_80321668(u8 *dst, u8 *src, u32 count, u32 *lens) {
+    u32 i;
+    u32 j;
+    for (i = 0; i < count; i++) {
+        for (j = 0; j < lens[i]; j++) {
+            *dst++ = *src++;
+        }
+        *dst++ = '-';
+    }
+    dst[-1] = 0;
+}
+
 M2C_UNK *TAdEnterSerialAccessGC__sub_803216C0(void) {
     typedef char sp8_offset[(offsetof(Stack_803216C0, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_803216C0, spC) == 0x4) ? 1 : -1];
@@ -228,13 +263,21 @@ M2C_UNK *TAdEnterSerialAccessGC__sub_803216C0(void) {
     stack.sp8 = M2C_FIELD(&lbl_8047653C.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_8047653C.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_8047653C.value, s32 *, 8);
-    TAdEnterSerialAccessGC__sub_80321668((void *) (&lbl_805430D0.value), (void *) (get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1153C), (int) (3), (void *) (&stack.sp8));
+    TAdEnterSerialAccessGC__sub_80321668((u8 *)((void *) (&lbl_805430D0.value)), (u8 *)((void *) (get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1153C)), (u32)((int) (3)), (u32 *)((void *) (&stack.sp8)));
     return &lbl_805430D0.value;
 }
 
 typedef char RecoveredGlobal_803217B8_lbl_80476524_size[sizeof(RecoveredGlobal_803217B8_lbl_80476524) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_803217B8_TAdEnterSerialAccessGC__data_804EC9C4_size[sizeof(RecoveredGlobal_803217B8_TAdEnterSerialAccessGC__data_804EC9C4) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_803217B8_lbl_805430A4_size[sizeof(RecoveredGlobal_803217B8_lbl_805430A4) == 0x18 ? 1 : -1];
+
+u8 *TAdEnterSerialAccessGC__sub_80321738(void) {
+    memset(lbl_805430BC, 0, 0x14);
+    T_80321738 t = lbl_80476530;
+    TAdEnterSerialAccessGC__sub_80321668((u8 *)(lbl_805430BC), (u8 *)((void *)((u32)TAdEnterSerialAccessGC__sub_803219AC((int)(get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1152C)))), (u32)(3), (u32 *)(&t));
+    return lbl_805430BC;
+}
+
 M2C_UNK *TAdEnterSerialAccessGC__sub_803217B8(void) {
     typedef char sp8_offset[(offsetof(Stack_803217B8, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_803217B8, spC) == 0x4) ? 1 : -1];
@@ -244,7 +287,7 @@ M2C_UNK *TAdEnterSerialAccessGC__sub_803217B8(void) {
     stack.sp8 = M2C_FIELD(&lbl_80476524.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_80476524.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_80476524.value, s32 *, 8);
-    TAdEnterSerialAccessGC__sub_80321668((void *) (&lbl_805430A4.value), (void *) (&(*(RecoveredGlobal_803217B8_TAdEnterSerialAccessGC__data_804EC9C4 *)&TAdEnterSerialAccessGC__data_804EC9C4).value), (int) (3), (void *) (&stack.sp8));
+    TAdEnterSerialAccessGC__sub_80321668((u8 *)((void *) (&lbl_805430A4.value)), (u8 *)((void *) (&(*(RecoveredGlobal_803217B8_TAdEnterSerialAccessGC__data_804EC9C4 *)&TAdEnterSerialAccessGC__data_804EC9C4).value)), (u32)((int) (3)), (u32 *)((void *) (&stack.sp8)));
     return &lbl_805430A4.value;
 }
 
@@ -260,7 +303,7 @@ M2C_UNK *TAdEnterSerialAccessGC__sub_80321874(void) {
     stack.sp8 = M2C_FIELD(&lbl_80476518.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_80476518.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_80476518.value, s32 *, 8);
-    TAdEnterSerialAccessGC__sub_80321668((void *) (&lbl_80543090.value), (void *) (&TAdEnterSerialAccessGC__data_804EC9B8.value), (int) (3), (void *) (&stack.sp8));
+    TAdEnterSerialAccessGC__sub_80321668((u8 *)((void *) (&lbl_80543090.value)), (u8 *)((void *) (&TAdEnterSerialAccessGC__data_804EC9B8.value)), (u32)((int) (3)), (u32 *)((void *) (&stack.sp8)));
     return &lbl_80543090.value;
 }
 
@@ -297,8 +340,32 @@ typedef char RecoveredGlobal_80321B28_TAdEnterSerialAccessGC__data_804EC9C4_size
 typedef char RecoveredGlobal_80321B28_lbl_8050E208_size[((sizeof(RecoveredGlobal_80321B28_lbl_8050E208)) == 0x1B0) ? (1) : (-1)];
 typedef char RecoveredGlobal_80321B28_lbl_8050E3B8_size[((sizeof(RecoveredGlobal_80321B28_lbl_8050E3B8)) == 0x1B0) ? (1) : (-1)];
 
+char *TAdEnterSerialAccessGC__sub_803219AC(int arg0) {
+    u32 v = 0;
+    TAdEnterSerialAccessGC__sub_8039C8A0(arg0, lbl_804765E0, &v);
+    memset(lbl_80543050, 0, 0x40);
+    if (v != 0) {
+        sprintf(lbl_80543050, lbl_804765E8, v);
+    }
+    return lbl_80543050;
+}
+
+char *TAdEnterSerialAccessGC__sub_80321A24(int arg0) {
+    s32 v = 0;
+    TAdEnterSerialAccessGC__sub_8039C8A0(arg0, (const char *)&lbl_805DF508, &v);
+    memset(lbl_80543010, 0, 0x40);
+    sprintf(lbl_80543010, lbl_804765E0, v);
+    return lbl_80543010;
+}
+
 void TAdEnterSerialAccessGC__sub_80321A90(void) {
     create_callback__22TAdEnterSerialAccessGCFPvPvPv(lbl_804764D8, lbl_804764E0, (void *)TAdEnterSerialAccessGC__sub_803212F8);
+}
+
+s32 TAdEnterSerialAccessGC__sub_80321AC8(void *arg0, void *arg1) {
+    s32 r = update_window_mode_from_progress__6TLobbyFiPv(lbl_804764C8, lbl_804764D0);
+    send_and_handle__6TLobbyFPvii(r, TAdSinglePlyChrSelectGC__sub_80132F2C(0x17, arg1), 1);
+    return r;
 }
 
 void TAdEnterSerialAccessGC__sub_80321B28(u8 *arg0, int arg1) {

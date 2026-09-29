@@ -24,6 +24,10 @@ struct E_80265660 { u32 flags; u32 b; };
 
 struct Obj_80265660 { u8 pad[0x80]; E_80265660 *entries; };
 
+struct Rec_802655E4 { s32 a; s32 b; };
+
+struct Win_802655E4 { u8 p0[0x72]; s16 f72; s16 f74; s16 f76; u8 p78[8]; Rec_802655E4 *f80; };
+
 extern "C" {
 M2C_UNK TWindowSubComCard__sub_8026D740(int, void *, void *);
 extern const f32 lbl_805DD150;
@@ -44,6 +48,16 @@ void TWindowSubComCard__sub_80265680(u8 *arg0, s16 arg1);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 s32 get_selected_entry__17TWindowSubComCardFPv(u8 *arg0);
 s32 TWindowSubComCard__sub_80265660(Obj_80265660 *o, s16 i);
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+void set_default_status__17TWindowDuelResultFPvi(void *, s32);
+void refresh_status_display__9TWindowDDFv(void *);
+void TWindowSubComCard__sub_802655E4(Win_802655E4 *w);
+}
+struct Rec_802656D8 { u32 flags; s32 b; };
+struct Ent_802656D8 { u8 p0[0x24]; s32 f24; };
+struct Win_802656D8 { u8 p0[0x80]; Rec_802656D8 *f80; };
+extern "C" {
+void TWindowSubComCard__sub_802656D8(Win_802656D8 *w, s32 idx, s32 val);
 }
 
 extern "C" {
@@ -111,6 +125,22 @@ void TWindowSubComCard__sub_8026556C(u8 *arg0) {
     }
 }
 
+void TWindowSubComCard__sub_802655E4(Win_802655E4 *w) {
+    s32 i;
+    Rec_802655E4 *r;
+    void *e;
+    w->f72 = 0;
+    w->f74 = 0;
+    r = w->f80;
+    for (i = 0; i < w->f76; i++, r++) {
+        e = ((void *)get_array_entry__20TWindowSubStatusDispFPvi(w, i));
+        set_default_status__17TWindowDuelResultFPvi(e, 0);
+        refresh_status_display__9TWindowDDFv(e);
+        r->a = 0;
+        r->b = 0;
+    }
+}
+
 s32 TWindowSubComCard__sub_80265660(Obj_80265660 *o, s16 i) {
     if (o->entries[i].flags & 0x10) return 0;
     return 1;
@@ -136,6 +166,13 @@ void TWindowSubComCard__sub_80265680(u8 *arg0, s16 arg1) {
   ;
   *new_var = (*new_var) | 0x10;
 }
+void TWindowSubComCard__sub_802656D8(Win_802656D8 *w, s32 idx, s32 val) {
+    Ent_802656D8 *e = ((Ent_802656D8 *(*)(void *, s16))get_array_entry__20TWindowSubStatusDispFPvi)(w, idx);
+    Rec_802656D8 *r = w->f80;
+    e->f24 = val;
+    r[(s16)idx].flags &= ~0x10;
+}
+
 s32 get_selected_entry__17TWindowSubComCardFPv(u8 *arg0) {
     s16 temp_r4;
     temp_r4 = M2C_FIELD(arg0, s16 *, 0x78);

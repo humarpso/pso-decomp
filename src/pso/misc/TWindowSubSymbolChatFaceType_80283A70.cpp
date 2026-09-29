@@ -20,11 +20,14 @@ struct RecoveredGlobal_80284074_lbl_8050E208 {
     u8 remaining[0x1AC];
 };
 
+struct Win_80283FA8 { u8 pad[0x64]; s8 *f64; };
+
+struct Ent_80283FA8 { u8 pad[0x2c]; s32 f2c; };
+
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
-M2C_UNK TWindowSubSymbolChatFaceType__sub_80283FA8(void *);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(int, int);
 void render__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
@@ -50,6 +53,9 @@ s32 update_subwindow__20TWindowSubStatusDispFPv(int);
 extern RecoveredGlobal_80283A70_lbl_8050E208 lbl_8050E208;
 extern const f32 lbl_805DD784;
 void run_task__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0);
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
+s32 get_parts_entry__28TWindowSubSymbolChatPartsSetFi(int);
+void TWindowSubSymbolChatFaceType__sub_80283FA8(Win_80283FA8 *arg0);
 }
 
 extern "C" {
@@ -100,10 +106,18 @@ void TWindowSubSymbolChatFaceType__sub_80283F38(u8 *arg0, u8 *arg1) {
   TWindowSubSymbolChatFaceType__sub_80283C84(arg1, &stack.sp8, lbl_805DD77C, lbl_805DD780);
 }
 
+void TWindowSubSymbolChatFaceType__sub_80283FA8(Win_80283FA8 *arg0) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        Ent_80283FA8 *e = (Ent_80283FA8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, i);
+        e->f2c = get_parts_entry__28TWindowSubSymbolChatPartsSetFi(*arg0->f64);
+    }
+}
+
 void render__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0) {
     s32 temp_r31;
     temp_r31 = draw_default_entry__9TWindowDDFi();
-    TWindowSubSymbolChatFaceType__sub_80283FA8((void *) (arg0));
+    TWindowSubSymbolChatFaceType__sub_80283FA8((Win_80283FA8 *)((void *) (arg0)));
     TWindowSubComCard__sub_80245F98((void *) (arg0), (int) (temp_r31));
     TWindowSubSymbolChatFaceType__sub_80283F38((u8 *)((void *) (arg0)), (u8 *)((int) (temp_r31)));
     forward_render__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x68)), (int) (temp_r31));

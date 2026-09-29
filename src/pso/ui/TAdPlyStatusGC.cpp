@@ -49,7 +49,6 @@ M2C_UNK allow_rendering__7TObjectFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
 s32 get_status__22TAdMultiPlyChrSelectGCFv();
 M2C_UNK TAdGuideButtonGC__sub_8032D600(int, void *);
-u32 TAdPlyStatusGC__sub_8033F8B0(void *, int);
 u32 get_player_index__14TAdPlyStatusGCFv();
 extern RecoveredGlobal_8033F9DC_lbl_804783E0 lbl_804783E0;
 extern RecoveredGlobal_8033F93C_lbl_8050E3B8 lbl_8050E3B8;
@@ -58,6 +57,12 @@ extern s32 TAdPlyStatusGC__data_805D6DB8;
 void TAdPlyStatusGC__sub_8033F9DC(struct RecoveredFields_8033F9DC_arg0 *arg0);
 extern s32 TAdPlyStatusGC__data_805D6DB8;
 void TAdPlyStatusGC__sub_8033F900(u8 *arg0, s32 arg1);
+void set_field_1c__6TLobbyFPvf(f32);
+s32 create_callback__22TAdEnterSerialAccessGCFPvPvPv(void *, void *, void *);
+void TAdPlyStatusGC__sub_8033F3D8();
+extern u8 lbl_804783D8[];
+extern const f32 lbl_805DFAEC;
+s32 TAdPlyStatusGC__sub_8033F8B0(void *arg0, void *arg1);
 }
 
 extern "C" {
@@ -73,6 +78,12 @@ int get_state_flag__9TMainTaskFv(void*);
 void render__14TAdPlyStatusGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)10); abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)6); } }
 
 typedef char RecoveredGlobal_8033F93C_lbl_8050E3B8_size[sizeof(RecoveredGlobal_8033F93C_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
+
+s32 TAdPlyStatusGC__sub_8033F8B0(void *arg0, void *arg1) {
+    s32 r = create_callback__22TAdEnterSerialAccessGCFPvPvPv(arg1, lbl_804783D8, (void *)TAdPlyStatusGC__sub_8033F3D8);
+    set_field_1c__6TLobbyFPvf(lbl_805DFAEC);
+    return r;
+}
 
 void TAdPlyStatusGC__sub_8033F900(u8 *arg0, s32 arg1) {
     s32 var_r4;
@@ -118,7 +129,7 @@ void TAdPlyStatusGC__sub_8033F9DC(struct RecoveredFields_8033F9DC_arg0 *arg0) {
     TAdPlyStatusGC__data_805D6DB8 = 1;
     if ((s32) TAdPlyStatusGC__data_805D6DB0 < 3) {
         if ((u32) arg0->field_6C == 0) {
-            arg0->field_6C = TAdPlyStatusGC__sub_8033F8B0(arg0, (s32) ((u8 *)(&lbl_804783E0.value) + (TAdPlyStatusGC__data_805D6DB0 * 8)));
+            arg0->field_6C = TAdPlyStatusGC__sub_8033F8B0((void *)(arg0), (void *)((s32) ((u8 *)(&lbl_804783E0.value) + (TAdPlyStatusGC__data_805D6DB0 * 8))));
         }
         temp_r3 = ((s32)get_player_index__14TAdPlyStatusGCFv());
         if (temp_r3 != 0) {

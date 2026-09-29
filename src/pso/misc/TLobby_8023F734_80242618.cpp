@@ -29,6 +29,11 @@ M2C_UNK __construct_array(M2C_UNK *, void *(*)(void *), M2C_UNK, M2C_UNK, M2C_UN
 extern RecoveredGlobal_8024287C_lbl_80517EE0 lbl_80517EE0;
 extern RecoveredGlobal_802426E8_lbl_80517F9C lbl_80517F9C;
 void TLobby__sub_8024287C(void);
+void *get_com_card_entry__6TLobbyFi(s32);
+void TLobby__sub_802426E8(s32 arg0);
+int get_com_card_data__6TLobbyFv(void);
+M2C_UNK get_id__6TLobbyFPv(void *);
+s32 TLobby__sub_80242794(u32 arg0);
 }
 
 extern "C" {
@@ -88,6 +93,23 @@ void TLobby__sub_802426E8(s32 arg0) {
         TLobby__sub_803DE7BC((int) (temp_r3), (void *) (temp_r3 + 0xBC), (void *) ((u32) ((7 - arg0) * 0xBC) >> 2U));
     }
     (*(s32 *)&lbl_805D63DC) -= 1;
+}
+
+s32 TLobby__sub_80242794(u32 arg0) {
+    s32 i;
+    s32 n;
+    n = ((s32)get_com_card_data__6TLobbyFv());
+    for (i = 0; i < n; i++) {
+        if (arg0 == ((u32)get_id__6TLobbyFPv(get_com_card_entry__6TLobbyFi(i)))) {
+            TLobby__sub_802426E8(i);
+            n -= 1;
+        }
+    }
+    if (n < 8) {
+        return n;
+    }
+    TLobby__sub_802426E8(0);
+    return 7;
 }
 
 void reset_state_805D63DC__6TLobbyFv(void*) { lbl_805D63DC = 0; clear_flag_bit2__6TLobbyFv(); }

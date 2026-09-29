@@ -27,12 +27,22 @@ struct T_803102A4 { u8 pad[0x28]; s32 arr[4]; };
 
 struct T_803102C8 { u8 pad[0x298]; s32 mode; };
 
+struct Ctl_803101D4 { u8 pad[0x28]; void *win[4]; };
+
+struct Ctl_80310230 { u8 pad[0x28]; void *win[4]; };
+
 extern "C" {
 extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 TPlayerBattleCtrl4P__data_80542E90;
 M2C_UNK *TPlayerBattleCtrl4P__sub_80310300(void);
 void TPlayerBattleCtrl4P__sub_803102A4(T_803102A4 *self);
 extern void *TPlayerBattleCtrl4P__data_805D6AA8;
 u8 TPlayerBattleCtrl4P__sub_803102C8(void);
+void TWindow__close(void *);
+void TPlayerBattleCtrl4P__sub_803101D4(Ctl_803101D4 *o);
+void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *__nw__7TObjectFUl(u32);
+void *TWindowDuelResult__ct(void *, int);
+void TPlayerBattleCtrl4P__sub_80310230(Ctl_80310230 *o);
 }
 
 extern "C" {
@@ -55,6 +65,30 @@ int fn_801C23A8(void*, void*);
 M2C_UNK inc_player_count__10TObjPlayerFv();
 
 typedef char RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90_size[sizeof(RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90) == 0x20 ? 1 : -1];
+
+void TPlayerBattleCtrl4P__sub_803101D4(Ctl_803101D4 *o) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        if (o->win[i] != 0) {
+            TWindow__close(o->win[i]);
+            o->win[i] = 0;
+        }
+    }
+}
+
+void TPlayerBattleCtrl4P__sub_80310230(Ctl_80310230 *o) {
+    s32 i;
+    void *w;
+    for (i = 0; i < 4; i++) {
+        if (TPlayerBattleCtrl4P__sub_801BA74C(i) != 0) {
+            w = __nw__7TObjectFUl(0x6C);
+            if (w != 0) {
+                w = TWindowDuelResult__ct(w, i);
+            }
+            o->win[i] = w;
+        }
+    }
+}
 
 void TPlayerBattleCtrl4P__sub_803102A4(T_803102A4 *self) {
     s32 i;

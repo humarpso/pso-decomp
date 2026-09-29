@@ -4,6 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 s32 TLobby__sub_8001DC24();
 u8 *get_message_10__20TWindowSubStatusDispFPv(s32);
@@ -20,6 +21,9 @@ u8 *get_sub_obj__17TWindowSubComCardFPv(s32);
 s32 strcmp(void *, int);
 extern u8 lbl_805DD898;
 void TWindowSubStatusDisp__sub_80288104(u8 *arg0, s32 arg1);
+u8 *TWindowSubStatusDisp__sub_80287A00(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4);
+extern u8 lbl_8044FCF0[];
+u8 *TWindowSubStatusDisp__sub_802880BC(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -43,6 +47,12 @@ s32 destroy_status_display__20TWindowSubStatusDispFis(s32 arg0, s16 arg1) {
     }
     return arg0;
 }
+
+u8 *TWindowSubStatusDisp__sub_802880BC(u8 *arg0, s32 arg1, s32 arg2) {
+    TWindowSubStatusDisp__sub_80287A00(arg0, lbl_8044FCF0, arg1, 1, arg2);
+    return arg0;
+}
+
 #pragma push
 #pragma scheduling off
 void TWindowSubStatusDisp__sub_80288104(u8 *arg0, s32 arg1) {

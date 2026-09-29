@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 is_selection_done__23TAdSinglePlyChrSelectGCFPv(void *);
+s32 TAdSinglePlyChrSelectGC__sub_8028C938(u8 *arg0);
+}
+
+extern "C" {
 
 s32 TAdSinglePlyChrSelectGC__sub_8028C998(void *arg0);
 void TAdSinglePlyChrSelectGC__sub_8028CEEC(void *arg0, s32 *);
@@ -13,7 +18,6 @@ void close_and_destroy__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 s32 try_acquire_slot__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void try_advance_state__23TAdSinglePlyChrSelectGCFPv(void* p);
 s32 try_claim_load_slot__23TAdSinglePlyChrSelectGCFPv(void *arg0);
-s32 TAdSinglePlyChrSelectGC__sub_8028C938();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8028C9B0(void *);
 int TAdSinglePlyChrSelectGC__sub_8028CB6C(void*);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -32,6 +36,19 @@ s32 try_acquire_slot__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     }
     lbl_805D64E8 += 1;
     M2C_FIELD(arg0, s32 *, 0x6C) = 1;
+    return 1;
+}
+
+s32 TAdSinglePlyChrSelectGC__sub_8028C938(u8 *arg0) {
+    s32 off;
+    s32 i;
+    i = 0;
+    off = 0;
+    do {
+        if (is_selection_done__23TAdSinglePlyChrSelectGCFPv(*(void **)(arg0 + 0x74 + off)) == 0) return 0;
+        i++;
+        off += 4;
+    } while (i < 6);
     return 1;
 }
 
@@ -73,7 +90,7 @@ s32 TAdSinglePlyChrSelectGC__sub_8028CF6C(void) {
 void close_and_destroy__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     s32 *temp_r4;
 
-    if (TAdSinglePlyChrSelectGC__sub_8028C938() != 0) {
+    if (TAdSinglePlyChrSelectGC__sub_8028C938((u8 *)(arg0)) != 0) {
         TAdSinglePlyChrSelectGC__sub_8028C9B0(arg0);
         temp_r4 = M2C_FIELD(arg0, s32 **, 0x3C);
         *temp_r4 &= 0xFFFFFF7F;

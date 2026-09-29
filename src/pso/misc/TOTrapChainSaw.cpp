@@ -107,6 +107,12 @@ struct RecoveredGlobal_802C9890___vt__14TOTrapChainSaw {
     u8 remaining[0x78];
 };
 
+typedef struct F4_802C8FF8 { f32 v[4]; } F4_802C8FF8;
+
+typedef struct S_802C9124 { u8 pad0[0xD8]; s32 f[4]; } S_802C9124;
+
+typedef struct S_802C9174 { u8 pad0[0xD8]; s32 f[4]; } S_802C9174;
+
 extern "C" {
 void update_demo__14TOTrapChainSawFPv(void *arg0);
 extern const f32 lbl_805DE62C;
@@ -116,13 +122,18 @@ s32 init_map_object_base(void *, void *);
 extern M2C_UNK __vt__14TOTrapChainSaw[];
 extern s32 lbl_805D3F00;
 u8 *TOTrapChainSaw__ct(u8 *arg0, s32 arg1, s32 arg2);
+extern F4_802C8FF8 lbl_80471EDC[];
+extern s32 lbl_805D5550;
+f32 TOTrapChainSaw__sub_802C8FF8(f32 farg0);
+u16 obj_getField1c(void *);
+void TOTrapChainSaw__sub_802C9124(S_802C9124 *arg0, void *arg1);
+u16 obj_getField1c(void *);
+s32 TOTrapChainSaw__sub_802C9174(S_802C9174 *arg0, void *arg1);
 }
 
 extern "C" {
 
 void TOTrapChainSaw__sub_802C9090(void);
-int TOTrapChainSaw__sub_802C9124(void);
-int TOTrapChainSaw__sub_802C9174(void);
 void *__dt__14TOTrapChainSawFv(void *arg0, s16 arg1);
 int clear_field_d8__14TOTrapChainSawFPv(void* p);
 void decode_params__14TOTrapChainSawFPv(void *arg0);
@@ -135,6 +146,11 @@ void __dl__7TObjectFPv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 void destroy_key_base__5TOKeyFPvs(void *, int);
 int memset(void*, int, int);
+
+f32 TOTrapChainSaw__sub_802C8FF8(f32 farg0) {
+    F4_802C8FF8 t = lbl_80471EDC[0];
+    return farg0 * t.v[lbl_805D5550];
+}
 
 void update_demo__14TOTrapChainSawFPv(void *arg0) {
     s32 temp_r31;
@@ -157,8 +173,23 @@ void TOTrapChainSaw__sub_802C9094(u8 *arg0) {
 
 int clear_field_d8__14TOTrapChainSawFPv(void* p) { return memset((char*)p + 0xd8, 0, 16); }
 
-int TOTrapChainSaw__sub_802C9124(void) { return 0; }
-int TOTrapChainSaw__sub_802C9174(void) { return 0; }
+void TOTrapChainSaw__sub_802C9124(S_802C9124 *arg0, void *arg1) {
+    s32 i = obj_getField1c(arg1);
+    if (i >= 0 && i < 4) {
+        arg0->f[i] = 0x96;
+    }
+}
+
+s32 TOTrapChainSaw__sub_802C9174(S_802C9174 *arg0, void *arg1) {
+    s32 i = obj_getField1c(arg1);
+    if (i >= 0 && i < 4) {
+        if (arg0->f[i] > 0) {
+            arg0->f[i] = arg0->f[i] - 1;
+            return 1;
+        }
+    }
+    return 0;
+}
 
 void update_sweep__14TOTrapChainSawFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xF0) == 0) {

@@ -35,6 +35,10 @@ extern const f32 lbl_805DDE80;
 extern const f32 lbl_805DDE84;
 extern const f32 lbl_805DDE88;
 void TChCrTagName__sub_802A26E0(u8 *arg0);
+s32 get_selected_index__15TChCrCharSelectFv();
+s32 get_selected_char__15TChCrCharSelectFv();
+s32 get_instance__15TChCrCharSelectFv();
+s32 TChCrTagName__vt4(u8 *arg0);
 }
 
 extern "C" {
@@ -85,6 +89,24 @@ extern void *tl_03;
 #pragma push
 #pragma fp_contract on
 typedef char RecoveredGlobal_802A28C0___vt__12TChCrTagName_size[sizeof(RecoveredGlobal_802A28C0___vt__12TChCrTagName) == 0x20 ? 1 : -1];
+
+s32 TChCrTagName__vt4(u8 *arg0) {
+    switch (get_selected_index__15TChCrCharSelectFv()) {
+    case 0:
+        if (*(s32 *)(arg0 + 0x20) / 4 == get_selected_char__15TChCrCharSelectFv()) {
+            return 1;
+        }
+        break;
+    case 1:
+    case 2:
+        if (*(s32 *)(arg0 + 0x20) == get_instance__15TChCrCharSelectFv()) {
+            return 1;
+        }
+        break;
+    }
+    return 0;
+}
+
 u8 *__ct__12TChCrTagNameFv(u8 *arg0, s32 arg1, s32 _w2) {
     __ct__8TChCrTagFv(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__12TChCrTagName.value;

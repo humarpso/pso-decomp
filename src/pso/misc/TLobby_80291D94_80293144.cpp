@@ -35,6 +35,10 @@ extern M2C_UNK lbl_804DB1F0[];
 void TLobby__sub_8029379C(void);
 extern M2C_UNK lbl_804DB1F0[];
 void TLobby__sub_802934E0(void);
+s32 get_main_phase();
+s32 is_split_screen();
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 TLobby__sub_8029359C(void *arg0);
 }
 
 extern "C" {
@@ -48,7 +52,6 @@ M2C_UNK TLobby__sub_80074034(s32);
 M2C_UNK TLobby__sub_802925C4(void *);
 M2C_UNK TLobby__sub_802932EC();
 int TLobby__sub_802933FC(void*);
-int TLobby__sub_8029359C(void*);
 M2C_UNK TObjPlayer__sub_802C3D38(u32, u32);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
 M2C_UNK create_ch_time_win(s32);
@@ -120,11 +123,24 @@ void TLobby__sub_802934E0(void) {
     for (i = 0; i < 4; i++) (*(G_802934E0 *)&lbl_804DB1F0).r[i].f = 0;
 }
 
-void maybe_handle_destruction__6TLobbyFPv(void* p) { if (TLobby__sub_8029359C((void*)(p)) == 0) { TLobby__sub_802933FC(p); } }
+s32 TLobby__sub_8029359C(void *arg0) {
+    switch (get_main_phase()) {
+    case 15:
+        queue_destruction__7TObjectFv(arg0);
+        return 1;
+    case 14:
+        return is_split_screen() != 1 ? 1 : 0;
+    default:
+        queue_destruction__7TObjectFv(arg0);
+        return 1;
+    }
+}
+
+void maybe_handle_destruction__6TLobbyFPv(void* p) { if (TLobby__sub_8029359C((void *)((void*)(p))) == 0) { TLobby__sub_802933FC(p); } }
 
 void update_destruction_countdown__6TLobbyFPv(void *arg0) {
     if (TAdPlayerLoadGC__sub_801E1510() != 1) {
-        if (TLobby__sub_8029359C((void*)(arg0)) == 1) {
+        if (TLobby__sub_8029359C((void *)((void*)(arg0))) == 1) {
             queue_destruction__7TObjectFv(arg0);
         }
         maybe_handle_destruction__6TLobbyFPv((void*)((void*)(arg0)));

@@ -28,6 +28,8 @@ struct Ent_803DAB7C { s32 a; s32 b; E_803DAB7C *p; };
 
 struct Obj_803DAB7C { Ent_803DAB7C *arr; };
 
+struct Ent_803DAB9C { u32 a; u32 b; u32 c; u8 *d; u32 e; u32 f; };
+
 extern "C" {
 extern s32 lbl_805D7768;
 void TObjPlayer__sub_803DAC1C(s32 arg0);
@@ -35,13 +37,11 @@ void TObjPlayer__sub_803DA6E0(void *);
 s32 fn_803DB20C(void *);
 extern u8 *lbl_805D774C;
 s32 TObjPlayer__sub_803DAE98(u8 *arg0, s32 _w1);
-s32 TObjPlayer__sub_803DA808(int, void *, int);
 s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TObjPlayer__sub_803DA55C(u32);
 extern u8 *lbl_805D774C;
 extern s32 lbl_805D7768;
 s32 TObjPlayer__sub_803DAD28(u32 arg0);
-s32 TObjPlayer__sub_803DA808(int, void *, int);
 s32 TObjPlayer__sub_803DA8B4(u8 *arg0, s32 arg1);
 extern S_803DA7E0 lbl_8058D470;
 void TObjPlayer__sub_803DA7E0(void);
@@ -49,6 +49,13 @@ extern u8 *lbl_805D774C;
 s32 TParticleCtrl__sub_803DA7A8(s32 i);
 extern s32 lbl_805D7768;
 void TObjPlayer__sub_803DAB7C(Obj_803DAB7C *self, s32 i, s32 j);
+void move_data__6TLobbyFv();
+void DCFlushRange(void *, void *);
+void TObjPlayer__sub_803DA808(void *arg0, s32 arg1, void *arg2);
+s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+extern S_803DA7E0 lbl_8058D470;
+extern s32 lbl_805D7768;
+s32 TObjPlayer__sub_803DAB9C(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -93,6 +100,11 @@ void TObjPlayer__sub_803DA7E0(void) {
 }
 #pragma pop
 
+void TObjPlayer__sub_803DA808(void *arg0, s32 arg1, void *arg2) {
+    move_data__6TLobbyFv();
+    DCFlushRange(arg0, arg2);
+}
+
 s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 temp_r0;
     u32 temp_r6;
@@ -111,7 +123,7 @@ s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (var_r5 > temp_r6) {
         var_r5 = temp_r6;
     }
-    TObjPlayer__sub_803DA808((int) (temp_r7 + ((RecoveredFields_803DA84C_arg0 *)arg0)->field_1C), (void *) (arg1), (int) (var_r5));
+    TObjPlayer__sub_803DA808((void *)((int) (temp_r7 + ((RecoveredFields_803DA84C_arg0 *)arg0)->field_1C)), (s32)((void *) (arg1)), (void *)((int) (var_r5)));
     return 0;
 }
 #pragma pop
@@ -119,7 +131,7 @@ s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
 #pragma push
 #pragma peephole off
 s32 TObjPlayer__sub_803DA8B4(u8 *arg0, s32 arg1) {
-    TObjPlayer__sub_803DA808((int) (M2C_FIELD(arg0, s32 *, 0x1C)), (void *) (arg1), (int) (M2C_FIELD(arg0, s32 *, 0x14)));
+    TObjPlayer__sub_803DA808((void *)((int) (M2C_FIELD(arg0, s32 *, 0x1C))), (s32)((void *) (arg1)), (void *)((int) (M2C_FIELD(arg0, s32 *, 0x14))));
     return 0;
 }
 #pragma pop
@@ -131,6 +143,19 @@ void TObjPlayer__sub_803DAB7C(Obj_803DAB7C *self, s32 i, s32 j) {
     self->arr[i].p = (E_803DAB7C *)lbl_805D7768 + j;
 }
 #pragma pop
+
+s32 TObjPlayer__sub_803DAB9C(s32 arg0, s32 arg1) {
+    u8 *p = (*(Ent_803DAB9C * *)&lbl_805D7768)[arg0].d;
+    if (p == 0) {
+        ((s32 *)&lbl_8058D470)[2] = 1;
+        return -1;
+    }
+    if (TObjPlayer__sub_803DA84C(p + 4, arg1, 0, *(s32 *)(p + 0x18)) != 0) {
+        ((s32 *)&lbl_8058D470)[2] = 8;
+        return -1;
+    }
+    return 1;
+}
 
 #pragma push
 #pragma scheduling off
