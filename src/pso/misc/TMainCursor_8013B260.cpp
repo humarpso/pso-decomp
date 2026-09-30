@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/PaletteCursorAction.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -10,6 +11,9 @@ void reset_slot__11TMainCursorFPv(void *);
 void set_type__11TMainCursorFPvi(void *, s32);
 extern const f32 TMainCursor__data_805DB0C0;
 void TMainCursor__sub_8013B3AC(u8 *arg0);
+s32 TMainCursor__sub_8013DF08(PaletteCursorOverride*);
+s32 TObjPlayer__sub_801CD078(TObjPlayer*, s32);
+s32 canSetMenuCursorAction(PaletteCursorOverride* cursor, TObjPlayer* player, u8 kind, u8 parameter);
 }
 
 extern "C" {
@@ -46,6 +50,22 @@ void TMainCursor__sub_8013B3AC(u8 *arg0) {
     set_type__11TMainCursorFPvi(arg0, 0);
     fn_80044330(arg0 + 0x40);
     reset_slot__11TMainCursorFPv(arg0 + 0x9C);
+}
+s32 canSetMenuCursorAction(PaletteCursorOverride* cursor, TObjPlayer* player, u8 kind, u8 parameter) {
+    if (TMainCursor__sub_8013DF08(cursor) != 0) {
+        return 0;
+    }
+    switch ((s32) kind) {
+    case 4:
+        switch (parameter) {
+        case 9: case 10: return 1;
+        default: return 0;
+        }
+    case 3:
+        return TObjPlayer__sub_801CD078(player, parameter);
+    default:
+        return 0;
+    }
 }
 
 }

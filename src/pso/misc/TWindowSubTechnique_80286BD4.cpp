@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubTechnique.h"
 
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -38,6 +39,15 @@ f32 TWindowSubEquip__sub_80263AF8(int, int);
 s32 fn_8026652C(int, int, int, int);
 s32 TWindowSubComCard__sub_8026CBB8(int);
 s32 TWindowSubTechnique__sub_80286E0C(u8 *arg0);
+extern s16 *lbl_804D2E20[];
+extern const f32 lbl_805DD838;
+s32 get_cursor_pos__20TWindowShortListCtrlFPv(s32);
+void TWindowSubComCard__sub_802655E4(s32);
+void draw_technique_row__19TWindowSubTechniqueFiii(s32 arg0, s32 arg1, s32 arg2);
+void TWindowSubComCard__sub_80265E60(s32, f32);
+void TWindowSubComCard__sub_80265C30(s32);
+void set_selected_index__17TWindowSubComCardFPvs(s32, s32);
+
 }
 
 extern "C" {
@@ -90,6 +100,22 @@ void draw_technique_row__19TWindowSubTechniqueFiii(s32 arg0, s32 arg1, s32 arg2)
     forward_trade_action_default__16TObjCityMainWarpFPviii(arg2, temp_r31, 6, arg0);
 }
 #pragma fp_contract on
+
+void TWindowSubTechnique::rebuildTechniqueList(s32 list, s32 category) {
+    s32 selected;
+    s16 *entry;
+    entry = lbl_804D2E20[category];
+    selected = get_cursor_pos__20TWindowShortListCtrlFPv(list);
+    TWindowSubComCard__sub_802655E4(list);
+    while (*entry != 19) {
+        draw_technique_row__19TWindowSubTechniqueFiii(*entry, playerIndex, list);
+        ++entry;
+    }
+    TWindowSubComCard__sub_80265E60(list, lbl_805DD838);
+    TWindowSubComCard__sub_80265C30(list);
+    set_selected_index__17TWindowSubComCardFPvs(list, selected);
+}
+
 s32 TWindowSubTechnique__sub_80286E0C(u8 *arg0) {
   s32 temp_r31;
   s32 temp_r31_2;
