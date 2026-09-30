@@ -1,3 +1,5 @@
+#include "pso/system/GinjaMaterialState.h"
+#include "pso/system/GinjaModel.h"
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -8,7 +10,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #pragma scheduling off
 typedef M2C_UNK (*RecoveredCallback_d26337a2813d)();
 
-struct S_803DB560 { u8 pad[8]; u32 a[11]; u32 b[11]; };
+typedef GinjaMaterialCache S_803DB560;
 
 struct S_803DBB78 { u8 pad[0x7c]; u32 f7c; u32 f80; };
 
@@ -23,7 +25,6 @@ struct S_803DBAF8 { u8 pad[0x64]; C_803DBAF8 c; };
 struct GinjaTevCache { u8 reserved[0x75]; u8 stageOffset; };
 
 extern "C" {
-M2C_UNK TObjPlayer__sub_803DC460(void *);
 M2C_UNK TObjPlayer__sub_803DC600();
 M2C_UNK TObjPlayer__sub_803DC76C(int);
 void TOSignCave03__sub_803DB510(s32 arg0);
@@ -61,6 +62,14 @@ extern s32 lbl_804FC5C8[];
 void GXSetTevOp(s32, s32);
 void GXSetTevOrder(s32, s32, s32, s32);
 void set_ginja_tev_order(u32 parameter);
+extern S_803DB560 lbl_8058CD80;
+extern s32 some_id_805c6f74;
+GinjaMaterialCache *invalidate_ginja_inherited_state();
+s32 TObjPlayer__sub_803DC3BC(void *);
+s32 TObjPlayer__sub_803DBE1C(GinjaDrawRecord *);
+s32 GXCallDisplayList(void *, u32);
+extern s32 lbl_805D7704, lbl_805D7708, lbl_805D7788;
+s32 draw_ginja_model_lists(GinjaModel *model);
 }
 
 extern "C" {
@@ -78,7 +87,7 @@ s32 TObjPlayer__sub_803DB4E8(s32 arg0) {
 void TOSignCave03__sub_803DB510(s32 arg0) {
     TObjPlayer__sub_803DC76C((int) (0));
     TObjPlayer__sub_803DC600();
-    TObjPlayer__sub_803DC460((void *) (arg0));
+    draw_ginja_model_lists((GinjaModel *)arg0);
     TObjPlayer__sub_803DC6F4();
 }
 
@@ -90,11 +99,11 @@ s32 TObjPlayer__sub_803DB550(u32 arg0, s32 arg1) {
 #pragma scheduling off
 #pragma peephole off
 u32 TObjPlayer__sub_803DB560(s32 i, u32 v) {
-    u32 r = v ^ lbl_8058CD80.a[i];
-    r |= lbl_8058CD80.b[i];
-    lbl_8058CD80.a[i] = v;
-    lbl_8058CD80.b[i] = 0;
-    return r;
+  u32 r = v ^ lbl_8058CD80.parameters[i];
+  r |= lbl_8058CD80.dirty[i];
+  lbl_8058CD80.parameters[i] = v;
+  lbl_8058CD80.dirty[i] = 0;
+  return r;
 }
 #pragma pop
 
@@ -160,6 +169,76 @@ void set_ginja_tev_order(u32 parameter) {
 #pragma peephole off
 void TObjPlayer__sub_803DBDE8(s32 ref) {
     GXSetAlphaCompare(4, ref, 0, 7, 0);
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+#pragma peephole off
+GinjaMaterialCache *invalidate_ginja_inherited_state() {
+  GinjaMaterialCache *state = &lbl_8058CD80;
+  if ((state->inherited_flags ^ some_id_805c6f74) & 0x80000) {
+    state->inherited_flags = some_id_805c6f74;
+    state->dirty[2] |= 0xF00F3;
+    state->dirty[9] = -1;
+    state->dirty[10] = -1;
+  }
+  return state;
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+#pragma peephole off
+s32 draw_ginja_model_lists(GinjaModel *model) {
+  s32 secondaryCount;
+  GinjaDrawRecord *secondary;
+  GinjaDrawRecord *primary;
+  s32 primaryCount;
+  s32 result = (s32)invalidate_ginja_inherited_state();
+  if (model->vertices) {
+    result = TObjPlayer__sub_803DC3BC(model->vertices);
+  }
+  lbl_805D7704 = 0;
+  if ((lbl_805D7708 & 1) && (lbl_805D7708 & 2)) {
+    lbl_805D7704 |= 8;
+  }
+  if (lbl_805D7708 & 1) {
+    lbl_805D7704 |= 1;
+    primaryCount = model->primary_count;
+    primary = model->primary;
+    for (; primaryCount > 0; primaryCount--, primary++) {
+      lbl_805D7704 &= ~4;
+      result = TObjPlayer__sub_803DBE1C(primary);
+      if ((((u32)(lbl_805D7704 & 8)) != 0U) ||
+          (((u32)(lbl_805D7704 & 4)) == 0U)) {
+        result = GXCallDisplayList(primary->display_list,
+                                   primary->display_list_size);
+      }
+    }
+  }
+  if (((u32)(lbl_805D7788 & 2)) == 0U) {
+    lbl_805D7704 = 0;
+    if ((lbl_805D7708 & 1) && (lbl_805D7708 & 2)) {
+      lbl_805D7704 |= 8;
+    }
+    if ((lbl_805D7708 & 2) || (lbl_805D7708 & 1)) {
+      lbl_805D7704 |= 2;
+      secondaryCount = model->secondary_count;
+      secondary = model->secondary;
+      for (; secondaryCount > 0; secondaryCount--, secondary++) {
+        lbl_805D7704 &= ~4;
+        TObjPlayer__sub_803DBE1C(secondary);
+        if ((((u32)(lbl_805D7704 & 8)) != 0U) ||
+            (((u32)(lbl_805D7704 & 4)) == 0U)) {
+          GXCallDisplayList(secondary->display_list,
+                            secondary->display_list_size);
+        }
+      }
+    }
+    result = 0;
+  }
+  return result;
 }
 #pragma pop
 

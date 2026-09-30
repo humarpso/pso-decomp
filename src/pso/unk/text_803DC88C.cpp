@@ -34,7 +34,7 @@ void TObjPlayer__sub_803DB24C(void *);
 void fn_803DB390(void);
 void TObjPlayer__sub_803DC600(void *);
 void TObjPlayer__sub_803DC904(u8 *arg0);
-void TObjPlayer__sub_803DC460(void);
+void draw_ginja_model_lists(void);
 extern struct MotionCtx_803DC894 * const lbl_805D4698;
 extern RecoveredCallback_2be3cacebb2e lbl_805D76E4;
 void TObjDoor__sub_803DC894(void *arg0, void *arg1);
@@ -57,9 +57,9 @@ typedef char RecoveredGlobal_803DCBD8_lbl_8058D380_size[sizeof(RecoveredGlobal_8
 
 void TObjDoor__sub_803DC894(void *arg0, void *arg1) {
     TObjPlayer__sub_803D7B68(arg1);
-    lbl_805D4698->fn = TObjPlayer__sub_803DC460;
+    lbl_805D4698->fn = draw_ginja_model_lists;
     TObjPlayer__sub_803DC600(lbl_805D4698);
-    TObjPlayer__sub_803DB24C((void *) TObjPlayer__sub_803DC460);
+    TObjPlayer__sub_803DB24C((void *) draw_ginja_model_lists);
     TObjPlayer__sub_803DC904((u8 *)(arg0));
     fn_803DB390();
     if (lbl_805D76E4 != NULL) {
