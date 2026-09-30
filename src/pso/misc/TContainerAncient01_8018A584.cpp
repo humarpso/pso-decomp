@@ -36,6 +36,8 @@ struct VObj8018AD04_8018A584 : VBase8018AD04_8018A584 {
 
 struct RecoveredGlobal_8018A9D8_TContainerAncient01__data_804B6DC0 { M2C_UNK value; u8 remaining[0x28]; };
 
+struct Obj_8018AB44 { u8 pad0[0x38]; u8 pos[0x328]; s32 f360; };
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -73,6 +75,13 @@ extern const f32 lbl_805DBD40;
 extern const f32 TContainerAncient01__data_805DBD44;
 extern const f32 lbl_805DBD48;
 void TContainerAncient01__sub_8018A9D8(u8 *arg0);
+void TLobby__sub_8010567C(void *, void *, int);
+void clear_player_status_flag__10TObjPlayerFPviUi(void *, int, u32);
+void trigger_spawn__19TContainerAncient01FPvPvPv(void *, void *, void *);
+s32 TContainerAncient01__sub_8020335C();
+void set_flag8__6TLobbyFPv(void *);
+extern s32 lbl_8050DC70[];
+void TContainerAncient01__sub_8018AB44(Obj_8018AB44 *arg0);
 }
 
 extern "C" {
@@ -83,7 +92,6 @@ void draw__19TContainerAncient01FPv(u8 *arg0);
 void reset_hp__19TContainerAncient01FPv(void* a0);
 void set_target_value__19TContainerAncient01FPvPvi(void *arg0, s16 *arg1, s32 arg2);
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
-M2C_UNK TContainerAncient01__sub_8018AB44(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
 M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
@@ -140,7 +148,7 @@ void set_target_value__19TContainerAncient01FPvPvi(void *arg0, s16 *arg1, s32 ar
         temp_r4 = M2C_FIELD(arg0, s16 *, 0x338);
         if ((M2C_FIELD(arg0, s16 *, 0x32C) - temp_r4) <= 0) {
             reset_hp__19TContainerAncient01FPv((void*)(arg0));
-            TContainerAncient01__sub_8018AB44(arg0);
+            TContainerAncient01__sub_8018AB44((Obj_8018AB44 *)(arg0));
             M2C_FIELD(arg0, s32 *, 0x360) = 1;
         }
     } else if ((M2C_FIELD(arg0, s16 *, 0x32C) - M2C_FIELD(arg0, s16 *, 0x338)) <= 0) {
@@ -150,6 +158,19 @@ void set_target_value__19TContainerAncient01FPvPvi(void *arg0, s16 *arg1, s32 ar
 
 extern const f32 TContainerAncient01__data_805DBD10;
 extern f32 TContainerAncient01__data_805DBD14;
+
+void TContainerAncient01__sub_8018AB44(Obj_8018AB44 *arg0) {
+    if (arg0->f360 == 0) {
+        arg0->f360 = 1;
+        clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1);
+        trigger_spawn__19TContainerAncient01FPvPvPv((void *)(arg0), (void *)(arg0->pos), (void *)(lbl_8050DC70[0]));
+        trigger_spawn__19TContainerAncient01FPvPvPv((void *)(arg0), (void *)(arg0->pos), (void *)(lbl_8050DC70[1]));
+        if (TContainerAncient01__sub_8020335C() == 0) {
+            TLobby__sub_8010567C(arg0, arg0->pos, 1);
+        }
+        set_flag8__6TLobbyFPv(arg0);
+    }
+}
 
 f32 TContainerAncient01__sub_8018ABE0(u8 *arg0) {
     s16 sp8;

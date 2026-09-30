@@ -97,6 +97,14 @@ struct RecoveredGlobal_80289680___vt__16TObjNpcSoutokufu {
     u8 remaining[0x174];
 };
 
+struct Nd_80289710 { u32 flags; u8 pad4[4]; f32 f8; f32 fc; f32 f10; u8 pad14[0x1C]; Nd_80289710 *next; };
+
+struct Ls_80289710 { u8 pad[0x2C]; Nd_80289710 *head; };
+
+struct Ow_80289710 { u8 pad[0x58]; Ls_80289710 *list; };
+
+struct Gl_80289710 { u8 pad[0x42C]; Ow_80289710 *owner; };
+
 extern "C" {
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -112,6 +120,13 @@ extern M2C_UNK __vt__16TObjNpcSoutokufu[];
 extern s32 lbl_805D3B0C;
 extern u32 TObjNpcSoutokufu__data_805D64C0;
 u8 *TObjNpcSoutokufu__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+void spawn_switch_attack__12TBoss8DragonFPv(void *);
+void spawn_attack_effect__12TBoss8DragonFPv(void *);
+s32 TBoss8Dragon__sub_80067034(void *, void *, f32);
+f32 calc_sq_offset__12TBoss8DragonFPvf(void *, void *, f32);
+extern void *lbl_805D4DD8;
+extern const f32 lbl_805DD8E8;
+void TBoss8Dragon__sub_80289710(void *arg0, void *arg1, void *arg2);
 }
 
 extern "C" {
@@ -173,6 +188,27 @@ u8 *TObjNpcSoutokufu__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcSoutokufu__data_805D64C0)), (int) (0));
     fn_80148274((void *) (arg0));
     return arg0;
+}
+
+void TBoss8Dragon__sub_80289710(void *arg0, void *arg1, void *arg2) {
+    f32 sp[3];
+    f32 off;
+    Ls_80289710 *list;
+    Nd_80289710 *n;
+    Ow_80289710 *ow;
+    ow = (*(Gl_80289710 * *)&lbl_805D4DD8)->owner;
+    list = ow->list;
+    off = calc_sq_offset__12TBoss8DragonFPvf(arg2, ow, lbl_805DD8E8);
+    for (n = list->head; n != NULL; n = n->next) {
+        if (!(n->flags & 8) && TBoss8Dragon__sub_80067034(arg1, n, off) != 0) {
+            sp[0] = n->f8;
+            sp[1] = n->fc;
+            sp[2] = n->f10;
+            spawn_attack_effect__12TBoss8DragonFPv(sp);
+            spawn_switch_attack__12TBoss8DragonFPv(sp);
+            n->flags |= 8;
+        }
+    }
 }
 
 void render__19TObjBoss5FloorStoneFv(void) {

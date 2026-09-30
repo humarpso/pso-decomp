@@ -13,6 +13,8 @@ struct RecoveredFields_8024E754_arg0
 
 struct Ctx_8024E6D8 { u8 pad[0x20]; f32 pivot[2]; f32 scale[2]; };
 
+struct Vec2_8024EC34 { f32 x; f32 y; };
+
 extern "C" {
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 u32 init_layout__19TWindowKeyBoardSoftFPv(void* a0);
@@ -28,6 +30,13 @@ extern const f32 lbl_805DCC80;
 void TWindowKeyBoardSoft__sub_8024E754(u8 *arg0, int arg1);
 extern const float lbl_805DCC78;
 void TWindowKeyBoardSoft__sub_8024E6D8(Ctx_8024E6D8 *c, f32 *q);
+s32 is_split_screen();
+f32 TCameraCtrl__sub_80068A04(s32);
+f32 get_split_offset__11TCameraCtrlFi(s32);
+f32 get_fov__11TCameraCtrlFv();
+f32 get_view_scale__11TCameraCtrlFv();
+Vec2_8024EC34 *TWindowKeyBoardSoft__sub_8024ECDC(s32);
+void TWindowKeyBoardSoft__sub_8024EC34(Vec2_8024EC34 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -118,6 +127,18 @@ s32 try_open__19TWindowKeyBoardSoftFii(s32 arg0, s32 arg1) {
 }
 
 extern u32 lbl_805D6420;
+
+void TWindowKeyBoardSoft__sub_8024EC34(Vec2_8024EC34 *arg0, s32 arg1) {
+    Vec2_8024EC34 *p;
+    if (is_split_screen() == 0 || arg1 == 0x64) {
+        return;
+    }
+    p = TWindowKeyBoardSoft__sub_8024ECDC(arg1);
+    arg0->x = arg0->x + (p->x + TCameraCtrl__sub_80068A04(arg1));
+    arg0->y = arg0->y + (p->y + get_split_offset__11TCameraCtrlFi(arg1));
+    arg0->x = arg0->x / get_view_scale__11TCameraCtrlFv();
+    arg0->y = arg0->y / get_fov__11TCameraCtrlFv();
+}
 
 u32 open_singleton__19TWindowKeyBoardSoftFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if ((u32) lbl_805D6420 == 0U) {

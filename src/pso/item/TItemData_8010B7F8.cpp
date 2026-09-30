@@ -15,6 +15,8 @@ struct Item_8010C498 {
     u8 b12;
 };
 
+struct Item_8010C52C { u8 kind; u8 pad1[2]; u8 b3; u8 b4; u8 pad5[0xD]; u8 b12; };
+
 extern "C" {
 void TItemData__sub_8010B848(u8 *arg0, s32 arg1);
 s32 TItemData__sub_8010B8B0(u8 *arg0);
@@ -35,9 +37,10 @@ void TItemData__sub_8010EDC8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
 void add_quantity__9TItemDataFPvi(void *arg0, s32 arg1);
 void TItemData__sub_8010C1E0(u8 *self, s32 player, s32 unused, s16 *out);
-s32 lookup_item_def__9TItemDataFPv();
 extern u8 lbl_805DAB68;
 void TItemData__sub_8010C498(struct Item_8010C498 *self);
+s32 lookup_item_def__9TItemDataFPv(void *);
+u8 TItemData__sub_8010C52C(Item_8010C52C *it);
 }
 
 extern "C" {
@@ -138,13 +141,30 @@ void TItemData__sub_8010C498(struct Item_8010C498 *self) {
         self->b4 |= lbl_805DAB68;
         break;
     case 3:
-        if (lookup_item_def__9TItemDataFPv() == 0) {
+        if (lookup_item_def__9TItemDataFPv((void *)(self)) == 0) {
             self->b3 |= lbl_805DAB68;
         }
         break;
     case 2:
         self->b12 |= lbl_805DAB68;
         break;
+    }
+}
+
+u8 TItemData__sub_8010C52C(Item_8010C52C *it) {
+    switch (it->kind) {
+    case 0:
+    case 1:
+        return ((it->b4 & 0x40) - 0x40) == 0;
+    case 3:
+        if (lookup_item_def__9TItemDataFPv((void *)(it)) != 0) {
+            return 0;
+        }
+        return ((it->b3 & 0x40) - 0x40) == 0;
+    case 2:
+        return ((it->b12 & 0x40) - 0x40) == 0;
+    default:
+        return 0;
     }
 }
 

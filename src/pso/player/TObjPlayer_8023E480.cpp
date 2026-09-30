@@ -5,6 +5,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
+s32 alloc__22TQuestVmDownLoadServerFPv(s32);
+void TLobby__sub_800F7DAC(s32, s32);
+s32 set_stream_and_load_file__6TLobbyFi(void *);
+s32 sprintf(char *, const char *, ...);
+void TLobby__sub_803DE084(s32, s32);
+extern char lbl_8044DCE0[];
+extern char lbl_80516260[];
+s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1);
+}
+
+extern "C" {
 
 s32 fn_8023E734(u32 arg0);
 s32 free_texture_if_valid(u32 arg0);
@@ -21,6 +33,23 @@ s32 notify_fish_if_valid__10TObjPlayerFUi(u32 arg0) {
         return 0;
     }
     set_global_param__8TObjFishFi();
+    return 1;
+}
+
+s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1) {
+    s32 h;
+    s32 buf;
+    sprintf(lbl_80516260, lbl_8044DCE0, arg0);
+    h = set_stream_and_load_file__6TLobbyFi(lbl_80516260);
+    if (h == 0) {
+        safe_free__23TAdSinglePlyChrSelectGCFUi(h);
+        return 0;
+    }
+    buf = alloc__22TQuestVmDownLoadServerFPv(0x100000);
+    TLobby__sub_800F7DAC(h, buf);
+    TLobby__sub_803DE084(buf, arg1);
+    safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+    safe_free__23TAdSinglePlyChrSelectGCFUi(h);
     return 1;
 }
 

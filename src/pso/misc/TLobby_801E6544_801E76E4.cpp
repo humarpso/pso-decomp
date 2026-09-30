@@ -50,6 +50,11 @@ struct Glob_801E78D4 { s32 f0; s32 f4; u8 rest[0x18]; };
 
 struct Win_801E78D4 { u8 pad[0x2314]; s32 t[16]; };
 
+struct Card_801E7D7C {
+    u8 pad[0x24C];
+    s32 v;
+};
+
 extern "C" {
 M2C_UNK TLobby__sub_801F34E8(int, int);
 extern struct Glob_80512220 TLobby__data_80512220;
@@ -70,6 +75,12 @@ void TLobby__sub_801E7934(void);
 s32 get_card_window__17TWindowSubComCardFUi(u32);
 extern struct Glob_80512220 TLobby__data_80512220;
 void TLobby__sub_801E78D4(void);
+s32 obj_getPtr2B0_20();
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_card_window__17TWindowSubComCardFUi(u32);
+extern s32 lbl_805D53A0;
+extern s32 TLobby__data_805D5E78;
+void TLobby__sub_801E7D7C(u8 i);
 }
 
 extern "C" {
@@ -183,6 +194,20 @@ void TLobby__sub_801E7CFC(void) {
         return;
     }
     M2C_FIELD((TLobby__data_805D5E78 + ((temp_r31 * 4) & 0x3FC)), s32 *, 0) = -1;
+}
+void TLobby__sub_801E7D7C(u8 i) {
+    Card_801E7D7C *w;
+    if (((u32)TPlayerBattleCtrl4P__sub_801BA74C((s32)((*(void * *)&lbl_805D53A0)))) != 0) {
+        (*(s32 * *)&TLobby__data_805D5E78)[i] = obj_getPtr2B0_20();
+    } else {
+        (*(s32 * *)&TLobby__data_805D5E78)[i] = -1;
+    }
+    w = ((Card_801E7D7C *)get_card_window__17TWindowSubComCardFUi(0xFFFF));
+    if (w != 0) {
+        (&(*(s32 * *)&TLobby__data_805D5E78)[i])[1] = w->v;
+    } else {
+        (&(*(s32 * *)&TLobby__data_805D5E78)[i])[1] = -1;
+    }
 }
 
 }

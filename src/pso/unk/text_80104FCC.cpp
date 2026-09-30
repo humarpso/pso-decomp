@@ -1,5 +1,7 @@
 #include "types.h"
 
+struct Blk_8010542C { u32 w[4]; };
+struct Item_8010542C { u32 a; Blk_8010542C b; };
 struct Entry_8010567C { u16 a; u16 b; };
 
 struct Pkt_8010567C {
@@ -38,6 +40,11 @@ struct Obj_8010567C {
 struct Player_80105348 { u8 pad[0x890]; s32 traits; };
 
 extern "C" {
+void TItemData__sub_8010CCB0(void *);
+s32 isValidGroundDrop__9TItemDataFv(void *);
+void TLobby__sub_8011A7F8(s32);
+typedef s32 (*Fn_8010542C)(void *);
+extern Fn_8010542C lbl_8049EEE8[];
 void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s8 TObjPlayer__sub_800196EC();
 s32 TObjPlayer__sub_80104840(s32);
@@ -82,6 +89,24 @@ int TItemMag__sub_80105348(Player_80105348 *player, s32 perm) {
 }
 
 int TLobby__sub_8010540C(void* p) { return TObjPlayer__sub_8011C974(p); }
+s32 TLobby__sub_8010542C(Item_8010542C *src) {
+    Fn_8010542C fn;
+    if (src != 0) {
+        Item_8010542C item = *src;
+        TItemData__sub_8010CCB0(&item);
+        if (isValidGroundDrop__9TItemDataFv(&item) != 0) {
+            if (*(u8 *)src < 5) {
+                fn = lbl_8049EEE8[*(u8 *)src];
+                if (fn != 0) {
+                    TLobby__sub_8011A7F8(item.b.w[2]);
+                    return fn(&item);
+                }
+            }
+        }
+    }
+    return 0;
+}
+
 void TLobby__sub_8010567C(Obj_8010567C *self, void *unused, s16 arg2) {
     void *p1;
     void *p2;

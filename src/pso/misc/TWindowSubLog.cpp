@@ -22,6 +22,8 @@ struct RecoveredGlobal_8027AF58_lbl_8050E208 {
     u8 remaining[0x1AC];
 };
 
+struct Lg_8027B194 { s32 f0; u8 pad4[0x14]; void *vt; void *f1c; void *f20; s32 f24; void *f28; u8 f2c[0x10]; };
+
 extern "C" {
 s32 fn_80076CD0(void *);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
@@ -44,6 +46,19 @@ extern const f32 lbl_805DD63C;
 extern const f32 lbl_805DD640;
 extern const f32 lbl_805DD644;
 void run_task__13TWindowSubLogFv(u8 *arg0);
+void *__nw__7TObjectFUl(int);
+void __ct__7TObjectFP7TObject(void *, void *);
+void *TWindowChat__ct(void *, void *, void *);
+void TWindowCtrl__sub_8024ADAC(void *);
+s32 fn_8026A9D8(void *, void *, void *);
+void set_flag4c_bit8__13TWindowSubLogFPv(void* p);
+int fn_8027B288(void* p);
+void fn_8027B2A8(void* p);
+extern u8 lbl_8044F9C8[];
+extern u8 lbl_8044F9D0[];
+extern M2C_UNK __vt__13TWindowSubLog[];
+extern s32 lbl_805D3A60;
+Lg_8027B194 *TWindowSubLog__ct(Lg_8027B194 *arg0, void *arg1, void *arg2);
 }
 
 extern "C" {
@@ -111,6 +126,26 @@ void *__dt__13TWindowSubLogFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+
+Lg_8027B194 *TWindowSubLog__ct(Lg_8027B194 *arg0, void *arg1, void *arg2) {
+    void *w;
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    arg0->vt = ((u8 *)&__vt__13TWindowSubLog);
+    arg0->f0 = lbl_805D3A60;
+    arg0->f20 = arg1;
+    arg0->f1c = arg2;
+    TWindowCtrl__sub_8024ADAC(arg0->f1c);
+    fn_8027B288((void*)(arg0->f20));
+    set_flag4c_bit8__13TWindowSubLogFPv((void*)(arg0->f20));
+    arg0->f24 = fn_8026A9D8(lbl_8044F9C8, lbl_8044F9D0, arg0->f1c);
+    w = __nw__7TObjectFUl(0x3C);
+    if (w != NULL) {
+        w = TWindowChat__ct(w, arg0, arg0->f2c);
+    }
+    arg0->f28 = w;
+    fn_8027B2A8((void*)(arg0->f28));
     return arg0;
 }
 

@@ -69,6 +69,12 @@ s32 TPlyPhotonChair__sub_80143930(void *);
 int get_id__15TPlyPhotonChairFPv(void *);
 void TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
 void TPlyPhotonChair__sub_80142778(void *arg0);
+extern const f64 lbl_8043F298;
+extern const f64 lbl_8043F2A0;
+extern const f64 lbl_8043F2A8;
+extern const f32 lbl_805D4600[];
+extern const f32 lbl_805D4604[];
+f64 TPlyPhotonChair__sub_80142624(f64 x);
 }
 
 extern "C" {
@@ -87,6 +93,28 @@ void play_sound__15TPlyPhotonChairFPv(void* p) { TPlyPhotonChair__sub_801426C0((
 void update_parts__15TPlyPhotonChairFPv(void* p) { TPlyPhotonChair__sub_8014270C((s32)(p)); TPlyPhotonChair__sub_801426DC((s32)(p)); restore_state__15TPlyPhotonChairFv((s32)(p)); }
 
 void update_parts2__15TPlyPhotonChairFPv(void* p) { save_state__15TPlyPhotonChairFv((s32)(p)); TPlyPhotonChair__sub_80142734((s32)(p)); TPlyPhotonChair__sub_80142720((s32)(p)); }
+
+#pragma push
+#pragma fp_contract on
+f64 TPlyPhotonChair__sub_80142624(f64 x) {
+    if (x > lbl_8043F298) {
+        f64 g = __frsqrte(x);
+        g = lbl_8043F2A0 * g * (lbl_8043F2A8 - x * (g * g));
+        g = lbl_8043F2A0 * g * (lbl_8043F2A8 - x * (g * g));
+        g = lbl_8043F2A0 * g * (lbl_8043F2A8 - x * (g * g));
+        g = lbl_8043F2A0 * g * (lbl_8043F2A8 - x * (g * g));
+        return x * g;
+    }
+    if (lbl_8043F298 == x) {
+        return lbl_8043F298;
+    }
+    if (x != lbl_8043F298) {
+        return lbl_805D4600[0];
+    }
+    return lbl_805D4604[0];
+}
+#pragma pop
+
 #pragma push
 #pragma scheduling off
 void TPlyPhotonChair__sub_801426C0(s32 arg0, s32 arg1) {

@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Player_8010147C { u8 pad[0xF0]; u32 f_F0; };
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_803D898C(void *);
 M2C_UNK TObjPlayer__sub_803D99F8(void *, void *);
@@ -21,6 +23,11 @@ M2C_UNK TLobby__sub_80103B04();
 M2C_UNK set_indexed_flags(void *, int, int);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 void TItem__sub_80101514(s32 arg0);
+void copy_to_item_data__5TItemFPvPv(void *, void *);
+u32 test_item_flags__10TObjPlayerFPvUi(void *, int);
+s32 has_flag_128__10TObjPlayerFPv(void *);
+u32 TItemData__sub_8010D028(void *, u32, u32);
+u32 TItem__sub_8010147C(Player_8010147C *p, u32 mask, u32 kind);
 }
 
 extern "C" {
@@ -69,6 +76,24 @@ void copy_item_data_and_process__5TItemFPv(void *arg0) {
 
     copy_to_item_data__5TItemFPvPv((void *)(arg0), (void *)(&sp8));
     get_item_price_if_valid__24TShopEquipmentSellWindowFUi(&sp8);
+}
+
+u32 TItem__sub_8010147C(Player_8010147C *p, u32 mask, u32 kind) {
+    u8 item[0x14];
+    u32 r;
+    copy_to_item_data__5TItemFPvPv(p, item);
+    if (kind == 0) {
+        kind = p->f_F0;
+    }
+    r = TItemData__sub_8010D028(item, mask, kind);
+    if (test_item_flags__10TObjPlayerFPvUi(p, 0x200) != 0) {
+        r |= 2;
+    }
+    if (r == 0 && has_flag_128__10TObjPlayerFPv(p) != 0) {
+        r |= 0x10;
+        r &= ~2;
+    }
+    return r & mask;
 }
 
 void TItem__sub_80101514(s32 arg0) {

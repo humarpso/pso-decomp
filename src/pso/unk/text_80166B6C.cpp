@@ -25,6 +25,12 @@ struct RecoveredGlobal_80166D5C___vt__16TOFenceAncient01 {
     u8 remaining[0x40];
 };
 
+struct Sub_80166C40 { u8 pad[0xC]; void *c; };
+
+struct O_80166C40 { u8 pad[0x42C]; Sub_80166C40 *sub; };
+
+struct Arr_80166C40 { void *a; s32 b; s32 c; s32 d; };
+
 extern "C" {
 s32 fn_80166E64(u8 *arg0);
 u8 *TLobby__sub_8001FE7C(void *, s16);
@@ -48,6 +54,17 @@ extern const f32 lbl_805DB610;
 extern const f32 lbl_805DB614;
 extern const f32 lbl_805DB618;
 u8 *TOFenceAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+O_80166C40 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+O_80166C40 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+Arr_80166C40 *alloc_buffer__11TOBoss4RockFPv(s32);
+s32 TLanguage__sub_801E4874(void *);
+extern char lbl_80441498[];
+extern char lbl_804414B0[];
+extern char lbl_804414C8[];
+extern char lbl_804B1BD8[];
+extern u8 *TOFenceAncient01__data_805D59B0;
+extern u32 TOFenceAncient01__data_805D59B4;
+void TOFenceAncient01__sub_80166C40(void);
 }
 
 extern "C" {
@@ -102,6 +119,22 @@ void TOFenceAncient01__sub_80166BB8(void) {
     TLobby__sub_8001FE7C(TOFenceAncient01__data_805D59B0, 1);
     TOFenceAncient01__data_805D59B0 = 0;
   }
+}
+
+void TOFenceAncient01__sub_80166C40(void) {
+    O_80166C40 *o;
+    Arr_80166C40 *r;
+    o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    if (o != NULL) {
+        o = TLobby__sub_80020004(o, 1, lbl_804B1BD8, 0, 0, 0);
+    }
+    (*(O_80166C40 * *)&TOFenceAncient01__data_805D59B0) = o;
+    r = alloc_buffer__11TOBoss4RockFPv(0x10);
+    (*(Arr_80166C40 * *)&TOFenceAncient01__data_805D59B4) = r;
+    r->a = (*(O_80166C40 * *)&TOFenceAncient01__data_805D59B0)->sub->c;
+    (*(Arr_80166C40 * *)&TOFenceAncient01__data_805D59B4)->b = TLanguage__sub_801E4874(lbl_80441498);
+    (*(Arr_80166C40 * *)&TOFenceAncient01__data_805D59B4)->c = TLanguage__sub_801E4874(lbl_804414B0);
+    (*(Arr_80166C40 * *)&TOFenceAncient01__data_805D59B4)->d = TLanguage__sub_801E4874(lbl_804414C8);
 }
 
 void *__dt__16TOFenceAncient01Fv(void *arg0, s16 arg1) {

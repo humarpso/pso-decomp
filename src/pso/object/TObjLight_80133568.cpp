@@ -202,6 +202,11 @@ extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_8050632
 extern RecoveredGlobal_80134724_TObjLight__data_8050637C TObjLight__data_8050637C;
 extern s32 TObjLight__data_805D556C;
 void TObjLight__sub_801344A4(f32 *dir, f32 *color, u32 id);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+void* init_light__9TObjLightFPvi(void* a0, int a1);
+extern void *TObjLight__data_80506370[3];
+extern s32 TObjLight__data_805D5568;
+u32 TObjLight__sub_80133650(void);
 }
 
 extern "C" {
@@ -259,6 +264,25 @@ void TObjLight__sub_801335F0(void *p) {
         q++;
     }
     __dl__FPv(p);
+}
+
+u32 TObjLight__sub_80133650(void) {
+    s32 i;
+    u32 *p;
+    void *r;
+    p = ((u32 *)&TObjLight__data_80506370);
+    for (i = 0; i < 3; p++, i++) {
+        if (*p == 0) {
+            r = alloc__23TAdSinglePlyChrSelectGCFPv(0x2C);
+            if (r != 0) {
+                r = ((void *)init_light__9TObjLightFPvi((void*)(r), (int)(i)));
+            }
+            *p = (u32)r;
+            TObjLight__data_805D5568++;
+            return *p;
+        }
+    }
+    return 0;
 }
 
 void TObjLight__sub_801336DC(void) {  }

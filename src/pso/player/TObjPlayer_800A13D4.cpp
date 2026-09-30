@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct G_800A3210 { u8 pad[0x18]; s32 arr[1]; };
 
+struct Obj_800A2EDC { u8 pad0[0x18]; void *vt; u8 pad1c[0x3F0 - 0x1C]; void *items[4]; void *p400; void *p404; };
+
 extern "C" {
 M2C_UNK obj_clearFlags30(void *, s32);
 M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
@@ -79,6 +81,13 @@ s32 TObjPlayer__sub_800A27CC(void *);
 void TObjPlayer__sub_800A1520(u8 *arg0);
 extern s32 lbl_805D5004;
 s32 TObjPlayer__sub_800A3210(s32 i, s32 _w1, s32 _w2);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+void *TObjPlayer__sub_800A05B8(void *, s16);
+void __dt__15TObjEnemyCustomFv(void *, int);
+M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK __dl__7TObjectFPv(void *);
+extern u8 lbl_804907EC[];
+Obj_800A2EDC *TObjPlayer__sub_800A2EDC(Obj_800A2EDC *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -236,6 +245,32 @@ void cleanup_effects__10TObjPlayerFv(void) {
     reset_effect_count__10TObjPlayerFv();
     TEneEffHamon__sub_800A380C();
 }
+
+Obj_800A2EDC *TObjPlayer__sub_800A2EDC(Obj_800A2EDC *arg0, s16 arg1) {
+    s32 i;
+    if (arg0 != NULL) {
+        arg0->vt = lbl_804907EC;
+        TObjEneGibbles__sub_80156720(arg0);
+        for (i = 0; i < 4; i++) {
+            if (arg0->items[i] != NULL) {
+                queue_destruction__7TObjectFv(arg0->items[i]);
+            }
+        }
+        if (arg0->p400 != NULL) {
+            queue_destruction__7TObjectFv(arg0->p400);
+        }
+        if (arg0->p404 != NULL) {
+            queue_destruction__7TObjectFv(arg0->p404);
+        }
+        TObjPlayer__sub_800A05B8((u8 *)arg0 + 0x408, -1);
+        __dt__15TObjEnemyCustomFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
 void TObjPlayer__sub_800A31F4(void) {  }
 void TObjPlayer__sub_800A31F8(void) {  }
 void TObjPlayer__sub_800A31FC(void) {  }

@@ -25,6 +25,14 @@ struct RecoveredGlobal_8019118C_lbl_804B7C1C {
     u8 remaining[0x38];
 };
 
+struct Npc_80190F3C { u8 pad0[0x18]; void *f18; u8 f1C[0xC]; s32 f28; s32 f2C; s16 f30; s16 pad32; s32 f34; s32 f38; };
+
+struct Base_801910F4 { u8 pad0[0x18]; };
+
+struct Ctrl_801910F4 : Base_801910F4 { virtual void v0(int); };
+
+struct Obj_801910F4 { u8 pad0[0x18]; void *f18; u8 pad1C[0x90]; u16 fAC; };
+
 extern "C" {
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
@@ -32,6 +40,21 @@ s32 TObjPlayer__sub_801569F4(void *);
 extern RecoveredGlobal_8019118C_lbl_804B7BD8 lbl_804B7BD8;
 extern RecoveredGlobal_8019118C_lbl_804B7C1C lbl_804B7C1C;
 u8 *TLobby__sub_8019118C(u8 *arg0, M2C_UNK arg1, s32 arg2);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void request_file_read__6TLobbyFiiPvPv(void *, s32, void *, int);
+void ensure_rock_singleton__10TNpcPlayerFv();
+void __ct__7TObjectFP7TObject(void *, void *);
+extern u8 lbl_80445910[];
+extern M2C_UNK lbl_804B7C04[];
+extern s32 lbl_805D5860;
+Npc_80190F3C *TNpcPlayer__sub_80190F3C(Npc_80190F3C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, void *arg6);
+void TObjPlayer__sub_80154A00(void *);
+void TObjEneGibbles__sub_80156720(void *);
+void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
+Ctrl_801910F4 *TPlayerBattleCtrl4P__sub_801BA74C(u32);
+M2C_UNK __dl__7TObjectFPv(void *);
+extern RecoveredGlobal_8019118C_lbl_804B7C1C lbl_804B7C1C;
+Obj_801910F4 *TLobby__sub_801910F4(Obj_801910F4 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -76,11 +99,47 @@ u8 *destroy_and_materialize_player__10TNpcPlayerFPvs(u8 *arg0, s16 arg1) {
 }
 
     extern int lbl_805D3360;
+
+Npc_80190F3C *TNpcPlayer__sub_80190F3C(Npc_80190F3C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, void *arg6) {
+    __ct__7TObjectFP7TObject(arg0, arg6);
+    arg0->f18 = ((u8 *)&lbl_804B7C04);
+    VecCopy__FP3VecPC3Vec(arg0->f1C, arg1);
+    arg0->f28 = arg2;
+    arg0->f30 = arg3;
+    arg0->f34 = arg4;
+    arg0->f2C = 0;
+    arg0->f38 = arg5;
+    ensure_rock_singleton__10TNpcPlayerFv();
+    request_file_read__6TLobbyFiiPvPv(lbl_80445910, lbl_805D5860, &arg0->f2C, 0);
+    return arg0;
+}
+
 void TLobby__sub_80190FD0(int a0) { lbl_805D3360 = a0; }
 
 void TLobby__sub_80190FD8(void) {  }
 typedef char RecoveredGlobal_8019118C_lbl_804B7BD8_size[sizeof(RecoveredGlobal_8019118C_lbl_804B7BD8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8019118C_lbl_804B7C1C_size[sizeof(RecoveredGlobal_8019118C_lbl_804B7C1C) == 0x3C ? 1 : -1];
+
+Obj_801910F4 *TLobby__sub_801910F4(Obj_801910F4 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        arg0->f18 = ((u8 *)&lbl_804B7C1C);
+        TObjPlayer__sub_80154A00(arg0);
+        TObjEneGibbles__sub_80156720(arg0);
+        u32 id = arg0->fAC;
+        if (id != 0xFFFF) {
+            Ctrl_801910F4 *c = TPlayerBattleCtrl4P__sub_801BA74C(id);
+            if (c != NULL && c != NULL) {
+                c->v0(1);
+            }
+        }
+        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
 u8 *TLobby__sub_8019118C(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     TObjPlayer__sub_801569F4((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804B7C1C.value;

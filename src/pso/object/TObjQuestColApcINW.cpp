@@ -2,6 +2,21 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+struct Pl_801960F8 { u8 pad0[0x38]; f32 pos[3]; };
+
+struct Col_801960F8 { u8 pad0[0xAC]; f32 fAC; u8 padB0[0xC]; f32 fBC; f32 fC0[3]; };
+
+extern "C" {
+void VecCopy__FP3VecPC3Vec(void *, void *);
+f32 fn_8013157C(void *, void *);
+s32 update_trigger_state__12TObjQuestColFPvf(void *, f32);
+Pl_801960F8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+extern u8 lbl_8050DD08[];
+extern s32 lbl_805D53A0;
+extern s32 lbl_805D5C4C;
+s32 TObjQuestColApcINW__vt13(Col_801960F8 *arg0);
+}
+
 extern "C" {
 
 void *TObjQuestColApcINW__ct(void *arg0);
@@ -15,6 +30,29 @@ void TObjQuestColApcINW__vt14(void* p) { destroy_board__17TQuestThreadBoardFv(p)
 extern const f32 lbl_805DBF04;
 extern M2C_UNK __vt__18TObjQuestColApcINW[];
 extern void *lbl_805D3400;
+
+s32 TObjQuestColApcINW__vt13(Col_801960F8 *arg0) {
+    if (update_trigger_state__12TObjQuestColFPvf(arg0, arg0->fAC) == 1) {
+        Pl_801960F8 *p = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+        if (p == 0) {
+            return 0;
+        }
+        s32 i;
+        for (i = 0; i < 12; i++) {
+            if (i != lbl_805D53A0) {
+                Pl_801960F8 *q = TPlayerBattleCtrl4P__sub_801BA74C(i);
+                if (q != 0) {
+                    if (fn_8013157C(q->pos, p->pos) > arg0->fBC * arg0->fBC) {
+                        lbl_805D5C4C = 1;
+                        VecCopy__FP3VecPC3Vec(lbl_8050DD08, arg0->fC0);
+                    }
+                }
+            }
+        }
+        return 1;
+    }
+    return 0;
+}
 
 void *TObjQuestColApcINW__ct(void *arg0) {
     TObjQuestColBase__ct(arg0);

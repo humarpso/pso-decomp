@@ -6,6 +6,32 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Win_8027FD9C { u8 pad[0x60]; s16 f60; u8 pad2[6]; s32 f68; };
 
+struct VBase_18_eecf68 { char pad[0x18]; };
+
+struct VObj_18_eecf68 : VBase_18_eecf68 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual s32 m14();
+};
+
+struct En_80280F14 { u8 pad[0x20]; s32 v; };
+
+struct Q_80280F14 { u8 pad[0x1C]; s32 a; s32 b; };
+
+struct Wn_80280F14 { u8 pad[0x20]; s16 f20; };
+
 extern "C" {
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
@@ -30,6 +56,11 @@ extern const f32 TWindowSubStatusDisp__data_805DD708;
 void TWindowSubStatusDisp__vt2(u8 *arg0);
 s8 get_type__20TWindowSubStatusDispFPv(int);
 s32 TWindowSubStatusDisp__sub_8027FD9C(Win_8027FD9C *arg0);
+Q_80280F14 *get_quest_id__12TQuestListVMFPv();
+s32 TObjPlayer__sub_801B2E68(void *);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
+void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
+void TWindowSubStatusDisp__vt11(Wn_80280F14 *arg0);
 }
 
 extern "C" {
@@ -143,6 +174,25 @@ void TWindowSubStatusDisp__vt2(u8 *arg0) {
     TWindowSubStatusDisp__sub_8025AC50((void *)(temp_r30), (s32)(get_message_10__20TWindowSubStatusDispFPv(0x8C)), (M2C_UNK)(0x20));
     temp_r30 = ((s32)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0x18));
     TWindowSubStatusDisp__sub_8025AC50((void *)(temp_r30), (s32)(get_message_10__20TWindowSubStatusDispFPv(0x8D)), (M2C_UNK)(0x20));
+}
+void TWindowSubStatusDisp__vt11(Wn_80280F14 *arg0) {
+    VObj_18_eecf68 *p;
+    Q_80280F14 *q;
+    En_80280F14 *e;
+    p = ((VObj_18_eecf68 *)TPlayerBattleCtrl4P__sub_801BA74C(arg0->f20));
+    if (p != NULL) {
+        q = get_quest_id__12TQuestListVMFPv();
+        if (q != NULL) {
+            e = ((En_80280F14 *)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(2)));
+            e->v = p->m14() + 1;
+            e = ((En_80280F14 *)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(0x10)));
+            e->v = q->b;
+            e = ((En_80280F14 *)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(8)));
+            e->v = q->a;
+            e = ((En_80280F14 *)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(0xC)));
+            e->v = TObjPlayer__sub_801B2E68(p) - q->a;
+        }
+    }
 }
 
 }

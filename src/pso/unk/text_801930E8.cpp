@@ -10,6 +10,10 @@ struct LazerFence4VObj_801930E8 : LazerFence4Base_801930E8 {
     virtual s32 m8(f32, f32);
 };
 
+struct Cnt_801933C8 { s32 pad0; s32 f4; };
+
+struct Obj_801933C8 { u8 padA0[0xAC]; s32 fAC; f32 fB0; u8 padB4[6]; u16 fBA; u8 padBC[8]; Cnt_801933C8 *fC4; };
+
 extern "C" {
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -23,6 +27,11 @@ void TObjBoss2Tunnel__sub_803DB470(void *);
 M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
 extern void *lbl_805D5C28;
 void TObjLazerFence4__sub_801932E4(u8 *arg0);
+void clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
+u8 TODoorAncient08__sub_80229220(int);
+extern const f32 lbl_805DBE68;
+extern const f32 lbl_805DBE6C;
+void TObjLazerFence4__sub_801933C8(Obj_801933C8 *arg0);
 }
 
 extern "C" {
@@ -31,7 +40,6 @@ s16 TObjLazerFence4__vt8(u8 *arg0, f32 farg0, f32 farg1);
 void draw__15TObjLazerFence4FPv(void *arg0);
 void render__15TObjLazerFence4Fv(void *arg0);
 void reset_if_door_closed__15TObjLazerFence4FPv(void *arg0);
-u8 TODoorAncient08__sub_80229220(u16);
 void TOHangerMachine01__sub_803D9C00(void *);
 void TObjBoss2Tunnel__sub_803DB470(void *);
 void TObjPlayer__sub_803D9214(int, void *);
@@ -95,7 +103,7 @@ void TObjLazerFence4__sub_801932E4(u8 *arg0) {
 }
 
 void reset_if_door_closed__15TObjLazerFence4FPv(void *arg0) {
-    if (TODoorAncient08__sub_80229220(M2C_FIELD(arg0, u16 *, 0xBA)) == 0) {
+    if (TODoorAncient08__sub_80229220((u16)(M2C_FIELD(arg0, u16 *, 0xBA))) == 0) {
         set_indexed_flags(arg0, 0, 1);
         M2C_FIELD(arg0, s32 *, 0xAC) = 0;
     }
@@ -103,6 +111,17 @@ void reset_if_door_closed__15TObjLazerFence4FPv(void *arg0) {
 
 extern const f32 lbl_805DBE70;
 extern const f32 lbl_805DBE74;
+
+void TObjLazerFence4__sub_801933C8(Obj_801933C8 *arg0) {
+    arg0->fB0 = arg0->fB0 + lbl_805DBE68;
+    if (arg0->fB0 > (f32)(u32)(arg0->fC4->f4 - 1)) {
+        arg0->fB0 = lbl_805DBE6C;
+    }
+    if (TODoorAncient08__sub_80229220(arg0->fBA) == 1) {
+        clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1);
+        arg0->fAC = 1;
+    }
+}
 
 void render__15TObjLazerFence4Fv(void *arg0) {
     s32 temp_r0;

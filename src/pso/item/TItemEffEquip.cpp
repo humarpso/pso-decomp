@@ -34,6 +34,22 @@ u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK clear_obj_links(void *);
 M2C_UNK obj_getField1c(void *);
+struct Obj_80108C90 {
+    u8 pad0[0x18];
+    void *vt;
+    u8 pad1C[0xAC - 0x1C];
+    s16 f_AC;
+    u8 padAE[2];
+    s32 f_B0;
+    u8 sub[0x10];
+};
+void disallow_rendering__7TObjectFv(void *);
+void fn_8002B630(void *, void *);
+s32 TLobby__sub_80103AD4();
+void reset_photon_effect__10TObjPlayerFPv(void *);
+void initialize_linked_object_reference(void *, void *);
+void TObjPlayer__sub_801569F4(void *, void *);
+extern u8 lbl_8043E1A0[];
 
 struct VBase0x18_80108b5c { char pad[0x18]; };
 struct VObj80108B5C_80108b5c : VBase0x18_80108b5c {
@@ -338,6 +354,21 @@ void *destroy__13TItemEffFlameFPvs(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+Obj_80108C90 *TItemEffFlame__sub_80108C90(Obj_80108C90 *self, void *parent, s16 a, s32 b) {
+    TObjPlayer__sub_801569F4(self, parent);
+    self->vt = lbl_8049F038;
+    self->f_AC = a;
+    self->f_B0 = b;
+    fn_8002B630(self->sub, lbl_8043E1A0);
+    if ((u16)obj_getField1c(self) == 0xFFFF) {
+        set_item_count__6TLobbyFPvs(self, TLobby__sub_80103AD4());
+    }
+    initialize_linked_object_reference(self, self->sub);
+    reset_photon_effect__10TObjPlayerFPv(self);
+    disallow_rendering__7TObjectFv(self);
+    return self;
 }
 
 }

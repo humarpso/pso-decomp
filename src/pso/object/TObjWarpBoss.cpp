@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Wb_8019F2C0 { u8 pad0[0x88]; s32 f88; u8 pad8C[0xE0]; s32 f16C; };
+
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_8019EE14(void *);
@@ -12,6 +14,12 @@ extern const f32 lbl_805DC000;
 extern const f32 lbl_805DC004;
 extern const f32 lbl_805DC02C;
 void run_task__12TObjWarpBossFv(u8 *arg0);
+s32 get_global_state__14TOKeyMachine01Fv();
+void set_global_count__12TObjNpcEnemyFi(int);
+void TObjEneBm5GibonU__sub_803D853C(int, void *, ...);
+extern u8 lbl_8044663C[];
+extern u8 lbl_80446650[];
+void TObjWarpBoss__vt18(Wb_8019F2C0 *arg0);
 }
 
 extern "C" {
@@ -69,6 +77,20 @@ extern s32 lbl_805D5CA4;
 extern const f32 lbl_805DC008;
 extern const f32 lbl_805DC00C;
 extern const f32 lbl_805DC010;
+
+void TObjWarpBoss__vt18(Wb_8019F2C0 *arg0) {
+    s32 t = arg0->f88;
+    if (t < 0 || t > 0xFF) {
+        arg0->f16C = -1;
+    } else {
+        arg0->f16C = t;
+    }
+    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    if (get_global_state__14TOKeyMachine01Fv() == 0) {
+        TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_8044663C);
+    }
+    TObjEneBm5GibonU__sub_803D853C(0x130021, lbl_80446650, arg0->f16C);
+}
 
 void render__12TObjWarpBossFv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xBC) == 0xE) {

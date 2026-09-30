@@ -13,6 +13,8 @@ struct Ent_8020BFE4 { s16 id; u8 pad[0xA]; s32 fC; };
 
 struct Ent_8020C030 { s16 id; u8 pad[0xA]; s32 fC; };
 
+struct Ent_8020C07C { u8 pad0[2]; s16 flags; u8 pad1[6]; s16 a; s16 b; u8 pad2[0x36]; };
+
 extern "C" {
 s32 TObjPlayer__sub_800196EC(void);
 extern QuestSavedEnemyFloor_8020C1F0 TLobby__data_80513AD0[];
@@ -23,6 +25,10 @@ extern Ent_8020BFE4 *lbl_80498E98[];
 s32 TLobby__sub_8020BFE4(s32 arg0, s16 *arg1);
 extern Ent_8020C030 *TLobby__data_804C1ED8[];
 s32 TLobby__sub_8020C030(s32 arg0, s16 *arg1);
+s32 TObjPlayer__sub_800196EC(void);
+extern Ent_8020C07C *TLobby__data_805D610C;
+extern s32 TLobby__data_805D6110;
+void TLobby__sub_8020C07C(s32 pl, s16 b, s16 a, s32 mask, s32 set);
 }
 
 extern "C" {
@@ -47,6 +53,19 @@ s32 TLobby__sub_8020C030(s32 arg0, s16 *arg1) {
         }
     }
     return 0;
+}
+
+void TLobby__sub_8020C07C(s32 pl, s16 b, s16 a, s32 mask, s32 set) {
+    if (pl == TObjPlayer__sub_800196EC()) {
+        Ent_8020C07C *p = TLobby__data_805D610C;
+        s32 i;
+        for (i = 0; i < TLobby__data_805D6110; i++, p++) {
+            if (p->b == b && p->a == a) {
+                p->flags &= mask;
+                p->flags |= set;
+            }
+        }
+    }
 }
 
 s32 TLobby__sub_8020C1F0(s32 floor, s16 room) {

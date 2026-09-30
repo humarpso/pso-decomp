@@ -138,6 +138,8 @@ struct Obj_8009B3C0 {
 
 struct Obj_8009B638 { u8 pad[0x46c]; s32 step; };
 
+struct Obj_8009B1CC { u8 pad0[0x390]; void *key; u8 pad1[0x13C]; s32 count; u8 *items[8]; };
+
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TObjEneMe1CanadinLeader__sub_8009AF54(void *);
@@ -169,6 +171,9 @@ void set_flag3c8_bit40__23TObjEneMe1CanadinLeaderFPv(void *);
 s32 TObjEneMe1CanadinLeader__vt106(Obj_8009B3C0 *self);
 s32 TObjEneDD__sub_800BBA18(void *, s16);
 void TObjEneMe1CanadinLeader__vt103(Obj_8009B638 *self);
+s32 fn_8009E300(u8 *);
+s32 check_v2_mode__9TObjEneDDFv();
+s32 TObjEneMe1CanadinLeader__vt114(Obj_8009B1CC *arg0);
 }
 
 extern "C" {
@@ -266,6 +271,20 @@ void TObjEneMe1CanadinLeader__vt111(void *arg0) {
 }
 
 extern void *lbl_805D4FD0;
+
+s32 TObjEneMe1CanadinLeader__vt114(Obj_8009B1CC *arg0) {
+    s32 n = 0;
+    s32 i;
+    for (i = 0; i < arg0->count; i++) {
+        if ((void *)fn_8009E300(arg0->items[i]) == arg0->key) {
+            n++;
+        }
+    }
+    if (check_v2_mode__9TObjEneDDFv() != 0) {
+        return n < 4;
+    }
+    return n < 2;
+}
 
 s32 TObjEneMe1CanadinLeader__vt106(Obj_8009B3C0 *self) {
     s32 i;

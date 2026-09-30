@@ -1,5 +1,9 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 extern char *lbl_805D6338;
 extern char lbl_80515BC8[];
@@ -9,9 +13,31 @@ extern char lbl_80515BC8[];
 void TWindowSubStatusDisp__sub_80228D80(void);
 extern char *lbl_805D6338;
 void TWindowChallengeResult__sub_80228DB4(s32 v, u8 n);
+void TWindowChallengeResult__sub_80228DB4(s32 v, u8 n);
+M2C_UNK TWindowSubStatusDisp__sub_80229080(void *);
+extern M2C_UNK lbl_8044CB60[];
+extern M2C_UNK lbl_805DC790;
+extern M2C_UNK lbl_805DC794;
+void TWindowSubStatusDisp__sub_80228CC0(u32 arg0);
 }
 
 extern "C" {
+
+void TWindowSubStatusDisp__sub_80228CC0(u32 arg0) {
+    u32 h = arg0 / 3600U;
+    u32 rem = arg0 % 3600U;
+    if (h > 99U) {
+        TWindowSubStatusDisp__sub_80229080(lbl_8044CB60);
+        return;
+    }
+    TWindowChallengeResult__sub_80228DB4(h, 2);
+    TWindowSubStatusDisp__sub_80229080(&lbl_805DC790);
+    u32 m = rem / 60U;
+    rem = rem % 60U;
+    TWindowChallengeResult__sub_80228DB4(m, 2);
+    TWindowSubStatusDisp__sub_80229080(&lbl_805DC794);
+    TWindowChallengeResult__sub_80228DB4(rem, 2);
+}
 
 void TWindowSubStatusDisp__sub_80228D4C(void) {
     if (lbl_805D6338 != lbl_80515BC8) {

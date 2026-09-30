@@ -65,6 +65,8 @@ struct RecoveredGlobal_80193B4C_lbl_8050DCF0 {
     u8 remaining[0x14];
 };
 
+struct Sw_80193978 { u8 pad0[0x8C]; s32 f8C; u8 pad90[0x58]; u16 fE8; };
+
 extern "C" {
 extern RecoveredGlobal_80193A84_lbl_8050DCF0 lbl_8050DCF0;
 void TLazerFenceSw__vt14(u8 *arg0);
@@ -81,6 +83,12 @@ void render__13TLazerFenceSwFv(u8 *arg0);
 extern const f32 TLazerFenceSw__data_805DBE84;
 extern RecoveredGlobal_80193A84_lbl_8050DCF0 lbl_8050DCF0;
 void TLazerFenceSw__vt15(u8 *arg0);
+void TOKey__sub_8016AA20();
+void set_global_count__12TObjNpcEnemyFi(int);
+void TObjEneBm5GibonU__sub_803D853C(int, void *, ...);
+extern u16 lbl_80445CB8[];
+extern u8 lbl_80445CD8[];
+void TLazerFenceSw__vt24(Sw_80193978 *arg0);
 }
 
 extern "C" {
@@ -158,6 +166,17 @@ void render__13TLazerFenceSwFv(u8 *arg0) {
     }
 }
 #pragma pop
+
+void TLazerFenceSw__vt24(Sw_80193978 *arg0) {
+    TOKey__sub_8016AA20();
+    if (arg0->f8C < 0) {
+        arg0->f8C = 0;
+    }
+    arg0->fE8 = lbl_80445CB8[arg0->f8C % 4];
+    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_80445CD8);
+    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+}
 
 void TLazerFenceSw__vt16(void *arg0) {
     TOKey__sub_8016A8D0(arg0);

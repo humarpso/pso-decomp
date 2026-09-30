@@ -11,6 +11,13 @@ typedef struct ItemNode_801D563C {
     struct ItemNode_801D563C *child;
 } ItemNode_801D563C;
 
+typedef struct Node_801D535C {
+    u8 pad0[0xC];
+    struct Node_801D535C *next;
+    u8 pad10[4];
+    struct Node_801D535C *child;
+} Node_801D535C;
+
 extern "C" {
 M2C_UNK copy_to_item_data__5TItemFPvPv(M2C_UNK, M2C_UNK *);
 s32 TObjPlayer__sub_801049C8(M2C_UNK *, s32);
@@ -18,6 +25,12 @@ s32 get_owner_if_alive__10TObjPlayerFPv(void *arg0);
 s32 is_item_valid__9TItemListFi(void *);
 extern s32 lbl_805D5DFC;
 void *TObjPlayer__sub_801D563C(ItemNode_801D563C *root);
+s32 has_flag_128__10TObjPlayerFPv();
+s32 get_owner_if_alive__10TObjPlayerFPv(void *arg0);
+s32 is_item_valid__9TItemListFi(void *);
+extern s32 lbl_805D5DF4;
+extern u32 *lbl_805D5DF8;
+void TObjPlayer__sub_801D535C(Node_801D535C *arg0);
 }
 
 extern "C" {
@@ -53,6 +66,22 @@ void count_owned_items__10TObjPlayerFPv(void *arg0) {
 
 extern s32 lbl_805D5DF4;
 extern u32 *lbl_805D5DF8;
+
+void TObjPlayer__sub_801D535C(Node_801D535C *arg0) {
+    Node_801D535C *n;
+    s32 o;
+    for (n = arg0->child; n != NULL; n = n->next) {
+        if (is_item_valid__9TItemListFi(n) != 0) {
+            o = get_owner_if_alive__10TObjPlayerFPv(n);
+            if ((o != 0) && (has_flag_128__10TObjPlayerFPv() == 0)) {
+                *(*(s32 * *)&lbl_805D5DF8) = o;
+                (*(s32 * *)&lbl_805D5DF8) += 1;
+                lbl_805D5DF4 += 1;
+            }
+        }
+        TObjPlayer__sub_801D535C(n);
+    }
+}
 
 void collect_alive_owners__10TObjPlayerFPv(void *arg0) {
     u32 temp_r3;

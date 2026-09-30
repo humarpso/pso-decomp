@@ -6,9 +6,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Obj_8024FB80 { u8 pad[0x78]; void *arr[1]; };
 
+struct Pos_8024FAD8 { s32 a, b, c; };
+
 extern "C" {
 extern Obj_8024FB80 *TWindowCtrl__data_805D63F8;
 void *TWindowCtrl__sub_8024FB80(s8 i);
+void *__ct__7TObjectFP7TObject(void *);
+void set_slot_position__18TWindowEffectPartyFiiPv(void *, s32, void *);
+M2C_UNK calc_effect_position__18TWindowEffectPartyFPvPv(void *, M2C_UNK *);
+s32 TBoss8Dragon__sub_8008741C(void *, void *, s32);
+extern M2C_UNK __vt__18TWindowEffectParty[];
+extern s32 lbl_805D38F8;
+u8 *TWindowEffectParty__ct(u8 *arg0, void *arg1, s8 arg2, s8 arg3, void *arg4);
 }
 
 extern "C" {
@@ -81,6 +90,22 @@ void *__dt__18TWindowEffectPartyFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+u8 *TWindowEffectParty__ct(u8 *arg0, void *arg1, s8 arg2, s8 arg3, void *arg4) {
+    Pos_8024FAD8 p;
+    __ct__7TObjectFP7TObject(arg0);
+    *(void **)(arg0 + 0x18) = ((u8 *)&__vt__18TWindowEffectParty);
+    *(s32 *)arg0 = lbl_805D38F8;
+    *(s8 *)(arg0 + 0x1D) = arg2;
+    set_slot_position__18TWindowEffectPartyFiiPv(arg0, *(s8 *)(arg0 + 0x1D), arg0 + 0x20);
+    *(s8 *)(arg0 + 0x1E) = arg3;
+    set_slot_position__18TWindowEffectPartyFiiPv(arg0, *(s8 *)(arg0 + 0x1E), arg0 + 0x28);
+    calc_effect_position__18TWindowEffectPartyFPvPv((void *)(arg0), (M2C_UNK *)(&p));
+    *(s32 *)(arg0 + 0x30) = TBoss8Dragon__sub_8008741C(&p, arg4, 0xC0);
+    *(s8 *)(arg0 + 0x1C) = 0;
+    return arg0;
+}
+
 void *TWindowCtrl__sub_8024FB80(s8 i) {
     if (TWindowCtrl__data_805D63F8 == 0) return 0;
     return TWindowCtrl__data_805D63F8->arr[i];

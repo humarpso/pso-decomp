@@ -1,5 +1,22 @@
 #include "types.h"
 
+struct V3_8015C9D4 { f32 x, y, z; };
+
+struct O_8015C9D4 { u8 pad[0x2FC]; V3_8015C9D4 pos; u8 pad308[0x326 - 0x308]; s16 f326; };
+
+struct A_8015C9D4 { u8 pad[0x1C]; V3_8015C9D4 pos; };
+
+extern "C" {
+f32 TObjPlayer__sub_80014108(void *, void *, f32);
+s32 TObjPlayer__sub_80016454(f32);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void create_font__13TOCtrlDubchikFiiii(void *, int, int, void *);
+extern char lbl_80440984[];
+extern const f32 TOCtrlDubchik__data_805DB3A8;
+extern const f32 TOCtrlDubchik__data_805DB3AC;
+f32 TOCtrlDubchik__vt22(O_8015C9D4 *arg0, void *arg1, A_8015C9D4 *arg2);
+}
+
 extern "C" {
 
 void TOCtrlDubchik__sub_8015C9D0(void);
@@ -18,5 +35,20 @@ void byteswap_event_packet__6TLobbyFi(s32 arg0) {
 void init_packet_67_04__6TLobbyFPv(void* p) { *(u8*)((char*)p + 0x0) = 103; *(u8*)((char*)p + 0x1) = 4; }
 
 void TOCtrlDubchik__sub_8015C9D0(void) {  }
+f32 TOCtrlDubchik__vt22(O_8015C9D4 *arg0, void *arg1, A_8015C9D4 *arg2) {
+    V3_8015C9D4 sp8;
+    if (arg0->f326 != 0) {
+        if (TObjPlayer__sub_80016454(TOCtrlDubchik__data_805DB3AC) != 0) {
+            return TObjPlayer__sub_80014108(arg0, arg1, TOCtrlDubchik__data_805DB3AC);
+        }
+        if (arg2 != NULL) {
+            VecCopy__FP3VecPC3Vec(&sp8, &arg2->pos);
+        } else {
+            VecCopy__FP3VecPC3Vec(&sp8, &arg0->pos);
+        }
+        create_font__13TOCtrlDubchikFiiii(&sp8, 0xFFFF0000, 0x14, lbl_80440984);
+    }
+    return TOCtrlDubchik__data_805DB3A8;
+}
 
 }

@@ -27,6 +27,8 @@ struct SwitchPacket {u8 code,words;u16 object,zero,reserved,switchId;u8 area,fla
 
 struct Self_8016A310 { u8 pad[0x38]; u8 pos[0xCC - 0x38]; f32 range; };
 
+struct Obj_8016A280 { u8 pad[0x38]; u8 pos[0xCC - 0x38]; f32 radius; };
+
 extern "C" {
 void init_6x05_switch_changed__6TLobbyFPv(void*);
 void finalize_and_send_60__6TLobbyFPv(void*);
@@ -38,6 +40,12 @@ s32 get_field_3e4__10TObjPlayerFPv(void *);
 f32 fn_801315A0(void *, void *);
 extern s32 lbl_805D53A0;
 s32 TOKey__sub_8016A310(Self_8016A310 *self);
+s32 get_player_data__10TObjPlayerFi(int);
+s32 TObjPlayer__sub_800196EC();
+s32 get_field_3e4__10TObjPlayerFPv(void *);
+f32 fn_801315A0(void *, void *);
+extern s32 lbl_805D586C;
+s32 TOKey__sub_8016A280(Obj_8016A280 *arg0);
 }
 
 extern "C" {
@@ -174,6 +182,22 @@ void send_switch_on__5TOKeyFv(void* key) {
     packet.area=((s8)TObjPlayer__sub_800196EC());
     packet.flags=1;
     finalize_and_send_60__6TLobbyFPv(&packet);
+}
+
+s32 TOKey__sub_8016A280(Obj_8016A280 *arg0) {
+    u8 *p;
+    s32 i;
+    for (i = 0; i < lbl_805D586C; i++) {
+        p = (u8 *)get_player_data__10TObjPlayerFi(i);
+        if (p != 0) {
+            if (get_field_3e4__10TObjPlayerFPv(p) == TObjPlayer__sub_800196EC()) {
+                if (fn_801315A0(p + 0x38, arg0->pos) < arg0->radius * arg0->radius) {
+                    return 1;
+                }
+            }
+        }
+    }
+    return 0;
 }
 
 s32 TOKey__sub_8016A310(Self_8016A310 *self) {

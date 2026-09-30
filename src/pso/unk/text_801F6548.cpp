@@ -9,6 +9,18 @@ struct RecoveredGlobal_801F6548_lbl_80512790 {
     u8 remaining[0x1C];
 };
 
+struct MCFmt_801F68FC {
+    u8 pad0[0x24];
+    s32 f24;
+    s32 f28;
+    s32 f2C;
+    s32 f30;
+    u32 f34;
+    u32 f38;
+};
+
+struct Pair_801F68FC { s32 a; s32 b; };
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
@@ -22,6 +34,13 @@ extern s8 lbl_8050E208[];
 void TMCFormatSequence__sub_801F6640(void *arg0);
 extern RecoveredGlobal_801F6548_lbl_80512790 lbl_80512790;
 M2C_UNK *TQuestThread__sub_801F6548(void);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
+void show_message__17TMCFormatSequenceFPvii(void *arg0, s32 arg1, s32 arg2);
+s32 init_shop_judgment_window();
+s32 set_text__18TWindowMessagePageFiii(s32, void *, s32);
+s32 TWindowSubComCard__sub_8026CBB8(s32);
+extern Pair_801F68FC lbl_8044A684[];
+void TMCFormatSequence__sub_801F68FC(MCFmt_801F68FC *self);
 }
 
 extern "C" {
@@ -135,6 +154,18 @@ void process_format_result__17TMCFormatSequenceFPv(void *arg0) {
         M2C_FIELD(arg0, u32 *, 0x38) = 0U;
         close_window__17TMCFormatSequenceFPv((void*)(arg0));
     }
+}
+void TMCFormatSequence__sub_801F68FC(MCFmt_801F68FC *self) {
+    if (self->f34 == 0) {
+        Pair_801F68FC t = lbl_8044A684[0];
+        self->f34 = set_text__18TWindowMessagePageFiii(TWindowSubComCard__sub_8026CBB8(0x2F), &t, 1);
+        show_message__17TMCFormatSequenceFPvii(self, TAdSinglePlyChrSelectGC__sub_80132F2C((M2C_UNK)(self->f2C), (M2C_UNK)(self->f30)), 0);
+    }
+    if (self->f38 == 0) {
+        TWindowSubComCard__sub_8026CBB8(0x2B);
+        self->f38 = init_shop_judgment_window();
+    }
+    self->f24 = 1;
 }
 
 }

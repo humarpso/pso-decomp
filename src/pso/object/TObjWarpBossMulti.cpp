@@ -52,12 +52,21 @@ struct RecoveredGlobal_8019E418_lbl_8050E208 {
     u8 remaining[0x1AC];
 };
 
+struct Wb_8019DE74 { u8 pad0[0xF4]; s32 fF4; };
+
 extern "C" {
 s32 is_lobby_active__17TObjWarpBossMultiFv(void);
 s32 TObjWarpBossMulti__sub_8019E570(s32, f32);
 extern RecoveredGlobal_8019E418_lbl_8050E208 lbl_8050E208;
 extern const f32 lbl_805DC01C;
 s32 TObjWarpBossMulti__sub_8019E418(u8 *arg0);
+void update__17TObjWarpBossMultiFPv(void *arg0);
+s32 get_global_state__14TOKeyMachine01Fv();
+void set_global_count__12TObjNpcEnemyFi(int);
+void TObjEneBm5GibonU__sub_803D853C(int, void *, ...);
+extern u8 lbl_8044663C[];
+extern u8 lbl_80446650[];
+void TObjWarpBossMulti__vt18(Wb_8019DE74 *arg0);
 }
 
 extern "C" {
@@ -136,6 +145,16 @@ extern s32 lbl_805D4DF0;
 extern const f32 lbl_805DC008;
 extern const f32 lbl_805DC00C;
 extern const f32 lbl_805DC010;
+
+void TObjWarpBossMulti__vt18(Wb_8019DE74 *arg0) {
+    update__17TObjWarpBossMultiFPv(arg0);
+    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    if (get_global_state__14TOKeyMachine01Fv() == 0) {
+        TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_8044663C);
+    }
+    TObjEneBm5GibonU__sub_803D853C(0x130021, lbl_80446650, arg0->fF4);
+    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+}
 
 void render__17TObjWarpBossMultiFv(u8 *arg0) {
     s32 temp_r0;

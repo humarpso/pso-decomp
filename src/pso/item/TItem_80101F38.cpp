@@ -9,6 +9,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 typedef char DropRecordSize[(sizeof(FloorItem) == 0x24) ? 1 : -1];
 typedef char DropItemOffset[(offsetof(FloorItem, item) == 0x10) ? 1 : -1];
 
+struct Msg_80101FEC {
+    u16 hdr;
+    u16 id;
+    s16 a;
+    s16 b;
+    f32 x;
+    f32 z;
+    u8 item[0x18];
+};
+
+struct Pos_80101FEC { f32 x; f32 y; f32 z; };
+
 extern "C" {
 s32 copy_item_data__6TLobbyFPvPv(void *, void *);
 s32 bswap_6x5D__6TLobbyFPv(void *);
@@ -18,6 +30,15 @@ s32 TItemData__sub_8010C740(void *, int);
 s32 TItemData__sub_8010CCB0(void *);
 s32 get_player_floor__6TLobbyFi(int);
 void handle_6x5D_drop_stacked_item(u8 *arg0);
+s16 TObjPlayer__sub_800196EC();
+s32 copy_item_data__6TLobbyFPvPv(void *, void *);
+void send_6x5D__6TLobbyFPv(void *);
+void init_fields__6TLobbyFPv(void *);
+void TItemData__sub_8010CCB4(void *);
+s16 get_stat_by_key_state__10TObjPlayerFPv(int);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+extern s32 lbl_805D5450;
+void TItem__sub_80101FEC(void *item, s32 id, Pos_80101FEC *pos);
 }
 
 extern "C" {
@@ -40,6 +61,24 @@ void handle_6x5D_drop_stacked_item(u8 *arg0) {
         TItemData__sub_8010CCB0((void *) (&drop.item));
         fn_801057A8((void *) (&drop.floor), (int) (0));
     }
+}
+void TItem__sub_80101FEC(void *item, s32 id, Pos_80101FEC *pos) {
+    Msg_80101FEC m;
+    s32 h;
+    init_fields__6TLobbyFPv(&m);
+    h = TPlayerBattleCtrl4P__sub_801BA74C(id);
+    if (h == 0) {
+        lbl_805D5450 = 1;
+        return;
+    }
+    m.id = id;
+    m.a = TObjPlayer__sub_800196EC();
+    m.b = get_stat_by_key_state__10TObjPlayerFPv(h);
+    m.x = pos->x;
+    m.z = pos->z;
+    copy_item_data__6TLobbyFPvPv(m.item, item);
+    TItemData__sub_8010CCB4(m.item);
+    send_6x5D__6TLobbyFPv(&m);
 }
 
 }

@@ -7,6 +7,105 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Obj_800E4554 { u8 pad0[0x1C]; u16 f1C; u8 pad1E[0xE]; s16 f2C; u8 pad2E[0x42C - 0x2E]; u16 slots[8]; };
 
+struct Base_800E46D4 { s32 f0; u8 pad4[0x14]; };
+
+struct Obj_800E46D4 : Base_800E46D4 {
+    virtual void v0();
+    virtual void v1();
+    virtual void v2();
+    virtual void v3();
+    virtual void v4();
+    virtual void v5();
+    virtual void v6();
+    virtual void v7();
+    virtual void v8();
+    virtual void v9();
+    virtual void v10();
+    virtual void v11();
+    virtual void v12();
+    virtual void v13();
+    virtual void v14();
+    virtual void v15();
+    virtual void v16();
+    virtual void v17();
+    virtual void v18();
+    virtual void v19();
+    virtual void v20();
+    virtual void v21();
+    virtual void v22();
+    virtual void v23();
+    virtual void v24();
+    virtual void v25();
+    virtual void v26();
+    virtual void v27();
+    virtual void v28();
+    virtual void v29();
+    virtual void v30();
+    virtual void v31();
+    virtual void v32();
+    virtual void v33();
+    virtual void v34();
+    virtual void v35();
+    virtual void v36();
+    virtual void v37();
+    virtual void v38();
+    virtual void v39();
+    virtual void v40();
+    virtual void v41();
+    virtual void v42();
+    virtual void v43();
+    virtual void v44();
+    virtual void v45();
+    virtual void v46();
+    virtual void v47();
+    virtual void v48();
+    virtual void v49();
+    virtual void v50();
+    virtual void v51();
+    virtual void v52();
+    virtual void v53();
+    virtual void v54();
+    virtual void v55();
+    virtual void v56();
+    virtual void v57();
+    virtual void v58();
+    virtual void v59();
+    virtual void v60();
+    virtual void v61();
+    virtual void v62();
+    virtual void v63();
+    virtual void v64();
+    virtual void v65();
+    virtual void v66();
+    virtual void v67();
+    virtual void v68();
+    virtual void v69();
+    virtual void v70();
+    virtual void v71();
+    virtual void v72();
+    virtual void v73();
+    virtual void v74();
+    virtual void v75();
+    virtual void v76();
+    virtual void v77();
+    virtual void v78();
+    virtual void v79();
+    virtual void v80();
+    virtual void v81();
+    virtual void v82();
+    virtual void v83();
+    virtual void v84();
+    virtual void m85(s16, s32);
+    u8 pad1C[0x326 - 0x1C];
+    s16 f326;
+    u8 pad328[0x3C4 - 0x328];
+    u32 f3C4;
+    u8 pad3C8[0x3D4 - 0x3C8];
+    s32 f3D4;
+    u8 pad3D8[0x42C - 0x3D8];
+    u16 slots[8];
+};
+
 extern "C" {
 void spawn_mirages__21TObjEneMe3ShinowaRealFPv(void* p);
 M2C_UNK TObjEneMe3Shinowa__sub_800E7250();
@@ -18,6 +117,13 @@ s32 create__23TObjEneMe3ShinowaMirageFPvPvPv(void *, s32, s32, s32);
 s32 TPhotonMylla__sub_80154CB4(s32);
 u16 obj_getField1c();
 s32 TObjEneMe3ShinowaReal__sub_800E4554(Obj_800E4554 *arg0, s32 arg1);
+void TObjEneMe3Shinowa__ct(void *, void *);
+void invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
+void fn_800E762C(void *);
+void TObjEneMe3ShinowaMirage__sub_800E7884(void *);
+extern s32 lbl_805D2ACC;
+extern M2C_UNK __vt__21TObjEneMe3ShinowaReal[];
+Obj_800E46D4 *TObjEneMe3ShinowaReal__ct(Obj_800E46D4 *arg0, void *arg1, void *arg2);
 }
 
 extern "C" {
@@ -29,7 +135,6 @@ void TObjEneMe3ShinowaReal__vt61(void* p);
 void *__dt__21TObjEneMe3ShinowaRealFv(void *arg0, s16 arg1);
 void *create__21TObjEneMe3ShinowaRealFPv(void *arg0);
 void spawn_mirages__21TObjEneMe3ShinowaRealFPv(void* p);
-void *TObjEneMe3ShinowaReal__ct(void *, void *, void *);
 int TObjEneMe3Shinowa__vt60(void*);
 int TObjEneMe3Shinowa__vt61(void*);
 void __dl__7TObjectFPv(void *);
@@ -92,10 +197,28 @@ void *__dt__21TObjEneMe3ShinowaRealFv(void *arg0, s16 arg1) {
 
 extern void *tl_04;
 
+Obj_800E46D4 *TObjEneMe3ShinowaReal__ct(Obj_800E46D4 *arg0, void *arg1, void *arg2) {
+    s32 i;
+    TObjEneMe3Shinowa__ct(arg0, arg1);
+    *(void **) ((u8 *) arg0 + 0x18) = ((u8 *)&__vt__21TObjEneMe3ShinowaReal);
+    arg0->f0 = lbl_805D2ACC;
+    invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);
+    fn_800E762C(arg0);
+    TObjEneMe3ShinowaMirage__sub_800E7884(arg0);
+    arg0->f3D4 = 0;
+    arg0->f3C4 &= 0xFFFFEFFF;
+    for (i = 0; i < 4; i++) {
+        arg0->slots[i] = 0xFFFF;
+    }
+    arg0->f326 = 0;
+    arg0->m85(arg0->f326, 4);
+    return arg0;
+}
+
 void *create__21TObjEneMe3ShinowaRealFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x434);
     if (o != NULL) {
-        o = TObjEneMe3ShinowaReal__ct(o, tl_04, arg0);
+        o = TObjEneMe3ShinowaReal__ct((Obj_800E46D4 *)(o), (void *)(tl_04), (void *)(arg0));
     }
     return o;
 }

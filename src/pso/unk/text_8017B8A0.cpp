@@ -26,6 +26,12 @@ struct V_8017B8D4 : B_8017B8D4 {
     virtual void m20(s32 a, f32 b);
 };
 
+struct Sub_8017BAFC { u8 pad[4]; s16 f4; };
+
+struct Obj_8017BAFC { u8 pad0[0x1C]; u16 f1C; u8 pad1[0x62]; Sub_8017BAFC *sub; u8 pad2[0x2A2]; s16 state; u8 pad3[0x14]; s32 f33C; };
+
+struct Pkt_8017BAFC { u16 a; u16 b; s32 c; s32 d; u16 e; s16 f; };
+
 extern "C" {
 void fn_8017B908(u8 *arg0);
 void fn_8017B950(u8 *arg0);
@@ -34,6 +40,10 @@ extern const f32 lbl_805DBA78;
 void TOTrapAncient02R__vt21(Obj_8017B8A0 *self);
 extern const f32 lbl_805DBA78;
 void TOTrapAncient02R__vt22(V_8017B8D4 *self);
+s32 TLobby__sub_80156A80(void *, void *, int);
+void update_and_send__11TOVS2Wall01FPv(void *);
+void init__11TOVS2Wall01FPv(void *);
+void TOVS2Wall01__sub_8017BAFC(Obj_8017BAFC *arg0, u16 arg1);
 }
 
 extern "C" {
@@ -84,5 +94,26 @@ void fn_8017B984(u8 *arg0) {
 }
 
 void TOVS2Wall01__sub_8017B9AC(void) {  }
+void TOVS2Wall01__sub_8017BAFC(Obj_8017BAFC *arg0, u16 arg1) {
+    s16 sp8;
+    Pkt_8017BAFC pkt;
+    s16 v = arg0->state;
+    Sub_8017BAFC *sub;
+    if (arg1 == 1) {
+        v = 1;
+    }
+    if ((arg0->sub != NULL) && (TLobby__sub_80156A80(arg0, &sp8, 1) != 0)) {
+        sp8 = v;
+        TLobby__sub_80156A80(arg0, &sp8, 0);
+        sub = arg0->sub;
+        init__11TOVS2Wall01FPv(&pkt);
+        pkt.b = arg0->f1C;
+        pkt.c = sp8;
+        pkt.d = sub->f4;
+        pkt.e = arg1;
+        pkt.f = arg0->f33C;
+        update_and_send__11TOVS2Wall01FPv(&pkt);
+    }
+}
 
 }

@@ -39,6 +39,8 @@ struct L_80225AD8 { u8 pad[0xcc]; s8 flags; u8 pad2[3]; };
 
 struct L_80225B40 { u8 pad[0xcc]; s8 flags; u8 pad2[3]; };
 
+struct Tag_80225828 { u8 b[0x228]; };
+
 extern "C" {
 extern unsigned char lbl_80513F70[];
 void *TLobby__sub_8022598C(int a0);
@@ -73,6 +75,27 @@ extern s32 lbl_805D6270;
 extern int lbl_805D6274;
 void clear_lobby_flag__6TLobbyFv(void);
 void TLobby__sub_80225B40(void* _w0);
+s32 is_split_screen(void);
+s32 create_named_object(void *);
+s32 alloc_buffer__11TOBoss4RockFPv(s32);
+extern u8 lbl_8044C478[];
+extern M2C_UNK lbl_80513F20[];
+extern u32 lbl_805D6260;
+extern int lbl_805D6264;
+void TLobby__sub_802245B4(void);
+M2C_UNK TLobby__sub_800F957C(u32);
+M2C_UNK free__11TOBoss4RockFUi(u32);
+extern G_80225550 lbl_80513F60;
+extern u32 lbl_805D6268;
+void TLobby__sub_80225618(void);
+void __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
+s32 get_keyboard_mode__17TWindowSubComCardFv(void);
+void fn_801DB878(void *, void *);
+s32 init_guild_card_tag__6TLobbyFi(void *);
+void* get_com_card_list__6TLobbyFPv(void* p);
+s32 strncpy(void *, void *, int);
+extern u8 *TLobby__data_805D5580;
+void TLobby__sub_80225828(s32 arg0, void *arg1);
 }
 
 extern "C" {
@@ -126,6 +149,22 @@ void free_all_rocks__6TLobbyFv(void) {
         TLobby__sub_800F957C(lbl_805D6260);
         lbl_805D6260 = var_r30;
     }
+}
+
+void TLobby__sub_802245B4(void) {
+    s32 i;
+    (*(s32 *)&lbl_805D6260) = create_named_object(lbl_8044C478);
+    for (i = 0; i < 4; i++) {
+        ((s32 *)&lbl_80513F20)[i] = 0;
+    }
+    if (is_split_screen() == 1) {
+        for (i = 0; i < 4; i++) {
+            ((s32 *)&lbl_80513F20)[i] = alloc_buffer__11TOBoss4RockFPv(0x168);
+        }
+    } else {
+        ((s32 *)&lbl_80513F20)[0] = alloc_buffer__11TOBoss4RockFPv(0x168);
+    }
+    (*(s32 *)&lbl_805D6264) = 0;
 }
 
 s32 classify_level_bracket_wide__6TLobbyFi(s32 arg0) {
@@ -348,10 +387,44 @@ void TLobby__sub_802255CC(s32 a, s32 b) {
 }
 #pragma pop
 
+#pragma push
+#pragma optimization_level 1
+void TLobby__sub_80225618(void) {
+    s32 i;
+    for (i = 3; i >= 0; i--) {
+        if (((u32 *)&lbl_80513F60)[i] != 0) {
+            free__11TOBoss4RockFUi(((u32 *)&lbl_80513F60)[i]);
+            ((u32 *)&lbl_80513F60)[i] = 0;
+        }
+    }
+    if (lbl_805D6268 != 0) {
+        TLobby__sub_800F957C((u32)((void *)lbl_805D6268));
+        lbl_805D6268 = 0;
+    }
+}
+#pragma pop
+
 void try_close__6TLobbyFPv(void* p) { if (TLobby__sub_80225B90((O_80225B90 *)(p)) == 0) { TLobby__sub_80225A08(p); } }
 
 typedef struct RecoveredGlobal_802258C8_lbl_80513F70 RecoveredGlobal_802258C8_lbl_80513F70;
 typedef char RecoveredGlobal_802258C8_lbl_80513F70_size[((sizeof(RecoveredGlobal_802258C8_lbl_80513F70)) == 0x680) ? (1) : (-1)];
+
+void TLobby__sub_80225828(s32 arg0, void *arg1) {
+    Tag_80225828 t;
+    s32 mode;
+    init_guild_card_tag__6TLobbyFi(&t);
+    if (TLobby__data_805D5580 != 0) {
+        mode = get_keyboard_mode__17TWindowSubComCardFv();
+        __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(&t.b[4], TLobby__data_805D5580 + 0x1900);
+        strncpy((void *)(&t.b[0xC]), (void *)(((void *)get_com_card_list__6TLobbyFPv((void*)((void *)mode)))), (int)(0x17));
+        *(s32 *)&t.b[0x1C] = arg0;
+        t.b[0x23] = 0;
+        strncpy((void *)(&t.b[0x20]), (void *)(arg1), (int)(0xAB));
+        t.b[0xCB] = 0;
+        fn_801DB878(TLobby__data_805D5580, &t);
+    }
+}
+
 void TLobby__sub_802258C8(void) {
   s32 var_r31;
   M2C_UNK *var_r30;

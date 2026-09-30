@@ -121,6 +121,13 @@ struct VObj_80168834_80168588 {
     virtual void m78();
 };
 
+struct VBase_18_26a62c { char pad[0x18]; };
+struct VObj_18_26a62c : VBase_18_26a62c {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
 int TOHangceilingCave01__sub_80168624(void);
 f32 TOHangceilingCave01__sub_8016862C(void);
 f32 TOHangceilingCave01__sub_80168634(void);
@@ -130,10 +137,17 @@ void check_player_trigger__19TOHangceilingCave01FPv(u8 *arg0);
 void destroy_instance__19TOHangceilingCave01Fv(void);
 void init_geometry__19TOHangceilingCave01FPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-s32 TOHangceilingCave01__sub_801688C0(void *);
+bool TOHangceilingCave01__sub_801688C0(u8 *);
 M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK fn_80168398(void *);
+f32 fn_8013157C(void *, void *);
+M2C_UNK TObjPlayer__sub_803D9884(void *, void *);
+extern s32 lbl_805D4DF0;
+extern const f32 lbl_805DB664;
+extern const f32 lbl_805DB698;
+extern const f32 lbl_805DB69C;
+extern const f32 lbl_805DB6A0;
 M2C_UNK free__11TOBoss4RockFUi(void*);
 M2C_UNK free_if_valid__10TObjPlayerFi(s32);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -182,10 +196,24 @@ void check_player_trigger__19TOHangceilingCave01FPv(u8 *arg0) {
     if (check_demo_mode__10TObjPlayerFv() == 0) {
         ((VObj_80168834_80168588*)arg0)->m78();
         fn_80168398(arg0);
-        if ((TOHangceilingCave01__sub_801688C0(arg0) != 0) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 3) && (objInBand__FP7GameObjf(arg0, lbl_805DB694) != 0)) {
+        if ((((s32 (*)(void *))TOHangceilingCave01__sub_801688C0)(arg0) != 0) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 3) && (objInBand__FP7GameObjf(arg0, lbl_805DB694) != 0)) {
             TObjEneDellBiter__sub_80087350(arg0 + 0x38, 0x64);
         }
     }
+}
+
+bool TOHangceilingCave01__sub_801688C0(u8 *arg0) {
+    f32 sp8[3];
+
+    if (fn_8013157C((void *) (arg0 + 0x38), (void *) (lbl_805D4DF0 + 0x178)) < lbl_805DB698) {
+        M2C_FIELD(arg0, s16 *, 0x1E) = 1;
+        return 1;
+    }
+    if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DB69C, lbl_805DB664) == 0) {
+        return 0;
+    }
+    TObjPlayer__sub_803D9884((void *) (arg0 + 0x38), (void *) sp8);
+    return (sp8[2] > lbl_805DB6A0) == 0;
 }
 
 extern u32 lbl_805D59D0;

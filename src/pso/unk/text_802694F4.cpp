@@ -10,13 +10,72 @@ struct RecoveredFields_802698C4_arg0 {
     f32 field_84;
 };
 
+struct Ent_802695A8 { u32 flags; u32 x; };
+
+struct Msg_802695A8 {
+    u8 pad0[0x70];
+    s32 sel;
+    s32 cur;
+    u8 pad2[4];
+    Ent_802695A8 *ents;
+    u8 pad3[0xC];
+    s32 cnt;
+};
+
 extern "C" {
 extern const f32 lbl_805DD224;
 extern const f32 lbl_805DD228;
 void fn_802698C4(struct RecoveredFields_802698C4_arg0 *arg0);
+u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+void set_default_status__17TWindowDuelResultFPvi(void *, s32);
+extern const f32 lbl_805DD218;
+extern const f32 lbl_805DD21C;
+void fn_802694F4(u8 *arg0, u8 *arg1);
+u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+u32 get_field_20__17TWindowSubComCardFPv(void *);
+void fn_802695A8(Msg_802695A8 *arg0);
 }
 
 extern "C" {
+
+void fn_802694F4(u8 *arg0, u8 *arg1) {
+    f32 d;
+    s32 i;
+    u8 *e;
+    i = 0;
+    d = lbl_805DD218 + *(f32 *)(arg1 + 0x14);
+    *(f32 *)(arg0 + 0x84) -= d;
+    *(f32 *)(arg0 + 0x6C) -= d;
+    *(f32 *)(arg0 + 0x80) -= d;
+    for (; i < *(s32 *)(arg0 + 0x8C); i++) {
+        e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, i);
+        *(f32 *)(e + 0xC) -= d;
+    }
+    *(f32 *)(arg1 + 0xC) = lbl_805DD21C;
+    *(f32 *)(arg1 + 0x14) = lbl_805DD21C;
+    set_default_status__17TWindowDuelResultFPvi(arg1, 0);
+}
+
+void fn_802695A8(Msg_802695A8 *arg0) {
+    u16 *e;
+    s32 t;
+    e = ((u16 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, arg0->cur));
+    while (get_field_20__17TWindowSubComCardFPv(e) != 0 && (*e & 0x10)) {
+        t = arg0->cur + 1;
+        arg0->cur = t;
+        if (t >= arg0->cnt) {
+            arg0->cur = 0;
+        }
+        if (arg0->cur == arg0->sel) {
+            break;
+        }
+        e = ((u16 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, arg0->cur));
+        if (arg0->ents[arg0->cur].flags & 8) {
+            arg0->ents[arg0->cur].flags &= ~8;
+            *e &= ~8;
+        }
+    }
+}
 
 #pragma push
 #pragma opt_common_subs off

@@ -20,6 +20,10 @@ struct Entry_8017F4AC { u8 vec[0xC]; f32 time; void *obj; u32 done; };
 
 struct Self_8017F4AC { u8 pad[0xB0]; f32 t; u8 padb4[0xEC - 0xB4]; Entry_8017F4AC e[8]; };
 
+struct Rec_8017F550 { u8 pad[0x14]; s32 f14; };
+
+struct Obj_8017F550 { u8 pad0[0x38]; u8 pos[0x28]; s32 f60; u8 pad1[0x88]; Rec_8017F550 recs[8]; };
+
 extern "C" {
 void fn_8017F5F0(u8 *arg0, u8 *arg1);
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
@@ -30,6 +34,15 @@ void fn_8017F45C(void);
 void fn_8017F52C(O_8017F52C *self);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 void fn_8017F4AC(Self_8017F4AC *self);
+void fn_8017F5F0(u8 *arg0, u8 *arg1);
+void TBoss4Zako__sub_803D8910(void *, void *);
+void TCameraCtrl__sub_803D8934(int, void *, void *);
+void TObjPlayer__sub_803D9214(int, s32);
+void TObjPlayer__sub_803D97F0(void *);
+void TObjPlayer__sub_803D9B78();
+extern Rec_8017F550 lbl_804439D8[];
+extern u8 lbl_8058D490[];
+void fn_8017F550(Obj_8017F550 *arg0);
 }
 
 extern "C" {
@@ -59,6 +72,19 @@ void fn_8017F52C(O_8017F52C *self) {
     s32 i;
     for (i = 0; i < 8; i++) {
         self->recs[i].a = 0;
+    }
+}
+
+void fn_8017F550(Obj_8017F550 *arg0) {
+    s32 i;
+    for (i = 0; i < 8; i++) {
+        fn_8017F5F0((u8 *)(&arg0->recs[i]), (u8 *)(&lbl_804439D8[i]));
+        TObjPlayer__sub_803D97F0(lbl_8058D490);
+        TObjPlayer__sub_803D9214(0, arg0->f60);
+        TCameraCtrl__sub_803D8934(0, &arg0->recs[i], &arg0->recs[i]);
+        TObjPlayer__sub_803D9B78();
+        TBoss4Zako__sub_803D8910(&arg0->recs[i], arg0->pos);
+        arg0->recs[i].f14 = 0;
     }
 }
 

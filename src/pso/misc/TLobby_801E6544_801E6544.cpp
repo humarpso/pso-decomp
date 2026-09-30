@@ -55,6 +55,12 @@ int sprintf(char *, const char *, ...);
 M2C_UNK append_string(void *);
 extern char lbl_80449C74[];
 void TLobby__sub_801E6868(s32 arg0);
+void TLobby__sub_801E6604();
+s32 TLobby__sub_801E6BB8();
+s8 read_byte_advance__6TLobbyFv();
+void TLobby__sub_801E6C2C(s8);
+void TLobby__sub_801E6C40();
+s32 TLobby__sub_801E6580(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -76,6 +82,27 @@ void capture_chat_sensor__6TLobbyFi(s32 arg0) {
 }
 
 extern M2C_UNK lbl_80449C6C[];
+
+s32 TLobby__sub_801E6580(s32 arg0, s32 arg1) {
+    TLobby__sub_801E6C40();
+    while (TLobby__sub_801E6BB8() == 0) {
+        s8 c = read_byte_advance__6TLobbyFv();
+        switch (c) {
+        case 0x3C:
+            TLobby__sub_801E6604();
+            break;
+        case 0x3E:
+            while (1) {
+            }
+        case 0x3D:
+        default:
+            TLobby__sub_801E6C2C(c);
+            break;
+        }
+    }
+    TLobby__sub_801E6C2C(0);
+    return arg1;
+}
 
 void append_card_window_text__6TLobbyFv(void) {
     u32 temp_r3;

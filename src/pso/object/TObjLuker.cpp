@@ -19,6 +19,8 @@ struct Obj_801A0CE8 { u8 pad[0x90]; void *wins[4]; s32 cur; u8 pad2[4]; u16 id; 
 
 struct Obj_801A0C38 { u8 pad[0x90]; void *parts[1]; };
 
+struct Luker_801A16D8 { u8 pad0[0x18]; void *f18; u8 pad1C[0x74]; void *wins[4]; };
+
 extern "C" {
 void allow_rendering__7TObjectFv(void *);
 void clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
@@ -53,6 +55,11 @@ void TObjLuker__sub_801A0CE8(Obj_801A0CE8 *self);
 void set_flag_4__9TObjLukerFPv(void *w);
 void disallow_rendering__7TObjectFv(void *w);
 void TObjLuker__sub_801A0C38(Obj_801A0C38 *self, u16 i);
+void destroy_particle__13TParticleCtrlFPvs(void *, int);
+void __dl__7TObjectFPv(void *);
+void TWindow__close(void *);
+extern u8 __vt__9TObjLuker[];
+Luker_801A16D8 *__dt__9TObjLukerFv(Luker_801A16D8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -144,6 +151,24 @@ void TObjLuker__sub_801A0E38(Obj_801A0E38 *self) {
 void render__9TObjLukerFv(void) {  }
 
 extern void *tl_05;
+
+Luker_801A16D8 *__dt__9TObjLukerFv(Luker_801A16D8 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        s32 i;
+        arg0->f18 = __vt__9TObjLuker;
+        for (i = 0; i < 4; i++) {
+            if (arg0->wins[i] != 0) {
+                TWindow__close(arg0->wins[i]);
+                arg0->wins[i] = 0;
+            }
+        }
+        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
 
 void *TObjLuker__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xBC);

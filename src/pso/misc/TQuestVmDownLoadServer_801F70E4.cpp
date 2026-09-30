@@ -19,6 +19,22 @@ struct RecoveredGlobal_801F84AC_lbl_80512BDC {
     u8 remaining[0x38];
 };
 
+struct QVmCt_801F83F0 {
+    s32 f0;
+    u8 pad4[0x14];
+    void *vt18;
+    void *vt1C;
+    u8 pad20[0x22C - 0x20];
+    s32 f22C, f230, f234, f238;
+    u8 pad23C[0x25C - 0x23C];
+    s32 f25C, f260;
+    u8 pad264[0x270 - 0x264];
+    u8 b270[0xD];
+    u8 b27D[0xD];
+    u8 pad28A[2];
+    s32 f28C, f290, f294, f298, f29C, f2A0;
+};
+
 extern "C" {
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 void *alloc__22TQuestVmDownLoadServerFPv(s32);
@@ -36,6 +52,14 @@ extern RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 TQuestVmDo
 void TQuestVmDownLoadServer__sub_801F8FA4(void);
 extern RecoveredGlobal_801F84AC_lbl_80512BDC lbl_80512BDC;
 M2C_UNK *TQuestVmDownLoadServer__sub_801F84AC(void);
+void fn_80222BCC(void *);
+void __ct__7TObjectFP7TObject();
+void *memset(void *, int, u32);
+extern M2C_UNK __vt__22TQuestVmDownLoadServer[];
+extern s32 lbl_805D35E8;
+extern s32 TQuestVmDownLoadServer__data_805D5F18;
+extern s32 TQuestVmDownLoadServer__data_805D5F24;
+QVmCt_801F83F0 *TQuestVmDownLoadServer__ct(QVmCt_801F83F0 *self);
 }
 
 extern "C" {
@@ -280,6 +304,32 @@ u8 *TQuestVmDownLoadServer__vt0(u8 *arg0, s16 arg1) {
 }
 
 typedef char RecoveredGlobal_801F84AC_lbl_80512BDC_size[sizeof(RecoveredGlobal_801F84AC_lbl_80512BDC) == 0x3C ? 1 : -1];
+
+QVmCt_801F83F0 *TQuestVmDownLoadServer__ct(QVmCt_801F83F0 *self) {
+    __ct__7TObjectFP7TObject();
+    fn_80222BCC(&self->vt1C);
+    self->vt18 = ((u8 *)&__vt__22TQuestVmDownLoadServer);
+    self->vt1C = ((u8 *)&__vt__22TQuestVmDownLoadServer) + 0x18;
+    self->f0 = lbl_805D35E8;
+    self->f2A0 = 0;
+    self->f22C = 0;
+    self->f230 = 0;
+    self->f234 = 0;
+    self->f238 = 0;
+    self->f25C = -1;
+    self->f260 = 0;
+    memset(self->b270, 0, 0xD);
+    memset(self->b27D, 0, 0xD);
+    self->f28C = 0;
+    self->f290 = 0;
+    self->f294 = 0;
+    self->f29C = 0;
+    (*(QVmCt_801F83F0 * *)&TQuestVmDownLoadServer__data_805D5F24) = self;
+    self->f298 = 2;
+    TQuestVmDownLoadServer__data_805D5F18 = 0;
+    return self;
+}
+
 M2C_UNK *TQuestVmDownLoadServer__sub_801F84AC(void) {
     return &lbl_80512BDC.value;
 }

@@ -14,6 +14,8 @@ struct O_800BFB68 { u8 pad[0x3d4]; s32 arr[12]; };
 
 struct Obj_800BEE2C { u8 pad[0xb8]; s16 fb8; u8 pad2[0x326 - 0xba]; s16 f326; s16 f328; u8 pad3[0x3ac - 0x32a]; s32 f3ac; };
 
+struct Obj_800BF880 { u8 pad0[0x18]; void *vt; u8 pad1c[0x3CC - 0x1C]; void *items[2]; };
+
 extern "C" {
 s32 TObjEneDellBiter__sub_80087350(s32, s32);
 void refresh_lobby_state__10TObjPlayerFPv(void *);
@@ -36,6 +38,13 @@ extern u32 TObjGrass__data_805D5154;
 void TObjGrass__sub_800BFB8C(O_800BFB8C *self, s32 i);
 void TObjGrass__sub_800BFB68(O_800BFB68 *self);
 void TObjGrass__vt56(Obj_800BEE2C *self);
+s32 queue_destruction__7TObjectFv(void *);
+s32 __dt__18TObjEneMe3SinowZoaFPvs(void *, s16);
+void __dt__9TObjEnemyFv(void *, int);
+s32 TObjEneGibbles__sub_80156720(void *);
+s32 __dl__7TObjectFPv(void *);
+extern u8 __vt__9TObjGrass[];
+Obj_800BF880 *__dt__9TObjGrassFv(Obj_800BF880 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -295,6 +304,28 @@ void destroy_all__9TObjGrassFv(void) {
         TLobby__sub_8001FE7C((void*)TObjGrass__data_805D5154, 1);
         TObjGrass__data_805D5154 = 0U;
     }
+}
+
+Obj_800BF880 *__dt__9TObjGrassFv(Obj_800BF880 *arg0, s16 arg1) {
+    s32 i;
+    if (arg0 != NULL) {
+        i = 0;
+        arg0->vt = __vt__9TObjGrass;
+        do {
+            if (arg0->items[i] != NULL) {
+                queue_destruction__7TObjectFv(arg0->items[i]);
+                arg0->items[i] = NULL;
+            }
+            i++;
+        } while (i < 2);
+        TObjEneGibbles__sub_80156720(arg0);
+        __dt__18TObjEneMe3SinowZoaFPvs((u8 *)arg0 + 0x3B0, -1);
+        __dt__9TObjEnemyFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
 }
 
 void TObjGrass__sub_800BFB68(O_800BFB68 *self) {

@@ -36,8 +36,29 @@ struct VObj_8018FF74_8018FAEC : Base_8018FF74_8018FAEC {
     virtual void m22();
 };
 
+struct Key_8018FD9C { u8 pad0[0x38]; f32 f38[3]; u8 pad44[0x30]; f32 f74; f32 f78; u8 pad7C[0x10]; s32 f8C; };
+
 extern "C" {
 void TObjDoorKey__vt14(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void TOKey__sub_8016AA20();
+void set_global_count__12TObjNpcEnemyFi(int);
+void TObjEneBm5GibonU__sub_803D853C(int, void *, ...);
+extern u8 lbl_804456C8[];
+extern const f32 lbl_805DBE08;
+void TObjDoorKey__vt24(Key_8018FD9C *arg0);
+s32 TObjFish__sub_8001EDC4(s32, int);
+s32 TLobby__sub_80020004(s32, int, void *, int, int, int);
+s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
+s32 TLanguage__sub_801E4874(void *);
+extern u8 lbl_804456D8[];
+extern u8 lbl_804B7920[];
+extern s32 TObjDoorKey__data_8050DCA8[];
+extern u32 lbl_805D5BF8;
+extern s32 TObjDoorKey__data_805D5BFC;
+extern s16 lbl_805D5C00;
+extern s32 TObjDoorKey__data_805D5C04;
+void TObjDoorKey__sub_801901C8(void);
 }
 
 extern "C" {
@@ -107,6 +128,21 @@ void render__11TObjDoorKeyFv(void *arg0) {
     }
 }
 
+void TObjDoorKey__vt24(Key_8018FD9C *arg0) {
+    TOKey__sub_8016AA20();
+    VecCopy__FP3VecPC3Vec(&arg0->f74, arg0->f38);
+    arg0->f78 = arg0->f78 + lbl_805DBE08;
+    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804456C8, arg0->f8C);
+    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+    if (arg0->f8C < 0) {
+        arg0->f8C = 0;
+    }
+    if (arg0->f8C > 9) {
+        arg0->f8C = 9;
+    }
+}
+
 void TObjDoorKey__vt17(void) {  }
 
 int TObjDoorKey__vt16(void) { return 0; }
@@ -168,6 +204,21 @@ void free_key__11TObjDoorKeyFv(void) {
 }
 
 extern void *tl_05;
+
+void TObjDoorKey__sub_801901C8(void) {
+    s32 r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    if (r != 0) {
+        r = TLobby__sub_80020004(r, 5, lbl_804B7920, 0, 0, 0);
+    }
+    (*(s32 *)&lbl_805D5BF8) = r;
+    TObjDoorKey__data_805D5BFC = TLanguage__sub_801E4874(lbl_804456D8);
+    TObjDoorKey__data_8050DCA8[0] = TObjFish__sub_8001EDC4((*(s32 *)&lbl_805D5BF8), 1);
+    TObjDoorKey__data_8050DCA8[1] = TObjFish__sub_8001EDC4((*(s32 *)&lbl_805D5BF8), 2);
+    s32 t = TObjFish__sub_8001EDC4((*(s32 *)&lbl_805D5BF8), 0);
+    lbl_805D5C00 = 0;
+    TObjDoorKey__data_8050DCA8[2] = t;
+    TObjDoorKey__data_805D5C04 = 0;
+}
 
 void * TObjEnvSoundGlobal__create(void *arg0) {
     void *o;

@@ -38,6 +38,10 @@ struct VObj_80103748 : Base_80103748 {
 
 struct Player_801036CC { u8 pad[0x10]; void *owner; };
 
+struct Ent_801037A0 { u8 pad0[0xE]; u16 key; u8 padx[0xC]; s32 val; u8 pad2[4]; };
+
+struct Msg_801037A0 { u32 hdr; s32 v; s32 who; };
+
 extern "C" {
 extern s32 lbl_805D5420;
 s32 TLobby__sub_8010385C(s32 arg0);
@@ -55,6 +59,13 @@ s32 get_lobby_flag__6TLobbyFv(void);
 void TLobby__sub_80103F68(void);
 extern void *tl_05;
 void TLobby__sub_801036CC(void);
+void update_and_send__6TLobbyFPv(void *);
+void TLobby__sub_801041BC(void *, void *);
+extern s32 lbl_805D53A0;
+extern s32 TLobby__data_805D53AC;
+extern Ent_801037A0 **lbl_805D541C;
+extern s32 lbl_805D5420;
+void TLobby__sub_801037A0(s32 n);
 }
 
 extern "C" {
@@ -85,6 +96,30 @@ void handle_6x63_destroy_floor_item(void *arg0) {
         o->m27();
     }
 }
+
+void TLobby__sub_801037A0(s32 n) {
+    Msg_801037A0 m;
+    s32 best;
+    u16 bestKey;
+    s32 i;
+    s32 v;
+    if (lbl_805D53A0 == TLobby__data_805D53AC) {
+        bestKey = 0xFFFF;
+        best = 0;
+        for (i = 0; i != (*(s32 * *)&lbl_805D5420)[n]; i++) {
+            if (lbl_805D541C[n][i].key < bestKey) {
+                best = i;
+                bestKey = lbl_805D541C[n][i].key;
+            }
+        }
+        v = lbl_805D541C[n][best].val;
+        TLobby__sub_801041BC(&m, &lbl_805D541C[n][best]);
+        m.v = v;
+        m.who = n;
+        update_and_send__6TLobbyFPv(&m);
+    }
+}
+
 s32 TLobby__sub_8010385C(s32 arg0) {
     if ((arg0 >= 0) && (arg0 < 0x12) && ((s32) M2C_FIELD(lbl_805D5420, M2C_UNK *, (arg0 * 4)) < 0x32)) {
         return 0;

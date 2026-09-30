@@ -14,6 +14,10 @@ struct Stack_802AB684 {
 struct RecoveredGlobal_802AB684_lbl_8047059C { M2C_UNK value; u8 remaining[0x8]; };
 typedef char RecoveredGlobal_802AB684_lbl_8047059C_size[sizeof(RecoveredGlobal_802AB684_lbl_8047059C) == 0xC ? 1 : -1];
 
+struct Vec_802AB3E0 { f32 x, y, z; };
+
+struct Player_802AB3E0 { u8 pad[0x38]; Vec_802AB3E0 pos; };
+
 extern "C" {
 void fn_803594B4(void *, s32, f32);
 extern const f32 TBoss6PlotFalz__data_805DE098;
@@ -25,6 +29,15 @@ M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
 extern RecoveredGlobal_802AB684_lbl_8047059C lbl_8047059C;
 extern const f32 TBoss6PlotFalz__data_805DE098;
 void TBoss6PlotFalz__sub_802AB684(s32 arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+Player_802AB3E0 *get_player_data__10TObjPlayerFi(int);
+int TObjEneDellBiter__sub_80087350(void *, int);
+int TBoss3Volopt__sub_8022675C(int, int, int, int);
+int is_state_1f__14TBoss6PlotFalzFUi(Player_802AB3E0 *);
+int TBoss6Thanks__sub_8035D270();
+extern s32 lbl_805D586C;
+extern const f32 lbl_805DE094;
+void TBoss6PlotFalz__sub_802AB3E0(void);
 }
 
 extern "C" {
@@ -40,6 +53,26 @@ void set_visible_flag__14TBoss6PlotFalzFPv(void *arg0) {
     }
     M2C_FIELD(arg0, s32 *, 0x374) = 1;
 }
+
+void TBoss6PlotFalz__sub_802AB3E0(void) {
+    Vec_802AB3E0 v;
+    Player_802AB3E0 *p;
+    s32 i;
+    f32 k;
+    if (TBoss6Thanks__sub_8035D270() != 0) {
+        TBoss3Volopt__sub_8022675C(0x40033231, 0, 0, 0);
+        k = lbl_805DE094;
+        for (i = 0; i < lbl_805D586C; i++) {
+            p = get_player_data__10TObjPlayerFi(i);
+            if (is_state_1f__14TBoss6PlotFalzFUi(p) != 0) {
+                VecCopy__FP3VecPC3Vec((void *)(&v), (void *)(&p->pos));
+                v.y += k;
+                TObjEneDellBiter__sub_80087350(&v, 0x29);
+            }
+        }
+    }
+}
+
 void TBoss6PlotFalz__sub_802AB568(u8 *arg0, s32 arg1, f32 farg0) {
     f32 var_f1;
     u8 *temp_r3;

@@ -19,6 +19,10 @@ struct RecoveredGlobal_80216084_TMedicalCenterMes__data_80513EA0 {
     u8 remaining[0xC];
 };
 
+struct Med_80216288 { s32 f0; u8 pad4[0x14]; void *vt; void *sub; u8 pad20[0x20C]; void *f22c; s32 f230; };
+
+struct Med_80216320 { s32 f0; u8 pad4[0x14]; void *vt; void *sub; u8 pad20[0x20C]; void *f22c; s32 f230; };
+
 extern "C" {
 s32 set_field_20__12TQuestListVMFPvi(void *, int);
 s32 TShopSequence__ct(void *);
@@ -39,6 +43,22 @@ extern RecoveredGlobal_80216084_TMedicalCenterMes__data_80513EA0 TMedicalCenterM
 void TMedicalCenterMes__sub_80216260(void);
 extern RecoveredGlobal_80215FAC_TJudgmentSequence__data_80513E80 TJudgmentSequence__data_80513E80;
 void TJudgmentSequence__sub_80216058(void);
+void *obj_getField1c(void *);
+void destroy__17TMedicalCenterMesFPvs(void *, s16);
+s32 TShopGenerator__sub_80222DAC(s32);
+void __dt__7TObjectFv(void *, s16);
+void __dl__7TObjectFPv(void *);
+extern u8 __vt__17TMedicalCenterMes[];
+extern RecoveredGlobal_80216084_TMedicalCenterMes__data_80513EA0 TMedicalCenterMes__data_80513EA0;
+Med_80216288 *TMedicalCenterMes__vt0(Med_80216288 *arg0, s16 arg1);
+void *obj_getField1c(void *);
+void fn_80222BCC(void *);
+s32 TShopGenerator__sub_80222DAC(s32);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+extern u8 __vt__17TMedicalCenterMes[];
+extern RecoveredGlobal_80216084_TMedicalCenterMes__data_80513EA0 TMedicalCenterMes__data_80513EA0;
+extern s32 lbl_805D367C;
+Med_80216320 *TMedicalCenterMes__ct(Med_80216320 *arg0, void *arg1, void *arg2);
 }
 
 extern "C" {
@@ -90,6 +110,34 @@ void TMedicalCenterMes__sub_80216260(void) {
     for (i = 0; i < 4; i++) {
         ((s32 *)&TMedicalCenterMes__data_80513EA0)[i] = 0;
     }
+}
+Med_80216288 *TMedicalCenterMes__vt0(Med_80216288 *arg0, s16 arg1) {
+    if (arg0 != 0) {
+        arg0->vt = __vt__17TMedicalCenterMes;
+        arg0->sub = __vt__17TMedicalCenterMes + 0x18;
+        if (arg0->f22c != 0) {
+            { s32 v = TShopGenerator__sub_80222DAC((s32)(obj_getField1c(arg0->f22c))); ((s32 *)&TMedicalCenterMes__data_80513EA0)[(u16)v] = 0; }
+        }
+        destroy__17TMedicalCenterMesFPvs(&arg0->sub, 0);
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+Med_80216320 *TMedicalCenterMes__ct(Med_80216320 *arg0, void *arg1, void *arg2) {
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    fn_80222BCC(&arg0->sub);
+    arg0->vt = __vt__17TMedicalCenterMes;
+    arg0->sub = __vt__17TMedicalCenterMes + 0x18;
+    arg0->f0 = lbl_805D367C;
+    arg0->f230 = 0;
+    arg0->f22c = arg2;
+    if (arg0->f22c != 0) {
+        { s32 v = TShopGenerator__sub_80222DAC((s32)(obj_getField1c(arg0->f22c))); ((s32 *)&TMedicalCenterMes__data_80513EA0)[(u16)v] = 1; }
+    }
+    return arg0;
 }
 
 }

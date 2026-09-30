@@ -1,4 +1,25 @@
 #include "pso/TChCrLoadAfs.h"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct Te_8028BFA4 { s32 id; u8 pad[0xC]; };
+
+struct Ld_8028BFA4 { u8 pad0[0x20]; s32 f20; s32 f24; u8 pad28[4]; s32 f2c; u8 pad30[8]; void *bufs[8]; u32 f5c_; };
+
+struct Cl_8028BFA4 { u8 pad0[0x20]; s32 f20; s32 f24; u8 pad28[4]; s32 f2c; u8 pad30[8]; void *bufs[8]; s32 f58; s32 f5c; s32 f60; u8 pad64[8]; s32 f6c; s32 f70; };
+
+extern "C" {
+u32 alloc__22TQuestVmDownLoadServerFPv(s32);
+s32 TLobby__sub_8028BCB0();
+s32 TLobby__sub_803CC53C(u32);
+s32 TLobby__sub_803CCB5C(u32, s32, u32);
+u32 TLobby__sub_803CD16C(s32, s32);
+extern Te_8028BFA4 lbl_804D88B8[];
+void TLobby__sub_8028BFA4(Cl_8028BFA4 *arg0);
+}
+
 extern "C" {
 int TLobby__sub_803CC4C0(int);
 int TLobby__sub_803CC980(int);
@@ -96,6 +117,24 @@ void * create__12TChCrLoadAfsFPvPvPv(void *arg0, void *arg1, void *arg2) {
         o = TChCrLoadAfs__ct((void *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2));
     }
     return o;
+}
+void TLobby__sub_8028BFA4(Cl_8028BFA4 *arg0) {
+    s32 n;
+    u32 t;
+    void *buf;
+    t = TLobby__sub_803CD16C(lbl_804D88B8[arg0->f70].id, TLobby__sub_8028BCB0());
+    arg0->f60 = t;
+    if (t != 0) {
+        arg0->f20 = 0;
+        arg0->f24 = 0;
+        n = TLobby__sub_803CC53C((u32)(arg0->f60));
+        buf = ((void *)alloc__22TQuestVmDownLoadServerFPv((s32)(n << 11)));
+        arg0->bufs[arg0->f5c] = buf;
+        if (buf != NULL) {
+            TLobby__sub_803CCB5C((u32)(arg0->f60), (s32)(n), (u32)(arg0->bufs[arg0->f5c]));
+            arg0->f2c = 2;
+        }
+    }
 }
 
 }

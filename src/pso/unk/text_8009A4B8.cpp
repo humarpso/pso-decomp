@@ -5,14 +5,43 @@ struct Pair_8009A640 { f32 ax, ay, az, aw; f32 bx, by, bz, bw; };
 
 struct Obj_8009A640 { u8 pad[0x38]; f32 radius; u8 pad2[4]; Pair_8009A640 pts[6]; };
 
+struct Ent_8009A598 { u8 pad[0xC]; u32 col; };
+
+struct Obj_8009A598 { u8 pad0[0x2C]; f32 f2c; s32 n; u8 pad34[0xC]; Ent_8009A598 ents[1]; };
+
 extern "C" {
 extern Vec_8009A640 lbl_805008B8[6];
 extern const f32 lbl_805D9878;
 extern const f32 lbl_805D9860;
 void fn_8009A640(Obj_8009A640 *self);
+f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
+u32 __cvt_fp2unsigned();
+extern u32 lbl_80500900[];
+extern const f32 lbl_805D9874;
+void fn_8009A598(Obj_8009A598 *arg0);
 }
 
 extern "C" {
+
+void fn_8009A598(Obj_8009A598 *arg0) {
+    s32 i;
+    s32 n;
+    Ent_8009A598 *p;
+    u32 c;
+    get_random_float__21TObjEneMe3ShinowaRealFv(lbl_805D9874 * arg0->f2c);
+    c = __cvt_fp2unsigned() << 24;
+    n = arg0->n;
+    p = arg0->ents;
+    for (i = n; i < 12; i++) {
+        u32 v = lbl_80500900[n];
+        p->col = v | c;
+        p++;
+    }
+    for (i = 0; i < arg0->n; i++) {
+        p->col = lbl_80500900[0] | c;
+        p++;
+    }
+}
 
 void fn_8009A640(Obj_8009A640 *self) {
     s32 i;

@@ -21,6 +21,8 @@ void qst_getargs_801F2910(s32 arg0);
 extern u8 lbl_8051238C[];
 void append_string_to_buffer(void*);
 void TLobby__sub_801F2748(s32 arg0);
+void qst_getargs_801F27A0(s32 op);
+void qst_getargs_801F2828(s32 op);
 }
 
 extern "C" {
@@ -48,6 +50,35 @@ void TLobby__sub_801F2748(s32 arg0) {
     void (*fn)(void*) = e->handler;
     append_string_to_buffer(lbl_8051238C);
     fn(lbl_8051238C);
+}
+
+typedef void (*Handler_801F27A0)(s32, u8, s16 *);
+typedef void (*Handler_801F2828)(u16, u8, u8 *);
+
+void qst_getargs_801F27A0(s32 op) {
+    s16 buf[16];
+    Handler_801F27A0 fn = (Handler_801F27A0) lbl_804C69D8[op].handler;
+    s32 first = ((s32 (*)(void))read_packet_byte__6TLobbyFv)();
+    u8 count = ((s32 (*)(void))read_packet_byte__6TLobbyFv)();
+    s32 i;
+
+    for (i = 0; i < count; i++) {
+        buf[i] = ((s16 (*)(void))read_be_u16)();
+    }
+    fn(first, count, buf);
+}
+
+void qst_getargs_801F2828(s32 op) {
+    u8 buf[16];
+    Handler_801F2828 fn = (Handler_801F2828) lbl_804C69D8[op].handler;
+    u16 label = ((M2C_UNK (*)(void))read_be_u16)();
+    u8 count = ((s32 (*)(void))read_packet_byte__6TLobbyFv)();
+    s32 i;
+
+    for (i = 0; i < count; i++) {
+        buf[i] = ((s32 (*)(void))read_packet_byte__6TLobbyFv)();
+    }
+    fn(label, count, buf);
 }
 
 void qst_getargs_801F2910(s32 arg0) {

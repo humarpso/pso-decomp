@@ -94,6 +94,26 @@ typedef struct TObjPlayer_800F6B68 {
     u16 attacker_id;
 } TObjPlayer_800F6B68;
 
+struct Vec_800F698C { f32 x, y, z; };
+
+struct A_800F698C {
+    u8 pad0[0x1C]; u16 f1C; u8 pad1E[0x28 - 0x1E]; s16 f28; s16 f2A; s16 f2C;
+    u8 pad2E[0x38 - 0x2E]; Vec_800F698C v38; u8 pad44[0x50 - 0x44]; Vec_800F698C v50; Vec_800F698C v5C;
+    u8 pad68[0x160 - 0x68]; u8 f160[0x354 - 0x160]; f32 f354[5]; s32 f368; s32 f36C;
+};
+
+struct B_800F698C {
+    s16 f0; u8 pad2[4]; u16 f6; s16 f8; s16 fA; u8 padC[4]; Vec_800F698C v10; Vec_800F698C v1C; f32 f28[5]; s16 f3C; s16 f3E;
+};
+
+struct Node_800F6E2C {
+    u8 pad0[0x340];
+    Node_800F6E2C *f340;
+    Node_800F6E2C *f344;
+    Node_800F6E2C *f348;
+    Node_800F6E2C *f34C;
+};
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805DA8DC;
@@ -105,6 +125,12 @@ s32 is_split_screen();
 void TObjPlayer__sub_800F6BF0(void *, u16);
 s32 TLobby__sub_800F7A64(void *);
 void TObjPlayer__sub_800F6B68(TObjPlayer_800F6B68 *self);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+void copy_xyz__10TObjPlayerFPvPv(void *, void *);
+void TAdSinglePlyChrSelectGC__sub_8007C48C(void *, s32);
+extern s32 lbl_805D5328;
+void TObjPlayer__sub_800F698C(A_800F698C *arg0, B_800F698C *arg1);
+void TObjPlayer__sub_800F6E2C(void *arg0, Node_800F6E2C *arg1, Node_800F6E2C *arg2);
 }
 
 extern "C" {
@@ -117,6 +143,23 @@ int TLobby__sub_80105538(void*);
 void call_vt78__10TObjPlayerFPv(void *arg0) {
     struct VObj_800F6960 *o = (struct VObj_800F6960 *)arg0;
     o->m78();
+}
+
+void TObjPlayer__sub_800F698C(A_800F698C *arg0, B_800F698C *arg1) {
+    s32 i;
+    arg0->f1C = arg1->f6;
+    VecCopy__FP3VecPC3Vec(&arg0->v50, &arg1->v10);
+    VecCopy__FP3VecPC3Vec(&arg0->v38, &arg0->v50);
+    copy_xyz__10TObjPlayerFPvPv(&arg0->v5C, &arg1->v1C);
+    for (i = 0; i < 5; i++) {
+        arg0->f354[i] = arg1->f28[i];
+    }
+    arg0->f368 = arg1->f3C;
+    arg0->f36C = arg1->f3E;
+    arg0->f28 = arg1->f8;
+    arg0->f2A = arg1->fA;
+    arg0->f2C = arg1->f0;
+    TAdSinglePlyChrSelectGC__sub_8007C48C(arg0->f160, arg0->f1C + lbl_805D5328);
 }
 
 void refresh_lobby_state__10TObjPlayerFPv(void* p) { TObjPlayer__sub_800F6B68((TObjPlayer_800F6B68 *)((void*)(p))); query_lobby_state__10TObjPlayerFPv((void*)(p)); }
@@ -163,6 +206,34 @@ s32 TObjEnemy::countChildren() {
     return count;
 }
 extern "C" {
+
+void TObjPlayer__sub_800F6E2C(void *arg0, Node_800F6E2C *arg1, Node_800F6E2C *arg2) {
+    Node_800F6E2C *p = arg1->f34C;
+    Node_800F6E2C *q = arg2->f34C;
+    if (p != NULL) {
+        while (p->f348 != NULL) {
+            p = p->f348;
+        }
+        if (q == NULL) {
+            if (p->f344 != NULL) {
+                p->f344->f348 = NULL;
+                p->f344 = NULL;
+            }
+            p->f340 = arg2;
+            arg2->f34C = p;
+            return;
+        }
+        while (q->f348 != NULL) {
+            q = q->f348;
+        }
+        if (p->f344 != NULL) {
+            p->f344->f348 = NULL;
+        }
+        p->f344 = q;
+        q->f348 = p;
+    }
+}
+
 s32 is_action_available__10TObjPlayerFv(TObjEnemy* _w0) {
     return ((s32)_w0->groupRoot()) ? 1 : 0;
 }

@@ -50,6 +50,8 @@ struct Pmt_8011C7C8 { u8 pad[0x34]; WeaponSounds_8011C7C8 *weapons; };
 
 struct Ctx_8011C7C8 { u8 group; u8 variant; u8 pad[2]; u8 *owner; };
 
+typedef struct Pmt_8011CA10 { u8 pad[0x20]; f32 *t20; f32 *t24; } Pmt_8011CA10;
+
 extern "C" {
 M2C_UNK TItemDrop__sub_8010663C(u32, s32, s32, s32);
 M2C_UNK TLobby__sub_801044B8(s32 *);
@@ -92,6 +94,11 @@ void update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
 extern void *item_pmt_tbl;
 void TObjPlayer__sub_8011C7C8(Ctx_8011C7C8 *c);
+extern void *item_pmt_tbl;
+extern const f32 lbl_805DAC74;
+extern s32 lbl_8043E7B4[];
+u8 TObjPlayer__sub_8011C974(u8 arg0);
+f32 TObjPlayer__sub_8011CA10(u8 arg0, u8 arg1);
 }
 
 extern "C" {
@@ -254,6 +261,50 @@ s32 TObjPlayer__sub_8011C940(s32 arg0, s32 arg1) {
         return M2C_FIELD(M2C_FIELD((*(u8 * *)&item_pmt_tbl), s32 *, 0x28), M2C_UNK *, (arg0 * 4)) + (arg1 * 8);
     }
     return 0;
+}
+
+u8 TObjPlayer__sub_8011C974(u8 arg0) {
+    u32 n;
+    s32 key;
+    u8 result;
+    u32 c;
+    s32 i;
+    result = 0;
+    if (arg0 < 4U) {
+        n = ((u32 (*)(int, int))TObjPlayer__sub_8011C328)(lbl_8043E7B4[arg0], 0xF);
+        key = arg0 + 1;
+        c = 0;
+        i = 1;
+        do {
+            if (key == ((u8 (*)(u8))get_unit_attribute_index__10TObjPlayerFUc)((u8)i)) {
+                if (c == n) {
+                    result = (u8)i;
+                    break;
+                }
+                c++;
+            }
+            i++;
+        } while (i != 0x29);
+    }
+    return result;
+}
+
+f32 TObjPlayer__sub_8011CA10(u8 arg0, u8 arg1) {
+    switch (arg0) {
+    case 0:
+        if (arg1 < 0xAA) {
+            return (*(Pmt_8011CA10 * *)&item_pmt_tbl)->t20[arg1];
+        }
+        break;
+    case 1:
+        if (arg1 != 0 && arg1 < 4) {
+            return (*(Pmt_8011CA10 * *)&item_pmt_tbl)->t24[arg1 - 1];
+        }
+        break;
+    case 2:
+        return (*(Pmt_8011CA10 * *)&item_pmt_tbl)->t24[3];
+    }
+    return lbl_805DAC74;
 }
 
 u8 TObjPlayer__sub_8011CA98(u8 arg0) {

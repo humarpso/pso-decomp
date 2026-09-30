@@ -85,11 +85,75 @@ struct Obj_80126180 { u8 pad[0x1f8]; s32 a; s32 b; s32 c; };
 
 struct Out_80126180 { u8 pad0[0x10]; s32 f10; u8 pad1[0x4c - 0x14]; f32 f4c; s32 f50; u8 pad2[0x74 - 0x54]; void *f74; s32 f78; };
 
+struct PlB_801261BC { char pad[0x18]; };
+
+struct Pl_801261BC : PlB_801261BC {
+    virtual void v0();
+    virtual void v1();
+    virtual void v2();
+    virtual void v3();
+    virtual void v4();
+    virtual void v5();
+    virtual void v6();
+    virtual void v7();
+    virtual void v8();
+    virtual void v9();
+    virtual void v10();
+    virtual void v11();
+    virtual void v12();
+    virtual void v13();
+    virtual void v14();
+    virtual void v15();
+    virtual void v16();
+    virtual void v17();
+    virtual void v18();
+    virtual void v19();
+    virtual void v20();
+    virtual void v21();
+    virtual void v22();
+    virtual void v23();
+    virtual void v24();
+    virtual void v25();
+    virtual void v26();
+    virtual void v27();
+    virtual void v28();
+    virtual void v29();
+    virtual void v30();
+    virtual void v31();
+    virtual void v32();
+    virtual void v33();
+    virtual void v34();
+    virtual void v35();
+    virtual void v36();
+    virtual void v37();
+    virtual void v38();
+    virtual void v39();
+    virtual void v40();
+    virtual void v41();
+    virtual void v42();
+    virtual void v43();
+    virtual void v44();
+    virtual void v45();
+    virtual void v46();
+    virtual void v47();
+    virtual void v48();
+    virtual void m49(void *, s32, s32, s32);
+    u8 pad2[0x188-0x1C];
+    s32 f188;
+    u8 pad3[0x1FC-0x18C];
+    s32 f1fc;
+};
+
 extern "C" {
 s32 TObjPlayer__sub_80019570(void *);
 void TObjPlayer__sub_80126104(int arg0, u8 *arg1);
 extern const f32 lbl_805DAD70;
 void TObjPlayer__sub_80126180(Obj_80126180 *self, Out_80126180 *o);
+u8 get_slot_count__14TItemProShieldFPv(void *);
+s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
+void TObjPlayer__sub_8011EB84(void *, void *, s32, s32);
+void draw_status_icon__10TObjPlayerFPvi(void *, void *);
+void TObjPlayer__sub_801261BC(Pl_801261BC *arg0);
 }
 
 extern "C" {
@@ -114,6 +178,21 @@ void TObjPlayer__sub_80126180(Obj_80126180 *self, Out_80126180 *o) {
     o->f50 = 0x4000;
     o->f4c = lbl_805DAD70;
     o->f78 = self->c;
+}
+void TObjPlayer__sub_801261BC(Pl_801261BC *arg0) {
+    u8 buf[16];
+    void *p;
+    draw_status_icon__10TObjPlayerFPvi(arg0, buf);
+    arg0->f1fc = 0;
+    p = buf;
+    if (is_mode_two_and_ready__10TObjPlayerFPv(arg0) != 0) {
+        TObjPlayer__sub_8011EB84(arg0, p, arg0->f188, 0);
+    } else if (get_slot_count__14TItemProShieldFPv(arg0) == 1) {
+        arg0->f1fc = 1;
+        TObjPlayer__sub_8011EB84(arg0, p, arg0->f188, 0);
+    } else {
+        arg0->m49(p, 0, 0, 1);
+    }
 }
 
 }

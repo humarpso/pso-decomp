@@ -72,6 +72,12 @@ struct WeaponArgb { f32 alpha, red, green, blue; };
 
 struct WeaponColorDescriptor_80120304 { s32 mode; WeaponArgb first, second; };
 
+typedef struct Sub_80120454 { u8 pad[0x18]; u8 f18; } Sub_80120454;
+
+typedef struct Src_80120454 { u8 pad[0x1A4]; u8 ents[6]; u8 pad2[0x27]; u8 f1d1; u8 f1d2; u8 pad3[9]; Sub_80120454 *f1dc; } Src_80120454;
+
+typedef struct Dst_80120454 { u8 pad[3]; u8 f3; u8 f4; u8 pad2; u8 ents[6]; } Dst_80120454;
+
 extern "C" {
 int test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
 void set_status_flags__10TObjPlayerFPvUi(void *, u32);
@@ -100,6 +106,9 @@ void copy_vec4__13TRaderMapCoreFPvPv(void *, const void *);
 extern const f32 lbl_805DAC98;
 extern const f32 lbl_805DAC9C;
 WeaponArgb TObjPlayer__sub_80120304(void *weapon);
+void copy_entry_bytes__10TObjPlayerFPvPv(void *, void *);
+extern u8 lbl_805DACA4;
+void TObjPlayer__sub_80120454(Src_80120454 *arg0, Dst_80120454 *arg1);
 }
 
 extern "C" {
@@ -175,5 +184,29 @@ WeaponArgb TObjPlayer__sub_80120304(void *weapon) {
     }
 }
 #pragma pop
+
+void TObjPlayer__sub_80120454(Src_80120454 *arg0, Dst_80120454 *arg1) {
+    s32 off;
+    u32 i;
+    u8 t;
+    s32 ok;
+    for (i = 0, off = 0; i != 3; i++, off += 2) {
+        copy_entry_bytes__10TObjPlayerFPvPv(&arg1->ents[off], &arg0->ents[off]);
+    }
+    ok = 1;
+    arg1->f3 = arg0->f1d1;
+    t = arg0->f1d2;
+    if (t & 0x80) {
+        ok = 0;
+    }
+    if (arg0->f1dc->f18 == 0) {
+        arg1->f4 = t;
+    } else {
+        arg1->f4 = 0;
+    }
+    if (ok == 0) {
+        arg1->f4 = arg1->f4 | lbl_805DACA4;
+    }
+}
 
 }

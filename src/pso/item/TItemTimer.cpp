@@ -122,6 +122,19 @@ struct VObj_8011D94C_8011D414 : Base_8011D94C_8011D414 {
     virtual void m72();  virtual void m73(f32);
 };
 
+struct VBase_8011D5B4 { char pad[0x18]; };
+struct VObj_8011D5B4 : VBase_8011D5B4 {
+    virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3();
+    virtual void v4(); virtual void v5(); virtual void v6(); virtual void v7();
+    virtual void v8(); virtual void v9(); virtual void v10(); virtual void v11();
+    virtual void v12(); virtual void v13(); virtual void v14(); virtual void v15();
+    virtual void v16(); virtual void v17(); virtual void v18(); virtual void v19();
+    virtual void v20();
+    virtual void m21(void *, void *, s32, s32, s32);
+};
+struct Rec_8011D5B4 { s32 k1; s32 v1; s32 k2; f32 v2; };
+struct Timer_8011D5B4 { u8 pad[0x28]; VObj_8011D5B4 *obj; f32 f2c; };
+
 extern "C" {
 void TItemTimer__sub_8011D598(u8 *arg0, s32 arg1, s32 arg2);
 }
@@ -186,6 +199,44 @@ void TItemTimer__sub_8011D598(u8 *arg0, s32 arg1, s32 arg2) {
 }
 
 void reset_fields__10TItemTimerFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
+
+extern const f32 lbl_805DAC78;
+extern const f32 lbl_805DAC7C;
+void TItemTimer__sub_8011D5B4(Timer_8011D5B4 *arg0) {
+    Rec_8011D5B4 a;
+    get_field_3e0__12TBoss3VoloptFPv(arg0->obj);
+    if (TObjPlayer__sub_802034B0() == 1 && lbl_805DAC78 * (f32)rand__11TOBoss4RockFv() < arg0->f2c) {
+        a.k1 = 0x10;
+        a.v2 = lbl_805DAC7C;
+        a.k2 = 0x10;
+        a.v1 = *(s32 *)&a.v2;
+        arg0->obj->m21(arg0->obj, &a, 0, -1, -1);
+    }
+}
+
+void TItemTimer__sub_8011D66C(Timer_8011D5B4 *arg0) {
+    Rec_8011D5B4 a;
+    get_field_3e0__12TBoss3VoloptFPv(arg0->obj);
+    if (TObjPlayer__sub_802034B0() == 1 && lbl_805DAC78 * (f32)rand__11TOBoss4RockFv() < arg0->f2c) {
+        a.k1 = 0x12;
+        a.v2 = lbl_805DAC7C;
+        a.k2 = 0x12;
+        a.v1 = *(s32 *)&a.v2;
+        arg0->obj->m21(arg0->obj, &a, 0, -1, -1);
+    }
+}
+
+void TItemTimer__sub_8011D724(Timer_8011D5B4 *arg0) {
+    Rec_8011D5B4 a;
+    get_field_3e0__12TBoss3VoloptFPv(arg0->obj);
+    if (TObjPlayer__sub_802034B0() == 1 && lbl_805DAC78 * (f32)rand__11TOBoss4RockFv() < arg0->f2c) {
+        a.k1 = 0x11;
+        a.v2 = lbl_805DAC7C;
+        a.k2 = 0x11;
+        a.v1 = *(s32 *)&a.v2;
+        arg0->obj->m21(arg0->obj, &a, 0, -1, -1);
+    }
+}
 
 void TItemTimer__sub_8011D7DC(void *arg0) {
     s32 temp_r3;

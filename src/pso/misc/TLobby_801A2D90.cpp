@@ -5,6 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Base_801A2E00 { u8 pad0[0x18]; };
+
+struct Ctrl_801A2E00 : Base_801A2E00 { virtual void v0(int); };
+
 extern "C" {
 s32 TAdMultiPlyChrSelectGC__sub_802C64D0(s32);
 M2C_UNK TObjPlayer__sub_801BDEF8(s32, s32, u32);
@@ -30,6 +34,11 @@ void enable_all_battle_ctrl__10TNpcPlayerFv();
 M2C_UNK queue_destruction__7TObjectFv(u32);
 extern u32 lbl_805D5EE8;
 void reset_quest_state__6TLobbyFv(void);
+void apply_char_to_players__6TLobbyFv(void);
+Ctrl_801A2E00 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 TLobby__sub_8030A7B0();
+s32 is_not_split_screen__13TRaderMapCoreFv();
+void TLobby__sub_801A2E00(void);
 }
 
 extern "C" {
@@ -50,6 +59,26 @@ void shutdown_keyboard_control__6TLobbyFv(void) { reset__16TKeyBoardControlFv();
 void TLobby__sub_801A2DF4(void) {  }
 void TLobby__sub_801A2DF8(void) {  }
 void TLobby__sub_801A2DFC(void) {  }
+
+void TLobby__sub_801A2E00(void) {
+    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+        switch (TLobby__sub_8030A7B0()) {
+        case 1:
+        case 2: {
+            s32 i;
+            for (i = 0; i < 4; i++) {
+                Ctrl_801A2E00 *c = TPlayerBattleCtrl4P__sub_801BA74C(i);
+                if (c != NULL && c != NULL) {
+                    c->v0(1);
+                }
+            }
+            apply_char_to_players__6TLobbyFv();
+            break;
+        }
+        }
+    }
+}
+
 void apply_char_to_players__6TLobbyFv(void) {
     s32 var_r31;
     u32 temp_r3;

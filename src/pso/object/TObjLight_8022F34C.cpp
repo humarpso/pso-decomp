@@ -4,10 +4,17 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Obj_8022F42C { u8 pad[0xA6]; s16 state; };
+
+extern "C" {
+M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+void fn_8022F42C(Obj_8022F42C *arg0);
+}
+
 extern "C" {
 
 void *destroy__9TObjLightFPvs(void *arg0, s16 arg1);
-int fn_8022F42C(void);
 u8 *init_from_source__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
 void TLobby__sub_80226294(void *);
@@ -43,7 +50,28 @@ u8 *init_from_source__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x30) = TBoss3Volopt__sub_8022675C((int) (0x4002BB1F), (void *) (arg0 + 0x20), (int) (0), (int) (0));
     return arg0;
 }
-
-int fn_8022F42C(void) { return 0; }
+void fn_8022F42C(Obj_8022F42C *arg0) {
+    s32 r;
+    switch (arg0->state) {
+    case 0:
+    case 1:
+        r = TBoss3Volopt__sub_8022675C(0x4002AA16, (u8 *)arg0 + 0x20, 0, 0);
+        if (r >= 0) {
+            update_technique_slot__10TTecRaFoieFi(r, 0x100, 0);
+        }
+        break;
+    case 2:
+    case 3:
+        TBoss3Volopt__sub_8022675C(0x4002AA16, (u8 *)arg0 + 0x20, 0, 0);
+        break;
+    case 4:
+    case 5:
+        r = TBoss3Volopt__sub_8022675C(0x4002AA16, (u8 *)arg0 + 0x20, 0, 0);
+        if (r >= 0) {
+            update_technique_slot__10TTecRaFoieFi(r, -0x100, 0);
+        }
+        break;
+    }
+}
 
 }

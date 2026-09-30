@@ -87,6 +87,12 @@ struct S_802B8E1C { u8 a; s8 b; };
 
 struct T1_802B8E1C { u8 pad0[0x3C]; f32 y; u8 pad40[0x438 - 0x40]; s32 f438; };
 
+struct Boss_802B5434 { u8 pad[0x378]; s32 list[32]; };
+
+struct Vec_802B54F0 { f32 x, y, z; };
+
+struct Boss_802B54F0 { u8 pad[0x38]; Vec_802B54F0 pos; };
+
 extern "C" {
 void TBoss6Type1__sub_802B4B04(u8 *arg0);
 u8 TBoss6Type1__sub_802B5D9C(u8 *arg0);
@@ -103,7 +109,7 @@ extern const f32 TBoss6Type1__data_805DE318;
 s32 TBoss6Type1__sub_802B6060(u8 *arg0);
 s32 rand__11TOBoss4RockFv();
 extern const f32 lbl_805DE300;
-extern f32 TBoss6Type1__data_805DE304;
+extern const f32 TBoss6Type1__data_805DE304;
 s32 TBoss6Type1__sub_802B52E0(M2C_UNK arg0, s32 arg1, s32 arg2);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
@@ -112,7 +118,7 @@ s32 calc_field4b0_delta__11TBoss6Type1FPv(void *arg0);
 extern const f32 lbl_805DE34C;
 s32 TBoss6Type1__sub_802B5ED8(u8 *arg0);
 s32 rand__11TOBoss4RockFv();
-extern f32 TBoss6Type1__data_805DE304;
+extern const f32 TBoss6Type1__data_805DE304;
 extern const f32 lbl_805DE308;
 int TBoss6Type1__sub_802B5378(M2C_UNK arg0, int arg1, int arg2);
 s32 TBoss6Type1__sub_802B57D4(void *, void *, void *, int);
@@ -177,7 +183,6 @@ void set_flags__11TBoss4Type2FPvUi(u32, int);
 extern Tbl_802B4BA8 lbl_80470D28[];
 void TBoss6Type1__sub_802B4BA8(u8 *arg0, s32 arg1);
 s32 TBoss6Type1__sub_802B529C(T1_802B529C *arg0, s32 arg1, s32 arg2);
-f32 TBoss6Kakusan__sub_803D8BD8(void *, f32);
 extern const f32 TBoss6Type1__data_805DE2D0;
 extern const f32 lbl_805DE35C;
 s32 TBoss6Type1__sub_802B600C(T1_802B600C *arg0, f32 _w1);
@@ -186,6 +191,17 @@ M2C_UNK TBoss6Type1__sub_802B909C(void *, M2C_UNK *);
 M2C_UNK TBoss6Type1__sub_802B9178(void *, M2C_UNK, M2C_UNK *);
 extern const f32 lbl_805DE3DC;
 void TBoss6Type1__sub_802B8E1C(T1_802B8E1C *arg0);
+s32 rand__11TOBoss4RockFv();
+extern const f32 TBoss6Type1__data_805DE304;
+extern const f32 TBoss6Type1__data_805DE30C;
+s32 TBoss6Type1__sub_802B5434(Boss_802B5434 *o, s32 a, s32 b, s32 n);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *, f32);
+extern const f32 TBoss6Type1__data_805DE2D0;
+extern const f32 TBoss6Type1__data_805DE310;
+extern const f32 lbl_805DE314;
+extern const f32 TBoss6Type1__data_805DE318;
+void TBoss6Type1__sub_802B54F0(Boss_802B54F0 *o, Vec_802B54F0 *out, f32 _w2);
 }
 
 extern "C" {
@@ -344,6 +360,44 @@ int TBoss6Type1__sub_802B5378(M2C_UNK arg0, int arg1, int arg2) {
     return (int) (((lbl_805DE308 + ((f32) arg2 - (f32) arg1)) * ((*(const f32 *)&TBoss6Type1__data_805DE304) * (f32) rand__11TOBoss4RockFv())) + (f32) arg1);
 }
 #pragma pop
+
+s32 TBoss6Type1__sub_802B5434(Boss_802B5434 *o, s32 a, s32 b, s32 n) {
+    s32 i;
+    if (n > 0x20) {
+        n = 0x20;
+    }
+    for (i = 0; i < n; i++) {
+        s32 v = o->list[i];
+        if (v == a) {
+            return b;
+        }
+        if (v == b) {
+            return a;
+        }
+    }
+    if (TBoss6Type1__data_805DE304 * (f32)rand__11TOBoss4RockFv() < TBoss6Type1__data_805DE30C) {
+        return a;
+    }
+    return b;
+}
+
+void TBoss6Type1__sub_802B54F0(Boss_802B54F0 *o, Vec_802B54F0 *out, f32 _w2) {
+    Vec_802B54F0 v = o->pos;
+    f32 len;
+    f32 s;
+    v.y = TBoss6Type1__data_805DE2D0;
+    len = TBoss6Kakusan__sub_803D8BD8((void *)(&v), _w2);
+    if (len <= TBoss6Type1__data_805DE310) {
+        VecCopy__FP3VecPC3Vec((void *)(out), (void *)(&o->pos));
+        return;
+    }
+    s = lbl_805DE314 / len;
+    v.x = v.x * s;
+    v.z = v.z * s;
+    out->x = v.x;
+    out->y = TBoss6Type1__data_805DE318;
+    out->z = v.z;
+}
 
 #pragma push
 #pragma fp_contract on
@@ -911,7 +965,7 @@ void load_params__11TBoss6Type1FPvPv(void *arg0, void *arg1) {
 }
 
 extern M2C_UNK TBoss6Type1__data_80471040;
-extern f32 TBoss6Type1__data_805DE304;
+extern const f32 TBoss6Type1__data_805DE304;
 extern f32 lbl_805DE3EC;
 
 void set_sync_data__11TBoss6Type1FPvPv(void *arg0, void *arg1) {

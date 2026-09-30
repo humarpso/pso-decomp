@@ -9,9 +9,16 @@ struct Part_800BB780 { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
 
 struct Obj_800BB780 { u8 pad[0x30]; u32 flags; u8 pad1[0x70]; Part_800BB780 *parts; s32 count; u8 pad2[0x230]; s32 f2dc; u8 pad3[0x4c]; s16 f32c; u8 pad4[0x10]; s16 f33e; };
 
+struct Pl_800BB688 { u8 pad0[0x38]; f32 pos[3]; };
 extern "C" {
 void TBoss8Dragon__sub_800BB664(f32 farg0);
-int TBoss8Dragon__sub_800BB688(f32 = 0);
+s32 TBoss8Dragon__sub_800BB688(u8 *arg0, f32 farg0);
+s32 get_player_data__10TObjPlayerFi(int);
+s32 obj_getField1c(void *);
+s32 get_game_mode__6TLobbyFv();
+u32 TObjPlayer__sub_8007A3AC(void *, void *);
+s32 is_alive__9TObjEneDDFPv(void *);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
 void TBoss8Dragon__sub_800BB664(f32 farg0);
 void TBoss8Dragon__sub_800BB780(Obj_800BB780 *self);
 }
@@ -33,10 +40,31 @@ int send_entity_set_flags__6TLobbyFPv(void*);
 void TBoss8Dragon__sub_800BB650(void* p, void* q) { *(u16*)((char*)p + 0x0) = *(u16*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); }
 
 void TBoss8Dragon__sub_800BB664(f32 farg0) {
-    TBoss8Dragon__sub_800BB688(farg0 * farg0);
+    ((s32 (*)(f32))TBoss8Dragon__sub_800BB688)(farg0 * farg0);
 }
 
-int TBoss8Dragon__sub_800BB688(f32 _w0) { return 0; }
+s32 TBoss8Dragon__sub_800BB688(u8 *arg0, f32 farg0) {
+    f32 d;
+    f32 best;
+    s32 n;
+    u8 *p;
+    s32 result;
+    s32 i;
+    best = farg0;
+    result = 0xFFFF;
+    n = get_game_mode__6TLobbyFv();
+    for (i = 0; i < n; i++) {
+        p = (u8 *)get_player_data__10TObjPlayerFi(i);
+        if (is_alive__9TObjEneDDFPv(p) != 0) {
+            d = TObjPlayer__sub_80141CF8(arg0 + 0x2FC, p + 0x38);
+            if (d < best && TObjPlayer__sub_8007A3AC(arg0 + 0x2FC, p + 0x2FC) == 0) {
+                result = obj_getField1c(p);
+                best = d;
+            }
+        }
+    }
+    return result;
+}
 
 void refresh_and_send_entity_flags__12TBoss8DragonFPv(void* p) { refresh_lobby_state__10TObjPlayerFPv(p); send_entity_set_flags__6TLobbyFPv(p); }
 

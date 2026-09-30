@@ -214,6 +214,11 @@ struct VObj_18 : VBase_18 {
     virtual void m102();
     virtual M2C_UNK m103();
 };
+
+struct Vec_800ED4BC { f32 x, y, z; };
+
+struct Obj_800ED4BC { u8 pad0[0x38]; f32 f38; u8 pad3C[4]; f32 f40; u8 pad44[0x2FC - 0x44]; Vec_800ED4BC v2FC; u8 pad308[0x3C0 - 0x308]; Vec_800ED4BC *f3C0; u8 pad3C4[0x3D8 - 0x3C4]; f32 f3D8; u8 pad3DC[0x3F8 - 0x3DC]; Vec_800ED4BC v3F8; };
+
 extern "C" {
 M2C_UNK TBoss8Dragon__sub_800BB780();
 M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
@@ -225,6 +230,13 @@ M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 M2C_UNK TObjEneRe4Bit__sub_800ED150(void *);
 void copy_pos__13TObjEneRe4BitFPv(void* p);
 void run_task__13TObjEneRe4BitFv(u8 *arg0);
+int VecCopy__FP3VecPC3Vec(void*, void*);
+f32 update_scale__15TObjBoss2TunnelFPv(void *);
+void TBoss4Zako__sub_803D8910(void *, void *);
+void TBoss6Type1__sub_803D9370(void *, void *);
+extern const f32 lbl_805DA77C;
+extern const f32 lbl_805DA780;
+void TObjEneRe4Bit__sub_800ED4BC(Obj_800ED4BC *arg0);
 }
 
 extern "C" {
@@ -246,6 +258,24 @@ M2C_UNK init_common_from__9TObjEneDDFPvPv(void *, void *);
 M2C_UNK init_object__9TObjEneDDFPv();
 M2C_UNK init_vtable_and_field18__10TObjPlayerFPv(void *);
 s16 obj_getField1c(void *);
+
+#pragma push
+#pragma fp_contract on
+void TObjEneRe4Bit__sub_800ED4BC(Obj_800ED4BC *arg0) {
+    Vec_800ED4BC sp;
+    f32 s;
+    VecCopy__FP3VecPC3Vec((void*)(&sp), (void*)(arg0->f3C0));
+    sp.y = sp.y + arg0->f3D8;
+    TBoss6Type1__sub_803D9370(&sp, &arg0->v2FC);
+    s = lbl_805DA77C * update_scale__15TObjBoss2TunnelFPv(&sp);
+    arg0->v3F8.x = lbl_805DA780 * (sp.x * s + arg0->v3F8.x);
+    arg0->v3F8.y = lbl_805DA780 * (sp.y * s + arg0->v3F8.y);
+    arg0->v3F8.z = lbl_805DA780 * (sp.z * s + arg0->v3F8.z);
+    TBoss4Zako__sub_803D8910(&arg0->v2FC, &arg0->v3F8);
+    arg0->f38 = arg0->v2FC.x;
+    arg0->f40 = arg0->v2FC.z;
+}
+#pragma pop
 
 void update_position_flag__13TObjEneRe4BitFPv(u8 *arg0) {
     M2C_UNK sp8;

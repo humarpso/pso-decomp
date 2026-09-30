@@ -9,11 +9,36 @@ struct RecoveredGlobal_802B3BEC_lbl_80470CE0 {
     u8 remaining[0x8];
 };
 
+struct Vec_802B4898 { f32 x, y, z; };
+
+struct Boss_802B4898 {
+    u8 pad0[0x38];
+    Vec_802B4898 pos;
+    u8 pad44[0x5C - 0x44];
+    s32 f5C;
+    s32 f60;
+    u8 pad64[0x4D4 - 0x64];
+    f32 f4D4, f4D8;
+    u8 pad4DC[0x4E8 - 0x4DC];
+    f32 f4E8;
+};
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 int TBoss6Type1__sub_802B4BA8(void*, void*);
 extern RecoveredGlobal_802B3BEC_lbl_80470CE0 lbl_80470CE0;
 void TBoss6Type1__sub_802B3BEC(u8 *arg0);
+void toggle_particle_effect__10TObjPlayerFv();
+void end_effect_render__13TParticleCtrlFv();
+void update_camera_target__14TBoss6PlotFalzFv();
+void TBoss6PlotFalz__sub_802AC008(f32, f32);
+void TBoss6Type1__sub_802B81A4(void *);
+void TObjPlayer__sub_803D9214(int, int);
+void TObjContainerIdo__sub_803D96A8(int, int);
+void TObjPlayer__sub_803D9B2C();
+void TObjPlayer__sub_803D9B78();
+void TOHangerMachine01__sub_803D9C00(Vec_802B4898 *);
+void TBoss6Type1__sub_802B4898(Boss_802B4898 *o);
 }
 
 extern "C" {
@@ -27,7 +52,6 @@ void start_attack__11TBoss6Type1FPv(u8 *arg0);
 void tick_countdown__11TBoss6Type1FPv(void *arg0);
 void update_attack_countdown_reset__11TBoss6Type1FPv(void *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
-int TBoss6Type1__sub_802B4898(void*);
 int TBoss6Type1__sub_802B4B64(void*, void*);
 int TBoss6Type1__sub_802B4BA8(void*, void*);
 M2C_UNK TBoss6Type1__sub_802B4EAC(void *, s32, s32);
@@ -119,7 +143,22 @@ void TBoss6Type1__sub_802B3BEC(u8 *arg0) {
     TBoss6Type1__sub_802B4BA8((void*)(arg0), (void*)(1));
 }
 
-void render__11TBoss6Type1Fv(void* p) { TBoss6Type1__sub_802B4898(p); TBoss6Type1__sub_802B626C(p); }
+void TBoss6Type1__sub_802B4898(Boss_802B4898 *o) {
+    toggle_particle_effect__10TObjPlayerFv();
+    TObjPlayer__sub_803D9B2C();
+    Vec_802B4898 v = o->pos;
+    v.y = v.y + o->f4E8;
+    TOHangerMachine01__sub_803D9C00(&v);
+    TObjPlayer__sub_803D9214(0, o->f60);
+    TObjContainerIdo__sub_803D96A8(0, o->f5C);
+    TBoss6PlotFalz__sub_802AC008(o->f4D4, o->f4D8);
+    TBoss6Type1__sub_802B81A4(o);
+    update_camera_target__14TBoss6PlotFalzFv();
+    TObjPlayer__sub_803D9B78();
+    end_effect_render__13TParticleCtrlFv();
+}
+
+void render__11TBoss6Type1Fv(void* p) { TBoss6Type1__sub_802B4898((Boss_802B4898 *)(p)); TBoss6Type1__sub_802B626C(p); }
 
 void release_object__11TBoss6Type1FPv(void* p) { if (*(unsigned int*)((char*)p + 0x680) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)p + 0x680)); *(int*)((char*)p + 0x680) = 0; } }
 

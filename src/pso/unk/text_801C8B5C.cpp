@@ -4,6 +4,18 @@ struct Pkt_801C8CCC { u16 hdr; u16 id; s32 c; f32 x1, y1, z1; f32 x2, y2, z2; };
 
 struct Pkt_801C8BE8 { u16 hdr; s16 id; s32 c; f32 x1, y1, z1; };
 
+typedef struct Msg_801C8B5C {
+    u8 pad0[2];
+    u16 slot;
+    s32 c;
+    u8 vec[12];
+} Msg_801C8B5C;
+
+typedef struct Player_801C8B5C {
+    u8 pad0[0x60];
+    s32 ang;
+} Player_801C8B5C;
+
 extern "C" {
 s32 start_action_21__10TObjPlayerFPv(void *);
 s32 init_flags_vec4__10TObjPlayerFPv(void *);
@@ -25,9 +37,35 @@ s16 obj_getField1c(void *);
 void init_position_packet__10TObjPlayerFPv(void *);
 void update_and_send2__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801C8BE8(u8 *arg0);
+void calc_attach_pos__10TObjPlayerFPv(void *);
+void TBoss4DarkFalz__sub_8004C220(void *, void *);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void TObjPlayer__sub_801D0BC0(void *, s32, s32);
+void swap_endian_words__10TObjPlayerFPv(void *);
+void TObjPlayer__sub_801D1514(void *, void *);
+void init_position_packet__10TObjPlayerFPv(void *);
+s32 validate_6x56_set_player_position_and_angle(void *);
+void handle_6x56_set_player_position_and_angle(void *arg0);
 }
 
 extern "C" {
+
+void handle_6x56_set_player_position_and_angle(void *arg0) {
+    Msg_801C8B5C m;
+    Player_801C8B5C *p;
+    init_position_packet__10TObjPlayerFPv(&m);
+    TObjPlayer__sub_801D1514(&m, arg0);
+    swap_endian_words__10TObjPlayerFPv(&m);
+    if (validate_6x56_set_player_position_and_angle(&m) != 0) {
+        p = ((Player_801C8B5C *)TPlayerBattleCtrl4P__sub_801BA74C((s32)(m.slot)));
+        if (p != NULL) {
+            p->ang = m.c;
+            TBoss4DarkFalz__sub_8004C220(p, m.vec);
+            calc_attach_pos__10TObjPlayerFPv(p);
+            TObjPlayer__sub_801D0BC0(p, 0x15, 0);
+        }
+    }
+}
 
 void TObjPlayer__sub_801C8BE8(u8 *arg0) {
     struct Pkt_801C8BE8 pkt;

@@ -23,12 +23,28 @@ struct V_A_801668cc_80166568 : Base_A_801668cc_80166568 {
 struct RecoveredGlobal_80166614_lbl_804B1AA0 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80166614_lbl_804B1AA0_size[sizeof(RecoveredGlobal_80166614_lbl_804B1AA0) == 0x10 ? 1 : -1];
 
+struct O_80166664 { u8 pad[0x18]; void *vt; u8 pad1c[0x9C - 0x1C]; s32 a[2]; s32 b[2]; };
+
+struct O_801666E8 { s32 id; u8 pad4[0x14]; void *vt; u8 pad1c[0x68 - 0x1C]; f32 f68; u8 pad6c[0x90 - 0x6C]; f32 f90; f32 f94; f32 f98; s32 a[2]; s32 b[2]; };
+
 extern "C" {
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80166614_lbl_804B1AA0 lbl_804B1AA0;
 extern u32 lbl_805D59A8;
 void TOExplosiveMachine__sub_80166614(void);
+void destroy_particle__13TParticleCtrlFPvs(void *, int);
+void __dl__7TObjectFPv(void *);
+extern char __vt__18TOExplosiveMachine[];
+O_80166664 *__dt__18TOExplosiveMachineFv(O_80166664 *arg0, s16 arg1);
+void TPhotonMagicSquare__sub_801A2640(void *, s32);
+extern char __vt__18TOExplosiveMachine[];
+extern s32 lbl_805D2FB4;
+extern s32 tl_05;
+extern const f32 lbl_805DB5F0;
+extern const f32 lbl_805DB5F4;
+extern const f32 lbl_805DB5F8;
+O_801666E8 *TOExplosiveMachine__ct(O_801666E8 *arg0);
 }
 
 extern "C" {
@@ -79,6 +95,37 @@ void TOExplosiveMachine__sub_80166614(void) {
         var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B1AA0.value, 0, 0, 0));
     }
     (*(s32 *)&lbl_805D59A8) = var_r0;
+}
+
+O_80166664 *__dt__18TOExplosiveMachineFv(O_80166664 *arg0, s16 arg1) {
+    s32 i;
+    if (arg0 != NULL) {
+        arg0->vt = __vt__18TOExplosiveMachine;
+        for (i = 0; i < 2; i++) {
+            arg0->a[i] = 0;
+            arg0->b[i] = 0;
+        }
+        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+O_801666E8 *TOExplosiveMachine__ct(O_801666E8 *arg0) {
+    s32 i;
+    TPhotonMagicSquare__sub_801A2640(arg0, tl_05);
+    arg0->vt = __vt__18TOExplosiveMachine;
+    arg0->id = lbl_805D2FB4;
+    arg0->f90 = lbl_805DB5F0;
+    arg0->f94 = lbl_805DB5F4;
+    arg0->f98 = lbl_805DB5F8 + arg0->f68;
+    for (i = 0; i < 2; i++) {
+        arg0->a[i] = 0;
+        arg0->b[i] = 0;
+    }
+    return arg0;
 }
 
 void update__18TOExplosiveMachineFPv(void *arg0) {

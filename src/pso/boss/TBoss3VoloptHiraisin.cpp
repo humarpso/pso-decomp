@@ -194,7 +194,21 @@ struct O_80041B34 { u8 pad[0x24]; s32 f24; u8 pad2[0x34 - 0x28]; s32 f34; };
 
 struct O_80041D0C { u8 pad[0x30]; u32 f30; u8 pad2[0x37c - 0x34]; s32 f37c; };
 
+struct S_80041A08 {
+    s32 f0;
+    u8 pad4[0x14];
+    void *vt;
+    s16 f1c;
+    u8 pad1e[0x0a];
+    s16 f28, f2a, f2c;
+    u8 pad2e[0x0a];
+    f32 f38, f3c, f40;
+    u8 pad44[0x3c];
+    s32 f80;
+};
 extern "C" {
+extern f32 lbl_804FEE68[];
+extern const f32 lbl_805D8700;
 void obj_setFlags30(void *, u32);
 void TBoss3VoloptHiraisin__sub_80041B64(u8 *arg0);
 s32 fn_80086D50(void *, void *, int);
@@ -283,6 +297,24 @@ void *__dt__20TBoss3VoloptHiraisinFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+S_80041A08 *TBoss3VoloptHiraisin__ct(S_80041A08 *o, S_80041A08 *src, s16 a, s16 b) {
+    s32 g;
+    TObjEnemyCustom__ct(o);
+    o->vt = __vt__20TBoss3VoloptHiraisin;
+    g = lbl_805D2738;
+    o->f0 = g;
+    o->f1c = a;
+    o->f2c = b;
+    o->f80 = 0;
+    o->f28 = src->f28;
+    o->f2a = src->f2a;
+    o->f3c = lbl_805D8700;
+    o->f38 = lbl_804FEE68[0];
+    o->f40 = lbl_804FEE68[2];
+    ((s32 (*)(void *, void *, s32))TBoss3VoloptHiraisin__sub_800418C8)(o, lbl_804FEE68, g);
+    return o;
 }
 
 typedef char RecoveredGlobal_80041AA0___vt__20TBoss3VoloptHiraisin_size[sizeof(RecoveredGlobal_80041AA0___vt__20TBoss3VoloptHiraisin) == 0x14C ? 1 : -1];

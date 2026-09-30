@@ -1,3 +1,34 @@
+#include "types.h"
+struct Hdr_80209C58 { s32 type; s32 size; s32 id; s32 x; };
+
 extern "C" {
+void bswap_quad_word__6TLobbyFPv(void *);
+extern s32 lbl_805D60CC;
+Hdr_80209C58 *TLobby__sub_80209C58(Hdr_80209C58 *arg, s32 id);
+}
+
+extern "C" {
+
+Hdr_80209C58 *TLobby__sub_80209C58(Hdr_80209C58 *arg, s32 id) {
+    Hdr_80209C58 *p;
+    if ((p = arg) != NULL) {
+        for (;;) {
+            Hdr_80209C58 h = *p;
+            bswap_quad_word__6TLobbyFPv(&h);
+            if (h.type == 3) {
+                if (h.id == id) {
+                    lbl_805D60CC = h.x;
+                    return p + 1;
+                }
+            }
+            if (h.type == 0) {
+                break;
+            }
+            p = (Hdr_80209C58 *)((u8 *)p + h.size);
+        }
+    }
+    lbl_805D60CC = -1;
+    return NULL;
+}
 
 }

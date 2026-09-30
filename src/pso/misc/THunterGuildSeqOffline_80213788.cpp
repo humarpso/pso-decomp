@@ -67,6 +67,32 @@ typedef char RecoveredGlobal_80213CCC_lbl_804C9740_size[sizeof(RecoveredGlobal_8
 struct RecoveredGlobal_80213CCC_lbl_80513E70 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80213CCC_lbl_80513E70_size[sizeof(RecoveredGlobal_80213CCC_lbl_80513E70) == 0x10 ? 1 : -1];
 
+struct Seq_80213D84 {
+    s32 f0; u8 pad4[0x14]; void *vt; s32 f1c; s32 f20; s32 f24; u8 pad28[4]; s32 f2c; s32 f30; s32 f34; s32 f38; s32 f3c;
+};
+
+struct VBase_18_80213BE0 { char pad[0x18]; };
+
+struct VObj_80213BE0 : VBase_18_80213BE0 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+};
+
+struct Seq_80213BE0 : VObj_80213BE0 {
+    u32 pad1c;
+    u32 state;
+};
+
 extern "C" {
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 u32 TShopSequence__sub_80223600(void *, s32, s32);
@@ -88,6 +114,21 @@ extern RecoveredGlobal_80213CCC_lbl_80513E70 lbl_80513E70;
 void THunterGuildSeqOffline__sub_80213CA4(void);
 extern RecoveredGlobal_80213CCC_lbl_80513E70 lbl_80513E70;
 void THunterGuildSeqOffline__sub_80213C7C(void);
+u8 *TShopSequence__ct(u8 *);
+s32 TShopWindowBase__sub_8022397C(void *);
+extern RecoveredGlobal_80213CCC_lbl_804C9740 lbl_804C9740;
+extern RecoveredGlobal_80213CCC_lbl_80513E70 lbl_80513E70;
+extern s32 lbl_805D3668;
+extern s32 lbl_805D61BC;
+Seq_80213D84 *THunterGuildSeqOffline__sub_80213D84(Seq_80213D84 *arg0, s32 arg1, s32 arg2);
+void THunterGuildSeqOffline__sub_80213B18(u8 *arg0);
+void THunterGuildSeqOffline__sub_80213980(void *);
+void handle_close__22THunterGuildSeqOfflineFPv(void *arg0);
+void update_close_shop__22THunterGuildSeqOfflineFPv(void *arg0);
+void update_shop_close__22THunterGuildSeqOfflineFPv(void *arg0);
+void open_judgment_item_window__22THunterGuildSeqOfflineFPv(void *);
+void THunterGuildSeqOffline__sub_8021354C(void *);
+void THunterGuildSeqOffline__sub_80213BE0(Seq_80213BE0 *arg0);
 }
 
 extern "C" {
@@ -168,6 +209,21 @@ void restore_and_init_quest_list__22THunterGuildSeqOfflineFPv(void *arg0) {
 
     extern int evt2_random_enemies_mode;
 
+void THunterGuildSeqOffline__sub_80213BE0(Seq_80213BE0 *arg0) {
+    switch (arg0->state) {
+    case 0: arg0->m10(); break;
+    case 1: THunterGuildSeqOffline__sub_80213B18((u8 *)(arg0)); break;
+    case 2: THunterGuildSeqOffline__sub_80213980(arg0); break;
+    case 11: handle_close__22THunterGuildSeqOfflineFPv(arg0); break;
+    case 4: update_close_shop__22THunterGuildSeqOfflineFPv(arg0); break;
+    case 5: update_shop_close__22THunterGuildSeqOfflineFPv(arg0); break;
+    case 6: open_judgment_item_window__22THunterGuildSeqOfflineFPv(arg0); break;
+    case 7: THunterGuildSeqOffline__sub_8021354C(arg0); break;
+    case 12: arg0->m11(); break;
+    case 14: return;
+    }
+}
+
 void THunterGuildSeqOffline__sub_80213C7C(void) {
     s32 i;
     for (i = 0; i < 4; i++) ((s32 *)&lbl_80513E70)[i] = 0;
@@ -205,6 +261,30 @@ u8 *THunterGuildSeqOffline__sub_80213CCC(u8 *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+#pragma push
+#pragma opt_propagation off
+Seq_80213D84 *THunterGuildSeqOffline__sub_80213D84(Seq_80213D84 *arg0, s32 arg1, s32 arg2) {
+    s32 one;
+    TShopSequence__ct((u8 *)arg0);
+    arg0->vt = ((u8 *)&lbl_804C9740);
+    one = 1;
+    arg0->f0 = lbl_805D3668;
+    arg0->f20 = 0;
+    arg0->f24 = arg2;
+    arg0->f2c = 0;
+    arg0->f30 = 0;
+    arg0->f34 = 0;
+    arg0->f3c = 0;
+    arg0->f38 = 0;
+    {
+        s32 idx = TShopWindowBase__sub_8022397C(arg0);
+        (*(void * *)&lbl_805D61BC) = arg0;
+        ((s32 *)&lbl_80513E70)[idx] = one;
+    }
+    return arg0;
+}
+#pragma pop
 
 void reset_random_enemies_mode(void) { clear_counter__6TLobbyFv(); evt2_random_enemies_mode = 0; TKeyBoardControl__sub_8000F950(); }
 

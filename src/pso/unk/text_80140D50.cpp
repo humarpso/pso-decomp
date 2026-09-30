@@ -27,11 +27,51 @@ void fn_80140EA8(s32 arg0, s32 arg1);
 void fn_80140EE4(Obj_80140EE4 *self, void *p);
 void fn_80140F18(Obj_80140F18 *self, Ent_80140F18 *e);
 void fn_80140E38(s32 arg0, u32 arg1);
+s32 get_main_phase();
+s32 is_split_screen();
+s32 get_instance__6TLobbyFv();
+s32 TCameraCtrl__sub_8006B368();
+void create_tasks__6TLobbyFv();
+s32 check_disconnect_conditions__6TLobbyFv();
+void TObjLight__sub_80133D78();
+void TLobby__sub_801403B4(int);
+void dispatch_by_main_phase__14TBoss4DarkFalzFUs(u16);
+s32 get_global_state__14TOKeyMachine01Fv();
+void TLobby__sub_80226E44(int);
+void TObjBgmColCtrl__sub_802274B8(void *);
+void TLobby__sub_80227FB4();
+extern char lbl_8043F260[];
+s32 fn_80140D50(void);
 }
 
 extern "C" {
 
 struct VOff_80309DD0_arg0_80309dd0_80309D80 { char pad_0[0x4]; char f_4[1]; };
+
+s32 fn_80140D50(void) {
+    get_global_state__14TOKeyMachine01Fv();
+    TLobby__sub_80227FB4();
+    if (check_disconnect_conditions__6TLobbyFv() != 0) {
+        return 0;
+    }
+    TObjLight__sub_80133D78();
+    create_tasks__6TLobbyFv();
+    if (get_main_phase() != 0xE || TCameraCtrl__sub_8006B368() == 0) {
+        switch (get_global_state__14TOKeyMachine01Fv()) {
+        case 0x14:
+            dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x4B);
+            break;
+        }
+    }
+    TLobby__sub_801403B4(0);
+    if (is_split_screen() != 0) {
+        TObjBgmColCtrl__sub_802274B8(lbl_8043F260);
+    } else if (get_instance__6TLobbyFv() == 1) {
+        TLobby__sub_80226E44(7);
+    }
+    return 1;
+}
+
 void fn_80140DFC(s32 arg0, s32 arg1) {
     fn_80140E38((s32)((void *) (arg0)), (u32)((void *) (TLobby__sub_80141030((void *) (arg1)))));
 }

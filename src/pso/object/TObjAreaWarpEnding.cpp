@@ -17,6 +17,8 @@ typedef char RecoveredGlobal_8019C454___vt__17TObjAreaWarpQuest_size[sizeof(Reco
 
 struct Obj_8019C924 { u8 pad0[0x84]; s32 id; u8 pad1[0xbc - 0x88]; s32 saved_id; };
 
+struct Pkt_8019C988 { u8 pad0[4]; s16 f4; };
+
 extern "C" {
 void TObjAreaWarp__sub_8019CAB0(void *);
 extern const f32 lbl_805DBFDC;
@@ -72,6 +74,19 @@ void set_global_count__12TObjNpcEnemyFi(s32 arg0);
 void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
 extern char lbl_8044641C[];
 void TObjAreaWarp__sub_8019C924(Obj_8019C924 *self);
+void TKeyBoardControl__sub_8000F998();
+s32 TObjPlayer__sub_800196EC();
+void *get_dest_area__17TObjAreaWarpQuestFPv(void *);
+void bswap_6x94_inter_level_warp(void *);
+void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void TTecLuker__sub_801BAB1C(void *, void *);
+s32 TLobby__sub_80207770(s32);
+void set_area__6TLobbyFPvi(void *, int, int);
+void TWindowCtrl__sub_8024AEAC(s32);
+void TNpcPlayer__sub_8034E7A0();
+extern u8 lbl_80515BA0[];
+extern s32 lbl_805D53A0;
+void handle_6x94_inter_level_warp(Pkt_8019C988 *arg0);
 }
 
 extern "C" {
@@ -326,6 +341,20 @@ void TObjAreaWarp__sub_8019C924(Obj_8019C924 *self) {
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
     TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_8044641C, self->saved_id);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+}
+void handle_6x94_inter_level_warp(Pkt_8019C988 *arg0) {
+    bswap_6x94_inter_level_warp(arg0);
+    if (arg0->f4 != TObjPlayer__sub_800196EC()) {
+        set_area__6TLobbyFPvi(lbl_80515BA0, arg0->f4, TLobby__sub_80207770(arg0->f4));
+        TKeyBoardControl__sub_8000F998();
+        TWindowCtrl__sub_8024AEAC(lbl_805D53A0);
+        get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0);
+        TNpcPlayer__sub_8034E7A0();
+        void *p = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+        if (p != 0) {
+            TTecLuker__sub_801BAB1C(p, get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0));
+        }
+    }
 }
 
 }

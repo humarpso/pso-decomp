@@ -73,6 +73,14 @@ struct TTecBarta_8022BC10 {
     s32 f174;
 };
 
+struct Obj_8022BCB8 {
+    u8 pad0[0x18];
+    void *vt;
+    void *source;
+    u8 pad20[0x134 - 0x20];
+    u16 ids[32];
+};
+
 extern "C" {
 s32 TTecCtrl__sub_8022DBC4(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
@@ -97,6 +105,15 @@ void TObjPlayer__sub_8023A7B4();
 extern TechniqueContactVtable __vt__9TTecBarta;
 extern s32 lbl_805D3798;
 TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _w2, void * _w3, void * _w4);
+u16 obj_getField1c(void *);
+void update_technique_by_state__9TTecBartaFPv(u8 *arg0);
+void TTecBarta__sub_8022B540(void *);
+void TTecBarta__sub_8022B6FC(u8 *arg0);
+void TObjPlayer__sub_8023AA4C();
+extern TechniqueContactVtable __vt__9TTecBarta;
+extern s32 lbl_805D3798;
+extern const f32 lbl_805DC7A8;
+u8 *TTecBarta__sub_8022BCB8(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4);
 }
 
 extern "C" {
@@ -107,7 +124,6 @@ void create_ex__9TTecBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *ar
 void render__9TTecBartaFv(void);
 void update_technique_by_state__9TTecBartaFPv(u8 *arg0);
 s32 TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
-void *TTecBarta__sub_8022BCB8(void *, void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
 
@@ -184,7 +200,7 @@ void create_ex__9TTecBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *ar
     void *o;
     o = __nw__7TObjectFUl(0x178);
     if (o != NULL) {
-        TTecBarta__sub_8022BCB8(o, arg0, arg1, arg2, arg3);
+        TTecBarta__sub_8022BCB8((u8 *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (void *)(arg3));
     }
 }
 
@@ -245,6 +261,26 @@ TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _
         self->fc8 = ((s16)obj_getField1c(self->owner));
     }
     return self;
+}
+
+u8 *TTecBarta__sub_8022BCB8(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4) {
+    s32 i;
+    TObjPlayer__sub_8023AA4C();
+    M2C_FIELD(arg0, void **, 0x18) = ((u8 *)&__vt__9TTecBarta);
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3798;
+    TTecBarta__sub_8022B6FC((u8 *)(arg0));
+    for (i = 0; i < 0x20; i++) {
+        ((Obj_8022BCB8 *)arg0)->ids[i] = 0xFFFF;
+    }
+    M2C_FIELD(arg0, s32 *, 0x174) = 0;
+    M2C_FIELD(arg0, s32 *, 0x114) = 0x40003;
+    M2C_FIELD(arg0, f32 *, 0x24) = M2C_FIELD(arg0, f32 *, 0x24) + lbl_805DC7A8;
+    TTecBarta__sub_8022B540(arg0);
+    update_technique_by_state__9TTecBartaFPv((u8 *)(arg0));
+    if (M2C_FIELD(arg0, void **, 0x1C) != 0) {
+        M2C_FIELD(arg0, s16 *, 0xC8) = obj_getField1c(M2C_FIELD(arg0, void **, 0x1C));
+    }
+    return arg0;
 }
 
 void TObjPlayer__sub_8022BD70(void) {  }

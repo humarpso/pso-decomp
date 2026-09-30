@@ -36,6 +36,10 @@ struct Map_80207C60 { s32 map; s32 layout; s32 entities; };
 
 struct Ids_80207C60 { s32 w[18]; };
 
+struct Tbl_8020765C { s32 w[2][18]; };
+
+struct Ent_8020780C { s32 pad; s32 a; s32 b; };
+
 extern "C" {
 extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
 s32 TLobby__sub_80207798(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -59,6 +63,16 @@ extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
 M2C_UNK memset(void *, int, int);
 extern struct Ids_80207C60 lbl_8044B8E0;
 void TLobby__sub_80207BB0(void);
+s32 TObjPlayer__sub_800196EC();
+s32 get_instance__6TLobbyFv();
+s32 get_global_state__14TOKeyMachine01Fv();
+s32 TLobby__sub_8030A7B0();
+extern Tbl_8020765C lbl_8044B928;
+extern Tbl_8020765C lbl_8044B9B8;
+s32 TLobby__sub_8020765C(void);
+extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
+extern int lbl_805D6060;
+void TLobby__sub_8020780C(s32 *src, u32 size);
 }
 
 extern "C" {
@@ -78,6 +92,17 @@ void TLobby__sub_80207644(void) { lbl_805D6060 = lbl_805D362C; }
     extern int lbl_805D362C;
     extern int lbl_805D6060;
 void sync_story_select__6TLobbyFv(void) { lbl_805D362C = lbl_805D6060; }
+
+s32 TLobby__sub_8020765C(void) {
+    Tbl_8020765C a = lbl_8044B928;
+    Tbl_8020765C b = lbl_8044B9B8;
+    if (TLobby__sub_8030A7B0() == 1) {
+        return b.w[0][get_global_state__14TOKeyMachine01Fv()];
+    }
+    s32 i = get_instance__6TLobbyFv();
+    s32 p = TObjPlayer__sub_800196EC();
+    return a.w[i][p];
+}
 
 s32 get_player_floor__6TLobbyFi(s32 idx) {
     struct Buf12_80207718_80207644 buf;
@@ -139,6 +164,29 @@ typedef struct RecoveredGlobal_802078A4_lbl_80513920 RecoveredGlobal_802078A4_lb
 typedef char RecoveredGlobal_802078A4_lbl_8044B658_size[((sizeof(RecoveredGlobal_802078A4_lbl_8044B658)) == 0x120) ? (1) : (-1)];
 typedef char RecoveredGlobal_802078A4_lbl_8044B778_size[((sizeof(RecoveredGlobal_802078A4_lbl_8044B778)) == 0x120) ? (1) : (-1)];
 typedef char RecoveredGlobal_802078A4_lbl_80513920_size[((sizeof(RecoveredGlobal_802078A4_lbl_80513920)) == 0xD8) ? (1) : (-1)];
+
+void TLobby__sub_8020780C(s32 *src, u32 size) {
+    s32 n = size >> 3;
+    s32 i;
+    if (n <= 0x12) {
+        switch ((*(s32 *)&lbl_805D6060)) {
+        case 1:
+            for (i = 0; i < n; i++, src += 2) {
+                ((Ent_8020780C *)&lbl_80513920)[i].a = src[0];
+                ((Ent_8020780C *)&lbl_80513920)[i].b = src[1];
+            }
+            break;
+        case 0:
+        default:
+            for (i = 0; i < n; i++, src += 2) {
+                ((Ent_8020780C *)&lbl_80513920)[i].a = src[0];
+                ((Ent_8020780C *)&lbl_80513920)[i].b = src[1];
+            }
+            break;
+        }
+    }
+}
+
 void TOBoss4Rock__sub_802078A4(void) {
   M2C_UNK *var_r31;
   s32 var_r30;

@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct SD_80281760 { s32 f0; u8 pad4[0x14]; void *vt; u8 pad1c[4]; s16 f20; u8 pad22[0x3E]; s16 f60; s16 f62; u8 pad64[4]; void *f68; f32 f6c; f32 f70; };
+
 extern "C" {
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
 M2C_UNK TWindowSubStatusDisp__sub_80257C28(void *, void *);
@@ -14,6 +16,16 @@ M2C_UNK TWindowSubStatusDisp__sub_80281198(void *);
 M2C_UNK TWindowSubStatusDisp__sub_802813B4(void *);
 extern M2C_UNK lbl_805DD6F4;
 void TWindowSubStatusDisp__sub_80281644(u8 *arg0);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
+void TWindowDD__sub_802466E0(void *, void *, s16, s32);
+void *init__21TWindowSubComCardListFPviii(void *, int, int, s32);
+s32 TWindowSubComCard__sub_8026CBB8(int);
+M2C_UNK TWindowSubStatusDisp__sub_802813B4(void *);
+extern u8 __vt__20TWindowSubStatusDisp[];
+extern M2C_UNK lbl_804D2B30[];
+extern s32 lbl_805D3AA0;
+extern const f32 lbl_805DD70C;
+SD_80281760 *TWindowSubStatusDisp__ct(SD_80281760 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -73,6 +85,24 @@ void *dt__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+SD_80281760 *TWindowSubStatusDisp__ct(SD_80281760 *arg0, s32 arg1) {
+    void *w;
+    TWindowDD__sub_802466E0(arg0, __vt__20TWindowSubStatusDisp, arg1, TWindowSubComCard__sub_8026CBB8(0x19));
+    arg0->vt = ((u8 *)&lbl_804D2B30);
+    arg0->f0 = lbl_805D3AA0;
+    arg0->f20 = arg1;
+    arg0->f60 = 0;
+    arg0->f62 = arg0->f60;
+    arg0->f6c = lbl_805DD70C;
+    arg0->f70 = lbl_805DD70C;
+    w = alloc__23TAdSinglePlyChrSelectGCFPv(0xC);
+    if (w != NULL) {
+        w = init__21TWindowSubComCardListFPviii(w, 0, 3, arg1);
+    }
+    arg0->f68 = w;
+    TWindowSubStatusDisp__sub_802813B4(arg0);
     return arg0;
 }
 

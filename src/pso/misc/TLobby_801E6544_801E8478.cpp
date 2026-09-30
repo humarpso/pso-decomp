@@ -117,6 +117,11 @@ struct Glob_801E9400 { s32 f0; s32 f4; u8 rest[0x18]; };
 
 struct Vec_801E945C { f32 x, y, z; };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Tbl_801E9AF8 { u8 bytes[0x14]; };
+
 extern "C" {
 M2C_UNK TWindowCtrl__sub_8024B328(int, void *);
 extern s32 TLobby__data_805D5E78;
@@ -252,6 +257,11 @@ s32 create__18TChallenge4PResultFii(int, int);
 s32 TChallenge4PResult__sub_8034B66C();
 extern s32 TLobby__data_805D5E78;
 void TLobby__sub_801E9AA8(u8 arg0);
+s32 TLobby__sub_801F34F8();
+void TLobby__sub_8032CC24();
+extern Tbl_801E9AF8 lbl_80449B18[];
+extern s32 TLobby__data_805D5E78;
+void TLobby__sub_801E9AF8(s32 idx);
 }
 
 extern "C" {
@@ -585,6 +595,19 @@ void TLobby__sub_801E9AA8(u8 arg0) {
         create__18TChallenge4PResultFii((u16)i, (*(s32 * *)&TLobby__data_805D5E78)[arg0]);
         i += 1;
     } while (i < 4);
+}
+
+void TLobby__sub_801E9AF8(s32 idx) {
+    s32 tbl[5];
+    s32 n;
+    *(Tbl_801E9AF8 *)tbl = *lbl_80449B18;
+    TLobby__sub_8032CC24();
+    n = TLobby__sub_801F34F8();
+    if (n >= 0 && n < 5) {
+        (*(s32 * *)&TLobby__data_805D5E78)[(u8)idx] = tbl[n];
+    } else {
+        (*(s32 * *)&TLobby__data_805D5E78)[(u8)idx] = 2;
+    }
 }
 
 void update_and_apply_alloc__6TLobbyFv(void) { update_alloc_size__6TLobbyFv((void*)0); TLobby__sub_8032CD7C((void*)(TLobby__data_805D6CC0), (void*)(TLobby__data_805D6CC8)); }

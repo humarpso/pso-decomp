@@ -122,6 +122,23 @@ struct VObj_18_c0d9f3 : VBase_18_c0d9f3 {
     virtual M2C_UNK m41();
 };
 
+typedef struct Msg_801B6C30 {
+    u8 pad0[2];
+    s16 f2;
+    s16 f4[6];
+    s16 f10;
+    s16 f12;
+} Msg_801B6C30;
+
+typedef struct Src_801B6C30 {
+    s16 v[6];
+} Src_801B6C30;
+
+typedef struct Player_801B6C30 {
+    u8 pad0[0x2B0];
+    Src_801B6C30 *src;
+} Player_801B6C30;
+
 extern "C" {
 u8 *TObjPlayer__sub_801D8DCC();
 void TObjPlayer__sub_801B7248(u8 *arg0, s32 arg1);
@@ -138,6 +155,13 @@ M2C_UNK set_flag_2000000__10TObjPlayerFPv(void *);
 s32 set_flag_02000000__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801C5968(void *);
 void TObjPlayer__sub_801B6F8C(u8 *arg0);
+s32 obj_isState2_324(void *);
+u16 obj_getField1c(void *);
+s32 reset_volopt_state__10TObjPlayerFv();
+s16 clamp_nested_index__10TObjPlayerFPv(void *, int);
+void TObjPlayer__sub_801C0C24(void *);
+void TObjPlayer__sub_801C0CC4(void *);
+void TObjPlayer__sub_801B6C30(Player_801B6C30 *arg0);
 }
 
 extern "C" {
@@ -185,6 +209,26 @@ typedef struct VObj_18_c0d9f3 VObj_18_c0d9f3;
 #define PSO_VCALL_VObj_18_c0d9f3_m38(_self) (((VObj_18_c0d9f3 *)(_self))->m38())
 #define PSO_VCALL_VObj_18_c0d9f3_m39(_self) (((VObj_18_c0d9f3 *)(_self))->m39())
 #define PSO_VCALL_VObj_18_c0d9f3_m40(_self) (((VObj_18_c0d9f3 *)(_self))->m40())
+
+void TObjPlayer__sub_801B6C30(Player_801B6C30 *arg0) {
+    Msg_801B6C30 m;
+    Src_801B6C30 *s;
+    if ((reset_volopt_state__10TObjPlayerFv() != 0) && ((arg0 == NULL) || (obj_isState2_324(arg0) == 0))) {
+        TObjPlayer__sub_801C0CC4(&m);
+        m.f2 = ((s16)obj_getField1c(arg0));
+        s = arg0->src;
+        m.f4[0] = s->v[0];
+        m.f4[1] = s->v[1];
+        m.f4[2] = s->v[2];
+        m.f4[3] = s->v[3];
+        m.f4[4] = s->v[4];
+        m.f4[5] = s->v[5];
+        m.f10 = clamp_nested_index__10TObjPlayerFPv(arg0, (int)s);
+        m.f12 = 0;
+        TObjPlayer__sub_801C0C24(&m);
+    }
+}
+
 void TObjPlayer__sub_801B6F8C(u8 *arg0) {
   TObjPlayer__sub_801C5968((void *) (arg0 + 0x634));
   update_target_lock__10TObjPlayerFPv(arg0);

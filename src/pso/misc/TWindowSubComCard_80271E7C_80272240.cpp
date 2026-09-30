@@ -9,11 +9,25 @@ struct RecoveredGlobal_8034CC68_lbl_80478C3C {
     u8 remaining[0x8];
 };
 
+struct Rec_80272290 { s32 f0; u8 f4[0xD0]; };
+
 extern "C" {
 s32 send_and_handle__6TLobbyFPvii(s32, s32, s32);
 int get_message_10__20TWindowSubStatusDispFPv(void*);
 extern const RecoveredGlobal_8034CC68_lbl_80478C3C lbl_8044F6D4;
 void TWindowSubComCard__sub_80272340(u8 *arg0, s32 arg1);
+s32 TLobby__sub_8001DC24();
+Rec_80272290 *get_com_count__17TWindowSubComCardFv();
+void TWindowSubStatusDisp__sub_80229080(void *);
+void TWindowSubStatusDisp__sub_802290E0();
+void TLobby__sub_8024220C(int, int);
+s32 send_and_handle__6TLobbyFPvii(s32, s32, s32);
+s32 TWindowSubComCard__sub_80275228();
+void *get_card_data_ptr__17TWindowSubComCardFPv(int);
+void *TWindowSubComCard__sub_8027523C(int);
+void *get_name__17TWindowSubComCardFPv(int);
+extern u8 lbl_805DD4F8;
+void TWindowSubComCard__sub_80272290(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -40,6 +54,28 @@ void set_card_index__17TWindowSubComCardFPvi(void *arg0, s32 arg1) {
     }
 }
 typedef char RecoveredGlobal_8034CC68_lbl_80478C3C_size[sizeof(RecoveredGlobal_8034CC68_lbl_80478C3C) == 0xC ? 1 : -1];
+
+void TWindowSubComCard__sub_80272290(u8 *arg0, s32 arg1) {
+    u8 *temp_r31;
+    s32 temp_r30;
+    Rec_80272290 *cnt;
+    if (*(s32 *)(arg0 + 0x28) != arg1) {
+        *(s32 *)(arg0 + 0x28) = arg1;
+        cnt = get_com_count__17TWindowSubComCardFv();
+        temp_r31 = cnt[arg1].f4;
+        TLobby__sub_8024220C((int)temp_r31, arg1 * 0xD4);
+        temp_r30 = TWindowSubComCard__sub_80275228();
+        TWindowSubStatusDisp__sub_802290E0();
+        TWindowSubStatusDisp__sub_80229080((void *)(temp_r31 + 0x14));
+        TWindowSubStatusDisp__sub_80229080(get_name__17TWindowSubComCardFPv(temp_r30));
+        TWindowSubStatusDisp__sub_80229080(&lbl_805DD4F8);
+        TWindowSubStatusDisp__sub_80229080(TWindowSubComCard__sub_8027523C(temp_r30));
+        TWindowSubStatusDisp__sub_80229080(&lbl_805DD4F8);
+        TWindowSubStatusDisp__sub_80229080(get_card_data_ptr__17TWindowSubComCardFPv(temp_r30));
+        send_and_handle__6TLobbyFPvii(*(s32 *)(arg0 + 0x6C), TLobby__sub_8001DC24(), 0x82);
+    }
+}
+
 void TWindowSubComCard__sub_80272340(u8 *arg0, s32 arg1) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x28) != arg1) {
         M2C_FIELD(arg0, s32 *, 0x28) = arg1;

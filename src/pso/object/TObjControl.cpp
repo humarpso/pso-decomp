@@ -75,10 +75,105 @@ struct Msg_800F641C { u8 code; u8 size; u16 id; s32 arg; };
 
 struct Obj_800F641C { u8 pad[0x1c]; u16 id; };
 
+struct Hdr_800F6464 { u32 w; u16 x; s16 y; u32 z; };
+
+struct Base_800F6464 { u8 pad[0x18]; };
+
+struct Ene_800F6464 : Base_800F6464 {
+    virtual void v0();
+    virtual void v1();
+    virtual void v2();
+    virtual void v3();
+    virtual void v4();
+    virtual void v5();
+    virtual void v6();
+    virtual void v7();
+    virtual void v8();
+    virtual void v9();
+    virtual void v10();
+    virtual void v11();
+    virtual void v12();
+    virtual void v13();
+    virtual void v14();
+    virtual void v15();
+    virtual void v16();
+    virtual void v17();
+    virtual void v18();
+    virtual void v19();
+    virtual void v20();
+    virtual void v21();
+    virtual void v22();
+    virtual void v23();
+    virtual void v24();
+    virtual void v25();
+    virtual void v26();
+    virtual void v27();
+    virtual void v28();
+    virtual void v29();
+    virtual void v30();
+    virtual void v31();
+    virtual void v32();
+    virtual void v33();
+    virtual void v34();
+    virtual void v35();
+    virtual void v36();
+    virtual void v37();
+    virtual void v38();
+    virtual void v39();
+    virtual void v40();
+    virtual void v41();
+    virtual void v42();
+    virtual void v43();
+    virtual void v44();
+    virtual void v45();
+    virtual void v46();
+    virtual void v47();
+    virtual void v48();
+    virtual void v49();
+    virtual void v50();
+    virtual void v51();
+    virtual void v52();
+    virtual void v53();
+    virtual void v54();
+    virtual void v55();
+    virtual void v56();
+    virtual void v57();
+    virtual void v58();
+    virtual void v59();
+    virtual void v60();
+    virtual void v61();
+    virtual void v62();
+    virtual void v63();
+    virtual void v64();
+    virtual void v65();
+    virtual void v66();
+    virtual void v67();
+    virtual void v68();
+    virtual void v69();
+    virtual void v70();
+    virtual void v71();
+    virtual void v72();
+    virtual void v73();
+    virtual void v74();
+    virtual void v75();
+    virtual void v76();
+    virtual void v77();
+    virtual void m78(void *);
+};
+
+struct Msg_800F6464 { u8 pad0[2]; u16 f2; u16 f4; s16 f6; u32 f8; };
+
 extern "C" {
 void TLobby__sub_800F79C4(u8 *arg0);
 void broadcast_state__6TLobbyFPv(void* p);
 void TLobby__sub_800F641C(Obj_800F641C *self, s32 arg);
+void bswap_enemy_state__6TLobbyFPv(void *);
+void copy_header__6TLobbyFPvPv(void *, void *);
+extern Hdr_800F6464 *TLobby__data_805D6144;
+extern s32 lbl_805D5550;
+void apply_by_index__9TObjEnemyFs(s16, void *);
+Ene_800F6464 *get_enemy_entity(u16);
+void handle_6x0A_update_enemy_state(Msg_800F6464 *arg0);
 }
 
 extern "C" {
@@ -197,6 +292,26 @@ void TLobby__sub_800F641C(Obj_800F641C *self, s32 arg) {
     msg.id = self->id;
     msg.arg = arg;
     broadcast_state__6TLobbyFPv(&msg);
+}
+void handle_6x0A_update_enemy_state(Msg_800F6464 *arg0) {
+    Hdr_800F6464 sp;
+    u16 idx;
+    Ene_800F6464 *e;
+    bswap_enemy_state__6TLobbyFPv(arg0);
+    idx = arg0->f4;
+    copy_header__6TLobbyFPvPv(&sp, &TLobby__data_805D6144[idx]);
+    sp.y = arg0->f6;
+    if (lbl_805D5550 == 3) {
+        sp.w &= 0x3F;
+        sp.w = (arg0->f8 & ~0x3F) | sp.w;
+    } else {
+        sp.w = arg0->f8;
+    }
+    apply_by_index__9TObjEnemyFs(idx, &sp);
+    e = get_enemy_entity(arg0->f2);
+    if (e != NULL) {
+        e->m78(&sp);
+    }
 }
 
 }

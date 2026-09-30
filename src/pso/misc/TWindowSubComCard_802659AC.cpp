@@ -25,6 +25,16 @@ struct Ent_80265F60 { u8 pad[0x10]; f32 w; f32 h; };
 
 struct Win_80265F60 { u8 pad[0x2C]; u32 flags; u8 pad30[8]; f32 x; f32 y; u8 pad40[0x36]; s16 count; u8 pad78[4]; f32 height; };
 
+struct Ent_80265AA4 { u32 flags; u32 x; };
+
+struct Card_80265AA4 {
+    u8 pad0[0x74];
+    s16 cur;
+    s16 cnt;
+    u8 pad1[8];
+    Ent_80265AA4 *ents;
+};
+
 extern "C" {
 M2C_UNK TWindowSubComCard__sub_8026D740(int, void *, void *);
 extern const f32 lbl_805DD150;
@@ -60,6 +70,10 @@ Ent_80265C30 *get_array_entry__20TWindowSubStatusDispFPvi(void *w, s32 i);
 void *get_field_20__17TWindowSubComCardFPv(void *e);
 M2C_UNK save_position__17TWindowSubComCardFPv(void *);
 void TWindowSubComCard__sub_80265F60(Win_80265F60 *self);
+Ent_80265C30 *get_array_entry__20TWindowSubStatusDispFPvi(void *w, s32 i);
+void *get_field_20__17TWindowSubComCardFPv(void *e);
+void TWindowSubComCard__sub_80265AA4(Card_80265AA4 *arg0);
+void TWindowSubComCard__sub_80266078(u8 *arg0);
 }
 
 extern "C" {
@@ -82,6 +96,26 @@ void TWindowSubComCard__sub_80265A38(u8 *arg0) {
             stack.spC = temp_f1 - lbl_805DD158;
         }
         TWindowSubComCard__sub_8026D740((int) (M2C_FIELD(arg0, u32 *, 0x84)), (void *) (arg0 + 0x68), (void *) (&stack.sp8));
+    }
+}
+
+void TWindowSubComCard__sub_80265AA4(Card_80265AA4 *arg0) {
+    u16 *e;
+    s16 t;
+    if (arg0->cur < arg0->cnt) {
+        e = ((u16 *)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (s32)(arg0->cur)));
+        while (((u32)get_field_20__17TWindowSubComCardFPv(e)) != 0 && (*e & 0x10)) {
+            t = arg0->cur + 1;
+            arg0->cur = t;
+            if (t >= arg0->cnt) {
+                break;
+            }
+            e = ((u16 *)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (s32)(arg0->cur)));
+            if (arg0->ents[arg0->cur].flags & 2) {
+                arg0->ents[arg0->cur].flags &= ~2;
+                *e &= ~8;
+            }
+        }
     }
 }
 
@@ -185,6 +219,28 @@ void clear_transition_flag__17TWindowSubComCardFPv(void *arg0) {
         M2C_FIELD(arg0, u16 *, 0x70) = (u16) (temp_r4 & 0xFFFFFFDF);
         M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (lbl_805DD154 + M2C_FIELD(arg0, f32 *, 0x7C));
         M2C_FIELD(arg0, s32 *, 0x50) = 3;
+    }
+}
+
+void TWindowSubComCard__sub_80266078(u8 *arg0) {
+    f32 gap;
+    f64 zero;
+    f32 y;
+    u32 i;
+    u8 *e;
+    f32 h;
+    y = lbl_805DD150;
+    gap = lbl_805DD16C;
+    zero = lbl_8044F330;
+    for (i = 0; i < *(s16 *)(arg0 + 0x76); i++) {
+        e = (u8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, i);
+        if (((u32 (*)(void))get_field_20__17TWindowSubComCardFPv)() != 0) {
+            *(f32 *)(e + 0xC) = y;
+            h = *(f32 *)(e + 0x14);
+            if (!(h <= zero)) {
+                y += gap + h;
+            }
+        }
     }
 }
 

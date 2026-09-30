@@ -11,6 +11,20 @@ struct Lobby_801D6498 {
     u8 fields[1];
 };
 
+typedef struct Obj_801D650C {
+    u16 a;
+    s16 b;
+    s16 c;
+    u8 pad6[2];
+    s32 d;
+    f32 e;
+    f32 f;
+    u8 arr[10][4];
+    f32 g;
+    u8 sub[4];
+    u8 flags[6];
+} Obj_801D650C;
+
 extern "C" {
 M2C_UNK TFontSmallLobby__sub_801D60B4();
 extern const f32 lbl_805DC3DC;
@@ -34,6 +48,12 @@ void set_section_index__15TFontSmallLobbyFPvs(void *, s16);
 void reset_fields__15TFontSmallLobbyFPv(void *);
 void TFontSmallLobby__sub_801D67C8(void);
 void TFontSmallLobby__sub_801D6498(struct Lobby_801D6498 *s);
+void clear_id__10TObjPlayerFPv(void *);
+void TFontSmallLobby__sub_80152F28(void *);
+void reset_fields__15TFontSmallLobbyFPv(void *);
+extern const f32 lbl_805DC3E0;
+extern const f32 lbl_805DC3E8;
+void TFontSmallLobby__sub_801D650C(Obj_801D650C *arg0);
 }
 
 extern "C" {
@@ -122,6 +142,28 @@ void TFontSmallLobby__sub_801D6498(struct Lobby_801D6498 *s) {
     init_feed_timer__8TItemMagFPv(s);
     clear_photon_blast_state__10TObjPlayerFPv(s);
     reset_fields__15TFontSmallLobbyFPv(s->fields);
+}
+void TFontSmallLobby__sub_801D650C(Obj_801D650C *arg0) {
+    s32 i;
+    s32 k;
+    u8 *fp;
+    i = 0;
+    arg0->a = 0xFFFF;
+    arg0->b = 0;
+    arg0->c = 0;
+    arg0->d = 0;
+    arg0->e = lbl_805DC3E8;
+    arg0->f = lbl_805DC3E0;
+    do {
+        TFontSmallLobby__sub_80152F28(arg0->arr[i]);
+        i++;
+    } while (i < 10);
+    arg0->g = lbl_805DC3E0;
+    clear_id__10TObjPlayerFPv(arg0->sub);
+    for (k = 0, fp = arg0->flags; k < 6; k++, fp++) {
+        *fp = 0;
+    }
+    reset_fields__15TFontSmallLobbyFPv((u8 *)arg0 + 0x4C);
 }
 
 }

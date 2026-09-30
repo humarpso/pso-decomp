@@ -21,6 +21,12 @@ struct Pair_80139894 { s32 a; s32 b; };
 #pragma dont_inline off
 struct Pair_8013990C { s32 a; s32 b; };
 
+struct Pad_801395D8 { u8 pad[0x10]; u32 flags; };
+
+struct Ent_801395D8 { u8 b[0x1C]; };
+
+struct Lst_801395D8 { u8 pad[0x1DA8]; Ent_801395D8 e[1]; };
+
 extern "C" {
 extern u32 TLobby__data_805D55DC;
 extern const Pair_801397E8 lbl_8043EDF8[];
@@ -46,6 +52,18 @@ int send_and_handle__6TLobbyFPvii(u32 p, int a1, int a2);
 s32 get_seq_phase__6TLobbyFPv(s32);
 void set_field_1c__6TLobbyFPvf(u32 p, f32 f);
 void TLobby__sub_8013990C(s32 arg0);
+M2C_UNK close_and_set_state_12__6TLobbyFv();
+s32 get_status_flag__6TLobbyFPv(u32);
+void send_info__9TProtocolFR16TPlyGuildCardTag(void *, void *);
+M2C_UNK send_action__9TProtocolFR13GameListEntryPcPc(void *, void *, M2C_UNK *, M2C_UNK *);
+void TWindow__close(void*);
+s32 select_cursor_entry__6TLobbyFPv(u32);
+extern char lbl_8043F084[];
+extern s8 lbl_8050E208[];
+extern struct Root_80139538_80137188 *TLobby__data_805D5580;
+extern u32 TLobby__data_805D55D0;
+extern M2C_UNK TLobby__data_805DB0B0;
+void TLobby__sub_801395D8(void);
 }
 
 extern "C" {
@@ -154,6 +172,24 @@ void handle_game_list_select__6TLobbyFv(void) {
 }
 
 extern u32 TLobby__data_805D55D8;
+
+void TLobby__sub_801395D8(void) {
+    s32 idx;
+    if (TLobby__data_805D55D0 != 0U) {
+        if (get_status_flag__6TLobbyFPv(TLobby__data_805D55D0) != 0) {
+            idx = select_cursor_entry__6TLobbyFPv(TLobby__data_805D55D0);
+            TWindow__close((void*)(TLobby__data_805D55D0));
+            TLobby__data_805D55D0 = 0U;
+            send_action__9TProtocolFR13GameListEntryPcPc((void *)((*(Lst_801395D8 * *)&TLobby__data_805D5580)), (void *)(&(*(Lst_801395D8 * *)&TLobby__data_805D5580)->e[idx]), (M2C_UNK *)(lbl_8043F084), (M2C_UNK *)(&TLobby__data_805DB0B0));
+            close_and_set_state_12__6TLobbyFv();
+            return;
+        }
+        if ((*(Pad_801395D8 **)lbl_8050E208)->flags & 0x400) {
+            idx = select_cursor_entry__6TLobbyFPv(TLobby__data_805D55D0);
+            send_info__9TProtocolFR16TPlyGuildCardTag((*(Lst_801395D8 * *)&TLobby__data_805D5580), &(*(Lst_801395D8 * *)&TLobby__data_805D5580)->e[idx]);
+        }
+    }
+}
 
 void TLobby__sub_801397E8(s32 arg0) {
     if (TLobby__data_805D55DC == 0) {

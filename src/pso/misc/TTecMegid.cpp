@@ -124,6 +124,16 @@ struct TTecGiBarta_80230C58 {
     s32 f174;
 };
 
+struct Obj_8023589C {
+    u8 pad0[0x134];
+    u16 ids[32];
+};
+
+struct Obj_80235940 {
+    u8 pad0[0x134];
+    u16 ids[32];
+};
+
 extern "C" {
 s32 TTecCtrl__sub_8022DBC4(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
@@ -138,6 +148,24 @@ void destroy_technique_effect_resources__10TObjPlayerFPvs(void *, s16);
 extern TTecGiBartaData_80230B48 TTecMegid__data_8044D874[];
 extern void *__vt__9TTecMegid[];
 TTecGiBarta_80230B48 *__dt__9TTecMegidFv(TTecGiBarta_80230B48 *self, s16 deleting);
+u16 obj_getField1c(void *);
+void update_by_state__9TTecMegidFPv(u8 *arg0);
+void TTecMegid__sub_802351B4(void *);
+void TTecMegid__sub_80235348(u8 *arg0);
+void TObjPlayer__sub_8023A7B4();
+extern void *__vt__9TTecMegid[];
+extern s32 lbl_805D37E8;
+extern const f32 lbl_805DC884;
+u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
+u16 obj_getField1c(void *);
+void update_by_state__9TTecMegidFPv(u8 *arg0);
+void TTecMegid__sub_802351B4(void *);
+void TTecMegid__sub_80235348(u8 *arg0);
+void TObjPlayer__sub_8023AA4C();
+extern void *__vt__9TTecMegid[];
+extern s32 lbl_805D37E8;
+extern const f32 lbl_805DC884;
+u8 *TTecMegid__sub_80235940(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
 }
 
 extern "C" {
@@ -148,8 +176,6 @@ void fn_802359E4(void *arg0);
 void render__9TTecMegidFv(void);
 void update_by_state__9TTecMegidFPv(u8 *arg0);
 s32 TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
-s32 TTecMegid__ct(u32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0, s32 a4 = 0);
-s32 TTecMegid__sub_80235940(u32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0, s32 a4 = 0);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
 
@@ -219,14 +245,14 @@ void create__9TTecMegidFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 obj;
     obj = __nw__7TObjectFUl(0x17C);
     if (obj != 0U) {
-        TTecMegid__ct(obj, arg0, arg1, arg2, arg3);
+        TTecMegid__ct((u8 *)(obj), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
     }
 }
 void create_ex__9TTecMegidFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 obj;
     obj = __nw__7TObjectFUl(0x17C);
     if (obj != 0U) {
-        TTecMegid__sub_80235940(obj, arg0, arg1, arg2, arg3);
+        TTecMegid__sub_80235940((u8 *)(obj), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
     }
 }
 void render__9TTecMegidFv(void) {  }
@@ -249,6 +275,44 @@ TTecGiBarta_80230B48 *__dt__9TTecMegidFv(TTecGiBarta_80230B48 *self, s16 deletin
         if (deleting > 0) __dl__7TObjectFPv(self);
     }
     return self;
+}
+
+u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
+    s32 i;
+    TObjPlayer__sub_8023A7B4();
+    M2C_FIELD(arg0, void **, 0x18) = __vt__9TTecMegid;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D37E8;
+    TTecMegid__sub_80235348(arg0);
+    M2C_FIELD(arg0, f32 *, 0x178) = lbl_805DC884;
+    for (i = 0; i < 0x20; i++) {
+        ((Obj_8023589C *)arg0)->ids[i] = 0xFFFF;
+    }
+    M2C_FIELD(arg0, s32 *, 0x174) = 0;
+    TTecMegid__sub_802351B4(arg0);
+    update_by_state__9TTecMegidFPv(arg0);
+    if (M2C_FIELD(arg0, void **, 0x1C) != 0) {
+        M2C_FIELD(arg0, s16 *, 0xC8) = obj_getField1c(M2C_FIELD(arg0, void **, 0x1C));
+    }
+    return arg0;
+}
+
+u8 *TTecMegid__sub_80235940(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
+    s32 i;
+    TObjPlayer__sub_8023AA4C();
+    M2C_FIELD(arg0, void **, 0x18) = __vt__9TTecMegid;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D37E8;
+    TTecMegid__sub_80235348(arg0);
+    M2C_FIELD(arg0, f32 *, 0x178) = lbl_805DC884;
+    for (i = 0; i < 0x20; i++) {
+        ((Obj_80235940 *)arg0)->ids[i] = 0xFFFF;
+    }
+    M2C_FIELD(arg0, s32 *, 0x174) = 0;
+    TTecMegid__sub_802351B4(arg0);
+    update_by_state__9TTecMegidFPv(arg0);
+    if (M2C_FIELD(arg0, void **, 0x1C) != 0) {
+        M2C_FIELD(arg0, s16 *, 0xC8) = obj_getField1c(M2C_FIELD(arg0, void **, 0x1C));
+    }
+    return arg0;
 }
 
 void fn_802359E4(void *arg0) {

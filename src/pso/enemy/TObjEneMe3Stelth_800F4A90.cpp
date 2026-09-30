@@ -10,6 +10,10 @@ struct Node_800F4D68 { u8 pad[0x2c]; void *child; };
 
 struct Obj_800F4D68 { u8 pad[0x34]; Node_800F4D68 *node; u8 pad2[0xc0 - 0x38]; f32 fc0; u8 pad3[0xf8 - 0xc4]; s32 ff8; };
 
+struct Sub_800F4CC8 { f32 f0; u8 pad4[4]; f32 f8; f32 fC; f32 f10; s32 f14; s32 f18; };
+
+struct Obj_800F4CC8 { u8 pad0[0x60]; s32 f60; u8 pad1[0xA4 - 0x64]; Sub_800F4CC8 *fA4; };
+
 extern "C" {
 f32 get_random_float__8TObjFishFv(f32);
 f32 TBoss8Dragon__sub_803D64C0(s32);
@@ -25,6 +29,13 @@ s32 TObjPlayer__sub_803D9B78();
 extern u8 lbl_8058D490[];
 extern const f32 TObjEneMe3Stelth__data_805DA840;
 f32 TObjEneMe3Stelth__sub_800F4D68(Obj_800F4D68 *self);
+void fn_8002B630(void *, void *, s32);
+void TObjPlayer__sub_801564A0(void *, s32, f32, f32);
+extern u8 lbl_804976E4[];
+extern const f32 TObjEneMe3Stelth__data_805DA840;
+extern const f32 lbl_805DA81C;
+extern const f32 lbl_805DA8A4;
+u8 TObjEneMe3Stelth__sub_800F4CC8(Obj_800F4CC8 *arg0, s32 arg1, f32 farg0);
 }
 
 extern "C" {
@@ -45,6 +56,27 @@ bool TObjEneMe3Stelth__sub_800F4C10(u8 *arg0) {
     return (temp_f31 < TBoss8Dragon__sub_803D64DC(0x1E00)) == 0;
 }
 #pragma pop
+
+u8 TObjEneMe3Stelth__sub_800F4CC8(Obj_800F4CC8 *arg0, s32 arg1, f32 farg0) {
+    f32 f2 = farg0 * lbl_805DA81C;
+    Sub_800F4CC8 *s = arg0->fA4;
+    u8 res;
+    s32 a = arg0->f60;
+    s32 b = s->f18;
+    s->f0 = TObjEneMe3Stelth__data_805DA840;
+    s->f8 = f2;
+    s->fC = f2;
+    s->f10 = lbl_805DA8A4;
+    s->f14 = 1;
+    s->f18 = 0x9D01;
+    arg0->f60 = arg1;
+    TObjPlayer__sub_801564A0(arg0, arg1, TObjEneMe3Stelth__data_805DA840, f2);
+    res = (s->f18 & 0x380000) != 0;
+    fn_8002B630(s, lbl_804976E4, s->f18 & 0x380000);
+    s->f18 = b;
+    arg0->f60 = a;
+    return res;
+}
 
 f32 TObjEneMe3Stelth__sub_800F4D68(Obj_800F4D68 *self) {
     Vec_800F4D68 v;

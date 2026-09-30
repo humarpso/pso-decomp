@@ -67,6 +67,12 @@ struct RecoveredGlobal_8016B0A0_lbl_804B29D0 { M2C_UNK value; u8 remaining[0x28]
 
 struct RecoveredGlobal_8016B0A0___vt__14TOKeyAncient01 { M2C_UNK value; u8 remaining[0x70]; };
 
+struct Inner_8016AF84 { u8 pad[0xC]; s32 f0C; };
+
+struct Big_8016AF84 { u8 pad[0x42C]; Inner_8016AF84 *p; };
+
+struct Buf_8016AF84 { s32 a; s32 b; s32 c; s32 d; };
+
 extern "C" {
 M2C_UNK update_anim_phase__17TOBarrierEnergy01FPv();
 void TOKeyAncient01__vt15(u8 *arg0);
@@ -102,6 +108,17 @@ extern const f32 lbl_805DB6F0;
 extern const f32 lbl_805DB6F4;
 extern const f32 lbl_805DB6F8;
 u8 *TOKeyAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+Big_8016AF84 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+Buf_8016AF84 *alloc_buffer__11TOBoss4RockFPv(s32);
+s32 TLanguage__sub_801E4874(void *);
+extern u8 lbl_804419B8[];
+extern u8 lbl_804419D0[];
+extern u8 lbl_804419E8[];
+extern u8 lbl_804B29C0[];
+extern u8 *TOKeyAncient01__data_805D59F8;
+extern u32 TOKeyAncient01__data_805D59FC;
+void TOKeyAncient01__sub_8016AF84(void);
 }
 
 extern "C" {
@@ -197,6 +214,19 @@ void TOKeyAncient01__sub_8016AEFC(void) {
     TLobby__sub_8001FE7C(TOKeyAncient01__data_805D59F8, 1);
     TOKeyAncient01__data_805D59F8 = 0;
   }
+}
+
+void TOKeyAncient01__sub_8016AF84(void) {
+    Big_8016AF84 *v = (Big_8016AF84 *)alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    if (v != NULL) {
+        v = TLobby__sub_80020004(v, 1, lbl_804B29C0, 0, 0, 0);
+    }
+    (*(Big_8016AF84 * *)&TOKeyAncient01__data_805D59F8) = v;
+    (*(Buf_8016AF84 * *)&TOKeyAncient01__data_805D59FC) = alloc_buffer__11TOBoss4RockFPv(0x10);
+    (*(Buf_8016AF84 * *)&TOKeyAncient01__data_805D59FC)->a = (*(Big_8016AF84 * *)&TOKeyAncient01__data_805D59F8)->p->f0C;
+    (*(Buf_8016AF84 * *)&TOKeyAncient01__data_805D59FC)->b = TLanguage__sub_801E4874(lbl_804419B8);
+    (*(Buf_8016AF84 * *)&TOKeyAncient01__data_805D59FC)->c = TLanguage__sub_801E4874(lbl_804419D0);
+    (*(Buf_8016AF84 * *)&TOKeyAncient01__data_805D59FC)->d = TLanguage__sub_801E4874(lbl_804419E8);
 }
 
 void *__dt__14TOKeyAncient01Fv(void *arg0, s16 arg1) {

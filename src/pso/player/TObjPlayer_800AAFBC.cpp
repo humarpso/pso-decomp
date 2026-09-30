@@ -14,6 +14,15 @@ struct Stack_800ABA9C {
 struct RecoveredGlobal_800ABA9C_lbl_8058D490 { M2C_UNK value; u8 remaining[0x2C]; };
 typedef char RecoveredGlobal_800ABA9C_lbl_8058D490_size[sizeof(RecoveredGlobal_800ABA9C_lbl_8058D490) == 0x30 ? 1 : -1];
 
+struct VBase_14_800ABCBC { char pad[0x14]; };
+
+struct VObj_14_800ABCBC : VBase_14_800ABCBC {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
+    virtual s32 m5();
+};
+
+struct Obj_800ABCBC { u8 pad0[0x38]; u8 sub38[0x326 - 0x38]; s16 f326; s16 state; u8 pad32a[0x390 - 0x32A]; s32 f390; };
+
 extern "C" {
 void obj_setFlags30(void *, u32);
 void TObjPlayer__sub_800AB034(u8 *arg0);
@@ -84,6 +93,10 @@ extern const f32 lbl_805D9BA0;
 extern const f32 lbl_805D9BA4;
 extern const f32 lbl_805D9BA8;
 void TObjPlayer__sub_800ABA9C(u8 *arg0);
+s32 TBoss3Volopt__sub_800D8E80(void *);
+s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
+s32 TBoss1Dragon__sub_80143504();
+void TObjPlayer__sub_800ABCBC(Obj_800ABCBC *arg0);
 }
 
 extern "C" {
@@ -291,6 +304,33 @@ void TObjPlayer__sub_800ABC24(u8 *arg0) {
         return;
     }
 }
+
+void TObjPlayer__sub_800ABCBC(Obj_800ABCBC *arg0) {
+    TBoss1Dragon__sub_80143504();
+    switch (arg0->state) {
+    case 0:
+    default:
+        if (arg0->f390 != 0) {
+            TObjEneMe3SinowZoa__sub_800D758C((u8 *)arg0 + 0x3A8);
+            TBoss3Volopt__sub_800D8E80(arg0->sub38);
+            arg0->state = 1;
+        } else {
+            arg0->state = 2;
+        }
+        break;
+    case 1:
+        if (((VObj_14_800ABCBC *)((u8 *)arg0 + 0x3A8))->m5() == 1) {
+            arg0->state = 2;
+            arg0->f390 = 0;
+        }
+        break;
+    case 2:
+        arg0->f326 = 1;
+        arg0->state = 0;
+        break;
+    }
+}
+
 void update_particle_by_phase__10TObjPlayerFv(void) {
     switch (lbl_805D50C4) {
     case 0x10:

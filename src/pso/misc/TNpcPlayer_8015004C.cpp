@@ -22,6 +22,14 @@ struct Owner_80150E44 { u8 pad[0x94]; Obj_80150E44 *obj; };
 
 struct Npc_80150E44 { u8 pad[0x78]; Owner_80150E44 *owner; u8 pad7c[0xAC - 0x7C]; f32 x; f32 y; f32 z; };
 
+struct V3_80150050 { f32 x, y, z; };
+
+struct Tgt_80150050 { u8 pad[0x38]; V3_80150050 pos; };
+
+struct Mid_80150050 { u8 pad[0x94]; Tgt_80150050 *tgt; };
+
+struct Npc_80150050 { u8 pad0[0x74]; Mid_80150050 *mid; u8 pad78[0x34]; V3_80150050 pos; u8 pad_b8[0x18]; V3_80150050 dst; };
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(int, f32, f32, f32);
@@ -54,6 +62,9 @@ void TNpcPlayer__sub_80152E74(void *m);
 u16 get_npc_type__10TNpcPlayerFPv(void *);
 void sync_from_lobby__10TNpcPlayerFPv(void *m);
 void TNpcPlayer__sub_80150E44(Npc_80150E44 *self);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+extern V3_80150050 lbl_8043FFAC;
+void TNpcPlayer__sub_80150050(Npc_80150050 *arg0);
 }
 
 extern "C" {
@@ -64,7 +75,6 @@ void update_condition_flags__10TNpcPlayerFPv(u8 *arg0);
 M2C_UNK TNpcPlayer__sub_8014E33C(void *, M2C_UNK);
 M2C_UNK TNpcPlayer__sub_8014FAB0(s32);
 M2C_UNK TNpcPlayer__sub_8014FEAC(s32);
-M2C_UNK TNpcPlayer__sub_80150050(void *);
 M2C_UNK TNpcPlayer__sub_801528B8(void *, M2C_UNK);
 M2C_UNK TNpcPlayer__sub_801528C8(void *, M2C_UNK);
 s16 TNpcPlayer__sub_801528F4(void *, M2C_UNK);
@@ -76,6 +86,17 @@ M2C_UNK reset_fields_8c__10TNpcPlayerFPv(s32);
 void render__10TNpcPlayerFv(void) {  }
 
 extern const f32 lbl_805DB240;
+
+void TNpcPlayer__sub_80150050(Npc_80150050 *arg0) {
+    Tgt_80150050 *t = arg0->mid->tgt;
+    V3_80150050 off = lbl_8043FFAC;
+    if (t != NULL) {
+        arg0->dst.x = arg0->mid->tgt->pos.x + off.x;
+        arg0->dst.y = arg0->mid->tgt->pos.y + off.y;
+        arg0->dst.z = arg0->mid->tgt->pos.z + off.z;
+        VecCopy__FP3VecPC3Vec(&arg0->pos, &arg0->mid->tgt->pos);
+    }
+}
 
 #pragma push
 #pragma opt_common_subs off
@@ -192,7 +213,7 @@ void init_state__10TNpcPlayerFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x28);
     switch (temp_r0) {
     case 0:
-        TNpcPlayer__sub_80150050(arg0);
+        TNpcPlayer__sub_80150050((Npc_80150050 *)(arg0));
         M2C_FIELD(arg0, s32 *, 0x28) = 1;
     case 1:
         return;

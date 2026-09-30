@@ -9,6 +9,8 @@ struct RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo {
     u8 remaining[0x14];
 };
 
+struct Pd_8028ACE8 { u8 pad[0x1C]; s32 count; void **a; void **b; };
+
 extern "C" {
 s32 __nw__7TObjectFUl(int);
 extern void *lbl_805D4DD8;
@@ -20,6 +22,11 @@ extern s32 lbl_805D3B28;
 extern void *lbl_805D4DD8;
 extern const f32 lbl_805DD908;
 u8 *TObjBoss5PillarDemo__ct(u8 *arg0, s32 arg1, s32 arg2);
+void TCameraCtrl__sub_80069148(void *, void *);
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+extern u8 lbl_80450CDC[];
+extern s32 lbl_805D64D0;
+void TObjBoss5PillarDemo__sub_8028ACE8(Pd_8028ACE8 *arg0, void* _w1);
 }
 
 extern "C" {
@@ -31,7 +38,6 @@ void TObjBoss5PillarDemo__sub_8028AD88(void* a0);
 void TObjBoss5PillarDemo__sub_8028ADB0(u32 arg0);
 void *__dt__19TObjBoss5PillarDemoFv(void *arg0, s16 arg1);
 void update_active_pillar__19TObjBoss5PillarDemoFv(void);
-int TObjBoss5PillarDemo__sub_8028ACE8(void*, void*);
 void __dl__7TObjectFPv(void *);
 void __dt__15TObjBoss5PillarFv(void *, int);
 M2C_UNK fn_8028A998(s32, s32);
@@ -103,7 +109,24 @@ void TObjBoss5PillarDemo__sub_8028ACE0(void) {  }
 void TObjBoss5PillarDemo__sub_8028ACE4(void) {  }
 
     extern int lbl_805D64D4;
-void TObjBoss5PillarDemo__sub_8028AD88(void* a0) { TObjBoss5PillarDemo__sub_8028ACE8((void*)(lbl_805D64D4), a0); }
+
+void TObjBoss5PillarDemo__sub_8028ACE8(Pd_8028ACE8 *arg0, void* _w1) {
+    f32 sp[3];
+    s32 idx;
+    idx = lbl_805D64D0 - 1;
+    lbl_805D64D0 += 1;
+    if (idx >= 0 && idx < arg0->count) {
+        TCameraCtrl__sub_80069148(lbl_80450CDC, sp);
+        if (arg0->a != NULL && arg0->a[idx] != NULL) {
+            copy_pos__11TNowLoadingFPvPv(arg0->a[idx], sp);
+        }
+        if (arg0->b != NULL && arg0->b[idx] != NULL) {
+            copy_pos__11TNowLoadingFPvPv(arg0->b[idx], sp);
+        }
+    }
+}
+
+void TObjBoss5PillarDemo__sub_8028AD88(void* a0) { TObjBoss5PillarDemo__sub_8028ACE8((Pd_8028ACE8 *)((void*)(lbl_805D64D4)), (void*)(a0)); }
 
 void TObjBoss5PillarDemo__sub_8028ADB0(u32 arg0) {
     if (arg0 != 0U) {

@@ -4830,6 +4830,7 @@ pso/player/TObjPlayer_8012429C.cpp:
 
 pso/unk/text_8012443C.cpp:
 	.text       start:0x8012443C end:0x801244C0
+	.data       start:0x804A2030 end:0x804A204C
 
 pso/player/TObjPlayer_801244C0.cpp:
 	.text       start:0x801244C0 end:0x8012463C
@@ -7286,6 +7287,7 @@ pso/misc/TORockCave.cpp:
 pso/misc/TOSensor.cpp:
 	.text       start:0x80175468 end:0x80175994
 	.rodata     start:0x804429E0 end:0x804429E8
+	.data       start:0x804B4160 end:0x804B41E0
 
 pso/misc/TOSensorAncient01.cpp:
 	.text       start:0x80175994 end:0x80175F88
@@ -7910,6 +7912,7 @@ pso/unk/text_80193018.cpp:
 
 pso/unk/text_801930E8.cpp:
 	.text       start:0x801930E8 end:0x801934E0
+	.rodata     start:0x80445BF8 end:0x80445C00
 
 pso/object/TObjLazerFence4.cpp:
 	.text       start:0x801934E0 end:0x80193524
@@ -10450,14 +10453,8 @@ pso/misc/TLobby_801E6544_801E8478.cpp:
 	.text       start:0x801E8478 end:0x801EA05C
 
 pso/misc/TLobby_801E6544_801EA05C.cpp:
-	.text       start:0x801EA05C end:0x801EB46C
+	.text       start:0x801EA05C end:0x801ED6CC
 	.rodata     start:0x80449CB8 end:0x80449CC0
-
-pso/misc/TLobby_801E6544_801EB46C.cpp:
-	.text       start:0x801EB46C end:0x801ED50C
-
-pso/misc/TLobby_801E6544_801ED50C.cpp:
-	.text       start:0x801ED50C end:0x801ED6CC
 
 pso/misc/TLobby_801E6544_801ED6CC.cpp:
 	.text       start:0x801ED6CC end:0x801ED718
@@ -11172,6 +11169,7 @@ pso/misc/THunterGuildSeqOffline.cpp:
 
 pso/misc/THunterGuildSeqOffline_80213788.cpp:
 	.text       start:0x80213788 end:0x80213E38
+	.data       start:0x804C9778 end:0x804C97B4
 
 pso/misc/THunterGuildSeqOffline_80213E38.cpp:
 	.text       start:0x80213E38 end:0x80213EBC
@@ -11199,6 +11197,7 @@ pso/misc/TShopWindowBase_802143AC.cpp:
 
 pso/misc/THunterGuildSeqOffline_80214978.cpp:
 	.text       start:0x80214978 end:0x80214BC4
+	.data       start:0x804C97B4 end:0x804C97F0
 
 pso/player/THunterGuildSeqOnlineTask.cpp:
 	.text       start:0x80214BC4 end:0x802150E8
@@ -11242,6 +11241,7 @@ pso/misc/TQuestListOnline.cpp:
 
 pso/misc/TQuestListOnline_80218160.cpp:
 	.text       start:0x80218160 end:0x8021824C
+	.data       start:0x804C9D18 end:0x804C9D4C
 
 pso/misc/TQuestListOnline_8021824C.cpp:
 	.text       start:0x8021824C end:0x80218310
@@ -11742,6 +11742,7 @@ pso/player/TObjPlayer_8023E480.cpp:
 
 pso/ui/TAdMultiChgGameModeGC_8023E7A8.cpp:
 	.text       start:0x8023E7A8 end:0x8023EA94
+	.data       start:0x804CCE98 end:0x804CCED0
 
 pso/ui/TAdEnterSerialAccessGC_8023EA94.cpp:
 	.text       start:0x8023EA94 end:0x8023EAC4

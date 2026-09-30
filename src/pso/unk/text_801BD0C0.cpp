@@ -7,23 +7,120 @@ struct V_801BD240 : B_801BD240 {
 
 struct P_801BD240 { u8 pad0[0xE0]; s32 fE0; u8 pad1[0x380 - 0xE4]; V_801BD240 *f380; };
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct VBase_8_c75954 { char pad[0x8]; };
+
+struct VObj_8_c75954 : VBase_8_c75954 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual s32 m5(s32, s16);
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual s32 m74();
+};
+
+typedef struct Player_801BD1B4 {
+    u8 pad0[0x380];
+    VObj_8_c75954 *anim;
+} Player_801BD1B4;
+
 extern "C" {
 u16 obj_getField1c(void *);
 void TObjPlayer__sub_801B55B0(void *, s32);
-void TObjPlayer__sub_801BD1B4(void *);
 void update_input_and_draw__10TObjPlayerFi(void *);
 extern s32 TObjPlayer__data_805D5D80;
 void TObjPlayer__sub_801BD240(P_801BD240 *arg0);
+void init_npc_animation__10TObjPlayerFPvPvPvPv(void *, void *, s32, s32);
+s32 get_handle_value__10TObjPlayerFPv(void *);
+s32 has_valid_handle__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_801D0458();
+void TObjPlayer__sub_801BD1B4(Player_801BD1B4 *arg0);
 }
 
 extern "C" {
+
+void TObjPlayer__sub_801BD1B4(Player_801BD1B4 *arg0) {
+    init_npc_animation__10TObjPlayerFPvPvPvPv(arg0, (void *)arg0->anim->m5(has_valid_handle__10TObjPlayerFPv(arg0), get_handle_value__10TObjPlayerFPv(arg0)), arg0->anim->m74(), TObjPlayer__sub_801D0458());
+}
 
 void TObjPlayer__sub_801BD240(P_801BD240 *arg0) {
     s32 t = obj_getField1c(arg0) * 0xC00;
     arg0->fE0 = TObjPlayer__data_805D5D80 + t;
     TObjPlayer__sub_801B55B0(arg0, t);
     arg0->f380->m3(obj_getField1c(arg0));
-    TObjPlayer__sub_801BD1B4(arg0);
+    TObjPlayer__sub_801BD1B4((Player_801BD1B4 *)(arg0));
     update_input_and_draw__10TObjPlayerFi(arg0);
 }
 

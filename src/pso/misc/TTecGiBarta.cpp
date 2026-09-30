@@ -96,6 +96,11 @@ struct TTecGiBarta_80230C58 {
     s32 f174;
 };
 
+struct Obj_80230CFC {
+    u8 pad0[0x134];
+    u16 ids[32];
+};
+
 extern "C" {
 s32 TTecCtrl__sub_8022DBC4(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
@@ -121,6 +126,14 @@ extern void *__vt__11TTecGiBarta[];
 extern s32 lbl_805D37B8;
 extern const f32 lbl_805DC80C;
 TTecGiBarta_80230C58 *TTecGiBarta__ct(TTecGiBarta_80230C58 *self, void * _w1, void * _w2, void * _w3, void * _w4);
+u16 obj_getField1c(void *);
+void update_technique_by_phase__11TTecGiBartaFPv(u8 *arg0);
+void TObjFish__sub_802304A0(void *);
+void TTecGiBarta__sub_802308A0(u8 *arg0);
+void TObjPlayer__sub_8023AA4C();
+extern void *__vt__11TTecGiBarta[];
+extern s32 lbl_805D37B8;
+u8 *TTecGiBarta__sub_80230CFC(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4);
 }
 
 extern "C" {
@@ -133,7 +146,6 @@ void update_technique_by_phase__11TTecGiBartaFPv(u8 *arg0);
 s32 TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8023A244(void *);
 u32 TPhotonMylla__sub_80154CB4(u16);
-void *TTecGiBarta__sub_80230CFC(void *, void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK advance_lifetime_or_destroy(void *);
 M2C_UNK fn_8023A694(void *);
@@ -235,7 +247,7 @@ void create_ex__11TTecGiBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void 
     void *o;
     o = __nw__7TObjectFUl(0x178);
     if (o != NULL) {
-        TTecGiBarta__sub_80230CFC(o, arg0, arg1, arg2, arg3);
+        TTecGiBarta__sub_80230CFC((u8 *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (void *)(arg3));
     }
 }
 
@@ -282,6 +294,24 @@ TTecGiBarta_80230C58 *TTecGiBarta__ct(TTecGiBarta_80230C58 *self, void * _w1, vo
     TObjFish__sub_802304A0(self);
     update_technique_by_phase__11TTecGiBartaFPv((u8 *)self);
     return self;
+}
+
+u8 *TTecGiBarta__sub_80230CFC(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4) {
+    s32 i;
+    TObjPlayer__sub_8023AA4C();
+    M2C_FIELD(arg0, void **, 0x18) = __vt__11TTecGiBarta;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D37B8;
+    TTecGiBarta__sub_802308A0(arg0);
+    for (i = 0; i < 0x20; i++) {
+        ((Obj_80230CFC *)arg0)->ids[i] = 0xFFFF;
+    }
+    M2C_FIELD(arg0, s32 *, 0x174) = 0;
+    if (M2C_FIELD(arg0, void **, 0x1C) != 0) {
+        M2C_FIELD(arg0, s16 *, 0xC8) = obj_getField1c(M2C_FIELD(arg0, void **, 0x1C));
+    }
+    TObjFish__sub_802304A0(arg0);
+    update_technique_by_phase__11TTecGiBartaFPv(arg0);
+    return arg0;
 }
 
 void render__11TTecGiBartaFv(void) {  }

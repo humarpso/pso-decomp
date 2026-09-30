@@ -45,6 +45,8 @@ struct RecoveredFields_8024A688_temp_r3
 
 struct Ctrl_8024A928 { u8 pad[0x84]; void *slots[4]; };
 
+struct Ctrl_8024A714 { u8 pad[0x84]; void *arr[4]; };
+
 struct Obj_8024A7CC { u8 pad[0x84]; void *arr[4]; };
 
 extern "C" {
@@ -96,6 +98,9 @@ extern void *TWindowCtrl__data_805D63F8;
 void *TWindowCtrl__sub_8024A928(Ctrl_8024A928 *self, s32 player, s32 flags, void *text, void *local);
 char *TWindowCtrl__sub_8024A570(void *self, char *s);
 s32 TWindowCtrl__sub_8024A7CC(Obj_8024A7CC *self);
+void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+extern s32 lbl_805D53A0;
+s32 TWindowCtrl__sub_8024A714(Ctrl_8024A714 *ctrl, u16 speaker);
 }
 
 extern "C" {
@@ -293,6 +298,35 @@ f32 TWindowCtrl__sub_8024A688(M2C_UNK arg0, RecoveredFields_8024A688_arg1 *arg1,
   temp_f3 = arg1->field_3C - ((RecoveredFields_8024A688_temp_r3 *) temp_r3)->field_3C;
   temp_f2 = arg1->field_40 - ((RecoveredFields_8024A688_temp_r3 *) temp_r3)->field_40;
   return (temp_f2 * temp_f2) + ((temp_f4 * temp_f4) + (temp_f3 * temp_f3));
+}
+
+s32 TWindowCtrl__sub_8024A714(Ctrl_8024A714 *ctrl, u16 speaker) {
+    s32 i;
+    s32 result;
+    RecoveredFields_8024A688_arg1 *local;
+    f32 farthest;
+    f32 d;
+    void *b;
+    u16 id;
+
+    local = (RecoveredFields_8024A688_arg1 *)TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    if (local == NULL) {
+        return 4;
+    }
+    result = 4;
+    farthest = ((f32 (*)(void *, RecoveredFields_8024A688_arg1 *, u16))TWindowCtrl__sub_8024A688)(ctrl, local, speaker);
+    for (i = 0; i < 4; i++) {
+        b = ctrl->arr[i];
+        if (b != NULL) {
+            id = get_flags__11TWindowCtrlFPv(b);
+            d = ((f32 (*)(void *, RecoveredFields_8024A688_arg1 *, u16))TWindowCtrl__sub_8024A688)(ctrl, local, id);
+            if (!(farthest > d)) {
+                farthest = d;
+                result = i;
+            }
+        }
+    }
+    return result;
 }
 
 s32 TWindowCtrl__sub_8024A7CC(Obj_8024A7CC *self) {

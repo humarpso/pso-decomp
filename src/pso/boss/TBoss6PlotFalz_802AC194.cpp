@@ -42,6 +42,8 @@ struct Obj_8004B1BC { u8 pad[0x1C]; u16 id; };
 
 struct Msg_8004B1BC { u8 code; u8 size; u16 id; s16 a; u8 pad6[2]; s32 b; u8 padc[4]; };
 
+struct Obj_802AC1D8 { s32 count; s32 pad4; s32 x; s32 y; u32 *list; };
+
 extern "C" {
 void destroy_buffer_pair(void *p, s32 flag);
 int free__11TOBoss4RockFUi(void *p);
@@ -51,6 +53,8 @@ extern s32 lbl_805D586C;
 s32 get_field_3e0__12TBoss3VoloptFPv(void *p);
 void TObjPlayer__sub_801B0FF4(void *p);
 void TBoss6PlotFalz__sub_802AC4D8(void *self);
+void TObjPlayer__sub_800F5BC0(u32, s16, s16);
+void TBoss6PlotFalz__sub_802AC1D8(Obj_802AC1D8 *o, s32 dx, s32 dy);
 }
 
 extern "C" {
@@ -67,6 +71,22 @@ void update_active_flag__14TBoss6PlotFalzFv(void) {
         lbl_805D66F8 = 1;
     }
 }
+
+void TBoss6PlotFalz__sub_802AC1D8(Obj_802AC1D8 *o, s32 dx, s32 dy) {
+    s32 j;
+    s32 i;
+    i = 0;
+    j = 0;
+    o->x += dx;
+    o->y += dy;
+    for (; i < o->count; i++, j += 4) {
+        u32 e = *(u32 *)((u8 *)o->list + j);
+        if (e != 0) {
+            TObjPlayer__sub_800F5BC0(e, o->x, o->y);
+        }
+    }
+}
+
 void TBoss6PlotFalz__sub_802AC25C(Obj_8004AA04 *self) {
     s32 i;
     for (i = 0; i < self->count; i++) {

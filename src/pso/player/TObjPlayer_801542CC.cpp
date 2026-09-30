@@ -76,6 +76,10 @@ struct E_801546D0 { u32 a; s32 b; };
 
 struct G_80156720 { u8 pad0[0x9C]; u8 *f9c; u8 pad_A0[4]; void *fa4; };
 
+struct Flg_8015610C { u8 pad[0x18]; u32 flags; };
+
+struct P_8015610C { u8 pad[0xA4]; Flg_8015610C *f; };
+
 extern "C" {
 void TObjPlayer__sub_801550B8(u8 *arg0, u8 *arg1);
 u8 * TObjPlayer__sub_80155028(s32 arg0, s32 arg1);
@@ -196,6 +200,12 @@ extern int lbl_805D5878;
 void TObjPlayer__sub_801546D0(u32 arg0, s32 arg1);
 void free__11TOBoss4RockFUi(s32);
 void TObjEneGibbles__sub_80156720(G_80156720 *arg0);
+u16 obj_getField1c(int);
+u32 TObjPlayer__sub_80156268(void *, void *, f32);
+extern s32 TObjPlayer__data_8050D460[];
+extern s32 lbl_805D5868;
+extern const f32 lbl_805DB29C;
+void TObjPlayer__sub_8015610C(P_8015610C *arg0);
 }
 
 extern "C" {
@@ -551,6 +561,25 @@ void* find_actor_body_contact(u8* arg0, u8* arg1, f32 limit) {
         }
     }
     return 0;
+}
+
+void TObjPlayer__sub_8015610C(P_8015610C *arg0) {
+    u32 obj;
+    s32 i;
+    Flg_8015610C *f = arg0->f;
+    if (f != NULL) {
+        f->flags = f->flags & 0xFFEFFFFF;
+        for (i = 0; i < lbl_805D5868; i++) {
+            obj = TObjPlayer__data_8050D460[i];
+            if (obj == 0U) {
+                break;
+            }
+            u16 t = obj_getField1c(obj);
+            if (t >= 0x1000U && t < 0x4000U && TObjPlayer__sub_80156268(arg0, (void *)obj, lbl_805DB29C) != 0U) {
+                arg0->f->flags = arg0->f->flags | 0x100000;
+            }
+        }
+    }
 }
 
 void TObjPlayer__sub_801561C4(TObjPlayer_801561C4 *self, f32 range) {

@@ -16,6 +16,12 @@ struct Part_800BA9BC { Vec_800BA9BC a; u8 pad[0x10]; Vec_800BA9BC b; u8 pad2[4];
 
 struct Obj_800BA9BC { u8 pad[0x38]; Vec_800BA9BC pos; u8 pad2[0x1c]; s32 angle; u8 pad3[0x40]; Part_800BA9BC *parts; };
 
+struct V3_800BAA2C { f32 x; f32 y; f32 z; };
+
+struct Col_800BAA2C { u8 pad0[0x1C]; V3_800BAA2C pos; u8 pad28[4]; };
+
+struct Obj_800BAA2C { u8 pad0[0x38]; f32 x; f32 y; f32 z; u8 pad44[0x60 - 0x44]; s32 rot; u8 pad64[0xA4 - 0x64]; Col_800BAA2C *cols; s32 count; };
+
 extern "C" {
 int TObjPlayer__sub_803D9B2C(void);
 int TObjPlayer__sub_803D8CD4(void *);
@@ -34,11 +40,18 @@ void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
 void TObjBoss2Tunnel__sub_8007E7D8(f32 *x, f32 *z, s32 angle);
 void TBoss4Zako__sub_803D8910(Vec_800BA9BC *a, Vec_800BA9BC *b);
 void TObjEneDD__sub_800BA9BC(Obj_800BA9BC *self, Vec_800BA9BC *v, s32 i);
+void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
+int TCameraCtrl__sub_803D8934(void *, void *, void *);
+int TObjPlayer__sub_803D8CD4(void *);
+int TObjPlayer__sub_803D9214(void *, void *);
+void TObjPlayer__sub_803D9624(int, f32, f32, f32);
+int TObjPlayer__sub_803D9B2C(void);
+int TObjPlayer__sub_803D9B78(void);
+void TObjEneDD__sub_800BAA2C(Obj_800BAA2C *arg0, V3_800BAA2C *arg1);
 }
 
 extern "C" {
 
-int TObjEneDD__sub_800BAA2C(void);
 void clear_field_388__9TObjEneDDFPv(void* p);
 void init_model__9TObjEneDDFPv(void* p);
 void set_active__9TObjEneDDFPv(void* p);
@@ -68,7 +81,19 @@ void TObjEneDD__sub_800BA9BC(Obj_800BA9BC *self, Vec_800BA9BC *v, s32 i) {
     TBoss4Zako__sub_803D8910(p, &self->pos);
 }
 
-int TObjEneDD__sub_800BAA2C(void) { return 0; }
+void TObjEneDD__sub_800BAA2C(Obj_800BAA2C *arg0, V3_800BAA2C *arg1) {
+    s32 i;
+    TObjPlayer__sub_803D9B2C();
+    TObjPlayer__sub_803D8CD4((void *)(0));
+    TObjPlayer__sub_803D9214((void *)(0), (void *)(-arg0->rot));
+    TObjPlayer__sub_803D9624(0, -arg0->x, -arg0->y, -arg0->z);
+    for (i = 0; i < arg0->count; i++) {
+        VecCopy__FP3VecPC3Vec((Vec_800BAAE4 *)(&arg0->cols[i].pos), (const Vec_800BAAE4 *)(arg1));
+        TCameraCtrl__sub_803D8934(0, arg1, &arg0->cols[i]);
+        arg1++;
+    }
+    TObjPlayer__sub_803D9B78();
+}
 
 void TObjEneDD__sub_800BAAE4(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s32 i) {
     Vec_800BAAE4 *p;

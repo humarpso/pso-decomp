@@ -6,6 +6,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Pad_80139094 { u8 pad[0x10]; u32 flags; };
 
+struct Pad_80139104 { u8 pad[0x10]; u32 flags; };
+
+struct Ent_80139104 { u8 b[0x1C]; };
+
+struct Lst_80139104 { u8 pad[0x1DA8]; Ent_80139104 e[1]; };
+
+struct Pad_801391BC { u8 pad[0x10]; u32 flags; };
+
+struct Ent_801391BC { u8 b[0x1C]; };
+
+struct Lst_801391BC { u8 pad[0x1DA8]; Ent_801391BC e[1]; };
+
 extern "C" {
 extern s8 lbl_8050E208[];
 extern s32 TLobby__data_805D55B4;
@@ -14,6 +26,30 @@ void TKeyBoardControl__sub_8000F91C(s32);
 void TKeyBoardControl__sub_8000F9CC(s32);
 void queue_destruction__7TObjectFv(void *);
 void TLobby__sub_80139094(void *self);
+void close_and_set_state_12__6TLobbyFv();
+s32 get_status_flag__6TLobbyFPv(u32);
+void send_info__9TProtocolFR16TPlyGuildCardTag(void *, void *);
+void send_action__9TProtocolFR13GameListEntryPcPc(void *, void *, char *, char *);
+M2C_UNK TWindow__close(u32);
+s32 select_cursor_entry__6TLobbyFPv(u32);
+extern char lbl_8043F06C[];
+extern s8 lbl_8050E208[];
+extern s32 TLobby__data_805D5580;
+extern u32 TLobby__data_805D55D0;
+extern char TLobby__data_805DB0B0;
+void TLobby__sub_80139104(void);
+void close_and_set_state_12__6TLobbyFv();
+s32 get_status_flag__6TLobbyFPv(u32);
+void send_info__9TProtocolFR16TPlyGuildCardTag(void *, void *);
+void send_action__9TProtocolFR13GameListEntryPcPc(void *, void *, char *, char *);
+M2C_UNK TWindow__close(u32);
+s32 select_cursor_entry__6TLobbyFPv(u32);
+extern char lbl_8043F078[];
+extern s8 lbl_8050E208[];
+extern s32 TLobby__data_805D5580;
+extern u32 TLobby__data_805D55D0;
+extern char TLobby__data_805DB0B0;
+void TLobby__sub_801391BC(void);
 }
 
 extern "C" {
@@ -108,6 +144,42 @@ void TLobby__sub_80139094(void *self) {
         TKeyBoardControl__sub_8000F91C(2);
         TKeyBoardControl__sub_8000F9CC(0x12);
         queue_destruction__7TObjectFv(self);
+    }
+}
+
+void TLobby__sub_80139104(void) {
+    s32 idx;
+    if (TLobby__data_805D55D0 != 0U) {
+        if (get_status_flag__6TLobbyFPv(TLobby__data_805D55D0) != 0) {
+            idx = select_cursor_entry__6TLobbyFPv(TLobby__data_805D55D0);
+            TWindow__close(TLobby__data_805D55D0);
+            TLobby__data_805D55D0 = 0U;
+            send_action__9TProtocolFR13GameListEntryPcPc((*(Lst_80139104 * *)&TLobby__data_805D5580), &(*(Lst_80139104 * *)&TLobby__data_805D5580)->e[idx], lbl_8043F06C, &TLobby__data_805DB0B0);
+            close_and_set_state_12__6TLobbyFv();
+            return;
+        }
+        if ((*(Pad_80139104 **)lbl_8050E208)->flags & 0x400) {
+            idx = select_cursor_entry__6TLobbyFPv(TLobby__data_805D55D0);
+            send_info__9TProtocolFR16TPlyGuildCardTag((*(Lst_80139104 * *)&TLobby__data_805D5580), &(*(Lst_80139104 * *)&TLobby__data_805D5580)->e[idx]);
+        }
+    }
+}
+
+void TLobby__sub_801391BC(void) {
+    s32 idx;
+    if (TLobby__data_805D55D0 != 0U) {
+        if (get_status_flag__6TLobbyFPv(TLobby__data_805D55D0) != 0) {
+            idx = select_cursor_entry__6TLobbyFPv(TLobby__data_805D55D0);
+            TWindow__close(TLobby__data_805D55D0);
+            TLobby__data_805D55D0 = 0U;
+            send_action__9TProtocolFR13GameListEntryPcPc((*(Lst_801391BC * *)&TLobby__data_805D5580), &(*(Lst_801391BC * *)&TLobby__data_805D5580)->e[idx], lbl_8043F078, &TLobby__data_805DB0B0);
+            close_and_set_state_12__6TLobbyFv();
+            return;
+        }
+        if ((*(Pad_801391BC **)lbl_8050E208)->flags & 0x400) {
+            idx = select_cursor_entry__6TLobbyFPv(TLobby__data_805D55D0);
+            send_info__9TProtocolFR16TPlyGuildCardTag((*(Lst_801391BC * *)&TLobby__data_805D5580), &(*(Lst_801391BC * *)&TLobby__data_805D5580)->e[idx]);
+        }
     }
 }
 

@@ -12,6 +12,8 @@ struct Stack_800E0950 {
 struct RecoveredGlobal_800E0950_lbl_80495484 { M2C_UNK value; u8 remaining[0x9C]; };
 typedef char RecoveredGlobal_800E0950_lbl_80495484_size[sizeof(RecoveredGlobal_800E0950_lbl_80495484) == 0xA0 ? 1 : -1];
 
+struct Obj_800E0B9C { u8 pad0[0x38]; u8 f38[0x78]; u32 fB0; u8 padB4[0x380 - 0xB4]; s32 f380; s32 f384; s32 f388; };
+
 extern "C" {
 void TObjEnePanarms__sub_800E0930(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -49,6 +51,12 @@ void TObjEnePanarms__sub_800E0950(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805DA580;
 void TObjEnePanarms__sub_800E152C(u8 *arg0);
+int set_field_b8__14TObjEnePanarmsFPvs(void*, int);
+M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+extern s32 lbl_80495924[];
+extern s8 lbl_805D5288;
+void TObjEnePanarms__sub_800E0B9C(Obj_800E0B9C *arg0);
 }
 
 extern "C" {
@@ -242,6 +250,20 @@ void apply_effect_if_flagged__14TObjEnePanarmsFPv(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
         TObjEnePanarms__sub_800E1C98((void *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x374)));
     }
+}
+
+void TObjEnePanarms__sub_800E0B9C(Obj_800E0B9C *arg0) {
+    arg0->f384 = 1;
+    arg0->f388 = 1;
+    if (lbl_805D5288 == 0) {
+        lbl_80495924[0] = ((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)(arg0), (M2C_UNK)(0x4003BC34)));
+        s32 t = ((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)(arg0), (M2C_UNK)(0x4003BC33)));
+        lbl_805D5288 = 1;
+        lbl_80495924[1] = t;
+    }
+    TBoss3Volopt__sub_8022675C((M2C_UNK)(lbl_80495924[arg0->f380]), (void *)(arg0->f38), (M2C_UNK)(0), (M2C_UNK)(0));
+    arg0->fB0 &= 0xFFFFFFFE;
+    set_field_b8__14TObjEnePanarmsFPvs((void*)(arg0), (int)(5));
 }
 
 void update_hit_state__14TObjEnePanarmsFPv(void *arg0) {

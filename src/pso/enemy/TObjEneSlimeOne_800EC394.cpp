@@ -6,12 +6,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct O_800EC39C { u8 pad[0x384]; s32 state; };
 
+struct Obj_800EC6D0 { s32 f0; s32 state; u8 pad8[0x28 - 8]; f32 f28; f32 f2C; f32 f30; };
+
 extern "C" {
 s32 TObjPlayer__sub_800114D8(void *, void *, f32);
 int TObjEneSlimeOne__sub_800EC428(u8 *arg0, s32 arg1, f32 farg0);
 s32 TObjPlayer__sub_800114D8(void *, void *, f32);
 int TObjEneSlimeOne__sub_800EC3D0(u8 *arg0, f32 farg0);
 s32 TObjEneSlimeOne__sub_800EC39C(O_800EC39C *self);
+void TBoss1Dragon__sub_80143504(s32);
+extern s8 lbl_805D52C4;
+extern f32 lbl_805D52C0;
+extern f32 lbl_805DA760;
+void TObjEneSlimeOne__sub_800EC6D0(Obj_800EC6D0 *arg0);
 }
 
 extern "C" {
@@ -64,6 +71,34 @@ int check_player_field_7cc__15TObjEneSlimeOneFPv(void* p) { return TObjPlayer__s
 extern f32 lbl_805D52B8;
 extern u8 lbl_805D52BC;
 extern f32 lbl_805DA760;
+
+void TObjEneSlimeOne__sub_800EC6D0(Obj_800EC6D0 *arg0) {
+    s32 s = arg0->state;
+    if (s == -1) {
+        return;
+    }
+    if (s < 7) {
+        TBoss1Dragon__sub_80143504(arg0->f0);
+    } else if (s < 9) {
+        f32 v = arg0->f30 + arg0->f28;
+        arg0->f30 = v;
+        if (v >= arg0->f2C) {
+            arg0->f30 = arg0->f30 - arg0->f2C;
+        }
+    } else {
+        if (lbl_805D52C4 == 0) {
+            f32 tmp = arg0->f2C;
+            lbl_805D52C4 = 1;
+            lbl_805D52C0 = tmp - lbl_805DA760;
+        }
+        f32 v = arg0->f30 + arg0->f28;
+        f32 lim = lbl_805D52C0;
+        arg0->f30 = v;
+        if (v >= lim) {
+            arg0->f30 = lim;
+        }
+    }
+}
 
 s32 is_reached_target_depth__15TObjEneSlimeOneFPv(void *arg0) {
     s32 temp_r0;

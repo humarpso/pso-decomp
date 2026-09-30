@@ -4,12 +4,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Rec_800B8B08 { u8 vec[0x18]; s32 f18; u32 flags; };
+
+struct Obj_800B8B08 { u8 pad0[0x24]; s32 f24; u8 pad28[0x34 - 0x28]; s32 f34; u8 pad38[0xC0 - 0x38]; f32 fc0; u8 padc4[0xF8 - 0xC4]; s32 ff8; Rec_800B8B08 *recs; u8 pad100[4]; s32 count; };
+
+extern "C" {
+s32 reset_transform_state__10TObjPlayerFv();
+s32 set_position_vec3__10TObjPlayerFPvPv(int, void *);
+s32 TObjPlayer__sub_803D9214(int, int);
+s32 TObjPlayer__sub_803D97F0(int);
+s32 TCameraCtrl__sub_803D9858(int);
+s32 set_global_param__8TObjFishFi(int);
+s32 TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
+void render__10TObjCGrassFv(Obj_800B8B08 *arg0);
+}
+
 extern "C" {
 
 void *__dt__10TObjCGrassFv(void *arg0, s16 arg1);
 void* fn_800B8B00(void* p);
 void release_global_805D5130__10TObjCGrassFv(void);
-int render__10TObjCGrassFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TObjEneBm5Wolf__sub_800B8AF8(void* p);
 void __dl__7TObjectFPv(void *);
@@ -50,9 +64,23 @@ extern const f32 lbl_805D9E68;
 void TObjCGrass__sub_800B8DC4(void);
 
 void* fn_800B8B00(void* p) { return (char*)p + 0x3e8; }
-int render__10TObjCGrassFv(void) { return 0; }
 
 extern u32 lbl_805D5130;
+
+void render__10TObjCGrassFv(Obj_800B8B08 *arg0) {
+    s32 i;
+    set_global_param__8TObjFishFi(arg0->f24);
+    for (i = 0; i < arg0->count; i++) {
+        if (!(arg0->recs[i].flags & 1)) {
+            TObjPlayer__sub_803D97F0(0);
+            set_position_vec3__10TObjPlayerFPvPv(0, &arg0->recs[i]);
+            TObjPlayer__sub_803D9214(0, arg0->recs[i].f18);
+            TObjEneSlimeOne__sub_803E4AF4(arg0->f34, arg0->ff8, arg0->fc0);
+            reset_transform_state__10TObjPlayerFv();
+            TCameraCtrl__sub_803D9858(1);
+        }
+    }
+}
 
 void release_global_805D5130__10TObjCGrassFv(void) {
     if ((u32) lbl_805D5130 != 0U) {

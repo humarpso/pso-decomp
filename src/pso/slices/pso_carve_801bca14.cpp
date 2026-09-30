@@ -1,6 +1,18 @@
 #include "types.h"
 
 extern "C" {
+s32 obj_getField1c();
+s32 TObjPlayer__sub_801AFDB0(void *);
+void TObjPlayer__sub_801C1F78(void *, s32);
+s32 TObjPlayer__sub_801C21C4(void *, s32);
+s32 TObjPlayer__sub_801C21D4(void *, s32);
+void clamp_and_set_unit_value__10TObjPlayerFiUci(void *, u8, s16);
+void TObjPlayer__sub_801D955C(void *, s32);
+void TObjPlayer__sub_801D9B90(void *, s32);
+void TObjPlayer__sub_801BCA14(u8 *arg0, void *arg1);
+}
+
+extern "C" {
 
 s32 obj_isState2_324();
 s32 is_current_room__10TObjRoomIdFPv(s32);
@@ -21,6 +33,16 @@ int can_cast_technique__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BCC50(void);
 int check_technique_castable__10TObjPlayerFi(void*);
 
-int TObjPlayer__sub_801BCA14(void) { return 0; }
+void TObjPlayer__sub_801BCA14(u8 *arg0, void *arg1) {
+    s32 i;
+    TObjPlayer__sub_801C1F78(arg0 + 0x4AC, obj_getField1c());
+    TObjPlayer__sub_801D955C(arg0 + 0x428, TObjPlayer__sub_801AFDB0(arg0));
+    TObjPlayer__sub_801D9B90(arg0 + 0x428, 0x1D);
+    i = 0;
+    do {
+        clamp_and_set_unit_value__10TObjPlayerFiUci(arg0, TObjPlayer__sub_801C21D4(arg1, i) + TObjPlayer__sub_801C21C4(arg1, i), (s16)i);
+        i += 1;
+    } while (i < 0x13);
+}
 
 }

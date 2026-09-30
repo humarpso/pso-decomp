@@ -16,6 +16,26 @@ struct RecoveredGlobal_80183604_lbl_804FF5E8
   u8 remaining[0x24];
 };
 
+struct VBase_8018355C { u8 pad[0x18]; };
+
+struct Obj_8018355C : VBase_8018355C {
+    virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3();
+    virtual void v4(); virtual void v5(); virtual void v6(); virtual void v7();
+    virtual s32 v8(f32, f32);
+    u8 pad1[0x38 - 0x1C];
+    u8 pos[0x5C - 0x38];
+    s32 f5C;
+    u8 pad2[4];
+    s32 f64;
+    f32 f68;
+    u8 pad3[4];
+    f32 f70;
+};
+
+struct V3_8018355C { f32 x; f32 y; f32 z; };
+
+struct V4_8018355C { s32 a; s32 b; s32 c; s32 d; };
+
 extern "C" {
 f32 TTecZondeEff__sub_8002DF28();
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -34,6 +54,12 @@ extern const f32 lbl_805DBC38;
 extern const f32 lbl_805DBC3C;
 extern const f32 lbl_805DBC40;
 void fn_80183604(u8 *arg0);
+void TObjMapWarp__sub_80141CB8(void *, void *, void *, void *);
+extern V4_8018355C lbl_804441FC[];
+extern const f32 lbl_805DBC30;
+extern const f32 lbl_805DBC34;
+extern const f32 lbl_805DBC38;
+void fn_8018355C(Obj_8018355C *arg0);
 }
 
 extern "C" {
@@ -44,6 +70,20 @@ typedef struct Stack_80183604 Stack_80183604;
 #pragma opt_propagation off
 #pragma opt_dead_assignments off
 #pragma fp_contract on
+
+void fn_8018355C(Obj_8018355C *arg0) {
+    if (arg0->v8(lbl_805DBC30, lbl_805DBC34) != 0) {
+        V3_8018355C sp18;
+        V4_8018355C sp8 = lbl_804441FC[0];
+        arg0->f64 = 0;
+        arg0->f5C = 0;
+        sp18.x = arg0->f68;
+        sp18.y = lbl_805DBC38;
+        sp18.z = arg0->f70;
+        TObjMapWarp__sub_80141CB8(arg0->pos, &arg0->f5C, &sp18, &sp8);
+    }
+}
+
 void fn_80183604(u8 *arg0) {
   Stack_80183604 stack;
   f32 temp_f30;

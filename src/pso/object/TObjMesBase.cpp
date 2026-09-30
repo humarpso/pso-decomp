@@ -14,6 +14,9 @@ struct TObjMesBase80194_80194C98 : TObjBase80194_80194C98 {
 };
 
 #include "pso/object/TObjMesBase.h"
+
+struct Mc_80194EC4 { u8 pad0[0x68]; f32 f68; u8 pad6C[0x50]; s32 fBC; };
+
 extern "C" {
 extern void* lbl_805D5EE8;
 extern void* lbl_805D5EEC;
@@ -21,6 +24,13 @@ extern void* tl_00;
 void* __nw__7TObjectFUl(unsigned long);
 void* __ct__12TQuestThreadFv(void*, void*, s32);
 void set_parent__7TObjectFP7TObject(void*, void*);
+f32 get_random_float__8TObjFishFv(f32);
+void TObjMesBase__sub_80194AEC();
+void set_global_count__12TObjNpcEnemyFi(int);
+void TObjEneBm5GibonU__sub_803D853C(int, void *, ...);
+extern s32 lbl_80445DF4[];
+extern u8 lbl_80445E08[];
+void TMotorcycle__vt14(Mc_80194EC4 *arg0);
 }
 
 extern "C" {
@@ -146,6 +156,15 @@ s32 TMotorcycle__vt8(s32 arg0, f32 farg0, f32 farg1) {
         return 1;
     }
     return fn_801A2340(arg0, farg0, farg1);
+}
+void TMotorcycle__vt14(Mc_80194EC4 *arg0) {
+    TObjMesBase__sub_80194AEC();
+    arg0->fBC = (s32)get_random_float__8TObjFishFv(arg0->f68);
+    arg0->fBC = arg0->fBC % 2;
+    arg0->fBC = lbl_80445DF4[arg0->fBC];
+    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    TObjEneBm5GibonU__sub_803D853C(0x13001C, lbl_80445E08);
+    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
 
 }

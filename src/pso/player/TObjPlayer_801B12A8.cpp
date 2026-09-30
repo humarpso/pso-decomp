@@ -18,6 +18,14 @@ typedef struct Ctx_801B1BA4 { s16 f0; s16 f2; } Ctx_801B1BA4;
 
 typedef struct Ctx_801B1C8C { s16 f0; s16 f2; } Ctx_801B1C8C;
 
+typedef struct Msg_801B1E54 {
+    u8 pad0[2];
+    u16 a;
+    s32 b;
+    s16 c;
+    u16 d;
+} Msg_801B1E54;
+
 struct Eff_801B2C04 { u16 f0; u16 f2; u32 f4; u32 f8; };
 
 struct Pair_801B2C04 { u32 a; u32 b; };
@@ -41,6 +49,10 @@ void *update_battle_controller__10TObjPlayerFv();
 M2C_UNK fn_801C0630(Ctx_801B1C8C *);
 M2C_UNK fn_801C0644(Ctx_801B1C8C *);
 void TObjPlayer__sub_801B1C8C(void);
+s32 TObjPlayer__sub_80019248();
+void TObjPlayer__sub_801C0708(void *);
+void TObjPlayer__sub_801C0734(void *);
+void TObjPlayer__sub_801B1E54(s32 arg0, s32 arg1, s32 arg2);
 void TObjPlayer__sub_801B28AC(u32, Pair_801B2C04 *);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 void TObjPlayer__sub_801BEE68(void *, void *);
@@ -132,6 +144,19 @@ u8 is_in_tl03_state__10TObjPlayerFPv(void *arg0) {
         var_r31 = 1;
     }
     return (u8)var_r31;
+}
+
+void TObjPlayer__sub_801B1E54(s32 arg0, s32 arg1, s32 arg2) {
+    Msg_801B1E54 m;
+
+    if (((((u32 (*)(u16))TPlayerBattleCtrl4P__sub_801BA74C)((u16)arg0) == 0U) || (obj_isState2_324() == 0)) && ((((u32 (*)(u16))TPlayerBattleCtrl4P__sub_801BA74C)((u16)arg1) == 0U) || (TObjPlayer__sub_80019248() != 0))) {
+        TObjPlayer__sub_801C0708(&m);
+        m.a = arg0;
+        m.b = 0;
+        m.c = arg2;
+        m.d = arg1;
+        TObjPlayer__sub_801C0734(&m);
+    }
 }
 
 void TObjPlayer__sub_801B1FA4(u16 slot, void *pos, s32 heading) {

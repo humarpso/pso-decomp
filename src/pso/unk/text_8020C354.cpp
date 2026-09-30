@@ -1,3 +1,25 @@
+#include "types.h"
+struct Row_8020C354 { s16 type, flags; u8 u4[8]; s16 room; u8 ue[0x3a]; };
+
 extern "C" {
+Row_8020C354 *resolve_matching_object__6TLobbyFPv(s32 floor);
+s32 get_object_type__6TLobbyFi(s32 floor);
+s32 fn_8020C354(s32 floor, s16 room);
+}
+
+extern "C" {
+
+s32 fn_8020C354(s32 floor, s16 room) {
+    Row_8020C354 *rows = resolve_matching_object__6TLobbyFPv(floor);
+    s32 count = get_object_type__6TLobbyFi(floor);
+    if (rows != NULL) {
+        for (; count > 0; count--, rows++) {
+            if (rows[0].room == room && !(rows[0].flags & 8) && (rows[0].flags & 2)) {
+                return 0;
+            }
+        }
+    }
+    return 1;
+}
 
 }

@@ -7,6 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+typedef struct Rec_801D35FC {
+    u8 b[0x1C];
+} Rec_801D35FC;
+
 struct M2CCopy_10 { u8 bytes[0x10]; };
 
 struct M2CCopy_14 { u8 bytes[0x14]; };
@@ -23,7 +27,7 @@ u8 *fn_801D36B4(u8 *arg0, u8 *arg1);
 
 extern "C" {
 
-int TItemList__sub_801D35FC(void);
+void TItemList__sub_801D35FC(void *arg0, void *arg1, void *arg2, Rec_801D35FC *arg3, s32 arg4);
 void fn_801D371C(void* p, void* q);
 void insert_item_node__10TObjPlayerFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 int TItemList__sub_801D3B00(void*, void*, void*, void*);
@@ -53,7 +57,25 @@ void insert_item_node__10TObjPlayerFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3
     }
 }
 
-int TItemList__sub_801D35FC(void) { return 0; }
+void TItemList__sub_801D35FC(void *arg0, void *arg1, void *arg2, Rec_801D35FC *arg3, s32 arg4) {
+    s32 i;
+    u8 *p;
+    Rec_801D35FC *q;
+
+    p = (u8 *)TItemList__sub_801D5868(arg0, 0);
+    q = (Rec_801D35FC *)((void *(*)(void *, s32))TItemList__sub_801D5854)(arg0, 0);
+    for (i = 0; i < arg4; i++) {
+        if (((s32 (*)(void *))TItemList__sub_801D5844)(p) != 0) {
+            TItemList__sub_801D5838(p);
+            ((void (*)(void *, void *))fn_801D36B4)(q, arg3);
+            ((void (*)(void *, void *, void *, s32))create_node__9TItemListFPvPvPvPv)(arg0, arg2, arg1, i);
+            TItemList__sub_801D5804(arg0);
+            p += 4;
+            q++;
+            arg3++;
+        }
+    }
+}
 
 u8 *fn_801D36B4(u8 *arg0, u8 *arg1) {
     u8 *temp_r4;

@@ -9,6 +9,7 @@ struct RecoveredGlobal_80186AF4_lbl_804FF800 {
     u8 remaining[0x1C];
 };
 
+struct Obj_80186B34 { u8 pad[0x38]; u8 pos[0xAC - 0x38]; f32 range; };
 struct Bits_80186A3C { s32 v[36]; };
 
 extern "C" {
@@ -21,6 +22,7 @@ s32 TObjCityMainWarp__sub_80186BBC(s32 arg0, f32 farg0);
 s32 get_main_phase();
 extern s32 lbl_805D55C0;
 s32 TObjCityMainWarp__sub_80186B00(void);
+s32 TObjCityMainWarp__sub_80186B34(Obj_80186B34 *arg0);
 extern RecoveredGlobal_80186AF4_lbl_804FF800 lbl_804FF800;
 M2C_UNK *TObjCityMainWarp__sub_80186AF4(void);
 extern const Bits_80186A3C lbl_804448CC;
@@ -101,6 +103,22 @@ M2C_UNK *TObjCityMainWarp__sub_80186AF4(void) {
 
 s32 TObjCityMainWarp__sub_80186B00(void) {
     return ((get_main_phase() - 0xF) == 0) ? lbl_805D55C0 : 0;
+}
+
+s32 TObjCityMainWarp__sub_80186B34(Obj_80186B34 *arg0) {
+    s32 r;
+    s32 i;
+    u8 *p;
+    r = 1;
+    for (i = 0; i < 4; i++) {
+        p = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(i);
+        if (p != 0) {
+            if (((s32 (*)(void *))get_field_3e4__10TObjPlayerFPv)(p) != TObjPlayer__sub_800196EC() || ((f32 (*)(void *, void *))fn_8013157C)(p + 0x38, arg0->pos) > arg0->range * arg0->range) {
+                r = 0;
+            }
+        }
+    }
+    return r;
 }
 
 #pragma push

@@ -31,6 +31,17 @@ struct B_8023DBB4 { u8 pad[0xc]; C_8023DBB4 *c; };
 
 struct A_8023DBB4 { u8 pad[0xc8]; B_8023DBB4 *b; };
 
+struct Rec_8023D4A8 { f32 a, b, c; };
+
+struct Obj_8023D4A8 {
+    u8 pad0[0x38];
+    s32 count;
+    u8 pad3c[0x174 - 0x3C];
+    Rec_8023D4A8 recs[1];
+    u8 pad180[0x210 - 0x180];
+    f32 w[1];
+};
+
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8023D988___vt__12TTecZondeEff __vt__12TTecZondeEff;
@@ -38,7 +49,6 @@ extern s32 lbl_805D3840;
 u8 *__ct__12TTecZondeEffFv(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, f32 farg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
-void TTecZondeEff__sub_8023D4A8(void *);
 void TTecZondeEff__sub_8023D568(void *);
 extern RecoveredGlobal_8023D988___vt__12TTecZondeEff __vt__12TTecZondeEff;
 extern s32 lbl_805D3840;
@@ -46,7 +56,6 @@ extern const f32 TTecZondeEff__data_805DC994;
 u8 *TTecZondeEff__sub_8023DADC(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, f32 farg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
-void TTecZondeEff__sub_8023D4A8(void *);
 void TTecZondeEff__sub_8023D568(void *);
 extern RecoveredGlobal_8023D988___vt__12TTecZondeEff __vt__12TTecZondeEff;
 extern s32 lbl_805D3840;
@@ -56,12 +65,17 @@ extern char lbl_804CC8C8[];
 extern A_8023DBB4 *lbl_8048E5A0[];
 extern s32 TTecZondeEff__data_805D63B8;
 void TTecZondeEff__sub_8023DBB4(void);
+f32 TTecZondeEff__sub_8002DF28();
+void TTecZondeEff__sub_8023D294(void *, s32, void *);
+s32 calc_dominant_axis__12TTecZondeEffFPv(void *arg0);
+extern const f32 TTecZondeEff__data_805DC990;
+extern const f32 lbl_805DC9A4;
+void TTecZondeEff__sub_8023D4A8(Obj_8023D4A8 *arg0);
 }
 
 extern "C" {
 
 void TTecZondeEff__sub_8023DBA8(void);
-s32 calc_dominant_axis__12TTecZondeEffFPv(void *arg0);
 f32 get_random_float__8TObjFishFv(f32);
 
 s32 calc_dominant_axis__12TTecZondeEffFPv(void *arg0) {
@@ -87,6 +101,25 @@ s32 calc_dominant_axis__12TTecZondeEffFPv(void *arg0) {
 extern s32 TTecZondeEff__data_805D63B8;
 
 typedef char RecoveredGlobal_8023D988___vt__12TTecZondeEff_size[sizeof(RecoveredGlobal_8023D988___vt__12TTecZondeEff) == 0x18 ? 1 : -1];
+
+void TTecZondeEff__sub_8023D4A8(Obj_8023D4A8 *arg0) {
+    Rec_8023D4A8 *p;
+    s32 axis;
+    s32 i;
+    f32 k;
+    axis = calc_dominant_axis__12TTecZondeEffFPv((void *)(arg0));
+    p = arg0->recs;
+    for (i = 0; i < arg0->count; i++, p++) {
+        TTecZondeEff__sub_8023D294(arg0, axis, p);
+    }
+    k = lbl_805DC9A4;
+    for (i = 1; i < arg0->count - 1; i++) {
+        arg0->w[i] = k * TTecZondeEff__sub_8002DF28();
+    }
+    arg0->w[0] = TTecZondeEff__data_805DC990;
+    arg0->w[arg0->count - 1] = TTecZondeEff__data_805DC990;
+}
+
 u8 *__ct__12TTecZondeEffFv(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, f32 farg0) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__12TTecZondeEff.value;
@@ -120,7 +153,7 @@ u8 *TTecZonde__sub_8023DA10(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s3
     M2C_FIELD(arg0, s16 *, 0x25C) = 0;
     M2C_FIELD(arg0, s32 *, 0x38) = 0xD;
     TTecZondeEff__sub_8023D568(arg0);
-    TTecZondeEff__sub_8023D4A8(arg0);
+    TTecZondeEff__sub_8023D4A8((Obj_8023D4A8 *)(arg0));
     M2C_FIELD(arg0, s32 *, 0x248) = 0;
     M2C_FIELD(arg0, s32 *, 0x24C) = 0xFF000000;
     M2C_FIELD(arg0, s16 *, 0x25E) = 0;
@@ -141,7 +174,7 @@ u8 *TTecZondeEff__sub_8023DADC(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, f32 farg0
     M2C_FIELD(arg0, s16 *, 0x25C) = 0;
     M2C_FIELD(arg0, s32 *, 0x38) = 0xD;
     TTecZondeEff__sub_8023D568(arg0);
-    TTecZondeEff__sub_8023D4A8(arg0);
+    TTecZondeEff__sub_8023D4A8((Obj_8023D4A8 *)(arg0));
     M2C_FIELD(arg0, s32 *, 0x248) = 0;
     M2C_FIELD(arg0, s32 *, 0x24C) = 0xFF000000;
     M2C_FIELD(arg0, s16 *, 0x25E) = 0;

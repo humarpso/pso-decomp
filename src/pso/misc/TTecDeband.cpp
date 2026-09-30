@@ -39,6 +39,37 @@ struct Deband_8022F73C {
     s32 captured;
 };
 
+struct VBase_18_b27ba1 { char pad[0x18]; };
+
+struct HitInfo_8022F588 { s32 type; f32 power; };
+
+struct VObj_18_b27ba1 : VBase_18_b27ba1 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21(void *, HitInfo_8022F588 *, void *, s32, s32);
+};
+
+struct Obj_8022F588 { u8 pad[0x1C]; u8 *source; u8 pad20[0x74 - 0x20]; f32 power; };
+
 extern "C" {
 s32 obj_getField1c(int);
 s32 TObjPlayer__sub_8004433C(void *);
@@ -56,6 +87,11 @@ s32 is_parents_unqueued__9TTecLukerFUi();
 s32 is_valid_and_active__10TObjPlayerFUi(int);
 M2C_UNK fn_802370D8(void *);
 void run_task__10TTecDebandFv(Deband_8022F73C *self);
+s32 obj_getField1c(int);
+s32 is_split_screen();
+s32 TWindowSubComCard__sub_801058F8(void *);
+void show_party_effect__11TWindowCtrlFPvPvPv(s32, s32, s32);
+void TTecDeband__vt5(Obj_8022F588 *arg0, VObj_18_b27ba1 *arg1);
 }
 
 extern "C" {
@@ -83,6 +119,19 @@ void update_effect_params__10TTecDebandFPv(u8 *arg0) {
     res = TTecCtrl__sub_8022DBC4(0xA, M2C_FIELD(arg0, s16 *, 0xA4), 0xFFFF);
     TTecAnti__sub_8022B35C(arg0 + 0x74, res);
     M2C_FIELD(arg0, f32 *, 0x74) = (f32) (M2C_FIELD(arg0, s16 *, 0x98) * M2C_FIELD(arg0, s16 *, 0xA4));
+}
+
+void TTecDeband__vt5(Obj_8022F588 *arg0, VObj_18_b27ba1 *arg1) {
+    HitInfo_8022F588 h;
+    h.type = 0xA;
+    h.power = arg0->power;
+    if (TWindowSubComCard__sub_801058F8(arg1) == 0) {
+        HitInfo_8022F588 c = h;
+        arg1->m21(arg0->source, &c, 0, 0xA, -1);
+        if (is_split_screen() == 0) {
+            show_party_effect__11TWindowCtrlFPvPvPv(obj_getField1c((int)arg0->source), obj_getField1c((int)arg1), 0xA);
+        }
+    }
 }
 
 void create__10TTecDebandFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {

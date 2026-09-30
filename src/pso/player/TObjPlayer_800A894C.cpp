@@ -90,6 +90,8 @@ struct RecoveredGlobal_800A8B8C_lbl_804910F4
 
 struct Obj_800AA528 { u8 pad0[0x326]; s16 state; };
 
+struct Obj_800A8A7C { u8 pad[0x388]; u32 flags; };
+
 extern "C" {
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK TBoss3Volopt__sub_800D8D88(void *);
@@ -134,6 +136,10 @@ void TObjPlayer__sub_800A9718(void *);
 void TObjPlayer__sub_800A8E04(u8 *arg0);
 void TObjPlayer__sub_800A8C4C(void *);
 void TObjPlayer__sub_800AA528(Obj_800AA528 *arg0);
+s32 clear_flag8_all__12TBoss3VoloptFPv(void *);
+s32 set_flag8_list__12TBoss3VoloptFPv(void *);
+extern u8 lbl_805009A0[];
+void TBoss3Volopt__sub_800A8A7C(Obj_800A8A7C *arg0);
 }
 
 extern "C" {
@@ -181,6 +187,25 @@ s32 TObjPlayer__sub_800A8A34(s32 arg0) {
         return 1;
     }
     return 0;
+}
+
+void TBoss3Volopt__sub_800A8A7C(Obj_800A8A7C *arg0) {
+    u8 *g = lbl_805009A0;
+    if (arg0->flags & 0x20000) {
+        set_flag8_list__12TBoss3VoloptFPv(g + 0x68);
+    } else {
+        clear_flag8_all__12TBoss3VoloptFPv(g + 0x68);
+    }
+    if (arg0->flags & 0x40000) {
+        set_flag8_list__12TBoss3VoloptFPv(g + 0x78);
+    } else {
+        clear_flag8_all__12TBoss3VoloptFPv(g + 0x78);
+    }
+    if (arg0->flags & 0x80000) {
+        set_flag8_list__12TBoss3VoloptFPv(g + 0xA8);
+    } else {
+        clear_flag8_all__12TBoss3VoloptFPv(g + 0xA8);
+    }
 }
 
 void TObjPlayer__sub_800A8B0C(u8 *arg0) {

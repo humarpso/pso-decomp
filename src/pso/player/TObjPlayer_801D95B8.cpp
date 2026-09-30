@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+struct Rec_801D96CC { u8 a; u8 pad[3]; s16 b; };
+
 s16 get_or_init_field_4__10TObjPlayerFPv(void *arg0);
 s16 get_section_clamped__10TObjPlayerFPv(void *arg0);
 u8 get_valid_technique__10TObjPlayerFPv(void *arg0);
@@ -17,6 +19,13 @@ s32 is_invalid_slot__10TObjPlayerFUc();
 s32 is_valid_technique_id__10TObjPlayerFs(s16);
 s32 is_valid_technique_slot__10TObjPlayerFUc(u8);
 M2C_UNK set_technique_id__10TObjPlayerFPvs(void *, M2C_UNK);
+u8 get_item_count_max__10TObjPlayerFv();
+s32 check_technique_level__10TObjPlayerFiiUc(void *, int, u8);
+u8 TObjPlayer__sub_801D9BE8(void *, int);
+s32 TObjPlayer__sub_801C010C(void *, s16);
+s32 clamp_to_max__10TObjPlayerFiUcUc(void *, s32, s32);
+u8 TObjPlayer__sub_801D96CC(Rec_801D96CC *p);
+void TObjPlayer__sub_801D97C8(void *p, s32 add);
 
 s16 get_section_clamped__10TObjPlayerFPv(void *arg0) {
     s16 temp_r4;
@@ -55,6 +64,25 @@ u8 get_valid_technique__10TObjPlayerFPv(void *arg0) {
     return var_r31;
 }
 
+u8 TObjPlayer__sub_801D96CC(Rec_801D96CC *p) {
+    u8 a = p->a;
+    u8 t;
+    if (check_technique_level__10TObjPlayerFiiUc(p, p->b, a) == 0) {
+        a = 0x1D;
+    }
+    if (((s32 (*)(u8))is_invalid_slot__10TObjPlayerFUc)(a) != 0) {
+        return a;
+    }
+    t = TObjPlayer__sub_801D9BE8(p, p->b);
+    if (((s32 (*)(u8))is_invalid_slot__10TObjPlayerFUc)(t) != 0) {
+        return get_item_count_max__10TObjPlayerFv();
+    }
+    if (a > t) {
+        a = t;
+    }
+    return a;
+}
+
 void update_all_units__10TObjPlayerFii(s32 arg0, s32 arg1) {
     s32 var_r31;
 
@@ -66,6 +94,19 @@ void update_all_units__10TObjPlayerFii(s32 arg0, s32 arg1) {
         }
         var_r31 += 1;
     } while (var_r31 < 0x13);
+}
+
+void TObjPlayer__sub_801D97C8(void *p, s32 add) {
+    s32 i = 0;
+    do {
+        s32 v = ((s32 (*)(void *, s16))fn_801D9870)(p, i);
+        if (((s32 (*)(s32))is_invalid_slot__10TObjPlayerFUc)(v) == 0) {
+            v += add;
+            v = clamp_to_max__10TObjPlayerFiUcUc(p, v, ((s32 (*)(void *, s16))TObjPlayer__sub_801D9BE8)(p, i));
+            ((void (*)(void *, s16, s32))TItemProUnit__sub_801D98F8)(p, i, clamp_to_max__10TObjPlayerFiUcUc(p, v, TObjPlayer__sub_801C010C(p, i)));
+        }
+        i++;
+    } while (i < 0x13);
 }
 
 }

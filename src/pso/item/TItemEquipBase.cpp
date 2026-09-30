@@ -4,6 +4,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Row_8010A89C { s8 id; u8 level; f32 amount; };
+struct Slot_8010A89C { s16 id; s16 level; f32 amount; };
+
 struct VBase_18_546d8d { char pad[0x18]; };
 
 struct VObj_18_546d8d : VBase_18_546d8d {
@@ -436,7 +439,7 @@ struct VObj_8010B054_8010A710 : Base_8010B054_8010A710 {
 };
 
 void TItemEquipBase__sub_8010A788(void);
-int TItemEquipBase__sub_8010A89C(void);
+void TItemEquipBase__sub_8010A89C(void *arg0, Row_8010A89C *row);
 void TItemEquipBase__sub_8010A938(void);
 void TItemEquipBase__sub_8010A93C(void);
 void TItemEquipBase__sub_8010A940(void);
@@ -524,7 +527,34 @@ void TItemEquipBase__sub_8010A82C(s32 arg0) {
     } while (var_r30 != 3);
 }
 
-int TItemEquipBase__sub_8010A89C(void) { return 0; }
+void TItemEquipBase__sub_8010A89C(void *arg0, Row_8010A89C *row) {
+    s32 base;
+    Row_8010A89C *p;
+    s32 i;
+    Slot_8010A89C slot;
+    s32 id;
+    u8 lv;
+    f32 amt;
+
+    if (row == NULL) {
+        return;
+    }
+    base = (get_field_ec__12TOSwitchItemFPv(arg0) != 0) ? 3 : 0;
+    p = row;
+    i = 0;
+    do {
+        TItemEquipBase__sub_8010B73C((void *)&slot);
+        id = p->id;
+        lv = p->level;
+        amt = p->amount;
+        slot.id = id;
+        slot.level = lv;
+        slot.amount = amt;
+        TItemEquipBase__sub_8022C680((void *)&slot, (void *)((s32 (*)(void *, int))get_id__13TItemProArmorFPv)(arg0, id), (void *)(base + i));
+        i++;
+        p++;
+    } while (i != 3);
+}
 
 void TItemEquipBase__sub_8010A938(void) {  }
 void TItemEquipBase__sub_8010A93C(void) {  }

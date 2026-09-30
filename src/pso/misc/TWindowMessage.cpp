@@ -8,6 +8,13 @@ extern "C" {
 s32 TWindowSubStatusDisp__sub_80244364();
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+u8 *alloc_buffer__11TOBoss4RockFPv(s32);
+void *construct_with_parent__15TWindowAdditionFPvPv(void *, void *, s16, s32);
+extern u8 lbl_804D071C[];
+extern M2C_UNK __vt__14TWindowMessage[];
+extern s32 lbl_805D3980;
+extern const f32 lbl_805DD21C;
+u8 *TWindowMessage__ct(u8 *arg0, s32 arg1, u32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -55,6 +62,28 @@ void *__dt__14TWindowMessageFv(void *arg0, s16 arg1) {
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
+    }
+    return arg0;
+}
+u8 *TWindowMessage__ct(u8 *arg0, s32 arg1, u32 arg2, s32 arg3) {
+    u32 i;
+    u8 *p;
+    construct_with_parent__15TWindowAdditionFPvPv(arg0, lbl_804D071C, arg3, arg1);
+    *(void **)(arg0 + 0x18) = ((u8 *)&__vt__14TWindowMessage);
+    *(s32 *)arg0 = lbl_805D3980;
+    *(s32 *)(arg0 + 0x70) = 0;
+    *(s32 *)(arg0 + 0x74) = 0;
+    *(s32 *)(arg0 + 0x88) = 0;
+    *(u32 *)(arg0 + 0x8C) = arg2;
+    *(s32 *)(arg0 + 0x78) = 0xB4;
+    *(f32 *)(arg0 + 0x84) = lbl_805DD21C;
+    *(f32 *)(arg0 + 0x80) = lbl_805DD21C;
+    *(u8 **)(arg0 + 0x7C) = alloc_buffer__11TOBoss4RockFPv(arg2 * 8);
+    p = *(u8 **)(arg0 + 0x7C);
+    for (i = 0; i < arg2; i++) {
+        *(s32 *)p = 0;
+        *(s32 *)(p + 4) = 0;
+        p += 8;
     }
     return arg0;
 }

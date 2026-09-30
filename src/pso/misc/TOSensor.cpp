@@ -12,6 +12,12 @@ extern const f32 lbl_805DB988;
 extern const f32 lbl_805DB98C;
 extern const f32 lbl_805DB990;
 void TOSensorAncient01__sub_8017585C(u8 *arg0);
+u32 get_global_state__14TOKeyMachine01Fv();
+void TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+void TOSensor__sub_8017546C(u8 *arg0);
+u32 get_global_state__14TOKeyMachine01Fv();
+void TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+void TOSensor__sub_80175514(u8 *arg0);
 }
 
 extern "C" {
@@ -34,6 +40,74 @@ void __dt__5TOKeyFv(void *, int);
 void TOSensor__sub_80175468(void) {  }
 
 extern M2C_UNK __vt__8TOSensor[];
+
+void TOSensor__sub_8017546C(u8 *arg0) {
+    switch (get_global_state__14TOKeyMachine01Fv()) {
+    case 3:
+    case 4:
+    case 5:
+        TOTrapAncient01__sub_80226578(0x43C1C, arg0, arg0 + 0x38, 0, 0);
+        return;
+    case 6:
+    case 7:
+        TOTrapAncient01__sub_80226578(0x4004BC13, arg0, arg0 + 0x38, 0, 0);
+        return;
+    case 8:
+    case 9:
+    case 10:
+        TOTrapAncient01__sub_80226578(0x46419, arg0, arg0 + 0x38, 0, 0);
+    case 0:
+        return;
+    case 1:
+        return;
+    case 2:
+        return;
+    case 11:
+        return;
+    case 12:
+        return;
+    case 13:
+        return;
+    case 14:
+        return;
+    case 15:
+        return;
+    }
+}
+
+void TOSensor__sub_80175514(u8 *arg0) {
+    switch (get_global_state__14TOKeyMachine01Fv()) {
+    case 3:
+    case 4:
+    case 5:
+        TOTrapAncient01__sub_80226578(0x4411D, arg0, arg0 + 0x38, 0, 0);
+        return;
+    case 6:
+    case 7:
+        TOTrapAncient01__sub_80226578(0x4004C114, arg0, arg0 + 0x38, 0, 0);
+        return;
+    case 8:
+    case 9:
+    case 10:
+        TOTrapAncient01__sub_80226578(0x4641A, arg0, arg0 + 0x38, 0, 0);
+    case 0:
+        return;
+    case 1:
+        return;
+    case 2:
+        return;
+    case 11:
+        return;
+    case 12:
+        return;
+    case 13:
+        return;
+    case 14:
+        return;
+    case 15:
+        return;
+    }
+}
 
 void *__dt__8TOSensorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -101,6 +101,25 @@ struct Self_80238C6C {
     Point_80238C6C points[8];
 };
 
+struct VBase_18_acd6eb { char pad[0x18]; };
+
+struct VObj_18_acd6eb : VBase_18_acd6eb {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6(s32);
+    virtual void m7();
+};
+
+struct Obj_80238AE8 : VObj_18_acd6eb {
+    void *source;
+};
+
+struct Sub_80238AE8 { u8 pad[0xA4]; u8 *inner; };
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u32 TPhotonMylla__sub_80154CB4(int);
@@ -140,7 +159,6 @@ void TTecRaFoie__vt4(u8 *self, u8 *target);
 u16 obj_getField1c(void *);
 void TObjPlayer__sub_8004433C(void *);
 void TTecAnti__sub_8022B3E8(void *, void *);
-void fn_8022C2A8(void *, void *, void *, void *, int);
 void TTecRaFoie__sub_802380F4(void *);
 extern M2C_UNK __vt__10TTecRaFoie[];
 extern u32 lbl_805D3800;
@@ -149,6 +167,14 @@ s32 TBoss4Type2__sub_800874F4(void *, int);
 s32 alloc_buffer__11TOBoss4RockFPv(int);
 extern struct Profile_80238C6C TTecRaZonde__data_8044DB44[];
 void TTecRaZonde__vt6(struct Self_80238C6C *self);
+u16 obj_getField1c(void *);
+void TObjPlayer__sub_8004433C(void *);
+void fn_80044330(void *);
+void fn_8022C2A8(void *, void *, void *, void *, int);
+void TTecRaFoie__sub_802380F4(void *);
+extern M2C_UNK __vt__10TTecRaFoie[];
+extern u32 lbl_805D3800;
+Obj_80238AE8 *TTecRaFoie__ct(Obj_80238AE8 *arg0, void * _w1, void * _w2, void * _w3, int _w4);
 }
 
 extern "C" {
@@ -157,7 +183,6 @@ void *__dt__10TTecRaFoieFv(void *arg0, s16 arg1);
 void create__10TTecRaFoieFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void create_ex__10TTecRaFoieFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void render__10TTecRaFoieFv(void);
-void *TTecRaFoie__ct(void *, void *, void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_technique_base__9TTecLukerFPvs(void *, int);
@@ -272,7 +297,7 @@ void create__10TTecRaFoieFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg
     void *o;
     o = __nw__7TObjectFUl(0x14C);
     if (o != NULL) {
-        TTecRaFoie__ct(o, arg0, arg1, arg2, arg3);
+        TTecRaFoie__ct((Obj_80238AE8 *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (int)(arg3));
     }
 }
 
@@ -301,6 +326,30 @@ typedef struct RecoveredGlobal_80238D10_lbl_804CC510 RecoveredGlobal_80238D10_lb
 typedef struct RecoveredGlobal_80238D10_lbl_804CC55C RecoveredGlobal_80238D10_lbl_804CC55C;
 typedef char RecoveredGlobal_80238D10_lbl_804CC510_size[((sizeof(RecoveredGlobal_80238D10_lbl_804CC510)) == 0x4C) ? (1) : (-1)];
 typedef char RecoveredGlobal_80238D10_lbl_804CC55C_size[((sizeof(RecoveredGlobal_80238D10_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
+
+#pragma push
+#pragma opt_common_subs off
+Obj_80238AE8 *TTecRaFoie__ct(Obj_80238AE8 *arg0, void * _w1, void * _w2, void * _w3, int _w4) {
+    Sub_80238AE8 *t;
+    fn_8022C2A8((void *)(arg0), (void *)(_w1), (void *)(_w2), (void *)(_w3), (int)(_w4));
+    M2C_FIELD(arg0, void **, 0x18) = ((void * *)&__vt__10TTecRaFoie);
+    TObjPlayer__sub_8004433C((u8 *)arg0 + 0xEC);
+    M2C_FIELD(arg0, u32 *, 0) = lbl_805D3800;
+    TTecRaFoie__sub_802380F4(arg0);
+    fn_80044330((u8 *)arg0 + 0xEC);
+    M2C_FIELD(arg0, s32 *, 0x148) = 1;
+    t = M2C_FIELD(arg0, Sub_80238AE8 **, 0xE8);
+    if (t != NULL) {
+        M2C_FIELD(t->inner, f32 *, 0xC) = M2C_FIELD(arg0, f32 *, 0x90);
+    }
+    if (arg0->source != NULL) {
+        M2C_FIELD(arg0, s16 *, 0xB4) = obj_getField1c(arg0->source);
+    }
+    arg0->m6(0);
+    arg0->m7();
+    return arg0;
+}
+#pragma pop
 
 u8 *TTecRaFoie__sub_80238BA4(u8 *self, void *source, void *origin, void *targets, int level) {
     u8 *proxy;

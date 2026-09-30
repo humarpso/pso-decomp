@@ -11,6 +11,19 @@ struct Stack_801B6024 {
 };
 
 #include "types.h"
+
+typedef struct Msg_801B6110 {
+    u8 pad0[2];
+    u16 slot;
+    s32 andMask;
+    s32 orMask;
+} Msg_801B6110;
+
+typedef struct Player_801B6110 {
+    u8 pad0[0x30];
+    s32 flags;
+} Player_801B6110;
+
 extern "C" {
 s32 TObjPlayer__sub_801B58DC(u8 *arg0);
 s32 is_flag_400_set__10TObjPlayerFPv();
@@ -41,6 +54,12 @@ M2C_UNK TObjPlayer__sub_801BE918(void *, s32, M2C_UNK *, M2C_UNK *);
 void TObjPlayer__sub_801B6024(u8 *arg0);
 s32 TObjPlayer__sub_801B5AC4(s32 arg0, s32 arg1);
 s32 TObjPlayer__sub_801B5874(u8 *arg0);
+Player_801B6110 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void bswap_body_dwords__10TObjPlayerFi(void *);
+void copy_pair_fields__10TObjPlayerFPvPv(void *, void *);
+void TObjPlayer__sub_801C0C04(void *);
+s32 validate_6x2E_set_or_clear_player_flags(void *);
+void handle_6x2E_set_or_clear_player_flags(void *arg0);
 }
 
 extern "C" {
@@ -245,6 +264,20 @@ s32 is_matching_id__10TObjPlayerFPvs(void *arg0, s16 arg1) {
         return 1;
     }
     return 0;
+}
+void handle_6x2E_set_or_clear_player_flags(void *arg0) {
+    Msg_801B6110 m;
+    Player_801B6110 *p;
+    TObjPlayer__sub_801C0C04(&m);
+    copy_pair_fields__10TObjPlayerFPvPv(&m, arg0);
+    bswap_body_dwords__10TObjPlayerFi(&m);
+    if (validate_6x2E_set_or_clear_player_flags(&m) != 0) {
+        p = TPlayerBattleCtrl4P__sub_801BA74C(m.slot);
+        if (p != NULL) {
+            p->flags = p->flags & m.andMask;
+            p->flags = p->flags | m.orMask;
+        }
+    }
 }
 
 }

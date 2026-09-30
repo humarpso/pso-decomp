@@ -23,6 +23,8 @@ struct Pkt_8019A098 { u8 cmd; u8 size; u16 id; f32 x; f32 z; s32 flag; };
 
 struct Player_8019A098 { u8 pad[0x60]; s32 area; };
 
+struct Win_8019A44C { u8 pad0[0x50]; f32 f50[3]; u8 pad5C[0x2D8]; s32 f334; u8 pad338[0xC]; f32 f344; f32 f348; f32 f34C; u8 pad350[0x40]; f32 f390; f32 f394; f32 f398; f32 f39C; f32 f3A0; };
+
 extern "C" {
 s32 bswap_32__FPUl(s32);
 s32 read_be16_field2__10TObjPlayerFPv();
@@ -54,6 +56,14 @@ void TObjPlayer__sub_801CFD5C(void *arg0, s32 arg1, f32 *arg2, f32 *arg3);
 void sync_from_lobby__10TNpcPlayerFPv(void *p);
 extern s32 lbl_805D53A0;
 void TWindowTimer__sub_8019A098(void);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void TObjBoss2Tunnel__sub_8007E764(void *, void *, s32);
+f32 TBoss6Kakusan__sub_803D8BD8(void *, f32);
+extern RecoveredGlobal_8019A574_lbl_8050DD58 lbl_8050DD58;
+extern M2C_UNK lbl_8050DDAC[];
+extern const f32 lbl_805DBF58;
+extern const f32 lbl_805DBF98;
+void TWindowTimer__sub_8019A44C(Win_8019A44C *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -63,7 +73,6 @@ void send_gogo_ball__12TWindowTimerFi(s32 arg0);
 void update_best_time__12TWindowTimerFPv(void *arg0);
 M2C_UNK TLobby__send_and_handle_60(void *);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
-M2C_UNK TWindowTimer__sub_8019A44C(void *, s32);
 M2C_UNK __dl__7TObjectFPv(void *);
 s32 bswap_32__FPUl(s32);
 M2C_UNK clear_obj_links(void *);
@@ -78,7 +87,7 @@ void update_best_time__12TWindowTimerFPv(void *arg0) {
         M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(lbl_8050DDAC, f32 *, 0);
         M2C_FIELD(arg0, f32 *, 0x3C) = (f32) M2C_FIELD(lbl_8050DDAC, f32 *, 4);
         M2C_FIELD(arg0, f32 *, 0x40) = (f32) M2C_FIELD(lbl_8050DDAC, f32 *, 8);
-        TWindowTimer__sub_8019A44C(arg0, M2C_FIELD(lbl_8050DDAC, s32 *, 0xC));
+        TWindowTimer__sub_8019A44C((Win_8019A44C *)(arg0), (s32)(M2C_FIELD(lbl_8050DDAC, s32 *, 0xC)));
     }
     M2C_FIELD(lbl_8050DDAC, s16 *, 0x12) = 1;
 }
@@ -100,6 +109,25 @@ void TWindowTimer__sub_8019A098(void) {
         pkt.flag = 0;
         sync_from_lobby__10TNpcPlayerFPv(&pkt);
     }
+}
+
+void TWindowTimer__sub_8019A44C(Win_8019A44C *arg0, s32 arg1) {
+    arg0->f390 = ((f32 *)&lbl_8050DD58)[3];
+    arg0->f394 = ((f32 *)&lbl_8050DD58)[4];
+    if ((s32)((u8 *)&lbl_8050DDAC)[0x18] == 1) {
+        arg0->f390 = ((f32 *)&lbl_8050DD58)[0x13];
+        arg0->f394 = ((f32 *)&lbl_8050DD58)[0x14];
+    }
+    arg0->f398 = lbl_805DBF98;
+    arg0->f39C = lbl_805DBF98;
+    arg0->f344 = lbl_805DBF58;
+    arg0->f348 = arg0->f394;
+    arg0->f34C = arg0->f390;
+    arg0->f3A0 = TBoss6Kakusan__sub_803D8BD8(&arg0->f344, lbl_805DBF98);
+    TObjBoss2Tunnel__sub_8007E764(&arg0->f344, &arg0->f344, arg1);
+    arg0->f334 = arg1;
+    VecCopy__FP3VecPC3Vec(arg0->f50, &arg0->f344);
+    arg0->f50[1] = lbl_805DBF58;
 }
 
 void *destroy_player_obj__12TWindowTimerFPvs(void *arg0, s16 arg1) {

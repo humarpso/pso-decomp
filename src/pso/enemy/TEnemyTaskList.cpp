@@ -5,8 +5,22 @@ struct Task_800F7BD0 { u16 f0; s16 flags; };
 
 struct List_800F7BD0 { u8 pad[0x20]; s32 count; u8 pad2[4]; Task_800F7BD0 **tasks; };
 
+struct TEnemyTaskList_800F7C84 {
+    u8 pad0[0x18];
+    void *vt;
+    s32 count;
+    s32 f20;
+    s32 *a;
+    s32 *b;
+};
+
 extern "C" {
 s32 TEnemyTaskList__sub_800F7BD0(List_800F7BD0 *self);
+s32 *alloc_buffer__11TOBoss4RockFPv(int);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern u8 __vt__14TEnemyTaskList[];
+extern s32 lbl_805D2B08;
+TEnemyTaskList_800F7C84 *TEnemyTaskList__ct(TEnemyTaskList_800F7C84 *self, void *parent, s32 n);
 }
 
 extern "C" {
@@ -44,6 +58,21 @@ s32 TEnemyTaskList__sub_800F7BD0(List_800F7BD0 *self) {
         }
     }
     return 0;
+}
+TEnemyTaskList_800F7C84 *TEnemyTaskList__ct(TEnemyTaskList_800F7C84 *self, void *parent, s32 n) {
+    s32 i;
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vt = __vt__14TEnemyTaskList;
+    *(s32 *)self = lbl_805D2B08;
+    self->count = n;
+    self->f20 = 0;
+    self->a = alloc_buffer__11TOBoss4RockFPv(self->count * 4);
+    self->b = alloc_buffer__11TOBoss4RockFPv(self->count * 4);
+    for (i = 0; i < self->count; i++) {
+        self->a[i] = 0;
+        self->b[i] = 0;
+    }
+    return self;
 }
 
 }

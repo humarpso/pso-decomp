@@ -205,6 +205,10 @@ void TOTrap__sub_80178DCC(u8 *arg0);
 extern u32 lbl_80442CD0[];
 extern s32 lbl_805D5550;
 f32 TOTrap__sub_80178B78(f32 farg0);
+s32 fn_80171314(void *);
+s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 TOTrap__sub_80178BC4(void *arg0);
 }
 
 extern "C" {
@@ -226,7 +230,6 @@ struct VObj_80178EF8_80178BC0 : Base_80178EF8_80178BC0 {
 };
 
 void TOTrap__sub_80178BC0(void);
-int TOTrap__sub_80178BC4(void);
 void TOTrap__vt80(void *arg0);
 void play_sounds__6TOTrapFi(s32 arg0);
 void trigger__6TOTrapFPvPvi(void *arg0, s16 *arg1, s32 arg2);
@@ -252,9 +255,21 @@ f32 TOTrap__sub_80178B78(f32 farg0) {
 
 void TOTrap__sub_80178BC0(void) {  }
 
-int TOTrap__sub_80178BC4(void) { return 0; }
-
 extern const f32 TOTrap__data_805DBA38;
+
+s32 TOTrap__sub_80178BC4(void *arg0) {
+    s32 i;
+    void *p;
+    for (i = 0; i < 4; i++) {
+        p = ((void *)TPlayerBattleCtrl4P__sub_801BA74C((u32)(i)));
+        if (p != 0) {
+            if (((s16)get_stat_by_key_state__10TObjPlayerFPv(p) == (s16)get_stat_by_key_state__10TObjPlayerFPv(arg0)) && (fn_80171314(p) != 0)) {
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
 
 void TOTrap__vt80(void *arg0) {
     s32 temp_r31;

@@ -30,6 +30,20 @@ struct PlayerDeathItemFields {
     u8* inventory_owner;
 };
 
+typedef struct Msg_801B87E4 {
+    u8 pad0[2];
+    u16 slot;
+    s16 a;
+    s16 b;
+    s32 c;
+    u8 d[16];
+} Msg_801B87E4;
+
+typedef struct Player_801B87E4 {
+    u8 pad0[0xD00];
+    void *inv;
+} Player_801B87E4;
+
 extern "C" {
 s32 init__9TItemDataFv(void *);
 s32 count_items_by_id__10TObjPlayerFPvi(int, void *);
@@ -57,6 +71,14 @@ void __construct_array(void*,void*(*)(void*),void*,u32,u32);
 extern DeathItemPosition lbl_8050BF60;
 extern const f32 TObjPlayer__data_805DC2BC;
 void TObjPlayer__sub_801B864C(TObjPlayer* player);
+s32 is_volopt_phase_final__10TObjPlayerFv();
+Player_801B87E4 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+void bswap_fields__10TObjPlayerFi(void *);
+void TObjPlayer__sub_801C106C(void *, void *);
+void init_6x2A__10TObjPlayerFPv(void *);
+void update_inventory_item__10TObjPlayerFPviiiii(void *, void *, int, void *, int, int);
+s32 validate_6x2A_drop_item(void *);
+void handle_6x2A_drop_item(void *arg0);
 }
 
 extern "C" {
@@ -122,6 +144,20 @@ void TObjPlayer__sub_801B864C(TObjPlayer* player) {
         lbl_8050BF60.z=fields->position.z;
         TItemList__sub_801D35FC(fields->inventory_owner+0x20,&lbl_8050BF60,player,records,count);
         set_action_flag_2__10TObjPlayerFPv(player);
+    }
+}
+
+void handle_6x2A_drop_item(void *arg0) {
+    Msg_801B87E4 m;
+    Player_801B87E4 *p;
+    init_6x2A__10TObjPlayerFPv(&m);
+    TObjPlayer__sub_801C106C(&m, arg0);
+    bswap_fields__10TObjPlayerFi(&m);
+    if (validate_6x2A_drop_item(&m) != 0) {
+        p = TPlayerBattleCtrl4P__sub_801BA74C(m.slot);
+        if ((p != NULL) && (is_volopt_phase_final__10TObjPlayerFv() == 0)) {
+            update_inventory_item__10TObjPlayerFPviiiii(p->inv, p, m.c, m.d, m.a, m.b);
+        }
     }
 }
 

@@ -13,7 +13,6 @@ extern "C" {
 s32 TAdPlayerLoadGC__sub_801E1518(void *arg0, s32 arg1, u32 arg2);
 extern s32 TAdPlayerLoadGC__data_805D5E40;
 M2C_UNK TAdPlayerLoadGC__sub_801E101C(s32);
-s32 CARDGetResultCode(void *);
 s32 CARDProbeEx(s32, M2C_UNK *, s32 *);
 extern s32 TAdPlayerLoadGC__data_805D5E40;
 extern s32 TAdPlayerLoadGC__data_805D5E30;
@@ -33,7 +32,6 @@ extern s32 TAdPlayerLoadGC__data_805D5E40;
 s32 poll_load_status__15TAdPlayerLoadGCFi(s32 arg0);
 M2C_UNK TAdPlayerLoadGC__sub_801E101C(s32);
 s32 get_load_result__15TAdPlayerLoadGCFv(void *);
-s32 CARDGetResultCode(void *);
 s32 CARDCheckAsync(void *, int);
 s32 CARDProbeEx(s32, M2C_UNK *, s32 *);
 extern s32 TAdPlayerLoadGC__data_805D5E30;
@@ -46,6 +44,12 @@ void xfree__FPv(void *);
 extern RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 TAdPlayerLoadGC__data_80511ED0;
 extern s32 TAdPlayerLoadGC__data_805D5E38;
 void TAdPlayerLoadGC__sub_801E1350(void);
+s32 CARDGetResultCode(void *);
+extern s32 TAdPlayerLoadGC__data_805D5E40;
+s32 TAdPlayerLoadGC__sub_801E0CE0(s32 arg0);
+s32 CARDUnmount();
+extern s32 TAdPlayerLoadGC__data_805D5E30;
+void TAdPlayerLoadGC__sub_801E12B0(s32 n);
 }
 
 extern "C" {
@@ -82,6 +86,29 @@ void poll_card_load__15TAdPlayerLoadGCFi(s32 arg0) {
             return;
         }
         TAdPlayerLoadGC__sub_801E101C(arg0);
+    }
+}
+
+s32 TAdPlayerLoadGC__sub_801E0CE0(s32 arg0) {
+    if (arg0 >= 2) {
+        return 0;
+    }
+    switch (CARDGetResultCode((void *)(arg0))) {
+    case -0x80:
+    case -0xE:
+    case -4:
+    case -1:
+    case 0:
+        TAdPlayerLoadGC__data_805D5E40 = 0;
+        return 1;
+    case -5:
+    case -3:
+    case -0xB:
+    case -0xA:
+        TAdPlayerLoadGC__data_805D5E40 = -0x7D;
+        return 0;
+    default:
+        return 1;
     }
 }
 
@@ -163,6 +190,18 @@ s32 TAdPlayerLoadGC__sub_801E0D8C(s32 arg0) {
     return 0;
 }
 #pragma pop
+
+void TAdPlayerLoadGC__sub_801E12B0(s32 n) {
+    s32 r = CARDUnmount();
+    if (r == 0 || r == -3) {
+        TAdPlayerLoadGC__data_805D5E30 &= ~(4 << n);
+        TAdPlayerLoadGC__data_805D5E30 &= ~(0x10 << n);
+        TAdPlayerLoadGC__data_805D5E30 &= ~(0x40 << n);
+        TAdPlayerLoadGC__data_805D5E30 &= ~(0x100 << n);
+        TAdPlayerLoadGC__data_805D5E30 &= ~(0x400 << n);
+        TAdPlayerLoadGC__data_805D5E30 &= ~(4 << n);
+    }
+}
 
 void TAdPlayerLoadGC__sub_801E1350(void) {
     s32 i;

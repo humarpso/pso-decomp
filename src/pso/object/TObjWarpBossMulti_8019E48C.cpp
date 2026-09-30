@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Pl_8019E4E8 { u8 pad0[0x38]; f32 pos[3]; };
+struct Wb_8019E4E8 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x68]; f32 fAC; };
 struct Pkt_8019E6C0 { u8 cmd; u8 size; u16 id; u16 value; u16 pad; };
 
 struct Obj_8019E6C0 { u8 pad[0x1c]; u16 id; };
@@ -15,6 +17,7 @@ f32 fn_8013157C(s32, s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern s32 lbl_805D53A0;
 s32 TObjWarpBossMulti__sub_8019E570(s32 arg0, f32 farg0);
+s32 TObjWarpBossMulti__sub_8019E4E8(Wb_8019E4E8 *arg0);
 s32 get_main_phase();
 extern s32 lbl_805D55C0;
 s32 TObjWarpBossMulti__sub_8019E4B4(void);
@@ -45,6 +48,20 @@ extern s32 lbl_805D53A0;
 
 s32 TObjWarpBossMulti__sub_8019E4B4(void) {
     return ((get_main_phase() - 0xF) == 0) ? lbl_805D55C0 : 0;
+}
+
+s32 TObjWarpBossMulti__sub_8019E4E8(Wb_8019E4E8 *arg0) {
+    s32 ok = 1;
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        Pl_8019E4E8 *p = (Pl_8019E4E8 *)TPlayerBattleCtrl4P__sub_801BA74C(i);
+        if (p != 0) {
+            if (((s32 (*)(void *))get_field_3e4__10TObjPlayerFPv)(p) != TObjPlayer__sub_800196EC() || ((f32 (*)(void *, void *))fn_8013157C)(p->pos, arg0->pos) > arg0->fAC * arg0->fAC) {
+                ok = 0;
+            }
+        }
+    }
+    return ok;
 }
 
 #pragma push

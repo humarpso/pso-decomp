@@ -26,6 +26,7 @@ force_active:
   - TAdSinglePlyChrSelectGC__sub_80133530
   - TBoss2DeRolLe__sub_80034D58
   - TBoss8Dragon__sub_8005E17C
+  - TBoss8Dragon__sub_800BB688
   - TFontSmallLobby__sub_801B117C
   - TFontSmallLobby__sub_801C0258
   - TItemEquipBase__sub_8022F1F4
@@ -46,6 +47,7 @@ force_active:
   - TObjEneDD__sub_800BB980
   - TObjFish__sub_800E2FFC
   - TObjPlayer__sub_800113A8
+  - TObjPlayer__sub_80130A30
   - TObjPlayer__sub_801AA6E4
   - TObjPlayer__sub_801B40D0
   - TObjPlayer__sub_801BBBD0
@@ -111,6 +113,8 @@ force_active:
   - fn_801C1E98
   - fn_801C1EE8
   - fn_801C1F40
+  - fn_801D36B4
+  - fn_801D371C
   - fn_8026D564
   - fn_803CBE00
   - free_item_pmt

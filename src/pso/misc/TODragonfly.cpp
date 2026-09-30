@@ -30,6 +30,8 @@ struct RecoveredGlobal_80164DEC___vt__11TODragonfly { M2C_UNK value; u8 remainin
 
 struct Self_8016492C { u8 pad[0x38]; u8 pos[0x70 - 0x38]; f32 radius; u8 pad74[0xAC - 0x74]; s32 state; u8 padb0[0xD4 - 0xB0]; u8 target[0xE0 - 0xD4]; u8 vec[0xC]; };
 
+struct O_80164A90 { u8 pad[0x38]; u8 pos[0x34]; f32 f6c; f32 f70; u8 pad74[0xAC - 0x74]; s32 st; u8 padb0[0xCC - 0xB0]; s32 cc; u8 padd0[4]; u8 d4[0xC]; u8 e0[0xC]; };
+
 extern "C" {
 s32 TODragonfly__sub_80158360(s32, f32);
 s32 rand__11TOBoss4RockFv(void);
@@ -86,6 +88,14 @@ f32 TObjPlayer__sub_80141CF8(void *, void *);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
 extern const f32 lbl_805DB584;
 void TODragonfly__sub_8016492C(Self_8016492C *self);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
+s32 TODragonfly__sub_80158360(s32, f32);
+s32 TODragonfly__sub_80164764(u8 *arg0, f32 farg0);
+f32 TBoss4Zako__sub_803D8910(void *, void *);
+extern const f32 lbl_805DB578;
+extern const f32 lbl_805DB584;
+extern const f32 lbl_805DB590;
+void TODragonfly__sub_80164A90(O_80164A90 *arg0);
 }
 
 extern "C" {
@@ -108,7 +118,6 @@ void *__dt__11TODragonflyFv(void *arg0, s16 arg1);
 void draw_model__11TODragonflyFPv(u8 *arg0);
 void update__11TODragonflyFPv(void *arg0);
 f32 TBoss8Dragon__sub_803D64C0(s32);
-M2C_UNK TODragonfly__sub_80164A90(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
@@ -181,6 +190,25 @@ void TODragonfly__sub_80164990(u8 *arg0) {
 }
 #pragma pop
 
+void TODragonfly__sub_80164A90(O_80164A90 *arg0) {
+    f32 t;
+    f32 d;
+    if (TODragonfly__sub_80158360((s32)arg0, lbl_805DB590) == 1) {
+        if (TODragonfly__sub_80164764((u8 *)arg0, lbl_805DB578 + arg0->f6c) == 1) {
+            arg0->st = 3;
+            arg0->cc = 0;
+        }
+    } else {
+        d = TObjPlayer__sub_80141CF8(arg0->d4, arg0->pos);
+        t = lbl_805DB584 + arg0->f70;
+        if (d < t * t) {
+            arg0->st = 0;
+            return;
+        }
+        TBoss4Zako__sub_803D8910(arg0->pos, arg0->e0);
+    }
+}
+
 #pragma push
 #pragma fp_contract on
 void TODragonfly__sub_80164B34(s32 arg0) {
@@ -229,7 +257,7 @@ void update__11TODragonflyFPv(void *arg0) {
         TODragonfly__sub_80164B34((s32)(arg0));
         return;
     case 1:
-        TODragonfly__sub_80164A90(arg0);
+        TODragonfly__sub_80164A90((O_80164A90 *)(arg0));
         return;
     case 2:
         TODragonfly__sub_80164990((u8 *)(arg0));

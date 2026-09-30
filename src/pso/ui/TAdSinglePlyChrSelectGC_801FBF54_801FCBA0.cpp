@@ -47,6 +47,10 @@ struct Ent_801FD668 { u8 pad[0x428]; u32 f428; u8 pad2[0x2798 - 0x42C]; };
 
 struct Ent_801FD728 { u8 pad0[4]; u8 a[0x41C]; u8 b[0x2798 - 0x420]; };
 
+struct A_801FD8B8 { u8 p0[4]; u32 f4; u32 f8; u8 pC[8]; u32 f14; };
+
+struct C_801FD8B8 { u8 p[0x11564]; s32 f11564; };
+
 extern "C" {
 void TAdSinglePlyChrSelectGC__sub_801FCCB4(u8 *arg0, s32 arg1);
 s32 TAdSinglePlyChrSelectGC__sub_801FCCC0(u8 *arg0);
@@ -111,6 +115,7 @@ void TObjPlayer__sub_802C367C(void *);
 void TAdSinglePlyChrSelectGC__sub_801FC0C8(void *);
 extern Ent_801FD668 *lbl_805D5F58;
 void TAdSinglePlyChrSelectGC__sub_801FD728(s32 arg0);
+s32 TAdSinglePlyChrSelectGC__sub_801FD8B8(A_801FD8B8 *a, A_801FD8B8 *b, C_801FD8B8 *c, C_801FD8B8 *d);
 }
 
 extern "C" {
@@ -252,6 +257,14 @@ s32 TAdSinglePlyChrSelectGC__sub_801FD668(void) {
 void TAdSinglePlyChrSelectGC__sub_801FD728(s32 arg0) {
     TObjPlayer__sub_802C367C((*(Ent_801FD728 * *)&lbl_805D5F58)[arg0].a);
     TAdSinglePlyChrSelectGC__sub_801FC0C8((*(Ent_801FD728 * *)&lbl_805D5F58)[arg0].b);
+}
+
+s32 TAdSinglePlyChrSelectGC__sub_801FD8B8(A_801FD8B8 *a, A_801FD8B8 *b, C_801FD8B8 *c, C_801FD8B8 *d) {
+    if (a == NULL || b == NULL) return 0;
+    if (a->f14 > b->f14) return 2;
+    if (a->f4 != b->f4) return 4;
+    if (a->f8 != 0xA205B064 || b->f8 != 0xA205B064) return 5;
+    return c->f11564 != d->f11564 ? 6 : 7;
 }
 
 void setup__23TAdSinglePlyChrSelectGCFi(int a0) { lbl_805D5F80 = a0; set_quest_download_server__23TAdSinglePlyChrSelectGCFi((int)(a0)); lbl_805D49B4 = 1; draw_window_bg__23TAdSinglePlyChrSelectGCFiiii((void*)(lbl_805D5F80), lbl_804C89BC, (void*)(lbl_805D5F98), (void*)(lbl_805D5F88)); }

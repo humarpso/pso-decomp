@@ -47,6 +47,8 @@ struct VObj_18_f96e2e : VBase_18_f96e2e {
     virtual s32 m8();
 };
 
+struct Rec_80210904 { u8 b[0x18]; };
+
 extern "C" {
 extern Rec_80211034 *lbl_80513D88[];
 u8 TCheckRoomSequence__sub_80211574(u8 *arg0);
@@ -126,6 +128,11 @@ M2C_UNK set_entry_field_20__15TWindowMainMenuFii(int, int);
 void TCheckRoomSequence__sub_8020F600(u8 *arg0);
 int copy_entry_bytes__10TObjPlayerFPvPv(void*, void*);
 void TCheckRoomSequence__sub_802114D4(u8 *arg0, u8 *arg1);
+extern Rec_80211034 *lbl_80513D88[];
+u8 TCheckRoomSequence__sub_80211574(u8 *arg0);
+void TCheckRoomSequence__sub_80211408(Obj_80211408 *self);
+void copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
+void TCheckRoomSequence__sub_80210904(s32 slot);
 }
 
 extern "C" {
@@ -345,6 +352,27 @@ u8 TCheckRoomSequence__sub_802108B0(s32 i) {
 #pragma optimization_level 1
 s32 TCheckRoomSequence__sub_802108E0(s32 i) {
     return 999999 - lbl_80513DA8[i];
+}
+#pragma pop
+
+#pragma push
+#pragma optimization_level 1
+void TCheckRoomSequence__sub_80210904(s32 slot) {
+    u8 *a;
+    u8 *b;
+    u8 *base;
+    base = (u8 *)((Rec_80210904 * *)&lbl_80513D88)[slot];
+    for (a = base; a < base + 0x12A8; a += 0x18) {
+        if (((s32 (*)(u8 *))TCheckRoomSequence__sub_80211574)(a) != 0) {
+            for (b = a + 0x18; b < base + 0x12C0; b += 0x18) {
+                if (((s32 (*)(u8 *))TCheckRoomSequence__sub_80211574)(b) == 0) {
+                    copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(a, b);
+                    TCheckRoomSequence__sub_80211408((Obj_80211408 *)(b));
+                    break;
+                }
+            }
+        }
+    }
 }
 #pragma pop
 

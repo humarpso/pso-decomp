@@ -23,6 +23,10 @@ struct T1_802B9C00 {
 
 struct Tbl_802B9C00 { s32 a; s32 b; };
 
+struct Vec_802B9A68 { f32 x, y, z; };
+
+struct Player_802B9A68 { u8 pad[0x38]; Vec_802B9A68 pos; };
+
 extern "C" {
 u8 *TPlayerBattleCtrl4P__sub_801BA74C(u32);
 void copy_vec2__11TBoss6Type2FPvPv(void* p, void* q);
@@ -49,6 +53,13 @@ u32 TBoss4Type2__sub_800874F4(void *, int);
 void set_flags__11TBoss4Type2FPvUi(u32, int);
 extern Tbl_802B9C00 lbl_804710CC[];
 void TBoss6Type2__sub_802B9C00(u8 *arg0, s32 arg1);
+void VecCopy__FP3VecPC3Vec(Vec_802B9A68 *, Vec_802B9A68 *);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 TBoss6Rock__sub_80353A14(int, Vec_802B9A68 *, f32 *);
+f32 TBoss6Kakusan__sub_803D8BD8(Vec_802B9A68 *);
+void TBoss6Type1__sub_803D9370(Vec_802B9A68 *, Vec_802B9A68 *);
+extern const f32 TBoss6Type2__data_805DE410;
+s32 TBoss6Type2__sub_802B9A68(s32 id);
 }
 
 extern "C" {
@@ -76,6 +87,33 @@ int is_falz_ready__11TBoss6Type2FPv(void* p);
 void unpack_path_entry__11TBoss6Type2FPvPv(u8 *arg0, s32 *arg1) {
     *arg1 = (s32) (s16) ((s8) M2C_FIELD(arg0, u8 *, 2) << 8);
     TBoss6Type2__sub_802B9994((int) (M2C_FIELD(arg0, u8 *, 0)), (int) (M2C_FIELD(arg0, u8 *, 1)), (void *) ((u8 *) arg1 + 4), (void *) (arg0));
+}
+
+s32 TBoss6Type2__sub_802B9A68(s32 id) {
+    Vec_802B9A68 a;
+    Vec_802B9A68 b;
+    f32 r;
+    Player_802B9A68 *p;
+    s32 i;
+    f32 k;
+    p = ((Player_802B9A68 *)TPlayerBattleCtrl4P__sub_801BA74C((u32)((u16)id)));
+    if (p == NULL) {
+        return 0;
+    }
+    i = 0;
+    k = TBoss6Type2__data_805DE410;
+    do {
+        if (TBoss6Rock__sub_80353A14(i, &a, &r) != 0) {
+            VecCopy__FP3VecPC3Vec(&b, &p->pos);
+            TBoss6Type1__sub_803D9370(&b, &a);
+            b.y = k;
+            if (TBoss6Kakusan__sub_803D8BD8(&b) <= r) {
+                return 1;
+            }
+        }
+        i++;
+    } while (i < 0x20);
+    return 0;
 }
 
 #pragma push

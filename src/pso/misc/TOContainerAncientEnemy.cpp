@@ -211,6 +211,10 @@ struct Obj_801884A0 {
     s32 unkC4;
 };
 
+struct O_8015BAE0 { u8 pad[0x1C]; u16 id; u8 pad1e[0x80 - 0x1E]; u32 f80; s32 f84; };
+
+struct Pk_8015BAE0 { u8 pad[2]; u16 id; s32 a; s32 b; s32 c; };
+
 extern "C" {
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -243,6 +247,14 @@ extern char lbl_80440830[];
 extern u8 lbl_804A7448[];
 extern const f32 lbl_805DB3A0;
 void TOContainerAncientEnemy__sub_8015BB8C(Obj_80188814 *self);
+s32 TObjPlayer__sub_800196EC();
+void TObjPlayer__sub_80154954(void *, void *);
+s32 TLobby__sub_80156A80(void *, void *, int);
+void byteswap_and_send__6TLobbyFi(void *, int);
+void init_packet_67_04__6TLobbyFPv(void *);
+extern s32 lbl_805D53A0;
+extern const f32 lbl_805DB39C;
+f32 TOContainerAncientEnemy__sub_8015BAE0(O_8015BAE0 *arg0);
 }
 
 extern "C" {
@@ -268,6 +280,25 @@ void check_and_destroy__23TOContainerAncientEnemyFPvPvi(void *arg0, s16 *arg1, s
 }
 
 extern M2C_UNK __vt__23TOContainerAncientEnemy[];
+
+f32 TOContainerAncientEnemy__sub_8015BAE0(O_8015BAE0 *arg0) {
+    s16 sp8;
+    s32 r4;
+    Pk_8015BAE0 pk;
+    if (arg0->id >= 0x1000U && arg0->f80 != 0U && TLobby__sub_80156A80(arg0, &sp8, 1) != 0) {
+        sp8 = 1;
+        TLobby__sub_80156A80(arg0, &sp8, 0);
+        TObjPlayer__sub_80154954(arg0, &sp8);
+        init_packet_67_04__6TLobbyFPv(&pk);
+        pk.id = arg0->id;
+        pk.a = TObjPlayer__sub_800196EC();
+        r4 = arg0->f84;
+        pk.b = r4;
+        pk.c = lbl_805D53A0;
+        byteswap_and_send__6TLobbyFi(&pk, r4);
+    }
+    return lbl_805DB39C;
+}
 
 void TOContainerAncientEnemy__sub_8015BB8C(Obj_80188814 *self) {
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);

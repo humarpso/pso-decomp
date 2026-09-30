@@ -37,6 +37,8 @@ struct RecoveredGlobal_8018F9CC___vt__12TObjDoorJung {
     u8 remaining[0x54];
 };
 
+struct Jung_8018F808 { u8 pad0[0xC8]; s32 fC8; u8 padCC[4]; u32 fD0; s32 fD4; };
+
 extern "C" {
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_80154E3C(void *);
@@ -47,6 +49,10 @@ extern RecoveredGlobal_8018F9CC_lbl_804B788C lbl_804B788C;
 extern M2C_UNK __vt__12TObjDoorJung[];
 extern s32 lbl_805D333C;
 u8 *TObjDoorJung__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(M2C_UNK, M2C_UNK, M2C_UNK);
+void set_indexed_flags(void *, int, int);
+u8 TODoorAncient08__sub_80229220(int);
+void TObjDoorJung__vt12(Jung_8018F808 *arg0);
 }
 
 extern "C" {
@@ -106,6 +112,23 @@ void clamp_state__12TObjDoorJungFPv(void *arg0) {
 }
 
 extern s32 lbl_805D58F8;
+
+void TObjDoorJung__vt12(Jung_8018F808 *arg0) {
+    s32 ok = 1;
+    s32 i = 0;
+    while (i < arg0->fD4) {
+        s32 t = TODoorAncient08__sub_80229220((u16)(arg0->fC8 + i)) - 1;
+        i++;
+        ok = (t == 0) ? (ok & 1) : 0;
+    }
+    if (ok != 0) {
+        arg0->fD0 |= 1;
+        set_indexed_flags(arg0, 0, 8);
+        return;
+    }
+    arg0->fD0 &= ~1;
+    clear_player_status_flag__10TObjPlayerFPviUi((M2C_UNK)(arg0), (M2C_UNK)(0), (M2C_UNK)(8));
+}
 
 void run_task__12TObjDoorJungFv(u8 *arg0) {
     if ((s32) lbl_805D58F8 != 0) {

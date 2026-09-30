@@ -11,6 +11,19 @@ void TQuestVmDownLoadServer__sub_80222704(void *arg0, s32 arg1);
 s32 get_field230__22TQuestVmDownLoadServerFv(void);
 extern char lbl_805DC718[4];
 void TQuestVmDownLoadServer__sub_8022241C(s32 arg0);
+void *TQuestListOnline__sub_80217504(void);
+void TQuestVmDownLoadServer__sub_80222704(void *arg0, s32 arg1);
+void *TQuestListChallenge__sub_80288B04(void);
+s32 TLobby__sub_8030A7B0(void);
+s32 is_not_split_screen__13TRaderMapCoreFv(void);
+extern u8 lbl_8044C290[];
+void TQuestVmDownLoadServer__sub_80222480(void *arg0);
+void TQuestVmDownLoadServer__sub_8022256C(void *);
+u8 is_idle__22TQuestVmDownLoadServerFPv(void *arg0);
+u8 read_byte__22TQuestVmDownLoadServerFPv(void *arg0);
+void TQuestVmDownLoadServer__sub_80222754(void *arg0, s8 arg1);
+void TQuestVmDownLoadServer__sub_80222768(void *arg0, s32 arg1, s32 arg2);
+s32 TQuestVmDownLoadServer__sub_80222774(void *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -27,7 +40,6 @@ void send_message__22TQuestVmDownLoadServerFPvii(void *arg0, s32 arg1, s32 arg2)
 M2C_UNK strcpy(s32, s32);
 s32 TLobby__sub_80222C54(s32);
 s32 TLobby__sub_80222CBC(s32);
-M2C_UNK TQuestVmDownLoadServer__sub_80222774(void *, s32, void *);
 M2C_UNK TWindowMessagePage__sub_8026AE20(u32, void *, s32);
 s32 is_ready__18TWindowMessagePageFPv(void *);
 M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
@@ -39,6 +51,27 @@ void TQuestVmDownLoadServer__sub_8022241C(s32 arg0) {
     memset((void *)(buf), (M2C_UNK)(0), (M2C_UNK)(0x20));
     sprintf(buf, lbl_805DC718, v);
     TQuestVmDownLoadServer__sub_80222704((void *)(arg0), (s32)((s32 *)buf));
+}
+
+void TQuestVmDownLoadServer__sub_80222480(void *arg0) {
+    void *p = 0;
+    s32 t;
+    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+        t = TLobby__sub_8030A7B0();
+        switch (t) {
+        case 1:
+        case 2:
+            p = TQuestListChallenge__sub_80288B04();
+            break;
+        }
+    } else {
+        p = TQuestListOnline__sub_80217504();
+    }
+    if (p != 0) {
+        TQuestVmDownLoadServer__sub_80222704(arg0, (s32)p);
+        return;
+    }
+    TQuestVmDownLoadServer__sub_80222704(arg0, (s32)lbl_8044C290);
 }
 
 u8 is_idle__22TQuestVmDownLoadServerFPv(void *arg0) {
@@ -74,6 +107,28 @@ void TQuestVmDownLoadServer__sub_80222768(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x208) = arg2;
 }
 
+s32 TQuestVmDownLoadServer__sub_80222774(void *arg0, s32 arg1, s32 arg2) {
+    s8 b;
+    TQuestVmDownLoadServer__sub_80222768(arg0, arg1, arg2);
+    while (((s32 (*)(void *))is_idle__22TQuestVmDownLoadServerFPv)(arg0) == 0) {
+        b = ((s8 (*)(void *))read_byte__22TQuestVmDownLoadServerFPv)(arg0);
+        switch (b) {
+        case 0x3C:
+            TQuestVmDownLoadServer__sub_8022256C(arg0);
+            break;
+        case 0x3E:
+            for (;;) {
+            }
+        case 0x3D:
+        default:
+            TQuestVmDownLoadServer__sub_80222754(arg0, b);
+            break;
+        }
+    }
+    TQuestVmDownLoadServer__sub_80222754(arg0, 0);
+    return arg2;
+}
+
 s32 poll_field_20c__22TQuestVmDownLoadServerFPv(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0x20C);
     if (temp_r3 != NULL) {
@@ -94,7 +149,7 @@ void format_and_send_message__22TQuestVmDownLoadServerFPvii(u8 *arg0, s32 arg1, 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20C) != 0U) {
         temp_r31 = TLobby__sub_80222C54(arg1);
         memset(arg0 + 4, 0, 0x200);
-        TQuestVmDownLoadServer__sub_80222774(arg0, temp_r31, arg0 + 4);
+        TQuestVmDownLoadServer__sub_80222774((void *)(arg0), (s32)(temp_r31), (s32)(arg0 + 4));
         TWindowMessagePage__sub_8026AE20((u32)(M2C_FIELD(arg0, u32 *, 0x20C)), (void *)(arg0 + 4), (s32)(arg2 | 0x80));
     }
 }
@@ -102,7 +157,7 @@ void format_and_send_message__22TQuestVmDownLoadServerFPvii(u8 *arg0, s32 arg1, 
 void display_message__22TQuestVmDownLoadServerFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20C) != 0U) {
         memset(arg0 + 4, 0, 0x200);
-        TQuestVmDownLoadServer__sub_80222774(arg0, arg1, arg0 + 4);
+        TQuestVmDownLoadServer__sub_80222774((void *)(arg0), (s32)(arg1), (s32)(arg0 + 4));
         TWindowMessagePage__sub_8026AE20(M2C_FIELD(arg0, u32 *, 0x20C), arg0 + 4, arg2 | 0x80);
     }
 }

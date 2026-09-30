@@ -25,6 +25,12 @@ struct RecoveredGlobal_8016713C___vt__16TOFenceAncient02 {
     u8 remaining[0x40];
 };
 
+struct Sub_80167020 { u8 pad[0xC]; void *c; };
+
+struct O_80167020 { u8 pad[0x42C]; Sub_80167020 *sub; };
+
+struct Arr_80167020 { void *a; s32 b; s32 c; s32 d; };
+
 extern "C" {
 u8 *TLobby__sub_8001FE7C(void *, s16);
 void free__11TOBoss4RockFUi(u32);
@@ -47,6 +53,17 @@ extern const f32 lbl_805DB620;
 extern const f32 lbl_805DB624;
 extern const f32 lbl_805DB628;
 u8 *TOFenceAncient02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+O_80167020 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+O_80167020 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+Arr_80167020 *alloc_buffer__11TOBoss4RockFPv(s32);
+s32 TLanguage__sub_801E4874(void *);
+extern char lbl_80441548[];
+extern char lbl_80441560[];
+extern char lbl_80441578[];
+extern char lbl_804B1CC0[];
+extern u8 *TOFenceAncient02__data_805D59B8;
+extern u32 TOFenceAncient02__data_805D59BC;
+void TOFenceAncient02__sub_80167020(void);
 }
 
 extern "C" {
@@ -98,6 +115,22 @@ void TOFenceAncient02__sub_80166F98(void) {
     TLobby__sub_8001FE7C(TOFenceAncient02__data_805D59B8, 1);
     TOFenceAncient02__data_805D59B8 = 0;
   }
+}
+
+void TOFenceAncient02__sub_80167020(void) {
+    O_80167020 *o;
+    Arr_80167020 *r;
+    o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    if (o != NULL) {
+        o = TLobby__sub_80020004(o, 1, lbl_804B1CC0, 0, 0, 0);
+    }
+    (*(O_80167020 * *)&TOFenceAncient02__data_805D59B8) = o;
+    r = alloc_buffer__11TOBoss4RockFPv(0x10);
+    (*(Arr_80167020 * *)&TOFenceAncient02__data_805D59BC) = r;
+    r->a = (*(O_80167020 * *)&TOFenceAncient02__data_805D59B8)->sub->c;
+    (*(Arr_80167020 * *)&TOFenceAncient02__data_805D59BC)->b = TLanguage__sub_801E4874(lbl_80441548);
+    (*(Arr_80167020 * *)&TOFenceAncient02__data_805D59BC)->c = TLanguage__sub_801E4874(lbl_80441560);
+    (*(Arr_80167020 * *)&TOFenceAncient02__data_805D59BC)->d = TLanguage__sub_801E4874(lbl_80441578);
 }
 
 void *__dt__16TOFenceAncient02Fv(void *arg0, s16 arg1) {

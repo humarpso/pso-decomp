@@ -4,6 +4,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_14_800A7BEC { char pad[0x14]; };
+
+struct VObj_14_800A7BEC : VBase_14_800A7BEC {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
+    virtual s32 m5();
+};
+
+struct Obj_800A7BEC { u8 pad0[0x38]; u8 sub38[0x326 - 0x38]; s16 f326; s16 state; u8 pad32a[0x390 - 0x32A]; s32 f390; };
+
 extern "C" {
 void set_flags_B0__10TObjPlayerFPvUi(void* p, u32 v);
 void TObjPlayer__sub_800A7798(u8 *arg0, f32 farg0);
@@ -31,6 +40,10 @@ M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(s32, M2C_UNK);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 void TObjPlayer__sub_800A78B8(s32 arg0);
+s32 TObjPlayer__sub_800A0554(void *);
+s32 TBoss3Volopt__sub_800D8C48(void *);
+s32 TBoss1Dragon__sub_80143504();
+void TObjPlayer__sub_800A7BEC(Obj_800A7BEC *arg0);
 }
 
 extern "C" {
@@ -145,6 +158,30 @@ void TObjPlayer__sub_800A7B54(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x368) = 2;
         set_param__12TObjEneLappyFPvi(arg0, 0x29);
         return;
+    }
+}
+void TObjPlayer__sub_800A7BEC(Obj_800A7BEC *arg0) {
+    TBoss1Dragon__sub_80143504();
+    switch (arg0->state) {
+    case 0:
+    default:
+        if (arg0->f390 == 1) {
+            arg0->state = 1;
+            TBoss3Volopt__sub_800D8C48(arg0->sub38);
+            TObjPlayer__sub_800A0554((u8 *)arg0 + 0x3A8);
+        } else {
+            arg0->state = 2;
+        }
+        break;
+    case 1:
+        if (((VObj_14_800A7BEC *)((u8 *)arg0 + 0x3A8))->m5() == 1) {
+            arg0->state = 2;
+            arg0->f390 = 0;
+        }
+        break;
+    case 2:
+        arg0->f326 = 1;
+        break;
     }
 }
 

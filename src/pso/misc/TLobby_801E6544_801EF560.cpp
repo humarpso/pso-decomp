@@ -9,10 +9,27 @@ struct RecoveredGlobal_801EF5D0_TLobby__data_80512220 {
     u8 remaining[0x1C];
 };
 
+struct VBase_18 { char pad[0x18]; };
+
+struct VObj_18 : VBase_18 {
+    virtual void m0(int);
+    char pad2[0x1080];
+    s32 f109c;
+};
+
+struct G80512220 { s32 a; void *b; u8 rest[0x18]; };
+
 extern "C" {
 M2C_UNK TNpcPlayer__sub_8034DFBC(int, int);
 extern RecoveredGlobal_801EF5D0_TLobby__data_80512220 TLobby__data_80512220;
 void TLobby__sub_801EF5D0(void);
+void TLobby__sub_80228990(void *, void *);
+VObj_18 *construct__6TLobbyFPvPvPvPv(void *, void *, void *, void *);
+void TLobby__sub_80228B54(void *);
+void *__nw__7TObjectFUl(u32, void *);
+void strncpy(void *, void *, int);
+extern RecoveredGlobal_801EF5D0_TLobby__data_80512220 TLobby__data_80512220;
+void qst_op_nop_A0_debug(void);
 }
 
 extern "C" {
@@ -43,6 +60,26 @@ void clear_quest_vm__6TLobbyFv(void) { free_luker_object__6TLobbyFv(); fn_80197E
 typedef char RecoveredGlobal_801EF5D0_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801EF5D0_TLobby__data_80512220) == 0x20 ? 1 : -1];
 void TLobby__sub_801EF5D0(void) {
     TNpcPlayer__sub_8034DFBC((int) (M2C_FIELD(&TLobby__data_80512220.value, s32 *, 0)), (int) (M2C_FIELD(&TLobby__data_80512220.value, s32 *, 4)));
+}
+
+void qst_op_nop_A0_debug(void) {
+    char buf[0x200];
+    VObj_18 *o;
+    void *s = (*(G80512220 *)&TLobby__data_80512220).b;
+    o = (VObj_18 *)__nw__7TObjectFUl(0x10A8, &TLobby__data_80512220);
+    if (o != NULL) {
+        o = construct__6TLobbyFPvPvPvPv(o, 0, 0, 0);
+    }
+    buf[0x1FF] = 0;
+    strncpy(buf, s, 0x1FF);
+    TLobby__sub_80228B54(buf);
+    TLobby__sub_80228990(o, buf);
+    if (o->f109c != 2) {
+        while (1) {}
+    }
+    if (o != NULL) {
+        o->m0(1);
+    }
 }
 
 int qst_op_cine_disable(void) { return reset_state__9TCineCtrlFi((void*)(0)); }

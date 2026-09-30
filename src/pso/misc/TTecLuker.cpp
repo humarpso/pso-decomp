@@ -55,6 +55,13 @@ struct Pipe_802347B4 {
     s32 phase;
 };
 
+struct Obj_8023448C {
+    u8 pad0[0x18];
+    void *vt;
+    u32 kids[3];
+    u32 f28;
+};
+
 extern "C" {
 void TTecLuker__sub_80234F7C(void* p);
 void TTecLuker__sub_80234F7C(void* p);
@@ -150,6 +157,12 @@ void TTecLuker__sub_802340E4(u8 *arg0);
 extern s32 tl_07;
 extern s32 tl_05;
 void TTecLuker__sub_802347B4(Pipe_802347B4 *s);
+void __dt__7TObjectFv(void *, int);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+void __dl__7TObjectFPv(void *);
+s32 is_parents_unqueued__9TTecLukerFUi(u32);
+extern u8 lbl_804CCA0C[];
+Obj_8023448C *TTecLuker__sub_8023448C(Obj_8023448C *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -398,6 +411,32 @@ void TTecLuker__sub_80234148(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4) {
             M2C_FIELD(arg0, s32 *, 0x14) = (s32) M2C_FIELD(temp_r3, s32 *, 0x60);
         }
     }
+}
+
+Obj_8023448C *TTecLuker__sub_8023448C(Obj_8023448C *arg0, s16 arg1) {
+    s32 i;
+    u32 z;
+    if (arg0 != NULL) {
+        i = 0;
+        z = 0;
+        arg0->vt = lbl_804CCA0C;
+        do {
+            if (is_parents_unqueued__9TTecLukerFUi(arg0->kids[i]) != 0) {
+                queue_destruction__7TObjectFv((void *)(arg0->kids[i]));
+                arg0->kids[i] = z;
+            }
+            i++;
+        } while (i < 3);
+        if (arg0->f28 != 0) {
+            queue_destruction__7TObjectFv((void *)(arg0->f28));
+            arg0->f28 = 0;
+        }
+        __dt__7TObjectFv((void *)(arg0), (int)(0));
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
 }
 
 void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {

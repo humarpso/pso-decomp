@@ -18,6 +18,16 @@ typedef struct MagData_80253564 { u8 b[16]; } MagData_80253564;
 
 typedef struct Callback_80253564 { u8 bytes[0xc]; } Callback_80253564;
 
+#pragma inline_depth(1)
+#pragma auto_inline on
+#pragma dont_inline off
+struct V3_802531A4 { u8 bytes[0xc]; };
+
+#pragma inline_depth(1)
+#pragma auto_inline on
+#pragma dont_inline off
+struct V3_802534B0 { u8 bytes[0xc]; };
+
 extern "C" {
 M2C_UNK clear_fields__20TWindowSubStatusDispFPv(void *);
 s32 TWindowHelpItem__sub_801B3038(int, void *);
@@ -33,6 +43,23 @@ void TWindowSubStatusDisp__sub_80257D44(void *, const void *, s16);
 extern u8 lbl_804CF4E4[];
 extern Callback_80253564 lbl_804CF880;
 void TWindowHelpItem__vt11(u8 *window);
+extern u8 lbl_804CF6BC[];
+extern V3_802531A4 lbl_804CF8A4;
+u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
+void TWindowSubStatusDisp__sub_80257D44(void *, const void *, s16);
+s32 reset_float_field__15TWindowHelpItemFPv(void *);
+s32 TWindowSubStatusDisp__sub_8025AC50(void *, void *, s32);
+void TWindowHelpItem__sub_802531A4(u8 *arg0, void *arg1);
+extern u8 lbl_804CF5AC[];
+extern V3_802534B0 lbl_804CF88C;
+s32 TLobby__sub_8001DC24();
+u8 calc_display_grade__9TItemDataFPv(void *);
+u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
+M2C_UNK TWindowSubStatusDisp__sub_80253154(void *);
+void TWindowSubStatusDisp__sub_80257D44(void *, const void *, s16);
+s32 reset_float_field__15TWindowHelpItemFPv(void *);
+s32 TWindowSubStatusDisp__sub_8025AC50(void *, void *, s32);
+void TWindowHelpItem__vt2(u8 *arg0);
 }
 
 extern "C" {
@@ -40,14 +67,21 @@ extern "C" {
 void TWindowHelpItem__sub_802531A0(void);
 void update_displayed_item__15TWindowHelpItemFi(s32 arg0);
 s32 TLobby__sub_8001DC24();
-M2C_UNK TWindowHelpItem__sub_802531A4(s32, s32);
-M2C_UNK TWindowSubStatusDisp__sub_80253154();
 
 void TWindowHelpItem__sub_802531A0(void) {  }
 
+void TWindowHelpItem__sub_802531A4(u8 *arg0, void *arg1) {
+    u8 *e;
+    TWindowSubStatusDisp__sub_80257D44(arg0 + 0x24, lbl_804CF6BC, *(s16 *)(arg0 + 0x20));
+    *(V3_802531A4 *)(arg0 + 0xB0) = lbl_804CF8A4;
+    e = get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(0));
+    TWindowSubStatusDisp__sub_8025AC50(e, arg1, 0x20);
+    reset_float_field__15TWindowHelpItemFPv(e);
+}
+
 void update_displayed_item__15TWindowHelpItemFi(s32 arg0) {
-    TWindowSubStatusDisp__sub_80253154();
-    TWindowHelpItem__sub_802531A4(arg0, TLobby__sub_8001DC24());
+    TWindowSubStatusDisp__sub_80253154((void *)(arg0));
+    TWindowHelpItem__sub_802531A4((u8 *)(arg0), (void *)(TLobby__sub_8001DC24()));
 }
 void TWindowHelpItem__sub_80253268(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_80253268, sp8) == 0x0) ? 1 : -1];
@@ -68,6 +102,20 @@ void TWindowHelpItem__sub_80253268(u8 *arg0) {
         }
     }
 }
+
+void TWindowHelpItem__vt2(u8 *arg0) {
+    u8 *e;
+    u8 *e2;
+    TWindowSubStatusDisp__sub_80257D44(arg0 + 0x24, lbl_804CF5AC, *(s16 *)(arg0 + 0x20));
+    *(V3_802534B0 *)(arg0 + 0xB0) = lbl_804CF88C;
+    e = get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(0));
+    TWindowSubStatusDisp__sub_80253154((void *)(arg0));
+    TWindowSubStatusDisp__sub_8025AC50((void *)(e), (void *)(TLobby__sub_8001DC24()), (s32)(0x20));
+    reset_float_field__15TWindowHelpItemFPv(e);
+    e2 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(1));
+    *(s32 *)(e2 + 0x10) = calc_display_grade__9TItemDataFPv(*(void **)(arg0 + 0x68));
+}
+
 void TWindowHelpItem__vt11(u8 *window) {
     MagData_80253564 mag;
     s32 slot;

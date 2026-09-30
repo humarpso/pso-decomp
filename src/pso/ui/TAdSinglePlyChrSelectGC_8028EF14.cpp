@@ -16,6 +16,8 @@ struct Slot_8028F198 { s32 f0; u8 pad[0x468]; };
 
 struct W_80290250 { u8 pad[0xfc]; s32 bufp; s32 rc; u8 data[4]; };
 
+struct E_8028F210 { s32 f0; u8 pad4[0xC]; s32 f10; s32 f14; u8 pad18[0x16C]; s32 f184; s32 f188; u8 pad18c[0x16C]; s32 f2f8; u8 pad2fc[0x170]; };
+
 extern "C" {
 extern const f32 lbl_805DD944;
 extern const f32 lbl_805DD948;
@@ -50,6 +52,12 @@ s32 get_display_index__12TCharaMakingFPv(void *);
 extern s32 lbl_804D886C[];
 extern u32 lbl_805D6520;
 void TAdSinglePlyChrSelectGC__sub_80290250(W_80290250 *arg0);
+extern Slot_8028F150 lbl_8051D288[];
+s32 TAdSinglePlyChrSelectGC__sub_8028F210();
+void TCharaMaking__sub_8028E3A0();
+void *TAdSinglePlyChrSelectGC__sub_8028FB74(void *, s32 *);
+s32 TAdSinglePlyChrSelectGC__sub_8028FBCC(u8 *arg0);
+void TAdSinglePlyChrSelectGC__sub_8028FAEC(void *arg0, s32 *arg1);
 }
 
 extern "C" {
@@ -102,6 +110,26 @@ s32 TAdSinglePlyChrSelectGC__sub_8028F198(void *arg0) {
     return 0;
 }
 
+s32 TAdSinglePlyChrSelectGC__sub_8028F210() {
+    E_8028F210 *p;
+    s32 n;
+    n = 2;
+    for (p = ((E_8028F210 *)&lbl_8051D288); p < &((E_8028F210 *)&lbl_8051D288)[0x80]; p++) {
+        if (p->f0 != 0) {
+            if (p->f14 != 0 && p->f10 == 0) {
+                n--;
+            }
+            if (p->f188 != 0 && p->f184 == 0) {
+                n--;
+            }
+            if (p->f2f8 == 0) {
+                n--;
+            }
+        }
+    }
+    return n;
+}
+
 s32 map_button_code__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     switch (arg0) {
     case 0x29:
@@ -116,6 +144,25 @@ s32 map_button_code__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
 }
 
 extern s32 lbl_805D6530;
+
+void TAdSinglePlyChrSelectGC__sub_8028FAEC(void *arg0, s32 *arg1) {
+    s32 j;
+    s32 y;
+    s32 x;
+    s32 i;
+    TCharaMaking__sub_8028E3A0();
+    TAdSinglePlyChrSelectGC__sub_8028FB74(((void *)TAdSinglePlyChrSelectGC__sub_8028FBCC((u8 *)(arg0))), arg1);
+    for (i = 0; i < 2; i++) {
+        for (j = 2; j > i; j--) {
+            x = arg1[j];
+            y = arg1[j - 1];
+            if (x < y) {
+                arg1[j - 1] = x;
+                arg1[j] = y;
+            }
+        }
+    }
+}
 
 s32 TAdSinglePlyChrSelectGC__sub_8028FBCC(u8 *arg0) {
     f32 temp_f3;

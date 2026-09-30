@@ -27,6 +27,17 @@ struct List_80257C28 { u32 count; Ent_80257C28 **items; };
 
 struct Win_80257C28 { u8 pad[0x2C]; u32 flags; u8 pad2[0x2C]; s32 counter; };
 
+struct B_80257CB8 { u8 pad[4]; };
+
+struct Elem_80257CB8 : B_80257CB8 {
+    virtual void dtor(s32 flag);
+};
+
+struct List_80257CB8 {
+    u32 count;
+    Elem_80257CB8 **items;
+};
+
 extern "C" {
 M2C_UNK init_from__20TWindowSubStatusDispFPvPvi();
 extern M2C_UNK lbl_804CF948[];
@@ -34,6 +45,8 @@ u8 *TWindowSubStatusDisp__sub_80257B4C(u8 *arg0, u8 *arg1);
 void TWindowSubStatusDisp__sub_80257BC0(void *self, List_80257BC0 *list, void *ctx);
 extern const f32 lbl_805DCEF0;
 void TWindowSubStatusDisp__sub_80257C28(Win_80257C28 *self, List_80257C28 *list);
+void free__11TOBoss4RockFUi(void *);
+void TWindowSubStatusDisp__sub_80257CB8(List_80257CB8 *arg0);
 }
 
 extern "C" {
@@ -90,6 +103,25 @@ void TWindowSubStatusDisp__sub_80257C28(Win_80257C28 *self, List_80257C28 *list)
     while (n-- != 0) {
         (*p)->m1();
         p++;
+    }
+}
+
+void TWindowSubStatusDisp__sub_80257CB8(List_80257CB8 *arg0) {
+    Elem_80257CB8 **p;
+    u32 n;
+    n = arg0->count;
+    if (n != 0) {
+        p = arg0->items;
+        p += n - 1;
+        while (n-- != 0) {
+            if (*p != 0) {
+                (*p)->dtor(1);
+            }
+            p--;
+        }
+        free__11TOBoss4RockFUi(arg0->items);
+        arg0->count = 0;
+        arg0->items = 0;
     }
 }
 

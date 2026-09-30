@@ -41,6 +41,9 @@ M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
 extern s32 lbl_805D3848;
 extern s32 lbl_805D63C8;
 void request_transition__21TAdMultiChgGameModeGCFv(void);
+u32 get_main_phase();
+extern s32 lbl_805D3848;
+s32 TAdMultiChgGameModeGC__sub_8023E7A8();
 }
 
 extern "C" {
@@ -50,6 +53,41 @@ M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
 
 extern s32 lbl_805D3848;
 extern s32 lbl_805D63C8;
+
+s32 TAdMultiChgGameModeGC__sub_8023E7A8() {
+    s32 r = 0;
+    switch (get_main_phase()) {
+    case 0:
+    case 1:
+    case 3:
+    case 8:
+    case 11:
+    case 12:
+        break;
+    case 2:
+    case 4:
+    case 6:
+    case 7:
+    case 9:
+    case 10:
+    case 13:
+        switch (lbl_805D3848) {
+        case 7:
+        case 14:
+        case 24:
+            r = 1;
+            break;
+        default:
+            r = 0;
+            break;
+        }
+        break;
+    case 5:
+        r = 1;
+        break;
+    }
+    return r;
+}
 
 void set_mode_change_state__21TAdMultiChgGameModeGCFv(void) {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
