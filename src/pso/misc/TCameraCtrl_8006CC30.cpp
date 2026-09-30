@@ -92,6 +92,14 @@ struct V_8006CC7C { f32 x, y, z; };
 
 struct O_8006CC7C { u8 pad[0x1c]; V_8006CC7C pos; };
 
+struct Ply_8006D2B0 { u8 pad[0x60]; s32 f60; };
+
+struct Vec_8006D95C { f32 x, y, z; };
+
+struct Tgt_8006D95C { u8 pad[0x38]; Vec_8006D95C pos; };
+
+struct Cam_8006D95C { u8 pad[0x1C]; Tgt_8006D95C *tgt; u8 pad20[0x10]; s32 f30; u8 pad34[8]; Vec_8006D95C pos; u8 pad48[0xDC - 0x48]; u8 fdc[1]; };
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8 TCameraCtrl__data_80488DE8;
@@ -137,6 +145,17 @@ extern O_8006CC7C *lbl_805005D0[];
 extern const V_8006CC7C lbl_804384E8;
 extern s16 lbl_805D4EC8;
 V_8006CC7C TCameraCtrl__sub_8006CC7C(void);
+s32 is_split_screen();
+void TCameraCtrl__sub_8006D344(void *, void *, s32, u16);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+extern void *lbl_805D53A0;
+void TCameraCtrl__sub_8006D2B0(void *arg0, void *arg1, u16 arg2);
+void TObjPlayer__sub_803D97F0(void *);
+void TObjPlayer__sub_803D9214(s32, s32);
+void TCameraCtrl__sub_803D8934(s32, void *, void *);
+void TCameraCtrl__sub_803D9858(s32);
+extern u8 lbl_8058D490[];
+void TCameraCtrl__sub_8006D95C(Cam_8006D95C *self);
 }
 
 extern "C" {
@@ -239,6 +258,25 @@ typedef char RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628_size[sizeof(Rec
 
 typedef char RecoveredGlobal_8006D460_camera_controller_registry_size[sizeof(RecoveredGlobal_8006D460_camera_controller_registry) == 0x68 ? 1 : -1];
 typedef char RecoveredGlobal_8006D460_TCameraCtrl__data_804FF628_size[sizeof(RecoveredGlobal_8006D460_TCameraCtrl__data_804FF628) == 0xC ? 1 : -1];
+
+void TCameraCtrl__sub_8006D2B0(void *arg0, void *arg1, u16 arg2) {
+    Ply_8006D2B0 *p;
+    s32 v;
+    v = 0x8000;
+    p = NULL;
+    if (is_split_screen() != 0) {
+        if (arg2 != 0xFFFF) {
+            p = ((Ply_8006D2B0 *)TPlayerBattleCtrl4P__sub_801BA74C((u32)(arg2)));
+        }
+    } else {
+        p = ((Ply_8006D2B0 *)TPlayerBattleCtrl4P__sub_801BA74C((u32)((*(s32 *)&lbl_805D53A0))));
+    }
+    if (p != NULL) {
+        v = p->f60 + 0x8000;
+    }
+    TCameraCtrl__sub_8006D344(arg0, arg1, v, arg2);
+}
+
 void TCameraCtrl__sub_8006D460(void) {
     u8 *temp_r3;
     if ((u8) (*(RecoveredGlobal_8006D460_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value == 0) {
@@ -290,6 +328,17 @@ void TCameraCtrl__sub_8006D610(void) {
     }
 }
 #pragma pop
+
+void TCameraCtrl__sub_8006D95C(Cam_8006D95C *self) {
+    Vec_8006D95C v;
+    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    TObjPlayer__sub_803D9214(0, self->f30);
+    TCameraCtrl__sub_803D8934(0, self->fdc, &v);
+    TCameraCtrl__sub_803D9858(1);
+    self->pos.x = self->tgt->pos.x + v.x;
+    self->pos.y = self->tgt->pos.y + v.y;
+    self->pos.z = self->tgt->pos.z + v.z;
+}
 
 void TCameraCtrl__sub_8006DCC8(void* p) { *(s32*)((char*)p + 0xfc) = 0; }
 

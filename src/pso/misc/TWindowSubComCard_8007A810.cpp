@@ -32,6 +32,10 @@ s32 TWindowSubComCard__sub_8007B010(Card_8007B010 *p, s32 n);
 Card_8007AFB8 *TWindowSubComCard__sub_8007A8F8(s32);
 s32 is_active__17TWindowSubComCardFPv(void *);
 s32 TWindowSubComCard__sub_8007AFB8(void);
+s32 forward_return_arg__17TWindowSubComCardFi(void *, void *);
+u32 get_card_id__17TWindowSubComCardFPv(void *);
+s32 is_active__17TWindowSubComCardFPv(void *);
+void TWindowSubComCard__sub_8007B1AC(void *arg0, u8 *arg1, s32 arg2);
 }
 
 extern "C" {
@@ -101,7 +105,22 @@ u32 TWindowSubComCard__sub_8007B070(u8 *arg0) {
 }
 
 int TWindowSubComCard__sub_8007B0D0(void) { return 0; }
-int TWindowSubComCard__sub_8007B1AC(void) { return 0; }
+
+void TWindowSubComCard__sub_8007B1AC(void *arg0, u8 *arg1, s32 arg2) {
+    s32 i;
+    u32 id = get_card_id__17TWindowSubComCardFPv(arg0);
+    for (i = 0; i < arg2; i++, arg1 += 0x90) {
+        if (is_active__17TWindowSubComCardFPv(arg1) == 0) {
+            break;
+        }
+        if (id == get_card_id__17TWindowSubComCardFPv(arg1)) {
+            break;
+        }
+    }
+    if (i < arg2) {
+        forward_return_arg__17TWindowSubComCardFi(arg1, arg0);
+    }
+}
 
 void TWindowSubComCard__sub_8007B230(u8 *arg0, void *arg1) {
     strncpy((void *) (arg0 + 0x20), arg1, (int) (0x6B));

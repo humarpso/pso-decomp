@@ -10,6 +10,8 @@ struct Obj_80059010 { u8 pad[0x398]; s32 f398; u8 pad39c[0x1C]; u16 f3b8; u16 f3
 
 struct Obj_80059390 { u8 pad[0x30]; u32 flags; u8 pad34[0x384]; u16 f3b8; u16 f3ba; };
 
+struct Obj_80058E64 { u8 pad[0x32C]; s16 f32c; u8 pad2[0x6A]; s32 f398; u8 pad3[0x1C]; u16 f3b8; u16 f3ba; u8 pad4[0x24]; s32 f3e0; };
+
 extern "C" {
 void TBoss4Type3__vt2(void *arg0);
 M2C_UNK TBoss4Type3__sub_8005A398(void *, M2C_UNK);
@@ -48,6 +50,11 @@ s32 TBoss4Type3__sub_8004AE60(void);
 void TBoss4Type3__vt23(Obj_80059010 *self);
 int TBoss4Type3__sub_80059F64(void*, void*);
 void TBoss4Type3__vt3(Obj_80059390 *self);
+s32 TBoss4Type3__sub_8004AE60(void);
+int TBoss4Type3__sub_800599F4(void*, void*, void*);
+void TBoss4Type3__sub_80059EA8(void *, s32, s32);
+int TBoss4Type3__sub_80059F64(void*, void*);
+void TBoss4Type3__vt26(Obj_80058E64 *self);
 }
 
 extern "C" {
@@ -138,6 +145,22 @@ void TBoss4Type3__vt27(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x398) = temp_r0;
     if (temp_r0 < 0) {
         TBoss4Type3__sub_8005A398((void *)(arg0), (M2C_UNK)(1));
+    }
+}
+
+void TBoss4Type3__vt26(Obj_80058E64 *self) {
+    s32 t;
+    if (self->f398 == 0) {
+        if (self->f3ba != 0xFFFF) {
+            TBoss4Type3__sub_80059F64(self, (void*)16);
+            return;
+        }
+        t = TBoss4Type3__sub_8004AE60();
+        if (self->f32c <= self->f3e0 && (u16)t != 0xFFFF) {
+            TBoss4Type3__sub_80059EA8(self, 14, t);
+            return;
+        }
+        TBoss4Type3__sub_800599F4(self, (void*)0, (void*)2);
     }
 }
 

@@ -249,6 +249,19 @@ struct Cam_800688D0 { u8 pad[0x10]; s32 slots[4]; };
 
 struct RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628;
 struct RecoveredGlobal_80069094_camera_controller_registry;
+
+struct Vec_80068810 { f32 x, y, z; };
+
+struct Cam_80068810 {
+    u8 pad0[0x94];
+    void *slots[4];
+    Vec_80068810 vecs[4];
+    u8 padd4[0x178 - 0xD4];
+    Vec_80068810 v178;
+    u8 pad184[0x194 - 0x184];
+    void *f194;
+};
+
 extern "C" {
 void TCameraCtrl__sub_800689E8(void);
 void update_position__11TCameraCtrlFPv(u8 *arg0);
@@ -427,6 +440,10 @@ extern RecoveredGlobal_80069094_camera_controller_registry camera_controller_reg
 extern s32 lbl_805D4E18;
 extern s32 lbl_805D53A0;
 s32 TCameraCtrl__sub_80069DA8(void);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+u16 TCameraCtrl__sub_80068958(s32 n);
+extern u8 *lbl_805D4DF0;
+void TCameraCtrl__sub_80068810(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -466,6 +483,25 @@ void TCameraCtrl__sub_800687E4(u8 *arg0) {
 }
 
 struct Cam_80068958;
+
+void TCameraCtrl__sub_80068810(s32 arg0, s32 arg1) {
+    s32 i;
+    s32 id;
+    if ((*(Cam_80068810 * *)&lbl_805D4DF0) != NULL) {
+        id = (u16)TCameraCtrl__sub_80068958(arg0);
+        if (id != 0xFFFF) {
+            (*(Cam_80068810 * *)&lbl_805D4DF0)->slots[id] = (*(Cam_80068810 * *)&lbl_805D4DF0)->f194;
+            VecCopy__FP3VecPC3Vec((void *)(&(*(Cam_80068810 * *)&lbl_805D4DF0)->vecs[id]), (int)(&(*(Cam_80068810 * *)&lbl_805D4DF0)->v178));
+        }
+    }
+    if (arg1 != 0) {
+        for (i = 0; i < 4; i++) {
+            (*(Cam_80068810 * *)&lbl_805D4DF0)->slots[i] = (*(Cam_80068810 * *)&lbl_805D4DF0)->f194;
+            VecCopy__FP3VecPC3Vec((void *)(&(*(Cam_80068810 * *)&lbl_805D4DF0)->vecs[i]), (int)(&(*(Cam_80068810 * *)&lbl_805D4DF0)->v178));
+        }
+    }
+}
+
 s32 TCameraCtrl__sub_800688D0(u16 id) {
     s32 result = 0;
     s32 n = 0;

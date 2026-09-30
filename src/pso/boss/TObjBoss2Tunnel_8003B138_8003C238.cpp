@@ -8,12 +8,20 @@ struct Obj_8003C374 { u8 pad[0x28]; s32 start; s32 q[6]; };
 
 struct Obj_8003C2A0 { u8 pad[0x2c]; s32 q[6]; s32 idx; };
 
+struct S_8003C2E4 {
+    u8 pad0[0x28];
+    s32 f28;
+    s32 t[6];
+};
+
 extern "C" {
 extern s32 lbl_804834BC[];
 extern s32 lbl_804834D4[];
 void TObjBoss2Tunnel__sub_8003C374(Obj_8003C374 *self);
 extern s32 lbl_80483550[];
 void TObjBoss2Tunnel__sub_8003C2A0(Obj_8003C2A0 *self);
+extern s32 lbl_804834D4[];
+void TObjBoss2Tunnel__sub_8003C2E4(S_8003C2E4 *o);
 }
 
 extern "C" {
@@ -42,6 +50,23 @@ void TObjBoss2Tunnel__sub_8003C2A0(Obj_8003C2A0 *self) {
         self->q[i] = self->q[i + 1];
     }
     self->q[5] = lbl_80483550[self->idx++];
+}
+
+void TObjBoss2Tunnel__sub_8003C2E4(S_8003C2E4 *o) {
+    s32 idx = o->f28;
+    s32 n = 6;
+    s32 i;
+    s32 j;
+    if (idx + 6 > 0x1F) {
+        n = 0x1F - idx;
+    }
+    s32 k = idx;
+    for (i = 0; i < n; i++, k++) {
+        o->t[i] = lbl_804834D4[k];
+    }
+    for (j = 0; i < 6; i++, j++) {
+        o->t[i] = lbl_804834D4[j];
+    }
 }
 
 void TObjBoss2Tunnel__sub_8003C374(Obj_8003C374 *self) {

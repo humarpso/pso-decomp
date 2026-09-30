@@ -89,6 +89,14 @@ struct VObj_18_aa4667 : VBase_18_aa4667 {
     virtual M2C_UNK m79(s32);
 };
 
+struct Ene_803154A8;
+typedef void (Ene_803154A8::*Fn_803154A8)(void);
+struct Ent_803154A8 { Fn_803154A8 f; u8 rest[12]; };
+struct Ene_803154A8 {
+    u8 pad[0x374];
+    s32 idx;
+};
+
 struct RecoveredGlobal_80315A40___vt__15TObjEneDelDepth {
     M2C_UNK value;
     u8 remaining[0x14C];
@@ -98,7 +106,8 @@ extern "C" {
 s32 add_flags_2e4__10TObjPlayerFPvUi(void *, int);
 s32 initialize__9TObjEnemyFPv(void *);
 s32 TObjPlayer__sub_80156844(void *, void *, int);
-s32 TObjEneDelDepth__sub_803154A8(void *, int);
+void TObjEneDelDepth__sub_803154A8(Ene_803154A8 *o, s32 i);
+extern Ent_803154A8 lbl_804E836C[];
 s32 TObjEneDelDepth__sub_803158B0(void *);
 extern M2C_UNK __vt__15TObjEneDelDepth[];
 extern s32 lbl_805D4118;
@@ -123,6 +132,15 @@ extern M2C_UNK lbl_80475DD8;
 
 void set_depth_offset__15TObjEneDelDepthFPvii(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x384) = (s32) (arg1 + (s32) ((f32) arg2 * calc_boss4_scale__10TObjPlayerFi()));
+}
+
+void TObjEneDelDepth__sub_803154A8(Ene_803154A8 *o, s32 i) {
+    Fn_803154A8 fn;
+    o->idx = i;
+    fn = lbl_804E836C[o->idx].f;
+    if (fn) {
+    }
+    (o->*fn)();
 }
 
 void TObjEneDelDepth__sub_80315518(void) {  }
@@ -164,7 +182,7 @@ u8 *TObjEneDelDepth__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     TObjEneDelDepth__sub_80315888((u8 *)((void *) (arg0)));
     TObjEneDelDepth__sub_803158B0((void *) (arg0));
     TObjPlayer__sub_80156844((void *) (arg0), (void *) (arg0 + 0x38), (int) (0));
-    TObjEneDelDepth__sub_803154A8((void *) (arg0), (int) (0));
+    TObjEneDelDepth__sub_803154A8((Ene_803154A8 *) (arg0), 0);
     return arg0;
 }
 

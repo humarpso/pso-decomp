@@ -4,6 +4,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct V_8005BB5C { f32 x, y, z; };
+
+struct Obj_8005BB5C { u8 pad[0x38]; V_8005BB5C pos; V_8005BB5C prev; u8 pad50[0x37C - 0x50]; s32 f37c; };
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TBoss4Zako__sub_803D8910(void *, void *);
@@ -35,6 +39,13 @@ extern const f32 lbl_805D8CF4;
 extern const f32 lbl_805D8CF8;
 extern const f32 lbl_805D8CFC;
 void TBoss4Zako__sub_8005C368(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void enter_state_3__11TBoss4BishiFPv(void* p);
+void TBoss4Zako__sub_803D8910(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+extern const f32 lbl_805D8CBC;
+extern const f32 lbl_805D8CC4;
+void TBoss4Bishi__vt1(Obj_8005BB5C *self);
 }
 
 extern "C" {
@@ -85,6 +96,16 @@ void TBoss4Bishi__vt2(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x5C) = (s32) (M2C_FIELD(arg0, s32 *, 0x5C) + 0x111);
     if (M2C_FIELD(arg0, f32 *, 0x3C) < lbl_805D8CC0) {
         queue_destruction__7TObjectFv((void *) (arg0));
+    }
+}
+
+void TBoss4Bishi__vt1(Obj_8005BB5C *self) {
+    VecCopy__FP3VecPC3Vec(&self->prev, &self->pos);
+    TBoss4Zako__sub_803D8910(&self->pos, (u8 *)self + 0x38C);
+    V_8005BB5C v = self->pos;
+    v.y = lbl_805D8CBC;
+    if (--self->f37c < 0 || TBoss6Kakusan__sub_803D8BD8(&v) > lbl_805D8CC4) {
+        enter_state_3__11TBoss4BishiFPv((void*)(self));
     }
 }
 

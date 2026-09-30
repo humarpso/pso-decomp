@@ -17,6 +17,10 @@ s32 TWindowSubComCard__sub_8007A8F8(M2C_UNK);
 void TLobby__sub_803DE7BC(u32 *dst, u32 *src, s32 n);
 void TWindowSubComCard__sub_8007B26C(Card_8007AC10 *);
 void TWindowSubComCard__sub_8007AC10(s32 i);
+s32 forward_return_arg__17TWindowSubComCardFi(void *, void *);
+u32 get_card_id__17TWindowSubComCardFPv(void *);
+s32 is_active__17TWindowSubComCardFPv(void *);
+void TWindowSubComCard__sub_8007ADB4(void *arg0, u8 *arg1, s32 arg2);
 }
 
 extern "C" {
@@ -65,6 +69,21 @@ s32 send_guild_card__17TWindowSubComCardFi(s32 arg0) {
     }
     temp = TWindowSubComCard__sub_8007A8F8((M2C_UNK)(0));
     return TWindowSubComCard__sub_8007AC7C(arg0, temp, 0xD2);
+}
+void TWindowSubComCard__sub_8007ADB4(void *arg0, u8 *arg1, s32 arg2) {
+    s32 i;
+    u32 id = get_card_id__17TWindowSubComCardFPv(arg0);
+    for (i = 0; i < arg2; i++, arg1 += 0x100) {
+        if (is_active__17TWindowSubComCardFPv(arg1) == 0) {
+            break;
+        }
+        if (id == get_card_id__17TWindowSubComCardFPv(arg1)) {
+            break;
+        }
+    }
+    if (i < arg2) {
+        forward_return_arg__17TWindowSubComCardFi(arg1, arg0);
+    }
 }
 
 }

@@ -24,6 +24,8 @@ force_active:
   - AISetStreamVolLeft
   - AISetStreamVolRight
   - TAdSinglePlyChrSelectGC__sub_80133530
+  - TBoss2DeRolLe__sub_80034D58
+  - TBoss8Dragon__sub_8005E17C
   - TFontSmallLobby__sub_801B117C
   - TFontSmallLobby__sub_801C0258
   - TItemEquipBase__sub_8022F1F4
@@ -80,6 +82,7 @@ force_active:
   - __dt__15TAdDrawLineCtrlFv
   - __dt__15TItemEffLandHitFv
   - __dt__15TItemMagGrowEffFv
+  - __dt__15TObjSoloPlayWinFv
   - __dt__16TBoss3VoloptCtrlFv
   - __dt__16TItemReverseTechFv
   - __dt__17TOSwitchAttackSubFv
@@ -102,6 +105,7 @@ force_active:
   - emit_player_model_particle
   - fn_80010F4C
   - fn_80076C68
+  - fn_8007F560
   - fn_801692AC
   - fn_8016AD3C
   - fn_801C1E98
@@ -129,6 +133,7 @@ force_active:
   - run_task__15TAdDrawLineCtrlFv
   - run_task__15TItemEffLandHitFv
   - run_task__15TItemMagGrowEffFv
+  - run_task__15TObjSoloPlayWinFv
   - run_task__16TBoss3VoloptCtrlFv
   - run_task__16TItemReverseTechFv
   - run_task__17TOSwitchAttackSubFv

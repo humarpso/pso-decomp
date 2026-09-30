@@ -28,11 +28,12 @@ extern M2C_UNK __vt__17TObjParticleLobby[];
 extern s32 lbl_805D44B8;
 extern const f32 lbl_805E0344;
 u8 *TObjParticleLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
+s32 TLobby__sub_80351DFC();
+s32 TObjParticleLobby__sub_80369654(void);
 }
 
 extern "C" {
 
-int TObjParticleLobby__sub_80369654(void);
 void TObjParticleLobby__sub_80369698(void);
 void TObjParticleLobby__sub_80369A60(void);
 void TObjParticleLobby__sub_80369A64(void);
@@ -44,7 +45,16 @@ void *__nw__7TObjectFUl(int);
 void destroy_key_base__5TOKeyFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
-int TObjParticleLobby__sub_80369654(void) { return 0; }
+s32 TObjParticleLobby__sub_80369654(void) {
+    s32 r = TLobby__sub_80351DFC();
+    switch (r) {
+    case 12:
+        return 0;
+    case 13:
+        return 8;
+    }
+    return r;
+}
 
 void TObjParticleLobby__sub_80369698(void) {  }
 void render__17TObjParticleLobbyFv(void) {  }

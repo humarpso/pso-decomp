@@ -100,6 +100,8 @@ struct RecoveredGlobal_8003EFF0___vt__12TBoss3Volopt { M2C_UNK value; u8 remaini
 
 struct RecoveredGlobal_8003EFF0_lbl_804FEE68 { M2C_UNK value; u8 remaining[0x8]; };
 
+struct S_8003EF38 { u8 pad0[0x18]; void *vt; };
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_800192DC(void *);
 s32 TObjPlayer__sub_800194AC(void *, int, int);
@@ -134,6 +136,19 @@ extern s32 lbl_805D4C20;
 extern s32 lbl_805D4C44;
 extern s32 tl_04;
 u8 *TBoss3Volopt__ct(u8 *arg0, s32 arg1);
+s32 TBoss3Volopt__sub_8003CB94();
+void __dt__15TObjEnemyCustomFv(void *, s32);
+void send_entity_set_flags__6TLobbyFPv(void *);
+void __dl__7TObjectFPv(void *);
+extern u16 lbl_80483770[];
+extern RecoveredGlobal_8003EFF0___vt__12TBoss3Volopt __vt__12TBoss3Volopt;
+extern u16 TBoss3Volopt__data_805D2710;
+extern s32 lbl_805D2714;
+extern u16 lbl_805D2718;
+extern u16 lbl_805D271A;
+extern u16 lbl_805D271C;
+extern int lbl_805D4C14;
+S_8003EF38 *__dt__12TBoss3VoloptFv(S_8003EF38 *o, s16 flag);
 }
 
 extern "C" {
@@ -258,6 +273,30 @@ void free_parts__12TBoss3VoloptFv(void) {
     TBoss3Volopt__sub_800479D0();
     destroy__20TBoss3VoloptHiraisinFv();
     release__19TBoss3VoloptMonitorFv();
+}
+
+S_8003EF38 *__dt__12TBoss3VoloptFv(S_8003EF38 *o, s16 flag) {
+    s32 i;
+    if (o != 0) {
+        o->vt = ((u8 *)&__vt__12TBoss3Volopt);
+        if (TBoss3Volopt__sub_8003CB94() != 0) {
+            send_entity_set_flags__6TLobbyFPv(o);
+        }
+        (*(s32 *)&lbl_805D4C14) = 0xFFFF;
+        TBoss3Volopt__data_805D2710 = 0xFFFF;
+        lbl_805D2714 = 0xFFFF;
+        lbl_805D2718 = 0xFFFF;
+        lbl_805D271A = 0xFFFF;
+        for (i = 0; i < 6; i++) {
+            lbl_80483770[i] = 0xFFFF;
+        }
+        lbl_805D271C = 0xFFFF;
+        __dt__15TObjEnemyCustomFv(o, 0);
+        if (flag > 0) {
+            __dl__7TObjectFPv(o);
+        }
+    }
+    return o;
 }
 
 u8 *TBoss3Volopt__ct(u8 *arg0, s32 arg1) {

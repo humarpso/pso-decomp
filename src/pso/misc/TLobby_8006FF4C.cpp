@@ -34,11 +34,14 @@ void create_obj_tag_challenge(s32);
 void create__14TObjBagWarnWinFPv(s32);
 extern s32 tl_07;
 void TLobby__sub_80070600(O_80070600 *self);
+s32 get_main_phase(void);
+void queue_destruction__7TObjectFv(void *);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+s32 TLobby__sub_800704CC(void *self);
 }
 
 extern "C" {
 
-int TLobby__sub_800704CC(void*);
 void TLobby__sub_80070550(void);
 void TLobby__sub_80070598(u8 *arg0);
 void cleanup_if_inactive__6TLobbyFPv(void* p);
@@ -121,12 +124,29 @@ void TLobby__sub_80070358(void) {
 }
 
 int TLobby__sub_800703D0(void * _w0, void * _w1) { return 0; }
-int TLobby__sub_800704CC(void*) { return 0; }
+
+s32 TLobby__sub_800704CC(void *self) {
+    switch (get_main_phase()) {
+    case 15:
+        if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
+            queue_destruction__7TObjectFv(self);
+            return 1;
+        }
+        break;
+    case 14:
+        queue_destruction__7TObjectFv(self);
+        return 1;
+    default:
+        queue_destruction__7TObjectFv(self);
+        return 1;
+    }
+    return 0;
+}
 
 void TLobby__sub_80070550(void) {  }
-void cleanup_if_inactive__6TLobbyFPv(void* p) { if (TLobby__sub_800704CC((void*)(p)) == 0) { TLobby__sub_80070170(p); update_battle_cleanup_flag__6TLobbyFPv((void *)(p)); } }
+void cleanup_if_inactive__6TLobbyFPv(void* p) { if (TLobby__sub_800704CC((void *)((void*)(p))) == 0) { TLobby__sub_80070170(p); update_battle_cleanup_flag__6TLobbyFPv((void *)(p)); } }
 void TLobby__sub_80070598(u8 *arg0) {
-    if (((s32)TLobby__sub_800704CC((void*)((void*)(arg0)))) == 0) {
+    if (((s32)TLobby__sub_800704CC((void *)((void*)((void*)(arg0))))) == 0) {
         ((M2C_UNK)TLobby__sub_80070078((void *) (arg0)));
         if (TCameraCtrl__sub_8006B368() != 0) {
             ((M2C_UNK)init__23TAdSinglePlyChrSelectGCFv());

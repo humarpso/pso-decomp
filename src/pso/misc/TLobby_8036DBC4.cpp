@@ -5,6 +5,22 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 get_camera_id__11TCameraCtrlFv();
+s32 TLobby__sub_8001EEFC(void *);
+void draw_string__9TLanguageFPvPvi(void *, void *, int);
+void TLobby__sub_8001EE48(void *);
+s32 TLanguage__sub_801E4874(void *);
+void set_global_param__8TObjFishFi();
+void TLanguage__sub_803DAF70(int, int);
+extern u8 lbl_8047AD08[];
+extern u8 lbl_8047AD14[];
+extern u8 lbl_8047AD20[];
+extern u32 lbl_805D7018;
+extern s32 lbl_805D701C;
+void TBGMulti__ct(void);
+}
+
+extern "C" {
 
 void free_singleton_805D7018__6TLobbyFv(void);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
@@ -18,6 +34,18 @@ void free_singleton_805D7018__6TLobbyFv(void) {
         safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D7018);
         lbl_805D7018 = 0U;
     }
+}
+void TBGMulti__ct(void) {
+    s32 sp8[4];
+    if (get_camera_id__11TCameraCtrlFv() == 3) {
+        sp8[0] = TLobby__sub_8001EEFC(lbl_8047AD08);
+        draw_string__9TLanguageFPvPvi(lbl_8047AD14, sp8, 0x4D);
+        TLobby__sub_8001EE48(lbl_8047AD08);
+        (*(s32 *)&lbl_805D7018) = TLanguage__sub_801E4874(lbl_8047AD20);
+        set_global_param__8TObjFishFi();
+        TLanguage__sub_803DAF70(0, 0x4D);
+    }
+    lbl_805D701C = 0x384;
 }
 
 }

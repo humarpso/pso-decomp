@@ -16,6 +16,10 @@ struct Node_8001D808 { Node_8001D808 *next; Node_8001D808 *prev; u32 addr; u32 s
 
 struct Pool_8001D808 { u8 pad[0x2C]; Node_8001D808 *head; };
 
+struct Node_8001D6E0 { Node_8001D6E0 *next; Node_8001D6E0 *prev; u32 addr; u32 size; };
+
+struct Pool_8001D6E0 { u8 pad[0x2C]; Node_8001D6E0 *head; };
+
 extern "C" {
 extern s32 lbl_805D4A90;
 void TLobby__sub_8001D9DC(void);
@@ -28,10 +32,11 @@ M2C_UNK strncpy(int, int, int);
 extern s32 TLobby__data_805D4A98;
 void TLobby__sub_8001DAB4(s32 arg0);
 Ent_8001D768 *TLobby__sub_8001D768(Obj_8001D768 *self);
-void TLobby__sub_8001D6E0(Pool_8001D7AC *pool);
 void TLobby__sub_8001D7AC(Pool_8001D7AC *pool, Node_8001D7AC *node);
 Ent_8001D768 *TLobby__sub_8001D768(Obj_8001D768 *self);
 Node_8001D808 *TLobby__sub_8001D808(Pool_8001D808 *pool, u32 size);
+void TLobby__sub_8001D9E8(void* p);
+void TLobby__sub_8001D6E0(Pool_8001D6E0 *pool);
 }
 
 extern "C" {
@@ -56,6 +61,24 @@ void send_or_handle_packet__6TLobbyFPvPvPvPvUi(void *arg0, void *arg1, void *arg
     TLobby__sub_8001D568(0, M2C_FIELD(arg1, s32 *, 8));
 }
 
+void TLobby__sub_8001D6E0(Pool_8001D6E0 *pool) {
+    Node_8001D6E0 *cur;
+    Node_8001D6E0 *n;
+    cur = pool->head->next;
+    while ((n = cur->next) != 0) {
+        if (n->addr == cur->addr + cur->size) {
+            cur->next = n->next;
+            cur->size = cur->size + n->size;
+            if (n->next != 0) {
+                n->next->prev = cur;
+            }
+            TLobby__sub_8001D9E8((void*)(n));
+        } else {
+            cur = n;
+        }
+    }
+}
+
 Ent_8001D768 *TLobby__sub_8001D768(Obj_8001D768 *self) {
     u32 i;
     if (self->ents != 0) {
@@ -77,7 +100,7 @@ void TLobby__sub_8001D7AC(Pool_8001D7AC *pool, Node_8001D7AC *node) {
             node->next = cur;
             node->prev = prev;
             cur->prev = node;
-            TLobby__sub_8001D6E0(pool);
+            TLobby__sub_8001D6E0((Pool_8001D6E0 *)(pool));
             return;
         }
     }

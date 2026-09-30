@@ -29,6 +29,12 @@ struct RecoveredGlobal_803F7A30_lbl_805C18A0 {
     u8 remaining[0xC];
 };
 
+struct E_803F7684 { u32 key; s32 val; };
+
+struct P_803F7A90 { s32 a; s32 b; };
+
+struct Q_803F7AF4 { s32 a; s32 b; };
+
 extern "C" {
 extern RecoveredGlobal_803F76F4_lbl_805A9008 lbl_805A9008;
 void TLobby__sub_803F76F4(u8 *arg0);
@@ -78,6 +84,27 @@ extern s32 lbl_805D7A4C;
 s32 TLobby__sub_803F8564(u8 *arg0);
 extern s32 lbl_805D7A2C;
 s32 TLobby__sub_803F7D6C(void);
+extern E_803F7684 lbl_804FD350[];
+s32 TLobby__sub_803F9E44(void *, u32);
+s32 TLobby__sub_803F7684(void *arg0);
+extern RecoveredGlobal_803F7A30_lbl_805C18A0 lbl_805C18A0;
+extern u8 TLobby__sub_80405150[];
+s16 TLobby__sub_803F96AC(void *);
+void TLobby__sub_803F9B28(s32);
+s16 TLobby__sub_803F9B94(void *, void *);
+void TLobby__sub_803F7A90(void);
+extern s32 lbl_805D7A30;
+Q_803F7AF4 *TLobby__sub_803F7B74(void);
+void NetYieldThread(void);
+void NetSuspendCurrentThread(void);
+s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32, s32, void *);
+s32 TAdSinglePlyChrSelectGC__sub_8042E184(void);
+void TLobby__sub_803F7D5C(s32 arg0);
+void TLobby__sub_803F7AF4(void);
+s32 TAdSinglePlyChrSelectGC__sub_8042E320(s32, s32, void *);
+extern s32 lbl_805D7A2C;
+void TLobby__sub_803F7D54(s32 arg0);
+s32 TLobby__sub_803F7DD8(s32 arg0, s16 arg1);
 }
 
 extern "C" {
@@ -102,6 +129,16 @@ void TLobby__sub_803F7678(void) {
 }
 
 s32 TLobby__sub_803F767C(void) {
+    return 0;
+}
+
+s32 TLobby__sub_803F7684(void *arg0) {
+    E_803F7684 *p;
+    for (p = lbl_804FD350; p->key != 0; p++) {
+        if (TLobby__sub_803F9E44(arg0, p->key) == 0) {
+            return p->val;
+        }
+    }
     return 0;
 }
 
@@ -212,6 +249,40 @@ void TLobby__sub_803F7A30(void) {
     TLobby__sub_803F95E4((u32)((int) (M2C_FIELD(&lbl_805C18A0.value, s32 *, 0))));
 }
 
+void TLobby__sub_803F7A90(void) {
+    if (TLobby__sub_803F96AC(((P_803F7A90 *)&lbl_805C18A0)) < 0 || TLobby__sub_803F9B94(TLobby__sub_80405150, &((P_803F7A90 *)&lbl_805C18A0)[0].b) < 0) {
+        return;
+    }
+    TLobby__sub_803F9B28(((P_803F7A90 *)&lbl_805C18A0)[0].b);
+}
+
+void TLobby__sub_803F7AF4(void) {
+    Q_803F7AF4 *p;
+    for (;;) {
+        p = TLobby__sub_803F7B74();
+        if (p == NULL) {
+            NetSuspendCurrentThread();
+            continue;
+        }
+        lbl_805D7A30 = p->b;
+        for (;;) {
+            if (TAdSinglePlyChrSelectGC__sub_8042E184() == 0) {
+                if (TAdSinglePlyChrSelectGC__sub_8042DD70(p->a, p->b, (void *)TLobby__sub_803F7D5C) == 1) {
+                    break;
+                }
+            }
+            NetYieldThread();
+        }
+        for (;;) {
+            if (lbl_805D7A30 <= 0) {
+                break;
+            }
+            NetYieldThread();
+        }
+        NetYieldThread();
+    }
+}
+
 void TLobby__sub_803F7D54(s32 arg0) {
     lbl_805D7A2C = arg0;
 }
@@ -243,6 +314,25 @@ s32 TLobby__sub_803F7D6C(void) {
     default:
         return 1;
     }
+}
+
+s32 TLobby__sub_803F7DD8(s32 arg0, s16 arg1) {
+    s32 v;
+    switch (arg1) {
+    case 0:
+        v = 1;
+        break;
+    case 1:
+        v = 2;
+        break;
+    default:
+        return -1;
+    }
+    lbl_805D7A2C = 4;
+    if (TAdSinglePlyChrSelectGC__sub_8042E320(arg0, v, (void *)TLobby__sub_803F7D54) != 1) {
+        return -1;
+    }
+    return 0;
 }
 
 s32 TLobby__sub_803F8044(s32 arg0) {

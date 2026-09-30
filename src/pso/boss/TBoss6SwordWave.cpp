@@ -27,7 +27,8 @@ void TBoss6SwordWave__sub_80356DDC(s32 arg0, u8 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 *dispatch_shared_handler_a__6TLobbyFPv(s32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 TBoss6SwordWave__sub_80356D64(void *, void *, void *);
+void TBoss6SwordWave__sub_80356D64(void *, void *, void *);
+void fn_80356E30(void *);
 extern RecoveredGlobal_80356B18___vt__15TBoss6SwordWave __vt__15TBoss6SwordWave;
 extern s32 lbl_805D43A8;
 extern const f32 lbl_805DFFE8;
@@ -141,6 +142,19 @@ void TBoss6SwordWave__sub_80356D10(W_80356D10 *arg0, u8 arg1) {
     s32 bit;
     TBoss6SwordWave__sub_80356CDC((s32)arg0, arg1, &idx, &bit);
     arg0->w[idx] &= ~(1 << bit);
+}
+
+void TBoss6SwordWave__sub_80356D64(void *arg0, void *arg1, void *arg2) {
+    s32 a = ((s32 (*)(void *, void *))TBoss6SwordWave__sub_80356D08)(arg0, arg1);
+    s32 b = ((s32 (*)(void *, void *))TBoss6SwordWave__sub_80356D08)(arg0, arg2);
+    if (a > b) {
+        b += 0x100;
+    }
+    fn_80356E30(arg0);
+    while (a <= b) {
+        ((void (*)(void *, s32))TBoss6SwordWave__sub_80356DDC)(arg0, a);
+        a++;
+    }
 }
 
 void TBoss6SwordWave__sub_80356DDC(s32 arg0, u8 arg1) {

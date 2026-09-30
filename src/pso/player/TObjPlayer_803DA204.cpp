@@ -10,6 +10,8 @@ struct Sub_803DA688 { u32 v; };
 
 struct Rec_803DA688 { u32 a; u32 b; u32 c; Sub_803DA688 *d; u32 e; u32 f; };
 
+struct E_803DA55C { u8 pad[0xC]; u32 *p; u8 pad2[8]; };
+
 extern "C" {
 extern s32 lbl_805D7758;
 void TObjPlayer__sub_803DA6E0(u8 *arg0);
@@ -17,6 +19,9 @@ void TObjPlayer__sub_803DA218(S_803DA218 *self, s32 a, s32 b, u32 c);
 extern s32 lbl_805D7764;
 extern Rec_803DA688 *lbl_805D7768;
 s32 TObjPlayer__sub_803DA688(u32 arg0, u32 arg1);
+extern s32 lbl_805D7764;
+extern Rec_803DA688 *lbl_805D7768;
+s32 TObjPlayer__sub_803DA55C(u32 arg0);
 }
 
 extern "C" {
@@ -46,6 +51,21 @@ void TObjPlayer__sub_803DA218(S_803DA218 *self, s32 a, s32 b, u32 c) {
     }
 }
 #pragma pop
+
+s32 TObjPlayer__sub_803DA55C(u32 arg0) {
+    E_803DA55C *e;
+    u32 *q;
+    s32 i;
+    i = 0;
+    e = (*(E_803DA55C * *)&lbl_805D7768);
+    for (; i < lbl_805D7764; e++, i++) {
+        q = e->p;
+        if (q != 0 && arg0 == *q) {
+            return i;
+        }
+    }
+    return -1;
+}
 
 s32 TObjPlayer__sub_803DA688(u32 arg0, u32 arg1) {
     Sub_803DA688 *d;

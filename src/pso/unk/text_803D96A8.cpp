@@ -4,6 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Q_803D98E4 { f32 x, y, z, w; };
+
+struct Q_803D993C { f32 x, y, z, w; };
+
+struct A_803D9DA8 { u8 pad[0xC]; u8 *p; };
+
+struct B_803D9DA8 { s32 a; u16 b; u16 c; };
+
+struct G_803D9DA8 { u8 pad[8]; s32 f8; };
+
 extern "C" {
 extern u32 lbl_805D7770;
 extern u32 lbl_805D7774;
@@ -24,6 +34,17 @@ extern u32 lbl_805D7774;
 extern u32 lbl_805D776C;
 s32 TObjPlayer__sub_803D97F0(void *src);
 void TObjPlayer__sub_803D9C60(u32 *p);
+f32 PSMTXConcat(int, int, int);
+void PSMTXQuat(void *, void *);
+extern u32 lbl_805D7774;
+void TObjPlayer__sub_803D98E4(f32 *arg0);
+f32 PSMTXConcat(int, int, int);
+void PSMTXQuat(void *, void *);
+extern u32 lbl_805D7774;
+void TObjPlayer__sub_803D993C(f32 *arg0, f32 farg0);
+s32 fn_803DA12C(u8 *, s32, s32, s32);
+extern G_803D9DA8 lbl_8058D470;
+s32 TObjPlayer__sub_803D9DA8(A_803D9DA8 *arg0, B_803D9DA8 *arg1);
 }
 
 extern "C" {
@@ -90,6 +111,28 @@ s32 TCameraCtrl__sub_803D9858(s32 arg0) {
 }
 #pragma pop
 
+void TObjPlayer__sub_803D98E4(f32 *arg0) {
+    u8 sp18[0x30];
+    Q_803D98E4 q;
+    q.w = arg0[0];
+    q.x = arg0[1];
+    q.y = arg0[2];
+    q.z = arg0[3];
+    PSMTXQuat(sp18, &q);
+    PSMTXConcat(lbl_805D7774, (int)sp18, lbl_805D7774);
+}
+
+void TObjPlayer__sub_803D993C(f32 *arg0, f32 farg0) {
+    u8 sp18[0x30];
+    Q_803D993C q;
+    q.w = farg0;
+    q.x = arg0[0];
+    q.y = arg0[1];
+    q.z = arg0[2];
+    PSMTXQuat(sp18, &q);
+    PSMTXConcat(lbl_805D7774, (int)sp18, lbl_805D7774);
+}
+
 #pragma push
 #pragma scheduling off
 s32 TObjPlayer__sub_803D9B78(void) {
@@ -111,6 +154,14 @@ void TObjPlayer__sub_803D9C60(u32 *p) {
     *p = ((v & 0xFF000000) >> 24) | ((v & 0xFF0000) >> 8) | ((v & 0xFF00) << 8) | ((v & 0xFF) << 24);
 }
 #pragma pop
+
+s32 TObjPlayer__sub_803D9DA8(A_803D9DA8 *arg0, B_803D9DA8 *arg1) {
+    if (fn_803DA12C(arg0->p + 4, arg1->b, arg1->c, arg1->a) != 0) {
+        lbl_8058D470.f8 = 6;
+        return -1;
+    }
+    return 1;
+}
 
 #pragma push
 #pragma peephole off

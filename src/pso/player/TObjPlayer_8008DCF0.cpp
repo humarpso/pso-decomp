@@ -4,6 +4,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Row_8008ED48 { u32 *p[11]; };
+
+extern "C" {
+extern Row_8008ED48 lbl_805006F8[];
+void TObjPlayer__sub_8008ED48(void *arg0, s32 arg1);
+}
+
 extern "C" {
 
 void update_dragon_boss_state__10TObjPlayerFPv(void *arg0);
@@ -28,6 +35,21 @@ void update_dragon_boss_state__10TObjPlayerFPv(void *arg0) {
     case -1:
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFBFFFF);
         return;
+    }
+}
+void TObjPlayer__sub_8008ED48(void *arg0, s32 arg1) {
+    s32 i;
+    s32 j;
+    u32 *e;
+    for (i = 0; i < arg1; i++) {
+        for (j = 0; (e = lbl_805006F8[i].p[j]) != NULL; j++) {
+            *e &= ~8;
+        }
+    }
+    for (; i < 4; i++) {
+        for (j = 0; (e = lbl_805006F8[i].p[j]) != NULL; j++) {
+            *e |= 8;
+        }
     }
 }
 

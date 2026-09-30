@@ -2,6 +2,22 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+struct V3_80037264 { f32 x, y, z; };
+
+struct S_80037264 {
+    u8 pad0[0x18];
+    void *vt;
+    V3_80037264 recs[20];
+    s32 a10c, a110, a114, a118, a11c, a120;
+};
+
+extern "C" {
+void __ct__7TObjectFP7TObject(void *, void *);
+extern M2C_UNK lbl_80482C58[];
+extern const f32 TBoss2LaserLight__data_805D849C;
+S_80037264 *TBoss2LaserLight__sub_80037264(S_80037264 *o, void *parent, s32 arg2, s32 arg3);
+}
+
 extern "C" {
 
 void TBoss2LaserLight__sub_80037474(void* p);
@@ -26,6 +42,24 @@ void *__dt__16TBoss2LaserLightFPvs(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+S_80037264 *TBoss2LaserLight__sub_80037264(S_80037264 *o, void *parent, s32 arg2, s32 arg3) {
+    s32 i;
+    __ct__7TObjectFP7TObject(o, parent);
+    o->vt = ((u8 *)&lbl_80482C58);
+    for (i = 0; i < 20; i++) {
+        o->recs[i].x = TBoss2LaserLight__data_805D849C;
+        o->recs[i].y = TBoss2LaserLight__data_805D849C;
+        o->recs[i].z = TBoss2LaserLight__data_805D849C;
+    }
+    o->a10c = 0;
+    o->a110 = 0;
+    o->a114 = arg2;
+    o->a118 = arg3;
+    o->a11c = 0;
+    o->a120 = 0;
+    return o;
 }
 
 void render__16TBoss2LaserLightFv(void) {  }

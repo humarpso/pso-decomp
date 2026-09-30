@@ -27,6 +27,10 @@ struct RecoveredGlobal_80362B48___vt__14TObjEneEpsilon {
     u8 remaining[0x1A0];
 };
 
+struct Obj_80362DE8 {
+    u8 pad0[0x40]; u32 flags; u8 pad44[8]; f32 f4C; u8 pad50[8]; s32 i58; u8 pad5C[4]; u8 v60[0x10]; void *fn70; void *fn74;
+};
+
 extern "C" {
 M2C_UNK set_evp__12TItemProUnitFPvf(int, f32);
 extern const f32 lbl_805E0258;
@@ -54,6 +58,12 @@ M2C_UNK __destroy_arr(void *, void *, int, int);
 extern M2C_UNK TObjPlayer__sub_800D7C58[];
 extern M2C_UNK __vt__14TObjEneEpsilon[];
 u8 *TObjEneEpsilon__vt0(u8 *arg0, s16 arg1);
+void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+void TObjPlayer__sub_80120304(void *, void *);
+void TObjPlayer__sub_8032E648();
+void create_network_object__10TObjPlayerFiPvi();
+extern const f32 lbl_805E0260;
+void TObjPlayer__sub_80362DE8(void *arg0, Obj_80362DE8 *arg1);
 }
 
 extern "C" {
@@ -155,6 +165,16 @@ void *item_equip_variant_deleting_dtor_80362D90(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+void TObjPlayer__sub_80362DE8(void *arg0, Obj_80362DE8 *arg1) {
+    u8 sp8[16];
+    arg1->f4C = lbl_805E0260;
+    arg1->i58 = 0xC000;
+    arg1->flags |= 0x282;
+    TObjPlayer__sub_80120304(sp8, arg0);
+    copy_vec4__13TRaderMapCoreFPvPv(arg1->v60, sp8);
+    arg1->fn74 = (void *)create_network_object__10TObjPlayerFiPvi;
+    arg1->fn70 = (void *)TObjPlayer__sub_8032E648;
 }
 
 }

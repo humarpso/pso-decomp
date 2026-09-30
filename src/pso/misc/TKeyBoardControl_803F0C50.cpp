@@ -14,6 +14,8 @@ struct RecoveredGlobal_803F0CF4_lbl_805A2720 {
     u8 remaining[0x19C];
 };
 
+struct K_803F119C { u8 pad0[0x10]; s32 f10; s32 f14; u8 pad1[0x18]; s32 f30; u8 pad2[0x34]; };
+
 extern "C" {
 extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
 u8 TKeyBoardControl__sub_803F1548(s32 arg0);
@@ -26,6 +28,12 @@ extern s32 lbl_805D793C;
 extern s32 lbl_805D7930;
 void TKeyBoardControl__sub_803F15C4(s32 arg0);
 s32 TKeyBoardControl__sub_803F0F44(void);
+extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
+s32 OSDisableInterrupts(void);
+void OSRestoreInterrupts(s32);
+void Dolphin_SIGetTypeAsync(s32, void *);
+void TKeyBoardControl__sub_803F107C(void);
+s32 TKeyBoardControl__sub_803F119C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -73,6 +81,18 @@ s32 TKeyBoardControl__sub_803F0F44(void) {
     }
     lbl_805D7930 = 1;
     return 1;
+}
+
+s32 TKeyBoardControl__sub_803F119C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+    s32 en;
+    K_803F119C *k = &((K_803F119C *)&lbl_805A2720)[arg0];
+    en = OSDisableInterrupts();
+    k->f30 = arg3;
+    k->f10 = arg1;
+    k->f14 = arg2;
+    Dolphin_SIGetTypeAsync(arg0, (void *)TKeyBoardControl__sub_803F107C);
+    OSRestoreInterrupts(en);
+    return 0;
 }
 
 u8 TKeyBoardControl__sub_803F1548(s32 arg0) {

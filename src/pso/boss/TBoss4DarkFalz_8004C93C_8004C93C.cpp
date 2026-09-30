@@ -15,6 +15,24 @@ struct Sub_8004CD08 { s16 x; u8 pad2[4]; s16 id; s16 f8; u8 pada[0x42]; };
 
 struct Params_8004CD08 { void *owner; Sub_8004CD08 sub; };
 
+struct D_8004CB28 {
+    s16 a0, a2, a4;
+    u16 a6;
+    s16 a8, aa, ac, ae;
+    u8 pad10[0x30];
+};
+
+struct Arg_8004CB28 { void *owner; D_8004CB28 d; };
+
+struct S_8004CB28 {
+    u8 pad0[0x1c];
+    u16 f1c;
+    u8 pad1e[0x0e];
+    s16 f2c;
+    u8 pad2e[0x352];
+    s32 f380;
+};
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 u8 * create_demo1__14TBoss4DarkFalzFPvPvPv(void *, void *, void *);
@@ -30,6 +48,13 @@ s32 create__11TBoss4Type1Fi(void *params);
 int TBoss4DarkFalz__sub_8004B77C(void*);
 int TBoss4DarkFalz__sub_8004BA18(void*);
 void TBoss4DarkFalz__sub_8004CD08(Obj_8004CD08 *self);
+void TBoss4DarkFalz__sub_8004B20C(void *, s32);
+void TBoss4DarkFalz__sub_8004B4F0(void *dst, void *src);
+void *create__11TBoss4Type2Fi(void *);
+void dispatch_by_main_phase__14TBoss4DarkFalzFUs(u16);
+extern u8 TBoss4DarkFalz__data_804FF1E8[];
+extern u32 TBoss4DarkFalz__data_805D4D60;
+void TBoss4DarkFalz__sub_8004CB28(S_8004CB28 *o);
 }
 
 extern "C" {
@@ -73,6 +98,21 @@ void request_action_9__14TBoss4DarkFalzFi(s32 arg0) {
 }
 
 void update_parts__14TBoss4DarkFalzFPv(void* p) { TBoss4DarkFalz__sub_8004BA18((void*)(p)); TBoss4DarkFalz__sub_8004B77C((void*)(p)); }
+
+void TBoss4DarkFalz__sub_8004CB28(S_8004CB28 *o) {
+    Arg_8004CB28 a;
+    o->f380 = o->f380 - 1;
+    if (o->f380 < 0) {
+        a.owner = o;
+        TBoss4DarkFalz__sub_8004B4F0(&a.d, TBoss4DarkFalz__data_804FF1E8);
+        a.d.a8 = 1;
+        a.d.a0 = o->f2c + 0x1FF;
+        a.d.a6 = o->f1c + 0x1FF;
+        (*(void * *)&TBoss4DarkFalz__data_805D4D60) = create__11TBoss4Type2Fi(&a);
+        dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x34);
+        TBoss4DarkFalz__sub_8004B20C(o, 8);
+    }
+}
 
 void TBoss4DarkFalz__sub_8004CBBC(void) {  }
 

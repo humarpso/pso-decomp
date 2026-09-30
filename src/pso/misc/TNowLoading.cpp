@@ -22,6 +22,12 @@ extern RecoveredGlobal_8001D19C_lbl_804FF5E8 lbl_804FF5E8;
 extern u32 lbl_805D4DF0;
 extern const f32 lbl_805D7EC0;
 void run_task__11TNowLoadingFv(u8 *arg0);
+void run_frame__6TLobbyFv(void);
+void DCInvalidateRange(void *, u32);
+void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void *);
+void TLobby__sub_8001D9DC(void);
+extern s32 lbl_805D4A90;
+s32 TLobby__sub_8001D568(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -115,5 +121,19 @@ void *__dt__11TNowLoadingFv(void *arg0, s16 arg1) {
 
 void TNowLoading__sub_8001D4D0(void) {  }
 void TNowLoading__sub_8001D4D4(void) {  }
+s32 TLobby__sub_8001D568(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+    u8 sp8[0x20];
+    s32 len;
+    len = (arg3 + 0x1F) & ~0x1F;
+    lbl_805D4A90 = 1;
+    DCInvalidateRange((void *)arg2, len);
+    ARQPostRequest(sp8, arg0, 1, 1, arg1, arg2, len, (void *)TLobby__sub_8001D9DC);
+    for (;;) {
+        if (lbl_805D4A90 == 0) break;
+        run_frame__6TLobbyFv();
+    }
+    DCInvalidateRange((void *)arg2, len);
+    return 1;
+}
 
 }

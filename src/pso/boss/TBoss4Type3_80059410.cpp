@@ -48,6 +48,24 @@ struct Obj_80059F64 { u8 pad[0x38C]; void *target; u8 pad390[0x10]; s32 f3a0; u8
 
 struct Obj_8005A2A4 { u8 pad[0x404]; void *parts[13]; };
 
+struct Obj_80059ABC { u8 pad[0x60]; s32 f60; };
+
+struct Ply_80059ABC { u8 pad[0x38]; f32 f38; u8 pad3c[4]; f32 f40; };
+
+struct Obj_8005A300 { u8 pad[0x38]; u8 f38[0x3CC]; u32 f404[13]; };
+
+class TBoss4Type3_8005A398 { public: u8 pad[0x374]; s32 f374; };
+
+union MemberAction_8005A398 { s32 words[3]; void (TBoss4Type3_8005A398::*action)(); };
+
+struct Row_8005A398 { s32 f0; s32 f4; s32 f8; s32 fc; s32 f10; u8 pad[0x18]; };
+
+struct Obj_8005A438 { u8 pad[0x3B0]; f32 f3b0; };
+
+struct Pair_8005A438 { void *p; f32 f; };
+
+struct Words_8005A438 { void *p; u32 w; };
+
 extern "C" {
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 extern const f32 TBoss4Type3__data_805D8C34;
@@ -70,6 +88,28 @@ void TBoss4DarkFalz__sub_8004B16C(void *, s32);
 void TBoss4Type3__sub_80059F64(Obj_80059F64 *self, s32 arg1);
 void request_destroy__11TBoss4Type2FUi(void *p);
 void TBoss4Type3__sub_8005A2A4(Obj_8005A2A4 *self);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+void calc_grid_index__11TBoss4Type3FPv(void *arg0);
+s32 TObjPlayer__sub_801423A4(s32, s32, s32);
+Ply_80059ABC *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+extern const f64 lbl_80437890[];
+extern const f32 lbl_805D8C7C;
+void TBoss4Type3__sub_80059ABC(Obj_80059ABC *self, s32 arg1);
+u32 TBoss4Type2__sub_800874F4(void *, s32);
+void set_flags__11TBoss4Type2FPvUi(u32, u32);
+extern s32 lbl_80437814[];
+void TBoss4Type3__sub_8005A300(Obj_8005A300 *self);
+void TBoss4Type3__sub_8005A150(void);
+void TBoss4Type3__sub_8005A678(void *, s32);
+extern Row_8005A398 lbl_80486C98[];
+void TBoss4Type3__sub_8005A398(TBoss4Type3_8005A398 *self, s32 arg1);
+void copy_pair__11TBoss4Type3FPvPv(void* p, void* q);
+void TBoss4Type3__sub_8005A4F4(void *, void *, f32);
+extern u8 lbl_80486FB0[];
+extern u8 lbl_80486FBC[];
+extern const f32 TBoss4Type3__data_805D8C34;
+extern const f32 lbl_805D8C3C;
+void TBoss4Type3__sub_8005A438(Obj_8005A438 *self);
 }
 
 extern "C" {
@@ -172,6 +212,17 @@ void calc_grid_index__11TBoss4Type3FPv(void *arg0) {
 }
 
 extern f32 lbl_805D8C80;
+
+void TBoss4Type3__sub_80059ABC(Obj_80059ABC *self, s32 arg1) {
+    Ply_80059ABC *p;
+    if ((u16)arg1 != 0xFFFF) {
+        p = TPlayerBattleCtrl4P__sub_801BA74C((u16)arg1);
+        if (p != NULL) {
+            self->f60 = TObjPlayer__sub_801423A4(self->f60, (s32)(lbl_80437890[0] * get_ad_end_text_start__10TObjPlayerFv(p->f38 - lbl_805D8C7C, p->f40)), 0x888);
+            calc_grid_index__11TBoss4Type3FPv(self);
+        }
+    }
+}
 
 s32 get_random_scaled__11TBoss4Type3Fv(void) {
     return (s32) (lbl_805D8C80 * calc_boss4_scale__10TObjPlayerFi());
@@ -279,6 +330,48 @@ void TBoss4Type3__sub_8005A2A4(Obj_8005A2A4 *self) {
             self->parts[i] = 0;
         }
     }
+}
+void TBoss4Type3__sub_8005A300(Obj_8005A300 *self) {
+    s32 i;
+    for (i = 0; i < 8; i++) {
+        self->f404[i] = TBoss4Type2__sub_800874F4(self->f38, lbl_80437814[i]);
+        if (self->f404[i] != 0) {
+            set_flags__11TBoss4Type2FPvUi(self->f404[i], 0x40);
+        }
+    }
+    for (; i < 13; i++) {
+        self->f404[i] = 0;
+    }
+}
+void TBoss4Type3__sub_8005A398(TBoss4Type3_8005A398 *self, s32 arg1) {
+    MemberAction_8005A398 m;
+    TBoss4Type3__sub_8005A150();
+    self->f374 = arg1;
+    TBoss4Type3__sub_8005A678(self, lbl_80486C98[self->f374].f4);
+    m.words[0] = lbl_80486C98[self->f374].f8;
+    m.words[1] = lbl_80486C98[self->f374].fc;
+    m.words[2] = lbl_80486C98[self->f374].f10;
+    if (m.action != 0) {
+        (self->*(m.action))();
+    }
+}
+void TBoss4Type3__sub_8005A438(Obj_8005A438 *self) {
+    Pair_8005A438 b;
+    Pair_8005A438 a;
+    Words_8005A438 tmp;
+    Pair_8005A438 *pb = &b;
+    a.p = lbl_80486FB0;
+    a.f = self->f3b0;
+    b.p = lbl_80486FBC;
+    b.f = TBoss4Type3__data_805D8C34 - a.f;
+    if (a.f < lbl_805D8C3C) {
+        tmp.p = lbl_80486FB0;
+        tmp.w = *(u32 *)&a.f;
+        copy_pair__11TBoss4Type3FPvPv(&a, pb);
+        copy_pair__11TBoss4Type3FPvPv(pb, &tmp);
+    }
+    TBoss4Type3__sub_8005A4F4(self, a.p, a.f);
+    TBoss4Type3__sub_8005A4F4(self, b.p, b.f);
 }
 
 }

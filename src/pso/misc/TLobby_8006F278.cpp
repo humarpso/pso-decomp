@@ -28,6 +28,7 @@ void TLobby__sub_8006F848(s32 arg0);
 s32 decode_slot__6TLobbyFUi(u32 id);
 s32 is_id_out_of_range__6TLobbyFi(s32 arg0);
 s32 TLobby__sub_8006F994(int id);
+void TLobby__sub_8006F910(u8 *dst, u8 *src, s32 n);
 }
 
 extern "C" {
@@ -93,6 +94,30 @@ void TLobby__sub_8006F848(s32 arg0) {
     strncpy((void *) (&lbl_804FF800.value), (void *) (arg0), (int) (0x1F));
     M2C_FIELD(&lbl_804FF800.value, s8 *, 0x1F) = 0;
 }
+
+void TLobby__sub_8006F910(u8 *dst, u8 *src, s32 n) {
+    u8 c;
+    s32 i;
+    if (n < 1) {
+        n = 1;
+    } else if (n > 0x20) {
+        n = 0x20;
+    }
+    for (i = 0; i < n - 1; i++, src++, dst++) {
+        c = *src;
+        if ((s8)c == 0) {
+            *dst = 0;
+            return;
+        }
+        if (i == 0) {
+            *dst = c ^ 0x7F;
+        } else {
+            *dst = (c - src[-1]) ^ 0x7F;
+        }
+    }
+    *dst = 0;
+}
+
 s32 TLobby__sub_8006F994(int id) {
     s32 slot;
     if (id == 0) {

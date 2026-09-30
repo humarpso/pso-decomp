@@ -15,11 +15,39 @@ extern RecoveredGlobal_803D6140_lbl_8058C960 lbl_8058C960;
 extern RecoveredCallback_1d0cc8904da3 lbl_805D76A0;
 extern s32 lbl_805D76A4;
 void TLobby__sub_803D6140(s32 arg0);
+void TLobby__sub_803D6140(s32 arg0);
+extern u8 lbl_8047E220[];
+extern s32 lbl_805D7684;
+extern u32 lbl_805D7688;
+extern u32 lbl_805D768C;
+extern s32 lbl_805D7690;
+void TLobby__sub_803D60C8(u32 arg0, u32 arg1, s32 arg2);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_803D6140_lbl_8058C960_size[sizeof(RecoveredGlobal_803D6140_lbl_8058C960) == 0x100 ? 1 : -1];
+
+void TLobby__sub_803D60C8(u32 arg0, u32 arg1, s32 arg2) {
+    u8 *base = lbl_8047E220;
+    if (arg0 == 0) {
+        TLobby__sub_803D6140((s32)(base + 0x138));
+        return;
+    }
+    if (arg1 == 0) {
+        TLobby__sub_803D6140((s32)(base + 0x160));
+        return;
+    }
+    if (arg1 < (u32)(arg2 << 13)) {
+        TLobby__sub_803D6140((s32)(base + 0x188));
+        return;
+    }
+    lbl_805D7684 = arg2;
+    lbl_805D7688 = arg1;
+    lbl_805D768C = arg0;
+    lbl_805D7690 = 1;
+}
+
 void TLobby__sub_803D6140(s32 arg0) {
     strncpy((void *) (&lbl_8058C960.value), (void *) (arg0), (int) (0xFF));
     if (((M2C_UNK (*)(s32, M2C_UNK *)) lbl_805D76A0) != NULL) {

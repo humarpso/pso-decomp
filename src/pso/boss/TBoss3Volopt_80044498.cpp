@@ -368,6 +368,19 @@ struct Obj_80045328 { u8 pad[0x1c]; u16 id; u8 pad2[0x4ac - 0x1e]; s16 vals[4]; 
 
 struct Obj_800472D4 { u8 pad[0x30]; u32 flags; u8 pad1[0xb8 - 0x34]; s16 anim; u8 pad2[0x37c - 0xba]; s32 state; };
 
+struct R_80045010 { s32 a, b, c; };
+
+struct S_80045010 {
+    u8 pad0[0x39c];
+    s16 cnt;
+    u8 pad39e[0x3a8 - 0x39e];
+    R_80045010 recs[4];
+    u8 pad3d8[0x3e4 - 0x3d8];
+    void *ptr[4];
+};
+
+struct S_80047714 { u8 pad0[0x326]; s16 st; };
+
 extern "C" {
 u32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK fn_80048C04();
@@ -443,7 +456,6 @@ s32 TObjPlayer__sub_800194AC(void *, int, int);
 M2C_UNK obj_clearFlags30(void *, int);
 M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
 M2C_UNK TBoss3Volopt__sub_80044498(void *);
-M2C_UNK TBoss3Volopt__sub_80047714(void *);
 M2C_UNK TObjPlayer__sub_800D7BB0(void *);
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
@@ -519,6 +531,21 @@ void TBoss3Volopt__sub_80045328(Obj_80045328 *self);
 void TBoss3Volopt__sub_80045928(void *arg0);
 void TBoss1Dragon__sub_80143504(void *);
 void TBoss3Volopt__sub_800472D4(Obj_800472D4 *self);
+void queue_destruction__7TObjectFv(void *);
+void *ct__12TBoss3VoloptFPvPvPv(void *arg0, void *arg1, void *arg2);
+void *__nw__7TObjectFUl(M2C_UNK);
+void TBoss3Volopt__sub_80045010(S_80045010 *o);
+void TBoss3Volopt__sub_80044680(void *);
+void TBoss3Volopt__sub_80045B54(void *);
+void TBoss3Volopt__sub_80045DC4(u8 *arg0);
+void TBoss3Volopt__sub_80045EEC(void *);
+void TBoss3Volopt__sub_80046260(void *);
+void TBoss3Volopt__sub_800465B0(void *);
+void TBoss3Volopt__sub_80046CB8(void *);
+void TBoss3Volopt__sub_800472D4(Obj_800472D4 *self);
+void update_state__12TBoss3VoloptFPv(void *arg0);
+void TBoss3Volopt__sub_80047408(V_80047408 *self);
+void TBoss3Volopt__sub_80047714(S_80047714 *o);
 }
 
 extern "C" {
@@ -609,6 +636,27 @@ s32 count_dead_parts__12TBoss3VoloptFPv(void *arg0) {
         }
     }
     return count;
+}
+
+void TBoss3Volopt__sub_80045010(S_80045010 *o) {
+    s32 i;
+    void *p;
+    for (i = 0; i < o->cnt; i++) {
+        if (o->ptr[i] != 0) {
+            queue_destruction__7TObjectFv(o->ptr[i]);
+        }
+        p = __nw__7TObjectFUl((M2C_UNK)(0x28));
+        if (p != 0) {
+            p = ct__12TBoss3VoloptFPvPvPv(p, o->pad3d8, &o->recs[i]);
+        }
+        o->ptr[i] = p;
+    }
+    for (; i < 4; i++) {
+        if (o->ptr[i] != 0) {
+            queue_destruction__7TObjectFv(o->ptr[i]);
+            o->ptr[i] = 0;
+        }
+    }
 }
 
 void TBoss3Volopt__sub_800450D0(void *arg0) {
@@ -919,6 +967,24 @@ void render__12TBoss3VoloptFPv(u8 *arg0) {
     }
 }
 
+void TBoss3Volopt__sub_80047714(S_80047714 *o) {
+    switch (o->st) {
+    case 0: TBoss3Volopt__sub_800472D4((Obj_800472D4 *)(o)); return;
+    case 1: TBoss3Volopt__sub_80047408((V_80047408 *)(o)); return;
+    case 2: TBoss3Volopt__sub_80046CB8(o); return;
+    case 4: update_state__12TBoss3VoloptFPv(o); return;
+    case 5: TBoss3Volopt__sub_80045B54(o); return;
+    case 9: TBoss3Volopt__sub_800465B0(o); return;
+    case 10: TBoss3Volopt__sub_80046260(o); return;
+    case 11: TBoss3Volopt__sub_80045EEC(o); return;
+    case 7: TBoss3Volopt__sub_80045DC4((u8 *)(o)); return;
+    case 12: TBoss3Volopt__sub_80044680(o); return;
+    case 3: return;
+    case 6: return;
+    case 8: return;
+    }
+}
+
 #pragma push
 #pragma fp_contract on
 void TBoss3Volopt__sub_800477A0(u8 *arg0) {
@@ -952,13 +1018,13 @@ void TBoss3Volopt__sub_800477A0(u8 *arg0) {
                 if (temp_r0 != -1) {
                     M2C_FIELD(arg0, s32 *, 0x470) = temp_r0;
                     M2C_FIELD(arg0, s32 *, 0x37C) = -1;
-                    TBoss3Volopt__sub_80047714((void *) (arg0));
+                    TBoss3Volopt__sub_80047714((S_80047714 *)((void *) (arg0)));
                 }
                 M2C_FIELD(arg0, s32 *, 0x380) = (s32) M2C_FIELD(arg0, s16 *, 0x326);
                 M2C_FIELD(arg0, s16 *, 0x326) = (s16) M2C_FIELD(arg0, s32 *, 0x374);
                 M2C_FIELD(arg0, s32 *, 0x37C) = 0;
             }
-            TBoss3Volopt__sub_80047714((void *) (arg0));
+            TBoss3Volopt__sub_80047714((S_80047714 *)((void *) (arg0)));
             update_prev_position__10TObjPlayerFPv((void *) (arg0));
             copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));
             TObjPlayer__sub_801B4A18((void *) (arg0), (int) (-1));

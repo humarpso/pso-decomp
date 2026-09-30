@@ -16,6 +16,8 @@ struct RecoveredGlobal_800790F0_lbl_804F5800 {
 
 struct Obj_8007A32C { s32 f0; f32 f4; s32 f8; u8 fc[4]; };
 
+struct E_80079580 { u8 pad[0x24]; u32 f24; };
+
 extern "C" {
 void TObjPlayer__sub_8007A0E4(u8 *arg0, u8 *arg1);
 extern RecoveredGlobal_800790F0_lbl_804F5800 lbl_804F5800;
@@ -52,6 +54,22 @@ s32 TObjPlayer__sub_80079F58(void *, f32, s32);
 extern s32 lbl_80500148[];
 extern s32 lbl_804389A8[];
 void *TObjPlayer__sub_8007A32C(Obj_8007A32C *self);
+M2C_UNK TObjPlayer__sub_80079118(M2C_UNK * _w0);
+void TObjPlayer__sub_8007911C(void);
+void TObjPlayer__sub_80079124(void *, void *);
+s32 TObjPlayer__sub_800797DC(void *, void *, int, void *);
+u32 TObjPlayer__sub_80079DE0(void *, void *);
+extern M2C_UNK lbl_804389C0[];
+extern u32 lbl_804FFD40[];
+extern M2C_UNK lbl_80500140[];
+M2C_UNK *TObjPlayer__sub_8007A3AC(s32 arg0, s32 arg1);
+void vsub(void *, void *, void *);
+s32 TObjPlayer__sub_800798A0(void *, void *, void *, E_80079580 *, u32, s32);
+extern E_80079580 *lbl_805D4E6C;
+extern f32 lbl_805D4E74;
+extern s32 lbl_805D4E7C;
+extern const f32 lbl_805D91F4;
+s32 TObjPlayer__sub_80079580(void *arg0, void *arg1, void *arg2, s32 arg3);
 }
 
 extern "C" {
@@ -61,7 +79,6 @@ void TObjPlayer__sub_8007910C(void);
 void TObjPlayer__sub_80079110(void);
 void TObjPlayer__sub_80079114(void);
 void TObjPlayer__sub_8007911C(void);
-void TObjPlayer__sub_80079124(void);
 
 typedef char RecoveredGlobal_800790F0_lbl_804F5800_size[sizeof(RecoveredGlobal_800790F0_lbl_804F5800) == 0x100 ? 1 : -1];
 s32 TAdEndText__sub_800790F0(u8 arg0) {
@@ -75,7 +92,24 @@ void TObjPlayer__sub_80079114(void) {  }
 M2C_UNK TObjPlayer__sub_80079118(M2C_UNK * _w0) {  }
 void TObjPlayer__sub_8007911C(void) {  }
 void TObjPlayer__sub_80079120(s32 _w0) {  }
-void TObjPlayer__sub_80079124(void) {  }
+void TObjPlayer__sub_80079124(void * _w0, void * _w1) {  }
+
+s32 TObjPlayer__sub_80079580(void *arg0, void *arg1, void *arg2, s32 arg3) {
+    u8 sp8[12];
+    s32 r;
+    E_80079580 *p = lbl_805D4E6C;
+    vsub(arg0, arg1, sp8);
+    r = 0;
+    lbl_805D4E7C = arg3;
+    lbl_805D4E74 = lbl_805D91F4;
+    for (; p->f24 != 0; p = (E_80079580 *)((u8 *)p + 0x28)) {
+        if (TObjPlayer__sub_800798A0(arg0, sp8, arg2, p, p->f24, 3) != 0) {
+            r = 1;
+        }
+    }
+    return r;
+}
+
 void TObjPlayer__sub_8007A0E4(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
     M2C_FIELD(arg0, u16 *, 4) = (u16) M2C_FIELD(arg1, u16 *, 4);
@@ -107,6 +141,20 @@ void *TObjPlayer__sub_8007A32C(Obj_8007A32C *self) {
     }
     TObjPlayer__sub_80079118((M2C_UNK *)(lbl_804389A8));
     return r;
+}
+
+M2C_UNK *TObjPlayer__sub_8007A3AC(s32 arg0, s32 arg1) {
+    M2C_UNK *var_r31;
+    TObjPlayer__sub_8007911C();
+    var_r31 = (M2C_UNK *)(lbl_80500140);
+    TObjPlayer__sub_80079124((void *)((void *) (arg0)), (void *)((void *) (arg1)));
+    if (TObjPlayer__sub_80079DE0((void *) (arg0), (void *) (arg1)) == 0U) {
+        var_r31 = (M2C_UNK *)((u8 *)(NULL));
+    } else if (TObjPlayer__sub_800797DC((void *) (arg0), (void *) (arg1), (int) (0x8000), (void *) (((M2C_UNK *)&lbl_804FFD40))) == 0) {
+        var_r31 = (M2C_UNK *)((u8 *)(NULL));
+    }
+    TObjPlayer__sub_80079118((M2C_UNK *)((void *) (lbl_804389C0)));
+    return var_r31;
 }
 
 M2C_UNK *csnVectorUnder(s32 arg0, u32 *arg1, s32 arg2) {

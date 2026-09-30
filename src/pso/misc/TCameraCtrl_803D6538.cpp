@@ -55,6 +55,18 @@ struct Angles_803D7CA4 { s32 x, y, z; };
 
 struct Quat_803D7CA4 { f32 x, y, z, w; };
 
+struct V_803D6558 { f32 x, y, z; };
+
+struct G_803D6688 { f32 f0, f4, pad8[2], f10, f14, f18, f1c, f20, f24; };
+
+struct St_803D6BA4 { u8 pad0[0xC]; u32 *keys; u32 *vals; f32 t; u8 pad18[4]; s32 idx; u8 pad20[4]; void (*fn24)(u32, u32, s32, f32); void (*fn28)(u32, u32, s32, f32); void (*fn2c)(u32, u32, s32, f32); };
+
+struct St_803D6C1C { u8 pad0[0xC]; u32 *keys; u32 *vals; f32 t; u8 pad18[4]; s32 idx; u8 pad20[4]; void (*fn24)(u32, u32, s32, f32); void (*fn28)(u32, u32, s32, f32); void (*fn2c)(u32, u32, s32, f32); };
+
+struct St_803D6C94 { u8 pad0[0xC]; u32 *keys; u32 *vals; f32 t; u8 pad18[4]; s32 idx; u8 pad20[4]; void (*fn24)(u32, u32, s32, f32); void (*fn28)(u32, u32, s32, f32); void (*fn2c)(u32, u32, s32, f32); };
+
+struct St_803D6D0C { u8 pad0[0xC]; u32 *keys; u32 *vals; f32 t; u8 pad18[4]; s32 idx; };
+
 extern "C" {
 void TObjPlayer__sub_803D7A54(void *, s32, s32, void *, void *, void *, f32);
 void TObjPlayer__sub_803D6DDC(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
@@ -103,17 +115,44 @@ void TObjPlayer__sub_803D99F8(void *, int);
 void TBoss7Tentacle__sub_803D9BA0(void *);
 void TOHangerMachine01__sub_803D9C00(void *);
 void TObjPlayer__sub_803D76B4(void *arg0);
+void TCameraCtrl__sub_803D65F8(u8 *);
+void set_camera_look_at(u8* eye, u8* target, u8* up);
+void TObjPlayer__sub_803D8CD4(s32);
+extern u8 lbl_804FA4F0[];
+void TCameraCtrl__sub_803D6558(f32 farg0, f32 farg1, f32 farg2);
+extern G_803D6688 lbl_8058D4F8;
+extern const f32 lbl_805E0E08;
+void TCameraCtrl__sub_803D6688(f32 farg0, f32 farg1);
+extern u8 *lbl_805D76BC;
+s32 TObjPlayer__sub_803D6BA4(s32 arg0);
+extern u8 *lbl_805D76BC;
+s32 TObjPlayer__sub_803D6C1C(s32 arg0);
+extern u8 *lbl_805D76BC;
+s32 TObjPlayer__sub_803D6C94(s32 arg0);
+void TObjPlayer__sub_803D6D7C(u32, u32, s32, f32);
+extern u8 *lbl_805D76BC;
+s32 TObjPlayer__sub_803D6D0C(s32 arg0);
 }
 
 extern "C" {
 
-void TCameraCtrl__sub_803D65F8(void);
 s32 TObjPlayer__sub_803D7FD0(void);
 s32 TObjPlayer__sub_803D7FD8(void);
 void update_camera_state__11TCameraCtrlFv(f32 _w0, f32 _w1, f32 _w2);
 
 void update_camera_state__11TCameraCtrlFv(f32 _w0, f32 _w1, f32 _w2) {
     TCameraCtrl__sub_803D65C8(_w0, _w1, _w2);
+}
+
+void TCameraCtrl__sub_803D6558(f32 farg0, f32 farg1, f32 farg2) {
+    u8 sp14[0x14];
+    V_803D6558 v;
+    TCameraCtrl__sub_803D65F8((u8 *)(sp14));
+    v.x = farg0;
+    v.y = farg1;
+    v.z = farg2;
+    TObjPlayer__sub_803D8CD4(0);
+    set_camera_look_at((u8*)(sp14), (u8*)((u8 *)&v), (u8*)(lbl_804FA4F0));
 }
 
 #pragma push
@@ -123,7 +162,7 @@ s32 TCameraCtrl__sub_803D65C8(f32 x, f32 y, f32 z) {
 }
 #pragma pop
 
-void TCameraCtrl__sub_803D65F8(void) {
+void TCameraCtrl__sub_803D65F8(u8 * _w0) {
 
 }
 
@@ -159,6 +198,63 @@ void TCameraCtrl__sub_803D662C(f32 farg0, f32 farg1) {
     M2C_FIELD(&lbl_8058D4D0.value, f32 *, 0) = (f32) -var_f2;
 }
 #pragma pop
+
+void TCameraCtrl__sub_803D6688(f32 farg0, f32 farg1) {
+    f32 a, b;
+    lbl_8058D4F8.f1c = farg0;
+    lbl_8058D4F8.f20 = farg1;
+    lbl_8058D4F8.f24 = farg1 / farg0;
+    a = (f32)(f64)farg0 * lbl_8058D4F8.f18;
+    lbl_8058D4F8.f0 = a;
+    b = -((f32)(f64)farg1 * lbl_8058D4F8.f18);
+    lbl_8058D4F8.f4 = b;
+    lbl_8058D4F8.f10 = lbl_805E0E08 / a;
+    lbl_8058D4F8.f14 = lbl_805E0E08 / (f32)(f64)b;
+}
+
+#define G_803D6BA4 ((St_803D6BA4 *)lbl_805D76BC)
+s32 TObjPlayer__sub_803D6BA4(s32 arg0) {
+    if (G_803D6BA4->keys[G_803D6BA4->idx] != 0) {
+        G_803D6BA4->fn24(G_803D6BA4->keys[G_803D6BA4->idx], G_803D6BA4->vals[G_803D6BA4->idx], arg0, G_803D6BA4->t);
+        G_803D6BA4->idx = G_803D6BA4->idx + 1;
+        return 1;
+    }
+    G_803D6BA4->idx = G_803D6BA4->idx + 1;
+    return 0;
+}
+
+#define G_803D6C1C ((St_803D6C1C *)lbl_805D76BC)
+s32 TObjPlayer__sub_803D6C1C(s32 arg0) {
+    if (G_803D6C1C->keys[G_803D6C1C->idx] != 0) {
+        G_803D6C1C->fn2c(G_803D6C1C->keys[G_803D6C1C->idx], G_803D6C1C->vals[G_803D6C1C->idx], arg0, G_803D6C1C->t);
+        G_803D6C1C->idx = G_803D6C1C->idx + 1;
+        return 1;
+    }
+    G_803D6C1C->idx = G_803D6C1C->idx + 1;
+    return 0;
+}
+
+#define G_803D6C94 ((St_803D6C94 *)lbl_805D76BC)
+s32 TObjPlayer__sub_803D6C94(s32 arg0) {
+    if (G_803D6C94->keys[G_803D6C94->idx] != 0) {
+        G_803D6C94->fn28(G_803D6C94->keys[G_803D6C94->idx], G_803D6C94->vals[G_803D6C94->idx], arg0, G_803D6C94->t);
+        G_803D6C94->idx = G_803D6C94->idx + 1;
+        return 1;
+    }
+    G_803D6C94->idx = G_803D6C94->idx + 1;
+    return 0;
+}
+
+#define G_803D6D0C ((St_803D6D0C *)lbl_805D76BC)
+s32 TObjPlayer__sub_803D6D0C(s32 arg0) {
+    if (G_803D6D0C->keys[G_803D6D0C->idx] != 0) {
+        TObjPlayer__sub_803D6D7C(G_803D6D0C->keys[G_803D6D0C->idx], G_803D6D0C->vals[G_803D6D0C->idx], arg0, G_803D6D0C->t);
+        G_803D6D0C->idx = G_803D6D0C->idx + 1;
+        return 1;
+    }
+    G_803D6D0C->idx = G_803D6D0C->idx + 1;
+    return 0;
+}
 
 #pragma push
 #pragma scheduling off

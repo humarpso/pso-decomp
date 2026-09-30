@@ -9,12 +9,20 @@ struct RecoveredGlobal_80054530_lbl_80485EC8 {
     u8 remaining[0x1DC];
 };
 
+struct V_80054224 { f32 x, y, z; };
+
+struct S_80054224 { u8 pad0[0x38]; V_80054224 pos; u8 pad44[0x39c - 0x44]; f32 f39c; };
+
 extern "C" {
 extern RecoveredGlobal_80054530_lbl_80485EC8 lbl_80485EC8;
 extern const f32 lbl_805D8B20;
 void TBoss4Type2__sub_80054530(u8 *arg0, s32 arg1);
 extern u8 *lbl_8048615C[];
 u8 *TBoss4Type2__sub_80054384(void *self, s32 i, s32 j);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void TBoss4Zako__sub_803D8910(void *, void *);
+void TBoss6Type1__sub_803D9370(void *);
+void TBoss4Type2__sub_80054224(S_80054224 *o, void *src, V_80054224 *in);
 }
 
 extern "C" {
@@ -38,6 +46,16 @@ void calc_scaled_field__11TBoss4Type2FPvii(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) (arg1 + (s32) (M2C_FIELD(arg0, f32 *, 0x39C) * (f32) TBoss4Type2__sub_80141FA8(arg1, arg2)));
 }
 typedef char RecoveredGlobal_80054530_lbl_80485EC8_size[sizeof(RecoveredGlobal_80054530_lbl_80485EC8) == 0x1E0 ? 1 : -1];
+
+void TBoss4Type2__sub_80054224(S_80054224 *o, void *src, V_80054224 *in) {
+    V_80054224 v = *in;
+    TBoss6Type1__sub_803D9370(&v);
+    v.x *= o->f39c;
+    v.y *= o->f39c;
+    v.z *= o->f39c;
+    VecCopy__FP3VecPC3Vec(&o->pos, src);
+    TBoss4Zako__sub_803D8910(&o->pos, &v);
+}
 
 u8 *TBoss4Type2__sub_80054384(void *self, s32 i, s32 j) {
     return lbl_8048615C[i] + (j - 1) * 0x4000;

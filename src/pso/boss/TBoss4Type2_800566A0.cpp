@@ -22,6 +22,33 @@ struct Obj_80056FEC { u8 pad[0x38C]; void *target; u8 pad390[0x10]; s32 f3a0; u8
 
 struct Obj_80057224 { u8 pad[0x3A0]; s32 f3a0; };
 
+struct S_800578E8 {
+    u8 pad0[0x18];
+    void *vt;
+    u8 pad1c[0x378 - 0x1c];
+    u8 f378[0x1c];
+    s32 f394;
+    u8 pad398[0x42c - 0x398];
+    void *ptr[8];
+    void *f44c;
+};
+
+struct S_80058224 {
+    u8 pad0[0x398];
+    s32 f398;
+    u8 pad39c[0x3b8 - 0x39c];
+    u16 f3b8;
+    u16 f3ba;
+};
+
+struct S_800582B4 {
+    u8 pad0[0x398];
+    s32 f398;
+    u8 pad39c[0x3b8 - 0x39c];
+    u16 f3b8;
+    u16 f3ba;
+};
+
 extern "C" {
 void TBoss4Type2__vt2(void *arg0);
 M2C_UNK TBoss4Type2__sub_80057048(void *, M2C_UNK);
@@ -58,6 +85,21 @@ void TBoss4Type2__sub_80056FEC(Obj_80056FEC *self, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 extern const f32 lbl_805D8BF0;
 s32 TBoss4Type2__sub_80057224(Obj_80057224 *self);
+void fn_8004AA04(void *);
+void request_destroy__11TBoss4Type2FUi(void *);
+void init_state_1__8TObjFishFPv(void *);
+void __dt__9TObjEnemyFv(void *, s32);
+void TObjEneGibbles__sub_80156720(void *);
+void __dl__7TObjectFPv(void *);
+extern u8 lbl_80486924[];
+S_800578E8 *TBoss4Type2__sub_800578E8(S_800578E8 *o, s16 flag);
+void TBoss4Type3__sub_80059ABC(void *, u16);
+void TBoss4Type3__sub_8005A398(void *, s32);
+void spawn_effect__11TBoss4Type3Fsss(s32, s32, s32);
+void TBoss4Type3__vt45(S_80058224 *o);
+s32 TBoss4Type3__sub_8005254C(u16);
+void TBoss4Type3__sub_800599F4(void *, s32, s32);
+void TBoss4Type3__vt44(S_800582B4 *o);
 }
 
 extern "C" {
@@ -73,8 +115,6 @@ void TBoss4Type2__sub_80058220(void);
 void TBoss4Type2__vt0(void *arg0);
 void TBoss4Type3__vt40(void* p);
 void TBoss4Type3__vt41(void *arg0);
-int TBoss4Type3__vt44(void);
-int TBoss4Type3__vt45(void);
 void advance_afterimage__11TBoss4Type2FPv(u8 *arg0);
 void apply_resta_heal__11TBoss4Type2FPv(void *arg0);
 f32 compute_wave_offset__11TBoss4Type2Ff(f32 farg0);
@@ -293,6 +333,29 @@ void init_state__11TBoss4Type2FPv(u8 *arg0) {
 
 extern s32 tl_04;
 
+S_800578E8 *TBoss4Type2__sub_800578E8(S_800578E8 *o, s16 flag) {
+    s32 i;
+    if (o != 0) {
+        o->vt = lbl_80486924;
+        fn_8004AA04(o->f378);
+        for (i = 0; i < 8; i++) {
+            if (o->ptr[i] != 0) {
+                request_destroy__11TBoss4Type2FUi(o->ptr[i]);
+                o->ptr[i] = 0;
+            }
+        }
+        init_state_1__8TObjFishFPv(o->f44c);
+        o->f44c = 0;
+        TObjEneGibbles__sub_80156720(o);
+        o->f394 = 0;
+        __dt__9TObjEnemyFv(o, 0);
+        if (flag > 0) {
+            __dl__7TObjectFPv(o);
+        }
+    }
+    return o;
+}
+
 s32 create__11TBoss4Type2Fi(s32 arg0) {
     s32 var_r31;
     s32 var_r4;
@@ -316,10 +379,38 @@ void TBoss4Type2__sub_80058218(void) {  }
 void TBoss4Type2__sub_8005821C(void) {  }
 void TBoss4Type2__sub_80058220(void) {  }
 
-int TBoss4Type3__vt45(void) { return 0; }
-int TBoss4Type3__vt44(void) { return 0; }
+void TBoss4Type3__vt45(S_80058224 *o) {
+    u16 id = o->f3ba;
+    if (id == 0xFFFF) {
+        TBoss4Type3__sub_8005A398(o, 1);
+        return;
+    }
+    TBoss4Type3__sub_80059ABC(o, id);
+    if (o->f398 == 0x31) {
+        spawn_effect__11TBoss4Type3Fsss(0xC0, 0xF, (s16)o->f3ba);
+        o->f3b8 = 0xFFFF;
+        o->f3ba = 0xFFFF;
+    }
+    if (--o->f398 < 0) {
+        TBoss4Type3__sub_8005A398(o, 1);
+    }
+}
 
 extern const f32 lbl_805D8C3C;
+
+void TBoss4Type3__vt44(S_800582B4 *o) {
+    if (TBoss4Type3__sub_8005254C(o->f3ba) == 0) {
+        o->f3b8 = 0xFFFF;
+        o->f3ba = 0xFFFF;
+        TBoss4Type3__sub_800599F4(o, 0, 2);
+        return;
+    }
+    if (o->f398 == 0) {
+        o->f3b8 = 0xFFFF;
+        o->f3ba = 0xFFFF;
+        TBoss4Type3__sub_800599F4(o, 0, 2);
+    }
+}
 
 void TBoss4Type3__vt43(u8 *arg0) {
     create_yutai__11TBoss4Type3FPvPvPv(arg0, (void *)1, (void *) M2C_FIELD(arg0, u16 *, 0x3BA));

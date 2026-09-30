@@ -142,6 +142,12 @@ void send_6x3E__10TNpcPlayerFi(void *);
 void init_6x3E_packet__10TNpcPlayerFPv(void *);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 void TNpcPlayer__sub_8034E3A0(u16 id, void *pos, s16 arg);
+int sprintf(char *, const char *, ...);
+char *strcpy(char *, const char *);
+u32 strlen(const char *);
+extern const char lbl_805DFDF0[4];
+void TNpcPlayer__sub_8034DFBC(s32 kind, const char *text);
+void TNpcPlayer__sub_8034E7A0(s32 arg0);
 }
 
 extern "C" {
@@ -152,6 +158,15 @@ M2C_UNK play_effect_default__10TObjPlayerFii(s32, M2C_UNK);
 M2C_UNK send_code_45_1__10TObjPlayerFi(s32);
 
 s32 obj_isState2_324();
+
+void TNpcPlayer__sub_8034DFBC(s32 kind, const char *text) {
+    char buf[0x40];
+
+    if (kind < 25 && strlen(text) < 53) {
+        sprintf(buf, lbl_805DFDF0, text);
+        strcpy((char *)&lbl_804F0280[kind], buf);
+    }
+}
 
 void TNpcPlayer__sub_8034E02C(void) {
     s32 i;
@@ -248,6 +263,17 @@ void apply_to_players__10TNpcPlayerFiPvi(s32 arg0, void *arg1, s32 arg2) {
         }
         var_r31 += 1;
     } while (var_r31 < 4);
+}
+void TNpcPlayer__sub_8034E7A0(s32 arg0) {
+    s32 i;
+    s32 player;
+
+    for (i = 0; i < 4; i++) {
+        player = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        if (player != 0 && obj_isState3_324() != 0 && get_action_flags__10TNpcPlayerFPv(player) != 0xFFFF) {
+            TTecLuker__sub_801BAB1C(player, arg0);
+        }
+    }
 }
 void TNpcPlayer__sub_8034EA80(s16 arg0) {
     Stack_8034EA80 stack;

@@ -6,6 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct E_8034B694 { u8 b[0x14]; };
+struct Q_8034B694 { s32 v; };
+struct W_8034B694 { u8 pad0[0x34]; E_8034B694 e[1]; u8 pad48[0x70 - 0x48]; Q_8034B694 f[1]; };
+
 struct RecoveredGlobal_8034BA68_lbl_8050E208 {
     M2C_UNK value;
     u8 remaining[0x1AC];
@@ -52,7 +56,8 @@ void update_entries__18TChallenge4PResultFii(s32 arg0, s32 arg1);
 void update_input__18TChallenge4PResultFPv(void *arg0);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
 M2C_UNK TChallenge4PResult__ct(void *, s32, int, s32);
-M2C_UNK TChallenge4PResult__sub_8034B694(s32, s32, s32);
+void TChallenge4PResult__sub_8034B694(W_8034B694 *arg0, void *arg1, s32 arg2);
+void copy_item_data__6TLobbyFPvPv(void *, void *);
 s32 TChallenge4PResult__sub_8034B720(void *, s32);
 s32 TMCFormatSequence__sub_802693B4(u32);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
@@ -76,7 +81,7 @@ void update_entries__18TChallenge4PResultFii(s32 arg0, s32 arg1) {
     do {
         u32 v = (u32)var_r30[var_r31];
         if (v != 0U) {
-            TChallenge4PResult__sub_8034B694((s32)v, arg0, arg1);
+            TChallenge4PResult__sub_8034B694((W_8034B694 *)v, (void *)arg0, arg1);
         }
         var_r29 += 1;
         var_r31 += 1;
@@ -101,6 +106,11 @@ void TChallenge4PResult__sub_8034B66C(void) {
     for (i = 0; i < 4; i++) {
         ((s32 *)&TChallenge4PResult__data_805436A8)[i] = 0;
     }
+}
+
+void TChallenge4PResult__sub_8034B694(W_8034B694 *arg0, void *arg1, s32 arg2) {
+    copy_item_data__6TLobbyFPvPv(&arg0->e[arg2], arg1);
+    arg0->f[arg2].v = 1;
 }
 
 void close_window__18TChallenge4PResultFPv(void* p) { if (*(unsigned int*)((char*)p + 0x2c) != 0) { TWindow__close(*(void**)((char*)p + 0x2c)); *(int*)((char*)p + 0x2c) = 0; } }

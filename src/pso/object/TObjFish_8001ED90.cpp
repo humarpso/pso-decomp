@@ -23,6 +23,8 @@ struct Fish_8001EDC4 { u8 pad[0x42C]; FishEntry16_8001EDC4 *entries; };
 
 struct List_8001EDD8 { u8 pad[0x18]; s32 items[0x100]; s32 count; };
 
+struct Glob_8001EE48 { s8 value; u8 remaining[0x1F]; };
+
 extern "C" {
 s32 strcmp(void *, void *);
 extern RecoveredGlobal_8001EDF4_lbl_804FE148 lbl_804FE148;
@@ -39,6 +41,13 @@ extern char lbl_80434AE8[];
 extern s32 lbl_805D4AD4;
 extern s32 lbl_805D4ACC;
 s32 TLobby__sub_8001EEFC(const char *name);
+s32 strcmp(void *, void *);
+void debug_print__6TLobbyFii(s32 arg0, ...);
+extern char lbl_80434AA0[];
+extern char lbl_80434AC0[];
+extern RecoveredGlobal_8001EDF4_lbl_804FE148 lbl_804FE148;
+extern s32 lbl_805D4AD4;
+s32 TLobby__sub_8001EE48(s32 arg0);
 }
 
 extern "C" {
@@ -74,6 +83,22 @@ void TLobby__sub_8001EDF4(u8 *arg0) {
         lbl_805D4AD4 = 1;
         lbl_804FE148.value = 0;
     }
+}
+
+s32 TLobby__sub_8001EE48(s32 arg0) {
+    if (arg0 != 0) {
+        if (lbl_805D4AD4 == 1) {
+            debug_print__6TLobbyFii((s32)lbl_80434AA0, arg0);
+            return 0;
+        }
+        if (strcmp(&lbl_804FE148, (void *)arg0) != 0) {
+            debug_print__6TLobbyFii((s32)lbl_80434AC0, arg0, &lbl_804FE148);
+            return 0;
+        }
+    }
+    lbl_805D4AD4 = 1;
+    (*(Glob_8001EE48 *)&lbl_804FE148).value = 0;
+    return 1;
 }
 
 s32 TLobby__sub_8001EEF4(void) {

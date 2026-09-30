@@ -6,14 +6,40 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Obj_80053CEC { u8 pad[0x38C]; void *target; u8 pad390[0x10]; s32 f3a0; u8 pad3a4[4]; s32 f3a8; u8 pad3ac[4]; s32 f3b0; s32 f3b4; };
 
+struct S_80053B48 { u8 pad0[0x3a0]; s32 f3a0; };
+
 extern "C" {
 void TBoss4DarkFalz__sub_8004B16C(void *, s32);
 void TBoss4Type2__sub_80053C8C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void TBoss4DarkFalz__sub_8004B16C(void *, s32);
 void TBoss4Type2__sub_80053CEC(Obj_80053CEC *self, s32 arg1);
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
+extern const f32 lbl_805D8B64;
+extern const f32 lbl_805D8B68;
+extern const f32 lbl_805D8B6C;
+void TBoss4Type2__sub_80053B48(S_80053B48 *o, s32 *a, s32 *b);
 }
 
 extern "C" {
+
+void TBoss4Type2__sub_80053B48(S_80053B48 *o, s32 *a, s32 *b) {
+    f32 s;
+    s32 v;
+    v = o->f3a0 + (s32)(lbl_805D8B64 * calc_boss4_scale__10TObjPlayerFi(o));
+    v += 1;
+    if (v >= 4) {
+        v -= 4;
+    }
+    *a = v;
+    s = calc_boss4_scale__10TObjPlayerFi(o);
+    if (s <= lbl_805D8B68) {
+        *b = 0;
+    } else if (s <= lbl_805D8B6C) {
+        *b = 1;
+    } else {
+        *b = 2;
+    }
+}
 
 void TBoss4Type2__sub_80053C8C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 *temp_r3;

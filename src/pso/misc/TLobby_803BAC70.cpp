@@ -248,6 +248,10 @@ typedef M2C_UNK (*RecoveredCallback_d26337a2813d)();
 
 struct Cb_803BE7D8 { s32 a; void (*fn)(s32); };
 
+struct Slot_803BD26C {
+    u8 pad_0[0xd0]; s16 fd0; s16 fd2; u8 pad_d4[0xf0 - 0xd4]; u32 ff0;
+};
+
 extern "C" {
 extern s8 lbl_805D74B8;
 void set_global_flag__6TLobbyFc(s8 arg0);
@@ -261,6 +265,9 @@ void TLobby__sub_803BD214(s32 index, u8 entry);
 extern s32 lbl_805D748C;
 extern M2C_UNK lbl_805D4640;
 void TLobby__sub_803BD240(s32 index, u8 entry);
+void TLobby__sub_803BD26C(s32 i, u8 mode);
+M2C_UNK TLobby__sub_803B89B4(void *);
+void TLobby__sub_803BD598(s32 arg0);
 void TLobby__sub_803BD824(void);
 void TLobby__sub_803BD9E0(void);
 extern s32 lbl_805D747C;
@@ -746,6 +753,20 @@ void TLobby__sub_803BD240(s32 index, u8 entry) {
     TLobbySlot_803BD214 *slot = &((TLobbySlot_803BD214 *)lbl_805D748C)[index];
     slot->code_ce = ((u16 *)&lbl_805D4640)[entry];
     slot->flags |= 0x80;
+}
+
+void TLobby__sub_803BD26C(s32 i, u8 mode) {
+    if (mode == 0) {
+        (*(Slot_803BD26C **)&lbl_805D748C)[i].ff0 |= 0x80000000;
+        (*(Slot_803BD26C **)&lbl_805D748C)[i].fd0 = 0x10;
+        (*(Slot_803BD26C **)&lbl_805D748C)[i].fd2 = 0x10;
+        return;
+    }
+    (*(Slot_803BD26C **)&lbl_805D748C)[i].ff0 &= 0x7FFFFFFF;
+}
+
+void TLobby__sub_803BD598(s32 arg0) {
+    TLobby__sub_803B89B4((void *) (lbl_805D748C + (arg0 * 0xF4)));
 }
 
 #pragma push

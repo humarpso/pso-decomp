@@ -33,6 +33,8 @@ struct RecoveredGlobal_8005E1E8_lbl_804FF5D8 {
 struct Vec_8005E058 { f32 x, y, z; };
 struct Obj_8005E058 { u8 pad0[0x3C0]; Vec_8005E058 src[10]; u8 pad438[0xB0]; Vec_8005E058 dst[10]; };
 
+struct Obj_8005E0C0 { u8 pad[0x34]; s32 f34; u8 pad38[0x24]; s32 f5c; s32 f60; s32 f64; u8 pad68[0x90]; s32 ff8; u8 pad_fc[0x3C0 - 0xFC]; u8 f3c0[0x100]; s32 f4c0; };
+
 extern "C" {
 extern s32 lbl_80437E6C[];
 void get_camera_ctrl__9TObjEneDDFPv(s32, s32);
@@ -53,6 +55,25 @@ extern const f32 lbl_805D4DC0;
 extern const f32 lbl_805D8D5C;
 extern const f32 lbl_805D8D88;
 s32 TBoss8Dragon__sub_8005E1E8(f32 farg0);
+void get_speed_or_default__10TObjPlayerFPv(void *);
+void render_model_tree__12TBoss8DragonFPvPv(void* p, void* a1);
+void TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+void TObjPlayer__sub_803D9214(int, int);
+void TObjBoss2Tunnel__sub_803D929C(int, int);
+void TObjContainerIdo__sub_803D96A8(int, int);
+void TObjPlayer__sub_803D9B2C(void);
+void TObjPlayer__sub_803D9B78(void);
+void TOHangerMachine01__sub_803D9C00(void *);
+void set_global_flag__10TObjPlayerFv(void);
+void clear_global_state__10TObjPlayerFv(void);
+void set_global_state__16TObjEneRe7BeruraFi(void *);
+void TBoss8Dragon__sub_8005E17C(void);
+extern s32 lbl_805D4DAC;
+extern s32 lbl_805D4DB0;
+extern s32 lbl_805D4DB4;
+extern s32 lbl_805D4DB8;
+extern const f32 lbl_805D8D58;
+void TBoss8Dragon__sub_8005E0C0(Obj_8005E0C0 *self);
 }
 
 extern "C" {
@@ -67,6 +88,27 @@ void TBoss8Dragon__sub_8005E058(Obj_8005E058 *self) {
 }
 typedef char RecoveredGlobal_8005E17C_lbl_8043797C_size[sizeof(RecoveredGlobal_8005E17C_lbl_8043797C) == 0x40 ? 1 : -1];
 typedef char RecoveredGlobal_8005E17C_lbl_804FF5C0_size[sizeof(RecoveredGlobal_8005E17C_lbl_804FF5C0) == 0xC ? 1 : -1];
+
+void TBoss8Dragon__sub_8005E0C0(Obj_8005E0C0 *self) {
+    lbl_805D4DAC = 0;
+    lbl_805D4DB0 = 0;
+    lbl_805D4DB4 = (s32)self->f3c0;
+    lbl_805D4DB8 = self->f4c0;
+    set_global_state__16TObjEneRe7BeruraFi((void *)TBoss8Dragon__sub_8005E17C);
+    TObjPlayer__sub_803D9B2C();
+    set_global_flag__10TObjPlayerFv();
+    TOHangerMachine01__sub_803D9C00((u8 *)self + 0x38);
+    TObjPlayer__sub_803D9214(0, self->f60);
+    TObjContainerIdo__sub_803D96A8(0, self->f5c);
+    TObjBoss2Tunnel__sub_803D929C(0, self->f64);
+    TOMonitorMachine01__sub_803D8B5C(0, lbl_805D8D58, lbl_805D8D58, lbl_805D8D58);
+    get_speed_or_default__10TObjPlayerFPv(self);
+    render_model_tree__12TBoss8DragonFPvPv((void *)self->f34, (void *)self->ff8);
+    clear_global_state__10TObjPlayerFv();
+    TObjPlayer__sub_803D9B78();
+    set_global_state__16TObjEneRe7BeruraFi(0);
+}
+
 void TBoss8Dragon__sub_8005E17C(void) {
     s32 temp_r4;
     if ((s32) lbl_805D4DAC == (s32) M2C_FIELD(&lbl_8043797C.value, M2C_UNK *, (lbl_805D4DB0 * 4))) {

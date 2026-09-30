@@ -105,6 +105,8 @@ struct G_80042944 { u8 pad[0x42c]; E_80042944 *entries; };
 
 struct O_80042944 { u8 pad[0x34]; s32 f34; };
 
+struct Fish_80042408 { s32 f0, f4; };
+
 extern "C" {
 void TBoss3VoloptMonitor__sub_8004292C(u8 *arg0);
 s32 TBoss3VoloptMonitor__sub_80042510(void *);
@@ -116,6 +118,25 @@ extern s32 lbl_805D2740;
 u8 *TBoss3VoloptMonitor__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 extern G_80042944 *lbl_805D4CA0;
 void TBoss3VoloptMonitor__sub_80042944(O_80042944 *self, s32 i);
+s32 dispatch_shared_handler_a__6TLobbyFPv(s32);
+s32 register_object__6TLobbyFPv(s32);
+s32 dispatch_shared_handler_b__6TLobbyFPv(s32);
+s32 register_boss__6TLobbyFPv(s32);
+Fish_80042408 *TObjFish__sub_8001EDC4(s32, s32);
+void TObjGyaranzoMissile__sub_80131488(void *);
+void TLobby__sub_801E468C(void *, void *);
+extern u8 lbl_80436608[];
+extern s32 lbl_80483EB4[];
+extern u8 lbl_80484018[];
+extern s32 lbl_804FEEC0[];
+extern s32 lbl_805D4C10;
+extern s32 lbl_805D4C90;
+extern s32 lbl_805D4C94;
+extern s32 lbl_805D4C98;
+extern s32 lbl_805D4C9C;
+extern G_80042944 *lbl_805D4CA0;
+extern u32 lbl_805D4CA4;
+void TBoss3VoloptMonitor__sub_80042408(void);
 }
 
 extern "C" {
@@ -167,6 +188,21 @@ void release__19TBoss3VoloptMonitorFv(void) {
 }
 
 extern void *tl_04;
+
+void TBoss3VoloptMonitor__sub_80042408(void) {
+    s32 i;
+    (*(u8 * *)&lbl_805D4CA4) = lbl_80484018;
+    (*(s32 *)&lbl_805D4CA0) = lbl_805D4C10;
+    TObjGyaranzoMissile__sub_80131488(lbl_80484018);
+    TLobby__sub_801E468C(lbl_80436608, (*(u8 * *)&lbl_805D4CA4));
+    for (i = 0; i < 4; i++) {
+        lbl_804FEEC0[i] = TObjFish__sub_8001EDC4((*(s32 *)&lbl_805D4CA0), lbl_80483EB4[8 + i])->f4;
+    }
+    lbl_805D4C90 = register_boss__6TLobbyFPv(0x23);
+    lbl_805D4C94 = dispatch_shared_handler_b__6TLobbyFPv(0x23);
+    lbl_805D4C98 = register_object__6TLobbyFPv(0x23);
+    lbl_805D4C9C = dispatch_shared_handler_a__6TLobbyFPv(0x23);
+}
 
 void *create__19TBoss3VoloptMonitorFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x394);

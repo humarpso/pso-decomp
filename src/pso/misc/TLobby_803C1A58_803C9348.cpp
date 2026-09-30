@@ -60,6 +60,9 @@ struct Stream_803CA824 {
 
 struct Obj_803C96E0 { u8 pad[0x42]; s16 vals[1]; };
 
+typedef s32 M2C_UNK;
+struct S_803C96F0 { u8 pad0[3]; s8 count; u8 pad4[8]; void *p; u8 pad10[0x32]; s16 vals[1]; };
+
 extern "C" {
 M2C_UNK reset_flag__6TLobbyFPv(int);
 M2C_UNK release_ref__6TLobbyFv();
@@ -115,6 +118,10 @@ extern const char *const volatile lbl_805E0D78;
 void TLobby__sub_803C9608(void);
 void ARAlloc(void);
 void TLobby__sub_803CB81C(void);
+M2C_UNK TLobby__sub_803CBF50(void *);
+M2C_UNK TLobby__sub_803C57C8(void *);
+extern u8 lbl_8047C690[];
+void TLobby__sub_803C96F0(S_803C96F0 *arg0, s32 arg1, s16 arg2);
 }
 
 extern "C" {
@@ -194,6 +201,15 @@ void set_field_40_and_notify__6TLobbyFPvs(u8 *arg0, s16 arg1) {
 
 s16 TLobby__sub_803C96E0(Obj_803C96E0 *self, s32 i) {
     return self->vals[i];
+}
+
+void TLobby__sub_803C96F0(S_803C96F0 *arg0, s32 arg1, s16 arg2) {
+    arg0->vals[arg1] = arg2;
+    if (arg1 < arg0->count) {
+        TLobby__sub_803CBF50(arg0->p);
+        return;
+    }
+    TLobby__sub_803C57C8(lbl_8047C690);
 }
 
 s32 TLobby__sub_803C9740(u8 *arg0) {

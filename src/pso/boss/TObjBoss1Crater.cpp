@@ -4,6 +4,50 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+struct VBase_18_5c1903 { char pad[0x18]; };
+
+struct VObj_18_5c1903 : VBase_18_5c1903 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual M2C_UNK m21(s32, s32 *, void *, M2C_UNK, M2C_UNK);
+    u8 pad1c[0x30 - 0x1C];
+    u32 f30;
+    u8 pad34[0xA4 - 0x34];
+    struct Ent_8002C3FC *ents;
+    s32 count;
+};
+
+struct Ent_8002C3FC { u8 pad0[0x18]; u32 flags; u8 pad1c[0x2C - 0x1C]; };
+
+struct V2_8002C3FC { s32 a, b; };
+
+struct Src_8002C3FC { u8 pad[0xAC]; s32 fAC; u8 padB0[0xC8 - 0xB0]; s32 fC8; };
+
+extern "C" {
+M2C_UNK TBoss1Dragon__sub_8002AB6C(void *);
+void TObjBoss1Crater__vt19(Src_8002C3FC *arg0, VObj_18_5c1903 *self, M2C_UNK arg2, s32 *arg3);
+}
+
 extern "C" {
 
 void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1);
@@ -36,6 +80,25 @@ void render__15TObjBoss1CraterFv(u8 *arg0) {
 }
 
 extern M2C_UNK __vt__15TObjBoss1Crater[];
+
+void TObjBoss1Crater__vt19(Src_8002C3FC *arg0, VObj_18_5c1903 *self, M2C_UNK arg2, s32 *arg3) {
+    s32 off;
+    s32 i;
+    Ent_8002C3FC *e;
+    off = 0;
+    for (i = 0; i < self->count; i++) {
+        e = (Ent_8002C3FC *)((u8 *)self->ents + off);
+        if (e->flags & 0x04000000) {
+            V2_8002C3FC sp8 = *(V2_8002C3FC *)arg3;
+            self->m21(arg0->fAC, (s32 *)&sp8, e, -1, -1);
+            if (arg0->fC8 == 0x13 && !(self->f30 & 0x20)) {
+                TBoss1Dragon__sub_8002AB6C(self);
+            }
+            return;
+        }
+        off += 0x2C;
+    }
+}
 
 void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

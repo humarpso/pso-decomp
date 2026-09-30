@@ -21,6 +21,12 @@ struct RecoveredGlobal_8001B8AC___vt__15TAdRicoRingCtrl {
     u8 remaining[0x14];
 };
 
+struct Obj_8001B4A0 { u8 pad0[0x1c]; u32 slot[2]; u8 pad24[4]; f32 f28; };
+
+struct Obj_8001B824 { u8 pad[0x1c]; u32 slot[2]; };
+
+struct Vt_8001B824 { s32 value; u8 remaining[0x14]; };
+
 extern "C" {
 s32 fn_8001B424(void *, void *);
 s32 set_scale4__15TAdRicoRingCtrlFPvf(int, f32);
@@ -37,6 +43,16 @@ u8 *TAdRicoRingCtrl__ct(u8 *arg0, s32 arg1);
 extern const f32 lbl_805D7E4C;
 extern const f32 TAdRicoRingCtrl__data_805D7E50;
 void run_task__15TAdRicoRingCtrlFv(u8 *arg0);
+void start_anim__15TAdRicoRingCtrlFPvf(u8 *arg0, f32 farg0);
+extern const f32 lbl_805D7E48;
+extern const f32 lbl_805D7E4C;
+extern const f32 TAdRicoRingCtrl__data_805D7E50;
+void TAdRicoRingCtrl__sub_8001B4A0(Obj_8001B4A0 *self, f32 x);
+void *__dt__7TObjectFv(void *, int);
+void queue_destruction__7TObjectFv(void *);
+void __dl__7TObjectFPv(void *);
+extern RecoveredGlobal_8001B8AC___vt__15TAdRicoRingCtrl __vt__15TAdRicoRingCtrl;
+u8 *__dt__15TAdRicoRingCtrlFv(u8 *self, s16 flag);
 }
 
 extern "C" {
@@ -51,6 +67,20 @@ extern const f32 lbl_805D7E4C;
 
 typedef char RecoveredGlobal_8001B8AC_lbl_8043481C_size[sizeof(RecoveredGlobal_8001B8AC_lbl_8043481C) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8001B8AC___vt__15TAdRicoRingCtrl_size[sizeof(RecoveredGlobal_8001B8AC___vt__15TAdRicoRingCtrl) == 0x18 ? 1 : -1];
+
+void TAdRicoRingCtrl__sub_8001B4A0(Obj_8001B4A0 *self, f32 x) {
+    s32 i;
+    for (i = 0; i != 2; i++) {
+        if (self->slot[i] != 0) {
+            start_anim__15TAdRicoRingCtrlFPvf((u8 *)self->slot[i], x);
+            self->slot[i] = 0;
+        }
+    }
+    f32 t = lbl_805D7E48 + x;
+    if (lbl_805D7E4C != t) {
+        self->f28 = TAdRicoRingCtrl__data_805D7E50 / t;
+    }
+}
 
 #pragma push
 #pragma opt_common_subs off
@@ -67,6 +97,23 @@ void run_task__15TAdRicoRingCtrlFv(u8 *arg0) {
     }
 }
 #pragma pop
+
+u8 *__dt__15TAdRicoRingCtrlFv(u8 *self, s16 flag) {
+    s32 i;
+    if (self != NULL) {
+        *(void **)(self + 0x18) = &__vt__15TAdRicoRingCtrl;
+        for (i = 0; i < 2; i++) {
+            if (((Obj_8001B824 *)self)->slot[i] != 0) {
+                queue_destruction__7TObjectFv((void *)((Obj_8001B824 *)self)->slot[i]);
+            }
+        }
+        __dt__7TObjectFv(self, 0);
+        if (flag > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
+}
 
 u8 *TAdRicoRingCtrl__ct(u8 *arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_8001B8AC, sp8) == 0x0) ? 1 : -1];

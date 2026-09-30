@@ -7,6 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_8002D41C_lbl_80482060 { M2C_UNK value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8002D41C_lbl_80482060_size[sizeof(RecoveredGlobal_8002D41C_lbl_80482060) == 0x18 ? 1 : -1];
 
+struct UV_8002D4C0 { s16 u, v; };
+
+struct Vtx_8002D4C0 { s16 pad; s16 u; s16 v; };
+
+struct Hdr_8002D4C0 { u8 pad[4]; s16 count; };
+
+struct Obj_8002D4C0 { f32 x; u8 pad[4]; f32 z; };
+
 extern "C" {
 extern const f32 lbl_805D81D0;
 s32 TBoss8Dragon__sub_8002D308(u8 *arg0);
@@ -20,6 +28,12 @@ extern s32 lbl_805D4B80;
 extern const f32 lbl_805D8198;
 extern const f32 lbl_805D81A0;
 u8 *TBoss8Dragon__sub_8002D41C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3);
+extern int lbl_805D4B6C;
+extern Hdr_8002D4C0 *lbl_805D4B70;
+extern const f32 lbl_805D81D8;
+extern const f32 lbl_805D81DC;
+extern const f32 lbl_805D81E0;
+void TBoss8Dragon__sub_8002D4C0(Obj_8002D4C0 *self);
 }
 
 extern "C" {
@@ -115,6 +129,31 @@ u8 *TBoss8Dragon__sub_8002D41C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3) {
     }
     M2C_FIELD(arg0, s32 *, 0x3C) = 0;
     return arg0;
+}
+
+void TBoss8Dragon__sub_8002D4C0(Obj_8002D4C0 *self) {
+    s32 cnt;
+    s16 n;
+    s16 *p = (s16 *)((u8 *)lbl_805D4B70 + 6);
+    UV_8002D4C0 *src = (*(UV_8002D4C0 * *)&lbl_805D4B6C);
+    s32 i = 0;
+    s16 du = (s16)(lbl_805D81D8 * (lbl_805D81DC * self->x));
+    s16 dv = (s16)(lbl_805D81D8 * (lbl_805D81E0 * self->z));
+    cnt = lbl_805D4B70->count & 0x3FFF;
+    for (; i < cnt; i++) {
+        n = *p++;
+        s32 j;
+        if (n < 0) {
+            n = -n;
+        }
+        for (j = 0; j < n; j++) {
+            Vtx_8002D4C0 *v = (Vtx_8002D4C0 *)p;
+            v->u = src->u + du;
+            v->v = src->v + dv;
+            src++;
+            p += 3;
+        }
+    }
 }
 
 void free_resources__12TBoss8DragonFv(void) { free__11TOBoss4RockFUi((void*)(lbl_805D4B78)); lbl_805D4B78 = 0; free__11TOBoss4RockFUi((void*)(lbl_805D4B6C)); lbl_805D4B6C = 0; destroy__12TBoss8DragonFPvs((void*)(lbl_805D4B64), (void*)1); lbl_805D4B64 = 0; destroy__12TBoss8DragonFPvs((void*)(lbl_805D4B68), (void*)1); lbl_805D4B68 = 0; destroy__12TBoss8DragonFPvs((void*)(lbl_805D4B60), (void*)1); lbl_805D4B60 = 0; }
