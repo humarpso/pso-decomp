@@ -29,7 +29,6 @@ struct G_803DBC1C { u8 pad[0x7C]; u32 f7c; u32 f80; u32 f84; u32 f88; };
 struct Arr_803DC3BC { u8 idx; u8 stride; u8 pad[6]; void *base; u32 pad2; };
 
 extern "C" {
-M2C_UNK TObjPlayer__sub_803DC600();
 M2C_UNK TObjPlayer__sub_803DC76C(int);
 void TOSignCave03__sub_803DB510(s32 arg0);
 M2C_UNK Dolphin_GXSetVtxDesc(int, void *);
@@ -84,6 +83,12 @@ s32 TObjPlayer__sub_803DBE1C(GinjaDrawRecord *);
 s32 GXCallDisplayList(void *, u32);
 extern s32 lbl_805D7704, lbl_805D7708, lbl_805D7788;
 s32 draw_ginja_model_lists(GinjaModel *model);
+extern s32 lbl_805D7788;
+extern s32 some_id_805c6f74;
+extern S_803DB560 lbl_8058CD80;
+void reset_particle_counter__10TObjPlayerFv(void);
+void TParticleCtrl__sub_803E2010(void);
+void prepare_ginja_model(void);
 }
 
 extern "C" {
@@ -100,7 +105,7 @@ s32 TObjPlayer__sub_803DB4E8(s32 arg0) {
 
 void TOSignCave03__sub_803DB510(s32 arg0) {
     TObjPlayer__sub_803DC76C((int) (0));
-    TObjPlayer__sub_803DC600();
+    prepare_ginja_model();
     draw_ginja_model_lists((GinjaModel *)arg0);
     TObjPlayer__sub_803DC6F4();
 }
@@ -270,6 +275,25 @@ s32 draw_ginja_model_lists(GinjaModel *model) {
     result = 0;
   }
   return result;
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+#pragma peephole off
+void prepare_ginja_model(void) {
+    if ((*(u32 *)&lbl_805D7788) & 2) {
+        reset_particle_counter__10TObjPlayerFv();
+        TParticleCtrl__sub_803E2010();
+    }
+    for (s32 i = 0; i < 11; ++i) {
+        (*(GinjaMaterialCache *)&lbl_8058CD80).parameters[i] = 0;
+        (*(GinjaMaterialCache *)&lbl_8058CD80).dirty[i] = -1;
+    }
+    *(u32 *)((*(GinjaMaterialCache *)&lbl_8058CD80).prefix + 0) = 0;
+    *(u32 *)((*(GinjaMaterialCache *)&lbl_8058CD80).prefix + 4) = -1;
+    (*(GinjaMaterialCache *)&lbl_8058CD80).inherited_flags = (*(u32 *)&some_id_805c6f74);
+    (*(GinjaMaterialCache *)&lbl_8058CD80).blend_valid = 0;
 }
 #pragma pop
 
