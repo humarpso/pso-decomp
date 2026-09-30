@@ -110,6 +110,9 @@ s32 is_ready__6TLobbyFPv(void *);
 extern M2C_UNK lbl_8044C8D0[];
 extern M2C_UNK lbl_8044C960[];
 void TLobby__sub_80227FB4(s32 arg0);
+void TLobby__sub_80228A74(O_80228A74 *self, const char *src);
+void clear_work_buffer(u8 *arg0);
+void TLobby__sub_80228990(O_80228A74 *self, char *s);
 }
 
 extern "C" {
@@ -367,6 +370,47 @@ void TLobby__sub_802288B8(O_80228A74 *self, char *s) {
             break;
         case '\t':
         case '\n':
+            if (quoted) {
+                s++;
+            } else {
+                *s = 0;
+                s++;
+                TLobby__sub_80228A74(self, start);
+                start = s;
+            }
+            break;
+        default:
+            s++;
+            break;
+        }
+    }
+}
+
+void TLobby__sub_80228990(O_80228A74 *self, char *s) {
+    char *start;
+    s32 quoted;
+    clear_work_buffer((u8 *)self);
+    start = s;
+    quoted = 0;
+    for (;;) {
+        switch (*s) {
+        case 0:
+            TLobby__sub_80228A74(self, start);
+            return;
+        case '"':
+            if (quoted) {
+                quoted = 0;
+                *s = 0;
+                s++;
+            } else {
+                s++;
+                quoted = 1;
+                start = s;
+            }
+            break;
+        case '\t':
+        case '\n':
+        case ',':
             if (quoted) {
                 s++;
             } else {

@@ -13,6 +13,25 @@ struct Stack_801C3CFC {
     s32 sp14;
 };
 
+typedef struct Pair_801C3AF4 { u32 a; u32 b; } Pair_801C3AF4;
+
+typedef struct Flags_801C3AF4 {
+    u8 pad0[0x10];
+    u32 flags;
+} Flags_801C3AF4;
+
+typedef struct Lobby_801C3AF4 {
+    u8 pad0[0x20];
+    s32 state;
+    s32 next;
+    u8 pad28[0x40 - 0x28];
+    s32 *msgs;
+    u8 pad44[0x4C - 0x44];
+    void *window;
+    u8 pad50[0x58 - 0x50];
+    s32 f58;
+} Lobby_801C3AF4;
+
 extern "C" {
 void handle_6x7E(void);
 extern void *TLobby__data_805D5D98;
@@ -63,6 +82,17 @@ extern s32 lbl_805D5D9C;
 extern void *lbl_805D5DB8;
 extern s32 TLobby__data_805D5DC0;
 void TLobby__sub_801C3A7C(void);
+void close_and_play_effect__6TLobbyFii(int arg0, s32 arg1);
+void set_slot__23TAdSinglePlyChrSelectGCFi(u16);
+u16 get_char_select_slot__23TAdSinglePlyChrSelectGCFv(void);
+void TWindow__close(void *);
+void send_and_handle__6TLobbyFPvii(void *, s32, s32);
+void *set_window_mode_4__6TLobbyFPvii(void *, void *, s32);
+void *TWindowSubComCard__sub_8026CBB8(s32);
+extern Pair_801C3AF4 lbl_80446FB4[];
+extern Flags_801C3AF4 *lbl_8050E208[];
+extern s32 lbl_805D53A0;
+void TLobby__sub_801C3AF4(Lobby_801C3AF4 *self);
 }
 
 extern "C" {
@@ -188,6 +218,41 @@ void TLobby__sub_801C3A7C(void) {
     TLobby__sub_801C2C70();
     TLobby__data_805D5DC0 = 1;
     TAdSinglePlyChrSelectGC__sub_801C5120();
+}
+
+void TLobby__sub_801C3AF4(Lobby_801C3AF4 *self) {
+    s32 idx;
+    s32 s;
+    switch (self->state) {
+    case 0: {
+        close_and_play_effect__6TLobbyFii((u16)lbl_805D53A0, 1);
+        if (self->window != NULL) {
+            TWindow__close(self->window);
+            self->window = NULL;
+        }
+        if (self->f58 != 0) {
+            idx = 5;
+        } else {
+            idx = 4;
+            s = get_char_select_slot__23TAdSinglePlyChrSelectGCFv() - 1;
+            set_slot__23TAdSinglePlyChrSelectGCFi(s > 0 ? s : 0);
+        }
+        Pair_801C3AF4 p = lbl_80446FB4[0];
+        self->window = set_window_mode_4__6TLobbyFPvii(TWindowSubComCard__sub_8026CBB8(0xB3), &p, 1);
+        if (self->window != NULL) {
+            send_and_handle__6TLobbyFPvii(self->window, self->msgs[idx], 0x80);
+        }
+        self->state = 1;
+        break;
+    }
+    case 1:
+        if (lbl_8050E208[0]->flags & 8) {
+            self->next = 4;
+        }
+        break;
+    case -1:
+        break;
+    }
 }
 
 void TLobby__sub_801C3CFC(s8 arg0, s32 arg1, s32 arg2) {

@@ -1,3 +1,52 @@
+#include "types.h"
+struct Handler_801E416C {
+    u16 cmd;
+    u16 mask;
+    void (*fn)(u8 *);
+};
+
+struct Buf_801E416C {
+    u8 pad0[0x2C];
+    s16 end;
+    s16 pos;
+    u8 pad30[0x44];
+    u8 data[1];
+};
+
 extern "C" {
+void debug_print__FPCc(const char *);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+int sprintf(char *, const char *, ...);
+extern char lbl_80449770[];
+extern u8 lbl_804C5260[];
+extern Handler_801E416C lbl_804C5284[];
+void fn_801E416C(Buf_801E416C *b);
+}
+
+extern "C" {
+
+void fn_801E416C(Buf_801E416C *b) {
+    char msg[0x80];
+    u8 *pkt;
+    s32 i;
+    while (b->pos < b->end) {
+        pkt = &b->data[b->pos];
+        for (i = 0; lbl_804C5284[i].cmd != 0; i++) {
+            if (pkt[0] == lbl_804C5284[i].cmd) {
+                sprintf(msg, lbl_80449770, pkt[0], pkt[1]);
+                debug_print__FPCc(msg);
+                if (lbl_804C5284[i].mask & lbl_804C5260[get_global_state__14TOKeyMachine01Fv()]) {
+                    lbl_804C5284[i].fn(pkt);
+                }
+                break;
+            }
+        }
+        if (pkt[1] != 0) {
+            b->pos += pkt[1] * 4;
+        } else {
+            b->pos += *(s32 *)(pkt + 4);
+        }
+    }
+}
 
 }

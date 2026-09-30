@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Pkt_801B01AC {
+    u8 hdr[2];
+    u16 client;
+    u16 target;
+    s16 amount;
+};
+
 extern "C" {
 u8 TFontSmallLobby__sub_801AFEE0(void);
 extern s32 enable_v2_features;
@@ -37,6 +44,16 @@ int TObjPlayer__sub_801AFFB0(void* p);
 s32 TObjPlayer__sub_800196EC();
 s32 get_field_3e4__10TObjPlayerFPv(s32);
 u8 TObjPlayer__sub_801AFF0C(s32 arg0);
+s32 obj_testFlags30(s32, s32);
+s32 obj_getField1c(u8 *);
+u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+void TFontSmallLobby__sub_801C02D0(Pkt_801B01AC *);
+void TFontSmallLobby__sub_801C030C(Pkt_801B01AC *, s32);
+void TFontSmallLobby__sub_801C0350(Pkt_801B01AC *);
+s32 TOMineTrap__sub_801D6A44(s32, s32, s32);
+s32 validate_6x8F_add_battle_damage_scores(Pkt_801B01AC *);
+void handle_6x8F_add_battle_damage_scores(s32 arg0);
 }
 
 extern "C" {
@@ -126,6 +143,37 @@ void TObjPlayer__sub_801AFF80(u8 *arg0) {
 }
 
 int TObjPlayer__sub_801AFFB0(void* p) { return ((int)get_global_state__14TOKeyMachine01Fv()); }
+
+void handle_6x8F_add_battle_damage_scores(s32 arg0) {
+    Pkt_801B01AC pkt;
+    u8 *player;
+    u8 *target;
+    u8 *other;
+    TFontSmallLobby__sub_801C0350(&pkt);
+    TFontSmallLobby__sub_801C030C(&pkt, arg0);
+    TFontSmallLobby__sub_801C02D0(&pkt);
+    if (validate_6x8F_add_battle_damage_scores(&pkt) == 0) {
+        return;
+    }
+    player = TPlayerBattleCtrl4P__sub_801BA74C(pkt.client);
+    if (player == NULL) {
+        return;
+    }
+    target = TPhotonMylla__sub_80154CB4(pkt.target);
+    if (target == NULL) {
+        return;
+    }
+    if ((u16)obj_getField1c(target) != (u16)obj_getField1c(player)) {
+        TOMineTrap__sub_801D6A44((s32)(player + 0x78C), (s32)target, pkt.amount);
+    }
+    if (obj_testFlags30((s32)target, 0x10000000) == 0) {
+        return;
+    }
+    other = TPlayerBattleCtrl4P__sub_801BA74C((u16)obj_getField1c(target));
+    if (other != NULL) {
+        TOMineTrap__sub_801D6A44((s32)(other + 0x77C), (s32)player, pkt.amount);
+    }
+}
 
 void apply_camera_shake__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     if ((is_technique_ready__8TTecCtrlFv() != 0) && (obj_testFlags30(arg1, 0x10000000) == 0) && (TObjPlayer__sub_80019248(arg0) != 0)) {

@@ -11,11 +11,26 @@ struct RecoveredGlobal_80147A74_lbl_804EF500 {
 
 struct S_801472F8 { u8 pad0[4]; s16 a; s16 b; u8 rest[0x38]; };
 
+typedef s32 M2C_UNK;
+struct Req_801471A0 { s32 type; u32 addr; u8 pad[0x18]; };
+
+struct Cfg_801471A0 { u8 pad[0x558]; u32 dns1; u32 dns2; };
+
 extern "C" {
 extern RecoveredGlobal_80147A74_lbl_804EF500 lbl_804EF500;
 M2C_UNK *TAdEnterPPPPassGC__sub_80147A74(void);
 s16 TLobby__sub_803FB184(void *);
 void TLobby__sub_801472F8(s16 *arg0, s16 *arg1);
+void OSReport(const char *, ...);
+s16 TLobby__sub_8040A45C();
+s16 TLobby__sub_8040ADE8(Req_801471A0 *);
+extern char lbl_8043F3F0[];
+extern char lbl_8043F404[];
+extern Cfg_801471A0 lbl_8050C784;
+extern u32 lbl_805D56DC;
+extern u32 lbl_805D56E0;
+extern s32 lbl_805D570C;
+s32 TLobby__sub_801471A0(void);
 }
 
 extern "C" {
@@ -32,6 +47,33 @@ M2C_UNK teardown_boss2__6TLobbyFv();
 
 extern s32 lbl_805D2D00;
 extern s32 lbl_805D56F8;
+
+s32 TLobby__sub_801471A0(void) {
+    Req_801471A0 req;
+    s16 r1;
+    s16 r2;
+    if (TLobby__sub_8040A45C() == 0) {
+        lbl_805D570C = 1;
+        req.type = 4;
+        req.addr = lbl_805D56DC;
+        if (lbl_8050C784.dns1 != 0) {
+            req.addr = lbl_8050C784.dns1;
+        }
+        r1 = TLobby__sub_8040ADE8(&req);
+        req.addr = lbl_805D56E0;
+        if (lbl_8050C784.dns2 != 0) {
+            req.addr = lbl_8050C784.dns2;
+        }
+        r2 = TLobby__sub_8040ADE8(&req);
+        OSReport(lbl_8043F3F0, r1);
+        OSReport(lbl_8043F404, r2);
+        if (r1 == 0 || r2 == 0) {
+            return 0;
+        }
+        return 0xB;
+    }
+    return 0xB;
+}
 
 s32 TLobby__sub_80147284(void) {
     s16 sp8;

@@ -30,6 +30,29 @@ struct Sub_801CD188 { u8 pad[0x508]; u16 f508; };
 
 struct Player_801CD188 { u8 pad[0xB0]; u32 flags; u8 padb4[0x424 - 0xB4]; Sub_801CD188 *sub; };
 
+typedef struct Msg1_801CD72C {
+    u8 pad0[2];
+    u16 id;
+    u8 level;
+    u8 pad5[3];
+} Msg1_801CD72C;
+
+typedef struct Msg2_801CD72C {
+    u8 pad0[2];
+    s16 id;
+    u8 tech;
+    u8 pad5;
+    u8 lv;
+    u8 count;
+    u32 data[13];
+} Msg2_801CD72C;
+
+typedef struct Player_801CD72C {
+    u8 pad0[0x424];
+    void *cursor;
+    u8 techs[4];
+} Player_801CD72C;
+
 extern "C" {
 s32 test_bit1_at_10__10TObjPlayerFPv(void *techs);
 s32 obj_testFlags30(void *obj, u32 flags);
@@ -62,6 +85,21 @@ void TObjPlayer__sub_8011E204(void *obj, s32 v);
 void obj_clearFlags30(void *obj, u32 flags);
 void clear_status_bit6__10TObjPlayerFPv(void *obj);
 void TObjPlayer__sub_801CD188(Player_801CD188 *self);
+s32 obj_isState2_324(void *obj);
+s32 obj_getField1c(void *obj);
+void set_cursor_pos__11TMainCursorFiUsi(void *, u16, s16);
+void TNpcPlayer__sub_80152C48(void *);
+void TNpcPlayer__sub_80152D04(void *);
+void copy_tech_params__10TObjPlayerFPvPv(void *, void *);
+void TObjPlayer__sub_801D22AC(void *);
+void send_swap_field6__10TObjPlayerFPv(void *);
+TechData_801CD424 *get_technique_data__10TObjPlayerFPv(void *techs);
+s16 get_section_clamped__10TObjPlayerFPv(void *techs);
+s16 get_or_init_field_4__10TObjPlayerFPv(void *);
+void split_capped_value__10TObjPlayerFUcPvPv(u8, u8 *, u8 *);
+u8 fn_801D9870(void *techs, s16 tech);
+void TObjPlayer__sub_8022CDE8(s32, void *);
+void TObjPlayer__sub_801CD72C(Player_801CD72C *self);
 }
 
 extern "C" {
@@ -118,6 +156,43 @@ void TObjPlayer__sub_801CD424(Player_801CD424 *self) {
         self->fba = ret_801D26AC();
     }
     set_action_state__10TObjPlayerFPvss(self, 8, get_status__10TObjPlayerFPv(self));
+}
+void TObjPlayer__sub_801CD72C(Player_801CD72C *self) {
+    u8 hi;
+    u8 lo;
+    Msg1_801CD72C m1;
+    Msg2_801CD72C m2;
+    TechData_801CD424 *td;
+    s16 tech;
+    s32 i;
+    s32 count;
+    TechData_801CD424 *src;
+    u32 *dst;
+    TObjPlayer__sub_8022CDE8(get_or_init_field_4__10TObjPlayerFPv(self->techs), self);
+    if (self->cursor != NULL) {
+        td = get_technique_data__10TObjPlayerFPv(self->techs);
+        set_cursor_pos__11TMainCursorFiUsi(self->cursor, td->target, td->node);
+    }
+    tech = get_or_init_field_4__10TObjPlayerFPv(self->techs);
+    split_capped_value__10TObjPlayerFUcPvPv(fn_801D9870(self->techs, tech), &hi, &lo);
+    if (self == NULL || obj_isState2_324(self) == 0) {
+        TObjPlayer__sub_801D22AC(&m1);
+        m1.id = obj_getField1c(self);
+        m1.level = lo;
+        send_swap_field6__10TObjPlayerFPv(&m1);
+        TNpcPlayer__sub_80152D04(&m2);
+        m2.id = obj_getField1c(self);
+        m2.tech = tech;
+        m2.lv = hi;
+        count = get_section_clamped__10TObjPlayerFPv(self->techs);
+        m2.count = count;
+        src = get_technique_data__10TObjPlayerFPv(self->techs);
+        dst = m2.data;
+        for (i = 0; i < count; i++) {
+            copy_tech_params__10TObjPlayerFPvPv(dst++, src++);
+        }
+        TNpcPlayer__sub_80152C48(&m2);
+    }
 }
 
 }

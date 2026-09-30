@@ -64,6 +64,9 @@ void TWindowSubStatusDisp__sub_80144BF4(u8 arg0, u8 *arg1);
 extern RecoveredGlobal_80144FCC_lbl_804A74F0 lbl_804A74F0;
 u32 TWindowSubStatusDisp__sub_80144FCC(u16 arg0);
 u16 TWindowSubStatusDisp__sub_80145054(u16 c);
+s32 get_field24__11TWindowCtrlFv();
+extern s32 lbl_8043F390[];
+char *TWindowSubStatusDisp__sub_80144B14(char *p, s32 *a, s32 *b);
 }
 
 extern "C" {
@@ -77,6 +80,32 @@ void *TWindowSubStatusDisp__sub_801452DC();
 int TWindowSubStatusDisp__sub_803DEE6C(void*);
 int TWindowSubStatusDisp__sub_803DF160(void*, void*);
 int get_player__20TWindowSubStatusDispFv(void*);
+
+char *TWindowSubStatusDisp__sub_80144B14(char *p, s32 *a, s32 *b) {
+    while (*p == '\t') {
+        switch (*++p) {
+        case 'J':
+            p++;
+            *a = 1;
+            break;
+        case 'E':
+            p++;
+            *a = 0;
+            break;
+        case 'C':
+            if (b != NULL) {
+                if (p[1] == 'G') {
+                    *b = get_field24__11TWindowCtrlFv();
+                } else if (p[1] >= '0' && p[1] <= '9') {
+                    *b = lbl_8043F390[p[1] - '0'];
+                }
+            }
+            p += 2;
+            break;
+        }
+    }
+    return p;
+}
 
 #pragma push
 #pragma fp_contract on

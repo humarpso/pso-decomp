@@ -14,6 +14,23 @@ struct RecoveredGlobal_80140A6C_lbl_8050EA40 {
     u8 remaining[0x2C];
 };
 
+typedef s32 M2C_UNK;
+struct Light_801401D0 {
+    f32 dir[3];
+    f32 pad[3];
+    f32 amb[3];
+    f32 c[4];
+    f32 d[4];
+};
+
+struct Light_80140514 {
+    f32 dir[3];
+    f32 pad[3];
+    f32 amb[3];
+    f32 c[4];
+    f32 d[4];
+};
+
 extern "C" {
 M2C_UNK TLobby__sub_80226E44(M2C_UNK);
 M2C_UNK TLobby__sub_80227FB4();
@@ -299,6 +316,31 @@ M2C_UNK TLobby__sub_80227FB4();
 extern M2C_UNK lbl_8043F1C8[];
 extern M2C_UNK lbl_804A7360[];
 s32 TLobby__sub_80140348(void);
+M2C_UNK forward_floor_2CB44__6TLobbyFPv();
+M2C_UNK create_tasks__6TLobbyFv();
+s32 check_disconnect_conditions__6TLobbyFv();
+s32 check_v2_mode__9TObjEneDDFv();
+M2C_UNK TLobby__sub_800FD6F8(M2C_UNK *, M2C_UNK);
+M2C_UNK TObjLight__sub_80133B10(Light_801401D0 *);
+M2C_UNK get_global_state__14TOKeyMachine01Fv();
+M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK TLobby__sub_80227FB4();
+extern M2C_UNK lbl_8043F1B8[];
+extern M2C_UNK lbl_804A7358[];
+s32 TLobby__sub_801401D0(void);
+M2C_UNK create__13TObjBoss5CtrlFv();
+M2C_UNK create_tasks__6TLobbyFv();
+s32 check_disconnect_conditions__6TLobbyFv();
+s32 init_heap__13TParticleCtrlFPv(s32);
+M2C_UNK TLobby__sub_800FD6F8(M2C_UNK *, M2C_UNK);
+M2C_UNK TObjLight__sub_80133B10(Light_801401D0 *);
+M2C_UNK create__12TObjRainCtrlFv();
+M2C_UNK get_global_state__14TOKeyMachine01Fv();
+M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK TLobby__sub_80227FB4();
+extern M2C_UNK lbl_8043F1D8[];
+extern M2C_UNK lbl_804A7368[];
+s32 TLobby__sub_80140514(void);
 }
 
 extern "C" {
@@ -385,6 +427,53 @@ void TLobby__sub_8014018C(void) {
     reset_keyboard_control__6TLobbyFv();
     TLobby__sub_8007BA20();
 }
+
+s32 TLobby__sub_801401D0(void) {
+    Light_801401D0 l;
+    get_global_state__14TOKeyMachine01Fv();
+    TLobby__sub_80227FB4();
+    if (check_disconnect_conditions__6TLobbyFv() != 0) {
+        return 0;
+    }
+    TLobby__sub_800FD6F8(lbl_804A7358, 8);
+    if (check_v2_mode__9TObjEneDDFv() == 0) {
+        l.dir[0] = -1.45f;
+        l.dir[1] = 2.8f;
+        l.dir[2] = -0.4f;
+        l.amb[0] = 1.0f;
+        l.amb[1] = 0.96f;
+        l.amb[2] = 0.3f;
+        l.d[0] = 1.0f;
+        l.d[1] = 0.1f;
+        l.d[2] = 0.24f;
+        l.d[3] = 0.4f;
+        l.c[0] = 1.0f;
+        l.c[1] = 1.0f;
+        l.c[2] = 0.51f;
+        l.c[3] = 0.4f;
+    } else {
+        l.dir[0] = -1.45f;
+        l.dir[1] = 2.8f;
+        l.dir[2] = -0.4f;
+        l.amb[0] = 1.0f;
+        l.amb[1] = 0.96f;
+        l.amb[2] = 0.75f;
+        l.d[0] = 1.0f;
+        l.d[1] = 0.1f;
+        l.d[2] = 0.24f;
+        l.d[3] = 0.4f;
+        l.c[0] = 1.0f;
+        l.c[1] = 0.85f;
+        l.c[2] = 1.0f;
+        l.c[3] = 1.0f;
+    }
+    TObjLight__sub_80133B10(&l);
+    create_tasks__6TLobbyFv();
+    forward_floor_2CB44__6TLobbyFPv();
+    TObjBgmColCtrl__sub_802274B8(lbl_8043F1B8);
+    return 1;
+}
+
 void TLobby__sub_80140308(void) {
     refresh_render_state__6TLobbyFv();
     TLobby__sub_8022743C();
@@ -447,6 +536,38 @@ void cleanup_floor_state__6TLobbyFv(void) {
     reset_keyboard_control__6TLobbyFv();
     TLobby__sub_8007BA20();
 }
+
+s32 TLobby__sub_80140514(void) {
+    Light_80140514 l;
+    get_global_state__14TOKeyMachine01Fv();
+    TLobby__sub_80227FB4();
+    if (check_disconnect_conditions__6TLobbyFv() != 0) {
+        return 0;
+    }
+    init_heap__13TParticleCtrlFPv(0x100000);
+    TLobby__sub_800FD6F8(lbl_804A7368, 8);
+    l.dir[0] = -0.46f;
+    l.dir[1] = 0.88f;
+    l.dir[2] = -0.13f;
+    l.amb[0] = 1.0f;
+    l.amb[1] = 1.0f;
+    l.amb[2] = 0.15f;
+    l.d[0] = 1.0f;
+    l.d[1] = 0.1f;
+    l.d[2] = 0.24f;
+    l.d[3] = 0.4f;
+    l.c[0] = 1.0f;
+    l.c[1] = 0.64f;
+    l.c[2] = 0.7f;
+    l.c[3] = 0.74f;
+    TObjLight__sub_80133B10((Light_801401D0 *)(&l));
+    create_tasks__6TLobbyFv();
+    create__12TObjRainCtrlFv();
+    create__13TObjBoss5CtrlFv();
+    TObjBgmColCtrl__sub_802274B8(lbl_8043F1D8);
+    return 1;
+}
+
 void run_floor_update__6TLobbyFv(void) { refresh_render_state__6TLobbyFv(); TLobby__sub_8022743C(); update_current_floor__6TLobbyFv(); reset_keyboard_control__6TLobbyFv(); TLobby__sub_8007BA20(); }
 s32 init_cave_b_stage(void) {
     get_global_state__14TOKeyMachine01Fv();

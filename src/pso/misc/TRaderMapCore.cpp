@@ -105,6 +105,13 @@ struct Map_801F9630 {
     s32 count;
 };
 
+struct Rect_801F9228 {
+    f32 x0;
+    f32 y0;
+    f32 x1;
+    f32 y1;
+};
+
 extern "C" {
 M2C_UNK TCameraCtrl__sub_80068EF0();
 M2C_UNK TCameraCtrl__sub_80069024();
@@ -134,7 +141,6 @@ M2C_UNK TCameraCtrl__sub_8006AF9C(void *, int);
 M2C_UNK TObjLight__sub_80133F6C();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK TCameraCtrl__sub_801E32D8(f32, f32);
-M2C_UNK TRaderMapCore__sub_801F9228(void *, int, void *);
 M2C_UNK GXSetScissorBoxOffset(int, int);
 extern RecoveredGlobal_801FA964_lbl_804C8784 lbl_804C8784;
 extern s32 lbl_805D4DF0;
@@ -151,7 +157,6 @@ M2C_UNK TCameraCtrl__sub_80069024();
 s32 set_light__9TObjLightFPvPvf(void *, void *, f32);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 TRaderMapCore__sub_801F9178(void *, void *);
-M2C_UNK TRaderMapCore__sub_801F9228(void *, int, void *);
 s32 TRaderMapCore__sub_801F9314(void *, void *);
 extern RecoveredGlobal_801FA9D8_lbl_8044A770 lbl_8044A770;
 extern RecoveredGlobal_801FA9D8_lbl_8044A77C lbl_8044A77C;
@@ -182,6 +187,10 @@ extern int TRaderMapCore__data_805D5F50;
 void TRaderMapCore__sub_801F95CC(void);
 extern u32 TRaderMapCore__data_805D5F28;
 void TRaderMapCore__sub_801F9630(s32 arg0);
+void GXSetScissor(u32, u32, u32, u32);
+extern const f32 TRaderMapCore__data_805DC538;
+extern const f32 TRaderMapCore__data_805DC53C;
+s32 TRaderMapCore__sub_801F9228(void *self, int mode, void *arg2);
 }
 
 extern "C" {
@@ -239,6 +248,23 @@ void TRaderMapCore__sub_801F9144(void) {
         allow_rendering__7TObjectFv((*(u8 * *)&TRaderMapCore__data_805D5F40));
     }
 }
+
+#pragma fp_contract on
+s32 TRaderMapCore__sub_801F9228(void *self, int mode, void *arg2) {
+    Rect_801F9228 *rect = (Rect_801F9228 *)arg2;
+    u32 w;
+    u32 h;
+    u32 y;
+    if (mode == 2) {
+        w = 32.0f * (rect->x1 - rect->x0);
+        h = 32.0f * (rect->y1 - rect->y0);
+        y = TRaderMapCore__data_805DC53C - 0.5f * h;
+        GXSetScissor((u32)(TRaderMapCore__data_805DC538 - 0.5f * w), y, w, h);
+    } else {
+        GXSetScissor(0, 0, 0x280, 0x1E0);
+    }
+}
+#pragma fp_contract reset
 
 s32 TRaderMapCore__sub_801F9418(s32 arg0, Map_801F9418* arg1) {
     s16* saved = ((s16* *)&TRaderMapCore__data_80513780)[arg0];
@@ -373,7 +399,7 @@ void TRaderMapCore__sub_801FA964(s32 arg0, s32 arg1) {
     GXSetScissorBoxOffset((int) (0), (int) (0));
     TCameraCtrl__sub_801E32D8((f32) (TRaderMapCore__data_805DC538), (f32) (TRaderMapCore__data_805DC53C));
     TCameraCtrl__sub_8006AF9C((void *) (lbl_805D4DF0), (int) (0));
-    TRaderMapCore__sub_801F9228((void *) (arg0), (int) (0), (void *) ((u8 *)&lbl_804C8784.value + (arg1 * 0x10)));
+    TRaderMapCore__sub_801F9228((void *)((void *) (arg0)), (int)((int) (0)), (void *)((void *) ((u8 *)&lbl_804C8784.value + (arg1 * 0x10))));
     TObjLight__sub_80133F6C();
     end_effect_render__13TParticleCtrlFv();
 }
@@ -410,7 +436,7 @@ void TRaderMapCore__sub_801FA9D8(s32 arg0, s32 arg1) {
     stack.sp50 = M2C_FIELD(temp_r5, f32 *, 0xC);
     stack.sp3C = M2C_FIELD(temp_r5, f32 *, 0x10);
     TRaderMapCore__sub_801F9178((void *) (arg0), (void *) (&stack.sp24));
-    TRaderMapCore__sub_801F9228((void *) (arg0), (int) (2), (void *) ((u8 *)&(*(RecoveredGlobal_801FA9D8_lbl_804C8784 *)&lbl_804C8784).value + (arg1 * 0x10)));
+    TRaderMapCore__sub_801F9228((void *)((void *) (arg0)), (int)((int) (2)), (void *)((void *) ((u8 *)&(*(RecoveredGlobal_801FA9D8_lbl_804C8784 *)&lbl_804C8784).value + (arg1 * 0x10))));
     TRaderMapCore__sub_801F9314((void *) (arg0), (void *) ((u8 *)&(*(RecoveredGlobal_801FA9D8_TRaderMapCore__data_80513708 *)&TRaderMapCore__data_80513708).value + (arg1 * 0x28)));
     stack.sp18 = M2C_FIELD(&lbl_8044A770.value, s32 *, 0);
     stack.sp1C = M2C_FIELD(&lbl_8044A770.value, s32 *, 4);

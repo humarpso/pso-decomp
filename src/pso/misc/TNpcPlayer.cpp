@@ -10,6 +10,36 @@ struct Stack_8014FEAC {
     f32 sp10;
 };
 
+typedef s32 M2C_UNK;
+struct Rec_8014F844 { s32 id; s32 f4; f32 dist; };
+
+struct Npc_8014F844 {
+    s32 f0;
+    Rec_8014F844 recs[10];
+    s32 f7C;
+    s32 f80;
+    s32 f84;
+    s16 f88;
+    u16 f8A;
+    s32 f8C;
+    s32 f90;
+    s32 f94;
+    s32 f98;
+    f32 f9C;
+    f32 fA0;
+    f32 fA4;
+    void *fA8;
+    f32 fAC;
+    f32 fB0;
+    f32 fB4;
+    f32 fB8;
+    f32 fBC;
+    s32 fC0;
+    s32 fC4;
+    u8 padC8[0x104 - 0xC8];
+    s32 f104;
+};
+
 extern "C" {
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
@@ -31,7 +61,7 @@ s16 obj_getS16_32E(void *);
 s16 obj_getS16_2BA(void *);
 s16 obj_getS16_32C(void *);
 s16 get_field_2b8__14TItemProShieldFPv(void *);
-extern f32 TNpcPlayer__data_805DB1F0;
+extern const f32 TNpcPlayer__data_805DB1F0;
 extern f32 TNpcPlayer__data_805DB218;
 extern const f32 lbl_805DB224;
 extern const f32 lbl_805DB228;
@@ -43,6 +73,15 @@ extern f32 TNpcPlayer__data_805DB218;
 extern const f32 lbl_805DB21C;
 extern const f32 lbl_805DB220;
 s32 TNpcPlayer__sub_8014F950(void *arg0);
+s32 TPhotonMylla__sub_80154CB4(u16);
+void TObjEneGibbles__sub_80156780(void *, void *, s32);
+void *TObjPlayer__sub_801569F4(void *, void *);
+void *__nw__7TObjectFUl(u32);
+extern void *tl_05;
+extern const f32 TNpcPlayer__data_805DB1F0;
+extern const f32 TNpcPlayer__data_805DB20C;
+extern const f32 lbl_805DB214;
+Npc_8014F844 *TNpcPlayer__sub_8014F844(Npc_8014F844 *self, s32 id);
 }
 
 extern "C" {
@@ -85,6 +124,44 @@ s32 TNpcPlayer__sub_8014F7F0(void *arg0) {
     return (u32) __cntlzw(all_parents_unqueued_for_destruction__7TObjectFv((void *)v)) >> 5;
 }
 #pragma pop
+
+Npc_8014F844 *TNpcPlayer__sub_8014F844(Npc_8014F844 *self, s32 id) {
+    s32 i;
+    void *p;
+    self->f94 = TPhotonMylla__sub_80154CB4(id);
+    self->f9C = TNpcPlayer__data_805DB1F0;
+    self->fA0 = TNpcPlayer__data_805DB1F0;
+    self->fA4 = TNpcPlayer__data_805DB1F0;
+    self->f8C = 0;
+    self->f90 = 0;
+    self->f8A = id;
+    self->f88 = -1;
+    self->f84 = 0;
+    self->f0 = 0;
+    for (i = 0; i < 10; i++) {
+        self->recs[i].id = 0xFFFF;
+        self->recs[i].dist = TNpcPlayer__data_805DB1F0;
+    }
+    self->f104 = 0;
+    self->fAC = TNpcPlayer__data_805DB1F0;
+    self->fB0 = TNpcPlayer__data_805DB1F0;
+    self->fB4 = TNpcPlayer__data_805DB20C;
+    self->fB8 = lbl_805DB214;
+    self->fBC = TNpcPlayer__data_805DB20C;
+    self->fC0 = 0;
+    self->fC4 = 0x1103;
+    p = __nw__7TObjectFUl(0xAC);
+    if (p != 0) {
+        p = TObjPlayer__sub_801569F4(p, tl_05);
+    }
+    self->fA8 = p;
+    if (self->fA8 != 0) {
+        TObjEneGibbles__sub_80156780(self->fA8, &self->fAC, 1);
+    }
+    self->f7C = 0xFFFF;
+    self->f80 = 0xFFFF;
+    return self;
+}
 
 s32 TNpcPlayer__sub_8014F950(void *arg0) {
     s16 temp_r0;

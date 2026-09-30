@@ -95,6 +95,31 @@ struct Self_8023C1B8 {
     struct Entry_8023C1B8 entries[1];
 };
 
+struct Vec_8023C420 { f32 x, y, z; };
+
+struct Eff_8023C420 { u8 pad[0xc]; f32 scale; };
+
+struct Holder_8023C420 { u8 pad[0xa4]; Eff_8023C420 *eff; };
+
+struct Zarua_8023C420 {
+    s32 f0;
+    u8 pad4[0x18 - 4];
+    void *vt;
+    void *source;
+    Vec_8023C420 pos;
+    u8 pad2c[0x7a - 0x2c];
+    s16 level;
+    Vec_8023C420 src_pos;
+    u8 pad88[0x90 - 0x88];
+    f32 range;
+    u8 pad94[0xb4 - 0x94];
+    s16 field_b4;
+    u8 padb6[0xe8 - 0xb6];
+    Holder_8023C420 *holder;
+    s32 fec;
+    u8 sub[4];
+};
+
 extern "C" {
 void TTecZarua__vt4(u8 *self, u8 *target);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -102,6 +127,16 @@ u32 TPhotonMylla__sub_80154CB4(int);
 M2C_UNK TObjPlayer__sub_8022BD74(void *);
 s32 is_parents_unqueued__9TTecLukerFUi(u32);
 void run_task__9TTecZaruaFv(struct Self_8023C1B8 *self);
+void fn_8022C2A8(void *);
+s32 TObjPlayer__sub_8004433C(void *);
+extern s32 lbl_805D3830;
+extern M2C_UNK __vt__9TTecZarua[];
+void calc_range__9TTecZaruaFPv(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(Vec_8023C420 *, Vec_8023C420 *);
+s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+s32 obj_getField1c(void *);
+Zarua_8023C420 *TTecZarua__sub_8023C420(Zarua_8023C420 *self, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
 }
 
 extern "C" {
@@ -112,7 +147,6 @@ void create_instance__9TTecZaruaFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void render__9TTecZaruaFv(void);
 M2C_UNK TTecAnti__sub_8022B35C(void *, s32);
 s32 TTecCtrl__sub_8022DBC4(M2C_UNK, s16, M2C_UNK);
-s32 TTecZarua__sub_8023C420(u32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0, s32 a4 = 0);
 void __dl__7TObjectFPv(void *);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
 void destroy_technique_base__9TTecLukerFPvs(void *, int);
@@ -147,7 +181,7 @@ void create_instance__9TTecZaruaFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 obj;
     obj = __nw__7TObjectFUl(0x14C);
     if (obj != 0U) {
-        TTecZarua__sub_8023C420(obj, arg0, arg1, arg2, arg3);
+        TTecZarua__sub_8023C420((Zarua_8023C420 *)(obj), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
     }
 }
 void render__9TTecZaruaFv(void) {  }
@@ -184,6 +218,43 @@ void *__dt__9TTecZaruaFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+Zarua_8023C420 *TTecZarua__sub_8023C420(Zarua_8023C420 *self, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
+    s32 r;
+    fn_8022C2A8(self);
+    self->vt = ((s32 *)&__vt__9TTecZarua);
+    TObjPlayer__sub_8004433C(self->sub);
+    self->f0 = lbl_805D3830;
+    self->fec = 0;
+    calc_range__9TTecZaruaFPv((u8 *)self);
+    VecCopy__FP3VecPC3Vec(&self->pos, &self->src_pos);
+    if (self->holder != 0) {
+        self->holder->eff->scale = self->range;
+    }
+    switch (self->level) {
+    case 0:
+    case 1:
+        r = TBoss3Volopt__sub_8022675C(0x4002A817, &self->pos, 0, 0);
+        if (r >= 0) {
+            update_technique_slot__10TTecRaFoieFi(r, 0x100, 0);
+        }
+        break;
+    case 2:
+    case 3:
+        TBoss3Volopt__sub_8022675C(0x4002A817, &self->pos, 0, 0);
+        break;
+    case 4:
+    case 5:
+        r = TBoss3Volopt__sub_8022675C(0x4002A817, &self->pos, 0, 0);
+        if (r >= 0) {
+            update_technique_slot__10TTecRaFoieFi(r, -0x100, 0);
+        }
+        break;
+    }
+    if (self->source != 0) {
+        self->field_b4 = obj_getField1c(self->source);
+    }
+    return self;
 }
 
 }

@@ -37,6 +37,22 @@ struct Pair_802156A0 { s8 key; u8 val; };
 
 struct G_802156A0 { u8 pad[0x10]; Pair_802156A0 *tbl; };
 
+struct Ent_8021587C { u8 id; u8 n1; u8 n2; };
+
+struct Tbl_8021587C { Ent_8021587C *base; s32 count; };
+
+struct G_8021587C { u8 pad[4]; Tbl_8021587C *t; };
+
+struct Item_8021587C { u8 pad[3]; u8 f3; };
+
+struct Ent_8021599C { u8 id; u8 n1; u8 n2; };
+
+struct Tbl_8021599C { Ent_8021599C *base; s32 count; };
+
+struct G_8021599C { Tbl_8021599C *t; };
+
+struct Obj_8021599C { u8 pad[4]; u8 slot; };
+
 extern "C" {
 void TQuestListOnline__sub_8013ACF4(s32);
 M2C_UNK memcpy(int, void *, int);
@@ -79,6 +95,32 @@ extern G_802156E0 *lbl_805D61C0;
 u8 TLobby__sub_802156E0(s8 x);
 extern G_802156E0 *lbl_805D61C0;
 u8 TLobby__sub_802156A0(s8 x);
+s32 TItemData__sub_8010DF68(Item_8021587C *);
+u8 get_entry_field16__9TItemDataFv(Item_8021587C *);
+s32 pop_byte__6TLobbyFPv(void *);
+void TLobby__sub_8020EEFC(void *, s32);
+void TLobby__sub_8020F00C(void *, u8);
+void reset_counter_64__6TLobbyFPv(void *);
+u8 TLobby__sub_802156A0(s8 x);
+extern s8 lbl_8044BD30[];
+extern G_802156E0 *lbl_805D61C0;
+extern s32 lbl_805D61C4;
+extern s32 lbl_805D61C8;
+extern s32 lbl_805D6238;
+void TLobby__sub_8021587C(Item_8021587C *item);
+u8 find_adjacent_matching_slot__10TObjPlayerFUc(u8);
+u8 TObjPlayer__sub_8010494C(u8);
+s32 pop_byte__6TLobbyFPv(void *);
+void TLobby__sub_8020EEFC(void *, s32);
+void TLobby__sub_8020F00C(void *, u8);
+void reset_counter_64__6TLobbyFPv(void *);
+u8 TLobby__sub_802156E0(s8 x);
+extern s8 lbl_8044BD30[];
+extern G_802156E0 *lbl_805D61C0;
+extern s32 lbl_805D61C4;
+extern s32 lbl_805D61C8;
+extern s32 lbl_805D6238;
+void TLobby__sub_8021599C(Obj_8021599C *obj);
 }
 
 extern "C" {
@@ -180,6 +222,82 @@ u8 TLobby__sub_802156E0(s8 x) {
         p++;
     }
     return 0;
+}
+
+struct G_802156E0;
+void TLobby__sub_8021587C(Item_8021587C *item) {
+    u8 buf[0x68];
+    Ent_8021587C *e;
+    s32 n;
+    s32 c;
+    s32 r;
+    if (TItemData__sub_8010DF68(item) == 0) {
+        reset_counter_64__6TLobbyFPv(buf);
+        Tbl_8021587C *t = (*(G_8021587C **)&lbl_805D61C0)->t;
+        n = t->count;
+        e = &t->base[n * lbl_805D6238];
+        while (n-- > 0) {
+            if (lbl_805D61C4 != 0) {
+                c = e->n2;
+            } else {
+                c = e->n1;
+            }
+            while (c-- != 0) {
+                TLobby__sub_8020F00C(buf, e->id);
+            }
+            e++;
+        }
+        TLobby__sub_8020EEFC(buf, 4);
+        r = pop_byte__6TLobbyFPv(buf);
+        if (r != -1) {
+            s32 v = item->f3 + lbl_8044BD30[r];
+            if (v < 0) {
+                v = 0;
+            }
+            item->f3 = v;
+        }
+        u8 m = get_entry_field16__9TItemDataFv(item);
+        if (item->f3 > m) {
+            item->f3 = m;
+        }
+        lbl_805D61C8 += (s8)TLobby__sub_802156A0(r);
+    }
+}
+
+void TLobby__sub_8021599C(Obj_8021599C *obj) {
+    u8 buf[0x68];
+    Ent_8021599C *e;
+    s32 n;
+    s32 c;
+    s32 r;
+    reset_counter_64__6TLobbyFPv(buf);
+    Tbl_8021599C *t = (*(G_8021599C **)&lbl_805D61C0)->t;
+    n = t->count;
+    e = &t->base[n * lbl_805D6238];
+    while (n-- > 0) {
+        if (lbl_805D61C4 != 0) {
+            c = e->n2;
+        } else {
+            c = e->n1;
+        }
+        while (c-- != 0) {
+            TLobby__sub_8020F00C(buf, e->id);
+        }
+        e++;
+    }
+    TLobby__sub_8020EEFC(buf, 4);
+    r = pop_byte__6TLobbyFPv(buf);
+    if (r != -1) {
+        switch (lbl_8044BD30[r]) {
+        case -1:
+            obj->slot = find_adjacent_matching_slot__10TObjPlayerFUc(obj->slot);
+            break;
+        case 1:
+            obj->slot = TObjPlayer__sub_8010494C(obj->slot);
+            break;
+        }
+    }
+    lbl_805D61C8 += (s8)TLobby__sub_802156E0(r);
 }
 
 bool TLobby__sub_80215ABC(u8 *arg0) {

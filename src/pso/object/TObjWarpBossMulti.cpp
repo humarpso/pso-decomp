@@ -54,6 +54,21 @@ struct RecoveredGlobal_8019E418_lbl_8050E208 {
 
 struct Wb_8019DE74 { u8 pad0[0xF4]; s32 fF4; };
 
+struct Obj_8019E238 {
+    s32 f0;
+    u8 pad4[0x18 - 4];
+    void *vt18;
+    u8 pad1C[0x38 - 0x1C];
+    u8 f38[0xA4 - 0x38];
+    s32 fA4;
+    u8 padA8[0xAC - 0xA8];
+    f32 fAC;
+    u8 padB0[0xBC - 0xB0];
+    s32 fBC;
+    void *fC0;
+    s32 fC4[4];
+};
+
 extern "C" {
 s32 is_lobby_active__17TObjWarpBossMultiFv(void);
 s32 TObjWarpBossMulti__sub_8019E570(s32, f32);
@@ -67,6 +82,18 @@ void TObjEneBm5GibonU__sub_803D853C(int, void *, ...);
 extern u8 lbl_8044663C[];
 extern u8 lbl_80446650[];
 void TObjWarpBossMulti__vt18(Wb_8019DE74 *arg0);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+void TObjPlayer__sub_80154B60(void *);
+void TObjAreaWarp__ct(void *);
+void init_warp_params__17TObjWarpBossMultiFPv(void* a0);
+void update__17TObjWarpBossMultiFPv(void *arg0);
+s32 TLobby__sub_8020765C(void);
+void *init__13TAdVIConfigGCFPvf(void *, void *, f32);
+s32 is_not_split_screen__13TRaderMapCoreFv(void);
+extern M2C_UNK __vt__17TObjWarpBossMulti[];
+extern s32 lbl_805D348C;
+extern const f32 lbl_805DC018;
+Obj_8019E238 *TObjWarpBossMulti__ct(Obj_8019E238 *self, void * _w1, void * _w2);
 }
 
 extern "C" {
@@ -84,7 +111,6 @@ void TObjPlayer__sub_80154A00(void *);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-void *TObjWarpBossMulti__ct(void *, void *, void *);
 void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__12TObjAreaWarpFv(void *, int);
@@ -112,7 +138,7 @@ extern void *tl_05;
 void *create__17TObjWarpBossMultiFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x100);
     if (o != NULL) {
-        o = TObjWarpBossMulti__ct(o, tl_05, arg0);
+        o = TObjWarpBossMulti__ct((Obj_8019E238 *)(o), (void *)(tl_05), (void *)(arg0));
     }
     return o;
 }
@@ -203,6 +229,32 @@ void *__dt__17TObjWarpBossMultiFv(void *arg0, s16 arg1) {
 }
 
 extern s32 lbl_805D53A0;
+
+Obj_8019E238 *TObjWarpBossMulti__ct(Obj_8019E238 *self, void * _w1, void * _w2) {
+    int i;
+    TObjAreaWarp__ct(self);
+    self->vt18 = ((s32 *)&__vt__17TObjWarpBossMulti);
+    self->f0 = lbl_805D348C;
+    self->fBC = TLobby__sub_8020765C();
+    self->fA4 = 0;
+    TObjPlayer__sub_80154B60(self);
+    update__17TObjWarpBossMultiFPv(self);
+    init_warp_params__17TObjWarpBossMultiFPv((void*)(self));
+    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+        void *p = alloc__23TAdSinglePlyChrSelectGCFPv(0x88);
+        if (p != NULL) {
+            p = init__13TAdVIConfigGCFPvf(p, self->f38, lbl_805DC018);
+        }
+        self->fC0 = p;
+    } else {
+        self->fC0 = NULL;
+    }
+    self->fAC = lbl_805DC018;
+    for (i = 0; i < 4; i++) {
+        self->fC4[i] = 0;
+    }
+    return self;
+}
 
 void update_warp_boss_visibility(void *arg0) {
     void *temp_r3;

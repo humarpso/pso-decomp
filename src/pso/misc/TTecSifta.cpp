@@ -42,6 +42,32 @@ struct VObj_18_b27ba1 : VBase_18_b27ba1 {
 
 struct Obj_8023AE8C { u8 pad[0x1C]; u8 *source; u8 pad20[0x74 - 0x20]; f32 power; };
 
+struct VBase_8023AF94 { u8 pad[0x18]; };
+
+struct VObj_8023AF94 : VBase_8023AF94 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5(u32 target);
+};
+
+struct Target_8023AF94 { u16 id; u8 pad[6]; };
+
+struct Sifta_8023AF94 {
+    u8 pad0[0x1C];
+    u32 source;
+    u8 pad1[0xA4 - 0x20];
+    s16 level;
+    u8 pad2[0xA8 - 0xA6];
+    u16 source_id;
+    u8 pad3[0xE0 - 0xAA];
+    s32 count;
+    Target_8023AF94 targets[11];
+    s32 captured;
+};
+
 extern "C" {
 s32 obj_getField1c(int);
 s32 TObjPlayer__sub_8004433C(void *);
@@ -60,6 +86,11 @@ s32 is_split_screen();
 s32 TWindowSubComCard__sub_801058F8(void *);
 void show_party_effect__11TWindowCtrlFPvPvPv(s32, s32, s32);
 void TTecSifta__vt5(Obj_8023AE8C *arg0, VObj_18_b27ba1 *arg1);
+s32 queue_destruction__7TObjectFv();
+u32 TPhotonMylla__sub_80154CB4(int);
+s32 is_parents_unqueued__9TTecLukerFUi(u32);
+void fn_802370D8(void *);
+void run_task__9TTecSiftaFv(Sifta_8023AF94 *self);
 }
 
 extern "C" {
@@ -157,6 +188,37 @@ void *__dt__9TTecSiftaFv(void *arg0, s16 arg1) {
 }
 
 typedef char RecoveredGlobal_8023B17C___vt__9TTecSifta_size[sizeof(RecoveredGlobal_8023B17C___vt__9TTecSifta) == 0x20 ? 1 : -1];
+
+void run_task__9TTecSiftaFv(Sifta_8023AF94 *self) {
+    u32 target;
+    s32 i;
+    self->source = TPhotonMylla__sub_80154CB4(self->source_id);
+    if (self->source == 0) {
+        ((void (*)(void *))queue_destruction__7TObjectFv)(self);
+        return;
+    }
+    if (self->captured != 0) {
+        if (self->level <= 1) {
+            ((VObj_8023AF94 *)self)->m5(self->source);
+        } else {
+            ((VObj_8023AF94 *)self)->m5(self->source);
+            if (self->count != 0) {
+                for (i = 0; i < self->count; i++) {
+                    target = TPhotonMylla__sub_80154CB4(self->targets[i].id);
+                    if (is_parents_unqueued__9TTecLukerFUi(target) != 0) {
+                        ((VObj_8023AF94 *)self)->m5(target);
+                    }
+                }
+            }
+        }
+    } else if (self->level <= 1) {
+        ((VObj_8023AF94 *)self)->m5(self->source);
+    } else {
+        fn_802370D8(self);
+    }
+    ((void (*)(void *))queue_destruction__7TObjectFv)(self);
+}
+
 u8 *TTecSifta__sub_8023B17C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 temp_r3_2;
     u8 *temp_r3;

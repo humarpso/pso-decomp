@@ -21,6 +21,37 @@ struct Obj_801A0C38 { u8 pad[0x90]; void *parts[1]; };
 
 struct Luker_801A16D8 { u8 pad0[0x18]; void *f18; u8 pad1C[0x74]; void *wins[4]; };
 
+struct VBase_801A1768 { char pad[0x18]; };
+
+struct VObj_801A1768 : VBase_801A1768 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5(void *);
+};
+
+struct Luker_801A1768 {
+    s32 f0;
+    u8 pad4[0x18 - 4];
+    void *f18;
+    u8 pad1C[0x84 - 0x1C];
+    s32 f84;
+    u8 pad88[0x90 - 0x88];
+    s32 wins[4];
+    s32 fA0;
+    s32 fA4;
+    u16 fA8;
+    u16 fAA;
+    s16 fAC;
+    s16 fAE;
+    s16 fB0;
+    u8 padB2[2];
+    s32 fB4;
+    s32 fB8;
+};
+
 extern "C" {
 void allow_rendering__7TObjectFv(void *);
 void clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
@@ -60,13 +91,16 @@ void __dl__7TObjectFPv(void *);
 void TWindow__close(void *);
 extern u8 __vt__9TObjLuker[];
 Luker_801A16D8 *__dt__9TObjLukerFv(Luker_801A16D8 *arg0, s16 arg1);
+void TPhotonMagicSquare__sub_801A2640(void *, void *);
+extern u8 __vt__9TObjLuker[];
+extern s32 lbl_805D34A8;
+void *TObjLuker__ct(void *arg0, void *arg1, void *arg2);
 }
 
 extern "C" {
 
 void *TObjLuker__create(void *arg0);
 void render__9TObjLukerFv(void);
-void *TObjLuker__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 void TObjLuker__sub_801A0C38(Obj_801A0C38 *self, u16 i) {
@@ -170,10 +204,35 @@ Luker_801A16D8 *__dt__9TObjLukerFv(Luker_801A16D8 *arg0, s16 arg1) {
     return arg0;
 }
 
+#define self ((Luker_801A1768 *)arg0)
+void *TObjLuker__ct(void *arg0, void *arg1, void *arg2) {
+    s32 i;
+    TPhotonMagicSquare__sub_801A2640(self, arg1);
+    self->f18 = __vt__9TObjLuker;
+    self->f0 = lbl_805D34A8;
+    ((VObj_801A1768 *)self)->m5(arg2);
+    self->fB0 = 0;
+    self->fAA = 0xFFFF;
+    self->fA8 = self->f84;
+    if (self->fA8 > 4) {
+        self->fA8 = 0xFFFF;
+    }
+    for (i = 0; i < 4; i++) {
+        self->wins[i] = 0;
+    }
+    self->fB4 = 1;
+    self->fA4 = 0;
+    self->fAC = 0;
+    self->fA0 = -1;
+    self->fB8 = 0;
+    return self;
+}
+#undef self
+
 void *TObjLuker__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xBC);
     if (o != NULL) {
-        o = TObjLuker__ct(o, tl_05, arg0);
+        o = TObjLuker__ct((void *)(o), (void *)(tl_05), (void *)(arg0));
     }
     return o;
 }

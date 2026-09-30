@@ -7,6 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_8013DC38_lbl_804A7140 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8013DC38_lbl_804A7140_size[sizeof(RecoveredGlobal_8013DC38_lbl_804A7140) == 0x10 ? 1 : -1];
 
+typedef s32 M2C_UNK;
+struct Base_8013DCCC { u8 pad[0x18]; };
+
+struct Obj_8013DCCC : Base_8013DCCC {
+    virtual ~Obj_8013DCCC();
+};
+
 extern "C" {
 u8 * TLobby__sub_8001FE7C(void *, s16);
 extern u8 *lbl_805D5640;
@@ -22,6 +29,20 @@ extern s32 lbl_805D5644;
 extern s32 TLockOnCursor__data_805D5648;
 extern s32 lbl_805D564C;
 void TLockOnCursor__sub_8013DC38(void);
+M2C_UNK __dt__7TObjectFv(void *, int);
+s32 dt__13TLockOnCursorFis(s32 arg0, s16 arg1);
+Obj_8013DCCC *release_target__13TLockOnCursorFPv(void *);
+Obj_8013DCCC *cleanup_field__13TLockOnCursorFPv(void *);
+Obj_8013DCCC *cleanup_field_3c__13TLockOnCursorFPv(void *);
+M2C_UNK __dt__13TLockOnCursorFis(void *, int);
+M2C_UNK destroy__13TLockOnCursorFis(void *, int);
+M2C_UNK destroy__13TLockOnCursorFPvs(void *, int);
+M2C_UNK destroy__11TMainCursorFPvs(void *, int);
+M2C_UNK __dl__7TObjectFPv(void *);
+void __destroy_arr(void *, void *, int, int);
+extern M2C_UNK __dt_deleting__13TLockOnCursorFis[];
+extern M2C_UNK __vt__13TLockOnCursor[];
+u8 *__dt__13TLockOnCursorFv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -82,6 +103,36 @@ void TLockOnCursor__sub_8013DC38(void) {
             lbl_805D564C = TObjFish__sub_8001EDC4(lbl_805D5640, 2);
         }
     }
+}
+
+u8 *__dt__13TLockOnCursorFv(u8 *arg0, s16 arg1) {
+    Obj_8013DCCC *p;
+    if (arg0 != NULL) {
+        *(M2C_UNK **)(arg0 + 0x18) = __vt__13TLockOnCursor;
+        p = cleanup_field_3c__13TLockOnCursorFPv(arg0);
+        if (p != NULL) {
+            delete p;
+        }
+        p = cleanup_field__13TLockOnCursorFPv(arg0);
+        if (p != NULL) {
+            delete p;
+        }
+        p = release_target__13TLockOnCursorFPv(arg0);
+        if (p != NULL) {
+            delete p;
+        }
+        destroy__13TLockOnCursorFPvs(arg0 + 0x520, -1);
+        destroy__13TLockOnCursorFis(arg0 + 0x4EC, -1);
+        __destroy_arr(arg0 + 0x5C, __dt_deleting__13TLockOnCursorFis, 0x124, 4);
+        destroy__11TMainCursorFPvs(arg0 + 0x48, -1);
+        __dt__13TLockOnCursorFis(arg0 + 0x3C, -1);
+        dt__13TLockOnCursorFis((s32)(arg0 + 0x24), -1);
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
 }
 
 s32 dt__13TLockOnCursorFis(s32 arg0, s16 arg1) {

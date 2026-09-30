@@ -41,6 +41,18 @@ struct L_80225B40 { u8 pad[0xcc]; s8 flags; u8 pad2[3]; };
 
 struct Tag_80225828 { u8 b[0x228]; };
 
+struct C14_80224B7C { u8 b[0x14]; };
+
+struct Cnt_80224B7C { s32 n; };
+
+struct Lst_80224B7C { C14_80224B7C *p; };
+
+struct Ent_80224F7C { s32 id; s32 n; };
+
+struct Hdr_80224F7C { u8 pad[0x14]; Ent_80224F7C *ents; };
+
+struct Obj_80224F7C { u8 pad[4]; s8 v; };
+
 extern "C" {
 extern unsigned char lbl_80513F70[];
 void *TLobby__sub_8022598C(int a0);
@@ -96,6 +108,31 @@ void* get_com_card_list__6TLobbyFPv(void* p);
 s32 strncpy(void *, void *, int);
 extern u8 *TLobby__data_805D5580;
 void TLobby__sub_80225828(s32 arg0, void *arg1);
+s32 memcmp(const void *, const void *, u32);
+extern Cnt_80224B7C lbl_80513F40[];
+extern G_80225550 lbl_80513F60;
+s32 TLobby__sub_80224B7C(C14_80224B7C *item, s32 tbl);
+s8 TLobby__sub_8010540C(s32);
+s32 pop_byte__6TLobbyFPv(void *);
+void TLobby__sub_8020EEFC(void *, s32);
+void TLobby__sub_8020F00C(void *, u8);
+void reset_counter_64__6TLobbyFPv(void *);
+s32 TLobby__sub_80224840(s32 arg0);
+extern u32 lbl_805D6268;
+extern int lbl_805D626C;
+void TLobby__sub_80224F7C(Obj_80224F7C *obj);
+s32 is_split_screen(void);
+s32 create_named_object(void *);
+s32 alloc_buffer__11TOBoss4RockFPv(s32);
+extern char lbl_8044C7C0[];
+extern char lbl_8044C7D8[];
+extern char lbl_8044C7F0[];
+extern char lbl_8044C80C[];
+extern G_80225550 lbl_80513F60;
+extern s32 lbl_805D6240;
+extern u32 lbl_805D6268;
+extern int lbl_805D626C;
+void TLobby__sub_802256B8(void);
 }
 
 extern "C" {
@@ -359,6 +396,68 @@ s32 level_to_reward__6TLobbyFi(s32 arg0) {
 }
 
     extern int lbl_805D626C;
+
+#pragma push
+#pragma optimization_level 1
+struct G_80225550;
+s32 TLobby__sub_80224B7C(C14_80224B7C *item, s32 tbl) {
+    s32 n;
+    C14_80224B7C *p;
+    s32 i;
+    if (lbl_80513F40[tbl].n == 0) {
+        return 1;
+    }
+    n = 0;
+    p = ((Lst_80224B7C *)&lbl_80513F60)[tbl].p;
+    for (i = 0; i < lbl_80513F40[tbl].n; i++, p++) {
+        if (memcmp(item, p, 0x14) == 0) {
+            return 0;
+        }
+        if (p->b[0] == item->b[0] && p->b[1] == item->b[1]) {
+            n++;
+        }
+    }
+    return (n <= 1) ? 1 : 0;
+}
+#pragma pop
+
+#pragma push
+#pragma optimization_level 1
+void TLobby__sub_80224F7C(Obj_80224F7C *obj) {
+    u8 buf[0x68];
+    Ent_80224F7C *e;
+    s32 idx;
+    s32 i;
+    s32 n;
+    reset_counter_64__6TLobbyFPv(buf);
+    e = ((Hdr_80224F7C *)lbl_805D6268)->ents;
+    idx = TLobby__sub_80224840(lbl_805D626C);
+    i = 0;
+    idx *= 3;
+    while (i++ < 3) {
+        n = e[idx].n;
+        while (n != 0) {
+            TLobby__sub_8020F00C(buf, e[idx].id);
+            n--;
+        }
+        idx++;
+    }
+    TLobby__sub_8020EEFC(buf, 3);
+    switch (pop_byte__6TLobbyFPv(buf)) {
+    case 1:
+        obj->v = TLobby__sub_8010540C(0);
+        break;
+    case 2:
+        obj->v = TLobby__sub_8010540C(1);
+        break;
+    case 0:
+    default:
+        obj->v = 0;
+        break;
+    }
+}
+#pragma pop
+
 void TLobby__sub_80225238(int a0, int a1) { lbl_805D626C = a1; TLobby__sub_8022525C(); }
 
 typedef char RecoveredGlobal_8022559C_lbl_80513F50_size[sizeof(RecoveredGlobal_8022559C_lbl_80513F50) == 0x10 ? 1 : -1];
@@ -401,6 +500,42 @@ void TLobby__sub_80225618(void) {
         TLobby__sub_800F957C((u32)((void *)lbl_805D6268));
         lbl_805D6268 = 0;
     }
+}
+#pragma pop
+
+#pragma push
+#pragma optimization_level 1
+void TLobby__sub_802256B8(void) {
+    s32 i;
+    s32 j;
+    switch (lbl_805D6240) {
+    case 0:
+        lbl_805D6268 = create_named_object(lbl_8044C7C0);
+        break;
+    case 1:
+        lbl_805D6268 = create_named_object(lbl_8044C7D8);
+        break;
+    case 2:
+        lbl_805D6268 = create_named_object(lbl_8044C7F0);
+        break;
+    case 3:
+        lbl_805D6268 = create_named_object(lbl_8044C80C);
+        break;
+    default:
+        lbl_805D6268 = create_named_object(lbl_8044C7C0);
+        break;
+    }
+    for (j = 0; j < 4; j++) {
+        ((s32 *)&lbl_80513F60)[j] = 0;
+    }
+    if (is_split_screen() == 1) {
+        for (i = 0; i < 4; i++) {
+            ((s32 *)&lbl_80513F60)[i] = alloc_buffer__11TOBoss4RockFPv(0x140);
+        }
+    } else {
+        ((s32 *)&lbl_80513F60)[0] = alloc_buffer__11TOBoss4RockFPv(0x140);
+    }
+    lbl_805D626C = 0;
 }
 #pragma pop
 

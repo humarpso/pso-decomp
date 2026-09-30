@@ -5,23 +5,60 @@ struct Ctrl_801E352C {
     u32 *data;
 };
 
+struct Vec2_801E3330 { f32 x, y; };
+
+struct Lines_801E3330 {
+    Vec2_801E3330 *verts;
+    u32 *colors;
+};
+
 extern "C" {
 void TObjCMHairMenu__sub_801E35C4(void *, s32);
 void TWindowCtrlMain__sub_801E352C(Ctrl_801E352C *c, s32 n, s32 flags);
+void TObjEneRe4Sorcerer__sub_801E3F20(void);
+void TObjPlayer__sub_801E3F24(u32);
+void TObjPlayer__sub_801E3F30(f32, f32, f32);
+void GXBegin(s32, s32, u16);
+void GXSetLineWidth(s32, s32);
+void TObjPlayer__sub_803E20B0(void);
+void TObjPlayer__sub_803E21B8(void);
+void TObjPlayer__sub_803E21DC(void);
+void fn_801E3330(Lines_801E3330 *l, s32 n, s32 flags, f32 scale);
 }
 
 extern "C" {
 
-int fn_801E3330(void);
 void fn_801E3518(void);
 void fn_801E3524(int a0);
 void TCameraCtrl__sub_801E32E4(void);
 int TObjPlayer__sub_803DAD28(void*);
 int TObjPlayer__sub_803E2810(void*, void*, void*);
 
-int fn_801E3330(void) { return 0; }
-
     extern int lbl_805D3580;
+
+void fn_801E3330(Lines_801E3330 *l, s32 n, s32 flags, f32 scale) {
+    u32 c;
+    TObjPlayer__sub_803E20B0();
+    if (flags & 4) {
+        TObjPlayer__sub_803E21DC();
+    } else {
+        TObjPlayer__sub_803E21B8();
+    }
+    GXSetLineWidth(0xC, 0);
+    if (flags & 0x10) {
+        GXBegin(0xB0, 4, n);
+    } else {
+        GXBegin(0xA8, 4, n);
+    }
+    while (n > 0) {
+        n--;
+        TObjPlayer__sub_801E3F30(scale * l->verts[n].x, scale * l->verts[n].y, scale);
+        c = l->colors[n];
+        TObjPlayer__sub_801E3F24((c << 8) | (c >> 24));
+    }
+    TObjEneRe4Sorcerer__sub_801E3F20();
+}
+
 void fn_801E3518(void) { lbl_805D3580 = 12; }
 
     extern int lbl_805D3580;

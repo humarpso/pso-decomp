@@ -21,6 +21,32 @@ struct Row_8023967C { s32 delay; s32 duration; s32 entry; u32 flags; };
 
 struct Resta_8023967C { u8 pad[0x18]; s32 *vt; void *emitters[3]; s32 owner; s32 x2c; };
 
+struct VBase_802399F8 { u8 pad[0x18]; };
+
+struct VObj_802399F8 : VBase_802399F8 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5(u32 target);
+};
+
+struct Target_802399F8 { u16 id; u8 pad[6]; };
+
+struct Resta_802399F8 {
+    u8 pad0[0x1C];
+    u32 source;
+    u8 pad1[0xA4 - 0x20];
+    s16 level;
+    u8 pad2[0xA8 - 0xA6];
+    u16 source_id;
+    u8 pad3[0xE0 - 0xAA];
+    s32 count;
+    Target_802399F8 targets[11];
+    s32 captured;
+};
+
 extern "C" {
 s32 obj_getField1c(int);
 s32 TObjPlayer__sub_8004433C(void *);
@@ -46,6 +72,11 @@ void *TObjPlayer__sub_800868C4(void *pos, s32 id, s32 a, s32 b, s32 c);
 s32 obj_getField1c(int);
 void TObjPlayer__sub_80087638(void *, s32);
 Resta_8023967C *TTecResta__sub_8023967C(Resta_8023967C *self, Vec_8023967C *pos, s32 owner, void *parent);
+M2C_UNK queue_destruction__7TObjectFv();
+u32 TPhotonMylla__sub_80154CB4(int);
+s32 is_parents_unqueued__9TTecLukerFUi(u32);
+void fn_802370D8(void *);
+void run_task__9TTecRestaFv(Resta_802399F8 *self);
 }
 
 extern "C" {
@@ -167,6 +198,36 @@ void create__9TTecRestaFPvPvPv(void *arg0, void *arg1, void *arg2) {
 void render__9TTecRestaFv(void) {  }
 
 extern M2C_UNK __vt__9TTecResta[];
+
+void run_task__9TTecRestaFv(Resta_802399F8 *self) {
+    u32 target;
+    s32 i;
+    self->source = TPhotonMylla__sub_80154CB4(self->source_id);
+    if (is_parents_unqueued__9TTecLukerFUi(self->source) == 0) {
+        ((void (*)(void *))queue_destruction__7TObjectFv)(self);
+        return;
+    }
+    if (self->captured != 0) {
+        if (self->level <= 1) {
+            ((VObj_802399F8 *)self)->m5(self->source);
+        } else {
+            ((VObj_802399F8 *)self)->m5(self->source);
+            if (self->count != 0) {
+                for (i = 0; i < self->count; i++) {
+                    target = TPhotonMylla__sub_80154CB4(self->targets[i].id);
+                    if (is_parents_unqueued__9TTecLukerFUi(target) != 0) {
+                        ((VObj_802399F8 *)self)->m5(target);
+                    }
+                }
+            }
+        }
+    } else if (self->level <= 1) {
+        ((VObj_802399F8 *)self)->m5(self->source);
+    } else {
+        fn_802370D8(self);
+    }
+    ((void (*)(void *))queue_destruction__7TObjectFv)(self);
+}
 
 void *__dt__9TTecRestaFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

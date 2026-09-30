@@ -96,6 +96,43 @@ typedef struct Player_801BD1B4 {
     VObj_8_c75954 *anim;
 } Player_801BD1B4;
 
+struct VBase_801BD0C0 { char pad[0x8]; };
+
+struct VObj_801BD0C0 : VBase_801BD0C0 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4();
+    virtual s32 m5(s32, s16);
+};
+
+typedef struct Anim_801BD0C0 {
+    s16 id;
+    u8 pad2[6];
+    f32 speed;
+    u32 flags;
+} Anim_801BD0C0;
+
+typedef struct Motion_801BD0C0 {
+    u8 pad0[4];
+    u32 frames;
+} Motion_801BD0C0;
+
+typedef struct Player_801BD0C0 {
+    u8 pad0[0xB0];
+    u32 fb0;
+    u32 fb4;
+    s16 anim;
+    u8 padba[0xC0 - 0xBA];
+    f32 frame;
+    f32 end;
+    f32 speed;
+    u8 padcc[0xF4 - 0xCC];
+    s16 fid;
+    u8 padf6[2];
+    Motion_801BD0C0 *motion;
+    u8 padfc[0x380 - 0xFC];
+    VObj_801BD0C0 *ctrl;
+} Player_801BD0C0;
+
 extern "C" {
 u16 obj_getField1c(void *);
 void TObjPlayer__sub_801B55B0(void *, s32);
@@ -107,9 +144,35 @@ s32 get_handle_value__10TObjPlayerFPv(void *);
 s32 has_valid_handle__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801D0458();
 void TObjPlayer__sub_801BD1B4(Player_801BD1B4 *arg0);
+void set_field_d8__10TObjPlayerFPvi(void *, s32);
+void update_animation_frame__10TObjPlayerFPvi(void *, s32);
+void TObjPlayer__sub_8014394C(void *);
+Anim_801BD0C0 *get_anim_entry__10TObjPlayerFPvi(void *, s32);
+s32 get_handle_value__10TObjPlayerFPv(void *);
+s32 has_valid_handle__10TObjPlayerFPv(void *);
+extern const f32 TObjPlayer__data_805DC278;
+void TObjPlayer__sub_801BD0C0(Player_801BD0C0 *self);
 }
 
 extern "C" {
+
+void TObjPlayer__sub_801BD0C0(Player_801BD0C0 *self) {
+    Anim_801BD0C0 *a;
+    set_field_d8__10TObjPlayerFPvi(self, self->ctrl->m5(has_valid_handle__10TObjPlayerFPv(self), get_handle_value__10TObjPlayerFPv(self)));
+    update_animation_frame__10TObjPlayerFPvi(self, self->anim);
+    a = get_anim_entry__10TObjPlayerFPvi(self, self->anim);
+    self->speed = a->speed;
+    self->fid = a->id;
+    self->end = self->motion->frames;
+    self->fb0 &= ~4;
+    self->fb4 = a->flags;
+    if (self->fb4 & 0x20000000) {
+        TObjPlayer__sub_8014394C(self);
+    }
+    if (self->frame >= self->end) {
+        self->frame = TObjPlayer__data_805DC278;
+    }
+}
 
 void TObjPlayer__sub_801BD1B4(Player_801BD1B4 *arg0) {
     init_npc_animation__10TObjPlayerFPvPvPvPv(arg0, (void *)arg0->anim->m5(has_valid_handle__10TObjPlayerFPv(arg0), get_handle_value__10TObjPlayerFPv(arg0)), arg0->anim->m74(), TObjPlayer__sub_801D0458());

@@ -21,6 +21,12 @@ struct RecoveredGlobal_802243D4_lbl_80513F10 {
 
 struct E_8022444C { u8 pad[0x10]; s32 f10; };
 
+struct Item_802242F8 { u8 b[0x14]; };
+
+struct Pair_802242F8 { s32 a; s32 b; };
+
+struct Tbl_802242F8 { u8 *base; u8 count; };
+
 extern "C" {
 extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
 void TLobby__sub_80224404(s32 arg0, s32 arg1, s32 arg2);
@@ -29,6 +35,15 @@ extern RecoveredGlobal_802243D4_lbl_80513F10 lbl_80513F10;
 void TLobby__sub_802243D4(void);
 extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
 void TLobby__sub_8022444C(s32 a, s32 b);
+void copy_item_data__6TLobbyFPvPv(void *, void *);
+void init__9TItemDataFv(void *);
+s32 fn_80223CB8(s32 arg0);
+extern Pair_802242F8 lbl_8044C398[];
+extern s32 lbl_80513EF0[];
+extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
+extern Tbl_802242F8 **lbl_805D6260;
+extern s32 lbl_805D6264;
+void TLobby__sub_802242F8(s32 arg0);
 }
 
 extern "C" {
@@ -123,6 +138,33 @@ s32 TLobby__sub_80223D48(s32 arg0) {
 typedef char RecoveredGlobal_80224404_lbl_80513F20_size[sizeof(RecoveredGlobal_80224404_lbl_80513F20) == 0x10 ? 1 : -1];
 
 typedef char RecoveredGlobal_802243D4_lbl_80513F10_size[sizeof(RecoveredGlobal_802243D4_lbl_80513F10) == 0x10 ? 1 : -1];
+
+struct RecoveredGlobal_80224404_lbl_80513F20;
+void TLobby__sub_802242F8(s32 arg0) {
+    Item_802242F8 it;
+    Item_802242F8 *arr;
+    Tbl_802242F8 *t;
+    u8 *p;
+    s32 i;
+    s32 row;
+    arr = ((Item_802242F8 **)&lbl_80513F20)[arg0];
+    row = fn_80223CB8(lbl_805D6264);
+    if (row >= 0) {
+        t = *lbl_805D6260;
+        row *= t->count;
+        p = t->base + row;
+        for (i = 0; i < t->count; i++, p++) {
+            if (*p != 0xf) {
+                init__9TItemDataFv(&it);
+                it.b[0] = 3;
+                it.b[1] = lbl_8044C398[*p].a;
+                it.b[2] = lbl_8044C398[*p].b;
+                copy_item_data__6TLobbyFPvPv(&arr[lbl_80513EF0[arg0]++], &it);
+            }
+        }
+    }
+}
+
 void TLobby__sub_802243D4(void) {
     memset((void *) (&lbl_80513F10.value), (int) (0), (int) (0x10));
 }

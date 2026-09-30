@@ -41,6 +41,92 @@ struct Warp_8019BD84 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x1C]; s32 f60; u8 pa
 
 struct Warp_8019C05C { u8 pad0[0xBC]; s32 fBC; u8 padC0[4]; s32 fC4; };
 
+struct VBase_8019C250 { char pad[0x18]; };
+
+struct VObj_8019C250 : VBase_8019C250 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+struct Node_8019C250 {
+    u8 pad0[4];
+    void *f4;
+    u8 f8[0xC];
+    s32 f14;
+    s32 f18;
+    s32 f1C;
+    u8 pad20[0x2C - 0x20];
+    Node_8019C250 *next2C;
+    Node_8019C250 *next30;
+};
+
+struct Obj_8019C250 {
+    u8 pad0[0x38];
+    u8 f38[0x60 - 0x38];
+    s32 f60;
+    u8 pad64[0x8C - 0x64];
+    s32 f8C;
+    u8 pad90[0xC8 - 0x90];
+    f32 fC8;
+    s32 fCC;
+    Node_8019C250 *fD0;
+    Node_8019C250 *fD4;
+    s32 fD8;
+    s32 fDC;
+};
+
+struct Colors_8019C250 { u16 c[2]; };
+
+struct VBase_8019C604 { char pad[0x18]; };
+
+struct VObj_8019C604 : VBase_8019C604 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+struct Node_8019C604 {
+    u8 pad0[4];
+    void *f4;
+    u8 f8[0xC];
+    s32 f14;
+    s32 f18;
+    s32 f1C;
+    u8 pad20[0x2C - 0x20];
+    Node_8019C604 *next2C;
+    Node_8019C604 *next30;
+};
+
+struct Obj_8019C604 {
+    u8 pad0[0x38];
+    u8 f38[0x60 - 0x38];
+    s32 f60;
+    u8 pad64[0x8C - 0x64];
+    s32 f8C;
+    u8 pad90[0xC4 - 0x90];
+    f32 fC8;
+    s32 fCC;
+    Node_8019C604 *fD0;
+    Node_8019C604 *fD4;
+    s32 fD8;
+    s32 fDC;
+};
+
+struct Colors_8019C604 { u16 c[2]; };
+
 extern "C" {
 void TObjAreaWarp__sub_8019CAB0(void *);
 extern const f32 lbl_805DBFDC;
@@ -137,6 +223,38 @@ void set_area__6TLobbyFPvi(void *, int, int);
 void TNpcPlayer__sub_8034E7A0();
 extern u8 lbl_80515BA0[];
 void TObjAreaWarpQuest__vt17(Warp_8019C05C *arg0, void *arg1);
+void begin_effect_render__13TParticleCtrlFv();
+void end_effect_render__13TParticleCtrlFv();
+void free_children__12TObjDoorJungFPvPv(void *, int);
+void TBoss7Tentacle__sub_803D8A6C(int, s32, s32, s32);
+void TObjPlayer__sub_803D9214(int, int);
+void TObjContainerIdo__sub_803D96A8(int, s32);
+void TObjPlayer__sub_803D9B2C();
+void TObjPlayer__sub_803D9B78();
+void TOHangerMachine01__sub_803D9C00(void *);
+void set_global_param__8TObjFishFi(int);
+void TOSignCave03__sub_803DB510(void *);
+void TObjDoor__sub_803DC894(s32, s32, f32);
+extern Colors_8019C250 lbl_805DBFCC;
+extern const f32 lbl_805DBFD4;
+extern const f32 lbl_805DBFD8;
+void render__17TObjAreaWarpQuestFv(Obj_8019C250 *self);
+void begin_effect_render__13TParticleCtrlFv();
+void end_effect_render__13TParticleCtrlFv();
+void free_children__12TObjDoorJungFPvPv(void *, int);
+void TBoss7Tentacle__sub_803D8A6C(int, s32, s32, s32);
+void TObjPlayer__sub_803D9214(int, int);
+void TObjContainerIdo__sub_803D96A8(int, s32);
+void TObjPlayer__sub_803D9B2C();
+void TObjPlayer__sub_803D9B78();
+void TOHangerMachine01__sub_803D9C00(void *);
+void set_global_param__8TObjFishFi(int);
+void TOSignCave03__sub_803DB510(void *);
+void TObjDoor__sub_803DC894(s32, s32, f32);
+extern Colors_8019C604 lbl_805DBFC8;
+extern const f32 lbl_805DBFD4;
+extern const f32 lbl_805DBFD8;
+void render__18TObjAreaWarpForestFv(Obj_8019C604 *self);
 }
 
 extern "C" {
@@ -318,6 +436,46 @@ void TObjAreaWarpQuest__vt17(Warp_8019C05C *arg0, void *arg1) {
     TTecLuker__sub_801BAB1C(arg1, get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0));
 }
 
+void render__17TObjAreaWarpQuestFv(Obj_8019C250 *self) {
+    Node_8019C250 *m;
+    Node_8019C250 *n;
+    if (((VObj_8019C250 *)self)->m8(lbl_805DBFD4, lbl_805DBFD8) != 0) {
+        Colors_8019C250 cols = lbl_805DBFCC;
+        n = self->fD4->next2C;
+        while (n != NULL) {
+            if (n->f4 != 0) {
+                free_children__12TObjDoorJungFPvPv((void *)(n->f4), (int)(cols.c[self->f8C]));
+            }
+            n = n->next2C;
+        }
+        m = self->fD0;
+        set_global_param__8TObjFishFi((int)(self->fDC));
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(self->f38);
+        TObjPlayer__sub_803D9214((int)(0), (int)(self->f60));
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(m->f8);
+        TOSignCave03__sub_803DB510(m->f4);
+        begin_effect_render__13TParticleCtrlFv();
+        m = m->next2C;
+        while (m != NULL) {
+            TObjPlayer__sub_803D9B2C();
+            TOHangerMachine01__sub_803D9C00(m->f8);
+            TBoss7Tentacle__sub_803D8A6C((int)(0), (s32)(m->f14), (s32)(m->f18), (s32)(m->f1C));
+            TObjContainerIdo__sub_803D96A8((int)(0), (s32)(self->fCC));
+            TOSignCave03__sub_803DB510(m->f4);
+            TObjPlayer__sub_803D9B78();
+            m = m->next30;
+        }
+        end_effect_render__13TParticleCtrlFv();
+        TObjPlayer__sub_803D9B78();
+        begin_effect_render__13TParticleCtrlFv();
+        TObjDoor__sub_803DC894((s32)(self->fD4), (s32)(self->fD8), self->fC8);
+        end_effect_render__13TParticleCtrlFv();
+        TObjPlayer__sub_803D9B78();
+    }
+}
+
 void run_task__17TObjAreaWarpQuestFv(u8 *arg0) {
   *((f32 *) (((s8 *) arg0) + 0xC8)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xC8))) + lbl_805DBFDC);
   if (((f32) ((unsigned long) ((*((s32 *) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0xD8)))) + 4))) - 1))) < (*((f32 *) (((s8 *) arg0) + 0xC8))))
@@ -386,6 +544,46 @@ u8 *TObjAreaWarpQuest__ct(u8 *arg0, s32 arg1, s32 arg2) {
         M2C_FIELD(arg0, s32 *, 0xC0) = 0;
     }
     return arg0;
+}
+
+void render__18TObjAreaWarpForestFv(Obj_8019C604 *self) {
+    Node_8019C604 *m;
+    Node_8019C604 *n;
+    if (((VObj_8019C604 *)self)->m8(lbl_805DBFD4, lbl_805DBFD8) != 0) {
+        Colors_8019C604 cols = lbl_805DBFC8;
+        n = self->fD4->next2C;
+        while (n != NULL) {
+            if (n->f4 != 0) {
+                free_children__12TObjDoorJungFPvPv((void *)(n->f4), (int)(cols.c[self->f8C]));
+            }
+            n = n->next2C;
+        }
+        m = self->fD0;
+        set_global_param__8TObjFishFi((int)(self->fDC));
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(self->f38);
+        TObjPlayer__sub_803D9214((int)(0), (int)(self->f60));
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(m->f8);
+        TOSignCave03__sub_803DB510(m->f4);
+        begin_effect_render__13TParticleCtrlFv();
+        m = m->next2C;
+        while (m != NULL) {
+            TObjPlayer__sub_803D9B2C();
+            TOHangerMachine01__sub_803D9C00(m->f8);
+            TBoss7Tentacle__sub_803D8A6C((int)(0), (s32)(m->f14), (s32)(m->f18), (s32)(m->f1C));
+            TObjContainerIdo__sub_803D96A8((int)(0), (s32)(self->fCC));
+            TOSignCave03__sub_803DB510(m->f4);
+            TObjPlayer__sub_803D9B78();
+            m = m->next30;
+        }
+        end_effect_render__13TParticleCtrlFv();
+        TObjPlayer__sub_803D9B78();
+        begin_effect_render__13TParticleCtrlFv();
+        TObjDoor__sub_803DC894((s32)(self->fD4), (s32)(self->fD8), self->fC8);
+        end_effect_render__13TParticleCtrlFv();
+        TObjPlayer__sub_803D9B78();
+    }
 }
 
 int TObjAreaWarpForest__vt17(void* p) { return TObjAreaWarp__sub_8019CA24(p); }

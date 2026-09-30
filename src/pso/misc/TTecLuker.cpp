@@ -62,6 +62,8 @@ struct Obj_8023448C {
     u32 f28;
 };
 
+struct Pkt_802341B0 { u8 hdr[4]; Rec_8023402C rec; };
+
 extern "C" {
 void TTecLuker__sub_80234F7C(void* p);
 void TTecLuker__sub_80234F7C(void* p);
@@ -163,6 +165,16 @@ void __dl__7TObjectFPv(void *);
 s32 is_parents_unqueued__9TTecLukerFUi(u32);
 extern u8 lbl_804CCA0C[];
 Obj_8023448C *TTecLuker__sub_8023448C(Obj_8023448C *arg0, s16 arg1);
+void TTecLuker__sub_80234FC4(void *arg0);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
+void TTecLuker__sub_80234148(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
+s32 TTecLuker__sub_8023402C(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unused);
+s32 is_split_screen();
+u8 *TPhotonMylla__sub_80154CB4(u16);
+s32 get_field_3e4__10TObjPlayerFPv(u32);
+extern s32 lbl_805D53A0;
+void handle_6x68_set_telepipe_state(Pkt_802341B0 *pkt);
 }
 
 extern "C" {
@@ -409,6 +421,39 @@ void TTecLuker__sub_80234148(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4) {
         temp_r3 = (u8 *)(((s32)TPlayerBattleCtrl4P__sub_801BA74C((s32)((u32) arg1))));
         if (temp_r3 != NULL) {
             M2C_FIELD(arg0, s32 *, 0x14) = (s32) M2C_FIELD(temp_r3, s32 *, 0x60);
+        }
+    }
+}
+
+void handle_6x68_set_telepipe_state(Pkt_802341B0 *pkt) {
+    u8 *player;
+    Rec_8023402C *rec;
+    u32 other;
+    u32 local;
+    TTecLuker__sub_80234FC4(pkt);
+    if (pkt->rec.owner == 0xffff) {
+        return;
+    }
+    player = TPhotonMylla__sub_80154CB4(pkt->rec.owner);
+    if (player == 0) {
+        return;
+    }
+    if (pkt->rec.owner >= 4) {
+        return;
+    }
+    rec = (Rec_8023402C *)(player + 0x830);
+    if (TTecLuker__sub_8023402C(rec, pkt->rec.floor, &pkt->rec.pos, pkt->rec.owner) == 0) {
+        return;
+    }
+    TTecLuker__sub_80234148((u8 *)rec, pkt->rec.owner, pkt->rec.floor, (u8 *)&pkt->rec.pos, pkt->rec.section);
+    if (is_split_screen() == 0 && pkt->rec.owner == lbl_805D53A0) {
+        return;
+    }
+    other = TPlayerBattleCtrl4P__sub_801BA74C(pkt->rec.owner);
+    local = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    if (other != 0 && local != 0) {
+        if (get_field_3e4__10TObjPlayerFPv(other) == get_field_3e4__10TObjPlayerFPv(local)) {
+            create__9TTecLukerFPvPvPvPv(player, player + 0x38, player + 0x38, 0);
         }
     }
 }

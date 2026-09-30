@@ -6245,6 +6245,7 @@ pso/unk/text_8013F810.cpp:
 
 pso/misc/TLobby_8013FFA8.cpp:
 	.text       start:0x8013FFA8 end:0x80140D50
+	.sdata2     start:0x805DB0F0 end:0x805DB150
 
 pso/unk/text_80140D50.cpp:
 	.text       start:0x80140D50 end:0x80140F44
@@ -8714,6 +8715,7 @@ pso/player/TObjPlayer_801B12A8_801B1818.cpp:
 
 pso/player/TObjPlayer_801B12A8.cpp:
 	.text       start:0x801B1AE4 end:0x801B2C80
+	.data       start:0x804C3D3C end:0x804C3D88
 
 pso/player/TObjPlayer_801B12A8_801B2C80.cpp:
 	.text       start:0x801B2C80 end:0x801B3188
@@ -8993,6 +8995,7 @@ pso/player/TObjPlayer_801BCFBC.cpp:
 
 pso/unk/text_801BD0C0.cpp:
 	.text       start:0x801BD0C0 end:0x801BD2B8
+	.rodata     start:0x80446F70 end:0x80446F78
 
 pso/player/TObjPlayer_801BD2B8.cpp:
 	.text       start:0x801BD2B8 end:0x801BD314
@@ -10492,6 +10495,7 @@ pso/misc/TLobby_801E6544_801E8478.cpp:
 pso/misc/TLobby_801E6544_801EA05C.cpp:
 	.text       start:0x801EA05C end:0x801ED6CC
 	.rodata     start:0x80449CB8 end:0x80449CC0
+	.data       start:0x804C81D8 end:0x804C81F4
 
 pso/misc/TLobby_801E6544_801ED6CC.cpp:
 	.text       start:0x801ED6CC end:0x801ED718
@@ -10704,6 +10708,8 @@ pso/misc/TQuestVmDownLoadServer_801F9010.cpp:
 
 pso/misc/TRaderMapCore.cpp:
 	.text       start:0x801F9058 end:0x801FB2B8
+	.rodata     start:0x8044A7A0 end:0x8044A7A8
+	.sdata2     start:0x805DC540 end:0x805DC548
 
 pso/misc/TRaderMapCore_801FB2B8.cpp:
 	.text       start:0x801FB2B8 end:0x801FB6A8

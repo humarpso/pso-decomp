@@ -2,6 +2,26 @@
 
 struct Pkt_801CCB58 { u16 hdr; u16 id; s16 c; };
 
+typedef struct Msg_801CCA84 {
+    u8 pad0[2];
+    u16 id;
+    u16 target;
+    u8 pad6[2];
+} Msg_801CCA84;
+
+typedef struct Tech_801CCA84 {
+    s32 kind;
+    u16 target;
+    s16 f6;
+    f32 f8;
+    u8 padc[0x60 - 0xC];
+} Tech_801CCA84;
+
+typedef struct Player_801CCA84 {
+    u8 pad0[0x10];
+    u32 list;
+} Player_801CCA84;
+
 extern "C" {
 s32 TObjPlayer__sub_801CC2B0(void *);
 s32 TObjPlayer__sub_801CC34C(void *);
@@ -17,6 +37,18 @@ u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
 void TObjPlayer__sub_801D209C(void *);
 void send_coords__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801CCB58(s32 arg0, s16 arg1);
+void TObjPlayer__sub_8004433C(void *);
+void *get_position_ptr__10TObjPlayerFPv(void *);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+s32 check_flag_4__10TObjPlayerFPv(void *);
+void bswap_coords__10TObjPlayerFPv(void *);
+void TObjPlayer__sub_801D2058(void *, void *);
+void TObjPlayer__sub_801D209C(void *);
+void create__12TTecReverserFPvPvPvPv(void *, void *, void *, s32);
+s32 validate_6x33_revive_player(void *);
+extern u32 tl_03;
+extern const f32 lbl_805DC370;
+void handle_6x33_revive_player(void *arg0);
 }
 
 extern "C" {
@@ -57,6 +89,31 @@ void TObjPlayer__sub_801CCA08(s32 arg0, s16 arg1) {
     }
   }
 }
+
+void handle_6x33_revive_player(void *arg0) {
+    Msg_801CCA84 m;
+    Tech_801CCA84 t;
+    Player_801CCA84 *p;
+    Player_801CCA84 *q;
+    TObjPlayer__sub_801D209C(&m);
+    TObjPlayer__sub_801D2058(&m, arg0);
+    bswap_coords__10TObjPlayerFPv(&m);
+    if (validate_6x33_revive_player(&m) != 0) {
+        p = (Player_801CCA84 *)TPlayerBattleCtrl4P__sub_801BA74C(m.id);
+        if (p != NULL) {
+            q = (Player_801CCA84 *)TPlayerBattleCtrl4P__sub_801BA74C(m.target);
+            if (q != NULL && check_flag_4__10TObjPlayerFPv(q) == 0 && q->list == tl_03) {
+                TObjPlayer__sub_8004433C(&t);
+                t.kind = 1;
+                t.target = m.target;
+                t.f6 = 0;
+                t.f8 = lbl_805DC370;
+                create__12TTecReverserFPvPvPvPv(p, get_position_ptr__10TObjPlayerFPv(p), &t, 0x1D);
+            }
+        }
+    }
+}
+
 void TObjPlayer__sub_801CCB58(s32 arg0, s16 arg1) {
     struct Pkt_801CCB58 pkt;
     if (TPlayerBattleCtrl4P__sub_801BA74C(arg0) == NULL || obj_isState2_324() == 0) {

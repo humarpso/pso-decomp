@@ -41,6 +41,25 @@ struct Reg_801A7578 {
     s32 count;
 };
 
+typedef struct Vec_801A7428 { f32 x, y, z; } Vec_801A7428;
+
+struct Rec_801A7428 { s32 a, b, c; Vec_801A7428 v; s32 d; };
+
+struct Entry_801A7428 { u8 bytes[0x1C]; };
+
+struct Group_801A7428 {
+    u8 pad0[8];
+    Entry_801A7428 *entries;
+    s32 count;
+};
+
+struct Obj_801A7428 {
+    u8 pad0[0x38];
+    Vec_801A7428 pos;
+    u8 pad44[0x60 - 0x44];
+    s32 f60;
+};
+
 extern "C" {
 void fn_801A753C(u8 *arg0, u8 *arg1);
 void VecCopy__FP3VecPC3Vec(Vec_801A73B0 *, const Vec_801A73B0 *);
@@ -54,6 +73,17 @@ extern Vec_801A7578 lbl_80446A44;
 extern struct Reg_801A7578 lbl_8050E578[];
 extern s32 lbl_805D5D10;
 void fn_801A7578(void);
+void TLobby__sub_800869A4(Vec_801A7428 *, s32, s32, s32);
+Obj_801A7428 *TPhotonMylla__sub_80154CB4(u16);
+void fn_801A753C(u8 *arg0, u8 *arg1);
+void TCameraCtrl__sub_803D8934(s32, Vec_801A7428 *, Vec_801A7428 *);
+void TObjPlayer__sub_803D9214(s32, s32);
+void TObjPlayer__sub_803D97F0(void *);
+void TCameraCtrl__sub_803D9858(s32);
+extern Group_801A7428 lbl_804C31D8[];
+extern u8 lbl_8058D490[];
+extern const f32 lbl_805DC0E0;
+void fn_801A7428(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -66,6 +96,37 @@ void fn_801A73B0(struct PbCamera_801A73B0 *self) {
     VecCopy__FP3VecPC3Vec(&parameters.target, &self->target);
     parameters.projection = 0x4222;
     TCameraCtrl__sub_80069D04(&parameters);
+}
+
+void fn_801A7428(s32 arg0, s32 arg1) {
+    Rec_801A7428 rec;
+    Vec_801A7428 pos;
+    Obj_801A7428 *obj;
+    Group_801A7428 *g;
+    Entry_801A7428 *entries;
+    s32 count;
+    s32 i;
+    obj = TPhotonMylla__sub_80154CB4(arg1);
+    if (obj == NULL) {
+        return;
+    }
+    g = &lbl_804C31D8[arg0];
+    count = g->count;
+    if (count <= 0) {
+        return;
+    }
+    entries = g->entries;
+    for (i = 0; i < count; i++) {
+        fn_801A753C((u8 *)&rec, entries[i].bytes);
+        TObjPlayer__sub_803D97F0(lbl_8058D490);
+        TObjPlayer__sub_803D9214(0, obj->f60);
+        TCameraCtrl__sub_803D8934(0, &rec.v, &pos);
+        TCameraCtrl__sub_803D9858(1);
+        pos.x += obj->pos.x;
+        pos.y += lbl_805DC0E0 + obj->pos.y;
+        pos.z += obj->pos.z;
+        TLobby__sub_800869A4(&pos, rec.a, rec.b, rec.c);
+    }
 }
 
 void fn_801A753C(u8 *arg0, u8 *arg1) {

@@ -44,6 +44,15 @@ struct RecoveredGlobal_8000F91C_lbl_804FE120 {
     u8 remaining[0x14];
 };
 
+struct Cmd_801E6604 {
+    const char *name;
+    void (*fn)(void);
+};
+
+struct CmdTable_801E6604 {
+    Cmd_801E6604 e[12];
+};
+
 extern "C" {
 M2C_UNK append_string(void *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_80512350;
@@ -55,12 +64,22 @@ int sprintf(char *, const char *, ...);
 M2C_UNK append_string(void *);
 extern char lbl_80449C74[];
 void TLobby__sub_801E6868(s32 arg0);
-void TLobby__sub_801E6604();
 s32 TLobby__sub_801E6BB8();
 s8 read_byte_advance__6TLobbyFv();
 void TLobby__sub_801E6C2C(s8);
 void TLobby__sub_801E6C40();
 s32 TLobby__sub_801E6580(s32 arg0, s32 arg1);
+void TLobby__sub_801E6868(s32 arg0);
+s32 TLobby__sub_801E68A4(char *);
+s32 parse_f_index(s32 a0);
+s32 parse_r_index(char *);
+void TLobby__sub_801E6A60(s32);
+void TLobby__sub_801E6AA0(s32);
+s32 TLobby__sub_801E6BB8();
+s8 read_byte_advance__6TLobbyFv();
+int strcmp(const char *, const char *);
+extern CmdTable_801E6604 lbl_80449C04;
+void TLobby__sub_801E6604();
 }
 
 extern "C" {
@@ -102,6 +121,42 @@ s32 TLobby__sub_801E6580(s32 arg0, s32 arg1) {
     }
     TLobby__sub_801E6C2C(0);
     return arg1;
+}
+
+void TLobby__sub_801E6604() {
+    char buf[64];
+    CmdTable_801E6604 tbl = lbl_80449C04;
+    u32 i;
+    s32 idx;
+    s8 c;
+    for (i = 0; i < 0x40 && TLobby__sub_801E6BB8() == 0; i++) {
+        c = read_byte_advance__6TLobbyFv();
+        switch (c) {
+        case 0x3E:
+            buf[i] = 0;
+            if ((idx = parse_r_index(buf)) != -1) {
+                TLobby__sub_801E6AA0(idx);
+                return;
+            }
+            if ((idx = parse_f_index((s32)buf)) != -1) {
+                TLobby__sub_801E6A60(idx);
+                return;
+            }
+            if ((idx = TLobby__sub_801E68A4(buf)) != -1) {
+                TLobby__sub_801E6868(idx);
+                return;
+            }
+            for (i = 0; i < 12; i++) {
+                if (strcmp(tbl.e[i].name, buf) == 0) {
+                    tbl.e[i].fn();
+                }
+            }
+            return;
+        default:
+            buf[i] = c;
+            break;
+        }
+    }
 }
 
 void append_card_window_text__6TLobbyFv(void) {

@@ -7,6 +7,36 @@ typedef struct Msg_801BAA6C {
 
 struct Msg_801BAB1C { u16 cmd; u16 id; s32 value; u8 pad8[8]; };
 
+struct Vec_801BAB78 { f32 x, y, z; };
+
+struct VBase_801BAB78 { char pad[0x18]; };
+
+struct VObj_801BAB78 : VBase_801BAB78 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
+    virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27();
+    virtual void m28(); virtual void m29(); virtual void m30(); virtual void m31();
+    virtual void m32(); virtual void m33(); virtual void m34(); virtual void m35();
+    virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
+    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43();
+    virtual void m44(); virtual void m45(); virtual void m46(); virtual void m47();
+    virtual void m48(); virtual void m49(); virtual void m50(); virtual void m51();
+    virtual void m52(); virtual void m53(); virtual void m54(); virtual void m55();
+    virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59();
+    virtual void m60(); virtual void m61(); virtual void m62();
+    virtual void m63(s32, Vec_801BAB78 *);
+    u8 pad1c[0x3C - 0x1C];
+    f32 f3c;
+    u8 pad40[0x60 - 0x40];
+    s32 f60;
+    u8 pad64[0x248 - 0x64];
+    u8 f248[4];
+};
+
 extern "C" {
 s32 obj_isState2_324(void *);
 u16 obj_getField1c(void *);
@@ -23,6 +53,18 @@ s32 validate_6x21_inter_level_warp(void *);
 void handle_6x21_inter_level_warp(void *arg0);
 void TObjPlayer__sub_801C18AC(Msg_801BAB1C *m);
 void TTecLuker__sub_801BAB1C(void *obj, s32 value);
+void TObjPlayer__sub_800F09E8(s32);
+void TBoss1Dragon__sub_8014220C(void *, void *, void *);
+void TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+void TObjPlayer__sub_803D9214(int, s32);
+void TObjBoss2Tunnel__sub_803D929C(int, s32);
+void TObjPlayer__sub_803D9624(int, f32, f32, f32);
+void TObjContainerIdo__sub_803D96A8(int, s32);
+void TObjPlayer__sub_803D9B2C(void);
+void TObjPlayer__sub_803D9B78(void);
+extern const f32 TObjPlayer__data_805DC294;
+extern const f32 lbl_805DC2C8;
+void TObjPlayer__sub_801BAB78(VObj_801BAB78 *self, f32 *pos, s32 arg2);
 }
 
 extern "C" {
@@ -54,6 +96,24 @@ void TTecLuker__sub_801BAB1C(void *obj, s32 value) {
         m.value = value;
         TObjPlayer__sub_801C18AC(&m);
     }
+}
+void TObjPlayer__sub_801BAB78(VObj_801BAB78 *self, f32 *pos, s32 arg2) {
+    Vec_801BAB78 v;
+    s32 a;
+    s32 b;
+    self->m63(1, &v);
+    TObjPlayer__sub_803D9B2C();
+    TBoss1Dragon__sub_8014220C(self->f248, &a, &b);
+    TObjPlayer__sub_803D9624(0, v.x, lbl_805DC2C8 + self->f3c, v.z);
+    TObjBoss2Tunnel__sub_803D929C(0, b);
+    TObjContainerIdo__sub_803D96A8(0, a);
+    TObjPlayer__sub_803D9214(0, self->f60);
+    TObjContainerIdo__sub_803D96A8(0, -0x4000);
+    if (pos != NULL) {
+        TOMonitorMachine01__sub_803D8B5C(0, pos[0], pos[2], TObjPlayer__data_805DC294);
+    }
+    TObjPlayer__sub_800F09E8(arg2);
+    TObjPlayer__sub_803D9B78();
 }
 
 }

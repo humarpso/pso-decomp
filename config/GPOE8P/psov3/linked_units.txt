@@ -883,6 +883,7 @@ pso/misc/TLobby_80137188_80138244.cpp
 pso/misc/TLobby_80137188_801382F0.cpp
 pso/misc/TLobby_80137188_801386A8.cpp
 pso/misc/TLobby_80137188_80138D0C.cpp
+pso/misc/TLobby_80137188_80138F24.cpp
 pso/misc/TLobby_80137188_8013A23C.cpp
 pso/misc/TLobby_80137188_8013A4A8.cpp
 pso/misc/TLobby_8013A874.cpp
@@ -910,6 +911,7 @@ pso/misc/TLobby_801A3B84.cpp
 pso/misc/TLobby_801A3BF4.cpp
 pso/misc/TLobby_801A3C18.cpp
 pso/misc/TLobby_801B0810.cpp
+pso/misc/TLobby_801C25B4_801C29A0.cpp
 pso/misc/TLobby_801C4F80.cpp
 pso/misc/TLobby_801D3518.cpp
 pso/misc/TLobby_801D4AEC.cpp
@@ -920,6 +922,7 @@ pso/misc/TLobby_801DEFC4.cpp
 pso/misc/TLobby_801E6544_801E6C2C.cpp
 pso/misc/TLobby_801E6544_801E765C.cpp
 pso/misc/TLobby_801E6544_801ED6CC.cpp
+pso/misc/TLobby_801E6544_801ED718.cpp
 pso/misc/TLobby_801E6544_801ED8B8.cpp
 pso/misc/TLobby_801E6544_801EE44C.cpp
 pso/misc/TLobby_801E6544_801EE48C.cpp
@@ -1699,6 +1702,7 @@ pso/misc/TWindowSubStatusDisp_8010EEF0.cpp
 pso/misc/TWindowSubStatusDisp_801A5228.cpp
 pso/misc/TWindowSubStatusDisp_80228C30.cpp
 pso/misc/TWindowSubStatusDisp_80228CC0.cpp
+pso/misc/TWindowSubStatusDisp_80228F5C.cpp
 pso/misc/TWindowSubStatusDisp_80242908.cpp
 pso/misc/TWindowSubStatusDisp_80248968.cpp
 pso/misc/TWindowSubStatusDisp_80248ADC.cpp
@@ -2693,6 +2697,7 @@ pso/slices/pso_carve_801ba168.cpp
 pso/slices/pso_carve_801ba2f4.cpp
 pso/slices/pso_carve_801bb8b0.cpp
 pso/slices/pso_carve_801bbb98.cpp
+pso/slices/pso_carve_801bc8f0.cpp
 pso/slices/pso_carve_801bca14.cpp
 pso/slices/pso_carve_801bcb70.cpp
 pso/slices/pso_carve_801be890.cpp
@@ -2715,6 +2720,8 @@ pso/slices/pso_carve_801cc0f0.cpp
 pso/slices/pso_carve_801cda10.cpp
 pso/slices/pso_carve_801cdc6c.cpp
 pso/slices/pso_carve_801cde0c.cpp
+pso/slices/pso_carve_801ce068.cpp
+pso/slices/pso_carve_801cf2b0.cpp
 pso/slices/pso_carve_801cfb4c.cpp
 pso/slices/pso_carve_801d08b0.cpp
 pso/slices/pso_carve_801d0ea0.cpp
@@ -3304,6 +3311,7 @@ pso/unk/text_801A5778.cpp
 pso/unk/text_801A69E4.cpp
 pso/unk/text_801A6A28.cpp
 pso/unk/text_801A6F84.cpp
+pso/unk/text_801A73B0.cpp
 pso/unk/text_801AA3B4.cpp
 pso/unk/text_801AB018.cpp
 pso/unk/text_801AF454.cpp
@@ -3315,10 +3323,13 @@ pso/unk/text_801B1050.cpp
 pso/unk/text_801B1090.cpp
 pso/unk/text_801B811C.cpp
 pso/unk/text_801B8CB0.cpp
+pso/unk/text_801B91F0.cpp
 pso/unk/text_801B9544.cpp
 pso/unk/text_801B9E0C.cpp
+pso/unk/text_801B9EDC.cpp
 pso/unk/text_801BA42C.cpp
 pso/unk/text_801BA494.cpp
+pso/unk/text_801BAA6C.cpp
 pso/unk/text_801BB950.cpp
 pso/unk/text_801BC688.cpp
 pso/unk/text_801BD318.cpp
@@ -3346,6 +3357,7 @@ pso/unk/text_801CB7F8.cpp
 pso/unk/text_801CBD38.cpp
 pso/unk/text_801CBD98.cpp
 pso/unk/text_801CC0F4.cpp
+pso/unk/text_801CCA08.cpp
 pso/unk/text_801CDAD8.cpp
 pso/unk/text_801CDD24.cpp
 pso/unk/text_801CDED4.cpp
@@ -3369,6 +3381,7 @@ pso/unk/text_801D94C8.cpp
 pso/unk/text_801D9514.cpp
 pso/unk/text_801D98F8.cpp
 pso/unk/text_801D9AD0.cpp
+pso/unk/text_801D9CE0.cpp
 pso/unk/text_801D9E50.cpp
 pso/unk/text_801D9EB4.cpp
 pso/unk/text_801D9F50.cpp
@@ -3383,6 +3396,8 @@ pso/unk/text_801DBA58.cpp
 pso/unk/text_801DFC3C.cpp
 pso/unk/text_801E051C.cpp
 pso/unk/text_801E078C.cpp
+pso/unk/text_801E416C.cpp
+pso/unk/text_801E4BCC.cpp
 pso/unk/text_801E4E4C.cpp
 pso/unk/text_801E4E7C.cpp
 pso/unk/text_801E4EB0.cpp
@@ -3427,6 +3442,7 @@ pso/unk/text_80222C28.cpp
 pso/unk/text_8022350C.cpp
 pso/unk/text_802264B8.cpp
 pso/unk/text_80228C54.cpp
+pso/unk/text_80228E98.cpp
 pso/unk/text_8022F258.cpp
 pso/unk/text_8022FB70.cpp
 pso/unk/text_80231224.cpp

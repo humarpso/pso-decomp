@@ -13,6 +13,22 @@ struct Obj_80232E0C {
     s32 kind;
 };
 
+struct Vec_80232B7C { f32 x, y, z; };
+
+struct Obj_80232B7C {
+    u8 pad0[0x18];
+    void *vt;
+    u16 id;
+    Vec_80232B7C pos;
+    Vec_80232B7C scale;
+    f32 f38;
+    f32 f3c;
+    f32 f40;
+    f32 f44;
+    s32 f48;
+    f32 f4c;
+};
+
 extern "C" {
 void __dt__7TObjectFv(void *, s32);
 void queue_destruction__7TObjectFv(void *);
@@ -22,9 +38,43 @@ void __dl__7TObjectFPv(void *);
 extern Ent_80232E0C lbl_8044D53C[];
 extern u8 lbl_804CC888[];
 Obj_80232E0C *fn_80232E0C(Obj_80232E0C *arg0, s16 arg1);
+void VecCopy__FP3VecPC3Vec(Vec_80232B7C *, Vec_80232B7C *);
+void __ct__7TObjectFP7TObject(void *self, void *parent);
+extern u8 lbl_804CC870[];
+extern const f32 lbl_805DC844;
+extern const f32 lbl_805DC84C;
+extern const f32 lbl_805DC850;
+extern const f32 lbl_805DC854;
+Obj_80232B7C *fn_80232B7C(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale);
 }
 
 extern "C" {
+
+Obj_80232B7C *fn_80232B7C(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale) {
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vt = lbl_804CC870;
+    self->id = id;
+    self->pos.x = lbl_805DC844;
+    self->pos.y = lbl_805DC844;
+    self->pos.z = lbl_805DC844;
+    self->scale.x = lbl_805DC84C;
+    self->scale.y = lbl_805DC84C;
+    self->scale.z = lbl_805DC84C;
+    self->f4c = lbl_805DC84C;
+    if ((u16)id == 0xffff && pos != 0) {
+        VecCopy__FP3VecPC3Vec(&self->pos, pos);
+        self->scale.x = scale;
+        self->scale.y = scale;
+        self->scale.z = scale;
+        self->f4c = lbl_805DC850;
+    }
+    self->f38 = lbl_805DC854;
+    self->f3c = lbl_805DC854;
+    self->f40 = lbl_805DC854;
+    self->f44 = lbl_805DC854;
+    self->f48 = 0;
+    return self;
+}
 
 Obj_80232E0C *fn_80232E0C(Obj_80232E0C *arg0, s16 arg1) {
     u32 i;

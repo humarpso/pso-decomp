@@ -25,6 +25,33 @@ struct RecoveredGlobal_80157AD8___vt__15TOAttackableCol {
     u8 remaining[0x138];
 };
 
+typedef s32 M2C_UNK;
+struct Msg_801575AC {
+    u16 cmd;
+    u16 room;
+    s32 id;
+    s32 type;
+    u16 state;
+    s16 f0E;
+    s16 f10;
+    s8 flag;
+    s8 player;
+};
+
+struct Obj_801575AC {
+    u8 pad0[0x1C];
+    u16 room;
+    u8 pad1E[0x80 - 0x1E];
+    u8 *parent;
+    u8 pad84[0x326 - 0x84];
+    s16 id;
+    u8 pad328[0x33C - 0x328];
+    s32 f33C;
+    s32 f340;
+    s32 f344;
+    s32 f348;
+};
+
 extern "C" {
 void *__nw__7TObjectFUl(int);
 int TOAttackableCol__vt24(void);
@@ -50,7 +77,6 @@ void run_task__15TOAttackableColFv(u8 *arg0);
 M2C_UNK TLobby__sub_80156A80(void *, void *, int);
 int handle_6x91_update_state__15TOAttackableColFPv(void* p);
 void TOAttackableCol__vt4(u8 *arg0, s16 *arg1, s32 arg2);
-int TOAttackableCol__sub_801575AC(void *, s32);
 u8 TODoorAncient08__sub_80229220(int);
 void *__nw__7TObjectFUl(int);
 M2C_UNK set_parent__7TObjectFP7TObject(int, int);
@@ -78,11 +104,15 @@ extern s32 tl_05;
 extern const f32 lbl_805DB2CC;
 extern const f32 lbl_805DB2D0;
 u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1);
+s8 TObjPlayer__sub_800196EC();
+M2C_UNK TLobby__sub_80156A80(void *, void *, int);
+void broadcast_state__15TOAttackableColFPv(void* p);
+void *fn_80157CA8(void *arg0);
+int TOAttackableCol__sub_801575AC(void *arg0, u16 state);
 }
 
 extern "C" {
 
-int TOAttackableCol__sub_801575AC(void *, s32);
 void TOAttackableCol__sub_80157C20(void* p, s32 v);
 s32 TOAttackableCol__sub_80157C28(void* p);
 void TOAttackableCol__vt23(void);
@@ -154,7 +184,32 @@ void init_params__15TOAttackableColFPv(void *arg0) {
     }
 }
 
-int TOAttackableCol__sub_801575AC(void *, s32) { return 0; }
+int TOAttackableCol__sub_801575AC(void *arg0, u16 state) {
+    Obj_801575AC *self = (Obj_801575AC *)arg0;
+    Msg_801575AC msg;
+    s16 id;
+    u8 *parent;
+    id = self->id;
+    TLobby__sub_80156A80(self, &id, 0);
+    parent = self->parent;
+    if (parent != NULL) {
+        fn_80157CA8(&msg);
+        msg.room = self->room;
+        msg.id = id;
+        msg.type = *(s16 *)(parent + 4);
+        msg.state = state;
+        msg.f0E = self->f33C;
+        if (self->f344 == 0 && self->f348 >= 0 && state == 1) {
+            msg.f10 = self->f348;
+            msg.flag = 1;
+        } else {
+            msg.flag = 0;
+            msg.f10 = 0;
+        }
+        msg.player = TObjPlayer__sub_800196EC();
+        broadcast_state__15TOAttackableColFPv((void*)(&msg));
+    }
+}
 
 void TOAttackableCol__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
     s16 sp8;
@@ -203,7 +258,7 @@ f32 TOAttackableCol__sub_80157728(u8 *arg0, s32 arg1) {
     if (((s32) (*((s32 *) (((s8 *) arg0) + 0x33C)))) <= 0)
     {
       *((s32 *) (((s8 *) arg0) + 0x33C)) = 0;
-      TOAttackableCol__sub_801575AC((void *)((void *) arg0), (s32)((int) 1));
+      TOAttackableCol__sub_801575AC((void *)((void *)((void *) arg0)), (u16)((s32)((int) 1)));
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x344)))) > 0)
       {
         temp_r0_2 = *((s32 *) (((s8 *) arg0) + 0x340));
@@ -238,7 +293,7 @@ f32 TOAttackableCol__sub_80157728(u8 *arg0, s32 arg1) {
     }
     else
     {
-      TOAttackableCol__sub_801575AC((void *)((void *) arg0), (s32)((int) 0));
+      TOAttackableCol__sub_801575AC((void *)((void *)((void *) arg0)), (u16)((s32)((int) 0)));
     }
     goto block_26;
   }
@@ -256,7 +311,7 @@ void check_door_trigger__15TOAttackableColFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x34C);
     if (((temp_r0 < 0) || (temp_r0 >= 0x100) || (TODoorAncient08__sub_80229220((u16) temp_r0) == 1)) && ((TObjPlayer__sub_801B4A18(arg0, -1), (((s32) M2C_FIELD(arg0, s32 *, 0x33C) > 0) == 0)) || (((s32) M2C_FIELD(arg0, s32 *, 0x344) == 0) && (temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x348), ((temp_r0_2 < 0) == 0)) && (temp_r0_2 < 0x100) && (TODoorAncient08__sub_80229220((u16) temp_r0_2) == 1)))) {
         M2C_FIELD(arg0, s32 *, 0x33C) = 0;
-        TOAttackableCol__sub_801575AC((void *)(arg0), (s32)(1));
+        TOAttackableCol__sub_801575AC((void *)((void *)(arg0)), (u16)((s32)(1)));
     }
 }
 

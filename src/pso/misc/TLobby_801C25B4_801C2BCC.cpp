@@ -11,6 +11,15 @@ struct Stack_801C2C34 {
     s32 sp10;
 };
 
+typedef struct Lobby_801C2F40 {
+    u8 pad0[0x30];
+    u64 time;
+    u8 pad38[0x64 - 0x38];
+    s32 f64;
+    u8 pad68[0x268 - 0x68];
+    s8 pending[8];
+} Lobby_801C2F40;
+
 extern "C" {
 M2C_UNK send_set_battle_mode_data__6TLobbyFPv(void *);
 M2C_UNK build_6x7D_set_battle_mode_data(void *);
@@ -18,6 +27,22 @@ extern s32 lbl_805D53A0;
 void TLobby__sub_801C2C34(void);
 extern u8 lbl_805D5DBC;
 void TLobby__sub_801C2C70(void);
+u64 OSGetTime(void);
+void obj_clear_flag30_20000(void *);
+s32 update_battle_controller__10TObjPlayerFv();
+void clear_counter__6TLobbyFPv(void *a0);
+void init_with_name__6TLobbyFPvPvPvPv(void *, void *, void *, s32);
+void handle_battle_result__6TLobbyFii(u16, s32);
+void TObjEneRe4Sorcerer__sub_801E3F14(s32);
+void TObjEneRe4Sorcerer__sub_801E3F18(void);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+void *__nw__7TObjectFUl(u32);
+extern char lbl_80446FF0[];
+extern char lbl_80446FFC[];
+extern s16 lbl_80511CB0[];
+extern s32 lbl_805D53A0;
+extern s32 TLobby__data_805D5DC0;
+void TLobby__sub_801C2F40(Lobby_801C2F40 *self);
 }
 
 extern "C" {
@@ -107,6 +132,34 @@ void init__6TLobbyFPv(void *arg0) {
         }
         var_r31 += 1;
     } while (var_r31 < 4);
+}
+void TLobby__sub_801C2F40(Lobby_801C2F40 *self) {
+    char *name;
+    void *obj;
+    u32 p;
+    s32 st;
+    s32 i;
+    TObjEneRe4Sorcerer__sub_801E3F14(4);
+    TObjEneRe4Sorcerer__sub_801E3F18();
+    self->time = OSGetTime();
+    handle_battle_result__6TLobbyFii(lbl_805D53A0, 1);
+    if ((p = update_battle_controller__10TObjPlayerFv()) != 0) {
+        obj_clear_flag30_20000((void *)p);
+    }
+    clear_counter__6TLobbyFPv(self);
+    st = get_global_state__14TOKeyMachine01Fv();
+    name = (st == 0x10) ? lbl_80446FF0 : lbl_80446FFC;
+    obj = __nw__7TObjectFUl(0x40);
+    if (obj != NULL) {
+        init_with_name__6TLobbyFPvPvPvPv(obj, self, name, 0x2D);
+    }
+    for (i = 0; i < 8; i++) {
+        self->pending[i] = 1;
+        if (lbl_80511CB0[i] == 0) {
+            self->pending[i] = 0;
+        }
+    }
+    self->f64 = TLobby__data_805D5DC0;
 }
 
 }

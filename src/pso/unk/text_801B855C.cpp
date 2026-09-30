@@ -44,6 +44,27 @@ typedef struct Player_801B87E4 {
     void *inv;
 } Player_801B87E4;
 
+struct VBase_801B8AF8 { char pad[0x18]; };
+
+struct VObj_801B8AF8 : VBase_801B8AF8 {
+    virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3();
+    virtual void v4(); virtual void v5(); virtual void v6(); virtual void v7();
+    virtual void v8(); virtual void v9(); virtual void v10(); virtual void v11();
+    virtual void v12(); virtual void v13(); virtual void v14(); virtual void v15();
+    virtual void v16(); virtual void v17(); virtual void v18(); virtual void v19();
+    virtual void v20(); virtual void v21(); virtual void v22(); virtual void v23();
+    virtual void v24(); virtual void v25(); virtual void v26(); virtual void v27();
+    virtual void v28(); virtual void v29(); virtual void v30(); virtual void v31();
+    virtual void v32(); virtual void v33();
+    virtual s32 m34();
+};
+
+struct Item_801B8AF8 {
+    u8 data[0xC];
+    s32 id;
+    u8 data2[4];
+};
+
 extern "C" {
 s32 init__9TItemDataFv(void *);
 s32 count_items_by_id__10TObjPlayerFPvi(int, void *);
@@ -79,6 +100,20 @@ void init_6x2A__10TObjPlayerFPv(void *);
 void update_inventory_item__10TObjPlayerFPviiiii(void *, void *, int, void *, int, int);
 s32 validate_6x2A_drop_item(void *);
 void handle_6x2A_drop_item(void *arg0);
+s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
+void copy_to_item_data__5TItemFPvPv(VObj_801B8AF8 *, Item_801B8AF8 *);
+void set_stack_count__24TShopEquipmentListWindowFPvc(Item_801B8AF8 *, u8);
+s32 play_effect_default__10TObjPlayerFii(void *, int);
+s32 set_action_flag_2__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_801BF914(void *);
+s32 insert_item_node__10TObjPlayerFiiiii(int, void *, void *, void *, int);
+s32 check_player_action_allowed();
+u32 start_inventory_update__10TObjPlayerFPvi(s32, s32);
+VObj_801B8AF8 *get_owner_if_alive__10TObjPlayerFPv();
+s32 TAdPlayerLoadGC__sub_801E1B50(s32);
+s32 TAdPlayerLoadGC__sub_801E1E38(s32);
+void TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+void TObjPlayer__sub_801B8AF8(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -172,6 +207,34 @@ void TObjPlayer__sub_801B8A80(u8 *arg0, s32 arg1) {
         stack.sp14 = -1;
         insert_item_node__10TObjPlayerFiiiii((int) (M2C_FIELD(arg0, s32 *, 0xD00) + 0x20), (void *) (TObjPlayer__sub_801BF914((void *) (arg0 + 0x84C))), (void *) (arg0), (void *) (&stack.sp8), (int) (-1));
     }
+}
+
+void TObjPlayer__sub_801B8AF8(u8 *arg0, s32 arg1, s32 arg2) {
+    Item_801B8AF8 item;
+    VObj_801B8AF8 *owner;
+    s32 id;
+    if (check_player_action_allowed() != 0 &&
+        (TAdPlayerLoadGC__sub_801E1B50(get_chr_select_state__23TAdSinglePlyChrSelectGCFv()) != 0 ||
+         TAdPlayerLoadGC__sub_801E1E38(get_chr_select_state__23TAdSinglePlyChrSelectGCFv()) != 1)) {
+        TBoss3Volopt__sub_8022675C(0x53F06, 0, 0, 0);
+        return;
+    }
+    if (start_inventory_update__10TObjPlayerFPvi(*(s32 *)(arg0 + 0xD00), arg1) == 0) {
+        return;
+    }
+    owner = get_owner_if_alive__10TObjPlayerFPv();
+    if (owner == NULL) {
+        return;
+    }
+    play_effect_default__10TObjPlayerFii(arg0, 0x384);
+    set_action_flag_2__10TObjPlayerFPv(arg0);
+    copy_to_item_data__5TItemFPvPv(owner, &item);
+    set_stack_count__24TShopEquipmentListWindowFPvc(&item, arg2);
+    id = item.id;
+    if (owner->m34() - arg2 > 0) {
+        item.id = -1;
+    }
+    insert_item_node__10TObjPlayerFiiiii(*(s32 *)(arg0 + 0xD00) + 0x20, (void *)TObjPlayer__sub_801BF914(arg0 + 0x84C), arg0, &item, id);
 }
 
 s32 TObjPlayer__sub_801B8C10(u8 *arg0, s8 arg1, s8 arg2, s8 arg3) {

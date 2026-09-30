@@ -9,6 +9,8 @@ struct RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 {
     u8 remaining[0x14];
 };
 
+struct Names_801E13C4 { const char* p[6]; };
+
 extern "C" {
 s32 TAdPlayerLoadGC__sub_801E1518(void *arg0, s32 arg1, u32 arg2);
 extern s32 TAdPlayerLoadGC__data_805D5E40;
@@ -50,6 +52,13 @@ s32 TAdPlayerLoadGC__sub_801E0CE0(s32 arg0);
 s32 CARDUnmount();
 extern s32 TAdPlayerLoadGC__data_805D5E30;
 void TAdPlayerLoadGC__sub_801E12B0(s32 n);
+s32 TLobby__sub_800F9DF4(const char*, void*);
+void* xmalloc__FUl(u32);
+extern Names_801E13C4 lbl_80449690;
+extern char lbl_804496A8[];
+extern RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 TAdPlayerLoadGC__data_80511ED0;
+extern s32 TAdPlayerLoadGC__data_805D5E38;
+void TAdPlayerLoadGC__sub_801E13C4(void);
 }
 
 extern "C" {
@@ -213,6 +222,34 @@ void TAdPlayerLoadGC__sub_801E1350(void) {
         if (((void * *)&TAdPlayerLoadGC__data_80511ED0)[i] != NULL) {
             xfree__FPv(((void * *)&TAdPlayerLoadGC__data_80511ED0)[i]);
             ((void * *)&TAdPlayerLoadGC__data_80511ED0)[i] = NULL;
+        }
+    }
+}
+
+void TAdPlayerLoadGC__sub_801E13C4(void) {
+    Names_801E13C4 names = lbl_80449690;
+    const char* path = lbl_804496A8;
+    s32 i;
+    for (i = 0; i < 6; i++) {
+        ((void**)&TAdPlayerLoadGC__data_80511ED0)[i] = NULL;
+    }
+    *(void**)&TAdPlayerLoadGC__data_805D5E38 = NULL;
+    *(void**)&TAdPlayerLoadGC__data_805D5E38 = xmalloc__FUl(0x1800);
+    if (*(void**)&TAdPlayerLoadGC__data_805D5E38 == NULL) {
+        return;
+    }
+    for (i = 0; i < 6; i++) {
+        ((void**)&TAdPlayerLoadGC__data_80511ED0)[i] = xmalloc__FUl(0x800);
+        if (((void**)&TAdPlayerLoadGC__data_80511ED0)[i] == NULL) {
+            return;
+        }
+    }
+    if (TLobby__sub_800F9DF4(path, *(void**)&TAdPlayerLoadGC__data_805D5E38) <= 0) {
+        return;
+    }
+    for (i = 0; i < 6; i++) {
+        if (TLobby__sub_800F9DF4(names.p[i], ((void**)&TAdPlayerLoadGC__data_80511ED0)[i]) <= 0) {
+            return;
         }
     }
 }

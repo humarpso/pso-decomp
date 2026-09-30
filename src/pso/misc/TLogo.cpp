@@ -9,6 +9,10 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #include "pso/TMainTask.h"
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+#include "pso/TObject.h"
+typedef s32 M2C_UNK;
+struct V3_8013F5E8 { s32 x, y, z; };
+
 extern "C" {
 s32 TLobby__sub_800FD6A0(void *, int);
 s32 render_tick__Fv();
@@ -31,6 +35,21 @@ u32 TAdVIConfigGC__ct(void *, void *);
 s32 check_progressive_ready__5TLogoFv();
 u32 TAdTrialModemChkGC__ct(void *, void *);
 void run_task__5TLogoFv(u8 *arg0);
+M2C_UNK TKeyBoardControl__sub_8000F92C();
+M2C_UNK TKeyBoardControl__sub_8000F9CC(int);
+M2C_UNK TCameraCtrl__sub_80069C94(void *, void *);
+M2C_UNK TCameraCtrl__sub_80069E7C(int);
+s32 is_ready__22TQuestVmDownLoadServerFv();
+M2C_UNK TLobby__sub_800FA464();
+s8 func_801A5E54__Fv();
+M2C_UNK TKeyBoardControl__sub_801A5EC4();
+M2C_UNK controller_stuff__Fv();
+s32 render_tick__Fv();
+M2C_UNK TLobby__sub_802269B4();
+M2C_UNK func_803DCDFC__Fv();
+extern V3_8013F5E8 lbl_8043F150;
+extern V3_8013F5E8 lbl_8043F15C;
+void TLogo__sub_8013F5E8(void);
 }
 
 extern "C" {
@@ -174,6 +193,29 @@ void *__ct__5TLogoFv(void *arg0) {
 void TLogo__sub_8013F5AC() {
     delete_all_task_children__9TMainTaskFv(&main_task);
     TLobby__sub_800FD6A0(lbl_804A72D8, sizeof(lbl_804A72D8));
+    render_tick__Fv();
+}
+
+void TLogo__sub_8013F5E8(void) {
+    func_803DCDFC__Fv();
+    V3_8013F5E8 a = lbl_8043F150;
+    V3_8013F5E8 b = lbl_8043F15C;
+    TCameraCtrl__sub_80069E7C(9);
+    TCameraCtrl__sub_80069C94(&a, &b);
+    controller_stuff__Fv();
+    TKeyBoardControl__sub_801A5EC4();
+    main_task.some_empty_func();
+    main_task.run_task();
+    main_task.render();
+    main_task.render_screen_overlay();
+    TLobby__sub_800FA464();
+    TLobby__sub_802269B4();
+    if (func_801A5E54__Fv() != 0) {
+        TKeyBoardControl__sub_8000F92C();
+    }
+    if (is_ready__22TQuestVmDownLoadServerFv() != 0) {
+        TKeyBoardControl__sub_8000F9CC(0);
+    }
     render_tick__Fv();
 }
 

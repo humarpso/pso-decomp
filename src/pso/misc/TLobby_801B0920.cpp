@@ -4,9 +4,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_801B09A4 { char pad[0x18]; };
+
+struct VObj_801B09A4 : VBase_801B09A4 {
+    virtual void m0(s32);
+};
+
+struct Rec_801B09A4 { u8 bytes[0x42C]; };
+
 extern "C" {
 extern void *lbl_8050EA10[];
 s32 TLobby__sub_801B0974(void);
+VObj_801B09A4 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void TObjPlayer__sub_801BDE60(u16, Rec_801B09A4 *);
+void TLobby__sub_8024AC20(s32);
+extern s32 lbl_805D5D88;
+extern Rec_801B09A4 *lbl_805D5DB8;
+void TLobby__sub_801B09A4(void);
 }
 
 extern "C" {
@@ -47,6 +61,32 @@ s32 TLobby__sub_801B0974(void) {
         p++;
     }
     return n;
+}
+
+void TLobby__sub_801B09A4(void) {
+    VObj_801B09A4 *players[12];
+    s32 i;
+    VObj_801B09A4 *p;
+    lbl_805D5D88 |= 1;
+    for (i = 0; i < 12; i++) {
+        players[i] = NULL;
+    }
+    for (i = 0; i < 12; i++) {
+        p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        if (p != NULL) {
+            players[i] = p;
+            if (p != NULL) {
+                p->m0(1);
+            }
+        }
+    }
+    for (i = 0; i < 12; i++) {
+        if (players[i] != NULL) {
+            TObjPlayer__sub_801BDE60(i, &lbl_805D5DB8[i]);
+            TLobby__sub_8024AC20(i);
+        }
+    }
+    lbl_805D5D88 &= ~1;
 }
 
 s32 check_switch_available__6TLobbyFPvi(void *arg0, s32 arg1) {

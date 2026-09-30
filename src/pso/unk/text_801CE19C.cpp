@@ -31,6 +31,13 @@ s16 TObjPlayer__sub_801D2F4C(void *);
 extern const f32 TObjPlayer__data_805DC39C;
 extern const f32 TObjPlayer__data_805DC3AC;
 void TObjPlayer__sub_801CE3EC(u8 *arg0);
+s16 obj_getField1c(void *);
+u16 TObjPlayer__sub_801B5AC4(void *, s32);
+u16 TObjPlayer__sub_801B5AF8(void *, s32);
+s32 check_mode_action__10TObjPlayerFii(void *, s32);
+s32 check_action_usable__10TObjPlayerFPvi(void *, s32);
+s32 TObjPlayer__sub_80354D5C(s16);
+s32 TObjPlayer__sub_801CEAC8(u8 *self);
 }
 
 extern "C" {
@@ -96,6 +103,20 @@ void TObjPlayer__sub_801CEA08(u32 arg0) {
         TObjPlayer__sub_8012ADD4((void *) (&sp8[2]), (void *) (get_state_ptr__10TObjPlayerFPv((void *) (arg0 + 0x7CC))));
         TObjPlayer__sub_801D2404((void *) (sp8));
     }
+}
+s32 TObjPlayer__sub_801CEAC8(u8 *self) {
+    s32 r = -1;
+    if (TObjPlayer__sub_801B5AF8(self, 1) == 2 && check_action_usable__10TObjPlayerFPvi(self + 0x550, 4) != 0) {
+        r = 1;
+    }
+    if (TObjPlayer__sub_801B5AF8(self, 2) == 2 && check_action_usable__10TObjPlayerFPvi(self + 0x550, 0x400) != 0 &&
+        TObjPlayer__sub_80354D5C(obj_getField1c(self)) == 0) {
+        r = 2;
+    }
+    if (TObjPlayer__sub_801B5AF8(self, 3) == 2 && check_action_usable__10TObjPlayerFPvi(self + 0x550, 2) != 0) {
+        r = 3;
+    }
+    return check_mode_action__10TObjPlayerFii(self, TObjPlayer__sub_801B5AC4(self, r)) != 0 ? r : -1;
 }
 
 }

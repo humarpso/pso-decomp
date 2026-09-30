@@ -35,6 +35,16 @@ struct QVmCt_801F83F0 {
     s32 f28C, f290, f294, f298, f29C, f2A0;
 };
 
+struct QVm_801F7890 {
+    u8 pad0[0x25C];
+    s32 f25C;
+    u8 pad260[0x270 - 0x260];
+    char name0[0xD];
+    char name1[0xD];
+    u8 pad28A[0x2A0 - 0x28A];
+    s32 f2A0;
+};
+
 extern "C" {
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 void *alloc__22TQuestVmDownLoadServerFPv(s32);
@@ -60,6 +70,38 @@ extern s32 lbl_805D35E8;
 extern s32 TQuestVmDownLoadServer__data_805D5F18;
 extern s32 TQuestVmDownLoadServer__data_805D5F24;
 QVmCt_801F83F0 *TQuestVmDownLoadServer__ct(QVmCt_801F83F0 *self);
+void *memset(void *, int, u32);
+int sprintf(char *, const char *, ...);
+u32 TAdPlayerLoadGC__sub_801E2048(s32, char *);
+extern char lbl_8044A68C[];
+extern char lbl_8044BEE8[];
+extern const s32 lbl_805DC6B0;
+extern const s32 lbl_805DC6B4;
+void TQuestVmDownLoadServer__sub_801F7890(QVm_801F7890 *self);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
+void *alloc__22TQuestVmDownLoadServerFPv(s32);
+M2C_UNK move_data__6TLobbyFv(void *, s32, s32);
+void TAdSinglePlyChrSelectGC__sub_8007C48C(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 *, u32);
+void TAdSinglePlyChrSelectGC__sub_8007C264(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 *);
+void TAdSinglePlyChrSelectGC__sub_8007C134(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 *, void *, void *, s32);
+void TAdSinglePlyChrSelectGC__sub_8007C0CC(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 *, u32 *, u32);
+void TAdSinglePlyChrSelectGC__sub_8007C378(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 *, u32 *, u32);
+extern RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 TQuestVmDownLoadServer__data_80512C18;
+extern u32 lbl_80512D00[];
+void TQuestVmDownLoadServer__sub_801F8588(u32 *data, s32 size);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
+void *alloc__22TQuestVmDownLoadServerFPv(s32);
+s32 TQuestVmDownLoadServer__sub_801F8538(void *, s32);
+M2C_UNK move_data__6TLobbyFv(void *, s32, s32);
+u32 TAdSinglePlyChrSelectGC__sub_8007C3E0(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 *);
+void TAdSinglePlyChrSelectGC__sub_8007C48C(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 *, u32);
+void TAdSinglePlyChrSelectGC__sub_8007C264(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 *);
+void TAdSinglePlyChrSelectGC__sub_8007C1CC(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 *, void *, void *, s32);
+void TAdSinglePlyChrSelectGC__sub_8007C0CC(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 *, u32 *, u32);
+void TAdSinglePlyChrSelectGC__sub_8007C378(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 *, u32 *, u32);
+extern RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 TQuestVmDownLoadServer__data_80512C18;
+extern u32 lbl_80512D00[];
+void TQuestVmDownLoadServer__sub_801F8694(u32 *data, s32 size);
 }
 
 extern "C" {
@@ -173,6 +215,27 @@ void load_quest_data__22TQuestVmDownLoadServerFPv(u8 *arg0) {
     TQuestVmDownLoadServer__sub_801F6E08(arg0, TAdSinglePlyChrSelectGC__sub_80132F2C(0x29, 2), 1);
     M2C_FIELD(arg0, s32 *, 0x2A0) = 0x17;
     lbl_805D49B4 = 0;
+}
+
+void TQuestVmDownLoadServer__sub_801F7890(QVm_801F7890 *self) {
+    char buf[0xD];
+    s32 i;
+    memset(self->name0, 0, 0xD);
+    memset(self->name1, 0, 0xD);
+    for (i = lbl_805DC6B0; i < lbl_805DC6B4; i += 2) {
+        memset(buf, 0, 0xD);
+        sprintf(buf, lbl_8044A68C, lbl_8044BEE8, i);
+        if (TAdPlayerLoadGC__sub_801E2048(self->f25C, buf) == 0xFFFFFF05) {
+            sprintf(buf, lbl_8044A68C, lbl_8044BEE8, i + 1);
+            if (TAdPlayerLoadGC__sub_801E2048(self->f25C, buf) == 0xFFFFFF05) {
+                sprintf(self->name0, lbl_8044A68C, lbl_8044BEE8, i);
+                sprintf(self->name1, lbl_8044A68C, lbl_8044BEE8, i + 1);
+                self->f2A0 = 8;
+                return;
+            }
+        }
+    }
+    self->f2A0 = 0x11;
 }
 
 void handle_confirm_window__22TQuestVmDownLoadServerFPv(void *arg0) {
@@ -351,6 +414,49 @@ s32 TQuestVmDownLoadServer__sub_801F84B8(s32 arg0, s32 arg1) {
   return ((u32) __cntlzw((u32) (temp_r31 - temp_r29))) >> 5;
 }
 typedef char RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18_size[sizeof(RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18) == 0xE8 ? 1 : -1];
+
+struct RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18;
+void TQuestVmDownLoadServer__sub_801F8588(u32 *data, s32 size) {
+    void *src;
+    void *dst;
+    src = alloc__22TQuestVmDownLoadServerFPv(size);
+    dst = alloc__22TQuestVmDownLoadServerFPv(size);
+    move_data__6TLobbyFv(src, (s32)data, size);
+    TAdSinglePlyChrSelectGC__sub_8007C48C(&TQuestVmDownLoadServer__data_80512C18, lbl_80512D00[1]);
+    TAdSinglePlyChrSelectGC__sub_8007C264(&TQuestVmDownLoadServer__data_80512C18);
+    TAdSinglePlyChrSelectGC__sub_8007C134(&TQuestVmDownLoadServer__data_80512C18, src, dst, size);
+    move_data__6TLobbyFv(data, (s32)dst, size);
+    safe_free__23TAdSinglePlyChrSelectGCFUi(dst);
+    safe_free__23TAdSinglePlyChrSelectGCFUi(src);
+    TAdSinglePlyChrSelectGC__sub_8007C48C(&TQuestVmDownLoadServer__data_80512C18, lbl_80512D00[0]);
+    TAdSinglePlyChrSelectGC__sub_8007C0CC(&TQuestVmDownLoadServer__data_80512C18, data, size & ~3);
+    TAdSinglePlyChrSelectGC__sub_8007C48C(&TQuestVmDownLoadServer__data_80512C18, data[0]);
+    TAdSinglePlyChrSelectGC__sub_8007C378(&TQuestVmDownLoadServer__data_80512C18, data + 1, (size - 4) & ~3);
+}
+
+void TQuestVmDownLoadServer__sub_801F8694(u32 *data, s32 size) {
+    u32 *body;
+    void *src;
+    void *dst;
+    body = data + 1;
+    data[0] = TAdSinglePlyChrSelectGC__sub_8007C3E0(&TQuestVmDownLoadServer__data_80512C18);
+    *body = 0;
+    *body = TQuestVmDownLoadServer__sub_801F8538(data, size);
+    TAdSinglePlyChrSelectGC__sub_8007C48C(&TQuestVmDownLoadServer__data_80512C18, data[0]);
+    TAdSinglePlyChrSelectGC__sub_8007C378(&TQuestVmDownLoadServer__data_80512C18, body, (size - 4) & ~3);
+    TAdSinglePlyChrSelectGC__sub_8007C48C(&TQuestVmDownLoadServer__data_80512C18, lbl_80512D00[0]);
+    TAdSinglePlyChrSelectGC__sub_8007C0CC(&TQuestVmDownLoadServer__data_80512C18, data, size & ~3);
+    src = alloc__22TQuestVmDownLoadServerFPv(size);
+    dst = alloc__22TQuestVmDownLoadServerFPv(size);
+    move_data__6TLobbyFv(src, (s32)data, size);
+    TAdSinglePlyChrSelectGC__sub_8007C48C(&TQuestVmDownLoadServer__data_80512C18, lbl_80512D00[1]);
+    TAdSinglePlyChrSelectGC__sub_8007C264(&TQuestVmDownLoadServer__data_80512C18);
+    TAdSinglePlyChrSelectGC__sub_8007C1CC(&TQuestVmDownLoadServer__data_80512C18, src, dst, size);
+    move_data__6TLobbyFv(data, (s32)dst, size);
+    safe_free__23TAdSinglePlyChrSelectGCFUi(dst);
+    safe_free__23TAdSinglePlyChrSelectGCFUi(src);
+}
+
 void TQuestVmDownLoadServer__sub_801F8FA4(void) {
     init_single_player_chr_select__6TLobbyFPv((s32) &TQuestVmDownLoadServer__data_80512C18.value);
 }

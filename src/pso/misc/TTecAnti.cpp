@@ -30,6 +30,32 @@ struct Obj_8022AE10 {
     Vec_8022AE10 ground;
 };
 
+struct VBase_8022B150 { u8 pad[0x18]; };
+
+struct VObj_8022B150 : VBase_8022B150 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5(u32 target);
+};
+
+struct Target_8022B150 { u16 id; u8 pad[6]; };
+
+struct Anti_8022B150 {
+    u8 pad0[0x1C];
+    u32 source;
+    u8 pad1[0xA4 - 0x20];
+    s16 level;
+    u8 pad2[0xA8 - 0xA6];
+    u16 source_id;
+    u8 pad3[0xE0 - 0xAA];
+    s32 count;
+    Target_8022B150 targets[11];
+    s32 captured;
+};
+
 extern "C" {
 void TTecAnti__sub_8022B35C(u8 *arg0, u8 *arg1);
 s32 obj_getField1c(int);
@@ -52,6 +78,12 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern AntiRow_8022AE10 lbl_804CC0A8[];
 extern M2C_UNK lbl_804CC0E8[];
 Obj_8022AE10 *TTecAnti__sub_8022AE10(Obj_8022AE10 *self, const Vec_8022AE10 *body, const Vec_8022AE10 *ground, s32 actor, void *parent);
+int queue_destruction__7TObjectFv(void*);
+u32 TPhotonMylla__sub_80154CB4(int);
+s32 is_parents_unqueued__9TTecLukerFUi();
+s32 is_valid_and_active__10TObjPlayerFUi(int);
+void fn_802370D8(void *);
+void run_task__8TTecAntiFv(Anti_8022B150 *self);
 }
 
 extern "C" {
@@ -129,6 +161,36 @@ void *__dt__8TTecAntiFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+void run_task__8TTecAntiFv(Anti_8022B150 *self) {
+    u32 target;
+    s32 i;
+    self->source = TPhotonMylla__sub_80154CB4(self->source_id);
+    if (self->source == 0) {
+        queue_destruction__7TObjectFv((void*)(self));
+        return;
+    }
+    if (self->captured != 0) {
+        if (self->level == 0) {
+            ((VObj_8022B150 *)self)->m5(self->source);
+        } else {
+            ((VObj_8022B150 *)self)->m5(self->source);
+            if (self->count != 0) {
+                for (i = 0; i < self->count; i++) {
+                    target = TPhotonMylla__sub_80154CB4(self->targets[i].id);
+                    if ((is_parents_unqueued__9TTecLukerFUi() != 0) && (is_valid_and_active__10TObjPlayerFUi(target) != 0)) {
+                        ((VObj_8022B150 *)self)->m5(target);
+                    }
+                }
+            }
+        }
+    } else if (self->level == 0) {
+        ((VObj_8022B150 *)self)->m5(self->source);
+    } else {
+        fn_802370D8(self);
+    }
+    queue_destruction__7TObjectFv((void*)(self));
 }
 
 u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {

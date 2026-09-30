@@ -9,6 +9,23 @@ struct RecoveredGlobal_801EEFB4_TLobby__data_80512220 {
     u8 remaining[0x1C];
 };
 
+struct Item_801EE77C {
+    u8 data[12];
+    s32 id;
+    u32 f10;
+};
+
+struct Player_801EE77C {
+    u8 pad[0xD00];
+    void *fD00;
+};
+
+struct Item_801EEE68 {
+    u8 data[12];
+    s32 id;
+    u32 f10;
+};
+
 extern "C" {
 M2C_UNK TWindowCtrl__sub_8024A4B0(int, void *);
 void TLobby__sub_801EE674(s32 arg0);
@@ -21,6 +38,22 @@ void qst_op_pl_add_meseta(void);
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801F3D3C(s16, s32, s32, s32);
 void TLobby__sub_801EE728(u32 first);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void init__9TItemDataFv(Item_801EE77C *);
+void *set_mode_and_refresh_object__10TObjPlayerFPvi(void *, Item_801EE77C *);
+void *get_owner_if_alive__10TObjPlayerFPv(void *);
+s32 get_field_d8__10TObjPlayerFPv(void *);
+extern s32 lbl_805D53A0;
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801EE77C(u8 arg0, u8 arg1);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void init__9TItemDataFv(Item_801EE77C *);
+s32 TLobby__sub_8011AF58(u16);
+s32 TObjPlayer__sub_801B91F0(void *, Item_801EEE68 *);
+void fn_801B849C(void *, Item_801EEE68 *);
+extern s32 lbl_805D53A0;
+extern int* TLobby__data_805D5E78;
+void qst_op_item_create(u8 arg0, u8 arg1);
 }
 
 extern "C" {
@@ -63,6 +96,54 @@ void TLobby__sub_801EE728(u32 first) {
     s32 terrain = (*(s32 * *)&TLobby__data_805D5E78)[(u8)i++];
     s32 extra = (*(s32 * *)&TLobby__data_805D5E78)[(u8)i];
     TLobby__sub_801F3D3C(mode, floor, terrain, extra);
+}
+
+void TLobby__sub_801EE77C(u8 arg0, u8 arg1) {
+    Item_801EE77C item;
+    Player_801EE77C *player;
+    void *obj;
+    player = (Player_801EE77C *)TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    if (player != NULL) {
+        init__9TItemDataFv(&item);
+        item.data[0] = (*(int * *)&TLobby__data_805D5E78)[(u8)arg0++];
+        item.data[1] = (*(int * *)&TLobby__data_805D5E78)[(u8)arg0++];
+        item.data[2] = (*(int * *)&TLobby__data_805D5E78)[(u8)arg0++];
+        item.data[4] = (*(int * *)&TLobby__data_805D5E78)[(u8)arg0];
+        obj = set_mode_and_refresh_object__10TObjPlayerFPvi(player->fD00, &item);
+        if (obj != NULL) {
+            obj = get_owner_if_alive__10TObjPlayerFPv(obj);
+            if (obj != NULL) {
+                (*(int * *)&TLobby__data_805D5E78)[arg1] = get_field_d8__10TObjPlayerFPv(obj);
+            } else {
+                (*(int * *)&TLobby__data_805D5E78)[arg1] = -1;
+            }
+        } else {
+            (*(int * *)&TLobby__data_805D5E78)[arg1] = -1;
+        }
+    } else {
+        (*(int * *)&TLobby__data_805D5E78)[arg1] = -1;
+    }
+}
+
+void qst_op_item_create(u8 arg0, u8 arg1) {
+    Item_801EEE68 item;
+    void *player;
+    player = (void *)TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    if (player != NULL) {
+        init__9TItemDataFv((Item_801EE77C *)(&item));
+        item.data[0] = (*(int * *)&TLobby__data_805D5E78)[(u8)arg0++];
+        item.data[1] = (*(int * *)&TLobby__data_805D5E78)[(u8)arg0++];
+        item.data[2] = (*(int * *)&TLobby__data_805D5E78)[(u8)arg0];
+        item.id = TLobby__sub_8011AF58(lbl_805D53A0);
+        if (TObjPlayer__sub_801B91F0(player, &item) > 0) {
+            fn_801B849C(player, &item);
+            (*(int * *)&TLobby__data_805D5E78)[arg1] = item.id;
+        } else {
+            (*(int * *)&TLobby__data_805D5E78)[arg1] = -1;
+        }
+    } else {
+        (*(int * *)&TLobby__data_805D5E78)[arg1] = -1;
+    }
 }
 
 void qst_op_del_obj_param(s32 arg0) {

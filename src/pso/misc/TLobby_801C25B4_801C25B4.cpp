@@ -4,6 +4,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef struct Lobby_801C2898 {
+    u8 pad0[0x268];
+    s8 pending[8];
+    s32 state;
+} Lobby_801C2898;
+
 extern "C" {
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
 u8 TPlayerBattleCtrl4P__sub_803102C8(void);
@@ -12,6 +18,13 @@ u8 TLobby__sub_801C2614(void);
 s32 TLobby__sub_801C26A8(void);
 extern s32 TLobby__data_805D5DC0;
 s32 TLobby__sub_801C2678(void);
+void send_battle_mode_data__6TLobbyFv(void *);
+u8 check_timeout__6TLobbyFPv(void *arg0);
+void TLobby__sub_801C2B04(void *);
+extern s16 lbl_80511CB0[];
+extern s32 lbl_805D53A0;
+extern s32 TLobby__data_805D53AC;
+void TLobby__sub_801C2898(Lobby_801C2898 *self, s32 t);
 }
 
 extern "C" {
@@ -20,7 +33,6 @@ struct S801C295C_801C25B4 { M2C_UNK f0; s8 f4; s8 pad[0x13]; };
 
 s32 check_all_battle_flags__6TLobbyFv(void);
 void clear_counter__6TLobbyFPv(void* a0);
-void send_battle_mode_data__6TLobbyFv(void);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK build_6x7D_set_battle_mode_data(void *);
 s32 obj_testFlags30(u32, M2C_UNK);
@@ -74,7 +86,29 @@ s32 TLobby__sub_801C2678(void) {
     return TLobby__data_805D5DC0;
 }
 
-void send_battle_mode_data__6TLobbyFv(void) {
+void TLobby__sub_801C2898(Lobby_801C2898 *self, s32 t) {
+    s32 i;
+    switch (self->state) {
+    case 0:
+        if (lbl_805D53A0 == TLobby__data_805D53AC) {
+            for (i = 0; i < 8; i++) {
+                if (self->pending[i] != 0 && t / 60 == lbl_80511CB0[i]) {
+                    self->pending[i] = 0;
+                    send_battle_mode_data__6TLobbyFv((void *)(self));
+                }
+            }
+        }
+        break;
+    case 1:
+        check_timeout__6TLobbyFPv(self);
+        break;
+    case 2:
+        TLobby__sub_801C2B04(self);
+        break;
+    }
+}
+
+void send_battle_mode_data__6TLobbyFv(void * _w0) {
     struct S801C295C_801C25B4 sp8;
 
     build_6x7D_set_battle_mode_data(&sp8);

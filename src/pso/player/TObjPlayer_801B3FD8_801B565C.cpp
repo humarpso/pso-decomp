@@ -24,6 +24,22 @@ typedef struct Player_801B6110 {
     s32 flags;
 } Player_801B6110;
 
+typedef struct Vec_801B5DDC { f32 x, y, z; } Vec_801B5DDC;
+
+struct Hit_801B5DDC {
+    u8 pad0[0x18];
+    u32 flags;
+    Vec_801B5DDC pos;
+    u8 pad28[0x38 - 0x28];
+};
+
+struct Obj_801B5DDC {
+    u8 pad0[0x38];
+    Vec_801B5DDC pos;
+    u8 pad44[0x308 - 0x44];
+    Vec_801B5DDC f308;
+};
+
 extern "C" {
 s32 TObjPlayer__sub_801B58DC(u8 *arg0);
 s32 is_flag_400_set__10TObjPlayerFPv();
@@ -60,6 +76,10 @@ void copy_pair_fields__10TObjPlayerFPvPv(void *, void *);
 void TObjPlayer__sub_801C0C04(void *);
 s32 validate_6x2E_set_or_clear_player_flags(void *);
 void handle_6x2E_set_or_clear_player_flags(void *arg0);
+s32 TObjPlayer__sub_801559D0(Obj_801B5DDC *, Obj_801B5DDC *, Vec_801B5DDC *, Hit_801B5DDC *);
+f32 TObjPlayer__sub_803D89C0(Vec_801B5DDC *, Vec_801B5DDC *);
+extern const f32 TObjPlayer__data_805DC278;
+s32 TObjPlayer__sub_801B5DDC(Obj_801B5DDC *self);
 }
 
 extern "C" {
@@ -238,6 +258,27 @@ void update_ground_contact__10TObjPlayerFi(s32 arg0) {
         }
         TObjPlayer__sub_801B59C4((s32)((s32)(arg0)));
     }
+}
+
+s32 TObjPlayer__sub_801B5DDC(Obj_801B5DDC *self) {
+    Vec_801B5DDC pos;
+    Vec_801B5DDC diff;
+    Hit_801B5DDC hit;
+    pos.x = self->pos.x + self->f308.x;
+    pos.y = TObjPlayer__data_805DC278;
+    pos.z = self->pos.z + self->f308.z;
+    if (TObjPlayer__sub_801559D0(self, self, &pos, &hit) != 0) {
+        if (hit.flags & 0x100) {
+            return 0;
+        }
+        diff.x = pos.x - hit.pos.x;
+        diff.y = TObjPlayer__data_805DC278;
+        diff.z = pos.z - hit.pos.z;
+        if (TObjPlayer__sub_803D89C0(&diff, &self->f308) < TObjPlayer__data_805DC278) {
+            return 1;
+        }
+    }
+    return 0;
 }
 
 void TObjPlayer__sub_801B6024(u8 *arg0) {

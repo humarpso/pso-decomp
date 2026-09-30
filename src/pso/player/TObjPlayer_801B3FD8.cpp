@@ -139,6 +139,17 @@ typedef struct Player_801B6C30 {
     Src_801B6C30 *src;
 } Player_801B6C30;
 
+struct Stats_801B6CE0 {
+    u8 pad0[0x18];
+    s32 level;
+    s32 exp;
+};
+
+struct Obj_801B6CE0 {
+    u8 pad0[0x2B0];
+    Stats_801B6CE0 *stats;
+};
+
 extern "C" {
 u8 *TObjPlayer__sub_801D8DCC();
 void TObjPlayer__sub_801B7248(u8 *arg0, s32 arg1);
@@ -162,6 +173,24 @@ s16 clamp_nested_index__10TObjPlayerFPv(void *, int);
 void TObjPlayer__sub_801C0C24(void *);
 void TObjPlayer__sub_801C0CC4(void *);
 void TObjPlayer__sub_801B6C30(Player_801B6C30 *arg0);
+s32 get_max_level__10TObjPlayerFv();
+s8 TObjPlayer__sub_801AFDB0();
+void add_evp__10TObjPlayerFPvi(void *, s32);
+void add_ata__10TObjPlayerFPvi(void *, s32);
+void add_mst__10TObjPlayerFPvi(void *, s32);
+void add_hp__10TObjPlayerFPvi(void *, s32);
+void add_dfp__10TObjPlayerFPvi(void *, s32);
+void add_stat__10TObjPlayerFPvi(void *, s32);
+s16 clamp_nested_index__10TObjPlayerFPv(void *, int);
+u8 get_field_5__10TObjPlayerFPv(s32);
+u8 get_byte_4__10TObjPlayerFPv(s32);
+u8 TObjPlayer__sub_801C212C(s32);
+u8 TObjPlayer__sub_801C2134(s32);
+u8 get_team_id__10TObjPlayerFPv(s32);
+u8 get_char_class__10TObjPlayerFPv(s32);
+s32 TObjPlayer__sub_801C214C();
+s32 TObjPlayer__sub_801D9250(s32, s32);
+s32 TObjPlayer__sub_801B6CE0(Obj_801B6CE0 *self);
 }
 
 extern "C" {
@@ -227,6 +256,36 @@ void TObjPlayer__sub_801B6C30(Player_801B6C30 *arg0) {
         m.f12 = 0;
         TObjPlayer__sub_801C0C24(&m);
     }
+}
+
+s32 TObjPlayer__sub_801B6CE0(Obj_801B6CE0 *self) {
+    s32 i;
+    s32 lvl;
+    s32 cls;
+    s32 e;
+    cls = TObjPlayer__sub_801AFDB0();
+    lvl = ((s32 (*)(void *))clamp_nested_index__10TObjPlayerFPv)(self) + 1;
+    for (i = 0; i < get_max_level__10TObjPlayerFv(); i++) {
+        if (lvl > get_max_level__10TObjPlayerFv()) {
+            break;
+        }
+        e = TObjPlayer__sub_801D9250(cls, lvl);
+        if (e == 0) {
+            break;
+        }
+        if (TObjPlayer__sub_801C214C() > self->stats->exp) {
+            break;
+        }
+        add_stat__10TObjPlayerFPvi(self, get_char_class__10TObjPlayerFPv(e));
+        add_mst__10TObjPlayerFPvi(self, get_team_id__10TObjPlayerFPv(e));
+        add_evp__10TObjPlayerFPvi(self, TObjPlayer__sub_801C2134(e));
+        add_hp__10TObjPlayerFPvi(self, TObjPlayer__sub_801C212C(e));
+        add_dfp__10TObjPlayerFPvi(self, get_byte_4__10TObjPlayerFPv(e));
+        add_ata__10TObjPlayerFPvi(self, get_field_5__10TObjPlayerFPv(e));
+        self->stats->level = lvl;
+        lvl++;
+    }
+    return 1;
 }
 
 void TObjPlayer__sub_801B6F8C(u8 *arg0) {

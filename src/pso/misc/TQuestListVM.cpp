@@ -39,6 +39,27 @@ struct RecoveredGlobal_80219DE0___vt__12TQuestListVM {
     u8 remaining[0x2C];
 };
 
+struct Rec_80218AD4 { s32 num; s32 slot; u8 rest[0xbc - 8]; };
+
+struct VBase_80218AD4 { char pad[0x18]; };
+
+struct VM_80218AD4 : VBase_80218AD4 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6();
+    virtual void m7(int a, int b);
+};
+
+struct QL_80218AD4 {
+    u8 pad[0xd8];
+    Rec_80218AD4 recs[1];
+};
+
+struct Rec_802193F0 { u8 pad[0x35]; char name[0xbc - 0x35]; };
+
+struct QL_802193F0 { Rec_802193F0 recs[48]; u8 pad[0x2368 - 48 * 0xbc]; s32 count; };
+
+struct Ent_802193F0 { u8 pad[0x10]; s8 a; s8 b; s8 c; u8 pad13; char name[1]; };
+
 extern "C" {
 s32 TLobby__sub_8001EEF4();
 s32 TLobby__sub_8001EEFC(M2C_UNK *);
@@ -75,7 +96,6 @@ M2C_UNK close__12TQuestListVMFPv(void *arg0);
 M2C_UNK TQuestListVM__sub_8021884C(void *);
 void update_close__12TQuestListVMFPv(void *arg0);
 M2C_UNK TQuestListVM__sub_80218918(void *);
-M2C_UNK TQuestListVM__sub_80218AD4(void *);
 M2C_UNK TQuestListVM__sub_80218BBC(void *);
 M2C_UNK TQuestListVM__sub_80218D40(void *);
 M2C_UNK TQuestListVM__sub_80218E94(void *);
@@ -89,6 +109,19 @@ M2C_UNK TQuestListVM__sub_80219748(void *);
 M2C_UNK TQuestListVM__sub_80219A9C(u8 *arg0);
 M2C_UNK init__12TQuestListVMFPv(void* p);
 void TQuestListVM__vt9(u8 *arg0);
+int set_field_20__12TQuestListVMFPvi(void*, void*);
+void close_windows__12TQuestListVMFPv(void *arg0);
+int memset(void*, void*, void*);
+s32 TAdPlayerLoadGC__sub_801E1B50(s32);
+s32 load_player_slot__23TAdSinglePlyChrSelectGCFPvii(s32, char *, s32);
+s32 select_cursor_entry__6TLobbyFPv(u32);
+int sprintf(char *, const char *, ...);
+extern char lbl_8044BEE8[];
+extern char lbl_8044BF50[];
+void TQuestListVM__sub_80218AD4(u8 *arg0);
+s32 strcmp(const char *, const char *);
+extern s32 lbl_805D5544;
+s32 TQuestListVM__sub_802193F0(QL_802193F0 *q, Ent_802193F0 *e);
 }
 
 extern "C" {
@@ -251,11 +284,50 @@ void update_close__12TQuestListVMFPv(void *arg0) {
 
 extern M2C_UNK TQuestListVM__data_8044BF20[];
 
+void TQuestListVM__sub_80218AD4(u8 *arg0) {
+    char buf[0xd];
+    s32 i;
+    QL_80218AD4 *q = (QL_80218AD4 *)arg0;
+    memset(buf, (void *)0, (void *)0xd);
+    if (*(u32 *)(arg0 + 0x2374) != 0 && *(u32 *)(arg0 + 0x2388) != 0) {
+        i = select_cursor_entry__6TLobbyFPv(*(u32 *)(arg0 + 0x2374));
+        if (TAdPlayerLoadGC__sub_801E1B50(q->recs[i].slot) == 0) {
+            sprintf(buf, lbl_8044BF50, lbl_8044BEE8, q->recs[i].num + 1);
+            if (load_player_slot__23TAdSinglePlyChrSelectGCFPvii(q->recs[i].slot, buf, *(s32 *)(arg0 + 0x2388)) == 0) {
+                set_field_20__12TQuestListVMFPvi(arg0, (void *)0xc);
+                return;
+            }
+            ((VM_80218AD4 *)arg0)->m7(0x19, 1);
+            close_windows__12TQuestListVMFPv(arg0);
+            set_field_20__12TQuestListVMFPvi(arg0, (void *)5);
+        }
+    }
+}
+
 M2C_UNK quest_vm_load(void *arg0) {
     if (TLobby__sub_8001EEF4() != 0) {
         M2C_FIELD(arg0, s32 *, 0x2384) = TLobby__sub_8001EEFC(TQuestListVM__data_8044BF20);
         set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(M2C_FIELD(arg0, s32 *, 0x2370)));
     }
+}
+
+s32 TQuestListVM__sub_802193F0(QL_802193F0 *q, Ent_802193F0 *e) {
+    s32 i;
+    if (e->a == -1 || e->c == -1) {
+        return 0;
+    }
+    if (e->a != lbl_805D5544) {
+        return 0;
+    }
+    if (e->b != 0 && e->b != 2) {
+        return 0;
+    }
+    for (i = 0; i < q->count; i++) {
+        if (strcmp(q->recs[i].name, e->name) == 0) {
+            return 0;
+        }
+    }
+    return 1;
 }
 
 M2C_UNK TQuestListVM__sub_80219A9C(u8 *arg0) {
@@ -319,7 +391,7 @@ void TQuestListVM__vt9(u8 *arg0) {
         TQuestListVM__sub_80218BBC((void *) (arg0));
         return;
     case 11:
-        TQuestListVM__sub_80218AD4((void *) (arg0));
+        TQuestListVM__sub_80218AD4((u8 *)((void *) (arg0)));
         return;
     case 12:
         TQuestListVM__sub_80218918((void *) (arg0));

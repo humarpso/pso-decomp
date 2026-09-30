@@ -4,6 +4,43 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef struct Vec_801AC36C { f32 x, y, z; } Vec_801AC36C;
+
+struct Params_801AC36C {
+    Vec_801AC36C pos;
+    u8 padC[0x18 - 0xC];
+    Vec_801AC36C dir;
+    f32 f24;
+    f32 scale;
+    f32 f2C;
+};
+
+struct Laser_801AC36C {
+    s32 f0;
+    u8 pad4[0x18 - 4];
+    void *vt18;
+    u8 pad1C[0x334 - 0x1C];
+    Vec_801AC36C f334;
+    Vec_801AC36C f340;
+    Vec_801AC36C f34C;
+    f32 f358;
+    f32 f35C;
+    u8 pad360[4];
+    s32 f364;
+    u8 pad368[4];
+    s32 f36C;
+    s16 f370;
+};
+
+extern "C" {
+void TObjPlayer__sub_80019038(void *, void *);
+Vec_801AC36C *VecCopy__FP3VecPC3Vec(Vec_801AC36C *, const Vec_801AC36C *);
+s32 TBoss4Type2__sub_800874F4(Vec_801AC36C *, s32);
+extern M2C_UNK __vt__12TPhotonLaser[];
+extern s32 lbl_805D34F0;
+Laser_801AC36C *TPhotonLaser__ct(Laser_801AC36C *self, Params_801AC36C *p, void *parent, s16 arg3);
+}
+
 extern "C" {
 
 void TObjPlayer__sub_801AC43C(void);
@@ -38,6 +75,23 @@ void *__dt__12TPhotonLaserFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+Laser_801AC36C *TPhotonLaser__ct(Laser_801AC36C *self, Params_801AC36C *p, void *parent, s16 arg3) {
+    TObjPlayer__sub_80019038(self, parent);
+    self->vt18 = ((s32 *)&__vt__12TPhotonLaser);
+    self->f0 = lbl_805D34F0;
+    VecCopy__FP3VecPC3Vec(&self->f334, VecCopy__FP3VecPC3Vec(&self->f340, &p->pos));
+    self->f370 = arg3;
+    VecCopy__FP3VecPC3Vec(&self->f34C, &p->dir);
+    self->f34C.x *= p->scale;
+    self->f34C.y *= p->scale;
+    self->f34C.z *= p->scale;
+    self->f358 = p->f24;
+    self->f35C = p->f2C;
+    self->f364 = TBoss4Type2__sub_800874F4(&self->f340, 0x134);
+    self->f36C = 0;
+    return self;
 }
 
 void TObjPlayer__sub_801AC43C(void) {  }

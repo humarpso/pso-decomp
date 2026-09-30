@@ -14,6 +14,12 @@ struct Pkt_801EE048 {
     s32 d;
 };
 
+struct Item_801EE0BC {
+    u8 data[12];
+    s32 id;
+    u32 f10;
+};
+
 extern "C" {
 extern s32 lbl_805D53A0;
 extern s32 *TLobby__data_805D5E78;
@@ -25,6 +31,10 @@ void init_packet_67_04__6TLobbyFPv(void* p);
 void byteswap_and_send__6TLobbyFi(s32 arg0);
 extern s32 TLobby__data_80512220[];
 void TLobby__sub_801EE048(void);
+void init__9TItemDataFv(Item_801EE0BC *);
+s32 TCheckRoomSequence__sub_80210D44(Item_801EE0BC *, s32);
+extern s32 *TLobby__data_805D5E78;
+void TLobby__sub_801EE0BC(u8 arg0, u8 arg1);
 }
 
 extern "C" {
@@ -71,5 +81,20 @@ void TLobby__sub_801EE048(void) {
 }
 
 void TLobby__sub_801EE09C(void* p) { TBoss1Dragon::requestActionRefresh(); }
+void TLobby__sub_801EE0BC(u8 arg0, u8 arg1) {
+    Item_801EE0BC item;
+    init__9TItemDataFv(&item);
+    item.data[0] = TLobby__data_805D5E78[(u8)arg0++];
+    item.data[1] = TLobby__data_805D5E78[(u8)arg0++];
+    item.data[2] = TLobby__data_805D5E78[(u8)arg0++];
+    item.data[3] = TLobby__data_805D5E78[(u8)arg0++];
+    item.data[4] = TLobby__data_805D5E78[(u8)arg0++];
+    item.data[5] = TLobby__data_805D5E78[(u8)arg0];
+    if (TCheckRoomSequence__sub_80210D44(&item, 0) != 0) {
+        TLobby__data_805D5E78[arg1] = 1;
+    } else {
+        TLobby__data_805D5E78[arg1] = 0;
+    }
+}
 
 }

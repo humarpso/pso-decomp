@@ -33,6 +33,17 @@ struct Obj_80239E44 {
     Vec_80239E44 pos;
 };
 
+struct Rev_8023A364 {
+    u8 pad[0xcc];
+    f32 fcc;
+    f32 fd0;
+    f32 fd4;
+    u8 padd8[0xdc - 0xd8];
+    s16 fdc;
+    s16 fde;
+    s16 fe0;
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u32 TPhotonMylla__sub_80154CB4(int);
@@ -57,6 +68,14 @@ extern M2C_UNK lbl_804CCC28[];
 extern Entry_80239E44 lbl_804CCBF8[];
 extern const f32 lbl_805DC910;
 Obj_80239E44 *TTecReverser__sub_80239E44(Obj_80239E44 *self, Player_80239E44 *player, void *parent);
+void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+extern char lbl_8044DBB0[];
+extern char lbl_8044DBBC[];
+extern char lbl_8044DBC8[];
+extern char lbl_8044DBD4[];
+extern char lbl_8044DBE0[];
+extern char lbl_8044DBEC[];
+void TObjEneBm5GibonU__sub_8023A364(Rev_8023A364 *self);
 }
 
 extern "C" {
@@ -171,6 +190,14 @@ u8 *TTecReverser__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
         M2C_FIELD(arg0, s16 *, 0xB4) = obj_getField1c((int) (temp_r3));
     }
     return arg0;
+}
+void TObjEneBm5GibonU__sub_8023A364(Rev_8023A364 *self) {
+    TObjEneBm5GibonU__sub_803D853C(0x1E0014, lbl_8044DBB0, self->fcc);
+    TObjEneBm5GibonU__sub_803D853C(0x1E0015, lbl_8044DBBC, self->fdc);
+    TObjEneBm5GibonU__sub_803D853C(0x1E0016, lbl_8044DBC8, self->fde);
+    TObjEneBm5GibonU__sub_803D853C(0x1E0017, lbl_8044DBD4, self->fd0);
+    TObjEneBm5GibonU__sub_803D853C(0x1E0018, lbl_8044DBE0, self->fd4);
+    TObjEneBm5GibonU__sub_803D853C(0x1E0019, lbl_8044DBEC, self->fe0);
 }
 
 }

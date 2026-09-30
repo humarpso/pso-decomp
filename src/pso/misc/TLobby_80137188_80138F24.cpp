@@ -18,6 +18,13 @@ struct Ent_801391BC { u8 b[0x1C]; };
 
 struct Lst_801391BC { u8 pad[0x1DA8]; Ent_801391BC e[1]; };
 
+typedef s32 M2C_UNK;
+struct Ent_801392F8 { u8 b[0x1B]; u8 flags; };
+
+struct Lst_801392F8 { u8 pad[0x1920]; s32 count; u8 pad2[0x1DA8 - 0x1924]; Ent_801392F8 e[1]; };
+
+struct Pad_801392F8 { u8 pad[0x10]; u32 flags; };
+
 extern "C" {
 extern s8 lbl_8050E208[];
 extern s32 TLobby__data_805D55B4;
@@ -50,6 +57,21 @@ extern s32 TLobby__data_805D5580;
 extern u32 TLobby__data_805D55D0;
 extern char TLobby__data_805DB0B0;
 void TLobby__sub_801391BC(void);
+M2C_UNK open_keyboard_window__6TLobbyFv();
+M2C_UNK destroy_lobby_ui__6TLobbyFv();
+M2C_UNK close_all_windows__6TLobbyFv();
+s32 get_status_flag__6TLobbyFPv(u32);
+s32 get_flag_bit2__6TLobbyFPv(u32);
+void send_info__9TProtocolFR16TPlyGuildCardTag(void *, void *);
+void send_action__9TProtocolFR13GameListEntryPcPc(void *, void *, char *, char *);
+M2C_UNK TWindow__close(u32);
+s32 select_cursor_entry__6TLobbyFPv(u32);
+extern s8 lbl_8050E208[];
+extern s32 TLobby__data_805D5580;
+extern u32 TLobby__data_805D55D0;
+extern s32 lbl_805D5600;
+extern char TLobby__data_805DB0B0;
+void TLobby__sub_801392F8(void);
 }
 
 extern "C" {
@@ -203,6 +225,34 @@ void handle_com_card__6TLobbyFv(void) {
         }
     } else {
         close_all_windows__6TLobbyFv();
+    }
+}
+void TLobby__sub_801392F8(void) {
+    if (TLobby__data_805D55D0 != 0U) {
+        if (get_status_flag__6TLobbyFPv(TLobby__data_805D55D0) != 0) {
+            lbl_805D5600 = select_cursor_entry__6TLobbyFPv(TLobby__data_805D55D0);
+            TWindow__close(TLobby__data_805D55D0);
+            TLobby__data_805D55D0 = 0U;
+            if ((*(Lst_801392F8 **)&TLobby__data_805D5580)->e[lbl_805D5600].flags & 2) {
+                open_keyboard_window__6TLobbyFv();
+                return;
+            }
+            send_action__9TProtocolFR13GameListEntryPcPc((*(Lst_801392F8 **)&TLobby__data_805D5580), &(*(Lst_801392F8 **)&TLobby__data_805D5580)->e[lbl_805D5600], &TLobby__data_805DB0B0, &TLobby__data_805DB0B0);
+            destroy_lobby_ui__6TLobbyFv();
+            return;
+        }
+        if (get_flag_bit2__6TLobbyFPv(TLobby__data_805D55D0) != 0) {
+            TWindow__close(TLobby__data_805D55D0);
+            TLobby__data_805D55D0 = 0U;
+            close_all_windows__6TLobbyFv();
+            return;
+        }
+        if ((*(Pad_801392F8 **)lbl_8050E208)->flags & 0x400) {
+            lbl_805D5600 = select_cursor_entry__6TLobbyFPv(TLobby__data_805D55D0);
+            if (lbl_805D5600 < (*(Lst_801392F8 **)&TLobby__data_805D5580)->count) {
+                send_info__9TProtocolFR16TPlyGuildCardTag((*(Lst_801392F8 **)&TLobby__data_805D5580), &(*(Lst_801392F8 **)&TLobby__data_805D5580)->e[lbl_805D5600]);
+            }
+        }
     }
 }
 

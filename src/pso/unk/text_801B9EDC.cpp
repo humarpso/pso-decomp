@@ -15,6 +15,24 @@ typedef struct Player_801BA060 {
     void *inv;
 } Player_801BA060;
 
+struct VBase_801B9F40 { char pad[0x18]; };
+
+struct VObj_801B9F40 : VBase_801B9F40 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16();
+    virtual void m17(s32);
+    virtual void m18();
+    virtual void m19(); virtual void m20(); virtual void m21(); virtual void m22();
+    virtual void m23(); virtual void m24(); virtual void m25(); virtual void m26();
+    virtual void m27(); virtual void m28(); virtual void m29(); virtual void m30();
+    virtual s8 m31();
+};
+
+struct Player_801B9F40 { u8 pad[0xD04]; u8 slots[4]; };
+
 extern "C" {
 s32 obj_isState2_324(void *obj);
 void init_cmd_6x26__10TObjPlayerFPv(void *cmd);
@@ -28,7 +46,6 @@ s32 check_switch_available__6TLobbyFPvi(void);
 void init_command__10TObjPlayerFPv(void *);
 void bswap_body_dwords5_and_send__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801BA0F0(void *arg0, s32 arg1, s32 arg2);
-void TObjPlayer__sub_801B9F40(void *, void *, s32);
 Player_801BA060 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
 void bswap_body_dwords5__10TObjPlayerFPv(void *);
 void copy_pair_fields4__10TObjPlayerFPvPv(void *, void *);
@@ -37,6 +54,14 @@ u32 start_inventory_update__10TObjPlayerFPvi(void *, s32);
 void *get_owner_if_alive__10TObjPlayerFPv();
 s32 validate_6x25_equip_item(void *);
 void handle_6x25_equip_item(void *arg0);
+s32 TLobby__sub_800822E8(void *, int);
+void set_animation__10TObjPlayerFPvs(void *, s16);
+s32 is_state_ec1_ed3__10TObjPlayerFPv(void *);
+s16 unequip_by_field326__10TObjPlayerFPv(void *);
+void unequip_item__10TObjPlayerFiPv(void *, void *);
+void TObjPlayer__sub_801BF8EC(void *, s32, void *);
+void *get_slot_value__10TObjPlayerFPvi(void *, s32);
+void TObjPlayer__sub_801B9F40(void *self, void *item, s32 slot);
 }
 
 extern "C" {
@@ -52,6 +77,31 @@ void TObjPlayer__sub_801B9EDC(void *self, void *item) {
     }
 }
 
+void TObjPlayer__sub_801B9F40(void *self, void *item, s32 slot) {
+    Player_801B9F40 *p = (Player_801B9F40 *)self;
+    void *cur;
+    if (is_state_ec1_ed3__10TObjPlayerFPv(item) != 0) {
+        if (slot < 9 || slot > 12) {
+            slot = 9;
+        }
+        ((VObj_801B9F40 *)item)->m17((s8)slot);
+    } else {
+        slot = ((VObj_801B9F40 *)item)->m31();
+    }
+    cur = get_slot_value__10TObjPlayerFPvi(p->slots, slot);
+    if (cur == NULL) {
+        TObjPlayer__sub_801BF8EC(p->slots, slot, item);
+        ((VObj_801B9F40 *)item)->m18();
+    } else if (cur != item) {
+        unequip_item__10TObjPlayerFiPv(self, cur);
+        TObjPlayer__sub_801BF8EC(p->slots, slot, item);
+        ((VObj_801B9F40 *)item)->m18();
+    }
+    if (TLobby__sub_800822E8(self, 2) != 0) {
+        set_animation__10TObjPlayerFPvs(self, unequip_by_field326__10TObjPlayerFPv(self));
+    }
+}
+
 void handle_6x25_equip_item(void *arg0) {
     Msg_801BA060 m;
     Player_801BA060 *p;
@@ -62,7 +112,7 @@ void handle_6x25_equip_item(void *arg0) {
     if (validate_6x25_equip_item(&m) != 0) {
         p = TPlayerBattleCtrl4P__sub_801BA74C(m.slot);
         if ((p != NULL) && (start_inventory_update__10TObjPlayerFPvi(p->inv, m.c) != 0U) && ((o = get_owner_if_alive__10TObjPlayerFPv()) != NULL)) {
-            TObjPlayer__sub_801B9F40(p, o, m.d);
+            TObjPlayer__sub_801B9F40((void *)(p), (void *)(o), (s32)(m.d));
         }
     }
 }
