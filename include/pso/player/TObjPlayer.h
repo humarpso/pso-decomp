@@ -18,7 +18,9 @@ struct TObjPlayer
 
     u8 _object_header[0x1C];
     u16 m_1c;
-    u8 _pad1E[0x1A];
+    u8 _pad1E[0x12];
+    u32 actor_flags;
+    u8 _pad34[4];
     void* m_38;
     u8 _pad3C[0x68];
     u32 m_a4;
