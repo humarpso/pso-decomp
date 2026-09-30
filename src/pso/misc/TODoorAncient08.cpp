@@ -83,7 +83,6 @@ struct RecoveredGlobal_8016069C___vt__15TODoorAncient08 {
 extern "C" {
 s32 TLobby__sub_80156A80(void *, void *, int);
 M2C_UNK fn_8015FC40(void *, void *);
-M2C_UNK TODoorAncient08__sub_8015FD70(void *);
 u8 TODoorAncient08__sub_80229220(int);
 void TODoorAncient08__vt12(u8 *arg0);
 u8 *TLobby__sub_80020004(void *, s32, M2C_UNK *, s32, s32, s32);
@@ -107,6 +106,23 @@ extern void *TODoorAncient08__data_805D594C;
 extern const f32 lbl_805DB470;
 extern const f32 lbl_805DB474;
 u8 *TODoorAncient08__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+void TODoorAncient08__sub_8015FD70(void *arg0_);
+s32 clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
+s32 TODragonfly__sub_80158360(void *, f32);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+extern void *TODoorAncient08__data_805D594C;
+extern const f32 lbl_805DB478;
+void TODoorAncient08__vt15(u8 *arg0);
+s32 set_indexed_flags(void *, s32, s32);
+s32 TODragonfly__sub_80158360(void *, f32);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+extern void *TODoorAncient08__data_805D594C;
+extern const f32 lbl_805DB47C;
+void TODoorAncient08__vt13(u8 *arg0);
 }
 
 extern "C" {
@@ -172,18 +188,49 @@ extern const f32 lbl_805DB474;
 
 #define VCALL_m8(obj) (((TODoorVObj_8015FCBC*)(obj))->m8(M2C_FIELD(obj, f32 *, 0xC0), M2C_FIELD(obj, f32 *, 0xC4)))
 
+void TODoorAncient08__sub_8015FD70(void *arg0_) {
+    u8 *arg0 = (u8 *)arg0_;
+    if (!(*(s32 *)(arg0 + 0xD0) & 1)) {
+        switch ((u32)get_global_state__14TOKeyMachine01Fv()) {
+        case 0:
+            TBoss3Volopt__sub_8022675C(0x42A04, arg0 + 0x38, 0, 0);
+            break;
+        case 1:
+        case 2:
+            TBoss3Volopt__sub_8022675C(0x4BC07, arg0 + 0x38, 0, 0);
+            break;
+        case 3:
+        case 4:
+        case 5:
+            TBoss3Volopt__sub_8022675C(0x42807, arg0 + 0x38, 0, 0);
+            break;
+        case 6:
+        case 7:
+            TBoss3Volopt__sub_8022675C(0x4004BC00, arg0 + 0x38, 0, 0);
+            break;
+        case 8:
+        case 9:
+        case 10:
+            TBoss3Volopt__sub_8022675C(0x4004BC07, arg0 + 0x38, 0, 0);
+            break;
+        case 15:
+            break;
+        }
+    }
+}
+
 void TODoorAncient08__vt12(u8 *arg0) {
     s16 sp8;
     s32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xCC);
     switch (temp_r0) {
     case 1:
-        TODoorAncient08__sub_8015FD70((void *) (arg0));
+        TODoorAncient08__sub_8015FD70((void *)((void *) (arg0)));
         M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
         return;
     case 2:
         if ((TODoorAncient08__sub_80229220((int) ((u16) M2C_FIELD(arg0, s32 *, 0xC8))) == 1) && (TODoorAncient08__sub_80229220((int) (M2C_FIELD(arg0, u16 *, 0xD4))) == 1) && (TODoorAncient08__sub_80229220((int) (M2C_FIELD(arg0, u16 *, 0xD6))) == 1) && (TODoorAncient08__sub_80229220((int) (M2C_FIELD(arg0, u16 *, 0xD8))) == 1)) {
-            TODoorAncient08__sub_8015FD70((void *) (arg0));
+            TODoorAncient08__sub_8015FD70((void *)((void *) (arg0)));
             M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
             M2C_FIELD(arg0, s32 *, 0xDC) = 1;
             return;
@@ -193,7 +240,7 @@ void TODoorAncient08__vt12(u8 *arg0) {
         return;
     case 3:
         if ((TODoorAncient08__sub_80229220((int) ((u16) M2C_FIELD(arg0, s32 *, 0xC8))) == 1) && (TODoorAncient08__sub_80229220((int) (M2C_FIELD(arg0, u16 *, 0xD4))) == 1) && (TODoorAncient08__sub_80229220((int) (M2C_FIELD(arg0, u16 *, 0xD6))) == 1) && (TODoorAncient08__sub_80229220((int) (M2C_FIELD(arg0, u16 *, 0xD8))) == 1)) {
-            TODoorAncient08__sub_8015FD70((void *) (arg0));
+            TODoorAncient08__sub_8015FD70((void *)((void *) (arg0)));
             M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
             if (((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
                 sp8 = 1;
@@ -241,6 +288,70 @@ void render__15TODoorAncient08Fv(u8 *arg0) {
 void TODoorAncient08__vt18(void) {  }
 
 extern void *tl_05;
+
+void TODoorAncient08__vt15(u8 *arg0) {
+    if (*(s32 *)(arg0 + 0xD0) & 1) {
+        *(s32 *)(arg0 + 0x24) = ((s32 *)TODoorAncient08__data_805D594C)[0];
+        if (TODragonfly__sub_80158360(arg0, lbl_805DB478) == 1) {
+            return;
+        }
+        *(s32 *)(arg0 + 0xAC) = 3;
+        clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 8);
+        *(s32 *)(arg0 + 0xE4) = 0;
+        switch ((u32)get_global_state__14TOKeyMachine01Fv()) {
+        case 3:
+        case 4:
+        case 5:
+            TBoss3Volopt__sub_8022675C(0x42807, arg0 + 0x38, 0, 0);
+            break;
+        case 6:
+        case 7:
+            TBoss3Volopt__sub_8022675C(0x4004BC01, arg0 + 0x38, 0, 0);
+            break;
+        case 8:
+        case 9:
+        case 10:
+            TBoss3Volopt__sub_8022675C(0x4004B708, arg0 + 0x38, 0, 0);
+            break;
+        case 0:
+        case 15:
+            break;
+        }
+    } else {
+        *(s32 *)(arg0 + 0xAC) = 3;
+        *(s32 *)(arg0 + 0x24) = ((s32 *)TODoorAncient08__data_805D594C)[1];
+        clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 8);
+        *(s32 *)(arg0 + 0xE4) = 0;
+    }
+}
+
+void TODoorAncient08__vt13(u8 *arg0) {
+    if ((*(s32 *)(arg0 + 0xD0) & 1) && TODragonfly__sub_80158360(arg0, lbl_805DB47C) == 1) {
+        *(s32 *)(arg0 + 0xAC) = 1;
+        *(s32 *)(arg0 + 0x24) = ((s32 *)TODoorAncient08__data_805D594C)[0];
+        set_indexed_flags(arg0, 0, 8);
+        *(s32 *)(arg0 + 0xE4) = 1;
+        switch ((u32)get_global_state__14TOKeyMachine01Fv()) {
+        case 3:
+        case 4:
+        case 5:
+            TBoss3Volopt__sub_8022675C(0x42807, arg0 + 0x38, 0, 0);
+            break;
+        case 6:
+        case 7:
+            TBoss3Volopt__sub_8022675C(0x4004BC01, arg0 + 0x38, 0, 0);
+            break;
+        case 8:
+        case 9:
+        case 10:
+            TBoss3Volopt__sub_8022675C(0x4004B708, arg0 + 0x38, 0, 0);
+            break;
+        case 0:
+        case 15:
+            break;
+        }
+    }
+}
 
 void *create__15TODoorAncient08FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xEC);

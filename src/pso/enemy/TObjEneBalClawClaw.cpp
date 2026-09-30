@@ -106,6 +106,31 @@ struct RecoveredGlobal_80091C58_lbl_8048F148 {
     u8 remaining[0x148];
 };
 
+struct Vec_80091EA4 { f32 x, y, z; };
+
+struct VBase_80091EA4 { char pad[0x18]; };
+
+struct VObj_80091EA4 : VBase_80091EA4 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4(Vec_80091EA4 *, Vec_80091EA4 *);
+};
+
+struct Obj_80091EA4 {
+    u8 pad0[0x38];
+    Vec_80091EA4 pos;
+    u8 pad44[0x60 - 0x44];
+    s32 angle;
+    u8 pad64[0xB8 - 0x64];
+    s16 state;
+    u8 padBA[0xC0 - 0xBA];
+    f32 frame;
+    u8 padC4[0x3A8 - 0xC4];
+    VObj_80091EA4 *effects[2];
+};
+
 extern "C" {
 void set_param__12TObjEneLappyFPvi(void *, s32);
 void TObjPlayer__sub_80091F90(u8 *arg0);
@@ -144,6 +169,17 @@ s32 TObjEneBalClawClaw__sub_80091134(void *);
 s32 TObjEneBalClawClaw__sub_80091200(void *);
 s32 TObjEneBalClawClaw__sub_80091354(void *);
 void TObjEneBalClawClaw__sub_800916A8(u8 *arg0);
+u32 lookup_entry_by_value__10TObjPlayerFPvf(void *, f32);
+void TObjPlayer__sub_803D8960(int, u32, void *, int);
+void TObjPlayer__sub_803D8CD4(void *);
+s32 TObjPlayer__sub_803D9214(int, int);
+void TObjPlayer__sub_803D9B2C(void);
+s32 TObjPlayer__sub_803D9B78();
+f32 TOHangerMachine01__sub_803D9C00(void *);
+extern void *lbl_805D4F4C;
+extern void *lbl_805D4F50;
+extern const f32 lbl_805D96E4;
+void TObjPlayer__sub_80091EA4(Obj_80091EA4 *self);
 }
 
 extern "C" {
@@ -425,6 +461,41 @@ void TObjPlayer__sub_80091E08(u8 *arg0) {
     TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x38));
     spawn_effect_at_ground__10TObjPlayerFPvi((void *) (&stack.sp8), (int) (0x23));
     spawn_dead_spot_type2__10TObjPlayerFii((void *) (&stack.sp8), (int) (0xF));
+}
+
+void TObjPlayer__sub_80091EA4(Obj_80091EA4 *self) {
+    Vec_80091EA4 dir;
+    Vec_80091EA4 pos;
+    u32 entry;
+    s32 idx;
+    VObj_80091EA4 *eff;
+    if (self->frame < lbl_805D96E4) {
+        switch (self->state) {
+        case 3:
+            entry = lookup_entry_by_value__10TObjPlayerFPvf(lbl_805D4F4C, self->frame);
+            idx = 0;
+            break;
+        case 4:
+            entry = lookup_entry_by_value__10TObjPlayerFPvf(lbl_805D4F50, self->frame);
+            idx = 1;
+            break;
+        default:
+            entry = 0;
+            break;
+        }
+        if (entry != 0) {
+            TObjPlayer__sub_803D9B2C();
+            TObjPlayer__sub_803D8CD4(0);
+            TOHangerMachine01__sub_803D9C00(&self->pos);
+            TObjPlayer__sub_803D9214(0, self->angle);
+            TObjPlayer__sub_803D8960(0, entry, &pos, 2);
+            TObjPlayer__sub_803D9B78();
+            eff = self->effects[idx];
+            if (eff != NULL) {
+                eff->m4(&pos, &dir);
+            }
+        }
+    }
 }
 
 void TObjPlayer__sub_80091F90(u8 *arg0) {

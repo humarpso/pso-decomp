@@ -236,6 +236,21 @@ struct V3_80037178 { f32 x, y, z; };
 
 struct Obj_80037178 { u8 pad[0x1c]; V3_80037178 ring[20]; s32 idx; };
 
+typedef struct Vec_80037074 {
+    f32 x, y, z;
+} Vec_80037074;
+
+typedef struct Laser_80037074 {
+    u8 pad0[0x1C];
+    Vec_80037074 pts[20];
+    s32 head;
+    s32 cur;
+    s32 limit;
+    s32 unk118;
+    void *ptcl;
+    s32 state;
+} Laser_80037074;
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 M2C_UNK TBoss2Joint__sub_80036940(void *);
@@ -268,6 +283,10 @@ void TBoss2Joint__sub_80036A90(u8 *arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 extern const f32 lbl_805D8498;
 void TBoss2DeRolLe__sub_80037178(Obj_80037178 *self, V3_80037178 *src);
+void *TBoss8Dragon__sub_8008741C(Vec_80037074 *, s32, s32);
+void copy_pos__11TNowLoadingFPvPv(void *, Vec_80037074 *);
+void enable__13TParticleCtrlFPv(void *);
+void TBoss2LaserLight__sub_80037074(Laser_80037074 *self);
 }
 
 extern "C" {
@@ -443,6 +462,39 @@ void TBoss2Joint__vt45(void) {  }
 void TBoss2Joint__vt46(void) {  }
 void TBoss2Joint__vt47(void) {  }
 void TBoss2Joint__vt48(void) {  }
+
+void TBoss2LaserLight__sub_80037074(Laser_80037074 *self) {
+    if (self->ptcl == NULL) {
+        self->ptcl = TBoss8Dragon__sub_8008741C(self->pts, self->unk118, 0x40);
+        if (self->ptcl != NULL) {
+            enable__13TParticleCtrlFPv(self->ptcl);
+        }
+    } else {
+        switch (self->state) {
+        case 0:
+            if (self->head >= self->limit) {
+                self->state = 1;
+                self->cur = 0;
+            }
+            enable__13TParticleCtrlFPv(self->ptcl);
+            break;
+        case 1:
+            copy_pos__11TNowLoadingFPvPv(self->ptcl, &self->pts[self->cur]);
+            self->cur++;
+            if (self->cur >= 20) {
+                self->cur = 0;
+            }
+            if (self->cur == self->head) {
+                self->state = 2;
+            }
+            break;
+        case 2:
+            enable__13TParticleCtrlFPv(self->ptcl);
+            break;
+        }
+    }
+}
+
 void TBoss2DeRolLe__sub_80037178(Obj_80037178 *self, V3_80037178 *src) {
     VecCopy__FP3VecPC3Vec((s32)&self->ring[self->idx], (s32)src);
     self->ring[self->idx].y += lbl_805D8498;

@@ -73,6 +73,24 @@ struct Self_80113310 {
     s32 f1CC;
 };
 
+typedef s32 M2C_UNK;
+struct VBase_18_801135E0 { char pad[0x18]; };
+
+struct VObj_18_801135E0 : VBase_18_801135E0 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+};
+
+struct Owner_801135E0 { u8 pad[0x5B0]; u8 stats[1]; };
+
+struct Self_801135E0 {
+    u8 pad0[0xF0];
+    Owner_801135E0 *owner;
+    u8 pad1[0x1A8 - 0xF4];
+    VObj_18_801135E0 *subs[2];
+};
+
 extern "C" {
 M2C_UNK refresh_if_current_player__20TWindowSubStatusDispFPv(void *);
 int TItemData__sub_8010EE40(void*);
@@ -146,6 +164,21 @@ void update__8TItemMagFPv(void *arg0);
 int get_status_flag__8TItemMagFPv(void* p);
 s32 reset_key_machine_state__10TObjPlayerFv();
 void TItemMag__vt14(Self_80113310 *self);
+s32 obj_testFlags30(void *, M2C_UNK);
+s32 get_flag_40__8TItemMagFPv(void *);
+void scale_field_c8__8TItemMagFPvf(void* p, f32 v);
+int is_feed_empty__8TItemMagFPv(void* p);
+f32 get_stat_f32__8TItemMagFPv(void *);
+s32 check_state_flag_1__8TItemMagFPv(void *);
+s32 TObjPlayer__sub_803D9B2C();
+s32 TObjPlayer__sub_803D9B78();
+void TObjPlayer__sub_80364198();
+f32 get_mag_scale__10TObjPlayerFPv(void *);
+void TObjPlayer__sub_80364028(f32);
+void warn_if_gauge_low__10TObjPlayerFv();
+void TObjPlayer__sub_8036414C();
+extern const f32 TItemMag__data_805DABA8;
+void TItemMag__vt24(Self_801135E0 *self);
 }
 
 extern "C" {
@@ -282,6 +315,35 @@ void TItemMag__vt25(Self_801134CC *self) {
             }
         }
     }
+    TObjPlayer__sub_803D9B78();
+    }
+}
+
+void TItemMag__vt24(Self_801135E0 *self) {
+    s32 scaled;
+    VObj_18_801135E0 *child;
+    s32 i;
+    f32 scale;
+    if (self->owner != NULL && obj_testFlags30((void *)(self), (M2C_UNK)(0x08000000)) == 0 && get_flag_40__8TItemMagFPv(self) == 0) {
+    scaled = check_state_flag_1__8TItemMagFPv(self->owner->stats);
+    scale = get_stat_f32__8TItemMagFPv(self->owner->stats);
+    TObjPlayer__sub_803D9B2C();
+    TObjPlayer__sub_80364198();
+    TObjPlayer__sub_80364028(get_mag_scale__10TObjPlayerFPv(self));
+    for (i = 0; i != 2; i++) {
+        if (self->subs[i] != NULL && is_feed_empty__8TItemMagFPv((void*)(self->subs[i])) != 0) {
+            child = self->subs[i];
+            if (scaled != 0) {
+                scale_field_c8__8TItemMagFPvf((void*)(child), scale);
+                child->m2();
+                scale_field_c8__8TItemMagFPvf((void*)(child), TItemMag__data_805DABA8 / scale);
+            } else {
+                child->m2();
+            }
+        }
+    }
+    warn_if_gauge_low__10TObjPlayerFv();
+    TObjPlayer__sub_8036414C();
     TObjPlayer__sub_803D9B78();
     }
 }

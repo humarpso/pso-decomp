@@ -35,6 +35,24 @@ extern const f32 lbl_805DA744;
 extern const f32 lbl_805DA748;
 extern const f32 lbl_805DA74C;
 void TObjPlayer__sub_800EA678(u8 *arg0);
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
+u16 TObjPlayer__sub_800115C4(void *, void *, f32);
+int set_display_mode__15TObjEneSlimeOneFPvi(void*, int);
+M2C_UNK TObjEneSlimeOne__sub_800EAE78(void *, M2C_UNK);
+int TObjEneSlimeOne__sub_800EC7F4(void*, void*);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+M2C_UNK TNpcPlayer__sub_803D97B4(void *);
+extern const float lbl_805DA67C;
+extern const float lbl_805DA6B4;
+extern const f32 lbl_805DA6DC;
+extern const f32 lbl_805DA6E0;
+extern const f32 lbl_805DA6E4;
+extern const f32 lbl_805DA718;
+extern const f32 lbl_805DA720;
+extern const f32 lbl_805DA738;
+void TObjPlayer__sub_800EA56C(u8 *arg0);
 }
 
 extern "C" {
@@ -133,6 +151,33 @@ void enter_slime_state__10TObjPlayerFPv(u8 *arg0) {
 #pragma fp_contract on
 typedef char RecoveredGlobal_800EA678_lbl_8043D230_size[sizeof(RecoveredGlobal_800EA678_lbl_8043D230) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_800EA678_lbl_8043D23C_size[sizeof(RecoveredGlobal_800EA678_lbl_8043D23C) == 0xC ? 1 : -1];
+
+#pragma push
+#pragma fp_contract on
+void TObjPlayer__sub_800EA56C(u8 *arg0) {
+    f32 temp_f1;
+    s32 temp_r31;
+    M2C_FIELD(arg0, f32 *, 0x3B4) = (f32) (*(const f32 *)&lbl_805DA6B4);
+    if (TObjPlayer__sub_800115C4(arg0, arg0 + 0x3B8, lbl_805DA6DC) == 0xFFFF) {
+        TObjEneSlimeOne__sub_800EAE78((void *) (arg0), (int) (2));
+        return;
+    }
+    temp_r31 = (s32) (lbl_805DA738 * calc_boss4_scale__10TObjPlayerFi((void *) (arg0)));
+    M2C_FIELD(arg0, f32 *, 0x3B8) = (f32) ((lbl_805DA6E0 * TBoss8Dragon__sub_803D64C0((int) (temp_r31))) + M2C_FIELD(arg0, f32 *, 0x3B8));
+    M2C_FIELD(arg0, f32 *, 0x3C0) = (f32) ((lbl_805DA6E0 * TBoss8Dragon__sub_803D64DC(temp_r31)) + M2C_FIELD(arg0, f32 *, 0x3C0));
+    if (TBoss6Kakusan__sub_803D8BD8(arg0 + 0x3B8) <= lbl_805DA718) {
+        TObjEneSlimeOne__sub_800EAE78((void *) (arg0), (int) (2));
+        return;
+    }
+    TNpcPlayer__sub_803D97B4((void *) (arg0 + 0x3B8));
+    temp_f1 = (lbl_805DA6E4 * calc_boss4_scale__10TObjPlayerFi((void *) (arg0))) + lbl_805DA720;
+    M2C_FIELD(arg0, f32 *, 0x398) = temp_f1;
+    M2C_FIELD(arg0, f32 *, 0x3A0) = (f32) (*(const f32 *)&lbl_805DA67C);
+    TObjEneSlimeOne__sub_800EC7F4((void *) M2C_FIELD(arg0, s32 *, 0x388), (void *) 8);
+    set_display_mode__15TObjEneSlimeOneFPvi((void *) (arg0), (int) (1));
+}
+#pragma pop
+
 void TObjPlayer__sub_800EA678(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f1_2;

@@ -71,6 +71,7 @@ struct VObj_800E1D38_800E158C : Base_800E1D38_800E158C {
 
 #include <dolphin/mtx.h>
 #include <stddef.h>
+typedef struct { f32 x, y, z; } Vec_800E1A44;
 extern "C" {
 void TObjEnePanarms__sub_800E1B78(void *, void *, void *);
 void TObjEnePanarms__sub_800E1B50(u8 *arg0);
@@ -78,6 +79,12 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjEneDellBiter__sub_80087350(void *, int);
 extern const f32 TObjEnePanarms__data_805DA544;
 void TObjEnePanarms__sub_800E15B4(u8 *arg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern Vec_800E1A44 lbl_8043CD60[];
+extern s32 lbl_8043CD78[];
+void TObjEnePanarms__sub_800E1A44(u8 *arg0);
 }
 
 extern "C" {
@@ -89,7 +96,6 @@ int do_action_2__14TObjEnePanarmsFPv(void* p);
 void init_state__14TObjEnePanarmsFi(s32 arg0);
 void reset_split__14TObjEnePanarmsFPv(void *arg0);
 void reset_state__14TObjEnePanarmsFPv(void* a0);
-s32 TObjEnePanarms__sub_800E1A44();
 int TObjEnePanarms__sub_800E1C98(void*, int);
 void TObjEnePanarms__sub_800E1E64(void* p);
 
@@ -104,6 +110,25 @@ void TObjEnePanarms__sub_800E15B4(u8 *arg0) {
         TObjEneDellBiter__sub_80087350((void *) (&position.x), (int) (0xF3));
     }
 }
+
+#pragma push
+#pragma fp_contract on
+void TObjEnePanarms__sub_800E1A44(u8 *arg0) {
+    f32 x;
+    f32 z;
+    f32 s;
+    f32 c;
+    x = lbl_8043CD60[M2C_FIELD(arg0, s32 *, 0x380)].x;
+    z = lbl_8043CD60[M2C_FIELD(arg0, s32 *, 0x380)].z;
+    s = TBoss8Dragon__sub_803D64C0(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x39C), s32 *, 0x60));
+    c = TBoss8Dragon__sub_803D64DC(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x39C), s32 *, 0x60));
+    VecCopy__FP3VecPC3Vec(arg0 + 0x38C, M2C_FIELD(arg0, u8 **, 0x39C) + 0x38);
+    M2C_FIELD(arg0, f32 *, 0x38C) += x * c + z * s;
+    M2C_FIELD(arg0, f32 *, 0x394) += -x * s + z * c;
+    M2C_FIELD(arg0, s32 *, 0x398) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x39C), s32 *, 0x60);
+    M2C_FIELD(arg0, s32 *, 0x398) += lbl_8043CD78[M2C_FIELD(arg0, s32 *, 0x380)];
+}
+#pragma pop
 
 void TObjEnePanarms__sub_800E1B50(u8 *arg0) {
     TObjEnePanarms__sub_800E1B78(arg0, arg0 + 0x38, arg0 + 0x60);
@@ -127,7 +152,7 @@ void reset_split__14TObjEnePanarmsFPv(void *arg0) {
 int TObjEnePanarms__sub_800E1D94(void* p) { return TObjEnePanarms__sub_800E1C98(p, 5); }
 int do_action_2__14TObjEnePanarmsFPv(void* p) { return TObjEnePanarms__sub_800E1C98(p, 2); }
 void init_state__14TObjEnePanarmsFi(s32 arg0) {
-    TObjEnePanarms__sub_800E1A44();
+    TObjEnePanarms__sub_800E1A44((u8 *)(arg0));
     TObjEnePanarms__sub_800E1C98((void*)(arg0), 3);
 }
 

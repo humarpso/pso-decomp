@@ -14,6 +14,7 @@ typedef char RecoveredGlobal_800E0950_lbl_80495484_size[sizeof(RecoveredGlobal_8
 
 struct Obj_800E0B9C { u8 pad0[0x38]; u8 f38[0x78]; u32 fB0; u8 padB4[0x380 - 0xB4]; s32 f380; s32 f384; s32 f388; };
 
+typedef struct { f32 x, y, z; } Vec_800E0A44;
 extern "C" {
 void TObjEnePanarms__sub_800E0930(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -57,6 +58,18 @@ M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern s32 lbl_80495924[];
 extern s8 lbl_805D5288;
 void TObjEnePanarms__sub_800E0B9C(Obj_800E0B9C *arg0);
+u16 TObjPlayer__sub_800115C4(void *, Vec_800E0A44 *, f32);
+int set_field_b8__14TObjEnePanarmsFPvs(void*, int);
+M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
+void refresh_lobby_state__10TObjPlayerFPv();
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern s32 lbl_8049592C[];
+extern s8 lbl_805D5289;
+extern const float TObjEnePanarms__data_805DA524;
+extern const f32 TObjEnePanarms__data_805DA560;
+void TObjEnePanarms__sub_800E0A44(u8 *arg0);
 }
 
 extern "C" {
@@ -245,6 +258,32 @@ void TObjEnePanarms__sub_800E0950(u8 *arg0) {
         }
     }
 }
+
+#pragma push
+#pragma fp_contract on
+void TObjEnePanarms__sub_800E0A44(u8 *arg0) {
+    Vec_800E0A44 v;
+    s16 var_r30;
+    M2C_FIELD(arg0, s32 *, 0x384) = 1;
+    M2C_FIELD(arg0, s32 *, 0x388) = 0;
+    refresh_lobby_state__10TObjPlayerFPv();
+    var_r30 = 7;
+    M2C_FIELD(arg0, s32 *, 0xB0) &= ~1;
+    if (TObjPlayer__sub_800115C4(arg0, &v, TObjEnePanarms__data_805DA560) != 0xFFFF) {
+        if (v.x * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60)) + v.z * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60)) < TObjEnePanarms__data_805DA524) {
+            var_r30 = 6;
+        }
+    }
+    set_field_b8__14TObjEnePanarmsFPvs(arg0, var_r30);
+    if (lbl_805D5289 == 0) {
+        lbl_8049592C[0] = copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003B836);
+        lbl_8049592C[1] = copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003BB35);
+        lbl_805D5289 = 1;
+    }
+    TBoss3Volopt__sub_8022675C(lbl_8049592C[M2C_FIELD(arg0, s32 *, 0x380)], arg0 + 0x38, 0, 0);
+    M2C_FIELD(arg0, s32 *, 0x3B4) = 0xA4;
+}
+#pragma pop
 
 void apply_effect_if_flagged__14TObjEnePanarmsFPv(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {

@@ -206,6 +206,57 @@ struct S_80041A08 {
     u8 pad44[0x3c];
     s32 f80;
 };
+
+struct HBase_800418C8 { char pad[0x18]; };
+
+struct Hira_800418C8 : HBase_800418C8 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
+    virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8(); virtual void m9();
+    virtual void m10(); virtual void m11(); virtual void m12(); virtual void m13(); virtual void m14();
+    virtual void m15(); virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23(); virtual void m24();
+    virtual void m25(); virtual void m26(); virtual void m27(); virtual void m28(); virtual void m29();
+    virtual void m30(); virtual void m31(); virtual void m32(); virtual void m33(); virtual void m34();
+    virtual void m35(); virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
+    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43(); virtual void m44();
+    virtual void m45(); virtual void m46(); virtual void m47(); virtual void m48(); virtual void m49();
+    virtual void m50(); virtual void m51(); virtual void m52(); virtual void m53(); virtual void m54();
+    virtual void m55(); virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59();
+    virtual void m60(); virtual void m61(); virtual void m62(); virtual void m63(); virtual void m64();
+    virtual void m65(); virtual void m66(); virtual void m67(); virtual void m68(); virtual void m69();
+    virtual void m70(); virtual void m71(); virtual void m72(); virtual void m73(); virtual void m74();
+    virtual void m75(); virtual void m76(); virtual void m77(); virtual void m78(); virtual void m79();
+    virtual void m80();
+    u8 pad1C[0x38 - 0x1C];
+    f32 pos[3];
+    u8 pad44[0xB8 - 0x44];
+    s16 unkB8;
+    u8 padBA[0xD8 - 0xBA];
+    void *unkD8;
+    s32 unkDC;
+    u8 padE0[0x2B8 - 0xE0];
+    s16 hp2B8;
+    s16 hp2BA;
+    u8 pad2BC[0x2FC - 0x2BC];
+    f32 home[3];
+    u8 pad308[0x32C - 0x308];
+    s16 hp32C;
+    s16 hp32E;
+    u8 pad330[0x33E - 0x330];
+    s16 unk33E;
+    u8 pad340[0x350 - 0x340];
+    void *unk350;
+    u8 pad354[0x368 - 0x354];
+    s32 unk368;
+};
+
+typedef struct Param_800418C8 {
+    u8 pad0[0x1C];
+    u8 unk1C[0x6C - 0x1C];
+    u8 unk6C[0x88 - 0x6C];
+    u8 unk88[4];
+} Param_800418C8;
+
 extern "C" {
 extern f32 lbl_804FEE68[];
 extern const f32 lbl_805D8700;
@@ -214,7 +265,6 @@ void TBoss3VoloptHiraisin__sub_80041B64(u8 *arg0);
 s32 fn_80086D50(void *, void *, int);
 s32 TObjEneDellBiter__sub_80087350(void *, int);
 void TBoss3VoloptHiraisin__sub_80041BB4(u8 *arg0);
-s32 TBoss3VoloptHiraisin__sub_800418C8(void *);
 s32 TObjEnemyCustom__ct(void *);
 extern M2C_UNK __vt__20TBoss3VoloptHiraisin[];
 extern s32 lbl_805D2738;
@@ -222,6 +272,27 @@ u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, M2C_UNK arg1, s32 arg2);
 extern s32 TBoss3VoloptHiraisin__data_805D4C80;
 void TBoss3VoloptHiraisin__sub_80041B34(O_80041B34 *self, s32 i);
 void TBoss3VoloptHiraisin__sub_80041D0C(O_80041D0C *self);
+void TObjPlayer__sub_80018990(void *, s32, s32, s32, f32, f32);
+int VecCopy__FP3VecPC3Vec(s32, s32);
+void add_flags_2e4__10TObjPlayerFPvUi(void *, u32);
+void obj_setFlags30(void *, u32);
+void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
+void set_field_d8__10TObjPlayerFPvi(void *, void *);
+void reset_photon_effect__12TBoss3VoloptFPv(void *);
+void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
+void TBoss3VoloptHiraisin__sub_80041B34(O_80041B34 *self, s32 i);
+void TObjEnemyCustom__sub_800C7860(void *);
+void set_param__12TObjEneLappyFPvi(void *, s32);
+void set_animation__10TObjPlayerFPvs(void *, s16);
+void TObjEneGibbles__sub_80156780(void *, void *, s32);
+extern Param_800418C8 lbl_80483BB8;
+extern s32 lbl_805D4C70;
+extern s32 lbl_805D4C74;
+extern s32 lbl_805D4C78;
+extern s32 TBoss3VoloptHiraisin__data_805D4C80;
+extern const f32 lbl_805D8728;
+extern const f32 lbl_805D8734;
+void TBoss3VoloptHiraisin__sub_800418C8(Hira_800418C8 *self);
 }
 
 extern "C" {
@@ -299,6 +370,36 @@ void *__dt__20TBoss3VoloptHiraisinFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
+struct O_80041B34;
+#pragma opt_propagation off
+void TBoss3VoloptHiraisin__sub_800418C8(Hira_800418C8 *self) {
+    Param_800418C8 *prm;
+    prm = &lbl_80483BB8;
+    VecCopy__FP3VecPC3Vec((s32)self->home, (s32)self->pos);
+    self->home[1] -= lbl_805D8734;
+    copy_position__20TBoss3VoloptHiraisinFi((s32)self);
+    self->unkDC = *(s32 *)(TBoss3VoloptHiraisin__data_805D4C80 + 0x430);
+    self->unkD8 = prm->unk1C;
+    set_field_d8__10TObjPlayerFPvi(self, self->unkD8);
+    TObjEneGibbles__sub_80156780(self, prm->unk88, 1);
+    self->unk368 = 0;
+    self->unk350 = prm->unk6C;
+    TObjPlayer__sub_80018990(self, lbl_805D4C70, lbl_805D4C74, lbl_805D4C78, lbl_805D8728, lbl_805D8728);
+    self->unkB8 = 0;
+    set_animation__10TObjPlayerFPvs(self, self->unkB8);
+    set_field_b8__14TObjEnePanarmsFPvs(self, self->unkB8);
+    self->hp32C = self->hp2B8;
+    self->hp32E = self->hp2BA;
+    self->unk33E = self->hp32C;
+    set_param__12TObjEneLappyFPvi(self, 0x2E);
+    reset_photon_effect__12TBoss3VoloptFPv(self);
+    TBoss3VoloptHiraisin__sub_80041B34((O_80041B34 *)((struct O_80041B34 *)self), (s32)(0x10));
+    TObjEnemyCustom__sub_800C7860(self);
+    add_flags_2e4__10TObjPlayerFPvUi(self, 4);
+    obj_setFlags30(self, 0x8000);
+    self->m80();
+}
+
 S_80041A08 *TBoss3VoloptHiraisin__ct(S_80041A08 *o, S_80041A08 *src, s16 a, s16 b) {
     s32 g;
     TObjEnemyCustom__ct(o);
@@ -323,7 +424,7 @@ u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80041AA0___vt__20TBoss3VoloptHiraisin *)&__vt__20TBoss3VoloptHiraisin).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2738;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    TBoss3VoloptHiraisin__sub_800418C8((void *) (arg0));
+    TBoss3VoloptHiraisin__sub_800418C8((Hira_800418C8 *)((void *) (arg0)));
     return arg0;
 }
 

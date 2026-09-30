@@ -7,6 +7,45 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_8017FC78_lbl_804B5888 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8017FC78_lbl_804B5888_size[sizeof(RecoveredGlobal_8017FC78_lbl_804B5888) == 0x10 ? 1 : -1];
 
+struct Vec_8017F80C { f32 x, y, z; };
+
+struct VBase_8017F80C { u8 pad[0x18]; };
+
+struct Obj_8017F80C : VBase_8017F80C {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+    u8 pad1c[0x38 - 0x1C];
+    Vec_8017F80C pos;
+    u8 pad44[0x60 - 0x44];
+    s32 x60;
+    u8 pad64[0xB0 - 0x64];
+    f32 xb0;
+    u8 padb4[0xC8 - 0xB4];
+    s32 count;
+    void *lights[8];
+};
+
+struct Vec_8017F910 { f32 x, y, z; };
+
+struct Obj_8017F910 {
+    u8 pad[0x38];
+    Vec_8017F910 pos;
+    u8 pad44[0xB0 - 0x44];
+    f32 time;
+    f32 period;
+    f32 speed;
+    u8 padbc[0xC8 - 0xBC];
+    s32 visible;
+    void *lights[8];
+};
+
 extern "C" {
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -14,6 +53,36 @@ extern RecoveredGlobal_8017FC78_lbl_804B5888 lbl_804B5888;
 extern u32 TObjCamera__data_805D5B18;
 extern s32 TObjCamera__data_805D5B1C;
 void TObjCamera__sub_8017FC78(void);
+s32 TObjFish__sub_8001ED9C(u32, int);
+void TObjFish__sub_8001EDB0(u32, int);
+s32 TObjFish__sub_8001EDC4(u32, int);
+void copy_position__15TEffStarLight2DFPv(void *, Vec_8017F80C *);
+void TObjPlayer__sub_803D9214(int, s32);
+void TObjPlayer__sub_803D9B2C();
+void TObjPlayer__sub_803D9B78();
+void TOHangerMachine01__sub_803D9C00(void *);
+void set_global_param__8TObjFishFi();
+void set_npc_enemy_param(void *);
+void TObjDoor__sub_803DC894(s32, s32, f32);
+void TObjCamera__sub_8017F624(void);
+extern Vec_8017F80C lbl_8050DB80[];
+extern u32 TObjCamera__data_805D5B18;
+extern s32 TObjCamera__data_805D5B1C;
+extern const f32 lbl_805DBB60;
+extern const f32 lbl_805DBB64;
+void render__10TObjCameraFv(Obj_8017F80C *self);
+void allow_rendering__7TObjectFv(void *);
+void disallow_rendering__7TObjectFv(void *);
+void queue_target_destruction__10TObjCameraFPv(void *);
+void fn_8017F4AC(void *);
+void fn_8017F52C();
+Obj_8017F910 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+f32 TCameraCtrl__sub_803D8D00(Vec_8017F910 *);
+extern s32 lbl_805D53A0;
+extern const f32 TObjCamera__data_805DBB58;
+extern const f32 lbl_805DBB68;
+extern const f32 lbl_805DBB6C;
+void run_task__10TObjCameraFv(Obj_8017F910 *self);
 }
 
 extern "C" {
@@ -28,6 +97,67 @@ void *__nw__7TObjectFUl(int);
 void destroy_key_base__5TOKeyFPvs(void *, int);
 
 extern M2C_UNK __vt__10TObjCamera[];
+
+void render__10TObjCameraFv(Obj_8017F80C *self) {
+    s32 i;
+    if (self->m8(lbl_805DBB60, lbl_805DBB64) != 0) {
+        TObjFish__sub_8001EDB0(TObjCamera__data_805D5B18, 0);
+        set_global_param__8TObjFishFi();
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(&self->pos);
+        TObjPlayer__sub_803D9214(0, self->x60);
+        TObjCamera__data_805D5B1C = 0;
+        set_npc_enemy_param((void *)TObjCamera__sub_8017F624);
+        TObjDoor__sub_803DC894(TObjFish__sub_8001EDC4(TObjCamera__data_805D5B18, 0),
+                               TObjFish__sub_8001ED9C(TObjCamera__data_805D5B18, 0), self->xb0);
+        set_npc_enemy_param(NULL);
+        TObjPlayer__sub_803D9B78();
+        if (self->count != 0) {
+            for (i = 0; i < 8; i++) {
+                if (self->lights[i] != NULL) {
+                    copy_position__15TEffStarLight2DFPv(self->lights[i], &lbl_8050DB80[i]);
+                }
+            }
+        }
+    }
+}
+
+void run_task__10TObjCameraFv(Obj_8017F910 *self) {
+    Vec_8017F910 d;
+    Obj_8017F910 *pl;
+    s32 i;
+    s32 j;
+    self->time += self->speed;
+    if (self->time > self->period - lbl_805DBB68) {
+        self->time = TObjCamera__data_805DBB58;
+        fn_8017F52C();
+    }
+    if (self->visible != 0) {
+        fn_8017F4AC(self);
+    }
+    pl = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    if (pl != NULL) {
+        d.x = pl->pos.x - self->pos.x;
+        d.z = pl->pos.z - self->pos.z;
+        d.y = TObjCamera__data_805DBB58;
+        if (TCameraCtrl__sub_803D8D00(&d) <= lbl_805DBB6C) {
+            for (i = 0; i < 8; i++) {
+                if (self->lights[i] != NULL) {
+                    allow_rendering__7TObjectFv(self->lights[i]);
+                }
+            }
+            self->visible = 1;
+        } else {
+            for (j = 0; j < 8; j++) {
+                if (self->lights[j] != NULL) {
+                    disallow_rendering__7TObjectFv(self->lights[j]);
+                    queue_target_destruction__10TObjCameraFPv(self->lights[j]);
+                }
+            }
+            self->visible = 0;
+        }
+    }
+}
 
 void *__dt__10TObjCameraFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

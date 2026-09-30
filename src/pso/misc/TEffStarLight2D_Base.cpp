@@ -41,6 +41,30 @@ struct VObj_18_1a504b : VBase_18_1a504b {
 
 struct RecoveredGlobal_80084DD4_lbl_8048E640 { M2C_UNK value; u8 remaining[0x30]; };
 
+struct Sprite_80084C64 {
+    f32 x;
+    f32 y;
+    u8 a;
+    u8 r;
+    u8 g;
+    u8 b;
+    s32 flags;
+    u8 pad14[4];
+};
+
+struct Eff_80084C64 {
+    u8 pad0[0x38];
+    u8 pos[0x30];
+    f32 x;
+    f32 y;
+    f32 alpha;
+    u8 pad74[0x10];
+    s32 r;
+    s32 g;
+    s32 b;
+    void *sub;
+};
+
 extern "C" {
 s32 TObjRoomId__sub_80141CF4(void *, void *, int, int, int, void *, f32);
 extern RecoveredGlobal_80084C10_lbl_804393AC lbl_804393AC;
@@ -52,6 +76,9 @@ void * __nw__7TObjectFUl(M2C_UNK, s32);
 extern M2C_UNK lbl_8048E640[];
 extern void *tl_particle;
 u8 *TEffStarLight2D_Base__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+void copy_position__15TEffStarLight2DFPv(void *, void *);
+void copy_from_subobject__15TEffStarLight2DFPvPv(void *, void *);
+void TEffStarLight2D_Base__sub_80084C64(Eff_80084C64 *self);
 }
 
 extern "C" {
@@ -86,6 +113,22 @@ void TEffStarLight2D_Base__sub_80084C10(s32 arg0) {
     stack.sp10 = M2C_FIELD(&lbl_804393AC.value, s32 *, 8);
     stack.sp14 = M2C_FIELD(&lbl_804393AC.value, s32 *, 0xC);
     TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&stack.sp8), (int) (M2C_FIELD(&lbl_804393AC.value, s32 *, 8)), (int) (M2C_FIELD(&lbl_804393AC.value, s32 *, 4)), (int) (M2C_FIELD(&lbl_804393AC.value, s32 *, 0)), (void *) (&lbl_804393AC.value), (f32) (lbl_805D9450));
+}
+
+void TEffStarLight2D_Base__sub_80084C64(Eff_80084C64 *self) {
+    Sprite_80084C64 s;
+    if (self->sub == NULL) {
+        return;
+    }
+    copy_position__15TEffStarLight2DFPv(self->sub, self->pos);
+    s.x = self->x;
+    s.y = self->y;
+    s.a = self->alpha;
+    s.r = (f32)self->r;
+    s.g = (f32)self->g;
+    s.b = (f32)self->b;
+    s.flags = 0;
+    copy_from_subobject__15TEffStarLight2DFPvPv(self->sub, &s);
 }
 
 void *__dt__20TEffStarLight2D_BaseFPvs(void *arg0, s16 arg1) {

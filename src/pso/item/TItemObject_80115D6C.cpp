@@ -4,8 +4,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include "types.h"
+struct Msg_80116004 { u8 hdr[4]; s16 ids[4]; };
+
+struct Obj_80116004 { u8 pad0[0x38]; f32 pos[3]; };
+
 extern "C" {
 u8 TItemObject__sub_80115D84(u8 *arg0);
+s16 obj_getField1c(Obj_80116004 *);
+void bswap_and_send_item__10TObjPlayerFPv(void *);
+void set_type_bytes__10TObjPlayerFPv(void *);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
+s32 is_current_room__10TObjRoomIdFPv(void *);
+Obj_80116004 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void TItemObject__sub_80116004(Obj_80116004 *self, f32 range);
+u8 get_field_ed__10TObjPlayerFPv(void *);
+u8 get_slot_count__14TItemProShieldFPv(void *);
+s32 TItemObject__sub_80115DE8(void *item);
 }
 
 void TItemObject::store_encoded_value(s32 value) {
@@ -50,6 +65,66 @@ void TItemObject__vt12(void *arg0) {
     temp_r31 = copy_and_register_item_data__11TItemObjectFPv();
     if (((VObj_80115D94_80115D6C *)arg0)->m34() > temp_r31) {
         refresh_if_current_player__20TWindowSubStatusDispFPv(arg0);
+    }
+}
+
+s32 TItemObject__sub_80115DE8(void *item) {
+    if (item != NULL) {
+        u8 kind = get_field_ed__10TObjPlayerFPv(item);
+        u8 slots = get_slot_count__14TItemProShieldFPv(item);
+        switch (kind) {
+        case 0:
+            switch (slots) {
+            case 0: return 0;
+            case 1: return 1;
+            case 2: return 2;
+            }
+            break;
+        case 1:
+            switch (slots) {
+            case 0: return 3;
+            case 1: return 4;
+            case 2: return 5;
+            }
+            break;
+        case 6:
+            switch (slots) {
+            case 0: return 6;
+            case 1: return 7;
+            }
+            break;
+        case 3: return 8;
+        case 4: return 9;
+        case 5: return 10;
+        case 7: return 11;
+        case 8: return 12;
+        default: return -1;
+        }
+    }
+    return -1;
+}
+
+void TItemObject__sub_80116004(Obj_80116004 *self, f32 range) {
+    Msg_80116004 msg;
+    s32 j;
+    u16 i;
+    Obj_80116004 *pl;
+    if (self != NULL && is_current_room__10TObjRoomIdFPv(self) != 0) {
+        set_type_bytes__10TObjPlayerFPv(&msg);
+        j = 0;
+        for (i = 0; i != 4; i++) {
+            pl = TPlayerBattleCtrl4P__sub_801BA74C(i);
+            if (pl != NULL) {
+                if (TObjPlayer__sub_80141CF8(self->pos, pl->pos) < range) {
+                    msg.ids[j++] = obj_getField1c(pl);
+                } else {
+                    msg.ids[j++] = -1;
+                }
+            } else {
+                msg.ids[j++] = -1;
+            }
+        }
+        bswap_and_send_item__10TObjPlayerFPv(&msg);
     }
 }
 

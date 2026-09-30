@@ -67,6 +67,7 @@ struct RecoveredGlobal_80193B4C_lbl_8050DCF0 {
 
 struct Sw_80193978 { u8 pad0[0x8C]; s32 f8C; u8 pad90[0x58]; u16 fE8; };
 
+typedef s32 M2C_UNK;
 extern "C" {
 extern RecoveredGlobal_80193A84_lbl_8050DCF0 lbl_8050DCF0;
 void TLazerFenceSw__vt14(u8 *arg0);
@@ -89,6 +90,21 @@ void TObjEneBm5GibonU__sub_803D853C(int, void *, ...);
 extern u16 lbl_80445CB8[];
 extern u8 lbl_80445CD8[];
 void TLazerFenceSw__vt24(Sw_80193978 *arg0);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+M2C_UNK fn_80156CEC(void *);
+M2C_UNK init_vtable_804AF8D8__14TOAirconCave01FPv(void *);
+M2C_UNK init_key__5TOKeyFPv(void *, void *);
+u8 *TOKey__ct(void *);
+M2C_UNK TLazerFenceSw__sub_8018A554(void *, f32);
+extern u16 lbl_80445CB8[];
+extern u8 lbl_804B8370[];
+extern M2C_UNK __vt__13TLazerFenceSw[];
+extern s32 lbl_805D33B0;
+extern const f32 TLazerFenceSw__data_805DBE84;
+extern const f32 lbl_805DBE8C;
+extern const f32 lbl_805DBE90;
+void *TLazerFenceSw__ct(void *arg0, void *arg1, void *arg2);
 }
 
 extern "C" {
@@ -101,7 +117,6 @@ void *__dt__15TObjLazerFence4Fv(void *arg0, s16 arg1);
 void *create__13TLazerFenceSwFPv(void *arg0);
 void *create__15TObjLazerFence4FPv(void *arg0);
 void run_task__13TLazerFenceSwFv(u8 *arg0);
-void *TLazerFenceSw__ct(void *, void *, void *);
 M2C_UNK TLobby__sub_8001FE7C(void *, s32);
 void TOKey__sub_8016A8D0(void *);
 M2C_UNK TOKey__sub_8016AAE0(void *);
@@ -230,7 +245,7 @@ extern void *tl_05;
 void *create__13TLazerFenceSwFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x118);
     if (o != NULL) {
-        o = TLazerFenceSw__ct(o, tl_05, arg0);
+        o = TLazerFenceSw__ct((void *)(o), (void *)(tl_05), (void *)(arg0));
     }
     return o;
 }
@@ -262,5 +277,29 @@ void *__dt__13TLazerFenceSwFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+#pragma push
+#pragma opt_common_subs off
+void *TLazerFenceSw__ct(void *arg0, void *arg1, void *arg2) {
+    TOKey__ct(arg0);
+    M2C_FIELD(arg0, u8 **, 0x18) = ((u8 *)&__vt__13TLazerFenceSw);
+    init_vtable_804AF8D8__14TOAirconCave01FPv((u8 *)arg0 + 0xF0);
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D33B0;
+    init_key__5TOKeyFPv(arg0, arg2);
+    if (M2C_FIELD(arg0, s32 *, 0x8C) < 0) {
+        M2C_FIELD(arg0, s32 *, 0x8C) = 0;
+    }
+    M2C_FIELD(arg0, u16 *, 0xE8) = lbl_80445CB8[M2C_FIELD(arg0, s32 *, 0x8C) % 4];
+    M2C_FIELD(arg0, f32 *, 0xB8) = lbl_805DBE8C;
+    M2C_FIELD(arg0, f32 *, 0xEC) = TLazerFenceSw__data_805DBE84;
+    TObjEneGibbles__sub_80156780(arg0, lbl_804B8370, 1);
+    M2C_FIELD(arg0, s32 *, 0x30) |= 0x40000000;
+    reset_photon_effect__10TObjPlayerFPv(arg0);
+    fn_80156CEC((u8 *)arg0 + 0xF0);
+    TLazerFenceSw__sub_8018A554((u8 *)arg0 + 0xF0, lbl_805DBE90);
+    M2C_FIELD(arg0, f32 *, 0x110) = TLazerFenceSw__data_805DBE84;
+    M2C_FIELD(arg0, s32 *, 0x114) = 0;
+    return arg0;
+}
+#pragma pop
 
 }

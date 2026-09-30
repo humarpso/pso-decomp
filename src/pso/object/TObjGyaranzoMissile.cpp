@@ -34,6 +34,36 @@ struct RecoveredGlobal_800D4BD0_lbl_8058D490 {
     u8 remaining[0x2C];
 };
 
+typedef struct Parm_800D47B4 {
+    s32 a;
+    f32 b;
+} Parm_800D47B4;
+
+struct Base_800D47B4 {
+    char pad[0x18];
+};
+
+struct Obj_800D47B4 : Base_800D47B4 {
+    virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3(); virtual void v4(); virtual void v5(); virtual void v6(); virtual void v7(); virtual void v8(); virtual void v9(); virtual void v10(); virtual void v11(); virtual void v12(); virtual void v13(); virtual void v14(); virtual void v15(); virtual void v16(); virtual void v17(); virtual void v18(); virtual void v19(); virtual void v20();
+    virtual void v21(void *, Parm_800D47B4, s32, s32, s32);
+};
+
+typedef struct Col_800D47B4 {
+    u8 pad0[0xC];
+    f32 fC;
+    u8 pad10[0x18 - 0x10];
+    u32 flags;
+} Col_800D47B4;
+
+typedef struct Missile_800D47B4 {
+    u8 pad0[0x38];
+    f32 pos[3];
+    u8 pad44[0xA4 - 0x44];
+    Col_800D47B4 *col;
+    u8 padA8[0xD8 - 0xA8];
+    u16 ownerIdx;
+} Missile_800D47B4;
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
@@ -78,6 +108,20 @@ extern const f32 lbl_805DA2D8;
 extern const f32 lbl_805DA2DC;
 extern const f32 lbl_805DA2E0;
 u8 *TObjGyaranzoMissile__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3);
+void queue_destruction__7TObjectFv(void *);
+Obj_800D47B4 *get_battle_param__10TObjPlayerFi(s32);
+s32 TObjEneDellBiter__sub_80087350(void *, int);
+s32 TObjGyaranzoMissile__sub_800D40FC(int);
+s32 TObjPlayer__sub_800F06B4(int, int);
+void *TPhotonMylla__sub_80154CB4(u16);
+void init_all_slots__10TObjPlayerFv(void *);
+void TObjPlayer__sub_801564A0(void *);
+void check_object_collisions__10TObjPlayerFPv(void *);
+s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+s32 is_valid_and_active__10TObjPlayerFUi(void *);
+extern Parm_800D47B4 lbl_8043C464[];
+extern const f32 lbl_805DA2C0;
+void TObjGyaranzoMissile__sub_800D47B4(Missile_800D47B4 *arg0);
 }
 
 extern "C" {
@@ -154,6 +198,33 @@ u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s3
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0xEC) = 0xF;
     return arg0;
+}
+
+void TObjGyaranzoMissile__sub_800D47B4(Missile_800D47B4 *arg0) {
+    void *owner;
+    s32 i;
+    Obj_800D47B4 *q;
+    owner = TPhotonMylla__sub_80154CB4(arg0->ownerIdx);
+    arg0->col->fC = lbl_805DA2C0;
+    init_all_slots__10TObjPlayerFv(owner);
+    check_object_collisions__10TObjPlayerFPv(arg0);
+    TObjPlayer__sub_801564A0(arg0);
+    if (arg0->col->flags & 0x180000) {
+        for (i = 0; i < 0x10; i++) {
+            q = get_battle_param__10TObjPlayerFi(i);
+            if (q == NULL) {
+                break;
+            }
+            if (is_valid_and_active__10TObjPlayerFUi(q) != 0) {
+                Parm_800D47B4 parm = lbl_8043C464[0];
+                parm.b = TObjGyaranzoMissile__sub_800D40FC(2);
+                q->v21(owner, parm, 0, -1, -1);
+            }
+        }
+    }
+    TObjEneDellBiter__sub_80087350(arg0->pos, 0xFB);
+    TBoss3Volopt__sub_8022675C((void *)TObjPlayer__sub_800F06B4(0x4003A80C, 0x19), arg0->pos, 0, 0);
+    queue_destruction__7TObjectFv(arg0);
 }
 
 void render__19TObjGyaranzoMissileFv(u8 *arg0) {

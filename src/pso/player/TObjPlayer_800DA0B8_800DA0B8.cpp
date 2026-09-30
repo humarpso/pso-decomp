@@ -17,6 +17,33 @@ struct V_Sub_800da0b8 : Base_Sub_800da0b8 {
 struct V3_800DA1F4 { f32 x; f32 y; f32 z; };
 struct Obj_800DA1F4 { u8 pad0[0x30]; u32 flags; u8 pad34[4]; V3_800DA1F4 pos; V3_800DA1F4 pos2; u8 pad50[0x60 - 0x50]; s32 h; u8 pad64[0x378 - 0x64]; s32 f378; };
 
+struct Obj_800DA1F4;
+struct Base_800DA2A0 {
+    char pad[0x18];
+};
+
+struct Ene_800DA2A0 : Base_800DA2A0 {
+    virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3(); virtual void v4(); virtual void v5(); virtual void v6(); virtual void v7(); virtual void v8(); virtual void v9(); virtual void v10(); virtual void v11(); virtual void v12(); virtual void v13(); virtual void v14(); virtual void v15(); virtual void v16();
+    virtual s32 v17(s32);
+    u8 pad1C[0x326 - 0x1C];
+    s16 state;
+    u8 pad328[0x350 - 0x328];
+    f32 *param;
+    u8 pad354[0x378 - 0x354];
+    s32 f378;
+    u8 pad37C[0x388 - 0x37C];
+    u32 f388;
+};
+
+extern "C" {
+u16 TObjPlayer__sub_800115C4(void *, s32, f32);
+M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK, s32);
+s32 TObjPlayer__sub_800C6FFC(void *, f32);
+void TObjPlayer__sub_800DA1F4(Obj_800DA1F4 *arg0);
+extern const f32 lbl_805DA408;
+void TObjPlayer__sub_800DA2A0(Ene_800DA2A0 *arg0);
+}
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TBoss4Zako__sub_803D8910(void *, void *);
@@ -92,6 +119,32 @@ void TObjPlayer__sub_800DA1F4(Obj_800DA1F4 *arg0) {
     ((void (*)(void *, int))update_if_active__15TObjEneMe1GiGueFPv)(arg0, 0xB);
     arg0->f378 = 1;
     TObjPlayer__sub_80154E3C(arg0);
+}
+void TObjPlayer__sub_800DA2A0(Ene_800DA2A0 *arg0) {
+    switch (arg0->state) {
+    case 0:
+        if (arg0->v17(0x1E) != 0) {
+            if (TObjPlayer__sub_800115C4(arg0, 0, *arg0->param) != 0xFFFF) {
+                TObjPlayer__sub_800C6FFC(arg0, *arg0->param);
+                if (arg0->f388 & 0x40000) {
+                    TObjPlayer__sub_800DA1F4((Obj_800DA1F4 *)((struct Obj_800DA1F4 *)arg0));
+                } else {
+                    ((void (*)(void *, int))update_if_active__15TObjEneMe1GiGueFPv)(arg0, 1);
+                }
+            }
+        }
+        break;
+    case 11:
+        break;
+    case 1:
+        if (TObjPlayer__sub_800115C4(arg0, 0, lbl_805DA408) != 0xFFFF) {
+            ((void (*)(void *, int))update_if_active__15TObjEneMe1GiGueFPv)(arg0, 0xB);
+            arg0->f378 = 1;
+        } else if (TObjPlayer__sub_800115C4(arg0, 0, lbl_805DA408 + *arg0->param) == 0xFFFF) {
+            ((void (*)(void *, int))update_if_active__15TObjEneMe1GiGueFPv)(arg0, 0);
+        }
+        break;
+    }
 }
 
 }

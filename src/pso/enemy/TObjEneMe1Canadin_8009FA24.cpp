@@ -10,12 +10,34 @@ struct Obj_8009FADC { u8 pad[0x1c]; s32 count; s32 idx; u8 pad2[8]; Entry_8009FA
 
 struct Obj_8009FB54 { f32 alpha; u32 color; };
 
+struct Rec_8009FC44 { f32 a; s32 b; f32 c; f32 d; f32 e; };
+
+struct Obj_8009FC44 {
+    s32 descriptor;
+    u8 pad4[0x18 - 4];
+    void *vtbl;
+    s32 count;
+    s32 field20;
+    s32 field24;
+    void *buf28;
+    Rec_8009FC44 *recs;
+    s32 field30;
+    f32 field34;
+};
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(Vec_8009FADC *dst, const Vec_8009FADC *src);
 void TObjEneMe1Canadin__sub_8009FADC(Obj_8009FADC *self, f32 f, const Vec_8009FADC *pos, s32 val);
 extern const f32 lbl_805D993C;
 extern const f32 lbl_805D9940;
 s32 TObjEneMe1Canadin__sub_8009FB54(Obj_8009FB54 *self, s32 dec, f32 scale);
+void *alloc_buffer__11TOBoss4RockFPv(s32);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern M2C_UNK lbl_80490410[];
+extern s32 lbl_805D29C4;
+extern const f32 lbl_805D993C;
+extern const f32 lbl_805D9944;
+Obj_8009FC44 *TObjEneMe1Canadin__sub_8009FC44(Obj_8009FC44 *self, void *parent, s32 count);
 }
 
 extern "C" {
@@ -70,6 +92,27 @@ void *destroy__17TObjEneMe1CanadinFPvs(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+Obj_8009FC44 *TObjEneMe1Canadin__sub_8009FC44(Obj_8009FC44 *self, void *parent, s32 count) {
+    s32 i;
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vtbl = ((s32 *)&lbl_80490410);
+    self->descriptor = lbl_805D29C4;
+    self->count = count;
+    self->field20 = 0;
+    self->field24 = 0;
+    self->buf28 = alloc_buffer__11TOBoss4RockFPv(self->count << 5);
+    self->recs = (Rec_8009FC44 *)alloc_buffer__11TOBoss4RockFPv(self->count * 0x14);
+    for (i = 0; i < self->count; i++) {
+        self->recs[i].a = lbl_805D993C;
+        self->recs[i].b = 0;
+        self->recs[i].c = lbl_805D993C;
+        self->recs[i].d = lbl_805D993C;
+        self->recs[i].e = lbl_805D993C;
+    }
+    self->field30 = 0x30;
+    self->field34 = lbl_805D9944;
+    return self;
 }
 
 }

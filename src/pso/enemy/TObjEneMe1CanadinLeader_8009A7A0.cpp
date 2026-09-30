@@ -140,6 +140,134 @@ struct Obj_8009B638 { u8 pad[0x46c]; s32 step; };
 
 struct Obj_8009B1CC { u8 pad0[0x390]; void *key; u8 pad1[0x13C]; s32 count; u8 *items[8]; };
 
+struct LeaderBase_8009AB4C { char pad[0x18]; };
+
+struct Leader_8009AB4C : LeaderBase_8009AB4C {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual void m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual void m93();
+    virtual void m94();
+    virtual void m95();
+    virtual void m96();
+    virtual void m97();
+    virtual void m98();
+    virtual void m99();
+    virtual void m100();
+    virtual void m101();
+    virtual void m102();
+    virtual void m103();
+    virtual void m104();
+    virtual void m105();
+    virtual void m106();
+    virtual s32 m107();
+};
+
+struct Fields_8009AB4C {
+    u8 pad0[0x24];
+    s32 field24;
+    u8 pad28[0x30 - 0x28];
+    u32 flags30;
+    u8 pad34[0x60 - 0x34];
+    s32 angle;
+    u8 pad64[0x2FC - 0x64];
+    u8 pos2FC[0x3C8 - 0x2FC];
+    u32 flags3C8;
+    u8 pad3CC[0x4D0 - 0x3CC];
+    s32 count;
+    void *members[1];
+};
+
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TObjEneMe1CanadinLeader__sub_8009AF54(void *);
@@ -174,6 +302,14 @@ void TObjEneMe1CanadinLeader__vt103(Obj_8009B638 *self);
 s32 fn_8009E300(u8 *);
 s32 check_v2_mode__9TObjEneDDFv();
 s32 TObjEneMe1CanadinLeader__vt114(Obj_8009B1CC *arg0);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+void set_flag3c8_bit20__23TObjEneMe1CanadinLeaderFPv(void *);
+void create_breakup_mdl__12TBoss3VoloptFiiiii(void *, int, s32, void *, s32);
+void refresh_lobby_state__10TObjPlayerFPv(void *);
+void send_entity_set_flags__6TLobbyFPv(void *);
+s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+extern void *lbl_805D4FDC;
+void TObjEneMe1CanadinLeader__vt110(Leader_8009AB4C *obj, s32 mode);
 }
 
 extern "C" {
@@ -256,6 +392,36 @@ u8 *TObjEneMe1CanadinLeader__sub_8009AA64(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3
         TObjBoss2Tunnel__sub_8007E7D8((void *) (arg0 + 0x20), (void *) (arg0 + 0x28), (int) (0x1800));
     }
     return arg0;
+}
+
+void TObjEneMe1CanadinLeader__vt110(Leader_8009AB4C *obj, s32 mode) {
+    s32 i;
+    Fields_8009AB4C *self;
+    self = (Fields_8009AB4C *)obj;
+    switch (mode) {
+    case 4:
+        create_breakup_mdl__12TBoss3VoloptFiiiii(lbl_805D4FDC, 0, self->field24, self->pos2FC, self->angle);
+        for (i = 0; i < self->count; i++) {
+            set_flag3c8_bit20__23TObjEneMe1CanadinLeaderFPv(self->members[i]);
+        }
+        self->flags3C8 |= 0x400000;
+        TBoss3Volopt__sub_8022675C(0x4003B71D, self->pos2FC, 0, 0);
+        refresh_lobby_state__10TObjPlayerFPv(self);
+        break;
+    case 0:
+        if (obj->m107() != 0) {
+            send_entity_set_flags__6TLobbyFPv(self);
+            queue_destruction__7TObjectFv(self);
+        }
+        break;
+    case 5:
+        self->flags30 &= ~0x200;
+        break;
+    case 1:
+        return;
+    case 3:
+        return;
+    }
 }
 
 u8 TObjEneMe1CanadinLeader__vt107(void *arg0) {

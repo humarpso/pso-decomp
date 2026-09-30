@@ -19,6 +19,28 @@ struct Obj_8019C924 { u8 pad0[0x84]; s32 id; u8 pad1[0xbc - 0x88]; s32 saved_id;
 
 struct Pkt_8019C988 { u8 pad0[4]; s16 f4; };
 
+struct ObjBase_8019BD84 { char pad[0x18]; };
+
+struct Obj_8019BD84 : ObjBase_8019BD84 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 is_visible(f32, f32);
+};
+
+struct Node_8019BD84 { u32 flags; void *model; f32 pos[3]; s32 ang[3]; f32 scl[3]; Node_8019BD84 *child; Node_8019BD84 *sibling; };
+
+struct Ids_8019BD84 { u16 id[2]; };
+
+struct Warp_8019BD84 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x1C]; s32 f60; u8 pad64[0x28]; s32 f8C; u8 pad90[0x34]; f32 fC4; s32 fC8; Node_8019BD84 *fCC; Node_8019BD84 *fD0; s32 fD4; s32 fD8; };
+
+struct Warp_8019C05C { u8 pad0[0xBC]; s32 fBC; u8 padC0[4]; s32 fC4; };
+
 extern "C" {
 void TObjAreaWarp__sub_8019CAB0(void *);
 extern const f32 lbl_805DBFDC;
@@ -87,6 +109,34 @@ void TNpcPlayer__sub_8034E7A0();
 extern u8 lbl_80515BA0[];
 extern s32 lbl_805D53A0;
 void handle_6x94_inter_level_warp(Pkt_8019C988 *arg0);
+void begin_effect_render__13TParticleCtrlFv();
+void end_effect_render__13TParticleCtrlFv();
+void free_children__12TObjDoorJungFPvPv(void *, int);
+void TBoss7Tentacle__sub_803D8A6C(int, s32, s32, s32);
+void TObjPlayer__sub_803D9214(int, int);
+void TObjContainerIdo__sub_803D96A8(int, s32);
+void TObjPlayer__sub_803D9B2C();
+void TObjPlayer__sub_803D9B78();
+void TOHangerMachine01__sub_803D9C00(void *);
+void set_global_param__8TObjFishFi(int);
+void TOSignCave03__sub_803DB510(void *);
+void TObjDoor__sub_803DC894(s32, s32, f32);
+extern Ids_8019BD84 lbl_805DBFD0;
+extern const f32 lbl_805DBFD4;
+extern const f32 lbl_805DBFD8;
+void render__18TObjAreaWarpEndingFv(Obj_8019BD84 *self);
+void TKeyBoardControl__sub_8000F998();
+s32 obj_isState3_324(void *);
+s32 get_action_flags__10TNpcPlayerFPv(void *);
+void *get_dest_area__17TObjAreaWarpQuestFPv(void *);
+void TObjAreaWarpQuest__sub_8019DCD8(void *, s32);
+void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void TTecLuker__sub_801BAB1C(void *, void *);
+s32 TLobby__sub_80207770(s32);
+void set_area__6TLobbyFPvi(void *, int, int);
+void TNpcPlayer__sub_8034E7A0();
+extern u8 lbl_80515BA0[];
+void TObjAreaWarpQuest__vt17(Warp_8019C05C *arg0, void *arg1);
 }
 
 extern "C" {
@@ -137,6 +187,44 @@ void open_confirm_window__18TObjAreaWarpEndingFPvs(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__18TObjAreaWarpEnding[];
+
+void render__18TObjAreaWarpEndingFv(Obj_8019BD84 *self) {
+    Warp_8019BD84 *arg0 = (Warp_8019BD84 *)self;
+    Node_8019BD84 *root;
+    Node_8019BD84 *node;
+    if (self->is_visible(lbl_805DBFD4, lbl_805DBFD8) == 0) {
+        return;
+    }
+    Ids_8019BD84 ids = lbl_805DBFD0;
+    for (node = arg0->fD0->child; node != 0; node = node->child) {
+        if (node->model != 0) {
+            free_children__12TObjDoorJungFPvPv(node->model, ids.id[arg0->f8C]);
+        }
+    }
+    root = arg0->fCC;
+    set_global_param__8TObjFishFi(arg0->fD8);
+    TObjPlayer__sub_803D9B2C();
+    TOHangerMachine01__sub_803D9C00(arg0->pos);
+    TObjPlayer__sub_803D9214(0, arg0->f60);
+    TObjPlayer__sub_803D9B2C();
+    TOHangerMachine01__sub_803D9C00(root->pos);
+    TOSignCave03__sub_803DB510(root->model);
+    begin_effect_render__13TParticleCtrlFv();
+    for (root = root->child; root != 0; root = root->sibling) {
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(root->pos);
+        TBoss7Tentacle__sub_803D8A6C(0, root->ang[0], root->ang[1], root->ang[2]);
+        TObjContainerIdo__sub_803D96A8(0, arg0->fC8);
+        TOSignCave03__sub_803DB510(root->model);
+        TObjPlayer__sub_803D9B78();
+    }
+    end_effect_render__13TParticleCtrlFv();
+    TObjPlayer__sub_803D9B78();
+    begin_effect_render__13TParticleCtrlFv();
+    TObjDoor__sub_803DC894((s32)arg0->fD0, arg0->fD4, arg0->fC4);
+    end_effect_render__13TParticleCtrlFv();
+    TObjPlayer__sub_803D9B78();
+}
 
 void run_task__18TObjAreaWarpEndingFv(u8 *arg0) {
   unsigned int new_var;
@@ -207,6 +295,27 @@ u8 *TObjAreaWarpEnding__ct(u8 *arg0, s32 arg1, s32 arg2) {
         M2C_FIELD(arg0, s32 *, 0xC0) = 0;
     }
     return arg0;
+}
+
+void TObjAreaWarpQuest__vt17(Warp_8019C05C *arg0, void *arg1) {
+    s32 i;
+    void *p;
+    set_area__6TLobbyFPvi(lbl_80515BA0, arg0->fBC, TLobby__sub_80207770(arg0->fBC));
+    TKeyBoardControl__sub_8000F998();
+    if (arg1 != 0 && arg0->fC4 > 1) {
+        TObjAreaWarpQuest__sub_8019DCD8(arg1, arg0->fC4);
+    }
+    if (arg0->fC4 > 1) {
+        for (i = 0; i < 4; i++) {
+            p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+            if (p != 0 && obj_isState3_324(p) != 0 && (u16)get_action_flags__10TNpcPlayerFPv(p) != 0xFFFF) {
+                TObjAreaWarpQuest__sub_8019DCD8(p, arg0->fC4);
+            }
+        }
+    }
+    get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0);
+    TNpcPlayer__sub_8034E7A0();
+    TTecLuker__sub_801BAB1C(arg1, get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0));
 }
 
 void run_task__17TObjAreaWarpQuestFv(u8 *arg0) {

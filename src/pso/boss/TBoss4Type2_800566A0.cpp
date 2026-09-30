@@ -49,6 +49,96 @@ struct S_800582B4 {
     u16 f3ba;
 };
 
+typedef s32 M2C_UNK;
+struct Vec_8005676C { f32 x, y, z; };
+
+struct Zanzo_8005676C {
+    Vec_8005676C pos;
+    s32 f0c;
+    s32 f10;
+    s32 f14;
+    s32 f18;
+    f32 f1c;
+    f32 f20;
+    f32 f24;
+    s32 f28;
+};
+
+struct Row_8005676C {
+    s32 a;
+    s32 b;
+    s32 c[2];
+};
+
+struct Obj_8005676C {
+    u8 pad0[0x38];
+    Vec_8005676C pos;
+    u8 pad44[0x60 - 0x44];
+    s32 f60;
+    u8 pad64[0x390 - 0x64];
+    s32 f390;
+    u8 pad394[0x3c8 - 0x394];
+    s32 f3c8;
+    u8 pad3cc[0x3d0 - 0x3cc];
+    f32 f3d0;
+};
+
+struct Vec_8005683C { f32 x, y, z; };
+
+struct Bishi_8005683C {
+    s32 f0;
+    s16 id;
+    s16 f6;
+    s16 f8;
+    s16 id2;
+    s16 f0c;
+    u8 pad0e[6];
+    Vec_8005683C pos;
+    u8 pad2c[0x20];
+};
+
+struct Ofs_8005683C { f32 x, z; };
+
+struct Obj_8005683C {
+    u8 pad0[0x38c];
+    s32 f38c;
+};
+
+struct Obj_80056A54 {
+    u8 pad0[0x32c];
+    s16 f32c;
+    u8 pad32e[0x3ec - 0x32e];
+    s32 f3ec;
+};
+
+struct Grid_80056A54 {
+    f32 x, y, z;
+};
+
+struct Row_80057270 {
+    s32 a;
+    s32 b;
+    s32 c[2];
+};
+
+struct Obj_80057270 {
+    u8 pad0[0x390];
+    s32 f390;
+    u8 pad394[0x3c0 - 0x394];
+    f32 f3c0;
+    u8 pad3c4[0x3c8 - 0x3c4];
+    s32 f3c8;
+    u8 pad3cc[0x3d0 - 0x3cc];
+    f32 f3d0;
+    u8 pad3d4[0x3e4 - 0x3d4];
+    s32 f3e4;
+    u8 pad3e8[0x3f0 - 0x3e8];
+    f32 f3f0;
+    f32 f3f4;
+    u8 pad3f8[0x44c - 0x3f8];
+    s32 f44c;
+};
+
 extern "C" {
 void TBoss4Type2__vt2(void *arg0);
 M2C_UNK TBoss4Type2__sub_80057048(void *, M2C_UNK);
@@ -60,7 +150,6 @@ extern const f32 TBoss4Type2__data_805D8BAC;
 void TBoss4Type2__vt2(void *arg0);
 void TBoss4Type2__vt1(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-M2C_UNK TBoss4Type2__sub_80056A54(void *);
 M2C_UNK TBoss4Type2__sub_80056B3C(void *, int, int);
 extern const f32 lbl_805D8BE4;
 void TBoss4Type2__sub_80056998(u8 *arg0);
@@ -100,6 +189,52 @@ void TBoss4Type3__vt45(S_80058224 *o);
 s32 TBoss4Type3__sub_8005254C(u16);
 void TBoss4Type3__sub_800599F4(void *, s32, s32);
 void TBoss4Type3__vt44(S_800582B4 *o);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 TObjFish__sub_8001ED9C(s32, s32);
+s32 TObjFish__sub_8001EDB0(s32, s32);
+s32 TObjFish__sub_8001EDC4(s32, s32);
+void create_zanzo__11TBoss4Type2FPvPv(void *, void *);
+extern s32 lbl_804867C0[];
+extern RecoveredGlobal_80054530_lbl_80485EC8 TBoss4Type2__data_804867C8;
+extern const f32 TBoss4Type2__data_805D8BAC;
+extern f32 lbl_805D8BB0;
+void TBoss4Type2__sub_8005676C(Obj_8005676C *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+void *get_player_data__10TObjPlayerFi(s32 i);
+u16 obj_getField1c(void *);
+s32 TBoss4DarkFalz__sub_8004AF5C(s32, s16 *, s16 *);
+M2C_UNK TBoss4DarkFalz__sub_8004B4F0(void *, void *);
+s32 TBoss4Type3__sub_8005254C(u16);
+M2C_UNK create__11TBoss4BishiFi(void *);
+extern Ofs_8005683C lbl_804868EC[];
+extern u8 TBoss4DarkFalz__data_804FF1E8[];
+extern s32 lbl_805D586C;
+void TBoss4Type2__sub_8005683C(Obj_8005683C *arg0);
+s32 TBoss4Type3__sub_8004AE60(void *);
+s32 TBoss4Type2__sub_800522CC(s32 n, f32 *w, s32 *t);
+void TBoss4Type2__sub_80056C30(void *, void *);
+void set_grid_pos__11TBoss4Type2FPvPv(void *arg0, void *arg1);
+void TBoss4Type2__sub_80056F38(Obj_80056F38 *self, s32 arg1, s32 arg2);
+void TBoss4Type2__sub_80056FEC(Obj_80056FEC *self, s32 arg1);
+extern u8 __vt__11TBoss4Type2[];
+void TBoss4Type2__sub_80056A54(Obj_80056A54 *arg0);
+s32 TObjFish__sub_8001ED9C(s32, s32);
+s32 TObjFish__sub_8001EDB0(s32, s32);
+s32 TObjFish__sub_8001EDC4(s32, s32);
+M2C_UNK clear_render_callback__8TObjFishFv(s32);
+M2C_UNK TObjFish__sub_800E3074(s32);
+M2C_UNK TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
+M2C_UNK update_camera_target__14TBoss6PlotFalzFv();
+M2C_UNK TBoss6PlotFalz__sub_802AC008(f32, f32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
+M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
+M2C_UNK set_global_flag__10TObjPlayerFv();
+M2C_UNK clear_global_state__10TObjPlayerFv();
+extern s32 lbl_804867C0[];
+extern RecoveredGlobal_80054530_lbl_80485EC8 TBoss4Type2__data_804867C8;
+extern s32 some_id_805c6f74;
+extern const f32 TBoss4Type2__data_805D8BAC;
+void TBoss4Type2__sub_80057270(Obj_80057270 *arg0);
 }
 
 extern "C" {
@@ -126,7 +261,6 @@ void set_state3_unless_2or3__11TBoss4Type2FPv(void *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int, void *);
 s32 TBoss4Type2__ct(s32, s32, s32);
 M2C_UNK TBoss4Type2__sub_80057048(void *, M2C_UNK);
-int TBoss4Type2__sub_80057270(void*);
 void TBoss4Type2__vt4(void* p);
 void TBoss4Type2__vt5(void);
 s32 TBoss4Type3__sub_8005254C(u16);
@@ -177,6 +311,46 @@ void TBoss4Type2__vt0(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x398) = 0x3C;
 }
 
+void TBoss4Type2__sub_8005676C(Obj_8005676C *arg0) {
+    Zanzo_8005676C z;
+    s32 i;
+    VecCopy__FP3VecPC3Vec(&z.pos, &arg0->pos);
+    z.f0c = arg0->f60;
+    z.f1c = arg0->f3d0;
+    z.f20 = lbl_805D8BB0;
+    z.f24 = TBoss4Type2__data_805D8BAC;
+    z.f28 = 10;
+    for (i = 0; i < 2; i++) {
+        z.f10 = TObjFish__sub_8001EDB0(arg0->f390, lbl_804867C0[i]);
+        z.f14 = TObjFish__sub_8001EDC4(arg0->f390, lbl_804867C0[i]);
+        z.f18 = TObjFish__sub_8001ED9C(arg0->f390, ((Row_8005676C *)&TBoss4Type2__data_804867C8)[arg0->f3c8].c[i]);
+        create_zanzo__11TBoss4Type2FPvPv(arg0, &z);
+    }
+}
+
+void TBoss4Type2__sub_8005683C(Obj_8005683C *arg0) {
+    Bishi_8005683C b;
+    s32 i;
+    s32 j;
+    u8 *pl;
+    TBoss4DarkFalz__sub_8004B4F0(&b.id, TBoss4DarkFalz__data_804FF1E8);
+    b.f0 = arg0->f38c;
+    b.f0c = 1;
+    for (i = 0; i < lbl_805D586C; i++) {
+        pl = (u8 *)get_player_data__10TObjPlayerFi(i);
+        if (pl != 0 && TBoss4Type3__sub_8005254C(obj_getField1c(pl)) != 0) {
+            for (j = 0; j < 3; j++) {
+                if (TBoss4DarkFalz__sub_8004AF5C(arg0->f38c, &b.id, &b.id2) != 0) {
+                    VecCopy__FP3VecPC3Vec(&b.pos, pl + 0x38);
+                    b.pos.x += lbl_804868EC[j].x;
+                    b.pos.z += lbl_804868EC[j].z;
+                    create__11TBoss4BishiFi(&b);
+                }
+            }
+        }
+    }
+}
+
 void apply_resta_heal__11TBoss4Type2FPv(void *arg0) {
     s16 temp_r31;
     void *temp_r4;
@@ -214,7 +388,34 @@ void TBoss4Type2__sub_80056998(u8 *arg0) {
         TBoss4Type2__sub_80056B3C((void *) (arg0), (int) (var_r4), (int) (var_r5));
         return;
     }
-    TBoss4Type2__sub_80056A54((void *) (arg0));
+    TBoss4Type2__sub_80056A54((Obj_80056A54 *)((void *) (arg0)));
+}
+
+void TBoss4Type2__sub_80056A54(Obj_80056A54 *arg0) {
+    u8 *tbl = __vt__11TBoss4Type2;
+    Grid_80056A54 grid;
+    s32 r;
+    s32 id;
+    id = TBoss4Type3__sub_8004AE60(arg0);
+    if (arg0->f32c <= arg0->f3ec && (u16)id != 0xFFFF) {
+        r = TBoss4Type2__sub_800522CC(4, (f32 *)(tbl + 0x544), (s32 *)(tbl + 0x554));
+    } else {
+        r = TBoss4Type2__sub_800522CC(3, (f32 *)(tbl + 0x564), (s32 *)(tbl + 0x570));
+    }
+    switch (r) {
+    case 6:
+    case 7:
+        TBoss4Type2__sub_80056C30(arg0, &grid);
+        set_grid_pos__11TBoss4Type2FPvPv(arg0, &grid);
+        TBoss4Type2__sub_80056FEC((Obj_80056FEC *)arg0, r);
+        break;
+    case 13:
+        TBoss4Type2__sub_80056F38((Obj_80056F38 *)arg0, r, id);
+        break;
+    default:
+        TBoss4Type2__sub_80056FEC((Obj_80056FEC *)arg0, r);
+        break;
+    }
 }
 
 void set_grid_pos__11TBoss4Type2FPvPv(void *arg0, void *arg1) {
@@ -252,6 +453,35 @@ void TBoss4Type2__sub_80056FEC(Obj_80056FEC *self, s32 arg1) {
 
 s32 TBoss4Type2__sub_80057224(Obj_80057224 *self) {
     return (s32)(lbl_805D8BF0 * calc_boss4_scale__10TObjPlayerFi(self)) + 0x2000 + self->f3a0;
+}
+
+void TBoss4Type2__sub_80057270(Obj_80057270 *arg0) {
+    s32 i;
+    set_global_flag__10TObjPlayerFv();
+    for (i = 0; i < 2; i++) {
+        set_global_param__8TObjFishFi(TObjFish__sub_8001EDB0(arg0->f390, lbl_804867C0[i]));
+        switch (i) {
+        case 1:
+            some_id_805c6f74 |= 0x20000;
+            TObjEneRe4Sorcerer__sub_801E3F1C(TBoss4Type2__data_805D8BAC, arg0->f3c0);
+            TObjFish__sub_800E3074(arg0->f44c);
+            TObjEneSlimeOne__sub_803E4AF4(TObjFish__sub_8001EDC4(arg0->f390, lbl_804867C0[i]),
+                TObjFish__sub_8001ED9C((s32)(arg0->f390), (s32)(((Row_80057270 *)&TBoss4Type2__data_804867C8)[arg0->f3c8].c[i])),
+                arg0->f3d0);
+            clear_render_callback__8TObjFishFv(arg0->f44c);
+            some_id_805c6f74 &= ~0x20000;
+            break;
+        default:
+            TBoss6PlotFalz__sub_802AC008(arg0->f3f0, arg0->f3f4);
+            TObjEneSlimeOne__sub_803E4AF4(TObjFish__sub_8001EDC4(arg0->f390, lbl_804867C0[i]),
+                TObjFish__sub_8001ED9C((s32)(arg0->f390), (s32)(((Row_80057270 *)&TBoss4Type2__data_804867C8)[arg0->f3c8].c[i])),
+                arg0->f3d0);
+            update_camera_target__14TBoss6PlotFalzFv();
+            break;
+        }
+    }
+    clear_global_state__10TObjPlayerFv();
+    arg0->f3e4 = 0;
 }
 
 void TBoss4Type2__sub_800573AC(u8 *arg0, s32 arg1) {
@@ -302,7 +532,7 @@ void TBoss4Type2__sub_800573D8(u8 *arg0) {
 }
 #pragma pop
 
-void init_hanger__11TBoss4Type2FPv(void* p) { toggle_particle_effect__10TObjPlayerFv(p); TObjPlayer__sub_803D9B2C(); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); TObjPlayer__sub_803D9214((void*)0, *(void**)((char*)p + 0x60)); TBoss4Type2__sub_80057270(p); TObjPlayer__sub_803D9B78(); end_effect_render__13TParticleCtrlFv(); }
+void init_hanger__11TBoss4Type2FPv(void* p) { toggle_particle_effect__10TObjPlayerFv(p); TObjPlayer__sub_803D9B2C(); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); TObjPlayer__sub_803D9214((void*)0, *(void**)((char*)p + 0x60)); TBoss4Type2__sub_80057270((Obj_80057270 *)(p)); TObjPlayer__sub_803D9B78(); end_effect_render__13TParticleCtrlFv(); }
 
 extern const f32 lbl_805D8C18;
 

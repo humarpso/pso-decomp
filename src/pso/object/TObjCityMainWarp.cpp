@@ -35,6 +35,21 @@ typedef char RecoveredGlobal_8018605C_lbl_804447F4_size[sizeof(RecoveredGlobal_8
 struct RecoveredGlobal_8018605C_lbl_80444834 { M2C_UNK value; u8 remaining[0x40]; };
 typedef char RecoveredGlobal_8018605C_lbl_80444834_size[sizeof(RecoveredGlobal_8018605C_lbl_80444834) == 0x44 ? 1 : -1];
 
+typedef s32 M2C_UNK;
+struct Obj_801864B4 {
+    u8 pad[0x38];
+    u8 pos[0x88 - 0x38];
+    s32 mode;
+    u8 pad8c[0xAC - 0x8C];
+    f32 xac;
+    u8 padb0[0xC0 - 0xB0];
+    void *vi;
+    f32 xc4;
+    s32 a[17];
+    s32 b[17];
+    s32 x150;
+};
+
 extern "C" {
 s32 get_instance__6TLobbyFv(void);
 s32 is_visible__17TWindowSubComCardFPv(void *);
@@ -46,6 +61,15 @@ s32 get_instance__6TLobbyFv(void);
 void set_active_bit__16TObjCityMainWarpFv(s32 id);
 s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
 void TObjCityMainWarp__sub_801865B4(s32 id);
+s32 is_split_screen();
+void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+void TObjAreaWarp__ct(void *, void *, void *);
+void *init__13TAdVIConfigGCFPvf(void *, void *, f32);
+extern M2C_UNK __vt__16TObjCityMainWarp[];
+extern s32 lbl_805D32A8;
+extern const f32 lbl_805DBC90;
+extern const f32 lbl_805DBCA4;
+void *TObjCityMainWarp__ct(void *arg0, void *arg1, void *arg2);
 }
 
 extern "C" {
@@ -62,7 +86,6 @@ s32 TCameraCtrl__sub_8006B368();
 s32 TLobby__sub_8030A7B0();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
-void *TObjCityMainWarp__ct(void *, void *, void *);
 s32 TObjCityMainWarp__sub_80186A3C();
 M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
@@ -150,7 +173,7 @@ extern void *tl_05;
 void *create__16TObjCityMainWarpFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x154);
     if (o != NULL) {
-        o = TObjCityMainWarp__ct(o, tl_05, arg0);
+        o = TObjCityMainWarp__ct((void *)(o), (void *)(tl_05), (void *)(arg0));
     }
     return o;
 }
@@ -169,6 +192,41 @@ void *__dt__16TObjCityMainWarpFv(void *arg0, s16 arg1) {
 }
 
 extern s32 TObjCityMainWarp__data_805D5B50;
+
+void *TObjCityMainWarp__ct(void *arg0, void *arg1, void *arg2) {
+    Obj_801864B4 *self = (Obj_801864B4 *)arg0;
+    s32 i;
+    s32 j;
+    void *p;
+    TObjAreaWarp__ct(self, arg1, arg2);
+    *(M2C_UNK **)((u8 *)self + 0x18) = __vt__16TObjCityMainWarp;
+    *(s32 *)self = lbl_805D32A8;
+    self->xac = lbl_805DBCA4;
+    self->xc4 = lbl_805DBC90;
+    for (i = 0; i < 17; i++) {
+        self->a[i] = 0;
+    }
+    for (j = 0; j < 17; j++) {
+        self->b[j] = 0;
+    }
+    if (is_split_screen() == 1) {
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x88);
+        if (p != NULL) {
+            p = init__13TAdVIConfigGCFPvf(p, self->pos, lbl_805DBCA4);
+        }
+        self->vi = p;
+    } else {
+        self->vi = NULL;
+    }
+    self->x150 = self->mode;
+    if (self->x150 < 0) {
+        self->x150 = 0;
+    }
+    if (self->x150 > 2) {
+        self->x150 = 2;
+    }
+    return self;
+}
 
 void TObjCityMainWarp__sub_801865B4(s32 id) {
     if (get_instance__6TLobbyFv() == 0) {

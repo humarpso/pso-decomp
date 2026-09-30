@@ -30,6 +30,47 @@ struct Seg_80096EBC { s32 a; f32 x; f32 y; f32 z; u8 pad[12]; };
 
 struct Brk_80096EBC { s32 count; Seg_80096EBC *segs; };
 
+typedef s32 M2C_UNK;
+struct Color_8009680C { f32 a; f32 r; f32 g; f32 b; };
+
+struct Part_8009680C { u8 pos[0x18]; u8 rot[0x10]; };
+
+struct Chunk_8009680C { s32 model; u8 pad[0x18]; };
+
+struct Model_8009680C { u8 pad0[4]; Chunk_8009680C *chunks; s32 is_chunk; };
+
+struct BreakUp_8009680C {
+    u8 pad0[0x1C];
+    s32 count;
+    Model_8009680C *model;
+    void *texlist;
+    f32 alpha;
+    u8 pad2C[0x34 - 0x2C];
+    Part_8009680C *parts;
+};
+
+struct Part_8009693C {
+    f32 x, y, z;
+    f32 vx, vy, vz;
+    s32 rx, ry, rz;
+    s32 spin;
+};
+
+struct BreakUp_8009693C {
+    u8 pad0[0x1C];
+    s32 count;
+    u8 pad20[0x28 - 0x20];
+    f32 alpha;
+    u8 pad2C[0x30 - 0x2C];
+    f32 speed;
+    Part_8009693C *parts;
+    u8 pad38[0x3C - 0x38];
+    f32 fade;
+    u8 pad40[0x44 - 0x40];
+    f32 damping;
+    f32 gravity;
+};
+
 extern "C" {
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -73,6 +114,23 @@ s32 count_active_segments__15TObjBoss2TunnelFPv(void *);
 void *alloc_buffer__11TOBoss4RockFPv(int);
 extern const f32 lbl_805D97CC;
 void TBreakUpMdl__sub_80096EBC(Brk_80096EBC *arg0, void *arg1);
+M2C_UNK TObjPlayer__sub_803D99F8(void *, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+void set_global_param__8TObjFishFi(void *);
+void TOSignCave03__sub_803DB510(s32);
+void set_chunk_material_override_pair(u32, u32);
+void set_chunk_material_color(Color_8009680C *);
+void TObjPlayer__sub_803E4684(s32);
+extern Color_8009680C lbl_80439F58;
+extern u32 lbl_805D5660;
+extern u32 some_id_805c6f74;
+extern const f32 lbl_805D97C8;
+void render__11TBreakUpMdlFv(BreakUp_8009680C *self);
+void queue_destruction__7TObjectFv(void *);
+extern const f32 lbl_805D97CC;
+void run_task__11TBreakUpMdlFv(BreakUp_8009693C *self);
 }
 
 extern "C" {
@@ -89,6 +147,60 @@ void free__11TOBoss4RockFUi(void *);
 int get_target_info__9TObjEneDDFPv(void*);
 
 extern M2C_UNK __vt__11TBreakUpMdl[];
+
+void render__11TBreakUpMdlFv(BreakUp_8009680C *self) {
+    Part_8009680C *part;
+    s32 i;
+    if (self->texlist != 0) {
+        set_global_param__8TObjFishFi(self->texlist);
+    }
+    lbl_805D5660 = some_id_805c6f74;
+    if (self->alpha < lbl_805D97C8) {
+        Color_8009680C color = lbl_80439F58;
+        some_id_805c6f74 |= 0x810;
+        set_chunk_material_override_pair(0xFF00, 0x800);
+        color.a = self->alpha;
+        set_chunk_material_color(&color);
+    }
+    for (i = 0; i < self->count; i++) {
+        part = &self->parts[i];
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(part->pos);
+        TObjPlayer__sub_803D99F8(part->rot, 0);
+        if (self->model->is_chunk != 0) {
+            TOSignCave03__sub_803DB510(self->model->chunks[i].model);
+        } else {
+            TObjPlayer__sub_803E4684(self->model->chunks[i].model);
+        }
+        TObjPlayer__sub_803D9B78();
+    }
+    set_chunk_material_override_pair(0xFF00, 0);
+    some_id_805c6f74 = lbl_805D5660;
+}
+
+#pragma push
+#pragma fp_contract on
+void run_task__11TBreakUpMdlFv(BreakUp_8009693C *self) {
+    Part_8009693C *p;
+    s32 i;
+    f32 gravity;
+    self->alpha -= self->fade;
+    if (self->alpha <= lbl_805D97CC) {
+        queue_destruction__7TObjectFv(self);
+    }
+    gravity = self->gravity;
+    for (i = 0; i < self->count; i++) {
+        p = &self->parts[i];
+        p->x = p->vx * self->speed + p->x;
+        p->y = p->y + p->vy;
+        p->z = p->vz * self->speed + p->z;
+        p->vy = p->vy - gravity;
+        p->rx = p->rx + p->spin;
+        p->ry = p->ry + p->spin / 2;
+    }
+    self->speed = self->speed * self->damping;
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on

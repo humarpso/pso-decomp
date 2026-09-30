@@ -215,6 +215,8 @@ struct VObj_14_c1c33b : VBase_14_c1c33b {
     virtual s32 m4();
 };
 
+typedef s32 M2C_UNK;
+typedef struct { f32 x, y, z; } Vec_800EE0F8;
 extern "C" {
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
@@ -243,7 +245,6 @@ s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 extern const f32 TObjEneRe4Sorcerer__data_805DA790;
 void TObjEneRe4Sorcerer__sub_800EE01C(u8 *arg0, s32 arg1);
 void TObjEneRe4Sorcerer__sub_800EE01C(u8 *arg0, s32 arg1);
-s32 TObjEneRe4Sorcerer__sub_800EE0F8(void *, void *);
 s32 TObjEneRe4Sorcerer__sub_800EE1CC(void *, void *);
 s32 TObjEneRe4Sorcerer__sub_800EE598(void *, void *);
 s32 TObjEneRe4Sorcerer__sub_800EE7DC(void *, void *);
@@ -253,6 +254,16 @@ s32 TObjEneRe4Sorcerer__sub_800EEDE4(void *, void *);
 void TObjEneRe4Sorcerer__sub_800EEFE4(u8 *arg0, s32 arg1);
 s32 handle_state__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1);
 void TObjEneRe4Sorcerer__vt85(s32 arg0, u32 arg1, s32 arg2);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
+f32 clamp_velocity__15TObjBoss2TunnelFPv(Vec_800EE0F8 *);
+M2C_UNK TObjEneDD__sub_800BABCC(void *, f32, f32, f32);
+M2C_UNK TBoss8Dragon__sub_800BB780(void *);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+void TObjEneRe4Sorcerer__sub_800EF214(s32 arg0);
+s32 TBoss1Dragon__sub_80143504(void *);
+extern const f32 lbl_805DA79C;
+void TObjEneRe4Sorcerer__sub_800EE0F8(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -301,6 +312,34 @@ void TObjEneRe4Sorcerer__sub_800EE01C(u8 *arg0, s32 arg1) {
     case 3:
     case 5:
         return;
+    }
+}
+
+void TObjEneRe4Sorcerer__sub_800EE0F8(u8 *arg0, s32 arg1) {
+    Vec_800EE0F8 v;
+    f32 c;
+    switch (arg1) {
+    case 4:
+        M2C_FIELD(arg0, s16 *, 0xB8) = 5;
+        TBoss1Dragon__sub_80143504(arg0);
+        break;
+    case 3:
+        if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(arg0) != 0) {
+            TObjEneDD__sub_800BBA18(arg0, M2C_FIELD(arg0, s32 *, 0x378));
+        }
+        break;
+    case 0:
+        TBoss1Dragon__sub_80143504(arg0);
+        VecCopy__FP3VecPC3Vec(&v, arg0 + 0x308);
+        c = clamp_velocity__15TObjBoss2TunnelFPv(&v);
+        TObjEneDD__sub_800BABCC(arg0, v.x, v.z, c);
+        M2C_FIELD(arg0, f32 *, 0x308) *= lbl_805DA79C;
+        M2C_FIELD(arg0, f32 *, 0x310) *= lbl_805DA79C;
+        TObjEneRe4Sorcerer__sub_800EF214((s32) arg0);
+        break;
+    case 5:
+        TBoss8Dragon__sub_800BB780(arg0);
+        break;
     }
 }
 
@@ -411,7 +450,7 @@ void TObjEneRe4Sorcerer__vt85(s32 arg0, u32 arg1, s32 arg2) {
         TObjEneRe4Sorcerer__sub_800EE1CC((void *) (arg0), (void *) (arg2));
         return;
     case 8:
-        TObjEneRe4Sorcerer__sub_800EE0F8((void *) (arg0), (void *) (arg2));
+        TObjEneRe4Sorcerer__sub_800EE0F8((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
         return;
     case 9:
         TObjEneRe4Sorcerer__sub_800EE01C((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));

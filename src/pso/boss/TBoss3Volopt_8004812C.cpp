@@ -13,6 +13,25 @@ struct O_8004813C { u8 pad[0x24]; s32 f24; u8 pad2[0xc]; s32 f34; };
 
 struct G_8004816C { u8 pad[0x18]; s32 arr[1]; };
 
+typedef struct Vec_80048260 {
+    f32 x, y, z;
+} Vec_80048260;
+
+typedef struct Obj_80048260 {
+    u8 pad0[0x1C];
+    Vec_80048260 *pos;
+    Vec_80048260 *dir;
+    s32 timer;
+    s32 rotY;
+    s32 rotZ;
+    u8 pad30[0x40 - 0x30];
+    f32 unk40;
+} Obj_80048260;
+
+typedef struct Color_80048260 {
+    u8 r, g, b, a;
+} Color_80048260;
+
 extern "C" {
 extern s32 lbl_805D4CDC;
 f32 TBoss3Volopt__sub_8004812C(s32 arg0);
@@ -20,6 +39,22 @@ extern G_8004813C *lbl_805D4CE4;
 void TBoss3Volopt__sub_8004813C(O_8004813C *self, s32 i);
 extern G_8004816C *lbl_805D4D1C;
 s32 TBoss3Volopt__sub_8004816C(s32 i);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void reset_transform_state__10TObjPlayerFv(void);
+void init_xyz_limits__10TObjPlayerFv(void);
+void TObjPlayer__sub_801E341C(void *, s32, s32);
+void TBoss4Zako__sub_803D8910(void *, void *);
+void TCameraCtrl__sub_803D8934(s32, void *, void *);
+void TObjPlayer__sub_803D8CD4(s32);
+void TObjPlayer__sub_803D9214(s32, s32);
+void TObjContainerIdo__sub_803D96A8(s32, s32);
+void TObjPlayer__sub_803D9B2C(void);
+void TObjPlayer__sub_803D9B78(void);
+extern Vec_80048260 lbl_804366B8;
+extern Color_80048260 lbl_80484828[];
+extern u8 lbl_80484830[];
+extern Vec_80048260 lbl_804FF1B8[];
+void TObjPlayer__sub_80048260(Obj_80048260 *self);
 }
 
 extern "C" {
@@ -52,5 +87,31 @@ void TBoss3Volopt__sub_800481B4(void* p) { *(u8*)((char*)p + 0x0) = 133; *(u8*)(
 void swap_6x18_fields__12TBoss3VoloptFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); { int i; for (i = 0; i < 4; i++) { bswap_16__FPUs((char*)p + 0x4 + i * 2); } } }
 void broadcast_state__12TBoss3VoloptFPv(void* p) { swap_6x18_fields__12TBoss3VoloptFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 void TBoss3Volopt__sub_8004824C(void* p) { *(u8*)((char*)p + 0x0) = 24; *(u8*)((char*)p + 0x1) = 3; }
+void TObjPlayer__sub_80048260(Obj_80048260 *self) {
+    Vec_80048260 *dst;
+    s32 a;
+    if (self->timer < 10) {
+        a = (self->timer << 7) / 10;
+        lbl_80484828[0].a = a;
+        lbl_80484828[0].a = a;
+    }
+    VecCopy__FP3VecPC3Vec(&lbl_804FF1B8[0], self->pos);
+    dst = &lbl_804FF1B8[1];
+    VecCopy__FP3VecPC3Vec(dst, self->dir);
+    TObjPlayer__sub_803D9B2C();
+    TObjPlayer__sub_803D8CD4(0);
+    {
+        Vec_80048260 v = lbl_804366B8;
+        v.z = self->unk40;
+        TObjContainerIdo__sub_803D96A8(0, self->rotY);
+        TObjPlayer__sub_803D9214(0, self->rotZ);
+        TCameraCtrl__sub_803D8934(0, &v, &v);
+        TBoss4Zako__sub_803D8910(dst, &v);
+    }
+    TObjPlayer__sub_803D9B78();
+    init_xyz_limits__10TObjPlayerFv();
+    TObjPlayer__sub_801E341C(lbl_80484830, 1, 5);
+    reset_transform_state__10TObjPlayerFv();
+}
 
 }

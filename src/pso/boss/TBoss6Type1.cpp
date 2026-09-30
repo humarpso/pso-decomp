@@ -93,6 +93,10 @@ struct Vec_802B54F0 { f32 x, y, z; };
 
 struct Boss_802B54F0 { u8 pad[0x38]; Vec_802B54F0 pos; };
 
+struct Boss_802B5648 { u8 pad0[0x3C]; f32 f3C; u8 pad40[0x374 - 0x40]; u32 f374; u8 pad378[0x41C - 0x378]; s8 f41C; };
+
+struct Vec_802B5648 { f32 x, y, z; };
+
 extern "C" {
 void TBoss6Type1__sub_802B4B04(u8 *arg0);
 u8 TBoss6Type1__sub_802B5D9C(u8 *arg0);
@@ -202,6 +206,9 @@ extern const f32 TBoss6Type1__data_805DE310;
 extern const f32 lbl_805DE314;
 extern const f32 TBoss6Type1__data_805DE318;
 void TBoss6Type1__sub_802B54F0(Boss_802B54F0 *o, Vec_802B54F0 *out, f32 _w2);
+extern const f32 lbl_805DE320;
+extern const f32 lbl_805DE324;
+void TBoss6Type1__sub_802B5648(Boss_802B5648 *o, Vec_802B5648 *out);
 }
 
 extern "C" {
@@ -427,6 +434,24 @@ void TBoss6Type1__sub_802B5598(void *arg0, void *arg1) {
     M2C_FIELD(arg1, f32 *, 0) = temp_f1;
     M2C_FIELD(arg1, f32 *, 4) = (f32) TBoss6Type1__data_805DE318;
     M2C_FIELD(arg1, f32 *, 8) = (f32) (var_f31 * TBoss8Dragon__sub_803D64DC(temp_r31));
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+void TBoss6Type1__sub_802B5648(Boss_802B5648 *o, Vec_802B5648 *out) {
+    u32 t = o->f374;
+    s8 b = o->f41C;
+    s32 sh = (t >> 1) & 3;
+    s32 a = (b >> sh) & 0xF;
+    s32 c = (b >> ((sh + 2) & 3)) & 0xF;
+    if (t & 1) {
+        a = ~a & 0xF;
+        c = ~c & 0xF;
+    }
+    out->x = lbl_805DE320 * (f32)a - lbl_805DE324;
+    out->y = o->f3C;
+    out->z = lbl_805DE320 * (f32)c - lbl_805DE324;
 }
 #pragma pop
 

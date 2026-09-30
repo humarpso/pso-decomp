@@ -21,6 +21,10 @@ struct RecoveredGlobal_801922C4___vt__9TKomorebi {
     u8 remaining[0x34];
 };
 
+struct Node_80192434 { u32 flags; void *model; u8 pad8[0x24]; Node_80192434 *child; Node_80192434 *sibling; };
+
+struct Fish_80192434 { u8 pad0[0x8C]; s32 f8C; u8 pad90[0x2C]; Node_80192434 *fBC; Node_80192434 *fC0; s32 fC4; void *fC8[4]; };
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
@@ -37,6 +41,10 @@ extern u8 lbl_804B7ED8[];
 extern u32 lbl_805D5C20;
 extern s32 lbl_805D5C24;
 void TKomorebi__sub_801923DC(void);
+s32 TObjFish__sub_8001ED9C(s32, s32);
+s32 TObjFish__sub_8001EDC4(void *, int);
+extern s32 lbl_805D5C2C;
+void TObjFish__sub_80192434(Fish_80192434 *arg0);
 }
 
 extern "C" {
@@ -145,6 +153,33 @@ void TKomorebi__sub_801923DC(void) {
     }
     lbl_805D5C20 = (u32)p;
     lbl_805D5C24 = 0;
+}
+void TObjFish__sub_80192434(Fish_80192434 *arg0) {
+    s32 i;
+    Node_80192434 *node;
+    s32 j;
+    if (arg0->f8C % 2 == 0) {
+        arg0->fBC = (Node_80192434 *)TObjFish__sub_8001EDC4((void *)lbl_805D5C2C, 1);
+        arg0->fC0 = (Node_80192434 *)TObjFish__sub_8001EDC4((void *)lbl_805D5C2C, 0);
+        arg0->fC4 = TObjFish__sub_8001ED9C(lbl_805D5C2C, 0);
+    } else {
+        arg0->fBC = (Node_80192434 *)TObjFish__sub_8001EDC4((void *)lbl_805D5C2C, 3);
+        arg0->fC0 = (Node_80192434 *)TObjFish__sub_8001EDC4((void *)lbl_805D5C2C, 2);
+        arg0->fC4 = TObjFish__sub_8001ED9C(lbl_805D5C2C, 1);
+    }
+    for (j = 0; j < 4; j++) {
+        arg0->fC8[j] = 0;
+    }
+    i = 0;
+    node = arg0->fC0->child;
+    if (node != 0) {
+        arg0->fC8[i++] = node->model;
+        node = node->sibling;
+        while (node != 0 && i < 4) {
+            arg0->fC8[i++] = node->model;
+            node = node->sibling;
+        }
+    }
 }
 
 }

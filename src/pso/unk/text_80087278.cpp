@@ -3,6 +3,8 @@ struct Data_8008741C { u8 pad[0x98]; };
 
 struct Ent_80087278 { u8 data[0x98]; };
 
+struct Ent_80087350 { u8 data[0x98]; };
+
 extern "C" {
 extern s32 lbl_805D2948;
 extern Data_8008741C *lbl_805D4EF8;
@@ -16,6 +18,12 @@ extern Data_8008741C *lbl_805D4EFC;
 void *__nw__7TObjectFUl(u32);
 void *initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(void *, void *, void *, s32, s32, s32, s32, s32);
 void *TOSwitchAttack__sub_80087278(void *pos, s32 id, s32 flags);
+extern s32 lbl_805D2948;
+extern Data_8008741C *lbl_805D4EF8;
+extern Data_8008741C *lbl_805D4EFC;
+void *__nw__7TObjectFUl(u32);
+void *initialize__13TParticleCtrlFPvPviiiii(void *self, void *owner, void *entry, s32 a, s32 b, s32 c, s32 d);
+void *TObjEneDellBiter__sub_80087350(void *pos, s32 id);
 }
 
 extern "C" {
@@ -43,6 +51,26 @@ void *TOSwitchAttack__sub_80087278(void *pos, s32 id, s32 flags) {
     return 0;
 }
 #pragma pop
+
+void *TObjEneDellBiter__sub_80087350(void *pos, s32 id) {
+    void *p;
+    if (lbl_805D2948 > id) {
+        p = __nw__7TObjectFUl((u32)(0x78));
+        if (p != 0) {
+            p = initialize__13TParticleCtrlFPvPviiiii(p, pos, &(*(Ent_80087350 * *)&lbl_805D4EF8)[id], 1, 0, 0, 0);
+        }
+        return p;
+    }
+    if (lbl_805D2948 + 0x40 > id) {
+        s32 idx = id - 0x200;
+        p = __nw__7TObjectFUl((u32)(0x78));
+        if (p != 0) {
+            p = initialize__13TParticleCtrlFPvPviiiii(p, pos, &(*(Ent_80087350 * *)&lbl_805D4EFC)[idx], 1, 0, 0, 0);
+        }
+        return p;
+    }
+    return 0;
+}
 
 void *TBoss8Dragon__sub_8008741C(void *parent, s32 idx, s32 flags) {
     void *p;

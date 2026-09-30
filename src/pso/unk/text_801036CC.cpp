@@ -42,6 +42,13 @@ struct Ent_801037A0 { u8 pad0[0xE]; u16 key; u8 padx[0xC]; s32 val; u8 pad2[4]; 
 
 struct Msg_801037A0 { u32 hdr; s32 v; s32 who; };
 
+struct Save_80103890 {
+    u16 slots[0x10];
+    s32 boss[0xC];
+    s32 counts[0xF];
+    Ent_801037A0 items[1];
+};
+
 extern "C" {
 extern s32 lbl_805D5420;
 s32 TLobby__sub_8010385C(s32 arg0);
@@ -66,12 +73,37 @@ extern s32 TLobby__data_805D53AC;
 extern Ent_801037A0 **lbl_805D541C;
 extern s32 lbl_805D5420;
 void TLobby__sub_801037A0(s32 n);
+void TLobby__sub_80103F68(void);
+void TLobby__sub_801042C0(void *);
+void set_boss_buf_entry__6TLobbyFii(s32, u16);
+void TLobby__sub_80104258(void *, void *);
+void bswap_item__6TLobbyFPv(void *);
+void TItemData__sub_8010CCB0(void *);
+s32 TObjPlayer__sub_8001BEF8(void *, s32);
+void TLobby__sub_80103B70(s32);
+void TLobby__sub_801041D8(void);
+extern u16 *lbl_805D542C;
+extern Ent_801037A0 **lbl_805D541C;
+extern s32 lbl_805D5420;
+extern s32 lbl_805D5440;
+void TLobby__sub_80103890(Save_80103890 *src);
+void TLobby__sub_8010314C(Ent_801037A0 *);
+void debug_print__6TLobbyFii(const char *, ...);
+void *memcpy(void *, const void *, u32);
+extern char lbl_8043E048[];
+extern Ent_801037A0 **lbl_805D541C;
+extern s32 lbl_805D5420;
+s32 TLobby__sub_80103BFC(s32 n, s32 val);
+void debug_print__6TLobbyFii(const char *, ...);
+extern char lbl_8043E048[];
+extern Ent_801037A0 **lbl_805D541C;
+extern s32 lbl_805D5420;
+Ent_801037A0 *TLobby__sub_80103D10(s32 n, s32 val);
 }
 
 extern "C" {
 
 void *TLobby__sub_80101AB0(s32);
-M2C_UNK TLobby__sub_80103BFC(s32, s32);
 M2C_UNK bswap_player_packet__6TLobbyFPv();
 
 void TLobby__sub_801036CC(void) {
@@ -90,7 +122,7 @@ void handle_6x63_destroy_floor_item(void *arg0) {
     struct VObj_80103748 *o;
 
     bswap_player_packet__6TLobbyFPv();
-    TLobby__sub_80103BFC(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 4));
+    TLobby__sub_80103BFC((s32)(M2C_FIELD(arg0, s32 *, 8)), (s32)(M2C_FIELD(arg0, s32 *, 4)));
     o = (struct VObj_80103748 *)TLobby__sub_80101AB0(M2C_FIELD(arg0, s32 *, 4));
     if (o != NULL) {
         o->m27();
@@ -127,6 +159,41 @@ s32 TLobby__sub_8010385C(s32 arg0) {
     return 1;
 }
 
+void TLobby__sub_80103890(Save_80103890 *src) {
+    s32 i;
+    u16 b;
+    s32 k;
+    s32 j;
+    s32 count;
+    Ent_801037A0 *p;
+    s32 n;
+    TLobby__sub_80103F68();
+    TLobby__sub_801042C0(src);
+    for (i = 0; i < 0x10; i++) {
+        lbl_805D542C[i] = src->slots[i];
+    }
+    for (b = 0; b != 0xC; b++) {
+        set_boss_buf_entry__6TLobbyFii(src->boss[b], b);
+    }
+    for (i = 0; i < 0xF; i++) {
+        (*(s32 **)&lbl_805D5420)[i] = src->counts[i];
+    }
+    k = 0;
+    for (j = 0; j != 0xF; j++) {
+        count = (*(s32 **)&lbl_805D5420)[j];
+        p = lbl_805D541C[j];
+        for (n = 0; n != count; n++, p++) {
+            TLobby__sub_80104258(p, &src->items[k++]);
+            bswap_item__6TLobbyFPv(p);
+            TItemData__sub_8010CCB0((u8 *)p + 0x10);
+        }
+    }
+    if (TObjPlayer__sub_8001BEF8(&lbl_805D5440, 1) != 0) {
+        TLobby__sub_80103B70(0);
+    }
+    TLobby__sub_801041D8();
+}
+
 u16 TLobby__sub_80103AD4(void) {
     s32 temp_r0;
     if ((s32) lbl_805D5428 != 0) {
@@ -152,6 +219,77 @@ s32 TLobby__sub_80103B44(s32 arg0) {
         return 1;
     }
     return 0;
+}
+s32 TLobby__sub_80103BFC(s32 n, s32 val) {
+    Ent_801037A0 *list;
+    s32 count;
+    s32 lo;
+    s32 mid;
+    s32 hi;
+    if (n >= 0x12) {
+        return 0;
+    }
+    list = lbl_805D541C[n];
+    if (list != NULL) {
+        count = (*(s32 **)&lbl_805D5420)[n];
+        if (count == 0) {
+            return 0;
+        }
+        hi = count - 1;
+        lo = 0;
+        while (lo < hi) {
+            mid = (lo + hi) / 2;
+            if (list[mid].val < val) {
+                lo = mid + 1;
+            } else {
+                hi = mid;
+            }
+        }
+        if (val == list[lo].val) {
+            memcpy(&list[lo], &list[lo + 1], (count - (lo + 1)) * 0x24);
+            (*(s32 **)&lbl_805D5420)[n]--;
+            TLobby__sub_8010314C(&list[(*(s32 **)&lbl_805D5420)[n]]);
+            return 1;
+        }
+        return 0;
+    }
+    debug_print__6TLobbyFii(lbl_8043E048);
+    return 0;
+}
+Ent_801037A0 *TLobby__sub_80103D10(s32 n, s32 val) {
+    Ent_801037A0 *list;
+    s32 count;
+    s32 lo;
+    s32 mid;
+    s32 hi;
+    Ent_801037A0 *p;
+    if (n >= 0x12) {
+        return NULL;
+    }
+    list = lbl_805D541C[n];
+    if (list != NULL) {
+        count = (*(s32 **)&lbl_805D5420)[n];
+        if (count == 0) {
+            return NULL;
+        }
+        hi = count - 1;
+        lo = 0;
+        while (lo < hi) {
+            mid = (lo + hi) >> 1;
+            if (list[mid].val < val) {
+                lo = mid + 1;
+            } else {
+                hi = mid;
+            }
+        }
+        p = &list[lo];
+        if (val == p->val) {
+            return p;
+        }
+        return NULL;
+    }
+    debug_print__6TLobbyFii(lbl_8043E048);
+    return NULL;
 }
 
 }

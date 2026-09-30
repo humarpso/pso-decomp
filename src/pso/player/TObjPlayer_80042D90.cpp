@@ -19,6 +19,15 @@ struct V_80042ED0 { s32 a, b, c; };
 
 struct E_80042ED0 { u8 b[0x30]; };
 
+typedef struct Vec_80042DE8 {
+    f32 x, y, z;
+} Vec_80042DE8;
+
+typedef struct Obj_80042DE8 {
+    u8 pad0[0x38];
+    Vec_80042DE8 pos;
+} Obj_80042DE8;
+
 extern "C" {
 void render_anim_model__10TObjPlayerFPvf(void *, f32);
 void TCameraCtrl__sub_803D8934(s32, void *, s32);
@@ -30,6 +39,16 @@ extern V_80042ED0 lbl_80436630;
 extern u8 lbl_8058D490[];
 extern E_80042ED0 *lbl_805D5678;
 void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2);
+Obj_80042DE8 *get_player_data__10TObjPlayerFi(s32);
+u16 obj_getField1c(void);
+void scale_velocity__19TObjGyaranzoMissileFPvf(Vec_80042DE8 *, f32);
+void TBoss4Zako__sub_803D8910(Vec_80042DE8 *, Vec_80042DE8 *);
+void TBoss6Type1__sub_803D9370(Vec_80042DE8 *, Vec_80042DE8 *);
+extern s32 lbl_805D586C;
+extern const f32 lbl_805D8760;
+extern const f32 lbl_805D8764;
+extern const f32 lbl_805D8768;
+void TObjPlayer__sub_80042DE8(Obj_80042DE8 *self);
 }
 
 extern "C" {
@@ -44,6 +63,28 @@ void set_target_id__10TObjPlayerFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
         update_if_active__15TObjEneMe1GiGueFPv(arg0, 2);
         M2C_FIELD(arg0, s32 *, 0x3A8) = arg1;
+    }
+}
+
+void TObjPlayer__sub_80042DE8(Obj_80042DE8 *self) {
+    f32 r2;
+    s32 i;
+    Obj_80042DE8 *pl;
+    r2 = lbl_805D8760;
+    for (i = 0; i < lbl_805D586C; i++) {
+        pl = get_player_data__10TObjPlayerFi(i);
+        if (pl == NULL || obj_getField1c() >= 0x1000) {
+            break;
+        }
+        {
+            Vec_80042DE8 v = pl->pos;
+            TBoss6Type1__sub_803D9370(&v, &self->pos);
+            if (v.x * v.x + v.z * v.z <= r2) {
+                v.y = lbl_805D8764;
+                scale_velocity__19TObjGyaranzoMissileFPvf(&v, lbl_805D8768);
+                TBoss4Zako__sub_803D8910(&pl->pos, &v);
+            }
+        }
     }
 }
 

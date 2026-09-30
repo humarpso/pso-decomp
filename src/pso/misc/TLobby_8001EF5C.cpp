@@ -11,6 +11,31 @@ struct Ent_8001FB6C { s32 a; s32 data; };
 
 struct Lobby_8001FB6C { u8 pad[0x430]; struct Ent_8001FB6C *entries; };
 
+typedef struct Ent_8001F018 {
+    s32 flags;
+    s32 unk4;
+    s32 unk8;
+    s32 data;
+} Ent_8001F018;
+
+typedef struct Lobby_8001F018 {
+    s32 flags;
+    u8 pad4[0x42C - 0x4];
+    Ent_8001F018 *entries;
+} Lobby_8001F018;
+
+typedef struct Ent_8001FD98 {
+    s32 flags;
+    s32 unk4;
+    void *motion;
+    void *texture;
+} Ent_8001FD98;
+
+typedef struct Lobby_8001FD98 {
+    u8 pad0[0x42C];
+    Ent_8001FD98 *entries;
+} Lobby_8001FD98;
+
 extern "C" {
 M2C_UNK TItemDrop__sub_800FE2DC();
 s32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
@@ -36,6 +61,32 @@ s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
 extern M2C_UNK lbl_80434CC4[];
 s32 TLobby__sub_8001FB6C(struct Lobby_8001FB6C *self, s32 idx, void *bytes);
+s32 TGStream__sub_800FDBA8(void *, s32);
+M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
+M2C_UNK TLobby__sub_8013189C(void *, void *, void *);
+M2C_UNK TLobby__sub_803DE084(s32, s32);
+extern M2C_UNK lbl_80434B04[];
+extern M2C_UNK lbl_80434B24[];
+extern s32 lbl_805D4ACC;
+extern M2C_UNK lbl_805D7F10;
+void TLobby__sub_8001F018(Lobby_8001F018 *arg0, void *arg1, s32 arg2);
+s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 set_stream_state__6TLobbyFi(s32, s32);
+M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
+extern M2C_UNK lbl_80434D10[];
+extern M2C_UNK lbl_80434D30[];
+extern M2C_UNK lbl_80434D54[];
+extern s32 lbl_805D4ACC;
+s32 TLobby__sub_8001FCC4(Lobby_8001FB6C *arg0, s32 arg1, s32 arg2);
+void TLobby__sub_8001F018(Lobby_8001F018 *arg0, void *arg1, s32 arg2);
+s32 TLobby__sub_8001FBEC(void *, u32, s32, s32);
+s32 set_stream_state__6TLobbyFi(s32, s32);
+s32 TLobby__sub_800FD944(s32);
+M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
+extern M2C_UNK lbl_80434D74[];
+extern M2C_UNK lbl_80434D94[];
+extern s32 lbl_805D4ACC;
+s32 TLobby__sub_8001FD98(Lobby_8001FD98 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -68,6 +119,24 @@ s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
         return temp_r31;
     }
     return TLobby__sub_803DE328(arg1, arg2, arg3);
+}
+
+void TLobby__sub_8001F018(Lobby_8001F018 *arg0, void *arg1, s32 arg2) {
+    char buf[0x20];
+    s32 size;
+    TLobby__sub_8013189C(buf, arg1, &lbl_805D7F10);
+    size = TGStream__sub_800FDBA8(buf, lbl_805D4ACC);
+    if (size > 0x40000) {
+        debug_print__6TLobbyFii(lbl_80434B04, buf);
+    } else if (size > 0) {
+        TLobby__sub_803DE084(lbl_805D4ACC, arg0->entries[arg2].data);
+        arg0->entries[arg2].flags |= 1;
+    } else {
+        arg0->entries[arg2].flags |= 2;
+        if (!(arg0->flags & 4)) {
+            debug_print__6TLobbyFii(lbl_80434B24, buf);
+        }
+    }
 }
 
 void set_flag_and_notify__6TLobbyFPv(void *arg0) {
@@ -146,6 +215,49 @@ s32 TLobby__sub_8001FB6C(struct Lobby_8001FB6C *self, s32 idx, void *bytes) {
         return 0;
     }
     self->entries[idx].data = r;
+    return 1;
+}
+
+s32 TLobby__sub_8001FCC4(Lobby_8001FB6C *arg0, s32 arg1, s32 arg2) {
+    u32 offset;
+    s32 tag;
+    s32 size;
+    s32 data;
+    arg0->entries[arg2].data = 0;
+    size = set_stream_state__6TLobbyFi(arg1, lbl_805D4ACC);
+    if (size == 0) {
+        debug_print__6TLobbyFii(lbl_80434D10, arg1);
+        return 0;
+    }
+    if (size > 0x40000) {
+        debug_print__6TLobbyFii(lbl_80434D30, size - 0x40000);
+    }
+    offset = 0;
+    data = alloc_load_data__6TLobbyFPviii((void *)(arg0), (s32)(lbl_805D4ACC), (s32)(&offset), (s32)(&tag));
+    if (data == 0) {
+        debug_print__6TLobbyFii(lbl_80434D54);
+    }
+    arg0->entries[arg2].data = data;
+    return 1;
+}
+
+s32 TLobby__sub_8001FD98(Lobby_8001FD98 *arg0, s32 arg1, s32 arg2) {
+    s32 size;
+    arg0->entries[arg2].motion = NULL;
+    arg0->entries[arg2].texture = NULL;
+    size = TLobby__sub_800FD944(arg1);
+    if (size <= 0) {
+        debug_print__6TLobbyFii(lbl_80434D74, arg1);
+        return 0;
+    }
+    if (size > 0x40000) {
+        debug_print__6TLobbyFii(lbl_80434D94, size - 0x40000);
+    }
+    set_stream_state__6TLobbyFi(arg1, lbl_805D4ACC);
+    TLobby__sub_8001FBEC(arg0, size, arg2, lbl_805D4ACC);
+    if (arg0->entries[arg2].texture != NULL) {
+        TLobby__sub_8001F018((Lobby_8001F018 *)(arg0), (void *)(arg1), (s32)(arg2));
+    }
     return 1;
 }
 

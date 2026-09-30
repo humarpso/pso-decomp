@@ -16,6 +16,11 @@ struct Field_80080CC0 { u16 *buffer; u32 cursor; u32 width; u32 linePixels; s32 
 
 struct Field_800809C0 { u16 *buffer; u32 cursor; };
 
+struct Kb_800808FC {
+    u16 *buffer;
+    s32 cursor;
+};
+
 extern "C" {
 u16 TWindowSubStatusDisp__sub_80145054(u16);
 u8 TWindowSubStatusDisp__sub_80144FCC(u16);
@@ -25,6 +30,12 @@ extern u16 lbl_8048E020[];
 s32 TWindowKeyBoardSoft__sub_80080ABC(Field_80080ABC *f);
 void TWindowKeyBoardSoft__sub_80080CC0(Field_80080CC0 *f);
 s32 TWindowKeyBoardSoft__sub_800809C0(Field_800809C0 *f);
+void TWindowKeyBoardSoft__sub_80080A08(Kb_800808FC *);
+s32 TWindowKeyBoardSoft__sub_80080ABC(Field_80080ABC *f);
+s32 TWindowKeyBoardSoft__sub_80080B34(Kb_800808FC *);
+void TWindowKeyBoardSoft__sub_80080CC0(Field_80080CC0 *f);
+s32 TWindowKeyBoardSoft__sub_80080F68(F_80080F68 *arg0, u16 arg1);
+void TWindowKeyBoardSoft__sub_800808FC(Kb_800808FC *kb, u16 ch);
 }
 
 extern "C" {
@@ -50,6 +61,29 @@ void TWindowKeyBoardSoft__sub_80080798(F_80080798 *arg0, u8 *arg1) {
         TWindowKeyBoardSoft__sub_80080CC0((Field_80080CC0 *)arg0);
         arg0->buffer[arg0->cursor] = c;
         arg0->cursor++;
+    }
+}
+
+void TWindowKeyBoardSoft__sub_800808FC(Kb_800808FC *kb, u16 ch) {
+    switch (ch) {
+    case 0x814A:
+        if (TWindowKeyBoardSoft__sub_80080B34(kb) != 0) {
+            return;
+        }
+        break;
+    case 0x814B:
+        if (TWindowKeyBoardSoft__sub_80080ABC((Field_80080ABC *)kb) != 0) {
+            return;
+        }
+        break;
+    case 0xFF20:
+        TWindowKeyBoardSoft__sub_80080A08(kb);
+        return;
+    }
+    if (TWindowKeyBoardSoft__sub_80080F68((F_80080F68 *)kb, ch) == 0) {
+        TWindowKeyBoardSoft__sub_80080CC0((Field_80080CC0 *)kb);
+        kb->buffer[kb->cursor] = ch;
+        kb->cursor++;
     }
 }
 

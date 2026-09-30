@@ -1,3 +1,61 @@
+#include "types.h"
+struct Msg_801057A8 {
+    s8 client;
+    u8 pad1[3];
+    f32 x;
+    f32 z;
+    s16 area;
+    u8 pad2[2];
+    u8 item[1];
+};
+
+struct Item_801057A8 {
+    u8 pad[0x28];
+    s16 area;
+    u8 pad2[0xE];
+    f32 x;
+    f32 y;
+    f32 z;
+};
+
 extern "C" {
+s8 TObjPlayer__sub_800196EC(void);
+s32 TItem__sub_80102424(Item_801057A8 *, s32, f32 *, s32);
+s32 is_active_battle_player__10TObjPlayerFv(void);
+Item_801057A8 *TLobby__sub_8010542C(void *);
+s32 TLobby__sub_8011AED8(s32, s32, void *, f32, f32);
+Item_801057A8 *fn_801057A8(Msg_801057A8 *arg0, s32 arg1);
+}
+
+extern "C" {
+
+Item_801057A8 *fn_801057A8(Msg_801057A8 *arg0, s32 arg1) {
+    Item_801057A8 *item;
+    s32 me;
+    s32 act;
+    u8 ok;
+    item = NULL;
+    if (arg0 != NULL) {
+        me = TObjPlayer__sub_800196EC();
+        act = is_active_battle_player__10TObjPlayerFv();
+        ok = 0;
+        if (arg0->client == me && act != 1) {
+            ok = 1;
+        }
+        if (ok != 0) {
+            item = TLobby__sub_8010542C(arg0->item);
+            if (item != NULL) {
+                item->x = arg0->x;
+                item->z = arg0->z;
+                item->area = arg0->area;
+                TItem__sub_80102424(item, arg0->client, &item->x, 1);
+            }
+        }
+        if (arg1 == 0) {
+            TLobby__sub_8011AED8(arg0->client, arg0->area, arg0->item, arg0->x, arg0->z);
+        }
+    }
+    return item;
+}
 
 }

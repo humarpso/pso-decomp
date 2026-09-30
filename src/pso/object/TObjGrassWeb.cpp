@@ -4,9 +4,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+typedef struct Web_800BC798 {
+    u8 pad0[0x38];
+    u8 pos[0x84 - 0x38];
+    s32 timer;
+    u8 pad88[0x90 - 0x88];
+    s32 state;
+} Web_800BC798;
+
 extern "C" {
 int queue_destruction__12TObjGrassWebFPv(void* p);
-M2C_UNK TObjGrassWeb__sub_800BC798();
 void apply_to_player__12TObjGrassWebFPv(void *arg0);
 void run_task__12TObjGrassWebFv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
@@ -16,6 +24,10 @@ M2C_UNK TPhotonMagicSquare__sub_801A2640();
 extern M2C_UNK __vt__12TObjGrassWeb[];
 extern s32 lbl_805D2A3C;
 u8 *TObjGrassWeb__ct(u8 *arg0, s32 arg1, u32 arg2);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
+extern s32 enable_v2_features;
+void TObjGrassWeb__sub_800BC798(Web_800BC798 *o);
 }
 
 extern "C" {
@@ -39,6 +51,31 @@ int queue_destruction__7TObjectFv(void*);
 
 int queue_destruction__12TObjGrassWebFPv(void* p) { return queue_destruction__7TObjectFv(p); }
 
+void TObjGrassWeb__sub_800BC798(Web_800BC798 *o) {
+    switch (get_global_state__14TOKeyMachine01Fv()) {
+    case 3:
+    case 4:
+    case 5:
+        TOTrapAncient01__sub_80226578(0x4003A809, o, o->pos, 0, 0);
+        break;
+    case 16:
+    case 17:
+        if (enable_v2_features == 1) {
+            TOTrapAncient01__sub_80226578(0x3051E, o, o->pos, 0, 0);
+        }
+        break;
+    case 18:
+        break;
+    case 19:
+    case 20:
+        TOTrapAncient01__sub_80226578(0x3A81D, o, o->pos, 0, 0);
+        break;
+    }
+    if (o->timer-- < 0) {
+        o->state = 2;
+    }
+}
+
 void apply_to_player__12TObjGrassWebFPv(void *arg0) {
     s32 temp_r3;
 
@@ -57,7 +94,7 @@ void run_task__12TObjGrassWebFv(u8 *arg0) {
         apply_to_player__12TObjGrassWebFPv((void *)arg0);
         return;
     case 1:
-        TObjGrassWeb__sub_800BC798();
+        TObjGrassWeb__sub_800BC798((Web_800BC798 *)(arg0));
         return;
     default:
         queue_destruction__12TObjGrassWebFPv((void*)arg0);

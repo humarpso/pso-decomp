@@ -52,6 +52,12 @@ struct Ctx_8011C7C8 { u8 group; u8 variant; u8 pad[2]; u8 *owner; };
 
 typedef struct Pmt_8011CA10 { u8 pad[0x20]; f32 *t20; f32 *t24; } Pmt_8011CA10;
 
+struct Rule_8011C0B8 { u8 k[6]; u8 pad[10]; };
+
+struct RuleTbl_8011C0B8 { s32 count; Rule_8011C0B8 *rules; };
+
+struct Pmt_8011C0B8 { u8 pad[0x44]; RuleTbl_8011C0B8 *tbl; };
+
 extern "C" {
 M2C_UNK TItemDrop__sub_8010663C(u32, s32, s32, s32);
 M2C_UNK TLobby__sub_801044B8(s32 *);
@@ -99,6 +105,11 @@ extern const f32 lbl_805DAC74;
 extern s32 lbl_8043E7B4[];
 u8 TObjPlayer__sub_8011C974(u8 arg0);
 f32 TObjPlayer__sub_8011CA10(u8 arg0, u8 arg1);
+u8 get_field_ed__10TObjPlayerFPv(void *p);
+u8 get_field_ec__12TOSwitchItemFPv(void *p);
+u8 get_slot_count__14TItemProShieldFPv(void *p);
+extern void *item_pmt_tbl;
+Rule_8011C0B8 *TObjPlayer__sub_8011C0B8(u8 *id, void *item);
 }
 
 extern "C" {
@@ -146,6 +157,30 @@ s32 get_shield_pmt_entry__10TObjPlayerFUc(u8 arg0) {
 }
 
 extern void *item_mgr;
+
+Rule_8011C0B8 *TObjPlayer__sub_8011C0B8(u8 *id, void *item) {
+    Rule_8011C0B8 *r;
+    s32 n;
+    RuleTbl_8011C0B8 *t;
+    if (id != NULL && item != NULL) {
+        t = ((Pmt_8011C0B8 *)item_pmt_tbl)->tbl;
+        r = t->rules;
+        n = t->count;
+        while (n != 0) {
+            if ((id[0] == r->k[0] || r->k[0] == 0xFF) &&
+                (id[1] == r->k[1] || r->k[1] == 0xFF) &&
+                (id[2] == r->k[2] || r->k[2] == 0xFF) &&
+                (r->k[3] == get_field_ec__12TOSwitchItemFPv(item) || r->k[3] == 0xFF) &&
+                (r->k[4] == get_field_ed__10TObjPlayerFPv(item) || r->k[4] == 0xFF) &&
+                (r->k[5] == get_slot_count__14TItemProShieldFPv(item) || r->k[5] == 0xFF)) {
+                return r;
+            }
+            r++;
+            n--;
+        }
+    }
+    return NULL;
+}
 
 u8 TObjPlayer__sub_8011C1C8(s8 arg0, u8 arg1) {
     return (*(u8 (**)[12])((s8 *)(*(u8 * *)&item_pmt_tbl) + 0x40))[arg1][arg0];

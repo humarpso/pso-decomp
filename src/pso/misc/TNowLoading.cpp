@@ -16,6 +16,22 @@ struct RecoveredGlobal_8001D19C_lbl_804FF5E8 {
     u8 remaining[0x24];
 };
 
+typedef struct Vec_8001D3A8 { f32 x, y, z; } Vec_8001D3A8;
+
+typedef struct Cam_8001D3A8 {
+    Vec_8001D3A8 eye;
+    Vec_8001D3A8 dir;
+    u8 pad18[0x10];
+} Cam_8001D3A8;
+
+typedef struct TNowLoading_8001D3A8 {
+    s32 unk0;
+    u8 pad4[0x18 - 0x4];
+    void *vtable;
+    void *children[4];
+    Vec_8001D3A8 pos;
+} TNowLoading_8001D3A8;
+
 extern "C" {
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 extern RecoveredGlobal_8001D19C_lbl_804FF5E8 lbl_804FF5E8;
@@ -28,6 +44,17 @@ void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void *);
 void TLobby__sub_8001D9DC(void);
 extern s32 lbl_805D4A90;
 s32 TLobby__sub_8001D568(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK TLoadingCur__ct(void *, void *, void *);
+M2C_UNK TBoss1Dragon__sub_8014220C(void *, void *, void *);
+void *__nw__7TObjectFUl(u32);
+M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
+M2C_UNK TAdLoadNetworkGC__ct(void *, void *, void *);
+extern M2C_UNK __vt__11TNowLoading[];
+extern RecoveredGlobal_8001D19C_lbl_804FF5E8 lbl_804FF5E8;
+extern s32 lbl_805D2640;
+extern const f32 lbl_805D7EC0;
+TNowLoading_8001D3A8 *TNowLoading__ct(TNowLoading_8001D3A8 *arg0, void *arg1, Vec_8001D3A8 *arg2);
 }
 
 extern "C" {
@@ -118,6 +145,44 @@ void *__dt__11TNowLoadingFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+#pragma push
+#pragma fp_contract on
+TNowLoading_8001D3A8 *TNowLoading__ct(TNowLoading_8001D3A8 *arg0, void *arg1, Vec_8001D3A8 *arg2) {
+    Vec_8001D3A8 dir;
+    s32 out[3];
+    Cam_8001D3A8 *cam;
+    void *p;
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    arg0->vtable = __vt__11TNowLoading;
+    arg0->unk0 = lbl_805D2640;
+    VecCopy__FP3VecPC3Vec(&arg0->pos, arg2);
+    cam = (Cam_8001D3A8 *) &lbl_804FF5E8;
+    out[0] = 0;
+    out[1] = 0;
+    out[2] = 0;
+    dir.x = -cam->dir.x;
+    dir.y = -cam->dir.y;
+    dir.z = -cam->dir.z;
+    TBoss1Dragon__sub_8014220C(&dir, &out[0], &out[2]);
+    arg0->pos.x = lbl_805D7EC0 * cam->dir.x + M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0);
+    arg0->pos.y = lbl_805D7EC0 * cam->dir.y + M2C_FIELD(&lbl_804FF5E8.value, f32 *, 4);
+    arg0->pos.z = lbl_805D7EC0 * cam->dir.z + M2C_FIELD(&lbl_804FF5E8.value, f32 *, 8);
+    arg0->children[0] = NULL;
+    arg0->children[1] = NULL;
+    arg0->children[2] = NULL;
+    arg0->children[3] = NULL;
+    p = __nw__7TObjectFUl(0x40);
+    if (p != NULL) {
+        TAdLoadNetworkGC__ct(p, arg0, &arg0->pos);
+    }
+    p = __nw__7TObjectFUl(0x5C);
+    if (p != NULL) {
+        TLoadingCur__ct(p, arg0, &arg0->pos);
+    }
+    return arg0;
+}
+#pragma pop
 
 void TNowLoading__sub_8001D4D0(void) {  }
 void TNowLoading__sub_8001D4D4(void) {  }

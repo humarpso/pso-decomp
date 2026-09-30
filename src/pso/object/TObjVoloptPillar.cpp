@@ -18,6 +18,31 @@ struct S_8004A574 {
     s32 fbc;
 };
 
+struct VBase_8004A0AC { u8 pad[0x18]; };
+
+struct VObj_8004A0AC : VBase_8004A0AC {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+struct Obj_8004A0AC : VObj_8004A0AC {
+    u8 pad1c[0x38 - 0x1c];
+    f32 f38;
+    f32 f3c;
+    f32 f40;
+    u8 pad44[0x60 - 0x44];
+    s32 f60;
+    u8 pad64[0xb8 - 0x64];
+    f32 fb8;
+};
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 TObjPlayer__sub_8013153C(void *, void *);
@@ -32,6 +57,31 @@ extern const f32 TObjVoloptPillar__data_805D88C8;
 extern const f32 lbl_805D88E4;
 extern const f32 lbl_805D88E8;
 S_8004A574 *TObjVoloptPillar__ct(S_8004A574 *o, void *pos, s32 arg2);
+void toggle_particle_effect__10TObjPlayerFv();
+void TObjPlayer__sub_800F09E8(s32);
+void TObjLight__sub_80134098();
+void TObjLight__sub_80134194(void *);
+void end_effect_render__13TParticleCtrlFv();
+void TOMonitorMachine01__sub_803D8B5C(s32, f32, f32, f32);
+void TObjPlayer__sub_803D9214(s32, s32);
+void TObjPlayer__sub_803D9624(s32, f32, f32, f32);
+void TObjContainerIdo__sub_803D96A8(s32, s32);
+void TObjPlayer__sub_803D9B2C();
+void TObjPlayer__sub_803D9B78();
+void TOHangerMachine01__sub_803D9C00(void *);
+void set_global_param__8TObjFishFi(s32);
+void TObjFish__sub_803E46BC(s32);
+extern s32 lbl_805D4D38;
+extern s32 lbl_805D4D3C;
+extern s32 lbl_805D4D40;
+extern s32 lbl_805D4D44;
+extern const f32 lbl_805D88B8;
+extern const f32 lbl_805D88BC;
+extern const f32 lbl_805D88C0;
+extern const f32 lbl_805D88C4;
+extern const f32 TObjVoloptPillar__data_805D88C8;
+extern const f32 lbl_805D88CC;
+void render__16TObjVoloptPillarFv(Obj_8004A0AC *arg0);
 }
 
 extern "C" {
@@ -47,6 +97,35 @@ extern s32 lbl_805D4D38;
 extern s32 lbl_805D4D3C;
 extern s32 lbl_805D4D40;
 extern s32 lbl_805D4D44;
+
+#pragma fp_contract on
+void render__16TObjVoloptPillarFv(Obj_8004A0AC *arg0) {
+    f32 s;
+    if (arg0->m8(lbl_805D88B8, lbl_805D88BC) != 0) {
+        TObjLight__sub_80134194(arg0);
+        toggle_particle_effect__10TObjPlayerFv();
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(&arg0->f38);
+        set_global_param__8TObjFishFi(lbl_805D4D40);
+        TObjFish__sub_803E46BC(lbl_805D4D38);
+        TObjPlayer__sub_803D9B78();
+        TObjPlayer__sub_803D9B2C();
+        TObjPlayer__sub_803D9624(0, arg0->f38, arg0->fb8, arg0->f40);
+        set_global_param__8TObjFishFi(lbl_805D4D44);
+        TObjFish__sub_803E46BC(lbl_805D4D3C);
+        TObjPlayer__sub_803D9B78();
+        TObjLight__sub_80134098();
+        end_effect_render__13TParticleCtrlFv();
+        s = lbl_805D88C4 * (TObjVoloptPillar__data_805D88C8 - arg0->f3c) + lbl_805D88C0;
+        TObjPlayer__sub_803D9B2C();
+        TObjPlayer__sub_803D9624(0, arg0->f38, lbl_805D88CC, arg0->f40);
+        TObjPlayer__sub_803D9214(0, arg0->f60);
+        TObjContainerIdo__sub_803D96A8(0, -0x4000);
+        TOMonitorMachine01__sub_803D8B5C(0, s, s, s);
+        TObjPlayer__sub_800F09E8(0);
+        TObjPlayer__sub_803D9B78();
+    }
+}
 
 void cache_target_values__16TObjVoloptPillarFv(void) {
     lbl_805D4D38 = M2C_FIELD(M2C_FIELD(lbl_805D4C10, void **, 0x42C), s32 *, 0x178);

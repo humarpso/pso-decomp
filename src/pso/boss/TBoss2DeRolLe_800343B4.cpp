@@ -4,6 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef struct Vec_800344A4 {
+    f32 x, y, z;
+} Vec_800344A4;
+
+typedef struct DeRolLe_800344A4 {
+    u8 pad0[0x3D8];
+    u8 unk3D8[0x540 - 0x3D8];
+    Vec_800344A4 pts[8];
+    u8 pad5A0[0x5E0 - 0x5A0];
+    void *joints[8];
+    u8 pad600[0x654 - 0x600];
+    s32 mode;
+} DeRolLe_800344A4;
+
 extern "C" {
 s32 TBoss2DeRolLe__sub_80035FCC(void *);
 extern const f32 TBoss2DeRolLe__data_805D8280;
@@ -20,6 +34,15 @@ extern const f32 TBoss2DeRolLe__data_805D8328;
 extern const f32 TBoss2DeRolLe__data_805D8334;
 extern const f32 lbl_805D8440;
 u8 TBoss2DeRolLe__sub_80034960(u8 *arg0);
+void call_36A90_with_1__11TBoss2JointFPv(void *);
+void *__ct__15TBoss2PhotonPadFv(void *, void *, Vec_800344A4 *, Vec_800344A4 *, s32);
+void TBoss3Volopt__sub_8022675C(s32, Vec_800344A4 *, s32, s32);
+void *__nw__7TObjectFUl(u32);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern const f32 TBoss2DeRolLe__data_805D827C;
+extern const f32 TBoss2DeRolLe__data_805D832C;
+void TBoss2DeRolLe__sub_800344A4(DeRolLe_800344A4 *self, s32 idx, s32 arg2);
 }
 
 extern "C" {
@@ -66,6 +89,25 @@ void TBoss2DeRolLe__sub_8003443C(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x6C4) = (f32) ((TBoss2DeRolLe__data_805D82DC * M2C_FIELD(arg0, f32 *, 0x4FC)) + M2C_FIELD(arg0, f32 *, 0x6C4));
 }
 #pragma pop
+
+void TBoss2DeRolLe__sub_800344A4(DeRolLe_800344A4 *self, s32 idx, s32 arg2) {
+    Vec_800344A4 v;
+    s32 ang;
+    void *p;
+    ang = 0x3800 - idx * 0x33;
+    v.x = TBoss8Dragon__sub_803D64C0(ang);
+    v.y = TBoss2DeRolLe__data_805D827C;
+    v.z = TBoss8Dragon__sub_803D64DC(ang);
+    if (self->mode == 2) {
+        v.x *= TBoss2DeRolLe__data_805D832C;
+    }
+    p = __nw__7TObjectFUl(0x38);
+    if (p != NULL) {
+        __ct__15TBoss2PhotonPadFv(p, self->unk3D8, &self->pts[idx], &v, arg2);
+    }
+    TBoss3Volopt__sub_8022675C(0x4003B708, &self->pts[idx], 0, 1);
+    call_36A90_with_1__11TBoss2JointFPv(self->joints[idx]);
+}
 
 void init_wave_params__13TBoss2DeRolLeFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x660) = 1;

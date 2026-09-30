@@ -4,10 +4,48 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Obj_8008E098 {
+    u8 pad0[0x1C];
+    u16 field1C;
+    u8 pad1E[0x28 - 0x1E];
+    s16 field28;
+    u8 pad2A[0x3C4 - 0x2A];
+    s32 ids[5];
+    s16 count;
+};
+
+struct Vec_8008E18C { f32 x, y, z; };
+
+struct Obj_8008E18C {
+    u8 pad0[0x38];
+    Vec_8008E18C pos;
+    u8 pad44[0x60 - 0x44];
+    s32 field60;
+};
+
 extern "C" {
 int get_flag_0x388_b24__10TObjPlayerFPv(void *p);
 int update_if_active__15TObjEneMe1GiGueFPv(void*, int);
 void TObjPlayer__sub_8008E708(void *self);
+void *get_player_data__10TObjPlayerFi(s32);
+u16 obj_getField1c(void *);
+void TObjEneBalClawClaw__sub_8009097C(u32, u16);
+s32 check_active__18TObjEneBalClawClawFPv(void *);
+s32 get_target_id__13TWindowLockOnFPv(void *);
+u32 TPhotonMylla__sub_80154CB4(u16);
+extern s32 lbl_805D586C;
+extern s32 lbl_805D5870;
+s32 TObjPlayer__sub_8008E098(Obj_8008E098 *self);
+void TBoss4Zako__sub_803D8910(Vec_8008E18C *, Vec_8008E18C *);
+void TCameraCtrl__sub_803D8934(void *, Vec_8008E18C *, Vec_8008E18C *);
+void TObjPlayer__sub_803D8CD4(void *);
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+extern const f32 lbl_805D9620;
+extern const f32 lbl_805D962C;
+extern const f32 lbl_805D9630;
+void TObjPlayer__sub_8008E18C(Obj_8008E18C *self, s32 slot, Vec_8008E18C *out, s32 *angle_out);
 }
 
 extern "C" {
@@ -55,6 +93,42 @@ extern const f32 lbl_805D9620;
 extern const f32 lbl_805D9628;
 extern const f32 lbl_805D963C;
 extern const f32 lbl_805D9640;
+
+s32 TObjPlayer__sub_8008E098(Obj_8008E098 *self) {
+    s32 i;
+    Obj_8008E098 *p;
+    s32 j;
+    self->count = 0;
+    for (i = lbl_805D586C; i < lbl_805D586C + lbl_805D5870; i++) {
+        p = (Obj_8008E098 *)get_player_data__10TObjPlayerFi(i);
+        if (p != NULL && get_target_id__13TWindowLockOnFPv(p) == 0x26 &&
+            self->field28 == p->field28 && check_active__18TObjEneBalClawClawFPv(p) != 0) {
+            self->ids[self->count++] = obj_getField1c(p);
+            if (self->count >= 4) {
+                break;
+            }
+        }
+    }
+    for (j = 0; j < self->count; j++) {
+        TObjEneBalClawClaw__sub_8009097C(TPhotonMylla__sub_80154CB4(self->ids[j]), self->field1C);
+    }
+    return self->count;
+}
+
+void TObjPlayer__sub_8008E18C(Obj_8008E18C *self, s32 slot, Vec_8008E18C *out, s32 *angle_out) {
+    s32 angle;
+    TObjPlayer__sub_803D9B2C();
+    angle = (s32)(lbl_805D962C * (f32)(slot * 0x5A + 0x2D));
+    *angle_out = self->field60 + angle;
+    out->x = lbl_805D9620;
+    out->y = lbl_805D9620;
+    out->z = lbl_805D9630;
+    TObjPlayer__sub_803D8CD4(0);
+    TObjPlayer__sub_803D9214((M2C_UNK)(0), (s32)(angle));
+    TCameraCtrl__sub_803D8934(0, out, out);
+    TBoss4Zako__sub_803D8910(out, &self->pos);
+    TObjPlayer__sub_803D9B78();
+}
 
 void TObjPlayer__sub_8008E708(void *self) {
     update_if_active__15TObjEneMe1GiGueFPv((void*)(self), (int)(get_flag_0x388_b24__10TObjPlayerFPv(self) ? 9 : 2));

@@ -12,6 +12,13 @@ struct Stack_800B7C14 {
     f32 sp10;
 };
 
+typedef struct Wolf_800B7DDC {
+    u8 pad0[0x60];
+    s32 facing;
+    u8 pad64[0x3E4 - 0x64];
+    s32 turn;
+} Wolf_800B7DDC;
+
 extern "C" {
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 extern u8 *TObjEneBm5Wolf__data_805D5120;
@@ -28,6 +35,9 @@ extern const f32 TObjEneBm5Wolf__data_805D9D8C;
 extern const f32 lbl_805D9E18;
 extern const f32 lbl_805D9E54;
 extern const f32 lbl_805D9E58;
+s32 TBoss4Type2__sub_80141FA8(s32, s32);
+s32 TObjPlayer__sub_801423A4(s32, s32, s32);
+void TObjEneBm5Wolf__sub_800B7DDC(Wolf_800B7DDC *s, s32 target);
 }
 
 extern "C" {
@@ -90,6 +100,28 @@ void TObjEneBm5Wolf::choose_roaming_destination() {
     }
 }
 #pragma pop
+
+void TObjEneBm5Wolf__sub_800B7DDC(Wolf_800B7DDC *s, s32 target) {
+    s32 d;
+    d = TBoss4Type2__sub_80141FA8(s->facing, target);
+    if (d > 0x4000) {
+        d = 0x4000;
+    } else if (d < -0x4000) {
+        d = -0x4000;
+    }
+    if (s->turn * d >= 0) {
+        s->turn = TObjPlayer__sub_801423A4(s->turn, d, 0x800);
+    } else if (s->turn * TBoss4Type2__sub_80141FA8(s->turn, d) >= 0) {
+        if (s->turn >= 0) {
+            s->turn -= 0x800;
+        } else {
+            s->turn += 0x800;
+        }
+    } else {
+        s->turn = TObjPlayer__sub_801423A4(s->turn, d, 0x800);
+    }
+    s->turn = (s16)s->turn;
+}
 
 void TObjEneBm5Wolf__sub_800B7EA0(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3DC) = (s32) get_random_float__21TObjEneMe3ShinowaRealFv((f32) (M2C_FIELD(arg0, f32 *, 0x354)));

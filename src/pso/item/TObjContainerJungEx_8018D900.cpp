@@ -9,6 +9,26 @@ typedef char RecoveredGlobal_8018D9B0_lbl_804B7158_size[sizeof(RecoveredGlobal_8
 
 struct O_8018DB94 { u8 pad[0xac]; s32 state; f32 pos; f32 max; f32 speed; };
 
+struct Obj_8018DA54 {
+    u8 pad[0x38];
+    f32 pos[3];
+    u8 pad44[0xAC - 0x44];
+    s32 state;
+    u8 padb0[0xD0 - 0xB0];
+    u32 flags;
+};
+
+struct Obj_8018DBCC {
+    u8 pad[0x38];
+    f32 pos[3];
+    u8 pad44[0xAC - 0x44];
+    s32 state;
+    u8 padb0[0xD0 - 0xB0];
+    u32 flags;
+    u8 padd4[0xD8 - 0xD4];
+    f32 xd8;
+};
+
 extern "C" {
 u8 * TObjFish__sub_8001EDB0(void *, int);
 extern u32 TObjContainerJungEx__data_805D5BA8;
@@ -26,6 +46,20 @@ extern const f32 TObjDoaEx01__data_805DBDA0;
 void TObjDoaEx01__vt16(u8 *arg0);
 extern const f32 TObjDoaEx01__data_805DBDA8;
 void TObjDoaEx01__vt14(O_8018DB94 *self);
+s32 TODragonfly__sub_80158360(void *, f32);
+s32 get_global_state__14TOKeyMachine01Fv();
+void TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+extern const f32 lbl_805DBDA4;
+void TObjDoaEx01__vt15(Obj_8018DA54 *self);
+void set_indexed_flags(void *, int, int);
+s32 TODragonfly__sub_80158360(void *, f32);
+s32 get_global_state__14TOKeyMachine01Fv();
+void TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+extern const f32 TObjDoaEx01__data_805DBDA0;
+extern const f32 TObjDoaEx01__data_805DBDA8;
+extern const f32 lbl_805DBDAC;
+extern const f32 lbl_805DBDB0;
+void TObjDoaEx01__vt13(Obj_8018DBCC *self);
 }
 
 extern "C" {
@@ -78,11 +112,78 @@ void TObjDoaEx01__vt16(u8 *arg0) {
 }
 #pragma pop
 
+void TObjDoaEx01__vt15(Obj_8018DA54 *self) {
+    if (self->flags & 1) {
+        if (TODragonfly__sub_80158360(self, lbl_805DBDA4) == 0) {
+            self->state = 3;
+            switch (get_global_state__14TOKeyMachine01Fv()) {
+            case 19:
+            case 20:
+                TBoss3Volopt__sub_8022675C(0x4BF0B, self->pos, 0, 0);
+                break;
+            case 21:
+            case 22:
+                TBoss3Volopt__sub_8022675C(0x4004AA0B, self->pos, 0, 0);
+                break;
+            default:
+                TBoss3Volopt__sub_8022675C(0x4004AA0B, self->pos, 0, 0);
+                break;
+            }
+        }
+    } else {
+        self->state = 3;
+        switch (get_global_state__14TOKeyMachine01Fv()) {
+        case 19:
+        case 20:
+            TBoss3Volopt__sub_8022675C(0x4BF0B, self->pos, 0, 0);
+            break;
+        case 21:
+        case 22:
+            TBoss3Volopt__sub_8022675C(0x4004AA0B, self->pos, 0, 0);
+            break;
+        default:
+            TBoss3Volopt__sub_8022675C(0x4004AA0B, self->pos, 0, 0);
+            break;
+        }
+    }
+}
+
 void TObjDoaEx01__vt14(O_8018DB94 *self) {
     self->pos += self->speed;
     if (self->pos > self->max - TObjDoaEx01__data_805DBDA8) {
         self->pos = self->max - TObjDoaEx01__data_805DBDA8;
         self->state = 2;
+    }
+}
+void TObjDoaEx01__vt13(Obj_8018DBCC *self) {
+    if (self->flags & 1) {
+        if (TODragonfly__sub_80158360(self, lbl_805DBDAC) == 1) {
+            self->state = 1;
+            set_indexed_flags(self, 0, 8);
+            switch (get_global_state__14TOKeyMachine01Fv()) {
+            case 19:
+            case 20:
+                TBoss3Volopt__sub_8022675C(0x4BF0B, self->pos, 0, 0);
+                break;
+            case 21:
+            case 22:
+                TBoss3Volopt__sub_8022675C(0x4004AA0B, self->pos, 0, 0);
+                break;
+            default:
+                TBoss3Volopt__sub_8022675C(0x4004AA0B, self->pos, 0, 0);
+                break;
+            }
+        }
+    } else if (self->flags & 0x100000) {
+        self->xd8 += lbl_805DBDB0;
+        if (TObjDoaEx01__data_805DBDA8 <= self->xd8) {
+            self->flags &= ~0x100000;
+        }
+    } else {
+        self->xd8 -= lbl_805DBDB0;
+        if (self->xd8 <= TObjDoaEx01__data_805DBDA0) {
+            self->flags |= 0x100000;
+        }
     }
 }
 

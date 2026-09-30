@@ -28,11 +28,37 @@ struct VObj_18 : VBase_18 {
     virtual void m19();
     virtual M2C_UNK m20(s32, f32);
 };
+
+typedef struct EffTail_8002C06C {
+    s32 unk0;
+    u8 pad4[0x14];
+    s32 *vtbl;
+    u8 pad1C[0xA4 - 0x1C];
+    struct { u8 b[0x2C]; } *spheres;
+    u8 padA8[8];
+    s32 unkB0;
+    s32 unkB4;
+    void *unkB8;
+    s32 unkBC;
+    f32 unkC0;
+    f32 unkC4;
+    f32 unkC8;
+} EffTail_8002C06C;
+
 extern "C" {
 M2C_UNK TBoss1Dragon__sub_8002AB6C(void *);
 s32 check_v2_mode__9TObjEneDDFv();
 extern const f32 lbl_805D8158;
 void TBoss1DragonEffTail__vt20(u8 *arg0, u8 *arg1);
+void fn_8002B630(void *, void *);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+void init_instance__16TObjEneDellBiterFPvPvPvPvPv(void *, void *, s32, void *, s32);
+void *TBoss8Dragon__sub_800BC5EC(void *, s32);
+extern u8 lbl_80481C58[];
+extern M2C_UNK __vt__19TBoss1DragonEffTail[];
+extern s32 lbl_805D2678;
+extern const f32 lbl_805D8154;
+EffTail_8002C06C *TBoss1DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -78,6 +104,30 @@ void *__dt__19TBoss1DragonEffTailFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+EffTail_8002C06C *TBoss1DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 arg2) {
+    void *data;
+    s32 i;
+    void *p;
+    init_instance__16TObjEneDellBiterFPvPvPvPvPv(arg0, 0, arg1, lbl_80481C58, 0x11);
+    arg0->vtbl = ((s32 *)&__vt__19TBoss1DragonEffTail);
+    data = lbl_80481C58;
+    arg0->unk0 = lbl_805D2678;
+    for (i = 1; i < 0x11; i++) {
+        fn_8002B630(&arg0->spheres[i], data);
+    }
+    arg0->unkB0 = arg1;
+    arg0->unkB4 = arg2;
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
+    if (p != 0) {
+        p = TBoss8Dragon__sub_800BC5EC(p, 4);
+    }
+    arg0->unkB8 = p;
+    arg0->unkBC = 0;
+    arg0->unkC0 = lbl_805D8154;
+    arg0->unkC4 = lbl_805D8154;
+    arg0->unkC8 = lbl_805D8154;
     return arg0;
 }
 

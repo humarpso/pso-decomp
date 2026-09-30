@@ -9,6 +9,42 @@ struct RecoveredGlobal_80052C58_lbl_80486218 {
     u8 remaining[0x8];
 };
 
+typedef s32 M2C_UNK;
+typedef struct Vec_80052CDC {
+    f32 x, y, z;
+} Vec_80052CDC;
+
+typedef struct Params_80052CDC {
+    s32 owner;
+    s16 a[3];
+    s16 b;
+    s16 c;
+    u8 pad[0x14 - 0xE];
+    Vec_80052CDC pos;
+    u8 pad20[0x48 - 0x20];
+} Params_80052CDC;
+
+typedef struct Spot_80052CDC {
+    Vec_80052CDC pos;
+    u8 padc[0x18 - 0xC];
+} Spot_80052CDC;
+
+typedef struct Obj_80052CDC {
+    u8 pad0[0x38C];
+    s32 owner;
+    u8 pad390[0x398 - 0x390];
+    s32 timer;
+    u8 pad39c[0x3A8 - 0x39C];
+    s32 idx;
+    u8 pad3ac[0x3C4 - 0x3AC];
+    s32 max;
+    s32 count;
+    u8 pad3cc[0x3D0 - 0x3CC];
+    s32 f3d0;
+    u8 pad3d4[0x444 - 0x3D4];
+    Spot_80052CDC spots[1];
+} Obj_80052CDC;
+
 extern "C" {
 void request_destroy__11TBoss4Type2FUi(u32);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
@@ -47,6 +83,16 @@ void TBoss4Type2__sub_800531BC(void* p);
 void TBoss4Type2__sub_80054530(void *, s32);
 extern RecoveredGlobal_80052C58_lbl_80486218 lbl_80486218;
 void TBoss4Type2__sub_80052C58(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 TBoss4DarkFalz__sub_8004AF5C(s32, s16 *, s16 *);
+void TBoss4DarkFalz__sub_8004B4F0(void *, void *);
+void TBoss4DarkFalz__sub_8004D990(s32);
+M2C_UNK TBoss4Type2__sub_800542B0(void *, int);
+void *create__9TBoss4UroFi(Params_80052CDC *);
+void TObjEneDellBiter__sub_80087350(void *, s32);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+extern u8 TBoss4DarkFalz__data_804FF1E8[];
+void TBoss4DarkFalz__sub_80052CDC(Obj_80052CDC *arg0);
 }
 
 extern "C" {
@@ -295,6 +341,36 @@ void TBoss4Type2__sub_80052CA0(u8 *arg0) {
         TBoss4Type2__sub_800542B0((void *)((void *)(arg0)), (int)((M2C_UNK)(7)));
     }
 }
+
+void TBoss4DarkFalz__sub_80052CDC(Obj_80052CDC *arg0) {
+    Params_80052CDC p;
+    Spot_80052CDC *s;
+    s32 t;
+    s = &arg0->spots[arg0->idx];
+    t = arg0->timer;
+    if (t < 0x106 && (t & 0x1F) == 0 && arg0->count < arg0->max) {
+        TBoss4DarkFalz__sub_8004B4F0(p.a, TBoss4DarkFalz__data_804FF1E8);
+        if (TBoss4DarkFalz__sub_8004AF5C(arg0->owner, p.a, &p.b) != 0) {
+            p.owner = arg0->owner;
+            p.c = 1;
+            VecCopy__FP3VecPC3Vec(&p.pos, s);
+            if (create__9TBoss4UroFi(&p) != NULL) {
+                TObjEneDellBiter__sub_80087350(s, 0x7D);
+                TBoss3Volopt__sub_8022675C(0x4003A810, s, 0, 1);
+                arg0->count++;
+            }
+        }
+    }
+    TBoss4DarkFalz__sub_8004D990(arg0->owner);
+    if (arg0->timer == 0x106) {
+        TBoss3Volopt__sub_8022675C(0x4003AD0F, s, 0, 1);
+    }
+    if (--arg0->timer < 0) {
+        arg0->f3d0 = 5;
+        TBoss4Type2__sub_800542B0(arg0, 7);
+    }
+}
+
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); }
 void tick_state_398_timer__11TBoss4Type2FPv(void *arg0) {
     s32 temp_r0;

@@ -20,6 +20,34 @@ struct Rec_8002ED48 { u8 pad[4]; u8 f4[0xC]; u8 tail[0xC]; };
 
 struct Obj_8002ED48 { u8 pad[4]; Rec_8002ED48 *recs; };
 
+typedef s32 M2C_UNK;
+typedef struct Vec_8002EA64 {
+    f32 x, y, z;
+} Vec_8002EA64;
+
+typedef struct Src_8002EA64 {
+    u8 pad0[4];
+    Vec_8002EA64 a;
+    Vec_8002EA64 b;
+} Src_8002EA64;
+
+typedef struct Part_8002EA64 {
+    Vec_8002EA64 pos;
+    Vec_8002EA64 vel;
+    s32 unk18;
+    s32 unk1C;
+    s32 unk20;
+    f32 unk24;
+    s32 unk28;
+} Part_8002EA64;
+
+typedef struct Obj_8002EA64 {
+    u8 pad0[0x18];
+    M2C_UNK *vtbl;
+    u8 pad1C[4];
+    Part_8002EA64 parts[19];
+} Obj_8002EA64;
+
 extern "C" {
 extern f32 lbl_805D4B90;
 extern const f32 lbl_805D8258;
@@ -64,6 +92,20 @@ void TObjPlayer__sub_803D9B2C(void);
 void TObjPlayer__sub_803D9B78(void);
 extern const f32 lbl_805D8260;
 void TObjPlayer__sub_8002ED48(Obj_8002ED48 *self, s32 n);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+f32 lerp__9TDeadSpotFff(f32, f32);
+f32 TTecZondeEff__sub_8002DF28(void);
+void *init_base__10TObjPlayerFPv(void *arg0);
+s32 calc_random_scaled__10TObjPlayerFv(void);
+f32 TBoss4Zako__sub_803D8910(void *, void *);
+extern M2C_UNK lbl_804820A8[];
+extern struct VObj8002EB88_8002eb88_8002E784 *lbl_805D4B88;
+extern const f32 lbl_805D8228;
+extern const f32 lbl_805D8234;
+extern const f32 lbl_805D8238;
+extern const f32 lbl_805D823C;
+extern const f32 lbl_805D8240;
+Obj_8002EA64 *TObjPlayer__sub_8002EA64(Obj_8002EA64 *arg0, void *arg1, Vec_8002EA64 *arg2);
 }
 
 extern "C" {
@@ -142,6 +184,33 @@ void *TObjPlayer__sub_8002EA0C(void *arg0, s16 arg1) {
 }
 
 extern struct VObj8002EB88_8002eb88_8002E784 *lbl_805D4B88;
+
+struct VObj8002EB88_8002eb88_8002E784;
+Obj_8002EA64 *TObjPlayer__sub_8002EA64(Obj_8002EA64 *arg0, void *arg1, Vec_8002EA64 *arg2) {
+    f32 zero;
+    f32 scale;
+    Part_8002EA64 *p;
+    Vec_8002EA64 *v;
+    s32 i;
+    init_base__10TObjPlayerFPv(arg0);
+    scale = lbl_805D8240;
+    zero = lbl_805D8228;
+    arg0->vtbl = lbl_804820A8;
+    for (i = 0, p = arg0->parts; i < 19; i++, p++) {
+        VecCopy__FP3VecPC3Vec(&p->pos, arg2);
+        TBoss4Zako__sub_803D8910(&p->pos, &(*(Src_8002EA64 **)((u8 *)lbl_805D4B88 + 4))[i].a);
+        v = &p->vel;
+        VecCopy__FP3VecPC3Vec(v, &(*(Src_8002EA64 **)((u8 *)lbl_805D4B88 + 4))[i].b);
+        v->y = lerp__9TDeadSpotFff(lbl_805D8234, lbl_805D8238);
+        v->z -= lerp__9TDeadSpotFff(lbl_805D8228, lbl_805D823C);
+        p->unk18 = calc_random_scaled__10TObjPlayerFv();
+        p->unk1C = (s32)(scale * TTecZondeEff__sub_8002DF28());
+        p->unk20 = calc_random_scaled__10TObjPlayerFv();
+        p->unk28 = 0;
+        p->unk24 = zero;
+    }
+    return arg0;
+}
 
 void TObjPlayer__sub_8002EB88(void) {
     if (lbl_805D4B88 != NULL) {

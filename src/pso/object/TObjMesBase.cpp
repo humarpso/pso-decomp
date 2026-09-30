@@ -17,6 +17,10 @@ struct TObjMesBase80194_80194C98 : TObjBase80194_80194C98 {
 
 struct Mc_80194EC4 { u8 pad0[0x68]; f32 f68; u8 pad6C[0x50]; s32 fBC; };
 
+struct Pair_80194AEC { const char *s[2]; };
+
+struct Mes_80194AEC { u8 pad0[0x84]; s32 f84; u8 pad88[4]; s32 f8C; u8 pad90[0x24]; s32 fB4; s32 fB8; };
+
 extern "C" {
 extern void* lbl_805D5EE8;
 extern void* lbl_805D5EEC;
@@ -25,12 +29,17 @@ void* __nw__7TObjectFUl(unsigned long);
 void* __ct__12TQuestThreadFv(void*, void*, s32);
 void set_parent__7TObjectFP7TObject(void*, void*);
 f32 get_random_float__8TObjFishFv(f32);
-void TObjMesBase__sub_80194AEC();
 void set_global_count__12TObjNpcEnemyFi(int);
 void TObjEneBm5GibonU__sub_803D853C(int, void *, ...);
 extern s32 lbl_80445DF4[];
 extern u8 lbl_80445E08[];
 void TMotorcycle__vt14(Mc_80194EC4 *arg0);
+void set_global_count__12TObjNpcEnemyFi(int);
+void TObjEneBm5GibonU__sub_803D853C(int, void *, ...);
+extern Pair_80194AEC lbl_80445D94[];
+extern u8 lbl_80445D9C[];
+extern u8 lbl_80445DAC[];
+void TObjMesBase__sub_80194AEC(Mes_80194AEC *arg0);
 }
 
 extern "C" {
@@ -92,6 +101,23 @@ void TObjMesBase::start_message() {
 }
 
 extern "C" {
+
+void TObjMesBase__sub_80194AEC(Mes_80194AEC *arg0) {
+    arg0->fB4 = arg0->f84;
+    arg0->fB8 = arg0->f8C;
+    if (arg0->fB8 < 0) {
+        arg0->fB8 = 0;
+    }
+    if (arg0->fB8 > 1) {
+        arg0->fB8 = 1;
+    }
+    Pair_80194AEC names = lbl_80445D94[0];
+    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_80445D9C, arg0->fB4);
+    TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_80445DAC, names.s[arg0->fB8]);
+    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+}
+
 void clear_ref_if_destroyed__11TObjMesBaseFPv(void *arg0) {
     void *p = M2C_FIELD(arg0, void **, 0xAC);
     if ((p != 0) && (all_parents_unqueued_for_destruction__7TObjectFv(p) == 0)) {
@@ -158,7 +184,7 @@ s32 TMotorcycle__vt8(s32 arg0, f32 farg0, f32 farg1) {
     return fn_801A2340(arg0, farg0, farg1);
 }
 void TMotorcycle__vt14(Mc_80194EC4 *arg0) {
-    TObjMesBase__sub_80194AEC();
+    TObjMesBase__sub_80194AEC((Mes_80194AEC *)(arg0));
     arg0->fBC = (s32)get_random_float__8TObjFishFv(arg0->f68);
     arg0->fBC = arg0->fBC % 2;
     arg0->fBC = lbl_80445DF4[arg0->fBC];

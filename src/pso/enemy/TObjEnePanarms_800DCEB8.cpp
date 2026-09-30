@@ -196,6 +196,12 @@ extern u32 TObjEnePanarms__data_805D5278;
 extern const f32 TObjEnePanarms__data_805DA4A0;
 extern const f32 lbl_805DA51C;
 void TObjEnePanarms__sub_800DF634(void);
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
+void obj_clearFlags30(void *, u32);
+void set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+extern const f32 lbl_805DA4BC;
+extern const f32 lbl_805DA4D4;
+void TObjEnePanarms__sub_800DDED8(u8 *arg0);
 }
 
 extern "C" {
@@ -535,6 +541,28 @@ void TObjEnePanarms__sub_800DD9A0(u8 *arg0) {
     }
 }
 #pragma pop
+
+void TObjEnePanarms__sub_800DDED8(u8 *arg0) {
+    s16 var_r30;
+    switch (M2C_FIELD(arg0, s32 *, 0x38C)) {
+    case 0:
+        M2C_FIELD(arg0, s32 *, 0x38C) = 1;
+        var_r30 = 2;
+        break;
+    case 1:
+        M2C_FIELD(arg0, s32 *, 0x38C) = 0;
+        var_r30 = 1;
+        break;
+    default:
+        return;
+    }
+    M2C_FIELD(arg0, s32 *, 0x3FC) += 1;
+    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x390), u32 *, 0x18) &= ~0x08000000;
+    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x390), u32 *, 0x18) |= 1;
+    obj_clearFlags30(arg0, 0x04040000);
+    M2C_FIELD(arg0, s32 *, 0x388) = (s32) (lbl_805DA4BC * (f32) ((s32) (lbl_805DA4D4 * calc_boss4_scale__10TObjPlayerFi(arg0)) + 1));
+    set_field_b8__14TObjEnePanarmsFPvs(arg0, var_r30);
+}
 
 void TObjEnePanarms__sub_800DDFDC(u8 *arg0) {
   Stack_800DDFDC stack;

@@ -25,9 +25,11 @@ force_active:
   - AISetStreamVolRight
   - TAdSinglePlyChrSelectGC__sub_80133530
   - TBoss2DeRolLe__sub_80034D58
+  - TBoss3Volopt__sub_800D8F78
   - TBoss8Dragon__sub_8005E17C
   - TBoss8Dragon__sub_800BB688
   - TChCrTagInformation__sub_802A1E8C
+  - TFogCtrl__sub_800FB0F8
   - TFontSmallLobby__sub_801B117C
   - TFontSmallLobby__sub_801C0258
   - TItemEquipBase__sub_8022F1F4
@@ -48,6 +50,7 @@ force_active:
   - TObjEneDD__sub_800BB980
   - TObjFish__sub_800E2FFC
   - TObjPlayer__sub_800113A8
+  - TObjPlayer__sub_800DA1F4
   - TObjPlayer__sub_80130A30
   - TObjPlayer__sub_801AA6E4
   - TObjPlayer__sub_801B40D0

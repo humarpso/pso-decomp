@@ -19,6 +19,18 @@ struct Cur_800B76E0 { u8 pad0[0x94]; s32 idx; };
 
 struct Obj_800B76E0 { u8 pad0[0xD8]; Cur_800B76E0 *cur; Ent_800B76E0 *ents; };
 
+typedef s32 M2C_UNK;
+typedef struct Vec_800B78F8 {
+    f32 x, y, z;
+} Vec_800B78F8;
+
+typedef struct Wolf_800B78F8 {
+    u8 pad0[0x60];
+    s32 facing;
+    u8 pad64[0x308 - 0x64];
+    Vec_800B78F8 knockback;
+} Wolf_800B78F8;
+
 extern "C" {
 s32 TObjEneDellBiter__sub_80087350(s32, s32);
 extern const f32 TObjEneBm5Wolf__data_805D9DE0;
@@ -47,6 +59,15 @@ extern const f32 lbl_805D9E44;
 s32 TObjEneBm5Wolf__sub_800B75B4(u8 *arg0);
 extern const f32 lbl_805D9D9C;
 f32 TObjEneBm5Wolf__sub_800B76E0(Obj_800B76E0 *arg0, f32 farg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
+s32 TObjBoss2Tunnel__sub_8007E84C(void *, void *);
+f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+f32 TBoss8Dragon__sub_803D64C0(int);
+f32 TBoss8Dragon__sub_803D64DC(int);
+extern const f64 TObjEneBm5Wolf__data_8043B5B0;
+extern const f32 TObjEneBm5Wolf__data_805D9D78;
+s32 TObjEneBm5Wolf__sub_800B78F8(Wolf_800B78F8 *s, s32 *heading);
 }
 
 extern "C" {
@@ -163,6 +184,31 @@ void select_target__14TObjEneBm5WolfFPv(void *arg0) {
 }
 
 void set_attack_flag__14TObjEneBm5WolfFPv(void* p) { *(u32*)((char*)p + 0x408) |= 0x1; }
+
+s32 TObjEneBm5Wolf__sub_800B78F8(Wolf_800B78F8 *s, s32 *heading) {
+    Vec_800B78F8 v;
+    Vec_800B78F8 side;
+    s32 ret;
+    VecCopy__FP3VecPC3Vec(&v, &s->knockback);
+    v.y = TObjEneBm5Wolf__data_805D9D78;
+    if (TObjEneBm5Wolf__data_805D9D78 != clamp_velocity__15TObjBoss2TunnelFPv(&v)) {
+        *heading = (s32)(TObjEneBm5Wolf__data_8043B5B0 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z));
+        side.x = TBoss8Dragon__sub_803D64C0(s->facing);
+        side.z = TBoss8Dragon__sub_803D64DC(s->facing);
+        if (TObjBoss2Tunnel__sub_8007E84C(&side, &v) != 0) {
+            ret = 0;
+            *heading += 0x4000;
+        } else {
+            ret = 1;
+            *heading -= 0x4000;
+        }
+    } else {
+        ret = 0;
+        *heading = s->facing;
+    }
+    *heading = (s16)*heading;
+    return ret;
+}
 
 void set_anim_state__14TObjEneBm5WolfFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3D8) != 0) {

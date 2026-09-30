@@ -111,6 +111,24 @@ struct VObj_18 : VBase_18 {
     virtual void m102();
     virtual M2C_UNK m103();
 };
+
+struct PartBase_800954E8 { u8 pad[0x18]; };
+
+struct Part_800954E8 : PartBase_800954E8 {
+    virtual ~Part_800954E8();
+};
+
+struct Berura_800954E8 {
+    u8 pad0[0x18];
+    void *vtbl;
+    u8 pad1C[0x3D8 - 0x1C];
+    u8 motionA[0x3F8 - 0x3D8];
+    void *effect;
+    u8 motionB[0x440 - 0x3FC];
+    Part_800954E8 *parts[2];
+    u8 arr[4][0x1C];
+};
+
 extern "C" {
 void fn_80095DD0(u8 *arg0);
 void fn_80095DF4(u8 *arg0);
@@ -121,6 +139,16 @@ s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK update_collision_center__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 void run_task__16TObjEneRe7BeruraFv(u8 *arg0);
+void queue_destruction__7TObjectFv(void *);
+void TObjEneRe7Berura__sub_80094D3C(void *);
+void TObjPlayer__sub_800A05B8(void *, int);
+void __dt__9TObjEneDDFv(void *, int);
+void TObjEneGibbles__sub_80156720(void *);
+void __dl__7TObjectFPv(void *);
+extern M2C_UNK TObjPlayer__sub_800D7C58[];
+void __destroy_arr(void *, void *, u32, u32);
+extern M2C_UNK __vt__16TObjEneRe7Berura[];
+Berura_800954E8 *__dt__16TObjEneRe7BeruraFv(Berura_800954E8 *self, s16 flag);
 }
 
 extern "C" {
@@ -176,6 +204,33 @@ void run_task__16TObjEneRe7BeruraFv(u8 *arg0) {
     update_collision_center__16TObjEneRe7BeruraFPv((void *) (arg0));
     set_player_state_default__12TBoss8DragonFPv((void *) (arg0));
     ((VObj_18 *)(arg0))->m98();
+}
+
+Berura_800954E8 *__dt__16TObjEneRe7BeruraFv(Berura_800954E8 *self, s16 flag) {
+    s32 i;
+    if (self != 0) {
+        self->vtbl = ((s32 *)&__vt__16TObjEneRe7Berura);
+        TObjEneRe7Berura__sub_80094D3C(self);
+        for (i = 0; i < 2; i++) {
+            if (self->parts[i] != 0) {
+                delete self->parts[i];
+                self->parts[i] = 0;
+            }
+        }
+        if (self->effect != 0) {
+            queue_destruction__7TObjectFv(self->effect);
+            self->effect = 0;
+        }
+        TObjEneGibbles__sub_80156720(self);
+        __destroy_arr(self->arr, (void *)((s32 *)&TObjPlayer__sub_800D7C58), 0x1C, 4);
+        TObjPlayer__sub_800A05B8(self->motionB, -1);
+        TObjPlayer__sub_800A05B8(self->motionA, -1);
+        __dt__9TObjEneDDFv(self, 0);
+        if (flag > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
 }
 
 void *TObjEneRe7Berura__ct(void *arg0, void *arg1, void *arg2) {

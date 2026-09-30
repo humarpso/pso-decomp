@@ -100,6 +100,24 @@ struct VObj_8017B84C_8017AC98 : Base_8017B84C_8017AC98 {
     virtual void m77();
 };
 
+struct Obj_8017ACA0 {
+    u8 pad[0x326];
+    s16 state;
+    u8 pad328[0x34C - 0x328];
+    s32 angle;
+};
+
+extern "C" {
+u32 get_global_state__14TOKeyMachine01Fv();
+void TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+void TOComputerMachine01__sub_8023DDC8(u32, s32, s32, u16, s32);
+extern s32 lbl_805D53A4;
+extern s32 lbl_805D5ADC;
+extern u32 lbl_805D5AE0;
+extern s32 lbl_805D5AE4;
+void TOTrapAncient02__sub_8017ACA0(Obj_8017ACA0 *self);
+}
+
 extern "C" {
 
 void TOTrapAncient02R__vt78(void *arg0);
@@ -138,6 +156,65 @@ M2C_UNK setup_particle_tev(int);
 
 void TOTrapAncient02__vt84(void) {  }
 void TOTrapAncient02__vt86(void) {  }
+
+void TOTrapAncient02__sub_8017ACA0(Obj_8017ACA0 *self) {
+    if (lbl_805D5ADC != lbl_805D53A4 && lbl_805D5AE0 != 0) {
+        lbl_805D5ADC = lbl_805D53A4;
+        TOComputerMachine01__sub_8023DDC8(lbl_805D5AE0, 0, 0xE, lbl_805D5AE4, 1);
+    }
+    self->angle += 0x888;
+    switch (self->state) {
+    case 1:
+    case 2:
+    case 3:
+        switch (get_global_state__14TOKeyMachine01Fv()) {
+        case 3:
+        case 4:
+        case 5:
+            TOTrapAncient01__sub_80226578(0x4461B, self, (u8 *)self + 0x38, 0, 0);
+            return;
+        case 6:
+        case 7:
+            TOTrapAncient01__sub_80226578(0x4004C612, self, (u8 *)self + 0x38, 0, 0);
+            return;
+        case 8:
+        case 9:
+        case 10:
+            TOTrapAncient01__sub_80226578(0x4004C618, self, (u8 *)self + 0x38, 0, 0);
+            return;
+        case 21:
+        case 22:
+            TOTrapAncient01__sub_80226578(0x4004C610, self, (u8 *)self + 0x38, 0, 0);
+        case 0:
+            return;
+        case 1:
+            return;
+        case 2:
+            return;
+        case 11:
+            return;
+        case 12:
+            return;
+        case 13:
+            return;
+        case 14:
+            return;
+        case 15:
+            return;
+        case 16:
+            return;
+        case 17:
+            return;
+        case 18:
+            return;
+        case 19:
+            return;
+        case 20:
+            return;
+        }
+        break;
+    }
+}
 
 void render_particle_chain__15TOTrapAncient02FPv(u8 *arg0) {
     u8 *temp_r31;

@@ -7,6 +7,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_8004C0D4_lbl_80484D74 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8004C0D4_lbl_80484D74_size[sizeof(RecoveredGlobal_8004C0D4_lbl_80484D74) == 0x10 ? 1 : -1];
 
+typedef s32 M2C_UNK;
+typedef struct Msg_8004BFA4 {
+    u8 code;
+    u8 size;
+    u16 id;
+    s16 action;
+    u8 pad6[2];
+    s32 arg;
+} Msg_8004BFA4;
+
 extern "C" {
 M2C_UNK TBoss4DarkFalz__sub_8004B084(void *);
 M2C_UNK TBoss4DarkFalz__sub_8004B0F8(void *);
@@ -23,6 +33,17 @@ M2C_UNK init_uro_link__14TBoss4DarkFalzFv();
 extern RecoveredGlobal_8004C0D4_lbl_80484D74 lbl_80484D74;
 extern int lbl_805D4D58;
 void TBoss4DarkFalz__sub_8004C0D4(void);
+M2C_UNK TBoss4DarkFalz__sub_8004B20C(void *, int);
+s32 get_phase__9TBoss4UroFPv(void *);
+void swap_bytes__14TBoss4DarkFalzFPv(void *);
+void TBoss4Type2__sub_80053BF4(void *, s32);
+void TBoss4Type2__sub_80056EA8(void *, s32);
+void TBoss4Type3__sub_80059DCC(void *, s32);
+void *get_enemy_entity(u16);
+extern void *TBoss4DarkFalz__data_805D4D5C;
+extern void *TBoss4DarkFalz__data_805D4D60;
+extern void *TBoss4DarkFalz__data_805D4D64;
+void handle_6x19_dark_falz_actions(Msg_8004BFA4 *arg0);
 }
 
 extern "C" {
@@ -57,6 +78,47 @@ void run_task__14TBoss4DarkFalzFv(u8 *arg0) {
 void TBoss4DarkFalz__vt61(void) {  }
 
     extern int lbl_805D4D58;
+
+void handle_6x19_dark_falz_actions(Msg_8004BFA4 *arg0) {
+    void *ent;
+    s32 arg;
+    swap_bytes__14TBoss4DarkFalzFPv(arg0);
+    ent = get_enemy_entity(arg0->id);
+    if (ent == NULL) {
+        return;
+    }
+    if (arg0->action != -1 && arg0->action >= 0 && arg0->action < 16 &&
+        arg0->action != get_phase__9TBoss4UroFPv(ent)) {
+        TBoss4DarkFalz__sub_8004B20C(ent, arg0->action);
+    }
+    arg = arg0->arg;
+    if (arg == -1) {
+        return;
+    }
+    switch (get_phase__9TBoss4UroFPv(ent)) {
+    case 5:
+    case 6:
+        if (TBoss4DarkFalz__data_805D4D5C != NULL) {
+            TBoss4Type2__sub_80053BF4(TBoss4DarkFalz__data_805D4D5C, arg);
+        }
+        break;
+    case 7:
+    case 8:
+    case 9:
+        if (TBoss4DarkFalz__data_805D4D60 != NULL) {
+            TBoss4Type2__sub_80056EA8(TBoss4DarkFalz__data_805D4D60, arg);
+        }
+        break;
+    case 12:
+    case 13:
+    case 14:
+        if (TBoss4DarkFalz__data_805D4D64 != NULL) {
+            TBoss4Type3__sub_80059DCC(TBoss4DarkFalz__data_805D4D64, arg);
+        }
+        break;
+    }
+}
+
 void cleanup_global__14TBoss4DarkFalzFv(void) { free_global_instance__14TBoss4DarkFalzFv(); TBoss4DarkFalz__sub_8030AD38(); TLobby__sub_8001FE7C((void*)(lbl_805D4D58), (void*)1); lbl_805D4D58 = 0; }
 
 extern s32 tl_04;

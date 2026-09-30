@@ -4,11 +4,71 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Tex_80081A30 {
+    u32 a;
+    u32 b;
+    u32 c;
+};
+
+struct TexList_80081A30 {
+    Tex_80081A30 *entries;
+};
+
+struct Scene_80081A30 {
+    u8 pad0[0x14];
+    TexList_80081A30 *texList;
+};
+
+struct Wave_80081A30 {
+    void *name;
+    u8 pad4[0x14];
+    void *vtable;
+    void *wave;
+    s32 index;
+    Tex_80081A30 *tex;
+    u8 pad28[4];
+    Tex_80081A30 saved;
+};
+
+extern "C" {
+void __ct__7TObjectFP7TObject(void *, void *);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+void *fn_801E4E4C(void *, void *);
+void init_image_buffer__23TAdSinglePlyChrSelectGCFPvPvi(void *, void *, s32);
+s32 TScene__sub_80081B24(void);
+extern u8 lbl_8048E168[];
+extern void *lbl_805D28F8;
+Wave_80081A30 *TScene__sub_80081A30(Wave_80081A30 *self, void *parent, void *image, s32 size, s32 index);
+}
+
 extern "C" {
 
 s32 TScene__sub_80081B24(void);
 
 extern s32 TScene__data_805D5FCC;
+
+Wave_80081A30 *TScene__sub_80081A30(Wave_80081A30 *self, void *parent, void *image, s32 size, s32 index) {
+    void *p;
+    TexList_80081A30 *list;
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vtable = lbl_8048E168;
+    self->name = lbl_805D28F8;
+    self->index = index;
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x54);
+    if (p != NULL) {
+        p = fn_801E4E4C(p, &self->tex);
+    }
+    self->wave = p;
+    init_image_buffer__23TAdSinglePlyChrSelectGCFPvPvi(self->wave, image, size);
+    list = ((Scene_80081A30 *)TScene__sub_80081B24())->texList;
+    self->saved.c = list->entries[index].c;
+    self->saved.b = list->entries[index].b;
+    self->saved.a = list->entries[index].a;
+    list->entries[index].c = self->tex->c;
+    list->entries[index].b = self->tex->b;
+    list->entries[index].a = self->tex->a;
+    return self;
+}
 
 s32 TScene__sub_80081B24(void) {
     return TScene__data_805D5FCC;

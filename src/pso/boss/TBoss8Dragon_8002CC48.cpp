@@ -15,6 +15,21 @@ struct Hdr_8002D4C0 { u8 pad[4]; s16 count; };
 
 struct Obj_8002D4C0 { f32 x; u8 pad[4]; f32 z; };
 
+typedef struct Ent_8002CE78 {
+    f32 *dst;
+    f32 base;
+    f32 ofs;
+    u8 padC[4];
+} Ent_8002CE78;
+
+typedef struct Obj_8002CE78 {
+    u8 pad0[0x1C];
+    s32 active;
+    u8 pad20[0x14];
+    f32 unk34;
+    s32 unk38;
+} Obj_8002CE78;
+
 extern "C" {
 extern const f32 lbl_805D81D0;
 s32 TBoss8Dragon__sub_8002D308(u8 *arg0);
@@ -34,6 +49,27 @@ extern const f32 lbl_805D81D8;
 extern const f32 lbl_805D81DC;
 extern const f32 lbl_805D81E0;
 void TBoss8Dragon__sub_8002D4C0(Obj_8002D4C0 *self);
+void TBoss8Dragon__sub_8002D4C0(Obj_8002D4C0 *self);
+void TObjPlayer__sub_803D9624(s32, f32, f32, f32);
+void TObjPlayer__sub_803D9B2C(void);
+void TObjPlayer__sub_803D9B78(void);
+void TOHangerMachine01__sub_803D9C00(void *);
+void set_global_param__8TObjFishFi(s32);
+void set_chunk_material_override_pair(s32, s32, s32, s32);
+void TObjFish__sub_803E46BC(void *);
+extern u8 *lbl_805D4B50;
+extern s32 lbl_805D4B54;
+extern s32 lbl_805D4B74;
+extern int lbl_805D4B78;
+extern s32 lbl_805D4B7C;
+extern s32 lbl_805D5660;
+extern s32 lbl_805D5664;
+extern s32 lbl_805D5668;
+extern s32 lbl_805D7780;
+extern s32 lbl_805D7784;
+extern s32 some_id_805c6f74;
+extern const f32 lbl_805D8198;
+void TBoss8Dragon__sub_8002CE78(Obj_8002CE78 *arg0);
 }
 
 extern "C" {
@@ -69,6 +105,39 @@ void *TBoss8Dragon__sub_8002CD34(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+struct Obj_8002D4C0;
+void TBoss8Dragon__sub_8002CE78(Obj_8002CE78 *arg0) {
+    Ent_8002CE78 *p;
+    s32 i;
+    if (arg0->active != 0) {
+        set_global_param__8TObjFishFi(lbl_805D4B54);
+        TBoss8Dragon__sub_8002D4C0((Obj_8002D4C0 *)((struct Obj_8002D4C0 *)lbl_805D4B7C));
+        for (p = (Ent_8002CE78 *)lbl_805D4B78, i = 0; i < lbl_805D4B74; i++, p++) {
+            *p->dst = p->base + p->ofs;
+        }
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00((void *)lbl_805D4B7C);
+        TObjPlayer__sub_803D9624(0, lbl_805D8198, arg0->unk34, lbl_805D8198);
+        if (arg0->unk38 != 0) {
+            lbl_805D5660 = some_id_805c6f74;
+            lbl_805D5664 = lbl_805D7784;
+            lbl_805D5668 = lbl_805D7780;
+            some_id_805c6f74 |= 0x800;
+            set_chunk_material_override_pair(0xFF00, 0x100, lbl_805D7780, lbl_805D7784);
+            TObjFish__sub_803E46BC(*(void **)(*(u8 **)(lbl_805D4B50 + 0x42C) + 0x38));
+            lbl_805D7784 = lbl_805D5664;
+            lbl_805D7780 = lbl_805D5668;
+            some_id_805c6f74 = lbl_805D5660;
+        } else {
+            TObjFish__sub_803E46BC(*(void **)(*(u8 **)(lbl_805D4B50 + 0x42C) + 0x38));
+        }
+        TObjPlayer__sub_803D9B78();
+        for (p = (Ent_8002CE78 *)lbl_805D4B78, i = 0; i < lbl_805D4B74; i++, p++) {
+            *p->dst = p->base;
+        }
+    }
 }
 
 s32 TBoss8Dragon__sub_8002D308(u8 *arg0) {

@@ -11,6 +11,29 @@ struct Stack_800496D8
   s32 sp10;
 };
 
+typedef s32 M2C_UNK;
+typedef struct Vec_800498E8 {
+    f32 x, y, z;
+} Vec_800498E8;
+
+typedef struct Obj_800498E8 {
+    u8 pad0[0x18];
+    void *vt;
+    u8 pad1c[0x38 - 0x1c];
+    Vec_800498E8 pos;
+    u8 pad44[0x5c - 0x44];
+    s32 f5c;
+    s32 f60;
+    u8 pad64[0xb4 - 0x64];
+    Vec_800498E8 fb4;
+    u8 padc0[0xcc - 0xc0];
+    s32 fcc;
+    s32 fd0;
+    s32 fd4;
+    s32 fd8;
+    s16 fdc;
+} Obj_800498E8;
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void copy_vec3__11TBoss4Type2FPvPv(void *, void *);
@@ -28,6 +51,22 @@ extern const f32 lbl_805D8890;
 void TObjPlayer__sub_800496D8(u8 *arg0);
 extern s32 lbl_805D4D1C;
 f32 TObjPlayer__sub_800499FC(s32 arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s16 obj_getField1c(void *);
+s32 TBoss3Volopt__sub_8004816C(int);
+f32 TObjPlayer__sub_800499FC(s32 arg0);
+s32 TObjParticle__sub_800870BC(void *, void *, int, int);
+void TObjEneGibbles__sub_80156780(void *, void *, int);
+void TObjPlayer__sub_801569F4();
+void TScene__sub_803D8DB4(int, void *, void *);
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+void TObjPlayer__sub_803D97F0(void *);
+M2C_UNK TObjPlayer__sub_803D9B78();
+extern Vec_800498E8 lbl_804366F8;
+extern u8 lbl_80484A68[];
+extern M2C_UNK lbl_80484A94[];
+extern u8 lbl_8058D490[];
+Obj_800498E8 *TObjPlayer__sub_800498E8(Obj_800498E8 *arg0, Obj_800498E8 *arg1, void *arg2, s32 arg3);
 }
 
 extern "C" {
@@ -126,6 +165,26 @@ void *destroy__10TObjPlayerFPvs(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+
+Obj_800498E8 *TObjPlayer__sub_800498E8(Obj_800498E8 *arg0, Obj_800498E8 *arg1, void *arg2, s32 arg3) {
+    TObjPlayer__sub_801569F4();
+    arg0->vt = lbl_80484A94;
+    TObjEneGibbles__sub_80156780(arg0, lbl_80484A68, 1);
+    arg0->fdc = obj_getField1c(arg1);
+    VecCopy__FP3VecPC3Vec(&arg0->pos, arg2);
+    arg0->fcc = arg3;
+    arg0->f5c = 0;
+    arg0->fd4 = TObjParticle__sub_800870BC(&arg0->pos, &arg0->f5c, 0x11C, 2);
+    arg0->fd8 = TObjParticle__sub_800870BC(&arg0->pos, &arg0->f5c, 0x11D, 2);
+    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    Vec_800498E8 v = lbl_804366F8;
+    v.z = TObjPlayer__sub_800499FC(0);
+    TObjPlayer__sub_803D9214(0, arg1->f60);
+    TScene__sub_803D8DB4(0, &v, &arg0->fb4);
+    TObjPlayer__sub_803D9B78();
+    arg0->fd0 = TBoss3Volopt__sub_8004816C(0);
     return arg0;
 }
 

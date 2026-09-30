@@ -14,6 +14,10 @@ struct Cnt_801933C8 { s32 pad0; s32 f4; };
 
 struct Obj_801933C8 { u8 padA0[0xAC]; s32 fAC; f32 fB0; u8 padB4[6]; u16 fBA; u8 padBC[8]; Cnt_801933C8 *fC4; };
 
+struct Node_80193188 { u32 flags; void *model; u8 pad8[0x24]; Node_80193188 *child; Node_80193188 *sibling; };
+
+struct Fence_80193188 { u8 pad0[0x8C]; s32 f8C; u8 pad90[0x2C]; Node_80193188 *fBC; Node_80193188 *fC0; s32 fC4; void *fC8[12]; };
+
 extern "C" {
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -32,6 +36,10 @@ u8 TODoorAncient08__sub_80229220(int);
 extern const f32 lbl_805DBE68;
 extern const f32 lbl_805DBE6C;
 void TObjLazerFence4__sub_801933C8(Obj_801933C8 *arg0);
+s32 TObjFish__sub_8001ED9C(s32, s32);
+Node_80193188 *TObjFish__sub_8001EDC4(s32, s32);
+extern s32 lbl_805D5C2C;
+void TObjLazerFence4__sub_80193188(Fence_80193188 *arg0);
 }
 
 extern "C" {
@@ -65,6 +73,32 @@ s16 TObjLazerFence4__vt8(u8 *arg0, f32 farg0, f32 farg1) {
 }
 
 extern void *lbl_805D5C28;
+
+void TObjLazerFence4__sub_80193188(Fence_80193188 *arg0) {
+    Node_80193188 *node;
+    s32 i;
+    s32 j;
+    if (arg0->f8C % 2 == 0) {
+        arg0->fBC = TObjFish__sub_8001EDC4(lbl_805D5C2C, 4);
+        arg0->fC0 = TObjFish__sub_8001EDC4(lbl_805D5C2C, 5);
+        arg0->fC4 = TObjFish__sub_8001ED9C(lbl_805D5C2C, 2);
+    } else {
+        arg0->fBC = TObjFish__sub_8001EDC4(lbl_805D5C2C, 6);
+        arg0->fC0 = TObjFish__sub_8001EDC4(lbl_805D5C2C, 7);
+        arg0->fC4 = TObjFish__sub_8001ED9C(lbl_805D5C2C, 3);
+    }
+    for (j = 0; j < 12; j++) {
+        arg0->fC8[j] = 0;
+    }
+    i = 0;
+    node = arg0->fBC->child;
+    if (node != 0) {
+        while (node != 0 && i < 12) {
+            arg0->fC8[i++] = node->model;
+            node = node->sibling;
+        }
+    }
+}
 
 void draw__15TObjLazerFence4FPv(void *arg0) {
     set_global_param__8TObjFishFi(lbl_805D5C28);

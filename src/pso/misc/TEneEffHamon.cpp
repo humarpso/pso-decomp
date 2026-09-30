@@ -19,6 +19,18 @@ struct RecoveredGlobal_800A38A4___vt__12TEneEffHamon {
     u8 remaining[0x14];
 };
 
+typedef s32 M2C_UNK;
+typedef struct Hamon_800A36A8 {
+    u8 pad0[0x1C];
+    u8 mtx1C[0x34 - 0x1C];
+    f32 scale;
+    u8 pad38[0x40 - 0x38];
+    f32 f40;
+    u8 pad44[0x4C - 0x44];
+    s32 delay;
+    u8 color50[0x10];
+} Hamon_800A36A8;
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv();
 extern const f32 lbl_805D99E0;
@@ -37,6 +49,27 @@ extern const f32 lbl_805D99E8;
 extern const f32 lbl_805D99EC;
 extern s32 tl_06;
 u8 *__ct__12TEneEffHamonFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
+M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(s32);
+M2C_UNK set_chunk_material_override_pair(u32, u32);
+M2C_UNK set_chunk_material_color(void *);
+M2C_UNK TObjFish__sub_803E46BC(s32);
+extern u8 lbl_804A7418[];
+extern u8 lbl_8050BEC0[];
+extern u8 lbl_8058D4C0[];
+extern int lbl_805D5030;
+extern int lbl_805D5034;
+extern s32 lbl_805D5660;
+extern s32 lbl_805D5664;
+extern s32 lbl_805D5668;
+extern s32 lbl_805D7780;
+extern s32 lbl_805D7784;
+extern s32 some_id_805c6f74;
+void render__12TEneEffHamonFv(Hamon_800A36A8 *o);
 }
 
 extern "C" {
@@ -48,6 +81,32 @@ int TObjFish__sub_8001EDB0(void*, void*);
 int TObjFish__sub_8001EDC4(void*, void*);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
+
+void render__12TEneEffHamonFv(Hamon_800A36A8 *o) {
+    f32 s;
+    if (o->delay > 0) {
+        return;
+    }
+    lbl_805D5660 = some_id_805c6f74;
+    copy_vec4__13TRaderMapCoreFPvPv(lbl_8050BEC0, lbl_8058D4C0);
+    lbl_805D5664 = lbl_805D7784;
+    lbl_805D5668 = lbl_805D7780;
+    some_id_805c6f74 |= 0x810;
+    set_chunk_material_override_pair(0xFFFF00FF, 0x800);
+    set_global_param__8TObjFishFi(lbl_805D5034);
+    set_chunk_material_color(o->color50);
+    TObjPlayer__sub_803D9B2C();
+    TOHangerMachine01__sub_803D9C00(o->mtx1C);
+    s = o->f40 * o->scale;
+    TOMonitorMachine01__sub_803D8B5C(0, s, s, s);
+    TObjFish__sub_803E46BC(lbl_805D5030);
+    TObjPlayer__sub_803D9B78();
+    set_chunk_material_color(lbl_804A7418);
+    lbl_805D7784 = lbl_805D5664;
+    lbl_805D7780 = lbl_805D5668;
+    copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);
+    some_id_805c6f74 = lbl_805D5660;
+}
 
 void run_task__12TEneEffHamonFv(u8 *arg0) {
     s32 temp_r4;

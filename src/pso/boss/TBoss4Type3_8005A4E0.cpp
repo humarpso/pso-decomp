@@ -16,6 +16,21 @@ struct RecoveredGlobal_8005A6A4_TBoss4Type3__data_80486FC8 {
 
 struct Obj_8005ACBC { u8 pad[0x374]; s32 f374; u8 pad378[0x40]; u16 f3b8; u16 f3ba; };
 
+struct S_8005AD50 {
+    u8 pad0[0x18];
+    void *vt;
+    u8 pad1c[0x378 - 0x1c];
+    u8 f378[0x1c];
+    s32 f394;
+    u8 pad398[0x438 - 0x398];
+    void *fx[3];
+    u8 pad444[0x51c - 0x444];
+    void *f51c;
+    void *f520;
+    void *f524;
+    void *f528;
+};
+
 extern "C" {
 extern RecoveredGlobal_8005A678_TBoss4Type3__data_80486FC8 TBoss4Type3__data_80486FC8;
 extern const f32 TBoss4Type3__data_805D8C40;
@@ -27,6 +42,16 @@ extern const f32 lbl_805D8CA0;
 void TBoss4Type3__sub_8005A6A4(u8 *arg0);
 s32 TBoss4Type3__sub_8005A398(void *, s32);
 void TBoss4Type3__sub_8005ACBC(Obj_8005ACBC *self);
+void queue_destruction__7TObjectFv(void *);
+void fn_8004AA04(void *);
+void TBoss4Type3__sub_8005A2A4(void *);
+void __dt__11TBoss4Type3FPvs(void *, s16);
+void init_state_1__8TObjFishFPv(void *);
+void __dt__9TObjEnemyFv(void *, s32);
+void TObjEneGibbles__sub_80156720(void *);
+void __dl__7TObjectFPv(void *);
+extern u8 lbl_80487184[];
+S_8005AD50 *TBoss4Type3__sub_8005AD50(S_8005AD50 *o, s16 flag);
 }
 
 extern "C" {
@@ -143,6 +168,42 @@ void init_effect__11TBoss4Type3FPv(u8 *arg0) {
 }
 
 extern s32 tl_04;
+
+S_8005AD50 *TBoss4Type3__sub_8005AD50(S_8005AD50 *o, s16 flag) {
+    s32 i;
+    if (o != 0) {
+        o->vt = lbl_80487184;
+        fn_8004AA04(o->f378);
+        TBoss4Type3__sub_8005A2A4(o);
+        if (o->f51c != 0) {
+            __dt__11TBoss4Type3FPvs(o->f51c, 1);
+            o->f51c = 0;
+        }
+        if (o->f524 != 0) {
+            queue_destruction__7TObjectFv(o->f524);
+            o->f524 = 0;
+        }
+        if (o->f520 != 0) {
+            __dt__11TBoss4Type3FPvs(o->f520, 1);
+            o->f520 = 0;
+        }
+        if (o->f528 != 0) {
+            queue_destruction__7TObjectFv(o->f528);
+            o->f528 = 0;
+        }
+        for (i = 0; i < 3; i++) {
+            init_state_1__8TObjFishFPv(o->fx[i]);
+            o->fx[i] = 0;
+        }
+        TObjEneGibbles__sub_80156720(o);
+        o->f394 = 0;
+        __dt__9TObjEnemyFv(o, 0);
+        if (flag > 0) {
+            __dl__7TObjectFPv(o);
+        }
+    }
+    return o;
+}
 
 s32 create__11TBoss4Type3Fi(s32 arg0) {
     s32 var_r31;

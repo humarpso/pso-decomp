@@ -21,6 +21,16 @@ struct RecoveredGlobal_8011A3D8_main_task
   u8 remaining[0x30];
 };
 
+struct Ent_8011A270 { int name; int a; int b; };
+
+struct Hdr_8011A270 { int entries; int x4; };
+
+struct Name_8011A270 { char s[0x1C]; };
+
+struct Vec_8011A43C { f32 x, y, z; };
+
+struct Ent_8011A43C { void (*fn)(); s32 arg; };
+
 extern "C" {
 M2C_UNK TKeyBoardControl__sub_8000F92C();
 M2C_UNK TKeyBoardControl__sub_8000F9CC(int);
@@ -43,6 +53,41 @@ M2C_UNK delete_all_task_children__9TMainTaskFv(void *);
 extern RecoveredGlobal_8011A3D8_lbl_804A03A8 lbl_804A03A8;
 extern RecoveredGlobal_8011A350_main_task main_task;
 void TItemReverseTech__sub_8011A3D8(void);
+Hdr_8011A270 *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+void safe_free__23TAdSinglePlyChrSelectGCFUi(int);
+s32 fn_800F7D30(int, int, int);
+int set_stream_and_load_file__6TLobbyFi(char *);
+int free__11TOBoss4RockFUi(void*);
+int alloc_buffer__11TOBoss4RockFPv(u32);
+char *strncpy(char *, const char *, u32);
+void TLobby__sub_803DE084(int, int);
+extern Name_8011A270 lbl_8043E714;
+extern int TItemReverseTech__data_805D54D0;
+extern int lbl_805D54D4;
+extern int lbl_805D54D8;
+void TItemReverseTech__sub_8011A270(void);
+void TKeyBoardControl__sub_8000F90C(s32);
+void TKeyBoardControl__sub_8000F91C(s32);
+void TCameraCtrl__sub_80069C94(Vec_8011A43C *, Vec_8011A43C *);
+void TCameraCtrl__sub_8006A5EC(s32);
+void TCameraCtrl__ct(void *, s32);
+void TLobby__sub_800F9B84();
+void create__16TItemReverseTechFv(void);
+void TObjLight__sub_80133B10(void *);
+void TKeyBoardControl__sub_801A66B8();
+void TLobby__sub_801E2F44(s32, s32, s32);
+M2C_UNK render_tick__Fv();
+void create_quad_sprites__13TParticleCtrlFv();
+void * __nw__7TObjectFUl(M2C_UNK);
+void TCameraCtrl__sub_803D6688(f32, f32);
+extern const Vec_8011A43C lbl_8043E68C[];
+extern const Vec_8011A43C lbl_8043E698[];
+extern RecoveredGlobal_8011A3D8_lbl_804A03A8 lbl_804A03A8;
+extern u8 lbl_804A6F34[];
+extern s32 tl_camera;
+extern const float lbl_805DAC4C;
+extern const f32 lbl_805DAC50;
+void TItemReverseTech__sub_8011A43C(void);
 }
 
 extern "C" {
@@ -77,6 +122,40 @@ void free__16TItemReverseTechFv(void) { free_texture_if_valid((void*)(TItemRever
     extern const float lbl_805DAC4C;
 
 typedef char RecoveredGlobal_8011A350_main_task_size[sizeof(RecoveredGlobal_8011A350_main_task) == 0x34 ? 1 : -1];
+
+#pragma push
+#pragma opt_propagation off
+void TItemReverseTech__sub_8011A270(void) {
+    Name_8011A270 *name = &lbl_8043E714;
+    Ent_8011A270 *e;
+    s32 i;
+    Hdr_8011A270 *hdr;
+    int file;
+    int buf;
+    lbl_805D54D8 = alloc_buffer__11TOBoss4RockFPv(0x1C);
+    strncpy((char *)lbl_805D54D8, name->s, 0x1B);
+    e = (Ent_8011A270 *)alloc_buffer__11TOBoss4RockFPv(0xCC);
+    lbl_805D54D4 = (int)e;
+    for (i = 0; i < 17; i++, e++) {
+        e->name = lbl_805D54D8;
+        e->a = 0;
+        e->b = 0;
+    }
+    hdr = alloc__23TAdSinglePlyChrSelectGCFPv(8);
+    TItemReverseTech__data_805D54D0 = (int)hdr;
+    hdr->entries = lbl_805D54D4;
+    file = set_stream_and_load_file__6TLobbyFi(name->s);
+    if (file != 0) {
+        buf = alloc_buffer__11TOBoss4RockFPv(0x200000);
+        if (buf != 0 && fn_800F7D30(file, buf, 0x200000) > 0) {
+            TLobby__sub_803DE084(buf, TItemReverseTech__data_805D54D0);
+        }
+        free__11TOBoss4RockFUi((void *)buf);
+    }
+    safe_free__23TAdSinglePlyChrSelectGCFUi(file);
+}
+#pragma pop
+
 void TItemReverseTech__sub_8011A350(void) {
     M2C_UNK *var_r3;
     controller_stuff__Fv();
@@ -129,6 +208,40 @@ void TItemReverseTech__sub_8011A3D8(void) {
   }
   while (var_r30 >= 0);
   render_tick__Fv();
+}
+
+typedef s32 M2C_UNK;
+void TItemReverseTech__sub_8011A43C(void) {
+    Ent_8011A43C *e;
+    u32 i;
+    void (*fn)();
+    void *cam;
+    TCameraCtrl__sub_803D6688((*(const f32 *)&lbl_805DAC4C), lbl_805DAC50);
+    TLobby__sub_801E2F44(0, 0, 0);
+    TKeyBoardControl__sub_801A66B8();
+    TLobby__sub_800F9B84();
+    e = ((Ent_8011A43C *)&lbl_804A03A8);
+    for (i = 0; i != 7; i++) {
+        fn = e->fn;
+        e++;
+        if (fn != NULL) {
+            fn();
+        }
+    }
+    TObjLight__sub_80133B10(lbl_804A6F34);
+    cam = __nw__7TObjectFUl((M2C_UNK)(0x1D4));
+    if (cam != NULL) {
+        TCameraCtrl__ct(cam, tl_camera);
+    }
+    Vec_8011A43C eye = lbl_8043E68C[0];
+    Vec_8011A43C at = lbl_8043E698[0];
+    TCameraCtrl__sub_8006A5EC(9);
+    TCameraCtrl__sub_80069C94(&eye, &at);
+    TKeyBoardControl__sub_8000F90C(2);
+    TKeyBoardControl__sub_8000F91C(2);
+    create_quad_sprites__13TParticleCtrlFv();
+    create__16TItemReverseTechFv();
+    render_tick__Fv();
 }
 
 void TItemReverseTech__sub_8011A54C(void* a0) { *(float*)((char*)a0 + 0x20) = lbl_805DAC4C; *(float*)((char*)a0 + 0x24) = lbl_805DAC4C; }

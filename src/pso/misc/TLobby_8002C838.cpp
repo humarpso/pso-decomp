@@ -6,12 +6,33 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Obj_8002CACC { s32 f0; u8 pad4[0x14]; void *vt; f32 f1c; f32 f20; f32 f24; s32 f28[4]; };
 
+typedef struct Vec_8002C968 {
+    f32 x, y, z;
+} Vec_8002C968;
+
+typedef struct Player_8002C968 {
+    u8 pad0[0x38];
+    Vec_8002C968 pos;
+} Player_8002C968;
+
+typedef struct Floor_8002C968 {
+    u8 pad0[0x28];
+    void *objs[4];
+} Floor_8002C968;
+
 extern "C" {
 void __ct__7TObjectFP7TObject(void *self, void *parent);
 extern char __vt__14TObjBoss1Floor[];
 extern s32 lbl_805D2690;
 extern const f32 lbl_805D8174;
 Obj_8002CACC *TObjBoss1Floor__ct(Obj_8002CACC *self, void *parent);
+void queue_destruction__7TObjectFv(void *);
+void *TBoss4Type2__sub_800874F4(Vec_8002C968 *, s32);
+void copy_pos__11TNowLoadingFPvPv(void *, Vec_8002C968 *);
+s32 check_v2_mode__9TObjEneDDFv();
+Player_8002C968 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+extern const f32 lbl_805D8170;
+void run_task__14TObjBoss1FloorFv(Floor_8002C968 *self);
 }
 
 extern "C" {
@@ -78,6 +99,29 @@ void render__14TObjBoss1FloorFv(void) {
         some_id_805c6f74 = lbl_805D5660;
     }
 }
+
+void run_task__14TObjBoss1FloorFv(Floor_8002C968 *self) {
+    s32 i;
+    Player_8002C968 *pl;
+    if (check_v2_mode__9TObjEneDDFv() != 0) {
+        for (i = 0; i < 4; i++) {
+            pl = TPlayerBattleCtrl4P__sub_801BA74C(i);
+            if (pl != NULL) {
+                Vec_8002C968 pos = pl->pos;
+                pos.y -= lbl_805D8170;
+                if (self->objs[i] == NULL) {
+                    self->objs[i] = TBoss4Type2__sub_800874F4(&pos, 0x144);
+                } else {
+                    copy_pos__11TNowLoadingFPvPv(self->objs[i], &pos);
+                }
+            } else if (self->objs[i] != NULL) {
+                queue_destruction__7TObjectFv(self->objs[i]);
+                self->objs[i] = NULL;
+            }
+        }
+    }
+}
+
 Obj_8002CACC *TObjBoss1Floor__ct(Obj_8002CACC *self, void *parent) {
     s32 i;
     __ct__7TObjectFP7TObject(self, parent);

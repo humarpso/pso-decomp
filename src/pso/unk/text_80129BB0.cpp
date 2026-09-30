@@ -1,3 +1,56 @@
+#include "types.h"
+struct Owner_80129BB0 { u8 pad[0x60]; s32 f60; };
+
+struct Self_80129BB0 {
+    u8 pad0[0xF0];
+    Owner_80129BB0 *owner;
+    u8 padF4[0x1FC - 0xF4];
+    f32 f1FC;
+    s32 state;
+};
+
+struct Vec_80129BB0 { f32 x, y, z; };
+
+struct Ang_80129BB0 { s32 x, y, z; };
+
 extern "C" {
+void approach_value__20TItemEffOrgaFlowShotFPvff(void *, f32, f32);
+void TObjPlayer__sub_8012E284(s32, void *, s32, void *, void *);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern s32 tl_05;
+extern const f32 lbl_805DAE48;
+extern const f32 lbl_805DAE50;
+extern const f32 lbl_805DAE54;
+extern const f32 lbl_805DAE58;
+void TObjPlayer__sub_80129BB0(Self_80129BB0 *self);
+}
+
+extern "C" {
+
+void TObjPlayer__sub_80129BB0(Self_80129BB0 *self) {
+    s32 ang;
+    Vec_80129BB0 v;
+    Ang_80129BB0 a;
+    if (self->state == 1) {
+        approach_value__20TItemEffOrgaFlowShotFPvff(&self->f1FC, lbl_805DAE50, lbl_805DAE54);
+        if (lbl_805DAE54 == self->f1FC) {
+            self->state = 2;
+            ang = self->owner->f60 + 0x4000;
+            v.x = TBoss8Dragon__sub_803D64C0(ang);
+            v.y = lbl_805DAE48;
+            v.z = TBoss8Dragon__sub_803D64DC(ang);
+            a.x = 0x4000;
+            a.y = self->owner->f60;
+            a.z = 0;
+            TObjPlayer__sub_8012E284(tl_05, self, 3, &v, &a);
+        }
+    } else if (self->state == 2) {
+        approach_value__20TItemEffOrgaFlowShotFPvff(&self->f1FC, lbl_805DAE58, lbl_805DAE48);
+        if (lbl_805DAE48 == self->f1FC) {
+            self->state = 0;
+        }
+    }
+}
 
 }

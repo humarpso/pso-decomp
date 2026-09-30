@@ -775,6 +775,17 @@ struct Obj_80027010 { u8 pad0[0x38]; f32 f38; u8 pad3C[4]; f32 f40; };
 
 struct Vec_80027010 { f32 x, y, z; };
 
+typedef struct Dragon_80028EA8 {
+    u8 pad0[0x6A0];
+    s32 count;
+    u8 pad6A4[4];
+    f32 slots[12];
+} Dragon_80028EA8;
+
+typedef struct Vec_80028EA8 {
+    f32 x, y, z;
+} Vec_80028EA8;
+
 extern "C" {
 f32 TObjPlayer__sub_8001978C(f32);
 f32 TObjPlayer__sub_803D89C0(void *, void *);
@@ -1006,6 +1017,16 @@ f32 TObjPlayer__sub_803D89C0(void *, void *);
 extern const f32 TBoss1Dragon__data_805D7F28;
 extern const f32 lbl_805D808C;
 f32 TBoss1Dragon__sub_80027010(Obj_80027010 *arg0, f32 farg0, f32 farg1, f32 farg2);
+f32 calc_boss4_scale__10TObjPlayerFi(void);
+f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
+f32 rand_range__9TObjEneDDFff(void *, f32, f32);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern const f32 TBoss1Dragon__data_805D7F28;
+extern const f32 TBoss1Dragon__data_805D7F38;
+extern const f32 TBoss1Dragon__data_805D7FC4;
+extern const f32 lbl_805D7FE0;
+s32 TBoss1Dragon__sub_80028EA8(Dragon_80028EA8 *arg0, Vec_80028EA8 *arg1);
 }
 
 extern "C" {
@@ -2213,6 +2234,29 @@ void TBoss1Dragon::resetHpPhase() {
 }
 
 extern "C" {
+
+s32 TBoss1Dragon__sub_80028EA8(Dragon_80028EA8 *arg0, Vec_80028EA8 *arg1) {
+    s32 idx;
+    f32 r;
+    idx = (s32)get_random_float__21TObjEneMe3ShinowaRealFv(TBoss1Dragon__data_805D7F38 * calc_boss4_scale__10TObjPlayerFi());
+    if (arg0->count < 12) {
+        arg0->count++;
+        while (TBoss1Dragon__data_805D7F28 != arg0->slots[idx]) {
+            idx++;
+            if (idx >= 12) {
+                idx = 0;
+            }
+        }
+        r = rand_range__9TObjEneDDFff(arg0, TBoss1Dragon__data_805D7FC4, lbl_805D7FE0);
+        arg0->slots[idx] = r;
+    } else {
+        r = arg0->slots[idx];
+    }
+    arg1->x = r * TBoss8Dragon__sub_803D64C0(idx * 0x1555);
+    arg1->y = TBoss1Dragon__data_805D7F28;
+    arg1->z = r * TBoss8Dragon__sub_803D64DC(idx * 0x1555);
+    return 1;
+}
 
 f32 TBoss1Dragon__sub_80029238(u8 *arg0) {
     struct Vec_80029238 v;

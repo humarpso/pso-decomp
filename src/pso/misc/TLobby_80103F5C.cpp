@@ -9,6 +9,8 @@ struct In_8010440C { u8 pad0; u8 idx; };
 
 struct In_80104438 { u8 pad0; u8 idx; };
 
+struct Ent_80103F68 { u8 pad[0x24]; };
+
 extern "C" {
 M2C_UNK clear_id__10TObjPlayerFPv(M2C_UNK *);
 M2C_UNK free__11TOBoss4RockFUi(s32);
@@ -21,7 +23,6 @@ extern s32 lbl_805D542C;
 extern M2C_UNK lbl_805D5430;
 void free_boss_rocks__6TLobbyFv(void);
 s32 TCheckRoomSequence__sub_80396920(M2C_UNK, M2C_UNK *, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TLobby__sub_80103F68();
 s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
 M2C_UNK clear_id__10TObjPlayerFPv(M2C_UNK *);
 extern M2C_UNK drop_stacked_item_passthrough__6TLobbyFi[];
@@ -100,6 +101,13 @@ void *TLobby__sub_8010440C(In_8010440C *arg0);
 extern void *lbl_8049EB58[];
 void TObjPlayer__sub_80120FC4();
 void *TLobby__sub_80104438(In_80104438 *arg0);
+void TLobby__sub_8010314C(Ent_80103F68 *);
+void clear_object_count__6TLobbyFv(void);
+extern u32 lbl_805D5418;
+extern s32 lbl_805D541C;
+extern s32 lbl_805D5420;
+extern s32 lbl_805D542C;
+void TLobby__sub_80103F68(void);
 }
 
 extern "C" {
@@ -108,6 +116,30 @@ void clear_object_count__6TLobbyFv(void);
 
     extern int lbl_805D5428;
 void clear_object_count__6TLobbyFv(void) { lbl_805D5428 = 0; }
+
+void TLobby__sub_80103F68(void) {
+    s32 i;
+    s32 j;
+    s32 k;
+    for (i = 0; i != 0xD80; i++) {
+        if (*(Ent_80103F68 **)&lbl_805D5418 != NULL) {
+            TLobby__sub_8010314C(&(*(Ent_80103F68 **)&lbl_805D5418)[i]);
+        }
+    }
+    for (j = 0; j < 0x12; j++) {
+        if (*(u16 **)&lbl_805D542C != NULL) {
+            (*(u16 **)&lbl_805D542C)[j] = 0;
+        }
+    }
+    for (k = 0; k < 0x12; k++) {
+        if (*(Ent_80103F68 ***)&lbl_805D541C != NULL && *(Ent_80103F68 **)&lbl_805D5418 != NULL && *(s32 **)&lbl_805D5420 != NULL) {
+            (*(Ent_80103F68 ***)&lbl_805D541C)[k] = &(*(Ent_80103F68 **)&lbl_805D5418)[k * 0xC0];
+            (*(s32 **)&lbl_805D5420)[k] = 0;
+        }
+    }
+    clear_object_count__6TLobbyFv();
+}
+
 void free_boss_rocks__6TLobbyFv(void) {
     free__11TOBoss4RockFUi(lbl_805D542C);
     lbl_805D542C = 0;

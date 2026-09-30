@@ -33,8 +33,13 @@ struct A_800E80E8 { s32 w[12]; };
 
 struct S_800E80E8 { B_800E80E8 a; A_800E80E8 d; };
 
+typedef s32 M2C_UNK;
+typedef struct { f32 x, y, z; } Vec_800E81B4;
+struct Rot_800E81B4 { s32 x, y, z; };
+
+struct Obj_800E81B4 { u8 pad[0x39C]; Vec_800E81B4 pts[4]; };
+
 extern "C" {
-M2C_UNK TObjPlayer__sub_800E81B4(void *);
 M2C_UNK TObjPlayer__sub_800E82B8(void *, void *, void *, f32);
 M2C_UNK TObjPlayer__sub_800E841C();
 extern const f32 lbl_805DA68C;
@@ -52,6 +57,31 @@ void TObjPlayer__sub_800E8128(void);
 extern RecoveredGlobal_800E8128_lbl_80501010 lbl_80501010;
 void TObjPlayer__sub_800E80C0(u8 *arg0);
 S_800E80E8 *TObjPlayer__sub_800E80E8(S_800E80E8 *dst, S_800E80E8 *src);
+M2C_UNK TObjPlayer__sub_800F09E8(int);
+M2C_UNK TBoss1Dragon__sub_8014220C(Rot_800E81B4 *, s32 *, s32 *);
+s32 TObjPlayer__sub_80156844(void *, Vec_800E81B4 *, Rot_800E81B4 *);
+M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
+M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
+M2C_UNK TObjContainerIdo__sub_803D96A8(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+extern const f32 lbl_805DA66C;
+extern const f32 lbl_805DA670;
+extern const f32 lbl_805DA674;
+void TObjPlayer__sub_800E81B4(Obj_800E81B4 *arg0);
+void queue_destruction__7TObjectFv(void *);
+M2C_UNK TObjPlayer__sub_800E85BC();
+s32 TObjEneSlimeOne__sub_800EC39C(int);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+extern const f32 lbl_805DA670;
+extern const f32 lbl_805DA684;
+extern const f32 lbl_805DA68C;
+extern const f32 lbl_805DA6B8;
+extern const f32 lbl_805DA6BC;
+extern const f32 lbl_805DA6C0;
+extern const f32 lbl_805DA6C4;
+void TObjPlayer__sub_800E87FC(u8 *arg0);
 }
 
 extern "C" {
@@ -86,6 +116,30 @@ void TObjPlayer__sub_800E8128(void) {
 }
 
 void TObjPlayer__sub_800E81A8(void) { lbl_805D52B4 = 0; }
+
+void TObjPlayer__sub_800E81B4(Obj_800E81B4 *arg0) {
+    s32 i;
+    f32 k;
+    s32 spC;
+    s32 sp8;
+    k = lbl_805DA66C;
+    for (i = 0; i < 4; i++) {
+        Vec_800E81B4 v = arg0->pts[i];
+        Rot_800E81B4 rot;
+        v.y += k;
+        if (TObjPlayer__sub_80156844(arg0, &v, &rot) != 0) {
+            TObjPlayer__sub_803D9B2C();
+            TObjPlayer__sub_803D9624(0, v.x, lbl_805DA670 + v.y, v.z);
+            TBoss1Dragon__sub_8014220C(&rot, &spC, &sp8);
+            TObjBoss2Tunnel__sub_803D929C(0, sp8);
+            TObjContainerIdo__sub_803D96A8(0, spC + 0x4000);
+            TOMonitorMachine01__sub_803D8B5C(0, lbl_805DA674, lbl_805DA674, lbl_805DA674);
+            TObjPlayer__sub_800F09E8(0);
+            TObjPlayer__sub_803D9B78();
+        }
+    }
+}
+
 void TObjPlayer__sub_800E84F8(u8 *arg0) {
   f32 temp_f1;
   f32 temp_f3;
@@ -107,8 +161,34 @@ void TObjPlayer__sub_800E84F8(u8 *arg0) {
   temp_f1 = *((f32 *) (((s8 *) arg0) + 0xC0));
   if ((temp_f1 >= lbl_805DA698) && (temp_f1 < lbl_805DA69C))
   {
-    TObjPlayer__sub_800E81B4((void *) arg0);
+    TObjPlayer__sub_800E81B4((Obj_800E81B4 *)((void *) arg0));
   }
 }
+#pragma push
+#pragma fp_contract on
+void TObjPlayer__sub_800E87FC(u8 *arg0) {
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x378) != 0) {
+        TObjPlayer__sub_800E85BC();
+        TBoss1Dragon__sub_80143504((void *) (arg0));
+        if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
+            queue_destruction__7TObjectFv((void *) (arg0));
+            return;
+        }
+        if (TObjEneSlimeOne__sub_800EC39C((int) (M2C_FIELD(arg0, s32 *, 0x374))) != 0) {
+            M2C_FIELD(arg0, s32 *, 0x378) = 0;
+        }
+    } else {
+        M2C_FIELD(arg0, f32 *, 0xC0) += lbl_805DA670 * (lbl_805DA68C - M2C_FIELD(arg0, f32 *, 0xC0));
+        M2C_FIELD(arg0, f32 *, 0x38C) = (f32) (M2C_FIELD(arg0, f32 *, 0x38C) + lbl_805DA6B8);
+        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + lbl_805DA6BC);
+        M2C_FIELD(arg0, f32 *, 0x380) = (f32) (M2C_FIELD(arg0, f32 *, 0x380) + lbl_805DA6C0);
+        M2C_FIELD(arg0, f32 *, 0x384) = (f32) (M2C_FIELD(arg0, f32 *, 0x384) + lbl_805DA6C4);
+        M2C_FIELD(arg0, f32 *, 0x388) = (f32) (M2C_FIELD(arg0, f32 *, 0x388) + lbl_805DA6C0);
+        if (M2C_FIELD(arg0, f32 *, 0x384) <= lbl_805DA684) {
+            queue_destruction__7TObjectFv((void *) (arg0));
+        }
+    }
+}
+#pragma pop
 
 }

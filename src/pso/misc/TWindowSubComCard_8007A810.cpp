@@ -15,6 +15,12 @@ struct Card_8007B010 { u8 body[0x90]; };
 
 struct Card_8007AFB8 { u8 body[0x100]; };
 
+typedef s32 M2C_UNK;
+struct Card_8007B0D0 {
+    u8 pad[0x8F];
+    s8 level;
+};
+
 extern "C" {
 u32 TWindowSubComCard__sub_8007B070(u8 *arg0);
 M2C_UNK strncpy(void *, void *, int);
@@ -36,6 +42,12 @@ s32 forward_return_arg__17TWindowSubComCardFi(void *, void *);
 u32 get_card_id__17TWindowSubComCardFPv(void *);
 s32 is_active__17TWindowSubComCardFPv(void *);
 void TWindowSubComCard__sub_8007B1AC(void *arg0, u8 *arg1, s32 arg2);
+s32 forward_return_arg__17TWindowSubComCardFi(void *, void *);
+u32 get_card_id__17TWindowSubComCardFPv(void *);
+s32 is_active__17TWindowSubComCardFPv(void *);
+s8 TWindowSubComCard__sub_8007B6EC(void *);
+s32 TWindowSubComCard__sub_8007B6F4(void *);
+s32 TWindowSubComCard__sub_8007B0D0(Card_8007B0D0 *self, Card_8007B0D0 *cards, s32 count);
 }
 
 extern "C" {
@@ -104,7 +116,29 @@ u32 TWindowSubComCard__sub_8007B070(u8 *arg0) {
     return (u32) (s8) M2C_FIELD(arg0, u8 *, 0x8F) >> 0x1FU;
 }
 
-int TWindowSubComCard__sub_8007B0D0(void) { return 0; }
+s32 TWindowSubComCard__sub_8007B0D0(Card_8007B0D0 *self, Card_8007B0D0 *cards, s32 count) {
+    u32 id;
+    s32 i;
+    id = get_card_id__17TWindowSubComCardFPv(self);
+    for (i = 0; i < count; i++, cards++) {
+        if (is_active__17TWindowSubComCardFPv(cards) == 0) {
+            return 0;
+        }
+        if (id == get_card_id__17TWindowSubComCardFPv(cards)) {
+            if (TWindowSubComCard__sub_8007B6F4(self) != 0) {
+                forward_return_arg__17TWindowSubComCardFi(cards, self);
+            } else if (TWindowSubComCard__sub_8007B6F4(cards) == 0) {
+                if (self->level < 12) {
+                    forward_return_arg__17TWindowSubComCardFi(cards, self);
+                } else {
+                    TWindowSubComCard__sub_8007B6EC(cards);
+                }
+            }
+            return 1;
+        }
+    }
+    return 0;
+}
 
 void TWindowSubComCard__sub_8007B1AC(void *arg0, u8 *arg1, s32 arg2) {
     s32 i;

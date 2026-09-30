@@ -149,6 +149,30 @@ extern u16 lbl_805D271A;
 extern u16 lbl_805D271C;
 extern int lbl_805D4C14;
 S_8003EF38 *__dt__12TBoss3VoloptFv(S_8003EF38 *o, s16 flag);
+s32 dispatch_shared_handler_a__6TLobbyFPv(s32);
+void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+void cache_volopt_resource_ptrs(void);
+void init_models__20TBoss3VoloptHiraisinFv(void);
+void TBoss3VoloptMonitor__sub_80042408(void);
+void init_breakup_effect__15TBoss3VoloptP01Fv(void);
+void TBoss3Volopt__sub_80047A60(void);
+void init_break_model__14TObjVoloptCageFv(void);
+void cache_target_values__16TObjVoloptPillarFv(void);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+s32 check_v2_mode__9TObjEneDDFv();
+extern u8 lbl_804836A0[];
+extern u8 lbl_80483760[];
+extern u16 lbl_805D2718;
+extern u32 lbl_805D4C10;
+extern int lbl_805D4C2C;
+extern s32 lbl_805D4C30;
+extern s32 lbl_805D4C34;
+extern s32 lbl_805D4C38;
+extern int lbl_805D4C40;
+extern s32 lbl_805D4D48;
+extern s32 lbl_805D4D4C;
+extern s32 lbl_805D4D50;
+void TBoss3Volopt__sub_8003EE10(void);
 }
 
 extern "C" {
@@ -273,6 +297,41 @@ void free_parts__12TBoss3VoloptFv(void) {
     TBoss3Volopt__sub_800479D0();
     destroy__20TBoss3VoloptHiraisinFv();
     release__19TBoss3VoloptMonitorFv();
+}
+
+void TBoss3Volopt__sub_8003EE10(void) {
+    s32 v2;
+    void *p;
+    v2 = check_v2_mode__9TObjEneDDFv();
+    if (v2 != 0) {
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = TLobby__sub_80020004(p, 5, lbl_80483760, 0, 0, 0);
+        }
+        lbl_805D4C10 = (u32)p;
+    } else {
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = TLobby__sub_80020004(p, 5, lbl_804836A0, 0, 0, 0);
+        }
+        lbl_805D4C10 = (u32)p;
+    }
+    lbl_805D4C40 = v2;
+    init_breakup_effect__15TBoss3VoloptP01Fv();
+    cache_volopt_resource_ptrs();
+    TBoss3Volopt__sub_80047A60();
+    init_models__20TBoss3VoloptHiraisinFv();
+    TBoss3VoloptMonitor__sub_80042408();
+    lbl_805D4D4C = *(s32 *)(*(u8 **)(*(u8 **)(lbl_805D4C10 + 0x42C) + 0xD8) + 4);
+    lbl_805D4D48 = *(s32 *)(*(u8 **)(*(u8 **)(*(u8 **)(lbl_805D4C10 + 0x42C) + 0xD8) + 0x2C) + 4);
+    lbl_805D4D50 = *(s32 *)(*(u8 **)(lbl_805D4C10 + 0x42C) + 0xDC);
+    cache_target_values__16TObjVoloptPillarFv();
+    init_break_model__14TObjVoloptCageFv();
+    lbl_805D2718 = 0xFFFF;
+    lbl_805D4C2C = 0;
+    lbl_805D4C30 = dispatch_shared_handler_a__6TLobbyFPv(0x27);
+    lbl_805D4C34 = dispatch_shared_handler_a__6TLobbyFPv(0x28);
+    lbl_805D4C38 = dispatch_shared_handler_a__6TLobbyFPv(0x29);
 }
 
 S_8003EF38 *__dt__12TBoss3VoloptFv(S_8003EF38 *o, s16 flag) {

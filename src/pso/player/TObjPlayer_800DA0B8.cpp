@@ -14,6 +14,30 @@ struct S_800DA414 { s32 a; s32 b; s32 c; };
 
 struct Obj_800DA414 { u8 pad0[0x1C]; u16 f1c; u8 pad1e[0x60 - 0x1E]; s32 h; u8 pad64[0x39C - 0x64]; u8 sub[2][0xC]; u8 pad3b4[4]; u16 ids[2]; };
 
+typedef struct Vec_800DA508 {
+    f32 x, y, z;
+} Vec_800DA508;
+
+typedef struct Param_800DA508 {
+    u8 pad0[8];
+    s32 turn;
+} Param_800DA508;
+
+typedef struct Ene_800DA508 {
+    u8 pad0[0x38];
+    Vec_800DA508 pos;
+    u8 pad44[0x60 - 0x44];
+    s32 angle;
+    u8 pad64[0x29C - 0x64];
+    Vec_800DA508 v29C;
+    u8 pad2A8[0x350 - 0x2A8];
+    Param_800DA508 *param;
+    u8 pad354[0x390 - 0x354];
+    Vec_800DA508 dest;
+    u8 pad39C[0x3D8 - 0x39C];
+    f32 speed;
+} Ene_800DA508;
+
 extern "C" {
 void set_state__15TObjEneMe1GiGueFPvi(void *, s32);
 void TObjPlayer__sub_800DB8D4(u8 *arg0);
@@ -23,6 +47,20 @@ void TObjPlayer__sub_800DCD04(void *, void *, int, void *, s32, int);
 u32 TPhotonMylla__sub_80154CB4(int);
 u32 __nw__7TObjectFUl(u32);
 void TObjPlayer__sub_800DA414(Obj_800DA414 *arg0, s32 arg1);
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
+void TObjPlayer__sub_80017E6C(void *);
+void TObjPlayer__sub_8001806C(void *, f32, s32);
+void TObjPlayer__sub_80018660(void *, s32);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+f32 fn_8013157C(void *, void *);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern const f32 lbl_805DA40C;
+extern const f32 lbl_805DA410;
+extern const f32 lbl_805DA414;
+extern const f32 lbl_805DA418;
+extern const f32 lbl_805DA41C;
+void TObjPlayer__sub_800DA508(Ene_800DA508 *arg0, Vec_800DA508 *center, f32 radius);
 }
 
 extern "C" {
@@ -65,6 +103,24 @@ void TObjPlayer__sub_800DA4B4(Obj_800DA4B4 *self, s32 i) {
     v.z = 0x4000;
     fn_80086D50(&self->recs[i], &v, 0xfd);
 }
+
+#pragma push
+#pragma fp_contract on
+void TObjPlayer__sub_800DA508(Ene_800DA508 *arg0, Vec_800DA508 *center, f32 radius) {
+    s32 ang;
+    f32 r;
+    if (fn_8013157C(&arg0->pos, &arg0->dest) < lbl_805DA40C) {
+        ang = (s32)(lbl_805DA410 * (lbl_805DA414 * calc_boss4_scale__10TObjPlayerFi(arg0)));
+        r = lbl_805DA418 * (radius * (lbl_805DA41C + calc_boss4_scale__10TObjPlayerFi(arg0)));
+        arg0->dest.x = r * TBoss8Dragon__sub_803D64DC(ang) + center->x;
+        arg0->dest.z = r * TBoss8Dragon__sub_803D64C0(ang) + center->z;
+    }
+    VecCopy__FP3VecPC3Vec(&arg0->v29C, &arg0->dest);
+    TObjPlayer__sub_80018660(arg0, arg0->param->turn);
+    TObjPlayer__sub_8001806C(arg0, arg0->speed, arg0->angle);
+    TObjPlayer__sub_80017E6C(arg0);
+}
+#pragma pop
 
 void TObjPlayer__sub_800DB8D4(u8 *arg0) {
     set_state__15TObjEneMe1GiGueFPvi(arg0, 5);

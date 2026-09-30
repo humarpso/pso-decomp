@@ -185,6 +185,49 @@ struct RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik {
     u8 remaining[0x148];
 };
 
+struct VBase_18_9ebd6c { char pad[0x18]; };
+
+struct VObj_18_9ebd6c : VBase_18_9ebd6c {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual s32 m37();
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TLobby__sub_800F6510(void *, void *);
@@ -238,6 +281,31 @@ void TOCtrlDubchik__sub_8015CBDC(u8 *arg0);
 extern const f32 TOCtrlDubchik__data_805DB3A8;
 extern const f32 TOCtrlDubchik__data_805DB3B0;
 void TOCtrlDubchik__sub_8015CC30(u8 *arg0);
+M2C_UNK TObjPlayer__sub_80011734(void *, void *, f32);
+u8 *get_player_data__10TObjPlayerFi(s32);
+s32 obj_testFlags30(void *, s32);
+s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+extern s32 lbl_805D29F8;
+extern s32 lbl_805D586C;
+extern s32 lbl_805D5870;
+extern const f32 TOCtrlDubchik__data_805DB3B4;
+extern const f32 lbl_805DB3BC;
+void TOCtrlDubchik__sub_8015CE80(u8 *arg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 obj_testFlags30(void *, s32);
+s32 check_demo_mode__10TObjPlayerFv(void);
+s32 TObjPlayer__sub_80154E3C(void *);
+void TOCtrlDubchik__sub_8015C9D0(u8 *);
+void TOCtrlDubchik__sub_8015CB4C(u8 *arg0);
+void TOCtrlDubchik__sub_8015CBDC(u8 *arg0);
+void TOCtrlDubchik__sub_8015CC30(u8 *arg0);
+void update_spin__13TOCtrlDubchikFPv(u8 *arg0);
+void TOCtrlDubchik__sub_8015CCF4(u8 *arg0);
+void TOCtrlDubchik__sub_8015CDCC(u8 *arg0);
+void TOCtrlDubchik__sub_8015CE80(u8 *arg0);
+void TObjPlayer__sub_801B4A18(void *, s32);
+void run_task__13TOCtrlDubchikFv(u8 *arg0);
 }
 
 extern "C" {
@@ -353,6 +421,62 @@ void TOCtrlDubchik__sub_8015CDCC(u8 *arg0) {
     }
 }
 #pragma pop
+
+void TOCtrlDubchik__sub_8015CE80(u8 *arg0) {
+    s32 i;
+    u8 *p;
+    *(s32 *)(arg0 + 0x380) = (f32)*(s32 *)(arg0 + 0x380) + TOCtrlDubchik__data_805DB3B4;
+    *(f32 *)(arg0 + 0x37C) = lbl_805DB3BC + TBoss8Dragon__sub_803D64C0(*(s32 *)(arg0 + 0x380));
+    TObjPlayer__sub_80011734(arg0, arg0 + 0x390, *(f32 *)(arg0 + 0x37C));
+    for (i = lbl_805D586C; i < lbl_805D586C + lbl_805D5870; i++) {
+        p = get_player_data__10TObjPlayerFi(i);
+        if (p != NULL && p != arg0 && obj_testFlags30(p, 0x800) != 0 &&
+            check_value_equals__13TQuestColCtrlFPvi(p, lbl_805D29F8) != 0 &&
+            *(s32 *)(p + 0x368) == 0 && *(s16 *)(arg0 + 0x28) == *(s16 *)(p + 0x28)) {
+            *(s16 *)(arg0 + 0x326) = 1;
+        }
+    }
+}
+
+void run_task__13TOCtrlDubchikFv(u8 *arg0) {
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
+        TOCtrlDubchik__sub_8015C9D0(arg0);
+        return;
+    }
+    if (obj_testFlags30(arg0, 0x800) != 0) {
+        *(s16 *)(arg0 + 0x326) = 6;
+    } else if (((VObj_18_9ebd6c *)(arg0))->m37() != 0) {
+        TObjPlayer__sub_80154E3C(arg0);
+        TObjPlayer__sub_801B4A18(arg0, -1);
+        return;
+    }
+    switch (*(s16 *)(arg0 + 0x326)) {
+    case 0:
+        TOCtrlDubchik__sub_8015CE80(arg0);
+        break;
+    case 1:
+        TOCtrlDubchik__sub_8015CDCC(arg0);
+        break;
+    case 2:
+        TOCtrlDubchik__sub_8015CCF4(arg0);
+        break;
+    case 3:
+        update_spin__13TOCtrlDubchikFPv(arg0);
+        break;
+    case 4:
+        TOCtrlDubchik__sub_8015CC30(arg0);
+        break;
+    case 5:
+        TOCtrlDubchik__sub_8015CBDC(arg0);
+        break;
+    case 6:
+        TOCtrlDubchik__sub_8015CB4C(arg0);
+        break;
+    }
+    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    TObjPlayer__sub_80154E3C(arg0);
+    TObjPlayer__sub_801B4A18(arg0, -1);
+}
 
 void *create__13TOCtrlDubchikFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x3A0);

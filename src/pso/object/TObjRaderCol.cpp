@@ -20,17 +20,26 @@ struct RecoveredGlobal_801976F4___vt__12TObjRaderCol {
     u8 remaining[0x34];
 };
 
+struct Col_8019750C { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x4C]; f32 f90; s32 f94; u8 pad98[4]; s32 f9C; };
+
+struct Ply_8019750C { u8 pad0[0x38]; f32 pos[3]; };
+
 extern "C" {
 s32 disallow_rendering__7TObjectFv(void *);
 s32 TPhotonMagicSquare__sub_801A2640(void *);
 extern M2C_UNK __vt__12TObjRaderCol[];
 extern s32 lbl_805D3410;
 u8 *TObjRaderCol__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+void queue_destruction__7TObjectFv(void *);
+f32 fn_8013157C(void *, void *);
+int test_flag_2000000__10TObjPlayerFPv(void *);
+Ply_8019750C *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void TRaderMapCore__sub_801F9CB8(s16);
+void TObjRaderCol__sub_8019750C(Col_8019750C *arg0);
 }
 
 extern "C" {
 
-int TObjRaderCol__sub_8019750C(void *);
 void *__dt__12TObjRaderColFv(void *arg0, s16 arg1);
 void render__12TObjRaderColFv(void);
 void run_task__12TObjRaderColFv(void *arg0);
@@ -42,7 +51,33 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 
 void render__12TObjRaderColFv(void) {  }
 
-int TObjRaderCol__sub_8019750C(void *) { return 0; }
+void TObjRaderCol__sub_8019750C(Col_8019750C *arg0) {
+    s32 found;
+    s32 i;
+    s32 j;
+    Ply_8019750C *p;
+    found = 0;
+    for (i = 0; i < 4; i++) {
+        p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        if (p != 0 && test_flag_2000000__10TObjPlayerFPv(p) != 0) {
+            found = 1;
+        }
+    }
+    if (found == 0) {
+        if (arg0->f9C > 0) {
+            arg0->f9C--;
+        } else {
+            for (j = 0; j < 4; j++) {
+                p = TPlayerBattleCtrl4P__sub_801BA74C(j);
+                if (p != 0 && fn_8013157C(p->pos, arg0->pos) < arg0->f90 * arg0->f90) {
+                    TRaderMapCore__sub_801F9CB8(arg0->f94);
+                    queue_destruction__7TObjectFv(arg0);
+                    return;
+                }
+            }
+        }
+    }
+}
 
 void run_task__12TObjRaderColFv(void *arg0) {
     s32 temp_r0;
@@ -55,7 +90,7 @@ void run_task__12TObjRaderColFv(void *arg0) {
         return;
     case 1:
         if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-            TObjRaderCol__sub_8019750C((void *)(arg0));
+            TObjRaderCol__sub_8019750C((Col_8019750C *)((void *)(arg0)));
             return;
         }
         TObjRaderCol__sub_801975DC(arg0);

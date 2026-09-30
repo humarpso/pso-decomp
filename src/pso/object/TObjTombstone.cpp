@@ -24,6 +24,26 @@ struct Obj_80075CB4 { u8 pad[0xAC]; s32 fac; u8 pad_b0[0x110 - 0xB0]; char name[
 
 struct Ply_80075CB4 { u8 pad[0x85C]; char name[0x30]; };
 
+struct Date_80075A00 {
+    u32 year : 4;
+    u32 month : 4;
+    u32 pad8 : 3;
+    u32 day : 5;
+    u32 pad16 : 3;
+    u32 hour : 5;
+    u32 pad24 : 2;
+    u32 minute : 6;
+};
+
+struct Tomb_80075A00 {
+    u8 pad0[0xAC];
+    s32 owner;
+    u8 padB0[0xC8 - 0xB0];
+    u32 date;
+    u8 padCC[0x200 - 0xCC];
+    char text[1];
+};
+
 extern "C" {
 void TObjTombstone__sub_80075D68(O_80075D68 *self);
 void TBoss6Type1__sub_803D9370(Vec_8007598C *, Vec_8007598C *);
@@ -51,6 +71,12 @@ char *strncpy(char *, const char *, unsigned long);
 unsigned long strlen(const char *);
 extern char lbl_80438810[];
 void TObjTombstone__sub_80075CB4(Obj_80075CB4 *self);
+int sprintf(char *, const char *, ...);
+extern char lbl_804387C8[];
+extern char lbl_804387E0[];
+extern s32 lbl_805D53A0;
+extern s32 lbl_805D5544;
+void TObjTombstone__sub_80075A00(Tomb_80075A00 *self);
 }
 
 extern "C" {
@@ -89,6 +115,39 @@ f32 TObjTombstone__sub_8007598C(Obj_8007598C *self, void * _w1) {
     TBoss6Type1__sub_803D9370(&v, &p->pos);
     v.y = TObjTombstone__data_805D9174;
     return TBoss6Kakusan__sub_803D8BD8(&v);
+}
+
+void TObjTombstone__sub_80075A00(Tomb_80075A00 *self) {
+    char *text;
+    s32 month;
+    s32 day;
+    s32 hour;
+    s32 minute;
+    s32 year;
+    u32 d;
+    text = self->text;
+    text[0] = 0;
+    if (self->owner != lbl_805D53A0) {
+        return;
+    }
+    d = self->date;
+    year = d >> 28;
+    month = (d >> 24) & 0xF;
+    day = (d >> 16) & 0x1F;
+    hour = (d >> 8) & 0x1F;
+    minute = d & 0x3F;
+    if (year == 15 || month <= 0 || month > 12 || day <= 0 || day > 31
+        || hour < 0 || hour >= 24 || minute < 0 || minute >= 60) {
+        return;
+    }
+    switch (lbl_805D5544) {
+    case 0:
+        sprintf(text, lbl_804387C8, year + 2000, month, day, hour, minute);
+        break;
+    default:
+        sprintf(text, lbl_804387E0, month, day, year + 2000, hour, minute);
+        break;
+    }
 }
 
 void TObjTombstone__sub_80075AE8(Obj_80075AE8 *self) {

@@ -163,6 +163,30 @@ struct Ene_800F6464 : Base_800F6464 {
 
 struct Msg_800F6464 { u8 pad0[2]; u16 f2; u16 f4; s16 f6; u32 f8; };
 
+typedef s32 M2C_UNK;
+struct Msg_800F62E0 { u8 pad0[2]; u16 id; s32 flags; };
+
+struct VBase_800F62E0 { char pad[0x18]; };
+
+struct Ene_800F62E0 : VBase_800F62E0 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
+    virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27();
+    virtual void m28(); virtual void m29(); virtual void m30(); virtual void m31();
+    virtual void m32(); virtual void m33(); virtual void m34(); virtual void m35();
+    virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
+    virtual void m40(); virtual void m41(); virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46(s32);
+    virtual void m47();
+};
+
 extern "C" {
 void TLobby__sub_800F79C4(u8 *arg0);
 void broadcast_state__6TLobbyFPv(void* p);
@@ -174,6 +198,13 @@ extern s32 lbl_805D5550;
 void apply_by_index__9TObjEnemyFs(s16, void *);
 Ene_800F6464 *get_enemy_entity(u16);
 void handle_6x0A_update_enemy_state(Msg_800F6464 *arg0);
+s32 obj_testFlags30(void *, s32);
+void obj_setFlags30(void *, s32);
+Ene_800F62E0 *TNpcPlayer__sub_800D87EC(u16);
+void bswap_field__6TLobbyFPv(void *);
+s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
+extern s32 lbl_805D5550;
+void handle_6x9C_set_enemy_low_game_flags_ultimate(Msg_800F62E0 *arg0);
 }
 
 extern "C" {
@@ -286,6 +317,56 @@ void *TObjControl__ct(void *arg0) {
     M2C_FIELD(arg0, u16 *, 0x1E) = 0;
     return arg0;
 }
+
+void handle_6x9C_set_enemy_low_game_flags_ultimate(Msg_800F62E0 *arg0) {
+    Ene_800F62E0 *e;
+    s32 flags;
+    if (arg0 == NULL) {
+        return;
+    }
+    if (lbl_805D5550 != 3) {
+        return;
+    }
+    bswap_field__6TLobbyFPv(arg0);
+    if (arg0->id < 0x1000) {
+        return;
+    }
+    if (arg0->id >= 0x4000) {
+        return;
+    }
+    e = TNpcPlayer__sub_800D87EC(arg0->id);
+    if (e == NULL) {
+        return;
+    }
+    if (all_parents_unqueued_for_destruction__7TObjectFv(e) == 0) {
+        return;
+    }
+    if (obj_testFlags30(e, 0x800) != 0) {
+        return;
+    }
+    flags = arg0->flags;
+    if (obj_testFlags30(e, flags) != 0) {
+        return;
+    }
+    obj_setFlags30(e, flags);
+    switch (flags) {
+    case 2:
+        e->m43();
+        break;
+    case 3:
+        break;
+    case 4:
+        e->m47();
+        break;
+    case 16:
+        e->m45();
+        break;
+    case 32:
+        e->m46(0);
+        break;
+    }
+}
+
 void TLobby__sub_800F641C(Obj_800F641C *self, s32 arg) {
     Msg_800F641C msg;
     TLobby__sub_800F79C4((u8 *)&msg);

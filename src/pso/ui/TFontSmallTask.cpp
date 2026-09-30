@@ -63,6 +63,27 @@ struct VObj_800FD614 : VBase_800FD614 {
 
 struct Out_800FD614 { s32 a; s32 b; };
 
+struct Vec_800FD4D4 {
+    f32 x, y, z;
+};
+
+struct TFontSmallTask_800FD4D4 {
+    s32 f0;
+    u8 pad4[0x18 - 4];
+    void *vt;
+    Vec_800FD4D4 pos;
+    f32 ofs_x;
+    f32 ofs_y;
+    f32 width;
+    char text[0x10];
+    u32 rgb;
+    s32 f48;
+    s32 life;
+    s32 delay;
+    s16 f54;
+    u16 view;
+};
+
 extern "C" {
 void TFontSmallTask__sub_800FD604(void* p);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 TLobby__data_805011D8;
@@ -75,6 +96,18 @@ u16 obj_getField1c();
 s32 get_game_mode__6TLobbyFv();
 s32 TLobby__sub_8007B844(void *);
 void TLobby__sub_800FD614(struct Out_800FD614 *out, s32 arg1);
+void VecCopy__FP3VecPC3Vec(void *, const void *);
+void disallow_rendering__7TObjectFv(void *);
+u32 fn_800FC0F8(char *);
+void *get_instance__15TWindowCtrlMainFv(void);
+f32 TFontSmallTask__sub_800FCCFC(void *);
+void __ct__7TObjectFP7TObject(void *, void *);
+char *strncpy(char *, const char *, u32);
+extern u8 __vt__14TFontSmallTask[];
+extern s32 lbl_805D2B30;
+extern const f32 lbl_805DAA0C;
+extern const f32 lbl_805DAA20;
+TFontSmallTask_800FD4D4 *__ct__14TFontSmallTaskFv(TFontSmallTask_800FD4D4 *self, Vec_800FD4D4 *pos, u32 color, s32 life, s32 delay, const char *text, u16 view);
 }
 
 extern "C" {
@@ -82,6 +115,33 @@ extern "C" {
 void TFontSmallTask__sub_800FD5F4(void* p, s32 v);
 void TFontSmallTask__sub_800FD604(void* p);
 s32 get_task_id__14TFontSmallTaskFPv(void* p);
+
+#pragma push
+#pragma fp_contract on
+TFontSmallTask_800FD4D4 *__ct__14TFontSmallTaskFv(TFontSmallTask_800FD4D4 *self, Vec_800FD4D4 *pos, u32 color, s32 life, s32 delay, const char *text, u16 view) {
+    __ct__7TObjectFP7TObject(self, get_instance__15TWindowCtrlMainFv());
+    self->vt = __vt__14TFontSmallTask;
+    self->f0 = lbl_805D2B30;
+    VecCopy__FP3VecPC3Vec(&self->pos, pos);
+    self->ofs_x = lbl_805DAA0C;
+    self->ofs_y = lbl_805DAA0C;
+    self->rgb = color & 0xFFFFFF;
+    self->f48 = 0;
+    self->life = life;
+    self->delay = delay;
+    self->f54 = 0;
+    self->view = view;
+    if (self->view >= 4) {
+        self->view = 0xFFFF;
+    }
+    disallow_rendering__7TObjectFv(self);
+    strncpy(self->text, text, 0xF);
+    self->text[0xF] = 0;
+    self->width = fn_800FC0F8(self->text);
+    self->ofs_x -= lbl_805DAA20 * self->width * TFontSmallTask__sub_800FCCFC(self);
+    return self;
+}
+#pragma pop
 
 void TFontSmallTask__sub_800FD5F4(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 s32 get_task_id__14TFontSmallTaskFPv(void* p) { return *(s32*)((char*)p + 0x4); }

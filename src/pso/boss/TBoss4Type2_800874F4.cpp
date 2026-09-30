@@ -6,9 +6,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct O_80087638 { u8 pad[0x2e]; u16 x2e; };
 
+struct Ent_800874F4 { u8 data[0x98]; };
+
 extern "C" {
 void TTecLuker__sub_8008764C(u8 *arg0, s32 arg1);
 void TObjPlayer__sub_80087638(O_80087638 *self, u16 x);
+extern s32 lbl_805D2948;
+extern s32 lbl_805D4EF8;
+extern s32 lbl_805D4EFC;
+void *__nw__7TObjectFUl(int);
+void *initialize__13TParticleCtrlFPvPviiiii(void *self, void *owner, void *entry, s32 a, s32 b, s32 c, s32 d);
+void *TBoss4Type2__sub_800874F4(void *pos, s32 id);
 }
 
 extern "C" {
@@ -22,6 +30,26 @@ extern s32 lbl_805D4EF8;
 extern s32 lbl_805D4EFC;
 extern const f32 TParticleCtrl__data_805D94E0;
 extern const f32 TParticleCtrl__data_805D94E4;
+
+void *TBoss4Type2__sub_800874F4(void *pos, s32 id) {
+    void *p;
+    if (lbl_805D2948 > id) {
+        p = __nw__7TObjectFUl(0x78);
+        if (p != 0) {
+            p = initialize__13TParticleCtrlFPvPviiiii(p, pos, &(*(Ent_800874F4 * *)&lbl_805D4EF8)[id], 0, 0, 0, 0);
+        }
+        return p;
+    }
+    if (lbl_805D2948 + 0x40 > id) {
+        s32 idx = id - 0x200;
+        p = __nw__7TObjectFUl(0x78);
+        if (p != 0) {
+            p = initialize__13TParticleCtrlFPvPviiiii(p, pos, &(*(Ent_800874F4 * *)&lbl_805D4EFC)[idx], 0, 0, 0, 0);
+        }
+        return p;
+    }
+    return 0;
+}
 
 void set_param_ptr__11TBoss4Type2FPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) TParticleCtrl__data_805D94E0;

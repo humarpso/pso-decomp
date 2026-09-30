@@ -4,6 +4,24 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Light_80191F90 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x18]; f32 rot[3]; u8 pad68[0x28]; f32 f90; void *f94; };
+
+struct Ply_80191F90 { u8 pad0[0x38]; f32 pos[3]; };
+
+extern "C" {
+s32 TObjPlayer__sub_80019248(void *);
+s32 TObjPlayer__sub_800196EC();
+s32 get_field_3e4__10TObjPlayerFPv(void *);
+void queue_destruction__7TObjectFv(void *);
+void copy_vec3__11TBoss4Type2FPvPv(void *, void *);
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+s32 fn_800FD930();
+f32 fn_8013157C(void *, void *);
+Ply_80191F90 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void fn_8020C408(void *, s32);
+void run_task__13TObjItemLightFv(Light_80191F90 *arg0);
+}
+
 extern "C" {
 
 struct VObjItemLight_80192060 {
@@ -25,6 +43,28 @@ void destroy_particle__13TParticleCtrlFPvs(void *, int);
 void request_destroy__11TBoss4Type2FUi(void *);
 
 extern M2C_UNK __vt__13TObjItemLight[];
+
+void run_task__13TObjItemLightFv(Light_80191F90 *arg0) {
+    s32 i;
+    Ply_80191F90 *p;
+    if (arg0->f94 != 0) {
+        copy_pos__11TNowLoadingFPvPv(arg0->f94, arg0->pos);
+        copy_vec3__11TBoss4Type2FPvPv(arg0->f94, arg0->rot);
+    }
+    if (fn_800FD930() != 0) {
+        return;
+    }
+    for (i = 0; i < 4; i++) {
+        p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        if (p != 0 && get_field_3e4__10TObjPlayerFPv(p) == TObjPlayer__sub_800196EC()
+            && TObjPlayer__sub_80019248(p) != 0
+            && fn_8013157C(p->pos, arg0->pos) < arg0->f90 * arg0->f90) {
+            fn_8020C408(arg0, 8);
+            queue_destruction__7TObjectFv(arg0);
+            return;
+        }
+    }
+}
 
 void *__dt__13TObjItemLightFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -48,6 +48,8 @@ struct G_8000F92C { s32 f0; s32 f4; s32 f8; s32 fc; s32 f10; };
 
 struct G_8000F9B0 { s32 f0; s32 f4; s32 f8; s32 fc; s32 f10; };
 
+typedef struct GXColor_8000FA00 { u8 r, g, b, a; } GXColor_8000FA00;
+
 extern "C" {
 extern s32 lbl_805D49C0;
 void TKeyBoardControl__sub_8000F950(void);
@@ -89,6 +91,24 @@ extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
 s32 TKeyBoardControl__sub_8000F92C(void);
 extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
 s32 TKeyBoardControl__sub_8000F9B0(void);
+void set_cull_none__8TObjFishFv(void);
+void GXSetCopyClear(GXColor_8000FA00 clear_clr, u32 clear_z);
+void GXCopyDisp(void *dest, int clear);
+void GXInitLightPos(void *lt_obj, f32 x, f32 y, f32 z);
+void GXInitLightColor(void *lt_obj, GXColor_8000FA00 color);
+void GXLoadLightObjImm(void *lt_obj, int light);
+void GXSetChanAmbColor(int chan, GXColor_8000FA00 amb_color);
+void GXSetChanMatColor(int chan, GXColor_8000FA00 mat_color);
+extern u8 lbl_804FE020[];
+extern void *lbl_805D773C;
+extern void *lbl_805D7740;
+extern GXColor_8000FA00 lbl_805D7D00;
+extern GXColor_8000FA00 lbl_805D7D04;
+extern GXColor_8000FA00 lbl_805D7D08;
+extern const f32 lbl_805D7D0C;
+extern const f32 lbl_805D7D10;
+extern GXColor_8000FA00 lbl_805E1200;
+void TKeyBoardControl__sub_8000FA00(void);
 }
 
 extern "C" {
@@ -255,6 +275,21 @@ void TKeyBoardControl__sub_8000F9E4(void) {
     M2C_FIELD(&lbl_804FE120.value, s32 *, 8) = 1;
     M2C_FIELD(&lbl_804FE120.value, s32 *, 0xC) = 1;
     M2C_FIELD(&lbl_804FE120.value, s32 *, 0x14) = 1;
+}
+void TKeyBoardControl__sub_8000FA00(void) {
+    GXColor_8000FA00 c0 = lbl_805D7D00;
+    GXColor_8000FA00 c1 = lbl_805D7D04;
+    GXColor_8000FA00 c2 = lbl_805D7D08;
+    GXSetCopyClear(lbl_805E1200, 0xFFFFFF);
+    GXInitLightPos(lbl_804FE020, lbl_805D7D0C, lbl_805D7D10, lbl_805D7D0C);
+    GXInitLightColor(lbl_804FE020, c2);
+    GXLoadLightObjImm(lbl_804FE020, 1);
+    GXSetChanAmbColor(0, c0);
+    GXSetChanAmbColor(2, c2);
+    GXSetChanMatColor(4, c1);
+    GXCopyDisp(lbl_805D7740, 1);
+    GXCopyDisp(lbl_805D773C, 1);
+    set_cull_none__8TObjFishFv();
 }
 
 }

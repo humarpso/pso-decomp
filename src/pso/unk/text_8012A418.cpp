@@ -93,10 +93,42 @@ struct VObj_18_24931d : VBase_18_24931d {
     virtual M2C_UNK m60();
 };
 
+struct Param_8012A508 { s32 kind; f32 val; };
+
+struct VBase_8012A508 { char pad[0x18]; };
+
+struct VObj_8012A508 : VBase_8012A508 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21(u32, Param_8012A508 *, u8 *, s32, s32);
+    u8 pad1c[0xA4 - 0x1C];
+    u8 *recs;
+};
+
+struct Self_8012A508 { u8 pad[0xF0]; u32 fF0; u8 padF4[0x1F8 - 0xF4]; s32 mode; };
+
 extern "C" {
 s8 TObjPlayer__sub_80102C30();
 M2C_UNK TObjPlayer__sub_8011F7CC(void *, u32, u32, s32, s32, f32);
-M2C_UNK TObjPlayer__sub_8012A508(void *, u32, s32);
 void TObjPlayer__sub_8012A5E8(void *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0);
 u8 * TObjPlayer__sub_8012A3B4(void *, M2C_UNK, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
@@ -107,6 +139,9 @@ s32 update_active_game_effect__10TObjPlayerFPv(void *);
 s32 draw_status_icon__10TObjPlayerFPvi(void *, void *);
 s32 TObjPlayer__sub_8012A470(void *);
 void TObjPlayer__sub_8012A6B4(u8 *arg0);
+extern const f32 lbl_805DAE60;
+extern const f32 lbl_805DAE64;
+s32 TObjPlayer__sub_8012A508(void *arg0, u32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -131,6 +166,32 @@ u8 *TObjPlayer__sub_8012A418(s32 arg0) {
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+s32 TObjPlayer__sub_8012A508(void *arg0, u32 arg1, s32 arg2) {
+    Self_8012A508 *self = (Self_8012A508 *)arg0;
+    VObj_8012A508 *obj = (VObj_8012A508 *)arg1;
+    u32 f;
+    Param_8012A508 t1;
+    Param_8012A508 t2;
+    if (obj != NULL && (f = self->fF0) != 0) {
+        switch (self->mode) {
+        case 1: {
+            t1.kind = 0xB;
+            t1.val = lbl_805DAE60;
+            Param_8012A508 p = t1;
+            obj->m21(f, &p, obj->recs + arg2 * 0x2C, -1, -1);
+            break;
+        }
+        case 2: {
+            t2.kind = 0xC;
+            t2.val = lbl_805DAE64;
+            Param_8012A508 p = t2;
+            obj->m21(f, &p, obj->recs + arg2 * 0x2C, -1, -1);
+            break;
+        }
+        }
+    }
+}
+
 void TObjPlayer__sub_8012A5E8(void *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0) {
     u32 f;
     if (TObjPlayer__sub_80102C30() == 2) {
@@ -140,7 +201,7 @@ void TObjPlayer__sub_8012A5E8(void *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4
             case 1:
             case 2:
                 if (arg3 == 2) {
-                    TObjPlayer__sub_8012A508(arg0, arg2, arg4);
+                    TObjPlayer__sub_8012A508((void *)(arg0), (u32)(arg2), (s32)(arg4));
                 } else {
                     TObjPlayer__sub_8011F7CC(arg0, f, arg2, arg3, arg4, farg0);
                 }

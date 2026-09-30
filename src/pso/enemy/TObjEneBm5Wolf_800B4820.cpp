@@ -435,6 +435,25 @@ void TObjEneBm5Wolf__sub_800B7530(Obj_800B7530 *self);
 u8 *TPhotonMylla__sub_80154CB4(u16);
 extern const f32 TObjEneBm5Wolf__data_805D9D8C;
 void TObjEneBm5Wolf__sub_800B74B8(Obj_800B74B8 *self);
+void TObjEneBm5Wolf__sub_800B72B4(u8 *arg0, s32 arg1);
+void TObjEneBm5Wolf__sub_800B7018(u8 *arg0, s32 arg1);
+void TObjEneBm5Wolf__sub_800B6EFC(u8 *arg0, s32 arg1);
+void TObjEneBm5Wolf__sub_800B6B4C(void);
+void TObjEneBm5Wolf__sub_800B6E10(u8 *arg0, s32 arg1);
+void TObjEneBm5Wolf__sub_800B6D04(u8 *arg0, s32 arg1);
+void TObjEneBm5Wolf__sub_800B6B50(u8 *arg0, s32 arg1);
+void roaming_state__14TObjEneBm5WolfFi(u8 *arg0, s32 arg1);
+void TObjEneBm5Wolf__sub_800B6554(u8 *arg0, s32 arg1);
+void TObjEneBm5Wolf__sub_800B62AC(u8 *arg0, s32 arg1);
+void TObjEneBm5Wolf__sub_800B5D4C(u8 *arg0, s32 arg1);
+void TObjEneBm5Wolf__sub_800B5924(u8 *arg0, s32 arg1);
+void TObjEneBm5Wolf__sub_800B56CC(u8 *arg0, s32 arg1);
+void TObjEneBm5Wolf__sub_800B53F0(u8 *arg0, s32 arg1);
+void action__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
+void TObjEneBm5Wolf__sub_800B50CC(u8 *arg0, s32 arg1);
+void TObjEneBm5Wolf__sub_800B4D88(u8 *arg0, s32 arg1);
+void TObjEneBm5Wolf__sub_800B4D4C(void *self, s32 msg);
+void TObjEneBm5Wolf__sub_800B73A8(u8 *arg0, u32 state, s32 event);
 }
 
 extern "C" {
@@ -868,6 +887,66 @@ void TObjEneBm5Wolf__sub_800B72B4(u8 *arg0, s32 arg1) {
             VecCopy__FP3VecPC3Vec(arg0 + 0x3F4, fn_800B8B00(temp_r3));
         }
         M2C_FIELD(arg0, s32 *, 0x420) = (s32) (M2C_FIELD(arg0, s32 *, 0x420) + 1);
+        break;
+    }
+}
+
+typedef void (*State_800B73A8)(u8 *, s32);
+void TObjEneBm5Wolf__sub_800B73A8(u8 *arg0, u32 state, s32 event) {
+    switch (state) {
+    case 0:
+        TObjEneBm5Wolf__sub_800B72B4(arg0, event);
+        break;
+    case 1:
+        TObjEneBm5Wolf__sub_800B7018(arg0, event);
+        break;
+    case 2:
+        TObjEneBm5Wolf__sub_800B6EFC(arg0, event);
+        break;
+    case 3:
+        ((State_800B73A8)TObjEneBm5Wolf__sub_800B6B4C)(arg0, event);
+        break;
+    case 4:
+        TObjEneBm5Wolf__sub_800B6E10(arg0, event);
+        break;
+    case 5:
+        TObjEneBm5Wolf__sub_800B6D04(arg0, event);
+        break;
+    case 6:
+        TObjEneBm5Wolf__sub_800B6B50(arg0, event);
+        break;
+    case 7:
+        roaming_state__14TObjEneBm5WolfFi(arg0, event);
+        break;
+    case 8:
+        TObjEneBm5Wolf__sub_800B6554(arg0, event);
+        break;
+    case 9:
+        TObjEneBm5Wolf__sub_800B62AC(arg0, event);
+        break;
+    case 10:
+        TObjEneBm5Wolf__sub_800B5D4C(arg0, event);
+        break;
+    case 11:
+        TObjEneBm5Wolf__sub_800B5924(arg0, event);
+        break;
+    case 12:
+        TObjEneBm5Wolf__sub_800B56CC(arg0, event);
+        break;
+    case 13:
+        TObjEneBm5Wolf__sub_800B53F0(arg0, event);
+        break;
+    case 14:
+        action__14TObjEneBm5WolfFPvi(arg0, event);
+        break;
+    case 15:
+        TObjEneBm5Wolf__sub_800B50CC(arg0, event);
+        break;
+    case 16:
+        TObjEneBm5Wolf__sub_800B4D88(arg0, event);
+        break;
+    case 17:
+        TObjEneBm5Wolf__sub_800B4D4C(arg0, event);
         break;
     }
 }

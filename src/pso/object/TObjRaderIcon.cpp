@@ -20,6 +20,8 @@ struct RecoveredGlobal_8019733C___vt__13TObjRaderIcon {
     u8 remaining[0x30];
 };
 
+struct Icon_80197110 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x1C]; s32 f60; u8 pad64[0x2C]; s32 f90; s32 f94; s32 f98; f32 f9C; u32 fA0; };
+
 extern "C" {
 s32 disallow_rendering__7TObjectFv(void *);
 s32 TObjRaderIcon__sub_80197200(void *);
@@ -27,6 +29,9 @@ s32 TPhotonMagicSquare__sub_801A2640(void *);
 extern M2C_UNK __vt__13TObjRaderIcon[];
 extern s32 lbl_805D3418;
 u8 *TObjRaderIcon__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+void TObjRaderIcon__sub_801F9914(void *, u32, u16, s32, s32, f32);
+u8 TODoorAncient08__sub_80229220(u16);
+void run_task__13TObjRaderIconFv(Icon_80197110 *arg0);
 }
 
 extern "C" {
@@ -34,7 +39,6 @@ extern "C" {
 void *TObjRaderIcon__create(void *arg0);
 void *__dt__13TObjRaderIconFv(void *arg0, s16 arg1);
 void render__13TObjRaderIconFv(void);
-int run_task__13TObjRaderIconFv(void);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
@@ -51,9 +55,30 @@ void *TObjRaderIcon__create(void *arg0) {
 
 void render__13TObjRaderIconFv(void) {  }
 
-int run_task__13TObjRaderIconFv(void) { return 0; }
-
 extern M2C_UNK __vt__13TObjRaderIcon[];
+
+void run_task__13TObjRaderIconFv(Icon_80197110 *arg0) {
+    s32 all;
+    s32 i;
+    switch (arg0->f90) {
+    case 0:
+        all = 1;
+        for (i = 0; i < arg0->f94; i++) {
+            if (TODoorAncient08__sub_80229220(arg0->f98 + i) == 0) {
+                all = 0;
+            }
+        }
+        if (all == 1) {
+            TObjRaderIcon__sub_801F9914(arg0->pos, 0xFF00FF00, arg0->f60, 0, 0, arg0->f9C);
+        } else {
+            TObjRaderIcon__sub_801F9914(arg0->pos, 0xFFFF0000, arg0->f60, 0, 0, arg0->f9C);
+        }
+        break;
+    case 1:
+        TObjRaderIcon__sub_801F9914(arg0->pos, arg0->fA0, arg0->f60, 0, 0, arg0->f9C);
+        break;
+    }
+}
 
 void *__dt__13TObjRaderIconFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

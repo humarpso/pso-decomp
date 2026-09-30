@@ -106,6 +106,22 @@ struct VObj_18_67c185 : VBase_18_67c185 {
     virtual M2C_UNK m96();
 };
 
+typedef s32 M2C_UNK;
+typedef struct Cand_800B1684 {
+    u16 id;
+    u16 pad;
+    f32 dist;
+} Cand_800B1684;
+
+typedef struct Fly_800B1684 {
+    u8 pad0[0x38C];
+    u16 f38C;
+    u8 pad38E[0x418 - 0x38E];
+    u16 nest;
+    u8 pad41A[0x454 - 0x41A];
+    s32 f454;
+} Fly_800B1684;
+
 extern "C" {
 extern f32 TObjEneBm3Fly__data_805D9C90;
 void TObjEneBm3Fly__vt86(u8 *arg0);
@@ -123,6 +139,13 @@ f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 extern const f32 TObjEneBm3Fly__data_805D9C94;
 extern const f32 lbl_805D9CD8;
 void TObjEneBm3Fly__sub_800B1634(u8 *arg0);
+s32 TObjEneBm3FlyNest__sub_800B2AF4(void *, u16);
+M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
+s32 TObjEneDD__sub_800BB484(void *, Cand_800B1684 *, f32);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
+void *TPhotonMylla__sub_80154CB4(u16);
+extern const f32 lbl_805D9CDC;
+void TObjEneBm3Fly__sub_800B1684(Fly_800B1684 *s);
 }
 
 extern "C" {
@@ -153,6 +176,34 @@ void TObjEneBm3Fly__sub_800B1634(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x448) = get_random_scaled__9TObjEneDDFv((void *) (arg0));
 }
 #pragma pop
+
+void TObjEneBm3Fly__sub_800B1684(Fly_800B1684 *s) {
+    Cand_800B1684 players[4];
+    void *nest;
+    s32 count;
+    u16 id;
+    s32 i;
+    nest = TPhotonMylla__sub_80154CB4(s->nest);
+    if (nest == NULL) {
+        TObjEneDD__sub_800BBA18(s, 4);
+        s->f454 = 0;
+    }
+    if (TObjEneBm3FlyNest__sub_800B2AF4(nest, s->f38C) != 0) {
+        TObjEneDD__sub_800BBA18(s, 3);
+        return;
+    }
+    count = TObjEneDD__sub_800BB484(s, players, lbl_805D9CDC);
+    for (i = 0; i < count; i++) {
+        id = players[i].id;
+        if (id != s->f38C && TObjEneBm3FlyNest__sub_800B2AF4(nest, id) != 0) {
+            TBoss8Dragon__sub_800B9958(s, id);
+            TObjEneDD__sub_800BBA18(s, 3);
+            return;
+        }
+    }
+    TObjEneDD__sub_800BBA18(s, 4);
+    s->f454 = 0;
+}
 
 s32 TObjEneBm3Fly__sub_800B177C(u8 *arg0) {
     f32 temp_f31;

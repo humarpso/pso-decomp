@@ -5,6 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u8 *get_player_data__10TObjPlayerFi(s32);
+s16 obj_getField1c(void *);
+s32 TBoss4Type3__sub_8005254C(s16);
+s32 rand__11TOBoss4RockFv(void);
+extern s32 lbl_805D586C;
+extern const f32 lbl_805D890C;
+extern const f32 lbl_805D8918;
+u16 TBoss4Type3__sub_8004AE60(void);
+}
+
+extern "C" {
 
 u8 is_active__14TBoss4DarkFalzFv(void);
 u8 is_boss_active__13TObjDFHormingFv(void);
@@ -62,6 +73,26 @@ u8 is_active__14TBoss4DarkFalzFv(void) {
         }
     }
     return (u8) var_r31;
+}
+u16 TBoss4Type3__sub_8004AE60(void) {
+    u16 buf[4];
+    s32 n;
+    s32 i;
+    u8 *p;
+    n = 0;
+    for (i = 0; i < lbl_805D586C; i++) {
+        p = get_player_data__10TObjPlayerFi(i);
+        if (p != NULL && TBoss4Type3__sub_8005254C(obj_getField1c(p)) != 0) {
+            buf[n++] = obj_getField1c(p);
+            if (n >= 4) {
+                break;
+            }
+        }
+    }
+    if (n == 0) {
+        return 0xFFFF;
+    }
+    return buf[(s32)(((f32)n - lbl_805D890C) * (lbl_805D8918 * (f32)rand__11TOBoss4RockFv()))];
 }
 
 }

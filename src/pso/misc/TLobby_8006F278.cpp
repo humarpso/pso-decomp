@@ -12,12 +12,35 @@ struct RecoveredGlobal_8006F848_lbl_804FF800 {
     u8 remaining[0x1C];
 };
 
+typedef s32 M2C_UNK;
+struct Entry_8006F48C {
+    char key[12];
+    char name[12];
+    s32 id;
+};
+
+struct Table_8006F48C {
+    u8 pad0[0x18];
+    s32 defaultId;
+    s32 count;
+    u8 pad20[0x30];
+    char defaultName[12];
+    Entry_8006F48C entries[1];
+};
+
+struct Win_8006F48C {
+    u8 pad0[0x21C4];
+    s16 id;
+    u8 pad21C6[0x229C - 0x21C6];
+    char name[11];
+    char term;
+};
+
 extern "C" {
 s32 get_layout_id__20TWindowSubStatusDispFv(int);
 s32 TWindowSubStatusDisp__sub_8006F0D8(void *, int);
 s32 TWindowSubStatusDisp__sub_8006F190(int);
 s32 is_id_out_of_range__6TLobbyFi(s32 arg0);
-s32 TLobby__sub_8006F48C();
 s32 mix_seed_checked__6TLobbyFi(void *);
 u32 get_card_window__17TWindowSubComCardFUi(int);
 extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 lbl_8048C9D8;
@@ -29,6 +52,14 @@ s32 decode_slot__6TLobbyFUi(u32 id);
 s32 is_id_out_of_range__6TLobbyFi(s32 arg0);
 s32 TLobby__sub_8006F994(int id);
 void TLobby__sub_8006F910(u8 *dst, u8 *src, s32 n);
+s32 TWindowSubStatusDisp__sub_8006F190(int);
+M2C_UNK TLobby__sub_8006F888(void *, void *, int);
+s16 TLobby__sub_80071640(int);
+u32 get_card_window__17TWindowSubComCardFUi(int);
+s32 strncmp(void *, void *, int);
+M2C_UNK strncpy(void *, void *, int);
+extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 lbl_8048C9D8;
+void TLobby__sub_8006F48C(void);
 }
 
 extern "C" {
@@ -50,6 +81,39 @@ s32 is_id_out_of_range__6TLobbyFi(s32 arg0) {
     }
     return 0;
 }
+
+#define TBL_8006F48C (*(Table_8006F48C *)&lbl_8048C9D8)
+void TLobby__sub_8006F48C(void) {
+    char cur[12];
+    char key[12];
+    Win_8006F48C *win;
+    s32 i;
+    Entry_8006F48C *e;
+    win = (Win_8006F48C *)get_card_window__17TWindowSubComCardFUi(0xFFFF);
+    if (TWindowSubStatusDisp__sub_8006F190(-1) != 0) {
+        return;
+    }
+    if (TBL_8006F48C.defaultName[0] == 0) {
+        return;
+    }
+    if (TBL_8006F48C.count > 0) {
+        TLobby__sub_8006F888(cur, win->name, 12);
+        for (i = 0; i < TBL_8006F48C.count; i++) {
+            e = &TBL_8006F48C.entries[i];
+            TLobby__sub_8006F888(key, e, 12);
+            if (strncmp(key, cur, 12) == 0) {
+                strncpy(win->name, e->name, 11);
+                win->term = 0;
+                win->id = TLobby__sub_80071640(e->id);
+                return;
+            }
+        }
+    }
+    strncpy(win->name, TBL_8006F48C.defaultName, 11);
+    win->term = 0;
+    win->id = TLobby__sub_80071640(TBL_8006F48C.defaultId);
+}
+
 s32 TLobby__sub_8006F5B0(s32 arg0) {
     s32 temp_r30;
     s32 temp_r3;

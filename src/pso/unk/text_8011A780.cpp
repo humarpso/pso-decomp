@@ -20,6 +20,33 @@ struct Msg_8011A9D8 { u8 pad[2]; u16 u2; u32 u4; s16 s8; };
 
 struct Cmd_8011A9D8 { u8 pad[2]; u16 a; u16 b; s16 c; u32 d; };
 
+typedef s32 M2C_UNK;
+struct Item_8011AA68 { u8 data[12]; u32 id; u32 meseta; };
+
+struct Source_8011AA68 { u16 group; u16 claim; };
+
+struct Delivery_8011AA68 {
+    u32 header; u8 client; u8 kind; s16 source; f32 x; f32 z; s16 room; u16 reserved; u8 item[24];
+};
+
+struct Item_8011AB64 { u8 data[12]; u32 id; u32 meseta; };
+
+struct Source_8011AB64 { u32 a; u16 claim; u16 b; u32 c; };
+
+struct Delivery_8011AB64 {
+    u32 header; u8 client; u8 kind; s16 source; f32 x; f32 z; s16 room; u16 reserved; u8 item[24];
+};
+
+struct Row12_8011ADF4 { u32 a; u16 claim; u16 b; u32 c; };
+
+struct Row4_8011ADF4 { u16 group; u16 claim; };
+
+struct Pkt_8011ADF4 {
+    u8 cmd; u8 size; u16 flag;
+    u8 client; u8 kind; s16 source; f32 x; f32 z; s16 room; u16 reserved;
+    u8 item[20];
+};
+
 extern "C" {
 s32 get_global_state__14TOKeyMachine01Fv();
 extern s32 lbl_805D54E8;
@@ -29,8 +56,6 @@ M2C_UNK TLobby__sub_80103BFC(s32, s32);
 void TLobby__sub_8011AA44(s16 arg0, s32 _w1);
 M2C_UNK bswap_6xa2_fields__6TLobbyFPv();
 M2C_UNK TLobby__sub_8011A868(void *);
-M2C_UNK TLobby__sub_8011AA68(s16, int, s16, int, f32, f32);
-M2C_UNK TLobby__sub_8011AB64(s8, s16, int, s16, int, f32, f32);
 void handle_6xA2_specializable_item_drop_request(void *arg0);
 s32 copy_item_data__6TLobbyFPvPv(void *, void *);
 s32 drop_stacked_item_passthrough__6TLobbyFi(void *);
@@ -52,6 +77,37 @@ s32 get_main_phase();
 s32 TCameraCtrl__sub_8006B368();
 extern s32 lbl_805D54E4;
 u32 TLobby__sub_8011A780(u16 arg0);
+u32 TLobby__sub_8011A780(u16 arg0);
+s32 copy_item_data__6TLobbyFPvPv(void *, void *);
+void apply_table_entry__6TLobbyFs(s16, Source_8011AA68 *);
+void init__9TItemDataFv(void *);
+void drop_item__10TObjPlayerFii(s32 arg0, s32 arg1);
+s32 isValidGroundDrop__9TItemDataFv(void *);
+void TItemData__sub_8010CCB4(void *p);
+void init_header_packet__6TLobbyFPv(void *);
+void send_item_packet__6TLobbyFPv(void *);
+extern Source_8011AA68 *TLobby__data_805D6140;
+void TLobby__sub_8011AA68(s16 source, int client, s16 room, int slot, f32 x, f32 z);
+u32 TLobby__sub_8011A780(u16 arg0);
+s32 copy_item_data__6TLobbyFPvPv(void *, void *);
+void apply_by_index__9TObjEnemyFs(s16, void *);
+void init__9TItemDataFv(void *);
+void drop_item_from_slot__10TObjPlayerFiii(s8 arg0, s32 arg1, s32 arg2);
+s32 isValidGroundDrop__9TItemDataFv(void *);
+void TItemData__sub_8010CCB4(void *p);
+void init_header_packet__6TLobbyFPv(void *);
+void send_item_packet__6TLobbyFPv(void *);
+extern Source_8011AB64 *TLobby__data_805D6144;
+void TLobby__sub_8011AB64(s8 area, s16 source, int client, s16 room, int slot, f32 x, f32 z);
+void bswap_item_packet__6TLobbyFPv(void* p);
+s32 TItemData__sub_8010C740(void *, int);
+s32 TItemData__sub_8010CCB0(void *);
+void apply_by_index__9TObjEnemyFs(s16, void *);
+void apply_table_entry__6TLobbyFs(s16, Source_8011AA68 *);
+s32 fn_801057A8(void *, int);
+extern Source_8011AB64 *TLobby__data_805D6144;
+extern Source_8011AA68 *TLobby__data_805D6140;
+void handle_6x5F_drop_item(Pkt_8011ADF4 *pkt);
 }
 
 extern "C" {
@@ -110,6 +166,64 @@ void TLobby__sub_8011AA44(s16 arg0, s32 _w1) {
     TLobby__sub_80103BFC((s32)((void *) (arg0)), (s32)(_w1));
 }
 
+void TLobby__sub_8011AA68(s16 source, int client, s16 room, int slot, f32 x, f32 z) {
+    Delivery_8011AA68 delivery;
+    Item_8011AA68 item;
+    u32 id;
+    if (source != -1) {
+        Source_8011AA68 row = TLobby__data_805D6140[source];
+        if (row.claim != 0xFFFF) {
+            id = TLobby__sub_8011A780(row.claim);
+            row.claim = 0xFFFF;
+            apply_table_entry__6TLobbyFs(source, &row);
+            init__9TItemDataFv(&item);
+            drop_item__10TObjPlayerFii(slot, (s32)&item);
+            item.id = id;
+            if (isValidGroundDrop__9TItemDataFv(&item) != 0) {
+                TItemData__sub_8010CCB4(&item);
+                init_header_packet__6TLobbyFPv(&delivery);
+                delivery.client = client;
+                delivery.kind = 2;
+                delivery.source = source;
+                delivery.x = x;
+                delivery.z = z;
+                delivery.room = room;
+                copy_item_data__6TLobbyFPvPv(delivery.item, &item);
+                send_item_packet__6TLobbyFPv(&delivery);
+            }
+        }
+    }
+}
+
+void TLobby__sub_8011AB64(s8 area, s16 source, int client, s16 room, int slot, f32 x, f32 z) {
+    u32 id;
+    if (source != -1) {
+        Delivery_8011AB64 delivery;
+        Item_8011AB64 item;
+        Source_8011AB64 row = TLobby__data_805D6144[source];
+        if (row.claim != 0xFFFF) {
+            id = TLobby__sub_8011A780(row.claim);
+            row.claim = 0xFFFF;
+            apply_by_index__9TObjEnemyFs(source, &row);
+            init__9TItemDataFv(&item);
+            drop_item_from_slot__10TObjPlayerFiii(area, slot, (s32)&item);
+            item.id = id;
+            if (isValidGroundDrop__9TItemDataFv(&item) != 0) {
+                TItemData__sub_8010CCB4(&item);
+                init_header_packet__6TLobbyFPv(&delivery);
+                delivery.client = client;
+                delivery.kind = 1;
+                delivery.source = source;
+                delivery.x = x;
+                delivery.z = z;
+                copy_item_data__6TLobbyFPvPv(delivery.item, &item);
+                delivery.room = room;
+                send_item_packet__6TLobbyFPv(&delivery);
+            }
+        }
+    }
+}
+
 #pragma push
 #pragma fp_contract on
 void handle_6xA2_specializable_item_drop_request(void *arg0) {
@@ -118,15 +232,36 @@ void handle_6xA2_specializable_item_drop_request(void *arg0) {
     temp_b = M2C_FIELD(arg0, u8 *, 5);
     if (temp_b == 0x30) {
         if (M2C_FIELD(arg0, s16 *, 0x12) != 0) {
-            TLobby__sub_8011AA68(M2C_FIELD(arg0, s16 *, 6), M2C_FIELD(arg0, s8 *, 4), M2C_FIELD(arg0, s16 *, 0x10), M2C_FIELD(arg0, s8 *, 0x14), M2C_FIELD(arg0, f32 *, 8), M2C_FIELD(arg0, f32 *, 0xC));
+            TLobby__sub_8011AA68((s16)(M2C_FIELD(arg0, s16 *, 6)), (int)(M2C_FIELD(arg0, s8 *, 4)), (s16)(M2C_FIELD(arg0, s16 *, 0x10)), (int)(M2C_FIELD(arg0, s8 *, 0x14)), M2C_FIELD(arg0, f32 *, 8), M2C_FIELD(arg0, f32 *, 0xC));
             return;
         }
         TLobby__sub_8011A868(arg0);
         return;
     }
-    TLobby__sub_8011AB64(temp_b, M2C_FIELD(arg0, s16 *, 6), M2C_FIELD(arg0, s8 *, 4), M2C_FIELD(arg0, s16 *, 0x10), M2C_FIELD(arg0, s8 *, 0x14), M2C_FIELD(arg0, f32 *, 8), M2C_FIELD(arg0, f32 *, 0xC));
+    TLobby__sub_8011AB64((s8)(temp_b), (s16)(M2C_FIELD(arg0, s16 *, 6)), (int)(M2C_FIELD(arg0, s8 *, 4)), (s16)(M2C_FIELD(arg0, s16 *, 0x10)), (int)(M2C_FIELD(arg0, s8 *, 0x14)), M2C_FIELD(arg0, f32 *, 8), M2C_FIELD(arg0, f32 *, 0xC));
 }
 #pragma pop
+
+void handle_6x5F_drop_item(Pkt_8011ADF4 *pkt) {
+    bswap_item_packet__6TLobbyFPv(pkt);
+    if ((u32)pkt->size * 4 == 0x28) {
+        TItemData__sub_8010C740(pkt->item, 0);
+    } else {
+        TItemData__sub_8010C740(pkt->item, 2);
+    }
+    TItemData__sub_8010CCB0(pkt->item);
+    s32 kind = pkt->kind;
+    if (kind == 1) {
+        Row12_8011ADF4 row = (*(Row12_8011ADF4 * *)&TLobby__data_805D6144)[pkt->source];
+        row.claim = 0xFFFF;
+        apply_by_index__9TObjEnemyFs(pkt->source, &row);
+    } else {
+        Row4_8011ADF4 row = (*(Row4_8011ADF4 * *)&TLobby__data_805D6140)[pkt->source];
+        row.claim = 0xFFFF;
+        apply_table_entry__6TLobbyFs((s16)(pkt->source), (Source_8011AA68 *)(&row));
+    }
+    fn_801057A8(&pkt->client, 0);
+}
 
 void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1) {
     typedef char sp8_offset[(offsetof(Stack_8011AED8, sp8) == 0x0) ? 1 : -1];

@@ -47,6 +47,16 @@ typedef struct Ent_801324F8 { u8 key; s8 timer; } Ent_801324F8;
 
 typedef struct Kb_801324F8 { u8 pad[0xA0]; Ent_801324F8 ents[8]; } Kb_801324F8;
 
+struct Kb_80132650 {
+    s8 f0;
+    u8 pad1;
+    s8 f2;
+    u8 count;
+    s8 f4;
+    u8 keys[0x8B];
+    u32 tab[4];
+};
+
 extern "C" {
 void render__16TKeyBoardControlFv(void);
 void render__16TKeyBoardControlFv(void);
@@ -97,6 +107,11 @@ s32 TKeyBoardControl__sub_803F1604(s32, M2C_UNK *);
 s32 TKeyBoardControl__sub_80131FC8(Kb_80131FC8 *arg0, s8 arg1);
 void TKeyBoardControl__sub_8013240C(Kb_801324F8 *, u8);
 void TKeyBoardControl__sub_801324F8(Kb_801324F8 *arg0, u8 arg1);
+void reset_inactive_keys__16TKeyBoardControlFi(s32 arg0);
+void TKeyBoardControl__sub_80132598(Kb_80132650 *, u8, u32 *);
+void reset_keys__16TKeyBoardControlFPv(void *arg0);
+void TKeyBoardControl__sub_8013276C(K_8013276C *arg0);
+void TKeyBoardControl__sub_80132650(Kb_80132650 *kb);
 }
 
 extern "C" {
@@ -327,6 +342,35 @@ void TKeyBoardControl__sub_801324F8(Kb_801324F8 *arg0, u8 arg1) {
             q->timer = 0x23;
         }
     }
+}
+
+struct K_8013276C;
+void TKeyBoardControl__sub_80132650(Kb_80132650 *kb) {
+    u32 bits[4];
+    s32 i;
+    if (kb->f4 <= 0) {
+        kb->f2 = 0;
+        return;
+    }
+    kb->f4 = 0;
+    if (kb->f0 >= 4) {
+        TKeyBoardControl__sub_8013276C((K_8013276C *)kb);
+        reset_keys__16TKeyBoardControlFPv(kb);
+        return;
+    }
+    kb->f2 = 0;
+    for (i = 0; i < 4; i++) {
+        bits[i] = 0;
+    }
+    for (i = 0; i < kb->count; i++) {
+        TKeyBoardControl__sub_80132598(kb, kb->keys[i], bits);
+        kb->keys[i] = 0;
+    }
+    kb->count = 0;
+    for (i = 0; i < 4; i++) {
+        kb->tab[i] = bits[i];
+    }
+    reset_inactive_keys__16TKeyBoardControlFi((s32)kb);
 }
 
 void reset_keys__16TKeyBoardControlFPv(void *arg0) {

@@ -13,6 +13,34 @@ struct VObj_14_800A7BEC : VBase_14_800A7BEC {
 
 struct Obj_800A7BEC { u8 pad0[0x38]; u8 sub38[0x326 - 0x38]; s16 f326; s16 state; u8 pad32a[0x390 - 0x32A]; s32 f390; };
 
+typedef s32 M2C_UNK;
+typedef struct Vec_800A7A14 {
+    f32 x, y, z;
+} Vec_800A7A14;
+
+struct VBase_800A7A14 { char pad[0x18]; };
+
+struct VObj_800A7A14 : VBase_800A7A14 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4(Vec_800A7A14 *, Vec_800A7A14 *);
+};
+
+typedef struct Obj_800A7A14 {
+    u8 pad0[0x38];
+    Vec_800A7A14 pos;
+    u8 pad44[0x60 - 0x44];
+    s32 f60;
+    u8 pad64[0xB8 - 0x64];
+    s16 fB8;
+    u8 padBA[0xC0 - 0xBA];
+    f32 fC0;
+    u8 padC4[0x3C4 - 0xC4];
+    VObj_800A7A14 *effs[2];
+} Obj_800A7A14;
+
 extern "C" {
 void set_flags_B0__10TObjPlayerFPvUi(void* p, u32 v);
 void TObjPlayer__sub_800A7798(u8 *arg0, f32 farg0);
@@ -44,6 +72,17 @@ s32 TObjPlayer__sub_800A0554(void *);
 s32 TBoss3Volopt__sub_800D8C48(void *);
 s32 TBoss1Dragon__sub_80143504();
 void TObjPlayer__sub_800A7BEC(Obj_800A7BEC *arg0);
+u32 lookup_entry_by_value__10TObjPlayerFPvf(void *, f32);
+M2C_UNK TObjPlayer__sub_803D8960(int, int, void *, int);
+M2C_UNK TObjPlayer__sub_803D8CD4(int);
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+extern s32 lbl_805D5084;
+extern s32 lbl_805D5088;
+extern const f32 lbl_805D9AA4;
+void TObjPlayer__sub_800A7A14(Obj_800A7A14 *o);
 }
 
 extern "C" {
@@ -127,6 +166,43 @@ void TObjPlayer__sub_800A7988(s32 arg0) {
         return;
     }
     TBoss3Volopt__sub_8022675C((M2C_UNK)(((s32)copy_target_state__14TObjEnePanarmsFPvPv((s32)((void *) (arg0)), (M2C_UNK)((int) (0x4003AD25))))), (s32)(arg0 + 0x38), (M2C_UNK)(0), (M2C_UNK)(0));
+}
+
+void TObjPlayer__sub_800A7A14(Obj_800A7A14 *o) {
+    Vec_800A7A14 b;
+    Vec_800A7A14 a;
+    u32 e;
+    s32 idx;
+    VObj_800A7A14 *eff;
+    if (!(o->fC0 < lbl_805D9AA4)) {
+        return;
+    }
+    switch (o->fB8) {
+    case 3:
+        e = lookup_entry_by_value__10TObjPlayerFPvf((void *)lbl_805D5084, o->fC0);
+        idx = 0;
+        break;
+    case 4:
+        e = lookup_entry_by_value__10TObjPlayerFPvf((void *)lbl_805D5088, o->fC0);
+        idx = 1;
+        break;
+    default:
+        e = 0;
+        break;
+    }
+    if (e == 0) {
+        return;
+    }
+    TObjPlayer__sub_803D9B2C();
+    TObjPlayer__sub_803D8CD4(0);
+    TOHangerMachine01__sub_803D9C00(&o->pos);
+    TObjPlayer__sub_803D9214(0, o->f60);
+    TObjPlayer__sub_803D8960(0, e, &a, 2);
+    TObjPlayer__sub_803D9B78();
+    eff = o->effs[idx];
+    if (eff != NULL) {
+        eff->m4(&a, &b);
+    }
 }
 
 void set_dead_and_check_destroy__10TObjPlayerFPv(u8 *arg0) {

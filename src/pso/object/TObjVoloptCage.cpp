@@ -73,6 +73,33 @@ struct VObj_18 : VBase_18 {
 struct RecoveredGlobal_8004938C___vt__14TObjVoloptCage { M2C_UNK value; u8 remaining[0x14C]; };
 typedef char RecoveredGlobal_8004938C___vt__14TObjVoloptCage_size[sizeof(RecoveredGlobal_8004938C___vt__14TObjVoloptCage) == 0x150 ? 1 : -1];
 
+typedef s32 M2C_UNK;
+typedef struct Obj_80049430 {
+    s32 f0;
+    u8 pad4[0x18 - 0x4];
+    void *vt;
+    s16 f1c;
+    u8 pad1e[0x28 - 0x1e];
+    s16 f28;
+    s16 f2a;
+    s16 f2c;
+    u8 pad2e[0x30 - 0x2e];
+    u32 flags;
+    u8 pad34[0x38 - 0x34];
+    f32 pos[1];
+    f32 f3c;
+    u8 pad40[0x80 - 0x40];
+    s32 f80;
+    u8 pad84[0x326 - 0x84];
+    s16 f326;
+    u8 pad328[0x338 - 0x328];
+    u16 f338;
+    u8 pad33a[0x374 - 0x33a];
+    s32 f374;
+    u8 pad378[0x390 - 0x378];
+    s32 f390;
+} Obj_80049430;
+
 extern "C" {
 M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
 void update_state__14TObjVoloptCageFPv(void *arg0);
@@ -92,6 +119,23 @@ s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8004938C___vt__14TObjVoloptCage __vt__14TObjVoloptCage;
 u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1);
+void TObjPlayer__sub_80018990(void *, s32, int, int, f32, f32);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void queue_destruction__7TObjectFv(void *);
+void reset_photon_effect__12TBoss3VoloptFPv(void *);
+void TObjEnemyCustom__ct();
+void set_param__12TObjEneLappyFPvi(void *, int);
+void TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+extern u8 lbl_804848D0[];
+extern RecoveredGlobal_8004938C___vt__14TObjVoloptCage __vt__14TObjVoloptCage;
+extern s32 lbl_805D2758;
+extern u8 *lbl_805D4CE4;
+extern s32 lbl_805D4D18;
+extern s32 TObjVoloptCage__data_805D4D28;
+extern const f32 lbl_805D8884;
+extern const f32 lbl_805D8888;
+Obj_80049430 *TObjVoloptCage__ct(Obj_80049430 *arg0, Obj_80049430 *arg1, u16 arg2, s16 arg3, s16 arg4);
 }
 
 extern "C" {
@@ -173,6 +217,38 @@ u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1) {
             __dl__7TObjectFPv((void *) (arg0));
         }
     }
+    return arg0;
+}
+
+Obj_80049430 *TObjVoloptCage__ct(Obj_80049430 *arg0, Obj_80049430 *arg1, u16 arg2, s16 arg3, s16 arg4) {
+    u8 *p;
+    TObjEnemyCustom__ct();
+    arg0->vt = &__vt__14TObjVoloptCage.value;
+    arg0->f0 = lbl_805D2758;
+    arg0->f338 = arg2;
+    p = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(arg0->f338);
+    if (p != NULL) {
+        VecCopy__FP3VecPC3Vec(arg0->pos, p + 0x38);
+    } else {
+        queue_destruction__7TObjectFv(arg0);
+        return arg0;
+    }
+    TObjEneGibbles__sub_80156780(arg0, lbl_804848D0, 1);
+    arg0->f1c = arg3;
+    arg0->f2c = arg4;
+    arg0->f80 = 0;
+    arg0->f28 = arg1->f28;
+    arg0->f2a = arg1->f2a;
+    reset_photon_effect__12TBoss3VoloptFPv(arg0);
+    set_param__12TObjEneLappyFPvi(arg0, 0x2E);
+    arg0->f3c = lbl_805D8884;
+    TObjPlayer__sub_80018990(arg0, lbl_805D4D18, 0, 0, lbl_805D8888, lbl_805D8888);
+    arg0->flags |= 0x40000 | 0x8000;
+    arg0->flags &= ~0xA00;
+    arg0->f374 = 7;
+    arg0->f326 = 7;
+    TObjVoloptCage__data_805D4D28 = *(s32 *)(*(u8 **)(lbl_805D4CE4 + 0x42C) + 0x12C);
+    arg0->f390 = 0;
     return arg0;
 }
 

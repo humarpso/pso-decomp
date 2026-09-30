@@ -4,6 +4,44 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+typedef struct Vec_800A48C4 {
+    f32 x, y, z;
+} Vec_800A48C4;
+
+typedef struct Sub_800A48C4 {
+    u8 pad0[0x18];
+    s32 flags;
+} Sub_800A48C4;
+
+typedef struct Obj_800A48C4 {
+    u8 pad0[0x30];
+    s32 flags30;
+    u8 pad34[0x60 - 0x34];
+    s32 f60;
+    u8 pad64[0xA4 - 0x64];
+    Sub_800A48C4 *fA4;
+    u8 padA8[0xB8 - 0xA8];
+    s16 fB8;
+    u8 padBA[0x2D4 - 0xBA];
+    u16 target;
+    u8 pad2D6[0x2FC - 0x2D6];
+    Vec_800A48C4 pos;
+    u8 pad308[0x326 - 0x308];
+    s16 state;
+    s16 f328;
+} Obj_800A48C4;
+
+extern "C" {
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 TObjPlayer__sub_80141F84(s32, s32);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+extern const f64 lbl_8043A8D0[];
+void TObjPlayer__sub_800A48C4(Obj_800A48C4 *o);
+}
+
 extern "C" {
 
 void update_knockback_state__10TObjPlayerFPv(u8 *arg0);
@@ -57,6 +95,31 @@ void update_knockback_state__10TObjPlayerFPv(u8 *arg0) {
     minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
     TObjPlayer__sub_801B4A18(arg0, -1);
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFDFFFFF);
+}
+void TObjPlayer__sub_800A48C4(Obj_800A48C4 *o) {
+    Vec_800A48C4 v;
+    u8 *e;
+    s32 d;
+    if (o->state >= 10 || o->state < 8) {
+        e = TPlayerBattleCtrl4P__sub_801BA74C(o->target);
+        if (e != NULL) {
+            VecCopy__FP3VecPC3Vec(&v, e + 0x2FC);
+            TBoss6Type1__sub_803D9370(&v, &o->pos);
+            d = TObjPlayer__sub_80141F84(o->f60, (s32)(lbl_8043A8D0[0] * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)));
+        } else {
+            d = 0;
+        }
+        if (d < 0x2AAA) {
+            o->state = 8;
+            o->fB8 = 6;
+        } else {
+            o->state = 9;
+            o->fB8 = 8;
+        }
+        o->f328 = 0;
+    }
+    o->fA4->flags |= 1;
+    o->flags30 &= ~0x06240000;
 }
 
 }

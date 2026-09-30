@@ -27,6 +27,51 @@ struct Vec_800BBFD0 { f32 x, y, z; };
 
 struct Obj_800BBFD0 { u8 pad[0x38]; Vec_800BBFD0 pos; u8 pad2[0x308 - 0x44]; f32 f308; f32 f30c; f32 f310; };
 
+typedef struct Desc_800BBF08 {
+    s32 a;
+    s32 b;
+} Desc_800BBF08;
+
+typedef struct Rec_800BBF08 {
+    u8 pad0[0x18];
+    s32 flags;
+    u8 pad1C[0x2C - 0x1C];
+} Rec_800BBF08;
+
+struct VBase_800BBF08 { char pad[0x18]; };
+
+struct VObj_800BBF08 : VBase_800BBF08 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18(void *, f32);
+    virtual void m19();
+    virtual void m20();
+    virtual void m21(s32, Desc_800BBF08, Rec_800BBF08 *, s32, s32);
+};
+
+typedef struct Actor_800BBF08 : VObj_800BBF08 {
+    u8 pad1C[0xA4 - 0x1C];
+    Rec_800BBF08 *recs;
+    s32 nrecs;
+    s32 owner;
+} Actor_800BBF08;
+
 extern "C" {
 extern const f32 lbl_805D9EB4;
 void TObjPlayer__sub_800BC1F0(u8 *arg0);
@@ -36,6 +81,8 @@ void VecCopy__FP3VecPC3Vec(Vec_800BBFD0 *dst, const Vec_800BBFD0 *src);
 void TBoss6Type1__sub_803D9370(Vec_800BBFD0 *a, Vec_800BBFD0 *b);
 void clamp_velocity__15TObjBoss2TunnelFPv(void *p);
 void TObjPlayer__sub_800BBFD0(Obj_800BBFD0 *a, Obj_800BBFD0 *b, f32 s);
+s32 obj_isState2_324(void *);
+void TObjPlayer__sub_800BBF08(Actor_800BBF08 *src, Actor_800BBF08 *dst, f32 *recoil, Desc_800BBF08 *desc);
 }
 
 extern "C" {
@@ -76,6 +123,21 @@ void apply_hit_if_active__10TObjPlayerFPvPvPv(void *arg0, void *arg1, f32 *arg2)
     ((VObj_800bbe90*)arg1)->m20(M2C_FIELD(arg0, s32 *, 0xAC), lbl_805D9EB0);
     if (obj_isState2_324(arg1) == 0) {
         ((VObj_800bbe90*)arg0)->m18(arg1, *arg2);
+    }
+}
+
+void TObjPlayer__sub_800BBF08(Actor_800BBF08 *src, Actor_800BBF08 *dst, f32 *recoil, Desc_800BBF08 *desc) {
+    s32 i;
+    Rec_800BBF08 *rec;
+    for (i = 0; i < dst->nrecs; i++) {
+        rec = &dst->recs[i];
+        if (rec->flags & 0x04000000) {
+            dst->m21(src->owner, *desc, rec, -1, -1);
+            if (obj_isState2_324(dst) == 0) {
+                src->m18(dst, *recoil);
+            }
+            return;
+        }
     }
 }
 

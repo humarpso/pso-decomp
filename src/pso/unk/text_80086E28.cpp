@@ -1,1 +1,62 @@
+#include "types.h"
+struct Rec_80086E28 { u8 pad[0x98]; };
 
+struct Rec_80086EF8 { u8 pad[0x98]; };
+
+extern "C" {
+void *initialize__13TParticleCtrlFPvPviiiii(void *, void *, void *, s32, s32, s32, s32);
+void *__nw__7TObjectFUl(int);
+extern s32 lbl_805D2948;
+extern Rec_80086E28 *lbl_805D4EF8;
+extern Rec_80086E28 *lbl_805D4EFC;
+void *TAdLoadQuestPrtTxtGC__sub_80086E28(void *arg0, s32 arg1, s32 arg2);
+void *__ct__13TParticleCtrlFv(void *, void *, void *, void *, s32, s32, s32, s32, u16);
+void *__nw__7TObjectFUl(int);
+extern s32 lbl_805D2948;
+extern Rec_80086E28 *lbl_805D4EF8;
+extern Rec_80086E28 *lbl_805D4EFC;
+void *TAdFloorLoadPrtGC__sub_80086EF8(void *arg0, void *arg1, s32 arg2, s32 arg3, u16 arg4);
+}
+
+extern "C" {
+
+void *TAdLoadQuestPrtTxtGC__sub_80086E28(void *arg0, s32 arg1, s32 arg2) {
+    void *o;
+    if (lbl_805D2948 > arg1) {
+        o = __nw__7TObjectFUl(0x78);
+        if (o != NULL) {
+            o = initialize__13TParticleCtrlFPvPviiiii(o, arg0, &lbl_805D4EF8[arg1], 0, 0, 0, arg2);
+        }
+        return o;
+    }
+    if (lbl_805D2948 + 0x40 > arg1) {
+        s32 idx = arg1 - 0x200;
+        o = __nw__7TObjectFUl(0x78);
+        if (o != NULL) {
+            o = initialize__13TParticleCtrlFPvPviiiii(o, arg0, &lbl_805D4EFC[idx], 0, 0, 0, arg2);
+        }
+        return o;
+    }
+    return NULL;
+}
+void *TAdFloorLoadPrtGC__sub_80086EF8(void *arg0, void *arg1, s32 arg2, s32 arg3, u16 arg4) {
+    void *o;
+    if (lbl_805D2948 > arg2) {
+        o = __nw__7TObjectFUl(0x78);
+        if (o != NULL) {
+            o = __ct__13TParticleCtrlFv(o, arg0, arg1, &(*(Rec_80086EF8 * *)&lbl_805D4EF8)[arg2], 0, 0, 0, arg3, arg4);
+        }
+        return o;
+    }
+    if (lbl_805D2948 + 0x40 > arg2) {
+        s32 idx = arg2 - 0x200;
+        o = __nw__7TObjectFUl(0x78);
+        if (o != NULL) {
+            o = __ct__13TParticleCtrlFv(o, arg0, arg1, &(*(Rec_80086EF8 * *)&lbl_805D4EFC)[idx], 0, 0, 0, arg3, arg4);
+        }
+        return o;
+    }
+    return NULL;
+}
+
+}

@@ -25,6 +25,15 @@ struct R_800781B8 { s16 a; s32 b; };
 
 struct C_800781B8 { s32 len; s8 a; s8 b; s8 c; u8 pad[8]; };
 
+typedef s32 M2C_UNK;
+struct Sock_800782B8 { char pad[0x1c]; s32 f1c; u16 port_a; u16 port_b; u8 pad24[4]; s16 fd; };
+
+struct Q_800782B8 { s32 len; s32 v; u8 pad[0xc]; };
+
+struct Q2_800782B8 { s32 len; s32 v; u8 pad[0xc]; };
+
+struct P_800782B8 { u16 a; u16 b; };
+
 extern "C" {
 void fn_8007841C(void *, void *);
 extern RecoveredGlobal_80078378_lbl_8048D3B8 lbl_8048D3B8;
@@ -38,6 +47,11 @@ void bswap_16__FPUs(void *);
 s16 strlen(void *);
 void TUdpSocket__sub_80421BAC(int, void *, void *, int, void *, int, void *);
 void TUdpSocket__sub_800781B8(Sock_800781B8 *arg0, s32 arg1);
+void bswap_16__FPUs(void *);
+s16 TUdpSocket__sub_80421DEC(void *, int, void *, int, int, s32 (*)(s16, u8 *));
+s32 TUdpSocket__sub_80078378(s16 arg0, u8 *arg1);
+extern RecoveredGlobal_80078378_lbl_8048D3B8 lbl_8048D3B8;
+s16 TUdpSocket__sub_800782B8(Sock_800782B8 *arg0);
 }
 
 extern "C" {
@@ -117,6 +131,30 @@ void TUdpSocket__sub_800781B8(Sock_800781B8 *arg0, s32 arg1) {
     port = arg0->port;
     bswap_16__FPUs(&port);
     TUdpSocket__sub_80421BAC(arg0->fd, &q2, &q1, port, &c, 1, &r);
+}
+
+s16 TUdpSocket__sub_800782B8(Sock_800782B8 *arg0) {
+    Q_800782B8 q1;
+    Q2_800782B8 q2;
+    u16 pb;
+    u16 pa;
+    s32 i;
+    q1.len = 4;
+    q1.v = 0;
+    q2.len = 4;
+    q2.v = arg0->f1c;
+    for (i = 0; i < 30001; i++) {
+    }
+    pa = arg0->port_b;
+    pb = arg0->port_a;
+    bswap_16__FPUs(&pa);
+    bswap_16__FPUs(&pb);
+    arg0->fd = TUdpSocket__sub_80421DEC(&q1, pa, &q2, pb, 0, TUdpSocket__sub_80078378);
+    if (arg0->fd < 0) {
+        return -1;
+    }
+    (&lbl_8048D3B8.value)[arg0->fd - 0x400] = (M2C_UNK)arg0;
+    return arg0->fd;
 }
 
 s32 TUdpSocket__sub_80078378(s16 arg0, u8 *arg1) {

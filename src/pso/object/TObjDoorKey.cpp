@@ -38,6 +38,17 @@ struct VObj_8018FF74_8018FAEC : Base_8018FF74_8018FAEC {
 
 struct Key_8018FD9C { u8 pad0[0x38]; f32 f38[3]; u8 pad44[0x30]; f32 f74; f32 f78; u8 pad7C[0x10]; s32 f8C; };
 
+typedef s32 M2C_UNK;
+struct Node_8018FBB8 { s32 pad0; void *f4; };
+
+struct Key_8018FBB8 { u8 pad0[0x38]; u8 f38[0x28]; s32 f60; u8 pad64[0x28]; s32 f8C; u8 pad90[0x60]; s32 fF0; };
+
+struct Node_8018FCD8 { s32 pad0; void *f4; };
+
+struct Key_8018FCD8 { u8 pad0[0x38]; u8 f38[0x28]; s32 f60; u8 pad64[0x28]; s32 f8C; u8 pad90[0x60]; s32 fF0; };
+
+struct Vec_80190020 { f32 x, y, z; };
+
 extern "C" {
 void TObjDoorKey__vt14(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -59,6 +70,59 @@ extern s32 TObjDoorKey__data_805D5BFC;
 extern s16 lbl_805D5C00;
 extern s32 TObjDoorKey__data_805D5C04;
 void TObjDoorKey__sub_801901C8(void);
+void begin_effect_render__13TParticleCtrlFv();
+void end_effect_render__13TParticleCtrlFv();
+void free_children__12TObjDoorJungFPvPv(void *, int);
+void TOComputerMachine01__sub_8023DDC8(void *, int, int, int, int);
+void PPCSync();
+void TObjPlayer__sub_803D9214(int, int);
+void TObjPlayer__sub_803D9B2C();
+void TObjPlayer__sub_803D9B78();
+void TOHangerMachine01__sub_803D9C00(void *);
+void set_global_param__8TObjFishFi(int);
+void TObjBoss2Tunnel__sub_803DB470(void *);
+void set_chunk_material_color(void *);
+extern u8 lbl_804A7418[];
+extern u8 lbl_804B795C[][0x10];
+extern s32 TObjDoorKey__data_8050DCA8[];
+extern s32 lbl_805D53A4;
+extern s32 lbl_805D5660;
+extern s32 TObjDoorKey__data_805D5BFC;
+extern s32 TObjDoorKey__data_805D5C04;
+extern s32 some_id_805c6f74;
+M2C_UNK TObjDoorKey__sub_8018FBB8(void *arg);
+void begin_effect_render__13TParticleCtrlFv();
+void end_effect_render__13TParticleCtrlFv();
+void free_children__12TObjDoorJungFPvPv(void *, int);
+void TObjPlayer__sub_803D9214(int, int);
+void TObjPlayer__sub_803D9B2C();
+void TObjPlayer__sub_803D9B78();
+void TOHangerMachine01__sub_803D9C00(void *);
+void set_global_param__8TObjFishFi(int);
+void TObjBoss2Tunnel__sub_803DB470(void *);
+void set_chunk_material_color(void *);
+extern u8 lbl_804A7418[];
+extern u8 lbl_804B795C[][0x10];
+extern s32 TObjDoorKey__data_8050DCA8[];
+extern s32 lbl_805D5660;
+extern s32 TObjDoorKey__data_805D5BFC;
+extern s32 some_id_805c6f74;
+M2C_UNK TObjDoorKey__sub_8018FCD8(void *arg);
+s32 get_global_state__14TOKeyMachine01Fv();
+void TBoss3Volopt__sub_8022675C(int, void *, int, int);
+void TObjDoorKey__vt16(u8 *arg0);
+s32 TBoss8Dragon__sub_8008741C(Vec_80190020 *, int, int);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+M2C_UNK init_key__5TOKeyFPv(void *, void *);
+u8 *TOKey__ct(void *);
+void set_type__14TOKeyAncient01FPv(void *);
+extern u8 lbl_804B7930[];
+extern M2C_UNK __vt__11TObjDoorKey[];
+extern s32 lbl_805D3344;
+extern s16 lbl_805D5C00;
+extern const f32 lbl_805DBE0C;
+void *TObjDoorKey__ct(void *arg0, void *arg1, void *arg2);
 }
 
 extern "C" {
@@ -66,7 +130,6 @@ extern "C" {
 void *TObjDoorKey__create(void *arg0);
 void TObjDoorKey__sub_8018FAEC(void);
 int TObjDoorKey__vt15(void* p);
-int TObjDoorKey__vt16(void);
 void TObjDoorKey__vt17(void);
 int TObjDoorKey__vt22(void* p);
 void * TObjEnvSoundGlobal__create(void *arg0);
@@ -76,9 +139,6 @@ void render__11TObjDoorKeyFv(void *arg0);
 void run_task__11TObjDoorKeyFv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 int TOKey__sub_8016A960(void*);
-void *TObjDoorKey__ct(void *, void *, void *);
-M2C_UNK TObjDoorKey__sub_8018FBB8(void *);
-M2C_UNK TObjDoorKey__sub_8018FCD8(void *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 void *TObjEnvSoundGlobal__ct(void *, void *, void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
@@ -119,13 +179,60 @@ void render__11TObjDoorKeyFv(void *arg0) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0xD4);
         switch (temp_r0) {
         case 0:
-            TObjDoorKey__sub_8018FCD8(arg0);
+            TObjDoorKey__sub_8018FCD8((void *)(arg0));
             return;
         case 1:
-            TObjDoorKey__sub_8018FBB8(arg0);
+            TObjDoorKey__sub_8018FBB8((void *)(arg0));
             return;
         }
     }
+}
+
+M2C_UNK TObjDoorKey__sub_8018FBB8(void *arg) {
+    Key_8018FBB8 *arg0 = (Key_8018FBB8 *)arg;
+    if (TObjDoorKey__data_805D5C04 != lbl_805D53A4) {
+        TOComputerMachine01__sub_8023DDC8(((Node_8018FBB8 *)TObjDoorKey__data_8050DCA8[1])->f4, 0, 0x14, 0xE, 1);
+        PPCSync();
+        TObjDoorKey__data_805D5C04 = lbl_805D53A4;
+    }
+    set_global_param__8TObjFishFi(TObjDoorKey__data_805D5BFC);
+    TObjPlayer__sub_803D9B2C();
+    TOHangerMachine01__sub_803D9C00(arg0->f38);
+    TObjPlayer__sub_803D9214(0, arg0->f60);
+    TObjBoss2Tunnel__sub_803DB470((void *)TObjDoorKey__data_8050DCA8[0]);
+    begin_effect_render__13TParticleCtrlFv();
+    lbl_805D5660 = some_id_805c6f74;
+    some_id_805c6f74 |= 0x10;
+    set_chunk_material_color(lbl_804B795C[arg0->f8C]);
+    TObjBoss2Tunnel__sub_803DB470((void *)TObjDoorKey__data_8050DCA8[1]);
+    TObjPlayer__sub_803D9214(0, arg0->fF0);
+    s32 *g = TObjDoorKey__data_8050DCA8;
+    free_children__12TObjDoorJungFPvPv(((Node_8018FBB8 *)g[2])->f4, (u16)arg0->f8C);
+    TObjBoss2Tunnel__sub_803DB470((void *)g[2]);
+    set_chunk_material_color(lbl_804A7418);
+    some_id_805c6f74 = lbl_805D5660;
+    end_effect_render__13TParticleCtrlFv();
+    TObjPlayer__sub_803D9B78();
+}
+
+M2C_UNK TObjDoorKey__sub_8018FCD8(void *arg) {
+    Key_8018FCD8 *arg0 = (Key_8018FCD8 *)arg;
+    set_global_param__8TObjFishFi(TObjDoorKey__data_805D5BFC);
+    TObjPlayer__sub_803D9B2C();
+    TOHangerMachine01__sub_803D9C00(arg0->f38);
+    TObjPlayer__sub_803D9214(0, arg0->f60);
+    TObjBoss2Tunnel__sub_803DB470((void *)TObjDoorKey__data_8050DCA8[0]);
+    begin_effect_render__13TParticleCtrlFv();
+    lbl_805D5660 = some_id_805c6f74;
+    some_id_805c6f74 |= 0x10;
+    set_chunk_material_color(lbl_804B795C[arg0->f8C]);
+    s32 *g = TObjDoorKey__data_8050DCA8;
+    free_children__12TObjDoorJungFPvPv(((Node_8018FCD8 *)g[2])->f4, (u16)arg0->f8C);
+    TObjBoss2Tunnel__sub_803DB470((void *)g[2]);
+    set_chunk_material_color(lbl_804A7418);
+    some_id_805c6f74 = lbl_805D5660;
+    end_effect_render__13TParticleCtrlFv();
+    TObjPlayer__sub_803D9B78();
 }
 
 void TObjDoorKey__vt24(Key_8018FD9C *arg0) {
@@ -145,7 +252,27 @@ void TObjDoorKey__vt24(Key_8018FD9C *arg0) {
 
 void TObjDoorKey__vt17(void) {  }
 
-int TObjDoorKey__vt16(void) { return 0; }
+void TObjDoorKey__vt16(u8 *arg0) {
+    switch (get_global_state__14TOKeyMachine01Fv()) {
+    case 3:
+    case 4:
+    case 5:
+        TBoss3Volopt__sub_8022675C(0x42D0A, arg0 + 0x38, 0, 0);
+        break;
+    case 0x13:
+    case 0x14:
+        TBoss3Volopt__sub_8022675C(0x4C601, arg0 + 0x38, 0, 0);
+        break;
+    case 0x15:
+    case 0x16:
+        TBoss3Volopt__sub_8022675C(0x4004C601, arg0 + 0x38, 0, 0);
+        break;
+    default:
+        TBoss3Volopt__sub_8022675C(0x4C60A, arg0 + 0x38, 0, 0);
+        break;
+    }
+    *(s32 *)(arg0 + 0xE8) = 1;
+}
 
 void TObjDoorKey__vt14(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xF4) = (s32) (M2C_FIELD(arg0, s32 *, 0xF4) + 0x14);
@@ -181,10 +308,37 @@ void *__dt__11TObjDoorKeyFv(void *arg0, s16 arg1) {
 
 extern void *tl_05;
 
+void *TObjDoorKey__ct(void *arg0, void *arg1, void *arg2) {
+    TOKey__ct(arg0);
+    M2C_FIELD(arg0, u8 **, 0x18) = ((u8 *)&__vt__11TObjDoorKey);
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3344;
+    init_key__5TOKeyFPv(arg0, arg2);
+    M2C_FIELD(arg0, s32 *, 0xE8) = 0;
+    M2C_FIELD(arg0, s32 *, 0xF0) = 0;
+    M2C_FIELD(arg0, s32 *, 0xEC) = 0x14;
+    M2C_FIELD(arg0, s32 *, 0xF4) = 0;
+    M2C_FIELD(arg0, s32 *, 0xF8) = 0;
+    M2C_FIELD(arg0, u16 *, 6) = (*(u16 *)&lbl_805D5C00)++;
+    if (M2C_FIELD(arg0, s32 *, 0x8C) < 0) {
+        M2C_FIELD(arg0, s32 *, 0x8C) = 0;
+    }
+    if (M2C_FIELD(arg0, s32 *, 0x8C) > 9) {
+        M2C_FIELD(arg0, s32 *, 0x8C) = 9;
+    }
+    TObjEneGibbles__sub_80156780(arg0, lbl_804B7930, 1);
+    M2C_FIELD(arg0, s32 *, 0x30) |= 0x40000000;
+    reset_photon_effect__10TObjPlayerFPv(arg0);
+    Vec_80190020 pos = M2C_FIELD(arg0, Vec_80190020 *, 0x38);
+    pos.y += lbl_805DBE0C;
+    M2C_FIELD(arg0, s32 *, 0xF8) = TBoss8Dragon__sub_8008741C(&pos, 0x60, 0x40);
+    set_type__14TOKeyAncient01FPv((u8 *)arg0 + 0x98);
+    return arg0;
+}
+
 void *TObjDoorKey__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xFC);
     if (o != NULL) {
-        o = TObjDoorKey__ct(o, tl_05, arg0);
+        o = TObjDoorKey__ct((void *)(o), (void *)(tl_05), (void *)(arg0));
     }
     return o;
 }

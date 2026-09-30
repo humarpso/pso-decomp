@@ -195,6 +195,47 @@ struct Obj_8003FFE4 { u8 pad[0x30]; u32 flags; u8 pad2[0x37c - 0x34]; s32 state;
 
 struct Obj_8004055C { u8 pad0[0x326]; s16 state; };
 
+struct Base_8003F730 { char pad[0x18]; };
+
+struct Obj_8003F730 : Base_8003F730 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
+    virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8(); virtual void m9();
+    virtual void m10(); virtual void m11(); virtual void m12(); virtual void m13(); virtual void m14();
+    virtual void m15(); virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23(); virtual void m24();
+    virtual void m25(); virtual void m26(); virtual void m27(); virtual void m28(); virtual void m29();
+    virtual void m30(); virtual void m31(); virtual void m32(); virtual void m33(); virtual void m34();
+    virtual void m35(); virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
+    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43(); virtual void m44();
+    virtual void m45(); virtual void m46(); virtual void m47(); virtual void m48(); virtual void m49();
+    virtual void m50(); virtual void m51(); virtual void m52(); virtual void m53(); virtual void m54();
+    virtual void m55(); virtual void m56();
+    u8 pad1C[0x390 - 0x1C];
+    s32 unk390;
+    s32 unk394;
+    u8 pad398[0x3BC - 0x398];
+    s32 slot;
+};
+
+typedef struct Slot_8003F730 {
+    s8 used;
+    u8 pad[3];
+} Slot_8003F730;
+
+typedef struct Obj_8003FBC8 {
+    u8 pad0[0x3C];
+    f32 y;
+    u8 pad40[0x326 - 0x40];
+    s16 unk326;
+    u8 pad328[0x390 - 0x328];
+    s32 angle;
+} Obj_8003FBC8;
+
+typedef struct Ent_8003FBC8 {
+    u8 pad0[0x30];
+    u32 flags;
+} Ent_8003FBC8;
+
 extern "C" {
 s32 obj_testFlags30(void *, s32);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
@@ -229,7 +270,6 @@ s32 TObjPlayer__sub_800194AC(void *, int, int);
 s32 obj_testFlags30(void *, s32);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 M2C_UNK fn_8003CFEC(void *);
-s32 TObjPlayer__sub_8003FBC8();
 void TObjPlayer__sub_80040558(void * _w0);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
@@ -261,6 +301,14 @@ void TObjPlayer__sub_80040038(void *arg0);
 void update_grabbed_state__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_800401CC(void *);
 void TObjPlayer__sub_8004055C(Obj_8004055C *arg0);
+extern Slot_8003F730 lbl_804FEED0[];
+extern s32 lbl_805D4C64;
+extern const f32 lbl_805D86B4;
+s32 TObjPlayer__sub_8003F730(Obj_8003F730 *self, s32 _w1);
+void *TPhotonMylla__sub_80154CB4(u16);
+extern u16 lbl_805D4C18;
+extern const f32 lbl_805D86BC;
+s32 TObjPlayer__sub_8003FBC8(Obj_8003FBC8 *self);
 }
 
 extern "C" {
@@ -273,7 +321,6 @@ void update_state_spin__10TObjPlayerFPv(void *arg0);
 void update_topple_state__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
-M2C_UNK TObjPlayer__sub_8003F730(void *, s32);
 M2C_UNK TObjPlayer__sub_8003FCD0(void *);
 s32 TObjPlayer__sub_80040AE4(M2C_UNK);
 s32 TObjPlayer__sub_80141F84(s32, s32);
@@ -367,6 +414,26 @@ void link_photon__10TObjPlayerFUs(u16 arg0) {
 
 extern s32 lbl_805D4C64;
 
+s32 TObjPlayer__sub_8003F730(Obj_8003F730 *self, s32 _w1) {
+    s32 i;
+    s32 idx;
+    for (i = 0; i < 6; i++) {
+        idx = (self->slot + 6 - i) % 6;
+        if (lbl_804FEED0[idx].used == 0) {
+            self->slot = idx;
+            break;
+        }
+    }
+    if (i == 6) {
+        lbl_805D4C64 = 1;
+        self->m56();
+        return 0;
+    }
+    self->unk390 = (s32)(lbl_805D86B4 * (f32)((self->slot + 2) * 60 - 10));
+    self->unk394 = -0x71C;
+    return 1;
+}
+
 void set_boss_target_pos__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r4;
 
@@ -377,7 +444,7 @@ void set_boss_target_pos__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32
         M2C_FIELD(arg0, s32 *, 0x3C0) = arg2;
         M2C_FIELD(arg0, s32 *, 0x3C4) = arg3;
         lbl_805D4C64 = 0;
-        TObjPlayer__sub_8003F730(arg0, temp_r4);
+        TObjPlayer__sub_8003F730((Obj_8003F730 *)(arg0), (s32)(temp_r4));
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
         ((VObj_8003FB3C_8003F4C0 *)arg0)->m57();
     }
@@ -385,6 +452,40 @@ void set_boss_target_pos__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32
 
 extern const f64 lbl_80436350;
 extern const f32 lbl_805D86B4;
+
+s32 TObjPlayer__sub_8003FBC8(Obj_8003FBC8 *self) {
+    s32 r;
+    s32 d;
+    s32 angle;
+    Ent_8003FBC8 *e;
+    if (self->unk326 == 0) {
+        return -1;
+    }
+    angle = self->angle;
+    r = -1;
+    d = (u16)angle % 0x2AAA - 0x1555;
+    if (self->y >= lbl_805D86BC) {
+        if (__abs(d) <= 0x8DC) {
+            r = 0;
+        }
+    } else if (d <= 0xDB2) {
+        if (d >= 0x510) {
+            r = 1;
+        } else if (d >= -0x510) {
+            r = 2;
+        } else if (d >= -0xDB2) {
+            r = 3;
+        }
+    }
+    if (r >= 0) {
+        r += ((u16)(angle - 0x2AAA) / 0x2AAA) * 4;
+        e = (Ent_8003FBC8 *)TPhotonMylla__sub_80154CB4(lbl_805D4C18 + r);
+        if (e == NULL || (e->flags & 0x800)) {
+            r = -1;
+        }
+    }
+    return r;
+}
 
 s32 calc_spin_value__10TObjPlayerFPv(void *arg0) {
     return (s32) (lbl_805D86B4 * (f32) ((((s32) (u16) M2C_FIELD(arg0, s32 *, 0x390) / 10922) * 0x3C) + 0x78));
@@ -534,7 +635,7 @@ void TObjPlayer__sub_8004055C(Obj_8004055C *arg0) {
 void TObjPlayer__sub_800405D8(u8 *arg0) {
   f32 var_f1;
   s32 temp_r3;
-  lbl_805D4C14 = TObjPlayer__sub_8003FBC8();
+  lbl_805D4C14 = TObjPlayer__sub_8003FBC8((Obj_8003FBC8 *)(arg0));
   if (check_demo_mode__10TObjPlayerFv() == 1)
   {
     TObjPlayer__sub_80040558((void *)((void *)((void *) arg0)));

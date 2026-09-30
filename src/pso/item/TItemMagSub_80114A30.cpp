@@ -39,6 +39,94 @@ typedef struct TItemMagSub_801152AC {
 typedef struct MagSub_80115800 { u8 pad0[0x70]; s32 slots[3]; } MagSub_80115800;
 
 #include "pso/item/TItemMagSub.h"
+typedef s32 M2C_UNK;
+struct RecoveredGlobal_801151E0_lbl_8058D490 {
+    M2C_UNK value;
+    u8 remaining[0x2C];
+};
+
+struct Vec_801151E0 { f32 x, y, z; };
+
+struct Base_801151E0 { u8 pad0[0x18]; };
+
+struct Player_801151E0 : Base_801151E0 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void get_joint_pos(s32, void *);
+};
+
+struct Joint_801151E0 { s32 id; };
+
+struct MagSub_801151E0 {
+    u8 pad0[0x20];
+    Player_801151E0 *player;
+    u8 pad24[0xC];
+    Joint_801151E0 *joint;
+    u8 pad34[0x6C];
+    Vec_801151E0 posA0;
+};
+
 extern "C" {
 s32 TItemMag__sub_80113EC8(void *);
 s32 calc_feed_level__11TItemMagSubFPv(void *arg0);
@@ -100,6 +188,16 @@ extern u32 some_id_805c6f74, lbl_805D5660;
 extern f32 lbl_8058D4C0[4], lbl_8050BEC0[4];
 extern const f32 lbl_805DABD0, lbl_805DABD4;
 void render_mag_child(TItemMagSub *self);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
+s32 calc_feed_level__11TItemMagSubFPv(void *arg0);
+M2C_UNK TObjPlayer__sub_803D9214(int, void *);
+s32 TObjPlayer__sub_803D97F0(void *);
+f32 TObjPlayer__sub_803D9884(void *, void *);
+s32 TObjPlayer__sub_803D9B78();
+void TBoss4Zako__sub_803D8910(void *, void *);
+extern RecoveredGlobal_80114DB8_lbl_8058D490 lbl_8058D490;
+extern Vec_801151E0 lbl_8043E59C[];
+void TItemMagSub__sub_801151E0(MagSub_801151E0 *self);
 }
 
 extern "C" {
@@ -260,6 +358,23 @@ s32 calc_feed_level__11TItemMagSubFPv(void *arg0) {
 }
 
 extern M2C_UNK __vt__11TItemMagSub[];
+
+void TItemMagSub__sub_801151E0(MagSub_801151E0 *self) {
+    if (self->joint != NULL) {
+        if (self->joint->id == -1) {
+            VecCopy__FP3VecPC3Vec(&self->posA0, (s32)self->player + 0x2FC);
+        } else {
+            self->player->get_joint_pos(self->joint->id, &self->posA0);
+        }
+    }
+    TObjPlayer__sub_803D97F0((void *) (&(*(RecoveredGlobal_801151E0_lbl_8058D490 *)&lbl_8058D490).value));
+    TObjPlayer__sub_803D9214(0, (void *)(calc_feed_level__11TItemMagSubFPv(self) + 0x8000));
+    Vec_801151E0 in = lbl_8043E59C[0];
+    Vec_801151E0 out;
+    TObjPlayer__sub_803D9884(&in, &out);
+    TBoss4Zako__sub_803D8910(&self->posA0, &out);
+    TObjPlayer__sub_803D9B78();
+}
 
 void TItemMagSub__sub_801152AC(TItemMagSub_801152AC *self) {
     self->timer += TItemMagSub__data_805DABD8;

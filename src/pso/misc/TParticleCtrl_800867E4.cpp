@@ -37,6 +37,12 @@ extern s32 lbl_805D2948;
 extern Ent_800868C4 *lbl_805D4EF8;
 extern Ent_800868C4 *lbl_805D4EFC;
 void *TLobby__sub_800869A4(void *owner, s32 id, s32 b, s32 c);
+void *__ct__13TParticleCtrlFv(void *self, void *pos, void *dir, void *ent, int a, int b, int c, int d, int e);
+void *__nw__7TObjectFUl(int);
+extern s32 lbl_805D2948;
+extern Ent_800868C4 *lbl_805D4EF8;
+extern Ent_800868C4 *lbl_805D4EFC;
+void *TObjPlayer__sub_80086A78(void *pos, void *dir, s32 id, s32 a, s32 b, s32 flags);
 }
 
 extern "C" {
@@ -122,6 +128,30 @@ void *TLobby__sub_800869A4(void *owner, s32 id, s32 b, s32 c) {
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
             p = initialize__13TParticleCtrlFPvPviiiii(p, owner, &lbl_805D4EFC[idx], 0, b, c, 0);
+        }
+        return p;
+    }
+    return 0;
+}
+#pragma pop
+
+#pragma push
+#pragma opt_propagation off
+void *TObjPlayer__sub_80086A78(void *pos, void *dir, s32 id, s32 a, s32 b, s32 flags) {
+    void *p;
+    s32 idx = id;
+    if (lbl_805D2948 > idx) {
+        p = __nw__7TObjectFUl(0x78);
+        if (p != 0) {
+            p = __ct__13TParticleCtrlFv(p, pos, dir, &lbl_805D4EF8[idx], 0, a, b, 0, flags);
+        }
+        return p;
+    }
+    if (lbl_805D2948 + 0x40 > idx) {
+        idx -= 0x200;
+        p = __nw__7TObjectFUl(0x78);
+        if (p != 0) {
+            p = __ct__13TParticleCtrlFv(p, pos, dir, &lbl_805D4EFC[idx], 0, a, b, 0, flags);
         }
         return p;
     }

@@ -17,6 +17,12 @@ struct VObj_18_1a504b : VBase_18_1a504b {
 
 struct RecoveredGlobal_80175E2C___vt__17TOSensorAncient01 { M2C_UNK value; u8 remaining[0x6C]; };
 
+struct Model_80175D0C { u8 pad[0xC]; s32 c; };
+
+struct Obj_80175D0C { u8 pad[0x42C]; Model_80175D0C *model; };
+
+struct Buf_80175D0C { s32 a; s32 b; s32 c; s32 d; };
+
 extern "C" {
 M2C_UNK init_switch_id__5TOKeyFPv(void *);
 s32 TOSensor__ct(void *);
@@ -28,6 +34,21 @@ extern const f32 lbl_805DB998;
 extern const f32 lbl_805DB9A8;
 extern const f32 lbl_805DB9AC;
 u8 *TOSensorAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+void *alloc_buffer__11TOBoss4RockFPv(s32);
+s32 TLanguage__sub_801E4874(void *);
+extern u8 lbl_804429E8[];
+extern u8 lbl_80442A00[];
+extern u8 lbl_80442A18[];
+extern u8 lbl_804B41F0[];
+extern u32 lbl_805D5A88;
+extern void *lbl_805D5A8C;
+extern s32 lbl_805D5A90;
+extern s32 lbl_805D5A94;
+extern s32 lbl_805D5A98;
+extern s32 lbl_805D5A9C;
+void TOSensorAncient01__sub_80175D0C(void);
 }
 
 extern "C" {
@@ -72,6 +93,24 @@ void destroy__17TOSensorAncient01Fv(void) {
 }
 
 extern M2C_UNK __vt__17TOSensorAncient01[];
+
+void TOSensorAncient01__sub_80175D0C(void) {
+    void *p;
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    if (p != NULL) {
+        p = TLobby__sub_80020004(p, 1, lbl_804B41F0, 0, 0, 0);
+    }
+    lbl_805D5A88 = (u32)p;
+    lbl_805D5A8C = alloc_buffer__11TOBoss4RockFPv(0x10);
+    ((Buf_80175D0C *)lbl_805D5A8C)->b = ((Obj_80175D0C *)lbl_805D5A88)->model->c;
+    ((Buf_80175D0C *)lbl_805D5A8C)->a = TLanguage__sub_801E4874(lbl_804429E8);
+    ((Buf_80175D0C *)lbl_805D5A8C)->d = TLanguage__sub_801E4874(lbl_80442A00);
+    ((Buf_80175D0C *)lbl_805D5A8C)->c = TLanguage__sub_801E4874(lbl_80442A18);
+    lbl_805D5A90 = 0;
+    lbl_805D5A94 = 0;
+    lbl_805D5A98 = 0;
+    lbl_805D5A9C = 0;
+}
 
 void *__dt__17TOSensorAncient01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -354,6 +354,12 @@ struct RecoveredGlobal_8010AD24_lbl_804C3BA8 {
     u8 remaining[0x10];
 };
 
+struct ItemData_8010AEFC { u8 data[0x14]; };
+
+struct Stats_8010AEFC { s16 v[7]; u8 pad[0x16]; };
+
+struct Equip_8010AEFC { u8 pad0[0xF0]; s32 m_f0; };
+
 extern "C" {
 void set_equip_flag__14TItemEquipBaseFPvUc(void* p, s32 v);
 s8 TItemEquipBase__sub_8010A77C(u8 *arg0);
@@ -422,6 +428,10 @@ u8 *TItemEquipBase__ct(u8 *arg0, s32 arg1, s32 arg2);
 void set_equip_flag__14TItemEquipBaseFPvUc(void* p, s32 v);
 extern RecoveredGlobal_8010AD24_lbl_804C3BA8 lbl_804C3BA8;
 void TItemEquipBase__sub_8010AD24(u8 *arg0, s8 arg1);
+void copy_to_item_data__5TItemFPvPv(void *, void *);
+void apply_equip_effects__9TItemDataFPviiiii(void *, s32, s32, s32, void *, void *);
+int memset(void*, void*, void*);
+void TItemEquipBase__sub_8010AEFC(Equip_8010AEFC *self, s32 arg1, s32 arg2, s16 *out);
 }
 
 extern "C" {
@@ -682,6 +692,25 @@ void subtract_equip_stats__14TItemEquipBaseFPviPvPv(u8 *arg0, s32 arg1, u8 *arg2
         M2C_FIELD(arg3, s16 *, 8) = (s16) (M2C_FIELD(arg3, s16 *, 8) - M2C_FIELD(arg0, s16 *, 0x100));
         M2C_FIELD(arg3, s16 *, 0xA) = (s16) (M2C_FIELD(arg3, s16 *, 0xA) - M2C_FIELD(arg0, s16 *, 0x102));
         M2C_FIELD(arg3, s16 *, 0xC) = (s16) (M2C_FIELD(arg3, s16 *, 0xC) - M2C_FIELD(arg0, s16 *, 0x104));
+    }
+}
+
+void TItemEquipBase__sub_8010AEFC(Equip_8010AEFC *self, s32 arg1, s32 arg2, s16 *out) {
+    u32 extra;
+    ItemData_8010AEFC item;
+    Stats_8010AEFC st;
+    copy_to_item_data__5TItemFPvPv(self, &item);
+    memset(&st, (void *)0, (void *)0x24);
+    memset(&extra, (void *)0, (void *)4);
+    apply_equip_effects__9TItemDataFPviiiii(&item, self->m_f0, arg1, arg2, &st, &extra);
+    if (out != NULL) {
+        out[0] -= st.v[0];
+        out[1] -= st.v[1];
+        out[2] -= st.v[2];
+        out[3] -= st.v[3];
+        out[4] -= st.v[4];
+        out[5] -= st.v[5];
+        out[6] -= st.v[6];
     }
 }
 

@@ -13,6 +13,39 @@ struct Obj_8018B510 { u8 pad0[0x38]; u8 pos[0x7C]; s16 fB4[3]; u8 pad1[0x1FA]; f
 
 struct Obj_8018B700 { u8 pad0[0x38]; u8 pos[0x324]; s32 f35C; };
 
+struct Atk_8018B180 { s32 type; f32 power; s32 kind; f32 base; };
+
+struct VBase_8018B180 { u8 pad[0x18]; };
+
+struct Player_8018B180 : VBase_8018B180 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21(void *, Atk_8018B180 *, s32, s32, s32);
+    u8 pad1c[0x38 - 0x1C];
+    f32 pos[3];
+};
+
+struct Obj_8018B180 { u8 pad[0x38]; f32 pos[3]; };
+
 extern "C" {
 void TContainerAncient01__sub_8018B158(void* p, void* a1, void* a2);
 int TObjEneDellBiter__sub_80087350(void*, void*);
@@ -44,6 +77,13 @@ s32 TContainerAncient01__sub_8020335C();
 void set_flag8__6TLobbyFPv(void *);
 extern s32 lbl_8050DC68[];
 void TContainerAncient01__sub_8018B700(Obj_8018B700 *arg0);
+s32 obj_testFlags30(void *, s32);
+s32 TObjPlayer__sub_800196EC();
+s32 get_field_3e4__10TObjPlayerFPv(void *);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(int);
+extern const f32 lbl_805DBD18;
+void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range);
 }
 
 extern "C" {
@@ -54,6 +94,25 @@ void reset_state__19TContainerAncient01FPv(void* a0);
     extern const float TContainerAncient01__data_805DBD1C;
 
 void TContainerAncient01__sub_8018B158(void* p, void* a1, void* a2) { TObjEneDellBiter__sub_80087350(a1, a2); }
+
+void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range) {
+    u16 i;
+    Player_8018B180 *pl;
+    for (i = 0; i < 4; i++) {
+        pl = (Player_8018B180 *)TPlayerBattleCtrl4P__sub_801BA74C(i);
+        if (pl != NULL) {
+            if (get_field_3e4__10TObjPlayerFPv(pl) == TObjPlayer__sub_800196EC() && obj_testFlags30(pl, 1) == 0 &&
+                TObjPlayer__sub_80141CF8(self->pos, pl->pos) < range) {
+                Atk_8018B180 atk;
+                atk.type = 0xF;
+                atk.base = lbl_805DBD18;
+                atk.kind = 0xF;
+                *(s32 *)&atk.power = *(s32 *)&atk.base;
+                pl->m21(self, &atk, 0, -1, -1);
+            }
+        }
+    }
+}
 
 void reset_state__19TContainerAncient01FPv(void* a0) { *(short*)((char*)a0 + 0x326) = 0; *(short*)((char*)a0 + 0xb8) = *(short*)((char*)a0 + 0x326); *(float*)((char*)a0 + 0x2b4) = TContainerAncient01__data_805DBD1C; }
 

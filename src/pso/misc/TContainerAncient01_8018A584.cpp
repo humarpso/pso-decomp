@@ -38,6 +38,39 @@ struct RecoveredGlobal_8018A9D8_TContainerAncient01__data_804B6DC0 { M2C_UNK val
 
 struct Obj_8018AB44 { u8 pad0[0x38]; u8 pos[0x328]; s32 f360; };
 
+struct Atk_8018A584 { s32 type; f32 power; s32 kind; f32 base; };
+
+struct VBase_8018A584 { u8 pad[0x18]; };
+
+struct Player_8018A584 : VBase_8018A584 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21(void *, Atk_8018A584 *, s32, s32, s32);
+    u8 pad1c[0x38 - 0x1C];
+    f32 pos[3];
+};
+
+struct Obj_8018A584 { u8 pad[0x38]; f32 pos[3]; };
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -82,6 +115,13 @@ s32 TContainerAncient01__sub_8020335C();
 void set_flag8__6TLobbyFPv(void *);
 extern s32 lbl_8050DC70[];
 void TContainerAncient01__sub_8018AB44(Obj_8018AB44 *arg0);
+s32 obj_testFlags30(void *, s32);
+s32 TObjPlayer__sub_800196EC();
+s32 get_field_3e4__10TObjPlayerFPv(void *);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
+Player_8018A584 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+extern const f32 lbl_805DBD18;
+void TContainerAncient01__sub_8018A584(Obj_8018A584 *self, f32 range);
 }
 
 extern "C" {
@@ -102,6 +142,26 @@ s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
     extern const float TContainerAncient01__data_805DBD1C;
+
+void TContainerAncient01__sub_8018A584(Obj_8018A584 *self, f32 range) {
+    u16 i;
+    Player_8018A584 *pl;
+    for (i = 0; i < 4; i++) {
+        pl = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        if (pl != NULL) {
+            if (get_field_3e4__10TObjPlayerFPv(pl) == TObjPlayer__sub_800196EC() && obj_testFlags30(pl, 1) == 0 &&
+                TObjPlayer__sub_80141CF8(self->pos, pl->pos) < range) {
+                Atk_8018A584 atk;
+                atk.type = 0xF;
+                atk.base = lbl_805DBD18;
+                atk.kind = 0xF;
+                *(s32 *)&atk.power = *(s32 *)&atk.base;
+                pl->m21(self, &atk, 0, -1, -1);
+            }
+        }
+    }
+}
+
 void reset_hp__19TContainerAncient01FPv(void* a0) { *(short*)((char*)a0 + 0x326) = 0; *(short*)((char*)a0 + 0xb8) = *(short*)((char*)a0 + 0x326); *(float*)((char*)a0 + 0x2b4) = TContainerAncient01__data_805DBD1C; }
 
 void TContainerAncient01__sub_8018A890(u8 *arg0) {

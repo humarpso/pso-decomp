@@ -22,10 +22,22 @@ struct Obj_80073CEC {
     Ent_80073CEC e[4];
 };
 
+typedef s32 M2C_UNK;
+struct Name_80073B38 {
+    char text[15];
+    char term;
+};
+
+struct Win_80073B38 {
+    u8 pad0[0x1C];
+    s32 built;
+    u8 pad20[8];
+    Name_80073B38 names[4];
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 void update_countdown__15TObjDeadListWinFPv(void *arg0);
-M2C_UNK TObjDeadListWin__sub_80073B38(void *);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern s32 lbl_805D53A0;
 void run_task__15TObjDeadListWinFv(u8 *arg0);
@@ -33,6 +45,15 @@ void *__ct__7TObjectFP7TObject(void *, void *);
 extern char __vt__15TObjDeadListWin[];
 extern const char *lbl_805D2868;
 void *TObjDeadListWin__ct(Obj_80073CEC *self, void *parent);
+s32 obj_testFlags30(M2C_UNK, M2C_UNK);
+s32 TLobby__sub_8006F1EC(s32);
+void build_dead_list_window__15TObjDeadListWinFPv(u8 *arg0);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+s32 TWindowCtrlMain__sub_8024CE58(void);
+M2C_UNK strncpy(void *, void *, int);
+extern s32 lbl_805D53A0;
+M2C_UNK TObjDeadListWin__sub_80073B38(Win_80073B38 *self);
 }
 
 extern "C" {
@@ -107,6 +128,26 @@ void update_countdown__15TObjDeadListWinFPv(void *arg0) {
     }
 }
 
+M2C_UNK TObjDeadListWin__sub_80073B38(Win_80073B38 *self) {
+    s32 i;
+    u8 *player;
+    u8 *me;
+    for (i = 0; i < 4; i++) {
+        player = ((u8 *)TPlayerBattleCtrl4P__sub_801BA74C(i));
+        if (self->names[i].text[0] == 0 && player != NULL && TLobby__sub_8006F1EC(i) != 0) {
+            strncpy(self->names[i].text, player + 0x85C, 15);
+            self->names[i].term = 0;
+        }
+    }
+    me = ((u8 *)TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0));
+    if ((get_global_state__14TOKeyMachine01Fv() == 0 || get_global_state__14TOKeyMachine01Fv() == 0x12)
+        && TWindowCtrlMain__sub_8024CE58() != 0 && me != NULL
+        && obj_testFlags30((M2C_UNK)me, 0x02000000) == 0) {
+        build_dead_list_window__15TObjDeadListWinFPv((u8 *)self);
+        self->built = 1;
+    }
+}
+
 void run_task__15TObjDeadListWinFv(u8 *arg0) {
     s32 temp_r0;
     if (TPlayerBattleCtrl4P__sub_801BA74C((s32)((void *) (lbl_805D53A0))) == 0U) {
@@ -116,7 +157,7 @@ void run_task__15TObjDeadListWinFv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
     switch (temp_r0) {
     case 0:
-        TObjDeadListWin__sub_80073B38((void *) (arg0));
+        TObjDeadListWin__sub_80073B38((Win_80073B38 *)((void *) (arg0)));
         return;
     case 1:
         update_countdown__15TObjDeadListWinFPv((void *) (arg0));

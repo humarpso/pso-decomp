@@ -47,6 +47,10 @@ struct Data_80118A78 { u8 pad[0x7cc]; u8 unit[4]; };
 
 struct Self_80118A78 { u8 pad[0xf0]; Data_80118A78 *data; u8 padf4[0x18c - 0xf4]; s16 s18c; u8 pad18e[0x1b8 - 0x18e]; f32 evp; };
 
+struct Owner_80118AD4 { u8 pad0[0x428]; u8 f428[0x88D - 0x428]; u8 f88d; };
+
+struct Unit_80118AD4 { u8 pad0[0xF0]; Owner_80118AD4 *owner; u8 padF4[0x190 - 0xF4]; s16 f190; s16 arr[19]; };
+
 extern "C" {
 void TItemProUnit__vt12(u8 *arg0);
 s32 get_id__13TItemProArmorFPv(void *);
@@ -65,6 +69,10 @@ void TItemProUnit__vt16(Self_80118958 *self, Out_80118958 *out);
 f32 TItemProUnit__sub_8011901C(void *);
 void set_evp__12TItemProUnitFPvf(void *, f32);
 void TItemProUnit__vt14(Self_80118A78 *self);
+u8 TObjPlayer__sub_8011C1C8(u8, u8);
+u8 fn_801D9870(void *, s16);
+void TItemProUnit__sub_801D98F8(void *, s16, u8);
+void TItemProUnit__vt46(Unit_80118AD4 *self);
 }
 
 extern "C" {
@@ -132,6 +140,37 @@ void TItemProUnit__vt14(Self_80118A78 *self) {
         }
     }
 }
+
+#pragma push
+#pragma opt_common_subs off
+void TItemProUnit__vt46(Unit_80118AD4 *self) {
+    u8 v;
+    s16 i;
+    u8 cap;
+    s16 base;
+    u8 tot;
+    if (self->f190 != 0) {
+        for (i = 0; i != 19; i++) {
+            if (i == 14 || i == 17) {
+                continue;
+            }
+            v = fn_801D9870(self->owner->f428, i);
+            if (v != 0xFF) {
+                cap = TObjPlayer__sub_8011C1C8(self->owner->f88d, (u8)i);
+                base = self->f190;
+                tot = v + base;
+                if (cap < tot) {
+                    self->arr[i] = base + cap - tot;
+                    tot = cap;
+                } else {
+                    self->arr[i] = base;
+                }
+                TItemProUnit__sub_801D98F8(self->owner->f428, i, tot);
+            }
+        }
+    }
+}
+#pragma pop
 
 void TItemProUnit__vt42(u8 *arg0) {
   s16 temp_r0;

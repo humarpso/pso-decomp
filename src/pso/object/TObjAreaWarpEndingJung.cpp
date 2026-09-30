@@ -16,6 +16,16 @@ struct VObj_8019B124 : VObjBase_8019B124 {
     virtual s32 m8(f32, f32);
 };
 
+struct Warp_8019B170 { u8 pad0[0x8C]; s32 f8C; };
+
+extern "C" {
+void set_global_count__12TObjNpcEnemyFi(s32 arg0);
+void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+extern char lbl_804463A4[];
+extern char lbl_804463B4[];
+void TObjAreaWarpEndingJung__vt18(Warp_8019B170 *arg0);
+}
+
 extern "C" {
 
 void *TObjAreaWarpEndingJung__create(void *arg0);
@@ -50,6 +60,22 @@ void *TObjAreaWarpEndingJung__create(void *arg0) {
 
 extern const f32 lbl_805DBFD4;
 extern const f32 lbl_805DBFD8;
+
+void TObjAreaWarpEndingJung__vt18(Warp_8019B170 *arg0) {
+    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    if (arg0->f8C < 0) {
+        arg0->f8C = 0;
+    }
+    arg0->f8C = arg0->f8C % 2;
+    if (arg0->f8C == 0) {
+        set_global_count__12TObjNpcEnemyFi(0xFFFFFF);
+        TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804463A4);
+    } else {
+        set_global_count__12TObjNpcEnemyFi(0xFF0000FF);
+        TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804463B4);
+    }
+    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+}
 
 void render__22TObjAreaWarpEndingJungFv(u8 *arg0) {
     s32 temp_r0;

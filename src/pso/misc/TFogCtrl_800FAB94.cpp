@@ -25,6 +25,18 @@ struct Ctrl_800FAFE0 {
     s32 selected;
 };
 
+struct GXFogAdjTable_800FAE1C {
+    u16 r[10];
+};
+
+struct TFogCtrl_800FAE1C {
+    u8 pad[0x188];
+    u32 color;
+    f32 end;
+    f32 start;
+    f32 width;
+};
+
 extern "C" {
 void TFogCtrl__sub_800FB0F8(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_param__8TFogCtrlFPv(void* p);
@@ -51,6 +63,18 @@ void TFogCtrl__sub_800FB0F8(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_param__8TFogCtrlFPv(void* p);
 M2C_UNK TFogCtrl__sub_800FB424(int, int, int);
 s32 TFogCtrl__sub_800FAFE0(u8 *arg0, s32 arg1, s32 arg2);
+s32 is_split_screen();
+void end_effect_render__13TParticleCtrlFv(void);
+void GXInitFogAdjTable(GXFogAdjTable_800FAE1C *, s32, void *);
+void GXSetFogRangeAdj(s32, s32, GXFogAdjTable_800FAE1C *);
+void fn_803E1FC8(u32);
+void fn_803E1FFC(f32, f32);
+void TParticleCtrl__sub_803E2008(s32);
+extern u8 lbl_8058CA60[];
+extern const f32 TFogCtrl__data_805DA948;
+extern const f32 TFogCtrl__data_805DA94C;
+extern const f32 lbl_805DA950;
+s32 TFogCtrl__sub_800FAE1C(void *arg0);
 }
 
 extern "C" {
@@ -59,7 +83,6 @@ s32 TFogCtrl__sub_800FAC84(void* p);
 void clear_active_flag__8TFogCtrlFPv(void *arg0);
 void* get_entry__8TFogCtrlFi(int a0);
 void update_all__8TFogCtrlFv(void);
-M2C_UNK TFogCtrl__sub_800FAE1C(void *);
 s32 get_param__8TFogCtrlFPv(void* p);
 s32 is_split_screen();
 
@@ -152,12 +175,38 @@ void clear_active_flag__8TFogCtrlFPv(void *arg0) {
         temp_r3 = M2C_FIELD(arg0, s32 *, 0x1C);
         if (temp_r3 & 1) {
             M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (temp_r3 & 0xFFFFFFFE);
-            TFogCtrl__sub_800FAE1C(arg0);
+            TFogCtrl__sub_800FAE1C((void *)(arg0));
         }
     } else {
-        TFogCtrl__sub_800FAE1C(arg0);
+        TFogCtrl__sub_800FAE1C((void *)(arg0));
         M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) & 0xFFFFFFFE);
     }
+}
+
+s32 TFogCtrl__sub_800FAE1C(void *arg0) {
+    TFogCtrl_800FAE1C *self = (TFogCtrl_800FAE1C *)arg0;
+    GXFogAdjTable_800FAE1C tbl;
+    TParticleCtrl__sub_803E2008(2);
+    fn_803E1FC8((self->color << 8) | (self->color >> 24));
+    fn_803E1FFC(self->start, self->end);
+    if (is_split_screen() == 0) {
+        if (self->width >= TFogCtrl__data_805DA94C) {
+            self->width = TFogCtrl__data_805DA94C;
+        } else if (self->width <= TFogCtrl__data_805DA948) {
+            self->width = TFogCtrl__data_805DA948;
+        }
+        GXInitFogAdjTable(&tbl, (s32)self->width, lbl_8058CA60);
+        GXSetFogRangeAdj(1, 0x140, &tbl);
+    } else {
+        if (self->width >= lbl_805DA950) {
+            self->width = lbl_805DA950;
+        } else if (self->width <= TFogCtrl__data_805DA948) {
+            self->width = TFogCtrl__data_805DA948;
+        }
+        GXInitFogAdjTable(&tbl, (s32)self->width, lbl_8058CA60);
+        GXSetFogRangeAdj(1, 0xA0, &tbl);
+    }
+    end_effect_render__13TParticleCtrlFv();
 }
 
 s32 TFogCtrl__sub_800FAF3C(u8 *arg0, s32 arg1) {

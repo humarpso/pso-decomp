@@ -8,6 +8,24 @@ struct VObj_801105AC : Base_801105AC {
     virtual void m0(s32);
 };
 
+typedef s32 M2C_UNK;
+extern "C" {
+void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+void TItemLoad__sub_8010F5A0();
+void alloc_work_buffer__9TItemLoadFv();
+u32 alloc_buffer__11TOBoss4RockFPv(u32);
+void * __nw__7TObjectFUl(M2C_UNK);
+void *__ct__7TObjectFP7TObject(void *, void *);
+extern u8 lbl_8049F3E4[];
+extern s32 TItemLoad__data_805D5480;
+extern void *TItemLoad__data_805D5484;
+extern void *TItemLoad__data_805D5488;
+extern s32 TItemLoad__data_805D548C;
+extern s32 lbl_805D5490;
+void TItemLoad__sub_8011063C(void);
+}
+
 extern "C" {
 
 s32 TItemLoad__sub_80110740(void* p);
@@ -55,6 +73,37 @@ void free_all__9TItemLoadFv(void) {
 }
 
 extern s32 tl_05;
+
+void TItemLoad__sub_8011063C(void) {
+    void *p;
+    u32 buf;
+    s32 i;
+    alloc_work_buffer__9TItemLoadFv();
+    TItemLoad__sub_8010F5A0();
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    if (p != NULL) {
+        p = TLobby__sub_80020004(p, 5, lbl_8049F3E4, 0, 0, 0);
+    }
+    TItemLoad__data_805D5480 = (s32)p;
+    p = __nw__7TObjectFUl(0x1C);
+    if (p != NULL) {
+        p = __ct__7TObjectFP7TObject(p, NULL);
+    }
+    TItemLoad__data_805D5488 = p;
+    p = __nw__7TObjectFUl(0x1C);
+    if (p != NULL) {
+        p = __ct__7TObjectFP7TObject(p, NULL);
+    }
+    TItemLoad__data_805D5484 = p;
+    buf = alloc_buffer__11TOBoss4RockFPv(0x30);
+    TItemLoad__data_805D548C = buf;
+    lbl_805D5490 = 0;
+    if (buf != 0) {
+        for (i = 0; i < 12; i++) {
+            ((s32 *)TItemLoad__data_805D548C)[i] = 0;
+        }
+    }
+}
 
 void create__9TItemLoadFv(void) {
     void *obj = __nw__7TObjectFUl(0x1C);

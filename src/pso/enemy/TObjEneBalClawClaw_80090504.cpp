@@ -24,6 +24,51 @@ struct RecoveredFields_8009060C_arg0 {
     s32 field_388;
 };
 
+struct VBase_800906C8 { char pad[0x14]; };
+
+struct VObj_800906C8 : VBase_800906C8 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual s32 m4();
+};
+
+struct Claw_800906C8 {
+    u8 pad0[0xB8];
+    s16 fieldB8;
+    u8 padBA[0x37C - 0xBA];
+    s32 state;
+    u8 pad380[0x388 - 0x380];
+    u32 flags;
+    u8 pad38C[0x390 - 0x38C];
+    VObj_800906C8 motion;
+};
+
+struct Vec_80090850 { f32 x, y, z; };
+
+struct Params_80090850 { u8 pad0[4]; f32 speed; s32 angle; };
+
+struct Claw_80090850 {
+    u8 pad0[0x30];
+    u32 flags30;
+    u8 pad34[0x50 - 0x34];
+    Vec_80090850 pos;
+    u8 pad5C[0xB8 - 0x5C];
+    s16 fieldB8;
+    u8 padBA[0x290 - 0xBA];
+    Vec_80090850 target;
+    Vec_80090850 home;
+    u8 pad2A8[0x2FC - 0x2A8];
+    Vec_80090850 field2FC;
+    s32 field308;
+    f32 field30C;
+    u8 pad310[0x350 - 0x310];
+    Params_80090850 *params;
+    u8 pad354[0x37C - 0x354];
+    s32 state;
+};
+
 extern "C" {
 void obj_clearFlags30(void *, u32);
 void TObjEneBalClawClaw__sub_80090798(u8 *arg0);
@@ -31,6 +76,19 @@ void obj_setFlags30(void *, u32);
 void TObjEneBalClawClaw__sub_800907DC(u8 *arg0);
 int reset_active_state__18TObjEneBalClawClawFPv(void* p);
 void TObjEneBalClawClaw__sub_8009060C(u8 *arg0);
+void TObjPlayer__sub_80011734(void *, int, f32);
+void obj_setFlags30(void *, u32);
+void TBoss1Dragon__sub_80143504(void *);
+extern const f32 TObjEneBalClawClaw__data_805D968C;
+void TObjEneBalClawClaw__sub_800906C8(Claw_800906C8 *self);
+void TObjPlayer__sub_80011734(void *, int, f32);
+s32 TObjPlayer__sub_80017E6C(void *);
+void TObjPlayer__sub_800180E8(void *self, Vec_80090850 pos, Vec_80090850 dest, f32 speed);
+void update_angle__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2);
+void VecCopy__FP3VecPC3Vec(void *, const void *);
+void TBoss1Dragon__sub_80143504(void *);
+extern const f32 TObjEneBalClawClaw__data_805D968C;
+void TObjEneBalClawClaw__sub_80090850(Claw_80090850 *self);
 }
 
 extern "C" {
@@ -62,6 +120,29 @@ void TObjEneBalClawClaw__sub_8009060C(u8 *arg0) {
     }
 }
 
+void TObjEneBalClawClaw__sub_800906C8(Claw_800906C8 *self) {
+    switch (self->state) {
+    case -1:
+        break;
+    case 0:
+        self->fieldB8 = 0;
+        self->motion.m2();
+        self->flags |= 4;
+        self->state = 1;
+    case 1:
+        TBoss1Dragon__sub_80143504(self);
+        TObjPlayer__sub_80011734(self, 0, TObjEneBalClawClaw__data_805D968C);
+        if (self->motion.m4() == 1) {
+            self->flags &= ~4;
+            obj_setFlags30(self, 0x02000000);
+            self->state = 2;
+        }
+        break;
+    case 2:
+        break;
+    }
+}
+
 void TObjEneBalClawClaw__sub_80090798(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xEFFFFFFF);
     obj_clearFlags30(arg0, 0x06040000U);
@@ -78,5 +159,25 @@ void TObjEneBalClawClaw__sub_80090824(void) {  }
 
 void TObjEneBalClawClaw__sub_80090828(void) {  }
 int reset_active_state__18TObjEneBalClawClawFPv(void* p) { return update_if_active__15TObjEneMe1GiGueFPv(p, 0); }
+void TObjEneBalClawClaw__sub_80090850(Claw_80090850 *self) {
+    switch (self->state) {
+    case -1:
+        break;
+    case 0:
+        self->flags30 &= ~0x100;
+        self->fieldB8 = 1;
+        VecCopy__FP3VecPC3Vec(&self->home, &self->pos);
+        self->state = 1;
+    case 1:
+        self->field30C = TObjEneBalClawClaw__data_805D968C;
+        VecCopy__FP3VecPC3Vec(&self->target, &self->field2FC);
+        TObjPlayer__sub_800180E8(self, self->target, self->home, self->params->speed);
+        update_angle__10TObjPlayerFPviPv(self, self->params->angle, &self->field308);
+        TObjPlayer__sub_80017E6C(self);
+        TBoss1Dragon__sub_80143504(self);
+        TObjPlayer__sub_80011734(self, 0, TObjEneBalClawClaw__data_805D968C);
+        break;
+    }
+}
 
 }

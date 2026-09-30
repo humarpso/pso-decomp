@@ -117,6 +117,112 @@ struct RecoveredGlobal_800975A8_lbl_805008A8 {
     u8 remaining[0xC];
 };
 
+struct Vec_80097714 { f32 x, y, z; };
+
+struct BringerBase_80097714 { char pad[0x18]; };
+
+struct Bringer_80097714 : BringerBase_80097714 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual void m87();
+};
+
+struct Fields_80097714 {
+    u8 pad0[0xB8];
+    s16 fieldB8;
+    u8 padBA[0x308 - 0xBA];
+    Vec_80097714 vel;
+    u8 pad314[0x378 - 0x314];
+    s32 field378;
+    u8 pad37C[0x484 - 0x37C];
+    s32 timer;
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TObjPlayer__sub_800A04F0(void *);
@@ -135,6 +241,18 @@ extern s32 TObjEneDf2Bringer__data_805D4FBC;
 extern s32 TObjEneDf2Bringer__data_805D4FC0;
 extern s32 TObjEneDf2Bringer__data_805D4FC4;
 void TObjEneDf2Bringer__sub_800975A8(void);
+void VecCopy__FP3VecPC3Vec(void *, const void *);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
+f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+s32 check_stage_advance__17TObjEneDf2BringerFPv(void *);
+void clear_field_388__9TObjEneDDFPv(void *p);
+void set_active__9TObjEneDDFPv(void *p);
+void TObjEneDD__sub_800BACA4(void *arg0, f32 farg0, f32 farg1, f32 farg2);
+void TBoss8Dragon__sub_800BB780(void *);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+extern const f32 lbl_805D97E4;
+void TObjEneDf2Bringer__sub_80097714(Bringer_80097714 *obj, s32 mode);
 }
 
 extern "C" {
@@ -295,6 +413,39 @@ void TObjEneDf2Bringer__sub_80097620(u8 *arg0, s32 arg1) {
     case 3:
     case 5:
         return;
+    }
+}
+
+void TObjEneDf2Bringer__sub_80097714(Bringer_80097714 *obj, s32 mode) {
+    Fields_80097714 *self = (Fields_80097714 *)obj;
+    Vec_80097714 v;
+    f32 speed;
+    switch (mode) {
+    case 4:
+        self->fieldB8 = 6;
+        TBoss1Dragon__sub_80143504(self);
+        set_active__9TObjEneDDFPv(self);
+        break;
+    case 3:
+        if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(self) != 0 &&
+            check_stage_advance__17TObjEneDf2BringerFPv(self) == 0) {
+            TObjEneDD__sub_800BBA18((void *)(self), (M2C_UNK)(self->field378));
+        }
+        break;
+    case 0:
+        ((s32)TBoss1Dragon__sub_80143504(self));
+        self->timer--;
+        VecCopy__FP3VecPC3Vec(&v, &self->vel);
+        speed = clamp_velocity__15TObjBoss2TunnelFPv(&v);
+        TObjEneDD__sub_800BACA4(self, v.x, v.z, speed);
+        self->vel.x *= lbl_805D97E4;
+        self->vel.z *= lbl_805D97E4;
+        obj->m87();
+        break;
+    case 5:
+        TBoss8Dragon__sub_800BB780(self);
+        clear_field_388__9TObjEneDDFPv(self);
+        break;
     }
 }
 

@@ -18,6 +18,60 @@ struct Obj_8007A32C { s32 f0; f32 f4; s32 f8; u8 fc[4]; };
 
 struct E_80079580 { u8 pad[0x24]; u32 f24; };
 
+struct Vec_80079608 {
+    f32 x;
+    f32 y;
+    f32 z;
+};
+
+struct Hit_80079608 {
+    Vec_80079608 pos;
+    Vec_80079608 normal;
+    u8 pad18[4];
+};
+
+struct Query_80079608 {
+    s32 count;
+    u8 pad4[4];
+    void *flags;
+    Vec_80079608 origin;
+    Vec_80079608 *offsets;
+};
+
+struct Result_80079608 {
+    s32 hit;
+    Hit_80079608 *hits;
+    s32 index;
+    f32 best;
+};
+
+typedef s32 M2C_UNK;
+struct Poly_8007970C { u8 pad[0x24]; };
+
+struct Mesh_8007970C {
+    u8 pad0[4];
+    u32 flags;
+    s32 count;
+    Poly_8007970C *polys;
+};
+
+struct Node_8007970C {
+    Mesh_8007970C *mesh;
+};
+
+struct Poly_800797DC { u8 pad[0x24]; };
+
+struct Mesh_800797DC {
+    u8 pad0[4];
+    u32 flags;
+    s32 count;
+    Poly_800797DC *polys;
+};
+
+struct Node_800797DC {
+    Mesh_800797DC *mesh;
+};
+
 extern "C" {
 void TObjPlayer__sub_8007A0E4(u8 *arg0, u8 *arg1);
 extern RecoveredGlobal_800790F0_lbl_804F5800 lbl_804F5800;
@@ -43,13 +97,11 @@ extern s32 lbl_804389E8[];
 s32 *TBoss8Dragon__sub_8007A544(s32 arg0, s32 arg1);
 void TObjPlayer__sub_8007911C(void);
 M2C_UNK TObjPlayer__sub_80079118(M2C_UNK * _w0);
-s32 TObjPlayer__sub_80079608(void *, void *);
 extern s32 lbl_80500148[];
 extern s32 lbl_80438988[];
 void *TObjPlayer__sub_8007A2D0(void *self);
 void TObjPlayer__sub_8007911C(void);
 M2C_UNK TObjPlayer__sub_80079118(M2C_UNK * _w0);
-s32 TObjPlayer__sub_80079608(void *, void *);
 s32 TObjPlayer__sub_80079F58(void *, f32, s32);
 extern s32 lbl_80500148[];
 extern s32 lbl_804389A8[];
@@ -57,7 +109,6 @@ void *TObjPlayer__sub_8007A32C(Obj_8007A32C *self);
 M2C_UNK TObjPlayer__sub_80079118(M2C_UNK * _w0);
 void TObjPlayer__sub_8007911C(void);
 void TObjPlayer__sub_80079124(void *, void *);
-s32 TObjPlayer__sub_800797DC(void *, void *, int, void *);
 u32 TObjPlayer__sub_80079DE0(void *, void *);
 extern M2C_UNK lbl_804389C0[];
 extern u32 lbl_804FFD40[];
@@ -70,6 +121,25 @@ extern f32 lbl_805D4E74;
 extern s32 lbl_805D4E7C;
 extern const f32 lbl_805D91F4;
 s32 TObjPlayer__sub_80079580(void *arg0, void *arg1, void *arg2, s32 arg3);
+f32 get_random_float__8TObjFishFv(f32);
+s32 TObjPlayer__sub_80079580(void *arg0, void *arg1, void *arg2, s32 arg3);
+extern const f32 lbl_805D9204;
+s32 TObjPlayer__sub_80079608(Query_80079608 *q, Result_80079608 *r);
+void TObjPlayer__sub_80079124(void * _w0, void * _w1);
+s32 TObjPlayer__sub_800798A0(void *, void *, void *, E_80079580 *, u32, s32);
+void vsub(void *, void *, void *);
+extern M2C_UNK lbl_80500140[];
+extern f32 lbl_805D4E74;
+extern M2C_UNK *lbl_805D4E78;
+extern s32 lbl_805D4E7C;
+extern const f32 lbl_805D91F4;
+s32 TObjPlayer__sub_8007970C(void *arg0, void *arg1, u32 arg2, Node_8007970C **list);
+s32 TObjPlayer__sub_800798A0(void *, void *, void *, E_80079580 *, u32, s32);
+void vsub(void *, void *, void *);
+extern M2C_UNK lbl_80500140[];
+extern M2C_UNK *lbl_805D4E78;
+extern s32 lbl_805D4E7C;
+s32 TObjPlayer__sub_800797DC(void *arg0, void *arg1, int arg2, Node_800797DC **list);
 }
 
 extern "C" {
@@ -110,6 +180,93 @@ s32 TObjPlayer__sub_80079580(void *arg0, void *arg1, void *arg2, s32 arg3) {
     return r;
 }
 
+#pragma push
+#pragma fp_contract on
+s32 TObjPlayer__sub_80079608(Query_80079608 *q, Result_80079608 *r) {
+    Vec_80079608 end;
+    s32 i;
+    s32 n;
+    Vec_80079608 *off;
+    Hit_80079608 *hit;
+    f32 d;
+    i = 0;
+    r->hit = 0;
+    r->index = -1;
+    r->best = lbl_805D9204;
+    off = q->offsets;
+    hit = r->hits;
+    n = q->count;
+    for (; i < n; off++, hit++, i++) {
+        end.x = q->origin.x + off->x;
+        end.y = q->origin.y + off->y;
+        end.z = q->origin.z + off->z;
+        if (TObjPlayer__sub_80079580(&q->origin, &end, q->flags, (s32)hit) != 0) {
+            f32 dz = end.z - hit->pos.z;
+            f32 dx = end.x - hit->pos.x;
+            d = get_random_float__8TObjFishFv(dx * hit->normal.x + dz * hit->normal.z);
+            if (r->best < d) {
+                r->hit = 1;
+                r->best = d;
+                r->index = i;
+            }
+        }
+    }
+    return r->hit;
+}
+#pragma pop
+
+s32 TObjPlayer__sub_8007970C(void *arg0, void *arg1, u32 arg2, Node_8007970C **list) {
+    u8 dir[12];
+    Mesh_8007970C *mesh;
+    s32 i;
+    s32 n;
+    u32 flags;
+    Poly_8007970C *poly;
+    TObjPlayer__sub_80079124(arg0, arg1);
+    lbl_805D4E78 = lbl_80500140;
+    lbl_805D4E78[0] = 0;
+    lbl_805D4E7C = lbl_805D4E78[1];
+    lbl_805D4E74 = lbl_805D91F4;
+    vsub(arg0, arg1, dir);
+    for (; *list != NULL; list++) {
+        mesh = (*list)->mesh;
+        i = 0;
+        n = mesh->count;
+        poly = mesh->polys;
+        flags = mesh->flags;
+        for (; i < n; i++, poly++) {
+            TObjPlayer__sub_800798A0(arg0, dir, (void *)arg2, (E_80079580 *)poly, flags, 0);
+        }
+    }
+    return lbl_805D4E78[0];
+}
+
+s32 TObjPlayer__sub_800797DC(void *arg0, void *arg1, int arg2, Node_800797DC **list) {
+    u8 dir[12];
+    Mesh_800797DC *mesh;
+    s32 i;
+    s32 n;
+    u32 flags;
+    Poly_800797DC *poly;
+    lbl_805D4E78 = lbl_80500140;
+    lbl_805D4E78[0] = 0;
+    lbl_805D4E7C = lbl_805D4E78[1];
+    vsub(arg0, arg1, dir);
+    for (; *list != NULL; list++) {
+        mesh = (*list)->mesh;
+        i = 0;
+        n = mesh->count;
+        poly = mesh->polys;
+        flags = mesh->flags;
+        for (; i < n; i++, poly++) {
+            if (TObjPlayer__sub_800798A0(arg0, dir, (void *)arg2, (E_80079580 *)poly, flags, 1) != 0) {
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+
 void TObjPlayer__sub_8007A0E4(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
     M2C_FIELD(arg0, u16 *, 4) = (u16) M2C_FIELD(arg1, u16 *, 4);
@@ -123,7 +280,7 @@ void *TObjPlayer__sub_8007A2D0(void *self) {
     void *r;
     TObjPlayer__sub_8007911C();
     r = lbl_80500148;
-    if (TObjPlayer__sub_80079608(self, r) == 0) {
+    if (TObjPlayer__sub_80079608((Query_80079608 *)(self), (Result_80079608 *)(r)) == 0) {
         r = 0;
     }
     TObjPlayer__sub_80079118((M2C_UNK *)(lbl_80438988));
@@ -136,7 +293,7 @@ void *TObjPlayer__sub_8007A32C(Obj_8007A32C *self) {
     r = lbl_80500148;
     if (TObjPlayer__sub_80079F58(self->fc, self->f4, self->f8) == 0) {
         r = 0;
-    } else if (TObjPlayer__sub_80079608(self, r) == 0) {
+    } else if (TObjPlayer__sub_80079608((Query_80079608 *)(self), (Result_80079608 *)(r)) == 0) {
         r = 0;
     }
     TObjPlayer__sub_80079118((M2C_UNK *)(lbl_804389A8));
@@ -150,7 +307,7 @@ M2C_UNK *TObjPlayer__sub_8007A3AC(s32 arg0, s32 arg1) {
     TObjPlayer__sub_80079124((void *)((void *) (arg0)), (void *)((void *) (arg1)));
     if (TObjPlayer__sub_80079DE0((void *) (arg0), (void *) (arg1)) == 0U) {
         var_r31 = (M2C_UNK *)((u8 *)(NULL));
-    } else if (TObjPlayer__sub_800797DC((void *) (arg0), (void *) (arg1), (int) (0x8000), (void *) (((M2C_UNK *)&lbl_804FFD40))) == 0) {
+    } else if (TObjPlayer__sub_800797DC((void *)((void *) (arg0)), (void *)((void *) (arg1)), (int)((int) (0x8000)), (Node_800797DC **)((void *) (((M2C_UNK *)&lbl_804FFD40)))) == 0) {
         var_r31 = (M2C_UNK *)((u8 *)(NULL));
     }
     TObjPlayer__sub_80079118((M2C_UNK *)((void *) (lbl_804389C0)));

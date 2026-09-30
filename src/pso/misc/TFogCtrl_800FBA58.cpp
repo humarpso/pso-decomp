@@ -19,6 +19,18 @@ struct Stack_800FBD74 {
 struct RecoveredGlobal_800FBB68_lbl_8049C670 { M2C_UNK value; u8 remaining[0x8C]; };
 typedef char RecoveredGlobal_800FBB68_lbl_8049C670_size[sizeof(RecoveredGlobal_800FBB68_lbl_8049C670) == 0x90 ? 1 : -1];
 
+struct Pos_800FBEA8 {
+    f32 x;
+    f32 y;
+    u8 pad[0x18];
+};
+
+struct Pos_800FBFD8 {
+    f32 x;
+    f32 y;
+    u8 pad[0x18];
+};
+
 extern "C" {
 s32 render_forward__20TWindowSubStatusDispFPv();
 s32 reset_transform_state__10TObjPlayerFv();
@@ -50,6 +62,26 @@ s32 get_global_state__14TOKeyMachine01Fv();
 extern RecoveredGlobal_800FBB68_lbl_8049C670 lbl_8049C670;
 extern M2C_UNK *tl_02;
 void TFogCtrl__sub_800FBB68(void);
+u8 TWindowSubStatusDisp__sub_800FC220(s32);
+s32 TWindowSubStatusDisp__sub_800FC248(s32);
+void TWindowSubStatusDisp__sub_800FC310(s32, Pos_800FBEA8 *);
+s32 render_forward__20TWindowSubStatusDispFPv();
+s32 reset_transform_state__10TObjPlayerFv();
+s32 TWindowSubStatusDisp__sub_803DEE6C(int);
+s32 get_player__20TWindowSubStatusDispFv();
+s32 TWindowSubComCard__sub_803DEECC(void *, f32);
+s32 TWindowSubStatusDisp__sub_803DF160(int, void *);
+void TWindowSubStatusDisp__sub_800FBEA8(void *color, s16 value, u16 digits, f32 x, f32 y, f32 scale);
+u8 TWindowSubStatusDisp__sub_800FC220(s32);
+s32 TWindowSubStatusDisp__sub_800FC248(s32);
+void TWindowSubStatusDisp__sub_800FC310(s32, Pos_800FBEA8 *);
+s32 render_forward__20TWindowSubStatusDispFPv();
+s32 reset_transform_state__10TObjPlayerFv();
+s32 TWindowSubStatusDisp__sub_803DEE6C(int);
+s32 get_player__20TWindowSubStatusDispFv();
+s32 TWindowSubComCard__sub_803DEECC(void *, f32);
+s32 TWindowSubStatusDisp__sub_803DF160(int, void *);
+void TLobby__sub_800FBFD8(void *color, const char *s, f32 x, f32 y, f32 scale);
 }
 
 extern "C" {
@@ -178,6 +210,45 @@ void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg
     stack.sp20 = lbl_805DA9A8;
     stack.sp24 = lbl_805DA9AC;
     TWindowSubComCard__sub_803DEECC((void *) (&stack.sp8), (f32) (farg2));
+    get_player__20TWindowSubStatusDispFv();
+}
+
+void TWindowSubStatusDisp__sub_800FBEA8(void *color, s16 value, u16 digits, f32 x, f32 y, f32 scale) {
+    Pos_800FBEA8 pos;
+    s32 id;
+    s32 i;
+    reset_transform_state__10TObjPlayerFv();
+    TWindowSubStatusDisp__sub_803DEE6C(1);
+    render_forward__20TWindowSubStatusDispFPv();
+    TWindowSubStatusDisp__sub_803DF160(0, color);
+    for (i = 0; i < digits; i++) {
+        id = TWindowSubStatusDisp__sub_800FC248((u8)(value % 10) + '0');
+        x -= TWindowSubStatusDisp__sub_800FC220(id);
+        pos.x = x;
+        pos.y = y;
+        TWindowSubStatusDisp__sub_800FC310(id, &pos);
+        TWindowSubComCard__sub_803DEECC(&pos, scale);
+        value /= 10;
+    }
+    get_player__20TWindowSubStatusDispFv();
+}
+
+void TLobby__sub_800FBFD8(void *color, const char *s, f32 x, f32 y, f32 scale) {
+    Pos_800FBFD8 pos;
+    s32 id;
+    reset_transform_state__10TObjPlayerFv();
+    TWindowSubStatusDisp__sub_803DEE6C(1);
+    render_forward__20TWindowSubStatusDispFPv();
+    TWindowSubStatusDisp__sub_803DF160(0, color);
+    while (*s != 0) {
+        u8 c = *s++;
+        pos.x = x;
+        pos.y = y;
+        id = TWindowSubStatusDisp__sub_800FC248(c);
+        TWindowSubStatusDisp__sub_800FC310((s32)(id), (Pos_800FBEA8 *)(&pos));
+        TWindowSubComCard__sub_803DEECC(&pos, scale);
+        x += TWindowSubStatusDisp__sub_800FC220(id);
+    }
     get_player__20TWindowSubStatusDispFv();
 }
 

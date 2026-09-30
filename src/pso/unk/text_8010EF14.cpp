@@ -9,15 +9,35 @@ struct Set_8010F0C0 {
 };
 struct O_8010EFE8 { s32 count; s32 f4; u8 *buf; };
 
+struct O_8010EF14 { s32 count; s32 f4; u8 *buf; };
+
 extern "C" {
 void fn_8010EFE8(O_8010EFE8 *self);
 void set_flags__10TObjPlayerFPvUi(void *, u32);
 void clear_flags__11TAdRicoRingFPvUi(void *, u32);
 s32 TObjPlayer__sub_8001BEF8(void *, s32);
-void fn_8010EF14(void *);
+void fn_8010EFE8(O_8010EFE8 *self);
+s32 rand__11TOBoss4RockFv();
+extern const f32 lbl_805DAB90;
+void fn_8010EF14(O_8010EF14 *self);
 }
 
 extern "C" {
+
+void fn_8010EF14(O_8010EF14 *self) {
+    s32 i;
+    u32 j;
+    u8 t;
+    fn_8010EFE8((O_8010EFE8 *)(self));
+    if (self->buf != NULL) {
+        for (i = 0; i != self->count; i++) {
+            j = (u32)((f32)self->count * (lbl_805DAB90 * (f32)rand__11TOBoss4RockFv()));
+            t = self->buf[i];
+            self->buf[i] = self->buf[j];
+            self->buf[j] = t;
+        }
+    }
+}
 
 void fn_8010EFE8(O_8010EFE8 *self) {
     s32 i;
@@ -53,7 +73,7 @@ void fn_8010F0C0(Set_8010F0C0 *s) {
     s32 i;
     Fn_801Fn f;
     if (TObjPlayer__sub_8001BEF8((u8 *)s + 0xC, 1) == 0) {
-        fn_8010EF14(s);
+        fn_8010EF14((O_8010EF14 *)(s));
         for (i = 0; i != s->count; i++) {
             if (s->order != 0) {
                 f = s->ents[s->order[i]].a;
