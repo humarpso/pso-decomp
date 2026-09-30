@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/camera/FollowCameraController.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -126,10 +127,9 @@ extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_reg
 extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
 void TCameraCtrl__sub_8006D460(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-u8 * TObjButterflyLobby__sub_8007A5D8(s32, void *, M2C_UNK, f32);
+u8 * TObjButterflyLobby__sub_8007A5D8(void *, void *, u32);
 extern const f32 TCameraCtrl__data_805D9050;
 void TCameraCtrl__sub_8006DCD4(struct RecoveredFields_8006DCD4_arg0 *arg0, u8 *arg1, u8 *arg2);
-s32 TCameraCtrl__sub_8006D4E0(int, int);
 M2C_UNK set_field_100__11TCameraCtrlFPvi(void* p, s32 v);
 s32 TObjPlayer__sub_80141F84(int, void *);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
@@ -156,6 +156,10 @@ void TCameraCtrl__sub_803D8934(s32, void *, void *);
 void TCameraCtrl__sub_803D9858(s32);
 extern u8 lbl_8058D490[];
 void TCameraCtrl__sub_8006D95C(Cam_8006D95C *self);
+int get_camera_mode__11TCameraCtrlFv();
+extern FollowView *lbl_805D4DF0;
+extern const f32 lbl_805D9078,lbl_805D907C;
+s32 conversation_camera_obstructed(FollowController *self,s32 heading);
 }
 
 extern "C" {
@@ -301,6 +305,29 @@ void TCameraCtrl__sub_8006D494(void) {
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_8006D610_camera_controller_registry_size[sizeof(RecoveredGlobal_8006D610_camera_controller_registry) == 0x68 ? 1 : -1];
 typedef char RecoveredGlobal_8006D610_TCameraCtrl__data_804FF628_size[sizeof(RecoveredGlobal_8006D610_TCameraCtrl__data_804FF628) == 0xC ? 1 : -1];
+
+s32 conversation_camera_obstructed(FollowController *self,s32 heading) {
+    FollowVector eye,candidate,offset;
+    const FollowVector *source;
+    if(((int)is_split_screen()))
+        source=&lbl_805D4DF0->split_positions[get_camera_mode__11TCameraCtrlFv()];
+    else
+        source=&lbl_805D4DF0->position;
+    VecCopy__FP3VecPC3Vec((void *)(&eye), (void *)(source));
+    VecCopy__FP3VecPC3Vec((void *)(&offset), (void *)(&self->position_offset));
+    offset.z += lbl_805D9078;
+    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    TObjPlayer__sub_803D9214(0,heading);
+    TCameraCtrl__sub_803D8934(0,&offset,&offset);
+    TCameraCtrl__sub_803D9858(1);
+    VecCopy__FP3VecPC3Vec((void *)(&candidate), (void *)(&self->actor->position));
+    candidate.x+=offset.x;
+    candidate.y+=lbl_805D907C+offset.y;
+    candidate.z+=offset.z;
+    if(((u32)TObjButterflyLobby__sub_8007A5D8((void *)(&eye), (void *)(&candidate), (u32)(0x100))))return 1;
+    return ((u32)TObjButterflyLobby__sub_8007A5D8((void *)(&candidate), (void *)(&lbl_805D4DF0->target), (u32)(0x100))) ? 1 : 0;
+}
+
 void TCameraCtrl__sub_8006D610(void) {
     s32 temp_r30;
     s32 temp_r31;
@@ -318,8 +345,8 @@ void TCameraCtrl__sub_8006D610(void) {
             var_r31 = temp_r30 + 0x6000;
             var_r30 = temp_r30 - 0x6000;
         }
-        if (TCameraCtrl__sub_8006D4E0((int) (temp_r29), (int) (var_r31)) != 0) {
-            if (TCameraCtrl__sub_8006D4E0((int) (temp_r29), (int) (var_r30)) == 0) {
+        if (conversation_camera_obstructed((FollowController *)((int) (temp_r29)), (s32)((int) (var_r31))) != 0) {
+            if (conversation_camera_obstructed((FollowController *)((int) (temp_r29)), (s32)((int) (var_r30))) == 0) {
                 M2C_FIELD(temp_r29, s32 *, 0x30) = var_r30;
             }
         } else {
@@ -353,7 +380,7 @@ void TCameraCtrl__sub_8006DCD4(struct RecoveredFields_8006DCD4_arg0 *arg0, u8 *a
         arg0->field_40 = arg0->field_4C + M2C_FIELD(arg2, f32 *, 4);
         temp_f1 = arg0->field_50;
         arg0->field_44 = temp_f1 + M2C_FIELD(arg2, f32 *, 8);
-        temp_r3 = (u8 *)(TObjButterflyLobby__sub_8007A5D8((s32) &arg0->field_48, &arg0->field_3C, 0x100, temp_f1));
+        temp_r3 = (u8 *)(TObjButterflyLobby__sub_8007A5D8(&arg0->field_48, &arg0->field_3C, 0x100));
         if (temp_r3 != NULL) {
             VecCopy__FP3VecPC3Vec((void *)(&arg0->field_3C), (void *)(M2C_FIELD(temp_r3, s32 *, 4)));
         }

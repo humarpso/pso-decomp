@@ -656,6 +656,7 @@ pso/item/TItem_80101F38.cpp
 pso/item/TItem_80102088.cpp
 pso/item/TItem_801023A8.cpp
 pso/item/TItem_80102864.cpp
+pso/item/TItem_80363AF4.cpp
 pso/item/TObjContainerIdo.cpp
 pso/item/TObjContainerIdo_801A0B94.cpp
 pso/item/TObjContainerJungEnemy.cpp
@@ -2388,6 +2389,7 @@ pso/player/TObjPlayer_801C6280_801C6280.cpp
 pso/player/TObjPlayer_801C6280_801C65A4.cpp
 pso/player/TObjPlayer_801C675C_801C675C.cpp
 pso/player/TObjPlayer_801C675C_801C67B4.cpp
+pso/player/TObjPlayer_801C675C_801C688C.cpp
 pso/player/TObjPlayer_801C721C.cpp
 pso/player/TObjPlayer_801C7538.cpp
 pso/player/TObjPlayer_801C7630.cpp

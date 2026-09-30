@@ -38,6 +38,7 @@ typedef struct TItemMagSub_801152AC {
 
 typedef struct MagSub_80115800 { u8 pad0[0x70]; s32 slots[3]; } MagSub_80115800;
 
+#include "pso/item/TItemMagSub.h"
 extern "C" {
 s32 TItemMag__sub_80113EC8(void *);
 s32 calc_feed_level__11TItemMagSubFPv(void *arg0);
@@ -78,6 +79,27 @@ extern const f32 TItemMagSub__data_805DABD8;
 extern const f32 lbl_805DABDC;
 extern const f32 lbl_805DABE0;
 u8 *TItemMagSub__ct(u8 *self, u8 *player, u8 *item);
+s32 TItem__sub_80100A40(f32 *, f32, f32);
+void notify_fish_if_valid__10TObjPlayerFUi(u32);
+void TObjPlayer__sub_803D9B2C();
+s32 TObjPlayer__sub_803D9B78();
+void TItemMagSub__sub_80114E4C(u8 *arg0);
+void TItemMagSub__sub_80114C40(void *arg);
+void set_global_state__16TObjEneRe7BeruraFi(void (*)(void *));
+void set_global_flag__10TObjPlayerFv();
+void clear_global_state__10TObjPlayerFv();
+void TObjEneSlimeOne__sub_803E4AF4(void *, void *, f32);
+void run_with_transform_context__10TObjPlayerFiii(void *, void (*)(void *));
+u32 test_feed_flags__11TItemMagSubFPvUi(void *, u32);
+void end_effect_render__13TParticleCtrlFv();
+void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+M2C_UNK clear_flags64__11TItemMagSubFPvUi(void *, M2C_UNK);
+extern void *TItemMagSub__data_805D54B8;
+extern s32 TItemMagSub__data_805D54BC;
+extern u32 some_id_805c6f74, lbl_805D5660;
+extern f32 lbl_8058D4C0[4], lbl_8050BEC0[4];
+extern const f32 lbl_805DABD0, lbl_805DABD4;
+void render_mag_child(TItemMagSub *self);
 }
 
 extern "C" {
@@ -184,6 +206,35 @@ void TItemMagSub__sub_80114E4C(u8 *arg0) {
   }
   temp_f1 = *((f32 *) (((s8 *) arg0) + 0xC8));
   TOMonitorMachine01__sub_803D8B5C((int) 0, (f32) temp_f1, (f32) temp_f1, (f32) temp_f1);
+}
+
+void render_mag_child(TItemMagSub *self) {
+    if (TItem__sub_80100A40(self->owner->center, lbl_805DABD0, lbl_805DABD4) && self->model) {
+        TItemMagSub__data_805D54B8 = self;
+        notify_fish_if_valid__10TObjPlayerFUi(self->textures);
+        TObjPlayer__sub_803D9B2C();
+        TItemMagSub__sub_80114E4C((u8 *)(self));
+        (*(u32 *)&TItemMagSub__data_805D54BC) = 0;
+        self->selected_node = 0;
+        if (self->animation) {
+            set_global_state__16TObjEneRe7BeruraFi(TItemMagSub__sub_80114C40);
+            set_global_flag__10TObjPlayerFv();
+            TObjEneSlimeOne__sub_803E4AF4(self->model, self->animation, self->animation_frame);
+            clear_global_state__10TObjPlayerFv();
+            set_global_state__16TObjEneRe7BeruraFi(0);
+        } else {
+            run_with_transform_context__10TObjPlayerFiii(self->model, TItemMagSub__sub_80114C40);
+        }
+        (*(u32 *)&TItemMagSub__data_805D54BC) = 0;
+        TObjPlayer__sub_803D9B78();
+        TItemMagSub__data_805D54B8 = 0;
+        if (test_feed_flags__11TItemMagSubFPvUi(self, 0x20)) {
+            end_effect_render__13TParticleCtrlFv();
+            copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);
+            some_id_805c6f74 = lbl_805D5660;
+            clear_flags64__11TItemMagSubFPvUi((void *)(self), (M2C_UNK)(0x20));
+        }
+    }
 }
 
 s32 calc_feed_level__11TItemMagSubFPv(void *arg0) {

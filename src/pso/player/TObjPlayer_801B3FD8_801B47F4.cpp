@@ -43,7 +43,7 @@ M2C_UNK TObjPlayer__sub_801B6DF0(s32);
 s32 TObjPlayer__sub_801BF560(s32);
 s16 TObjPlayer__sub_801BF57C(s32);
 M2C_UNK TObjPlayer__sub_801BF584(void *);
-M2C_UNK TObjPlayer__sub_801C68EC(s32);
+M2C_UNK update_player_scale_camera(s32);
 void *TPlayerBattleCtrl4P__sub_801BA74C(u32);
 s32 can_use_action__10TObjPlayerFi(s32);
 s32 check_flag_0x40000000__10TObjPlayerFPv(void *);
@@ -98,7 +98,7 @@ void update_subsystems__10TObjPlayerFi(s32 arg0) {
         }
         update_target_lock__10TObjPlayerFii(arg0 + 0x63C, arg0);
         if (check_state_flag_1__8TItemMagFPv(arg0 + 0x5B0) != 0) {
-            TObjPlayer__sub_801C68EC(arg0 + 0x5B0);
+            update_player_scale_camera(arg0 + 0x5B0);
         }
     }
 }

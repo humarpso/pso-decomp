@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -81,6 +82,10 @@ struct Ctx_801EAA34 { u8 pad[0x10]; u8 buf[0xFD]; };
 struct Ctx_801EAAB4 { u8 pad[0x10]; u8 buf[0xFF]; };
 
 extern "C" {
+int obj_isState2_324(TObjPlayer*);
+void set_speed__10TObjPlayerFPvf(PlayerScaleState*, f32);
+void quest_set_player_shrink_size(s32 player_variable, s32 size_variable);
+
 extern s32 lbl_805D4C24;
 void TLobby__sub_801EA240(s32 arg0);
 s32 is_split_screen();
@@ -231,6 +236,17 @@ typedef char RecoveredGlobal_801EA274_TLobby__data_80512360_size[sizeof(Recovere
 void TLobby__sub_801EA274(void) {
     if ((u32) TLobby__data_80512220.value <= 0x1DU) {
         M2C_FIELD(&TLobby__data_80512360.value, s16 *, 0x28) = (s16) TLobby__data_80512220.value;
+    }
+}
+
+void quest_set_player_shrink_size(s32 player_variable, s32 size_variable) {
+    TObjPlayer* player = ((TObjPlayer*)TPlayerBattleCtrl4P__sub_801BA74C((int)((*(s32* *)&TLobby__data_805D5E78)[(u8)player_variable]), (void *)(size_variable)));
+    if (player && !obj_isState2_324(player)) {
+        s32 whole = (*(s32* *)&TLobby__data_805D5E78)[(u8)size_variable++];
+        s32 numerator = (*(s32* *)&TLobby__data_805D5E78)[(u8)size_variable++];
+        s32 denominator = (*(s32* *)&TLobby__data_805D5E78)[(u8)size_variable];
+        set_speed__10TObjPlayerFPvf(&player->scale_state,
+            denominator > 0 ? (f32)whole + (f32)numerator / (f32)denominator : (f32)whole);
     }
 }
 
@@ -740,12 +756,11 @@ s32 is_current_room__10TObjRoomIdFPv();
 M2C_UNK TLobby__sub_801B1254(int);
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801EBCF0(s32 arg0);
-s32 obj_isState2_324();
-M2C_UNK TObjPlayer__sub_801C6A3C(void *);
+M2C_UNK request_player_size_restore(void *);
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801ED1BC(s32 arg0);
-s32 obj_isState2_324();
-M2C_UNK TObjPlayer__sub_801C6B60(void *);
+
+M2C_UNK request_player_shrink(void *);
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801ED20C(s32 arg0);
 M2C_UNK TLobby__sub_801F3694(void *);
@@ -1385,15 +1400,15 @@ int TLobby__sub_801ECFBC(void* p) { return TNpcPlayer__sub_8014DC30(p); }
 void TLobby__sub_801ED1BC(s32 arg0) {
     s32 temp_r3;
     temp_r3 = ((s32)TPlayerBattleCtrl4P__sub_801BA74C((int)((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__data_805D5E78))))));
-    if ((temp_r3 != 0) && (obj_isState2_324() == 0)) {
-        TObjPlayer__sub_801C6A3C((void *) (temp_r3 + 0x5B0));
+    if ((temp_r3 != 0) && (((s32 (*)(void))obj_isState2_324)() == 0)) {
+        request_player_size_restore((void *) (temp_r3 + 0x5B0));
     }
 }
 void TLobby__sub_801ED20C(s32 arg0) {
     s32 temp_r3;
     temp_r3 = ((s32)TPlayerBattleCtrl4P__sub_801BA74C((int)((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__data_805D5E78))))));
-    if ((temp_r3 != 0) && (obj_isState2_324() == 0)) {
-        TObjPlayer__sub_801C6B60((void *) (temp_r3 + 0x5B0));
+    if ((temp_r3 != 0) && (((s32 (*)(void))obj_isState2_324)() == 0)) {
+        request_player_shrink((void *) (temp_r3 + 0x5B0));
     }
 }
 
