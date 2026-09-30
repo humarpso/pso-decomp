@@ -630,6 +630,7 @@ pso/item/TItem_80101ED4.cpp
 pso/item/TItem_80102088.cpp
 pso/item/TItem_801023A8.cpp
 pso/item/TItem_80102864.cpp
+pso/item/TItem_80363AF4.cpp
 pso/item/TObjContainerIdo.cpp
 pso/item/TObjContainerIdo_801A0B94.cpp
 pso/item/TObjContainerJungEnemy.cpp
