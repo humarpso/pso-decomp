@@ -169,7 +169,7 @@ void TObjPlayer__sub_8035776C(void *arg0, void *arg1);
 int TObjPlayer__sub_803579F4(void* p);
 void TObjPlayer__sub_80357F5C(void);
 void TObjPlayer__sub_8035814C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void TObjPlayer__sub_80358238(void *arg0, void *arg1, s32 arg2, s32 arg3);
+void weapon_fractional_hp_effect(void *arg0, void *arg1, s32 arg2, s32 arg3);
 void TObjPlayer__sub_803583B4(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void TObjPlayer__sub_80358824(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 int clear_field1f8_flag8192__10TObjPlayerFPv(void* p);
@@ -179,12 +179,12 @@ void dispatch_effect_by_type__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s3
 void *dt_with_child_queue__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void handle_action__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void handle_action_by_type__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void handle_action_event__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+void weapon_dim_shadow_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void handle_hit_effect__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void handle_stage_event__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void handle_symbol_chat_action__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void play_action_sound__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void play_action_sounds__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void weapon_hell_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void weapon_dark_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void *reset_field28__10TObjPlayerFPv(void *arg0);
 void spawn_effect_by_type__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void spawn_hit_effect__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -391,7 +391,7 @@ void dispatch_effect_by_type__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s3
     }
 }
 
-void TObjPlayer__sub_80358238(void *arg0, void *arg1, s32 arg2, s32 arg3) {
+void weapon_fractional_hp_effect(void *arg0, void *arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         update_battle_control_if_unlocked__10TObjPlayerFPv();
     }
@@ -452,7 +452,7 @@ void TObjPlayer__sub_803583B4(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
 
 extern f32 lbl_805E007C;
 
-void play_action_sound__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void weapon_hell_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xC6));
         TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xC9));
@@ -467,7 +467,7 @@ void play_action_sound__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3
     }
 }
 
-void play_action_sounds__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void weapon_dark_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xC6));
         TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xC9));
@@ -478,7 +478,7 @@ void play_action_sounds__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg
     }
 }
 
-void handle_action_event__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void weapon_dim_shadow_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     M2C_UNK sp8;
 
     if (arg3 == 0) {
