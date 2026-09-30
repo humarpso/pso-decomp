@@ -1741,6 +1741,7 @@ pso/misc/TWindowSubSymbolChat_802859A8.cpp
 pso/misc/TWindowSubSymbolChat_802ACF5C.cpp
 pso/misc/TWindowSubTechnique_80286B0C.cpp
 pso/misc/TWindowSubTechnique_80286B64.cpp
+pso/misc/TWindowSubTechnique_80286BD4.cpp
 pso/misc/TWindowSubTradeMain_80187C98.cpp
 pso/misc/TWindowSubTradeMain_80266C44.cpp
 pso/misc/TWindowSubTradeMain_80268468.cpp

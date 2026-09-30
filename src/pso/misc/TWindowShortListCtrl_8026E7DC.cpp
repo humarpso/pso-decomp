@@ -31,7 +31,7 @@ s16 get_cursor_pos__20TWindowShortListCtrlFPv(void* p);
 void TWindowShortListCtrl__sub_8026F66C(u8 *arg0);
 u8 * TLobby__sub_80101AB0(s32);
 u8 get_field_ec__12TOSwitchItemFPv(void *);
-s32 TMainCursor__sub_8013B41C(M2C_UNK, s32, u8, u8);
+s32 canSetMenuCursorAction(M2C_UNK, s32, u8, u8);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 u32 TItemObject__sub_80115DE8(int);
 M2C_UNK set_slot__20TWindowActionPaletteFPvUc(int, int);
@@ -141,7 +141,7 @@ void TWindowShortListCtrl__sub_8026E93C(u32 arg0, u32 arg1) {
                     var_r3 = var_r29 + 0x520;
                     var_r6 = (u8) var_r31;
                     var_r5 = 4;
-                    if (TMainCursor__sub_8013B41C((s32) var_r3, var_r4, 4U, var_r6) != 0) {
+                    if (canSetMenuCursorAction((s32) var_r3, var_r4, 4U, var_r6) != 0) {
                         var_r3 = var_r29 + 0x520;
                         var_r4 = 4;
                         set_mode__20TWindowActionPaletteFPvUc((int) (var_r3), (int) (4));
