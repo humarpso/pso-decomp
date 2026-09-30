@@ -31,6 +31,14 @@ struct Ctl_803101D4 { u8 pad[0x28]; void *win[4]; };
 
 struct Ctl_80310230 { u8 pad[0x28]; void *win[4]; };
 
+struct Ctl_8031012C { u8 pad[0x28]; void *win[4]; };
+
+struct MapEnt_8031012C { u8 pad[0x20]; u8 sub[0x30]; };
+
+struct Ent_803104CC { u8 pad0[0x30]; u32 flags; u8 pad1[0x754 - 0x34]; u8 sub[4]; };
+
+struct Ctl_803104CC { u8 pad[0x264]; s32 ok[4]; };
+
 extern "C" {
 extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 TPlayerBattleCtrl4P__data_80542E90;
 M2C_UNK *TPlayerBattleCtrl4P__sub_80310300(void);
@@ -43,11 +51,23 @@ void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 void *__nw__7TObjectFUl(u32);
 void *TWindowDuelResult__ct(void *, int);
 void TPlayerBattleCtrl4P__sub_80310230(Ctl_80310230 *o);
+s32 TWindowShortListCtrl__check_controller_button(void *, int);
+s32 get_map_id__13TRaderMapCoreFPv();
+void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void TWindow__close(void *);
+extern MapEnt_8031012C lbl_8050E208[];
+s32 TPlayerBattleCtrl4P__sub_8031012C(Ctl_8031012C *self);
+void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_state__19TPlayerBattleCtrl4PFPv(void *);
+u8 TLobby__sub_801D7100(void *);
+void TPlayerBattleCtrl4P__sub_80310380(void *, void *);
+extern u8 lbl_8050EA40[];
+void TPlayerBattleCtrl4P__sub_803104CC(Ctl_803104CC *self);
 }
 
 extern "C" {
 
-int TPlayerBattleCtrl4P__sub_8031058C(void* p);
+void TPlayerBattleCtrl4P__sub_8031058C(void* p);
 void TPlayerBattleCtrl4P__sub_80310904(void* p);
 void init__19TPlayerBattleCtrl4PFv(void);
 int init_ctrl_default__19TPlayerBattleCtrl4PFPv(void* p);
@@ -59,12 +79,29 @@ void update_players__19TPlayerBattleCtrl4PFv(void);
 M2C_UNK TLobby__sub_801B09A4();
 int TLobby__sub_8022727C(void*);
 void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
-int TPlayerBattleCtrl4P__sub_803104CC(void*);
 int TPlayerBattleCtrl4P__sub_803112AC(void*, int);
 int fn_801C23A8(void*, void*);
 M2C_UNK inc_player_count__10TObjPlayerFv();
 
 typedef char RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90_size[sizeof(RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90) == 0x20 ? 1 : -1];
+
+s32 TPlayerBattleCtrl4P__sub_8031012C(Ctl_8031012C *self) {
+    s32 r = 1;
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        if (TPlayerBattleCtrl4P__sub_801BA74C(i) != 0) {
+            if (self->win[i] != NULL) {
+                if (TWindowShortListCtrl__check_controller_button(lbl_8050E208[get_map_id__13TRaderMapCoreFPv()].sub, 2) != 0) {
+                    TWindow__close(self->win[i]);
+                    self->win[i] = 0;
+                } else {
+                    r = 0;
+                }
+            }
+        }
+    }
+    return r;
+}
 
 void TPlayerBattleCtrl4P__sub_803101D4(Ctl_803101D4 *o) {
     s32 i;
@@ -109,7 +146,28 @@ M2C_UNK *TPlayerBattleCtrl4P__sub_80310300(void) {
     return &TPlayerBattleCtrl4P__data_80542E90.value;
 }
 
-int TPlayerBattleCtrl4P__sub_8031058C(void* p) { return TPlayerBattleCtrl4P__sub_803104CC(p); }
+void TPlayerBattleCtrl4P__sub_803104CC(Ctl_803104CC *self) {
+    s32 i;
+    Ent_803104CC *e;
+    s32 v;
+    for (i = 0; i < 4; i++) {
+        e = (Ent_803104CC *)TPlayerBattleCtrl4P__sub_801BA74C(i);
+        if (e != NULL) {
+            TPlayerBattleCtrl4P__sub_80310380(self, e);
+            v = 1;
+            if (e->flags & 0x800) {
+                if (TLobby__sub_801D7100(lbl_8050EA40) == 1) {
+                    v = 0;
+                } else if (TLobby__sub_801D7100(lbl_8050EA40) == 2 && get_state__19TPlayerBattleCtrl4PFPv(e->sub) == 0) {
+                    v = 0;
+                }
+            }
+            self->ok[i] = v;
+        }
+    }
+}
+
+void TPlayerBattleCtrl4P__sub_8031058C(void* p) { TPlayerBattleCtrl4P__sub_803104CC((Ctl_803104CC *)(p)); }
 
 extern void *TPlayerBattleCtrl4P__data_805D6AA8;
 

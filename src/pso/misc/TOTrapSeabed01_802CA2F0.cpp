@@ -4,6 +4,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct S_802CA550 {
+    u8 pad0[0x326];
+    s16 f326;
+    u8 pad328[0x340 - 0x328];
+    s32 f340;
+    u8 pad344[0x34C - 0x344];
+    s32 f34C;
+};
+
 extern "C" {
 s32 disable_if_single_screen__13TParticleCtrlFv();
 s32 setup_particle_tev(int);
@@ -17,12 +26,17 @@ M2C_UNK set_global_param__8TObjFishFi(void *);
 s32 TOSignCave03__sub_803DB510(int);
 extern s32 TOTrapSeabed01__data_805D6814;
 void TOTrapSeabed01__sub_802CA3EC(u8 *arg0, u8 *arg1);
+s32 is_split_screen();
+s32 get_state_flag__9TMainTaskFv();
+void render_effect_layers__14TOTrapSeabed01FPv(u8 *arg0);
+void draw__14TOTrapSeabed01FPv(u8 *arg0);
+s32 dispatch_input_to_instance__18TAdEnterPasswordGCFi(void *);
+void render__14TOTrapSeabed01Fv(S_802CA550 *arg0);
 }
 
 extern "C" {
 
 void draw__14TOTrapSeabed01FPv(u8 *arg0);
-int render__14TOTrapSeabed01Fv(void);
 void render_effect_layers__14TOTrapSeabed01FPv(u8 *arg0);
 M2C_UNK PPCSync();
 M2C_UNK TOComputerMachine01__sub_8023DDC8(int, int, int, void *, int);
@@ -136,7 +150,19 @@ void draw__14TOTrapSeabed01FPv(u8 *arg0) {
         fn_80141A30();
     }
 }
-
-int render__14TOTrapSeabed01Fv(void) { return 0; }
+void render__14TOTrapSeabed01Fv(S_802CA550 *arg0) {
+    if (get_state_flag__9TMainTaskFv() != 1 && (arg0->f34C == 0 || is_split_screen() != 0 || dispatch_input_to_instance__18TAdEnterPasswordGCFi(arg0) == 0) && arg0->f340 == 1) {
+        switch (arg0->f326) {
+        case 0:
+        case 1:
+            draw__14TOTrapSeabed01FPv((u8 *)(arg0));
+            break;
+        case 2:
+        case 3:
+            render_effect_layers__14TOTrapSeabed01FPv((u8 *)(arg0));
+            break;
+        }
+    }
+}
 
 }

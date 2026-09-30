@@ -13,10 +13,42 @@ struct Sel_802A16CC {
     void *slots[7];
 };
 
+struct Ent_802A1740 { u8 b[0x14]; };
+
+struct Sel_802A1740 {
+    u8 pad0[0x1C];
+    Ent_802A1740 ent[8];
+    s32 cnt;
+    void *tasks[8];
+};
+
+struct Ent_802A1838 {
+    u8 pad[0x1C];
+    void *f0;
+    s32 f4;
+    u8 v[8];
+    s32 f10;
+};
+
+struct Sel_802A1838 {
+    u8 pad0[0xBC];
+    s32 cnt;
+    void *tasks[8];
+};
+
+struct Src_802A1838 {
+    s32 f0;
+    u8 v[8];
+};
+
 extern "C" {
 int queue_destruction__7TObjectFv(void *);
-void TAdSelectTxtGC__sub_802A1838(void *, void *, void *);
 void TAdSelectTxtGC__sub_802A16CC(Sel_802A16CC *arg0, void *arg1, void *arg2);
+void *__nw__7TObjectFUl(s32);
+void *__ct__17TAdSelectTxtSubGCFv(void *, void *, void *);
+void run_task__14TAdSelectTxtGCFv(Sel_802A1740 *arg0);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void TAdSelectTxtGC__sub_802A1838(Sel_802A1838 *arg0, Src_802A1838 *arg1, void *arg2);
 }
 
 extern "C" {
@@ -27,8 +59,6 @@ void TLobby__sub_802A1918(void);
 void *__ct__14TAdSelectTxtGCFv(void *arg0, void *arg1, void *arg2, void *arg3);
 void render__14TAdSelectTxtGCFv(void);
 void reset_state__14TAdSelectTxtGCFPv(void* a0);
-int run_task__14TAdSelectTxtGCFv(void);
-void TAdSelectTxtGC__sub_802A1838(void *, void *, void *);
 void TLobby__sub_803DA16C(void*);
 void __ct__7TObjectFP7TObject(void *);
 
@@ -48,19 +78,43 @@ void TAdSelectTxtGC__sub_802A16CC(Sel_802A16CC *arg0, void *arg1, void *arg2) {
             arg0->slots[i] = 0;
         }
     }
-    TAdSelectTxtGC__sub_802A1838(arg0, arg1, arg2);
+    TAdSelectTxtGC__sub_802A1838((Sel_802A1838 *)(arg0), (Src_802A1838 *)(arg1), (void *)(arg2));
 }
-
-int run_task__14TAdSelectTxtGCFv(void) { return 0; }
 
 extern M2C_UNK __vt__14TAdSelectTxtGC[];
 extern void *lbl_805D3D88;
+
+void run_task__14TAdSelectTxtGCFv(Sel_802A1740 *arg0) {
+    void *o;
+    arg0->cnt = arg0->cnt + 1;
+    if (arg0->cnt % 3 == 0 && arg0->cnt / 3 < 8) {
+        o = __nw__7TObjectFUl(0x88);
+        if (o != NULL) {
+            o = __ct__17TAdSelectTxtSubGCFv(o, arg0, &arg0->ent[arg0->cnt / 3]);
+        }
+        arg0->tasks[arg0->cnt / 3] = o;
+    }
+}
+
+void TAdSelectTxtGC__sub_802A1838(Sel_802A1838 *arg0, Src_802A1838 *arg1, void *arg2) {
+    Ent_802A1838 *e;
+    s32 i;
+    arg0->cnt = -1;
+    for (i = 0; i < 8; i++) {
+        e = (Ent_802A1838 *)((u8 *)arg0 + i * 0x14);
+        e->f0 = arg2;
+        e->f4 = i;
+        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(e->v, arg1->v);
+        e->f10 = arg1->f0;
+        arg0->tasks[i] = NULL;
+    }
+}
 
 void *__ct__14TAdSelectTxtGCFv(void *arg0, void *arg1, void *arg2, void *arg3) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TAdSelectTxtGC;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3D88;
-    TAdSelectTxtGC__sub_802A1838(arg0, arg2, arg3);
+    TAdSelectTxtGC__sub_802A1838((Sel_802A1838 *)(arg0), (Src_802A1838 *)(arg2), (void *)(arg3));
     return arg0;
 }
 

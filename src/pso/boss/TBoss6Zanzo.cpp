@@ -19,6 +19,10 @@ struct Blk_803204B8 { s32 flag; Ent_803204B8 *ents; };
 
 struct Ef_803204B8 { u8 pad[0x20]; Blk_803204B8 *blk; s32 count; };
 
+struct Src_80320950 { s32 a; u8 *p; };
+
+struct Obj_80320950 { u8 pad[0x18]; void *vt; Src_80320950 *arr; Src_80320950 *last; u8 pad2[4]; s32 n; };
+
 extern "C" {
 void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1);
 void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1);
@@ -26,6 +30,12 @@ void TBoss6Zanzo__sub_80320534(Obj_80320534 *arg0, Src_80320534 *arg1, Src_80320
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void copy4__18TAdChrMoveEffectGCFPvPv(void *, void *);
 void TBoss6Type1__sub_803204B8(Ef_803204B8 *o, f32 *a, u32 *b);
+void __dt__7TObjectFv(void *, int);
+void __dl__FPv(void *);
+void free__11TOBoss4RockFUi(void *);
+void __dl__7TObjectFPv(void *);
+extern u8 __vt__11TBoss6Zanzo[];
+Obj_80320950 *__dt__11TBoss6ZanzoFv(Obj_80320950 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -73,5 +83,23 @@ void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1) {
 }
 
 void render__11TBoss6ZanzoFv(void* p) { set_depth_buffer_settings_1__Fv(p); TBoss6Zanzo__sub_803205C4(p); fn_80141A30(); }
+Obj_80320950 *__dt__11TBoss6ZanzoFv(Obj_80320950 *arg0, s16 arg1) {
+    Src_80320950 *p;
+    Src_80320950 *end;
+    if (arg0 != 0) {
+        arg0->vt = __vt__11TBoss6Zanzo;
+        free__11TOBoss4RockFUi(arg0->last->p);
+        __dl__FPv(arg0->last);
+        for (p = arg0->arr, end = p + arg0->n; p < end; p++) {
+            free__11TOBoss4RockFUi(p->p);
+        }
+        free__11TOBoss4RockFUi(arg0->arr);
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
 
 }

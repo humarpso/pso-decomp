@@ -196,6 +196,26 @@ struct G_80302D80 { u8 pad[0x42c]; E_80302D80 *e; };
 
 struct O_80302D80 { u8 pad[0x24]; s32 f24; u8 pad2[0xc]; s32 f34; };
 
+struct B14_80302004 { char pad[0x14]; };
+
+struct V14_80302004 : B14_80302004 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual s32 m5();
+};
+
+struct Ene_80302004 {
+    u8 pad0[0x38];
+    u8 sub38[0x2ee];
+    s16 s326;
+    s16 s328;
+    u8 pad1[0x390 - 0x32a];
+    s32 f390;
+    u8 pad2[0x3a8 - 0x394];
+    V14_80302004 obj;
+};
+
+struct Ene_80302A34 { u8 pad0[0x18]; void *vt; u8 pad1[0x3a8 - 0x1c]; u8 sub[0x1c]; void *obj[2]; };
+
 extern "C" {
 s32 TObjEneDolmOlm__sub_80300CF0(void);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -249,6 +269,18 @@ extern const f32 TObjEneDolmOlm__data_805DEF50;
 void TObjEneDolmOlm__sub_8030247C(u8 *arg0);
 extern u32 TObjEneDolmOlm__data_805D6A10;
 void TObjEneDolmOlm__sub_80302D80(O_80302D80 *self, s32 i);
+void TBoss1Dragon__sub_80143504(void);
+void TObjEneMe3SinowZoa__sub_800D758C(void *);
+void TBoss3Volopt__sub_800D8E80(void *);
+void TObjEneDolmOlm__sub_80302004(Ene_80302004 *self);
+void queue_destruction__7TObjectFv(void *);
+void TObjPlayer__sub_800C68FC(void *, int);
+void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
+void TObjPlayer__sub_800F6EB0(void *);
+void TObjEneGibbles__sub_80156720(void *);
+void __dl__7TObjectFPv(void *);
+extern u8 lbl_804E6928[];
+Ene_80302A34 *TObjEneDolmOlm__sub_80302A34(Ene_80302A34 *self, s16 flag);
 }
 
 extern "C" {
@@ -402,6 +434,32 @@ void check_scale_trigger__14TObjEneDolmOlmFPv(void *arg0) {
 }
 
 extern M2C_UNK main_task[];
+
+void TObjEneDolmOlm__sub_80302004(Ene_80302004 *self) {
+    TBoss1Dragon__sub_80143504();
+    switch (self->s328) {
+    case 0:
+    default:
+        if (self->f390 != 0) {
+            TObjEneMe3SinowZoa__sub_800D758C(&self->obj);
+            TBoss3Volopt__sub_800D8E80(self->sub38);
+            self->s328 = 1;
+            return;
+        }
+        self->s328 = 2;
+        return;
+    case 1:
+        if (self->obj.m5() == 1) {
+            self->s328 = 2;
+            self->f390 = 0;
+        }
+        break;
+    case 2:
+        self->s326 = 1;
+        self->s328 = 0;
+        break;
+    }
+}
 
 void TObjEneDolmOlm__sub_803020C4(void) {
     switch (TObjEneDolmOlm__data_805D6A1C) {
@@ -564,6 +622,28 @@ void free_shared_resources__14TObjEneDolmOlmFv(void) {
         TObjEneDolmOlm__data_805D6A10 = 0U;
     }
 }
+
+Ene_80302A34 *TObjEneDolmOlm__sub_80302A34(Ene_80302A34 *self, s16 flag) {
+    s32 i;
+    if (self != NULL) {
+        self->vt = lbl_804E6928;
+        for (i = 0; i < 2; i++) {
+            if (self->obj[i] != NULL) {
+                queue_destruction__7TObjectFv(self->obj[i]);
+                self->obj[i] = 0;
+            }
+        }
+        TObjPlayer__sub_800F6EB0(self);
+        TObjEneGibbles__sub_80156720(self);
+        __dt__18TObjEneMe3SinowZoaFPvs(self->sub, -1);
+        TObjPlayer__sub_800C68FC(self, 0);
+        if (flag > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
+}
+
 void TObjEneDolmOlm__sub_80302D80(O_80302D80 *self, s32 i) {
     self->f34 = (*(G_80302D80 * *)&TObjEneDolmOlm__data_805D6A10)->e[i].c;
     self->f24 = (*(G_80302D80 * *)&TObjEneDolmOlm__data_805D6A10)->e[i].d;

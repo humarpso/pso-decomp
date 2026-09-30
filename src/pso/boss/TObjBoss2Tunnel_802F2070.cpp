@@ -16,6 +16,11 @@ struct Stack_802F2664 {
     f32 sp10;
 };
 
+typedef s32 M2C_UNK;
+struct Nd_802F2348 { u8 pad[0xC]; Nd_802F2348 *next; };
+
+struct Li_802F2348 { u8 pad[0x14]; Nd_802F2348 *head; };
+
 extern "C" {
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK fn_802F1FB0(void *, s32, s32, f32, s32);
@@ -31,7 +36,6 @@ s32 TObjBoss2Tunnel__sub_802F22F4(void);
 extern u32 lbl_805D6968;
 s32 is_phase_active__15TObjBoss2TunnelFv(s32 a0);
 s32 TObjBoss2Tunnel__sub_802F22F4(void);
-int TObjBoss2Tunnel__sub_802F2348(void);
 void TObjBoss2Tunnel__sub_802F23FC(void);
 s32 queue_destruction__7TObjectFv(int);
 s32 approach_value__20TItemEffOrgaFlowShotFPvff(void *, f32, f32);
@@ -98,6 +102,12 @@ extern u32 lbl_805D6968;
 void TObjBoss2Tunnel__sub_802F22DC(void);
 extern u32 lbl_805D6968;
 void TObjBoss2Tunnel__sub_802F22C4(void);
+s32 query_teammate_state__9TObjEneDDFPv();
+M2C_UNK draw_particle_effect(int);
+M2C_UNK fn_802F1D1C(int);
+M2C_UNK fn_802F1DAC(int);
+M2C_UNK fn_802F1E54(int);
+void TObjBoss2Tunnel__sub_802F2348(u8 *arg0);
 }
 
 extern "C" {
@@ -142,7 +152,25 @@ s32 check_both__15TObjBoss2TunnelFi(s32 arg0) {
     temp_r3 = is_phase_active__15TObjBoss2TunnelFv((s32)(arg0));
     return temp_r3 | temp_r31;
 }
-int TObjBoss2Tunnel__sub_802F2348(void) { return 0; }
+
+void TObjBoss2Tunnel__sub_802F2348(u8 *arg0) {
+    Nd_802F2348 *n;
+    if (query_teammate_state__9TObjEneDDFPv() == 0) {
+        for (n = M2C_FIELD(arg0, Li_802F2348 **, 0x90)->head; n != 0; n = n->next) {
+            draw_particle_effect((int)n);
+        }
+        for (n = M2C_FIELD(arg0, Li_802F2348 **, 0x8C)->head; n != 0; n = n->next) {
+            fn_802F1E54((int)n);
+        }
+        for (n = M2C_FIELD(arg0, Li_802F2348 **, 0x8C)->head; n != 0; n = n->next) {
+            fn_802F1DAC((int)n);
+        }
+        for (n = M2C_FIELD(arg0, Li_802F2348 **, 0x8C)->head; n != 0; n = n->next) {
+            fn_802F1D1C((int)n);
+        }
+    }
+}
+
 void TObjBoss2Tunnel__sub_802F23FC(void) {  }
 void TObjBoss2Tunnel__sub_802F2400(u8 *arg0) {
     f32 temp_f1;

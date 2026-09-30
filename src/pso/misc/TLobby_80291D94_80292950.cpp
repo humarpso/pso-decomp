@@ -29,6 +29,11 @@ u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
 extern s32 lbl_804DB1F0[];
 extern u32 lbl_805D6580;
 s32 TLobby__sub_80292A34(void);
+s32 get_layout_id__20TWindowSubStatusDispFv(M2C_UNK);
+s32 *TWindowSubStatusDisp__sub_8006F0D8(void *, s32);
+s32 TWindowSubStatusDisp__sub_8006F190(s32);
+u8 *get_card_window__17TWindowSubComCardFUi();
+s32 TLobby__sub_80292CA4(void);
 }
 
 extern "C" {
@@ -93,6 +98,28 @@ loop_3:
         return 1;
     }
     goto loop_3;
+}
+s32 TLobby__sub_80292CA4(void) {
+    u8 *win = get_card_window__17TWindowSubComCardFUi();
+    s32 layout;
+    s32 id;
+    s32 *arr;
+    s32 n;
+    s32 i;
+    if (win == NULL) {
+        return 0;
+    }
+    id = TWindowSubStatusDisp__sub_8006F190(-1);
+    arr = TWindowSubStatusDisp__sub_8006F0D8(win + 0x21C4, id);
+    layout = get_layout_id__20TWindowSubStatusDispFv((M2C_UNK)(id));
+    n = 0;
+    for (i = 0; i < layout; i++) {
+        if (arr[i] == 0) {
+            break;
+        }
+        n++;
+    }
+    return n;
 }
 
 }

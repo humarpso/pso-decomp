@@ -27,6 +27,10 @@ struct RecoveredGlobal_8030CEEC_lbl_80475878 {
 
 struct Slot_8030C404 { u8 pad[0x34]; void *a; void *b; };
 
+struct G_8030C45C { s32 a; s32 b; s32 c; f32 v[2]; };
+
+struct S_8030C45C { s32 x; s32 y; };
+
 extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
 M2C_UNK free_windows__17TWindowSubComCardFPv(s32);
@@ -69,6 +73,20 @@ s32 get_state_flag__9TMainTaskFv();
 void render__16TAdChrSelASlotGCFv(void *self);
 s32 TAdPlyChrSelPlateGC__sub_802C4D5C(void *, int);
 s32 TAdChrSelASlotGC__sub_8030C404(Slot_8030C404 *o, s32 k);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
+u8 * TAdSinglePlyChrSelectGC__sub_801FE4BC(u32);
+extern G_8030C45C lbl_80542E60;
+G_8030C45C *TAdChrSelASlotGC__sub_8030C45C(s32 arg0, s32 arg1, s32 arg2, void *arg3);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
+M2C_UNK free_member__17TWindowSubComCardFPv(s32, M2C_UNK);
+M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(s32, s32, s32, f32);
+s32 TWindowMessageYesNo__sub_802A59D8(s32, s32, M2C_UNK, M2C_UNK);
+int sprintf(char *, const char *, ...);
+void *memset(void *, int, unsigned long);
+extern char lbl_80542D60[];
+extern const f32 lbl_805DF20C;
+s32 TAdChrSelASlotGC__sub_8030C8D8(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -146,6 +164,25 @@ s32 TAdChrSelASlotGC__sub_8030C404(Slot_8030C404 *o, s32 k) {
         return TAdPlyChrSelPlateGC__sub_802C4D5C(o->b, 2);
     }
     return 0;
+}
+
+G_8030C45C *TAdChrSelASlotGC__sub_8030C45C(s32 arg0, s32 arg1, s32 arg2, void *arg3) {
+    S_8030C45C *e = (S_8030C45C *)TAdSinglePlyChrSelectGC__sub_801FE4BC(arg2);
+    lbl_80542E60.a = arg1;
+    lbl_80542E60.b = e != NULL ? e->x : TAdSinglePlyChrSelectGC__sub_80132F2C((M2C_UNK)(0x16), (M2C_UNK)(0x1C));
+    lbl_80542E60.c = e != NULL ? e->y + 1 : 0;
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(lbl_80542E60.v, arg3);
+    return &lbl_80542E60;
+}
+
+s32 TAdChrSelASlotGC__sub_8030C8D8(s32 arg0, s32 arg1, s32 arg2) {
+    s32 w;
+    w = TWindowMessageYesNo__sub_802A59D8((s32)(arg0), (s32)(arg2), (M2C_UNK)(0), (M2C_UNK)(0));
+    memset(lbl_80542D60, 0, 0x100);
+    sprintf(lbl_80542D60, (const char *)TAdSinglePlyChrSelectGC__sub_80132F2C((M2C_UNK)(0x16), (M2C_UNK)(0x1E)), 0x2710);
+    forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(w, (s32)lbl_80542D60, arg1, lbl_805DF20C);
+    free_member__17TWindowSubComCardFPv((s32)(w), (M2C_UNK)(1));
+    return w;
 }
 
 #pragma push

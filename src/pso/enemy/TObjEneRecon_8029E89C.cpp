@@ -4,13 +4,24 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Vec_8029EA4C { f32 x, y, z; };
+
+extern "C" {
+void restore_render_scissor(s32 arg0);
+M2C_UNK GXSetScissor(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+void TParticleCtrl__sub_803D8D1C(s32, void *, void *);
+extern u16 lbl_805D65F8;
+extern const f32 lbl_805DDD8C;
+extern const f32 lbl_805DDD94;
+s32 TObjEneRecon__sub_8029EA4C(void *arg0, M2C_UNK _w1);
+}
+
 extern "C" {
 
 s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1);
 void restore_render_scissor(s32 arg0);
 void update_particle_if_active__12TObjEneReconFv(void);
 M2C_UNK GXSetScissor(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-s32 TObjEneRecon__sub_8029EA4C(M2C_UNK *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_803D8F74(M2C_UNK, M2C_UNK *);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -41,7 +52,7 @@ s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1) {
         return 0;
     }
     if (arg1 != 0) {
-        var_r3 = TObjEneRecon__sub_8029EA4C(sp8, 1);
+        var_r3 = TObjEneRecon__sub_8029EA4C((void *)(sp8), (M2C_UNK)(1));
     } else {
         var_r3 = 1;
     }
@@ -64,6 +75,20 @@ void restore_render_scissor(s32 arg0) {
 }
 
 extern u32 lbl_805D65F4;
+
+s32 TObjEneRecon__sub_8029EA4C(void *arg0, M2C_UNK _w1) {
+    Vec_8029EA4C v;
+    if (lbl_805D65F8 == 0) {
+        return 1;
+    }
+    restore_render_scissor(1);
+    TParticleCtrl__sub_803D8D1C(0, arg0, &v);
+    if (v.y >= lbl_805DDD8C && v.y <= lbl_805DDD94) {
+        GXSetScissor((M2C_UNK)(0), (M2C_UNK)((u32)v.y), (M2C_UNK)(0x280), (M2C_UNK)((u32)(lbl_805DDD94 - v.y)));
+        return 1;
+    }
+    return 0;
+}
 
 void update_particle_if_active__12TObjEneReconFv(void) {
     if (((u32) lbl_805D65F4 != 0U) && (get_state__10TSceneSoraFPv((void*)lbl_805D65F4) != 0U)) {

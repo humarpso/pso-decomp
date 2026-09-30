@@ -30,9 +30,22 @@ struct VObj_8032BF64_8032BE48 : Base_8032BF64_8032BE48 {
     virtual void m9();
 };
 
+struct Obj_8032C004 { s32 f0; u8 pad[0x14]; void *vt; u8 pad2[0x48 - 0x1C]; s32 f48; };
+
 extern "C" {
 s32 get_state_flag__9TMainTaskFv();
 void TAdYesNoBaseGC__vt7(void *self);
+void *__nw__7TObjectFUl(u32);
+s32 TWindowOptionCtrl__sub_8026B4E0(void *, int);
+void __ct__10TAdTitleGCFv(void *, void *, int);
+void init_parts__14TAdYesNoBaseGCFPvPvPv(void *, void *, void *);
+void TAdYesNoBaseGC__ct(void *);
+extern u8 lbl_804772C0[];
+extern u8 lbl_804772C8[];
+extern u8 lbl_804772D0[];
+extern M2C_UNK __vt__20TAdSnAkPassConfirmGC[];
+extern s32 lbl_805D41F0;
+Obj_8032C004 *TAdSnAkPassConfirmGC__ct(Obj_8032C004 *arg0);
 }
 
 extern "C" {
@@ -85,6 +98,21 @@ void *__dt__20TAdSnAkPassConfirmGCFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+Obj_8032C004 *TAdSnAkPassConfirmGC__ct(Obj_8032C004 *arg0) {
+    void *p;
+    TAdYesNoBaseGC__ct(arg0);
+    arg0->vt = ((u8 *)&__vt__20TAdSnAkPassConfirmGC);
+    arg0->f0 = lbl_805D41F0;
+    p = __nw__7TObjectFUl(0x138);
+    if (p != 0) {
+        __ct__10TAdTitleGCFv(p, arg0, 0x11);
+    }
+    arg0->f48 = TWindowOptionCtrl__sub_8026B4E0(lbl_804772C0, 0);
+    init_parts__14TAdYesNoBaseGCFPvPvPv(arg0, lbl_804772C8, lbl_804772D0);
+    return arg0;
+}
+
 void TAdYesNoBaseGC__vt7(void *self) {
     if (get_state_flag__9TMainTaskFv() == 1) { return;
     }

@@ -87,6 +87,16 @@ struct V3_8032FB84 { f32 x; f32 y; f32 z; };
 
 struct O_8032FB84 { u8 pad[0x38]; V3_8032FB84 pos; u8 pad2[0x60 - 0x44]; s32 f60; u8 pad3[0x378 - 0x64]; void *p378; u8 pad4[0x384 - 0x37C]; s32 f384; };
 
+struct V3_8032E834 { f32 x; f32 y; f32 z; };
+
+struct E_8032E834 { s32 a; s32 b; };
+
+struct O_8032E834 { u8 pad[0x38]; V3_8032E834 pos; u8 pad2[0x43C - 0x44]; u32 h[4]; V3_8032E834 v[4]; };
+
+struct V3_8032F5FC { f32 x; f32 y; f32 z; };
+
+struct O_8032F5FC { u8 pad[0x38]; V3_8032F5FC pos; u8 pad2[0x5C - 0x44]; s32 f5c; s32 f60; u8 pad3[0x378 - 0x64]; s32 f378; u8 pad4[0x3C4 - 0x37C]; f32 f3c4; };
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 apply_direction_sign__11TBoss6Type2FPvf(void *arg0, f32 farg0);
@@ -158,6 +168,18 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void TBoss6Type2__sub_802BD378(void *, s32, void *, void *);
 extern const f32 lbl_805DF848;
 s32 TBoss6Type2__sub_8032FB84(O_8032FB84 *arg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 copy_pos__11TNowLoadingFPvPv(int, void *);
+extern E_8032E7B4 lbl_804773BC[];
+void TBoss6Type2__sub_8032E834(O_8032E834 *arg0);
+s32 TObjPlayer__sub_80141F84(s32, s32);
+s32 TBoss6Type2__sub_8032EAB8(void *arg0, s32 arg1);
+s32 TBoss6Type2__sub_8032EA34(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 get_state__11TBoss6Type2FPv(int);
+void compute_random_dir_vec__11TBoss6Type2FiPvii(s32 arg0, u8 *arg1, s32 arg2, s32 arg3);
+f32 TBoss4Zako__sub_803D8910(void *, int);
+extern const f32 lbl_805DF83C;
+void TBoss6Type2__sub_8032F5FC(O_8032F5FC *arg0);
 }
 
 extern "C" {
@@ -217,6 +239,21 @@ void TBoss6Type2__sub_8032E7B4(O_8032E7B4 *arg0, s32 arg1) {
     }
 }
 
+void TBoss6Type2__sub_8032E834(O_8032E834 *arg0) {
+    s32 i;
+    E_8032E834 *e = ((E_8032E834 *)&lbl_804773BC);
+    for (i = 0; i < 4; i++) {
+        V3_8032E834 p = arg0->pos;
+        E_8032E834 *ep = &e[i];
+        if (arg0->h[i] != 0) {
+            if (ep->b >= 0) {
+                VecCopy__FP3VecPC3Vec(&p, &arg0->v[ep->b]);
+            }
+            copy_pos__11TNowLoadingFPvPv(arg0->h[i], &p);
+        }
+    }
+}
+
 void update_all_parts__11TBoss6Type2FPv(s32 arg0) {
     s32 var_r31;
     var_r31 = 0;
@@ -231,6 +268,19 @@ void TBoss6Type2__sub_8032EA10(T_8032EA10 *self) {
     for (i = 0; i < 4; i++) {
         self->arr[i] = 0;
     }
+}
+
+s32 TBoss6Type2__sub_8032EA34(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+    s32 t;
+    TBoss6Type2__sub_8032EAB8(arg0, arg3);
+    if (TObjPlayer__sub_80141F84(arg2, arg1) <= arg3) {
+        return arg2;
+    }
+    t = arg1 + TBoss6Type2__sub_8032EAB8(arg0, arg3);
+    if (TObjPlayer__sub_80141F84(arg2, t) <= arg3) {
+        return arg2;
+    }
+    return t;
 }
 
 s32 TBoss6Type2__sub_8032EAB8(void *arg0, s32 arg1) {
@@ -374,6 +424,20 @@ void TBoss6Type2__sub_8032F5C4(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (temp_r4 & ~0xA00);
     M2C_FIELD(arg0, s16 *, 0x32C) = (s16) M2C_FIELD(arg0, s32 *, 0x38C);
     sync_hp__11TBoss6Type2FPv((void *)((s32)((s32) arg0)));
+}
+
+void TBoss6Type2__sub_8032F5FC(O_8032F5FC *arg0) {
+    V3_8032F5FC v;
+    f32 k;
+    compute_random_dir_vec__11TBoss6Type2FiPvii((s32)arg0, (u8 *)&v, arg0->f60, arg0->f5c);
+    k = lbl_805DF83C;
+    if (get_state__11TBoss6Type2FPv(arg0->f378) == 0xE) {
+        k *= arg0->f3c4;
+    }
+    v.x = v.x * k;
+    v.y = v.y * k;
+    v.z = v.z * k;
+    TBoss4Zako__sub_803D8910(&arg0->pos, (int)&v);
 }
 
 s32 TBoss6Type2__sub_8032FB84(O_8032FB84 *arg0) {

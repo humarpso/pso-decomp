@@ -14,6 +14,8 @@ struct RecoveredGlobal_80338C88___vt__16TEneParticleCtrl {
     u8 remaining[0x38];
 };
 
+struct O_80338D58 { u8 pad[0x72]; s16 idx; u8 pad2[2]; s16 count; };
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
@@ -27,12 +29,14 @@ extern RecoveredGlobal_80338C88_lbl_804EF458 lbl_804EF458;
 extern M2C_UNK __vt__16TEneParticleCtrl[];
 extern s32 lbl_805D4258;
 u8 *TEneParticleCtrl__ct(u8 *arg0, s32 arg1, s32 arg2);
+void *get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
+s32 TWindowSubStatusDisp__sub_80338740(void *, void *, void *, void *, void *, void *, void *, void *, void *);
+void fn_80338D58(O_80338D58 *arg0, void *a1, void *a2, void *a3, void *a4, void *a5, void *a6, void *a7, void *a8);
 }
 
 extern "C" {
 
 void *__dt__16TEneParticleCtrlFv(void *arg0, s16 arg1);
-int fn_80338D58(void);
 void free_particle_ctrl__16TEneParticleCtrlFPv(void* p);
 void* get_field_38_ptr__16TEneParticleCtrlFPv(void* p);
 void set_param__16TEneParticleCtrlFPv(void* p);
@@ -89,7 +93,11 @@ u8 *TEneParticleCtrl__ct(u8 *arg0, s32 arg1, s32 arg2) {
 }
 
 void* get_field_38_ptr__16TEneParticleCtrlFPv(void* p) { return (char*)p + 0x38; }
-
-int fn_80338D58(void) { return 0; }
+void fn_80338D58(O_80338D58 *arg0, void *a1, void *a2, void *a3, void *a4, void *a5, void *a6, void *a7, void *a8) {
+    if (arg0->idx < arg0->count) {
+        TWindowSubStatusDisp__sub_80338740(get_array_entry__20TWindowSubStatusDispFPvi(arg0, arg0->idx), a1, a2, a3, a4, a5, a6, a7, a8);
+        arg0->idx += 1;
+    }
+}
 
 }

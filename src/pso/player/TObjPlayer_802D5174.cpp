@@ -16,6 +16,85 @@ typedef struct S_802D56F0 {
     E_802D56F0 e[1];
 } S_802D56F0;
 
+struct Sub_802D564C { u8 pad0[0x60]; s32 f60; };
+
+struct Ent_802D564C { s32 a; s32 b; s32 c; };
+
+struct VBase_802D564C { char pad[0x18]; };
+
+struct Pl_802D564C : VBase_802D564C {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60(void *);
+    u8 pad1c[0xF0 - 0x1C];
+    Sub_802D564C *f0F0;
+    s32 f0F4;
+    u8 padF8[0x20C - 0xF8];
+    Ent_802D564C arr[5];
+    s16 f248;
+    s16 f24A;
+    u8 pad24C[4];
+    s32 f250;
+};
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_801012DC(void *, s16);
 M2C_UNK TObjPlayer__sub_802D577C(void *);
@@ -31,6 +110,8 @@ void TObjPlayer__sub_803D9B78(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 void TObjBoss2Tunnel__sub_803DB470(s32);
 void TObjPlayer__sub_802D56F0(u8 *arg0);
+void TObjPlayer__sub_8011EB84(void *, void *, s32, s32);
+void TObjPlayer__sub_802D564C(Pl_802D564C *arg0);
 }
 
 extern "C" {
@@ -58,6 +139,27 @@ void set_radar_marker_pos__10TObjPlayerFiPv(int a0, void* a1) { set_radar_marker
 
 void TObjPlayer__sub_802D5628(M2C_UNK arg0, s32 arg1) {
     spawn_item__10TObjPlayerFi((void *) (arg1));
+}
+
+void TObjPlayer__sub_802D564C(Pl_802D564C *arg0) {
+    Ent_802D564C *p;
+    s32 v;
+    s32 step;
+    s32 n;
+    s32 cnt;
+    p = arg0->arr;
+    cnt = arg0->f24A;
+    n = cnt;
+    v = arg0->f250 - arg0->f0F0->f60;
+    step = 0x10000 / cnt;
+    while (n != 0) {
+        TObjPlayer__sub_8011EB84(arg0, p++, arg0->f0F4, v);
+        v += step;
+        n--;
+    }
+    arg0->m60((u8 *)arg0->f0F0 + 0x2FC);
+    arg0->f24A = 0;
+    arg0->f248 = 0x87;
 }
 
 void TObjPlayer__sub_802D56F0(u8 *arg0) {

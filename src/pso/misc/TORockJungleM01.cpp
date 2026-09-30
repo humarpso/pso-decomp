@@ -48,6 +48,28 @@ struct RecoveredGlobal_8029C588___vt__15TORockJungleM01 {
     u8 remaining[0x4C];
 };
 
+struct VBase_8029C6FC { char pad[0x14]; };
+
+struct VObj_8029C6FC : VBase_8029C6FC {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+};
+
+struct Vec_8029C6FC { f32 x, y, z; };
+
+struct Rd_8029C6FC {
+    u8 pad0[0x38];
+    u8 pos[0xBC - 0x38];
+    VObj_8029C6FC fade;
+    u8 padd[0xD8 - 0xBC - sizeof(VObj_8029C6FC)];
+    s32 fading;
+};
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 activate_and_dispatch__10TObjPlayerFPv(void *);
@@ -65,6 +87,14 @@ extern M2C_UNK __vt__15TORockJungleM01[];
 extern s32 lbl_805D3D40;
 extern const f32 lbl_805DDD1C;
 u8 *TORockJungleM01__ct(u8 *arg0, s32 arg1);
+s32 isFading__15RenderFadeStateCFv(void *);
+void restore__15RenderFadeStateFv(void *);
+void fadeOut__15RenderFadeStateFv(void *);
+void set_cull_back__8TObjFishFv();
+s32 is_not_split_screen__13TRaderMapCoreFv();
+void TCameraCtrl__sub_803D8934(s32, void *, void *);
+extern const f32 lbl_805DDD18;
+void TORockJungleM01__vt12(Rd_8029C6FC *arg0);
 }
 
 extern "C" {
@@ -154,6 +184,24 @@ void TORockJungleM01__vt13(u8 *arg0) {
         ((VObj_8029C320*)(arg0 + 0xBC))->m7();
     }
     set_cull_none__8TObjFishFv();
+}
+void TORockJungleM01__vt12(Rd_8029C6FC *arg0) {
+    Vec_8029C6FC v;
+    set_cull_back__8TObjFishFv();
+    TCameraCtrl__sub_803D8934(0, arg0->pos, &v);
+    if (-v.z < lbl_805DDD18) {
+        fadeOut__15RenderFadeStateFv(&arg0->fade);
+    } else {
+        restore__15RenderFadeStateFv(&arg0->fade);
+    }
+    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+        arg0->fading = 0;
+    } else {
+        arg0->fading = isFading__15RenderFadeStateCFv(&arg0->fade);
+    }
+    if (arg0->fading != 0) {
+        arg0->fade.m6();
+    }
 }
 
 }

@@ -4,9 +4,37 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Chip_802A60CC {
+    u8 pad0[0x18];
+    s32 f18, f1c, f20;
+    u8 pad24[0x38 - 0x24];
+};
+
+struct O_802A60CC {
+    u8 pad0[0x54];
+    s32 f54;
+    u8 pad58[0xC];
+    s32 f64;
+    u8 pad68[8];
+    Chip_802A60CC chips[3];
+    u8 pad_[0x234 - 0x70 - 3 * 0x38];
+    u8 f234[0xC];
+    s32 f240;
+    s32 f244;
+};
+
+extern "C" {
+void TObjChip__sub_803D8AE4(s32, s32, s32, s32);
+void TObjPlayer__sub_803D9214(s32, s32);
+void TObjPlayer__sub_803D9B2C();
+void TObjPlayer__sub_803D9B78();
+void TOHangerMachine01__sub_803D9C00(void *);
+void TObjBoss2Tunnel__sub_803DB470(s32);
+void TObjSuisoChip__vt10(O_802A60CC *arg0);
+}
+
 extern "C" {
 
-int TObjSuisoChip__vt10(void);
 void TObjSuisoChip__vt6(void);
 void TObjSuisoChip__vt8(void* p);
 int get_max_players__6TLobbyFv(void);
@@ -33,7 +61,23 @@ void TObjSuisoChip__vt6(void) {
 }
 
 void TObjSuisoChip__vt8(void* p) { TObjChip__vt8(p, (char*)p + 0x234); }
-
-int TObjSuisoChip__vt10(void) { return 0; }
+void TObjSuisoChip__vt10(O_802A60CC *arg0) {
+    Chip_802A60CC *p;
+    s32 i;
+    if (arg0->f244 != 1) {
+        p = arg0->chips;
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(arg0->f234);
+        TObjPlayer__sub_803D9214(0, arg0->f240);
+        for (i = 0; i < arg0->f54; i++, p++) {
+            TObjPlayer__sub_803D9B2C();
+            TOHangerMachine01__sub_803D9C00(p);
+            TObjChip__sub_803D8AE4(0, p->f18, p->f1c, p->f20);
+            TObjBoss2Tunnel__sub_803DB470(arg0->f64);
+            TObjPlayer__sub_803D9B78();
+        }
+        TObjPlayer__sub_803D9B78();
+    }
+}
 
 }

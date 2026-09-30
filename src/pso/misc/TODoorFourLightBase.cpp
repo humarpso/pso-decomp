@@ -30,6 +30,32 @@ struct VObj_18_721d61 : VBase_18_721d61 {
     virtual s32 m20();
 };
 
+struct DPre_802A0994 { s32 f0; u8 pad[0x14]; };
+
+struct Door_802A0994 : DPre_802A0994 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5(s32);
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    u8 pad1c[0xD8 - 0x1C];
+    s32 a[8];
+    s32 f;
+};
+
 extern "C" {
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
@@ -41,6 +67,10 @@ f32 TOHangerMachine01__sub_803D9C00(void *);
 s32 set_global_param__8TObjFishFi(void *);
 s32 TOSignCave03__sub_803DB510(int);
 void TODoorFourLightBase__sub_802A0578(u8 *arg0, u8 *arg1);
+void init_door_base(void *, void *);
+extern M2C_UNK __vt__19TODoorFourLightBase[];
+extern s32 lbl_805D3D60;
+Door_802A0994 *TODoorFourLightBase__ct(Door_802A0994 *arg0, void *arg1, s32 arg2);
 }
 
 extern "C" {
@@ -131,6 +161,19 @@ void *__dt__19TODoorFourLightBaseFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+Door_802A0994 *TODoorFourLightBase__ct(Door_802A0994 *arg0, void *arg1, s32 arg2) {
+    s32 i;
+    init_door_base(arg0, arg1);
+    *(void **)((u8 *)arg0 + 0x18) = ((s32 *)&__vt__19TODoorFourLightBase);
+    arg0->f0 = lbl_805D3D60;
+    arg0->m5(arg2);
+    arg0->m17();
+    for (i = 0; i < 8; i++) {
+        arg0->a[i] = 0;
+    }
+    arg0->f = 0;
     return arg0;
 }
 

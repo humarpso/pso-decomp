@@ -9,6 +9,8 @@ struct RecoveredGlobal_8033670C_lbl_804EE58C {
     u8 remaining[0x4C];
 };
 
+struct O_8033612C { u8 pad[0x1C]; void *f1c; void *f20; void *f24; u8 pad2[0x3C - 0x28]; u32 flags; void *h[3]; };
+
 extern "C" {
 int TKeyBoardControl__sub_8000F9CC(void*);
     extern int lbl_805D6D44;
@@ -41,11 +43,13 @@ u64 TLobby__sub_800FD6A0(void *, int);
 extern RecoveredGlobal_8033670C_lbl_804EE58C lbl_804EE58C;
 extern u8 *lbl_805D6D48;
 void TLobby__sub_8033670C(void);
+M2C_UNK queue_destruction__7TObjectFv(void*);
+s32 disallow_rendering__7TObjectFv(void *);
+void TLobby__sub_8033612C(O_8033612C *arg0);
 }
 
 extern "C" {
 
-int TLobby__sub_8033612C(void*);
 void TLobby__sub_803361FC(void);
 void destroy_download_server__6TLobbyFv(void* _w0);
 void queue_destruction_and_cleanup__6TLobbyFv(void* _w0);
@@ -57,7 +61,7 @@ extern u32 lbl_805D6D40;
 void queue_destruction_and_cleanup__6TLobbyFv(void* _w0) {
     queue_destruction__7TObjectFv((void*)(_w0));
     if ((u32) lbl_805D6D40 != 0U) {
-        TLobby__sub_8033612C((void*)((void*)lbl_805D6D40));
+        TLobby__sub_8033612C((O_8033612C *)((void*)((void*)lbl_805D6D40)));
     }
 }
 
@@ -70,7 +74,25 @@ void destroy_download_server__6TLobbyFv(void* _w0) {
     }
 }
 
-int TLobby__sub_8033612C(void*) { return 0; }
+void TLobby__sub_8033612C(O_8033612C *arg0) {
+    s32 i;
+    arg0->flags |= 4;
+    if (arg0->f1c != 0) {
+        disallow_rendering__7TObjectFv(arg0->f1c);
+    }
+    if (arg0->f24 != 0) {
+        disallow_rendering__7TObjectFv(arg0->f24);
+    }
+    if (arg0->f20 != 0) {
+        disallow_rendering__7TObjectFv(arg0->f20);
+    }
+    for (i = 0; i != 3; i++) {
+        if (arg0->h[i] != 0) {
+            queue_destruction__7TObjectFv((void*)(arg0->h[i]));
+            arg0->h[i] = 0;
+        }
+    }
+}
 
 void set_flag_and_clear_download__6TLobbyFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3C) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C) | 1);

@@ -151,6 +151,13 @@ s32 handle_event__19TObjEneBm9MericarolFPvi(void *, void *);
 s32 TObjEneBm9Mericarol__sub_802D05BC(void *, void *);
 s32 handle_action__19TObjEneBm9MericarolFPvi(void *, void *);
 void TObjEneBm9Mericarol__sub_802D0A30(s32 arg0, u32 arg1, s32 arg2);
+s32 obj_isState2_324(s32);
+s32 get_player_data__10TObjPlayerFi(s32);
+s32 get_game_mode__6TLobbyFv();
+s32 is_valid_target__9TObjEneDDFPv(s32);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
+extern const f32 lbl_805DE74C;
+s32 TObjEneBm9Mericarol__sub_802D0854(s32 arg0);
 }
 
 extern "C" {
@@ -207,6 +214,24 @@ void TObjEneBm9Mericarol__sub_802D078C(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x448) = (f32) (lbl_805DE714 + M2C_FIELD(arg0, f32 *, 0x35C));
 }
 #pragma pop
+
+s32 TObjEneBm9Mericarol__sub_802D0854(s32 arg0) {
+    s32 best = 0;
+    s32 n = get_game_mode__6TLobbyFv();
+    s32 pl;
+    s32 i;
+    for (i = 0; i < n; i++) {
+        pl = get_player_data__10TObjPlayerFi(i);
+        if (is_valid_target__9TObjEneDDFPv(pl) != 0 && obj_isState2_324(pl) == 0) {
+            best = pl;
+            break;
+        }
+    }
+    if (is_valid_target__9TObjEneDDFPv(best) != 0 && TObjPlayer__sub_80141CF8((void *)(arg0 + 0x38), (void *)(best + 0x38)) < lbl_805DE74C) {
+        return best;
+    }
+    return 0;
+}
 
 s32 try_set_mode8_if_flag2__19TObjEneBm9MericarolFPv(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x438) & 2) {

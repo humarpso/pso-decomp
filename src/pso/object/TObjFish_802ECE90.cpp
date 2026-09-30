@@ -9,6 +9,9 @@ struct RecoveredGlobal_802ED4AC_lbl_80472D04 {
     u8 remaining[0x74];
 };
 
+typedef s32 M2C_UNK;
+struct Vec_802ED3E4 { f32 x, y, z; };
+
 extern "C" {
 M2C_UNK TBoss2DeRolLe__sub_80035FCC(void *);
 extern const f32 lbl_805DEA94;
@@ -17,7 +20,7 @@ extern const f32 lbl_805DEB68;
 u8 TObjFish__sub_802ED068(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern RecoveredGlobal_802ED4AC_lbl_80472D04 lbl_80472D04;
-extern f32 lbl_805DEA10;
+extern const f32 lbl_805DEA10;
 void TObjFish__sub_802ED4AC(u8 *arg0, s32 arg1);
 M2C_UNK TBoss2DeRolLe__sub_80035FCC(void *);
 extern const f32 lbl_805DEA7C;
@@ -31,6 +34,16 @@ extern const f32 lbl_805DEA7C;
 extern const f32 lbl_805DEB64;
 extern const f32 lbl_805DEB94;
 u32 TObjFish__sub_802ED254(u8 *arg0);
+M2C_UNK TObjPlayer__sub_803D7B68(int, f32);
+M2C_UNK TObjPlayer__sub_803D7CA4(int);
+M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+M2C_UNK TObjPlayer__sub_803D97F0(void *);
+M2C_UNK TObjPlayer__sub_803D9884(void *, void *);
+M2C_UNK TObjPlayer__sub_803D9B78();
+extern u8 lbl_8058D490[];
+extern const f32 lbl_805DEA10;
+extern const f32 lbl_805DEB24;
+f32 TObjFish__sub_802ED3E4(u8 *arg0);
 }
 
 extern "C" {
@@ -161,7 +174,7 @@ s32 is_all_parts_done__8TObjFishFPv(u8 *arg0) {
     return 0;
 }
 
-extern f32 lbl_805DEA10;
+extern const f32 lbl_805DEA10;
 extern f32 lbl_805DEB60;
 extern f32 lbl_805DEB98;
 
@@ -184,6 +197,20 @@ extern const f32 lbl_805DEA50;
 extern const f32 lbl_805DEA6C;
 extern const f32 lbl_805DEA94;
 extern const f32 lbl_805DEB9C;
+
+f32 TObjFish__sub_802ED3E4(u8 *arg0) {
+    Vec_802ED3E4 v;
+    v.x = lbl_805DEA10;
+    v.y = lbl_805DEA10;
+    v.z = lbl_805DEA10;
+    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    TOMonitorMachine01__sub_803D8B5C(0, lbl_805DEB24, lbl_805DEB24, lbl_805DEB24);
+    TObjPlayer__sub_803D7B68(M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
+    TObjPlayer__sub_803D7CA4(M2C_FIELD(arg0, s32 *, 0x34));
+    TObjPlayer__sub_803D9884(&v, &v);
+    TObjPlayer__sub_803D9B78();
+    return v.y;
+}
 
 void set_swim_direction__8TObjFishFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x6C0) == 0) {

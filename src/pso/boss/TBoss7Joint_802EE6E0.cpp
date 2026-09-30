@@ -4,12 +4,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
 extern "C" {
 void TObjEneDD__sub_800BA934(void *);
 extern const f32 lbl_805DE9F0;
 extern const f32 lbl_805DEBA8;
 extern const f32 lbl_805DEBAC;
 void TBoss7Joint__vt86(u8 *arg0);
+s32 register_object__6TLobbyFPv(int);
+s32 dispatch_shared_handler_b__6TLobbyFPv(int);
+s32 register_boss__6TLobbyFPv(int);
+M2C_UNK TObjEneDD__sub_800B9E84(void *, int, int, int);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+u32 __nw__7TObjectFUl(int);
+M2C_UNK TObjPlayer__sub_802E72DC(void *, void *, void *, int);
+void TBoss7Joint__sub_802EE820(u8 *arg0);
 }
 
 extern "C" {
@@ -23,7 +32,6 @@ void TBoss7Joint__sub_802EE6FC(void);
 void TBoss7Joint__sub_802EE700(void);
 void TBoss7Joint__sub_802EE7B8(void* p);
 void TBoss7Joint__sub_802EE800(void* p);
-int TBoss7Joint__sub_802EE820(void);
 void TBoss7Joint__vt91(void *arg0);
 void broadcast_state__11TBoss7JointFPv(void* p);
 void byteswap_action_packet__11TBoss7JointFPv(void* p);
@@ -57,7 +65,17 @@ void TBoss7Joint__sub_802EE800(void* p) { *(u8*)((char*)p + 0x0) = 170; *(u8*)((
 
 int is_part_active__11TBoss7JointFPv(void* p) { return *(u32*)((char*)p + 0x3bc) & 0x1; }
 
-int TBoss7Joint__sub_802EE820(void) { return 0; }
+void TBoss7Joint__sub_802EE820(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x3BC) = M2C_FIELD(arg0, s32 *, 0x3BC) | 1;
+    TObjEneDD__sub_800B9E84(arg0, register_boss__6TLobbyFPv(0x10), dispatch_shared_handler_b__6TLobbyFPv(0xF), register_object__6TLobbyFPv(0x10));
+    M2C_FIELD(arg0, s16 *, 0x32C) = 0x4E20;
+    M2C_FIELD(arg0, s16 *, 0x2B8) = 0x4E20;
+    u32 p = __nw__7TObjectFUl(0x2C);
+    if (p != 0U) {
+        TObjPlayer__sub_802E72DC((void *)p, arg0, arg0 + 0x38, M2C_FIELD(arg0, s32 *, 0x3B8));
+    }
+    TBoss3Volopt__sub_8022675C(0x3A312, arg0 + 0x38, 0, 0);
+}
 
 void TBoss7Joint__vt91(void *arg0) {
     if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 6) {

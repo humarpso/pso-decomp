@@ -115,6 +115,9 @@ typedef struct S_802E451C {
     s32 f24;
 } S_802E451C;
 
+typedef s32 M2C_UNK;
+struct Hit_802E3D8C { s32 pad; void *pos; };
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 disallow_rendering__7TObjectFv(void *);
@@ -141,6 +144,10 @@ extern const f32 lbl_805DE914;
 extern const float lbl_805DE918;
 extern const f32 lbl_805DE924;
 void TObjPlayer__sub_802E451C(S_802E451C *arg0);
+Hit_802E3D8C *TObjButterflyLobby__sub_8007A5D8(void *, void *, s32);
+void set_flags__10TObjPlayerFPvUi(void *, u32);
+M2C_UNK VecCopy__FP3VecPC3Vec(M2C_UNK *, s32);
+void TItemAttackCol__sub_802E3D8C(u8 *arg0, void *arg1);
 }
 
 extern "C" {
@@ -153,7 +160,6 @@ void create__14TItemAttackColFPvPv(void *arg0, void *arg1);
 void shift_collision_bounds__14TItemAttackColFPv(void *arg0);
 M2C_UNK TBoss4Zako__sub_803D8910(M2C_UNK *, s32);
 void *TItemAttackCol__ct(void *, void *, void *);
-M2C_UNK TItemAttackCol__sub_802E3D8C(s32, M2C_UNK *);
 M2C_UNK VecCopy__FP3VecPC3Vec(M2C_UNK *, s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -175,10 +181,27 @@ void TItemAttackCol__vt5(s32 arg0) {
 
     VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0xD0);
     TBoss4Zako__sub_803D8910(&sp8, arg0 + 0x24);
-    TItemAttackCol__sub_802E3D8C(arg0, &sp8);
+    TItemAttackCol__sub_802E3D8C((u8 *)(arg0), (void *)(&sp8));
 }
 
 extern M2C_UNK __vt__14TItemAttackCol[];
+
+typedef void (*Cb_802E3D8C)(s32, void *, void *);
+void TItemAttackCol__sub_802E3D8C(u8 *arg0, void *arg1) {
+    Hit_802E3D8C *hit;
+    Cb_802E3D8C cb;
+    hit = TObjButterflyLobby__sub_8007A5D8(arg0 + 0x24, arg1, 0x8100);
+    if (hit != NULL) {
+        set_flags__10TObjPlayerFPvUi(arg0 + 0xE0, 1);
+        VecCopy__FP3VecPC3Vec((M2C_UNK *)(arg0 + 0x24), (s32)(hit->pos));
+        cb = M2C_FIELD(arg0, Cb_802E3D8C *, 0x138);
+        if (cb != NULL) {
+            cb(M2C_FIELD(arg0, s32 *, 0xAC), arg0 + 0x24, arg0 + 0xD0);
+        }
+    } else {
+        VecCopy__FP3VecPC3Vec((M2C_UNK *)(arg0 + 0x24), (s32)(arg1));
+    }
+}
 
 void run_task__14TItemAttackColFv(u8 *arg0) {
     u32 temp_r3;

@@ -11,8 +11,44 @@ struct S802C7498_802C70AC { u8 pad[0x118]; s32 arr[1]; };
 
 struct O_802C754C { u8 pad[0x110]; s32 v[1]; };
 
+struct E_802C74AC { f32 x; f32 y; f32 x2; f32 y2; u8 pad[0x10]; };
+
+struct V_802C74AC { f32 x; f32 y; };
+
+struct S_802C74AC {
+    u8 pad0[0x60];
+    E_802C74AC e[3];
+    V_802C74AC v[6];
+    s32 b[4];
+    u8 pad100[0x118 - 0x100];
+    s32 a[4];
+};
+
+struct E_802C7560 { f32 x; f32 y; f32 x2; f32 y2; u8 pad[0x10]; };
+
+struct V_802C7560 { f32 x; f32 y; };
+
+struct S_802C7560 {
+    u8 pad0[0x20];
+    E_802C7560 e[4];
+    u8 padA0[0xC0 - 0xA0];
+    V_802C7560 v[4];
+    u8 padE0[0xE8 - 0xE0];
+    s32 b[4];
+    u8 pad0xF8[0x110 - 0xF8];
+    s32 a[4];
+};
+
 extern "C" {
 void TAdChrSelSlotGC__sub_802C754C(O_802C754C *self, s32 i);
+extern const f32 lbl_805DE5CC;
+extern const f32 TAdChrSelSlotGC__data_805DE5D0;
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void TAdChrSelSlotGC__sub_802C74AC(S_802C74AC *arg0, s32 arg1, void *arg2);
+extern const f32 lbl_805DE5CC;
+extern const f32 lbl_805DE5D4;
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void TAdMcSelectGC__sub_802C7560(S_802C7560 *arg0, s32 arg1, void *arg2);
 }
 
 extern "C" {
@@ -88,8 +124,28 @@ void TAdChrSelSlotGC__sub_802C7498(struct S802C7498_802C70AC *arg0, s32 arg1) {
 
 extern u32 lbl_805D67F0;
 
+void TAdChrSelSlotGC__sub_802C74AC(S_802C74AC *arg0, s32 arg1, void *arg2) {
+    arg0->a[arg1] = 1;
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&arg0->v[arg1 + 2], arg2);
+    arg0->e[arg1].x = arg0->v[arg1 + 2].x;
+    arg0->e[arg1].y = arg0->v[arg1 + 2].y;
+    arg0->e[arg1].x2 = lbl_805DE5CC + arg0->v[arg1 + 2].x;
+    arg0->e[arg1].y2 = TAdChrSelSlotGC__data_805DE5D0 + arg0->v[arg1 + 2].y;
+    arg0->b[arg1] = 0;
+}
+
 void TAdChrSelSlotGC__sub_802C754C(O_802C754C *self, s32 i) {
     self->v[i] = 0;
+}
+
+void TAdMcSelectGC__sub_802C7560(S_802C7560 *arg0, s32 arg1, void *arg2) {
+    arg0->a[arg1] = 1;
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&arg0->v[arg1], arg2);
+    arg0->e[arg1].x = arg0->v[arg1].x;
+    arg0->e[arg1].y = arg0->v[arg1].y;
+    arg0->e[arg1].x2 = lbl_805DE5CC + arg0->v[arg1].x;
+    arg0->e[arg1].y2 = lbl_805DE5D4 + arg0->v[arg1].y;
+    arg0->b[arg1] = 0;
 }
 
 void TLobby__sub_802C78EC(void) {

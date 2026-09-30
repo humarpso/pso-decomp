@@ -7,6 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern u32 lbl_805D66B0;
 u16 TEffIndirectCtrl__sub_802A9478(u8 arg0, s32 arg1);
+void TLobby__sub_800F9DF4(void *, void *);
+s16 TEffIndirectCtrl__sub_802A920C(u8, u8, s32);
+void *xmalloc__FUl(u32);
+void *memset(void *, s32, u32);
+extern void *lbl_805D3E24;
+extern u32 lbl_805D66A8;
+extern u32 lbl_805D66B0;
+void TEffIndirectCtrl__sub_802A94A4(void);
 }
 
 extern "C" {
@@ -36,6 +44,26 @@ u16 TEffIndirectCtrl__sub_802A9478(u8 arg0, s32 arg1) {
         return M2C_FIELD((lbl_805D66B0 + ((arg0 + ((arg1 << 6) & 0x3FC0)) * 2)), u16 *, 0);
     }
     return 0U;
+}
+
+void TEffIndirectCtrl__sub_802A94A4(void) {
+    s32 i;
+    s32 j;
+    lbl_805D66A8 = (u32)xmalloc__FUl(0x200);
+    memset((void *)lbl_805D66A8, 0, 0x200);
+    lbl_805D66B0 = (u32)xmalloc__FUl(0x2000);
+    if (lbl_805D66B0 != 0) {
+        i = 0;
+        do {
+            j = 0;
+            do {
+                ((s16 *)lbl_805D66B0)[i * 0x40 + j] = TEffIndirectCtrl__sub_802A920C(j, i, 0x40);
+                j++;
+            } while (j < 0x40);
+            i++;
+        } while (i < 0x40);
+    }
+    TLobby__sub_800F9DF4(lbl_805D3E24, (void *)lbl_805D66A8);
 }
 
 void TEffIndirectCtrl__sub_802A9548(void* p) { *(s16*)((char*)p + 0x46) = 0; }

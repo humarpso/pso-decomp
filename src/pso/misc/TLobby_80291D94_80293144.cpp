@@ -28,6 +28,30 @@ struct Rec_802934E0 { s32 f; u8 pad[0x100]; };
 
 struct G_802934E0 { u8 pad[0x270]; Rec_802934E0 r[4]; };
 
+struct Rec_80293218 {
+    s32 f0;
+    u8 pad[0xB0];
+    u8 out[0x50];
+};
+
+struct G_80293218 {
+    s32 f0;
+    s32 f4;
+    s32 f8;
+    u8 pad[0x270 - 0xC];
+    Rec_80293218 r[4];
+};
+
+struct Rec_8029350C {
+    s32 f0;
+    u8 pad[0x100];
+};
+
+struct G_8029350C {
+    u8 pad[0x270];
+    Rec_8029350C r[4];
+};
+
 extern "C" {
 void TLobby__sub_802932B0(u8 *arg0, u8 *arg1);
 extern RecoveredGlobal_8029379C_lbl_804DAB60 lbl_804DAB60;
@@ -39,6 +63,19 @@ s32 get_main_phase();
 s32 is_split_screen();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TLobby__sub_8029359C(void *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 TWindowSubStatusDisp__sub_8006F190(s32);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+u8 *get_card_window__17TWindowSubComCardFUi(s32);
+void TLobby__sub_802932B0(u8 *arg0, u8 *arg1);
+extern M2C_UNK lbl_804DB1F0[];
+void TLobby__sub_80293218(s32 arg0);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+u8 *get_card_window__17TWindowSubComCardFUi(s32);
+void TLobby__sub_800703D0(void *, void *);
+void TLobby__sub_802934E0(void);
+extern M2C_UNK lbl_804DB1F0[];
+void TLobby__sub_8029350C(void);
 }
 
 extern "C" {
@@ -101,6 +138,22 @@ void setup_split_screen(void) {
 extern M2C_UNK lbl_804DB1F0[];
 extern s32 tl_07;
 
+void TLobby__sub_80293218(s32 arg0) {
+    u8 *p = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(arg0);
+    if (p != NULL) {
+        Rec_80293218 *r = &(*(G_80293218 *)&lbl_804DB1F0).r[arg0];
+        if (r->f0 != 0) {
+            u8 *o = r->out;
+            o[0] = TWindowSubStatusDisp__sub_8006F190(-1);
+            o[1] = (*(G_80293218 *)&lbl_804DB1F0).f0;
+            o[2] = (*(G_80293218 *)&lbl_804DB1F0).f8;
+            VecCopy__FP3VecPC3Vec(o + 4, p + 0x38);
+            u8 *w = get_card_window__17TWindowSubComCardFUi(arg0) + 0x2274;
+            TLobby__sub_802932B0(w, o);
+        }
+    }
+}
+
 void TLobby__sub_802932B0(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, u8 *, 0) = (u8) M2C_FIELD(arg1, u8 *, 0);
     M2C_FIELD(arg0, u8 *, 1) = (u8) M2C_FIELD(arg1, u8 *, 1);
@@ -121,6 +174,18 @@ void create_time_window2__6TLobbyFv(void) {
 void TLobby__sub_802934E0(void) {
     s32 i;
     for (i = 0; i < 4; i++) (*(G_802934E0 *)&lbl_804DB1F0).r[i].f = 0;
+}
+
+void TLobby__sub_8029350C(void) {
+    s32 i;
+    TLobby__sub_802934E0();
+    for (i = 0; i < 4; i++) {
+        if (TPlayerBattleCtrl4P__sub_801BA74C(i) != 0 && get_card_window__17TWindowSubComCardFUi(i) != NULL) {
+            Rec_8029350C *r = &(*(G_8029350C *)&lbl_804DB1F0).r[i];
+            r->f0 = 1;
+            TLobby__sub_800703D0((u8 *)r + 4, get_card_window__17TWindowSubComCardFUi(i) + 0x21C4);
+        }
+    }
 }
 
 s32 TLobby__sub_8029359C(void *arg0) {

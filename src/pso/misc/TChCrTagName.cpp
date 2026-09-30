@@ -13,6 +13,13 @@ struct RecoveredGlobal_802A28C0___vt__12TChCrTagName {
     u8 remaining[0x1C];
 };
 
+struct Tag_802A265C {
+    u8 pad[0x20];
+    s32 f20;
+    u8 pad24[0xC];
+    f32 f30;
+};
+
 extern "C" {
 u8 * __ct__8TChCrTagFv(void *, s32);
 extern RecoveredGlobal_802A28C0___vt__12TChCrTagName __vt__12TChCrTagName;
@@ -39,6 +46,11 @@ s32 get_selected_index__15TChCrCharSelectFv();
 s32 get_selected_char__15TChCrCharSelectFv();
 s32 get_instance__15TChCrCharSelectFv();
 s32 TChCrTagName__vt4(u8 *arg0);
+s32 get_selected_index__15TChCrCharSelectFv();
+s32 get_selected_char__15TChCrCharSelectFv();
+extern const f32 lbl_805DDE68;
+extern const f32 lbl_805DDE6C;
+f32 TChCrTagName__sub_802A265C(Tag_802A265C *arg0);
 }
 
 extern "C" {
@@ -56,6 +68,29 @@ void *__nw__7TObjectFUl(int);
 void render__12TChCrTagNameFv(void* p) { TChCrTagName__sub_802A2500(p); TChCrTagName__sub_802A226C(p); TChCrTagName__sub_802A208C(p); }
 
 #pragma fp_contract on
+
+#pragma fp_contract on
+f32 TChCrTagName__sub_802A265C(Tag_802A265C *arg0) {
+    s32 r;
+    switch (get_selected_index__15TChCrCharSelectFv()) {
+    case 0:
+        r = 0;
+        break;
+    default:
+        if (arg0->f20 / 4 == get_selected_char__15TChCrCharSelectFv()) {
+            r = 0;
+        } else {
+            r = 1;
+        }
+        break;
+    }
+    if (r != 0) {
+        return arg0->f30;
+    }
+    return lbl_805DDE6C * arg0->f30 + lbl_805DDE68;
+}
+#pragma fp_contract reset
+
 void TChCrTagName__sub_802A26E0(u8 *arg0) {
   f32 temp_f1;
   f32 temp_f2;

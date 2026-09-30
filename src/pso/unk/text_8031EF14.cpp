@@ -1,3 +1,42 @@
+#include "types.h"
+struct Obj_8031EF14 { u8 pad[0x410]; s32 count; u8 pad2[4]; u16 ids[6]; };
+
+struct Obj_8031F0F0 { u8 pad[0x410]; s32 count; u8 pad2[4]; u16 ids[6]; };
+
 extern "C" {
+u8 *TPhotonMylla__sub_80154CB4(u16);
+void TObjEneRecon__sub_8031EF14(Obj_8031EF14 *arg0, u8 *arg1);
+s32 check_v2_mode__9TObjEneDDFv();
+u8 *TPhotonMylla__sub_80154CB4(u16);
+u16 TObjEneRecon__sub_8031D878();
+s32 TObjEneRecon__sub_8031F0F0(Obj_8031F0F0 *arg0, u16 arg1);
+}
+
+extern "C" {
+
+void TObjEneRecon__sub_8031EF14(Obj_8031EF14 *arg0, u8 *arg1) {
+    s32 i;
+    for (i = 0; i < 6; i++) {
+        if (TPhotonMylla__sub_80154CB4(arg0->ids[i]) == arg1) {
+            arg0->count--;
+            arg0->ids[i] = arg0->ids[arg0->count];
+            arg0->ids[arg0->count] = 0xFFFF;
+            return;
+        }
+    }
+}
+s32 TObjEneRecon__sub_8031F0F0(Obj_8031F0F0 *arg0, u16 arg1) {
+    s32 n = 0;
+    s32 i;
+    for (i = 0; i < arg0->count; i++) {
+        if (TPhotonMylla__sub_80154CB4(arg0->ids[i]) != NULL && arg1 == TObjEneRecon__sub_8031D878()) {
+            n++;
+        }
+    }
+    if (check_v2_mode__9TObjEneDDFv() != 0) {
+        return n < 4;
+    }
+    return n < 2;
+}
 
 }

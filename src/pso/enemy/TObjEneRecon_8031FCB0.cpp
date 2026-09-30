@@ -111,6 +111,8 @@ struct VObj_18 : VBase_18 {
     virtual M2C_UNK m103();
 };
 
+struct Obj_8031FE14 { u8 pad[0x18]; void *vt; };
+
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
@@ -126,6 +128,14 @@ s32 TObjEneRecon__sub_8031F600(void *, void *);
 s32 TObjEneRecon__sub_8031F6C0(void *, void *);
 s32 handle_state__12TObjEneReconFPvi(void *, void *);
 void TObjEneRecon__sub_8031FCB0(s32 arg0, u32 arg1, s32 arg2);
+void __dt__9TObjEneDDFv(void *, int);
+void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
+void TObjEneGibbles__sub_80156720(void *);
+void __dl__7TObjectFPv(void *);
+void __destroy_arr(void *, void *, int, int);
+extern u8 TObjPlayer__sub_800D7C58[];
+extern u8 lbl_804EC7A0[];
+Obj_8031FE14 *fn_8031FE14(Obj_8031FE14 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -172,6 +182,19 @@ void fn_8031FD3C(u8 *arg0) {
     set_player_state_default__12TBoss8DragonFPv((void *) (arg0));
     ((VObj_18 *)(arg0))->m98();
     TObjEneRecon__sub_8031EE54((void *) (arg0));
+}
+Obj_8031FE14 *fn_8031FE14(Obj_8031FE14 *arg0, s16 arg1) {
+    if (arg0 != 0) {
+        arg0->vt = lbl_804EC7A0;
+        TObjEneGibbles__sub_80156720(arg0);
+        __destroy_arr((u8 *)arg0 + 0x460, TObjPlayer__sub_800D7C58, 0x1C, 4);
+        __dt__18TObjEneMe3SinowZoaFPvs((u8 *)arg0 + 0x3C0, -1);
+        __dt__9TObjEneDDFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
 }
 
 }

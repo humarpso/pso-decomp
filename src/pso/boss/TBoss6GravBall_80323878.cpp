@@ -4,6 +4,24 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Obj_80323D20 {
+    s32 f0; u8 pad[0xAC - 4]; s32 fAC; s32 fB0; s32 fB4; u8 padB8[4]; f32 fBC; s32 fC0; s32 fC4; f32 pos[3];
+};
+
+struct Vt_80323D20 { u8 pad[0x18]; void *vt; };
+
+extern "C" {
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void TObjPlayer__sub_801569F4(void *);
+M2C_UNK TBoss6GravBall__sub_80323278(void *, int);
+void TBoss6GravBall__sub_80323320(void *);
+extern s32 lbl_8047667C[];
+extern M2C_UNK __vt__14TBoss6GravBall[];
+extern s32 lbl_805D4170;
+extern const f32 TBoss6GravBall__data_805DF550;
+Obj_80323D20 *TBoss6GravBall__ct(Obj_80323D20 *arg0, s32 arg1, void *arg2);
+}
+
 extern "C" {
 
 void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1);
@@ -97,6 +115,24 @@ void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1) {
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
+    }
+    return arg0;
+}
+Obj_80323D20 *TBoss6GravBall__ct(Obj_80323D20 *arg0, s32 arg1, void *arg2) {
+    s32 i;
+    TObjPlayer__sub_801569F4(arg0);
+    ((u8 **)arg0)[0x18 / 4] = ((u8 *)&__vt__14TBoss6GravBall);
+    arg0->f0 = lbl_805D4170;
+    arg0->fAC = arg1;
+    VecCopy__FP3VecPC3Vec(arg0->pos, arg2);
+    arg0->fB4 = 0;
+    arg0->fB0 = 0;
+    arg0->fBC = TBoss6GravBall__data_805DF550;
+    arg0->fC0 = 0;
+    arg0->fC4 = 0;
+    TBoss6GravBall__sub_80323320(arg0);
+    for (i = 0; i < 2; i++) {
+        TBoss6GravBall__sub_80323278((void *)(arg0), (int)(lbl_8047667C[i]));
     }
     return arg0;
 }

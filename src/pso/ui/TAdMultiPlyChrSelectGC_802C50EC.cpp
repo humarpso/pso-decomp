@@ -25,6 +25,30 @@ typedef struct S_802C59EC {
 
 typedef struct G_802C6A10 { s32 value; u8 remaining[0xC]; } G_802C6A10;
 
+struct S_802C5594 {
+    u8 pad0[0x4DC];
+    s32 x[3];
+    u8 pad4E8[0x500 - 0x4E8];
+    s32 y[4][3];
+    s32 f530;
+};
+
+struct E_802C5944 { f32 x; f32 y; u8 pad[0x18]; };
+
+struct V_802C5944 { f32 x; f32 y; };
+
+struct S_802C5944 {
+    u8 pad0[0x24];
+    E_802C5944 e[4][3];
+    u8 pad1a4[0x384 - 0x1A4];
+    V_802C5944 v[4][3];
+    u8 pad3e4[0x444 - 0x3E4];
+    s32 a[4][3];
+    u8 pad474[0x4A4 - 0x474];
+    f32 ox;
+    f32 oy;
+};
+
 extern "C" {
 void TAdMultiPlyChrSelectGC__sub_802C5BCC(s32 arg0, s32 *arg1, s32 *arg2);
 int TAdMultiPlyChrSelectGC__sub_802C65C0(void);
@@ -66,6 +90,15 @@ extern s32 TAdMultiPlyChrSelectGC__data_804E0A58[];
 extern int TAdMultiPlyChrSelectGC__data_805D67D8;
 void TAdMultiPlyChrSelectGC__sub_802C5B7C(void);
 void TAdMultiPlyChrSelectGC__sub_802C6A10(void);
+extern s32 TAdMultiPlyChrSelectGC__data_804E0AE0[];
+extern f32 TAdMultiPlyChrSelectGC__data_804E0AF0[];
+extern int TAdMultiPlyChrSelectGC__data_805D67D8;
+extern const f32 TAdMultiPlyChrSelectGC__data_805DE56C;
+void TAdMultiPlyChrSelectGC__sub_802C5594(S_802C5594 *arg0);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *);
+void TAdMultiPlyChrSelectGC__sub_802C5944(S_802C5944 *arg0, s32 arg1, s32 arg2, s32 arg3);
+extern s32 TAdMultiPlyChrSelectGC__data_804E0A58[];
+void TAdMultiPlyChrSelectGC__sub_802C689C(s32 arg0);
 }
 
 extern "C" {
@@ -90,6 +123,30 @@ void update__22TAdMultiPlyChrSelectGCFi(s32 arg0) {
             break;
         }
     }
+}
+
+void TAdMultiPlyChrSelectGC__sub_802C5594(S_802C5594 *arg0) {
+    u32 i;
+    s32 j;
+    for (i = 0; i < 4; i++) {
+        TAdMultiPlyChrSelectGC__data_804E0AE0[i] = 0;
+        TAdMultiPlyChrSelectGC__data_804E0AF0[i] = TAdMultiPlyChrSelectGC__data_805DE56C;
+        for (j = 0; j < 3; j++) {
+            arg0->y[i][j] = 0;
+            arg0->x[j] = 0;
+        }
+    }
+    (*(s32 *)&TAdMultiPlyChrSelectGC__data_805D67D8) = 0;
+    arg0->f530 = 0;
+}
+
+void TAdMultiPlyChrSelectGC__sub_802C5944(S_802C5944 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&arg0->v[arg2][arg3]);
+    arg0->e[arg2][arg3].x = arg0->v[arg2][arg3].x;
+    arg0->e[arg2][arg3].y = arg0->v[arg2][arg3].y;
+    arg0->e[arg2][arg3].x = arg0->v[arg2][arg3].x + arg0->ox;
+    arg0->e[arg2][arg3].y = arg0->v[arg2][arg3].y + arg0->oy;
+    arg0->a[arg2][arg3] = 0;
 }
 
 void TAdMultiPlyChrSelectGC__sub_802C59EC(S_802C59EC *arg0, s32 arg1) {
@@ -203,6 +260,22 @@ s32 TAdMultiPlyChrSelectGC__sub_802C6848(s32 arg0) {
         return 0;
     }
     return M2C_FIELD(M2C_FIELD(TKeyBoardControl__sub_803DEB74(M2C_FIELD(((u8 *)(&lbl_804E0B00.value) + (arg0 * 4)), u32 *, 0)), s32 **, 0x30), s32 *, 0) & 1;
+}
+
+void TAdMultiPlyChrSelectGC__sub_802C689C(s32 arg0) {
+    u32 i;
+    u32 j;
+    for (i = 0; i < 4; i++) {
+        if (arg0 == TAdMultiPlyChrSelectGC__data_804E0A58[i]) {
+            for (j = i; j < 4; j++) {
+                if (j < 3) {
+                    TAdMultiPlyChrSelectGC__data_804E0A58[j] = TAdMultiPlyChrSelectGC__data_804E0A58[j + 1];
+                }
+            }
+            TAdMultiPlyChrSelectGC__data_804E0A58[3] = -1;
+            return;
+        }
+    }
 }
 
 void TAdMultiPlyChrSelectGC__sub_802C6988(void) {

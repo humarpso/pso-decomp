@@ -4,6 +4,24 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Ent_8032A574 { f32 a, b, c, d; u8 pad[0x10]; };
+
+struct Obj_8032A574 {
+    s32 f0; u8 pad[0x14]; void *vt; s32 f1C; s32 f20; s32 f24; u8 pad2[0x38 - 0x28];
+    Ent_8032A574 ents[8];
+};
+
+struct Alt_8032A574 { u8 pad[0x128]; s32 f128, f12C, f130, f134, f138, f13C; };
+
+extern "C" {
+void __ct__7TObjectFP7TObject(void *);
+extern M2C_UNK __vt__19TAdMcSelectCursorGC[];
+extern s32 lbl_805D41D0;
+extern const f32 lbl_805DF740;
+extern const f32 lbl_805DF744;
+Obj_8032A574 *TAdMcSelectCursorGC__ct(Obj_8032A574 *arg0);
+}
+
 extern "C" {
 
 void *__dt__19TAdMcSelectCursorGCFv(void *arg0, s16 arg1);
@@ -66,6 +84,27 @@ void *__dt__19TAdMcSelectCursorGCFv(void *arg0, s16 arg1) {
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
+    }
+    return arg0;
+}
+Obj_8032A574 *TAdMcSelectCursorGC__ct(Obj_8032A574 *arg0) {
+    s32 i;
+    __ct__7TObjectFP7TObject(arg0);
+    arg0->vt = ((u8 *)&__vt__19TAdMcSelectCursorGC);
+    arg0->f0 = lbl_805D41D0;
+    ((Alt_8032A574 *)arg0)->f138 = 0;
+    ((Alt_8032A574 *)arg0)->f12C = 0;
+    ((Alt_8032A574 *)arg0)->f134 = 0;
+    ((Alt_8032A574 *)arg0)->f128 = 0;
+    ((Alt_8032A574 *)arg0)->f13C = 1;
+    arg0->f1C = 0;
+    arg0->f20 = 0;
+    arg0->f24 = arg0->f20;
+    for (i = 0; i < 8; i++) {
+        arg0->ents[i].a = lbl_805DF740;
+        arg0->ents[i].b = lbl_805DF740;
+        arg0->ents[i].c = lbl_805DF744;
+        arg0->ents[i].d = lbl_805DF744;
     }
     return arg0;
 }

@@ -4,6 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+struct VB_802E74E4 { u8 pad[0xC]; };
+
+struct VObj_802E74E4 : VB_802E74E4 { virtual void m0(int); };
+
 extern "C" {
 f32 TBoss4Zako__sub_803D8910(void *, void *);
 extern const f32 lbl_805DE9CC;
@@ -17,6 +22,11 @@ extern const f32 lbl_805DEA04;
 extern const f32 lbl_805DEA08;
 extern const f32 lbl_805DEA0C;
 s32 TObjPlayer__sub_802E76C8(u8 *arg0);
+M2C_UNK __dt__7TObjectFv(void *, int);
+M2C_UNK free__11TOBoss4RockFUi(int);
+void __dl__7TObjectFPv(void *);
+extern M2C_UNK lbl_804E3BD8[];
+u8 *TObjPlayer__sub_802E74E4(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -33,7 +43,6 @@ void destroy_child__8TObjFishFPv(void* p);
 int get_instance__10TObjPlayerFv(void);
 void *init_zeroed_object__10TObjPlayerFPv(void *arg0);
 s32 *TBreakUpMdl__sub_8009705C(s32 *, s32);
-void TObjPlayer__sub_802E74E4(void *, int);
 s32 TObjPlayer__sub_802E75B8(void *, s32 *);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
@@ -49,7 +58,7 @@ extern M2C_UNK lbl_804E3BA8[];
 void *TObjPlayer__sub_802E6EB8(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E3BA8;
-        TObjPlayer__sub_802E74E4(arg0, 0);
+        TObjPlayer__sub_802E74E4((u8 *)(arg0), (s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -65,7 +74,7 @@ extern M2C_UNK lbl_804E3BC0[];
 void *TObjPlayer__sub_802E7284(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E3BC0;
-        TObjPlayer__sub_802E74E4(arg0, 0);
+        TObjPlayer__sub_802E74E4((u8 *)(arg0), (s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -91,6 +100,23 @@ void alloc_breakup_model__10TObjPlayerFPvi(void *arg0, s32 arg1) {
 }
 
 extern M2C_UNK lbl_804E3BD8[];
+
+u8 *TObjPlayer__sub_802E74E4(u8 *arg0, s16 arg1) {
+    VObj_802E74E4 *temp_r3;
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E3BD8;
+        free__11TOBoss4RockFUi(M2C_FIELD(arg0, s32 *, 0x28));
+        temp_r3 = M2C_FIELD(arg0, VObj_802E74E4 **, 0x1C);
+        if (temp_r3 != NULL) {
+            temp_r3->m0(1);
+        }
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
 
 void *init_zeroed_object__10TObjPlayerFPv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);

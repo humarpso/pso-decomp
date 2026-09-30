@@ -5,6 +5,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 get_main_phase();
+s32 is_split_screen();
+s32 TCameraCtrl__sub_8006B368();
+M2C_UNK create_tasks__6TLobbyFv();
+s32 check_disconnect_conditions__6TLobbyFv();
+M2C_UNK TObjLight__sub_80133D78();
+void dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
+M2C_UNK get_global_state__14TOKeyMachine01Fv();
+void TLobby__sub_80226E44(s32);
+M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK TLobby__sub_80227FB4();
+void create_mist_ctrl__6TLobbyFPvPv(void *, void *);
+s32 is_not_split_screen__13TRaderMapCoreFv();
+extern s32 lbl_804651C0[];
+extern void *tl_05;
+s32 TLobby__sub_80299C7C(void);
+}
+
+extern "C" {
 
 s32 init_particle_model__6TLobbyFv(void);
 s32 init_scene_delo2(void);
@@ -101,6 +120,32 @@ s32 init_scene_delo2(void) {
 }
 
 void update_floor_state_deferred__6TLobbyFv(void) { refresh_render_state__6TLobbyFv(); TLobby__sub_8022743C(); reset_keyboard_control__6TLobbyFv(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
+
+s32 TLobby__sub_80299C7C(void) {
+    get_global_state__14TOKeyMachine01Fv();
+    TLobby__sub_80227FB4();
+    if (check_disconnect_conditions__6TLobbyFv() != 0) {
+        return 0;
+    }
+    TObjLight__sub_80133D78();
+    create_tasks__6TLobbyFv();
+    if ((get_main_phase() != 0xE) || (TCameraCtrl__sub_8006B368() == 0)) {
+        switch (((s32)get_global_state__14TOKeyMachine01Fv())) {
+        case 0x17:
+            dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x51);
+            break;
+        }
+    }
+    if (is_split_screen() != 0) {
+        TObjBgmColCtrl__sub_802274B8((M2C_UNK *)(lbl_804651C0));
+    } else {
+        TLobby__sub_80226E44(5);
+    }
+    if ((is_not_split_screen__13TRaderMapCoreFv() == 0) && (((s32)get_global_state__14TOKeyMachine01Fv()) == 0x17)) {
+        create_mist_ctrl__6TLobbyFPvPv(tl_05, NULL);
+    }
+    return 1;
+}
 
 void update_scene_alt__6TLobbyFv(void) { refresh_render_state__6TLobbyFv(); TLobby__sub_8022743C(); reset_keyboard_control__6TLobbyFv(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
 

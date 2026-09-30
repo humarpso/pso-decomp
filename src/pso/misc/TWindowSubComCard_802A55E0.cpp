@@ -4,9 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct P_802A5628 { u8 pad[0x30]; f32 x; f32 y; };
+
+struct O_802A5628 { u8 pad[0x28]; P_802A5628 *a; P_802A5628 *b; };
+
+struct V_802A5628 { f32 x, y; };
+
+extern "C" {
+void TWindowSubTradeMain__sub_802448E4(void *, void *);
+void get_position_offset__14TChCrTagPlBackFPvPv(void *, void *);
+void TWindowSubComCard__sub_802A5628(O_802A5628 *arg0, V_802A5628 *arg1);
+}
+
 extern "C" {
 
-int TWindowSubComCard__sub_802A5628(void);
 void free_windows__17TWindowSubComCardFPv(void *arg0);
 void notify_trade_main__17TWindowSubComCardFPv(void* p);
 void update_card_slot__17TWindowSubComCardFPv(void* p);
@@ -40,7 +51,20 @@ void free_windows__17TWindowSubComCardFPv(void *arg0) {
     }
 }
 
-int TWindowSubComCard__sub_802A5628(void) { return 0; }
+void TWindowSubComCard__sub_802A5628(O_802A5628 *arg0, V_802A5628 *arg1) {
+    V_802A5628 v;
+    P_802A5628 *p = arg0->a;
+    if (p != NULL && (p->x != arg1->x || p->y != arg1->y)) {
+        TWindowSubTradeMain__sub_802448E4(p, arg1);
+    }
+    if (arg0->b != NULL) {
+        get_position_offset__14TChCrTagPlBackFPvPv(arg0, &v);
+        p = arg0->b;
+        if (p->x != v.x || p->y != v.y) {
+            TWindowSubTradeMain__sub_802448E4(p, &v);
+        }
+    }
+}
 
 void update_card_slot__17TWindowSubComCardFPv(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) set_flag_40__16TAdChrSelASlotGCFPv(m); }
 void notify_trade_main__17TWindowSubComCardFPv(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) clear_trade_flag__19TWindowSubTradeMainFPv(m); }

@@ -18,6 +18,8 @@ struct W_80290250 { u8 pad[0xfc]; s32 bufp; s32 rc; u8 data[4]; };
 
 struct E_8028F210 { s32 f0; u8 pad4[0xC]; s32 f10; s32 f14; u8 pad18[0x16C]; s32 f184; s32 f188; u8 pad18c[0x16C]; s32 f2f8; u8 pad2fc[0x170]; };
 
+struct Pair_802907E4 { u32 a; u32 b; };
+
 extern "C" {
 extern const f32 lbl_805DD944;
 extern const f32 lbl_805DD948;
@@ -58,6 +60,12 @@ void TCharaMaking__sub_8028E3A0();
 void *TAdSinglePlyChrSelectGC__sub_8028FB74(void *, s32 *);
 s32 TAdSinglePlyChrSelectGC__sub_8028FBCC(u8 *arg0);
 void TAdSinglePlyChrSelectGC__sub_8028FAEC(void *arg0, s32 *arg1);
+void TAdSinglePlyChrSelectGC__sub_80290884(void* p, void* q);
+extern u8 lbl_80451CD0[];
+extern Pair_802907E4 lbl_80540888[];
+extern Pair_802907E4 lbl_805408D8[];
+extern Pair_802907E4 lbl_80540928[];
+void TAdSinglePlyChrSelectGC__sub_802907E4(void* _w0);
 }
 
 extern "C" {
@@ -74,7 +82,6 @@ void update_char_panels__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 void update_pair__23TAdSinglePlyChrSelectGCFPv(void* p);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8028FD90();
 int TAdSinglePlyChrSelectGC__sub_8029071C(void*);
-int TAdSinglePlyChrSelectGC__sub_802907E4(void*);
 M2C_UNK TLobby__sub_803DA16C(void *);
 int TObjPlayer__sub_8014394C(void*);
 int draw_model_with_callback__10TObjPlayerFPv(void*);
@@ -325,7 +332,17 @@ u8 is_active__23TAdSinglePlyChrSelectGCFv(void) {
     return (u8) (lbl_805D6530 == 1);
 }
 
+void TAdSinglePlyChrSelectGC__sub_802907E4(void* _w0) {
+    for (s32 i = 0; i < 10; i++) {
+        TAdSinglePlyChrSelectGC__sub_80290884((void*)(&lbl_80540888[i]), (void*)(lbl_80451CD0));
+        TAdSinglePlyChrSelectGC__sub_80290884((void*)(&lbl_805408D8[i]), (void*)(lbl_80451CD0));
+    }
+    for (s32 i = 0; i < 5; i++) {
+        TAdSinglePlyChrSelectGC__sub_80290884((void*)(&lbl_80540928[i]), (void*)(lbl_80451CD0));
+    }
+}
+
 void TAdSinglePlyChrSelectGC__sub_80290884(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
-void update_pair__23TAdSinglePlyChrSelectGCFPv(void* p) { TAdSinglePlyChrSelectGC__sub_802907E4(p); TAdSinglePlyChrSelectGC__sub_8029071C(p); }
+void update_pair__23TAdSinglePlyChrSelectGCFPv(void* p) { TAdSinglePlyChrSelectGC__sub_802907E4((void*)(p)); TAdSinglePlyChrSelectGC__sub_8029071C(p); }
 
 }

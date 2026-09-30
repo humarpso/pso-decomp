@@ -1,5 +1,19 @@
 #include "types.h"
 
+struct Node_802FDDD4 {
+    u8 pad0[4];
+    s32 v;
+    u8 pad1[0x24];
+    Node_802FDDD4 *c0;
+    Node_802FDDD4 *c1;
+    u8 pad2[4];
+};
+
+extern "C" {
+void TBoss1Dragon__sub_8002ACE0(u8 *, u8 *);
+Node_802FDDD4 *TBoss8Dragon__sub_802FDDD4(Node_802FDDD4 *src, Node_802FDDD4 *dst, s32 v);
+}
+
 extern "C" {
 
 void bswap_packet__12TBoss8DragonFPv(void* p);
@@ -17,7 +31,21 @@ void TBoss8Dragon__sub_802FDE7C(void);
 void TBoss8Dragon__sub_802FDE80(void);
 void build_6xA8_gol_dragon_boss_actions(void* p);
 
-int TBoss8Dragon__sub_802FDDD4(void) { return 0; }
+Node_802FDDD4 *TBoss8Dragon__sub_802FDDD4(Node_802FDDD4 *src, Node_802FDDD4 *dst, s32 v) {
+    Node_802FDDD4 *cur = dst;
+    dst = dst + 1;
+    TBoss1Dragon__sub_8002ACE0((u8 *)cur, (u8 *)src);
+    cur->v = v;
+    if (src->c0 != NULL) {
+        cur->c0 = dst;
+        dst = TBoss8Dragon__sub_802FDDD4(src->c0, dst, v);
+    }
+    if (src->c1 != NULL) {
+        cur->c1 = dst;
+        dst = TBoss8Dragon__sub_802FDDD4(src->c1, dst, v);
+    }
+    return dst;
+}
 
 void build_6xA8_gol_dragon_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 168; *(u8*)((char*)p + 0x1) = 6; }
 
