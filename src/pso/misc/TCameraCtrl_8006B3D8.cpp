@@ -28,6 +28,28 @@ struct RecoveredFields_8006B588_arg0
   s32 field_34;
 };
 
+typedef s32 M2C_UNK;
+#define VIEW_8006B798 ((View_8006B798 *)lbl_805D4DF0)
+struct V_8006B798 { f32 x, y, z; };
+
+struct View_8006B798 {
+    u8 pad0[0x178];
+    V_8006B798 pos;
+    V_8006B798 tgt;
+};
+
+struct Obj_8006B798 {
+    u8 pad0[0x18];
+    void *vt;
+    f32 f1c;
+    s16 f20;
+    u16 f22;
+    s16 f24;
+    u8 pad26[2];
+    V_8006B798 pos;
+    V_8006B798 tgt;
+};
+
 extern "C" {
 s32 is_split_screen(void);
 void *__nw__7TObjectFUl(int);
@@ -56,6 +78,15 @@ extern const M2C_UNK lbl_80488AD8[];
 extern u32 lbl_805D4DF0;
 extern s32 TCameraCtrl__data_805D4E10;
 u8 *TCameraCtrl__sub_8006B588(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+void TCameraCtrl__sub_8006CD78(void *, void *);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+void TNpcPlayer__sub_803D97B4(void *);
+f32 TObjPlayer__sub_803E1A58(void *, void *);
+extern M2C_UNK lbl_80488AF0[];
+extern const f32 lbl_805D8FFC;
+M2C_UNK TCameraCtrl__sub_8006B798(void *p, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 }
 
 extern "C" {
@@ -69,7 +100,6 @@ void *destroy__11TCameraCtrlFPvs(void *arg0, s16 arg1);
 void update_active_player__11TCameraCtrlFv(void);
 void update_battle_camera__11TCameraCtrlFv(void);
 M2C_UNK TCameraCtrl__sub_80069DA8();
-M2C_UNK TCameraCtrl__sub_8006B798(void *, s32, s32, s32, s32);
 void *TCameraCtrl__sub_8006BA68(void *);
 void TCameraCtrl__sub_8006CCEC();
 M2C_UNK TObjPlayer__sub_801B12CC();
@@ -165,7 +195,7 @@ u8 *TCameraCtrl__sub_8006B588(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
 void create__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
     void *obj = __nw__7TObjectFUl((int)(0x40));
     if (obj != NULL) {
-        TCameraCtrl__sub_8006B798(obj, arg0, arg1, arg2, tl_07);
+        TCameraCtrl__sub_8006B798((void *)(obj), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(tl_07));
     }
 }
 
@@ -182,6 +212,41 @@ void *destroy__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+#pragma push
+#pragma fp_contract on
+#pragma opt_common_subs off
+M2C_UNK TCameraCtrl__sub_8006B798(void *p, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+#define arg0 ((Obj_8006B798 *)p)
+    V_8006B798 d;
+    f32 dist;
+    __ct__7TObjectFP7TObject(arg0, (void *)arg4);
+    arg0->vt = lbl_80488AF0;
+    dist = TObjPlayer__sub_803E1A58(&VIEW_8006B798->pos, &VIEW_8006B798->tgt);
+    VecCopy__FP3VecPC3Vec(&arg0->pos, (void *)arg1);
+    VecCopy__FP3VecPC3Vec(&arg0->tgt, &VIEW_8006B798->tgt);
+    if (arg2 == 0) {
+        arg0->f22 = 1;
+    } else {
+        arg0->f22 = arg2;
+    }
+    arg0->f24 = arg3;
+    d.x = arg0->pos.x - VIEW_8006B798->pos.x;
+    d.y = arg0->pos.y - VIEW_8006B798->pos.y;
+    d.z = arg0->pos.z - VIEW_8006B798->pos.z;
+    if (lbl_805D8FFC != TBoss6Kakusan__sub_803D8BD8(&d)) {
+        TNpcPlayer__sub_803D97B4(&d);
+    }
+    arg0->pos.x = d.x * dist + VIEW_8006B798->pos.x;
+    arg0->pos.y = d.y * dist + VIEW_8006B798->pos.y;
+    arg0->pos.z = d.z * dist + VIEW_8006B798->pos.z;
+    arg0->f1c = TObjPlayer__sub_803E1A58(&arg0->pos, &VIEW_8006B798->tgt) / (f32)arg0->f22;
+    arg0->f20 = 0;
+    TCameraCtrl__sub_8006CD78(&VIEW_8006B798->pos, &VIEW_8006B798->tgt);
+    return (M2C_UNK)arg0;
+#undef arg0
+}
+#pragma pop
 
 void *TCameraCtrl__vt9(void) {
     void *o = __nw__7TObjectFUl((int)(0x6C));

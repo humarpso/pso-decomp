@@ -27,6 +27,8 @@ struct A_80084694 { u8 pad[0x8]; u32 f8; };
 
 struct G_80084694 { A_80084694 *a; u8 pad[0x1c]; };
 
+struct GXColor_80083B8C { u8 r, g, b, a; };
+
 extern "C" {
 extern int lbl_805D4EE0;
 void TObjPlayer__sub_80083FB0(void);
@@ -82,6 +84,36 @@ void TObjPlayer__sub_800846C8(s32 wide);
 void **TLobby__sub_803DA16C();
 extern G_800845F8 lbl_8048E5B4;
 void **TObjPlayer__sub_80084694(void);
+s32 is_split_screen();
+M2C_UNK TCameraCtrl__sub_80068EF0();
+s32 check_all_players_ready__10TObjPlayerFv(void);
+M2C_UNK set_cull_none__8TObjFishFv();
+u8 TObjBoss2Tunnel__sub_8036EF44();
+M2C_UNK GXPixModeSync();
+M2C_UNK GXSetTexCopySrc(int, int, int, int);
+M2C_UNK GXSetTexCopyDst(int, int, int, int);
+void GXSetCopyClear(GXColor_80083B8C, u32);
+M2C_UNK Dolphin_GXSetCopyFilter(int, void *, int, void *);
+M2C_UNK GXCopyTex(void *, int);
+M2C_UNK GXSetProjection(void *, int);
+M2C_UNK GXSetViewport(f32, f32, f32, f32, f32, f32);
+M2C_UNK GXSetScissor(int, int, int, int);
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TObjPlayer__sub_803DD5E0(int);
+M2C_UNK TObjLight__sub_803DF268(f32, f32, f32);
+M2C_UNK TObjLight__sub_803DF31C(int, int);
+M2C_UNK TObjLight__sub_803DF528(int);
+extern M2C_UNK lbl_8048E5C8[];
+extern M2C_UNK lbl_8058CA60[];
+extern u32 lbl_805D4DF0;
+extern u8 *lbl_805D7734;
+extern const f32 lbl_805D93D0;
+extern const f32 lbl_805D93D8;
+extern const f32 lbl_805D9404;
+extern const f32 lbl_805D9408;
+extern const f32 lbl_805D9430;
+extern GXColor_80083B8C lbl_805E120C;
+void func_80083a00__Fv(void);
 }
 
 extern "C" {
@@ -107,6 +139,33 @@ void draw_if_all_ready__10TObjPlayerFv(void) {
 #pragma push
 #pragma fp_contract on
 typedef char RecoveredGlobal_80083CEC_lbl_8048E5D0_size[sizeof(RecoveredGlobal_80083CEC_lbl_8048E5D0) == 0xC ? 1 : -1];
+
+void func_80083a00__Fv(void) {
+    u8 *temp_r31;
+    if ((is_split_screen() == 0) && (check_all_players_ready__10TObjPlayerFv() != 0) && ((u32) lbl_805D4DF0 != 0U)) {
+        TObjPlayer__sub_803D9B78();
+        TObjPlayer__sub_803D9B78();
+        GXColor_80083B8C c = lbl_805E120C;
+        Dolphin_GXSetCopyFilter((int) (0U), (void *) (NULL), (int) (0U), (void *) (NULL));
+        set_cull_none__8TObjFishFv();
+        GXSetCopyClear(c, 0xFFFFFF);
+        GXSetTexCopySrc((int) (0), (int) (0), (int) (0x100), (int) (0x100));
+        GXSetTexCopyDst((int) (0x100), (int) (0x100), (int) (2), (int) (0));
+        GXCopyTex((void *) (M2C_FIELD(M2C_FIELD(M2C_FIELD(((u8 **)lbl_8048E5C8)[0], u8 **, 8), void **, 0xC), s32 *, 0x20)), (int) (1));
+        GXPixModeSync();
+        temp_r31 = (u8 *)(lbl_805D7734);
+        Dolphin_GXSetCopyFilter((int) (M2C_FIELD(temp_r31, u8 *, 0x19)), (void *) (temp_r31 + 0x1A), (int) (TObjBoss2Tunnel__sub_8036EF44()), (void *) (temp_r31 + 0x32));
+        GXSetViewport((f32) (lbl_805D93D0), (f32) (lbl_805D93D0), (f32) (lbl_805D9404), (f32) (lbl_805D9408), (f32) (lbl_805D93D0), (f32) (lbl_805D93D8));
+        GXSetScissor((int) (0), (int) (0), (int) (0x280), (int) (0x1E0));
+        GXSetProjection((void *) (lbl_8058CA60), (int) (0));
+        TObjLight__sub_803DF268((f32) (lbl_805D9430), (f32) (lbl_805D9430), (f32) (lbl_805D9430));
+        TObjLight__sub_803DF31C((int) (0), (int) (1));
+        TObjLight__sub_803DF528((int) (0));
+        TObjPlayer__sub_803DD5E0((int) (0));
+        TCameraCtrl__sub_80068EF0();
+    }
+}
+
 s32 TObjPlayer__sub_80083CEC(u8 *arg0, f32 farg0) {
     if (((u32) lbl_805D4DF0 != 0U) && (((farg0 * farg0) + TObjPlayer__sub_80141CF8(arg0, &lbl_8048E5D0.value)) <= lbl_805D9434)) {
         return 1;

@@ -34,6 +34,20 @@ typedef struct Obj_800498E8 {
     s16 fdc;
 } Obj_800498E8;
 
+struct Dmg_80049A1C { s32 type; f32 val; };
+
+struct VBase_80049A1C { char pad[0x18]; };
+
+struct VObj_80049A1C : VBase_80049A1C {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20();
+    virtual void m21(s32, Dmg_80049A1C *, s32, s32, s32);
+};
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void copy_vec3__11TBoss4Type2FPvPv(void *, void *);
@@ -67,6 +81,21 @@ extern u8 lbl_80484A68[];
 extern M2C_UNK lbl_80484A94[];
 extern u8 lbl_8058D490[];
 Obj_800498E8 *TObjPlayer__sub_800498E8(Obj_800498E8 *arg0, Obj_800498E8 *arg1, void *arg2, s32 arg3);
+s32 TObjPlayer__sub_80019570(void *);
+void queue_destruction__7TObjectFv(void *);
+s32 TBoss3Volopt__sub_8003F398();
+VObj_80049A1C *get_battle_param__10TObjPlayerFi(s32);
+s32 TObjVoloptPillar__sub_80048118(s32);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, s32);
+M2C_UNK init_all_slots__10TObjPlayerFv();
+M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
+M2C_UNK TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+s32 rand__11TOBoss4RockFv();
+extern Dmg_80049A1C lbl_80436710[];
+extern const f32 lbl_805D8898;
+extern const f32 lbl_805D889C;
+extern const f32 lbl_805D88A0;
+void TBoss3Volopt__sub_80049A1C(u8 *arg0);
 }
 
 extern "C" {
@@ -195,6 +224,35 @@ f32 TObjPlayer__sub_800499FC(s32 arg0) {
 void TObjPlayer__sub_80049A0C(void* p) { *(u32*)((char*)p + 0x388) &= 0xffefffff; }
 
 extern s32 some_id_805c6f74;
+
+void TBoss3Volopt__sub_80049A1C(u8 *arg0) {
+    Dmg_80049A1C d = lbl_80436710[0];
+    s32 i;
+    VObj_80049A1C *p;
+    d.val = TObjVoloptPillar__sub_80048118(0);
+    if (TBoss3Volopt__sub_8003F398() != 0 && lbl_805D8898 * (f32)rand__11TOBoss4RockFv() < lbl_805D889C) {
+        d.type = 0x11;
+    }
+    TBoss3Volopt__sub_8022675C(0x4003AD15, arg0 + 0x38, 0, 0);
+    TBoss3Volopt__sub_8022675C(0x4001C112, arg0 + 0x38, 0, 0);
+    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC) = lbl_805D88A0;
+    init_all_slots__10TObjPlayerFv();
+    check_object_collisions__10TObjPlayerFPv(arg0);
+    if (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), s32 *, 0x18) & 0x80000) {
+        for (i = 0; i < 0x10; i++) {
+            p = get_battle_param__10TObjPlayerFi(i);
+            if (p == NULL) {
+                break;
+            }
+            if (TObjPlayer__sub_80019570(p) != 0) {
+                Dmg_80049A1C t = d;
+                p->m21(M2C_FIELD(arg0, s32 *, 0x10), &t, 0, -1, -1);
+            }
+        }
+    }
+    TObjEneDellBiter__sub_80087350(arg0 + 0x38, 0xFB);
+    queue_destruction__7TObjectFv(arg0);
+}
 
 void draw_obj_model(u8 *arg0) {
     set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xB0));

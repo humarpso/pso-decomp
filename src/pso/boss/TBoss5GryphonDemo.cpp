@@ -16,6 +16,29 @@ struct E_8006633C { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
 
 struct O_8006633C { u8 pad[0xa4]; E_8006633C *entries; s32 count; };
 
+typedef s32 M2C_UNK;
+struct O_80066304;
+struct Seg_800663DC {
+    f32 f0;
+    f32 f4;
+    f32 f8;
+    f32 fc;
+    u8 pad10[8];
+    s32 f18;
+    u8 pad1c[0x10];
+};
+
+struct Obj_800663DC {
+    s32 f0;
+    u8 pad4[0x14];
+    void *vt;
+    s16 f1c;
+    u8 pad1e[0xA4 - 0x1E];
+    Seg_800663DC *segs;
+    s32 count;
+    u8 posbuf[0xC];
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_active_player__10TObjPlayerFi(int);
@@ -24,6 +47,20 @@ u8 *get_scripted_camera_playback();
 void run_task__17TBoss5GryphonDemoFv(u8 *arg0);
 void TBoss5GryphonDemo__sub_80066304(O_80066304 *self);
 void TBoss5GryphonDemo__sub_8006633C(O_8006633C *self);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+void fn_8002B630(void *, void *);
+void TBoss5GryphonDemo__sub_80066304(O_80066304 *self);
+u8 *alloc_buffer__11TOBoss4RockFPv(s32);
+void TObjPlayer__sub_80154B60(void *);
+int TObjPlayer__sub_80154E3C(void*);
+void TObjPlayer__sub_801569F4(void *);
+s16 TLobby__sub_801A2078(s32);
+extern M2C_UNK lbl_80488668[];
+extern M2C_UNK lbl_804886AC[];
+extern s32 lbl_805D2808;
+extern const f32 lbl_805D8ED0;
+extern const f32 lbl_805D8EDC;
+Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(Obj_800663DC *arg0, M2C_UNK arg1, s32 arg2, void *arg3, f32 len);
 }
 
 extern "C" {
@@ -75,6 +112,40 @@ void *destroy__17TBoss5GryphonDemoFPvs(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+
+Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(Obj_800663DC *arg0, M2C_UNK arg1, s32 arg2, void *arg3, f32 len) {
+    f32 zero;
+    f32 step;
+    f32 z;
+    Seg_800663DC *s;
+    s32 i;
+    TObjPlayer__sub_801569F4(arg0);
+    arg0->vt = lbl_804886AC;
+    arg0->f0 = lbl_805D2808;
+    arg0->f1c = TLobby__sub_801A2078(0);
+    VecCopy__FP3VecPC3Vec(arg0->posbuf, arg3);
+    arg0->count = arg2;
+    arg0->segs = (Seg_800663DC *)alloc_buffer__11TOBoss4RockFPv(arg0->count * 0x2C);
+    step = lbl_805D8EDC * len;
+    s = arg0->segs;
+    zero = lbl_805D8ED0;
+    i = 0;
+    z = len * (f32)(arg0->count - 1);
+    for (; i < arg0->count; i++) {
+        fn_8002B630(s, lbl_80488668);
+        s->f0 = zero;
+        s->f4 = zero;
+        s->f8 = z;
+        z -= step;
+        s->fc = len;
+        s->f18 = 0x10003;
+        s++;
+    }
+    TObjPlayer__sub_80154E3C(arg0);
+    TObjPlayer__sub_80154B60(arg0);
+    TBoss5GryphonDemo__sub_80066304((O_80066304 *)arg0);
     return arg0;
 }
 

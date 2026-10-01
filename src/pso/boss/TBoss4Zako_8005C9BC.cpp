@@ -4,6 +4,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct V_8005CBA4 { f32 x, y, z; };
+
+struct Pl_8005CBA4 { u8 pad0[0x38]; V_8005CBA4 pos; };
+
+struct Obj_8005CBA4 {
+    u8 pad0[0x1C];
+    u16 f1c;
+    u8 pad1e[0x1A];
+    V_8005CBA4 pos;
+    u8 pad44[0x374 - 0x44];
+    s32 f374;
+    u8 pad378[0x388 - 0x378];
+    s32 f388;
+    V_8005CBA4 vel;
+    f32 f398;
+    f32 f39c;
+    u8 pad3a0[4];
+    s32 f3a4;
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
@@ -11,6 +31,15 @@ extern const f32 lbl_805D8CB8;
 extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC0;
 void TBoss4Zako__vt3(u8 *arg0);
+Pl_8005CBA4 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+void TBoss4Zako__sub_803D8910(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+void TNpcPlayer__sub_803D97B4(void *);
+extern const f32 lbl_805D8D0C;
+extern const f32 lbl_805D8D14;
+void TBoss4Zako__vt2(u8 *p);
 }
 
 extern "C" {
@@ -41,6 +70,49 @@ void TBoss4Zako__vt3(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }
+
+#pragma push
+#pragma fp_contract on
+#pragma opt_common_subs off
+void TBoss4Zako__vt2(u8 *p) {
+#define o ((Obj_8005CBA4 *)p)
+    Pl_8005CBA4 *pl;
+    s32 ang;
+    pl = TPlayerBattleCtrl4P__sub_801BA74C(o->f388);
+    if (pl == NULL) {
+        o->f3a4 = 0x3C;
+        o->f374 = 1;
+        return;
+    }
+    V_8005CBA4 t = pl->pos;
+    ang = o->f1c << 0xD;
+    t.x = lbl_805D8D0C * TBoss8Dragon__sub_803D64C0(ang) + t.x;
+    t.z = lbl_805D8D0C * TBoss8Dragon__sub_803D64DC(ang) + t.z;
+    if (o->pos.x < t.x) {
+        o->vel.x += lbl_805D8D14;
+    } else {
+        o->vel.x -= lbl_805D8D14;
+    }
+    if (o->pos.z < t.z) {
+        o->vel.z += lbl_805D8D14;
+    } else {
+        o->vel.z -= lbl_805D8D14;
+    }
+    o->f398 = TBoss6Kakusan__sub_803D8BD8(&o->vel);
+    if (o->f398 > o->f39c) {
+        TNpcPlayer__sub_803D97B4(&o->vel);
+        o->vel.x *= o->f39c;
+        o->vel.z *= o->f39c;
+        o->f398 = o->f39c;
+    }
+    TBoss4Zako__sub_803D8910(&o->pos, &o->vel);
+    if (--o->f3a4 < 0) {
+        o->f3a4 = 0x3C;
+        o->f374 = 1;
+    }
+#undef o
+}
+#pragma pop
 
 void TBoss4Zako__vt0(u8 *arg0) {
     f32 temp_f0;

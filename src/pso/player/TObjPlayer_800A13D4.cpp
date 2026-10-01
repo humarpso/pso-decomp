@@ -49,6 +49,41 @@ typedef struct Obj_800A1814 {
     f32 f38C;
 } Obj_800A1814;
 
+struct VBase_18_4a35f9 { char pad[0x18]; };
+
+struct VObj_18_4a35f9 : VBase_18_4a35f9 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual M2C_UNK m21(void *, void *, M2C_UNK, M2C_UNK, M2C_UNK);
+    virtual void m22();
+    virtual M2C_UNK m23(void *, f32);
+};
+
+struct Pair_800A3290 { s32 a; f32 b; };
+
+struct Sub_800A3290 { u8 pad0[0x18]; u32 flags; };
+
+struct Obj_800A3290 { u8 pad0[0xA4]; Sub_800A3290 *sub; };
+
 extern "C" {
 M2C_UNK obj_clearFlags30(void *, s32);
 M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
@@ -98,7 +133,6 @@ void set_fields_24_34_from_global__10TObjPlayerFPvPv(void* a0, void* a1);
 void clear_counter__10TObjPlayerFPv(void* p);
 void set_cancel_flag__10TObjPlayerFPv(void* p);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
-s32 TObjPlayer__sub_800A3290(void *, int);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -148,6 +182,16 @@ void *__nw__7TObjectFUl(int);
 extern Ofs_800A1814 lbl_8043A684;
 extern const f32 lbl_805D9998;
 void TObjPlayer__sub_800A1814(Obj_800A1814 *o, s32 arg1, s32 arg2, f32 farg0);
+s32 TObjPlayer__sub_80019570();
+VObj_18_4a35f9 *get_battle_param__10TObjPlayerFi(s32);
+s32 TObjPlayer__sub_800A3210(s32 i, s32 _w1, s32 _w2);
+Obj_800A3290 *TPhotonMylla__sub_80154CB4(s32);
+M2C_UNK init_all_slots__10TObjPlayerFv();
+M2C_UNK TObjPlayer__sub_801564A0(void *);
+M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
+extern Pair_800A3290 lbl_8043A6E8[];
+extern const f32 lbl_805D99D0;
+s32 TObjPlayer__sub_800A3290(Obj_800A3290 *self, s32 id);
 }
 
 extern "C" {
@@ -391,6 +435,40 @@ int is_flag_set_388_bit26__10TObjPlayerFPv(void* p) { return (*(u32*)((char*)p +
 void set_fields_24_34_from_global__10TObjPlayerFPvPv(void* a0, void* a1) { *(int*)((char*)a0 + 0x34) = TObjFish__sub_8001EDC4((void*)((*(int *)&lbl_805D500C))); *(int*)((char*)a0 + 0x24) = TObjFish__sub_8001EDB0((void*)((*(int *)&lbl_805D500C)), a1); }
 void clear_counter__10TObjPlayerFPv(void* p) { *(s32*)((char*)p + 0x340) = 0; }
 void set_cancel_flag__10TObjPlayerFPv(void* p) { *(s32*)((char*)p + 0x340) = 1; }
+
+s32 TObjPlayer__sub_800A3290(Obj_800A3290 *self, s32 id) {
+    Obj_800A3290 *other;
+    s32 result = 0;
+    s32 i;
+    VObj_18_4a35f9 *p;
+    other = TPhotonMylla__sub_80154CB4(id);
+    if (other == NULL) {
+        return 0;
+    }
+    other->sub->flags &= ~1;
+    init_all_slots__10TObjPlayerFv();
+    check_object_collisions__10TObjPlayerFPv(self);
+    TObjPlayer__sub_801564A0(self);
+    other->sub->flags |= 1;
+    if (self->sub->flags & 0x180000) {
+        for (i = 0; i < 16; i++) {
+            p = get_battle_param__10TObjPlayerFi(i);
+            if (p == NULL) {
+                break;
+            }
+            if (TObjPlayer__sub_80019570() != 0 && p != (VObj_18_4a35f9 *)other) {
+                Pair_800A3290 t = lbl_8043A6E8[0];
+                t.b = ((s32 (*)(s32))TObjPlayer__sub_800A3210)(3);
+                Pair_800A3290 u = t;
+                p->m21(other, &u, 0, -1, -1);
+                p->m23(other, lbl_805D99D0);
+                result = 1;
+            }
+        }
+    }
+    return result;
+}
+
 void update_projectile_lifetime__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r0;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
@@ -401,7 +479,7 @@ void update_projectile_lifetime__10TObjPlayerFPv(u8 *arg0) {
             copy_pos__11TNowLoadingFPvPv(p, (void *) (arg0 + 0x38));
         }
     }
-    if (TObjPlayer__sub_800A3290((void *) (arg0), (int) (M2C_FIELD(arg0, u16 *, 0xC8))) != 0) {
+    if (TObjPlayer__sub_800A3290((Obj_800A3290 *)((void *) (arg0)), (s32)((int) (M2C_FIELD(arg0, u16 *, 0xC8)))) != 0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }

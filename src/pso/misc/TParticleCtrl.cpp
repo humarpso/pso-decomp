@@ -39,6 +39,16 @@ struct Col_80085798 { u32 r; u32 g; u32 b; u32 a; };
 
 struct Obj_80085798 { u8 pad[0x38]; u8 target[0x10]; };
 
+typedef s32 M2C_UNK;
+struct Col_80086418 { u8 a, r, g, b; };
+
+struct FCol_80086418 { f32 a, r, g, b; };
+
+struct Ctrl_80086418 {
+    u8 pad0[0x90];
+    Col_80086418 color;
+};
+
 extern "C" {
 s32 is_split_screen(void);
 u8 *__nw__7TObjectFUl(M2C_UNK);
@@ -67,6 +77,9 @@ extern const f32 lbl_805D9478;
 s32 check_demo_mode__10TObjPlayerFv(void);
 void TObjRoomId__sub_80141CF4(void *dst, Col_80085798 *src, f32 t);
 void TParticleCtrl__sub_80085798(Obj_80085798 *self);
+M2C_UNK fn_803DC86C(int, int, int, int);
+M2C_UNK set_chunk_material_color(void *);
+void TParticleCtrl__sub_80086418(Ctrl_80086418 *self, s32 mode);
 }
 
 extern "C" {
@@ -189,6 +202,27 @@ void mark_active__13TParticleCtrlFPv(void *arg0) {
     get_object__13TParticleCtrlFPv(0x1F);
 }
 typedef char RecoveredGlobal_8008655C_lbl_8048E728_size[sizeof(RecoveredGlobal_8008655C_lbl_8048E728) == 0x18 ? 1 : -1];
+
+void TParticleCtrl__sub_80086418(Ctrl_80086418 *self, s32 mode) {
+    FCol_80086418 f;
+    if (mode != 0) {
+        fn_803DC86C(1, 4, 1, 0);
+        Col_80086418 c = self->color;
+        f.a = 0.0f;
+        f.r = -(1.0f - c.r / 255.0f);
+        f.g = -(1.0f - c.g / 255.0f);
+        f.b = -(1.0f - c.b / 255.0f);
+    } else {
+        fn_803DC86C(1, 4, 5, 0);
+        Col_80086418 c = self->color;
+        f.a = -(1.0f - c.a / 255.0f);
+        f.r = 0.0f;
+        f.g = 0.0f;
+        f.b = 0.0f;
+    }
+    set_chunk_material_color(&f);
+}
+
 u8 *TParticleCtrl__sub_8008655C(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_8048E728.value;

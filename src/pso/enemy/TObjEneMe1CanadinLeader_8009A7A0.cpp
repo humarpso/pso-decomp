@@ -268,6 +268,25 @@ struct Fields_8009AB4C {
     void *members[1];
 };
 
+typedef s32 M2C_UNK;
+struct Info_8009B274 { u8 pad0[0x2C]; s32 f2C; };
+
+struct Leader_8009B274 {
+    u8 pad0[0x3C0];
+    s32 f3C0;
+    u8 pad3C4[0x3C8 - 0x3C4];
+    u32 flags;
+    u8 pad3CC[0x468 - 0x3CC];
+    Info_8009B274 *info;
+    u8 pad46C[0x4C8 - 0x46C];
+    u16 f4C8;
+    u8 pad4CA[0x4CC - 0x4CA];
+    s32 max;
+    s32 count;
+    u32 ids[8];
+    s32 mode;
+};
+
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TObjEneMe1CanadinLeader__sub_8009AF54(void *);
@@ -310,6 +329,10 @@ void send_entity_set_flags__6TLobbyFPv(void *);
 s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
 extern void *lbl_805D4FDC;
 void TObjEneMe1CanadinLeader__vt110(Leader_8009AB4C *obj, s32 mode);
+f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
+M2C_UNK set_flag3c8_bit8__23TObjEneMe1CanadinLeaderFPv(s32);
+s32 TPhotonMylla__sub_80154CB4(u16);
+void TObjEneMe1CanadinLeader__vt115(Leader_8009B274 *self, u32 id);
 }
 
 extern "C" {
@@ -450,6 +473,32 @@ s32 TObjEneMe1CanadinLeader__vt114(Obj_8009B1CC *arg0) {
         return n < 4;
     }
     return n < 2;
+}
+
+void TObjEneMe1CanadinLeader__vt115(Leader_8009B274 *self, u32 id) {
+    s32 i;
+    for (i = 0; i < self->count; i++) {
+        if (self->ids[i] == id) {
+            self->count--;
+            u32 t = self->ids[self->count];
+            self->ids[self->count] = id;
+            self->ids[i] = t;
+            break;
+        }
+    }
+    if (self->mode == 3) {
+        s32 k = get_status_value_f32__23TObjEneMe1CanadinLeaderFv((f32)self->max / (f32)self->info->f2C);
+        if (self->count <= self->max - k) {
+            self->f3C0 = TPhotonMylla__sub_80154CB4(self->f4C8);
+            set_flag3c8_bit8__23TObjEneMe1CanadinLeaderFPv(self->f3C0);
+        }
+    }
+    if (!(self->flags & 0x100000) && self->count <= self->max / 2) {
+        self->flags |= 0x10;
+    }
+    if (self->count <= 2) {
+        self->flags |= 0x40;
+    }
 }
 
 s32 TObjEneMe1CanadinLeader__vt106(Obj_8009B3C0 *self) {

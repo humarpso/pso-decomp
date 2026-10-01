@@ -449,6 +449,22 @@ typedef struct Volopt_8004550C {
     s16 count;
 } Volopt_8004550C;
 
+struct Vec_80045390 { f32 x, y, z; };
+
+struct Player_80045390 {
+    u8 pad0[0x30];
+    s32 flags;
+    u8 pad34[0x2FC - 0x34];
+    Vec_80045390 pos2;
+};
+
+struct Volopt_80045390 {
+    u8 pad0[0x60];
+    s32 angle;
+    u8 pad64[0x2FC - 0x64];
+    Vec_80045390 pos2;
+};
+
 extern "C" {
 u32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK fn_80048C04();
@@ -648,6 +664,15 @@ void TBoss6Type1__sub_803D9370(void *, void *);
 extern const f64 TBoss3Volopt__data_804366B0;
 extern s32 lbl_805D586C;
 s16 TBoss3Volopt__sub_8004550C(Volopt_8004550C *self);
+void *get_player_data__10TObjPlayerFi(s32);
+u16 obj_getField1c(void *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 get_field_3e0__12TBoss3VoloptFPv(void *p);
+s32 TObjPlayer__sub_80141F84(s32, s32);
+void TBoss6Type1__sub_803D9370(void *, void *);
+extern const f64 TBoss3Volopt__data_804366B0;
+extern s32 lbl_805D586C;
+u16 TBoss3Volopt__sub_80045390(Volopt_80045390 *self);
 }
 
 extern "C" {
@@ -895,6 +920,37 @@ void TBoss3Volopt__sub_80045328(Obj_80045328 *self) {
         m.vals[i] = self->vals[i];
     }
     broadcast_state__12TBoss3VoloptFPv(&m);
+}
+
+#define ABS_80045390(x) ((x) < 0 ? -(x) : (x))
+u16 TBoss3Volopt__sub_80045390(Volopt_80045390 *self) {
+    s32 best = 0x10000;
+    u16 id = 0xFFFF;
+    s32 i;
+    Player_80045390 *pl;
+    s32 d;
+    for (i = 0; i < lbl_805D586C; i++) {
+        pl = (Player_80045390 *)get_player_data__10TObjPlayerFi(i);
+        if (pl == NULL || obj_getField1c(pl) >= 0x1000) {
+            break;
+        }
+        if (get_field_3e0__12TBoss3VoloptFPv(pl) != 0xD) {
+            continue;
+        }
+        if (pl->flags & 0x02000800) {
+            continue;
+        }
+        {
+            Vec_80045390 v = pl->pos2;
+            TBoss6Type1__sub_803D9370(&v, &self->pos2);
+            d = ABS_80045390(TObjPlayer__sub_80141F84(self->angle + 0x8000, (s32)(TBoss3Volopt__data_804366B0 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))));
+            if (d <= best) {
+                best = d;
+                id = obj_getField1c(pl);
+            }
+        }
+    }
+    return id;
 }
 
 s16 TBoss3Volopt__sub_8004550C(Volopt_8004550C *self) {

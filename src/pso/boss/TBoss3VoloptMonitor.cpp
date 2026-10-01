@@ -107,9 +107,35 @@ struct O_80042944 { u8 pad[0x34]; s32 f34; };
 
 struct Fish_80042408 { s32 f0, f4; };
 
+typedef s32 M2C_UNK;
+struct VBase_80042510 { char pad[0x18]; };
+
+struct VObj_80042510 : VBase_80042510 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
+    virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27();
+    virtual void m28(); virtual void m29(); virtual void m30(); virtual void m31();
+    virtual void m32(); virtual void m33(); virtual void m34(); virtual void m35();
+    virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
+    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43();
+    virtual void m44(); virtual void m45(); virtual void m46(); virtual void m47();
+    virtual void m48(); virtual void m49(); virtual void m50(); virtual void m51();
+    virtual void m52(); virtual void m53(); virtual void m54(); virtual void m55();
+    virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59();
+    virtual void m60(); virtual void m61(); virtual void m62(); virtual void m63();
+    virtual void m64(); virtual void m65(); virtual void m66(); virtual void m67();
+    virtual void m68(); virtual void m69(); virtual void m70(); virtual void m71();
+    virtual void m72(); virtual void m73(); virtual void m74(); virtual void m75();
+    virtual void m76(); virtual void m77(); virtual void m78(); virtual void m79();
+    virtual void m80();
+};
+
 extern "C" {
 void TBoss3VoloptMonitor__sub_8004292C(u8 *arg0);
-s32 TBoss3VoloptMonitor__sub_80042510(void *);
 s32 TObjEnemyCustom__ct(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
 extern RecoveredGlobal_80042888_lbl_80483DD4 lbl_80483DD4;
@@ -137,6 +163,24 @@ extern s32 lbl_805D4C9C;
 extern G_80042944 *lbl_805D4CA0;
 extern u32 lbl_805D4CA4;
 void TBoss3VoloptMonitor__sub_80042408(void);
+M2C_UNK TObjPlayer__sub_80018990(void *, s32, s32, s32, f32, f32);
+M2C_UNK add_flags_2e4__10TObjPlayerFPvUi(void *, u32);
+M2C_UNK obj_setFlags30(void *, s32);
+M2C_UNK reset_photon_effect__12TBoss3VoloptFPv(void *);
+s16 fn_80042960(bool);
+M2C_UNK set_param__12TObjEneLappyFPvi(void *, s32);
+M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
+s32 rand__11TOBoss4RockFv();
+extern u8 lbl_80483DB8[];
+extern s8 lbl_804FEED0[];
+extern s32 lbl_805D4C90;
+extern s32 lbl_805D4C94;
+extern s32 lbl_805D4C98;
+extern const f32 lbl_805D8740;
+extern const f32 lbl_805D8748;
+extern const f32 lbl_805D874C;
+extern const f32 lbl_805D8750;
+void TBoss3VoloptMonitor__sub_80042510(u8 *arg0);
 }
 
 extern "C" {
@@ -214,6 +258,24 @@ void *create__19TBoss3VoloptMonitorFPv(void *arg0) {
 
 extern M2C_UNK __vt__19TBoss3VoloptMonitor[];
 
+void TBoss3VoloptMonitor__sub_80042510(u8 *arg0) {
+    M2C_FIELD(arg0, u8 **, 0x350) = lbl_80483DB8;
+    M2C_FIELD(lbl_805D4C90, s16 *, 6) = fn_80042960(M2C_FIELD(arg0, s16 *, 0x38C) % 4 != 0);
+    TObjPlayer__sub_80018990(arg0, lbl_805D4C90, lbl_805D4C94, lbl_805D4C98, lbl_805D8748, lbl_805D8748);
+    M2C_FIELD(arg0, s16 *, 0x32C) = M2C_FIELD(arg0, s16 *, 0x2B8);
+    M2C_FIELD(arg0, s16 *, 0x32E) = M2C_FIELD(arg0, s16 *, 0x2BA);
+    M2C_FIELD(arg0, s16 *, 0x33E) = M2C_FIELD(arg0, s16 *, 0x32C);
+    set_param__12TObjEneLappyFPvi(arg0, 0x2E);
+    update_prev_position__10TObjPlayerFPv(arg0);
+    reset_photon_effect__12TBoss3VoloptFPv(arg0);
+    M2C_FIELD(arg0, s16 *, 0x38E) = lbl_805D874C * (lbl_805D8740 * (f32)rand__11TOBoss4RockFv());
+    M2C_FIELD(arg0, s16 *, 0x390) = lbl_805D8750 * (lbl_805D8740 * (f32)rand__11TOBoss4RockFv());
+    add_flags_2e4__10TObjPlayerFPvUi(arg0, 4);
+    lbl_804FEED0[M2C_FIELD(arg0, s16 *, 0x38C)] = 0;
+    obj_setFlags30(arg0, 0x8000);
+    ((VObj_80042510 *)arg0)->m80();
+}
+
 void *__dt__19TBoss3VoloptMonitorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TBoss3VoloptMonitor;
@@ -235,7 +297,7 @@ u8 *TBoss3VoloptMonitor__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     M2C_FIELD(arg0, s32 *, 0x368) = 0;
     M2C_FIELD(arg0, s16 *, 0x33C) = 0;
-    TBoss3VoloptMonitor__sub_80042510((void *) (arg0));
+    TBoss3VoloptMonitor__sub_80042510((u8 *)((void *) (arg0)));
     TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_80483DD4.value), (int) (1));
     TBoss3VoloptMonitor__sub_80042944((O_80042944 *)((void *) (arg0)), (s32)((int) (1)));
     return arg0;

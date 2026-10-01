@@ -31,6 +31,27 @@ typedef struct Hamon_800A36A8 {
     u8 color50[0x10];
 } Hamon_800A36A8;
 
+struct Vec_800A4064 { f32 x, y, z; };
+
+struct Inner_800A4064 { u8 pad0[0xC]; s32 *p; };
+
+struct Entry_800A4064 { u8 pad0[8]; Inner_800A4064 *inner; };
+
+struct Obj_800A4064 {
+    u8 pad0[0x38];
+    s32 count;
+    Vec_800A4064 base[(0x108 - 0x3C) / 12];
+    Vec_800A4064 out[(0x1D4 - 0x108) / 12];
+    Vec_800A4064 dir[22];
+    u8 pad2DC[8];
+    f32 scale[(0x328 - 0x2E4) / 4];
+    s32 timer;
+    u8 pad32C[0x330 - 0x32C];
+    s32 type;
+    u8 pad334[0x340 - 0x334];
+    s32 active;
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv();
 extern const f32 lbl_805D99E0;
@@ -70,6 +91,14 @@ extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 void render__12TEneEffHamonFv(Hamon_800A36A8 *o);
+void TTecZondeEff__sub_800A39A8(void *);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+extern Entry_800A4064 *lbl_80500970[];
+extern s32 lbl_805D5038;
+extern const f32 lbl_805D99F8;
+extern const f32 lbl_805D9A04;
+extern const f32 lbl_805D9A08;
+void TObjPlayer__sub_800A4064(Obj_800A4064 *self);
 }
 
 extern "C" {
@@ -154,6 +183,27 @@ u8 *__ct__12TEneEffHamonFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 0x48) = (f32) (lbl_805D99EC / (f32) arg2);
     return arg0;
 }
+
+#pragma push
+#pragma fp_contract on
+void TObjPlayer__sub_800A4064(Obj_800A4064 *self) {
+    s32 i;
+    if (self->active != 0) {
+        TTecZondeEff__sub_800A39A8(self);
+        lbl_805D5038 = *lbl_80500970[0][self->type].inner->p;
+        for (i = 0; i < self->count; i++) {
+            self->scale[i] = lbl_805D99F8 * (lbl_805D9A08 * TBoss8Dragon__sub_803D64C0(self->timer * 0x1800) + lbl_805D9A04);
+        }
+        for (i = 0; i < self->count; i++) {
+            f32 s = self->scale[i];
+            self->out[i].x = self->dir[i].x * s + self->base[i].x;
+            self->out[i].y = self->dir[i].y * s + self->base[i].y;
+            self->out[i].z = self->dir[i].z * s + self->base[i].z;
+        }
+        self->timer++;
+    }
+}
+#pragma pop
 
 void *TObjPlayer__sub_800A41AC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

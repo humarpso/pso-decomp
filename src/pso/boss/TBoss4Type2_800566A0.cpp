@@ -139,6 +139,13 @@ struct Obj_80057270 {
     s32 f44c;
 };
 
+struct Vec_80056C30 { f32 x, y, z; };
+
+struct O_80056C30 {
+    u8 pad0[0x38];
+    Vec_80056C30 pos;
+};
+
 extern "C" {
 void TBoss4Type2__vt2(void *arg0);
 M2C_UNK TBoss4Type2__sub_80057048(void *, M2C_UNK);
@@ -212,7 +219,6 @@ extern s32 lbl_805D586C;
 void TBoss4Type2__sub_8005683C(Obj_8005683C *arg0);
 s32 TBoss4Type3__sub_8004AE60(void *);
 s32 TBoss4Type2__sub_800522CC(s32 n, f32 *w, s32 *t);
-void TBoss4Type2__sub_80056C30(void *, void *);
 void set_grid_pos__11TBoss4Type2FPvPv(void *arg0, void *arg1);
 void TBoss4Type2__sub_80056F38(Obj_80056F38 *self, s32 arg1, s32 arg2);
 void TBoss4Type2__sub_80056FEC(Obj_80056FEC *self, s32 arg1);
@@ -235,6 +241,22 @@ extern RecoveredGlobal_80054530_lbl_80485EC8 TBoss4Type2__data_804867C8;
 extern s32 some_id_805c6f74;
 extern const f32 TBoss4Type2__data_805D8BAC;
 void TBoss4Type2__sub_80057270(Obj_80057270 *arg0);
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+void *get_player_data__10TObjPlayerFi(s32 i);
+u16 obj_getField1c(void *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 TBoss4Type3__sub_8005254C(u16);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 TObjPlayer__sub_803E1A58(Vec_80056C30 *, Vec_80056C30 *);
+extern const f64 TBoss4Type2__data_80437750;
+extern s32 lbl_805D586C;
+extern const f32 TBoss4Type2__data_805D8BAC;
+extern const f32 lbl_805D8BE8;
+extern const f32 lbl_805D8BEC;
+extern const f32 lbl_805D8BF0;
+void TBoss4Type2__sub_80056C30(O_80056C30 *self, Vec_80056C30 *out);
 }
 
 extern "C" {
@@ -405,7 +427,7 @@ void TBoss4Type2__sub_80056A54(Obj_80056A54 *arg0) {
     switch (r) {
     case 6:
     case 7:
-        TBoss4Type2__sub_80056C30(arg0, &grid);
+        TBoss4Type2__sub_80056C30((O_80056C30 *)(arg0), (Vec_80056C30 *)(&grid));
         set_grid_pos__11TBoss4Type2FPvPv(arg0, &grid);
         TBoss4Type2__sub_80056FEC((Obj_80056FEC *)arg0, r);
         break;
@@ -417,6 +439,55 @@ void TBoss4Type2__sub_80056A54(Obj_80056A54 *arg0) {
         break;
     }
 }
+
+#pragma push
+#pragma opt_propagation off
+void TBoss4Type2__sub_80056C30(O_80056C30 *self, Vec_80056C30 *out) {
+    s32 a1;
+    O_80056C30 *found;
+    s32 i;
+    O_80056C30 *p;
+    f32 best;
+    f32 d;
+    f32 s;
+    s32 ang;
+    s32 b;
+    Vec_80056C30 res;
+    best = TBoss4Type2__data_805D8BAC;
+    found = NULL;
+    for (i = 0; i < lbl_805D586C; i++) {
+        p = (O_80056C30 *)get_player_data__10TObjPlayerFi(i);
+        if (p == NULL) {
+            continue;
+        }
+        if (TBoss4Type3__sub_8005254C(obj_getField1c(p)) == 0) {
+            continue;
+        }
+        {
+            Vec_80056C30 v = p->pos;
+            v.y = TBoss4Type2__data_805D8BAC;
+            d = TObjPlayer__sub_803E1A58(&v, &self->pos);
+            if (d <= lbl_805D8BE8 && d > best) {
+                best = d;
+                found = p;
+                VecCopy__FP3VecPC3Vec(&res, &v);
+            }
+        }
+    }
+    if (found != NULL) {
+        VecCopy__FP3VecPC3Vec(out, &res);
+        return;
+    }
+    s = lbl_805D8BEC * calc_boss4_scale__10TObjPlayerFi(self);
+    a1 = (s32)(TBoss4Type2__data_80437750 * get_ad_end_text_start__10TObjPlayerFv(-self->pos.x, -self->pos.z));
+    b = (s32)(lbl_805D8BF0 * calc_boss4_scale__10TObjPlayerFi(self));
+    ang = b + a1;
+    ang -= 0x6000;
+    out->x = s * TBoss8Dragon__sub_803D64C0(ang);
+    out->y = TBoss4Type2__data_805D8BAC;
+    out->z = s * TBoss8Dragon__sub_803D64DC(ang);
+}
+#pragma pop
 
 void set_grid_pos__11TBoss4Type2FPvPv(void *arg0, void *arg1) {
     M2C_FIELD(arg0, s32 *, 0x3AC) = (s32) ((lbl_805D8BF4 + M2C_FIELD(arg1, f32 *, 0)) / lbl_805D8BF8);

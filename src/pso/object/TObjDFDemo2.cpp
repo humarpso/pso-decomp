@@ -4,6 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+typedef s32 M2C_UNK;
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK request_destroy__11TBoss4Type2FUi(void *);
@@ -15,6 +16,21 @@ M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805D89D0;
 extern const f32 lbl_805D89DC;
 void TBoss4Type2__sub_8004EE74(u8 *arg0);
+M2C_UNK sync_player_globals__10TObjPlayerFv();
+M2C_UNK TObjPlayer__sub_80052390(f32);
+M2C_UNK clear_render_callback__8TObjFishFv(s32);
+M2C_UNK TObjFish__sub_800E3074(s32);
+M2C_UNK TObjPlayer__sub_803D9214(s32, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(s32);
+M2C_UNK func_803e11e8__FUl(u32);
+M2C_UNK func_803e11f0__Fv();
+M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
+M2C_UNK set_global_flag__10TObjPlayerFv();
+M2C_UNK clear_global_state__10TObjPlayerFv();
+void TObjPlayer__sub_8004ED28(u8 *arg0);
 }
 
 extern "C" {
@@ -47,6 +63,40 @@ void * create_demo2__14TBoss4DarkFalzFPvPvPvPv(void *arg0, void *arg1, void *arg
     }
     return o;
 }
+
+void TObjPlayer__sub_8004ED28(u8 *arg0) {
+    f32 a = 1.0f;
+    s32 t = M2C_FIELD(arg0, s32 *, 0xB0);
+    if (t < 5) {
+        a = (f32)t / 5.0f;
+    } else if (t > 0x86) {
+        a = (f32)(0x8B - t) / 5.0f;
+    }
+    if (a <= 0.0f) {
+        return;
+    }
+    if (a < 1.0f) {
+        TObjPlayer__sub_80052390(a);
+    }
+    TObjPlayer__sub_803D9B2C();
+    set_global_flag__10TObjPlayerFv();
+    TOHangerMachine01__sub_803D9C00(arg0 + 0xA0);
+    TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0xAC));
+    set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x98));
+    TObjFish__sub_800E3074(M2C_FIELD(arg0, s32 *, 0xB8));
+    func_803e11e8__FUl(1);
+    TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0x94), M2C_FIELD(arg0, s32 *, 0x9C), M2C_FIELD(arg0, f32 *, 0xB4));
+    clear_render_callback__8TObjFishFv(M2C_FIELD(arg0, s32 *, 0xB8));
+    func_803e11e8__FUl(2);
+    TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0x94), M2C_FIELD(arg0, s32 *, 0x9C), M2C_FIELD(arg0, f32 *, 0xB4));
+    func_803e11f0__Fv();
+    clear_global_state__10TObjPlayerFv();
+    TObjPlayer__sub_803D9B78();
+    if (a < 1.0f) {
+        sync_player_globals__10TObjPlayerFv();
+    }
+}
+
 #pragma push
 #pragma opt_common_subs off
 void TBoss4Type2__sub_8004EE74(u8 *arg0) {

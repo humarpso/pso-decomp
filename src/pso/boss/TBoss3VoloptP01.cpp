@@ -205,6 +205,7 @@ struct VObj_18_62ff9d : VBase_18_62ff9d {
 
 struct Obj_80043CAC { u8 pad0[0x326]; s16 state; };
 
+typedef s32 M2C_UNK;
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TObjPlayer__sub_800192DC(void *);
@@ -241,9 +242,21 @@ s32 TBoss3VoloptP01__sub_80042FCC(u8 *arg0);
 void TBoss3VoloptP01__sub_800430D0(void *);
 void TBoss3VoloptP01__sub_8004354C(u8 *arg0);
 void TBoss3VoloptP01__sub_80043758(void *);
-void TBoss3VoloptP01__sub_800437F4(void *);
 void update_state__15TBoss3VoloptP01FPv(u8 *arg0);
 void TBoss3VoloptP01__sub_80043CAC(Obj_80043CAC *arg0);
+M2C_UNK set_grabbed_state__10TObjPlayerFi(M2C_UNK);
+M2C_UNK link_photon__10TObjPlayerFUs(u16, M2C_UNK);
+void set_flags_30__19TBoss3VoloptMonitorFPv(void *);
+M2C_UNK create_breakup_mdl__12TBoss3VoloptFiiiii(s32, void *, s32, void *, s32);
+M2C_UNK spawn_effect_f8__10TObjPlayerFii(void *, s32);
+M2C_UNK trigger_dell_biter_events__10TObjPlayerFPv(void *);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK update_collisions__10TObjPlayerFPv(void *);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+extern u8 lbl_80484218[];
+extern s32 lbl_805D4C28;
+extern s32 lbl_805D4CC4;
+void TBoss3VoloptP01__sub_800437F4(u8 *arg0);
 }
 
 extern "C" {
@@ -386,6 +399,45 @@ void TBoss3VoloptP01__sub_8004354C(u8 *arg0) {
 }
 #pragma pop
 
+void TBoss3VoloptP01__sub_800437F4(u8 *arg0) {
+    u8 *p;
+    switch (M2C_FIELD(arg0, s32 *, 0x37C)) {
+    case 0:
+        set_flags_30__19TBoss3VoloptMonitorFPv(arg0);
+        M2C_FIELD(arg0, s32 *, 0x30) |= 0x44040000;
+        M2C_FIELD(arg0, s32 *, 0x30) &= 0xDFFFFFFF;
+        p = M2C_FIELD(arg0, u8 **, 0xA4);
+        M2C_FIELD(p, s32 *, 0x18) |= 0x1000;
+        M2C_FIELD(arg0, s16 *, 0xB8) = 4;
+        M2C_FIELD(arg0, s32 *, 0x37C) = 1;
+        M2C_FIELD(arg0, s16 *, 0x33C) = 0x5A;
+        spawn_effect_f8__10TObjPlayerFii(arg0 + 0x2FC, M2C_FIELD(arg0, s16 *, 0x33C));
+        if (M2C_FIELD(arg0, s32 *, 0x3A8) != 0) {
+            lbl_805D4C28 = 1;
+            link_photon__10TObjPlayerFUs(M2C_FIELD(arg0, u16 *, 0x2D4), 0);
+            set_grabbed_state__10TObjPlayerFi(0x12C);
+        }
+        M2C_FIELD(arg0, s32 *, 0x37C) = 1;
+    case 1:
+        TBoss1Dragon__sub_80143504(arg0);
+        M2C_FIELD(arg0, s16 *, 0x33C) -= 1;
+        if (M2C_FIELD(arg0, s16 *, 0x33C) < 0) {
+            create_breakup_mdl__12TBoss3VoloptFiiiii(lbl_805D4CC4, lbl_80484218, M2C_FIELD(arg0, s32 *, 0x24), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
+            trigger_dell_biter_events__10TObjPlayerFPv(arg0 + 0x2FC);
+            M2C_FIELD(arg0, s32 *, 0x388) |= 0x40000;
+            TBoss3Volopt__sub_8022675C(0x4003AD07, arg0 + 0x38, 0, 0);
+            M2C_FIELD(arg0, s32 *, 0x37C) = 2;
+            M2C_FIELD(arg0, s32 *, 0x30) &= 0xFFFFF7FF;
+        }
+        break;
+    case -1:
+        return;
+    case 2:
+        break;
+    }
+    update_collisions__10TObjPlayerFPv(arg0);
+}
+
 void update_state__15TBoss3VoloptP01FPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r3;
@@ -500,7 +552,7 @@ void TBoss3VoloptP01__sub_80043CAC(Obj_80043CAC *arg0) {
     case 2: TBoss3VoloptP01__sub_800430D0(arg0); return;
     case 4: update_state__15TBoss3VoloptP01FPv((u8 *)(arg0)); return;
     case 9: TBoss3VoloptP01__sub_8004354C((u8 *)(arg0)); return;
-    case 5: TBoss3VoloptP01__sub_800437F4(arg0); break;
+    case 5: TBoss3VoloptP01__sub_800437F4((u8 *)(arg0)); break;
     }
 }
 

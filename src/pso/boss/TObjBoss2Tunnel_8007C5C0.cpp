@@ -19,6 +19,21 @@ struct Stack_8007CAE8 {
 
 struct Load_8007CB50 { u8 pad[0x58]; s32 *data; u32 size; };
 
+typedef s32 M2C_UNK;
+struct Card_8007CCD0 {
+    char file[0x12];
+    char title[0x22];
+    u8 icon[0x10];
+    u8 pad44[8];
+    s16 f4c;
+    s16 f4e;
+    s32 f50;
+    s16 f54;
+    u8 pad56[2];
+    s32 *data;
+    s32 size;
+};
+
 extern "C" {
 M2C_UNK DCFlushRange(int, int);
 s32 TObjPlayer__sub_800845F8();
@@ -43,6 +58,24 @@ s32 TAdPlayerLoadGC__sub_801E1538(void *, int);
 s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, s32);
 extern s32 TObjBoss2Tunnel__data_805D4E90;
 bool TObjBoss2Tunnel__sub_8007CB50(void);
+s32 memcard_check_snapshot(M2C_UNK, M2C_UNK);
+void TAdPlayerLoadGC__sub_801E14E4(void *);
+void TAdPlayerLoadGC__sub_801E14E8(void *, s32);
+void TAdPlayerLoadGC__sub_801E17F4(s32, void *, void *);
+s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, s32);
+s32 load_player__23TAdSinglePlyChrSelectGCFiiii(s32, void *, s32, s32);
+char *strcpy(char *, const char *);
+M2C_UNK memcpy(int, void *, int);
+void *memset(void *, int, u32);
+extern M2C_UNK TObjBoss2Tunnel__data_80438A08[];
+extern char lbl_80438A28[];
+extern u8 lbl_80438A4C[];
+extern char lbl_804C8974[];
+extern s32 lbl_805D49B4;
+extern s16 TObjBoss2Tunnel__data_805D4E8A;
+extern s32 *lbl_805D4E8C;
+extern s32 TObjBoss2Tunnel__data_805D4E90;
+s32 TObjBoss2Tunnel__sub_8007CCD0(void);
 }
 
 extern "C" {
@@ -111,6 +144,39 @@ s32 save_screen_snapshot(void) {
         return 0;
     }
     TObjBoss2Tunnel__data_805D4E8A = 2;
+    return 1;
+}
+s32 TObjBoss2Tunnel__sub_8007CCD0(void) {
+    Card_8007CCD0 c;
+    s32 *p;
+    if (memcard_check_snapshot(1, 0) == 0) {
+        return 0;
+    }
+    if ((u32)TObjBoss2Tunnel__data_805D4E90 == 0) {
+        return 0;
+    }
+    memset((void *)TObjBoss2Tunnel__data_805D4E90, 0, 4);
+    memset(&c, 0, 0x60);
+    strcpy(c.file, lbl_804C8974);
+    strcpy(c.title, lbl_80438A28);
+    memcpy((int)c.icon, lbl_80438A4C, 0x10);
+    TAdPlayerLoadGC__sub_801E14E8(&c, 4);
+    c.f4c = 1;
+    p = lbl_805D4E8C;
+    c.f4e = 1;
+    c.f50 = 0;
+    c.f54 = 0;
+    *p = 0;
+    *p = TAdSinglePlyChrSelectGC__sub_80201204(lbl_805D4E8C, 0x1818C);
+    c.size = 0x1818C;
+    c.data = lbl_805D4E8C;
+    TAdPlayerLoadGC__sub_801E17F4(TObjBoss2Tunnel__data_805D4E90, &c, lbl_805D4E8C);
+    TAdPlayerLoadGC__sub_801E14E4(&c);
+    if (load_player__23TAdSinglePlyChrSelectGCFiiii(1, TObjBoss2Tunnel__data_80438A08, TObjBoss2Tunnel__data_805D4E90, 0xF) != 0) {
+        return 0;
+    }
+    lbl_805D49B4 = 1;
+    TObjBoss2Tunnel__data_805D4E8A = 1;
     return 1;
 }
 

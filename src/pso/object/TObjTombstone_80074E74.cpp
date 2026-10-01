@@ -19,6 +19,26 @@ struct RecoveredGlobal_80074FAC_TObjTombstone__data_8048D250 {
     u8 remaining[0x24];
 };
 
+struct V_80075070 { f32 x, y, z; };
+
+struct Obj_80075070 {
+    u8 pad0[0x38];
+    V_80075070 pos;
+    u8 pad44[0xAC - 0x44];
+    s32 fac;
+};
+
+struct V_800751BC { f32 x, y, z; };
+
+struct View_800751BC {
+    u8 pad0[0x178];
+    V_800751BC pos;
+    u8 pad184[0xC];
+    s32 f190;
+    s32 f194;
+    s32 f198;
+};
+
 extern "C" {
 u16 TCameraCtrl__sub_80068958();
 M2C_UNK TObjTombstone__sub_800753DC(void *);
@@ -35,6 +55,36 @@ void copy_matrix__13TObjTombstoneFPvPv(void* p, void* q);
 extern RecoveredGlobal_80074FAC_lbl_8043878C lbl_8043878C;
 extern RecoveredGlobal_80074FAC_TObjTombstone__data_8048D250 TObjTombstone__data_8048D250;
 void TObjTombstone__sub_80074FAC(void);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+void TBoss6Type1__sub_803D9370(void *, void *);
+extern V_80075070 lbl_804FF938[];
+extern s32 lbl_805D53A0;
+extern const f32 lbl_805D9170;
+extern f32 TObjTombstone__data_805D9174;
+extern f32 TObjTombstone__data_805D917C;
+s32 TObjTombstone__sub_80075070(Obj_80075070 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 is_split_screen();
+f32 get_fov__11TCameraCtrlFv();
+f32 get_view_scale__11TCameraCtrlFv();
+s32 get_screen_width__11TCameraCtrlFv();
+s32 get_screen_height__11TCameraCtrlFv();
+f32 TObjPlayer__sub_803D89C0(void *, void *);
+void TParticleCtrl__sub_803D8D1C(s32, void *, void *);
+void TScene__sub_803D8DB4(s32, void *, void *);
+void TObjPlayer__sub_803D9214(s32, s32);
+void TObjBoss2Tunnel__sub_803D929C(s32, s32);
+void TBoss6Type1__sub_803D9370(void *, void *);
+void TObjContainerIdo__sub_803D96A8(s32, s32);
+void TObjPlayer__sub_803D97F0(void *);
+void TObjPlayer__sub_803D9B2C();
+void TObjPlayer__sub_803D9B78();
+extern V_800751BC lbl_80438780;
+extern u8 lbl_8058D490[];
+extern View_800751BC *lbl_805D4DF0;
+extern f32 TObjTombstone__data_805D9174;
+s32 TObjTombstone__sub_800751BC(void *arg0, f32 *arg1, void *arg2);
 }
 
 extern "C" {
@@ -71,6 +121,69 @@ s32 check_owner__13TObjTombstoneFPv(void *arg0) {
     }
     return 0;
 }
+
+s32 TObjTombstone__sub_80075070(Obj_80075070 *arg0) {
+    f32 best;
+    f32 d;
+    u32 pl;
+    void *ppos;
+    s32 i;
+    best = TObjTombstone__data_805D917C;
+    pl = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    if (pl == 0) {
+        return 0;
+    }
+    ppos = (void *)(pl + 0x38);
+    for (i = 0; i < 4; i++) {
+        if (i != arg0->fac && lbl_805D9170 != lbl_804FF938[i].y) {
+            V_80075070 v = lbl_804FF938[i];
+            TBoss6Type1__sub_803D9370(&v, ppos);
+            v.y = TObjTombstone__data_805D9174;
+            d = TBoss6Kakusan__sub_803D8BD8(&v);
+            if (best > d) {
+                best = d;
+            }
+        }
+    }
+    if (TObjTombstone__data_805D917C == best) {
+        return 0;
+    }
+    V_80075070 w = arg0->pos;
+    TBoss6Type1__sub_803D9370(&w, ppos);
+    w.y = TObjTombstone__data_805D9174;
+    d = TBoss6Kakusan__sub_803D8BD8(&w);
+    if (d < best || (d == best && arg0->fac == lbl_805D53A0)) {
+        return 0;
+    }
+    return 1;
+}
+
+s32 TObjTombstone__sub_800751BC(void *arg0, f32 *arg1, void *arg2) {
+    V_800751BC d;
+    V_800751BC v = lbl_80438780;
+    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    TObjPlayer__sub_803D9214(0, lbl_805D4DF0->f194);
+    TObjContainerIdo__sub_803D96A8(0, lbl_805D4DF0->f190);
+    TObjBoss2Tunnel__sub_803D929C(0, lbl_805D4DF0->f198);
+    TScene__sub_803D8DB4(0, &v, &v);
+    TObjPlayer__sub_803D9B78();
+    VecCopy__FP3VecPC3Vec(&d, arg2);
+    TBoss6Type1__sub_803D9370(&d, &lbl_805D4DF0->pos);
+    if (TObjPlayer__sub_803D89C0(&v, &d) <= TObjTombstone__data_805D9174) {
+        return 0;
+    }
+    TObjPlayer__sub_803D9B2C();
+    TParticleCtrl__sub_803D8D1C(0, arg2, arg1);
+    TObjPlayer__sub_803D9B78();
+    if (is_split_screen() != 0) {
+        arg1[0] -= (f32)get_screen_height__11TCameraCtrlFv();
+        arg1[0] /= get_view_scale__11TCameraCtrlFv();
+        arg1[1] -= (f32)get_screen_width__11TCameraCtrlFv();
+        arg1[1] /= get_fov__11TCameraCtrlFv();
+    }
+    return 1;
+}
+
 void TObjTombstone__sub_80075340(u8 *arg0) {
     f32 temp_f1;
     u32 temp_r3;

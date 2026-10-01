@@ -449,6 +449,7 @@ pso/enemy/TObjEneRe7Berura_80094DB4.cpp
 pso/enemy/TObjEneRe7Berura_80094EA8.cpp
 pso/enemy/TObjEneRe7Berura_80094EE0.cpp
 pso/enemy/TObjEneRe7Berura_80094F40.cpp
+pso/enemy/TObjEneRe7Berura_80094F64.cpp
 pso/enemy/TObjEneRe7Berura_800967C0.cpp
 pso/enemy/TObjEneRe7Berura_80143098.cpp
 pso/enemy/TObjEneRe7Berura_803E4CE0.cpp
