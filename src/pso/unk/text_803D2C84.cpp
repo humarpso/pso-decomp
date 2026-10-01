@@ -13,6 +13,22 @@ struct RecoveredGlobal_803D2E94_lbl_8058A880 {
     u8 remaining[0xBFC];
 };
 
+typedef s32 M2C_UNK;
+struct Obj_803D2C84 {
+    void *vt;
+    s32 used;
+    void *uuid;
+    s32 xc;
+    s32 x10;
+    s32 x14;
+    s32 x18;
+    s32 data;
+    s32 bsize;
+    s32 x24;
+    void (*errfn)(void);
+    void *errobj;
+};
+
 extern "C" {
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803D2E04_lbl_80587880 lbl_80587880;
@@ -23,11 +39,49 @@ extern RecoveredGlobal_803D2E94_lbl_8058A880 lbl_8058A880;
 extern s32 lbl_805D7650;
 void TLobby__sub_803D2E94(void);
 void TLobby__sub_803D2E90(void);
+void TLobby__sub_803D1FD4(void);
+void lock_enter__6TLobbyFv(void);
+void TLobby__sub_803D2E90(void);
+extern RecoveredGlobal_803D2E04_lbl_80587880 lbl_80587880;
+extern u8 lbl_804F9E30[];
+extern u8 lbl_8047DEDC[];
+Obj_803D2C84 *TLobby__sub_803D2C84(s32 data, s32 bsize, s32 x24);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_803D2E04_lbl_80587880_size[sizeof(RecoveredGlobal_803D2E04_lbl_80587880) == 0x3000 ? 1 : -1];
+
+Obj_803D2C84 *TLobby__sub_803D2C84(s32 data, s32 bsize, s32 x24) {
+    Obj_803D2C84 *s;
+    s32 i;
+    lock_enter__6TLobbyFv();
+    for (i = 0; i < 256; i++) {
+        if (((Obj_803D2C84 *)&lbl_80587880)[i].used == 0) {
+            break;
+        }
+    }
+    if (i == 256) {
+        s = 0;
+    } else {
+        s = &((Obj_803D2C84 *)&lbl_80587880)[i];
+        s->used = 1;
+        s->vt = lbl_804F9E30;
+        s->data = data;
+        s->bsize = bsize;
+        s->x24 = x24;
+        s->uuid = lbl_8047DEDC;
+        s->errfn = TLobby__sub_803D2E90;
+        s->errobj = s;
+        s->xc = 0;
+        s->x10 = s->bsize;
+        s->x14 = 0;
+        s->x18 = 0;
+    }
+    TLobby__sub_803D1FD4();
+    return s;
+}
+
 void TLobby__sub_803D2E04(void) {
     s32 temp_r0;
     temp_r0 = lbl_805D7648 - 1;

@@ -21,6 +21,15 @@ struct Rec_803D1234 { s32 key; u8 body[0x3C]; };
 
 struct Obj_803D1234 { u8 pad[0x38]; Rec_803D1234 recs[16]; };
 
+struct Rec_803D1034 { s32 key; u8 pad[0x38]; s32 val; };
+
+struct Obj_803D1034 { u8 pad[0x38]; Rec_803D1034 recs[16]; };
+
+struct Obj_803D158C {
+    u8 b0; s8 state; u8 b2; u8 pad3[0x19];
+    s32 x1c; s32 x20; s32 x24; void *h28; s32 x2c; s32 x30; s32 x34;
+};
+
 extern "C" {
 void TLobby__sub_803D0DEC(const char *fmt, ...);
 extern char lbl_8047DCF0[];
@@ -59,6 +68,17 @@ void TLobby__sub_803D0DEC(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 extern char lbl_8047DD34[];
 u8 *TLobby__sub_803D1234(Obj_803D1234 *arg0, s32 arg1);
+void TLobby__sub_803D0DEC(const char *fmt, ...);
+extern char lbl_8047DCF0[];
+extern char lbl_8047DD34[];
+s32 TLobby__sub_803D1034(Obj_803D1034 *arg0, s32 arg1);
+void TLobby__sub_803C89C4(void *);
+void TLobby__sub_803C8B38(void *);
+void TLobby__sub_803D0DEC(const char *fmt, ...);
+void notify_dvd_read__6TLobbyFv(void);
+void enter_lock__6TLobbyFv(void);
+extern char lbl_8047DCF0[];
+void TLobby__sub_803D158C(Obj_803D158C *o);
 }
 
 extern "C" {
@@ -81,6 +101,24 @@ void TLobby__sub_803D0FD0(S_803D0FD0 *arg0, s32 arg1) {
         return;
     }
     arg0->a = arg1;
+}
+
+s32 TLobby__sub_803D1034(Obj_803D1034 *arg0, s32 arg1) {
+    s32 i;
+    if (arg0 == 0) {
+        TLobby__sub_803D0DEC(lbl_8047DCF0);
+        return 0;
+    }
+    for (i = 0; i < 16; i++) {
+        if (arg0->recs[i].key == arg1) {
+            break;
+        }
+    }
+    if (i == 16) {
+        TLobby__sub_803D0DEC(lbl_8047DD34);
+        return 0;
+    }
+    return arg0->recs[i].val;
 }
 
 s32 TLobby__sub_803D1134(Obj_803D1134 *arg0, s32 arg1) {
@@ -145,6 +183,48 @@ s32 TLobby__sub_803D1400(S_803D1400 *arg0) {
         return -1;
     }
     return arg0->f;
+}
+
+void TLobby__sub_803D158C(Obj_803D158C *o) {
+    u8 lk0[4];
+    u8 lk1[4];
+    if (o == 0) {
+        TLobby__sub_803D0DEC(lbl_8047DCF0);
+        return;
+    }
+    ((void (*)(void *))enter_lock__6TLobbyFv)(lk0);
+    if (o->state != 0) {
+        if (o == 0) {
+            TLobby__sub_803D0DEC(lbl_8047DCF0);
+        } else if (o->state != 0) {
+            ((void (*)(void *))enter_lock__6TLobbyFv)(lk1);
+            o->state = 0;
+            if (o->h28 != 0) {
+                if ((s32)o->b2 == 1) {
+                    TLobby__sub_803C89C4(o->h28);
+                    o->b2 = 0;
+                }
+                TLobby__sub_803C8B38(o->h28);
+                o->h28 = 0;
+            }
+            o->x2c = 0;
+            if (o == 0) {
+                TLobby__sub_803D0DEC(lbl_8047DCF0);
+            } else if (o->state == 0) {
+                o->x1c = 0;
+                o->x20 = 0;
+                o->x24 = 0;
+            }
+            o->x34 = 0;
+            ((void (*)(void *))notify_dvd_read__6TLobbyFv)(lk1);
+        }
+    }
+    if (o->x24 > 0) {
+        o->state = 2;
+    } else {
+        o->state = 1;
+    }
+    ((void (*)(void *))notify_dvd_read__6TLobbyFv)(lk0);
 }
 
 void TLobby__sub_803D1C24(void) {

@@ -32,6 +32,15 @@ extern M2C_UNK lbl_8047E18C[];
 extern RecoveredCallback_4873a87e26d6 lbl_805D7678;
 extern s32 lbl_805D767C;
 s32 TLobby__sub_803D3EE4(File_803D3EE4 *arg0, s32 arg1, s32 arg2);
+unsigned long strlen(const char *);
+int sprintf(char *, const char *, ...);
+unsigned long strtoul(const char *, char **, int);
+extern char lbl_8058B6F0[];
+extern char lbl_8047E04C[];
+extern char lbl_8047E08C[];
+extern RecoveredCallback_4873a87e26d6 lbl_805D7678;
+extern s32 lbl_805D767C;
+u32 TLobby__sub_803D4290(char *s);
 }
 
 extern "C" {
@@ -85,5 +94,41 @@ void TLobby__sub_803D3FCC(File_803D3FCC *arg0) {
         }
     }
 }
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline void parse_803D4290(char *s, u32 *hi, u32 *lo) {
+    char *end;
+    u32 v;
+    end = s;
+    v = strtoul(s, &end, 16);
+    if (hi != 0) {
+        *hi = v;
+    }
+    if (*end != 0) {
+        end++;
+    }
+    if (lo != 0) {
+        *lo = strtoul(end, &end, 16);
+    }
+}
+u32 TLobby__sub_803D4290(char *s) {
+    u32 lo;
+    if (strlen(s) != 17) {
+        sprintf(lbl_8058B6F0, lbl_8047E04C, s);
+        if (lbl_805D7678 != 0) {
+            lbl_805D7678(lbl_805D767C, (M2C_UNK *)lbl_8058B6F0, 0);
+        }
+    }
+    if (s[8] != '.') {
+        sprintf(lbl_8058B6F0, lbl_8047E08C, s);
+        if (lbl_805D7678 != 0) {
+            lbl_805D7678(lbl_805D767C, (M2C_UNK *)lbl_8058B6F0, 0);
+        }
+    }
+    parse_803D4290(s, 0, &lo);
+    return lo;
+}
+#pragma pop
 
 }

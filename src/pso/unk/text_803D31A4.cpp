@@ -25,6 +25,7 @@ struct P_803D3860 { void (*fn)(s32, u8 *); s32 arg; };
 struct Cb_803D3678 { s32 fn; s32 arg; };
 
 #include "stdarg.h"
+
 extern "C" {
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803D31A4_lbl_8058B6B8 lbl_8058B6B8;
@@ -62,6 +63,23 @@ int TLobby__sub_8039AA04(char *s, const char *fmt, va_list ap);
 extern u8 lbl_8058B4A0[];
 extern M2C_UNK lbl_805D765C;
 void TLobby__sub_803D38B4(const char *fmt, ...);
+char *strncpy(char *, const char *, unsigned long);
+extern u8 lbl_8058B4A0[];
+extern char lbl_8047DEF0[];
+extern char lbl_8047DF14[];
+extern Cb_803D3678 lbl_8058B5D8[][4];
+extern P_803D33D4 lbl_805D7664;
+extern P_803D33E4 lbl_805D766C;
+extern M2C_UNK lbl_805D765C;
+void TLobby__sub_803D3540(s32 arg0, s32 arg1, s32 fn, s32 arg);
+char *strncpy(char *, const char *, unsigned long);
+extern u8 lbl_8058B4A0[];
+extern char lbl_8047DF5C[];
+extern Cb_803D3678 lbl_8058B5D8[][4];
+extern P_803D33D4 lbl_805D7664;
+extern P_803D33E4 lbl_805D766C;
+extern M2C_UNK lbl_805D765C;
+s32 TLobby__sub_803D3750(s32 arg0, s32 fn, s32 arg);
 }
 
 extern "C" {
@@ -117,6 +135,33 @@ void TLobby__sub_803D34B0(s32 arg0, void (*arg1)(s32), s32 arg2) {
 }
 
 #define CB765C (*(P_803D3860 *)&lbl_805D765C)
+
+#define CB765C (*(P_803D3860 *)&lbl_805D765C)
+void TLobby__sub_803D3540(s32 arg0, s32 arg1, s32 fn, s32 arg) {
+    Cb_803D3678 *c;
+    if (arg1 < 0 || arg1 >= 4) {
+        strncpy((char *)lbl_8058B4A0, lbl_8047DEF0, 0xFF);
+        if (CB765C.fn != 0) {
+            CB765C.fn(CB765C.arg, lbl_8058B4A0);
+        }
+    }
+    if (arg0 < 0 || arg1 >= 7) {
+        strncpy((char *)lbl_8058B4A0, lbl_8047DF14, 0xFF);
+        if (CB765C.fn != 0) {
+            CB765C.fn(CB765C.arg, lbl_8058B4A0);
+        }
+    }
+    if ((void (*)(s32))lbl_805D766C.a != 0) {
+        ((void (*)(s32))lbl_805D766C.a)(lbl_805D766C.b);
+    }
+    c = &lbl_8058B5D8[arg0][arg1];
+    c->fn = fn;
+    c->arg = arg;
+    if ((void (*)(s32))lbl_805D7664.a != 0) {
+        ((void (*)(s32))lbl_805D7664.a)(lbl_805D7664.b);
+    }
+}
+
 void TLobby__sub_803D3678(s32 arg0, s32 arg1) {
     if (arg1 < 0 || arg1 >= 4) {
         strncpy((char *)lbl_8058B4A0, lbl_8047DF3C, 0xFF);
@@ -132,6 +177,36 @@ void TLobby__sub_803D3678(s32 arg0, s32 arg1) {
     if ((void (*)(s32))lbl_805D7664.a != 0) {
         ((void (*)(s32))lbl_805D7664.a)(lbl_805D7664.b);
     }
+}
+
+#define CB765C (*(P_803D3860 *)&lbl_805D765C)
+s32 TLobby__sub_803D3750(s32 arg0, s32 fn, s32 arg) {
+    Cb_803D3678 *c;
+    s32 i;
+    if ((void (*)(s32))lbl_805D766C.a != 0) {
+        ((void (*)(s32))lbl_805D766C.a)(lbl_805D766C.b);
+    }
+    c = lbl_8058B5D8[arg0];
+    for (i = 0; i < 4; c++, i++) {
+        if ((void *)c->fn == 0) {
+            c->fn = fn;
+            c->arg = arg;
+            break;
+        }
+    }
+    if (i == 4) {
+        strncpy((char *)lbl_8058B4A0, lbl_8047DF5C, 0xFF);
+        if (CB765C.fn != 0) {
+            CB765C.fn(CB765C.arg, lbl_8058B4A0);
+        }
+    }
+    if ((void (*)(s32))lbl_805D7664.a != 0) {
+        ((void (*)(s32))lbl_805D7664.a)(lbl_805D7664.b);
+    }
+    if (i == 4) {
+        return -1;
+    }
+    return i;
 }
 
 void TLobby__sub_803D3860(char *arg0) {
