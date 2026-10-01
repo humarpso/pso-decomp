@@ -435,7 +435,12 @@ extern u8 lbl_8056E118[];
 void TLobby__sub_803BB8AC(u8 arg0, u8 arg1);
 extern M2C_UNK lbl_80567958[];
 extern M2C_UNK lbl_805679D8[];
-void TLobby__sub_803BBAA8(u8 arg0, u8 arg1, s8 arg2);
+void TLobby__sub_803BBAA8(u8 arg0, u8 arg1, u8 arg2);
+void *memcpy(void *dst, const void *src, u32 n);
+extern u8 lbl_8047C310[];
+extern u8 lbl_8047C398[];
+extern u8 lbl_80567A18[][0x10][0x86];
+extern u8 lbl_8056BD18[][0x86];
 extern M2C_UNK lbl_80567958[];
 extern M2C_UNK lbl_805679D8[];
 u8 TLobby__sub_803BBAEC(u8 arg0, u8 arg1);
@@ -542,6 +547,28 @@ void TLobby__sub_803BADD0(u8 a, u8 b, u32 v) {
     lbl_8056DE98[b][a] |= v;
 }
 
+void TLobby__sub_803BB4F0(u8 arg0, u8 arg1, u32 arg2) {
+    u8 *src = arg2 != 0 ? lbl_8047C310 : lbl_8047C398;
+    u8 *dst;
+    s32 i;
+
+    if (arg1 != 0xFF) {
+        dst = lbl_80567A18[arg1][arg0];
+    } else {
+        dst = lbl_8056BD18[arg0];
+    }
+    if (arg2 != 0) {
+        memcpy(dst, src, 0x86);
+    } else {
+        for (i = 0; i < 0x86; i++) {
+            if (src[i] != 0xFF) {
+                dst[i] = src[i];
+            }
+        }
+    }
+    TLobby__sub_803BBAA8(arg0, arg1, 0xFF);
+}
+
 u8 *TLobby__sub_803BB870(u8 a, u8 b) {
     if (b == 0xff) {
         return &lbl_8056E118[a];
@@ -578,7 +605,7 @@ void TLobby__sub_803BB8F0(Obj_803BB8F0 *arg0, u8 arg1, s32 arg2, u8 arg3, u32 ar
     }
 }
 
-void TLobby__sub_803BBAA8(u8 arg0, u8 arg1, s8 arg2) {
+void TLobby__sub_803BBAA8(u8 arg0, u8 arg1, u8 arg2) {
     if (arg1 != 0xFF) {
         M2C_FIELD(((u8 *)(((u8 *)(lbl_80567958) + (arg1 * 0x10))) + arg0), s8 *, 0) = arg2;
         return;

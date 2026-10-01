@@ -3,6 +3,26 @@ struct Obj_802AEBA8 { u8 pad[0xa4]; s32 a4; s32 a8; s32 ac; u8 pad2[0x6bc - 0xb0
 
 extern "C" {
 void TAdEnterSerialAccessGC__sub_802AEBA8(Obj_802AEBA8 *self);
+typedef struct { f32 x, y; } V2_802AEBE4;
+typedef struct { f32 x, y, x2, y2; f32 pad[4]; } Quad_802AEBE4;
+
+typedef struct {
+    u8 pad0[0x1C];
+    V2_802AEBE4 pts[16];
+    f32 w;
+    f32 h;
+    u32 pad_a4;
+    u32 count;
+    u8 padAC[0xBC - 0xAC];
+    Quad_802AEBE4 q0[16];
+    Quad_802AEBE4 q1[16];
+    Quad_802AEBE4 q2[16];
+} Obj_802AEBE4;
+
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+extern const f32 lbl_805DE1D8;
+extern const f32 lbl_805DE1DC;
+
 }
 
 extern "C" {
@@ -15,6 +35,25 @@ void TAdEnterSerialAccessGC__sub_802AEBA8(Obj_802AEBA8 *self) {
     self->f6fc = -1;
     self->f700 = 0;
     for (i = 0; i < 16; i++) self->arr[i] = 0;
+}
+
+void TLevelSelect__sub_802AEBE4(Obj_802AEBE4 *self, void *src) {
+    if (self->count < 16) {
+        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&self->pts[self->count], src);
+        self->q0[self->count].x = lbl_805DE1D8 + self->pts[self->count].x;
+        self->q0[self->count].y = self->pts[self->count].y;
+        self->q0[self->count].x2 = self->q0[self->count].x + (self->w - lbl_805DE1DC);
+        self->q0[self->count].y2 = self->q0[self->count].y + self->h;
+        self->q1[self->count].x = self->pts[self->count].x;
+        self->q1[self->count].y = self->pts[self->count].y;
+        self->q1[self->count].x2 = lbl_805DE1D8 + self->q1[self->count].x;
+        self->q1[self->count].y2 = self->q1[self->count].y + self->h;
+        self->q2[self->count].x = self->pts[self->count].x + (self->w - lbl_805DE1D8);
+        self->q2[self->count].y = self->pts[self->count].y;
+        self->q2[self->count].x2 = lbl_805DE1D8 + self->q2[self->count].x;
+        self->q2[self->count].y2 = self->q2[self->count].y + self->h;
+        self->count++;
+    }
 }
 
 }

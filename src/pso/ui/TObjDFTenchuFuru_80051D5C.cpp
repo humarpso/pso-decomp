@@ -10,6 +10,7 @@ extern "C" {
 M2C_UNK render__16TObjDFTenchuFuruFPv(u32);
 M2C_UNK sync_player_globals__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_80052390(f32);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK clear_flag_bit0__12TCharaMakingFv();
 M2C_UNK enable_making__12TCharaMakingFv();
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -58,6 +59,69 @@ void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u3
             TObjPlayer__sub_803D9B78();
             clear_flag_bit0__12TCharaMakingFv();
         }
+    }
+}
+
+void TObjPlayer__sub_80051E9C(s32 arg0, f32 farg0) {
+    u8 *p;
+    u32 m8b0;
+    u32 m8ac;
+    s32 a1c;
+    u32 m8b4;
+    s32 b88;
+    u32 m34;
+    s32 cf4;
+
+    if (lbl_805D8A30 == farg0) {
+        return;
+    }
+    if ((u16)arg0 == 0xFFFF) {
+        return;
+    }
+    p = TPlayerBattleCtrl4P__sub_801BA74C((u16)arg0);
+    if (p == NULL || M2C_FIELD(p, s32 *, 0xCFC) != 0) {
+        return;
+    }
+    m34 = M2C_FIELD(p, u32 *, 0x34);
+    a1c = (s32)(p + 0xA1C);
+    m8b0 = M2C_FIELD(p, u32 *, 0x8B0);
+    b88 = (s32)(p + 0xB88);
+    m8ac = M2C_FIELD(p, u32 *, 0x8AC);
+    m8b4 = M2C_FIELD(p, u32 *, 0x8B4);
+    cf4 = (s32)(p + 0xCF4);
+    render__16TObjDFTenchuFuruFPv(m34);
+    if (farg0 < lbl_805D8A34) {
+        TObjPlayer__sub_80052390(farg0);
+    }
+    set_global_param__8TObjFishFi(cf4);
+    TObjFish__sub_803E46BC(m34);
+    if (m8b4 != 0U) {
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(lbl_804FF234);
+        set_global_param__8TObjFishFi(b88);
+        TObjFish__sub_803E46BC(m8b4);
+        TObjPlayer__sub_803D9B78();
+    }
+    if (m8b0 != 0U) {
+        enable_making__12TCharaMakingFv();
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(lbl_804FF228);
+        set_global_param__8TObjFishFi(a1c);
+        TObjFish__sub_803E46BC(m8b0);
+        TObjPlayer__sub_803D9B78();
+        clear_flag_bit0__12TCharaMakingFv();
+    }
+    if (farg0 < lbl_805D8A34) {
+        sync_player_globals__10TObjPlayerFv();
+    }
+    if (m8ac != 0U) {
+        enable_making__12TCharaMakingFv();
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(lbl_804FF228);
+        set_global_param__8TObjFishFi(a1c);
+        TCharaMaking__draw_colored_hair(farg0, (s32)m8ac, (CharacterAppearanceFields *)(p + 0x85C), 0);
+        TObjPlayer__sub_803D9B78();
+        clear_flag_bit0__12TCharaMakingFv();
     }
 }
 

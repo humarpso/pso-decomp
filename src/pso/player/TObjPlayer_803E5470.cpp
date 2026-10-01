@@ -6,6 +6,30 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+typedef struct {
+    f32 x, y, z;
+    u8 pad0C[0x18 - 0x0C];
+    u32 color;
+    u32 pad1C;
+} Vtx_803E549C;
+
+typedef union {
+    u8 u8;
+    u16 u16;
+    s16 s16;
+    u32 u32;
+    s32 s32;
+    f32 f32;
+} WGPipe_803E549C;
+#define GXWGFifo_803E549C (*(volatile WGPipe_803E549C *)0xCC008000)
+
+void Dolphin_GXSetVtxDesc(int, int);
+void GXClearVtxDesc(void);
+void GXSetVtxAttrFmt(int, int, int, int, u8);
+void GXBegin(int, int, u16);
+void clear_move_state_bits__10TObjPlayerFv(void);
+extern u32 lbl_805D77F8;
+
 void set_global_7778__10TObjPlayerFi(s32 arg0);
 void update_render_state__10TObjPlayerFv(void);
 M2C_UNK TObjPlayer__sub_803E4F14();
@@ -21,5 +45,70 @@ void update_render_state__10TObjPlayerFv(void) {
     TObjPlayer__sub_803E4F14();
     TObjPlayer__sub_803E53BC();
 }
+
+#pragma push
+#pragma use_lmw_stmw off
+void TObjPlayer__sub_803E549C(s16 *p, Vtx_803E549C *verts, u32 flags, s32 big) {
+    s32 draw;
+    u32 count;
+    s32 extra;
+    s32 n;
+
+    draw = 1;
+    extra = (flags >> 14) & 3;
+    count = flags & 0x3FFF;
+    if (lbl_805D77F8 != 0) {
+        if (lbl_805D77F8 & 1) {
+            if (lbl_805D77F8 & 0x200) {
+                clear_move_state_bits__10TObjPlayerFv();
+                draw = 0;
+            }
+        } else if ((lbl_805D77F8 & 2) && (lbl_805D77F8 & 0x400)) {
+            clear_move_state_bits__10TObjPlayerFv();
+            draw = 0;
+        }
+    }
+    clear_move_state_bits__10TObjPlayerFv();
+    GXClearVtxDesc();
+    GXSetVtxAttrFmt(0, 9, 1, 4, 0);
+    GXSetVtxAttrFmt(0, 0xB, 1, 5, 0);
+    GXSetVtxAttrFmt(0, 0xD, 1, 3, big ? 0xC : 8);
+    Dolphin_GXSetVtxDesc(9, 1);
+    Dolphin_GXSetVtxDesc(0xB, 1);
+    Dolphin_GXSetVtxDesc(0xD, 1);
+    do {
+        n = *p++;
+        if (n < 0) {
+            n = -n;
+        }
+        if (draw) {
+            GXBegin(0x98, 0, n);
+        }
+        do {
+            Vtx_803E549C *v = &verts[p[0]];
+            u32 c;
+            s16 s = p[1];
+            s16 t = p[2];
+            p += 3;
+            if (draw) {
+                f32 x;
+                f32 y;
+                f32 z;
+                z = v->z;
+                y = v->y;
+                x = v->x;
+                GXWGFifo_803E549C.f32 = x;
+                GXWGFifo_803E549C.f32 = y;
+                GXWGFifo_803E549C.f32 = z;
+                c = v->color;
+                GXWGFifo_803E549C.u32 = ((c & 0xFFFFFF) << 8) | ((c & 0xFF000000) >> 24);
+                GXWGFifo_803E549C.s16 = s;
+                GXWGFifo_803E549C.s16 = t;
+            }
+            p += extra;
+        } while (--n != 0);
+    } while (--count != 0);
+}
+#pragma pop
 
 }

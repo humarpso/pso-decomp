@@ -286,6 +286,7 @@ pso/enemy/TObjEneEpsilon_800B92AC_800B96D4.cpp
 pso/enemy/TObjEneEpsilon_800B92AC_800B9778.cpp
 pso/enemy/TObjEneEpsilon_800B92AC_800B97B4.cpp
 pso/enemy/TObjEneEpsilon_800B92AC_800B9848.cpp
+pso/enemy/TObjEneGyaranzo.cpp
 pso/enemy/TObjEneHoldEffect.cpp
 pso/enemy/TObjEneHoldEffect_800FD814.cpp
 pso/enemy/TObjEneHoldEffect_80142478.cpp
@@ -427,6 +428,7 @@ pso/enemy/TObjEnePanarms_800DFCD8.cpp
 pso/enemy/TObjEnePanarms_800E1E14.cpp
 pso/enemy/TObjEnePanarms_800E1E74.cpp
 pso/enemy/TObjEnePanarms_800E1F98.cpp
+pso/enemy/TObjEnePanarms_800E206C.cpp
 pso/enemy/TObjEnePanarms_800F5E90.cpp
 pso/enemy/TObjEneRe2Flower.cpp
 pso/enemy/TObjEneRe2Flower_800C3B8C.cpp
@@ -839,6 +841,7 @@ pso/misc/TKeyBoardControl_802433DC.cpp
 pso/misc/TKeyBoardControl_80290CB0.cpp
 pso/misc/TKeyBoardControl_802A1180.cpp
 pso/misc/TKeyBoardControl_803CBDE0.cpp
+pso/misc/TKeyBoardControl_803DD2E0.cpp
 pso/misc/TKeyBoardControl_803DD428.cpp
 pso/misc/TKomorebi.cpp
 pso/misc/TLanguage.cpp
@@ -1225,6 +1228,7 @@ pso/misc/TMovie_80143ECC.cpp
 pso/misc/TMovie_80143EFC.cpp
 pso/misc/TMovie_80143F38.cpp
 pso/misc/TMovie_80143F6C.cpp
+pso/misc/TMovie_80143FB0.cpp
 pso/misc/TMovie_80144250.cpp
 pso/misc/TMovie_801443C0.cpp
 pso/misc/TMovie_80144484.cpp
@@ -1272,6 +1276,7 @@ pso/misc/TOChatSensorCapture.cpp
 pso/misc/TOChatSensorFolder.cpp
 pso/misc/TOChatSensor_8015AC80.cpp
 pso/misc/TOChatSensor_8015B214.cpp
+pso/misc/TOContainerAncientEnemy.cpp
 pso/misc/TOContainerAncientEnemyCommon.cpp
 pso/misc/TOContainerAncientEnemyRare.cpp
 pso/misc/TOContainerAncientItemCommon.cpp
@@ -1722,6 +1727,7 @@ pso/misc/TWindowOptionCtrl_8026BCBC.cpp
 pso/misc/TWindowOptionCtrl_8026C40C.cpp
 pso/misc/TWindowOptionCtrl_8026C52C.cpp
 pso/misc/TWindowOptionCtrl_8026C5D8.cpp
+pso/misc/TWindowOptionCtrl_8026CBA4.cpp
 pso/misc/TWindowPartyStatus.cpp
 pso/misc/TWindowQuantity.cpp
 pso/misc/TWindowRoom.cpp
@@ -2793,6 +2799,7 @@ pso/player/TObjPlayer_80363BE0_80364280.cpp
 pso/player/TObjPlayer_80363BE0_803642A8.cpp
 pso/player/TObjPlayer_803A2C4C.cpp
 pso/player/TObjPlayer_803DC834.cpp
+pso/player/TObjPlayer_803E5470.cpp
 pso/protocol/subcommand_validation_actions.cpp
 pso/protocol/subcommand_validation_movement.cpp
 pso/protocol/subcommand_validation_photon_blast.cpp
@@ -3081,6 +3088,7 @@ pso/ui/TAdYesNoBaseGC.cpp
 pso/ui/TObjBagWarnWin_8006EED4.cpp
 pso/ui/TObjBagWarnWin_8006EF24.cpp
 pso/ui/TObjDFTenchuFuru_80051B98.cpp
+pso/ui/TObjDFTenchuFuru_80051D5C.cpp
 pso/ui/TObjDFTenchuFuru_80052000.cpp
 pso/ui/TWindowCtrlSub.cpp
 pso/unk/text_8000F740.cpp
@@ -3767,6 +3775,7 @@ pso/unk/text_802A9588.cpp
 pso/unk/text_802AA8FC_802AABEC.cpp
 pso/unk/text_802AA8FC_802AAC74.cpp
 pso/unk/text_802AE978.cpp
+pso/unk/text_802AEBA8.cpp
 pso/unk/text_802AF64C.cpp
 pso/unk/text_802C095C.cpp
 pso/unk/text_802C09E0.cpp

@@ -160,6 +160,17 @@ s32 OSReceiveMessage(void *, void *, int);
 extern u8 lbl_805CF2E0[];
 u16 TLobby__sub_804264F4(s32 *arg0, u16 *arg1);
 s32 TLobby__sub_803F9F04(void *, void *, int);
+typedef struct Ent_804267F0 {
+    s16 count;
+    u8 id[6];
+} Ent_804267F0;
+
+typedef struct Tbl_804267F0 {
+    u8 pad[6];
+    Ent_804267F0 ent[6];
+} Tbl_804267F0;
+
+s32 TLobby__sub_803F9EC4(void *, void *, int);
 extern u8 lbl_805CF3C8[];
 extern s32 lbl_805D7BB0;
 s32 TLobby__sub_80426790(s16 arg0, void *arg1);
@@ -478,6 +489,26 @@ s32 TLobby__sub_80426790(s16 arg0, void *arg1) {
     TLobby__sub_803F9F04(arg1, src, 6);
     return 6;
 }
+
+#pragma push
+#pragma dont_inline on
+s32 TLobby__sub_804267F0(s16 arg0, void *arg1) {
+    s32 i;
+    Ent_804267F0 *e;
+
+    if (arg0 != 0) {
+        return -0x113;
+    }
+    e = ((Tbl_804267F0 *)lbl_805CF3C8)->ent;
+    for (i = 0; i < 6; i++, e++) {
+        if (e->count > 0 && TLobby__sub_803F9EC4(e->id, arg1, 6) == 0) {
+            e->count--;
+            return 0;
+        }
+    }
+    return -0x113;
+}
+#pragma pop
 
 s32 TLobby__sub_80426A18(s16 arg0, u16 arg1) {
     if (arg0 != 0) {

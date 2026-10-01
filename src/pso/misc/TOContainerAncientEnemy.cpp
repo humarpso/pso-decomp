@@ -211,6 +211,19 @@ struct Obj_801884A0 {
     s32 unkC4;
 };
 
+struct Spawn_8015B94C {
+    u8 pad0[0xC];
+    f32 x, y, z;
+    u8 pad18[0x38 - 0x18];
+    f32 f38;
+    u8 pad3c[4];
+    s32 f40;
+    s32 f44;
+    u8 pad48[4];
+};
+struct Obj_8015B94C { u8 pad[0x38]; f32 x, y, z; u8 pad44[0x326 - 0x44]; s16 f326; };
+struct Ref_8015B94C { u8 pad[4]; s32 a; s32 b; };
+
 struct O_8015BAE0 { u8 pad[0x1C]; u16 id; u8 pad1e[0x80 - 0x1E]; u32 f80; s32 f84; };
 
 struct Pk_8015BAE0 { u8 pad[2]; u16 id; s32 a; s32 b; s32 c; };
@@ -224,7 +237,6 @@ M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TOSignCave03__sub_803DB510(int);
-extern u32 lbl_805D58E8;
 void TOContainerAncientEnemy__sub_8015BBFC(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
@@ -235,7 +247,6 @@ s32 fn_8018A150(void *, int, void *);
 extern RecoveredGlobal_8015BD68_lbl_804B00C8 lbl_804B00C8;
 extern M2C_UNK __vt__23TOContainerAncientEnemy[];
 extern s32 lbl_805D2F08;
-extern u32 lbl_805D58E8;
 extern s32 tl_05;
 u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1);
 void TObjPlayer__sub_801B4A18(Obj_8015BCC0 *self, s32 x);
@@ -255,6 +266,15 @@ void init_packet_67_04__6TLobbyFPv(void *);
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805DB39C;
 f32 TOContainerAncientEnemy__sub_8015BAE0(O_8015BAE0 *arg0);
+s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK TObjChip__sub_80180BD4(void *, s32, void *);
+M2C_UNK TBoss3Volopt__sub_80189CC0(void *);
+void *__nw__7TObjectFUl(int);
+extern Spawn_8015B94C lbl_80440798;
+extern Spawn_8015B94C lbl_804407E4;
+extern s32 lbl_805D2F10;
+extern Ref_8015B94C *lbl_805D58EC;
 }
 
 extern "C" {
@@ -280,6 +300,42 @@ void check_and_destroy__23TOContainerAncientEnemyFPvPvi(void *arg0, s16 *arg1, s
 }
 
 extern M2C_UNK __vt__23TOContainerAncientEnemy[];
+
+void TOContainerAncientEnemy__sub_8015B94C(Obj_8015B94C *self) {
+    extern const u32 lbl_805D58E8;
+    void *o;
+    if (self->f326 != 1) {
+        Spawn_8015B94C a = lbl_80440798;
+        a.x = self->x;
+        a.y = self->y;
+        a.z = self->z;
+        a.f38 = self->y;
+        a.f40 = TObjFish__sub_8001EDC4((void *)lbl_805D58E8, 1);
+        a.f44 = TObjFish__sub_8001EDB0((void *)lbl_805D58E8, 1);
+        Spawn_8015B94C b = lbl_804407E4;
+        b.x = self->x;
+        b.y = self->y;
+        b.z = self->z;
+        b.f38 = self->y;
+        b.f40 = TObjFish__sub_8001EDC4((void *)lbl_805D58E8, 2);
+        b.f44 = TObjFish__sub_8001EDB0((void *)lbl_805D58E8, 2);
+        if (check_value_equals__13TQuestColCtrlFPvi(self, lbl_805D2F10) != 0) {
+            a.f44 = lbl_805D58EC->a;
+            b.f44 = lbl_805D58EC->b;
+        }
+        TObjEneDellBiter__sub_80087350(&self->x, 0x45);
+        TObjEneDellBiter__sub_80087350(&self->x, 0x46);
+        o = __nw__7TObjectFUl(0x234);
+        if (o != NULL) {
+            TObjChip__sub_80180BD4(o, tl_05, &a);
+        }
+        o = __nw__7TObjectFUl(0x234);
+        if (o != NULL) {
+            TObjChip__sub_80180BD4(o, tl_05, &b);
+        }
+        TBoss3Volopt__sub_80189CC0(self);
+    }
+}
 
 f32 TOContainerAncientEnemy__sub_8015BAE0(O_8015BAE0 *arg0) {
     s16 sp8;
@@ -308,6 +364,7 @@ void TOContainerAncientEnemy__sub_8015BB8C(Obj_80188814 *self) {
 }
 
 void TOContainerAncientEnemy__sub_8015BBFC(u8 *arg0) {
+    extern u32 lbl_805D58E8;
     u8 *temp_r31;
     u8 *temp_r31_2;
     u8 *temp_r31_3;
@@ -366,6 +423,7 @@ void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8015BD68_lbl_804B00C8_size[sizeof(RecoveredGlobal_8015BD68_lbl_804B00C8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8015BD68___vt__23TOContainerAncientEnemy_size[sizeof(RecoveredGlobal_8015BD68___vt__23TOContainerAncientEnemy) == 0x14C ? 1 : -1];
 u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1) {
+    extern u32 lbl_805D58E8;
     fn_8018A150((void *) (arg0), (int) (tl_05), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8015BD68___vt__23TOContainerAncientEnemy *)&__vt__23TOContainerAncientEnemy).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F08;

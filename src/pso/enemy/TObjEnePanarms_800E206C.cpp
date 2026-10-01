@@ -20,6 +20,39 @@ struct VObj_14_aa9368 : VBase_14_aa9368 {
 
 struct Obj_800E20D0 { u8 pad[0x3EC]; VObj_14_aa9368 fades[2]; };
 
+struct Vec_800E2200 { f32 x, y, z; };
+struct Tgt_800E2200 { u8 pad[0x38]; f32 x; f32 y; f32 z; };
+struct Panarms_800E2200 {
+    u8 pad0[0x30];
+    u32 flags;
+    u8 pad34[4];
+    f32 x;
+    f32 y;
+    f32 z;
+    u8 pad44[0xC0 - 0x44];
+    f32 fC0;
+    u8 padc4[0x2FC - 0xC4];
+    Vec_800E2200 pos;
+    u8 pad308[0x378 - 0x308];
+    s32 state;
+    u8 *f37C;
+    u8 pad380[4];
+    s32 f384;
+    s32 f388;
+    Vec_800E2200 f38C;
+    u8 pad398[0x3A0 - 0x398];
+    Tgt_800E2200 *target;
+    u8 pad3a4[0x3C8 - 0x3A4];
+    Vec_800E2200 diff;
+    s32 angle;
+    f32 dist;
+    u8 pad3dc[0x45C - 0x3DC];
+    s32 counter;
+    void dummy();
+};
+typedef void (Panarms_800E2200::*Fn_800E2200)();
+struct Ent_800E2200 { u8 pad[0xC]; Fn_800E2200 fn; };
+
 struct VBase_18_26a62c { char pad[0x18]; };
 
 struct VObj_18_26a62c : VBase_18_26a62c {
@@ -50,6 +83,22 @@ extern const f32 TObjEnePanarms__data_805DA524;
 extern const f32 TObjEnePanarms__data_805DA560;
 extern const f32 lbl_805DA594;
 void TObjEnePanarms__sub_800E20D0(u8 *arg0);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 check_demo_mode__10TObjPlayerFv(void);
+void TObjEnePanarms__sub_800E1B78(void *, void *, s32, f32);
+void TObjEnePanarms__sub_800E1C98(void *, s32);
+void update_prev_position__10TObjPlayerFPv(void *);
+void TBoss1Dragon__sub_80143504(void *);
+void TObjPlayer__sub_801B4A18(void *, s32);
+void minimap_render_dot(void *, s32, s32, s32);
+void TBoss4Zako__sub_803D8910(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+void TBoss6Type1__sub_803D9370(void *, void *);
+extern const f64 TObjEnePanarms__data_8043CDD0[];
+extern Ent_800E2200 lbl_8049575C[];
+extern const f32 lbl_805DA598;
+extern const f32 lbl_805DA59C;
+
 }
 
 extern "C" {
@@ -102,6 +151,72 @@ void TObjEnePanarms__sub_800E20D0(u8 *arg0) {
     some_id_805c6f74 = lbl_805D5660;
     end_effect_render__13TParticleCtrlFv();
     update_linked_effect__14TObjEnePanarmsFPv((void *) (arg0));
+}
+
+void TObjEnePanarms__sub_800E2200(Panarms_800E2200 *self) {
+    Fn_800E2200 fn;
+    Vec_800E2200 a;
+    f32 s;
+
+    if (self->state != 0 && check_demo_mode__10TObjPlayerFv() != 0) {
+        TObjEnePanarms__sub_800E1C98(self, 0);
+    }
+    self->diff.x = self->target->x - self->x;
+    self->diff.y = TObjEnePanarms__data_805DA524;
+    self->diff.z = self->target->z - self->z;
+    self->angle = TObjEnePanarms__data_8043CDD0[0] * get_ad_end_text_start__10TObjPlayerFv(self->diff.x, self->diff.z);
+    self->dist = TBoss6Kakusan__sub_803D8BD8(&self->diff);
+    self->counter++;
+    fn = lbl_8049575C[self->state].fn;
+    if (fn == 0) {
+        return;
+    }
+    (self->*fn)();
+    if (self->f384 != 0) {
+        self->flags &= ~0x02000000;
+    } else {
+        self->flags |= 0x02000000;
+    }
+    update_prev_position__10TObjPlayerFPv(self);
+    if (self->state == 0) {
+        return;
+    }
+    if (self->f384 != 0) {
+        if (self->state != 7) {
+            TObjPlayer__sub_801B4A18(self, -1);
+        }
+        TBoss1Dragon__sub_80143504(self);
+        switch (self->state) {
+        case 7:
+            break;
+        case 1:
+            s = self->fC0 / lbl_805DA598;
+            TObjEnePanarms__sub_800E1B78(self, &a, 0, self->fC0);
+            TBoss6Type1__sub_803D9370(&a, &self->pos);
+            a.x *= s;
+            a.z *= s;
+            TBoss4Zako__sub_803D8910(&a, &self->pos);
+            minimap_render_dot(&a, -0x5DB4, 1, 0);
+            break;
+        case 5:
+            {
+            s = self->fC0 / lbl_805DA59C;
+            Vec_800E2200 b = self->pos;
+            TBoss6Type1__sub_803D9370(&b, &self->f38C);
+            b.x *= s;
+            b.z *= s;
+            TBoss4Zako__sub_803D8910(&b, &self->f38C);
+            minimap_render_dot(&b, -0x5DB4, 1, 0);
+            }
+            break;
+        default:
+            minimap_render_dot(&self->pos, -0x5DB4, 1, 0);
+            break;
+        }
+    }
+    if (self->f388 == 0) {
+        *(u32 *)(self->f37C + 0x18) &= ~1;
+    }
 }
 
 }

@@ -30,6 +30,8 @@ s32 TLobby__sub_803DDEFC(u16 arg0);
 void TObjPlayer__sub_803DD6DC(struct Obj_803DD6DC *arg0, s32 arg1);
 extern S_803DA7E0 lbl_8058D470;
 s32 TObjPlayer__sub_803DDC50(struct Obj_803DD6DC *arg0);
+typedef void (*Fn_803DD6DC)(struct Obj_803DD6DC *, s32);
+extern Fn_803DD6DC lbl_804FC688[];
 }
 
 extern "C" {
@@ -42,6 +44,29 @@ extern s32 lbl_805D7788;
 
 void TObjPlayer__sub_803DD5E0(s32 arg0) {
     lbl_805D7788 = arg0;
+}
+
+void TObjPlayer__sub_803DD6DC(struct Obj_803DD6DC *arg0, s32 arg1) {
+    s32 idx;
+
+    switch (arg0->ents[arg1].f4 & 0x5C000000) {
+    case 0x0:
+        idx = 0;
+        break;
+    case 0x40000000:
+        idx = 1;
+        break;
+    case 0x8000000:
+        idx = 2;
+        break;
+    case 0x4000000:
+        idx = 3;
+        break;
+    default:
+        idx = 2;
+        break;
+    }
+    lbl_804FC688[idx](arg0, arg1);
 }
 
 extern s32 lbl_805D77A0;
