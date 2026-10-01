@@ -56,6 +56,9 @@ struct Sub_800E750C { f32 f0; u8 pad4[4]; f32 f8; f32 fC; f32 f10; s32 f14; s32 
 
 struct Obj_800E750C { u8 pad0[0x60]; s32 f60; u8 pad1[0xA4 - 0x64]; Sub_800E750C *fA4; };
 
+struct Obj_800E750C;
+struct E_800E728C { u8 pad[0x60]; s32 f60; u8 pad64[0x390 - 0x64]; s32 f390; u8 pad394[0x3AC - 0x394]; f32 f3ac; u8 pad3b0[0x3C4 - 0x3B0]; s32 f3c4; };
+
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 s32 fn_800B91F4(void *);
@@ -87,6 +90,12 @@ extern const f32 TObjEneMe3ShinowaMirage__data_805DA5B8;
 extern const f32 lbl_805DA64C;
 extern const f32 lbl_805DA650;
 u8 TObjEneMe3ShinowaMirage__sub_800E750C(Obj_800E750C *arg0, s32 arg1, f32 farg0);
+u8 TObjEneMe3ShinowaMirage__sub_800E750C(Obj_800E750C *arg0, s32 arg1, f32 farg0);
+s32 get_stat_by_key_state__10TObjPlayerFPv(int);
+extern f32 TObjEneMe3ShinowaMirage__data_805DA5EC;
+extern const f32 lbl_805DA638;
+extern const f32 lbl_805DA63C;
+u8 TObjEneMe3ShinowaMirage__sub_800E728C(E_800E728C *arg0);
 }
 
 extern "C" {
@@ -98,6 +107,24 @@ f32 TBoss8Dragon__sub_803D64DC(s32);
 extern const f32 TObjEneMe3ShinowaMirage__data_805DA5E4;
 
 typedef char RecoveredGlobal_800E7324_lbl_8043CF94_size[sizeof(RecoveredGlobal_800E7324_lbl_8043CF94) == 0xC ? 1 : -1];
+
+u8 TObjEneMe3ShinowaMirage__sub_800E728C(E_800E728C *arg0) {
+    s16 mine;
+    s32 ret;
+    s16 theirs;
+    ret = 0;
+    if (!(arg0->f3c4 & 0x10000)) {
+        if (arg0->f3ac > lbl_805DA638 && arg0->f3ac < lbl_805DA63C) {
+            mine = get_stat_by_key_state__10TObjPlayerFPv((int)arg0);
+            theirs = get_stat_by_key_state__10TObjPlayerFPv(arg0->f390);
+            if (theirs == mine && ((s32 (*)(void *, s32, f32))TObjEneMe3ShinowaMirage__sub_800E750C)(arg0, arg0->f60, arg0->f3ac - TObjEneMe3ShinowaMirage__data_805DA5EC) == 0) {
+                ret = 1;
+            }
+        }
+    }
+    return (u8)ret;
+}
+
 void TObjEneMe3ShinowaMirage__sub_800E7324(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_800E7324, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800E7324, spC) == 0x4) ? 1 : -1];

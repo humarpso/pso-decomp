@@ -70,6 +70,7 @@ struct VObj_18_b27ba1 : VBase_18_b27ba1 {
 
 struct Obj_8022F588 { u8 pad[0x1C]; u8 *source; u8 pad20[0x74 - 0x20]; f32 power; };
 
+typedef s32 M2C_UNK;
 extern "C" {
 s32 obj_getField1c(int);
 s32 TObjPlayer__sub_8004433C(void *);
@@ -92,6 +93,17 @@ s32 is_split_screen();
 s32 TWindowSubComCard__sub_801058F8(void *);
 void show_party_effect__11TWindowCtrlFPvPvPv(s32, s32, s32);
 void TTecDeband__vt5(Obj_8022F588 *arg0, VObj_18_b27ba1 *arg1);
+s32 obj_getField1c(int);
+s32 TObjPlayer__sub_8004433C(void *);
+s32 fn_8022F42C(void *);
+int init_params__10TTecDebandFPv(void* p);
+void update_effect_params__10TTecDebandFPv(u8 *arg0);
+s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
+void TTecAnti__sub_8022B3E8(void *, void *, s32);
+extern M2C_UNK __vt__10TTecDeband[];
+extern s32 lbl_805D37A8;
+extern const f32 lbl_805DC7F0;
+s32 TTecDeband__ct(u32 a0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 }
 
 extern "C" {
@@ -104,7 +116,6 @@ void render__10TTecDebandFv(void);
 void update_effect_params__10TTecDebandFPv(u8 *arg0);
 M2C_UNK TTecAnti__sub_8022B35C(void *, s32);
 s32 TTecCtrl__sub_8022DBC4(M2C_UNK, s16, M2C_UNK);
-s32 TTecDeband__ct(u32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0, s32 a4 = 0);
 void __dl__7TObjectFPv(void *);
 void __dt__19TTecPlayerInfluenceFv(void *, int);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
@@ -138,7 +149,7 @@ void create__10TTecDebandFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 obj;
     obj = __nw__7TObjectFUl(0x140);
     if (obj != 0U) {
-        TTecDeband__ct(obj, arg0, arg1, arg2, arg3);
+        TTecDeband__ct((u32)(obj), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
     }
 }
 void create__10TTecDebandFiii(s32 arg0, s32 arg1, s32 arg2) {
@@ -197,6 +208,36 @@ void run_task__10TTecDebandFv(Deband_8022F73C *self) {
     }
     queue_destruction__7TObjectFv(self);
 }
+
+#pragma opt_common_subs off
+s32 TTecDeband__ct(u32 a0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+#define arg0 ((u8 *)a0)
+    u32 temp_r3_2;
+    u8 *temp_r3;
+    TTecPlayerInfluence__ct((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg4));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TTecDeband;
+    TObjPlayer__sub_8004433C((void *) (arg0 + 0xE0));
+    s32 g = lbl_805D37A8;
+    M2C_FIELD(arg0, s32 *, 0) = g;
+    M2C_FIELD(arg0, s32 *, 0x13C) = 1;
+    TTecAnti__sub_8022B3E8((void *) (arg0 + 0xE0), (void *) arg3, g);
+    update_effect_params__10TTecDebandFPv(arg0);
+    temp_r3 = M2C_FIELD(arg0, u8 **, 0xDC);
+    if (temp_r3 != NULL) {
+        M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0xA4), f32 *, 0xC) = (f32) (lbl_805DC7F0 + M2C_FIELD(arg0, f32 *, 0x7C));
+    }
+    temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x1C);
+    if (temp_r3_2 != 0U) {
+        M2C_FIELD(arg0, s16 *, 0xA8) = obj_getField1c((int) (temp_r3_2));
+    }
+    if (M2C_FIELD(arg0, s32 *, 0xAC) != 0) {
+        init_params__10TTecDebandFPv(arg0);
+        fn_8022F42C(arg0);
+    }
+    return (s32)a0;
+#undef arg0
+}
+#pragma opt_common_subs reset
 
 u8 *TTecDeband__sub_8022F948(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 temp_r3_2;

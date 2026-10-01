@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Lim_8032B1A4 { u32 n[4]; };
 
+struct B4_8032AD30 { u8 b[4]; };
+
 extern "C" {
 void create_callback__22TAdEnterSerialAccessGCFPvPvPv(void *, void *, void *);
 void fn_8032AC9C();
@@ -36,6 +38,18 @@ s32 TAdEndText__sub_8001B3EC(int);
 u32 strlen(const char *);
 extern Lim_8032B1A4 lbl_80477238;
 extern Lim_8032B1A4 lbl_80477248;
+s32 TKeyBoardControl__ct(void *, s32, s32, s32, s32, s32);
+void *__nw__7TObjectFUl(s32);
+void update_chat_window(void *);
+void set_sub_position__15TWindowMakeTeamFPvPv(u8 *arg0, u8 *arg1);
+int get_keyboard_field_6c__15TWindowMakeTeamFPv(void* p);
+s32 has_serial_input__22TAdEnterSerialAccessGCFv(void);
+u8 *TAdEnterSerialAccessGC__sub_8032AEB4(s32 arg0, s32 arg1);
+extern s32 lbl_804771C8[];
+extern u8 lbl_804771E0[][8];
+extern s32 lbl_805D53A0;
+extern B4_8032AD30 lbl_805DF770;
+u32 TAdEnterSerialAccessGC__sub_8032AD30(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -51,6 +65,29 @@ s32 TAdPsoPassSaveGC__sub_8032B584();
 s32 get_instance__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK memset(s32, M2C_UNK, M2C_UNK);
 M2C_UNK strncpy(s32, s32, M2C_UNK);
+
+u32 TAdEnterSerialAccessGC__sub_8032AD30(s32 arg0, s32 arg1) {
+    u8 *kb;
+    if (arg1 < 0 || arg1 >= 4) {
+        return 0;
+    }
+    B4_8032AD30 sp8 = lbl_805DF770;
+    kb = (u8 *)__nw__7TObjectFUl(0x2C);
+    if (kb != NULL) {
+        kb = (u8 *)TKeyBoardControl__ct(kb, arg0, lbl_804771C8[arg1], 0, sp8.b[arg1], lbl_805D53A0);
+    }
+    if (kb == NULL) {
+        return 0;
+    }
+    set_sub_position__15TWindowMakeTeamFPvPv(kb, lbl_804771E0[arg1]);
+    if (((s32 (*)(s32, s32))has_serial_input__22TAdEnterSerialAccessGCFv)(arg0, arg1) != 0) {
+        ((int (*)(void *, u8 *))get_keyboard_field_6c__15TWindowMakeTeamFPv)(kb, TAdEnterSerialAccessGC__sub_8032AEB4(arg0, arg1));
+    }
+    if (arg1 != 3) {
+        update_chat_window(kb);
+    }
+    return (u32)kb;
+}
 
 void TAdEnterSerialAccessGC__sub_8032AE1C(void) {
     create_callback__22TAdEnterSerialAccessGCFPvPvPv(lbl_80477188, lbl_80477190, (void *)fn_8032AC9C);

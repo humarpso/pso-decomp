@@ -214,6 +214,7 @@ force_active:
   - fn_8026D564
   - fn_803CBE00
   - free_item_pmt
+  - has_serial_input__22TAdEnterSerialAccessGCFv
   - init__18TObjAreaWarpForestFPvPvPv
   - init_default_fields__6TLobbyFPv
   - init_object__23TAdSinglePlyChrSelectGCFPvPv

@@ -44,6 +44,15 @@ struct RecoveredGlobal_8015B644___vt__19TOComputerMachine01 {
     u8 remaining[0x40];
 };
 
+typedef s32 M2C_UNK;
+struct Node_8015B544 { u8 pad[4]; s32 val; u8 pad8[0x28]; Node_8015B544 *next; };
+
+struct Res_8015B544 { u8 pad[0x2C]; Node_8015B544 *head; };
+
+struct Mdl_8015B544 { u8 pad[8]; Res_8015B544 *res; };
+
+struct Obj_8015B544 { u8 pad[0x42C]; Mdl_8015B544 *model; };
+
 extern "C" {
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -76,6 +85,13 @@ extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMac
 extern s32 TOComputerMachine01__data_805D58E4;
 extern u8 *TOComputerMachine01__data_805D58E0;
 void TOComputerMachine01__sub_8015B4E4(void);
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+extern M2C_UNK lbl_804AFFE8[];
+extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__data_8050DB50;
+extern s32 TOComputerMachine01__data_805D58E4;
+extern u8 *TOComputerMachine01__data_805D58E0;
+void TOComputerMachine01__sub_8015B544(void);
 }
 
 extern "C" {
@@ -142,6 +158,22 @@ void TOComputerMachine01__sub_8015B4E4(void) {
         TLobby__sub_8001FE7C((*(void * *)&TOComputerMachine01__data_805D58E0), 1);
         (*(void * *)&TOComputerMachine01__data_805D58E0) = 0;
     }
+}
+
+void TOComputerMachine01__sub_8015B544(void) {
+    u8 *o;
+    Node_8015B544 *n;
+    o = (u8 *)alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    if (o != NULL) {
+        o = TLobby__sub_80020004(o, 1, lbl_804AFFE8, 0, 0, 0);
+    }
+    TOComputerMachine01__data_805D58E0 = o;
+    n = ((Obj_8015B544 *)o)->model->res->head;
+    ((s32 *)&TOComputerMachine01__data_8050DB50)[3] = n->val;
+    ((s32 *)&TOComputerMachine01__data_8050DB50)[2] = n->next->val;
+    ((s32 *)&TOComputerMachine01__data_8050DB50)[1] = n->next->next->val;
+    ((s32 *)&TOComputerMachine01__data_8050DB50)[0] = n->next->next->next->val;
+    TOComputerMachine01__data_805D58E4 = 0;
 }
 
 void *__dt__19TOComputerMachine01Fv(void *arg0, s16 arg1) {

@@ -42,6 +42,10 @@ s32 TAdPlayerLoadGC__sub_803F3328(s32 arg0);
 s32 CARDProbe(s32 chan);
 char *strcpy(char *, const char *);
 u32 strlen(const char *);
+M2C_UNK memset(void *, int, int);
+extern Slot_803F3478 lbl_805A28E0[];
+s32 get_load_state__15TAdPlayerLoadGCFv(void);
+s32 TAdPlayerLoadGC__sub_803F339C(s32 arg0, s32 *arg1);
 }
 
 extern "C" {
@@ -98,6 +102,35 @@ s32 TAdPlayerLoadGC__sub_803F3328(s32 arg0) {
         s->state = 2;
     }
     return ret;
+}
+
+s32 TAdPlayerLoadGC__sub_803F339C(s32 arg0, s32 *arg1) {
+    s32 r;
+    s32 t;
+    if (get_load_state__15TAdPlayerLoadGCFv() < 1) {
+        return -1;
+    }
+    if (lbl_805A28E0[arg0].f44 == 0x4) {
+        *arg1 = lbl_805A28E0[arg0].f5C;
+        t = lbl_805A28E0[arg0].f58;
+        r = t;
+        if (t != 200) {
+            lbl_805A28E0[arg0].f0 = 0;
+            memset(lbl_805A28E0[arg0].name, 0, 0x20);
+            memset(lbl_805A28E0[arg0].name2, 0, 0x20);
+            lbl_805A28E0[arg0].f44 = 0;
+            lbl_805A28E0[arg0].f48 = 0;
+            lbl_805A28E0[arg0].f4C = 0;
+            lbl_805A28E0[arg0].f50 = 0;
+            lbl_805A28E0[arg0].f54 = -1;
+            lbl_805A28E0[arg0].f58 = 0;
+            lbl_805A28E0[arg0].f5C = 0;
+        }
+    } else {
+        *arg1 = 0;
+        r = -4;
+    }
+    return r;
 }
 
 s32 TAdPlayerLoadGC__sub_803F3478(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {

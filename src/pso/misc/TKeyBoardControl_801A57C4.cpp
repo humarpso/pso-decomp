@@ -25,6 +25,10 @@ extern M2C_UNK TKeyBoardControl__data_80506270[];
 void TKeyBoardControl__sub_801A58D8(void);
 extern Pad_801A57D0 *lbl_8050E208[];
 s32 TKeyBoardControl__sub_801A57D0(void);
+u8 TKeyBoardControl__sub_8013239C(void *, u8);
+u8 get_key_state_2__16TKeyBoardControlFPv(void *);
+extern M2C_UNK TKeyBoardControl__data_80506270[];
+s32 TKeyBoardControl__sub_801A5998(s32 arg0);
 }
 
 extern "C" {
@@ -36,7 +40,6 @@ s32 check_reset_button__16TKeyBoardControlFv(void);
 s32 read_input__16TKeyBoardControlFi(s32 arg0);
 void reset__16TKeyBoardControlFv(void);
 s32 OSGetResetButtonState();
-s32 TKeyBoardControl__sub_801A5998(s32);
 void TKeyBoardControl__sub_801A5A14(void *arg0);
 s32 TKeyBoardControl__sub_801323C8(void *, void *);
 s32 check_input_ready__16TKeyBoardControlFi(M2C_UNK *);
@@ -85,7 +88,7 @@ void TKeyBoardControl__sub_801A58D8(void) {
 
 s32 check_and_read__16TKeyBoardControlFi(s32 arg0) {
     if (check_input_ready__16TKeyBoardControlFi(TKeyBoardControl__data_80506270) != 0) {
-        return TKeyBoardControl__sub_801A5998(arg0);
+        return TKeyBoardControl__sub_801A5998((s32)(arg0));
     }
     return 0;
 }
@@ -95,6 +98,18 @@ extern M2C_UNK TKeyBoardControl__data_80506270[];
 s32 read_input__16TKeyBoardControlFi(s32 arg0) {
     if (check_input_ready__16TKeyBoardControlFi(TKeyBoardControl__data_80506270) != 0) {
         return ((s32 (*)(s32))TKeyBoardControl__sub_801A5A14)(arg0);
+    }
+    return 0;
+}
+
+s32 TKeyBoardControl__sub_801A5998(s32 arg0) {
+    s32 i;
+    s32 n;
+    n = get_key_state_2__16TKeyBoardControlFPv(((s32 *)&TKeyBoardControl__data_80506270));
+    for (i = 0; i < n; i++) {
+        if ((u8)arg0 == TKeyBoardControl__sub_8013239C(((s32 *)&TKeyBoardControl__data_80506270), i)) {
+            return 1;
+        }
     }
     return 0;
 }

@@ -426,6 +426,7 @@ pso/enemy/TObjEneMe1GiGueBarrier_802CABE4.cpp
 pso/enemy/TObjEneMe1GiGueMissile.cpp
 pso/enemy/TObjEneMe1GiGueMissile_802A4628.cpp
 pso/enemy/TObjEneMe1GiGue_80040B3C.cpp
+pso/enemy/TObjEneMe3ShinowaMirage_800E728C.cpp
 pso/enemy/TObjEneMe3ShinowaReal.cpp
 pso/enemy/TObjEneMe3ShinowaReal_8002ADD8.cpp
 pso/enemy/TObjEneMe3Shinowa_800E71A8.cpp
@@ -923,6 +924,7 @@ pso/misc/TJudgmentSequence_8021E4C4.cpp
 pso/misc/TKeyBoardControl.cpp
 pso/misc/TKeyBoardControl_8000F764.cpp
 pso/misc/TKeyBoardControl_8019BB2C.cpp
+pso/misc/TKeyBoardControl_801A57C4.cpp
 pso/misc/TKeyBoardControl_802433DC.cpp
 pso/misc/TKeyBoardControl_80290CB0.cpp
 pso/misc/TKeyBoardControl_802A1180.cpp
@@ -1368,6 +1370,7 @@ pso/misc/TOChatSensorCapture.cpp
 pso/misc/TOChatSensorFolder.cpp
 pso/misc/TOChatSensor_8015AC80.cpp
 pso/misc/TOChatSensor_8015B214.cpp
+pso/misc/TOComputerMachine01.cpp
 pso/misc/TOContainerAncientEnemy.cpp
 pso/misc/TOContainerAncientEnemyCommon.cpp
 pso/misc/TOContainerAncientEnemyRare.cpp
@@ -1667,6 +1670,7 @@ pso/misc/TWindowBreakIn.cpp
 pso/misc/TWindowChat.cpp
 pso/misc/TWindowChatSymbol.cpp
 pso/misc/TWindowChatSymbol_802486A8.cpp
+pso/misc/TWindowChat_8024701C.cpp
 pso/misc/TWindowChat_80247534.cpp
 pso/misc/TWindowChat_80247D50.cpp
 pso/misc/TWindowChat_8025CB10.cpp
@@ -2187,6 +2191,7 @@ pso/object/TObjLuker_8001A438.cpp
 pso/object/TObjLuker_801329B0.cpp
 pso/object/TObjMapCsn_8007A720.cpp
 pso/object/TObjMapForceWarp.cpp
+pso/object/TObjMapWarp.cpp
 pso/object/TObjMapWarpAncient_8017D0DC.cpp
 pso/object/TObjMapWarpForest.cpp
 pso/object/TObjMapWarp_80141C68.cpp
@@ -2844,6 +2849,7 @@ pso/player/TObjPlayer_801D9C88.cpp
 pso/player/TObjPlayer_801D9E08.cpp
 pso/player/TObjPlayer_801D9E10.cpp
 pso/player/TObjPlayer_801D9E40.cpp
+pso/player/TObjPlayer_801E2D1C.cpp
 pso/player/TObjPlayer_801E3D34.cpp
 pso/player/TObjPlayer_801E483C.cpp
 pso/player/TObjPlayer_802034EC.cpp
@@ -3105,6 +3111,7 @@ pso/ui/TAdEnterSerialAccessGC_80202978.cpp
 pso/ui/TAdEnterSerialAccessGC_8023EA94.cpp
 pso/ui/TAdEnterSerialAccessGC_802ACF04.cpp
 pso/ui/TAdEnterSerialAccessGC_802E0110.cpp
+pso/ui/TAdEnterSerialAccessGC_8032AD30.cpp
 pso/ui/TAdExNetConfirmGC.cpp
 pso/ui/TAdExNetConfirmGC_8032C504.cpp
 pso/ui/TAdFloorLoadGC.cpp

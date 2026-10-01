@@ -56,6 +56,8 @@ struct Table_800712D8 {
     Entry_800712D8 entries[3];
 };
 
+struct Tbl_80070DCC { u8 pad[0x680]; s32 f680[4]; };
+
 extern "C" {
 int check_player_state_flag_2__6TLobbyFPv(void *);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
@@ -100,6 +102,14 @@ s32 calc_layout_hash__20TWindowSubStatusDispFv(int);
 s32 calc_entry_offset__20TWindowSubStatusDispFv(int);
 extern M2C_UNK lbl_8048C9D8[];
 s32 TLobby__sub_800712D8(s32 idx, s32 value, s32 arg);
+s32 calc_challenge_time_limit__6TLobbyFv();
+s32 check_challenge_time_range__6TLobbyFi(s32);
+s32 TLobby__sub_8006F994(s32);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+extern M2C_UNK lbl_8048C9D8[];
+extern s32 lbl_805D4E38;
+extern s8 lbl_805D4E3C;
+s32 TLobby__sub_80070DCC(void);
 }
 
 extern "C" {
@@ -153,6 +163,44 @@ s32 TLobby__sub_80070DA8(void) {
 }
 
 typedef char RecoveredGlobal_80070EE4_lbl_8048C9D8_size[sizeof(RecoveredGlobal_80070EE4_lbl_8048C9D8) == 0x748 ? 1 : -1];
+
+s32 TLobby__sub_80070DCC(void) {
+    s32 times[4];
+    s32 i;
+    s32 best;
+    s32 t;
+    for (i = 0; i < 4; i++) {
+        times[i] = 0;
+    }
+    for (i = 0; i < 4; i++) {
+        if (((u32 (*)(u32))TPlayerBattleCtrl4P__sub_801BA74C)(i) != 0) {
+            s32 v = ((Tbl_80070DCC *)lbl_8048C9D8)->f680[i];
+            if (v == 0) {
+                return -1;
+            }
+            t = TLobby__sub_8006F994(v);
+            if (check_challenge_time_range__6TLobbyFi(t) != 0) {
+                return -2;
+            }
+            times[i] = t;
+        }
+    }
+    if (lbl_805D4E3C == 0) {
+        lbl_805D4E38 = calc_challenge_time_limit__6TLobbyFv() - 1;
+        lbl_805D4E3C = 1;
+    }
+    best = lbl_805D4E38;
+    for (i = 0; i < 4; i++) {
+        if (times[i] != 0 && best < times[i]) {
+            best = times[i];
+        }
+    }
+    if (best == lbl_805D4E38) {
+        return -2;
+    }
+    return best;
+}
+
 void TLobby__sub_80070EE4(s32 arg0) {
     check_challenge_time_range__6TLobbyFi(arg0);
     get_random_float__8TObjFishFv((f32) (arg0 - M2C_FIELD(&(*(RecoveredGlobal_80070EE4_lbl_8048C9D8 *)&lbl_8048C9D8).value, s32 *, 0xC)));

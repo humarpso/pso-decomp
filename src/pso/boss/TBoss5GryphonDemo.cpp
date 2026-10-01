@@ -39,6 +39,10 @@ struct Obj_800663DC {
     u8 posbuf[0xC];
 };
 
+struct Obj_800665FC { s32 f0; u8 pad4[0x14]; void *f18; f32 f1c; f32 f20; s32 f24; };
+
+struct Cam_800665FC { s8 f8; s8 f9; s16 fa; f32 fc; f32 f10; };
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_active_player__10TObjPlayerFi(int);
@@ -61,6 +65,14 @@ extern s32 lbl_805D2808;
 extern const f32 lbl_805D8ED0;
 extern const f32 lbl_805D8EDC;
 Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(Obj_800663DC *arg0, M2C_UNK arg1, s32 arg2, void *arg3, f32 len);
+s32 TBoss8Dragon__sub_8005D700(void);
+void TCameraCtrl__sub_80069E7C(int);
+void cache_target_and_forward__11TCameraCtrlFii(void *, int);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern u8 __vt__17TBoss5GryphonDemo[];
+extern s32 lbl_805D2810;
+extern const f32 lbl_805D8EE0;
+Obj_800665FC *__ct__17TBoss5GryphonDemoFv(Obj_800665FC *self, void *parent, s32 arg2, f32 farg0);
 }
 
 extern "C" {
@@ -159,6 +171,27 @@ void run_task__17TBoss5GryphonDemoFv(u8 *arg0) {
         TCameraCtrl__sub_80069DA8();
         queue_destruction__7TObjectFv((void *) (arg0));
     }
+}
+Obj_800665FC *__ct__17TBoss5GryphonDemoFv(Obj_800665FC *self, void *parent, s32 arg2, f32 farg0) {
+    Cam_800665FC c;
+    __ct__7TObjectFP7TObject(self, parent);
+    self->f18 = __vt__17TBoss5GryphonDemo;
+    self->f0 = lbl_805D2810;
+    self->f1c = farg0;
+    self->f20 = lbl_805D8EE0;
+    self->f24 = arg2;
+    switch (TBoss8Dragon__sub_8005D700()) {
+    case 0:
+        c.f8 = 1;
+        c.f9 = 0;
+        c.fa = 0;
+        c.fc = self->f20;
+        c.f10 = self->f1c;
+        TCameraCtrl__sub_80069E7C(5);
+        cache_target_and_forward__11TCameraCtrlFii(&c, 0x238E);
+        break;
+    }
+    return self;
 }
 
 }

@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Win_8024701C { u8 p0[0x1E]; u16 flags; s32 f20; u8 p24[4]; s32 f28; };
+
 extern "C" {
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80076D9C(void *, int);
 s32 TWindowKeyBoardSoft__sub_80076E2C(int);
@@ -31,6 +33,9 @@ M2C_UNK set_active_flag__11TWindowChatFPv(void *);
 M2C_UNK set_input_active__11TWindowChatFPv(void *);
 s32 TWindowDD__sub_80348470(int);
 s32 TWindowChat__sub_80247128(u8 *arg0);
+s32 TWindowChat__sub_80247D50(s32);
+s32 TWindowChat__sub_8025CB10(s32);
+bool TWindowCtrl__sub_8024701C(Win_8024701C *w);
 }
 
 extern "C" {
@@ -40,7 +45,17 @@ s32 TWindowChat__sub_8024792C(void *);
 void free_icon__18TWindowSubShortCutFPv(void* p);
 int TWindowChat__sub_80247D2C(void*);
 
-int TWindowCtrl__sub_8024701C(void) { return 0; }
+bool TWindowCtrl__sub_8024701C(Win_8024701C *w) {
+    bool r;
+    if (TWindowChat__sub_8025CB10(w->f20) != 0) {
+        r = true;
+    } else if (!(w->flags & 2)) {
+        r = true;
+    } else {
+        r = TWindowChat__sub_80247D50(w->f28) != 0;
+    }
+    return r;
+}
 
 s32 TWindowChat__sub_80247080(u8 *arg0) {
     s32 *temp_r31;

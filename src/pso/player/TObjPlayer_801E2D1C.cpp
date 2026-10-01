@@ -4,6 +4,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct G_801E2DE4 { u8 pad[0xC]; void (*draw)(); };
+
+extern "C" {
+void render_matrix_chain__10TObjPlayerFPv(void *arg0);
+void TObjPlayer__sub_803D7B68(s32);
+void prepare_ginja_model(G_801E2DE4 *);
+void TObjPlayer__sub_803DC6F4();
+void draw_ginja_model_lists();
+extern void *lbl_805D4698;
+void TObjPlayer__sub_801E2DE4(void *arg0, s32 arg1);
+}
+
 extern "C" {
 
 void render_matrix_chain__10TObjPlayerFPv(void *arg0);
@@ -50,6 +62,16 @@ void render_model_tree__10TObjPlayerFPv(void *arg0) {
 
 extern void *lbl_805D4698;
 extern s32 lbl_805D7774;
+
+void TObjPlayer__sub_801E2DE4(void *arg0, s32 arg1) {
+    G_801E2DE4 *g;
+    TObjPlayer__sub_803D7B68(arg1);
+    g = (G_801E2DE4 *)lbl_805D4698;
+    g->draw = draw_ginja_model_lists;
+    prepare_ginja_model(g);
+    render_matrix_chain__10TObjPlayerFPv(arg0);
+    TObjPlayer__sub_803DC6F4();
+}
 
 void render_matrix_chain__10TObjPlayerFPv(void *arg0) {
     M2C_UNK sp38[12];

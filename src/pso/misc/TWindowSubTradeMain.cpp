@@ -64,13 +64,13 @@ extern const f32 TObjEneMorfos__data_805DF86C;
 extern const f32 TObjEneMorfos__data_805DF870;
 extern const f32 TObjEneMorfos__data_805DF874;
 void TObjEneMorfos__vt104(O_803323D8 *arg0);
+u8 TObjEneMorfos__sub_8033263C(void *arg0, u16 arg1, u16 arg2, u16 arg3);
 }
 
 extern "C" {
 
 void* TObjEneMorfosArm__sub_803326B4(void* p);
 s32 TObjEneMorfosArm__sub_803326BC(void* p);
-int TObjEneMorfos__sub_8033263C(void);
 void TObjEneMorfos__vt103(void* p);
 void TWindowSubTradeMain__sub_803323A8(void* p);
 void TWindowSubTradeMain__sub_803323B8(void* p);
@@ -139,7 +139,35 @@ void TObjEneMorfos__sub_80332594(u8 *arg0) {
     }
 }
 
-int TObjEneMorfos__sub_8033263C(void) { return 0; }
+u8 TObjEneMorfos__sub_8033263C(void *arg0, u16 arg1, u16 arg2, u16 arg3) {
+    s32 r;
+    s32 d;
+    s32 c;
+    s32 b;
+    s32 a;
+    a = arg1;
+    b = arg2;
+    if (a > b) {
+        c = arg3;
+        r = 0;
+        d = a - c;
+        if ((d >= 0 && b - c >= 0) || (d <= 0 && b - c <= 0)) {
+            r = 1;
+        }
+        return r;
+    } else {
+        s32 r2;
+        s32 d2;
+        s32 c2;
+        c2 = arg3;
+        r2 = 0;
+        d2 = a - c2;
+        if ((d2 <= 0 && b - c2 >= 0) || (d2 >= 0 && b - c2 <= 0)) {
+            r2 = 1;
+        }
+        return r2;
+    }
+}
 
 void* TObjEneMorfosArm__sub_803326B4(void* p) { return (char*)p + 0x4a4; }
 s32 TObjEneMorfosArm__sub_803326BC(void* p) { return *(s32*)((char*)p + 0x60); }

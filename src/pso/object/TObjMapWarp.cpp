@@ -39,6 +39,22 @@ struct RecoveredGlobal_8019D818_lbl_8050E208 {
 };
 
 #include "pso/object/TObjMapWarp.h"
+typedef s32 M2C_UNK;
+struct V3_8019D764 { f32 x, y, z; };
+
+struct W_8019D764 {
+    s32 type;
+    u8 pad04[0x14];
+    M2C_UNK *vt;
+    u8 pad1c[0x60 - 0x1C];
+    s32 sourceYaw;
+    u8 pad64[4];
+    f32 destination[3];
+    u8 pad74[0xBC - 0x74];
+    V3_8019D764 destinations[4];
+    void *playerPopups[4];
+};
+
 extern "C" {
 u8 TWindowShortListCtrl__check_controller_button(void *, int);
 extern RecoveredGlobal_8019D850_lbl_8050E208 lbl_8050E208;
@@ -59,6 +75,17 @@ M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
 M2C_UNK TWindowSubComCard__sub_80265C30(int);
 M2C_UNK TWindowSubComCard__sub_80265F60(int);
 void TObjMapWarp__sub_8019D5AC(s32 arg0, s32 arg1);
+void *TObjWarpBase__ct(void *, void *, void *);
+int TObjPlayer__sub_803D97F0(void *);
+void TOHangerMachine01__sub_803D9C00(void *);
+void rotate_matrix_y(void *, s32);
+void TCameraCtrl__sub_803D8934(void *, void *, void *);
+void TObjPlayer__sub_803D9B78();
+extern M2C_UNK __vt__11TObjMapWarp[];
+extern u8 lbl_8058D490[];
+extern V3_8019D764 lbl_804B910C[];
+extern s32 lbl_805D3460;
+void *TObjMapWarp__ct(W_8019D764 *self, void *parent, void *set);
 }
 
 extern "C" {
@@ -168,6 +195,23 @@ extern s32 lbl_805D55C0;
 typedef char RecoveredGlobal_8019D850_lbl_8050E208_size[sizeof(RecoveredGlobal_8019D850_lbl_8050E208) == 0x1B0 ? 1 : -1];
 
 typedef char RecoveredGlobal_8019D818_lbl_8050E208_size[sizeof(RecoveredGlobal_8019D818_lbl_8050E208) == 0x1B0 ? 1 : -1];
+
+void *TObjMapWarp__ct(W_8019D764 *self, void *parent, void *set) {
+    s32 i;
+    TObjWarpBase__ct(self, parent, set);
+    self->vt = __vt__11TObjMapWarp;
+    self->type = lbl_805D3460;
+    for (i = 0; i < 4; i++) {
+        TObjPlayer__sub_803D97F0(lbl_8058D490);
+        TOHangerMachine01__sub_803D9C00(self->destination);
+        rotate_matrix_y(0, self->sourceYaw);
+        TCameraCtrl__sub_803D8934(0, &lbl_804B910C[i], &self->destinations[i]);
+        TObjPlayer__sub_803D9B78();
+        self->playerPopups[i] = 0;
+    }
+    return self;
+}
+
 void TObjWarpBase__vt15(M2C_UNK arg0, s32 arg1) {
     TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&(*(RecoveredGlobal_8019D818_lbl_8050E208 *)&lbl_8050E208).value + (arg1 * 0x50) + 0x20), (int) (4));
 }

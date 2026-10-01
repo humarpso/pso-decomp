@@ -41,6 +41,8 @@ struct Src_802A1838 {
     u8 v[8];
 };
 
+struct Tbl_802A194C { s32 v[5]; };
+
 extern "C" {
 int queue_destruction__7TObjectFv(void *);
 void TAdSelectTxtGC__sub_802A16CC(Sel_802A16CC *arg0, void *arg1, void *arg2);
@@ -49,6 +51,13 @@ void *__ct__17TAdSelectTxtSubGCFv(void *, void *, void *);
 void run_task__14TAdSelectTxtGCFv(Sel_802A1740 *arg0);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void TAdSelectTxtGC__sub_802A1838(Sel_802A1838 *arg0, Src_802A1838 *arg1, void *arg2);
+void update_menu_cursor__6TLobbyFv();
+void TLobby__sub_8023E4B4(s32, s32);
+extern Tbl_802A194C lbl_80466340;
+extern Tbl_802A194C lbl_80466354;
+extern const s32 lbl_805D5544;
+extern u32 lbl_805D6640;
+void TLobby__sub_802A194C(void);
 }
 
 extern "C" {
@@ -125,6 +134,15 @@ void TLobby__sub_802A1918(void) {
         TLobby__sub_803DA16C((void*)lbl_805D6640);
         lbl_805D6640 = 0U;
     }
+}
+void TLobby__sub_802A194C(void) {
+    update_menu_cursor__6TLobbyFv();
+    Tbl_802A194C a = lbl_80466340;
+    Tbl_802A194C b = lbl_80466354;
+    s32 i = lbl_805D5544;
+    s32 v = b.v[i];
+    lbl_805D6640 = v;
+    TLobby__sub_8023E4B4(a.v[i], v);
 }
 
 }

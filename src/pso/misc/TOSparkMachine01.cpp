@@ -38,6 +38,36 @@ struct Res_801773D8 { u8 pad[0x42C]; Model_801773D8 *model; };
 
 struct Obj_80177088 { u8 pad[0x90]; f32 timer[4]; u8 on[4]; f32 speed; };
 
+struct VBase_801771F4 { u8 pad[0x18]; };
+
+struct Node_801771F4 { u8 pad[4]; s32 f4; u8 m[0x28]; Node_801771F4 *next; };
+
+struct Res_801771F4 { u8 pad[0x2C]; Node_801771F4 *head; };
+
+struct Obj_801771F4 : VBase_801771F4 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+    s32 unk1c;
+    s32 unk20;
+    s32 unk24;
+    u8 pad28[0x34 - 0x28];
+    Res_801771F4 *res;
+    u8 m38[0x60 - 0x38];
+    s32 unk60;
+    u8 pad64[0xA0 - 0x64];
+    u8 on[4];
+    f32 speed;
+    f32 unka8;
+    f32 unkac;
+};
+
 extern "C" {
 extern const f32 TOSparkMachine01__data_805DB9EC;
 void run_task__16TOSparkMachine01Fv(u8 *arg0);
@@ -60,6 +90,15 @@ s32 rand__11TOBoss4RockFv(void);
 extern const f32 lbl_805DB9E8;
 extern const f32 TOSparkMachine01__data_805DB9EC;
 void TOSparkMachine01__sub_80177088(void *arg0, s32 i);
+void begin_effect_render__13TParticleCtrlFv(void *);
+void end_effect_render__13TParticleCtrlFv();
+void rotate_matrix_y(int, int);
+void TObjPlayer__sub_803D9B2C();
+void TObjPlayer__sub_803D9B78();
+void TOHangerMachine01__sub_803D9C00(void *);
+void set_global_param__8TObjFishFi(int);
+void TOSignCave03__sub_803DB510(int);
+void render__16TOSparkMachine01Fv(Obj_801771F4 *self);
 }
 
 extern "C" {
@@ -106,6 +145,34 @@ void run_task__16TOSparkMachine01Fv(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 0xA2) = 0;
     M2C_FIELD(arg0, s8 *, 0xA0) = 0;
     TOSparkMachine01__sub_80177088((void *)(arg0), (s32)(1));
+}
+
+void render__16TOSparkMachine01Fv(Obj_801771F4 *self) {
+    Node_801771F4 *n;
+    s32 i;
+    Res_801771F4 *r;
+    if (self->m8(self->unka8, self->unkac) != 0) {
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(self->m38);
+        rotate_matrix_y(0, self->unk60);
+        set_global_param__8TObjFishFi(self->unk24);
+        r = self->res;
+        n = r->head;
+        begin_effect_render__13TParticleCtrlFv(r);
+        for (i = 0; i < 4; i++) {
+            switch (self->on[i]) {
+            case 1:
+                TObjPlayer__sub_803D9B2C();
+                TOHangerMachine01__sub_803D9C00(n->m);
+                TOSignCave03__sub_803DB510(n->f4);
+                TObjPlayer__sub_803D9B78();
+                break;
+            }
+            n = n->next;
+        }
+        end_effect_render__13TParticleCtrlFv();
+        TObjPlayer__sub_803D9B78();
+    }
 }
 
 void *create__16TOSparkMachine01FPv(void *arg0) {
