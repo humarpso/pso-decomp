@@ -57,6 +57,18 @@ struct G_804228E8 { s32 f0; };
 
 struct G_804229F8 { s32 f0; };
 
+struct O_80421938 { u8 pad0[8]; s32 f8; s16 fC; };
+
+struct Stack_80421938 { s16 flags; s16 len; s32 zero; u8 src[0x10]; u8 dst[0x10]; };
+
+struct O_80421F10 { u8 pad0[8]; s32 f8; s16 fC; };
+
+struct Stack_80421F10 { s16 flags; s16 len; s32 zero; u8 src[0x14]; u8 dst[0x14]; s16 port; };
+
+struct S_804220A0 {
+    u8 pad0[0x1FC]; s32 f1FC; u8 pad200[0xAC]; u8 flags; u8 count; s16 f2AE; u8 pad2B0[4]; u8 flags2; u8 pad2B5[0x544 - 0x2B5];
+};
+
 extern "C" {
 s32 TLobby__sub_80406AE4(void);
 s32 TLobby__sub_80409AA8(void);
@@ -132,6 +144,14 @@ s32 TLobby__sub_8041E224(int);
 s16 TLobby__sub_8041EB24(int);
 extern RecoveredGlobal_804217E4_lbl_805C1C50 lbl_805C1C50;
 s32 tcp_abort__Fs(s32 a);
+M2C_UNK TLobby__sub_803F9F04(void *, void *, int);
+M2C_UNK TLobby__sub_80421FB8(void *, void *, void *);
+s32 TLobby__sub_80421938(O_80421938 *o, void *src, void *dst, void *cb, s32 flags);
+M2C_UNK TLobby__sub_803F9F04(void *, void *, int);
+M2C_UNK TLobby__sub_80421FB8(void *, void *, void *);
+s32 TLobby__sub_80421F10(O_80421F10 *o, void *src, void *dst, s16 port, void *cb, s32 flags);
+extern S_804220A0 *lbl_805C1D48[];
+s32 TLobby__sub_804220A0(s32 idx_, void (*cb)(s16, s16, s32), s16 arg2, s32 *arg3);
 }
 
 extern "C" {
@@ -192,6 +212,20 @@ s32 TLobby__sub_804218AC(s32 arg0, s32 arg1) {
 #pragma push
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_804219D0_lbl_805C1C50_size[sizeof(RecoveredGlobal_804219D0_lbl_805C1C50) == 0xF8 ? 1 : -1];
+
+s32 TLobby__sub_80421938(O_80421938 *o, void *src, void *dst, void *cb, s32 flags) {
+    Stack_80421938 s;
+    s.flags = flags | 0xC00;
+    s.len = o->f8 - o->fC;
+    s.zero = 0;
+    TLobby__sub_803F9F04(s.src, src, 0x10);
+    TLobby__sub_803F9F04(s.dst, dst, 0x10);
+    if (cb != NULL) {
+        TLobby__sub_80421FB8(cb, &s, o);
+    }
+    return 0;
+}
+
 s32 TLobby__sub_804219D0(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r31;
     TLobby__sub_803F95C4((void *) ((*(RecoveredGlobal_804219D0_lbl_805C1C50 *)&lbl_805C1C50).value));
@@ -241,6 +275,35 @@ s32 TLobby__sub_80421B3C(s32 a) {
     r = TUdpSocket__sub_80421178(m);
     TUdpSocket__sub_803F95A4((void *)g->f0);
     return r;
+}
+
+s32 TLobby__sub_80421F10(O_80421F10 *o, void *src, void *dst, s16 port, void *cb, s32 flags) {
+    Stack_80421F10 s;
+    s.flags = flags | 0x400;
+    s.len = o->f8 - o->fC;
+    s.zero = 0;
+    TLobby__sub_803F9F04(s.src, src, 0x14);
+    TLobby__sub_803F9F04(s.dst, dst, 0x14);
+    s.port = port;
+    if (cb != NULL) {
+        TLobby__sub_80421FB8(cb, &s, o);
+    }
+    return 0;
+}
+
+s32 TLobby__sub_804220A0(s32 idx_, void (*cb)(s16, s16, s32), s16 arg2, s32 *arg3) {
+    s16 idx = idx_;
+    S_804220A0 *s = lbl_805C1D48[0];
+    s += idx;
+    if (cb != NULL && !(s->flags & 8)) {
+        cb(arg2, idx, *arg3);
+    } else if (!(s->flags2 & 4)) {
+        s->f2AE = arg2;
+        s->flags2 |= 4;
+        s->f1FC = 0;
+    }
+    s->count--;
+    return 0;
 }
 
 s32 tcp_stat__FsPsPsPUlPUl(s32 a, s16 *b, s16 *c, u32 *d, u32 *e) {

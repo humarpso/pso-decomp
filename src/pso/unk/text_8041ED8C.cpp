@@ -22,6 +22,10 @@ struct S_80420BD0 {
     u8 flag : 1; u8 rest : 7;
 };
 
+struct E_80420D38 { u8 pad0[4]; u16 f4; u8 pad6[8]; u16 fE; u8 pad10[0x30]; s32 f40; };
+
+struct G_80420D38 { s16 count; u8 pad2[6]; E_80420D38 *ents; };
+
 extern "C" {
 M2C_UNK TLobby__sub_803F87C4(void *);
 extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
@@ -30,6 +34,9 @@ void TLobby__sub_8041FDA0(O_8041FDA0 *o, s16 idx, s32 a, s32 b);
 void TLobby__sub_8041FE44(O_8041FE44 *o);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 s32 TLobby__sub_80420BD0(void *arg0, S_80420BD0 *s, s32 arg2);
+void TLobby__sub_80422E30(s16, s32, s32, s16);
+extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
+s32 TLobby__sub_80420D38(u16 arg0, u8 arg1);
 }
 
 extern "C" {
@@ -100,6 +107,26 @@ s32 TLobby__sub_80420BD0(void *arg0, S_80420BD0 *s, s32 arg2) {
 s32 TLobby__sub_80420C5C(void) {
     TLobby__sub_803F87C4((void *) (&lbl_805C1DF0.value));
     lbl_805C1DF0.value = 0;
+    return 0;
+}
+s32 TLobby__sub_80420D38(u16 arg0, u8 arg1) {
+    s16 i;
+    E_80420D38 *e;
+    G_80420D38 *g = (G_80420D38 *)&lbl_805C1DF0;
+    for (i = 0, e = g->ents; i < g->count; i++, e++) {
+        if (e->f4 != 0 && e->fE == arg0) {
+            s16 f = 0;
+            if ((u8)(arg1 - 2) <= 1) {
+                f = 0x81;
+            } else if (arg1 <= 1) {
+                f = 0x80;
+            }
+            if (f != 0) {
+                TLobby__sub_80422E30(i, e->f40, 2, f);
+            }
+            break;
+        }
+    }
     return 0;
 }
 
