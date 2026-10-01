@@ -31,7 +31,7 @@ M2C_UNK *query_game_join_id__10TObjPlayerFv(M2C_UNK *);
 M2C_UNK get_entity_id__10TObjPlayerFPv(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi();
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(int);
@@ -174,7 +174,7 @@ void TObjPlayer__sub_8032DC94(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00((int) var_r3);
         var_r4 = (M2C_UNK *) (*((M2C_UNK **) (((s8 *) var_r29) + 0x58)));
         var_r3 = (M2C_UNK *) ((u8 *) 0);
-        TObjPlayer__sub_803D9214((int) 0, (int) var_r4);
+        rotate_matrix_y((int) 0, (int) var_r4);
         var_r3 = (M2C_UNK *) (var_r29 + 0x74);
         TBoss7Tentacle__sub_803D9BA0((int) var_r3);
         var_r3 = (M2C_UNK *) var_r30;

@@ -51,7 +51,7 @@ struct Map_8016CA64 { u8 pad[0x42C]; Area_8016CA64 *area; };
 extern "C" {
 s32 TObjPlayer__sub_803D9B2C();
 s32 TOHangerMachine01__sub_803D9C00(void *);
-s32 TObjPlayer__sub_803D9214(s32, s32);
+s32 rotate_matrix_y(s32, s32);
 s32 set_global_param__8TObjFishFi(s32);
 s32 TObjBoss2Tunnel__sub_803DB470(s32);
 s32 TObjPlayer__sub_803D9B78();
@@ -86,7 +86,7 @@ void render__14TOKeyGenericSwFv(Obj_8016CA64 *self) {
     self->x24 = TOKeyGenericSw__data_805D5A28[0];
     self->x34 = TOKeyGenericSw__data_8050DB60[0]->area->x8;
     TOHangerMachine01__sub_803D9C00(self->x38);
-    TObjPlayer__sub_803D9214(0, self->x60);
+    rotate_matrix_y(0, self->x60);
     set_global_param__8TObjFishFi(self->x24);
     TObjBoss2Tunnel__sub_803DB470(self->x34);
     TObjPlayer__sub_803D9B78();
@@ -102,7 +102,7 @@ void render__14TOKeyGenericSwFv(Obj_8016CA64 *self) {
     }
     self->x34 = TOKeyGenericSw__data_8050DB60[1]->area->x8;
     TOHangerMachine01__sub_803D9C00(self->x38);
-    TObjPlayer__sub_803D9214(0, self->x60);
+    rotate_matrix_y(0, self->x60);
     set_global_param__8TObjFishFi(self->x24);
     TObjDoor__sub_803DC894(self->x34, self->xbc, self->xb0);
     TObjPlayer__sub_803D9B78();

@@ -239,7 +239,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 extern TTecGiBartaData_80230B48 TTecMegid__data_8044D874[];
 void *TPhotonMylla__sub_80154CB4(u16);
 void TObjPlayer__sub_803D97F0(void *);
-void TObjPlayer__sub_803D9214(s32, s32);
+void rotate_matrix_y(s32, s32);
 void TCameraCtrl__sub_803D8934(s32, Vec_80235740 *, Vec_80235740 *);
 void TCameraCtrl__sub_803D9858(s32);
 void copy_pos__11TNowLoadingFPvPv(void *, Vec_80235740 *);
@@ -404,7 +404,7 @@ void run_task__9TTecMegidFv(Obj_80235740 *self) {
             Vec_80235740 off = lbl_8044D8B0;
             Vec_80235740 p;
             TObjPlayer__sub_803D97F0(lbl_8058D490);
-            TObjPlayer__sub_803D9214(0, self->f58);
+            rotate_matrix_y(0, self->f58);
             TCameraCtrl__sub_803D8934(0, &off, &off);
             TCameraCtrl__sub_803D9858(1);
             p.x = self->pos.x + off.x;

@@ -77,7 +77,7 @@ void TLobby__sub_800869A4(Vec_801A7428 *, s32, s32, s32);
 Obj_801A7428 *TPhotonMylla__sub_80154CB4(u16);
 void fn_801A753C(u8 *arg0, u8 *arg1);
 void TCameraCtrl__sub_803D8934(s32, Vec_801A7428 *, Vec_801A7428 *);
-void TObjPlayer__sub_803D9214(s32, s32);
+void rotate_matrix_y(s32, s32);
 void TObjPlayer__sub_803D97F0(void *);
 void TCameraCtrl__sub_803D9858(s32);
 extern Group_801A7428 lbl_804C31D8[];
@@ -119,7 +119,7 @@ void fn_801A7428(s32 arg0, s32 arg1) {
     for (i = 0; i < count; i++) {
         fn_801A753C((u8 *)&rec, entries[i].bytes);
         TObjPlayer__sub_803D97F0(lbl_8058D490);
-        TObjPlayer__sub_803D9214(0, obj->f60);
+        rotate_matrix_y(0, obj->f60);
         TCameraCtrl__sub_803D8934(0, &rec.v, &pos);
         TCameraCtrl__sub_803D9858(1);
         pos.x += obj->pos.x;

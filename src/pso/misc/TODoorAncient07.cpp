@@ -16,7 +16,7 @@ extern "C" {
 s32 fn_801582C4(void *, f32);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -55,7 +55,7 @@ void render__15TODoorAncient07Fv(u8 *arg0) {
     if ((self->m8(lbl_805DB450, lbl_805DB454) != 0) && (fn_801582C4(arg0, lbl_805DB458) != 0)) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         if (((u32) M2C_FIELD(arg0, u32 *, 0xBC) != 0U) && (lbl_805DB45C != M2C_FIELD(arg0, f32 *, 0xB0))) {
             TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB0));

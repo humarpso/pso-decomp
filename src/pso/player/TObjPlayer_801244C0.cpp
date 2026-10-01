@@ -19,7 +19,7 @@ M2C_UNK TObjPlayer__sub_80120BBC(void *, M2C_UNK, void *);
 M2C_UNK warn_if_gauge_low__10TObjPlayerFv(s32);
 M2C_UNK TObjPlayer__sub_80364028();
 M2C_UNK TObjPlayer__sub_80364198();
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -48,7 +48,7 @@ void draw_held_item__10TObjPlayerFPv(void *arg0) {
             get_mag_scale__10TObjPlayerFPv(arg0);
             TObjPlayer__sub_80364028();
             TOHangerMachine01__sub_803D9C00(&sp8);
-            TObjPlayer__sub_803D9214(0, M2C_FIELD(M2C_FIELD(arg0, void **, 0xF0), s32 *, 0x60));
+            rotate_matrix_y(0, M2C_FIELD(M2C_FIELD(arg0, void **, 0xF0), s32 *, 0x60));
             M2C_FIELD(temp_r31, s32 *, 0) = (s32) (M2C_FIELD(temp_r31, s32 *, 0) | 0x11);
             TObjBoss2Tunnel__sub_803DB470(temp_r31);
             begin_effect_render__13TParticleCtrlFv();

@@ -317,7 +317,7 @@ int toggle_particle_effect__10TObjPlayerFv();
 int end_effect_render__13TParticleCtrlFv();
 s32 toggle_flag_9__10TObjPlayerFPv(void *);
 int TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
-int TObjPlayer__sub_803D9214(int, int);
+int rotate_matrix_y(int, int);
 int TObjPlayer__sub_803D9624(int, f32, f32, f32);
 int TObjPlayer__sub_803D9B2C();
 int TObjPlayer__sub_803D9B78();
@@ -387,7 +387,7 @@ void render__13TObjEneRe4BitFv(Bit_800ECA40 *self) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(&self->pos);
         TObjPlayer__sub_803D9624(0, TObjEneRe4Bit__data_805DA770, self->x300 - self->pos.y, TObjEneRe4Bit__data_805DA770);
-        TObjPlayer__sub_803D9214(0, self->x60);
+        rotate_matrix_y(0, self->x60);
         TOMonitorMachine01__sub_803D8B5C(0, lbl_805DA774, lbl_805DA774, lbl_805DA774);
         TObjFish__sub_803E46BC(self->x34);
         TObjPlayer__sub_803D9B78();

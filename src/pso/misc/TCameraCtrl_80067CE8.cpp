@@ -29,7 +29,7 @@ extern const f32 lbl_805D8F78;
 void TCameraCtrl__sub_80067EE0(s32 arg0);
 u8 *TPlayerBattleCtrl4P__sub_801BA74C(M2C_UNK);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
-s32 TObjPlayer__sub_803D9214(int, int);
+s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D97F0(void *);
 s32 TObjPlayer__sub_803D9B78();
 extern RecoveredGlobal_80067E30_lbl_8058D490 lbl_8058D490;
@@ -63,7 +63,7 @@ void TCameraCtrl__sub_80067E30(u8 *arg0) {
         stack.spC = lbl_805D8F74;
         stack.sp10 = M2C_FIELD(arg0, f32 *, 0x70);
         TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
-        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x30)));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x30)));
         TCameraCtrl__sub_803D8934((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
         TObjPlayer__sub_803D9B78();
         M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x48) + stack.sp8);

@@ -12,7 +12,7 @@ int apply_recoil_backward__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_8012EB7C(void* p);
 void release_container_if_ready__10TObjPlayerFPv(void* p);
 void *init_variant_a__10TObjPlayerFPv(void *arg0);
-int TObjContainerIdo__sub_803D96A8(void*, void*);
+int rotate_matrix_x(void*, void*);
 int TObjPlayer__sub_80115BC0(void*, int, int);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
 int TObjPlayer__sub_8011E618(void*);
@@ -45,7 +45,7 @@ void cast_shifta_deband__10TObjPlayerFPv(void *arg0) {
 int grow_field1f8__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_80115BC0((char*)p + 0x1f8, 1820, 10922); }
 int apply_recoil_backward__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_80115BC0((char*)p + 0x1f8, -1820, 0); }
 void TObjPlayer__sub_8012EB7C(void* p) { TObjPlayer__sub_8011E618(p); TObjPlayer__sub_8011E618(p); }
-void release_container_if_ready__10TObjPlayerFPv(void* p) { if (get_player_list__10TObjPlayerFv(p) == 1) { TObjContainerIdo__sub_803D96A8((void*)0, *(void**)((char*)p + 0x1f8)); } }
+void release_container_if_ready__10TObjPlayerFPv(void* p) { if (get_player_list__10TObjPlayerFv(p) == 1) { rotate_matrix_x((void*)0, *(void**)((char*)p + 0x1f8)); } }
 
 extern M2C_UNK lbl_804A5F18[];
 

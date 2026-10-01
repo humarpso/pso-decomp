@@ -87,8 +87,8 @@ extern "C" {
 u8 * TCameraCtrl__sub_8006AF74(s32 arg0, s32 arg1);
 extern RecoveredGlobal_8006B324_lbl_805137F8 lbl_805137F8;
 M2C_UNK *TCameraCtrl__sub_8006B324(void);
-s32 TObjPlayer__sub_803D9214(int, void *);
-s32 TObjContainerIdo__sub_803D96A8(int, void *);
+s32 rotate_matrix_y(int, void *);
+s32 rotate_matrix_x(int, void *);
 s32 TObjPlayer__sub_803D97F0(void *);
 f32 TObjPlayer__sub_803D9990(void *, void *);
 s32 TObjPlayer__sub_803D9B78();
@@ -98,8 +98,8 @@ extern RecoveredGlobal_8006ABAC_lbl_804FF610 lbl_804FF610;
 extern RecoveredGlobal_8006ABAC_lbl_804FF61C lbl_804FF61C;
 extern RecoveredGlobal_8006ABAC_lbl_8058D490 lbl_8058D490;
 void TCameraCtrl__sub_8006ABAC(M2C_UNK arg0, s32 arg1, s32 arg2);
-s32 TObjPlayer__sub_803D9214(int, void *);
-s32 TObjContainerIdo__sub_803D96A8(int, void *);
+s32 rotate_matrix_y(int, void *);
+s32 rotate_matrix_x(int, void *);
 s32 TObjPlayer__sub_803D97F0(void *);
 f32 TObjPlayer__sub_803D9990(void *, void *);
 s32 TObjPlayer__sub_803D9B78();
@@ -164,11 +164,11 @@ void TCameraCtrl__sub_8006ABAC(M2C_UNK arg0, s32 arg1, s32 arg2) {
     stack.spC = M2C_FIELD(&lbl_804381B0.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_804381B0.value, s32 *, 8);
     TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
-    TObjPlayer__sub_803D9214((int) (0), (void *) (arg2));
+    rotate_matrix_y((int) (0), (void *) (arg2));
     TObjPlayer__sub_803D9990((void *) (&stack.sp14), (void *) (&lbl_804FF610.value));
     TObjPlayer__sub_803D9B78();
     TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
-    TObjContainerIdo__sub_803D96A8((int) (0), (void *) (arg1));
+    rotate_matrix_x((int) (0), (void *) (arg1));
     TObjPlayer__sub_803D9990((void *) (&stack.sp8), (void *) (&lbl_804FF61C.value));
     TObjPlayer__sub_803D9B78();
 }
@@ -196,11 +196,11 @@ void TCameraCtrl__sub_8006AC70(u8 *arg0) {
     stack.spC = M2C_FIELD(&lbl_80438198.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_80438198.value, s32 *, 8);
     TObjPlayer__sub_803D97F0((void *) (&(*(RecoveredGlobal_8006AC70_lbl_8058D490 *)&lbl_8058D490).value));
-    TObjPlayer__sub_803D9214((int)((int) (0)), (void *)((int) (M2C_FIELD(arg0, s32 *, 0x194))));
+    rotate_matrix_y((int)((int) (0)), (void *)((int) (M2C_FIELD(arg0, s32 *, 0x194))));
     TObjPlayer__sub_803D9990((void *) (&stack.sp14), (void *) (&(*(RecoveredGlobal_8006AC70_lbl_804FF610 *)&lbl_804FF610).value));
     TObjPlayer__sub_803D9B78();
     TObjPlayer__sub_803D97F0((void *) (&(*(RecoveredGlobal_8006AC70_lbl_8058D490 *)&lbl_8058D490).value));
-    TObjContainerIdo__sub_803D96A8((int)((int) (0)), (void *)((int) (M2C_FIELD(arg0, s32 *, 0x190))));
+    rotate_matrix_x((int)((int) (0)), (void *)((int) (M2C_FIELD(arg0, s32 *, 0x190))));
     TObjPlayer__sub_803D9990((void *) (&stack.sp8), (void *) (&(*(RecoveredGlobal_8006AC70_lbl_804FF61C *)&lbl_804FF61C).value));
     TObjPlayer__sub_803D9B78();
 }

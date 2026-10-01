@@ -67,7 +67,7 @@ s32 TObjPlayer__sub_8008E098(Obj_8008E098 *self);
 void TBoss4Zako__sub_803D8910(Vec_8008E18C *, Vec_8008E18C *);
 void TCameraCtrl__sub_803D8934(void *, Vec_8008E18C *, Vec_8008E18C *);
 void TObjPlayer__sub_803D8CD4(void *);
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 extern const f32 lbl_805D9620;
@@ -106,13 +106,13 @@ struct VObj390V_8008e74c_8008DCF0 : VObj390_8008e74c_8008DCF0 {
 void draw_main__10TObjPlayerFPv(u8 *arg0);
 int reset_enemy_state__10TObjPlayerFPv(void* p);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
+M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 M2C_UNK TObjEneBalClaw__sub_8008D700(void *, M2C_UNK);
 M2C_UNK TObjFish__sub_803E46BC(s32);
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK TObjPlayer__sub_8008ED48(void *, s16);
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -200,7 +200,7 @@ void TObjPlayer__sub_8008E18C(Obj_8008E18C *self, s32 slot, Vec_8008E18C *out, s
     out->y = lbl_805D9620;
     out->z = lbl_805D9630;
     TObjPlayer__sub_803D8CD4(0);
-    TObjPlayer__sub_803D9214((M2C_UNK)(0), (s32)(angle));
+    rotate_matrix_y((M2C_UNK)(0), (s32)(angle));
     TCameraCtrl__sub_803D8934(0, out, out);
     TBoss4Zako__sub_803D8910(out, &self->pos);
     TObjPlayer__sub_803D9B78();
@@ -228,15 +228,15 @@ void draw_main__10TObjPlayerFPv(u8 *arg0) {
             if (check_demo_mode__10TObjPlayerFv() == 1) {
                 TObjPlayer__sub_8008ED48(arg0, 4);
                 TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-                TObjContainerIdo__sub_803D96A8(0, M2C_FIELD(arg0, s32 *, 0x5C));
-                TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+                rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
+                rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
                 TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
             } else {
                 TObjPlayer__sub_8008ED48(arg0, M2C_FIELD(arg0, s16 *, 0x3D8));
                 TObjPlayer__sub_803D9624(0, lbl_805D9620, M2C_FIELD(arg0, f32 *, 0x3B4) + M2C_FIELD(arg0, f32 *, 0x3BC), lbl_805D9620);
                 TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-                TObjContainerIdo__sub_803D96A8(0, M2C_FIELD(arg0, s32 *, 0x5C));
-                TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+                rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
+                rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
                 if (M2C_FIELD(arg0, s32 *, 0x388) & 4) {
                     if (((VObj390V_8008e74c_8008DCF0*)(arg0 + 0x390))->m8() != 0) {
                         ((VObj390V_8008e74c_8008DCF0*)(arg0 + 0x390))->m6();

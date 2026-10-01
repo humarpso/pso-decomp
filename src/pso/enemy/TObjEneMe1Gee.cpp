@@ -1948,11 +1948,11 @@ extern "C" {
 void draw_model__13TObjEneMe1GeeFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470();
-M2C_UNK TObjContainerIdo__sub_803D96A8(int, int);
+M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjFish__sub_8001EDB0(void *, int);
 M2C_UNK TObjFish__sub_8001EDC4(void *, int);
 M2C_UNK set_global_param__8TObjFishFi();
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -1969,8 +1969,8 @@ void draw_model__13TObjEneMe1GeeFPv(u8 *arg0) {
     TObjPlayer__sub_803D9B2C();
     begin_effect_render__13TParticleCtrlFv();
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x6C));
-    TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xA4)));
-    TObjContainerIdo__sub_803D96A8((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xA0)));
+    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xA4)));
+    rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xA0)));
     TObjFish__sub_8001EDB0((void *) (lbl_805D6660), (int) (1));
     set_global_param__8TObjFishFi();
     TObjFish__sub_8001EDC4((void *) (lbl_805D6660), (int) (1));

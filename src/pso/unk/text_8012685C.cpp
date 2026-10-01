@@ -87,7 +87,7 @@ struct WeaponPlayerAttachmentInterface : WeaponPlayerObjectPrefix {
 extern "C" {
 u8 get_slot_count__14TItemProShieldFPv(s32);
 s32 get_player_list__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_803D8F74(M2C_UNK, f32 *, f32);
+M2C_UNK reflect_matrix_in_plane(M2C_UNK, f32 *, f32);
 extern s32 lbl_805D5518;
 extern const f32 lbl_805DAD80;
 extern const f32 lbl_805DAD94;
@@ -113,7 +113,7 @@ void TObjPlayer__sub_8012685C(s32 arg0) {
         stack.sp1C = lbl_805DAD94;
         stack.sp18 = lbl_805DAD94;
         stack.sp14 = lbl_805DAD80;
-        TObjPlayer__sub_803D8F74(0, &stack.sp8, lbl_805DAD94);
+        reflect_matrix_in_plane(0, &stack.sp8, lbl_805DAD94);
     }
 }
 }

@@ -13,7 +13,7 @@ void update_chair__11TMainCursorFPv(void *arg0);
 void TMainCursor__sub_8013E2DC(void);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, M2C_UNK);
 void TObjFish__sub_803E46BC(void);
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -47,7 +47,7 @@ void render__11TMainCursorFPv(u8 *arg0) {
     TObjPlayer__sub_803D9B2C();
     fn_8023601C(arg0 + 0x40, &sp8, M2C_FIELD(arg0, f32 *, 0x2C));
     set_position_vec3__10TObjPlayerFPvPv(0, &sp8);
-    TObjPlayer__sub_803D9214(0, M2C_FIELD(lbl_805D4DF0, s32 *, 0x194));
+    rotate_matrix_y(0, M2C_FIELD(lbl_805D4DF0, s32 *, 0x194));
     TObjPlayer__sub_803D9B2C();
     TObjBoss2Tunnel__sub_803D929C(0, 0x2AAA);
     TObjPlayer__sub_803D9624(0, TMainCursor__data_805DB0C0, temp_f31, TMainCursor__data_805DB0C0);

@@ -88,7 +88,7 @@ Door_802A0994 *TODoorFourLightBase__ct(Door_802A0994 *arg0, void *arg1, s32 arg2
 s32 end_effect_render__13TParticleCtrlFv();
 u8 TODoorAncient08__sub_80229220(int);
 void TODoorFourLightBase__sub_802A0578(u8 *arg0, u8 *arg1);
-s32 TObjPlayer__sub_803D9214(int, int);
+s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D9B2C();
 s32 TObjPlayer__sub_803D9B78();
 f32 TOHangerMachine01__sub_803D9C00(void *);
@@ -208,7 +208,7 @@ void TODoorFourLightBase__sub_802A0670(Door_802A0670 *self) {
     }
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(self->f38);
-    TObjPlayer__sub_803D9214(0, self->f60);
+    rotate_matrix_y(0, self->f60);
     TODoorFourLightBase__sub_802A0578((u8 *)self, self->fD4);
     TObjPlayer__sub_803D9B78();
     end_effect_render__13TParticleCtrlFv();

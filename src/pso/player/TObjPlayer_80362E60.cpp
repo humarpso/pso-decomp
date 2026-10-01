@@ -99,7 +99,7 @@ extern s32 tl_05;
 u8 *TObjPlayer__sub_803630F0(u8 *arg0);
 s32 check_boss2tunnel_field_f4__10TObjPlayerFPv(void *);
 s32 get_player_list__10TObjPlayerFv();
-s32 TObjContainerIdo__sub_803D96A8(int, int);
+s32 rotate_matrix_x(int, int);
 s32 TObjPlayer__sub_803D9B2C();
 s32 TObjPlayer__sub_803D9B78();
 f32 TOHangerMachine01__sub_803D9C00(void *);
@@ -164,14 +164,14 @@ void TObjPlayer__sub_80362FB4(u8 *arg0) {
         stack.spC = M2C_FIELD(&lbl_80479FC8.value, s32 *, 4);
         stack.sp10 = M2C_FIELD(&lbl_80479FC8.value, s32 *, 8);
         TOHangerMachine01__sub_803D9C00((void *) (&stack.sp8));
-        TObjContainerIdo__sub_803D96A8((int) (0), (int) (0x18E3));
+        rotate_matrix_x((int) (0), (int) (0x18E3));
         if (M2C_FIELD(arg0, s32 *, 0x1FC) & 1) {
             TObjPlayer__sub_803D9B2C();
-            TObjContainerIdo__sub_803D96A8((int) (0), (int) (0x2AAA));
+            rotate_matrix_x((int) (0), (int) (0x2AAA));
             check_boss2tunnel_field_f4__10TObjPlayerFPv((void *) (arg0));
             TObjPlayer__sub_803D9B78();
             TObjPlayer__sub_803D9B2C();
-            TObjContainerIdo__sub_803D96A8((int) (0), (int) (-0x2AAA));
+            rotate_matrix_x((int) (0), (int) (-0x2AAA));
             check_boss2tunnel_field_f4__10TObjPlayerFPv((void *) (arg0));
             TObjPlayer__sub_803D9B78();
         }

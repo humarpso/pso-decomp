@@ -299,7 +299,7 @@ s32 TObjPlayer__sub_80156844(void *, void *, int);
 M2C_UNK minimap_render_dot(void *, int, int, int);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
 M2C_UNK TScene__sub_803D8DB4(int, void *, void *);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
 M2C_UNK TObjPlayer__sub_803D97F0(void *);
 M2C_UNK TCameraCtrl__sub_803D9858(int);
@@ -712,7 +712,7 @@ void beast_idle_update(u8 *arg0) {
         M2C_FIELD(&lbl_8050BF00, f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 0x394);
         temp_r30 = (s32) (lbl_8043BC88 * temp_f1);
         TObjPlayer__sub_803D97F0(&lbl_8058D490);
-        TObjPlayer__sub_803D9214((int) (0), (int) (temp_r30));
+        rotate_matrix_y((int) (0), (int) (temp_r30));
         TScene__sub_803D8DB4((int) (0), (void *) (&lbl_8050BF00), (void *) (&lbl_8050BF00));
         TCameraCtrl__sub_803D9858((int) (1));
         TBoss4Zako__sub_803D8910((void *) (&lbl_8050BF00), (void *) (arg0 + 0x38));
@@ -731,7 +731,7 @@ void beast_idle_update(u8 *arg0) {
             M2C_FIELD(&lbl_8050BF00, f32 *, 0) = (f32) lbl_805DA034;
             M2C_FIELD(&lbl_8050BF00, f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 0x394);
             TObjPlayer__sub_803D97F0(&lbl_8058D490);
-            TObjPlayer__sub_803D9214((int) (0), (int) (var_r30));
+            rotate_matrix_y((int) (0), (int) (var_r30));
             TScene__sub_803D8DB4((int) (0), (void *) (&lbl_8050BF00), (void *) (&lbl_8050BF00));
             TCameraCtrl__sub_803D9858((int) (1));
             TBoss4Zako__sub_803D8910((void *) (&lbl_8050BF00), (void *) (arg0 + 0x38));
@@ -750,7 +750,7 @@ void beast_idle_update(u8 *arg0) {
                 M2C_FIELD(&lbl_8050BF00, f32 *, 0) = (f32) lbl_805DA034;
                 M2C_FIELD(&lbl_8050BF00, f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 0x394);
                 TObjPlayer__sub_803D97F0(&lbl_8058D490);
-                TObjPlayer__sub_803D9214((int) (0), (int) (var_r28));
+                rotate_matrix_y((int) (0), (int) (var_r28));
                 TScene__sub_803D8DB4((int) (0), (void *) (&lbl_8050BF00), (void *) (&lbl_8050BF00));
                 TCameraCtrl__sub_803D9858((int) (1));
                 TBoss4Zako__sub_803D8910((void *) (&lbl_8050BF00), (void *) (arg0 + 0x38));

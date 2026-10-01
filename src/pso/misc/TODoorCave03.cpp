@@ -105,7 +105,7 @@ u8 *TODoorCave03__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 fn_801582C4(void *, f32);
 void begin_effect_render__13TParticleCtrlFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
-void TObjPlayer__sub_803D9214(s32, s32);
+void rotate_matrix_y(s32, s32);
 void TObjPlayer__sub_803D9B2C(void);
 void TObjPlayer__sub_803D9B78(void);
 void TOHangerMachine01__sub_803D9C00(void *);
@@ -207,7 +207,7 @@ void render__12TODoorCave03Fv(u8 *arg0) {
         set_global_param__8TObjFishFi(*(s32 *)(arg0 + 0x24));
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        TObjPlayer__sub_803D9214(0, *(s32 *)(arg0 + 0x60));
+        rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         m = *(Model_801625AC **)(arg0 + 0x34);
         TOHangerMachine01__sub_803D9C00(m->m8);
         TOSignCave03__sub_803DB510(m->m4);

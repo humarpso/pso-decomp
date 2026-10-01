@@ -42,7 +42,7 @@ struct RecoveredGlobal_80176BB4___vt__12TOSignCave02 {
 extern "C" {
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
-s32 TObjPlayer__sub_803D9214(int, int);
+s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D9624(int, f32, f32, f32);
 s32 TObjPlayer__sub_803D9B2C();
 s32 TObjPlayer__sub_803D9B78();
@@ -91,7 +91,7 @@ void TOSignCave02::render() {
         set_global_param__8TObjFishFi(render_parameter);
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(transform);
-        TObjPlayer__sub_803D9214(0, angle);
+        rotate_matrix_y(0, angle);
         node1 = model;
         TObjPlayer__sub_803D9624(0, node1->x, node1->y, node1->z);
         TOSignCave03__sub_803DB510(node1->model);

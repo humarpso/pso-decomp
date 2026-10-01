@@ -49,7 +49,7 @@ u8 TShopGenerator__sub_8021E110(s32 arg0);
 f32 fn_801315A0(void *, void *);
 f32 TObjPlayer__sub_803D89C0(void *, void *);
 s32 TScene__sub_803D8DB4(int, void *, void *);
-s32 TObjPlayer__sub_803D9214(int, int);
+s32 rotate_matrix_y(int, int);
 f32 TNpcPlayer__sub_803D97B4(void *);
 s32 TObjPlayer__sub_803D97F0(void *);
 s32 TObjPlayer__sub_803D9B78();
@@ -103,7 +103,7 @@ bool TShopGenerator__sub_8021DC30(u8 *arg0, u8 *arg1, f32 farg0) {
     stack.spC = M2C_FIELD(&lbl_8044C140.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_8044C140.value, s32 *, 8);
     TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
-    TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg1, s32 *, 0x60)));
+    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg1, s32 *, 0x60)));
     TScene__sub_803D8DB4((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
     TObjPlayer__sub_803D9B78();
     stack.sp14 = M2C_FIELD(arg0, f32 *, 0x38) - M2C_FIELD(arg1, f32 *, 0x38);

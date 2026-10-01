@@ -57,7 +57,7 @@ s32 clear_render_context__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_801A7638(void *);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
-s32 TObjPlayer__sub_803D9214(int, int);
+s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D9B2C();
 s32 TObjPlayer__sub_803D9B78();
 s32 TObjPlayer__sub_803D9624(int, f32, f32, f32);
@@ -87,7 +87,7 @@ void render__13TPhotonLeillaFv(Self_801AC45C *self) {
         set_global_param__8TObjFishFi(self->f24);
         TObjPlayer__sub_803D9B2C();
         TObjPlayer__sub_803D9624(0, self->pos.x, self->pos.y, self->pos.z);
-        TObjPlayer__sub_803D9214(0, self->f60);
+        rotate_matrix_y(0, self->f60);
         lbl_805D5660 = some_id_805c6f74;
         copy_vec4__13TRaderMapCoreFPvPv(&lbl_8050BEC0, &lbl_8058D4C0);
         lbl_805D5664 = lbl_805D7784;

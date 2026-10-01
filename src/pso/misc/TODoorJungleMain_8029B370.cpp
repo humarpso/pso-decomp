@@ -128,7 +128,7 @@ extern const f32 lbl_805DDCEC;
 extern const f32 lbl_805DDCF0;
 u8 *TODoorJungleMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void *TObjFish__sub_8001EDC4(u32, int);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 int TObjPlayer__sub_803D9B2C(void *);
 int TObjPlayer__sub_803D9B78(void);
 int TOHangerMachine01__sub_803D9C00(void *);
@@ -193,7 +193,7 @@ void render__16TODoorJungleMainFv(Door_8029B428 *self) {
     if (self->m8(self->fc0, self->fc4) == 1) {
         TObjPlayer__sub_803D9B2C(set_global_param__8TObjFishFi((void *)lbl_805D65BC));
         TOHangerMachine01__sub_803D9C00(self->xf);
-        TObjPlayer__sub_803D9214(0, self->f60);
+        rotate_matrix_y(0, self->f60);
         if (self->flags & 1) {
             TObjDoor__sub_803DC894(TObjFish__sub_8001EDC4(TODoorJungleMain__data_805D65B8, 3), self->fbc, self->fb4);
         } else {

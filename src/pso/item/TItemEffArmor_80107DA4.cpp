@@ -35,7 +35,7 @@ u8 *fn_80107DA4(u8 *arg0, u8 *arg1, s16 arg2);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 notify_fish_if_valid__10TObjPlayerFUi(u32);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -66,7 +66,7 @@ void render__13TItemEffArmorFv(u8 *arg0) {
     f32 temp_f1;
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x2C));
-    TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x68)));
+    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x68)));
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x28);
     TOMonitorMachine01__sub_803D8B5C((int) (0), (f32) (temp_f1), (f32) (TItemEffArmor__data_805DAAEC), (f32) (temp_f1));
     lbl_805D5660 = some_id_805c6f74;

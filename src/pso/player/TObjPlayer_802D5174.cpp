@@ -104,7 +104,7 @@ void TObjPlayer__sub_802D5628(M2C_UNK arg0, s32 arg1);
 void TObjPlayer__sub_802D576C(O_802D576C *self, s32 x);
 s32 get_flag_40__8TItemMagFPv(void *);
 void TObjPlayer__sub_80120908(void);
-void TObjContainerIdo__sub_803D96A8(s32, s32);
+void rotate_matrix_x(s32, s32);
 void TObjPlayer__sub_803D9B2C(void);
 void TObjPlayer__sub_803D9B78(void);
 void TOHangerMachine01__sub_803D9C00(void *);
@@ -172,7 +172,7 @@ void TObjPlayer__sub_802D56F0(u8 *arg0) {
         while (n != 0) {
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(p++);
-            TObjContainerIdo__sub_803D96A8(0, -0x4000);
+            rotate_matrix_x(0, -0x4000);
             TObjBoss2Tunnel__sub_803DB470(((S_802D56F0 *)arg0)->fF4);
             TObjPlayer__sub_803D9B78();
             n--;

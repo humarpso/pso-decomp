@@ -81,7 +81,7 @@ M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
 s32 TScene__sub_803D8DB4(int, void *, void *);
-M2C_UNK TObjPlayer__sub_803D9214(int, s32);
+M2C_UNK rotate_matrix_y(int, s32);
 s32 TObjPlayer__sub_803D97F0(void *);
 M2C_UNK TCameraCtrl__sub_803D9858(int);
 extern u8 lbl_8058D490[];
@@ -248,7 +248,7 @@ void TObjGrass__sub_800BE75C(Grass_800BE75C *o) {
     v.x = TObjGrass__data_805D9EB8;
     v.z = o->f358;
     TObjPlayer__sub_803D97F0(lbl_8058D490);
-    TObjPlayer__sub_803D9214(0, o->f60);
+    rotate_matrix_y(0, o->f60);
     TScene__sub_803D8DB4(0, &v, &v);
     TCameraCtrl__sub_803D9858(1);
     TBoss4Zako__sub_803D8910(&v, o->mtx50);

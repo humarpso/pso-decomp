@@ -36,7 +36,7 @@ s32 write_ids__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801C5B68(void *);
 s32 TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
 s32 set_position_vec3__10TObjPlayerFPvPv(int, void *);
-s32 TObjPlayer__sub_803D9214(int, int);
+s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK set_global_param__8TObjFishFi(void *);
@@ -118,7 +118,7 @@ void TObjPlayer__sub_801BAD60(u8 *arg0, s32 arg1) {
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));
     stack.spC += M2C_FIELD(arg0, f32 *, 0x5FC);
     set_position_vec3__10TObjPlayerFPvPv((int) (0), (void *) (&stack.sp8));
-    TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     if (check_state_flag_1__8TItemMagFPv((void *) (arg0 + 0x5B0)) != 0) {
         temp_r3 = (u8 *)(TObjPlayer__sub_801BF934(arg0 + 0x5B0));
         TOMonitorMachine01__sub_803D8B5C((int) (0), (f32) (M2C_FIELD(temp_r3, f32 *, 0)), (f32) (M2C_FIELD(temp_r3, f32 *, 4)), (f32) (M2C_FIELD(temp_r3, f32 *, 8)));

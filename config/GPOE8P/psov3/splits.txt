@@ -4533,6 +4533,7 @@ pso/player/TObjPlayer_8011FBCC.cpp:
 
 pso/unk/text_8011FC24.cpp:
 	.text       start:0x8011FC24 end:0x801200C0
+	.rodata     start:0x8043E860 end:0x8043E868
 
 pso/slices/pso_carve_801200c0.cpp:
 	.text       start:0x801200C0 end:0x8012012C
@@ -18250,12 +18251,14 @@ pso/unk/text_803D8DE0.cpp:
 
 pso/unk/text_803D8F74.cpp:
 	.text       start:0x803D8F74 end:0x803D9650
+	.sdata2     start:0x805E0F30 end:0x805E0F38
 
 pso/unk/text_803D9650.cpp:
 	.text       start:0x803D9650 end:0x803D96A8
 
 pso/unk/text_803D96A8.cpp:
 	.text       start:0x803D96A8 end:0x803D9FF0
+	.sdata2     start:0x805E0F50 end:0x805E0F58
 
 pso/unk/text_803D9FF0.cpp:
 	.text       start:0x803D9FF0 end:0x803DA038

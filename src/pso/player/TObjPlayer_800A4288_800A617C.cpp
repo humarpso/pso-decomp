@@ -32,7 +32,7 @@ struct Obj_800A6B14 {
 
 extern "C" {
 M2C_UNK TObjBoss2Tunnel__sub_8007E884(void *, void *, void *);
-M2C_UNK TObjContainerIdo__sub_803D96A8(int, void *);
+M2C_UNK rotate_matrix_x(int, void *);
 extern RecoveredGlobal_800A6BE0_lbl_804FF5E8 lbl_804FF5E8;
 extern RecoveredGlobal_800A6BE0_lbl_80500978 lbl_80500978;
 extern s32 lbl_805D505C;
@@ -219,7 +219,7 @@ typedef char RecoveredGlobal_800A6BE0_lbl_804FF5E8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_800A6BE0_lbl_80500978_size[sizeof(RecoveredGlobal_800A6BE0_lbl_80500978) == 0x10 ? 1 : -1];
 void TObjPlayer__sub_800A6BE0(void) {
     if ((s32) lbl_805D505C == 0x15) {
-        TObjContainerIdo__sub_803D96A8((int) (0), (void *) (lbl_805D5060));
+        rotate_matrix_x((int) (0), (void *) (lbl_805D5060));
     }
     if ((s32) lbl_805D505C == 0x1A) {
         M2C_FIELD(&lbl_80500978.value, f32 *, 0) = (f32) lbl_805D9A14;

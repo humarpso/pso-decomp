@@ -40,7 +40,7 @@ extern "C" {
 void set_global_param__8TObjFishFi(void *);
 void TObjPlayer__sub_803D9B2C(void);
 void TOHangerMachine01__sub_803D9C00(void *);
-void TObjPlayer__sub_803D9214(int, void *);
+void rotate_matrix_y(int, void *);
 void set_npc_enemy_param(void *);
 void TObjPlayer__sub_801E2DE4(void *, void *, f32);
 void begin_effect_render__13TParticleCtrlFv(void);
@@ -104,8 +104,8 @@ void TOTrapChainSawKey__vt23(void *arg0) {
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 56));
     TObjPlayer__sub_803D9B2C();
-    TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, void **, 0x60));
-    TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, void **, 0xD4));
+    rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
+    rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0xD4));
     set_npc_enemy_param(((M2C_UNK *)TParticleCtrl__sub_802C8464));
     TObjPlayer__sub_801E2DE4(M2C_FIELD(arg0, void **, 0xC8), M2C_FIELD(arg0, void **, 0xBC), M2C_FIELD(arg0, f32 *, 0xB4));
     ((void (*)(int))set_npc_enemy_param)(0);

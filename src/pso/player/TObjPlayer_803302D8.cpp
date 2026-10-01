@@ -12,8 +12,8 @@ void TBoss6PlotFalz__sub_802AC008(f32, f32);
 void TBoss6PlotFalz__sub_802AC040(f32, f32, f32, f32);
 void TObjFish__sub_8032FE50(void *);
 s32 TObjPlayer__sub_803D9B78(void);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
-M2C_UNK TObjContainerIdo__sub_803D96A8(int, int);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 extern const f32 lbl_805DF7FC;
@@ -42,8 +42,8 @@ void TObjPlayer__sub_8033040C(u8 *arg0) {
     toggle_particle_effect__10TObjPlayerFv();
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x38));
-    TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-    TObjContainerIdo__sub_803D96A8((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)));
+    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)));
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x3F8);
     var_r31 = 0;
     if (temp_f1 > lbl_805DF7FC) {

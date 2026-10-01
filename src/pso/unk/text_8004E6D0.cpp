@@ -21,7 +21,7 @@ typedef struct Obj_8004E918 {
 extern "C" {
 void sync_player_globals__10TObjPlayerFv();
 void TObjPlayer__sub_80052390(f32);
-void TObjPlayer__sub_803D9214(s32, s32);
+void rotate_matrix_y(s32, s32);
 void TObjPlayer__sub_803D9B2C();
 void TObjPlayer__sub_803D9B78();
 void TOHangerMachine01__sub_803D9C00(void *);
@@ -70,7 +70,7 @@ void TObjPlayer__sub_8004E918(Obj_8004E918 *arg0) {
     TObjPlayer__sub_803D9B2C();
     set_global_flag__10TObjPlayerFv();
     TOHangerMachine01__sub_803D9C00(arg0->fac);
-    TObjPlayer__sub_803D9214(0, arg0->fb8);
+    rotate_matrix_y(0, arg0->fb8);
     for (i = 0; i < 2; i++) {
         set_global_param__8TObjFishFi(arg0->recs[i].b);
         TObjEneSlimeOne__sub_803E4AF4(arg0->recs[i].a, arg0->recs[i].c, arg0->fc0);

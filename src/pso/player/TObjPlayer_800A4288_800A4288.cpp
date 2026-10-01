@@ -36,7 +36,7 @@ M2C_UNK TObjPlayer__sub_801564A0(void *);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
 M2C_UNK TObjPlayer__sub_803D8960(int, int, void *, int);
 M2C_UNK TObjPlayer__sub_803D8CD4(int);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
@@ -70,7 +70,7 @@ void apply_lookup_entry_effect__10TObjPlayerFPv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TObjPlayer__sub_803D8CD4((int) (0));
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         TObjPlayer__sub_803D8960((int) (0), (int) (temp_r3), (void *) (&sp8), (int) (2));
         TObjPlayer__sub_803D9B78();
         temp_r3_2 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x3C0));

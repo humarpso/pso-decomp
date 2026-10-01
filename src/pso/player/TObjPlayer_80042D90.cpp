@@ -31,7 +31,7 @@ typedef struct Obj_80042DE8 {
 extern "C" {
 void render_anim_model__10TObjPlayerFPvf(void *, f32);
 void TCameraCtrl__sub_803D8934(s32, void *, s32);
-void TObjPlayer__sub_803D9214(s32, s32);
+void rotate_matrix_y(s32, s32);
 void TObjPlayer__sub_803D9624(s32, f32, f32, f32);
 void TObjPlayer__sub_803D97F0(void *);
 void TObjPlayer__sub_803D9B78();
@@ -94,7 +94,7 @@ u8 TObjPlayer__sub_80042EC0(void *arg0) {
 void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2) {
     TObjPlayer__sub_803D97F0(lbl_8058D490);
     TObjPlayer__sub_803D9624(0, o->f38, o->f3c + o->f38c, o->f40);
-    TObjPlayer__sub_803D9214(0, o->f60);
+    rotate_matrix_y(0, o->f60);
     render_anim_model__10TObjPlayerFPvf(o, o->fc0);
     TObjPlayer__sub_803D9B78();
     V_80042ED0 v = lbl_80436630;

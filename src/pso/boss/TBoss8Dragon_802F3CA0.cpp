@@ -45,7 +45,7 @@ extern RecoveredGlobal_802F3CA0_lbl_80474558 lbl_80474558;
 void TBoss8Dragon__sub_802F3CA0(u8 *arg0, s8 arg1);
 void TObjLight__sub_801337F8(s32);
 void TOMonitorMachine01__sub_803D8B5C(s32, f32, f32, f32);
-void TObjPlayer__sub_803D9214(s32, s32);
+void rotate_matrix_y(s32, s32);
 void TObjPlayer__sub_803D9B2C(void);
 void TObjPlayer__sub_803D9B78(void);
 void TOHangerMachine01__sub_803D9C00(void *);
@@ -95,7 +95,7 @@ void TBoss8Dragon__sub_802F3D6C(u8 *arg0) {
         set_global_param__8TObjFishFi(*(s32 *)(arg0 + 0x24));
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        TObjPlayer__sub_803D9214(0, *(s32 *)(arg0 + 0x60));
+        rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         TObjPlayer__sub_803D9B2C();
         TOMonitorMachine01__sub_803D8B5C(0, lbl_805DED5C, TBoss8Dragon__data_805DED60, lbl_805DED5C);
         TObjPlayer__sub_803D9B78();

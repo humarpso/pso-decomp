@@ -73,7 +73,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 void *TOHealGeneral__ct(void *, void *);
 M2C_UNK TOSignCave03__sub_803DB510(int);
 M2C_UNK TObjPlayer__sub_80169334(void *);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -112,7 +112,7 @@ void render__13TOHealGeneralFv(u8 *arg0) {
     if (((VObj_801695a8_80169520 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         temp_r31 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x34));
         TOHangerMachine01__sub_803D9C00((void *) (temp_r31 + 8));
@@ -120,13 +120,13 @@ void render__13TOHealGeneralFv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         temp_r31_2 = (unsigned char *) (M2C_FIELD(temp_r31, void **, 0x2C));
         TOHangerMachine01__sub_803D9C00((void *) (temp_r31_2 + 8));
-        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xCC)));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xCC)));
         TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
         TObjPlayer__sub_803D9B78();
         TObjPlayer__sub_803D9B2C();
         temp_r31_3 = (unsigned char *) (M2C_FIELD(temp_r31_2, void **, 0x30));
         TObjPlayer__sub_803D9624((int) (0), (f32) (M2C_FIELD(temp_r31_3, f32 *, 8)), (f32) (M2C_FIELD(temp_r31_3, f32 *, 0xC) - M2C_FIELD(arg0, f32 *, 0xD0)), (f32) (M2C_FIELD(temp_r31_3, f32 *, 0x10)));
-        TObjPlayer__sub_803D9214((int) (0), (int) (-M2C_FIELD(arg0, s32 *, 0xCC)));
+        rotate_matrix_y((int) (0), (int) (-M2C_FIELD(arg0, s32 *, 0xCC)));
         TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
         TObjPlayer__sub_803D9B78();
         TObjPlayer__sub_803D9B78();

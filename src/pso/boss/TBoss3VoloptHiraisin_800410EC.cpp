@@ -49,7 +49,7 @@ s32 draw__16TObjEneRe7BeruraFPv(void *);
 s32 end_effect_render__13TParticleCtrlFv();
 f32 TBoss8Dragon__sub_803D64C0(int);
 s32 TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
-s32 TObjPlayer__sub_803D9214(int, int);
+s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D9624(int, f32, f32, f32);
 s32 TObjPlayer__sub_803D9B2C();
 s32 TObjPlayer__sub_803D9B78();
@@ -143,7 +143,7 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
             TObjPlayer__sub_803D9624((int) (0), (f32) (lbl_805D8720), (f32) (lbl_805D8724), (f32) (lbl_805D8720));
         }
         TObjPlayer__sub_803D9624((int) (0), (f32) (lbl_805D8720), (f32) (TBoss8Dragon__sub_803D64C0((int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38C))), (f32) (lbl_805D8720));
-        TObjPlayer__sub_803D9214((int) (0), (int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_60));
+        rotate_matrix_y((int) (0), (int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_60));
         if (check_demo_mode__10TObjPlayerFv() == 1) {
             TObjFish__sub_803E46BC((int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_34));
         } else {

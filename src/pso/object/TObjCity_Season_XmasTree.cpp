@@ -41,7 +41,7 @@ void render_tree__24TObjCity_Season_XmasTreeFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjCity_Season_EasterEgg__sub_80184A08(M2C_UNK, M2C_UNK, f32);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 void __dl__7TObjectFPv(void *);
@@ -103,7 +103,7 @@ void render_tree__24TObjCity_Season_XmasTreeFPv(u8 *arg0) {
         set_global_param__8TObjFishFi(M2C_FIELD(lbl_8050DC50, s32 *, 4));
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(M2C_FIELD(temp_r3, void **, 0x42C), s32 *, 0x28), M2C_FIELD(M2C_FIELD(temp_r3, void **, 0x430), s32 *, 0x14), M2C_FIELD(arg0, f32 *, 0xB0));
         TObjPlayer__sub_803D9B78();
     }

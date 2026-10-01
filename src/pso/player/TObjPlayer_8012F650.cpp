@@ -8,7 +8,7 @@ extern "C" {
 
 void handle_move_input__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
-M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
+M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 s32 get_player_list__10TObjPlayerFv();
 
 void handle_move_input__10TObjPlayerFPv(u8 *arg0) {
@@ -17,13 +17,13 @@ void handle_move_input__10TObjPlayerFPv(u8 *arg0) {
     temp_r3 = get_player_list__10TObjPlayerFv();
     switch (temp_r3) {
     case 1:
-        TObjContainerIdo__sub_803D96A8(0, M2C_FIELD(arg0, s32 *, 0x204));
+        rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x204));
         return;
     case 2:
         TBoss7Tentacle__sub_803D9BA0(arg0 + 0x1F8);
         return;
     case 3:
-        TObjContainerIdo__sub_803D96A8(0, -M2C_FIELD(arg0, s32 *, 0x204));
+        rotate_matrix_x(0, -M2C_FIELD(arg0, s32 *, 0x204));
         return;
     }
 }

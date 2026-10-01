@@ -51,7 +51,7 @@ void init_item_slots__10TObjPlayerFPv(void* p);
 void spawn_armor_effects__10TObjPlayerFPv(void *arg0);
 void step_angles__10TObjPlayerFPv(u8 *arg0);
 void sync_hp_from_target__10TObjPlayerFPv(void *arg0);
-M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
+M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 s32 TObjPlayer__sub_800112A4(s32, s16);
 int TObjPlayer__sub_8010069C(void*);
 M2C_UNK TObjPlayer__sub_80115BC0(void *, int, int);
@@ -229,10 +229,10 @@ void apply_container_item__10TObjPlayerFPv(void *arg0) {
     temp_r3 = get_player_list__10TObjPlayerFv();
     switch (temp_r3) {
     case 1:
-        TObjContainerIdo__sub_803D96A8(0, M2C_FIELD(arg0, s32 *, 0x1F8));
+        rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x1F8));
         return;
     case 2:
-        TObjContainerIdo__sub_803D96A8(0, M2C_FIELD(arg0, s32 *, 0x1FC));
+        rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x1FC));
         return;
     }
 }

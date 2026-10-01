@@ -368,14 +368,16 @@
     "optimization": "-O3,p",
     "inline": "off",
     "use_lmw_stmw": "on",
-    "opt": "nopeephole"
+    "opt": "nopeephole",
+    "sdata2": 8
   },
   "pso/unk/text_803D96A8.cpp": {
     "mw_version": "GC/2.6",
     "optimization": "-O3,p",
     "inline": "off",
     "use_lmw_stmw": "on",
-    "opt": "nopeephole"
+    "opt": "nopeephole",
+    "sdata2": 8
   },
   "pso/unk/text_803DA038.cpp": {
     "mw_version": "GC/2.6",

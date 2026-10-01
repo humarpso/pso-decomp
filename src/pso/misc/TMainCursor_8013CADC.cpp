@@ -24,7 +24,7 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK fn_8023601C(void *, void *, f32);
 M2C_UNK set_position_vec3__10TObjPlayerFPvPv(int, void *);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -125,7 +125,7 @@ void TLockOnCursor::renderSecondaryCursor(u8 *arg1, s32 arg2, s32 arg3) {
                 TObjPlayer__sub_803D9B2C();
                 fn_8023601C((void *) (arg1 + 0x1C), (void *) (&sp8), (f32) (temp_f31));
                 set_position_vec3__10TObjPlayerFPvPv((int) (0), (void *) (&sp8));
-                TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(lbl_805D4DF0, s32 *, 0x194)));
+                rotate_matrix_y((int) (0), (int) (M2C_FIELD(lbl_805D4DF0, s32 *, 0x194)));
                 begin_effect_render__13TParticleCtrlFv();
                 TObjPlayer__sub_803D9B2C();
                 TObjPlayer__sub_803D9624((int) (0), (f32) (TMainCursor__data_805DB0C0), (f32) (temp_f31), (f32) (TMainCursor__data_805DB0C0));

@@ -40,9 +40,9 @@ extern "C" {
 void run_task__17TOHangerMachine01Fv(u8 *arg0);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
-M2C_UNK TObjContainerIdo__sub_803D96A8(int, int);
+M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -97,7 +97,7 @@ void render__17TOHangerMachine01Fv(u8 *arg0) {
     if (((VObj *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         p = (u8 *)(M2C_FIELD(arg0, u8 **, 0x34));
         TOHangerMachine01__sub_803D9C00((void *) (p + 8));
@@ -117,8 +117,8 @@ void render__17TOHangerMachine01Fv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (p + 8));
         TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (M2C_FIELD(p, s32 *, 0x1C)));
-        TObjContainerIdo__sub_803D96A8((int) (0), (int) (M2C_FIELD(p, s32 *, 0x14)));
-        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(p, s32 *, 0x18) + M2C_FIELD(arg0, s32 *, 0xC8)));
+        rotate_matrix_x((int) (0), (int) (M2C_FIELD(p, s32 *, 0x14)));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(p, s32 *, 0x18) + M2C_FIELD(arg0, s32 *, 0xC8)));
         begin_effect_render__13TParticleCtrlFv();
         TOSignCave03__sub_803DB510((int) (M2C_FIELD(p, s32 *, 4)));
         end_effect_render__13TParticleCtrlFv();
@@ -130,8 +130,8 @@ void render__17TOHangerMachine01Fv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (p + 8));
         TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (M2C_FIELD(p, s32 *, 0x1C)));
-        TObjContainerIdo__sub_803D96A8((int) (0), (int) (M2C_FIELD(p, s32 *, 0x14)));
-        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(p, s32 *, 0x18) + M2C_FIELD(arg0, s32 *, 0xC8)));
+        rotate_matrix_x((int) (0), (int) (M2C_FIELD(p, s32 *, 0x14)));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(p, s32 *, 0x18) + M2C_FIELD(arg0, s32 *, 0xC8)));
         begin_effect_render__13TParticleCtrlFv();
         TOSignCave03__sub_803DB510((int) (M2C_FIELD(p, s32 *, 4)));
         end_effect_render__13TParticleCtrlFv();

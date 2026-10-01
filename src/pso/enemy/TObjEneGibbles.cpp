@@ -83,7 +83,7 @@ void TObjEneGibbles__sub_802D7DAC(s32 arg0);
 s32 render_anim_model__10TObjPlayerFPvf(void *, f32);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
 s32 set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
-s32 TObjPlayer__sub_803D9214(int, int);
+s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D97F0(void *);
 s32 TObjPlayer__sub_803D9B78();
 f32 TOHangerMachine01__sub_803D9C00(void *);
@@ -246,7 +246,7 @@ void TObjEneGibbles__sub_802D7ED4(u8 *arg0, s32 arg1, s32 arg2) {
     set_global_flag__10TObjPlayerFv();
     TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-    TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     set_monitor_position_vec3__10TObjPlayerFPvPv((int) (0), (void *) (arg0 + 0x68));
     set_global_flag__10TObjPlayerFv();
     render_anim_model__10TObjPlayerFPvf((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));

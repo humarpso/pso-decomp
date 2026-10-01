@@ -199,9 +199,9 @@ void clear_global_flag_400__9TObjEneDDFv(void);
 void toggle_particle_effect__10TObjPlayerFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
 void TOMonitorMachine01__sub_803D8B5C(s32, f32, f32, f32);
-void TObjPlayer__sub_803D9214(s32, s32);
+void rotate_matrix_y(s32, s32);
 void TObjPlayer__sub_803D9624(s32, f32, f32, f32);
-void TObjContainerIdo__sub_803D96A8(s32, s32);
+void rotate_matrix_x(s32, s32);
 void TObjPlayer__sub_803D9B2C(void);
 void TObjPlayer__sub_803D9B78(void);
 void TOHangerMachine01__sub_803D9C00(void *);
@@ -291,9 +291,9 @@ void render__10TBoss2MineFv(Mine_80038200 *self) {
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(&self->pos);
     TObjPlayer__sub_803D9624(0, TBoss2Mine__data_805D84D4, self->f300 - self->pos.y, TBoss2Mine__data_805D84D4);
-    TObjPlayer__sub_803D9214(0, self->f60);
-    TObjContainerIdo__sub_803D96A8(0, self->f5C);
-    TObjPlayer__sub_803D9214(0, self->f64);
+    rotate_matrix_y(0, self->f60);
+    rotate_matrix_x(0, self->f5C);
+    rotate_matrix_y(0, self->f64);
     TObjPlayer__sub_803D9624(0, TBoss2Mine__data_805D84D4, lbl_805D8504, TBoss2Mine__data_805D84D4);
     if (self->flags & 4) {
         some_id_805c6f74 |= 0x20;

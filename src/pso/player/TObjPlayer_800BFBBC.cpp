@@ -187,7 +187,7 @@ s32 render_world_model__10TObjPlayerFPv(void *);
 s32 draw__16TObjEneRe7BeruraFPv(void *);
 s32 end_effect_render__13TParticleCtrlFv();
 s32 TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
-s32 TObjPlayer__sub_803D9214(int, int);
+s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D9B2C();
 s32 TObjPlayer__sub_803D9B78();
 f32 TOHangerMachine01__sub_803D9C00(void *);
@@ -318,7 +318,7 @@ void TObjPlayer__sub_800BFF58(u8 *arg0) {
             toggle_particle_effect__10TObjPlayerFv();
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-            TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+            rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
             if (M2C_FIELD(arg0, s16 *, 0x374) & 0x400) {
                 TOMonitorMachine01__sub_803D8B5C((int) (0), (f32) (lbl_805D9F38), (f32) (lbl_805D9F3C), (f32) (lbl_805D9F38));
                 TObjEneDD__sub_800B9B24((f32) (lbl_805D9F40));

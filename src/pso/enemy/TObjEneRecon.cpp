@@ -22,7 +22,7 @@ extern "C" {
 
 s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1);
 s32 TObjEneRecon__sub_8029EA4C(M2C_UNK *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_803D8F74(M2C_UNK, M2C_UNK *);
+M2C_UNK reflect_matrix_in_plane(M2C_UNK, M2C_UNK *);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
 s32 is_state_active__14TOKeyMachine01Fv();
@@ -55,7 +55,7 @@ s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1) {
     }
     if (var_r3 != 0) {
         TObjPlayer__sub_803D9B2C();
-        TObjPlayer__sub_803D8F74(0, sp8);
+        reflect_matrix_in_plane(0, sp8);
     }
     return var_r3;
 }
@@ -221,7 +221,7 @@ void TObjEneRecon__vt104(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjFish__sub_803E46BC(s32);
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -238,7 +238,7 @@ void TObjEneRecon__vt104(u8 *arg0) {
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         clear_global_flag_400__9TObjEneDDFv();
         toggle_particle_effect__10TObjPlayerFv();
         TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
@@ -262,7 +262,7 @@ s32 render_model_if_visible__12TObjEneReconFPv(u8 *arg0);
 s32 get_mode__11TCameraCtrlFPv(void *);
 s32 TObjEneRecon__sub_8029E960(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -277,7 +277,7 @@ s32 render_model_if_visible__12TObjEneReconFPv(u8 *arg0) {
             set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
             TObjPlayer__sub_803D9B2C();
             TObjPlayer__sub_803D9624((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) (M2C_FIELD(arg0, f32 *, 0x448)), (f32) (M2C_FIELD(arg0, f32 *, 0x40)));
-            TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+            rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
             draw__16TObjEneRe7BeruraFPv((void *) (arg0));
             TObjPlayer__sub_803D9B78();
             restore_render_scissor((int) (1));
@@ -902,7 +902,7 @@ s32 get_mode__11TCameraCtrlFPv(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 s32 TObjEneRecon__sub_8029E960(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
@@ -916,7 +916,7 @@ s32 render_trap_model_if_visible__12TObjEneReconFPv(u8 *arg0) {
             set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-            TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+            rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
             draw__16TObjEneRe7BeruraFPv((void *) (arg0));
             TObjPlayer__sub_803D9B78();
             restore_render_scissor((int) (1));

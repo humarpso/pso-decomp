@@ -37,7 +37,7 @@ void fn_8017F4AC(Self_8017F4AC *self);
 void fn_8017F5F0(u8 *arg0, u8 *arg1);
 void TBoss4Zako__sub_803D8910(void *, void *);
 void TCameraCtrl__sub_803D8934(int, void *, void *);
-void TObjPlayer__sub_803D9214(int, s32);
+void rotate_matrix_y(int, s32);
 void TObjPlayer__sub_803D97F0(void *);
 void TObjPlayer__sub_803D9B78();
 extern Rec_8017F550 lbl_804439D8[];
@@ -80,7 +80,7 @@ void fn_8017F550(Obj_8017F550 *arg0) {
     for (i = 0; i < 8; i++) {
         fn_8017F5F0((u8 *)(&arg0->recs[i]), (u8 *)(&lbl_804439D8[i]));
         TObjPlayer__sub_803D97F0(lbl_8058D490);
-        TObjPlayer__sub_803D9214(0, arg0->f60);
+        rotate_matrix_y(0, arg0->f60);
         TCameraCtrl__sub_803D8934(0, &arg0->recs[i], &arg0->recs[i]);
         TObjPlayer__sub_803D9B78();
         TBoss4Zako__sub_803D8910(&arg0->recs[i], arg0->pos);

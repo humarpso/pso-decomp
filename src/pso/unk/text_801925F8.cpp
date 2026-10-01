@@ -18,7 +18,7 @@ void reset_by_door__19TObjLazerFenceExtraFPv(void *arg0);
 u8 TODoorAncient08__sub_80229220(u16);
 void TOHangerMachine01__sub_803D9C00(void *);
 void TObjBoss2Tunnel__sub_803DB470(void *);
-void TObjPlayer__sub_803D9214(int, void *);
+void rotate_matrix_y(int, void *);
 void TObjPlayer__sub_803D9B2C(void);
 void TObjPlayer__sub_803D9B78(void);
 M2C_UNK fn_80192554(void *);
@@ -31,7 +31,7 @@ void render_lazer_fence_model(void *arg0) {
     set_global_param__8TObjFishFi(lbl_805D5C28);
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 56));
-    TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, void **, 0x60));
+    rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
     TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, void **, 0xBC));
     TObjPlayer__sub_803D9B78();
 }

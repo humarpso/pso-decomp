@@ -11,7 +11,7 @@ struct Obj_800B8B08 { u8 pad0[0x24]; s32 f24; u8 pad28[0x34 - 0x28]; s32 f34; u8
 extern "C" {
 s32 reset_transform_state__10TObjPlayerFv();
 s32 set_position_vec3__10TObjPlayerFPvPv(int, void *);
-s32 TObjPlayer__sub_803D9214(int, int);
+s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D97F0(int);
 s32 TCameraCtrl__sub_803D9858(int);
 s32 set_global_param__8TObjFishFi(int);
@@ -74,7 +74,7 @@ void render__10TObjCGrassFv(Obj_800B8B08 *arg0) {
         if (!(arg0->recs[i].flags & 1)) {
             TObjPlayer__sub_803D97F0(0);
             set_position_vec3__10TObjPlayerFPvPv(0, &arg0->recs[i]);
-            TObjPlayer__sub_803D9214(0, arg0->recs[i].f18);
+            rotate_matrix_y(0, arg0->recs[i].f18);
             TObjEneSlimeOne__sub_803E4AF4(arg0->f34, arg0->ff8, arg0->fc0);
             reset_transform_state__10TObjPlayerFv();
             TCameraCtrl__sub_803D9858(1);

@@ -59,11 +59,11 @@ extern "C" {
 
 s32 TLobby__sub_801819CC(s32);s32 TLobby__sub_801819E4(s32);
 void set_global_param__8TObjFishFi(s32);void TObjPlayer__sub_803D9B2C();void TObjPlayer__sub_803D9B78();
-void TOHangerMachine01__sub_803D9C00(void*);void TObjPlayer__sub_803D9214(s32,s32);
+void TOHangerMachine01__sub_803D9C00(void*);void rotate_matrix_y(s32,s32);
 void fn_80182234(void* o) {
  if(((CityDoorProbe*)o)->visible()!=0) {
   set_global_param__8TObjFishFi(lbl_805D5B2C);TObjPlayer__sub_803D9B2C();
-  TOHangerMachine01__sub_803D9C00((u8*)o+0x38);TObjPlayer__sub_803D9214(0,F(o,s32,0x60));
+  TOHangerMachine01__sub_803D9C00((u8*)o+0x38);rotate_matrix_y(0,F(o,s32,0x60));
   TObjDoor__sub_803DC894(TLobby__sub_801819E4(9),TLobby__sub_801819CC(8),F(o,f32,0xB4));
   TObjDoor__sub_803DC894(TLobby__sub_801819E4(10),TLobby__sub_801819CC(9),F(o,f32,0xB4));
   TObjPlayer__sub_803D9B78();

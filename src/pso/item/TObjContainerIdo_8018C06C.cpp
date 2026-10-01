@@ -116,7 +116,7 @@ M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
 void TObjEneGibbles__sub_80156720(void *);
 void TObjPlayer__sub_800D7C58(void *, int);
 void TObjPlayer__sub_80154A00(void *);
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 void __dl__7TObjectFPv(void *);
@@ -262,7 +262,7 @@ void TObjContainerJungEnemy__vt79(u8 *arg0) {
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         TOMonitorMachine01__sub_803D8B5C(0, lbl_805DBD9C, lbl_805DBD9C, lbl_805DBD9C);
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x368));
         begin_effect_render__13TParticleCtrlFv();

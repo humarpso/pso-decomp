@@ -138,7 +138,7 @@ void render__12TObjWarpJungFv(u8 *arg0);
 M2C_UNK PPCSync();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 int TObjAreaWarp__sub_8019CA24(void*);
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TObjWarpJung__sub_801A0404(M2C_UNK);
@@ -173,7 +173,7 @@ void render__12TObjWarpJungFv(u8 *arg0) {
         set_global_render_param__12TObjWarpJungFv();
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         render_warp__12TObjWarpJungFPv(0);
         begin_effect_render__13TParticleCtrlFv();
         render_warp_effect__12TObjWarpJungFii(1, (s32) M2C_FIELD(arg0, f32 *, 0xC4));

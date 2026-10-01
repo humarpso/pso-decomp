@@ -33,7 +33,7 @@ struct VObj_802CE740 : VBase_802CE740 {
 extern "C" {
 s32 render_anim_model__10TObjPlayerFPvf(void *, f32);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
-s32 TObjPlayer__sub_803D9214(int, int);
+s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D97F0(void *);
 s32 TObjPlayer__sub_803D9B78();
 f32 TOHangerMachine01__sub_803D9C00(void *);
@@ -49,7 +49,7 @@ M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_801417E8();
 M2C_UNK TObjPlayer__sub_80141820(int);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-s32 TObjPlayer__sub_803D9214(int, int);
+s32 rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 s32 TObjPlayer__sub_803D9B78();
 f32 TOHangerMachine01__sub_803D9C00(void *);
@@ -73,7 +73,7 @@ void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2) {
     set_global_flag__10TObjPlayerFv();
     TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-    TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     set_global_flag__10TObjPlayerFv();
     render_anim_model__10TObjPlayerFPvf((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));
     clear_global_state__10TObjPlayerFv();
@@ -114,7 +114,7 @@ void TObjPlayer__sub_802CE740(u8 *arg0) {
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, void **, 0x24));
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         clear_global_flag_400__9TObjEneDDFv();
         toggle_particle_effect__10TObjPlayerFv();
         TObjPlayer__sub_80141820(0);

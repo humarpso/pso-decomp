@@ -253,7 +253,7 @@ s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
 extern void *lbl_805D53A0;
 void TCameraCtrl__sub_8006D2B0(void *arg0, void *arg1, u16 arg2);
 void TObjPlayer__sub_803D97F0(void *);
-void TObjPlayer__sub_803D9214(s32, s32);
+void rotate_matrix_y(s32, s32);
 void TCameraCtrl__sub_803D8934(s32, void *, void *);
 void TCameraCtrl__sub_803D9858(s32);
 extern u8 lbl_8058D490[];
@@ -299,7 +299,7 @@ void TCameraCtrl__sub_8006DB68(Cam_8006DB68 *arg0);
 u8 * TObjButterflyLobby__sub_8007A5D8(void *, void *, u32);
 void TCameraCtrl__sub_803D8934(s32, void *, void *);
 f32 TCameraCtrl__sub_803D8D00(FollowVector *);
-void TObjPlayer__sub_803D9214(s32, s32);
+void rotate_matrix_y(s32, s32);
 void TNpcPlayer__sub_803D97B4(FollowVector *);
 void TObjPlayer__sub_803D97F0(void *);
 void TCameraCtrl__sub_803D9858(s32);
@@ -520,7 +520,7 @@ s32 conversation_camera_obstructed(FollowController *self,s32 heading) {
     VecCopy__FP3VecPC3Vec((void *)(&offset), (void *)(&self->position_offset));
     offset.z += lbl_805D9078;
     TObjPlayer__sub_803D97F0(lbl_8058D490);
-    TObjPlayer__sub_803D9214(0,heading);
+    rotate_matrix_y(0,heading);
     TCameraCtrl__sub_803D8934(0,&offset,&offset);
     TCameraCtrl__sub_803D9858(1);
     VecCopy__FP3VecPC3Vec((void *)(&candidate), (void *)(&self->actor->position));
@@ -562,7 +562,7 @@ void TCameraCtrl__sub_8006D610(void) {
 void TCameraCtrl__sub_8006D95C(Cam_8006D95C *self) {
     Vec_8006D95C v;
     TObjPlayer__sub_803D97F0(lbl_8058D490);
-    TObjPlayer__sub_803D9214(0, self->f30);
+    rotate_matrix_y(0, self->f30);
     TCameraCtrl__sub_803D8934(0, self->fdc, &v);
     TCameraCtrl__sub_803D9858(1);
     self->pos.x = self->tgt->pos.x + v.x;
@@ -634,7 +634,7 @@ void TCameraCtrl__sub_8006DD78(Cam_8006DD78 *arg0, Tgt_8006DD78 *arg1) {
     if (arg1 != NULL) {
         arg0->angle = arg1->angle + 0x8000;
         TObjPlayer__sub_803D97F0(lbl_8058D490);
-        TObjPlayer__sub_803D9214(0, arg0->angle);
+        rotate_matrix_y(0, arg0->angle);
         TCameraCtrl__sub_803D8934(0, &v, &v);
         TCameraCtrl__sub_803D9858(1);
         arg0->target.x = arg1->pos.x;

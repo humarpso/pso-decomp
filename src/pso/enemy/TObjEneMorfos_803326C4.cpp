@@ -622,7 +622,7 @@ extern const f32 lbl_805DF8A0;
 extern const f32 lbl_805DF8A4;
 void TObjEneMorfos__sub_8033471C(u8 *arg0);
 s32 get_mode__11TCameraCtrlFPv(void *);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -681,7 +681,7 @@ M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
 s32 TObjEneMorfos__sub_803344F0();
 s32 TObjEneRecon__sub_8029E960(void *);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
@@ -711,7 +711,7 @@ void TObjEneMorfos__sub_803326CC(u8 *arg0) {
         set_global_param__8TObjFishFi((int)((void *) (M2C_FIELD(((RecoveredFields_803326CC_TObjEneMorfos__data_805D6D14 *)(*(u8 * *)&TObjEneMorfos__data_805D6D14))->field_42C, s32 *, 0x2C))));
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x498));
-        TObjPlayer__sub_803D9214((int) (0), (int) (((RecoveredFields_803326CC_arg0 *)arg0)->field_60));
+        rotate_matrix_y((int) (0), (int) (((RecoveredFields_803326CC_arg0 *)arg0)->field_60));
         if (((RecoveredFields_803326CC_arg0 *)arg0)->field_3C0 & 2) {
             if (((VObj_14_fddec9 *)((u8 *)(arg0) + (1032)))->m8() != 0) {
                 ((VObj_14_fddec9 *)((u8 *)(arg0) + (1032)))->m6();
@@ -732,7 +732,7 @@ s32 render_model_if_visible__13TObjEneMorfosFPv(u8 *arg0) {
             set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-            TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+            rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
             draw__16TObjEneRe7BeruraFPv((void *) (arg0));
             TObjPlayer__sub_803D9B78();
             if (M2C_FIELD(arg0, s32 *, 0x3C0) & 0x10) {

@@ -24,7 +24,7 @@ void set_param_ptr__11TBoss4Type2FPvi(void *, int);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void TCameraCtrl__sub_803D8934(int, Vec3_80352240 *, Vec3_80352240 *);
 void TObjPlayer__sub_803D8CD4(int);
-void TObjPlayer__sub_803D9214(int, s32);
+void rotate_matrix_y(int, s32);
 void TObjPlayer__sub_803D9B2C();
 void TObjPlayer__sub_803D9B78();
 void TOHangerMachine01__sub_803D9C00(void *);
@@ -131,7 +131,7 @@ void TObjLobbyMain__sub_80352240(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TObjPlayer__sub_803D8CD4(0);
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        TObjPlayer__sub_803D9214(0, *(s32 *)(arg0 + 0x60));
+        rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         TCameraCtrl__sub_803D8934(0, &v, &v);
         copy_pos__11TNowLoadingFPvPv(*(void **)(arg0 + 0xD8), &v);
         TObjPlayer__sub_803D9B78();
@@ -142,7 +142,7 @@ void TObjLobbyMain__sub_80352240(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TObjPlayer__sub_803D8CD4(0);
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        TObjPlayer__sub_803D9214(0, *(s32 *)(arg0 + 0x60));
+        rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         TCameraCtrl__sub_803D8934(0, &v, &v);
         copy_pos__11TNowLoadingFPvPv(*(void **)(arg0 + 0xDC), &v);
         TObjPlayer__sub_803D9B78();

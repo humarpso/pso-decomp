@@ -111,7 +111,7 @@ M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 int TObjPlayer__sub_80154E3C(void*);
 int TObjPlayer__sub_803D8CD4(void*);
-int TObjPlayer__sub_803D9214(void*, void*);
+int rotate_matrix_y(void*, void*);
 int TObjPlayer__sub_803D9B2C(void*);
 int TObjPlayer__sub_803D9B78(void);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -166,7 +166,7 @@ void TBoss1DragonColli__sub_8002B358(void) {  }
 
 void TBoss1DragonColli__sub_8002B35C(void* p) { TBoss1DragonColli__sub_8002B3F4((O_8002B3F4 *)((void*)(p))); }
 
-void draw__17TBoss1DragonColliFPvPvPv(void* p, void* a1, void* a2) { TObjPlayer__sub_803D9B2C(p); TObjPlayer__sub_803D8CD4((void*)0); TOHangerMachine01__sub_803D9C00(a1); TObjPlayer__sub_803D9214((void*)0, a2); TCameraCtrl__sub_803D8934((void*)0, (char*)p + 0xac, (char*)p + 0x38); TObjPlayer__sub_803D9B78(); *(void**)((char*)p + 0x60) = a2; TObjPlayer__sub_80154E3C(p); TBoss1DragonColli__sub_8002B42C((O_8002B42C *)((void*)(p))); }
+void draw__17TBoss1DragonColliFPvPvPv(void* p, void* a1, void* a2) { TObjPlayer__sub_803D9B2C(p); TObjPlayer__sub_803D8CD4((void*)0); TOHangerMachine01__sub_803D9C00(a1); rotate_matrix_y((void*)0, a2); TCameraCtrl__sub_803D8934((void*)0, (char*)p + 0xac, (char*)p + 0x38); TObjPlayer__sub_803D9B78(); *(void**)((char*)p + 0x60) = a2; TObjPlayer__sub_80154E3C(p); TBoss1DragonColli__sub_8002B42C((O_8002B42C *)((void*)(p))); }
 
 void TBoss1DragonColli__sub_8002B3F4(O_8002B3F4 *self) {
     s32 i;

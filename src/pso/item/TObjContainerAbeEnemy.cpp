@@ -114,7 +114,7 @@ u8 *TObjContainerAbeEnemy__ct(u8 *arg0, s32 arg1);
 s32 set_global_param__8TObjFishFi(s32);
 s32 TObjPlayer__sub_803D9B2C();
 s32 TOHangerMachine01__sub_803D9C00(void *);
-s32 TObjPlayer__sub_803D9214(s32, s32);
+s32 rotate_matrix_y(s32, s32);
 void dispatch_fish_event__6TLobbyFPv(void *a0);
 void fn_801FBA6C(void);
 s32 TObjPlayer__sub_803D9B78();
@@ -212,7 +212,7 @@ void TObjContainerBase__vt79(Obj_80188C8C *self) {
             set_global_param__8TObjFishFi(lbl_805D5B8C);
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(self->pos);
-            TObjPlayer__sub_803D9214(0, self->id);
+            rotate_matrix_y(0, self->id);
             dispatch_fish_event__6TLobbyFPv((void *)2);
             fn_801FBA6C();
             TObjPlayer__sub_803D9B78();

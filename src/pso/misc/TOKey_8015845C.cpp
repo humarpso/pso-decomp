@@ -21,7 +21,7 @@ struct VObj_18_ca64a0 : VBase_18_ca64a0 {
 
 extern "C" {
 s32 fn_801582C4(void *, f32);
-s32 TObjPlayer__sub_803D9214(int, int);
+s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D9B2C();
 s32 TObjPlayer__sub_803D9B78();
 f32 TOHangerMachine01__sub_803D9C00(void *);
@@ -58,7 +58,7 @@ void render__5TOKeyFv(u8 *arg0) {
     if ((temp_r3 != 0) && (fn_801582C4((void *) (arg0), (f32) (lbl_805DB2EC)) != 0)) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         temp_r4 = M2C_FIELD(arg0, u32 *, 0xBC);
         if (temp_r4 != 0U) {

@@ -172,7 +172,7 @@ s32 get_mode__11TCameraCtrlFPv(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 s32 TObjEneRecon__sub_8029E960(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -189,7 +189,7 @@ s32 render_model_if_visible__18TObjEneMe3SinowZoaFPv(u8 *arg0) {
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
             TObjPlayer__sub_803D9624((int) (0), (f32) (TObjEneMe3SinowZoa__data_805DF31C), (f32) (M2C_FIELD(arg0, f32 *, 0x3E4)), (f32) (TObjEneMe3SinowZoa__data_805DF31C));
-            TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+            rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
             draw__16TObjEneRe7BeruraFPv((void *) (arg0));
             TObjPlayer__sub_803D9B78();
             restore_render_scissor((int) (1));

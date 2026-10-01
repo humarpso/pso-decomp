@@ -80,7 +80,7 @@ s32 get_global_state__14TOKeyMachine01Fv(void);
 void set_indirect_tev__6TSceneFii(void *, s32);
 void draw_field_1c__6TSceneFPviii(void *, s32, s32, s32);
 void TOMonitorMachine01__sub_803D8B5C(s32, f32, f32, f32);
-void TObjPlayer__sub_803D9214(s32, s32);
+void rotate_matrix_y(s32, s32);
 void TObjPlayer__sub_803D9B2C(void);
 void TObjPlayer__sub_803D9B78(void);
 void TOHangerMachine01__sub_803D9C00(void *);
@@ -152,7 +152,7 @@ void TTecRaFoie__sub_802381F8(RaFoie_802381F8 *o) {
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(o->m28);
     TOMonitorMachine01__sub_803D8B5C(0, x, y, z);
-    TObjPlayer__sub_803D9214(0, *(s32 *)(lbl_805D4DF0 + 0x194));
+    rotate_matrix_y(0, *(s32 *)(lbl_805D4DF0 + 0x194));
     set_global_param__8TObjFishFi(lbl_805D63B0);
     set_cull_back__8TObjFishFv();
     set_depth_buffer_settings_id__FUl(3);

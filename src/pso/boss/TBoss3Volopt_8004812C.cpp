@@ -46,8 +46,8 @@ void TObjPlayer__sub_801E341C(void *, s32, s32);
 void TBoss4Zako__sub_803D8910(void *, void *);
 void TCameraCtrl__sub_803D8934(s32, void *, void *);
 void TObjPlayer__sub_803D8CD4(s32);
-void TObjPlayer__sub_803D9214(s32, s32);
-void TObjContainerIdo__sub_803D96A8(s32, s32);
+void rotate_matrix_y(s32, s32);
+void rotate_matrix_x(s32, s32);
 void TObjPlayer__sub_803D9B2C(void);
 void TObjPlayer__sub_803D9B78(void);
 extern Vec_80048260 lbl_804366B8;
@@ -103,8 +103,8 @@ void TObjPlayer__sub_80048260(Obj_80048260 *self) {
     {
         Vec_80048260 v = lbl_804366B8;
         v.z = self->unk40;
-        TObjContainerIdo__sub_803D96A8(0, self->rotY);
-        TObjPlayer__sub_803D9214(0, self->rotZ);
+        rotate_matrix_x(0, self->rotY);
+        rotate_matrix_y(0, self->rotZ);
         TCameraCtrl__sub_803D8934(0, &v, &v);
         TBoss4Zako__sub_803D8910(dst, &v);
     }

@@ -330,7 +330,7 @@ f32 TBoss4Zako__sub_803D8910(void *, void *);
 f32 TBoss6Type1__sub_803D9370(void *, void *);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
 s32 TObjPlayer__sub_803D8CD4(int);
-s32 TObjPlayer__sub_803D9214(int, int);
+s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D9B2C();
 s32 TObjPlayer__sub_803D9B78();
 extern Tbl_802B79DC lbl_80470F28[];
@@ -1181,7 +1181,7 @@ void TBoss6Type1__sub_802B79DC(Boss_802B79DC *arg0) {
             TBoss6Type1__sub_803D9370(&v, &arg0->pos);
             TObjPlayer__sub_803D9B2C();
             TObjPlayer__sub_803D8CD4(0);
-            TObjPlayer__sub_803D9214(0, -arg0->f60);
+            rotate_matrix_y(0, -arg0->f60);
             TCameraCtrl__sub_803D8934(0, &v, e);
             TObjPlayer__sub_803D9B78();
             VecCopy__FP3VecPC3Vec(&e->n, e);

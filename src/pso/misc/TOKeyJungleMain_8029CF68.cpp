@@ -107,7 +107,7 @@ M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
 s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_8001EDC4(s32, M2C_UNK);
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -200,7 +200,7 @@ void render__15TOKeyJungleMainFv(u8 *arg0) {
             set_global_param__8TObjFishFi();
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-            TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+            rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
             TObjFish__sub_8001EDC4((*(s32 *)&TOKeyJungleMain__data_805D65E0), 1);
             TObjBoss2Tunnel__sub_803DB470();
             TObjPlayer__sub_803D9B78();
@@ -210,7 +210,7 @@ void render__15TOKeyJungleMainFv(u8 *arg0) {
             set_global_param__8TObjFishFi();
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-            TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+            rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
             TObjDoor__sub_803DC894(TObjFish__sub_8001EDC4((*(s32 *)&TOKeyJungleMain__data_805D65E0), 1), TObjFish__sub_8001ED9C((*(s32 *)&TOKeyJungleMain__data_805D65E0), 1), M2C_FIELD(arg0, f32 *, 0xE8));
             begin_effect_render__13TParticleCtrlFv();
             TObjDoor__sub_803DC894(TObjFish__sub_8001EDC4((*(s32 *)&TOKeyJungleMain__data_805D65E0), 0), TObjFish__sub_8001ED9C((*(s32 *)&TOKeyJungleMain__data_805D65E0), 0), M2C_FIELD(arg0, f32 *, 0xEC));

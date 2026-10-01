@@ -12,7 +12,7 @@ M2C_UNK TBoss6Type2__sub_802B9EE4(void *);
 M2C_UNK TBoss6Type2__sub_802B9F0C();
 M2C_UNK TBoss6Type2__sub_802BCAB8(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -29,7 +29,7 @@ void render_body_effects__11TBoss6Type2FPv(u8 *arg0) {
     toggle_particle_effect__10TObjPlayerFv();
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-    TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     var_r31 = 0;
     if ((TBoss6Type2__data_805DE410 == M2C_FIELD(arg0, f32 *, 0x41C)) || (TBoss6Type2__data_805DE40C == M2C_FIELD(arg0, f32 *, 0x41C))) {
         var_r31 = 1;

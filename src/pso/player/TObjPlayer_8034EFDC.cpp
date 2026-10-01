@@ -179,7 +179,7 @@ void reset_shoot_models__10TObjPlayerFPv(void* p);
 int shrink_field1f8__10TObjPlayerFPv(void* p);
 void spawn_effect__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
-M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
+M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
 int TObjPlayer__sub_80115BC0(void*, void*, void*);
 int TObjPlayer__sub_8011E87C(void*, void*);
@@ -341,10 +341,10 @@ void handle_turn_input__10TObjPlayerFPv(void *arg0) {
     temp_r3 = get_player_list__10TObjPlayerFv();
     switch (temp_r3) {
     case 2:
-        TObjContainerIdo__sub_803D96A8(0, M2C_FIELD(arg0, s32 *, 0x1F8));
+        rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x1F8));
         return;
     case 3:
-        TObjContainerIdo__sub_803D96A8(0, M2C_FIELD(arg0, s32 *, 0x1FC));
+        rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x1FC));
         return;
     case 5:
         TObjBoss2Tunnel__sub_803D929C(0, M2C_FIELD(arg0, s32 *, 0x200));

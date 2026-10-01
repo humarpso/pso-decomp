@@ -41,7 +41,7 @@ void run_task__11TOVS2Wall01Fv(u8 *arg0);
 s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
 M2C_UNK TObjPlayer__sub_800D7BB0(void *);
 s32 is_not_split_screen__13TRaderMapCoreFv();
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -113,7 +113,7 @@ void render__11TOVS2Wall01Fv(u8 *arg0) {
         }
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         TObjBoss2Tunnel__sub_803DB470((int) (M2C_FIELD(arg0, s32 *, 0x34)));
         TObjPlayer__sub_803D9B78();

@@ -58,7 +58,7 @@ M2C_UNK fn_80141A30();
 M2C_UNK begin_effect_render__13TParticleCtrlFv(int);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -107,7 +107,7 @@ void render__12TEffCliticalFv(u8 *arg0) {
     TObjPlayer__sub_803D9B2C();
     set_global_param__8TObjFishFi((void *) (lbl_8048E2E0));
     TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x20));
-    TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(lbl_805D4DF0, s32 *, 0x194)));
+    rotate_matrix_y((int) (0), (int) (M2C_FIELD(lbl_805D4DF0, s32 *, 0x194)));
     TOMonitorMachine01__sub_803D8B5C((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x3C)), (f32) (M2C_FIELD(arg0, f32 *, 0x40)), (f32) (M2C_FIELD(arg0, f32 *, 0x44)));
     TObjFish__sub_803E46BC((int) (M2C_FIELD(lbl_805D4ED8, s32 *, 0)));
     TObjPlayer__sub_803D9B78();

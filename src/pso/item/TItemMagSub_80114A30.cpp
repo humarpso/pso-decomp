@@ -143,7 +143,7 @@ s32 TItemMag__sub_80113EC8(void *);
 s32 calc_feed_level__11TItemMagSubFPv(void *arg0);
 M2C_UNK TBoss7Tentacle__sub_803D8A6C(int, int, int, int, int);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9214(int, void *);
+M2C_UNK rotate_matrix_y(int, void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 void TItemMagSub__sub_80114E4C(u8 *arg0);
 s32 is_mag_active__11TItemMagSubFPv(int);
@@ -201,7 +201,7 @@ extern const f32 lbl_805DABD0, lbl_805DABD4;
 void render_mag_child(TItemMagSub *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
 s32 calc_feed_level__11TItemMagSubFPv(void *arg0);
-M2C_UNK TObjPlayer__sub_803D9214(int, void *);
+M2C_UNK rotate_matrix_y(int, void *);
 s32 TObjPlayer__sub_803D97F0(void *);
 f32 TObjPlayer__sub_803D9884(void *, void *);
 s32 TObjPlayer__sub_803D9B78();
@@ -323,11 +323,11 @@ void TItemMagSub__sub_80114E4C(u8 *arg0) {
   if (TItemMag__sub_80113EC8((void *) (*((void **) (((s8 *) arg0) + 0x20)))) != 0)
   {
     feed = (void *) calc_feed_level__11TItemMagSubFPv((void *) arg0);
-    TObjPlayer__sub_803D9214((int) 0, feed);
+    rotate_matrix_y((int) 0, feed);
   }
   else
   {
-    TObjPlayer__sub_803D9214((int) 0, (void *) (*((s32 *) (((s8 *) (*((void **) (((s8 *) arg0) + 0x20)))) + 0x60))));
+    rotate_matrix_y((int) 0, (void *) (*((s32 *) (((s8 *) (*((void **) (((s8 *) arg0) + 0x20)))) + 0x60))));
   }
   TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0xAC));
   temp_r6 = (unsigned char *) (*((void **) (((s8 *) arg0) + 0x30)));
@@ -448,7 +448,7 @@ void TItemMagSub__sub_801151E0(MagSub_801151E0 *self) {
         }
     }
     TObjPlayer__sub_803D97F0((void *) (&(*(RecoveredGlobal_801151E0_lbl_8058D490 *)&lbl_8058D490).value));
-    TObjPlayer__sub_803D9214(0, (void *)(calc_feed_level__11TItemMagSubFPv(self) + 0x8000));
+    rotate_matrix_y(0, (void *)(calc_feed_level__11TItemMagSubFPv(self) + 0x8000));
     Vec_801151E0 in = lbl_8043E59C[0];
     Vec_801151E0 out;
     TObjPlayer__sub_803D9884(&in, &out);

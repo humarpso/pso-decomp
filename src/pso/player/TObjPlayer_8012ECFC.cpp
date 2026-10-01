@@ -13,7 +13,7 @@ M2C_UNK play_particle_effect_once__10TObjPlayerFv();
 M2C_UNK spawn_cane_effects__10TObjPlayerFiUiii(s32, s32, M2C_UNK, M2C_UNK);
 s32 TObjPlayer__sub_8011F63C();
 s32 get_player_list__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 
 void apply_turn__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
@@ -22,11 +22,11 @@ void apply_turn__10TObjPlayerFPv(void *arg0) {
     switch (temp_r3) {
     case 1:
         play_particle_effect_once__10TObjPlayerFv();
-        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x1F8));
+        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x1F8));
         return;
     case 3:
         play_particle_effect_once__10TObjPlayerFv();
-        TObjPlayer__sub_803D9214(0, -M2C_FIELD(arg0, s32 *, 0x1F8));
+        rotate_matrix_y(0, -M2C_FIELD(arg0, s32 *, 0x1F8));
     case 2:
         return;
     }

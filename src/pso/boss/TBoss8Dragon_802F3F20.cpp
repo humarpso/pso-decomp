@@ -65,9 +65,9 @@ M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 has_enough_enemies__12TBoss8DragonFv();
 s32 TBoss8Dragon__sub_802F3F20(u8 *arg0);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
-M2C_UNK TObjContainerIdo__sub_803D96A8(int, int);
+M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
@@ -155,8 +155,8 @@ void TBoss8Dragon__sub_802F4114(u8 *arg0, s32 arg1, s32 arg2) {
         }
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (arg1));
-        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-        TObjContainerIdo__sub_803D96A8((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)));
         TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
         TBoss7Tentacle__sub_803D9BA0((void *) (arg0 + 0x68));
         toggle_particle_effect__10TObjPlayerFv();

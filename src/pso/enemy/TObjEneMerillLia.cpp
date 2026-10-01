@@ -269,7 +269,7 @@ s32 spawn_ground_effect__10TObjPlayerFPvi(void *, int);
 s32 TObjPlayer__sub_800D92BC(void *, int);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
 s32 TScene__sub_803D8DB4(int, void *, void *);
-s32 TObjPlayer__sub_803D9214(int, int);
+s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D97F0(void *);
 s32 TObjPlayer__sub_803D9B78();
 extern RecoveredGlobal_800D5060_lbl_8058D490 lbl_8058D490;
@@ -300,7 +300,7 @@ s32 render_world_model__10TObjPlayerFPv(void *);
 s32 draw__16TObjEneRe7BeruraFPv(void *);
 s32 end_effect_render__13TParticleCtrlFv();
 s32 toggle_flag_9__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_803D9214(int, int);
+s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D9624(int, f32, f32, f32);
 s32 TObjPlayer__sub_803D9B2C();
 s32 TObjPlayer__sub_803D9B78();
@@ -413,7 +413,7 @@ void TObjEneMerillLia__sub_800D5060(u8 *arg0) {
     stack.spC = lbl_805DA304;
     stack.sp10 = TObjEneMerillLia__data_805DA308 * M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2B0), f32 *, 0x10);
     TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
-    TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     TScene__sub_803D8DB4((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
     TObjPlayer__sub_803D9B78();
     TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x38));
@@ -672,7 +672,7 @@ void TObjEneMerillLia__sub_800D6810(u8 *arg0) {
     TObjPlayer__sub_803D9B2C();
     TObjPlayer__sub_803D9624((int) 0, (f32) TObjEneMerillLia__data_805DA300, (f32) ((RecoveredFields_800D6810_arg0 *) arg0)->field_380, (f32) TObjEneMerillLia__data_805DA300);
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-    TObjPlayer__sub_803D9214((int) 0, (int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_60);
+    rotate_matrix_y((int) 0, (int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_60);
     if (check_demo_mode__10TObjPlayerFv() == 1)
     {
       TObjFish__sub_803E46BC((int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_34);

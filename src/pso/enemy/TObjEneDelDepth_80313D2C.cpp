@@ -13,7 +13,7 @@ M2C_UNK create__19TObjEneDelDepthBombFPvPvPvPv(void *, void *, void *, int);
 M2C_UNK TObjEneDelDepth__sub_803154A8(void *, int);
 s32 get_flag_bit4__15TObjEneDelDepthFPv(void *);
 M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D97F0(void *);
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -76,7 +76,7 @@ void TObjEneDelDepth__sub_80313E34(u8 *arg0) {
         set_global_flag__10TObjPlayerFv();
         TObjPlayer__sub_803D97F0((void *) (lbl_8058D490));
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         render_anim_model__10TObjPlayerFPvf((void *) (arg0), (f32) (lbl_805DF284));
         TObjPlayer__sub_803D9B78();
         TObjPlayer__sub_803D97F0((void *) (lbl_805D5678 + 0x450));

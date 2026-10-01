@@ -235,7 +235,7 @@ s32 play_effect_if_v2__10TObjPlayerFi(int);
 s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 void TObjEneDf2Bringer__sub_80097620(u8 *arg0, s32 arg1);
 M2C_UNK get_camera_ctrl__9TObjEneDDFPv(void *, int);
-M2C_UNK TObjContainerIdo__sub_803D96A8(int, int);
+M2C_UNK rotate_matrix_x(int, int);
 extern RecoveredGlobal_800975A8_lbl_805008A8 lbl_805008A8;
 extern s32 TObjEneDf2Bringer__data_805D4FBC;
 extern s32 TObjEneDf2Bringer__data_805D4FC0;
@@ -377,7 +377,7 @@ void TObjEneDf2Bringer__sub_800975A8(void) {
     s32 temp_r4;
     switch (TObjEneDf2Bringer__data_805D4FBC) {
     case 8:
-        TObjContainerIdo__sub_803D96A8((int) (0), (int) (TObjEneDf2Bringer__data_805D4FC0));
+        rotate_matrix_x((int) (0), (int) (TObjEneDf2Bringer__data_805D4FC0));
         break;
     case 11:
     case 16:

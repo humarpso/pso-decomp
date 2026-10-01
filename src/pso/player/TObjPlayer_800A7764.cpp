@@ -122,7 +122,7 @@ void TObjPlayer__sub_800A7BEC(Obj_800A7BEC *arg0);
 u32 lookup_entry_by_value__10TObjPlayerFPvf(void *, f32);
 M2C_UNK TObjPlayer__sub_803D8960(int, int, void *, int);
 M2C_UNK TObjPlayer__sub_803D8CD4(int);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -145,7 +145,7 @@ M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 toggle_flag_9__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_8023DEE0(int, int, int, int);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -280,7 +280,7 @@ void TObjPlayer__sub_800A7A14(Obj_800A7A14 *o) {
     TObjPlayer__sub_803D9B2C();
     TObjPlayer__sub_803D8CD4(0);
     TOHangerMachine01__sub_803D9C00(&o->pos);
-    TObjPlayer__sub_803D9214(0, o->f60);
+    rotate_matrix_y(0, o->f60);
     TObjPlayer__sub_803D8960(0, e, &a, 2);
     TObjPlayer__sub_803D9B78();
     eff = o->effs[idx];
@@ -373,7 +373,7 @@ void TObjPlayer__sub_800A7CA4(Player_800A7CA4 *self) {
     set_global_param__8TObjFishFi(self->f24);
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(self->pos);
-    TObjPlayer__sub_803D9214(0, self->f60);
+    rotate_matrix_y(0, self->f60);
     if (check_demo_mode__10TObjPlayerFv() == 1) {
         TObjFish__sub_803E46BC(self->f34);
     } else {

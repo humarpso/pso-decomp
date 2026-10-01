@@ -114,7 +114,7 @@ M2C_UNK TObjPlayer__sub_800F5BC0(int, s16, int);
 M2C_UNK TLobby__sub_801819E4(int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -284,7 +284,7 @@ void TObjPlayer__sub_80180D18(u8 *arg0) {
         end_effect_render__13TParticleCtrlFv();
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x38));
-        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0x9C) != 0) {
             TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
         }

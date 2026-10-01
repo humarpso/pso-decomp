@@ -65,7 +65,7 @@ s32 TOKeyAncient03__vt13(u8 *arg0);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -147,7 +147,7 @@ void render__14TOKeyAncient02Fv(u8 *arg0) {
     if (((VObj18*)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         temp_r31 = M2C_FIELD(arg0, u8 **, 0x34);
         TObjPlayer__sub_803D9B2C();
@@ -176,7 +176,7 @@ void render__14TOKeyAncient02Fv(u8 *arg0) {
         temp_r31_5 = M2C_FIELD(temp_r31_4, u8 **, 0x2C);
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (temp_r31_5 + 8));
-        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xEC)));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xEC)));
         TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_5, s32 *, 4)));
         TObjPlayer__sub_803D9B78();
         TObjPlayer__sub_803D9B78();

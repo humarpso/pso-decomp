@@ -388,7 +388,7 @@ s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, void *);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 void TObjEneDellBiter__sub_8030390C(u8 *arg0, s32 arg1);
 M2C_UNK get_camera_ctrl__9TObjEneDDFPv(void *, int);
-M2C_UNK TObjContainerIdo__sub_803D96A8(int, int);
+M2C_UNK rotate_matrix_x(int, int);
 extern RecoveredGlobal_80303894_lbl_80541E48 lbl_80541E48;
 extern s32 TObjEneDellBiter__data_805D6A34;
 extern s32 TObjEneDellBiter__data_805D6A38;
@@ -434,7 +434,7 @@ M2C_UNK TObjEneDellBiter__sub_80305B60(void *);
 M2C_UNK TObjEneDellBiter__sub_80305E1C(void *);
 int TObjEneDellBiter__sub_80305F58(void*);
 s32 TObjEneRecon__sub_8029E960(void *);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 void __dl__7TObjectFPv(void *);
@@ -524,7 +524,7 @@ s32 render_model_if_visible__16TObjEneDellBiterFPv(u8 *arg0) {
             set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-            TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+            rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
             TOMonitorMachine01__sub_803D8B5C((int) (0), (f32) (TObjEneDellBiter__data_805DEFB8), (f32) (TObjEneDellBiter__data_805DEFB8), (f32) (TObjEneDellBiter__data_805DEFB8));
             draw__16TObjEneRe7BeruraFPv((void *) (arg0));
             TObjPlayer__sub_803D9B78();
@@ -572,7 +572,7 @@ void TObjEneDellBiter__sub_80303894(void) {
     case 31:
         break;
     case 8:
-        TObjContainerIdo__sub_803D96A8((int) (0), (int) (TObjEneDellBiter__data_805D6A38));
+        rotate_matrix_x((int) (0), (int) (TObjEneDellBiter__data_805D6A38));
         break;
     case 12:
     case 22:

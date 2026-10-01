@@ -25,7 +25,7 @@ void TObjPlayer__sub_80081DC8(void *arg0);
 s32 TLobby__sub_800869A4(void *, int, int, int);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
 s32 TScene__sub_803D8DB4(int, void *, void *);
-s32 TObjPlayer__sub_803D9214(int, int);
+s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D97F0(void *);
 s32 TObjPlayer__sub_803D9B78();
 extern RecoveredGlobal_80081CD0_lbl_8058D490 lbl_8058D490;
@@ -57,7 +57,7 @@ void TObjPlayer__sub_80081CD0(u8 *arg0) {
         stack.spC = lbl_805D9378;
         stack.sp10 = lbl_805D938C * M2C_FIELD(arg0, f32 *, 0x68);
         TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
-        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60) * 2));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60) * 2));
         TScene__sub_803D8DB4((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
         TObjPlayer__sub_803D9B78();
         TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x38));

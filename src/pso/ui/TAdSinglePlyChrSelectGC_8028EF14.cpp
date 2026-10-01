@@ -112,7 +112,7 @@ void enable_making__12TCharaMakingFv();
 s32 TAdSinglePlyChrSelectGC__sub_8028FCA8(void *);
 void draw_player_model__23TAdSinglePlyChrSelectGCFPv(void* p);
 void set_position_vec3__10TObjPlayerFPvPv(int, void *);
-void TObjPlayer__sub_803D9214(int, u32);
+void rotate_matrix_y(int, u32);
 void TObjPlayer__sub_803D97F0();
 void TObjPlayer__sub_803D9B2C();
 void TObjPlayer__sub_803D9B78();
@@ -292,7 +292,7 @@ void TAdSinglePlyChrSelectGC__sub_8028FD90(u8 *arg0) {
         lbl_805D6534 = 1;
         TObjPlayer__sub_803D9B2C();
         set_position_vec3__10TObjPlayerFPvPv(0, arg0 + 0x38);
-        TObjPlayer__sub_803D9214(0, lbl_805D6538);
+        rotate_matrix_y(0, lbl_805D6538);
         set_global_param__8TObjFishFi((u8 *)lbl_805D6540 + 0x460);
         draw_player_model__23TAdSinglePlyChrSelectGCFPv((void*)(arg0));
         get_item_ptr__10TObjPlayerFPvi(arg0, 0x3A);

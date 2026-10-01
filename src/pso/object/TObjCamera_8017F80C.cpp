@@ -88,7 +88,7 @@ s32 TObjFish__sub_8001ED9C(u32, int);
 void TObjFish__sub_8001EDB0(u32, int);
 s32 TObjFish__sub_8001EDC4(u32, int);
 void copy_position__15TEffStarLight2DFPv(void *, Vec_8017F80C *);
-void TObjPlayer__sub_803D9214(int, s32);
+void rotate_matrix_y(int, s32);
 void TObjPlayer__sub_803D9B2C();
 void TObjPlayer__sub_803D9B78();
 void TOHangerMachine01__sub_803D9C00(void *);
@@ -165,7 +165,7 @@ void render__10TObjCameraFv(Obj_8017F80C *self) {
         set_global_param__8TObjFishFi();
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(&self->pos);
-        TObjPlayer__sub_803D9214(0, self->x60);
+        rotate_matrix_y(0, self->x60);
         TObjCamera__data_805D5B1C = 0;
         set_npc_enemy_param((void *)TObjCamera__sub_8017F624);
         TObjDoor__sub_803DC894(TObjFish__sub_8001EDC4(TObjCamera__data_805D5B18, 0),

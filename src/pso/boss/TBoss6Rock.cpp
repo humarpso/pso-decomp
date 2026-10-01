@@ -122,8 +122,8 @@ M2C_UNK TBoss6PlotFalz__sub_802ABF44(f32);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
-M2C_UNK TObjContainerIdo__sub_803D96A8(int, int);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_x(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 void __ct__7TObjectFP7TObject(void *);
@@ -154,8 +154,8 @@ void render_if_active__10TBoss6RockFPv(u8 *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x1C) != 0) && (TBoss6PlotFalz__sub_802AB6CC((void *) (arg0 + 0x20), (f32) (M2C_FIELD(arg0, f32 *, 0x2C) - TBoss6Rock__data_805DFF48)) != 0)) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x20));
-        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x34)));
-        TObjContainerIdo__sub_803D96A8((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x30)));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x34)));
+        rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x30)));
         TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x38)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x3C)));
         TBoss6PlotFalz__sub_802ABF44((f32) (TBoss6Rock__data_805DFF4C));

@@ -22,7 +22,7 @@ extern "C" {
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK free_children__12TObjDoorJungFPvPv(s32, u16);
-void TObjPlayer__sub_803D9214(int, void *);
+void rotate_matrix_y(int, void *);
 void TObjPlayer__sub_803D9B2C(void);
 void TObjPlayer__sub_803D9B78(void);
 void TOHangerMachine01__sub_803D9C00(void *);
@@ -50,7 +50,7 @@ void render__15TObjLazerFence4Fv(void *arg0);
 void reset_if_door_closed__15TObjLazerFence4FPv(void *arg0);
 void TOHangerMachine01__sub_803D9C00(void *);
 void TObjBoss2Tunnel__sub_803DB470(void *);
-void TObjPlayer__sub_803D9214(int, void *);
+void rotate_matrix_y(int, void *);
 void TObjPlayer__sub_803D9B2C(void);
 void TObjPlayer__sub_803D9B78(void);
 f32 fn_8013157C(void *, s32);
@@ -104,7 +104,7 @@ void draw__15TObjLazerFence4FPv(void *arg0) {
     set_global_param__8TObjFishFi(lbl_805D5C28);
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 56));
-    TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, void **, 0x60));
+    rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
     TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, void **, 0xC0));
     TObjPlayer__sub_803D9B78();
 }
@@ -127,7 +127,7 @@ void TObjLazerFence4__sub_801932E4(u8 *arg0) {
   set_global_param__8TObjFishFi((void *)((*(s32 *)&lbl_805D5C28)));
   TObjPlayer__sub_803D9B2C();
   TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-  TObjPlayer__sub_803D9214((int)(0), (void *)(*((s32 *) (((s8 *) arg0) + 0x60))));
+  rotate_matrix_y((int)(0), (void *)(*((s32 *) (((s8 *) arg0) + 0x60))));
   TObjBoss2Tunnel__sub_803DB470((void *)(*((s32 *) (((s8 *) arg0) + 0xC0))));
   begin_effect_render__13TParticleCtrlFv();
   new_var = (s32 *) (((s8 *) arg0) + 0xC4);

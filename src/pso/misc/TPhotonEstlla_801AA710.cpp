@@ -68,7 +68,7 @@ u8 *TPhotonMylla__sub_80154CB4(u16);
 s32 TPhotonLine__ct(void *, void *, void *, u16);
 u32 __nw__7TObjectFUl(int);
 s32 TScene__sub_803D8DB4(int, void *, void *);
-s32 TObjPlayer__sub_803D9214(int, int);
+s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D97F0(void *);
 s32 TCameraCtrl__sub_803D9858(int);
 extern const Packet_801AA710 lbl_80446CE8;
@@ -83,7 +83,7 @@ s32 clear_render_context__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_801A7638(void *);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
-s32 TObjPlayer__sub_803D9214(int, int);
+s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D9B2C();
 s32 TObjPlayer__sub_803D9B78();
 s32 TObjPlayer__sub_803D9624(int, f32, f32, f32);
@@ -117,7 +117,7 @@ void fn_801AA710(Self_801AA710 *self) {
     forward.z = lbl_805DC13C;
     TObjPlayer__sub_803D97F0(lbl_8058D490);
     if (owner) {
-        TObjPlayer__sub_803D9214(0, owner->f60);
+        rotate_matrix_y(0, owner->f60);
     }
     TScene__sub_803D8DB4(0, &forward, &direction);
     TCameraCtrl__sub_803D9858(1);
@@ -140,7 +140,7 @@ void render__13TPhotonEstllaFv(Self_801AA818 *self) {
         set_global_param__8TObjFishFi(self->f24);
         TObjPlayer__sub_803D9B2C();
         TObjPlayer__sub_803D9624(0, self->pos.x, self->pos.y, self->pos.z);
-        TObjPlayer__sub_803D9214(0, self->f60);
+        rotate_matrix_y(0, self->f60);
         TObjPlayer__sub_801A7638(self);
         lbl_805D5660 = some_id_805c6f74;
         copy_vec4__13TRaderMapCoreFPvPv(&lbl_8050BEC0, &lbl_8058D4C0);

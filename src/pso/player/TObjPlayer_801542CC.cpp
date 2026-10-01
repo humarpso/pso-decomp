@@ -152,7 +152,7 @@ f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 TObjPlayer__sub_80141CF8(void *, void *);
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
 M2C_UNK TNpcPlayer__sub_803D97B4(void *);
 M2C_UNK TObjPlayer__sub_803D97F0(void *);
@@ -569,7 +569,7 @@ s32 resolve_actor_sphere_contact(u8 *arg0, M2C_UNK arg1, s32 arg2) {
 block_7:
     if ((u16) M2C_FIELD(arg0, u16 *, 0x1C) >= 0x1000U) {
         TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490));
-        TObjPlayer__sub_803D9214((int) (0), (int) (var_r31));
+        rotate_matrix_y((int) (0), (int) (var_r31));
         TObjPlayer__sub_803D9990((void *) (&displacement), (void *) (&displacement));
         TObjPlayer__sub_803D9B78();
         if (lbl_805DB284 < ((displacement.x * displacement.x) + (displacement.z * displacement.z))) {

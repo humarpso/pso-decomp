@@ -34,7 +34,7 @@ extern const f32 lbl_805DBC10;
 extern const f32 lbl_805DBC14;
 void fn_80182F2C(u8 *arg0);
 M2C_UNK TLobby__sub_801819E4(int);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -71,7 +71,7 @@ void fn_80182E90(u8 *arg0) {
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
     TObjPlayer__sub_803D9624((int) 0, (f32) lbl_805DBC00, (f32) ((RecoveredFields_80182E90_arg0 *) arg0)->field_9C, (f32) lbl_805DBC00);
     new_var2 = arg0;
-    TObjPlayer__sub_803D9214((int) 0, (int) ((RecoveredFields_80182E90_arg0 *) new_var2)->field_60);
+    rotate_matrix_y((int) 0, (int) ((RecoveredFields_80182E90_arg0 *) new_var2)->field_60);
     TLobby__sub_801819E4((int) 8);
     TObjBoss2Tunnel__sub_803DB470();
     TObjPlayer__sub_803D9B78();

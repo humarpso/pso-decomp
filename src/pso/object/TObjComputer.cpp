@@ -146,7 +146,7 @@ void TObjContainerAbeEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 s32 set_global_param__8TObjFishFi(s32);
 s32 TObjPlayer__sub_803D9B2C();
 s32 TOHangerMachine01__sub_803D9C00(void *);
-s32 TObjPlayer__sub_803D9214(s32, s32);
+s32 rotate_matrix_y(s32, s32);
 void dispatch_fish_event__6TLobbyFPv(void *a0);
 void fn_801FBA6C(void);
 s32 TObjPlayer__sub_803D9B78();
@@ -189,7 +189,7 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK TOComputerMachine01__sub_8023DDC8(void *, s32, s32, u16, s32);
 M2C_UNK PPCSync();
-s32 TObjPlayer__sub_803D9214(s32, s32);
+s32 rotate_matrix_y(s32, s32);
 M2C_UNK TObjPlayer__sub_803D99F8(void *, u32);
 s32 TObjPlayer__sub_803D9B2C();
 s32 TObjPlayer__sub_803D9B78();
@@ -243,7 +243,7 @@ M2C_UNK TObjComputer__sub_8018807C(void *arg0) {
     set_global_param__8TObjFishFi(lbl_805D5B6C);
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(self->pos38);
-    TObjPlayer__sub_803D9214(0, self->yaw60);
+    rotate_matrix_y(0, self->yaw60);
     if (TObjComputer__data_805DBCD8[self->kind88] == 1) {
         u32 tick = lbl_805D53A4;
         if (tick != self->tick_c4 && self->time_c0 >= lbl_805DBCE4) {
@@ -427,7 +427,7 @@ void TObjContainerAbeEnemy__vt79(Obj_80188884 *self) {
             set_global_param__8TObjFishFi(lbl_805D5B8C);
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(self->pos);
-            TObjPlayer__sub_803D9214(0, self->id);
+            rotate_matrix_y(0, self->id);
             dispatch_fish_event__6TLobbyFPv((void *)2);
             fn_801FBA6C();
             TObjPlayer__sub_803D9B78();

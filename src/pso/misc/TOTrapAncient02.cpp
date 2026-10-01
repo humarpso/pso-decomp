@@ -147,7 +147,7 @@ void *TOTrapAncient02__ct(void *, void *, void *);
 M2C_UNK TOTrapAncient02__sub_800837D4(int);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -235,7 +235,7 @@ void render_particle_chain__15TOTrapAncient02FPv(u8 *arg0) {
 
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-    TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     temp_r31 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x34));
     TObjPlayer__sub_803D9624((int) (0), (f32) (M2C_FIELD(temp_r31, f32 *, 8)), (f32) (M2C_FIELD(temp_r31, f32 *, 0xC) + M2C_FIELD(arg0, f32 *, 0x344)), (f32) (M2C_FIELD(temp_r31, f32 *, 0x10)));
     setup_particle_tev((int) (0));
@@ -264,7 +264,7 @@ void render_particle_chain__15TOTrapAncient02FPv(u8 *arg0) {
     TObjPlayer__sub_803D9B2C();
     temp_r31_4 = (unsigned char *) (M2C_FIELD(temp_r31_3, void **, 0x30));
     TOHangerMachine01__sub_803D9C00((void *) (temp_r31_4 + 8));
-    TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x34C)));
+    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x34C)));
     setup_particle_tev((int) (0));
     set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
     TOTrapAncient02__sub_800837D4((int) (0x38E));
@@ -285,7 +285,7 @@ void draw_effect_chain__15TOTrapAncient02FPv(u8 *arg0) {
     TObjPlayer__sub_803D9B2C();
     set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-    TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     temp_r31 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x34));
     TObjPlayer__sub_803D9624((int) (0), (f32) (M2C_FIELD(temp_r31, f32 *, 8)), (f32) (M2C_FIELD(temp_r31, f32 *, 0xC) + M2C_FIELD(arg0, f32 *, 0x344)), (f32) (M2C_FIELD(temp_r31, f32 *, 0x10)));
     TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31, s32 *, 4)));
@@ -302,7 +302,7 @@ void draw_effect_chain__15TOTrapAncient02FPv(u8 *arg0) {
     TObjPlayer__sub_803D9B2C();
     temp_r31_4 = (unsigned char *) (M2C_FIELD(temp_r31_3, void **, 0x30));
     TOHangerMachine01__sub_803D9C00((void *) (temp_r31_4 + 8));
-    TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x34C)));
+    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x34C)));
     TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_4, s32 *, 4)));
     TObjPlayer__sub_803D9B78();
     end_effect_render__13TParticleCtrlFv();

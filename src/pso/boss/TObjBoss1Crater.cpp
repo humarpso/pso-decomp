@@ -56,7 +56,7 @@ void render__15TObjBoss1CraterFv(u8 *arg0);
 void TBoss8Dragon__sub_800BC5A0(void *, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjFish__sub_803E46BC(void *);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 void __dl__7TObjectFPv(void *);
@@ -72,7 +72,7 @@ void render__15TObjBoss1CraterFv(u8 *arg0) {
     TObjPlayer__sub_803D9B2C();
     set_global_param__8TObjFishFi((void *) (lbl_805D4B54));
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-    TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     some_id_805c6f74 |= 0x01000000;
     TObjFish__sub_803E46BC((void *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), s32 *, 8)));
     some_id_805c6f74 &= 0xFEFFFFFF;

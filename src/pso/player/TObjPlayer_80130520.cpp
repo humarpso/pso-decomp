@@ -11,13 +11,13 @@ void set_temp_flag10_and_update__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_801305E8(void *arg0);
 void tick_meseta_counter__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80130630(u8 *arg0);
-int TObjContainerIdo__sub_803D96A8(void*, void*);
+int rotate_matrix_x(void*, void*);
 M2C_UNK TObjPlayer__sub_80115BFC(void *, s32);
 M2C_UNK TObjPlayer__sub_8011E87C(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80120908(void *);
 int get_player_list__10TObjPlayerFv(void*);
 
-void handle_container_state_3__10TObjPlayerFPv(void* p) { if (get_player_list__10TObjPlayerFv(p) == 3) { TObjContainerIdo__sub_803D96A8((void*)0, *(void**)((char*)p + 0x1f8)); } }
+void handle_container_state_3__10TObjPlayerFPv(void* p) { if (get_player_list__10TObjPlayerFv(p) == 3) { rotate_matrix_x((void*)0, *(void**)((char*)p + 0x1f8)); } }
 
 void set_temp_flag10_and_update__10TObjPlayerFPv(void *arg0) {
     s32 *temp_r31;

@@ -148,7 +148,7 @@ void TODoorAncient08__vt13(u8 *arg0);
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 u8 TODoorAncient08__sub_80229220(int);
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -179,7 +179,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -328,7 +328,7 @@ void TODoorAncient08__sub_80160000(Door_80160000 *self) {
     set_global_param__8TObjFishFi(((s32 *)TODoorAncient08__data_805D594C)[1]);
     TOHangerMachine01__sub_803D9C00(self->pos);
     TOHangerMachine01__sub_803D9C00(root->pos);
-    TObjPlayer__sub_803D9214((M2C_UNK)(0), (s32)(self->x60));
+    rotate_matrix_y((M2C_UNK)(0), (s32)(self->x60));
     TOSignCave03__sub_803DB510(root->model);
     TOSignCave03__sub_803DB510(root->x2c->model);
     begin_effect_render__13TParticleCtrlFv();
@@ -362,7 +362,7 @@ void render__15TODoorAncient08Fv(u8 *arg0) {
         case 3:
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-            TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+            rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
             set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
             TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB0));
             TObjPlayer__sub_803D9B78();
@@ -370,7 +370,7 @@ void render__15TODoorAncient08Fv(u8 *arg0) {
         case 2:
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-            TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+            rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
             set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
             TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB4) - lbl_805DB474);
             TObjPlayer__sub_803D9B78();

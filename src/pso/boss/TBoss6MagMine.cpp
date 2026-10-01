@@ -55,7 +55,7 @@ M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
 s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
-int TObjPlayer__sub_803D9214(void*, void*);
+int rotate_matrix_y(void*, void*);
 int TObjPlayer__sub_803D9B2C(void*);
 int TObjPlayer__sub_803D9B78(void);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
@@ -102,7 +102,7 @@ void update_linked_state__13TBoss6MagMineFPv(void *arg0) {
     clear_global_state__10TObjPlayerFv();
 }
 
-void init__13TBoss6MagMineFPv(void* p) { TObjPlayer__sub_803D9B2C(p); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); TObjPlayer__sub_803D9214((void*)0, *(void**)((char*)p + 0x3ac)); update_linked_state__13TBoss6MagMineFPv((void *)(p)); TObjPlayer__sub_803D9B78(); }
+void init__13TBoss6MagMineFPv(void* p) { TObjPlayer__sub_803D9B2C(p); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x3ac)); update_linked_state__13TBoss6MagMineFPv((void *)(p)); TObjPlayer__sub_803D9B78(); }
 
 void TBoss6MagMine__sub_80368C14(Mine_80368C14 *o) {
     s32 n = get_game_mode__6TLobbyFv();

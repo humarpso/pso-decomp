@@ -24,7 +24,7 @@ void *TODoorCave01__ct(void *, void *, void *);
 M2C_UNK TODoorCave01__sub_80161804(void *, int, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjDoor__sub_803DC894(void *, int, f32);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 void *__nw__7TObjectFUl(int);
@@ -41,7 +41,7 @@ void render__12TODoorCave01Fv(u8 *arg0) {
     if ((((VObj_801618fc *) arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) && (fn_801582C4((void *) (arg0), (f32) (lbl_805DB4A4)) != 0)) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xAC) == 0) {
             var_r29 = 0;
             var_r30 = (unsigned char *) (M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C));

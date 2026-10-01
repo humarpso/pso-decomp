@@ -12,7 +12,7 @@ void notify_container_if_mode1__10TObjPlayerFPv(void* p);
 void update_state_1fc__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80122748(void *arg0);
 s32 rand__11TOBoss4RockFv();
-int TObjContainerIdo__sub_803D96A8(void*, void*);
+int rotate_matrix_x(void*, void*);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_8011E618(void *);
 M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
@@ -36,7 +36,7 @@ void cast_tech_gibarta__10TObjPlayerFPv(void *arg0) {
         update_active_game_effect__10TObjPlayerFPv(arg0);
     }
 }
-void notify_container_if_mode1__10TObjPlayerFPv(void* p) { if (get_player_list__10TObjPlayerFv(p) == 1) { TObjContainerIdo__sub_803D96A8((void*)0, *(void**)((char*)p + 0x1f8)); } }
+void notify_container_if_mode1__10TObjPlayerFPv(void* p) { if (get_player_list__10TObjPlayerFv(p) == 1) { rotate_matrix_x((void*)0, *(void**)((char*)p + 0x1f8)); } }
 
 extern M2C_UNK lbl_8043E870;
 extern f32 lbl_805DACF0;

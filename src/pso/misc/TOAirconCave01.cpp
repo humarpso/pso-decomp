@@ -19,7 +19,7 @@ void render__14TOAirconCave01Fv(u8 *arg0);
 void *TOAirconCave01__ct(void *, void *, void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOSignCave03__sub_803DB510(int);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C(int);
 M2C_UNK TObjPlayer__sub_803D9B78();
 void *__nw__7TObjectFUl(int);
@@ -39,7 +39,7 @@ void render__14TOAirconCave01Fv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x5C) = (s32) (temp_r3 + 0x106);
         TObjPlayer__sub_803D9B2C((int) (temp_r3));
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31, s32 *, 4)));
         TObjPlayer__sub_803D9B78();

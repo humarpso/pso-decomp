@@ -164,7 +164,7 @@ M2C_UNK __dl__7TObjectFPv(void *);
 extern u8 lbl_804907EC[];
 Obj_800A2EDC *TObjPlayer__sub_800A2EDC(Obj_800A2EDC *arg0, s16 arg1);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
 M2C_UNK TObjPlayer__sub_803D97F0(void *);
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -295,7 +295,7 @@ void TObjPlayer__sub_800A159C(Obj_800A159C *o) {
     TObjPlayer__sub_803D97F0(lbl_8058D490);
     TOHangerMachine01__sub_803D9C00((s32)&o->pos);
     TObjBoss2Tunnel__sub_803D929C(0, o->f64);
-    TObjPlayer__sub_803D9214(0, o->f60);
+    rotate_matrix_y(0, o->f60);
     Vec_800A159C t = lbl_8043A6A4;
     lo = lbl_805D9994 + o->f390;
     t.y = lo + o->f38C;

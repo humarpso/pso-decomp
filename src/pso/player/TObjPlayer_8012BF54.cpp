@@ -11,7 +11,7 @@ void init_pair_1f8__10TObjPlayerFPv(void* p);
 void apply_conveyor_move__10TObjPlayerFPv(void *arg0);
 void *init_vtable_and_handlers__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
-M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
+M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 int TObjPlayer__sub_80115BC0(void*, void*, void*);
 void TObjPlayer__sub_80120D50(void *);
 s32 get_player_list__10TObjPlayerFv();
@@ -32,7 +32,7 @@ void apply_conveyor_move__10TObjPlayerFPv(void *arg0) {
         TObjBoss2Tunnel__sub_803D929C(0, M2C_FIELD(arg0, s32 *, 0x1FC));
         return;
     case 3:
-        TObjContainerIdo__sub_803D96A8(0, M2C_FIELD(arg0, s32 *, 0x1F8));
+        rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x1F8));
         return;
     }
 }

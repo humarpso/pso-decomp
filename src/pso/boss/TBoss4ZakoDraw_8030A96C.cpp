@@ -41,8 +41,8 @@ u8 *TObjFish__sub_8001EDC4(s32, s32);
 s32 get_instance_count__9TBoss4UroFv(void);
 void sync_player_globals__10TObjPlayerFv(void);
 void TObjPlayer__sub_80052390(f32);
-void TObjPlayer__sub_803D9214(int, int);
-void TObjContainerIdo__sub_803D96A8(int, int);
+void rotate_matrix_y(int, int);
+void rotate_matrix_x(int, int);
 void TObjPlayer__sub_803D9B2C(void);
 void TObjPlayer__sub_803D9B78(void);
 void TOHangerMachine01__sub_803D9C00(void *);
@@ -87,8 +87,8 @@ void TObjPlayer__sub_8030AB48(void) {
     for (i = 0; i < t->count; i++, p++) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(p);
-        TObjPlayer__sub_803D9214(0, p->f10);
-        TObjContainerIdo__sub_803D96A8(0, p->f0c);
+        rotate_matrix_y(0, p->f10);
+        rotate_matrix_x(0, p->f0c);
         TObjFish__sub_803E46BC(r31);
         TObjPlayer__sub_803D9B78();
     }

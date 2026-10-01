@@ -25,7 +25,7 @@ struct O_802A60CC {
 
 extern "C" {
 void TObjChip__sub_803D8AE4(s32, s32, s32, s32);
-void TObjPlayer__sub_803D9214(s32, s32);
+void rotate_matrix_y(s32, s32);
 void TObjPlayer__sub_803D9B2C();
 void TObjPlayer__sub_803D9B78();
 void TOHangerMachine01__sub_803D9C00(void *);
@@ -68,7 +68,7 @@ void TObjSuisoChip__vt10(O_802A60CC *arg0) {
         p = arg0->chips;
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0->f234);
-        TObjPlayer__sub_803D9214(0, arg0->f240);
+        rotate_matrix_y(0, arg0->f240);
         for (i = 0; i < arg0->f54; i++, p++) {
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(p);

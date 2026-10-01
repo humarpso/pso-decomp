@@ -63,7 +63,7 @@ void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void *TPhotonMylla__sub_80154CB4(u16);
 void TBoss4Zako__sub_803D8910(void *, void *);
 void TScene__sub_803D8DB4(int, void *, void *);
-void TObjPlayer__sub_803D9214(int, int);
+void rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D97F0(void *);
 void TCameraCtrl__sub_803D9858(int);
 extern u8 lbl_8058D490[];
@@ -101,7 +101,7 @@ void run_task__12TPhotonLaserFv(Laser_801AC17C *o) {
     in.y = in.x = lbl_805DC1B4;
     in.z = lbl_805DC1B8;
     TObjPlayer__sub_803D97F0(lbl_8058D490);
-    TObjPlayer__sub_803D9214(0, (s32)(lbl_805DC1BC * (f32)o->f36C));
+    rotate_matrix_y(0, (s32)(lbl_805DC1BC * (f32)o->f36C));
     TScene__sub_803D8DB4(0, &in, &out);
     TCameraCtrl__sub_803D9858(1);
     TBoss4Zako__sub_803D8910(&o->f340, &out);

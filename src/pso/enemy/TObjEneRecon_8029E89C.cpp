@@ -22,7 +22,7 @@ s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1);
 void restore_render_scissor(s32 arg0);
 void update_particle_if_active__12TObjEneReconFv(void);
 M2C_UNK GXSetScissor(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TObjPlayer__sub_803D8F74(M2C_UNK, M2C_UNK *);
+M2C_UNK reflect_matrix_in_plane(M2C_UNK, M2C_UNK *);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
@@ -58,7 +58,7 @@ s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1) {
     }
     if (var_r3 != 0) {
         TObjPlayer__sub_803D9B2C();
-        TObjPlayer__sub_803D8F74(0, sp8);
+        reflect_matrix_in_plane(0, sp8);
     }
     return var_r3;
 }

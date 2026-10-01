@@ -11,13 +11,13 @@ void update_guarded_by_flag__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_8012A2EC(void *arg0);
 void update_recovery_meter__10TObjPlayerFPv(void *arg0);
 void update_field1fc__10TObjPlayerFPv(u8 *arg0);
-int TObjContainerIdo__sub_803D96A8(void*, void*);
+int rotate_matrix_x(void*, void*);
 M2C_UNK TObjPlayer__sub_80115BFC(void *, s32);
 M2C_UNK TObjPlayer__sub_8011E87C(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80120908(void *);
 int get_player_list__10TObjPlayerFv(void*);
 
-void drop_item_if_state3__10TObjPlayerFPv(void* p) { if (get_player_list__10TObjPlayerFv(p) == 3) { TObjContainerIdo__sub_803D96A8((void*)0, *(void**)((char*)p + 0x1fc)); } }
+void drop_item_if_state3__10TObjPlayerFPv(void* p) { if (get_player_list__10TObjPlayerFv(p) == 3) { rotate_matrix_x((void*)0, *(void**)((char*)p + 0x1fc)); } }
 
 void update_guarded_by_flag__10TObjPlayerFPv(void *arg0) {
     s32 *temp_r31;

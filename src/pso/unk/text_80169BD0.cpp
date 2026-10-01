@@ -38,7 +38,7 @@ struct VObj_18_ac8580 : VBase_18_ac8580 {
 };
 
 extern "C" {
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -161,7 +161,7 @@ void fn_80169E30(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xE0) == 1) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) == 1) {
             void *p = M2C_FIELD(arg0, void **, 0xBC);

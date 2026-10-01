@@ -44,7 +44,7 @@ extern s32 tl_05;
 u8 *TObjPlayer__sub_80362D38(u8 *arg0);
 s32 render_anim_model__10TObjPlayerFPvf(void *, f32);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
-s32 TObjPlayer__sub_803D9214(int, int);
+s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D97F0(void *);
 s32 TObjPlayer__sub_803D9B78();
 f32 TOHangerMachine01__sub_803D9C00(void *);
@@ -95,7 +95,7 @@ void TObjPlayer__sub_803626A8(u8 *arg0, s32 arg1, s32 arg2) {
     stack.sp10 = M2C_FIELD(&lbl_80479FBC.value, s32 *, 8);
     TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-    TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     render_anim_model__10TObjPlayerFPvf((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));
     TObjPlayer__sub_803D9B78();
     TObjPlayer__sub_803D97F0((void *) (lbl_805D5678 + (arg2 * 0x30)));

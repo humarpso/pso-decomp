@@ -87,7 +87,7 @@ void TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjFish__sub_8001EDB0(int, int);
 s32 TObjFish__sub_8001EDC4(int, int);
 void TObjPlayer__sub_80154A00(void *);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 void __dl__7TObjectFPv(void *);
@@ -209,7 +209,7 @@ void render__18TObjLaboDesignBaseFPv(u8 *arg0) {
     set_global_param__8TObjFishFi();
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-    TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     TObjLaboDesignBase__sub_80364F18((s32)((void *) (arg0)), (u8 *)((int) (TObjFish__sub_8001EDC4((int) (M2C_FIELD(arg0, s32 *, 0xAC)), (int) (0)))));
     TObjPlayer__sub_803D9B78();
     end_effect_render__13TParticleCtrlFv();

@@ -240,7 +240,7 @@ M2C_UNK reset_globals__15TObjEneDelDepthFv();
 M2C_UNK TObjEneDelDepth__sub_80315D34();
 M2C_UNK TObjEneDelDepth__sub_803162A8(s32);
 M2C_UNK set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
-M2C_UNK TObjPlayer__sub_803D9214(int, s32);
+M2C_UNK rotate_matrix_y(int, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -326,7 +326,7 @@ void render__15TObjEneDelDepthFv(Dep_803155D4 *o) {
     Vec_803155D4 v = o->pos;
     v.y += o->f39C;
     TOHangerMachine01__sub_803D9C00(&v);
-    TObjPlayer__sub_803D9214(0, o->f60);
+    rotate_matrix_y(0, o->f60);
     set_monitor_position_vec3__10TObjPlayerFPvPv(0, o->f3A0);
     TObjEneDelDepth__sub_803162A8(o->f37C);
     TObjPlayer__sub_803D9B78();

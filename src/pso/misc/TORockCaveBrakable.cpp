@@ -38,7 +38,7 @@ void TObjChip__sub_80180BD4(void *, s32, void *);
 void *__nw__7TObjectFUl(u32);
 void TBoss4Zako__sub_803D8910(void *, void *);
 void TScene__sub_803D8DB4(int, void *, void *);
-void TObjPlayer__sub_803D9214(int, s32);
+void rotate_matrix_y(int, s32);
 void TObjPlayer__sub_803D97F0(void *);
 void TObjPlayer__sub_803D9B78();
 extern Offs_80174CFC lbl_804428DC;
@@ -106,7 +106,7 @@ void TORockCaveBrakable__sub_80174CFC(u8 *arg0) {
     for (i = 0; i < 6; i++) {
         VecCopy__FP3VecPC3Vec(&v, &offs.v[i]);
         TObjPlayer__sub_803D97F0(lbl_8058D490);
-        TObjPlayer__sub_803D9214(0, *(s32 *)(arg0 + 0x60));
+        rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         TScene__sub_803D8DB4(0, &v, &v);
         TObjPlayer__sub_803D9B78();
         VecCopy__FP3VecPC3Vec(&init.b[0xC], arg0 + 0x38);

@@ -491,7 +491,7 @@ u32 TObjEneBm5Wolf__sub_800B850C(s32);
 M2C_UNK TObjEneBm5Wolf__sub_800B8570(void *);
 M2C_UNK TObjEneBm5Wolf__sub_800B85A0(void *);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void *copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 u8 *fn_800B8B00(u32);
@@ -527,7 +527,7 @@ extern s32 TObjEneBm5Wolf__data_805D5128;
 
 void advance_spawn_timer__14TObjEneBm5WolfFv(void) {
     if (((s32) TObjEneBm5Wolf__data_805D5124 >= 0x16) && ((s32) TObjEneBm5Wolf__data_805D5124 < 0x18)) {
-        TObjPlayer__sub_803D9214(0, TObjEneBm5Wolf__data_805D5128);
+        rotate_matrix_y(0, TObjEneBm5Wolf__data_805D5128);
     }
     TObjEneBm5Wolf__data_805D5124 += 1;
 }

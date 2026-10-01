@@ -39,7 +39,7 @@ struct Bird_80159870 : VObj_80159870 {
 };
 
 extern "C" {
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -62,8 +62,8 @@ void render__11TOBoss4BirdFv(Bird_80159870 *self) {
             TObjPlayer__sub_803D9B2C();
             TObjPlayer__sub_803D9624(0, lbl_805DB31C, self->fD4, lbl_805DB31C);
             TOHangerMachine01__sub_803D9C00(&self->positions[i]);
-            TObjPlayer__sub_803D9214(0, self->rotY);
-            TObjPlayer__sub_803D9214(0, self->rots[i]);
+            rotate_matrix_y(0, self->rotY);
+            rotate_matrix_y(0, self->rots[i]);
             TObjDoor__sub_803DC894(self->f34, self->f98, self->fA4);
             TObjPlayer__sub_803D9B78();
         }

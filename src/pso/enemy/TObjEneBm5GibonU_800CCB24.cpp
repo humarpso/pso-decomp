@@ -778,7 +778,7 @@ M2C_UNK TObjEneBm5GibonU__sub_800D17E8(s32);
 M2C_UNK TObjEneBm5GibonU__sub_800D184C(void *);
 M2C_UNK TObjEneBm5GibonU__sub_800D187C(void *);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
 s32 get_target_info__9TObjEneDDFPv();
@@ -904,7 +904,7 @@ extern s32 TObjEneBm5GibonU__data_805D51D8;
 
 void advance_anim_frame__16TObjEneBm5GibonUFv(void) {
     if (((s32) TObjEneBm5GibonU__data_805D51D4 >= 0x30) && ((s32) TObjEneBm5GibonU__data_805D51D4 < 0x32)) {
-        TObjPlayer__sub_803D9214(0, TObjEneBm5GibonU__data_805D51D8);
+        rotate_matrix_y(0, TObjEneBm5GibonU__data_805D51D8);
     }
     TObjEneBm5GibonU__data_805D51D4 += 1;
 }

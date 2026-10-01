@@ -28,7 +28,7 @@ void TObjChip__sub_80180BD4(void *, s32, Param_8017D448 *);
 void *__nw__7TObjectFUl(u32);
 void TBoss4Zako__sub_803D8910(Vec_8017D448 *, Vec_8017D448 *);
 void TScene__sub_803D8DB4(int, Vec_8017D448 *, Vec_8017D448 *);
-void TObjPlayer__sub_803D9214(int, int);
+void rotate_matrix_y(int, int);
 void TObjPlayer__sub_803D97F0(void *);
 void TObjPlayer__sub_803D9B78(void);
 extern Arr_8017D448 lbl_8044355C;
@@ -57,7 +57,7 @@ void TOWreckAncientBrakable__sub_8017D448(u8 *arg0) {
     for (i = 0; i < 9; i++) {
         VecCopy__FP3VecPC3Vec(&tmp, &arr.v[i]);
         TObjPlayer__sub_803D97F0(lbl_8058D490);
-        TObjPlayer__sub_803D9214(0, *(s32 *)(arg0 + 0x60));
+        rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         TScene__sub_803D8DB4(0, &tmp, &tmp);
         TObjPlayer__sub_803D9B78();
         VecCopy__FP3VecPC3Vec(&p.pos, (Vec_8017D448 *)(arg0 + 0x38));

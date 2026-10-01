@@ -26,7 +26,7 @@ struct RecoveredGlobal_8019A880___vt__8TObjTank {
 
 extern "C" {
 M2C_UNK TObjFish__sub_8001EDC4(s32, M2C_UNK);
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -89,7 +89,7 @@ void render__8TObjTankFv(u8 *arg0) {
         set_global_param__8TObjFishFi((u32)p);
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         TObjFish__sub_8001EDC4((*(s32 *)&lbl_805D5C68), 0);
         TObjBoss2Tunnel__sub_803DB470();
         TObjPlayer__sub_803D9B78();

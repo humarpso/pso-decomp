@@ -112,7 +112,7 @@ void TObjEneIllGill__sub_803665B4(u8 *arg0);
 s32 TObjPlayer__sub_80156844(void *, void *, int);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
 s32 TScene__sub_803D8DB4(int, void *, void *);
-s32 TObjPlayer__sub_803D9214(int, void *);
+s32 rotate_matrix_y(int, void *);
 s32 TObjPlayer__sub_803D97F0(void *);
 s32 TCameraCtrl__sub_803D9858(int);
 extern RecoveredGlobal_80367DC8_lbl_8050BF00 lbl_8050BF00;
@@ -406,7 +406,7 @@ void TObjEneIllGill__sub_80367DC8(u8 *arg0, s32 arg1) {
     M2C_FIELD(&lbl_8050BF00.value, f32 *, 0) = (f32) TObjEneIllGill__data_805E02BC;
     M2C_FIELD(&lbl_8050BF00.value, f32 *, 8) = (f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 4);
     TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
-    TObjPlayer__sub_803D9214((int) (0), (void *) (arg1));
+    rotate_matrix_y((int) (0), (void *) (arg1));
     TScene__sub_803D8DB4((int) (0), (void *) (&lbl_8050BF00.value), (void *) (&lbl_8050BF00.value));
     TCameraCtrl__sub_803D9858((int) (1));
     TBoss4Zako__sub_803D8910((void *) (&lbl_8050BF00.value), (void *) (arg0 + 0x38));

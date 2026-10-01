@@ -20,7 +20,7 @@ M2C_UNK sync_player_globals__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_80052390(f32);
 M2C_UNK clear_render_callback__8TObjFishFv(s32);
 M2C_UNK TObjFish__sub_800E3074(s32);
-M2C_UNK TObjPlayer__sub_803D9214(s32, s32);
+M2C_UNK rotate_matrix_y(s32, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -81,7 +81,7 @@ void TObjPlayer__sub_8004ED28(u8 *arg0) {
     TObjPlayer__sub_803D9B2C();
     set_global_flag__10TObjPlayerFv();
     TOHangerMachine01__sub_803D9C00(arg0 + 0xA0);
-    TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0xAC));
+    rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0xAC));
     set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x98));
     TObjFish__sub_800E3074(M2C_FIELD(arg0, s32 *, 0xB8));
     func_803e11e8__FUl(1);

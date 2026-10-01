@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -63,14 +64,29 @@ struct VObj_18_4841bb : VBase_18_4841bb {
 };
 
 extern "C" {
-int test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
+
+void TObjPlayer__sub_80100F34(void*);
+void TItemEquipBase__sub_8010A78C(void*);
+s32 TObjPlayer__sub_8011F63C(void*);
+void clear_equip_flags__10TObjPlayerFPvUi(void*,u32);
+void set_status_flags__10TObjPlayerFPvUi(void*,u32);
+s32 test_flag30_bit0x100000__10TObjPlayerFPv(void*);
+void TItemEquipBase__sub_8010A89C(void*,void*);
+s32 TItemMag__sub_80113EC8(void*);
+void advance_weapon_photon_phase(void*);
+s32 get_flag_40__8TItemMagFPv(void*);
+void TItemEffectWeapon__sub_8036340C(void*);
+void TItemEffectWeapon__sub_80363410(void*);
+extern const f32 lbl_805DAC9C;
+
+u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
 void TObjPlayer__sub_8011FCC4(u8 *arg0);
-int test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
+u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
 M2C_UNK TObjPlayer__sub_8011E87C(void *, int);
 M2C_UNK TObjPlayer__sub_80120908(void *);
 M2C_UNK TObjPlayer__sub_80120BBC(void *, int);
 void TObjPlayer__sub_8011FC24(u8 *arg0);
-int test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
+u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
 M2C_UNK TObjPlayer__sub_80120908(void *);
 M2C_UNK TObjPlayer__sub_80120BBC(void *, int);
 void TObjPlayer__sub_8011FD38(u8 *arg0);
@@ -113,4 +129,49 @@ void TObjPlayer__sub_8011FD38(u8 *arg0) {
     }
 }
 
+}
+void TItemWeapon::update_active_weapon() {
+    TItemWeapon* self=this;
+    s32 stage;
+    f32 frame;
+    u32 frames;
+    s32 count,offset;
+    s32 idle_count,idle_offset;
+    if(test_flags_1b8__10TObjPlayerFPvUi(self,0x100)==0) {
+        if(test_flags_1b8__10TObjPlayerFPvUi(self,0x4000)!=0) TObjPlayer__sub_80100F34(self);
+        TItemEquipBase__sub_8010A78C(self);
+        stage=TObjPlayer__sub_8011F63C(self);
+        if(stage!=self->stage) {
+            clear_equip_flags__10TObjPlayerFPvUi(self,0x1000000);
+            self->stage=stage;
+        }
+        if(stage>=0) set_status_flags__10TObjPlayerFPvUi(self,0x10);
+        else clear_equip_flags__10TObjPlayerFPvUi(self,0x10);
+        if(stage>=0 || test_flag30_bit0x100000__10TObjPlayerFPv(self->player)) self->update_attack();
+        else self->update_idle();
+        if(self->motion) {
+            self->motion_frame+=lbl_805DAC9C;
+            frame=self->motion_frame;
+            frames=self->motion->frame_count;
+            if((f32)frames<=frame) self->motion_frame=frame-(f32)frames;
+        }
+        TItemEquipBase__sub_8010A89C(self,self->material);
+        self->update_weapon();
+        if(!TItemMag__sub_80113EC8(self->player)) advance_weapon_photon_phase(self);
+        if(get_flag_40__8TItemMagFPv(self)) {
+            count=0; offset=0;
+            do {
+                void* trail=*(void**)((u8*)self+(offset+0x18C));
+                if(trail) TItemEffectWeapon__sub_8036340C(trail);
+                count++; offset+=4;
+            } while(count!=4);
+            return;
+        }
+        idle_count=0; idle_offset=0;
+        do {
+            void* trail=*(void**)((u8*)self+(idle_offset+0x18C));
+            if(trail) TItemEffectWeapon__sub_80363410(trail);
+            idle_count++; idle_offset+=4;
+        } while(idle_count!=4);
+    }
 }

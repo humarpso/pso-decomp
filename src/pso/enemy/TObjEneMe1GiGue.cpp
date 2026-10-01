@@ -101,7 +101,7 @@ void TObjEneMe1GiGue__sub_802CAF24(s32 arg0);
 s32 render_anim_model__10TObjPlayerFPvf(void *, f32);
 s32 TObjPlayer__sub_803D97F0(u32);
 s32 TObjPlayer__sub_803D9B78(void);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
@@ -116,7 +116,7 @@ u8 *TObjButterflyLobby__sub_8007A5D8(void *, void *, s32);
 f32 TObjPlayer__sub_8013153C(void *, s32);
 void TBoss4Zako__sub_803D8910(void *, void *);
 void TCameraCtrl__sub_803D8934(int, Vec_802CAD98 *, void *);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D97F0(u32);
 s32 TObjPlayer__sub_803D9B78(void);
 extern Vec_802CAD98 lbl_80472280;
@@ -192,7 +192,7 @@ void TObjEneMe1GiGue__sub_802CAD98(u8 *arg0, Vec_802CAD98 *arg1) {
     bestAng = ang;
     TObjPlayer__sub_803D97F0((u32) &lbl_8058D490);
     Vec_802CAD98 v = lbl_80472280;
-    TObjPlayer__sub_803D9214(0, ang);
+    rotate_matrix_y(0, ang);
     for (i = 0; i < 3; i++) {
         TCameraCtrl__sub_803D8934(0, &v, arg0 + 0x390);
         TBoss4Zako__sub_803D8910(arg0 + 0x390, arg0 + 0x2FC);
@@ -206,14 +206,14 @@ void TObjEneMe1GiGue__sub_802CAD98(u8 *arg0, Vec_802CAD98 *arg1) {
             best = d;
             bestAng = ang;
         }
-        TObjPlayer__sub_803D9214(0, 0x5555);
+        rotate_matrix_y(0, 0x5555);
         ang += 0x5555;
     }
     TObjPlayer__sub_803D9B78();
     TObjPlayer__sub_803D97F0((u32) &lbl_8058D490);
     Vec_802CAD98 w = lbl_8047228C;
     w.x = best;
-    TObjPlayer__sub_803D9214(0, bestAng);
+    rotate_matrix_y(0, bestAng);
     TCameraCtrl__sub_803D8934(0, &w, arg0 + 0x390);
     TBoss4Zako__sub_803D8910(arg0 + 0x390, arg0 + 0x2FC);
     TObjPlayer__sub_803D9B78();
@@ -242,7 +242,7 @@ typedef char RecoveredGlobal_802CB03C_lbl_8058D490_size[sizeof(RecoveredGlobal_8
 void TObjEneMe1GiGue__sub_802CB03C(u8 *arg0) {
     TObjPlayer__sub_803D97F0((u32) &lbl_8058D490.value);
     TObjPlayer__sub_803D9624((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) (M2C_FIELD(arg0, f32 *, 0x3EC) + (M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x3E8))), (f32) (M2C_FIELD(arg0, f32 *, 0x40)));
-    TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     set_global_flag__10TObjPlayerFv();
     render_anim_model__10TObjPlayerFPvf(arg0, M2C_FIELD(arg0, f32 *, 0xC0));
     clear_global_state__10TObjPlayerFv();

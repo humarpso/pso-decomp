@@ -90,12 +90,12 @@ s32 check_active__18TObjEneBalClawClawFPv(void *arg0);
 void clear_flag__18TObjEneBalClawClawFPv(void *arg0);
 void render__18TObjEneBalClawClawFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
+M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 M2C_UNK TObjEneBalClaw__sub_8008D700(void *, M2C_UNK);
 M2C_UNK TObjFish__sub_803E46BC(s32);
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -161,14 +161,14 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0) {
             some_id_805c6f74 &= 0xFFFFFBFF;
             if (check_demo_mode__10TObjPlayerFv() == 1) {
                 TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-                TObjContainerIdo__sub_803D96A8(0, M2C_FIELD(arg0, s32 *, 0x5C));
-                TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+                rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
+                rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
                 TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
             } else {
                 TObjPlayer__sub_803D9624(0, TObjEneBalClawClaw__data_805D968C, M2C_FIELD(arg0, f32 *, 0x3B4) + M2C_FIELD(arg0, f32 *, 0x3BC), TObjEneBalClawClaw__data_805D968C);
                 TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-                TObjContainerIdo__sub_803D96A8(0, M2C_FIELD(arg0, s32 *, 0x5C));
-                TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+                rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
+                rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
                 if (M2C_FIELD(arg0, s32 *, 0x388) & 4) {
                     if (((VB_80090950 *)(arg0 + 0x390))->m8() != 0) {
                         ((VB_80090950 *)(arg0 + 0x390))->m6();

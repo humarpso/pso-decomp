@@ -35,7 +35,7 @@ struct Desc_8019806C { Pos_8019806C *pos; Uv_8019806C *uv; s16 *col; s32 count; 
 
 extern "C" {
 u8 *TObjFish__sub_8001EDC4(s32, M2C_UNK);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -55,10 +55,10 @@ void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void TObjPlayer__sub_801E3784(Desc_8019806C *, int, int);
 void TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
 void TObjPlayer__sub_803D9624(int, f32, f32, f32);
-void TObjContainerIdo__sub_803D96A8(int, int);
+void rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK set_global_param__8TObjFishFi(int);
@@ -106,8 +106,8 @@ void render__12TObjSinBoardFv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TObjPlayer__sub_803D9624(0, *(f32 *)(arg0 + 0x38), *(f32 *)(arg0 + 0x3C), *(f32 *)(arg0 + 0x40));
         TObjBoss2Tunnel__sub_803D929C(0, *(s32 *)(arg0 + 0x64));
-        TObjContainerIdo__sub_803D96A8(0, *(s32 *)(arg0 + 0x5C));
-        TObjPlayer__sub_803D9214(0, *(s32 *)(arg0 + 0x60));
+        rotate_matrix_x(0, *(s32 *)(arg0 + 0x5C));
+        rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         TOMonitorMachine01__sub_803D8B5C(0, *(f32 *)(arg0 + 0x68), *(f32 *)(arg0 + 0x6C), *(f32 *)(arg0 + 0x70));
         TObjPlayer__sub_801E3784(&d, 4, 0xE);
         TObjPlayer__sub_803D9B78();
@@ -176,7 +176,7 @@ void TObjPlayer__sub_801982D4(u8 *arg0) {
         TObjPlayer__sub_803D9B78();
         TObjPlayer__sub_803D9B2C();
         TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x38)));
-        TObjPlayer__sub_803D9214((int) (0), (int) (0x8000));
+        rotate_matrix_y((int) (0), (int) (0x8000));
         TOSignCave03__sub_803DB510((void *) (M2C_FIELD(M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0x2C), void **, 0x30), s32 *, 4)));
         TObjPlayer__sub_803D9B78();
         TObjPlayer__sub_803D9B2C();

@@ -60,7 +60,7 @@ M2C_UNK TODragonfly__sub_8016492C(void *);
 M2C_UNK TODragonfly__sub_80164990(void *);
 M2C_UNK TODragonfly__sub_80164A90(void *);
 M2C_UNK TODragonfly__sub_80164B34(void *);
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__11TODragonflyFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -73,7 +73,7 @@ extern s32 lbl_805D59A0;
 
 void update_timer__20TODragonflyMachine01Fv(void) {
     if ((s32) lbl_805D599C == 6) {
-        TObjPlayer__sub_803D9214(0, lbl_805D59A0);
+        rotate_matrix_y(0, lbl_805D59A0);
     }
     lbl_805D599C += 1;
 }

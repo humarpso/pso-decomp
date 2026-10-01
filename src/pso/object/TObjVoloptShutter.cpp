@@ -40,7 +40,7 @@ void run_task__17TObjVoloptShutterFv(Obj_8004A7CC *self);
 extern "C" {
 
 void render__17TObjVoloptShutterFv(void *arg0);
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -111,7 +111,7 @@ void render__17TObjVoloptShutterFv(void *arg0) {
     set_global_param__8TObjFishFi(lbl_805D4D50);
     TObjPlayer__sub_803D9B2C();
     some_id_805c6f74 &= 0xFFFFFBFF;
-    TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x30));
+    rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x30));
     TObjPlayer__sub_803D9B2C();
     TObjPlayer__sub_803D9624(0, TObjVoloptShutter__data_805D88F4, TObjVoloptShutter__data_805D88F4, M2C_FIELD(arg0, f32 *, 0x2C));
     TObjPlayer__sub_803E4684(lbl_805D4D4C);

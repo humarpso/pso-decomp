@@ -48,7 +48,7 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TBoss4Zako__sub_803D8910(void *, void *);
 void TScene__sub_803D8DB4(int, void *, void *);
-void TObjPlayer__sub_803D9214(int, int);
+void rotate_matrix_y(int, int);
 void TObjPlayer__sub_803D97F0(void *, f32);
 void TObjPlayer__sub_803D9B78();
 extern u8 lbl_8058D490[];
@@ -110,7 +110,7 @@ void TObjPlayer__sub_800DA1F4(Obj_800DA1F4 *arg0) {
     v.x = lbl_805DA3F8;
     v.z = lbl_805DA404;
     TObjPlayer__sub_803D97F0(lbl_8058D490, lbl_805DA3F8);
-    TObjPlayer__sub_803D9214(0, arg0->h);
+    rotate_matrix_y(0, arg0->h);
     TScene__sub_803D8DB4(0, &v, &v);
     TObjPlayer__sub_803D9B78();
     TBoss4Zako__sub_803D8910(&arg0->pos, &v);

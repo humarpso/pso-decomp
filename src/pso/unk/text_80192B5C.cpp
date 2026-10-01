@@ -5,7 +5,7 @@ extern "C" {
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(s32, int);
-void TObjPlayer__sub_803D9214(int, int);
+void rotate_matrix_y(int, int);
 void TObjPlayer__sub_803D9B2C();
 void TObjPlayer__sub_803D9B78();
 void TOHangerMachine01__sub_803D9C00(void *);
@@ -27,7 +27,7 @@ void fn_80192B5C(Obj_80192B5C *arg0) {
     set_global_param__8TObjFishFi(lbl_805D5C28);
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(arg0->f38);
-    TObjPlayer__sub_803D9214(0, arg0->f60);
+    rotate_matrix_y(0, arg0->f60);
     TObjBoss2Tunnel__sub_803DB470(arg0->fBC);
     begin_effect_render__13TParticleCtrlFv();
     TObjDoor__sub_803DC894(arg0->fC0, arg0->fC4, arg0->fB8);

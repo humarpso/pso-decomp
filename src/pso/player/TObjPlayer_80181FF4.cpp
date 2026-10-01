@@ -60,7 +60,7 @@ s32 TLobby__sub_801819CC(M2C_UNK);
 M2C_UNK TLobby__sub_801819E4(M2C_UNK);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjDoor__sub_803DC894(M2C_UNK, s32, f32);
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -75,7 +75,7 @@ void render_lobby_door__10TObjPlayerFPv(u8 *arg0) {
         set_global_param__8TObjFishFi(lbl_805D5B2C);
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         TObjPlayer__sub_803D9624(0, lbl_805DBBE8, lbl_805DBBE8, lbl_805DBBF4);
         TObjDoor__sub_803DC894(TLobby__sub_801819E4(0x14), TLobby__sub_801819CC(0xB), M2C_FIELD(arg0, f32 *, 0xB4));
         TObjPlayer__sub_803D9B78();

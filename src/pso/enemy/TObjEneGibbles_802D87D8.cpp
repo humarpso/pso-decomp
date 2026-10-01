@@ -136,7 +136,7 @@ void update_spawn_timer__14TObjEneGibblesFv(void);
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 M2C_UNK TBoss4DarkFalz__sub_8004C220(void *, void *);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
+M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 void *TObjControl__ct(void *, void *);
 void *TObjEneGibbles__ct(void *, void *, void *);
 M2C_UNK TObjEneGibbles__sub_800D8988(void *);
@@ -525,7 +525,7 @@ extern s32 TObjEneGibbles__data_805D68C0;
 
 void update_spawn_timer__14TObjEneGibblesFv(void) {
     if ((s32) TObjEneGibbles__data_805D68BC == 0x18) {
-        TObjContainerIdo__sub_803D96A8(0, TObjEneGibbles__data_805D68C0);
+        rotate_matrix_x(0, TObjEneGibbles__data_805D68C0);
     }
     TObjEneGibbles__data_805D68BC += 1;
 }

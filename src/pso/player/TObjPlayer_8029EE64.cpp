@@ -77,7 +77,7 @@ void TScene__sub_8029F5E4(f32);
 void TScene__sub_8029F5EC();
 void TObjPlayer__sub_8029F5F8(s32);
 f32 TCameraCtrl__sub_803D8D00(Vec_8029EFFC *);
-void TObjPlayer__sub_803D8F74(s32, Cam_8029EFFC *);
+void reflect_matrix_in_plane(s32, Cam_8029EFFC *);
 void TNpcPlayer__sub_803D97B4(Vec_8029EFFC *);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -191,7 +191,7 @@ void TSceneSora__sub_8029EFFC(Sora_8029EFFC *o) {
                     c3.scale.y = lbl_805DDD90;
                     c3.scale.z = c3.scale.x;
                     TObjPlayer__sub_803D9B2C();
-                    TObjPlayer__sub_803D8F74(0, &c3);
+                    reflect_matrix_in_plane(0, &c3);
                     render_object_layers__9TMainTaskFi(main_task, 3);
                     TObjPlayer__sub_803D9B78();
                 }
@@ -205,7 +205,7 @@ void TSceneSora__sub_8029EFFC(Sora_8029EFFC *o) {
             c2.scale.y = lbl_805DDD90;
             c2.scale.z = c2.scale.x;
             TObjPlayer__sub_803D9B2C();
-            TObjPlayer__sub_803D8F74(0, &c2);
+            reflect_matrix_in_plane(0, &c2);
             render_object_layers__9TMainTaskFi(main_task, 4);
             TObjPlayer__sub_803D9B78();
         }
@@ -219,7 +219,7 @@ void TSceneSora__sub_8029EFFC(Sora_8029EFFC *o) {
         c1.scale.y = lbl_805DDD90;
         c1.scale.z = c1.scale.x;
         TObjPlayer__sub_803D9B2C();
-        TObjPlayer__sub_803D8F74(0, &c1);
+        reflect_matrix_in_plane(0, &c1);
         render_object_layers__9TMainTaskFi(main_task, 5);
         TObjPlayer__sub_803D9B78();
     }
