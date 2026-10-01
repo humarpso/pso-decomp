@@ -165,6 +165,113 @@ struct RecoveredGlobal_8031B170_lbl_804E8880
   u8 remaining[0xCC];
 };
 
+struct VBase_18_cf2ce9 { char pad[0x18]; };
+
+struct VObj_18_cf2ce9 : VBase_18_cf2ce9 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15(void *, s32);
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual void m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual void m93();
+    virtual void m94();
+    virtual void m95();
+    virtual void m96();
+    virtual s32 m97();
+};
+
+struct S_80305E1C { f32 f; s32 flags; };
+
+struct Obj_80305E1C { u8 pad[0x46C]; u8 pos[0x28]; VObj_18_cf2ce9 *a; VObj_18_cf2ce9 *b; u8 pad2[4]; s32 v; };
+
 extern "C" {
 M2C_UNK TBoss8Dragon__sub_800BB780(void *);
 int TObjEneDD__sub_800BBA18(void*, void*);
@@ -196,6 +303,14 @@ void TObjEneDellBiter__sub_80305F58(u8 *arg0);
 extern RecoveredGlobal_8031B170_lbl_804E8880 lbl_804E6CC4;
 extern const f32 lbl_805DF03C;
 void TObjEneDellBiter__sub_803067AC(s32 arg0, f32 farg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s16 get_id__10TObjPlayerFPv(s32);
+M2C_UNK TObjPlayer__sub_80154E3C(void *);
+extern S_80305E1C lbl_8047528C[];
+extern s32 TObjEneDellBiter__data_805D6A24;
+extern const f32 lbl_805DEFF0;
+extern const f32 lbl_805DF02C;
+void TObjEneDellBiter__sub_80305E1C(u8 *arg0);
 }
 
 extern "C" {
@@ -234,6 +349,26 @@ void update_attack_effect__16TObjEneDellBiterFi(s32 arg0) {
         return;
     }
     TBoss3Volopt__sub_8022675C((s32)copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x40039E11), arg0 + 0x38, 0, 0);
+}
+
+void TObjEneDellBiter__sub_80305E1C(u8 *arg0) {
+    Obj_80305E1C *o = (Obj_80305E1C *)arg0;
+    f32 f = M2C_FIELD(arg0, f32 *, 0xC0);
+    if (f >= lbl_805DEFF0 && f <= lbl_805DF02C) {
+        M2C_FIELD(o->a, s32 *, 0x60) = M2C_FIELD(arg0, s32 *, 0x60);
+        VecCopy__FP3VecPC3Vec((u8 *)o->a + 0x38, o->pos);
+        TObjPlayer__sub_80154E3C(o->a);
+        M2C_FIELD(o->b, s32 *, 0x60) = M2C_FIELD(arg0, s32 *, 0x60);
+        VecCopy__FP3VecPC3Vec((u8 *)o->b + 0x38, o->pos);
+        TObjPlayer__sub_80154E3C(o->b);
+        S_80305E1C sp = lbl_8047528C[0];
+        sp.f = get_id__10TObjPlayerFPv(TObjEneDellBiter__data_805D6A24);
+        if (((VObj_18_cf2ce9 *)arg0)->m97() != 0) {
+            sp.flags |= 2;
+        }
+        o->a->m15(&sp, o->v);
+        o->b->m15(&sp, o->v);
+    }
 }
 
 void TObjEneDellBiter__sub_80305F58(u8 *arg0) {

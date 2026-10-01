@@ -9,6 +9,42 @@ struct RecoveredGlobal_802EFB1C_lbl_80541918 {
     u8 remaining[0xC];
 };
 
+struct RecoveredGlobal_802EFB1C_lbl_80541918;
+struct VBase_18_9935f6 { char pad[0x18]; };
+
+struct VObj_18_9935f6 : VBase_18_9935f6 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual M2C_UNK m20(s32, f32);
+    virtual M2C_UNK m21(s32, void *, M2C_UNK, M2C_UNK, M2C_UNK);
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual s32 m25(s32, M2C_UNK, f32);
+};
+
+typedef struct Hit_802EF99C { s32 a; f32 f; } Hit_802EF99C;
+
+typedef struct Obj_802EF99C { u8 pad0[0x44]; s32 flags[12]; } Obj_802EF99C;
+
 extern "C" {
 int queue_destruction__7TObjectFv(void*);
 M2C_UNK TObjFish__sub_800660D4(int, int, int, int, int, f32);
@@ -25,6 +61,18 @@ extern const f32 TBoss7Tentacle__data_805DEC04;
 extern const f32 lbl_805DEC14;
 extern const f32 lbl_805DEC18;
 void TBoss7Tentacle__sub_802EFB1C(u8 *arg0);
+s32 obj_testFlags30(void *, s32);
+s32 TObjEneDellBiter__sub_80087350(void *, int);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+s32 TBoss7Tentacle__sub_802EF898(void *, f32);
+extern RecoveredGlobal_802EFB1C_lbl_80541918 lbl_80541918;
+extern const f32 TBoss7Tentacle__data_805DEC00;
+extern const f32 TBoss7Tentacle__data_805DEC04;
+extern const f32 lbl_805DEC08;
+extern const f32 lbl_805DEC0C;
+extern const f32 lbl_805DEC10;
+void TBoss7Tentacle__sub_802EF99C(u8 *arg0);
 }
 
 extern "C" {
@@ -72,6 +120,40 @@ extern const f32 TBoss7Tentacle__data_805DEC00;
 
 void TBoss7Tentacle__sub_802EF954(void* p) { if (advance_toward_limit__14TBoss7TentacleFPvf((void *)(p), TBoss7Tentacle__data_805DEC00) != 0) { queue_destruction__7TObjectFv(p); disallow_rendering__7TObjectFv(p); } }
 typedef char RecoveredGlobal_802EFB1C_lbl_80541918_size[sizeof(RecoveredGlobal_802EFB1C_lbl_80541918) == 0x10 ? 1 : -1];
+
+void TBoss7Tentacle__sub_802EF99C(u8 *arg0) {
+    s32 i;
+    u8 *p;
+    TBoss7Tentacle__sub_802EF898(arg0, lbl_805DEC08);
+    for (i = 0; (u16)i != 12; i++) {
+        p = TPlayerBattleCtrl4P__sub_801BA74C((u16)i);
+        if (p != NULL && TObjPlayer__sub_80141CF8(p + 0x38, arg0 + 0x1C) < lbl_805DEC0C) {
+            if (*(s32 *)(arg0 + 0x3C) == 0 && ((VObj_18_9935f6 *)p)->m25(*(s32 *)(arg0 + 0x10), 0, lbl_805DEC10) != 0) {
+                ((VObj_18_9935f6 *)p)->m20(*(s32 *)(arg0 + 0x10), TBoss7Tentacle__data_805DEC00);
+            }
+            if (obj_testFlags30(p, 0x801) == 0) {
+                Hit_802EF99C b;
+                b.a = 15;
+                b.f = lbl_805DEC0C;
+                Hit_802EF99C a = b;
+                ((VObj_18_9935f6 *)p)->m21(*(s32 *)(arg0 + 0x10), &a, 0, -1, -1);
+                if (((Obj_802EF99C *)arg0)->flags[(u16)i] == 0) {
+                    TObjEneDellBiter__sub_80087350(p + 0x2FC, 0x214);
+                    ((Obj_802EF99C *)arg0)->flags[(u16)i] = 1;
+                }
+            }
+        }
+    }
+    if (*(s32 *)(arg0 + 0x3C) == 0x3C) {
+        *(s32 *)(arg0 + 0x38) = 3;
+        *(s32 *)(arg0 + 0x3C) = 0;
+        *(s32 *)(arg0 + 0x78) = *(s32 *)((u8 *)&lbl_80541918 + 8);
+        *(f32 *)(arg0 + 0x74) = TBoss7Tentacle__data_805DEC04;
+    } else {
+        *(s32 *)(arg0 + 0x3C) += 1;
+    }
+}
+
 void TBoss7Tentacle__sub_802EFB1C(u8 *arg0) {
     f32 temp_f1;
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x74);

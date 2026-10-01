@@ -4,6 +4,39 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Vec_802E4E44 { f32 x, y, z; };
+
+struct Ent_802E4E44 { s32 active; u16 id; u8 pad[0x28 - 6]; };
+
+struct Obj_802E4E44 {
+    u8 pad0[0xA4];
+    s32 state;
+    Ent_802E4E44 ent[4];
+    s32 count;
+    s32 timer;
+    f32 fade;
+};
+
+struct Cam_802E4E44 {
+    u8 pad0[0x14];
+    s32 f14;
+    u8 pad18[4];
+    Vec_802E4E44 a;
+    Vec_802E4E44 b;
+    u8 pad34[0x8];
+};
+
+extern "C" {
+u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+M2C_UNK TCameraCtrl__sub_80069E7C(s32);
+M2C_UNK TCameraCtrl__sub_80069D04(Cam_802E4E44 *);
+void VecCopy__FP3VecPC3Vec(Vec_802E4E44 *, const Vec_802E4E44 *);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+extern Vec_802E4E44 lbl_80472B9C;
+extern Vec_802E4E44 lbl_80472BA8;
+void TObjOnlineEnding__sub_802E4E44(Obj_802E4E44 *arg0);
+}
+
 extern "C" {
 
 void create_result_window__16TObjOnlineEndingFPv(void *arg0);
@@ -46,6 +79,40 @@ void create_result_window__16TObjOnlineEndingFPv(void *arg0) {
 }
 
 extern const M2C_UNK lbl_804E3A64[];
+
+void TObjOnlineEnding__sub_802E4E44(Obj_802E4E44 *arg0) {
+    s32 i;
+    for (i = 0; i < arg0->count; i++) {
+        if (arg0->ent[i].active != 0 && TPlayerBattleCtrl4P__sub_801BA74C(arg0->ent[i].id) == 0) {
+            arg0->ent[i].active = 0;
+        }
+    }
+    switch (arg0->state) {
+    case 0:
+        arg0->state = 1;
+        break;
+    case 1: {
+        TCameraCtrl__sub_80069E7C(9);
+        Vec_802E4E44 t1 = lbl_80472B9C;
+        Vec_802E4E44 t2 = lbl_80472BA8;
+        Cam_802E4E44 cam;
+        VecCopy__FP3VecPC3Vec(&cam.a, &t1);
+        VecCopy__FP3VecPC3Vec(&cam.b, &t2);
+        cam.f14 = 0x1999;
+        TCameraCtrl__sub_80069D04(&cam);
+        arg0->state = 2;
+        break;
+    }
+    default:
+        if ((arg0->fade += 0.3f) >= 17.0f) {
+            arg0->fade = 17.0f;
+        }
+        if (++arg0->timer >= 450) {
+            queue_destruction__7TObjectFv(arg0);
+        }
+        break;
+    }
+}
 
 void *destroy__16TObjOnlineEndingFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

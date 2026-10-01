@@ -138,6 +138,16 @@ extern RecoveredGlobal_802D78A0_lbl_804E2680 lbl_804E2680;
 extern M2C_UNK __vt__12TObjNpcEnemy[];
 extern s32 lbl_805D3F58;
 u8 *TObjNpcEnemy__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK TObjNpcEnemy__sub_801480FC();
+s16 *TObjNpcEnemy__sub_802D72E4(s16 arg0);
+void set_npc_data__12TObjNpcEnemyFPvPv(void *arg0, void *arg1);
+M2C_UNK set_global_count__12TObjNpcEnemyFi(u32);
+void TObjEneBm5GibonU__sub_803D853C(s32, const char *, ...);
+extern char lbl_80472600[];
+extern char lbl_80472610[];
+extern char lbl_80472620[];
+void TObjNpcEnemy__vt91(u8 *arg0);
 }
 
 extern "C" {
@@ -238,6 +248,44 @@ void set_npc_data__12TObjNpcEnemyFPvPv(void *arg0, void *arg1) {
         break;
     }
     M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 0xC) = (f32) M2C_FIELD(M2C_FIELD(arg0, void **, 0x3B8), f32 *, 0x10);
+}
+
+void TObjNpcEnemy__vt91(u8 *arg0) {
+    s16 *p;
+    TObjNpcEnemy__sub_801480FC();
+    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    TObjEneBm5GibonU__sub_803D853C(0x130018, lbl_80472600);
+    TObjEneBm5GibonU__sub_803D853C(0x13001A, lbl_80472610);
+    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+    p = TObjNpcEnemy__sub_802D72E4((s16) M2C_FIELD(arg0, s32 *, 0x5C));
+    if (p != M2C_FIELD(arg0, s16 **, 0x3B8)) {
+        set_npc_data__12TObjNpcEnemyFPvPv(arg0, p);
+    }
+    p = M2C_FIELD(arg0, s16 **, 0x3B8);
+    if (p == NULL) {
+        set_global_count__12TObjNpcEnemyFi(0xFF0000FF);
+        TObjEneBm5GibonU__sub_803D853C(0x240018, lbl_80472620);
+        set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+        return;
+    }
+    switch (((u16 *) p)[1]) {
+    case 0:
+    case 2:
+    case 4:
+        break;
+    case 1:
+    case 3:
+        if (p[0x10] <= M2C_FIELD(arg0, s32 *, 0x64) || M2C_FIELD(arg0, s32 *, 0x64) < 0) {
+            set_global_count__12TObjNpcEnemyFi(0xFF0000FF);
+            TObjEneBm5GibonU__sub_803D853C(0x24001A, lbl_80472620);
+            set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+            M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+        } else {
+            M2C_FIELD(arg0, s16 *, 0xB8) = M2C_FIELD(arg0, s32 *, 0x64);
+        }
+        TBoss1Dragon__sub_80143504(arg0);
+        break;
+    }
 }
 
 void update_state__12TObjNpcEnemyFPv(void *arg0) {

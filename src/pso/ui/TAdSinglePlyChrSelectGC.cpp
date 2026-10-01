@@ -4,6 +4,31 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct P_802D4F2C { f32 x, y; };
+
+struct T_802D4F2C { P_802D4F2C p[3]; };
+
+extern "C" {
+void *__nw__7TObjectFUl(u32);
+M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
+M2C_UNK __ct__9TAdBackGCFv(void *, void *);
+M2C_UNK __ct__12TAdBackTxtGCFv(void *, void *);
+M2C_UNK __ct__10TAdTitleGCFv(void *, void *, int);
+void *__ct__13TAdTitleTexGCFv(void *, void *);
+void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
+void *__ct__13TAdGuideTxtGCFv(void *, void *);
+void reset__23TAdSinglePlyChrSelectGCFPv(void *arg0);
+M2C_UNK fn_802D50B8(void *, P_802D4F2C *, P_802D4F2C *, P_802D4F2C *);
+s32 TAdMultiPlyChrSelectGC__sub_802E1024(void *, int, int, int);
+s32 TAdMultiPlyChrSelectGC__sub_8030E2E4(void *, int);
+extern u8 lbl_80472510[];
+extern u8 lbl_80472530[];
+extern T_802D4F2C lbl_80472570;
+extern M2C_UNK __vt__23TAdSinglePlyChrSelectGC[];
+extern s32 lbl_805D3F40;
+u8 *TAdSinglePlyChrSelectGC__ct(u8 *arg0, void *parent);
+}
+
 extern "C" {
 
 void *__dt__23TAdSinglePlyChrSelectGCFv(void *arg0, s16 arg1);
@@ -110,6 +135,44 @@ void *__dt__23TAdSinglePlyChrSelectGCFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+u8 *TAdSinglePlyChrSelectGC__ct(u8 *arg0, void *parent) {
+    void *p;
+    __ct__7TObjectFP7TObject(arg0, parent);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__23TAdSinglePlyChrSelectGC;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3F40;
+    reset__23TAdSinglePlyChrSelectGCFPv(arg0);
+    p = __nw__7TObjectFUl(0x24);
+    if (p != NULL) {
+        __ct__9TAdBackGCFv(p, arg0);
+    }
+    p = __nw__7TObjectFUl(0x28);
+    if (p != NULL) {
+        __ct__12TAdBackTxtGCFv(p, arg0);
+    }
+    p = __nw__7TObjectFUl(0x138);
+    if (p != NULL) {
+        __ct__10TAdTitleGCFv(p, arg0, 0);
+    }
+    M2C_FIELD(arg0, s32 *, 0x28) = TAdMultiPlyChrSelectGC__sub_8030E2E4(arg0, 0);
+    M2C_FIELD(arg0, s32 *, 0x30) = TAdMultiPlyChrSelectGC__sub_802E1024(arg0, 0, -1, 0);
+    p = __nw__7TObjectFUl(0x44);
+    if (p != NULL) {
+        p = __ct__13TAdGuideTxtGCFv(p, arg0);
+    }
+    M2C_FIELD(arg0, void **, 0x34) = p;
+    p = __nw__7TObjectFUl(0x708);
+    if (p != NULL) {
+        p = __ct__14TAdSelectCurGCFv(p, arg0, lbl_80472510, lbl_80472530);
+    }
+    M2C_FIELD(arg0, void **, 0x2C) = p;
+    p = __nw__7TObjectFUl(0x9C);
+    if (p != NULL) {
+        p = __ct__13TAdTitleTexGCFv(p, arg0);
+    }
+    T_802D4F2C t = lbl_80472570;
+    fn_802D50B8(p, &t.p[0], &t.p[1], &t.p[2]);
     return arg0;
 }
 

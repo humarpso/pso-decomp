@@ -263,6 +263,10 @@ struct A7B00Obj_800a7b00_800A7764 : A7B00Base_800a7b00_800A7764 {
     virtual s32 m4();
 };
 
+typedef struct Vec_80300D00 { f32 x, y, z; } Vec_80300D00;
+
+typedef struct Hit_80300D00 { s32 flags; u8 *obj; } Hit_80300D00;
+
 extern "C" {
 s32 TObjEneDolmOlm__sub_80300CF0(void);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -339,6 +343,17 @@ extern u32 TObjEneDolmOlm__data_805D6A14;
 extern u32 TObjEneDolmOlm__data_805D6A18;
 extern const f32 lbl_805DEF60;
 void TObjEneDolmOlm__sub_8030105C(Obj_800A7A14 *o);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+void TObjFish__sub_800660D4(s32, s32, s32, s32, s32, f32);
+Hit_80300D00 *csnVectorUnder(void *, void *, s32, f32);
+s32 TParticleCtrl__sub_80086884(s32);
+s32 get_instance__13TParticleCtrlFv(void);
+s32 TObjEneDellBiter__sub_80087350(void *, int);
+void fn_800D88E4(void *);
+extern s32 lbl_805D53A4;
+extern const f32 lbl_805DEF4C;
+extern const f32 TObjEneDolmOlm__data_805DEF50;
+void TObjEneDolmOlm__sub_80300D00(u8 *arg0, Vec_80300D00 *arg1);
 }
 
 extern "C" {
@@ -357,7 +372,6 @@ void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 void *TObjControl__ct(void *, void *);
 void *TObjEneDolmOlm__ct(void *, void *, void *);
-M2C_UNK TObjEneDolmOlm__sub_80300D00(void *, void *);
 s32 TObjEneRecon__sub_8029E960(void *);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -383,8 +397,46 @@ s32 TObjEneDolmOlm__sub_80300CF0(void) {
 
 void TObjEneDolmOlm__sub_80300CFC(void) {  }
 
+void TObjEneDolmOlm__sub_80300D00(u8 *arg0, Vec_80300D00 *arg1) {
+    Vec_80300D00 v;
+    Hit_80300D00 *hit;
+    f32 y;
+    s32 e;
+    VecCopy__FP3VecPC3Vec(&v, arg1);
+    y = v.y;
+    v.y = y + lbl_805DEF4C;
+    hit = csnVectorUnder(&v, arg0 + 0x120, 0x4007, y);
+    if (hit != NULL) {
+        if (hit->flags & 4) {
+            if (lbl_805D53A4 % 5 == 0) {
+                fn_800D88E4(arg0 + 0x38);
+            }
+            e = TObjEneDellBiter__sub_80087350(hit->obj + 0x38, 0x49);
+            if (e != 0) {
+                TObjFish__sub_800660D4(e, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneDolmOlm__data_805DEF50);
+            }
+            TObjEneDellBiter__sub_80087350(hit->obj + 0x38, 0xA4);
+        } else if (hit->flags & 2) {
+            if (lbl_805D53A4 % 10 == 0) {
+                fn_800D88E4(arg0 + 0x38);
+            }
+            e = TObjEneDellBiter__sub_80087350(hit->obj + 0x54, 0x49);
+            if (e != 0) {
+                TObjFish__sub_800660D4(e, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneDolmOlm__data_805DEF50);
+            }
+            TObjEneDellBiter__sub_80087350(hit->obj + 0x54, 0xA4);
+        }
+        *(s32 *)(arg0 + 0x3E4) = *(s32 *)(hit->obj + 0x18);
+        if (*(s32 *)(arg0 + 0x3E4) & 0x4000) {
+            VecCopy__FP3VecPC3Vec(arg0 + 0x3D8, hit->obj);
+        } else {
+            VecCopy__FP3VecPC3Vec(arg0 + 0x3D8, arg0 + 0x38);
+        }
+    }
+}
+
 void init_body_sub__14TObjEneDolmOlmFPv(void *arg0) {
-    TObjEneDolmOlm__sub_80300D00(arg0, (s8 *)arg0 + 0x38);
+    TObjEneDolmOlm__sub_80300D00((u8 *)(arg0), (Vec_80300D00 *)((s8 *)arg0 + 0x38));
 }
 
 void TObjEneDolmOlm__sub_80300EB0(s32 arg0) {

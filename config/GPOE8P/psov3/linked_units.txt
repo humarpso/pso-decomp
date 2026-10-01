@@ -150,6 +150,7 @@ pso/boss/TBoss8Dragon_802F3504.cpp
 pso/boss/TBoss8Dragon_802F36DC.cpp
 pso/boss/TBoss8Dragon_802F3AB4.cpp
 pso/boss/TBoss8Dragon_802F3EE4.cpp
+pso/boss/TBoss8Dragon_802F3F20.cpp
 pso/boss/TBoss8Dragon_802F42A0.cpp
 pso/boss/TBoss8Dragon_802F4324.cpp
 pso/boss/TBoss8Dragon_802F4480.cpp
@@ -159,6 +160,7 @@ pso/boss/TBoss8Dragon_802F7B28.cpp
 pso/boss/TBoss8Dragon_802FAAB0.cpp
 pso/boss/TBoss8Dragon_802FB150.cpp
 pso/boss/TBoss8Dragon_802FB300.cpp
+pso/boss/TBoss8Dragon_802FB304.cpp
 pso/boss/TBoss8Dragon_802FB440.cpp
 pso/boss/TBoss8Dragon_802FB7E0.cpp
 pso/boss/TBoss8Dragon_802FB828.cpp
@@ -3800,6 +3802,7 @@ pso/unk/text_802C27FC.cpp
 pso/unk/text_802C2F04.cpp
 pso/unk/text_802C9924.cpp
 pso/unk/text_802C9960.cpp
+pso/unk/text_802C9A58.cpp
 pso/unk/text_802C9C18.cpp
 pso/unk/text_802CE510.cpp
 pso/unk/text_802D1D48.cpp
@@ -3808,6 +3811,7 @@ pso/unk/text_802E0B60.cpp
 pso/unk/text_802E10D8.cpp
 pso/unk/text_802E3BA8.cpp
 pso/unk/text_802E4A4C.cpp
+pso/unk/text_802E79B0.cpp
 pso/unk/text_802EC52C.cpp
 pso/unk/text_802EED20.cpp
 pso/unk/text_802EEE24.cpp

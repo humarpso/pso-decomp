@@ -19,6 +19,39 @@ struct Stack_803242C0 {
     f32 sp1C;
 };
 
+struct VBase_18_b27ba1 { char pad[0x18]; };
+
+struct VObj_18_b27ba1 : VBase_18_b27ba1 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual M2C_UNK m21(void *, void *, M2C_UNK, M2C_UNK, M2C_UNK);
+};
+
+struct Vec_803240F8 { f32 x, y, z; };
+
+struct Hit_803240F8 { s32 a; s32 b; s32 c; f32 d; };
+
+struct Vec_80324440 { f32 x, y, z; };
+
 extern "C" {
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 extern const f32 lbl_805DF58C;
@@ -41,6 +74,23 @@ f32 TNpcPlayer__sub_803D97B4(void *);
 extern const f32 lbl_805DF59C;
 extern const f32 lbl_805DF5A0;
 void TBoss6Mine__vt5(u8 *arg0);
+u8 *get_player_data__10TObjPlayerFi(s32);
+s32 get_game_mode__6TLobbyFv();
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 is_active__14TBoss6PlotFalzFPv(void *);
+s32 TBoss6PlotFalz__sub_802AB5B4(s32, f32);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+f32 TBoss6Type1__sub_803D9370(void *, void *);
+extern const f32 TBoss6Mine__data_805DF580;
+extern const f32 lbl_805DF590;
+extern const f32 lbl_805DF594;
+void TBoss6Mine__sub_803240F8(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+f32 TNpcPlayer__sub_803D97B4(void *);
+extern const f32 TBoss6Mine__data_805DF580;
+extern const f32 lbl_805DF588;
+void TBoss6Mine__vt3(u8 *arg0);
 }
 
 extern "C" {
@@ -58,7 +108,6 @@ void draw_parts__10TBoss6MineFPv(void* p);
 void set_state7__10TBoss6MineFPv(void *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 s32 TBoss6Mine__ct(s32, s32, s32);
-M2C_UNK TBoss6Mine__sub_803240F8();
 M2C_UNK TBoss6PlotFalz__sub_802ABE3C(s32, M2C_UNK, M2C_UNK, f32);
 M2C_UNK TBoss6PlotFalz__sub_802AC008(f32, f32);
 void TBoss6Type1__sub_802B5DD4(void *);
@@ -128,12 +177,37 @@ s32 TBoss6Mine__sub_803240C4(s32 arg0) {
     return TBoss6Kakusan__sub_803D8BD8((void *) (arg0 + 0x38)) > lbl_805DF58C;
 }
 
+void TBoss6Mine__sub_803240F8(u8 *arg0) {
+    s32 n;
+    s32 i;
+    u8 *pl;
+    n = get_game_mode__6TLobbyFv();
+    for (i = 0; i < n; i++) {
+        pl = get_player_data__10TObjPlayerFi(i);
+        if (is_active__14TBoss6PlotFalzFPv(pl) != 0) {
+            Vec_803240F8 v = *(Vec_803240F8 *) (arg0 + 0x38);
+            TBoss6Type1__sub_803D9370(&v, pl + 0x38);
+            v.y = TBoss6Mine__data_805DF580;
+            if (!(TBoss6Kakusan__sub_803D8BD8(&v) > lbl_805DF590)) {
+                Hit_803240F8 h;
+                s32 r = TBoss6PlotFalz__sub_802AB5B4(M2C_FIELD(arg0, s32 *, 0x384), lbl_805DF594);
+                h.a = 1;
+                h.c = 1;
+                h.d = r;
+                h.b = *(s32 *) &h.d;
+                ((VObj_18_b27ba1 *) pl)->m21(arg0, &h, 0, -1, -1);
+            }
+        }
+    }
+    TBoss3Volopt__sub_8022675C(0x4003BA1E, arg0 + 0x38, 0, 0);
+}
+
 void TBoss6Mine__vt7(void* p) { TOSwitchAttack__sub_80087278((void*)((char*)p + 0x38), (void*)((void*)252), (void*)((void*)64)); queue_destruction__7TObjectFv((void*)(p)); }
 
 extern f32 lbl_805DF598;
 
 void TBoss6Mine__vt6(s32 arg0) {
-    TBoss6Mine__sub_803240F8();
+    TBoss6Mine__sub_803240F8((u8 *)(arg0));
     TOSwitchAttack__sub_80087278((void*)(arg0 + 0x38), (void*)(0xFB), (void*)(0x40));
     TOSwitchAttack__sub_80087278((void*)(arg0 + 0x38), (void*)(0xFC), (void*)(0x40));
     TBoss6PlotFalz__sub_802ABE3C(arg0 + 0x38, 0xC0, 0xF, lbl_805DF598);
@@ -183,6 +257,31 @@ void TBoss6Mine__vt4(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x38C) = 0;
         M2C_FIELD(arg0, s32 *, 0x380) = 5;
         TBoss3Volopt__sub_8022675C(0x4003B51D, arg0 + 0x38, 0, 0);
+    }
+}
+
+void TBoss6Mine__vt3(u8 *arg0) {
+    Vec_80324440 v;
+    f32 len;
+    f32 cnt;
+    f32 k;
+    cnt = (f32) (M2C_FIELD(arg0, s32 *, 0x3A4) - M2C_FIELD(arg0, s32 *, 0x38C) + 1);
+    VecCopy__FP3VecPC3Vec((s32) &v, (s32) (arg0 + 0x38));
+    v.y = TBoss6Mine__data_805DF580;
+    len = TBoss6Kakusan__sub_803D8BD8(&v);
+    if (len > lbl_805DF588) {
+        TNpcPlayer__sub_803D97B4(&v);
+    }
+    k = len + (120.0f - len) / cnt;
+    M2C_FIELD(arg0, f32 *, 0x38) = k * v.x;
+    M2C_FIELD(arg0, f32 *, 0x40) = k * v.z;
+    M2C_FIELD(arg0, f32 *, 0x39C) += 0.8333334f;
+    if (M2C_FIELD(arg0, f32 *, 0x39C) >= 9.0f) {
+        M2C_FIELD(arg0, f32 *, 0x39C) = 9.0f;
+    }
+    if (++M2C_FIELD(arg0, s32 *, 0x38C) > M2C_FIELD(arg0, s32 *, 0x3A4)) {
+        M2C_FIELD(arg0, s32 *, 0x38C) = 0;
+        M2C_FIELD(arg0, s32 *, 0x380) = 4;
     }
 }
 

@@ -80,6 +80,9 @@ struct RecoveredGlobal_802CB03C_lbl_8058D490 {
 
 typedef struct S_802CB10C { u8 pad0[0x3C0]; s32 f3C0; } S_802CB10C;
 
+struct RecoveredGlobal_802CB03C_lbl_8058D490;
+struct Vec_802CAD98 { f32 x, y, z; };
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK);
@@ -108,6 +111,21 @@ s32 get_player_data__10TObjPlayerFi(int);
 void TObjEneMe1GiGue__sub_802CB170(void *, s32);
 extern s32 lbl_805D586C;
 s32 TObjEneMe1GiGue__sub_802CB10C(S_802CB10C *arg0);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+u8 *TObjButterflyLobby__sub_8007A5D8(void *, void *, s32);
+f32 TObjPlayer__sub_8013153C(void *, s32);
+void TBoss4Zako__sub_803D8910(void *, void *);
+void TCameraCtrl__sub_803D8934(int, Vec_802CAD98 *, void *);
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+s32 TObjPlayer__sub_803D97F0(u32);
+s32 TObjPlayer__sub_803D9B78(void);
+extern Vec_802CAD98 lbl_80472280;
+extern Vec_802CAD98 lbl_8047228C;
+extern const f64 TObjEneMe1GiGue__data_80472298;
+extern RecoveredGlobal_802CB03C_lbl_8058D490 lbl_8058D490;
+extern const f32 TObjEneMe1GiGue__data_805DE660;
+extern const f32 TObjEneMe1GiGue__data_805DE664;
+void TObjEneMe1GiGue__sub_802CAD98(u8 *arg0, Vec_802CAD98 *arg1);
 }
 
 extern "C" {
@@ -159,6 +177,48 @@ s32 check_and_trigger__15TObjEneMe1GiGueFi(s32 arg0) {
     }
     return 0;
 }
+
+#pragma push
+#pragma opt_common_subs off
+void TObjEneMe1GiGue__sub_802CAD98(u8 *arg0, Vec_802CAD98 *arg1) {
+    f32 best;
+    s32 ang;
+    s32 bestAng;
+    s32 i;
+    u8 *hit;
+    f32 d;
+    ang = (s32) (TObjEneMe1GiGue__data_80472298 * get_ad_end_text_start__10TObjPlayerFv(arg1->x, arg1->z));
+    best = TObjEneMe1GiGue__data_805DE660;
+    bestAng = ang;
+    TObjPlayer__sub_803D97F0((u32) &lbl_8058D490);
+    Vec_802CAD98 v = lbl_80472280;
+    TObjPlayer__sub_803D9214(0, ang);
+    for (i = 0; i < 3; i++) {
+        TCameraCtrl__sub_803D8934(0, &v, arg0 + 0x390);
+        TBoss4Zako__sub_803D8910(arg0 + 0x390, arg0 + 0x2FC);
+        hit = TObjButterflyLobby__sub_8007A5D8(arg0 + 0x2FC, arg0 + 0x390, -1);
+        if (hit == NULL) {
+            TObjPlayer__sub_803D9B78();
+            return;
+        }
+        d = TObjPlayer__sub_8013153C(arg0 + 0x38, M2C_FIELD(hit, s32 *, 4)) - TObjEneMe1GiGue__data_805DE664;
+        if (best < d) {
+            best = d;
+            bestAng = ang;
+        }
+        TObjPlayer__sub_803D9214(0, 0x5555);
+        ang += 0x5555;
+    }
+    TObjPlayer__sub_803D9B78();
+    TObjPlayer__sub_803D97F0((u32) &lbl_8058D490);
+    Vec_802CAD98 w = lbl_8047228C;
+    w.x = best;
+    TObjPlayer__sub_803D9214(0, bestAng);
+    TCameraCtrl__sub_803D8934(0, &w, arg0 + 0x390);
+    TBoss4Zako__sub_803D8910(arg0 + 0x390, arg0 + 0x2FC);
+    TObjPlayer__sub_803D9B78();
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on
