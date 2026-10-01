@@ -18129,6 +18129,7 @@ pso/misc/TLobby_803C1A58.cpp:
 
 pso/misc/TLobby_803C1A58_803C9348.cpp:
 	.text       start:0x803C9348 end:0x803CBCA0
+	.sdata2     start:0x805E0D50 end:0x805E0D58
 
 pso/unk/text_803CBCA0.cpp:
 	.text       start:0x803CBCA0 end:0x803CBCF8
@@ -18336,12 +18337,14 @@ pso/unk/text_803D64F8.cpp:
 
 pso/misc/TCameraCtrl_803D6538.cpp:
 	.text       start:0x803D6538 end:0x803D8030
+	.sdata2     start:0x805E0E90 end:0x805E0EA0
 
 pso/unk/text_803D8030.cpp:
 	.text       start:0x803D8030 end:0x803D8090
 
 pso/npc/TObjNpcEnemy_803D8090.cpp:
 	.text       start:0x803D8090 end:0x803D81D0
+	.sdata2     start:0x805E0EB0 end:0x805E0EB8
 
 pso/unk/text_803D81D0.cpp:
 	.text       start:0x803D81D0 end:0x803D853C
@@ -18426,6 +18429,7 @@ pso/unk/text_803DCDB0.cpp:
 
 pso/unk/text_803DCDFC.cpp:
 	.text       start:0x803DCDFC end:0x803DCEC8
+	.sdata2     start:0x805E0F80 end:0x805E0F90
 
 pso/unk/text_803DCEC8.cpp:
 	.text       start:0x803DCEC8 end:0x803DCF0C

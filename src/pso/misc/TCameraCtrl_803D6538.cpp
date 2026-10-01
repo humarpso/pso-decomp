@@ -132,6 +132,8 @@ s32 TObjPlayer__sub_803D6C94(s32 arg0);
 void TObjPlayer__sub_803D6D7C(u32, u32, s32, f32);
 extern u8 *lbl_805D76BC;
 s32 TObjPlayer__sub_803D6D0C(s32 arg0);
+u32 TObjPlayer__sub_803D7900(u8 *base, u32 stride, u32 hi, u32 key);
+void TObjPlayer__sub_803D7940(u8 *keys, u32 stride, u32 count, f32 t, u16 **k0, u16 **k1, f32 *frac);
 }
 
 extern "C" {
@@ -423,6 +425,32 @@ u32 TObjPlayer__sub_803D7900(u8 *base, u32 stride, u32 hi, u32 key) {
     }
     return lo;
 }
+
+#pragma push
+#pragma optimize_for_size on
+#pragma use_lmw_stmw off
+void TObjPlayer__sub_803D7940(u8 *keys, u32 stride, u32 count, f32 t, u16 **k0, u16 **k1, f32 *frac) {
+    u32 i;
+    u16 *a;
+    u16 *b;
+    s32 d;
+    i = TObjPlayer__sub_803D7900(keys, stride, count, (u32) t);
+    a = (u16 *) (keys + i * stride);
+    if (i < count - 1) {
+        b = (u16 *) (keys + (i + 1) * stride);
+    } else {
+        b = (u16 *) keys;
+    }
+    *k0 = a;
+    *k1 = b;
+    d = *b - *a;
+    if (d > 0) {
+        *frac = (t - *a) / d;
+    } else {
+        *frac = t - *a;
+    }
+}
+#pragma pop
 
 #pragma push
 #pragma scheduling off
