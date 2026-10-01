@@ -80,6 +80,7 @@ force_active:
   - TWindowActionPalette__sub_801C1C20
   - TWindowActionPalette__sub_801C1C30
   - TWindowMainMenu1P__sub_80288520
+  - TypeAndStatusCallback
   - __ARQCallbackHack
   - __ARQInterruptServiceRoutine
   - __ARQServiceQueueLo

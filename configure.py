@@ -665,13 +665,13 @@ if args.target == "psov3":
         DolphinLib(
             "gba",
             [
-                NonMatching("gba/GBA.c"),
-                NonMatching("gba/GBAGetProcessStatus.c"),
-                NonMatching("gba/GBAJoyBoot.c"),
-                NonMatching("gba/GBARead.c"),
-                NonMatching("gba/GBAWrite.c"),
-                NonMatching("gba/GBAXfer.c"),
-                NonMatching("gba/GBAKey.c"),
+                NonMatching("gba/GBA.c", cflags=cflags_dolphin_recovered),
+                NonMatching("gba/GBAGetProcessStatus.c", cflags=cflags_dolphin_recovered),
+                NonMatching("gba/GBAJoyBoot.c", cflags=cflags_dolphin_recovered),
+                NonMatching("gba/GBARead.c", cflags=cflags_dolphin_recovered),
+                NonMatching("gba/GBAWrite.c", cflags=cflags_dolphin_recovered),
+                NonMatching("gba/GBAXfer.c", cflags=cflags_dolphin_recovered),
+                NonMatching("gba/GBAKey.c", cflags=cflags_dolphin_recovered),
             ],
         ),
         DolphinLib(

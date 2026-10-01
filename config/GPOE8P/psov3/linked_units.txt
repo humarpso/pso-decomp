@@ -34,6 +34,10 @@ card/CARDBlock.c
 card/CARDCreate.c
 card/CARDDir.c
 card/CARDStat.c
+gba/GBAGetProcessStatus.c
+gba/GBARead.c
+gba/GBAWrite.c
+gba/GBAXfer.c
 gx/GXPixel.c
 gx/GXTransform.c
 mtx/mtx44.c
