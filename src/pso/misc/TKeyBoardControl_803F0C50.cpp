@@ -67,6 +67,21 @@ struct Pad_803F0F84 {
     u8 pad34[0x34];
 };
 
+struct Pad_803F107C {
+    u8 a;
+    u8 pad1[2];
+    u8 out[4];
+    u8 in[9];
+    u32 outBytes;
+    u32 inBytes;
+    void (*x18)(s32, s32);
+    s32 x1c;
+    u8 pad20[8];
+    s64 delay;
+    void (*x30)(s32);
+    u8 pad34[0x34];
+};
+
 struct Kbd_803F1210 {
     u8 pad0[0xB];
     u8 k0;
@@ -93,7 +108,7 @@ extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
 s32 OSDisableInterrupts(void);
 void OSRestoreInterrupts(s32);
 void Dolphin_SIGetTypeAsync(s32, void *);
-void TKeyBoardControl__sub_803F107C(void);
+void TKeyBoardControl__sub_803F107C(s32 chan, u32 type);
 s32 TKeyBoardControl__sub_803F119C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void OSInitThreadQueue(void *);
 s32 OSRegisterResetFunction(void *);
@@ -120,6 +135,9 @@ void OSSetCurrentContext(OSContext_803F0F84 *);
 void TKeyBoardControl__sub_803F0F84(s32 chan, u32 status, OSContext_803F0F84 *ctx);
 void *memcpy(void *, const void *, u32);
 void TKeyBoardControl__sub_803F1210(Kbd_803F1210 *p);
+s32 SITransfer(s32 chan, void *out, u32 outBytes, void *in, u32 inBytes, void (*cb)(s32, u32, OSContext_803F0F84 *), s64 delay);
+OSContext_803F0F84 *OSGetCurrentContext(void);
+s32 __OSReschedule(void);
 }
 
 extern "C" {
@@ -283,6 +301,42 @@ void TKeyBoardControl__sub_803F0F84(s32 chan, u32 status, OSContext_803F0F84 *ct
     }
 }
 
+void TKeyBoardControl__sub_803F107C(s32 chan, u32 type) {
+    Pad_803F107C *p = &((Pad_803F107C *)&lbl_805A2720)[chan];
+    u8 unused[8];
+    OSContext_803F0F84 tmp;
+    OSContext_803F0F84 *old;
+    void (*cb)(s32);
+    void (*cb2)(s32, s32);
+
+    if (lbl_805D7930 != 0) {
+        return;
+    }
+    TKeyBoardControl__sub_803F0CF4(chan, type);
+    if (p->a != 0) {
+        if (SITransfer(chan, p->out, p->outBytes, p->in, p->inBytes, TKeyBoardControl__sub_803F0F84, p->delay) != 0) {
+            return;
+        }
+        p->x1c = -2;
+    } else {
+        p->x1c = -1;
+    }
+    if ((cb = p->x30) != 0) {
+        p->x30 = 0;
+        cb(chan);
+    }
+    if (p->x18 != 0) {
+        old = OSGetCurrentContext();
+        OSClearContext(&tmp);
+        OSSetCurrentContext(&tmp);
+        cb2 = p->x18;
+        p->x18 = 0;
+        cb2(chan, p->x1c);
+        OSClearContext(&tmp);
+        OSSetCurrentContext(old);
+        __OSReschedule();
+    }
+}
 s32 TKeyBoardControl__sub_803F119C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 en;
     K_803F119C *k = &((K_803F119C *)&lbl_805A2720)[arg0];

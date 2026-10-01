@@ -68,9 +68,9 @@ struct St_803D6C94 { u8 pad0[0xC]; u32 *keys; u32 *vals; f32 t; u8 pad18[4]; s32
 struct St_803D6D0C { u8 pad0[0xC]; u32 *keys; u32 *vals; f32 t; u8 pad18[4]; s32 idx; };
 
 extern "C" {
-void TObjPlayer__sub_803D7A54(void *, s32, s32, void *, void *, void *, f32);
+void TObjPlayer__sub_803D7A54(void *, s32, s32 count, f32 t, void *, void *, void *);
 void TObjPlayer__sub_803D6DDC(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
-void TObjPlayer__sub_803D7A54(void *, s32, s32, void *, void *, void *, f32);
+void TObjPlayer__sub_803D7A54(void *, s32, s32 count, f32 t, void *, void *, void *);
 extern const f32 lbl_805E0E50;
 void TObjPlayer__sub_803D6E8C(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
 void MTXLookAt(void *, void *, void *, void *);
@@ -268,7 +268,7 @@ void TObjPlayer__sub_803D6DDC(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     f32 temp_f2;
     f32 temp_f2_2;
     f32 temp_f2_3;
-    TObjPlayer__sub_803D7A54(arg0, 0x10, arg1, &stack.spC, &stack.sp8, &stack.sp10, farg0);
+    TObjPlayer__sub_803D7A54(arg0, 0x10, arg1, farg0, &stack.spC, &stack.sp8, &stack.sp10);
     temp_f2 = M2C_FIELD(stack.spC, f32 *, 4);
     M2C_FIELD(arg2, f32 *, 0) = (f32) (temp_f2 + (stack.sp10 * (M2C_FIELD(stack.sp8, f32 *, 4) - temp_f2)));
     temp_f2_2 = M2C_FIELD(stack.spC, f32 *, 8);
@@ -287,7 +287,7 @@ void TObjPlayer__sub_803D6E8C(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     Stack_803D6E8C stack;
     f32 temp_f2;
     f32 temp_f2_2;
-    TObjPlayer__sub_803D7A54(arg0, 0x10, arg1, &stack.spC, &stack.sp8, &stack.sp10, farg0);
+    TObjPlayer__sub_803D7A54(arg0, 0x10, arg1, farg0, &stack.spC, &stack.sp8, &stack.sp10);
     temp_f2 = M2C_FIELD(stack.spC, f32 *, 4);
     M2C_FIELD(arg2, f32 *, 0) = (f32) (temp_f2 + (stack.sp10 * (M2C_FIELD(stack.sp8, f32 *, 4) - temp_f2)));
     temp_f2_2 = M2C_FIELD(stack.spC, f32 *, 8);
@@ -448,6 +448,33 @@ void TObjPlayer__sub_803D7940(u8 *keys, u32 stride, u32 count, f32 t, u16 **k0, 
         *frac = (t - *a) / d;
     } else {
         *frac = t - *a;
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma optimize_for_size on
+#pragma use_lmw_stmw off
+void TObjPlayer__sub_803D7A54(void *keys, s32 stride, s32 count, f32 t, void *k0, void *k1, void *frac) {
+    u32 i;
+    u32 *a;
+    u32 *b;
+    s32 d;
+
+    i = TObjPlayer__sub_803D78C0((u8 *) keys, stride, count, (u32) t);
+    a = (u32 *) ((u8 *) keys + i * stride);
+    if (i < (u32) (count - 1)) {
+        b = (u32 *) ((u8 *) keys + (i + 1) * stride);
+    } else {
+        b = (u32 *) keys;
+    }
+    *(u32 **) k0 = a;
+    *(u32 **) k1 = b;
+    d = *b - *a;
+    if (d > 0) {
+        *(f32 *) frac = (t - *a) / d;
+    } else {
+        *(f32 *) frac = t - *a;
     }
 }
 #pragma pop

@@ -93,6 +93,12 @@ u16 TQuestVmDownLoadServer__sub_803EC5F8(u16 arg0);
 s32 TQuestVmDownLoadServer__sub_803EDF64(s16 *, s32, u16 *, s32 *);
 extern s16 lbl_80596264[0x200];
 s32 TQuestVmDownLoadServer__sub_803E64C8(s32 *arg0);
+M2C_UNK TQuestVmDownLoadServer__sub_803EE870(void *, int);
+M2C_UNK TQuestVmDownLoadServer__sub_803E9F20(int);
+M2C_UNK TQuestVmDownLoadServer__sub_803EAE84(int, int, int);
+s32 TQuestVmDownLoadServer__sub_803EDB90(void *, void *);
+extern s32 lbl_805D7898;
+extern s32 lbl_805D789C;
 }
 
 extern "C" {
@@ -136,6 +142,96 @@ s32 TQuestVmDownLoadServer__sub_803E5670(s32 *arg0) {
     return 0;
 }
 
+s32 TQuestVmDownLoadServer__sub_803E577C(u8 *arg0) {
+    s32 temp_r31;
+    s32 temp_r30;
+
+    if ((s32) lbl_805D7834 != 3) {
+        return -1;
+    }
+    temp_r31 = M2C_FIELD(arg0, s32 *, 0);
+    temp_r30 = M2C_FIELD(arg0, s32 *, 4);
+    if ((s32) (lbl_805D78F0 + lbl_805D78EC) >= (s32) lbl_805D78C0) {
+        return 0;
+    }
+    TQuestVmDownLoadServer__sub_803EE870((void *) (lbl_805D78F0), (int) (0));
+    lbl_805D78F0 += lbl_805D78EC;
+    lbl_805D78EC = TQuestVmDownLoadServer__sub_803E9F54(lbl_805D78F0);
+    TQuestVmDownLoadServer__sub_803EC284((int) (0), (int) (1));
+    strcpy((int) (temp_r31), (int) (TQuestVmDownLoadServer__sub_803EE718((void *) (lbl_805D78F0), (void *) (lbl_805D78EC))));
+    strcpy((int) (temp_r30), (int) (TQuestVmDownLoadServer__sub_803EE718((void *) (lbl_805D78F0 + lbl_805D78EC), (void *) ((lbl_805D78C0 - lbl_805D78F0) - lbl_805D78EC))));
+    return TQuestVmDownLoadServer__sub_803EB844(lbl_80595998[lbl_805D78F0].c);
+}
+s32 TQuestVmDownLoadServer__sub_803E5874(s32 *arg0) {
+    s32 a;
+    s32 b;
+    s32 i;
+    s32 n;
+
+    if (lbl_805D7834 != 3) {
+        return -1;
+    }
+    a = arg0[0];
+    b = arg0[1];
+    if (lbl_805D78F0 == 0) {
+        return 0;
+    }
+    TQuestVmDownLoadServer__sub_803EE870((void *)lbl_805D78F0, 0);
+    for (i = 0; i < lbl_805D78F0; i += n) {
+        n = TQuestVmDownLoadServer__sub_803E9F54(i);
+        if (i + n >= lbl_805D78F0) {
+            break;
+        }
+    }
+    lbl_805D78F0 = i;
+    lbl_805D78EC = n;
+    TQuestVmDownLoadServer__sub_803EC284(0, 1);
+    strcpy(a, TQuestVmDownLoadServer__sub_803EE718((void *)lbl_805D78F0, (void *)lbl_805D78EC));
+    strcpy(b, TQuestVmDownLoadServer__sub_803EE718((void *)(lbl_805D78F0 + lbl_805D78EC), (void *)((lbl_805D78C0 - lbl_805D78F0) - lbl_805D78EC)));
+    return TQuestVmDownLoadServer__sub_803EB844(lbl_80595998[lbl_805D78F0].c);
+}
+s32 TQuestVmDownLoadServer__sub_803E5990(u8 *arg0) {
+    s32 temp_r31;
+    s32 temp_r30;
+
+    if ((s32) lbl_805D7834 != 3) {
+        return -1;
+    }
+    temp_r31 = M2C_FIELD(arg0, s32 *, 0);
+    temp_r30 = M2C_FIELD(arg0, s32 *, 4);
+    if ((s32) lbl_805D78EC <= 1) {
+        return 0;
+    }
+    TQuestVmDownLoadServer__sub_803E9F20(lbl_805D78F0);
+    TQuestVmDownLoadServer__sub_803EAE84(lbl_805D78F0, lbl_805D78C0, 1);
+    lbl_805D78EC -= 1;
+    TQuestVmDownLoadServer__sub_803EA9E8(lbl_805D78F0, lbl_805D78C0, 1, lbl_805D78EC);
+    TQuestVmDownLoadServer__sub_803EC284((int) (0), (int) (1));
+    strcpy((int) (temp_r31), (int) (TQuestVmDownLoadServer__sub_803EE718((void *) (lbl_805D78F0), (void *) (lbl_805D78EC))));
+    strcpy((int) (temp_r30), (int) (TQuestVmDownLoadServer__sub_803EE718((void *) (lbl_805D78F0 + lbl_805D78EC), (void *) ((lbl_805D78C0 - lbl_805D78F0) - lbl_805D78EC))));
+    return TQuestVmDownLoadServer__sub_803EB844(lbl_80595998[lbl_805D78F0].c);
+}
+s32 TQuestVmDownLoadServer__sub_803E5A8C(u8 *arg0) {
+    s32 temp_r31;
+    s32 temp_r30;
+
+    if ((s32) lbl_805D7834 != 3) {
+        return -1;
+    }
+    temp_r31 = M2C_FIELD(arg0, s32 *, 0);
+    temp_r30 = M2C_FIELD(arg0, s32 *, 4);
+    if ((s32) (lbl_805D78F0 + lbl_805D78EC) >= (s32) lbl_805D78C0) {
+        return 0;
+    }
+    TQuestVmDownLoadServer__sub_803E9F20(lbl_805D78F0);
+    TQuestVmDownLoadServer__sub_803EAE84(lbl_805D78F0, lbl_805D78C0, 1);
+    lbl_805D78EC += 1;
+    TQuestVmDownLoadServer__sub_803EA9E8(lbl_805D78F0, lbl_805D78C0, 1, lbl_805D78EC);
+    TQuestVmDownLoadServer__sub_803EC284((int) (0), (int) (1));
+    strcpy((int) (temp_r31), (int) (TQuestVmDownLoadServer__sub_803EE718((void *) (lbl_805D78F0), (void *) (lbl_805D78EC))));
+    strcpy((int) (temp_r30), (int) (TQuestVmDownLoadServer__sub_803EE718((void *) (lbl_805D78F0 + lbl_805D78EC), (void *) ((lbl_805D78C0 - lbl_805D78F0) - lbl_805D78EC))));
+    return TQuestVmDownLoadServer__sub_803EB844(lbl_80595998[lbl_805D78F0].c);
+}
 s32 TQuestVmDownLoadServer__sub_803E5EB8(void) {
     if ((s32) lbl_805D782C == 0) {
         return -1;
@@ -156,6 +252,43 @@ s32 TQuestVmDownLoadServer__sub_803E5EFC(void) {
     TQuestVmDownLoadServer__sub_803E6ACC((int) (0));
     lbl_805D7834 = 1;
     return 0;
+}
+s32 TQuestVmDownLoadServer__sub_803E5F5C(s32 *arg0) {
+    s32 n;
+    s32 b;
+    s8 *c;
+    s16 *d;
+    s8 *a;
+    s32 ret;
+
+    if (lbl_805D7834 != 3) {
+        return -1;
+    }
+    n = arg0[0];
+    if (n <= 0 || n > lbl_805D789C) {
+        return 0;
+    }
+    b = arg0[1];
+    a = (s8 *)arg0[2];
+    c = (s8 *)arg0[3];
+    d = (s16 *)arg0[4];
+    lbl_805D7898 = n - 1;
+    strcpy(b, TQuestVmDownLoadServer__sub_803EE718((void *)lbl_805D78F0, (void *)lbl_805D78EC));
+    TQuestVmDownLoadServer__sub_803EE870((void *)lbl_805D78F0, 1);
+    ret = TQuestVmDownLoadServer__sub_803EDB90((void *)lbl_805D78F0, (void *)lbl_805D78EC);
+    lbl_805D78F0 += lbl_805D78EC;
+    if (lbl_805D78F0 >= lbl_805D78C0) {
+        *a = 0;
+        *c = 0;
+        *d = 0;
+        return ret;
+    }
+    lbl_805D78EC = TQuestVmDownLoadServer__sub_803E9F54(lbl_805D78F0);
+    TQuestVmDownLoadServer__sub_803EC284(0, 1);
+    strcpy((int)a, TQuestVmDownLoadServer__sub_803EE718((void *)lbl_805D78F0, (void *)lbl_805D78EC));
+    strcpy((int)c, TQuestVmDownLoadServer__sub_803EE718((void *)(lbl_805D78F0 + lbl_805D78EC), (void *)((lbl_805D78C0 - lbl_805D78F0) - lbl_805D78EC)));
+    *d = (s16)TQuestVmDownLoadServer__sub_803EB844(lbl_80595998[lbl_805D78F0].c);
+    return ret;
 }
 s32 TQuestVmDownLoadServer__sub_803E60CC(s32 *arg0) {
     s32 temp_r31;
