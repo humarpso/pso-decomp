@@ -42,6 +42,10 @@ char *strncpy(char *, const char *, unsigned long);
 extern u8 lbl_8058B4A0[];
 extern M2C_UNK lbl_805D765C;
 void TLobby__sub_803D3860(char *arg0);
+extern P_803D33D4 lbl_805D7664;
+extern P_803D33E4 lbl_805D766C;
+extern P_803D346C lbl_8058B5A0[];
+void TLobby__sub_803D34B0(s32 arg0, void (*arg1)(s32), s32 arg2);
 }
 
 extern "C" {
@@ -84,6 +88,18 @@ void TLobby__sub_803D346C(s32 arg0) {
         lbl_8058B5A0[arg0].fn(lbl_8058B5A0[arg0].arg);
     }
 }
+
+void TLobby__sub_803D34B0(s32 arg0, void (*arg1)(s32), s32 arg2) {
+    if ((void (*)(s32))lbl_805D766C.a != 0) {
+        ((void (*)(s32))lbl_805D766C.a)(lbl_805D766C.b);
+    }
+    lbl_8058B5A0[arg0].fn = arg1;
+    lbl_8058B5A0[arg0].arg = arg2;
+    if ((void (*)(s32))lbl_805D7664.a != 0) {
+        ((void (*)(s32))lbl_805D7664.a)(lbl_805D7664.b);
+    }
+}
+
 void TLobby__sub_803D3860(char *arg0) {
     strncpy((char *)lbl_8058B4A0, arg0, 0xFF);
     if ((*(P_803D3860 *)&lbl_805D765C).fn != 0) {

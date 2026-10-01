@@ -20,6 +20,15 @@ struct Mtx_803DC994 { f32 m[3][4]; };
 
 struct C_803DCBF0 { u32 a; u32 b; u32 c; u32 d; u32 e; u32 f; u32 g; u32 h; u32 i; };
 
+typedef void (*RecoveredCallback_1268626c296b)(void *);
+struct Node_803DCB40 {
+    u32 flags;
+    u32 f4;
+    u8 pad8[0x2C - 0x8];
+    struct Node_803DCB40 *child;
+    struct Node_803DCB40 *next;
+};
+
 extern "C" {
 extern RecoveredGlobal_803DCBD8_lbl_8058D380 lbl_8058D380;
 extern u8 *lbl_805D774C;
@@ -47,6 +56,12 @@ extern u32 lbl_8047E408[];
 extern u8 *lbl_805D774C;
 void TObjPlayer__sub_803DCD38(s32 arg0);
 void TObjPlayer__sub_803DCBF0(C_803DCBF0 *arg0);
+s32 TObjPlayer__sub_803D7CA4(int);
+s32 TObjPlayer__sub_803D9B2C();
+s32 TObjPlayer__sub_803D9B78();
+extern struct MotionCtx_803DC894 * const lbl_805D4698;
+extern RecoveredCallback_1268626c296b lbl_805D76B8;
+void TObjPlayer__sub_803DCB40(struct Node_803DCB40 *arg0);
 }
 
 extern "C" {
@@ -109,6 +124,26 @@ void TObjPlayer__sub_803DC994(struct Mtx_803DC994 *src) {
     dst->m[2][0] = src->m[2][0];
     dst->m[2][1] = src->m[2][1];
     dst->m[2][2] = src->m[2][2];
+}
+
+void TObjPlayer__sub_803DCB40(struct Node_803DCB40 *arg0) {
+    u32 t;
+    do {
+        TObjPlayer__sub_803D9B2C();
+        TObjPlayer__sub_803D7CA4((int) arg0);
+        if (lbl_805D76B8 != NULL) {
+            lbl_805D76B8(arg0);
+        }
+        t = arg0->f4;
+        if (t != 0 && (arg0->flags & 8) == 0) {
+            ((void (*)(u32, struct MotionCtx_803DC894 *))lbl_805D4698->fn)(t, lbl_805D4698);
+        }
+        if (arg0->child != NULL) {
+            TObjPlayer__sub_803DCB40(arg0->child);
+        }
+        TObjPlayer__sub_803D9B78();
+        arg0 = arg0->next;
+    } while (arg0 != NULL);
 }
 
 void TObjPlayer__sub_803DCBD8(s32 arg0) {

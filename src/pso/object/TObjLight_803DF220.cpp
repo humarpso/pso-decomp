@@ -20,6 +20,9 @@ struct RecoveredGlobal_803DF528_TObjLight__data_8058D528 {
 
 
 
+
+typedef struct GXColor_803DF268 { u8 r, g, b, a; } GXColor_803DF268;
+
 extern "C" {
 M2C_UNK load_camera_view_matrix();
 M2C_UNK TObjPlayer__sub_803E21B8();
@@ -40,6 +43,8 @@ void reset_player_transform(void);
 void TObjPlayer__sub_803DF5E4(void *, void *);
 void TObjPlayer__sub_803DF768(s32 arg0);
 void TObjPlayer__sub_803DF578(void *arg0, void *arg1, s32 arg2);
+void GXSetChanAmbColor(s32 chan, GXColor_803DF268 color);
+void TObjLight__sub_803DF268(f32 r, f32 g, f32 b);
 }
 
 extern "C" {
@@ -54,6 +59,26 @@ void TObjLight__sub_803DF220(s32 arg0) {
     if (arg0 < 0 || arg0 > 5) {
         OSPanic(lbl_804FC75C, 0x12, lbl_804FC768);
     }
+}
+
+
+
+void TObjLight__sub_803DF268(f32 r, f32 g, f32 b) {
+    GXColor_803DF268 c;
+    if (r >= 1.0f) {
+        r = 1.0f;
+    }
+    if (g >= 1.0f) {
+        g = 1.0f;
+    }
+    if (b >= 1.0f) {
+        b = 1.0f;
+    }
+    c.r = (u8)(255.0f * r);
+    c.g = (u8)(255.0f * g);
+    c.b = (u8)(255.0f * b);
+    c.a = 0xFF;
+    GXSetChanAmbColor(4, c);
 }
 
 void TObjLight__sub_803DF31C(s32 arg0, s32 arg1) {

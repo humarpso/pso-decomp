@@ -26,6 +26,16 @@ extern M2C_UNK lbl_8047D908[];
 extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
 extern s32 lbl_805D75FC;
 void TLobby__sub_803CF250(u8 *arg0);
+extern M2C_UNK lbl_8047D850[];
+extern M2C_UNK lbl_8047D86C[];
+extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
+extern s32 lbl_805D75FC;
+s32 TLobby__sub_803CF058(u8 *arg0, s32 arg1, s32 arg2);
+extern M2C_UNK lbl_8047D884[];
+extern M2C_UNK lbl_8047D8A0[];
+extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
+extern s32 lbl_805D75FC;
+s32 TLobby__sub_803CF100(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -65,6 +75,49 @@ void TLobby__sub_803CEFC8(u8 *arg0) {
         }
     }
 }
+
+s32 TLobby__sub_803CF058(u8 *arg0, s32 arg1, s32 arg2) {
+    s32 (*temp_r12)(s32, s32, s32);
+    s32 var_r31;
+    if (arg0 == NULL) {
+        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) lbl_805D75F8) != NULL) {
+            lbl_805D75F8(lbl_805D75FC, lbl_8047D850, 0);
+        }
+        return 0;
+    }
+    temp_r12 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0), s32 (**)(s32, s32, s32), 0x20);
+    if (temp_r12 != NULL) {
+        var_r31 = temp_r12(M2C_FIELD(arg0, s32 *, 4), arg1, arg2);
+    } else {
+        var_r31 = 0;
+        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) lbl_805D75F8) != NULL) {
+            lbl_805D75F8(lbl_805D75FC, lbl_8047D86C, 0);
+        }
+    }
+    return var_r31;
+}
+
+s32 TLobby__sub_803CF100(u8 *arg0, s32 arg1, s32 arg2) {
+    s32 (*temp_r12)(s32, s32, s32);
+    s32 var_r31;
+    if (arg0 == NULL) {
+        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) lbl_805D75F8) != NULL) {
+            lbl_805D75F8(lbl_805D75FC, lbl_8047D884, 0);
+        }
+        return 0;
+    }
+    temp_r12 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0), s32 (**)(s32, s32, s32), 0x18);
+    if (temp_r12 != NULL) {
+        var_r31 = temp_r12(M2C_FIELD(arg0, s32 *, 4), arg1, arg2);
+    } else {
+        var_r31 = 0;
+        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) lbl_805D75F8) != NULL) {
+            lbl_805D75F8(lbl_805D75FC, lbl_8047D8A0, 0);
+        }
+    }
+    return var_r31;
+}
+
 s32 TLobby__sub_803CF1A8(u8 *arg0) {
     s32 (*temp_r12)(s32);
     s32 var_r31;

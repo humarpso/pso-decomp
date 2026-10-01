@@ -5,6 +5,24 @@ struct Tex_803DB15C { u32 fmt; u32 pad4; u32 pad8; u32 w; u32 h; u32 sz; u32 fla
 
 struct Buf_803DB1B4 { u8 pad[0x14]; u32 size; u32 pad18; void *mem; };
 
+struct Hdr_803DAFA8 {
+    s32 magic;
+    s32 size;
+    u16 f8;
+    s16 fa;
+    s16 fc;
+    s16 fe;
+    u8 data[1];
+};
+
+struct Out_803DAFA8 {
+    void *buf;
+    u16 f4;
+    s16 f6;
+    s16 f8;
+    s16 fa;
+};
+
 extern "C" {
 extern void *lbl_805D7754;
 void OSFreeToHeap(void *heap, void *p);
@@ -17,14 +35,65 @@ void fn_803DB15C(Tex_803DB15C *arg0);
 extern void *lbl_805D7754;
 void *OSAllocFromHeap(void *, u32);
 s32 fn_803DB1B4(Buf_803DB1B4 *arg0);
+void TObjPlayer__sub_803DA7E0(void);
+void fn_803DAF30(u32 *p);
+void move_data__6TLobbyFv(void *, void *, int);
+s32 fn_803DAFA8(struct Hdr_803DAFA8 *arg0, struct Out_803DAFA8 *arg1);
+void fn_803DB15C(Tex_803DB15C *arg0);
+s32 fn_803DB0AC(Tex_803DB15C *arg0, u32 arg1, u32 arg2, u32 arg3);
 }
 
 extern "C" {
+
+s32 fn_803DAFA8(struct Hdr_803DAFA8 *arg0, struct Out_803DAFA8 *arg1) {
+    s32 sp8;
+    TObjPlayer__sub_803DA7E0();
+    sp8 = arg0->magic;
+    fn_803DAF30((u32 *)&sp8);
+    switch (sp8) {
+    case 0x4C505647:
+        sp8 = arg0->size;
+        fn_803DAF30((u32 *)&sp8);
+        move_data__6TLobbyFv(arg1->buf, arg0->data, sp8 - 8);
+        arg1->f6 = arg0->fa;
+        arg1->f8 = arg0->fc;
+        arg1->fa = arg0->fe;
+        arg1->f4 = arg0->f8;
+        break;
+    default:
+        return -1;
+    }
+    return 1;
+}
 
 void fn_803DB05C(s32 arg0, s32 arg1, u16 arg2, void *arg3) {
     u32 sp8[3];
     GXInitTlutObj(sp8, arg3, arg1, arg2, arg1);
     GXLoadTlut(sp8, arg0);
+}
+
+s32 fn_803DB0AC(Tex_803DB15C *arg0, u32 arg1, u32 arg2, u32 arg3) {
+    s32 ret = 0;
+    u32 flags = 0;
+    arg0->fmt = (u8)arg3;
+    arg0->w = arg1;
+    arg0->h = arg2;
+    if ((arg3 & 0x100) && arg1 != arg2) {
+        ret = 4;
+    }
+    arg0->flags = 0;
+    if (arg3 & 0x100) {
+        flags |= 0x80000000;
+    }
+    if (arg3 & 0x200) {
+        flags |= 0x8000;
+    }
+    if (arg3 & 0x800) {
+        flags |= 0x40000000;
+    }
+    arg0->flags |= flags;
+    arg0->sz = ((s32 (*)(Tex_803DB15C *))fn_803DB15C)(arg0);
+    return ret;
 }
 
 void fn_803DB15C(Tex_803DB15C *arg0) {

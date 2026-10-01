@@ -31,12 +31,6 @@ extern "C" {
 void TWindow__close(void*);
 }
 
-void TChallenge4PItemSelect::run_task() {}
-
-TChallenge4PItemSelect::~TChallenge4PItemSelect() {
-    if (m_2c != nullptr) { TWindow__close(m_2c); m_2c = nullptr; }
-}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -153,6 +147,9 @@ void run_task__22TChallenge4PItemSelectFv(u8 *arg0) {
     }
 }
 
+TChallenge4PItemSelect::~TChallenge4PItemSelect() {
+    if (m_2c != nullptr) { TWindow__close(m_2c); m_2c = nullptr; }
+}
 void *TChallenge4PItemSelect__ct(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TChallenge4PItemSelect;

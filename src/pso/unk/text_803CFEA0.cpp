@@ -15,6 +15,12 @@ struct S_803D0014 { u8 pad[2]; s8 f; };
 
 struct G_803D0014 { M2C_UNK value; u8 remaining[0x14]; };
 
+struct File_803D0654 {
+    u8 pad[0x18];
+    s32 size;
+    s32 pos;
+};
+
 extern "C" {
 extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047DAE4;
 extern s32 lbl_805D7608;
@@ -32,6 +38,10 @@ extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047DAE4;
 extern s32 lbl_805D7608;
 extern RecoveredCallback_4873a87e26d6 lbl_805D760C;
 s32 TLobby__sub_803D0014(S_803D0014 *arg0);
+extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047DAE4;
+extern s32 lbl_805D7608;
+extern RecoveredCallback_4873a87e26d6 lbl_805D760C;
+s32 TLobby__sub_803D0654(struct File_803D0654 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -74,6 +84,24 @@ s32 TLobby__sub_803D0600(u8 *arg0) {
         return 0;
     }
     return M2C_FIELD(arg0, s32 *, 0x1c);
+}
+s32 TLobby__sub_803D0654(struct File_803D0654 *arg0, s32 arg1, s32 arg2) {
+    if (arg0 == NULL) {
+        if (lbl_805D760C != NULL) {
+            lbl_805D760C(lbl_805D7608, ((M2C_UNK *)&lbl_8047DAE4), 0);
+        }
+        return 0;
+    }
+    if (arg2 == 0) {
+        arg0->pos = arg1;
+    } else if (arg2 == 2) {
+        arg0->pos = arg0->size + arg1;
+    } else if (arg2 == 1) {
+        arg0->pos = arg0->pos + arg1;
+    }
+    arg0->pos = (arg0->pos < arg0->size) ? arg0->pos : arg0->size;
+    arg0->pos = (arg0->pos > 0) ? arg0->pos : 0;
+    return arg0->pos;
 }
 
 }

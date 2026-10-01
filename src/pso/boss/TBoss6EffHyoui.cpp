@@ -25,12 +25,6 @@ extern "C" {
 void request_destroy__11TBoss4Type2FUi(void*);
 }
 
-void TBoss6EffHyoui::run_task() {}
-
-TBoss6EffHyoui::~TBoss6EffHyoui() {
-    if (m_1c != nullptr) request_destroy__11TBoss4Type2FUi(m_1c);
-}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -65,6 +59,9 @@ void run_task__14TBoss6EffHyouiFv(u8 *arg0) {
     }
 }
 
+TBoss6EffHyoui::~TBoss6EffHyoui() {
+    if (m_1c != nullptr) request_destroy__11TBoss4Type2FUi(m_1c);
+}
 void *TBoss6EffHyoui__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
     u8 *self = (u8 *)arg0;
     u8 *p;

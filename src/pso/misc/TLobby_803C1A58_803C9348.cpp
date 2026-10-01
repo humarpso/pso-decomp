@@ -63,6 +63,26 @@ struct Obj_803C96E0 { u8 pad[0x42]; s16 vals[1]; };
 typedef s32 M2C_UNK;
 struct S_803C96F0 { u8 pad0[3]; s8 count; u8 pad4[8]; void *p; u8 pad10[0x32]; s16 vals[1]; };
 
+typedef struct Ent_803C9608 {
+    char state;
+    u8 pad[0xA7];
+} Ent_803C9608;
+
+typedef struct Ent_803CA774 {
+    s32 off;
+    s32 len;
+} Ent_803CA774;
+
+typedef struct Cb_803CBA58 {
+    void (*fn)(s32);
+    s32 arg;
+} Cb_803CBA58;
+
+typedef struct Cfg_803CBA58 {
+    u8 pad0[0x10];
+    s32 prio;
+} Cfg_803CBA58;
+
 extern "C" {
 M2C_UNK reset_flag__6TLobbyFPv(int);
 M2C_UNK release_ref__6TLobbyFv();
@@ -115,13 +135,49 @@ extern volatile s32 lbl_805D75C8;
 extern s32 lbl_805D75C4;
 void TLobby__sub_803CBBB0(void);
 extern const char *const volatile lbl_805E0D78;
-void TLobby__sub_803C9608(void);
 void ARAlloc(void);
 void TLobby__sub_803CB81C(void);
 M2C_UNK TLobby__sub_803CBF50(void *);
 M2C_UNK TLobby__sub_803C57C8(void *);
 extern u8 lbl_8047C690[];
 void TLobby__sub_803C96F0(S_803C96F0 *arg0, s32 arg1, s16 arg2);
+M2C_UNK GXFlush();
+M2C_UNK release_ref__6TLobbyFv();
+M2C_UNK init_once__6TLobbyFv();
+M2C_UNK TLobby__sub_803CA8B4(Ent_803C9608 *);
+M2C_UNK run_sequence__6TLobbyFv();
+extern Ent_803C9608 lbl_80572120[16];
+extern s32 lbl_805D7564;
+void TLobby__sub_803C9608(void);
+M2C_UNK release_ref__6TLobbyFv();
+M2C_UNK init_once__6TLobbyFv();
+M2C_UNK TLobby__sub_803C57C8(void *);
+void TLobby__sub_803C9CBC(u8 *arg0);
+void TLobby__sub_803CA0C8(void *, s32);
+s32 TLobby__sub_803D2474(void *, int);
+extern char lbl_8047C6C0[];
+void TLobby__sub_803CA774(u8 *arg0, u8 *arg1, s32 arg2);
+void TLobby__sub_803CE544(void *, int);
+void TLobby__sub_803CF958(const char *);
+void TLobby__sub_803CFAA8(const char *, void *, int);
+void TLobby__sub_803D0DE4(int, int, int, int);
+void TLobby__sub_803CB7F8(M2C_UNK arg0, s32 arg1);
+void TLobby__sub_803D0D84(void);
+void TLobby__sub_803D43B8(void);
+extern const char lbl_805E0D70[4];
+extern const char lbl_805E0D74[4];
+void TLobby__sub_803CB74C(s32 *arg0);
+M2C_UNK OSSuspendThread(void *);
+M2C_UNK OSSetThreadPriority(void *, int);
+s32 TLobby__sub_803D3224(int);
+extern Cfg_803CBA58 lbl_804F9D80;
+extern u8 lbl_80575E80[];
+extern Cb_803CBA58 lbl_805D4680;
+extern s32 lbl_805D7598;
+extern s32 lbl_805D75A4;
+extern s32 lbl_805D75BC;
+extern s32 lbl_805D75C0;
+void TLobby__sub_803CBA58(void);
 }
 
 extern "C" {
@@ -180,6 +236,25 @@ void TLobby__sub_803C94D8(void) {
 
 s16 get_field_60__6TLobbyFPv(u8 *arg0) {
     return M2C_FIELD(arg0, s16 *, 0x60);
+}
+
+void TLobby__sub_803C9608(void) {
+    s32 i;
+    if (lbl_805D7564 == 0) {
+        init_once__6TLobbyFv();
+        lbl_805D7564 = 1;
+        GXFlush();
+        lbl_805D7564 = 2;
+        for (i = 0; i < 16; i++) {
+            if (lbl_80572120[i].state == 1) {
+                TLobby__sub_803CA8B4(&lbl_80572120[i]);
+            }
+        }
+        lbl_805D7564 = 3;
+        run_sequence__6TLobbyFv();
+        lbl_805D7564 = 0;
+        release_ref__6TLobbyFv();
+    }
 }
 
 void set_field_6d__6TLobbyFPvc(u8 *arg0, s8 arg1) {
@@ -348,6 +423,26 @@ void TLobby__sub_803C9FCC(Stream_803C9FCC *self) {
 }
 
 struct Stream_803C9FCC;
+
+void TLobby__sub_803CA774(u8 *arg0, u8 *arg1, s32 arg2) {
+    s32 r;
+    TLobby__sub_803C9CBC(arg0);
+    if (arg2 >= ((Ent_803CA774 *)arg1)[0].len || arg2 < 0) {
+        return;
+    }
+    init_once__6TLobbyFv();
+    r = TLobby__sub_803D2474(arg1 + *(s32 *)(arg1 + (arg2 + 1) * 8), 0x40000000);
+    if (r == 0) {
+        release_ref__6TLobbyFv();
+        TLobby__sub_803C57C8(lbl_8047C6C0);
+        return;
+    }
+    TLobby__sub_803CA0C8(arg0, r);
+    arg0[2] = 2;
+    arg0[0x98] = 0;
+    release_ref__6TLobbyFv();
+}
+
 void TLobby__sub_803CA824(Stream_803CA824 *self, const char *name) {
     TLobby__sub_803C9CBC((u8 *)self);
     init_once__6TLobbyFv();
@@ -474,6 +569,19 @@ void TLobby__sub_803CB71C(void) {
     memset((void *) (&lbl_80575B40.value), (int) (0), (int) (0x340));
 }
 
+void TLobby__sub_803CB74C(s32 *arg0) {
+    TLobby__sub_803CE544((void *)TLobby__sub_803CB7F8, 0);
+    TLobby__sub_803CFAA8(lbl_805E0D70, (void *)TLobby__sub_803D43B8, 0);
+    TLobby__sub_803CE544((void *)TLobby__sub_803CB7F8, 0);
+    TLobby__sub_803CFAA8(lbl_805E0D74, (void *)TLobby__sub_803D0D84, 0);
+    TLobby__sub_803CF958(lbl_805E0D74);
+    if (arg0 != NULL) {
+        TLobby__sub_803D0DE4(0, 0, 0, *arg0);
+    } else {
+        TLobby__sub_803D0DE4(0, 0, 0, 0);
+    }
+}
+
 void TLobby__sub_803CB7F8(M2C_UNK arg0, s32 arg1) {
     TLobby__sub_803C57C8((void *) (arg1));
 }
@@ -495,6 +603,23 @@ void TLobby__sub_803CBA18(void) {
 void TLobby__sub_803CBA38(void) {
     TLobby__sub_803D3344();
 }
+
+void TLobby__sub_803CBA58(void) {
+    while (lbl_805D75C0 == 1) {
+        if (TLobby__sub_803D3224(lbl_805D75A4++) == 0 || lbl_805D7598 == 1) {
+            if (lbl_805D7598 == 1) {
+                lbl_805D7598 = 0;
+                OSSetThreadPriority(lbl_80575E80, lbl_804F9D80.prio);
+            }
+            if (lbl_805D4680.fn != NULL) {
+                lbl_805D4680.fn(lbl_805D4680.arg);
+            }
+            OSSuspendThread(lbl_80575E80);
+        }
+    }
+    lbl_805D75BC = 1;
+}
+
 void TLobby__sub_803CBBB0(void) {
     while (lbl_805D75C8 == 1) {
         lbl_805D759C++;

@@ -1,9 +1,5 @@
 #include "pso/TItemDisconnectCtrl.h"
 
-void TItemDisconnectCtrl::run_task() {}
-
-TItemDisconnectCtrl::~TItemDisconnectCtrl() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -34,6 +30,7 @@ void run_task__19TItemDisconnectCtrlFv(s32 arg0) {
     }
 }
 
+TItemDisconnectCtrl::~TItemDisconnectCtrl() {}
 void *TItemDisconnectCtrl__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0, tl_05);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TItemDisconnectCtrl;

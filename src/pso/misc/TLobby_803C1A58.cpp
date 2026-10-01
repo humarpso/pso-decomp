@@ -19,6 +19,13 @@ struct RecoveredGlobal_803C6800_lbl_80573AC0 {
     u8 remaining[0x167C];
 };
 
+typedef s32 M2C_UNK;
+typedef struct S_803C6138 {
+    u8 pad0[0x80];
+    u8 *f80;
+    u8 *f84;
+} S_803C6138;
+
 extern "C" {
 void release_ref__6TLobbyFv(void);
 void init_once__6TLobbyFv(void);
@@ -57,6 +64,12 @@ void TLobby__sub_803C6064(u8 *arg0);
 s32 TLobby__sub_803CF1A8(int);
 s32 TLobby__sub_803C85AC(u8 *arg0, s32 *arg1);
 s32 TLobby__sub_803C9284(u16 *p, s32 size, s32 *out);
+void release_ref__6TLobbyFv(void);
+void init_once__6TLobbyFv(void);
+M2C_UNK memset(void *, int, int);
+void TLobby__sub_803C6138(S_803C6138 *arg0);
+s32 ARStartDMA(u8 *arg0, s32 arg1, s16 *arg2, u8 *arg3, s8 *arg4, s8 *arg5, u8 *arg6, s32 *arg7, s32 *arg8, s32 *arg9);
+s32 DVDLowSeek(u16 *arg0, s32 arg1, s32 *arg2);
 }
 
 extern "C" {
@@ -198,6 +211,26 @@ void TLobby__sub_803C6118(u8 *arg0) {
 typedef char RecoveredGlobal_803C6830_lbl_80573AC0_size[sizeof(RecoveredGlobal_803C6830_lbl_80573AC0) == 0x1680 ? 1 : -1];
 
 typedef char RecoveredGlobal_803C6800_lbl_80573AC0_size[sizeof(RecoveredGlobal_803C6800_lbl_80573AC0) == 0x1680 ? 1 : -1];
+
+void TLobby__sub_803C6138(S_803C6138 *arg0) {
+    u8 *p;
+    if (arg0 != NULL) {
+        init_once__6TLobbyFv();
+        p = arg0->f80;
+        if (p != NULL && p != NULL) {
+            *p = 0;
+            memset(p, 0, 0x90);
+        }
+        p = arg0->f84;
+        if (p != NULL && p != NULL) {
+            *p = 0;
+            memset(p, 0, 0x90);
+        }
+        memset(arg0, 0, 4);
+        release_ref__6TLobbyFv();
+    }
+}
+
 void TLobby__sub_803C6800(void) {
     memset((void *) (&(*(RecoveredGlobal_803C6800_lbl_80573AC0 *)&lbl_80573AC0).value), (int) (0), (int) (0x1680));
 }
@@ -350,6 +383,27 @@ s32 TLobby__sub_803C9284(u16 *p, s32 size, s32 *out) {
         return 0;
     }
     *out = size;
+    return 1;
+}
+s32 DVDLowSeek(u16 *arg0, s32 arg1, s32 *arg2) {
+    s32 a7;
+    s32 a8;
+    s32 a9;
+    s16 len;
+    u8 b3;
+    s8 b4;
+    s8 b5;
+    u8 b6;
+    if (arg1 < 2) {
+        return 0;
+    }
+    if (*arg0 != 0x8000) {
+        return 0;
+    }
+    if (ARStartDMA((u8 *)arg0, arg1, &len, &b3, &b4, &b5, &b6, &a7, &a8, &a9) < 0) {
+        return 0;
+    }
+    *arg2 = len;
     return 1;
 }
 

@@ -28,8 +28,8 @@ struct G_803DBC1C { u8 pad[0x7C]; u32 f7c; u32 f80; u32 f84; u32 f88; };
 
 struct Arr_803DC3BC { u8 idx; u8 stride; u8 pad[6]; void *base; u32 pad2; };
 
+typedef s32 M2C_UNK;
 extern "C" {
-M2C_UNK TObjPlayer__sub_803DC76C(int);
 void TOSignCave03__sub_803DB510(s32 arg0);
 M2C_UNK Dolphin_GXSetVtxDesc(int, void *);
 M2C_UNK GXClearVtxDesc();
@@ -89,6 +89,24 @@ extern S_803DB560 lbl_8058CD80;
 void reset_particle_counter__10TObjPlayerFv(void);
 void TParticleCtrl__sub_803E2010(void);
 void prepare_ginja_model(void);
+void GXSetTexCoordGen2(s32 dst, u32 func, u32 src, s32 mtx, s32 normalize, s32 pt);
+extern s32 lbl_804FC5A4[];
+extern s32 lbl_804FC63C[];
+extern S_803DB560 lbl_8058CD80;
+extern s32 lbl_805D7700;
+extern s32 some_id_805c6f74;
+void OSDetachThread(u32 arg0);
+void PSMTXConcat(void *, void *, void *);
+void TObjPlayer__sub_803764EC(void *, void *);
+void PSMTXInverse(void *, void *);
+void PSMTXTrans(void *, f32, f32, f32);
+void PSMTXScale(void *, f32, f32, f32);
+void GXLoadPosMtxImm(void *, void *);
+void GXLoadNrmMtxImm(void *, void *);
+void GXLoadTexMtxImm(void *, int, int);
+extern s32 lbl_805D7774;
+extern s32 some_id_805c6f74;
+M2C_UNK TObjPlayer__sub_803DC76C(int arg0);
 }
 
 extern "C" {
@@ -104,7 +122,7 @@ s32 TObjPlayer__sub_803DB4E8(s32 arg0) {
 #pragma pop
 
 void TOSignCave03__sub_803DB510(s32 arg0) {
-    TObjPlayer__sub_803DC76C((int) (0));
+    TObjPlayer__sub_803DC76C((int)((int) (0)));
     prepare_ginja_model();
     draw_ginja_model_lists((GinjaModel *)arg0);
     TObjPlayer__sub_803DC6F4();
@@ -191,6 +209,26 @@ void set_ginja_tev_order(u32 parameter) {
     else
         GXSetTevOp(selectedStage, 0);
     GXSetTevOrder(stage, coordinate, texture, channel);
+}
+
+void OSDetachThread(u32 arg0) {
+    u32 idx;
+    s32 coord;
+    u32 func;
+    u32 src;
+    s32 mtx;
+    idx = (arg0 & 0xF0000) >> 16;
+    if ((u32)some_id_805c6f74 & 0x80000) {
+        idx += lbl_8058CD80.reserved70[4];
+    }
+    coord = lbl_804FC5A4[idx];
+    func = (arg0 & 0xF000) >> 12;
+    src = (arg0 & 0xFF0) >> 4;
+    mtx = lbl_804FC63C[arg0 & 0xF];
+    if (lbl_805D7700 != 0 && mtx == 0x3C) {
+        mtx = 0x1E;
+    }
+    GXSetTexCoordGen2(coord, func, src, mtx, 0, 0x7D);
 }
 
 #pragma push
@@ -314,5 +352,22 @@ void TObjPlayer__sub_803DC6F4(void) {
     }
 }
 #pragma pop
+
+M2C_UNK TObjPlayer__sub_803DC76C(int arg0) {
+    f32 s[3][4];
+    f32 t[3][4];
+    f32 m[3][4];
+    GXLoadPosMtxImm((void *)lbl_805D7774, (void *)arg0);
+    GXLoadNrmMtxImm((void *)lbl_805D7774, (void *)arg0);
+    if ((u32)some_id_805c6f74 & 0x100000) {
+        PSMTXScale(s, -0.5f, -0.5f, 0.0f);
+        PSMTXTrans(t, 0.5f, 0.5f, 1.0f);
+        PSMTXInverse((void *)lbl_805D7774, m);
+        TObjPlayer__sub_803764EC(m, m);
+        PSMTXConcat(s, m, m);
+        PSMTXConcat(t, m, m);
+        GXLoadTexMtxImm(m, 0x2A, 0);
+    }
+}
 
 }

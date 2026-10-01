@@ -30,6 +30,16 @@ struct Obj_803DAB7C { Ent_803DAB7C *arr; };
 
 struct Ent_803DAB9C { u32 a; u32 b; u32 c; u8 *d; u32 e; u32 f; };
 
+struct Inner_803DAD84 {
+    u8 pad[0x1C];
+    u32 flags;
+};
+
+struct Obj_803DAD84 {
+    u8 pad[0xC];
+    struct Inner_803DAD84 *inner;
+};
+
 extern "C" {
 extern s32 lbl_805D7768;
 void TObjPlayer__sub_803DAC1C(s32 arg0);
@@ -56,6 +66,11 @@ s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 extern S_803DA7E0 lbl_8058D470;
 extern s32 lbl_805D7768;
 s32 TObjPlayer__sub_803DAB9C(s32 arg0, s32 arg1);
+s32 TObjPlayer__sub_803DA8B4(u8 *arg0, s32 arg1);
+s32 TObjPlayer__sub_803DB23C(void *);
+s32 TObjPlayer__sub_803DB244(void);
+extern S_803DA7E0 lbl_8058D470;
+s32 TObjPlayer__sub_803DAD84(struct Obj_803DAD84 *arg0, s32 arg1, u32 arg2);
 }
 
 extern "C" {
@@ -192,6 +207,24 @@ s32 TObjPlayer__sub_803DAD28(u32 arg0) {
     return 1;
 }
 #pragma pop
+
+s32 TObjPlayer__sub_803DAD84(struct Obj_803DAD84 *arg0, s32 arg1, u32 arg2) {
+    struct Inner_803DAD84 *p = arg0->inner;
+    if ((p->flags & 0x80000000) != 0 && arg2 != 0) {
+        if (TObjPlayer__sub_803DB23C((u8 *)p + 4) != 0) {
+            lbl_8058D470.c = 8;
+            return -1;
+        }
+    } else {
+        if (((s32 (*)(u8 *))TObjPlayer__sub_803DA8B4)((u8 *)p + 4) != 0) {
+            lbl_8058D470.c = 8;
+            return -1;
+        }
+    }
+    while (TObjPlayer__sub_803DB244() != 0) {
+    }
+    return 1;
+}
 
 #pragma push
 #pragma opt_common_subs off

@@ -87,14 +87,20 @@ force_active:
   - __dt__12TItemEffCaneFv
   - __dt__12TItemTexLoadFv
   - __dt__12TMemberCheckFv
+  - __dt__12TObjRainCtrlFv
   - __dt__13TItemMenuCtrlFv
   - __dt__14TAdLoadQuestGCFv
+  - __dt__14TBoss6EffHyouiFv
   - __dt__14TSetEvtDestroyFv
+  - __dt__14TWindowCtrlSubFv
   - __dt__15TAdDrawLineCtrlFv
+  - __dt__15TBoss6SwordShotFv
   - __dt__15TItemEffLandHitFv
   - __dt__15TItemMagGrowEffFv
+  - __dt__15TObjDeadListWinFv
   - __dt__15TObjSoloPlayWinFv
   - __dt__16TBoss3VoloptCtrlFv
+  - __dt__16TChCrLoadGmNjReqFv
   - __dt__16TItemReverseTechFv
   - __dt__17TOSwitchAttackSubFv
   - __dt__17TObjItemNameEntryFv
@@ -102,9 +108,16 @@ force_active:
   - __dt__18TItemLockCountCtrlFv
   - __dt__18TOChatSensorFolderFv
   - __dt__18TObjItemNameSelectFv
+  - __dt__18TObjTailsTailsMoveFv
   - __dt__19THunterGuildWarningFv
+  - __dt__19TItemDisconnectCtrlFv
   - __dt__19TItemShootModelRotZFv
+  - __dt__19TOChatSensorCaptureFv
+  - __dt__19TObjBoss2RaftSplashFv
+  - __dt__19TObjBoss7RaftSplashFv
   - __dt__21TItemEffArmorParticleFv
+  - __dt__21TODummyKeyCave01SoundFv
+  - __dt__22TChallenge4PItemSelectFv
   - __dt__7TEffHitFv
   - __dt__7TEndingFv
   - __dt__9TEffGuardFv
@@ -152,18 +165,31 @@ force_active:
   - run_task__12TItemEffCaneFv
   - run_task__12TItemTexLoadFv
   - run_task__12TMemberCheckFv
+  - run_task__12TObjRainCtrlFv
   - run_task__14TAdLoadQuestGCFv
+  - run_task__14TBoss6EffHyouiFv
   - run_task__14TSetEvtDestroyFv
+  - run_task__14TWindowCtrlSubFv
   - run_task__15TAdDrawLineCtrlFv
+  - run_task__15TBoss6SwordShotFv
   - run_task__15TItemEffLandHitFv
   - run_task__15TItemMagGrowEffFv
+  - run_task__15TObjDeadListWinFv
   - run_task__15TObjSoloPlayWinFv
   - run_task__16TBoss3VoloptCtrlFv
+  - run_task__16TChCrLoadGmNjReqFv
   - run_task__16TItemReverseTechFv
   - run_task__17TOSwitchAttackSubFv
   - run_task__18TAdLoadQuestLineGCFv
+  - run_task__18TObjTailsTailsMoveFv
   - run_task__19THunterGuildWarningFv
+  - run_task__19TItemDisconnectCtrlFv
+  - run_task__19TOChatSensorCaptureFv
+  - run_task__19TObjBoss2RaftSplashFv
+  - run_task__19TObjBoss7RaftSplashFv
   - run_task__21TItemEffArmorParticleFv
+  - run_task__21TODummyKeyCave01SoundFv
+  - run_task__22TChallenge4PItemSelectFv
   - run_task__7TEffHitFv
   - run_task__7TEndingFv
   - run_task__9TEffGuardFv

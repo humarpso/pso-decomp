@@ -1,9 +1,5 @@
 #include "pso/TObjBoss7RaftSplash.h"
 
-void TObjBoss7RaftSplash::run_task() {}
-
-TObjBoss7RaftSplash::~TObjBoss7RaftSplash() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -59,6 +55,7 @@ void run_task__19TObjBoss7RaftSplashFv(u8 *arg0) {
     }
 }
 
+TObjBoss7RaftSplash::~TObjBoss7RaftSplash() {}
 u8 *TObjBoss7RaftSplash__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__19TObjBoss7RaftSplash.value;

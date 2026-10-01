@@ -6,6 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 typedef s32 M2C_UNK;
 
+typedef void (*RecoveredCallback_1268626c296b)(void *);
+struct Node_803E49FC {
+    u32 flags;
+    u32 f4;
+    u8 pad8[0x2C - 0x8];
+    struct Node_803E49FC *child;
+    struct Node_803E49FC *next;
+};
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_803E4354();
 M2C_UNK TObjPlayer__sub_803E4468();
@@ -25,13 +34,18 @@ void TObjPlayer__sub_803E44D4();
 void TObjPlayer__sub_803E496C(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK TObjPlayer__sub_803D749C(void *);
 M2C_UNK TBoss8Dragon__sub_803D78A8(int);
-M2C_UNK TObjPlayer__sub_803E49FC(void *);
 void TObjPlayer__sub_803E4A94(void *arg0, void *arg1, f32 farg0);
 M2C_UNK TObjPlayer__sub_803E4354();
 M2C_UNK TObjPlayer__sub_803E4468();
 void TObjPlayer__sub_803E44D4();
 void TObjPlayer__sub_803E4D8C(void *, void *, void *, f32, void (*)(void));
 void TObjEneSlimeOne__sub_803E4B54(void *arg0, void *arg1, void *arg2, f32 farg0);
+s32 TObjPlayer__sub_803D76B4(int);
+s32 TObjPlayer__sub_803D9B2C();
+s32 TObjPlayer__sub_803D9B78();
+extern A_803E4BDC *lbl_805D4698;
+extern RecoveredCallback_1268626c296b lbl_805D7810;
+s32 TObjPlayer__sub_803E49FC(void *arg);
 }
 
 extern "C" {
@@ -64,7 +78,28 @@ void TObjPlayer__sub_803E496C(s32 arg0, s32 arg1, s32 arg2) {
         M2C_FIELD(lbl_805D76BC, s32 *, 0x28) = (s32) M2C_FIELD(lbl_804FA50C, s32 *, 0xC);
     }
     M2C_FIELD(lbl_805D4698, s32 *, 0xC) = arg2;
-    TObjPlayer__sub_803E49FC((void *) (arg0));
+    TObjPlayer__sub_803E49FC((void *)((void *) (arg0)));
+}
+
+s32 TObjPlayer__sub_803E49FC(void *arg) {
+    struct Node_803E49FC *arg0 = (struct Node_803E49FC *)arg;
+    u32 t;
+    do {
+        TObjPlayer__sub_803D9B2C();
+        TObjPlayer__sub_803D76B4((int) arg0);
+        if (lbl_805D7810 != NULL) {
+            lbl_805D7810(arg0);
+        }
+        t = arg0->f4;
+        if (t != 0 && (arg0->flags & 8) == 0) {
+            ((void (*)(u32, A_803E4BDC *))lbl_805D4698->fc)(t, lbl_805D4698);
+        }
+        if (arg0->child != NULL) {
+            TObjPlayer__sub_803E49FC((void *)arg0->child);
+        }
+        TObjPlayer__sub_803D9B78();
+        arg0 = arg0->next;
+    } while (arg0 != NULL);
 }
 
 void TObjPlayer__sub_803E4A94(void *arg0, void *arg1, f32 farg0) {

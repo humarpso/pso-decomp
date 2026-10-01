@@ -8,6 +8,12 @@ struct S_803DDD78 { s8 a, b; };
 
 struct S_803DDD94 { s8 a, b, c, d; };
 
+struct S_803DA7E0 { s32 a, b, c, d, e; };
+
+struct Ent_803DD6DC { s32 f0; s32 f4; s32 f8; };
+
+struct Obj_803DD6DC { struct Ent_803DD6DC *ents; u32 count; };
+
 extern "C" {
 extern s32 lbl_805D77A0;
 s32 TLobby__sub_803DDD2C(s32 arg0);
@@ -21,6 +27,9 @@ s32 TLobby__sub_803DDD2C(s32 arg0);
 void TLobby__sub_803DDD40(s32 arg0, s32 arg1);
 void TLobby__sub_803DDF4C(void);
 s32 TLobby__sub_803DDEFC(u16 arg0);
+void TObjPlayer__sub_803DD6DC(struct Obj_803DD6DC *arg0, s32 arg1);
+extern S_803DA7E0 lbl_8058D470;
+s32 TObjPlayer__sub_803DDC50(struct Obj_803DD6DC *arg0);
 }
 
 extern "C" {
@@ -37,6 +46,21 @@ void TObjPlayer__sub_803DD5E0(s32 arg0) {
 
 extern s32 lbl_805D77A0;
 extern s32 lbl_805D77A4;
+
+s32 TObjPlayer__sub_803DDC50(struct Obj_803DD6DC *arg0) {
+    u32 i;
+    if (arg0->count == 0) {
+        lbl_8058D470.c = 1;
+        return -1;
+    }
+    for (i = 0; i < arg0->count; i++) {
+        if (((s32 (*)(struct Obj_803DD6DC *, s32))TObjPlayer__sub_803DD6DC)(arg0, i) < 0) {
+            lbl_8058D470.a = i;
+            return -1;
+        }
+    }
+    return 1;
+}
 
 #pragma push
 #pragma scheduling off

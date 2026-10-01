@@ -3,15 +3,6 @@
 extern "C" void free__11TOBoss4RockFUi(void*);
 extern s32 TOChatSensorCapture__data_805D58D8;
 
-void TOChatSensorCapture::run_task() {}
-
-TOChatSensorCapture::~TOChatSensorCapture() {
-    for (int i = 0; i != 4; i++) {
-        free__11TOBoss4RockFUi(m_arr[i]);
-    }
-    TOChatSensorCapture__data_805D58D8 = 0;
-}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -45,6 +36,12 @@ void run_task__19TOChatSensorCaptureFv(s32 arg0) {
         var_r30 += 1;
         var_r31 += 4;
     } while (var_r30 != 4);
+}
+TOChatSensorCapture::~TOChatSensorCapture() {
+    for (int i = 0; i != 4; i++) {
+        free__11TOBoss4RockFUi(m_arr[i]);
+    }
+    TOChatSensorCapture__data_805D58D8 = 0;
 }
 #pragma pop
 

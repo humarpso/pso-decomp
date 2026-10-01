@@ -20,6 +20,9 @@ struct Vec_803E1A58 { f32 x, y, z; };
 
 
 
+
+struct Vec_803E1B1C { f32 x, y, z; };
+
 extern "C" {
 M2C_UNK GXLoadPosMtxImm(void *, int);
 extern RecoveredGlobal_803E1D1C_lbl_804FC780 lbl_804FC780;
@@ -38,6 +41,7 @@ void TObjPlayer__sub_803DAE1C(void *, int, void *);
 extern char lbl_804FC7F8[];
 extern char lbl_805D46F0[4];
 void TObjPlayer__sub_803E1EE8(void *arg0, s32 arg1, u32 arg2, void *arg3);
+void TObjPlayer__sub_803E1B1C(struct Vec_803E1B1C *pts, struct Vec_803E1B1C *mn, struct Vec_803E1B1C *mx);
 }
 
 extern "C" {
@@ -187,6 +191,27 @@ f32 TObjPlayer__sub_803E1A58(Vec_803E1A58 *a, Vec_803E1A58 *b) {
     return r;
 }
 #pragma pop
+
+
+
+void TObjPlayer__sub_803E1B1C(struct Vec_803E1B1C *pts, struct Vec_803E1B1C *mn, struct Vec_803E1B1C *mx) {
+    s32 i;
+    mn->x = pts->x;
+    mn->y = pts->y;
+    mn->z = pts->z;
+    mx->x = pts->x;
+    mx->y = pts->y;
+    mx->z = pts->z;
+    pts++;
+    for (i = 1; i < 8; i++, pts++) {
+        if (pts->x < mn->x) mn->x = pts->x;
+        if (pts->y < mn->y) mn->y = pts->y;
+        if (pts->z < mn->z) mn->z = pts->z;
+        if (pts->x > mx->x) mx->x = pts->x;
+        if (pts->y > mx->y) mx->y = pts->y;
+        if (pts->z > mx->z) mx->z = pts->z;
+    }
+}
 
 void calc_bounds__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
     M2C_FIELD(arg1, f32 *, 0) = (f32) (M2C_FIELD(arg0, f32 *, 0) - M2C_FIELD(arg0, f32 *, 0xC));

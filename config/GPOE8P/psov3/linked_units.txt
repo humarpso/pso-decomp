@@ -63,6 +63,7 @@ pso/boss/TBoss5GryphonLightningWing_80324CEC.cpp
 pso/boss/TBoss5GryphonTornado.cpp
 pso/boss/TBoss6CrushRock_80359FC4.cpp
 pso/boss/TBoss6CrushRock_80359FEC.cpp
+pso/boss/TBoss6EffHyoui.cpp
 pso/boss/TBoss6EmptyWarp.cpp
 pso/boss/TBoss6EmptyWarp_802B0E2C.cpp
 pso/boss/TBoss6EmptyWarp_802B0E2C_802B0F3C.cpp
@@ -77,6 +78,7 @@ pso/boss/TBoss6PlotFalz_802AC18C.cpp
 pso/boss/TBoss6PlotFalz_802AC194.cpp
 pso/boss/TBoss6PlotFalz_802AC678.cpp
 pso/boss/TBoss6Rock_80354A30.cpp
+pso/boss/TBoss6SwordShot.cpp
 pso/boss/TBoss6Thanks_8035D1F4.cpp
 pso/boss/TBoss6Tube.cpp
 pso/boss/TBoss6Tube_802B15F4.cpp
@@ -179,6 +181,7 @@ pso/boss/TObjBoss1Floor.cpp
 pso/boss/TObjBoss2CeilJunk_8003B07C.cpp
 pso/boss/TObjBoss2DustCtrl_8003ACD8.cpp
 pso/boss/TObjBoss2DustCtrl_8003AD1C.cpp
+pso/boss/TObjBoss2RaftSplash.cpp
 pso/boss/TObjBoss2RaftSplash_8003B0A0.cpp
 pso/boss/TObjBoss2Tunnel_8003B138_8003B138.cpp
 pso/boss/TObjBoss2Tunnel_8003B138_8003B1D8.cpp
@@ -214,6 +217,7 @@ pso/boss/TObjBoss5Pillar_8028B714.cpp
 pso/boss/TObjBoss5Pillar_8028B810.cpp
 pso/boss/TObjBoss7DustCtrl_802F13D8.cpp
 pso/boss/TObjBoss7DustCtrl_802F141C.cpp
+pso/boss/TObjBoss7RaftSplash.cpp
 pso/boss/TObjBoss7RaftSplash_802F17B0.cpp
 pso/boss/TObjBoss7RaftSplash_802F1848.cpp
 pso/boss/TObjBoss7RaftSplash_802F18E8.cpp
@@ -504,6 +508,7 @@ pso/item/TItemData_80104D0C.cpp
 pso/item/TItemData_80105934.cpp
 pso/item/TItemData_8010EDA8.cpp
 pso/item/TItemData_801146A4.cpp
+pso/item/TItemDisconnectCtrl.cpp
 pso/item/TItemDrop.cpp
 pso/item/TItemDropSub.cpp
 pso/item/TItemDropSub_80107B74.cpp
@@ -731,6 +736,7 @@ pso/menu/TAdEndText_80307A34.cpp
 pso/menu/TAdEndText_80399904.cpp
 pso/menu/TAdEndText_803A2C8C.cpp
 pso/menu/TAdRicoRing_8001BEE8.cpp
+pso/menu/TChCrLoadGmNjReq.cpp
 pso/menu/TObjTagChallenge_80074B44.cpp
 pso/menu/TObjTagChallenge_80074B88.cpp
 pso/misc/CreationMotion.cpp
@@ -776,6 +782,7 @@ pso/misc/TChCrTagOccHeader_802A2BD8.cpp
 pso/misc/TChCrTagPlBack_802A54D0.cpp
 pso/misc/TChCrTagPlBack_802A552C.cpp
 pso/misc/TChallenge.cpp
+pso/misc/TChallenge4PItemSelect.cpp
 pso/misc/TCharaMaking_8028E790.cpp
 pso/misc/TChatMessage.cpp
 pso/misc/TChatMessage_801DF918.cpp
@@ -2001,6 +2008,7 @@ pso/object/TObjDFDemo4.cpp
 pso/object/TObjDFDemo5.cpp
 pso/object/TObjDFDemoF.cpp
 pso/object/TObjDFUsoTower.cpp
+pso/object/TObjDeadListWin.cpp
 pso/object/TObjDoaEx01.cpp
 pso/object/TObjDoaEx01_8018DD0C.cpp
 pso/object/TObjDoaEx01_8018DFFC.cpp
@@ -2079,6 +2087,7 @@ pso/object/TObjQuestColBase_80196BFC.cpp
 pso/object/TObjQuestCol_80196B3C.cpp
 pso/object/TObjQuestCol_8019703C.cpp
 pso/object/TObjRaderHideCol.cpp
+pso/object/TObjRainCtrl.cpp
 pso/object/TObjRainCtrl_80197CE8.cpp
 pso/object/TObjRainbowLobby_803507D0.cpp
 pso/object/TObjRainbowLobby_80350858.cpp
@@ -2088,6 +2097,7 @@ pso/object/TObjSeabedSuisoBrakable_802A69BC.cpp
 pso/object/TObjSeabedSuisoBrakable_802A6A54.cpp
 pso/object/TObjSoloPlayWin.cpp
 pso/object/TObjSoloPlayWin_800747C4.cpp
+pso/object/TObjTailsTailsMove.cpp
 pso/object/TObjTank.cpp
 pso/object/TObjTombstone_80075764.cpp
 pso/object/TObjTombstone_80075854.cpp
@@ -2919,7 +2929,9 @@ pso/slices/run_8024B2F4.cpp
 pso/slices/run_802FC88C.cpp
 pso/system/ChunkMaterialState.cpp
 pso/system/TMemberCheck.cpp
+pso/system/TOChatSensorCapture.cpp
 pso/system/TOChatSensorFolder.cpp
+pso/system/TODummyKeyCave01Sound.cpp
 pso/system/TOSwitchAttackSub.cpp
 pso/system/TSetEvtDestroy.cpp
 pso/ui/TAdADXlogo.cpp
@@ -3061,6 +3073,7 @@ pso/ui/TAdYesNoBaseGC.cpp
 pso/ui/TObjBagWarnWin_8006EED4.cpp
 pso/ui/TObjBagWarnWin_8006EF24.cpp
 pso/ui/TObjDFTenchuFuru_80052000.cpp
+pso/ui/TWindowCtrlSub.cpp
 pso/unk/text_8000F740.cpp
 pso/unk/text_80010E44.cpp
 pso/unk/text_80016018.cpp
@@ -3864,6 +3877,7 @@ pso/unk/text_803D9FF0.cpp
 pso/unk/text_803DA12C.cpp
 pso/unk/text_803DA754.cpp
 pso/unk/text_803DAF30.cpp
+pso/unk/text_803DAFA8.cpp
 pso/unk/text_803DC86C.cpp
 pso/unk/text_803DCDB0.cpp
 pso/unk/text_803DCEC8.cpp
