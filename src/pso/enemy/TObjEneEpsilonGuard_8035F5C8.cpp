@@ -590,7 +590,31 @@ struct Self_8035F5C8 { u8 pad0[0x38]; u8 x38[0x2FC - 0x38]; u8 x2FC[0x438 - 0x2F
 
 struct Hit_8035F5C8 { u8 pad0[0x18]; s32 flags; };
 
+struct Vec_803606A0 { f32 x, y, z; };
+struct Tbl_803606A0 { s32 v[4]; };
+struct Obj_803606A0 {
+    u8 pad0[0x38];
+    Vec_803606A0 pos;
+    u8 pad44[0x60 - 0x44];
+    s32 x60;
+    u8 pad64[0xC0 - 0x64];
+    f32 xC0;
+    u8 padC4[0x460 - 0xC4];
+    s32 ang[4];
+    Vec_803606A0 pts[4];
+};
 extern "C" {
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+M2C_UNK render_anim_model__10TObjPlayerFPvf(void *, f32);
+s32 TCameraCtrl__sub_803D8934(int, void *, void *);
+M2C_UNK TObjPlayer__sub_803D97F0(void *);
+M2C_UNK set_global_flag__10TObjPlayerFv();
+M2C_UNK clear_global_state__10TObjPlayerFv();
+extern Tbl_803606A0 lbl_80479D00;
+extern Vec_803606A0 lbl_80479D10;
+extern const f64 lbl_80479E90[];
+extern u8 lbl_8058D490[];
+extern u8 *lbl_805D5678;
 f32 TObjPlayer__sub_80014108(void *, void *, f32);
 void try_apply_damage__19TObjEneEpsilonGuardFPvUii(void *, u32, s32);
 extern const f32 lbl_805E0208;
@@ -660,7 +684,7 @@ M2C_UNK toggle_flag_9__10TObjPlayerFPv(void *);
 void render_body_effect__19TObjEneEpsilonGuardFPv(u8 *arg0);
 M2C_UNK TObjEneEpsilonGuard__sub_8036033C(void *, int);
 void TObjEneEpsilonGuard__sub_80360638(s32 arg0);
-M2C_UNK TObjEneEpsilonGuard__sub_803606A0(void *, int);
+void TObjEneEpsilonGuard__sub_803606A0(Obj_803606A0 *, s32);
 extern const f32 lbl_805E021C;
 extern const f32 lbl_805E0220;
 extern const f32 lbl_805E0224;
@@ -974,6 +998,30 @@ void TObjEneEpsilonGuard__sub_80360638(s32 arg0) {
     reset_transform_state__10TObjPlayerFv();
 }
 
+void TObjEneEpsilonGuard__sub_803606A0(Obj_803606A0 *g6, s32 i) {
+    Tbl_803606A0 t = lbl_80479D00;
+
+    if (i < 0) {
+        i = 0;
+    } else if (i > 3) {
+        i = 3;
+    }
+    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    TOHangerMachine01__sub_803D9C00(&g6->pos);
+    rotate_matrix_y(0, g6->x60);
+    set_global_flag__10TObjPlayerFv();
+    render_anim_model__10TObjPlayerFPvf(g6, g6->xC0);
+    clear_global_state__10TObjPlayerFv();
+    TObjPlayer__sub_803D9B78();
+    TObjPlayer__sub_803D97F0(lbl_805D5678 + t.v[i] * 0x30);
+    {
+        Vec_803606A0 v = lbl_80479D10;
+        TCameraCtrl__sub_803D8934(0, &v, &g6->pts[i]);
+    }
+    TObjPlayer__sub_803D9B78();
+    g6->ang[i] = (s32)(lbl_80479E90[0] * get_ad_end_text_start__10TObjPlayerFv(g6->pts[i].x - g6->pos.x, g6->pts[i].z - g6->pos.z));
+}
+
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
@@ -1009,7 +1057,7 @@ void TObjEneEpsilonGuard__sub_803607DC(u8 *arg0) {
         } else {
             var_r31_2 = 0;
             do {
-                TObjEneEpsilonGuard__sub_803606A0((void *) (arg0), (int) (var_r31_2));
+                TObjEneEpsilonGuard__sub_803606A0((Obj_803606A0 *) (arg0), (int) (var_r31_2));
                 var_r31_2 += 1;
             } while (var_r31_2 < 4);
         }

@@ -391,6 +391,52 @@ struct Ent_803BA228 { u16 id; u8 pad[8]; };
 
 extern "C" {
 
+struct Voice_803B1C98 {
+    u8 pad0[0x34]; u32 i34; u32 i38; u8 pad3C[0x14]; u32 i50; u8 pad54[8]; u32 i5C;
+    u8 pad60[8]; u8 b68; u8 pad69[0xAB]; u32 fh; u32 fl;
+};
+#pragma pack(push, 4)
+struct Ch_803A897C {
+    u8 pad0[0x34]; u32 f34; u8 pad38[0xA8 - 0x38]; u8 fA8; u8 padA9[0x114 - 0xA9];
+    u64 flags; u8 pad11C[3]; u8 f11F; u8 pad120[0x1DC - 0x120]; u8 env[0x214 - 0x1DC]; s32 f214;
+};
+#pragma pack(pop)
+struct Obj_803AFCA0 { u8 pad0[0x114]; u32 fh; u32 fl; u8 pad11C[5]; u8 b121; u8 b122; u8 pad123[0xF1]; u32 i214; };
+struct Op_803AFCA0 { u32 w0; u32 w4; };
+struct Obj_803AFDD4 { u8 pad0[0x114]; u32 fh; u32 fl; u8 pad11C[5]; u8 b121; u8 b122; u8 pad123[0xE]; u8 b131; u8 pad132[2]; u32 i134; };
+struct Op_803AFDD4 { u32 w0; u32 w4; };
+struct Desc_803B5398 { u8 pad0[4]; u16 id; u16 kind; u8 pad8[0x14]; s32 o1C; s32 o20; s32 o24; };
+struct Ent_803B5398 { Desc_803B5398 *desc; s32 b; u8 *base; };
+typedef void (*Cb_803B8B40)(s32, s32 *, s32, s32);
+struct Voice_803B8B40 {
+    u8 pad0[0x30]; s32 bufA[3]; s32 bufB[3]; u8 pad48[8];
+    u8 b50; u8 pad51[3]; s32 i54; u8 pad58[0x54];
+    Cb_803B8B40 cbA; Cb_803B8B40 cbB; s32 argA; s32 argB;
+};
+struct Row_803AE4D4 { u16 id; u16 ref; u32 src; u32 addr; u32 key; u32 fmt; u32 loopStart; u32 loopLen; u32 coef; };
+struct Part_803AE4D4 { u32 key; u32 fmt; u32 loopStart; u32 loopLen; };
+struct Reg_803AE4D4 { u32 rows; u32 unused; u16 count; u16 pad; };
+struct Sample_803AE4D4 { u32 key; u32 addr; u32 coef; u32 offset; u32 count; u32 loopStart; u32 loopLen; u8 format; };
+struct V_803B1F24 {
+    u8 pad0[0x3C]; V_803B1F24 *vnext; V_803B1F24 *vprev; V_803B1F24 *next; V_803B1F24 *prev; s32 i4C;
+    u8 pad50[0x48]; u64 deadline; u64 started; u8 padA8[0x6C]; u32 fh; u32 fl;
+};
+void TLobby__sub_803B1C98(Voice_803B1C98 *, u32);
+u16 TLobby__sub_803BC168(Ch_803A897C *);
+void TLobby__sub_803BD138(s32, u8);
+void TLobby__sub_803BD174(s32);
+void TLobby__sub_803BADD0(u8, u8, u32);
+void TLobby__sub_803BB8F0(s32, u8, s32, u8, bool);
+void TLobby__sub_803BADF8(s32, u8, u8, s32);
+u16 TLobby__sub_803BB5E4(s32, u8, u8);
+s32 TLobby__sub_803A3D8C(u8 *, u8 *, u16 *, s32, s32, s32, u16);
+extern Ent_803B5398 lbl_80565DD8[];
+extern u8 lbl_805D74C4;
+extern u8 lbl_805D74C6;
+extern Row_803AE4D4 *lbl_805D73F0;
+extern Part_803AE4D4 *lbl_805D73F4;
+extern V_803B1F24 *lbl_805D741C;
+extern u64 lbl_805D7428;
 void TLobby__sub_803AA864(void);
 void TLobby__sub_803AB0E0(void);
 s32 TLobby__sub_803AE420(u8 *arg0, u8 *arg1);
@@ -743,6 +789,30 @@ void TLobby__sub_803A6F4C(Obj_803A6F4C *arg0) {
     }
 }
 
+void TLobby__sub_803A897C(s32 arg0) {
+    Ch_803A897C *o = (Ch_803A897C *)&lbl_805D73B0[arg0];
+
+    if (TLobby__sub_803BCCE0(arg0) != 0 || o->f34 != 0) {
+        TLobby__sub_803B1C98((Voice_803B1C98 *)o, (u32)(0x1F80 - TLobby__sub_803BC168(o)) >> 31);
+        if ((o->flags & 0x20) != 0) {
+            o->flags &= ~0x20ULL;
+            o->flags |= 0x10;
+            TLobby__sub_803BD138(arg0, o->f11F);
+        }
+        if ((o->flags & 0x10000000090ULL) == 0x90) {
+            o->flags &= ~0x90ULL;
+            TLobby__sub_803BD174(arg0);
+            if ((o->flags & 0x20000000000ULL) != 0 && (u32)TLobby__sub_803B431C((struct Envelope_803B431C *)o->env) != 0) {
+                o->flags &= ~0x20000000000ULL;
+            }
+        }
+    }
+    if (o->fA8 != 0) {
+        o->fA8 = 0;
+        o->f214 = 0x1FFF;
+    }
+}
+
 void TLobby__sub_803A8CC0(void *arg0) {
     TLobby__sub_803A8B0C(arg0, 0, 0);
     TLobby__sub_803A8B0C(arg0, 1, 0);
@@ -977,6 +1047,18 @@ void TLobby__sub_803AB0E4(s32 arg0) {
     }
 }
 
+s32 TLobby__sub_803AB168(u32 arg0) {
+    Rec_803AB0E4 *r = lbl_80558570;
+    s32 i;
+
+    for (i = 0; i < 64; r++, i++) {
+        if (r->state != 0 && arg0 == *(u32 *)r->pad) {
+            return i;
+        }
+    }
+    return -1;
+}
+
 void TLobby__sub_803AB574(s8 *arg0, s8 *arg1) {
     if (lbl_805D73AC & 1) {
         *arg0 = 0x40;
@@ -1073,6 +1155,32 @@ s32 TLobby__sub_803AE420(u8 *arg0, u8 *arg1) {
 
 s32 TLobby__sub_803AE4C4(u16 *arg0, u16 *arg1) {
     return *arg0 - *arg1;
+}
+
+s32 TLobby__sub_803AE4D4(s16 id, Sample_803AE4D4 *s) {
+    u8 *base;
+    s32 i;
+
+    base = lbl_80559E70;
+    *(s16 *)(base + 0xA600) = id;
+    for (i = 0; i < lbl_805D73D0; i++) {
+        if ((lbl_805D73F0 = (Row_803AE4D4 *)TLobby__sub_803BC9A8((Req_803AE60C *)(base + 0xA600), (void *)((Reg_803AE4D4 *)base)[i].rows, ((Reg_803AE4D4 *)base)[i].count, 0x20, (s32 (*)(u8 *, u8 *))TLobby__sub_803AE4C4)) != 0 &&
+            lbl_805D73F0->ref != 0xFFFF) {
+            lbl_805D73F4 = (Part_803AE4D4 *)&lbl_805D73F0->key;
+            s->key = lbl_805D73F4->key;
+            s->addr = lbl_805D73F0->addr;
+            s->offset = 0;
+            s->loopStart = lbl_805D73F4->loopStart;
+            s->count = lbl_805D73F4->fmt & 0xFFFFFF;
+            s->loopLen = lbl_805D73F4->loopLen;
+            s->format = lbl_805D73F4->fmt >> 24;
+            if (lbl_805D73F0->coef != 0) {
+                s->coef = lbl_805D73F0->coef + ((Reg_803AE4D4 *)base)[i].rows;
+            }
+            return 0;
+        }
+    }
+    return -1;
 }
 
 s32 TLobby__sub_803AE5FC(u8 *arg0, u8 *arg1) {
@@ -1228,6 +1336,70 @@ void TLobby__sub_803AF0CC(Obj_803AF0CC *o, Op_803AF0CC *op) {
     }
 }
 
+#undef FLAGS
+#define FLAGS (*(u64 *)&o->fh)
+void TLobby__sub_803AFCA0(Obj_803AFCA0 *o, s32 ch, Op_803AFCA0 *op, u64 mask, u32 flag) {
+    u8 x;
+    u32 w0;
+    s32 v;
+
+    if ((FLAGS & mask) == 0) {
+        FLAGS |= mask;
+        x = 0;
+    } else {
+        x = op->w4;
+    }
+    w0 = op->w0;
+    v = (s32)(w0 & 0xFFFF0000) / 100;
+    if (v < 0) {
+        v -= ((s8)(op->w4 >> 16) << 8) / 100;
+    } else {
+        v += ((s8)(op->w4 >> 16) << 8) / 100;
+    }
+    TLobby__sub_803BB8F0(ch, w0 >> 8, v, x, (u8)(op->w4 >> 8) != 0);
+    if (flag & 0x80000000) {
+        TLobby__sub_803BADD0(o->b121, o->b122, flag);
+    } else {
+        o->i214 |= flag;
+    }
+}
+
+void TLobby__sub_803AFDD4(Obj_803AFDD4 *o, Op_803AFDD4 *op) {
+    u32 v;
+
+    o->b131 = op->w0 >> 16;
+    v = op->w4 >> 16;
+    if ((op->w4 >> 8) & 1) {
+        shift_left_8__6TLobbyFPv(&v);
+    } else {
+        TLobby__sub_803BCA50(&v, o);
+    }
+    o->i134 = v;
+    switch ((u8)(op->w0 >> 8)) {
+    case 0:
+        if (o->b121 != 0xFF) {
+            TLobby__sub_803BADF8(0x41, o->b121, o->b122, 0);
+        }
+        FLAGS &= ~0x400ULL;
+        break;
+    case 1:
+        if (o->b121 != 0xFF) {
+            TLobby__sub_803BADF8(0x41, o->b121, o->b122, 0x7F);
+        }
+    on:
+        if ((FLAGS & 0x400ULL) == 0) {
+            TLobby__sub_803A6F4C((Obj_803A6F4C *)o);
+        }
+        FLAGS |= 0x400ULL;
+        break;
+    case 2:
+        if (o->b121 != 0xFF && TLobby__sub_803BB5E4(0x41, o->b121, o->b122) > 0x1F80) {
+            goto on;
+        }
+        break;
+    }
+}
+
 s32 TLobby__sub_803AFF38(Obj_803AFF38 *arg0, u32 arg1, u32 arg2) {
     if (arg1 != 0) {
         return TLobby__sub_803BC7E4(arg0, arg2);
@@ -1313,6 +1485,34 @@ void TLobby__sub_803B1BA4(Rec_803A9454 *arg0) {
     }
 }
 
+#undef FLAGS
+#define FLAGS (*(u64 *)&v->fh)
+void TLobby__sub_803B1C98(Voice_803B1C98 *v, u32 hold) {
+    u32 started;
+
+    if (hold != 0) {
+        FLAGS |= 0x10000000000ULL;
+        return;
+    }
+    if (v->i34 != 0 && (FLAGS & 0x40000000000ULL) != 0) {
+        if (v->b68 != 0 && v->i50 != 0) {
+            v->i38 = v->i5C;
+            v->i34 = v->i50;
+            v->i50 = 0;
+            TLobby__sub_803B1F24(v);
+            started = 1;
+        } else {
+            started = 0;
+        }
+        if (started == 0 && (FLAGS & 4ULL) != 0) {
+            TLobby__sub_803B1F24(v);
+        }
+    }
+    FLAGS &= ~0x50000000000ULL;
+}
+#undef FLAGS
+#define FLAGS (*(u64 *)&o->fh)
+
 void TLobby__sub_803B1DA4(Program_803B1DA4 *self) {
     Program_803B1DA4 *p;
     Program_803B1DA4 *prev;
@@ -1342,6 +1542,39 @@ void TLobby__sub_803B1DA4(Program_803B1DA4 *self) {
         p->prev = self;
     }
 }
+
+#define p1F24 ((V_803B1F24 *)arg0)
+#undef FLAGS
+#define FLAGS (*(u64 *)&p1F24->fh)
+void TLobby__sub_803B1F24(void *arg0) {
+    if (p1F24->i4C != 0) {
+        if (p1F24->deadline != 0) {
+            if (p1F24->deadline != 0xFFFFFFFFFFFFFFFFULL) {
+                if (p1F24->prev == 0) {
+                    lbl_805D7420 = (Program_803B1DA4 *)p1F24->next;
+                } else {
+                    p1F24->prev->next = p1F24->next;
+                }
+                if (p1F24->next != 0) {
+                    p1F24->next->prev = p1F24->prev;
+                }
+            }
+            TLobby__sub_803A8CC0(p1F24);
+            p1F24->deadline = 0;
+            p1F24->started = lbl_805D7428;
+            FLAGS &= ~0x40004ULL;
+        }
+        if ((p1F24->vnext = lbl_805D741C) != 0) {
+            lbl_805D741C->vprev = p1F24;
+        }
+        p1F24->vprev = 0;
+        lbl_805D741C = p1F24;
+        p1F24->i4C = 0;
+    }
+}
+#undef p1F24
+#undef FLAGS
+#define FLAGS (*(u64 *)&o->fh)
 
 void TLobby__sub_803B24A0(void) {
     s32 i;
@@ -1545,6 +1778,51 @@ void TLobby__sub_803B4FF8(u16 *start, void *a, void *b, void *c) {
     }
 }
 
+s32 TLobby__sub_803B5398(u16 id, u16 sub, s32 a2, s32 a3, u8 locked, s32 a5) {
+    Ent_803B5398 *tbl = lbl_80565DD8;
+    Ent_803B5398 *e;
+    s32 i;
+    Desc_803B5398 *d;
+    u8 *base;
+    u8 *p1;
+    u8 *p2;
+    u16 *q;
+    s32 r;
+    u16 c;
+
+    e = tbl;
+    i = 0;
+    while (i < lbl_805D7450) {
+        if (id == e->desc->id) {
+            d = tbl[i].desc;
+            if (d->kind == 0) {
+            base = tbl[i].base;
+            p1 = base + d->o1C;
+            p2 = base + d->o20;
+            q = (u16 *)(base + d->o24);
+            while ((c = *q) != 0xFFFF) {
+                if (c == sub) {
+                    if (locked) {
+                        r = TLobby__sub_803A3D8C(p1, p2, q, a2, a3, a5, id);
+                    } else {
+                        TLobby__sub_803BE738();
+                        r = TLobby__sub_803A3D8C(p1, p2, q, a2, a3, a5, id);
+                        TLobby__sub_803BE700();
+                    }
+                    return r;
+                }
+                q += 0x2A;
+            }
+            return -1;
+            }
+            return -1;
+        }
+        e++;
+        i++;
+    }
+    return -1;
+}
+
 void TLobby__sub_803B54D8(u16 arg0, u16 arg1, s32 arg2, s32 arg3, s32 arg4) {
     TLobby__sub_803B5398(arg0, arg1, arg2, arg3, 0U, arg4);
 }
@@ -1628,6 +1906,38 @@ s32 TLobby__sub_803B8ABC(Obj_803B8ABC *arg0, u32 arg1) {
         }
     }
     return 0;
+}
+
+void TLobby__sub_803B8B40(void) {
+    s32 bufs[3];
+    u8 i;
+    Voice_803B8B40 *v;
+    s32 buf;
+
+    i = 0;
+    v = (Voice_803B8B40 *)lbl_805663D8;
+    while (i < lbl_805D74C4) {
+        if (v->b50 == 1) {
+            if (v->cbA != 0) {
+                buf = v->bufA[(lbl_805D74C6 + 2) % 3];
+                bufs[0] = buf;
+                bufs[1] = buf + 0x280;
+                bufs[2] = buf + 0x500;
+                v->cbA(0, bufs, v->argA, lbl_805D74C6 + 2);
+                DCFlushRangeNoSync((void *)buf, 0x780);
+            }
+            if (v->i54 == 0 && v->cbB != 0) {
+                buf = v->bufB[(lbl_805D74C6 + 2) % 3];
+                bufs[0] = buf;
+                bufs[1] = buf + 0x280;
+                bufs[2] = buf + 0x500;
+                v->cbB(0, bufs, v->argB, lbl_805D74C6 + 2);
+                DCFlushRangeNoSync((void *)buf, 0x780);
+            }
+        }
+        i++;
+        v++;
+    }
 }
 
 void TLobby__sub_803BA1B8(Node_803BA1B8 *arg0) {

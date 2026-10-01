@@ -10,6 +10,16 @@ struct VBase { char pad[0]; };
 
 struct VObj { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); };
 
+struct Ch_803CB5C4 {
+    s32 used;
+    s32 id;
+    s32 f8;
+    s32 fC;
+    u8 pad10[0x18];
+    u8 f28[8];
+    s16 c0;
+    s16 c1;
+};
 struct RecoveredGlobal_800F8A78_lbl_80501178 {
     M2C_UNK value;
     u8 remaining[0xC];
@@ -141,7 +151,7 @@ s8 TLobby__sub_803C9CB0(u8 *arg0);
 M2C_UNK TLobby__sub_803C57C8(void *);
 void TLobby__sub_803CB7F8(M2C_UNK arg0, s32 arg1);
 M2C_UNK memset(void *, int, int);
-extern RecoveredGlobal_800F8A78_lbl_80501178 lbl_80575B40;
+extern Ch_803CB5C4 lbl_80575B40[16];
 void TLobby__sub_803CB71C(void);
 s32 set_scroll_offset__6TLobbyFPvi(void *, s32);
 s32 send_with_offset4_alt__6TLobbyFPv(int);
@@ -630,9 +640,32 @@ void TLobby__sub_803CB594(s32 arg0, void *arg1, s32 arg2) {
 }
 #pragma pop
 
+Ch_803CB5C4 *TLobby__sub_803CB5C4(void) {
+    s32 i;
+    Ch_803CB5C4 *c;
+
+    for (i = 0; i < 16; i++) {
+        if (lbl_80575B40[i].used == 0) {
+            break;
+        }
+    }
+    if (i == 16) {
+        return NULL;
+    }
+    c = &lbl_80575B40[i];
+    memset(c, 0, sizeof(Ch_803CB5C4));
+    c->used = 1;
+    c->id = i;
+    c->f8 = 0;
+    c->fC = 0;
+    TLobby__sub_803C4A7C((void *)500, (void *)44100, &c->c0, &c->c1);
+    memset(c->f28, 0, 8);
+    return c;
+}
+
 typedef char RecoveredGlobal_800F8A78_lbl_80501178_size[sizeof(RecoveredGlobal_800F8A78_lbl_80501178) == 0x10 ? 1 : -1];
 void TLobby__sub_803CB71C(void) {
-    memset((void *) (&lbl_80575B40.value), (int) (0), (int) (0x340));
+    memset((void *) (lbl_80575B40), (int) (0), (int) (0x340));
 }
 
 void TLobby__sub_803CB74C(s32 *arg0) {
