@@ -46,6 +46,7 @@ card/CARDWrite.c
 dsp/dsp_debug.c
 gba/GBA.c
 gba/GBAGetProcessStatus.c
+gba/GBAKey.c
 gba/GBARead.c
 gba/GBAWrite.c
 gba/GBAXfer.c
