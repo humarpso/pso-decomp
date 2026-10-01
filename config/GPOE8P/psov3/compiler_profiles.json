@@ -498,9 +498,9 @@
   },
   "pso/unk/text_803F4D84.cpp": {
     "mw_version": "GC/2.6",
-    "optimization": "-O4,p",
+    "optimization": "-O2",
     "inline": "off",
-    "use_lmw_stmw": "on"
+    "use_lmw_stmw": "off"
   },
   "pso/unk/text_803F71BC.cpp": {
     "mw_version": "GC/2.6",
