@@ -32,7 +32,7 @@
     "use_lmw_stmw": "on"
   },
   "pso/misc/TQuestVmDownLoadServer_803E6970.cpp": {
-    "mw_version": "GC/1.2.5n",
+    "mw_version": "GC/1.2.5",
     "optimization": "-O4,p",
     "inline": "off",
     "use_lmw_stmw": "on"
