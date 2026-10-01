@@ -26,6 +26,22 @@ typedef struct S_803C6138 {
     u8 *f84;
 } S_803C6138;
 
+struct Ent_803C8BAC {
+    s8 used;
+    s8 b1;
+    s8 b2;
+    u8 pad3;
+    s32 arg;
+    u32 handle;
+    s32 fC;
+    s32 f10;
+    s32 size;
+    u8 pad18[0x14];
+    s32 f2C;
+    s32 sectors;
+    u8 pad34[0xC];
+};
+
 extern "C" {
 void release_ref__6TLobbyFv(void);
 void init_once__6TLobbyFv(void);
@@ -70,6 +86,45 @@ M2C_UNK memset(void *, int, int);
 void TLobby__sub_803C6138(S_803C6138 *arg0);
 s32 ARStartDMA(u8 *arg0, s32 arg1, s16 *arg2, u8 *arg3, s8 *arg4, s8 *arg5, u8 *arg6, s32 *arg7, s32 *arg8, s32 *arg9);
 s32 DVDLowSeek(u16 *arg0, s32 arg1, s32 *arg2);
+void TLobby__sub_803C5744(const char *, const char *);
+s32 TLobby__sub_803CEA14(void);
+M2C_UNK TLobby__sub_803CF100(int, int, int);
+s32 TLobby__sub_803CF1A8(int);
+u32 TLobby__sub_803CF2F4(const char *, int, int);
+extern char lbl_8047C634[];
+extern RecoveredGlobal_803C90B0_lbl_80575140 lbl_80575140;
+extern s32 lbl_805D4668;
+extern s32 lbl_805D7550;
+Ent_803C8BAC *TLobby__sub_803C8BAC(const char *name, s32 arg);
+void TLobby__sub_803C5744(const char *, const char *);
+s32 TLobby__sub_803CEA14(void);
+M2C_UNK TLobby__sub_803CF100(int, int, int);
+s32 TLobby__sub_803CF1A8(int);
+u32 TLobby__sub_803CF2F4(const char *, int, int);
+s32 TLobby__sub_803CE568(void);
+extern char lbl_8047C634[];
+extern RecoveredGlobal_803C90B0_lbl_80575140 lbl_80575140;
+extern s32 lbl_805D4670;
+extern s32 lbl_805D466C;
+Ent_803C8BAC *TLobby__sub_803C8CDC(const char *name, s32 mode, s32 arg);
+void TLobby__sub_803C5744(const char *, const char *);
+M2C_UNK TLobby__sub_803CF100(int, int, int);
+s32 TLobby__sub_803CF1A8(int);
+u32 TLobby__sub_803CF2F4(const char *, int, int);
+extern char lbl_8047C600[];
+extern RecoveredGlobal_803C90B0_lbl_80575140 lbl_80575140;
+extern s32 lbl_805D4668;
+extern s32 lbl_805D7550;
+Ent_803C8BAC *TLobby__sub_803C8E28(const char *name, s32 mode, s32 off, s32 nsect, s32 arg);
+void TLobby__sub_803C5744(const char *, const char *);
+M2C_UNK TLobby__sub_803CF100(int, int, int);
+s32 TLobby__sub_803CF1A8(int);
+u32 TLobby__sub_803CF2F4(const char *, int, int);
+extern char lbl_8047C660[];
+extern RecoveredGlobal_803C90B0_lbl_80575140 lbl_80575140;
+extern s32 lbl_805D4670;
+extern s32 lbl_805D466C;
+Ent_803C8BAC *TLobby__sub_803C8F5C(const char *name, s32 mode, s32 off, s32 nsect, s32 arg);
 }
 
 extern "C" {
@@ -360,6 +415,182 @@ void TLobby__sub_803C8B38(u8 *arg0) {
         }
         memset((void *) (arg0), (int) (0), (int) (0x40));
     }
+}
+
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline Ent_803C8BAC *alloc_803C8BAC(s32 arg, u32 h, s32 size) {
+    Ent_803C8BAC *p = NULL;
+    s32 i;
+    for (i = 0; i < lbl_805D4668; i++) {
+        p = &((Ent_803C8BAC *)&lbl_80575140)[lbl_805D7550 + i];
+        if (p->used == 0) {
+            break;
+        }
+    }
+    if (i == lbl_805D4668) {
+        return NULL;
+    }
+    p->b1 = 1;
+    p->b2 = 0;
+    p->arg = arg;
+    p->handle = h;
+    p->fC = 0;
+    p->f10 = 0;
+    p->size = size;
+    p->f2C = 0x200;
+    p->sectors = (p->size + 0x7FF) / 2048;
+    p->used = 1;
+    return p;
+}
+Ent_803C8BAC *TLobby__sub_803C8BAC(const char *name, s32 arg) {
+    s32 size;
+    u32 h;
+    Ent_803C8BAC *p;
+    size = TLobby__sub_803CEA14();
+    h = TLobby__sub_803CF2F4(name, 0, 0);
+    if (h == 0) {
+        TLobby__sub_803C5744(lbl_8047C634, name);
+        return NULL;
+    }
+    p = alloc_803C8BAC(arg, h, size);
+    if (p != NULL) {
+        TLobby__sub_803CF100(p->handle, p->f10, 0);
+        TLobby__sub_803CF1A8(p->handle);
+    }
+    return p;
+}
+
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline Ent_803C8BAC *alloc_803C8CDC(s32 arg, u32 h, s32 f10, s32 size) {
+    Ent_803C8BAC *p = NULL;
+    s32 i;
+    for (i = 0; i < lbl_805D4670; i++) {
+        p = &((Ent_803C8BAC *)&lbl_80575140)[lbl_805D466C + i];
+        if (p->used == 0) {
+            break;
+        }
+    }
+    if (i == lbl_805D4670) {
+        return NULL;
+    }
+    p->b1 = 1;
+    p->b2 = 0;
+    p->arg = arg;
+    p->handle = h;
+    p->fC = 0;
+    p->f10 = f10;
+    p->size = size;
+    p->f2C = 0x200;
+    p->sectors = (p->size + 0x7FF) / 2048;
+    p->used = 1;
+    return p;
+}
+Ent_803C8BAC *TLobby__sub_803C8CDC(const char *name, s32 mode, s32 arg) {
+    s32 size;
+    u32 h;
+    Ent_803C8BAC *p;
+    if (mode == 0) {
+        size = TLobby__sub_803CEA14();
+    } else {
+        size = TLobby__sub_803CE568();
+    }
+    h = TLobby__sub_803CF2F4((const char *)(name), (int)(mode), (int)(0));
+    if (h == 0) {
+        TLobby__sub_803C5744(lbl_8047C634, name);
+        return NULL;
+    }
+    p = alloc_803C8CDC(arg, h, 0, size);
+    if (p != NULL) {
+        TLobby__sub_803CF100(p->handle, p->f10, 0);
+        TLobby__sub_803CF1A8(p->handle);
+    }
+    return p;
+}
+
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline Ent_803C8BAC *alloc_803C8E28(s32 arg, u32 h, s32 f10, s32 size) {
+    Ent_803C8BAC *p = NULL;
+    s32 i;
+    for (i = 0; i < lbl_805D4668; i++) {
+        p = &((Ent_803C8BAC *)&lbl_80575140)[lbl_805D7550 + i];
+        if (p->used == 0) {
+            break;
+        }
+    }
+    if (i == lbl_805D4668) {
+        return NULL;
+    }
+    p->b1 = 1;
+    p->b2 = 0;
+    p->arg = arg;
+    p->handle = h;
+    p->fC = 0;
+    p->f10 = f10;
+    p->size = size;
+    p->f2C = 0x200;
+    p->sectors = (p->size + 0x7FF) / 2048;
+    p->used = 1;
+    return p;
+}
+Ent_803C8BAC *TLobby__sub_803C8E28(const char *name, s32 mode, s32 off, s32 nsect, s32 arg) {
+    u32 h;
+    Ent_803C8BAC *p;
+    h = TLobby__sub_803CF2F4((const char *)(name), (int)(mode), (int)(0));
+    if (h == 0) {
+        TLobby__sub_803C5744(lbl_8047C600, name);
+        return NULL;
+    }
+    p = alloc_803C8E28(arg, h, off, nsect << 11);
+    if (p != NULL) {
+        TLobby__sub_803CF100(p->handle, p->f10, 0);
+        TLobby__sub_803CF1A8(p->handle);
+    }
+    return p;
+}
+
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline Ent_803C8BAC *alloc_803C8F5C(s32 arg, u32 h, s32 f10, s32 size) {
+    Ent_803C8BAC *p = NULL;
+    s32 i;
+    for (i = 0; i < lbl_805D4670; i++) {
+        p = &((Ent_803C8BAC *)&lbl_80575140)[lbl_805D466C + i];
+        if (p->used == 0) {
+            break;
+        }
+    }
+    if (i == lbl_805D4670) {
+        return NULL;
+    }
+    p->b1 = 1;
+    p->b2 = 0;
+    p->arg = arg;
+    p->handle = h;
+    p->fC = 0;
+    p->f10 = f10;
+    p->size = size;
+    p->f2C = 0x200;
+    p->sectors = (p->size + 0x7FF) / 2048;
+    p->used = 1;
+    return p;
+}
+Ent_803C8BAC *TLobby__sub_803C8F5C(const char *name, s32 mode, s32 off, s32 nsect, s32 arg) {
+    u32 h;
+    Ent_803C8BAC *p;
+    h = TLobby__sub_803CF2F4((const char *)(name), (int)(mode), (int)(0));
+    if (h == 0) {
+        TLobby__sub_803C5744(lbl_8047C660, name);
+        return NULL;
+    }
+    p = alloc_803C8F5C(arg, h, off, nsect << 11);
+    if (p != NULL) {
+        TLobby__sub_803CF100(p->handle, p->f10, 0);
+        TLobby__sub_803CF1A8(p->handle);
+    }
+    return p;
 }
 
 void si_get_type_async__6TLobbyFv(void) {
