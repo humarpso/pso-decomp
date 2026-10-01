@@ -23,6 +23,29 @@ struct Vec_803E1A58 { f32 x, y, z; };
 
 struct Vec_803E1B1C { f32 x, y, z; };
 
+typedef s32 M2C_UNK;
+typedef struct TexObj_803E1D90 { u32 dummy[8]; } TexObj_803E1D90;
+
+typedef struct TexHdr_803E1D90 {
+    u32 f0;
+    s32 format;
+    u32 f8;
+    u32 fC;
+    u32 width;
+    u32 height;
+    u32 f18;
+    u32 flags;
+    void *image;
+} TexHdr_803E1D90;
+
+typedef struct TexInfo_803E1D90 { u32 f0; u32 f4; u32 tlut; TexHdr_803E1D90 *hdr; } TexInfo_803E1D90;
+
+typedef struct TexEnt_803E1D90 { u32 f0; u32 f4; TexInfo_803E1D90 *info; } TexEnt_803E1D90;
+
+typedef struct TexList_803E1D90 { TexEnt_803E1D90 *ents; } TexList_803E1D90;
+
+typedef struct Ctx_803E1D90 { u8 pad[0x20]; TexList_803E1D90 *list; } Ctx_803E1D90;
+
 extern "C" {
 M2C_UNK GXLoadPosMtxImm(void *, int);
 extern RecoveredGlobal_803E1D1C_lbl_804FC780 lbl_804FC780;
@@ -42,6 +65,13 @@ extern char lbl_804FC7F8[];
 extern char lbl_805D46F0[4];
 void TObjPlayer__sub_803E1EE8(void *arg0, s32 arg1, u32 arg2, void *arg3);
 void TObjPlayer__sub_803E1B1C(struct Vec_803E1B1C *pts, struct Vec_803E1B1C *mn, struct Vec_803E1B1C *mx);
+void Dolphin_GXInitTexObj(TexObj_803E1D90 *, void *, u16, u16, s32, s32, s32, u8);
+void GXInitTexObjCI(TexObj_803E1D90 *, void *, u16, u16, s32, s32, s32, u8, u32);
+void GXLoadTexObj(TexObj_803E1D90 *, s32);
+extern s32 lbl_804FC7D0[];
+extern TexObj_803E1D90 lbl_8058DB90;
+extern Ctx_803E1D90 *lbl_805D774C;
+void TObjPlayer__sub_803E1D90(s32 idx, s32 wrapS, s32 wrapT, s32 map);
 }
 
 extern "C" {
@@ -248,6 +278,26 @@ void TObjPlayer__sub_803E1D54(s32 i) {
 #pragma pop
 
 
+
+
+
+void TObjPlayer__sub_803E1D90(s32 idx, s32 wrapS, s32 wrapT, s32 map) {
+    TexInfo_803E1D90 *info = lbl_805D774C->list->ents[idx].info;
+    TexHdr_803E1D90 *hdr = info->hdr;
+    u32 flags = hdr->flags;
+    u8 mip;
+    if (flags & 0x80000000) {
+        mip = 1;
+    } else {
+        mip = 0;
+    }
+    if (flags & 0x8000) {
+        GXInitTexObjCI(&lbl_8058DB90, hdr->image, hdr->width, hdr->height, hdr->format, wrapS, wrapT, mip, info->tlut);
+    } else {
+        Dolphin_GXInitTexObj(&lbl_8058DB90, hdr->image, hdr->width, hdr->height, hdr->format, wrapS, wrapT, mip);
+    }
+    GXLoadTexObj(&lbl_8058DB90, lbl_804FC7D0[map]);
+}
 
 void TObjPlayer__sub_803E1EE8(void *arg0, s32 arg1, u32 arg2, void *arg3) {
     s32 size;

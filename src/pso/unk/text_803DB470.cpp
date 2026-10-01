@@ -29,6 +29,13 @@ struct G_803DBC1C { u8 pad[0x7C]; u32 f7c; u32 f80; u32 f84; u32 f88; };
 struct Arr_803DC3BC { u8 idx; u8 stride; u8 pad[6]; void *base; u32 pad2; };
 
 typedef s32 M2C_UNK;
+
+struct C_803DB9A0 { u8 r, g, b, a; };
+
+struct S_803DB9A0 { u8 pad[0x60]; C_803DB9A0 c; };
+
+struct F_803DB9A0 { f32 r, g, b, a; };
+
 extern "C" {
 void TOSignCave03__sub_803DB510(s32 arg0);
 M2C_UNK Dolphin_GXSetVtxDesc(int, void *);
@@ -107,6 +114,15 @@ void GXLoadTexMtxImm(void *, int, int);
 extern s32 lbl_805D7774;
 extern s32 some_id_805c6f74;
 M2C_UNK TObjPlayer__sub_803DC76C(int arg0);
+void GXSetChanMatColor(s32, C_803DB9A0);
+void TObjPlayer__sub_803D7FE0(const F_803DB9A0 *, C_803DB9A0 *);
+void TObjPlayer__sub_803D8008(const C_803DB9A0 *, F_803DB9A0 *);
+extern F_803DB9A0 lbl_8058D4C0;
+extern const C_803DB9A0 lbl_805E0F68;
+extern S_803DB560 lbl_8058CD80;
+extern s32 lbl_805D7788;
+extern s32 some_id_805c6f74;
+void TObjPlayer__sub_803DB9A0(u32 v);
 }
 
 extern "C" {
@@ -151,6 +167,38 @@ void TObjPlayer__sub_803DB59C(s32 arg0) {
     Dolphin_GXSetVtxDesc((int) (0xB), (void *) (TObjPlayer__sub_803DB550((u32)((void *) (arg0)), (s32)((int) (3)))));
     Dolphin_GXSetVtxDesc((int) (0xD), (void *) (TObjPlayer__sub_803DB550((u32)((void *) (arg0)), (s32)((int) (5)))));
 }
+
+#pragma push
+#pragma scheduling off
+#pragma peephole off
+void TObjPlayer__sub_803DB9A0(u32 v) {
+    C_803DB9A0 fallback = lbl_805E0F68;
+    C_803DB9A0 *mat;
+    F_803DB9A0 add;
+    C_803DB9A0 converted;
+    C_803DB9A0 convertedAdd;
+    (mat = &(*(S_803DB9A0 *)&lbl_8058CD80).c)->r = (v & 0xFF000000) >> 24;
+    (*(S_803DB9A0 *)&lbl_8058CD80).c.g = (v & 0xFF0000) >> 16;
+    (*(S_803DB9A0 *)&lbl_8058CD80).c.b = (v & 0xFF00) >> 8;
+    (*(S_803DB9A0 *)&lbl_8058CD80).c.a = v & 0xFF;
+    if ((u32) (lbl_805D7788 & 2) != 0U) {
+        GXSetChanMatColor(4, fallback);
+    } else if ((u32) (some_id_805c6f74 & 0x10) != 0U) {
+        TObjPlayer__sub_803D7FE0(&lbl_8058D4C0, &converted);
+        GXSetChanMatColor(4, converted);
+    } else if ((u32) (some_id_805c6f74 & 0x20) != 0U) {
+        TObjPlayer__sub_803D8008(mat, &add);
+        add.r += lbl_8058D4C0.r;
+        add.g += lbl_8058D4C0.g;
+        add.b += lbl_8058D4C0.b;
+        add.a += lbl_8058D4C0.a;
+        TObjPlayer__sub_803D7FE0(&add, &convertedAdd);
+        GXSetChanMatColor(4, convertedAdd);
+    } else {
+        GXSetChanMatColor(4, *mat);
+    }
+}
+#pragma pop
 
 #pragma push
 #pragma scheduling off

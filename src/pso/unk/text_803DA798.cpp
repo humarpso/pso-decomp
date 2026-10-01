@@ -40,6 +40,11 @@ struct Obj_803DAD84 {
     struct Inner_803DAD84 *inner;
 };
 
+struct Obj_803DA8E4 { u8 pad[0x24]; s32 refs; };
+
+struct Rec_803DA8E4 { u32 a; u32 b; u32 c; Obj_803DA8E4 *obj; s32 cnt; s32 v14; };
+
+typedef s32 M2C_UNK;
 extern "C" {
 extern s32 lbl_805D7768;
 void TObjPlayer__sub_803DAC1C(s32 arg0);
@@ -71,6 +76,23 @@ s32 TObjPlayer__sub_803DB23C(void *);
 s32 TObjPlayer__sub_803DB244(void);
 extern S_803DA7E0 lbl_8058D470;
 s32 TObjPlayer__sub_803DAD84(struct Obj_803DAD84 *arg0, s32 arg1, u32 arg2);
+s32 TObjPlayer__sub_803DA104(int);
+s32 TObjPlayer__sub_803DA55C(u32);
+s32 TObjPlayer__sub_803DA5A8(void *, void *);
+s32 TObjPlayer__sub_803DA688(u32 arg0, u32 arg1);
+void TObjPlayer__sub_803DAD24(void);
+extern s32 lbl_805D7768;
+s32 TObjPlayer__sub_803DA8E4(u32 arg0, u32 arg1, s32 arg2, s32 *arg3);
+s32 TObjPlayer__sub_803D9DA8(int, void *);
+s32 TObjPlayer__sub_803DA104(int);
+s32 TObjPlayer__sub_803DA5A8(void *, void *);
+void TObjPlayer__sub_803DAD24(void);
+extern s32 lbl_805D7758;
+s32 TObjPlayer__sub_803DAA70(u32 arg0, u32 arg1, s32 *arg2);
+s32 TObjPlayer__sub_803DA8E4(u32 arg0, u32 arg1, s32 arg2, s32 *arg3);
+s32 TObjPlayer__sub_803DAA70(u32 arg0, u32 arg1, s32 *arg2);
+void TObjPlayer__sub_803DAB7C(Obj_803DAB7C *self, s32 i, s32 j);
+s32 TObjPlayer__sub_803DAC48(Obj_803DAB7C *arg0, s32 arg1, u32 arg2, u32 arg3, s32 *arg4, s32 *arg5);
 }
 
 extern "C" {
@@ -152,6 +174,78 @@ s32 TObjPlayer__sub_803DA8B4(u8 *arg0, s32 arg1) {
 #pragma pop
 
 #pragma push
+#pragma optimize_for_size on
+#pragma use_lmw_stmw off
+s32 TObjPlayer__sub_803DA8E4(u32 arg0, u32 arg1, s32 arg2, s32 *arg3) {
+    Rec_803DA8E4 *sp8;
+    s32 idx;
+    s32 r;
+    s32 slot;
+    idx = TObjPlayer__sub_803DA55C(arg0);
+    if (TObjPlayer__sub_803DA104(arg2) != 0) {
+        if (idx < 0) {
+            *arg3 = -1;
+            return 0;
+        }
+        r = TObjPlayer__sub_803DA688(arg0, arg1);
+        if (r < 0) {
+            slot = TObjPlayer__sub_803DA5A8(&sp8, NULL);
+            if (slot < 0) {
+                return -1;
+            }
+            sp8->c = arg1;
+            sp8->obj = (*(Rec_803DA8E4 **)&lbl_805D7768)[idx].obj;
+            sp8->obj->refs++;
+            sp8->cnt = 1;
+            sp8->v14 = (*(Rec_803DA8E4 **)&lbl_805D7768)[idx].v14;
+            ((void (*)(Rec_803DA8E4 *)) TObjPlayer__sub_803DAD24)(sp8);
+            *arg3 = slot;
+            return 1;
+        }
+        *arg3 = r;
+        (*(Rec_803DA8E4 **)&lbl_805D7768)[r].cnt++;
+        (*(Rec_803DA8E4 **)&lbl_805D7768)[r].obj->refs++;
+        return 1;
+    }
+    *arg3 = idx;
+    if (idx < 0) {
+        return 0;
+    }
+    (*(Rec_803DA8E4 **)&lbl_805D7768)[idx].cnt++;
+    (*(Rec_803DA8E4 **)&lbl_805D7768)[idx].obj->refs++;
+    return 1;
+}
+#pragma pop
+
+s32 TObjPlayer__sub_803DAA70(u32 arg0, u32 arg1, s32 *arg2) {
+    u8 *spC;
+    s32 *sp8;
+    s32 temp_r3;
+    temp_r3 = TObjPlayer__sub_803DA5A8((void *) (&spC), (void *) (&sp8));
+    if (temp_r3 < 0) {
+        return -1;
+    }
+    M2C_FIELD(spC, s32 **, 0xC) = sp8;
+    if (TObjPlayer__sub_803D9DA8((int) (spC), (void *) (arg2)) != 1) {
+        M2C_FIELD(spC, s32 **, 0xC) = NULL;
+        return -1;
+    }
+    if ((u32) arg0 != 0xFFFFFFFFU) {
+        M2C_FIELD(M2C_FIELD(spC, s32 **, 0xC), s32 *, 0) = arg0;
+    }
+    if (TObjPlayer__sub_803DA104((int) (M2C_FIELD(arg2, s32 *, 0))) != 0) {
+        M2C_FIELD(spC, s32 *, 8) = arg1;
+    } else {
+        M2C_FIELD(spC, s32 *, 8) = -1;
+    }
+    ((void (*)(u8 *)) TObjPlayer__sub_803DAD24)(spC);
+    M2C_FIELD(spC, s32 *, 0x10) = 1;
+    M2C_FIELD(M2C_FIELD(spC, s32 **, 0xC), s32 *, 0x24) = 1;
+    lbl_805D7758 += 1;
+    return temp_r3;
+}
+
+#pragma push
 #pragma scheduling off
 #pragma peephole off
 void TObjPlayer__sub_803DAB7C(Obj_803DAB7C *self, s32 i, s32 j) {
@@ -176,6 +270,28 @@ s32 TObjPlayer__sub_803DAB9C(s32 arg0, s32 arg1) {
 #pragma scheduling off
 void TObjPlayer__sub_803DAC1C(s32 arg0) {
     TObjPlayer__sub_803DAE98((u8 *)((void *) (lbl_805D7768 + (arg0 * 0x18))), (s32)((void *) (lbl_805D7768)));
+}
+#pragma pop
+
+#pragma push
+#pragma optimize_for_size on
+#pragma use_lmw_stmw off
+s32 TObjPlayer__sub_803DAC48(Obj_803DAB7C *arg0, s32 arg1, u32 arg2, u32 arg3, s32 *arg4, s32 *arg5) {
+    switch (TObjPlayer__sub_803DA8E4(arg2, arg3, *arg4, arg5)) {
+    case -1:
+        return -1;
+    case 0:
+        *arg5 = TObjPlayer__sub_803DAA70(arg2, arg3, arg4);
+        if (*arg5 < 0) {
+            return -1;
+        }
+        TObjPlayer__sub_803DAB7C(arg0, arg1, *arg5);
+        return 0;
+    case 1:
+        TObjPlayer__sub_803DAB7C(arg0, arg1, *arg5);
+        return 1;
+    }
+    return 0;
 }
 #pragma pop
 

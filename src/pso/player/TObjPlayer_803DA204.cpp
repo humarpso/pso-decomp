@@ -12,6 +12,11 @@ struct Rec_803DA688 { u32 a; u32 b; u32 c; Sub_803DA688 *d; u32 e; u32 f; };
 
 struct E_803DA55C { u8 pad[0xC]; u32 *p; u8 pad2[8]; };
 
+typedef s32 M2C_UNK;
+struct Slot_803DA5A8 { u32 id; u8 pad[0x24]; };
+
+struct Err_803DA5A8 { s32 a; s32 b; s32 code; };
+
 extern "C" {
 extern s32 lbl_805D7758;
 void TObjPlayer__sub_803DA6E0(u8 *arg0);
@@ -22,6 +27,15 @@ s32 TObjPlayer__sub_803DA688(u32 arg0, u32 arg1);
 extern s32 lbl_805D7764;
 extern Rec_803DA688 *lbl_805D7768;
 s32 TObjPlayer__sub_803DA55C(u32 arg0);
+extern s32 lbl_805D7764;
+extern Rec_803DA688 *lbl_805D7768;
+void TObjPlayer__sub_803DA244(Rec_803DA688 *arg0, s32 arg1);
+extern Err_803DA5A8 lbl_8058D470[];
+extern s32 lbl_805D775C;
+extern Slot_803DA5A8 *lbl_805D7760;
+extern s32 lbl_805D7764;
+extern Rec_803DA688 *lbl_805D7768;
+s32 TObjPlayer__sub_803DA5A8(Rec_803DA688 **arg0, Slot_803DA5A8 **arg1);
 }
 
 extern "C" {
@@ -52,6 +66,24 @@ void TObjPlayer__sub_803DA218(S_803DA218 *self, s32 a, s32 b, u32 c) {
 }
 #pragma pop
 
+#pragma push
+#pragma optimize_for_size off
+void TObjPlayer__sub_803DA244(Rec_803DA688 *arg0, s32 arg1) {
+    s32 i;
+    lbl_805D7768 = arg0;
+    lbl_805D7764 = arg1;
+    for (i = 0; i < arg1; i++) {
+        arg0->a = 0;
+        arg0->b = 0;
+        arg0->c = 0xFFFFFFFF;
+        arg0->d = NULL;
+        arg0->e = 0;
+        arg0->f = 0;
+        arg0++;
+    }
+}
+#pragma pop
+
 s32 TObjPlayer__sub_803DA55C(u32 arg0) {
     E_803DA55C *e;
     u32 *q;
@@ -65,6 +97,42 @@ s32 TObjPlayer__sub_803DA55C(u32 arg0) {
         }
     }
     return -1;
+}
+
+s32 TObjPlayer__sub_803DA5A8(Rec_803DA688 **arg0, Slot_803DA5A8 **arg1) {
+    s32 i;
+    Rec_803DA688 *p;
+    Slot_803DA5A8 *q;
+    s32 idx;
+    *arg0 = NULL;
+    p = lbl_805D7768;
+    for (i = 0; i < lbl_805D7764; p++, i++) {
+        if (p->d == NULL) {
+            *arg0 = p;
+            idx = i;
+            break;
+        }
+    }
+    if (*arg0 == NULL) {
+        lbl_8058D470[0].code = 7;
+        return -1;
+    }
+    if (arg1 != NULL) {
+        *arg1 = NULL;
+        q = lbl_805D7760;
+        for (i = 0; i < lbl_805D775C; i++, q++) {
+            if (q->id == 0xFFFFFFFF) {
+                *arg1 = q;
+                break;
+            }
+        }
+        if (*arg1 == NULL) {
+            lbl_8058D470[0].code = 7;
+            return -1;
+        }
+        return idx;
+    }
+    return idx;
 }
 
 s32 TObjPlayer__sub_803DA688(u32 arg0, u32 arg1) {

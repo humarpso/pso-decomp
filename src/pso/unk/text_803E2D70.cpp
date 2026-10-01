@@ -28,6 +28,34 @@ struct Mtx_803DC994 { f32 m[3][4]; };
 
 struct Hdr_803E34B0 { u8 *dst; u8 *src; s32 count; };
 
+typedef s32 M2C_UNK;
+typedef struct Vtx_803E2D70 { f32 x, y, w, u, v; u32 color; } Vtx_803E2D70;
+
+typedef union WGPipe_803E2D70 {
+    u8 u8;
+    u16 u16;
+    u32 u32;
+    f32 f32;
+} WGPipe_803E2D70;
+
+typedef struct Vtx_803E36C4 { f32 x, y, z, nx, ny, nz; u32 pad[2]; } Vtx_803E36C4;
+
+typedef union WGPipe_803E36C4 {
+    u8 u8;
+    u16 u16;
+    u32 u32;
+    f32 f32;
+} WGPipe_803E36C4;
+
+typedef struct Vtx_803E46FC { f32 x, y, z, nx, ny, nz; u32 pad[2]; } Vtx_803E46FC;
+
+typedef union WGPipe_803E46FC {
+    u8 u8;
+    u16 u16;
+    u32 u32;
+    f32 f32;
+} WGPipe_803E46FC;
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_803E20B0();
 M2C_UNK setup_render__10TObjPlayerFv();
@@ -87,6 +115,21 @@ s32 __cvt_fp2unsigned(f32);
 void TObjPlayer__sub_803D9884(u8 *, u8 *);
 void TObjPlayer__sub_803D9990(u8 *, u8 *);
 void TObjPlayer__sub_803E34B0(Hdr_803E34B0 *arg0);
+void GXBegin(int, int, u16);
+extern const f32 lbl_805E1088;
+void TLobby__sub_803E2D70(Vtx_803E2D70 *v, s32 n);
+void Dolphin_GXSetVtxDesc(int, int);
+void GXClearVtxDesc(void);
+void GXBegin(int, int, u16);
+void TObjPlayer__sub_803E36C4(s16 *list, Vtx_803E36C4 *verts, u32 info);
+void GXSetChanCtrl(s32 chan, u8 enable, s32 ambSrc, s32 matSrc, u32 lightMask, s32 diffFn, s32 attnFn);
+extern u32 lbl_805D7794;
+extern u32 lbl_805D77E0;
+void TObjPlayer__sub_803E3A6C(u32 flags);
+void Dolphin_GXSetVtxDesc(int, int);
+void GXClearVtxDesc(void);
+void GXBegin(int, int, u16);
+void TObjPlayer__sub_803E46FC(s16 *list, Vtx_803E46FC *verts, u32 info);
 }
 
 extern "C" {
@@ -95,6 +138,36 @@ void func_803e11e8__FUl(s32 arg0);
 void func_803e11f0__Fv(void);
 
 extern s32 lbl_805D77F8;
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+static inline void GXPosition3f32_803E2D70(f32 x, f32 y, f32 z) {
+    (*(volatile WGPipe_803E2D70 *)0xCC008000).f32 = x;
+    (*(volatile WGPipe_803E2D70 *)0xCC008000).f32 = y;
+    (*(volatile WGPipe_803E2D70 *)0xCC008000).f32 = z;
+}
+static inline void GXColor1u32_803E2D70(u32 c) {
+    (*(volatile WGPipe_803E2D70 *)0xCC008000).u32 = c;
+}
+static inline void GXTexCoord2f32_803E2D70(f32 s, f32 t) {
+    (*(volatile WGPipe_803E2D70 *)0xCC008000).f32 = s;
+    (*(volatile WGPipe_803E2D70 *)0xCC008000).f32 = t;
+}
+void TLobby__sub_803E2D70(Vtx_803E2D70 *v, s32 n) {
+    f32 inv;
+    u32 c;
+    GXBegin(0x98, 4, n);
+    for (; n > 0; n--) {
+        inv = lbl_805E1088 / v->w;
+        GXPosition3f32_803E2D70(v->x * inv, v->y * inv, inv);
+        c = v->color;
+        GXColor1u32_803E2D70(((c & 0xFFFFFF) << 8) | ((c & 0xFF000000) >> 24));
+        GXTexCoord2f32_803E2D70(v->u, v->v);
+        v++;
+    }
+}
+#pragma pop
 
 void TLobby__sub_803E2EE4(s32 arg0) {
     TObjPlayer__sub_803E20B0();
@@ -137,6 +210,46 @@ void TObjPlayer__sub_803E34B0(Hdr_803E34B0 *arg0) {
         dst += 0x20;
     }
 }
+
+#pragma push
+#pragma use_lmw_stmw off
+#pragma dont_inline off
+#pragma inline_depth(4)
+static inline void GXPosition3f32_803E36C4(f32 x, f32 y, f32 z) {
+    (*(volatile WGPipe_803E36C4 *)0xCC008000).f32 = x;
+    (*(volatile WGPipe_803E36C4 *)0xCC008000).f32 = y;
+    (*(volatile WGPipe_803E36C4 *)0xCC008000).f32 = z;
+}
+static inline void GXNormal3f32_803E36C4(f32 x, f32 y, f32 z) {
+    (*(volatile WGPipe_803E36C4 *)0xCC008000).f32 = x;
+    (*(volatile WGPipe_803E36C4 *)0xCC008000).f32 = y;
+    (*(volatile WGPipe_803E36C4 *)0xCC008000).f32 = z;
+}
+void TObjPlayer__sub_803E36C4(s16 *list, Vtx_803E36C4 *verts, u32 info) {
+    s32 skip;
+    s32 n;
+    u32 count;
+    Vtx_803E36C4 *v;
+    skip = (info >> 14) & 3;
+    count = info & 0x3FFF;
+    GXClearVtxDesc();
+    Dolphin_GXSetVtxDesc(9, 1);
+    Dolphin_GXSetVtxDesc(0xA, 1);
+    do {
+        n = *list++;
+        if (n < 0) {
+            n = -n;
+        }
+        GXBegin(0x98, 0, n);
+        do {
+            v = &verts[*list++];
+            GXPosition3f32_803E36C4(v->x, v->y, v->z);
+            GXNormal3f32_803E36C4(v->nx, v->ny, v->nz);
+            list += skip;
+        } while (--n != 0);
+    } while (--count != 0);
+}
+#pragma pop
 
 #pragma push
 #pragma scheduling off
@@ -232,6 +345,24 @@ void TObjPlayer__sub_803E39EC(void) {
 }
 #pragma pop
 
+void TObjPlayer__sub_803E3A6C(u32 flags) {
+    u8 enable;
+    if (lbl_805D77E0 != 0) {
+        enable = 0;
+    } else if (flags & 1) {
+        enable = 0;
+    } else {
+        enable = 1;
+    }
+    if (lbl_805D77E0 != 0) {
+        GXSetChanCtrl(0, enable, 0, 1, lbl_805D7794, 2, 2);
+        GXSetChanCtrl(2, 0, 0, 1, lbl_805D7794, 2, 2);
+    } else {
+        GXSetChanCtrl(0, enable, 0, 0, lbl_805D7794, 2, 2);
+        GXSetChanCtrl(2, 0, 0, 0, lbl_805D7794, 2, 2);
+    }
+}
+
 #pragma push
 #pragma scheduling off
 s32 TObjPlayer__sub_803E3B38(int ref) {
@@ -268,6 +399,46 @@ void TObjFish__sub_803E46BC(void *arg0) {
     TObjPlayer__sub_803E4354(arg0);
     TObjPlayer__sub_803E2F78(arg0, TObjPlayer__sub_803E44D4);
     TObjPlayer__sub_803E4468();
+}
+#pragma pop
+
+#pragma push
+#pragma use_lmw_stmw off
+#pragma dont_inline off
+#pragma inline_depth(4)
+static inline void GXPosition3f32_803E46FC(f32 x, f32 y, f32 z) {
+    (*(volatile WGPipe_803E46FC *)0xCC008000).f32 = x;
+    (*(volatile WGPipe_803E46FC *)0xCC008000).f32 = y;
+    (*(volatile WGPipe_803E46FC *)0xCC008000).f32 = z;
+}
+static inline void GXNormal3f32_803E46FC(f32 x, f32 y, f32 z) {
+    (*(volatile WGPipe_803E46FC *)0xCC008000).f32 = x;
+    (*(volatile WGPipe_803E46FC *)0xCC008000).f32 = y;
+    (*(volatile WGPipe_803E46FC *)0xCC008000).f32 = z;
+}
+void TObjPlayer__sub_803E46FC(s16 *list, Vtx_803E46FC *verts, u32 info) {
+    s32 skip;
+    s32 n;
+    u32 count;
+    Vtx_803E46FC *v;
+    skip = (info >> 14) & 3;
+    count = info & 0x3FFF;
+    GXClearVtxDesc();
+    Dolphin_GXSetVtxDesc(9, 1);
+    Dolphin_GXSetVtxDesc(0xA, 1);
+    do {
+        n = *list++;
+        if (n < 0) {
+            n = -n;
+        }
+        GXBegin(0x98, 0, n);
+        do {
+            v = &verts[*list++];
+            GXPosition3f32_803E46FC(v->x, v->y, v->z);
+            GXNormal3f32_803E46FC(v->nx, v->ny, v->nz);
+            list += skip;
+        } while (--n != 0);
+    } while (--count != 0);
 }
 #pragma pop
 

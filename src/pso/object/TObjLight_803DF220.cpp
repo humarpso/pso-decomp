@@ -23,6 +23,18 @@ struct RecoveredGlobal_803DF528_TObjLight__data_8058D528 {
 
 typedef struct GXColor_803DF268 { u8 r, g, b, a; } GXColor_803DF268;
 
+typedef s32 M2C_UNK;
+
+#pragma scheduling off
+typedef struct Vtx_803DF5E4 { f32 x, y, z; u32 color; } Vtx_803DF5E4;
+
+typedef union WGPipe_803DF5E4 {
+    u8 u8;
+    u16 u16;
+    u32 u32;
+    f32 f32;
+} WGPipe_803DF5E4;
+
 extern "C" {
 M2C_UNK load_camera_view_matrix();
 M2C_UNK TObjPlayer__sub_803E21B8();
@@ -40,11 +52,23 @@ extern char lbl_804FC768[];
 void OSPanic(char *, s32, char *, ...);
 void TObjLight__sub_803DF220(s32 arg0);
 void reset_player_transform(void);
-void TObjPlayer__sub_803DF5E4(void *, void *);
 void TObjPlayer__sub_803DF768(s32 arg0);
 void TObjPlayer__sub_803DF578(void *arg0, void *arg1, s32 arg2);
 void GXSetChanAmbColor(s32 chan, GXColor_803DF268 color);
 void TObjLight__sub_803DF268(f32 r, f32 g, f32 b);
+void GXInitLightColor(void *, GXColor_803DF268);
+void TObjLight__sub_803DF220(s32 arg0);
+extern RecoveredGlobal_803DF528_TObjLight__data_8058D528 TObjLight__data_8058D528;
+extern const f32 lbl_805E0FD4;
+void TObjLight__sub_803DF394(s32 idx, f32 r, f32 g, f32 b);
+M2C_UNK GXInitLightPos(void *, f32, f32, f32);
+M2C_UNK GXInitLightDir(void *, f32, f32, f32);
+void TObjLight__sub_803DF220(s32 arg0);
+extern RecoveredGlobal_803DF528_TObjLight__data_8058D528 TObjLight__data_8058D528;
+extern const f32 lbl_805D7790;
+void TObjLight__sub_803DF464(s32 idx, f32 x, f32 y, f32 z);
+void GXBegin(int, int, u16);
+void TObjPlayer__sub_803DF5E4(void *arg0, void *arg1);
 }
 
 extern "C" {
@@ -95,6 +119,35 @@ void TObjLight__sub_803DF31C(s32 arg0, s32 arg1) {
 
 
 typedef char RecoveredGlobal_803DF528_TObjLight__data_8058D528_size[sizeof(RecoveredGlobal_803DF528_TObjLight__data_8058D528) == 0x140 ? 1 : -1];
+
+
+#pragma push
+#pragma scheduling off
+void TObjLight__sub_803DF394(s32 idx, f32 r, f32 g, f32 b) {
+    GXColor_803DF268 c;
+    TObjLight__sub_803DF220(idx);
+    c.r = (u8)(lbl_805E0FD4 * r);
+    c.g = (u8)(lbl_805E0FD4 * g);
+    c.b = (u8)(lbl_805E0FD4 * b);
+    c.a = 0xFF;
+    GXInitLightColor((u8 *)&TObjLight__data_8058D528 + (idx << 6), c);
+}
+#pragma pop
+
+
+
+#pragma push
+#pragma scheduling off
+void TObjLight__sub_803DF464(s32 idx, f32 x, f32 y, f32 z) {
+    TObjLight__sub_803DF220(idx);
+    if (idx == 0) {
+        GXInitLightPos((u8 *)&TObjLight__data_8058D528 + (idx << 6), lbl_805D7790 * -x, lbl_805D7790 * -y, lbl_805D7790 * -z);
+    } else {
+        GXInitLightDir((u8 *)&TObjLight__data_8058D528 + (idx << 6), x, y, z);
+    }
+}
+#pragma pop
+
 void TObjLight__sub_803DF528(s32 arg0) {
     TObjLight__sub_803DF220((s32)(arg0));
     GXLoadLightObjImm((void *) ((u8 *)(&TObjLight__data_8058D528.value) + (arg0 << 6)), (int) (M2C_FIELD(((u8 *)(lbl_804FC748) + (arg0 * 4)), s32 *, 0)));
@@ -104,13 +157,42 @@ void TObjLight__sub_803DF528(s32 arg0) {
 
 void TObjPlayer__sub_803DF578(void *arg0, void *arg1, s32 arg2) {
     TObjPlayer__sub_803DF768(arg2);
-    TObjPlayer__sub_803DF5E4(arg0, arg1);
+    TObjPlayer__sub_803DF5E4((void *)(arg0), (void *)(arg1));
     reset_player_transform();
 }
 
 void reset_player_transform(void) {
     TObjPlayer__sub_803E2248();
 }
+
+
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+static inline void GXPosition3f32_803DF5E4(f32 x, f32 y, f32 z) {
+    (*(volatile WGPipe_803DF5E4 *)0xCC008000).f32 = x;
+    (*(volatile WGPipe_803DF5E4 *)0xCC008000).f32 = y;
+    (*(volatile WGPipe_803DF5E4 *)0xCC008000).f32 = z;
+}
+static inline void GXColor1u32_803DF5E4(u32 c) {
+    (*(volatile WGPipe_803DF5E4 *)0xCC008000).u32 = c;
+}
+void TObjPlayer__sub_803DF5E4(void *arg0, void *arg1) {
+    s32 n;
+    Vtx_803DF5E4 *v;
+    u32 c;
+    v = (Vtx_803DF5E4 *)arg0;
+    n = (s32)arg1;
+    GXBegin(0x98, 4, n);
+    for (; n != 0; n--) {
+        GXPosition3f32_803DF5E4(v->x, v->y, v->z);
+        c = v->color;
+        GXColor1u32_803DF5E4(((c & 0xFFFFFF) << 8) | ((c & 0xFF000000) >> 24));
+        v++;
+    }
+}
+#pragma pop
 
 void TObjPlayer__sub_803DF768(s32 arg0) {
     load_camera_view_matrix();

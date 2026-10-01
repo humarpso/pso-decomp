@@ -29,6 +29,10 @@ struct Node_803DCB40 {
     struct Node_803DCB40 *next;
 };
 
+struct Tbl_803DCC34 { u32 v[12]; };
+
+struct Reg_803DCC34 { u8 pad[0xC]; u32 mode; };
+
 extern "C" {
 extern RecoveredGlobal_803DCBD8_lbl_8058D380 lbl_8058D380;
 extern u8 *lbl_805D774C;
@@ -62,6 +66,9 @@ s32 TObjPlayer__sub_803D9B78();
 extern struct MotionCtx_803DC894 * const lbl_805D4698;
 extern RecoveredCallback_1268626c296b lbl_805D76B8;
 void TObjPlayer__sub_803DCB40(struct Node_803DCB40 *arg0);
+extern const Tbl_803DCC34 lbl_8047E3D8;
+extern u8 *lbl_805D774C;
+void abs__4cXyzCFv(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -159,6 +166,20 @@ void TObjPlayer__sub_803DCBF0(C_803DCBF0 *arg0) {
     arg0->g = -1;
     arg0->h = 0x20000000;
     arg0->i = 0;
+}
+
+#define REG_803DCC34 ((Reg_803DCC34 *) lbl_805D774C)
+void abs__4cXyzCFv(s32 arg0, s32 arg1) {
+    Tbl_803DCC34 tbl = lbl_8047E3D8;
+    if (arg1 == 0) {
+        REG_803DCC34->mode = (REG_803DCC34->mode & 0x03FFFFFF) | 0xB0000000;
+    } else if (arg1 == 0) {
+        REG_803DCC34->mode = (REG_803DCC34->mode & 0x03FFFFFF) | 0x94000000;
+    } else if (arg0 == 0) {
+        REG_803DCC34->mode = (REG_803DCC34->mode & 0x1FFFFFFF) | (tbl.v[arg1] << 29);
+    } else {
+        REG_803DCC34->mode = (REG_803DCC34->mode & 0xE3FFFFFF) | (tbl.v[arg1] << 26);
+    }
 }
 
 void TObjPlayer__sub_803DCD38(s32 arg0) {
