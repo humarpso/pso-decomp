@@ -4,6 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Boss_802B057C { u8 pad[0x3CC]; s32 f3CC; };
+
+extern "C" {
+void TBoss6PlotFalz__sub_802AB568(void *, f32, s32);
+int TBoss6PlotFalz__sub_802AC678(void*);
+extern const f32 lbl_805DE218;
+extern const f32 lbl_805DE21C;
+void TBoss6PlotFalz__sub_802B057C(Boss_802B057C *o);
+}
+
 extern "C" {
 
 void TBoss6PlotFalz__sub_802B03F4(void);
@@ -56,6 +66,18 @@ void stop_adx_audio(void *arg0) {
     TObjBgmColCtrl__sub_802274B8(lbl_80470990);
     M2C_FIELD(arg0, s32 *, 0x3CC) = 0;
     create_variant__8TObjFishFPv(arg0);
+}
+void TBoss6PlotFalz__sub_802B057C(Boss_802B057C *o) {
+    s32 t = o->f3CC;
+    if (t <= 0x2D) {
+        TBoss6PlotFalz__sub_802AB568(o, lbl_805DE218, 0);
+    } else if (t > 0x2D && t < 0x10E) {
+        TBoss6PlotFalz__sub_802AB568(o, (f32)(0x10E - t) / lbl_805DE21C, 0);
+    }
+    if (o->f3CC == 0x2D) {
+        ((void (*)(void)) TBoss6PlotFalz__sub_802AC678)();
+    }
+    o->f3CC = o->f3CC + 1;
 }
 
 }

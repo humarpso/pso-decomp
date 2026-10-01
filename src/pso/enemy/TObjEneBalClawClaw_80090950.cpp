@@ -75,6 +75,20 @@ struct VObj_18_4841bb : VBase_18_4841bb {
     virtual M2C_UNK m53();
 };
 
+struct Vec_80090A70 { f32 x, y, z; };
+
+struct Ent_80090A70 { u8 pad[0x30]; s32 flags; u8 pad34[4]; Vec_80090A70 pos; };
+
+struct Sub_80090A70 { u8 pad[4]; f32 f4; };
+
+struct Obj_80090A70 {
+    u8 pad0[0xB8]; s16 fB8;
+    u8 padBA[0x350 - 0xBA]; Sub_80090A70 *f350;
+    u8 pad354[0x37C - 0x354]; s32 state;
+    u8 pad380[0x3C0 - 0x380]; f32 f3C0;
+    u8 pad3C4[2]; u16 f3C6;
+};
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TObjEneBalClawClaw__sub_80090798(void *);
@@ -82,6 +96,17 @@ void TObjEneBalClawClaw__sub_80090A10(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3);
 s32 update_if_active__15TObjEneMe1GiGueFPv(void *, int);
 extern const f32 lbl_805D9694;
 void TObjEneBalClawClaw__sub_8009097C(u8 *arg0, s16 arg1);
+void TObjPlayer__sub_80011734(void *, s32, f32);
+f32 TObjPlayer__sub_80017D68(void *, Vec_80090A70 *, s32, Sub_80090A70 *, f32);
+void TObjPlayer__sub_800182A0(void *, Vec_80090A70 *, s32);
+void TObjPlayer__sub_80018570(void *);
+void clear_attack_flag__18TObjEneBalClawClawFPv(void *);
+void clear_flag__18TObjEneBalClawClawFPv(void *arg0);
+Ent_80090A70 *get_enemy_entity(u16);
+void TBoss1Dragon__sub_80143504(void *);
+void check_object_collisions__10TObjPlayerFPv(void *);
+extern const f32 TObjEneBalClawClaw__data_805D968C;
+void TObjEneBalClawClaw__sub_80090A70(Obj_80090A70 *arg0);
 }
 
 extern "C" {
@@ -143,6 +168,33 @@ void TObjEneBalClawClaw__sub_80090A10(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3) {
     M2C_FIELD(arg0, s16 *, 0x32C) = arg3;
     TObjEneBalClawClaw__sub_80090798(arg0);
     ((VObj_18_4841bb *)(arg0))->m53();
+}
+
+void TObjEneBalClawClaw__sub_80090A70(Obj_80090A70 *arg0) {
+    Ent_80090A70 *e = get_enemy_entity(arg0->f3C6);
+    if (e == NULL || (e->flags & 0x800)) {
+        clear_flag__18TObjEneBalClawClawFPv(arg0);
+        return;
+    }
+    switch (arg0->state) {
+    case -1:
+        break;
+    case 0:
+        arg0->fB8 = 1;
+        clear_attack_flag__18TObjEneBalClawClawFPv(arg0);
+        arg0->state = 1;
+    case 1: {
+        Vec_80090A70 a = e->pos;
+        TObjPlayer__sub_800182A0(arg0, &a, 1);
+        Vec_80090A70 b = e->pos;
+        arg0->f3C0 = TObjPlayer__sub_80017D68(arg0, &b, 1, arg0->f350, arg0->f350->f4);
+        TObjPlayer__sub_80018570(arg0);
+        TBoss1Dragon__sub_80143504(arg0);
+        TObjPlayer__sub_80011734(arg0, 0, TObjEneBalClawClaw__data_805D968C);
+        check_object_collisions__10TObjPlayerFPv(arg0);
+        break;
+    }
+    }
 }
 
 void render__18TObjEneBalClawClawFPv(u8 *arg0) {

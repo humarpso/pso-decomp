@@ -4,6 +4,28 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+struct Obj_8010A1D0 {
+    u8 pad0[0x18];
+    void *vt;
+    s32 f_1C;
+    s32 f_20;
+    s32 f_24;
+    s16 f_28;
+    u8 f_2A;
+    u8 pad2B;
+    u32 f_2C;
+};
+
+extern "C" {
+u32 get_item_ctrl__10TObjPlayerFv();
+void __ct__7TObjectFP7TObject(void *, void *);
+extern const s32 lbl_8043E280[];
+extern const s32 lbl_8043E2A0[];
+extern M2C_UNK lbl_8049F130[];
+Obj_8010A1D0 *TObjPlayer__sub_8010A1D0(Obj_8010A1D0 *self, void *parent, s16 a, u8 b);
+}
+
 extern "C" {
 
 s32 get_entity_id__10TObjPlayerFPv(void* p);
@@ -72,6 +94,17 @@ void *TObjPlayer__sub_8010A178(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+Obj_8010A1D0 *TObjPlayer__sub_8010A1D0(Obj_8010A1D0 *self, void *parent, s16 a, u8 b) {
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vt = lbl_8049F130;
+    self->f_1C = 0;
+    self->f_20 = lbl_8043E2A0[(b - 0x53) % 8];
+    self->f_24 = lbl_8043E280[(b - 0x53) % 8];
+    self->f_28 = a;
+    self->f_2A = b;
+    self->f_2C = get_item_ctrl__10TObjPlayerFv();
+    return self;
 }
 
 }

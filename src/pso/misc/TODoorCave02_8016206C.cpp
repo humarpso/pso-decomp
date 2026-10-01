@@ -49,6 +49,19 @@ extern u32 lbl_805D5960;
 extern const f32 lbl_805DB4B8;
 extern const f32 lbl_805DB4C8;
 u8 *TODoorCave02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+void *alloc_buffer__11TOBoss4RockFPv(s32);
+s32 TLanguage__sub_801E4874(void *);
+s32 is_online_ready__6TLobbyFv();
+extern u8 lbl_80440E24[];
+extern u8 lbl_80440E3C[];
+extern u8 lbl_804B1458[];
+extern u8 lbl_804B1478[];
+extern s32 enable_v2_features;
+extern u32 lbl_805D5960;
+extern s32 *TODoorCave02__data_805D5964;
+void TODoorCave02__sub_8016211C(void);
 }
 
 extern "C" {
@@ -93,6 +106,27 @@ void free_globals__12TODoorCave02Fv(void) {
 }
 
 extern M2C_UNK __vt__12TODoorCave02[];
+
+void TODoorCave02__sub_8016211C(void) {
+    void *o;
+    TODoorCave02__data_805D5964 = (s32 *)alloc_buffer__11TOBoss4RockFPv(8);
+    if (enable_v2_features == 1 && is_online_ready__6TLobbyFv() != 0) {
+        o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (o != NULL) {
+            o = TLobby__sub_80020004(o, 1, lbl_804B1478, 0, 0, 0);
+        }
+        lbl_805D5960 = (u32)o;
+        TODoorCave02__data_805D5964[0] = TLanguage__sub_801E4874(lbl_80440E24);
+    } else {
+        o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (o != NULL) {
+            o = TLobby__sub_80020004(o, 1, lbl_804B1458, 0, 0, 0);
+        }
+        lbl_805D5960 = (u32)o;
+        TODoorCave02__data_805D5964[0] = TLanguage__sub_801E4874(lbl_80440E3C);
+    }
+    TODoorCave02__data_805D5964[1] = *(s32 *)(*(u8 **)(lbl_805D5960 + 0x42C) + 0xC);
+}
 
 void *__dt__12TODoorCave02Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

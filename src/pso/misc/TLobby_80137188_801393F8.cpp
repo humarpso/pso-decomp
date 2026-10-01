@@ -27,6 +27,8 @@ struct Ent_801395D8 { u8 b[0x1C]; };
 
 struct Lst_801395D8 { u8 pad[0x1DA8]; Ent_801395D8 e[1]; };
 
+struct Flag_80139690 { u8 pad[0x2A]; s8 flag; };
+
 extern "C" {
 extern u32 TLobby__data_805D55DC;
 extern const Pair_801397E8 lbl_8043EDF8[];
@@ -64,6 +66,36 @@ extern struct Root_80139538_80137188 *TLobby__data_805D5580;
 extern u32 TLobby__data_805D55D0;
 extern M2C_UNK TLobby__data_805DB0B0;
 void TLobby__sub_801395D8(void);
+void func_80019A68__Fv(void);
+s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv(void);
+void update_com_card_window__6TLobbyFv(void);
+void update_state__6TLobbyFv(void);
+void TLobby__sub_801384E4(void);
+void update_scroll_close__6TLobbyFv(void);
+void handle_short_list_input__6TLobbyFv(void);
+void update_short_list__6TLobbyFv(void);
+void TLobby__sub_80138B7C(void);
+void handle_comcard_window__6TLobbyFv(void);
+void TLobby__sub_80138DFC(void);
+void handle_create_game_window__6TLobbyFv(void);
+void update__6TLobbyFv(void);
+void TLobby__sub_80139094(void);
+void TLobby__sub_80139104(void);
+void TLobby__sub_801391BC(void);
+void handle_com_card__6TLobbyFv(void);
+void TLobby__sub_801392F8(void);
+void update_menu_window__6TLobbyFv(void);
+void handle_warp_menu_input__6TLobbyFv(void);
+void handle_game_list_select__6TLobbyFv(void);
+void TLobby__sub_801395D8(void);
+s32 query_task_active__6TLobbyFv(void);
+s32 get_link_status__Fv(void);
+s32 TAdPlayerLoadGC__sub_801E1B50(s32);
+void TQuestListOnline__sub_80214D18(void *);
+extern struct Root_80139538_80137188 *TLobby__data_805D5580;
+extern u32 TLobby__data_805D5594;
+extern s32 lbl_805D61AC;
+void run_task__6TLobbyFv(void *self);
 }
 
 extern "C" {
@@ -188,6 +220,89 @@ void TLobby__sub_801395D8(void) {
             idx = select_cursor_entry__6TLobbyFPv(TLobby__data_805D55D0);
             send_info__9TProtocolFR16TPlyGuildCardTag((*(Lst_801395D8 * *)&TLobby__data_805D5580), &(*(Lst_801395D8 * *)&TLobby__data_805D5580)->e[idx]);
         }
+    }
+}
+
+struct Root_80139538_80137188;
+#define CALL_80139690(f) ((void (*)(void *))f)(self)
+void run_task__6TLobbyFv(void *self) {
+    s32 r;
+    switch (TLobby__data_805D5594) {
+    case 1:
+        CALL_80139690(TLobby__sub_801395D8);
+        break;
+    case 2:
+        CALL_80139690(TLobby__sub_801395D8);
+        break;
+    case 3:
+        CALL_80139690(handle_warp_menu_input__6TLobbyFv);
+        break;
+    case 4:
+        CALL_80139690(update_menu_window__6TLobbyFv);
+        break;
+    case 6:
+        CALL_80139690(TLobby__sub_801392F8);
+        break;
+    case 9:
+        CALL_80139690(handle_comcard_window__6TLobbyFv);
+        break;
+    case 10:
+        CALL_80139690(handle_create_game_window__6TLobbyFv);
+        break;
+    case 5:
+        CALL_80139690(handle_com_card__6TLobbyFv);
+        break;
+    case 7:
+        CALL_80139690(TLobby__sub_801391BC);
+        break;
+    case 8:
+        CALL_80139690(TLobby__sub_80139104);
+        break;
+    case 12:
+        CALL_80139690(TLobby__sub_80139094);
+        return;
+    case 13:
+        CALL_80139690(update__6TLobbyFv);
+        break;
+    case 17:
+        CALL_80139690(TLobby__sub_80138B7C);
+        break;
+    case 20:
+        CALL_80139690(update_short_list__6TLobbyFv);
+        break;
+    case 22:
+        CALL_80139690(handle_short_list_input__6TLobbyFv);
+        break;
+    case 21:
+        CALL_80139690(handle_game_list_select__6TLobbyFv);
+        break;
+    case 24:
+        CALL_80139690(TLobby__sub_80138DFC);
+        break;
+    case 26:
+        CALL_80139690(update_scroll_close__6TLobbyFv);
+        break;
+    case 25:
+        CALL_80139690(update_com_card_window__6TLobbyFv);
+        break;
+    case 23:
+        return;
+    }
+    if (lbl_805D61AC != 0) {
+        func_80019A68__Fv();
+    }
+    r = query_task_active__6TLobbyFv();
+    if (((Flag_80139690 *)TLobby__data_805D5580)->flag != 0 || get_link_status__Fv() == 0 || r < 0) {
+        Flag_80139690 *d = (Flag_80139690 *)TLobby__data_805D5580;
+        d->flag = 0;
+        TQuestListOnline__sub_80214D18(d);
+        if (r < 0) {
+            update_state__6TLobbyFv();
+            return;
+        }
+        while (TAdPlayerLoadGC__sub_801E1B50(get_chr_select_state__23TAdSinglePlyChrSelectGCFv()) == -1) {
+        }
+        TLobby__sub_801384E4();
     }
 }
 

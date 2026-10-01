@@ -21,13 +21,24 @@ struct Stack_80096030 {
     f32 sp10;
 };
 
+struct Pair_80096150 { s32 a; s32 b; };
+
+struct VBase_80096150 { char pad[0x18]; };
+
+struct VObj_80096150 : VBase_80096150 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14();
+    virtual void m15(Pair_80096150 *, s32);
+};
+
 extern "C" {
 M2C_UNK TObjEneRe7BeruraPunch__sub_80096300(void *);
 extern const f32 lbl_805D979C;
 extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
 void TObjEneRe7BeruraPunch__sub_80095FAC(u8 *arg0);
 u8 * TObjButterflyLobby__sub_8007A5D8(s32, s32, s32);
-s32 TObjEneRe7BeruraPunch__sub_80096150(void *);
 u8 *TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK TObjEneRe7Berura__sub_80094D98();
 M2C_UNK TObjEneRe7BeruraPunch__sub_80096300(void *);
@@ -35,6 +46,16 @@ extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
 extern const f32 lbl_805D97A4;
 extern const f32 lbl_805D97A8;
 void TObjEneRe7BeruraPunch__sub_80096030(u8 *arg0);
+s32 TObjEneRe7Berura__sub_80094C68(u8 *);
+s32 TObjEneRe7Berura__sub_80094CD0(u8 *);
+s32 check_v2_mode__9TObjEneDDFv(void);
+u8 *TPhotonMylla__sub_80154CB4(u16);
+s32 TObjPlayer__sub_80154E3C(void *, void *, f32, f32);
+s32 update_enemy_collision_flags__10TObjPlayerFPv(void *);
+extern Pair_80096150 lbl_80439F28[];
+extern const f32 lbl_805D97AC;
+extern const f32 lbl_805D97B0;
+s32 TObjEneRe7BeruraPunch__sub_80096150(void *arg0);
 }
 
 extern "C" {
@@ -153,7 +174,7 @@ void TObjEneRe7BeruraPunch__sub_80096030(u8 *arg0) {
         M2C_FIELD(arg0, f32 *, 0xE4) = stack.sp10;
     }
     TObjEneRe7BeruraPunch__sub_80096300((void *) (arg0));
-    if ((var_r31 != 0) || (TObjEneRe7BeruraPunch__sub_80096150(arg0) != 0) || (M2C_FIELD(arg0, f32 *, 0x114) > M2C_FIELD(arg0, f32 *, 0xC8))) {
+    if ((var_r31 != 0) || (TObjEneRe7BeruraPunch__sub_80096150((void *)(arg0)) != 0) || (M2C_FIELD(arg0, f32 *, 0x114) > M2C_FIELD(arg0, f32 *, 0xC8))) {
         M2C_FIELD(arg0, s32 *, 0xB4) = 2;
         if (TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0xB0)) != NULL) {
             TObjEneRe7Berura__sub_80094D98();
@@ -161,6 +182,34 @@ void TObjEneRe7BeruraPunch__sub_80096030(u8 *arg0) {
     }
 }
 #pragma pop
+
+s32 TObjEneRe7BeruraPunch__sub_80096150(void *arg0) {
+    u8 *temp_r31;
+    void *temp_r4_2;
+    temp_r31 = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0xB0));
+    M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 4) = M2C_FIELD(arg0, f32 *, 0xCC);
+    M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 0x30) = M2C_FIELD(arg0, f32 *, 0xCC);
+    temp_r4_2 = M2C_FIELD(arg0, void **, 0xA4);
+    M2C_FIELD(temp_r4_2, f32 *, 0x34) = lbl_805D97AC * (lbl_805D97B0 * M2C_FIELD(arg0, f32 *, 0xF4));
+    TObjPlayer__sub_80154E3C(arg0, temp_r4_2, lbl_805D97B0, lbl_805D97AC);
+    update_enemy_collision_flags__10TObjPlayerFPv(arg0);
+    temp_r4_2 = M2C_FIELD(arg0, void **, 0xA4);
+    if ((M2C_FIELD(temp_r4_2, s32 *, 0x18) | M2C_FIELD(temp_r4_2, s32 *, 0x44)) & 0x200000) {
+        return 1;
+    }
+    if (temp_r31 != 0) {
+        TObjEneRe7Berura__sub_80094CD0(temp_r31);
+    }
+    Pair_80096150 p = lbl_80439F28[0];
+    if (check_v2_mode__9TObjEneDDFv() != 0) {
+        p.b &= ~2;
+    }
+    ((VObj_80096150 *)arg0)->m15(&p, M2C_FIELD(arg0, s32 *, 0xD8));
+    if (temp_r31 != 0) {
+        TObjEneRe7Berura__sub_80094C68(temp_r31);
+    }
+    return 0;
+}
 
 void launch__21TObjEneRe7BeruraPunchFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     u8 *temp_r3;

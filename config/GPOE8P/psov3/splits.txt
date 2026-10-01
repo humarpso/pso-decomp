@@ -6118,6 +6118,7 @@ pso/misc/TLobby_80137188_80138F24.cpp:
 
 pso/misc/TLobby_80137188_801393F8.cpp:
 	.text       start:0x801393F8 end:0x8013998C
+	.data       start:0x804A70AC end:0x804A7118
 
 pso/misc/TLobby_80137188.cpp:
 	.text       start:0x8013998C end:0x8013A23C
@@ -7770,6 +7771,7 @@ pso/object/TObjCity_Season_ValentineHeart.cpp:
 
 pso/object/TObjCity_Season_EasterEgg.cpp:
 	.text       start:0x80184810 end:0x80184AB8
+	.rodata     start:0x80444260 end:0x80444268
 
 pso/object/TObjCity_Season_EasterEgg_80184AB8.cpp:
 	.text       start:0x80184AB8 end:0x80184B44
@@ -7782,6 +7784,7 @@ pso/unk/text_80184C2C.cpp:
 
 pso/object/TObjLaboMapWarp_80185248.cpp:
 	.text       start:0x80185248 end:0x801854DC
+	.rodata     start:0x80444A20 end:0x80444A28
 
 pso/object/TObjLaboMapWarp_801854DC.cpp:
 	.text       start:0x801854DC end:0x80185564
@@ -12335,6 +12338,7 @@ pso/misc/TWindowCtrlMain_8024CB74.cpp:
 
 pso/misc/TWindowCtrlMain_8024CB7C.cpp:
 	.text       start:0x8024CB7C end:0x8024CD5C
+	.sdata2     start:0x805DCC18 end:0x805DCC30
 
 pso/misc/TWindowCtrlMain_8024CD5C.cpp:
 	.text       start:0x8024CD5C end:0x8024D368
@@ -14077,6 +14081,7 @@ pso/misc/TWindowSubStatusDisp_802A4DE8.cpp:
 
 pso/ui/TAdTitleTexGC.cpp:
 	.text       start:0x802A4E6C end:0x802A5120
+	.rodata     start:0x80466708 end:0x80466710
 
 pso/misc/TLobby_802A5120.cpp:
 	.text       start:0x802A5120 end:0x802A5450
@@ -14327,6 +14332,7 @@ pso/misc/TPlayerFootStamp_802B02B0.cpp:
 
 pso/misc/TPlayerFootStamp_802B03F4.cpp:
 	.text       start:0x802B03F4 end:0x802B061C
+	.rodata     start:0x804709A0 end:0x804709A8
 
 pso/misc/TPlayerFootStamp_802B061C.cpp:
 	.text       start:0x802B061C end:0x802B0770

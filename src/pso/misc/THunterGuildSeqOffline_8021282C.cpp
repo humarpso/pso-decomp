@@ -56,6 +56,20 @@ struct List_80212B88 {
     void (*download)(void);
 };
 
+struct Base_802129FC { char pad[0x18]; };
+
+struct Seq_802129FC : Base_802129FC {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6();
+    virtual M2C_UNK m7(M2C_UNK, M2C_UNK);
+    virtual s32 m8();
+    u8 pad1c[0x24 - 0x1C];
+    s32 f24;
+    u8 pad28[0x34 - 0x28];
+    void *f34;
+    s32 f38;
+};
+
 extern "C" {
 s32 is_visible__17TWindowSubComCardFPv(void *);
 s32 get_status_flag__17TWindowSubComCardFPv(void *);
@@ -77,6 +91,23 @@ void set_state_close2__22THunterGuildSeqOfflineFv(void);
 void request_close__22THunterGuildSeqOfflineFv(void);
 extern s32 tl_05;
 void THunterGuildSeqOffline__sub_80212B88(Seq_80212B88 *self);
+void obj_getField1c(s32);
+void queue_destruction__7TObjectFv(void *);
+void init__22THunterGuildSeqOfflineFPvPvPv(void *, void *, void *);
+void queue_destruction__19THunterGuildWarningFv();
+void THunterGuildSeqOffline__sub_8021E180();
+void fn_802233F8(void *);
+void close_window__13TShopSequenceFPv(void *);
+s32 TShopWindowBase__sub_802239EC(void *);
+s32 TShopWindowBase__sub_80223A48(void *);
+void *__nw__7TObjectFUl(u32);
+s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
+void set_enemy_mode_0__22THunterGuildSeqOfflineFv(void);
+void set_enemy_mode_1__22THunterGuildSeqOfflineFv(void);
+void set_enemy_mode_3__12TQuestListVMFv(void);
+void set_enemy_mode_5__22THunterGuildSeqOfflineFv(void);
+extern void *tl_00;
+void THunterGuildSeqOffline__vt11(Seq_802129FC *arg0);
 }
 
 extern "C" {
@@ -154,6 +185,62 @@ block_8:
             set_field_20__12TQuestListVMFPvi((void *)(arg0), (M2C_UNK)(5));
         }
     }
+}
+
+void THunterGuildSeqOffline__vt11(Seq_802129FC *arg0) {
+    void *o;
+    if (arg0->f34 != NULL) {
+        if (all_parents_unqueued_for_destruction__7TObjectFv(arg0->f34) == 1) {
+            return;
+        }
+        arg0->f34 = NULL;
+    }
+    if (arg0->m8() == 0) {
+        return;
+    }
+    if (TShopWindowBase__sub_80223A48(arg0) == 0 && TShopWindowBase__sub_802239EC(arg0) == 0) {
+        return;
+    }
+    switch (arg0->f38) {
+    case 0:
+        break;
+    case 1:
+        o = __nw__7TObjectFUl(0x28);
+        if (o != NULL) {
+            init__22THunterGuildSeqOfflineFPvPvPv(o, tl_00, (void *)set_enemy_mode_0__22THunterGuildSeqOfflineFv);
+        }
+        obj_getField1c(arg0->f24);
+        THunterGuildSeqOffline__sub_8021E180();
+        break;
+    case 2:
+        o = __nw__7TObjectFUl(0x28);
+        if (o != NULL) {
+            init__22THunterGuildSeqOfflineFPvPvPv(o, tl_00, (void *)set_enemy_mode_1__22THunterGuildSeqOfflineFv);
+        }
+        obj_getField1c(arg0->f24);
+        THunterGuildSeqOffline__sub_8021E180();
+        break;
+    case 3:
+        o = __nw__7TObjectFUl(0x28);
+        if (o != NULL) {
+            init__22THunterGuildSeqOfflineFPvPvPv(o, tl_00, (void *)set_enemy_mode_3__12TQuestListVMFv);
+        }
+        obj_getField1c(arg0->f24);
+        THunterGuildSeqOffline__sub_8021E180();
+        break;
+    case 4:
+        o = __nw__7TObjectFUl(0x28);
+        if (o != NULL) {
+            init__22THunterGuildSeqOfflineFPvPvPv(o, tl_00, (void *)set_enemy_mode_5__22THunterGuildSeqOfflineFv);
+        }
+        obj_getField1c(arg0->f24);
+        THunterGuildSeqOffline__sub_8021E180();
+        break;
+    }
+    close_window__13TShopSequenceFPv(arg0);
+    fn_802233F8(arg0);
+    queue_destruction__19THunterGuildWarningFv();
+    queue_destruction__7TObjectFv(arg0);
 }
 
 void THunterGuildSeqOffline__sub_80212B88(Seq_80212B88 *self) {

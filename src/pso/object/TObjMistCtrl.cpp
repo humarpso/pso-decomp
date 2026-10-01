@@ -20,12 +20,30 @@ struct RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl {
     u8 remaining[0x34];
 };
 
+struct Ent_802AF8BC { f32 x, y, z; u32 a; u32 b; u32 f14; };
+
+struct Vec_802AF8BC { f32 x, y, z; };
+
+struct Rec_802AF8BC { u8 pad[0x88]; Vec_802AF8BC d; };
+
+struct TPlayerFootStamp_802AF8BC {
+    u8 pad0[0x1C];
+    Ent_802AF8BC ent[4];
+    Vec_802AF8BC base;
+    Vec_802AF8BC off[4];
+    s32 fB8;
+    u8 padBC[4];
+    s32 fC0;
+};
+
 extern "C" {
 s32 TBoss8Dragon__sub_8008741C(void *, int, int);
 s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
 extern M2C_UNK __vt__12TObjMistCtrl[];
 extern s32 lbl_805D3E80;
 u8 *TObjMistCtrl__ct(u8 *arg0, s32 arg1, u32 arg2);
+void queue_destruction__7TObjectFv(void *);
+void run_task__16TPlayerFootStampFv(TPlayerFootStamp_802AF8BC *o);
 }
 
 extern "C" {
@@ -89,6 +107,29 @@ void render__16TPlayerFootStampFv(u8 *arg0) {
         fn_803E29B0((void *) (arg0 + 0x1C), (int) (4), (int) (1));
         fn_80141A30();
         some_id_805c6f74 = lbl_805D5660;
+    }
+}
+void run_task__16TPlayerFootStampFv(TPlayerFootStamp_802AF8BC *o) {
+    s32 j;
+    Ent_802AF8BC *e;
+    s32 i;
+    o->fC0 = o->fC0 - 1;
+    if (o->fC0 <= 0) {
+        queue_destruction__7TObjectFv(o);
+        return;
+    }
+    f32 bx = o->base.x;
+    f32 by = o->base.y;
+    f32 bz = o->base.z;
+    e = o->ent;
+    for (i = 0; i < 4; i++) {
+        if (o->fC0 < 0x40) {
+            e->f14 = o->fB8 - ((0x40 - o->fC0) << 26);
+        }
+        e->x = bx + o->off[i].x;
+        e->y = by + o->off[i].y;
+        e->z = bz + o->off[i].z;
+        e++;
     }
 }
 

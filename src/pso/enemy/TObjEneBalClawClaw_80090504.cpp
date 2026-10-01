@@ -69,6 +69,8 @@ struct Claw_80090850 {
     s32 state;
 };
 
+struct Vec_80090504 { f32 x, y, z; };
+
 extern "C" {
 void obj_clearFlags30(void *, u32);
 void TObjEneBalClawClaw__sub_80090798(u8 *arg0);
@@ -89,6 +91,15 @@ void VecCopy__FP3VecPC3Vec(void *, const void *);
 void TBoss1Dragon__sub_80143504(void *);
 extern const f32 TObjEneBalClawClaw__data_805D968C;
 void TObjEneBalClawClaw__sub_80090850(Claw_80090850 *self);
+void TObjPlayer__sub_80011734(void *, int, f32);
+void update_angle__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2);
+int update_if_active__15TObjEneMe1GiGueFPv(void*, int);
+void TObjPlayer__sub_800C7168(void *, Vec_80090504, void *, f32, f32);
+void TBoss1Dragon__sub_80143504(void *);
+s32 update_collisions__10TObjPlayerFPv(void *);
+extern const f32 TObjEneBalClawClaw__data_805D968C;
+extern const f32 lbl_805D9690;
+void TObjEneBalClawClaw__sub_80090504(u8 *arg0);
 }
 
 extern "C" {
@@ -100,6 +111,33 @@ int update_if_active__15TObjEneMe1GiGueFPv(void*, int);
 
 typedef char RecoveredFields_8009060C_arg0_37C_offset[offsetof(RecoveredFields_8009060C_arg0, field_37C) == 0x37C ? 1 : -1];
 typedef char RecoveredFields_8009060C_arg0_388_offset[offsetof(RecoveredFields_8009060C_arg0, field_388) == 0x388 ? 1 : -1];
+
+void TObjEneBalClawClaw__sub_80090504(u8 *arg0) {
+    u8 *temp_r5;
+    switch (M2C_FIELD(arg0, s32 *, 0x37C)) {
+    case -1:
+        break;
+    case 0:
+        M2C_FIELD(arg0, s32 *, 0x30) &= ~0x100;
+        M2C_FIELD(arg0, s16 *, 0xB8) = 1;
+        M2C_FIELD(arg0, s32 *, 0x37C) = 1;
+        M2C_FIELD(arg0, s16 *, 0x3C8) = 0x78;
+        break;
+    case 1:
+        if (M2C_FIELD(arg0, void **, 0x2A8) == NULL || --M2C_FIELD(arg0, s16 *, 0x3C8) <= 0) {
+            update_if_active__15TObjEneMe1GiGueFPv(arg0, 0);
+            break;
+        }
+        M2C_FIELD(arg0, f32 *, 0x30C) = TObjEneBalClawClaw__data_805D968C;
+        TObjPlayer__sub_800C7168(arg0, M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2A8), Vec_80090504 *, 0x2FC), M2C_FIELD(arg0, u8 **, 0xA4), lbl_805D9690, M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC));
+        update_angle__10TObjPlayerFPviPv(arg0, M2C_FIELD(M2C_FIELD(arg0, void **, 0x350), s32 *, 8), arg0 + 0x308);
+        TBoss1Dragon__sub_80143504(arg0);
+        TObjPlayer__sub_80011734(arg0, 0, TObjEneBalClawClaw__data_805D968C);
+        update_collisions__10TObjPlayerFPv(arg0);
+        break;
+    }
+}
+
 void TObjEneBalClawClaw__sub_8009060C(u8 *arg0) {
     s32 temp_r0;
     temp_r0 = ((RecoveredFields_8009060C_arg0 *)arg0)->field_37C;

@@ -24,6 +24,9 @@ struct RecoveredGlobal_803640F8_lbl_8058D4C0 {
     u8 remaining[0xC];
 };
 
+typedef s32 M2C_UNK;
+struct Rec_80364028 { f32 a; s32 b; s32 c; s32 d; };
+
 extern "C" {
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_803640C8_lbl_8058D4C0 lbl_8058D4C0;
@@ -47,6 +50,14 @@ s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_803640C8_lbl_8058D4C0 lbl_8058D4C0;
 extern void *lbl_805D6FB8;
 void TObjPlayer__sub_803640F8(M2C_UNK *arg0);
+void TObjPlayer__sub_803640F8(M2C_UNK *arg0);
+void set_chunk_material_override_pair(s32, s32);
+M2C_UNK TObjPlayer__sub_803E38FC(M2C_UNK);
+extern Rec_80364028 lbl_80479FF8;
+extern void *lbl_805D6FB8;
+extern s32 some_id_805c6f74;
+extern const f32 lbl_805E0288;
+void TObjPlayer__sub_80364028(f32 farg0);
 }
 
 extern "C" {
@@ -75,6 +86,19 @@ void warn_if_gauge_low__10TObjPlayerFv(void) {
     }
 }
 typedef char RecoveredGlobal_803640C8_lbl_8058D4C0_size[sizeof(RecoveredGlobal_803640C8_lbl_8058D4C0) == 0x10 ? 1 : -1];
+
+void TObjPlayer__sub_80364028(f32 farg0) {
+    if (farg0 < lbl_805E0288) {
+        some_id_805c6f74 |= 0x24;
+        set_chunk_material_override_pair(-1, 0x800);
+        TObjPlayer__sub_803E38FC(0x2500);
+        Rec_80364028 r = lbl_80479FF8;
+        r.a = farg0 - lbl_805E0288;
+        TObjPlayer__sub_803640F8((M2C_UNK *)&r);
+    }
+    *(f32 *)((u8 *)lbl_805D6FB8 + 0x2C) = farg0;
+}
+
 void TObjPlayer__sub_803640C8(void) {
     copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) ((*(s32 *)&lbl_805D6FB8) + 0x1C));
 }

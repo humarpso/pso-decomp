@@ -25,6 +25,10 @@ struct Obj_8009FC44 {
     f32 field34;
 };
 
+struct Rec_8009FA24 { u8 pad[0x14]; };
+
+struct Obj_8009FA24 { u8 pad0[0x1C]; s32 n1c; s32 n20; s32 sel; u8 pad28[4]; Rec_8009FA24 *recs; s32 a30; f32 f34; };
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(Vec_8009FADC *dst, const Vec_8009FADC *src);
 void TObjEneMe1Canadin__sub_8009FADC(Obj_8009FADC *self, f32 f, const Vec_8009FADC *pos, s32 val);
@@ -38,6 +42,8 @@ extern s32 lbl_805D29C4;
 extern const f32 lbl_805D993C;
 extern const f32 lbl_805D9944;
 Obj_8009FC44 *TObjEneMe1Canadin__sub_8009FC44(Obj_8009FC44 *self, void *parent, s32 count);
+s32 TObjEneMe1Canadin__sub_8009FB54(Obj_8009FB54 *self, s32 dec, f32 scale);
+void TObjEneMe1Canadin__sub_8009FA24(Obj_8009FA24 *arg0);
 }
 
 extern "C" {
@@ -48,6 +54,23 @@ void __dt__7TObjectFv(void *, int);
 void free__11TOBoss4RockFUi(void *);
 
 extern M2C_UNK lbl_80490410[];
+
+struct Obj_8009FB54;
+typedef s32 (*Fn_8009FA24)(Rec_8009FA24 *, f32, s32);
+void TObjEneMe1Canadin__sub_8009FA24(Obj_8009FA24 *arg0) {
+    s32 i;
+    arg0->sel = arg0->n20 - 1;
+    for (i = arg0->n20 - 1; i >= 0; i--) {
+        if (((Fn_8009FA24)TObjEneMe1Canadin__sub_8009FB54)(&arg0->recs[i], arg0->f34, arg0->a30) == 0) {
+            arg0->sel = i;
+        }
+    }
+    for (i = arg0->n1c - 1; i >= arg0->n20; i--) {
+        if (((Fn_8009FA24)TObjEneMe1Canadin__sub_8009FB54)(&arg0->recs[i], arg0->f34, arg0->a30) == 0) {
+            arg0->sel = i;
+        }
+    }
+}
 
 void TObjEneMe1Canadin__sub_8009FADC(Obj_8009FADC *self, f32 f, const Vec_8009FADC *pos, s32 val) {
     s32 i = self->idx;

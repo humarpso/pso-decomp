@@ -33,6 +33,17 @@ struct Tbl_803DCC34 { u32 v[12]; };
 
 struct Reg_803DCC34 { u8 pad[0xC]; u32 mode; };
 
+struct N_803DC9E4 {
+    u32 flags;
+    s32 m4;
+    u8 m8[0xC];
+    u8 m14[0xC];
+    u8 m20[0xC];
+    struct N_803DC9E4 *child;
+    struct N_803DC9E4 *next;
+    f32 f34;
+};
+
 extern "C" {
 extern RecoveredGlobal_803DCBD8_lbl_8058D380 lbl_8058D380;
 extern u8 *lbl_805D774C;
@@ -69,6 +80,16 @@ void TObjPlayer__sub_803DCB40(struct Node_803DCB40 *arg0);
 extern const Tbl_803DCC34 lbl_8047E3D8;
 extern u8 *lbl_805D774C;
 void abs__4cXyzCFv(s32 arg0, s32 arg1);
+M2C_UNK TObjPlayer__sub_803D898C(void *);
+M2C_UNK TObjPlayer__sub_803D993C(void *, f32);
+M2C_UNK TObjPlayer__sub_803D99F8(void *, void *);
+s32 TObjPlayer__sub_803D9B2C();
+s32 TObjPlayer__sub_803D9B78();
+M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+void TObjPlayer__sub_803DC994(struct Mtx_803DC994 *src);
+extern M2C_UNK lbl_8058CE10[];
+void TObjPlayer__sub_803DC9E4(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32));
 }
 
 extern "C" {
@@ -131,6 +152,49 @@ void TObjPlayer__sub_803DC994(struct Mtx_803DC994 *src) {
     dst->m[2][0] = src->m[2][0];
     dst->m[2][1] = src->m[2][1];
     dst->m[2][2] = src->m[2][2];
+}
+
+struct Mtx_803DC994;
+void TObjPlayer__sub_803DC9E4(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32)) {
+    do {
+        u32 f = p->flags;
+        if (f & 0x800) {
+            TObjPlayer__sub_803D898C((void *) (lbl_8058CE10));
+        }
+        if ((f & 7) == 7) {
+            if (!(f & 8)) {
+                cb(p->m4);
+            }
+            if (!(f & 0x10)) {
+                TObjPlayer__sub_803DC9E4(p->child, cb);
+            }
+        } else {
+            TObjPlayer__sub_803D9B2C();
+            if (!(f & 1)) {
+                TOHangerMachine01__sub_803D9C00(p->m8);
+            }
+            if (!(f & 2)) {
+                if (f & 0x1000) {
+                    TObjPlayer__sub_803DC994((struct Mtx_803DC994 *) (lbl_8058CE10));
+                } else if (f & 0x400) {
+                    ((M2C_UNK (*)(f32, void *))TObjPlayer__sub_803D993C)(p->f34, p->m14);
+                } else {
+                    TObjPlayer__sub_803D99F8(p->m14, (void *) (f & 0x20));
+                }
+            }
+            if (!(f & 4)) {
+                TBoss7Tentacle__sub_803D9BA0(p->m20);
+            }
+            if (!(f & 8)) {
+                cb(p->m4);
+            }
+            if (!(f & 0x10)) {
+                TObjPlayer__sub_803DC9E4(p->child, cb);
+            }
+            TObjPlayer__sub_803D9B78();
+        }
+        p = p->next;
+    } while (p != NULL);
 }
 
 void TObjPlayer__sub_803DCB40(struct Node_803DCB40 *arg0) {

@@ -173,6 +173,7 @@ pso/boss/TBoss7Crawfish_80308C10.cpp
 pso/boss/TBoss7Crawfish_80308C84.cpp
 pso/boss/TBoss7Crawfish_8030908C.cpp
 pso/boss/TBoss7DeRolLeC.cpp
+pso/boss/TBoss7Joint.cpp
 pso/boss/TBoss7Joint_802E7B00.cpp
 pso/boss/TBoss7Joint_802EE6E0.cpp
 pso/boss/TBoss7LaserPtcl.cpp
@@ -312,6 +313,8 @@ pso/encryption/PSOV3EncryptionTCP.cpp
 pso/enemy/TEnemyTaskList.cpp
 pso/enemy/TObjEneBalClawBody.cpp
 pso/enemy/TObjEneBalClawClaw_8008DC18.cpp
+pso/enemy/TObjEneBalClawClaw_80090504.cpp
+pso/enemy/TObjEneBalClawClaw_80090950.cpp
 pso/enemy/TObjEneBalClawClaw_80090D3C.cpp
 pso/enemy/TObjEneBm3Fly.cpp
 pso/enemy/TObjEneBm3FlyNest_800B2E8C.cpp
@@ -347,6 +350,7 @@ pso/enemy/TObjEneDarkGunner.cpp
 pso/enemy/TObjEneDelDepthBomb_80316244.cpp
 pso/enemy/TObjEneDelDepth_80313C64.cpp
 pso/enemy/TObjEneDelDepth_80313D2C.cpp
+pso/enemy/TObjEneDelDepth_80315154.cpp
 pso/enemy/TObjEneDellBiter_800BC46C.cpp
 pso/enemy/TObjEneDellBiter_80305034.cpp
 pso/enemy/TObjEneDellBiter_80305268.cpp
@@ -380,6 +384,7 @@ pso/enemy/TObjEneMe1Canadin_8009EB6C.cpp
 pso/enemy/TObjEneMe1Canadin_8009EC00.cpp
 pso/enemy/TObjEneMe1Canadin_8009EC50.cpp
 pso/enemy/TObjEneMe1Canadin_8009F504.cpp
+pso/enemy/TObjEneMe1Canadin_8009FA24.cpp
 pso/enemy/TObjEneMe1Canadin_8009FA24_8009FD2C.cpp
 pso/enemy/TObjEneMe1Canadin_8009FA24_8009FD30.cpp
 pso/enemy/TObjEneMe1Canadin_8009FA24_8009FE60.cpp
@@ -526,6 +531,7 @@ pso/enemy/TObjEneRe4Sorcerer_801E3F14.cpp
 pso/enemy/TObjEneRe7Berura.cpp
 pso/enemy/TObjEneRe7BeruraPunch.cpp
 pso/enemy/TObjEneRe7BeruraPunch_80095E18.cpp
+pso/enemy/TObjEneRe7BeruraPunch_80095EA0.cpp
 pso/enemy/TObjEneRe7Berura_80094DB4.cpp
 pso/enemy/TObjEneRe7Berura_80094EA8.cpp
 pso/enemy/TObjEneRe7Berura_80094EE0.cpp
@@ -585,6 +591,7 @@ pso/enemy/TObjEneSlime_800EBD38.cpp
 pso/enemy/TObjEneSlime_802D7260.cpp
 pso/enemy/TObjEnemy.cpp
 pso/enemy/TObjEnemyCustom.cpp
+pso/enemy/TObjEnemyCustom_800C76F4.cpp
 pso/enemy/TObjEnemyCustom_800C8018.cpp
 pso/enemy/TObjEnemyCustom_800C8040.cpp
 pso/enemy/TObjEnemy_8020C3E0.cpp
@@ -926,6 +933,7 @@ pso/misc/THunterGuildSeqOffline_80212644.cpp
 pso/misc/THunterGuildSeqOffline_8021269C.cpp
 pso/misc/THunterGuildSeqOffline_802126C4.cpp
 pso/misc/THunterGuildSeqOffline_8021277C.cpp
+pso/misc/THunterGuildSeqOffline_8021282C.cpp
 pso/misc/THunterGuildSeqOffline_80213E38.cpp
 pso/misc/THunterGuildSeqOffline_80213EBC.cpp
 pso/misc/THunterGuildSeqOffline_80213F78.cpp
@@ -1367,6 +1375,7 @@ pso/misc/TNpcPlayer_80152988.cpp
 pso/misc/TNpcPlayer_801529AC.cpp
 pso/misc/TNpcPlayer_80152A30.cpp
 pso/misc/TNpcPlayer_80190E64.cpp
+pso/misc/TNpcPlayer_8034DC20.cpp
 pso/misc/TOAirconCave01.cpp
 pso/misc/TOAirconCave01_80156D28.cpp
 pso/misc/TOAirconCave01_80156F64.cpp
@@ -1502,6 +1511,7 @@ pso/misc/TOTrap_801791EC.cpp
 pso/misc/TOTrap_801792AC.cpp
 pso/misc/TOVS2Wall01.cpp
 pso/misc/TOVS2Wall01_8017BCC8.cpp
+pso/misc/TOVS2Wall01_8017BE08.cpp
 pso/misc/TOVS2Wall01_8017C7A4.cpp
 pso/misc/TOVS2Wreck01.cpp
 pso/misc/TOVS2Wreck02.cpp
@@ -1783,6 +1793,7 @@ pso/misc/TWindowDD_80341A08.cpp
 pso/misc/TWindowDD_80341AC0.cpp
 pso/misc/TWindowDD_803424EC.cpp
 pso/misc/TWindowDD_80342554.cpp
+pso/misc/TWindowDD_803426CC.cpp
 pso/misc/TWindowDD_80342AA0.cpp
 pso/misc/TWindowDD_80342BB4.cpp
 pso/misc/TWindowDD_80346A84.cpp
@@ -1842,6 +1853,7 @@ pso/misc/TWindowMainMenu_80263B70_80263B70.cpp
 pso/misc/TWindowMainMenu_80263B70_80263CAC.cpp
 pso/misc/TWindowMainMenu_802AD538_802ADB34.cpp
 pso/misc/TWindowMainMenu_802AE928.cpp
+pso/misc/TWindowMakeTeam.cpp
 pso/misc/TWindowMakeTeam_80131A5C.cpp
 pso/misc/TWindowMakeTeam_80131B54.cpp
 pso/misc/TWindowMakeTeam_80265298.cpp
@@ -2160,6 +2172,7 @@ pso/object/TObjCityAreaWarp_80185DB8.cpp
 pso/object/TObjCityDoor_Lobby.cpp
 pso/object/TObjCityDoor_Shop.cpp
 pso/object/TObjCityMainWarpChallenge.cpp
+pso/object/TObjCityMainWarp_80186C44.cpp
 pso/object/TObjCityMainWarp_80186E24.cpp
 pso/object/TObjCityMainWarp_80266354.cpp
 pso/object/TObjCityMapWarp.cpp
@@ -2239,6 +2252,7 @@ pso/object/TObjMapWarpAncient_8017D0DC.cpp
 pso/object/TObjMapWarpForest.cpp
 pso/object/TObjMapWarp_80141C68.cpp
 pso/object/TObjMesBase.cpp
+pso/object/TObjMistCtrl.cpp
 pso/object/TObjMotion.cpp
 pso/object/TObjOnlineEnding.cpp
 pso/object/TObjOnlineEnding_802E4B80_802E4B80.cpp
@@ -2282,6 +2296,7 @@ pso/object/TObjTombstone_80075764.cpp
 pso/object/TObjTombstone_80075854.cpp
 pso/object/TObjTombstone_800764E0.cpp
 pso/object/TObjTombstone_8007666C.cpp
+pso/object/TObjTreeLobby_80364A74.cpp
 pso/object/TObjTuitate.cpp
 pso/object/TObjVoloptCage.cpp
 pso/object/TObjVoloptCage_8004912C.cpp
@@ -2374,6 +2389,7 @@ pso/player/TObjPlayer_800A0408_800A04B8.cpp
 pso/player/TObjPlayer_800A0408_800A05B8.cpp
 pso/player/TObjPlayer_800A7764.cpp
 pso/player/TObjPlayer_800ACA60_800ACD80.cpp
+pso/player/TObjPlayer_800BBE90.cpp
 pso/player/TObjPlayer_800BC40C.cpp
 pso/player/TObjPlayer_800C25A0.cpp
 pso/player/TObjPlayer_800D3A68.cpp
@@ -2678,6 +2694,7 @@ pso/player/TObjPlayer_801B12A8_801B1624.cpp
 pso/player/TObjPlayer_801B3468.cpp
 pso/player/TObjPlayer_801B3FD8_801B3FD8.cpp
 pso/player/TObjPlayer_801B3FD8_801B4264.cpp
+pso/player/TObjPlayer_801B3FD8_801B4340.cpp
 pso/player/TObjPlayer_801B3FD8_801B44EC.cpp
 pso/player/TObjPlayer_801B3FD8_801B47F4.cpp
 pso/player/TObjPlayer_801B3FD8_801B4BD8.cpp
@@ -2964,6 +2981,7 @@ pso/player/TObjPlayer_8035A740.cpp
 pso/player/TObjPlayer_8035A778.cpp
 pso/player/TObjPlayer_8035AFD0.cpp
 pso/player/TObjPlayer_80362E60.cpp
+pso/player/TObjPlayer_80363BE0.cpp
 pso/player/TObjPlayer_80363BE0_80363BE0.cpp
 pso/player/TObjPlayer_80363BE0_80363C5C.cpp
 pso/player/TObjPlayer_80363BE0_80363CA0.cpp
@@ -3189,6 +3207,7 @@ pso/ui/TAdMultiPlyChrSelectGC_802B1850.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802C6F88.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802D50A0.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802DC3D4.cpp
+pso/ui/TAdMultiPlyChrSelectGC_802DCB80.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802DCD14.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802DD4B8.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802DD714.cpp
@@ -3792,6 +3811,7 @@ pso/unk/text_801D94C8.cpp
 pso/unk/text_801D9514.cpp
 pso/unk/text_801D98F8.cpp
 pso/unk/text_801D9AD0.cpp
+pso/unk/text_801D9B38.cpp
 pso/unk/text_801D9CE0.cpp
 pso/unk/text_801D9E50.cpp
 pso/unk/text_801D9EB4.cpp
@@ -3842,6 +3862,7 @@ pso/unk/text_8020AD40.cpp
 pso/unk/text_8020B118.cpp
 pso/unk/text_8020B374.cpp
 pso/unk/text_8020BC50.cpp
+pso/unk/text_8020BFE4.cpp
 pso/unk/text_8020C354.cpp
 pso/unk/text_8020C73C.cpp
 pso/unk/text_8020C9C8.cpp
@@ -4082,6 +4103,7 @@ pso/unk/text_8035B750.cpp
 pso/unk/text_8035B788.cpp
 pso/unk/text_8035BFF8.cpp
 pso/unk/text_8035C9E8.cpp
+pso/unk/text_8035D2EC.cpp
 pso/unk/text_8035D444.cpp
 pso/unk/text_8035D49C.cpp
 pso/unk/text_80362164.cpp
@@ -4123,6 +4145,7 @@ pso/unk/text_803DA798.cpp
 pso/unk/text_803DAF30.cpp
 pso/unk/text_803DAFA8.cpp
 pso/unk/text_803DC86C.cpp
+pso/unk/text_803DC88C.cpp
 pso/unk/text_803DCDB0.cpp
 pso/unk/text_803DCEC8.cpp
 pso/unk/text_803DCF0C.cpp

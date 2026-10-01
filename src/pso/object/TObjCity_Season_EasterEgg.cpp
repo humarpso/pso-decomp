@@ -13,6 +13,14 @@ struct Stack_8018493C {
 struct RecoveredGlobal_8018493C_lbl_804B5E10 { M2C_UNK value; u8 remaining[0x34]; };
 typedef char RecoveredGlobal_8018493C_lbl_804B5E10_size[sizeof(RecoveredGlobal_8018493C_lbl_804B5E10) == 0x38 ? 1 : -1];
 
+struct Info_80184A08 { u32 f0; u32 n; };
+
+struct Ent_80184A08 { u32 f0; Info_80184A08 *info; };
+
+struct Anim_80184A08 { u8 pad[0x430]; Ent_80184A08 *ents; };
+
+struct Obj_80184A08 { u8 pad[0xB0]; f32 t; };
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TBoss4Type2__sub_800874F4(void *, int);
@@ -24,6 +32,8 @@ extern const f32 lbl_805DBC18;
 extern const f32 lbl_805DBC78;
 extern const f32 lbl_805DBC7C;
 u8 *TObjCity_Season_EasterEgg__ct(u8 *arg0, s32 arg1, s32 arg2);
+u32 get_anim_frame__25TObjCity_Season_EasterEggFPv(void *);
+s32 TObjCity_Season_EasterEgg__sub_80184A08(Obj_80184A08 *arg0, s32 arg1, f32 farg0);
 }
 
 extern "C" {
@@ -92,6 +102,20 @@ u8 *TObjCity_Season_EasterEgg__ct(u8 *arg0, s32 arg1, s32 arg2) {
         M2C_FIELD(arg0, s32 *, 0xBC) = 0;
     }
     return arg0;
+}
+s32 TObjCity_Season_EasterEgg__sub_80184A08(Obj_80184A08 *arg0, s32 arg1, f32 farg0) {
+    Anim_80184A08 *a;
+    f32 lim;
+    a = (Anim_80184A08 *)get_anim_frame__25TObjCity_Season_EasterEggFPv(arg0);
+    if (a != NULL) {
+        lim = (f32)(a->ents[arg1].info->n - 1);
+        arg0->t += farg0;
+        if (arg0->t >= lim) {
+            arg0->t -= lim;
+        }
+        return 1;
+    }
+    return 0;
 }
 
 }

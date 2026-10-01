@@ -39,6 +39,7 @@ struct RecoveredGlobal_8034DC24_lbl_804F07C8
   u8 remaining[0x14];
 };
 
+struct RecoveredGlobal_8034DC24_lbl_804F07C8;
 extern "C" {
 s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_8034DE10_lbl_80478C70 lbl_80478C70;
@@ -63,6 +64,16 @@ u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8034DC24_lbl_804F07C8 lbl_804F07C8;
 u8 *TNpcPlayer__sub_8034DC24(u8 *arg0, s16 arg1);
+s32 obj_isState3_324(int);
+void TNpcPlayer__sub_80152330(void *, u16, u16, s32, void *);
+u16 get_action_flags__10TNpcPlayerFPv(int);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *__nw__7TObjectFUl(u32);
+void __ct__7TObjectFP7TObject(void *, void *);
+s32 get_field_67c__10TNpcPlayerFPv(u8 *);
+extern RecoveredGlobal_8034DC24_lbl_804F07C8 lbl_804F07C8;
+extern void *tl_00;
+u8 *TNpcPlayer__sub_8034DD14(u8 *self, void *parent);
 }
 
 extern "C" {
@@ -115,6 +126,27 @@ u8 *TNpcPlayer__sub_8034DC24(u8 *arg0, s16 arg1) {
     }
   }
   return arg0;
+}
+
+u8 *TNpcPlayer__sub_8034DD14(u8 *self, void *parent) {
+    void *task;
+    s32 slot;
+    u8 *player;
+    __ct__7TObjectFP7TObject(self, parent);
+    M2C_FIELD(self, void **, 0x18) = &lbl_804F07C8;
+    M2C_FIELD(self, s32 *, 0x1C) = 0;
+    for (slot = 0; slot < 4; slot++) {
+        player = TPlayerBattleCtrl4P__sub_801BA74C(slot);
+        if (player == NULL || ((s32 (*)(u8 *)) obj_isState3_324)(player) == 0 || ((u16 (*)(u8 *)) get_action_flags__10TNpcPlayerFPv)(player) == 0xFFFF) {
+            continue;
+        }
+        task = __nw__7TObjectFUl(0xE8);
+        if (task != NULL) {
+            TNpcPlayer__sub_80152330(task, ((u16 (*)(u8 *)) get_action_flags__10TNpcPlayerFPv)(player), (u16) slot, get_field_67c__10TNpcPlayerFPv(player), tl_00);
+        }
+        M2C_FIELD(self, s32 *, 0x1C)++;
+    }
+    return self;
 }
 
 s32 TNpcPlayer__sub_8034DDE0(void) {

@@ -61,6 +61,7 @@ force_active:
   - TMainCursor__sub_8013E694
   - TNpcPlayer__sub_80152CE8
   - TObjEneDD__sub_800BB980
+  - TObjEneMe1Canadin__sub_8009FB54
   - TObjFish__sub_800E2FFC
   - TObjPlayer__sub_800113A8
   - TObjPlayer__sub_800DA1F4
@@ -91,11 +92,14 @@ force_active:
   - TObjPlayer__sub_801D2DDC
   - TObjPlayer__sub_801D2EE8
   - TObjPlayer__sub_801D2F8C
+  - TObjPlayer__sub_801D9C34
   - TObjPlayer__sub_80307784
   - TObjPlayer__sub_80312FB0
+  - TObjPlayer__sub_803640F8
   - TObjPlayer__sub_803DA84C
   - TObjPlayer__sub_803DAA70
   - TObjPlayer__sub_803DAD84
+  - TObjPlayer__sub_803DC994
   - TObjResultWin__sub_80074664
   - TPlyDispConfig__sub_801E0A68
   - TRecvGenerateID__sub_801DFBC4

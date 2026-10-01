@@ -11,6 +11,14 @@ void set_state__15TObjEneMe1GiGueFPvi(void *, s32);
 void TObjEnemyCustom__sub_800C789C(u8 *arg0);
 void set_state__15TObjEneMe1GiGueFPvi(void *, s32);
 void TObjEnemyCustom__sub_800C79C8(u8 *arg0);
+M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32, f32);
+M2C_UNK TObjPlayer__sub_80017E6C(void *);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK update_collisions__10TObjPlayerFPv(void *);
+extern const f32 lbl_805DA070;
+extern volatile f32 lbl_805DA07C;
+extern const f32 lbl_805DA08C;
+void TObjEnemyCustom__sub_800C77A4(u8 *arg0);
 }
 
 extern "C" {
@@ -68,6 +76,32 @@ void draw__15TObjEnemyCustomFPv(u8 *arg0) {
 
 extern const f32 lbl_805DA070;
 extern volatile f32 lbl_805DA07C;
+
+#define K_800C77A4 (*(const f32 *)&lbl_805DA07C)
+void TObjEnemyCustom__sub_800C77A4(u8 *arg0) {
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);
+    switch (temp_r0) {
+    case -1:
+        break;
+    case 0:
+        M2C_FIELD(arg0, s16 *, 0xB8) = 4;
+        M2C_FIELD(arg0, s32 *, 0x37C) = 1;
+    case 1:
+        TBoss1Dragon__sub_80143504((void *) (arg0));
+        ((M2C_UNK (*)(void *, M2C_UNK, f32))TObjPlayer__sub_80011734)(arg0, 0, lbl_805DA070);
+        update_collisions__10TObjPlayerFPv((void *) (arg0));
+        if (M2C_FIELD(arg0, f32 *, 0xC0) < (K_800C77A4 * (lbl_805DA08C * M2C_FIELD(arg0, f32 *, 0xC8)))) {
+            TObjPlayer__sub_80017E6C((void *) (arg0));
+            f32 k;
+            M2C_FIELD(arg0, f32 *, 0x308) = (f32) (M2C_FIELD(arg0, f32 *, 0x308) * (k = lbl_805DA07C));
+            M2C_FIELD(arg0, f32 *, 0x310) = (f32) (M2C_FIELD(arg0, f32 *, 0x310) * k);
+        }
+        break;
+    default:
+        break;
+    }
+}
 
 void TObjEnemyCustom__sub_800C7860(u8 *arg0) {
     set_state__15TObjEneMe1GiGueFPvi(arg0, 7);

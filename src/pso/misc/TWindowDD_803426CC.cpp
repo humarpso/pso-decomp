@@ -4,6 +4,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+struct W_803429B0 { u8 pad[0x20]; s32 idx; s32 ids[1]; };
+
 extern "C" {
 s16 TWindowDD__sub_80342158(int);
 M2C_UNK TWindowDD__sub_8034330C(void *);
@@ -17,6 +20,18 @@ s32 test_input_flag_4__9TWindowDDFPv(void *);
 void TWindowDD__sub_80342800(u8 *arg0);
 s16 TWindowDD__sub_80342158(int);
 void TWindowDD__sub_803428C4(u8 *arg0);
+s16 TWindowDD__sub_80342158(int);
+s32 TWindowDD__sub_80342F84();
+s32 update_close_flag__9TWindowDDFPv(void *);
+M2C_UNK TWindowDD__sub_8034330C(void *);
+M2C_UNK TWindowDD__sub_803435A0(void *);
+s32 TWindowDD_is_id_in_range_5AC_5F9();
+M2C_UNK TWindowDD__sub_80347B70(void *);
+M2C_UNK play_se__9TWindowDDFv();
+M2C_UNK play_sound__9TWindowDDFv();
+s32 TWindowDD__sub_803482B0(void *);
+s32 test_input_flag_4__9TWindowDDFPv(void *);
+void TWindowDD__sub_803429B0(u8 *arg0);
 }
 
 extern "C" {
@@ -143,6 +158,39 @@ void update__9TWindowDDFi(s32 arg0) {
     if (TWindowDD__sub_803482B0((void *)(arg0)) != 0) {
         play_se__9TWindowDDFv();
         TWindowDD__sub_8034330C((void *)(arg0));
+    }
+}
+void TWindowDD__sub_803429B0(u8 *arg0) {
+    s32 var_r31;
+    u8 *var_r3;
+    var_r31 = 0;
+    switch (M2C_FIELD(arg0, s32 *, 0xB8)) {
+    case 0:
+        ((M2C_UNK (*)())TWindowDD__sub_80347B70)();
+        if (test_input_flag_4__9TWindowDDFPv(arg0) != 0) {
+            play_sound__9TWindowDDFv();
+            var_r31 = update_close_flag__9TWindowDDFPv(arg0) == 0;
+        } else if (TWindowDD__sub_803482B0(arg0) != 0) {
+            play_se__9TWindowDDFv();
+            TWindowDD__sub_8034330C(arg0);
+        }
+        break;
+    case 1:
+        var_r31 = TWindowDD__sub_80342F84();
+        break;
+    }
+    if (var_r31 != 0) {
+        var_r3 = (u8 *)(arg0 + (M2C_FIELD(arg0, s32 *, 0x20) * 4));
+        var_r3 = (u8 *)(M2C_FIELD(var_r3, u8 **, 0x24));
+        TWindowDD__sub_80342158((int)(var_r3));
+        if (TWindowDD_is_id_in_range_5AC_5F9() != 0) {
+            M2C_FIELD(arg0, s32 *, 0xB4) = 0xA;
+        } else {
+            M2C_FIELD(arg0, s32 *, 0xB4) = 0xB;
+            M2C_FIELD(arg0, s32 *, 0x90) = -1;
+        }
+        M2C_FIELD(arg0, s32 *, 0x8C) = -0x32;
+        TWindowDD__sub_803435A0(arg0);
     }
 }
 

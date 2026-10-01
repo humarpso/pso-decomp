@@ -8,10 +8,23 @@ struct Pkt_80186CC8 { u8 cmd; u8 size; u16 id; u16 value; u16 pad; };
 
 struct Obj_80186CC8 { u8 pad[0x1c]; u16 id; };
 
+struct Obj_80186DA0 {
+    u8 pad0[0xD0];
+    s32 fD0;
+    u8 padD4[0xDC - 0xD4];
+    s16 fDC;
+    u8 padDE[2];
+    s16 fE0;
+    u8 padE2[0x16C - 0xE2];
+    s32 f16C;
+};
+
 extern "C" {
 void init_pkt_cmd_6A__19TWindowSubTradeMainFPv(void *p);
 void send_60_update__19TWindowSubTradeMainFPv(void *p);
 void TObjCityMainWarp__sub_80186CC8(Obj_80186CC8 *self, u16 value);
+u8 TODoorAncient08__sub_80229220(int);
+void TObjCityMainWarp__sub_80186DA0(Obj_80186DA0 *arg0);
 }
 
 extern "C" {
@@ -76,6 +89,21 @@ void trigger_warp_effect__16TObjCityMainWarpFPvi(void *arg0, s32 arg1) {
         play_effect_default__10TObjPlayerFii(temp_r3, -1);
         obj_set_flag_20000(temp_r3);
         M2C_FIELD(arg0, s32 *, 0x174) = 0x12C;
+    }
+}
+void TObjCityMainWarp__sub_80186DA0(Obj_80186DA0 *arg0) {
+    switch (arg0->fE0) {
+    case 0:
+        arg0->fD0 = 0;
+        arg0->fE0 = 1;
+        break;
+    case 1:
+        if (arg0->f16C >= 0 && TODoorAncient08__sub_80229220((u16)arg0->f16C) == 1) {
+            arg0->fDC = 0;
+        }
+        break;
+    case -1:
+        break;
     }
 }
 

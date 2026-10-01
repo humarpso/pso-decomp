@@ -4,6 +4,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Obj_802DCCA4 { u8 pad[0x2C]; s32 f2C; };
+
+extern "C" {
+void TKeyBoardControl__sub_8000F9CC(s32);
+s32 get_field_118__22TAdEnterSerialAccessGCFv();
+void begin_transition__21TAdMultiChgGameModeGCFv();
+void set_opening_movie_purpose(s32);
+void TAdMultiPlyChrSelectGC__sub_802DC024(void *);
+extern s32 lbl_805D68CC;
+void TAdMultiPlyChrSelectGC__sub_802DCCA4(Obj_802DCCA4 *arg0);
+}
+
 extern "C" {
 
 void close_and_reset__22TAdMultiPlyChrSelectGCFPv(void *arg0);
@@ -47,6 +59,21 @@ void close_and_reset__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     }
     if ((get_player_index__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x68)) == 0xE) && (get_mode__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x6C)) == 0x14)) {
         M2C_FIELD(arg0, s32 *, 0x20) = 0x1E;
+    }
+}
+void TAdMultiPlyChrSelectGC__sub_802DCCA4(Obj_802DCCA4 *arg0) {
+    lbl_805D68CC = get_field_118__22TAdEnterSerialAccessGCFv();
+    switch (arg0->f2C) {
+    case 2:
+        break;
+    case 0:
+        set_opening_movie_purpose(1);
+        TKeyBoardControl__sub_8000F9CC(3);
+        break;
+    case 1:
+        TAdMultiPlyChrSelectGC__sub_802DC024(arg0);
+        begin_transition__21TAdMultiChgGameModeGCFv();
+        break;
     }
 }
 

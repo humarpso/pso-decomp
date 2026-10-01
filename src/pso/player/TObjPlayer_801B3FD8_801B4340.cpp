@@ -18,6 +18,10 @@ M2C_UNK set_code_161_1__10TObjPlayerFPv(void *);
 s32 validate_6xA1_revive_player_v3(void *);
 s32 revive_6xA1__10TObjPlayerFi(s32 arg0, void * _w1);
 void handle_6xA1_revive_player_v3(void *arg0);
+s32 obj_isState3_324(void *);
+void recover_full__10TObjPlayerFPv(void *);
+extern void *lbl_8050EA10[];
+void handle_6x32_medical_center_revive_all_players(void);
 }
 
 extern "C" {
@@ -125,6 +129,17 @@ void TObjPlayer__sub_801B4430(s32 arg0) {
         set_code_161_1__10TObjPlayerFPv(&sp8);
         sp8.h = obj_getField1c(arg0);
         update_font__10TObjPlayerFPv(&sp8);
+    }
+}
+void handle_6x32_medical_center_revive_all_players(void) {
+    s32 i;
+    void *p;
+    void **pp = lbl_8050EA10;
+    for (i = 0; i < 4; i++, pp++) {
+        p = *pp;
+        if (p != NULL && obj_isState3_324(p) != 0) {
+            recover_full__10TObjPlayerFPv(p);
+        }
     }
 }
 

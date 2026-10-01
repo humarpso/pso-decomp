@@ -22,6 +22,13 @@ M2C_UNK TWindowSubComCard__sub_80265C30(int);
 M2C_UNK TWindowSubComCard__sub_80265F60(int);
 extern RecoveredGlobal_80185428_lbl_80444878 lbl_80444878;
 void TObjLaboMapWarp__vt13(u8 *arg0, s32 arg1);
+s32 get_instance__6TLobbyFv(void);
+s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
+M2C_UNK TObjPlayer__sub_8019D250(void *);
+s32 TLobby__sub_8030A7B0();
+extern s32 TObjLaboMapWarp__data_805D5B58;
+extern const f32 lbl_805DBC88;
+void run_task__15TObjLaboMapWarpFv(u8 *arg0);
 }
 
 extern "C" {
@@ -80,6 +87,19 @@ void render__15TObjLaboMapWarpFv(u8 *arg0) {
         }
         TObjPlayer__sub_803D9B78();
     }
+}
+
+void run_task__15TObjLaboMapWarpFv(u8 *arg0) {
+    f32 lim;
+    lim = (f32)(u32)(M2C_FIELD(TObjFish__sub_8001ED9C(TObjLaboMapWarp__data_805D5B58, 0), s32 *, 4) - 1);
+    M2C_FIELD(arg0, f32 *, 0xFC) += lbl_805DBC88;
+    if (M2C_FIELD(arg0, f32 *, 0xFC) >= lim) {
+        M2C_FIELD(arg0, f32 *, 0xFC) -= lim;
+    }
+    if (get_instance__6TLobbyFv() == 0 && (TLobby__sub_8030A7B0() == 1 || TLobby__sub_8030A7B0() == 2)) {
+        return;
+    }
+    TObjPlayer__sub_8019D250(arg0);
 }
 
 int is_field88_zero__15TObjLaboMapWarpFPv(void* p) { return *(u32*)((char*)p + 0x88) == 0; }

@@ -1,5 +1,13 @@
 #include "pso/misc/WindowControlState.h"
 
+#include "types.h"
+struct Ent_8024CCDC { u8 p0[8]; f32 f8; f32 fC; u8 p10[0xC]; };
+
+extern "C" {
+extern WindowControlState TWindowCtrlMain__data_80518730[6];
+void TWindowCtrlMain__sub_8024CCDC(void);
+}
+
 extern "C" {
 s32 is_split_screen();
 extern s32 TWindowCtrlMain__data_805D6400;
@@ -43,4 +51,24 @@ WindowControlState* get_window_control_state(s32 viewport_index) {
     }
     return TWindowCtrlMain__data_80518730;
 }
+void TWindowCtrlMain__sub_8024CCDC(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        Ent_8024CCDC *e = &((Ent_8024CCDC *)&TWindowCtrlMain__data_80518730)[i];
+        f32 *q;
+        if (e->fC >= 0.1f) {
+            e->f8 += 0.09f;
+        } else {
+            e->f8 -= 0.09f;
+        }
+        q = &e->f8;
+        if (*q > 1.0f) {
+            *q = 1.0f;
+        }
+        if (*q < 0.0f) {
+            *q = 0.0f;
+        }
+    }
+}
+
 }

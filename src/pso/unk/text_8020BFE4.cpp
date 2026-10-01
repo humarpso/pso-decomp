@@ -29,6 +29,11 @@ s32 TObjPlayer__sub_800196EC(void);
 extern Ent_8020C07C *TLobby__data_805D610C;
 extern s32 TLobby__data_805D6110;
 void TLobby__sub_8020C07C(s32 pl, s16 b, s16 a, s32 mask, s32 set);
+s32 TObjPlayer__sub_800196EC(void);
+extern QuestSavedEnemyFloor_8020C1F0 TLobby__data_80513AD0[];
+extern QuestEnemyRow_8020C1F0 *TLobby__data_805D6114;
+extern s32 TLobby__data_805D6118;
+s32 TLobby__sub_8020C118(void);
 }
 
 extern "C" {
@@ -66,6 +71,35 @@ void TLobby__sub_8020C07C(s32 pl, s16 b, s16 a, s32 mask, s32 set) {
             }
         }
     }
+}
+
+s32 TLobby__sub_8020C118(void) {
+    s32 n = 0;
+    s32 i;
+    s32 j;
+    if (TLobby__data_805D6114 != NULL) {
+        for (j = 0; j < TLobby__data_805D6118; j++) {
+            QuestEnemyRow_8020C1F0 *a = &TLobby__data_805D6114[j];
+            if (*(s16 *)&a->type != -1 && (a->flags & 8)) {
+                n++;
+            }
+        }
+    }
+    for (i = 0; i < 0x12; i++) {
+        if (i != TObjPlayer__sub_800196EC()) {
+            QuestSavedEnemyFloor_8020C1F0 *t = &TLobby__data_80513AD0[i];
+            QuestSavedEnemyRow_8020C1F0 *b = t->rows;
+            if (b != NULL) {
+                for (j = 0; j < t->count; j++) {
+                    if (b->flags & 8) {
+                        n++;
+                    }
+                    b++;
+                }
+            }
+        }
+    }
+    return n;
 }
 
 s32 TLobby__sub_8020C1F0(s32 floor, s16 room) {
