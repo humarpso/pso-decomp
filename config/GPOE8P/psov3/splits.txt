@@ -17646,7 +17646,7 @@ pad/Pad.c:
 	.text       start:0x8037CD24 end:0x8037E7EC
 	.data       start:0x804F4AC8 end:0x804F4AD8
 	.bss        start:0x80544930 end:0x80544980
-	.sdata      start:0x805D4558 end:0x805D4574
+	.sdata      start:0x805D4558 end:0x805D4578
 	.sbss       start:0x805D71F0 end:0x805D7218
 
 ai/ai.c:
@@ -17679,11 +17679,10 @@ card/CARDBios.c:
 	.data       start:0x804F4C50 end:0x804F4C60
 	.bss        start:0x80544980 end:0x80544BC0
 
-pso/unk/text_803820C0.cpp:
-	.text       start:0x803820C0 end:0x80382E20
-
-pso/ui/TAdPlayerLoadGC_80382E90.cpp:
-	.text       start:0x80382E90 end:0x803831B4
+card/CARDUnlock.c:
+	.text       start:0x80381F54 end:0x803831B4
+	.data       start:0x804F4C60 end:0x804F4DC0
+	.sdata      start:0x805D4578 end:0x805D4580
 
 card/CARDRdwr.c:
 	.text       start:0x803831B4 end:0x80383434

@@ -510,6 +510,7 @@ if args.target == "psov3":
                 NonMatching('dsp/dsp_debug.c'),
                 NonMatching('dsp/dsp_task.c'),
                 NonMatching('card/CARDBios.c'),
+                NonMatching('card/CARDUnlock.c'),
                 NonMatching('card/CARDRdwr.c'),
                 NonMatching('card/CARDBlock.c'),
                 NonMatching('card/CARDDir.c'),

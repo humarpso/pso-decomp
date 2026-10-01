@@ -8,7 +8,6 @@
 #define SectorSizeTable lbl_804F4DC0
 #define __CARDBlock lbl_80544980
 #define __CARDDefaultApiCallback fn_80380B74
-#define __CARDUnlock TAdPlayerLoadGC__sub_803822C8
 #define __CARDVendorID lbl_805D4580
 
 #include <dolphin.h>
