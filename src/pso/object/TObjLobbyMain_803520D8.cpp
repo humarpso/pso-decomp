@@ -4,8 +4,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Vec3_80352240 {
+    f32 x;
+    f32 y;
+    f32 z;
+};
+
 extern "C" {
-M2C_UNK TObjLobbyMain__sub_80352240(void *);
 extern const f32 lbl_805DFEE4;
 extern const f32 lbl_805DFEE8;
 void TObjLobbyMain__sub_80352624(u8 *arg0);
@@ -15,6 +20,17 @@ void TObjLobbyMain__sub_803525F0(u8 *arg0);
 s32 fn_80352094();
 void TObjLobbyMain__sub_803520DC(u8 *arg0);
 void TObjLobbyMain__sub_803521A4(u8 *arg0);
+void set_param_ptr__11TBoss4Type2FPvi(void *, int);
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+void TCameraCtrl__sub_803D8934(int, Vec3_80352240 *, Vec3_80352240 *);
+void TObjPlayer__sub_803D8CD4(int);
+void TObjPlayer__sub_803D9214(int, s32);
+void TObjPlayer__sub_803D9B2C();
+void TObjPlayer__sub_803D9B78();
+void TOHangerMachine01__sub_803D9C00(void *);
+extern Vec3_80352240 lbl_804790D0[];
+extern Vec3_80352240 lbl_804790DC[];
+void TObjLobbyMain__sub_80352240(u8 *arg0);
 }
 
 extern "C" {
@@ -106,6 +122,35 @@ void TObjLobbyMain__sub_803521A4(u8 *arg0) {
     }
 }
 
+void TObjLobbyMain__sub_80352240(u8 *arg0) {
+    switch (*(s16 *)(arg0 + 0xD0)) {
+    case 3:
+    if (*(void **)(arg0 + 0xD8) != NULL) {
+        Vec3_80352240 v = lbl_804790D0[0];
+        set_param_ptr__11TBoss4Type2FPvi(*(void **)(arg0 + 0xD8), 0x222);
+        TObjPlayer__sub_803D9B2C();
+        TObjPlayer__sub_803D8CD4(0);
+        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        TObjPlayer__sub_803D9214(0, *(s32 *)(arg0 + 0x60));
+        TCameraCtrl__sub_803D8934(0, &v, &v);
+        copy_pos__11TNowLoadingFPvPv(*(void **)(arg0 + 0xD8), &v);
+        TObjPlayer__sub_803D9B78();
+    }
+    if (*(void **)(arg0 + 0xDC) != NULL) {
+        Vec3_80352240 v = lbl_804790DC[0];
+        set_param_ptr__11TBoss4Type2FPvi(*(void **)(arg0 + 0xDC), 0x222);
+        TObjPlayer__sub_803D9B2C();
+        TObjPlayer__sub_803D8CD4(0);
+        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        TObjPlayer__sub_803D9214(0, *(s32 *)(arg0 + 0x60));
+        TCameraCtrl__sub_803D8934(0, &v, &v);
+        copy_pos__11TNowLoadingFPvPv(*(void **)(arg0 + 0xDC), &v);
+        TObjPlayer__sub_803D9B78();
+    }
+        break;
+    }
+}
+
 void update_particles__13TObjLobbyMainFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xC8) == 2) {
         switch ((s16) M2C_FIELD(arg0, s16 *, 0xD0)) {
@@ -166,7 +211,7 @@ void TObjLobbyMain__sub_80352624(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 1;
         M2C_FIELD(arg0, f32 *, 0xD4) = (f32) lbl_805DFEE8;
         TObjLobbyMain__sub_803520DC((u8 *)(arg0));
-        TObjLobbyMain__sub_80352240((void *) (arg0));
+        TObjLobbyMain__sub_80352240((u8 *)((void *) (arg0)));
         M2C_FIELD(arg0, f32 *, 0xB0) = (f32) lbl_805DFEE8;
     }
 }

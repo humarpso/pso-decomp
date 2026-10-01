@@ -58,6 +58,10 @@ struct Ctl_80310910 {
     s32 state;
 };
 
+struct P_803109D4 { s32 v[2]; };
+
+struct O_803109D4 { u8 pad[0x264]; s32 active[4]; };
+
 extern "C" {
 extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 TPlayerBattleCtrl4P__data_80542E90;
 M2C_UNK *TPlayerBattleCtrl4P__sub_80310300(void);
@@ -101,6 +105,14 @@ extern s16 lbl_80511CB0[];
 extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D53AC;
 void TPlayerBattleCtrl4P__sub_80310910(Ctl_80310910 *o, s32 frames);
+void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 TLobby__sub_801C19D0(void *);
+s32 get_state__19TPlayerBattleCtrl4PFPv(void *);
+u8 TLobby__sub_801D7064(void *);
+u8 TLobby__sub_801D7100(void *);
+extern P_803109D4 lbl_80475B80[];
+extern u8 lbl_8050EA40[];
+u8 TPlayerBattleCtrl4P__sub_803109D4(O_803109D4 *o);
 }
 
 extern "C" {
@@ -288,6 +300,43 @@ void TPlayerBattleCtrl4P__sub_80310910(Ctl_80310910 *o, s32 frames) {
         TPlayerBattleCtrl4P__sub_80310830(o);
         break;
     }
+}
+u8 TPlayerBattleCtrl4P__sub_803109D4(O_803109D4 *o) {
+    s32 count = 0;
+    s32 i = 0;
+    s32 ok;
+    s32 team;
+    u8 *p;
+    P_803109D4 seen = lbl_80475B80[0];
+    do {
+        p = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(i);
+        if (p != NULL) {
+            ok = 1;
+            if (o->active[i] == 0) {
+                ok = 0;
+            } else if (M2C_FIELD(p, s32 *, 0x30) & 0x800) {
+                if (TLobby__sub_801D7100(lbl_8050EA40) == 1) {
+                    ok = 0;
+                } else if (TLobby__sub_801D7100(lbl_8050EA40) == 2 && get_state__19TPlayerBattleCtrl4PFPv(p + 0x754) == 0) {
+                    ok = 0;
+                }
+            }
+            if (ok != 0) {
+                count++;
+                if (TLobby__sub_801D7064(lbl_8050EA40) == 1) {
+                    team = TLobby__sub_801C19D0(p + 0x828) - 1;
+                    if (team >= 0 && team < 2) {
+                        seen.v[team] = 1;
+                    }
+                }
+            }
+        }
+        i++;
+    } while (i < 4);
+    if (TLobby__sub_801D7064(lbl_8050EA40) == 1 && (seen.v[0] == 0 || seen.v[1] == 0)) {
+        return 1;
+    }
+    return count <= 1;
 }
 
 }

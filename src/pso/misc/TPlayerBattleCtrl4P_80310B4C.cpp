@@ -19,6 +19,10 @@ struct Ctl_8031171C {
     s32 ok[4];
 };
 
+struct O_80311618 { u8 pad[0x238]; u8 flags[8]; u8 pad2[0x250 - 0x240]; u64 time; u8 pad3[0x284 - 0x258]; s32 v; };
+
+struct O_80311400 { u8 pad[0x20]; void *w0; void *w1; u8 pad2[0x288 - 0x28]; s16 order[4]; };
+
 extern "C" {
 s32 TPlayerBattleCtrl4P__sub_80311294(u8 *arg0);
 void TPlayerBattleCtrl4P__sub_803112AC(u8 *arg0, s32 arg1);
@@ -47,6 +51,28 @@ void remove_player__19TPlayerBattleCtrl4PFPvUsi(void *arg0, u16 arg1, s32 arg2);
 void TPlayerBattleCtrl4P__sub_80310F10(void *, s32);
 s32 TPlayerBattleCtrl4P__sub_80311294(u8 *arg0);
 void TPlayerBattleCtrl4P__sub_8031171C(Ctl_8031171C *o);
+u64 OSGetTime();
+M2C_UNK obj_clear_flag30_20000(u32);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+M2C_UNK init_with_name__6TLobbyFPvPvPvPv(void *, void *, void *, int);
+M2C_UNK TObjEneRe4Sorcerer__sub_801E3F14(int);
+M2C_UNK TObjEneRe4Sorcerer__sub_801E3F18();
+s32 get_global_state__14TOKeyMachine01Fv();
+void *__nw__7TObjectFUl(int);
+M2C_UNK reset_score_counters__19TPlayerBattleCtrl4PFPv(void *);
+void send_code_45_to_window__19TPlayerBattleCtrl4PFPvii(void *arg0, s32 arg1, s32 arg2);
+extern char lbl_80475BAC[];
+extern char lbl_80475BB8[];
+extern s16 lbl_80511CB0[];
+extern s32 TLobby__data_805D5DC0;
+void TPlayerBattleCtrl4P__sub_80311618(O_80311618 *o);
+M2C_UNK TWindow__close(void *);
+M2C_UNK TPlayerBattleCtrl4P__sub_803101D4(void *);
+void TPlayerBattleCtrl4P__sub_803112AC(u8 *arg0, s32 arg1);
+s32 rand__11TOBoss4RockFv();
+extern const f32 lbl_805DF240;
+extern const f32 lbl_805DF244;
+void TPlayerBattleCtrl4P__sub_80311400(O_80311400 *o);
 }
 
 extern "C" {
@@ -182,6 +208,39 @@ void TPlayerBattleCtrl4P__sub_80311380(Ctl_80311380 *o) {
     destroy__23TAdSinglePlyChrSelectGCFv();
 }
 
+void TPlayerBattleCtrl4P__sub_80311400(O_80311400 *o) {
+    s32 order[4];
+    s32 i;
+    s32 a;
+    s32 b;
+    s32 t;
+    for (i = 0; i < 4; i++) {
+        order[i] = i;
+    }
+    for (i = 0; i < 30; i++) {
+        a = (s32)(lbl_805DF240 * (lbl_805DF244 * (f32)rand__11TOBoss4RockFv()));
+        b = (s32)(lbl_805DF240 * (lbl_805DF244 * (f32)rand__11TOBoss4RockFv()));
+        if (a != b) {
+            t = order[a];
+            order[a] = order[b];
+            order[b] = t;
+        }
+    }
+    for (i = 0; i < 4; i++) {
+        o->order[i] = order[i];
+    }
+    if (o->w0 != NULL) {
+        TWindow__close(o->w0);
+        o->w0 = NULL;
+    }
+    if (o->w1 != NULL) {
+        TWindow__close(o->w1);
+        o->w1 = NULL;
+    }
+    TPlayerBattleCtrl4P__sub_803101D4(o);
+    TPlayerBattleCtrl4P__sub_803112AC((u8 *)o, 5);
+}
+
 void update__19TPlayerBattleCtrl4PFv(void) {
     s32 var_r31;
     s32 var_r31_2;
@@ -208,6 +267,39 @@ void update__19TPlayerBattleCtrl4PFv(void) {
         var_r31_2 += 1;
     } while (var_r31_2 < 4);
 }
+
+void TPlayerBattleCtrl4P__sub_80311618(O_80311618 *o) {
+    s32 i;
+    s32 j;
+    u32 p;
+    char *name;
+    void *w;
+    s32 st;
+    TObjEneRe4Sorcerer__sub_801E3F14(4);
+    TObjEneRe4Sorcerer__sub_801E3F18();
+    o->time = OSGetTime();
+    for (i = 0; i < 4; i++) {
+        ((void (*)(void *, u16, s32))send_code_45_to_window__19TPlayerBattleCtrl4PFPvii)(o, i, 1);
+        p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        if (p != 0) {
+            obj_clear_flag30_20000(p);
+        }
+    }
+    reset_score_counters__19TPlayerBattleCtrl4PFPv(o);
+    name = get_global_state__14TOKeyMachine01Fv() == 0x10 ? lbl_80475BAC : lbl_80475BB8;
+    w = __nw__7TObjectFUl(0x40);
+    if (w != NULL) {
+        init_with_name__6TLobbyFPvPvPvPv(w, o, name, 0x2D);
+    }
+    for (j = 0; j < 8; j++) {
+        o->flags[j] = 1;
+        if (lbl_80511CB0[j] == 0) {
+            o->flags[j] = 0;
+        }
+    }
+    o->v = TLobby__data_805D5DC0;
+}
+
 void TPlayerBattleCtrl4P__sub_8031171C(Ctl_8031171C *o) {
     s32 j;
     s32 i;

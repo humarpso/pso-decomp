@@ -119,6 +119,7 @@ struct RecoveredGlobal_80321B28_lbl_8050E3B8
 
 struct T_80321738 { s32 a; s32 b; s32 c; };
 
+struct RecoveredGlobal_80321B28_TAdEnterSerialAccessGC__data_804764E8;
 extern "C" {
 void strncpy(s32, s32, s32);
 M2C_UNK memset(void *, int, int);
@@ -206,6 +207,27 @@ s32 update_window_mode_from_progress__6TLobbyFiPv(void *, void *);
 extern u8 lbl_804764C8[];
 extern u8 lbl_804764D0[];
 s32 TAdEnterSerialAccessGC__sub_80321AC8(void *arg0, void *arg1);
+void queue_destruction__7TObjectFv(void *);
+s32 TAdSinglePlyChrSelectGC__sub_801FBD6C(void *, void *);
+s32 get_field_118__22TAdEnterSerialAccessGCFv();
+s32 get_instance__23TAdSinglePlyChrSelectGCFv();
+void *__nw__7TObjectFUl(int);
+void init_state__22TAdEnterSerialAccessGCFv(void);
+void __ct__9TAdBackGCFv(void *, void *);
+void __ct__12TAdBackTxtGCFv(void *, void *);
+void *__ct__14TAdSelectCurGCFv(void *, s32, void *, void *);
+void init__22TAdEnterSerialAccessGCFv(void);
+void TAdEnterSerialAccessGC__sub_8032190C(s32 arg0);
+void TAdEnterSerialAccessGC__sub_80322418(s32 arg0, s32 arg1);
+void TAdEnterBaseGC__ct(void *);
+extern RecoveredGlobal_80321B28_TAdEnterSerialAccessGC__data_804764E8 TAdEnterSerialAccessGC__data_804764E8;
+extern u8 lbl_804764F8[];
+extern M2C_UNK __vt__22TAdEnterSerialAccessGC[];
+extern s32 lbl_805D4158;
+extern s32 tl_clipout;
+extern u32 TAdEnterSerialAccessGC__data_805D6C20;
+extern s32 TAdEnterSerialAccessGC__data_805D6C24;
+u8 *TAdEnterSerialAccessGC__ct(u8 *arg0);
 }
 
 extern "C" {
@@ -560,6 +582,52 @@ void *__dt__22TAdEnterSerialAccessGCFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+
+u8 *TAdEnterSerialAccessGC__ct(u8 *arg0) {
+    s8 flag[0x10];
+    u8 sp8[0x10];
+    void *p;
+    TAdEnterBaseGC__ct(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TAdEnterSerialAccessGC;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D4158;
+    M2C_FIELD(arg0, s32 *, 0x48) = 0;
+    TAdEnterSerialAccessGC__data_805D6C24 = 0;
+    M2C_FIELD(arg0, s32 *, 0x44) = 0;
+    M2C_FIELD(arg0, s32 *, 0x4C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x60) = 0;
+    M2C_FIELD(arg0, s32 *, 0x64) = 0;
+    M2C_FIELD(arg0, s32 *, 0x50) = 0;
+    M2C_FIELD(arg0, s32 *, 0x54) = 0;
+    M2C_FIELD(arg0, s32 *, 0x58) = 0;
+    M2C_FIELD(arg0, s32 *, 0x5C) = 0;
+    TAdEnterSerialAccessGC__data_805D6C20 = 0;
+    if (*(s8 *) (get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1152C) != 0) {
+        ((void (*)(s32)) init__22TAdEnterSerialAccessGCFv)(get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1152C);
+        TAdEnterSerialAccessGC__sub_8032190C(get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1153C);
+        init_state__22TAdEnterSerialAccessGCFv();
+        queue_destruction__7TObjectFv(arg0);
+        return arg0;
+    }
+    flag[0] = 0;
+    if (TAdSinglePlyChrSelectGC__sub_801FBD6C(flag, sp8) != 0 && flag[0] != 0) {
+        ((void (*)(s8 *)) init__22TAdEnterSerialAccessGCFv)(flag);
+        TAdEnterSerialAccessGC__sub_8032190C((s32) sp8);
+        TAdEnterSerialAccessGC__sub_80322418(get_field_118__22TAdEnterSerialAccessGCFv(), 1);
+        TAdEnterSerialAccessGC__sub_80322418(get_field_118__22TAdEnterSerialAccessGCFv(), 0);
+    }
+    if ((p = __nw__7TObjectFUl(0x24)) != 0) {
+        __ct__9TAdBackGCFv(p, arg0);
+    }
+    if ((p = __nw__7TObjectFUl(0x28)) != 0) {
+        __ct__12TAdBackTxtGCFv(p, arg0);
+    }
+    p = __nw__7TObjectFUl(0x708);
+    if (p != 0) {
+        p = __ct__14TAdSelectCurGCFv(p, tl_clipout, &TAdEnterSerialAccessGC__data_804764E8, lbl_804764F8);
+    }
+    M2C_FIELD(arg0, void **, 0x54) = p;
     return arg0;
 }
 

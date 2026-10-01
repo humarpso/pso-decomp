@@ -25,6 +25,8 @@ struct O_8033ACF4 { u8 pad[0x24]; s32 f24; s32 f28; s32 f2C; };
 
 struct V3_8033B2AC { s32 x, y, z; };
 
+struct V3_8033B39C { f32 x, y, z; };
+
 extern "C" {
 extern s32 lbl_805D6D8C;
 void set_quest_download_server__23TAdSinglePlyChrSelectGCFi(int a0);
@@ -150,6 +152,30 @@ extern V3_8033B2AC lbl_80477D84[];
 extern RecoveredGlobal_8033B264_main_task main_task;
 extern s32 lbl_805D6D90;
 void TAdSinglePlyChrSelectGC__sub_8033B2AC(void);
+M2C_UNK TKeyBoardControl__sub_8000F90C(int);
+M2C_UNK TCameraCtrl__sub_80069C94(void *, void *);
+M2C_UNK TCameraCtrl__sub_8006A5EC(int);
+M2C_UNK TCameraCtrl__ct(u32, s32);
+M2C_UNK TLobby__sub_800FD6F8(void *, int);
+M2C_UNK TObjLight__sub_80133A04(void *, int);
+M2C_UNK TKeyBoardControl__sub_801A66B8();
+M2C_UNK reset_settings_to_default__6TLobbyFPv(void *);
+M2C_UNK TLobby__sub_801E2F44(int, int, int);
+M2C_UNK render_tick__Fv();
+M2C_UNK set_and_notify__6TLobbyFi(int);
+M2C_UNK TObjBgmColCtrl__sub_802274B8(void *);
+u32 __nw__7TObjectFUl(int);
+M2C_UNK TWindowCtrlMain__ct(u32);
+M2C_UNK construct__23TAdSinglePlyChrSelectGCFPv(u32);
+extern V3_8033B39C lbl_80477D60[];
+extern V3_8033B39C lbl_80477D6C[];
+extern u8 lbl_80477D90[];
+extern u8 lbl_804A6F34[];
+extern RecoveredGlobal_8033B264_lbl_804EF728 lbl_804EF728;
+extern u8 lbl_8050EA40[];
+extern s32 tl_camera;
+extern s32 lbl_805D6D90;
+void TAdSinglePlyChrSelectGC__sub_8033B39C(void);
 }
 
 extern "C" {
@@ -357,6 +383,37 @@ void TAdSinglePlyChrSelectGC__sub_8033B2AC(void) {
             TKeyBoardControl__sub_8000F9CC(0);
         }
     }
+    render_tick__Fv();
+}
+
+struct RecoveredGlobal_8033B264_lbl_804EF728;
+void TAdSinglePlyChrSelectGC__sub_8033B39C(void) {
+    u32 p;
+    TLobby__sub_801E2F44(0, 0, 0);
+    TKeyBoardControl__sub_801A66B8();
+    TLobby__sub_800FD6F8(&lbl_804EF728, 0x30);
+    TObjLight__sub_80133A04(lbl_804A6F34, 4);
+    p = __nw__7TObjectFUl(0x1D4);
+    if (p != 0) {
+        TCameraCtrl__ct(p, tl_camera);
+    }
+    V3_8033B39C a = lbl_80477D60[0];
+    V3_8033B39C b = lbl_80477D6C[0];
+    TCameraCtrl__sub_8006A5EC(9);
+    TCameraCtrl__sub_80069C94(&a, &b);
+    p = __nw__7TObjectFUl(0x1C);
+    if (p != 0) {
+        TWindowCtrlMain__ct(p);
+    }
+    p = __nw__7TObjectFUl(0x44);
+    if (p != 0) {
+        construct__23TAdSinglePlyChrSelectGCFPv(p);
+    }
+    TKeyBoardControl__sub_8000F90C(2);
+    lbl_805D6D90 = 0;
+    TObjBgmColCtrl__sub_802274B8(lbl_80477D90);
+    set_and_notify__6TLobbyFi(-900);
+    reset_settings_to_default__6TLobbyFPv(lbl_8050EA40);
     render_tick__Fv();
 }
 

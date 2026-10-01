@@ -30,6 +30,8 @@ struct RecoveredGlobal_80329830_lbl_8050E3B8 {
 
 struct Obj_80329AA8 { s32 f0; u8 pad[0x14]; void *vt; s32 f1C; u8 pad2[4]; s32 f24; s32 f28; s32 f2C; void *cur; s32 f34; };
 
+struct Pos_803296E8 { f32 x, y; };
+
 extern "C" {
 s32 get_selected_slot__23TAdSinglePlyChrSelectGCFPv(int);
 s32 TAdSinglePlyChrSelectGC__sub_801334DC(int);
@@ -41,7 +43,6 @@ extern RecoveredGlobal_80329830_lbl_8050E3B8 lbl_8050E3B8;
 extern const f32 lbl_805DF710;
 void TAdAgreementBaseGC__sub_80329830(u8 *arg0);
 void create_callback__22TAdEnterSerialAccessGCFPvPvPv(void *, void *, void *);
-void TAdAgreementBaseGC__sub_803296E8();
 extern char lbl_804770BC[];
 extern char lbl_804770C4[];
 void TAdAgreementBaseGC__sub_803297F8(void);
@@ -61,6 +62,15 @@ extern M2C_UNK __vt__18TAdAgreementBaseGC[];
 extern s32 lbl_805D41B8;
 extern s32 tl_clipout;
 Obj_80329AA8 *TAdAgreementBaseGC__ct(Obj_80329AA8 *arg0, void *arg1);
+void *TAdSinglePlyChrSelectGC__sub_80132F2C(int, u32);
+u32 TWindowSubStatusDisp__sub_80144D68(void *);
+M2C_UNK render_status_line__15TAdSubPlyItemGCFPvi(void *, int, f32, f32, f32);
+void TWindowSubComCard__sub_80245F98();
+extern const f32 lbl_805DF700;
+extern const f32 lbl_805DF704;
+extern const f32 lbl_805DF708;
+extern const f32 lbl_805DF70C;
+void TAdAgreementBaseGC__sub_803296E8(void);
 }
 
 extern "C" {
@@ -79,6 +89,20 @@ void TAdAgreementBaseGC__sub_803296C4(void *self) {
     if (get_state_flag__9TMainTaskFv() == 1) { return;
     }
 }
+
+#pragma push
+#pragma fp_contract on
+void TAdAgreementBaseGC__sub_803296E8(void) {
+    Pos_803296E8 pos[2];
+    u32 i;
+    TWindowSubComCard__sub_80245F98();
+    for (i = 0; i < 2; i++) {
+        pos[i].x = lbl_805DF700 - (f32) (TWindowSubStatusDisp__sub_80144D68(TAdSinglePlyChrSelectGC__sub_80132F2C(0x1B, i)) >> 1);
+        pos[i].y = lbl_805DF708 * (f32) i + lbl_805DF704;
+        render_status_line__15TAdSubPlyItemGCFPvi(TAdSinglePlyChrSelectGC__sub_80132F2C(0x1B, i), -1, pos[i].x, pos[i].y, lbl_805DF70C);
+    }
+}
+#pragma pop
 
 void TAdAgreementBaseGC__sub_803297EC(void* p) { *(s32*)((char*)p + 0x1c) = 4; }
 

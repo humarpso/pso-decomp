@@ -65,6 +65,13 @@ struct Slot_8034EDC4 {
 
 struct Pkt_8034E3A0 { u16 hdr; u16 id; s16 flag; s16 arg; u32 pad; f32 x, y, z; };
 
+struct Player_8034E24C {
+    u8 pad0[0x38];
+    f32 x;
+    f32 y;
+    f32 z;
+};
+
 extern "C" {
     extern int lbl_805D6EA0;
 void TNpcPlayer__sub_8034E420(void);
@@ -148,6 +155,15 @@ u32 strlen(const char *);
 extern const char lbl_805DFDF0[4];
 void TNpcPlayer__sub_8034DFBC(s32 kind, const char *text);
 void TNpcPlayer__sub_8034E7A0(s32 arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 obj_isState3_324();
+s32 obj_testFlags30(void *, int);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+void send_6x3E__10TNpcPlayerFi(void *);
+void init_6x3E_packet__10TNpcPlayerFPv(void *);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+extern const f64 lbl_80478CB0[];
+void TNpcPlayer__sub_8034E24C(u16 src);
 }
 
 extern "C" {
@@ -192,6 +208,56 @@ void play_effect__10TNpcPlayerFi(int arg0) {
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16) arg0);
     if ((temp_r3 != 0) && (obj_isState2_324() == 0)) {
         play_effect_default__10TObjPlayerFii(temp_r3, -1);
+    }
+}
+
+void TNpcPlayer__sub_8034E24C(u16 src) {
+    struct Pkt_8034E3A0 pkt;
+    Player_8034E24C *a;
+    Player_8034E24C *c;
+    s32 i;
+    s16 flag;
+    s32 heading;
+    a = (Player_8034E24C *) TPlayerBattleCtrl4P__sub_801BA74C(src);
+    if (a == NULL) {
+        return;
+    }
+    if (obj_isState3_324() != 0) {
+        for (i = 0; i < 4; i++) {
+            if (i != src) {
+                c = (Player_8034E24C *) TPlayerBattleCtrl4P__sub_801BA74C(i);
+                if (c != NULL && obj_isState3_324() == 0) {
+                    break;
+                }
+            }
+        }
+    } else {
+        for (i = 0; i < 4; i++) {
+            if (i != src) {
+                c = (Player_8034E24C *) TPlayerBattleCtrl4P__sub_801BA74C(i);
+                if (c != NULL && obj_isState3_324() != 0) {
+                    break;
+                }
+            }
+        }
+    }
+    if (c == NULL) {
+        return;
+    }
+    init_6x3E_packet__10TNpcPlayerFPv(&pkt);
+    flag = 0;
+    if (obj_testFlags30(a, 0x100000) != 0) {
+        flag = 1;
+    }
+    heading = (s32) (lbl_80478CB0[0] * get_ad_end_text_start__10TObjPlayerFv(c->x - a->x, c->z - a->z));
+    pkt.id = src;
+    VecCopy__FP3VecPC3Vec(&pkt.x, &a->x);
+    pkt.arg = heading;
+    pkt.flag = flag;
+    if (flag == 1) {
+        send_6x3E__10TNpcPlayerFi(&pkt);
+    } else {
+        send_6x3E__10TNpcPlayerFi(&pkt);
     }
 }
 

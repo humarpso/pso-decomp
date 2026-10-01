@@ -54,6 +54,35 @@ struct Sub_800E750C { f32 f0; u8 pad4[4]; f32 f8; f32 fC; f32 f10; s32 f14; s32 
 
 struct Obj_800E750C { u8 pad0[0x60]; s32 f60; u8 pad1[0xA4 - 0x64]; Sub_800E750C *fA4; };
 
+struct VBase_18_bd3b49 { char pad[0x18]; };
+
+struct VObj_18_bd3b49 : VBase_18_bd3b49 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual s32 m18(void *, f32);
+    virtual void m19();
+    virtual f32 m20(void *, f32);
+    virtual void m21();
+    virtual void m22();
+    virtual M2C_UNK m23(void *, f32);
+};
+
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 f32 get_random_float__8TObjFishFv(f32);
@@ -78,9 +107,56 @@ extern u8 lbl_804E87C4[];
 extern const f32 lbl_805DF304;
 extern const f32 TObjEneMe3SinowZoa__data_805DF2FC;
 u8 TObjEneMe3SinowZoa__sub_8031A900(Obj_800E750C *arg0, s32 arg1, f32 farg0);
+f32 calc_boss4_scale__10TObjPlayerFi(s32);
+s32 TObjPlayer__sub_80019248(void *);
+u32 get_item_field_6__10TObjPlayerFPv(void *);
+void TObjEneDellBiter__sub_80087350(void *, int);
+s32 get_field_d8__10TObjPlayerFPv();
+s32 fn_800B91F4(void *);
+void TObjEneDD__sub_800BA438(void *, void *);
+s32 objInBand__FP7GameObjf(void *, f32);
+void TObjPlayer__sub_801B7248(void *, void *);
+void TObjPlayer__sub_801B9EDC(void *, s32);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 TObjEneMe3SinowZoa__sub_8031A454(void *);
+extern const f32 TObjEneMe3SinowZoa__data_805DF2F0;
+extern const f32 TObjEneMe3SinowZoa__data_805DF2F4;
+extern const f32 lbl_805DF2F8;
+extern const f32 TObjEneMe3SinowZoa__data_805DF31C;
+extern const f32 TObjEneMe3SinowZoa__data_805DF328;
+extern const f32 lbl_805DF384;
+void TObjEneMe3SinowZoa__sub_8031A6A0(u8 *arg0);
 }
 
 extern "C" {
+
+void TObjEneMe3SinowZoa__sub_8031A6A0(u8 *arg0) {
+    f32 d;
+    s32 near;
+    VObj_18_bd3b49 *pl;
+    near = objInBand__FP7GameObjf(arg0, lbl_805DF2F8);
+    if (objInBand__FP7GameObjf(arg0, TObjEneMe3SinowZoa__data_805DF2F0) != 0 || near != 0) {
+        if (fn_800B91F4(arg0) != 0) {
+            if (M2C_FIELD(arg0, VObj_18_bd3b49 **, 0x390)->m18(arg0, TObjEneMe3SinowZoa__data_805DF2F4) != 0) {
+                d = M2C_FIELD(arg0, VObj_18_bd3b49 **, 0x390)->m20(arg0, TObjEneMe3SinowZoa__data_805DF2F4);
+                M2C_FIELD(arg0, VObj_18_bd3b49 **, 0x390)->m23(arg0, TObjEneMe3SinowZoa__data_805DF328);
+                if (d > TObjEneMe3SinowZoa__data_805DF31C) {
+                    if (TObjEneMe3SinowZoa__sub_8031A454(arg0) != 0) {
+                        pl = M2C_FIELD(arg0, VObj_18_bd3b49 **, 0x390);
+                        if (TObjPlayer__sub_80019248(pl) != 0 && get_item_field_6__10TObjPlayerFPv(pl) != 0) {
+                            TObjPlayer__sub_801B9EDC(pl, get_field_d8__10TObjPlayerFPv());
+                            TObjPlayer__sub_801B7248(pl, arg0 + 0x408);
+                            TObjEneDellBiter__sub_80087350(arg0 + 0x408, 0x1D0);
+                        }
+                    } else if (near != 0 && calc_boss4_scale__10TObjPlayerFi((s32) arg0) <= lbl_805DF384) {
+                        TObjEneDD__sub_800BA438(arg0, M2C_FIELD(arg0, void **, 0x390));
+                    }
+                }
+            }
+        }
+        TBoss3Volopt__sub_8022675C(0x4003AA2B, arg0 + 0x38, 0, 0);
+    }
+}
 
 #pragma push
 #pragma fp_contract on

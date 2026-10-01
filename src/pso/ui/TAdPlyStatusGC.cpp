@@ -28,6 +28,29 @@ struct RecoveredGlobal_8033F9DC_lbl_8050E3B8 {
     u8 remaining[0x1AC];
 };
 
+typedef s32 M2C_UNK;
+struct Elem_8033FC14 {
+    s32 mode;
+    f32 a;
+    f32 b;
+    f32 c;
+    f32 d;
+    s32 f14;
+    s32 f18;
+    s32 f1C;
+    s32 handle;
+};
+
+struct TAdPlyStatusGC_8033FC14 {
+    s32 f0;
+    u8 pad4[0x18 - 0x4];
+    void *vt;
+    s32 f1C;
+    s32 f20;
+    Elem_8033FC14 elems[2];
+    s32 f6C;
+};
+
 extern "C" {
 M2C_UNK allow_rendering__7TObjectFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
@@ -63,6 +86,21 @@ void TAdPlyStatusGC__sub_8033F3D8();
 extern u8 lbl_804783D8[];
 extern const f32 lbl_805DFAEC;
 s32 TAdPlyStatusGC__sub_8033F8B0(void *arg0, void *arg1);
+M2C_UNK disallow_rendering__7TObjectFv();
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+void __ct__7TObjectFP7TObject(void *, void *);
+void fn_8032D9BC(void *, void *);
+u32 get_player_index__14TAdPlyStatusGCFv();
+void *__construct_array(void *, void *, void *, u32, u32);
+void *fn_8032DA28(void *);
+extern RecoveredGlobal_8033FB8C___vt__14TAdPlyStatusGC __vt__14TAdPlyStatusGC;
+extern s32 lbl_805D42C0;
+extern s32 lbl_805D6DAC;
+extern s32 TAdPlyStatusGC__data_805D6DB0;
+extern s32 TAdPlyStatusGC__data_805D6DB8;
+extern const f32 lbl_805DFAF0;
+extern const f32 lbl_805DFAF4;
+TAdPlyStatusGC_8033FC14 *TAdPlyStatusGC__ct(TAdPlyStatusGC_8033FC14 *self, void *parent, s32 arg2);
 }
 
 extern "C" {
@@ -171,6 +209,41 @@ u8 *__dt__14TAdPlyStatusGCFv(u8 *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+TAdPlyStatusGC_8033FC14 *TAdPlyStatusGC__ct(TAdPlyStatusGC_8033FC14 *self, void *parent, s32 arg2) {
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vt = &__vt__14TAdPlyStatusGC;
+    __construct_array(self->elems, (void *) fn_8032DA28, 0, 0x24, 2);
+    self->f0 = lbl_805D42C0;
+    self->f1C = 0;
+    self->f20 = self->f1C;
+    self->f6C = 0;
+    lbl_805D6DAC = 0;
+    TAdPlyStatusGC__data_805D6DB0 = arg2;
+    TAdPlyStatusGC__data_805D6DB8 = 1;
+    self->elems[0].mode = 2;
+    self->elems[0].a = lbl_805DFAF0;
+    self->elems[0].b = lbl_805DFAF4;
+    self->elems[0].c = lbl_805DFAF0;
+    self->elems[0].d = lbl_805DFAF4;
+    self->elems[0].handle = TAdSinglePlyChrSelectGC__sub_80132F2C(0x26, 4);
+    self->elems[0].f14 = 0;
+    self->elems[0].f18 = 8;
+    self->elems[0].f1C = 0x1E;
+    self->elems[1].mode = 2;
+    self->elems[1].a = lbl_805DFAF0;
+    self->elems[1].b = lbl_805DFAF4;
+    self->elems[1].c = lbl_805DFAF0;
+    self->elems[1].d = lbl_805DFAF4;
+    self->elems[1].handle = TAdSinglePlyChrSelectGC__sub_80132F2C(0x26, 5);
+    self->elems[1].f14 = 0;
+    self->elems[1].f18 = 8;
+    self->elems[1].f1C = 0x1E;
+    fn_8032D9BC(self, self->elems);
+    if (get_player_index__14TAdPlyStatusGCFv() != 0U) {
+        disallow_rendering__7TObjectFv();
+    }
+    return self;
 }
 
 }

@@ -15,6 +15,9 @@ struct RecoveredGlobal_803392F4_lbl_80477C20 {
     u8 remaining[0x1C];
 };
 
+typedef s32 M2C_UNK;
+struct T_8033954C { s32 f0; u8 pad[0x14]; void *vt; u8 pad2[0x40 - 0x1C]; s32 f40; };
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void TWindow__close(void *);
@@ -41,6 +44,23 @@ extern s32 lbl_805D6CA4;
 void TAdEnterPPPPassGC__sub_803392F4(u8 *arg0);
 s32 get_state_flag__9TMainTaskFv();
 void render__17TAdEnterPPPPassGCFv(void *self);
+void TKeyBoardControl__sub_8000F9CC(int);
+void queue_destruction__7TObjectFv(void *);
+s32 TLobby__sub_80145A94(void);
+s32 TLobby__sub_80145DB4(int);
+s32 is_state_active__6TLobbyFv(void);
+s32 TLobby__sub_8014618C(void);
+s8 *TLobby__sub_80146D14(void);
+s8 *TLobby__sub_80146D44(void);
+void TLobby__sub_8014797C(void);
+int reset_mode_state__21TAdMultiChgGameModeGCFv(void*);
+void TAdEnterBaseGC__sub_8032B390(void *);
+void reset__14TAdEnterBaseGCFPvi(void *, int);
+void TAdEnterBaseGC__ct(void *);
+extern M2C_UNK __vt__17TAdEnterPPPPassGC[];
+extern s32 lbl_805D4268;
+extern s32 lbl_805D6CA4;
+T_8033954C *TAdEnterPPPPassGC__ct(T_8033954C *arg0);
 }
 
 extern "C" {
@@ -122,6 +142,41 @@ void *__dt__17TAdEnterPPPPassGCFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+T_8033954C *TAdEnterPPPPassGC__ct(T_8033954C *arg0) {
+    s32 ok;
+    TAdEnterBaseGC__ct(arg0);
+    arg0->vt = __vt__17TAdEnterPPPPassGC;
+    arg0->f0 = lbl_805D4268;
+    reset__14TAdEnterBaseGCFPvi(arg0, 3);
+    lbl_805D6CA4 = 0;
+    arg0->f40 = 0;
+    if (TLobby__sub_80145A94() != 0) {
+        TLobby__sub_8014797C();
+    } else {
+        TKeyBoardControl__sub_8000F9CC(0x13);
+        queue_destruction__7TObjectFv(arg0);
+        return arg0;
+    }
+    ok = 0;
+    if (TLobby__sub_8014618C() != 0) {
+        if (is_state_active__6TLobbyFv() != 0) {
+            if (*TLobby__sub_80146D14() != 0) {
+                ok = 1;
+            }
+        } else {
+            ok = 1;
+        }
+    } else if (TLobby__sub_80145DB4(1) != 0 && *TLobby__sub_80146D44() != 0) {
+        ok = 1;
+    }
+    if (ok != 0) {
+        ((int (*)(void))reset_mode_state__21TAdMultiChgGameModeGCFv)();
+        queue_destruction__7TObjectFv(arg0);
+        return arg0;
+    }
+    TAdEnterBaseGC__sub_8032B390(arg0);
     return arg0;
 }
 

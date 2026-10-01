@@ -15740,6 +15740,7 @@ pso/misc/TPlayerBattleCtrl4P_8031012C.cpp:
 
 pso/misc/TPlayerBattleCtrl4P_80310B4C.cpp:
 	.text       start:0x80310B4C end:0x80311800
+	.rodata     start:0x80475B88 end:0x80475B90
 
 pso/misc/TPlayerBattleCtrl4P_80311800.cpp:
 	.text       start:0x80311800 end:0x80311E4C
@@ -16172,6 +16173,7 @@ pso/ui/TAdScrollWinGC_803274D0.cpp:
 
 pso/ui/TAdScrollWinGC_80327504.cpp:
 	.text       start:0x80327504 end:0x80327844
+	.rodata     start:0x80476790 end:0x80476798
 
 pso/unk/text_80327844.cpp:
 	.text       start:0x80327844 end:0x803278B0
@@ -16249,7 +16251,7 @@ pso/misc/TLobby_80329600.cpp:
 
 pso/ui/TAdAgreementBaseGC.cpp:
 	.text       start:0x803296C4 end:0x80329BB8
-	.rodata     start:0x804770D8 end:0x804770E0
+	.rodata     start:0x804770D0 end:0x804770E0
 
 pso/ui/TAdLicAgreementGC.cpp:
 	.text       start:0x80329BB8 end:0x80329D80
@@ -16275,6 +16277,7 @@ pso/ui/TAdMcSelectMcGC_8032A964.cpp:
 
 pso/unk/text_8032AACC.cpp:
 	.text       start:0x8032AACC end:0x8032AC94
+	.rodata     start:0x80477258 end:0x80477260
 
 pso/ui/TAdEnterBaseGC.cpp:
 	.text       start:0x8032AC94 end:0x8032AC9C
@@ -16339,6 +16342,8 @@ pso/ui/TAdWarningBaseGC.cpp:
 
 pso/ui/TAdGuideButtonGC.cpp:
 	.text       start:0x8032D5B0 end:0x8032D9BC
+	.rodata     start:0x80477388 end:0x80477390
+	.sdata2     start:0x805DF7C4 end:0x805DF7D0
 
 pso/unk/text_8032D9BC.cpp:
 	.text       start:0x8032D9BC end:0x8032DA60
@@ -16377,6 +16382,7 @@ pso/boss/TBoss6Type2_8032E708.cpp:
 	.text       start:0x8032E708 end:0x80330240
 	.rodata     start:0x80477460 end:0x80477468
 	.data       start:0x804EDF38 end:0x804EDF90
+	.sdata2     start:0x805DF7F4 end:0x805DF818
 
 pso/unk/text_80330240.cpp:
 	.text       start:0x80330240 end:0x803302D8
@@ -16416,6 +16422,7 @@ pso/misc/TWindowSubTradeMain_803322B8.cpp:
 
 pso/misc/TWindowSubTradeMain.cpp:
 	.text       start:0x803323A8 end:0x803326C4
+	.rodata     start:0x80477600 end:0x80477608
 
 pso/enemy/TObjEneMorfos_803326C4.cpp:
 	.text       start:0x803326C4 end:0x80334808
@@ -16737,6 +16744,7 @@ pso/ui/TAdMultiPlyChrSelectGC_803495B4.cpp:
 
 pso/unk/text_8034960C.cpp:
 	.text       start:0x8034960C end:0x8034999C
+	.rodata     start:0x80478770 end:0x80478778
 
 pso/ui/TAdLoadQuestCellGC.cpp:
 	.text       start:0x8034999C end:0x80349B8C
@@ -16833,6 +16841,7 @@ pso/unk/text_8034D790.cpp:
 
 pso/unk/text_8034DAA0.cpp:
 	.text       start:0x8034DAA0 end:0x8034DC20
+	.data       start:0x804F07E0 end:0x804F0810
 
 pso/misc/TNpcPlayer_8034DC20.cpp:
 	.text       start:0x8034DC20 end:0x8034DED4

@@ -267,6 +267,13 @@ typedef struct Vec_80300D00 { f32 x, y, z; } Vec_80300D00;
 
 typedef struct Hit_80300D00 { s32 flags; u8 *obj; } Hit_80300D00;
 
+struct O_80302D80;
+struct E16_80301148 { u8 pad[8]; s32 v; u8 pad2[4]; };
+
+struct E8_80301148 { u8 pad[4]; s32 v; };
+
+struct T_80301148 { u8 pad[0x42C]; E16_80301148 *a; E8_80301148 *b; };
+
 extern "C" {
 s32 TObjEneDolmOlm__sub_80300CF0(void);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -354,6 +361,17 @@ extern s32 lbl_805D53A4;
 extern const f32 lbl_805DEF4C;
 extern const f32 TObjEneDolmOlm__data_805DEF50;
 void TObjEneDolmOlm__sub_80300D00(u8 *arg0, Vec_80300D00 *arg1);
+M2C_UNK TBoss4Type3__sub_800D9960(u32, s32, s32, int, int);
+M2C_UNK set_param__12TObjEneLappyFPvi(void *, int);
+void TObjEneDolmOlm__sub_80302D80(O_80302D80 *self, s32 i);
+M2C_UNK set_global_flag__10TObjPlayerFv();
+M2C_UNK clear_global_state__10TObjPlayerFv();
+extern s32 lbl_804E67C8[];
+extern u32 TObjEneDolmOlm__data_805D6A10;
+extern u32 TObjEneDolmOlm__data_805D6A14;
+extern u32 TObjEneDolmOlm__data_805D6A18;
+extern const f32 lbl_805DEF64;
+void TObjEneDolmOlm__sub_80301148(u8 *arg0);
 }
 
 extern "C" {
@@ -507,6 +525,29 @@ void TObjEneDolmOlm__sub_8030105C(Obj_800A7A14 *o) {
     if (eff != NULL) {
         eff->m4(&a, &b);
     }
+}
+
+void TObjEneDolmOlm__sub_80301148(u8 *arg0) {
+    if (M2C_FIELD(arg0, s32 *, 0x368) < 1) {
+        M2C_FIELD(arg0, s32 *, 0x334) = 0;
+        M2C_FIELD(arg0, s32 *, 0x368) = 0;
+        set_param__12TObjEneLappyFPvi(arg0, 0x40);
+    } else {
+        M2C_FIELD(arg0, s32 *, 0x334) = 2;
+        M2C_FIELD(arg0, s32 *, 0x368) = 1;
+        set_param__12TObjEneLappyFPvi(arg0, 0x41);
+    }
+    TObjEneDolmOlm__sub_80302D80((O_80302D80 *)arg0, M2C_FIELD(arg0, s32 *, 0x368));
+    set_global_flag__10TObjPlayerFv();
+    TBoss4Type3__sub_800D9960(TObjEneDolmOlm__data_805D6A14,
+        ((T_80301148 *)TObjEneDolmOlm__data_805D6A10)->a[M2C_FIELD(arg0, s32 *, 0x368)].v,
+        ((T_80301148 *)TObjEneDolmOlm__data_805D6A10)->b[lbl_804E67C8[13]].v, 0x1C, 0x1D);
+    TBoss4Type3__sub_800D9960(TObjEneDolmOlm__data_805D6A18,
+        ((T_80301148 *)TObjEneDolmOlm__data_805D6A10)->a[M2C_FIELD(arg0, s32 *, 0x368)].v,
+        ((T_80301148 *)TObjEneDolmOlm__data_805D6A10)->b[lbl_804E67C8[17]].v, 0x14, 0x15);
+    clear_global_state__10TObjPlayerFv();
+    M2C_FIELD(arg0, f32 *, 0x3CC) = lbl_805DEF64 + M2C_FIELD(arg0, f32 *, 0x35C);
+    M2C_FIELD(arg0, f32 *, 0x3D0) = lbl_805DEF64 + M2C_FIELD(arg0, f32 *, 0x360);
 }
 
 #pragma push

@@ -4,6 +4,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct TWindowDD_803431C0 {
+    u8 pad0[0x20];
+    s32 depth;
+    void *child[7];
+    s32 ids[13];
+    void *objs[5];
+    s32 f88;
+    s32 f8C;
+    s32 f90;
+    u8 pad94[0xB0 - 0x94];
+    s32 fB0;
+    u8 padB4[0xBC - 0xB4];
+    s32 fBC;
+    u8 padC0[0xC6 - 0xC0];
+    s16 fC6;
+};
+
 extern "C" {
 M2C_UNK free_child__9TWindowDDFPv(int);
 M2C_UNK apply_input__9TWindowDDFPvPv(int, int);
@@ -26,6 +43,13 @@ s32 TWindowDD__sub_80342D14(void *);
 s32 update__9TWindowDDFPv(void *);
 s32 TWindowDD__sub_80342ED0(void *);
 void TWindowDD__sub_80343808(u8 *arg0);
+void queue_destruction__7TObjectFv(void *);
+s16 TWindowDD__sub_8034214C(int);
+void TWindowDD__sub_803478DC(void *, int);
+void TWindowDD__sub_80347980(void *);
+s32 *get_entry__9TWindowDDFii(void *, s32);
+void update__9TWindowDDFPvPv(void *, void *);
+void TWindowDD__sub_803431C0(TWindowDD_803431C0 *arg0);
 }
 
 extern "C" {
@@ -52,6 +76,35 @@ s32 update_close_flag__9TWindowDDFPv(void *arg0) {
 }
 
 extern M2C_UNK __vt__9TWindowDD[];
+
+void TWindowDD__sub_803431C0(TWindowDD_803431C0 *arg0) {
+    s32 *entry;
+    void *child;
+    get_entry__9TWindowDDFii(arg0, arg0->fB0);
+    entry = get_entry__9TWindowDDFii(arg0, arg0->ids[arg0->depth]);
+    TWindowDD__sub_80347980(arg0);
+    if (*entry & 8) {
+        TWindowDD__sub_803478DC(arg0, 0);
+    } else if ((child = arg0->child[arg0->depth]) != NULL) {
+        update__9TWindowDDFPvPv(arg0, child);
+    }
+    TWindowDD__sub_803478DC(arg0, 1);
+    arg0->depth--;
+    if (*entry & 4) {
+        arg0->fBC--;
+        if (arg0->fBC >= 0 && arg0->objs[arg0->fBC] != NULL) {
+            queue_destruction__7TObjectFv(arg0->objs[arg0->fBC]);
+            arg0->objs[arg0->fBC] = NULL;
+        }
+    }
+    arg0->f90 = arg0->f8C;
+    arg0->f8C = arg0->f88;
+    arg0->f88 = TWindowDD__sub_8034214C((int) arg0->child[arg0->depth]);
+    arg0->fB0 = arg0->ids[arg0->depth + 1];
+    if (arg0->fB0 == 0xD) {
+        arg0->fC6 = 4;
+    }
+}
 
 void TWindowDD__sub_803434F4(u8 *arg0) {
     u8 *var_r31;

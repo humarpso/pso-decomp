@@ -31,6 +31,14 @@ struct Ang_80337824 { s32 x, y, z; };
 
 struct O_80337824 { u8 pad[0x18]; void *vt; u8 pad1[0xAC - 0x1C]; Vec_80337824 pos; Vec_80337824 vel; u8 pad2[0xDC - 0xC4]; f32 fDC; s32 fE0; Vec_80337824 pos2; u8 padF0[4]; s32 fF4; s16 fF8; };
 
+typedef s32 M2C_UNK;
+struct Vec_80337644 { f32 x, y, z; };
+
+struct O_80337644 {
+    u8 pad[0xAC]; Vec_80337644 pos; Vec_80337644 vel;
+    u8 pad2[0xDC - 0xC4]; f32 fDC; void *fE0; Vec_80337644 pos2; s32 fF0; s32 fF4; u16 fF8;
+};
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u8 *TBoss8Dragon__sub_8007A544(s32, M2C_UNK);
@@ -54,6 +62,22 @@ extern s32 tl_06;
 extern const f32 lbl_805D6D30;
 extern const f32 lbl_805DF994;
 O_80337824 *TObjEneMorfos__sub_80337824(O_80337824 *arg0, Vec_80337824 *arg1, s32 arg2, void *arg3);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+u8 *get_player_data__10TObjPlayerFi(s32);
+f32 get_random_float__8TObjFishFv(f32);
+void queue_destruction__7TObjectFv(void *);
+u32 TObjButterflyLobby__sub_8007A5D8(void *, void *, int);
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+s32 TPhotonMylla__sub_80154CB4(u16);
+s32 is_valid_and_active__10TObjPlayerFUi(void *);
+void TObjEneMorfos__sub_80337500(O_80337500 *arg0, V_80337500 *arg1, V_80337500 *arg2);
+s32 TObjEneMorfos__sub_803375F0(M2C_UNK arg0, s32 arg1);
+void TBoss4Zako__sub_803D8910(void *, void *);
+extern s32 lbl_805D586C;
+extern const f32 lbl_805D6D30;
+extern const f32 lbl_805DF98C;
+extern const f32 lbl_805DF990;
+void TObjEneMorfos__sub_80337644(O_80337644 *arg0);
 }
 
 extern "C" {
@@ -86,6 +110,45 @@ s32 TObjEneMorfos__sub_803375F0(M2C_UNK arg0, s32 arg1) {
     }
     VecCopy__FP3VecPC3Vec((void *) (arg1), (int) (M2C_FIELD(temp_r3, s32 *, 4)));
     return 1;
+}
+
+struct O_80337500;
+struct V_80337500;
+void TObjEneMorfos__sub_80337644(O_80337644 *arg0) {
+    s32 k;
+    s32 i;
+    u8 *p;
+    Vec_80337644 v = arg0->pos;
+    TBoss4Zako__sub_803D8910(&arg0->pos, &arg0->vel);
+    if (arg0->fE0 != 0) {
+        copy_pos__11TNowLoadingFPvPv(arg0->fE0, &arg0->pos);
+    }
+    arg0->fDC += lbl_805D6D30;
+    if (arg0->fF0 != 0) {
+        VecCopy__FP3VecPC3Vec(&arg0->pos2, (int)&arg0->pos);
+        arg0->fF4++;
+        if (arg0->fF4 > 4) {
+            arg0->fF4 = 0;
+            TObjEneMorfos__sub_803375F0((M2C_UNK)arg0, (s32)&arg0->pos2);
+        }
+    }
+    if (arg0->fDC >= lbl_805DF98C) {
+        queue_destruction__7TObjectFv(arg0);
+        return;
+    }
+    if (TObjButterflyLobby__sub_8007A5D8(&v, &arg0->pos, -1) != 0) {
+        queue_destruction__7TObjectFv(arg0);
+        return;
+    }
+    k = TPhotonMylla__sub_80154CB4(arg0->fF8);
+    if (k != 0) {
+        for (i = 0; i < lbl_805D586C; i++) {
+            p = get_player_data__10TObjPlayerFi(i);
+            if (is_valid_and_active__10TObjPlayerFUi(p) != 0 && get_random_float__8TObjFishFv(arg0->pos.y - *(f32 *)(p + 0x300)) < lbl_805DF990) {
+                TObjEneMorfos__sub_80337500((O_80337500 *)arg0, (V_80337500 *)p, (V_80337500 *)k);
+            }
+        }
+    }
 }
 
 void *__dt__13TObjEneMorfosFPvs(void *arg0, s16 arg1) {

@@ -26,6 +26,17 @@ struct Stack_803379E0 {
     u8 trailing_storage[0x10];
 };
 
+typedef s32 M2C_UNK;
+struct VBase_80337B00 { char pad[0x18]; };
+
+struct VObj_80337B00 : VBase_80337B00 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual M2C_UNK m4(M2C_UNK, M2C_UNK);
+};
+
 extern "C" {
 s32 is_visible__17TWindowSubComCardFPv(int);
 s32 get_status_flag__17TWindowSubComCardFPv(int);
@@ -42,10 +53,22 @@ void TShopDeleteItemWindow__sub_803379E0(u8 *arg0);
 s32 queue_destruction__7TObjectFv(void *);
 s32 destroy__21TShopDeleteItemWindowFPv(void *arg0);
 void TShopDeleteItemWindow__sub_803379E0(u8 *arg0);
-s32 TShopDeleteItemWindow__sub_80337B00(void *);
 s32 TShopDeleteItemWindow__sub_80337C2C(void *);
 s32 TShopDeleteItemWindow__sub_80337E2C(void *);
 void TShopDeleteItemWindow__vt9(u8 *arg0);
+u16 obj_getField1c(void *);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
+M2C_UNK set_ready_flag__18TCheckRoomSequenceFPv(void *);
+s32 is_confirmed__24TShopEquipmentSellWindowFPv(void *);
+s32 get_result__24TShopEquipmentSellWindowFPv(void *);
+s32 is_confirmed__18TWindowInputNumberFPv(void *);
+f32 get_scale__15TShopWindowBaseFv(void *);
+M2C_UNK set_position_xy(void *, f32, f32);
+void TWindow__close(void *);
+M2C_UNK set_selected_index__17TWindowSubComCardFPvs(void *, int);
+void *TShopJudgmentItemWindow__sub_80266388(void *, int, int, int);
+void *TWindowSubComCard__sub_8026CBB8(int);
+void TShopDeleteItemWindow__sub_80337B00(u8 *arg0);
 }
 
 extern "C" {
@@ -132,6 +155,29 @@ block_8:
     }
 }
 
+void TShopDeleteItemWindow__sub_80337B00(u8 *arg0) {
+    if (*(void **)(arg0 + 0x38) != 0 && is_confirmed__18TWindowInputNumberFPv(*(void **)(arg0 + 0x38)) != 0) {
+        if (*(void **)(arg0 + 0x34) == 0) {
+            u32 id = obj_getField1c(*(void **)(arg0 + 0x24));
+            *(void **)(arg0 + 0x34) = TShopJudgmentItemWindow__sub_80266388(TWindowSubComCard__sub_8026CBB8(0x2B), id, 0, 0);
+            set_ready_flag__18TCheckRoomSequenceFPv(*(void **)(arg0 + 0x34));
+            set_selected_index__17TWindowSubComCardFPvs(*(void **)(arg0 + 0x34), 1);
+            set_position_xy(*(void **)(arg0 + 0x34), get_scale__15TShopWindowBaseFv(arg0), get_scale__15TShopWindowBaseFv(arg0));
+        }
+        *(s32 *)(arg0 + 0x5C) = get_result__24TShopEquipmentSellWindowFPv(*(void **)(arg0 + 0x38));
+        TWindow__close(*(void **)(arg0 + 0x38));
+        *(void **)(arg0 + 0x38) = 0;
+        set_field_20__12TQuestListVMFPvi(arg0, 3);
+        ((VObj_80337B00 *)(arg0))->m4(0x4D, 1);
+        return;
+    }
+    if (*(void **)(arg0 + 0x38) != 0 && is_confirmed__24TShopEquipmentSellWindowFPv(*(void **)(arg0 + 0x38)) != 0) {
+        TWindow__close(*(void **)(arg0 + 0x38));
+        *(void **)(arg0 + 0x38) = 0;
+        set_field_20__12TQuestListVMFPvi(arg0, 4);
+    }
+}
+
 void TShopDeleteItemWindow__vt9(u8 *arg0) {
     M2C_UNK (*temp_r12)(s32);
     M2C_UNK (*temp_r12_2)(s32);
@@ -145,7 +191,7 @@ void TShopDeleteItemWindow__vt9(u8 *arg0) {
         TShopDeleteItemWindow__sub_80337C2C((void *) (arg0));
         return;
     case 2:
-        TShopDeleteItemWindow__sub_80337B00((void *) (arg0));
+        TShopDeleteItemWindow__sub_80337B00((u8 *)((void *) (arg0)));
         return;
     case 3:
         TShopDeleteItemWindow__sub_803379E0((u8 *)((void *) (arg0)));

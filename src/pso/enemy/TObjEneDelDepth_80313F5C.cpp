@@ -46,6 +46,24 @@ extern const f32 lbl_805DF2C4;
 extern const f32 lbl_805DF2C8;
 extern const f32 lbl_805DF2CC;
 void TObjEneDelDepth__sub_80314D1C(u8 *arg0);
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
+u16 TObjPlayer__sub_800115C4(void *, int, f32);
+int set_draw_mode__15TObjEneDelDepthFPvi(void*, void*);
+M2C_UNK TObjEneDelDepth__sub_803154A8(void *, int);
+int TObjEneDelDepth__sub_80316488(void*, void*);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+M2C_UNK TNpcPlayer__sub_803D97B4(void *);
+extern const float TObjEneDelDepth__data_805DF258;
+extern const float TObjEneDelDepth__data_805DF260;
+extern const f32 TObjEneDelDepth__data_805DF26C;
+extern const f32 TObjEneDelDepth__data_805DF270;
+extern const f32 lbl_805DF288;
+extern const f32 lbl_805DF2B0;
+extern const f32 lbl_805DF2B4;
+extern const f32 lbl_805DF2B8;
+void TObjEneDelDepth__sub_80314C10(u8 *arg0);
 }
 
 extern "C" {
@@ -140,6 +158,33 @@ extern const f32 TObjEneDelDepth__data_805DF26C;
 #pragma fp_contract on
 typedef char RecoveredGlobal_80314D1C_lbl_80475D6C_size[sizeof(RecoveredGlobal_80314D1C_lbl_80475D6C) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_80314D1C_lbl_80475D78_size[sizeof(RecoveredGlobal_80314D1C_lbl_80475D78) == 0xC ? 1 : -1];
+
+#pragma push
+#pragma fp_contract on
+void TObjEneDelDepth__sub_80314C10(u8 *arg0) {
+    f32 temp_f1;
+    s32 temp_r31;
+    M2C_FIELD(arg0, f32 *, 0x3AC) = (*(const f32 *)&TObjEneDelDepth__data_805DF258);
+    if (TObjPlayer__sub_800115C4(arg0, (int)(arg0 + 0x3B0), TObjEneDelDepth__data_805DF26C) == 0xFFFF) {
+        TObjEneDelDepth__sub_803154A8(arg0, 2);
+        return;
+    }
+    temp_r31 = (s32) (lbl_805DF2B0 * calc_boss4_scale__10TObjPlayerFi(arg0));
+    M2C_FIELD(arg0, f32 *, 0x3B0) += TObjEneDelDepth__data_805DF270 * TBoss8Dragon__sub_803D64C0(temp_r31);
+    M2C_FIELD(arg0, f32 *, 0x3B8) += TObjEneDelDepth__data_805DF270 * TBoss8Dragon__sub_803D64DC(temp_r31);
+    if (TBoss6Kakusan__sub_803D8BD8(arg0 + 0x3B0) <= lbl_805DF288) {
+        TObjEneDelDepth__sub_803154A8(arg0, 2);
+        return;
+    }
+    TNpcPlayer__sub_803D97B4(arg0 + 0x3B0);
+    temp_f1 = (lbl_805DF2B8 * calc_boss4_scale__10TObjPlayerFi(arg0)) + lbl_805DF2B4;
+    M2C_FIELD(arg0, f32 *, 0x38C) = temp_f1;
+    M2C_FIELD(arg0, f32 *, 0x398) = (*(const f32 *)&TObjEneDelDepth__data_805DF260);
+    ((int (*)(s32, int, f32))TObjEneDelDepth__sub_80316488)(M2C_FIELD(arg0, s32 *, 0x37C), 7, temp_f1);
+    set_draw_mode__15TObjEneDelDepthFPvi(arg0, (void *)3);
+}
+#pragma pop
+
 void TObjEneDelDepth__sub_80314D1C(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f1_2;

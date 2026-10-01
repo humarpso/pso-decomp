@@ -9,6 +9,24 @@ struct RecoveredGlobal_803135B4___vt__19TObjEneDelDepthBomb {
     u8 remaining[0x138];
 };
 
+struct Vec_803133BC { f32 x; f32 y; f32 z; };
+
+struct Bomb_803133BC {
+    u8 pad0[0x38];
+    Vec_803133BC pos;
+    u8 pad1[0x248 - 0x44];
+    u8 col[0x334 - 0x248];
+    u8 f334[4];
+    f32 f338;
+    u8 pad2[4];
+    f32 f340;
+    f32 f344;
+    s32 f348;
+    s32 cnt;
+    s32 f350;
+    f32 f354;
+};
+
 extern "C" {
 int TObjEneDelDepthBomb__sub_80313268(void);
 s32 TObjPlayer__sub_80019038(void *);
@@ -20,6 +38,16 @@ extern M2C_UNK __vt__19TObjEneDelDepthBomb[];
 extern s32 lbl_805D411C;
 extern const f32 TObjEneDelDepth__data_805DF258;
 u8 *TObjEneDelDepthBomb__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+f32 TBoss4Zako__sub_803D8910(void *, void *);
+s32 TObjPlayer__sub_80156844(void *, void *, void *);
+int TObjEneDelDepthBomb__sub_80313268(void);
+s32 create__11TTecRaBartaFPvPvPvPv(s32, void *, void *, s32);
+void queue_destruction__7TObjectFv(void *);
+extern const f32 lbl_805DF264;
+extern const f32 TObjEneDelDepth__data_805DF268;
+extern const f32 TObjEneDelDepth__data_805DF26C;
+void run_task__19TObjEneDelDepthBombFv(Bomb_803133BC *o);
 }
 
 extern "C" {
@@ -43,6 +71,41 @@ int set_flags__10TObjPlayerFPvUi(void*, int);
 void update_children__10TObjPlayerFPv(void* p);
 
 int TObjEneDelDepthBomb__sub_80313268(void) { return 0; }
+
+void run_task__19TObjEneDelDepthBombFv(Bomb_803133BC *o) {
+    s32 done = 0;
+    f32 t;
+    o->f338 += lbl_805DF264;
+    TBoss4Zako__sub_803D8910(&o->pos, o->f334);
+    if (++o->cnt > 0x14F) {
+        done = 1;
+    }
+    Vec_803133BC v = o->pos;
+    v.y += TObjEneDelDepth__data_805DF268;
+    if (TObjPlayer__sub_80156844(o, &v, o->col) != 0) {
+        o->f340 = v.y;
+        if (o->pos.y <= o->f340) {
+            done = 1;
+        }
+    } else {
+        done = 1;
+    }
+    if (((int (*)(void *))TObjEneDelDepthBomb__sub_80313268)(o) != 0) {
+        done = 1;
+    }
+    t = o->f344 + o->f354;
+    o->f344 = t;
+    if (t >= TObjEneDelDepth__data_805DF26C) {
+        done = 1;
+    }
+    if (done != 0) {
+        Vec_803133BC w;
+        VecCopy__FP3VecPC3Vec(&w, &o->pos);
+        w.y += TObjEneDelDepth__data_805DF268;
+        create__11TTecRaBartaFPvPvPvPv(o->f348, &o->pos, &w, o->f350);
+        queue_destruction__7TObjectFv(o);
+    }
+}
 
 void * create__19TObjEneDelDepthBombFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;

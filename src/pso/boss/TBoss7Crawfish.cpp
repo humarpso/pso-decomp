@@ -37,6 +37,14 @@ struct RecoveredGlobal_80308840_main_task {
     u8 remaining[0x30];
 };
 
+struct Vec_803086A8 { f32 x; f32 y; f32 z; };
+
+struct Msg_803086A8 { void *p; s32 one; Vec_803086A8 pos; s32 id; };
+
+struct Slot_803086A8 { u32 a; s32 b; };
+
+struct Obj_803086A8 { u8 pad[0x3A4]; s32 count; Slot_803086A8 slots[4]; };
+
 extern "C" {
 extern const f32 TBoss7Crawfish__data_805DF0D8;
 s32 TBoss7Crawfish__sub_80308AA8(u8 *arg0);
@@ -53,6 +61,14 @@ extern const f32 lbl_805DF0CC;
 extern const f32 lbl_805DF0D0;
 extern const f32 lbl_805DF0D4;
 s32 TBoss7Crawfish__sub_80308840(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 TObjPlayer__sub_80019570(u32);
+M2C_UNK apply_status_effect__10TObjPlayerFi(void *);
+M2C_UNK reset_global_table();
+s32 get_instance__16TObjOnlineEndingFv();
+Slot_803086A8 *get_attack_entry__16TObjOnlineEndingFi(s32);
+M2C_UNK TBoss7Crawfish__sub_8030895C(void *, void *);
+void TBoss7Crawfish__sub_803086A8(Obj_803086A8 *o);
 }
 
 extern "C" {
@@ -84,6 +100,36 @@ extern f32 lbl_805DF0C8;
 
 s32 TBoss7Crawfish__sub_80308688(void *arg0) {
     return (u32) __cntlzw((u32) (lbl_805DF0C8 < M2C_FIELD(arg0, f32 *, 0x38))) >> 5;
+}
+
+void TBoss7Crawfish__sub_803086A8(Obj_803086A8 *o) {
+    Msg_803086A8 msg;
+    s32 i;
+    Slot_803086A8 *e;
+    s32 j;
+    reset_global_table();
+    msg.p = (u8 *)o + 0x374;
+    msg.one = 1;
+    VecCopy__FP3VecPC3Vec(&msg.pos, (u8 *)o + 0x38);
+    msg.id = M2C_FIELD(o, s32 *, 0x60);
+    apply_status_effect__10TObjPlayerFi(&msg);
+    for (i = 0; i != get_instance__16TObjOnlineEndingFv(); i++) {
+        if ((u32)o->count < 4) {
+            e = get_attack_entry__16TObjOnlineEndingFi(i);
+            for (j = 0; j != o->count; j++) {
+                if (o->slots[j].a == e->a && o->slots[j].b == e->b) {
+                    break;
+                }
+            }
+            if (j == o->count && TObjPlayer__sub_80019570(e->a) != 0) {
+                o->slots[o->count].a = e->a;
+                o->slots[o->count].b = e->b;
+                o->count++;
+                TBoss7Crawfish__sub_8030895C(o, e);
+            }
+        }
+    }
+    reset_global_table();
 }
 
 void TBoss7Crawfish__sub_803087D4(s32 arg0, s32 arg1) {

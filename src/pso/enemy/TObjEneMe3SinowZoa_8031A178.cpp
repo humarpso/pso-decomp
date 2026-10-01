@@ -125,6 +125,8 @@ struct V_8031A178 : B_8031A178 {
     virtual void f111(s32);
 };
 
+struct Param_8031A2A0 { u8 pad[0x18]; s32 level; };
+
 extern "C" {
 s32 initialize_enemy_state__9TObjEneDDFPv(void *, int);
 s32 TObjEneMe3SinowZoa__sub_8031A454(void *);
@@ -150,6 +152,16 @@ M2C_UNK TObjEneMe3SinowZoa__sub_80319B8C(void *, s32);
 M2C_UNK TObjEneMe3SinowZoa__sub_80319C70(void *, s32);
 M2C_UNK TObjEneMe3SinowZoa__sub_80319E74(void *, s32);
 void TObjEneMe3SinowZoa__sub_8031A178(u8 *arg0, u32 arg1, s32 arg2);
+s32 clamp_frame_index__9TObjEneDDFi(int);
+void create__10TTecDebandFiii(void *, void *, int);
+void create__9TTecJelinFiiii(void *, void *, void *, int);
+void create__9TTecRestaFPvPvPv(void *, void *, int);
+void create__9TTecSiftaFPvPvPv(void *, void *, int);
+void create_instance__9TTecZaruaFiiii(void *, void *, void *, int);
+s32 TObjEneMe3SinowZoa__sub_8031A454(void *);
+extern Param_8031A2A0 *TObjEneMe3SinowZoa__data_80542FD4[];
+extern s32 lbl_805D5550;
+void TObjEneMe3SinowZoa__sub_8031A2A0(u8 *arg0);
 }
 
 extern "C" {
@@ -217,6 +229,22 @@ void TObjEneMe3SinowZoa__sub_8031A178(u8 *arg0, u32 arg1, s32 arg2) {
         TObjEneMe3SinowZoa__sub_803170F0(arg0, arg2);
     default:
         return;
+    }
+}
+
+void TObjEneMe3SinowZoa__sub_8031A2A0(u8 *arg0) {
+    s32 lv;
+    lv = clamp_frame_index__9TObjEneDDFi(TObjEneMe3SinowZoa__data_80542FD4[M2C_FIELD(arg0, s32 *, 0x3C8)]->level);
+    if (TObjEneMe3SinowZoa__sub_8031A454(arg0) != 0) {
+        if (lbl_805D5550 == 3) {
+            create__9TTecSiftaFPvPvPv(arg0, arg0 + 0x38, clamp_frame_index__9TObjEneDDFi(TObjEneMe3SinowZoa__data_80542FD4[M2C_FIELD(arg0, s32 *, 0x3C8)]->level));
+            create__10TTecDebandFiii(arg0, arg0 + 0x38, clamp_frame_index__9TObjEneDDFi(TObjEneMe3SinowZoa__data_80542FD4[M2C_FIELD(arg0, s32 *, 0x3C8)]->level));
+        } else {
+            create_instance__9TTecZaruaFiiii(arg0, arg0 + 0x38, arg0 + 0x38, clamp_frame_index__9TObjEneDDFi(TObjEneMe3SinowZoa__data_80542FD4[M2C_FIELD(arg0, s32 *, 0x3C8)]->level));
+            create__9TTecJelinFiiii(arg0, arg0 + 0x38, arg0 + 0x38, clamp_frame_index__9TObjEneDDFi(TObjEneMe3SinowZoa__data_80542FD4[M2C_FIELD(arg0, s32 *, 0x3C8)]->level));
+        }
+    } else {
+        create__9TTecRestaFPvPvPv(arg0, arg0 + 0x38, lv);
     }
 }
 

@@ -124,6 +124,10 @@ struct Obj_8033496C { u8 pad[0x60]; s32 f60; u8 pad1[0x2D4 - 0x64]; u16 f2D4; u8
 
 struct Pl_8033496C { u8 pad[0x2FC]; Vec_8033496C pos; };
 
+struct Vec_80334A4C { f32 x, y, z; };
+
+struct Obj_80334A4C { u8 pad[0x60]; s32 f60; u8 pad1[0x2FC - 0x64]; Vec_80334A4C pos; u8 pad4[0x3C0 - 0x308]; s32 f3C0; u8 pad5[0x498 - 0x3C4]; u8 snd[4]; };
+
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 int TObjEneDD__sub_800BBA18(void*, void*);
@@ -163,6 +167,15 @@ s32 TObjEneMorfos__sub_803348F0(u8 *arg0);
 void TBoss6Type1__sub_803D9370(void *, void *);
 extern const f64 TObjEneMorfos__data_80477610;
 void TObjEneMorfos__vt60(Obj_8033496C *arg0);
+f32 TObjPlayer__sub_80014108(void *, void *, f32);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+void TObjEneDellBiter__sub_80087350(void *, int);
+s32 TObjPlayer__sub_80141F84(s32, s32);
+void TBoss6Type1__sub_803D9370(void *, void *);
+extern const f64 TObjEneMorfos__data_80477610;
+extern const f32 TObjEneMorfos__data_805DF874;
+f32 TObjEneMorfos__vt20(Obj_80334A4C *arg0, Obj_80334A4C *arg1, f32 farg0);
 }
 
 extern "C" {
@@ -247,6 +260,32 @@ void TObjEneMorfos__vt60(Obj_8033496C *arg0) {
     } else {
         TObjEneDD__sub_800BBA18(arg0, (void *)0xA);
     }
+}
+
+f32 TObjEneMorfos__vt20(Obj_80334A4C *arg0, Obj_80334A4C *arg1, f32 farg0) {
+    Vec_80334A4C v;
+    f32 ret = TObjEneMorfos__data_805DF874;
+    s32 d;
+    if (arg1 != 0) {
+        VecCopy__FP3VecPC3Vec(&v, &arg1->pos);
+        TBoss6Type1__sub_803D9370(&v, &arg0->pos);
+        d = TObjPlayer__sub_80141F84(arg0->f60, (s32)(TObjEneMorfos__data_80477610 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)));
+    } else {
+        d = 0;
+    }
+    if (arg0->f3C0 & 0x10) {
+        if (d < 0x4000) {
+            TObjEneDellBiter__sub_80087350(arg0->snd, 0x214);
+            TObjEneDellBiter__sub_80087350(arg0->snd, 0x21A);
+        } else {
+            arg0->f3C0 &= ~0x10;
+            arg0->f3C0 |= 0x20;
+            ret = TObjPlayer__sub_80014108(arg0, arg1, farg0);
+        }
+    } else {
+        ret = TObjPlayer__sub_80014108(arg0, arg1, farg0);
+    }
+    return ret;
 }
 
 void TObjEneMorfos__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 11) { TObjEneDD__sub_800BBA18(p, (void*)11); } }

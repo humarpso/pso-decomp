@@ -52,6 +52,8 @@ struct Hit_803240F8 { s32 a; s32 b; s32 c; f32 d; };
 
 struct Vec_80324440 { f32 x, y, z; };
 
+struct Vec_80323FA4 { f32 x, y, z; };
+
 extern "C" {
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 extern const f32 lbl_805DF58C;
@@ -91,6 +93,16 @@ f32 TNpcPlayer__sub_803D97B4(void *);
 extern const f32 TBoss6Mine__data_805DF580;
 extern const f32 lbl_805DF588;
 void TBoss6Mine__vt3(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 TObjPlayer__sub_801423A4(s32, s32, s32);
+f64 TBoss5GryphonLightningWing__sub_80324CEC(f32);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+f32 TBoss6Type1__sub_803D9370(void *, void *);
+f32 TNpcPlayer__sub_803D97B4(void *);
+extern const f64 lbl_804766A0[];
+extern const f32 lbl_805DF588;
+void TBoss6Mine__sub_80323FA4(u8 *arg0);
 }
 
 extern "C" {
@@ -172,6 +184,35 @@ void draw__10TBoss6MineFPv(void *arg0) {
 }
 
 void draw_parts__10TBoss6MineFPv(void* p) { TObjPlayer__sub_803D9B2C(p); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); TObjPlayer__sub_803D9214((void*)0, *(void**)((char*)p + 0x390)); TObjContainerIdo__sub_803D96A8((void*)0, *(void**)((char*)p + 0x394)); TObjPlayer__sub_803D9214((void*)0, *(void**)((char*)p + 0x398)); draw__10TBoss6MineFPv((void *)(p)); TObjPlayer__sub_803D9B78(); }
+
+void TBoss6Mine__sub_80323FA4(u8 *arg0) {
+    Vec_80323FA4 v;
+    s32 a;
+    s32 b;
+    switch (M2C_FIELD(arg0, s32 *, 0x380)) {
+    case 5:
+    case 6:
+        VecCopy__FP3VecPC3Vec((s32) &v, (s32) (arg0 + 0x38));
+        TBoss6Type1__sub_803D9370(&v, arg0 + 0x44);
+        if (TBoss6Kakusan__sub_803D8BD8(&v) <= lbl_805DF588) {
+            a = 0;
+            b = 0;
+        } else {
+            TNpcPlayer__sub_803D97B4(&v);
+            a = lbl_804766A0[0] * get_ad_end_text_start__10TObjPlayerFv(-v.x, -v.z);
+            b = lbl_804766A0[0] * TBoss5GryphonLightningWing__sub_80324CEC(v.y);
+            if (b < -0x2000) {
+                b = -0x2000;
+            } else if (b > 0x2000) {
+                b = 0x2000;
+            }
+        }
+        M2C_FIELD(arg0, s32 *, 0x390) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x390), a, 0x1111);
+        M2C_FIELD(arg0, s32 *, 0x394) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x394), b, 0x444);
+        M2C_FIELD(arg0, s32 *, 0x398) += 0x888;
+        break;
+    }
+}
 
 s32 TBoss6Mine__sub_803240C4(s32 arg0) {
     return TBoss6Kakusan__sub_803D8BD8((void *) (arg0 + 0x38)) > lbl_805DF58C;

@@ -33,16 +33,31 @@ struct RecoveredGlobal_80349DC8_lbl_8047896C {
     u8 remaining[0x20];
 };
 
+struct Desc_80349C54 {
+    f32 *pos;
+    s32 *col;
+    s32 a;
+    s32 b;
+};
+
+struct Item_80349C54 {
+    u32 count;
+    s32 color;
+    f32 *pos;
+    f32 *size;
+};
+
 extern "C" {
-s32 fn_80349C54(void *, void *, int);
 extern RecoveredGlobal_80349E5C_lbl_8047890C lbl_8047890C;
 void fn_80349E5C(s32 arg0);
 M2C_UNK fn_80349B8C(void *, void *, int);
-s32 fn_80349C54(void *, void *, int);
 extern RecoveredGlobal_80349DC8_lbl_804788B8 lbl_804788B8;
 extern RecoveredGlobal_80349DC8_lbl_804788D8 lbl_804788D8;
 extern RecoveredGlobal_80349DC8_lbl_8047896C lbl_8047896C;
 void fn_80349DC8(s32 arg0);
+void TObjCMHairMenu__sub_801E35C4(Desc_80349C54 *, s32, s32, f32);
+extern const f32 lbl_805DFD18;
+void fn_80349C54(void *arg0, void *arg1, int arg2);
 }
 
 extern "C" {
@@ -52,10 +67,44 @@ typedef char RecoveredGlobal_80349E5C_lbl_8047890C_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80349DC8_lbl_804788B8_size[sizeof(RecoveredGlobal_80349DC8_lbl_804788B8) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_80349DC8_lbl_804788D8_size[sizeof(RecoveredGlobal_80349DC8_lbl_804788D8) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_80349DC8_lbl_8047896C_size[sizeof(RecoveredGlobal_80349DC8_lbl_8047896C) == 0x24 ? 1 : -1];
+
+void fn_80349C54(void *arg0, void *arg1, int arg2) {
+    f32 pos[8];
+    Desc_80349C54 d;
+    s32 col[4];
+    Item_80349C54 *item;
+    u32 i;
+    s32 c;
+    u32 j;
+    d.pos = pos;
+    d.col = col;
+    d.a = 0;
+    d.b = 4;
+    for (i = 0; i < (u32) arg2; i++) {
+        item = &((Item_80349C54 *) arg1)[i];
+        c = item->color;
+        for (j = 0; j < item->count; j++) {
+            d.pos[0] = item->pos[j * 2];
+            d.pos[1] = item->pos[j * 2 + 1];
+            d.col[0] = c;
+            d.pos[2] = item->pos[j * 2];
+            d.pos[3] = d.pos[1] + item->size[j * 2 + 1];
+            d.col[1] = c;
+            d.pos[4] = item->pos[j * 2] + item->size[j * 2];
+            d.pos[5] = item->pos[j * 2 + 1] + item->size[j * 2 + 1];
+            d.col[2] = c;
+            d.pos[6] = item->pos[j * 2] + item->size[j * 2];
+            d.pos[7] = item->pos[j * 2 + 1];
+            d.col[3] = c;
+            TObjCMHairMenu__sub_801E35C4(&d, 4, 3, lbl_805DFD18);
+        }
+    }
+}
+
 void fn_80349DC8(s32 arg0) {
     M2CCopy_20 sp8;
     sp8 = *(const M2CCopy_20 *)((s32) ((u8 *)&lbl_8047896C.value - 4) + 4);
-    fn_80349C54((void *) (arg0), (void *) (&sp8), (int) (2));
+    fn_80349C54((void *)((void *) (arg0)), (void *)((void *) (&sp8)), (int)((int) (2)));
     fn_80349B8C((void *) (arg0), (void *) (&lbl_804788B8.value), (int) (0x777777FF));
     fn_80349B8C((void *) (arg0), (void *) (&lbl_804788D8.value), (int) (0x777777FF));
 }
@@ -63,7 +112,7 @@ void fn_80349DC8(s32 arg0) {
 void fn_80349E5C(s32 arg0) {
     M2CCopy_60 sp8;
     sp8 = *(const M2CCopy_60 *)((s32) ((u8 *)&lbl_8047890C.value - 4) + 4);
-    fn_80349C54((void *) (arg0), (void *) (&sp8), (int) (6));
+    fn_80349C54((void *)((void *) (arg0)), (void *)((void *) (&sp8)), (int)((int) (6)));
 }
 
 }

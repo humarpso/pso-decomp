@@ -15,6 +15,28 @@ struct Ctl_80311FA0 {
     s32 f25C;
 };
 
+struct VBase_18_26c590 { char pad[0x18]; };
+
+struct VObj_18_26c590 : VBase_18_26c590 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual char *m10();
+};
+
+struct Cnt_8031224C { s32 n[2]; };
+
+struct Strs_8031224C { u8 pad[0x18]; char *fmt; };
+
+struct O_8031224C { u8 pad[0x20]; s32 w0; u8 pad2[0x240 - 0x24]; s32 timer; u8 pad3[0x274 - 0x244]; s32 team[4]; u8 pad4[0x294 - 0x284]; Strs_8031224C *strs; };
+
 extern "C" {
 int set_score__19TPlayerBattleCtrl4PFPvi(void*, void*);
 void TPlayerBattleCtrl4P__vt11(u8 *arg0);
@@ -26,6 +48,14 @@ void TPlayerBattleCtrl4P__sub_80310910(void *, s32);
 void TPlayerBattleCtrl4P__sub_803104CC(void *);
 void TPlayerBattleCtrl4P__sub_80310C08(void *);
 void TPlayerBattleCtrl4P__vt16(Ctl_80311FA0 *o);
+VObj_18_26c590 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+M2C_UNK send_and_handle__6TLobbyFPvii(s32, void *, int);
+int set_score__19TPlayerBattleCtrl4PFPvi(void*, void*);
+int sprintf(char *, const char *, ...);
+char *strncpy(char *, const char *, u32);
+extern Cnt_8031224C lbl_80475B68[];
+extern char lbl_80542EB0[];
+void TPlayerBattleCtrl4P__vt9(O_8031224C *o);
 }
 
 extern "C" {
@@ -153,6 +183,31 @@ void TPlayerBattleCtrl4P__vt10(void *arg0) {
 }
 
 extern M2C_UNK lbl_8050EA40[];
+
+void TPlayerBattleCtrl4P__vt9(O_8031224C *o) {
+    Cnt_8031224C cnt = lbl_80475B68[0];
+    char names[4][16];
+    s32 i;
+    s32 team;
+    VObj_18_26c590 *p;
+    for (i = 0; i < 4; i++) {
+        names[i][0] = 0;
+    }
+    for (i = 0; i < 4; i++) {
+        p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        if (p != NULL) {
+            team = o->team[i] != 1 ? 1 : 0;
+            if (cnt.n[team] < 2) {
+                strncpy(names[team * 2 + cnt.n[team]], p->m10(), 16);
+                cnt.n[team]++;
+            }
+        }
+    }
+    sprintf(lbl_80542EB0, o->strs->fmt, names[0], names[1], names[2], names[3]);
+    send_and_handle__6TLobbyFPvii(o->w0, lbl_80542EB0, 0x80);
+    o->timer = 0xF0;
+    set_score__19TPlayerBattleCtrl4PFPvi(o, (void *)4);
+}
 
 void TPlayerBattleCtrl4P__vt8(void *arg0) {
     s32 temp_r0;

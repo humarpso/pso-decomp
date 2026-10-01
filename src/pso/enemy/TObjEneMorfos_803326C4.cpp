@@ -584,6 +584,10 @@ struct RecoveredGlobal_80332B7C_lbl_804775D8
   u8 remaining[0x8];
 };
 
+struct V3_80334588 { f32 x, y, z; };
+
+struct O_80334588 { u8 pad[0x60]; s32 f60; u8 pad2[0x2FC - 0x64]; V3_80334588 pos; };
+
 extern "C" {
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
 M2C_UNK clear_field_388__9TObjEneDDFPv(void *);
@@ -647,6 +651,20 @@ void state_appear__13TObjEneMorfosFPvi(void *arg0, s32 arg1);
 void TObjEneMorfos__sub_803342B8(u8 *arg0, s32 arg1);
 void TObjEneMorfos__sub_803343E8(void *self, s32 ev);
 void TObjEneMorfos__vt85(u8 *arg0, u32 arg1, s32 arg2);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+u8 *get_player_data__10TObjPlayerFi(int);
+u16 obj_getField1c(void *);
+s32 get_game_mode__6TLobbyFv(void);
+u32 TObjPlayer__sub_8007A3AC(void *, void *);
+f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+void TBoss8Dragon__sub_800B9958(void *, u16);
+s32 is_alive__9TObjEneDDFPv(void *);
+f32 TBoss8Dragon__sub_803D64C0(int);
+f32 TBoss8Dragon__sub_803D64DC(int);
+void TBoss6Type1__sub_803D9370(void *, void *);
+extern const f32 TObjEneMorfos__data_805DF86C;
+extern const f32 TObjEneMorfos__data_805DF874;
+s32 TObjEneMorfos__sub_80334588(O_80334588 *arg0);
 }
 
 extern "C" {
@@ -976,6 +994,48 @@ void TObjEneMorfos__sub_80334524(u8 *arg0) {
         TBoss3Volopt__sub_8022675C(0x4003A823, (u32) (arg0 + 0x38), 0, 0);
     }
 }
+
+#pragma push
+#pragma fp_contract on
+s32 TObjEneMorfos__sub_80334588(O_80334588 *arg0) {
+    V3_80334588 v;
+    s32 n;
+    u8 *p;
+    u16 id;
+    s32 i;
+    f32 dz;
+    f32 dx;
+    f32 cosLim;
+    f32 d;
+    f32 best;
+    best = TObjEneMorfos__data_805DF874;
+    id = 0xFFFF;
+    cosLim = TBoss8Dragon__sub_803D64DC(0xAAA);
+    dx = TBoss8Dragon__sub_803D64C0(arg0->f60);
+    dz = TBoss8Dragon__sub_803D64DC(arg0->f60);
+    n = get_game_mode__6TLobbyFv();
+    for (i = 0; i < n; i++) {
+        p = get_player_data__10TObjPlayerFi(i);
+        if (is_alive__9TObjEneDDFPv(p) == 0) {
+            continue;
+        }
+        VecCopy__FP3VecPC3Vec(&v, p + 0x38);
+        TBoss6Type1__sub_803D9370(&v, &arg0->pos);
+        v.y = TObjEneMorfos__data_805DF874;
+        d = clamp_velocity__15TObjBoss2TunnelFPv(&v);
+        if (d < TObjEneMorfos__data_805DF86C && d > best && dx * v.x + dz * v.z > cosLim &&
+            TObjPlayer__sub_8007A3AC(&arg0->pos, p + 0x2FC) == 0) {
+            id = obj_getField1c(p);
+            best = d;
+        }
+    }
+    if (id != 0xFFFF) {
+        TBoss8Dragon__sub_800B9958(arg0, id);
+        return 1;
+    }
+    return 0;
+}
+#pragma pop
 
 int TObjEneMorfos__sub_80334704(void) { lbl_805D6D30 = *(float*)((char*)TObjEneMorfos__data_805D6D10 + 0x0); lbl_805D6D34 = *(float*)((char*)TObjEneMorfos__data_805D6D10 + 0x4); return TObjEneMorfos__data_805D6D10; }
 

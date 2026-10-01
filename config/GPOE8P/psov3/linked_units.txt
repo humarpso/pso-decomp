@@ -383,6 +383,7 @@ pso/enemy/TObjEneMe3SinowZoa_8031A4E8.cpp
 pso/enemy/TObjEneMe3SinowZoa_8031A598.cpp
 pso/enemy/TObjEneMe3SinowZoa_8031A628.cpp
 pso/enemy/TObjEneMe3SinowZoa_8031A62C.cpp
+pso/enemy/TObjEneMe3SinowZoa_8031A6A0.cpp
 pso/enemy/TObjEneMe3SinowZoa_8031AA20.cpp
 pso/enemy/TObjEneMe3SinowZoa_8031AB64.cpp
 pso/enemy/TObjEneMe3SinowZoa_8031ABBC.cpp
@@ -421,6 +422,7 @@ pso/enemy/TObjEneMe3Stelth_803DC82C.cpp
 pso/enemy/TObjEneMoja.cpp
 pso/enemy/TObjEneMorfosArm.cpp
 pso/enemy/TObjEneMorfosArm_80335218.cpp
+pso/enemy/TObjEneMorfos_80337500.cpp
 pso/enemy/TObjEneNanoDrago.cpp
 pso/enemy/TObjEneNanoDrago_800DBF88.cpp
 pso/enemy/TObjEnePanarms_8002AE74.cpp
@@ -3842,6 +3844,7 @@ pso/unk/text_80324E10.cpp
 pso/unk/text_80325660.cpp
 pso/unk/text_80327338.cpp
 pso/unk/text_80327844.cpp
+pso/unk/text_803278B0.cpp
 pso/unk/text_803279CC.cpp
 pso/unk/text_803281B8.cpp
 pso/unk/text_8032AC9C.cpp
@@ -3854,6 +3857,7 @@ pso/unk/text_8033F314.cpp
 pso/unk/text_8033FE30.cpp
 pso/unk/text_8033FF78.cpp
 pso/unk/text_8034CEDC.cpp
+pso/unk/text_8034DAA0.cpp
 pso/unk/text_803501BC.cpp
 pso/unk/text_8035029C.cpp
 pso/unk/text_8035033C.cpp

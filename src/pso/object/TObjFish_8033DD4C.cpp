@@ -32,8 +32,8 @@ O_8033E5A8 *TObjFish__sub_8033E5A8(O_8033E5A8 *arg0, s16 arg1);
 extern "C" {
 
 void update__8TObjFishFPv(void* p);
-int TObjFish__sub_8033DD4C(void*);
-int TObjFish__sub_8033DE60(void*);
+void TObjFish__sub_8033DD4C(void*);
+void TObjFish__sub_8033DE60(void*);
 int TObjFish__sub_8033DFB4(void*);
 int TObjPlayer__sub_803078B0(void);
 int TObjPlayer__sub_803E1D90(int, int, int, int);

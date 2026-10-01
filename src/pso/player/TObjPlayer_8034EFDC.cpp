@@ -110,6 +110,13 @@ struct Out_8012573C { u8 pad[0x40]; u32 f40; u8 pad44[0x50 - 0x44]; s32 f50; u8 
 
 struct P_8034F020 { u8 pad0[0x1F8]; s32 f1F8; };
 
+typedef struct SlicerLaunchData_8012D9C8 {
+    u16 player; u16 pad;
+    void *textures; void *model; u32 weapon;
+    s16 kind, stage; f32 multiplier; f32 color[4];
+    s32 facing, spin; f32 first[3], second[3];
+} SlicerLaunchData_8012D9C8;
+
 extern "C" {
 void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1);
 int fn_80308244(void);
@@ -140,6 +147,18 @@ void TObjPlayer__sub_8034F4AC(s32 arg0, s32 arg1);
 s32 get_player_list__10TObjPlayerFv();
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
 void TObjPlayer__sub_8034F020(P_8034F020 *arg0);
+void TObjPlayer__sub_801295FC(SlicerLaunchData_8012D9C8 *);
+u16 obj_getField1c(void *);
+u32 get_field_d8__10TObjPlayerFPv(void *);
+s16 TObjPlayer__sub_801D2F4C(void *);
+s16 TObjPlayer__sub_801D2EA8(void *);
+f32 query_extended_state__10TObjPlayerFPv(void *);
+void TObjPlayer__sub_80120304(f32 *, void *);
+void copy_vec4__13TRaderMapCoreFPvPv(f32 *, f32 *);
+void draw_icon__10TObjPlayerFPvii(void *, int, f32 *);
+u8 *create__10TTecSlicerFPUs(SlicerLaunchData_8012D9C8 *);
+extern const f32 lbl_805DFDF8;
+void TObjPlayer__sub_8034F268(u8 *weapon);
 }
 
 extern "C" {
@@ -216,6 +235,34 @@ void *enter_timed_state__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
 }
 
 extern M2C_UNK lbl_804F0908[];
+
+void TObjPlayer__sub_8034F268(u8 *weapon) {
+    f32 tmp[4];
+    SlicerLaunchData_8012D9C8 launch;
+    u8 *t;
+    TObjPlayer__sub_801295FC(&launch);
+    launch.player = obj_getField1c(M2C_FIELD(weapon, u8 **, 0xF0));
+    launch.weapon = get_field_d8__10TObjPlayerFPv(weapon);
+    launch.textures = M2C_FIELD(weapon, void **, 0x24);
+    launch.model = M2C_FIELD(weapon, void **, 0x188);
+    launch.kind = TObjPlayer__sub_801D2F4C(M2C_FIELD(weapon, u8 **, 0xF0) + 0x7CC);
+    launch.stage = TObjPlayer__sub_801D2EA8(M2C_FIELD(weapon, u8 **, 0xF0) + 0x7CC);
+    launch.multiplier = query_extended_state__10TObjPlayerFPv(M2C_FIELD(weapon, u8 **, 0xF0));
+    TObjPlayer__sub_80120304(tmp, weapon);
+    copy_vec4__13TRaderMapCoreFPvPv(launch.color, tmp);
+    launch.facing = M2C_FIELD(M2C_FIELD(weapon, u8 **, 0xF0), s32 *, 0x60);
+    launch.spin = 0;
+    draw_icon__10TObjPlayerFPvii(weapon, 3, launch.first);
+    draw_icon__10TObjPlayerFPvii(weapon, 2, launch.second);
+    t = create__10TTecSlicerFPUs(&launch);
+    if (t != NULL) {
+        M2C_FIELD(t, s32 *, 0x5C) += 0x4000;
+        M2C_FIELD(t, f32 *, 0x68) = lbl_805DFDF8;
+        M2C_FIELD(t, f32 *, 0x6C) = lbl_805DFDF8;
+        M2C_FIELD(t, f32 *, 0x70) = lbl_805DFDF8;
+        M2C_FIELD(t, s32 *, 0x13C) = 0;
+    }
+}
 
 void *item_equip_variant_deleting_dtor_8034F36C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
