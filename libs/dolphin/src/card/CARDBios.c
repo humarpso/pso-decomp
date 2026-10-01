@@ -1,6 +1,6 @@
 
 
-#define DSPInit TLobby__sub_80380178
+
 #define OnReset CARDBios_OnReset
 #define ResetFunctionInfo lbl_804F4C50
 #define Retry CARDBios_Retry

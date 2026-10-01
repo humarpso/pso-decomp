@@ -17658,10 +17658,21 @@ ar/ar.c:
 	.sbss       start:0x805D7258 end:0x805D7278
 
 ar/arq.c:
-	.text       start:0x8037FC88 end:0x8038001C
+	.text       start:0x8037FC88 end:0x8038012C
+	.sbss       start:0x805D7278 end:0x805D72A8
 
-pso/unk/text_8037FD8C.cpp:
-	.text       start:0x8038001C end:0x80380B74
+dsp/dsp.c:
+	.text       start:0x8038012C end:0x803802A0
+	.data       start:0x804F4AD8 end:0x804F4B10
+	.sbss       start:0x805D72A8 end:0x805D72B0
+
+dsp/dsp_debug.c:
+	.text       start:0x803802A0 end:0x803802F0
+
+dsp/dsp_task.c:
+	.text       start:0x803802F0 end:0x80380B74
+	.data       start:0x804F4B10 end:0x804F4C50
+	.sbss       start:0x805D72B0 end:0x805D72C8
 
 card/CARDBios.c:
 	.text       start:0x80380B78 end:0x80381F54

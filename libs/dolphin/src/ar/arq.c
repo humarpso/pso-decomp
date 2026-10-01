@@ -10,6 +10,8 @@
 #define __ARQRequestQueueLo lbl_805D7280
 #define __ARQRequestTailHi lbl_805D727C
 #define __ARQRequestTailLo lbl_805D7284
+#define __ARQRequestQueueTemp lbl_805D7288
+#define __ARQRequestTailTemp lbl_805D728C
 #define __ARQ_init_flag lbl_805D72A4
 
 #include <dolphin.h>
@@ -22,6 +24,8 @@ static struct ARQRequest* __ARQRequestQueueHi;
 static struct ARQRequest* __ARQRequestTailHi;
 static struct ARQRequest* __ARQRequestQueueLo;
 static struct ARQRequest* __ARQRequestTailLo;
+static struct ARQRequest* __ARQRequestQueueTemp;
+static struct ARQRequest* __ARQRequestTailTemp;
 static struct ARQRequest* __ARQRequestPendingHi;
 static struct ARQRequest* __ARQRequestPendingLo;
 static ARQCallback __ARQCallbackHi;
@@ -98,6 +102,23 @@ void __ARQInterruptServiceRoutine()
 	}
 }
 
+inline void __ARQInitTempQueue(void)
+{
+	__ARQRequestQueueTemp = NULL;
+	__ARQRequestTailTemp  = NULL;
+}
+
+inline void __ARQPushTempQueue(struct ARQRequest* task)
+{
+	if (!__ARQRequestQueueTemp) {
+		__ARQRequestQueueTemp = task;
+		__ARQRequestTailTemp  = task;
+		return;
+	}
+	__ARQRequestTailTemp->next = task;
+	__ARQRequestTailTemp       = task;
+}
+
 void ARQInit(void)
 {
 	if (__ARQ_init_flag != 1) {
@@ -159,6 +180,35 @@ void ARQPostRequest(struct ARQRequest* request, u32 owner, u32 type,
 		if (__ARQRequestPendingHi == 0) {
 			__ARQServiceQueueLo();
 		}
+	}
+	OSRestoreInterrupts(level);
+}
+
+
+void ARQRemoveRequest(struct ARQRequest* request)
+{
+	struct ARQRequest* thisRequest;
+	int level;
+
+	level = OSDisableInterrupts();
+	__ARQInitTempQueue();
+	for (thisRequest = __ARQRequestQueueHi; thisRequest; thisRequest = thisRequest->next) {
+		if (thisRequest != request) {
+			__ARQPushTempQueue(thisRequest);
+		}
+	}
+	__ARQRequestQueueHi = __ARQRequestQueueTemp;
+	__ARQRequestTailHi  = __ARQRequestTailTemp;
+	__ARQInitTempQueue();
+	for (thisRequest = __ARQRequestQueueLo; thisRequest; thisRequest = thisRequest->next) {
+		if (thisRequest != request) {
+			__ARQPushTempQueue(thisRequest);
+		}
+	}
+	__ARQRequestQueueLo = __ARQRequestQueueTemp;
+	__ARQRequestTailLo  = __ARQRequestTailTemp;
+	if (__ARQRequestPendingLo && __ARQRequestPendingLo == request && __ARQCallbackLo == 0) {
+		__ARQRequestPendingLo = NULL;
 	}
 	OSRestoreInterrupts(level);
 }

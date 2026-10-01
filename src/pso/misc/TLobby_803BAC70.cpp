@@ -479,8 +479,8 @@ extern s32 lbl_805D748C;
 extern s8 lbl_805D74B8;
 void TLobby__sub_803BD19C(s32 i, u16 v);
 M2C_UNK PPCSync();
-u32 TLobby__sub_8038012C();
-M2C_UNK TLobby__sub_80380164(void *);
+u32 DSPCheckMailToDSP();
+M2C_UNK DSPSendMailToDSP(void *);
 M2C_UNK TLobby__sub_803B5EAC(void *, int);
 extern u16 lbl_805D7474;
 extern s32 lbl_805D7478;
@@ -1181,12 +1181,12 @@ void TLobby__sub_803BE614(s32 arg0) {
     temp_r31 = lbl_805D7478;
     lbl_805D74F0 = 0;
     PPCSync();
-    TLobby__sub_80380164((void *) (lbl_805D7474 | 0xBABE0000));
+    DSPSendMailToDSP((void *) (lbl_805D7474 | 0xBABE0000));
     do {
-    } while (TLobby__sub_8038012C() != 0U);
-    TLobby__sub_80380164((void *) (temp_r31));
+    } while (DSPCheckMailToDSP() != 0U);
+    DSPSendMailToDSP((void *) (temp_r31));
     do {
-    } while (TLobby__sub_8038012C() != 0U);
+    } while (DSPCheckMailToDSP() != 0U);
 }
 
 u32 TLobby__sub_803BE688(void) {
