@@ -80,8 +80,12 @@ force_active:
   - TWindowActionPalette__sub_801C1C20
   - TWindowActionPalette__sub_801C1C30
   - TWindowMainMenu1P__sub_80288520
+  - __ARQCallbackHack
+  - __ARQInterruptServiceRoutine
+  - __ARQServiceQueueLo
   - __ct__9TEffGuardFPC3Vec
   - __dt__10TDPBShowerFv
+  - __dt__10TItemTimerFv
   - __dt__11TMapCsnCtrlFv
   - __dt__12TItemDropSubFv
   - __dt__12TItemEffCaneFv
@@ -153,6 +157,7 @@ force_active:
   - initialize__16TItemWeaponRifleFlPUc
   - initialize__21TItemProArmorParticleFPvPvPvPvPv
   - initialize_player_data__10TObjPlayerFPv
+  - invoke_callback__10TItemTimerFPv
   - is_target_in_range__11TObjInfoColFf
   - load_item_pmt
   - open_windows__22TAdMultiPlyChrSelectGCFPv
@@ -162,6 +167,7 @@ force_active:
   - reset_and_invoke__6TLobbyFv
   - reset_state__13TObjWarnChimeFPv
   - run_task__10TDPBShowerFv
+  - run_task__10TItemTimerFv
   - run_task__12TItemEffCaneFv
   - run_task__12TItemTexLoadFv
   - run_task__12TMemberCheckFv

@@ -1,7 +1,25 @@
 # Units linked into the DOL from compiled source
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_acos.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_asin.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_atan2.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_log.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_pow.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_rem_pio2.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/k_cos.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/k_rem_pio2.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/k_sin.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/k_tan.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_atan.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_ceil.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_copysign.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_cos.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_floor.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_frexp.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_ldexp.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_modf.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_nextafter.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_sin.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_tan.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/w_acos.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/w_asin.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/w_atan2.c
@@ -11,6 +29,7 @@ PowerPC_EABI_Support/MSL/MSL_C/PPC_EABI/Src/math_ppc.c
 PowerPC_EABI_Support/Runtime/Src/CPlusLibPPC.cp
 PowerPC_EABI_Support/Runtime/Src/ptmf.c
 ai/ai.c
+ar/arq.c
 card/CARDBlock.c
 card/CARDCreate.c
 card/CARDDir.c
@@ -542,6 +561,7 @@ pso/item/TItemEffEquip_801088F8.cpp
 pso/item/TItemEffEquip_80108920.cpp
 pso/item/TItemEffLandHit.cpp
 pso/item/TItemEffNeedleBase_80109D48.cpp
+pso/item/TItemEffNeedlePos_801097F0.cpp
 pso/item/TItemEffOrgaFlowShot.cpp
 pso/item/TItemEffPG.cpp
 pso/item/TItemEffPG_8034FF4C.cpp
@@ -723,6 +743,7 @@ pso/item/TItemTexLoad_8011CEDC.cpp
 pso/item/TItemTexLoad_8011CF6C.cpp
 pso/item/TItemTexLoad_8011D164.cpp
 pso/item/TItemTexLoad_8011D334.cpp
+pso/item/TItemTimer.cpp
 pso/item/TItemTimerEvent.cpp
 pso/item/TItemWeaponMechgun.cpp
 pso/item/TItemWpnCardEffect.cpp
@@ -2008,6 +2029,7 @@ pso/object/TObjCMIcon.cpp
 pso/object/TObjCMMainMenu_8029427C.cpp
 pso/object/TObjCMProportion_802951EC.cpp
 pso/object/TObjCamera.cpp
+pso/object/TObjCamera_8017F80C.cpp
 pso/object/TObjCityAreaWarp_80185C7C.cpp
 pso/object/TObjCityAreaWarp_80185D14.cpp
 pso/object/TObjCityAreaWarp_80185DB8.cpp
@@ -2963,6 +2985,7 @@ pso/system/TODummyKeyCave01Sound.cpp
 pso/system/TOSwitchAttackSub.cpp
 pso/system/TSetEvtDestroy.cpp
 pso/ui/TAdADXlogo.cpp
+pso/ui/TAdAgreementBaseGC.cpp
 pso/ui/TAdBackGC.cpp
 pso/ui/TAdChrMoveEffectGC_80257720.cpp
 pso/ui/TAdChrSelASlotGC_80266508.cpp
