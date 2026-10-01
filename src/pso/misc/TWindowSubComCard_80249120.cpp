@@ -9,6 +9,11 @@ s32 __nw__7TObjectFUl(int);
 int TWindowSubComCard__sub_80249220(void *, void *);
 s32 TWindowChoiceSetting__ct(int, void *, void *);
 s32 TWindowSubComCard__sub_802491C4(s32 arg0, s32 arg1, s32 arg2);
+void *get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
+s32 get_field_74__17TWindowSubComCardFPv(void *);
+extern const f32 lbl_805DCBB8;
+extern const f32 lbl_805DCBBC;
+void TWindowSubComCard__sub_80249144(void *arg0);
 }
 
 extern "C" {
@@ -23,6 +28,21 @@ void begin_scroll__17TWindowSubComCardFPvf(void *arg0, f32 farg0) {
     if (temp_r4 & 1) {
         M2C_FIELD(arg0, u16 *, 0x80) = (u16) (temp_r4 & 0xFFFE);
         M2C_FIELD(arg0, f32 *, 0x3C) = farg0;
+        M2C_FIELD(arg0, s32 *, 0x50) = 3;
+    }
+}
+
+void TWindowSubComCard__sub_80249144(void *arg0) {
+    u16 temp_r4;
+    void *e;
+    temp_r4 = M2C_FIELD(arg0, u16 *, 0x80);
+    if (!(temp_r4 & 1)) {
+        M2C_FIELD(arg0, u16 *, 0x80) = (u16) (temp_r4 | 1);
+        e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, get_field_74__17TWindowSubComCardFPv(arg0));
+        M2C_FIELD(arg0, f32 *, 0x3C) = lbl_805DCBB8 + M2C_FIELD(e, f32 *, 0x14);
+        if (M2C_FIELD(arg0, s32 *, 0x2C) & 0x40) {
+            M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + lbl_805DCBBC);
+        }
         M2C_FIELD(arg0, s32 *, 0x50) = 3;
     }
 }

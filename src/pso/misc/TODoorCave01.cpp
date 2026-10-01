@@ -17,11 +17,26 @@ struct VObj_801618fc : VBase_801618fc {
 };
 
 extern "C" {
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK TOSignCave03__sub_803DB510(int);
+M2C_UNK set_chunk_material_color(void *, int);
+extern u8 lbl_804A7418[];
+extern s32 lbl_805D5660;
+extern u8 *TODoorCave01__data_805D595C;
+extern s32 some_id_805c6f74;
+M2C_UNK TODoorCave01__sub_80161804(void *p0, int p1, int arg2);
+}
+
+extern "C" {
 
 void *create__12TODoorCave01FPv(void *arg0);
 void render__12TODoorCave01Fv(u8 *arg0);
 void *TODoorCave01__ct(void *, void *, void *);
-M2C_UNK TODoorCave01__sub_80161804(void *, int, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjDoor__sub_803DC894(void *, int, f32);
 M2C_UNK rotate_matrix_y(int, int);
@@ -33,6 +48,39 @@ M2C_UNK set_global_param__8TObjFishFi(int);
 
 extern u8 *TODoorCave01__data_805D595C;
 extern const f32 lbl_805DB4A4;
+
+M2C_UNK TODoorCave01__sub_80161804(void *p0, int p1, int arg2) {
+    s32 temp_r4;
+    u8 *temp_r31;
+    u8 *temp_r31_2;
+    set_global_param__8TObjFishFi((int) (M2C_FIELD(TODoorCave01__data_805D595C, M2C_UNK *, (arg2 * 4))));
+    TObjPlayer__sub_803D9B2C();
+    TObjPlayer__sub_803D9624((int) (0), (f32) (M2C_FIELD(((u8 *) p1), f32 *, 8)), (f32) (M2C_FIELD(((u8 *) p1), f32 *, 0xC)), (f32) (M2C_FIELD(((u8 *) p1), f32 *, 0x10)));
+    TOSignCave03__sub_803DB510((int) (M2C_FIELD(((u8 *) p1), s32 *, 4)));
+    temp_r31 = M2C_FIELD(((u8 *) p1), u8 **, 0x2C);
+    if (arg2 != 1) {
+        temp_r4 = some_id_805c6f74;
+        lbl_805D5660 = temp_r4;
+        some_id_805c6f74 = temp_r4 | 0x10;
+        set_chunk_material_color((void *) (((s32) p0) + 0xDC), (int) (temp_r4));
+    }
+    begin_effect_render__13TParticleCtrlFv();
+    TObjPlayer__sub_803D9B2C();
+    TObjPlayer__sub_803D9624((int) (0), (f32) (M2C_FIELD(temp_r31, f32 *, 8)), (f32) (M2C_FIELD(temp_r31, f32 *, 0xC)), (f32) (M2C_FIELD(temp_r31, f32 *, 0x10)));
+    TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31, s32 *, 4)));
+    temp_r31_2 = M2C_FIELD(temp_r31, u8 **, 0x2C);
+    TObjPlayer__sub_803D9B2C();
+    TObjPlayer__sub_803D9624((int) (0), (f32) (M2C_FIELD(temp_r31_2, f32 *, 8)), (f32) (M2C_FIELD(temp_r31_2, f32 *, 0xC)), (f32) (M2C_FIELD(temp_r31_2, f32 *, 0x10)));
+    TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
+    TObjPlayer__sub_803D9B78();
+    TObjPlayer__sub_803D9B78();
+    end_effect_render__13TParticleCtrlFv();
+    if (arg2 != 1) {
+        ((void (*)(void *)) set_chunk_material_color)(lbl_804A7418);
+        some_id_805c6f74 = lbl_805D5660;
+    }
+    TObjPlayer__sub_803D9B78();
+}
 
 void render__12TODoorCave01Fv(u8 *arg0) {
     u8 *var_r30;
@@ -46,7 +94,7 @@ void render__12TODoorCave01Fv(u8 *arg0) {
             var_r29 = 0;
             var_r30 = (unsigned char *) (M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C));
             do {
-                TODoorCave01__sub_80161804((void *) (arg0), (int) (var_r30), M2C_FIELD(arg0, s32 *, 0xD0) & (1 << (var_r29 + 0x10)) ? 1 : 0);
+                TODoorCave01__sub_80161804((void *)((void *) (arg0)), (int)((int) (var_r30)), (int)(M2C_FIELD(arg0, s32 *, 0xD0) & (1 << (var_r29 + 0x10)) ? 1 : 0));
                 var_r29 += 1;
                 var_r30 = (unsigned char *) (M2C_FIELD(var_r30, void **, 0x30));
             } while (var_r29 < 4);

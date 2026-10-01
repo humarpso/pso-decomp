@@ -20,6 +20,27 @@ struct Stack_80067E30 {
 struct RecoveredGlobal_80067E30_lbl_8058D490 { M2C_UNK value; u8 remaining[0x2C]; };
 typedef char RecoveredGlobal_80067E30_lbl_8058D490_size[sizeof(RecoveredGlobal_80067E30_lbl_8058D490) == 0x30 ? 1 : -1];
 
+struct Vec_80067D20 { f32 x, y, z; };
+
+struct Pad_80067D20 {
+    u32 buttons;
+    u8 pad4[0x14 - 0x4];
+    s16 sx;
+    s16 sy;
+};
+
+struct Obj_80067D20 {
+    u8 pad0[0x2c];
+    s32 yaw;
+    s32 pitch;
+    u8 pad34[0x3c - 0x34];
+    Vec_80067D20 eye;
+    Vec_80067D20 at;
+    u8 pad54[0x6c - 0x54];
+    Pad_80067D20 *pad;
+    f32 dist;
+};
+
 extern "C" {
 void *__nw__7TObjectFUl(int);
 void *TCameraCtrl__sub_80068018(void *);
@@ -35,6 +56,9 @@ s32 TObjPlayer__sub_803D9B78();
 extern RecoveredGlobal_80067E30_lbl_8058D490 lbl_8058D490;
 extern const f32 lbl_805D8F74;
 void TCameraCtrl__sub_80067E30(u8 *arg0);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+void TCameraCtrl__sub_80067D20(Obj_80067D20 *arg0);
 }
 
 extern "C" {
@@ -49,6 +73,39 @@ void * TCameraCtrl__vt7(void) {
     }
     return o;
 }
+
+#pragma push
+#pragma fp_contract on
+void TCameraCtrl__sub_80067D20(Obj_80067D20 *arg0) {
+    Pad_80067D20 *pad = arg0->pad;
+    f32 d = arg0->dist;
+    u32 btn = pad->buttons;
+    s16 sx = pad->sx;
+    s16 sy = pad->sy;
+    f32 r;
+    if (btn & 0x400) {
+        if (btn & 0x20000) {
+            d += 2.0f;
+            if (d > 1000.0f) {
+                d = 1000.0f;
+            }
+            arg0->dist = d;
+        } else if (btn & 0x10000) {
+            d = d - 2.0f;
+            if (d < 15.0f) {
+                d = 15.0f;
+            }
+            arg0->dist = d;
+        }
+        arg0->pitch += sx * 3;
+        arg0->yaw += sy * 3;
+    }
+    r = arg0->dist * TBoss8Dragon__sub_803D64DC(arg0->yaw);
+    arg0->eye.x = r * TBoss8Dragon__sub_803D64C0(arg0->pitch) + arg0->at.x;
+    arg0->eye.y = arg0->at.y - arg0->dist * TBoss8Dragon__sub_803D64C0(arg0->yaw);
+    arg0->eye.z = r * TBoss8Dragon__sub_803D64DC(arg0->pitch) + arg0->at.z;
+}
+#pragma pop
 
 void TCameraCtrl__sub_80067E30(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_80067E30, sp8) == 0x0) ? 1 : -1];

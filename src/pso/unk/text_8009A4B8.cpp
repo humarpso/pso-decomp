@@ -9,6 +9,17 @@ struct Ent_8009A598 { u8 pad[0xC]; u32 col; };
 
 struct Obj_8009A598 { u8 pad0[0x2C]; f32 f2c; s32 n; u8 pad34[0xC]; Ent_8009A598 ents[1]; };
 
+struct Obj_8009A4B8 {
+    u8 pad0[0x1C];
+    s32 state;
+    u8 pad20[0x2C - 0x20];
+    f32 alpha;
+    s32 frame;
+    s32 angle;
+    f32 scale;
+    f32 scale_max;
+};
+
 extern "C" {
 extern Vec_8009A640 lbl_805008B8[6];
 extern const f32 lbl_805D9878;
@@ -19,9 +30,40 @@ u32 __cvt_fp2unsigned();
 extern u32 lbl_80500900[];
 extern const f32 lbl_805D9874;
 void fn_8009A598(Obj_8009A598 *arg0);
+void queue_destruction__7TObjectFv(void *);
+void fn_8009A598(Obj_8009A598 *arg0);
+void fn_8009A640(Obj_8009A640 *self);
+void fn_8009A4B8(Obj_8009A4B8 *self);
 }
 
 extern "C" {
+
+void fn_8009A4B8(Obj_8009A4B8 *self) {
+    switch (self->state) {
+    case 0:
+        self->scale += 7.0f;
+        if (self->scale >= self->scale_max) {
+            self->scale = self->scale_max;
+            self->state = 1;
+        }
+        fn_8009A640((Obj_8009A640 *)(self));
+        break;
+    case 1:
+        self->alpha = self->alpha - 0.05f;
+        if (self->alpha < 0.0f) {
+            self->alpha = 0.0f;
+            queue_destruction__7TObjectFv(self);
+            return;
+        }
+        break;
+    }
+    self->angle += 0x800;
+    self->frame++;
+    if (self->frame >= 12) {
+        self->frame = 0;
+    }
+    fn_8009A598((Obj_8009A598 *)(self));
+}
 
 void fn_8009A598(Obj_8009A598 *arg0) {
     s32 i;

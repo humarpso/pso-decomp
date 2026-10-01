@@ -109,6 +109,8 @@ struct Stack_8031FB6C {
     f32 spC;
 };
 
+struct Obj_8031FACC { u8 pad[0x3F4]; s32 f3F4; s32 f3F8; u8 pad2[0x410 - 0x3FC]; s32 f410; s32 f414; };
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *csnVectorUnder(M2C_UNK *, void *, M2C_UNK);
@@ -116,9 +118,27 @@ M2C_UNK TObjEneDD__sub_800BAAE4(void *, void *, int);
 extern const f32 lbl_805DF450;
 extern const f32 lbl_805DF460;
 void TObjEneRecon__sub_8031FB6C(u8 *arg0);
+s32 TObjEneRecon__sub_8031F070();
+f32 TWindowSubComCard__sub_803D6438(f32);
+extern const f32 lbl_805DF45C;
+u8 TObjEneRecon__sub_8031FACC(Obj_8031FACC *arg0);
 }
 
 extern "C" {
+
+u8 TObjEneRecon__sub_8031FACC(Obj_8031FACC *arg0) {
+    s32 r;
+    s32 t;
+    if (TObjEneRecon__sub_8031F070() == 1) {
+        return 0;
+    }
+    t = (s32)TWindowSubComCard__sub_803D6438((f32)arg0->f3F8 * lbl_805DF45C);
+    r = 0;
+    if (arg0->f410 <= t && arg0->f414 < arg0->f3F4) {
+        r = 1;
+    }
+    return (u8)r;
+}
 
 void TObjEneRecon__sub_8031FB6C(u8 *arg0) {
     Stack_8031FB6C stack;

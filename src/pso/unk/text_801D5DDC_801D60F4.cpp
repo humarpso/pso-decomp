@@ -4,6 +4,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Cmd_801D61A0 { u8 hdr[2]; u16 client; u8 body[8]; };
+
+extern "C" {
+s32 TObjPlayer__sub_800196EC();
+s32 get_field_3e4__10TObjPlayerFPv(int);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+M2C_UNK TObjPlayer__sub_801CBC90(int);
+M2C_UNK bswap_fields__15TFontSmallLobbyFPv(void *);
+M2C_UNK TFontSmallLobby__sub_801D6948(void *, void *);
+M2C_UNK TFontSmallLobby__sub_801D698C(void *);
+s32 reset_key_machine_state__10TObjPlayerFv();
+s32 validate_6x38_donate_to_photon_blast(void *);
+void handle_6x38_donate_to_photon_blast(s32 arg0);
+}
+
 extern "C" {
 
 s32 is_ready__15TFontSmallLobbyFPv(u8 *arg0);
@@ -27,6 +42,21 @@ void reset_targets__15TFontSmallLobbyFi(s32 arg0) {
     set_target_index__15TFontSmallLobbyFPvi(arg0 + 0x4C, 0);
     set_target_count__15TFontSmallLobbyFPvi(arg0 + 0x4C, 0);
     check_flag_at_40__15TFontSmallLobbyFPv(arg0);
+}
+void handle_6x38_donate_to_photon_blast(s32 arg0) {
+    Cmd_801D61A0 cmd;
+    s32 temp_r3;
+    TFontSmallLobby__sub_801D698C((void *) (&cmd));
+    TFontSmallLobby__sub_801D6948((void *) (&cmd), (void *) (arg0));
+    bswap_fields__15TFontSmallLobbyFPv((void *) (&cmd));
+    if (validate_6x38_donate_to_photon_blast((void *) (&cmd)) != 0) {
+        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(cmd.client);
+        if ((temp_r3 != 0) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
+            if (TObjPlayer__sub_800196EC() == get_field_3e4__10TObjPlayerFPv((int) (temp_r3))) {
+                TObjPlayer__sub_801CBC90(cmd.client);
+            }
+        }
+    }
 }
 
 }

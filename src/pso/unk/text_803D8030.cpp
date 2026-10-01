@@ -12,6 +12,8 @@ extern s32 lbl_805D76DC;
 extern f32 lbl_805D76D8;
 extern const f32 lbl_805E0EA0;
 void fn_803D8030(E_803D8030 *p, s32 n, s32 x);
+extern f32 lbl_805D76D8;
+void fn_803D8064(u16 arg0);
 }
 
 extern "C" {
@@ -29,5 +31,9 @@ void fn_803D8030(E_803D8030 *p, s32 n, s32 x) {
     lbl_805D76D8 = lbl_805E0EA0;
 }
 #pragma pop
+
+void fn_803D8064(u16 arg0) {
+    lbl_805D76D8 = (f32)arg0;
+}
 
 }

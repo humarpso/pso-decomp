@@ -71,6 +71,7 @@ os/OSCache.c
 os/OSError.c
 pad/Pad.c
 pso/boss/TBoss1DragonDemo.cpp
+pso/boss/TBoss1DragonEffBreath.cpp
 pso/boss/TBoss1DragonEffBullet.cpp
 pso/boss/TBoss1Dragon_800BC3C4.cpp
 pso/boss/TBoss2DeRolLe_800340A0.cpp
@@ -171,6 +172,7 @@ pso/boss/TBoss6Type2_802BF558.cpp
 pso/boss/TBoss6Type2_803309D8.cpp
 pso/boss/TBoss6Type2_80336E6C.cpp
 pso/boss/TBoss6Type2_8036A92C.cpp
+pso/boss/TBoss6Type2_8036DC80.cpp
 pso/boss/TBoss7Crawfish_80308C10.cpp
 pso/boss/TBoss7Crawfish_80308C84.cpp
 pso/boss/TBoss7Crawfish_8030908C.cpp
@@ -195,6 +197,7 @@ pso/boss/TBoss8Dragon_8005D6F4.cpp
 pso/boss/TBoss8Dragon_8005D700.cpp
 pso/boss/TBoss8Dragon_8005D860.cpp
 pso/boss/TBoss8Dragon_8005DBD0.cpp
+pso/boss/TBoss8Dragon_8005DC0C.cpp
 pso/boss/TBoss8Dragon_8005DE94.cpp
 pso/boss/TBoss8Dragon_8005DF24.cpp
 pso/boss/TBoss8Dragon_8005E040.cpp
@@ -627,6 +630,7 @@ pso/item/TItemEffLandHit.cpp
 pso/item/TItemEffLavis.cpp
 pso/item/TItemEffNeedleBase_80109D48.cpp
 pso/item/TItemEffNeedlePos_801097F0.cpp
+pso/item/TItemEffNeedle_80109B5C.cpp
 pso/item/TItemEffOrgaFlowShot.cpp
 pso/item/TItemEffPG.cpp
 pso/item/TItemEffPG_8034FF4C.cpp
@@ -1443,6 +1447,7 @@ pso/misc/TODoorAncient07.cpp
 pso/misc/TODoorAncient07_8015F930.cpp
 pso/misc/TODoorAncient08.cpp
 pso/misc/TODoorAncient09.cpp
+pso/misc/TODoorCave01.cpp
 pso/misc/TODoorCave02.cpp
 pso/misc/TODoorCave02_8016206C.cpp
 pso/misc/TODoorCave03.cpp
@@ -1831,6 +1836,7 @@ pso/misc/TWindowDD_80348794.cpp
 pso/misc/TWindowDD_80348BF4.cpp
 pso/misc/TWindowDD_80348C54.cpp
 pso/misc/TWindowDD_80348D0C.cpp
+pso/misc/TWindowDD_8034AF68.cpp
 pso/misc/TWindowDeposit.cpp
 pso/misc/TWindowDuelResult_801C2528.cpp
 pso/misc/TWindowDuelResult_8025AD38.cpp
@@ -1960,6 +1966,7 @@ pso/misc/TWindowSubComCard_8007BF48.cpp
 pso/misc/TWindowSubComCard_80131BC4.cpp
 pso/misc/TWindowSubComCard_801F4F60.cpp
 pso/misc/TWindowSubComCard_80202990.cpp
+pso/misc/TWindowSubComCard_80249120.cpp
 pso/misc/TWindowSubComCard_802495FC.cpp
 pso/misc/TWindowSubComCard_8025B7F0.cpp
 pso/misc/TWindowSubComCard_8026659C.cpp
@@ -3319,6 +3326,7 @@ pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E1CEC.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E1D5C.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E1E7C.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E2158.cpp
+pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E21AC.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E2374.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E23E8.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E3AE4.cpp
@@ -3849,6 +3857,7 @@ pso/unk/text_801D0000.cpp
 pso/unk/text_801D0B44.cpp
 pso/unk/text_801D1AC8.cpp
 pso/unk/text_801D5DDC_801D5DDC.cpp
+pso/unk/text_801D5DDC_801D60F4.cpp
 pso/unk/text_801D5DDC_801D6230.cpp
 pso/unk/text_801D6D60.cpp
 pso/unk/text_801D6D8C.cpp
@@ -4005,6 +4014,7 @@ pso/unk/text_80271400.cpp
 pso/unk/text_802752D8.cpp
 pso/unk/text_802754EC.cpp
 pso/unk/text_80277DF8.cpp
+pso/unk/text_80278460.cpp
 pso/unk/text_80278964.cpp
 pso/unk/text_802789E0.cpp
 pso/unk/text_80278E48.cpp
@@ -4069,6 +4079,7 @@ pso/unk/text_802C09E0.cpp
 pso/unk/text_802C20E8.cpp
 pso/unk/text_802C27FC.cpp
 pso/unk/text_802C2F04.cpp
+pso/unk/text_802C39F8.cpp
 pso/unk/text_802C9924.cpp
 pso/unk/text_802C9960.cpp
 pso/unk/text_802C9A58.cpp

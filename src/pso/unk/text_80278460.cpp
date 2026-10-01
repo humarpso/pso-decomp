@@ -14,6 +14,10 @@ void get_cursor_pos__14TWindowSubItemFPv(void *);
 s32 is_flag_4_set__20TWindowSubStatusDispFPv();
 s32 is_flag80_set__20TWindowSubStatusDispFPv(void *);
 void fn_80278460(Wn_80278460 *arg0);
+u16 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
+void get_cursor_pos__14TWindowSubItemFPv(void *);
+s32 is_flag_4_set__20TWindowSubStatusDispFPv();
+void fn_80278518(void *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -34,6 +38,19 @@ void fn_80278460(Wn_80278460 *arg0) {
                     *e |= 0x80;
                 }
             }
+        }
+    }
+}
+void fn_80278518(void *arg0, s32 arg1) {
+    s32 var_r31;
+    u16 *temp_r30;
+    for (var_r31 = 0; var_r31 < M2C_FIELD(arg0, s16 *, 0x76); var_r31++) {
+        temp_r30 = ((u16 *(*)(void *, s32)) get_array_entry__20TWindowSubStatusDispFPvi)(arg0, var_r31);
+        if ((is_flag_4_set__20TWindowSubStatusDispFPv() != 0) && (arg1 == ((s32 (*)(void *)) get_cursor_pos__14TWindowSubItemFPv)(temp_r30))) {
+            M2C_FIELD(temp_r30, s32 *, 0x2C) = 0xFFAAAAAA;
+            M2C_FIELD(temp_r30, s32 *, 0x30) = 0xFF909090;
+            M2C_FIELD(temp_r30, s32 *, 0x34) = 0xFF909090;
+            M2C_FIELD(temp_r30, u16 *, 0) = (u16) (M2C_FIELD(temp_r30, u16 *, 0) | 0x80);
         }
     }
 }
