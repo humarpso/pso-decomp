@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Ent_801FB798 { s32 a; char *name; };
+
 extern "C" {
 s32 set_global_param__8TObjFishFi(s32);
 extern u32 TRaderMapCore__data_805D5F4C;
@@ -16,6 +18,26 @@ s32 TLobby__sub_803DA16C(int);
 extern u8 *TRaderMapCore__data_805D5F28;
 extern s32 TRaderMapCore__data_805D5F44;
 void TRaderMapCore__sub_801FB71C(void);
+s32 TObjPlayer__sub_800196EC();
+void copy_name(const char *);
+u8 *create_named_object(char *);
+void TLobby__sub_801317E4(char *, char *, const char *);
+void TRaderMapCore__sub_801F9474(s32, u8 *);
+void TRaderMapCore__sub_801FB904(void);
+int get_status__6TSceneFv(void);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+Ent_801FB798 *TLobby__sub_80207E88(s32);
+void TScene__sub_8023E638(char *, u8 *);
+extern const char lbl_8044A7B0[];
+extern s32 lbl_805D49B4;
+extern u8 *TRaderMapCore__data_805D5F28;
+extern s32 TRaderMapCore__data_805D5F30;
+extern s8 lbl_805D5F34;
+extern s32 lbl_805D5F38;
+extern s32 TRaderMapCore__data_805D5F44;
+extern const char lbl_805DC5AC[2];
+extern const char lbl_805DC5B0[3];
+void TRaderMapCore__sub_801FB798(void);
 }
 
 extern "C" {
@@ -61,6 +83,33 @@ void TRaderMapCore__sub_801FB71C(void) {
         TRaderMapCore__data_805D5F28 = NULL;
     }
     TRaderMapCore__data_805D5F44 = 0;
+}
+
+void TRaderMapCore__sub_801FB798(void) {
+    char buf[32];
+    Ent_801FB798 *e;
+    s32 status;
+    s32 state;
+    state = get_global_state__14TOKeyMachine01Fv();
+    status = get_status__6TSceneFv();
+    e = TLobby__sub_80207E88(state);
+    TLobby__sub_801317E4(buf, e[status].name, lbl_8044A7B0);
+    TRaderMapCore__data_805D5F28 = create_named_object(buf);
+    if (TRaderMapCore__data_805D5F28 != NULL && *(u32 *)(TRaderMapCore__data_805D5F28 + 4) != 0) {
+        TLobby__sub_801317E4(buf, e[status].name, lbl_805DC5AC);
+        TScene__sub_8023E638(buf, *(u8 **)(TRaderMapCore__data_805D5F28 + 4));
+    }
+    copy_name(lbl_805DC5B0);
+    lbl_805D49B4 = 0;
+    TRaderMapCore__sub_801FB904();
+    e = (Ent_801FB798 *)TRaderMapCore__data_805D5F28;
+    if (e != NULL) {
+        TRaderMapCore__sub_801F9474(TObjPlayer__sub_800196EC(), (u8 *)e);
+    }
+    TRaderMapCore__data_805D5F30 = 0;
+    lbl_805D5F34 = 0;
+    lbl_805D5F38 = 0;
+    TRaderMapCore__data_805D5F44 = 1;
 }
 
 s32 TRaderMapCore__sub_801FB874(void) {

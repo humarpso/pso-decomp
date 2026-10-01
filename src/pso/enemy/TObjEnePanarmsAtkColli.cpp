@@ -231,6 +231,26 @@ struct RecoveredFields_800E3970_arg0
   f32 field_430;
 };
 
+struct Vec_800E37E4 { f32 x, y, z; };
+
+struct Obj_800E37E4 {
+    s32 f0;
+    u8 pad4[0x14];
+    void *vt;
+    u8 pad1C[0x1C];
+    Vec_800E37E4 pos;
+    u8 pad44[0x308 - 0x44];
+    Vec_800E37E4 scale;
+    u8 pad314[0x374 - 0x314];
+    s32 type;
+    f32 f378;
+    f32 f37C;
+    s32 f380;
+    s32 f384;
+    s32 f388;
+    f32 f38C;
+};
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -246,13 +266,30 @@ extern const f32 lbl_805DA5BC;
 extern const f32 lbl_805DA5C0;
 extern f32 TObjEneMe3ShinowaMirage__data_805DA5C4;
 void TObjEneMe3ShinowaMirage__vt113(u8 *arg0, s32 arg1);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+u8 *dispatch_shared_handler_a__6TLobbyFPv(int);
+void set_param__12TObjEneLappyFPvi(void *, int);
+M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
+void initialize__9TObjEnemyFPv(void *, void *);
+int TBoss3Volopt__sub_8022675C(void *, void *, void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+void TNpcPlayer__sub_803D97B4(void *);
+extern s32 lbl_80495A80[];
+extern M2C_UNK __vt__22TObjEnePanarmsAtkColli[];
+extern s32 lbl_805D2AC0;
+extern const f32 lbl_805DA5A0;
+extern const f32 lbl_805DA5A4;
+extern const f32 lbl_805DA5A8;
+extern const f32 lbl_805DA5AC;
+extern const f32 lbl_805DA5B0;
+extern const f32 lbl_805DA5B4;
+void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 }
 
 extern "C" {
 
 void *__dt__22TObjEnePanarmsAtkColliFv(void *arg0, s16 arg1);
 void * create__22TObjEnePanarmsAtkColliFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
-void *TObjEnePanarmsAtkColli__ct(void *, void *, void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -282,7 +319,7 @@ void * create__22TObjEnePanarmsAtkColliFPvPvPvPv(void *arg0, void *arg1, void *a
     void *o;
     o = __nw__7TObjectFUl(0x390);
     if (o != NULL) {
-        o = TObjEnePanarmsAtkColli__ct(o, arg0, arg1, arg2, arg3);
+        o = TObjEnePanarmsAtkColli__ct((Obj_800E37E4 *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (void *)(arg3));
     }
     return o;
 }
@@ -306,6 +343,49 @@ typedef struct VObj_18_beae68 VObj_18_beae68;
 typedef struct VObj_18_f56c51 VObj_18_f56c51;
 #define PSO_VCALL_VObj_18_beae68_m92(_self) (((VObj_18_beae68 *)(_self))->m92())
 #define PSO_VCALL_VObj_18_f56c51_m100(_self, _arg0) (((VObj_18_f56c51 *)(_self))->m100((_arg0)))
+
+#define self arg0
+void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
+    f32 scale;
+    initialize__9TObjEnemyFPv(self, arg1);
+    self->vt = __vt__22TObjEnePanarmsAtkColli;
+    self->f0 = lbl_805D2AC0;
+    VecCopy__FP3VecPC3Vec(&self->pos, arg2);
+    VecCopy__FP3VecPC3Vec(&self->scale, arg3);
+    self->type = (s32)arg4;
+    self->f384 = 0;
+    self->f388 = 0;
+    set_param__12TObjEneLappyFPvi(self, 0x15);
+    self->f38C = ((f32 *)dispatch_shared_handler_a__6TLobbyFPv(0x31))[lbl_80495A80[self->type]];
+    if (self->f38C < 0.0f) {
+        self->f38C = 0.0f;
+    }
+    self->scale.y = lbl_805DA5A0;
+    if (lbl_805DA5A0 == TBoss6Kakusan__sub_803D8BD8(&self->scale)) {
+        self->scale.x = lbl_805DA5A4;
+    }
+    TNpcPlayer__sub_803D97B4(&self->scale);
+    switch (self->type) {
+    case 0:
+        TBoss3Volopt__sub_8022675C((void *)copy_target_state__14TObjEnePanarmsFPvPv(self, 0x4003BC2B), &self->pos, 0, 0);
+        self->f378 = lbl_805DA5B0;
+        self->f37C = lbl_805DA5B4;
+        self->f380 = 0xC;
+        scale = lbl_805DA5AC;
+        break;
+    case 1:
+        self->f378 = lbl_805DA5B0;
+        self->f37C = lbl_805DA5A0;
+        self->f380 = 0xC;
+        scale = lbl_805DA5A8;
+        break;
+    }
+    self->scale.x *= scale;
+    self->scale.z *= scale;
+    return arg0;
+}
+#undef self
+
 void TObjEneMe3ShinowaMirage__vt113(u8 *arg0, s32 arg1) {
   f32 temp_f1;
   long new_var;

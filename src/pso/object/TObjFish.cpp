@@ -17,6 +17,13 @@ s32 TObjFish__sub_8029E170(void *, void *, int, int);
 extern M2C_UNK __vt__8TObjFish[];
 extern s32 lbl_805D3D58;
 u8 *TObjFish__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+extern u8 lbl_804DC640[];
+extern u32 TObjFish__data_805D65E8;
+extern s32 TObjFish__data_805D65EC;
+void TObjFish__sub_8029E5E8(void);
 }
 
 extern "C" {
@@ -92,6 +99,54 @@ void free_resource__8TObjFishFv(void) {
     if ((u32) TObjFish__data_805D65E8 != 0U) {
         TLobby__sub_8001FE7C((void*)TObjFish__data_805D65E8, 1);
         TObjFish__data_805D65E8 = 0U;
+    }
+}
+void TObjFish__sub_8029E5E8(void) {
+    u8 *base = lbl_804DC640;
+    u8 *p;
+    switch (get_global_state__14TOKeyMachine01Fv()) {
+    case 24:
+        TObjFish__data_805D65EC = 1;
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = TLobby__sub_80020004(p, 1, base + 0x50, 0, 0, 0);
+        }
+        TObjFish__data_805D65E8 = (u32)p;
+        break;
+    case 27:
+    case 34:
+        TObjFish__data_805D65EC = 2;
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = TLobby__sub_80020004(p, 1, base + 0x80, 0, 0, 0);
+        }
+        TObjFish__data_805D65E8 = (u32)p;
+        break;
+    case 28:
+        TObjFish__data_805D65EC = 3;
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = TLobby__sub_80020004(p, 1, base + 0xB0, 0, 0, 0);
+        }
+        TObjFish__data_805D65E8 = (u32)p;
+        break;
+    case 29:
+        TObjFish__data_805D65EC = 4;
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = TLobby__sub_80020004(p, 1, base + 0xE0, 0, 0, 0);
+        }
+        TObjFish__data_805D65E8 = (u32)p;
+        break;
+    case 15:
+    default:
+        TObjFish__data_805D65EC = 0;
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = TLobby__sub_80020004(p, 1, base + 0x20, 0, 0, 0);
+        }
+        TObjFish__data_805D65E8 = (u32)p;
+        break;
     }
 }
 

@@ -1194,6 +1194,7 @@ pso/misc/TLobby_8021A360.cpp
 pso/misc/TLobby_8021B268.cpp
 pso/misc/TLobby_80221820.cpp
 pso/misc/TLobby_80222D24.cpp
+pso/misc/TLobby_802230F8.cpp
 pso/misc/TLobby_80226070_80226070.cpp
 pso/misc/TLobby_80226070_802260C4.cpp
 pso/misc/TLobby_80226070_802260F0.cpp
@@ -1648,6 +1649,7 @@ pso/misc/TRaderMapCore_801A6CEC_801A6CEC.cpp
 pso/misc/TRaderMapCore_801A6CEC_801A6D10.cpp
 pso/misc/TRaderMapCore_801AFD84.cpp
 pso/misc/TRaderMapCore_801F3710.cpp
+pso/misc/TRaderMapCore_801FB6A8.cpp
 pso/misc/TRaderMapCore_801FB8AC.cpp
 pso/misc/TRaderMapCore_801FB964.cpp
 pso/misc/TRaderMapCore_8030A808.cpp
@@ -1671,6 +1673,7 @@ pso/misc/TScene_801FBA20.cpp
 pso/misc/TScene_80203304.cpp
 pso/misc/TScene_80205A54.cpp
 pso/misc/TScene_802A8140.cpp
+pso/misc/TScene_80327B00.cpp
 pso/misc/TScene_803DCDA8.cpp
 pso/misc/TSendDownloadHead.cpp
 pso/misc/TSetManager.cpp
@@ -1827,6 +1830,7 @@ pso/misc/TWindowDeposit.cpp
 pso/misc/TWindowDuelResult_801C2528.cpp
 pso/misc/TWindowDuelResult_8025AD38.cpp
 pso/misc/TWindowEffectParty.cpp
+pso/misc/TWindowEffectParty_8024F690.cpp
 pso/misc/TWindowFukidasi.cpp
 pso/misc/TWindowFukidasi_802502BC.cpp
 pso/misc/TWindowFukidasi_80250314.cpp
@@ -2182,6 +2186,7 @@ pso/object/TObjCHTimeWin_80074C94_80074D70.cpp
 pso/object/TObjCHTimeWin_80074C94_80074DBC.cpp
 pso/object/TObjCMAutoMkData_80295948.cpp
 pso/object/TObjCMIcon.cpp
+pso/object/TObjCMMainMenu_8028D9A8.cpp
 pso/object/TObjCMMainMenu_8029427C.cpp
 pso/object/TObjCMName_80294CA0.cpp
 pso/object/TObjCMProportion_802951EC.cpp
@@ -3683,6 +3688,7 @@ pso/unk/text_80169BD0.cpp
 pso/unk/text_8016A408.cpp
 pso/unk/text_8016CF5C.cpp
 pso/unk/text_8016D8F8.cpp
+pso/unk/text_8016F1C0.cpp
 pso/unk/text_8016F1C0_8016F1C0.cpp
 pso/unk/text_80173874.cpp
 pso/unk/text_801739F8.cpp
@@ -3892,6 +3898,7 @@ pso/unk/text_80209C58.cpp
 pso/unk/text_8020A2AC.cpp
 pso/unk/text_8020A508.cpp
 pso/unk/text_8020A768.cpp
+pso/unk/text_8020A9C4.cpp
 pso/unk/text_8020AD40.cpp
 pso/unk/text_8020B118.cpp
 pso/unk/text_8020B374.cpp
@@ -4046,6 +4053,7 @@ pso/unk/text_802AA8FC_802AAC74.cpp
 pso/unk/text_802AE978.cpp
 pso/unk/text_802AEBA8.cpp
 pso/unk/text_802AF64C.cpp
+pso/unk/text_802B1AB4.cpp
 pso/unk/text_802C095C.cpp
 pso/unk/text_802C09E0.cpp
 pso/unk/text_802C20E8.cpp
@@ -4090,6 +4098,7 @@ pso/unk/text_80307BE8.cpp
 pso/unk/text_80308328.cpp
 pso/unk/text_803098DC.cpp
 pso/unk/text_80312C50.cpp
+pso/unk/text_80320358.cpp
 pso/unk/text_80324E10.cpp
 pso/unk/text_80325660.cpp
 pso/unk/text_80327338.cpp

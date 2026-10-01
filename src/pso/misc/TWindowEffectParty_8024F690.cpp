@@ -12,6 +12,10 @@ extern const f64 lbl_8044ECF0;
 extern const f32 lbl_805DCCB8;
 extern const f32 lbl_805DCCBC;
 s32 TWindowEffectParty__sub_8024F690(u8 *arg0, f32 farg0, f32 farg1);
+void *__nw__7TObjectFUl(u32);
+void *TWindowEffectParty__ct(void *, void *, u16, u16, s32);
+extern s32 lbl_805D53A0;
+void *TWindowEffectParty__sub_8024F82C(void *owner, s32 from, s32 to, u32 kind);
 }
 
 extern "C" {
@@ -71,6 +75,54 @@ void set_slot_position__18TWindowEffectPartyFiiPv(s32 arg0, s32 arg1, void *arg2
         M2C_FIELD(arg2, f32 *, 0) = (f32) (lbl_805DCCCC + M2C_FIELD(temp_r3, f32 *, 0x30));
         M2C_FIELD(arg2, f32 *, 4) = (f32) (lbl_805DCCD0 + M2C_FIELD(temp_r3, f32 *, 0x34));
     }
+}
+void *TWindowEffectParty__sub_8024F82C(void *owner, s32 from, s32 to, u32 kind) {
+    s32 id;
+    u16 b;
+    u16 a;
+    void *w;
+    if ((u16)from == (u16)to) {
+        return 0;
+    }
+    if ((u16)from >= 4) {
+        return 0;
+    }
+    if ((u16)to >= 4) {
+        return 0;
+    }
+    switch (kind) {
+    case 6:
+    case 8:
+        id = 0x99;
+        break;
+    case 7:
+        id = 0x98;
+        break;
+    case 9:
+        id = 0x96;
+        break;
+    case 10:
+        id = 0x95;
+        break;
+    case 0:
+        id = 0x97;
+        break;
+    default:
+        return 0;
+    }
+    a = from - lbl_805D53A0;
+    if (a & 0xFFFC) {
+        a += 4;
+    }
+    b = to - lbl_805D53A0;
+    if (b & 0xFFFC) {
+        b += 4;
+    }
+    w = __nw__7TObjectFUl(0x34);
+    if (w != 0) {
+        w = TWindowEffectParty__ct(w, owner, a, b, id);
+    }
+    return w;
 }
 
 }

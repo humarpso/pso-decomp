@@ -8,12 +8,27 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 extern const f32 lbl_805DE9A0;
 extern const f32 lbl_805DE9A4;
 extern const f32 lbl_805DE9A8;
 extern const f32 lbl_805DE9AC;
 void run_task__17TAdGameStartSubGCFv(u8 *arg0);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void __ct__7TObjectFP7TObject(void *, void *);
+s32 get_instance__10TObjPlayerFv(void);
+extern M2C_UNK __vt__17TAdGameStartSubGC[];
+extern s32 lbl_805D3FB0;
+extern s32 lbl_805D6908;
+extern const f32 lbl_805DE9A0;
+extern const f32 lbl_805DE9A8;
+extern const f32 lbl_805DE9B0;
+extern const f32 lbl_805DE9B4;
+extern const f32 lbl_805DE9B8;
+extern const f32 lbl_805DE9C0;
+extern const f32 lbl_805DE9C4;
+u8 *__ct__17TAdGameStartSubGCFv(u8 *arg0, void *arg1, u8 *arg2);
 }
 
 extern "C" {
@@ -59,6 +74,40 @@ void run_task__17TAdGameStartSubGCFv(u8 *arg0) {
     temp_f2_4 = M2C_FIELD(arg0, f32 *, 0x6C);
     M2C_FIELD(arg0, f32 *, 0x4C) = (f32) ((M2C_FIELD(arg0, f32 *, 0x74) * (M2C_FIELD(arg0, f32 *, 0x2C) - temp_f2_4)) + temp_f2_4);
 }
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+#define F(o) M2C_FIELD(arg0, f32 *, o)
+#define I(o) M2C_FIELD(arg0, s32 *, o)
+u8 *__ct__17TAdGameStartSubGCFv(u8 *arg0, void *arg1, u8 *arg2) {
+    s32 t;
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TAdGameStartSubGC;
+    I(0) = lbl_805D3FB0;
+    I(0x1C) = M2C_FIELD(arg2, s32 *, 0);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(arg0 + 0x60, arg2 + 4);
+    t = M2C_FIELD(arg2, s32 *, 0xC);
+    I(0x7C) = t;
+    I(0x84) = -1;
+    F(0x70) = lbl_805DE9A0;
+    F(0x74) = lbl_805DE9A0;
+    I(0x80) = 0xFF;
+    lbl_805D6908 = get_instance__10TObjPlayerFv();
+    F(0x20) = lbl_805DE9B0 * (f32)I(0x1C) + F(0x60);
+    F(0x24) = F(0x64);
+    F(0x28) = lbl_805DE9B0 * (f32)(I(0x1C) + 1) + F(0x60);
+    F(0x2C) = lbl_805DE9B4 + F(0x64);
+    F(0x68) = lbl_805DE9B8 * (F(0x28) - F(0x20)) + F(0x20);
+    F(0x6C) = lbl_805DE9B8 * (F(0x2C) - F(0x24)) + F(0x24);
+    F(0x50) = lbl_805DE9B0 * (f32)I(0x1C) / 512.0f;
+    F(0x54) = lbl_805DE9C0;
+    F(0x58) = (lbl_805DE9B0 * (f32)(I(0x1C) + 1) - lbl_805DE9A8) / 512.0f;
+    F(0x5C) = lbl_805DE9C4;
+    return arg0;
+}
+#undef F
+#undef I
 #pragma pop
 
 }

@@ -52,6 +52,14 @@ struct V_8018BE98 : B_8018BE98 {
     virtual void m20(s32 a, f32 b);
 };
 
+struct Vec_8018BEE4 { f32 x, y, z; };
+
+struct Stack_8018BEE4 {
+    f32 out;
+    f32 pad;
+    Vec_8018BEE4 p;
+};
+
 extern "C" {
 s32 TObjPlayer__sub_80019038(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -76,6 +84,14 @@ f32 TContainerAncient01__sub_8018BE30(V_8018BE30 *self);
 extern const f32 TContainerAncient01__data_805DBD10;
 extern const f32 TContainerAncient01__data_805DBD14;
 f32 TContainerAncient01__vt22(V_8018BE98 *self);
+f32 fn_801315A0(void *, void *);
+void TCameraCtrl__sub_803D8934(int, void *, void *);
+void TParticleCtrl__sub_803D8D1C(int, void *, void *, void *);
+extern Vec_8018BEE4 lbl_804FF610;
+extern u8 *lbl_805D4DF0;
+extern const f32 lbl_805DBD60;
+extern const f32 lbl_805DBD68;
+s32 TObjContainerIdo__vt8(u8 *arg0, f32 farg0, f32 farg1);
 }
 
 extern "C" {
@@ -165,5 +181,40 @@ f32 TContainerAncient01__vt22(V_8018BE98 *self) {
 void TContainerAncient01__vt23(void) {  }
 int TContainerAncient01__vt24(void) { return 1; }
 int TContainerAncient01__vt25(void) { return 1; }
+#pragma push
+#pragma fp_contract on
+s32 TObjContainerIdo__vt8(u8 *arg0, f32 farg0, f32 farg1) {
+    Vec_8018BEE4 p;
+    f32 out[2];
+    TCameraCtrl__sub_803D8934(0, arg0 + 0xC0, &p);
+    if (fn_801315A0(arg0 + 0x38, lbl_805D4DF0 + 0x178) < farg1 * farg1) {
+        return 1;
+    }
+    if (p.z + farg1 * lbl_805DBD60 > 0.0f) {
+        return 0;
+    }
+    if (p.z < -farg0) {
+        return 0;
+    }
+    if (p.x < 0.0f) {
+        p.x = lbl_804FF610.x * farg1 + M2C_FIELD(arg0, f32 *, 0x38);
+        p.y = lbl_804FF610.y * farg1 + M2C_FIELD(arg0, f32 *, 0x3C);
+        p.z = lbl_804FF610.z * farg1 + M2C_FIELD(arg0, f32 *, 0x40);
+        TParticleCtrl__sub_803D8D1C(0, &p, out, &lbl_804FF610);
+        if (out[0] < 0.0f) {
+            return 0;
+        }
+    } else {
+        p.x = M2C_FIELD(arg0, f32 *, 0x38) - lbl_804FF610.x * farg1;
+        p.y = M2C_FIELD(arg0, f32 *, 0x3C) - lbl_804FF610.y * farg1;
+        p.z = M2C_FIELD(arg0, f32 *, 0x40) - lbl_804FF610.z * farg1;
+        TParticleCtrl__sub_803D8D1C(0, &p, out, &lbl_804FF610);
+        if (out[0] > lbl_805DBD68) {
+            return 0;
+        }
+    }
+    return 1;
+}
+#pragma pop
 
 }

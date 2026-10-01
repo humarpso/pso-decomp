@@ -3151,6 +3151,7 @@ pso/unk/text_800E31C4.cpp:
 
 pso/enemy/TObjEnePanarmsAtkColli.cpp:
 	.text       start:0x800E3670 end:0x800E3A58
+	.sdata2     start:0x805DA5A0 end:0x805DA5A4
 
 pso/enemy/TObjEneMe3ShinowaMirage.cpp:
 	.text       start:0x800E3A58 end:0x800E4490
@@ -7913,6 +7914,7 @@ pso/misc/TContainerAncient01_8018BAE0.cpp:
 
 pso/misc/TContainerAncient01.cpp:
 	.text       start:0x8018BC98 end:0x8018C06C
+	.sdata2     start:0x805DBD64 end:0x805DBD68
 
 pso/item/TObjContainerIdo_8018C06C_8018C06C.cpp:
 	.text       start:0x8018C06C end:0x8018C690
@@ -12376,6 +12378,7 @@ pso/misc/TWindowSubStatusDisp_8024F688.cpp:
 
 pso/misc/TWindowEffectParty_8024F690.cpp:
 	.text       start:0x8024F690 end:0x8024F93C
+	.data       start:0x804CF050 end:0x804CF07C
 
 pso/misc/TWindowEffectParty.cpp:
 	.text       start:0x8024F93C end:0x8024FBA8
@@ -13470,6 +13473,7 @@ pso/boss/TObjBoss5PillarCtrl.cpp:
 
 pso/boss/TObjBoss5Pillar.cpp:
 	.text       start:0x8028B400 end:0x8028B6C0
+	.rodata     start:0x80450D10 end:0x80450D18
 
 pso/boss/TObjBoss5Pillar_8028B6C0.cpp:
 	.text       start:0x8028B6C0 end:0x8028B714
@@ -13889,6 +13893,7 @@ pso/misc/TOKeyJungleMain_8029CF68.cpp:
 
 pso/object/TObjFish.cpp:
 	.text       start:0x8029E3EC end:0x8029E764
+	.data       start:0x804DC764 end:0x804DC7B4
 
 pso/misc/TOKeyMachine01_8029E764.cpp:
 	.text       start:0x8029E764 end:0x8029E7BC
@@ -15073,6 +15078,7 @@ pso/ui/TAdGameStartSubGC_802E6830.cpp:
 pso/ui/TAdGameStartSubGC.cpp:
 	.text       start:0x802E68F0 end:0x802E6CA8
 	.rodata     start:0x80472C60 end:0x80472C68
+	.sdata2     start:0x805DE9BC end:0x805DE9C0
 
 pso/player/TObjPlayer_802E6CA8.cpp:
 	.text       start:0x802E6CA8 end:0x802E79B0
