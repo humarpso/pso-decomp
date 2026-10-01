@@ -1,8 +1,4 @@
 #define __constants lbl_8047BA08
-#define __restore_fpr runtime___restore_fpr
-#define __restore_gpr runtime___restore_gpr
-#define __save_fpr runtime___save_fpr
-#define __save_gpr runtime___save_gpr
 
 #pragma ANSI_strict off
 #pragma tvectors off
@@ -30,6 +26,7 @@ asm void __mod2i(void);
 asm void __shl2i(void);
 asm void __shr2u(void);
 asm void __shr2i(void);
+asm void __cvt_sll_dbl(void);
 asm void __cvt_sll_flt(void);
 asm void __cvt_dbl_usll(void);
 
@@ -198,10 +195,18 @@ asm void __shr2i(void) {
 #include "orig_asm/PowerPC_EABI_Support/Runtime/Src/runtime/__shr2i.inc"
 }
 
-asm void __cvt_ull_flt(void) {
-#include "orig_asm/PowerPC_EABI_Support/Runtime/Src/runtime/__cvt_ull_flt.inc"
+asm void __cvt_sll_dbl(void) {
+#include "orig_asm/PowerPC_EABI_Support/Runtime/Src/runtime/__cvt_sll_dbl.inc"
+}
+
+asm void __cvt_sll_flt(void) {
+#include "orig_asm/PowerPC_EABI_Support/Runtime/Src/runtime/__cvt_sll_flt.inc"
 }
 
 asm void __cvt_dbl_usll(void) {
 #include "orig_asm/PowerPC_EABI_Support/Runtime/Src/runtime/__cvt_dbl_usll.inc"
+}
+
+asm char* GetR2__Fv_803972B8(void) {
+#include "orig_asm/PowerPC_EABI_Support/Runtime/Src/runtime/GetR2__Fv_803972B8.inc"
 }
