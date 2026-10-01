@@ -53,6 +53,21 @@ extern const f32 lbl_805DA718;
 extern const f32 lbl_805DA720;
 extern const f32 lbl_805DA738;
 void TObjPlayer__sub_800EA56C(u8 *arg0);
+u16 TObjPlayer__sub_800115C4(void *, void *, f32);
+M2C_UNK TObjEneSlimeOne__sub_800EAE78(void *, M2C_UNK);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+extern const RecoveredGlobal_800EA678_lbl_8043D230 lbl_8043D230;
+extern const RecoveredGlobal_800EA678_lbl_8043D23C lbl_8043D23C;
+extern const f32 lbl_805DA670;
+extern const f32 lbl_805DA678;
+extern const float lbl_805DA67C;
+extern const f32 lbl_805DA6DC;
+extern const f32 lbl_805DA708;
+extern const f32 lbl_805DA73C;
+extern const f32 lbl_805DA740;
+extern const f32 lbl_805DA748;
+extern const f32 lbl_805DA750;
+void TObjPlayer__sub_800EA820(u8 *arg0);
 }
 
 extern "C" {
@@ -212,5 +227,43 @@ void TObjPlayer__sub_800EA678(u8 *arg0) {
 #pragma pop
 
 void init_slime_display__10TObjPlayerFPv(void* a0) { *(float*)((char*)a0 + 0x398) = lbl_805DA67C; *(float*)((char*)a0 + 0x3a4) = lbl_805DA6B4; set_display_mode__15TObjEneSlimeOneFPvi((void*)(a0), (int)(0)); TObjEneSlimeOne__sub_800EC7F4((void*)((void*)(*(int*)((char*)a0 + 0x388))), (void*)((void*)7)); }
+#pragma push
+#pragma fp_contract on
+void TObjPlayer__sub_800EA820(u8 *arg0) {
+    f32 temp_f1;
+    f32 temp_f1_2;
+    f32 temp_f1_3;
+    f32 temp_f1_4;
+    f32 var_f31;
+    var_f31 = (*(const f32 *)&lbl_805DA67C);
+    M2C_FIELD(arg0, f32 *, 0x3A4) = (f32) (lbl_805DA708 * ((*(const f32 *)&lbl_805DA67C) - M2C_FIELD(arg0, f32 *, 0x398)));
+    M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) ((M2C_FIELD(arg0, f32 *, 0x398) * (M2C_FIELD(&lbl_8043D23C.value, f32 *, 0) - M2C_FIELD(&lbl_8043D230.value, f32 *, 0))) + M2C_FIELD(&lbl_8043D230.value, f32 *, 0));
+    M2C_FIELD(arg0, f32 *, 0x3AC) = (f32) ((M2C_FIELD(arg0, f32 *, 0x398) * (M2C_FIELD(&lbl_8043D23C.value, f32 *, 4) - M2C_FIELD(&lbl_8043D230.value, f32 *, 4))) + M2C_FIELD(&lbl_8043D230.value, f32 *, 4));
+    M2C_FIELD(arg0, f32 *, 0x3B0) = (f32) ((M2C_FIELD(arg0, f32 *, 0x398) * (M2C_FIELD(&lbl_8043D23C.value, f32 *, 8) - M2C_FIELD(&lbl_8043D230.value, f32 *, 8))) + M2C_FIELD(&lbl_8043D230.value, f32 *, 8));
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x398);
+    if (temp_f1 > lbl_805DA740) {
+        var_f31 = ((*(const f32 *)&lbl_805DA67C) - temp_f1) / lbl_805DA73C;
+    }
+    temp_f1_2 = var_f31 * (lbl_805DA670 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x390) << 0xC));
+    M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) (M2C_FIELD(arg0, f32 *, 0x3A8) * ((*(const f32 *)&lbl_805DA67C) + temp_f1_2));
+    M2C_FIELD(arg0, f32 *, 0x3B0) = (f32) (M2C_FIELD(arg0, f32 *, 0x3B0) * ((*(const f32 *)&lbl_805DA67C) - temp_f1_2));
+    M2C_FIELD(arg0, s32 *, 0x390) = (s32) (M2C_FIELD(arg0, s32 *, 0x390) + 1);
+    temp_f1_3 = M2C_FIELD(arg0, f32 *, 0x398);
+    if (temp_f1_3 >= (*(const f32 *)&lbl_805DA678)) {
+        M2C_FIELD(arg0, f32 *, 0x3A0) = (f32) (*(const f32 *)&lbl_805DA67C);
+    } else {
+        M2C_FIELD(arg0, f32 *, 0x3A0) = (f32) (lbl_805DA748 * temp_f1_3);
+    }
+    temp_f1_4 = M2C_FIELD(arg0, f32 *, 0x398) + lbl_805DA750;
+    M2C_FIELD(arg0, f32 *, 0x398) = temp_f1_4;
+    if (temp_f1_4 > (*(const f32 *)&lbl_805DA67C)) {
+        if (TObjPlayer__sub_800115C4(arg0, 0, lbl_805DA6DC) != 0xFFFF) {
+            TObjEneSlimeOne__sub_800EAE78(arg0, 3);
+        } else {
+            TObjEneSlimeOne__sub_800EAE78(arg0, 2);
+        }
+    }
+}
+#pragma pop
 
 }

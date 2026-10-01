@@ -187,6 +187,16 @@ struct Ene_800F62E0 : VBase_800F62E0 {
     virtual void m47();
 };
 
+struct Pkt_800F65D0 {
+    s32 id;
+    s16 pad4;
+    s16 diff;
+    s8 a;
+    s8 av;
+    s8 b;
+    s8 bv;
+};
+
 extern "C" {
 void TLobby__sub_800F79C4(u8 *arg0);
 void broadcast_state__6TLobbyFPv(void* p);
@@ -205,6 +215,13 @@ void bswap_field__6TLobbyFPv(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 extern s32 lbl_805D5550;
 void handle_6x9C_set_enemy_low_game_flags_ultimate(Msg_800F62E0 *arg0);
+s32 TObjPlayer__sub_8001943C(void *, int);
+s32 TLobby__sub_8002AFD4(void *, void *, int);
+M2C_UNK TLobby__sub_800F6510(void *, void *);
+extern const f32 lbl_805DA8C0;
+extern const f32 lbl_805DA8C4;
+extern const f32 lbl_805DA8C8;
+s32 TObjPlayer__sub_800F65D0(u8 *self, s32 kind);
 }
 
 extern "C" {
@@ -393,6 +410,33 @@ void handle_6x0A_update_enemy_state(Msg_800F6464 *arg0) {
     if (e != NULL) {
         e->m78(&sp);
     }
+}
+s32 TObjPlayer__sub_800F65D0(u8 *self, s32 kind) {
+    Pkt_800F65D0 pkt;
+    s32 ret;
+    ret = 0;
+    if (*(u16 *)(self + 0x1C) >= 0x1000 && *(u16 *)(self + 0x1C) < 0x4000) {
+        TLobby__sub_8002AFD4(self, &pkt, 1);
+        pkt.diff = *(s16 *)(self + 0x2B8) - *(s16 *)(self + 0x32C);
+        pkt.id = *(s32 *)(self + 0x30);
+        switch (kind) {
+        case 9:
+        case 11:
+            pkt.a = kind;
+            pkt.av = lbl_805DA8C0 * ((f32)TObjPlayer__sub_8001943C(self, 2) / lbl_805DA8C4 - lbl_805DA8C8);
+            break;
+        case 10:
+        case 12:
+            pkt.b = kind;
+            pkt.bv = lbl_805DA8C0 * ((f32)TObjPlayer__sub_8001943C(self, 3) / lbl_805DA8C4 - lbl_805DA8C8);
+            break;
+        }
+        ret = TLobby__sub_8002AFD4(self, &pkt, 0);
+        if (ret != 0) {
+            TLobby__sub_800F6510(self, &pkt);
+        }
+    }
+    return ret;
 }
 
 }

@@ -614,6 +614,10 @@ typedef struct Gibon_800D02F8 {
     f32 home[3];
 } Gibon_800D02F8;
 
+struct Node_800CFE34 { void *obj; Node_800CFE34 *next; };
+
+struct List_800CFE34 { Node_800CFE34 *head; u8 pad[8]; };
+
 extern "C" {
 void TObjEneEpsilon__sub_800B96A4(void *);
 void fn_800B98C0(void *);
@@ -727,7 +731,6 @@ void TObjEneBm5GibonU__sub_800D01DC(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CFE30(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800D00F0(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CFFBC(u8 *arg0, s32 arg1);
-void TObjEneBm5GibonU__sub_800CFE34(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CFA48(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CF7CC(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CF4BC(u8 *arg0, s32 arg1);
@@ -742,6 +745,22 @@ void TObjEneBm5GibonU__sub_800CD5B8(void *self, s32 msg);
 void TObjEneBm5GibonU__sub_800CDB98(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CD5F4(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800D0738(u8 *arg0, u32 arg1, s32 arg2);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
+s32 TObjEneEpsilon__sub_800B95E0(void *);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+void play_sound_variant__16TObjEneBm5GibonUFPv(void *);
+void set_flag__16TObjEneBm5GibonUFPv(void *);
+s32 TObjEneBm5GibonU__sub_800D0F44(void *);
+void *update_photon_mylla__16TObjEneBm5GibonUFPv(void *);
+s32 TObjEneBm5GibonU__sub_800D1D70();
+M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
+extern List_800CFE34 TObjEneBm5GibonU__data_80500EC4;
+extern const f32 TObjEneBm5GibonU__data_805DA184;
+void TObjEneBm5GibonU__sub_800CFE34(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -955,6 +974,52 @@ typedef struct VObj_18_7b3d65 VObj_18_7b3d65;
 #define PSO_VCALL_VObj_18_7b3d65_m93(_self) (((VObj_18_7b3d65 *)(_self))->m93())
 #define PSO_VCALL_VObj_18_7b3d65_m100(_self) (((VObj_18_7b3d65 *)(_self))->m100())
 #define PSO_VCALL_VObj_18_7b3d65_m86(_self) (((VObj_18_7b3d65 *)(_self))->m86())
+
+void TObjEneBm5GibonU__sub_800CFE34(u8 *arg0, s32 arg1) {
+    Node_800CFE34 *n;
+    void *o;
+    switch (arg1) {
+    case 4:
+        M2C_FIELD(arg0, s16 *, 0xB8) = 0xE;
+        set_field_378__9TObjEneDDFPvi(arg0, 8);
+        ((VObj_18_7b3d65 *)(arg0))->m93();
+        M2C_FIELD(arg0, s32 *, 0x518) = 0;
+        break;
+    case 3:
+        if (get_flag_b4__21TObjEneMe3ShinowaRealFPv() != 0) {
+            TObjEneDD__sub_800BBA18(arg0, 8);
+        }
+        break;
+    case 5:
+        break;
+    case 0:
+        ((void (*)(void *, s32))TBoss1Dragon__sub_80143504)(arg0, M2C_FIELD(arg0, s32 *, 0x518)++);
+        if (objInBand__FP7GameObjf(arg0, TObjEneBm5GibonU__data_805DA184) != 0) {
+            TBoss3Volopt__sub_8022675C((void *)copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3A523), arg0 + 0x38, 0, 0);
+        }
+        if (M2C_FIELD(arg0, s32 *, 0x518) == 0x3C) {
+            for (n = TObjEneBm5GibonU__data_80500EC4.head; n != NULL; n = n->next) {
+                o = update_photon_mylla__16TObjEneBm5GibonUFPv(n);
+                if (M2C_FIELD(arg0, s32 *, 0x46C) == TObjEneBm5GibonU__sub_800D1D70()) {
+                    set_flag__16TObjEneBm5GibonUFPv(o);
+                }
+            }
+        }
+        if (TObjEneEpsilon__sub_800B95E0(arg0) != 0) {
+            if (M2C_FIELD(arg0, s16 *, 0xB8) == 0xE) {
+                TObjEneBm5GibonU__sub_800D0F44(arg0);
+            } else {
+                M2C_FIELD(arg0, s32 *, 0x478) = 0;
+            }
+        } else {
+            play_sound_variant__16TObjEneBm5GibonUFPv(arg0);
+        }
+        ((VObj_18_7b3d65 *)(arg0))->m100();
+        ((VObj_18_7b3d65 *)(arg0))->m86();
+        break;
+    }
+}
+
 void TObjEneBm5GibonU__sub_800CFFBC(u8 *arg0, s32 arg1) {
   switch (arg1)
   {
@@ -1170,7 +1235,7 @@ void TObjEneBm5GibonU__sub_800D0738(u8 *arg0, u32 arg1, s32 arg2) {
         TObjEneBm5GibonU__sub_800CFFBC(arg0, arg2);
         break;
     case 7:
-        TObjEneBm5GibonU__sub_800CFE34(arg0, arg2);
+        TObjEneBm5GibonU__sub_800CFE34((u8 *)(arg0), (s32)(arg2));
         break;
     case 8:
         TObjEneBm5GibonU__sub_800CFA48(arg0, arg2);

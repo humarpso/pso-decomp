@@ -80,6 +80,10 @@ struct RecoveredGlobal_800D9E8C_lbl_8058D490 {
 
 struct Obj_800D9F4C { u8 pad[0x3b4]; s32 f3b4; };
 
+struct Vec_800D9C7C { f32 x, y, z; };
+
+struct Hit_800D9C7C { u8 pad[4]; s32 x4; };
+
 extern "C" {
 s32 TObjPlayer__sub_800DC420(void *, int);
 f32 TObjPlayer__sub_800DC434(void *, int);
@@ -104,6 +108,21 @@ void *get_player_data__10TObjPlayerFi(s32 i);
 s32 is_valid_and_active__10TObjPlayerFUi(void *p);
 void TObjPlayer__sub_800D9FC4(Obj_800D9F4C *self, void *p);
 s32 TObjPlayer__sub_800D9F4C(Obj_800D9F4C *self);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+Hit_800D9C7C *TObjButterflyLobby__sub_8007A5D8(void *, void *, s32);
+f32 TObjPlayer__sub_8013153C(void *, s32);
+M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+M2C_UNK TCameraCtrl__sub_803D8934(int, Vec_800D9C7C *, void *);
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+s32 TObjPlayer__sub_803D97F0(u32);
+s32 TObjPlayer__sub_803D9B78(void);
+extern Vec_800D9C7C lbl_8043C8E4;
+extern Vec_800D9C7C lbl_8043C8F0;
+extern const f64 lbl_8043C900[];
+extern RecoveredGlobal_800D9E8C_lbl_8058D490 lbl_8058D490;
+extern const f32 lbl_805DA3F8;
+extern const f32 lbl_805DA3FC;
+void TObjPlayer__sub_800D9C7C(u8 *arg0, f32 *arg1);
 }
 
 extern "C" {
@@ -119,6 +138,56 @@ s32 TObjPlayer__sub_800D9C34(s32 arg0) {
     }
     return 0;
 }
+
+#pragma push
+#pragma opt_common_subs off
+void TObjPlayer__sub_800D9C7C(u8 *arg0, f32 *arg1) {
+    s32 ang;
+    s32 best;
+    s32 i;
+    f32 bias;
+    f32 bestv;
+    f32 d;
+    Hit_800D9C7C *h;
+    ang = (s32)(lbl_8043C900[0] * get_ad_end_text_start__10TObjPlayerFv(arg1[0], arg1[2]));
+    bestv = lbl_805DA3F8;
+    best = ang;
+    TObjPlayer__sub_803D97F0((u32) &lbl_8058D490.value);
+    {
+        Vec_800D9C7C v = lbl_8043C8E4;
+        TObjPlayer__sub_803D9214(0, ang);
+        i = 0;
+        bias = lbl_805DA3FC;
+        for (; i < 3; i++) {
+            TCameraCtrl__sub_803D8934(0, &v, arg0 + 0x390);
+            TBoss4Zako__sub_803D8910(arg0 + 0x390, arg0 + 0x2FC);
+            h = TObjButterflyLobby__sub_8007A5D8(arg0 + 0x2FC, arg0 + 0x390, -1);
+            if (h == NULL) {
+                TObjPlayer__sub_803D9B78();
+                return;
+            }
+            d = TObjPlayer__sub_8013153C(arg0 + 0x38, h->x4) - bias;
+            if (bestv < d) {
+                bestv = d;
+                best = ang;
+            }
+            TObjPlayer__sub_803D9214(0, 0x5555);
+            ang += 0x5555;
+        }
+    }
+    TObjPlayer__sub_803D9B78();
+    TObjPlayer__sub_803D97F0((u32) &lbl_8058D490.value);
+    {
+        Vec_800D9C7C v2 = lbl_8043C8F0;
+        v2.x = bestv;
+        TObjPlayer__sub_803D9214(0, best);
+        TCameraCtrl__sub_803D8934(0, &v2, arg0 + 0x390);
+        TBoss4Zako__sub_803D8910(arg0 + 0x390, arg0 + 0x2FC);
+        TObjPlayer__sub_803D9B78();
+    }
+}
+#pragma pop
+
 void TObjPlayer__sub_800D9E08(s32 arg0) {
     lbl_805D525C = TObjPlayer__sub_800DC434((void *) (arg0), (int) (1));
     lbl_805D5260 = TObjPlayer__sub_800DC434((void *) (arg0), (int) (2));

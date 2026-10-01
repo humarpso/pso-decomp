@@ -4,6 +4,23 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+typedef s32 M2C_UNK;
+struct Vec_800E8D4C { f32 x, y, z; };
+
+struct Bomb_800E8D4C {
+    u8 pad0[0x38];
+    Vec_800E8D4C pos;
+    u8 pad44[0x248 - 0x44];
+    u8 hit[0x374 - 0x248];
+    Vec_800E8D4C vel;
+    f32 ground;
+    f32 life;
+    void *link;
+    s32 owner;
+    u8 pad390[4];
+    s32 timer;
+};
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 *dispatch_shared_handler_a__6TLobbyFPv(s32);
@@ -20,6 +37,19 @@ extern const f32 lbl_805DA6D8;
 extern const f32 lbl_805DA6E0;
 extern const f32 lbl_805DA6E4;
 void *TObjEneSlimeWaterBomb__ct(void *arg0, void *arg1, void *arg2);
+M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+s32 TObjPlayer__sub_80156844(void *, void *, void *);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
+s32 TObjEneSlimeOne__sub_800EC39C(s32);
+s32 fn_800E8AD0(void *);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+extern const f32 lbl_805DA6AC;
+extern const f32 lbl_805DA6D0;
+extern const f32 lbl_805DA6D4;
+extern const f32 lbl_805DA6D8;
+extern const f32 lbl_805DA6DC;
+void run_task__21TObjEneSlimeWaterBombFv(Bomb_800E8D4C *arg0);
 }
 
 extern "C" {
@@ -30,6 +60,43 @@ void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void request_destroy__11TBoss4Type2FUi(void *);
+
+void run_task__21TObjEneSlimeWaterBombFv(Bomb_800E8D4C *arg0) {
+    s32 die = 0;
+    arg0->vel.y += lbl_805DA6D0;
+    TBoss4Zako__sub_803D8910(&arg0->pos, &arg0->vel);
+    if (++arg0->timer > 0x14F) {
+        die = 1;
+    }
+    {
+        Vec_800E8D4C p = arg0->pos;
+        p.y += lbl_805DA6AC;
+        if (TObjPlayer__sub_80156844(arg0, &p, arg0->hit) != 0) {
+            arg0->ground = p.y;
+            if (arg0->pos.y <= arg0->ground) {
+                arg0->pos.y = arg0->ground;
+                arg0->vel.y *= lbl_805DA6D4;
+                TObjEneDellBiter__sub_80087350(&arg0->pos, 0xE2);
+            }
+        } else {
+            die = 1;
+        }
+    }
+    if (arg0->link != NULL) {
+        copy_pos__11TNowLoadingFPvPv(arg0->link, &arg0->pos);
+    }
+    if (TObjEneSlimeOne__sub_800EC39C(arg0->owner) != 0 || fn_800E8AD0(arg0) != 0) {
+        die = 1;
+    }
+    {
+        f32 t = arg0->life + lbl_805DA6D8;
+        arg0->life = t;
+        if (t >= lbl_805DA6DC || die != 0) {
+            TObjEneDellBiter__sub_80087350(&arg0->pos, 0xE2);
+            queue_destruction__7TObjectFv(arg0);
+        }
+    }
+}
 
 void * create__21TObjEneSlimeWaterBombFPvPv(void *arg0, void *arg1) {
     void *o;

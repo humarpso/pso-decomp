@@ -2357,6 +2357,7 @@ pso/player/TObjPlayer_800A4288.cpp:
 
 pso/player/TObjPlayer_800A4288_800A617C.cpp:
 	.text       start:0x800A617C end:0x800A73F8
+	.data       start:0x80490CDC end:0x80490D0C
 
 pso/unk/text_800A73F8.cpp:
 	.text       start:0x800A73F8 end:0x800A749C
@@ -2931,6 +2932,7 @@ pso/unk/text_800D3ED8.cpp:
 
 pso/object/TObjGyaranzoMissile_800D40D8.cpp:
 	.text       start:0x800D40D8 end:0x800D4600
+	.rodata     start:0x8043C448 end:0x8043C450
 
 pso/object/TObjGyaranzoMissile.cpp:
 	.text       start:0x800D4600 end:0x800D4D70
@@ -3112,6 +3114,7 @@ pso/enemy/TObjEnePanarms_800DFD54.cpp:
 
 pso/enemy/TObjEnePanarms_800DFF44.cpp:
 	.text       start:0x800DFF44 end:0x800E158C
+	.sdata2     start:0x805DA538 end:0x805DA53C
 
 pso/enemy/TObjEnePanarms.cpp:
 	.text       start:0x800E158C end:0x800E1E14
@@ -3405,6 +3408,7 @@ pso/enemy/TObjEnePanarms_800F5E90.cpp:
 
 pso/object/TObjControl.cpp:
 	.text       start:0x800F5EE0 end:0x800F6960
+	.rodata     start:0x8043D778 end:0x8043D780
 
 pso/player/TObjPlayer_800F6960.cpp:
 	.text       start:0x800F6960 end:0x800F7744
@@ -3916,7 +3920,7 @@ pso/item/TItemDrop_80105D0C_80105D0C.cpp:
 
 pso/item/TItemDrop_80105D0C.cpp:
 	.text       start:0x80106498 end:0x80107B74
-	.rodata     start:0x8043E120 end:0x8043E128
+	.rodata     start:0x8043E120 end:0x8043E130
 
 pso/item/TItemDropSub_80107B74.cpp:
 	.text       start:0x80107B74 end:0x80107B90
@@ -4014,6 +4018,7 @@ pso/item/TItemShootModel_dtor.cpp:
 
 pso/item/TItemEffNeedlePos_801097F0.cpp:
 	.text       start:0x801097F0 end:0x80109974
+	.rodata     start:0x8043E268 end:0x8043E270
 
 pso/unk/text_80109974.cpp:
 	.text       start:0x80109974 end:0x80109AE4
@@ -6059,7 +6064,7 @@ pso/misc/TLobby_80137188_8013731C.cpp:
 
 pso/misc/TLobby_80137188_80137360.cpp:
 	.text       start:0x80137360 end:0x80137A14
-	.data       start:0x804A7020 end:0x804A703C
+	.data       start:0x804A7020 end:0x804A70AC
 
 pso/misc/TLobby_80137188_80137A14.cpp:
 	.text       start:0x80137A14 end:0x80137D7C
@@ -6954,7 +6959,7 @@ pso/unk/text_8015D714.cpp:
 
 pso/boss/TBoss3Volopt_8015D7B0.cpp:
 	.text       start:0x8015D7B0 end:0x8015DAE4
-	.data       start:0x804B0C58 end:0x804B0CD0
+	.data       start:0x804B0C58 end:0x804B0D48
 
 pso/unk/text_8015DAE4.cpp:
 	.text       start:0x8015DAE4 end:0x8015DD2C

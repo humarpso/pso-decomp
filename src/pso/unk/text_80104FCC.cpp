@@ -39,6 +39,39 @@ struct Obj_8010567C {
 
 struct Player_80105348 { u8 pad[0x890]; s32 traits; };
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct Rec_80105538 { s32 a; u16 b; u16 b2; s32 c; };
+
+struct Pkt_80105538 {
+    u8 hdr[4];
+    s8 f4;
+    s8 f5;
+    s16 f6;
+    f32 x;
+    f32 z;
+    s16 f10;
+    u8 f12[2];
+    s8 f14;
+};
+
+struct Vec_80105538 { f32 x, y, z; };
+
+struct Obj_80105538 {
+    u8 pad[0x28];
+    s16 f28;
+    u8 pad2a[2];
+    s16 f2c;
+    u8 pad2e[0x38 - 0x2E];
+    f32 x;
+    f32 y;
+    f32 z;
+    u8 pad44[0x370 - 0x44];
+    s32 f370;
+};
+
 extern "C" {
 void TItemData__sub_8010CCB0(void *);
 s32 isValidGroundDrop__9TItemDataFv(void *);
@@ -57,6 +90,19 @@ extern Entry_8010567C *TLobby__data_805D6140;
 extern s32 lbl_805D53A0;
 void TLobby__sub_8010567C(Obj_8010567C *self, void *unused, s16 arg2);
 int TItemMag__sub_80105348(Player_80105348 *player, s32 perm);
+void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s8 TObjPlayer__sub_800196EC();
+s32 get_field_3e4__10TObjPlayerFPv(void *);
+s32 get_global_state__14TOKeyMachine01Fv();
+u32 TBoss8Dragon__sub_8007A544(Vec_80105538 *, s32);
+s32 TLobby__sub_80104820();
+void dispatch_packet_wrapper__6TLobbyFPv(void *);
+void build_6x06_send_guild_card(void *);
+extern s32 lbl_805D53A0;
+extern s32 TLobby__data_805D53AC;
+extern Rec_80105538 *TLobby__data_805D6144;
+extern const f32 lbl_805DAAB4;
+void TLobby__sub_80105538(Obj_80105538 *self);
 }
 
 extern "C" {
@@ -105,6 +151,43 @@ s32 TLobby__sub_8010542C(Item_8010542C *src) {
         }
     }
     return 0;
+}
+
+void TLobby__sub_80105538(Obj_80105538 *self) {
+    void *p1;
+    void *p2;
+    if (self != 0) {
+        p1 = TPlayerBattleCtrl4P__sub_801BA74C(TLobby__data_805D53AC);
+        p2 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+        if (p1 != 0 && p2 != 0) {
+            TObjPlayer__sub_800196EC();
+            if (TLobby__sub_80104820() != 0 &&
+                (get_field_3e4__10TObjPlayerFPv(p1) != get_field_3e4__10TObjPlayerFPv(p2) ||
+                 TLobby__data_805D53AC == lbl_805D53A0)) {
+                if (self->f2c != -1) {
+                    Rec_80105538 e = TLobby__data_805D6144[self->f2c];
+                    if (e.b != 0xFFFF) {
+                        Pkt_80105538 pkt;
+                        build_6x06_send_guild_card(&pkt);
+                        pkt.f4 = TObjPlayer__sub_800196EC();
+                        pkt.f5 = self->f370;
+                        pkt.f6 = self->f2c;
+                        pkt.x = self->x;
+                        pkt.z = self->z;
+                        pkt.f10 = self->f28;
+                        pkt.f14 = get_global_state__14TOKeyMachine01Fv();
+                        Vec_80105538 v;
+                        v.x = pkt.x;
+                        v.y = lbl_805DAAB4;
+                        v.z = pkt.z;
+                        if (TBoss8Dragon__sub_8007A544(&v, 1) != 0) {
+                            dispatch_packet_wrapper__6TLobbyFPv(&pkt);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 void TLobby__sub_8010567C(Obj_8010567C *self, void *unused, s16 arg2) {

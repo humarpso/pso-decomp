@@ -32,6 +32,106 @@ struct VObjB0_800b07d0 : VBaseB0_800b07d0 {
     virtual void v92(); virtual void v93(); virtual void v94();
 };
 
+struct VBase_18_b7c757 { char pad[0x18]; };
+
+struct VObj_18_b7c757 : VBase_18_b7c757 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual M2C_UNK m86();
+    virtual void m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual void m93();
+    virtual M2C_UNK m94();
+};
+
 extern "C" {
 void *copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(int);
@@ -41,6 +141,23 @@ void *copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(int);
 s32 TOTrapAncient01__sub_80226578(void *, void *, void *, int, int);
 void TObjEneBm3Fly__sub_800B15C4(s32 arg0);
+f32 calc_scaled_value__15TObjBoss2TunnelFif(int, int, f32, f32);
+void TObjEneBm3Fly__sub_800B15C4(s32 arg0);
+M2C_UNK TObjEneBm3Fly__sub_800B1634(void *);
+f32 approach_value__13TObjEneBm3FlyFff(void *, f32, f32);
+M2C_UNK TObjEneBm3Fly__sub_800B1978(void *);
+M2C_UNK update_state_flag__13TObjEneBm3FlyFPv(void *);
+s32 update_linked_position__14TObjEneEpsilonFPv(f32);
+M2C_UNK update_velocity__9TObjEneDDFPv(void *);
+M2C_UNK TObjEneDD__sub_800BA934(void *);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
+M2C_UNK TBoss1Dragon__sub_80143504();
+f32 TBoss8Dragon__sub_803D64C0(int);
+f32 TBoss8Dragon__sub_803D64DC(int);
+extern const f32 TObjEneBm3Fly__data_805D9C8C;
+extern const f32 TObjEneBm3Fly__data_805D9C90;
+extern const f32 TObjEneBm3Fly__data_805D9C94;
+void TObjEneBm3Fly__sub_800B02C8(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -106,6 +223,48 @@ extern const f32 lbl_805D9CAC;
 extern const f32 lbl_805D9CB0;
 extern const f32 lbl_805D9CB4;
 extern const f32 lbl_805D9CB8;
+
+#pragma push
+#pragma fp_contract on
+void TObjEneBm3Fly__sub_800B02C8(u8 *arg0, s32 arg1) {
+    u8 *temp_r4;
+    switch (arg1) {
+    case 4:
+        M2C_FIELD(arg0, s16 *, 0xB8) = 1;
+        ((VObj_18_b7c757 *)(arg0))->m94();
+        M2C_FIELD(arg0, s32 *, 0x428) = (s32) (M2C_FIELD(arg0, s32 *, 0x428) & 0xFFFFFFFE);
+        M2C_FIELD(arg0, s32 *, 0x428) = (s32) (M2C_FIELD(arg0, s32 *, 0x428) | 2);
+        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x01000000);
+        TObjEneBm3Fly__sub_800B1634((void *) (arg0));
+        M2C_FIELD(arg0, f32 *, 0x394) = (f32) ((TObjEneBm3Fly__data_805D9C90 * TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg0, s32 *, 0x448)))) + M2C_FIELD(arg0, f32 *, 0x41C));
+        M2C_FIELD(arg0, f32 *, 0x398) = (f32) M2C_FIELD(arg0, f32 *, 0x444);
+        M2C_FIELD(arg0, f32 *, 0x39C) = (f32) ((TObjEneBm3Fly__data_805D9C90 * TBoss8Dragon__sub_803D64DC((int) (M2C_FIELD(arg0, s32 *, 0x448)))) + M2C_FIELD(arg0, f32 *, 0x424));
+        temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x350));
+        M2C_FIELD(arg0, f32 *, 0x3E0) = (f32) (TObjEneBm3Fly__data_805D9C94 + calc_scaled_value__15TObjBoss2TunnelFif((int) (M2C_FIELD(temp_r4, s32 *, 8)), (int) (temp_r4), (f32) (M2C_FIELD(temp_r4, f32 *, 4)), (f32) (TObjEneBm3Fly__data_805D9C90)));
+        update_velocity__9TObjEneDDFPv((void *) (arg0));
+        break;
+    case 3:
+        if (update_linked_position__14TObjEneEpsilonFPv((f32) (TObjEneBm3Fly__data_805D9C8C)) != 0) {
+            TObjEneDD__sub_800BBA18((void *) (arg0), (int) (2));
+        } else if (M2C_FIELD(arg0, f32 *, 0x3AC) < M2C_FIELD(arg0, f32 *, 0x3E0)) {
+            TObjEneDD__sub_800BBA18((void *) (arg0), (int) (1));
+        }
+        break;
+    case 5:
+        break;
+    case 0:
+        TBoss1Dragon__sub_80143504();
+        update_velocity__9TObjEneDDFPv((void *) (arg0));
+        M2C_FIELD(arg0, f32 *, 0x42C) = approach_value__13TObjEneBm3FlyFff((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0x42C)), (f32) (M2C_FIELD(arg0, f32 *, 0x398)));
+        update_state_flag__13TObjEneBm3FlyFPv((void *) (arg0));
+        ((VObj_18_b7c757 *)(arg0))->m86();
+        TObjEneBm3Fly__sub_800B1978((void *) (arg0));
+        TObjEneDD__sub_800BA934((void *) (arg0));
+        TObjEneBm3Fly__sub_800B15C4((s32) arg0);
+        break;
+    }
+}
+#pragma pop
 
 void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r0;

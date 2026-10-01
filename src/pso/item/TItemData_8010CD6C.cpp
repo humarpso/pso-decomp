@@ -23,6 +23,8 @@ struct Item_8010D510 {
 
 struct Parm_8010EBD8 { s32 name; u8 pad04[0xC]; u32 flags; };
 
+struct Params_8010E414 { s32 name; u8 pad4[4]; s16 stat; s16 amount; };
+
 extern "C" {
 int bswap_16__FPUs(void*);
 void TItemData__sub_8010CDC8(u8 *arg0, s16 arg1);
@@ -68,6 +70,17 @@ s32 TObjPlayer__sub_8011C914(s32);
 s32 TItemData__sub_8010EBD8(u8 *item);
 s32 TItemData__sub_8010EBD8(u8 *item);
 s32 TItemData__sub_8010DF68(u8 *item);
+char *TItemAttacker__sub_80103548(s32);
+s32 TItemData__sub_8010C52C();
+u16 get_packed_value__9TItemDataFPv(void *);
+s16 get_field6_bswap__9TItemDataFPv(void *arg0);
+s32 TItemData__sub_8010DF68(u8 *item);
+void *TItemData__sub_8010EA38(u8 *item);
+s32 check_item_flags__9TItemDataFPv(void *arg0);
+s32 TItemData__sub_8010EEC8(s32);
+int sprintf(char *, const char *, ...);
+extern s32 lbl_805D2B10;
+s32 TItemData__sub_8010E414(u8 *item);
 }
 
 extern "C" {
@@ -388,6 +401,49 @@ s32 calc_buy_price__9TItemDataFPv(void *arg0) {
             }
             return TItemData__sub_8010EEC8(0x1F4);
         }
+    }
+    return lbl_805D2B10;
+}
+
+s32 TItemData__sub_8010E414(u8 *item) {
+    char *format;
+    Params_8010E414 *p;
+    char *out;
+    s32 name;
+    p = (Params_8010E414 *)TItemData__sub_8010EA38(item);
+    out = TItemAttacker__sub_80103548(0);
+    if (p != NULL && out != NULL) {
+        format = NULL;
+        if (((s32 (*)(u8 *))TItemData__sub_8010C52C)(item) != 0) {
+            format = (char *)TItemData__sub_8010EEC8(0x77);
+        } else {
+            name = p->name;
+            if (name == 0x1F4) {
+                return lbl_805D2B10;
+            }
+            if (item[0] == 0) {
+                if (TItemData__sub_8010DF68(item) != 0 && check_item_flags__9TItemDataFPv(item) == 0) {
+                    format = (char *)TItemData__sub_8010EEC8(0x17E);
+                } else {
+                    format = (char *)TItemData__sub_8010EEC8(name);
+                }
+            } else if (item[0] == 1 && item[1] == 3) {
+                if (name < 0x2E2) {
+                    if (p != NULL && out != NULL && p->stat != 0x1C) {
+                        sprintf(out, (char *)TItemData__sub_8010EEC8(name), p->amount + get_field6_bswap__9TItemDataFPv(item));
+                        return (s32)out;
+                    }
+                } else {
+                    format = (char *)TItemData__sub_8010EEC8(name);
+                }
+            } else {
+                format = (char *)TItemData__sub_8010EEC8(name);
+            }
+        }
+        if (format != NULL) {
+            sprintf(out, format, get_packed_value__9TItemDataFPv(item));
+        }
+    return (s32)out;
     }
     return lbl_805D2B10;
 }

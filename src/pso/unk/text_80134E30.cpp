@@ -268,11 +268,73 @@ extern char TLobby__data_8050AAE8[][16];
 extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D53AC;
 void TLobby__sub_80136080(s32 arg0, s32 arg1);
+void init__23TAdSinglePlyChrSelectGCFv(void);
+u8 *get_card_window__17TWindowSubComCardFUi(u32);
+void *memset(void *, int, u32);
+char *strncpy(char *, const char *, u32);
+s32 open_hard_keyboard__6TLobbyFPv(void *);
+void TLobby__sub_80077798(void *, void *);
+char *get_card_window_field__6TLobbyFv(void);
+void TLobby__sub_8007BC5C(void *);
+s32 get_flag_bit0__6TLobbyFv(void);
+char *get_card_window_area__6TLobbyFv(void);
+void TLobby__sub_800703D0(void *, void *);
+void *get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
+void TProtocol__sub_801DC1E4(void *, void *, void *, void *, void *, void *, void *);
+extern s32 lbl_805D53A0;
+extern void *TLobby__data_805D5580;
+void TLobby__sub_80134E30(void);
 }
 
 extern "C" {
 
 void TLobby__sub_80135FFC(void);
+
+typedef struct {
+    u32 kb;
+    u8 pad[0x14];
+} A_80134E30;
+typedef struct {
+    u8 pad[0x4];
+    u8 b[0x100];
+    u16 h[7];
+    u32 w0;
+    u32 w1;
+} D_80134E30;
+void TLobby__sub_80134E30(void) {
+    A_80134E30 a;
+    u8 b[0x7C];
+    char c[0xAC];
+    D_80134E30 d;
+    u8 e[0x204];
+    u8 *card;
+    init__23TAdSinglePlyChrSelectGCFv();
+    card = get_card_window__17TWindowSubComCardFUi(0xFFFF);
+    memset(&a, 0, sizeof(a));
+    a.kb = open_hard_keyboard__6TLobbyFPv((void *)lbl_805D53A0) != 0 ? 1 : 0;
+    TLobby__sub_80077798(card + 0x22EC, &a);
+    memset(c, 0, sizeof(c));
+    strncpy(c, get_card_window_field__6TLobbyFv(), 0xAC);
+    memset(b, 0, sizeof(b));
+    TLobby__sub_8007BC5C(b);
+    memset(e, 0, sizeof(e));
+    if (get_flag_bit0__6TLobbyFv() != 0) {
+        e[1] = 1;
+        strncpy((char *)e + 4, get_card_window_area__6TLobbyFv(), 0x200);
+    }
+    memset(&d, 0, sizeof(d));
+    TLobby__sub_800703D0(d.b, card + 0x21C4);
+    d.h[0] = *(u16 *)(card + 0x21A8);
+    d.h[1] = *(u16 *)(card + 0x21AA);
+    d.h[2] = *(u16 *)(card + 0x21AC);
+    d.h[3] = *(u16 *)(card + 0x21AE);
+    d.h[4] = *(u16 *)(card + 0x21B0);
+    d.h[5] = *(u16 *)(card + 0x21B2);
+    d.h[6] = *(u16 *)(card + 0x21B4);
+    d.w0 = *(u32 *)(card + 0x21B8);
+    d.w1 = *(u32 *)(card + 0x21BC);
+    TProtocol__sub_801DC1E4(TLobby__data_805D5580, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF), &d, &a, b, e, c);
+}
 
 u8 *TLobby__sub_80135198(u8 *arg0, s32 arg1) {
     M2C_UNK sp8;

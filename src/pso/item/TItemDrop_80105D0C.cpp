@@ -24,6 +24,14 @@ struct Tbl_80106E04 {
     u8 *rate;
 };
 
+struct TItemDrop_80107900 {
+    s32 name;
+    u8 pad4[0x14];
+    void *vt;
+    s32 unk1C;
+    s32 *list;
+};
+
 extern "C" {
 M2C_UNK clear_item_if_player_picked_up__9TItemDropFPvPv(void *, void *);
 M2C_UNK TItemDrop__sub_80105EA4(void *, void *);
@@ -42,7 +50,6 @@ M2C_UNK init__9TItemDataFv(void *);
 M2C_UNK TObjPlayer__sub_8011C234(u8, void *);
 extern void *TItemDrop__data_805D5460;
 void TItemDrop__sub_8010738C(s32 arg0, s32 arg1, void *arg2);
-u8 * TItemDrop__ct(void *, M2C_UNK, s8);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 u8 *TItemDrop__sub_80107A68(s32 arg0);
@@ -76,6 +83,37 @@ s32 TItemData__sub_8010DF68(void *);
 u8 TObjPlayer__sub_8011C974(u8);
 extern void *TItemDrop__data_805D5460;
 void TItemDrop__sub_80106E04(s32 rng, u8 *item, s32 idx);
+M2C_UNK clear_item_if_player_picked_up__9TItemDropFPvPv(void *, void *);
+M2C_UNK TItemDrop__sub_80105EA4(void *, void *);
+void TItemDrop__sub_801061E0(void *, u8, u8 *);
+void TItemDrop__sub_801065B4(u8 *arg0, u32 arg1);
+void calc_drop_rarity__9TItemDropFiiPv(s32 arg0, s32 arg1, void *arg2);
+void apply_item_data__9TItemDropFPvPv(void *arg0, void *arg1);
+void TItemDrop__sub_80107210(s32 rng, s32 level, u8 *item);
+void TItemDrop__sub_8010738C(s32 arg0, s32 arg1, void *arg2);
+u16 TItemDrop__sub_801075B4(void *, s32, s32, s32, s32);
+M2C_UNK init__9TItemDataFv(void *);
+extern void *TItemDrop__data_805D5460;
+extern const f32 lbl_805DAADC;
+void TItemDrop__sub_80106930(u8 *self, s32 idx, u8 *item);
+s32 run_step__9TItemDropFi(s32, u32);
+s32 alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+s32 alloc__22TQuestVmDownLoadServerFPv(s32);
+s32 fn_8010F210(void *);
+s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
+void __ct__7TObjectFP7TObject(void *, void *);
+s32 __cvt_fp2unsigned(f32);
+s32 rand__11TOBoss4RockFv();
+extern M2C_UNK __vt__9TItemDrop[];
+extern RecoveredGlobal_80107840_lbl_8049EF88 lbl_8049EF88;
+extern s32 lbl_805D2B7C;
+extern s32 TItemDrop__data_805D5458;
+extern s32 TItemDrop__data_805D545C;
+extern s32 TItemDrop__data_805D5474;
+extern const f32 lbl_805DAAD4;
+extern const f32 lbl_805DAAD8;
+extern const f32 lbl_805DAAE4;
+TItemDrop_80107900 *TItemDrop__ct(TItemDrop_80107900 *self, void *parent, s8 arg2);
 }
 
 extern "C" {
@@ -147,6 +185,44 @@ u32 TItemDrop__sub_801065F8(u8 *arg0, M2C_UNK arg1, u32 arg2) {
     var_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x20));
     var_r3 = (u8 *)(M2C_FIELD(var_r3, u8 **, 0x40));
     return (u32)TItemDrop__sub_80107B0C((s32)((int) (var_r3)), (u32)(arg1));
+}
+
+void TItemDrop__sub_80106930(u8 *self, s32 idx, u8 *item) {
+    f32 f;
+    if (item == NULL) {
+        return;
+    }
+    switch (item[0]) {
+    case 0:
+        TItemDrop__sub_80107210((s32)self, idx, item);
+        break;
+    case 1:
+        if (item[1] == 3) {
+            f = lbl_805DAADC + (f32)(*(u8 **)((u8 *)TItemDrop__data_805D5460 + 0x4C))[idx];
+            TItemDrop__sub_801061E0(self, (u8)(s32)(f * ((f32 (*)(u8 *, u32))TItemDrop__sub_801065B4)(self, 0xE)), item);
+            if (item[2] == 0xFF) {
+                init__9TItemDataFv(item);
+            }
+        } else {
+            calc_drop_rarity__9TItemDropFiiPv((s32)self, idx, item);
+        }
+        break;
+    case 3:
+        TItemDrop__sub_8010738C((s32)self, idx, item);
+        break;
+    case 4:
+        *(u32 *)(item + 0x10) = TItemDrop__sub_801075B4(self, *(s32 *)((u8 *)TItemDrop__data_805D5460 + 0x24), idx, 0, 1);
+        break;
+    case 2:
+        apply_item_data__9TItemDropFPvPv(self, item);
+        break;
+    default:
+        init__9TItemDataFv(item);
+        item[0] = 5;
+        break;
+    }
+    TItemDrop__sub_80105EA4(self, item);
+    clear_item_if_player_picked_up__9TItemDropFPvPv(self, item);
 }
 
 s32 TItemDrop__sub_80106A90(s32 arg0, s32 arg1, u8 *arg2) {
@@ -438,6 +514,31 @@ u8 *TItemDrop__sub_80107840(u8 *arg0, s16 arg1) {
   return arg0;
 }
 
+TItemDrop_80107900 *TItemDrop__ct(TItemDrop_80107900 *self, void *parent, s8 arg2) {
+    s32 i;
+    u32 a;
+    u32 b;
+    s32 obj;
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vt = &lbl_8049EF88.value;
+    self->name = lbl_805D2B7C;
+    TItemDrop__data_805D5474 = arg2;
+    self->list = (s32 *)alloc_buffer__11TOBoss4RockFPv(0x44);
+    for (i = 0; i != 0x11; i++) {
+        a = __cvt_fp2unsigned(lbl_805DAAD8 * (lbl_805DAAE4 * (f32)rand__11TOBoss4RockFv()));
+        b = __cvt_fp2unsigned(lbl_805DAAD4 * (lbl_805DAAE4 * (f32)rand__11TOBoss4RockFv()));
+        obj = alloc__23TAdSinglePlyChrSelectGCFPv(0xE8);
+        if (obj != 0) {
+            obj = run_step__9TItemDropFi(obj, a | b);
+        }
+        self->list[i] = obj;
+    }
+    TItemDrop__data_805D545C = alloc__22TQuestVmDownLoadServerFPv(0xC00);
+    TItemDrop__data_805D5458 = alloc__22TQuestVmDownLoadServerFPv(0xC00);
+    self->unk1C = fn_8010F210(__vt__9TItemDrop);
+    return self;
+}
+
 u8 *TItemDrop__sub_80107A68(s32 arg0) {
     u8 temp_r0;
     u8 *temp_r3;
@@ -450,7 +551,7 @@ u8 *TItemDrop__sub_80107A68(s32 arg0) {
             temp_r3_2 = (u8 *)(__nw__7TObjectFUl(0x24));
             var_r0 = (u8 *)(temp_r3_2);
             if (var_r0 != NULL) {
-                var_r0 = (u8 *)(TItemDrop__ct(temp_r3_2, arg0, (s8) temp_r0));
+                var_r0 = (u8 *)(TItemDrop__ct((TItemDrop_80107900 *)(temp_r3_2), (void *)(arg0), (s8)((s8) temp_r0)));
             }
             return var_r0;
         }

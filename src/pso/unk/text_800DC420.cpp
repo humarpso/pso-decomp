@@ -36,6 +36,22 @@ typedef struct Src_800DC4B4 {
     f32 pos[3];
 } Src_800DC4B4;
 
+struct Vec_800DC648 { f32 x, y, z; };
+
+struct Me_800DC648 {
+    u8 pad0[0xAC];
+    Vec_800DC648 pos;
+    Vec_800DC648 vel;
+    u8 padC4[0xDC - 0xC4];
+    f32 timer;
+    void *link0;
+    void *link1;
+    Vec_800DC648 prev;
+    s32 trail;
+    s32 cnt;
+    u16 owner;
+};
+
 extern "C" {
 s32 TObjPlayer__sub_800DC478(u8 *arg0, s32 arg1, f32 farg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
@@ -58,6 +74,21 @@ extern const f32 lbl_805D525C;
 extern s32 lbl_805D526C;
 extern s32 lbl_805D53A0;
 void TObjPlayer__sub_800DC4B4(Src_800DC4B4 *arg0, Obj_800DC4B4 *obj, void *attacker);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+void *get_player_data__10TObjPlayerFi(s32);
+void queue_destruction__7TObjectFv(void *);
+u32 TObjButterflyLobby__sub_8007A5D8(void *, void *, int);
+M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
+void TObjPlayer__sub_800DC4B4(Src_800DC4B4 *arg0, Obj_800DC4B4 *obj, void *attacker);
+s32 TObjPlayer__sub_800DC5F4(M2C_UNK arg0, s32 arg1);
+void *TPhotonMylla__sub_80154CB4(u16);
+s32 is_valid_and_active__10TObjPlayerFUi();
+M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+extern const f32 lbl_805D525C;
+extern s32 lbl_805D586C;
+extern s32 lbl_805D5870;
+extern const f32 lbl_805DA478;
+void TObjPlayer__sub_800DC648(Me_800DC648 *arg0);
 }
 
 extern "C" {
@@ -132,6 +163,46 @@ s32 TObjPlayer__sub_800DC5F4(M2C_UNK arg0, s32 arg1) {
     }
     VecCopy__FP3VecPC3Vec((void *) (arg1), (int) (M2C_FIELD(temp_r3, s32 *, 4)));
     return 1;
+}
+
+void TObjPlayer__sub_800DC648(Me_800DC648 *arg0) {
+    void *att;
+    s32 i;
+    void *pl;
+    Vec_800DC648 old = arg0->pos;
+    TBoss4Zako__sub_803D8910(&arg0->pos, &arg0->vel);
+    if (arg0->link0 != NULL) {
+        copy_pos__11TNowLoadingFPvPv(arg0->link0, &arg0->pos);
+    }
+    arg0->timer += lbl_805D525C;
+    if (arg0->trail != 0) {
+        VecCopy__FP3VecPC3Vec(&arg0->prev, (int)&arg0->pos);
+        arg0->cnt++;
+        if (arg0->cnt > 4) {
+            arg0->cnt = 0;
+            TObjPlayer__sub_800DC5F4((M2C_UNK)arg0, (s32)&arg0->prev);
+        }
+        if (arg0->link1 != NULL) {
+            copy_pos__11TNowLoadingFPvPv(arg0->link1, &arg0->prev);
+        }
+    }
+    if (arg0->timer >= lbl_805DA478) {
+        queue_destruction__7TObjectFv(arg0);
+        return;
+    }
+    if (TObjButterflyLobby__sub_8007A5D8(&old, &arg0->pos, -1) != 0) {
+        queue_destruction__7TObjectFv(arg0);
+        return;
+    }
+    att = TPhotonMylla__sub_80154CB4(arg0->owner);
+    if (att != NULL) {
+        for (i = 0; i < lbl_805D586C + lbl_805D5870; i++) {
+            pl = get_player_data__10TObjPlayerFi(i);
+            if (pl != NULL && is_valid_and_active__10TObjPlayerFUi() != 0) {
+                TObjPlayer__sub_800DC4B4((Src_800DC4B4 *)arg0, (Obj_800DC4B4 *)pl, att);
+            }
+        }
+    }
 }
 
 void *TObjPlayer__sub_800DC7B0(void *arg0, s16 arg1) {

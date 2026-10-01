@@ -49,6 +49,8 @@ struct Save_80103890 {
     Ent_801037A0 items[1];
 };
 
+struct Ent_80103DD8 { s8 n; u8 pad1[0xD]; u16 key; u8 padx[0xC]; s32 val; u8 pad2[4]; };
+
 extern "C" {
 extern s32 lbl_805D5420;
 s32 TLobby__sub_8010385C(s32 arg0);
@@ -99,6 +101,15 @@ extern char lbl_8043E048[];
 extern Ent_801037A0 **lbl_805D541C;
 extern s32 lbl_805D5420;
 Ent_801037A0 *TLobby__sub_80103D10(s32 n, s32 val);
+void TLobby__sub_801037A0(s32 n);
+s32 TLobby__sub_8010385C(s32 arg0);
+s32 TLobby__sub_80103B44(s32 arg0);
+void TLobby__sub_80104258(void *, void *);
+void *memcpy(void *, const void *, u32);
+extern Ent_801037A0 **lbl_805D541C;
+extern s32 lbl_805D5420;
+extern u16 *lbl_805D542C;
+s32 TLobby__sub_80103DD8(Ent_80103DD8 *e);
 }
 
 extern "C" {
@@ -290,6 +301,58 @@ Ent_801037A0 *TLobby__sub_80103D10(s32 n, s32 val) {
     }
     debug_print__6TLobbyFii(lbl_8043E048);
     return NULL;
+}
+s32 TLobby__sub_80103DD8(Ent_80103DD8 *e) {
+    s32 *counts;
+    s32 idx;
+    Ent_80103DD8 *list;
+    s32 lo;
+    s32 mid;
+    s32 n;
+    s32 val;
+    s32 hi;
+    Ent_80103DD8 *p;
+    if (e != NULL) {
+        if (TLobby__sub_8010385C(e->n) != 0) {
+            TLobby__sub_801037A0(e->n);
+        }
+        if (e->n < 0x12 && TLobby__sub_80103B44(e->n) != 0) {
+            idx = e->n;
+            list = (*(Ent_80103DD8 ** *)&lbl_805D541C)[idx];
+            if (list != NULL) {
+                counts = *(s32 **)&lbl_805D5420;
+                val = e->val;
+                n = counts[idx];
+                hi = n - 1;
+                if (hi > -1 && val < list[hi].val) {
+                    lo = 0;
+                    while (lo < hi) {
+                        mid = (lo + hi) / 2;
+                        if (list[mid].val < val) {
+                            lo = mid + 1;
+                        } else {
+                            hi = mid;
+                        }
+                    }
+                    p = &list[lo];
+                    if (val == p->val) {
+                        return 0;
+                    }
+                    memcpy(p + 1, p, (n - lo) * sizeof(Ent_80103DD8));
+                } else {
+                    lo = n;
+                }
+                e->key = lbl_805D542C[e->n];
+                if (lbl_805D542C[e->n] != 0xFFFF) {
+                    lbl_805D542C[e->n]++;
+                }
+                TLobby__sub_80104258(&list[lo], e);
+                counts[idx]++;
+                return 1;
+            }
+        }
+    }
+    return 0;
 }
 
 }

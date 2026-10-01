@@ -42,6 +42,31 @@ extern void *TLobby__data_805D5580;
 extern s32 TLobby__data_805D55BC;
 extern s32 lbl_805D55C4;
 void TLobby__sub_801374EC(u32 arg0);
+u8 *get_card_window__17TWindowSubComCardFUi(u32);
+void *memset(void *, int, u32);
+char *strncpy(char *, const char *, u32);
+s32 open_hard_keyboard__6TLobbyFPv(void *);
+void TLobby__sub_80077798(void *, void *);
+char *get_card_window_field__6TLobbyFv(void);
+void TLobby__sub_8007BC5C(void *);
+s32 get_flag_bit0__6TLobbyFv(void);
+char *get_card_window_area__6TLobbyFv(void);
+void TLobby__sub_800703D0(void *, void *);
+void *get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
+void TProtocol__sub_801DC34C(void *, void *, void *, void *, void *, void *, void *);
+extern s32 lbl_805D53A0;
+extern void *TLobby__data_805D5580;
+void TLobby__sub_80137384(void);
+void dispatch_by_index__6TLobbyFi(s32 arg0);
+s32 get_option_state__6TLobbyFv(void);
+void reset_state__6TLobbyFv(s32);
+void TLobby__sub_8013A170(const char *fmt, ...);
+M2C_UNK TLobby__sub_801DA8C4(int, void *, int);
+M2C_UNK fn_801DB998(int);
+void *get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
+extern char lbl_8043F05C[];
+extern void *TLobby__data_805D5580;
+void TLobby__sub_80137708(u32 arg0);
 }
 
 extern "C" {
@@ -62,6 +87,51 @@ extern s32 TLobby__data_805D5590;
 extern s32 TLobby__data_805D5594;
 extern s32 TLobby__data_805D55D8;
 extern s32 TLobby__data_805D55FC;
+
+typedef struct {
+    u32 kb;
+    u8 pad[0x14];
+} A_80137384;
+typedef struct {
+    u8 pad[0x4];
+    u8 b[0x100];
+    u16 h[7];
+    u32 w0;
+    u32 w1;
+} D_80137384;
+void TLobby__sub_80137384(void) {
+    A_80137384 a;
+    u8 b[0x7C];
+    char c[0xAC];
+    D_80137384 d;
+    u8 e[0x204];
+    u8 *card;
+    card = get_card_window__17TWindowSubComCardFUi(0xFFFF);
+    memset(&a, 0, sizeof(a));
+    a.kb = open_hard_keyboard__6TLobbyFPv((void *)lbl_805D53A0) != 0 ? 1 : 0;
+    TLobby__sub_80077798(card + 0x22EC, &a);
+    memset(c, 0, sizeof(c));
+    strncpy(c, get_card_window_field__6TLobbyFv(), 0xAC);
+    memset(b, 0, sizeof(b));
+    TLobby__sub_8007BC5C(b);
+    memset(e, 0, sizeof(e));
+    if (get_flag_bit0__6TLobbyFv() != 0) {
+        e[1] = 1;
+        strncpy((char *)e + 4, get_card_window_area__6TLobbyFv(), 0x200);
+    }
+    memset(&d, 0, sizeof(d));
+    TLobby__sub_800703D0(d.b, card + 0x21C4);
+    d.h[0] = *(u16 *)(card + 0x21A8);
+    d.h[1] = *(u16 *)(card + 0x21AA);
+    d.h[2] = *(u16 *)(card + 0x21AC);
+    d.h[3] = *(u16 *)(card + 0x21AE);
+    d.h[4] = *(u16 *)(card + 0x21B0);
+    d.h[5] = *(u16 *)(card + 0x21B2);
+    d.h[6] = *(u16 *)(card + 0x21B4);
+    d.w0 = *(u32 *)(card + 0x21B8);
+    d.w1 = *(u32 *)(card + 0x21BC);
+    TProtocol__sub_801DC34C(TLobby__data_805D5580, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF), &d, &a, b, e, c);
+}
 
 void TLobby__sub_801374EC(u32 arg0) {
     s32 temp_r31;
@@ -113,6 +183,70 @@ void TLobby__sub_801376A0(s32 ok) {
         TLobby__sub_8013A170(lbl_8043F044);
         dispatch_by_index__6TLobbyFi(2);
         reset_state__6TLobbyFv(0xd);
+    }
+}
+
+void TLobby__sub_80137708(u32 arg0) {
+    s32 temp_r31;
+    switch (arg0) {
+    case 0:
+    case 2:
+        TLobby__sub_8013A170(lbl_8043F05C);
+        dispatch_by_index__6TLobbyFi((int) (1));
+        temp_r31 = get_option_state__6TLobbyFv();
+        TLobby__sub_801DA8C4((int) (TLobby__data_805D5580), (void *) (((s32)get_char_index__23TAdSinglePlyChrSelectGCFUi((u32)(0xFFFF))) + 0x370), (int) (temp_r31));
+        return;
+    case 1:
+        fn_801DB998((int) (TLobby__data_805D5580));
+        return;
+    case 3:
+        dispatch_by_index__6TLobbyFi((int) (0));
+        reset_state__6TLobbyFv((int) (0x4E));
+        return;
+    case 4:
+        dispatch_by_index__6TLobbyFi((int) (0));
+        reset_state__6TLobbyFv((int) (0x4F));
+        return;
+    case 7:
+        reset_state__6TLobbyFv((int) (0x1B));
+        return;
+    case 8:
+        reset_state__6TLobbyFv((int) (0x1A));
+        return;
+    case 11:
+        reset_state__6TLobbyFv((int) (0x16));
+        return;
+    case 12:
+        reset_state__6TLobbyFv((int) (0x17));
+        return;
+    case 13:
+        reset_state__6TLobbyFv((int) (0x18));
+        return;
+    case 14:
+        reset_state__6TLobbyFv((int) (0x19));
+        return;
+    case 15:
+    case 16:
+        reset_state__6TLobbyFv((int) (0x15));
+        return;
+    case 17:
+        reset_state__6TLobbyFv((int) (0x1A));
+        return;
+    case 18:
+        reset_state__6TLobbyFv((int) (0x1B));
+        return;
+    case 19:
+        reset_state__6TLobbyFv((int) (0x1C));
+        return;
+    case 26:
+        reset_state__6TLobbyFv((int) (0x1D));
+        return;
+    case 27:
+        reset_state__6TLobbyFv((int) (0x1E));
+        return;
+    default:
+        reset_state__6TLobbyFv((int) (0x1D));
+        return;
     }
 }
 

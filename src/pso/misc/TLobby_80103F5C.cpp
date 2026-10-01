@@ -11,6 +11,15 @@ struct In_80104438 { u8 pad0; u8 idx; };
 
 struct Ent_80103F68 { u8 pad[0x24]; };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_40 { u8 bytes[0x40]; };
+
+struct M2CCopy_44 { u8 bytes[0x44]; };
+
+struct Tbl_801044B8 { s32 v[17]; };
+
 extern "C" {
 M2C_UNK clear_id__10TObjPlayerFPv(M2C_UNK *);
 M2C_UNK free__11TOBoss4RockFUi(s32);
@@ -108,6 +117,11 @@ extern s32 lbl_805D541C;
 extern s32 lbl_805D5420;
 extern s32 lbl_805D542C;
 void TLobby__sub_80103F68(void);
+s32 get_instance__6TLobbyFv();
+s32 TCameraCtrl__sub_8006B368();
+s32 TItemDropSub__sub_80107B74();
+extern Tbl_801044B8 lbl_8043E068;
+void TLobby__sub_801044B8(s32 *p);
 }
 
 extern "C" {
@@ -222,6 +236,48 @@ void handle_select_confirm__6TLobbyFv(void) {
         }
     }
 }
+
+void TLobby__sub_801044B8(s32 *p) {
+    s32 v;
+    if (TCameraCtrl__sub_8006B368() != 0 && p != NULL) {
+        switch (*p) {
+        case 0x10:
+        case 0x11:
+            *p = TItemDropSub__sub_80107B74();
+            return;
+        }
+    }
+    if (get_instance__6TLobbyFv() == 0) {
+        if (p != NULL) {
+            v = *p;
+            if (v > 10) {
+                switch (v) {
+                case 11:
+                    *p = 3;
+                    break;
+                case 12:
+                    *p = 6;
+                    break;
+                case 13:
+                    *p = 8;
+                    break;
+                default:
+                    *p = 10;
+                    break;
+                }
+            } else if (v < 1) {
+                *p = 1;
+            }
+        }
+    } else if (p != NULL) {
+        v = *p;
+        if (v >= 0x13 && v < 0x24) {
+            Tbl_801044B8 t = lbl_8043E068;
+            *p = t.v[(u32)(v - 0x13)];
+        }
+    }
+}
+
 void forward_to_player__6TLobbyFiPv(int arg0, void *arg1) {
     s32 temp_r3;
     if (arg1 != NULL) {
