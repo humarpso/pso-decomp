@@ -1195,6 +1195,7 @@ pso/misc/TLobby_80226070_802260C4.cpp
 pso/misc/TLobby_80226070_802260F0.cpp
 pso/misc/TLobby_80228C84.cpp
 pso/misc/TLobby_8023F734_8024074C.cpp
+pso/misc/TLobby_80242910.cpp
 pso/misc/TLobby_80243370.cpp
 pso/misc/TLobby_80244D2C.cpp
 pso/misc/TLobby_8024A148.cpp
@@ -1434,6 +1435,7 @@ pso/misc/TODoorAncient07_8015F930.cpp
 pso/misc/TODoorAncient08.cpp
 pso/misc/TODoorAncient09.cpp
 pso/misc/TODoorCave02.cpp
+pso/misc/TODoorCave02_8016206C.cpp
 pso/misc/TODoorCave03.cpp
 pso/misc/TODoorVoShip.cpp
 pso/misc/TODoorVoShip_8021A05C.cpp
@@ -1560,6 +1562,7 @@ pso/misc/TPhotonMylla.cpp
 pso/misc/TPhotonPilla.cpp
 pso/misc/TPhotonRainbow.cpp
 pso/misc/TPhotonRainbow_801AE640.cpp
+pso/misc/TPhotonYoulla.cpp
 pso/misc/TPlayerBattleCtrl4P.cpp
 pso/misc/TPlayerBattleCtrl4P_801C4F70.cpp
 pso/misc/TPlayerBattleCtrl4P_80312BDC.cpp
@@ -2191,6 +2194,7 @@ pso/object/TObjCityMapWarp.cpp
 pso/object/TObjCityMapWarp_80185A64.cpp
 pso/object/TObjCity_Season_21_21.cpp
 pso/object/TObjCity_Season_Board.cpp
+pso/object/TObjCity_Season_EasterEgg.cpp
 pso/object/TObjCity_Season_EasterEgg_80184AB8.cpp
 pso/object/TObjCity_Season_FireWorkCtrl.cpp
 pso/object/TObjCity_Season_HalloweenPumpkin.cpp
@@ -2435,6 +2439,7 @@ pso/player/TObjPlayer_8010853C.cpp
 pso/player/TObjPlayer_80108854.cpp
 pso/player/TObjPlayer_80109344_80109464.cpp
 pso/player/TObjPlayer_80109344_801094B0.cpp
+pso/player/TObjPlayer_8010A050.cpp
 pso/player/TObjPlayer_8010A050_8010A26C.cpp
 pso/player/TObjPlayer_8010ECD0.cpp
 pso/player/TObjPlayer_80116578.cpp
@@ -4185,3 +4190,4 @@ pso/unk/text_803F632C.cpp
 pso/unk/text_8042EE4C.cpp
 si/SIBios.c
 si/SISamplingRate.c
+vi/vi.c

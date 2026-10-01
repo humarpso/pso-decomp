@@ -19,6 +19,10 @@
 #define shdwChangeMode lbl_805D71D0
 #define shdwChanged lbl_805D71D8
 #define shdwRegs lbl_80544860
+#define encoderType lbl_805D71B8
+#define displayOffsetH lbl_805D71BC
+#define displayOffsetV lbl_805D71BE
+#define message lbl_805D71EC
 
 #include <dolphin/vi.h>
 #include <dolphin/gx.h>
@@ -109,14 +113,20 @@ static volatile u64 shdwChanged;
 static VITiming* CurrTiming;
 static u32 CurrTvMode;
 static u32 FBSet;
+static u32 message;
 
-static u16 regs[59];
-static u16 shdwRegs[59];
+static u16 regs[60];
+static u16 shdwRegs[60];
 static SomeVIStruct HorVer;
 
 #define MARK_CHANGED(index) (changed |= 1LL << (63 - (index)))
 
-static VITiming timing[8] = {
+
+static struct {
+	VITiming timing_[8];
+	u16 taps_[25];
+	u16 pad_;
+} lbl_804F4800 = { {
 
 	{ 6,   240, 24,  25,  3,  2,  12,  13,  12,  13,  520, 519,
 	  520, 519, 525, 429, 64, 71, 105, 162, 373, 122, 412 },
@@ -141,11 +151,11 @@ static VITiming timing[8] = {
 
 	{ 12,   480,  44,   44,  10, 10, 24,  24,  24,  24,  1038, 1038,
 	  1038, 1038, 1050, 429, 64, 71, 105, 168, 379, 122, 412 },
-};
-static u16 taps[25]
-    = { 0x01F0, 0x01DC, 0x01AE, 0x0174, 0x0129, 0x00DB, 0x008E, 0x0046, 0x000C,
+}, { 0x01F0, 0x01DC, 0x01AE, 0x0174, 0x0129, 0x00DB, 0x008E, 0x0046, 0x000C,
 	    0x00E2, 0x00CB, 0x00C0, 0x00C4, 0x00CF, 0x00DE, 0x00EC, 0x00FC, 0x0008,
-	    0x000F, 0x0013, 0x0013, 0x000F, 0x000C, 0x0008, 0x0001 };
+	    0x000F, 0x0013, 0x0013, 0x000F, 0x000C, 0x0008, 0x0001 } };
+
+#define taps lbl_804F4800.taps_
 
 static u32 getCurrentFieldEvenOdd(void);
 
@@ -265,34 +275,34 @@ static VITiming* getTiming(VITVMode mode)
 {
 	switch (mode) {
 	case VI_TVMODE_NTSC_INT:
-		return &timing[0];
+		return &lbl_804F4800.timing_[0];
 	case VI_TVMODE_NTSC_DS:
-		return &timing[1];
+		return &lbl_804F4800.timing_[1];
 
 	case VI_TVMODE_PAL_INT:
-		return &timing[2];
+		return &lbl_804F4800.timing_[2];
 	case VI_TVMODE_PAL_DS:
-		return &timing[3];
+		return &lbl_804F4800.timing_[3];
 
 	case VI_TVMODE_EURGB60_INT:
-		return &timing[0];
+		return &lbl_804F4800.timing_[0];
 	case VI_TVMODE_EURGB60_DS:
-		return &timing[1];
+		return &lbl_804F4800.timing_[1];
 
 	case VI_TVMODE_MPAL_INT:
-		return &timing[4];
+		return &lbl_804F4800.timing_[4];
 	case VI_TVMODE_MPAL_DS:
-		return &timing[5];
+		return &lbl_804F4800.timing_[5];
 
 	case VI_TVMODE_NTSC_PROG:
-		return &timing[6];
+		return &lbl_804F4800.timing_[6];
 	case VI_TVMODE_3:
-		return &timing[7];
+		return &lbl_804F4800.timing_[7];
 
 	case VI_TVMODE_DEBUG_PAL_INT:
-		return &timing[2];
+		return &lbl_804F4800.timing_[2];
 	case VI_TVMODE_DEBUG_PAL_DS:
-		return &timing[3];
+		return &lbl_804F4800.timing_[3];
 
 	default:
 		return NULL;
@@ -360,8 +370,8 @@ void __VIInit(VITVMode mode)
 	__VIRegs[54] = 1;
 }
 
-
-
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
 
 
 
@@ -718,6 +728,16 @@ static void setVerticalRegs(u16 dispPosY, u16 dispSizeY, u8 equ, u16 acv,
 	MARK_CHANGED(8);
 }
 
+
+
+static char lbl_804F49BC[0x10C] =
+	"***************************************\n\0\0\0\0"
+	" ! ! ! C A U T I O N ! ! !             \n\0\0\0\0"
+	"This TV format \"DEBUG_PAL\" is only for \n\0\0\0\0"
+	"temporary solution until PAL DAC board \n\0\0\0\0"
+	"is available. Please do NOT use this   \n\0\0\0\0"
+	"mode in real games!!!                  \n\0\0\0\0";
+
 void VIConfigure(const GXRenderModeObj* rm)
 {
 	VITiming* tm;
@@ -727,7 +747,6 @@ void VIConfigure(const GXRenderModeObj* rm)
 	u32 nonInter;
 	u32 tvInBootrom;
 	u32 tvInGame;
-	static u32 message = FALSE;
 
 	enabled = OSDisableInterrupts();
 
@@ -743,13 +762,13 @@ void VIConfigure(const GXRenderModeObj* rm)
 
 	if (tvInGame == VI_DEBUG_PAL && message == FALSE) {
 		message = TRUE;
-		OSReport("***************************************\n");
-		OSReport(" ! ! ! C A U T I O N ! ! !             \n");
-		OSReport("This TV format \"DEBUG_PAL\" is only for \n");
-		OSReport("temporary solution until PAL DAC board \n");
-		OSReport("is available. Please do NOT use this   \n");
-		OSReport("mode in real games!!!                  \n");
-		OSReport("***************************************\n");
+		OSReport(&lbl_804F49BC[0x0]);
+		OSReport(&lbl_804F49BC[0x2C]);
+		OSReport(&lbl_804F49BC[0x58]);
+		OSReport(&lbl_804F49BC[0x84]);
+		OSReport(&lbl_804F49BC[0xB0]);
+		OSReport(&lbl_804F49BC[0xDC]);
+		OSReport(&lbl_804F49BC[0x0]);
 	}
 
 	if (tvInGame == VI_NTSC || tvInGame == VI_MPAL)
@@ -824,40 +843,6 @@ void VIConfigure(const GXRenderModeObj* rm)
 	                tm->acv, tm->prbOdd, tm->prbEven, tm->psbOdd, tm->psbEven,
 	                HorVer.black);
 	OSRestoreInterrupts(enabled);
-}
-
-void VIConfigurePan(u16 xOrg, u16 yOrg, u16 width, u16 height) {
-    BOOL enabled;
-    VITiming* tm;
-
-#if DEBUG
-    ASSERTMSGLINEV(2118, (xOrg & 1) == 0,
-        "VIConfigurePan(): Odd number(%d) is specified to xOrg\n",
-        xOrg);
-    if (HorVer.FBMode == VI_XFBMODE_DF) {
-        ASSERTMSGLINEV(2123, (height & 1) == 0,
-            "VIConfigurePan(): Odd number(%d) is specified to height when DF XFB mode\n",
-            height);
-    }
-#endif
-    enabled = OSDisableInterrupts();
-    HorVer.PanPosX   = xOrg;
-    HorVer.PanPosY   = yOrg;
-    HorVer.PanSizeX  = width;
-    HorVer.PanSizeY  = height;
-    HorVer.DispSizeY = (HorVer.nonInter == 2)           ? HorVer.PanSizeY :
-                       (HorVer.nonInter == 3)           ? HorVer.PanSizeY :
-                       (HorVer.FBMode == VI_XFBMODE_SF) ? (u16)(HorVer.PanSizeY * 2) :
-                                                          HorVer.PanSizeY;
-    tm = HorVer.timing;
-    AdjustPosition(tm->acv);
-    setScalingRegs(HorVer.PanSizeX, HorVer.DispSizeX, HorVer.threeD);
-    setPicConfig(HorVer.FBSizeX, HorVer.FBMode, HorVer.PanPosX, HorVer.PanSizeX, &HorVer.wordPerLine, &HorVer.std, &HorVer.wpl, &HorVer.xof);
-    if (FBSet != 0) {
-        setFbbRegs(&HorVer, &HorVer.tfbb, &HorVer.bfbb, &HorVer.rtfbb, &HorVer.rbfbb);
-    }
-    setVerticalRegs(HorVer.AdjustedDispPosY, HorVer.DispSizeY, tm->equ, tm->acv, tm->prbOdd, tm->prbEven, tm->psbOdd, tm->psbEven, HorVer.black);
-    OSRestoreInterrupts(enabled);
 }
 
 void VIFlush(void)

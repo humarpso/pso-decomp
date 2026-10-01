@@ -95,7 +95,7 @@ s32 __dl__FPv(void *);
 s32 allow_rendering__7TObjectFv(u32);
 s32 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
 int VIWaitForRetrace(void);
-int fn_8037C11C(void*);
+int VIConfigure(void*);
 int VIFlush(void);
 M2C_UNK memset(void *, int, int);
 void set_field_2c__13TAdVIConfigGCFPvi(void *, int);
@@ -195,7 +195,7 @@ void set_field48_clear_global__13TAdVIConfigGCFPv(void *arg0) {
 
     extern unsigned char lbl_804F4F98[];
     extern int lbl_805D7734;
-void enable_progressive_mode__13TAdVIConfigGCFv(void * _w0) { OSSetProgressiveMode((void*)1); lbl_805D7734 = (int)lbl_804F4F98; fn_8037C11C(lbl_804F4F98); VIFlush(); VIWaitForRetrace(); VIWaitForRetrace(); }
+void enable_progressive_mode__13TAdVIConfigGCFv(void * _w0) { OSSetProgressiveMode((void*)1); lbl_805D7734 = (int)lbl_804F4F98; VIConfigure(lbl_804F4F98); VIFlush(); VIWaitForRetrace(); VIWaitForRetrace(); }
 
 int disable_progressive_mode__13TAdVIConfigGCFv(void* _w0) { return OSSetProgressiveMode((void*)(0)); }
 void TAdVIConfigGC__vt8(void) { TAdSinglePlyChrSelectGC__sub_80132F2C((void*)29, (void*)0); }

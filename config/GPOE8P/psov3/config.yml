@@ -118,6 +118,7 @@ force_active:
   - __DSP_remove_task
   - __DSP_rude_task
   - __DSP_rude_task_pending
+  - __VIInit
   - __ct__15TBoss6CrushRockFv
   - __ct__9TEffGuardFPC3Vec
   - __dt__10TBoss4FadeFv

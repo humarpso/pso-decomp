@@ -164,7 +164,7 @@ M2C_UNK TLobby__sub_8033843C();
 M2C_UNK load_info_icon();
 M2C_UNK enable_and_trigger__15TObjBoss2TunnelFv();
 u32 OSInitAlloc(u32, u32, int);
-M2C_UNK fn_8037B7DC();
+M2C_UNK VIInit();
 M2C_UNK PADInit();
 M2C_UNK PADSetSpec(int);
 M2C_UNK GXSetPixelFmt(int, int);
@@ -389,7 +389,7 @@ void TKeyBoardControl__sub_8000FAE4(void) {
     PADSetSpec(5);
     OSInit();
     DVDInit();
-    fn_8037B7DC();
+    VIInit();
     PADInit();
     update_camera__16TKeyBoardControlFv();
     lo = OSGetArenaLo();

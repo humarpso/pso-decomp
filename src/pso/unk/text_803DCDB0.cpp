@@ -5,7 +5,7 @@ extern "C" {
 void fn_803DD080(void *, void *);
 void init_locked_cache_heap(void *);
 extern void *lbl_805D7734;
-void fn_8037C11C(void *);
+void VIConfigure(void *);
 void fn_803DD0D8(void);
 void fn_803DD294(void);
 void fn_803DCDB0(void *arg0);
@@ -16,7 +16,7 @@ extern "C" {
 void fn_803DCDB0(void *arg0) {
     fn_803DD080(M2C_FIELD(arg0, void **, 0x0), M2C_FIELD(arg0, void **, 0x4));
     init_locked_cache_heap(arg0);
-    fn_8037C11C(lbl_805D7734);
+    VIConfigure(lbl_805D7734);
     fn_803DD0D8();
     fn_803DD294();
 }
