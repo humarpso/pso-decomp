@@ -62,6 +62,19 @@ struct Angles_803D7CA4 { s32 x, y, z; };
 
 struct Quat_803D7CA4 { f32 x, y, z, w; };
 
+struct Node_803E4E20 {
+    u32 flags;
+    s32 *obj;
+    u8 pad[0x2C - 0x8];
+    Node_803E4E20 *child;
+    Node_803E4E20 *next;
+};
+
+struct Ctx_803E4E20 {
+    u8 pad[0xC];
+    void (*draw)(s32 *);
+};
+
 extern "C" {
 extern u8 *lbl_805D7818;
 void TObjPlayer__sub_803E53F8(u8 *arg0, f32 farg0);
@@ -74,11 +87,17 @@ extern u8 *lbl_805D7818;
 void TObjPlayer__sub_803E5378(s32 n);
 void TObjPlayer__sub_803D7B68(s32);
 void TObjPlayer__sub_803DCB40(s32);
-void TObjPlayer__sub_803E4E20(s32);
 void TObjPlayer__sub_803E53F8(u8 *arg0, f32 farg0);
 void TObjPlayer__sub_803E5458(s32 arg0);
 extern u8 *lbl_805D4698;
 void TObjPlayer__sub_803E4D8C(s32 arg0, s32 arg1, u8 *arg2, f32 farg0, s32 arg3);
+void TObjPlayer__sub_803D7CA4(Node_803E4E20 *);
+void TObjPlayer__sub_803D9B2C(void);
+void TObjPlayer__sub_803D9B78(void);
+void TObjPlayer__sub_803E53BC(void);
+void update_render_state__10TObjPlayerFv(s32 *, s32 *);
+extern u8 *lbl_805D4698;
+void TObjPlayer__sub_803E4E20(s32 arg0);
 }
 
 extern "C" {
@@ -103,7 +122,40 @@ void TObjPlayer__sub_803E4D8C(s32 arg0, s32 arg1, u8 *arg2, f32 farg0, s32 arg3)
     }
     TObjPlayer__sub_803E5458(0);
     TObjPlayer__sub_803E53F8(arg2, farg0);
-    TObjPlayer__sub_803E4E20(arg0);
+    TObjPlayer__sub_803E4E20((s32)(arg0));
+}
+
+void TObjPlayer__sub_803E4E20(s32 arg0) {
+    s32 tmp;
+    Ctx_803E4E20 *ctx;
+    s32 *obj;
+    s32 save;
+    Node_803E4E20 *n;
+    n = (Node_803E4E20 *)arg0;
+    ctx = (Ctx_803E4E20 *)lbl_805D4698;
+    do {
+        TObjPlayer__sub_803D9B2C();
+        TObjPlayer__sub_803D7CA4(n);
+        if (!(n->flags & 0x80)) {
+            obj = n->obj;
+            if (obj != NULL && !(n->flags & 8)) {
+                update_render_state__10TObjPlayerFv(obj, &tmp);
+                save = *obj;
+                *obj = tmp;
+                ctx->draw(obj);
+                *obj = save;
+            } else {
+                TObjPlayer__sub_803E53BC();
+            }
+        } else if (n->obj != NULL && !(n->flags & 8)) {
+            ctx->draw(n->obj);
+        }
+        if (n->child != NULL) {
+            TObjPlayer__sub_803E4E20((s32)n->child);
+        }
+        TObjPlayer__sub_803D9B78();
+        n = n->next;
+    } while (n != NULL);
 }
 
 void TObjPlayer__sub_803E5378(s32 n) {

@@ -56,6 +56,15 @@ typedef union WGPipe_803E46FC {
     f32 f32;
 } WGPipe_803E46FC;
 
+typedef struct Vtx_803E47E0 { f32 x, y, z, nx, ny, nz; u32 pad[2]; } Vtx_803E47E0;
+
+typedef union WGPipe_803E47E0 {
+    u8 u8;
+    u16 u16;
+    u32 u32;
+    f32 f32;
+} WGPipe_803E47E0;
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_803E20B0();
 M2C_UNK setup_render__10TObjPlayerFv();
@@ -130,6 +139,12 @@ void Dolphin_GXSetVtxDesc(int, int);
 void GXClearVtxDesc(void);
 void GXBegin(int, int, u16);
 void TObjPlayer__sub_803E46FC(s16 *list, Vtx_803E46FC *verts, u32 info);
+void Dolphin_GXSetVtxDesc(int, int);
+void GXClearVtxDesc(void);
+void GXBegin(int, int, u16);
+void clear_move_state_bits__10TObjPlayerFv(void);
+extern s32 lbl_805D77F8;
+void TObjPlayer__sub_803E47E0(s16 *list, Vtx_803E47E0 *verts, u32 info);
 }
 
 extern "C" {
@@ -436,6 +451,67 @@ void TObjPlayer__sub_803E46FC(s16 *list, Vtx_803E46FC *verts, u32 info) {
             v = &verts[*list++];
             GXPosition3f32_803E46FC(v->x, v->y, v->z);
             GXNormal3f32_803E46FC(v->nx, v->ny, v->nz);
+            list += skip;
+        } while (--n != 0);
+    } while (--count != 0);
+}
+#pragma pop
+
+#pragma push
+#pragma use_lmw_stmw off
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma optimization_level 4
+static inline void GXPosition3f32_803E47E0(f32 x, f32 y, f32 z) {
+    (*(volatile WGPipe_803E47E0 *)0xCC008000).f32 = x;
+    (*(volatile WGPipe_803E47E0 *)0xCC008000).f32 = y;
+    (*(volatile WGPipe_803E47E0 *)0xCC008000).f32 = z;
+}
+static inline void GXNormal3f32_803E47E0(f32 x, f32 y, f32 z) {
+    (*(volatile WGPipe_803E47E0 *)0xCC008000).f32 = x;
+    (*(volatile WGPipe_803E47E0 *)0xCC008000).f32 = y;
+    (*(volatile WGPipe_803E47E0 *)0xCC008000).f32 = z;
+}
+void TObjPlayer__sub_803E47E0(s16 *list, Vtx_803E47E0 *verts, u32 info) {
+    s32 skip;
+    s32 n;
+    s32 draw;
+    u32 count;
+    Vtx_803E47E0 *v;
+    draw = 1;
+    skip = (info >> 14) & 3;
+    count = info & 0x3FFF;
+    if ((u32)lbl_805D77F8 != 0) {
+        if ((u32)lbl_805D77F8 & 1) {
+            if ((u32)lbl_805D77F8 & 0x200) {
+                clear_move_state_bits__10TObjPlayerFv();
+                draw = 0;
+            }
+        } else if ((u32)lbl_805D77F8 & 2) {
+            if ((u32)lbl_805D77F8 & 0x400) {
+                clear_move_state_bits__10TObjPlayerFv();
+                draw = 0;
+            }
+        }
+    }
+    clear_move_state_bits__10TObjPlayerFv();
+    GXClearVtxDesc();
+    Dolphin_GXSetVtxDesc(9, 1);
+    Dolphin_GXSetVtxDesc(0xA, 1);
+    do {
+        n = *list++;
+        if (n < 0) {
+            n = -n;
+        }
+        if (draw) {
+            GXBegin(0x98, 0, n);
+        }
+        do {
+            v = &verts[*list++];
+            if (draw) {
+                GXPosition3f32_803E47E0(v[2].x, v[2].y, v[2].z);
+                GXNormal3f32_803E47E0(v[2].nx, v[2].ny, v[2].nz);
+            }
             list += skip;
         } while (--n != 0);
     } while (--count != 0);
