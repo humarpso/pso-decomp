@@ -3987,6 +3987,7 @@ pso/unk/text_80108F04.cpp:
 
 pso/item/TItemEffHeaven.cpp:
 	.text       start:0x80108FEC end:0x80109344
+	.data       start:0x8049F088 end:0x8049F0A0
 
 pso/player/TObjPlayer_80109344.cpp:
 	.text       start:0x80109344 end:0x80109464
@@ -4009,6 +4010,7 @@ pso/unk/text_801095EC.cpp:
 
 pso/item/TItemEffLavis.cpp:
 	.text       start:0x80109670 end:0x80109710
+	.data       start:0x8049F0B8 end:0x8049F0D4
 
 pso/unk/text_80109710.cpp:
 	.text       start:0x80109710 end:0x80109798
@@ -4041,6 +4043,7 @@ pso/item/TItemEffNeedle.cpp:
 
 pso/item/TItemEffNeedleBase.cpp:
 	.text       start:0x80109F98 end:0x80109FF8
+	.data       start:0x8049F110 end:0x8049F12C
 
 pso/item/TItemEffNeedlePos.cpp:
 	.text       start:0x80109FF8 end:0x8010A050
@@ -10715,6 +10718,7 @@ pso/misc/TQuestThread_801F4A04.cpp:
 
 pso/item/TObjItemOKWindow_801F4A6C.cpp:
 	.text       start:0x801F4A6C end:0x801F4C70
+	.data       start:0x804C8510 end:0x804C8528
 
 pso/unk/text_801F4C70.cpp:
 	.text       start:0x801F4C70 end:0x801F4CD8

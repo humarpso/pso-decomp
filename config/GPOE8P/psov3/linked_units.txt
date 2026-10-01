@@ -576,6 +576,7 @@ pso/item/TItemEffEquip_801088D0.cpp
 pso/item/TItemEffEquip_801088F8.cpp
 pso/item/TItemEffEquip_80108920.cpp
 pso/item/TItemEffLandHit.cpp
+pso/item/TItemEffLavis.cpp
 pso/item/TItemEffNeedleBase_80109D48.cpp
 pso/item/TItemEffNeedlePos_801097F0.cpp
 pso/item/TItemEffOrgaFlowShot.cpp
@@ -786,6 +787,7 @@ pso/item/TObjItemNameEntry_801F5018.cpp
 pso/item/TObjItemNameSelect.cpp
 pso/item/TObjItemNameSelect_801F4D70.cpp
 pso/item/TObjItemOKWindow.cpp
+pso/item/TObjItemOKWindow_801F4A6C.cpp
 pso/menu/TAdEndText_80307A34.cpp
 pso/menu/TAdEndText_80399904.cpp
 pso/menu/TAdRicoRing_8001BEE8.cpp
@@ -1083,6 +1085,8 @@ pso/misc/TLobby_8020B03C.cpp
 pso/misc/TLobby_8020B334.cpp
 pso/misc/TLobby_8020B588.cpp
 pso/misc/TLobby_8020BC08.cpp
+pso/misc/TLobby_8020BF68.cpp
+pso/misc/TLobby_8020BFC4.cpp
 pso/misc/TLobby_8020C608.cpp
 pso/misc/TLobby_8020C8A4.cpp
 pso/misc/TLobby_8020CB34.cpp
@@ -2655,13 +2659,17 @@ pso/player/TObjPlayer_801C77C8.cpp
 pso/player/TObjPlayer_801C7A4C.cpp
 pso/player/TObjPlayer_801C841C.cpp
 pso/player/TObjPlayer_801C862C.cpp
+pso/player/TObjPlayer_801C8718.cpp
 pso/player/TObjPlayer_801C8790.cpp
+pso/player/TObjPlayer_801C8878.cpp
 pso/player/TObjPlayer_801C8A20.cpp
 pso/player/TObjPlayer_801C8AA4.cpp
 pso/player/TObjPlayer_801C8D4C.cpp
 pso/player/TObjPlayer_801C8F48.cpp
 pso/player/TObjPlayer_801C90F8.cpp
 pso/player/TObjPlayer_801C91AC.cpp
+pso/player/TObjPlayer_801C93D0.cpp
+pso/player/TObjPlayer_801C950C.cpp
 pso/player/TObjPlayer_801C96C4.cpp
 pso/player/TObjPlayer_801C999C.cpp
 pso/player/TObjPlayer_801C9A14.cpp

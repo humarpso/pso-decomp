@@ -22,6 +22,6 @@ int TObjPlayer__sub_801B130C(void*);
 void init_effects__10TObjPlayerFPv(void* p) { TObjPlayer__sub_801BE9A8(p); TObjPlayer__sub_8011E204(p, (void*)5); TObjPlayer__sub_801B12CC(p); set_indexed_flags(p, (void*)0, (void*)1); TObjPlayer__sub_801C5B18((char*)p + 0x608); }
 int TObjPlayer__sub_801C8770(void* p) { return TObjPlayer__sub_801B130C(p); }
 
-int handle_6x57(void) { return 0; }
+int handle_6x57(void);
 
 }

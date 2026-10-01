@@ -16,7 +16,7 @@ s32 obj_getS16_32C(void * a0 = 0);
 int TFontSmallLobby__sub_801C0228(void*);
 void TObjPlayer__sub_801C959C(void);
 
-int handle_6x53(void) { return 0; }
+int handle_6x53(void);
 
 void update_gated_action__10TObjPlayerFPv(void *arg0) {
     s32 temp_r31;

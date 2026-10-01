@@ -109,6 +109,7 @@ force_active:
   - __dt__16TBoss3VoloptCtrlFv
   - __dt__16TChCrLoadGmNjReqFv
   - __dt__16TItemReverseTechFv
+  - __dt__16TObjItemOKWindowFv
   - __dt__17TOSwitchAttackSubFv
   - __dt__17TObjItemNameEntryFv
   - __dt__18TAdLoadQuestLineGCFv

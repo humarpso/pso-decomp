@@ -19,7 +19,7 @@ int TObjPlayer__sub_801C5B18(void*);
 int TObjPlayer__sub_801C8770(void* p);
 int TObjPlayer__sub_801B130C(void*);
 
-int handle_6x57(void) { return 0; }
+int handle_6x57(void);
 void draw_and_send_field1c__10TObjPlayerFi(s32 arg0) {
     s8 sp8[8];
 
