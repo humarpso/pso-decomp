@@ -17,6 +17,10 @@ void *TQuadSpriteSclColRot__ct(void *, void *, ParticleDefinition *);
 extern ParticleDefinition lbl_804C5820[];
 extern void *TParticleCtrl__data_80511F70[];
 extern void *tl_particle;
+extern f32 lbl_80512120[][4];
+extern s32 lbl_805D35A0[2];
+extern const f32 lbl_805DC458;
+extern const f32 lbl_805DC45C;
 
 void TParticleCtrl__sub_801E5330(void) {
     s32 i;
@@ -81,6 +85,38 @@ void create_quad_sprites__13TParticleCtrlFv(void)
         sprites[index] = sprite;
         index++;
     } while (index < 0x6C);
+}
+
+void TParticleCtrl__sub_801E54F0(void) {
+    f32 (*p)[4];
+    s32 y;
+    s32 x;
+    s32 i;
+    f32 left;
+    f32 u;
+    f32 top;
+    f32 v;
+
+    p = lbl_80512120;
+    v = lbl_805DC458;
+    for (y = 0; y < 4; y++) {
+        top = v;
+        u = lbl_805DC458;
+        v += lbl_805DC45C;
+        for (x = 0; x < 4; x++) {
+            left = u;
+            u += lbl_805DC45C;
+            (*p)[0] = left;
+            (*p)[1] = top;
+            (*p)[2] = u;
+            (*p)[3] = v;
+            p++;
+        }
+    }
+    for (i = 0; i < 0x6C; i++) {
+        *(s32 *)(lbl_804C5820[i].data + 4) = lbl_805D35A0[*(s32 *)(lbl_804C5820[i].data + 0x20)];
+        TParticleCtrl__data_80511F70[i] = 0;
+    }
 }
 
 }

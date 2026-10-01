@@ -688,6 +688,9 @@ void TProtocol::recv_user_ans(packet &pkt) {
 	}
 };
 
+struct M2CCopy_C { u8 bytes[0xc]; };
+extern "C" u8 *__as__14LobbyListEntryFRC14LobbyListEntry(void *arg0, const void *arg1);
+
 void TProtocol::recv_room_info(packet &pkt) {
 	typedef TMenuList<LobbyListEntry, 16, 0> lobby_list;
 	lobby_list tmp = as(lobby_list &, pkt);
@@ -697,14 +700,26 @@ void TProtocol::recv_room_info(packet &pkt) {
 
 	if (enable_v2_features) {
 		for (int i = 0; i < m_lobby_list_count; ++i) {
-			m_lobby_entries[i] = tmp.entries[i];
+			__as__14LobbyListEntryFRC14LobbyListEntry(&m_lobby_entries[i], &tmp.entries[i]);
 		}
 	} else {
 		for (int i = 0; i < 10; ++i) {
-			m_lobby_entries[i] = tmp.entries[i];
+			__as__14LobbyListEntryFRC14LobbyListEntry(&m_lobby_entries[i], &tmp.entries[i]);
 		}
 	}
 };
+
+#pragma push
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+#pragma scheduling off
+extern "C" u8 *__as__14LobbyListEntryFRC14LobbyListEntry(void *arg0, const void *arg1) {
+    *(M2CCopy_C *)(arg0) = *(const M2CCopy_C *)(arg1);
+    return (u8 *)arg0;
+}
+struct M2CCopy_C;
+#pragma pop
 
 void TProtocol::recv_generate_id(packet &pkt) {
 	TRecvGenerateID tmp = as(TRecvGenerateID &, pkt);

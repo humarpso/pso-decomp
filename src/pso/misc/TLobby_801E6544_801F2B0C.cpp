@@ -48,6 +48,10 @@ void qst_getargs_801F2B54(s32 arg0) {
     TLobby__data_805D5EA4 = 0;
 }
 
+void qst_getargs_801F2B94(s32 arg0) {
+    ((void (*)(void))lbl_804C69D8[arg0].fn)();
+}
+
 extern int TLobby__data_80512240[];
 extern int TLobby__data_805D5E8C;
 void push_op_arg__6TLobbyFi(int a0)

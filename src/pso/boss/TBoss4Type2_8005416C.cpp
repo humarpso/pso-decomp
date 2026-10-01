@@ -13,6 +13,24 @@ struct V_80054224 { f32 x, y, z; };
 
 struct S_80054224 { u8 pad0[0x38]; V_80054224 pos; u8 pad44[0x39c - 0x44]; f32 f39c; };
 
+struct Boss_800542B0 {
+    u8 pad0[0x374];
+    s32 state;
+    u8 pad378[0x3D0 - 0x378];
+    s32 f3d0;
+    u8 pad3d4[0x3F8 - 0x3D4];
+    void *items[13];
+};
+
+typedef void (Boss_800542B0::*Act_800542B0)();
+
+struct Entry_800542B0 {
+    s32 f0;
+    s32 f4;
+    Act_800542B0 enter;
+    u8 pad14[0x2C - 0x14];
+};
+
 typedef s32 M2C_UNK;
 extern "C" {
 extern RecoveredGlobal_80054530_lbl_80485EC8 lbl_80485EC8;
@@ -38,6 +56,8 @@ M2C_UNK clear_global_state__10TObjPlayerFv();
 extern s32 lbl_80485EB0[];
 extern RecoveredGlobal_80054530_lbl_80485EC8 lbl_80485EC8;
 void TObjFish__sub_800543A4(u8 *arg0);
+void request_destroy__11TBoss4Type2FUi(void *);
+extern Entry_800542B0 lbl_80485C48[];
 }
 
 extern "C" {
@@ -70,6 +90,26 @@ void TBoss4Type2__sub_80054224(S_80054224 *o, void *src, V_80054224 *in) {
     v.z *= o->f39c;
     VecCopy__FP3VecPC3Vec(&o->pos, src);
     TBoss4Zako__sub_803D8910(&o->pos, &v);
+}
+
+void TBoss4Type2__sub_800542B0(Boss_800542B0 *arg0, s32 arg1) {
+    s32 i;
+    void **p;
+
+    arg0->state = arg1;
+    for (i = 8; i < 13; i++) {
+        p = &arg0->items[i];
+        if (*p != NULL) {
+            request_destroy__11TBoss4Type2FUi(*p);
+            *p = NULL;
+        }
+    }
+    arg0->f3d0 = 5;
+    TBoss4Type2__sub_80054530((u8 *)arg0, lbl_80485C48[arg0->state].f4);
+    Act_800542B0 f = lbl_80485C48[arg0->state].enter;
+    if (f) {
+        (arg0->*f)();
+    }
 }
 
 u8 *TBoss4Type2__sub_80054384(void *self, s32 i, s32 j) {

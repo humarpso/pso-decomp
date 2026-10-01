@@ -36,6 +36,7 @@ int test_flag_2000000__10TObjPlayerFPv(void *);
 Ply_8019750C *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 void TRaderMapCore__sub_801F9CB8(s16);
 void TObjRaderCol__sub_8019750C(Col_8019750C *arg0);
+extern s32 lbl_805D53A0;
 }
 
 extern "C" {
@@ -43,7 +44,7 @@ extern "C" {
 void *__dt__12TObjRaderColFv(void *arg0, s16 arg1);
 void render__12TObjRaderColFv(void);
 void run_task__12TObjRaderColFv(void *arg0);
-M2C_UNK TObjRaderCol__sub_801975DC(void *);
+void TObjRaderCol__sub_801975DC(void *);
 M2C_UNK TRaderMapCore__sub_801F9C54(s16);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
@@ -78,6 +79,30 @@ void TObjRaderCol__sub_8019750C(Col_8019750C *arg0) {
         }
     }
 }
+
+#define arg0 ((Col_8019750C *)arg0_)
+void TObjRaderCol__sub_801975DC(void *arg0_) {
+    Ply_8019750C *p = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    if (p != 0) {
+        if (test_flag_2000000__10TObjPlayerFPv(p) != 0) {
+            return;
+        }
+    } else {
+        return;
+    }
+    s32 t = arg0->f9C;
+    if (t > 0) {
+        arg0->f9C = t - 1;
+        return;
+    }
+    if (p != 0) {
+        if (fn_8013157C(p->pos, arg0->pos) < arg0->f90 * arg0->f90) {
+            TRaderMapCore__sub_801F9CB8((s16)arg0->f94);
+            queue_destruction__7TObjectFv(arg0);
+        }
+    }
+}
+#undef arg0
 
 void run_task__12TObjRaderColFv(void *arg0) {
     s32 temp_r0;

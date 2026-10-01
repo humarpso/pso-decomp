@@ -46,7 +46,8 @@ extern "C" {
 void TObjPlayer__sub_801A72C8(void);
 void TObjPlayer__sub_801A72EC(void);
 void reset_state_block__10TObjPlayerFPv(void* a0);
-M2C_UNK TObjPlayer__sub_801A7150(f32);
+void TObjPlayer__sub_801A7150(u32 arg0, s32 arg1, s32 arg2);
+extern u32 lbl_805D5D20;
 void TObjPlayer__sub_801A720C(u32 identity, s32 kind, s32 allow_duplicate);
 const f32 *get_photon_blast_entry__10TObjPlayerFi(s32);
 extern u32 lbl_805D5D18;
@@ -76,6 +77,28 @@ void TObjPlayer__sub_801A710C(void) {
     }
 }
 
+void TObjPlayer__sub_801A7150(u32 arg0, s32 arg1, s32 arg2) {
+    s32 found = 0;
+    if (lbl_805D5D1C < 0x20) {
+        const f32 *e = get_photon_blast_entry__10TObjPlayerFi(arg1);
+        if (arg2 == 0) {
+            s32 i;
+            for (i = 0; i < lbl_805D5D1C; i++) {
+                if (arg0 == (u32)lbl_8050E700[i].a) {
+                    found = 1;
+                }
+            }
+        }
+        if (found == 0) {
+            lbl_8050E700[lbl_805D5D1C].c = arg1;
+            lbl_8050E700[lbl_805D5D1C].b = e[0];
+            lbl_8050E700[lbl_805D5D1C].a = arg0;
+            lbl_805D5D20 = arg0;
+            lbl_805D5D1C++;
+        }
+    }
+}
+
 void TObjPlayer__sub_801A720C(u32 identity, s32 kind, s32 allow_duplicate) {
     const f32 *entry;
     s32 duplicate = 0;
@@ -101,7 +124,7 @@ void TObjPlayer__sub_801A720C(u32 identity, s32 kind, s32 allow_duplicate) {
 }
 
 void TObjPlayer__sub_801A72C8(void) {
-    TObjPlayer__sub_801A7150(lbl_805DC0D4);
+    ((M2C_UNK (*)(f32))TObjPlayer__sub_801A7150)(lbl_805DC0D4);
 }
 
 extern const f32 lbl_805DC0D4;

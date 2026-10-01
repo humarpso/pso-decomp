@@ -387,6 +387,40 @@ M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 void *TItemEffEquip__ct(void *, void *, void *, void *, void *, void *);
 M2C_UNK TObjEneDellBiter__sub_80087350(s32, M2C_UNK);
 void *__nw__7TObjectFUl(int);
+struct Equip_80108A20 { s32 x0; u8 pad4[0x18 - 4]; void *vt; void *src; s32 x20; void *x24; };
+void spawn_item_timer__13TItemAttackerFiii(void *, void *, s32);
+M2C_UNK fn_80108860(void *, void *);
+M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
+extern M2C_UNK TItemEffEquip__sub_801088D0[];
+extern M2C_UNK TItemEffEquip__sub_801088F8[];
+extern M2C_UNK __vt__13TItemEffEquip[];
+extern s32 lbl_805D2BA0;
+
+#define self ((Equip_80108A20 *)arg0)
+void *TItemEffEquip__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5) {
+    void *mem;
+
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    self->vt = __vt__13TItemEffEquip;
+    self->x0 = lbl_805D2BA0;
+    disallow_rendering__7TObjectFv(arg0);
+    mem = __nw__7TObjectFUl(0xE0);
+    if (mem != NULL) {
+        mem = ((void *(*)(void *, void *, void *, void *))TItemEffFlame__sub_80108C90)(mem, arg0, arg2, arg3);
+    }
+    self->src = mem;
+    self->x20 = 0;
+    self->x24 = arg5;
+    if (self->src != NULL) {
+        fn_80108860(arg0, arg4);
+        spawn_item_timer__13TItemAttackerFiii(arg0, TItemEffEquip__sub_801088F8, 0xA);
+        spawn_item_timer__13TItemAttackerFiii(arg0, TItemEffEquip__sub_801088D0, 0x14);
+    } else {
+        queue_destruction__7TObjectFv((TObject *)arg0);
+    }
+    return arg0;
+}
+#undef self
 
 void create__13TItemEffEquipFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
     void *o;

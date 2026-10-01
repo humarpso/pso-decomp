@@ -119,6 +119,7 @@ pso/boss/TBoss4Type3_800524E8.cpp
 pso/boss/TBoss4Type3_800D7A20.cpp
 pso/boss/TBoss4Uro.cpp
 pso/boss/TBoss4Uro_8005CF10.cpp
+pso/boss/TBoss4ZakoDraw_8030A96C.cpp
 pso/boss/TBoss4ZakoDraw_8030AD38.cpp
 pso/boss/TBoss4ZakoDraw_8030AD58.cpp
 pso/boss/TBoss5Gryphon.cpp
@@ -1549,6 +1550,7 @@ pso/misc/TParticleCtrl_801A25B4.cpp
 pso/misc/TParticleCtrl_801C6650.cpp
 pso/misc/TParticleCtrl_801D6B3C.cpp
 pso/misc/TParticleCtrl_801D6B8C.cpp
+pso/misc/TParticleCtrl_801E5330.cpp
 pso/misc/TParticleCtrl_803E29FC.cpp
 pso/misc/TPhotonEstlla.cpp
 pso/misc/TPhotonEstlla_801AA710.cpp
@@ -2293,6 +2295,7 @@ pso/object/TObjQuestColBase.cpp
 pso/object/TObjQuestColBase_80196BFC.cpp
 pso/object/TObjQuestCol_80196B3C.cpp
 pso/object/TObjQuestCol_8019703C.cpp
+pso/object/TObjRaderCol.cpp
 pso/object/TObjRaderHideCol.cpp
 pso/object/TObjRain.cpp
 pso/object/TObjRainCtrl.cpp
@@ -2674,6 +2677,7 @@ pso/player/TObjPlayer_80178150.cpp
 pso/player/TObjPlayer_8017E4EC.cpp
 pso/player/TObjPlayer_80181FF4.cpp
 pso/player/TObjPlayer_801A2570.cpp
+pso/player/TObjPlayer_801A7080.cpp
 pso/player/TObjPlayer_801A85A0.cpp
 pso/player/TObjPlayer_801A9BAC.cpp
 pso/player/TObjPlayer_801AA220.cpp

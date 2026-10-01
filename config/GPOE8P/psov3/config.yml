@@ -101,6 +101,8 @@ force_active:
   - TObjPlayer__sub_803DAA70
   - TObjPlayer__sub_803DAD84
   - TObjPlayer__sub_803DC994
+  - TObjRaderCol__sub_8019750C
+  - TObjRaderCol__sub_801975DC
   - TObjResultWin__sub_80074664
   - TPlyDispConfig__sub_801E0A68
   - TRecvGenerateID__sub_801DFBC4
