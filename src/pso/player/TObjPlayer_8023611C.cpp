@@ -29,8 +29,22 @@ struct List_80236154 {
     u32 reserved84;
 };
 
+struct RecoveredGlobal_80236290_lbl_80516150;
+struct PlayerData_80236154;
+struct Vec_80236378 { f32 x, y, z; };
+
+struct Contact_80236378 { u8 pad[0x18]; u32 flags; };
+
+struct PD_80236378 { u8 pad[0x30]; u32 flags; };
+
+struct List_80236378 {
+    PD_80236378 *actors[16];
+    Contact_80236378 *bodies[16];
+    s32 count;
+    u32 reserved84;
+};
+
 extern "C" {
-s32 TObjPlayer__sub_80236378(void *, int, void *, void *);
 void TObjPlayer__sub_80236728(u8 *arg0, s32 arg1);
 s32 TObjPlayer__sub_802364D8(void *, int, void *, void *);
 void TObjPlayer__sub_80236754(u8 *arg0, s32 arg1);
@@ -55,6 +69,17 @@ s32 get_global_state__14TOKeyMachine01Fv();
 extern const f32 lbl_805DC898;
 extern const f32 lbl_805DC89C;
 s32 TObjPlayer__sub_80236154(void *self, int target, void *_w2, void *_w3);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+u32 find_actor_body_contact(void *, int, f32);
+extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
+void resetTechniqueContactQuery();
+PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
+s32 get_game_mode__6TLobbyFv();
+s32 get_lobby_flag__6TLobbyFv();
+s32 get_global_state__14TOKeyMachine01Fv();
+extern const f32 lbl_805DC898;
+u16 obj_getField1c(void *);
+s32 TObjPlayer__sub_80236378(void *self, int target, void *_w2, void *arg3);
 }
 
 extern "C" {
@@ -136,8 +161,42 @@ loop_3:
     return &lbl_80516150.value;
 }
 
+s32 TObjPlayer__sub_80236378(void *self, int target, void *_w2, void *arg3) {
+    Vec_80236378 pos;
+    f32 range;
+    PD_80236378 *pd;
+    s32 i;
+    Contact_80236378 *c;
+    if (get_global_state__14TOKeyMachine01Fv() == 0xE) {
+        range = lbl_805DC898;
+    } else {
+        range = lbl_805DC898;
+    }
+    VecCopy__FP3VecPC3Vec(&pos, (u8 *)self + 0x20);
+    resetTechniqueContactQuery();
+    if ((u32)target == 0) {
+        return (s32)&lbl_80516150;
+    }
+    VecCopy__FP3VecPC3Vec((u8 *)target + 0x38, &pos);
+    for (i = get_game_mode__6TLobbyFv(); i < get_lobby_flag__6TLobbyFv(); i++) {
+        pd = (PD_80236378 *)get_player_data__10TObjPlayerFi(i);
+        if (pd != 0 && (pd->flags & 0x20000000) && obj_getField1c(pd) != obj_getField1c(arg3)) {
+            c = (Contact_80236378 *)find_actor_body_contact((void *)target, (int)pd, range);
+            if (c != 0 && ((c->flags & 1) || !(c->flags & 0x02000000))) {
+                ((List_80236378 *)&lbl_80516150)->bodies[((List_80236378 *)&lbl_80516150)->count] = c;
+                ((List_80236378 *)&lbl_80516150)->actors[((List_80236378 *)&lbl_80516150)->count] = pd;
+                if (++((List_80236378 *)&lbl_80516150)->count >= 16) {
+                    ((List_80236378 *)&lbl_80516150)->count = 15;
+                    break;
+                }
+            }
+        }
+    }
+    return (s32)&lbl_80516150;
+}
+
 void TObjPlayer__sub_80236728(u8 *arg0, s32 arg1) {
-    TObjPlayer__sub_80236378((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0xE8)), (void *) (arg0 + 0xBC), (void *) (arg1));
+    TObjPlayer__sub_80236378((void *)((void *) (arg0)), (int)((int) (M2C_FIELD(arg0, s32 *, 0xE8))), (void *)((void *) (arg0 + 0xBC)), (void *)((void *) (arg1)));
 }
 
 void TObjPlayer__sub_80236754(u8 *arg0, s32 arg1) {

@@ -6,6 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Obj_8027C0C4 { u8 pad[0x61]; s8 f61; u8 pad2[2]; s32 arr[1]; };
 
+typedef s32 M2C_UNK;
+struct Vec2_8027B424 { f32 x; f32 y; };
+
+struct Item_8027B424 { u8 b[0x10]; };
+
 extern "C" {
 extern u8 *lbl_805D553C;
 s32 TWindowSubMag__sub_8027C0B0(s32 arg0);
@@ -27,6 +32,25 @@ void *fn_8026652C(s32, s32, s32, M2C_UNK);
 extern const f32 lbl_805DD664;
 void *TWindowSubMag__sub_8027B62C(TWindowSubMag_8027B62C *menu, s32 id);
 s32 TWindowSubMag__sub_8027C0C4(Obj_8027C0C4 *o);
+s32 TLobby__sub_8001DC24();
+M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, s32);
+s32 get_camera_id__11TCameraCtrlFv();
+s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
+M2C_UNK initialize_mag_data__9TItemDataFPv(M2C_UNK *);
+M2C_UNK TItemData__sub_8010D614(s32, M2C_UNK *);
+s32 TItemMag__sub_801143E8(M2C_UNK *, s32);
+s32 TWindowSubStatusDisp__sub_80144D68();
+M2C_UNK TWindowSubStatusDisp__sub_80228D80();
+M2C_UNK TWindowSubStatusDisp__sub_80229080();
+M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+M2C_UNK set_position_xy(void *, f32, f32);
+M2C_UNK set_field_1c__6TLobbyFPvf(void *);
+M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
+M2C_UNK send_and_handle__6TLobbyFPvii(s32, M2C_UNK *, M2C_UNK);
+void *TLobby__sub_80269CC0(M2C_UNK, M2C_UNK *, s32, M2C_UNK);
+s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+s32 TWindowSubMag__sub_8027C0B0(s32 arg0);
+void *TWindowSubMag__sub_8027B424(u8 *arg0);
 }
 
 extern "C" {
@@ -128,6 +152,49 @@ void set_mag_mode__13TWindowSubMagFPvi(void *arg0, s32 arg1) {
 }
 
 extern M2C_UNK lbl_8044FA00[];
+
+#pragma push
+#pragma fp_contract on
+void *TWindowSubMag__sub_8027B424(u8 *arg0) {
+    Item_8027B424 item;
+    Vec2_8027B424 pos;
+    Vec2_8027B424 size;
+    f32 scale;
+    s32 n;
+    void *win;
+    initialize_mag_data__9TItemDataFPv((M2C_UNK *)&item);
+    TItemData__sub_8010D614(M2C_FIELD(arg0, s32 *, 0x2C), (M2C_UNK *)&item);
+    n = TItemMag__sub_801143E8((M2C_UNK *)&item, M2C_FIELD(arg0, s8 *, 0x1E));
+    if (n == -1) {
+        return 0;
+    }
+    TWindowSubStatusDisp__sub_802290E0();
+    get_message_10__20TWindowSubStatusDispFPv(0x64);
+    TWindowSubStatusDisp__sub_80229080();
+    TWindowSubStatusDisp__sub_80228D80();
+    TWindowSubMag__sub_8027C0B0(n);
+    TWindowSubStatusDisp__sub_80229080();
+    get_message_10__20TWindowSubStatusDispFPv(0x4C);
+    TWindowSubStatusDisp__sub_80229080();
+    TLobby__sub_8001DC24();
+    n = TWindowSubStatusDisp__sub_80144D68();
+    if (get_camera_id__11TCameraCtrlFv() > 2) {
+        scale = 0.85f;
+    } else {
+        scale = 1.0f;
+    }
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, TWindowSubComCard__sub_8026CBB8(0xE));
+    pos.x -= (0.5f * n + 4.0f) * scale;
+    size.x = 8.0f + n;
+    size.y = 40.0f;
+    win = TLobby__sub_80269CC0((M2C_UNK)&pos, (M2C_UNK *)&size, 1, M2C_FIELD(arg0, s32 *, 0x28));
+    TWindowSubEquip__sub_80263AF8(M2C_FIELD(arg0, s32 *, 0x30), 6);
+    set_field_1c__6TLobbyFPvf(win);
+    send_and_handle__6TLobbyFPvii((s32)win, (M2C_UNK *)TLobby__sub_8001DC24(), 2);
+    set_position_xy(win, scale, scale);
+    return win;
+}
+#pragma pop
 
 void *create__13TWindowSubMagFPv(void *arg0) {
     void *temp_r31;

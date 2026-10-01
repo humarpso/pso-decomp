@@ -185,6 +185,21 @@ struct Player_802B6B34 : Base_802B6B34 {
 
 struct Boss_802B6B34 { u8 pad[0x488]; s32 f488; };
 
+typedef s32 M2C_UNK;
+struct Vec_802B73AC { f32 x, y, z; };
+
+struct Boss_802B73AC {
+    u8 pad0[0x408];
+    s32 f408;
+    u8 pad40c[0x5D8 - 0x40C];
+    Vec_802B73AC a;
+    Vec_802B73AC b;
+};
+
+struct Vec_802B4D5C { f32 x, y, z; };
+
+struct Vec_802B57D4 { f32 x, y, z; };
+
 extern "C" {
 void TBoss6Type1__sub_802B4B04(u8 *arg0);
 u8 TBoss6Type1__sub_802B5D9C(u8 *arg0);
@@ -213,11 +228,9 @@ s32 rand__11TOBoss4RockFv();
 extern const f32 TBoss6Type1__data_805DE304;
 extern const f32 lbl_805DE308;
 int TBoss6Type1__sub_802B5378(M2C_UNK arg0, int arg1, int arg2);
-s32 TBoss6Type1__sub_802B57D4(void *, void *, void *, int);
 extern RecoveredGlobal_802B5938_lbl_80470FFC lbl_80470FFC;
 extern RecoveredGlobal_802B5938_lbl_80471008 lbl_80471008;
 void TBoss6Type1__sub_802B5938(s32 arg0);
-s32 TBoss6Type1__sub_802B57D4(void *, void *, void *, int);
 extern RecoveredGlobal_802B5970_lbl_80470FE4 lbl_80470FE4;
 extern RecoveredGlobal_802B5970_lbl_80470FF0 lbl_80470FF0;
 void TBoss6Type1__sub_802B5970(s32 arg0);
@@ -252,7 +265,6 @@ s32 request_destroy__11TBoss4Type2FUi(int);
 void TBoss6Type1__sub_802B4B64(s32 arg0, s32 arg1);
 void TBoss6Type1__sub_802B4B64(s32 arg0, s32 arg1);
 void TBoss6Type1__sub_802B4CF4(s32 arg0);
-s32 TBoss6Type1__sub_802B57D4(void *, void *, void *, int);
 void TBoss6Type1__sub_802B5938(s32 arg0);
 void TBoss6Type1__sub_802B5970(s32 arg0);
 void TBoss6Type1__sub_802B59A8(void);
@@ -335,6 +347,39 @@ extern const f32 TBoss6Type1__data_805DE2D0;
 extern const f32 TBoss6Type1__data_805DE2E0;
 extern const float TBoss6Type1__data_805DE344;
 void TBoss6Type1__sub_802B6B34(Boss_802B6B34 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+f32 get_random_float__8TObjFishFv(f32);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int, void *);
+void TBoss6PlotFalz__sub_802ABE3C(void *, int, int, f32);
+int TBoss6Type1__sub_802B60E8(void*);
+void fn_8035648C(void *, void *, int, f32);
+f32 TBoss6Type1__sub_803D9370(void *, void *);
+extern f32 lbl_80470F60[];
+extern s32 lbl_805D5550;
+extern const f32 TBoss6Type1__data_805DE2D0;
+extern const f32 TBoss6Type1__data_805DE2E4;
+extern const f32 TBoss6Type1__data_805DE310;
+extern const f32 TBoss6Type1__data_805DE318;
+extern const f32 lbl_805DE394;
+void TBoss6Type1__sub_802B73AC(Boss_802B73AC *self);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 TBoss6Kakusan__sub_803D8BD8(void *, f32);
+extern const f64 TBoss6Type1__data_80471038;
+extern const f32 TBoss6Type1__data_805DE2D0;
+void TBoss6Type1__sub_802B4D5C(u8 *self, s32 num, s32 den);
+s32 rand__11TOBoss4RockFv();
+f32 TObjPlayer__sub_803E1A58(void *, void *);
+f32 TBoss4Zako__sub_803D8910(void *, void *);
+void TCameraCtrl__sub_8006D2B0(void *, void *, int);
+extern Vec_802B57D4 TBoss6Type1__data_80470FB4;
+extern Vec_802B57D4 lbl_80470FC0;
+extern const f32 TBoss6Type1__data_805DE2E0;
+extern const f32 TBoss6Type1__data_805DE304;
+extern const f32 TBoss6Type1__data_805DE30C;
+s32 TBoss6Type1__sub_802B57D4(void *arg0, void *arg1, void *arg2, int arg3);
 }
 
 extern "C" {
@@ -444,6 +489,31 @@ void TBoss6Type1__sub_802B4CF4(s32 arg0) {
 void TBoss6Type1__sub_802B4D38(Obj_802B4D38 *self) {
     s32 i;
     for (i = 0; i < 4; i++) self->arr[i] = 0;
+}
+
+void TBoss6Type1__sub_802B4D5C(u8 *self, s32 num, s32 den) {
+    Vec_802B4D5C v;
+    f32 dist;
+    s32 angle;
+    s32 off;
+    if (den <= 0 || num <= 0) {
+        return;
+    }
+    {
+    {
+        VecCopy__FP3VecPC3Vec(&v, self + 0x38);
+        v.y = TBoss6Type1__data_805DE2D0;
+        dist = ((f32 (*)(void *))TBoss6Kakusan__sub_803D8BD8)(&v);
+        angle = (s32)(TBoss6Type1__data_80471038 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z));
+        off = (s32)(40960.0f * TBoss8Dragon__sub_803D64C0((s32)(32768.0f * ((f32)num / (f32)den))) / (f32)num);
+        if (self[0x41C] & 1) {
+            off *= -1;
+        }
+        angle += off;
+        *(f32 *)(self + 0x38) = dist * TBoss8Dragon__sub_803D64C0(angle);
+        *(f32 *)(self + 0x40) = dist * TBoss8Dragon__sub_803D64DC(angle);
+        }
+    }
 }
 
 #pragma push
@@ -625,14 +695,41 @@ void TBoss6Type1__sub_802B570C(u8 *arg0, u8 *arg1) {
 
 typedef char RecoveredGlobal_802B5938_lbl_80470FFC_size[sizeof(RecoveredGlobal_802B5938_lbl_80470FFC) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_802B5938_lbl_80471008_size[sizeof(RecoveredGlobal_802B5938_lbl_80471008) == 0xC ? 1 : -1];
+
+#pragma push
+#pragma fp_contract on
+s32 TBoss6Type1__sub_802B57D4(void *arg0, void *arg1, void *arg2, int arg3) {
+    f32 dist;
+    Vec_802B57D4 off;
+    if (arg1 == NULL) {
+        arg1 = &TBoss6Type1__data_80470FB4;
+    }
+    if (arg2 == NULL) {
+        arg2 = &lbl_80470FC0;
+    }
+    dist = TBoss6Type1__data_805DE2E0 * TObjPlayer__sub_803E1A58(arg1, arg2);
+    if (dist < 4.0f) {
+        dist = 4.0f;
+    }
+    off.x = dist * (TBoss6Type1__data_805DE304 * (f32)rand__11TOBoss4RockFv() - TBoss6Type1__data_805DE30C);
+    off.y = dist * (TBoss6Type1__data_805DE304 * (f32)rand__11TOBoss4RockFv() - TBoss6Type1__data_805DE30C);
+    off.z = dist * (TBoss6Type1__data_805DE304 * (f32)rand__11TOBoss4RockFv() - TBoss6Type1__data_805DE30C);
+    {
+        Vec_802B57D4 p = *(Vec_802B57D4 *)arg1;
+        TBoss4Zako__sub_803D8910(&p, &off);
+        TCameraCtrl__sub_8006D2B0(&p, arg2, arg3);
+    }
+}
+#pragma pop
+
 void TBoss6Type1__sub_802B5938(s32 arg0) {
-    TBoss6Type1__sub_802B57D4((void *) (arg0), (void *) (&lbl_80470FFC.value), (void *) (&lbl_80471008.value), (int) (0xFFFF));
+    TBoss6Type1__sub_802B57D4((void *)((void *) (arg0)), (void *)((void *) (&lbl_80470FFC.value)), (void *)((void *) (&lbl_80471008.value)), (int)((int) (0xFFFF)));
 }
 
 typedef char RecoveredGlobal_802B5970_lbl_80470FE4_size[sizeof(RecoveredGlobal_802B5970_lbl_80470FE4) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_802B5970_lbl_80470FF0_size[sizeof(RecoveredGlobal_802B5970_lbl_80470FF0) == 0xC ? 1 : -1];
 void TBoss6Type1__sub_802B5970(s32 arg0) {
-    TBoss6Type1__sub_802B57D4((void *) (arg0), (void *) (&lbl_80470FE4.value), (void *) (&lbl_80470FF0.value), (int) (0xFFFF));
+    TBoss6Type1__sub_802B57D4((void *)((void *) (arg0)), (void *)((void *) (&lbl_80470FE4.value)), (void *)((void *) (&lbl_80470FF0.value)), (int)((int) (0xFFFF)));
 }
 
 void TBoss6Type1__sub_802B59A8(void) {
@@ -699,7 +796,7 @@ void TBoss6Type1__sub_802B5CB4(u8 *arg0) {
         }
         break;
     default:
-        TBoss6Type1__sub_802B57D4((void *)((s32) arg0), (void *)(NULL), (void *)(NULL), (int)(0xFFFF));
+        TBoss6Type1__sub_802B57D4((void *)((void *)((s32) arg0)), (void *)((void *)(NULL)), (void *)((void *)(NULL)), (int)((int)(0xFFFF)));
         break;
     }
 }
@@ -950,6 +1047,57 @@ void TBoss6Type1__sub_802B6B34(Boss_802B6B34 *arg0) {
         }
     }
 }
+
+#pragma push
+#pragma fp_contract on
+void TBoss6Type1__sub_802B73AC(Boss_802B73AC *self) {
+    Vec_802B73AC *a;
+    Vec_802B73AC *b;
+    s32 ok;
+    s32 flag;
+    Vec_802B73AC p;
+    Vec_802B73AC d;
+    f32 sc;
+    f32 t;
+    s32 idx;
+    TBoss6Type1__sub_802B60E8(self);
+    a = &self->a;
+    b = &self->b;
+    ok = 0;
+    if ((b->y < a->y && b->y < TBoss6Type1__data_805DE2D0) || (b->y > a->y && b->y > TBoss6Type1__data_805DE2D0)) {
+        ok = 1;
+    }
+    if (get_random_float__8TObjFishFv(a->y) > lbl_805DE394 || get_random_float__8TObjFishFv(b->y) > lbl_805DE394) {
+        ok = 0;
+    }
+    if (ok != 0) {
+        VecCopy__FP3VecPC3Vec(&d, b);
+        TBoss6Type1__sub_803D9370(&d, a);
+        if (d.y <= TBoss6Type1__data_805DE310) {
+            t = TBoss6Type1__data_805DE2E4;
+        } else {
+            t = -a->y / d.y;
+        }
+        p.x = t * d.x + a->x;
+        p.y = TBoss6Type1__data_805DE2D0;
+        p.z = t * d.z + a->z;
+        idx = lbl_805D5550;
+        if (idx < 0 || idx >= 4) {
+            idx = 0;
+        }
+        sc = lbl_80470F60[idx];
+        flag = 0;
+        if ((self->f408 & 3) == 0) {
+            flag = 1;
+        }
+        fn_8035648C(self, &p, flag, sc);
+        if (flag != 0) {
+            ((M2C_UNK (*)(int, void *, int, int))TBoss3Volopt__sub_8022675C)(0x4003B210, &p, 0, 0);
+            TBoss6PlotFalz__sub_802ABE3C(&p, 0xC0, 0xF, TBoss6Type1__data_805DE318);
+        }
+    }
+}
+#pragma pop
 
 void enable_parts__11TBoss6Type1FPv(void *arg0) {
     void *temp_r3;

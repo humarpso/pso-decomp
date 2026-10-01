@@ -14,6 +14,9 @@ struct RecoveredGlobal_80270ACC_lbl_8050E208 {
     u8 remaining[0x1AC];
 };
 
+typedef s32 M2C_UNK;
+struct State_80270DCC { u8 pad[4]; s16 f4; s8 f6; };
+
 extern "C" {
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
@@ -31,6 +34,20 @@ s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(int, int, int, int);
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
 extern RecoveredGlobal_80270C98_lbl_8050E208 lbl_8050E208;
 void TWindowSoundBalance__sub_80270ACC(u8 *arg0);
+State_80270DCC *get_global_state__23TAdSinglePlyChrSelectGCFv();
+u32 TWindowSubStatusDisp__sub_80144D68();
+u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+M2C_UNK get_field_20__17TWindowSubComCardFPv();
+M2C_UNK TWindowDD__sub_802466E0(void *, void *, s32, s32);
+M2C_UNK refresh_status_display__9TWindowDDFv(u8 *);
+M2C_UNK TWindowSoundBalance__sub_80270748(void *, s32);
+M2C_UNK TWindowSoundBalance__sub_802707D4(void *, s32);
+extern M2C_UNK lbl_804D0D68[];
+extern M2C_UNK __vt__19TWindowSoundBalance[];
+extern s32 lbl_805D39F0;
+extern const f32 lbl_805DD414;
+extern const f32 lbl_805DD418;
+u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -121,5 +138,36 @@ void *__dt__19TWindowSoundBalanceFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+#pragma push
+#pragma fp_contract on
+u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1) {
+    u8 *e;
+    State_80270DCC *st;
+    TWindowDD__sub_802466E0(arg0, lbl_804D0D68, 4, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TWindowSoundBalance;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D39F0;
+    M2C_FIELD(arg0, s8 *, 0x60) = 0;
+    M2C_FIELD(arg0, s8 *, 0x61) = 0;
+    M2C_FIELD(arg0, s16 *, 0x62) = 1;
+    M2C_FIELD(arg0, s16 *, 0x64) = 1;
+    e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
+    get_field_20__17TWindowSubComCardFPv();
+    M2C_FIELD(e, f32 *, 8) = lbl_805DD414 - lbl_805DD418 * TWindowSubStatusDisp__sub_80144D68();
+    refresh_status_display__9TWindowDDFv(e);
+    e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);
+    get_field_20__17TWindowSubComCardFPv();
+    M2C_FIELD(e, f32 *, 8) = lbl_805DD414 - lbl_805DD418 * TWindowSubStatusDisp__sub_80144D68();
+    refresh_status_display__9TWindowDDFv(e);
+    st = get_global_state__23TAdSinglePlyChrSelectGCFv();
+    if (st == 0) {
+        TWindowSoundBalance__sub_802707D4(arg0, 0);
+        TWindowSoundBalance__sub_80270748(arg0, 0);
+    } else {
+        TWindowSoundBalance__sub_802707D4(arg0, st->f4);
+        TWindowSoundBalance__sub_80270748(arg0, st->f6);
+    }
+    return arg0;
+}
+#pragma pop
 
 }

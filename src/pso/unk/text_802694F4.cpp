@@ -38,6 +38,21 @@ struct Q_802697B4 {
     s32 capacity;
 };
 
+struct Meta_80269664 { u32 flags; s32 timer; };
+
+struct Q_80269664 {
+    u8 pad0[0x70];
+    s32 oldest;
+    u8 pad74[0x7C - 0x74];
+    Meta_80269664 *meta;
+    u8 pad80[4];
+    f32 height;
+    u8 pad88[4];
+    s32 capacity;
+};
+
+struct Ent_80269664 { u8 pad0[0xC]; f32 y; u8 pad10[4]; f32 h; };
+
 extern "C" {
 extern const f32 lbl_805DD224;
 extern const f32 lbl_805DD228;
@@ -54,6 +69,10 @@ u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 u32 get_field_20__17TWindowSubComCardFPv(void *);
 void fn_802694F4(u8 *arg0, u8 *arg1);
 void fn_802697B4(Q_802697B4 *w);
+u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+u32 get_field_20__17TWindowSubComCardFPv(void *);
+extern const f32 lbl_805DD220;
+void fn_80269664(Q_80269664 *arg0);
 }
 
 extern "C" {
@@ -94,6 +113,40 @@ void fn_802695A8(Msg_802695A8 *arg0) {
             arg0->ents[arg0->cur].flags &= ~8;
             *e &= ~8;
         }
+    }
+}
+
+void fn_80269664(Q_80269664 *arg0) {
+    Ent_80269664 *e;
+    u32 i;
+    Meta_80269664 *m;
+    s32 idx;
+    f32 h;
+    for (i = 0; i < (u32)arg0->capacity; i++) {
+        if (get_field_20__17TWindowSubComCardFPv(get_array_entry__20TWindowSubStatusDispFPvi(arg0, i)) != 0) {
+            if ((arg0->meta[i].flags & 4) && arg0->meta[i].timer > 0) {
+                arg0->meta[i].timer--;
+            }
+        }
+    }
+    idx = arg0->oldest;
+    e = (Ent_80269664 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, idx);
+    m = &arg0->meta[idx];
+    while (get_field_20__17TWindowSubComCardFPv(e) != 0 && m->timer <= 0 && (m->flags & 4)) {
+        m->flags &= ~4;
+        h = lbl_805DD220 + (e->y + e->h);
+        if (arg0->height < h) {
+            arg0->height = h;
+        }
+        idx++;
+        if (idx >= arg0->capacity) {
+            idx = 0;
+        }
+        if (idx == arg0->oldest) {
+            break;
+        }
+        e = (Ent_80269664 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, idx);
+        m = &arg0->meta[idx];
     }
 }
 

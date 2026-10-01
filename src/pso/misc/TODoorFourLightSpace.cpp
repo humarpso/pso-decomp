@@ -4,6 +4,54 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct VBase_18_4a4f5b { char pad[0x18]; };
+
+struct VObj_18_4a4f5b : VBase_18_4a4f5b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual M2C_UNK m17();
+};
+
+struct Tbl_80289EE0 { s32 v[8]; };
+
+struct Door_80289EE0 { u8 pad[0xD8]; s32 sw[8]; };
+
+extern "C" {
+s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(int, int);
+M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
+M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK TObjEneGibbles__sub_80156780(void *, void *, int);
+M2C_UNK init_door_base();
+u8 *fn_8028A714(M2C_UNK);
+s32 fn_8028A750(int);
+s32 fn_8028A78C(int);
+extern Tbl_80289EE0 lbl_80450C24;
+extern M2C_UNK lbl_804D3500[];
+extern M2C_UNK __vt__20TODoorFourLightSpace[];
+extern s32 lbl_805D3B1C;
+extern const f32 lbl_805DD8F4;
+extern const f32 lbl_805DD8F8;
+u8 *TODoorFourLightSpace__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+}
+
 extern "C" {
 
 struct Base_802898E8 { char pad[0x18]; };
@@ -126,6 +174,29 @@ void *__dt__20TODoorFourLightSpaceFv(void *arg0, s16 arg1) {
         destroy_ancient_door_base__15TODoorAncient01FPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+u8 *TODoorFourLightSpace__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    s32 i;
+    init_door_base();
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TODoorFourLightSpace;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3B1C;
+    ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
+    ((VObj_18_4a4f5b *)(arg0))->m17();
+    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (lbl_804D3500), (int) (1));
+    TObjPlayer__sub_80154E3C((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    M2C_FIELD(arg0, s32 *, 0xD4) = fn_8028A78C((int) (0));
+    M2C_FIELD(arg0, s32 *, 0x24) = fn_8028A750((int) (0));
+    M2C_FIELD(arg0, u8 **, 0xBC) = fn_8028A714(0);
+    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DD8F4);
+    M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DD8F8;
+    {
+        Tbl_80289EE0 t = lbl_80450C24;
+        for (i = 0; i < 8; i++) {
+            ((Door_80289EE0 *)arg0)->sw[i] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(M2C_FIELD(arg0, s32 *, 0xD4), t.v[i]);
         }
     }
     return arg0;

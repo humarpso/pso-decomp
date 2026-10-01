@@ -11520,6 +11520,8 @@ pso/misc/TWindowSubStatusDisp.cpp:
 
 pso/unk/text_80223B98.cpp:
 	.text       start:0x80223B98 end:0x8022448C
+	.rodata     start:0x8044C468 end:0x8044C478
+	.sdata2     start:0x805DC730 end:0x805DC738
 
 pso/misc/TLobby_8022448C.cpp:
 	.text       start:0x8022448C end:0x80225CD8
@@ -11556,6 +11558,7 @@ pso/misc/TLobby_802268F4.cpp:
 
 pso/misc/TLoadCtrl_80227390.cpp:
 	.text       start:0x80227390 end:0x80227A2C
+	.rodata     start:0x8044C890 end:0x8044C898
 
 pso/misc/TLobby_80227A2C_80227A2C.cpp:
 	.text       start:0x80227A2C end:0x80227AF8
@@ -11860,6 +11863,8 @@ pso/misc/TTecGiZonde_8023CDC4.cpp:
 
 pso/misc/TTecZondeEff.cpp:
 	.text       start:0x8023CED4 end:0x8023DBEC
+	.rodata     start:0x8044DCC8 end:0x8044DCD8
+	.sdata2     start:0x805DC994 end:0x805DC9B0
 
 pso/object/TObjDoorJung_8023DBEC.cpp:
 	.text       start:0x8023DBEC end:0x8023DCB8
@@ -12470,6 +12475,7 @@ pso/misc/TWindowSubStatusDisp_80256B94_80257298.cpp:
 
 pso/misc/TWindowSubStatusDisp_80256B94_802572F0.cpp:
 	.text       start:0x802572F0 end:0x80257720
+	.rodata     start:0x8044EE48 end:0x8044EE50
 
 pso/ui/TAdChrMoveEffectGC_80257720.cpp:
 	.text       start:0x80257720 end:0x80257784
@@ -13030,6 +13036,7 @@ pso/misc/TWindowSoundBalance_802708B8.cpp:
 
 pso/misc/TWindowSoundBalance.cpp:
 	.text       start:0x80270910 end:0x80271280
+	.rodata     start:0x8044F638 end:0x8044F640
 
 pso/misc/TWindowStatus.cpp:
 	.text       start:0x80271280 end:0x80271400
@@ -13207,6 +13214,8 @@ pso/misc/TWindowSubLog.cpp:
 
 pso/misc/TWindowSubMag.cpp:
 	.text       start:0x8027B2B8 end:0x8027C13C
+	.rodata     start:0x8044FA08 end:0x8044FA10
+	.sdata2     start:0x805DD64C end:0x805DD664
 
 pso/unk/text_8027C13C.cpp:
 	.text       start:0x8027C13C end:0x8027C22C
@@ -13395,6 +13404,7 @@ pso/boss/TObjBoss5FloorStone_802898AC.cpp:
 
 pso/misc/TODoorFourLightSpace.cpp:
 	.text       start:0x802898E8 end:0x8028A030
+	.rodata     start:0x80450C48 end:0x80450C50
 
 pso/misc/TODoorFourLightRuins.cpp:
 	.text       start:0x8028A030 end:0x8028A714
@@ -13465,6 +13475,7 @@ pso/misc/TChCrLoadAfs_8028B940.cpp:
 
 pso/misc/TChCrLoadAfs.cpp:
 	.text       start:0x8028B9C8 end:0x8028C054
+	.rodata     start:0x80450D40 end:0x80450D48
 
 pso/misc/TChCrLoadAfsTextureReq.cpp:
 	.text       start:0x8028C054 end:0x8028C650
@@ -14384,6 +14395,7 @@ pso/boss/TBoss6Type1.cpp:
 	.text       start:0x802B4A70 end:0x802B97E0
 	.rodata     start:0x80471040 end:0x80471048
 	.data       start:0x804DF8B8 end:0x804DF950
+	.sdata2     start:0x805DE2D8 end:0x805DE32C
 
 pso/boss/TBoss6Type2_802B97E0.cpp:
 	.text       start:0x802B97E0 end:0x802B9858

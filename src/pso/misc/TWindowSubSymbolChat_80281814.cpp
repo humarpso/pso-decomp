@@ -6,6 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Win_80281EA8 { u8 pad[0x24]; s32 f24; };
 
+typedef s32 M2C_UNK;
+struct Ent_80281B18 { s8 c; u8 pad[3]; };
+
+struct Data_80281B18 { u8 pad0[4]; u16 w[4]; Ent_80281B18 e[1]; };
+
 extern "C" {
 s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, int);
 s32 TWindow__close(int);
@@ -35,6 +40,21 @@ s32 draw_card_icon__17TWindowSubComCardFiii(s32, M2C_UNK, s32);
 s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 void open_menu__20TWindowSubSymbolChatFii(s32 arg0, s32 arg1);
 s32 TWindowSubSymbolChat__sub_8028233C(s32 arg0);
+M2C_UNK TWindowSubSymbolChat__sub_800771B0(s32, s32);
+s32 TWindowSubSymbolChat__sub_800771C4(s32, s32);
+M2C_UNK TWindowSubSymbolChat__sub_800771E4(s32, s32, s32, s32, s32, s32, s32);
+s32 add__20TWindowSubSymbolChatFPviiiii(int, int, int, int, int, int);
+M2C_UNK TWindowSubSymbolChat__sub_8007728C(s32, s32, s32, s32, s32, s32);
+Data_80281B18 *get_data_ptr__20TWindowSubSymbolChatFPv();
+s32 get_instance__20TWindowSubSymbolChatFv();
+s32 calc_remaining_slots__20TWindowSubSymbolChatFv();
+s32 get_cursor_pos__20TWindowSubSymbolChatFPv(int);
+s32 get_cursor_x__20TWindowSubSymbolChatFPv(int);
+extern s8 TWindowSubSymbolChat__data_805D6494;
+extern M2C_UNK TWindowSubSymbolChat__data_805D6498;
+extern M2C_UNK TWindowSubSymbolChat__data_805D649C;
+extern s32 TWindowSubSymbolChat__data_805D64A0;
+void TWindowSubSymbolChat__sub_80281B18(u8 *arg0);
 }
 
 extern "C" {
@@ -149,6 +169,40 @@ void update_state__20TWindowSubSymbolChatFPv(void *arg0) {
 }
 
 extern s32 lbl_805D53A0;
+
+void TWindowSubSymbolChat__sub_80281B18(u8 *arg0) {
+    Data_80281B18 *data;
+    u8 v;
+    s16 y;
+    s16 x;
+    s32 i;
+    s32 n;
+    s32 pos;
+    s32 inst;
+    s32 rem;
+    x = get_cursor_x__20TWindowSubSymbolChatFPv(M2C_FIELD(arg0, s32 *, 0x50));
+    y = get_cursor_pos__20TWindowSubSymbolChatFPv(M2C_FIELD(arg0, s32 *, 0x50));
+    inst = get_instance__20TWindowSubSymbolChatFv();
+    data = get_data_ptr__20TWindowSubSymbolChatFPv();
+    rem = calc_remaining_slots__20TWindowSubSymbolChatFv();
+    if (rem > M2C_FIELD(arg0, s16 *, 0x1E)) {
+        TWindowSubSymbolChat__sub_800771E4(M2C_FIELD(arg0, s32 *, 0x28), M2C_FIELD(arg0, s16 *, 0x1E), data->e[M2C_FIELD(arg0, s16 *, 0x1E)].c, x, y, TWindowSubSymbolChat__data_805D6498, TWindowSubSymbolChat__data_805D649C);
+        if (TWindowSubSymbolChat__data_805D64A0 != 0) {
+            add__20TWindowSubSymbolChatFPviiiii(M2C_FIELD(arg0, s32 *, 0x28), data->e[M2C_FIELD(arg0, s16 *, 0x1E)].c, 0x40 - x, y, (u8)(TWindowSubSymbolChat__data_805D6498 == 0), TWindowSubSymbolChat__data_805D649C);
+        }
+    } else {
+        n = M2C_FIELD(arg0, s16 *, 0x1E) - rem;
+        pos = x + y * 2;
+        for (i = 0; i < 4; i++) {
+            if (TWindowSubSymbolChat__sub_800771C4(inst, i) != 0 && n-- <= 0) {
+                v = data->w[i];
+                TWindowSubSymbolChat__sub_800771B0(M2C_FIELD(arg0, s32 *, 0x28), i);
+                TWindowSubSymbolChat__sub_8007728C(M2C_FIELD(arg0, s32 *, 0x28), v, TWindowSubSymbolChat__data_805D6494, pos, TWindowSubSymbolChat__data_805D6498, TWindowSubSymbolChat__data_805D649C);
+                return;
+            }
+        }
+    }
+}
 
 void TWindowSubSymbolChat__sub_80281CC4(u8 *arg0) {
   s16 temp_r31;

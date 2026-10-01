@@ -27,6 +27,13 @@ struct Pair_802242F8 { s32 a; s32 b; };
 
 struct Tbl_802242F8 { u8 *base; u8 count; };
 
+struct Tbl_802242F8;
+struct Tbl_80223EE0 { u8 *base; u8 count; };
+
+struct Ent_80223EE0 { u8 kind; u8 a; u8 b; };
+
+struct Obj_80223EE0 { u8 pad[2]; s8 lv; };
+
 extern "C" {
 extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
 void TLobby__sub_80224404(s32 arg0, s32 arg1, s32 arg2);
@@ -44,6 +51,11 @@ extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
 extern Tbl_802242F8 **lbl_805D6260;
 extern s32 lbl_805D6264;
 void TLobby__sub_802242F8(s32 arg0);
+s32 TLobby__sub_80223D48(s32 arg0);
+s32 rand__11TOBoss4RockFv();
+extern Tbl_802242F8 **lbl_805D6260;
+extern s32 lbl_805D6264;
+void TLobby__sub_80223EE0(Obj_80223EE0 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -140,6 +152,52 @@ typedef char RecoveredGlobal_80224404_lbl_80513F20_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_802243D4_lbl_80513F10_size[sizeof(RecoveredGlobal_802243D4_lbl_80513F10) == 0x10 ? 1 : -1];
 
 struct RecoveredGlobal_80224404_lbl_80513F20;
+
+void TLobby__sub_80223EE0(Obj_80223EE0 *arg0, s32 arg1) {
+    Tbl_80223EE0 *t = ((Tbl_80223EE0 **)lbl_805D6260)[2];
+    s32 idx = TLobby__sub_80223D48(lbl_805D6264);
+    Ent_80223EE0 *e;
+    s32 level;
+    idx *= t->count;
+    e = &((Ent_80223EE0 *)t->base)[idx + arg1];
+    level = lbl_805D6264;
+    if (level > 99) {
+        level = 99;
+    }
+    switch (e->kind) {
+    case 0:
+        arg0->lv = 0;
+        break;
+    case 1: {
+        s8 v = level / e->a - 1;
+        if (v < 0) {
+            v = 0;
+        }
+        if (v > 14) {
+            v = 14;
+        }
+        arg0->lv = v;
+        break;
+    }
+    case 2: {
+        s32 lo;
+        s8 v = (s8)((f32)e->b * ((1.0f / 32768.0f) * (f32)rand__11TOBoss4RockFv()));
+        lo = e->a - 1;
+        if (v < lo) {
+            v = lo;
+        }
+        if (v < 0) {
+            v = 0;
+        }
+        if (v > 14) {
+            v = 14;
+        }
+        arg0->lv = v;
+        break;
+    }
+    }
+}
+
 void TLobby__sub_802242F8(s32 arg0) {
     Item_802242F8 it;
     Item_802242F8 *arr;

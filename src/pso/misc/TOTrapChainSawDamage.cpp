@@ -45,12 +45,52 @@ struct P_802C8BD0 { s32 a; f32 b; };
 #pragma inline_depth(1)
 struct T_802C8F68 { s32 r[3][3]; };
 
+typedef s32 M2C_UNK;
+#pragma auto_inline off
+#pragma dont_inline off
+#pragma inline_depth(1)
+struct VBase_802C8E24 { char pad[0x18]; };
+
+struct VObj_802C8E24 : VBase_802C8E24 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+};
+
+struct Copy_802C8E24 { u32 a; struct { u32 w[14]; } b; };
+
+struct Ent_802C8E24 { u8 b[0x58]; };
+
 extern "C" {
 M2C_UNK obj_setFlags30(void *, int);
 void TOTrapChainSawDamage__vt16(u8 *arg0, u8 *arg1);
 extern T_802C8F68 lbl_80471EEC;
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 TOTrapChainSawKey__sub_802C8F68(s32 arg0, s32 arg1);
+void *TOTrapChainSaw__ct(void *, void *, void *);
+void *TOTrapChainSawEdge__ct(void *, void *, void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 TObjPlayer__sub_80154E3C(void *);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+void *__nw__7TObjectFUl(int);
+extern M2C_UNK __vt__20TOTrapChainSawDamage[];
+extern s32 lbl_805D3F04;
+extern Ent_802C8E24 lbl_804E0C10[];
+extern const f32 lbl_805DE624;
+extern const f32 lbl_805DE628;
+void *TOTrapChainSawDamage__ct(void *arg0, void *arg1, void *arg2);
 }
 
 extern "C" {
@@ -59,7 +99,6 @@ void TOTrapChainSawDamage__vt13(void *arg0);
 void TOTrapChainSawDamage__vt22(void *arg0);
 void *__dt__20TOTrapChainSawDamageFv(void *arg0, s16 arg1);
 void *create__20TOTrapChainSawDamageFPv(void *arg0);
-void *TOTrapChainSawDamage__ct(void *, void *, void *);
 M2C_UNK TOTrapChainSaw__sub_802C9600();
 void TObjEneGibbles__sub_80156720(void *);
 void TObjPlayer__sub_80154A00(void *);
@@ -98,7 +137,7 @@ extern void *tl_05;
 void *create__20TOTrapChainSawDamageFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x10C);
     if (o != NULL) {
-        o = TOTrapChainSawDamage__ct(o, tl_05, arg0);
+        o = TOTrapChainSawDamage__ct((void *)(o), (void *)(tl_05), (void *)(arg0));
     }
     return o;
 }
@@ -117,6 +156,38 @@ void *__dt__20TOTrapChainSawDamageFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+#define self ((u8 *)arg0)
+void *TOTrapChainSawDamage__ct(void *arg0, void *arg1, void *arg2) {
+    void *o;
+    TOTrapChainSaw__ct(arg0, arg1, arg2);
+    *(M2C_UNK **)(self + 0x18) = __vt__20TOTrapChainSawDamage;
+    *(s32 *)(self + 0) = lbl_805D3F04;
+    ((VObj_802C8E24 *)arg0)->m13();
+    ((VObj_802C8E24 *)arg0)->m14();
+    TObjEneGibbles__sub_80156780(arg0, &lbl_804E0C10[*(s32 *)(self + 0xF8)], 2);
+    TObjPlayer__sub_80154E3C(arg0);
+    reset_photon_effect__10TObjPlayerFPv(arg0);
+    *(f32 *)(self + 0x3C) += lbl_805DE624;
+    {
+        Copy_802C8E24 c = *(Copy_802C8E24 *)arg2;
+        *(f32 *)((u8 *)&c + 0x10) += lbl_805DE628;
+        o = __nw__7TObjectFUl(0x108);
+        if (o != NULL) {
+            o = TOTrapChainSawEdge__ct(o, arg0, &c);
+        }
+        *(void **)(self + 0x104) = o;
+        *(f32 *)((u8 *)&c + 0x10) += lbl_805DE624;
+        o = __nw__7TObjectFUl(0x108);
+        if (o != NULL) {
+            o = TOTrapChainSawEdge__ct(o, arg0, &c);
+        }
+        *(void **)(self + 0x108) = o;
+    }
+    return arg0;
+}
+#undef self
+
 s32 TOTrapChainSawKey__sub_802C8F68(s32 arg0, s32 arg1) {
     T_802C8F68 t = lbl_80471EEC;
     s32 *p = t.r[0];

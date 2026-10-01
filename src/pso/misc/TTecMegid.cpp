@@ -134,6 +134,69 @@ struct Obj_80235940 {
     u16 ids[32];
 };
 
+struct HitInfo_80235490 { s32 type; f32 power; };
+
+struct VBase_80235490 { char pad[0x18]; };
+
+struct VObj_80235490 : VBase_80235490 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21(void *, HitInfo_80235490 *, void *, s32, s32);
+};
+
+struct Obj_80235490 {
+    u8 pad0[0x1C];
+    void *source;
+    u8 pad20[0xC8 - 0x20];
+    u16 fc8;
+    u8 padCA[0xCC - 0xCA];
+    f32 power;
+    u8 padD0[0xF8 - 0xD0];
+    void *contact;
+    u8 padFC[0x134 - 0xFC];
+    u16 ids[32];
+    s32 cursor;
+};
+
+struct TTecGiBartaData_80230B48;
+struct Vec_80235740 { f32 x; f32 y; f32 z; };
+
+struct Row_80235740 { u32 entry; u32 flags; f32 scale; };
+
+struct Data_80235740 { Row_80235740 *rows; u32 count; };
+
+struct Obj_80235740 {
+    u8 pad0[0x1C];
+    void *source;
+    Vec_80235740 pos;
+    u8 pad2c[0x58 - 0x2C];
+    s32 f58;
+    u8 pad5c[0xC6 - 0x5C];
+    s16 band;
+    u16 sourceId;
+    u8 padca[0x130 - 0xCA];
+    void **emitters;
+};
+
 extern "C" {
 s32 TTecCtrl__sub_8022DBC4(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
@@ -166,6 +229,26 @@ extern void *__vt__9TTecMegid[];
 extern s32 lbl_805D37E8;
 extern const f32 lbl_805DC884;
 u8 *TTecMegid__sub_80235940(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
+u16 obj_getField1c(void *);
+s32 obj_isState3_324(void *);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+s32 TTecCtrl__sub_8022C4D4(s32, u16);
+void TTecMegid__vt6(Obj_80235490 *self, VObj_80235490 *target);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+extern TTecGiBartaData_80230B48 TTecMegid__data_8044D874[];
+void *TPhotonMylla__sub_80154CB4(u16);
+void TObjPlayer__sub_803D97F0(void *);
+void TObjPlayer__sub_803D9214(s32, s32);
+void TCameraCtrl__sub_803D8934(s32, Vec_80235740 *, Vec_80235740 *);
+void TCameraCtrl__sub_803D9858(s32);
+void copy_pos__11TNowLoadingFPvPv(void *, Vec_80235740 *);
+void fn_8023A694(Obj_80235740 *);
+void advance_lifetime_or_destroy(Obj_80235740 *);
+void TObjPlayer__sub_8023A148(Obj_80235740 *, s32);
+extern Vec_80235740 lbl_8044D8B0;
+extern u8 lbl_8058D490[];
+void run_task__9TTecMegidFv(Obj_80235740 *self);
 }
 
 extern "C" {
@@ -241,6 +324,38 @@ void TTecMegid__sub_80235348(u8 *arg0) {
   ((RecoveredFields_80235348_arg0 *) arg0)->field_70 = (f32) ((RecoveredFields_80235348_arg0 *) arg0)->field_D4;
 }
 
+typedef s32 M2C_UNK;
+void TTecMegid__vt6(Obj_80235490 *self, VObj_80235490 *target) {
+    s32 found = 0;
+    s32 i;
+    for (i = 0; i < 32; i++) {
+        if (self->ids[i] == obj_getField1c(target)) {
+            found = 1;
+        }
+    }
+    if (found == 0) {
+        self->ids[self->cursor] = obj_getField1c(target);
+        self->cursor += 1;
+        if (self->cursor >= 32) {
+            self->cursor = 31;
+        }
+        HitInfo_80235490 tmp;
+        tmp.type = 5;
+        tmp.power = self->power;
+        if (obj_getField1c(target) < 4 && obj_isState3_324(target) != 0) {
+            return;
+        }
+        HitInfo_80235490 info = tmp;
+        target->m21(self->source, &info, self->contact, 0x12, -1);
+        TBoss3Volopt__sub_8022675C(0x4002AD29, (s32)((u8 *)target + 0x38), 0, 0);
+        if (self->fc8 < 12) {
+            if ((TTecCtrl__sub_8022C4D4(0x12, self->fc8) & 1) == 0) {
+                queue_destruction__7TObjectFv(self);
+            }
+        }
+    }
+}
+
 void create__9TTecMegidFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 obj;
     obj = __nw__7TObjectFUl(0x17C);
@@ -275,6 +390,34 @@ TTecGiBarta_80230B48 *__dt__9TTecMegidFv(TTecGiBarta_80230B48 *self, s16 deletin
         if (deleting > 0) __dl__7TObjectFPv(self);
     }
     return self;
+}
+
+void run_task__9TTecMegidFv(Obj_80235740 *self) {
+    u32 i;
+    self->source = TPhotonMylla__sub_80154CB4(self->sourceId);
+    if (self->source == NULL) {
+        queue_destruction__7TObjectFv(self);
+        return;
+    }
+    for (i = 0; i < ((Data_80235740 *)TTecMegid__data_8044D874)[self->band].count; i++) {
+        if (((Data_80235740 *)TTecMegid__data_8044D874)[self->band].rows[i].flags & 4) {
+            Vec_80235740 off = lbl_8044D8B0;
+            Vec_80235740 p;
+            TObjPlayer__sub_803D97F0(lbl_8058D490);
+            TObjPlayer__sub_803D9214(0, self->f58);
+            TCameraCtrl__sub_803D8934(0, &off, &off);
+            TCameraCtrl__sub_803D9858(1);
+            p.x = self->pos.x + off.x;
+            p.y = self->pos.y + off.y;
+            p.z = self->pos.z + off.z;
+            copy_pos__11TNowLoadingFPvPv(self->emitters[i], &p);
+        } else {
+            copy_pos__11TNowLoadingFPvPv(self->emitters[i], &self->pos);
+        }
+    }
+    fn_8023A694(self);
+    advance_lifetime_or_destroy(self);
+    TObjPlayer__sub_8023A148(self, 1);
 }
 
 u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {

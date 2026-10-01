@@ -60,6 +60,21 @@ struct QL_802193F0 { Rec_802193F0 recs[48]; u8 pad[0x2368 - 48 * 0xbc]; s32 coun
 
 struct Ent_802193F0 { u8 pad[0x10]; s8 a; s8 b; s8 c; u8 pad13; char name[1]; };
 
+struct VBase_18_80218D40 { char pad[0x18]; };
+
+struct VObj_80218D40 : VBase_18_80218D40 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7(s32, s32);
+};
+
+struct Pair_80218D40 { s32 a; s32 b; };
+
 extern "C" {
 s32 TLobby__sub_8001EEF4();
 s32 TLobby__sub_8001EEFC(M2C_UNK *);
@@ -97,7 +112,6 @@ M2C_UNK TQuestListVM__sub_8021884C(void *);
 void update_close__12TQuestListVMFPv(void *arg0);
 M2C_UNK TQuestListVM__sub_80218918(void *);
 M2C_UNK TQuestListVM__sub_80218BBC(void *);
-M2C_UNK TQuestListVM__sub_80218D40(void *);
 M2C_UNK TQuestListVM__sub_80218E94(void *);
 M2C_UNK TQuestListVM__sub_80219064(void *);
 M2C_UNK quest_vm_load(void *arg0);
@@ -122,6 +136,21 @@ void TQuestListVM__sub_80218AD4(u8 *arg0);
 s32 strcmp(const char *, const char *);
 extern s32 lbl_805D5544;
 s32 TQuestListVM__sub_802193F0(QL_802193F0 *q, Ent_802193F0 *e);
+int obj_getField1c(int);
+s32 get_camera_id__11TCameraCtrlFv();
+int set_field_20__12TQuestListVMFPvi(void*, void*);
+f32 get_scale__15TShopWindowBaseFv(void *);
+void set_position_xy(u32, f32, f32);
+void set_field_1c__6TLobbyFPvf(u32, f32);
+u32 TShopJudgmentItemWindow__sub_80266388(int, u16, int, int);
+void send_and_handle__6TLobbyFPvii(u32, void *, int);
+u32 TLobby__sub_80269CC0(int, Pair_80218D40 *, int, u16);
+int TWindowSubComCard__sub_8026CBB8(int);
+extern Pair_80218D40 lbl_8044BF48[];
+extern s32 TQuestListVM__data_805D6200;
+extern const f32 lbl_805DC6B8;
+extern const f32 lbl_805DC6BC;
+void TQuestListVM__sub_80218D40(u8 *arg0);
 }
 
 extern "C" {
@@ -304,6 +333,32 @@ void TQuestListVM__sub_80218AD4(u8 *arg0) {
     }
 }
 
+void TQuestListVM__sub_80218D40(u8 *arg0) {
+    if (*(u32 *)(arg0 + 0x2380) == 0U) {
+        Pair_80218D40 sp8 = lbl_8044BF48[0];
+        u16 id = obj_getField1c(*(s32 *)(arg0 + 0x24));
+        *(u32 *)(arg0 + 0x2380) = TLobby__sub_80269CC0(TWindowSubComCard__sub_8026CBB8(0x2E), &sp8, 1, id);
+        send_and_handle__6TLobbyFPvii(*(u32 *)(arg0 + 0x2380), (void *)(TQuestListVM__data_805D6200 + 0xB4), 1);
+        set_field_1c__6TLobbyFPvf(*(u32 *)(arg0 + 0x2380), lbl_805DC6B8);
+        if (get_camera_id__11TCameraCtrlFv() >= 2) {
+            set_position_xy(*(u32 *)(arg0 + 0x2380), lbl_805DC6BC, lbl_805DC6BC);
+        }
+    }
+    if (*(u32 *)(arg0 + 0x2380) != 0U) {
+        if (*(s32 *)(arg0 + 0x2370) != 0xA) {
+            set_field_20__12TQuestListVMFPvi(arg0, (void *)*(s32 *)(arg0 + 0x2370));
+            return;
+        }
+        {
+            u16 id = obj_getField1c(*(s32 *)(arg0 + 0x24));
+            *(u32 *)(arg0 + 0x2378) = TShopJudgmentItemWindow__sub_80266388(TWindowSubComCard__sub_8026CBB8(0x2B), id, 0, 0);
+        }
+        set_position_xy(*(u32 *)(arg0 + 0x2378), get_scale__15TShopWindowBaseFv(arg0), get_scale__15TShopWindowBaseFv(arg0));
+        ((VObj_80218D40 *)(arg0))->m7(5, 1);
+        set_field_20__12TQuestListVMFPvi(arg0, (void *)*(s32 *)(arg0 + 0x2370));
+    }
+}
+
 M2C_UNK quest_vm_load(void *arg0) {
     if (TLobby__sub_8001EEF4() != 0) {
         M2C_FIELD(arg0, s32 *, 0x2384) = TLobby__sub_8001EEFC(TQuestListVM__data_8044BF20);
@@ -385,7 +440,7 @@ void TQuestListVM__vt9(u8 *arg0) {
         TQuestListVM__sub_80218E94((void *) (arg0));
         return;
     case 15:
-        TQuestListVM__sub_80218D40((void *) (arg0));
+        TQuestListVM__sub_80218D40((u8 *)((void *) (arg0)));
         return;
     case 10:
         TQuestListVM__sub_80218BBC((void *) (arg0));

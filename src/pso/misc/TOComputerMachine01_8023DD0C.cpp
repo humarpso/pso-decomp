@@ -26,6 +26,8 @@ s32 TOComputerMachine01__sub_8023DD0C(Tbl_8023DD0C *t, u16 id);
 void TOComputerMachine01__sub_8023DD60(Tbl_8023DD60 *t);
 void DCFlushRangeNoSync(void *, u32);
 void TOComputerMachine01__sub_8023DDC8(Model_8023DDC8 *self, s16 du, s16 dv, u16 cmd, s32 rewrite);
+void TObjPlayer__sub_8023E034(void **arg0);
+void TObjPlayer__sub_8023DEE0(s16 *p, s16 a, s16 b, u16 id);
 }
 
 extern "C" {
@@ -88,6 +90,41 @@ void TOComputerMachine01__sub_8023DDC8(Model_8023DDC8 *self, s16 du, s16 dv, u16
                 }
                 DCFlushRangeNoSync(a->uv, a->count * 4);
             }
+        }
+    }
+}
+
+void TObjPlayer__sub_8023DEE0(s16 *p, s16 a, s16 b, u16 id) {
+    s16 dy;
+    s16 dx;
+    s32 t;
+    u16 n;
+    s16 c;
+    dx = a % 256;
+    dy = b % 256;
+    while ((t = (u8)*p) != 0xFF) {
+        if (t == 8 && (p[1] & 0x1FFF) == id) {
+            *p &= ~0x3000;
+            TObjPlayer__sub_8023E034((void **)&p);
+            p += 2;
+            n = *p & 0x1FFF;
+            p++;
+            while (n != 0) {
+                c = *p;
+                if (c < 0) {
+                    c = -c;
+                }
+                p++;
+                while (c != 0) {
+                    c--;
+                    *++p += dx;
+                    *++p += dy;
+                    p++;
+                }
+                n--;
+            }
+        } else {
+            TObjPlayer__sub_8023E034((void **)&p);
         }
     }
 }

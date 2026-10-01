@@ -53,6 +53,17 @@ struct G_8021599C { Tbl_8021599C *t; };
 
 struct Obj_8021599C { u8 pad[4]; u8 slot; };
 
+struct G_802156E0;
+struct Ent_80215720 { u8 id; u8 n1; u8 n2; };
+
+struct Tbl_80215720 { Ent_80215720 *base; s32 count; };
+
+struct G_80215720 { u8 pad[8]; Tbl_80215720 *t; };
+
+struct Obj_80215720 { u8 pad[7]; s8 a; u8 p8; s8 b; u8 pa; s8 c; };
+
+struct Ctr_80215720 { u8 buf[0x68]; };
+
 extern "C" {
 void TQuestListOnline__sub_8013ACF4(s32);
 M2C_UNK memcpy(int, void *, int);
@@ -121,6 +132,17 @@ extern s32 lbl_805D61C4;
 extern s32 lbl_805D61C8;
 extern s32 lbl_805D6238;
 void TLobby__sub_8021599C(Obj_8021599C *obj);
+s32 pop_byte__6TLobbyFPv(void *);
+void TLobby__sub_8020EEFC(void *, s32);
+void TLobby__sub_8020F00C(void *, u8);
+void reset_counter_64__6TLobbyFPv(void *);
+u8 TLobby__sub_802156E0(s8 x);
+extern s8 lbl_8044BD30[];
+extern G_802156E0 *lbl_805D61C0;
+extern s32 lbl_805D61C4;
+extern s32 lbl_805D61C8;
+extern s32 lbl_805D6238;
+void TLobby__sub_80215720(Obj_80215720 *arg0);
 }
 
 extern "C" {
@@ -225,6 +247,51 @@ u8 TLobby__sub_802156E0(s8 x) {
 }
 
 struct G_802156E0;
+
+void TLobby__sub_80215720(Obj_80215720 *arg0) {
+    Ctr_80215720 ctr;
+    Ent_80215720 *e;
+    s32 count;
+    s32 n;
+    s32 r;
+    reset_counter_64__6TLobbyFPv(&ctr);
+    count = ((G_80215720 *)lbl_805D61C0)->t->count;
+    e = &((G_80215720 *)lbl_805D61C0)->t->base[count * lbl_805D6238];
+    while (count-- > 0) {
+        if (lbl_805D61C4 != 0) {
+            n = e->n2;
+        } else {
+            n = e->n1;
+        }
+        while (n-- != 0) {
+            TLobby__sub_8020F00C(&ctr, e->id);
+        }
+        e++;
+    }
+    TLobby__sub_8020EEFC(&ctr, 4);
+    r = pop_byte__6TLobbyFPv(&ctr);
+    if (r != -1) {
+        s8 v = lbl_8044BD30[r];
+        arg0->a += v;
+        arg0->b += v;
+        arg0->c += v;
+    } else {
+        arg0->a = 0;
+        arg0->b = 0;
+        arg0->c = 0;
+    }
+    if (arg0->a > 100) {
+        arg0->a = 100;
+    }
+    if (arg0->b > 100) {
+        arg0->b = 100;
+    }
+    if (arg0->c > 100) {
+        arg0->c = 100;
+    }
+    lbl_805D61C8 += ((s8 (*)(s8))TLobby__sub_802156E0)(r);
+}
+
 void TLobby__sub_8021587C(Item_8021587C *item) {
     u8 buf[0x68];
     Ent_8021587C *e;

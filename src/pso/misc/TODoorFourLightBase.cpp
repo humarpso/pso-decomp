@@ -56,6 +56,20 @@ struct Door_802A0994 : DPre_802A0994 {
     s32 f;
 };
 
+struct Door_802A0670 {
+    u8 pad0[0x38];
+    u8 f38[0x60 - 0x38];
+    s32 f60;
+    u8 pad64[0xC8 - 0x64];
+    s32 fC8;
+    u8 padCC[0xD0 - 0xCC];
+    s32 fD0;
+    u8 *fD4;
+    u32 *a[4];
+    u32 *b[4];
+    s32 fF8;
+};
+
 extern "C" {
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
@@ -71,6 +85,14 @@ void init_door_base(void *, void *);
 extern M2C_UNK __vt__19TODoorFourLightBase[];
 extern s32 lbl_805D3D60;
 Door_802A0994 *TODoorFourLightBase__ct(Door_802A0994 *arg0, void *arg1, s32 arg2);
+s32 end_effect_render__13TParticleCtrlFv();
+u8 TODoorAncient08__sub_80229220(int);
+void TODoorFourLightBase__sub_802A0578(u8 *arg0, u8 *arg1);
+s32 TObjPlayer__sub_803D9214(int, int);
+s32 TObjPlayer__sub_803D9B2C();
+s32 TObjPlayer__sub_803D9B78();
+f32 TOHangerMachine01__sub_803D9C00(void *);
+void TODoorFourLightBase__sub_802A0670(Door_802A0670 *self);
 }
 
 extern "C" {
@@ -151,6 +173,45 @@ void TODoorFourLightBase__sub_802A0578(u8 *arg0, u8 *arg1) {
         TObjPlayer__sub_803D9B78();
         var_r30 = (u8 *)(M2C_FIELD(var_r30, u8 **, 0x30));
     } while (var_r30 != NULL);
+}
+
+void TODoorFourLightBase__sub_802A0670(Door_802A0670 *self) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        if (self->a[i] != NULL) {
+            *self->a[i] |= 0x100000;
+            *self->a[i] |= 0x200000;
+        }
+        if (self->b[i] != NULL) {
+            *self->b[i] |= 0x100000;
+            *self->a[i] |= 0x200000;
+        }
+    }
+    if (!(self->fD0 & 1)) {
+        for (i = 0; i < self->fF8; i++) {
+            if (TODoorAncient08__sub_80229220((u16)(self->fC8 + i)) == 1) {
+                if (self->a[i] != NULL) {
+                    *self->a[i] |= 0x100000;
+                }
+                if (self->b[i] != NULL) {
+                    *self->b[i] |= 0x100000;
+                }
+            } else {
+                if (self->a[i] != NULL) {
+                    *self->a[i] &= ~0x100000;
+                }
+                if (self->b[i] != NULL) {
+                    *self->b[i] &= ~0x100000;
+                }
+            }
+        }
+    }
+    TObjPlayer__sub_803D9B2C();
+    TOHangerMachine01__sub_803D9C00(self->f38);
+    TObjPlayer__sub_803D9214(0, self->f60);
+    TODoorFourLightBase__sub_802A0578((u8 *)self, self->fD4);
+    TObjPlayer__sub_803D9B78();
+    end_effect_render__13TParticleCtrlFv();
 }
 
 void *__dt__19TODoorFourLightBaseFv(void *arg0, s16 arg1) {

@@ -10,14 +10,21 @@ struct Ld_8028BFA4 { u8 pad0[0x20]; s32 f20; s32 f24; u8 pad28[4]; s32 f2c; u8 p
 
 struct Cl_8028BFA4 { u8 pad0[0x20]; s32 f20; s32 f24; u8 pad28[4]; s32 f2c; u8 pad30[8]; void *bufs[8]; s32 f58; s32 f5c; s32 f60; u8 pad64[8]; s32 f6c; s32 f70; };
 
+typedef s32 M2C_UNK;
 extern "C" {
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
-s32 TLobby__sub_8028BCB0();
 s32 TLobby__sub_803CC53C(u32);
 s32 TLobby__sub_803CCB5C(u32, s32, u32);
 u32 TLobby__sub_803CD16C(s32, s32);
 extern Te_8028BFA4 lbl_804D88B8[];
 void TLobby__sub_8028BFA4(Cl_8028BFA4 *arg0);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
+f32 TLobby__sub_8028C50C(f32);
+s32 strcmp(const char *, const char *);
+extern Te_8028BFA4 lbl_804D88B8[];
+extern const f32 lbl_805DD920;
+s32 TLobby__sub_8028BCB0(u8 *arg0);
 }
 
 extern "C" {
@@ -118,11 +125,54 @@ void * create__12TChCrLoadAfsFPvPvPv(void *arg0, void *arg1, void *arg2) {
     }
     return o;
 }
+
+s32 TLobby__sub_8028BCB0(u8 *arg0) {
+    char *name;
+    s32 count;
+    s32 steps;
+    s32 mid;
+    s32 step;
+    char **list;
+    s32 i;
+    f32 l2;
+    s32 r;
+    name = *(char **)(*M2C_FIELD(arg0, u8 ***, 0x30) + M2C_FIELD(arg0, s32 *, 0x5C) * 0xC);
+    count = (&lbl_804D88B8[M2C_FIELD(arg0, s32 *, 0x70)].id)[1];
+    l2 = TLobby__sub_8028C50C(lbl_805DD920);
+    steps = (s32)get_status_value_f32__23TObjEneMe1CanadinLeaderFv(TLobby__sub_8028C50C(count) / l2) + 1;
+    mid = (count + 1) >> 1;
+    step = (mid + 1) >> 1;
+    list = (char **)(&lbl_804D88B8[M2C_FIELD(arg0, s32 *, 0x70)].id)[3];
+    for (i = 0; i < steps; i++) {
+        r = strcmp(name + 3, list[mid] + 3);
+        if (r == 0) {
+            return mid;
+        }
+        if (r < 0) {
+            mid -= step;
+            if (mid < 0) {
+                mid = 0;
+            }
+        } else {
+            mid += step;
+            if (mid >= count) {
+                mid = count - 1;
+            }
+        }
+        step = (step + 1) >> 1;
+        if (step < 1) {
+            step = 1;
+        }
+    }
+    queue_destruction__7TObjectFv(arg0);
+    return 0;
+}
+
 void TLobby__sub_8028BFA4(Cl_8028BFA4 *arg0) {
     s32 n;
     u32 t;
     void *buf;
-    t = TLobby__sub_803CD16C(lbl_804D88B8[arg0->f70].id, TLobby__sub_8028BCB0());
+    t = TLobby__sub_803CD16C(lbl_804D88B8[arg0->f70].id, TLobby__sub_8028BCB0((u8 *)(arg0)));
     arg0->f60 = t;
     if (t != 0) {
         arg0->f20 = 0;

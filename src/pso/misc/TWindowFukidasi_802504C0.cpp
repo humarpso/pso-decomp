@@ -12,6 +12,8 @@ struct Fuki_802504C0 {
     u8 phase; u8 options; u8 kind; u8 slot;
 };
 
+struct Fuki_8025181C { u8 pad0[0x38]; f32 w; f32 h; };
+
 extern "C" {
 void TWindowFukidasi__sub_802511E4(Fuki_80250F70 *, f32 *, f32 *);
 void clamp_position__15TWindowFukidasiFPvPvf(Fuki_80250F70 *, f32 *, f32);
@@ -31,6 +33,14 @@ void set_flag__15TWindowFukidasiFPv(Fuki_802504C0 *);
 extern const f32 TWindowFukidasi__data_805DCCE8;
 extern const f32 TWindowFukidasi__data_805DCD0C;
 void TWindowFukidasi__sub_802504C0(Fuki_802504C0 *b);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern const f32 TWindowFukidasi__data_805DCCE8;
+extern const f32 TWindowFukidasi__data_805DCD0C;
+extern const f32 TWindowFukidasi__data_805DCD18;
+extern const f32 TWindowFukidasi__data_805DCD1C;
+extern const f32 TWindowFukidasi__data_805DCD4C;
+void TWindowFukidasi__sub_8025181C(Fuki_8025181C *b, s32 angle, f32 *out);
 }
 
 extern "C" {
@@ -75,5 +85,43 @@ s32 TWindowFukidasi__sub_80250F70(Fuki_80250F70 *b, f32 *rect, f32 *out) {
     }
     return 0;
 }
+#pragma push
+#pragma fp_contract on
+void TWindowFukidasi__sub_8025181C(Fuki_8025181C *b, s32 angle, f32 *out) {
+    f32 ax;
+    f32 ay;
+    f32 kx;
+    f32 ky;
+    s32 neg;
+    ax = TWindowFukidasi__data_805DCD0C * (TWindowFukidasi__data_805DCD0C * b->w + TWindowFukidasi__data_805DCD18);
+    ay = TWindowFukidasi__data_805DCD0C * (TWindowFukidasi__data_805DCD0C * b->h + TWindowFukidasi__data_805DCD1C);
+    out[0] = ax * TBoss8Dragon__sub_803D64DC(angle);
+    out[1] = ay * TBoss8Dragon__sub_803D64C0(angle);
+    if ((angle + 0x2000) & 0x4000) {
+        kx = TBoss8Dragon__sub_803D64C0(angle - 0x4000) / TBoss8Dragon__sub_803D64DC(angle - 0x4000);
+        if (!(angle & 0x8000)) {
+            kx = -kx;
+        }
+        if (angle & 0x8000) {
+            ky = TWindowFukidasi__data_805DCD4C;
+        } else {
+            ky = TWindowFukidasi__data_805DCCE8;
+        }
+    } else {
+        neg = (angle + 0x2000) & 0x8000;
+        if (neg) {
+            kx = TWindowFukidasi__data_805DCD4C;
+        } else {
+            kx = TWindowFukidasi__data_805DCCE8;
+        }
+        ky = TBoss8Dragon__sub_803D64C0(angle) / TBoss8Dragon__sub_803D64DC(angle);
+        if (neg) {
+            ky = -ky;
+        }
+    }
+    out[0] += ax * kx;
+    out[1] += ay * ky;
+}
+#pragma pop
 
 }

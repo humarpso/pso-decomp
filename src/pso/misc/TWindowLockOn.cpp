@@ -14,6 +14,28 @@ struct Win_8026385C {
     void (Win_8026385C::*refresh)();
 };
 
+typedef s32 M2C_UNK;
+struct Obj_80263370;
+typedef void (Obj_80263370::*Cb_80263370)();
+struct Lock_80263370 {
+    u8 pad0[0x20];
+    s16 player;
+    u8 pad22[2];
+    u8 sub[0x34 - 0x24];
+    f32 dist;
+    f32 w;
+    f32 h;
+    u8 pad40[0x50 - 0x40];
+    s32 i50;
+    u8 pad54[0x6C - 0x54];
+    f32 scale;
+    Cb_80263370 cb;
+};
+
+struct Ent_80263370 { u16 flags; u8 pad2[6]; f32 y; u8 padc[4]; f32 w; u8 pad14[8]; u8 kind; };
+
+struct Ent2_80263370 { u16 flags; u8 pad2[0xE]; s32 grade; };
+
 extern "C" {
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 void TWindowHelpItem__sub_80270060(s32, u32);
@@ -29,6 +51,22 @@ void initialize_subwindow__9TWindowDDFPv(void *);
 void TWindowSubStatusDisp__sub_80257C28(void *, void *);
 void fn_80262C3C(void *);
 void run_task__13TWindowLockOnFv(Win_8026385C *w);
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
+void TWindowSubStatusDisp__sub_80257D44(void *, void *, int);
+void TWindowSubStatusDisp__sub_80258F34(void *, void *, s32);
+void TWindowSubStatusDisp__sub_8025930C(void *);
+u8 get_field_ec__12TOSwitchItemFPv(void *);
+u8 calc_display_grade__5TItemFPv(void *);
+f32 TWindowHelpItem__sub_8025A60C(void *);
+f32 get_target_distance__13TWindowLockOnFv(s32);
+extern u8 lbl_804D00DC[];
+extern Cb_80263370 lbl_804D0288;
+extern const f32 TWindowLockOn__data_805DD110;
+extern const f32 lbl_805DD114;
+extern const f32 lbl_805DD118;
+extern const f32 lbl_805DD11C;
+extern const f32 lbl_805DD120;
+M2C_UNK TWindowLockOn__update_for_item(s32 a0, s32 a1);
 }
 
 extern "C" {
@@ -38,7 +76,6 @@ void *__dt__13TWindowLockOnFv(void *arg0, s16 arg1);
 void render__13TWindowLockOnFv(u8 *arg0);
 void update_for_target__13TWindowLockOnFii(s32 arg0, s32 arg1);
 M2C_UNK TWindowLockOn__update_for_enemy(s32, s32);
-M2C_UNK TWindowLockOn__update_for_item(s32, s32);
 M2C_UNK TWindowLockOn__update_for_other_player(s32, s32);
 s32 TWindowSubComCard__sub_80244C0C(void *, void *);
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
@@ -73,6 +110,45 @@ void TWindowLockOn__sub_80262FDC(u8 *arg0) {
     TWindowHelpItem__sub_80270060(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0), (u32) M2C_FIELD(arg0, u16 *, 0x60));
 }
 
+#pragma push
+#pragma fp_contract on
+#define arg0 ((Lock_80263370 *)a0)
+#define item ((void *)a1)
+M2C_UNK TWindowLockOn__update_for_item(s32 a0, s32 a1) {
+    Ent_80263370 *e;
+    Ent_80263370 *e2;
+    f32 r;
+    TWindowSubStatusDisp__sub_80257D44(arg0->sub, lbl_804D00DC, arg0->player);
+    arg0->cb = lbl_804D0288;
+    e = (Ent_80263370 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
+    TWindowSubStatusDisp__sub_80258F34(e, item, 0);
+    TWindowSubStatusDisp__sub_8025930C(e);
+    e->y = lbl_805DD114;
+    if (e->kind != 0x33) {
+        e->y += lbl_805DD118;
+    }
+    arg0->w = e->w;
+    arg0->h = lbl_805DD11C;
+    e2 = (Ent_80263370 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);
+    if (get_field_ec__12TOSwitchItemFPv(item) == 0 || get_field_ec__12TOSwitchItemFPv(item) == 1) {
+        ((Ent2_80263370 *)e2)->grade = calc_display_grade__5TItemFPv(item);
+        arg0->h += lbl_805DD120;
+        e2->flags &= ~2;
+        r = TWindowHelpItem__sub_8025A60C(e2);
+        if (arg0->w < r) {
+            arg0->w = r;
+        }
+    } else {
+        e2->flags |= 2;
+    }
+    arg0->w += TWindowLockOn__data_805DD110;
+    arg0->dist = get_target_distance__13TWindowLockOnFv(0x1E) - arg0->h * arg0->scale;
+    arg0->i50 = 0;
+}
+#undef arg0
+#undef item
+#pragma pop
+
 void update_for_target__13TWindowLockOnFii(s32 arg0, s32 arg1) {
     TWindowSubStatusDisp__sub_80257CB8(arg0 + 0x24);
     if (obj_testFlags30(arg1, 0x10000000) != 0) {
@@ -80,7 +156,7 @@ void update_for_target__13TWindowLockOnFii(s32 arg0, s32 arg1) {
         return;
     }
     if (obj_testFlags30(arg1, 0x80000000) != 0) {
-        TWindowLockOn__update_for_item(arg0, arg1);
+        TWindowLockOn__update_for_item((s32)(arg0), (s32)(arg1));
         return;
     }
     if (obj_testFlags30(arg1, 0x20000000) != 0) {

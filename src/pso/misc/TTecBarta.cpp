@@ -81,6 +81,8 @@ struct Obj_8022BCB8 {
     u16 ids[32];
 };
 
+struct Vec_8022BA98 { f32 x; f32 y; f32 z; };
+
 extern "C" {
 s32 TTecCtrl__sub_8022DBC4(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
@@ -114,6 +116,21 @@ extern TechniqueContactVtable __vt__9TTecBarta;
 extern s32 lbl_805D3798;
 extern const f32 lbl_805DC7A8;
 u8 *TTecBarta__sub_8022BCB8(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4);
+void queue_destruction__7TObjectFv(TechniqueParticleEmitter*);
+extern TechniqueEmitterSourceTable TTecBarta__data_8044CD98[];
+s32 TObjFish__sub_8001EDC4(s32, s32);
+void TObjFish__sub_800660D4(TechniqueParticleEmitter *, s32, s32, s32, s32, f32);
+TechniqueParticleEmitter *TLobby__sub_800869A4(f32 *, s32, s32, s32);
+void copy_pos__11TNowLoadingFPvPv(TechniqueParticleEmitter *, Vec_8022BA98 *);
+TechniqueHitRecipient *TPhotonMylla__sub_80154CB4(u16);
+void TObjPlayer__sub_8023A244(TTecBarta *);
+void advance_lifetime_or_destroy(TTecBarta *);
+void TTecBarta__sub_8023A674(TTecBarta *);
+extern s32 lbl_805D63AC;
+extern s32 lbl_805D63B0;
+extern const f32 lbl_805DC7A0;
+extern const f32 lbl_805DC7A4;
+void run_task__9TTecBartaFv(TTecBarta *self);
 }
 
 extern "C" {
@@ -240,6 +257,36 @@ TTecBarta* __dt__9TTecBartaFv(TTecBarta* self,s16 deleting) {
         if(deleting>0)__dl__7TObjectFPv(self);
     }
     return self;
+}
+
+void run_task__9TTecBartaFv(TTecBarta *self) {
+    s32 i;
+    self->source = TPhotonMylla__sub_80154CB4(self->sourceId);
+    if (self->source == NULL) {
+        queue_destruction__7TObjectFv((TechniqueParticleEmitter *)self);
+        return;
+    }
+    for (i = 0; i < TTecBarta__data_8044CD98[self->band].count; i++) {
+        Vec_8022BA98 pos = *(Vec_8022BA98 *)self->position;
+        if (TTecBarta__data_8044CD98[self->band].rows[i].flags & 0x20) {
+            pos.y -= lbl_805DC7A4;
+        }
+        if (self->emitters[i] != NULL) {
+            copy_pos__11TNowLoadingFPvPv(self->emitters[i], &pos);
+        }
+        if (self->band == 5 && i == 5 && self->emitters[i] != NULL) {
+            copy_pos__11TNowLoadingFPvPv(self->emitters[i], &pos);
+        }
+    }
+    if (self->band == 5) {
+        TechniqueParticleEmitter *e = TLobby__sub_800869A4(self->position, 0x18A, 0x14, 1);
+        if (e != NULL) {
+            TObjFish__sub_800660D4(e, TObjFish__sub_8001EDC4(lbl_805D63AC, 5), lbl_805D63B0, 0, 0, lbl_805DC7A0);
+        }
+    }
+    TTecBarta__sub_8023A674(self);
+    advance_lifetime_or_destroy(self);
+    TObjPlayer__sub_8023A244(self);
 }
 
 void render__9TTecBartaFv(void) {  }

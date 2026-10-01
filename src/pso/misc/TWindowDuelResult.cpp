@@ -14,6 +14,8 @@ struct RecoveredGlobal_8024F5B0_lbl_804CF020 {
     u8 remaining[0x14];
 };
 
+struct Win_8024EF40 { u8 pad[0x20]; s16 player; u8 pad22[2]; u8 sub[4]; };
+
 extern "C" {
 s32 TWindowSubComCard__sub_80244C0C(void *, void *);
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
@@ -32,6 +34,15 @@ extern s32 lbl_805D38F0;
 extern const f32 lbl_805DCCB0;
 extern const f32 lbl_805DCCB4;
 u8 *TWindowDuelResult__ct(u8 *arg0, s16 arg1);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(int);
+s32 TWindowDuelResult__sub_801C19AC(void *);
+u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+void TWindowSubStatusDisp__sub_80257D44(void *, void *, int);
+void TWindowSubStatusDisp__sub_8025AC50(void *, void *, int);
+void set_default_status__17TWindowDuelResultFPvi(void *, int);
+extern u8 lbl_804CEDD0[];
+void TWindowDuelResult__vt1(Win_8024EF40 *arg0);
 }
 
 extern "C" {
@@ -50,6 +61,34 @@ void destroy_window_base__9TWindowDDFPvs(void *, int);
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
 
 void TWindowDuelResult__vt3(void) {  }
+
+void TWindowDuelResult__vt1(Win_8024EF40 *arg0) {
+    s32 vals[4];
+    u8 *pl;
+    s32 i;
+    u8 *a;
+    u8 *b;
+    u8 *c;
+    TWindowSubStatusDisp__sub_80257D44(arg0->sub, lbl_804CEDD0, arg0->player);
+    a = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
+    set_default_status__17TWindowDuelResultFPvi(a, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 0));
+    c = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xF);
+    set_default_status__17TWindowDuelResultFPvi(c, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 5));
+    pl = TPlayerBattleCtrl4P__sub_801BA74C(arg0->player);
+    if (pl != 0) {
+        TWindowSubStatusDisp__sub_8025AC50(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1), pl + 0x85C, 0x20);
+        vals[0] = TWindowDuelResult__sub_801C19AC(pl + 0x75C);
+        vals[1] = TWindowDuelResult__sub_801C19AC(pl + 0x76C);
+        vals[2] = TWindowDuelResult__sub_801C19AC(pl + 0x78C);
+        vals[3] = TWindowDuelResult__sub_801C19AC(pl + 0x77C);
+        for (i = 0; i < 4; i++) {
+            a = get_array_entry__20TWindowSubStatusDispFPvi(arg0, i * 3 + 2);
+            b = get_array_entry__20TWindowSubStatusDispFPvi(arg0, i * 3 + 4);
+            set_default_status__17TWindowDuelResultFPvi(a, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, i + 1));
+            *(s32 *)(b + 0x20) = vals[i];
+        }
+    }
+}
 
 void TWindowDuelResult__vt2(void) {  }
 

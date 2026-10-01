@@ -42,6 +42,13 @@ struct Obj_802BC050 {
     s16 min;
 };
 
+typedef s32 M2C_UNK;
+struct Vec_802BAB80 { f32 x, y, z; };
+
+struct Obj_802BAB80 { u8 pad[0x38]; Vec_802BAB80 pos; };
+
+struct Vec_802BB920 { f32 x, y, z; };
+
 extern "C" {
 s32 TBoss6Type2__sub_8032E748(void *);
 s32 TBoss6Type2__sub_8035DC60(s32, s32, f32);
@@ -68,6 +75,32 @@ void TBoss6Type2__sub_802BBF54(u8 *arg0);
 s32 copy_entry__6TLobbyFPvPv(void *, void *);
 void update_segments__11TBoss6Type2FPv(void *arg0);
 void TBoss6Type2__sub_802BC050(Obj_802BC050 *o);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 TObjPlayer__sub_80156844(void *, void *, int);
+f32 TNpcPlayer__sub_803D97B4(void *);
+extern const f32 TBoss6Type2__data_805DE410;
+extern const f32 TBoss6Type2__data_805DE434;
+extern const f32 lbl_805DE450;
+extern const f32 lbl_805DE454;
+extern const f32 lbl_805DE458;
+s32 TBoss6Type2__sub_802BAB80(Obj_802BAB80 *self);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+u8 *get_player_data__10TObjPlayerFi(s32);
+u16 obj_getField1c(void *);
+s32 get_game_mode__6TLobbyFv();
+s32 TObjPlayer__sub_80156844(void *, void *, int);
+s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
+void TBoss6PlotFalz__sub_802AC724(void *, void *);
+f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *, f32);
+f32 TBoss6Type1__sub_803D9370(void *, void *);
+f32 TNpcPlayer__sub_803D97B4(void *);
+extern const f32 TBoss6Type2__data_805DE40C;
+extern const f32 TBoss6Type2__data_805DE410;
+extern const f32 lbl_805DE428;
+extern const f32 TBoss6Type2__data_805DE434;
+extern const f32 TBoss6Type2__data_805DE490;
+s32 TBoss6Type2__sub_802BB920(void *self, void *target, f32 range);
 }
 
 extern "C" {
@@ -98,6 +131,40 @@ void trigger_screen_pos__11TBoss6Type2FPv(void *arg0) {
 
 extern const f32 TBoss6Type2__data_805DE460;
 extern const f32 lbl_805DE47C;
+
+#pragma push
+#pragma fp_contract on
+s32 TBoss6Type2__sub_802BAB80(Obj_802BAB80 *self) {
+    Vec_802BAB80 p;
+    f32 t;
+    VecCopy__FP3VecPC3Vec(&p, &self->pos);
+    p.y += TBoss6Type2__data_805DE434;
+    if (TObjPlayer__sub_80156844(self, &p, 0) != 0) {
+        VecCopy__FP3VecPC3Vec(&self->pos, &p);
+        self->pos.y = TBoss6Type2__data_805DE410;
+        return 0;
+    }
+    VecCopy__FP3VecPC3Vec(&p, &self->pos);
+    p.x -= lbl_805DE450;
+    p.y = TBoss6Type2__data_805DE410;
+    t = lbl_805DE454;
+    {
+        Vec_802BAB80 d = p;
+        TNpcPlayer__sub_803D97B4(&d);
+        for (; t > TBoss6Type2__data_805DE410; t += lbl_805DE458) {
+            p.x = t * d.x + lbl_805DE450;
+            p.y = TBoss6Type2__data_805DE434 + self->pos.y;
+            p.z = t * d.z;
+            if (TObjPlayer__sub_80156844(self, &p, 0) != 0) {
+                break;
+            }
+        }
+    }
+    VecCopy__FP3VecPC3Vec(&self->pos, &p);
+    self->pos.y = TBoss6Type2__data_805DE410;
+    return 1;
+}
+#pragma pop
 
 void TBoss6Type2__sub_802BAD04(s32 arg0) {
     u8 *temp_r3;
@@ -177,6 +244,50 @@ void TBoss6Type2__sub_802BB7C0(T2_802BB7C0 *arg0) {
     }
     TBoss6Type2__sub_8032E708(arg0->f410, 0);
     TBoss6Type2__sub_8032E708(arg0->f414, 0);
+}
+
+s32 TBoss6Type2__sub_802BB920(void *self, void *target, f32 range) {
+    Vec_802BB920 dir;
+    Vec_802BB920 pos;
+    Vec_802BB920 off;
+    s32 mask;
+    s32 i;
+    s32 n;
+    u8 *pl;
+    f32 t;
+    f32 dist;
+    mask = 0;
+    n = get_game_mode__6TLobbyFv();
+    for (i = 0; i < n; i++) {
+        pl = get_player_data__10TObjPlayerFi(i);
+        if (is_state_1f__14TBoss6PlotFalzFUi(pl) == 0) {
+            continue;
+        }
+        VecCopy__FP3VecPC3Vec(&dir, pl + 0x38);
+        TBoss6Type1__sub_803D9370(&dir, target);
+        dir.y = TBoss6Type2__data_805DE410;
+        dist = ((f32 (*)(void *))TBoss6Kakusan__sub_803D8BD8)(&dir);
+        if (dist >= range) {
+            continue;
+        }
+        if (dist <= TBoss6Type2__data_805DE490) {
+            dir.x = TBoss6Type2__data_805DE40C;
+        }
+        TNpcPlayer__sub_803D97B4(&dir);
+        for (t = range; t > lbl_805DE428; t -= lbl_805DE428) {
+            off.x = dir.x * t;
+            off.y = TBoss6Type2__data_805DE434;
+            off.z = dir.z * t;
+            VecCopy__FP3VecPC3Vec(&pos, target);
+            TBoss4Zako__sub_803D8910(&pos, &off);
+            if (TObjPlayer__sub_80156844(self, &pos, 0) != 0) {
+                TBoss6PlotFalz__sub_802AC724(pl, &pos);
+                break;
+            }
+        }
+        mask |= 1 << obj_getField1c(pl);
+    }
+    return mask;
 }
 
 void set_owner_flag_bit0__11TBoss6Type2FPv(void *arg0) {
