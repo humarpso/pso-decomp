@@ -11,6 +11,12 @@ struct RecoveredGlobal_802916D4_lbl_804DAA18 {
 
 #include "pso/camera/CreationCamera.h"
 
+struct Cam_80291784 {
+    u8 pad[0x78];
+    s32 mode;
+    s32 timer;
+};
+
 extern "C" {
 s32 TObjCMProportion__sub_8029916C(M2C_UNK);
 extern s32 lbl_805D6570;
@@ -29,6 +35,17 @@ f32 TBoss8Dragon__sub_803D64DC(s32);
 extern s32 lbl_805D6570;
 extern const f32 lbl_805DD96C,lbl_805DD978,lbl_805DD998;
 void advance_creation_review_camera(CreationCameraFields* camera);
+f32 TCharaMaking__sub_8028DCCC(void *);
+void fn_802912C4(void *, int, int, f32, f32);
+u32 TObjCMMainMenu__sub_80291D44();
+extern u8 *lbl_805D6520;
+extern const f32 lbl_805DD96C;
+extern const f32 lbl_805DD998;
+extern const f32 lbl_805DD9A4;
+extern const f32 lbl_805DD9A8;
+extern const f32 lbl_805DD9AC;
+extern const f32 lbl_805DD9B0;
+void fn_80291784(Cam_80291784 *arg0);
 }
 
 extern "C" {
@@ -105,5 +122,44 @@ void fn_802916D4(u8 *arg0) {
     }
 }
 #pragma pop
+
+void fn_80291784(Cam_80291784 *arg0) {
+    s32 want;
+    switch (TObjCMMainMenu__sub_80291D44()) {
+    case 0:
+    case 1:
+    case 2:
+    case 4:
+        want = 0;
+        break;
+    case 6:
+    case 8:
+        want = 1;
+        break;
+    default:
+        want = 2;
+        break;
+    }
+    if (arg0->mode == want) {
+        arg0->timer = 0;
+    } else if (++arg0->timer > 30) {
+        arg0->mode = want;
+        arg0->timer = 0;
+    }
+    if (lbl_805D6520 != NULL) {
+        f32 s = TCharaMaking__sub_8028DCCC(lbl_805D6520);
+        switch (arg0->mode) {
+        case 0:
+            fn_802912C4(arg0, 0, 0, lbl_805DD96C * s, lbl_805DD9A4 * s);
+            break;
+        case 1:
+            fn_802912C4(arg0, 0, 0, lbl_805DD998, lbl_805DD9A8);
+            break;
+        case 2:
+            fn_802912C4(arg0, 0, 0, lbl_805DD9AC * s, lbl_805DD9B0 * s);
+            break;
+        }
+    }
+}
 
 }

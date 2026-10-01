@@ -9,6 +9,10 @@ struct RecoveredGlobal_80327F88_lbl_804ED598 {
     u8 remaining[0x14];
 };
 
+struct Vtx_80327D30 { f32 x, y, z, u, v; u32 color; };
+
+struct Obj_80327D30 { u8 pad0[0x1C]; f32 w; f32 h; u8 pos[0xC]; u8 pad30; u8 f31; u8 pad32[2]; s32 f34; s32 f38; u8 pad3c[4]; void *f40; };
+
 extern "C" {
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -28,7 +32,6 @@ int GXSetNumIndStages(int);
 int GXSetTevDirect(int);
 int TObjPlayer__sub_803DC83C(int);
 extern M2C_UNK lbl_804ED5B0[];
-void reset_ind_tev_stages__13TParticleCtrlFv(void);
 extern M2C_UNK lbl_804ED5B0[];
 void play_particle__13TParticleCtrlFPvis(void *arg0, s32 arg1, s16 arg2);
 void __dl__7TObjectFPv(void *);
@@ -44,11 +47,90 @@ extern s32 tl_05;
 u8 *TParticleCtrl__sub_80327F88(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 arg5, s32 arg6, f32 farg0, f32 farg1);
 s32 play_particle_at_active_slot__10TObjPlayerFiiiiii(s32, s32, s32, s32, s32, s32);
 void TParticleCtrl__sub_80328090(u8 arg0, u16 arg1, s32 arg2);
+M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
+M2C_UNK setup_particle_tev(int);
+M2C_UNK TParticleCtrl__sub_800836E8(f32);
+M2C_UNK set_depth_buffer_settings_2__Fv();
+M2C_UNK fn_80141A30();
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+void reset_ind_tev_stages__13TParticleCtrlFv(void *);
+void play_particle__13TParticleCtrlFPvis(void *arg0, s32 arg1, s16 arg2);
+M2C_UNK GXSetNumTexGens(int);
+M2C_UNK GXSetNumTevStages(int);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK rotate_matrix_x(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK TParticleCtrl__sub_803DA7A8(int);
+M2C_UNK reset_particles__13TParticleCtrlFv();
+M2C_UNK TParticleCtrl__sub_803E2A1C(void *, int);
+M2C_UNK TParticleCtrl__sub_803E2B68(int);
+extern u8 lbl_804C5820[];
+extern u8 *lbl_805D4DF0;
+void TParticleCtrl__sub_80327D30(Obj_80327D30 *o);
 }
 
 extern "C" {
 
 void update_lifetime__13TParticleCtrlFPv(void *arg0);
+
+void TParticleCtrl__sub_80327D30(Obj_80327D30 *o) {
+    Vtx_80327D30 v[4];
+    if (o->f40 != NULL && o->f38 != 0) {
+        v[0].x = 10.0f * o->w;
+        v[0].y = 10.0f * o->h;
+        v[0].z = 0.0f;
+        v[0].u = 0.0f;
+        v[0].v = 0.0f;
+        v[0].color = 0xFFFF0000;
+        v[1].x = 10.0f * o->w;
+        v[1].y = -10.0f * o->h;
+        v[1].z = 0.0f;
+        v[1].u = 0.0f;
+        v[1].v = 1.0f;
+        v[1].color = 0xFFFF0000;
+        v[2].x = -10.0f * o->w;
+        v[2].y = 10.0f * o->h;
+        v[2].z = 0.0f;
+        v[2].u = 1.0f;
+        v[2].v = 0.0f;
+        v[2].color = 0xFFFF0000;
+        v[3].x = -10.0f * o->w;
+        v[3].y = -10.0f * o->h;
+        v[3].z = 0.0f;
+        v[3].u = 1.0f;
+        v[3].v = 1.0f;
+        v[3].color = 0xFFFF0000;
+        begin_effect_render__13TParticleCtrlFv();
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(o->pos);
+        rotate_matrix_y(0, *(s32 *)(lbl_805D4DF0 + 0x194));
+        rotate_matrix_x(0, *(s32 *)(lbl_805D4DF0 + 0x190));
+        TParticleCtrl__sub_800836E8(1.1333334f);
+        set_global_param__8TObjFishFi(*(s32 *)(lbl_804C5820 + 0x16C));
+        TParticleCtrl__sub_803DA7A8(o->f31);
+        TParticleCtrl__sub_803E2B68(1);
+        GXSetNumTevStages(2);
+        GXSetNumTexGens(2);
+        play_particle__13TParticleCtrlFPvis((void *)(o->f40), (s32)(0), (s16)(-1));
+        setup_particle_tev(0);
+        if (o->f34 != 0) {
+            set_depth_buffer_settings_2__Fv();
+        }
+        TParticleCtrl__sub_803E2A1C(v, 4);
+        if (o->f34 != 0) {
+            fn_80141A30();
+        }
+        reset_particles__13TParticleCtrlFv();
+        disable_if_single_screen__13TParticleCtrlFv();
+        reset_ind_tev_stages__13TParticleCtrlFv((void *)(o->f40));
+        TObjPlayer__sub_803D9B78();
+        end_effect_render__13TParticleCtrlFv();
+    }
+}
 
 void update_lifetime__13TParticleCtrlFPv(void *arg0) {
     s32 temp_r0;
@@ -118,7 +200,7 @@ void TParticleCtrl__sub_80328090(u8 arg0, u16 arg1, s32 arg2) {
 }
 
 int get_object__13TParticleCtrlFPv(void* p) { return fn_802A8260(p); }
-void reset_ind_tev_stages__13TParticleCtrlFv(void) { GXSetTevDirect(1); GXSetNumIndStages(0); TObjPlayer__sub_803DC83C(0); }
+void reset_ind_tev_stages__13TParticleCtrlFv(void * _w0) { GXSetTevDirect(1); GXSetNumIndStages(0); TObjPlayer__sub_803DC83C(0); }
 void play_particle__13TParticleCtrlFPvis(void *arg0, s32 arg1, s16 arg2) {
     if (arg2 < 0) {
         arg2 = (s16) M2C_FIELD(arg0, u8 *, 0x1C);

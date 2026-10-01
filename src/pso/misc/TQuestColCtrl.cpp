@@ -7,6 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Obj_8019601C { u8 pad[0x6]; u16 id; };
 
+struct Base_80195F50 { u8 pad[0x18]; };
+
+struct Obj_80195F50 : Base_80195F50 { virtual ~Obj_80195F50(); };
+
 extern "C" {
 int run_tasks__7TObjectFv(void*);
 void run_task__13TQuestColCtrlFv(void);
@@ -19,6 +23,11 @@ void *__nw__7TObjectFUl(int);
 void *TObjQuestColApcINW__ct(void *self, void *parent, void *arg);
 extern u32 lbl_805D5C50;
 Obj_8019601C *TLobby__sub_8019601C(void *arg, s32 *out_id);
+void __dt__7TObjectFv(void *, s32);
+void __dl__7TObjectFPv(void *);
+extern M2C_UNK __vt__13TQuestColCtrl[];
+extern u32 lbl_805D5C50;
+void *__dt__13TQuestColCtrlFv(void *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -37,6 +46,21 @@ void run_task__13TQuestColCtrlFv(void) {
     if ((u32) lbl_805D5C50 != 0U) {
         run_tasks__7TObjectFv((void*)((void*)lbl_805D5C50));
     }
+}
+
+void *__dt__13TQuestColCtrlFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        *(void **)((u8 *)arg0 + 0x18) = ((s32 *)&__vt__13TQuestColCtrl);
+        if (lbl_805D5C50 != 0U) {
+            delete (Obj_80195F50 *)lbl_805D5C50;
+            lbl_805D5C50 = 0;
+        }
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
 }
 
 void *TQuestColCtrl__ct(void *arg0) {

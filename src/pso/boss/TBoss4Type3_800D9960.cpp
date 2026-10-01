@@ -22,8 +22,11 @@ typedef struct Trail_800D9ABC {
     f32 step;
 } Trail_800D9ABC;
 
+struct Vec_800D9994 { f32 x, y, z; };
+
+struct Arg_800D9994 { s32 a; s32 b; s32 count; f32 start; u8 pad10[4]; f32 step; };
+
 extern "C" {
-void TBoss4Type3__sub_800D9994(void *, s32, s32, s32, s32);
 extern RecoveredGlobal_800D9960_lbl_80500FA4 lbl_80500FA4;
 void TBoss4Type3__sub_800D9960(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
@@ -32,6 +35,21 @@ Vec_800D9ABC *alloc_buffer__11TOBoss4RockFPv(int);
 extern const f32 lbl_805DA3EC;
 extern const f32 lbl_805DA3F0;
 Trail_800D9ABC *TBoss4Type3__sub_800D9ABC(Trail_800D9ABC *arg0, s32 segs, f32 start, f32 end, f32 step);
+void fn_800D97E8(void *, s32, M2C_UNK);
+void TObjPlayer__sub_803D7B68(s32, f32);
+void TObjPlayer__sub_803D8CD4(M2C_UNK);
+void TObjPlayer__sub_803D9B2C(Vec_800D9994 *);
+void TObjPlayer__sub_803D9B78();
+void set_global_flag__10TObjPlayerFv();
+void clear_global_state__10TObjPlayerFv();
+extern Vec_800D9994 lbl_80500F80;
+extern s32 lbl_805D5230;
+extern s32 lbl_805D5234;
+extern s32 lbl_805D5238;
+extern s32 lbl_805D523C;
+extern s32 lbl_805D5240;
+extern const f32 lbl_805DA3EC;
+void TBoss4Type3__sub_800D9994(Arg_800D9994 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 }
 
 extern "C" {
@@ -44,7 +62,31 @@ typedef char RecoveredGlobal_800D9960_lbl_80500FA4_size[sizeof(RecoveredGlobal_8
 void TBoss4Type3__sub_800D9960(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     M2C_FIELD(&lbl_80500FA4.value, s32 *, 0) = arg3;
     M2C_FIELD(&lbl_80500FA4.value, s32 *, 4) = arg4;
-    TBoss4Type3__sub_800D9994(arg0, arg1, arg2, (s32) &lbl_80500FA4.value, 0);
+    TBoss4Type3__sub_800D9994((Arg_800D9994 *)(arg0), (s32)(arg1), (s32)(arg2), (s32)((s32) &lbl_80500FA4.value), (s32)(0));
+}
+
+void TBoss4Type3__sub_800D9994(Arg_800D9994 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+    f32 f;
+    s32 i;
+    set_global_flag__10TObjPlayerFv();
+    lbl_80500F80.x = lbl_805DA3EC;
+    lbl_80500F80.y = lbl_805DA3EC;
+    lbl_80500F80.z = lbl_805DA3EC;
+    lbl_805D5230 = arg0->a;
+    lbl_805D5234 = arg0->b;
+    lbl_805D523C = arg3;
+    lbl_805D5240 = arg4;
+    TObjPlayer__sub_803D9B2C(&lbl_80500F80);
+    f = arg0->start;
+    for (i = 0; i < arg0->count; i++) {
+        lbl_805D5238 = 0;
+        TObjPlayer__sub_803D8CD4(0);
+        TObjPlayer__sub_803D7B68(arg2, f);
+        fn_800D97E8(arg0, arg1, 0);
+        f += arg0->step;
+    }
+    TObjPlayer__sub_803D9B78();
+    clear_global_state__10TObjPlayerFv();
 }
 
 s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1) {

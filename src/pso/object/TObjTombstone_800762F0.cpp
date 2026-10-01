@@ -17,6 +17,26 @@ struct Stack_8007643C {
 struct RecoveredGlobal_8007643C___vt__13TObjTombstone { M2C_UNK value; u8 remaining[0x34]; };
 typedef char RecoveredGlobal_8007643C___vt__13TObjTombstone_size[sizeof(RecoveredGlobal_8007643C___vt__13TObjTombstone) == 0x38 ? 1 : -1];
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct C_80076390 { u32 w[2]; };
+
+struct In_80076390 { u32 w[5]; };
+
+struct B_80076390 { u32 a; In_80076390 b; };
+
+struct E_80076390 { u32 w[8]; };
+
+struct T_80076390 {
+    u8 b0, b1, b2, b3;
+    s16 h4, h6;
+    s32 i8, iC;
+    C_80076390 c10;
+    B_80076390 s18;
+    E_80076390 s30;
+};
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TObjTombstone__sub_80075D68(void *);
@@ -26,6 +46,7 @@ extern RecoveredGlobal_8007643C___vt__13TObjTombstone __vt__13TObjTombstone;
 extern s32 lbl_805D289C;
 extern s32 TObjTombstone__data_805D4E48;
 u8 *TObjTombstone__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3);
+s32 TObjTombstone__sub_80076390(void *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -33,7 +54,6 @@ extern "C" {
 void setup__13TObjTombstoneFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
-M2C_UNK TObjTombstone__sub_80076390(void *, s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK fn_80074E04(s32, void *);
 
@@ -44,7 +64,7 @@ void setup__13TObjTombstoneFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(TObjTombstone__data_805D4E48, 0);
     M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4(TObjTombstone__data_805D4E48, 0);
     M2C_FIELD(arg0, s32 *, 0xAC) = arg1;
-    TObjTombstone__sub_80076390(arg0 + 0xC0, arg2);
+    TObjTombstone__sub_80076390((void *)(arg0 + 0xC0), (s32)(arg2));
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0xD0);
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0xAC) << 0xD);
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) TObjTombstone__data_805D9174;
@@ -54,6 +74,26 @@ void setup__13TObjTombstoneFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x230) = 0;
     fn_80074E04(M2C_FIELD(arg0, s32 *, 0xAC), arg0 + 0x38);
 }
+
+#define dst ((T_80076390 *)arg0)
+#define src ((T_80076390 *)arg1)
+s32 TObjTombstone__sub_80076390(void *arg0, s32 arg1) {
+    dst->b0 = src->b0;
+    dst->b1 = src->b1;
+    dst->b2 = src->b2;
+    dst->b3 = src->b3;
+    dst->h4 = src->h4;
+    dst->h6 = src->h6;
+    dst->i8 = src->i8;
+    dst->iC = src->iC;
+    dst->c10 = src->c10;
+    dst->s18 = src->s18;
+    dst->s30 = src->s30;
+    return (s32)dst;
+}
+#undef dst
+#undef src
+
 u8 *TObjTombstone__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3) {
     typedef char sp8_offset[(offsetof(Stack_8007643C, sp8) == 0x0) ? 1 : -1];
     typedef char sp9_offset[(offsetof(Stack_8007643C, sp9) == 0x1) ? 1 : -1];

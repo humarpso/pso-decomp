@@ -66,6 +66,20 @@ void TWindowReturnCity__sub_8026D18C(void);
 extern s32 lbl_805D55C0;
 extern s32 tl_00;
 extern int TWindowReturnCity__data_805D6468;
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK init__22THunterGuildSeqOfflineFPvPvPv(u32, s32, void (*)());
+M2C_UNK clear_flag_2__11TWindowCtrlFv();
+u32 __nw__7TObjectFUl(M2C_UNK);
+M2C_UNK TWindowReturnCity__sub_8024ACA8(s32);
+s32 query_battle_state__17TWindowReturnCityFPv(void *arg0);
+void clear_flag_bit5__17TWindowReturnCityFv(void);
+s32 get_slot_or_neg1__17TWindowSubComCardFPv(s32);
+s32 get_card_data__17TWindowSubComCardFPv(s32);
+s32 TWindowSubComCard__sub_802A57FC(s32);
+void TWindowReturnCity__sub_8026D18C(void);
+extern s32 lbl_805D55C0;
+extern s32 tl_00;
+extern int TWindowReturnCity__data_805D6468;
 void run_task__17TWindowReturnCityFv(void *arg0);
 }
 
@@ -115,11 +129,12 @@ void run_task__17TWindowReturnCityFv(void *arg0) {
     if ((s32) lbl_805D55C0 != 1) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x20);
         switch (temp_r0) {
-        default: return;
+        case 2:
+            break;
         case 0:
             M2C_FIELD(arg0, s32 *, 0x20) = 1;
         case 1:
-            if ((query_battle_state__17TWindowReturnCityFPv(arg0) == 0) || ((s32) (*(s32 *)&TWindowReturnCity__data_805D6468) != 4)) {
+            if ((query_battle_state__17TWindowReturnCityFPv(arg0) == 0) || ((s32) TWindowReturnCity__data_805D6468 != 4)) {
                 clear_flag_bit5__17TWindowReturnCityFv();
                 TWindowReturnCity__sub_8024ACA8(M2C_FIELD(arg0, s32 *, 0x24));
                 clear_flag_2__11TWindowCtrlFv();
@@ -138,7 +153,7 @@ void run_task__17TWindowReturnCityFv(void *arg0) {
             if (TWindowSubComCard__sub_802A57FC(M2C_FIELD(arg0, s32 *, 0x1C)) != 0) {
                 temp_r3 = get_slot_or_neg1__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x1C));
                 if (temp_r3 == 0) {
-                    (*(s32 *)&TWindowReturnCity__data_805D6468) = M2C_FIELD(arg0, s32 *, 0x24);
+                    TWindowReturnCity__data_805D6468 = M2C_FIELD(arg0, s32 *, 0x24);
                     u32 task = __nw__7TObjectFUl(0x28);
                     if (task != 0U) {
                         init__22THunterGuildSeqOfflineFPvPvPv(task, tl_00, TWindowReturnCity__sub_8026D18C);

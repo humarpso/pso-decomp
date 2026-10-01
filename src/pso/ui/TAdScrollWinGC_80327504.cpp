@@ -24,6 +24,25 @@ extern const f32 lbl_805DF6A8;
 extern const f32 lbl_805DF6AC;
 extern const f32 lbl_805DF6B0;
 void run_task__14TAdScrollWinGCFv(u8 *arg0);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, s32);
+void __ct__7TObjectFP7TObject(void *, void *);
+void TLobby__sub_80269454(s32);
+void send_and_handle__6TLobbyFPvii(s32, s32, M2C_UNK);
+void TWindowMessageLog__sub_8026A494(s32);
+void TAdScrollWinGC__sub_8026A5F8(s32);
+s32 fn_8026A9D8(void *, void *, M2C_UNK);
+s32 TAdMultiPlyChrSelectGC__sub_802C6FA8(void);
+s32 TAdScrollWinGC__sub_8032745C(void *);
+extern u8 lbl_80476770[];
+extern u8 lbl_80476778[];
+extern RecoveredGlobal_80327698___vt__14TAdScrollWinGC __vt__14TAdScrollWinGC;
+extern s32 lbl_805D41A8;
+extern s32 lbl_805D6C68;
+extern const f32 lbl_805DF6B4;
+extern const f32 lbl_805DF6B8;
+extern const f32 lbl_805DF6BC;
+extern const f32 lbl_805DF6C0;
+void *TAdScrollWinGC__ct(void *arg0, void *arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -79,6 +98,42 @@ u8 *__dt__14TAdScrollWinGCFv(u8 *arg0, s16 arg1) {
             __dl__7TObjectFPv((s32) arg0);
         }
     }
+    return arg0;
+}
+void *TAdScrollWinGC__ct(void *arg0, void *arg1, s32 arg2, s32 arg3) {
+    s32 base;
+    s32 i;
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__14TAdScrollWinGC.value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D41A8;
+    lbl_805D6C68 = TAdMultiPlyChrSelectGC__sub_802C6FA8();
+    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x40) = 0;
+    M2C_FIELD(arg0, s32 *, 0x44) = arg2;
+    M2C_FIELD(arg0, s32 *, 0x48) = 0;
+    M2C_FIELD(arg0, s32 *, 0x4C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x50) = 0;
+    base = TAdScrollWinGC__sub_8032745C(arg0);
+    M2C_FIELD(arg0, s32 *, 0x40) = fn_8026A9D8(lbl_80476770, lbl_80476778, 0);
+    switch (M2C_FIELD(arg0, s32 *, 0x44)) {
+    case 0:
+    case 1:
+        for (i = 0; i < 10; i++) {
+            send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, s32 *, 0x40), TAdSinglePlyChrSelectGC__sub_80132F2C(0x1A, base + i), 1);
+        }
+        break;
+    case 2:
+    case 3:
+        send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, s32 *, 0x40), arg3, 1);
+        break;
+    }
+    TLobby__sub_80269454(M2C_FIELD(arg0, s32 *, 0x40));
+    TWindowMessageLog__sub_8026A494(M2C_FIELD(arg0, s32 *, 0x40));
+    TAdScrollWinGC__sub_8026A5F8(M2C_FIELD(arg0, s32 *, 0x40));
+    M2C_FIELD(arg0, f32 *, 0x2C) = lbl_805DF6B4;
+    M2C_FIELD(arg0, f32 *, 0x30) = lbl_805DF6B8;
+    M2C_FIELD(arg0, f32 *, 0x34) = lbl_805DF6BC;
+    M2C_FIELD(arg0, f32 *, 0x38) = lbl_805DF6C0;
     return arg0;
 }
 

@@ -3,6 +3,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 s32 TLobby__sub_801C38E8(void *);
 s32 TLobby__sub_801C3AF4(void *);
@@ -10,18 +11,30 @@ s32 TLobby__sub_801C418C(void *);
 s32 TLobby__sub_801C4214(void *);
 s32 TLobby__sub_801C484C(void *);
 s32 TLobby__sub_801C49B8(void *);
-s32 fn_801C4CE0(void *);
 void fn_801C4D28(u8 *arg0);
+M2C_UNK TLobby__sub_801C3030();
+s32 fn_801C4CE0(void *arg0);
 }
 
 extern "C" {
+
+s32 fn_801C4CE0(void *arg0) {
+    switch (M2C_FIELD(arg0, s32 *, 0x20)) {
+    case -1:
+        break;
+    case 0:
+        TLobby__sub_801C3030();
+        M2C_FIELD(arg0, s32 *, 0x24) = 1;
+        break;
+    }
+}
 
 void fn_801C4D28(u8 *arg0) {
     u32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, u32 *, 0x1C);
     switch (temp_r0) {
     case 0:
-        fn_801C4CE0((void *) (arg0));
+        fn_801C4CE0((void *)((void *) (arg0)));
         return;
     case 1:
         TLobby__sub_801C49B8((void *) (arg0));

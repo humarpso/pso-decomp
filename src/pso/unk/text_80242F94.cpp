@@ -22,6 +22,10 @@ struct Ent_80243070 { u8 pad[0x18]; };
 
 struct Pt_80243070 { s16 h; u8 pad[2]; f32 x; f32 y; };
 
+struct Ent_802430F4 { u8 pad[0x18]; };
+
+struct Sp_802430F4 { u32 a; u32 b; };
+
 extern "C" {
 extern RecoveredGlobal_802430E8_lbl_80518580 lbl_80518580;
 M2C_UNK *TAdSinglePlyChrSelectGC__sub_802430E8(void);
@@ -36,6 +40,15 @@ extern RecoveredGlobal_802430E8_lbl_80518580 lbl_80518580;
 extern Pt_80243070 lbl_80518700[];
 extern const f32 lbl_805DCA04;
 void TAdSinglePlyChrSelectGC__sub_80243070(s16 arg0);
+void TAdSinglePlyChrSelectGC__sub_80242938(Sp_802430F4 *, u32, s32);
+void TAdSinglePlyChrSelectGC__sub_80242B24(Sp_802430F4 *);
+s32 TAdSinglePlyChrSelectGC__sub_80242B30(Pt_80243070 *, Sp_802430F4 *);
+void fn_80242C54(Ent_802430F4 *);
+s32 fn_80242F0C(s32);
+void PADControlMotor(s32, u32);
+extern RecoveredGlobal_802430E8_lbl_80518580 lbl_80518580;
+extern Pt_80243070 lbl_80518700[];
+void TAdSinglePlyChrSelectGC__sub_802430F4(void);
 }
 
 extern "C" {
@@ -95,6 +108,33 @@ void TAdSinglePlyChrSelectGC__sub_80243070(s16 arg0) {
 
 M2C_UNK *TAdSinglePlyChrSelectGC__sub_802430E8(void) {
     return &lbl_80518580.value;
+}
+void TAdSinglePlyChrSelectGC__sub_802430F4(void) {
+    s32 j;
+    s32 t;
+    Ent_802430F4 *p;
+    Pt_80243070 *q;
+    s32 i;
+    Sp_802430F4 sp;
+    q = lbl_80518700;
+    for (i = 0; i < 4; i++, q++) {
+        t = fn_80242F0C(i);
+        if (t == 0xFFFF) {
+            PADControlMotor(i, 0);
+        } else {
+            TAdSinglePlyChrSelectGC__sub_80242B24(&sp);
+            TAdSinglePlyChrSelectGC__sub_80242938(&sp, t, i);
+            if (TAdSinglePlyChrSelectGC__sub_80242B30(q, &sp) != 0) {
+                PADControlMotor(i, 1);
+            } else {
+                PADControlMotor(i, 0);
+            }
+        }
+    }
+    p = (Ent_802430F4 *)&lbl_80518580;
+    for (j = 0; j < 16; j++, p++) {
+        fn_80242C54(p);
+    }
 }
 
 }

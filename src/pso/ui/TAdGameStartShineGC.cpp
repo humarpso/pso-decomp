@@ -8,10 +8,50 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct V2_8034AB4C { f32 x, y; };
+
+struct Shine_8034AB4C {
+    s32 name;
+    u8 pad4[0x18 - 4];
+    void *vt;
+    f32 f1C;
+    f32 f20;
+    f32 x24;
+    f32 y28;
+    f32 x2C;
+    f32 y30;
+    f32 x34;
+    f32 y38;
+    u8 pad3C[0x4C - 0x3C];
+    f32 x4C;
+    f32 y50;
+    u8 pad54[0x64 - 0x54];
+    f32 f64;
+    f32 f68;
+    f32 f6C;
+    f32 f70;
+    s32 alpha;
+    s32 timer;
+    s32 visible;
+};
+
 extern "C" {
 extern const f32 lbl_805DFD64;
 extern const f32 lbl_805DFD68;
 void run_task__19TAdGameStartShineGCFv(u8 *arg0);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void __ct__7TObjectFP7TObject(void *);
+s32 get_instance__10TObjPlayerFv();
+extern f32 lbl_804789E8[];
+extern const f32 lbl_804789F0[];
+extern s32 __vt__19TAdGameStartShineGC[];
+extern s32 lbl_805D4320;
+extern s32 lbl_805D6E88;
+extern const f32 lbl_805DFD64;
+extern const f32 lbl_805DFD6C;
+extern const f32 lbl_805DFD70;
+extern const f32 lbl_805DFD74;
+Shine_8034AB4C *__ct__19TAdGameStartShineGCFv(Shine_8034AB4C *self);
 }
 
 extern "C" {
@@ -60,6 +100,33 @@ void run_task__19TAdGameStartShineGCFv(u8 *arg0) {
         temp_f2_4 = M2C_FIELD(arg0, f32 *, 0x50);
         M2C_FIELD(arg0, f32 *, 0x60) = (f32) ((M2C_FIELD(arg0, f32 *, 0x20) * (M2C_FIELD(arg0, f32 *, 0x38) - temp_f2_4)) + temp_f2_4);
     }
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+Shine_8034AB4C *__ct__19TAdGameStartShineGCFv(Shine_8034AB4C *self) {
+    __ct__7TObjectFP7TObject(self);
+    self->vt = __vt__19TAdGameStartShineGC;
+    self->name = lbl_805D4320;
+    self->f1C = lbl_805DFD64;
+    self->f20 = lbl_805DFD64;
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&self->x24, lbl_804789E8);
+    self->x2C = self->x24;
+    self->y30 = self->y28;
+    self->x34 = self->x24 + lbl_804789F0[0];
+    self->y38 = self->y28 + lbl_804789F0[1];
+    self->f64 = lbl_805DFD6C;
+    self->f68 = lbl_805DFD6C;
+    self->f6C = lbl_805DFD64;
+    self->f70 = lbl_805DFD70;
+    self->x4C = lbl_805DFD74 * (self->x34 - self->x2C) + self->x2C;
+    self->y50 = lbl_805DFD74 * (self->y38 - self->y30) + self->y30;
+    self->alpha = 0xFF;
+    self->timer = -1;
+    self->visible = 0;
+    lbl_805D6E88 = get_instance__10TObjPlayerFv();
+    return self;
 }
 #pragma pop
 
