@@ -48,6 +48,20 @@ struct Obj_8018CB44 { u8 pad0[0x1C]; u16 f1C; u8 pad1[0x62]; u32 f80; s32 f84; }
 
 struct Pkt_8018CB44 { u16 a; u16 b; s32 c; s32 d; s32 e; };
 
+typedef s32 M2C_UNK;
+struct VBase_8018C7BC { char pad[0x18]; };
+
+struct VObj_8018C7BC : VBase_8018C7BC {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5(s32);
+};
+
+struct Ido_8018C7BC { u8 pad[0xCC]; s32 ids[4]; };
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
@@ -75,6 +89,18 @@ void init_packet_67_04__6TLobbyFPv(void *);
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805DBD98;
 f32 TObjContainerJungEnemy__vt20(Obj_8018CB44 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void activate_and_dispatch__10TObjPlayerFPv(void *);
+void init_and_activate__10TObjPlayerFPv(void *);
+void reset_photon_effect__10TObjPlayerFPv(void *);
+void TObjEneGibbles__sub_80156780(void *, void *, int);
+void init_positions__16TObjContainerIdoFPv(void *);
+extern u8 lbl_804B70B4[];
+extern M2C_UNK __vt__16TObjContainerIdo[];
+extern s32 lbl_805D330C;
+extern const f32 TObjContainerIdo__data_805DBD64;
+extern const f32 lbl_805DBD7C;
+u8 *TObjContainerIdo__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
@@ -148,6 +174,42 @@ void *__dt__16TObjContainerIdoFv(void *arg0, s16 arg1) {
 }
 
 extern const f32 lbl_805DBD9C;
+
+u8 *TObjContainerIdo__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    s32 i;
+    init_positions__16TObjContainerIdoFPv(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjContainerIdo;
+    init_and_activate__10TObjPlayerFPv(arg0 + 0xF0);
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D330C;
+    ((VObj_8018C7BC *)(arg0))->m5(arg2);
+    VecCopy__FP3VecPC3Vec(arg0 + 0xC0, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec(arg0 + 0xB4, arg0 + 0x38);
+    M2C_FIELD(arg0, f32 *, 0xB0) = lbl_805DBD7C;
+    M2C_FIELD(arg0, s32 *, 0xDC) = M2C_FIELD(arg0, s32 *, 0x88);
+    if (M2C_FIELD(arg0, s32 *, 0xDC) < 1) {
+        M2C_FIELD(arg0, s32 *, 0xDC) = 1;
+    }
+    if (M2C_FIELD(arg0, s32 *, 0xDC) > 4) {
+        M2C_FIELD(arg0, s32 *, 0xDC) = 4;
+    }
+    for (i = 0; i < M2C_FIELD(arg0, s32 *, 0xDC); i++) {
+        ((Ido_8018C7BC *)arg0)->ids[i] = M2C_FIELD(arg0, s32 *, 0x84) + i;
+    }
+    M2C_FIELD(arg0, u32 *, 0xE0) = 0;
+    if (M2C_FIELD(arg0, s32 *, 0x8C) != 0) {
+        M2C_FIELD(arg0, u32 *, 0xE0) |= 0x08000000;
+    } else {
+        M2C_FIELD(arg0, u32 *, 0xE0) &= ~0x08000000;
+    }
+    M2C_FIELD(arg0, f32 *, 0xE4) = TObjContainerIdo__data_805DBD64;
+    M2C_FIELD(arg0, f32 *, 0xE8) = M2C_FIELD(arg0, f32 *, 0x68) / M2C_FIELD(arg0, s32 *, 0xDC);
+    M2C_FIELD(arg0, f32 *, 0xEC) = M2C_FIELD(arg0, f32 *, 0x6C);
+    activate_and_dispatch__10TObjPlayerFPv(arg0 + 0xF0);
+    TObjEneGibbles__sub_80156780(arg0, lbl_804B70B4, 1);
+    M2C_FIELD(arg0, u32 *, 0x30) |= 0x40000000;
+    reset_photon_effect__10TObjPlayerFPv(arg0);
+    return arg0;
+}
 
 void TObjContainerJungEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
     if (arg2 != 0) {

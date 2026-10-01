@@ -9,12 +9,73 @@ struct Rec_801AA17C {
     s32 state;
 };
 
+struct Obj_801A9CB8 {
+    u8 pad0[0x18];
+    void *vt;
+    u8 pad1c[0x20];
+    u16 id;
+    u8 pad3e[0xe];
+    s32 active;
+    u8 pad50[0x10];
+    u32 ids[4];
+};
+
 extern "C" {
 extern struct Rec_801AA17C lbl_8050E890[];
 s32 TObjPlayer__sub_801AA17C(struct Rec_801AA17C *output, s32 player);
+void __dt__7TObjectFv(void *, int);
+void TCameraCtrl__sub_80069D7C(void);
+void TCameraCtrl__sub_80069DA8(void);
+void TCameraCtrl__sub_8006A410(void *, int);
+void TFogCtrl__sub_800FAC10(int, int);
+void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void TObjPlayer__sub_801CBFA4(void *);
+void set_and_notify_default__6TLobbyFv(void);
+void __dl__7TObjectFPv(void *);
+void TLobby__sub_8024AC20(s32);
+extern u8 lbl_804C349C[];
+extern struct Rec_801AA17C lbl_8050E890[];
+extern s32 lbl_805D53A0;
+Obj_801A9CB8 *TObjPlayer__sub_801A9CB8(Obj_801A9CB8 *self, s16 flag);
 }
 
 extern "C" {
+
+Obj_801A9CB8 *TObjPlayer__sub_801A9CB8(Obj_801A9CB8 *self, s16 flag) {
+    s32 i;
+    s32 j;
+    if (self != NULL) {
+        self->vt = lbl_804C349C;
+        if (self->active != 0) {
+            set_and_notify_default__6TLobbyFv();
+            TObjPlayer__sub_801CBFA4((u8 *)self + 0x90);
+            if (TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != NULL) {
+                TLobby__sub_8024AC20(lbl_805D53A0);
+                TCameraCtrl__sub_80069D7C();
+                TCameraCtrl__sub_80069DA8();
+                TCameraCtrl__sub_8006A410(TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0), 0);
+            }
+        } else {
+            TFogCtrl__sub_800FAC10(self->id, 0);
+        }
+        if (self->id != 0xFFFF && self->id < 4) {
+            for (i = 0; i < 4; i++) {
+                if (self->ids[i] < 4) {
+                    for (j = 0; j < 4; j++) {
+                        lbl_8050E890[self->ids[i]].kinds[j] = -1;
+                        lbl_8050E890[self->ids[i]].participants[j] = 0xFFFF;
+                    }
+                    lbl_8050E890[self->ids[i]].state = 0;
+                }
+            }
+        }
+        __dt__7TObjectFv(self, 0);
+        if (flag > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
+}
 
 s32 TObjPlayer__sub_801AA17C(struct Rec_801AA17C *output, s32 player) {
     s32 i;

@@ -116,6 +116,17 @@ extern s32 lbl_805D5ADC;
 extern u32 lbl_805D5AE0;
 extern s32 lbl_805D5AE4;
 void TOTrapAncient02__sub_8017ACA0(Obj_8017ACA0 *self);
+void *TObjFish__sub_8001EDC4(void *, int);
+void *TLobby__sub_80020004(void *, int, char *, int, int, int);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+u8 *count_linked_switches__23TObjSeabedSuisoBrakableFUii(void *, int);
+u32 get_global_state__14TOKeyMachine01Fv();
+extern char lbl_804B4AD8[];
+extern u32 TOTrapAncient02__data_805D5AD8;
+extern s32 lbl_805D5ADC;
+extern u32 lbl_805D5AE0;
+extern s32 lbl_805D5AE4;
+void TOTrapAncient02__sub_8017B4EC(void);
 }
 
 extern "C" {
@@ -337,6 +348,52 @@ void destroy_instance__15TOTrapAncient02Fv(void) {
 }
 
 extern M2C_UNK __vt__15TOTrapAncient02[];
+
+void TOTrapAncient02__sub_8017B4EC(void) {
+    char *base = lbl_804B4AD8;
+    void *obj;
+    switch (((s32 (*)()) get_global_state__14TOKeyMachine01Fv)()) {
+    case 0x13:
+    case 0x14:
+        obj = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (obj != 0) {
+            obj = TLobby__sub_80020004(obj, 1, base + 0x20, 0, 0, 0);
+        }
+        TOTrapAncient02__data_805D5AD8 = (u32) obj;
+        lbl_805D5AE0 = *(u32 *)(count_linked_switches__23TObjSeabedSuisoBrakableFUii(TObjFish__sub_8001EDC4(obj, 0), 2) + 4);
+        lbl_805D5AE4 = 2;
+        lbl_805D5ADC = 0;
+        break;
+    case 0x17:
+    case 0x18:
+    case 0x19:
+    case 0x1A:
+    case 0x1B:
+    case 0x1C:
+    case 0x1D:
+    case 0x22:
+    case 0x23:
+        obj = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (obj != 0) {
+            obj = TLobby__sub_80020004(obj, 1, base + 0x38, 0, 0, 0);
+        }
+        TOTrapAncient02__data_805D5AD8 = (u32) obj;
+        lbl_805D5AE0 = *(u32 *)(count_linked_switches__23TObjSeabedSuisoBrakableFUii(TObjFish__sub_8001EDC4(obj, 0), 2) + 4);
+        lbl_805D5AE4 = 1;
+        lbl_805D5ADC = 0;
+        break;
+    default:
+        obj = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (obj != 0) {
+            obj = TLobby__sub_80020004(obj, 1, base + 8, 0, 0, 0);
+        }
+        TOTrapAncient02__data_805D5AD8 = (u32) obj;
+        lbl_805D5AE0 = *(u32 *)(*(u8 **)(*(u8 **)(*(u8 **)(*(u8 **)((u8 *)obj + 0x42C) + 8) + 0x2C) + 0x2C) + 4);
+        lbl_805D5AE4 = 1;
+        lbl_805D5ADC = 0;
+        break;
+    }
+}
 
 void *__dt__15TOTrapAncient02Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

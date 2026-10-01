@@ -5,6 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
 extern "C" {
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
@@ -33,6 +34,22 @@ void *TAdSinglePlyChrSelectGC__sub_8020310C(void *);
 extern u8 lbl_8051381C[];
 extern s32 lbl_80513910[];
 void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
+void *alloc__22TQuestVmDownLoadServerFPv(s32);
+s32 TAdPlayerLoadGC__sub_801E2048(s32, char *);
+void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0);
+s32 TAdSinglePlyChrSelectGC__sub_801FBEF4(s32 arg0);
+void copy_name__23TAdSinglePlyChrSelectGCFi(s32);
+void TAdSinglePlyChrSelectGC__sub_801FBF90(s32);
+s32 TAdSinglePlyChrSelectGC__sub_801FBFD0(s32, s32 *);
+s32 TAdSinglePlyChrSelectGC__sub_80201204(void *, s32);
+s32 load_player_slot__23TAdSinglePlyChrSelectGCFPvii(s32, char *, void *);
+char *strncpy(char *, const char *, u32);
+void *memcpy(void *, const void *, u32);
+extern char lbl_804C8954[];
+extern s32 lbl_80513910[];
+extern s32 lbl_805D49B4;
+u8 TAdSinglePlyChrSelectGC__sub_801FBD6C(char *name, char *desc);
 }
 
 extern "C" {
@@ -99,6 +116,46 @@ void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0) {
     TAdSinglePlyChrSelectGC__sub_8007C0CC(lbl_8051381C, arg0, 0x194B0);
     TAdSinglePlyChrSelectGC__sub_8007C48C(lbl_8051381C, TAdSinglePlyChrSelectGC__sub_80202A68(arg0));
     TAdSinglePlyChrSelectGC__sub_8007C378(lbl_8051381C, arg0, 0x194AC);
+}
+
+u8 TAdSinglePlyChrSelectGC__sub_801FBD6C(char *name, char *desc) {
+    s32 sum;
+    u8 *buf;
+    s32 res;
+    u8 *data;
+    s32 saved;
+    buf = (u8 *)alloc__22TQuestVmDownLoadServerFPv(0x214B0);
+    res = TAdPlayerLoadGC__sub_801E2048(0, lbl_804C8954);
+    if (res == 0) {
+        lbl_805D49B4 = 1;
+        TAdSinglePlyChrSelectGC__sub_801FBF90(0);
+        res = load_player_slot__23TAdSinglePlyChrSelectGCFPvii(0, lbl_804C8954, buf);
+        TAdSinglePlyChrSelectGC__sub_801FBEF4(0);
+        copy_name__23TAdSinglePlyChrSelectGCFi(0);
+    }
+    if (res != 0) {
+        lbl_805D49B4 = 0;
+        safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+        return 0;
+    }
+    if (TAdSinglePlyChrSelectGC__sub_801FBFD0(0, &sum) == 0) {
+        lbl_805D49B4 = 0;
+        safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+        return 0;
+    }
+    lbl_805D49B4 = 0;
+    lbl_80513910[0] = lbl_80513910[1] = sum;
+    data = (u8 *)alloc__22TQuestVmDownLoadServerFPv(0x194B0);
+    memcpy(data, buf + 0x2048, 0x194B0);
+    TAdSinglePlyChrSelectGC__sub_801FBC3C(data);
+    saved = *(s32 *)data;
+    *(s32 *)data = 0;
+    res = TAdSinglePlyChrSelectGC__sub_80201204(data, 0x194B0);
+    strncpy(name, (char *)(data + 0x193F0), 0x10);
+    strncpy(desc, (char *)(data + 0x19400), 0x10);
+    safe_free__23TAdSinglePlyChrSelectGCFUi(data);
+    safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+    return saved == res;
 }
 
 s32 TAdSinglePlyChrSelectGC__sub_801FBEF4(s32 arg0) {

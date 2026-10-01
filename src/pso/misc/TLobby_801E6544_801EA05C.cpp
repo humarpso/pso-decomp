@@ -150,6 +150,20 @@ struct Vec_801ED0CC {
     f32 x, y, z;
 };
 
+struct Spawn_801EA388 {
+    u8 pad0[0xC];
+    f32 x;
+    f32 y;
+    f32 z;
+    u8 pad18[0xC];
+    f32 a;
+    u8 pad28[8];
+    s32 c;
+    s32 d;
+    s32 e;
+    u8 pad3c[4];
+};
+
 extern "C" {
 int obj_isState2_324(TObjPlayer*);
 void set_speed__10TObjPlayerFPvf(PlayerScaleState*, f32);
@@ -299,6 +313,12 @@ s32 TLobby__sub_80292270(s32, s32);
 s32 TLobby__sub_8007119C(s32);
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801EC050(u8 arg0, u8 arg1);
+void TLobby__sub_80207F30(Spawn_801EA508 *);
+int get_indexed_offset__6TLobbyFi(int);
+void *create__17TOSymbolchatColliFPv(void *arg0);
+extern int* TLobby__data_805D5E78;
+extern s32 lbl_8050DB70[];
+void TLobby__sub_801EA388(u8 i);
 }
 
 extern "C" {
@@ -387,6 +407,26 @@ void quest_set_player_shrink_size(s32 player_variable, s32 size_variable) {
         set_speed__10TObjPlayerFPvf(&player->scale_state,
             denominator > 0 ? (f32)whole + (f32)numerator / (f32)denominator : (f32)whole);
     }
+}
+
+struct Spawn_801EA508;
+void TLobby__sub_801EA388(u8 i) {
+    Spawn_801EA388 s;
+    TLobby__sub_80207F30((Spawn_801EA508 *)&s);
+    s.x = TLobby__data_805D5E78[i++];
+    s.y = TLobby__data_805D5E78[i++];
+    s.z = TLobby__data_805D5E78[i++];
+    s.a = TLobby__data_805D5E78[i++];
+    s.c = TLobby__data_805D5E78[i++];
+    s.d = TLobby__data_805D5E78[i++];
+    s.e = TLobby__data_805D5E78[i++];
+    lbl_8050DB70[0] = get_indexed_offset__6TLobbyFi((u16)TLobby__data_805D5E78[i++]);
+    lbl_8050DB70[1] = get_indexed_offset__6TLobbyFi((u16)TLobby__data_805D5E78[i++]);
+    lbl_8050DB70[2] = get_indexed_offset__6TLobbyFi((u16)TLobby__data_805D5E78[i]);
+    create__17TOSymbolchatColliFPv(&s);
+    lbl_8050DB70[1] = 0;
+    lbl_8050DB70[0] = 0;
+    lbl_8050DB70[2] = 0;
 }
 
 void TLobby__sub_801EA508(u8 i) {

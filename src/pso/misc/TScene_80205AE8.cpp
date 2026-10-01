@@ -7,6 +7,7 @@ struct Cyc_80205D24 { u16 id; u16 reserved; s16 texture; s16 index; s32 timer; }
 
 struct Uv_80205DE4 { u16 id; };
 
+#include "pso/misc/TSceneMaterial.h"
 extern "C" {
 u8 *TScene__sub_80081A30(void *, M2C_UNK, s32, s32, s32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
@@ -17,6 +18,11 @@ s32 TScene__sub_80205D24(void *task, Cyc_80205D24 *c);
 void copy_header_and_vec__6TSceneFPvPv(void* p, void* q);
 extern void* TScene__data_805D6004;
 s32 TScene__sub_80205DE4(void *task, Uv_80205DE4 *uv);
+extern SceneMaterialRoot* TScene__data_805D5FCC;
+extern void* TScene__data_805D6004;
+s32 TScene__sub_80205D24(void *task, Cyc_80205D24 *c);
+s32 TScene__sub_80205DE4(void *task, Uv_80205DE4 *uv);
+void TScene__sub_802062B8(void *task);
 }
 
 extern "C" {
@@ -156,4 +162,27 @@ void TScene__sub_80206058(void* task) {
         }
     }
 }
+void TScene__sub_802062B8(void *task) {
+    SceneMaterialSection *room;
+    s32 section;
+    SceneMaterialStatic *object;
+    s32 i;
+    SceneMaterialAnimated *anim;
+    s32 j;
+    if (!TScene__data_805D6004 || !TScene__data_805D5FCC) return;
+    room = TScene__data_805D5FCC->sections;
+    for (section = 0; section < TScene__data_805D5FCC->count; section++, room++) {
+        object = room->objects;
+        for (i = 0; i < room->count; i++, object++) {
+            if ((object->flags & 0x20) && !TScene__sub_80205DE4(task, (Uv_80205DE4 *)object->uv)) object->flags &= ~0x20;
+            if ((object->flags & 0x40) && !TScene__sub_80205D24(task, (Cyc_80205D24 *)object->cycle)) object->flags &= ~0x40;
+        }
+        anim = room->animated;
+        for (j = 0; j < room->animatedCount; j++, anim++) {
+            if ((anim->flags & 0x20) && !TScene__sub_80205DE4(task, (Uv_80205DE4 *)anim->uv)) anim->flags &= ~0x20;
+            if ((anim->flags & 0x40) && !TScene__sub_80205D24(task, (Cyc_80205D24 *)anim->cycle)) anim->flags &= ~0x40;
+        }
+    }
+}
+
 }

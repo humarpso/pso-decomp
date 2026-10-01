@@ -32,6 +32,24 @@ typedef struct Lobby_801C3AF4 {
     s32 f58;
 } Lobby_801C3AF4;
 
+typedef s32 M2C_UNK;
+struct Pkt_801C374C {
+    u8 pad0[4];
+    s8 type;
+    s8 mode;
+    u8 pad6;
+    s8 team;
+    s32 v[4];
+};
+
+struct Lobby_801C374C {
+    u8 pad0[0x24];
+    s32 mode;
+    u8 pad28[0x30];
+    s32 a;
+    s32 b;
+};
+
 extern "C" {
 void handle_6x7E(void);
 extern void *TLobby__data_805D5D98;
@@ -93,6 +111,18 @@ extern Pair_801C3AF4 lbl_80446FB4[];
 extern Flags_801C3AF4 *lbl_8050E208[];
 extern s32 lbl_805D53A0;
 void TLobby__sub_801C3AF4(Lobby_801C3AF4 *self);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+void set_flag_270__6TLobbyFPv(void *);
+M2C_UNK set_battle_mode__19TPlayerBattleCtrl4PFPvi(s32, s32);
+void bswap_set_battle_mode_data__6TLobbyFPv(Pkt_801C374C *);
+extern s32 TLobby__data_80511CA0[];
+extern s16 lbl_80511CC0[];
+extern s32 lbl_805D53A0;
+extern void *TLobby__data_805D5D98;
+extern s32 lbl_805D5DA4;
+extern s32 lbl_805D5DB0;
+extern u8 lbl_805D5DBC[4];
+void handle_6x7D_set_battle_mode_data(Pkt_801C374C *pkt);
 }
 
 extern "C" {
@@ -182,6 +212,51 @@ void handle_6x7F_battle_scores(s32 arg0) {
     lbl_805D5DAC = 1;
 }
 void handle_6x7E(void) {  }
+
+void handle_6x7D_set_battle_mode_data(Pkt_801C374C *pkt) {
+    u32 p;
+    s32 i;
+    bswap_set_battle_mode_data__6TLobbyFPv(pkt);
+    switch (pkt->type) {
+    case 0:
+        if (TLobby__data_805D5D98 != NULL) {
+            ((Lobby_801C374C *)TLobby__data_805D5D98)->mode = pkt->mode;
+            ((Lobby_801C374C *)TLobby__data_805D5D98)->a = pkt->v[0];
+            ((Lobby_801C374C *)TLobby__data_805D5D98)->b = pkt->v[1];
+        }
+        break;
+    case 2:
+        lbl_805D5DA4 = 1;
+        break;
+    case 3:
+        p = ((u32 (*)(s32))TPlayerBattleCtrl4P__sub_801BA74C)(pkt->v[0]);
+        if (p != 0) {
+            if (pkt->v[0] != lbl_805D53A0) {
+                set_battle_mode__19TPlayerBattleCtrl4PFPvi(p + 0x7AC, pkt->v[1]);
+            }
+            TLobby__data_80511CA0[pkt->v[0]] = pkt->team;
+        }
+        lbl_805D5DB0++;
+        break;
+    case 4:
+        lbl_805D5DBC[pkt->v[0]] = 1;
+        break;
+    case 5:
+        if (TLobby__data_805D5D98 != NULL) {
+            set_flag_270__6TLobbyFPv(TLobby__data_805D5D98);
+        }
+        break;
+    case 6:
+        if (TLobby__data_805D5D98 != NULL) {
+            ((Lobby_801C374C *)TLobby__data_805D5D98)->mode = 6;
+            for (i = 0; i < 4; i++) {
+                lbl_80511CC0[i] = pkt->v[i];
+            }
+        }
+        break;
+    }
+}
+
 void TLobby__sub_801C38A4(void) {
     if ((void *) TLobby__data_805D5D98 != NULL) {
         M2C_FIELD(TLobby__data_805D5D98, s32 *, 0x24) = 0;

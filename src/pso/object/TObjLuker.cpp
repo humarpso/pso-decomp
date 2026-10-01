@@ -52,6 +52,10 @@ struct Luker_801A1768 {
     s32 fB8;
 };
 
+struct Plr_801A0F34 { u8 pad[0x30]; s32 flags; u8 pad34[4]; u8 pos[0xc]; };
+
+struct Pad_801A0F34 { u8 pad[0x20]; u8 btn[0x30]; };
+
 extern "C" {
 void allow_rendering__7TObjectFv(void *);
 void clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
@@ -95,6 +99,16 @@ void TPhotonMagicSquare__sub_801A2640(void *, void *);
 extern u8 __vt__9TObjLuker[];
 extern s32 lbl_805D34A8;
 void *TObjLuker__ct(void *arg0, void *arg1, void *arg2);
+s32 is_split_screen(void);
+Ctrl_801A0E38 *TPlayerBattleCtrl4P__sub_801BA74C(u16 id);
+u16 TCameraCtrl__sub_80068958(s32);
+s32 get_instance__11TCameraCtrlFv(void);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
+s32 TWindowShortListCtrl__check_controller_button(void *, int);
+s32 get_map_id__13TRaderMapCoreFPv(void *);
+s32 check_flag_100__10TObjPlayerFPv(void *);
+extern Pad_801A0F34 lbl_8050E208[];
+s32 TObjLuker__sub_801A0F34(void *arg0, s32 *arg1, f32 range);
 }
 
 extern "C" {
@@ -180,6 +194,63 @@ void TObjLuker__sub_801A0E38(Obj_801A0E38 *self) {
             }
         }
     }
+}
+
+s32 TObjLuker__sub_801A0F34(void *arg0, s32 *arg1, f32 range) {
+    s32 ret;
+    s32 flag;
+    s32 i;
+    Plr_801A0F34 *p;
+    void *pos;
+    ret = 1;
+    flag = 0;
+    if (is_split_screen() == 0) {
+        return 1;
+    }
+    i = 0;
+    range = range * range;
+    do {
+        p = (Plr_801A0F34 *)((Ctrl_801A0E38 *(*)(s32))TPlayerBattleCtrl4P__sub_801BA74C)(i);
+        if (p != NULL) {
+            pos = p->pos;
+            if (!(p->flags & 0x800)) {
+                if (check_flag_100__10TObjPlayerFPv(p) == 1) {
+                    ret = 0;
+                }
+                if (TObjPlayer__sub_80141CF8(arg0, pos) > range) {
+                    ret = 0;
+                }
+                flag = 0;
+            } else {
+                flag = 1;
+            }
+        }
+            i++;
+    } while (i < 4);
+    if (arg1 == NULL) {
+        return ret;
+    }
+    if (ret != 0 && flag == 0) {
+        s32 found = 0;
+        s32 j;
+        for (j = 0; j < get_instance__11TCameraCtrlFv(); j++) {
+            p = (Plr_801A0F34 *)((Ctrl_801A0E38 *(*)(s32))TPlayerBattleCtrl4P__sub_801BA74C)(TCameraCtrl__sub_80068958(j));
+            if (p != NULL &&
+                TWindowShortListCtrl__check_controller_button(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(p)].btn, 4) != 0) {
+                found = 1;
+                if (arg1 != NULL) {
+                    *arg1 = j;
+                }
+                break;
+            }
+        }
+        if (found != 0) {
+            ret = 1;
+        } else {
+            ret = 0;
+        }
+    }
+    return ret;
 }
 
 void render__9TObjLukerFv(void) {  }

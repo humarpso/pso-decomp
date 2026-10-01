@@ -10,6 +10,8 @@ struct CityMainWarpChalVObj_80187824 : CityMainWarpChalBase_80187824 {
     virtual s32 m8(f32, f32);
 };
 
+struct Warp_80187B50 { u8 pad[0x144]; s32 arr[4]; };
+
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_80187438(void *);
@@ -18,6 +20,17 @@ extern const f32 lbl_805DBCC4;
 extern const f32 lbl_805DBCC8;
 extern const f32 lbl_805DBCCC;
 void run_task__25TObjCityMainWarpChallengeFv(u8 *arg0);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK TObjPlayer__sub_80154B60(void *, int, f32);
+M2C_UNK TObjAreaWarp__ct();
+s32 get_global_state__14TOKeyMachine01Fv();
+extern M2C_UNK __vt__25TObjCityMainWarpChallenge[];
+extern s32 lbl_805D32B8;
+extern u8 *lbl_805D5B28;
+extern s32 lbl_805D5B60;
+extern const f32 lbl_805DBCCC;
+extern const f32 lbl_805DBCD0;
+u8 *TObjCityMainWarpChallenge__ct(u8 *arg0);
 }
 
 extern "C" {
@@ -128,6 +141,54 @@ void *__dt__25TObjCityMainWarpChallengeFv(void *arg0, s16 arg1) {
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
+    }
+    return arg0;
+}
+u8 *TObjCityMainWarpChallenge__ct(u8 *arg0) {
+    s32 var_r3;
+    s32 temp_r0;
+    s32 temp_r0_2;
+    s32 temp_r4;
+    s32 var_ctr;
+    TObjAreaWarp__ct();
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__25TObjCityMainWarpChallenge;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D32B8;
+    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DBCCC;
+    M2C_FIELD(arg0, f32 *, 0xAC) = (f32) lbl_805DBCD0;
+    M2C_FIELD(arg0, s32 *, 0xBC) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0xBC);
+    lbl_805D5B60 = temp_r4;
+    M2C_FIELD(arg0, s32 *, 0xA4) = 0;
+    TObjPlayer__sub_80154B60((void *) (arg0), (int) (temp_r4), (f32) (lbl_805DBCCC));
+    M2C_FIELD(arg0, s32 *, 0x164) = 0;
+    M2C_FIELD(arg0, s32 *, 0x168) = 0;
+    if (get_global_state__14TOKeyMachine01Fv() == 0) {
+        M2C_FIELD(arg0, s32 *, 0x16C) = -1;
+    } else {
+        temp_r0 = M2C_FIELD(arg0, s32 *, 0x88);
+        if ((temp_r0 < 0) || (temp_r0 > 0xFF)) {
+            M2C_FIELD(arg0, s32 *, 0x16C) = -1;
+        } else {
+            M2C_FIELD(arg0, s32 *, 0x16C) = temp_r0;
+        }
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x16C) >= 0) {
+        M2C_FIELD(arg0, s16 *, 0xDC) = 4;
+        M2C_FIELD(arg0, s16 *, 0xDE) = 4;
+    } else {
+        M2C_FIELD(arg0, s16 *, 0xDC) = 0;
+        M2C_FIELD(arg0, s16 *, 0xDE) = 0;
+    }
+    M2C_FIELD(arg0, s16 *, 0xE0) = 0;
+    M2C_FIELD(arg0, s16 *, 0xE2) = 0;
+    M2C_FIELD(arg0, s32 *, 0xD0) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5B28, u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0xD4) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5B28, u8 **, 0x430), s32 *, 0x2C);
+    if ((u32) M2C_FIELD(arg0, u32 *, 0xB4) != 0U) {
+        queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xB4));
+        M2C_FIELD(arg0, u32 *, 0xB4) = 0U;
+    }
+    for (var_ctr = 0; var_ctr < 4; var_ctr++) {
+        ((Warp_80187B50 *)arg0)->arr[var_ctr] = 0;
     }
     return arg0;
 }

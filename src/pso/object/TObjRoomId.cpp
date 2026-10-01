@@ -22,6 +22,19 @@ struct RecoveredGlobal_801A1CD8___vt__10TObjRoomId {
 
 struct Obj_801A1888 { u8 pad[0x38]; f32 pos[3]; };
 
+struct Vec_801A18EC { f32 x, y, z; };
+
+struct Color_801A18EC { f32 r, g, b, a; };
+
+struct RoomId_801A18EC {
+    u8 pad0[0x38];
+    Vec_801A18EC pos;
+    u8 pad44[0x24];
+    f32 radius;
+    u8 pad6c[0x24];
+    Vec_801A18EC dir;
+};
+
 extern "C" {
 s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
 extern M2C_UNK __vt__10TObjRoomId[];
@@ -32,6 +45,18 @@ u16 TObjRoomId__sub_801A1DB8(u16 x);
 Obj_801A1888 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 f32 TObjPlayer__sub_80141CF8(f32 *a, f32 *b);
 s32 TObjRoomId__sub_801A1888(Obj_801A1888 *self, u16 id, f32 range);
+s32 check_demo_mode__10TObjPlayerFv();
+void draw_debug_line__10TObjRoomIdFUiiii(void *, int, int, void *);
+void TObjMapWarp__sub_80141CB0(Vec_801A18EC *, Vec_801A18EC *, u32, u32);
+void fn_80141CBC(Vec_801A18EC *, Color_801A18EC *, f32);
+void TObjRoomId__sub_80141CF4(Vec_801A18EC *, Color_801A18EC *, f32);
+extern u8 lbl_804468B8[];
+extern u8 lbl_804468C4[];
+extern u8 lbl_804468D0[];
+extern u8 lbl_804468DC[];
+extern const f32 lbl_805DC088;
+extern const f32 lbl_805DC08C;
+void render__10TObjRoomIdFv(RoomId_801A18EC *self);
 }
 
 extern "C" {
@@ -64,6 +89,28 @@ s32 TObjRoomId__sub_801A1888(Obj_801A1888 *self, u16 id, f32 range) {
     }
     return TObjPlayer__sub_80141CF8(p->pos, self->pos) < range;
 }
+
+#pragma push
+#pragma fp_contract on
+void render__10TObjRoomIdFv(RoomId_801A18EC *self) {
+    if (check_demo_mode__10TObjPlayerFv() != 0) {
+        Color_801A18EC c1 = { 0.5f, 1.0f, 1.0f, 0.0f };
+        Color_801A18EC c2 = { 0.5f, 0.0f, 1.0f, 1.0f };
+        Vec_801A18EC end;
+        TObjRoomId__sub_80141CF4(&self->pos, &c2, lbl_805DC088 * (lbl_805DC08C * self->radius));
+        fn_80141CBC(&self->pos, &c1, lbl_805DC08C * self->radius);
+        end.x = lbl_805DC08C * self->dir.x + self->pos.x;
+        end.y = lbl_805DC08C * self->dir.y + self->pos.y;
+        end.z = lbl_805DC08C * self->dir.z + self->pos.z;
+        TObjMapWarp__sub_80141CB0(&self->pos, &end, 0xFFFF0000, 0xFFFF0000);
+        TObjRoomId__sub_80141CF4(&end, &c2, lbl_805DC088);
+        draw_debug_line__10TObjRoomIdFUiiii(self, 0x13, 0x1C, lbl_804468B8);
+        draw_debug_line__10TObjRoomIdFUiiii(self, 0x13, 0x1D, lbl_804468C4);
+        draw_debug_line__10TObjRoomIdFUiiii(self, 0x13, 0x1E, lbl_804468D0);
+        draw_debug_line__10TObjRoomIdFUiiii(self, 0x13, 0x22, lbl_804468DC);
+    }
+}
+#pragma pop
 
 void *__dt__10TObjRoomIdFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

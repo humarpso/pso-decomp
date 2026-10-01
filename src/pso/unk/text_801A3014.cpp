@@ -24,6 +24,21 @@ struct RecoveredGlobal_801A3770_main_task {
     u8 remaining[0x30];
 };
 
+typedef s32 M2C_UNK;
+struct VBase_801A33DC { char pad[0x18]; };
+
+struct VObj_801A33DC : VBase_801A33DC {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+};
+
+struct Obj_801A33DC { u8 data[0x20]; };
+
 extern "C" {
 s32 is_split_screen(void);
 M2C_UNK update__16TKeyBoardControlFv();
@@ -53,6 +68,38 @@ M2C_UNK run_task__9TMainTaskFv(void *);
 M2C_UNK render_shadows__9TMainTaskFv(void *);
 extern RecoveredGlobal_801A3540_main_task main_task;
 void TLobby__sub_801A3770(void);
+void __dt__7TObjectFv(void *, int);
+M2C_UNK update__16TKeyBoardControlFv();
+void *get_player_data__10TObjPlayerFi(s32);
+s32 TObjPlayer__sub_800196EC();
+void cleanup_scene__9TLoadCtrlFv();
+void TLoadCtrl__sub_8001C978(int);
+s32 get_game_mode__6TLobbyFv();
+void TLobby__sub_800FA260();
+void TLobby__sub_800FD614(void *, s32);
+void create_map_csn_ctrl__6TLobbyFv();
+void TObjCityMainWarp__sub_801865B4(s32);
+void TKeyBoardControl__sub_801A66B8();
+M2C_UNK render_tick__Fv();
+void create_quad_sprites__13TParticleCtrlFv();
+void TQuestThread__sub_801F5B5C();
+void __ct__12TQuestThreadFv(void *, u32, int);
+void TLobby__sub_802286C4(void *);
+void TLobby__sub_80228754(void *);
+M2C_UNK render_screen_overlay__9TMainTaskFv(void *);
+M2C_UNK some_empty_func__9TMainTaskFv(void *);
+M2C_UNK delete_all_task_children__9TMainTaskFv(void *);
+M2C_UNK run_task__9TMainTaskFv(void *);
+void *__nw__7TObjectFUl(u32);
+void set_parent__7TObjectFP7TObject(void *, void *);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern u8 TLobby__data_805011D8[];
+extern RecoveredGlobal_801A3540_lbl_80515BA0 lbl_80515BA0;
+extern RecoveredGlobal_801A3540_main_task main_task;
+extern s32 TLobby__data_805D53AC;
+extern u32 lbl_805D5EEC;
+extern void *tl_03;
+void TLobby__sub_801A33DC(void);
 }
 
 extern "C" {
@@ -65,6 +112,53 @@ M2C_UNK TLobby__sub_801A3698();
 typedef char RecoveredGlobal_801A3540_lbl_804C1F68_size[sizeof(RecoveredGlobal_801A3540_lbl_804C1F68) == 0x180 ? 1 : -1];
 typedef char RecoveredGlobal_801A3540_lbl_80515BA0_size[sizeof(RecoveredGlobal_801A3540_lbl_80515BA0) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_801A3540_main_task_size[sizeof(RecoveredGlobal_801A3540_main_task) == 0x34 ? 1 : -1];
+
+void TLobby__sub_801A33DC(void) {
+    Obj_801A33DC holder;
+    s32 i;
+    void *p;
+    s32 j;
+    __ct__7TObjectFP7TObject(&holder, NULL);
+    TLobby__sub_800FA260();
+    TKeyBoardControl__sub_801A66B8();
+    render_tick__Fv();
+    render_tick__Fv();
+    for (i = 0; i < get_game_mode__6TLobbyFv(); i++) {
+        void *q = get_player_data__10TObjPlayerFi(i);
+        if (q != NULL) {
+            set_parent__7TObjectFP7TObject(q, &holder);
+        }
+    }
+    delete_all_task_children__9TMainTaskFv(&main_task.value);
+    TLobby__sub_80228754(&lbl_80515BA0.value);
+    update__16TKeyBoardControlFv();
+    create_map_csn_ctrl__6TLobbyFv();
+    create_quad_sprites__13TParticleCtrlFv();
+    TLoadCtrl__sub_8001C978(2);
+    TLobby__sub_800FD614(TLobby__data_805011D8, TLobby__data_805D53AC);
+    TLobby__sub_802286C4(&lbl_80515BA0.value);
+    TObjCityMainWarp__sub_801865B4(TObjPlayer__sub_800196EC());
+    cleanup_scene__9TLoadCtrlFv();
+    some_empty_func__9TMainTaskFv(&main_task.value);
+    run_task__9TMainTaskFv(&main_task.value);
+    render_screen_overlay__9TMainTaskFv(&main_task.value);
+    for (j = 0; j < get_game_mode__6TLobbyFv(); j++) {
+        p = get_player_data__10TObjPlayerFi(j);
+        if (p != NULL) {
+            set_parent__7TObjectFP7TObject(p, tl_03);
+            ((VObj_801A33DC *)p)->m6();
+        }
+    }
+    TQuestThread__sub_801F5B5C();
+    if (lbl_805D5EEC != 0) {
+        p = __nw__7TObjectFUl(0x194);
+        if (p != NULL) {
+            __ct__12TQuestThreadFv(p, lbl_805D5EEC, 0);
+        }
+    }
+    __dt__7TObjectFv(&holder, -1);
+}
+
 void TLobby__sub_801A3540(void) {
     if (is_split_screen() != 0) {
         TCameraCtrl__sub_80068A68();

@@ -7628,9 +7628,11 @@ pso/unk/text_8017F624.cpp:
 
 pso/object/TObjCamera_8017F80C.cpp:
 	.text       start:0x8017F80C end:0x8017FE58
+	.rodata     start:0x80443AC8 end:0x80443AD0
 
 pso/object/TObjChip.cpp:
 	.text       start:0x8017FE58 end:0x80180E70
+	.sdata2     start:0x805DBB7C end:0x805DBB94
 
 pso/unk/text_80180E70.cpp:
 	.text       start:0x80180E70 end:0x801811FC
@@ -7907,6 +7909,7 @@ pso/item/TObjContainerIdo_8018C06C_8018C06C.cpp:
 
 pso/item/TObjContainerIdo_8018C06C.cpp:
 	.text       start:0x8018C690 end:0x8018CCFC
+	.rodata     start:0x80445128 end:0x80445130
 
 pso/item/TObjContainerJungEnemy.cpp:
 	.text       start:0x8018CCFC end:0x8018CF88
@@ -8336,6 +8339,7 @@ pso/misc/TTecLuker_801A1880.cpp:
 
 pso/object/TObjRoomId.cpp:
 	.text       start:0x801A1888 end:0x801A1EB0
+	.rodata     start:0x80446898 end:0x804468B8
 
 pso/player/TObjPlayer_801A1EB0.cpp:
 	.text       start:0x801A1EB0 end:0x801A210C
@@ -9238,6 +9242,7 @@ pso/misc/TWindowDuelResult_801C2528.cpp:
 
 pso/misc/TLobby_801C25B4_801C25B4.cpp:
 	.text       start:0x801C25B4 end:0x801C29A0
+	.rodata     start:0x80446FC4 end:0x80446FCC
 
 pso/misc/TLobby_801C25B4_801C29A0.cpp:
 	.text       start:0x801C29A0 end:0x801C2BCC
@@ -9247,6 +9252,7 @@ pso/misc/TLobby_801C25B4_801C2BCC.cpp:
 
 pso/misc/TLobby_801C25B4.cpp:
 	.text       start:0x801C3130 end:0x801C4CE0
+	.data       start:0x804C3EA0 end:0x804C3EBC
 
 pso/unk/text_801C4CE0.cpp:
 	.text       start:0x801C4CE0 end:0x801C4D9C

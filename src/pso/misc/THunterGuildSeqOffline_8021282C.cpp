@@ -37,6 +37,25 @@ struct RecoveredGlobal_802128B0_THunterGuildSeqOffline__data_80513DC8 {
     u8 remaining[0xC];
 };
 
+typedef s32 M2C_UNK;
+struct Base_80212B88 { char pad[0x18]; };
+
+struct Seq_80212B88 : Base_80212B88 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6();
+    virtual M2C_UNK m7(M2C_UNK, M2C_UNK);
+    virtual s32 m8();
+    u8 pad1c[8];
+    s32 player;
+};
+
+struct List_80212B88 {
+    u8 pad0[0x28];
+    void (*cancelled)(void);
+    void (*accepted)(void);
+    void (*download)(void);
+};
+
 extern "C" {
 s32 is_visible__17TWindowSubComCardFPv(void *);
 s32 get_status_flag__17TWindowSubComCardFPv(void *);
@@ -46,6 +65,18 @@ void TWindow__close(void *);
 s32 TWindowSubComCard__sub_80265BF8(void *);
 extern RecoveredGlobal_802128B0_THunterGuildSeqOffline__data_80513DC8 THunterGuildSeqOffline__data_80513DC8;
 void THunterGuildSeqOffline__sub_802128B0(u8 *arg0);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
+List_80212B88 *TQuestListOffline__ct(void *, s32, Seq_80212B88 *, s32);
+void *__nw__7TObjectFUl(u32);
+List_80212B88 *TQuestListChallenge__ct(void *, s32, Seq_80212B88 *, s32);
+s32 TLobby__sub_8030A7B0();
+void set_state_close__22THunterGuildSeqOfflineFv(void);
+void set_state_4__22THunterGuildSeqOfflineFv(void);
+void THunterGuildSeqOffline__sub_80212710(void);
+void set_state_close2__22THunterGuildSeqOfflineFv(void);
+void request_close__22THunterGuildSeqOfflineFv(void);
+extern s32 tl_05;
+void THunterGuildSeqOffline__sub_80212B88(Seq_80212B88 *self);
 }
 
 extern "C" {
@@ -122,6 +153,42 @@ block_8:
             M2C_FIELD(arg0, s32 *, 0x38) = 0;
             set_field_20__12TQuestListVMFPvi((void *)(arg0), (M2C_UNK)(5));
         }
+    }
+}
+
+void THunterGuildSeqOffline__sub_80212B88(Seq_80212B88 *self) {
+    List_80212B88 *list;
+    if (self->m8() == 0) return;
+    switch (TLobby__sub_8030A7B0()) {
+    case 2:
+        list = (List_80212B88 *)__nw__7TObjectFUl(0x5C);
+        if (list != NULL) list = TQuestListChallenge__ct(list, tl_05, self, self->player);
+        if (list != NULL) {
+            list->accepted = request_close__22THunterGuildSeqOfflineFv;
+            list->cancelled = set_state_close2__22THunterGuildSeqOfflineFv;
+            set_field_20__12TQuestListVMFPvi(self, 10);
+        }
+        break;
+    case 1:
+        list = (List_80212B88 *)__nw__7TObjectFUl(0x5C);
+        if (list != NULL) list = TQuestListChallenge__ct(list, tl_05, self, self->player);
+        if (list != NULL) {
+            list->accepted = set_state_4__22THunterGuildSeqOfflineFv;
+            list->cancelled = set_state_close__22THunterGuildSeqOfflineFv;
+            set_field_20__12TQuestListVMFPvi(self, 10);
+        }
+        break;
+    case 0:
+    default:
+        list = (List_80212B88 *)__nw__7TObjectFUl(0x58);
+        if (list != NULL) list = TQuestListOffline__ct(list, tl_05, self, self->player);
+        if (list != NULL) {
+            list->accepted = request_close__22THunterGuildSeqOfflineFv;
+            list->cancelled = set_state_close2__22THunterGuildSeqOfflineFv;
+            list->download = THunterGuildSeqOffline__sub_80212710;
+            set_field_20__12TQuestListVMFPvi(self, 10);
+        }
+        break;
     }
 }
 

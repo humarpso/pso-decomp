@@ -15,7 +15,17 @@ struct Lz_8013FCB0 {
     s16 rson[0x1101];
 };
 
+struct Lz_8013FDC4 {
+    u8 text_buf[0x1012];
+    s16 dad[0x1001];
+    s16 lson[0x1001];
+    s16 rson[0x1101];
+    s32 match_position;
+    s32 match_length;
+};
+
 extern "C" {
+void TLobby__sub_8013FDC4(Lz_8013FDC4 *lz, s32 r);
 void TLobby__sub_8013FF64(u8 *arg0, s8 arg1);
 u8 TLobby__sub_8013FF94(u8 *arg0);
 u8 TLobby__sub_8013FF78(u8 *arg0);
@@ -62,6 +72,60 @@ void TLobby__sub_8013FCB0(Lz_8013FCB0 *t, s32 p) {
         t->lson[t->dad[p]] = q;
     }
     t->dad[p] = NIL_8013FCB0;
+}
+
+void TLobby__sub_8013FDC4(Lz_8013FDC4 *lz, s32 r) {
+    u8 *key;
+    s32 i;
+    s32 p;
+    s32 cmp;
+
+    cmp = 1;
+    key = &lz->text_buf[r];
+    p = 0x1001 + key[0];
+    lz->rson[r] = lz->lson[r] = 0x1000;
+    lz->match_length = 0;
+    for (;;) {
+        if (cmp >= 0) {
+            if (lz->rson[p] != 0x1000) {
+                p = lz->rson[p];
+            } else {
+                lz->rson[p] = r;
+                lz->dad[r] = p;
+                return;
+            }
+        } else {
+            if (lz->lson[p] != 0x1000) {
+                p = lz->lson[p];
+            } else {
+                lz->lson[p] = r;
+                lz->dad[r] = p;
+                return;
+            }
+        }
+        for (i = 1; i < 0x12; i++) {
+            if ((cmp = key[i] - lz->text_buf[p + i]) != 0) {
+                break;
+            }
+        }
+        if (i > lz->match_length) {
+            lz->match_position = p;
+            if ((lz->match_length = i) >= 0x12) {
+                break;
+            }
+        }
+    }
+    lz->dad[r] = lz->dad[p];
+    lz->lson[r] = lz->lson[p];
+    lz->rson[r] = lz->rson[p];
+    lz->dad[lz->lson[p]] = r;
+    lz->dad[lz->rson[p]] = r;
+    if (lz->rson[lz->dad[p]] == p) {
+        lz->rson[lz->dad[p]] = r;
+    } else {
+        lz->lson[lz->dad[p]] = r;
+    }
+    lz->dad[p] = 0x1000;
 }
 
 void TLobby__sub_8013FF20(L_8013FF20 *arg0) {

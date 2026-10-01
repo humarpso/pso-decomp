@@ -1,3 +1,68 @@
+#include "types.h"
+struct Plr_801CFDF8 {
+    u8 pad0[0x38];
+    f32 x;
+    f32 y;
+    f32 z;
+    u8 pad44[0x1c];
+    s32 rot;
+    u8 pad64[0x2a4];
+    f32 vx;
+    f32 vy;
+    f32 vz;
+    u8 pad314[0xdc];
+    s32 target_rot;
+    u8 pad3f4[4];
+    f32 tx;
+    f32 ty;
+    f32 tz;
+    u8 pad404[0x1dc];
+    u8 motion[0xc];
+    u8 flags[4];
+};
+
 extern "C" {
+void apply_velocity__10TObjPlayerFPv(void *);
+void set_flags__10TObjPlayerFPvUi(void *, u32);
+void *get_position_ptr__10TObjPlayerFPv(void *);
+s32 calc_angle_to__10TObjPlayerFPvPv(void *, void *);
+s32 TObjPlayer__sub_80142344(s32, s32);
+s32 lerp_angle_half__10TObjPlayerFUsUs(s32, s32);
+void TObjPlayer__sub_801B417C(void *, f32, f32);
+void TObjPlayer__sub_801B4264(void *, f32, f32);
+void *TObjPlayer__sub_801B5EA4(void *);
+f32 TObjPlayer__sub_801BF814(void *p);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern const f32 TObjPlayer__data_805DC360;
+extern const f32 TObjPlayer__data_805DC36C;
+extern const f32 lbl_805DC394;
+extern const f32 lbl_805DC3B4;
+void TObjPlayer__sub_801CFDF8(Plr_801CFDF8 *self);
+}
+
+extern "C" {
+
+void TObjPlayer__sub_801CFDF8(Plr_801CFDF8 *self) {
+    s32 ang;
+    f32 dist;
+    self->target_rot = calc_angle_to__10TObjPlayerFPvPv(get_position_ptr__10TObjPlayerFPv(self), &self->tx);
+    self->rot = TObjPlayer__sub_80142344(self->rot, self->target_rot);
+    ang = lerp_angle_half__10TObjPlayerFUsUs(self->rot, self->target_rot);
+    self->vx = TObjPlayer__sub_801BF814(self->motion) * TBoss8Dragon__sub_803D64C0(ang);
+    self->vy = TObjPlayer__data_805DC36C;
+    self->vz = TObjPlayer__sub_801BF814(self->motion) * TBoss8Dragon__sub_803D64DC(ang);
+    dist = (self->tx - self->x) * (self->tx - self->x) + (self->tz - self->z) * (self->tz - self->z);
+    if ((lbl_805DC3B4 * TObjPlayer__sub_801BF814(self->motion)) * (lbl_805DC3B4 * TObjPlayer__sub_801BF814(self->motion)) > dist) {
+        set_flags__10TObjPlayerFPvUi(self->flags, 4);
+    }
+    if (TObjPlayer__sub_801B5EA4(self) == NULL) {
+        apply_velocity__10TObjPlayerFPv(self);
+    } else {
+        set_flags__10TObjPlayerFPvUi(self->flags, 4);
+    }
+    TObjPlayer__sub_801B4264(self, TObjPlayer__data_805DC360, lbl_805DC394);
+    TObjPlayer__sub_801B417C(self, TObjPlayer__data_805DC360, lbl_805DC394);
+}
 
 }

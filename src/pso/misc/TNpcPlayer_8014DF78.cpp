@@ -54,6 +54,17 @@ struct View_8014F140 {
     s32 field_0x104;
 };
 
+struct Cand_8014F424 { u32 id; s32 idx; f32 dist; };
+struct View_8014F424 { s32 count; Cand_8014F424 c[10]; };
+struct Actor_8014F424 { u8 pad[0xA4]; u8 *cols; s32 ncols; };
+
+extern "C" {
+s32 is_alive__9TObjEneDDFPv(void *);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
+Actor_8014F424 *TPhotonMylla__sub_80154CB4(s32);
+s32 TNpcPlayer__sub_8014F424(View_8014F424 *view, void *pos, s32 id, f32 range);
+}
+
 typedef struct Vec_8014E3B0 { f32 x, y, z; } Vec_8014E3B0;
 
 extern "C" {
@@ -365,6 +376,43 @@ void quick_sort__10TNpcPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
         quick_sort__10TNpcPlayerFiiii((s32)(arg0), (s32)(arg1), (s32)(temp_r3 + 1), (s32)(arg3));
     }
 }
+s32 TNpcPlayer__sub_8014F424(View_8014F424 *view, void *pos, s32 id, f32 range) {
+    Actor_8014F424 *actor;
+    s32 found;
+    s32 i;
+    f32 d;
+    s32 j;
+
+    view->count = 0;
+    found = 0;
+    for (j = 0; j < 10; j++) {
+        view->c[j].id = 0xFFFF;
+        view->c[j].dist = TNpcPlayer__data_805DB1F0;
+    }
+    actor = TPhotonMylla__sub_80154CB4(id);
+    if (is_alive__9TObjEneDDFPv(actor) != 0) {
+        range = range * range;
+        for (i = 0; i < actor->ncols; i++) {
+            if (actor->cols == 0) {
+                break;
+            }
+            d = TObjPlayer__sub_80141CF8(pos, actor->cols + i * 0x2C + 0x1C);
+            if (d < range) {
+                found = 1;
+                view->c[view->count].id = (u16)obj_getField1c(actor);
+                view->c[view->count].dist = d;
+                view->c[view->count].idx = i;
+                if (view->count >= 9) {
+                    break;
+                }
+                view->count++;
+            }
+        }
+    }
+    quick_sort__10TNpcPlayerFiiii((s32)view, (s32)&view->c[0], 0, view->count - 1);
+    return found;
+}
+
 bool TNpcPlayer__sub_8014F728(u8 *arg0, u16 arg1) {
     Stack_8014F728 stack;
     u8 *temp_r3;

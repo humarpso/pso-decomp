@@ -23,6 +23,16 @@ struct RecoveredGlobal_80198228___vt__12TObjSinBoard {
     u8 remaining[0x34];
 };
 
+typedef s32 M2C_UNK;
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Pos_8019806C { u32 w[12]; };
+
+struct Uv_8019806C { u32 w[4]; };
+
+struct Desc_8019806C { Pos_8019806C *pos; Uv_8019806C *uv; s16 *col; s32 count; };
+
 extern "C" {
 u8 *TObjFish__sub_8001EDC4(s32, M2C_UNK);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
@@ -39,6 +49,25 @@ s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
 extern M2C_UNK __vt__12TObjSinBoard[];
 extern s32 lbl_805D3430;
 u8 *TObjSinBoard__ct(u8 *arg0, s32 arg1, s32 arg2);
+s32 get_state_flag__9TMainTaskFv();
+void reset_transform_state__10TObjPlayerFv();
+void begin_effect_render__13TParticleCtrlFv();
+void end_effect_render__13TParticleCtrlFv();
+void TObjPlayer__sub_801E3784(Desc_8019806C *, int, int);
+void TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
+void TObjPlayer__sub_803D9624(int, f32, f32, f32);
+void TObjContainerIdo__sub_803D96A8(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK set_global_param__8TObjFishFi(int);
+void TParticleCtrl__sub_803DA7A8(int);
+extern Pos_8019806C lbl_80445FA0;
+extern Uv_8019806C lbl_80445FD0;
+extern u8 lbl_8050DD24[];
+extern u32 lbl_805D5C58;
+void render__12TObjSinBoardFv(u8 *arg0);
 }
 
 extern "C" {
@@ -49,6 +78,42 @@ void run_task__12TObjSinBoardFv(void);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
+
+void render__12TObjSinBoardFv(u8 *arg0) {
+    Pos_8019806C pos;
+    Uv_8019806C uv;
+    Desc_8019806C d;
+    s16 col[8];
+    if (get_state_flag__9TMainTaskFv() != 1 && lbl_805D5C58 != 0) {
+        pos = lbl_80445FA0;
+        uv = lbl_80445FD0;
+        col[0] = 0;
+        col[1] = 0;
+        col[2] = 0;
+        col[3] = 0xFF;
+        col[4] = 0xFF;
+        col[5] = 0xFF;
+        col[6] = 0xFF;
+        col[7] = 0;
+        d.pos = &pos;
+        d.uv = &uv;
+        d.col = col;
+        d.count = 4;
+        reset_transform_state__10TObjPlayerFv();
+        set_global_param__8TObjFishFi((int) lbl_8050DD24);
+        TParticleCtrl__sub_803DA7A8(0);
+        begin_effect_render__13TParticleCtrlFv();
+        TObjPlayer__sub_803D9B2C();
+        TObjPlayer__sub_803D9624(0, *(f32 *)(arg0 + 0x38), *(f32 *)(arg0 + 0x3C), *(f32 *)(arg0 + 0x40));
+        TObjBoss2Tunnel__sub_803D929C(0, *(s32 *)(arg0 + 0x64));
+        TObjContainerIdo__sub_803D96A8(0, *(s32 *)(arg0 + 0x5C));
+        TObjPlayer__sub_803D9214(0, *(s32 *)(arg0 + 0x60));
+        TOMonitorMachine01__sub_803D8B5C(0, *(f32 *)(arg0 + 0x68), *(f32 *)(arg0 + 0x6C), *(f32 *)(arg0 + 0x70));
+        TObjPlayer__sub_801E3784(&d, 4, 0xE);
+        TObjPlayer__sub_803D9B78();
+        end_effect_render__13TParticleCtrlFv();
+    }
+}
 
 void run_task__12TObjSinBoardFv(void) {  }
 

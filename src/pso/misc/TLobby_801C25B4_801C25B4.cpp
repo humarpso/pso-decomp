@@ -10,6 +10,8 @@ typedef struct Lobby_801C2898 {
     s32 state;
 } Lobby_801C2898;
 
+struct Pair_801C271C { s32 v[2]; };
+
 extern "C" {
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
 u8 TPlayerBattleCtrl4P__sub_803102C8(void);
@@ -25,6 +27,14 @@ extern s16 lbl_80511CB0[];
 extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D53AC;
 void TLobby__sub_801C2898(Lobby_801C2898 *self, s32 t);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 TLobby__sub_801C19D0(void *);
+s32 get_state__19TPlayerBattleCtrl4PFPv(void *);
+u8 TLobby__sub_801D7064(void *);
+u8 TLobby__sub_801D7100(void *);
+extern u8 lbl_8050EA40[];
+extern s32 TLobby__data_80511CA0[];
+u8 TLobby__sub_801C271C(void);
 }
 
 extern "C" {
@@ -84,6 +94,45 @@ s32 TLobby__sub_801C2678(void) {
         return 0;
     }
     return TLobby__data_805D5DC0;
+}
+
+u8 TLobby__sub_801C271C(void) {
+    u8 *p;
+    s32 cnt;
+    s32 i;
+    s32 ok;
+    s32 idx;
+    s32 seen[2] = {0, 0};
+    cnt = 0;
+    for (i = 0; i < 4; i++) {
+        p = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(i);
+        if (p != NULL) {
+            ok = 1;
+            if (TLobby__data_80511CA0[i] == 0) {
+                ok = 0;
+            } else if (*(s32 *)(p + 0x30) & 0x800) {
+                if (TLobby__sub_801D7100(lbl_8050EA40) == 1) {
+                    ok = 0;
+                } else if (TLobby__sub_801D7100(lbl_8050EA40) == 2 &&
+                           get_state__19TPlayerBattleCtrl4PFPv(p + 0x754) == 0) {
+                    ok = 0;
+                }
+            }
+            if (ok != 0) {
+                cnt++;
+                if (TLobby__sub_801D7064(lbl_8050EA40) == 1) {
+                    idx = TLobby__sub_801C19D0(p + 0x828) - 1;
+                    if (idx >= 0 && idx < 2) {
+                        seen[idx] = 1;
+                    }
+                }
+            }
+        }
+    }
+    if (TLobby__sub_801D7064(lbl_8050EA40) == 1 && (seen[0] == 0 || seen[1] == 0)) {
+        return 1;
+    }
+    return cnt <= 1;
 }
 
 void TLobby__sub_801C2898(Lobby_801C2898 *self, s32 t) {

@@ -115,6 +115,17 @@ struct RecoveredGlobal_8000F91C_lbl_804FE120 {
     u8 remaining[0x14];
 };
 
+struct ItemData_801E8000 {
+    u8 b0, b1, b2, b3, b4, b5, b6;
+    s8 b7;
+    u8 b8;
+    s8 b9;
+    u8 b10;
+    s8 b11;
+    u32 id;
+    u32 extra;
+};
+
 extern "C" {
 s32 get_card_window__17TWindowSubComCardFUi(u32);
 extern int* TLobby__data_805D5E78;
@@ -143,6 +154,11 @@ void TLobby__sub_801E83E8(void);
 extern s32 TLobby__data_80512220[];
 s32 TObjPlayer__sub_80354DF4(int);
 void TLobby__sub_801E8414(void);
+void *TLobby__sub_80101AB0(s32);
+void copy_to_item_data__5TItemFPvPv(void *, ItemData_801E8000 *);
+extern s32 TLobby__data_80512220[];
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801E8000(void);
 }
 
 extern "C" {
@@ -178,6 +194,31 @@ void TLobby__sub_801E7E50(s32 arg0) {
 typedef char RecoveredGlobal_801E7EB0_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801E7EB0_TLobby__data_80512220) == 0x20 ? 1 : -1];
 void TLobby__sub_801E7EB0(void) {
     M2C_FIELD(((*(s32 *)&TLobby__data_805D5E78) + ((*(RecoveredGlobal_801E7EB0_TLobby__data_80512220 *)&TLobby__data_80512220).value * 4)), s32 *, 0) = lbl_805D5544;
+}
+
+void TLobby__sub_801E8000(void) {
+    s32 r;
+    void *item;
+    ItemData_801E8000 d;
+    r = TLobby__data_80512220[1];
+    item = TLobby__sub_80101AB0(TLobby__data_80512220[0]);
+    if (item != NULL) {
+        copy_to_item_data__5TItemFPvPv(item, &d);
+        TLobby__data_805D5E78[r++] = d.b0;
+        TLobby__data_805D5E78[r++] = d.b1;
+        TLobby__data_805D5E78[r++] = d.b2;
+        TLobby__data_805D5E78[r++] = d.b3;
+        TLobby__data_805D5E78[r++] = d.b4;
+        TLobby__data_805D5E78[r++] = d.b5;
+        TLobby__data_805D5E78[r++] = d.b6;
+        TLobby__data_805D5E78[r++] = d.b7;
+        TLobby__data_805D5E78[r++] = d.b8;
+        TLobby__data_805D5E78[r++] = d.b9;
+        TLobby__data_805D5E78[r++] = d.b10;
+        TLobby__data_805D5E78[r++] = d.b11;
+    } else {
+        TLobby__data_805D5E78[r] = -1;
+    }
 }
 
 void notify_player_battle__6TLobbyFv(void) {

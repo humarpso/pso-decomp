@@ -46,6 +46,15 @@ struct Search_801D3F3C {
 };
 
 typedef s32 M2C_UNK;
+
+struct Req_801D3780 {
+    u32 status;
+    s32 source;
+    u8 item[0xc];
+    s32 id;
+    s32 extra;
+};
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
@@ -85,6 +94,21 @@ void TItemList__sub_801D588C(void *, int);
 void TItemList__sub_801D59A0(void *, int);
 void TItemList__sub_801D5A70(void *);
 void TItemList__sub_801D3A80(u8 *arg0);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+void assign_id_and_init__5TItemFPvii(void *, s32, void *);
+s32 get_item_type_or_default__9TItemListFPv(void *);
+void send_code_45_1__10TObjPlayerFi(void *);
+void TObjPlayer__sub_801B8870(void *, s32, void *, s32);
+void TObjPlayer__sub_801B8DE8(void *, s32, s32);
+void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+s32 TItemList__sub_801D3C38();
+void *get_ptr_0x44__9TItemListFPv(void *);
+void TItemList__sub_801D588C(void *, int);
+s32 TItemList__sub_801D58DC(void *);
+u8 *TItemList__sub_801D58E4(void *);
+void TItemList__sub_801D591C(void *);
+void TItemList__sub_801D59A0(void *, int);
+void TItemList__sub_801D3780(u8 *arg0);
 }
 
 extern "C" {
@@ -101,6 +125,41 @@ void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_07;
+
+void TItemList__sub_801D3780(u8 *arg0) {
+    Req_801D3780 *r;
+    void *player;
+    switch (TItemList__sub_801D3C38()) {
+    case 0:
+        return;
+    case 1:
+        TItemList__sub_801D59A0(arg0, *(s32 *)(arg0 + 0x54));
+        TItemList__sub_801D591C(arg0);
+        r = (Req_801D3780 *)TItemList__sub_801D58E4(arg0);
+        player = TPlayerBattleCtrl4P__sub_801BA74C(TItemList__sub_801D58DC(arg0));
+        if (player != NULL) {
+            if (r->id == -1) {
+                if (r->source == -1) {
+                    assign_id_and_init__5TItemFPvii(r->item, TItemList__sub_801D58DC(arg0), get_ptr_0x44__9TItemListFPv(arg0));
+                    TObjPlayer__sub_801B8DE8(player, r->source, r->extra);
+                    send_code_45_1__10TObjPlayerFi(player);
+                } else {
+                    assign_id_and_init__5TItemFPvii(r->item, TItemList__sub_801D58DC(arg0), get_ptr_0x44__9TItemListFPv(arg0));
+                    TObjPlayer__sub_801B8DE8(player, r->source, get_item_type_or_default__9TItemListFPv(r->item));
+                    send_code_45_1__10TObjPlayerFi(player);
+                }
+            } else {
+                TObjPlayer__sub_801B8870(player, r->source, get_ptr_0x44__9TItemListFPv(arg0), get_item_type_or_default__9TItemListFPv(r->item));
+                send_code_45_1__10TObjPlayerFi(player);
+            }
+        }
+        break;
+    case 2:
+        TItemList__sub_801D588C(arg0, *(s32 *)(arg0 + 0x54));
+        break;
+    }
+    queue_destruction__7TObjectFv(arg0);
+}
 
 void * create_node__9TItemListFPvPvPvPv(void *arg0, void *arg1, void *arg2, s8 arg3) {
     void *o;

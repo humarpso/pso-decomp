@@ -4,6 +4,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Trap_8016F704 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x84 - 0x44]; s32 delay; u8 pad88[0x2A8 - 0x88]; void *target; u8 pad2AC[0x34C - 0x2AC]; f32 range; u8 pad350[0x35C - 0x350]; u16 targetId; };
+extern "C" {
+s32 obj_testFlags30(void *, u32);
+s32 TObjPlayer__sub_800196EC(void);
+s32 get_field_3e4__10TObjPlayerFPv(void *);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
+u16 get_trap_type__10TOMineTrapFPv(void *);
+s32 get_trap_count__10TOMineTrapFv(void);
+u8 TOMineTrap__sub_801D7238(void *);
+extern u8 lbl_8050EA40[];
+s32 TOMineTrap__sub_8016F704(Trap_8016F704 *self);
+}
+
 struct VBase_18 { char pad[0x18]; };
 
 struct VObj_18 : VBase_18 {
@@ -407,6 +420,50 @@ M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__6TOMineFv(void *, M2C_UNK);
 
 void set_state__10TOMineTrapFPv(void* p) { *(s16*)((char*)p + 0x326) = 4; }
+
+s32 TOMineTrap__sub_8016F704(Trap_8016F704 *self) {
+    u8 *p;
+    s32 i;
+    u16 id;
+
+    self->targetId = 0xFFFF;
+    self->target = 0;
+    if (self->delay > 0) {
+        self->delay--;
+        return 0;
+    }
+    for (i = 0; i < lbl_805D586C + lbl_805D5870; i++) {
+        p = (u8 *)get_player_data__10TObjPlayerFi(i);
+        if (p == 0 || p == (u8 *)self || obj_testFlags30(p, 0x800) != 0) {
+            continue;
+        }
+        id = obj_getField1c(p);
+        if (id == 0xFFFF) {
+            continue;
+        }
+        if (id == get_trap_type__10TOMineTrapFPv(self) && get_trap_count__10TOMineTrapFv() != 1 &&
+            TOMineTrap__sub_801D7238(lbl_8050EA40) != 0) {
+            continue;
+        }
+        if (id < 0x1000) {
+            if (get_field_3e4__10TObjPlayerFPv(p) != TObjPlayer__sub_800196EC()) {
+                continue;
+            }
+            if (TObjPlayer__sub_80141CF8(self->pos, p + 0x38) < self->range * self->range) {
+                self->targetId = id;
+                self->target = p;
+                return 1;
+            }
+        } else if (id < 0x4000) {
+            if (TObjPlayer__sub_80141CF8(self->pos, p + 0x38) < self->range * self->range) {
+                self->targetId = id;
+                self->target = p;
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
 
 void TOMineTrap__sub_8016F87C(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 0x326) = 3;

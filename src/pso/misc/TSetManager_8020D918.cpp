@@ -18,6 +18,14 @@ struct A_8020DBCC { s16 a; s16 b; };
 
 struct B_8020DBCC { s16 a; s16 b; s16 c; s16 d; s16 e; s16 f; };
 
+struct Room_8020D9A0 { u8 pad0[8]; s32 name; };
+
+struct Grp_8020D9A0 { Room_8020D9A0 *room; s32 count; };
+
+struct Map_8020D9A0 { Grp_8020D9A0 *grp; s32 count; };
+
+struct Rec_8020D9A0 { u8 pad0[2]; s16 f2; s16 f4; u8 pad6[2]; u16 f8; u8 padA[0x3A]; };
+
 extern "C" {
 void TLobby__sub_8020D94C(void);
 extern s16 TLobby__data_805D6134;
@@ -31,7 +39,6 @@ void TLobby__sub_8020DEE4(int unused);
 s32 TObjPlayer__sub_800196EC(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 lookup_scene_object__6TLobbyFPv(s32, void *);
-void TLobby__sub_8020D9A0(s32, s32, s32);
 void TLobby__sub_8020E08C(void);
 extern s32 lbl_805D60F8;
 extern s32 TLobby__data_805D60FC;
@@ -45,6 +52,18 @@ void *memset(void *, int, unsigned long);
 extern A_8020DBCC *TLobby__data_805D6140;
 extern B_8020DBCC *TLobby__data_805D6144;
 void TLobby__sub_8020DBCC(void);
+s32 update_lobby_scene__6TSceneFPv(char *);
+void TLobby__sub_800F9DF4(char *, void *);
+void TLobby__sub_801317E4(char *, s32, char *);
+void *alloc_buffer__11TOBoss4RockFPv(u32);
+void TLobby__sub_802081AC(void *);
+s32 is_online_ready__6TLobbyFv();
+extern char lbl_8044BC24[];
+extern char lbl_8044BC2C[];
+extern Map_8020D9A0 *TLobby__data_805D6068;
+extern u32 TLobby__data_805D611C;
+extern s32 TLobby__data_805D6120;
+s32 TLobby__sub_8020D9A0(s32 map, s32 grp, s32 room);
 }
 
 extern "C" {
@@ -81,6 +100,42 @@ void TLobby__sub_8020D94C(void) {
         TLobby__data_805D6128 = 0;
     }
 }
+
+s32 TLobby__sub_8020D9A0(s32 map, s32 grp, s32 room) {
+    Room_8020D9A0 *r;
+    s32 i;
+    s32 size;
+    char path[0x20];
+    if (TLobby__data_805D6068[map].grp == NULL || TLobby__data_805D6068[map].count - 1 < grp) {
+        return 0;
+    }
+    r = TLobby__data_805D6068[map].grp[grp].room;
+    if (r == NULL || TLobby__data_805D6068[map].grp[grp].count - 1 < room) {
+        return 0;
+    }
+    if (is_online_ready__6TLobbyFv() != 0) {
+        TLobby__sub_801317E4(path, r->name, lbl_8044BC24);
+    } else {
+        TLobby__sub_801317E4(path, r->name, lbl_8044BC2C);
+    }
+    size = update_lobby_scene__6TSceneFPv(path);
+    if (size < 0) {
+        return 0;
+    }
+    TLobby__data_805D6120 = (u32)size / 0x44;
+    if ((TLobby__data_805D611C = (u32)alloc_buffer__11TOBoss4RockFPv(TLobby__data_805D6120 * 0x44)) == 0) {
+        return 0;
+    }
+    TLobby__sub_800F9DF4(path, (void *)TLobby__data_805D611C);
+    for (i = 0; i < TLobby__data_805D6120; i++) {
+        TLobby__sub_802081AC(&((Rec_8020D9A0 *)TLobby__data_805D611C)[i]);
+        ((Rec_8020D9A0 *)TLobby__data_805D611C)[i].f2 = 0;
+        ((Rec_8020D9A0 *)TLobby__data_805D611C)[i].f8 = 0xFFFF;
+        ((Rec_8020D9A0 *)TLobby__data_805D611C)[i].f4 = -1;
+    }
+    return 1;
+}
+
 #pragma push
 #pragma scheduling off
 void TLobby__sub_8020DB08(void) {
@@ -108,7 +163,7 @@ void TLobby__sub_8020DB44(void) {
     r = TObjPlayer__sub_800196EC();
     TLobby__data_805D60FC = r;
     if (lookup_scene_object__6TLobbyFPv(r, &v) != 0) {
-        TLobby__sub_8020D9A0(v.a, v.b, v.c);
+        TLobby__sub_8020D9A0((s32)(v.a), (s32)(v.b), (s32)(v.c));
         return;
     }
     lbl_805D60F8 = -1;

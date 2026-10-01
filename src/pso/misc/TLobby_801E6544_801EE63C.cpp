@@ -26,6 +26,7 @@ struct Item_801EEE68 {
     u32 f10;
 };
 
+struct Item_801EE77C;
 extern "C" {
 M2C_UNK TWindowCtrl__sub_8024A4B0(int, void *);
 void TLobby__sub_801EE674(s32 arg0);
@@ -54,6 +55,14 @@ void fn_801B849C(void *, Item_801EEE68 *);
 extern s32 lbl_805D53A0;
 extern int* TLobby__data_805D5E78;
 void qst_op_item_create(u8 arg0, u8 arg1);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void init__9TItemDataFv(Item_801EE77C *);
+s32 TLobby__sub_8011AF58(u16);
+s32 TObjPlayer__sub_801B91F0(void *, Item_801EEE68 *);
+void fn_801B849C(void *, Item_801EEE68 *);
+extern s32 lbl_805D53A0;
+extern int* TLobby__data_805D5E78;
+void qst_op_item_create2(u8 arg0, u8 arg1);
 }
 
 extern "C" {
@@ -122,6 +131,36 @@ void TLobby__sub_801EE77C(u8 arg0, u8 arg1) {
         }
     } else {
         (*(int * *)&TLobby__data_805D5E78)[arg1] = -1;
+    }
+}
+
+void qst_op_item_create2(u8 arg0, u8 arg1) {
+    Item_801EEE68 item;
+    void *player;
+    player = (void *)TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    if (player != NULL) {
+        init__9TItemDataFv((Item_801EE77C *)(&item));
+        item.data[0] = TLobby__data_805D5E78[arg0++];
+        item.data[1] = TLobby__data_805D5E78[arg0++];
+        item.data[2] = TLobby__data_805D5E78[arg0++];
+        item.data[3] = TLobby__data_805D5E78[arg0++];
+        item.data[4] = TLobby__data_805D5E78[arg0++];
+        item.data[5] = TLobby__data_805D5E78[arg0++];
+        item.id = TLobby__sub_8011AF58(lbl_805D53A0);
+        item.data[6] = TLobby__data_805D5E78[arg0++];
+        item.data[7] = TLobby__data_805D5E78[arg0++];
+        item.data[8] = TLobby__data_805D5E78[arg0++];
+        item.data[9] = TLobby__data_805D5E78[arg0++];
+        item.data[10] = TLobby__data_805D5E78[arg0++];
+        item.data[11] = TLobby__data_805D5E78[arg0];
+        if (TObjPlayer__sub_801B91F0(player, &item) > 0) {
+            fn_801B849C(player, &item);
+            TLobby__data_805D5E78[arg1] = item.id;
+        } else {
+            TLobby__data_805D5E78[arg1] = -1;
+        }
+    } else {
+        TLobby__data_805D5E78[arg1] = -1;
     }
 }
 

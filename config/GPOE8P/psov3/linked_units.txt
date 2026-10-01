@@ -1390,6 +1390,7 @@ pso/misc/TOWreckAncient06.cpp
 pso/misc/TOWreckAncient07.cpp
 pso/misc/TOWreckAncientBrakable.cpp
 pso/misc/TOWreckAncientBrakable05.cpp
+pso/misc/TOWreckAncientBrakable_8017D444.cpp
 pso/misc/TOWreckAncientBrakable_8017D5A4.cpp
 pso/misc/TPacket.cpp
 pso/misc/TParticleCtrl_80083550.cpp
@@ -3427,6 +3428,7 @@ pso/unk/text_801611CC.cpp
 pso/unk/text_80166B6C.cpp
 pso/unk/text_80168244.cpp
 pso/unk/text_801682A4.cpp
+pso/unk/text_80168AA8.cpp
 pso/unk/text_8016916C.cpp
 pso/unk/text_80169BD0.cpp
 pso/unk/text_8016A408.cpp
@@ -3447,6 +3449,7 @@ pso/unk/text_801747F8.cpp
 pso/unk/text_80174954.cpp
 pso/unk/text_80174AB4.cpp
 pso/unk/text_80174C14.cpp
+pso/unk/text_80177608.cpp
 pso/unk/text_8017866C.cpp
 pso/unk/text_8017D39C.cpp
 pso/unk/text_8017D7CC.cpp
@@ -3569,10 +3572,12 @@ pso/unk/text_801CDD24.cpp
 pso/unk/text_801CDED4.cpp
 pso/unk/text_801CEC1C.cpp
 pso/unk/text_801CF3E0.cpp
+pso/unk/text_801CF56C.cpp
 pso/unk/text_801CF780.cpp
 pso/unk/text_801CF960.cpp
 pso/unk/text_801CFB80.cpp
 pso/unk/text_801CFD5C.cpp
+pso/unk/text_801CFDF8.cpp
 pso/unk/text_801D0000.cpp
 pso/unk/text_801D0B44.cpp
 pso/unk/text_801D1AC8.cpp
@@ -3639,12 +3644,16 @@ pso/unk/text_8020B118.cpp
 pso/unk/text_8020B374.cpp
 pso/unk/text_8020BC50.cpp
 pso/unk/text_8020C354.cpp
+pso/unk/text_8020C73C.cpp
+pso/unk/text_8020C9C8.cpp
 pso/unk/text_8020CC48.cpp
 pso/unk/text_8020CCF4.cpp
 pso/unk/text_8020CF40.cpp
 pso/unk/text_8020CFEC.cpp
 pso/unk/text_8020ED44.cpp
 pso/unk/text_8020EE2C.cpp
+pso/unk/text_80211D58.cpp
+pso/unk/text_80214104.cpp
 pso/unk/text_80214254.cpp
 pso/unk/text_80215FAC.cpp
 pso/unk/text_80219F64.cpp

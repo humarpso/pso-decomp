@@ -1,3 +1,71 @@
+#include "types.h"
 extern "C" {
+s32 get_main_phase();
+s32 TCameraCtrl__sub_80068958(s32);
+s32 TWindowShortListCtrl__check_controller_button(void *, s32);
+s32 get_map_id__13TRaderMapCoreFPv();
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void create_instance__19THunterGuildWarningFi(s32);
+s32 is_active__19THunterGuildWarningFv();
+s32 TPlayerBattleCtrl4P__sub_80211B10(s32);
+s32 THunterGuildSeqOffline__sub_80211FEC(s32);
+s32 THunterGuildSeqOffline__sub_80212000(s32);
+s32 THunterGuildSeqOffline__sub_80212060(s32);
+s32 TLobby__sub_8030A7B0();
+s32 is_not_split_screen__13TRaderMapCoreFv();
+extern u8 lbl_8050E208[][0x50];
+extern s32 lbl_805D55C0;
+s32 TLobby__sub_80211D58(s32 arg0);
+}
+
+extern "C" {
+
+s32 TLobby__sub_80211D58(s32 arg0) {
+    s32 kind;
+    s32 player;
+    if (get_main_phase() == 14) {
+        if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+            if (TLobby__sub_8030A7B0() == 0) {
+                return 1;
+            }
+            player = TCameraCtrl__sub_80068958(0);
+            if ((u16)player != arg0) {
+                return 1;
+            }
+            if (is_active__19THunterGuildWarningFv() != 0) {
+                return 1;
+            }
+            kind = TPlayerBattleCtrl4P__sub_80211B10(player);
+            if (kind != 0) {
+                if (TPlayerBattleCtrl4P__sub_801BA74C((u16)player) != 0) {
+                    if (TWindowShortListCtrl__check_controller_button(&lbl_8050E208[get_map_id__13TRaderMapCoreFPv()][0x20], 4) != 0 &&
+                        is_active__19THunterGuildWarningFv() == 0) {
+                        switch (kind) {
+                        case 1:
+                        case 2:
+                            create_instance__19THunterGuildWarningFi(0);
+                            break;
+                        case 3:
+                            create_instance__19THunterGuildWarningFi(1);
+                            break;
+                        }
+                    }
+                }
+                return 1;
+            }
+        }
+        return THunterGuildSeqOffline__sub_80212060(arg0);
+    }
+    if (get_main_phase() == 15) {
+        if (lbl_805D55C0 != 0) {
+            return 1;
+        }
+        if (THunterGuildSeqOffline__sub_80212000(arg0) != 0) {
+            return 1;
+        }
+        return THunterGuildSeqOffline__sub_80211FEC(arg0) != 0 ? 1 : 0;
+    }
+    return 0;
+}
 
 }

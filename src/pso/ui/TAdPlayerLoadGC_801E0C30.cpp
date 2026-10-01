@@ -11,6 +11,41 @@ struct RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 {
 
 struct Names_801E13C4 { const char* p[6]; };
 
+struct DateStamp_801E17F4 { u8 b[0xc]; };
+
+struct Src_801E17F4 {
+    u8 pad0[0x12];
+    char name[0x32];
+    u8 *a;
+    u8 *b;
+    u8 pad4c[0x8];
+    u16 flag;
+    u8 pad56[0x2];
+    u8 *data;
+    s32 size;
+};
+
+struct Hdr_801E17F4 {
+    char title[0x20];
+    char sub[0x20];
+    u8 a[0x1800];
+    u8 b[0x800];
+    s32 size;
+    s32 crc;
+};
+
+typedef s32 M2C_UNK;
+struct CARDStat_801E2048 {
+    char fileName[0x20];
+    u32 length;
+    u32 time;
+    u8 gameName[4];
+    u8 company[2];
+    u8 pad2e[2];
+    u32 iconAddr;
+    u8 rest[0x38];
+};
+
 extern "C" {
 s32 TAdPlayerLoadGC__sub_801E1518(void *arg0, s32 arg1, u32 arg2);
 extern s32 TAdPlayerLoadGC__data_805D5E40;
@@ -59,6 +94,29 @@ extern char lbl_804496A8[];
 extern RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 TAdPlayerLoadGC__data_80511ED0;
 extern s32 TAdPlayerLoadGC__data_805D5E38;
 void TAdPlayerLoadGC__sub_801E13C4(void);
+void __dl__FPv(void *);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+void getDateStamp__FP9DateStamp(DateStamp_801E17F4 *);
+s32 TAdSinglePlyChrSelectGC__sub_80201204(void *, s32, s32);
+int sprintf(char *, const char *, ...);
+char *strncpy(char *, const char *, u32);
+void *memcpy(void *, const void *, u32);
+void *memset(void *, int, u32);
+extern char lbl_804496B8[];
+extern char lbl_805DC410[4];
+extern char lbl_805DC414[4];
+s32 TAdPlayerLoadGC__sub_801E17F4(u8 *arg0, Src_801E17F4 *arg1);
+s32 TAdPlayerLoadGC__sub_801E1E38(s32 arg0);
+s32 TAdPlayerLoadGC__sub_801E1B50(s32);
+s32 TAdPlayerLoadGC__sub_801E0D8C(s32 arg0);
+s32 check_memcard_status__15TAdPlayerLoadGCFi(s32 arg0);
+M2C_UNK TAdPlayerLoadGC__sub_801E101C(s32);
+s32 CARDGetResultCode(void *);
+s32 CARDGetStatus(s32, s32, CARDStat_801E2048 *);
+int strncmp(const char *, const char *, u32);
+extern s32 TAdPlayerLoadGC__data_805D5E40;
+extern s32 TAdPlayerLoadGC__data_805D5E30;
+s32 TAdPlayerLoadGC__sub_801E2048(s32 chan, const char *name);
 }
 
 extern "C" {
@@ -273,6 +331,40 @@ s32 TAdPlayerLoadGC__sub_801E1518(void *arg0, s32 arg1, u32 arg2) {
 s32 get_load_result__15TAdPlayerLoadGCFv(void * _w0) {
     return TAdPlayerLoadGC__data_805D5E40;
 }
+
+s32 TAdPlayerLoadGC__sub_801E17F4(u8 *arg0, Src_801E17F4 *arg1) {
+    DateStamp_801E17F4 ds;
+    char buf[0x80];
+    s32 size;
+    Hdr_801E17F4 *h;
+    memset(buf, 0, 0x80);
+    h = (Hdr_801E17F4 *)alloc__23TAdSinglePlyChrSelectGCFPv(0x2048);
+    memset(h->title, 0, 0x20);
+    memset(h->sub, 0, 0x20);
+    strncpy(h->title, lbl_804496B8, 0x20);
+    getDateStamp__FP9DateStamp(&ds);
+    memset(buf, 0, 0x80);
+    if (arg1->flag != 0) {
+        sprintf(buf, lbl_805DC410, arg1->name);
+    } else {
+        sprintf(buf, lbl_805DC414, arg1->name);
+    }
+    strncpy(h->sub, buf, 0x20);
+    memcpy(h->a, arg1->a, 0x1800);
+    memcpy(h->b, arg1->b, 0x800);
+    {
+        s32 t = arg1->size;
+        h->size = t;
+        size = arg1->size;
+        h->crc = 0;
+        h->crc = TAdSinglePlyChrSelectGC__sub_80201204(h, 0x2048, t);
+    }
+    memcpy(arg0, h, 0x2048);
+    memcpy(arg0 + 0x2048, arg1->data, arg1->size);
+    __dl__FPv(h);
+    return size / 8192 + 3;
+}
+
 s32 TAdPlayerLoadGC__sub_801E1E38(s32 arg0) {
     M2C_UNK spC;
     s32 sp8;
@@ -338,6 +430,47 @@ s32 check_memcard_status__15TAdPlayerLoadGCFi(s32 arg0) {
         return 0;
     }
 }
+
+s32 TAdPlayerLoadGC__sub_801E2048(s32 chan, const char *name) {
+    CARDStat_801E2048 st;
+    s32 i;
+    if (chan >= 2) {
+        TAdPlayerLoadGC__data_805D5E40 = -0xFB;
+        return -0xFB;
+    }
+    if (TAdPlayerLoadGC__sub_801E1E38(chan) == 0 || TAdPlayerLoadGC__sub_801E1B50(chan) != 0 ||
+        TAdPlayerLoadGC__sub_801E0D8C(chan) == 0 || check_memcard_status__15TAdPlayerLoadGCFi(chan) != 0) {
+        TAdPlayerLoadGC__data_805D5E40 = -0xFB;
+        return -0xFB;
+    }
+    if (!(TAdPlayerLoadGC__data_805D5E30 & (4 << chan))) {
+        if (TAdPlayerLoadGC__sub_801E101C(chan) != 0) {
+            TAdPlayerLoadGC__data_805D5E40 = -0xFB;
+            return -0xFB;
+        }
+    }
+    goto check;
+busy:
+    TAdPlayerLoadGC__data_805D5E40 = -1;
+    return -1;
+check:
+    if (CARDGetResultCode((void *)chan) == -1) {
+        goto busy;
+    }
+    for (i = 0; i < 0x7F; i++) {
+        if (CARDGetStatus(chan, i, &st) == 0 && strncmp(st.fileName, name, 0x20) == 0) {
+            if (st.iconAddr == 0xFFFFFFFF) {
+                TAdPlayerLoadGC__data_805D5E40 = -0xBF;
+                return -0xBF;
+            }
+            TAdPlayerLoadGC__data_805D5E40 = 0;
+            return 0;
+        }
+    }
+    TAdPlayerLoadGC__data_805D5E40 = -0xFB;
+    return -0xFB;
+}
+
 s32 query_memcard_capacity__15TAdPlayerLoadGCFi(s32 arg0) {
     s32 spC;
     M2C_UNK sp8;

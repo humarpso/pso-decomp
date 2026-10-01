@@ -6,6 +6,96 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct RecoveredGlobal_801520B8___vt__10TNpcPlayer { M2C_UNK value; u8 remaining[0x14]; };
 
+struct Own_80152168 { u8 pad[0x94]; u8 *obj; };
+struct Npc_80152168 {
+    s32 f0;
+    u8 pad4[0x14];
+    M2C_UNK *vt;
+    s32 f1C;
+    s32 f20;
+    s32 f24;
+    u8 pad28[4];
+    s16 f2C;
+    u8 pad2E[2];
+    u8 f30[0x28];
+    f32 f58;
+    u8 f5C[0x74 - 0x5C];
+    void *f74;
+    Own_80152168 *f78;
+    s32 f7C;
+    s32 f80;
+    s32 f84;
+    f32 f88;
+    s8 f8C;
+    s8 f8D;
+    s16 f8E;
+    u8 pad90[0xAC - 0x90];
+    f32 fAC;
+    f32 fB0;
+    f32 fB4;
+    u8 padB8[0xC4 - 0xB8];
+    s32 fC4;
+    s32 fC8;
+    s32 fCC;
+    f32 fD0;
+    f32 fD4;
+    f32 fD8;
+    f32 fDC;
+    f32 fE0;
+    f32 fE4;
+};
+
+struct Own_80152330 { u8 pad[0x94]; u8 *obj; };
+struct Npc_80152330 {
+    s32 f0;
+    u8 pad4[0x14];
+    M2C_UNK *vt;
+    s32 f1C;
+    s32 f20;
+    s32 f24;
+    u8 pad28[4];
+    s16 f2C;
+    u8 pad2E[2];
+    u8 f30[0x28];
+    f32 f58;
+    u8 f5C[0x74 - 0x5C];
+    void *f74;
+    Own_80152330 *f78;
+    s32 f7C;
+    s32 f80;
+    s32 f84;
+    f32 f88;
+    s8 f8C;
+    s8 f8D;
+    s16 f8E;
+    u8 pad90[0xAC - 0x90];
+    f32 fAC;
+    f32 fB0;
+    f32 fB4;
+    u8 padB8[0xC4 - 0xB8];
+    s32 fC4;
+    s32 fC8;
+    s32 fCC;
+    f32 fD0;
+    f32 fD4;
+    f32 fD8;
+    f32 fDC;
+    f32 fE0;
+    f32 fE4;
+};
+
+extern "C" {
+void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+void init_equipment__10TNpcPlayerFPv(void *);
+void *TNpcPlayer__sub_8014F844(void *, u16);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern u8 TNpcPlayer__data_804ABC90[][0x28];
+extern s32 lbl_805D2E74;
+extern const f32 TNpcPlayer__data_805DB1F0;
+Npc_80152168 *TNpcPlayer__ct(Npc_80152168 *self, s32 a, s32 b, s16 kind, s32 arg4, void *parent);
+Npc_80152330 *TNpcPlayer__sub_80152330(Npc_80152330 *self, s32 a, s32 b, s16 kind, void *parent);
+}
+
 struct Obj_801528A8 { u8 pad[0x5c]; u8 arr[1]; };
 
 extern "C" {
@@ -110,7 +200,105 @@ u8 *__dt__10TNpcPlayerFv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
+Npc_80152168 *TNpcPlayer__ct(Npc_80152168 *self, s32 a, s32 b, s16 kind, s32 arg4, void *parent) {
+    void *p;
+
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vt = &__vt__10TNpcPlayer.value;
+    init__10TNpcPlayerFPv(self->f5C);
+    self->f0 = lbl_805D2E74;
+    self->f24 = 0x19;
+    self->f1C = 0;
+    self->f20 = 0;
+    self->fAC = TNpcPlayer__data_805DB1F0;
+    self->fB0 = TNpcPlayer__data_805DB1F0;
+    self->fB4 = TNpcPlayer__data_805DB1F0;
+    self->fD0 = TNpcPlayer__data_805DB1F0;
+    self->fD4 = TNpcPlayer__data_805DB1F0;
+    self->fD8 = TNpcPlayer__data_805DB1F0;
+    self->fDC = TNpcPlayer__data_805DB1F0;
+    self->fE0 = TNpcPlayer__data_805DB1F0;
+    self->fE4 = TNpcPlayer__data_805DB1F0;
+    self->fC4 = 0;
+    self->fC8 = 0;
+    self->fCC = 0;
+    self->f2C = kind;
+    self->f80 = 0;
+    self->f7C = 0;
+    self->f88 = TNpcPlayer__data_805DB1F0;
+    self->f58 = TNpcPlayer__data_805DB1F0;
+    self->f8C = 0;
+    self->f8E = 0;
+    self->f8D = 0;
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x108);
+    if (p != 0) {
+        p = TNpcPlayer__sub_8014F844(p, a);
+    }
+    self->f74 = p;
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x108);
+    if (p != 0) {
+        p = TNpcPlayer__sub_8014F844(p, b);
+    }
+    self->f78 = (Own_80152168 *)p;
+    copy__10TNpcPlayerFPvPv(self->f30, TNpcPlayer__data_804ABC90[self->f2C]);
+    if (self->f78 != 0 && self->f78->obj != 0) {
+        VecCopy__FP3VecPC3Vec(&self->fDC, self->f78->obj + 0x38);
+        init_equipment__10TNpcPlayerFPv(self);
+    }
+    self->f84 = arg4;
+    return self;
+}
+
 void copy__10TNpcPlayerFPvPv(void* p, void* q) { *(u16*)((char*)p + 0x0) = *(u16*)((char*)q + 0x0); *(u16*)((char*)p + 0x2) = *(u16*)((char*)q + 0x2); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(f32*)((char*)p + 0x14) = *(f32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); *(f32*)((char*)p + 0x1c) = *(f32*)((char*)q + 0x1c); *(u8*)((char*)p + 0x20) = *(u8*)((char*)q + 0x20); *(u8*)((char*)p + 0x21) = *(u8*)((char*)q + 0x21); *(u8*)((char*)p + 0x22) = *(u8*)((char*)q + 0x22); *(u8*)((char*)p + 0x23) = *(u8*)((char*)q + 0x23); *(f32*)((char*)p + 0x24) = *(f32*)((char*)q + 0x24); }
+
+Npc_80152330 *TNpcPlayer__sub_80152330(Npc_80152330 *self, s32 a, s32 b, s16 kind, void *parent) {
+    void *p;
+
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vt = &__vt__10TNpcPlayer.value;
+    init__10TNpcPlayerFPv(self->f5C);
+    self->f0 = lbl_805D2E74;
+    self->f24 = 0x19;
+    self->f1C = 0;
+    self->f20 = 0;
+    self->fAC = TNpcPlayer__data_805DB1F0;
+    self->fB0 = TNpcPlayer__data_805DB1F0;
+    self->fB4 = TNpcPlayer__data_805DB1F0;
+    self->fD0 = TNpcPlayer__data_805DB1F0;
+    self->fD4 = TNpcPlayer__data_805DB1F0;
+    self->fD8 = TNpcPlayer__data_805DB1F0;
+    self->fDC = TNpcPlayer__data_805DB1F0;
+    self->fE0 = TNpcPlayer__data_805DB1F0;
+    self->fE4 = TNpcPlayer__data_805DB1F0;
+    self->fC4 = 0;
+    self->fC8 = 0;
+    self->fCC = 0;
+    self->f2C = kind;
+    self->f80 = 0;
+    self->f7C = 0;
+    self->f88 = TNpcPlayer__data_805DB1F0;
+    self->f58 = TNpcPlayer__data_805DB1F0;
+    self->f8C = 0;
+    self->f8E = 0;
+    self->f8D = 0;
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x108);
+    if (p != 0) {
+        p = TNpcPlayer__sub_8014F844(p, a);
+    }
+    self->f74 = p;
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x108);
+    if (p != 0) {
+        p = TNpcPlayer__sub_8014F844(p, b);
+    }
+    self->f78 = (Own_80152330 *)p;
+    copy__10TNpcPlayerFPvPv(self->f30, TNpcPlayer__data_804ABC90[self->f2C]);
+    if (self->f78 != 0 && self->f78->obj != 0) {
+        VecCopy__FP3VecPC3Vec(&self->fDC, self->f78->obj + 0x38);
+        init_equipment__10TNpcPlayerFPv(self);
+    }
+    self->f84 = 0;
+    return self;
+}
 
 extern u32 lbl_805D5860;
 

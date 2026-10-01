@@ -30,6 +30,47 @@ struct Mid_80150050 { u8 pad[0x94]; Tgt_80150050 *tgt; };
 
 struct Npc_80150050 { u8 pad0[0x74]; Mid_80150050 *mid; u8 pad78[0x34]; V3_80150050 pos; u8 pad_b8[0x18]; V3_80150050 dst; };
 
+struct Msg_80150A34 {
+    u8 pad0[2];
+    u16 type;
+    s8 kind;
+    u8 pad5;
+    s8 e;
+    s8 one;
+    u8 sub[0x2C];
+};
+struct Owner_80150A34 { u8 pad[0x94]; u8 *actor; };
+struct Npc_80150A34 { u8 pad[0x74]; void *p74; Owner_80150A34 *p78; u8 pad7C[4]; u32 flags; };
+
+struct Npc_801518A4 {
+    u8 pad0[0x44];
+    f32 f44;
+    f32 f48;
+    u8 pad4C[0x58 - 0x4C];
+    f32 f58;
+    u8 a5C[0x74 - 0x5C];
+    void *p74;
+    u8 *p78;
+    u8 pad7C[4];
+    u32 flags;
+};
+struct Tgt_801518A4 { s32 a; s32 b; };
+
+extern "C" {
+s32 TNpcPlayer__sub_801528DC(void *);
+u16 get_npc_state__10TNpcPlayerFPv(void *);
+void TNpcPlayer__sub_80152C48(void *);
+void TNpcPlayer__sub_80152D04(void *);
+void set_state__10TNpcPlayerFPvs(void *, s16);
+void set_type__10TNpcPlayerFPvs(void *, u16);
+s32 try_camera_action__10TObjPlayerFii(void *, s32);
+s8 fn_801D9870(void *, s16);
+void TNpcPlayer__sub_80150A34(Npc_80150A34 *self, s32 kind);
+u8 *TNpcPlayer__sub_800D87EC(int);
+Tgt_801518A4 *TNpcPlayer__sub_80152A30(void *);
+s32 TNpcPlayer__sub_801518A4(Npc_801518A4 *arg0);
+}
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(int, f32, f32, f32);
@@ -219,6 +260,38 @@ void init_state__10TNpcPlayerFPv(void *arg0) {
         return;
     }
 }
+void TNpcPlayer__sub_80150A34(Npc_80150A34 *self, s32 kind) {
+    Msg_80150A34 m;
+    u8 *actor;
+
+    TNpcPlayer__sub_80152D04(&m);
+    actor = self->p78->actor;
+    if (kind == 15 || kind == 16) {
+        TNpcPlayer__sub_8014E33C(self, 0x16);
+    } else if (kind == 0 || kind == 3 || kind == 6) {
+        TNpcPlayer__sub_8014E33C(self, 0x17);
+    } else {
+        TNpcPlayer__sub_8014E33C(self, 2);
+    }
+    if (try_camera_action__10TObjPlayerFii(actor, kind) != 0) {
+        m.type = get_npc_type__10TNpcPlayerFPv(self->p78);
+        m.kind = kind;
+        m.one = 1;
+        if (kind == 15 || kind == 16) {
+            if (kind == 15) {
+                self->flags |= 0x10000;
+            }
+            m.e = fn_801D9870(actor + 0x428, kind);
+            set_type__10TNpcPlayerFPvs(m.sub, ((s32 (*)(void *))get_npc_type__10TNpcPlayerFPv)(self->p74));
+            set_state__10TNpcPlayerFPvs(m.sub, 0);
+        } else {
+            m.e = fn_801D9870(actor + 0x428, kind);
+            set_type__10TNpcPlayerFPvs(m.sub, ((s32 (*)(void *))get_npc_state__10TNpcPlayerFPv)(self->p78));
+            set_state__10TNpcPlayerFPvs(m.sub, TNpcPlayer__sub_801528DC(self->p78));
+        }
+        TNpcPlayer__sub_80152C48(&m);
+    }
+}
 
 void TNpcPlayer__sub_80150DE8(Npc_80150DE8 *self) {
     Msg_80150DE8 m;
@@ -282,5 +355,43 @@ s32 TNpcPlayer__sub_801515E0(u8 *arg0) {
     return 1;
 }
 #pragma pop
+
+s32 TNpcPlayer__sub_801518A4(Npc_801518A4 *arg0) {
+    Tgt_801518A4 *t;
+    u8 *o;
+    f32 r2;
+
+    t = TNpcPlayer__sub_80152A30(arg0->p78);
+    r2 = arg0->f44 * arg0->f44;
+    if (get_action_state__10TNpcPlayerFPv(arg0->p74) & 2) {
+        arg0->flags &= ~0x100;
+        return 0;
+    }
+    if (get_condition__10TNpcPlayerFPv((s32)arg0->p78) & 8) {
+        arg0->flags |= 0x100;
+        return 1;
+    }
+    if (arg0->f58 >= r2) {
+        arg0->flags |= 0x100;
+        if (t->a != 0) {
+            TNpcPlayer__sub_801528C8(arg0->a5C, 5);
+            if (TNpcPlayer__sub_80152900(arg0->a5C, 5, 3) != 0) {
+                o = TNpcPlayer__sub_800D87EC((u16)t->b);
+                arg0->flags &= ~0x8000;
+                if (o != 0) {
+                    if (((f32 (*)(void *, void *))TObjPlayer__sub_80141CF8)(o + 0x38, *(u8 **)(arg0->p78 + 0x94) + 0x38) < arg0->f48 * arg0->f48) {
+                        arg0->flags |= 0x8080;
+                    }
+                }
+            }
+        }
+        return 1;
+    }
+    if (arg0->flags & 0x100) {
+        return 1;
+    }
+    arg0->flags &= ~0x100;
+    return 0;
+}
 
 }

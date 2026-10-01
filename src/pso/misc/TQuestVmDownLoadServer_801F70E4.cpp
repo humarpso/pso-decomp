@@ -45,6 +45,49 @@ struct QVm_801F7890 {
     s32 f2A0;
 };
 
+typedef s32 M2C_UNK;
+struct Req_801F7478 {
+    char name[0x12];
+    char title[0x22];
+    u8 key[0x10];
+    char *s44;
+    char *s48;
+    s16 h4C;
+    s16 h4E;
+    s32 w50;
+    s16 h54;
+    s32 w58;
+    s32 w5C;
+};
+
+struct Src_801F7478 {
+    u8 pad0[0x10];
+    char title[0x24];
+    s32 f34;
+    s32 f38;
+};
+
+struct Req_801F770C {
+    char name[0x12];
+    char title[0x22];
+    u8 key[0x10];
+    char *s44;
+    char *s48;
+    s16 h4C;
+    s16 h4E;
+    s32 w50;
+    s16 h54;
+    s32 w58;
+    s32 w5C;
+};
+
+struct Src_801F770C {
+    u8 pad0[0x10];
+    char title[0x24];
+    s32 f34;
+    s32 f38;
+};
+
 extern "C" {
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 void *alloc__22TQuestVmDownLoadServerFPv(s32);
@@ -102,6 +145,36 @@ void TAdSinglePlyChrSelectGC__sub_8007C378(RecoveredGlobal_801F8FA4_TQuestVmDown
 extern RecoveredGlobal_801F8FA4_TQuestVmDownLoadServer__data_80512C18 TQuestVmDownLoadServer__data_80512C18;
 extern u32 lbl_80512D00[];
 void TQuestVmDownLoadServer__sub_801F8694(u32 *data, s32 size);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
+void *alloc__22TQuestVmDownLoadServerFPv(s32);
+void TAdPlayerLoadGC__sub_801E14E4(void *);
+void TAdPlayerLoadGC__sub_801E14E8(void *, s32);
+s32 TAdPlayerLoadGC__sub_801E17F4(void *, void *);
+s32 TAdPlayerLoadGC__sub_801E1B50(s32);
+char *strncpy(char *, const char *, u32);
+void *memcpy(void *, const void *, u32);
+void *memset(void *, int, u32);
+extern char TQuestVmDownLoadServer__data_804C8690[];
+extern u8 TQuestVmDownLoadServer__data_804C8A34[];
+extern Src_801F7478 TQuestVmDownLoadServer__data_80512B28;
+extern char TQuestVmDownLoadServer__data_805DC5B8[];
+extern char TQuestVmDownLoadServer__data_805DC5BC[];
+void TQuestVmDownLoadServer__sub_801F7478(u8 *arg0);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
+void *alloc__22TQuestVmDownLoadServerFPv(s32);
+void TAdPlayerLoadGC__sub_801E14E4(void *);
+void TAdPlayerLoadGC__sub_801E14E8(void *, s32);
+s32 TAdPlayerLoadGC__sub_801E17F4(void *, void *);
+s32 TAdPlayerLoadGC__sub_801E1B50(s32);
+char *strncpy(char *, const char *, u32);
+void *memcpy(void *, const void *, u32);
+void *memset(void *, int, u32);
+extern char TQuestVmDownLoadServer__data_804C8690[];
+extern u8 TQuestVmDownLoadServer__data_804C8A34[];
+extern Src_801F770C lbl_80512B64;
+extern char TQuestVmDownLoadServer__data_805DC5B8[];
+extern char TQuestVmDownLoadServer__data_805DC5BC[];
+void TQuestVmDownLoadServer__sub_801F770C(u8 *arg0);
 }
 
 extern "C" {
@@ -188,6 +261,52 @@ void write_quest_data_named__22TQuestVmDownLoadServerFPv(u8 *arg0) {
 
 extern s32 lbl_805D49B4;
 
+void TQuestVmDownLoadServer__sub_801F7478(u8 *arg0) {
+    Req_801F7478 req;
+    s32 r;
+    if (M2C_FIELD(arg0, s32 *, 0x25C) >= 0 && TAdPlayerLoadGC__sub_801E1B50(M2C_FIELD(arg0, s32 *, 0x25C)) == 0) {
+        if (M2C_FIELD(arg0, s32 *, 0x268) > 0) {
+            if (M2C_FIELD(arg0, void **, 0x260) != NULL) {
+                safe_free__23TAdSinglePlyChrSelectGCFUi(M2C_FIELD(arg0, void **, 0x260));
+                M2C_FIELD(arg0, void **, 0x260) = NULL;
+            }
+            M2C_FIELD(arg0, void **, 0x260) = alloc__22TQuestVmDownLoadServerFPv(M2C_FIELD(arg0, s32 *, 0x268) << 13);
+            if (M2C_FIELD(arg0, void **, 0x260) != NULL) {
+                memset(&req, 0, sizeof(req));
+                strncpy(req.name, TQuestVmDownLoadServer__data_804C8690, 0x12);
+                strncpy(req.title, TQuestVmDownLoadServer__data_80512B28.title, 0x22);
+                memcpy(req.key, TQuestVmDownLoadServer__data_804C8A34, 0x10);
+                req.s44 = TQuestVmDownLoadServer__data_805DC5B8;
+                req.s48 = TQuestVmDownLoadServer__data_805DC5BC;
+                req.h4C = 1;
+                req.h4E = 1;
+                req.w50 = 0;
+                req.h54 = 1;
+                req.w58 = TQuestVmDownLoadServer__data_80512B28.f38;
+                req.w5C = TQuestVmDownLoadServer__data_80512B28.f34;
+                TAdPlayerLoadGC__sub_801E14E8(&req, 3);
+                r = TAdPlayerLoadGC__sub_801E17F4(M2C_FIELD(arg0, void **, 0x260), &req);
+                TAdPlayerLoadGC__sub_801E14E4(&req);
+                switch (r) {
+                case -0x100:
+                    M2C_FIELD(arg0, s32 *, 0x2A0) = 0x11;
+                    break;
+                default:
+                    if (r != M2C_FIELD(arg0, s32 *, 0x268)) {
+                        M2C_FIELD(arg0, s32 *, 0x268) = r;
+                    }
+                    M2C_FIELD(arg0, s32 *, 0x2A0) = 0xC;
+                    break;
+                }
+            } else {
+                M2C_FIELD(arg0, s32 *, 0x2A0) = 0x11;
+            }
+        } else {
+            M2C_FIELD(arg0, s32 *, 0x2A0) = 0x11;
+        }
+    }
+}
+
 void abort_download__22TQuestVmDownLoadServerFPv(void *arg0) {
     if (TAdPlayerLoadGC__sub_801E1B50(M2C_FIELD(arg0, s32 *, 0x25C)) == 0) {
         reset_quest_id__23TAdSinglePlyChrSelectGCFv();
@@ -215,6 +334,52 @@ void load_quest_data__22TQuestVmDownLoadServerFPv(u8 *arg0) {
     TQuestVmDownLoadServer__sub_801F6E08(arg0, TAdSinglePlyChrSelectGC__sub_80132F2C(0x29, 2), 1);
     M2C_FIELD(arg0, s32 *, 0x2A0) = 0x17;
     lbl_805D49B4 = 0;
+}
+
+void TQuestVmDownLoadServer__sub_801F770C(u8 *arg0) {
+    Req_801F770C req;
+    s32 r;
+    if (M2C_FIELD(arg0, s32 *, 0x25C) >= 0 && TAdPlayerLoadGC__sub_801E1B50(M2C_FIELD(arg0, s32 *, 0x25C)) == 0) {
+        if (M2C_FIELD(arg0, s32 *, 0x264) > 0) {
+            if (M2C_FIELD(arg0, void **, 0x260) != NULL) {
+                safe_free__23TAdSinglePlyChrSelectGCFUi(M2C_FIELD(arg0, void **, 0x260));
+                M2C_FIELD(arg0, void **, 0x260) = NULL;
+            }
+            M2C_FIELD(arg0, void **, 0x260) = alloc__22TQuestVmDownLoadServerFPv(M2C_FIELD(arg0, s32 *, 0x264) << 13);
+            if (M2C_FIELD(arg0, void **, 0x260) != NULL) {
+                memset(&req, 0, sizeof(req));
+                strncpy(req.name, TQuestVmDownLoadServer__data_804C8690, 0x12);
+                strncpy(req.title, lbl_80512B64.title, 0x22);
+                memcpy(req.key, TQuestVmDownLoadServer__data_804C8A34, 0x10);
+                req.s44 = TQuestVmDownLoadServer__data_805DC5B8;
+                req.s48 = TQuestVmDownLoadServer__data_805DC5BC;
+                req.h4C = 1;
+                req.h4E = 1;
+                req.w50 = 0;
+                req.h54 = 1;
+                req.w58 = lbl_80512B64.f38;
+                req.w5C = lbl_80512B64.f34;
+                TAdPlayerLoadGC__sub_801E14E8(&req, 3);
+                r = TAdPlayerLoadGC__sub_801E17F4(M2C_FIELD(arg0, void **, 0x260), &req);
+                TAdPlayerLoadGC__sub_801E14E4(&req);
+                switch (r) {
+                case -0x100:
+                    M2C_FIELD(arg0, s32 *, 0x2A0) = 0x11;
+                    break;
+                default:
+                    if (r != M2C_FIELD(arg0, s32 *, 0x264)) {
+                        M2C_FIELD(arg0, s32 *, 0x264) = r;
+                    }
+                    M2C_FIELD(arg0, s32 *, 0x2A0) = 0x9;
+                    break;
+                }
+            } else {
+                M2C_FIELD(arg0, s32 *, 0x2A0) = 0x11;
+            }
+        } else {
+            M2C_FIELD(arg0, s32 *, 0x2A0) = 0x11;
+        }
+    }
 }
 
 void TQuestVmDownLoadServer__sub_801F7890(QVm_801F7890 *self) {

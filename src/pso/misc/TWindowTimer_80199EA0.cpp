@@ -25,6 +25,21 @@ struct Player_8019A098 { u8 pad[0x60]; s32 area; };
 
 struct Win_8019A44C { u8 pad0[0x50]; f32 f50[3]; u8 pad5C[0x2D8]; s32 f334; u8 pad338[0xC]; f32 f344; f32 f348; f32 f34C; u8 pad350[0x40]; f32 f390; f32 f394; f32 f398; f32 f39C; f32 f3A0; };
 
+typedef s32 M2C_UNK;
+struct Vec_80199F14 { f32 x, y, z; };
+
+struct Tbl_80199F14 { u8 pad[0x14]; s16 limit; u8 pad16[6]; f32 yofs; };
+
+struct Timer_80199F14 {
+    u8 pad0[0x38];
+    Vec_80199F14 pos;
+    u8 pad44[0x2f8];
+    f32 f33c;
+    u8 pad340[4];
+    Vec_80199F14 vel;
+    s32 time;
+};
+
 extern "C" {
 s32 bswap_32__FPUl(s32);
 s32 read_be16_field2__10TObjPlayerFPv();
@@ -64,6 +79,21 @@ extern M2C_UNK lbl_8050DDAC[];
 extern const f32 lbl_805DBF58;
 extern const f32 lbl_805DBF98;
 void TWindowTimer__sub_8019A44C(Win_8019A44C *arg0, s32 arg1);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 obj_getField1c(void *);
+void queue_destruction__7TObjectFv(void *);
+s32 TLobby__sub_8001E8FC();
+void TOSwitchAttack__sub_80087278(void *, int, int);
+s32 fn_8019978C(void *, void *, void *);
+void update_best_time__12TWindowTimerFPv(void *arg0);
+void TWindowTimer__sub_8019A104(void *, u16);
+void open__11TWindowCtrlFiii(s32, void *, int);
+void TBoss4Zako__sub_803D8910(void *, void *);
+extern u8 lbl_8044613C[];
+extern RecoveredGlobal_8019A574_lbl_8050DD58 lbl_8050DD58;
+extern s32 lbl_805D53A0;
+extern const f32 lbl_805DBF90;
+void TWindowTimer__sub_80199F14(Timer_80199F14 *self);
 }
 
 extern "C" {
@@ -93,6 +123,40 @@ void update_best_time__12TWindowTimerFPv(void *arg0) {
 }
 
 extern M2C_UNK lbl_804B8E18[];
+
+void TWindowTimer__sub_80199F14(Timer_80199F14 *self) {
+    s32 i;
+    Vec_80199F14 q;
+    Vec_80199F14 p;
+    i = 0;
+    self->time = TLobby__sub_8001E8FC() % 2592;
+    if (self->time >= ((Tbl_80199F14 *)&lbl_8050DD58)->limit) {
+        VecCopy__FP3VecPC3Vec(&p, &self->pos);
+        p.y += ((Tbl_80199F14 *)&lbl_8050DD58)->yofs;
+        TOSwitchAttack__sub_80087278(&p, 0x45, 0x40);
+        TOSwitchAttack__sub_80087278(&p, 0x46, 0x40);
+        open__11TWindowCtrlFiii(obj_getField1c(self), lbl_8044613C, 0x1B);
+        queue_destruction__7TObjectFv(self);
+        return;
+    }
+    TWindowTimer__sub_8019A104(self, lbl_805D53A0);
+    update_best_time__12TWindowTimerFPv(self);
+    if (self->pos.y <= lbl_805DBF90) {
+        queue_destruction__7TObjectFv(self);
+    }
+    VecCopy__FP3VecPC3Vec(&q, &self->pos);
+    self->vel.y += self->f33c;
+    TBoss4Zako__sub_803D8910(&self->pos, &self->vel);
+    for (;;) {
+        if (i++ >= 3 || fn_8019978C(self, &q, &self->vel) == 0) {
+            break;
+        }
+        VecCopy__FP3VecPC3Vec(&self->pos, &q);
+        q.x += self->vel.x;
+        q.y += self->vel.y;
+        q.z += self->vel.z;
+    }
+}
 
 void TWindowTimer__sub_8019A098(void) {
     Pkt_8019A098 pkt;
