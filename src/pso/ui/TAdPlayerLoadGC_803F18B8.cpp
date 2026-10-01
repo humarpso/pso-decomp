@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct S_803F3328 { u8 pad0[4]; s32 state; u8 card[0x80]; };
+
 extern "C" {
 M2C_UNK OSFreeToHeap(int, void *);
 s32 TLobby__sub_803F4AB4();
@@ -20,6 +22,10 @@ void TAdPlayerLoadGC__sub_803F389C(s32 chan);
 M2C_UNK memset(void *, int, int);
 extern M2C_UNK lbl_805A28E0[];
 void TAdPlayerLoadGC__sub_803F32A4(s32 arg0);
+extern S_803F3328 lbl_805A29B0[];
+s32 CARDClose(void *);
+M2C_UNK memset(void *, int, int);
+s32 TAdPlayerLoadGC__sub_803F3328(s32 arg0);
 }
 
 extern "C" {
@@ -64,6 +70,18 @@ void TAdPlayerLoadGC__sub_803F32A4(s32 arg0) {
     M2C_FIELD(temp_r30, s32 *, 0x54) = -1;
     M2C_FIELD(temp_r30, s32 *, 0x58) = 0;
     M2C_FIELD(temp_r30, s32 *, 0x5C) = 0;
+}
+
+s32 TAdPlayerLoadGC__sub_803F3328(s32 arg0) {
+    S_803F3328 *s;
+    s32 ret;
+    if (arg0 >= 0 && arg0 < 0x64) {
+        s = &lbl_805A29B0[arg0];
+        ret = CARDClose(s->card);
+        memset((void *)(s), (int)(0), (int)(0x88));
+        s->state = 2;
+    }
+    return ret;
 }
 
 void TAdPlayerLoadGC__sub_803F389C(s32 chan) {

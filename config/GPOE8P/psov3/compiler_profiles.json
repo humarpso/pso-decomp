@@ -26,7 +26,7 @@
     "use_lmw_stmw": "on"
   },
   "pso/misc/TQuestVmDownLoadServer_803E5668.cpp": {
-    "mw_version": "GC/1.2.5n",
+    "mw_version": "GC/1.2.5",
     "optimization": "-O4,p",
     "inline": "off",
     "use_lmw_stmw": "on"
@@ -103,7 +103,7 @@
     "use_lmw_stmw": "on"
   },
   "pso/ui/TAdPlayerLoadGC_803F18B8.cpp": {
-    "mw_version": "GC/1.2.5n",
+    "mw_version": "GC/1.2.5",
     "optimization": "-O4,p",
     "inline": "off",
     "use_lmw_stmw": "on"
