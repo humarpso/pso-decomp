@@ -108,10 +108,25 @@ typedef struct Obj_80017ABC {
 
 typedef struct Vec_80018428 { f32 x, y, z; } Vec_80018428;
 
+typedef s32 M2C_UNK;
+struct Vec_800182A0 { f32 x, y, z; };
+
+struct Sub_800182A0 { u8 pad[0xC]; f32 fC; };
+
+struct Obj_800182A0 {
+    u8 pad0[0x3C];
+    f32 f3C;
+    u8 pad40[0xA4 - 0x40];
+    Sub_800182A0 *fA4;
+    u8 padA8[0x29C - 0xA8];
+    Vec_800182A0 f29C;
+    u8 pad2A8[0x2FC - 0x2A8];
+    Vec_800182A0 pos;
+};
+
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK TObjPlayer__sub_80017E6C(void *);
-M2C_UNK TObjPlayer__sub_800182A0(void *, void *, int);
 f32 TObjPlayer__sub_80141CF8(void *, void *);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
 extern const f32 TObjPlayer__data_805D7D44;
@@ -168,7 +183,6 @@ s32 copy_position_if_valid__10TObjPlayerFii(s32 arg0, s32 arg1);
 f32 TObjPlayer__sub_80141CF8(void *, void *);
 extern const f32 TObjPlayer__data_805D7D24;
 f32 TObjPlayer__sub_80017ABC(Obj_80017ABC *arg0, Vec_800180E8 arg1, f32 farg0);
-M2C_UNK TObjPlayer__sub_800182A0(void *, void *, int);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
 f32 TCameraCtrl__sub_803D8D00(void *);
@@ -196,6 +210,22 @@ extern const f32 TObjPlayer__data_805D7D24;
 extern const f32 lbl_805D7DC0;
 extern const f32 lbl_805D7DC4;
 s32 TObjPlayer__sub_80018428(u8 *arg0, Vec_80018428 *arg1);
+s32 TObjPlayer__sub_80018428(u8 *arg0, Vec_80018428 *arg1);
+M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+u32 TObjButterflyLobby__sub_8007A5D8(void *, void *, s32);
+s32 TObjPlayer__sub_80156844(s32, s32, s32);
+M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+s32 TScene__sub_803D8DB4(int, void *, void *);
+s32 TObjPlayer__sub_803D9214(int, void *);
+void TBoss6Type1__sub_803D9370(void *a, void *b);
+s32 TObjPlayer__sub_803D97F0(void *);
+s32 TObjPlayer__sub_803D9B78();
+extern const f64 TObjPlayer__data_804340B8;
+extern Vec_800182A0 lbl_8050BEE0;
+extern RecoveredGlobal_8001806C_lbl_8058D490 lbl_8058D490;
+extern const f32 TObjPlayer__data_805D7D24;
+M2C_UNK TObjPlayer__sub_800182A0(Obj_800182A0 *self, Vec_800182A0 *arg1, int flags);
 }
 
 extern "C" {
@@ -325,7 +355,7 @@ f32 enemy_wander_home(u8 *arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2) {
         stack.sp8 = stack.sp14;
         stack.spC = stack.sp18;
         stack.sp10 = stack.sp1C;
-        TObjPlayer__sub_800182A0(arg0,&stack.sp8,1);
+        TObjPlayer__sub_800182A0((Obj_800182A0 *)(arg0), (Vec_800182A0 *)(&stack.sp8), (int)(1));
         M2C_FIELD(arg0, f32 *, 0x310) = (f32) TObjPlayer__data_805D7D24;
         M2C_FIELD(arg0, f32 *, 0x308) = (f32) TObjPlayer__data_805D7D24;
         M2C_FIELD(arg0, s32 *, 0x2AC) = 0;
@@ -400,6 +430,41 @@ s32 TObjPlayer__sub_800181DC(u8 *arg0, Vec_800180E8 arg1) {
         TNpcPlayer__sub_803D97B4(&d);
         TBoss4Zako__sub_803D8910(&d, arg0 + 0x2FC);
         return ((s32 (*)(void *, Vec_800180E8, int)) TObjPlayer__sub_800182A0)(arg0, d, 1);
+    }
+    return 0;
+}
+
+struct Vec_80018428;
+M2C_UNK TObjPlayer__sub_800182A0(Obj_800182A0 *self, Vec_800182A0 *arg1, int flags) {
+    Vec_800182A0 d;
+    s32 a;
+    if (TObjPlayer__sub_80156844((s32)self, (s32)arg1, 0) != 0) {
+        ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&d, arg1);
+        if (!(flags & 1)) {
+            d.y = self->pos.y;
+        } else {
+            d.y += self->pos.y - self->f3C;
+        }
+        if (self->fA4 != NULL) {
+            TBoss6Type1__sub_803D9370(&d, &self->pos);
+            a = (s32)(TObjPlayer__data_804340B8 * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z));
+            lbl_8050BEE0.x = lbl_8050BEE0.y = TObjPlayer__data_805D7D24;
+            lbl_8050BEE0.z = self->fA4->fC;
+            TObjPlayer__sub_803D97F0(&lbl_8058D490);
+            TObjPlayer__sub_803D9214(0, (void *)a);
+            TScene__sub_803D8DB4(0, &lbl_8050BEE0, &lbl_8050BEE0);
+            TObjPlayer__sub_803D9B78();
+            TBoss4Zako__sub_803D8910(&d, &lbl_8050BEE0);
+            TBoss4Zako__sub_803D8910(&d, &self->pos);
+        }
+        if (!(flags & 2) && TObjPlayer__sub_80018428((u8 *)self, (Vec_80018428 *)&d) != 0) {
+            return 0;
+        }
+        if (!(flags & 4) && TObjButterflyLobby__sub_8007A5D8(&self->pos, &d, -1) != 0) {
+            return 0;
+        }
+        ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&self->f29C, arg1);
+    return 1;
     }
     return 0;
 }

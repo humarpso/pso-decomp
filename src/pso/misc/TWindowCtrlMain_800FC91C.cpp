@@ -4,6 +4,46 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18_7b3651 { char pad[0x18]; };
+
+struct VObj_18_7b3651 : VBase_18_7b3651 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual M2C_UNK * m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual s32 m14();
+};
+
+typedef struct Ent_800FC968 { u8 pad0[4]; char name[0x100]; u16 a; u8 pad106[6]; u16 b; u8 pad10E[0x11C - 0x10E]; } Ent_800FC968;
+
+extern "C" {
+s32 TLobby__sub_8001DC24(void);
+char *TWindowSubStatusDisp__sub_80071820(char *);
+s32 get_card_status_bits__20TWindowShortListCtrlFv();
+s32 TObjPlayer__sub_801AFD8C(void *);
+VObj_18_7b3651 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void TWindowSubStatusDisp__sub_80228D80(void);
+void TWindowChallengeResult__sub_80228DB4(s32, s32);
+void TWindowSubStatusDisp__sub_80228F5C(s32);
+void TWindowSubStatusDisp__sub_80229080(void *);
+void TWindowSubStatusDisp__sub_802290E0(void);
+extern char *lbl_8049CA40[];
+extern Ent_800FC968 lbl_80509D5C[];
+extern char lbl_805DA9F4[4];
+extern char lbl_805DA9F8[4];
+s32 TWindowSubStatusDisp__sub_800FC968(s32 arg0);
+}
+
 extern "C" {
 
 void advance_card_status__15TWindowCtrlMainFi(s32 arg0);
@@ -22,6 +62,56 @@ void advance_card_status__15TWindowCtrlMainFi(s32 arg0) {
         var_r4 = 0;
     }
     fn_800FCCC8(arg0, var_r4);
+}
+s32 TWindowSubStatusDisp__sub_800FC968(s32 arg0) {
+    s32 mode;
+    M2C_UNK *name;
+    u8 *info;
+    s32 idx;
+    s32 lvl;
+    VObj_18_7b3651 *p;
+    mode = get_card_status_bits__20TWindowShortListCtrlFv();
+    p = TPlayerBattleCtrl4P__sub_801BA74C(arg0);
+    if (p == NULL) {
+        return 0;
+    }
+    info = (u8 *)p + 0x85C;
+    if (info == NULL) {
+        return 0;
+    }
+    name = p->m10();
+    idx = TObjPlayer__sub_801AFD8C(p);
+    lvl = p->m14();
+    TWindowSubStatusDisp__sub_802290E0();
+    switch (mode) {
+    case 0:
+        TWindowSubStatusDisp__sub_80229080(name);
+        break;
+    case 1:
+        TWindowSubStatusDisp__sub_80229080(name);
+        TWindowSubStatusDisp__sub_80228D80();
+        TWindowSubStatusDisp__sub_80229080(lbl_8049CA40[idx]);
+        TWindowChallengeResult__sub_80228DB4(lvl + 1, 3);
+        break;
+    case 2:
+        if ((s8)info[0x33] < 2) {
+            return 0;
+        }
+        TWindowSubStatusDisp__sub_80229080(lbl_805DA9F4);
+        TWindowSubStatusDisp__sub_80228F5C(lbl_80509D5C[arg0].a);
+        TWindowSubStatusDisp__sub_80229080(lbl_805DA9F8);
+        TWindowSubStatusDisp__sub_80228F5C(lbl_80509D5C[arg0].b);
+        break;
+    case 3:
+        if ((s8)info[0x33] < 2) {
+            return 0;
+        }
+        TWindowSubStatusDisp__sub_80229080(TWindowSubStatusDisp__sub_80071820(lbl_80509D5C[arg0].name));
+        break;
+    case 4:
+        return 0;
+    }
+    return TLobby__sub_8001DC24();
 }
 
 }

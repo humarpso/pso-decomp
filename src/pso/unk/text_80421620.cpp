@@ -52,6 +52,11 @@ struct G_80421B3C { s32 f0; };
 
 struct G_8042298C { s32 f0; };
 
+typedef s32 M2C_UNK;
+struct G_804228E8 { s32 f0; };
+
+struct G_804229F8 { s32 f0; };
+
 extern "C" {
 s32 TLobby__sub_80406AE4(void);
 s32 TLobby__sub_80409AA8(void);
@@ -114,6 +119,19 @@ u16 TLobby__sub_803F9E84(void *);
 void TLobby__sub_80425288(s32, s32, void *);
 extern s32 lbl_805D7BA0;
 s32 TLobby__sub_8042455C(void *a);
+M2C_UNK TUdpSocket__sub_803F95A4(void *);
+M2C_UNK TLobby__sub_803F95C4(void *);
+s32 TLobby__sub_8041E068(int, void *, void *, void *, void *);
+s16 TLobby__sub_8041EB24(int);
+extern RecoveredGlobal_804217E4_lbl_805C1C50 lbl_805C1C50;
+s32 tcp_stat__FsPsPsPUlPUl(s32 a, s16 *b, s16 *c, u32 *d, u32 *e);
+M2C_UNK TUdpSocket__sub_803F95A4(void *);
+M2C_UNK TLobby__sub_803F95C4(void *);
+s16 TLobby__sub_8041DB58(int);
+s32 TLobby__sub_8041E224(int);
+s16 TLobby__sub_8041EB24(int);
+extern RecoveredGlobal_804217E4_lbl_805C1C50 lbl_805C1C50;
+s32 tcp_abort__Fs(s32 a);
 }
 
 extern "C" {
@@ -225,6 +243,22 @@ s32 TLobby__sub_80421B3C(s32 a) {
     return r;
 }
 
+s32 tcp_stat__FsPsPsPUlPUl(s32 a, s16 *b, s16 *c, u32 *d, u32 *e) {
+    s32 r;
+    G_804228E8 *g;
+    if (a & 0xC00) { return -4; }
+    g = ((G_804228E8 *)&lbl_805C1C50);
+    a = a & 0xFFFFF3FF;
+    TLobby__sub_803F95C4((void *)g->f0);
+    if (TLobby__sub_8041EB24(a) < 0) {
+        TUdpSocket__sub_803F95A4((void *)g->f0);
+        return -4;
+    }
+    r = TLobby__sub_8041E068(a, b, c, d, e);
+    TUdpSocket__sub_803F95A4((void *)g->f0);
+    return r;
+}
+
 s32 tcp_delete__Fs(s32 a) {
     s32 r;
     G_8042298C *g;
@@ -234,6 +268,29 @@ s32 tcp_delete__Fs(s32 a) {
     m = a & 0xFFFFF3FF;
     TLobby__sub_803F95C4((void *)g->f0);
     r = TLobby__sub_8041E178(m);
+    TUdpSocket__sub_803F95A4((void *)g->f0);
+    return r;
+}
+
+s32 tcp_abort__Fs(s32 a) {
+    s32 r;
+    G_804229F8 *g;
+    s32 m;
+    s16 st;
+    if (a & 0xC00) { return -4; }
+    g = ((G_804229F8 *)&lbl_805C1C50);
+    m = a & 0xFFFFF3FF;
+    TLobby__sub_803F95C4((void *)g->f0);
+    if (TLobby__sub_8041EB24(m) < 0) {
+        TUdpSocket__sub_803F95A4((void *)g->f0);
+        return -4;
+    }
+    st = TLobby__sub_8041DB58(m);
+    if (st == -1 || st == 1) {
+        TUdpSocket__sub_803F95A4((void *)lbl_805C1C50.value);
+        return -9;
+    }
+    r = TLobby__sub_8041E224(m);
     TUdpSocket__sub_803F95A4((void *)g->f0);
     return r;
 }

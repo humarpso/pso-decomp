@@ -12,6 +12,8 @@ struct RecoveredGlobal_803CFEA0_lbl_8047DAE4 {
 typedef s32 M2C_UNK;
 struct File_803D3FCC { u8 used; u8 open; u8 pad[0x36]; };
 
+struct File_803D3EE4 { u8 pad[0xC]; s32 len; s32 pos; };
+
 extern "C" {
 extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047E170;
 extern s32 lbl_805D767C;
@@ -24,6 +26,12 @@ extern M2C_UNK lbl_8047E0C8[];
 extern RecoveredCallback_4873a87e26d6 lbl_805D7678;
 extern s32 lbl_805D767C;
 void TLobby__sub_803D3FCC(File_803D3FCC *arg0);
+void TLobby__sub_803D3988(void);
+void TLobby__sub_803D39C0(void);
+extern M2C_UNK lbl_8047E18C[];
+extern RecoveredCallback_4873a87e26d6 lbl_805D7678;
+extern s32 lbl_805D767C;
+s32 TLobby__sub_803D3EE4(File_803D3EE4 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -38,6 +46,28 @@ s32 TLobby__sub_803D3E90(u8 *arg0) {
     }
     return M2C_FIELD(arg0, s32 *, 0x10);
 }
+
+s32 TLobby__sub_803D3EE4(File_803D3EE4 *arg0, s32 arg1, s32 arg2) {
+    if (arg0 == 0) {
+        if (lbl_805D7678 != 0) {
+            lbl_805D7678(lbl_805D767C, lbl_8047E18C, 0);
+        }
+        return 0;
+    }
+    TLobby__sub_803D39C0();
+    if (arg2 == 0) {
+        arg0->pos = arg1;
+    } else if (arg2 == 2) {
+        arg0->pos = arg0->len + arg1;
+    } else if (arg2 == 1) {
+        arg0->pos += arg1;
+    }
+    arg0->pos = arg0->pos < arg0->len ? arg0->pos : arg0->len;
+    arg0->pos = arg0->pos > 0 ? arg0->pos : 0;
+    TLobby__sub_803D3988();
+    return arg0->pos;
+}
+
 void TLobby__sub_803D3FCC(File_803D3FCC *arg0) {
     if (arg0 != 0) {
         if (arg0 == 0) {

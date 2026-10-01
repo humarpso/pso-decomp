@@ -17,6 +17,8 @@ struct RecoveredGlobal_803C588C_lbl_80572020 {
 struct Hdr_803C46A4 { u16 type; s16 len; };
 
 typedef void (*RecoveredCallback_e2efd47cbcab)(s32, char *);
+
+typedef s32 M2C_UNK;
 extern "C" {
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
@@ -43,6 +45,35 @@ extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
 extern s32 lbl_805D7528;
 extern s32 lbl_805D752C;
 void TLobby__sub_803C57C8(const char *arg0);
+s32 TLobby__sub_803C47F8(u8 *arg0, s32 arg1, u16 *arg2, u16 *arg3);
+s32 ARStartDMA(u8 *arg0, s32 arg1, s16 *arg2, u8 *arg3, s8 *arg4, s8 *arg5, u8 *arg6, s32 *arg7, s32 *arg8, s32 *arg9);
+void TLobby__sub_803C0B08(void);
+M2C_UNK release_ref__6TLobbyFv();
+M2C_UNK init_once__6TLobbyFv();
+void TLobby__sub_803C4698(void);
+void TLobby__sub_803C588C(void);
+void TLobby__sub_803C90B0(void);
+void flush_update__6TLobbyFv(void *, int);
+void TLobby__sub_803CC114(void);
+void TLobby__sub_803CC1D0(void);
+void TLobby__sub_803D1CC0(void);
+void TLobby__sub_803D25DC(void);
+void TLobby__sub_803D2E44(void);
+void TLobby__sub_803D2ED4(void);
+void TLobby__sub_803D3540(int, int, void *, int);
+s32 TLobby__sub_803D3750(int, void *, int);
+M2C_UNK memset(void *, int, int);
+void ar_alloc__6TLobbyFv(void);
+void get_state_zero__6TLobbyFv(void);
+void process_connection_state__6TLobbyFv(void);
+void TLobby__sub_803C5B2C(void);
+extern u8 lbl_80572120[];
+extern s32 lbl_805D4658;
+extern s32 lbl_805D7538;
+extern s32 lbl_805D753C;
+extern s32 lbl_805D7540;
+extern const s32 lbl_805E0D30;
+void TLobby__sub_803C59B8(void);
 }
 
 extern "C" {
@@ -88,6 +119,64 @@ s32 TLobby__sub_803C46A4(Hdr_803C46A4 *p, s32 size, s16 *out) {
         return -2;
     }
     *out = p->len + 4;
+    return 0;
+}
+
+s32 TLobby__sub_803C47F8(u8 *arg0, s32 arg1, u16 *arg2, u16 *arg3) {
+    s32 var_r0;
+    u8 var_r7;
+    if (arg1 < 0x14) {
+        var_r0 = -1;
+    } else if ((u16) M2C_FIELD(arg0, u16 *, 0) != 0x8000) {
+        var_r0 = -2;
+    } else if ((s16) M2C_FIELD(arg0, s16 *, 2) < 0x10) {
+        var_r0 = -1;
+    } else {
+        var_r7 = M2C_FIELD(arg0, u8 *, 0x12);
+        var_r0 = 0;
+    }
+    if (var_r0 != 0) {
+        return -1;
+    }
+    if (var_r7 >= 4U) {
+        if (arg1 < 0x20) {
+            return -1;
+        }
+        if ((u16) M2C_FIELD(arg0, u16 *, 0) != 0x8000) {
+            return -2;
+        }
+        if ((s16) M2C_FIELD(arg0, s16 *, 2) < 0x1C) {
+            return -1;
+        }
+        arg2[0] = (u16) M2C_FIELD(arg0, u16 *, 0x18);
+        arg3[0] = (u16) M2C_FIELD(arg0, u16 *, 0x1A);
+        arg2[1] = (u16) M2C_FIELD(arg0, u16 *, 0x1C);
+        arg3[1] = (u16) M2C_FIELD(arg0, u16 *, 0x1E);
+    } else {
+        arg2[0] = arg3[0] = arg2[1] = arg3[1] = 0;
+    }
+    return 0;
+}
+
+s32 ARStartDMA(u8 *arg0, s32 arg1, s16 *arg2, u8 *arg3, s8 *arg4, s8 *arg5, u8 *arg6, s32 *arg7, s32 *arg8, s32 *arg9) {
+    if (arg1 < 0x10) {
+        return -1;
+    }
+    if ((u16)((arg0[0] << 8) | arg0[1]) != 0x8000) {
+        return -2;
+    }
+    *arg2 = ((arg0[2] << 8) | arg0[3]) + 4;
+    *arg3 = arg0[4];
+    *arg5 = arg0[5];
+    *arg4 = arg0[6];
+    *arg6 = arg0[7];
+    *arg7 = (arg0[8] << 24) | (arg0[9] << 16) | (arg0[10] << 8) | arg0[11];
+    *arg8 = (arg0[12] << 24) | (arg0[13] << 16) | (arg0[14] << 8) | arg0[15];
+    if (*arg4 == 0) {
+        *arg9 = 0;
+    } else {
+        *arg9 = ((*arg5 - 2) * 8) / *arg4;
+    }
     return 0;
 }
 
@@ -209,6 +298,32 @@ void dec_ref_and_shutdown__6TLobbyFv(void) {
         TLobby__sub_803D2E94();
         release_ref__6TLobbyFv();
     }
+}
+void TLobby__sub_803C59B8(void) {
+    s32 v = lbl_805E0D30;
+    if (lbl_805D7538 == 0) {
+        ((void (*)(s32))TLobby__sub_803C4698)(v);
+        init_once__6TLobbyFv();
+        TLobby__sub_803D2ED4();
+        TLobby__sub_803D2E44();
+        TLobby__sub_803D25DC();
+        TLobby__sub_803C588C();
+        TLobby__sub_803C90B0();
+        TLobby__sub_803C0B08();
+        TLobby__sub_803CC1D0();
+        TLobby__sub_803CC114();
+        flush_update__6TLobbyFv((void *)TLobby__sub_803C5B2C, 0);
+        memset(lbl_80572120, 0, 0xA80);
+        TLobby__sub_803D1CC0();
+        if (lbl_805D4658 == 1) {
+            TLobby__sub_803D3540(2, 1, (void *)get_state_zero__6TLobbyFv, 0);
+            TLobby__sub_803D3540(2, 3, (void *)ar_alloc__6TLobbyFv, 0);
+            lbl_805D753C = TLobby__sub_803D3750(4, (void *)process_connection_state__6TLobbyFv, 0);
+        }
+        lbl_805D7540 = 0;
+        release_ref__6TLobbyFv();
+    }
+    lbl_805D7538 += 1;
 }
 
 }

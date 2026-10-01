@@ -16,6 +16,28 @@ struct RecoveredGlobal_803F0CF4_lbl_805A2720 {
 
 struct K_803F119C { u8 pad0[0x10]; s32 f10; s32 f14; u8 pad1[0x18]; s32 f30; u8 pad2[0x34]; };
 
+struct Pad_803F0C50 {
+    u8 a;
+    u8 b;
+    u8 pad2[0x1A];
+    s32 x1c;
+    u8 queue[8];
+    s32 x28;
+    s32 x2c;
+    u8 pad30[4];
+    u8 x34[4];
+    u8 x38[4];
+    u8 pad3c[0x2C];
+};
+
+struct Pad_803F0E90 {
+    u8 pad0[3];
+    u8 x3;
+    u8 pad4[0x14];
+    void *x18;
+    u8 pad1c[0x4C];
+};
+
 extern "C" {
 extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
 u8 TKeyBoardControl__sub_803F1548(s32 arg0);
@@ -34,6 +56,21 @@ void OSRestoreInterrupts(s32);
 void Dolphin_SIGetTypeAsync(s32, void *);
 void TKeyBoardControl__sub_803F107C(void);
 s32 TKeyBoardControl__sub_803F119C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void OSInitThreadQueue(void *);
+s32 OSRegisterResetFunction(void *);
+s32 SIRefreshSamplingRate(void);
+void *memset(void *, int, u32);
+extern u8 lbl_804FCD38[];
+extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
+extern s32 lbl_805D7930;
+void TKeyBoardControl__sub_803F0C50(void);
+extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
+s32 OSDisableInterrupts(void);
+void OSRestoreInterrupts(s32);
+s32 TKeyBoardControl__sub_803F119C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void TKeyBoardControl__sub_803F0D74(void);
+void TKeyBoardControl__sub_803F0E8C(void);
+s32 TKeyBoardControl__sub_803F0E90(s32 arg0, void *arg1);
 }
 
 extern "C" {
@@ -41,6 +78,25 @@ extern "C" {
 void TKeyBoardControl__sub_803F0E8C(void);
 
 typedef char RecoveredGlobal_803F0CF4_lbl_805A2720_size[sizeof(RecoveredGlobal_803F0CF4_lbl_805A2720) == 0x1A0 ? 1 : -1];
+
+void TKeyBoardControl__sub_803F0C50(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        Pad_803F0C50 *p = &((Pad_803F0C50 *)&lbl_805A2720)[i];
+        p->x2c = 0;
+        p->x28 = 0;
+        p->a = 0;
+        p->b = 0;
+        p->x1c = 0;
+        memset(p->x38, 0, 4);
+        memset(p->x34, 0, 4);
+        OSInitThreadQueue(p->queue);
+    }
+    SIRefreshSamplingRate();
+    lbl_805D7930 = 0;
+    OSRegisterResetFunction(lbl_804FCD38);
+}
+
 void TKeyBoardControl__sub_803F0CF4(s32 arg0, u32 arg1) {
     struct Fields_temp_r4 { s8 field_0; s8 field_1; u8 pad_2[38]; s32 field_28; s32 field_2C; };
     s32 temp_r0;
@@ -73,6 +129,27 @@ void TKeyBoardControl__sub_803F0E8C(void) {
 
 }
 typedef char RecoveredGlobal_803F1548_lbl_805A2720_size[sizeof(RecoveredGlobal_803F1548_lbl_805A2720) == 0x1A0 ? 1 : -1];
+
+s32 TKeyBoardControl__sub_803F0E90(s32 arg0, void *arg1) {
+    Pad_803F0E90 *p = &((Pad_803F0E90 *)&lbl_805A2720)[arg0];
+    void *cb;
+    s32 ret;
+    s32 lvl;
+    cb = arg1 != NULL ? arg1 : (void *)TKeyBoardControl__sub_803F0E8C;
+    lvl = OSDisableInterrupts();
+    if (p->x18 != NULL) {
+        ret = -2;
+    } else {
+        p->x18 = cb;
+        ret = 0;
+    }
+    OSRestoreInterrupts(lvl);
+    if (ret != 0) {
+        return ret;
+    }
+    p->x3 = 0xFF;
+    return TKeyBoardControl__sub_803F119C(arg0, 1, 3, (s32)TKeyBoardControl__sub_803F0D74);
+}
 
 s32 TKeyBoardControl__sub_803F0F44(void) {
     u32 v;

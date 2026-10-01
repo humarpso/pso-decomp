@@ -44,6 +44,16 @@ void TLobby__sub_803C3570(void *);
 void TLobby__sub_803C40D0(void *);
 void TLobby__sub_803C34F4(Obj_803C34F4 *arg0);
 s32 TLobby__sub_803C3ACC(Obj_803C3ACC *arg0);
+s32 TLobby__sub_803C0B88(void *);
+s32 DVDReadPrio(void *, void *, void *);
+s32 TLobby__sub_803C2174(void *, void *, void *);
+s32 TLobby__sub_803C2328(u8 *arg0);
+s32 TLobby__sub_803C30E8(void *, void *, void *);
+s32 TLobby__sub_803C328C(u8 *arg0);
+s32 TRK__write_aram(void *, void *, void *);
+s32 TLobby__sub_803C40A0(void *p);
+s32 TLobby__sub_803C43A8(void *, void *, void *);
+s32 TLobby__sub_803C3B68(s32 arg0, u16 *arg1, s32 arg2);
 }
 
 extern "C" {
@@ -259,6 +269,25 @@ s32 get_field_0x3c__6TLobbyFPv(u8 *arg0) {
 void TLobby__sub_803C3B5C(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x88) = arg1;
     M2C_FIELD(arg0, s32 *, 0x8C) = arg2;
+}
+
+s32 TLobby__sub_803C3B68(s32 arg0, u16 *arg1, s32 arg2) {
+    if ((u16) M2C_FIELD(arg1, u16 *, 0) == 0x8000) {
+        return TRK__write_aram((void *)arg0, arg1, (void *)arg2);
+    }
+    if (TLobby__sub_803C40A0((void *) (arg1)) != 0) {
+        return TLobby__sub_803C43A8((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    }
+    if (TLobby__sub_803C0B88((void *) (arg1)) != 0) {
+        return DVDReadPrio((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    }
+    if (TLobby__sub_803C2328((u8 *) (arg1)) != 0) {
+        return TLobby__sub_803C2174((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    }
+    if (TLobby__sub_803C328C((u8 *) (arg1)) != 0) {
+        return TLobby__sub_803C30E8((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    }
+    return 0;
 }
 
 void clear_record__6TLobbyFPv(u8 *arg0) {

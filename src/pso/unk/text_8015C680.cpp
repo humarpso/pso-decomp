@@ -14,6 +14,25 @@ extern "C" {
 extern const f32 lbl_805DB398;
 extern const f32 lbl_805DB39C;
 f32 TObjPlayer__sub_8015C88C(Obj_8015C88C *self);
+void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+u32 *alloc_buffer__11TOBoss4RockFPv(u32);
+u32 TLanguage__sub_801E4874(void *);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+extern char lbl_8044083C[];
+extern char lbl_80440850[];
+extern char lbl_8044086C[];
+extern char lbl_80440888[];
+extern char lbl_804408A4[];
+extern char lbl_804408C4[];
+extern char lbl_804408E4[];
+extern char lbl_80440900[];
+extern char lbl_80440920[];
+extern u8 lbl_804B0068[];
+extern s32 enable_v2_features;
+extern void *lbl_805D58E8;
+extern u32 *lbl_805D58EC;
+void TLanguage__sub_8015C680(void);
 }
 
 extern "C" {
@@ -22,6 +41,45 @@ void TLobby__sub_8015C8C4(void);
 int TLobby__sub_8015C8C8(void);
 int TLobby__sub_8015C8D0(void);
 int TObjPlayer__sub_8015C884(void);
+
+void TLanguage__sub_8015C680(void) {
+    u8 *tbl = lbl_804B0068;
+    s32 state = get_global_state__14TOKeyMachine01Fv();
+    void *p;
+    if (enable_v2_features == 1 &&
+        (state == 0x10 || state == 0x15 || state == 0x16 || state == 0x21)) {
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = TLobby__sub_80020004(p, 1, tbl + 0x50, 0, 0, 0);
+        }
+        lbl_805D58E8 = p;
+        lbl_805D58EC = alloc_buffer__11TOBoss4RockFPv(0xC);
+        lbl_805D58EC[0] = TLanguage__sub_801E4874(lbl_8044083C);
+        lbl_805D58EC[1] = TLanguage__sub_801E4874(lbl_80440850);
+        lbl_805D58EC[2] = TLanguage__sub_801E4874(lbl_8044086C);
+    } else if (enable_v2_features == 1 &&
+               (state == 0x11 || state == 0x13 || state == 0x14 || state == 0x20)) {
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = TLobby__sub_80020004(p, 1, tbl + 0x30, 0, 0, 0);
+        }
+        lbl_805D58E8 = p;
+        lbl_805D58EC = alloc_buffer__11TOBoss4RockFPv(0xC);
+        lbl_805D58EC[0] = TLanguage__sub_801E4874(lbl_80440888);
+        lbl_805D58EC[1] = TLanguage__sub_801E4874(lbl_804408A4);
+        lbl_805D58EC[2] = TLanguage__sub_801E4874(lbl_804408C4);
+    } else {
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = TLobby__sub_80020004(p, 1, tbl + 0x10, 0, 0, 0);
+        }
+        lbl_805D58E8 = p;
+        lbl_805D58EC = alloc_buffer__11TOBoss4RockFPv(0xC);
+        lbl_805D58EC[0] = TLanguage__sub_801E4874(lbl_804408E4);
+        lbl_805D58EC[1] = TLanguage__sub_801E4874(lbl_80440900);
+        lbl_805D58EC[2] = TLanguage__sub_801E4874(lbl_80440920);
+    }
+}
 
 int TObjPlayer__sub_8015C884(void) { return 1; }
 

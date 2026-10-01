@@ -36,6 +36,35 @@ typedef struct Lobby_8001FD98 {
     Ent_8001FD98 *entries;
 } Lobby_8001FD98;
 
+struct Ctx_8001FA1C { s32 f0; s32 f4; u8 pad8[0x43C - 8]; s32 f43C; };
+
+struct Lobby_8001FA1C {
+    s32 f0;
+    s32 *f4;
+    s32 *f8;
+    Ctx_8001FA1C *fC;
+    s32 f10;
+    u32 f14;
+};
+
+struct Params_8001FA1C { Ctx_8001FA1C *a; s32 b; };
+
+struct Ent16_8001FE7C { u32 flags; u8 pad4[4]; void *a; void *b; };
+
+struct Ent8_8001FE7C { s32 x; void *data; };
+
+struct Lobby_8001FE7C {
+    u32 flags;
+    u8 pad4[0x18 - 4];
+    s32 handles[(0x418 - 0x18) / 4];
+    s32 nHandles;
+    u8 pad41c[0x42C - 0x41C];
+    Ent16_8001FE7C *ents16;
+    Ent8_8001FE7C *ents8;
+    s32 nEnts16;
+    s32 nEnts8;
+};
+
 extern "C" {
 M2C_UNK TItemDrop__sub_800FE2DC();
 s32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
@@ -87,6 +116,26 @@ extern M2C_UNK lbl_80434D74[];
 extern M2C_UNK lbl_80434D94[];
 extern s32 lbl_805D4ACC;
 s32 TLobby__sub_8001FD98(Lobby_8001FD98 *arg0, s32 arg1, s32 arg2);
+M2C_UNK TLobby__sub_8001EDD8(void *, s32);
+s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+void TLobby__sub_8001F8D8(Obj_8001F8D8 *self, void * _w1);
+s32 create_file_load_entry__6TLobbyFiiUiiPv(void *, s32, void *, void *, void *);
+M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
+M2C_UNK TLobby__sub_8013189C(void *, void *, void *);
+void increment_ref_and_set_flag__6TLobbyFPv(void *arg0);
+extern M2C_UNK lbl_80434C70[];
+extern M2C_UNK lbl_80434C98[];
+extern s32 lbl_805D4ACC;
+extern M2C_UNK lbl_805D7F10;
+void TLobby__sub_8001FA1C(Lobby_8001FA1C *self);
+M2C_UNK TLobby__sub_8001EDF4(void *);
+void free_if_not_owner__6TLobbyFPvPv(void* p, void* a1);
+void __dl__FPv(void *);
+M2C_UNK TLobby__sub_800F9FF4(s32);
+M2C_UNK free__11TOBoss4RockFUi(void *);
+M2C_UNK TLobby__sub_803DA16C(void *);
+extern char lbl_80434C38[];
+Lobby_8001FE7C *TLobby__sub_8001FE7C(Lobby_8001FE7C *self, s16 del);
 }
 
 extern "C" {
@@ -203,6 +252,46 @@ void load_bin_motion_callback(void *arg0) {
     TLobby__sub_8001F8D8((Obj_8001F8D8 *)(M2C_FIELD(arg0, void **, 4)), (void *)(temp_r4));
 }
 
+struct Obj_8001F8D8;
+void TLobby__sub_8001FA1C(Lobby_8001FA1C *self) {
+    char name[0x20];
+    Params_8001FA1C params;
+    u32 i;
+    s32 tag;
+    s32 handle;
+    s32 data;
+    s32 r;
+    s32 *slot;
+    i = 0;
+    while (i < self->f14) {
+        data = ((s32 (*)(void *, s32, void *, void *))alloc_load_data__6TLobbyFPviii)(self->fC, lbl_805D4ACC, &i, &tag);
+        switch (tag) {
+        case 0x4E4A544C:
+            slot = self->f8;
+            *slot = data;
+            params.a = self->fC;
+            params.b = self->f10;
+            TLobby__sub_8013189C(name, (void *)self->f0, &lbl_805D7F10);
+            r = create_file_load_entry__6TLobbyFiiUiiPv(name, *slot, (void *)increment_ref_and_set_flag__6TLobbyFPv, &params, &handle);
+            if (r >= 0) {
+                TLobby__sub_8001EDD8(self->fC, handle);
+                self->fC->f43C++;
+            } else if (!(self->fC->f0 & 4)) {
+                debug_print__6TLobbyFii(lbl_80434C70, name, r);
+            }
+            break;
+        case 0x4E4A434D:
+            *self->f4 = data;
+            self->fC->f4++;
+            break;
+        default:
+            debug_print__6TLobbyFii(lbl_80434C98);
+            break;
+        }
+    }
+    ((void (*)(void *))TLobby__sub_8001F8D8)(self->fC);
+}
+
 s32 TLobby__sub_8001FB6C(struct Lobby_8001FB6C *self, s32 idx, void *bytes) {
     s32 spC;
     s32 sp8;
@@ -259,6 +348,42 @@ s32 TLobby__sub_8001FD98(Lobby_8001FD98 *arg0, s32 arg1, s32 arg2) {
         TLobby__sub_8001F018((Lobby_8001F018 *)(arg0), (void *)(arg1), (s32)(arg2));
     }
     return 1;
+}
+
+Lobby_8001FE7C *TLobby__sub_8001FE7C(Lobby_8001FE7C *self, s16 del) {
+    s32 i;
+    if (self != NULL) {
+        if (self->flags & 2) {
+            if (self->flags & 0x100) {
+                self->flags |= 0x200;
+            } else {
+                for (i = 0; i < self->nHandles; i++) {
+                    TLobby__sub_800F9FF4(self->handles[i]);
+                }
+                TLobby__sub_8001EDF4(lbl_80434C38);
+            }
+        }
+        for (i = 0; i < self->nEnts16; i++) {
+            if (self->ents16[i].a != NULL) {
+                free_if_not_owner__6TLobbyFPvPv(self, self->ents16[i].a);
+            }
+            if (self->ents16[i].b != NULL) {
+                if (self->ents16[i].flags & 1) {
+                    TLobby__sub_803DA16C(self->ents16[i].b);
+                }
+                free_if_not_owner__6TLobbyFPvPv(self, self->ents16[i].b);
+            }
+        }
+        free__11TOBoss4RockFUi(self->ents16);
+        for (i = 0; i < self->nEnts8; i++) {
+            free_if_not_owner__6TLobbyFPvPv(self, self->ents8[i].data);
+        }
+        free__11TOBoss4RockFUi(self->ents8);
+        if (del > 0) {
+            __dl__FPv(self);
+        }
+    }
+    return self;
 }
 
 void reset_battle_state__6TLobbyFPv(void *arg0) {

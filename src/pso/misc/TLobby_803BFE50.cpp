@@ -21,6 +21,32 @@ struct RecoveredGlobal_803BD5C4_lbl_805663D8 {
 
 struct Obj_803C07E8 { u8 a; s8 b; };
 
+typedef struct Vt_803C0628 {
+    u8 pad0[0x18];
+    void (*fn18)(struct Obj_803C0628 *, s32, s32, void *);
+} Vt_803C0628;
+
+typedef struct Obj_803C0628 {
+    Vt_803C0628 *vt;
+} Obj_803C0628;
+
+typedef struct Rec_803C0628 {
+    s32 a;
+    s32 b;
+} Rec_803C0628;
+
+typedef struct S_803C0628 {
+    s32 f0;
+    s32 f4;
+    s32 f8;
+    Obj_803C0628 *objs[4];
+    Rec_803C0628 recs[3];
+    s32 f34;
+    s32 f38;
+    s32 f3C;
+    s32 f40;
+} S_803C0628;
+
 extern "C" {
 extern s8 lbl_805D74B8;
 void set_global_flag__6TLobbyFc(s8 arg0);
@@ -107,6 +133,10 @@ s32 memcmp(void *, void *, int);
 extern s32 lbl_805E0CB0;
 extern s32 lbl_805E0CB8;
 s32 TLobby__sub_803C0B88(u8 *arg0);
+M2C_UNK TLobby__sub_803C3B38(int);
+s32 get_field_0x3c__6TLobbyFPv(int);
+s32 TLobby__sub_803D2638(int);
+void TLobby__sub_803C0628(void *arg0_, s32 *arg1, s32 *arg2, s32 *arg3);
 }
 
 extern "C" {
@@ -170,6 +200,33 @@ void set_count__6TLobbyFPvi(u8 *arg0, s32 arg1) {
 s32 TLobby__sub_803C0010(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x2C);
 }
+
+struct Obj_803C0628;
+void TLobby__sub_803C0628(void *arg0_, s32 *arg1, s32 *arg2, s32 *arg3) {
+    S_803C0628 *arg0 = (S_803C0628 *)arg0_;
+    s32 h;
+    s32 i;
+    s32 t;
+    s32 v;
+    h = (s32)arg0->objs[0];
+    for (i = 0; i < ((s32)TLobby__sub_803C3B38(arg0->f4)); i++) {
+        arg0->objs[i]->vt->fn18(arg0->objs[i], 0, 0x4000, &arg0->recs[i]);
+    }
+    *arg1 = (arg0->recs[0].a - TLobby__sub_803D2638(h)) / 2;
+    v = arg0->f38;
+    t = arg0->recs[0].b / 2;
+    if (t < v) {
+        v = t;
+    }
+    *arg2 = v;
+    if (arg0->f3C >= 0) {
+        *arg3 = arg0->f3C - arg0->f40;
+    } else {
+        *arg3 = 0x1FFFFFFF;
+    }
+    get_field_0x3c__6TLobbyFPv(arg0->f4);
+}
+
 void reset_flag__6TLobbyFPv(u8 *arg0) {
     TLobby__sub_803C39CC((int) (M2C_FIELD(arg0, s32 *, 4)));
     M2C_FIELD(arg0, s8 *, 1) = 0;

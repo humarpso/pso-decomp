@@ -11,11 +11,29 @@ struct S_80037264 {
     s32 a10c, a110, a114, a118, a11c, a120;
 };
 
+typedef s32 M2C_UNK;
+struct Obj_800372F0 {
+    u8 pad0[0x1C];
+    s32 f1C;
+    s32 state;
+    u32 req;
+    u8 pad28[0x38 - 0x28];
+    f32 f38;
+    f32 f3C;
+    void *light;
+};
+
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_80482C58[];
 extern const f32 TBoss2LaserLight__data_805D849C;
 S_80037264 *TBoss2LaserLight__sub_80037264(S_80037264 *o, void *parent, s32 arg2, s32 arg3);
+M2C_UNK noop_laser__23TAdSinglePlyChrSelectGCFv(void *);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80133508(void *);
+M2C_UNK forward_to_field_0x14__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
+M2C_UNK set_vec3__23TAdSinglePlyChrSelectGCFPvPv(void *, s32);
+extern const f32 lbl_805D84A8;
+void run_task__16TBoss2LaserLightFv(Obj_800372F0 *self);
 }
 
 extern "C" {
@@ -63,6 +81,59 @@ S_80037264 *TBoss2LaserLight__sub_80037264(S_80037264 *o, void *parent, s32 arg2
 }
 
 void render__16TBoss2LaserLightFv(void) {  }
+
+void run_task__16TBoss2LaserLightFv(Obj_800372F0 *self) {
+    f32 v;
+    switch (self->state) {
+    case 0:
+    case 3:
+        if (self->req == 1) {
+            self->req = 0;
+            self->state = 1;
+            TAdSinglePlyChrSelectGC__sub_80133508(self->light);
+        }
+        break;
+    case 1:
+    case 2:
+        if (self->req == 2) {
+            self->req = 0;
+            self->state = 3;
+        }
+        break;
+    }
+    switch (self->state) {
+    case 0:
+        break;
+    case 1:
+        v = self->f38;
+        v += 3.0f;
+        if (v >= 60.0f) {
+            v = 60.0f;
+            self->state = 2;
+        }
+        self->f38 = v;
+        self->f3C = lbl_805D84A8 + v;
+        forward_to_field_0x14__23TAdSinglePlyChrSelectGCFPvPv(self->light, &self->f38);
+        set_vec3__23TAdSinglePlyChrSelectGCFPvPv(self->light, self->f1C);
+        break;
+    case 2:
+        set_vec3__23TAdSinglePlyChrSelectGCFPvPv(self->light, self->f1C);
+        break;
+    case 3:
+        v = self->f38;
+        v -= 3.0f;
+        if (v <= 0.0f) {
+            v = 0.0f;
+            self->state = 0;
+            noop_laser__23TAdSinglePlyChrSelectGCFv(self->light);
+        }
+        self->f38 = v;
+        self->f3C = lbl_805D84A8 + v;
+        forward_to_field_0x14__23TAdSinglePlyChrSelectGCFPvPv(self->light, &self->f38);
+        set_vec3__23TAdSinglePlyChrSelectGCFPvPv(self->light, self->f1C);
+        break;
+    }
+}
 
 void TBoss2LaserLight__sub_80037474(void* p) { *(s32*)((char*)p + 0x24) = 2; }
 void TBoss2LaserLight__sub_80037480(void* p) { *(s32*)((char*)p + 0x24) = 1; }

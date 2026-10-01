@@ -72,6 +72,13 @@ extern u8 *lbl_805D7818;
 void TObjPlayer__sub_803E53BC(void);
 extern u8 *lbl_805D7818;
 void TObjPlayer__sub_803E5378(s32 n);
+void TObjPlayer__sub_803D7B68(s32);
+void TObjPlayer__sub_803DCB40(s32);
+void TObjPlayer__sub_803E4E20(s32);
+void TObjPlayer__sub_803E53F8(u8 *arg0, f32 farg0);
+void TObjPlayer__sub_803E5458(s32 arg0);
+extern u8 *lbl_805D4698;
+void TObjPlayer__sub_803E4D8C(s32 arg0, s32 arg1, u8 *arg2, f32 farg0, s32 arg3);
 }
 
 extern "C" {
@@ -85,6 +92,20 @@ typedef char RecoveredGlobal_803D77C0_lbl_8047E3C8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_803D77C0_lbl_804FA500_size[sizeof(RecoveredGlobal_803D77C0_lbl_804FA500) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_803D77C0_lbl_804FA50C_size[sizeof(RecoveredGlobal_803D77C0_lbl_804FA50C) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_803D77C0_lbl_804FA51C_size[sizeof(RecoveredGlobal_803D77C0_lbl_804FA51C) == 0x24 ? 1 : -1];
+
+void TObjPlayer__sub_803E4D8C(s32 arg0, s32 arg1, u8 *arg2, f32 farg0, s32 arg3) {
+    u8 *p = lbl_805D4698;
+    TObjPlayer__sub_803D7B68(arg1);
+    *(s32 *)(p + 0xC) = arg3;
+    if (arg2 == NULL) {
+        TObjPlayer__sub_803DCB40(arg0);
+        return;
+    }
+    TObjPlayer__sub_803E5458(0);
+    TObjPlayer__sub_803E53F8(arg2, farg0);
+    TObjPlayer__sub_803E4E20(arg0);
+}
+
 void TObjPlayer__sub_803E5378(s32 n) {
     s32 w = n * 4;
     s32 a;
