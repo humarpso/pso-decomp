@@ -4,10 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct W_802AE864 { u8 pad[0x124]; void *a[8]; };
+
 extern "C" {
 M2C_UNK TWindowMainMenu__sub_802ADED4(void *, int);
 M2C_UNK TWindowMainMenu__sub_802ADF20(void *, int);
 s32 TWindowMainMenu__sub_802AE2B0();
+M2C_UNK save_position__17TWindowSubComCardFPv(void *);
+M2C_UNK TWindowDD__sub_802466E0(void *, void *, int, int);
+M2C_UNK init_color__15TWindowMainMenuFPv(void *);
+M2C_UNK update_scaled_position__15TWindowMainMenuFi(void *);
+extern M2C_UNK lbl_804DE3C8[];
+extern M2C_UNK __vt__19TWindowMenuMainMenu[];
+extern s32 lbl_805D3E68;
+u8 *TWindowMenuMainMenu__ct(u8 *arg0, s32 arg1, s16 arg2);
 }
 
 extern "C" {
@@ -66,6 +76,30 @@ void *__dt__19TWindowMenuMainMenuFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+u8 *TWindowMenuMainMenu__ct(u8 *arg0, s32 arg1, s16 arg2) {
+    s32 i;
+    u8 *p;
+    TWindowDD__sub_802466E0(arg0, lbl_804DE3C8, arg2, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TWindowMenuMainMenu;
+    p = arg0 + 0x64;
+    i = 0;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3E68;
+    M2C_FIELD(arg0, s8 *, 0x60) = 4;
+    M2C_FIELD(arg0, s8 *, 0x61) = 0;
+    M2C_FIELD(arg0, s16 *, 0x62) = 0;
+    M2C_FIELD(arg0, s16 *, 0x20) = arg2;
+    do {
+        init_color__15TWindowMainMenuFPv(p);
+        i++;
+        p += 0x18;
+    } while (i < 8);
+    for (i = 0; i < 8; i++) {
+        ((W_802AE864 *)arg0)->a[i] = 0;
+    }
+    update_scaled_position__15TWindowMainMenuFi(arg0);
+    save_position__17TWindowSubComCardFPv(arg0);
     return arg0;
 }
 

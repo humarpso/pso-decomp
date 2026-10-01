@@ -570,6 +570,16 @@ struct W_8035FC8C { u8 pad0[0x4DC]; u16 h[4]; };
 
 struct W_8035FCEC { u8 pad0[0x4DC]; u16 h[4]; };
 
+struct V3_8035F970 { f32 x, y, z; };
+
+struct Guard_8035F970 {
+    u8 pad0[0x460];
+    s32 ids[4];
+    V3_8035F970 pos[4];
+    u8 pad4a0[0x3C];
+    u16 h[4];
+};
+
 extern "C" {
 f32 TObjPlayer__sub_80014108(void *, void *, f32);
 void try_apply_damage__19TObjEneEpsilonGuardFPvUii(void *, u32, s32);
@@ -666,6 +676,12 @@ s32 TObjEneEpsilonGuard__sub_8035FC8C(W_8035FC8C *arg0);
 u32 TPhotonMylla__sub_80154CB4(s32);
 s32 TObjEneEpsilonGuard__sub_8035DE08();
 s32 TObjEneEpsilonGuard__sub_8035FCEC(W_8035FCEC *arg0);
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
+u32 TPhotonMylla__sub_80154CB4(s32);
+s32 TObjEneEpsilonGuard__sub_8035DD74(u32);
+void set_target__19TObjEneEpsilonGuardFPviii(u32, V3_8035F970 *, s32, s32);
+extern const f64 lbl_80479E88;
+s32 TObjEneEpsilonGuard__sub_8035F970(Guard_8035F970 *o);
 }
 
 extern "C" {
@@ -729,6 +745,26 @@ s16 TObjEneEpsilonGuard__sub_8035F8F0(u8 *arg0) {
 int TObjEneEpsilonGuard__sub_8035F950(void* p) { return (*(u32*)((char*)p + 0x438) >> 11) & 0x1; }
 int TObjEneEpsilonGuard__sub_8035F95C(void* p) { return (*(u32*)((char*)p + 0x438) >> 5) & 0x1; }
 int TObjEneEpsilonGuard__sub_8035F968(void) { return 0; }
+
+s32 TObjEneEpsilonGuard__sub_8035F970(Guard_8035F970 *o) {
+    s32 i;
+    s32 near;
+    u32 p;
+    for (i = 0; i < 4; i++) {
+        p = TPhotonMylla__sub_80154CB4(o->h[i]);
+        if (p != 0 && TObjEneEpsilonGuard__sub_8035DD74(p) == 0) {
+            return 0;
+        }
+    }
+    near = calc_boss4_scale__10TObjPlayerFi(o) < lbl_80479E88;
+    for (i = 0; i < 4; i++) {
+        p = TPhotonMylla__sub_80154CB4(o->h[i]);
+        if (p != 0) {
+            set_target__19TObjEneEpsilonGuardFPviii(p, &o->pos[i], o->ids[i], near);
+        }
+    }
+    return 1;
+}
 
 void TObjEneEpsilonGuard__sub_8035FA50(W_8035FA50 *arg0) {
     s32 i;

@@ -115,6 +115,42 @@ typedef struct S_802E451C {
     s32 f24;
 } S_802E451C;
 
+struct VBase_802E3C4C { char pad[0x18]; };
+struct VObj_802E3C4C : VBase_802E3C4C {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
+    virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27();
+    virtual void m28(); virtual void m29(); virtual void m30(); virtual void m31();
+    virtual void m32(); virtual void m33(); virtual void m34(); virtual void m35();
+    virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
+    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43();
+    virtual void m44(); virtual void m45(); virtual void m46(); virtual void m47();
+    virtual void m48(); virtual void m49(); virtual void m50(); virtual void m51();
+    virtual void m52(); virtual void m53(); virtual void m54(); virtual void m55();
+    virtual void m56(); virtual void m57(); virtual void m58();
+    virtual void m59(u8 *, s32, s32, f32, s32);
+};
+
+typedef void (*Cb_802E3C4C)(s32, s32 *, void *);
+struct Obj_802E3C4C {
+    u8 pad0[0xA8];
+    u16 fA8;
+    u8 padAA[2];
+    s32 fAC;
+    u8 padB0[4];
+    f32 fB4;
+    s32 fB8;
+    u8 padBC[0xD0 - 0xBC];
+    u8 fD0[0xE4 - 0xD0];
+    s32 fE4;
+    u8 padE8[0x13C - 0xE8];
+    Cb_802E3C4C cb;
+};
+
 typedef s32 M2C_UNK;
 struct Hit_802E3D8C { s32 pad; void *pos; };
 
@@ -148,6 +184,7 @@ Hit_802E3D8C *TObjButterflyLobby__sub_8007A5D8(void *, void *, s32);
 void set_flags__10TObjPlayerFPvUi(void *, u32);
 M2C_UNK VecCopy__FP3VecPC3Vec(M2C_UNK *, s32);
 void TItemAttackCol__sub_802E3D8C(u8 *arg0, void *arg1);
+extern const f32 lbl_805DE910;
 }
 
 extern "C" {
@@ -174,6 +211,30 @@ void add_to_active_list__14TItemAttackColFPv(void* a0) { fn_802E3BA8((void*)(lbl
 void shift_collision_bounds__14TItemAttackColFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x104) = (s32) (M2C_FIELD(arg0, s32 *, 0x104) + 0xCCC);
     M2C_FIELD(arg0, s32 *, 0x11C) = (s32) (M2C_FIELD(arg0, s32 *, 0x11C) - 0xCCC);
+}
+
+void TItemAttackCol__vt4(Obj_802E3C4C *o, s32 *a) {
+    if (!(o->fE4 & 0x80)) {
+        if (TObjPlayer__sub_802E456C((u8 *)o, (u8 *)a) != 0) {
+            if (o->cb != NULL) {
+                o->cb(o->fAC, a, o->fD0);
+            }
+            if (o->fE4 & 0x100) {
+                o->fB4 = o->fB4 * lbl_805DE910;
+            }
+        }
+    } else {
+        if (o->cb != NULL) {
+            o->cb(o->fAC, a, o->fD0);
+        }
+        if (o->fE4 & 0x200) {
+            VObj_802E3C4C *p = (VObj_802E3C4C *)TLobby__sub_80101AB0(o->fAC);
+            u8 *b = TPlayerBattleCtrl4P__sub_801BA74C(o->fA8);
+            if (p != NULL) {
+                p->m59(b, a[0], o->fB8, o->fB4, a[1]);
+            }
+        }
+    }
 }
 
 void TItemAttackCol__vt5(s32 arg0) {

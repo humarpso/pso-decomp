@@ -9,6 +9,8 @@ struct RecoveredGlobal_802AE59C_lbl_8050E208 {
     u8 remaining[0x1AC];
 };
 
+struct Rect_802AE2B0 { f32 x, y, w, h; u8 pad[0x34 - 0x10]; u32 color; };
+
 extern "C" {
 s32 TWindowSubAreaMapDisp__sub_80246948();
 void set_target_y__15TWindowMainMenuFPvf(void *arg0, f32 farg0);
@@ -32,6 +34,16 @@ void TWindowMainMenu__sub_802AE44C(u8 *arg0);
 M2C_UNK TWindowMainMenu__sub_802AE4DC(void *, int);
 extern RecoveredGlobal_802AE59C_lbl_8050E208 lbl_8050E208;
 void TWindowMainMenu__sub_802AE59C(u8 *arg0);
+f32 TWindowSubComCard__sub_80244784(void *);
+M2C_UNK set_bounds__19TWindowKeyBoardSoftFPvffff(void *, f32, f32, f32, f32);
+Rect_802AE2B0 *open_singleton__19TWindowKeyBoardSoftFiiii(void *, void *, s32, f32, s32);
+s32 fn_8026CB68();
+s32 is_not_split_screen__15TWindowMainMenuFv();
+extern const f32 lbl_805DE148;
+extern f32 lbl_805DE15C;
+extern f32 lbl_805DE164;
+extern const f32 lbl_805DE1A4;
+Rect_802AE2B0 *TWindowMainMenu__sub_802AE2B0(u8 *arg0);
 }
 
 extern "C" {
@@ -76,6 +88,20 @@ void TWindowMainMenu__sub_802ADED4(s32 arg0, u8 *arg1) {
         var_r31 += 1;
         var_r30 -= 0x18;
     } while (var_r31 < 8);
+}
+
+Rect_802AE2B0 *TWindowMainMenu__sub_802AE2B0(u8 *arg0) {
+    f32 v;
+    Rect_802AE2B0 *r;
+    r = open_singleton__19TWindowKeyBoardSoftFiiii(arg0 + 0x40, arg0 + 0x48, fn_8026CB68(), M2C_FIELD(arg0, f32 *, 0x54), M2C_FIELD(arg0, s32 *, 0x2C));
+    if (((s32 (*)(void *))is_not_split_screen__15TWindowMainMenuFv)(arg0) != 0) {
+        v = lbl_805DE15C;
+    } else {
+        v = lbl_805DE164;
+    }
+    set_bounds__19TWindowKeyBoardSoftFPvffff(r, lbl_805DE1A4 + r->x, r->y + v, (r->x + r->w) - lbl_805DE1A4, (r->y + r->h) - lbl_805DE164);
+    r->color = ((s32)(lbl_805DE148 * TWindowSubComCard__sub_80244784(arg0)) << 24) | 0xFF0000 | 0xFFFF;
+    return r;
 }
 
 void TWindowMainMenu__sub_802AE380(void *arg0) {

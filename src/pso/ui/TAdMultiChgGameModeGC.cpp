@@ -21,6 +21,23 @@ struct RecoveredFields_802FFCE4_arg0
   s32 field_2C;
 };
 
+struct Txt_802FFE58 { s32 v[9]; };
+
+struct Pos_802FFE58 { s32 v[6]; };
+
+struct Cur_802FFE58 { s32 v[2]; };
+
+struct Obj_802FFE58 {
+    s32 f0;
+    u8 pad4[0x14];
+    void *vt;
+    s32 f1C;
+    s32 f20;
+    s32 f24;
+    void *f28;
+    void *f2C;
+};
+
 extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
 s32 get_selected_slot__23TAdSinglePlyChrSelectGCFPv(int);
@@ -38,6 +55,26 @@ s32 check_players_ready__21TAdMultiChgGameModeGCFv(void *);
 extern RecoveredGlobal_802FFCE4_lbl_8050E208 lbl_8050E208;
 extern s32 lbl_805D69E8;
 void run_task__21TAdMultiChgGameModeGCFv(RecoveredFields_802FFCE4_arg0 *arg0);
+void TAdMcSelectGC__sub_80019DA8(void *, s32, f32);
+void *__nw__7TObjectFUl(u32);
+void __ct__7TObjectFP7TObject(void *);
+void __ct__9TAdBackGCFv(void *, void *);
+void __ct__12TAdBackTxtGCFv(void *, void *);
+void __ct__8TAdRayGCFv(void *, void *);
+void __ct__10TAdTitleGCFv(void *, void *, s32);
+void __ct__14TAdSelectTxtGCFv(void *, void *, void *, s32);
+void __ct__13TAdTitleTexGCFv(void *, void *);
+void TLevelSelect__sub_802AEBE4(void *, void *);
+void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
+void *__ct__13TAdGuideTxtGCFv(void *, void *);
+void set_ad_field__6TLobbyFPvi(void *, s32);
+extern Txt_802FFE58 lbl_80474DF8;
+extern Cur_802FFE58 lbl_80474E1C[];
+extern Pos_802FFE58 lbl_80474E24;
+extern void *__vt__21TAdMultiChgGameModeGC[];
+extern s32 lbl_805D4058;
+extern const f32 lbl_805DEF38;
+Obj_802FFE58 *__ct__21TAdMultiChgGameModeGCFv(Obj_802FFE58 *self);
 }
 
 extern "C" {
@@ -110,6 +147,64 @@ void run_task__21TAdMultiChgGameModeGCFv(RecoveredFields_802FFCE4_arg0 *arg0) {
     }
   }
   arg0->field_24 = (s32) arg0->field_20;
+}
+Obj_802FFE58 *__ct__21TAdMultiChgGameModeGCFv(Obj_802FFE58 *self) {
+    void *p;
+    __ct__7TObjectFP7TObject(self);
+    self->vt = __vt__21TAdMultiChgGameModeGC;
+    self->f0 = lbl_805D4058;
+    self->f1C = 0;
+    self->f20 = 2;
+    self->f24 = -1;
+    self->f28 = 0;
+    self->f2C = 0;
+    if ((p = __nw__7TObjectFUl(0x24)) != NULL) {
+        __ct__9TAdBackGCFv(p, self);
+    }
+    if ((p = __nw__7TObjectFUl(0x28)) != NULL) {
+        __ct__12TAdBackTxtGCFv(p, self);
+    }
+    if ((p = __nw__7TObjectFUl(0x24)) != NULL) {
+        __ct__8TAdRayGCFv(p, self);
+    }
+    if ((p = __nw__7TObjectFUl(0x138)) != NULL) {
+        __ct__10TAdTitleGCFv(p, self, 0xF);
+    }
+    {
+        Txt_802FFE58 txt = lbl_80474DF8;
+        if ((p = __nw__7TObjectFUl(0xE0)) != NULL) {
+            __ct__14TAdSelectTxtGCFv(p, self, &txt.v[0], 0xC);
+        }
+        if ((p = __nw__7TObjectFUl(0xE0)) != NULL) {
+            __ct__14TAdSelectTxtGCFv(p, self, &txt.v[3], 0xD);
+        }
+        if ((p = __nw__7TObjectFUl(0xE0)) != NULL) {
+            __ct__14TAdSelectTxtGCFv(p, self, &txt.v[6], 0xE);
+        }
+        if ((p = __nw__7TObjectFUl(0x9C)) != NULL) {
+            __ct__13TAdTitleTexGCFv(p, self);
+        }
+        {
+            Cur_802FFE58 cur = lbl_80474E1C[0];
+            Pos_802FFE58 pos = lbl_80474E24;
+            p = __nw__7TObjectFUl(0x708);
+            if (p != NULL) {
+                p = __ct__14TAdSelectCurGCFv(p, self, &pos, &cur);
+            }
+            self->f2C = p;
+            TLevelSelect__sub_802AEBE4(self->f2C, &pos.v[0]);
+            TLevelSelect__sub_802AEBE4(self->f2C, &pos.v[2]);
+            TLevelSelect__sub_802AEBE4(self->f2C, &pos.v[4]);
+        }
+    }
+    set_ad_field__6TLobbyFPvi(self->f2C, self->f20);
+    p = __nw__7TObjectFUl(0x44);
+    if (p != NULL) {
+        p = __ct__13TAdGuideTxtGCFv(p, self);
+    }
+    self->f28 = p;
+    TAdMcSelectGC__sub_80019DA8(self, 0xF, lbl_805DEF38);
+    return self;
 }
 
 }

@@ -16,6 +16,17 @@ struct Obj_802E6750 {
     s32 f9C; s32 fA0; s32 z[8]; s32 fC4; s32 fC8; s32 fCC; s32 fD0;
 };
 
+struct Obj_802E6380 {
+    u8 pad0[0x9C];
+    s32 f9C;
+    s32 fA0;
+    void *list[8];
+    void *fC4;
+    void *fC8;
+    void *fCC;
+    void *fD0;
+};
+
 extern "C" {
 s32 queue_destruction__7TObjectFv(int);
 u32 __nw__7TObjectFUl(int);
@@ -30,12 +41,13 @@ extern s32 lbl_805D3FA8;
 extern const f32 lbl_805DE990;
 extern const f32 lbl_805DE994;
 Obj_802E6750 *__ct__14TAdGameStartGCFv(Obj_802E6750 *arg0);
+s32 queue_destruction__7TObjectFv(int);
+void TAdGameStartGC__sub_802E6380(Obj_802E6380 *o);
 }
 
 extern "C" {
 
 void TAdGameStartGC__sub_802E6368(void* p);
-int TAdGameStartGC__sub_802E6380(void);
 void bswap_6x92__14TAdGameStartGCFPv(void* p);
 void render__14TAdGameStartGCFv(void);
 void send_6x92__14TAdGameStartGCFPv(void* p);
@@ -49,7 +61,34 @@ void TAdGameStartGC__sub_802E6368(void* p) { *(u8*)((char*)p + 0x0) = 146; *(u8*
 
 void render__14TAdGameStartGCFv(void) {  }
 
-int TAdGameStartGC__sub_802E6380(void) { return 0; }
+void TAdGameStartGC__sub_802E6380(Obj_802E6380 *o) {
+    u32 i;
+    if (o->fC4 != NULL) {
+        queue_destruction__7TObjectFv((int)o->fC4);
+        o->fC4 = NULL;
+    }
+    if (o->fC8 != NULL) {
+        queue_destruction__7TObjectFv((int)o->fC8);
+        o->fC8 = NULL;
+    }
+    if (o->fCC != NULL) {
+        queue_destruction__7TObjectFv((int)o->fCC);
+        o->fCC = NULL;
+    }
+    if (o->fD0 != NULL) {
+        queue_destruction__7TObjectFv((int)o->fD0);
+        o->fD0 = NULL;
+    }
+    for (i = 0; i < 8; i++) {
+        if (o->list[i] != NULL) {
+            queue_destruction__7TObjectFv((int)o->list[i]);
+            o->list[i] = NULL;
+        }
+    }
+    o->fA0 = 0;
+    o->f9C = -1;
+}
+
 void TAdGameStartGC__sub_802E644C(u8 *arg0) {
     u32 temp_r3;
     u32 temp_r3_2;

@@ -1,3 +1,42 @@
+#include "types.h"
 extern "C" {
+void *TMovie__ct(void *, void *, void *, void *, s32, s32, s32);
+void *__nw__7TObjectFUl(u32);
+void *__ct__7TObjectFP7TObject(void *, void *);
+void disable_keyboard_control__10TObjPlayerFv(void);
+extern u8 lbl_80475450[];
+extern u8 lbl_804E71A0[];
+extern s32 lbl_805D5550;
+extern void *tl_00;
+extern void *tl_04;
+extern s32 lbl_805D6A5C;
+u8 *fn_80307964(u8 *arg0);
+}
+
+extern "C" {
+
+u8 *fn_80307964(u8 *arg0) {
+    void *p;
+    __ct__7TObjectFP7TObject(arg0, tl_04);
+    *(void **)(arg0 + 0x18) = lbl_804E71A0;
+    lbl_805D6A5C = 0;
+    switch (lbl_805D5550) {
+    case 0:
+    case 1:
+    case 2:
+        p = __nw__7TObjectFUl(0x4C);
+        if (p != 0) {
+            TMovie__ct(p, tl_00, lbl_80475450, (void *)disable_keyboard_control__10TObjPlayerFv, 0, 1, 0);
+        }
+        break;
+    case 3:
+        p = __nw__7TObjectFUl(0x4C);
+        if (p != 0) {
+            TMovie__ct(p, tl_00, lbl_80475450, (void *)disable_keyboard_control__10TObjPlayerFv, 0, 0, 0);
+        }
+        break;
+    }
+    return arg0;
+}
 
 }

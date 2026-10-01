@@ -36,6 +36,13 @@ struct Obj_80202C08 { s32 a[4]; s32 b[4]; s32 n; };
 
 struct Obj_80202C3C { s32 a[4]; s32 b[4]; s32 n; };
 
+struct Buf_801FBFD0 {
+    u8 pad0[0x2048];
+    u32 sum;
+    u8 pad204C[0x2160 - 0x204C];
+    s32 f2160;
+};
+
 extern "C" {
 s32 TAdPlayerLoadGC__sub_801E2048(s32, s32);
 int load_player_slot__23TAdSinglePlyChrSelectGCFPvii(void *, int, int);
@@ -75,6 +82,18 @@ void* init_guild_card_tag__23TAdSinglePlyChrSelectGCFPv(void* p);
 void TAdSinglePlyChrSelectGC__sub_802115C0();
 void* init_guild_card_tag__23TAdSinglePlyChrSelectGCFPv(void* p);
 u8 *TAdSinglePlyChrSelectGC__sub_801FC984(u8 *arg0);
+void safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
+Buf_801FBFD0 *alloc__22TQuestVmDownLoadServerFPv(u32);
+s32 TAdPlayerLoadGC__sub_801E1B50(void *);
+s32 TAdPlayerLoadGC__sub_801E2048(s32, s32);
+s32 TAdSinglePlyChrSelectGC__sub_801FBEF4(s32);
+void copy_name__23TAdSinglePlyChrSelectGCFi(s32 arg0);
+void TAdSinglePlyChrSelectGC__sub_801FBF90(s32 arg0);
+u32 TAdSinglePlyChrSelectGC__sub_80201204(void *, s32, s32);
+int load_player_slot__23TAdSinglePlyChrSelectGCFPvii(void *, int, int);
+extern u8 lbl_804C8934[];
+extern s32 lbl_805D49B4;
+s32 TAdSinglePlyChrSelectGC__sub_801FBFD0(s32 arg0, s32 *arg1);
 }
 
 extern "C" {
@@ -137,6 +156,40 @@ void TAdSinglePlyChrSelectGC__sub_801FBF90(s32 arg0) {
             strncpy((M2C_UNK *)((s32 *)var_r3), (M2C_UNK *)(lbl_8044A7E0), (M2C_UNK)(4));
         }
     }
+}
+
+s32 TAdSinglePlyChrSelectGC__sub_801FBFD0(s32 arg0, s32 *arg1) {
+    s32 ok;
+    Buf_801FBFD0 *buf;
+    u32 sum;
+    s32 v;
+    u32 r;
+    if (TAdPlayerLoadGC__sub_801E1B50((void *)arg0) != 0) {
+        return 0;
+    }
+    if (TAdPlayerLoadGC__sub_801E2048(arg0, (s32)lbl_804C8934) != 0) {
+        return 0;
+    }
+    lbl_805D49B4 = 1;
+    TAdSinglePlyChrSelectGC__sub_801FBF90(arg0);
+    ok = 0;
+    buf = alloc__22TQuestVmDownLoadServerFPv(0x6000);
+    if (load_player_slot__23TAdSinglePlyChrSelectGCFPvii((void *)arg0, (int)lbl_804C8934, (int)buf) == 0 &&
+        TAdSinglePlyChrSelectGC__sub_801FBEF4(arg0) == 1) {
+        v = buf->f2160;
+        ok = 1;
+        *arg1 = v;
+        sum = buf->sum;
+        buf->sum = 0;
+        r = TAdSinglePlyChrSelectGC__sub_80201204(&buf->sum, 0x12C, v);
+        if (r != sum) {
+            ok = 0;
+        }
+    }
+    safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+    copy_name__23TAdSinglePlyChrSelectGCFi(arg0);
+    lbl_805D49B4 = 0;
+    return ok;
 }
 
 u8 is_level_capped__23TAdSinglePlyChrSelectGCFPv(void *arg0) {

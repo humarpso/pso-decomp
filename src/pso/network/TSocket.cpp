@@ -57,7 +57,7 @@ TSocket::TSocket(TObject *parent) : TObject(parent) {
 }
 
 char *get_sock_status_name(s16 status) {
-    return (char *)sock_status_names[-status & 0xF];
+    return (char *)sock_status_names[(u8)-status & 0xF];
 }
 
 u16 to_be_uint16_t(u16 val) {

@@ -97,6 +97,16 @@ struct V3_8032F5FC { f32 x; f32 y; f32 z; };
 
 struct O_8032F5FC { u8 pad[0x38]; V3_8032F5FC pos; u8 pad2[0x5C - 0x44]; s32 f5c; s32 f60; u8 pad3[0x378 - 0x64]; s32 f378; u8 pad4[0x3C4 - 0x37C]; f32 f3c4; };
 
+struct Vec_8032EF34 { f32 x, y, z; };
+
+struct Ent_8032FCA4 { s16 f0; s16 v[5]; };
+
+struct Obj_8032FCA4 { u8 pad[0x31C]; Ent_8032FCA4 *ent; u8 pad2[0x394 - 0x320]; u8 local[0x20]; s16 max; s16 min; };
+
+struct T_8032E748;
+struct O_8032E7B4;
+struct Obj_8032E8DC { u8 pad[0x38]; u8 sw[0x340]; s32 f378; u8 pad2[0x3C8 - 0x37C]; s32 f3C8; };
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 apply_direction_sign__11TBoss6Type2FPvf(void *arg0, f32 farg0);
@@ -180,6 +190,26 @@ void compute_random_dir_vec__11TBoss6Type2FiPvii(s32 arg0, u8 *arg1, s32 arg2, s
 f32 TBoss4Zako__sub_803D8910(void *, int);
 extern const f32 lbl_805DF83C;
 void TBoss6Type2__sub_8032F5FC(O_8032F5FC *arg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 TBoss5GryphonLightningWing__sub_80324CEC(f32);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+f32 TNpcPlayer__sub_803D97B4(void *);
+extern const f64 lbl_80477458[];
+extern const f32 lbl_805DF7F8;
+extern const f32 lbl_805DF808;
+extern const f32 lbl_805DF80C;
+s32 TBoss6Type2__sub_8032EF34(void *arg0, s32 *arg1, s32 *arg2, Vec_8032EF34 *arg3);
+void copy_entry__6TLobbyFPvPv(void *, void *);
+void update_segment_angles__11TBoss6Type2FPv(void *arg0);
+void TBoss6Type2__sub_8032FCA4(Obj_8032FCA4 *arg0);
+void TOSwitchAttack__sub_80087278(void *, s32, s32);
+s32 get_state__11TBoss6Type2FPv(int);
+s32 is_active__11TBoss6Type2FPv(int);
+s32 TBoss6Type2__sub_8032E748(T_8032E748 *self);
+void TBoss6Type2__sub_8032E770(s32 arg0, s32 arg1);
+void TBoss6Type2__sub_8032E7B4(O_8032E7B4 *arg0, s32 arg1);
+void TBoss6Type2__sub_8032E8DC(Obj_8032E8DC *arg0);
 }
 
 extern "C" {
@@ -251,6 +281,36 @@ void TBoss6Type2__sub_8032E834(O_8032E834 *arg0) {
             }
             copy_pos__11TNowLoadingFPvPv(arg0->h[i], &p);
         }
+    }
+}
+
+void TBoss6Type2__sub_8032E8DC(Obj_8032E8DC *arg0) {
+    switch (get_state__11TBoss6Type2FPv(arg0->f378)) {
+    case 14:
+    case 24:
+    case 25:
+    case 26:
+        if (TBoss6Type2__sub_8032E748((T_8032E748 *)arg0) != 0) {
+            TBoss6Type2__sub_8032E7B4((O_8032E7B4 *)arg0, 1);
+        } else {
+            TBoss6Type2__sub_8032E770((s32)arg0, 1);
+        }
+        TBoss6Type2__sub_8032E770((s32)arg0, 2);
+        break;
+    case 5:
+    case 9:
+    case 10:
+    case 11:
+        TBoss6Type2__sub_8032E770((s32)arg0, 1);
+        TBoss6Type2__sub_8032E7B4((O_8032E7B4 *)arg0, 2);
+        break;
+    default:
+        TBoss6Type2__sub_8032E770((s32)arg0, 1);
+        TBoss6Type2__sub_8032E770((s32)arg0, 2);
+        break;
+    }
+    if (!(arg0->f3C8 & 0x1F) && is_active__11TBoss6Type2FPv(arg0->f378) != 0) {
+        TOSwitchAttack__sub_80087278(arg0->sw, 0x224, 0x2040);
     }
 }
 
@@ -342,6 +402,29 @@ extern const f32 lbl_805DF820;
 extern const f32 lbl_805DF824;
 
 typedef struct RecoveredFields_8032F174_arg0 RecoveredFields_8032F174_arg0;
+
+s32 TBoss6Type2__sub_8032EF34(void *arg0, s32 *arg1, s32 *arg2, Vec_8032EF34 *arg3) {
+    Vec_8032EF34 v;
+    VecCopy__FP3VecPC3Vec(&v, arg3);
+    if (TBoss6Kakusan__sub_803D8BD8(&v) <= lbl_805DF7F8) {
+        return 0;
+    }
+    TNpcPlayer__sub_803D97B4(&v);
+    if (v.y < lbl_805DF808) {
+        *arg1 = 0;
+        *arg2 = 0x7FFF;
+        return 1;
+    }
+    if (v.y > lbl_805DF80C) {
+        *arg1 = 0;
+        *arg2 = -0x7FFF;
+        return 1;
+    }
+    *arg1 = lbl_80477458[0] * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z);
+    *arg2 = lbl_80477458[0] * TBoss5GryphonLightningWing__sub_80324CEC(-v.y);
+    return 1;
+}
+
 s32 TBoss6Type2__sub_8032F174(u8 *arg0) {
   if (((((RecoveredFields_8032F174_arg0 *) arg0)->field_380 == 2) && (((RecoveredFields_8032F174_arg0 *) arg0)->field_408 != ((-1) & 0xFFFF))) && (((RecoveredFields_8032F174_arg0 *) arg0)->field_3C <= lbl_805DF818))
   {
@@ -485,6 +568,39 @@ void update_segment_angles__11TBoss6Type2FPv(void *arg0) {
     M2C_FIELD(arg0, s16 *, 0x2F6) = (s16) M2C_FIELD(arg0, s16 *, 0x398);
     M2C_FIELD(arg0, s16 *, 0x2F8) = (s16) M2C_FIELD(arg0, s16 *, 0x39E);
     M2C_FIELD(arg0, s16 *, 0x2FA) = (s16) M2C_FIELD(arg0, s16 *, 0x39C);
+}
+
+void TBoss6Type2__sub_8032FCA4(Obj_8032FCA4 *arg0) {
+    Ent_8032FCA4 *e = arg0->ent;
+    s32 lo;
+    s32 hi;
+    hi = e->v[0];
+    lo = hi;
+    if (lo > e->v[1]) {
+        lo = e->v[1];
+    } else if (hi < e->v[1]) {
+        hi = e->v[1];
+    }
+    if (lo > e->v[2]) {
+        lo = e->v[2];
+    } else if (hi < e->v[2]) {
+        hi = e->v[2];
+    }
+    if (lo > e->v[3]) {
+        lo = e->v[3];
+    } else if (hi < e->v[3]) {
+        hi = e->v[3];
+    }
+    if (lo > e->v[4]) {
+        lo = e->v[4];
+    } else if (hi < e->v[4]) {
+        hi = e->v[4];
+    }
+    arg0->min = lo;
+    arg0->max = hi;
+    copy_entry__6TLobbyFPvPv(arg0->local, arg0->ent);
+    arg0->ent = (Ent_8032FCA4 *)arg0->local;
+    update_segment_angles__11TBoss6Type2FPv(arg0);
 }
 
 #pragma push

@@ -6,14 +6,48 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct P_8019527C { u8 pad[0x90]; u32 f90; };
 
+struct Vec_80195400 { f32 x, y, z; };
+
+struct Src_80195400 {
+    u8 pad0[0xC];
+    Vec_80195400 pos;
+    Vec_80195400 ang;
+    f32 params[3];
+    s32 ints[3];
+};
+
+struct Part_80195400 {
+    s32 f0;
+    u8 pad4[0x14];
+    M2C_UNK *vt;
+    u8 pad1c[0x38 - 0x1C];
+    Vec_80195400 pos;
+    u8 pad44[0x5C - 0x44];
+    Vec_80195400 ang;
+    f32 params[3];
+    u8 pad74[0x84 - 0x74];
+    s32 ints[3];
+    s32 emitter;
+    s32 sel;
+};
+
 extern "C" {
 s32 is_split_screen(void);
-u8 * TObjParticle__ct(void *, M2C_UNK, void *);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjParticle__create(u8 *arg0);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void render__12TObjParticleFv(P_8019527C *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK disallow_rendering__7TObjectFv(void *);
+M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
+s32 TObjParticle__sub_800870BC(void *, void *, s32, u16);
+s32 fn_800871A0(void *, void *, s32);
+M2C_UNK TPhotonMagicSquare__sub_801A2640(void *, void *);
+extern M2C_UNK __vt__12TObjParticle[];
+extern s32 lbl_805D33D8;
+extern const f32 lbl_805DBEEC;
+Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, M2C_UNK arg1, Src_80195400 *arg2);
 }
 
 extern "C" {
@@ -77,6 +111,74 @@ void *__dt__12TObjParticleFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, M2C_UNK arg1, Src_80195400 *arg2) {
+    u32 i;
+    s32 entry;
+    u16 flags;
+    u16 base;
+    u16 other;
+    TPhotonMagicSquare__sub_801A2640(arg0, (void *) arg1);
+    arg0->vt = __vt__12TObjParticle;
+    other = 0;
+    arg0->f0 = lbl_805D33D8;
+    VecCopy__FP3VecPC3Vec(&arg0->pos, &arg2->pos);
+    copy_xyz__10TObjPlayerFPvPv(&arg0->ang, &arg2->ang);
+    VecCopy__FP3VecPC3Vec(arg0->params, arg2->params);
+    for (i = 0; i < 3; i++) {
+        arg0->ints[i] = arg2->ints[i];
+    }
+    arg0->sel = (s32) arg2->params[0];
+    arg0->emitter = 0;
+    entry = (s32) arg0->params[0];
+    if (entry < 0) {
+        entry = 0;
+    }
+    if (arg0->params[2] < lbl_805DBEEC) {
+        base = 2;
+        if (arg0->ints[0] == 1) {
+            base = 0x42;
+        }
+        flags = base;
+        if (arg0->ints[1] == 1) {
+            flags = base | 0x2000;
+        }
+        arg0->emitter = TObjParticle__sub_800870BC(&arg0->pos, &arg0->ang, entry, flags);
+    } else if ((s32) arg0->params[2] == 2) {
+        flags = 8;
+        if (arg0->ints[0] == 1) {
+            flags = 0x48;
+        }
+        if (arg0->ints[1] == 1) {
+            flags |= 0x2000;
+        }
+        arg0->emitter = TObjParticle__sub_800870BC(&arg0->pos, &arg0->ang, entry, flags);
+    } else if ((s32) arg0->params[2] == 3) {
+        flags = 4;
+        if (arg0->ints[0] == 1) {
+            flags = 0x44;
+        }
+        if (arg0->ints[1] == 1) {
+            flags |= 0x2000;
+        }
+        arg0->emitter = TObjParticle__sub_800870BC(&arg0->pos, &arg0->ang, entry, flags);
+    } else {
+        if (arg0->ints[0] == 1) {
+            other = 0x40;
+        }
+        if (arg0->ints[1] == 1) {
+            other |= 0x2000;
+        }
+        if (arg0->ints[0] == 1 || arg0->ints[1] == 1) {
+            arg0->emitter = TObjParticle__sub_800870BC(&arg0->pos, &arg0->ang, entry, (u16)other);
+        } else {
+            arg0->emitter = fn_800871A0(&arg0->pos, &arg0->ang, entry);
+        }
+    }
+    disallow_rendering__7TObjectFv(arg0);
+    return arg0;
+}
+
 u8 *TObjParticle__create(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
@@ -86,7 +188,7 @@ u8 *TObjParticle__create(u8 *arg0) {
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x98));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TObjParticle__ct(temp_r3, tl_05, arg0));
+        var_r0 = (u8 *)(TObjParticle__ct((Part_80195400 *)(temp_r3), (M2C_UNK)(tl_05), (Src_80195400 *)(arg0)));
     }
     return var_r0;
 }

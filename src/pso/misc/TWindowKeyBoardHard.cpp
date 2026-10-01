@@ -4,22 +4,75 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Pt_80260020 { f32 x, y; };
+
+struct Ctx_80260020 { u8 pad0[0x10]; Pt_80260020 pos; u8 pad18[0x38 - 0x18]; f32 scale; };
+
+struct State_80260020 { u8 pad0[0xB4]; s32 flags; };
+
+struct Win_80260020 { u8 pad0[0x70]; State_80260020 *state; };
+
+extern "C" {
+s32 TWindowSubStatusDisp__sub_8024FD8C(void *, void *, s32, s32, f32);
+void TWindowSubStatusDisp__sub_802500F4(void *, s32, s32, f32, f32);
+extern M2C_UNK lbl_8044F0CC[];
+extern M2C_UNK lbl_8044F0D4[];
+extern M2C_UNK lbl_8044F0DC[];
+extern M2C_UNK lbl_8044F0EC[];
+extern M2C_UNK lbl_8044F0FC[];
+extern M2C_UNK lbl_8044F104[];
+extern s32 lbl_805D5544;
+extern const f32 lbl_805DD068;
+extern const f32 lbl_805DD06C;
+extern const f32 lbl_805DD070;
+void TWindowKeyBoardHard__sub_80260020(Win_80260020 *self, Ctx_80260020 *ctx);
+}
+
 extern "C" {
 
 void release_keyboard__19TWindowKeyBoardHardFPv(void* p);
 void render__19TWindowKeyBoardHardFv(void *arg0);
 int TWindowKeyBoardHard__sub_8025CC48(void*);
-M2C_UNK TWindowKeyBoardHard__sub_80260020(void *, s32);
 s32 draw_default_entry__9TWindowDDFi(void *);
 s32 is_key_active__19TWindowKeyBoardHardFPv();
 
 void release_keyboard__19TWindowKeyBoardHardFPv(void* p) { void* m = *(void**)((char*)p + 0x70); if (m) TWindowKeyBoardHard__sub_8025CC48(m); }
 
+void TWindowKeyBoardHard__sub_80260020(Win_80260020 *self, Ctx_80260020 *ctx) {
+    s32 flags;
+    if (self->state != NULL && lbl_805D5544 == 0) {
+        f32 inv = lbl_805DD068 / ctx->scale;
+        Pt_80260020 pt;
+        pt.x = ctx->pos.x;
+        pt.y = ctx->pos.y;
+        TWindowSubStatusDisp__sub_802500F4(ctx, 0, 0, inv, lbl_805DD06C);
+        flags = self->state->flags;
+        if (!(flags & 1)) {
+            TWindowSubStatusDisp__sub_8024FD8C(&pt, lbl_8044F0CC, -1, 0, lbl_805DD070);
+        } else if (flags & 2) {
+            TWindowSubStatusDisp__sub_8024FD8C(&pt, lbl_8044F0D4, -1, 0, lbl_805DD070);
+        } else if (flags & 4) {
+            if (flags & 8) {
+                TWindowSubStatusDisp__sub_8024FD8C(&pt, lbl_8044F0DC, -1, 0, lbl_805DD070);
+            } else {
+                TWindowSubStatusDisp__sub_8024FD8C(&pt, lbl_8044F0EC, -1, 0, lbl_805DD070);
+            }
+        } else if (flags & 8) {
+            TWindowSubStatusDisp__sub_8024FD8C(&pt, lbl_8044F0FC, -1, 0, lbl_805DD070);
+        } else {
+            TWindowSubStatusDisp__sub_8024FD8C(&pt, lbl_8044F104, -1, 0, lbl_805DD070);
+        }
+    }
+}
+
 void render__19TWindowKeyBoardHardFv(void *arg0) {
     s32 temp;
     if (((s32) M2C_FIELD(arg0, s32 *, 0x68) > 0) && (is_key_active__19TWindowKeyBoardHardFPv() == 0)) {
         temp = draw_default_entry__9TWindowDDFi(arg0);
-        TWindowKeyBoardHard__sub_80260020(arg0, temp);
+        TWindowKeyBoardHard__sub_80260020((Win_80260020 *)(arg0), (Ctx_80260020 *)(temp));
     }
 }
 

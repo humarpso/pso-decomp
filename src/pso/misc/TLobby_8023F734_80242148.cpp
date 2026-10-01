@@ -17,6 +17,12 @@ extern RecoveredGlobal_8024259C_TLobby__data_8050AAAC TLobby__data_8050AAAC;
 extern u32 TLobby__data_805D5580;
 void TLobby__sub_8024259C(s32 arg0);
 char *TLobby__sub_802424A4(char *s, s32 a, s32 b);
+char *TLobby__sub_8001DC24();
+void TWindowSubStatusDisp__sub_80228D4C();
+void TWindowSubStatusDisp__sub_80229080(char *);
+void TWindowSubStatusDisp__sub_802290E0();
+char *TLobby__sub_802424A4(char *s, s32 a, s32 b);
+char *TLobby__sub_802424D8(char *list);
 }
 
 extern "C" {
@@ -60,6 +66,33 @@ char *TLobby__sub_802424A4(char *s, s32 a, s32 b) {
         if (*s++ == ',') i++;
     }
     return s;
+}
+
+char *TLobby__sub_802424D8(char *list) {
+    char buf[0x11];
+    char *s;
+    char *d;
+    s32 i;
+    s32 count;
+    TWindowSubStatusDisp__sub_802290E0();
+    s = list;
+    count = 1;
+    while (*s != '\0') {
+        if (*s++ == ',') {
+            count++;
+        }
+    }
+    for (i = 0; i < count; i++) {
+        TWindowSubStatusDisp__sub_80228D4C();
+        s = TLobby__sub_802424A4(list, i, count);
+        d = buf;
+        while (*s != '\0' && *s != ',') {
+            *d++ = *s++;
+        }
+        *d = '\0';
+        TWindowSubStatusDisp__sub_80229080(buf);
+    }
+    return TLobby__sub_8001DC24();
 }
 
 void TLobby__sub_8024259C(s32 arg0) {

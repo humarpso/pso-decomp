@@ -46,6 +46,20 @@ struct Player_8018B180 : VBase_8018B180 {
 
 struct Obj_8018B180 { u8 pad[0x38]; f32 pos[3]; };
 
+typedef s32 M2C_UNK;
+struct Obj_8018B180;
+struct Obj_8018B284 {
+    u8 pad0[0x38];
+    u8 pos[0x2B4 - 0x38];
+    f32 f2B4;
+    u8 pad2B8[0x33C - 0x2B8];
+    f32 f33C;
+    f32 f340;
+    u8 f344[0xC];
+    u8 f350[0x36C - 0x350];
+    u32 f36C;
+};
+
 extern "C" {
 void TContainerAncient01__sub_8018B158(void* p, void* a1, void* a2);
 int TObjEneDellBiter__sub_80087350(void*, void*);
@@ -84,6 +98,19 @@ f32 TObjPlayer__sub_80141CF8(void *, void *);
 u8 *TPlayerBattleCtrl4P__sub_801BA74C(int);
 extern const f32 lbl_805DBD18;
 void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range);
+void TBoss1Dragon__sub_80143504(void *);
+void TContainerAncient01__sub_8018B158(void* p, void* a1, void* a2);
+void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range);
+void reset_state__19TContainerAncient01FPv(void* a0);
+s32 get_global_state__14TOKeyMachine01Fv();
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+extern const f32 TContainerAncient01__data_805DBD20;
+extern const f32 lbl_805DBD24;
+extern const f32 lbl_805DBD28;
+extern const f32 lbl_805DBD2C;
+extern const f32 lbl_805DBD30;
+extern const f32 TContainerAncient01__data_805DBD34;
+void TContainerAncient01__sub_8018B284(Obj_8018B284 *self);
 }
 
 extern "C" {
@@ -115,6 +142,51 @@ void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range) {
 }
 
 void reset_state__19TContainerAncient01FPv(void* a0) { *(short*)((char*)a0 + 0x326) = 0; *(short*)((char*)a0 + 0xb8) = *(short*)((char*)a0 + 0x326); *(float*)((char*)a0 + 0x2b4) = TContainerAncient01__data_805DBD1C; }
+
+void TContainerAncient01__sub_8018B284(Obj_8018B284 *self) {
+    u32 period;
+    u32 phase;
+    f32 t;
+    TBoss1Dragon__sub_80143504(self);
+    if (TContainerAncient01__data_805DBD20 == self->f2B4) {
+        switch (get_global_state__14TOKeyMachine01Fv()) {
+        case 0x17:
+        case 0x18:
+        case 0x19:
+        case 0x1A:
+        case 0x1B:
+            TBoss3Volopt__sub_8022675C(0x4BC1C, self->pos, 0, 0);
+            break;
+        case 0x22:
+            TBoss3Volopt__sub_8022675C(0x4004BC1C, self->pos, 0, 0);
+            break;
+        case 0x23:
+            TBoss3Volopt__sub_8022675C(0x4004BC1C, self->pos, 0, 0);
+            break;
+        default:
+            TBoss3Volopt__sub_8022675C(0x4004BC16, self->pos, 0, 0);
+            break;
+        }
+    }
+    if (TContainerAncient01__data_805DBD20 == self->f2B4 || lbl_805DBD24 == self->f2B4 || lbl_805DBD28 == self->f2B4) {
+        TContainerAncient01__sub_8018B158(self, self->f350, (void *)0x7D);
+    }
+    if (lbl_805DBD2C == self->f2B4) {
+        TContainerAncient01__sub_8018B158(self, self->f344, (void *)0x7E);
+    }
+    period = (u32)(lbl_805DBD30 / (f32)self->f36C);
+    phase = (u32)(t = self->f2B4) % period;
+    if (lbl_805DBD28 < t && t < TContainerAncient01__data_805DBD34 && phase == 0) {
+        TContainerAncient01__sub_8018B158(self, self->f350, (void *)0x7E);
+    }
+    if (TContainerAncient01__data_805DBD34 < self->f2B4 && phase == 0) {
+        TContainerAncient01__sub_8018B158(self, self->f344, (void *)0x7E);
+    }
+    TContainerAncient01__sub_8018B180((Obj_8018B180 *)self, self->f340);
+    if (self->f33C <= self->f2B4) {
+        reset_state__19TContainerAncient01FPv(self);
+    }
+}
 
 void TContainerAncient01__sub_8018B48C(u8 *arg0) {
   TBoss1Dragon__sub_80143504(arg0);

@@ -104,6 +104,18 @@ struct T1_802BD68C {
 
 struct T2_802BD76C { u8 pad0[0x42C]; s32 f42C; };
 
+struct TBoss6Type2_802BD014;
+typedef void (TBoss6Type2_802BD014::*Fn_802BD014)();
+struct Tb_802BD014 { s32 f0; s32 f4; s32 f8; Fn_802BD014 fn; u8 pad[0x30 - 0x18]; };
+struct TBoss6Type2_802BD014 {
+    u8 pad0[0x374];
+    s32 a[33];
+    u8 pad3F8[0x474 - 0x3F8];
+    s32 f474;
+};
+
+struct Pkt_802BDD6C { u8 d[0x18]; };
+
 extern "C" {
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 s32 add_damage__11TBoss6Type2FPvi(void *, int);
@@ -196,8 +208,10 @@ s32 TBoss6Type2__sub_802BA9E4(void *);
 s32 TBoss6Type2__sub_802BAA74();
 u16 TBoss6Type2__sub_802BB694(void *);
 M2C_UNK TBoss6Type2__sub_802BC62C(void *);
-int TBoss6Type2__sub_802BD014(void*, void*);
-M2C_UNK TBoss6Type2__sub_802BDD6C(void *, s32, M2C_UNK *);
+void TBoss6Type2__sub_802BD014(void*, void*);
+void TBoss6Type2__sub_802BDD6C(void *, s32, M2C_UNK *);
+extern Tb_802BD014 lbl_804E00DC[];
+void TBoss6Type2__sub_802BCC54(void *, int);
 s32 TObjControl__ct(s32, s32);
 f32 TObjPlayer__sub_80014108(void *, u32, f32);
 u8 *TObjPlayer__sub_80015DC4(u32, s32);
@@ -337,6 +351,26 @@ void copy_transform__11TBoss6Type2FPvPv(void* p, void* q) { *(u32*)((char*)p + 0
 Blk_802BCFD4 *TBoss6Type2__sub_802BCFD4(Blk_802BCFD4 *d, Blk_802BCFD4 *s) {
     *d = *s;
     return d;
+}
+
+void TBoss6Type2__sub_802BD014(void *ov, void *vv) {
+#define o ((TBoss6Type2_802BD014 *)ov)
+    s32 i;
+    Tb_802BD014 *e;
+    Fn_802BD014 fn;
+    o->a[0] = (s32)vv;
+    for (i = 31; i > 0; i--) {
+        o->a[i + 1] = o->a[i];
+    }
+    o->a[1] = o->a[0];
+    e = &lbl_804E00DC[o->a[0]];
+    TBoss6Type2__sub_802BCC54(o, e->f4);
+    o->f474 = e->f8;
+    fn = e->fn;
+    if (fn) {
+        (o->*fn)();
+    }
+#undef o
 }
 
 void copy_pos_620__11TBoss6Type2Fii(s32 arg0, s32 arg1) {
@@ -597,6 +631,20 @@ void update_action_state__11TBoss6Type2FPv(void *arg0) {
         var_r4 = 5;
     }
     TBoss6Type2__sub_802BDD6C((void *)(arg0), (s32)(var_r4), (M2C_UNK *)(&sp8));
+}
+
+void TBoss6Type2__sub_802BDD6C(void *arg0, s32 arg1, M2C_UNK *arg2) {
+    Pkt_802BDD6C p;
+    u8 *s; s32 i;
+    if (is_idle__11TBoss6Type1FPv(*(s32 *)((u8 *)arg0 + 0x3F8)) != 0) {
+        init_packet__11TBoss6Type2FPv(&p);
+        TBoss6Type2__sub_802BDF50((u8 *)arg0, (u8 *)&p);
+        s = (u8 *)arg2; p.d[4] = arg1;
+        for (i = 1; i < 4; i++) {
+            p.d[i + 4] = *s++;
+        }
+        update_and_send__11TBoss6Type2FPv(&p);
+    }
 }
 
 void TBoss6Type2__sub_802BDDF8(u8 *arg0, s8 arg1) {

@@ -8,6 +8,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Ent_80325248 { u8 b[0xC]; };
+
+struct Obj_80325248 { u8 pad[0x38]; s32 n; u8 pad2[0xD8 - 0x3C]; Ent_80325248 ents[1]; };
+
+extern "C" {
+void TOSwitchAttack__sub_80087278(void *, s32, s32);
+void run_task__12TTecZondeEffFv(void *);
+s32 rand__11TOBoss4RockFv(void);
+extern const f32 lbl_805DF5F4;
+extern const f32 lbl_805DF5F8;
+void run_task__25TBoss5GryphonLightningEffFv(Obj_80325248 *arg0);
+}
+
 extern "C" {
 
 void TBoss5GryphonLightningEff__sub_80325064(void* p);
@@ -55,6 +68,14 @@ void render__25TBoss5GryphonLightningEffFv(void *arg0) {
     set_chunk_material_color(lbl_804A7418);
     some_id_805c6f74 = lbl_805D5660;
     fn_80141A30();
+}
+void run_task__25TBoss5GryphonLightningEffFv(Obj_80325248 *arg0) {
+    run_task__12TTecZondeEffFv(arg0);
+    if (lbl_805DF5F4 * (f32)rand__11TOBoss4RockFv() > lbl_805DF5F8) {
+        s32 i = (f32)arg0->n * (lbl_805DF5F4 * (f32)rand__11TOBoss4RockFv());
+        TOSwitchAttack__sub_80087278(&arg0->ents[i], 0x215, 0x40);
+    }
+    (*(s16 *)((u8 *)arg0 + 0x25C))++;
 }
 
 }

@@ -159,11 +159,13 @@ void TProtocol::send_room_change(int idx) {
 	}
 }
 
+extern "C" void *alloc__23TAdSinglePlyChrSelectGCFPv(size_t);
+
 void TProtocol::send_pso_data_long2(char flags, long_game_command &packet, size_t size) {
 	const int header_size = sizeof(packet_header);
 	const int command_size = sizeof(long_game_command);
 	if (m_connected) {
-		TRecvPsoDataLong *tmp = new TRecvPsoDataLong;
+		TRecvPsoDataLong *tmp = (TRecvPsoDataLong *)alloc__23TAdSinglePlyChrSelectGCFPv(sizeof(TRecvPsoDataLong));
 		u8 *pkt = as(u8 *, tmp);
 		int packet_size;
 		int cmd_count;

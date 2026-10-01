@@ -10,6 +10,22 @@ struct Gc_8028CB6C { u8 pad0[0x38]; Cm_8028CB6C *cm; };
 
 struct Sl_8028CB6C { u8 pad0[0x68]; s32 a; u8 pad6c[8]; void *b; u8 pad78[8]; void *c; };
 
+struct Req_8028CC28 { s32 id; s32 type; s32 *flags; s32 index; };
+
+struct Info_8028CC28 { u8 pad[0x10]; u32 a; u32 b; };
+
+struct Sel_8028CC28 {
+    u8 pad[0x38];
+    void *chara;
+    s32 *flags;
+    u8 pad2[0x4C - 0x40];
+    s32 id4C;
+    s32 id50;
+    s32 id54;
+    u8 pad3[0x5C - 0x58];
+    Info_8028CC28 *info;
+};
+
 extern "C" {
 s32 is_selection_done__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 TAdSinglePlyChrSelectGC__sub_8028C938(u8 *arg0);
@@ -19,6 +35,9 @@ void *TAdSinglePlyChrSelectGC__sub_8028CFBC(void *, s32, s16, s32);
 s32 get_display_index__12TCharaMakingFPv(void *);
 void TAdSinglePlyChrSelectGC__sub_8028FAEC(void *, void *);
 void TAdSinglePlyChrSelectGC__sub_8028CB6C(Gc_8028CB6C *arg0);
+u32 create__22TChCrLoadAfsTextureReqFPvPv(void *, Req_8028CC28 *);
+s32 get_display_index__12TCharaMakingFPv(void *);
+void TAdSinglePlyChrSelectGC__sub_8028CC28(Sel_8028CC28 *arg0);
 }
 
 extern "C" {
@@ -87,6 +106,39 @@ void TAdSinglePlyChrSelectGC__sub_8028CB6C(Gc_8028CB6C *arg0) {
             break;
         }
         p->c = create__12TChCrLoadAfsFPvPvPv(arg0, 0xDB, TAdSinglePlyChrSelectGC__sub_8028CF8C(arg0, disp, id));
+    }
+}
+
+void TAdSinglePlyChrSelectGC__sub_8028CC28(Sel_8028CC28 *arg0) {
+    Req_8028CC28 r1;
+    Req_8028CC28 r2;
+    Req_8028CC28 r3;
+    s32 idx;
+    idx = get_display_index__12TCharaMakingFPv(arg0->chara);
+    r1.id = arg0->id4C;
+    r1.type = 4;
+    r1.flags = arg0->flags;
+    r1.index = idx;
+    if (create__22TChCrLoadAfsTextureReqFPvPv(arg0, &r1) == 0) {
+        return;
+    }
+    if (arg0->info->a != 0 || arg0->info->b != 0) {
+        r2.id = arg0->id54;
+        r2.type = 1;
+        r2.flags = arg0->flags;
+        r2.index = idx;
+        if (create__22TChCrLoadAfsTextureReqFPvPv(arg0, &r2) == 0) {
+            return;
+        }
+    } else {
+        *arg0->flags &= ~1;
+    }
+    r3.id = arg0->id50;
+    r3.type = 2;
+    r3.flags = arg0->flags;
+    r3.index = idx;
+    if (create__22TChCrLoadAfsTextureReqFPvPv(arg0, &r3) == 0) {
+        return;
     }
 }
 

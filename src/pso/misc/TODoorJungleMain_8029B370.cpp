@@ -66,6 +66,40 @@ struct RecoveredGlobal_8029B924___vt__16TODoorJungleMain {
     u8 remaining[0x54];
 };
 
+typedef s32 M2C_UNK;
+struct VBase_8029B428 { char pad[0x18]; };
+
+struct VObj_8029B428 : VBase_8029B428 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+struct Door_8029B428 : VObj_8029B428 {
+    u8 pad1c[0x38 - 0x1C];
+    u8 xf[0x28];
+    s32 f60;
+    u8 pad64[0xB4 - 0x64];
+    f32 fb4;
+    u8 padb8[4];
+    s32 fbc;
+    f32 fc0;
+    f32 fc4;
+    u8 padc8[8];
+    u32 flags;
+    s32 count;
+};
+
+struct Ids_8029B428 {
+    s32 v[3];
+};
+
 extern "C" {
 extern u32 TODoorJungleMain__data_805D65B8;
 extern u32 lbl_805D65BC;
@@ -93,6 +127,18 @@ extern const f32 lbl_805DDCE8;
 extern const f32 lbl_805DDCEC;
 extern const f32 lbl_805DDCF0;
 u8 *TODoorJungleMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+void *TObjFish__sub_8001EDC4(u32, int);
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+int TObjPlayer__sub_803D9B2C(void *);
+int TObjPlayer__sub_803D9B78(void);
+int TOHangerMachine01__sub_803D9C00(void *);
+void *set_global_param__8TObjFishFi(void *);
+int TObjBoss2Tunnel__sub_803DB470(void *);
+M2C_UNK TObjDoor__sub_803DC894(void *, int, f32);
+extern Ids_8029B428 lbl_80465400;
+extern u32 TODoorJungleMain__data_805D65B8;
+extern u32 lbl_805D65BC;
+void render__16TODoorJungleMainFv(Door_8029B428 *self);
 }
 
 extern "C" {
@@ -139,6 +185,25 @@ void TODoorJungleMain__sub_8029B3C8(void) {
     }
     (*(s32 *)&TODoorJungleMain__data_805D65B8) = var_r0;
     (*(u8 * *)&lbl_805D65BC) = TLanguage__sub_801E4874((s32) &lbl_80465418.value);
+}
+
+void render__16TODoorJungleMainFv(Door_8029B428 *self) {
+    Ids_8029B428 ids = lbl_80465400;
+    s32 i;
+    if (self->m8(self->fc0, self->fc4) == 1) {
+        TObjPlayer__sub_803D9B2C(set_global_param__8TObjFishFi((void *)lbl_805D65BC));
+        TOHangerMachine01__sub_803D9C00(self->xf);
+        TObjPlayer__sub_803D9214(0, self->f60);
+        if (self->flags & 1) {
+            TObjDoor__sub_803DC894(TObjFish__sub_8001EDC4(TODoorJungleMain__data_805D65B8, 3), self->fbc, self->fb4);
+        } else {
+            TObjBoss2Tunnel__sub_803DB470(TObjFish__sub_8001EDC4(TODoorJungleMain__data_805D65B8, 3));
+            for (i = 0; i < 3 - self->count; i++) {
+                TObjBoss2Tunnel__sub_803DB470(TObjFish__sub_8001EDC4(TODoorJungleMain__data_805D65B8, ids.v[i]));
+            }
+        }
+        TObjPlayer__sub_803D9B78();
+    }
 }
 
 void *__dt__16TODoorJungleMainFv(void *arg0, s16 arg1) {

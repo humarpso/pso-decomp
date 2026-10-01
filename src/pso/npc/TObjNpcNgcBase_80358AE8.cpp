@@ -74,6 +74,12 @@ struct RecoveredGlobal_80358F28_TObjNpcNgcBase__data_805439A8
 };
 
 typedef s32 M2C_UNK;
+
+struct Rec_803592B8 {
+    s32 idx;
+    void *data;
+};
+
 extern "C" {
 s32 TObjControl__ct(int, int);
 s32 __nw__7TObjectFUl(int);
@@ -162,6 +168,12 @@ s32 TObjNpcNgcBase__sub_80359148(s32 arg0);
 M2C_UNK TLobby__sub_8001FE7C(void *, M2C_UNK);
 extern RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8 TObjNpcNgcBase__data_805439A8;
 void TObjNpcNgcBase__sub_8035925C(void);
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+s32 get_global_state__14TOKeyMachine01Fv();
+extern Rec_803592B8 lbl_804F1688[];
+extern RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8 TObjNpcNgcBase__data_805439A8;
+void TObjNpcNgcBase__sub_803592B8(void);
 }
 
 extern "C" {
@@ -538,6 +550,39 @@ void TObjNpcNgcBase__sub_8035925C(void) {
         if (((void * *)&TObjNpcNgcBase__data_805439A8)[i] != 0) {
             TLobby__sub_8001FE7C(((void * *)&TObjNpcNgcBase__data_805439A8)[i], 1);
             ((void * *)&TObjNpcNgcBase__data_805439A8)[i] = 0;
+        }
+    }
+}
+void TObjNpcNgcBase__sub_803592B8(void) {
+    Rec_803592B8 *p;
+    s32 i;
+    void *obj;
+    Rec_803592B8 *tbl = lbl_804F1688;
+    for (i = 0; i < 14; i++) {
+        ((u32 *)&TObjNpcNgcBase__data_805439A8)[i] = 0;
+    }
+    p = NULL;
+    switch (get_global_state__14TOKeyMachine01Fv()) {
+    case 0:
+    case 0x12:
+        p = &tbl[0x2A];
+        break;
+    case 0x17: case 0x18: case 0x19: case 0x1A: case 0x1B:
+    case 0x22: case 0x23:
+        p = &tbl[0x39];
+        break;
+    case 0x1C: case 0x1D:
+        p = &tbl[0x3C];
+        break;
+    }
+    if (p != NULL) {
+        while (p->idx != -1) {
+            obj = (void *)alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+            if (obj != NULL) {
+                obj = TLobby__sub_80020004(obj, 1, p->data, 0, 0, 0);
+            }
+            ((void **)&TObjNpcNgcBase__data_805439A8)[p->idx] = obj;
+            p++;
         }
     }
 }

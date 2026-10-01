@@ -5,6 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 get_main_phase();
+s32 TCameraCtrl__sub_8006B368();
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_global_state__14TOKeyMachine01Fv();
+s32 get_short_mail_ctrl__6TLobbyFv();
+s32 TWindowSubTradeMain__sub_802D3924(s32);
+extern s32 lbl_805D53A0;
+s32 TWindowMainMenu__sub_80263E40(u8 *arg0, s16 *arg1, s32 *arg2);
+}
+
+extern "C" {
 
 void TWindowMainMenu__sub_80263FE0(void *arg0);
 void close_child_window__15TWindowMainMenuFPv(void* p);
@@ -29,6 +40,71 @@ void update_keyboard_card_state__15TWindowMainMenuFPv(void *arg0) {
         return;
     }
     TWindowMainMenu__sub_80263DBC(arg0);
+}
+
+s32 TWindowMainMenu__sub_80263E40(u8 *arg0, s16 *arg1, s32 *arg2) {
+    u8 *base;
+    u8 *p;
+    s32 st;
+    base = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x54));
+    if (base == NULL) {
+        return 0;
+    }
+    p = base + 0x85C;
+    if (p == NULL) {
+        return 0;
+    }
+    *arg2 = 1;
+    st = get_global_state__14TOKeyMachine01Fv();
+    switch (*arg1) {
+    case 0:
+    case 9:
+    case 23:
+        if (st == 0xF) {
+            *arg2 = 0;
+        }
+        break;
+    case 26:
+        if (get_main_phase() != 0xF) {
+            *arg1 += 1;
+            *arg2 = 0;
+        } else if (TWindowSubTradeMain__sub_802D3924(lbl_805D53A0) == 0) {
+            *arg2 = 0;
+        }
+        break;
+    case 15:
+        if (TCameraCtrl__sub_8006B368() != 1) {
+            *arg2 = 0;
+        }
+        break;
+    case 3:
+        if (M2C_FIELD(p, s32 *, 0x34) & 0x10) {
+            return 0;
+        }
+        if (st == 0xF || st == 0 || st == 0x12) {
+            *arg1 = 4;
+        }
+        break;
+    case 12:
+        if (st == 0xF || st == 0 || st == 0x12) {
+            *arg2 = 0;
+        }
+        break;
+    case 19:
+        if (get_main_phase() != 0xF && get_short_mail_ctrl__6TLobbyFv() <= 0) {
+            *arg2 = 0;
+        }
+        break;
+    case 7:
+        if (get_main_phase() == 0xF) {
+            *arg1 = 8;
+        }
+        break;
+    }
+    if (*arg2 == 0) {
+        *arg1 += 1;
+    }
+    return 1;
 }
 
 void TWindowMainMenu__sub_80263FE0(void *arg0) {

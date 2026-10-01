@@ -24,6 +24,25 @@ struct VObj_18_eecf68 : VBase_18_eecf68 {
     virtual s32 m14();
 };
 
+typedef s32 M2C_UNK;
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Pair_80254F18 {
+    s32 x;
+    s32 y;
+};
+
+struct Vec3_80254F18 {
+    Pair_80254F18 xy;
+    s32 z;
+};
+
+struct HelpItem_80254F18 {
+    u8 pad0[0xb0];
+    Vec3_80254F18 pos;
+};
+
 extern "C" {
 M2C_UNK TWindowHelpItem__sub_802541E0();
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
@@ -60,6 +79,14 @@ void set_displayed_item_data__15TWindowHelpItemFPvPvPv(void* p, void* a1, void* 
 int TWindowHelpItem__sub_80255440(void*);
 int update_cursor_selection__15TWindowHelpItemFPv(void*);
 void set_items_and_refresh__15TWindowHelpItemFPvPvPv(void* p, void* a1, void* a2);
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
+M2C_UNK set_flag0_bit2__15TWindowHelpItemFPv(int);
+void TWindowHelpItem__sub_80254DEC(void *);
+M2C_UNK TWindowSubStatusDisp__sub_80257D44(void *, void *, int);
+M2C_UNK set_help_text__15TWindowHelpItemFPvUi(void *, int);
+extern M2C_UNK TWindowHelpItem__data_804CF140[];
+extern Vec3_80254F18 lbl_804CF82C;
+void TWindowHelpItem__vt9(HelpItem_80254F18 *self);
 }
 
 extern "C" {
@@ -172,6 +199,53 @@ block_4:
         }
     }
 }
+
+void TWindowHelpItem__sub_80254DEC(void *arg0) {
+    s32 temp_r31;
+    s32 temp_r30;
+    s32 temp_r29;
+    s32 temp_r28;
+    s32 temp_r27;
+    s32 temp_r26;
+
+    TWindowSubStatusDisp__sub_80257D44((void *) ((u8 *) arg0 + 0x24), (void *) (TWindowHelpItem__data_804CF140), (int) (M2C_FIELD(arg0, s16 *, 0x20)));
+    temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi((void *) (arg0), (int) (0));
+    temp_r30 = get_array_entry__20TWindowSubStatusDispFPvi((void *) (arg0), (int) (1));
+    temp_r29 = get_array_entry__20TWindowSubStatusDispFPvi((void *) (arg0), (int) (2));
+    temp_r28 = get_array_entry__20TWindowSubStatusDispFPvi((void *) (arg0), (int) (3));
+    temp_r27 = get_array_entry__20TWindowSubStatusDispFPvi((void *) (arg0), (int) (4));
+    temp_r26 = get_array_entry__20TWindowSubStatusDispFPvi((void *) (arg0), (int) (5));
+    set_help_text__15TWindowHelpItemFPvUi((void *) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x83))));
+    set_help_text__15TWindowHelpItemFPvUi((void *) (temp_r30), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x84))));
+    set_help_text__15TWindowHelpItemFPvUi((void *) (temp_r29), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x85))));
+    set_help_text__15TWindowHelpItemFPvUi((void *) (temp_r28), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x86))));
+    set_help_text__15TWindowHelpItemFPvUi((void *) (temp_r27), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x87))));
+    set_help_text__15TWindowHelpItemFPvUi((void *) (temp_r26), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x88))));
+}
+
+void TWindowHelpItem__vt9(HelpItem_80254F18 *self) {
+    s32 a;
+    s32 b;
+    s32 c;
+    s32 d;
+    s32 e;
+    s32 f;
+    TWindowHelpItem__sub_80254DEC(self);
+    self->pos = lbl_804CF82C;
+    a = get_array_entry__20TWindowSubStatusDispFPvi(self, 6);
+    b = get_array_entry__20TWindowSubStatusDispFPvi(self, 7);
+    c = get_array_entry__20TWindowSubStatusDispFPvi(self, 8);
+    d = get_array_entry__20TWindowSubStatusDispFPvi(self, 9);
+    e = get_array_entry__20TWindowSubStatusDispFPvi(self, 10);
+    f = get_array_entry__20TWindowSubStatusDispFPvi(self, 11);
+    set_flag0_bit2__15TWindowHelpItemFPv(a);
+    set_flag0_bit2__15TWindowHelpItemFPv(b);
+    set_flag0_bit2__15TWindowHelpItemFPv(c);
+    set_flag0_bit2__15TWindowHelpItemFPv(d);
+    set_flag0_bit2__15TWindowHelpItemFPv(e);
+    set_flag0_bit2__15TWindowHelpItemFPv(f);
+}
+
 void TWindowHelpItem__set_displayed_item_by_id(u8 *arg0, s32 arg1) {
     u8 *temp_r3;
     if (arg1 == -1) {

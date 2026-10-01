@@ -216,6 +216,53 @@ struct Ene_80302004 {
 
 struct Ene_80302A34 { u8 pad0[0x18]; void *vt; u8 pad1[0x3a8 - 0x1c]; u8 sub[0x1c]; void *obj[2]; };
 
+typedef s32 M2C_UNK;
+struct VBase_14_800A7BEC { char pad[0x14]; };
+
+struct VObj_14_800A7BEC : VBase_14_800A7BEC {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
+    virtual s32 m5();
+};
+
+struct Obj_800A7BEC { u8 pad0[0x38]; u8 sub38[0x326 - 0x38]; s16 f326; s16 state; u8 pad32a[0x390 - 0x32A]; s32 f390; };
+
+typedef struct Vec_800A7A14 {
+    f32 x, y, z;
+} Vec_800A7A14;
+
+struct VBase_800A7A14 { char pad[0x18]; };
+
+struct VObj_800A7A14 : VBase_800A7A14 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4(Vec_800A7A14 *, Vec_800A7A14 *);
+};
+
+typedef struct Obj_800A7A14 {
+    u8 pad0[0x38];
+    Vec_800A7A14 pos;
+    u8 pad44[0x60 - 0x44];
+    s32 f60;
+    u8 pad64[0xB8 - 0x64];
+    s16 fB8;
+    u8 padBA[0xC0 - 0xBA];
+    f32 fC0;
+    u8 padC4[0x3C4 - 0xC4];
+    VObj_800A7A14 *effs[2];
+} Obj_800A7A14;
+
+struct A7B00Base_800a7b00_800A7764 { char pad[0x14]; };
+
+struct A7B00Obj_800a7b00_800A7764 : A7B00Base_800a7b00_800A7764 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual s32 m4();
+};
+
 extern "C" {
 s32 TObjEneDolmOlm__sub_80300CF0(void);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -281,6 +328,17 @@ void TObjEneGibbles__sub_80156720(void *);
 void __dl__7TObjectFPv(void *);
 extern u8 lbl_804E6928[];
 Ene_80302A34 *TObjEneDolmOlm__sub_80302A34(Ene_80302A34 *self, s16 flag);
+u32 lookup_entry_by_value__10TObjPlayerFPvf(void *, f32);
+M2C_UNK TObjPlayer__sub_803D8960(int, int, void *, int);
+M2C_UNK TObjPlayer__sub_803D8CD4(int);
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+extern u32 TObjEneDolmOlm__data_805D6A14;
+extern u32 TObjEneDolmOlm__data_805D6A18;
+extern const f32 lbl_805DEF60;
+void TObjEneDolmOlm__sub_8030105C(Obj_800A7A14 *o);
 }
 
 extern "C" {
@@ -360,6 +418,43 @@ void TObjEneDolmOlm__sub_80300FC0(u8 *arg0) {
     TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x38));
     spawn_ground_effect__10TObjPlayerFPvi((void *) (&stack.sp8), (int) (0x23));
     TObjPlayer__sub_800D92BC((void *) (&stack.sp8), (int) (0xF));
+}
+
+void TObjEneDolmOlm__sub_8030105C(Obj_800A7A14 *o) {
+    Vec_800A7A14 b;
+    Vec_800A7A14 a;
+    u32 e;
+    s32 idx;
+    VObj_800A7A14 *eff;
+    if (!(o->fC0 < lbl_805DEF60)) {
+        return;
+    }
+    switch (o->fB8) {
+    case 3:
+        e = lookup_entry_by_value__10TObjPlayerFPvf((void *)(*(s32 *)&TObjEneDolmOlm__data_805D6A14), o->fC0);
+        idx = 0;
+        break;
+    case 4:
+        e = lookup_entry_by_value__10TObjPlayerFPvf((void *)(*(s32 *)&TObjEneDolmOlm__data_805D6A18), o->fC0);
+        idx = 1;
+        break;
+    default:
+        e = 0;
+        break;
+    }
+    if (e == 0) {
+        return;
+    }
+    TObjPlayer__sub_803D9B2C();
+    TObjPlayer__sub_803D8CD4(0);
+    TOHangerMachine01__sub_803D9C00(&o->pos);
+    TObjPlayer__sub_803D9214(0, o->f60);
+    TObjPlayer__sub_803D8960(0, e, &a, 2);
+    TObjPlayer__sub_803D9B78();
+    eff = o->effs[idx];
+    if (eff != NULL) {
+        eff->m4(&a, &b);
+    }
 }
 
 #pragma push

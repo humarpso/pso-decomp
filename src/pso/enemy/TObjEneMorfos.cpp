@@ -118,6 +118,12 @@ struct RecoveredGlobal_80334CC8___vt__13TObjEneMorfos {
     u8 remaining[0x1A8];
 };
 
+struct Vec_8033496C { f32 x, y, z; };
+
+struct Obj_8033496C { u8 pad[0x60]; s32 f60; u8 pad1[0x2D4 - 0x64]; u16 f2D4; u8 pad2[0x2FC - 0x2D6]; Vec_8033496C pos; u8 pad3[0x326 - 0x308]; s16 f326; u8 pad4[0x3C0 - 0x328]; s32 f3C0; };
+
+struct Pl_8033496C { u8 pad[0x2FC]; Vec_8033496C pos; };
+
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 int TObjEneDD__sub_800BBA18(void*, void*);
@@ -146,6 +152,17 @@ M2C_UNK __destroy_arr(void *, void *, int, int);
 extern M2C_UNK TObjPlayer__sub_800D7C58[];
 extern M2C_UNK __vt__13TObjEneMorfos[];
 u8 *__dt__13TObjEneMorfosFv(u8 *arg0, s16 arg1);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+void TBoss8Dragon__sub_800BB780(void *);
+int TObjEneDD__sub_800BBA18(void*, void*);
+s32 TObjPlayer__sub_80141F84(s32, s32);
+Pl_8033496C *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 TObjEneMorfos__sub_80334884(u8 *arg0);
+s32 TObjEneMorfos__sub_803348F0(u8 *arg0);
+void TBoss6Type1__sub_803D9370(void *, void *);
+extern const f64 TObjEneMorfos__data_80477610;
+void TObjEneMorfos__vt60(Obj_8033496C *arg0);
 }
 
 extern "C" {
@@ -204,6 +221,33 @@ s32 TObjEneMorfos__sub_803348F0(u8 *arg0) {
 }
 
 void TObjEneMorfos__vt59(void) {  }
+
+void TObjEneMorfos__vt60(Obj_8033496C *arg0) {
+    Vec_8033496C v;
+    Pl_8033496C *pl;
+    s32 d;
+    if (arg0->f326 == 0xA) {
+        return;
+    }
+    pl = TPlayerBattleCtrl4P__sub_801BA74C(arg0->f2D4);
+    if (pl != 0) {
+        VecCopy__FP3VecPC3Vec(&v, &pl->pos);
+        TBoss6Type1__sub_803D9370(&v, &arg0->pos);
+        d = TObjPlayer__sub_80141F84(arg0->f60, (s32)(TObjEneMorfos__data_80477610 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)));
+    } else {
+        d = 0;
+    }
+    if (d < 0x4000) {
+        TBoss8Dragon__sub_800BB780(arg0);
+        if (TObjEneMorfos__sub_803348F0((u8 *)arg0) == 0) {
+            TObjEneMorfos__sub_80334884((u8 *)arg0);
+        }
+    } else if (arg0->f3C0 & 4) {
+        TBoss8Dragon__sub_800BB780(arg0);
+    } else {
+        TObjEneDD__sub_800BBA18(arg0, (void *)0xA);
+    }
+}
 
 void TObjEneMorfos__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 11) { TObjEneDD__sub_800BBA18(p, (void*)11); } }
 void TObjEneMorfos__vt26(void) {  }

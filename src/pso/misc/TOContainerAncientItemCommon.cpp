@@ -87,6 +87,28 @@ struct VObj_8015B8E8 : Base_8015B8E8 {
     virtual void m77();
 };
 
+struct Desc_8015C234 {
+    u8 pad0[0xC];
+    f32 x;
+    f32 y;
+    f32 z;
+    u8 pad18[0x38 - 0x18];
+    f32 y2;
+    u8 pad3C[0x40 - 0x3C];
+    s32 a;
+    s32 b;
+    u8 pad48[0x4C - 0x48];
+};
+struct Obj_8015C234 {
+    u8 pad0[0x38];
+    f32 x;
+    f32 y;
+    f32 z;
+    u8 pad44[0x326 - 0x44];
+    s16 f326;
+};
+struct Ids_8015C234 { s32 f0; s32 a; s32 b; };
+
 struct Obj_8015C48C { u8 pad[0x326]; s16 a326; u8 pad2[0x364 - 0x328]; s32 a364; };
 
 extern "C" {
@@ -98,7 +120,6 @@ M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TOSignCave03__sub_803DB510(int);
-extern u32 lbl_805D58E8;
 void TObjPlayer__sub_8015C3C8(u8 *arg0);
 extern M2C_UNK __vt__23TOContainerAncientEnemy[];
 void TObjPlayer__sub_8015C3C8(u8 *arg0);
@@ -110,6 +131,17 @@ extern s32 enable_v2_features;
 s32 TOContainerAncientItemCommon__sub_8015C108(s32 arg0);
 void TObjPlayer__sub_801B4A18(Obj_8015C48C *self, s32 x);
 void TObjPlayer__sub_8015C48C(Obj_8015C48C *self);
+s32 TObjFish__sub_8001EDB0(void *, s32);
+s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
+s32 TObjEneDellBiter__sub_80087350(void *, int);
+u8 *TObjChip__sub_80180BD4(u8 *arg0, u8 *arg1, u8 *arg2);
+void TBoss3Volopt__sub_80189CC0(s32 arg0);
+extern Desc_8015C234 lbl_80440700;
+extern Desc_8015C234 lbl_8044074C;
+extern s32 lbl_805D2F00;
+extern Ids_8015C234 *lbl_805D58EC;
+extern u8 *tl_05;
 }
 
 extern "C" {
@@ -203,7 +235,48 @@ void *TOContainerAncientItemCommon__ct(void *arg0, void * _w1) {
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2EFC;
     return arg0;
 }
+void TObjFish__sub_8015C234(Obj_8015C234 *self) {
+    extern const u32 lbl_805D58E8;
+    if (self->f326 == 1) {
+        return;
+    }
+    Desc_8015C234 a = lbl_80440700;
+    a.x = self->x;
+    a.y = self->y;
+    a.z = self->z;
+    a.y2 = a.y;
+    a.a = TObjFish__sub_8001EDC4((void *)lbl_805D58E8, 1);
+    a.b = TObjFish__sub_8001EDB0((void *)lbl_805D58E8, 1);
+    Desc_8015C234 b = lbl_8044074C;
+    b.x = self->x;
+    b.y = self->y;
+    b.z = self->z;
+    b.y2 = b.y;
+    b.a = TObjFish__sub_8001EDC4((void *)lbl_805D58E8, 2);
+    b.b = TObjFish__sub_8001EDB0((void *)lbl_805D58E8, 2);
+    if (check_value_equals__13TQuestColCtrlFPvi(self, lbl_805D2F00) != 0) {
+        a.b = lbl_805D58EC->a;
+        b.b = lbl_805D58EC->b;
+    }
+    {
+        u8 *o = (u8 *)__nw__7TObjectFUl(0x234);
+        if (o != NULL) {
+            TObjChip__sub_80180BD4(o, tl_05, (u8 *)&a);
+        }
+    }
+    {
+        u8 *o = (u8 *)__nw__7TObjectFUl(0x234);
+        if (o != NULL) {
+            TObjChip__sub_80180BD4(o, tl_05, (u8 *)&b);
+        }
+    }
+    TObjEneDellBiter__sub_80087350(&self->x, 0x45);
+    TObjEneDellBiter__sub_80087350(&self->x, 0x46);
+    TBoss3Volopt__sub_80189CC0((s32)self);
+}
+
 void TObjPlayer__sub_8015C3C8(u8 *arg0) {
+    extern u32 lbl_805D58E8;
     u8 *temp_r31;
     u8 *temp_r31_2;
     u8 *temp_r31_3;

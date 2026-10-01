@@ -1,6 +1,26 @@
 #include "pso/THunterGuildSeqOnlineTask.h"
 
-void THunterGuildSeqOnlineTask::run_task() {}
+extern "C" {
+s32 TWindowShortListCtrl__check_controller_button(int, int);
+s32 TWindow__close(int);
+s32 TWindowCtrl__sub_8024AEF0(void *);
+extern s32 lbl_8050E208[];
+extern s32 lbl_805D53A0;
+extern u32 TQuestListOnline__data_805D61A4;
+}
+
+void THunterGuildSeqOnlineTask::run_task() {
+    u8 *p;
+    if (TQuestListOnline__data_805D61A4 != 0) {
+        p = (u8 *)lbl_8050E208 + 0x20;
+        if (TWindowShortListCtrl__check_controller_button((int)p, 4) != 0 ||
+            TWindowShortListCtrl__check_controller_button((int)p, 2) != 0) {
+            TWindow__close((int)TQuestListOnline__data_805D61A4);
+            TQuestListOnline__data_805D61A4 = 0;
+            TWindowCtrl__sub_8024AEF0((void *)lbl_805D53A0);
+        }
+    }
+}
 
 THunterGuildSeqOnlineTask::~THunterGuildSeqOnlineTask() {}
 

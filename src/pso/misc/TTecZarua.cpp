@@ -120,6 +120,32 @@ struct Zarua_8023C420 {
     u8 sub[4];
 };
 
+typedef s32 M2C_UNK;
+struct Vec_8023C420;
+struct Vec_8023C2D0 { f32 x, y, z; };
+
+struct Eff_8023C2D0 { u8 pad[0xc]; f32 scale; };
+
+struct Holder_8023C2D0 { u8 pad[0xa4]; Eff_8023C2D0 *eff; };
+
+struct Zarua_8023C2D0 {
+    s32 f0;
+    u8 pad4[0x18 - 4];
+    void *vt;
+    void *source;
+    Vec_8023C2D0 pos;
+    u8 pad2c[0x7a - 0x2c];
+    s16 level;
+    u8 pad7c[0x90 - 0x7c];
+    f32 range;
+    u8 pad94[0xb4 - 0x94];
+    s16 field_b4;
+    u8 padb6[0xe8 - 0xb6];
+    Holder_8023C2D0 *holder;
+    s32 fec;
+    u8 sub[4];
+};
+
 extern "C" {
 void TTecZarua__vt4(u8 *self, u8 *target);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -137,6 +163,17 @@ s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
 s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 s32 obj_getField1c(void *);
 Zarua_8023C420 *TTecZarua__sub_8023C420(Zarua_8023C420 *self, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
+void VecCopy__FP3VecPC3Vec(Vec_8023C420 *, Vec_8023C420 *);
+s32 obj_getField1c(void *);
+s32 TObjPlayer__sub_8004433C(void *);
+s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+void TTecAnti__sub_8022B3E8(void *, void *);
+void fn_8022C10C(void *, void *, void *, void *);
+void calc_range__9TTecZaruaFPv(u8 *arg0);
+extern M2C_UNK __vt__9TTecZarua[];
+extern s32 lbl_805D3830;
+Zarua_8023C2D0 *TTecZarua__ct(Zarua_8023C2D0 *self, void *_w1, void *_w2, void *_w3, void *_w4);
 }
 
 extern "C" {
@@ -219,6 +256,46 @@ void *__dt__9TTecZaruaFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+Zarua_8023C2D0 *TTecZarua__ct(Zarua_8023C2D0 *self, void *_w1, void *_w2, void *_w3, void *_w4) {
+    s32 r;
+    fn_8022C10C(self, _w1, _w2, _w4);
+    self->vt = __vt__9TTecZarua;
+    TObjPlayer__sub_8004433C(self->sub);
+    self->f0 = lbl_805D3830;
+    self->fec = 1;
+    TTecAnti__sub_8022B3E8(self->sub, _w3);
+    calc_range__9TTecZaruaFPv((u8 *)self);
+    VecCopy__FP3VecPC3Vec((Vec_8023C420 *)&self->pos, (Vec_8023C420 *)_w2);
+    if (self->holder != 0) {
+        self->holder->eff->scale = self->range;
+    }
+    switch (self->level) {
+    case 0:
+    case 1:
+        r = TBoss3Volopt__sub_8022675C(0x4002A817, &self->pos, 0, 0);
+        if (r >= 0) {
+            update_technique_slot__10TTecRaFoieFi(r, 0x100, 0);
+        }
+        break;
+    case 2:
+    case 3:
+        TBoss3Volopt__sub_8022675C(0x4002A817, &self->pos, 0, 0);
+        break;
+    case 4:
+    case 5:
+        r = TBoss3Volopt__sub_8022675C(0x4002A817, &self->pos, 0, 0);
+        if (r >= 0) {
+            update_technique_slot__10TTecRaFoieFi(r, -0x100, 0);
+        }
+        break;
+    }
+    if (self->source != 0) {
+        self->field_b4 = obj_getField1c(self->source);
+    }
+    return self;
+}
+
 Zarua_8023C420 *TTecZarua__sub_8023C420(Zarua_8023C420 *self, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
     s32 r;
     fn_8022C2A8(self);

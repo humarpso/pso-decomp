@@ -4,6 +4,43 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+struct Vec2_80285D38 { f32 x, y; };
+
+struct Parts_80285D38 {
+    s32 f0;
+    u8 pad[0x14];
+    void *vt;
+    u8 pad2[0x20 - 0x1C];
+    s16 id;
+    u8 pad3[0x70 - 0x22];
+    s8 f70;
+    u8 pad4;
+    s8 f72;
+    s8 f73;
+    u8 pad5[2];
+    s16 f76;
+    u8 pad6[0x7C - 0x78];
+    s32 f7C;
+    s32 f80;
+    u8 pad7[0x88 - 0x84];
+    void *sub88;
+    void *sub8C;
+};
+
+extern "C" {
+s32 get_message_10__20TWindowSubStatusDispFPv(s32);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+void construct_with_parent__15TWindowAdditionFPvPv(void *, void *, s32, void *);
+void *reset_selection__20TWindowSubStatusDispFPv(void *, Vec2_80285D38 *);
+void *TWindowSubStatusDisp__sub_802880BC(void *, s32, s16);
+extern u8 lbl_804D2DD8[];
+extern M2C_UNK __vt__25TWindowSubSymbolChatParts[];
+extern s32 lbl_805D3AC0;
+extern const f32 lbl_805DD7E4;
+Parts_80285D38 *TWindowSubSymbolChatParts__ct(Parts_80285D38 *arg0, void *arg1, s32 arg2, s32 arg3);
+}
+
 extern "C" {
 
 void *__dt__25TWindowSubSymbolChatPartsFv(void *arg0, s16 arg1);
@@ -56,6 +93,33 @@ void *__dt__25TWindowSubSymbolChatPartsFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+Parts_80285D38 *TWindowSubSymbolChatParts__ct(Parts_80285D38 *arg0, void *arg1, s32 arg2, s32 arg3) {
+    Vec2_80285D38 v;
+    void *p;
+    void *q;
+    construct_with_parent__15TWindowAdditionFPvPv(arg0, lbl_804D2DD8, 4, arg1);
+    arg0->vt = __vt__25TWindowSubSymbolChatParts;
+    arg0->f0 = lbl_805D3AC0;
+    arg0->f70 = 0;
+    arg0->f72 = 0;
+    arg0->f73 = 0;
+    arg0->f76 = 0;
+    arg0->f7C = arg2;
+    arg0->f80 = arg3;
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x24);
+    if (p != NULL) {
+        p = TWindowSubStatusDisp__sub_802880BC(p, get_message_10__20TWindowSubStatusDispFPv(0x33), arg0->id);
+    }
+    arg0->sub88 = p;
+    v.x = lbl_805DD7E4;
+    v.y = lbl_805DD7E4;
+    q = alloc__23TAdSinglePlyChrSelectGCFPv(0xC);
+    if (q != NULL) {
+        q = reset_selection__20TWindowSubStatusDispFPv(q, &v);
+    }
+    arg0->sub8C = q;
     return arg0;
 }
 

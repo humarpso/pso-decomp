@@ -37,6 +37,24 @@ struct VObj : Base {
     virtual s32 m8(f32, f32);
 };
 
+struct Vec_802C2548 { f32 x, y, z; };
+
+struct Entry_802C2548 { s32 a; s32 b; s32 c; f32 d; s32 e; s32 f; };
+
+struct Obj_802C2548 {
+    u8 pad0[0x98];
+    s32 f98;
+    s32 f9C;
+    s32 fA0;
+    u8 padA4[0x8];
+    Vec_802C2548 vAC;
+    s32 fB8;
+    s32 fBC;
+    s32 fC0;
+    s32 fC4;
+    s32 fC8;
+};
+
 extern "C" {
 extern u32 lbl_805D67A0;
 extern u32 lbl_805D67A4;
@@ -46,6 +64,15 @@ u8 * TLanguage__sub_801E4874(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_804719A4;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 lbl_804E07F0;
 void TObjPlayer__sub_802C2244(void);
+void VecCopy__FP3VecPC3Vec(Vec_802C2548 *, Vec_802C2548 *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+void TBoss1Dragon__sub_8014220C(Vec_802C2548 *, s32 *, s32 *);
+s32 clamp_value_to_max__10TObjPlayerFPviPvif(void *, s32, s32, Vec_802C2548 *, f32);
+f32 TBoss6Type1__sub_803D9370(Vec_802C2548 *, Vec_802C2548 *);
+extern Entry_802C2548 lbl_80471848[];
+extern const f64 lbl_80471960[];
+extern const f32 lbl_805DE4F8;
+s32 TObjPlayer__sub_802C2548(Obj_802C2548 *self);
 }
 
 extern "C" {
@@ -64,6 +91,25 @@ void TObjPlayer__sub_802C2244(void) {
     }
     (*(s32 *)&lbl_805D67A0) = var_r0;
     (*(u8 * *)&lbl_805D67A4) = TLanguage__sub_801E4874((s32) &lbl_804719A4.value);
+}
+s32 TObjPlayer__sub_802C2548(Obj_802C2548 *self) {
+    Vec_802C2548 a;
+    Vec_802C2548 b;
+    Vec_802C2548 d;
+    s32 tmp;
+    s32 r;
+    self->fB8 = 0;
+    self->fBC = 0;
+    self->fC0 = 0;
+    self->fC4 = 0;
+    clamp_value_to_max__10TObjPlayerFPviPvif(self, self->f98, self->fA0, &a, lbl_805DE4F8);
+    VecCopy__FP3VecPC3Vec(&self->vAC, &a);
+    r = clamp_value_to_max__10TObjPlayerFPviPvif(self, self->f98, self->fA0, &b, lbl_80471848[self->fC8].d);
+    VecCopy__FP3VecPC3Vec(&d, &b);
+    TBoss6Type1__sub_803D9370(&d, &a);
+    TBoss1Dragon__sub_8014220C(&d, &self->fBC, &tmp);
+    self->fB8 = (s32)(lbl_80471960[0] * get_ad_end_text_start__10TObjPlayerFv(b.x - a.x, b.z - a.z));
+    return r;
 }
 
 }

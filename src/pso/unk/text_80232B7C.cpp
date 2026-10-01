@@ -29,6 +29,21 @@ struct Obj_80232B7C {
     f32 f4c;
 };
 
+typedef s32 M2C_UNK;
+struct Obj_80232B7C;
+struct SEnt_80232C50 { s32 a; u32 flags; s32 c; };
+
+struct SGrp_80232C50 { SEnt_80232C50 *ents; u32 count; };
+
+struct Ctl_80232C50 {
+    u8 pad0[0x24];
+    s32 kind;
+    u8 pad28[4];
+    s16 timer;
+    u16 id;
+    u8 f30[4];
+};
+
 extern "C" {
 void __dt__7TObjectFv(void *, s32);
 void queue_destruction__7TObjectFv(void *);
@@ -46,6 +61,20 @@ extern const f32 lbl_805DC84C;
 extern const f32 lbl_805DC850;
 extern const f32 lbl_805DC854;
 Obj_80232B7C *fn_80232B7C(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale);
+void queue_destruction__7TObjectFv(void *);
+s32 TObjFish__sub_8001EDC4(s32, u32);
+M2C_UNK TObjFish__sub_800660D4(s32, s32, s32, int, int, f32);
+s32 TObjEneDellBiter__sub_80087350(void *, s32);
+u8 *TPhotonMylla__sub_80154CB4(u16);
+void *__nw__7TObjectFUl(u32);
+Obj_80232B7C *fn_80232B7C(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale);
+M2C_UNK TOSwitchAttack__sub_80235A8C(void *, void *, int, int, int, void *);
+extern SGrp_80232C50 lbl_8044D56C[];
+extern void *tl_07;
+extern s32 lbl_805D63AC;
+extern s32 lbl_805D63B0;
+extern const f32 lbl_805DC854;
+void fn_80232C50(Ctl_80232C50 *arg0);
 }
 
 extern "C" {
@@ -74,6 +103,56 @@ Obj_80232B7C *fn_80232B7C(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C
     self->f44 = lbl_805DC854;
     self->f48 = 0;
     return self;
+}
+
+void fn_80232C50(Ctl_80232C50 *arg0) {
+    u32 i;
+    s32 dir;
+    u8 *obj;
+    s32 r;
+    void *p;
+    arg0->timer++;
+    if (arg0->timer % 5 == 0) {
+        p = __nw__7TObjectFUl(0x50);
+        if (p != 0) {
+            fn_80232B7C((Obj_80232B7C *) p, arg0->id, tl_07, 0, lbl_805DC854);
+        }
+    }
+    if (arg0->timer >= 30) {
+        for (i = 0; i < lbl_8044D56C[arg0->kind].count; i++) {
+            obj = TPhotonMylla__sub_80154CB4(arg0->id);
+            if (obj != 0) {
+                SEnt_80232C50 *e = &lbl_8044D56C[arg0->kind].ents[i];
+                if (e->flags & 0x20) {
+                    r = TObjEneDellBiter__sub_80087350(obj + 0x38, e->a);
+                    if (r != 0) {
+                        TObjFish__sub_800660D4(r, TObjFish__sub_8001EDC4(lbl_805D63AC, lbl_8044D56C[arg0->kind].ents[i].flags >> 16), lbl_805D63B0, 0, 1, lbl_805DC854);
+                    }
+                } else {
+                    TObjEneDellBiter__sub_80087350(obj + 0x38, e->a);
+                }
+            }
+        }
+        switch (arg0->kind) {
+        case 0:
+        case 1:
+            dir = 0x100;
+            break;
+        case 2:
+        case 3:
+            dir = 0;
+            break;
+        case 4:
+        case 5:
+            dir = -0x100;
+            break;
+        }
+        p = __nw__7TObjectFUl(0x28);
+        if (p != 0) {
+            TOSwitchAttack__sub_80235A8C(p, arg0->f30, 0xF, 0x4002A60D, dir, tl_07);
+        }
+        queue_destruction__7TObjectFv(arg0);
+    }
 }
 
 Obj_80232E0C *fn_80232E0C(Obj_80232E0C *arg0, s16 arg1) {

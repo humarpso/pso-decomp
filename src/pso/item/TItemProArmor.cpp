@@ -130,6 +130,11 @@ typedef struct TItemProArmor_8011781C {
     u16 flags190;
 } TItemProArmor_8011781C;
 
+struct Armor_80117954 {
+    u8 pad[0x174];
+    void *owner;
+};
+
 extern "C" {
 void TItemProArmor__sub_801178B4(u8 *arg0);
 void TItemProArmor__sub_801178D4(u8 *arg0);
@@ -157,6 +162,16 @@ s32 TItemProArmor__sub_80117C60(s32 arg0);
 void set_flags__10TObjPlayerFPvUi(void *, u32);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 void TItemProArmor__sub_8011781C(TItemProArmor_8011781C *self);
+s32 get_id__13TItemProArmorFPv(void *);
+void *fn_80107DA4(void *, void *, s32);
+u8 get_slot_count__14TItemProShieldFPv(void *);
+void *init_vtable__13TItemProArmorFPv(void *arg0);
+void *ct__13TItemProArmorFPv(void *arg0);
+void *construct_timer_event__10TObjPlayerFPv(void *, void *, s32, s32);
+void *init_item_timer_event__10TObjPlayerFPv(void *, void *, s32, s32);
+void *__nw__7TObjectFUl(int);
+void *alloc__13TItemProArmorFi(int);
+void TItemProArmor__vt42(Armor_80117954 *self);
 }
 
 extern "C" {
@@ -299,6 +314,64 @@ void write_item_data__13TItemProArmorFPvPv(void *arg0, void *arg1) {
     M2C_FIELD(arg1, u8 *, 5) = (u8) M2C_FIELD(arg0, u8 *, 0x192);
     TItemData__sub_8010CE70(arg1, M2C_FIELD(arg0, u8 *, 0x193));
     TItemData__sub_8010CE1C(arg1, M2C_FIELD(arg0, u8 *, 0x194));
+}
+
+typedef void *(*Ctor4_80117954)(void *, void *, s32, s32);
+void TItemProArmor__vt42(Armor_80117954 *self) {
+    void *o;
+    if (self->owner == NULL) {
+        return;
+    }
+    switch (get_slot_count__14TItemProShieldFPv(self)) {
+    case 27:
+        o = alloc__13TItemProArmorFi(0x2C);
+        if (o != NULL) {
+            init_item_timer_event__10TObjPlayerFPv(o, self->owner, get_id__13TItemProArmorFPv(self), 150);
+        }
+        break;
+    case 28:
+        o = alloc__13TItemProArmorFi(0x2C);
+        if (o != NULL) {
+            construct_timer_event__10TObjPlayerFPv(o, self->owner, get_id__13TItemProArmorFPv(self), 300);
+        }
+        break;
+    case 32:
+        o = alloc__13TItemProArmorFi(0x2C);
+        if (o != NULL) {
+            ((Ctor4_80117954)ct__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFPv(self), 300);
+        }
+        break;
+    case 33:
+        o = alloc__13TItemProArmorFi(0x2C);
+        if (o != NULL) {
+            ((Ctor4_80117954)ct__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFPv(self), 240);
+        }
+        break;
+    case 34:
+        o = alloc__13TItemProArmorFi(0x2C);
+        if (o != NULL) {
+            ((Ctor4_80117954)ct__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFPv(self), 210);
+        }
+        break;
+    case 43:
+        o = alloc__13TItemProArmorFi(0x2C);
+        if (o != NULL) {
+            ((Ctor4_80117954)ct__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFPv(self), 150);
+        }
+        break;
+    case 49:
+        o = alloc__13TItemProArmorFi(0x2C);
+        if (o != NULL) {
+            ((Ctor4_80117954)init_vtable__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFPv(self), 150);
+        }
+        break;
+    case 45:
+        o = __nw__7TObjectFUl(0x24);
+        if (o != NULL) {
+            fn_80107DA4(o, self->owner, get_id__13TItemProArmorFPv(self));
+        }
+        break;
+    }
 }
 
 void TItemProArmor__vt14(void *arg0) {

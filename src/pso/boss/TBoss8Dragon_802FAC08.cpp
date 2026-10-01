@@ -146,6 +146,11 @@ f32 TObjPlayer__sub_803D89C0(void *, void *);
 extern const f32 TBoss8Dragon__data_805DED50;
 extern const f32 lbl_805DEEB4;
 f32 TBoss8Dragon__sub_802FAC08(Obj_802FAC08 *o, f32 a, f32 b, f32 s);
+s32 is_main_phase_15__9TObjEneDDFv(void *);
+u16 TBoss8Dragon__sub_802FAFD8(void *);
+extern u8 lbl_8050E208[];
+extern s32 TBoss8Dragon__data_805D69B8;
+extern u16 TBoss8Dragon__data_805D69BC;
 }
 
 extern "C" {
@@ -387,6 +392,32 @@ void TBoss8Dragon__sub_802FAE74(u8 *arg0) {
     TBoss8Dragon__sub_802FD9D0();
 }
 #pragma pop
+
+void TBoss8Dragon__sub_802FAF18(u8 *arg0) {
+    u16 var_r31;
+    if (TBoss8Dragon__data_805D69B8 != 0) {
+        M2C_FIELD(arg0, s32 *, 0x74C) = 1;
+    } else {
+        M2C_FIELD(arg0, s32 *, 0x74C) = 0;
+        M2C_FIELD(arg0, u16 *, 0x750) = 0xFFFFU;
+        return;
+    }
+    M2C_FIELD(arg0, s32 *, 0x754) = 0x96;
+    M2C_FIELD(arg0, u8 **, 0x6D8) = lbl_8050E208 + 0x20;
+    if (is_main_phase_15__9TObjEneDDFv(lbl_8050E208) != 0) {
+        if (TBoss8Dragon__data_805D69BC == 0xFFFFU) {
+            var_r31 = TBoss8Dragon__sub_802FAFD8(arg0);
+        } else {
+            var_r31 = TBoss8Dragon__data_805D69BC;
+        }
+    } else {
+        var_r31 = (u16)lbl_805D53A0;
+    }
+    if (TPlayerBattleCtrl4P__sub_801BA74C(var_r31) != NULL) {
+        ((M2C_UNK (*)(void))start_freeze__10TObjPlayerFPv)();
+    }
+    M2C_FIELD(arg0, u16 *, 0x750) = var_r31;
+}
 
 void TBoss8Dragon__sub_802FB09C(s32 arg0) {
     if (objInBand__FP7GameObjf((f32) (TBoss8Dragon__data_805DEE38)) != 0) {

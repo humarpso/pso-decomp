@@ -23,6 +23,12 @@ struct Src_80320950 { s32 a; u8 *p; };
 
 struct Obj_80320950 { u8 pad[0x18]; void *vt; Src_80320950 *arr; Src_80320950 *last; u8 pad2[4]; s32 n; };
 
+struct Obj_803208CC { u8 pad[0x1C]; Src_80320534 *arr; Src_80320534 *last; u8 pad2[4]; s32 n; };
+
+struct Src_803209F0 { s32 a; u8 *p; };
+
+struct Obj_803209F0 { s32 f0; u8 pad[0x14]; void *vt; Src_803209F0 *arr; Src_803209F0 *last; s32 n; s32 m; };
+
 extern "C" {
 void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1);
 void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1);
@@ -36,6 +42,15 @@ void free__11TOBoss4RockFUi(void *);
 void __dl__7TObjectFPv(void *);
 extern u8 __vt__11TBoss6Zanzo[];
 Obj_80320950 *__dt__11TBoss6ZanzoFv(Obj_80320950 *arg0, s16 arg1);
+s32 check_demo_mode__10TObjPlayerFv();
+void TBoss6Zanzo__sub_80320534(Obj_80320534 *arg0, Src_80320534 *arg1, Src_80320534 *arg2);
+void run_task__11TBoss6ZanzoFv(Obj_803208CC *arg0);
+u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+u8 *alloc_buffer__11TOBoss4RockFPv(s32);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern u8 __vt__11TBoss6Zanzo[];
+extern s32 lbl_805D4140;
+Obj_803209F0 *TBoss6Zanzo__ct(Obj_803209F0 *arg0, void *arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -83,6 +98,20 @@ void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1) {
 }
 
 void render__11TBoss6ZanzoFv(void* p) { set_depth_buffer_settings_1__Fv(p); TBoss6Zanzo__sub_803205C4(p); fn_80141A30(); }
+
+void run_task__11TBoss6ZanzoFv(Obj_803208CC *arg0) {
+    Src_80320534 *base;
+    Src_80320534 *p;
+    if (check_demo_mode__10TObjPlayerFv() == 0) {
+        base = arg0->arr;
+        for (p = base + arg0->n - 1; p > base; p--) {
+            TBoss6Zanzo__sub_80320534((Obj_80320534 *)arg0, p, p - 1);
+        }
+        TBoss6Zanzo__sub_80320534((Obj_80320534 *)arg0, p, arg0->last);
+        arg0->last->a = 0;
+    }
+}
+
 Obj_80320950 *__dt__11TBoss6ZanzoFv(Obj_80320950 *arg0, s16 arg1) {
     Src_80320950 *p;
     Src_80320950 *end;
@@ -99,6 +128,30 @@ Obj_80320950 *__dt__11TBoss6ZanzoFv(Obj_80320950 *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+Obj_803209F0 *TBoss6Zanzo__ct(Obj_803209F0 *arg0, void *arg1, s32 arg2, s32 arg3) {
+    Src_803209F0 *p;
+    Src_803209F0 *end;
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    arg0->vt = __vt__11TBoss6Zanzo;
+    arg0->f0 = lbl_805D4140;
+    arg0->n = arg2;
+    if (arg0->n < 2) {
+        arg0->n = 2;
+    }
+    arg0->m = arg3;
+    if (arg0->m < 2) {
+        arg0->m = 2;
+    }
+    arg0->arr = (Src_803209F0 *)alloc_buffer__11TOBoss4RockFPv(arg0->m * 8);
+    for (p = arg0->arr, end = p + arg0->m; p < end; p++) {
+        p->a = 0;
+        p->p = alloc_buffer__11TOBoss4RockFPv(arg0->n * 0x10);
+    }
+    arg0->last = (Src_803209F0 *)alloc__23TAdSinglePlyChrSelectGCFPv(8);
+    arg0->last->a = 0;
+    arg0->last->p = alloc_buffer__11TOBoss4RockFPv(arg0->n * 0x10);
     return arg0;
 }
 

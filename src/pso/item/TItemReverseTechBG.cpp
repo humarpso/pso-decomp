@@ -8,6 +8,24 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct TItemReverseTechBG_80119658 {
+    u8 pad0[0x1C];
+    s32 m1C;
+    s32 m20;
+    u32 alpha;
+    s32 step;
+    u8 pad2C[0x34 - 0x2C];
+    u32 color;
+    u8 pad38[0x5C - 0x38];
+    s32 timer;
+    s32 state;
+};
+
+extern "C" {
+void queue_destruction__7TObjectFv(void *);
+void run_task__18TItemReverseTechBGFv(TItemReverseTechBG_80119658 *o);
+}
+
 extern "C" {
 
 void *__ct__18TItemReverseTechBGFv(void *arg0, void *arg1, void *arg3);
@@ -32,6 +50,50 @@ void render__18TItemReverseTechBGFv(void *arg0) {
 extern void *__vt__18TItemReverseTechBG[];
 extern s32 lbl_805D2C54;
 extern const f32 lbl_805DAC08;
+
+void run_task__18TItemReverseTechBGFv(TItemReverseTechBG_80119658 *o) {
+    switch (o->state) {
+    case 0:
+        if (o->alpha != 0xFF) {
+            o->alpha += o->step;
+            if (o->alpha > 0xFF) {
+                o->alpha = 0xFF;
+            }
+        }
+        if (o->timer == o->m20) {
+            o->alpha = 0xFF;
+            o->state = 1;
+            o->timer = 0;
+        } else {
+            o->timer++;
+        }
+        break;
+    case 1:
+        if (o->timer == o->m1C) {
+            o->state = 2;
+            o->timer = 0;
+        } else {
+            o->timer++;
+        }
+        break;
+    case 2:
+        if (o->alpha != 0) {
+            o->alpha -= o->step;
+        }
+        if (o->timer == o->m20) {
+            o->alpha = 0;
+            o->state = 3;
+            o->timer = 0;
+        } else {
+            o->timer++;
+        }
+        break;
+    case 3:
+        queue_destruction__7TObjectFv(o);
+        return;
+    }
+    o->color = (o->alpha << 24) | 0xFFFFFF;
+}
 
 void *__ct__18TItemReverseTechBGFv(void *arg0, void *arg1, void *arg3) {
     s32 temp_r3;

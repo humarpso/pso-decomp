@@ -25,6 +25,27 @@ struct Obj_80202C08 { s32 a[4]; s32 b[4]; s32 n; };
 
 struct Obj_80202C3C { s32 a[4]; s32 b[4]; s32 n; };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Slot_80202C68 { u8 data[0x39B4]; };
+
+struct Words_80202C68 { u32 w[32]; };
+
+struct Blk_80202C68 { u32 a; Words_80202C68 b; };
+
+struct Pair_80202C68 { u32 a; u32 b; };
+
+struct Tail_80202C68 { Pair_80202C68 p0, p1, p2, p3, p4, p5, p6; };
+
+struct Save_80202C68 {
+    s32 hdr;
+    Slot_80202C68 slots[7];
+    Tail_80202C68 tail;
+    Blk_80202C68 blk;
+    s32 f194AC;
+};
+
 extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0);
 int fn_8020325C(void *arg0);
@@ -56,6 +77,8 @@ void __construct_array(void *, void *, void *, int, int);
 void* init_guild_card_tag__23TAdSinglePlyChrSelectGCFPv(void* p);
 void TAdSinglePlyChrSelectGC__sub_802115C0();
 u8 *TAdSinglePlyChrSelectGC__sub_80203190(u8 *arg0);
+void TAdSinglePlyChrSelectGC__sub_80202D7C(void *, void *);
+Save_80202C68 *TAdSinglePlyChrSelectGC__sub_80202C68(Save_80202C68 *arg0, Save_80202C68 *arg1);
 }
 
 extern "C" {
@@ -200,6 +223,23 @@ void TAdSinglePlyChrSelectGC__sub_80202C3C(Obj_80202C3C *self) {
         self->a[i] = -1;
         self->b[i] = -1;
     }
+}
+
+Save_80202C68 *TAdSinglePlyChrSelectGC__sub_80202C68(Save_80202C68 *arg0, Save_80202C68 *arg1) {
+    Slot_80202C68 *d;
+    Slot_80202C68 *s;
+    arg0->hdr = arg1->hdr;
+    d = arg0->slots;
+    s = arg1->slots;
+    do {
+        TAdSinglePlyChrSelectGC__sub_80202D7C(d, s);
+        d++;
+        s++;
+    } while (d < &arg0->slots[7]);
+    arg0->tail = arg1->tail;
+    arg0->blk = arg1->blk;
+    arg0->f194AC = arg1->f194AC;
+    return arg0;
 }
 
 void* copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(void* p, void* a1) { copy_item_data__6TLobbyFPvPv(p); *(short*)((char*)p + 0x14) = *(short*)((char*)a1 + 0x14); *(short*)((char*)p + 0x16) = *(short*)((char*)a1 + 0x16); return p; }

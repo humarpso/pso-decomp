@@ -596,6 +596,33 @@ s32 check_flags__10TObjPlayerFii(s32 arg0, s32 arg1) {
     }
     return 1;
 }
+s32 TObjPlayer__sub_80155B34(M2C_UNK arg0, u8 *self, void *pos) {
+    CollisionBody_80155FBC source;
+    CollisionBody_80155FBC destination;
+    s32 i;
+    u8 *other;
+    void *data;
+
+    if (self != NULL && (data = *(void **)(self + 0xA4)) != NULL) {
+        source.colliders = data;
+        source.count = *(s32 *)(self + 0xA8);
+        VecCopy__FP3VecPC3Vec(&source.position, pos);
+        source.facing = *(s32 *)(self + 0x60);
+        for (i = 0; i < lbl_805D5868; i++) {
+            other = (u8 *)get_player_data__10TObjPlayerFi(i);
+            if (other != NULL && other != self && (data = *(void **)(other + 0xA4)) != NULL) {
+                destination.colliders = data;
+                destination.count = *(s32 *)(other + 0xA8);
+                VecCopy__FP3VecPC3Vec(&destination.position, other + 0x38);
+                destination.facing = *(s32 *)(other + 0x60);
+                if (TObjPlayer__sub_80155C54(source, destination) != 0) {
+                    return 1;
+                }
+            }
+        }
+    }
+    return 0;
+}
 
 void* find_actor_body_contact(u8* arg0, u8* arg1, f32 limit) {
     CollisionBody_80155FBC source, destination;

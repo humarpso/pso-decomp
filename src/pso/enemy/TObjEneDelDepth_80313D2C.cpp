@@ -4,6 +4,29 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct V3_80313E34 { s32 a, b, c; };
+
+extern "C" {
+M2C_UNK render_anim_model__10TObjPlayerFPvf(void *, f32);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK create__19TObjEneDelDepthBombFPvPvPvPv(void *, void *, void *, int);
+M2C_UNK TObjEneDelDepth__sub_803154A8(void *, int);
+s32 get_flag_bit4__15TObjEneDelDepthFPv(void *);
+M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK TObjPlayer__sub_803D97F0(void *);
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_flag__10TObjPlayerFv();
+M2C_UNK clear_global_state__10TObjPlayerFv();
+extern V3_80313E34 lbl_80475DB0;
+extern M2C_UNK lbl_8058D490[];
+extern s32 lbl_805D5678;
+extern u8 *TObjEneDelDepth__data_805D6AC0;
+extern const f32 lbl_805DF284;
+void TObjEneDelDepth__sub_80313E34(u8 *arg0);
+}
+
 extern "C" {
 
 void TObjEneDelDepth__sub_80313DE4(void* p);
@@ -43,5 +66,38 @@ void update_attack_cast__15TObjEneDelDepthFPv(u8 *arg0) {
 }
 
 void TObjEneDelDepth__sub_80313DE4(void* p) { *(int*)((char*)p + 0x384) = 30; *(int*)((char*)p + 0x388) = 12; TObjEneDelDepth__sub_80316488(*(void**)((char*)p + 0x37c), (void*)1); set_draw_mode__15TObjEneDelDepthFPvi(p, (void*)2); }
+void TObjEneDelDepth__sub_80313E34(u8 *arg0) {
+    V3_80313E34 out;
+    s32 temp_r0;
+    s32 temp_r0_2;
+    M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) - 1);
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x388);
+    if ((temp_r0 <= 0) && (temp_r0 == 0)) {
+        set_global_flag__10TObjPlayerFv();
+        TObjPlayer__sub_803D97F0((void *) (lbl_8058D490));
+        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        render_anim_model__10TObjPlayerFPvf((void *) (arg0), (f32) (lbl_805DF284));
+        TObjPlayer__sub_803D9B78();
+        TObjPlayer__sub_803D97F0((void *) (lbl_805D5678 + 0x450));
+        {
+        V3_80313E34 v = lbl_80475DB0;
+        TCameraCtrl__sub_803D8934(0, &v, &out);
+        }
+        TObjPlayer__sub_803D9B78();
+        clear_global_state__10TObjPlayerFv();
+        TBoss3Volopt__sub_8022675C((int) (0x4003A81D), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        create__19TObjEneDelDepthBombFPvPvPvPv((void *) (arg0), (void *) (arg0), (void *) (&out), (int) (M2C_FIELD(TObjEneDelDepth__data_805D6AC0, s32 *, 0x18)));
+    }
+    temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x384) - 1;
+    M2C_FIELD(arg0, s32 *, 0x384) = temp_r0_2;
+    if (temp_r0_2 <= 0) {
+        if (get_flag_bit4__15TObjEneDelDepthFPv((void *) (arg0)) != 0) {
+            TObjEneDelDepth__sub_803154A8((void *) (arg0), (int) (7));
+            return;
+        }
+        TObjEneDelDepth__sub_803154A8((void *) (arg0), (int) (5));
+    }
+}
 
 }

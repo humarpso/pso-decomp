@@ -14,6 +14,19 @@ struct RecoveredGlobal_8035C22C___vt__19TObjBoss8PillerCtrl {
     u8 remaining[0x14];
 };
 
+struct Vec_8035C03C { f32 x, y, z; };
+
+struct Ent_8035C03C { s32 x; s32 y; };
+
+struct Self_8035C03C {
+    u8 pad0[0x1c];
+    Vec_8035C03C pos;
+    s32 f28;
+    u16 f2C;
+    u8 pad2e[0x34 - 0x2e];
+    Ent_8035C03C *list;
+};
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK __ct__7TObjectFP7TObject();
@@ -23,6 +36,17 @@ extern M2C_UNK __vt__19TObjBoss8PillerCtrl[];
 extern s32 lbl_805D4430;
 extern const f32 lbl_805E017C;
 u8 *TObjBoss8PillerCtrl__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s16 arg3);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+void queue_destruction__7TObjectFv(void *);
+void *__nw__7TObjectFUl(u32);
+void __ct__15TObjBoss8PillerFv(void *, s32, Vec_8035C03C *, f32, u16);
+s32 fn_8035BFF8(void *, Vec_8035C03C *);
+extern s32 tl_05;
+extern const f32 lbl_805E016C;
+extern const f32 lbl_805E0170;
+extern const f32 lbl_805E0174;
+extern const f32 lbl_805E0178;
+void run_task__19TObjBoss8PillerCtrlFv(Self_8035C03C *self);
 }
 
 extern "C" {
@@ -37,6 +61,38 @@ void TObjBoss8PillerCtrl__sub_8035C034(void * _w0, void * _w1) {  }
 void render__19TObjBoss8PillerCtrlFv(void) {  }
 
 extern M2C_UNK __vt__19TObjBoss8PillerCtrl[];
+
+#pragma fp_contract on
+void run_task__19TObjBoss8PillerCtrlFv(Self_8035C03C *self) {
+    Vec_8035C03C v;
+    void *p;
+    switch (self->f28) {
+    case 0:
+    case 5:
+    case 10:
+    case 15:
+        while (self->list->y != 0xFFFF) {
+            VecCopy__FP3VecPC3Vec(&v, &self->pos);
+            v.x = lbl_805E016C * self->list->y + v.x;
+            v.z = lbl_805E0170 * self->list->x + v.z;
+            if (self->list->y & 1) {
+                v.z += lbl_805E0174;
+            }
+            if (fn_8035BFF8(self, &v) == 0) {
+                p = __nw__7TObjectFUl(0x34);
+                if (p != NULL) {
+                    __ct__15TObjBoss8PillerFv(p, tl_05, &v, lbl_805E0178, self->f2C);
+                }
+            }
+            self->list++;
+        }
+        self->list++;
+        break;
+    }
+    if (self->f28++ > 0x32) {
+        queue_destruction__7TObjectFv(self);
+    }
+}
 
 void *__dt__19TObjBoss8PillerCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

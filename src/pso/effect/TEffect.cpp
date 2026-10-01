@@ -17,6 +17,16 @@ struct Stack_80082C30 {
     f32 sp24;
 };
 
+struct Color_80082CDC { u8 r, g, b, a; };
+
+struct V2_80082CDC { f32 x, y; };
+
+struct C_80082CDC { u8 pad[0x20]; void *tex; };
+
+struct B_80082CDC { u8 pad[0xC]; C_80082CDC *c; };
+
+struct A_80082CDC { u8 pad[0x8]; B_80082CDC *b; };
+
 extern "C" {
 s32 set_global_param__8TObjFishFi(void *);
 s32 TWindowSubStatusDisp__sub_803DEE6C(int);
@@ -33,6 +43,27 @@ extern const f32 lbl_805D93D4;
 extern const f32 lbl_805D93D8;
 extern const f32 lbl_805D93DC;
 void TObjPlayer__sub_80082C30(void);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void TObjPlayer__sub_80082C30(void);
+void TObjPlayer__sub_800842A4(s32, void *, void *, s32);
+void setup_tev_swap__10TObjPlayerFv(void);
+void TObjPlayer__sub_80141448(s32);
+s32 is_on_current_screen__11TCameraCtrlFPv(void *, s32);
+void GXPixModeSync(void);
+void GXSetTexCopySrc(u16, u16, u16, u16);
+void GXSetTexCopyDst(u16, u16, s32, u8);
+void GXSetCopyClear(Color_80082CDC, u32);
+void GXCopyTex(void *, u8);
+extern A_80082CDC *lbl_8048E5B4[];
+extern u8 lbl_8050E3B8[];
+extern const f32 lbl_805D93C0;
+extern const f32 lbl_805D93C8;
+extern const f32 lbl_805D93E0;
+extern const f32 lbl_805D93E4;
+extern const f32 lbl_805D93E8;
+extern Color_80082CDC lbl_805E1214;
+extern Color_80082CDC lbl_805E1218;
+void TObjPlayer__sub_80082CDC(s32 mode, void *src);
 }
 
 extern "C" {
@@ -106,4 +137,68 @@ extern "C" void TObjPlayer__sub_80082CBC(void* effect) {
 
 extern "C" void TObjPlayer__sub_80082CCC(void* effect) {
     *(reinterpret_cast<u8*>(effect) + 0x1C) &= ~0x4;
+}
+void TObjPlayer__sub_80082CDC(s32 mode, void *src) {
+    V2_80082CDC a;
+    V2_80082CDC b;
+    V2_80082CDC v;
+    void *cam;
+    GXSetCopyClear(lbl_805E1214, 0xFFFFFF);
+    switch (mode) {
+    case 0:
+        if (src != NULL) {
+            copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&v, src);
+            v.x -= lbl_805D93E0;
+            v.y -= lbl_805D93E4;
+        } else {
+            v.x = lbl_805D93C0;
+            v.y = lbl_805D93E8;
+        }
+        GXSetTexCopySrc(v.x, v.y, 0x100, 0xC0);
+        GXSetTexCopyDst(0x100, 0xC0, 4, 0);
+        GXCopyTex(lbl_8048E5B4[0]->b->c->tex, 1);
+        GXPixModeSync();
+        cam = lbl_8050E3B8 + 0x110;
+        a.x = lbl_805D93C0;
+        a.y = lbl_805D93E8;
+        b.x = lbl_805D93C8;
+        b.y = lbl_805D93C0;
+        if (is_on_current_screen__11TCameraCtrlFPv(cam, 0x100) != 0) {
+            TObjPlayer__sub_80141448(0);
+        }
+        TObjPlayer__sub_800842A4(-1, &a, &b, 1);
+        if (is_on_current_screen__11TCameraCtrlFPv(cam, 0x100) != 0) {
+            setup_tev_swap__10TObjPlayerFv();
+        }
+        TObjPlayer__sub_80082C30();
+        GXSetTexCopySrc(0xC0, 0x90, 0x100, 0xC0);
+        GXSetTexCopyDst(0x100, 0xC0, 4, 0);
+        GXCopyTex(lbl_8048E5B4[0]->b->c->tex, 1);
+        GXPixModeSync();
+        break;
+    case 1:
+        GXSetCopyClear(lbl_805E1218, 0xFFFFFF);
+        GXSetTexCopySrc(0, 0, 0x280, 0x1E0);
+        GXSetTexCopyDst(0x280, 0x1E0, 4, 0);
+        GXCopyTex(lbl_8048E5B4[0]->b->c->tex, 1);
+        GXPixModeSync();
+        cam = lbl_8050E3B8 + 0x110;
+        a.x = lbl_805D93C0;
+        a.y = lbl_805D93E8;
+        b.x = lbl_805D93C8;
+        b.y = lbl_805D93C0;
+        if (is_on_current_screen__11TCameraCtrlFPv(cam, 0x100) != 0) {
+            TObjPlayer__sub_80141448(0);
+        }
+        TObjPlayer__sub_800842A4(-1, &a, &b, 0);
+        if (is_on_current_screen__11TCameraCtrlFPv(cam, 0x100) != 0) {
+            setup_tev_swap__10TObjPlayerFv();
+        }
+        TObjPlayer__sub_80082C30();
+        GXSetTexCopySrc(0xC0, 0x90, 0x100, 0xC0);
+        GXSetTexCopyDst(0x100, 0xC0, 4, 0);
+        GXCopyTex(lbl_8048E5B4[0]->b->c->tex, 1);
+        GXPixModeSync();
+        break;
+    }
 }

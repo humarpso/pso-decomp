@@ -89,7 +89,6 @@ bool TWindowCtrl__sub_8024A26C(void);
 u8 *TPhotonMylla__sub_80154CB4(u16);
 extern const f32 lbl_805DCBE0;
 f32 TWindowCtrl__sub_8024A688(M2C_UNK arg0, RecoveredFields_8024A688_arg1 *arg1, u16 arg2);
-void *TWindowCtrl__sub_8024A800(Ctrl_8024A928 *, s32, s32, void *);
 void TWindowFukidasi__sub_802501F4(void *, s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 s32 check_card_match_enabled__15TWindowFukidasiFPvi(void *, void *);
@@ -101,6 +100,15 @@ s32 TWindowCtrl__sub_8024A7CC(Obj_8024A7CC *self);
 void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern s32 lbl_805D53A0;
 s32 TWindowCtrl__sub_8024A714(Ctrl_8024A714 *ctrl, u16 speaker);
+void *__nw__7TObjectFUl(u32);
+s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
+M2C_UNK TWindow__close(void *);
+void TWindowCtrl__sub_8024A5AC(Ctrl_8024A928 *, s32, f32 *, s32 *);
+s32 TWindowCtrl__sub_8024A714(Ctrl_8024A714 *ctrl, u16 speaker);
+s32 TWindowCtrl__sub_8024A7CC(Obj_8024A7CC *self);
+u16 get_flags__11TWindowCtrlFPv(void *);
+void *TWindowFukidasi__sub_80252B74(void *, s32, s32, void *, f32);
+void *TWindowCtrl__sub_8024A800(Ctrl_8024A928 *self, s32 player, s32 flags, void *local);
 }
 
 extern "C" {
@@ -339,6 +347,42 @@ s32 TWindowCtrl__sub_8024A7CC(Obj_8024A7CC *self) {
     return n;
 }
 
+void *TWindowCtrl__sub_8024A800(Ctrl_8024A928 *self, s32 player, s32 flags, void *local) {
+    f32 f;
+    s32 n;
+    u32 i;
+    void *b;
+    TWindowCtrl__sub_8024A5AC(self, player, &f, &n);
+    i = 4;
+    if (!(flags & 0x10)) {
+        for (i = 0; i < 4; i++) {
+            b = self->slots[i];
+            if (b != 0 && all_parents_unqueued_for_destruction__7TObjectFv(b) != 0 &&
+                (u16)player == get_flags__11TWindowCtrlFPv(b)) {
+                break;
+            }
+        }
+    }
+    if (i >= 4) {
+        i = TWindowCtrl__sub_8024A7CC((Obj_8024A7CC *)self);
+        if (i >= 4) {
+            i = ((s32 (*)(Ctrl_8024A714 *, s32))TWindowCtrl__sub_8024A714)((Ctrl_8024A714 *)self, player);
+        }
+        if (i >= 4) {
+            return 0;
+        }
+        if (self->slots[i] != 0) {
+            TWindow__close(self->slots[i]);
+        }
+        b = __nw__7TObjectFUl(0x98);
+        if (b != 0) {
+            b = TWindowFukidasi__sub_80252B74(b, player, n, local, f);
+        }
+        self->slots[i] = b;
+    }
+    return self->slots[i];
+}
+
 void *TWindowCtrl__sub_8024A928(Ctrl_8024A928 *self, s32 player, s32 flags, void *text, void *local) {
     u32 i;
     if ((*(Ctrl_8024A928 * *)&TWindowCtrl__data_805D63F8) == 0) {
@@ -355,7 +399,7 @@ void *TWindowCtrl__sub_8024A928(Ctrl_8024A928 *self, s32 player, s32 flags, void
             }
         }
     }
-    return TWindowCtrl__sub_8024A800((*(Ctrl_8024A928 * *)&TWindowCtrl__data_805D63F8), player, flags, local);
+    return TWindowCtrl__sub_8024A800((Ctrl_8024A928 *)((*(Ctrl_8024A928 * *)&TWindowCtrl__data_805D63F8)), (s32)(player), (s32)(flags), (void *)(local));
 }
 
 void TLobby__sub_8024AAA0(s32 arg0, s32 arg1) {

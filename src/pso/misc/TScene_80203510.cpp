@@ -28,6 +28,7 @@ struct W_8020430C { s32 a, b, c; };
 
 struct Cam_8020430C { u8 pad[0x178]; W_8020430C pos; };
 
+struct Obj_802040D4;
 extern "C" {
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 SceneMaterialSection *TScene__sub_80203600(s32 id);
@@ -52,6 +53,12 @@ extern Root_80204024 *lbl_805D4DF0;
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern f32 TScene__data_805D5FE4;
 void TScene__sub_8020430C(void);
+SceneMaterialNode* TScene__sub_80203324(void*,SceneMaterialStatic*);
+SceneMaterialNode* TScene__sub_80203304(void*,SceneMaterialAnimated*);
+s32 TScene__sub_802040D4(void *arg0, Obj_802040D4 *o, f32 f0, f32 f1);
+extern const f32 lbl_805DC5DC;
+extern const f32 lbl_805DC5E0;
+void TScene__sub_802041F4(void *task, SceneMaterialSection *room);
 }
 
 extern "C" {
@@ -206,6 +213,33 @@ bool TScene__sub_80204188(f32 farg0) {
     }
     return (sp[2] < -farg0) == 0;
 }
+
+void TScene__sub_802041F4(void *task, SceneMaterialSection *room) {
+    SceneMaterialStatic *object;
+    s32 i;
+    SceneMaterialAnimated *anim;
+    i = 0;
+    room->flags |= 0x10000;
+    for (object = room->objects; i < room->count; i++, object++) {
+        if (object->node != NULL) {
+            if (TScene__sub_802040D4(task, (Obj_802040D4 *)((SceneMaterialNode *)TScene__sub_80203324((void*)(task), (SceneMaterialStatic*)(object))), lbl_805DC5DC, lbl_805DC5E0) != 0) {
+                object->flags |= 0x10000;
+            } else {
+                object->flags &= ~0x10000;
+            }
+        }
+    }
+    for (anim = room->animated, i = 0; i < room->animatedCount; i++, anim++) {
+        if (anim->node != NULL) {
+            if (TScene__sub_802040D4(task, (Obj_802040D4 *)((SceneMaterialNode *)TScene__sub_80203304((void*)(task), (SceneMaterialAnimated*)(anim))), lbl_805DC5DC, lbl_805DC5E0) != 0) {
+                anim->flags |= 0x10000;
+            } else {
+                anim->flags &= ~0x10000;
+            }
+        }
+    }
+}
+
 void TScene__sub_8020430C(void) {
     f32 r;
     f32 r2;

@@ -47,6 +47,35 @@ struct RecoveredFields_80367F6C_arg0
 
 struct O_80367DA4 { u8 pad[0x3e0]; s32 arr[4]; };
 
+struct Gill_803671A4 {
+    u8 pad0[0x30];
+    u32 flags;
+    u8 pad34[0x84];
+    s16 xb8;
+    u8 padba[0x26C];
+    s16 x326;
+    s16 x328;
+    u8 pad32a[0x6A];
+    s32 x394;
+    u8 pad398[0x14];
+    f32 x3ac;
+};
+
+struct Hit_803683BC { u8 pad[0x30]; u32 flags; };
+
+struct Gill_803683BC {
+    u8 pad0[0x30];
+    u32 flags;
+    u8 pad34[0x274];
+    Hit_803683BC *x2a8;
+    u8 pad2ac[8];
+    f32 x2b4;
+    u8 pad2b8[0x6E];
+    s16 x326;
+    u8 pad328[0x74];
+    s32 x39c;
+};
+
 extern "C" {
 int obj_clearFlags30(void*, int);
 void free_resources__14TObjEneIllGillFPv(void *arg0);
@@ -97,6 +126,23 @@ s32 TObjPlayer__sub_80016FF8(void *);
 int obj_clearFlags30(void*, int);
 s32 TObjEneIllGill__vt34(u8 *arg0);
 void TObjEneIllGill__sub_80367DA4(s32 arg0);
+void TObjEneIllGill__sub_80367DA4(s32 arg0);
+extern const f32 TObjEneIllGill__data_805E02BC;
+void TObjEneIllGill__vt58(Gill_803671A4 *o);
+void copy_position__20TBoss3VoloptHiraisinFi(void *);
+void update_prev_position__10TObjPlayerFPv(void *);
+void TObjPlayer__sub_801B4A18(void *, int);
+void TObjEneIllGill__sub_80365688(void *);
+void TObjEneIllGill__sub_803660A4(void *);
+void TObjEneIllGill__sub_803665B4(u8 *arg0);
+void TObjEneIllGill__sub_803667B8(void *);
+void TObjEneIllGill__sub_803669B0(u8 *arg0);
+void TObjEneIllGill__sub_80366AE4(void *);
+void TObjEneIllGill__sub_80367588(void *);
+void TObjEneIllGill__sub_80367860(void *);
+void run_attack_phase__14TObjEneIllGillFPv(u8 *arg0);
+extern const f32 TObjEneIllGill__data_805E02CC;
+void run_task__14TObjEneIllGillFv(Gill_803683BC *o);
 }
 
 extern "C" {
@@ -259,6 +305,33 @@ extern const f32 TObjEneIllGill__data_805E02DC;
 extern const f32 lbl_805E02E8;
 extern const f32 lbl_805E02FC;
 
+void TObjEneIllGill__vt58(Gill_803671A4 *o) {
+    switch (o->x394) {
+    default:
+        o->x394 = 0;
+    case 0:
+    case 1:
+        o->x326 = 3;
+        o->x328 = 0;
+        o->xb8 = 1;
+        break;
+    case 2:
+        o->x326 = 5;
+        o->x328 = 0;
+        o->xb8 = 1;
+        break;
+    case 3:
+        o->x326 = 4;
+        o->x328 = 0;
+        o->xb8 = 7;
+        o->x3ac = TObjEneIllGill__data_805E02BC;
+        TObjEneIllGill__sub_80367DA4((s32)o);
+        break;
+    }
+    o->flags |= 0x200000;
+    o->flags &= ~0x40000;
+}
+
 void TObjEneIllGill__vt57(u8 *arg0) {
     s16 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
@@ -382,6 +455,49 @@ s32 TObjEneIllGill__vt34(u8 *arg0) {
     return 1;
   }
   return 0;
+}
+
+void run_task__14TObjEneIllGillFv(Gill_803683BC *o) {
+    switch (o->x326) {
+    case 0:
+        run_attack_phase__14TObjEneIllGillFPv((u8 *)o);
+        break;
+    case 1:
+        TObjEneIllGill__sub_80367860(o);
+        break;
+    case 2:
+        TObjEneIllGill__sub_80367588(o);
+        break;
+    case 3:
+        TObjEneIllGill__sub_80366AE4(o);
+        break;
+    case 4:
+        TObjEneIllGill__sub_80365688(o);
+        break;
+    case 5:
+        TObjEneIllGill__sub_803660A4(o);
+        break;
+    case 6:
+        TObjEneIllGill__sub_803669B0((u8 *)o);
+        break;
+    case 7:
+        TObjEneIllGill__sub_803667B8(o);
+        break;
+    case 8:
+        TObjEneIllGill__sub_803665B4((u8 *)o);
+        break;
+    case 9:
+        break;
+    }
+    if (o->x2a8 != NULL && (o->x2a8->flags & 0x02000800)) {
+        o->x39c = 0;
+        o->flags &= ~0x200000;
+        o->x2a8 = NULL;
+    }
+    update_prev_position__10TObjPlayerFPv(o);
+    copy_position__20TBoss3VoloptHiraisinFi(o);
+    TObjPlayer__sub_801B4A18(o, -1);
+    o->x2b4 += TObjEneIllGill__data_805E02CC;
 }
 
 void * create__14TObjEneIllGillFPv(void *arg0) {

@@ -231,7 +231,6 @@ struct VObj_18_9ebd6c : VBase_18_9ebd6c {
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TLobby__sub_800F6510(void *, void *);
-M2C_UNK TOCtrlDubchik__sub_8015CA74(void *);
 s32 TLobby__sub_8002AFD4(void *, void *, int);
 s32 set_flag8__6TLobbyFPv(void *);
 void TOCtrlDubchik__sub_8015CB4C(u8 *arg0);
@@ -306,6 +305,16 @@ void TOCtrlDubchik__sub_8015CDCC(u8 *arg0);
 void TOCtrlDubchik__sub_8015CE80(u8 *arg0);
 void TObjPlayer__sub_801B4A18(void *, s32);
 void run_task__13TOCtrlDubchikFv(u8 *arg0);
+u8 *get_player_data__10TObjPlayerFi(s32);
+s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
+void TObjEneDellBiter__sub_80087350(void *, s32);
+void TObjPlayer__sub_800A8C1C(void *);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+extern s32 lbl_805D29F8;
+extern s32 lbl_805D586C;
+extern s32 lbl_805D5870;
+void TOCtrlDubchik__sub_8015CA74(void *arg0_);
 }
 
 extern "C" {
@@ -329,6 +338,26 @@ extern const f64 TOCtrlDubchik__data_80440990;
 extern const f32 TOCtrlDubchik__data_805DB3B4;
 extern const f32 TOCtrlDubchik__data_805DB3B8;
 
+void TOCtrlDubchik__sub_8015CA74(void *arg0_) {
+    u8 *arg0 = (u8 *)arg0_;
+    s32 state;
+    s32 i;
+    u8 *p;
+    TObjEneDellBiter__sub_80087350(arg0 + 0x38, 0x45);
+    TObjEneDellBiter__sub_80087350(arg0 + 0x38, 0x46);
+    state = get_global_state__14TOKeyMachine01Fv();
+    if (state >= 0x17 || state < 0x13) {
+        TBoss3Volopt__sub_8022675C(0x4003AD16, arg0 + 0x38, 0, 0);
+    }
+    for (i = lbl_805D586C; i < lbl_805D586C + lbl_805D5870; i++) {
+        p = get_player_data__10TObjPlayerFi(i);
+        if (p != NULL && p != arg0 && check_value_equals__13TQuestColCtrlFPvi(p, lbl_805D29F8) != 0 &&
+            *(s32 *)(p + 0x368) == 0 && *(s16 *)(arg0 + 0x28) == *(s16 *)(p + 0x28)) {
+            TObjPlayer__sub_800A8C1C(p);
+        }
+    }
+}
+
 void TOCtrlDubchik__sub_8015CB4C(u8 *arg0) {
     s32 sp8;
     if (TLobby__sub_8002AFD4((void *) (arg0), (void *) (&sp8), (int) (1)) != 0) {
@@ -336,7 +365,7 @@ void TOCtrlDubchik__sub_8015CB4C(u8 *arg0) {
         TLobby__sub_800F6510((void *) (arg0), (void *) (&sp8));
         TLobby__sub_8002AFD4((void *) (arg0), (void *) (&sp8), (int) (0));
         ((VObj_18_65b835 *)(arg0))->m77(&sp8);
-        TOCtrlDubchik__sub_8015CA74((void *) (arg0));
+        TOCtrlDubchik__sub_8015CA74((void *)((void *) (arg0)));
         set_flag8__6TLobbyFPv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
     }

@@ -9,6 +9,11 @@ struct RecoveredGlobal_8004885C_lbl_80484888 {
     u8 remaining[0x14];
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline on
+#pragma dont_inline off
+struct Raw_80048674 { u8 b[12]; };
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_805D4D14;
@@ -22,6 +27,16 @@ extern M2C_UNK lbl_80484888[];
 extern u8 *tl_07;
 extern const f32 lbl_805D8848;
 u8 *TBoss3Volopt__sub_8004885C(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4, f32 farg0, f32 farg1);
+void queue_destruction__7TObjectFv(void *);
+void fn_80086D50(void *, void *, s32);
+s32 rand__11TOBoss4RockFv();
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern const f32 lbl_805D8838;
+extern const f32 lbl_805D883C;
+extern const f32 lbl_805D8840;
+extern const f32 lbl_805D8844;
+void TBoss3Volopt__sub_80048674(u8 *arg0);
 }
 
 extern "C" {
@@ -61,6 +76,28 @@ void *ct__12TBoss3VoloptFPvPvPv(void *arg0, void *arg1, void *arg2) {
 }
 
 extern M2C_UNK lbl_80484888[];
+
+#pragma push
+#pragma fp_contract on
+void TBoss3Volopt__sub_80048674(u8 *arg0) {
+    Raw_80048674 v;
+    s32 ang;
+    f32 d;
+    M2C_FIELD(arg0, f32 *, 0x28) += M2C_FIELD(arg0, f32 *, 0x24);
+    while (M2C_FIELD(arg0, f32 *, 0x28) >= lbl_805D8844) {
+        ang = lbl_805D8838 * (lbl_805D883C * (lbl_805D8840 * (f32)rand__11TOBoss4RockFv()));
+        v = *(Raw_80048674 *)(arg0 + 0x2C);
+        d = M2C_FIELD(arg0, f32 *, 0x44) * (lbl_805D8840 * (f32)rand__11TOBoss4RockFv());
+        M2C_FIELD(&v, f32 *, 0) += d * TBoss8Dragon__sub_803D64DC(ang);
+        M2C_FIELD(&v, f32 *, 8) += d * TBoss8Dragon__sub_803D64C0(ang);
+        fn_80086D50(&v, arg0 + 0x38, M2C_FIELD(arg0, s32 *, 0x1C));
+        M2C_FIELD(arg0, f32 *, 0x28) -= lbl_805D8844;
+    }
+    if (--M2C_FIELD(arg0, s32 *, 0x20) <= 0) {
+        queue_destruction__7TObjectFv(arg0);
+    }
+}
+#pragma pop
 
 void *TBoss3Volopt__sub_80048804(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

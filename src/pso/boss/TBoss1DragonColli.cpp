@@ -23,8 +23,22 @@ struct E_8002B42C { u8 pad[0x18]; u32 flags; u8 pad2[0x2c - 0x1c]; };
 
 struct O_8002B42C { u8 pad[0xa4]; E_8002B42C *elems; s32 count; };
 
+typedef s32 M2C_UNK;
+struct O_8002B3F4;
+struct E_8002B4CC { f32 x, y, z, w; u8 pad10[8]; u32 flags; u8 pad1c[0x2c - 0x1c]; };
+
+struct O_8002B4CC {
+    s32 f0;
+    u8 pad4[0x18 - 4];
+    void *vt;
+    s16 f1c;
+    u8 pad1e[0xa4 - 0x1e];
+    E_8002B4CC *elems;
+    s32 count;
+    u8 pos[0xc];
+};
+
 extern "C" {
-s32 TBoss1DragonColli__sub_8002B4CC(int, void *, int, void *, f32);
 s32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8002B250___vt__17TBoss1DragonColli __vt__17TBoss1DragonColli;
@@ -38,6 +52,20 @@ extern const f32 lbl_805D811C;
 u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1);
 void TBoss1DragonColli__sub_8002B3F4(O_8002B3F4 *self);
 void TBoss1DragonColli__sub_8002B42C(O_8002B42C *self);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void TBoss1DragonColli__sub_8002B3F4(O_8002B3F4 *self);
+void fn_8002B630(u8 *arg0, u8 *arg1);
+E_8002B4CC *alloc_buffer__11TOBoss4RockFPv(s32);
+M2C_UNK TObjPlayer__sub_80154B60(void *);
+int TObjPlayer__sub_80154E3C(void*);
+M2C_UNK TObjPlayer__sub_801569F4(void *, void *);
+s16 TLobby__sub_801A2078(int);
+extern u8 lbl_80481B90[];
+extern M2C_UNK lbl_80481BD4[];
+extern s32 lbl_805D2658;
+extern const f32 lbl_805D8108;
+extern const f32 lbl_805D8120;
+s32 TBoss1DragonColli__sub_8002B4CC(int arg0, void *arg1, int arg2, void *arg3, f32 scale);
 }
 
 extern "C" {
@@ -110,7 +138,7 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
     temp_r3 = __nw__7TObjectFUl((int) (0xB8));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = TBoss1DragonColli__sub_8002B4CC((int) (temp_r3), (void *) (arg0), (int) (1), (void *) (&stack.sp8), (f32) (lbl_805D810C));
+        var_r0 = TBoss1DragonColli__sub_8002B4CC((int)((int) (temp_r3)), (void *)((void *) (arg0)), (int)((int) (1)), (void *)((void *) (&stack.sp8)), (f32) (lbl_805D810C));
     }
     M2C_FIELD(arg0, s32 *, 0x1C) = var_r0;
     stack.sp8 = lbl_805D8110;
@@ -119,7 +147,7 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
     temp_r3_2 = __nw__7TObjectFUl((int) (0xB8));
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
-        var_r0_2 = TBoss1DragonColli__sub_8002B4CC((int) (temp_r3_2), (void *) (arg0), (int) (3), (void *) (&stack.sp8), (f32) (lbl_805D8118));
+        var_r0_2 = TBoss1DragonColli__sub_8002B4CC((int)((int) (temp_r3_2)), (void *)((void *) (arg0)), (int)((int) (3)), (void *)((void *) (&stack.sp8)), (f32) (lbl_805D8118));
     }
     M2C_FIELD(arg0, s32 *, 0x20) = var_r0_2;
     stack.sp8 = lbl_805D8110;
@@ -128,7 +156,7 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
     temp_r3_3 = __nw__7TObjectFUl((int) (0xB8));
     var_r0_3 = temp_r3_3;
     if (var_r0_3 != 0) {
-        var_r0_3 = TBoss1DragonColli__sub_8002B4CC((int) (temp_r3_3), (void *) (arg0), (int) (5), (void *) (&stack.sp8), (f32) (lbl_805D8118));
+        var_r0_3 = TBoss1DragonColli__sub_8002B4CC((int)((int) (temp_r3_3)), (void *)((void *) (arg0)), (int)((int) (5)), (void *)((void *) (&stack.sp8)), (f32) (lbl_805D8118));
     }
     M2C_FIELD(arg0, s32 *, 0x24) = var_r0_3;
     return arg0;
@@ -168,6 +196,42 @@ void *destroy__17TBoss1DragonColliFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+#define self ((O_8002B4CC *)arg0)
+s32 TBoss1DragonColli__sub_8002B4CC(int arg0, void *arg1, int arg2, void *arg3, f32 scale) {
+    E_8002B4CC *e;
+    s32 i;
+    f32 zero;
+    f32 step;
+    f32 z;
+    TObjPlayer__sub_801569F4(self, arg1);
+    self->vt = ((u8 *)&lbl_80481BD4);
+    self->f0 = lbl_805D2658;
+    VecCopy__FP3VecPC3Vec(self->pos, arg3);
+    self->f1c = TLobby__sub_801A2078(0);
+    self->count = arg2;
+    self->elems = alloc_buffer__11TOBoss4RockFPv(self->count * 0x2C);
+    step = lbl_805D8120 * scale;
+    e = self->elems;
+    zero = lbl_805D8108;
+    z = scale * (f32)(self->count - 1);
+    for (i = 0; i < self->count; i++) {
+        fn_8002B630((u8 *)e, lbl_80481B90);
+        e->x = zero;
+        e->y = zero;
+        e->z = z;
+        z -= step;
+        e->w = scale;
+        e->flags = 0x10003;
+        e++;
+    }
+    TObjPlayer__sub_80154E3C(self);
+    TObjPlayer__sub_80154B60(self);
+    TBoss1DragonColli__sub_8002B3F4((O_8002B3F4 *)self);
+    return arg0;
+}
+#undef self
+
 void fn_8002B630(u8 *arg0, u8 *arg1) {
     *(M2CCopy_C *)(arg0) = *(const M2CCopy_C *)(arg1);
     M2C_FIELD(arg0, f32 *, 0xC) = (f32) M2C_FIELD(arg1, f32 *, 0xC);

@@ -28,6 +28,11 @@ struct V3_802531A4 { u8 bytes[0xc]; };
 #pragma dont_inline off
 struct V3_802534B0 { u8 bytes[0xc]; };
 
+#pragma inline_depth(1)
+#pragma auto_inline on
+#pragma dont_inline off
+struct V3_802532E8 { u8 bytes[0xc]; };
+
 extern "C" {
 M2C_UNK clear_fields__20TWindowSubStatusDispFPv(void *);
 s32 TWindowHelpItem__sub_801B3038(int, void *);
@@ -60,6 +65,27 @@ void TWindowSubStatusDisp__sub_80257D44(void *, const void *, s16);
 s32 reset_float_field__15TWindowHelpItemFPv(void *);
 s32 TWindowSubStatusDisp__sub_8025AC50(void *, void *, s32);
 void TWindowHelpItem__vt2(u8 *arg0);
+s32 TLobby__sub_8001DC24();
+void TWindowHelpItem__sub_80104FCC(int, void *, void *);
+s16 get_technique_level__9TItemDataFPv(void *);
+void TItemData__sub_8010E414(void *);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
+void TWindowSubStatusDisp__sub_80229080();
+void TWindowSubStatusDisp__sub_802290E0();
+void set_flag0_bit2__15TWindowHelpItemFPv(void *);
+void TWindowHelpItem__sub_80255DC8(u8);
+void TWindowSubStatusDisp__sub_80257D44(void *, const void *, s16);
+s32 reset_float_field__15TWindowHelpItemFPv(void *);
+s32 TWindowSubStatusDisp__sub_8025AC50(void *, void *, s32);
+void TWindowHelpItem__sub_8025B08C(void *, f32, f32);
+extern u8 lbl_804CF5DC[];
+extern V3_802532E8 lbl_804CF898;
+extern s32 lbl_805D5544;
+extern const f32 TWindowHelpItem__data_805DCDE4;
+extern const f32 lbl_805DCDE8;
+extern const f32 lbl_805DCDEC;
+void TWindowHelpItem__sub_802532E8(u8 *arg0);
 }
 
 extern "C" {
@@ -100,6 +126,54 @@ void TWindowHelpItem__sub_80253268(u8 *arg0) {
                 M2C_FIELD(temp_r31_2, s32 *, 0x20) = (s32) stack.spC;
             }
         }
+    }
+}
+
+void TWindowHelpItem__sub_802532E8(u8 *arg0) {
+    s32 sp8;
+    s32 temp_r3;
+    u8 *e0;
+    u8 *e1;
+    u8 *e2;
+    u8 *e3;
+    u8 *e4;
+    u8 *e5;
+    u8 *e6;
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(*(s16 *)(arg0 + 0x20));
+    if (temp_r3 != 0) {
+        TWindowSubStatusDisp__sub_80257D44(arg0 + 0x24, lbl_804CF5DC, *(s16 *)(arg0 + 0x20));
+        *(V3_802532E8 *)(arg0 + 0xB0) = lbl_804CF898;
+        e0 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
+        TWindowSubStatusDisp__sub_802290E0();
+        TItemData__sub_8010E414(*(void **)(arg0 + 0x68));
+        TWindowSubStatusDisp__sub_80229080();
+        if (lbl_805D5544 == 0) {
+            TWindowHelpItem__sub_80255DC8(*(*(u8 **)(arg0 + 0x68) + 4));
+            TWindowSubStatusDisp__sub_80229080();
+        }
+        TWindowSubStatusDisp__sub_8025AC50(e0, (void *)TLobby__sub_8001DC24(), 0x20);
+        reset_float_field__15TWindowHelpItemFPv(e0);
+        e1 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);
+        e2 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 2);
+        e3 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 3);
+        e4 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 4);
+        e5 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 5);
+        e6 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 6);
+        TWindowHelpItem__sub_80104FCC(temp_r3, *(void **)(arg0 + 0x68), &sp8);
+        if (sp8 & 1) {
+            TWindowHelpItem__sub_8025B08C(e1, TWindowHelpItem__data_805DCDE4, lbl_805DCDE8);
+            set_flag0_bit2__15TWindowHelpItemFPv(e2);
+            set_flag0_bit2__15TWindowHelpItemFPv(e3);
+            set_flag0_bit2__15TWindowHelpItemFPv(e4);
+            set_flag0_bit2__15TWindowHelpItemFPv(e5);
+            set_flag0_bit2__15TWindowHelpItemFPv(e6);
+            return;
+        }
+        TWindowHelpItem__sub_8025B08C(e1, TWindowHelpItem__data_805DCDE4, lbl_805DCDEC);
+        reset_float_field__15TWindowHelpItemFPv(e2);
+        reset_float_field__15TWindowHelpItemFPv(e4);
+        reset_float_field__15TWindowHelpItemFPv(e6);
+        *(s32 *)(e3 + 0x20) = get_technique_level__9TItemDataFPv(*(void **)(arg0 + 0x68));
     }
 }
 

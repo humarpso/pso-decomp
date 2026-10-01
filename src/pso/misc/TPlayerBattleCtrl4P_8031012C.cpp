@@ -39,6 +39,25 @@ struct Ent_803104CC { u8 pad0[0x30]; u32 flags; u8 pad1[0x754 - 0x34]; u8 sub[4]
 
 struct Ctl_803104CC { u8 pad[0x264]; s32 ok[4]; };
 
+typedef s32 M2C_UNK;
+struct VBase_80310830 { char pad[0x18]; };
+
+struct VObj_80310830 : VBase_80310830 {
+    virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3();
+    virtual void v4(); virtual void v5(); virtual void v6(); virtual void v7();
+    virtual void v8(); virtual void v9();
+    virtual char *v10();
+};
+
+struct Ent_80310830 { u16 id; s16 idx; u32 pad; };
+
+struct Ctl_80310910 {
+    u8 pad0[0x238];
+    s8 flags[8];
+    u8 pad240[0x260 - 0x240];
+    s32 state;
+};
+
 extern "C" {
 extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 TPlayerBattleCtrl4P__data_80542E90;
 M2C_UNK *TPlayerBattleCtrl4P__sub_80310300(void);
@@ -63,6 +82,25 @@ u8 TLobby__sub_801D7100(void *);
 void TPlayerBattleCtrl4P__sub_80310380(void *, void *);
 extern u8 lbl_8050EA40[];
 void TPlayerBattleCtrl4P__sub_803104CC(Ctl_803104CC *self);
+void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void init_all__11TWindowCtrlFPvPv(void *, s32);
+void notify_lobby__19TPlayerBattleCtrl4PFPvPvPv(void* p, void* a1, void* a2);
+void reset_score_counters__19TPlayerBattleCtrl4PFPv(void* p);
+void TPlayerBattleCtrl4P__sub_80310C08(void *);
+int sprintf(char *, const char *, ...);
+extern char lbl_80475B90[];
+extern char lbl_80475B98[];
+extern char lbl_80475BA0[];
+extern char *lbl_804E8098[];
+extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 TPlayerBattleCtrl4P__data_80542E90;
+void TPlayerBattleCtrl4P__sub_80310830(void *arg0);
+s32 set_state__19TPlayerBattleCtrl4PFPv(void *arg0);
+void TPlayerBattleCtrl4P__sub_80310830(void *arg0);
+void TPlayerBattleCtrl4P__sub_80310904(void* p);
+extern s16 lbl_80511CB0[];
+extern s32 lbl_805D53A0;
+extern s32 TLobby__data_805D53AC;
+void TPlayerBattleCtrl4P__sub_80310910(Ctl_80310910 *o, s32 frames);
 }
 
 extern "C" {
@@ -210,6 +248,46 @@ void update_players__19TPlayerBattleCtrl4PFv(void) {
     } while (var_r31 < 4);
 }
 
+void TPlayerBattleCtrl4P__sub_80310830(void *arg0) {
+    char buf[0x40];
+    Ent_80310830 *e;
+    s32 i;
+    VObj_80310830 *p;
+    reset_score_counters__19TPlayerBattleCtrl4PFPv(arg0);
+    TPlayerBattleCtrl4P__sub_80310C08(arg0);
+    init_all__11TWindowCtrlFPvPv(lbl_80475B90, 0x200);
+    for (i = 0; i < 4; i++) {
+        e = &((Ent_80310830 *)&TPlayerBattleCtrl4P__data_80542E90)[i];
+        p = (VObj_80310830 *)TPlayerBattleCtrl4P__sub_801BA74C(e->id);
+        if (p != 0) {
+            sprintf(buf, lbl_80475B98, lbl_804E8098[e->idx], p->v10());
+            init_all__11TWindowCtrlFPvPv(buf, 0x200);
+        }
+    }
+    notify_lobby__19TPlayerBattleCtrl4PFPvPvPv(arg0, lbl_80475BA0, (void *)0x3C);
+}
+
 void TPlayerBattleCtrl4P__sub_80310904(void* p) { *(s32*)((char*)p + 0x260) = 1; }
+void TPlayerBattleCtrl4P__sub_80310910(Ctl_80310910 *o, s32 frames) {
+    s32 i;
+    switch (o->state) {
+    case 0:
+        if (lbl_805D53A0 == TLobby__data_805D53AC) {
+            for (i = 0; i < 8; i++) {
+                if (o->flags[i] != 0 && frames / 60 == lbl_80511CB0[i]) {
+                    o->flags[i] = 0;
+                    TPlayerBattleCtrl4P__sub_80310904((void*)(o));
+                }
+            }
+        }
+        break;
+    case 1:
+        set_state__19TPlayerBattleCtrl4PFPv(o);
+        break;
+    case 2:
+        TPlayerBattleCtrl4P__sub_80310830(o);
+        break;
+    }
+}
 
 }

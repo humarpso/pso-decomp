@@ -50,6 +50,18 @@ extern void *TODoorAncient06__data_805D592C;
 extern const f32 lbl_805DB438;
 extern const f32 lbl_805DB448;
 u8 *TODoorAncient06__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+void TBoss1Dragon__sub_8002ACE0(void *, void *);
+u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+s32 *alloc_buffer__11TOBoss4RockFPv(s32);
+s32 TLanguage__sub_801E4874(void *);
+extern u8 lbl_80440B48[];
+extern u8 lbl_80440B64[];
+extern u8 lbl_804B1038[];
+extern void *lbl_805D5928;
+extern void *TODoorAncient06__data_805D592C;
+extern void *lbl_805D5930;
+void TODoorAncient06__sub_8015F440(void);
 }
 
 extern "C" {
@@ -88,6 +100,31 @@ void destroy__15TODoorAncient06Fv(void) {
 }
 
 extern M2C_UNK __vt__15TODoorAncient06[];
+
+#define G5918 (*(u8 **)&lbl_805D5928)
+#define G591C (*(s32 **)&TODoorAncient06__data_805D592C)
+#define G5920 (*(u8 **)&lbl_805D5930)
+#define NODE(p, o) (*(u8 **)((u8 *)(p) + (o)))
+void TODoorAncient06__sub_8015F440(void) {
+    u8 *p;
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    if (p != NULL) {
+        p = TLobby__sub_80020004(p, 1, lbl_804B1038, 0, 0, 0);
+    }
+    G5918 = p;
+    G591C = alloc_buffer__11TOBoss4RockFPv(8);
+    G591C[0] = TLanguage__sub_801E4874(lbl_80440B48);
+    G591C[1] = TLanguage__sub_801E4874(lbl_80440B64);
+    G5920 = (u8 *)alloc_buffer__11TOBoss4RockFPv(0xA8);
+    if (G5918 != NULL && G5920 != NULL) {
+        TBoss1Dragon__sub_8002ACE0(G5920, NODE(NODE(G5918, 0x42C), 8));
+        *(s32 *)(G5920 + 0x2C) = 0;
+        *(s32 *)(G5920 + 0) |= 0x10;
+        TBoss1Dragon__sub_8002ACE0(G5920 + 0x38, NODE(NODE(NODE(G5918, 0x42C), 8), 0x2C));
+        *(s32 *)(G5920 + 0x68) = 0;
+        TBoss1Dragon__sub_8002ACE0(G5920 + 0x70, NODE(NODE(NODE(NODE(G5918, 0x42C), 8), 0x2C), 0x30));
+    }
+}
 
 void *__dt__15TODoorAncient06Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

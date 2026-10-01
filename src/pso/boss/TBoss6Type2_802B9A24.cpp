@@ -27,6 +27,23 @@ struct Vec_802B9A68 { f32 x, y, z; };
 
 struct Player_802B9A68 { u8 pad[0x38]; Vec_802B9A68 pos; };
 
+struct Ent_802B9F3C { s32 a; s32 b; s32 c; };
+
+struct Boss_802B9F3C {
+    u8 pad0[0x38];
+    Vec_802B9A68 pos;
+    u8 pad44[0x60 - 0x44];
+    s32 f60;
+    u8 pad64[0x544 - 0x64];
+    Ent_802B9F3C e[2];
+};
+
+struct V3_802BA078 { s32 x; f32 y; s32 z; };
+
+struct Player_802BA078 { u8 pad0[0x30]; s32 f30; u8 pad34[4]; V3_802BA078 pos; };
+
+struct Boss_802BA078 { u8 pad0[0x4B8]; s32 f4B8; u8 pad4BC[0x55C - 0x4BC]; u16 f55C; };
+
 extern "C" {
 u8 *TPlayerBattleCtrl4P__sub_801BA74C(u32);
 void copy_vec2__11TBoss6Type2FPvPv(void* p, void* q);
@@ -60,6 +77,22 @@ f32 TBoss6Kakusan__sub_803D8BD8(Vec_802B9A68 *);
 void TBoss6Type1__sub_803D9370(Vec_802B9A68 *, Vec_802B9A68 *);
 extern const f32 TBoss6Type2__data_805DE410;
 s32 TBoss6Type2__sub_802B9A68(s32 id);
+void VecCopy__FP3VecPC3Vec(Vec_802B9A68 *, Vec_802B9A68 *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 TObjPlayer__sub_801423A4(s32, s32, s32);
+void TBoss6Type1__sub_803D9370(Vec_802B9A68 *, Vec_802B9A68 *);
+extern const f64 TBoss6Type2__data_804713C0;
+void TBoss6Type2__sub_802B9F3C(Boss_802B9F3C *arg0, Vec_802B9A68 *arg1);
+s32 TOSwitchAttack__sub_80087278(s32, s32, s32);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+void TBoss6PlotFalz__sub_802AAD84(s32, s32);
+s32 is_active__14TBoss6PlotFalzFPv();
+s32 TBoss6PlotFalz__sub_802AB5B4(s32, f32);
+s32 is_target_valid__11TBoss6Type2FPv(void *);
+extern const f32 TBoss6Type2__data_805DE430;
+extern const f32 TBoss6Type2__data_805DE434;
+void TBoss6Type2__sub_802BA078(Boss_802BA078 *arg0);
 }
 
 extern "C" {
@@ -235,6 +268,25 @@ void TBoss6Type2__sub_802B9F0C(T2_802B9EE4 *arg0) {
     }
 }
 
+void TBoss6Type2__sub_802B9F3C(Boss_802B9F3C *arg0, Vec_802B9A68 *arg1) {
+    Vec_802B9A68 v;
+    s32 ang;
+    s32 i;
+    if (arg1 == NULL) {
+        ang = 0;
+    } else {
+        VecCopy__FP3VecPC3Vec(&v, arg1);
+        TBoss6Type1__sub_803D9370(&v, &arg0->pos);
+        ang = (s16)((s32)(TBoss6Type2__data_804713C0 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)) - arg0->f60);
+    }
+    if (ang < -0x2800 || ang > 0x2800) {
+        ang = 0;
+    }
+    for (i = 0; i < 2; i++) {
+        arg0->e[i].a = TObjPlayer__sub_801423A4(arg0->e[i].a, ang, 0x2AA);
+    }
+}
+
 void TBoss6Type2__sub_802BA000(T2_802BA000 *arg0) {
     s32 i;
     for (i = 0; i < 2; i++) {
@@ -244,6 +296,27 @@ void TBoss6Type2__sub_802BA000(T2_802BA000 *arg0) {
     }
 }
 #pragma pop
+
+void TBoss6Type2__sub_802BA078(Boss_802BA078 *arg0) {
+    Player_802BA078 *p;
+    if (arg0->f55C != 0xFFFF) {
+        p = (Player_802BA078 *)TPlayerBattleCtrl4P__sub_801BA74C(arg0->f55C);
+        if (is_active__14TBoss6PlotFalzFPv() != 0) {
+            s32 r = TBoss6PlotFalz__sub_802AB5B4(arg0->f4B8, TBoss6Type2__data_805DE430);
+            TBoss6PlotFalz__sub_802AAD84(arg0->f55C, r);
+            p->f30 |= 0x200;
+            TOSwitchAttack__sub_80087278((s32)&p->pos, 0x212, 0x40);
+            {
+                V3_802BA078 v = p->pos;
+                v.y = v.y + TBoss6Type2__data_805DE434;
+                TOSwitchAttack__sub_80087278((s32)&v, 0x223, 0x40);
+            }
+            if (is_target_valid__11TBoss6Type2FPv(arg0) == 0) {
+                TBoss3Volopt__sub_8022675C(0x4000AD13, 0, 0, 0);
+            }
+        }
+    }
+}
 
 void TBoss6Type2__sub_802BA158(Obj_802BA158 *self) {
     self->f55c = 0xFFFF;

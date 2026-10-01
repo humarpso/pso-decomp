@@ -29,6 +29,24 @@ struct RecoveredGlobal_802F4760_lbl_80541E3C {
     u8 remaining[0x8];
 };
 
+typedef s32 M2C_UNK;
+struct Vec_802F481C { f32 x, y, z; };
+struct Obj_802F44D8 {
+    u8 pad0[0x34];
+    s32 f34;
+    u8 v38[0x5C - 0x38];
+    s32 f5C;
+    s32 f60;
+    s32 f64;
+    u8 v68[0xF8 - 0x68];
+    s32 fF8;
+    u8 padFC[0x3C0 - 0xFC];
+    s32 f3C0;
+    u8 pad3C4[0x3EC - 0x3C4];
+    u8 f3EC[0x434 - 0x3EC];
+    u8 f434[4];
+};
+
 extern "C" {
 void get_camera_ctrl__9TObjEneDDFPv(s32, s32);
 void update_camera_sequence__9TObjEneDDFPv(void);
@@ -56,9 +74,57 @@ extern const f32 lbl_805D69B0;
 extern const f32 TBoss8Dragon__data_805DED50;
 extern const f32 TBoss8Dragon__data_805DED74;
 s32 TBoss8Dragon__sub_802F4760(f32 farg0);
+s32 get_speed_or_default__10TObjPlayerFPv(void *);
+s32 render_model_tree__12TBoss8DragonFPvPv(s32, s32);
+s32 TObjPlayer__sub_803D9214(s32, s32);
+s32 TObjBoss2Tunnel__sub_803D929C(s32, s32);
+s32 TObjContainerIdo__sub_803D96A8(s32, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+s32 TBoss7Tentacle__sub_803D9BA0(void *);
+s32 TOHangerMachine01__sub_803D9C00(void *);
+s32 set_global_flag__10TObjPlayerFv();
+s32 clear_global_state__10TObjPlayerFv();
+s32 set_global_state__16TObjEneRe7BeruraFi(void (*)(void));
+void TBoss8Dragon__sub_802F45A0(void);
+extern s32 TBoss8Dragon__data_805D698C;
+extern s32 TBoss8Dragon__data_805D6994;
+extern s32 TBoss8Dragon__data_805D6998;
+extern s32 TBoss8Dragon__data_805D699C;
+extern s32 TBoss8Dragon__data_805D69A0;
+extern s32 TBoss8Dragon__data_805D69A8;
+void TBoss8Dragon__sub_802F44D8(Obj_802F44D8 *o);
+M2C_UNK TObjEneDD__sub_800BAE74(void *, void *);
+M2C_UNK calc_shot_position__9TObjEneDDFPvPvfff(void *, void *, f32, f32, f32);
+s32 TBoss8Dragon__sub_802F3878(void *);
+s32 TBoss8Dragon__sub_802F3974(void *);
 }
 
 extern "C" {
+
+void TBoss8Dragon__sub_802F44D8(Obj_802F44D8 *o) {
+    s32 saved = o->f34;
+    o->f34 = TBoss8Dragon__data_805D69A8;
+    TBoss8Dragon__data_805D698C = 0;
+    TBoss8Dragon__data_805D6994 = (s32)o->f3EC;
+    TBoss8Dragon__data_805D6998 = 0;
+    TBoss8Dragon__data_805D699C = (s32)o->f434;
+    TBoss8Dragon__data_805D69A0 = o->f3C0;
+    set_global_state__16TObjEneRe7BeruraFi(TBoss8Dragon__sub_802F45A0);
+    TObjPlayer__sub_803D9B2C();
+    set_global_flag__10TObjPlayerFv();
+    TOHangerMachine01__sub_803D9C00(o->v38);
+    TObjPlayer__sub_803D9214(0, o->f60);
+    TObjContainerIdo__sub_803D96A8(0, o->f5C);
+    TObjBoss2Tunnel__sub_803D929C(0, o->f64);
+    TBoss7Tentacle__sub_803D9BA0(o->v68);
+    get_speed_or_default__10TObjPlayerFPv(o);
+    render_model_tree__12TBoss8DragonFPvPv(o->f34, o->fF8);
+    clear_global_state__10TObjPlayerFv();
+    TObjPlayer__sub_803D9B78();
+    set_global_state__16TObjEneRe7BeruraFi(NULL);
+    o->f34 = saved;
+}
 
 void TBoss8Dragon__sub_802F45A0(void) {
     s32 temp_r0;
@@ -109,5 +175,25 @@ s32 TBoss8Dragon__sub_802F4760(f32 farg0) {
     return 0;
 }
 #pragma pop
+
+#define VecCopy2_802F481C ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)
+void TBoss8Dragon__sub_802F481C(u8 *arg0, f32 *arg1) {
+    Vec_802F481C c;
+    Vec_802F481C b;
+    Vec_802F481C a;
+    f32 t;
+    M2C_FIELD(arg0, f32 *, 0x3C) = M2C_FIELD(arg0, f32 *, 0x3C) + arg1[1];
+    arg1[1] = TBoss8Dragon__data_805DED50;
+    VecCopy2_802F481C(&a, arg0 + 0x38);
+    VecCopy2_802F481C(&c, arg1);
+    t = clamp_velocity__15TObjBoss2TunnelFPv(&c);
+    calc_shot_position__9TObjEneDDFPvPvfff(arg0, &b, c.x, c.z, t);
+    TObjEneDD__sub_800BAE74(arg0, &b);
+    M2C_FIELD(arg0, f32 *, 0x3C) = a.y;
+    if ((TBoss8Dragon__sub_802F3878(arg0) != 0) && (TBoss8Dragon__sub_802F3974(arg0) != 0)) {
+        VecCopy2_802F481C(arg0 + 0x38, &a);
+    }
+}
+#undef VecCopy2_802F481C
 
 }

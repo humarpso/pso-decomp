@@ -37,6 +37,44 @@ struct RecoveredGlobal_802A6668___vt__23TObjSeabedSuisoBrakable {
     u8 remaining[0x4C];
 };
 
+typedef s32 M2C_UNK;
+typedef struct Vec_802A6490 { f32 x, y, z; } Vec_802A6490;
+
+typedef struct Rec_802A6490 {
+    s32 id;
+    Vec_802A6490 pos;
+} Rec_802A6490;
+
+typedef struct Set_802A6490 {
+    u8 pad0[0x10];
+    Rec_802A6490 recs[17];
+} Set_802A6490;
+
+typedef struct Params_802A6490 {
+    Vec_802A6490 a;
+    Vec_802A6490 pos;
+    f32 f20;
+    f32 f24;
+    f32 f28;
+    s32 i2c;
+    s32 i30;
+    s32 i34;
+    s32 i38;
+    s32 i3c;
+    f32 f40;
+    f32 f44;
+    s32 i48;
+    s32 i4c;
+    s32 i50;
+} Params_802A6490;
+
+typedef struct Obj_802A6490 {
+    u8 pad0[0x38];
+    Vec_802A6490 pos;
+    u8 pad44[0xBC - 0x44];
+    s32 kind;
+} Obj_802A6490;
+
 extern "C" {
 void *__nw__7TObjectFUl(int);
 s32 get_instance__23TObjSeabedSuisoBrakableFv(int);
@@ -53,6 +91,19 @@ extern RecoveredGlobal_802A6668_lbl_804DD6E8 lbl_804DD6E8;
 extern M2C_UNK __vt__23TObjSeabedSuisoBrakable[];
 extern s32 lbl_805D3E04;
 u8 *TObjSeabedSuisoBrakable__ct(u8 *arg0, s32 arg1);
+void VecCopy__FP3VecPC3Vec(void *, const void *);
+void *__nw__7TObjectFUl(int);
+void init__13TObjSuisoChipFPvPv(void *, void *, void *);
+s32 get_instance__23TObjSeabedSuisoBrakableFv(int);
+s32 TObjSeabedSuisoBrakable__sub_802A6F04(int);
+extern RecoveredGlobal_802A6438_lbl_804DD388 lbl_804DD388;
+extern const f32 lbl_805DE000;
+extern const f32 lbl_805DE004;
+extern const f32 lbl_805DE008;
+extern const f32 lbl_805DE00C;
+extern const f32 lbl_805DE010;
+extern const f32 lbl_805DE014;
+void TObjSeabedSuisoBrakable__vt14(Obj_802A6490 *self);
 }
 
 extern "C" {
@@ -137,6 +188,43 @@ void TObjSeabedSuisoBrakable__sub_802A6438(u8 *arg0) {
     M2C_FIELD(var_r31, s32 *, 0x24) = get_instance__23TObjSeabedSuisoBrakableFv((int) (0));
     var_f0 = lbl_805DDFFC;
     M2C_FIELD(var_r31, f32 *, 0xB0) = var_f0;
+}
+
+void TObjSeabedSuisoBrakable__vt14(Obj_802A6490 *self) {
+    Params_802A6490 p;
+    Rec_802A6490 *rec;
+    s32 i;
+    void *o;
+    p.a.x = lbl_805DE000;
+    p.a.y = lbl_805DE004;
+    p.a.z = lbl_805DE008;
+    VecCopy__FP3VecPC3Vec(&p.pos, &self->pos);
+    p.f20 = lbl_805DE00C;
+    p.f24 = lbl_805DE010;
+    p.f28 = lbl_805DE00C;
+    p.i2c = 0x200;
+    p.i30 = 0x150;
+    p.i34 = 0x200;
+    p.i38 = 1;
+    p.i3c = 0x3C;
+    p.f40 = self->pos.y;
+    p.f44 = lbl_805DE014;
+    p.i48 = 0;
+    p.i4c = get_instance__23TObjSeabedSuisoBrakableFv(0);
+    p.i50 = 17;
+    rec = ((Set_802A6490 *)&lbl_804DD388)[self->kind].recs;
+    for (i = 0; i < 17; i++, rec++) {
+        if (rec->id >= 0) {
+            p.i48 = TObjSeabedSuisoBrakable__sub_802A6F04(rec->id);
+            p.pos.x = rec->pos.x;
+            p.pos.y = rec->pos.y;
+            p.pos.z = rec->pos.z;
+            o = __nw__7TObjectFUl(0x24C);
+            if (o != NULL) {
+                init__13TObjSuisoChipFPvPv(o, self, &p);
+            }
+        }
+    }
 }
 
 void TObjSeabedSuisoBrakable__vt15(void) {  }

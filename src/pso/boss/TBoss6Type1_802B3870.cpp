@@ -23,6 +23,19 @@ struct Boss_802B4898 {
     f32 f4E8;
 };
 
+struct Vec_802B49A4 { f32 x, y, z; };
+
+struct Params_802B49A4 {
+    u8 pad[0xC];
+    Vec_802B49A4 pos;
+    s32 a;
+    s32 b;
+    s32 c;
+    Vec_802B49A4 rot;
+    s32 d;
+    s32 e;
+};
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 int TBoss6Type1__sub_802B4BA8(void*, void*);
@@ -39,6 +52,17 @@ void TObjPlayer__sub_803D9B2C();
 void TObjPlayer__sub_803D9B78();
 void TOHangerMachine01__sub_803D9C00(Vec_802B4898 *);
 void TBoss6Type1__sub_802B4898(Boss_802B4898 *o);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 create__10TObjMapCsnFi(void *);
+M2C_UNK TObjPlayer__sub_803D8CD4(s32);
+M2C_UNK TScene__sub_803D8DB4(s32, void *, void *);
+void TObjPlayer__sub_803D9214(int, int);
+void TObjPlayer__sub_803D9B2C();
+void TObjPlayer__sub_803D9B78();
+extern u8 lbl_80471020[];
+extern u8 lbl_8047102C[];
+extern const f32 TBoss6Type1__data_805DE2D0;
+void TBoss6Type1__sub_802B49A4(u8 *arg0);
 }
 
 extern "C" {
@@ -161,5 +185,25 @@ void TBoss6Type1__sub_802B4898(Boss_802B4898 *o) {
 void render__11TBoss6Type1Fv(void* p) { TBoss6Type1__sub_802B4898((Boss_802B4898 *)(p)); TBoss6Type1__sub_802B626C(p); }
 
 void release_object__11TBoss6Type1FPv(void* p) { if (*(unsigned int*)((char*)p + 0x680) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)p + 0x680)); *(int*)((char*)p + 0x680) = 0; } }
+void TBoss6Type1__sub_802B49A4(u8 *arg0) {
+    Params_802B49A4 prm;
+    Vec_802B49A4 tmp;
+    VecCopy__FP3VecPC3Vec(&prm.pos, arg0 + 0x38);
+    TObjPlayer__sub_803D9B2C();
+    TObjPlayer__sub_803D8CD4(0);
+    TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+    TScene__sub_803D8DB4(0, lbl_80471020, &tmp);
+    prm.pos.x += tmp.x;
+    prm.pos.y = TBoss6Type1__data_805DE2D0;
+    prm.pos.z += tmp.z;
+    TObjPlayer__sub_803D9B78();
+    prm.a = 0;
+    prm.b = M2C_FIELD(arg0, s32 *, 0x60);
+    prm.c = 0;
+    VecCopy__FP3VecPC3Vec(&prm.rot, lbl_8047102C);
+    prm.d = 2;
+    prm.e = 0;
+    M2C_FIELD(arg0, s32 *, 0x680) = create__10TObjMapCsnFi(&prm);
+}
 
 }

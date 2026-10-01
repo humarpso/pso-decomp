@@ -73,7 +73,9 @@ struct VObj_800E1D38_800E158C : Base_800E1D38_800E158C {
 #include <stddef.h>
 typedef struct { f32 x, y, z; } Vec_800E1A44;
 extern "C" {
-void TObjEnePanarms__sub_800E1B78(void *, void *, void *);
+void TObjEnePanarms__sub_800E1B78(u8 *, u8 *, s32 *);
+extern Vec_800E1A44 lbl_8043CD40[];
+extern s32 lbl_8043CD58[];
 void TObjEnePanarms__sub_800E1B50(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjEneDellBiter__sub_80087350(void *, int);
@@ -131,8 +133,29 @@ void TObjEnePanarms__sub_800E1A44(u8 *arg0) {
 #pragma pop
 
 void TObjEnePanarms__sub_800E1B50(u8 *arg0) {
-    TObjEnePanarms__sub_800E1B78(arg0, arg0 + 0x38, arg0 + 0x60);
+    TObjEnePanarms__sub_800E1B78(arg0, arg0 + 0x38, (s32 *)(arg0 + 0x60));
 }
+
+#pragma push
+#pragma fp_contract on
+void TObjEnePanarms__sub_800E1B78(u8 *arg0, u8 *arg1, s32 *arg2) {
+    f32 x;
+    f32 z;
+    f32 s;
+    f32 c;
+
+    x = lbl_8043CD40[M2C_FIELD(arg0, s32 *, 0x380)].x;
+    z = lbl_8043CD40[M2C_FIELD(arg0, s32 *, 0x380)].z;
+    s = TBoss8Dragon__sub_803D64C0(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x39C), s32 *, 0x60));
+    c = TBoss8Dragon__sub_803D64DC(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x39C), s32 *, 0x60));
+    VecCopy__FP3VecPC3Vec(arg1, M2C_FIELD(arg0, u8 **, 0x39C) + 0x38);
+    M2C_FIELD(arg1, f32 *, 0) += x * c + z * s;
+    M2C_FIELD(arg1, f32 *, 8) += -x * s + z * c;
+    if (arg2 != NULL) {
+        *arg2 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x39C), s32 *, 0x60) - lbl_8043CD58[M2C_FIELD(arg0, s32 *, 0x380)];
+    }
+}
+#pragma pop
 
 void TObjEnePanarms__sub_800E1C8C(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x39C) = arg1;

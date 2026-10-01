@@ -15,11 +15,11 @@ struct TWin_8020F070 { u8 pad[0x44]; };
 
 struct TCheckRoomSequence_8020F070 { u8 pad[0x44]; TWin_8020F070 *win; };
 
-struct Obj_8020F268 { u8 pad[0x28]; void (*cb0)(void); void (*cb1)(u32); };
+struct Obj_8020F268 { u8 pad[0x28]; void (*cb0)(u8 *); void (*cb1)(u32); };
 
 struct Seq_8020F268 { u8 pad[0x24]; s32 f24; };
 
-struct Obj_8020F2D8 { u8 pad[0x60]; void (*cb0)(void); void (*cb1)(u32); };
+struct Obj_8020F2D8 { u8 pad[0x60]; void (*cb0)(u8 *); void (*cb1)(u32); };
 
 struct Seq_8020F2D8 { u8 pad[0x24]; s32 f24; };
 
@@ -49,6 +49,20 @@ struct VObj_18_f96e2e : VBase_18_f96e2e {
 
 struct Rec_80210904 { u8 b[0x18]; };
 
+struct VBase_18_8d1630 { char pad[0x18]; };
+
+struct VObj_18_8d1630 : VBase_18_8d1630 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8();
+};
+
 extern "C" {
 extern Rec_80211034 *lbl_80513D88[];
 u8 TCheckRoomSequence__sub_80211574(u8 *arg0);
@@ -68,7 +82,7 @@ int set_field_20__12TQuestListVMFPvi(void*, void*);
 int TKeyBoardControl__sub_801A66B8(void *);
 void *__nw__7TObjectFUl(u32);
 void *TShopDeleteItemWindow__ct(void *, s32, void *, s32);
-void TCheckRoomSequence__sub_8020F188(void);
+void TCheckRoomSequence__sub_8020F188(u8 *arg0);
 void init_check__18TCheckRoomSequenceFUi(u32 arg0);
 extern void *tl_05;
 void TCheckRoomSequence__sub_8020F268(Seq_8020F268 *self);
@@ -76,7 +90,7 @@ int set_field_20__12TQuestListVMFPvi(void*, void*);
 int TKeyBoardControl__sub_801A66B8(void *);
 void *__nw__7TObjectFUl(u32);
 void *TShopGetItemWindow__ct(void *, s32, void *, s32);
-void TCheckRoomSequence__sub_8020F188(void);
+void TCheckRoomSequence__sub_8020F188(u8 *arg0);
 void init_check__18TCheckRoomSequenceFUi(u32 arg0);
 extern void *tl_05;
 void TCheckRoomSequence__sub_8020F2D8(Seq_8020F2D8 *self);
@@ -133,6 +147,16 @@ u8 TCheckRoomSequence__sub_80211574(u8 *arg0);
 void TCheckRoomSequence__sub_80211408(Obj_80211408 *self);
 void copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
 void TCheckRoomSequence__sub_80210904(s32 slot);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
+s32 TAdPlayerLoadGC__sub_801E1B50(int);
+M2C_UNK TCheckRoomSequence__sub_8021118C(int);
+M2C_UNK close_if_single_screen__13TShopSequenceFv(void *);
+M2C_UNK close_window__13TShopSequenceFPv(void *);
+int TShopWindowBase__sub_8022397C(void*);
+s32 TShopWindowBase__sub_802239EC(void *);
+s32 TShopWindowBase__sub_80223A48(void *);
+void TCheckRoomSequence__vt11(u8 *arg0);
 }
 
 extern "C" {
@@ -209,6 +233,13 @@ void init_check__18TCheckRoomSequenceFUi(u32 arg0) {
         TCheckRoomSequence__data_805D6164 = 0x46;
         TCheckRoomSequence__data_805D6168 = 2;
         set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(0x10));
+    }
+}
+
+void TCheckRoomSequence__sub_8020F188(u8 *arg0) {
+    if (arg0 != NULL) {
+        ((VObj_18_a93f07 *)(arg0))->m4(0x1A, 1);
+        set_field_20__12TQuestListVMFPvi((void *) (arg0), (void *) (2));
     }
 }
 
@@ -312,6 +343,18 @@ int set_quest_list_mode_19__18TCheckRoomSequenceFPv(void* p) { return set_field_
 
 void TCheckRoomSequence__sub_802100F8(void) {  }
 void TCheckRoomSequence__sub_802100FC(void) {  }
+
+#pragma push
+#pragma optimization_level 1
+void TCheckRoomSequence__vt11(u8 *arg0) {
+    if ((((VObj_18_8d1630 *)(arg0))->m8() != 0) && ((TShopWindowBase__sub_80223A48((void *) (arg0)) != 0) || (TShopWindowBase__sub_802239EC((void *) (arg0)) != 0)) && (TAdPlayerLoadGC__sub_801E1B50((int) (get_chr_select_state__23TAdSinglePlyChrSelectGCFv())) == 0)) {
+        TCheckRoomSequence__sub_8021118C(TShopWindowBase__sub_8022397C((void*)((void *) (arg0))));
+        close_if_single_screen__13TShopSequenceFv((void *) (arg0));
+        close_window__13TShopSequenceFPv((void *) (arg0));
+        queue_destruction__7TObjectFv((void *) (arg0));
+    }
+}
+#pragma pop
 
 void TCheckRoomSequence__vt10(void* p) { restore_player_state__13TShopSequenceFPv(p); TShopWindowBase__sub_8022397C(p); TCheckRoomSequence__sub_80211210(); set_field_20__12TQuestListVMFPvi((void*)(p), (void*)((void*)1)); }
 

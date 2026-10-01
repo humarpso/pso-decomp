@@ -12,6 +12,11 @@ struct Win_80272034 { u8 pad[0x58]; Tbl_80272034 *tbl; };
 
 struct Key_80272034 { u32 a; u32 b; };
 
+struct Ent_80271F04 {
+    u32 id;
+    u32 value;
+};
+
 extern "C" {
 u8 *TLobby__sub_8001DC24(void);
 s32 realloc_buffer__17TWindowSubComCardFPv(void *);
@@ -22,6 +27,17 @@ s32 get_id__6TLobbyFPv(void *);
 u8 *TWindowSubComCard__sub_80275228(void);
 void TWindowSubComCard__sub_802721D8(u8 *arg0);
 u8 *TWindowSubComCard__sub_80272034(Win_80272034 *arg0, Key_80272034 *arg1, s32 arg2);
+void fn_80077814(void *, u16, s32);
+s32 TWindowSubComCard__sub_80077840(void *, u16);
+s32 open_hard_keyboard__6TLobbyFPv(void *);
+void *get_field_20__17TWindowSubComCardFPv(void *);
+void *get_selected_entry__17TWindowSubComCardFPv(void *);
+void TWindowSubComCard__sub_8026853C(void *, u32);
+void TWindowSubComCard__sub_802685C4(void *, u32);
+void TWindowMakeTeam__sub_80268650(void *, void *, s32);
+void get_message_10__17TWindowSubComCardFPvPv(void* p, void* a1);
+void set_com_param__17TWindowSubComCardFii(void *, s32);
+void TWindowSubComCard__sub_80271F04(u8 *arg0, Ent_80271F04 *arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -61,6 +77,35 @@ void send_state_if_dirty__17TWindowSubComCardFPv(u8 *arg0) {
     if (M2C_FIELD(arg0, u8 *, 0x1D) & 1) {
         send_card_window_state__6TLobbyFv();
         M2C_FIELD(arg0, s8 *, 0x1D) = (s8) (M2C_FIELD(arg0, s8 *, 0x1D) & ~1);
+    }
+}
+
+typedef void *(*GetMsg_80271F04)(void *, void *);
+void TWindowSubComCard__sub_80271F04(u8 *arg0, Ent_80271F04 *arg1, s32 arg2, s32 arg3) {
+    s32 i;
+    if (arg2 == 0) {
+        if (arg3 != open_hard_keyboard__6TLobbyFPv(*(void **)(arg0 + 0x20))) {
+            arg0[0x1D] |= 1;
+            set_com_param__17TWindowSubComCardFii(*(void **)(arg0 + 0x20), arg3);
+            TWindowMakeTeam__sub_80268650(*(void **)(arg0 + 0x7C), ((GetMsg_80271F04)get_message_10__17TWindowSubComCardFPvPv)(arg0, (void *)arg3), 0);
+            if (arg3 != 0) {
+                for (i = 0; i < 5; i++) {
+                    if (arg1[i].id != 0) {
+                        TWindowSubComCard__sub_802685C4(*(void **)(arg0 + 0x7C), arg1[i].id);
+                    }
+                }
+            } else {
+                for (i = 0; i < 5; i++) {
+                    if (arg1[i].id != 0) {
+                        TWindowSubComCard__sub_8026853C(*(void **)(arg0 + 0x7C), arg1[i].id);
+                    }
+                }
+            }
+        }
+    } else if (arg3 != TWindowSubComCard__sub_80077840(arg1, arg2)) {
+        arg0[0x1D] |= 1;
+        fn_80077814(arg1, arg2, arg3);
+        TWindowMakeTeam__sub_80268650(*(void **)(arg0 + 0x7C), get_field_20__17TWindowSubComCardFPv(get_selected_entry__17TWindowSubComCardFPv(*(void **)(arg0 + 0x64))), arg2);
     }
 }
 

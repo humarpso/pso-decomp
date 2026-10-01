@@ -32,6 +32,24 @@ struct Laser_801AC36C {
     s16 f370;
 };
 
+typedef s32 M2C_UNK;
+struct Laser_801AC17C {
+    s32 f0;
+    u8 pad4[0x18 - 4];
+    void *vt18;
+    u8 pad1C[0x334 - 0x1C];
+    Vec_801AC36C f334;
+    Vec_801AC36C f340;
+    Vec_801AC36C f34C;
+    f32 f358;
+    f32 f35C;
+    u8 pad360[4];
+    void *f364;
+    f32 f368;
+    u32 f36C;
+    u16 f370;
+};
+
 extern "C" {
 void TObjPlayer__sub_80019038(void *, void *);
 Vec_801AC36C *VecCopy__FP3VecPC3Vec(Vec_801AC36C *, const Vec_801AC36C *);
@@ -39,6 +57,21 @@ s32 TBoss4Type2__sub_800874F4(Vec_801AC36C *, s32);
 extern M2C_UNK __vt__12TPhotonLaser[];
 extern s32 lbl_805D34F0;
 Laser_801AC36C *TPhotonLaser__ct(Laser_801AC36C *self, Params_801AC36C *p, void *parent, s16 arg3);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+void TObjEneDellBiter__sub_80087350(void *, s32);
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+void *TPhotonMylla__sub_80154CB4(u16);
+void TBoss4Zako__sub_803D8910(void *, void *);
+void TScene__sub_803D8DB4(int, void *, void *);
+void TObjPlayer__sub_803D9214(int, int);
+s32 TObjPlayer__sub_803D97F0(void *);
+void TCameraCtrl__sub_803D9858(int);
+extern u8 lbl_8058D490[];
+extern const f32 lbl_805DC1B0;
+extern const f32 lbl_805DC1B4;
+extern const f32 lbl_805DC1B8;
+extern const f32 lbl_805DC1BC;
+void run_task__12TPhotonLaserFv(Laser_801AC17C *o);
 }
 
 extern "C" {
@@ -59,6 +92,45 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 void render__12TPhotonLaserFv(void) { begin_effect_render__13TParticleCtrlFv(); end_effect_render__13TParticleCtrlFv(); }
 
 extern M2C_UNK __vt__12TPhotonLaser[];
+
+void run_task__12TPhotonLaserFv(Laser_801AC17C *o) {
+    Vec_801AC36C in;
+    Vec_801AC36C out;
+    void *owner;
+    o->f368 += lbl_805DC1B0;
+    in.y = in.x = lbl_805DC1B4;
+    in.z = lbl_805DC1B8;
+    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    TObjPlayer__sub_803D9214(0, (s32)(lbl_805DC1BC * (f32)o->f36C));
+    TScene__sub_803D8DB4(0, &in, &out);
+    TCameraCtrl__sub_803D9858(1);
+    TBoss4Zako__sub_803D8910(&o->f340, &out);
+    o->f36C += 0x24;
+    TBoss4Zako__sub_803D8910(&o->f340, &o->f34C);
+    if (o->f364 != 0) {
+        copy_pos__11TNowLoadingFPvPv(o->f364, &o->f340);
+    }
+    owner = TPhotonMylla__sub_80154CB4(o->f370);
+    if (owner == 0) {
+        if (o->f364 != 0) {
+            queue_destruction__7TObjectFv(o->f364);
+            o->f364 = 0;
+        }
+        o->f34C.x = lbl_805DC1B4;
+        o->f34C.y = lbl_805DC1B4;
+        o->f34C.z = lbl_805DC1B4;
+    } else if (o->f340.y < *(f32 *)((u8 *)owner + 0x3C)) {
+        if (o->f364 != 0) {
+            queue_destruction__7TObjectFv(o->f364);
+            o->f364 = 0;
+        }
+        o->f34C.x = lbl_805DC1B4;
+        o->f34C.y = lbl_805DC1B4;
+        o->f34C.z = lbl_805DC1B4;
+        TObjEneDellBiter__sub_80087350(&o->f340, 0x13D);
+        queue_destruction__7TObjectFv(o);
+    }
+}
 
 void *__dt__12TPhotonLaserFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

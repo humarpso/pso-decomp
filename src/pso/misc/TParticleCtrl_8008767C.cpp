@@ -293,7 +293,7 @@ extern const f32 TParticleCtrl__data_805D94E4;
 void *__ct__13TParticleCtrlFv(
     ParticleCtrlData *particle,
     const void *position,
-    const ParticleVec *direction,
+    ParticleVec *direction,
     s32 particle_index,
     s32 field30,
     s32 field34,
@@ -301,25 +301,99 @@ void *__ct__13TParticleCtrlFv(
     s32 use_self,
     u16 flags)
 {
-    INITIALIZE_PARTICLE(particle, position, particle_index, field30, field34,
-                        field38, use_self, flags, COPY_PARTICLE_DIRECTION,
-                        direction);
+    __ct__7TObjectFP7TObject(particle, tl_07);
+    particle->vtable = __vt__13TParticleCtrl;
+    particle->descriptor = TParticleCtrl__data_805D2938;
+    particle->field4C = 0;
+    particle->field50 = 0;
+    particle->field54 = 0;
+    particle->field48 = 0;
+    particle->field40 = TParticleCtrl__data_805D94E4;
+    particle->field44 = TParticleCtrl__data_805D94E4;
+    particle->field1C = TParticleCtrl__data_805D94E0;
+    particle->field20 = 0;
+    particle->field24 = TParticleCtrl__data_805D94E4;
+    particle->particle_index = particle_index;
+    VecCopy__FP3VecPC3Vec(&particle->position, position);
+    particle->flags = flags;
+    particle->field2E = 0xFFFF;
+    {
+        s32 component;
+        component = direction->x;
+        particle->direction.x = component;
+        component = direction->z;
+        particle->direction.z = component;
+        component = direction->y;
+        particle->direction.y = component;
+    }
+    particle->field30 = field30;
+    particle->field34 = field34;
+    particle->field38 = field38;
+    particle->field3C = 0;
+    if (use_self != 0) {
+        particle->owner = particle;
+    } else if (particle->flags & 0x800) {
+        if (particle->flags & 0x4000) {
+            particle->owner = tl_clipout;
+        } else {
+            particle->owner = tl_07;
+        }
+    } else {
+        particle->owner = tl_07;
+    }
     return particle;
 }
 
 void *initialize_with_direction__13TParticleCtrlFPvPvPviiiii(
     ParticleCtrlData *particle,
     const void *position,
-    const ParticleVec *direction,
+    ParticleVec *direction,
     s32 particle_index,
     s32 field30,
     s32 field34,
     s32 field38,
     s32 use_self)
 {
-    INITIALIZE_PARTICLE(particle, position, particle_index, field30, field34,
-                        field38, use_self, 0, COPY_PARTICLE_DIRECTION,
-                        direction);
+    __ct__7TObjectFP7TObject(particle, tl_07);
+    particle->vtable = __vt__13TParticleCtrl;
+    particle->descriptor = TParticleCtrl__data_805D2938;
+    particle->field4C = 0;
+    particle->field50 = 0;
+    particle->field54 = 0;
+    particle->field48 = 0;
+    particle->field40 = TParticleCtrl__data_805D94E4;
+    particle->field44 = TParticleCtrl__data_805D94E4;
+    particle->field1C = TParticleCtrl__data_805D94E0;
+    particle->field20 = 0;
+    particle->field24 = TParticleCtrl__data_805D94E4;
+    particle->particle_index = particle_index;
+    VecCopy__FP3VecPC3Vec(&particle->position, position);
+    particle->flags = 0;
+    particle->field2E = 0xFFFF;
+    {
+        s32 component;
+        component = direction->x;
+        particle->direction.x = component;
+        component = direction->z;
+        particle->direction.z = component;
+        component = direction->y;
+        particle->direction.y = component;
+    }
+    particle->field30 = field30;
+    particle->field34 = field34;
+    particle->field38 = field38;
+    particle->field3C = 0;
+    if (use_self != 0) {
+        particle->owner = particle;
+    } else if (particle->flags & 0x800) {
+        if (particle->flags & 0x4000) {
+            particle->owner = tl_clipout;
+        } else {
+            particle->owner = tl_07;
+        }
+    } else {
+        particle->owner = tl_07;
+    }
     return particle;
 }
 

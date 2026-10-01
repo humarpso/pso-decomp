@@ -64,6 +64,34 @@ typedef struct Missile_800D47B4 {
     u16 ownerIdx;
 } Missile_800D47B4;
 
+struct Missile_800D47B4;
+struct Vec_800D4990 { f32 x, y, z; };
+
+struct Target_800D4990 {
+    u8 pad[0x2FC];
+    Vec_800D4990 pos;
+};
+
+struct Col_800D4990 { u8 pad[0x18]; u32 flags; };
+
+struct Gyr_800D4990 {
+    u8 pad0[0x38];
+    Vec_800D4990 pos;
+    Vec_800D4990 prev;
+    u8 pad50[0x5C - 0x50];
+    u8 x5C[4];
+    u8 x60[0xA4 - 0x60];
+    Col_800D4990 *col;
+    u8 padA8[0xAC - 0xA8];
+    Vec_800D4990 vel;
+    u8 padB8[0xC4 - 0xB8];
+    u16 target;
+    u16 padC6;
+    s32 timer;
+    s32 xCC;
+    s32 xD0;
+};
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
@@ -122,6 +150,23 @@ s32 is_valid_and_active__10TObjPlayerFUi(void *);
 extern Parm_800D47B4 lbl_8043C464[];
 extern const f32 lbl_805DA2C0;
 void TObjGyaranzoMissile__sub_800D47B4(Missile_800D47B4 *arg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+u32 TObjButterflyLobby__sub_8007A5D8(void *, void *, int);
+void TObjGyaranzoMissile__sub_800D47B4(Missile_800D47B4 *arg0);
+Target_800D4990 *TNpcPlayer__sub_800D87EC(u16);
+int scale_velocity__19TObjGyaranzoMissileFPvf(void *, f32);
+int TObjPlayer__sub_801422A8(void *, void *, void *);
+void TObjPlayer__sub_801564A0(void *);
+void check_object_collisions__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_80156844(void *, void *, int);
+int TBoss4Zako__sub_803D8910(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+int TBoss6Type1__sub_803D9370(void *, void *);
+extern f32 TObjGyaranzoMissile__data_805D51F4;
+extern const f32 lbl_805D51F8;
+extern s32 lbl_805D520C;
+extern const f32 lbl_805DA2C8;
+void run_task__19TObjGyaranzoMissileFv(Gyr_800D4990 *self);
 }
 
 extern "C" {
@@ -242,6 +287,52 @@ void render__19TObjGyaranzoMissileFv(u8 *arg0) {
 }
 
 extern M2C_UNK __vt__19TObjGyaranzoMissile[];
+
+void run_task__19TObjGyaranzoMissileFv(Gyr_800D4990 *self) {
+    Target_800D4990 *t;
+    f32 dist;
+    t = TNpcPlayer__sub_800D87EC(self->target);
+    if (t != NULL) {
+        Vec_800D4990 d = t->pos;
+        TBoss6Type1__sub_803D9370(&d, &self->pos);
+        dist = TBoss6Kakusan__sub_803D8BD8(&d);
+        if (self->timer >= 15 && dist > lbl_805D51F8) {
+            scale_velocity__19TObjGyaranzoMissileFPvf(&d, lbl_805D51F8);
+            TBoss4Zako__sub_803D8910(&self->vel, &d);
+            scale_velocity__19TObjGyaranzoMissileFPvf(&self->vel, TObjGyaranzoMissile__data_805D51F4);
+        }
+    }
+    VecCopy__FP3VecPC3Vec(&self->prev, &self->pos);
+    TBoss4Zako__sub_803D8910(&self->pos, &self->vel);
+    TObjPlayer__sub_801422A8(&self->vel, self->x5C, self->x60);
+    self->xCC += self->xD0;
+    if (self->timer >= 10) {
+        if (TObjButterflyLobby__sub_8007A5D8(&self->prev, &self->pos, -1) != 0) {
+            TObjGyaranzoMissile__sub_800D47B4((Missile_800D47B4 *)self);
+            return;
+        }
+        Vec_800D4990 p = self->pos;
+        if (TObjPlayer__sub_80156844(self, &p, 0) == 1) {
+            if (self->pos.y - p.y < lbl_805DA2C8) {
+                self->col->flags |= 2;
+                self->col->flags &= ~4;
+                check_object_collisions__10TObjPlayerFPv(self);
+                TObjPlayer__sub_801564A0(self);
+                if (self->col->flags & 0x180000) {
+                    TObjGyaranzoMissile__sub_800D47B4((Missile_800D47B4 *)self);
+                    return;
+                }
+            } else {
+                self->col->flags &= ~2;
+                self->col->flags |= 4;
+            }
+        }
+    }
+    self->timer++;
+    if (self->timer > lbl_805D520C) {
+        TObjGyaranzoMissile__sub_800D47B4((Missile_800D47B4 *)self);
+    }
+}
 
 void *__dt__19TObjGyaranzoMissileFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

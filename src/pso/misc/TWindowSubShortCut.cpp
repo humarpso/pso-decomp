@@ -6,6 +6,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Win_8027DBB8 { u8 pad[0x20]; s32 f20; };
 
+struct VBase_18_204a81 { char pad[0x18]; };
+
+struct VObj_18_204a81 : VBase_18_204a81 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual M2C_UNK m7();
+};
+
 extern "C" {
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 s32 TWindowSubComCard__sub_8026CBB8(s32 a0);
@@ -14,6 +27,39 @@ M2C_UNK TWindowSubShortMail__sub_802A58AC(s32, s32, s32, s32, f32);
 s32 TWindowMessageYesNo__sub_802A59D8(void *, s32, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805DD6C0;
 s32 TWindowSubShortCut__sub_8027DBB8(Win_8027DBB8 *arg0);
+void queue_destruction__7TObjectFv(void *);
+s32 is_visible__17TWindowSubComCardFPv(int);
+s32 get_status_flag__17TWindowSubComCardFPv(int);
+M2C_UNK fn_80076D40();
+M2C_UNK fn_80076D68(int, void *);
+s32 get_status_flag__6TLobbyFPv(int);
+s32 get_flag_bit2__6TLobbyFPv(int);
+M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(int);
+M2C_UNK clear_flag_and_release__17TWindowSubComCardFPv(int);
+void *__nw__7TObjectFUl(u32);
+void TWindow__close(void *);
+M2C_UNK close_and_clear_flag__18TWindowSubShortCutFPv(int);
+M2C_UNK free_icon__18TWindowSubShortCutFPv(int);
+void *TWindowChat__ct(void *, void *, void *);
+s32 is_visible__11TWindowChatFPv(int);
+s32 is_mode_bit4__11TWindowChatFPv(int);
+u8 TWindowSubComCard__sub_80265BF8(int);
+M2C_UNK clear_transition_flag__17TWindowSubComCardFPv(int);
+M2C_UNK open__17TWindowOptionCtrlFPv(int);
+M2C_UNK select_cursor_entry__6TLobbyFPv(s32);
+s32 TWindowSubComCard__sub_8026CBB8(s32 a0);
+u32 TWindowShortCut__ct(int, int, int, void *);
+s32 open_confirm_message__18TWindowSubShortCutFPv(void *arg0);
+s32 TWindowSubShortCut__sub_8027DBB8(Win_8027DBB8 *arg0);
+s32 open_menu__18TWindowSubShortCutFPv(void *arg0);
+void open_com_card_list__18TWindowSubShortCutFPv(void *arg0);
+void set_flag1e_bit80__18TWindowSubShortCutFPv(void* p);
+M2C_UNK TWindowSubShortCutList__sub_8027E278(int);
+void close__17TWindowSubComCardFPv(void *);
+s32 get_slot_or_neg1__17TWindowSubComCardFPv(int);
+s32 get_card_data__17TWindowSubComCardFPv(int);
+s32 TWindowSubComCard__sub_802A57FC(int);
+void run_task__18TWindowSubShortCutFv(u8 *arg0);
 }
 
 extern "C" {
@@ -98,6 +144,157 @@ void open_com_card_list__18TWindowSubShortCutFPv(void *arg0) {
 void render__18TWindowSubShortCutFv(void) {  }
 
 extern M2C_UNK __vt__18TWindowSubShortCut[];
+
+void run_task__18TWindowSubShortCutFv(u8 *arg0) {
+    u32 var_r0;
+    void *var_r30;
+    u8 temp_r0;
+    u8 *temp_r3;
+    temp_r0 = M2C_FIELD(arg0, u8 *, 0x1C);
+    switch (temp_r0) {
+    case 0:
+    case 1:
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) {
+            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x38));
+            M2C_FIELD(arg0, u32 *, 0x38) = 0U;
+        }
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) {
+            close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x34));
+            M2C_FIELD(arg0, u32 *, 0x34) = 0U;
+        }
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) {
+            TWindow__close(M2C_FIELD(arg0, void **, 0x3C));
+            M2C_FIELD(arg0, u32 *, 0x3C) = 0U;
+        }
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
+            TWindow__close(M2C_FIELD(arg0, void **, 0x30));
+            M2C_FIELD(arg0, u32 *, 0x30) = 0U;
+        }
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) == 0U) {
+            M2C_FIELD(arg0, u32 *, 0x2C) = ((s32 (*)(void *))open_com_card_list__18TWindowSubShortCutFPv)((void *) (arg0));
+        }
+        TWindowSubShortCutList__sub_8027E278((int) (M2C_FIELD(arg0, u32 *, 0x2C)));
+        clear_selected_and_update_entry__14TWindowSubItemFPv((int) (M2C_FIELD(arg0, u32 *, 0x2C)));
+        M2C_FIELD(arg0, u8 *, 0x1C) = 2U;
+    case 2:
+        if (get_flag_bit2__6TLobbyFPv((int) (M2C_FIELD(arg0, u32 *, 0x2C))) != 0) {
+            temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x28));
+            ((VObj_18_204a81 *)(temp_r3))->m7();
+            M2C_FIELD(arg0, u8 *, 0x1C) = 0xBU;
+            return;
+        }
+        if (get_status_flag__6TLobbyFPv((int) (M2C_FIELD(arg0, u32 *, 0x2C))) != 0) {
+            M2C_FIELD(arg0, u8 *, 0x1C) = 3U;
+        }
+        break;
+    case 3:
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) {
+            close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x34));
+            M2C_FIELD(arg0, u32 *, 0x34) = 0U;
+        }
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x30) == 0U) {
+            M2C_FIELD(arg0, u32 *, 0x30) = open_menu__18TWindowSubShortCutFPv((void *) (arg0));
+        }
+        clear_flag_and_release__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x30)));
+        clear_transition_flag__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x30)));
+        M2C_FIELD(arg0, u8 *, 0x1C) = 4U;
+    case 4:
+        if (get_status_flag__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x30))) != 0) {
+            M2C_FIELD(arg0, u8 *, 0x1C) = 1U;
+            return;
+        }
+        if (is_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x30))) != 0) {
+            M2C_FIELD(arg0, u8 *, 0x1C) = TWindowSubComCard__sub_80265BF8((int) (M2C_FIELD(arg0, u32 *, 0x30)));
+            return;
+        }
+        break;
+    case 5:
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
+            TWindow__close(M2C_FIELD(arg0, void **, 0x30));
+            M2C_FIELD(arg0, u32 *, 0x30) = 0U;
+        }
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
+            M2C_FIELD(arg0, s32 *, 0x24) = select_cursor_entry__6TLobbyFPv(M2C_FIELD(arg0, s32 *, 0x2C));
+            TWindow__close(M2C_FIELD(arg0, void **, 0x2C));
+            M2C_FIELD(arg0, u32 *, 0x2C) = 0U;
+        }
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x38) == 0U) {
+            void *chat = __nw__7TObjectFUl(0x3C);
+            if (chat != 0) {
+                chat = TWindowChat__ct(chat, (void *) (arg0), (void *) ((u8 *)(arg0) + 0x40));
+            }
+            M2C_FIELD(arg0, void **, 0x38) = chat;
+            free_icon__18TWindowSubShortCutFPv((int) (M2C_FIELD(arg0, u32 *, 0x38)));
+            close_and_clear_flag__18TWindowSubShortCutFPv((int) (M2C_FIELD(arg0, u32 *, 0x38)));
+            set_flag1e_bit80__18TWindowSubShortCutFPv(M2C_FIELD(arg0, void **, 0x38));
+        }
+        M2C_FIELD(arg0, u8 *, 0x1C) = 6U;
+    case 6:
+        if (is_visible__11TWindowChatFPv((int) (M2C_FIELD(arg0, u32 *, 0x38))) != 0) {
+            M2C_FIELD(arg0, u8 *, 0x1C) = 1U;
+            return;
+        }
+        if (is_mode_bit4__11TWindowChatFPv((int) (M2C_FIELD(arg0, u32 *, 0x38))) != 0) {
+            M2C_FIELD(arg0, u8 *, 0x1C) = 7U;
+            return;
+        }
+        break;
+    case 7:
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) {
+            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x38));
+            M2C_FIELD(arg0, u32 *, 0x38) = 0U;
+        }
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) == 0U) {
+            var_r30 = __nw__7TObjectFUl(0x74);
+            if (var_r30 != 0) {
+                var_r30 = (void *)TWindowShortCut__ct((int) (var_r30), (int) (TWindowSubComCard__sub_8026CBB8((int) (0x73))), (int) (M2C_FIELD(arg0, s32 *, 0x24)), (void *) ((u8 *)(arg0) + 0x40));
+            }
+            M2C_FIELD(arg0, void **, 0x3C) = var_r30;
+        }
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x34) == 0U) {
+            M2C_FIELD(arg0, u32 *, 0x34) = TWindowSubShortCut__sub_8027DBB8((Win_8027DBB8 *) (arg0));
+        }
+        M2C_FIELD(arg0, u8 *, 0x1C) = 8U;
+    case 8:
+        if (get_card_data__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x34))) != 0) {
+            M2C_FIELD(arg0, u8 *, 0x1C) = 1U;
+            return;
+        }
+        if (TWindowSubComCard__sub_802A57FC((int) (M2C_FIELD(arg0, u32 *, 0x34))) != 0) {
+            if (get_slot_or_neg1__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x34))) == 0) {
+                fn_80076D68((int) (M2C_FIELD(arg0, s32 *, 0x24)), (void *) ((u8 *)(arg0) + 0x40));
+                M2C_FIELD(arg0, u8 *, 0x1C) = 1U;
+                return;
+            }
+            M2C_FIELD(arg0, u8 *, 0x1C) = 1U;
+            return;
+        }
+        break;
+    case 9:
+        open__17TWindowOptionCtrlFPv((int) (M2C_FIELD(arg0, u32 *, 0x30)));
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x34) == 0U) {
+            M2C_FIELD(arg0, u32 *, 0x34) = open_confirm_message__18TWindowSubShortCutFPv((void *) (arg0));
+        }
+        M2C_FIELD(arg0, u8 *, 0x1C) = 0xAU;
+    case 10:
+        if (get_card_data__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x34))) != 0) {
+            M2C_FIELD(arg0, u8 *, 0x1C) = 3U;
+            return;
+        }
+        if (TWindowSubComCard__sub_802A57FC((int) (M2C_FIELD(arg0, u32 *, 0x34))) != 0) {
+            if (get_slot_or_neg1__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x34))) == 0) {
+                select_cursor_entry__6TLobbyFPv((int) (M2C_FIELD(arg0, u32 *, 0x2C)));
+                fn_80076D40();
+                M2C_FIELD(arg0, u8 *, 0x1C) = 1U;
+                return;
+            }
+            M2C_FIELD(arg0, u8 *, 0x1C) = 3U;
+        }
+        break;
+    case 11:
+        break;
+    }
+}
 
 void *__dt__18TWindowSubShortCutFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

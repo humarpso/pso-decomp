@@ -80,13 +80,32 @@ M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(s32, s32, M2C_UNK, s32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, s32);
 s32 TWindowSubItem__sub_80279754(void *, int);
 void TWindowSubItem__sub_80279A60(u8 *arg0, s32 arg1, s32 arg2);
+struct En_8027AA80 { u16 flags; u8 pad2[0x2A]; u32 c2c; u32 c30; u32 c34; };
+s32 is_flag_4_set__20TWindowSubStatusDispFPv();
+
+struct Wn_8027AA80 { u8 pad0[0x76]; s16 f76; };
+struct En_8027AB10 { u16 flags; u8 pad2[0x2A]; u32 c2c; u32 c30; u32 c34; };
+
+struct Wn_8027AB10 { u8 pad0[0x76]; s16 f76; };
+struct Quest_8027ABFC { u8 pad[0x20]; s32 count; };
+struct Player_8027ABFC { u8 pad[0xD00]; s32 inv; };
+struct Win_8027ABFC { u8 pad0[0x20]; s16 id; u8 pad1[0x72 - 0x22]; s16 sel; u8 pad2[0x8C - 0x74]; u32 n; };
+
+Quest_8027ABFC *get_quest_id__12TQuestListVMFPv(void *);
+u32 run_and_get_result__10TObjPlayerFPvi(s32, s32 *);
+void TLobby__sub_80266E34(void *);
+void add_list_entry__20TWindowSubStatusDispFPvi(void *, s32);
+void push_status_disp_entry(void *, s32, s32);
+void add_battle_stat_entry(void *, s32, s32, s32);
+void add_list_entry__23TShopJudgmentItemWindowFPvii(void *, void *, s32);
+void TWindowSubItem__sub_8027AA80(Wn_8027AA80 *arg0);
+void TWindowSubItem__sub_8027AB10(Wn_8027AB10 *arg0);
+void fn_8027ABFC(Win_8027ABFC *arg0);
 }
 
 extern "C" {
 
 void *TWindowSubItem__ct(void *arg0, s32 arg1, s32 arg2);
-int TWindowSubItem__sub_8027AA80(void);
-int TWindowSubItem__sub_8027AB10(void);
 void *__dt__14TWindowSubItemFv(void *arg0, s16 arg1);
 void clear_flag_and_release__14TWindowSubItemFPv(void *arg0);
 void close_windows__14TWindowSubItemFPvi(void *arg0, s32 arg1);
@@ -94,7 +113,6 @@ s32 create_count_input__14TWindowSubItemFPvi(void *arg0, s32 arg1);
 void dispatch_warp_status__14TWindowSubItemFii(s32 arg0, s32 arg1);
 void draw_slot__14TWindowSubItemFiii(s32 arg1, s32 arg2, s32 arg3);
 void exec_item_command__14TWindowSubItemFPvii(void *arg0, s32 arg1, s32 arg2);
-int fn_8027ABFC(void*);
 void refresh__14TWindowSubItemFPv(void* p);
 void render__14TWindowSubItemFv(void);
 void reset_selected__14TWindowSubItemFPv(void* p);
@@ -411,11 +429,64 @@ s32 TWindowSubItem__sub_8027AA78(s32 arg0) {
     return arg0 - 0x10;
 }
 
-int TWindowSubItem__sub_8027AA80(void) { return 0; }
-int TWindowSubItem__sub_8027AB10(void) { return 0; }
+void TWindowSubItem__sub_8027AA80(Wn_8027AA80 *arg0) {
+    s32 i;
+    En_8027AA80 *e;
 
-void refresh__14TWindowSubItemFPv(void* p) { save_cursor_selection__20TShopArmorListWindowFPv(p); TShopArmorListWindow__sub_80266DB0(p); fn_8027ABFC((void*)(p)); TShopArmorListWindow__sub_80266CF8(p); TWindowSubStatusDisp__sub_80266EB8(p); reset_selected__14TWindowSubItemFPv((void*)(p)); }
+    for (i = 0; i < arg0->f76; i++) {
+        e = (En_8027AA80 *)((M2C_UNK (*)(void *, s32))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, i);
+        if (is_flag_4_set__20TWindowSubStatusDispFPv() != 0 && ((M2C_UNK (*)(void *))get_cursor_pos__14TWindowSubItemFPv)(e) == -0xFF) {
+            e->c2c = 0xFFAAAAAA;
+            e->c34 = 0xFF909090;
+            e->flags |= 0x80;
+        }
+    }
+}
+void TWindowSubItem__sub_8027AB10(Wn_8027AB10 *arg0) {
+    s32 i;
+    En_8027AB10 *e;
 
-int fn_8027ABFC(void*) { return 0; }
+    for (i = 0; i < arg0->f76; i++) {
+        e = (En_8027AB10 *)((M2C_UNK (*)(void *, s32))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, i);
+        if (is_flag_4_set__20TWindowSubStatusDispFPv() != 0 && (((M2C_UNK (*)(void *))get_cursor_pos__14TWindowSubItemFPv)(e) & -0x10) == -0x10) {
+            e->c2c = 0xFFAAAAAA;
+            e->c30 = 0xFF909090;
+            e->c34 = 0xFF909090;
+            e->flags |= 0x80;
+        }
+    }
+}
+
+void refresh__14TWindowSubItemFPv(void* p) { save_cursor_selection__20TShopArmorListWindowFPv(p); TShopArmorListWindow__sub_80266DB0(p); fn_8027ABFC((Win_8027ABFC*)(p)); TShopArmorListWindow__sub_80266CF8(p); TWindowSubStatusDisp__sub_80266EB8(p); reset_selected__14TWindowSubItemFPv((void*)(p)); }
+
+void fn_8027ABFC(Win_8027ABFC *arg0) {
+    s32 ids[30];
+    Player_8027ABFC *pl;
+    Quest_8027ABFC *q;
+    u32 i;
+    void *it;
+
+    pl = (Player_8027ABFC *)TPlayerBattleCtrl4P__sub_801BA74C(arg0->id);
+    if (pl != NULL) {
+        arg0->n = run_and_get_result__10TObjPlayerFPvi(pl->inv, ids);
+        for (i = 0; i < arg0->n; i++) {
+            it = TLobby__sub_80101AB0(ids[i]);
+            if (it != NULL) {
+                add_list_entry__23TShopJudgmentItemWindowFPvii(arg0, it, ids[i]);
+            }
+        }
+        for (i = 0; i < 5; i++) {
+            add_battle_stat_entry(arg0, i, TWindowSubItem__sub_8027AA78(i), 0);
+        }
+        q = get_quest_id__12TQuestListVMFPv(pl);
+        if (q != NULL && q->count > 0) {
+            push_status_disp_entry(arg0, q->count, -0xFF);
+        }
+        if (arg0->sel <= 0) {
+            add_list_entry__20TWindowSubStatusDispFPvi(arg0, -1);
+        }
+        TLobby__sub_80266E34(arg0);
+    }
+}
 
 }

@@ -23,6 +23,8 @@ struct RecoveredGlobal_803599F4___vt__19TObjStendGlassLobby {
     u8 remaining[0x34];
 };
 
+struct Obj_80359758 { u8 pad[0xC8]; s32 state; f32 val; s32 flag; };
+
 extern "C" {
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -39,6 +41,10 @@ extern u32 TObjStendGlassLobby__data_805D6F28;
 extern s32 lbl_805D6F2C;
 extern const f32 TObjStendGlassLobby__data_805E00A0;
 u8 *TObjStendGlassLobby__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+s32 check_demo_mode__10TObjPlayerFv();
+s32 TLobby__sub_80351DFC();
+void TObjStendGlassLobby__sub_803596C0(void);
+void run_task__19TObjStendGlassLobbyFv(Obj_80359758 *self);
 }
 
 extern "C" {
@@ -84,6 +90,45 @@ void render__19TObjStendGlassLobbyFv(u8 *arg0) {
         TObjBoss2Tunnel__sub_803DB470((int) (M2C_FIELD(arg0, s32 *, 0x34)));
         TObjPlayer__sub_803D9B78();
         end_effect_render__13TParticleCtrlFv();
+    }
+}
+
+void run_task__19TObjStendGlassLobbyFv(Obj_80359758 *self) {
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
+        ((void (*)(void *))TObjStendGlassLobby__sub_803596C0)(self);
+    }
+    switch (self->state) {
+    case 0:
+        if (self->flag == TLobby__sub_80351DFC()) {
+            self->state = 2;
+        }
+        break;
+    case 2:
+        {
+        f32 lim = 1.0f;
+        self->val += 0.1f;
+        if (self->val >= lim) {
+            self->val = lim;
+            self->state = 3;
+        }
+        }
+        break;
+    case 1:
+        {
+        f32 lim = 0.0f;
+        self->val -= 0.1f;
+        if (self->val <= lim) {
+            self->val = lim;
+            self->state = 0;
+        }
+        }
+        break;
+    case 3:
+    default:
+        if (self->flag != TLobby__sub_80351DFC()) {
+            self->state = 1;
+        }
+        break;
     }
 }
 

@@ -4,6 +4,36 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+struct Vec_80099F0C { f32 x, y, z; };
+
+struct Col_80099F0C { u8 pad0[0xC]; f32 fC; f32 f10; u8 pad14[4]; u32 flags; };
+
+struct Base_80099F0C { u8 pad[0x18]; };
+
+struct Bringer_80099F0C : Base_80099F0C {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(void *, void *, s32);
+    u8 pad1C[0x38 - 0x1C];
+    Vec_80099F0C pos;
+    u8 pad44[0xA4 - 0x44];
+    Col_80099F0C *col;
+    u8 padA8[0xB0 - 0xA8];
+    s32 active;
+    s32 timer;
+    f32 dirx;
+    s32 fBC;
+    f32 dirz;
+    s32 fC4;
+    f32 dist;
+    f32 next;
+    f32 fD0;
+};
+
+struct Arg_80099F0C { s32 a; f32 b; };
+
 extern "C" {
 int fn_800BC4C8(void);
 extern M2C_UNK lbl_8048FE08[];
@@ -20,6 +50,20 @@ void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805D9864;
 extern const f32 lbl_805D9868;
 void TObjEneDf2Bringer__sub_8009A2A4(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, const void *);
+void *TObjButterflyLobby__sub_8007A5D8(void *, void *, s32);
+f32 update_scale__15TObjBoss2TunnelFPv(void *);
+void TLobby__sub_800869A4(void *, s32, s32, s32);
+void TObjEneDf2Bringer__sub_8009A11C(void* p);
+void update_enemy_collision_flags__10TObjPlayerFPv(void *);
+void TBoss6Type1__sub_803D9370(void *, void *);
+extern u8 lbl_8043A164[];
+extern s32 lbl_8043A16C[];
+extern const f32 lbl_805D9850;
+extern const f32 lbl_805D9854;
+extern const f32 lbl_805D9858;
+extern const f32 lbl_805D985C;
+void TObjEneDf2Bringer__sub_80099F0C(Bringer_80099F0C *self);
 }
 
 extern "C" {
@@ -33,6 +77,60 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, const void *);
 void __dl__7TObjectFPv(void *);
 void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
 M2C_UNK fn_8002B094(int);
+
+#pragma push
+#pragma fp_contract on
+void TObjEneDf2Bringer__sub_80099F0C(Bringer_80099F0C *self) {
+    Vec_80099F0C v;
+    Vec_80099F0C d;
+    Vec_80099F0C e;
+    Arg_80099F0C arg;
+    s32 hit;
+    f32 step;
+    if (self->active == 0) {
+        return;
+    }
+    hit = 0;
+    VecCopy__FP3VecPC3Vec(&v, &self->pos);
+    step = lbl_805D9850;
+    v.x = lbl_805D9850 * self->dirx + v.x;
+    v.z = lbl_805D9850 * self->dirz + v.z;
+    void *res = TObjButterflyLobby__sub_8007A5D8(&self->pos, &v, 0x16EF);
+    if (res != 0) {
+        VecCopy__FP3VecPC3Vec(&v, *(void **)((u8 *)res + 4));
+        VecCopy__FP3VecPC3Vec(&d, &self->pos);
+        TBoss6Type1__sub_803D9370(&d, &v);
+        step = update_scale__15TObjBoss2TunnelFPv(&d);
+        hit = 1;
+    }
+    f32 inc = lbl_805D9854;
+    self->dist += step;
+    while (self->dist > self->next) {
+        VecCopy__FP3VecPC3Vec(&e, &self->pos);
+        e.x = self->next * self->dirx + e.x;
+        e.z = self->next * self->dirz + e.z;
+        TLobby__sub_800869A4(&e, 0xEE, 0, 1);
+        self->next += inc;
+    }
+    self->next -= step;
+    self->dist -= step;
+    VecCopy__FP3VecPC3Vec(&self->pos, &v);
+    self->col->f10 = lbl_805D9858;
+    self->col->fC = lbl_805D985C * step;
+    update_enemy_collision_flags__10TObjPlayerFPv(self);
+    if (self->col->flags & 0x200000) {
+        TObjEneDf2Bringer__sub_8009A11C((void*)(self));
+        return;
+    }
+    arg.a = lbl_8043A16C[0];
+    arg.b = self->fD0;
+    self->m12(lbl_8043A164, &arg, self->fC4);
+    self->timer--;
+    if (hit != 0 || self->timer < 0) {
+        TObjEneDf2Bringer__sub_8009A11C((void*)(self));
+    }
+}
+#pragma pop
 
 void TObjEneDf2Bringer__sub_8009A11C(void* p) { *(s32*)((char*)p + 0xb0) = 0; }
 

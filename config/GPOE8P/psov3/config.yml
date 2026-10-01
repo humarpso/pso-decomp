@@ -71,6 +71,7 @@ force_active:
   - TObjPlayer__sub_801BF7B8
   - TObjPlayer__sub_801BF8CC
   - TObjPlayer__sub_801C1A30
+  - TObjPlayer__sub_801D0B44
   - TObjPlayer__sub_801D1FA4
   - TObjPlayer__sub_801D2004
   - TPlyDispConfig__sub_801E0A68
@@ -107,6 +108,8 @@ force_active:
   - create__13TItemProArmorFiUi
   - create_icon__10TObjPlayerFiii
   - disable_stealth_suit_effect__15TFontSmallLobbyFi
+  - dispatch_callback
+  - dispatch_lobby_callback
   - draw_value__13TWindowMesetaFPvi
   - emit_player_model_particle
   - fn_80010F4C
@@ -125,6 +128,7 @@ force_active:
   - free_item_pmt
   - init__18TObjAreaWarpForestFPvPvPv
   - init_default_fields__6TLobbyFPv
+  - init_object__23TAdSinglePlyChrSelectGCFPvPv
   - initialize__16TItemWeaponRifleFlPUc
   - initialize__21TItemProArmorParticleFPvPvPvPvPv
   - initialize_player_data__10TObjPlayerFPv

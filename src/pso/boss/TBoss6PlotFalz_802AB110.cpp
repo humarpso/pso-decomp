@@ -32,12 +32,17 @@ struct RecoveredGlobal_802AB14C_TBoss6PlotFalz__data_804DE66C {
     u8 remaining[0x1D0];
 };
 
+typedef s32 M2C_UNK;
+union MemberActionStorage_802AB2B8 { s32 words[3]; void (TBoss6PlotFalz::*action)(); };
+
 extern "C" {
 extern RecoveredGlobal_802AB1C8_TBoss6PlotFalz__data_804DE66C TBoss6PlotFalz__data_804DE66C;
 void TBoss6PlotFalz__sub_802AB1C8(u8 *arg0);
 s32 TBoss6PlotFalz__sub_802AACF4(void *);
 extern RecoveredGlobal_802AB1C8_TBoss6PlotFalz__data_804DE66C TBoss6PlotFalz__data_804DE66C;
 void TBoss6PlotFalz__sub_802AB14C(u8 *arg0);
+extern RecoveredGlobal_802AB1C8_TBoss6PlotFalz__data_804DE66C TBoss6PlotFalz__data_804DE66C;
+void TBoss6PlotFalz__sub_802AB2B8(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -101,5 +106,34 @@ void set_state_2__14TBoss6PlotFalzFPv(void* p) { *(s32*)((char*)p + 0x3d4) = 0; 
 void reset_state__14TBoss6PlotFalzFPv(void* p) { *(s32*)((char*)p + 0x3d4) = 0; *(s32*)((char*)p + 0x3d8) = 0; }
 void activate_warp__14TBoss6PlotFalzFPv(void* p) { void* m = *(void**)((char*)p + 0x384); if (m) activate_warp__15TBoss6EmptyWarpFPv(m); }
 void free_child__14TBoss6PlotFalzFPv(void* p) { void* m = *(void**)((char*)p + 0x384); if (m) TBoss6EmptyWarp__sub_802B1004(m); }
+void TBoss6PlotFalz__sub_802AB2B8(u8 *arg0, s32 arg1) {
+    MemberActionStorage_802AB2B8 leave;
+    MemberActionStorage_802AB2B8 enter;
+    u8 *e;
+    if (arg1 < 0 || arg1 >= 9) {
+        return;
+    }
+    {
+        if (*(s32 *)(arg0 + 0x378) != -1) {
+            e = (u8 *)&TBoss6PlotFalz__data_804DE66C.value;
+            e = e + *(s32 *)(arg0 + 0x378) * 0x34;
+            leave.words[0] = *(s32 *)(e + 0x10);
+            leave.words[1] = *(s32 *)(e + 0x14);
+            leave.words[2] = *(s32 *)(e + 0x18);
+            if (leave.action != 0) {
+                (((TBoss6PlotFalz *)arg0)->*(leave.action))();
+            }
+        }
+        *(s32 *)(arg0 + 0x378) = arg1;
+        e = (u8 *)&TBoss6PlotFalz__data_804DE66C.value;
+            e = e + *(s32 *)(arg0 + 0x378) * 0x34;
+        enter.words[0] = *(s32 *)(e + 0x4);
+        enter.words[1] = *(s32 *)(e + 0x8);
+        enter.words[2] = *(s32 *)(e + 0xC);
+        if (enter.action != 0) {
+            (((TBoss6PlotFalz *)arg0)->*(enter.action))();
+        }
+    }
+}
 
 }

@@ -71,6 +71,21 @@ M2C_UNK set_code_12_3__10TObjPlayerFPv(M2C_UNK *);
 M2C_UNK set_code_13_3__10TObjPlayerFPv(M2C_UNK *);
 M2C_UNK update_and_send__10TObjPlayerFPv(M2C_UNK *);
 
+void TKeyBoardControl__sub_8000F998();
+s16 obj_getField1c(s32);
+void set_state_flags__10TObjPlayerFPvUi(void *, u32);
+void *get_dest_area__17TObjAreaWarpQuestFPv(void *);
+void TTecLuker__sub_801BAB1C(void *, void *);
+void set_battle_flag__10TObjPlayerFPvi(void *, int);
+void TObjPlayer__sub_801C5F84(s16, s32, s32);
+s32 TObjPlayer__sub_801D8C9C(void *);
+s32 TObjPlayer__sub_801D8CCC(void *);
+s32 TLobby__sub_80207770(int);
+void set_area__6TLobbyFPvi(void *, int, int);
+s32 TNpcPlayer__sub_8034DDE0();
+s32 TNpcPlayer__sub_8034DE10();
+void apply_to_players__10TNpcPlayerFiPvi(void *, s32, s32);
+extern u8 lbl_80515BA0[];
 void send_code_13_3__10TObjPlayerFii(s32 arg0, s32 arg1) {
     M2C_UNK spC;
     M2C_UNK sp8;
@@ -182,5 +197,16 @@ s32 TWindowHelpItem__sub_801B3038(void *self, void *arg1) {
 }
 #pragma scheduling off
 int fn_801B309C(void* p) { return recover_full__10TObjPlayerFPv(p); }
+
+#pragma scheduling on
+void TObjPlayer__sub_801B30BC(void *player) {
+    set_area__6TLobbyFPvi(lbl_80515BA0, 0, TLobby__sub_80207770(0));
+    TKeyBoardControl__sub_8000F998();
+    TObjPlayer__sub_801C5F84(obj_getField1c((s32) player), TObjPlayer__sub_801D8C9C(player), TObjPlayer__sub_801D8CCC(player));
+    set_state_flags__10TObjPlayerFPvUi(player, 0x800);
+    set_battle_flag__10TObjPlayerFPvi(player, 1);
+    TTecLuker__sub_801BAB1C(player, get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0));
+    apply_to_players__10TNpcPlayerFiPvi(get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0), TNpcPlayer__sub_8034DE10(), TNpcPlayer__sub_8034DDE0());
+}
 
 }

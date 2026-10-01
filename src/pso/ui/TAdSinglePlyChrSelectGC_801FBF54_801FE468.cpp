@@ -9,6 +9,19 @@ struct RecoveredGlobal_801FE4BC_lbl_805137C8 {
     u8 remaining[0xC];
 };
 
+struct Req_801FE5F8 {
+    s32 slot[4];
+    s32 dest[4];
+    u32 count;
+};
+
+struct Slot_801FE5F8 {
+    u8 pad0[4];
+    u8 chr[0x41C];
+    u8 inv[0x2370];
+    u8 tail[8];
+};
+
 extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_801FCCDC(s32, s32);
 extern s32 lbl_805D5F5C;
@@ -17,6 +30,13 @@ s32 TAdSinglePlyChrSelectGC__sub_801FCCDC(s32, s32);
 extern RecoveredGlobal_801FE4BC_lbl_805137C8 lbl_805137C8;
 extern u32 lbl_805D5F58;
 M2C_UNK *TAdSinglePlyChrSelectGC__sub_801FE4BC(u32 arg0);
+void TAdSinglePlyChrSelectGC__sub_801FE710(void *, void *);
+void *memcpy(void *, const void *, u32);
+void *memset(void *, int, u32);
+extern int lbl_805137D8[];
+extern u8 lbl_805137F8[];
+extern u32 lbl_805D5F58;
+void TAdSinglePlyChrSelectGC__sub_801FE5F8(Req_801FE5F8 *arg0);
 }
 
 extern "C" {
@@ -78,6 +98,23 @@ M2C_UNK *TAdSinglePlyChrSelectGC__sub_801FE4BC(u32 arg0) {
     M2C_FIELD(&lbl_805137C8.value, s32 *, 4) = (s32) M2C_FIELD(temp_r4, s32 *, 0x368);
     M2C_FIELD(&lbl_805137C8.value, s32 *, 8) = (s32) M2C_FIELD(temp_r4, s32 *, 0x2790);
     return &lbl_805137C8.value;
+}
+
+void TAdSinglePlyChrSelectGC__sub_801FE5F8(Req_801FE5F8 *arg0) {
+    s32 i;
+    if (arg0->count <= 4) {
+        TAdSinglePlyChrSelectGC__sub_801FE710(lbl_805137F8, arg0);
+        for (i = 0; i < 4; i++) {
+            memset((void *)lbl_805137D8[i], 0, 0x41C);
+            memset((void *)lbl_805137D8[i + 4], 0, 0x2370);
+        }
+        for (i = 0; i < 4; i++) {
+            if (arg0->slot[i] < 7 && arg0->dest[i] != -1) {
+                memcpy((void *)lbl_805137D8[arg0->dest[i]], ((Slot_801FE5F8 *)lbl_805D5F58)[arg0->slot[i]].chr, 0x41C);
+                memcpy((void *)lbl_805137D8[arg0->dest[i] + 4], ((Slot_801FE5F8 *)lbl_805D5F58)[arg0->slot[i]].inv, 0x2370);
+            }
+        }
+    }
 }
 
 s32 TAdSinglePlyChrSelectGC__sub_801FE75C(void) {

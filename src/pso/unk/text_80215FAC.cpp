@@ -23,6 +23,12 @@ struct Med_80216288 { s32 f0; u8 pad4[0x14]; void *vt; void *sub; u8 pad20[0x20C
 
 struct Med_80216320 { s32 f0; u8 pad4[0x14]; void *vt; void *sub; u8 pad20[0x20C]; void *f22c; s32 f230; };
 
+struct Med_802160B4 { s32 f0; u8 pad4[0x14]; void *vt; u8 sub[0x22C - 0x1C]; void *f22c; s32 f230; };
+
+struct Map_802160B4 { u8 pad[0x20]; u8 btn[0x50 - 0x20]; };
+
+struct Pair_802160B4 { s32 a; s32 b; };
+
 extern "C" {
 s32 set_field_20__12TQuestListVMFPvi(void *, int);
 s32 TShopSequence__ct(void *);
@@ -59,6 +65,26 @@ extern u8 __vt__17TMedicalCenterMes[];
 extern RecoveredGlobal_80216084_TMedicalCenterMes__data_80513EA0 TMedicalCenterMes__data_80513EA0;
 extern s32 lbl_805D367C;
 Med_80216320 *TMedicalCenterMes__ct(Med_80216320 *arg0, void *arg1, void *arg2);
+void *obj_getField1c(void *);
+void queue_destruction__7TObjectFv(void *);
+s32 TWindowShortListCtrl__check_controller_button(void *, s32);
+s32 get_map_id__13TRaderMapCoreFPv(void *);
+void clear_lobby_flag__10TObjPlayerFPv(void *);
+void init_effect_5f0__10TObjPlayerFPv(void *);
+void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void TShopGenerator__sub_8021E14C(s32);
+void THunterGuildSeqOffline__sub_8021E180(s32);
+s32 poll_field_20c__22TQuestVmDownLoadServerFPv(void *);
+void show_message__17TMedicalCenterMesFPvii(void *, s32, s32);
+void close__17TMedicalCenterMesFPv(void *);
+void create_message_window__17TMedicalCenterMesFPviii(void *, s32, void *, s32);
+void TWindowCtrl__sub_8024AEAC(u16);
+void TWindowCtrl__sub_8024AEF0(u16);
+s32 TWindowSubComCard__sub_8026CBB8(s32);
+extern Pair_802160B4 lbl_8044BD94[];
+extern Map_802160B4 lbl_8050E208[];
+extern s32 lbl_805D53A0;
+void TMedicalCenterMes__vt1(Med_802160B4 *self);
 }
 
 extern "C" {
@@ -99,6 +125,46 @@ typedef char RecoveredGlobal_80216084_TMedicalCenterMes__data_80513EA0_size[size
 s32 TMedicalCenterMes__sub_80216084(s32 arg0) {
     return M2C_FIELD(&TMedicalCenterMes__data_80513EA0.value, M2C_UNK *, ((TShopGenerator__sub_80222DAC(arg0) * 4) & 0x3FFFC));
 }
+
+void TMedicalCenterMes__vt1(Med_802160B4 *self) {
+    switch (self->f230) {
+    case 0: {
+        if (self->f22c == NULL) {
+            self->f22c = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+        }
+        THunterGuildSeqOffline__sub_8021E180((s32)obj_getField1c(self->f22c));
+        TWindowCtrl__sub_8024AEAC((u16)(s32)obj_getField1c(self->f22c));
+        Pair_802160B4 p = lbl_8044BD94[0];
+        u16 id = (u16)(s32)obj_getField1c(self->f22c);
+        create_message_window__17TMedicalCenterMesFPviii(self->sub, TWindowSubComCard__sub_8026CBB8(0x2C), &p, id);
+        show_message__17TMedicalCenterMesFPvii(self->sub, 0x25, 1);
+        if (self->f22c != NULL) {
+            init_effect_5f0__10TObjPlayerFPv(self->f22c);
+        }
+        self->f230 = 1;
+        break;
+    }
+    case 1:
+        if (poll_field_20c__22TQuestVmDownLoadServerFPv(self->sub) != 0 && self->f22c != NULL) {
+            if (TWindowShortListCtrl__check_controller_button(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(self->f22c)].btn, 4) != 0) {
+                self->f230 = 2;
+            }
+        }
+        break;
+    case 2:
+        if (self->f22c != NULL) {
+            clear_lobby_flag__10TObjPlayerFPv(self->f22c);
+        }
+        close__17TMedicalCenterMesFPv(self->sub);
+        if (self->f22c != NULL) {
+            TWindowCtrl__sub_8024AEF0((u16)(s32)obj_getField1c(self->f22c));
+        }
+        TShopGenerator__sub_8021E14C((s32)obj_getField1c(self->f22c));
+        queue_destruction__7TObjectFv(self);
+        break;
+    }
+}
+
 void TMedicalCenterMes__sub_80216238(void) {
     s32 i;
     for (i = 0; i < 4; i++) {

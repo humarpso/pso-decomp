@@ -29,6 +29,15 @@ struct Hd_802ADA48 { u32 w[4]; };
 
 struct Col_802ADA48 { Hd_802ADA48 h; u8 b0, b1, b2, b3, b4, b5, b6, b7; };
 
+struct Menu_802AD980 {
+    u8 pad[0x60];
+    u8 flags;
+    s8 cur;
+    s16 count;
+    u8 pad2[0x124 - 0x64];
+    Col_802ADA48 *slots[8];
+};
+
 extern "C" {
 int copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void TWindowMainMenu__sub_802AD790(u8 *arg0, s32 arg1, s8 arg2, s8 arg3);
@@ -38,12 +47,17 @@ int TWindowMainMenu__sub_802ADAAC(Obj_802ADAAC *self);
 void init_color__15TWindowMainMenuFPv(void *);
 void TWindowMainMenu__sub_802AD90C(MM_802AD90C *arg0);
 void TWindowMainMenu__sub_802ADA48(Col_802ADA48 *arg0, Col_802ADA48 *arg1);
+void set_symbol_chat_parts__15TWindowMainMenuFPv(void* p, void * _w1);
+void init_color__15TWindowMainMenuFPv(void *);
+void TWindowMainMenu__sub_802ADA48(Col_802ADA48 *arg0, Col_802ADA48 *arg1);
+u8 *find_free_slot__15TWindowMainMenuFi(void *);
+M2C_UNK TWindowMainMenu__sub_802ADC98(void *, void *, s32);
+void TWindowMainMenu__sub_802AD980(Menu_802AD980 *arg0);
 }
 
 extern "C" {
 
 void TWindowMainMenu__sub_802AD74C(void* p);
-int TWindowMainMenu__sub_802AD980(void);
 void clear_menu_flags__15TWindowMainMenuFPv(void* p);
 int get_menu_flag__15TWindowMainMenuFPv(void* p);
 int is_flag_set__15TWindowMainMenuFPv(void* p);
@@ -91,7 +105,26 @@ void TWindowMainMenu__sub_802AD90C(MM_802AD90C *arg0) {
     }
 }
 
-int TWindowMainMenu__sub_802AD980(void) { return 0; }
+void TWindowMainMenu__sub_802AD980(Menu_802AD980 *arg0) {
+    Col_802ADA48 buf;
+    u8 sp8[8];
+    s32 i;
+    Col_802ADA48 *slot;
+    TWindowMainMenu__sub_802ADA48(&buf, arg0->slots[arg0->cur]);
+    for (i = 0; i < 8; i++) {
+        if (arg0->slots[i] != NULL) {
+            init_color__15TWindowMainMenuFPv(arg0->slots[i]);
+            arg0->slots[i] = NULL;
+        }
+    }
+    TWindowMainMenu__sub_802ADC98(arg0, sp8, arg0->count);
+    slot = (Col_802ADA48 *)find_free_slot__15TWindowMainMenuFi(arg0);
+    TWindowMainMenu__sub_802ADA48(slot, &buf);
+    set_symbol_chat_parts__15TWindowMainMenuFPv(slot, sp8);
+    ((u8 *)slot)[0x12] = 2;
+    arg0->flags |= 4;
+    arg0->count++;
+}
 
 void TWindowMainMenu__sub_802ADA48(Col_802ADA48 *arg0, Col_802ADA48 *arg1) {
     arg0->h = arg1->h;

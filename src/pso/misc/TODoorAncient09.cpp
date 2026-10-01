@@ -47,6 +47,26 @@ struct RecoveredGlobal_8016BC84_lbl_804B2B30 {
     u8 remaining[0xC];
 };
 
+struct Node_80160BA8 {
+    u8 pad0[4];
+    void *model;
+    u8 pos[0x24];
+    Node_80160BA8 *x2c;
+    Node_80160BA8 *x30;
+};
+
+struct Door_80160BA8 {
+    u8 pad0[0x34];
+    Node_80160BA8 *root;
+    u8 pos[0x28];
+    s32 x60;
+    u8 pad64[0xC8 - 0x64];
+    s32 xC8;
+    u32 padCC;
+    s32 xD0;
+    u16 xD4;
+};
+
 extern "C" {
 s32 TLobby__sub_80156A80(void *, void *, int);
 M2C_UNK fn_80160838(void *, void *);
@@ -78,6 +98,17 @@ s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
 extern void *TODoorAncient09__data_805D5954;
 extern const f32 lbl_805DB48C;
 void TODoorAncient09__vt13(u8 *arg0);
+void begin_effect_render__13TParticleCtrlFv();
+void end_effect_render__13TParticleCtrlFv();
+u8 TODoorAncient08__sub_80229220(int);
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(s32);
+int TOSignCave03__sub_803DB510(void *);
+extern void *TODoorAncient09__data_805D5954;
+void TODoorAncient09__sub_80160BA8(Door_80160BA8 *self);
 }
 
 extern "C" {
@@ -98,7 +129,6 @@ void free_rocks__15TODoorAncient09Fv(void);
 void render__15TODoorAncient09Fv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 void *TODoorAncient09__ct(void *, void *, void *);
-M2C_UNK TODoorAncient09__sub_80160BA8(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
@@ -214,6 +244,57 @@ void TODoorAncient09__vt12(u8 *arg0) {
 }
 #pragma pop
 
+void TODoorAncient09__sub_80160BA8(Door_80160BA8 *self) {
+    s32 on[2];
+    Node_80160BA8 *pairs[2][2];
+    Node_80160BA8 *root;
+    u8 f;
+    u8 g;
+    Node_80160BA8 **pp;
+    s32 i;
+    f = 0;
+    root = self->root;
+    pairs[0][0] = root->x2c->x2c;
+    pairs[0][1] = root->x2c->x2c->x30;
+    pairs[1][0] = root->x2c->x30;
+    pairs[1][1] = root->x2c->x30->x30;
+    if (TODoorAncient08__sub_80229220((u16)self->xC8) != 0 || (self->xD0 & 1)) {
+        f = 1;
+    }
+    on[0] = f;
+    g = 0;
+    if (TODoorAncient08__sub_80229220(self->xD4) != 0 || (self->xD0 & 1)) {
+        g = 1;
+    }
+    on[1] = g;
+    TObjPlayer__sub_803D9B2C();
+    set_global_param__8TObjFishFi(((s32 *)TODoorAncient09__data_805D5954)[0]);
+    TOHangerMachine01__sub_803D9C00(self->pos);
+    TOHangerMachine01__sub_803D9C00(root->pos);
+    TObjPlayer__sub_803D9214((M2C_UNK)(0), (s32)(self->x60));
+    TOSignCave03__sub_803DB510(root->model);
+    TOSignCave03__sub_803DB510(root->x2c->model);
+    begin_effect_render__13TParticleCtrlFv();
+    for (i = 0; i < 2; i++) {
+        if (on[i] != 0) {
+            set_global_param__8TObjFishFi(((s32 *)TODoorAncient09__data_805D5954)[1]);
+        } else {
+            set_global_param__8TObjFishFi(((s32 *)TODoorAncient09__data_805D5954)[0]);
+        }
+        TObjPlayer__sub_803D9B2C();
+        pp = pairs[i];
+        TOHangerMachine01__sub_803D9C00(pp[0]->pos);
+        TOSignCave03__sub_803DB510(pp[0]->model);
+        TObjPlayer__sub_803D9B78();
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(pp[1]->pos);
+        TOSignCave03__sub_803DB510(pp[1]->model);
+        TObjPlayer__sub_803D9B78();
+    }
+    end_effect_render__13TParticleCtrlFv();
+    TObjPlayer__sub_803D9B78();
+}
+
 void render__15TODoorAncient09Fv(u8 *arg0) {
     s32 temp_r0;
 
@@ -238,7 +319,7 @@ void render__15TODoorAncient09Fv(u8 *arg0) {
             TObjPlayer__sub_803D9B78();
             return;
         case 0:
-            TODoorAncient09__sub_80160BA8(arg0);
+            TODoorAncient09__sub_80160BA8((Door_80160BA8 *)(arg0));
             break;
         }
     }

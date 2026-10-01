@@ -9,9 +9,23 @@ typedef char RecoveredGlobal_80357548___vt__20TItemEffOrgaFlowShot_size[sizeof(R
 
 struct B_80357058 { u8 hdr[4]; u8 d[0x40]; u8 tail[8+1]; };
 
+struct Vec4_80357284 { f32 x, y, z; s32 w; };
+
+struct Seg_80357284 { Vec4_80357284 a; Vec4_80357284 b; };
+
+struct Shot_80357284 {
+    u8 pad0[0xC4];
+    Seg_80357284 seg[5];
+    f32 v164[3];
+    f32 v170[3];
+    f32 dir[3];
+    u8 pad188[8];
+    f32 len;
+    f32 speed;
+};
+
 extern "C" {
 u8 * fn_802E4A4C(void *, M2C_UNK, void *);
-int TItemEffOrgaFlowShot__sub_80357284(void *);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 f32 TNpcPlayer__sub_803D97B4(void *);
@@ -29,6 +43,7 @@ s32 TLobby__sub_800C6C10();
 void bswap_6xAD_subordinate_action__20TItemEffOrgaFlowShotFPv(void* p);
 void build_6xAD_olga_flow_subordinate_boss_actions(void* p);
 void send_6xAD_olga_flow_subordinate_boss_actions(u8 *arg0);
+void TItemEffOrgaFlowShot__sub_80357284(void *arg0);
 }
 
 extern "C" {
@@ -88,10 +103,40 @@ void bswap_6xAD_subordinate_action__20TItemEffOrgaFlowShotFPv(void* p) { read_be
 
 int read_be16_field2_forward(void* p) { return read_be16_field2__10TObjPlayerFPv(p); }
 void build_6xAD_olga_flow_subordinate_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 173; *(u8*)((char*)p + 0x1) = 17; }
-int TItemEffOrgaFlowShot__sub_80357284(void * _w0) { return 0; }
 
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
+
+#pragma push
+#pragma fp_contract on
+#pragma fp_contract on
+void TItemEffOrgaFlowShot__sub_80357284(void *arg0) {
+    Shot_80357284 *o = (Shot_80357284 *)arg0;
+    Vec4_80357284 *dst;
+    Vec4_80357284 *src;
+    f32 dx;
+    f32 dz;
+    s32 i;
+    dst = &o->seg[0].a;
+    src = &o->seg[0].b;
+    o->seg[0].b.x = o->v164[0] * o->speed + o->seg[1].b.x;
+    o->seg[0].b.y = o->v164[1] * o->speed + o->seg[1].b.y;
+    o->seg[0].b.z = o->v164[2] * o->speed + o->seg[1].b.z;
+    o->seg[4].b.x = o->v170[0] * o->speed + o->seg[3].b.x;
+    o->seg[4].b.y = o->v170[1] * o->speed + o->seg[3].b.y;
+    o->seg[4].b.z = o->v170[2] * o->speed + o->seg[3].b.z;
+    dx = o->dir[0] * o->len;
+    dz = o->dir[2] * o->len;
+    for (i = 0; i < 5; i++) {
+        dst->x = src->x + dx;
+        dst->y = src->y;
+        dst->z = src->z + dz;
+        dst->w = src->w;
+        dst += 2;
+        src += 2;
+    }
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on
@@ -171,7 +216,7 @@ u8 *TItemEffOrgaFlowShot__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     M2C_FIELD(arg0, s32 *, 0x140) = 0x6040FF40;
     M2C_FIELD(arg0, s32 *, 0xE0) = 0x408840;
     M2C_FIELD(arg0, s32 *, 0x160) = 0x408840;
-    TItemEffOrgaFlowShot__sub_80357284((void *)(arg0));
+    TItemEffOrgaFlowShot__sub_80357284((void *)((void *)(arg0)));
     TItemEffOrgaFlowShot__sub_80357358((u8 *)(arg0));
     return arg0;
 }

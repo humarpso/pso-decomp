@@ -16,6 +16,28 @@ s32 fn_80246CD0();
 s32 fn_80246CDC();
 void TWindowSubStatusDisp__sub_80246980(s32 arg0);
 u8 TWindowSubAreaMapDisp__sub_80246948(Obj_80246948 *self);
+M2C_UNK TLobby__sub_8001EE48(void *);
+s32 TLobby__sub_8001EEFC(void *);
+M2C_UNK draw_string__9TLanguageFPvPvi(void *, void *, int);
+M2C_UNK TLobby__sub_8023E554(void *, void *);
+M2C_UNK set_global_param__8TObjFishFi(void *);
+M2C_UNK TLanguage__sub_803DAF70(int, int);
+extern M2C_UNK lbl_8044E658[];
+extern M2C_UNK lbl_8044E688[];
+extern M2C_UNK lbl_8044E69C[];
+extern M2C_UNK lbl_8044E6B0[];
+extern M2C_UNK lbl_8044E6C4[];
+extern M2C_UNK lbl_8044E6D8[];
+extern M2C_UNK lbl_8044E6F0[];
+extern M2C_UNK lbl_8044E708[];
+extern M2C_UNK lbl_8044E720[];
+extern M2C_UNK lbl_8044E734[];
+extern M2C_UNK lbl_8044E748[];
+extern M2C_UNK lbl_8044E758[];
+extern M2C_UNK lbl_804D2F3C[];
+extern u32 lbl_805D63F0;
+extern s16 lbl_805D63F4;
+void TLanguage__sub_80246780(void);
 }
 
 extern "C" {
@@ -33,6 +55,39 @@ void free_window__15TWindowCtrlMainFv(void) {
         TLobby__sub_803DA16C((void*)lbl_805D63F0);
         lbl_805D63F0 = 0U;
     }
+}
+
+void TLanguage__sub_80246780(void) {
+    s32 sp8[3];
+    sp8[0] = TLobby__sub_8001EEFC((void *) (lbl_8044E658));
+    draw_string__9TLanguageFPvPvi((void *) (lbl_8044E688), (void *) (sp8), (int) (0x40));
+    draw_string__9TLanguageFPvPvi((void *) (lbl_8044E69C), (void *) (sp8), (int) (0x41));
+    draw_string__9TLanguageFPvPvi((void *) (lbl_8044E6B0), (void *) (sp8), (int) (0x42));
+    draw_string__9TLanguageFPvPvi((void *) (lbl_8044E6C4), (void *) (sp8), (int) (0x44));
+    draw_string__9TLanguageFPvPvi((void *) (lbl_8044E6D8), (void *) (sp8), (int) (0x45));
+    draw_string__9TLanguageFPvPvi((void *) (lbl_8044E6F0), (void *) (sp8), (int) (0x46));
+    draw_string__9TLanguageFPvPvi((void *) (lbl_8044E708), (void *) (sp8), (int) (0x47));
+    draw_string__9TLanguageFPvPvi((void *) (lbl_8044E720), (void *) (sp8), (int) (1));
+    draw_string__9TLanguageFPvPvi((void *) (lbl_8044E734), (void *) (sp8), (int) (0x4A));
+    draw_string__9TLanguageFPvPvi((void *) (lbl_8044E748), (void *) (sp8), (int) (0x43));
+    TLobby__sub_8001EE48((void *) (lbl_8044E658));
+    TLobby__sub_8023E554((void *) (lbl_8044E758), (void *) (lbl_804D2F3C));
+    lbl_805D63F0 = (u32)lbl_804D2F3C;
+    set_global_param__8TObjFishFi((void *) (lbl_804D2F3C));
+    TLanguage__sub_803DAF70((int) (0), (int) (0x40));
+    TLanguage__sub_803DAF70((int) (1), (int) (0x41));
+    TLanguage__sub_803DAF70((int) (2), (int) (0x42));
+    TLanguage__sub_803DAF70((int) (3), (int) (0x45));
+    TLanguage__sub_803DAF70((int) (4), (int) (0x46));
+    TLanguage__sub_803DAF70((int) (5), (int) (0x47));
+    TLanguage__sub_803DAF70((int) (0xB), (int) (0x44));
+    TLanguage__sub_803DAF70((int) (0xC), (int) (0x43));
+    TLanguage__sub_803DAF70((int) (6), (int) (0x4A));
+    TLanguage__sub_803DAF70((int) (7), (int) (1));
+    TLanguage__sub_803DAF70((int) (8), (int) (1));
+    TLanguage__sub_803DAF70((int) (9), (int) (1));
+    TLanguage__sub_803DAF70((int) (0xA), (int) (1));
+    lbl_805D63F4 = 0;
 }
 
 u8 TWindowSubAreaMapDisp__sub_80246948(Obj_80246948 *self) {

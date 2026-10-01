@@ -1,3 +1,56 @@
+#include "types.h"
+struct Eps_803622B0 {
+    u8 pad0[0x18];
+    void *vt;
+    u8 pad1c[0x414];
+    void *x430;
+    void *x434;
+    u8 pad438[0x88];
+    u8 x4c0[0x1C];
+    u16 h[4];
+};
+
 extern "C" {
+void queue_destruction__7TObjectFv(void *);
+void __dt__18TObjEneMe3SinowZoaFPvs(void *, s16);
+u32 TPhotonMylla__sub_80154CB4(s32);
+void TObjEneGibbles__sub_80156720(void *);
+void __dl__7TObjectFPv(void *);
+void TObjEneEpsilon__vt0(void *, s16);
+extern void *lbl_804F22DC[];
+Eps_803622B0 *fn_803622B0(Eps_803622B0 *o, s16 arg1);
+}
+
+extern "C" {
+
+Eps_803622B0 *fn_803622B0(Eps_803622B0 *o, s16 arg1) {
+    s32 i;
+    if (o != NULL) {
+        o->vt = lbl_804F22DC;
+        TObjEneGibbles__sub_80156720(o);
+        if (o->x430 != NULL) {
+            queue_destruction__7TObjectFv(o->x430);
+            o->x430 = NULL;
+        }
+        if (o->x434 != NULL) {
+            queue_destruction__7TObjectFv(o->x434);
+            o->x434 = NULL;
+        }
+        for (i = 0; i < 4; i++) {
+            if (o->h[i] != 0) {
+                u32 p = TPhotonMylla__sub_80154CB4(o->h[i]);
+                if (p != 0) {
+                    queue_destruction__7TObjectFv((void *)p);
+                }
+            }
+        }
+        __dt__18TObjEneMe3SinowZoaFPvs(o->x4c0, -1);
+        TObjEneEpsilon__vt0(o, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(o);
+        }
+    }
+    return o;
+}
 
 }

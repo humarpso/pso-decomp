@@ -15,6 +15,40 @@ struct VObj_80174EA0_80174CC0 : Base_80174EA0_80174CC0 {
     virtual void m17();
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline on
+#pragma dont_inline off
+struct Vec_80174CFC { f32 x, y, z; };
+
+struct Init_80174CFC { u8 b[0x4C]; };
+
+struct Offs_80174CFC { Vec_80174CFC v[6]; };
+
+struct Stack_80174CFC {
+    Vec_80174CFC v;
+    Init_80174CFC init;
+    Offs_80174CFC offs;
+};
+
+extern "C" {
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 TObjFish__sub_8001EDB0(void *, int);
+s32 TObjFish__sub_8001EDC4(void *, int);
+void TObjChip__sub_80180BD4(void *, s32, void *);
+void *__nw__7TObjectFUl(u32);
+void TBoss4Zako__sub_803D8910(void *, void *);
+void TScene__sub_803D8DB4(int, void *, void *);
+void TObjPlayer__sub_803D9214(int, s32);
+void TObjPlayer__sub_803D97F0(void *);
+void TObjPlayer__sub_803D9B78();
+extern Offs_80174CFC lbl_804428DC;
+extern Init_80174CFC lbl_80442924;
+extern u8 lbl_8058D490[];
+extern void *lbl_805D5A84;
+extern s32 tl_05;
+void TORockCaveBrakable__sub_80174CFC(u8 *arg0);
+}
+
 extern "C" {
 
 struct E4E50Base_80174e50_80174CC0 { char pad[0x18]; };
@@ -56,6 +90,35 @@ M2C_UNK set_flag8__6TLobbyFPv(void *);
 
 void TORockCaveBrakable__sub_80174CC0(void) {  }
 void TORockCaveBrakable__sub_80174CC4(void* p) { TBoss3Volopt__sub_8022675C((void*)277521, (char*)p + 0x38, (void*)0, (void*)0); }
+
+void TORockCaveBrakable__sub_80174CFC(u8 *arg0) {
+    Vec_80174CFC v;
+    Offs_80174CFC offs;
+    Init_80174CFC init;
+    s32 i;
+    void *p;
+    offs = lbl_804428DC;
+    init = lbl_80442924;
+    M2C_FIELD(&init, f32 *, 0xC) = *(f32 *)(arg0 + 0x38);
+    M2C_FIELD(&init, f32 *, 0x10) = *(f32 *)(arg0 + 0x3C);
+    M2C_FIELD(&init, f32 *, 0x14) = *(f32 *)(arg0 + 0x40);
+    M2C_FIELD(&init, f32 *, 0x38) = M2C_FIELD(&init, f32 *, 0x10);
+    for (i = 0; i < 6; i++) {
+        VecCopy__FP3VecPC3Vec(&v, &offs.v[i]);
+        TObjPlayer__sub_803D97F0(lbl_8058D490);
+        TObjPlayer__sub_803D9214(0, *(s32 *)(arg0 + 0x60));
+        TScene__sub_803D8DB4(0, &v, &v);
+        TObjPlayer__sub_803D9B78();
+        VecCopy__FP3VecPC3Vec(&init.b[0xC], arg0 + 0x38);
+        TBoss4Zako__sub_803D8910(&init.b[0xC], &v);
+        M2C_FIELD(&init, s32 *, 0x40) = TObjFish__sub_8001EDC4(lbl_805D5A84, i);
+        M2C_FIELD(&init, s32 *, 0x44) = TObjFish__sub_8001EDB0(lbl_805D5A84, i);
+        p = __nw__7TObjectFUl(0x234);
+        if (p != NULL) {
+            TObjChip__sub_80180BD4(p, tl_05, &init);
+        }
+    }
+}
 
 void spawn_break_effect__18TORockCaveBrakableFPv(u8 *arg0) {
     ((E4E50Obj_80174e50_80174CC0*)arg0)->m16();

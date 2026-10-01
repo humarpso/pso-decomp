@@ -4,7 +4,42 @@
 extern "C" void unload_texture__12TItemTexLoadFPv(void*);
 extern "C" void free__11TOBoss4RockFUi(void*);
 
-void TItemTexLoad::run_task() {}
+struct TexLoad_8011D180 { u8 pad0[0x20]; s32 state; s32 f24; s32 handle; };
+extern "C" {
+s32 TLobby__sub_8001EEF4();
+void TItemTexLoad__sub_8011CEDC(TexLoad_8011D180 *);
+void TItemTexLoad__sub_8011CFCC(TexLoad_8011D180 *, s32);
+s32 TLobby__sub_803CC4C0(s32);
+s32 TLobby__sub_803CCE9C(s32);
+}
+
+#define SELF ((TexLoad_8011D180 *)this)
+void TItemTexLoad::run_task() {
+    if (SELF->state == 1) {
+        switch (TLobby__sub_803CC4C0(SELF->handle)) {
+        case 3:
+            TLobby__sub_803CCE9C(SELF->handle);
+            if (TLobby__sub_8001EEF4() != 0) {
+                TItemTexLoad__sub_8011CEDC(SELF);
+            } else {
+                SELF->state = 3;
+            }
+            break;
+        case 1:
+        case 4: {
+            s32 v = SELF->f24;
+            unload_texture__12TItemTexLoadFPv(SELF);
+            TItemTexLoad__sub_8011CFCC(SELF, v);
+            break;
+        }
+        }
+    } else if (SELF->state == 3) {
+        if (TLobby__sub_8001EEF4() != 0) {
+            TItemTexLoad__sub_8011CEDC(SELF);
+        }
+    }
+}
+#undef SELF
 
 TItemTexLoad::~TItemTexLoad() {
     unload_texture__12TItemTexLoadFPv(this);

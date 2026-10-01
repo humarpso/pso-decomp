@@ -18,6 +18,34 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual M2C_UNK m5(s32);
 };
 
+struct VBase_18_26a62c { char pad[0x18]; };
+struct VObj_18_26a62c : VBase_18_26a62c {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+extern "C" {
+void TBoss7Tentacle__sub_803D8A6C(s32, s32, s32, s32);
+void TObjPlayer__sub_803D9B2C(void);
+void TObjPlayer__sub_803D9B78(void);
+void TOHangerMachine01__sub_803D9C00(void *);
+void set_global_param__8TObjFishFi(s32);
+s32 set_chunk_material_color(void *);
+void TObjEneSlimeOne__sub_803E4B54(s32, s32, s32, f32);
+extern u8 lbl_804A7418[];
+extern s32 lbl_805D5660;
+extern s32 some_id_805c6f74;
+extern const f32 lbl_805DB7A8;
+extern const f32 lbl_805DB7C8;
+}
+
 struct RecoveredGlobal_8016E8A8___vt__8TOKurage { M2C_UNK value; u8 remaining[0x38]; };
 
 extern "C" {
@@ -104,6 +132,39 @@ void init__8TOKurageFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x108) = (f32) TOKurage__data_805DB7AC;
     M2C_FIELD(arg0, f32 *, 0x10C) = (f32) TOKurage__data_805DB7AC;
     M2C_FIELD(arg0, f32 *, 0x110) = (f32) TOKurage__data_805DB7AC;
+}
+
+void render__8TOKurageFv(u8 *arg0) {
+    if (((VObj_18_26a62c *)(arg0))->m8(*(f32 *)(arg0 + 0xC0), *(f32 *)(arg0 + 0xC4)) != 0) {
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        TBoss7Tentacle__sub_803D8A6C(0, *(s32 *)(arg0 + 0x5C), *(s32 *)(arg0 + 0x60), *(s32 *)(arg0 + 0x64));
+        set_global_param__8TObjFishFi(*(s32 *)(arg0 + 0x24));
+        switch (*(u8 *)(arg0 + 0x100)) {
+        case 4:
+            lbl_805D5660 = some_id_805c6f74;
+            some_id_805c6f74 |= 0x10;
+            if (*(f32 *)(arg0 + 0x104) < lbl_805DB7A8) {
+                *(u8 *)(arg0 + 0x100) = 3;
+            } else {
+                *(f32 *)(arg0 + 0x104) -= lbl_805DB7C8;
+            }
+            break;
+        default:
+            if (((s32 (*)(void *, f32))TODragonfly__sub_80158360)(arg0, *(f32 *)(arg0 + 0x70) * *(f32 *)(arg0 + 0x70)) == 0 &&
+                *(f32 *)(arg0 + 0x104) < lbl_805DB7A8) {
+                *(f32 *)(arg0 + 0x104) = TOKurage__data_805DB7AC;
+            }
+            lbl_805D5660 = some_id_805c6f74;
+            some_id_805c6f74 |= 0x10;
+            break;
+        }
+        set_chunk_material_color(arg0 + 0x104);
+        TObjEneSlimeOne__sub_803E4B54(*(s32 *)(arg0 + 0x34), *(s32 *)(arg0 + 0xBC), *(s32 *)(arg0 + 0xC8), *(f32 *)(arg0 + 0xB0));
+        set_chunk_material_color(lbl_804A7418);
+        some_id_805c6f74 = lbl_805D5660;
+        TObjPlayer__sub_803D9B78();
+    }
 }
 
 extern void *tl_05;

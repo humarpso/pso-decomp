@@ -18,6 +18,9 @@ struct RecoveredGlobal_8023F1B8_main_task {
     u8 remaining[0x30];
 };
 
+typedef s32 M2C_UNK;
+struct Vec_8023F22C { f32 x, y, z; };
+
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 free_heap__13TParticleCtrlFv();
@@ -32,6 +35,38 @@ extern RecoveredGlobal_8023F1B8_lbl_804CCE60 lbl_804CCE60;
 extern RecoveredGlobal_8023F1B8_main_task main_task;
 extern u32 lbl_805D63CC;
 void TLobby__sub_8023F1B8(void);
+void TCameraCtrl__sub_80069C94(Vec_8023F22C *, Vec_8023F22C *);
+void TCameraCtrl__sub_8006A5EC(s32);
+void TCameraCtrl__ct(void *, void *);
+void init_heap__13TParticleCtrlFPv(s32);
+void reset_keyboard_state__6TLobbyFv(void);
+s32 TLobby__sub_800F8AE8(void);
+void clear_callback_and_reset_keyboard__6TLobbyFv(void);
+void TLobby__sub_800F8B20(void);
+void invoke_callback__6TLobbyFv(void);
+s32 TLobby__sub_800F9B84();
+void TLobby__sub_800FD6F8(void *, s32);
+void TObjLight__sub_80133A04(void *, s32);
+void TKeyBoardControl__sub_801A66B8(void);
+void TLobby__sub_801E2F44(s32, s32, s32);
+void create_quad_sprites__13TParticleCtrlFv(void);
+void TLobby__sub_80227FB4(s32);
+void *__nw__7TObjectFUl(u32);
+void TWindowCtrlMain__ct(void *);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+void TCameraCtrl__sub_803D6688(f32, f32);
+extern Vec_8023F22C lbl_8044DCE8;
+extern Vec_8023F22C lbl_8044DCF4;
+extern RecoveredGlobal_8023F1B8_lbl_804CCDA8 lbl_804CCDA8;
+extern RecoveredGlobal_8023F1B8_lbl_804CCE60 lbl_804CCE60;
+extern u8 lbl_804A6F34[];
+extern Vec_8023F22C TObjLight__data_80506320;
+extern void *tl_camera;
+extern u32 lbl_805D63CC;
+extern const f32 lbl_805DC9B8;
+extern const f32 lbl_805DC9BC;
+void TObjLight__sub_8023F22C(void);
 }
 
 extern "C" {
@@ -52,6 +87,57 @@ void TLobby__sub_8023F1B8(void) {
     free_heap__13TParticleCtrlFv();
     TLobby__sub_800F9B84();
     render_tick__Fv();
+}
+void TObjLight__sub_8023F22C(void) {
+    s32 i;
+    f32 c;
+    void *p;
+    TCameraCtrl__sub_803D6688(lbl_805DC9B8, lbl_805DC9B8);
+    TLobby__sub_801E2F44(0, 0, 0);
+    for (i = 0; i < 0x80; i++) {
+    }
+    TKeyBoardControl__sub_801A66B8();
+    TLobby__sub_800F9B84();
+    reset_keyboard_state__6TLobbyFv();
+    TLobby__sub_800F8B20();
+    TLobby__sub_800FD6F8(&lbl_804CCDA8.value, 0xb8);
+    if (TLobby__sub_800F8AE8() != 0) {
+        invoke_callback__6TLobbyFv();
+        clear_callback_and_reset_keyboard__6TLobbyFv();
+        reset_keyboard_state__6TLobbyFv();
+        return;
+    }
+    TLobby__sub_800FD6F8(&lbl_804CCE60.value, 0x38);
+    if (TLobby__sub_800F8AE8() != 0) {
+        invoke_callback__6TLobbyFv();
+        clear_callback_and_reset_keyboard__6TLobbyFv();
+        reset_keyboard_state__6TLobbyFv();
+        return;
+    }
+    clear_callback_and_reset_keyboard__6TLobbyFv();
+    init_heap__13TParticleCtrlFPv(0x100000);
+    TObjLight__sub_80133A04(lbl_804A6F34, 4);
+    TObjLight__data_80506320.y = lbl_805DC9BC * TBoss8Dragon__sub_803D64C0(0x1555);
+    c = TBoss8Dragon__sub_803D64DC(0x1555);
+    TObjLight__data_80506320.x = c * TBoss8Dragon__sub_803D64C0(0x9000);
+    TObjLight__data_80506320.z = c * TBoss8Dragon__sub_803D64DC(0x9000);
+    p = __nw__7TObjectFUl(0x1d4);
+    if (p != NULL) {
+        TCameraCtrl__ct(p, tl_camera);
+    }
+    {
+        Vec_8023F22C eye = lbl_8044DCE8;
+        Vec_8023F22C at = lbl_8044DCF4;
+        TCameraCtrl__sub_8006A5EC(9);
+        TCameraCtrl__sub_80069C94(&eye, &at);
+    }
+    create_quad_sprites__13TParticleCtrlFv();
+    p = __nw__7TObjectFUl(0x1c);
+    if (p != NULL) {
+        TWindowCtrlMain__ct(p);
+    }
+    lbl_805D63CC = 0;
+    TLobby__sub_80227FB4(0);
 }
 
 }

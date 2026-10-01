@@ -25,6 +25,29 @@ extern const f32 lbl_805DF1CC;
 extern const f32 lbl_805DF1D0;
 extern const f32 lbl_805DF1D4;
 void TBoss8Dragon__sub_8030BB24(u8 *arg0);
+f32 calc_random_ratio__10TObjPlayerFv(void *);
+u8 *get_enemy_entity(u16);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u16 call_null__12TBoss8DragonFv(void *);
+int TBoss8Dragon__sub_8030B80C(void);
+f32 TBoss8Dragon__sub_803D64C0(int);
+f32 TBoss8Dragon__sub_803D64DC(int);
+extern const f32 lbl_805DF174;
+extern const f32 lbl_805DF180;
+extern const f32 lbl_805DF184;
+extern const f32 lbl_805DF188;
+extern const f32 lbl_805DF18C;
+extern const f32 lbl_805DF190;
+extern const f32 lbl_805DF194;
+extern const f32 lbl_805DF198;
+extern const f32 lbl_805DF19C;
+extern const f32 lbl_805DF1A0;
+extern const f32 lbl_805DF1A4;
+extern const f32 lbl_805DF1A8;
+extern const f32 lbl_805DF1AC;
+extern const f32 lbl_805DF1B0;
+extern const f32 lbl_805DF1B4;
+void TBoss8Dragon__sub_8030B8A8(u8 *arg0);
 }
 
 extern "C" {
@@ -58,6 +81,67 @@ void TBoss8Dragon__sub_8030B818(u8 *arg0, int _w1) {
   }
   *((s32 *) (((s8 *) arg0) + 0x28)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x28))) + var_r3);
 }
+
+#pragma push
+#pragma fp_contract on
+void TBoss8Dragon__sub_8030B8A8(u8 *arg0) {
+    f32 r;
+    u8 *p;
+    if (M2C_FIELD(arg0, s16 *, 0x1E) < 0) {
+        return;
+    }
+    if (--M2C_FIELD(arg0, s16 *, 0x1E) > 0) {
+        return;
+    }
+    r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54);
+    if (r < lbl_805DF180) {
+        M2C_FIELD(arg0, s16 *, 0x1C) = 1;
+    } else if (r < lbl_805DF184) {
+        M2C_FIELD(arg0, s16 *, 0x1C) = 2;
+    } else if (r < lbl_805DF188) {
+        M2C_FIELD(arg0, s16 *, 0x1C) = 3;
+    } else {
+        M2C_FIELD(arg0, s16 *, 0x1C) = 4;
+    }
+    switch (M2C_FIELD(arg0, s16 *, 0x1C)) {
+    case 0:
+        break;
+    case 1:
+        M2C_FIELD(arg0, s16 *, 0x1E) = lbl_805DF18C * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF18C;
+        M2C_FIELD(arg0, u16 *, 0x24) = ((int (*)(void *))TBoss8Dragon__sub_8030B80C)(arg0);
+        M2C_FIELD(arg0, s32 *, 0x28) = lbl_805DF190 * calc_random_ratio__10TObjPlayerFv(arg0 + 0x54);
+        M2C_FIELD(arg0, s32 *, 0x2C) = lbl_805DF194 * (lbl_805DF198 * (calc_random_ratio__10TObjPlayerFv(arg0 + 0x54) - lbl_805DF19C));
+        M2C_FIELD(arg0, f32 *, 0x30) = lbl_805DF1A0 * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF174;
+        break;
+    case 2:
+        M2C_FIELD(arg0, s16 *, 0x1E) = lbl_805DF18C * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF18C;
+        M2C_FIELD(arg0, u16 *, 0x24) = ((int (*)(void *))TBoss8Dragon__sub_8030B80C)(arg0);
+        p = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x24));
+        if (p != NULL) {
+            M2C_FIELD(arg0, s32 *, 0x28) = M2C_FIELD(p, s32 *, 0x60) - 0x8000;
+        }
+        break;
+    case 3:
+        M2C_FIELD(arg0, s16 *, 0x1E) = lbl_805DF1A4 * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF1A4;
+        M2C_FIELD(arg0, u16 *, 0x24) = call_null__12TBoss8DragonFv(arg0);
+        p = get_enemy_entity(M2C_FIELD(arg0, u16 *, 0x24));
+        if (p != NULL) {
+            M2C_FIELD(arg0, s32 *, 0x28) = M2C_FIELD(p, s32 *, 0x60) - 0x8000;
+        }
+        break;
+    case 4:
+        M2C_FIELD(arg0, s16 *, 0x1E) = lbl_805DF1A8 * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF1A8;
+        M2C_FIELD(arg0, s32 *, 0x28) = lbl_805DF190 * calc_random_ratio__10TObjPlayerFv(arg0 + 0x54);
+        M2C_FIELD(arg0, f32 *, 0x34) = lbl_805DF1AC * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x28));
+        M2C_FIELD(arg0, f32 *, 0x38) = lbl_805DF1B0;
+        M2C_FIELD(arg0, f32 *, 0x3C) = lbl_805DF1AC * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x28));
+        M2C_FIELD(arg0, f32 *, 0x40) = lbl_805DF1B4;
+        M2C_FIELD(arg0, f32 *, 0x44) = lbl_805DF1B4;
+        M2C_FIELD(arg0, f32 *, 0x48) = lbl_805DF1B4;
+        break;
+    }
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on

@@ -14,6 +14,29 @@ struct Sub_800F4CC8 { f32 f0; u8 pad4[4]; f32 f8; f32 fC; f32 f10; s32 f14; s32 
 
 struct Obj_800F4CC8 { u8 pad0[0x60]; s32 f60; u8 pad1[0xA4 - 0x64]; Sub_800F4CC8 *fA4; };
 
+struct Base_800F4A90 { u8 pad[0x18]; };
+
+struct VObj_800F4A90 : Base_800F4A90 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17();
+    virtual s32 m18(void *, f32);
+    virtual void m19();
+    virtual f32 m20(void *, f32);
+    virtual void m21(); virtual void m22();
+    virtual void m23(void *, f32);
+};
+
+struct Stelth_800F4A90 {
+    u8 pad0[0x38];
+    u8 pos[0x390 - 0x38];
+    VObj_800F4A90 *target;
+    u8 pad394[0x3F8 - 0x394];
+    u8 f3F8[1];
+};
+
 extern "C" {
 f32 get_random_float__8TObjFishFv(f32);
 f32 TBoss8Dragon__sub_803D64C0(s32);
@@ -36,9 +59,52 @@ extern const f32 TObjEneMe3Stelth__data_805DA840;
 extern const f32 lbl_805DA81C;
 extern const f32 lbl_805DA8A4;
 u8 TObjEneMe3Stelth__sub_800F4CC8(Obj_800F4CC8 *arg0, s32 arg1, f32 farg0);
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
+s32 TObjPlayer__sub_80019248(void *);
+u32 get_item_field_6__10TObjPlayerFPv(void *);
+void TObjEneDellBiter__sub_80087350(void *, s32);
+s32 get_field_d8__10TObjPlayerFPv(void);
+s32 fn_800B91F4(void *);
+void TObjEneDD__sub_800BA438(void *, void *);
+s32 TObjEneMe3Stelth__sub_800F47D4(void *);
+s32 objInBand__FP7GameObjf(void *, f32);
+void TObjPlayer__sub_801B7248(void *, void *);
+void TObjPlayer__sub_801B9EDC(void *, s32);
+void TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+extern const f32 TObjEneMe3Stelth__data_805DA808;
+extern const f32 TObjEneMe3Stelth__data_805DA80C;
+extern const f32 lbl_805DA810;
+extern const f32 TObjEneMe3Stelth__data_805DA840;
+extern const f32 TObjEneMe3Stelth__data_805DA84C;
+extern const f32 lbl_805DA8A0;
+void TObjEneMe3Stelth__sub_800F4A90(Stelth_800F4A90 *self);
 }
 
 extern "C" {
+
+void TObjEneMe3Stelth__sub_800F4A90(Stelth_800F4A90 *self) {
+    s32 near = objInBand__FP7GameObjf(self, lbl_805DA810);
+    if (objInBand__FP7GameObjf(self, TObjEneMe3Stelth__data_805DA808) == 0 && near == 0) {
+        return;
+    }
+    if (fn_800B91F4(self) != 0 && self->target->m18(self, TObjEneMe3Stelth__data_805DA80C) != 0) {
+        f32 d = self->target->m20(self, TObjEneMe3Stelth__data_805DA80C);
+        self->target->m23(self, TObjEneMe3Stelth__data_805DA84C);
+        if (d > TObjEneMe3Stelth__data_805DA840) {
+            if (TObjEneMe3Stelth__sub_800F47D4(self) != 0) {
+                VObj_800F4A90 *t = self->target;
+                if (TObjPlayer__sub_80019248(t) != 0 && get_item_field_6__10TObjPlayerFPv(t) != 0) {
+                    TObjPlayer__sub_801B9EDC(t, get_field_d8__10TObjPlayerFPv());
+                    TObjPlayer__sub_801B7248(t, self->f3F8);
+                    TObjEneDellBiter__sub_80087350(self->f3F8, 0x1D0);
+                }
+            } else if (near != 0 && calc_boss4_scale__10TObjPlayerFi(self) <= lbl_805DA8A0) {
+                TObjEneDD__sub_800BA438(self, self->target);
+            }
+        }
+    }
+    TBoss3Volopt__sub_8022675C(0x3AA37, self->pos, 0, 0);
+}
 
 #pragma push
 #pragma fp_contract on

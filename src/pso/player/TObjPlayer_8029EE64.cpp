@@ -4,6 +4,32 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+struct Vec_8029EFFC { f32 x, y, z; };
+
+struct Cam_8029EFFC { Vec_8029EFFC pos; Vec_8029EFFC scale; };
+
+struct Pl_8029EFFC {
+    u8 pad0[0x38];
+    Vec_8029EFFC pos38;
+    u8 pad44[0x2FC - 0x44];
+    Vec_8029EFFC pos2FC;
+};
+
+struct G_8029EFFC {
+    u8 pad0[0x178];
+    f32 x178;
+    f32 y17C;
+    f32 z180;
+};
+
+struct Sora_8029EFFC {
+    u8 pad0[0x1C];
+    u32 f1C;
+    u8 pad20[4];
+    Vec_8029EFFC pos24;
+};
+
 extern "C" {
 s32 TCameraCtrl__sub_800689F4();
 M2C_UNK TCameraCtrl__sub_80082FCC(void *, void *);
@@ -35,6 +61,39 @@ void set_id__6TSceneFi(void *f);
 void set_active_scene__6TSceneFi(void *f);
 int set_instance__6TSceneFi(void *f);
 int TScene__sub_8029F3E8(void);
+void VecCopy__FP3VecPC3Vec(Vec_8029EFFC *, Vec_8029EFFC *);
+f32 get_random_float__8TObjFishFv(f32);
+Pl_8029EFFC *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 TObjPlayer__sub_80203418();
+s32 get_global_state__14TOKeyMachine01Fv();
+void render_task_layer_02__9TMainTaskFv(void *);
+void render_object_layers__9TMainTaskFi(void *, s32);
+s32 fn_8029E7BC(Vec_8029EFFC *, Vec_8029EFFC *);
+s32 fn_8029EC3C(Vec_8029EFFC *, s32);
+void set_scene_flag__10TSceneSoraFi(s32);
+void TSceneSora__sub_8029F584(Vec_8029EFFC *);
+void TScene__sub_8029F5D8();
+void TScene__sub_8029F5E4(f32);
+void TScene__sub_8029F5EC();
+void TObjPlayer__sub_8029F5F8(s32);
+f32 TCameraCtrl__sub_803D8D00(Vec_8029EFFC *);
+void TObjPlayer__sub_803D8F74(s32, Cam_8029EFFC *);
+void TNpcPlayer__sub_803D97B4(Vec_8029EFFC *);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+extern Vec_8029EFFC lbl_80465E08;
+extern u8 main_task[];
+extern s32 TSceneSora__data_805D3620;
+extern u32 lbl_805D4DF0;
+extern s32 lbl_805D53A0;
+extern u32 TSceneSora__data_805D6050;
+extern s16 lbl_805D65F8;
+extern u8 lbl_805D65FA;
+extern const f32 lbl_805DDD8C;
+extern const f32 lbl_805DDD90;
+extern const f32 lbl_805DDDAC;
+extern const f32 lbl_805DDDB0;
+void TSceneSora__sub_8029EFFC(Sora_8029EFFC *o);
 }
 
 extern "C" {
@@ -84,6 +143,133 @@ void TObjPlayer__sub_8029EEAC(s32 arg0, s32 arg1, s32 arg2) {
             set_global_effect_state__10TObjPlayerFi((M2C_UNK)((int) (1)));
         }
     }
+}
+
+void TSceneSora__sub_8029EFFC(Sora_8029EFFC *o) {
+    Cam_8029EFFC c3;
+    Cam_8029EFFC c2;
+    Cam_8029EFFC c1;
+    s32 r = 0;
+    Vec_8029EFFC v = lbl_80465E08;
+    s32 hit;
+    s32 i;
+    f32 k;
+    f32 len;
+    Pl_8029EFFC *p;
+    if (lbl_805D4DF0 == 0 || o->f1C == 0) {
+        return;
+    }
+    p = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    if (p == NULL) {
+        return;
+    }
+    TScene__sub_8029F5EC();
+    TScene__sub_8029F5E4(lbl_805DDDAC);
+    if (TSceneSora__data_805D6050 != 0) {
+        TSceneSora__data_805D3620 = 0;
+    }
+    TSceneSora__sub_8029F584(&v);
+    lbl_805D65F8 = 1;
+    {
+        Vec_8029EFFC off = p->pos2FC;
+        off.y += lbl_805DDDB0;
+        hit = fn_8029E7BC(&off, &o->pos24);
+    }
+    if (TObjPlayer__sub_80203418() != 0) {
+        hit = 1;
+    }
+    if (hit != 0 || lbl_805D65FA != 0) {
+        lbl_805D65FA = 0;
+        if (TObjPlayer__sub_80203418() != 0) {
+            if (p != NULL) {
+                render_object_layers__9TMainTaskFi(main_task, 2);
+                if (get_global_state__14TOKeyMachine01Fv() == 0x20) {
+                    c3.pos.x = p->pos38.x;
+                    c3.pos.y = p->pos38.y;
+                    c3.pos.z = p->pos38.z;
+                    c3.scale.x = lbl_805DDD8C;
+                    c3.scale.y = lbl_805DDD90;
+                    c3.scale.z = c3.scale.x;
+                    TObjPlayer__sub_803D9B2C();
+                    TObjPlayer__sub_803D8F74(0, &c3);
+                    render_object_layers__9TMainTaskFi(main_task, 3);
+                    TObjPlayer__sub_803D9B78();
+                }
+            }
+        } else if (p != NULL) {
+            render_object_layers__9TMainTaskFi(main_task, 1);
+            c2.pos.x = o->pos24.x;
+            c2.pos.y = o->pos24.y;
+            c2.pos.z = o->pos24.z;
+            c2.scale.x = lbl_805DDD8C;
+            c2.scale.y = lbl_805DDD90;
+            c2.scale.z = c2.scale.x;
+            TObjPlayer__sub_803D9B2C();
+            TObjPlayer__sub_803D8F74(0, &c2);
+            render_object_layers__9TMainTaskFi(main_task, 4);
+            TObjPlayer__sub_803D9B78();
+        }
+    }
+    render_task_layer_02__9TMainTaskFv(main_task);
+    if (p != NULL) {
+        c1.pos.x = o->pos24.x;
+        c1.pos.y = o->pos24.y;
+        c1.pos.z = o->pos24.z;
+        c1.scale.x = lbl_805DDD8C;
+        c1.scale.y = lbl_805DDD90;
+        c1.scale.z = c1.scale.x;
+        TObjPlayer__sub_803D9B2C();
+        TObjPlayer__sub_803D8F74(0, &c1);
+        render_object_layers__9TMainTaskFi(main_task, 5);
+        TObjPlayer__sub_803D9B78();
+    }
+    k = lbl_805DDD8C;
+    lbl_805D65F8 = 0;
+    for (i = 0; i < 2; i++) {
+        v.x = p->pos38.x - ((G_8029EFFC *)lbl_805D4DF0)->x178;
+        v.y = k;
+        v.z = p->pos38.z - ((G_8029EFFC *)lbl_805D4DF0)->z180;
+        len = get_random_float__8TObjFishFv(v.z);
+        if (get_random_float__8TObjFishFv(v.x) >= len) {
+            if (i != 0) {
+                if (lbl_805DDD8C != v.z) {
+                    v.x = lbl_805DDD8C;
+                }
+            } else if (lbl_805DDD8C != v.x) {
+                v.z = lbl_805DDD8C;
+            }
+        } else if (i != 0) {
+            if (lbl_805DDD8C != v.x) {
+                v.z = lbl_805DDD8C;
+            }
+        } else if (lbl_805DDD8C != v.z) {
+            v.x = lbl_805DDD8C;
+        }
+        if (k != TCameraCtrl__sub_803D8D00(&v)) {
+            Vec_8029EFFC tmp;
+            TNpcPlayer__sub_803D97B4(&v);
+            TSceneSora__sub_8029F584(&v);
+            TObjPlayer__sub_803D9B2C();
+            TObjPlayer__sub_803D9B2C();
+            VecCopy__FP3VecPC3Vec(&tmp, &p->pos2FC);
+            r = fn_8029EC3C(&tmp, 0x4000);
+            if (r == 1) {
+                render_object_layers__9TMainTaskFi(main_task, 0);
+            }
+            TObjPlayer__sub_803D9B78();
+            TObjPlayer__sub_803D9B78();
+        }
+        if (r != 0) {
+            break;
+        }
+    }
+    TScene__sub_8029F5D8();
+    TScene__sub_8029F5E4(lbl_805DDD8C);
+    if (TSceneSora__data_805D6050 != 0) {
+        TSceneSora__data_805D3620 = 1;
+    }
+    TObjPlayer__sub_8029F5F8(o->f1C);
+    set_scene_flag__10TSceneSoraFi(o->f1C + 0x1C);
 }
 
 void TSceneSora__sub_8029F3E4(void) {  }

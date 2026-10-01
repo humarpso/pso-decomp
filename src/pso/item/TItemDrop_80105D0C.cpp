@@ -18,6 +18,12 @@ struct RareItem_80106A90 { u8 b[4]; };
 
 struct RareTable_80106A90 { u8 pad[4]; s32 count; s8 *types; RareItem_80106A90 *items; };
 
+struct Tbl_80106E04 {
+    u8 pad[0x34];
+    u8 *chance;
+    u8 *rate;
+};
+
 extern "C" {
 M2C_UNK clear_item_if_player_picked_up__9TItemDropFPvPv(void *, void *);
 M2C_UNK TItemDrop__sub_80105EA4(void *, void *);
@@ -31,7 +37,7 @@ s32 TItemDrop__sub_80107460(s32 arg0, u8 *arg1, u8 *arg2);
 void init_rare_item_data__9TItemDropFPvPv(void *arg0, void *arg1);
 void handle_type3__9TItemDropFPvPv(void* p, void* a1);
 s8 TItemDrop__sub_80107640(s32, s32, u8, s32, M2C_UNK);
-M2C_UNK TItemDrop__sub_801076CC(s32, s32, s32, M2C_UNK, M2C_UNK);
+u8 TItemDrop__sub_801076CC(s32, s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK init__9TItemDataFv(void *);
 M2C_UNK TObjPlayer__sub_8011C234(u8, void *);
 extern void *TItemDrop__data_805D5460;
@@ -64,6 +70,12 @@ s32 can_drop__9TItemDropFv();
 s32 TItemDrop__sub_80107460(s32 arg0, u8 *arg1, u8 *arg2);
 extern s32 *TItemDrop__data_805D5464;
 s32 TItemDrop__sub_80106A90(s32 arg0, s32 arg1, u8 *arg2);
+void TItemDrop__sub_801065B4(u8 *arg0, u32 arg1);
+u32 TItemDrop__sub_801065F8(u8 *arg0, M2C_UNK arg1, u32 arg2);
+s32 TItemData__sub_8010DF68(void *);
+u8 TObjPlayer__sub_8011C974(u8);
+extern void *TItemDrop__data_805D5460;
+void TItemDrop__sub_80106E04(s32 rng, u8 *item, s32 idx);
 }
 
 extern "C" {
@@ -197,6 +209,16 @@ void apply_item_data__9TItemDropFPvPv(void *arg0, void *arg1) {
 
 extern u8 lbl_805DAAE0;
 
+void TItemDrop__sub_80106E04(s32 rng, u8 *item, s32 idx) {
+    u8 *chance;
+    if (item[0] == 0 && TItemData__sub_8010DF68(item) == 0) {
+        chance = ((Tbl_80106E04 *)TItemDrop__data_805D5460)->chance;
+        if (chance[idx] != 0 && TItemDrop__sub_801065F8((u8 *)((u8 *)rng), (M2C_UNK)(100), (u32)(9)) < ((Tbl_80106E04 *)TItemDrop__data_805D5460)->rate[idx]) {
+            item[4] = TObjPlayer__sub_8011C974((u8)(s32)((f32)chance[idx] * ((f32 (*)(u8 *, u32)) TItemDrop__sub_801065B4)((u8 *)rng, 10)));
+        }
+    }
+}
+
 void set_flag__9TItemDropFPvPv(void *arg0, void *arg1) {
     u8 temp_r3;
 
@@ -231,6 +253,33 @@ void TItemDrop__sub_80106F4C(void *self, Obj_80106F4C *o) {
     }
 }
 
+struct Tbl_801070A4 {
+    u8 pad[0x28];
+    s32 levels;
+    s8 *kinds;
+    s32 types;
+};
+
+void TItemDrop__sub_801070A4(s32 rng, Obj_80106F4C *item, s32 idx) {
+    s32 i;
+    s32 kind[1];
+
+    if (item->pad[0] == 0) {
+        for (i = 0; i != 3; i++) {
+            kind[0] = ((Tbl_801070A4 *)TItemDrop__data_805D5460)->kinds[i * 10 + idx];
+            if (kind[0] != -1) {
+                item->e[i].type = TItemDrop__sub_80107790(rng, ((Tbl_801070A4 *)TItemDrop__data_805D5460)->types, idx, 6, 10);
+                item->e[i].level = (s8)TItemDrop__sub_801076CC(rng, ((Tbl_801070A4 *)TItemDrop__data_805D5460)->levels, kind[0], 0x17, 6) * 5 - 10;
+            }
+            if (item->e[i].type == 5) {
+                item->e[i].level = (s8)item->e[i].level / 5;
+                item->e[i].level = item->e[i].level * 5;
+            }
+        }
+        TItemDrop__sub_80106F4C((void *)rng, item);
+    }
+}
+
 void calc_drop_item__9TItemDropFiPvi(s32 arg0, void *arg1, s32 arg2) {
     if ((u8) M2C_FIELD(arg1, u8 *, 0) == 0) {
         M2C_FIELD(arg1, s8 *, 3) = TItemDrop__sub_80107790((s32)((s32)(arg0)), (s32)((s32)(M2C_FIELD(TItemDrop__data_805D5460, s32 *, 0xC))), (s32)((s32)(clamp_s32__10TObjPlayerFiii(arg2, 0, 3))), (s32)((M2C_UNK)(9)), (s32)((M2C_UNK)(4)));
@@ -242,7 +291,7 @@ void calc_drop_item__9TItemDropFiPvi(s32 arg0, void *arg1, s32 arg2) {
 void TItemDrop__sub_8010738C(s32 arg0, s32 arg1, void *arg2) {
     u8 var_r3;
     init__9TItemDataFv(arg2);
-    var_r3 = TItemDrop__sub_801076CC(arg0, M2C_FIELD(TItemDrop__data_805D5460, s32 *, 0x3C), arg1, 0x1C, 0xA);
+    var_r3 = ((M2C_UNK (*)(s32, s32, s32, M2C_UNK, M2C_UNK))TItemDrop__sub_801076CC)(arg0, M2C_FIELD(TItemDrop__data_805D5460, s32 *, 0x3C), arg1, 0x1C, 0xA);
     switch (var_r3) {
     case 0x1A:
         var_r3 = 0x73;
@@ -303,6 +352,31 @@ s32 TItemDrop__sub_80107460(s32 arg0, u8 *arg1, u8 *arg2) {
     }
 block_18:
     return 0;
+}
+
+u8 TItemDrop__sub_801076CC(s32 rng, s32 base, s32 off, M2C_UNK count, M2C_UNK stride) {
+    u16 *p = (u16 *)base;
+    u32 total = 0;
+    u32 r;
+    u8 i;
+
+    for (i = 0; i != count; i++) {
+        total += p[off + i * stride];
+    }
+    if (total == 0) {
+        return 0xFF;
+    }
+    r = TItemDrop__sub_801065F8((u8 *)rng, total, 3);
+    for (i = 0; i != count; i++) {
+        u16 w = p[off + i * stride];
+        if (w != 0) {
+            if (r < w) {
+                return i;
+            }
+            r -= w;
+        }
+    }
+    return 0xFF;
 }
 
 typedef struct RecoveredGlobal_80107840_lbl_8049EF88 RecoveredGlobal_80107840_lbl_8049EF88;

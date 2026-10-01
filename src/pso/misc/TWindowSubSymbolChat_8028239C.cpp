@@ -11,6 +11,9 @@ struct RecoveredGlobal_8028379C_lbl_804FF968 {
 
 struct RecoveredGlobal_8028351C___vt__20TWindowSubSymbolChat { M2C_UNK value; u8 remaining[0x14]; };
 
+typedef s32 M2C_UNK;
+struct Win_80282600 { u8 pad[0x20]; s32 sel; };
+
 extern "C" {
 extern RecoveredGlobal_8028379C_lbl_804FF968 lbl_804FF968;
 M2C_UNK *TWindowSubSymbolChat__sub_8028379C(void);
@@ -31,6 +34,20 @@ s32 TWindowChatSymbol__ct(int, void *, void *);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 extern M2C_UNK lbl_8044FB20[];
 s32 TWindowSubSymbolChat__sub_802826E4(M2C_UNK arg0, s32 arg1);
+s32 get_symbol_chat_data__20TWindowSubSymbolChatFPv(s32);
+s32 TWindowSubSymbolChat__sub_80077464(s32);
+s32 TWindowSubSymbolChat__sub_80077480(s32);
+s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
+M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
+void set_selected_index__17TWindowSubComCardFPvs(s32, s16);
+M2C_UNK TWindowSubComCard__sub_80265C30(s32);
+M2C_UNK set_scroll_target__17TWindowSubComCardFPvff(s32, f32, f32);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
+s32 draw_card_icon__17TWindowSubComCardFiii(s32, M2C_UNK, s32);
+M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+extern const f32 lbl_805DD748;
+extern const f32 lbl_805DD74C;
+s32 TWindowSubSymbolChat__sub_80282600(Win_80282600 *arg0);
 }
 
 extern "C" {
@@ -99,6 +116,28 @@ s32 open_main_menu__20TWindowSubSymbolChatFv(void) {
 
 void apply_symbol__20TWindowSubSymbolChatFPv(void *arg0) {
     TWindowSubComCard__sub_80265680(M2C_FIELD(arg0, s32 *, 0x38), (s16) M2C_FIELD(arg0, s32 *, 0x20));
+}
+
+s32 TWindowSubSymbolChat__sub_80282600(Win_80282600 *arg0) {
+    s32 i;
+    s32 sym;
+    s32 card;
+    s32 data;
+    card = draw_card_icon__17TWindowSubComCardFiii(TWindowSubComCard__sub_8026CBB8(0x77), 0xC, get_message_10__20TWindowSubStatusDispFPv(0x31));
+    for (i = 0; i < 0xC; i++) {
+        sym = TWindowSubSymbolChat__sub_80077480(i);
+        data = get_symbol_chat_data__20TWindowSubSymbolChatFPv(sym);
+        if (TWindowSubSymbolChat__sub_80077464(sym) != 0) {
+            forward_trade_action_default__16TObjCityMainWarpFPviii(card, data, 0x66, i);
+        } else {
+            forward_trade_action_default__16TObjCityMainWarpFPviii(card, data, 0x46, i);
+        }
+    }
+    set_flag70_bit10__16TObjCityMainWarpFPv(card);
+    set_scroll_target__17TWindowSubComCardFPvff(card, lbl_805DD748, lbl_805DD74C);
+    TWindowSubComCard__sub_80265C30(card);
+    set_selected_index__17TWindowSubComCardFPvs(card, arg0->sel);
+    return card;
 }
 
 s32 TWindowSubSymbolChat__sub_802826E4(M2C_UNK arg0, s32 arg1) {

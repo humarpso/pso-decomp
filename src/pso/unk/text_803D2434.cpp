@@ -8,6 +8,18 @@ struct RecoveredGlobal_803D259C_lbl_80587400 {
     u8 remaining[0x47C];
 };
 
+struct Slot_803D2474 {
+    void *vt;
+    s32 active;
+    void *f8;
+    s32 fC;
+    s32 f10;
+    s32 f14;
+    s32 f18;
+    void *f1C;
+    void *f20;
+};
+
 extern "C" {
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803D259C_lbl_80587400 lbl_80587400;
@@ -15,6 +27,11 @@ extern s32 lbl_805D7640;
 void TLobby__sub_803D259C(void);
 M2C_UNK memset(void *, int, int);
 void TLobby__sub_803D2434(u8 *arg0);
+void TLobby__sub_803D2624(void);
+extern u8 lbl_8047DEA0[];
+extern u8 lbl_804F9E00[];
+extern RecoveredGlobal_803D259C_lbl_80587400 lbl_80587400;
+Slot_803D2474 *TLobby__sub_803D2474(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -27,6 +44,33 @@ void TLobby__sub_803D2434(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 4) = 0;
     }
 }
+
+#pragma push
+#pragma optimize_for_size off
+Slot_803D2474 *TLobby__sub_803D2474(s32 arg0, s32 arg1) {
+    s32 i;
+    Slot_803D2474 *s;
+    for (i = 0; i < 32; i++) {
+        if (((Slot_803D2474 *)&lbl_80587400)[i].active == 0) {
+            break;
+        }
+    }
+    if (i == 32) {
+        return NULL;
+    }
+    s = &((Slot_803D2474 *)&lbl_80587400)[i];
+    s->active = 1;
+    s->vt = lbl_804F9E00;
+    s->f14 = arg0;
+    s->f18 = arg1;
+    s->f8 = lbl_8047DEA0;
+    s->f1C = (void *)TLobby__sub_803D2624;
+    s->f20 = s;
+    s->fC = s->f18;
+    s->f10 = 0;
+    return s;
+}
+#pragma pop
 
 void TLobby__sub_803D259C(void) {
     s32 temp_r0;

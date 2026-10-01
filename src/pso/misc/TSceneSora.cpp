@@ -31,6 +31,13 @@ struct TSceneSora_80207238 {
     f32 frame;
 };
 
+typedef s32 M2C_UNK;
+struct Ref_80207478 { s32 id; s32 idx; s32 pad; };
+
+struct Ent_80207478 { s32 f0; char *name; };
+
+struct Res_80207478 { void *buf; s32 n; };
+
 extern "C" {
 u8 * TLobby__sub_8001FE7C(void *, s16);
 extern s32 TSceneSora__data_805D3620;
@@ -74,6 +81,24 @@ void render__10TSceneSoraFv(u8 *arg0);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern const f32 lbl_805DC608;
 void run_task__10TSceneSoraFv(TSceneSora_80207238 *sky);
+void *TObjPlayer__sub_800196EC();
+u32 TLobby__sub_8002058C(void *, int, Res_80207478 *, Res_80207478 *, int, int, int);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
+s32 update_lobby_scene__6TSceneFPv(void *);
+M2C_UNK TLobby__sub_801317E4(char *, char *, char *);
+s32 lookup_scene_object__6TLobbyFPv(void *, Ref_80207478 *);
+Ent_80207478 *TLobby__sub_80207E88(s32);
+s32 is_not_split_screen__13TRaderMapCoreFv();
+M2C_UNK TLobby__sub_803CCE9C(void *);
+void *TLobby__sub_803CD3A8(char *, int);
+extern char lbl_8044A9D0[];
+extern char lbl_8044A9D8[];
+extern char lbl_8044A9E0[];
+extern s32 TSceneSora__data_805D3620;
+extern s32 TSceneSora__data_805D6050;
+extern u32 TSceneSora__data_805D6054;
+extern s32 lbl_805D6058;
+void TSceneSora__sub_80207478(void);
 }
 
 extern "C" {
@@ -171,6 +196,56 @@ void TSceneSora__sub_80207430(void) {
         (*(u8 * *)&TSceneSora__data_805D6054) = NULL;
     }
     TSceneSora__data_805D6050 = 0;
+}
+
+void TSceneSora__sub_80207478(void) {
+    char name2[0x20];
+    char name1[0x20];
+    Ref_80207478 ref;
+    Res_80207478 b;
+    Res_80207478 a;
+    Ent_80207478 *tbl;
+    s32 ok;
+    void *p;
+    u32 o;
+    TSceneSora__data_805D6050 = 0;
+    TSceneSora__data_805D6054 = 0;
+    lbl_805D6058 = 0;
+    if (lookup_scene_object__6TLobbyFPv(TObjPlayer__sub_800196EC(), &ref) != 0) {
+        ok = 0;
+        tbl = TLobby__sub_80207E88(ref.id);
+        TLobby__sub_801317E4(name1, tbl[ref.idx].name, lbl_8044A9D0);
+        if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+            TLobby__sub_801317E4(name2, tbl[ref.idx].name, lbl_8044A9D8);
+            ok = update_lobby_scene__6TSceneFPv(name2);
+        }
+        if (ok <= 0) {
+            TLobby__sub_801317E4(name2, tbl[ref.idx].name, lbl_8044A9E0);
+        }
+        p = TLobby__sub_803CD3A8(name2, 0);
+        if (p != NULL) {
+            b.buf = name2;
+            TLobby__sub_803CCE9C(p);
+        } else {
+            return;
+        }
+        p = TLobby__sub_803CD3A8(name1, 0);
+        if (p != NULL) {
+            a.buf = name1;
+            lbl_805D6058 = 1;
+            TLobby__sub_803CCE9C(p);
+        } else {
+            a.buf = NULL;
+        }
+        b.n = 0;
+        a.n = 0;
+        o = (u32)alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (o != 0) {
+            o = TLobby__sub_8002058C((void *)o, 1, &b, &a, 0, 0, 0);
+        }
+        TSceneSora__data_805D6054 = o;
+        TSceneSora__data_805D3620 = 1;
+    }
 }
 
 void TLobby__sub_802075F4(void) {  }

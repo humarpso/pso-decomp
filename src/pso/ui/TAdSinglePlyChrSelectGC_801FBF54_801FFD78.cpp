@@ -21,6 +21,29 @@ struct RecoveredGlobal_8020051C_lbl_80513910 {
 
 struct Ser_80200418 { s32 a; s32 b; };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Slot_80200690 { u8 data[0x2798]; };
+
+struct Pair_80200690 { u32 a; u32 b; };
+
+struct Tail_80200690 { Pair_80200690 p0, p1, p2, p3, p4, p5, p6; };
+
+struct Save_80200690 {
+    s32 hdr;
+    Slot_80200690 slots[7];
+    Tail_80200690 tail;
+    u32 x;
+    u32 y;
+};
+
+struct Ser_801FFF98 { s32 a; s32 b; };
+
+struct Ser_802002E8 { s32 a; s32 b; };
+
+struct Ser_80200560 { s32 a; s32 b; };
+
 extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, M2C_UNK);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_802012AC();
@@ -28,7 +51,6 @@ M2C_UNK memcpy(void *, s32, M2C_UNK);
 extern s32 *lbl_805D5F6C;
 extern s32 lbl_805D5F9C;
 s32 TAdSinglePlyChrSelectGC__sub_801FFE44(s32 arg0);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFF98(void *);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_802000C8(void *, void *);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_802008E8();
 s32 get_serial_access_field_118__23TAdSinglePlyChrSelectGCFPv();
@@ -52,12 +74,65 @@ void reinit__17TWindowSubComCardFi();
 u8 *TAdSinglePlyChrSelectGC__sub_801FFDFC(u8 *arg0);
 s32 get_serial_result__22TAdEnterSerialAccessGCFv();
 M2C_UNK memcpy(void *, s32, M2C_UNK);
-void TAdSinglePlyChrSelectGC__sub_80200560(void *);
 s32 TAdPlayerLoadGC__sub_801FD814();
 extern RecoveredGlobal_801FFF14_lbl_80513910 lbl_80513910;
 extern s32 lbl_805D5F5C;
 extern s32 lbl_805D5F94;
 void TAdSinglePlyChrSelectGC__sub_80200418(void);
+void *TAdSinglePlyChrSelectGC__sub_801FDFB8(void *, void *);
+s32 TAdSinglePlyChrSelectGC__sub_80200690(s32 arg0, s32 arg1);
+s32 get_ptr_4__10TObjPlayerFPv();
+M2C_UNK TAdSinglePlyChrSelectGC__sub_801FCD04(s32);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80203220(s32);
+M2C_UNK TObjPlayer__sub_802C3720(void *);
+M2C_UNK TObjPlayer__sub_802C38B4(u8, void *, s32);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_802C3AC0(void *);
+M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
+extern s32 lbl_805D5F58;
+extern void *lbl_805D5F60;
+void TAdSinglePlyChrSelectGC__sub_8007C0CC(void *, void *, s32);
+void TAdSinglePlyChrSelectGC__sub_8007C134(void *, s32, s32, s32);
+void TAdSinglePlyChrSelectGC__sub_8007C264(void *);
+s32 TAdSinglePlyChrSelectGC__sub_8007C378(void *, void *, s32);
+void TAdSinglePlyChrSelectGC__sub_8007C48C(void *, s32);
+void __dl__FPv(s32);
+s32 alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+void TAdSinglePlyChrSelectGC__sub_801FFC74(s32, void *);
+s32 init_windows__23TAdSinglePlyChrSelectGCFi(s32 arg0);
+extern u8 lbl_8051381C[];
+extern RecoveredGlobal_801FFF14_lbl_80513910 lbl_80513910;
+s32 TAdSinglePlyChrSelectGC__sub_801FFF98(void *arg0);
+s32 get_field_118__22TAdEnterSerialAccessGCFv();
+M2C_UNK memcpy(void *, s32, M2C_UNK);
+s32 TAdPlayerLoadGC__sub_801FD770();
+s32 TAdSinglePlyChrSelectGC__sub_801FCD04(s32);
+s32 TAdSinglePlyChrSelectGC__sub_801FCD3C(s32);
+M2C_UNK TLobby__sub_801F494C(M2C_UNK);
+s32 get_game_mode__23TAdSinglePlyChrSelectGCFv();
+u32 check_flag__23TAdSinglePlyChrSelectGCFi(M2C_UNK);
+void TAdSinglePlyChrSelectGC__sub_80200B28(void);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_802C3AC0(void *);
+void set_state__23TAdSinglePlyChrSelectGCFi(int a0);
+extern RecoveredGlobal_801FFF14_lbl_80513910 lbl_80513910;
+extern s32 lbl_805D5544;
+extern s32 lbl_805D5F58;
+extern void *lbl_805D5F60;
+extern void *lbl_805D5F64;
+extern s32 lbl_805D5F94;
+s32 TAdSinglePlyChrSelectGC__sub_802002E8(s32 arg0);
+void TAdSinglePlyChrSelectGC__sub_8007C0CC(void *, void *, s32);
+void TAdSinglePlyChrSelectGC__sub_8007C134(void *, s32, s32, s32);
+void TAdSinglePlyChrSelectGC__sub_8007C264(void *);
+s32 TAdSinglePlyChrSelectGC__sub_8007C378(void *, void *, s32);
+void TAdSinglePlyChrSelectGC__sub_8007C48C(void *, s32);
+s32 alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+s32 TAdSinglePlyChrSelectGC__sub_801FC900(s32 arg0);
+s32 TAdSinglePlyChrSelectGC__sub_801FCCC0(u8 *arg0);
+s32 TAdSinglePlyChrSelectGC__sub_80200690(s32 arg0, s32 arg1);
+s32 register_callback__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
+extern u8 lbl_8051381C[];
+extern RecoveredGlobal_801FFF14_lbl_80513910 lbl_80513910;
+void TAdSinglePlyChrSelectGC__sub_80200560(void *arg0);
 }
 
 extern "C" {
@@ -69,7 +144,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FCD04(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FCD3C(s32);
 int TAdSinglePlyChrSelectGC__sub_801FFDB8(s32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80200998();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80200B28();
+void TAdSinglePlyChrSelectGC__sub_80200B28(void);
 s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, M2C_UNK);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_802C3AC0(void *);
 M2C_UNK TLobby__sub_801F494C(M2C_UNK);
@@ -117,7 +192,7 @@ void TAdSinglePlyChrSelectGC__sub_801FFF14(void) {
     M2C_FIELD(&lbl_80513910.value, s32 *, 0) = temp_r3;
     TAdSinglePlyChrSelectGC__sub_802000C8((void *) (lbl_805D5F68), (void *) (&lbl_80513910.value));
     TAdSinglePlyChrSelectGC__sub_802008E8();
-    TAdSinglePlyChrSelectGC__sub_801FFF98((void *) (lbl_805D5F68));
+    TAdSinglePlyChrSelectGC__sub_801FFF98((void *)((void *) (lbl_805D5F68)));
 }
 
 void create_instance__23TAdSinglePlyChrSelectGCFv(void) {
@@ -129,7 +204,32 @@ void create_instance__23TAdSinglePlyChrSelectGCFv(void) {
 extern s32 lbl_805D5544;
 extern s32 lbl_805D5F58;
 extern void *lbl_805D5F60;
-extern void *const lbl_805D5F64;
+extern void *lbl_805D5F64;
+
+s32 TAdSinglePlyChrSelectGC__sub_801FFF98(void *arg0) {
+    s32 a;
+    s32 b;
+    a = alloc__23TAdSinglePlyChrSelectGCFPv(0xE28C);
+    if (a != 0) {
+        a = init_windows__23TAdSinglePlyChrSelectGCFi(a);
+    }
+    b = alloc__23TAdSinglePlyChrSelectGCFPv(0xE28C);
+    if (b != 0) {
+        b = init_windows__23TAdSinglePlyChrSelectGCFi(b);
+    }
+    TAdSinglePlyChrSelectGC__sub_801FFC74(a, arg0);
+    TAdSinglePlyChrSelectGC__sub_801FFC74(b, arg0);
+    TAdSinglePlyChrSelectGC__sub_8007C48C(lbl_8051381C, ((Ser_801FFF98 *)&lbl_80513910)[0].b);
+    TAdSinglePlyChrSelectGC__sub_8007C264(lbl_8051381C);
+    TAdSinglePlyChrSelectGC__sub_8007C134(lbl_8051381C, a, b, 0xE28C);
+    TAdSinglePlyChrSelectGC__sub_801FFC74((s32)arg0, (void *)b);
+    __dl__FPv(b);
+    __dl__FPv(a);
+    TAdSinglePlyChrSelectGC__sub_8007C48C(lbl_8051381C, ((Ser_801FFF98 *)&lbl_80513910)[0].a);
+    TAdSinglePlyChrSelectGC__sub_8007C0CC(lbl_8051381C, arg0, 0xE28C);
+    TAdSinglePlyChrSelectGC__sub_8007C48C(lbl_8051381C, *(s32 *)((u8 *)arg0 + 0xE288));
+    return TAdSinglePlyChrSelectGC__sub_8007C378(lbl_8051381C, arg0, 0xE288);
+}
 
 void game_state_load(void) {
     memcpy(lbl_805D5F60, TAdSinglePlyChrSelectGC__sub_801FCD04(lbl_805D5F58), 0x41C);
@@ -150,12 +250,44 @@ void game_state_load(void) {
 }
 typedef char RecoveredGlobal_802004D8_lbl_80513910_size[sizeof(RecoveredGlobal_802004D8_lbl_80513910) == 0x10 ? 1 : -1];
 
+s32 TAdSinglePlyChrSelectGC__sub_802002E8(s32 arg0) {
+    s32 r = get_field_118__22TAdEnterSerialAccessGCFv();
+    ((Ser_802002E8 *)&lbl_80513910)[0].b = r;
+    ((Ser_802002E8 *)&lbl_80513910)[0].a = r;
+    memcpy((void *)((void *)lbl_805D5F58), (s32)(lbl_805D5F94 + 0x2048), (M2C_UNK)(0x1156C));
+    TAdSinglePlyChrSelectGC__sub_80200560((void *)((void *)lbl_805D5F58));
+    if (TAdPlayerLoadGC__sub_801FD770() != 7) {
+        return 0;
+    }
+    if (arg0 != 0) {
+        return 1;
+    }
+    memcpy((void *)(lbl_805D5F60), (s32)(TAdSinglePlyChrSelectGC__sub_801FCD04(lbl_805D5F58)), (M2C_UNK)(0x41C));
+    memcpy((void *)((*(void *const *)&lbl_805D5F64)), (s32)(TAdSinglePlyChrSelectGC__sub_801FCD3C(lbl_805D5F58)), (M2C_UNK)(0x2370));
+    TLobby__sub_801F494C((M2C_UNK)(0));
+    if (get_game_mode__23TAdSinglePlyChrSelectGCFv() == 0) {
+        if (check_flag__23TAdSinglePlyChrSelectGCFi((M2C_UNK)(1)) != 0U) {
+            TAdSinglePlyChrSelectGC__sub_80200B28();
+        } else {
+            void *a = lbl_805D5F60;
+            void *b;
+            if (*(u8 *)a == 0 && *(s32 *)((u8 *)a + 0x36C) == 0 &&
+                (b = (*(void *const *)&lbl_805D5F64), *(s32 *)((u8 *)b + 0x248) == 0) && *(s32 *)((u8 *)b + 0x24C) == 0) {
+                TAdSinglePlyChrSelectGC__sub_802C3AC0(a);
+            }
+        }
+    }
+    *((s8 *)lbl_805D5F60 + 3) = (s8)lbl_805D5544;
+    set_state__23TAdSinglePlyChrSelectGCFi(0);
+    return 1;
+}
+
 void TAdSinglePlyChrSelectGC__sub_80200418(void) {
     s32 r = get_serial_result__22TAdEnterSerialAccessGCFv();
     ((Ser_80200418 *)&lbl_80513910)[0].b = r;
     ((Ser_80200418 *)&lbl_80513910)[0].a = r;
     memcpy((void *)((void *)lbl_805D5F5C), (s32)(lbl_805D5F94 + 0x2048), (M2C_UNK)(0x1156C));
-    TAdSinglePlyChrSelectGC__sub_80200560((void *)lbl_805D5F5C);
+    TAdSinglePlyChrSelectGC__sub_80200560((void *)((void *)lbl_805D5F5C));
     if (TAdPlayerLoadGC__sub_801FD814() == 7) {
         return;
     }
@@ -179,6 +311,76 @@ s32 TAdSinglePlyChrSelectGC__sub_8020051C(void) {
     TAdSinglePlyChrSelectGC__sub_80200778((void *) (lbl_805D5F58), (void *) (&(*(RecoveredGlobal_8020051C_lbl_80513910 *)&lbl_80513910).value));
     TAdSinglePlyChrSelectGC__sub_80200A44((int) (1));
     return 1;
+}
+
+void TAdSinglePlyChrSelectGC__sub_80200560(void *arg0) {
+    s32 a;
+    s32 b;
+    a = alloc__23TAdSinglePlyChrSelectGCFPv(0x1156C);
+    if (a != 0) {
+        a = TAdSinglePlyChrSelectGC__sub_801FC900(a);
+    }
+    b = alloc__23TAdSinglePlyChrSelectGCFPv(0x1156C);
+    if (b != 0) {
+        b = TAdSinglePlyChrSelectGC__sub_801FC900(b);
+    }
+    TAdSinglePlyChrSelectGC__sub_80200690(a, (s32)arg0);
+    TAdSinglePlyChrSelectGC__sub_8007C48C(lbl_8051381C, ((Ser_80200560 *)&lbl_80513910)[0].b);
+    TAdSinglePlyChrSelectGC__sub_8007C264(lbl_8051381C);
+    TAdSinglePlyChrSelectGC__sub_8007C134(lbl_8051381C, a, b, 0x1156C);
+    TAdSinglePlyChrSelectGC__sub_80200690((s32)arg0, b);
+    register_callback__23TAdSinglePlyChrSelectGCFis(b, 1);
+    register_callback__23TAdSinglePlyChrSelectGCFis(a, 1);
+    TAdSinglePlyChrSelectGC__sub_8007C48C(lbl_8051381C, ((Ser_80200560 *)&lbl_80513910)[0].a);
+    TAdSinglePlyChrSelectGC__sub_8007C0CC(lbl_8051381C, arg0, 0x1156C);
+    TAdSinglePlyChrSelectGC__sub_8007C48C(lbl_8051381C, TAdSinglePlyChrSelectGC__sub_801FCCC0((u8 *)arg0));
+    TAdSinglePlyChrSelectGC__sub_8007C378(lbl_8051381C, arg0, 0x11568);
+}
+
+s32 TAdSinglePlyChrSelectGC__sub_80200690(s32 arg0, s32 arg1) {
+    Save_80200690 *dst = (Save_80200690 *)arg0;
+    Save_80200690 *src = (Save_80200690 *)arg1;
+    Slot_80200690 *d;
+    Slot_80200690 *s;
+    dst->hdr = src->hdr;
+    d = dst->slots;
+    s = src->slots;
+    do {
+        TAdSinglePlyChrSelectGC__sub_801FDFB8(d, s);
+        d++;
+        s++;
+    } while (d < &dst->slots[7]);
+    dst->tail = src->tail;
+    dst->x = src->x;
+    dst->y = src->y;
+    return arg0;
+}
+
+void TAdSinglePlyChrSelectGC__sub_80200B28(void) {
+    s32 var_r31;
+    s32 var_r30;
+
+    if ((void *) lbl_805D5F60 != NULL) {
+        TAdSinglePlyChrSelectGC__sub_801FCD04(lbl_805D5F58);
+        var_r30 = get_ptr_4__10TObjPlayerFPv();
+        var_r31 = 0;
+        do {
+            TAdSinglePlyChrSelectGC__sub_80203220(var_r30);
+            var_r31 += 1;
+            var_r30 += 0x1C;
+        } while (var_r31 < 0x1E);
+        M2C_FIELD(lbl_805D5F60, s8 *, 0) = 0;
+        TAdSinglePlyChrSelectGC__sub_802C3AC0(lbl_805D5F60);
+        TObjPlayer__sub_802C38B4(M2C_FIELD(lbl_805D5F60, u8 *, 0x3A1), lbl_805D5F60, M2C_FIELD(lbl_805D5F60, s32 *, 0x364));
+        TObjPlayer__sub_802C3720(lbl_805D5F60);
+        M2C_FIELD(lbl_805D5F60, s32 *, 0x36C) = 0;
+    }
+    if ((void *) lbl_805D5F64 != NULL) {
+        memset((u8 *)lbl_805D5F64 + 0x250, 0, 0x12C0);
+        M2C_FIELD(lbl_805D5F64, s32 *, 0x248) = 0;
+        M2C_FIELD(lbl_805D5F64, s32 *, 0x24C) = 0;
+        memset((u8 *)lbl_805D5F64 + 0x21C4, 0, 0x100);
+    }
 }
 
 }

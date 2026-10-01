@@ -5,6 +5,79 @@ typedef char TradeAdvanceCallbackOffset[(offsetof(TProtocol, m_recv_handlers) + 
 typedef char TradeHeaderSize[sizeof(packet_header) == 4 ? 1 : -1];
 typedef char TradeStateOffset[offsetof(packet_header, flags) == 1 ? 1 : -1];
 
+struct Text_801DA240 { u32 hdr; char text[0x1000]; };
+struct Pkt_801DA5E4 { u32 hdr; u8 body[0x8D0]; };
+
+#include "types.h"
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Pkt_801DA35C {
+    u8 bytes[0x288];
+};
+
+struct PktHdr_801DA35C {
+    u8 cmd;
+    u8 flag;
+    u16 size;
+    u16 a;
+    u16 b;
+};
+
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct VBase_18_801DA4A0 { char pad[0x18]; };
+
+struct VObj_18_801DA4A0 : VBase_18_801DA4A0 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8(void *, s32);
+};
+
+struct Pkt_801DA4A0 {
+    u8 bytes[0x288];
+};
+
+struct PktHdr_801DA4A0 {
+    u8 cmd;
+    u8 flag;
+    u16 size;
+    u16 a;
+    u16 b;
+};
+
+extern "C" {
+void bswap_cmd_D3_item_bank(void *);
+int sprintf(char *, const char *, ...);
+extern char lbl_804495E8[];
+void handle_cmd_D3(u8 *arg0, Pkt_801DA35C *src);
+void bswap_cmd_D3_item_bank(void *);
+int sprintf(char *, const char *, ...);
+extern char lbl_804495FC[];
+void TLobby__sub_801DA4A0(VObj_18_801DA4A0 *obj, Pkt_801DA4A0 *src);
+}
+
+extern "C" {
+typedef void (*Fn_801DA240)(char *);
+typedef void (*Fn_801DA5E4)(void *);
+void bswap_cmd_d8_header__6TLobbyFPv(void *);
+
+void handle_cmd_D5(u8 *arg0, Text_801DA240 *arg1) {
+    Text_801DA240 tmp = *arg1;
+    Fn_801DA240 f = *(Fn_801DA240 *)(arg0 + 0xBBF8);
+    if (f != NULL) {
+        f(tmp.text);
+    }
+}
+}
+
 void TProtocol::send_cancel_trade() {
     packet_header header;
     header.command = 0xD4;
@@ -37,6 +110,43 @@ void TProtocol::recv_advance_trade_state(packet &pkt) {
     if (m_recv_handlers.handle_D1_advance_trade_state_packet != 0) {
         m_recv_handlers.handle_D1_advance_trade_state_packet(header.flags);
     }
+}
+
+extern "C" {
+
+void handle_cmd_D3(u8 *arg0, Pkt_801DA35C *src) {
+    char buf[0x80];
+    Pkt_801DA35C pkt;
+    void (*cb)(void *);
+    pkt = *src;
+    bswap_cmd_D3_item_bank(&pkt);
+    sprintf(buf, lbl_804495E8, ((PktHdr_801DA35C *)&pkt)->b, ((PktHdr_801DA35C *)&pkt)->a);
+    cb = *(void (**)(void *))(arg0 + 0xBC98);
+    if (cb != NULL) {
+        cb(&pkt);
+    }
+}
+
+void TLobby__sub_801DA4A0(VObj_18_801DA4A0 *obj, Pkt_801DA4A0 *src) {
+    char buf[0x80];
+    Pkt_801DA4A0 pkt;
+    sprintf(buf, lbl_804495FC, ((PktHdr_801DA4A0 *)src)->b, ((PktHdr_801DA4A0 *)src)->a);
+    pkt = *src;
+    ((PktHdr_801DA4A0 *)&pkt)->cmd = 0xD0;
+    ((PktHdr_801DA4A0 *)&pkt)->flag = 0;
+    ((PktHdr_801DA4A0 *)&pkt)->size = 0x288;
+    bswap_cmd_D3_item_bank(&pkt);
+    obj->m8(&pkt, 0x288);
+}
+
+void handle_cmd_D8(u8 *arg0, Pkt_801DA5E4 *arg1) {
+    Pkt_801DA5E4 tmp = *arg1;
+    bswap_cmd_d8_header__6TLobbyFPv(&tmp);
+    Fn_801DA5E4 f = *(Fn_801DA5E4 *)(arg0 + 0xBC54);
+    if (f != NULL) {
+        f(&tmp);
+    }
+}
 }
 
 void TProtocol::send_info_board_request() {

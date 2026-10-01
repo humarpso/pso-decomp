@@ -31,6 +31,13 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
 void TORockCave__sub_80175134(u8 *arg0);
+u32 TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+extern u8 lbl_804B3AB8[];
+extern u32 lbl_805D5A80;
+extern u32 lbl_805D5A84;
+void TORockCave__sub_80175224(void);
 }
 
 extern "C" {
@@ -74,6 +81,37 @@ void free_instances__10TORockCaveFv(void) {
 }
 
 extern M2C_UNK __vt__10TORockCave[];
+
+#define MK_80175224(dst, off)                                                   \
+    {                                                                           \
+        void *p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);                   \
+        u32 r = (u32)p;                                                         \
+        if (p != 0) {                                                           \
+            r = TLobby__sub_80020004(p, 1, tbl + (off), 0, 0, 0);               \
+        }                                                                       \
+        dst = r;                                                                \
+    }
+void TORockCave__sub_80175224(void) {
+    u8 *tbl = lbl_804B3AB8;
+    switch (get_global_state__14TOKeyMachine01Fv()) {
+    case 3:
+        MK_80175224(lbl_805D5A80, 0x10)
+        MK_80175224(lbl_805D5A84, 0x88)
+        break;
+    case 4:
+        MK_80175224(lbl_805D5A80, 0x3C)
+        MK_80175224(lbl_805D5A84, 0xB4)
+        break;
+    case 5:
+        MK_80175224(lbl_805D5A80, 0x5C)
+        MK_80175224(lbl_805D5A84, 0xE0)
+        break;
+    default:
+        lbl_805D5A80 = 0;
+        lbl_805D5A84 = 0;
+        break;
+    }
+}
 
 void *__dt__10TORockCaveFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

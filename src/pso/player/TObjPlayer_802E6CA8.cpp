@@ -9,6 +9,17 @@ struct VB_802E74E4 { u8 pad[0xC]; };
 
 struct VObj_802E74E4 : VB_802E74E4 { virtual void m0(int); };
 
+struct Vec_802E7888 { f32 x, y, z; };
+
+struct Ang_802E7888 { s32 x, y, z; };
+
+struct Obj_802E7888 {
+    u8 pad0[0x7B0];
+    u32 f7B0;
+    Vec_802E7888 pos;
+    Vec_802E7888 v7C0;
+};
+
 extern "C" {
 f32 TBoss4Zako__sub_803D8910(void *, void *);
 extern const f32 lbl_805DE9CC;
@@ -27,6 +38,13 @@ M2C_UNK free__11TOBoss4RockFUi(int);
 void __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_804E3BD8[];
 u8 *TObjPlayer__sub_802E74E4(u8 *arg0, s16 arg1);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 TObjPlayer__sub_8001978C(f32);
+s32 copy_vec3__11TBoss4Type2FPvPv(int, void *);
+s32 copy_pos__11TNowLoadingFPvPv(int, void *);
+f32 TBoss6Type1__sub_803D9370(Vec_802E7888 *, Vec_802E7888 *);
+extern const f64 lbl_80473FA8[];
+void TObjFish__sub_802E7888(Obj_802E7888 *o);
 }
 
 extern "C" {
@@ -189,6 +207,19 @@ s32 TObjPlayer__sub_802E76C8(u8 *arg0) {
 #pragma pop
 
 void TObjFish__sub_802E787C(void) { lbl_805D6910 = lbl_805DE9F0; }
+
+void TObjFish__sub_802E7888(Obj_802E7888 *o) {
+    if (o->f7B0 != 0) {
+        Vec_802E7888 d = o->pos;
+        Ang_802E7888 ang;
+        TBoss6Type1__sub_803D9370(&d, &o->v7C0);
+        ang.x = -(s32)(lbl_80473FA8[0] * get_ad_end_text_start__10TObjPlayerFv(d.y, TObjPlayer__sub_8001978C(d.x * d.x + d.z * d.z))) - 0x4000;
+        ang.y = (s32)(lbl_80473FA8[0] * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z));
+        ang.z = 0;
+        copy_pos__11TNowLoadingFPvPv(o->f7B0, &o->pos);
+        copy_vec3__11TBoss4Type2FPvPv(o->f7B0, &ang);
+    }
+}
 
 void destroy_child__8TObjFishFPv(void* p) { if (*(unsigned int*)((char*)p + 0x7b0) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)p + 0x7b0)); *(int*)((char*)p + 0x7b0) = 0; } }
 

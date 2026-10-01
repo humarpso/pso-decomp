@@ -19,6 +19,33 @@ struct RecoveredGlobal_80049E9C_lbl_8058D490 {
     u8 remaining[0x2C];
 };
 
+struct Vec_80049C10 { f32 x, y, z; };
+
+struct Flags_80049C10 { u8 pad[0x18]; u32 f18; };
+
+struct Tgt_80049C10 { u8 pad[0x2FC]; Vec_80049C10 pos; };
+
+struct Self_80049C10 {
+    u8 pad0[0x38];
+    Vec_80049C10 pos;
+    Vec_80049C10 prev;
+    u8 pad50[0x5c - 0x50];
+    s32 f5c;
+    s32 f60;
+    u8 pad64[0xa4 - 0x64];
+    Flags_80049C10 *fa4;
+    u8 pada8[0xb4 - 0xa8];
+    Vec_80049C10 vel;
+    u8 padc0[0xcc - 0xc0];
+    s32 fcc;
+    s32 fd0;
+    u8 padd4[0xe0 - 0xd4];
+    void *fe0;
+    u8 fe4[4];
+    s32 fe8;
+    s32 fec;
+};
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 TBoss3Volopt__sub_8004812C(int);
@@ -38,6 +65,25 @@ extern s32 lbl_805D4D30;
 extern const f32 lbl_805D88AC;
 extern const f32 lbl_805D88B0;
 u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+f32 TBoss3Volopt__sub_8004812C(int);
+void TBoss3Volopt__sub_80049A1C(void *);
+u32 TObjButterflyLobby__sub_8007A5D8(void *, void *, s32);
+void copy_vec3__11TBoss4Type2FPvPv(void *, void *);
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+void scale_velocity__19TObjGyaranzoMissileFPvf(void *, f32);
+void TObjPlayer__sub_80142170(void *, void *, void *);
+void TObjPlayer__sub_801422A8(void *, void *, void *);
+void TObjPlayer__sub_801564A0(void *);
+void check_object_collisions__10TObjPlayerFPv(void *);
+Tgt_80049C10 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void TOTrapAncient01__sub_80226578(s32, void *, void *, s32, s32);
+void TBoss4Zako__sub_803D8910(void *, void *);
+void TBoss6Type1__sub_803D9370(void *, void *);
+extern s32 lbl_805D4D30;
+extern const f32 lbl_805D88A4;
+extern const f32 lbl_805D88A8;
+void TBoss3Volopt__sub_80049C10(Self_80049C10 *self);
 }
 
 extern "C" {
@@ -49,6 +95,55 @@ M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern M2C_UNK lbl_80484AFC[];
+
+void TBoss3Volopt__sub_80049C10(Self_80049C10 *self) {
+    Tgt_80049C10 *t;
+    t = TPlayerBattleCtrl4P__sub_801BA74C(self->fcc);
+    if (t != NULL) {
+        Vec_80049C10 d = t->pos;
+        TBoss6Type1__sub_803D9370(&d, &self->pos);
+        scale_velocity__19TObjGyaranzoMissileFPvf(&d, TBoss3Volopt__sub_8004812C(1));
+        TBoss4Zako__sub_803D8910(&self->vel, &d);
+        scale_velocity__19TObjGyaranzoMissileFPvf(&self->vel, TBoss3Volopt__sub_8004812C(0));
+    }
+    VecCopy__FP3VecPC3Vec(&self->prev, &self->pos);
+    TBoss4Zako__sub_803D8910(&self->pos, &self->vel);
+    TObjPlayer__sub_801422A8(&self->vel, &self->f5c, &self->f60);
+    if (self->fe0 != NULL) {
+        Vec_80049C10 n = self->vel;
+        n.x = -n.x;
+        n.y = -n.y;
+        n.z = -n.z;
+        TObjPlayer__sub_80142170(&n, &self->fe8, &self->fec);
+        self->fec -= 0x4000;
+        copy_vec3__11TBoss4Type2FPvPv(self->fe0, self->fe4);
+        scale_velocity__19TObjGyaranzoMissileFPvf(&n, lbl_805D88A4);
+        TBoss4Zako__sub_803D8910(&n, &self->pos);
+        copy_pos__11TNowLoadingFPvPv(self->fe0, &n);
+    }
+    if (TObjButterflyLobby__sub_8007A5D8(&self->prev, &self->pos, -1) != 0) {
+        TBoss3Volopt__sub_80049A1C(self);
+        return;
+    }
+    self->fa4->f18 &= ~6;
+    if (self->pos.y < lbl_805D88A8) {
+        self->fa4->f18 |= 2;
+    } else {
+        self->fa4->f18 |= 4;
+    }
+    check_object_collisions__10TObjPlayerFPv(self);
+    TObjPlayer__sub_801564A0(self);
+    if (self->fa4->f18 & 0x180000) {
+        TBoss3Volopt__sub_80049A1C(self);
+        return;
+    }
+    self->fd0++;
+    if (self->fd0 > lbl_805D4D30) {
+        TBoss3Volopt__sub_80049A1C(self);
+        return;
+    }
+    TOTrapAncient01__sub_80226578(0x4003C114, self, &self->pos, 0, 0);
+}
 
 void *TBoss3Volopt__sub_80049E2C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

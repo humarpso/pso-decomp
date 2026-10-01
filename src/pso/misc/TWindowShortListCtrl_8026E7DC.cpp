@@ -26,6 +26,12 @@ struct RecoveredFields_8026EA60_temp_r29
   s32 field_34;
 };
 
+struct Sc_8026EBB0 { f32 x; f32 y; };
+
+struct Tb_8026EBB0 { s16 e[0x13]; };
+
+struct Wn_8026EBB0 { u8 pad[0x24]; s32 card; };
+
 extern "C" {
 s16 get_cursor_pos__20TWindowShortListCtrlFPv(void* p);
 void TWindowShortListCtrl__sub_8026F66C(u8 *arg0);
@@ -52,11 +58,18 @@ extern RecoveredGlobal_8026EA60_lbl_8050E208 lbl_8050E208;
 void TWindowShortListCtrl__sub_8026EA60(u8 *arg0);
 s32 get_card_window__17TWindowSubComCardFUi(int);
 void TWindowShortListCtrl__sub_8026E8EC(u8 *arg0, s32 arg1, s32 arg2);
+s32 get_card_window__17TWindowSubComCardFUi(int);
+void TWindowSubComCard__sub_802655E4(void *);
+void set_selected_index__17TWindowSubComCardFPvs(void *, s16);
+void TWindowSubComCard__sub_80265C30(void *);
+void set_scroll_target__17TWindowSubComCardFPvff(void *, f32, f32);
+s16 get_cursor_pos__20TWindowShortListCtrlFPv(void* p);
+void draw_technique_row__19TWindowSubTechniqueFiii(int, int, void *);
+void TWindowShortListCtrl__sub_8026EBB0(Wn_8026EBB0 *arg0, s32 arg1, Sc_8026EBB0 *arg2);
 }
 
 extern "C" {
 
-int TWindowShortListCtrl__sub_8026EBB0(void* a0 = 0, void* a1 = 0, void* a2 = 0);
 void *__dt__20TWindowShortListCtrlFv(void *arg0, s16 arg1);
 void *create_window__20TWindowShortListCtrlFPvii(void *arg0, s32 arg1, s32 arg2);
 void destroy_children__20TWindowShortListCtrlFPv(void *arg0);
@@ -235,7 +248,20 @@ void TWindowShortListCtrl__sub_8026EA60(u8 *arg0) {
   }
 }
 
-int TWindowShortListCtrl__sub_8026EBB0(void* a0, void* a1, void* a2) { return 0; }
+void TWindowShortListCtrl__sub_8026EBB0(Wn_8026EBB0 *arg0, s32 arg1, Sc_8026EBB0 *arg2) {
+    s32 i;
+    s16 cur;
+    Tb_8026EBB0 *tbl;
+    tbl = (Tb_8026EBB0 *)(get_card_window__17TWindowSubComCardFUi(arg0->card) + 0x22C4);
+    cur = get_cursor_pos__20TWindowShortListCtrlFPv((void*)((void *)arg1));
+    TWindowSubComCard__sub_802655E4((void *)arg1);
+    for (i = 0; i < 0x13; i++) {
+        draw_technique_row__19TWindowSubTechniqueFiii(tbl->e[i], arg0->card, (void *)arg1);
+    }
+    set_scroll_target__17TWindowSubComCardFPvff((void *)arg1, arg2->x, arg2->y);
+    TWindowSubComCard__sub_80265C30((void *)arg1);
+    set_selected_index__17TWindowSubComCardFPvs((void *)arg1, cur);
+}
 
 void *create_window__20TWindowShortListCtrlFPvii(void *arg0, s32 arg1, s32 arg2) {
     void *temp_r31;
@@ -244,7 +270,7 @@ void *create_window__20TWindowShortListCtrlFPvii(void *arg0, s32 arg1, s32 arg2)
     set_flag70_bit10__16TObjCityMainWarpFPv();
     M2C_FIELD(temp_r31, s32 *, 0x5C) = 0x01000000;
     set_flag70_bit100__17TWindowOptionCtrlFPv(temp_r31);
-    TWindowShortListCtrl__sub_8026EBB0((void*)((void*)(arg0)), (void*)((void*)(temp_r31)), (void*)((void*)(arg2)));
+    TWindowShortListCtrl__sub_8026EBB0((Wn_8026EBB0 *)((void*)((void*)(arg0))), (s32)((void*)((void*)(temp_r31))), (Sc_8026EBB0 *)((void*)((void*)(arg2))));
     return temp_r31;
 }
 void render__20TWindowShortListCtrlFv(void) {  }

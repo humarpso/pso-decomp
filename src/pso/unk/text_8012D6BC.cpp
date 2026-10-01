@@ -12,6 +12,42 @@ extern "C" {
 u8 * TItemTimerEvent__ct(void *, s16, s32);
 extern RecoveredGlobal_8012D6BC_lbl_804A05A8 lbl_804A05A8;
 u8 *TObjPlayer__sub_8012D6BC(u8 *arg0, s16 arg1, s32 arg2, f32 farg0);
+struct Owner_8012D708 { u8 pad[0x60]; s32 f60; };
+struct Self_8012D708 { u8 pad0[0x24]; s32 f24; u8 pad28[0xF0 - 0x28]; Owner_8012D708 *owner; u8 padF4[0x188 - 0xF4]; s32 f188; };
+struct Vec_8012D708 { f32 x, y, z; };
+struct Tec_8012D708 {
+    s16 id;
+    u8 pad2[2];
+    s32 f4;
+    s32 f8;
+    s32 fC;
+    s16 f10;
+    s16 f12;
+    f32 f14;
+    f32 f18;
+    f32 f1C;
+    f32 f20;
+    f32 f24;
+    s32 f28;
+    u8 pad2C[4];
+    Vec_8012D708 pos;
+    Vec_8012D708 dir;
+};
+
+s16 obj_getField1c(void *);
+s32 get_field_d8__10TObjPlayerFPv(void *);
+void spawn_item_timer__13TItemAttackerFiii(void *, void *, s32);
+s32 draw_icon__10TObjPlayerFPvii(void *, s32, void *);
+f32 query_extended_state__10TObjPlayerFPv(void *);
+struct SlicerState_801295FC;
+void TObjPlayer__sub_801295FC(SlicerState_801295FC *s);
+s16 TObjPlayer__sub_801D2EA8(void *);
+s16 TObjPlayer__sub_801D2F4C(void *);
+void *create__10TTecSlicerFPUs(void *);
+void TObjPlayer__sub_8012D8E4(void);
+extern const f32 lbl_805DAF28;
+extern const f32 lbl_805DAF2C;
+extern const f32 lbl_805DAF30;
 }
 
 extern "C" {
@@ -22,6 +58,27 @@ u8 *TObjPlayer__sub_8012D6BC(u8 *arg0, s16 arg1, s32 arg2, f32 farg0) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804A05A8.value;
     M2C_FIELD(arg0, f32 *, 0x2C) = farg0;
     return arg0;
+}
+
+void TObjPlayer__sub_8012D708(Self_8012D708 *self) {
+    Tec_8012D708 tec;
+
+    TObjPlayer__sub_801295FC((SlicerState_801295FC *)&tec);
+    tec.id = obj_getField1c(self->owner);
+    tec.fC = get_field_d8__10TObjPlayerFPv(self);
+    tec.f4 = self->f24;
+    tec.f8 = self->f188;
+    tec.f10 = TObjPlayer__sub_801D2F4C((u8 *)self->owner + 0x7CC);
+    tec.f12 = TObjPlayer__sub_801D2EA8((u8 *)self->owner + 0x7CC);
+    tec.f14 = query_extended_state__10TObjPlayerFPv(self->owner);
+    tec.f18 = lbl_805DAF28;
+    tec.f1C = lbl_805DAF2C;
+    tec.f20 = lbl_805DAF28;
+    tec.f24 = lbl_805DAF30;
+    tec.f28 = self->owner->f60;
+    draw_icon__10TObjPlayerFPvii(self, 3, &tec.pos);
+    draw_icon__10TObjPlayerFPvii(self, 2, &tec.dir);
+    spawn_item_timer__13TItemAttackerFiii(create__10TTecSlicerFPUs(&tec), TObjPlayer__sub_8012D8E4, 3);
 }
 
 }

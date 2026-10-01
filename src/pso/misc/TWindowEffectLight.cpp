@@ -40,13 +40,32 @@ extern const f32 lbl_805DE128;
 extern const f32 lbl_805DE12C;
 extern const f32 lbl_805DE130;
 void render__18TWindowEffectLightFv(u8 *arg0);
+M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+s32 TCameraCtrl__sub_800688D0(u16);
+M2C_UNK __ct__7TObjectFP7TObject(void *, int);
+M2C_UNK TWindowKeyBoardSoft__sub_8024EC34(void *, s32);
+extern void *__vt__18TWindowEffectLight[];
+extern s32 lbl_805D3E60;
+extern s32 tl_window;
 }
 
 extern "C" {
 
+u8 *__ct__18TWindowEffectLightFv(u8 *self, void *arg1, s16 arg2, u32 arg3) {
+    __ct__7TObjectFP7TObject(self, tl_window);
+    M2C_FIELD(self, void **, 0x18) = __vt__18TWindowEffectLight;
+    M2C_FIELD(self, s32 *, 0) = lbl_805D3E60;
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(self + 0x1C, arg1);
+    TWindowKeyBoardSoft__sub_8024EC34(self + 0x1C, TCameraCtrl__sub_800688D0(arg3));
+    M2C_FIELD(self, s16 *, 0x24) = arg2;
+    M2C_FIELD(self, s16 *, 0x26) = -1;
+    M2C_FIELD(self, u32 *, 0x28) = arg3;
+    return self;
+}
+
 void * create__18TWindowEffectLightFPvPvPv(void *arg0, void *arg1, void *arg2);
 void run_task__18TWindowEffectLightFv(void *arg0);
-void *__ct__18TWindowEffectLightFv(void *, void *, void *, void *);
+u8 *__ct__18TWindowEffectLightFv(u8 *self, void *arg1, s16 arg2, u32 arg3);
 void *__nw__7TObjectFUl(int);
 M2C_UNK queue_destruction__7TObjectFv();
 
@@ -124,7 +143,7 @@ void * create__18TWindowEffectLightFPvPvPv(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x2C);
     if (o != NULL) {
-        o = __ct__18TWindowEffectLightFv(o, arg0, arg1, arg2);
+        o = ((void *(*)(void *, void *, void *, void *))__ct__18TWindowEffectLightFv)(o, arg0, arg1, arg2);
     }
     return o;
 }

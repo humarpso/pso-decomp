@@ -22,6 +22,7 @@ M2C_UNK set_current_scene__6TSceneFi(int);
 extern RecoveredGlobal_80141A30_lbl_8050C000 lbl_8050C000;
 extern RecoveredGlobal_80141A30_lbl_8050C028 lbl_8050C028;
 void fn_80141A30(void);
+u32 fn_80141AB8(u8 r, u8 g, u8 b, s32 frame, s32 period, s32 start, s32 peak, s32 end);
 }
 
 extern "C" {
@@ -34,6 +35,24 @@ void fn_80141A30(void) {
     GXSetZCompLoc((int) (M2C_FIELD(&lbl_8050C000.value, u8 *, 4)));
     GXSetZMode((int) (M2C_FIELD(&lbl_8050C000.value, u8 *, 5)), (int) (M2C_FIELD(&lbl_8050C000.value, s32 *, 8)), (int) (M2C_FIELD(&lbl_8050C000.value, u8 *, 0xC)));
     set_current_scene__6TSceneFi((int) (M2C_FIELD(&lbl_8050C000.value, u8 *, 0xD)));
+}
+#pragma fp_contract on
+u32 fn_80141AB8(u8 r, u8 g, u8 b, s32 frame, s32 period, s32 start, s32 peak, s32 end) {
+    f32 t;
+    s32 m;
+    m = frame % period;
+    if (m < start || m > end) {
+        return 0xFF000000 | (r << 16) | (g << 8) | b;
+    }
+    if (m < peak) {
+        t = (f32)(m - start) / (f32)(peak - start);
+    } else {
+        t = (f32)(end - m) / (f32)(end - peak);
+    }
+    r = (f32)(0xFF - r) * t + r;
+    g = (f32)(0xFF - g) * t + g;
+    b = (f32)(0xFF - b) * t + b;
+    return 0xFF000000 | (r << 16) | (g << 8) | b;
 }
 
 }

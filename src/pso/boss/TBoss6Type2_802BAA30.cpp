@@ -30,6 +30,18 @@ struct V_802BBF54 { f32 x, y, z; };
 
 struct T2_802BBF54 { u8 pad0[0x59C]; V_802BBF54 a[19]; V_802BBF54 b[19]; };
 
+struct Ent_802BC050 { s16 f0; s16 v[5]; };
+
+struct Obj_802BC050 {
+    u8 pad0[0x31C];
+    Ent_802BC050 *ent;
+    u8 pad320[0x434 - 0x320];
+    Ent_802BC050 local;
+    u8 pad440[0x454 - 0x440];
+    s16 max;
+    s16 min;
+};
+
 extern "C" {
 s32 TBoss6Type2__sub_8032E748(void *);
 s32 TBoss6Type2__sub_8035DC60(s32, s32, f32);
@@ -53,6 +65,9 @@ void TBoss6Type2__sub_802BB7C0(T2_802BB7C0 *arg0);
 void TBoss6Type2__sub_802BBD88(T1_802BBD88 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void TBoss6Type2__sub_802BBF54(u8 *arg0);
+s32 copy_entry__6TLobbyFPvPv(void *, void *);
+void update_segments__11TBoss6Type2FPv(void *arg0);
+void TBoss6Type2__sub_802BC050(Obj_802BC050 *o);
 }
 
 extern "C" {
@@ -257,6 +272,22 @@ void update_segments__11TBoss6Type2FPv(void *arg0) {
     M2C_FIELD(arg0, s16 *, 0x2F6) = (s16) M2C_FIELD(arg0, s16 *, 0x438);
     M2C_FIELD(arg0, s16 *, 0x2F8) = (s16) M2C_FIELD(arg0, s16 *, 0x43E);
     M2C_FIELD(arg0, s16 *, 0x2FA) = (s16) M2C_FIELD(arg0, s16 *, 0x43C);
+}
+void TBoss6Type2__sub_802BC050(Obj_802BC050 *o) {
+    Ent_802BC050 *e = o->ent;
+    s32 min;
+    s32 max;
+    max = e->v[0];
+    min = max;
+    if (min > e->v[1]) { min = e->v[1]; } else if (max < e->v[1]) { max = e->v[1]; }
+    if (min > e->v[2]) { min = e->v[2]; } else if (max < e->v[2]) { max = e->v[2]; }
+    if (min > e->v[3]) { min = e->v[3]; } else if (max < e->v[3]) { max = e->v[3]; }
+    if (min > e->v[4]) { min = e->v[4]; } else if (max < e->v[4]) { max = e->v[4]; }
+    o->min = min;
+    o->max = max;
+    copy_entry__6TLobbyFPvPv(&o->local, o->ent);
+    o->ent = &o->local;
+    update_segments__11TBoss6Type2FPv(o);
 }
 
 }

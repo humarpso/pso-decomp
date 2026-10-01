@@ -13,6 +13,23 @@ struct RecoveredGlobal_80048560_lbl_804FF1D0 {
     u8 remaining[0x14];
 };
 
+typedef s32 M2C_UNK;
+struct Vec_800483F8 { f32 x, y, z; };
+
+struct Obj_800483F8 {
+    u8 pad0[0x18];
+    void *vt;
+    Vec_800483F8 *from;
+    Vec_800483F8 *to;
+    s32 f24;
+    s32 f28;
+    s32 f2c;
+    u8 pad30[0x38 - 0x30];
+    s32 f38;
+    u8 pad3c[0x40 - 0x3c];
+    f32 f40;
+};
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 M2C_UNK reset_transform_state__10TObjPlayerFv();
@@ -21,12 +38,43 @@ M2C_UNK TObjPlayer__sub_801E341C(void *, int, int);
 extern RecoveredGlobal_80048560_lbl_80484860 lbl_80484860;
 extern RecoveredGlobal_80048560_lbl_804FF1D0 lbl_804FF1D0;
 void fn_80048560(u8 *arg0);
+void TObjPlayer__sub_801422A8(Vec_800483F8 *, s32 *, s32 *);
+void __ct__7TObjectFP7TObject(void *, void *);
+s32 rand__11TOBoss4RockFv(void);
+f32 TBoss6Kakusan__sub_803D8BD8(Vec_800483F8 *);
+void TBoss6Type1__sub_803D9370(Vec_800483F8 *, Vec_800483F8 *);
+extern M2C_UNK lbl_80484840[];
+extern void *tl_05;
+extern const f32 lbl_805D8828;
+extern const f32 lbl_805D882C;
+extern const f32 lbl_805D8830;
+extern const f32 lbl_805D8834;
+Obj_800483F8 *fn_800483F8(Obj_800483F8 *self, Vec_800483F8 *from, Vec_800483F8 *to, s32 n, s32 m);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_80048560_lbl_80484860_size[sizeof(RecoveredGlobal_80048560_lbl_80484860) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_80048560_lbl_804FF1D0_size[sizeof(RecoveredGlobal_80048560_lbl_804FF1D0) == 0x18 ? 1 : -1];
+
+#pragma fp_contract on
+Obj_800483F8 *fn_800483F8(Obj_800483F8 *self, Vec_800483F8 *from, Vec_800483F8 *to, s32 n, s32 m) {
+    __ct__7TObjectFP7TObject(self, tl_05);
+    self->vt = lbl_80484840;
+    self->from = from;
+    self->to = to;
+    self->f24 = m;
+    {
+        Vec_800483F8 d = *to;
+        TBoss6Type1__sub_803D9370(&d, from);
+        self->f40 = lbl_805D8828 * TBoss6Kakusan__sub_803D8BD8(&d);
+        TObjPlayer__sub_801422A8(&d, &self->f28, &self->f2c);
+    }
+    self->f2c -= n * 0x71c + (s32)(lbl_805D882C * (lbl_805D8830 * (f32)rand__11TOBoss4RockFv()));
+    self->f38 = n * (s32)(lbl_805D882C * ((lbl_805D8828 * (lbl_805D8830 * (f32)rand__11TOBoss4RockFv()) + lbl_805D8834) / (f32)m));
+    return self;
+}
+
 void fn_80048560(u8 *arg0) {
     VecCopy__FP3VecPC3Vec((void *) (&lbl_804FF1D0.value), (int) (M2C_FIELD(arg0, s32 *, 0x1C)));
     VecCopy__FP3VecPC3Vec((void *) ((u8 *)&lbl_804FF1D0.value + 0xC), (int) (M2C_FIELD(arg0, s32 *, 0x20)));

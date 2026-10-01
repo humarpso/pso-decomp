@@ -13,6 +13,47 @@ struct TOCakeshopCave01_80159E24 {
     u8 state[8];
 };
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct TOCakeshopCave01_8015A1C0 {
+    u8 pad0[0xCC];
+    f32 val[8];
+    u8 state[8];
+};
+
+struct VBase_18_26a62c { char pad[0x18]; };
+
+struct VObj_18_26a62c : VBase_18_26a62c {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+struct Model_80159F78 {
+    u8 pad0[4];
+    s32 m4;
+    u8 m8[0x24];
+    Model_80159F78 *child;
+    Model_80159F78 *next;
+};
+
+struct Obj_80159F78 { u8 pad0[0xCC]; f32 val[8]; };
+
 extern "C" {
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -25,6 +66,31 @@ extern const f32 lbl_805DB35C;
 extern const f32 TOCakeshopCave01__data_805DB360;
 extern const f32 lbl_805DB364;
 void TOCakeshopCave01__sub_80159E24(void *arg0, void *arg1);
+M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
+M2C_UNK TObjPlayer__sub_80154E3C(void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+M2C_UNK init_map_object_base(void *, s32);
+extern M2C_UNK lbl_804AFE08[];
+extern M2C_UNK __vt__16TOCakeshopCave01[];
+extern s32 lbl_805D2EC4;
+extern u32 TOCakeshopCave01__data_805D58B0;
+extern s32 tl_05;
+extern const f32 TOCakeshopCave01__data_805DB360;
+extern const f32 lbl_805DB36C;
+extern const f32 lbl_805DB370;
+void *TOCakeshopCave01__ct(void *arg0_, void *arg1);
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK TOSignCave03__sub_803DB510(int);
+extern const f32 TOCakeshopCave01__data_805DB360;
+extern const f32 lbl_805DB368;
+void render__16TOCakeshopCave01Fv(u8 *arg0);
 }
 
 extern "C" {
@@ -34,7 +100,6 @@ void close_dialog_window__16TOCakeshopCave01Fv(void);
 void *create__16TOCakeshopCave01FPv(void *arg0);
 void run_task__16TOCakeshopCave01Fv(void* p);
 void TLobby__sub_8001FE7C(void*, int);
-void *TOCakeshopCave01__ct(void *, void *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -70,10 +135,38 @@ void TOCakeshopCave01__sub_80159E24(void *arg0, void *arg1) {
 
 void run_task__16TOCakeshopCave01Fv(void* p) { { int i; for (i = 0; i < 8; i++) { TOCakeshopCave01__sub_80159E24((void *)(p), (void *)((void*)i)); } } }
 
+void render__16TOCakeshopCave01Fv(u8 *arg0) {
+    Model_80159F78 *m;
+    s32 i;
+    if (((VObj_18_26a62c *)(arg0))->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x38));
+        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+        m = M2C_FIELD(arg0, Model_80159F78 **, 0x34);
+        TOHangerMachine01__sub_803D9C00(m->m8);
+        TOSignCave03__sub_803DB510(m->m4);
+        m = m->child;
+        begin_effect_render__13TParticleCtrlFv();
+        for (i = 0; i < 8; i++) {
+            if (((Obj_80159F78 *)arg0)->val[i] < TOCakeshopCave01__data_805DB360) {
+                TObjPlayer__sub_803D9B2C();
+                TOHangerMachine01__sub_803D9C00(m->m8);
+                TOMonitorMachine01__sub_803D8B5C(0, lbl_805DB368 - ((Obj_80159F78 *)arg0)->val[i], lbl_805DB368 - ((Obj_80159F78 *)arg0)->val[i], TOCakeshopCave01__data_805DB360);
+                TOSignCave03__sub_803DB510(m->m4);
+                TObjPlayer__sub_803D9B78();
+            }
+            m = m->next;
+        }
+        end_effect_render__13TParticleCtrlFv();
+        TObjPlayer__sub_803D9B78();
+    }
+}
+
 void *create__16TOCakeshopCave01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF4);
     if (o != NULL) {
-        o = TOCakeshopCave01__ct(o, arg0);
+        o = TOCakeshopCave01__ct((void *)(o), (void *)(arg0));
     }
     return o;
 }
@@ -109,6 +202,27 @@ void *__dt__16TOCakeshopCave01Fv(void *arg0, s16 arg1) {
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
+    }
+    return arg0;
+}
+void *TOCakeshopCave01__ct(void *arg0_, void *arg1) {
+    u8 *arg0 = (u8 *)arg0_;
+    s32 i;
+    init_map_object_base(arg0, tl_05);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TOCakeshopCave01;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2EC4;
+    ((VObj_18_1a504b *)(arg0))->m5((s32)arg1);
+    M2C_FIELD(arg0, s32 *, 0x34) = M2C_FIELD(M2C_FIELD(TOCakeshopCave01__data_805D58B0, u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = M2C_FIELD(M2C_FIELD(TOCakeshopCave01__data_805D58B0, u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, f32 *, 0xC0) = lbl_805DB36C;
+    M2C_FIELD(arg0, f32 *, 0xC4) = lbl_805DB370;
+    M2C_FIELD(arg0, s32 *, 0x30) |= 0x40000000;
+    TObjEneGibbles__sub_80156780(arg0, lbl_804AFE08, 1);
+    TObjPlayer__sub_80154E3C(arg0);
+    reset_photon_effect__10TObjPlayerFPv(arg0);
+    for (i = 0; i < 8; i++) {
+        ((TOCakeshopCave01_8015A1C0 *)arg0)->val[i] = TOCakeshopCave01__data_805DB360;
+        ((TOCakeshopCave01_8015A1C0 *)arg0)->state[i] = 0;
     }
     return arg0;
 }

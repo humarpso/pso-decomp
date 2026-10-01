@@ -16,6 +16,20 @@ struct R_8028C310 {
     s32 tab[8]; s32 f58; s32 f5c; u8 pad60[4]; s32 f64; s32 f68;
 };
 
+struct Req_8028C1F0 {
+    u8 pad[0x18];
+    void *vt;
+    s32 mode;
+    u8 pad2[0x34 - 0x20];
+    s32 *flags;
+    u32 tab[8];
+    s32 count;
+    u8 pad3[0x60 - 0x5C];
+    s32 handle;
+    u8 pad4[0x6C - 0x64];
+    s32 mask;
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *, int, int);
 s32 TLobby__sub_8001ED88(int);
@@ -33,6 +47,15 @@ extern M2C_UNK __vt__22TChCrLoadAfsTextureReq[];
 extern void *lbl_805D3B50;
 u8 *TChCrLoadAfsTextureReq__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 *arg3, s32 arg4);
 void TChCrLoadAfsTextureReq__sub_8028C310(R_8028C310 *arg0);
+void __dt__7TObjectFv(void *, s32);
+void safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+void __dl__7TObjectFPv(void *);
+void finish_request__22TChCrLoadAfsTextureReqFPv(void *arg0);
+s32 TLobby__sub_803CC4C0(s32);
+void TLobby__sub_803CC980(s32);
+void TLobby__sub_803CCE9C(s32);
+extern M2C_UNK __vt__22TChCrLoadAfsTextureReq[];
+Req_8028C1F0 *__dt__22TChCrLoadAfsTextureReqFv(Req_8028C1F0 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -84,6 +107,39 @@ extern M2C_UNK __vt__22TChCrLoadAfsTextureReq[];
 extern void *lbl_805D3B50;
 
 typedef char RecoveredGlobal_8028C378___vt__22TChCrLoadAfsTextureReq_size[sizeof(RecoveredGlobal_8028C378___vt__22TChCrLoadAfsTextureReq) == 0x18 ? 1 : -1];
+
+Req_8028C1F0 *__dt__22TChCrLoadAfsTextureReqFv(Req_8028C1F0 *arg0, s16 arg1) {
+    s32 i;
+    if (arg0 != NULL) {
+        arg0->vt = ((s32 *)&__vt__22TChCrLoadAfsTextureReq);
+        if (arg0->mode == 0 && arg0->tab[0] != 0) {
+            if (TLobby__sub_803CC4C0(arg0->handle) == 2) {
+                TLobby__sub_803CC980(arg0->handle);
+            }
+            TLobby__sub_803CCE9C(arg0->handle);
+            arg0->handle = 0;
+        }
+        finish_request__22TChCrLoadAfsTextureReqFPv(arg0);
+        for (i = 0; i < arg0->count; i++) {
+            if (arg0->tab[i] != 0) {
+                safe_free__23TAdSinglePlyChrSelectGCFUi(arg0->tab[i]);
+                arg0->tab[i] = 0;
+            }
+        }
+        if (arg0->mode == 1) {
+            if (arg0->mask != 0) {
+                *arg0->flags &= ~arg0->mask;
+            } else if (arg0->flags != NULL) {
+                *arg0->flags = 1;
+            }
+        }
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
 
 void TChCrLoadAfsTextureReq__sub_8028C310(R_8028C310 *arg0) {
     s32 i;

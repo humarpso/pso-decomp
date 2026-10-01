@@ -112,6 +112,13 @@ struct Rect_801F9228 {
     f32 y1;
 };
 
+struct Radar_801FADF0 {
+    u8 pad0[0x90];
+    s32 f90;
+    u8 pad94[0x184 - 0x94];
+    u32 f184;
+};
+
 extern "C" {
 M2C_UNK TCameraCtrl__sub_80068EF0();
 M2C_UNK TCameraCtrl__sub_80069024();
@@ -120,7 +127,6 @@ M2C_UNK TRaderMapCore__sub_801FA350(void *);
 M2C_UNK TRaderMapCore__sub_801FA6CC(void *, void *);
 M2C_UNK TRaderMapCore__sub_801FA880(void *, void *);
 M2C_UNK TRaderMapCore__sub_801FAAEC(void *, void *);
-s32 TRaderMapCore__sub_801FADF0(void *, void *);
 extern u32 TRaderMapCore__data_805D5F28;
 extern s32 lbl_805D5F2C;
 extern s32 TRaderMapCore__data_805D5F30;
@@ -134,7 +140,6 @@ void allow_rendering__7TObjectFv(void *);
 void reset_counter__13TRaderMapCoreFPv(void* p);
 extern void *TRaderMapCore__data_805D5F40;
 void TRaderMapCore__sub_801F9144(void);
-s32 TRaderMapCore__sub_801FADF0(void *, void *);
 extern s32 TRaderMapCore__data_805D5F3C;
 s32 TRaderMapCore__sub_801F9058(u8 *arg0);
 M2C_UNK TCameraCtrl__sub_8006AF9C(void *, int);
@@ -191,6 +196,16 @@ void GXSetScissor(u32, u32, u32, u32);
 extern const f32 TRaderMapCore__data_805DC538;
 extern const f32 TRaderMapCore__data_805DC53C;
 s32 TRaderMapCore__sub_801F9228(void *self, int mode, void *arg2);
+s32 TCameraCtrl__sub_80069304();
+s32 test_flag_2000000__10TObjPlayerFPv(u32);
+s32 check_flag_100__10TObjPlayerFPv(u32);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_flag_bit0__11TWindowCtrlFv();
+s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
+extern u8 TCameraCtrl__data_804FF628[];
+extern s32 TRaderMapCore__data_805D5F3C;
+extern s32 TRaderMapCore__data_805D5F44;
+s32 TRaderMapCore__sub_801FADF0(void *arg0v, void *arg1);
 }
 
 extern "C" {
@@ -212,7 +227,7 @@ int obj_getField1c(void*);
 extern void *TRaderMapCore__data_805D5F40;
 
 s32 TRaderMapCore__sub_801F9058(u8 *arg0) {
-    return TRaderMapCore__sub_801FADF0((void *)(arg0), (void *)(TRaderMapCore__data_805D5F3C));
+    return TRaderMapCore__sub_801FADF0((void *)((void *)(arg0)), (void *)((void *)(TRaderMapCore__data_805D5F3C)));
 }
 
 s32 is_active__13TRaderMapCoreFv(void) {
@@ -452,7 +467,7 @@ void TRaderMapCore__sub_801FA9D8(s32 arg0, s32 arg1) {
 
 void render__13TRaderMapCoreFv(u8 *arg0) {
     if ((u32) TRaderMapCore__data_805D5F28 != 0U) {
-        if (TRaderMapCore__sub_801FADF0((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C)) == 0) {
+        if (TRaderMapCore__sub_801FADF0((void *)((void *) (arg0)), (void *)((void *) (TRaderMapCore__data_805D5F3C))) == 0) {
             lbl_805D5F2C = 0;
             TRaderMapCore__data_805D5F30 = 0;
             return;
@@ -493,6 +508,41 @@ void render__13TRaderMapCoreFv(u8 *arg0) {
         lbl_805D5F2C = 0;
         TRaderMapCore__data_805D5F30 = 0;
     }
+}
+
+s32 TRaderMapCore__sub_801FADF0(void *arg0v, void *arg1) {
+    s32 i;
+    u32 p;
+    if (TRaderMapCore__data_805D5F44 == 0) {
+        return 0;
+    }
+    if (((Radar_801FADF0 *)arg0v)->f184 != 0) {
+        if (test_flag_2000000__10TObjPlayerFPv(((Radar_801FADF0 *)arg0v)->f184) != 0) {
+            return 0;
+        }
+        if (check_flag_100__10TObjPlayerFPv(((Radar_801FADF0 *)arg0v)->f184) != 0 && TRaderMapCore__data_805D5F3C != 1) {
+            return 0;
+        }
+    } else {
+        return 0;
+    }
+    if (TCameraCtrl__sub_80069304() != 0 && get_flag_bit0__11TWindowCtrlFv() == 0) {
+        return 0;
+    }
+    if (TCameraCtrl__data_804FF628[0] == 5 || TCameraCtrl__data_804FF628[0] == 9) {
+        ((Radar_801FADF0 *)arg0v)->f184 = 0;
+        return 0;
+    }
+    if (((Radar_801FADF0 *)arg0v)->f90 > 0) {
+        return 0;
+    }
+    for (i = 0; i < 4; i++) {
+        p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        if (p != 0 && check_flag_100__10TObjPlayerFPv(p) != 0 && (s32)arg1 == 2) {
+            return 0;
+        }
+    }
+    return all_parents_unqueued_for_destruction__7TObjectFv(arg0v) != 0 ? 1 : 0;
 }
 
 void update_target__13TRaderMapCoreFPv(void *arg0) {

@@ -7,12 +7,131 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_8030946C_lbl_804E7370 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8030946C_lbl_804E7370_size[sizeof(RecoveredGlobal_8030946C_lbl_804E7370) == 0x10 ? 1 : -1];
 
+struct VBase_18_aa4667 { char pad[0x18]; };
+
+struct VObj_18_aa4667 : VBase_18_aa4667 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual M2C_UNK m79(s32);
+};
+
+struct Vec_8030920C { f32 x, y, z; };
+
 extern "C" {
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8030946C_lbl_804E7370 lbl_804E7370;
 extern u32 TBoss7Crawfish__data_805D6A60;
 void TBoss7Crawfish__sub_8030946C(void);
+M2C_UNK add_flags_2e4__10TObjPlayerFPvUi(void *, int);
+s32 dispatch_shared_handler_a__6TLobbyFPv(int);
+s32 register_object__6TLobbyFPv(int);
+s32 dispatch_shared_handler_b__6TLobbyFPv(int);
+s32 register_boss__6TLobbyFPv(int);
+s32 TObjFish__sub_8001EDB0(int, int);
+s32 TObjFish__sub_8001EDC4(int, int);
+M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+M2C_UNK set_field_dc__10TObjPlayerFPvi(void *, int);
+M2C_UNK set_field_d8__10TObjPlayerFPvi(void *, void *);
+M2C_UNK fn_8002B630(void *, void *);
+M2C_UNK set_param__12TObjEneLappyFPvi(void *, int);
+M2C_UNK TObjPlayer__sub_800F7478(void *, int, int, int);
+M2C_UNK initialize__9TObjEnemyFPv();
+M2C_UNK set_animation__10TObjPlayerFPvs(void *, int);
+M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
+M2C_UNK initialize_linked_object_reference(void *, void *);
+M2C_UNK TLobby__sub_801A1FDC(void *, int);
+s32 TBoss7Crawfish__sub_80308AA8(void *);
+M2C_UNK TBoss7Crawfish__sub_80308B38(void *);
+M2C_UNK TBoss7Crawfish__sub_80308ED8(void *, void *);
+M2C_UNK TBoss7Crawfish__sub_80308F8C(void *, int);
+void set_anim_timer__14TBoss7CrawfishFPvs(void* p, s16 v);
+extern M2C_UNK lbl_80475570[];
+extern M2C_UNK lbl_804E7380[];
+extern M2C_UNK __vt__14TBoss7Crawfish[];
+extern s32 lbl_805D40A0;
+extern u32 TBoss7Crawfish__data_805D6A60;
+extern const f32 TBoss7Crawfish__data_805DF0D8;
+extern const f32 TBoss7Crawfish__data_805DF0DC;
+extern const f32 lbl_805DF100;
+u8 *TBoss7Crawfish__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
@@ -106,6 +225,53 @@ void *__dt__14TBoss7CrawfishFv(void *arg0, s16 arg1) {
 }
 
 extern u32 TBoss7Crawfish__data_805D6A60;
+
+u8 *TBoss7Crawfish__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    Vec_8030920C v;
+    initialize__9TObjEnemyFPv();
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TBoss7Crawfish;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D40A0;
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) (TBoss7Crawfish__data_805D6A60), (int) (0));
+    fn_8002B630((void *) (arg0 + 0x374), (void *) (lbl_80475570));
+    initialize_linked_object_reference((void *) (arg0), (void *) (arg0 + 0x374));
+    set_field_d8__10TObjPlayerFPvi((void *) (arg0), (void *) (lbl_804E7380));
+    set_field_dc__10TObjPlayerFPvi((void *) (arg0), (int) (M2C_FIELD((u8 *)TBoss7Crawfish__data_805D6A60, s32 *, 0x430)));
+    set_anim_timer__14TBoss7CrawfishFPvs((void *) (arg0), (int) (2));
+    set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));
+    set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));
+    add_flags_2e4__10TObjPlayerFPvUi((void *) (arg0), (int) (2));
+    ((VObj_18_aa4667 *)(arg0))->m79(arg2);
+    if (TBoss7Crawfish__sub_80308AA8((void *) (arg0)) != 0) {
+        set_param__12TObjEneLappyFPvi((void *) (arg0), (int) (0x4A));
+        TObjPlayer__sub_800F7478((void *) (arg0), register_boss__6TLobbyFPv(8), dispatch_shared_handler_b__6TLobbyFPv(8), register_object__6TLobbyFPv(8));
+        M2C_FIELD(arg0, s32 *, 0x3A0) = dispatch_shared_handler_a__6TLobbyFPv((int) (8));
+        M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((int) (TBoss7Crawfish__data_805D6A60), (int) (0));
+    } else {
+        set_param__12TObjEneLappyFPvi((void *) (arg0), (int) (0x4B));
+        TObjPlayer__sub_800F7478((void *) (arg0), register_boss__6TLobbyFPv(9), dispatch_shared_handler_b__6TLobbyFPv(9), register_object__6TLobbyFPv(9));
+        M2C_FIELD(arg0, s32 *, 0x3A0) = dispatch_shared_handler_a__6TLobbyFPv((int) (9));
+        M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((int) (TBoss7Crawfish__data_805D6A60), (int) (1));
+    }
+    TLobby__sub_801A1FDC((void *) (arg0), (int) (0));
+    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    TBoss7Crawfish__sub_80308B38((void *) (arg0));
+    TBoss7Crawfish__sub_80308F8C((void *) (arg0), (int) (0));
+    v.z = TBoss7Crawfish__data_805DF0D8;
+    v.y = TBoss7Crawfish__data_805DF0D8;
+    v.x = TBoss7Crawfish__data_805DF0D8;
+    TBoss7Crawfish__sub_80308ED8((void *) (arg0), (void *) (&v));
+    if (TBoss7Crawfish__sub_80308AA8((void *) (arg0)) != 0) {
+        M2C_FIELD(arg0, f32 *, 0x70) = (f32) lbl_805DF100;
+        M2C_FIELD(arg0, f32 *, 0x6C) = (f32) lbl_805DF100;
+        M2C_FIELD(arg0, f32 *, 0x68) = (f32) lbl_805DF100;
+    } else {
+        M2C_FIELD(arg0, f32 *, 0x70) = (f32) TBoss7Crawfish__data_805DF0DC;
+        M2C_FIELD(arg0, f32 *, 0x6C) = (f32) TBoss7Crawfish__data_805DF0DC;
+        M2C_FIELD(arg0, f32 *, 0x68) = (f32) TBoss7Crawfish__data_805DF0DC;
+    }
+    M2C_FIELD(arg0, s32 *, 0x3CC) = 0;
+    return arg0;
+}
 
 void destroy_instance__14TBoss7CrawfishFv(void) {
     if ((u32) TBoss7Crawfish__data_805D6A60 != 0U) {

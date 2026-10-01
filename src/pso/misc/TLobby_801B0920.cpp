@@ -12,6 +12,17 @@ struct VObj_801B09A4 : VBase_801B09A4 {
 
 struct Rec_801B09A4 { u8 bytes[0x42C]; };
 
+typedef s32 M2C_UNK;
+struct Pl_801B0B88 {
+    u8 pad0[0x424];
+    s32 f424;
+    u8 f428[0x754 - 0x428];
+    u8 f754[0x7c4 - 0x754];
+    u8 f7C4[4];
+    u8 f7C8[0xd00 - 0x7c8];
+    s32 fD00;
+};
+
 extern "C" {
 extern void *lbl_8050EA10[];
 s32 TLobby__sub_801B0974(void);
@@ -21,6 +32,54 @@ void TLobby__sub_8024AC20(s32);
 extern s32 lbl_805D5D88;
 extern Rec_801B09A4 *lbl_805D5DB8;
 void TLobby__sub_801B09A4(void);
+s32 TObjPlayer__sub_80019248(Pl_801B0B88 *);
+s32 get_item_field_6__10TObjPlayerFPv(Pl_801B0B88 *);
+s32 get_item_info__10TObjPlayerFiiPv(s32, Pl_801B0B88 *, s32);
+void set_flag_drop_weapon_on_death__10TObjPlayerFPv(Pl_801B0B88 *);
+void disable_drop_weapon_on_death__10TObjPlayerFPv(Pl_801B0B88 *);
+void set_state_flag_6043__10TObjPlayerFPv(Pl_801B0B88 *);
+void TObjPlayer__sub_801B269C(Pl_801B0B88 *);
+void check_technique_flag__10TObjPlayerFPv(Pl_801B0B88 *);
+void recover_full__10TObjPlayerFPv(Pl_801B0B88 *);
+void TObjPlayer__sub_801B6488(Pl_801B0B88 *, s32);
+void unequip_item__10TObjPlayerFiPv(Pl_801B0B88 *, s32);
+VObj_801B09A4 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void TObjPlayer__sub_801BEE18(Pl_801B0B88 *, s32);
+void TObjPlayer__sub_801BEE24(Pl_801B0B88 *, s32);
+void TObjPlayer__sub_801BEE2C(Pl_801B0B88 *, s32);
+void fn_801C19E0(void *, s32);
+void TObjPlayer__sub_801C1B10(s32);
+void fn_801C5420(void *, s32);
+void TObjPlayer__sub_801C5780(void *, s32, s32);
+void TLobby__sub_801D4C28(s32, Pl_801B0B88 *, s32, s32);
+void set_globals_and_update__6TLobbyFPvii(s32, Pl_801B0B88 *, s32);
+void update_all_children__6TLobbyFPv(void *);
+s32 TObjPlayer__sub_801D6D28(M2C_UNK *);
+s32 fn_801D6D60(M2C_UNK *, s32);
+u8 fn_801D6DB0(M2C_UNK *);
+s8 TLobby__sub_801D6DDC(M2C_UNK *);
+s16 clamp_player_index__6TLobbyFPv(M2C_UNK *);
+u8 TLobby__sub_801D6F94(M2C_UNK *);
+u8 TLobby__sub_801D6FC8(M2C_UNK *);
+u8 TLobby__sub_801D6FFC(M2C_UNK *);
+u8 TLobby__sub_801D7030(M2C_UNK *);
+u8 TLobby__sub_801D7098(M2C_UNK *);
+u8 TLobby__sub_801D70CC(M2C_UNK *);
+u8 TLobby__sub_801D7100(M2C_UNK *);
+u8 fn_801D7134(M2C_UNK *);
+u8 fn_801D7168(M2C_UNK *);
+u8 fn_801D719C(M2C_UNK *);
+u8 fn_801D71D0(M2C_UNK *);
+u8 fn_801D7204(M2C_UNK *);
+u8 TOMineTrap__sub_801D7238(M2C_UNK *);
+void update_all_units__10TObjPlayerFii(void *, u8);
+void TObjPlayer__sub_801D9B38(void *, s32);
+void TObjPlayer__sub_801D9B90(void *, s32);
+void copy_lobby_header__10TObjPlayerFPvi(Rec_801B09A4 *, Pl_801B0B88 *);
+extern M2C_UNK lbl_8050EA40[];
+extern s32 lbl_805D5D6C;
+extern Rec_801B09A4 *lbl_805D5DB8;
+void TLobby__sub_801B0B88(void);
 }
 
 extern "C" {
@@ -120,6 +179,101 @@ block_8:
     }
 block_15:
     return 1;
+}
+void TLobby__sub_801B0B88(void) {
+    s32 i;
+    M2C_UNK *q;
+    Pl_801B0B88 *p;
+    s32 j;
+    s32 lv;
+    q = lbl_8050EA40;
+    for (i = 0; i < 0xC; i++) {
+        p = (Pl_801B0B88 *)TPlayerBattleCtrl4P__sub_801BA74C(i);
+        if (p == NULL) {
+            continue;
+        }
+        update_all_children__6TLobbyFPv(p->f754);
+        if (TOMineTrap__sub_801D7238(q) == 1) {
+            set_state_flag_6043__10TObjPlayerFPv(p);
+            if (TObjPlayer__sub_80019248(p) != 0) {
+                lbl_805D5D6C = 1;
+            }
+        } else {
+            return;
+        }
+        switch (fn_801D71D0(q)) {
+        case 1:
+        case 2:
+        case 3:
+            set_globals_and_update__6TLobbyFPvii(p->fD00, p, 0);
+            set_globals_and_update__6TLobbyFPvii(p->fD00, p, 1);
+            break;
+        }
+        switch (fn_801D719C(q)) {
+        case 1:
+            set_globals_and_update__6TLobbyFPvii(p->fD00, p, 2);
+            break;
+        }
+        if ((j = get_item_field_6__10TObjPlayerFPv(p)) != 0 && get_item_info__10TObjPlayerFiiPv(j, p, 0) == 0) {
+            unequip_item__10TObjPlayerFiPv(p, j);
+        }
+        switch (fn_801D7168(q)) {
+        case 1:
+        case 2:
+            set_globals_and_update__6TLobbyFPvii(p->fD00, p, 3);
+            break;
+        }
+        if (fn_801D7134(q) == 1) {
+            for (j = 0; j < 4; j++) {
+                TObjPlayer__sub_801C5780(p->f7C4, fn_801D6D60(q, j), j);
+            }
+        }
+        switch (TLobby__sub_801D7100(q)) {
+        case 2:
+            fn_801C19E0(p->f754, fn_801D6DB0(q));
+            break;
+        }
+        switch (TLobby__sub_801D70CC(q)) {
+        case 1:
+            TObjPlayer__sub_801BEE2C(p, 0);
+            TObjPlayer__sub_801BEE24(p, 0);
+            TObjPlayer__sub_801B6488(p, clamp_player_index__6TLobbyFPv(q));
+            break;
+        }
+        lv = TLobby__sub_801D6DDC(q);
+        switch (fn_801D7204(q)) {
+        case 1:
+            TObjPlayer__sub_801D9B90(p->f428, 0xFF);
+            TObjPlayer__sub_801D9B38(p->f428, 0xFF);
+            break;
+        case 2:
+            TObjPlayer__sub_801D9B90(p->f428, 0x1D);
+            update_all_units__10TObjPlayerFii(p->f428, lv);
+            break;
+        }
+        set_flag_drop_weapon_on_death__10TObjPlayerFPv(p);
+        switch (TLobby__sub_801D7098(q)) {
+        case 1:
+            disable_drop_weapon_on_death__10TObjPlayerFPv(p);
+            break;
+        }
+        if (TLobby__sub_801D7030(q) == 1 && TObjPlayer__sub_80019248(p) != 0) {
+            TObjPlayer__sub_801C1B10(p->f424);
+        }
+        if (TLobby__sub_801D6FFC(q) != 0) {
+            TObjPlayer__sub_801BEE18(p, 0);
+        }
+        if (TLobby__sub_801D6FC8(q) == 1) {
+            fn_801C5420(p->f7C8, TObjPlayer__sub_801D6D28(q));
+        }
+        if (TLobby__sub_801D6F94(q) == 1) {
+            TLobby__sub_801D4C28(p->fD00, p, 3, 9);
+        }
+        check_technique_flag__10TObjPlayerFPv(p);
+        recover_full__10TObjPlayerFPv(p);
+        TObjPlayer__sub_801B269C(p);
+        copy_lobby_header__10TObjPlayerFPvi(&lbl_805D5DB8[i], p);
+    }
 }
 
 }

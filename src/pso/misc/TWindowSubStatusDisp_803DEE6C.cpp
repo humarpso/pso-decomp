@@ -8,6 +8,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 union Pipe_803DEECC { u8 u8v; u16 u16v; u32 u32v; s32 s32v; f32 f32v; };
 
+#define FIFO_803DF00C (*(volatile Pipe_803DF00C *)0xCC008000)
+union Pipe_803DF00C { u8 u8v; u16 u16v; u32 u32v; s32 s32v; f32 f32v; };
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_803E20B0();
 M2C_UNK setup_render__10TObjPlayerFv();
@@ -24,6 +27,10 @@ s64 OSGetTime(void);
 u32 TLobby__sub_803DF1CC(void);
 extern s32 lbl_805D77B0;
 void TWindowKeyBoardSoft__sub_803DF1B0(u32 x);
+void GXBegin(u32, u32, u16);
+extern s32 lbl_805D77B0;
+extern const f32 lbl_805E0FC8;
+void DVDConvertEntrynumToPath(f32 *q);
 }
 
 extern "C" {
@@ -73,6 +80,58 @@ void TWindowSubComCard__sub_803DEECC(f32 *q, f32 depth) {
     GXPosition3f32_803DEECC(x1, y0, z);
     GXColor1u32_803DEECC(color);
     GXTexCoord2f32_803DEECC(q[6], q[5]);
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+void DVDConvertEntrynumToPath(f32 *q) {
+    f32 z = lbl_805E0FC8 / q[2];
+    u32 color = (*(u32 *)&lbl_805D77B0);
+    f32 y0, x0, u0, v0;
+    f32 x1, y1, u1, v1;
+    f32 x3, y3, u3, v3;
+    GXBegin(0x80, 4, 4);
+    x0 = q[0] * z;
+    y0 = q[1] * z;
+    u0 = q[8];
+    v0 = q[9];
+    FIFO_803DF00C.f32v = x0;
+    FIFO_803DF00C.f32v = y0;
+    FIFO_803DF00C.f32v = z;
+    FIFO_803DF00C.u32v = color;
+    FIFO_803DF00C.f32v = u0;
+    FIFO_803DF00C.f32v = v0;
+    x1 = x0 + q[3] * z;
+    y1 = y0 + q[4] * z;
+    u1 = u0 + q[10];
+    v1 = v0 + q[11];
+    FIFO_803DF00C.f32v = x1;
+    FIFO_803DF00C.f32v = y1;
+    FIFO_803DF00C.f32v = z;
+    FIFO_803DF00C.u32v = color;
+    FIFO_803DF00C.f32v = u1;
+    FIFO_803DF00C.f32v = v1;
+    x1 = x1 + q[5] * z;
+    y1 = y1 + q[6] * z;
+    u1 = u1 + q[12];
+    v1 = v1 + q[13];
+    FIFO_803DF00C.f32v = x1;
+    FIFO_803DF00C.f32v = y1;
+    FIFO_803DF00C.f32v = z;
+    FIFO_803DF00C.u32v = color;
+    FIFO_803DF00C.f32v = u1;
+    FIFO_803DF00C.f32v = v1;
+    y3 = y0 + q[6] * z;
+    x3 = x0 + q[5] * z;
+    FIFO_803DF00C.f32v = x3;
+    FIFO_803DF00C.f32v = y3;
+    FIFO_803DF00C.f32v = z;
+    FIFO_803DF00C.u32v = color;
+    v3 = v0 + q[13];
+    u3 = u0 + q[12];
+    FIFO_803DF00C.f32v = u3;
+    FIFO_803DF00C.f32v = v3;
 }
 #pragma pop
 

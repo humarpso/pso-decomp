@@ -23,12 +23,28 @@ struct Stack_80351A80 {
     u8 trailing_storage[0x8];
 };
 
+struct Vec_80351C18 { f32 x, y, z; };
+
+struct Pt_80351C18 { Vec_80351C18 v; f32 w; };
+
+struct Wing_80351C18 {
+    s32 x0;
+    u8 pad4[0x14];
+    void *vt;
+    u8 pad1C[0x48 - 0x1C];
+    Pt_80351C18 pts[4];
+    u8 pad88[8];
+    s32 n;
+    s32 pad94;
+    s32 x98;
+    s32 x9C;
+};
+
 extern "C" {
 void fn_80351DA8(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *TBoss8Dragon__sub_8007A544(M2C_UNK *, s32);
 s32 __nw__7TObjectFUl(int);
-s32 __ct__26TBoss5GryphonLightningWingFv(int, void *, void *, void *, void *, void *, void *);
 extern const f32 lbl_805D8D48;
 s32 TBoss8Dragon__sub_80351CF0(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 s32 queue_destruction__7TObjectFv(void *);
@@ -41,6 +57,12 @@ extern const f32 lbl_805DFED4;
 void run_task__26TBoss5GryphonLightningWingFv(u8 *arg0);
 extern s32 lbl_805D55A0;
 s32 TLobby__sub_80351DFC(void);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 TBoss5GryphonLightning__ct(f32);
+extern u8 __vt__26TBoss5GryphonLightningWing[];
+extern s32 lbl_805D4368;
+extern const f32 lbl_805DFED8;
+s32 __ct__26TBoss5GryphonLightningWingFv(int arg0, void *arg1, void *a, void *mid, void *b, void *arg5, void *arg6);
 }
 
 extern "C" {
@@ -93,6 +115,24 @@ void run_task__26TBoss5GryphonLightningWingFv(u8 *arg0) {
 }
 #pragma pop
 
+s32 __ct__26TBoss5GryphonLightningWingFv(int arg0, void *arg1, void *a, void *mid, void *b, void *arg5, void *arg6) {
+    s32 i;
+    TBoss5GryphonLightning__ct(lbl_805DFED8);
+    ((Wing_80351C18 *)arg0)->vt = __vt__26TBoss5GryphonLightningWing;
+    ((Wing_80351C18 *)arg0)->x0 = lbl_805D4368;
+    ((Wing_80351C18 *)arg0)->n = 3;
+    ((Wing_80351C18 *)arg0)->x98 = (s32)arg5;
+    ((Wing_80351C18 *)arg0)->x9C = (s32)arg5 + (s32)arg6;
+    VecCopy__FP3VecPC3Vec(&((Wing_80351C18 *)arg0)->pts[0], a);
+    VecCopy__FP3VecPC3Vec(&((Wing_80351C18 *)arg0)->pts[((Wing_80351C18 *)arg0)->n - 1], b);
+    for (i = 1; i < ((Wing_80351C18 *)arg0)->n - 1; i++) {
+        ((Wing_80351C18 *)arg0)->pts[i].v.x = ((Vec_80351C18 *)mid)->x;
+        ((Wing_80351C18 *)arg0)->pts[i].v.y = ((Vec_80351C18 *)mid)->y;
+        ((Wing_80351C18 *)arg0)->pts[i].v.z = ((Vec_80351C18 *)mid)->z;
+    }
+    return arg0;
+}
+
 s32 TBoss8Dragon__sub_80351CF0(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     Vec position;
     f32 ground_height;
@@ -114,7 +154,7 @@ s32 TBoss8Dragon__sub_80351CF0(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4,
     allocation = __nw__7TObjectFUl(0xA0);
     effect = allocation;
     if (effect != 0) {
-        effect = __ct__26TBoss5GryphonLightningWingFv(allocation, (void*)arg0, (void*)arg1, (void*)arg2, &position, (void*)arg4, (void*)arg5);
+        effect = __ct__26TBoss5GryphonLightningWingFv((int)(allocation), (void *)((void*)arg0), (void *)((void*)arg1), (void *)((void*)arg2), (void *)(&position), (void *)((void*)arg4), (void *)((void*)arg5));
     }
     return effect;
 }

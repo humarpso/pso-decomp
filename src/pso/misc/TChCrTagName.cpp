@@ -20,6 +20,25 @@ struct Tag_802A265C {
     f32 f30;
 };
 
+#include "pso/TMath.h"
+struct VBase_802A2500 { char pad[0x18]; };
+
+struct TChCrTagName_802A2500 : VBase_802A2500 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual s32 m4();
+    s32 f1c;
+    s32 f20;
+    f32 f24;
+    u8 pad28[0x3C - 0x28];
+    f32 f3c;
+    f32 f40;
+    u8 pad44[4];
+    vec2f pos;
+};
+
 extern "C" {
 u8 * __ct__8TChCrTagFv(void *, s32);
 extern RecoveredGlobal_802A28C0___vt__12TChCrTagName __vt__12TChCrTagName;
@@ -51,6 +70,17 @@ s32 get_selected_char__15TChCrCharSelectFv();
 extern const f32 lbl_805DDE68;
 extern const f32 lbl_805DDE6C;
 f32 TChCrTagName__sub_802A265C(Tag_802A265C *arg0);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+f32 TChCrTagName__sub_802A265C(Tag_802A265C *arg0);
+extern vec2f lbl_80466408[];
+extern const f32 lbl_805DDE28;
+extern const f32 lbl_805DDE34;
+extern const f32 lbl_805DDE38;
+extern const f32 lbl_805DDE3C;
+extern const f32 lbl_805DDE50;
+extern const f32 lbl_805DDE54;
+extern const f32 lbl_805DDE64;
+void TChCrTagName__sub_802A2500(TChCrTagName_802A2500 *self);
 }
 
 extern "C" {
@@ -61,11 +91,37 @@ void render__12TChCrTagNameFv(void* p);
 void run_task__12TChCrTagNameFv(void *arg0);
 int TChCrTagName__sub_802A208C(void*);
 int TChCrTagName__sub_802A226C(void*);
-int TChCrTagName__sub_802A2500(void*);
 M2C_UNK TChCrTag__sub_802A1A00();
 void *__nw__7TObjectFUl(int);
 
-void render__12TChCrTagNameFv(void* p) { TChCrTagName__sub_802A2500(p); TChCrTagName__sub_802A226C(p); TChCrTagName__sub_802A208C(p); }
+#pragma push
+#pragma fp_contract on
+void draw_ui_sprite_shaded(s32 sprite_id, const vec2f *position, const vec2f *scale,
+                           f32 depth, f32 alpha, f32 brightness);
+void TChCrTagName__sub_802A2500(TChCrTagName_802A2500 *self) {
+    f32 s;
+    f32 depth;
+    f32 t;
+    vec2f pos;
+    s32 id = self->f20 / 4 + 0x3C;
+    vec2f scale = lbl_80466408[0];
+    t = lbl_805DDE28;
+    if (self->f24 < self->f40) {
+        t = (self->f24 - self->f3c) / (self->f40 - self->f3c);
+    }
+    s = TChCrTagName__sub_802A265C((Tag_802A265C *)self);
+    if (self->m4() != 0) {
+        depth = lbl_805DDE54;
+    } else {
+        depth = lbl_805DDE34 * s + lbl_805DDE64;
+    }
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, &self->pos);
+    pos.y += lbl_805DDE50;
+    draw_ui_sprite_shaded(id, &pos, &scale, depth, t * t, lbl_805DDE3C * (s * s) + lbl_805DDE38);
+}
+#pragma pop
+
+void render__12TChCrTagNameFv(void* p) { TChCrTagName__sub_802A2500((TChCrTagName_802A2500 *)(p)); TChCrTagName__sub_802A226C(p); TChCrTagName__sub_802A208C(p); }
 
 #pragma fp_contract on
 

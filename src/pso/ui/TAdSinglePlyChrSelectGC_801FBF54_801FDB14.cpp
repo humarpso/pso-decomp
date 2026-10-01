@@ -20,6 +20,23 @@ struct Ent_801FE304 { u8 pad[0x2790]; s32 a; s32 b; };
 
 struct P_801FE380 { u8 pad[4]; u8 a[0x278C - 4]; s32 f278C; s32 f2790; s32 f2794; };
 
+struct Item_801FDEE4 { u8 pad[0x18]; };
+
+struct Slot_801FDEE4 {
+    u8 pad0[4];
+    u8 chr[0x370 - 4];
+    s32 f370;
+    u8 pad374[0x668 - 0x374];
+    s32 f668;
+    s32 f66C;
+    Item_801FDEE4 items[200];
+    u8 pad1930[0x2790 - 0x1930];
+    s32 f2790;
+    s32 f2794;
+};
+
+struct DateStamp_801FDEE4 { u8 pad[0xC]; };
+
 extern "C" {
 s32 TAdPlayerLoadGC__sub_801E2048(int, void *);
 M2C_UNK load_player_slot__23TAdSinglePlyChrSelectGCFPvii(int, void *, void *);
@@ -51,6 +68,13 @@ s32 TAdSinglePlyChrSelectGC__sub_801FDB58(s32 arg0);
 void *TAdSinglePlyChrSelectGC__sub_801FDFB8(void *, void *);
 void TAdSinglePlyChrSelectGC__sub_801FE338(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FE380(P_801FE380 *arg0, s32 arg1, P_801FE380 *arg2, s32 arg3);
+void DateToSeconds__FP9DateStampPi(DateStamp_801FDEE4 *, s32 *);
+void getDateStamp__FP9DateStamp(DateStamp_801FDEE4 *);
+void *TAdSinglePlyChrSelectGC__sub_801FDFB8(void *, void *);
+void *TAdSinglePlyChrSelectGC__sub_80202B1C(void *, s32);
+void TAdSinglePlyChrSelectGC__sub_80203220(void *);
+void TAdSinglePlyChrSelectGC__sub_80211584(void *);
+s32 TAdSinglePlyChrSelectGC__sub_801FDEE4(u32 arg0, s32 arg1, u32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -61,7 +85,6 @@ s32 swap_characters__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1);
 s32 try_move_char__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1);
 s32 TAdSinglePlyChrSelectGC__sub_801FDDAC();
 s32 TAdSinglePlyChrSelectGC__sub_801FDE14();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_801FDEE4(u32, s32, u32, s32);
 int draw_window_bg__23TAdSinglePlyChrSelectGCFiiii(void*, void*, void*, void*);
 M2C_UNK increment_counters__23TAdSinglePlyChrSelectGCFv();
 
@@ -140,7 +163,7 @@ s32 try_move_char__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1) {
     }
     if ((lbl_805D5F58 != 0U) && (lbl_805D5F5C != 0U) && (check_page_cross__23TAdSinglePlyChrSelectGCFiiii((s32)(lbl_805D5F58), (s32)(arg0), (s32)(lbl_805D5F5C), (s32)(arg1)) != 0)) {
         increment_counters__23TAdSinglePlyChrSelectGCFv();
-        TAdSinglePlyChrSelectGC__sub_801FDEE4(lbl_805D5F58, arg0, lbl_805D5F5C, arg1);
+        TAdSinglePlyChrSelectGC__sub_801FDEE4((u32)(lbl_805D5F58), (s32)(arg0), (u32)(lbl_805D5F5C), (s32)(arg1));
         return 1;
     }
     return 0;
@@ -156,6 +179,32 @@ s32 check_page_cross__23TAdSinglePlyChrSelectGCFiiii(s32 arg1, s32 arg2, s32 arg
     return 0;
 }
 typedef char RecoveredGlobal_801FE3E4_lbl_805137C8_size[sizeof(RecoveredGlobal_801FE3E4_lbl_805137C8) == 0x10 ? 1 : -1];
+
+s32 TAdSinglePlyChrSelectGC__sub_801FDEE4(u32 arg0, s32 arg1, u32 arg2, s32 arg3) {
+    s32 secs;
+    DateStamp_801FDEE4 ds;
+    Slot_801FDEE4 *src = (Slot_801FDEE4 *)arg0;
+    Slot_801FDEE4 *dst = (Slot_801FDEE4 *)arg2;
+    void *chr;
+    s32 i;
+    s32 j;
+    getDateStamp__FP9DateStamp(&ds);
+    DateToSeconds__FP9DateStampPi(&ds, &secs);
+    dst[arg3].f2794 = secs;
+    chr = dst[arg3].chr;
+    TAdSinglePlyChrSelectGC__sub_801FDFB8(src[arg1].chr, chr);
+    for (i = 0; i < 30; i++) {
+        TAdSinglePlyChrSelectGC__sub_80203220(TAdSinglePlyChrSelectGC__sub_80202B1C(chr, i));
+    }
+    dst[arg3].f370 = 0;
+    dst[arg3].f668 = 0;
+    dst[arg3].f66C = 0;
+    for (j = 0; j < 200; j++) {
+        TAdSinglePlyChrSelectGC__sub_80211584(&dst[arg3].items[j]);
+    }
+    dst[arg3].f2790 = 1;
+    return 1;
+}
 
 void TAdSinglePlyChrSelectGC__sub_801FE2D0(s32 i) {
     if ((*(Ent_801FE2D0 * *)&lbl_805D5F58) == 0) return;

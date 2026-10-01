@@ -14,6 +14,9 @@ struct RecoveredGlobal_80323278_lbl_80476658 {
     u8 remaining[0x20];
 };
 
+struct Vec_80323134 { f32 x, y, z; };
+struct Ctl_80323134 { u8 pad[0x38]; Vec_80323134 pos; };
+struct Obj_80323134 { u8 pad[0xC8]; Vec_80323134 pos; void *items[9]; };
 struct T_80323320 { u8 pad[0xD4]; s32 arr[9]; };
 
 extern "C" {
@@ -30,16 +33,39 @@ void TBoss6GravBall__sub_803231D0(s32 arg0, s32 arg1);
 void TBoss6GravBall__sub_803231D0(s32 arg0, s32 arg1);
 void init_parts__14TBoss6GravBallFPv(s32 arg0);
 void TBoss6GravBall__sub_80323320(T_80323320 *self);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+Ctl_80323134 *TPlayerBattleCtrl4P__sub_801BA74C(int);
 }
 
 extern "C" {
 
-int fn_80323134(void);
+void fn_80323134(Obj_80323134 *arg0);
 void render__14TBoss6GravBallFv(void);
 int TAdEndText__sub_803997FC(void*);
 int get_abs__15TAdLdQuestPrtGCFPv(void* p);
 
-int fn_80323134(void) { return 0; }
+void fn_80323134(Obj_80323134 *arg0) {
+    s32 i;
+    Vec_80323134 v;
+    Ctl_80323134 *c;
+    for (i = 0; i < 9; i++) {
+        if (arg0->items[i] != 0) {
+            switch (i) {
+            case 5: case 6: case 7: case 8:
+                c = TPlayerBattleCtrl4P__sub_801BA74C((u16)(i - 5));
+                if (c != 0) {
+                    VecCopy__FP3VecPC3Vec(&v, &c->pos);
+                    copy_pos__11TNowLoadingFPvPv(arg0->items[i], &v);
+                }
+                break;
+            default:
+                copy_pos__11TNowLoadingFPvPv(arg0->items[i], &arg0->pos);
+                break;
+            }
+        }
+    }
+}
 
 #pragma push
 #pragma opt_common_subs off

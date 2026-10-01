@@ -72,9 +72,33 @@ struct Player_80108164 : Base_80108164 {
 
 struct Quest_80108164 { u8 pad[0x10]; f32 f10; };
 
+struct Vec_80108020 { f32 x, y, z; };
+
+struct Parm_80108020 { u8 pad[0x1c]; f32 f1C; f32 f20; };
+
+struct Self_80108020 {
+    s32 f0;
+    u8 pad4[0x14];
+    void *vt;
+    s32 f1C;
+    u8 pad20[4];
+    f32 f24;
+    f32 f28;
+    u8 pad2c[0x38 - 0x2c];
+    u8 v38[0x58 - 0x38];
+    f32 f58;
+    f32 f5C;
+    f32 f60;
+    f32 f64;
+    s32 f68;
+    u8 *f6C;
+    u8 f70[4];
+    u8 f74[4];
+    u8 f78[4];
+};
+
 extern "C" {
 void TBoss3Volopt__sub_8022675C(u32, void *, s32, s32);
-void TItemEffArmor__ct(void *, Player_80108164 *, f32, f32);
 f32 TObjPlayer__sub_803E1A58(Vec_80108164 *, Vec_80108164 *);
 Player_80108164 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
 void *__nw__7TObjectFUl(u32);
@@ -82,9 +106,52 @@ Quest_80108164 *get_quest_id__12TQuestListVMFPv(Player_80108164 *);
 extern const f32 lbl_805DAB04;
 extern const f32 lbl_805DAB08;
 void TObjPlayer__sub_80108164(s32 idx);
+void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+s32 TBoss4Type2__sub_800874F4(void *, s32);
+void get_item_params__9TItemLoadFPvPvPv(void *, void *, void *);
+void *__nw__7TObjectFUl(u32);
+void __ct__7TObjectFP7TObject(void *, s32);
+void TObjPlayer__sub_80235F60(void *, void *, void *, s32, u8 *, f32, s32);
+extern u8 lbl_8043E140[];
+extern Vec_80108020 lbl_8043E160[];
+extern void *__vt__13TItemEffArmor[];
+extern Parm_80108020 lbl_804A6F34;
+extern s32 lbl_805D2B88;
+extern s32 tl_07;
+extern const f32 TItemEffArmor__data_805DAAEC;
+extern const f32 lbl_805DAAF8;
+extern const f32 lbl_805DAAFC;
+extern const f32 lbl_805DAB00;
+Self_80108020 *TItemEffArmor__ct(Self_80108020 *self, u8 *obj, f32 a, f32 b);
 }
 
 extern "C" {
+
+Self_80108020 *TItemEffArmor__ct(Self_80108020 *self, u8 *obj, f32 a, f32 b) {
+    void *p;
+    __ct__7TObjectFP7TObject(self, tl_07);
+    self->vt = __vt__13TItemEffArmor;
+    self->f0 = lbl_805D2B88;
+    self->f24 = lbl_805DAAF8;
+    get_item_params__9TItemLoadFPvPvPv(self->f70, self->f78, self->f74);
+    self->f28 = a;
+    self->f58 = b;
+    self->f6C = obj;
+    self->f68 = 0;
+    self->f5C = lbl_804A6F34.f20;
+    self->f60 = lbl_804A6F34.f1C;
+    self->f64 = (TItemEffArmor__data_805DAAEC - self->f5C) / lbl_805DAAFC;
+    self->f1C = TBoss4Type2__sub_800874F4(self->f6C + 0x38, 0x1BA);
+    copy_vec4__13TRaderMapCoreFPvPv(self->v38, lbl_8043E140);
+    {
+        Vec_80108020 v = lbl_8043E160[0];
+        p = __nw__7TObjectFUl(0x64);
+        if (p != NULL) {
+            TObjPlayer__sub_80235F60(p, lbl_8043E140, &v, 0x3A, obj, lbl_805DAB00, tl_07);
+        }
+    }
+    return self;
+}
 
 void TObjPlayer__sub_80108164(s32 idx) {
     Player_80108164 *p = TPlayerBattleCtrl4P__sub_801BA74C(idx);
@@ -101,7 +168,7 @@ void TObjPlayer__sub_80108164(s32 idx) {
             s = lbl_805DAB04 * (TObjPlayer__sub_803E1A58(&a, &b) / lbl_805DAB08);
             o = __nw__7TObjectFUl(0x7C);
             if (o != 0) {
-                TItemEffArmor__ct(o, p, s, v);
+                TItemEffArmor__ct((Self_80108020 *)(o), (u8 *)(p), s, v);
             }
             TBoss3Volopt__sub_8022675C(0x4000B20A, (u8 *)p + 0x38, 0, 0);
         }

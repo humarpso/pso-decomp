@@ -35,6 +35,7 @@ struct Card_80265AA4 {
     Ent_80265AA4 *ents;
 };
 
+typedef s32 M2C_UNK;
 extern "C" {
 M2C_UNK TWindowSubComCard__sub_8026D740(int, void *, void *);
 extern const f32 lbl_805DD150;
@@ -74,6 +75,16 @@ Ent_80265C30 *get_array_entry__20TWindowSubStatusDispFPvi(void *w, s32 i);
 void *get_field_20__17TWindowSubComCardFPv(void *e);
 void TWindowSubComCard__sub_80265AA4(Card_80265AA4 *arg0);
 void TWindowSubComCard__sub_80266078(u8 *arg0);
+Ent_80265C30 *get_array_entry__20TWindowSubStatusDispFPvi(void *w, s32 i);
+void *get_field_20__17TWindowSubComCardFPv(void *e);
+M2C_UNK save_position__17TWindowSubComCardFPv(void *);
+void TWindowSubStatusDisp__sub_8025A9C0(Ent_80265C30 *e, f32 x);
+extern const f64 lbl_8044F330;
+extern const f32 lbl_805DD150;
+extern const f32 lbl_805DD154;
+extern const f32 lbl_805DD158;
+extern const f32 lbl_805DD16C;
+void TWindowSubComCard__sub_80265CFC(u8 *arg0, f32 farg0);
 }
 
 extern "C" {
@@ -150,6 +161,28 @@ void TWindowSubComCard__sub_80265C30(Win_80265C30 *self) {
     }
 }
 #pragma pop
+
+void TWindowSubComCard__sub_80265CFC(u8 *arg0, f32 farg0) {
+    f32 h;
+    u32 i;
+    Ent_80265C30 *e;
+    h = lbl_805DD150;
+    for (i = 0; i < *(s16 *)(arg0 + 0x76); i++) {
+        e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, i);
+        if (get_field_20__17TWindowSubComCardFPv(e) != 0 && !(e->h <= lbl_8044F330)) {
+            TWindowSubStatusDisp__sub_8025A9C0(e, farg0);
+            h += lbl_805DD16C + e->h;
+        }
+    }
+    h -= lbl_805DD16C;
+    if (*(s32 *)(arg0 + 0x2C) & 0x40) {
+        h += lbl_805DD158;
+    }
+    *(f32 *)(arg0 + 0x38) = farg0;
+    *(f32 *)(arg0 + 0x3C) = lbl_805DD154 + h;
+    *(f32 *)(arg0 + 0x7C) = h;
+    save_position__17TWindowSubComCardFPv(arg0);
+}
 
 void set_scroll_target__17TWindowSubComCardFPvff(void *arg0, f32 farg0, f32 farg1) {
     TWindowSubComCard__sub_80265E60((Win_80265E60 *)(arg0), farg0);

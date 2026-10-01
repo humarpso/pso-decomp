@@ -18,7 +18,10 @@ void reset_cursor_parts__11TMainCursorFPv(u8 *arg0);
 void reset_slots__11TMainCursorFi(s32 arg0);
 s32 try_move__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
 int TMainCursor__sub_8013BE98(void* p);
-s32 TMainCursor__sub_8013C678();
+struct Ent_8013C678 { u32 id; f32 key; };
+M2C_UNK fn_8004438C(void *);
+M2C_UNK TMainCursor__sub_8013E830(s32, Ent_8013C678 *, Ent_8013C678 *);
+s32 TMainCursor__sub_8013C678(s32 self, Ent_8013C678 *a, s32 lo, s32 hi);
 s32 TMainCursor__sub_8013DF08();
 int TMainCursor__sub_8013DF5C(void*, void* a1 = 0, void* a2 = 0);
 int TMainCursor__sub_8013E870(void*, void*);
@@ -59,11 +62,39 @@ void reset_cursor_parts__11TMainCursorFPv(u8 *arg0) {
     } while (var_r30 < 0xA);
 }
 
+s32 TMainCursor__sub_8013C678(s32 self, Ent_8013C678 *a, s32 lo, s32 hi) {
+    Ent_8013C678 tmp;
+    f32 pivot;
+    s32 i;
+    s32 j;
+
+    fn_8004438C(&tmp);
+    j = hi;
+    i = lo - 1;
+    pivot = a[hi].key;
+    for (;;) {
+        while (a[++i].key < pivot) {
+        }
+        while (i < --j && pivot < a[j].key) {
+        }
+        if (i >= j) {
+            break;
+        }
+        TMainCursor__sub_8013E830(self, &a[i], &tmp);
+        TMainCursor__sub_8013E830(self, &a[j], &a[i]);
+        TMainCursor__sub_8013E830(self, &tmp, &a[j]);
+    }
+    TMainCursor__sub_8013E830(self, &a[i], &tmp);
+    TMainCursor__sub_8013E830(self, &a[hi], &a[i]);
+    TMainCursor__sub_8013E830(self, &tmp, &a[hi]);
+    return i;
+}
+
 void quick_sort__11TMainCursorFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r3;
 
     if (arg2 < arg3) {
-        temp_r3 = TMainCursor__sub_8013C678();
+        temp_r3 = ((s32 (*)(void))TMainCursor__sub_8013C678)();
         quick_sort__11TMainCursorFiiii((s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(temp_r3 - 1));
         quick_sort__11TMainCursorFiiii((s32)(arg0), (s32)(arg1), (s32)(temp_r3 + 1), (s32)(arg3));
     }

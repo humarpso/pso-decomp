@@ -7,6 +7,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 #include <stddef.h>
 
+struct Vec_802CB8F0 { f32 x, y, z; };
+
+struct Sub_802CB8F0 { u8 pad0[8]; s32 f8; };
+
+struct Obj_802CB8F0 {
+    u8 pad0[0x38];
+    Vec_802CB8F0 pos;
+    u8 pad44[0x60 - 0x44];
+    s32 f60;
+    u8 pad64[0x29C - 0x64];
+    Vec_802CB8F0 v29C;
+    u8 pad2A8[0x350 - 0x2A8];
+    Sub_802CB8F0 *f350;
+    u8 pad354[0x390 - 0x354];
+    Vec_802CB8F0 v390;
+    u8 pad39C[0x3E4 - 0x39C];
+    f32 f3E4;
+};
+
 extern "C" {
 void TObjEneMe1GiGue__sub_802CCE50(u8 *arg0);
 M2C_UNK set_state__15TObjEneMe1GiGueFPvi(void *, s32);
@@ -22,6 +41,20 @@ s32 TObjEneMe1GiGue__sub_802CB5A0(void *, int);
 extern s32 TObjEneMe1GiGue__data_805D683C;
 extern const f32 TObjEneMe1GiGue__data_805DE674;
 void TObjEneMe1GiGue__sub_802CB9E4(u8 *arg0);
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
+s32 TObjPlayer__sub_80017E6C(void *);
+s32 TObjPlayer__sub_8001806C(void *, f32, s32);
+s32 TObjPlayer__sub_80018660(void *, s32);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+f32 fn_8013157C(void *, void *);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern const f32 TObjEneMe1GiGue__data_805DE678;
+extern const f32 TObjEneMe1GiGue__data_805DE680;
+extern const f32 lbl_805DE684;
+extern const f32 lbl_805DE688;
+extern const f32 lbl_805DE68C;
+void TObjEneMe1GiGue__sub_802CB8F0(Obj_802CB8F0 *o, Vec_802CB8F0 *c, f32 r);
 }
 
 extern "C" {
@@ -58,6 +91,21 @@ void init_move__15TObjEneMe1GiGueFPv(u8 *arg0) {
 
 extern const f32 TObjEneMe1GiGue__data_805DE660;
 extern const f32 TObjEneMe1GiGue__data_805DE694;
+
+#pragma fp_contract on
+void TObjEneMe1GiGue__sub_802CB8F0(Obj_802CB8F0 *o, Vec_802CB8F0 *c, f32 r) {
+    if (fn_8013157C(&o->pos, &o->v390) < TObjEneMe1GiGue__data_805DE680) {
+        f32 a = lbl_805DE688 * calc_boss4_scale__10TObjPlayerFi(o);
+        s32 k = (s32)(lbl_805DE684 * a);
+        f32 d = lbl_805DE68C * (r * (TObjEneMe1GiGue__data_805DE678 + calc_boss4_scale__10TObjPlayerFi(o)));
+        o->v390.x = d * TBoss8Dragon__sub_803D64DC(k) + c->x;
+        o->v390.z = d * TBoss8Dragon__sub_803D64C0(k) + c->z;
+    }
+    VecCopy__FP3VecPC3Vec(&o->v29C, &o->v390);
+    TObjPlayer__sub_80018660(o, o->f350->f8);
+    TObjPlayer__sub_8001806C(o, o->f3E4, o->f60);
+    TObjPlayer__sub_80017E6C(o);
+}
 
 void TObjEneMe1GiGue__sub_802CB9E4(u8 *arg0) {
     Vec position;

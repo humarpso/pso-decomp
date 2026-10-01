@@ -15,6 +15,10 @@ struct E_8035CC50 { void *p; };
 
 struct W_8035CC50 { u8 pad0[0x54]; E_8035CC50 e[4]; };
 
+struct Ent_8035CB88 { s32 id; s32 lo; s32 hi; };
+
+struct Obj_8035CB88 { u8 pad[0x34]; s32 x30; u8 pad38[0x1C]; void *p[4]; };
+
 extern "C" {
 s32 TObjFish__sub_8001ED9C(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
@@ -34,6 +38,12 @@ u8 *__dt__12TBoss6ThanksFv(u8 *arg0, s16 arg1);
 void TBoss6Thanks__sub_8035CCAC(s32 arg0);
 void request_destroy__11TBoss4Type2FUi(void *);
 void TBoss6Thanks__sub_8035CC50(W_8035CC50 *arg0);
+void request_destroy__11TBoss4Type2FUi(void *);
+void *TBoss4Type2__sub_800874F4(void *, int);
+void set_flags__11TBoss4Type2FPvUi(void *, int);
+extern u8 TBoss6Thanks__data_80479BA8[];
+extern Ent_8035CB88 lbl_80479BD4[];
+void TBoss6Thanks__sub_8035CB88(void *arg0);
 }
 
 extern "C" {
@@ -46,7 +56,6 @@ u8 fn_8035CAE0(void);
 void mark_done__12TBoss6ThanksFPv(void* p);
 void update_fade_out__12TBoss6ThanksFPv(void *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TBoss6Thanks__sub_8035CB88(void *);
 int TBoss6Thanks__sub_8035CCD0(void*);
 s32 TODoorVoShip__sub_801F44BC(s32);
 int dispatch_by_main_phase__14TBoss4DarkFalzFUs(void*);
@@ -65,6 +74,27 @@ extern M2C_UNK lbl_80479C08;
 extern const f32 lbl_805E01A4;
 extern const f32 lbl_805E01A8;
 extern const f32 lbl_805E01AC;
+
+void TBoss6Thanks__sub_8035CB88(void *arg0) {
+    Obj_8035CB88 *o = (Obj_8035CB88 *)arg0;
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        Ent_8035CB88 *e = &lbl_80479BD4[i];
+        if (o->x30 >= e->lo && o->x30 <= e->hi) {
+            if (o->p[i] == NULL) {
+                o->p[i] = TBoss4Type2__sub_800874F4(TBoss6Thanks__data_80479BA8, e->id);
+                if (o->p[i] != NULL) {
+                    set_flags__11TBoss4Type2FPvUi(o->p[i], 0x40);
+                }
+            }
+        } else {
+            if (o->p[i] != NULL) {
+                request_destroy__11TBoss4Type2FUi(o->p[i]);
+                o->p[i] = NULL;
+            }
+        }
+    }
+}
 
 void TBoss6Thanks__sub_8035CC50(W_8035CC50 *arg0) {
     s32 i;
@@ -91,7 +121,7 @@ void update_fade_out__12TBoss6ThanksFPv(void *arg0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x34) == 0) {
             TBoss3Volopt__sub_8022675C(0x40033231, 0, 0, 0);
         }
-        TBoss6Thanks__sub_8035CB88(arg0);
+        TBoss6Thanks__sub_8035CB88((void *)(arg0));
         M2C_FIELD(arg0, f32 *, 0x30) = (f32) (lbl_805E01A4 * (lbl_805E01A8 - ((f32) M2C_FIELD(arg0, s32 *, 0x34) / lbl_805E01AC)));
         temp_r3 = M2C_FIELD(arg0, s32 *, 0x34);
         if (temp_r3 == 0x78) {

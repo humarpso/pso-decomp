@@ -5,6 +5,22 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TLobby__sub_80020004(s32, int, void *, int, int, int);
+s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
+s32 TLanguage__sub_801E4874(void *);
+s32 get_global_state__14TOKeyMachine01Fv();
+extern M2C_UNK lbl_80466118[];
+extern M2C_UNK lbl_80466138[];
+extern M2C_UNK lbl_80466150[];
+extern M2C_UNK lbl_80466170[];
+extern M2C_UNK lbl_804DC7F0[];
+extern u32 lbl_805D6600;
+extern u32 lbl_805D6604;
+extern u32 lbl_805D6608;
+void TLanguage__sub_802A0204(void);
+}
+
+extern "C" {
 
 void clamp_light_index__19TODoorFourLightBaseFPv(void *arg0);
 void free_chr_select_slots__6TLobbyFv(void);
@@ -30,6 +46,33 @@ void free_chr_select_slots__6TLobbyFv(void) {
     if ((u32) lbl_805D6600 != 0U) {
         TLobby__sub_8001FE7C(lbl_805D6600, 1);
         lbl_805D6600 = 0U;
+    }
+}
+
+void TLanguage__sub_802A0204(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    s32 var_r0_2;
+    temp_r3 = get_global_state__14TOKeyMachine01Fv();
+    switch (temp_r3) {
+    case 28:
+        var_r0 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x440));
+        if (var_r0 != 0) {
+            var_r0 = TLobby__sub_80020004(var_r0, (int) (5), (void *) (lbl_804DC7F0), (int) (0), (int) (0), (int) (0));
+        }
+        lbl_805D6600 = var_r0;
+        lbl_805D6604 = TLanguage__sub_801E4874((void *) (lbl_80466118));
+        lbl_805D6608 = TLanguage__sub_801E4874((void *) (lbl_80466138));
+        return;
+    case 29:
+        var_r0_2 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x440));
+        if (var_r0_2 != 0) {
+            var_r0_2 = TLobby__sub_80020004(var_r0_2, (int) (5), (void *) (lbl_804DC7F0), (int) (0), (int) (0), (int) (0));
+        }
+        lbl_805D6600 = var_r0_2;
+        lbl_805D6604 = TLanguage__sub_801E4874((void *) (lbl_80466150));
+        lbl_805D6608 = TLanguage__sub_801E4874((void *) (lbl_80466170));
+        return;
     }
 }
 

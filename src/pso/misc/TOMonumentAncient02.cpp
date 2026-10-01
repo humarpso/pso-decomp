@@ -44,6 +44,12 @@ extern const f32 lbl_805DB92C;
 extern const f32 lbl_805DB934;
 extern const f32 lbl_805DB938;
 u8 *TOMonumentAncient02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+extern u8 lbl_804B3960[];
+extern u32 TOMonumentAncient02__data_805D5A68;
+void TOMonumentAncient02__sub_80172D50(void);
 }
 
 extern "C" {
@@ -110,6 +116,34 @@ void free_shared_data__19TOMonumentAncient02Fv(void) {
 }
 
 extern M2C_UNK __vt__19TOMonumentAncient02[];
+
+void TOMonumentAncient02__sub_80172D50(void) {
+    u8 *tbl = lbl_804B3960;
+    u8 *p;
+    switch (get_global_state__14TOKeyMachine01Fv()) {
+    default:
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = TLobby__sub_80020004(p, 5, tbl + 0x8, 0, 0, 0);
+        }
+        TOMonumentAncient02__data_805D5A68 = (u32)p;
+        break;
+    case 4:
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = TLobby__sub_80020004(p, 5, tbl + 0x20, 0, 0, 0);
+        }
+        TOMonumentAncient02__data_805D5A68 = (u32)p;
+        break;
+    case 7:
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = TLobby__sub_80020004(p, 5, tbl + 0x38, 0, 0, 0);
+        }
+        TOMonumentAncient02__data_805D5A68 = (u32)p;
+        break;
+    }
+}
 
 void *__dt__19TOMonumentAncient02Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

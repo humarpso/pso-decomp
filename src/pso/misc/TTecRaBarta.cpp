@@ -77,6 +77,23 @@ extern void *lbl_805D63AC;
 extern void *lbl_805D63B0;
 extern const f32 TTecRaFoie__data_805DC8CC;
 void TTecRaFoie__vt6(TTecRaFoie_80237FB8 *self);
+struct Profile_80237A94 { void *entries; u32 count; };
+struct Self_80237A94 {
+    u8 pad0[0x18];
+    void *vtable;
+    u8 pad1[0x7A - 0x1C];
+    s16 band;
+    u8 pad2[0xEC - 0x7C];
+    void *emitters;
+    u8 pad3[0xF4 - 0xF0];
+    void **objs;
+};
+
+M2C_UNK free__11TOBoss4RockFUi(void *);
+M2C_UNK TLobby__sub_80226294(void *);
+M2C_UNK __dl__7TObjectFPv(void *);
+M2C_UNK destroy_technique_base__9TTecLukerFPvs(void *, int);
+extern struct Profile_80237A94 lbl_8044D9F8[];
 }
 
 extern "C" {
@@ -104,6 +121,28 @@ void create__11TTecRaBartaFPvPvPv(void *arg0, void *arg1, void *arg2) {
     if (o != NULL) {
         TTecRaBarta__sub_80237CCC((void *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2));
     }
+}
+
+struct Self_80237A94 *__dt__11TTecRaBartaFv(struct Self_80237A94 *self, s16 arg1) {
+    u32 i;
+    void *obj;
+
+    if (self != NULL) {
+        self->vtable = __vt__11TTecRaBarta;
+        for (i = 0; i < lbl_8044D9F8[self->band].count; i++) {
+            obj = self->objs[i];
+            if (obj != NULL) {
+                queue_destruction__7TObjectFv(obj);
+            }
+        }
+        TLobby__sub_80226294(self->emitters);
+        free__11TOBoss4RockFUi(self->objs);
+        destroy_technique_base__9TTecLukerFPvs((void *) (self), (int) (0));
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((void *) (self));
+        }
+    }
+    return self;
 }
 
 void render__11TTecRaBartaFv(void) {  }

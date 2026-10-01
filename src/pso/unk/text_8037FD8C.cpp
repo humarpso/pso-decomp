@@ -4,6 +4,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Node_80380A40 {
+    u8 pad0[4];
+    u32 key;
+    u8 pad8[0x30];
+    Node_80380A40 *next;
+    Node_80380A40 *prev;
+};
+
 extern "C" {
 void TLobby__sub_803802A0(s32 arg0, ...);
     extern int TQuestListVM__data_805D6200;
@@ -21,6 +29,10 @@ extern u8 *lbl_805D72BC;
 extern u8 *lbl_805D72C0;
 extern u8 *lbl_805D72C4;
 void TLobby__sub_80380AE0(u8 *arg0);
+extern u8 *lbl_805D72BC;
+extern u8 *lbl_805D72C0;
+extern u8 *lbl_805D72C4;
+void TLobby__sub_80380A40(u8 *arg0);
 }
 
 extern "C" {
@@ -34,6 +46,43 @@ s32 TLobby__sub_8038013C(void) {
 }
 
 void TLobby__sub_803802A0(s32 arg0, ...) {}
+
+void TLobby__sub_80380A40(u8 *arg0) {
+    Node_80380A40 *n = (Node_80380A40 *)arg0;
+    Node_80380A40 *p;
+    Node_80380A40 *q;
+    if (lbl_805D72C0 == NULL) {
+        lbl_805D72C4 = arg0;
+        lbl_805D72BC = arg0;
+        lbl_805D72C0 = arg0;
+        n->prev = NULL;
+        n->next = NULL;
+        return;
+    }
+    p = (Node_80380A40 *)lbl_805D72C0;
+    while (p != NULL) {
+        if (n->key < p->key) {
+            n->prev = p->prev;
+            p->prev = n;
+            n->next = p;
+            q = n->prev;
+            if (q == NULL) {
+                lbl_805D72C0 = arg0;
+            } else {
+                q->next = n;
+            }
+            break;
+        }
+        p = p->next;
+    }
+    if (p == NULL) {
+        ((Node_80380A40 *)lbl_805D72BC)->next = n;
+        n->next = NULL;
+        n->prev = (Node_80380A40 *)lbl_805D72BC;
+        lbl_805D72BC = arg0;
+    }
+}
+
 #pragma push
 #pragma scheduling off
 void TLobby__sub_80380AE0(u8 *arg0) {

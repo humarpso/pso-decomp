@@ -37,6 +37,11 @@ f32 get_fov__11TCameraCtrlFv();
 f32 get_view_scale__11TCameraCtrlFv();
 Vec2_8024EC34 *TWindowKeyBoardSoft__sub_8024ECDC(s32);
 void TWindowKeyBoardSoft__sub_8024EC34(Vec2_8024EC34 *arg0, s32 arg1);
+s32 get_camera_id__11TCameraCtrlFv();
+Vec2_8024EC34 *fn_8026CB74();
+extern Vec2_8024EC34 lbl_8044EC70[];
+extern Vec2_8024EC34 lbl_8044EC80[];
+extern Vec2_8024EC34 lbl_8044EC98[];
 }
 
 extern "C" {
@@ -138,6 +143,29 @@ void TWindowKeyBoardSoft__sub_8024EC34(Vec2_8024EC34 *arg0, s32 arg1) {
     arg0->y = arg0->y + (p->y + get_split_offset__11TCameraCtrlFi(arg1));
     arg0->x = arg0->x / get_view_scale__11TCameraCtrlFv();
     arg0->y = arg0->y / get_fov__11TCameraCtrlFv();
+}
+
+Vec2_8024EC34 *TWindowKeyBoardSoft__sub_8024ECDC(s32 i) {
+    switch (get_camera_id__11TCameraCtrlFv()) {
+    case 1:
+        break;
+    case 2:
+        if (i >= 0 && i <= 2) {
+            return &lbl_8044EC70[i];
+        }
+        break;
+    case 3:
+        if (i >= 0 && i <= 3) {
+            return &lbl_8044EC80[i];
+        }
+        break;
+    case 4:
+        if (i >= 0 && i <= 4) {
+            return &lbl_8044EC98[i];
+        }
+        break;
+    }
+    return fn_8026CB74();
 }
 
 u32 open_singleton__19TWindowKeyBoardSoftFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {

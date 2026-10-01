@@ -23,6 +23,42 @@ struct RecoveredGlobal_801F3268_lbl_80512B18 {
 
 struct Op_801F2E64 { void (*fn)(s32); u32 pad; };
 
+struct Hdr_801F3124 {
+    u32 off0;
+    u32 off4;
+    u32 off8;
+    u16 hC;
+    u16 hE;
+    u16 h10;
+    s8 b12;
+};
+
+struct Ctx_801F3124 {
+    u8 *p0;
+    u32 *p4;
+    u8 *p8;
+    s32 x0C;
+    s32 x10;
+    u8 x14;
+    u8 pad15[7];
+    s32 x1C;
+    s32 x20;
+    s32 x24;
+    s32 x28;
+    s32 pad2C;
+    s32 x30;
+    u8 x34[0x20];
+    u8 x54[0x100];
+    u8 pad154[8];
+    s32 x15C;
+    s32 x160;
+    s32 x164;
+    s32 x168;
+    s32 x16C;
+    s16 x170;
+    s16 x172;
+};
+
 extern "C" {
 int bswap_32__FPUl(void*);
 void TLobby__sub_801F3640(s32 arg0);
@@ -86,6 +122,15 @@ unsigned char read_packet_byte__6TLobbyFv(void);
 extern struct Op_801F2E64 lbl_804C69D8[];
 extern s32 TLobby__data_805D5E98;
 s32 dispatch_quest_opcode(void);
+int bswap_16__FPUs(void*);
+int bswap_32__FPUl(void*);
+void *memset(void *, int, u32);
+extern u8 TLobby__data_805D5EA8;
+extern u8 TLobby__data_805D5EA9;
+extern u16 TLobby__data_805D5EAA;
+extern u16 TLobby__data_805D5EAC;
+extern s16 TLobby__data_805D5ECC;
+void TLobby__sub_801F3124(Hdr_801F3124 *h, Ctx_801F3124 *c);
 }
 
 extern "C" {
@@ -290,6 +335,48 @@ void TLobby__sub_801F301C(u8 *arg0) {
 }
 
 typedef char RecoveredGlobal_801F3268_lbl_80512B18_size[sizeof(RecoveredGlobal_801F3268_lbl_80512B18) == 0x10 ? 1 : -1];
+
+void TLobby__sub_801F3124(Hdr_801F3124 *h, Ctx_801F3124 *c) {
+    u32 n;
+    u32 i;
+    bswap_32__FPUl((void*)(&h->off0));
+    bswap_32__FPUl((void*)(&h->off4));
+    bswap_32__FPUl((void*)(&h->off8));
+    bswap_16__FPUs((void*)(&h->hC));
+    bswap_16__FPUs((void*)(&h->hE));
+    bswap_16__FPUs((void*)((u8 *)h + 0x12));
+    TLobby__data_805D5ECC = h->b12;
+    c->p0 = (u8 *)h + h->off0;
+    c->p4 = (u32 *)((u8 *)h + h->off4);
+    c->p8 = (u8 *)h + h->off8;
+    c->x0C = 0;
+    c->x10 = 0;
+    c->x14 = 0;
+    c->x1C = 0;
+    c->x20 = 0;
+    c->x24 = 0;
+    c->x28 = 0;
+    c->x30 = 0;
+    memset(c->x34, 0, 0x20);
+    memset(c->p8, 0, 0x400);
+    memset(c->x54, 0, 0x100);
+    n = (h->off8 - h->off4) / 4;
+    for (i = 0; i < n; i++) {
+        bswap_32__FPUl((void*)(&c->p4[i]));
+    }
+    (*(s8 *)&TLobby__data_805D5EA8) = 0;
+    (*(s8 *)&TLobby__data_805D5EA9) = 0;
+    (*(s16 *)&TLobby__data_805D5EAA) = 0;
+    (*(s16 *)&TLobby__data_805D5EAC) = 0;
+    c->x15C = 0;
+    c->x160 = 0;
+    c->x164 = 0;
+    c->x168 = 0;
+    c->x16C = 0;
+    c->x170 = 0;
+    c->x172 = 0;
+}
+
 M2C_UNK *TObjItemOKWindow__sub_801F3268(void) {
     return &lbl_80512B18.value;
 }

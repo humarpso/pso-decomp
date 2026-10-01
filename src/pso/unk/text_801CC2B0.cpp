@@ -20,6 +20,11 @@ typedef struct Player_801CC6B8 {
     u8 pb[4];
 } Player_801CC6B8;
 
+typedef s32 M2C_UNK;
+struct Slot_801CC558 { u16 id; s16 idx; };
+
+struct Mylla_801CC558 { u8 pad[0xA4]; u8 *tbl; };
+
 extern "C" {
 M2C_UNK apply_velocity__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_8011E204(void *, int);
@@ -73,6 +78,24 @@ void set_section_index__15TFontSmallLobbyFPvs(void *, s16);
 s32 reset_key_machine_state__10TObjPlayerFv(void);
 s32 TObjEneHoldEffect__sub_8036BBF4(void *);
 void handle_6x49_execute_photon_blast(void *arg0);
+M2C_UNK TObjPlayer__sub_8001053C(void *);
+s32 obj_isState2_324(void *);
+M2C_UNK obj_getField1c(void *);
+M2C_UNK obj_setFlags30(void *, s32);
+void *get_position_ptr__10TObjPlayerFPv(void *);
+M2C_UNK set_state_flags__10TObjPlayerFPvUi(void *, u32);
+s32 calc_angle_to__10TObjPlayerFPvPv(void *, void *);
+Mylla_801CC558 *TPhotonMylla__sub_80154CB4(u16);
+M2C_UNK start_photon_blast__10TObjPlayerFiUs(s32, u16);
+M2C_UNK send_field_state_if_active__10TObjPlayerFii(void *, s32);
+M2C_UNK set_action_state__10TObjPlayerFPvss(void *, s32, s32);
+s32 query_equip__10TObjPlayerFPv(void *);
+void TObjPlayer__sub_801D0BC0(void *, s32, s32);
+void *get_field4_ptr__10TObjPlayerFPv(void *);
+M2C_UNK copy_position__10TObjPlayerFPv(void *, void *);
+u32 *TObjPlayer__sub_801D2AB0(void *, s32);
+s16 get_valid_index__15TFontSmallLobbyFPv(void *);
+void TObjPlayer__sub_801CC558(u8 *arg0);
 }
 
 extern "C" {
@@ -160,6 +183,42 @@ void TObjPlayer__sub_801CC34C(u8 *arg0) {
     apply_velocity__10TObjPlayerFPv((void *) arg0);
   }
 }
+
+void TObjPlayer__sub_801CC558(u8 *arg0) {
+    Slot_801CC558 *slot;
+    u16 id;
+    Mylla_801CC558 *m;
+    *(s32 *)(arg0 + 0x33C) = 9;
+    TObjPlayer__sub_801D0BC0(arg0, *(s16 *)(arg0 + 0x326), 6);
+    slot = (Slot_801CC558 *)TObjPlayer__sub_801D2AB0(arg0 + 0x4AC, 0);
+    id = slot->id;
+    if (id != 0xFFFF) {
+        m = TPhotonMylla__sub_80154CB4(id);
+        if (m == NULL) {
+            slot->id = id = 0xFFFF;
+        } else {
+            copy_position__10TObjPlayerFPv(arg0 + 0x744, m->tbl + slot->idx * 0x2C + 0x1C);
+        }
+    }
+    if (id == 0xFFFF) {
+        *(s32 *)(arg0 + 0x3F0) = *(s32 *)(arg0 + 0x60);
+    } else {
+        slot = (Slot_801CC558 *)get_field4_ptr__10TObjPlayerFPv(arg0 + 0x744);
+        *(s32 *)(arg0 + 0x3F0) = calc_angle_to__10TObjPlayerFPvPv(get_position_ptr__10TObjPlayerFPv(arg0), slot);
+    }
+    obj_setFlags30(arg0, 0x400000);
+    TObjPlayer__sub_8001053C(arg0);
+    if (obj_isState2_324(arg0) != 0) {
+        send_field_state_if_active__10TObjPlayerFii(arg0, 0x22824);
+    } else {
+        send_field_state_if_active__10TObjPlayerFii(arg0, 0x22322);
+    }
+    *(s16 *)(arg0 + 0x328) = 0;
+    set_action_state__10TObjPlayerFPvss(arg0, 9, query_equip__10TObjPlayerFPv(arg0));
+    set_state_flags__10TObjPlayerFPvUi(arg0, 0x80);
+    start_photon_blast__10TObjPlayerFiUs(get_valid_index__15TFontSmallLobbyFPv(arg0 + 0x4AC), obj_getField1c(arg0));
+}
+
 void handle_6x49_execute_photon_blast(void *arg0) {
     s32 i;
     Player_801CC6B8 *p;

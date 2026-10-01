@@ -22,7 +22,10 @@ void TObjEneSlimeOne__sub_803E4AF4(void *arg0, void *arg1, f32 farg0);
 M2C_UNK TObjPlayer__sub_803E4354();
 M2C_UNK TObjPlayer__sub_803E4468();
 void TObjPlayer__sub_803E44D4();
-M2C_UNK TObjPlayer__sub_803E496C(void *, void *, f32, void (*)());
+void TObjPlayer__sub_803E496C(s32 arg0, s32 arg1, s32 arg2);
+M2C_UNK TObjPlayer__sub_803D749C(void *);
+M2C_UNK TBoss8Dragon__sub_803D78A8(int);
+M2C_UNK TObjPlayer__sub_803E49FC(void *);
 void TObjPlayer__sub_803E4A94(void *arg0, void *arg1, f32 farg0);
 M2C_UNK TObjPlayer__sub_803E4354();
 M2C_UNK TObjPlayer__sub_803E4468();
@@ -52,9 +55,21 @@ void set_global_state__10TObjPlayerFi(s32 arg0) {
 
 extern s32 lbl_805D7808;
 
+void TObjPlayer__sub_803E496C(s32 arg0, s32 arg1, s32 arg2) {
+    TObjPlayer__sub_803D749C((void *) (arg1));
+    if ((s32) lbl_805D7808 != 0) {
+        TBoss8Dragon__sub_803D78A8((int) (1));
+        M2C_FIELD(lbl_805D76BC, s32 *, 0x28) = (s32) M2C_FIELD(lbl_804FA50C, s32 *, 0xC);
+        TBoss8Dragon__sub_803D78A8((int) (0));
+        M2C_FIELD(lbl_805D76BC, s32 *, 0x28) = (s32) M2C_FIELD(lbl_804FA50C, s32 *, 0xC);
+    }
+    M2C_FIELD(lbl_805D4698, s32 *, 0xC) = arg2;
+    TObjPlayer__sub_803E49FC((void *) (arg0));
+}
+
 void TObjPlayer__sub_803E4A94(void *arg0, void *arg1, f32 farg0) {
     TObjPlayer__sub_803E4354();
-    TObjPlayer__sub_803E496C(arg0, arg1, farg0, TObjPlayer__sub_803E44D4);
+    ((M2C_UNK (*)(void *, void *, f32, void (*)()))TObjPlayer__sub_803E496C)(arg0, arg1, farg0, TObjPlayer__sub_803E44D4);
     TObjPlayer__sub_803E4468();
 }
 

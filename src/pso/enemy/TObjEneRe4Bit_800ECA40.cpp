@@ -124,6 +124,153 @@ struct VObj_14_c143b1 : VBase_14_c143b1 {
     virtual s32 m5();
 };
 
+struct Vec_800ECA40 { f32 x, y, z; };
+
+struct LBase_800ECA40 { char pad[0x14]; };
+
+struct Light_800ECA40 : LBase_800ECA40 {
+    virtual void l0();
+    virtual void l1();
+    virtual void l2();
+    virtual void l3();
+    virtual void l4();
+    virtual void l5();
+    virtual void l6();
+    virtual void l7();
+};
+
+struct Ent_800ECA40 { s32 a; s32 b; s32 c; };
+
+struct Model_800ECA40 {
+    Ent_800ECA40 ents[3];
+    u8 pad24[0x2C - 0x24];
+    s32 x2C;
+};
+
+struct VBase_800ECA40 { char pad[0x18]; };
+
+struct Bit_800ECA40 : VBase_800ECA40 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual void m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual void m93();
+    virtual void m94();
+    virtual void m95();
+    virtual void m96();
+    virtual void m97();
+    virtual void m98();
+    virtual void m99();
+    virtual void m100();
+    virtual void m101();
+    virtual void m102();
+    virtual void m103();
+    virtual void m104();
+    u8 pad1C[0x24 - 0x1C];
+    Model_800ECA40 **x24;
+    u8 pad28[0x34 - 0x28];
+    void *x34;
+    Vec_800ECA40 pos;
+    u8 pad44[0x60 - 0x44];
+    s32 x60;
+    u8 pad64[0x300 - 0x64];
+    f32 x300;
+    u8 pad304[0x3CC - 0x304];
+    s32 flags;
+    s32 idx;
+    u8 pad3D4[0x3DC - 0x3D4];
+    Light_800ECA40 light;
+};
+
 extern "C" {
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK set_state_flags__18TObjEneRe4SorcererFPv(void *);
@@ -160,6 +307,32 @@ extern const f32 lbl_805DA778;
 void TObjEneRe4Bit__sub_800ECE04(u8 *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 void TObjEneRe4Bit__sub_800ED090(void *self, s32 msg);
+int render_with_position_override__10TObjPlayerFPvPvi(void *, void *, int);
+s32 check_demo_mode__10TObjPlayerFv();
+s32 is_main_phase_15__9TObjEneDDFv();
+int clear_global_flag_400__9TObjEneDDFv();
+f32 update_primary_light__9TObjEneDDFPv(void *);
+int update_secondary_light__9TObjEneDDFPv(void *);
+int toggle_particle_effect__10TObjPlayerFv();
+int end_effect_render__13TParticleCtrlFv();
+s32 toggle_flag_9__10TObjPlayerFPv(void *);
+int TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+int TObjPlayer__sub_803D9214(int, int);
+int TObjPlayer__sub_803D9624(int, f32, f32, f32);
+int TObjPlayer__sub_803D9B2C();
+int TObjPlayer__sub_803D9B78();
+int TOHangerMachine01__sub_803D9C00(void *);
+int set_global_param__8TObjFishFi(void *);
+int TObjFish__sub_803E46BC(void *);
+extern Vec_800ECA40 lbl_8043D2E0;
+extern s32 lbl_805D5660;
+extern s32 some_id_805c6f74;
+extern const f32 lbl_805D9E84;
+extern const f32 lbl_805DA768;
+extern const f32 lbl_805DA76C;
+extern const f32 TObjEneRe4Bit__data_805DA770;
+extern const f32 lbl_805DA774;
+void render__13TObjEneRe4BitFv(Bit_800ECA40 *self);
 }
 
 extern "C" {
@@ -170,6 +343,61 @@ M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 void update_position_flag__13TObjEneRe4BitFPv(void *);
+
+void render__13TObjEneRe4BitFv(Bit_800ECA40 *self) {
+    f32 range;
+    s32 saved;
+    s32 draw;
+    Model_800ECA40 *m;
+    if (check_demo_mode__10TObjPlayerFv() != 0) {
+        self->m104();
+        return;
+    }
+    if (is_main_phase_15__9TObjEneDDFv() != 0) {
+        range = lbl_805D9E84;
+    } else {
+        range = lbl_805DA768;
+    }
+    if (!(self->flags & 0x100)) {
+        return;
+    }
+    if (self->m8(range, lbl_805DA76C) == 0) {
+        return;
+    }
+    if (self->flags & 0x800) {
+        Vec_800ECA40 v = lbl_8043D2E0;
+        render_with_position_override__10TObjPlayerFPvPvi(self, &v, 0);
+    }
+    update_secondary_light__9TObjEneDDFPv(self);
+    m = *self->x24;
+    saved = m->x2C;
+    m->x2C = m->ents[self->idx].c;
+    set_global_param__8TObjFishFi(self->x24);
+    lbl_805D5660 = some_id_805c6f74;
+    clear_global_flag_400__9TObjEneDDFv();
+    toggle_particle_effect__10TObjPlayerFv();
+    draw = 1;
+    if (self->flags & 0x200) {
+        self->light.l6();
+        if (toggle_flag_9__10TObjPlayerFPv(self) != 0) {
+            draw = 0;
+        }
+    }
+    if (draw != 0) {
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(&self->pos);
+        TObjPlayer__sub_803D9624(0, TObjEneRe4Bit__data_805DA770, self->x300 - self->pos.y, TObjEneRe4Bit__data_805DA770);
+        TObjPlayer__sub_803D9214(0, self->x60);
+        TOMonitorMachine01__sub_803D8B5C(0, lbl_805DA774, lbl_805DA774, lbl_805DA774);
+        TObjFish__sub_803E46BC(self->x34);
+        TObjPlayer__sub_803D9B78();
+    }
+    self->light.l7();
+    some_id_805c6f74 = lbl_805D5660;
+    end_effect_render__13TParticleCtrlFv();
+    update_primary_light__9TObjEneDDFPv(self);
+    (*self->x24)->x2C = saved;
+}
 
 #pragma push
 #pragma fp_contract on

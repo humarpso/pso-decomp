@@ -4,6 +4,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Vec_80368C14 { f32 x, y, z; };
+
+struct Mine_80368C14 { u8 pad[0x38]; Vec_80368C14 pos; };
+
 extern "C" {
 extern const f32 TBoss6MagMine__data_805E0310;
 void TBoss6MagMine__sub_80368994(u8 *arg0);
@@ -14,6 +18,17 @@ void TBoss6MagMine__vt2(u8 *arg0);
 extern const f32 TBoss6MagMine__data_805E0310;
 extern const f32 TBoss6MagMine__data_805E0328;
 void TBoss6MagMine__vt1(u8 *arg0);
+s32 TObjPlayer__sub_80019248(void *);
+void *get_player_data__10TObjPlayerFi(int);
+s32 get_game_mode__6TLobbyFv(void);
+void TBoss3Volopt__sub_8022675C(int, Vec_80368C14 *, int, int);
+s32 is_active__14TBoss6PlotFalzFPv(void *);
+void TBoss6MagMine__sub_80368AB8(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(Vec_80368C14 *);
+void TBoss6Type1__sub_803D9370(Vec_80368C14 *, void *);
+extern f32 TBoss6MagMine__data_805E0314;
+extern const f32 lbl_805E031C;
+void TBoss6MagMine__sub_80368C14(Mine_80368C14 *o);
 }
 
 extern "C" {
@@ -30,7 +45,6 @@ s32 get_field_0x42c__13TBoss6MagMineFPv(void* p);
 void init__13TBoss6MagMineFPv(void* p);
 void update_linked_state__13TBoss6MagMineFPv(void *arg0);
 s32 TBoss6MagMine__ct(s32, s32, s32);
-M2C_UNK TBoss6MagMine__sub_80368C14();
 M2C_UNK TBoss6PlotFalz__sub_802ABE3C(s32, M2C_UNK, M2C_UNK, f32);
 M2C_UNK TBoss6PlotFalz__sub_802AC008(f32, f32);
 int TOHangerMachine01__sub_803D9C00(void*);
@@ -90,12 +104,29 @@ void update_linked_state__13TBoss6MagMineFPv(void *arg0) {
 
 void init__13TBoss6MagMineFPv(void* p) { TObjPlayer__sub_803D9B2C(p); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); TObjPlayer__sub_803D9214((void*)0, *(void**)((char*)p + 0x3ac)); update_linked_state__13TBoss6MagMineFPv((void *)(p)); TObjPlayer__sub_803D9B78(); }
 
+void TBoss6MagMine__sub_80368C14(Mine_80368C14 *o) {
+    s32 n = get_game_mode__6TLobbyFv();
+    s32 i;
+    for (i = 0; i < n; i++) {
+        u8 *pl = (u8 *)get_player_data__10TObjPlayerFi(i);
+        if (is_active__14TBoss6PlotFalzFPv(pl) != 0 && TObjPlayer__sub_80019248(pl) != 0) {
+            Vec_80368C14 v = o->pos;
+            TBoss6Type1__sub_803D9370(&v, pl + 0x38);
+            v.y = TBoss6MagMine__data_805E0314;
+            if (!(TBoss6Kakusan__sub_803D8BD8(&v) > lbl_805E031C)) {
+                TBoss6MagMine__sub_80368AB8(o, pl);
+            }
+        }
+    }
+    TBoss3Volopt__sub_8022675C(0x4003BA1E, &o->pos, 0, 0);
+}
+
 void TBoss6MagMine__vt4(void* p) { TOSwitchAttack__sub_80087278((void*)((char*)p + 0x38), (void*)((void*)252), (void*)((void*)64)); queue_destruction__7TObjectFv((void*)(p)); }
 
 extern f32 lbl_805E0320;
 
 void TBoss6MagMine__vt3(s32 arg0) {
-    TBoss6MagMine__sub_80368C14();
+    TBoss6MagMine__sub_80368C14((Mine_80368C14 *)(arg0));
     TOSwitchAttack__sub_80087278((void*)(arg0 + 0x38), (void*)(0xFB), (void*)(0x40));
     TOSwitchAttack__sub_80087278((void*)(arg0 + 0x38), (void*)(0xFC), (void*)(0x40));
     TBoss6PlotFalz__sub_802ABE3C(arg0 + 0x38, 0xC0, 0xF, lbl_805E0320);

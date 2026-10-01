@@ -56,6 +56,54 @@ struct Anti_8022B150 {
     s32 captured;
 };
 
+struct Obj_8022AE10;
+struct Vec_8022AE10;
+struct Hit_8022AEF8 {
+    s32 type;
+    f32 power;
+};
+
+struct PBase_8022AEF8 { char pad[0x18]; };
+
+struct Player_8022AEF8 : PBase_8022AEF8 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21(void *, Hit_8022AEF8, s32, s32, s16);
+    u8 pad1C[0x38 - 0x1C];
+    u8 pos[0x2FC - 0x38];
+    u8 x2FC[4];
+};
+
+struct Anti_8022AEF8 {
+    u8 pad0[0x1C];
+    void *caster;
+    u8 pad20[0x74 - 0x20];
+    f32 power;
+    u8 pad78[0xA4 - 0x78];
+    s16 level;
+    u8 padA6[0xAC - 0xA6];
+    s32 xAC;
+};
+
 extern "C" {
 void TTecAnti__sub_8022B35C(u8 *arg0, u8 *arg1);
 s32 obj_getField1c(int);
@@ -84,6 +132,17 @@ s32 is_parents_unqueued__9TTecLukerFUi();
 s32 is_valid_and_active__10TObjPlayerFUi(int);
 void fn_802370D8(void *);
 void run_task__8TTecAntiFv(Anti_8022B150 *self);
+s32 obj_getField1c(int);
+s32 is_split_screen();
+void *TOSwitchAttack__sub_80087278(void *, int, int);
+void TObjPlayer__sub_80087638(void *, s32);
+s32 TWindowSubComCard__sub_801058F8(void *);
+void *__nw__7TObjectFUl(int);
+Obj_8022AE10 *TTecAnti__sub_8022AE10(Obj_8022AE10 *self, const Vec_8022AE10 *body, const Vec_8022AE10 *ground, s32 actor, void *parent);
+int fn_80235BDC(void *, void *, int, int, void *);
+int show_party_effect__11TWindowCtrlFPvPvPv(s32, s32, int);
+extern void *tl_07;
+void TTecAnti__vt5(Anti_8022AEF8 *self, Player_8022AEF8 *pl);
 }
 
 extern "C" {
@@ -140,6 +199,43 @@ Obj_8022AE10 *TTecAnti__sub_8022AE10(Obj_8022AE10 *self, const Vec_8022AE10 *bod
         }
     }
     return self;
+}
+
+void TTecAnti__vt5(Anti_8022AEF8 *self, Player_8022AEF8 *pl) {
+    Hit_8022AEF8 hit;
+    void *o;
+    hit.type = 7;
+    hit.power = self->power;
+    if (TWindowSubComCard__sub_801058F8(pl) != 0) {
+        return;
+    }
+    pl->m21(self->caster, hit, 0, 0x10, self->level);
+    if (is_split_screen() == 0) {
+        show_party_effect__11TWindowCtrlFPvPvPv(obj_getField1c((int)self->caster), obj_getField1c((int)pl), 7);
+    }
+    if ((u16)obj_getField1c((int)self->caster) == (u16)obj_getField1c((int)pl)) {
+        if (self->xAC != 0) {
+            o = __nw__7TObjectFUl(0x48);
+            if (o != NULL) {
+                TTecAnti__sub_8022AE10((Obj_8022AE10 *)o, (const Vec_8022AE10 *)pl->x2FC, (const Vec_8022AE10 *)pl->pos, obj_getField1c((int)pl), tl_07);
+            }
+        }
+    } else if (self->xAC != 0) {
+        o = TOSwitchAttack__sub_80087278(pl->x2FC, 0x1F8, 0x10);
+        if (o != NULL) {
+            TObjPlayer__sub_80087638(o, obj_getField1c((int)pl));
+        }
+        o = TOSwitchAttack__sub_80087278(pl->x2FC, 0x1FF, 0x10);
+        if (o != NULL) {
+            TObjPlayer__sub_80087638(o, obj_getField1c((int)pl));
+        }
+    }
+    if (self->xAC != 0) {
+        o = __nw__7TObjectFUl(0x30);
+        if (o != NULL) {
+            fn_80235BDC(o, pl->x2FC, 0xF, 0x4002AD11, tl_07);
+        }
+    }
 }
 
 void create__8TTecAntiFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {

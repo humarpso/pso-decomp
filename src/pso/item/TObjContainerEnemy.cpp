@@ -106,6 +106,20 @@ struct Box_80189A50 {
     s16 state;
 };
 
+typedef s32 M2C_UNK;
+struct Spawn_8018990C {
+    u8 pad0[0xC];
+    u8 pos[0xC];
+    u8 pad18[0x38 - 0x18];
+    f32 f38;
+    u8 pad3c[4];
+    s32 f40;
+    s32 f44;
+    u8 pad48[4];
+};
+
+struct Obj_8018990C { u8 pad[0x38]; f32 x, y, z; u8 pad44[0x326 - 0x44]; s16 f326; };
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TLobby__sub_8010567C(void *, void *, int);
@@ -132,6 +146,17 @@ extern u32 lbl_805D5B78;
 extern s32 lbl_805D5B7C;
 extern const f32 lbl_805DBCFC;
 void TObjContainerItem__vt79(struct Box_80189A50 *self);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK TOSwitchAttack__sub_80087278(void *, int, int);
+M2C_UNK TObjChip__sub_80180BD4(void *, void *, void *);
+M2C_UNK TBoss3Volopt__sub_80189CC0(void *);
+s32 get_container_param(int);
+void *__nw__7TObjectFUl(int);
+extern s32 lbl_805D5B7C;
+extern Spawn_8018990C *const lbl_805D5B80;
+extern Spawn_8018990C *const lbl_805D5B84;
+extern void *tl_05;
+void TObjContainerItem__vt77(Obj_8018990C *self);
 }
 
 extern "C" {
@@ -219,6 +244,34 @@ void TObjContainerItem__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
         M2C_FIELD(arg0, s16 *, 0x326) = 1;
     }
 }
+
+void TObjContainerItem__vt77(Obj_8018990C *self) {
+    void *o;
+    if (self->f326 != 1) {
+        Spawn_8018990C a = *lbl_805D5B80;
+        Spawn_8018990C b = *lbl_805D5B84;
+        VecCopy__FP3VecPC3Vec(a.pos, &self->x);
+        a.f38 = self->y;
+        a.f40 = get_container_param(2);
+        a.f44 = lbl_805D5B7C;
+        VecCopy__FP3VecPC3Vec(b.pos, &self->x);
+        b.f38 = self->y;
+        b.f40 = get_container_param(0);
+        b.f44 = lbl_805D5B7C;
+        TOSwitchAttack__sub_80087278(&self->x, 0x45, 0x40);
+        TOSwitchAttack__sub_80087278(&self->x, 0x46, 0x40);
+        o = __nw__7TObjectFUl(0x234);
+        if (o != NULL) {
+            TObjChip__sub_80180BD4(o, tl_05, &a);
+        }
+        o = __nw__7TObjectFUl(0x234);
+        if (o != NULL) {
+            TObjChip__sub_80180BD4(o, tl_05, &b);
+        }
+        TBoss3Volopt__sub_80189CC0(self);
+    }
+}
+
 void TObjContainerItem__vt79(struct Box_80189A50 *self) {
     if (lbl_805D5B78 != 0) {
         switch (self->state) {

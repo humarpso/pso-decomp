@@ -50,6 +50,10 @@ struct Node_800E75AC { u8 pad[0x2c]; void *child; };
 
 struct Obj_800E75AC { u8 pad[0x34]; Node_800E75AC *node; u8 pad2[0xc0 - 0x38]; f32 fc0; u8 pad3[0xf8 - 0xc4]; s32 ff8; };
 
+struct Sub_800E750C { f32 f0; u8 pad4[4]; f32 f8; f32 fC; f32 f10; s32 f14; s32 f18; };
+
+struct Obj_800E750C { u8 pad0[0x60]; s32 f60; u8 pad1[0xA4 - 0x64]; Sub_800E750C *fA4; };
+
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 f32 get_random_float__8TObjFishFv(f32);
@@ -67,6 +71,13 @@ s32 TObjPlayer__sub_803D9B78();
 extern u8 lbl_8058D490[];
 extern const f32 TObjEneMe3SinowZoa__data_805DF31C;
 f32 TObjEneMe3SinowZoa__sub_8031A9A0(Obj_800E75AC *self);
+extern const f32 TObjEneMe3SinowZoa__data_805DF31C;
+void fn_8002B630(void *, void *, s32);
+void TObjPlayer__sub_801564A0(void *, s32, f32, f32);
+extern u8 lbl_804E87C4[];
+extern const f32 lbl_805DF304;
+extern const f32 TObjEneMe3SinowZoa__data_805DF2FC;
+u8 TObjEneMe3SinowZoa__sub_8031A900(Obj_800E750C *arg0, s32 arg1, f32 farg0);
 }
 
 extern "C" {
@@ -96,6 +107,31 @@ block_4:
 #pragma push
 #pragma fp_contract on
 typedef char RecoveredGlobal_800E7324_lbl_8043CF94_size[sizeof(RecoveredGlobal_800E7324_lbl_8043CF94) == 0xC ? 1 : -1];
+
+#pragma push
+#pragma fp_contract on
+u8 TObjEneMe3SinowZoa__sub_8031A900(Obj_800E750C *arg0, s32 arg1, f32 farg0) {
+    f32 f2 = farg0 * lbl_805DF304;
+    Sub_800E750C *s = arg0->fA4;
+    u8 res;
+    s32 a = arg0->f60;
+    s32 b = s->f18;
+    s->f0 = TObjEneMe3SinowZoa__data_805DF31C;
+    s->f8 = f2;
+    s->fC = f2;
+    s->f10 = TObjEneMe3SinowZoa__data_805DF2FC;
+    s->f14 = 1;
+    s->f18 = 0x9D01;
+    arg0->f60 = arg1;
+    TObjPlayer__sub_801564A0(arg0, arg1, TObjEneMe3SinowZoa__data_805DF31C, f2);
+    res = (s->f18 & 0x380000) != 0;
+    fn_8002B630(s, lbl_804E87C4, s->f18 & 0x380000);
+    s->f18 = b;
+    arg0->f60 = a;
+    return res;
+}
+#pragma pop
+
 f32 TObjEneMe3SinowZoa__sub_8031A9A0(Obj_800E75AC *self) {
     Vec_800E75AC v;
     Node_800E75AC *node;

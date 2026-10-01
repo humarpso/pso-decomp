@@ -15,6 +15,11 @@ struct RecoveredGlobal_8001C828___vt__9TLoadCtrl {
 
 struct RecoveredGlobal_8001C7A0___vt__9TLoadCtrl { M2C_UNK value; u8 remaining[0x14]; };
 
+typedef s32 M2C_UNK;
+struct Vec_8001C620 { s32 x, y, z; };
+
+struct Obj_8001C620 { u8 pad[0x1C]; s32 f1c; s32 f20; };
+
 extern "C" {
 s32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -50,6 +55,23 @@ extern s32 TLoadCtrl__data_805D4A84;
 extern s32 tl_su;
 extern s32 tl_camera;
 void TLoadCtrl__sub_8001C978(u32 arg0);
+M2C_UNK TNowLoading__ct(s32, void *, void *);
+M2C_UNK TCameraCtrl__sub_80069C94(void *, void *);
+M2C_UNK TCameraCtrl__sub_80069E7C(int);
+M2C_UNK TKeyBoardControl__sub_801A5EC4();
+M2C_UNK controller_stuff__Fv();
+M2C_UNK TLobby__sub_802269B4();
+s32 __nw__7TObjectFUl(int);
+s32 all_parents_unqueued_for_destruction__7TObjectFv(s32);
+M2C_UNK TAdLoadQuestGC__ct(s32, void *);
+M2C_UNK __ct__14TAdFloorLoadGCFv(s32, void *, int);
+extern u8 lbl_804349CC[];
+extern Vec_8001C620 lbl_804349D8;
+extern Vec_8001C620 lbl_804349E4;
+extern u32 TLoadCtrl__data_805D4A80;
+extern s32 TLoadCtrl__data_805D4A84;
+extern s32 TLoadCtrl__data_805D4A88;
+void run_task__9TLoadCtrlFv(Obj_8001C620 *self);
 }
 
 extern "C" {
@@ -79,6 +101,54 @@ extern s32 TLoadCtrl__data_805D4A84;
 extern void *lbl_805D4DF0;
 
 typedef char RecoveredGlobal_8001C828___vt__9TLoadCtrl_size[sizeof(RecoveredGlobal_8001C828___vt__9TLoadCtrl) == 0x18 ? 1 : -1];
+
+void run_task__9TLoadCtrlFv(Obj_8001C620 *self) {
+    s32 o;
+    if (TLoadCtrl__data_805D4A80 != 0U) {
+        if ((u32)TLoadCtrl__data_805D4A88 != 0U && all_parents_unqueued_for_destruction__7TObjectFv(TLoadCtrl__data_805D4A88) == 0) {
+            TLoadCtrl__data_805D4A88 = 0;
+        }
+        if (++self->f20 == 2) {
+            switch (TLoadCtrl__data_805D4A84) {
+            case 0:
+                o = __nw__7TObjectFUl(0x3C);
+                if ((u32)o != 0) {
+                    TNowLoading__ct(o, self, lbl_804349CC);
+                }
+                break;
+            case 1:
+                o = __nw__7TObjectFUl(0x20);
+                if ((u32)o != 0) {
+                    TAdLoadQuestGC__ct(o, self);
+                }
+                break;
+            case 2:
+                break;
+            case 3:
+                o = __nw__7TObjectFUl(0x1C);
+                if ((u32)o != 0) {
+                    __ct__14TAdFloorLoadGCFv(o, self, 0);
+                }
+                break;
+            case 4:
+                o = __nw__7TObjectFUl(0x1C);
+                if ((u32)o != 0) {
+                    __ct__14TAdFloorLoadGCFv(o, self, 1);
+                }
+                break;
+            }
+        }
+        if (self->f1c != 0) {
+            controller_stuff__Fv();
+            TKeyBoardControl__sub_801A5EC4();
+        }
+        TLobby__sub_802269B4();
+        Vec_8001C620 a = lbl_804349D8;
+        Vec_8001C620 b = lbl_804349E4;
+        TCameraCtrl__sub_80069E7C(9);
+        TCameraCtrl__sub_80069C94(&a, &b);
+    }
+}
 
 u8 *__dt__9TLoadCtrlFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {

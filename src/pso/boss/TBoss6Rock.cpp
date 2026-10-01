@@ -30,6 +30,12 @@ struct Rock_80353EA4 { u8 pad[0xc8]; s32 state; };
 
 struct R_80353E5C { u8 pad0[0xC4]; s32 fC4; s32 fC8; };
 
+struct Vec_80353B7C { f32 x, y, z; };
+
+struct R_80353B7C { u8 pad0[4]; f32 f4; f32 f8; };
+
+struct Vec_80353C60 { f32 x, y, z; };
+
 extern "C" {
 void release_object__10TBoss6RockFPv(void* p);
 void TBoss6Rock__sub_803542E8(void *, s32);
@@ -78,6 +84,26 @@ extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543
 void TBoss6Rock__sub_80353EA4(s32 i);
 extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
 void TBoss6Rock__sub_80353E5C(s32 arg0);
+u8 TBoss6Rock__sub_80353DC4(s32 arg0);
+void TBoss6Rock__sub_80353EA4(s32 i);
+u8 *TBoss6Rock__sub_80354148(s32 arg0);
+void VecCopy__FP3VecPC3Vec(void *, const void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+void TBoss6Type1__sub_803D9370(void *, void *);
+extern u8 TBoss6Rock__data_805437F8[];
+extern const f32 TBoss6Rock__data_805DFF50;
+void TBoss6Rock__sub_80353B7C(Vec_80353B7C *arg0, f32 r);
+void VecCopy__FP3VecPC3Vec(void *, const void *);
+void TBoss4Zako__sub_803D8910(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+void TBoss6Type1__sub_803D9370(void *, void *);
+void TNpcPlayer__sub_803D97B4(void *);
+extern u8 TBoss6Rock__data_805437F8[];
+extern const f32 TBoss6Rock__data_805DFF50;
+extern const f32 TBoss6Rock__data_805DFF5C;
+extern const f32 lbl_805DFF60;
+extern const f32 lbl_805DFF64;
+s32 TBoss6Rock__sub_80353C60(Vec_80353C60 *arg0, f32 r);
 }
 
 extern "C" {
@@ -184,6 +210,51 @@ extern u8 TBoss6Rock__data_805437F8[];
 typedef char RecoveredGlobal_80353E10_TBoss6Rock__data_80543778_size[sizeof(RecoveredGlobal_80353E10_TBoss6Rock__data_80543778) == 0x80 ? 1 : -1];
 
 typedef char RecoveredGlobal_80353DC4_TBoss6Rock__data_80543778_size[sizeof(RecoveredGlobal_80353DC4_TBoss6Rock__data_80543778) == 0x80 ? 1 : -1];
+
+void TBoss6Rock__sub_80353B7C(Vec_80353B7C *arg0, f32 r) {
+    Vec_80353B7C v;
+    s32 i;
+    R_80353B7C *p;
+    for (i = 0; i < 0x20; i++) {
+        p = (R_80353B7C *)TBoss6Rock__sub_80354148(i);
+        if (p != NULL && ((s32 (*)(s32))TBoss6Rock__sub_80353DC4)(i) != 0 && !(arg0->y > r + p->f8)) {
+            f32 lim = r + p->f4;
+            VecCopy__FP3VecPC3Vec(&v, &((Vec_80353B7C *)TBoss6Rock__data_805437F8)[i]);
+            TBoss6Type1__sub_803D9370(&v, arg0);
+            v.y = TBoss6Rock__data_805DFF50;
+            if (TBoss6Kakusan__sub_803D8BD8(&v) <= lim) {
+                TBoss6Rock__sub_80353EA4(i);
+            }
+        }
+    }
+}
+
+s32 TBoss6Rock__sub_80353C60(Vec_80353C60 *arg0, f32 r) {
+    Vec_80353C60 v;
+    s32 hit;
+    s32 i;
+    f32 y = TBoss6Rock__data_805DFF50;
+    f32 lim = lbl_805DFF60 + r;
+    hit = 0;
+    for (i = 0; i < 0x20; i++) {
+        f32 d;
+        VecCopy__FP3VecPC3Vec(&v, arg0);
+        TBoss6Type1__sub_803D9370(&v, &((Vec_80353C60 *)TBoss6Rock__data_805437F8)[i]);
+        v.y = y;
+        d = TBoss6Kakusan__sub_803D8BD8(&v);
+        if (!(d >= lim)) {
+            if (d <= lbl_805DFF64) {
+                v.x = TBoss6Rock__data_805DFF5C;
+            }
+            TNpcPlayer__sub_803D97B4(&v);
+            v.x *= lim;
+            v.z *= lim;
+            TBoss4Zako__sub_803D8910(arg0, &v);
+            hit = 1;
+        }
+    }
+    return hit;
+}
 
 s32 get_point__10TBoss6RockFiPvPv(s32 arg0, s32 arg1, f32 *arg2) {
     s32 temp_r5;

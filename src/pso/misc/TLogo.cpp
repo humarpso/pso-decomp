@@ -12,6 +12,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #include "pso/TObject.h"
 typedef s32 M2C_UNK;
 struct V3_8013F5E8 { s32 x, y, z; };
+struct V3_8013F6C4 { s32 x, y, z; };
+extern "C" {
+M2C_UNK TKeyBoardControl__sub_8000F90C(int);
+M2C_UNK TCameraCtrl__sub_8006A5EC(int);
+M2C_UNK TCameraCtrl__ct(u32, void *);
+M2C_UNK reset_keyboard_state__6TLobbyFv();
+s32 TLobby__sub_800F8AE8();
+M2C_UNK clear_callback_and_reset_keyboard__6TLobbyFv();
+M2C_UNK TLobby__sub_800F8B20();
+M2C_UNK invoke_callback__6TLobbyFv();
+M2C_UNK TLobby__sub_800FD6F8(void *, int);
+M2C_UNK TObjLight__sub_80133A04(void *, int);
+M2C_UNK TKeyBoardControl__sub_801A66B8();
+M2C_UNK TLobby__sub_801E2F44(int, int, int);
+M2C_UNK create_quad_sprites__13TParticleCtrlFv();
+M2C_UNK TWindowCtrlMain__ct(u32);
+extern V3_8013F6C4 lbl_8043F138;
+extern V3_8013F6C4 lbl_8043F144;
+extern u8 lbl_804A6F34[];
+}
 
 extern "C" {
 s32 TLobby__sub_800FD6A0(void *, int);
@@ -217,6 +237,44 @@ void TLogo__sub_8013F5E8(void) {
         TKeyBoardControl__sub_8000F9CC(0);
     }
     render_tick__Fv();
+}
+
+void TLogo__sub_8013F6C4(void) {
+    s32 i;
+    u32 p;
+
+    TLobby__sub_801E2F44(0, 0, 0);
+    TKeyBoardControl__sub_801A66B8();
+    for (i = 0; i < 0x80; i++) {
+    }
+    TObjLight__sub_80133A04(lbl_804A6F34, 4);
+    p = __nw__7TObjectFUl(0x1D4);
+    if (p != 0) {
+        TCameraCtrl__ct(p, tl_camera);
+    }
+    V3_8013F6C4 a = lbl_8043F138;
+    V3_8013F6C4 b = lbl_8043F144;
+    TCameraCtrl__sub_8006A5EC(9);
+    TCameraCtrl__sub_80069C94(&a, &b);
+    TKeyBoardControl__sub_8000F90C(1);
+    TLobby__sub_800F8B20();
+    TLobby__sub_800FD6F8(lbl_804A72D8, sizeof(lbl_804A72D8));
+    if (TLobby__sub_800F8AE8() != 0) {
+        invoke_callback__6TLobbyFv();
+        clear_callback_and_reset_keyboard__6TLobbyFv();
+        reset_keyboard_state__6TLobbyFv();
+        return;
+    }
+    clear_callback_and_reset_keyboard__6TLobbyFv();
+    create_quad_sprites__13TParticleCtrlFv();
+    p = __nw__7TObjectFUl(0x38);
+    if (p != 0) {
+        ((void *(*)(u32, void *))__ct__5TLogoFv)(p, tl_01);
+    }
+    p = __nw__7TObjectFUl(0x1C);
+    if (p != 0) {
+        TWindowCtrlMain__ct(p);
+    }
 }
 
 int TLogo__sub_8013F7E8(int _w0) {  return lbl_805D49D0; }

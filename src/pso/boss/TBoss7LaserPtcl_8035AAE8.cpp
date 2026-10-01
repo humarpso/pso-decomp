@@ -12,6 +12,14 @@ struct RecoveredGlobal_8035AE54_lbl_804F1C88 {
     u8 remaining[0x14];
 };
 
+struct Ptcl_8035AD68 {
+    u8 pad0[0x10];
+    void *x10;
+    u8 pad14[0x8];
+    u8 x1c[0x24];
+    f32 x40;
+};
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TBoss8Dragon__sub_8008741C(s32, s32, s32);
@@ -28,6 +36,15 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_804F1C88[];
 extern const f32 lbl_805E0118;
 u8 *TBoss7LaserPtcl__sub_8035AE54(u8 *arg0, s32 arg1, s32 arg2);
+void queue_destruction__7TObjectFv(void *);
+void apply_status_effect__10TObjPlayerFi(void *);
+void reset_global_table(void);
+s32 get_instance__16TObjOnlineEndingFv(void);
+void *get_attack_entry__16TObjOnlineEndingFi(int);
+void emit_hit_effect__18TBoss7PhotonBulletFPvPv(void *, void *);
+extern const f32 lbl_805E0110;
+extern const f32 lbl_805E0114;
+void TBoss7LaserPtcl__sub_8035AD68(u8 *arg0);
 }
 
 extern "C" {
@@ -77,6 +94,22 @@ u8 *TBoss7LaserPtcl__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
 void TBoss7LaserPtcl__sub_8035AD64(void) {  }
 
 extern M2C_UNK lbl_804F1C88[];
+
+void TBoss7LaserPtcl__sub_8035AD68(u8 *arg0) {
+    s32 i;
+    Ptcl_8035AD68 *o = (Ptcl_8035AD68 *)arg0;
+    o->x40 += lbl_805E0110;
+    reset_global_table();
+    apply_status_effect__10TObjPlayerFi(o->x1c);
+    for (i = 0; i != get_instance__16TObjOnlineEndingFv(); i++) {
+        u8 **e = (u8 **)get_attack_entry__16TObjOnlineEndingFi(i);
+        emit_hit_effect__18TBoss7PhotonBulletFPvPv(o->x10, *e + 0x38);
+    }
+    reset_global_table();
+    if (lbl_805E0114 < o->x40) {
+        queue_destruction__7TObjectFv(o);
+    }
+}
 
 void *TBoss7LaserPtcl__sub_8035ADFC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

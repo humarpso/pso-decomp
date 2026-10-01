@@ -13,6 +13,40 @@ struct RecoveredGlobal_802A7B50_lbl_804DDD28 {
     u8 remaining[0x134];
 };
 
+struct VBase_802A7994 { char pad[0x8]; };
+
+struct VObj_802A7994 : VBase_802A7994 {
+    virtual s32 m0(s32, s32);
+    virtual void m1();
+    virtual u32 m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual s32 *m6(s32, s32);
+    virtual void m7(); virtual void m8(); virtual void m9(); virtual void m10();
+    virtual void m11(); virtual void m12(); virtual void m13(); virtual void m14();
+    virtual void m15(); virtual void m16(); virtual void m17(); virtual void m18();
+    virtual void m19(); virtual void m20(); virtual void m21(); virtual void m22();
+    virtual void m23(); virtual void m24(); virtual void m25(); virtual void m26();
+    virtual void m27(); virtual void m28(); virtual void m29(); virtual void m30();
+    virtual void m31(); virtual void m32(); virtual void m33(); virtual void m34();
+    virtual void m35(); virtual void m36(); virtual void m37(); virtual void m38();
+    virtual void m39(); virtual void m40(); virtual void m41(); virtual void m42();
+    virtual void m43(); virtual void m44(); virtual void m45(); virtual void m46();
+    virtual void m47(); virtual void m48(); virtual void m49(); virtual void m50();
+    virtual void m51(); virtual void m52(); virtual void m53(); virtual void m54();
+    virtual void m55(); virtual void m56(); virtual void m57(); virtual void m58();
+    virtual void m59(); virtual void m60(); virtual void m61(); virtual void m62();
+    virtual void m63(); virtual void m64(); virtual void m65(); virtual void m66();
+    virtual void m67(); virtual void m68(); virtual void m69(); virtual void m70();
+    virtual void m71(); virtual void m72();
+    virtual s32 m73();
+    virtual void m74();
+    virtual u8 *m75(s32);
+};
+
+struct Pair_802A7994 { s32 a; s32 b; };
+
 extern "C" {
 void set_field_4__6TLobbyFPvi(void* p, s32 v);
 s32 get_hold_effect_count__10TObjPlayerFv(void);
@@ -65,6 +99,14 @@ u8 *TLobby__sub_802A7AF8(u8 *arg0, s16 arg1);
 s32 TLobby__sub_802A7318(void *);
 extern RecoveredGlobal_802A7AF8_lbl_804DDD28 lbl_804DDD28;
 u8 *TLobby__sub_802A7B50(u8 *arg0);
+s32 *TItemDrop__sub_800F9448(s32, s32);
+s32 send_packet__6TLobbyFPviiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+void TLobby__sub_802A7AE4(void* p, void* q);
+s32 get_param__6TLobbyFPv(void* p);
+s32 get_field_04__6TLobbyFPv(void* p);
+void TLobby__sub_802A7BC8(void* p);
+void set_slot_position__6TLobbyFii(s32 arg0, s32 arg1);
+s32 TLobby__sub_802A7994(VObj_802A7994 *self, s32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -110,6 +152,38 @@ s32 send_packet__6TLobbyFPviiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 ar
     free__11TOBoss4RockFUi(temp_r3);
     return temp_r31;
 }
+
+s32 TLobby__sub_802A7994(VObj_802A7994 *self, s32 arg1, s32 arg2, s32 arg3) {
+    Pair_802A7994 sp8;
+    s32 *slots;
+    s32 i;
+    s32 f4;
+    s32 pkt;
+    u8 *dst;
+    s32 *drop;
+    if (self->m2() == 0U) {
+        return 0;
+    }
+    slots = self->m6(arg2, arg3);
+    if (slots == NULL) {
+        return 0;
+    }
+    TLobby__sub_802A7BC8(&sp8);
+    dst = self->m75(arg2);
+    for (i = 0; i < self->m73(); i++) {
+        ((void (*)(s32, void *))set_slot_position__6TLobbyFii)(*slots, &sp8);
+        f4 = get_field_04__6TLobbyFPv(&sp8);
+        pkt = send_packet__6TLobbyFPviiii(self, arg1, i, f4, get_param__6TLobbyFPv(&sp8));
+        if (pkt != 0) {
+            drop = TItemDrop__sub_800F9448(self->m0(arg1, i), pkt);
+        }
+        TLobby__sub_802A7AE4(dst, *(void **)drop);
+        slots++;
+        dst += 8;
+    }
+    return 1;
+}
+
 void TLobby__sub_802A7AE4(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
 
 u8 *TLobby__sub_802A7AF8(u8 *arg0, s16 arg1) {

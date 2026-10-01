@@ -9,6 +9,17 @@ struct RecoveredGlobal_80252FCC___vt__17TWindowGetComCard {
     u8 remaining[0x14];
 };
 
+typedef s32 M2C_UNK;
+struct Pad_80252CCC { u8 pad[0x20]; u8 m20[0x30]; };
+
+struct GetCard_80252CCC {
+    u8 pad0[0x1C];
+    void *fmt;
+    void *win;
+    s32 state;
+    s32 timer;
+};
+
 extern "C" {
 s32 TLobby__sub_8001DC24();
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
@@ -30,6 +41,27 @@ extern void *__vt__17TWindowGetComCard[];
 extern s32 lbl_805D3908;
 extern s32 lbl_805D53A0;
 u8 *TWindowGetComCard__ct(u8 *arg0);
+void queue_destruction__7TObjectFv(void *);
+s32 is_visible__17TWindowSubComCardFPv(void *);
+s32 get_status_flag__17TWindowSubComCardFPv(void *);
+s32 get_instance__15TAdPlayerLoadGCFv(void);
+void start_player_data_load__17TWindowSubComCardFi(void);
+void TWindowGetComCard__sub_8007B54C(void);
+s32 TWindowGetComCard__sub_8007B594();
+void set_flag70_bit10__16TObjCityMainWarpFPv(void *);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, s32);
+s32 TWindowShortListCtrl__check_controller_button(void *, s32);
+void clear_flag_and_release__17TWindowSubComCardFPv(void *);
+void TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+s32 is_player_input_active(s32);
+s32 TWindowSubComCard__sub_80265BF8(void *);
+void *init_shop_judgment_window(void *);
+s32 TMCFormatSequence__sub_802693B4(void *);
+void TLobby__sub_80269454(void *);
+extern u8 lbl_804CF120[];
+extern Pad_80252CCC lbl_8050E208[];
+extern s32 lbl_805D53A0;
+void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self);
 }
 
 extern "C" {
@@ -73,6 +105,72 @@ void render__17TWindowGetComCardFv(void) {  }
 
 extern void *__vt__17TWindowGetComCard[];
 extern s32 lbl_805D53A0;
+
+void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self) {
+    s32 port = is_player_input_active(lbl_805D53A0);
+    switch (self->state) {
+    case 0:
+    case 1:
+        if (TMCFormatSequence__sub_802693B4(self->fmt) != 0) {
+            self->state = 2;
+        }
+        if (TWindowShortListCtrl__check_controller_button(lbl_8050E208[0].m20, 4) != 0) {
+            TLobby__sub_80269454(self->fmt);
+            self->state = 2;
+        }
+        break;
+    case 2:
+        if (self->timer != 0) {
+            self->state = 5;
+            break;
+        }
+        if (self->win == 0) {
+            self->win = init_shop_judgment_window(lbl_804CF120);
+            set_flag70_bit10__16TObjCityMainWarpFPv(self->win);
+        }
+        clear_flag_and_release__17TWindowSubComCardFPv(self->win);
+        self->state = 3;
+    case 3:
+        if (get_status_flag__17TWindowSubComCardFPv(self->win) != 0) {
+            TWindowGetComCard__sub_8007B54C();
+            queue_destruction__7TObjectFv(self);
+            self->state = 6;
+        } else if (is_visible__17TWindowSubComCardFPv(self->win) != 0) {
+            s32 r = TWindowSubComCard__sub_80265BF8(self->win);
+            if (r == 0) {
+                self->state = 4;
+            }
+            if (r == 1) {
+                TWindowGetComCard__sub_8007B54C();
+                queue_destruction__7TObjectFv(self);
+                self->state = 6;
+            }
+        }
+        break;
+    case 4:
+        if (get_instance__15TAdPlayerLoadGCFv() == 0) {
+            TWindowGetComCard__sub_8007B594();
+            start_player_data_load__17TWindowSubComCardFi();
+            TWindowGetComCard__sub_8007B54C();
+            queue_destruction__7TObjectFv(self);
+            self->state = 6;
+        } else if (TWindowShortListCtrl__check_controller_button(lbl_8050E208[port].m20, 2) != 0 ||
+                   test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208[4].m20, 2) != 0) {
+            TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
+            self->state = 2;
+        }
+        break;
+    case 5:
+        if (self->timer-- <= 0 || TWindowShortListCtrl__check_controller_button(lbl_8050E208[0].m20, 4) != 0) {
+            TWindowGetComCard__sub_8007B54C();
+            queue_destruction__7TObjectFv(self);
+            self->state = 6;
+        }
+        break;
+    case 6:
+        break;
+    }
+}
 
 void *__dt__17TWindowGetComCardFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

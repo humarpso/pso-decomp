@@ -7,6 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_80364A1C_lbl_804F2B18 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80364A1C_lbl_804F2B18_size[sizeof(RecoveredGlobal_80364A1C_lbl_804F2B18) == 0x10 ? 1 : -1];
 
+struct Obj_803648B8 {
+    u8 pad0[0xC8];
+    s32 state;
+    f32 cc;
+};
+
 extern "C" {
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -15,6 +21,9 @@ extern RecoveredGlobal_80364A1C_lbl_804F2B18 lbl_804F2B18;
 extern u32 TObjTreeLobby__data_805D6FC0;
 extern s32 lbl_805D6FC4;
 void TObjTreeLobby__sub_80364A1C(void);
+s32 is_connected__6TLobbyFv();
+s32 is_lobby_obj_active__6TLobbyFv();
+void run_task__13TObjTreeLobbyFv(Obj_803648B8 *self);
 }
 
 extern "C" {
@@ -57,6 +66,36 @@ void render__13TObjTreeLobbyFv(u8 *arg0) {
 }
 
 extern void *tl_05;
+
+void run_task__13TObjTreeLobbyFv(Obj_803648B8 *self) {
+    switch (self->state) {
+    case 0:
+        if (is_connected__6TLobbyFv() != 0) {
+            self->state = 2;
+        }
+        break;
+    case 2:
+        self->cc += 0.1f;
+        if (self->cc >= 1.0f) {
+            self->cc = 1.0f;
+            self->state = 3;
+        }
+        break;
+    case 1:
+        self->cc -= 0.1f;
+        if (self->cc <= 0.0f) {
+            self->cc = 0.0f;
+            self->state = 0;
+        }
+        break;
+    case 3:
+    default:
+        if (is_lobby_obj_active__6TLobbyFv() != 0) {
+            self->state = 1;
+        }
+        break;
+    }
+}
 
 void *create__13TObjTreeLobbyFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD0);

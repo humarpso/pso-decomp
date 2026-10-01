@@ -20,6 +20,20 @@ struct Entry_80288C78_80288B5C {
     s32 fieldC;
 };
 
+class VBase_80288FDC { public: u8 pad[0x18]; };
+class VObj_80288FDC : public VBase_80288FDC {
+public:
+    virtual void v0();
+    virtual void v1();
+    virtual void v2();
+    virtual void v3();
+    virtual void v4();
+    virtual void v5();
+    virtual void v6();
+    virtual void v7();
+    virtual s32 v8();
+};
+
 struct RecoveredGlobal_80289200___vt__19TQuestListChallenge {
     M2C_UNK value;
     u8 remaining[0x2C];
@@ -57,6 +71,26 @@ extern RecoveredGlobal_80289200_lbl_80450910 lbl_80450910;
 extern RecoveredGlobal_80289200_lbl_80450A20 lbl_80450A20;
 extern s32 lbl_805D3AF8;
 u8 *TQuestListChallenge__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
+struct Entry_80288FDC { s32 id; u8 pad[0xC]; };
+struct QLC_80288FDC {
+    u8 pad[0x24];
+    s32 f24;
+    u8 pad2[0x30 - 0x28];
+    VObj_80288FDC *obj;
+    u8 pad3[0x38 - 0x34];
+    u32 list;
+    u8 pad4[0x50 - 0x3C];
+    s32 f50;
+    s32 count;
+    Entry_80288FDC *entries;
+};
+
+s32 obj_getField1c(s32);
+s32 TLobby__sub_80222C54(s32);
+void TLobby__sub_80266E34(u32);
+void add_list_entry__6TLobbyFPviii(u32, s32, s32, s32);
+s32 TShopJudgmentItemWindow__sub_8026DF00(s32, s32, s32);
+void TQuestListChallenge__sub_80288FDC(QLC_80288FDC *arg0);
 }
 
 extern "C" {
@@ -182,6 +216,23 @@ block_9:
 
 extern M2C_UNK __vt__19TQuestListChallenge[];
 extern s32 TQuestListChallenge__data_805D64B0;
+
+void TQuestListChallenge__sub_80288FDC(QLC_80288FDC *arg0) {
+    u16 id;
+    s32 i;
+    s32 e;
+
+    if (arg0->obj->v8() != 0 && arg0->list == 0) {
+        id = obj_getField1c(arg0->f24);
+        arg0->list = TShopJudgmentItemWindow__sub_8026DF00(TLobby__sub_80222C54(0), 0x40, id);
+        for (i = 0; i < arg0->count; i++) {
+            e = ((s32 (*)(s32, s32))TLobby__sub_80222C28)(arg0->f50, arg0->entries[i].id);
+            add_list_entry__6TLobbyFPviii(arg0->list, 0x2C, e, i);
+        }
+        TLobby__sub_80266E34(arg0->list);
+        set_field_20__12TQuestListVMFPvi(arg0, 1);
+    }
+}
 
 void *__dt__19TQuestListChallengeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

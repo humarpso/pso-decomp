@@ -16,11 +16,16 @@ def object_options(owner, flags, profiles=None):
         return {}
     # Replace switches instead of appending conflicting optimization settings.
     result = [f for f in flags if not f.startswith(
-        ('-O', '-inline ', '-use_lmw_stmw ', '-opt '))]
+        ('-O', '-inline ', '-use_lmw_stmw ', '-opt ')
+        + (('-sdata2 ',) if 'sdata2' in profile else ()))]
     result += [profile['optimization'], '-inline ' + profile['inline'],
                '-use_lmw_stmw ' + profile['use_lmw_stmw']]
     if profile.get('opt'):
         result.append('-opt ' + profile['opt'])
+    # Units that load pooled doubles with `lfd x@sda21` were built with the
+    # compiler's default small-data threshold, not the game's -sdata2 4.
+    if 'sdata2' in profile:
+        result.append(f"-sdata2 {profile['sdata2']}")
     return {'mw_version': profile['mw_version'], 'cflags': result}
 
 

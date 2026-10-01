@@ -19,6 +19,25 @@ struct RecoveredGlobal_80201970_lbl_805137F8 {
     u8 remaining[0x20];
 };
 
+struct Item_80201354 { u8 pad[0x18]; };
+
+struct Card_80201354 {
+    s32 f0;
+    s32 secs;
+    u32 magic;
+    s32 fC;
+    s32 f10;
+    s32 f14;
+    u8 f18[0x1C];
+    u8 f34[0x10];
+    u8 pad44[0x248 - 0x44];
+    s32 f248;
+    s32 f24C;
+    Item_80201354 items[200];
+    u8 pad1510[0x22C4 - 0x1510];
+    u8 f22C4[0x2370 - 0x22C4];
+};
+
 extern "C" {
 s32 TLobby__sub_8001E8B8(void);
 int TLobby__sub_80132EC8(void);
@@ -66,7 +85,6 @@ M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFEBC();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_802002E8(int);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80200418();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80200470();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80201354();
 M2C_UNK init_slots__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8028DC14();
 M2C_UNK init_battle_selection__10TObjPlayerFv();
@@ -78,6 +96,24 @@ extern s32 lbl_805D5F80;
 extern s32 lbl_805D5F8C;
 extern s32 lbl_805D5FA8;
 void TAdSinglePlyChrSelectGC__sub_80201650(void);
+void TWindowSubSymbolChat__sub_80077544(Card_80201354 *);
+s32 TLobby__sub_80146D50(s32);
+s32 TLobby__sub_80146D68(s32);
+void fn_801A5338(Card_80201354 *);
+M2C_UNK DateToSeconds__FP9DateStampPi(M2C_UNK *, s32 *);
+M2C_UNK getDateStamp__FP9DateStamp(M2C_UNK *);
+void fn_801F498C();
+Card_80201354 *get_card_window__17TWindowSubComCardFUi(u32);
+void *get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
+void TAdSinglePlyChrSelectGC__sub_80211584(void *);
+M2C_UNK init_slots__23TAdSinglePlyChrSelectGCFv();
+void TWindowShortListCtrl__sub_8026E884(void *);
+void TAdSinglePlyChrSelectGC__sub_8028DC1C();
+void begin_action_from_char_select__10TObjPlayerFv();
+void *memcpy(void *, s32, s32);
+M2C_UNK memset(M2C_UNK, s32, s32);
+extern M2C_UNK lbl_80513904[];
+s32 TAdSinglePlyChrSelectGC__sub_80201354(void);
 }
 
 extern "C" {
@@ -210,6 +246,36 @@ void TAdSinglePlyChrSelectGC__sub_802012AC(void) {
   memmove((void *) (lbl_805D5F6C + 0x110), (void *) (&sp8), (int) 8);
   getDateStamp__FP9DateStamp((M2C_UNK *)((void *) (&sp10)));
   DateToSeconds__FP9DateStampPi((M2C_UNK *)((void *) (&sp10)), (s32 *)((void *) (lbl_805D5F6C + 0x118)));
+}
+
+s32 TAdSinglePlyChrSelectGC__sub_80201354(void) {
+    void *chr;
+    Card_80201354 *card;
+    s32 i;
+    init_slots__23TAdSinglePlyChrSelectGCFv();
+    chr = get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF);
+    card = get_card_window__17TWindowSubComCardFUi(0xFFFF);
+    memset((M2C_UNK)((s32)chr), (s32)(0), (s32)(0x41C));
+    TAdSinglePlyChrSelectGC__sub_8028DC1C();
+    begin_action_from_char_select__10TObjPlayerFv();
+    memset((M2C_UNK)((s32)card), (s32)(0), (s32)(0x2370));
+    getDateStamp__FP9DateStamp((M2C_UNK *)(((s32 *)&lbl_80513904)));
+    DateToSeconds__FP9DateStampPi((M2C_UNK *)(((s32 *)&lbl_80513904)), (s32 *)(&card->secs));
+    card->magic = 0xA205B064;
+    card->fC = 0;
+    card->f0 = 0;
+    card->f14 = 1;
+    memcpy(card->f18, TLobby__sub_80146D68(0), 0x1C);
+    memcpy(card->f34, TLobby__sub_80146D50(0), 0x10);
+    fn_801F498C();
+    card->f248 = 0;
+    card->f24C = 0;
+    for (i = 0; i < 200; i++) {
+        TAdSinglePlyChrSelectGC__sub_80211584(&card->items[i]);
+    }
+    TWindowSubSymbolChat__sub_80077544(card);
+    fn_801A5338(card);
+    TWindowShortListCtrl__sub_8026E884(card->f22C4);
 }
 
 s32 free_buffer__23TAdSinglePlyChrSelectGCFv(void) {

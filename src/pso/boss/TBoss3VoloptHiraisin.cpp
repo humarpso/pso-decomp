@@ -257,6 +257,14 @@ typedef struct Param_800418C8 {
     u8 unk88[4];
 } Param_800418C8;
 
+struct Hira_80041D3C {
+    u8 pad0[0x38];
+    u8 pos[0x37C - 0x38];
+    s32 state;
+    u8 pad380[0x38C - 0x380];
+    s16 idx;
+};
+
 extern "C" {
 extern f32 lbl_804FEE68[];
 extern const f32 lbl_805D8700;
@@ -293,6 +301,14 @@ extern s32 TBoss3VoloptHiraisin__data_805D4C80;
 extern const f32 lbl_805D8728;
 extern const f32 lbl_805D8734;
 void TBoss3VoloptHiraisin__sub_800418C8(Hira_800418C8 *self);
+void TBoss3VoloptHiraisin__sub_80041B64(u8 *arg0);
+void TBoss3VoloptHiraisin__sub_80041BB4(u8 *arg0);
+void damage_player_if_aligned__20TBoss3VoloptHiraisinFPv(void *arg0);
+u8 *TPhotonMylla__sub_80154CB4(u16);
+int TBoss3Volopt__sub_8022675C(int, void *, int, int);
+extern s8 lbl_804FEED0[];
+extern u16 lbl_805D4C18;
+void TBoss3VoloptHiraisin__sub_80041D3C(Hira_80041D3C *self);
 }
 
 extern "C" {
@@ -494,6 +510,49 @@ void TBoss3VoloptHiraisin__sub_80041D0C(O_80041D0C *self) {
         self->f37c = 1;
         break;
     case 1:
+        break;
+    }
+}
+void TBoss3VoloptHiraisin__sub_80041D3C(Hira_80041D3C *self) {
+    s32 base;
+    s32 all;
+    s32 j;
+    u8 *p;
+    switch (self->state) {
+    case 0:
+        TBoss3Volopt__sub_8022675C(0x4003A804, self->pos, 0, 0);
+        damage_player_if_aligned__20TBoss3VoloptHiraisinFPv(self);
+        TBoss3VoloptHiraisin__sub_80041BB4((u8 *)self);
+        lbl_804FEED0[self->idx] = 1;
+        if (self->idx % 4 > 0) {
+            all = 1;
+            base = (self->idx / 4) * 4;
+            for (j = base + 1; j < base + 4; j++) {
+                if (lbl_804FEED0[j] == 0) {
+                    all = 0;
+                }
+            }
+            if (all != 0) {
+                p = TPhotonMylla__sub_80154CB4(lbl_805D4C18 + base);
+                if (p != NULL) {
+                    TBoss3VoloptHiraisin__sub_80041B64(p);
+                }
+            }
+        } else {
+            for (j = self->idx + 1; j < self->idx + 4; j++) {
+                p = TPhotonMylla__sub_80154CB4(lbl_805D4C18 + j);
+                if (p != NULL) {
+                    TBoss3VoloptHiraisin__sub_80041B64(p);
+                }
+            }
+        }
+        self->state = 1;
+        break;
+    case -1:
+        return;
+    case 1:
+        break;
+    case 2:
         break;
     }
 }

@@ -41,6 +41,53 @@ typedef struct Obj_800A7A14 {
     VObj_800A7A14 *effs[2];
 } Obj_800A7A14;
 
+struct VBase14_800A7CA4 { u8 pad[0x14]; };
+
+struct Fade_800A7CA4 : VBase14_800A7CA4 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5();
+    virtual void begin();
+    virtual void end();
+    virtual s32 active();
+    u8 pad18[4];
+};
+
+struct VBase18_800A7CA4 { u8 pad[0x18]; };
+
+struct Node_800A7CA4 { u8 pad[6]; s16 f6; };
+
+struct L4_800A7CA4 { u8 pad[4]; Node_800A7CA4 *n; };
+
+struct L3_800A7CA4 { u8 pad[4]; L4_800A7CA4 *n; };
+
+struct L2_800A7CA4 { u8 pad[0x30]; L3_800A7CA4 *n; };
+
+struct L1_800A7CA4 { u8 pad[0x2C]; L2_800A7CA4 *n; };
+
+struct Player_800A7CA4 : VBase18_800A7CA4 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8();
+    virtual s32 visible(f32, f32, f32);
+    u8 pad1C[0x24 - 0x1C];
+    s32 f24;
+    u8 pad28[0x34 - 0x28];
+    L1_800A7CA4 *f34;
+    u8 pos[0x60 - 0x38];
+    s32 f60;
+    u8 pad64[0x2FC - 0x64];
+    u8 cam[0x326 - 0x2FC];
+    s16 f326;
+    u8 pad328[0x368 - 0x328];
+    s32 f368;
+    u8 pad36C[0x390 - 0x36C];
+    s32 f390;
+    u8 pad394[0x3A8 - 0x394];
+    Fade_800A7CA4 sub;
+    u8 pad3C4[8];
+    Fade_800A7CA4 fades[2];
+};
+
 extern "C" {
 void set_flags_B0__10TObjPlayerFPvUi(void* p, u32 v);
 void TObjPlayer__sub_800A7798(u8 *arg0, f32 farg0);
@@ -83,6 +130,43 @@ extern s32 lbl_805D5084;
 extern s32 lbl_805D5088;
 extern const f32 lbl_805D9AA4;
 void TObjPlayer__sub_800A7A14(Obj_800A7A14 *o);
+M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, void *, int);
+s32 is_split_screen();
+s32 get_camera_mode__11TCameraCtrlFv();
+s32 check_demo_mode__10TObjPlayerFv();
+s32 check_v2_mode__9TObjEneDDFv();
+s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
+M2C_UNK TObjPlayer__sub_800D7BB0(void *);
+M2C_UNK toggle_particle_effect__10TObjPlayerFv();
+M2C_UNK TObjLight__sub_80134098();
+M2C_UNK TObjLight__sub_80134194(void *);
+M2C_UNK render_world_model__10TObjPlayerFPv(void *);
+M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+s32 toggle_flag_9__10TObjPlayerFPv(void *);
+M2C_UNK TObjPlayer__sub_8023DEE0(int, int, int, int);
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK TObjFish__sub_803E46BC(void *);
+extern s32 lbl_80500988[];
+extern s32 lbl_80500994[];
+extern s32 lbl_805D53A4;
+extern s32 lbl_805D5660;
+extern s32 lbl_805D5664;
+extern s32 lbl_805D5668;
+extern s32 lbl_805D7780;
+extern s32 lbl_805D7784;
+extern s32 some_id_805c6f74;
+extern const f32 lbl_805D9AA8;
+extern const f32 lbl_805D9AAC;
+extern const f32 lbl_805D9AB0;
+extern const f32 lbl_805D9AB4;
+extern const f32 lbl_805D9AB8;
+extern const f32 lbl_805D9ABC;
+void TObjPlayer__sub_800A7CA4(Player_800A7CA4 *self);
 }
 
 extern "C" {
@@ -257,6 +341,112 @@ void TObjPlayer__sub_800A7BEC(Obj_800A7BEC *arg0) {
         break;
     case 2:
         arg0->f326 = 1;
+        break;
+    }
+}
+void TObjPlayer__sub_800A7CA4(Player_800A7CA4 *self) {
+    s16 saved;
+    s32 vis;
+    s32 fading;
+    s32 mode;
+    s32 d;
+    s32 doDraw;
+    f32 pos[3];
+    if (lbl_805D53A4 != lbl_80500994[self->f368]) {
+        lbl_80500994[self->f368] = lbl_805D53A4;
+        TObjPlayer__sub_8023DEE0(lbl_80500988[self->f368], 0xE, 0, 0);
+    }
+    mode = 0;
+    if (is_split_screen() != 0) {
+        mode = get_camera_mode__11TCameraCtrlFv();
+    }
+    vis = self->visible(lbl_805D9AA8, lbl_805D9AAC, lbl_805D9AB0);
+    if (vis == 0) {
+        return;
+    }
+    fading = 0;
+    if (check_v2_mode__9TObjEneDDFv() != 0) {
+        TObjPlayer__sub_800D7BB0(&self->fades[mode]);
+        fading = updateFromCamera__15RenderFadeStateFPCf(&self->fades[mode], self->cam);
+    }
+    TObjLight__sub_80134194(self);
+    set_global_param__8TObjFishFi(self->f24);
+    TObjPlayer__sub_803D9B2C();
+    TOHangerMachine01__sub_803D9C00(self->pos);
+    TObjPlayer__sub_803D9214(0, self->f60);
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
+        TObjFish__sub_803E46BC(self->f34);
+    } else {
+        switch (self->f326) {
+        case 0:
+        case 1:
+        case 8: {
+            Node_800A7CA4 *n = self->f34->n->n->n->n;
+            saved = n->f6;
+            n->f6 = (u8)n->f6;
+            break;
+        }
+        }
+        toggle_particle_effect__10TObjPlayerFv();
+        if (self->f390 == 1) {
+            if (self->sub.active() != 0) {
+                lbl_805D5660 = some_id_805c6f74;
+                lbl_805D5664 = lbl_805D7784;
+                lbl_805D5668 = lbl_805D7780;
+                self->sub.begin();
+                d = 1;
+                if (toggle_flag_9__10TObjPlayerFPv(self) != 0) {
+                    d = 0;
+                }
+                if (d != 0) {
+                    draw__16TObjEneRe7BeruraFPv(self);
+                }
+                self->sub.end();
+                lbl_805D7784 = lbl_805D5664;
+                lbl_805D7780 = lbl_805D5668;
+                some_id_805c6f74 = lbl_805D5660;
+            }
+        } else {
+            doDraw = 1;
+            if (fading != 0) {
+                self->fades[mode].begin();
+                if (toggle_flag_9__10TObjPlayerFPv(self) != 0) {
+                    doDraw = 0;
+                }
+            }
+            if (doDraw != 0) {
+                if (vis == 1) {
+                    draw__16TObjEneRe7BeruraFPv(self);
+                } else {
+                    render_world_model__10TObjPlayerFPv(self);
+                }
+            }
+            if (fading != 0) {
+                self->fades[mode].end();
+            }
+        }
+        end_effect_render__13TParticleCtrlFv();
+        switch (self->f326) {
+        case 0:
+        case 1:
+        case 8:
+            self->f34->n->n->n->n->f6 = saved;
+            break;
+        }
+    }
+    TObjPlayer__sub_803D9B78();
+    TObjLight__sub_80134098();
+    switch (self->f326) {
+    case 0:
+    case 1:
+    case 8:
+    case 9:
+        break;
+    default:
+        pos[0] = lbl_805D9AB4;
+        pos[1] = lbl_805D9AB8;
+        pos[2] = lbl_805D9ABC;
+        render_with_position_override__10TObjPlayerFPvPvi(self, pos, 0);
         break;
     }
 }

@@ -141,7 +141,7 @@ extern u8 lbl_805CF380[];
 extern s32 lbl_805D7BCC;
 void TLobby__sub_80425D88(u8 v);
 void TLobby__sub_80426190(Obj_80426110 *);
-s32 TLobby__sub_80426110(Obj_80426110 *o, u16 arg1, u16 arg2);
+s16 TLobby__sub_80426110(Obj_80426110 *o, u16 arg1, u16 arg2);
 s32 OSReceiveMessage(void *, void *, int);
 extern u8 lbl_805CF2E0[];
 u16 TLobby__sub_804264F4(s32 *arg0, u16 *arg1);
@@ -245,7 +245,7 @@ void TLobby__sub_80425D88(u8 v) {
     OSSendMessage(lbl_805CF380, (void *)v, 0);
 }
 
-s32 TLobby__sub_80426110(Obj_80426110 *o, u16 arg1, u16 arg2) {
+s16 TLobby__sub_80426110(Obj_80426110 *o, u16 arg1, u16 arg2) {
     s32 i;
     Rec_80426110 *p = o->recs;
     for (i = 5; i != 0; i--, p++) {
@@ -295,6 +295,17 @@ s32 TLobby__sub_80426790(s16 arg0, void *arg1) {
     }
     TLobby__sub_803F9F04(arg1, src, 6);
     return 6;
+}
+
+s32 TLobby__sub_80426A18(s16 arg0, u16 arg1) {
+    if (arg0 != 0) {
+        return -0x113;
+    }
+    Obj_80426110 *g = (Obj_80426110 *)lbl_805CF3C8;
+    if (TLobby__sub_80426110(g, 1, arg1) < 0) {
+        return -0x113;
+    }
+    return 0;
 }
 
 void TLobby__sub_80426A70(void *a, void *b) {

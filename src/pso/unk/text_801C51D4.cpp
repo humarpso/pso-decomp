@@ -13,6 +13,10 @@ struct RecoveredGlobal_801C5320_lbl_804C3F48 {
     u8 remaining[0x14];
 };
 
+struct Ply_801C51D4 { u8 pad[0x30]; u32 flags; u8 pad34[4]; f32 pos[3]; };
+
+struct Self_801C51D4 { u8 pad[0x1C]; s32 life; s32 timer; Ply_801C51D4 *owner; };
+
 extern "C" {
 s32 update_battle_controller__10TObjPlayerFv();
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -23,6 +27,19 @@ void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_801C5380_lbl_804C3F48 lbl_804C3F48;
 extern s32 lbl_805D5DD0;
 u8 *fn_801C5320(u8 *arg0, s16 arg1);
+f32 TObjPlayer__sub_8001978C(f32);
+void queue_destruction__7TObjectFv(void *);
+f32 fn_8013157C(void *, void *);
+Ply_801C51D4 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void update_technique_slot__10TTecRaFoieFi(void *, s32, s32);
+void *TBoss3Volopt__sub_8022675C(s32, s32, s32, s32, f32);
+extern const f32 lbl_805DC308;
+extern const f32 lbl_805DC30C;
+extern const f32 lbl_805DC310;
+extern const f32 lbl_805DC314;
+extern const f32 lbl_805DC318;
+extern const f32 lbl_805DC31C;
+void fn_801C51D4(Self_801C51D4 *self);
 }
 
 extern "C" {
@@ -30,6 +47,39 @@ extern "C" {
 typedef char RecoveredGlobal_801C5380_lbl_804C3F48_size[sizeof(RecoveredGlobal_801C5380_lbl_804C3F48) == 0x18 ? 1 : -1];
 
 typedef char RecoveredGlobal_801C5320_lbl_804C3F48_size[sizeof(RecoveredGlobal_801C5320_lbl_804C3F48) == 0x18 ? 1 : -1];
+
+#pragma push
+#pragma fp_contract on
+void fn_801C51D4(Self_801C51D4 *self) {
+    s32 i;
+    Ply_801C51D4 *p;
+    f32 min;
+    f32 d;
+    f32 f;
+    if (--self->life <= 0) {
+        queue_destruction__7TObjectFv(self);
+        return;
+    }
+    if (self->life > 0x5A) {
+        if (--self->timer <= 0) {
+            min = lbl_805DC308;
+            for (i = 0; i < 4; i++) {
+                p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+                if (p != NULL && p != self->owner && !(p->flags & 0x800)) {
+                    d = fn_8013157C(self->owner->pos, p->pos);
+                    min = min < d ? min : d;
+                }
+            }
+            f = TObjPlayer__sub_8001978C(min) > lbl_805DC30C ? TObjPlayer__sub_8001978C(min) : lbl_805DC30C;
+            f -= lbl_805DC30C;
+            min = lbl_805DC310 - lbl_805DC314 * f;
+            update_technique_slot__10TTecRaFoieFi(TBoss3Volopt__sub_8022675C(0x23230, 0, 0, 0, f), lbl_805DC318 * min, 0);
+            self->timer = (s32)(lbl_805DC31C * min) + 0x3C;
+        }
+    }
+}
+#pragma pop
+
 u8 *fn_801C5320(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801C5320_lbl_804C3F48 *)&lbl_804C3F48).value;

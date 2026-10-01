@@ -634,6 +634,19 @@ extern s32 TObjEneMorfos__data_805D6D1C;
 void TObjEneMorfos__sub_80332B7C(void);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 void TObjEneMorfos__sub_803343E8(void *self, s32 ev);
+void TObjEneMorfos__sub_80332BF8(u8 *, s32);
+void TObjEneMorfos__sub_80332DBC(u8 *arg0, s32 arg1);
+void state_patrol__13TObjEneMorfosFPvi(void *arg0, s32 arg1);
+void TObjEneMorfos__sub_80332FD4(u8 *, s32);
+void TObjEneMorfos__sub_80333290(u8 *, s32);
+void TObjEneMorfos__sub_80333690(u8 *, s32);
+void TObjEneMorfos__sub_80333AD0(u8 *, s32);
+void TObjEneMorfos__sub_80333E48(u8 *, s32);
+void TObjEneMorfos__sub_80334030(u8 *arg0, s32 arg1);
+void state_appear__13TObjEneMorfosFPvi(void *arg0, s32 arg1);
+void TObjEneMorfos__sub_803342B8(u8 *arg0, s32 arg1);
+void TObjEneMorfos__sub_803343E8(void *self, s32 ev);
+void TObjEneMorfos__vt85(u8 *arg0, u32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -938,6 +951,23 @@ void TObjEneMorfos__sub_803343E8(void *self, s32 ev) {
     case 3:
         TObjEneDD__sub_800BBA18((void *)(self), (M2C_UNK)(1));
         break;
+    }
+}
+
+void TObjEneMorfos__vt85(u8 *arg0, u32 arg1, s32 arg2) {
+    switch (arg1) {
+    case 0: TObjEneMorfos__sub_803343E8(arg0, arg2); break;
+    case 1: TObjEneMorfos__sub_803342B8(arg0, arg2); break;
+    case 3: state_appear__13TObjEneMorfosFPvi(arg0, arg2); break;
+    case 2: TObjEneMorfos__sub_80334030(arg0, arg2); break;
+    case 7: TObjEneMorfos__sub_80333E48(arg0, arg2); break;
+    case 4: TObjEneMorfos__sub_80333AD0(arg0, arg2); break;
+    case 5: TObjEneMorfos__sub_80332FD4(arg0, arg2); break;
+    case 6: TObjEneMorfos__sub_80333690(arg0, arg2); break;
+    case 9: TObjEneMorfos__sub_80333290(arg0, arg2); break;
+    case 8: state_patrol__13TObjEneMorfosFPvi(arg0, arg2); break;
+    case 10: TObjEneMorfos__sub_80332DBC(arg0, arg2); break;
+    case 11: TObjEneMorfos__sub_80332BF8(arg0, arg2); break;
     }
 }
 

@@ -2,6 +2,49 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct Npc_801491B4 {
+    s32 f0;
+    u8 pad4[0x14];
+    void *vt;
+    u8 pad1C[0x30 - 0x1C];
+    s32 f30;
+    u8 pad34[0x98 - 0x34];
+    u8 sub98[0x326 - 0x98];
+    s16 f326;
+    u8 pad328[0x358 - 0x328];
+    f32 f358;
+    f32 f35C;
+    f32 f360;
+    f32 f364;
+    u8 pad368[0x388 - 0x368];
+    s32 f388;
+    s32 f38C;
+    s32 f390;
+    s32 f394;
+    f32 f398;
+    f32 f39C;
+    s32 f3A0;
+    s32 f3A4;
+    s32 f3A8;
+    s32 f3AC;
+    s32 f3B0;
+    s32 f3B4;
+};
+
+extern "C" {
+void initialize__9TObjEnemyFPv(void *, void *, void *);
+void TObjNpcBase__sub_80149368(void* p);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+extern M2C_UNK __vt__11TObjNpcBase[];
+extern s32 lbl_805D2D20;
+extern const f32 lbl_805DB1B8;
+extern const f32 lbl_805DB1BC;
+extern const f32 lbl_805DB1E0;
+void *TObjNpcBase__ct(void *arg0, void *arg1, void *arg2);
+}
+
 extern "C" {
 
 void TObjNpcBase__sub_80149358(void* p, s32 v);
@@ -31,6 +74,47 @@ void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+#define self ((Npc_801491B4 *)arg0)
+void *TObjNpcBase__ct(void *arg0, void *arg1, void *arg2) {
+    initialize__9TObjEnemyFPv(arg0, arg1, arg2);
+    self->vt = __vt__11TObjNpcBase;
+    self->f0 = lbl_805D2D20;
+    self->f388 = 0;
+    self->f390 = 1;
+    switch (get_global_state__14TOKeyMachine01Fv()) {
+    case 15:
+        self->f394 = 1;
+        break;
+    default:
+        self->f394 = 0;
+        break;
+    }
+    self->f326 = 0;
+    self->f30 = 0x44000000;
+    self->f38C = 0;
+    if (lbl_805DB1B8 <= self->f358) {
+        self->f38C = 1;
+        self->f3A0 = self->f358 - lbl_805DB1B8;
+    } else {
+        self->f3A0 = self->f358;
+    }
+    if (lbl_805DB1B8 <= self->f35C) {
+        self->f38C = 1;
+        self->f3A4 = self->f35C - lbl_805DB1B8;
+    } else {
+        self->f3A4 = self->f35C;
+    }
+    self->f3A8 = self->f364;
+    self->f3AC = self->f360;
+    self->f398 = lbl_805DB1BC;
+    self->f39C = lbl_805DB1E0;
+    TObjNpcBase__sub_80149368((void*)(self->sub98));
+    self->f3B0 = 0;
+    self->f3B4 = 0;
+    return arg0;
+}
+#undef self
 
 void TObjNpcBase__vt86(void) {  }
 void play_voice__11TObjNpcBaseFi(s32 arg0) {

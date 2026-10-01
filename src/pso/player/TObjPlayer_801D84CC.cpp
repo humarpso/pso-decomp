@@ -141,6 +141,11 @@ s32 TObjPlayer__sub_801D921C(s32 arg0, s32 arg1);
 s16 get_tech_level__10TObjPlayerFPv(void *);
 s32 get_move_mode__10TObjPlayerFPv(void *);
 f32 TObjPlayer__sub_801D90DC(s32, s16, s16, s32);
+extern M2C_UNK lbl_804477F0[];
+extern M2C_UNK lbl_804478D4[];
+extern M2C_UNK lbl_804478F8[];
+extern M2C_UNK lbl_80447928[];
+extern M2C_UNK lbl_8044794C[];
 void TObjPlayer__sub_801D9078(u8 *arg0);
 s32 get_main_phase();
 s32 obj_isState3_324(int);
@@ -443,6 +448,22 @@ void TObjPlayer__sub_801D9078(u8 *arg0) {
 }
 
 #pragma pop
+
+f32 TObjPlayer__sub_801D90DC(s32 arg0, s16 arg1, s16 arg2, s32 arg3) {
+    switch (arg0) {
+    case 3:
+        return M2C_FIELD(((u8 *)(((u8 *)(lbl_804478D4) + (arg2 * 0xC))) + (arg1 * 4)), f32 *, 0);
+    case 14:
+        return M2C_FIELD(((u8 *)(((u8 *)(lbl_804478F8) + (arg2 * 0xC))) + (arg1 * 4)), f32 *, 0);
+    case 15:
+        if (arg3 & 1) {
+            return M2C_FIELD(((u8 *)(((u8 *)(lbl_80447928) + (arg2 * 0xC))) + (arg1 * 4)), f32 *, 0);
+        }
+        return M2C_FIELD(((u8 *)(((u8 *)(lbl_8044794C) + (arg2 * 0xC))) + (arg1 * 4)), f32 *, 0);
+    default:
+        return M2C_FIELD(((u8 *)(((u8 *)(lbl_804477F0) + (arg0 * 0xC))) + (arg1 * 4)), f32 *, 0);
+    }
+}
 
 s32 TObjPlayer__sub_801D91B8(s32 arg0) {
     return get_current_state_field__10TObjPlayerFv(TObjPlayer__sub_801AFDB0(arg0), get_max_level__10TObjPlayerFv(arg0));

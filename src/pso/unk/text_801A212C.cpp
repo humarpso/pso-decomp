@@ -26,6 +26,14 @@ extern RecoveredGlobal_801A2340_lbl_804FF610 lbl_804FF610;
 extern const f32 lbl_805DC098;
 extern const f32 lbl_805DC09C;
 s16 fn_801A2340(u8 *arg0, f32 farg0, f32 farg1);
+s32 get_state_flag__9TMainTaskFv();
+s32 TObjPlayer__sub_80083CEC(f32, void *);
+s32 TParticleCtrl__sub_803D8D1C(int, void *, void *);
+f32 TObjPlayer__sub_803D9884(void *, void *);
+extern RecoveredGlobal_801A2340_lbl_804FF610 lbl_804FF610;
+extern const f32 lbl_805DC098;
+extern const f32 lbl_805DC09C;
+s16 fn_801A212C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 }
 
 extern "C" {
@@ -35,6 +43,63 @@ extern "C" {
 #pragma opt_propagation off
 #pragma fp_contract on
 typedef char RecoveredGlobal_801A2340_lbl_804FF610_size[sizeof(RecoveredGlobal_801A2340_lbl_804FF610) == 0xC ? 1 : -1];
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+#pragma fp_contract on
+s16 fn_801A212C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
+    Stack_801A2340 stack;
+    f32 z;
+    if (M2C_FIELD(arg0, u16 *, 4) & 0x400) {
+        if (TObjPlayer__sub_80083CEC(farg2, (void *) (arg0 + 0x38)) != 0) {
+            M2C_FIELD(arg0, s16 *, 0x1E) = 1;
+            return 1;
+        }
+        M2C_FIELD(arg0, s16 *, 0x1E) = 0;
+        return 0;
+    }
+    if (get_state_flag__9TMainTaskFv() == 1) {
+        return M2C_FIELD(arg0, s16 *, 0x1E);
+    }
+    TObjPlayer__sub_803D9884((void *) (arg0 + 0x38), (void *) (&stack.sp10));
+    z = stack.sp18;
+    if (z > lbl_805DC098) {
+        M2C_FIELD(arg0, s16 *, 0x1E) = 0;
+        return 0;
+    }
+    if (z < -farg1) {
+        M2C_FIELD(arg0, s16 *, 0x1E) = 0;
+        return 0;
+    }
+    if (stack.sp10 < lbl_805DC098) {
+        stack.sp10 = (M2C_FIELD(&lbl_804FF610.value, f32 *, 0) * farg2) + M2C_FIELD(arg0, f32 *, 0x38);
+        stack.sp14 = (M2C_FIELD(&lbl_804FF610.value, f32 *, 4) * farg2) + M2C_FIELD(arg0, f32 *, 0x3C);
+        stack.sp18 = (M2C_FIELD(&lbl_804FF610.value, f32 *, 8) * farg2) + M2C_FIELD(arg0, f32 *, 0x40);
+        TParticleCtrl__sub_803D8D1C(0, (void *) (&stack.sp10), (void *) (&stack.sp8));
+        if (stack.sp8 < lbl_805DC098) {
+            M2C_FIELD(arg0, s16 *, 0x1E) = 0;
+            return 0;
+        }
+    } else {
+        stack.sp10 = -((M2C_FIELD(&lbl_804FF610.value, f32 *, 0) * farg2) - M2C_FIELD(arg0, f32 *, 0x38));
+        stack.sp14 = -((M2C_FIELD(&lbl_804FF610.value, f32 *, 4) * farg2) - M2C_FIELD(arg0, f32 *, 0x3C));
+        stack.sp18 = -((M2C_FIELD(&lbl_804FF610.value, f32 *, 8) * farg2) - M2C_FIELD(arg0, f32 *, 0x40));
+        TParticleCtrl__sub_803D8D1C(0, (void *) (&stack.sp10), (void *) (&stack.sp8));
+        if (stack.sp8 > lbl_805DC09C) {
+            M2C_FIELD(arg0, s16 *, 0x1E) = 0;
+            return 0;
+        }
+    }
+    if (z < -farg0) {
+        M2C_FIELD(arg0, s16 *, 0x1E) = 2;
+        return 2;
+    }
+    M2C_FIELD(arg0, s16 *, 0x1E) = 1;
+    return 1;
+}
+#pragma pop
+
 s16 fn_801A2340(u8 *arg0, f32 farg0, f32 farg1) {
     typedef char sp8_offset[(offsetof(Stack_801A2340, sp8) == 0x0) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_801A2340, sp10) == 0x8) ? 1 : -1];

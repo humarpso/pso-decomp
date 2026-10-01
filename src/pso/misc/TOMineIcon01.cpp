@@ -4,8 +4,66 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+struct Base_801714E8 { char pad[0x18]; };
+
+struct VIcon_801714E8 : Base_801714E8 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4();
+    virtual void m5(void *);
+};
+
+struct Icon_801714E8 {
+    s32 f0;
+    u8 pad4[0x18 - 4];
+    void **vt;
+    u8 pad1C[0x24 - 0x1C];
+    s32 f24;
+    u8 pad28[0x30 - 0x28];
+    u32 f30;
+    s32 f34;
+    u8 pad38[0x68 - 0x38];
+    f32 f68;
+    f32 f6C;
+    u8 pad70[0x84 - 0x70];
+    s32 f84;
+    s32 f88;
+    s32 f8C;
+    u8 pad90[0x326 - 0x90];
+    s16 f326;
+    u8 pad328[0x34C - 0x328];
+    f32 f34C;
+    f32 f350;
+    s32 f354;
+    f32 f358;
+    u16 f35C;
+    u8 pad35E[0x374 - 0x35E];
+    s32 f374;
+    s32 f378;
+};
+
 extern "C" {
 M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+void calc_attach_pos__10TObjPlayerFPv(void *);
+s32 TObjFish__sub_8001EDB0(void *, s32);
+s32 TObjFish__sub_8001EDC4(void *, s32);
+void init_position_vectors__10TObjPlayerFi(void *);
+void reset_photon_effect__10TObjPlayerFPv(void *);
+void TObjPlayer__sub_80154E3C(void *);
+void TObjEneGibbles__sub_80156780(void *, void *, s32);
+void update_state__10TOMineTrapFPv(void *);
+void TOMine__ct(void *, void *, void *);
+extern u8 lbl_804B2F3C[];
+extern M2C_UNK __vt__12TOMineIcon01[];
+extern s32 lbl_805D3090;
+extern s32 lbl_805D5550;
+extern void *lbl_805D5A50;
+extern const f32 lbl_805DB890;
+extern const f32 lbl_805DB894;
+extern const f32 lbl_805DB898;
+extern const f32 lbl_805DB89C;
+extern const f32 lbl_805DB8A0;
+void *TOMineIcon01__ct(void *arg0, void *arg1, void *arg2);
 }
 
 extern "C" {
@@ -13,7 +71,6 @@ extern "C" {
 void TOMineIcon02__vt82(void);
 void *__dt__12TOMineIcon01Fv(void *arg0, s16 arg1);
 void *create__12TOMineIcon01FPv(void *arg0);
-void *TOMineIcon01__ct(void *, void *, void *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -25,7 +82,7 @@ extern void *tl_05;
 void *create__12TOMineIcon01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x37C);
     if (o != NULL) {
-        o = TOMineIcon01__ct(o, tl_05, arg0);
+        o = TOMineIcon01__ct((void *)(o), (void *)(tl_05), (void *)(arg0));
     }
     return o;
 }
@@ -44,6 +101,50 @@ void *__dt__12TOMineIcon01Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+#pragma push
+#pragma fp_contract on
+void *TOMineIcon01__ct(void *arg0, void *arg1, void *arg2) {
+    TOMine__ct(arg0, arg1, arg2);
+#define self ((Icon_801714E8 *)arg0)
+    self->vt = ((void * *)&__vt__12TOMineIcon01);
+    self->f0 = lbl_805D3090;
+    ((VIcon_801714E8 *)self)->m5(arg2);
+    init_position_vectors__10TObjPlayerFi(self);
+    calc_attach_pos__10TObjPlayerFPv(self);
+    self->f34 = TObjFish__sub_8001EDC4(lbl_805D5A50, 4);
+    self->f24 = TObjFish__sub_8001EDB0(lbl_805D5A50, 4);
+    self->f374 = TObjFish__sub_8001EDC4(lbl_805D5A50, 1);
+    self->f378 = TObjFish__sub_8001EDB0(lbl_805D5A50, 1);
+    self->f326 = 0;
+    if (self->f84 < 0) {
+        self->f84 = 0;
+    }
+    if (self->f88 < 0) {
+        self->f88 = 0;
+    } else if (self->f88 > 5) {
+        self->f88 = 5;
+    }
+    if (self->f8C < 0) {
+        self->f8C = 0;
+    }
+    self->f358 = (f32)self->f84 * (lbl_805DB894 * (f32)lbl_805D5550 + lbl_805DB890);
+    if (lbl_805D5550 == 3) {
+        self->f358 *= lbl_805DB894;
+    }
+    self->f354 = self->f88;
+    self->f34C = lbl_805DB89C * self->f68 + lbl_805DB898;
+    self->f350 = lbl_805DB89C * self->f6C + lbl_805DB8A0;
+    update_state__10TOMineTrapFPv(self);
+    self->f35C = 0xFFFF;
+    self->f30 |= 0x60000000;
+    TObjEneGibbles__sub_80156780(self, lbl_804B2F3C, 1);
+    TObjPlayer__sub_80154E3C(self);
+    reset_photon_effect__10TObjPlayerFPv(self);
+    return self;
+#undef self
+}
+#pragma pop
 
 void TOMineIcon02__vt82(void) {  }
 

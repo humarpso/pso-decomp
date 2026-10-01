@@ -1046,7 +1046,7 @@ s32 update_max_hp_phase__12TBoss1DragonFPv(void *arg0);
 void handle_6x12_dragon_boss_actions(void *arg0);
 void set_params__12TBoss1DragonFPvPv(void *arg0, void *arg1);
 M2C_UNK TBoss1Dragon__sub_80027B78(f32, f32, f32);
-int TBoss1Dragon__sub_80027F54(void*, int);
+int TBoss1Dragon__sub_80027F54(u8*, int);
 M2C_UNK TBoss1Dragon__sub_800284B4(void *, s16);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
@@ -1868,14 +1868,45 @@ void update_from_data__12TBoss1DragonFv(void) {
 }
 
 int TBoss1Dragon::setState1() {
-    return TBoss1Dragon__sub_80027F54(this, 1);
+    return TBoss1Dragon__sub_80027F54((u8 *)this, 1);
 }
 
 int TBoss1Dragon::initDefault() {
-    return TBoss1Dragon__sub_80027F54(this, 0);
+    return TBoss1Dragon__sub_80027F54((u8 *)this, 0);
 }
 
 extern "C" {
+
+M2C_UNK fn_8002B094(s32);
+M2C_UNK emit_enemy_effect__9TObjEneDDFiiPvi(void *, void *, void *, s32);
+extern M2CCopy_14 lbl_804352FC;
+int TBoss1Dragon__sub_80027F54(u8 *arg0, int arg1) {
+    M2CCopy_14 params = lbl_804352FC;
+    u8 *a;
+    u8 *b;
+
+    fn_8002B094(M2C_FIELD(arg0, s32 *, 0x688));
+    if (arg1 == 0) {
+        a = arg0 + 0x46C;
+        b = arg0 + 0x478;
+    } else {
+        a = arg0 + 0x454;
+        b = arg0 + 0x460;
+    }
+    reset_hp__9TObjEneDDFPv(arg0, 0, TBoss1Dragon__data_804FE168.value, 0);
+    switch (isV2Mode__12TBoss1DragonFv()) {
+    case 0:
+        emit_enemy_effect__9TObjEneDDFiiPvi(arg0, a, params.bytes, M2C_FIELD(arg0, s32 *, 0x688));
+        emit_enemy_effect__9TObjEneDDFiiPvi(arg0, b, params.bytes, M2C_FIELD(arg0, s32 *, 0x688));
+        break;
+    case 1:
+        TBoss1Dragon__sub_800275BC(arg0, (M2C_UNK) a, params.bytes, M2C_FIELD(arg0, s32 *, 0x688));
+        TBoss1Dragon__sub_800275BC(arg0, (M2C_UNK) b, params.bytes, M2C_FIELD(arg0, s32 *, 0x688));
+        break;
+    }
+    reset_hp__9TObjEneDDFPv(arg0, 0, TBoss1Dragon__data_804FE168.value, 0);
+    TOSwitchAttack__sub_80087278(b, M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x778), s32 *, 0xC), 0x40);
+}
 
 void TBoss1Dragon__sub_80027DDC(void *self) {
     reset_hp__9TObjEneDDFPv(self, 0, M2C_FIELD(&TBoss1Dragon__data_804FE168, s32 *, 0x10), 0);

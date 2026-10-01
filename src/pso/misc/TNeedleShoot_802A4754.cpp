@@ -4,6 +4,65 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Vec_802A47C8 {
+    f32 x, y, z;
+};
+
+struct TNeedleShoot_802A47C8 {
+    u32 f0;
+    u8 pad04[0x18 - 0x04];
+    void *vt;
+    s32 f1c;
+    f32 f20;
+    f32 f24;
+    u8 pad28[0x34 - 0x28];
+    u16 f34;
+    u8 pad36[0x3c - 0x36];
+    f32 f3c;
+    f32 f40;
+    f32 f44;
+    f32 f48;
+    f32 f4c;
+    s32 f50;
+    s32 f54;
+    u8 pad58[0x68 - 0x58];
+    void *f68;
+    Vec_802A47C8 pos;
+    u8 pad78[0x88 - 0x78];
+    f32 f88;
+    f32 f8c;
+    f32 f90;
+    Vec_802A47C8 dir;
+    s32 fa0;
+    s32 fa4;
+    s32 fa8;
+    f32 fac;
+    s32 fb0;
+    f32 fb4;
+    s32 fb8;
+};
+
+extern "C" {
+f32 get_random_float__8TObjFishFv(f32);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+void TObjEneGibbles__sub_80156780(void *, void *, int);
+void *TObjPlayer__sub_801569F4(void *, void *);
+void *__nw__7TObjectFUl(u32);
+void __ct__7TObjectFP7TObject(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(Vec_802A47C8 *);
+void TNpcPlayer__sub_803D97B4(Vec_802A47C8 *);
+extern const f64 lbl_80466688[];
+extern M2C_UNK __vt__12TNeedleShoot[];
+extern u32 lbl_805D3DD8;
+extern void *tl_06;
+extern const f32 lbl_805DDF6C;
+extern const f32 lbl_805DDF70;
+extern const f32 lbl_805DDF74;
+extern const f32 lbl_805DDF78;
+extern const f32 lbl_805DDF7C;
+TNeedleShoot_802A47C8 *TNeedleShoot__ct(TNeedleShoot_802A47C8 *self, s32 arg1, Vec_802A47C8 *from, Vec_802A47C8 *to);
+}
+
 extern "C" {
 
 int TNeedleShoot__vt4(void* p);
@@ -27,6 +86,58 @@ void *__dt__12TNeedleShootFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+TNeedleShoot_802A47C8 *TNeedleShoot__ct(TNeedleShoot_802A47C8 *self, s32 arg1, Vec_802A47C8 *from, Vec_802A47C8 *to) {
+    f32 dx;
+    f32 dz;
+    f32 dy;
+    void *p;
+    __ct__7TObjectFP7TObject(self, tl_06);
+    self->vt = ((s32 *)&__vt__12TNeedleShoot);
+    self->f0 = lbl_805D3DD8;
+    self->f34 = 0xFFFF;
+    dx = to->x - from->x;
+    dz = to->z - from->z;
+    dy = to->y - from->y;
+    self->pos.x = from->x;
+    self->pos.y = from->y;
+    self->pos.z = from->z;
+    self->fa0 = lbl_80466688[0] * get_ad_end_text_start__10TObjPlayerFv(get_random_float__8TObjFishFv(dy), get_random_float__8TObjFishFv(dz));
+    self->fa4 = lbl_80466688[0] * get_ad_end_text_start__10TObjPlayerFv(dx, dz);
+    self->fa8 = lbl_80466688[0] * get_ad_end_text_start__10TObjPlayerFv(dx, dy);
+    self->fb4 = lbl_805DDF6C;
+    self->f88 = lbl_805DDF70;
+    self->f8c = lbl_805DDF70;
+    self->f90 = lbl_805DDF70;
+    self->f24 = lbl_805DDF74;
+    self->f1c = arg1;
+    self->fac = lbl_805DDF78;
+    self->f20 = lbl_805DDF7C;
+    self->fb0 = 0;
+    self->fb8 = 1;
+    self->dir.x = dx;
+    self->dir.y = dy;
+    self->dir.z = dz;
+    if (lbl_805DDF74 != TBoss6Kakusan__sub_803D8BD8(&self->dir)) {
+        TNpcPlayer__sub_803D97B4(&self->dir);
+    }
+    self->f3c = lbl_805DDF74;
+    self->f40 = lbl_805DDF74;
+    self->f44 = lbl_805DDF74;
+    self->f48 = lbl_805DDF78;
+    self->f4c = lbl_805DDF70;
+    self->f50 = 1;
+    self->f54 = 0x40007;
+    p = __nw__7TObjectFUl(0xAC);
+    if (p != NULL) {
+        p = TObjPlayer__sub_801569F4(p, self);
+    }
+    self->f68 = p;
+    if (self->f68 != NULL) {
+        TObjEneGibbles__sub_80156780(self->f68, &self->f3c, 1);
+    }
+    return self;
 }
 
 int TNeedleShoot__vt4(void* p) { return queue_destruction__7TObjectFv(p); }

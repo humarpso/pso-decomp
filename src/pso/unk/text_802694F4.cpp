@@ -22,6 +22,22 @@ struct Msg_802695A8 {
     s32 cnt;
 };
 
+struct Meta_802697B4 {
+    u32 flags;
+    s32 timer;
+};
+
+struct Q_802697B4 {
+    u8 pad0[0x6C];
+    f32 scroll;
+    s32 oldest;
+    s32 reveal;
+    s32 duration;
+    Meta_802697B4 *meta;
+    u8 pad80[0xC];
+    s32 capacity;
+};
+
 extern "C" {
 extern const f32 lbl_805DD224;
 extern const f32 lbl_805DD228;
@@ -34,6 +50,10 @@ void fn_802694F4(u8 *arg0, u8 *arg1);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 u32 get_field_20__17TWindowSubComCardFPv(void *);
 void fn_802695A8(Msg_802695A8 *arg0);
+u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+u32 get_field_20__17TWindowSubComCardFPv(void *);
+void fn_802694F4(u8 *arg0, u8 *arg1);
+void fn_802697B4(Q_802697B4 *w);
 }
 
 extern "C" {
@@ -73,6 +93,32 @@ void fn_802695A8(Msg_802695A8 *arg0) {
         if (arg0->ents[arg0->cur].flags & 8) {
             arg0->ents[arg0->cur].flags &= ~8;
             *e &= ~8;
+        }
+    }
+}
+
+void fn_802697B4(Q_802697B4 *w) {
+    u8 *e;
+    Meta_802697B4 *m;
+    e = get_array_entry__20TWindowSubStatusDispFPvi(w, w->oldest);
+    m = &w->meta[w->oldest];
+    while (get_field_20__17TWindowSubComCardFPv(e) != 0 && *(f32 *)(e + 0xC) + *(f32 *)(e + 0x14) < w->scroll) {
+        fn_802694F4((u8 *)w, e);
+        m->flags = 0;
+        m->timer = 0;
+        if (w->reveal == w->oldest) {
+            if (++w->reveal >= w->capacity) {
+                w->reveal = 0;
+            }
+        }
+        if (++w->oldest >= w->capacity) {
+            w->oldest = 0;
+        }
+        e = get_array_entry__20TWindowSubStatusDispFPvi(w, w->oldest);
+        m = &w->meta[w->oldest];
+        if (m->flags & 8) {
+            m->flags &= ~8;
+            *(u16 *)e &= ~8;
         }
     }
 }

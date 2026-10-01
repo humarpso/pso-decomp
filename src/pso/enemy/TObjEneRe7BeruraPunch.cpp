@@ -20,6 +20,10 @@ struct RecoveredGlobal_80096750___vt__21TObjEneRe7BeruraPunch {
     u8 remaining[0x5C];
 };
 
+struct Vec_8009640C { f32 x, y, z; };
+
+struct Ang_8009640C { s32 x, y, z; };
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *TBoss8Dragon__sub_8007A544(M2C_UNK *, M2C_UNK);
@@ -34,6 +38,24 @@ extern RecoveredGlobal_80096750_lbl_8048F930 lbl_8048F930;
 extern M2C_UNK __vt__21TObjEneRe7BeruraPunch[];
 extern s32 lbl_805D2990;
 u8 *TObjEneRe7BeruraPunch__ct(u8 *arg0, s32 arg1, s32 arg2);
+void queue_destruction__7TObjectFv(void *);
+void *TBoss4Type2__sub_800874F4(void *, int);
+void copy_vec3__11TBoss4Type2FPvPv(void *, void *);
+void set_flags__11TBoss4Type2FPvUi(void *, u32);
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+void enable__13TParticleCtrlFPv(void *);
+void TObjEneRe7BeruraPunch__sub_80095FAC(void *);
+void TObjEneRe7BeruraPunch__sub_80096030(void *);
+u32 TPhotonMylla__sub_80154CB4(u16);
+s32 all_parents_unqueued_for_destruction__7TObjectFv();
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+void TBoss4Zako__sub_803D8910(void *, void *);
+extern const f32 lbl_805D97B0;
+extern const f32 lbl_805D97BC;
+extern const f32 lbl_805D97C0;
+extern const f32 lbl_805D97C4;
+void run_task__21TObjEneRe7BeruraPunchFv(u8 *arg0);
 }
 
 extern "C" {
@@ -107,6 +129,69 @@ void reset__21TObjEneRe7BeruraPunchFPv(u8 *arg0) {
 }
 
 extern M2C_UNK __vt__21TObjEneRe7BeruraPunch[];
+
+void run_task__21TObjEneRe7BeruraPunchFv(u8 *arg0) {
+    Ang_8009640C ang;
+    Vec_8009640C v;
+    f32 s;
+    f32 c;
+    if (TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0xB0)) == 0U || all_parents_unqueued_for_destruction__7TObjectFv() == 0) {
+        queue_destruction__7TObjectFv(arg0);
+        return;
+    }
+    switch (M2C_FIELD(arg0, s32 *, 0xB4)) {
+    case 0:
+        break;
+    case 1:
+        TObjEneRe7BeruraPunch__sub_80096030(arg0);
+        break;
+    case 2:
+        TObjEneRe7BeruraPunch__sub_80095FAC(arg0);
+        break;
+    }
+    if (M2C_FIELD(arg0, s32 *, 0xB4) == 1) {
+        ang.x = 0;
+        ang.y = M2C_FIELD(arg0, s32 *, 0x60) + 0x4000;
+        ang.z = -0x4000;
+        s = -TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
+        c = -TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
+        if (M2C_FIELD(arg0, void **, 0xD0) == NULL) {
+            M2C_FIELD(arg0, void **, 0xD0) = TBoss4Type2__sub_800874F4(arg0 + 0x38, 0xDD);
+            if (M2C_FIELD(arg0, void **, 0xD0) != NULL) {
+                set_flags__11TBoss4Type2FPvUi(M2C_FIELD(arg0, void **, 0xD0), 2);
+                enable__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0xD0));
+            }
+        } else {
+            v.x = lbl_805D97BC * s;
+            v.y = lbl_805D97B0;
+            v.z = lbl_805D97BC * c;
+            TBoss4Zako__sub_803D8910(&v, arg0 + 0xDC);
+            copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0xD0), &v);
+            copy_vec3__11TBoss4Type2FPvPv(M2C_FIELD(arg0, void **, 0xD0), &ang);
+        }
+        if (M2C_FIELD(arg0, void **, 0xD4) == NULL) {
+            M2C_FIELD(arg0, void **, 0xD4) = TBoss4Type2__sub_800874F4(arg0 + 0x38, 0x150);
+            if (M2C_FIELD(arg0, void **, 0xD4) != NULL) {
+                set_flags__11TBoss4Type2FPvUi(M2C_FIELD(arg0, void **, 0xD4), 2);
+                enable__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0xD4));
+            }
+        } else {
+            v.x = lbl_805D97C0 * s;
+            v.y = lbl_805D97C4;
+            v.z = lbl_805D97C0 * c;
+            TBoss4Zako__sub_803D8910(&v, arg0 + 0xDC);
+            copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0xD4), &v);
+            copy_vec3__11TBoss4Type2FPvPv(M2C_FIELD(arg0, void **, 0xD4), &ang);
+        }
+    } else {
+        if (M2C_FIELD(arg0, void **, 0xD0) != NULL) {
+            enable__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0xD0));
+        }
+        if (M2C_FIELD(arg0, void **, 0xD4) != NULL) {
+            enable__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0xD4));
+        }
+    }
+}
 
 void *__dt__21TObjEneRe7BeruraPunchFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

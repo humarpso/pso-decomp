@@ -12,11 +12,26 @@ struct Stack_80290E28 {
     f32 sp14;
 };
 
+typedef s32 M2C_UNK;
+struct Quad_80290F10 { f32 x; f32 y; f32 z; f32 w; f32 h; f32 d; void *tbl; };
+
+struct Stack_80290F10 { Quad_80290F10 q; u8 *table; };
+
 extern "C" {
 s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 s32 draw_ui_sprite_scaled(f32, f32, void *, void *, void *);
 s32 TCharaMaking__resolve_creation_sprite_table(void *, void *);
 void fn_80290E28(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
+M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+M2C_UNK draw_with_camera__6TLobbyFiiif(void *, int, int, f32);
+s32 TCharaMaking__resolve_creation_sprite_table(void *, void *);
+M2C_UNK set_chunk_material_color(void *);
+extern M2C_UNK lbl_804D9668[];
+extern M2C_UNK lbl_8050BEC0[];
+extern M2C_UNK lbl_8058D4C0[];
+extern const f32 lbl_805D3C98;
+extern const f32 lbl_805DD960;
+void draw_ui_sprite_tinted(s32 arg0, f32 *arg1, f32 *arg2, f32 *arg3, f32 farg0);
 }
 
 extern "C" {
@@ -39,5 +54,21 @@ void fn_80290E28(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
     draw_ui_sprite_scaled((f32) (farg0), (f32) (farg1), (void *) (arg0), (void *) (&stack.sp10), (void *) (arg2));
 }
 #pragma pop
+
+void draw_ui_sprite_tinted(s32 arg0, f32 *arg1, f32 *arg2, f32 *arg3, f32 farg0) {
+    Stack_80290F10 st;
+    if (!(arg3[0] <= lbl_805DD960)) {
+        st.q.x = arg1[0];
+        st.q.y = lbl_805D3C98 * arg1[1];
+        st.q.w = arg2[0];
+        st.q.h = lbl_805D3C98 * arg2[1];
+        st.q.tbl = lbl_804D9668;
+        TCharaMaking__resolve_creation_sprite_table(&st.table, &arg0);
+        copy_vec4__13TRaderMapCoreFPvPv(lbl_8050BEC0, lbl_8058D4C0);
+        set_chunk_material_color(arg3);
+        draw_with_camera__6TLobbyFiiif(&st.q, arg0, 0x22, farg0);
+        copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);
+    }
+}
 
 }

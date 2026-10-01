@@ -4,15 +4,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef struct Anim_80242B30 {
+    s16 state;
+    f32 a;
+    f32 b;
+} Anim_80242B30;
+
 extern "C" {
-extern f32 lbl_805DCA04;
-extern f32 lbl_805DCA08;
+extern const f32 lbl_805DCA04;
+extern const f32 lbl_805DCA08;
 extern f32 lbl_805DCA0C;
 f32 TAdSinglePlyChrSelectGC__sub_80242AC0(s16 *arg0);
-extern f32 lbl_805DCA04;
-extern f32 lbl_805DCA08;
+extern const f32 lbl_805DCA04;
+extern const f32 lbl_805DCA08;
 extern f32 lbl_805DCA0C;
 f32 TAdSinglePlyChrSelectGC__sub_80242A60(s16 *arg0);
+f32 TAdSinglePlyChrSelectGC__sub_80242A60(s16 *arg0);
+f32 TAdSinglePlyChrSelectGC__sub_80242AC0(s16 *arg0);
+extern const f32 lbl_805DCA04;
+extern const f32 lbl_805DCA08;
+s32 TAdSinglePlyChrSelectGC__sub_80242B30(Anim_80242B30 *o, s16 *arg1);
 }
 
 extern "C" {
@@ -70,5 +81,34 @@ f32 TAdSinglePlyChrSelectGC__sub_80242AC0(s16 *arg0) {
 }
 
 void TAdSinglePlyChrSelectGC__sub_80242B24(void* p) { *(s16*)((char*)p + 0x0) = 0; }
+s32 TAdSinglePlyChrSelectGC__sub_80242B30(Anim_80242B30 *o, s16 *arg1) {
+    if (*arg1 <= 0) {
+        o->a = lbl_805DCA04;
+        o->b = lbl_805DCA08;
+        o->state = 2;
+        return 0;
+    }
+    switch (o->state) {
+    case 1:
+        o->a += TAdSinglePlyChrSelectGC__sub_80242AC0(arg1);
+        if (o->a >= lbl_805DCA08) {
+            o->state = 2;
+            o->a -= lbl_805DCA08;
+            return 0;
+        }
+        return 1;
+    case 0:
+    case 2:
+    case 3:
+        o->b += TAdSinglePlyChrSelectGC__sub_80242A60(arg1);
+        if (o->b >= lbl_805DCA08) {
+            o->state = 1;
+            o->b -= lbl_805DCA08;
+            return 1;
+        }
+        return 0;
+    }
+    return 0;
+}
 
 }

@@ -7,6 +7,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct O_8032DFF8 { u8 pad[0x1C]; void *o[3]; };
 
+struct VBase_18_95e344 { char pad[0x18]; };
+
+struct VObj_18_95e344 : VBase_18_95e344 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual M2C_UNK m4();
+    virtual M2C_UNK m5();
+    virtual M2C_UNK m6();
+};
+
+struct VBase_8032E11C { u8 pad[0x18]; };
+
+struct VObj_8032E11C : VBase_8032E11C {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6();
+};
+
 extern "C" {
 u32 TBoss4Type2__sub_800874F4(void *, int);
 M2C_UNK TTecLuker__sub_8008764C(u32, int);
@@ -21,6 +40,13 @@ u8 *TPhotonMylla__sub_80154CB4(u16);
 void TObjPlayer__sub_8032DF74(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 void TObjPlayer__sub_8032DFF8(O_8032DFF8 *arg0);
+void queue_destruction__7TObjectFv(void *);
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+u32 TLobby__sub_80101AB0(s32);
+s8 TObjPlayer__sub_80102C30();
+void TObjPlayer__sub_8032DF74(u8 *arg0);
+void TObjPlayer__sub_8032DFF8(O_8032DFF8 *arg0);
+void TObjPlayer__sub_8032E11C(u8 *arg0);
 }
 
 extern "C" {
@@ -81,5 +107,34 @@ void TObjPlayer__sub_8032E0A4(u8 *arg0) {
     TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x64), (int) (0x30));
 }
 #pragma pop
+
+void TObjPlayer__sub_8032E11C(u8 *arg0) {
+    s32 i;
+    if (TLobby__sub_80101AB0(M2C_FIELD(arg0, s32 *, 0x60)) == 0U) {
+        queue_destruction__7TObjectFv(arg0);
+        return;
+    }
+    if (TObjPlayer__sub_80102C30() != 2) {
+        queue_destruction__7TObjectFv(arg0);
+        return;
+    }
+    TObjPlayer__sub_8032DF74(arg0);
+    for (i = 0; i != 3; i++) {
+        if (((O_8032DFF8 *)arg0)->o[i] != NULL) {
+            copy_pos__11TNowLoadingFPvPv(((O_8032DFF8 *)arg0)->o[i], arg0 + 0x64);
+        }
+    }
+    if (M2C_FIELD(arg0, s32 *, 0x30) == 0) {
+        ((VObj_8032E11C *)arg0)->m4();
+    } else if (M2C_FIELD(arg0, s32 *, 0x30) == 6) {
+        TObjPlayer__sub_8032DFF8((O_8032DFF8 *)arg0);
+        ((VObj_8032E11C *)arg0)->m5();
+    } else if (M2C_FIELD(arg0, s32 *, 0x30) == 12) {
+        queue_destruction__7TObjectFv(arg0);
+        return;
+    }
+    ((VObj_8032E11C *)arg0)->m6();
+    M2C_FIELD(arg0, s32 *, 0x30)++;
+}
 
 }

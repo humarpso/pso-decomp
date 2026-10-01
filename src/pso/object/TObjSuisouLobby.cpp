@@ -7,6 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_80369DF0_lbl_804F33E0 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80369DF0_lbl_804F33E0_size[sizeof(RecoveredGlobal_80369DF0_lbl_804F33E0) == 0x10 ? 1 : -1];
 
+struct Suisou_80369BF4 {
+    u8 pad[0xC8];
+    s32 state;
+    f32 cc;
+};
+
 extern "C" {
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -15,6 +21,12 @@ extern RecoveredGlobal_80369DF0_lbl_804F33E0 lbl_804F33E0;
 extern u32 TObjSuisouLobby__data_805D6FF0;
 extern s32 lbl_805D6FF4;
 void TObjSuisouLobby__sub_80369DF0(void);
+s32 check_demo_mode__10TObjPlayerFv();
+s32 is_connected__6TLobbyFv();
+s32 is_lobby_obj_active__6TLobbyFv();
+void TObjSuisouLobby__sub_80369B5C(void);
+void update_particle__15TObjSuisouLobbyFPv(void *arg0);
+void run_task__15TObjSuisouLobbyFv(Suisou_80369BF4 *self);
 }
 
 extern "C" {
@@ -65,6 +77,40 @@ void render__15TObjSuisouLobbyFv(u8 *arg0) {
         TObjPlayer__sub_803D9B78();
         end_effect_render__13TParticleCtrlFv();
     }
+}
+
+void run_task__15TObjSuisouLobbyFv(Suisou_80369BF4 *self) {
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
+        ((void (*)(void *))TObjSuisouLobby__sub_80369B5C)(self);
+    }
+    switch (self->state) {
+    case 0:
+        if (is_connected__6TLobbyFv() != 0) {
+            self->state = 2;
+        }
+        break;
+    case 2:
+        self->cc += 0.1f;
+        if (self->cc >= 1.0f) {
+            self->cc = 1.0f;
+            self->state = 3;
+        }
+        break;
+    case 1:
+        self->cc -= 0.1f;
+        if (self->cc <= 0.0f) {
+            self->cc = 0.0f;
+            self->state = 0;
+        }
+        break;
+    case 3:
+    default:
+        if (is_lobby_obj_active__6TLobbyFv() != 0) {
+            self->state = 1;
+        }
+        break;
+    }
+    update_particle__15TObjSuisouLobbyFPv(self);
 }
 
 void update_particle__15TObjSuisouLobbyFPv(void *arg0) {

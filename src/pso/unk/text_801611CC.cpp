@@ -45,6 +45,17 @@ struct Obj_80161320 { u8 pad[4]; s16 kind; };
 
 struct Self_80161320 { u8 pad[0x1C]; u16 id; u8 pad1e[0x80 - 0x1E]; Obj_80161320 *obj; };
 
+struct Door_801615C4 {
+    u8 pad0[0x80];
+    void *obj;
+    u8 pad84[0xC8 - 0x84];
+    s32 base;
+    s32 state;
+    u32 flags;
+    s32 count;
+    s32 num;
+};
+
 extern "C" {
 void TODoorCave01__vt4(u8 *arg0, s16 *arg1);
 M2C_UNK set_indexed_flags(void *, int, int);
@@ -72,6 +83,8 @@ s32 TLobby__sub_80156A80(u8 *arg0, s32 arg1, s16 arg2);
 void init__17TOBarrierEnergy01FPv(void *);
 void update_and_send_60__6TLobbyFPv(void *);
 void TODoorCave01__sub_80161320(Self_80161320 *self, State_80161320 *src);
+void fn_8015D5D4(u8 *arg0);
+u8 TODoorAncient08__sub_80229220(u16);
 }
 
 extern "C" {
@@ -189,6 +202,66 @@ void TODoorCave01__vt13(u8 *arg0) {
         if (M2C_FIELD(arg0, f32 *, 0xE0) <= lbl_805DB4A0) {
             M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 0x100000);
         }
+    }
+}
+
+void TODoorCave01__vt12(u8 *arg0) {
+    Door_801615C4 *d = (Door_801615C4 *)arg0;
+    State_80161320 st;
+    s32 i;
+
+    switch (d->state) {
+    case 1:
+        fn_8015D5D4(arg0);
+        d->flags |= 0xF0001;
+        d->count = 4;
+        break;
+    case 2:
+        d->flags &= 0xFFF0FFFF;
+        d->count = 4 - d->num;
+        for (i = 0; i < d->num; i++) {
+            if (TODoorAncient08__sub_80229220(d->base + i) == 1) {
+                d->count++;
+            }
+        }
+        for (i = 0; i < d->count; i++) {
+            d->flags |= 1 << (i + 0x10);
+        }
+        if (d->count == 4) {
+            fn_8015D5D4(arg0);
+            d->flags |= 1;
+        } else {
+            d->flags &= ~1;
+        }
+        break;
+    case 3:
+        if (d->flags & 1) {
+            d->flags |= 0xF0000;
+            break;
+        }
+        d->flags &= 0xFFF0FFFF;
+        d->count = 4 - d->num;
+        for (i = 0; i < d->num; i++) {
+            if (TODoorAncient08__sub_80229220(d->base + i) == 1) {
+                d->count++;
+            }
+        }
+        for (i = 0; i < d->count; i++) {
+            d->flags |= 1 << (i + 0x10);
+        }
+        if (d->count == 4) {
+            fn_8015D5D4(arg0);
+            d->flags |= 1;
+            if (d->obj != NULL && ((s32 (*)(u8 *, void *, s16))TLobby__sub_80156A80)(arg0, &st, 1) != 0) {
+                st.a = 1;
+                TODoorCave01__sub_80161320((Self_80161320 *)arg0, &st);
+                ((s32 (*)(u8 *, void *, s16))TLobby__sub_80156A80)(arg0, &st, 0);
+            }
+        }
+        break;
+    default:
+        d->flags &= 0xFFF0FFFE;
+        break;
     }
 }
 

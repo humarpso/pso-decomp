@@ -8,6 +8,13 @@ struct Load_8010F838 { u8 pad[0x14]; void *vtbl; u8 pad18[0xC]; s32 id; s32 f28;
 
 struct Load_8010F61C { u8 pad[0x24]; s32 id; s32 f28; s32 f2c[4]; s32 f3c; };
 
+typedef s32 M2C_UNK;
+struct Ent_8010F68C { void *vt; u8 pad[8]; };
+
+struct List_8010F68C { Ent_8010F68C *ents; u32 count; };
+
+struct Load_8010F68C { u8 pad[0x24]; s32 id; List_8010F68C *list; void *f2c[4]; void *f3c; };
+
 extern "C" {
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 void * construct__9TItemLoadFPv(void *, void *, int, int);
@@ -23,6 +30,15 @@ extern M2C_UNK lbl_8049F40C[];
 s32 TItemLoad__sub_8010F838(int arg0, void *a1, int a2, int a3);
 s32 begin_load__9TItemLoadFPvi(void *, s32);
 void TItemLoad__sub_8010F61C(Load_8010F61C *self, s32 id, s32 arg2);
+M2C_UNK TItemLoad__sub_8010FD80();
+M2C_UNK TLobby__sub_8001EE48(s32);
+s32 TLobby__sub_8001EEF4();
+s32 TLobby__sub_8001EEFC(s32);
+M2C_UNK reset_state__9TItemLoadFPv(void *);
+void *TLobby__sub_801E38A0(s32, u32 *, s32 *, s32, s32 *);
+extern u8 lbl_80506208[];
+extern s32 lbl_805D2BF0;
+void TItemLoad__sub_8010F68C(Load_8010F68C *self);
 }
 
 extern "C" {
@@ -97,6 +113,51 @@ void TItemLoad__sub_8010F61C(Load_8010F61C *self, s32 id, s32 arg2) {
             self->f2c[i] = 0;
         }
         self->f3c = 0;
+    }
+}
+
+void TItemLoad__sub_8010F68C(Load_8010F68C *self) {
+    u32 pos;
+    s32 tag;
+    s32 size;
+    s32 h;
+    s32 off;
+    u32 total;
+    s32 n;
+    void *p;
+    u32 i;
+    if (TLobby__sub_8001EEF4() == 1) {
+        h = TLobby__sub_8001EEFC(lbl_805D2BF0);
+        off = self->id;
+        total = TItemLoad__sub_8010FD80();
+        pos = 0;
+        n = 0;
+        while (pos < total) {
+            p = TLobby__sub_801E38A0(h, &pos, &tag, off, &size);
+            off += (size + 0x20) & ~0x1F;
+            switch (tag) {
+            case 0x4E4A434D:
+                if (n < 4) {
+                    self->f2c[n] = p;
+                    n++;
+                }
+                break;
+            case 0x4E4A544C:
+                if (self->list == NULL) {
+                    self->list = (List_8010F68C *)p;
+                    for (i = 0; i != self->list->count; i++) {
+                        self->list->ents[i].vt = lbl_80506208;
+                    }
+                }
+                break;
+            case 0x4E4D444D:
+                self->f3c = p;
+                break;
+            }
+        }
+        TLobby__sub_8001EE48(lbl_805D2BF0);
+        self->id = 0;
+        reset_state__9TItemLoadFPv(self);
     }
 }
 

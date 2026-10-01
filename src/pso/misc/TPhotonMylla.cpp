@@ -57,6 +57,44 @@ struct Self_801AD4C0 {
     s32 started;
 };
 
+typedef s32 M2C_UNK;
+#define NEW_801AD970(n) (((u8 *(*)(int))__nw__7TObjectFUl)(n))
+#define F_801AD970(o, t, off) (*(t *)((u8 *)(o) + (off)))
+struct Vec_801AD970 { f32 x, y, z; };
+
+struct Pkt_801AD970 {
+    Vec_801AD970 pos;
+    u16 owner;
+    s32 first;
+    s32 more;
+    u8 pad18[0x1C - 0x18];
+    u8 count;
+    f32 f20;
+};
+
+struct YPkt_801AD970 {
+    Vec_801AD970 pos;
+    u16 owner;
+    s32 first;
+    s32 more;
+    u8 pad18[0x24 - 0x18];
+};
+
+struct VBase_801AD970 { u8 pad[0x18]; };
+
+struct Mylla_801AD970 : VBase_801AD970 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12();
+    u8 pad1C[0x38 - 0x1C];
+    Vec_801AD970 pos;
+};
+
+struct Res_801AD970 { u8 pad[0xA8]; s32 fA8; s32 fAC; };
+
+struct Game_801AD970 { u8 pad[0x42C]; Res_801AD970 *res; s32 f430; };
+
 extern "C" {
 u16 obj_getField1c(void *);
 s32 TObjEneDellBiter__sub_80087350(s32, s32);
@@ -108,6 +146,32 @@ extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 void render__12TPhotonMyllaFv(Self_801AD4C0 *self);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+void set_field_dc__10TObjPlayerFPvi(void *, s32);
+void set_field_d8__10TObjPlayerFPvi(void *, void *);
+void set_animation__10TObjPlayerFPvs(void *, s16);
+u8 * TPhotonMylla__sub_80154CB4(u16);
+M2C_UNK TCameraCtrl__sub_801A7310(void *, int);
+void fn_801A7428(s32, u16);
+M2C_UNK TObjPlayer__sub_801A7748(void *, int);
+void photon_base_ct(void *);
+u8 * TPhotonMagicSquare__ct(void *, M2C_UNK, s32, s32, s32, f32);
+void TPhotonMylla__sub_801AD4A8(void* a0);
+void TPhotonRainbow__ct(void *, void *, void *, s32);
+void TPhotonYoulla__ct(void *, void *);
+s32 get_global_state__14TOKeyMachine01Fv();
+void TLobby__sub_8022727C(void *);
+extern YPkt_801AD970 lbl_80446E50;
+extern u8 lbl_80446E80[];
+extern u8 lbl_80446E8C[];
+extern u8 lbl_804C39D8[];
+extern M2C_UNK __vt__12TPhotonMylla[];
+extern s32 lbl_805D3510;
+extern Game_801AD970 *lbl_805D5D28;
+extern const f32 lbl_805DC1FC;
+extern const f32 lbl_805DC200;
+void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt);
 }
 
 extern "C" {
@@ -267,6 +331,96 @@ void *__dt__12TPhotonMyllaFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt) {
+    Vec_801AD970 v;
+    u8 *o;
+    u8 *owner;
+    photon_base_ct(self);
+    *(void **)((u8 *)self + 0x18) = __vt__12TPhotonMylla;
+    F_801AD970(self, s32, 0) = lbl_805D3510;
+    F_801AD970(self, s32, 0x138) = 5;
+    VecCopy__FP3VecPC3Vec(&self->pos, pkt);
+    F_801AD970(self, u16, 0x17C) = pkt->owner;
+    F_801AD970(self, u8 *, 0x180) = TPhotonMylla__sub_80154CB4(F_801AD970(self, u16, 0x17C));
+    if (F_801AD970(self, u8 *, 0x180) != NULL) {
+        F_801AD970(self, s32, 0x60) = F_801AD970(F_801AD970(self, u8 *, 0x180), s32, 0x60);
+    }
+    F_801AD970(self, s32, 0x34) = lbl_805D5D28->res->fA8;
+    F_801AD970(self, s32, 0x24) = lbl_805D5D28->res->fAC;
+    set_field_d8__10TObjPlayerFPvi(self, lbl_804C39D8);
+    set_field_dc__10TObjPlayerFPvi(self, lbl_805D5D28->f430);
+    F_801AD970(self, s16, 0xB8) = 1;
+    set_animation__10TObjPlayerFPvs(self, F_801AD970(self, s16, 0xB8));
+    set_field_b8__14TObjEnePanarmsFPvs(self, F_801AD970(self, s16, 0xB8));
+    F_801AD970(self, s16, 0x194) = 1;
+    F_801AD970(self, s32, 0x198) = pkt->first;
+    F_801AD970(self, s32, 0x19C) = pkt->more;
+    F_801AD970(self, s32, 0x1A0) = 0;
+    {
+        YPkt_801AD970 y = lbl_80446E50;
+        y.pos.x = self->pos.x;
+        y.pos.y = self->pos.y;
+        y.pos.z = self->pos.z;
+        y.owner = F_801AD970(self, u16, 0x17C);
+        y.first = F_801AD970(self, s32, 0x198);
+        y.more = F_801AD970(self, s32, 0x19C);
+        o = NEW_801AD970(0x1A8);
+        if (o != NULL) {
+            TPhotonYoulla__ct(o, &y);
+        }
+    }
+    ((void (*)(void *, u8))TPhotonMylla__sub_801AD4A8)(self, pkt->count);
+    F_801AD970(self, s32, 0x134) = 3;
+    self->m12();
+    F_801AD970(self, s32, 0x1A4) = 0;
+    switch (get_global_state__14TOKeyMachine01Fv()) {
+    case 0xB:
+    case 0xC:
+    case 0xD:
+    case 0xE:
+    case 0x1E:
+    case 0x1F:
+    case 0x20:
+    case 0x21:
+        o = NEW_801AD970(0xAC);
+        if (o != NULL) {
+            TPhotonRainbow__ct(o, self, &self->pos, 1);
+        }
+        break;
+    default:
+        o = NEW_801AD970(0xAC);
+        if (o != NULL) {
+            TPhotonRainbow__ct(o, self, &self->pos, 0);
+        }
+        break;
+    }
+    if (F_801AD970(self, s32, 0x19C) == 1) {
+        F_801AD970(self, u32, 0x154) |= 1;
+    }
+    F_801AD970(self, f32, 0x150) = pkt->f20;
+    if (F_801AD970(self, s32, 0x198) == 0) {
+        set_field_b8__14TObjEnePanarmsFPvs(self, 0);
+        TCameraCtrl__sub_801A7310(self, 3);
+        F_801AD970(self, s32, 0x198) = 1;
+        F_801AD970(self, s16, 0x194) = 0;
+        F_801AD970(self, s32, 0x1A0) = 1;
+        owner = TPhotonMylla__sub_80154CB4(F_801AD970(self, u16, 0x17C));
+        if (owner != NULL) {
+            VecCopy__FP3VecPC3Vec(&v, owner + 0x38);
+        }
+        v.y = v.y + lbl_805DC1FC;
+        o = NEW_801AD970(0xD0);
+        if (o != NULL) {
+            TPhotonMagicSquare__ct(o, (M2C_UNK)self, 5, (s32)&v, 0xAA, lbl_805DC200);
+        }
+        TObjPlayer__sub_801A7748(self, 5);
+        TLobby__sub_8022727C(lbl_80446E80);
+    } else {
+        fn_801A7428(5, F_801AD970(self, u16, 0x17C));
+        TLobby__sub_8022727C(lbl_80446E8C);
+    }
+    return self;
 }
 
 }

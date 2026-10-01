@@ -44,6 +44,26 @@ struct Msg_8004B1BC { u8 code; u8 size; u16 id; s16 a; u8 pad6[2]; s32 b; u8 pad
 
 struct Obj_802AC1D8 { s32 count; s32 pad4; s32 x; s32 y; u32 *list; };
 
+typedef struct Rec_8004AA80 {
+    s32 a;
+    s32 b;
+    s32 c;
+} Rec_8004AA80;
+
+typedef struct Obj_8004AA80 {
+    s32 count;
+    u8 pad4[0x8 - 0x4];
+    s32 f8;
+    s32 fc;
+    s32 *items;
+} Obj_8004AA80;
+
+struct Vec_802AC3E8 { f32 x, y, z; };
+
+struct Sub_802AC3E8 { u8 pad[0x18]; s32 flags; };
+
+struct Obj_802AC3E8 { u8 pad[0x38]; Vec_802AC3E8 pos; u8 pad2[0xA4 - 0x44]; Sub_802AC3E8 *sub; };
+
 extern "C" {
 void destroy_buffer_pair(void *p, s32 flag);
 int free__11TOBoss4RockFUi(void *p);
@@ -55,6 +75,28 @@ void TObjPlayer__sub_801B0FF4(void *p);
 void TBoss6PlotFalz__sub_802AC4D8(void *self);
 void TObjPlayer__sub_800F5BC0(u32, s16, s16);
 void TBoss6PlotFalz__sub_802AC1D8(Obj_802AC1D8 *o, s32 dx, s32 dy);
+s32 TObjFish__sub_8001EDC4(s32, s32);
+int get_fish_count__8TObjFishFv(void);
+s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
+s32 alloc_tables__6TLobbyFPvii(s32, s32, s32);
+s32 collect_and_count__12TBoss3VoloptFUii(u32 arg0, s32 arg1);
+s32 *alloc_buffer__11TOBoss4RockFPv(s32);
+void TBoss6PlotFalz__sub_802AC2D8(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+void *get_player_data__10TObjPlayerFi(s32 i);
+M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+f32 TObjPlayer__sub_803E1A58(void *, void *);
+extern u8 lbl_8047059C[];
+extern u8 lbl_804705B4[];
+extern s32 lbl_805D5868;
+extern s32 lbl_805D586C;
+extern s32 lbl_805D5870;
+extern const f32 lbl_805DE0CC;
+extern const f32 lbl_805DE0D0;
+extern const f32 lbl_805DE0D4;
+void TBoss6PlotFalz__sub_802AC3E8(void);
 }
 
 extern "C" {
@@ -102,6 +144,56 @@ typedef char MemberActionStorage_8004B084_size[sizeof(MemberActionStorage_8004B0
 typedef char RecoveredGlobal_8004B084_TBoss4DarkFalz__data_80485108_size[sizeof(RecoveredGlobal_8004B084_TBoss4DarkFalz__data_80485108) == 0x340 ? 1 : -1];
 typedef char MemberActionStorage_8004B0F8_size[sizeof(MemberActionStorage_8004B0F8) == 12 ? 1 : -1];
 typedef char RecoveredGlobal_8004B0F8_TBoss4DarkFalz__data_80485108_size[sizeof(RecoveredGlobal_8004B0F8_TBoss4DarkFalz__data_80485108) == 0x340 ? 1 : -1];
+
+void TBoss6PlotFalz__sub_802AC2D8(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2) {
+    s32 h;
+    s32 i;
+    Rec_8004AA80 *r;
+    s32 t;
+    s32 p;
+    s32 j;
+    h = get_fish_count__8TObjFishFv();
+    if (h == 0 || arg1 == NULL || arg2 < 1) {
+        return;
+    }
+    arg0->count = arg2;
+    arg0->items = NULL;
+    arg0->items = alloc_buffer__11TOBoss4RockFPv(arg0->count * 4);
+    arg0->f8 = 0;
+    arg0->fc = 0;
+    for (j = 0; j < arg0->count; j++) {
+        arg0->items[j] = 0;
+    }
+    for (i = 0; i < arg0->count; i++) {
+        r = &arg1[i];
+        t = collect_and_count__12TBoss3VoloptFUii(TObjFish__sub_8001EDC4(h, r->a), r->b);
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x14);
+        if (p != 0) {
+            p = alloc_tables__6TLobbyFPvii(p, t, r->c);
+        }
+        arg0->items[i] = p;
+    }
+}
+
+void TBoss6PlotFalz__sub_802AC3E8(void) {
+    Vec_802AC3E8 v;
+    s32 i;
+    Obj_802AC3E8 *p;
+    for (i = lbl_805D586C + lbl_805D5870; i < lbl_805D5868; i++) {
+        p = (Obj_802AC3E8 *)get_player_data__10TObjPlayerFi(i);
+        if (p != NULL && p->sub != NULL && (p->sub->flags & 0x20000)
+            && !(TObjPlayer__sub_803E1A58(lbl_804705B4, &p->pos) > lbl_805DE0CC)
+            && !(TObjPlayer__sub_803E1A58(lbl_8047059C, &p->pos) <= lbl_805DE0D0)) {
+            VecCopy__FP3VecPC3Vec(&v, &p->pos);
+            TBoss6Type1__sub_803D9370(&v, lbl_804705B4);
+            TBoss4Zako__sub_803D8910(&v, lbl_8047059C);
+            v.y = lbl_805DE0D4;
+            VecCopy__FP3VecPC3Vec(&p->pos, &v);
+            TObjPlayer__sub_80154E3C(p);
+        }
+    }
+}
+
 void TBoss6PlotFalz__sub_802AC4D8(void *self) {
     s32 i;
     void *p;

@@ -13,6 +13,19 @@ struct Item_8033EC40 { u8 b[0x24]; };
 
 struct O_8033EC40 { u8 pad[0x1C]; Item_8033EC40 *items; s32 n; };
 
+typedef s32 M2C_UNK;
+struct Item_8033EB4C {
+    u8 a[0xC];
+    u8 b[0xC];
+    s32 p18;
+    s32 p1C;
+    u16 scene;
+    u8 obj;
+    u8 pad23;
+};
+
+struct O_8033EB4C { u8 pad[0x1C]; Item_8033EB4C *items; s32 n; };
+
 extern "C" {
 s32 TCameraCtrl__sub_800689F4();
 M2C_UNK TCameraCtrl__sub_80082FCC(void *, void *);
@@ -40,6 +53,22 @@ void TObjPlayer__sub_8033EAF0(s32 arg0, s32 arg1);
 void queue_destruction__7TObjectFv(void *);
 void TLobby__sub_8033EE38(void *);
 void TLobby__sub_8033EC40(O_8033EC40 *arg0);
+M2C_UNK set_depth_buffer_settings_id__FUl(int);
+M2C_UNK set_depth_buffer_settings_1__Fv();
+M2C_UNK set_tev_direct__13TParticleCtrlFi(int);
+M2C_UNK TParticleCtrl__sub_80328090(int, int, int);
+M2C_UNK get_object__13TParticleCtrlFPv(int);
+void init_particle_effect__10TObjPlayerFv(void);
+void reset_effects__10TObjPlayerFv(void);
+void TObjPlayer__sub_8033E988(void);
+M2C_UNK TObjPlayer__sub_803D99F8(void *, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+int set_global_param__8TObjFishFi(void);
+M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
+M2C_UNK set_current_scene__6TSceneFi(int);
+void TObjPlayer__sub_8033EB4C(O_8033EB4C *self);
 }
 
 extern "C" {
@@ -104,6 +133,28 @@ void TObjPlayer__sub_8033EAF0(s32 arg0, s32 arg1) {
     M2C_FIELD(arg0, u8 *, 0x22) = (u8) M2C_FIELD(arg1, u8 *, 0x22);
     M2C_FIELD(arg0, u8 *, 0x23) = (u8) M2C_FIELD(arg1, u8 *, 0x23);
 }
+
+void TObjPlayer__sub_8033EB4C(O_8033EB4C *self) {
+    s32 i;
+    for (i = 0; i < self->n; i++) {
+        get_object__13TParticleCtrlFPv(self->items[i].obj);
+        set_current_scene__6TSceneFi(self->items[i].scene);
+        set_depth_buffer_settings_1__Fv();
+        set_depth_buffer_settings_id__FUl(3);
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(self->items[i].a);
+        TObjPlayer__sub_803D99F8(self->items[i].b, 1);
+        TParticleCtrl__sub_80328090(self->items[i].obj, 1, 1);
+        ((void (*)(void *))init_particle_effect__10TObjPlayerFv)(self);
+        ((void (*)(void *))TObjPlayer__sub_8033E988)(self);
+        ((void (*)(s32))set_global_param__8TObjFishFi)(self->items[i].p18);
+        TObjBoss2Tunnel__sub_803DB470(self->items[i].p1C);
+        TObjPlayer__sub_803D9B78();
+        set_tev_direct__13TParticleCtrlFi(1);
+        ((void (*)(void *))reset_effects__10TObjPlayerFv)(self);
+    }
+}
+
 void TLobby__sub_8033EC40(O_8033EC40 *arg0) {
     s32 i;
     if (arg0->items == 0) {

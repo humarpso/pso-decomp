@@ -15,6 +15,16 @@ struct V_8032D214 : B_8032D214 {
     virtual void *m5();
 };
 
+struct VBase_18_df5984 { char pad[0x18]; };
+
+struct VObj_18_df5984 : VBase_18_df5984 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual M2C_UNK m4();
+};
+
 extern "C" {
 M2C_UNK render_status_disp__23TAdSinglePlyChrSelectGCFPvff(s32, f32, f32, f32);
 extern const f32 lbl_805DF7B8;
@@ -27,6 +37,15 @@ s32 update_window_mode_from_progress__6TLobbyFiPv(void *, void *);
 extern u8 lbl_80477334[];
 extern u8 lbl_8047733C[];
 s32 TAdWarningBaseGC__sub_8032D214(V_8032D214 *arg0);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
+s32 TWindowShortListCtrl__check_controller_button(void *, int);
+void TBoss3Volopt__sub_8022675C(int, int, int, int);
+void TWindow__close(void *);
+s32 TAdWarningBaseGC__sub_8032D214(V_8032D214 *arg0);
+extern u8 lbl_8050E208[];
+extern u8 lbl_8050E3B8[];
+extern const f32 lbl_805DF7B0;
+void TAdWarningBaseGC__vt4(u8 *arg0);
 }
 
 extern "C" {
@@ -62,6 +81,46 @@ s32 TAdWarningBaseGC__sub_8032D214(V_8032D214 *arg0) {
     s32 r = update_window_mode_from_progress__6TLobbyFiPv(lbl_80477334, lbl_8047733C);
     send_and_handle__6TLobbyFPvii(r, arg0->m5(), 3);
     return r;
+}
+
+void TAdWarningBaseGC__vt4(u8 *arg0) {
+    u8 *a;
+    u8 *b;
+    M2C_FIELD(arg0, s32 *, 0x20) = M2C_FIELD(arg0, s32 *, 0x1C);
+    switch (M2C_FIELD(arg0, s32 *, 0x1C)) {
+    case 0:
+        M2C_FIELD(arg0, s32 *, 0x2C) = TAdWarningBaseGC__sub_8032D214((V_8032D214 *)arg0);
+        M2C_FIELD(arg0, s32 *, 0x1C) = 1;
+        break;
+    case 1:
+        TBoss3Volopt__sub_8022675C(0x53F06, 0, 0, 0);
+        M2C_FIELD(arg0, s32 *, 0x1C) = 2;
+        break;
+    case 2:
+        if (TWindowShortListCtrl__check_controller_button(a = lbl_8050E3B8 + 0x20, 4) != 0 ||
+            test_flag_4c__23TAdSinglePlyChrSelectGCFPv(b = lbl_8050E208 + 0x160, 4) != 0 ||
+            TWindowShortListCtrl__check_controller_button(a, 2) != 0 ||
+            test_flag_4c__23TAdSinglePlyChrSelectGCFPv(b, 2) != 0) {
+            M2C_FIELD(arg0, s32 *, 0x1C) = 3;
+            M2C_FIELD(arg0, s32 *, 0x24) = 4;
+        }
+        break;
+    case 3:
+        if (M2C_FIELD(arg0, void **, 0x2C) != NULL) {
+            TWindow__close(M2C_FIELD(arg0, void **, 0x2C));
+            M2C_FIELD(arg0, void **, 0x2C) = NULL;
+        }
+        if ((f32)++M2C_FIELD(arg0, s32 *, 0x28) > lbl_805DF7B0) {
+            M2C_FIELD(arg0, s32 *, 0x1C) = M2C_FIELD(arg0, s32 *, 0x24);
+        }
+        break;
+    case 4:
+        ((V_8032D214 *)arg0)->m4();
+        break;
+    }
+    if (M2C_FIELD(arg0, s32 *, 0x20) != M2C_FIELD(arg0, s32 *, 0x1C)) {
+        M2C_FIELD(arg0, s32 *, 0x28) = 0;
+    }
 }
 
 void *TAdWarningBaseGC__vt0(void *arg0, s16 arg1) {
