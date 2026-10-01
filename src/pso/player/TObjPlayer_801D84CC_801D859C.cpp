@@ -4,6 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include <stddef.h>
+struct Stack_801D8664 {
+    s8 sp8;
+    s8 sp9;
+    s8 spA;
+    u8 rest[0x11];
+};
+
+extern "C" {
+void init__9TItemDataFv(void *);
+void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *arg1);
+void TObjPlayer__sub_801D8664(s32 arg0, s8 arg1, s8 arg2);
+}
+
 extern "C" {
 
 struct VObj_84Base_801d859c_801D84CC { char pad[0x18]; };
@@ -19,7 +33,6 @@ struct VObj_84_801d859c_801D84CC : VObj_84Base_801d859c_801D84CC {
     virtual s8 m31();
 };
 
-int TObjPlayer__sub_801D8664(void);
 void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *arg1);
 int TBoss4DarkFalz__sub_8004C220(void*);
 s32 TLobby__sub_8011AF58();
@@ -57,7 +70,16 @@ void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *arg1) {
         }
     }
 }
-
-int TObjPlayer__sub_801D8664(void) { return 0; }
+void TObjPlayer__sub_801D8664(s32 arg0, s8 arg1, s8 arg2) {
+    typedef char sp8_offset[(offsetof(Stack_801D8664, sp8) == 0x0) ? 1 : -1];
+    typedef char sp9_offset[(offsetof(Stack_801D8664, sp9) == 0x1) ? 1 : -1];
+    typedef char spA_offset[(offsetof(Stack_801D8664, spA) == 0x2) ? 1 : -1];
+    Stack_801D8664 stack;
+    init__9TItemDataFv((void *) (&stack.sp8));
+    stack.sp9 = arg1;
+    stack.sp8 = 0;
+    stack.spA = arg2;
+    process_trade_target__10TObjPlayerFiPv(arg0, (void *) (&stack.sp8));
+}
 
 }

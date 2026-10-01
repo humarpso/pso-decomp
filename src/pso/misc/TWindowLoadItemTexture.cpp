@@ -4,6 +4,23 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+extern "C" {
+s32 get_camera_id__11TCameraCtrlFv(void);
+s32 create__12TItemTexLoadFPv(s32);
+void get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
+M2C_UNK save_position__17TWindowSubComCardFPv(void *);
+M2C_UNK TWindowDD__sub_802466E0(void *, M2C_UNK *, s16, void *);
+extern M2C_UNK lbl_804D0058[];
+extern M2C_UNK __vt__22TWindowLoadItemTexture[];
+extern s32 lbl_805D3940;
+extern s32 tl_07;
+extern const f32 lbl_805DD0D8;
+extern const f32 lbl_805DD0F0;
+extern const f32 lbl_805DD0FC;
+void *TWindowLoadItemTexture__ct(void *arg0, void *arg1, void *arg2, void *arg3);
+}
+
 extern "C" {
 
 void *__dt__22TWindowLoadItemTextureFv(void *arg0, s16 arg1);
@@ -12,7 +29,6 @@ void fn_80262C2C(void* p);
 void render__22TWindowLoadItemTextureFv(u8 *arg0);
 void run_task__22TWindowLoadItemTextureFv(void* p);
 u32 TItemTexLoad__sub_8011D164(s32);
-void *TWindowLoadItemTexture__ct(void *, void *, void *, void *);
 s32 TWindowSubComCard__sub_80244C0C(void *, void *);
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, s32);
@@ -36,7 +52,7 @@ void *create__22TWindowLoadItemTextureFPvPv(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x74);
     if (o != NULL) {
-        o = TWindowLoadItemTexture__ct(o, arg0, lbl_8044F280, arg1);
+        o = TWindowLoadItemTexture__ct((void *)(o), (void *)(arg0), (void *)(lbl_8044F280), (void *)(arg1));
     }
     get_array_entry__20TWindowSubStatusDispFPvi(o, 0);
     fn_8025B078(lbl_805DD0EC, lbl_805DD0EC, lbl_805DD0F4, lbl_805DD0F8);
@@ -73,6 +89,35 @@ void *__dt__22TWindowLoadItemTextureFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+
+void *TWindowLoadItemTexture__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
+    void *e;
+    TWindowDD__sub_802466E0(arg0, lbl_804D0058, (s16)(s32)arg3, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TWindowLoadItemTexture;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3940;
+    switch (get_camera_id__11TCameraCtrlFv()) {
+    case 1:
+        M2C_FIELD(arg0, f32 *, 0x68) = M2C_FIELD(arg0, f32 *, 0x64) = lbl_805DD0F0;
+        break;
+    case 2:
+        M2C_FIELD(arg0, f32 *, 0x68) = M2C_FIELD(arg0, f32 *, 0x64) = lbl_805DD0D8;
+        break;
+    case 3:
+    case 4:
+        M2C_FIELD(arg0, f32 *, 0x68) = M2C_FIELD(arg0, f32 *, 0x64) = lbl_805DD0FC;
+        break;
+    }
+    M2C_FIELD(arg0, f32 *, 0x38) = M2C_FIELD(arg2, f32 *, 0);
+    M2C_FIELD(arg0, f32 *, 0x3C) = M2C_FIELD(arg2, f32 *, 4);
+    save_position__17TWindowSubComCardFPv(arg0);
+    e = ((void *(*)(void *, int))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, 0);
+    M2C_FIELD(e, f32 *, 0x10) = M2C_FIELD(arg2, f32 *, 0);
+    M2C_FIELD(e, f32 *, 0x14) = M2C_FIELD(arg2, f32 *, 4);
+    M2C_FIELD(arg0, s32 *, 0x6C) = create__12TItemTexLoadFPv(tl_07);
+    M2C_FIELD(arg0, s8 *, 0x61) = 0;
+    M2C_FIELD(arg0, s8 *, 0x60) = 2;
     return arg0;
 }
 

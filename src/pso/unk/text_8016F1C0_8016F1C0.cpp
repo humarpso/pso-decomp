@@ -9,12 +9,30 @@ struct RecoveredGlobal_8016F1C0___vt__10TOMineDisp {
     u8 remaining[0x30];
 };
 
+struct VB_8016F320 { char pad[0x18]; };
+
+struct VO_8016F320 : VB_8016F320 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual char *m10();
+};
+
 extern "C" {
 M2C_UNK TPhotonMagicSquare__sub_801A2640();
 extern RecoveredGlobal_8016F1C0___vt__10TOMineDisp __vt__10TOMineDisp;
 extern s32 lbl_805D3084;
 extern const f32 lbl_805DB85C;
 u8 *TOMineDisp__ct(u8 *arg0, M2C_UNK arg1, s16 arg2);
+void *TLobby__sub_8001DC24(void);
+s32 get_trap_type__10TOMineTrapFPv(s32);
+s32 is_technique_ready__8TTecCtrlFv(void);
+VO_8016F320 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+void TWindowSubStatusDisp__sub_80229080(const char *);
+void TWindowSubStatusDisp__sub_802290E0(void);
+void init_all__11TWindowCtrlFPvPv(void *, s32);
+extern const char lbl_804421F0[];
+extern const char lbl_805DB860[4];
+s32 TOMineTrap__sub_8016F320(s32 arg0, u32 arg1);
 }
 
 extern "C" {
@@ -68,6 +86,25 @@ void TOMineTrap__vt81(s32 arg0) {
             }
         }
     }
+}
+s32 TOMineTrap__sub_8016F320(s32 arg0, u32 arg1) {
+    char *name;
+    VO_8016F320 *p;
+    if ((arg1 != 0U) && (is_technique_ready__8TTecCtrlFv() != 0)) {
+        p = TPlayerBattleCtrl4P__sub_801BA74C(get_trap_type__10TOMineTrapFPv(arg0));
+        if (p != NULL) {
+            name = p->m10();
+            if (name != NULL) {
+                TWindowSubStatusDisp__sub_802290E0();
+                TWindowSubStatusDisp__sub_80229080(lbl_805DB860);
+                TWindowSubStatusDisp__sub_80229080(name);
+                TWindowSubStatusDisp__sub_80229080(lbl_804421F0);
+                init_all__11TWindowCtrlFPvPv(TLobby__sub_8001DC24(), 0x200);
+                return 1;
+            }
+        }
+    }
+    return 0;
 }
 
 }

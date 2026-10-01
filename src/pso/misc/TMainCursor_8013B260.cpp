@@ -5,6 +5,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Ent_8013B2C8 { s32 w; };
+
 extern "C" {
 void fn_80044330(void *);
 void reset_slot__11TMainCursorFPv(void *);
@@ -14,6 +16,12 @@ void TMainCursor__sub_8013B3AC(u8 *arg0);
 s32 TMainCursor__sub_8013DF08(PaletteCursorOverride*);
 s32 TObjPlayer__sub_801CD078(TObjPlayer*, s32);
 s32 canSetMenuCursorAction(PaletteCursorOverride* cursor, TObjPlayer* player, u8 kind, u8 parameter);
+void TMainCursor__sub_8013B398(void *arg0, void *arg1);
+s16 TMainCursor__sub_8013E298(Ent_8013B2C8 *);
+s32 TMainCursor__sub_8013E2A0(void *);
+Ent_8013B2C8 *get_index__11TMainCursorFPv(void *);
+void TMainCursor__sub_8013E2B0(void *);
+s32 TMainCursor__sub_8013B2C8(void *arg0);
 }
 
 extern "C" {
@@ -30,6 +38,33 @@ void* init__11TMainCursorFPv(void* a0) { init__13TLockOnCursorFPvPvPv(); *(int*)
 
 void TMainCursor__sub_8013B2A4(u16 *arg0) {
     TPlayerBattleCtrl4P__sub_801BA74C(*arg0);
+}
+
+s32 TMainCursor__sub_8013B2C8(void *arg0) {
+    s32 k;
+    s32 n;
+    s32 i;
+    Ent_8013B2C8 *p;
+    Ent_8013B2C8 *q;
+    Ent_8013B2C8 tmp;
+    TMainCursor__sub_8013E2B0(&tmp);
+    if (get_index__11TMainCursorFPv(arg0) == NULL) {
+        return 0;
+    }
+    n = TMainCursor__sub_8013E2A0(arg0);
+    while (--n > 0) {
+        p = get_index__11TMainCursorFPv(arg0);
+        for (i = 0; i < n; p++, i++) {
+            q = p + 1;
+            k = TMainCursor__sub_8013E298(q);
+            if (TMainCursor__sub_8013E298(p) > k) {
+                TMainCursor__sub_8013B398(&tmp, p);
+                TMainCursor__sub_8013B398(p, q);
+                TMainCursor__sub_8013B398(q, &tmp);
+            }
+        }
+    }
+    return 1;
 }
 
 void TMainCursor__sub_8013B398(void *arg0, void *arg1) {

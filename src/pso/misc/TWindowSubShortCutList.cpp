@@ -18,11 +18,23 @@ void TWindowSubStatusDisp__sub_80267AA8(void *, s16);
 void ensure_status_display__20TWindowSubStatusDispFPvi(void *, void *);
 void fn_802683F4(void *, void *, s32, s16);
 void *init__21TWindowSubComCardListFPviii(void *, s8, s32, s32);
-M2C_UNK TWindowSubShortCutList__sub_8027E278(void *);
 extern M2C_UNK __vt__22TWindowSubShortCutList[];
 extern s32 lbl_805D3A90;
 extern s32 lbl_805D53A0;
 void *TWindowSubShortCutList__ct(void *arg0, void *arg1, void *arg2);
+s32 TLobby__sub_8001DC24();
+s32 fn_80076BC4(s32 *);
+s32 *TWindowKeyBoardSoft__sub_80076E2C(s32);
+s32 get_symbol_chat_data__20TWindowSubSymbolChatFPv();
+M2C_UNK open_symbol_chat__11TWindowChatFPv(s32 *);
+s8 get_type__20TWindowSubStatusDispFPv(s32);
+M2C_UNK TShopArmorListWindow__sub_80266CF8(void *);
+M2C_UNK save_cursor_selection__20TShopArmorListWindowFPv();
+M2C_UNK TShopArmorListWindow__sub_80266DB0(void *);
+void draw_entry__22TWindowSubShortCutListFPviUcii(void *, s32, u8, s32, s32);
+M2C_UNK update_state__9TWindowDDFv(s32 *, s32, u16);
+extern s32 lbl_805D53A0;
+void TWindowSubShortCutList__sub_8027E278(void *arg0);
 }
 
 extern "C" {
@@ -32,7 +44,6 @@ void render__22TWindowSubShortCutListFv(u8 *arg0);
 void run_task__22TWindowSubShortCutListFv(void *arg0);
 s32 TWindowShortListCtrl__sub_8026C9DC(s32);
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
-M2C_UNK TWindowSubShortCutList__sub_8027E278(void *);
 s32 TWindowSubStatusDisp__sub_80244364();
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, s32);
 M2C_UNK TWindowSubStatusDisp__sub_80268048();
@@ -43,6 +54,44 @@ void destroy_item_list_resources__20TWindowSubStatusDispFPvs(void *, int);
 M2C_UNK draw_selected_list_entry(void *, s32);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(s32, s32);
 s32 get_status_flag__6TLobbyFPv(void *);
+
+void TWindowSubShortCutList__sub_8027E278(void *arg0) {
+    s32 *temp_r3;
+    s32 temp_r0;
+    s32 var_r30;
+    s32 var_r29;
+    save_cursor_selection__20TShopArmorListWindowFPv();
+    TShopArmorListWindow__sub_80266DB0(arg0);
+    var_r29 = get_type__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, s32 *, 0x88));
+    var_r30 = 0;
+    var_r29 *= 4;
+    do {
+        temp_r3 = TWindowKeyBoardSoft__sub_80076E2C(var_r29);
+        switch (*temp_r3) {
+        case 0:
+            draw_entry__22TWindowSubShortCutListFPviUcii(arg0, var_r29, 0x33, 0, var_r29);
+            break;
+        case 1:
+            temp_r0 = fn_80076BC4(temp_r3 + 1);
+            draw_entry__22TWindowSubShortCutListFPviUcii(arg0, var_r29, 0x12, temp_r0, var_r29);
+            break;
+        case 2:
+            update_state__9TWindowDDFv(temp_r3 + 1, TLobby__sub_8001DC24(), (u16) lbl_805D53A0);
+            draw_entry__22TWindowSubShortCutListFPviUcii(arg0, var_r29, 0x10, TLobby__sub_8001DC24(), var_r29);
+            break;
+        case 3:
+            open_symbol_chat__11TWindowChatFPv(temp_r3 + 1);
+            {
+                s32 d = get_symbol_chat_data__20TWindowSubSymbolChatFPv();
+                draw_entry__22TWindowSubShortCutListFPviUcii(arg0, var_r29, 0x11, d, var_r29);
+            }
+            break;
+        }
+        var_r30 += 1;
+        var_r29 += 1;
+    } while (var_r30 < 4);
+    TShopArmorListWindow__sub_80266CF8(arg0);
+}
 
 void *TWindowSubShortCutList__sub_8027E3B4(void *arg0, void *arg1) {
     void *p;
@@ -72,7 +121,7 @@ void render__22TWindowSubShortCutListFv(u8 *arg0) {
 void run_task__22TWindowSubShortCutListFv(void *arg0) {
     TWindowSubStatusDisp__sub_80268048();
     if ((get_status_flag__6TLobbyFPv(arg0) == 0) && (TWindowShortListCtrl__sub_8026C9DC(M2C_FIELD(arg0, s32 *, 0x88)) != 0)) {
-        TWindowSubShortCutList__sub_8027E278(arg0);
+        TWindowSubShortCutList__sub_8027E278((void *)(arg0));
     }
 }
 
@@ -105,7 +154,7 @@ void *TWindowSubShortCutList__ct(void *arg0, void *arg1, void *arg2) {
     }
     ((Obj_8027E558 *)arg0)->list = p;
     set_flag70_bit10__20TWindowShortListCtrlFPv(arg0);
-    TWindowSubShortCutList__sub_8027E278(arg0);
+    TWindowSubShortCutList__sub_8027E278((void *)(arg0));
     TWindowSubStatusDisp__sub_80267AA8(arg0, col);
     return arg0;
 }

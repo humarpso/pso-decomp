@@ -10,6 +10,9 @@ extern "C" {
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 s32 is_flag_4_set__20TWindowSubStatusDispFPv(void *);
 void TShopArmorListWindow__sub_80266CF8(Win_80266CF8 *w);
+void *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+void reset__20TWindowSubStatusDispFPv(void *);
+void TShopArmorListWindow__sub_80266DB0(u8 *arg0);
 }
 
 extern "C" {
@@ -36,6 +39,14 @@ void TShopArmorListWindow__sub_80266CF8(Win_80266CF8 *w) {
 void save_cursor_selection__20TShopArmorListWindowFPv(void *arg0) {
     M2C_FIELD(arg0, s16 *, 0x78) = (s16) M2C_FIELD(arg0, s16 *, 0x74);
     M2C_FIELD(arg0, s32 *, 0x7C) = select_cursor_entry__6TLobbyFPv();
+}
+void TShopArmorListWindow__sub_80266DB0(u8 *arg0) {
+    u32 i;
+    M2C_FIELD(arg0, s16 *, 0x72) = 0;
+    M2C_FIELD(arg0, s16 *, 0x74) = 0;
+    for (i = 0; i < (u32)M2C_FIELD(arg0, s16 *, 0x76); i++) {
+        reset__20TWindowSubStatusDispFPv(get_array_entry__20TWindowSubStatusDispFPvi(arg0, i));
+    }
 }
 
 }

@@ -31,6 +31,18 @@ struct Obj2A8_800c7ae4 : ObjPad18_800c7ae4 {
     virtual s32 v23(void *a, f32 f);
 };
 
+struct Vec_800C7C30 { s32 x, y, z; };
+
+extern "C" {
+M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
+f32 TObjPlayer__sub_80017D68(void *, void *, int, int, f32);
+M2C_UNK update_angle__10TObjPlayerFPviPv(void *, void *, void *);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK update_collisions__10TObjPlayerFPv(void *);
+extern const f32 lbl_805DA070;
+void TObjEnemyCustom__sub_800C7C30(u8 *arg0);
+}
+
 extern "C" {
 
 void update_state_machine__15TObjEnemyCustomFPv(void *arg0);
@@ -120,5 +132,36 @@ void update__15TObjEnemyCustomFPv(void *arg0) {
 }
 
 int update_gigue__15TObjEnemyCustomFPv(void* p) { return update_if_active__15TObjEneMe1GiGueFPv(p, 2); }
+void TObjEnemyCustom__sub_800C7C30(u8 *arg0) {
+    f32 temp_f1;
+    s32 temp_r0;
+    u8 *temp_r3;
+    u8 *temp_r6;
+    u8 *temp_r7;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);
+    switch (temp_r0) {
+    case -1:
+        break;
+    case 0:
+        M2C_FIELD(arg0, s16 *, 0xB8) = 1;
+        M2C_FIELD(arg0, s32 *, 0x37C) = 1;
+    case 1:
+        TBoss1Dragon__sub_80143504((void *) (arg0));
+        temp_r7 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x2A8));
+        if (temp_r7 != NULL) {
+            Vec_800C7C30 v = *(Vec_800C7C30 *)(temp_r7 + 0x2FC);
+            temp_r6 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x350));
+            temp_f1 = TObjPlayer__sub_80017D68((void *) (arg0), (void *) (&v), (int) (1), (int) (temp_r6), (f32) (M2C_FIELD(temp_r6, f32 *, 4)));
+            temp_r3 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x350));
+            if ((M2C_FIELD(temp_r3, f32 *, 0) < temp_f1) || (temp_f1 < M2C_FIELD(temp_r3, f32 *, 4))) {
+                M2C_FIELD(arg0, void **, 0x2A8) = NULL;
+            }
+            update_angle__10TObjPlayerFPviPv((void *) (arg0), (void *) (M2C_FIELD(M2C_FIELD(arg0, void **, 0x350), s32 *, 8)), (void *) (arg0 + 0x308));
+        }
+        TObjPlayer__sub_80011734((void *)((void *) (arg0)), (M2C_UNK)((int) (0)), (f32) (lbl_805DA070));
+        update_collisions__10TObjPlayerFPv((void *) (arg0));
+        return;
+    }
+}
 
 }

@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TLobby__sub_803F5678(void *);
+s32 TLobby__sub_80145EE4(void);
+}
+
+extern "C" {
 
 int TLobby__sub_80145E40(void);
 s32 is_state_active__6TLobbyFv(void);
@@ -34,6 +39,16 @@ s32 is_state_active__6TLobbyFv(void) {
         return 0;
     }
     return (u32) __cntlzw(1 - sp8) >> 5;
+}
+s32 TLobby__sub_80145EE4(void) {
+    u8 sp8;
+    if (TLobby__sub_803F5678((void *) (&sp8)) != 0) {
+        return 0;
+    }
+    if (sp8 == 0) {
+        return 1;
+    }
+    return (sp8 == 1) ? 0 : 0;
 }
 
 }

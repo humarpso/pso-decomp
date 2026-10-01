@@ -47,6 +47,21 @@ extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 void render__13TPhotonYoullaFv(Self_801AE744 *self);
+M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, M2C_UNK);
+void set_field_dc__10TObjPlayerFPvi(void *, s32);
+void set_field_d8__10TObjPlayerFPvi(void *, s32);
+void set_animation__10TObjPlayerFPvs(void *, s16);
+u8 * TPhotonMylla__sub_80154CB4(u16);
+u8 * photon_base_ct(void *);
+void TObjPlayer__sub_801AE72C(void *, u8);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK fn_801A7428(int, int);
+M2C_UNK TObjPlayer__sub_801A7748(void *, M2C_UNK);
+extern u8 lbl_804C3B48[];
+extern M2C_UNK __vt__13TPhotonYoulla[];
+extern s32 lbl_805D3528;
+extern u8 *lbl_805D5D28;
+u8 *TPhotonYoulla__ct(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -168,6 +183,45 @@ void *__dt__13TPhotonYoullaFv(void *arg0, s16 arg1) {
 }
 
     extern int lbl_805D5D60;
+
+u8 *TPhotonYoulla__ct(u8 *arg0, u8 *arg1) {
+    u8 *temp_r3;
+    photon_base_ct(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TPhotonYoulla;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3528;
+    M2C_FIELD(arg0, s32 *, 0x138) = 5;
+    VecCopy__FP3VecPC3Vec((void *) ((u8 *)(arg0) + 0x38), (void *) (arg1));
+    M2C_FIELD(arg0, u16 *, 0x17C) = (u16) M2C_FIELD(arg1, u16 *, 0xC);
+    M2C_FIELD(arg0, u8 **, 0x180) = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x17C));
+    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x180));
+    if (temp_r3 != NULL) {
+        M2C_FIELD(arg0, s32 *, 0x60) = (s32) M2C_FIELD(temp_r3, s32 *, 0x60);
+    }
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5D28, u8 **, 0x42C), s32 *, 0xB8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5D28, u8 **, 0x42C), s32 *, 0xBC);
+    set_field_d8__10TObjPlayerFPvi(arg0, (s32) lbl_804C3B48);
+    set_field_dc__10TObjPlayerFPvi(arg0, M2C_FIELD(lbl_805D5D28, s32 *, 0x430));
+    M2C_FIELD(arg0, s16 *, 0xB8) = 1;
+    set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
+    set_field_b8__14TObjEnePanarmsFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
+    M2C_FIELD(arg0, s16 *, 0x194) = 1;
+    M2C_FIELD(arg0, s32 *, 0x198) = (s32) M2C_FIELD(arg1, s32 *, 0x10);
+    M2C_FIELD(arg0, s32 *, 0x19C) = (s32) M2C_FIELD(arg1, s32 *, 0x14);
+    M2C_FIELD(arg0, s32 *, 0x1A0) = 0;
+    TObjPlayer__sub_801AE72C(arg0, M2C_FIELD(arg1, u8 *, 0x1C));
+    M2C_FIELD(arg0, s32 *, 0x1A4) = 0;
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x198) == 0) {
+        set_field_b8__14TObjEnePanarmsFPvs(arg0, 0);
+        M2C_FIELD(arg0, s32 *, 0x198) = 1;
+        M2C_FIELD(arg0, s16 *, 0x194) = 0;
+        M2C_FIELD(arg0, s32 *, 0x1A0) = 1;
+        TObjPlayer__sub_801A7748(arg0, 6);
+    } else {
+        fn_801A7428((int) (6), (int) (M2C_FIELD(arg0, u16 *, 0x17C)));
+    }
+    return arg0;
+}
+
 void TObjPlayer__sub_801AEB74(void) { lbl_805D5D60 = 0; }
 
 void TObjPlayer__sub_801AEB80(void) {  }

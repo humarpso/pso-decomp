@@ -241,6 +241,7 @@ pso/boss/TBoss8Dragon_802FBBE8.cpp
 pso/boss/TBoss8Dragon_802FC164.cpp
 pso/boss/TBoss8Dragon_802FC220.cpp
 pso/boss/TBoss8Dragon_802FC2C4.cpp
+pso/boss/TBoss8Dragon_802FC910.cpp
 pso/boss/TBoss8Dragon_802FCA34.cpp
 pso/boss/TBoss8Dragon_802FCC7C.cpp
 pso/boss/TBoss8Dragon_802FCCD0.cpp
@@ -592,6 +593,7 @@ pso/enemy/TObjEneSlime_802D7260.cpp
 pso/enemy/TObjEnemy.cpp
 pso/enemy/TObjEnemyCustom.cpp
 pso/enemy/TObjEnemyCustom_800C76F4.cpp
+pso/enemy/TObjEnemyCustom_800C7A04.cpp
 pso/enemy/TObjEnemyCustom_800C8018.cpp
 pso/enemy/TObjEnemyCustom_800C8040.cpp
 pso/enemy/TObjEnemy_8020C3E0.cpp
@@ -901,6 +903,7 @@ pso/misc/TCheckRoomSequence_80211614.cpp
 pso/misc/TCheckRoomSequence_8021E464.cpp
 pso/misc/TContainerAncient01_8018B79C.cpp
 pso/misc/TContainerAncient01_8018BAE0.cpp
+pso/misc/TDLGraph.cpp
 pso/misc/TDLGraph_8007F7DC.cpp
 pso/misc/TDLGraph_8007F85C.cpp
 pso/misc/TDuelEffectNumber_80080460.cpp
@@ -1035,6 +1038,7 @@ pso/misc/TLobby_800FA774.cpp
 pso/misc/TLobby_800FA848.cpp
 pso/misc/TLobby_800FC3CC.cpp
 pso/misc/TLobby_800FD78C.cpp
+pso/misc/TLobby_80102DD4.cpp
 pso/misc/TLobby_80102DD4_80102DD4.cpp
 pso/misc/TLobby_80102DD4_80102FCC.cpp
 pso/misc/TLobby_80102DD4_80103010.cpp
@@ -1071,6 +1075,7 @@ pso/misc/TLobby_8013AD38.cpp
 pso/misc/TLobby_8013ADF0.cpp
 pso/misc/TLobby_80140FF4.cpp
 pso/misc/TLobby_80145E40.cpp
+pso/misc/TLobby_80145E40_80145E40.cpp
 pso/misc/TLobby_80156B18.cpp
 pso/misc/TLobby_8015ABD0.cpp
 pso/misc/TLobby_8015C944.cpp
@@ -1223,6 +1228,7 @@ pso/misc/TLobby_802A018C.cpp
 pso/misc/TLobby_802A6080.cpp
 pso/misc/TLobby_802A7848.cpp
 pso/misc/TLobby_802AF5FC.cpp
+pso/misc/TLobby_802D1EFC.cpp
 pso/misc/TLobby_802D22F0.cpp
 pso/misc/TLobby_802D2B64_802D2B64.cpp
 pso/misc/TLobby_802D2B64_802D2DCC.cpp
@@ -1310,6 +1316,7 @@ pso/misc/TLogo_8030818C.cpp
 pso/misc/TMainCursor_8013AE18.cpp
 pso/misc/TMainCursor_8013B018.cpp
 pso/misc/TMainCursor_8013B1CC.cpp
+pso/misc/TMainCursor_8013B260.cpp
 pso/misc/TMainCursor_8013B4B8.cpp
 pso/misc/TMainCursor_8013B524.cpp
 pso/misc/TMainCursor_8013DEF8.cpp
@@ -1659,10 +1666,12 @@ pso/misc/TScene_802A8140.cpp
 pso/misc/TScene_803DCDA8.cpp
 pso/misc/TSendDownloadHead.cpp
 pso/misc/TSetManager.cpp
+pso/misc/TShopArmorListWindow_80266CF8.cpp
 pso/misc/TShopArmorListWindow_802785FC.cpp
 pso/misc/TShopArmorListWindow_8027870C.cpp
 pso/misc/TShopArmorListWindow_802787AC.cpp
 pso/misc/TShopEquipmentGearSequence.cpp
+pso/misc/TShopEquipmentGearSequence_8021B438.cpp
 pso/misc/TShopEquipmentGearSequence_8021E3A4.cpp
 pso/misc/TShopEquipmentListWindow_8010ED54.cpp
 pso/misc/TShopEquipmentSellWindow_801047B4.cpp
@@ -1842,6 +1851,7 @@ pso/misc/TWindowKeyBoardSoft_80228BEC.cpp
 pso/misc/TWindowKeyBoardSoft_80261440_8026262C.cpp
 pso/misc/TWindowKeyBoardSoft_80261440_802626E8.cpp
 pso/misc/TWindowKeyBoardSoft_803E6610.cpp
+pso/misc/TWindowLoadItemTexture.cpp
 pso/misc/TWindowLockOn_800F5DD8.cpp
 pso/misc/TWindowLockOn_8026CB80.cpp
 pso/misc/TWindowLockOn_8026FF0C.cpp
@@ -1975,6 +1985,7 @@ pso/misc/TWindowSubQuestBoardSelect_8027D9AC.cpp
 pso/misc/TWindowSubQuestBoard_8027D148.cpp
 pso/misc/TWindowSubQuestBoard_8027D1E8.cpp
 pso/misc/TWindowSubShortCut.cpp
+pso/misc/TWindowSubShortCutList.cpp
 pso/misc/TWindowSubShortCutList_80267020.cpp
 pso/misc/TWindowSubShortCutList_80267020_80267020.cpp
 pso/misc/TWindowSubShortCutList_80267020_802670A8.cpp
@@ -2011,6 +2022,7 @@ pso/misc/TWindowSubStatusDisp_80257784_80258194.cpp
 pso/misc/TWindowSubStatusDisp_80257784_8025823C.cpp
 pso/misc/TWindowSubStatusDisp_80257784_8025829C.cpp
 pso/misc/TWindowSubStatusDisp_80257784_80258BF8.cpp
+pso/misc/TWindowSubStatusDisp_80257784_80258D38.cpp
 pso/misc/TWindowSubStatusDisp_80257784_8025903C.cpp
 pso/misc/TWindowSubStatusDisp_80257784_80259838.cpp
 pso/misc/TWindowSubStatusDisp_8025AD5C_8025B334.cpp
@@ -2211,6 +2223,7 @@ pso/object/TObjFish_800E2FFC.cpp
 pso/object/TObjFish_802ED828.cpp
 pso/object/TObjFogCollision.cpp
 pso/object/TObjFogCollisionSwitch.cpp
+pso/object/TObjGbAdvance.cpp
 pso/object/TObjGbAdvance_80187D90.cpp
 pso/object/TObjGbAdvance_80187E18.cpp
 pso/object/TObjGoalWarpAncient.cpp
@@ -2893,6 +2906,7 @@ pso/player/TObjPlayer_801D281C.cpp
 pso/player/TObjPlayer_801D3554.cpp
 pso/player/TObjPlayer_801D4890.cpp
 pso/player/TObjPlayer_801D4890_801D4A6C.cpp
+pso/player/TObjPlayer_801D4CB8.cpp
 pso/player/TObjPlayer_801D4CB8_801D4CB8.cpp
 pso/player/TObjPlayer_801D4CB8_801D4CEC.cpp
 pso/player/TObjPlayer_801D4CB8_801D4D48.cpp
@@ -2902,6 +2916,7 @@ pso/player/TObjPlayer_801D7860.cpp
 pso/player/TObjPlayer_801D7C5C.cpp
 pso/player/TObjPlayer_801D84A8.cpp
 pso/player/TObjPlayer_801D84CC_801D84CC.cpp
+pso/player/TObjPlayer_801D84CC_801D859C.cpp
 pso/player/TObjPlayer_801D95B8.cpp
 pso/player/TObjPlayer_801D9908.cpp
 pso/player/TObjPlayer_801D9964.cpp
@@ -3142,6 +3157,7 @@ pso/slices/run_802FC88C.cpp
 pso/system/ChunkMaterialState.cpp
 pso/system/TMemberCheck.cpp
 pso/system/TOChatSensorCapture.cpp
+pso/system/TOChatSensorCapture_8015A8D8.cpp
 pso/system/TOChatSensorFolder.cpp
 pso/system/TODummyKeyCave01Sound.cpp
 pso/system/TOSwitchAttackSub.cpp
@@ -3207,6 +3223,7 @@ pso/ui/TAdMultiPlyChrSelectGC_802B1850.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802C6F88.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802D50A0.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802DC3D4.cpp
+pso/ui/TAdMultiPlyChrSelectGC_802DC760.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802DCB80.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802DCD14.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802DD4B8.cpp
@@ -3607,6 +3624,7 @@ pso/unk/text_8012FDEC.cpp
 pso/unk/text_8012FF8C.cpp
 pso/unk/text_801300A0.cpp
 pso/unk/text_801301D0.cpp
+pso/unk/text_80130368.cpp
 pso/unk/text_80130720.cpp
 pso/unk/text_80130898.cpp
 pso/unk/text_80130B98.cpp
@@ -3650,6 +3668,7 @@ pso/unk/text_80169BD0.cpp
 pso/unk/text_8016A408.cpp
 pso/unk/text_8016CF5C.cpp
 pso/unk/text_8016D8F8.cpp
+pso/unk/text_8016F1C0_8016F1C0.cpp
 pso/unk/text_80173874.cpp
 pso/unk/text_801739F8.cpp
 pso/unk/text_80173B7C.cpp
