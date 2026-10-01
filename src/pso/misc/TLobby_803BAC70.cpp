@@ -270,6 +270,7 @@ struct Hdr_803BD8A8 { u32 f0; u32 info; };
 struct Hdr_803BD93C { u32 f0; u32 info; };
 
 typedef u8 * (*RecoveredCallback_fa840eeea008)(u8 *, u32);
+
 extern "C" {
 extern s8 lbl_805D74B8;
 void set_global_flag__6TLobbyFc(s8 arg0);
@@ -411,7 +412,6 @@ void TLobby__sub_803B59E4(u8 i);
 void TLobby__sub_803BD60C(u8 i);
 extern s32 lbl_805D748C;
 bool TLobby__sub_803BDA2C(s32 i);
-void *TLobby__sub_803BE0E0(u32 size);
 void *TLobby__sub_803BD7C0(u32 size);
 u32 ARGetBaseAddress(void);
 u32 TLobby__sub_803BDEF0(void);
@@ -529,6 +529,13 @@ extern s32 lbl_805D74CC;
 extern RecoveredCallback_fa840eeea008 lbl_805D74D4;
 extern u32 lbl_805D74D8;
 s32 TLobby__sub_803BDF10(u8 *src, u32 size);
+extern Rec_803BE1EC lbl_8056E660[];
+extern s32 lbl_805D74CC;
+extern s32 lbl_805D74D0;
+extern Rec_803BE1EC *lbl_805D74DC;
+extern Rec_803BE1EC *lbl_805D74E0;
+extern Rec_803BE1EC *lbl_805D74E4;
+void *TLobby__sub_803BE0E0(u32 arg0);
 }
 
 extern "C" {
@@ -974,7 +981,7 @@ void TLobby__sub_803BD738(u8 *base, u32 offset, u32 len, u8 i, void *cb, void *a
 }
 
 void *TLobby__sub_803BD7C0(u32 size) {
-    return TLobby__sub_803BE0E0(size);
+    return TLobby__sub_803BE0E0((u32)(size));
 }
 
 void TLobby__sub_803BD7E0(u8 i) {
@@ -1095,6 +1102,57 @@ void TLobby__sub_803BE000(s32 arg0, s32 arg1) {
     lbl_805D74CC -= (arg1 + 0x1F) & 0xFFFFFFE0;
 }
 void TLobby__sub_803BE0DC(void) {
+}
+
+void *TLobby__sub_803BE0E0(u32 arg0) {
+    Rec_803BE1EC *p;
+    Rec_803BE1EC *found;
+    Rec_803BE1EC *prev;
+    u32 best;
+    u32 size;
+    p = lbl_805D74E0;
+    size = (arg0 + 0x1F) & ~0x1F;
+    found = NULL;
+    prev = NULL;
+    best = -1;
+    while (p != NULL) {
+        if (p->fc == size) {
+            found = p;
+            break;
+        }
+        if (p->fc > size && best > p->fc) {
+            found = p;
+            best = p->fc;
+        }
+        prev = p;
+        p = (Rec_803BE1EC *)p->f0;
+    }
+    if (found == NULL) {
+        p = lbl_805D74E4;
+        if (p != NULL && (u32)(lbl_805D74D0 - size) >= (u32)lbl_805D74CC) {
+            found = p;
+            lbl_805D74E4 = (Rec_803BE1EC *)p->f0;
+            p->fc = size;
+            p->f8 = size;
+            lbl_805D74D0 -= size;
+            p->f4 = lbl_805D74D0;
+            p->f0 = (u32)lbl_805D74DC;
+            lbl_805D74DC = p;
+        }
+    } else {
+        if (prev != NULL) {
+            prev->f0 = found->f0;
+        } else {
+            lbl_805D74E0 = (Rec_803BE1EC *)found->f0;
+        }
+        found->f8 = size;
+        found->f0 = (u32)lbl_805D74DC;
+        lbl_805D74DC = found;
+    }
+    if (found == NULL) {
+        return (void *)0xFF;
+    }
+    return (void *)(u8)(found - lbl_8056E660);
 }
 
 u32 TLobby__sub_803BE1EC(u8 i, u32 *out) {

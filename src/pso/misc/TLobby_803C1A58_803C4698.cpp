@@ -19,6 +19,9 @@ struct Hdr_803C46A4 { u16 type; s16 len; };
 typedef void (*RecoveredCallback_e2efd47cbcab)(s32, char *);
 
 typedef s32 M2C_UNK;
+
+struct Fmt_803C46DC { s16 a; s16 b; s16 c; s16 d; s32 e; s32 f; s32 g; s32 h; };
+
 extern "C" {
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
@@ -74,6 +77,7 @@ extern s32 lbl_805D753C;
 extern s32 lbl_805D7540;
 extern const s32 lbl_805E0D30;
 void TLobby__sub_803C59B8(void);
+s32 __DVDPrepareResetAsync(u8 *hdr, s32 size, s32 *o1, s16 *o2, s16 *o3, s32 *o4, s32 *o5, s32 *o6, s32 *o7);
 }
 
 extern "C" {
@@ -119,6 +123,56 @@ s32 TLobby__sub_803C46A4(Hdr_803C46A4 *p, s32 size, s16 *out) {
         return -2;
     }
     *out = p->len + 4;
+    return 0;
+}
+
+s32 __DVDPrepareResetAsync(u8 *hdr, s32 size, s32 *o1, s16 *o2, s16 *o3, s32 *o4, s32 *o5, s32 *o6, s32 *o7) {
+    s32 err;
+    u8 ver;
+    s32 hsz;
+    s32 off;
+    Fmt_803C46DC *f;
+    *o2 = err = 0;
+    if (size < 0x14) {
+        err = -1;
+    } else if (*(u16 *)hdr != 0x8000) {
+        err = -2;
+    } else if (*(s16 *)(hdr + 2) < 0x10) {
+        err = -1;
+    } else {
+        ver = hdr[0x12];
+    }
+    if (err != 0) {
+        return err;
+    }
+    hsz = 0x30;
+    if (ver == 4) {
+        hsz = 0x3C;
+    }
+    if (size < hsz) {
+        return -1;
+    }
+    if (*(u16 *)hdr != 0x8000) {
+        return -2;
+    }
+    if (*(s16 *)(hdr + 2) < hsz - 4) {
+        return -1;
+    }
+    off = 0x14;
+    if (ver == 4) {
+        off = 0x20;
+    }
+    *o1 = *(s16 *)(hdr + off);
+    f = (Fmt_803C46DC *)(off + (s32)hdr);
+    *o2 = f->b;
+    if (*o2 != 1) {
+        return -2;
+    }
+    *o3 = f->d;
+    *o4 = f->e;
+    *o5 = f->f;
+    *o6 = f->g;
+    *o7 = f->h;
     return 0;
 }
 
