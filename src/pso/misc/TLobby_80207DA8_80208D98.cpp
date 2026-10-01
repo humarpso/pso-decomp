@@ -24,6 +24,10 @@ s32 heap_alloc__5THeapFUl(s32, s32);
 void TLobby__sub_800F9DF4(Buf_80208E8C *, void *);
 M2C_UNK TLobby__sub_80208904(s32);
 s32 TLobby__sub_80208E8C(s32 floor, s32 area, s32 terrain, s32 entities);
+void heap_free__5THeapFPv(void *, void *);
+extern M2C_UNK lbl_805139F8[];
+extern s32 lbl_805D6094;
+void TLobby__sub_80208E30(void);
 }
 
 extern "C" {
@@ -56,6 +60,17 @@ s32 add_player__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     }
     return 0;
 }
+
+void TLobby__sub_80208E30(void) {
+    s32 i;
+    for (i = 17; i >= 0; i--) {
+        if ((u32)((s32 *)&lbl_805139F8)[i] != 0) {
+            heap_free__5THeapFPv((void *)lbl_805D6094, (void *)((s32 *)&lbl_805139F8)[i]);
+            ((s32 *)&lbl_805139F8)[i] = 0;
+        }
+    }
+}
+
 s32 TLobby__sub_80208E8C(s32 floor, s32 area, s32 terrain, s32 entities) {
     Buf_80208E8C buf;
     s32 n;

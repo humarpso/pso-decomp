@@ -20,12 +20,24 @@ struct RecoveredGlobal_80190DE4___vt__16TObjEvtCollision {
     u8 remaining[0x34];
 };
 
+struct Pkt_80190CFC { u8 hdr[2]; u16 id; s32 player; s32 x10; s32 x14; };
+
+struct Obj_80190CFC { u8 pad0[0x1C]; u16 id; u8 pad1E[0x84 - 0x1E]; s32 x84; u8 pad88[0xAC - 0x88]; f32 radius; u8 padB0[4]; s32 timer; };
+
 extern "C" {
 s32 disallow_rendering__7TObjectFv(void *);
 s32 TObjPlayer__sub_801569F4(void *);
 extern M2C_UNK __vt__16TObjEvtCollision[];
 extern s32 lbl_805D3358;
 u8 *TObjEvtCollision__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+s32 TObjPlayer__sub_800196EC();
+M2C_UNK queue_destruction__7TObjectFv(void *);
+void byteswap_and_send__6TLobbyFi(void *);
+void init_packet_67_04__6TLobbyFPv(void *);
+s32 is_any_player_in_range__16TObjEvtCollisionFif(s32 arg0, f32 farg0);
+M2C_UNK fn_8020C408(void *, M2C_UNK);
+extern s32 lbl_805D53A0;
+void run_task__16TObjEvtCollisionFv(Obj_80190CFC *arg0);
 }
 
 extern "C" {
@@ -78,6 +90,22 @@ void *TObjEvtCollision__create(void *arg0) {
 void render__16TObjEvtCollisionFv(void) {  }
 
 extern M2C_UNK __vt__16TObjEvtCollision[];
+
+void run_task__16TObjEvtCollisionFv(Obj_80190CFC *arg0) {
+    Pkt_80190CFC pkt;
+    if (--arg0->timer <= 0) {
+        if (is_any_player_in_range__16TObjEvtCollisionFif((s32)arg0, arg0->radius * arg0->radius) == 1) {
+            init_packet_67_04__6TLobbyFPv(&pkt);
+            pkt.id = arg0->id;
+            pkt.player = TObjPlayer__sub_800196EC();
+            pkt.x10 = arg0->x84;
+            pkt.x14 = lbl_805D53A0;
+            byteswap_and_send__6TLobbyFi(&pkt);
+            fn_8020C408(arg0, 8);
+            queue_destruction__7TObjectFv(arg0);
+        }
+    }
+}
 
 void *__dt__16TObjEvtCollisionFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

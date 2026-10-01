@@ -531,6 +531,7 @@ pso/enemy/TObjEneRe7Berura_800967C0.cpp
 pso/enemy/TObjEneRe7Berura_80143098.cpp
 pso/enemy/TObjEneRe7Berura_803E4CE0.cpp
 pso/enemy/TObjEneRecon.cpp
+pso/enemy/TObjEneRecon_8029E89C.cpp
 pso/enemy/TObjEneRecon_8029E89C_8029EB40.cpp
 pso/enemy/TObjEneRecon_8029E89C_8029EB90.cpp
 pso/enemy/TObjEneRecon_80302DB0.cpp
@@ -1043,6 +1044,7 @@ pso/misc/TLobby_80137188_80138140.cpp
 pso/misc/TLobby_80137188_801381F0.cpp
 pso/misc/TLobby_80137188_80138244.cpp
 pso/misc/TLobby_80137188_801382F0.cpp
+pso/misc/TLobby_80137188_80138354.cpp
 pso/misc/TLobby_80137188_801386A8.cpp
 pso/misc/TLobby_80137188_801389A0.cpp
 pso/misc/TLobby_80137188_80138D0C.cpp
@@ -1090,6 +1092,7 @@ pso/misc/TLobby_801E6544_801E765C.cpp
 pso/misc/TLobby_801E6544_801ED6CC.cpp
 pso/misc/TLobby_801E6544_801ED718.cpp
 pso/misc/TLobby_801E6544_801ED8B8.cpp
+pso/misc/TLobby_801E6544_801EDF30.cpp
 pso/misc/TLobby_801E6544_801EE44C.cpp
 pso/misc/TLobby_801E6544_801EE48C.cpp
 pso/misc/TLobby_801E6544_801EE4B0.cpp
@@ -1114,12 +1117,14 @@ pso/misc/TLobby_80207DA8_80207EF0.cpp
 pso/misc/TLobby_80207DA8_80208280.cpp
 pso/misc/TLobby_80207DA8_80208340.cpp
 pso/misc/TLobby_80207DA8_802083C0.cpp
+pso/misc/TLobby_80207DA8_80208400.cpp
 pso/misc/TLobby_80207DA8_802085FC.cpp
 pso/misc/TLobby_80207DA8_802086EC.cpp
 pso/misc/TLobby_80207DA8_80208734.cpp
 pso/misc/TLobby_80207DA8_8020876C.cpp
 pso/misc/TLobby_80207DA8_802087B8.cpp
 pso/misc/TLobby_80207DA8_80208804.cpp
+pso/misc/TLobby_80207DA8_80208D98.cpp
 pso/misc/TLobby_80207DA8_80208F7C.cpp
 pso/misc/TLobby_80207DA8_80208FFC.cpp
 pso/misc/TLobby_80209524.cpp
@@ -1233,6 +1238,7 @@ pso/misc/TLobby_8034C18C.cpp
 pso/misc/TLobby_8034C23C.cpp
 pso/misc/TLobby_8035D540.cpp
 pso/misc/TLobby_8036A37C.cpp
+pso/misc/TLobby_8036B204.cpp
 pso/misc/TLobby_8036DBC4.cpp
 pso/misc/TLobby_8036F81C.cpp
 pso/misc/TLobby_803C1A58_803C45E4.cpp
@@ -1319,6 +1325,7 @@ pso/misc/TMainTask_80104C40.cpp
 pso/misc/TMapCsnCtrl.cpp
 pso/misc/TMedicalCenterMes.cpp
 pso/misc/TMessageBox.cpp
+pso/misc/TMotorcycle.cpp
 pso/misc/TMotorcycle_802D712C.cpp
 pso/misc/TMovie.cpp
 pso/misc/TMovie_80143BBC.cpp
@@ -1403,6 +1410,7 @@ pso/misc/TODoorAncient07.cpp
 pso/misc/TODoorAncient07_8015F930.cpp
 pso/misc/TODoorAncient08.cpp
 pso/misc/TODoorAncient09.cpp
+pso/misc/TODoorCave02.cpp
 pso/misc/TODoorCave03.cpp
 pso/misc/TODoorVoShip_8021A05C.cpp
 pso/misc/TOExplosiveMachine01.cpp
@@ -1420,12 +1428,15 @@ pso/misc/TOHangerMachine01.cpp
 pso/misc/TOJungleDesign.cpp
 pso/misc/TOJungleDesign_802FEDE8.cpp
 pso/misc/TOJungleDesign_802FEEB4.cpp
+pso/misc/TOKey.cpp
 pso/misc/TOKeyAncient01.cpp
 pso/misc/TOKeyAncient02.cpp
 pso/misc/TOKeyAncient03.cpp
+pso/misc/TOKeyCave01.cpp
 pso/misc/TOKeyCol.cpp
 pso/misc/TOKeyJungleMain.cpp
 pso/misc/TOKeyMachine01.cpp
+pso/misc/TOKeyMachine01_8016D448.cpp
 pso/misc/TOKeyMachine01_8029E764.cpp
 pso/misc/TOKey_8015845C.cpp
 pso/misc/TOKey_80169EE4.cpp
@@ -1439,6 +1450,7 @@ pso/misc/TOMineTrap.cpp
 pso/misc/TOMineTrapDisp.cpp
 pso/misc/TOMineTrap_8016ED9C.cpp
 pso/misc/TOMonumentAncient01.cpp
+pso/misc/TOMonumentAncient01_801726D4.cpp
 pso/misc/TORainbowCave01.cpp
 pso/misc/TORevlightCave01.cpp
 pso/misc/TORevlightCave01_80173478.cpp
@@ -1471,6 +1483,7 @@ pso/misc/TOSwitchItem.cpp
 pso/misc/TOSwitchItem_80102C44.cpp
 pso/misc/TOSwitchTimer.cpp
 pso/misc/TOTrapAncient02R.cpp
+pso/misc/TOTrapChainSawDamage.cpp
 pso/misc/TOTrapChainSawDamage_802C9BF8.cpp
 pso/misc/TOTrapChainSawKey.cpp
 pso/misc/TOTrapChainSaw_802C9BE4.cpp
@@ -1611,6 +1624,7 @@ pso/misc/TRecvPort.cpp
 pso/misc/TRecvPsoData.cpp
 pso/misc/TRecvPsoDataLong.cpp
 pso/misc/TRecvPsoRegistConnect.cpp
+pso/misc/TSaveChCr.cpp
 pso/misc/TSaveChCr_80339B64.cpp
 pso/misc/TSaveChCr_8033A088.cpp
 pso/misc/TScene.cpp
@@ -1637,6 +1651,7 @@ pso/misc/TShopEquipmentSellWindow_802115F4.cpp
 pso/misc/TShopEquipmentSellWindow_80267518.cpp
 pso/misc/TShopEquipmentSellWindow_8026CE78.cpp
 pso/misc/TShopEquipmentSellWindow_803094E8.cpp
+pso/misc/TShopEquipmentSequence.cpp
 pso/misc/TShopEquipmentSequence_8021E2E4.cpp
 pso/misc/TShopGetItemWindow_8021F074.cpp
 pso/misc/TShopGetItemWindow_8021F0A4.cpp
@@ -1790,6 +1805,7 @@ pso/misc/TWindowHelpItem_802531A0.cpp
 pso/misc/TWindowHelpItem_80255AB4.cpp
 pso/misc/TWindowInputNumber.cpp
 pso/misc/TWindowInputNumber_80211608.cpp
+pso/misc/TWindowKeyBoardBase.cpp
 pso/misc/TWindowKeyBoardBase_8008102C.cpp
 pso/misc/TWindowKeyBoardHard.cpp
 pso/misc/TWindowKeyBoardHard_801A529C.cpp
@@ -2163,6 +2179,7 @@ pso/object/TObjDoor_801F3754.cpp
 pso/object/TObjEZBoneRotBase.cpp
 pso/object/TObjEZBoneRotPlayer_800FE834.cpp
 pso/object/TObjEnvSound.cpp
+pso/object/TObjEvtCollision.cpp
 pso/object/TObjFish_8001ED90.cpp
 pso/object/TObjFish_800E2FFC.cpp
 pso/object/TObjFish_802ED828.cpp
@@ -2263,6 +2280,7 @@ pso/object/TObjWarpBase.cpp
 pso/object/TObjWarpBoss03.cpp
 pso/object/TObjWarpBoss03_801A2AEC.cpp
 pso/object/TObjWarpBossMulti_8019E48C.cpp
+pso/object/TObjWarpBossMulti_8019E708.cpp
 pso/object/TObjWarpBossMulti_8019E97C.cpp
 pso/object/TObjWarpBossMulti_801B3514.cpp
 pso/object/TObjWarpLobby.cpp
@@ -3117,6 +3135,7 @@ pso/ui/TAdDialingGC_80328A4C.cpp
 pso/ui/TAdDialingGC_80328A70.cpp
 pso/ui/TAdDialingGC_80328DB0.cpp
 pso/ui/TAdDialingGC_80328E50.cpp
+pso/ui/TAdDialingMessageWindow.cpp
 pso/ui/TAdDialingMessageWindow_8036A064.cpp
 pso/ui/TAdDrawLineCtrl.cpp
 pso/ui/TAdEnterBaseGC.cpp
@@ -3236,6 +3255,7 @@ pso/ui/TAdTrialAgreementGC.cpp
 pso/ui/TAdTrialAgreementGC_8033573C.cpp
 pso/ui/TAdTrialAgreementGC_80335958.cpp
 pso/ui/TAdTrialModemChkGC.cpp
+pso/ui/TAdVIConfigGC.cpp
 pso/ui/TAdVIConfigGC_80248B8C.cpp
 pso/ui/TAdVIConfigGC_80308200.cpp
 pso/ui/TAdWarningBaseGC.cpp
@@ -3307,6 +3327,7 @@ pso/unk/text_80074C20.cpp
 pso/unk/text_80074C70.cpp
 pso/unk/text_80074E04.cpp
 pso/unk/text_80074E48.cpp
+pso/unk/text_80076BC4.cpp
 pso/unk/text_80076BC4_80076C68.cpp
 pso/unk/text_80076BC4_80076D1C.cpp
 pso/unk/text_800779A0.cpp
@@ -3697,6 +3718,7 @@ pso/unk/text_801B9E0C.cpp
 pso/unk/text_801B9EDC.cpp
 pso/unk/text_801BA42C.cpp
 pso/unk/text_801BA494.cpp
+pso/unk/text_801BA6BC.cpp
 pso/unk/text_801BAA6C.cpp
 pso/unk/text_801BB950.cpp
 pso/unk/text_801BC688.cpp

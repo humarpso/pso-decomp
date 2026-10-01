@@ -43,6 +43,7 @@ extern struct ClassAppearance lbl_804D8E20[19];
 s32 get_display_index__12TCharaMakingFPv(struct Appearance *);
 void TCharaMaking__sub_8028E4CC(void *, struct Appearance *, struct ClassAppearance *, struct TextureList *);
 void TCharaMaking__bind_appearance_texture_lists(s32 *arg0, s32 *arg1, s32 *arg2, struct Appearance *arg3);
+s32 TCharaMaking__sub_8028E3A0(f32 *arg0);
 }
 
 extern "C" {
@@ -95,6 +96,14 @@ void TCharaMaking__bind_appearance_texture_lists(s32 *arg0, s32 *arg1, s32 *arg2
   }
   TCharaMaking__sub_8028E4CC(arg2, arg3, temp_r28, temp_r28->bodyTextures);
   *arg2 = 1;
+}
+s32 TCharaMaking__sub_8028E3A0(f32 *arg0) {
+    if (arg0[0] < 0.0f || arg0[0] >= 1.0f || arg0[1] < 0.0f || arg0[1] >= 1.0f) {
+        arg0[0] = 0.0f;
+        arg0[1] = 0.0f;
+        return 1;
+    }
+    return 0;
 }
 
 }

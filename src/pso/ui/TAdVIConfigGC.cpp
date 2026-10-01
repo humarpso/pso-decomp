@@ -31,6 +31,14 @@ struct VObj_803080B0_80307DEC : Base_803080B0_80307DEC {
     virtual void m9();
 };
 
+struct Name_80307D00 { char s[0x18]; };
+
+struct Cfg_80307D00 {
+    u8 pad0[0x24];
+    u32 win;
+    Name_80307D00 names[4];
+};
+
 extern "C" {
 int disable_progressive_mode__13TAdVIConfigGCFv(void* p = 0);
 void TAdVIConfigGC__vt5(void* p);
@@ -50,8 +58,18 @@ void disallow_rendering__7TObjectFv(void *);
 s32 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
 s32 TLobby__sub_801B0974();
 M2C_UNK fn_80307BE8(void *);
-M2C_UNK TAdVIConfigGC__sub_80307D00(void *);
 void TAdVIConfigGC__sub_80307DF4(u8 *arg0);
+void set_close_flag__19TWindowSubTradeMainFPv(u32);
+void set_visible__19TWindowSubTradeMainFPv(u32);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 TWindow__close(u32);
+void dispatch_without_flags__20TWindowSubStatusDispFiii(u32, char *, s32);
+u32 draw_with_layer__13TAdVIConfigGCFiii(s32, void *, s32);
+s32 TWindowSubComCard__sub_8026CBB8(s32);
+char *strncpy(char *, const char *, u32);
+extern u8 lbl_804E71B8[];
+extern s32 lbl_805D53A0;
+void TAdVIConfigGC__sub_80307D00(Cfg_80307D00 *arg0);
 }
 
 extern "C" {
@@ -67,7 +85,6 @@ void run_task__13TAdVIConfigGCFv(void *arg0);
 void set_field48_clear_global__13TAdVIConfigGCFPv(void *arg0);
 int OSSetProgressiveMode(void*);
 int TAdSinglePlyChrSelectGC__sub_80132F2C(void*, void*);
-M2C_UNK TAdVIConfigGC__sub_80307D00(void *);
 void TAdYesNoBaseGC__ct(void *);
 void TAdYesNoBaseGC__vt0(void *, int);
 s32 TLobby__sub_801B0974();
@@ -83,6 +100,31 @@ int VIFlush(void);
 M2C_UNK memset(void *, int, int);
 void set_field_2c__13TAdVIConfigGCFPvi(void *, int);
 
+void TAdVIConfigGC__sub_80307D00(Cfg_80307D00 *arg0) {
+    s32 i;
+    u8 *p;
+    if (arg0->win != 0) {
+        TWindow__close(arg0->win);
+        arg0->win = 0;
+    }
+    arg0->win = draw_with_layer__13TAdVIConfigGCFiii(TWindowSubComCard__sub_8026CBB8(0x5A), lbl_804E71B8, lbl_805D53A0);
+    if (arg0->win != 0) {
+        set_visible__19TWindowSubTradeMainFPv(arg0->win);
+        set_close_flag__19TWindowSubTradeMainFPv(arg0->win);
+        for (i = 0; i < 4; i++) {
+            p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+            if (p != 0) {
+                strncpy(arg0->names[i].s, (char *)(p + 0x85C), 0x17);
+                arg0->names[i].s[0x17] = 0;
+                dispatch_without_flags__20TWindowSubStatusDispFiii(arg0->win, arg0->names[i].s, i);
+            } else {
+                arg0->names[i].s[0] = 0;
+                dispatch_without_flags__20TWindowSubStatusDispFiii(arg0->win, arg0->names[i].s, i);
+            }
+        }
+    }
+}
+
 s32 get_field_14__13TAdVIConfigGCFPv(void* p) { return *(s32*)((char*)p + 0x14); }
 
 void TAdVIConfigGC__sub_80307DF4(u8 *arg0) {
@@ -91,7 +133,7 @@ void TAdVIConfigGC__sub_80307DF4(u8 *arg0) {
     temp_r3 = TLobby__sub_801B0974();
     if ((s32) M2C_FIELD(arg0, s32 *, 4) != temp_r3) {
         M2C_FIELD(arg0, s32 *, 4) = temp_r3;
-        TAdVIConfigGC__sub_80307D00((void *) (arg0));
+        TAdVIConfigGC__sub_80307D00((Cfg_80307D00 *)((void *) (arg0)));
     }
     fn_80307BE8((void *) (arg0));
     temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x24));
@@ -132,7 +174,7 @@ u8 *init__13TAdVIConfigGCFPvf(u8 *arg0, f32 farg0) {
     M2C_FIELD(arg0, s32 *, 4) = TLobby__sub_801B0974();
     M2C_FIELD(arg0, s32 *, 0x14) = 0;
     M2C_FIELD(arg0, s32 *, 0x18) = 0;
-    TAdVIConfigGC__sub_80307D00((void *) (arg0));
+    TAdVIConfigGC__sub_80307D00((Cfg_80307D00 *)((void *) (arg0)));
     M2C_FIELD(arg0, s32 *, 0x1C) = 0;
     return arg0;
 }

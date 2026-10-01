@@ -7,6 +7,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Obj_8036B2E8 { u8 pad0[0x1C]; u32 base; s32 t[4]; };
 struct Obj_8036B340 { u8 pad0[0x1C]; u32 base; s32 t[4]; };
 
+struct Ent_8036B424 { u8 b[0x3C]; };
+
+struct Mgr_8036B424 {
+    u8 pad0[0x18];
+    void *vt;
+    Ent_8036B424 *buf;
+    void *ptrs[4];
+};
+
 extern "C" {
 M2C_UNK TLobby__sub_80076F48(s32, s32);
 M2C_UNK TLobby__sub_8036B1AC(s32);
@@ -17,12 +26,18 @@ M2C_UNK free__11TOBoss4RockFUi(s32);
 extern M2C_UNK lbl_804F3640[];
 extern u32 lbl_805D7008;
 void *destroy_boss4_rock__6TLobbyFPvs(void *arg0, s16 arg1);
-void *TLobby__sub_8036B424(void *, void *);
 void *__nw__7TObjectFUl(int);
 extern u32 lbl_805D7008;
 void create_singleton__6TLobbyFPv(void *arg0);
 void TLobby__sub_8036B50C(void);
 void TLobby__sub_8036B510(void);
+void queue_destruction__7TObjectFv(void *);
+void *alloc_buffer__11TOBoss4RockFPv(s32);
+void __ct__7TObjectFP7TObject(void *);
+M2C_UNK TLobby__sub_8036B1AC(s32);
+extern M2C_UNK lbl_804F3640[];
+extern u32 lbl_805D7008;
+Mgr_8036B424 *TLobby__sub_8036B424(Mgr_8036B424 *arg0, void * _w1);
 }
 
 extern "C" {
@@ -90,12 +105,30 @@ void *destroy_boss4_rock__6TLobbyFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+Mgr_8036B424 *TLobby__sub_8036B424(Mgr_8036B424 *arg0, void * _w1) {
+    s32 i;
+    __ct__7TObjectFP7TObject(arg0);
+    arg0->vt = ((s32 *)&lbl_804F3640);
+    arg0->buf = (Ent_8036B424 *)alloc_buffer__11TOBoss4RockFPv(0xF0);
+    if (arg0->buf != 0) {
+        for (i = 0; i != 4; i++) {
+            TLobby__sub_8036B1AC((s32)&arg0->buf[i]);
+            arg0->ptrs[i] = 0;
+        }
+    } else {
+        queue_destruction__7TObjectFv(arg0);
+    }
+    lbl_805D7008 = (u32)arg0;
+    return arg0;
+}
+
 void create_singleton__6TLobbyFPv(void *arg0) {
     void *o;
     if ((*(void * *)&lbl_805D7008) == NULL) {
         o = __nw__7TObjectFUl(0x30);
         if (o != NULL) {
-            TLobby__sub_8036B424(o, arg0);
+            TLobby__sub_8036B424((Mgr_8036B424 *)(o), (void *)(arg0));
         }
     }
 }

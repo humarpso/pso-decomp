@@ -83,6 +83,18 @@ struct W_8021D750 { u8 pad[0x190]; void *cb0; };
 
 struct S_8021D750 { u8 pad[0x24]; s32 f24; };
 
+struct Base_8021D7B8 { char pad[0x18]; };
+
+struct VObj_8021D7B8 : Base_8021D7B8 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4(int, int);
+};
+
+struct Seq_8021D7B8 { u8 pad[0x24]; void *f24; u8 pad28[4]; void *win; };
+
 extern "C" {
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
 u32 TShopSequence__sub_80223600(void *, s32, s32);
@@ -114,7 +126,6 @@ M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 handle_confirm__22TShopEquipmentSequenceFPv(void *arg0);
 s32 TShopEquipmentSequence__sub_8021D65C(void);
 s32 close_if_done__22TShopEquipmentSequenceFPv(void *arg0);
-s32 TShopEquipmentSequence__sub_8021D7B8(void *);
 s32 TShopEquipmentSequence__sub_8021D948(u8 *arg0);
 s32 restore_player_state__13TShopSequenceFPv(void *);
 void TShopEquipmentSequence__vt9(u8 *arg0);
@@ -137,6 +148,22 @@ void *TShopEquipmentListWindow__ct(void *, s32, void *, s32);
 void exit__22TShopEquipmentSequenceFPv(void *arg0);
 extern void *tl_05;
 void TShopEquipmentSequence__sub_8021D750(S_8021D750 *self);
+u16 obj_getField1c(void *);
+s32 is_visible__17TWindowSubComCardFPv(void *);
+s32 get_status_flag__17TWindowSubComCardFPv(void *);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
+M2C_UNK set_ready_flag__18TCheckRoomSequenceFPv(void *);
+s32 TLobby__sub_80222CFC(s32 arg0);
+f32 get_scale__15TShopWindowBaseFv(void *);
+M2C_UNK set_position_xy(void *, f32, f32);
+M2C_UNK TWindow__close(void *);
+s32 TWindowSubComCard__sub_80265BF8(void *);
+void TWindowSubComCard__sub_80265C30(void *w);
+void TWindowSubComCard__sub_80265F60(void *w);
+s32 forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, s32, s32);
+s32 TCheckRoomSequence__sub_802664A8(s32, s32, s32);
+s32 TWindowSubComCard__sub_8026CBB8(int, f32);
+void TShopEquipmentSequence__sub_8021D7B8(void *arg0);
 }
 
 extern "C" {
@@ -224,6 +251,42 @@ void TShopEquipmentSequence__sub_8021D750(S_8021D750 *self) {
     set_field_20__12TQuestListVMFPvi(self, 7);
 }
 
+void TShopEquipmentSequence__sub_8021D7B8(void *arg0) {
+#define self ((Seq_8021D7B8 *)arg0)
+    s32 r;
+    if (self->win == NULL) {
+        s32 id = obj_getField1c(self->f24);
+        self->win = (void *)TCheckRoomSequence__sub_802664A8(((s32 (*)(int))TWindowSubComCard__sub_8026CBB8)(0x2B), 2, id);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(self->win, TLobby__sub_80222CFC(4), 6, 0);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(self->win, TLobby__sub_80222CFC(6), 6, 1);
+        TWindowSubComCard__sub_80265F60(self->win);
+        TWindowSubComCard__sub_80265C30(self->win);
+        set_ready_flag__18TCheckRoomSequenceFPv(self->win);
+        set_position_xy(self->win, get_scale__15TShopWindowBaseFv(self), get_scale__15TShopWindowBaseFv(self));
+    }
+    if (self->win != NULL && is_visible__17TWindowSubComCardFPv(self->win) != 0) {
+        r = TWindowSubComCard__sub_80265BF8(self->win);
+        if (r == 0) {
+            set_field_20__12TQuestListVMFPvi(self, 3);
+            TWindow__close(self->win);
+            self->win = NULL;
+            return;
+        }
+        if (r == 1) {
+            set_field_20__12TQuestListVMFPvi(self, 4);
+            TWindow__close(self->win);
+            self->win = NULL;
+            return;
+        }
+    }
+    if (self->win != NULL && get_status_flag__17TWindowSubComCardFPv(self->win) != 0) {
+        ((VObj_8021D7B8 *)self)->m4(0x2C, 1);
+        set_field_20__12TQuestListVMFPvi(self, 9);
+        TWindow__close(self->win);
+        self->win = NULL;
+    }
+}
+
 s32 TShopEquipmentSequence__sub_8021D948(u8 *arg0) {
   Stack_8021D948 stack;
   stack.sp8 = lbl_805DC6E0;
@@ -249,7 +312,7 @@ void TShopEquipmentSequence__vt9(u8 *arg0) {
         TShopEquipmentSequence__sub_8021D948((u8 *)((void *) (arg0)));
         return;
     case 2:
-        TShopEquipmentSequence__sub_8021D7B8((void *) (arg0));
+        TShopEquipmentSequence__sub_8021D7B8((void *)((void *) (arg0)));
         return;
     case 3:
         TShopEquipmentSequence__sub_8021D750((S_8021D750 *)((void *) (arg0)));

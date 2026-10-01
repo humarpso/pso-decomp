@@ -24,6 +24,8 @@ typedef char RecoveredGlobal_801950B8_lbl_80445E18_size[sizeof(RecoveredGlobal_8
 struct RecoveredGlobal_801950B8_lbl_804B8564 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_801950B8_lbl_804B8564_size[sizeof(RecoveredGlobal_801950B8_lbl_804B8564) == 0x10 ? 1 : -1];
 
+struct Moto_801951C8 { s32 x0; u8 pad4[0x30 - 4]; u32 flags; u8 pad34[0x68 - 0x34]; f32 x68; u8 pad6C[0xBC - 0x6C]; s32 xBC; };
+
 extern "C" {
 s32 get_state_flag__9TMainTaskFv(void);
 s32 set_global_param__8TObjFishFi(s32);
@@ -52,6 +54,15 @@ extern u32 lbl_805D5C44;
 extern const f32 lbl_805DBED8;
 extern const f32 lbl_805DBEDC;
 void TMotorcycle__sub_801950B8(void);
+f32 get_random_float__8TObjFishFv(f32);
+void reset_photon_effect__10TObjPlayerFPv(void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+M2C_UNK TObjMesBase__ct(void *, void *, void *);
+extern s32 lbl_80445DF4[];
+extern M2C_UNK lbl_804B8574[];
+extern M2C_UNK __vt__11TMotorcycle[];
+extern s32 lbl_805D33D4;
+void *TMotorcycle__ct(void *arg0, void *arg1, void *arg2);
 }
 
 extern "C" {
@@ -62,7 +73,6 @@ void *create__11TMotorcycleFPv(void *arg0);
 void free_statics__11TMotorcycleFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TLobby__sub_803DA16C(void*);
-void *TMotorcycle__ct(void *, void *, void *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -93,7 +103,7 @@ extern void *tl_05;
 void *create__11TMotorcycleFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {
-        o = TMotorcycle__ct(o, tl_05, arg0);
+        o = TMotorcycle__ct((void *)(o), (void *)(tl_05), (void *)(arg0));
     }
     return o;
 }
@@ -139,6 +149,19 @@ void *__dt__11TMotorcycleFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+#define self ((Moto_801951C8 *)arg0)
+void *TMotorcycle__ct(void *arg0, void *arg1, void *arg2) {
+    TObjMesBase__ct(arg0, arg1, arg2);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TMotorcycle;
+    self->x0 = lbl_805D33D4;
+    self->xBC = get_random_float__8TObjFishFv(self->x68);
+    self->xBC = self->xBC % 2;
+    self->xBC = lbl_80445DF4[self->xBC];
+    TObjEneGibbles__sub_80156780(arg0, lbl_804B8574, 1);
+    self->flags |= 0x40000000;
+    reset_photon_effect__10TObjPlayerFPv(arg0);
     return arg0;
 }
 

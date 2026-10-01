@@ -7,6 +7,17 @@ struct Base_8036A248_8036A174 { char pad[0x18]; };
 struct VObj_8036A248_8036A174 : Base_8036A248_8036A174 { virtual void m0(int); };
 
 extern "C" {
+M2C_UNK render_status_disp__23TAdSinglePlyChrSelectGCFPvff(void *, f32, f32);
+M2C_UNK render_nodes__7TObjectFv(void *);
+M2C_UNK TAdDialingGC__sub_80328B24(M2C_UNK *, M2C_UNK *);
+extern M2C_UNK lbl_8047A400[];
+extern M2C_UNK lbl_8047A408[];
+extern const f32 lbl_805E0364;
+extern const f32 lbl_805E0368;
+void render__23TAdDialingMessageWindowFv(void *arg0);
+}
+
+extern "C" {
 
 void *TAdDialingMessageWindow__ct(void *arg0, void *arg1, void *arg2);
 void *__dt__23TAdDialingMessageWindowFv(void *arg0, s16 arg1);
@@ -27,6 +38,18 @@ void set_flag_and_notify__23TAdDialingMessageWindowFPv(void* a0) { *(int*)((char
 void run_child_tasks__23TAdDialingMessageWindowFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) run_tasks__7TObjectFv(m); }
 
 extern M2C_UNK __vt__23TAdDialingMessageWindow[];
+
+void render__23TAdDialingMessageWindowFv(void *arg0) {
+    if (M2C_FIELD(arg0, s32 *, 0x1C) & 1) {
+        TAdDialingGC__sub_80328B24(lbl_8047A400, lbl_8047A408);
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {
+            render_status_disp__23TAdSinglePlyChrSelectGCFPvff(M2C_FIELD(arg0, void **, 0x20), lbl_805E0364, lbl_805E0368);
+        }
+    }
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != 0U) {
+        render_nodes__7TObjectFv(M2C_FIELD(arg0, void **, 0x28));
+    }
+}
 
 void *__dt__23TAdDialingMessageWindowFv(void *arg0, s16 arg1) {
     void *temp_r3;

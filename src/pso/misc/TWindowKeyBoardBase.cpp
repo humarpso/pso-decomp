@@ -22,6 +22,15 @@ extern M2C_UNK __vt__19TWindowKeyBoardBase[];
 extern s32 lbl_805D3920;
 extern s32 lbl_805D5544;
 u8 *TWindowKeyBoardBase__ct(u8 *arg0);
+M2C_UNK TLobby__sub_8001D600(M2C_UNK, s32, s32, s32);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
+s32 set_stream_and_load_file__6TLobbyFi(M2C_UNK *);
+s32 TLobby__sub_800FD944(M2C_UNK *);
+s32 Dolphin_ARAlloc(s32);
+M2C_UNK TQuestVmDownLoadServer__sub_803F09A4();
+M2C_UNK TQuestVmDownLoadServer__sub_803F0C04(s32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
+extern M2C_UNK lbl_8044F098[];
+void TLobby__sub_8025EAD4(void);
 }
 
 extern "C" {
@@ -95,6 +104,20 @@ u8 *TWindowKeyBoardBase__ct(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0xB0) = 0x94;
     }
     return arg0;
+}
+void TLobby__sub_8025EAD4(void) {
+    s32 data;
+    s32 size;
+    s32 aligned;
+    s32 aram;
+    size = TLobby__sub_800FD944(lbl_8044F098);
+    aligned = (size + 0x1F) & ~0x1F;
+    aram = Dolphin_ARAlloc(aligned);
+    data = set_stream_and_load_file__6TLobbyFi(lbl_8044F098);
+    TLobby__sub_8001D600(3, data, aram, aligned);
+    safe_free__23TAdSinglePlyChrSelectGCFUi(data);
+    TQuestVmDownLoadServer__sub_803F0C04(aram, size, 3, 1, 0x2710);
+    TQuestVmDownLoadServer__sub_803F09A4();
 }
 
 }

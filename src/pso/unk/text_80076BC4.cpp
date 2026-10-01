@@ -14,12 +14,11 @@ extern "C" {
 void TAdSinglePlyChrSelectGC__sub_80076DF4(void* p, void* q);
 s32 TAdSinglePlyChrSelectGC__sub_80076D9C(s32 arg0, s32 arg1);
 s32 TAdSinglePlyChrSelectGC__sub_80076D9C(s32 arg0, s32 arg1);
-int TWindowKeyBoardSoft__sub_80076E2C(s32);
 s32 fn_80076D68(s32 arg0, s32 arg1);
-int TWindowKeyBoardSoft__sub_80076E2C(s32 _w0);
 bool TWindowKeyBoardSoft__sub_80076E00(s32 arg0);
-int TWindowKeyBoardSoft__sub_80076E2C(s32 _w0);
 void fn_80076D40(s32 i);
+s32 get_card_window__17TWindowSubComCardFUi(u32);
+int TWindowKeyBoardSoft__sub_80076E2C(s32 arg0);
 }
 
 extern "C" {
@@ -31,11 +30,11 @@ s32 TWindowSubSymbolChat__sub_80076F88(void *);
 int fn_80076CD0(void);
 
 void fn_80076D40(s32 i) {
-    void **p = ((void **)TWindowKeyBoardSoft__sub_80076E2C(i));
+    void **p = ((void **)TWindowKeyBoardSoft__sub_80076E2C((s32)(i)));
     *p = 0;
 }
 
-s32 fn_80076D68(s32 arg0, s32 arg1) { return TAdSinglePlyChrSelectGC__sub_80076D9C(((s32)TWindowKeyBoardSoft__sub_80076E2C((s32)(arg0))), arg1); }
+s32 fn_80076D68(s32 arg0, s32 arg1) { return TAdSinglePlyChrSelectGC__sub_80076D9C(((s32)TWindowKeyBoardSoft__sub_80076E2C((s32)((s32)(arg0)))), arg1); }
 
 s32 TAdSinglePlyChrSelectGC__sub_80076D9C(s32 arg0, s32 arg1) {
     TAdSinglePlyChrSelectGC__sub_80076DF4((void*)(arg0), (void*)(arg1));
@@ -46,9 +45,12 @@ s32 TAdSinglePlyChrSelectGC__sub_80076D9C(s32 arg0, s32 arg1) {
 void TAdSinglePlyChrSelectGC__sub_80076DF4(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); }
 
 bool TWindowKeyBoardSoft__sub_80076E00(s32 arg0) {
-    return *((s32 *)TWindowKeyBoardSoft__sub_80076E2C(arg0)) != 0;
+    return *((s32 *)TWindowKeyBoardSoft__sub_80076E2C((s32)(arg0))) != 0;
 }
-
-int TWindowKeyBoardSoft__sub_80076E2C(s32 _w0) { return 0; }
+typedef struct { u8 b[0x54]; } Rec_80076E2C;
+int TWindowKeyBoardSoft__sub_80076E2C(s32 arg0) {
+    u8 *p = (u8 *)((Rec_80076E2C *)get_card_window__17TWindowSubComCardFUi(0xFFFF) + arg0);
+    return (s32)(p + 0x19C0);
+}
 
 }

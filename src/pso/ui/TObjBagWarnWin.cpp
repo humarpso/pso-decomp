@@ -23,7 +23,6 @@ struct Ctrl_8006EC20 {
 };
 
 extern "C" {
-M2C_UNK TObjBagWarnWin__sub_8006EDD8(void *);
 M2C_UNK TWindow__close(int);
 s32 TWindowCtrlMain__sub_8024CE58();
 void run_task__14TObjBagWarnWinFv(u8 *arg0);
@@ -37,6 +36,18 @@ extern const f32 lbl_805D90BC;
 extern const f32 lbl_805D90C0;
 extern const f32 lbl_805D90C4;
 s32 TObjBagWarnWin__sub_8006EC20(void *arg0);
+s32 get_camera_id__11TCameraCtrlFv();
+s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
+M2C_UNK set_position_xy(u32, f32, f32);
+M2C_UNK set_field_1c__6TLobbyFPvf(u32, f32);
+M2C_UNK send_and_handle__6TLobbyFPvii(u32, void *, M2C_UNK);
+u32 set_window_mode_4__6TLobbyFPvii(M2C_UNK, void *, M2C_UNK);
+M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK strncpy(void *, s32, M2C_UNK);
+extern u8 lbl_80488E40[];
+extern const f32 lbl_805D90C8;
+extern const f32 lbl_805D90CC;
+void TObjBagWarnWin__sub_8006EDD8(u8 *arg0);
 }
 
 extern "C" {
@@ -86,13 +97,25 @@ void run_task__14TObjBagWarnWinFv(u8 *arg0) {
                 M2C_FIELD(arg0, s32 *, 0xA0) = 0x1E;
             }
             if ((s32) M2C_FIELD(arg0, s32 *, 0xA0) == 0) {
-                TObjBagWarnWin__sub_8006EDD8((void *) (arg0));
+                TObjBagWarnWin__sub_8006EDD8((u8 *)((void *) (arg0)));
             }
         }
     } else if (TObjBagWarnWin__sub_8006EC20((void *)((void *) (arg0))) == 0) {
         TWindow__close((int) (M2C_FIELD(arg0, u32 *, 0x1C)));
         M2C_FIELD(arg0, u32 *, 0x1C) = 0U;
         M2C_FIELD(arg0, s32 *, 0xA0) = 0x1E;
+    }
+}
+void TObjBagWarnWin__sub_8006EDD8(u8 *arg0) {
+    M2C_FIELD(arg0, u32 *, 0x1C) = set_window_mode_4__6TLobbyFPvii(TWindowSubComCard__sub_8026CBB8(0x38), lbl_80488E40, 1);
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
+        set_field_1c__6TLobbyFPvf(M2C_FIELD(arg0, u32 *, 0x1C), lbl_805D90C8);
+        if (get_camera_id__11TCameraCtrlFv() == 4) {
+            set_position_xy(M2C_FIELD(arg0, u32 *, 0x1C), lbl_805D90CC, lbl_805D90CC);
+        }
+        strncpy(arg0 + 0x20, TQuestVmDownLoadServer__sub_8006EF6C(0x59), 0x7F);
+        M2C_FIELD(arg0, s8 *, 0x9F) = 0;
+        send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, u32 *, 0x1C), arg0 + 0x20, 0);
     }
 }
 

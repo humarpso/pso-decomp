@@ -24,6 +24,15 @@ typedef struct Obj_800C6EF8 {
     u32 flags;
 } Obj_800C6EF8;
 
+typedef struct Obj_800C6FFC {
+    u8 pad0[0x38];
+    f32 pos[3];
+    u8 pad44[0x2A8 - 0x44];
+    void *target;
+    u8 pad2AC[0x338 - 0x2AC];
+    u16 targetIdx;
+} Obj_800C6FFC;
+
 extern "C" {
 u8 *get_player_data__10TObjPlayerFi(int);
 s32 obj_testFlags30(void *, int);
@@ -46,6 +55,12 @@ f32 fn_8013157C(void *, void *);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 u16 TObjPlayer__sub_800C6D24(u8 *arg0, f32 radius);
+s32 TObjPlayer__sub_800115C4(void *, void *, f32);
+u16 TObjPlayer__sub_800C6EF8(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius);
+u8 *TNpcPlayer__sub_800D87EC(int);
+f32 fn_8013157C(void *, void *);
+Obj_800C6FFC *TPhotonMylla__sub_80154CB4(int);
+BOOL TObjPlayer__sub_800C6FFC(Obj_800C6FFC *arg0, f32 radius);
 }
 
 extern "C" {
@@ -158,6 +173,28 @@ u16 TObjPlayer__sub_800C6EF8(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius) 
         }
     }
     return best;
+}
+struct Obj_800C6EF8;
+struct Vec_800C6EF8;
+BOOL TObjPlayer__sub_800C6FFC(Obj_800C6FFC *arg0, f32 radius) {
+    s32 a;
+    s32 b;
+    f32 da;
+    a = TObjPlayer__sub_800115C4(arg0, NULL, radius);
+    b = ((s32 (*)(void *, void *, f32))TObjPlayer__sub_800C6EF8)(arg0, NULL, radius);
+    if ((u16)a == 0xFFFF) {
+        arg0->targetIdx = 0xFFFF;
+    } else if ((u16)b == 0xFFFF) {
+        arg0->targetIdx = a;
+    } else {
+        da = fn_8013157C(arg0->pos, TPhotonMylla__sub_80154CB4(a)->pos);
+        arg0->targetIdx = da < fn_8013157C(arg0->pos, TPhotonMylla__sub_80154CB4(b)->pos) ? a : b;
+    }
+    arg0->target = TNpcPlayer__sub_800D87EC(arg0->targetIdx);
+    if (arg0->target != NULL) {
+        return 1;
+    }
+    return 0;
 }
 
 }

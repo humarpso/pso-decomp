@@ -21,11 +21,14 @@ struct Ports_80306DF4 { s32 v[4]; };
 
 struct Pad_80306DF4 { u8 pad[0x20]; u8 btn[0x30]; };
 
+struct Q_80306B04 { f32 a; f32 b; f32 c; f32 d; u8 pad[0x10]; };
+
+struct E_80306B04 { u8 pad0[0x1C]; s32 flags; s32 t; f32 x; f32 y; s32 vals[5]; Q_80306B04 q[4]; u8 pad2[4]; };
+
 extern "C" {
 s32 get_state_flag__9TMainTaskFv(void);
 void reset_transform_state__10TObjPlayerFv(void);
 void init_xyz_limits__10TObjPlayerFv(void);
-void TAdMultiOkGC__sub_80306B04(void *, int);
 void render__12TAdMultiOkGCFv(Ok_80306C10 *o);
 void run_task__12TAdMultiOkGCFv(Ok_80306F84 *o);
 extern const f32 lbl_805DF04C;
@@ -41,16 +44,50 @@ M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 extern Ports_80306DF4 lbl_80475410;
 extern Pad_80306DF4 lbl_8050E3B8[];
 void TAdMultiOkGC__sub_80306DF4(void *arg0, int arg1);
+M2C_UNK set_global_param__8TObjFishFi(s32);
+M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
+M2C_UNK get_player__20TWindowSubStatusDispFv();
+M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32);
+M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, s32);
+extern s32 lbl_805D6A48;
+extern const f32 lbl_805DF040;
+extern const f32 lbl_805DF044;
+extern const f32 lbl_805DF048;
+void TAdMultiOkGC__sub_80306B04(void *arg0, int arg1);
 }
 
 extern "C" {
+
+#pragma push
+#pragma fp_contract on
+void TAdMultiOkGC__sub_80306B04(void *arg0, int arg1) {
+    E_80306B04 *e;
+    s32 i;
+    f32 base;
+    e = (E_80306B04 *)arg0;
+    if (e[arg1].flags & 2) {
+        TWindowSubStatusDisp__sub_803DEE6C(1);
+        set_global_param__8TObjFishFi(lbl_805D6A48);
+        e += arg1;
+        base = lbl_805DF040 * (f32)arg1;
+        for (i = 0; i < 5; i++) {
+            TWindowSubStatusDisp__sub_803DF160(0, e->vals[i]);
+            if (e->t - (i - 1) >= 0) {
+                f32 t = lbl_805DF048 * (f32)i + lbl_805DF044;
+                TWindowSubComCard__sub_803DEECC(&e->q[i], t + base);
+            }
+        }
+        get_player__20TWindowSubStatusDispFv();
+    }
+}
+#pragma pop
 
 void render__12TAdMultiOkGCFv(Ok_80306C10 *o) {
     s32 i;
     if (get_state_flag__9TMainTaskFv() != 1) {
         init_xyz_limits__10TObjPlayerFv();
         for (i = 0; i < o->count; i++) {
-            TAdMultiOkGC__sub_80306B04(o, i);
+            TAdMultiOkGC__sub_80306B04((void *)(o), (int)(i));
         }
         reset_transform_state__10TObjPlayerFv();
     }

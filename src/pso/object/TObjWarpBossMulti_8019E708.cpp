@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u8 TODoorAncient08__sub_80229220(int);
+void TObjWarpBossMulti__sub_8019E798(u8 *arg0);
+}
+
+extern "C" {
 
 void notify_player__17TObjWarpBossMultiFPvi(void *arg0, s32 arg1);
 void warp_boss_handle_window(void *arg0);
@@ -52,6 +57,26 @@ void warp_player__17TObjWarpBossMultiFPvi(void *arg0, s32 arg1) {
 }
 
 extern s32 lbl_805D53A0;
+
+void TObjWarpBossMulti__sub_8019E798(u8 *arg0) {
+    s16 temp_r0;
+    s32 temp_r0_2;
+    temp_r0 = M2C_FIELD(arg0, s16 *, 0xE0);
+    switch (temp_r0) {
+    case 0:
+        M2C_FIELD(arg0, s32 *, 0xD0) = 0;
+        M2C_FIELD(arg0, s16 *, 0xE0) = 1;
+        return;
+    case 1:
+        temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x16C);
+        if ((temp_r0_2 >= 0) && (TODoorAncient08__sub_80229220((int) ((u16) temp_r0_2)) == 1)) {
+            M2C_FIELD(arg0, s16 *, 0xDC) = 0;
+        }
+        return;
+    case -1:
+        break;
+    }
+}
 
 void warp_boss_handle_window(void *arg0) {
     s16 temp_r0;

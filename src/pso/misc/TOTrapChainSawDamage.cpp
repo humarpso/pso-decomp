@@ -73,6 +73,23 @@ struct Copy_802C8E24 { u32 a; struct { u32 w[14]; } b; };
 
 struct Ent_802C8E24 { u8 b[0x58]; };
 
+struct Pair_802C8C60 { s32 v[2]; };
+
+struct Obj_802C8C60 {
+    u8 pad0[0x24];
+    s32 f24;
+    u8 pad28[0x70 - 0x28];
+    f32 f70;
+    u8 pad74[0xB4 - 0x74];
+    f32 fB4;
+    f32 fB8;
+    s32 fBC;
+    u8 padC0[0xC8 - 0xC0];
+    s32 fC8;
+    u8 padCC[0xF8 - 0xCC];
+    s32 fF8;
+};
+
 extern "C" {
 M2C_UNK obj_setFlags30(void *, int);
 void TOTrapChainSawDamage__vt16(u8 *arg0, u8 *arg1);
@@ -91,6 +108,14 @@ extern Ent_802C8E24 lbl_804E0C10[];
 extern const f32 lbl_805DE624;
 extern const f32 lbl_805DE628;
 void *TOTrapChainSawDamage__ct(void *arg0, void *arg1, void *arg2);
+s32 fn_802C9924(s32);
+s32 TOTrapChainSawKey__sub_802C9960(s32);
+s32 TOTrapChainSawKey__sub_802C999C(s32);
+extern s32 lbl_80471F28[];
+extern s32 lbl_80471F30[];
+extern const f32 lbl_805DE618;
+extern const f32 lbl_805DE61C;
+void TOTrapChainSawDamage__vt14(Obj_802C8C60 *arg0);
 }
 
 extern "C" {
@@ -125,6 +150,20 @@ void TOTrapChainSawDamage__vt16(u8 *arg0, u8 *arg1) {
     P_802C8BD0 q = p;
     ((VObj_18_62e3d5 *)(arg1))->m21(arg0, (s32 *)&q, 0, -1, -1);
     obj_setFlags30((void *) (arg1), (int) (0x400));
+}
+
+void TOTrapChainSawDamage__vt14(Obj_802C8C60 *arg0) {
+    Pair_802C8C60 a = *(Pair_802C8C60 *)lbl_80471F28;
+    Pair_802C8C60 b = *(Pair_802C8C60 *)lbl_80471F30;
+    s32 v;
+    arg0->fF8 = (s32)arg0->f70;
+    v = arg0->fF8;
+    arg0->fF8 = v < 0 ? 0 : (v > 1 ? 1 : v);
+    arg0->fC8 = TOTrapChainSawKey__sub_802C999C(a.v[arg0->fF8]);
+    arg0->fBC = TOTrapChainSawKey__sub_802C9960(b.v[arg0->fF8]);
+    arg0->f24 = fn_802C9924(0);
+    arg0->fB4 = lbl_805DE618;
+    arg0->fB8 = lbl_805DE61C;
 }
 
 void TOTrapChainSawDamage__vt13(void *arg0) {

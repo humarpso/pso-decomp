@@ -20,6 +20,17 @@ struct Item_801EE0BC {
     u32 f10;
 };
 
+struct Pkt_801EDF64 {
+    u8 cmd;
+    u8 size;
+    u16 a;
+    u16 b;
+    u16 pad;
+    u16 c;
+    u8 d;
+    u8 e;
+};
+
 extern "C" {
 extern s32 lbl_805D53A0;
 extern s32 *TLobby__data_805D5E78;
@@ -35,6 +46,10 @@ void init__9TItemDataFv(Item_801EE0BC *);
 s32 TCheckRoomSequence__sub_80210D44(Item_801EE0BC *, s32);
 extern s32 *TLobby__data_805D5E78;
 void TLobby__sub_801EE0BC(u8 arg0, u8 arg1);
+void finalize_and_send_60__6TLobbyFPv(void* p);
+void* init_6x05_switch_changed__6TLobbyFPv(void* p);
+extern s32 *TLobby__data_805D5E78;
+void TLobby__sub_801EDF64(s32 arg0);
 }
 
 extern "C" {
@@ -55,6 +70,17 @@ void create_quest_bgm_ctrl__6TLobbyFv(void) {
     if (obj != 0) {
         TQuestBgmCtrl__ct(obj, tl_05);
     }
+}
+
+void TLobby__sub_801EDF64(s32 arg0) {
+    Pkt_801EDF64 pkt;
+    init_6x05_switch_changed__6TLobbyFPv(&pkt);
+    pkt.b = 0;
+    pkt.a = 0xFFFF;
+    pkt.c = (*(s32* *)&TLobby__data_805D5E78)[(u8)arg0++];
+    pkt.d = (*(s32* *)&TLobby__data_805D5E78)[(u8)arg0++];
+    pkt.e = (*(s32* *)&TLobby__data_805D5E78)[(u8)arg0];
+    finalize_and_send_60__6TLobbyFPv(&pkt);
 }
 
 void TLobby__sub_801EDFE0(u8 reg) {

@@ -55,6 +55,20 @@ struct Pkt_8016C79C { u8 code, words; u16 object, zero, reserved, switchId; u8 a
 
 struct Self_8016C79C { u8 pad[0x1C]; u16 id; u8 pad1e[0xC8 - 0x1E]; s32 switchId; };
 
+struct VBase_8016C280 { char pad[0x18]; };
+
+struct VObj_8016C280 : VBase_8016C280 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
 extern "C" {
 s32 is_split_screen();
 s32 TOKey__sub_8016A280(void *);
@@ -95,6 +109,21 @@ void finalize_and_send_60__6TLobbyFPv(void *);
 s32 TObjPlayer__sub_800196EC();
 extern s32 lbl_805D53A0;
 void TOKeyCol__sub_8016C79C(Self_8016C79C *self, s32 flags);
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK TOSignCave03__sub_803DB510(int);
+int set_chunk_material_color(void *);
+extern u8 lbl_804A7418[];
+extern s32 lbl_805D5660;
+extern s32 *TOKeyCave01__data_805D5A1C;
+extern s32 lbl_805D5A20;
+extern s32 some_id_805c6f74;
+void render__11TOKeyCave01Fv(u8 *arg0);
 }
 
 extern "C" {
@@ -144,6 +173,53 @@ void run_task__11TOKeyCave01Fv(u8 *arg0) {
             ((VObj_18 *)(arg0))->m17();
             M2C_FIELD(arg0, s32 *, 0xD4) = 0;
         }
+    }
+}
+
+void render__11TOKeyCave01Fv(u8 *arg0) {
+    s32 temp_r4;
+    u8 *temp_r31;
+    u8 *temp_r31_2;
+    u8 *temp_r31_3;
+    if (((VObj_8016C280 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
+        set_global_param__8TObjFishFi((int) TOKeyCave01__data_805D5A1C[M2C_FIELD(arg0, s32 *, 0xD4)]);
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        temp_r31 = M2C_FIELD(arg0, u8 **, 0x34);
+        TOHangerMachine01__sub_803D9C00((void *) (temp_r31 + 8));
+        TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31, s32 *, 4)));
+        if ((s32) M2C_FIELD(arg0, s32 *, 0xD4) != 1) {
+            temp_r4 = some_id_805c6f74;
+            lbl_805D5660 = temp_r4;
+            some_id_805c6f74 = temp_r4 | 0x10;
+            set_chunk_material_color((void *) (arg0 + 0xE8));
+        }
+        begin_effect_render__13TParticleCtrlFv();
+        temp_r31_2 = M2C_FIELD(temp_r31, u8 **, 0x2C);
+        TObjPlayer__sub_803D9B2C();
+        switch ((s32) lbl_805D5A20) {
+        case 0:
+            TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x68));
+            break;
+        case 1:
+            rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xFC)));
+            break;
+        }
+        TOHangerMachine01__sub_803D9C00((void *) (temp_r31_2 + 8));
+        TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
+        temp_r31_3 = M2C_FIELD(temp_r31_2, u8 **, 0x2C);
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00((void *) (temp_r31_3 + 8));
+        TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
+        TObjPlayer__sub_803D9B78();
+        TObjPlayer__sub_803D9B78();
+        end_effect_render__13TParticleCtrlFv();
+        if ((s32) M2C_FIELD(arg0, s32 *, 0xD4) != 1) {
+            set_chunk_material_color((void *) lbl_804A7418);
+            some_id_805c6f74 = lbl_805D5660;
+        }
+        TObjPlayer__sub_803D9B78();
     }
 }
 

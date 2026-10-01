@@ -8,6 +8,17 @@ struct Pkt_802084B0 { u8 hdr[2]; u16 a; s32 b; s32 c; s32 d; };
 
 struct Pkt_8020857C { u8 hdr[2]; u16 a; s16 b; s16 pad; s16 c; s8 d; s8 e; };
 
+struct Pkt_8020851C {
+    u8 cmd;
+    u8 size;
+    u16 a;
+    u16 b;
+    u16 pad;
+    u16 c;
+    u8 d;
+    u8 e;
+};
+
 extern "C" {
 s32 TObjPlayer__sub_800196EC();
 void byteswap_and_send__6TLobbyFi(void *);
@@ -21,6 +32,10 @@ void finalize_and_send_60__6TLobbyFPv(void *);
 void init_6x05_switch_changed__6TLobbyFPv(void *);
 extern s32 lbl_805D6088;
 void TLobby__sub_8020857C(s16 arg0);
+s32 TObjPlayer__sub_800196EC();
+void finalize_and_send_60__6TLobbyFPv(void *);
+void init_6x05_switch_changed__6TLobbyFPv(void *);
+void TLobby__sub_8020851C(s32 arg0);
 }
 
 extern "C" {
@@ -77,6 +92,18 @@ void TLobby__sub_802084B0(s32 arg0) {
     pkt.d = lbl_805D53A0;
     byteswap_and_send__6TLobbyFi(&pkt);
 }
+
+void TLobby__sub_8020851C(s32 arg0) {
+    Pkt_8020851C pkt;
+    init_6x05_switch_changed__6TLobbyFPv(&pkt);
+    pkt.b = 0;
+    pkt.a = 0xFFFF;
+    pkt.c = arg0;
+    pkt.d = ((s32 (*)(s32))TObjPlayer__sub_800196EC)(0xFFFF);
+    pkt.e = 0;
+    finalize_and_send_60__6TLobbyFPv(&pkt);
+}
+
 void TLobby__sub_8020857C(s16 arg0) {
     Pkt_8020857C pkt;
     init_6x05_switch_changed__6TLobbyFPv(&pkt);

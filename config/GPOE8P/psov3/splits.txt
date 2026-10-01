@@ -6778,6 +6778,7 @@ pso/misc/TLobby_80156B18.cpp:
 
 pso/unk/text_80156BBC.cpp:
 	.text       start:0x80156BBC end:0x80156D28
+	.sdata2     start:0x805DB2A8 end:0x805DB2B4
 
 pso/misc/TOAirconCave01_80156D28.cpp:
 	.text       start:0x80156D28 end:0x80156E8C
@@ -13526,6 +13527,7 @@ pso/misc/TCharaMaking_8028DC40.cpp:
 
 pso/misc/TCharaMaking.cpp:
 	.text       start:0x8028E25C end:0x8028E3F4
+	.sdata2     start:0x805DD928 end:0x805DD930
 
 pso/misc/TCharaMaking_8028E3F4.cpp:
 	.text       start:0x8028E3F4 end:0x8028E790

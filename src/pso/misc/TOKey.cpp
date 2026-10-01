@@ -79,9 +79,30 @@ struct VObj_18_d1dc07 : VBase_18_d1dc07 {
     virtual M2C_UNK m22();
 };
 
+struct VBase_8016AA20 { char pad[0x18]; };
+
+struct VObj_8016AA20 : VBase_8016AA20 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
+    u8 pad1C[0x84 - 0x1C];
+    s32 f84;
+    u8 pad88[0xC8 - 0x88];
+    s32 fC8;
+    u8 padCC[4];
+    s32 fD0;
+};
+
 extern "C" {
 void TOKey__sub_8016A960(u8 *arg0);
 void TOKey__sub_8016AAE0(u8 *arg0);
+void set_global_count__12TObjNpcEnemyFi(s32);
+void TObjEneBm5GibonU__sub_803D853C(s32, const char *, ...);
+extern char lbl_80441958[];
+void TOKey__sub_8016AA20(VObj_8016AA20 *arg0);
 }
 
 extern "C" {
@@ -153,6 +174,21 @@ void TOKey__sub_8016A960(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0xE0) = 0;
         return;
     }
+}
+
+void TOKey__sub_8016AA20(VObj_8016AA20 *arg0) {
+    arg0->f84 = arg0->f84 % 256;
+    if (arg0->f84 < 0 || arg0->f84 > 0xFF) {
+        arg0->fC8 = -1;
+        arg0->fD0 = 2;
+    } else {
+        arg0->fC8 = arg0->f84;
+        arg0->fD0 = 0;
+    }
+    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_80441958, arg0->fC8);
+    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+    arg0->m23();
 }
 
 void TOKey__sub_8016AAE0(u8 *arg0) {
