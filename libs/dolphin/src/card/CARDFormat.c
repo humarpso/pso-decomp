@@ -148,7 +148,6 @@ s32 CARDFormatAsync(s32 chan, CARDCallback callback) {
 }
 
 
-#pragma force_active on
 long CARDFormat(long chan) {
     long result = __CARDFormatRegionAsync(chan, OSGetFontEncode(), __CARDSyncCallback);
 
@@ -157,4 +156,3 @@ long CARDFormat(long chan) {
     }
     return __CARDSync(chan);
 }
-#pragma force_active reset

@@ -23,6 +23,7 @@ force_active:
   - AISetStreamPlayState
   - AISetStreamVolLeft
   - AISetStreamVolRight
+  - CARDCheckExAsync
   - TAdSinglePlyChrSelectGC__sub_80133530
   - TBoss2DeRolLe__sub_80034D58
   - TBoss3Volopt__sub_800D8F78
@@ -84,6 +85,7 @@ force_active:
   - __ARQCallbackHack
   - __ARQInterruptServiceRoutine
   - __ARQServiceQueueLo
+  - __CARDFormatRegionAsync
   - __ct__9TEffGuardFPC3Vec
   - __dt__10TDPBShowerFv
   - __dt__10TItemTimerFv
