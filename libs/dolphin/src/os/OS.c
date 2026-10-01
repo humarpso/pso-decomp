@@ -1,3 +1,6 @@
+#ifndef PSO_SDK_COMPACT_MATH
+#define PSO_SDK_COMPACT_MATH 1
+#endif
 #include <dolphin/os.h>
 #include <dolphin/base/PPCArch.h>
 #include <dolphin/db.h>
@@ -43,8 +46,6 @@ void __OSDBJUMPEND(void);
 static OSBootInfo* BootInfo;
 static volatile u32* BI2DebugFlag;
 static u32* BI2DebugFlagHolder;
-static f64 ZeroPS;
-static f64 ZeroF;
 static BOOL __OSIsGcam;
 static BOOL AreWeInitialized;
 

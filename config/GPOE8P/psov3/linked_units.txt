@@ -53,6 +53,7 @@ dvd/dvdfs.c
 dvd/dvdlow.c
 gba/GBA.c
 gba/GBAGetProcessStatus.c
+gba/GBAJoyBoot.c
 gba/GBAKey.c
 gba/GBARead.c
 gba/GBAWrite.c
@@ -60,11 +61,13 @@ gba/GBAXfer.c
 gx/GXAttr.c
 gx/GXFifo.c
 gx/GXLight.c
+gx/GXMisc.c
 gx/GXPerf.c
 gx/GXPixel.c
 gx/GXTransform.c
 mtx/mtx44.c
 mtx/vec.c
+os/OSCache.c
 os/OSError.c
 pad/Pad.c
 pso/boss/TBoss1DragonDemo.cpp
@@ -213,6 +216,7 @@ pso/boss/TBoss8Dragon_801E3CFC.cpp
 pso/boss/TBoss8Dragon_802F3504.cpp
 pso/boss/TBoss8Dragon_802F36DC.cpp
 pso/boss/TBoss8Dragon_802F3AB4.cpp
+pso/boss/TBoss8Dragon_802F3CA0.cpp
 pso/boss/TBoss8Dragon_802F3EE4.cpp
 pso/boss/TBoss8Dragon_802F3F20.cpp
 pso/boss/TBoss8Dragon_802F42A0.cpp
@@ -737,6 +741,7 @@ pso/item/TItemLoad_8010FD2C.cpp
 pso/item/TItemLoad_8010FDF0.cpp
 pso/item/TItemLoad_8010FF68.cpp
 pso/item/TItemLoad_8010FFAC.cpp
+pso/item/TItemLoad_80110010.cpp
 pso/item/TItemLoad_80110540.cpp
 pso/item/TItemLoad_801105AC.cpp
 pso/item/TItemLockCountCtrl.cpp
@@ -846,6 +851,7 @@ pso/misc/TCameraCtrl_80067C88.cpp
 pso/misc/TCameraCtrl_80067F44.cpp
 pso/misc/TCameraCtrl_80067F8C.cpp
 pso/misc/TCameraCtrl_8006A9F0.cpp
+pso/misc/TCameraCtrl_8006B3D8.cpp
 pso/misc/TCameraCtrl_8006C580.cpp
 pso/misc/TCameraCtrl_8006C5D8.cpp
 pso/misc/TCameraCtrl_800766C4.cpp
@@ -974,6 +980,7 @@ pso/misc/TLobby_8006F278_8006F278.cpp
 pso/misc/TLobby_8006F278_8006F9E0.cpp
 pso/misc/TLobby_8006F278_8006FA28.cpp
 pso/misc/TLobby_8006F278_8006FA54.cpp
+pso/misc/TLobby_80070A00.cpp
 pso/misc/TLobby_80070A00_80070AB0.cpp
 pso/misc/TLobby_80070A00_80070B90.cpp
 pso/misc/TLobby_80070A00_80071410.cpp
@@ -1412,6 +1419,7 @@ pso/misc/TODoorAncient08.cpp
 pso/misc/TODoorAncient09.cpp
 pso/misc/TODoorCave02.cpp
 pso/misc/TODoorCave03.cpp
+pso/misc/TODoorVoShip.cpp
 pso/misc/TODoorVoShip_8021A05C.cpp
 pso/misc/TOExplosiveMachine01.cpp
 pso/misc/TOExplosiveMachine02.cpp
@@ -1478,6 +1486,7 @@ pso/misc/TORockJungleL01.cpp
 pso/misc/TOSignCave01.cpp
 pso/misc/TOSignCave02.cpp
 pso/misc/TOSignCave03.cpp
+pso/misc/TOSparkMachine01.cpp
 pso/misc/TOSwitchAttack.cpp
 pso/misc/TOSwitchItem.cpp
 pso/misc/TOSwitchItem_80102C44.cpp
@@ -1667,6 +1676,7 @@ pso/misc/TSlicerHistory_8023BDD0.cpp
 pso/misc/TSwitch.cpp
 pso/misc/TTecAnti.cpp
 pso/misc/TTecCtrl_801B0EE8.cpp
+pso/misc/TTecDeband.cpp
 pso/misc/TTecFoie.cpp
 pso/misc/TTecFoie_802301EC.cpp
 pso/misc/TTecGiFoie.cpp
@@ -1684,6 +1694,7 @@ pso/misc/TTecMegid_80235B24.cpp
 pso/misc/TTecRaBarta.cpp
 pso/misc/TTecRaFoie.cpp
 pso/misc/TTecReverser_8034DED4.cpp
+pso/misc/TTecSifta.cpp
 pso/misc/TTecSlicer.cpp
 pso/misc/TTecZarua.cpp
 pso/misc/TUdpSocket.cpp
@@ -2023,6 +2034,7 @@ pso/misc/TWindowSubTechnique_80286B0C.cpp
 pso/misc/TWindowSubTechnique_80286B64.cpp
 pso/misc/TWindowSubTechnique_80286BD4.cpp
 pso/misc/TWindowSubTrade.cpp
+pso/misc/TWindowSubTradeMain.cpp
 pso/misc/TWindowSubTradeMain_80187C98.cpp
 pso/misc/TWindowSubTradeMain_80266C44.cpp
 pso/misc/TWindowSubTradeMain_80268468.cpp
@@ -2147,6 +2159,7 @@ pso/object/TObjCityAreaWarp_80185D14.cpp
 pso/object/TObjCityAreaWarp_80185DB8.cpp
 pso/object/TObjCityDoor_Lobby.cpp
 pso/object/TObjCityDoor_Shop.cpp
+pso/object/TObjCityMainWarpChallenge.cpp
 pso/object/TObjCityMainWarp_80186E24.cpp
 pso/object/TObjCityMainWarp_80266354.cpp
 pso/object/TObjCityMapWarp.cpp
@@ -2335,6 +2348,7 @@ pso/player/TObjPlayer_80036824.cpp
 pso/player/TObjPlayer_80040B28.cpp
 pso/player/TObjPlayer_80042D90.cpp
 pso/player/TObjPlayer_80048360.cpp
+pso/player/TObjPlayer_800495E0.cpp
 pso/player/TObjPlayer_80054664.cpp
 pso/player/TObjPlayer_80055678.cpp
 pso/player/TObjPlayer_800666B0.cpp
@@ -3175,6 +3189,7 @@ pso/ui/TAdMultiPlyChrSelectGC_802B1850.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802C6F88.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802D50A0.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802DC3D4.cpp
+pso/ui/TAdMultiPlyChrSelectGC_802DCD14.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802DD4B8.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802DD714.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802DD8E0.cpp
@@ -4126,3 +4141,5 @@ pso/unk/text_803E4CE8.cpp
 pso/unk/text_803F1804.cpp
 pso/unk/text_803F632C.cpp
 pso/unk/text_8042EE4C.cpp
+si/SIBios.c
+si/SISamplingRate.c

@@ -17521,6 +17521,7 @@ os/OS.c:
 	.text       start:0x8036FA44 end:0x803703A0
 	.data       start:0x804F3A70 end:0x804F3C30
 	.bss        start:0x80543AA0 end:0x80543AF0
+	.sbss       start:0x805D7030 end:0x805D7060
 
 os/OSAlarm.c:
 	.text       start:0x803703A0 end:0x80370A4C

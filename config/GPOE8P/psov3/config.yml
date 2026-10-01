@@ -24,10 +24,15 @@ force_active:
   - AISetStreamVolLeft
   - AISetStreamVolRight
   - CARDCheckExAsync
+  - DCEnable
+  - DMAErrorHandler
   - DVDGetCurrentDir
   - Dolphin_DVDCancelAsync
+  - Dolphin_GXFlush
   - GXInitFifoLimits
   - GXInitFifoPtrs
+  - ICEnable
+  - L2GlobalInvalidate
   - PADSetSamplingCallback
   - TAdRayGC__sub_8029BCB4
   - TAdSinglePlyChrSelectGC__sub_80133530

@@ -1,3 +1,6 @@
+#ifndef PSO_SDK_COMPACT_MATH
+#define PSO_SDK_COMPACT_MATH 1
+#endif
 #include <dolphin/dolphin.h>
 #include <dolphin/os.h>
 
@@ -499,54 +502,56 @@ void OSAddToHeap(int heap, void* start, void* end) {
 #define ASSERTREPORT(line, cond) \
     if (!(cond)) { OSReport("OSCheckHeap: Failed " #cond " in %d", line); return -1; }
 
-s32 OSCheckHeap(int heap) {
-    HeapDesc* hd;
-    Cell* cell;
-    s32 total = 0;
-    s32 free = 0;
-
-    ASSERTREPORT(898, HeapArray);
-    ASSERTREPORT(899, 0 <= heap && heap < NumHeaps);
-    hd = &HeapArray[heap];
-    ASSERTREPORT(902, 0 <= hd->size);
-
-    ASSERTREPORT(0x388, hd->allocated == NULL || hd->allocated->prev == NULL);
-
-    for(cell = hd->allocated; cell; cell = cell->next) {
-        ASSERTREPORT(907, InRange(cell, ArenaStart, ArenaEnd));
-        ASSERTREPORT(908, OFFSET(cell, ALIGNMENT) == 0);
-        ASSERTREPORT(909, cell->next == NULL || cell->next->prev == cell);
-        ASSERTREPORT(910, MINOBJSIZE <= cell->size);
-        ASSERTREPORT(911, OFFSET(cell->size, ALIGNMENT) == 0);
-        total += cell->size;
-        ASSERTREPORT(914, 0 < total && total <= hd->size);
-#ifdef ENABLE_HEAPDESC
-        ASSERTREPORT(917, cell->hd == hd);
-        ASSERTREPORT(918, HEADERSIZE + cell->requested <= cell->size);
-#endif
-    }
 
 
-    ASSERTREPORT(922, hd->free == NULL || hd->free->prev == NULL);
 
-    for(cell = hd->free; cell; cell = cell->next) {
-        ASSERTREPORT(925, InRange(cell, ArenaStart, ArenaEnd));
-        ASSERTREPORT(926, OFFSET(cell, ALIGNMENT) == 0);
-        ASSERTREPORT(927, cell->next == NULL || cell->next->prev == cell);
-        ASSERTREPORT(928, MINOBJSIZE <= cell->size);
-        ASSERTREPORT(929, OFFSET(cell->size, ALIGNMENT) == 0);
-        ASSERTREPORT(930, cell->next == NULL || (char*) cell + cell->size < (char*) cell->next);
-        total += cell->size;
-        free = (cell->size + free);
-        free -= HEADERSIZE;
-        ASSERTREPORT(934, 0 < total && total <= hd->size);
-#ifdef ENABLE_HEAPDESC
-        ASSERTREPORT(937, cell->hd == NULL);
-#endif
-    }
-    ASSERTREPORT(941, total == hd->size);
-    return free;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 u32 OSReferentSize(void* ptr) {
     Cell* cell;
@@ -563,37 +568,39 @@ u32 OSReferentSize(void* ptr) {
     return (s32)((u32)cell->size-HEADERSIZE);
 }
 
-void OSDumpHeap(int heap) {
-    HeapDesc* hd;
-    Cell* cell;
 
-    OSReport("\nOSDumpHeap(%d):\n", heap);
-    ASSERTMSGLINE(995, HeapArray, "OSDumpHeap(): heap is not initialized.");
-    ASSERTMSGLINE(996, (heap >= 0) && (heap < NumHeaps), "OSDumpHeap(): invalid heap handle.");
-    hd = &HeapArray[heap];
-    if (hd->size < 0) {
-        OSReport("--------Inactive\n");
-        return;
-    }
-    ASSERTMSGLINE(1005, OSCheckHeap(heap) >= 0, "OSDumpHeap(): heap is broken.");
-#ifdef ENABLE_HEAPDESC
-    OSReport("padding %d/(%f%%) header %d/(%f%%) payload %d/(%f%%)\n",
-        hd->paddingBytes, (100.0 * hd->paddingBytes / hd->size), hd->headerBytes, (100.0 * hd->headerBytes / hd->size), hd->payloadBytes,
-        (100.0 * hd->payloadBytes / hd->size));
-#endif
-    OSReport("addr	size		end	prev	next\n");
-    OSReport("--------Allocated\n");
 
-    ASSERTMSGLINE(1018, hd->allocated == NULL || hd->allocated->prev == NULL, "OSDumpHeap(): heap is broken.");
 
-    for(cell = hd->allocated; cell; cell = cell->next) {
-        OSReport("%x	%d	%x	%x	%x\n", cell, cell->size, (char*)cell + cell->size, cell->prev, cell->next);
-    }
-    OSReport("--------Free\n");
-    for(cell = hd->free; cell; cell = cell->next) {
-        OSReport("%x	%d	%x	%x	%x\n", cell, cell->size, (char*)cell + cell->size, cell->prev, cell->next);
-    }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void OSVisitAllocated(void (*visitor)(void*, u32)) {
     u32 heap;

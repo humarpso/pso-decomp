@@ -1,3 +1,6 @@
+#ifndef PSO_SDK_COMPACT_MATH
+#define PSO_SDK_COMPACT_MATH 1
+#endif
 #include "PowerPC_EABI_Support/MetroTRK/trk.h"
 
 u32 gTRKDispatchTableSize;

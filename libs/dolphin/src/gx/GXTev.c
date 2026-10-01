@@ -1,3 +1,6 @@
+#ifndef PSO_SDK_COMPACT_MATH
+#define PSO_SDK_COMPACT_MATH 1
+#endif
 #include <dolphin/gx.h>
 #include <dolphin/os.h>
 #include <macros.h>

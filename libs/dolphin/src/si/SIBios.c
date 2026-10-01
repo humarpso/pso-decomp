@@ -12,6 +12,7 @@
 #define TypeCallback lbl_805D2060
 #define XferTime lbl_805D2040
 #define __SITransfer SIBios___SITransfer
+#define __PADFixBits lbl_805D7CE8
 
 #include <dolphin.h>
 #include <dolphin/os.h>
@@ -762,12 +763,15 @@ u32 SIProbe(s32 chan) {
     return SIDecodeType(SIGetType(chan));
 }
 
+
+
+
 char* SIGetTypeString(u32 type) {
     switch (SIDecodeType(type)) {
         case 0x00000008:
             return "No response";
         case SI_ERROR_BUSY:
-            return "Busy";
+            return NULL;
         case 0x05000000:
             return "N64 controller";
         case 0x00010000:
@@ -790,6 +794,6 @@ char* SIGetTypeString(u32 type) {
             return "Steering";
         case 0x40:
         default:
-            return "Unknown";
+            return NULL;
     }
 }
