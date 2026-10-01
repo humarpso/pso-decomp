@@ -32,6 +32,12 @@ s32 TAdPlayerLoadGC__sub_803F4554(s32 arg0);
 s32 TLobby__sub_803F4AB4(void);
 extern AdLoadState_805A82C0 lbl_805A82C0;
 s32 TAdPlayerLoadGC__sub_803F45E0(s32 *arg0, s32 *arg1);
+s32 get_or_set_channel_flag__15TAdPlayerLoadGCFii(s32 arg0, s32 arg1);
+s32 TAdPlayerLoadGC__sub_803F3A14(s32 arg0, s32 *arg1);
+s32 TAdPlayerLoadGC__sub_803F3AF0(s32 arg0, const char *arg1);
+extern char lbl_804FCE68[];
+extern AdLoadState_805A82C0 lbl_805A82C0;
+void TAdPlayerLoadGC__sub_803F467C(void);
 }
 
 extern "C" {
@@ -94,6 +100,46 @@ s32 TAdPlayerLoadGC__sub_803F45E0(s32 *arg0, s32 *arg1) {
         r = -4;
     }
     return r;
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+void TAdPlayerLoadGC__sub_803F467C(void) {
+    AdLoadState_805A82C0 *s;
+    AdLoadState_805A82C0 *t;
+    s = &lbl_805A82C0;
+    switch (s->x8) {
+    case 1:
+        get_or_set_channel_flag__15TAdPlayerLoadGCFii(s->arg, 1);
+        lbl_805A82C0.a = TAdPlayerLoadGC__sub_803F3AF0(s->arg, lbl_804FCE68);
+        if (lbl_805A82C0.a < 0) {
+            get_or_set_channel_flag__15TAdPlayerLoadGCFii(s->arg, 0);
+            lbl_805A82C0.result = -209;
+            s->x8 = 27;
+            break;
+        }
+        s->x8 = 2;
+    case 2:
+        t = &lbl_805A82C0;
+        lbl_805A82C0.a = TAdPlayerLoadGC__sub_803F3A14(t->arg, &t->b);
+        switch (lbl_805A82C0.a) {
+        case 0:
+        case -102:
+            get_or_set_channel_flag__15TAdPlayerLoadGCFii(t->arg, 0);
+            lbl_805A82C0.result = 0;
+            s->x8 = 25;
+            break;
+        case 200:
+            break;
+        default:
+            get_or_set_channel_flag__15TAdPlayerLoadGCFii(t->arg, 0);
+            lbl_805A82C0.result = -209;
+            s->x8 = 27;
+            break;
+        }
+        break;
+    }
 }
 #pragma pop
 
