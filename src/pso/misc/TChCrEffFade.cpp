@@ -1,7 +1,5 @@
 #include "pso/TChCrEffFade.h"
 
-TChCrEffFade::~TChCrEffFade() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -69,6 +67,7 @@ extern M2C_UNK __vt__12TChCrEffFade[];
 extern s32 lbl_805D3CC0;
 extern s32 tl_fade;
 
+TChCrEffFade::~TChCrEffFade() {}
 void *__ct__12TChCrEffFadeFv(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r0;
     s32 temp_r0_2;

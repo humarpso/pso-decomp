@@ -1,7 +1,5 @@
 #include "pso/TObjBoss7Dust.h"
 
-TObjBoss7Dust::~TObjBoss7Dust() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -56,6 +54,7 @@ void run_task__13TObjBoss7DustFv(void *arg0) {
     }
 }
 typedef char RecoveredGlobal_802F119C___vt__13TObjBoss7Dust_size[sizeof(RecoveredGlobal_802F119C___vt__13TObjBoss7Dust) == 0x18 ? 1 : -1];
+TObjBoss7Dust::~TObjBoss7Dust() {}
 u8 *__ct__13TObjBoss7DustFv(u8 *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__13TObjBoss7Dust.value;

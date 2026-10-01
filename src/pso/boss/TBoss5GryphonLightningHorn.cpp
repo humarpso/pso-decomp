@@ -1,8 +1,6 @@
 #include <dolphin/mtx.h>
 #include "pso/TBoss5GryphonLightningHorn.h"
 
-TBoss5GryphonLightningHorn::~TBoss5GryphonLightningHorn() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -68,6 +66,7 @@ void *item_equip_variant_deleting_dtor_80326520(void *arg0, s16 arg1);
 
 void render__26TBoss5GryphonLightningHornFv(void) {  }
 void run_task__26TBoss5GryphonLightningHornFv(void* p) { fn_80326074(p); fn_80325F7C(p); fn_80324E10(p); }
+TBoss5GryphonLightningHorn::~TBoss5GryphonLightningHorn() {}
 u8 *__ct__26TBoss5GryphonLightningHornFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     f32 temp_f1;
     TBoss5GryphonLightning__ct((f32) (lbl_805DF644));

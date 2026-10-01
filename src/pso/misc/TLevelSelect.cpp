@@ -1,7 +1,5 @@
 #include "pso/TLevelSelect.h"
 
-TLevelSelect::~TLevelSelect() {}
-
 #include "types.h"
 
 struct Self_80133068 { u8 pad[0x20]; s32 f20; s32 f24; };
@@ -117,6 +115,7 @@ void run_task__12TLevelSelectFv(Self_80133068 *self) {
         break;
     }
 }
+TLevelSelect::~TLevelSelect() {}
 Self_8013319C *__ct__12TLevelSelectFv(Self_8013319C *self) {
     void *p;
     u32 i;

@@ -1,7 +1,5 @@
 #include "pso/TObjRain.h"
 
-TObjRain::~TObjRain() {}
-
 #include "types.h"
 
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -31,6 +29,7 @@ int fn_80197904(void*);
 int render__8TObjRainFv(void* p) { return fn_801977D4(p); }
 int run_task__8TObjRainFv(void* p) { return fn_80197904(p); }
 typedef char RecoveredGlobal_80197C84___vt__8TObjRain_size[sizeof(RecoveredGlobal_80197C84___vt__8TObjRain) == 0x18 ? 1 : -1];
+TObjRain::~TObjRain() {}
 u8 *__ct__8TObjRainFv(u8 *arg0, M2C_UNK arg1, u32 arg2) {
     __ct__7TObjectFP7TObject();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__8TObjRain.value;

@@ -1,7 +1,5 @@
 #include "pso/TItemLoad.h"
 
-TItemLoad::~TItemLoad() {}
-
 #include "types.h"
 
 struct O_80110750 { u8 pad[0x2c]; s32 arr[1]; };
@@ -48,5 +46,6 @@ s32 TItemLoad__sub_801107DC(void* p) { return *(s32*)((char*)p + 0xc); }
 s32 TItemLoad__sub_801107E4(void* p) { return *(s32*)((char*)p + 0x1c); }
 void* TItemLoad__sub_801107EC(void* p) { return (char*)p + 0x2c; }
 int TItemLoad__sub_801107F4(void* p) { return *(u32*)((char*)p + 0x20) == 0; }
+TItemLoad::~TItemLoad() {}
 
 }

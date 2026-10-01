@@ -64,18 +64,6 @@ void TObjPlayer__sub_80355AE0(u8 *arg0) {
     update_active_game_effect__10TObjPlayerFPv(arg0);
 }
 typedef char RecoveredGlobal_80355BA0_lbl_804F1320_size[sizeof(RecoveredGlobal_80355BA0_lbl_804F1320) == 0xF8 ? 1 : -1];
-u8 *TObjPlayer__sub_80355BA0(u8 *arg0, u8 *arg1) {
-    TObjPlayer__sub_80120D50(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80355BA0_lbl_804F1320 *)&lbl_804F1320).value;
-    set_status_flags__10TObjPlayerFPvUi(arg0, 0x22);
-    if (get_field_ed__10TObjPlayerFPv(arg0) == 0x3D) {
-        M2C_FIELD(arg0, f32 *, 0x1F8) = (f32) lbl_805DFFC0;
-        set_status_flags__10TObjPlayerFPvUi(arg0, 0x100000);
-    } else {
-        M2C_FIELD(arg0, f32 *, 0x1F8) = (f32) lbl_805DFFC4;
-    }
-    return arg0;
-}
 
 extern M2C_UNK lbl_804F1320[];
 
@@ -86,6 +74,18 @@ void *item_equip_variant_deleting_dtor_80355B48(void *arg0, s16 arg1) {
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);
         }
+    }
+    return arg0;
+}
+u8 *TObjPlayer__sub_80355BA0(u8 *arg0, u8 *arg1) {
+    TObjPlayer__sub_80120D50(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80355BA0_lbl_804F1320 *)&lbl_804F1320).value;
+    set_status_flags__10TObjPlayerFPvUi(arg0, 0x22);
+    if (get_field_ed__10TObjPlayerFPv(arg0) == 0x3D) {
+        M2C_FIELD(arg0, f32 *, 0x1F8) = (f32) lbl_805DFFC0;
+        set_status_flags__10TObjPlayerFPvUi(arg0, 0x100000);
+    } else {
+        M2C_FIELD(arg0, f32 *, 0x1F8) = (f32) lbl_805DFFC4;
     }
     return arg0;
 }

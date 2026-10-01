@@ -27,11 +27,6 @@ extern "C" {
 void free__11TOBoss4RockFUi(void*);
 }
 
-TEnemyTaskList::~TEnemyTaskList() {
-    free__11TOBoss4RockFUi(m_28);
-    free__11TOBoss4RockFUi(m_24);
-}
-
 #include "types.h"
 
 extern "C" {
@@ -58,6 +53,10 @@ s32 TEnemyTaskList__sub_800F7BD0(List_800F7BD0 *self) {
         }
     }
     return 0;
+}
+TEnemyTaskList::~TEnemyTaskList() {
+    free__11TOBoss4RockFUi(m_28);
+    free__11TOBoss4RockFUi(m_24);
 }
 TEnemyTaskList_800F7C84 *TEnemyTaskList__ct(TEnemyTaskList_800F7C84 *self, void *parent, s32 n) {
     s32 i;

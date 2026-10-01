@@ -1,7 +1,5 @@
 #include "pso/TObjWarpString.h"
 
-TObjWarpString::~TObjWarpString() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -50,6 +48,7 @@ void run_task__14TObjWarpStringFv(void *arg0) {
     }
 }
 typedef char RecoveredGlobal_8019B854___vt__14TObjWarpString_size[sizeof(RecoveredGlobal_8019B854___vt__14TObjWarpString) == 0x18 ? 1 : -1];
+TObjWarpString::~TObjWarpString() {}
 u8 *__ct__14TObjWarpStringFv(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__14TObjWarpString.value;

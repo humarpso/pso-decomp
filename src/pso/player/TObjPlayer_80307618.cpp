@@ -97,17 +97,6 @@ void update_invincible_blink__10TObjPlayerFPv(void *arg0) {
 
 extern M2C_UNK lbl_804E70A8[];
 
-void *item_equip_variant_deleting_dtor_80307858(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E70A8;
-        item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
-        if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
-        }
-    }
-    return arg0;
-}
-
 void TObjPlayer__sub_803076F8(u8 *arg0) {
     s32 temp_r31;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1F8) == 0) {
@@ -151,6 +140,16 @@ u8 *TObjPlayer__sub_80307800(s32 arg0) {
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+void *item_equip_variant_deleting_dtor_80307858(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E70A8;
+        item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
+        if (arg1 > 0) {
+            free_obj_heap__10TObjPlayerFPv(arg0);
+        }
+    }
+    return arg0;
+}
 char *TObjPlayer__sub_803078B0(void) {
     return lbl_8048E5B4;
 }

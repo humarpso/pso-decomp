@@ -1,7 +1,5 @@
 #include "pso/TAdChrSelMovePlateGC.h"
 
-TAdChrSelMovePlateGC::~TAdChrSelMovePlateGC() {}
-
 #include "types.h"
 
 struct T_8032572C { u8 pad[0x20]; u32 count; u8 pad24[0x184]; s32 arr[1]; };
@@ -85,6 +83,7 @@ void run_task__20TAdChrSelMovePlateGCFv(O_80325824 *arg0) {
         arg0->v[i] = v;
     }
 }
+TAdChrSelMovePlateGC::~TAdChrSelMovePlateGC() {}
 Obj_803258C4 *__ct__20TAdChrSelMovePlateGCFv(Obj_803258C4 *arg0) {
     s32 i;
     __ct__7TObjectFP7TObject(arg0);

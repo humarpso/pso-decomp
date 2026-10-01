@@ -77,6 +77,24 @@ s32 fn_801A2340(s32, f32, f32);
 
 }
 
+extern "C" {
+
+void TObjMesBase__sub_80194AEC(Mes_80194AEC *arg0) {
+    arg0->fB4 = arg0->f84;
+    arg0->fB8 = arg0->f8C;
+    if (arg0->fB8 < 0) {
+        arg0->fB8 = 0;
+    }
+    if (arg0->fB8 > 1) {
+        arg0->fB8 = 1;
+    }
+    Pair_80194AEC names = lbl_80445D94[0];
+    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_80445D9C, arg0->fB4);
+    TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_80445DAC, names.s[arg0->fB8]);
+    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+}
+
 void TObjMesBase::start_message() {
     s32 label = messageLabel;
     if (label != 0) {
@@ -99,25 +117,6 @@ void TObjMesBase::start_message() {
         }
     }
 }
-
-extern "C" {
-
-void TObjMesBase__sub_80194AEC(Mes_80194AEC *arg0) {
-    arg0->fB4 = arg0->f84;
-    arg0->fB8 = arg0->f8C;
-    if (arg0->fB8 < 0) {
-        arg0->fB8 = 0;
-    }
-    if (arg0->fB8 > 1) {
-        arg0->fB8 = 1;
-    }
-    Pair_80194AEC names = lbl_80445D94[0];
-    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_80445D9C, arg0->fB4);
-    TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_80445DAC, names.s[arg0->fB8]);
-    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
-}
-
 void clear_ref_if_destroyed__11TObjMesBaseFPv(void *arg0) {
     void *p = M2C_FIELD(arg0, void **, 0xAC);
     if ((p != 0) && (all_parents_unqueued_for_destruction__7TObjectFv(p) == 0)) {

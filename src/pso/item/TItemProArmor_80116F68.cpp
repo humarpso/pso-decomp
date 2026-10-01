@@ -133,17 +133,6 @@ void *TItemProArmor__sub_80116F68(void *arg0, void * _w1, void * _w2) {
 
 extern M2C_UNK lbl_8049FC90[];
 
-void *item_object_variant_deleting_dtor_80117044(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049FC90;
-        __dt__11TItemObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
-        }
-    }
-    return arg0;
-}
-
 extern M2C_UNK lbl_8049FC90[];
 
 u8 *TItemProArmor__sub_80116FA4(u8 *arg0) {
@@ -166,6 +155,16 @@ void TItemProArmor__sub_80116FFC(s32 arg0) {
   fn_80100BB0((void *) arg0, (void *) ((s16) (TItemObject__sub_80115D7C((void *) arg0) & 0xFF)), (int) ((s16) (temp_r31 & 0xFFFFFFFFu)));
 }
 
+void *item_object_variant_deleting_dtor_80117044(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049FC90;
+        __dt__11TItemObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            free_obj_heap__10TObjPlayerFPv(arg0);
+        }
+    }
+    return arg0;
+}
 void *TItemProArmor__sub_8011709C(void *arg0, void * _w1, void * _w2) {
     TItemObject__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049FC90;

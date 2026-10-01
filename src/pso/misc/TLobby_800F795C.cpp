@@ -69,7 +69,6 @@ f32 TLobby__sub_800F7A7C(void) {
     return M2C_FIELD(&lbl_8048C9D8.value, f32 *, 4);
 }
 
-void reset_keyboard_control__6TLobbyFv(void) { get_global_state__14TOKeyMachine01Fv(); ((void (*)(void))TLobby__sub_800F7A8C)(); }
 void TLobby__sub_800F7A8C(s32 arg0) {
     Ent_800F7A8C *p = lbl_804998C8[arg0];
     s32 n;
@@ -99,5 +98,6 @@ s32 TLobby__sub_800F7B08(s32 arg0) {
     }
     return 1;
 }
+void reset_keyboard_control__6TLobbyFv(void) { get_global_state__14TOKeyMachine01Fv(); ((void (*)(void))TLobby__sub_800F7A8C)(); }
 
 }

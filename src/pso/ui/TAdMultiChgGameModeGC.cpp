@@ -1,7 +1,5 @@
 #include "pso/TAdMultiChgGameModeGC.h"
 
-TAdMultiChgGameModeGC::~TAdMultiChgGameModeGC() {}
-
 #include "types.h"
 
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -148,6 +146,7 @@ void run_task__21TAdMultiChgGameModeGCFv(RecoveredFields_802FFCE4_arg0 *arg0) {
   }
   arg0->field_24 = (s32) arg0->field_20;
 }
+TAdMultiChgGameModeGC::~TAdMultiChgGameModeGC() {}
 Obj_802FFE58 *__ct__21TAdMultiChgGameModeGCFv(Obj_802FFE58 *self) {
     void *p;
     __ct__7TObjectFP7TObject(self);

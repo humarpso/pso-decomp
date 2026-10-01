@@ -1,7 +1,5 @@
 #include "pso/TEndingPic.h"
 
-TEndingPic::~TEndingPic() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -219,6 +217,7 @@ void run_task__10TEndingPicFv(void* p) { advance_animation_state__10TEndingPicFP
 
     extern int lbl_805D4F14;
 
+TEndingPic::~TEndingPic() {}
 u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1) {
     s32 temp_r3;
     __ct__7TObjectFP7TObject(arg0, arg1);

@@ -1,7 +1,5 @@
 #include "pso/TBoss4CheckEmpty.h"
 
-TBoss4CheckEmpty::~TBoss4CheckEmpty() {}
-
 #include "types.h"
 
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -40,5 +38,6 @@ void run_task__16TBoss4CheckEmptyFv(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }
+TBoss4CheckEmpty::~TBoss4CheckEmpty() {}
 
 }

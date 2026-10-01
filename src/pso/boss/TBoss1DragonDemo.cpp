@@ -1,7 +1,5 @@
 #include "pso/TBoss1DragonDemo.h"
 
-TBoss1DragonDemo::~TBoss1DragonDemo() {}
-
 #include "types.h"
 
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -54,6 +52,7 @@ void run_task__16TBoss1DragonDemoFv(u8 *arg0) {
     }
 }
 typedef char RecoveredGlobal_8002B744___vt__16TBoss1DragonDemo_size[sizeof(RecoveredGlobal_8002B744___vt__16TBoss1DragonDemo) == 0x18 ? 1 : -1];
+TBoss1DragonDemo::~TBoss1DragonDemo() {}
 u8 *__ct__16TBoss1DragonDemoFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_8002B744, sp8) == 0x0) ? 1 : -1];
     typedef char sp9_offset[(offsetof(Stack_8002B744, sp9) == 0x1) ? 1 : -1];

@@ -1,7 +1,5 @@
 #include "pso/TWindowSetLevelUp.h"
 
-TWindowSetLevelUp::~TWindowSetLevelUp() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -44,6 +42,7 @@ void run_task__17TWindowSetLevelUpFv(u8 *arg0) {
     }
 }
 
+TWindowSetLevelUp::~TWindowSetLevelUp() {}
 void *__ct__17TWindowSetLevelUpFv(void *arg0, void *arg1, void *arg2, void *arg3) {
     struct VOff_8026DD70_arg0_8026DCE0 *self = (struct VOff_8026DD70_arg0_8026DCE0 *)arg0;
     __ct__7TObjectFP7TObject(arg0);

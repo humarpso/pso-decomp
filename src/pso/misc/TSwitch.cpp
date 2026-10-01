@@ -1,7 +1,5 @@
 #include "pso/TSwitch.h"
 
-TSwitch::~TSwitch() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -163,5 +161,6 @@ void TSwitch__sub_8022942C(void) {
 void TSwitch__sub_8022945C(void) {
     memset((void *) TSwitch__data_80515CC8, (int) (0), (int) (0x240));
 }
+TSwitch::~TSwitch() {}
 
 }

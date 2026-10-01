@@ -1,7 +1,5 @@
 #include "pso/TAdSoniclogo.h"
 
-TAdSoniclogo::~TAdSoniclogo() {}
-
 #include "types.h"
 
 struct Obj_8001C21C { u8 pad[0x1c]; s32 f1c; };
@@ -25,6 +23,12 @@ int queue_destruction__7TObjectFv(void);
 
     extern int TAdSoniclogo__data_805D4A4C;
 void request_destroy__12TAdSoniclogoFv(void) { queue_destruction__7TObjectFv(); TAdSoniclogo__data_805D4A4C = 1; }
+
+}
+
+void TAdSoniclogo::render() {
+    render_logo_with_default(lbl_805D4A48, 16, -1, lbl_805D7E78);
+}
 void run_task__12TAdSoniclogoFv(Obj_8001C21C *self) {
     switch (TAdSoniclogo__data_805D4A4C) {
     case 0:
@@ -43,9 +47,4 @@ void run_task__12TAdSoniclogoFv(Obj_8001C21C *self) {
         break;
     }
 }
-
-}
-
-void TAdSoniclogo::render() {
-    render_logo_with_default(lbl_805D4A48, 16, -1, lbl_805D7E78);
-}
+TAdSoniclogo::~TAdSoniclogo() {}

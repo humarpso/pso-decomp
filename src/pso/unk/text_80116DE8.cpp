@@ -103,17 +103,6 @@ void __dt__11TItemObjectFv(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
 extern M2C_UNK lbl_8049FBC0[];
 
-void *item_object_variant_deleting_dtor_80116F10(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049FBC0;
-        __dt__11TItemObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
-        }
-    }
-    return arg0;
-}
-
 void TObjPlayer__sub_80116DE8(u8 *arg0) {
     u8 temp_r3;
     u8 *temp_r3_2;
@@ -151,6 +140,16 @@ void TObjPlayer__sub_80116DE8(u8 *arg0) {
     }
     temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xF0));
     ((VObj_18_ddf499 *)(temp_r3_2))->m71();
+}
+void *item_object_variant_deleting_dtor_80116F10(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049FBC0;
+        __dt__11TItemObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            free_obj_heap__10TObjPlayerFPv(arg0);
+        }
+    }
+    return arg0;
 }
 
 }

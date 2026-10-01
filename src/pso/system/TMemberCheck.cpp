@@ -10,14 +10,6 @@ extern const char* lbl_805D3650;
 extern s32 lbl_805D6180;
 }
 
-TMemberCheck::TMemberCheck(TObject* parent) : TObject(parent) {
-    m_name = lbl_805D3650;
-    m_1C = 0;
-    memset(m_20, 0, 0x60);
-    lbl_805D6180 = TLobby__sub_801B0974();
-    THunterGuildSeqOffline__sub_80212304(this);
-}
-
 void TMemberCheck::run_task() {
     s32 n = TLobby__sub_801B0974();
     if (lbl_805D6180 != n) {
@@ -32,4 +24,11 @@ TMemberCheck::~TMemberCheck() {
         TWindow__close(m_1C);
         m_1C = 0;
     }
+}
+TMemberCheck::TMemberCheck(TObject* parent) : TObject(parent) {
+    m_name = lbl_805D3650;
+    m_1C = 0;
+    memset(m_20, 0, 0x60);
+    lbl_805D6180 = TLobby__sub_801B0974();
+    THunterGuildSeqOffline__sub_80212304(this);
 }

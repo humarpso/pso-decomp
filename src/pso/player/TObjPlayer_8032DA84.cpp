@@ -94,17 +94,6 @@ void *init_variant_2_dc28__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) 
 
 extern M2C_UNK lbl_804EDC28[];
 
-void *item_equip_variant_deleting_dtor_8032DBE4(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EDC28;
-        item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
-        if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
-        }
-    }
-    return arg0;
-}
-
 extern M2C_UNK lbl_804EDD20[];
 
 u8 *TObjPlayer__sub_8032DB8C(u8 *arg0) {
@@ -121,6 +110,16 @@ u8 *TObjPlayer__sub_8032DB8C(u8 *arg0) {
     return NULL;
 }
 
+void *item_equip_variant_deleting_dtor_8032DBE4(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EDC28;
+        item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
+        if (arg1 > 0) {
+            free_obj_heap__10TObjPlayerFPv(arg0);
+        }
+    }
+    return arg0;
+}
 void *TObjPlayer__sub_8032DC3C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EDD20;

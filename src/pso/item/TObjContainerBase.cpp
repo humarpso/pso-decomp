@@ -18,6 +18,41 @@ struct RecoveredGlobal_80188DC0___vt__17TObjContainerBase {
     u8 remaining[0x148];
 };
 
+typedef s32 M2C_UNK;
+struct Base18 { char pad[0x18]; };
+
+struct RecoveredGlobal_801897A4_lbl_804B63BC {
+    M2C_UNK value;
+    u8 remaining[0x158];
+};
+
+struct RecoveredGlobal_801897A4___vt__18TObjContainerEnemy {
+    M2C_UNK value;
+    u8 remaining[0x148];
+};
+
+struct Box_80189A50 {
+    u8 pad00[0x34];
+    s32 model;
+    u8 pos[0x28];
+    s32 rot;
+    u8 pad64[0x326 - 0x64];
+    s16 state;
+};
+
+struct Spawn_8018990C {
+    u8 pad0[0xC];
+    u8 pos[0xC];
+    u8 pad18[0x38 - 0x18];
+    f32 f38;
+    u8 pad3c[4];
+    s32 f40;
+    s32 f44;
+    u8 pad48[4];
+};
+
+struct Obj_8018990C { u8 pad[0x38]; f32 x, y, z; u8 pad44[0x326 - 0x44]; s16 f326; };
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
@@ -35,6 +70,18 @@ extern RecoveredGlobal_80188DC0_lbl_804B63BC lbl_804B63BC;
 extern M2C_UNK __vt__17TObjContainerBase[];
 extern s32 lbl_805D32E8;
 u8 *TObjContainerBase__ct(u8 *arg0, s32 arg1);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 get_container_param(int);
+extern s32 lbl_805D5B7C;
+M2C_UNK TOSwitchAttack__sub_80087278(void *, int, int);
+M2C_UNK TObjChip__sub_80180BD4(void *, void *, void *);
+M2C_UNK TBoss3Volopt__sub_80189CC0(void *);
+s32 get_container_param(int);
+void *__nw__7TObjectFUl(int);
+extern Spawn_8018990C *const lbl_805D5B80;
+extern Spawn_8018990C *const lbl_805D5B84;
+extern void *tl_05;
+void TObjContainerNoItem__vt77(Obj_8018990C *self);
 }
 
 extern "C" {
@@ -108,6 +155,36 @@ void TObjContainerNoItem__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
         M2C_FIELD(arg0, s16 *, 0x326) = 1;
     }
 }
+
+typedef char RecoveredGlobal_801897A4_lbl_804B63BC_size[sizeof(RecoveredGlobal_801897A4_lbl_804B63BC) == 0x15C ? 1 : -1];
+typedef char RecoveredGlobal_801897A4___vt__18TObjContainerEnemy_size[sizeof(RecoveredGlobal_801897A4___vt__18TObjContainerEnemy) == 0x14C ? 1 : -1];
+void TObjContainerNoItem__vt77(Obj_8018990C *self) {
+    void *o;
+    if (self->f326 != 1) {
+        Spawn_8018990C a = *lbl_805D5B80;
+        Spawn_8018990C b = *lbl_805D5B84;
+        VecCopy__FP3VecPC3Vec(a.pos, &self->x);
+        a.f38 = self->y;
+        a.f40 = get_container_param(2);
+        a.f44 = lbl_805D5B7C;
+        VecCopy__FP3VecPC3Vec(b.pos, &self->x);
+        b.f38 = self->y;
+        b.f40 = get_container_param(0);
+        b.f44 = lbl_805D5B7C;
+        TOSwitchAttack__sub_80087278(&self->x, 0x45, 0x40);
+        TOSwitchAttack__sub_80087278(&self->x, 0x46, 0x40);
+        o = __nw__7TObjectFUl(0x234);
+        if (o != NULL) {
+            TObjChip__sub_80180BD4(o, tl_05, &a);
+        }
+        o = __nw__7TObjectFUl(0x234);
+        if (o != NULL) {
+            TObjChip__sub_80180BD4(o, tl_05, &b);
+        }
+        TBoss3Volopt__sub_80189CC0(self);
+    }
+}
+
 f32 TObjContainerNoItem__vt20(u8 *arg0) {
     s16 sp8;
     if (((u16) M2C_FIELD(arg0, u16 *, 0x1C) >= 0x1000U) && ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
