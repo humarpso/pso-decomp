@@ -232,60 +232,146 @@ void TProtocol::send_pso_data(game_command &packet, u32 size) {
 	}
 }
 
-void TProtocol::send_update_chara_data_v2(TPlyCharData &char_data, TPlyChallenge &challenge, TPlyChoiceSearchConfig &choice_search_config, TBlockedSenders &blocked_senders, TPlyText<512> &auto_reply, char *info_board) {
-	if (m_connected) {
-		char_data.m_disp_data.m_disp_part2.is_valid();
-		m_character_data = char_data;
-		TPlyJoinData tmp;
-		memset(&tmp, 0, sizeof(tmp));
+struct VBase_801DC1E4 { char pad[0x18]; };
+struct VObj_801DC1E4 : VBase_801DC1E4 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s16 send(void *, u32);
+};
 
-		tmp.header.command = 0x98;
-		tmp.header.flags = 3;
-		tmp.header.size = sizeof(tmp);
-		tmp.char_data = m_character_data;
-		tmp.challenge = challenge;
-		tmp.choice_search_config = choice_search_config;
-		strncpy(tmp.info_board, info_board, sizeof(tmp.info_board));
-		for (int i = 0; i < blocked_senders.header.flags; ++i) {
-			tmp.blocked_senders[i] = blocked_senders.blocked_senders[i];
-		}
-		tmp.auto_reply_enabled = auto_reply.header.flags;
-		strncpy(tmp.auto_reply, auto_reply.text, sizeof(tmp.auto_reply)-1);
-		const int packet_size = strlen(tmp.auto_reply) + offsetof(TPlyJoinData, auto_reply) + sizeof(packet_header);
+extern "C" {
 
-		tmp.header.size = packet_size & ~3;
-		tmp.char_data.some_stub();
-		tmp.bswap();
-		send(as(u8 *, &tmp), packet_size & ~3);
-	}
+struct Join_801DC1E4 {
+    u8 command;
+    u8 flags;
+    u16 size;
+    u8 char_data[0x41C];
+    u8 challenge[0x11C];
+    u8 choice_search_config[0x18];
+    char info_board[0xAC];
+    u32 blocked_senders[30];
+    u32 auto_reply_enabled;
+    char auto_reply[0x200];
+};
+struct List_801DC1E4 { u8 command; u8 flags; u16 size; u32 entries[30]; };
+struct Text_801DC1E4 { u8 command; u8 flags; u16 size; char text[0x200]; };
+struct Proto_801DC1E4 { u8 pad[0x1910]; s32 connected; u8 pad1914[0x74]; u8 char_data[0x41C]; };
+
+void TItem__sub_80101CF8(void *);
+void TLobby__sub_80134BC4(void *, void *);
+void TProtocol__sub_8013A650(void *, void *);
+void TProtocol__sub_801DF774(void *, void *);
+void fn_801DFC3C(void *);
+void destroy__9TProtocolFis(void *, int);
+void init_char_data__9TProtocolFi(void *);
+void TCharaMaking__sub_8028DF98(void *);
+
+void TProtocol__sub_801DC1E4(Proto_801DC1E4 *self, u8 *char_data, void *challenge, void *choice_search_config,
+                               List_801DC1E4 *blocked_senders, Text_801DC1E4 *auto_reply, char *info_board) {
+    if (self->connected) {
+        TCharaMaking__sub_8028DF98(char_data + 0x370);
+        TProtocol__sub_8013A650(self->char_data, char_data);
+        Join_801DC1E4 tmp;
+        init_char_data__9TProtocolFi(&tmp);
+        memset(&tmp, 0, sizeof(tmp));
+        tmp.command = 0x98;
+        tmp.flags = 3;
+        tmp.size = sizeof(tmp);
+        TProtocol__sub_8013A650(tmp.char_data, self->char_data);
+        TLobby__sub_80134BC4(tmp.challenge, challenge);
+        TProtocol__sub_801DF774(tmp.choice_search_config, choice_search_config);
+        strncpy(tmp.info_board, info_board, sizeof(tmp.info_board));
+        for (int i = 0; i < blocked_senders->flags; ++i) {
+            tmp.blocked_senders[i] = blocked_senders->entries[i];
+        }
+        tmp.auto_reply_enabled = auto_reply->flags;
+        strncpy(tmp.auto_reply, auto_reply->text, sizeof(tmp.auto_reply) - 1);
+        const int packet_size = strlen(tmp.auto_reply) + 0x680;
+        tmp.size = packet_size & ~3;
+        TItem__sub_80101CF8(tmp.char_data);
+        fn_801DFC3C(&tmp);
+        ((VObj_801DC1E4 *)self)->send(&tmp, packet_size & ~3);
+        destroy__9TProtocolFis(&tmp, -1);
+    }
 }
 
-void TProtocol::send_chara_data_v2(TPlyCharData &char_data, TPlyChallenge &challenge, TPlyChoiceSearchConfig &choice_search_config, TBlockedSenders &blocked_senders, TPlyText<512> &auto_reply, char *info_board) {
-	if (m_connected) {
-		char_data.m_disp_data.m_disp_part2.is_valid();
-		m_character_data = char_data;
-		TPlyJoinData tmp;
-		memset(&tmp, 0, sizeof(tmp));
+}
 
-		tmp.header.command = 0x61;
-		tmp.header.flags = 3;
-		tmp.header.size = sizeof(tmp);
-		tmp.char_data = m_character_data;
-		tmp.challenge = challenge;
-		tmp.choice_search_config = choice_search_config;
-		strncpy(tmp.info_board, info_board, sizeof(tmp.info_board));
-		for (int i = 0; i < blocked_senders.header.flags; ++i) {
-			tmp.blocked_senders[i] = blocked_senders.blocked_senders[i];
-		}
-		tmp.auto_reply_enabled = auto_reply.header.flags;
-		strncpy(tmp.auto_reply, auto_reply.text, sizeof(tmp.auto_reply)-1);
-		const int packet_size = strlen(tmp.auto_reply) + offsetof(TPlyJoinData, auto_reply) + sizeof(packet_header);
+struct VBase_801DC34C { char pad[0x18]; };
+struct VObj_801DC34C : VBase_801DC34C {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s16 send(void *, u32);
+};
 
-		tmp.header.size = packet_size & ~3;
-		tmp.char_data.some_stub();
-		tmp.bswap();
-		send(as(u8 *, &tmp), packet_size & ~3);
-	}
+extern "C" {
+
+struct Join_801DC34C {
+    u8 command;
+    u8 flags;
+    u16 size;
+    u8 char_data[0x41C];
+    u8 challenge[0x11C];
+    u8 choice_search_config[0x18];
+    char info_board[0xAC];
+    u32 blocked_senders[30];
+    u32 auto_reply_enabled;
+    char auto_reply[0x200];
+};
+struct List_801DC34C { u8 command; u8 flags; u16 size; u32 entries[30]; };
+struct Text_801DC34C { u8 command; u8 flags; u16 size; char text[0x200]; };
+struct Proto_801DC34C { u8 pad[0x1910]; s32 connected; u8 pad1914[0x74]; u8 char_data[0x41C]; };
+
+void TItem__sub_80101CF8(void *);
+void TLobby__sub_80134BC4(void *, void *);
+void TProtocol__sub_8013A650(void *, void *);
+void TProtocol__sub_801DF774(void *, void *);
+void fn_801DFC3C(void *);
+void destroy__9TProtocolFis(void *, int);
+void init_char_data__9TProtocolFi(void *);
+void TCharaMaking__sub_8028DF98(void *);
+
+void TProtocol__sub_801DC34C(Proto_801DC34C *self, u8 *char_data, void *challenge, void *choice_search_config,
+                               List_801DC34C *blocked_senders, Text_801DC34C *auto_reply, char *info_board) {
+    if (self->connected) {
+        TCharaMaking__sub_8028DF98(char_data + 0x370);
+        TProtocol__sub_8013A650(self->char_data, char_data);
+        Join_801DC34C tmp;
+        init_char_data__9TProtocolFi(&tmp);
+        memset(&tmp, 0, sizeof(tmp));
+        tmp.command = 0x61;
+        tmp.flags = 3;
+        tmp.size = sizeof(tmp);
+        TProtocol__sub_8013A650(tmp.char_data, self->char_data);
+        TLobby__sub_80134BC4(tmp.challenge, challenge);
+        TProtocol__sub_801DF774(tmp.choice_search_config, choice_search_config);
+        strncpy(tmp.info_board, info_board, sizeof(tmp.info_board));
+        for (int i = 0; i < blocked_senders->flags; ++i) {
+            tmp.blocked_senders[i] = blocked_senders->entries[i];
+        }
+        tmp.auto_reply_enabled = auto_reply->flags;
+        strncpy(tmp.auto_reply, auto_reply->text, sizeof(tmp.auto_reply) - 1);
+        const int packet_size = strlen(tmp.auto_reply) + 0x680;
+        tmp.size = packet_size & ~3;
+        TItem__sub_80101CF8(tmp.char_data);
+        fn_801DFC3C(&tmp);
+        ((VObj_801DC34C *)self)->send(&tmp, packet_size & ~3);
+        destroy__9TProtocolFis(&tmp, -1);
+    }
+}
+
 }
 
 void TProtocol::send_text_list() {
