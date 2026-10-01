@@ -5,10 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-f64 TWindowSubComCard__sub_803A24E4(f64);
+f64 floor(f64);
 extern const f32 lbl_805E0DE0;
 f32 TWindowSubComCard__sub_803D6438(f32 farg0);
-f64 TWindowSubStatusDisp__sub_803A22A4(f64);
+f64 ceil(f64);
 extern const f32 lbl_805E0DE8;
 f32 TWindowSubStatusDisp__sub_803D647C(f32 farg0);
 }
@@ -19,9 +19,9 @@ extern "C" {
 #pragma scheduling off
 f32 TWindowSubComCard__sub_803D6438(f32 farg0) {
     if (farg0 < lbl_805E0DE0) {
-        return -(f32) TWindowSubComCard__sub_803A24E4(-farg0);
+        return -(f32) floor(-farg0);
     }
-    return (f32) TWindowSubComCard__sub_803A24E4((f64) farg0);
+    return (f32) floor((f64) farg0);
 }
 #pragma pop
 
@@ -29,9 +29,9 @@ f32 TWindowSubComCard__sub_803D6438(f32 farg0) {
 #pragma scheduling off
 f32 TWindowSubStatusDisp__sub_803D647C(f32 farg0) {
     if (farg0 < lbl_805E0DE8) {
-        return -(f32) TWindowSubStatusDisp__sub_803A22A4(-farg0);
+        return -(f32) ceil(-farg0);
     }
-    return (f32) TWindowSubStatusDisp__sub_803A22A4((f64) farg0);
+    return (f32) ceil((f64) farg0);
 }
 #pragma pop
 

@@ -13,7 +13,7 @@ extern "C" {
 void set_speed__12TBoss8DragonFPvf(void* p, f32 v);
 int test_card_flag_2__12TBoss8DragonFPv(void* p);
 int TLobby__send_and_handle_60(void*);
-f64 TWindowSubComCard__sub_803A24E4();
+f64 floor();
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 void bswap_6x12_packet__10TObjPlayerFPv(void* p);

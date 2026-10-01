@@ -37,7 +37,7 @@ void TObjPlayer__sub_80084840(f32 farg0, f32 farg1, f32 farg2);
 void TObjPlayer__sub_801E3F24(s32 arg0);
 void TObjPlayer__sub_80084840(f32 farg0, f32 farg1, f32 farg2);
 f32 get_end_text_value__10TObjPlayerFv(void);
-f64 TAdEndText__sub_803A20A4();
+f64 atan();
 void TObjPlayer__sub_80084824(f32 farg0, f32 farg1);
 void TObjPlayer__sub_80084834(s32 arg0);
 void TObjPlayer__sub_80084840(f32 farg0, f32 farg1, f32 farg2);
@@ -94,7 +94,7 @@ void TObjPlayer__sub_800847FC(void) {  }
 }
 extern "C" {
 f32 get_end_text_value__10TObjPlayerFv(void) {
-    return (f32) TAdEndText__sub_803A20A4();
+    return (f32) atan();
 }
 }
 extern "C" {

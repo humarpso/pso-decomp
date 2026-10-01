@@ -1,8 +1,5 @@
 #define __count_trailing_zerol ansi_fp___count_trailing_zerol
 #define __two_exp TAdEndText__sub_80398FC4
-#define frexp fn_803A262C
-#define ldexp TAdEndText__sub_803A26B8
-#define modf TAdEndText__sub_803A287C
 
 #include "MSL_C/ansi_fp.h"
 #include "MSL_C/MSL_Common/float.h"

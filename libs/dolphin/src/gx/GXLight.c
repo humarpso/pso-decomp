@@ -1,6 +1,5 @@
 
 
-#define cosf TLobby__sub_803A2D7C
 
 #include <math.h>
 #include <dolphin/gx.h>

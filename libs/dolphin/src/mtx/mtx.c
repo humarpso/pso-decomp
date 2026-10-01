@@ -1,8 +1,6 @@
 
 
 #define Unit01 lbl_805D4528
-#define cosf TLobby__sub_803A2D7C
-#define tanf TLobby__sub_803A2D34
 
 #include <dolphin.h>
 #include <dolphin/mtx.h>

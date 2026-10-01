@@ -11,7 +11,7 @@ void bswap_stats__10TObjPlayerFPv(void* p);
 void send_6x12_packet__10TObjPlayerFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(void);
-f64 TWindowSubComCard__sub_803A24E4();
+f64 floor();
 int get_flag_b4__21TObjEneMe3ShinowaRealFPv(void* p);
 int test_card_flag_2__12TBoss8DragonFPv(void* p);
 void set_speed__12TBoss8DragonFPvf(void* p, f32 v);

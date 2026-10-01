@@ -1,5 +1,3 @@
-#define tanf TLobby__sub_803A2D34
-
 #include <dolphin.h>
 #include <dolphin/mtx.h>
 #include <macros.h>

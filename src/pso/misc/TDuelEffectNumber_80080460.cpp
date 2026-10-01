@@ -69,7 +69,7 @@ extern "C" {
 f32 TBoss8Dragon__sub_8008072C(void);
 void *__ct__17TDuelEffectStringFv(void *arg0, void *arg1, void *arg2, void *arg3);
 void __ct__7TObjectFP7TObject(void *);
-f64 stop__10TAdEndTextFv();
+f64 pow();
 
 extern M2C_UNK __vt__17TDuelEffectString[];
 extern void *lbl_805D28E8;
@@ -122,7 +122,7 @@ void *__ct__17TDuelEffectStringFv(void *arg0, void *arg1, void *arg2, void *arg3
 }
 
 f32 TBoss8Dragon__sub_8008072C(void) {
-    return (f32) stop__10TAdEndTextFv();
+    return (f32) pow();
 }
 
 }

@@ -31,7 +31,7 @@ void bswap_stats__10TObjPlayerFPv(void* p);
 void send_6x12_packet__10TObjPlayerFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(void);
-f64 TWindowSubComCard__sub_803A24E4();
+f64 floor();
 int get_flag_b4__21TObjEneMe3ShinowaRealFPv(void* p);
 int test_card_flag_2__12TBoss8DragonFPv(void* p);
 void set_speed__12TBoss8DragonFPvf(void* p, f32 v);
@@ -1175,10 +1175,10 @@ f32 calc_sq_offset__12TBoss8DragonFPvf(void *arg0, f32 farg0) {
 extern "C" {
 
 f32 TBoss8Dragon__sub_8008072C(void);
-f64 stop__10TAdEndTextFv();
+f64 pow();
 
 f32 TBoss8Dragon__sub_8008072C(void) {
-    return (f32) stop__10TAdEndTextFv();
+    return (f32) pow();
 }
 
 }
@@ -2369,7 +2369,7 @@ void bswap_stats__10TObjPlayerFPv(void* p);
 void send_6x12_packet__10TObjPlayerFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(void);
-f64 TWindowSubComCard__sub_803A24E4();
+f64 floor();
 int get_flag_b4__21TObjEneMe3ShinowaRealFPv(void* p);
 int test_card_flag_2__12TBoss8DragonFPv(void* p);
 void set_speed__12TBoss8DragonFPvf(void* p, f32 v);

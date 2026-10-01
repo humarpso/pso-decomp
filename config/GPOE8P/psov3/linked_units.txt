@@ -1,4 +1,13 @@
 # Units linked into the DOL from compiled source
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_copysign.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_modf.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_nextafter.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/w_acos.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/w_asin.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/w_atan2.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/w_log.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/w_pow.c
+PowerPC_EABI_Support/MSL/MSL_C/PPC_EABI/Src/math_ppc.c
 PowerPC_EABI_Support/Runtime/Src/CPlusLibPPC.cp
 PowerPC_EABI_Support/Runtime/Src/ptmf.c
 ai/ai.c
@@ -742,7 +751,6 @@ pso/item/TObjItemNameSelect_801F4D70.cpp
 pso/item/TObjItemOKWindow.cpp
 pso/menu/TAdEndText_80307A34.cpp
 pso/menu/TAdEndText_80399904.cpp
-pso/menu/TAdEndText_803A2C8C.cpp
 pso/menu/TAdRicoRing_8001BEE8.cpp
 pso/menu/TChCrLoadGmNjReq.cpp
 pso/menu/TObjTagChallenge_80074B44.cpp
@@ -1134,7 +1142,6 @@ pso/misc/TLobby_8035D540.cpp
 pso/misc/TLobby_8036A37C.cpp
 pso/misc/TLobby_8036DBC4.cpp
 pso/misc/TLobby_8036F81C.cpp
-pso/misc/TLobby_803A2CEC.cpp
 pso/misc/TLobby_803C1A58_803C45E4.cpp
 pso/misc/TLobby_803C1A58_803C4630.cpp
 pso/misc/TLobby_803CBE88.cpp
@@ -2804,7 +2811,6 @@ pso/player/TObjPlayer_80363BE0_80364220.cpp
 pso/player/TObjPlayer_80363BE0_80364258.cpp
 pso/player/TObjPlayer_80363BE0_80364280.cpp
 pso/player/TObjPlayer_80363BE0_803642A8.cpp
-pso/player/TObjPlayer_803A2C4C.cpp
 pso/player/TObjPlayer_803DC834.cpp
 pso/player/TObjPlayer_803E5470.cpp
 pso/protocol/subcommand_validation_actions.cpp

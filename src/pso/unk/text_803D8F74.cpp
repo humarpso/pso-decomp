@@ -25,7 +25,7 @@ f32 PSMTXConcat(int, int, int);
 extern u32 lbl_805D7774;
 void rotate_matrix_y(Matrix34* matrix, s32 angle);
 
-f64 update_end_text__10TObjPlayerFv(f32);
+f64 acos(f32);
 void TOMonitorMachine01__sub_803D8B5C(u32, f32, f32, f32);
 
 void rotate_matrix_x(u32, s32);
@@ -81,21 +81,21 @@ void reflect_matrix_in_plane(u32 arg0, const ReflectionPlane *arg1)
   }
   if (arg1->normal[1] >= lbl_805E0F00)
   {
-    var_r31 = -((s32) (lbl_805E0F18 * ((f64) ((f32) update_end_text__10TObjPlayerFv(var_f31 / var_f30)))));
+    var_r31 = -((s32) (lbl_805E0F18 * ((f64) ((f32) acos(var_f31 / var_f30)))));
   }
   if (arg1->normal[1] < lbl_805E0F00)
   {
     temp_f0_3 = var_f31 / var_f30;
-    var_r31 = (s32) (lbl_805E0F18 * ((f64) ((f32) update_end_text__10TObjPlayerFv(temp_f0_3))));
+    var_r31 = (s32) (lbl_805E0F18 * ((f64) ((f32) acos(temp_f0_3))));
   }
   new_var = arg1;
   if (arg1->normal[0] >= lbl_805E0F00)
   {
-    var_r30 = (s32) (lbl_805E0F18 * ((f64) ((f32) update_end_text__10TObjPlayerFv(new_var->normal[2] / var_f31))));
+    var_r30 = (s32) (lbl_805E0F18 * ((f64) ((f32) acos(new_var->normal[2] / var_f31))));
   }
   if (arg1->normal[0] < lbl_805E0F00)
   {
-    var_r30 = -((s32) (lbl_805E0F18 * ((f64) ((f32) update_end_text__10TObjPlayerFv(arg1->normal[2] / var_f31)))));
+    var_r30 = -((s32) (lbl_805E0F18 * ((f64) ((f32) acos(arg1->normal[2] / var_f31)))));
   }
   TObjPlayer__sub_803D9624(arg0, arg1->origin[0], arg1->origin[1], arg1->origin[2]);
   rotate_matrix_y((Matrix34*)arg0, var_r30);

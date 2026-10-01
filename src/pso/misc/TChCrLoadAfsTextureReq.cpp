@@ -68,7 +68,7 @@ void *init__22TChCrLoadAfsTextureReqFPvPvPv(void *arg0, void *arg1, void *arg2);
 s32 try_acquire_load_slot__22TChCrLoadAfsTextureReqFPv(void *arg0);
 void try_begin_load__22TChCrLoadAfsTextureReqFPv(void* p);
 void *__nw__7TObjectFUl(int);
-f64 cancel_dvd_async();
+f64 log();
 
 void try_begin_load__22TChCrLoadAfsTextureReqFPv(void* p) { if (try_acquire_load_slot__22TChCrLoadAfsTextureReqFPv((void *)(p)) != 0) { *(int*)((char*)p + 0x2c) = 1; } }
 
@@ -200,7 +200,7 @@ void * create__22TChCrLoadAfsTextureReqFPvPv(void *arg0, void *arg1) {
 }
 
 f32 TLobby__sub_8028C50C(void) {
-    return (f32) cancel_dvd_async();
+    return (f32) log();
 }
 #pragma push
 #pragma fp_contract on

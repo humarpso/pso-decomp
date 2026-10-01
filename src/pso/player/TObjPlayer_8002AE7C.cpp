@@ -32,7 +32,7 @@ int bswap_32__FPUl(void*);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(void);
 int test_card_flag_2__12TBoss8DragonFPv(void* p);
 int test_card_flag__19TWindowKeyBoardHardFii(void*, int);
-f64 TWindowSubComCard__sub_803A24E4();
+f64 floor();
 
 void set_field_dc__10TObjPlayerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0xdc) = v; }
 void set_field_d8__10TObjPlayerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0xd8) = v; }

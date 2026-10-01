@@ -72,8 +72,8 @@ void TPlyPhotonChair__sub_80142778(void *arg0);
 extern const f64 lbl_8043F298;
 extern const f64 lbl_8043F2A0;
 extern const f64 lbl_8043F2A8;
-extern const f32 lbl_805D4600[];
-extern const f32 lbl_805D4604[];
+extern const f32 __float_nan[];
+extern const f32 __float_huge[];
 f64 TPlyPhotonChair__sub_80142624(f64 x);
 }
 
@@ -109,9 +109,9 @@ f64 TPlyPhotonChair__sub_80142624(f64 x) {
         return lbl_8043F298;
     }
     if (x != lbl_8043F298) {
-        return lbl_805D4600[0];
+        return __float_nan[0];
     }
-    return lbl_805D4604[0];
+    return __float_huge[0];
 }
 #pragma pop
 

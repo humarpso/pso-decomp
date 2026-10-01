@@ -423,6 +423,12 @@ def DolphinLib(lib_name: str, objects: list) -> dict:
     }
 
 
+_msl_math = {
+    "mw_version": "GC/1.3",
+    "cflags": [f for f in cflags_runtime if f != "-fp_contract off"] + ["-fp_contract on"],
+}
+
+
 def RuntimeLib(lib_name: str, objects: list) -> dict:
     """A PowerPC EABI runtime / MSL library.
 
@@ -737,6 +743,41 @@ if args.target == "psov3":
                 ),
                 Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/misc_io.c"),
                 Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/wchar_io.c"),
+            ],
+        ),
+        # fdlibm + math_ppc (0x8039F7FC-0x803A2DA0): built like ac's MSL math,
+        # GC/1.3 with -fp_contract on (e_acos needs fmadd; s_atan only matches
+        # under 1.3).
+        RuntimeLib(
+            "MSL_C.PPCEABI.bare.H.math",
+            [
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_acos.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_asin.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_atan2.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_log.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_pow.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_rem_pio2.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/k_cos.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/k_rem_pio2.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/k_sin.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/k_tan.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_atan.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_ceil.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_copysign.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_cos.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_floor.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_frexp.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_ldexp.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_modf.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_nextafter.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_sin.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/s_tan.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/w_acos.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/w_asin.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/w_atan2.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/w_log.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/w_pow.c", **_msl_math),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/PPC_EABI/Src/math_ppc.c", **_msl_math),
             ],
         ),
     ]

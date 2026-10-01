@@ -29,7 +29,7 @@ int TLobby__send_and_handle_60(void*);
 f64 TObjPlayer__sub_80019784(void);
 int bswap_16__FPUs(void*);
 int get_slot_value__10TObjPlayerFPvi(void*, int);
-f64 start__10TAdEndTextFv(void);
+f64 atan2(void);
 
 void bswap_head16__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv((void*)(p)); bswap_16__FPUs((char*)p + 0x4); }
 int read_be16_field2__10TObjPlayerFPv(void* p) { return bswap_16__FPUs((char*)p + 0x2); }
