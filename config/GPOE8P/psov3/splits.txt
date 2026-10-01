@@ -493,6 +493,7 @@ pso/boss/TBoss2DeRolLe_800341A4.cpp:
 
 pso/boss/TBoss2DeRolLe_800343B4.cpp:
 	.text       start:0x800343B4 end:0x80034A14
+	.sdata2     start:0x805D82DC end:0x805D8434
 
 pso/boss/TBoss2DeRolLe_80034A14.cpp:
 	.text       start:0x80034A14 end:0x80035084

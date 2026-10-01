@@ -54,6 +54,13 @@ void append_string(s32 arg0);
 extern char lbl_80449CA8[];
 extern s32 lbl_805D53A0;
 void TLobby__sub_801E6B68(void);
+s32 is_split_screen();
+char *TLobby__sub_800713C8();
+void append_string(s32 arg0);
+char *TLobby__sub_80291D4C();
+int sprintf(char *, const char *, ...);
+extern char lbl_805DC4AC[3];
+void TLobby__sub_801E6998(void);
 }
 
 extern "C" {
@@ -80,6 +87,17 @@ s32 parse_r_index(s32 arg0) {
 }
 
 extern u8 *TLobby__data_805D5ED0;
+
+void TLobby__sub_801E6998(void) {
+    char buf[0x40];
+    if (is_split_screen() == 1) {
+        sprintf(buf, lbl_805DC4AC, TLobby__sub_80291D4C());
+    } else {
+        sprintf(buf, lbl_805DC4AC, TLobby__sub_800713C8());
+    }
+    buf[0x3F] = 0;
+    append_string((s32)buf);
+}
 
 void TLobby__sub_801E6A04(void) {
     char buf[64];

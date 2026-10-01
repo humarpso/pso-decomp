@@ -82,6 +82,17 @@ extern Spawn_8018990C *const lbl_805D5B80;
 extern Spawn_8018990C *const lbl_805D5B84;
 extern void *tl_05;
 void TObjContainerNoItem__vt77(Obj_8018990C *self);
+M2C_UNK fn_801FBA6C(s32);
+M2C_UNK TOMonitorMachine01__sub_803D8B5C(M2C_UNK, f32, f32, f32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(s32);
+extern u32 lbl_805D5B78;
+extern s32 lbl_805D5B7C;
+extern const f32 lbl_805DBCFC;
+void TObjContainerNoItem__vt79(u8 *arg0);
 }
 
 extern "C" {
@@ -193,6 +204,23 @@ f32 TObjContainerNoItem__vt20(u8 *arg0) {
         TObjPlayer__sub_80154954((void *) (arg0), (void *) (&sp8));
     }
     return lbl_805DBCF4;
+}
+void TObjContainerNoItem__vt79(u8 *arg0) {
+    if (lbl_805D5B78 != 0U) {
+        switch (M2C_FIELD(arg0, s16 *, 0x326)) {
+        case 1:
+            break;
+        case 0:
+        set_global_param__8TObjFishFi(lbl_805D5B7C);
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
+        TOMonitorMachine01__sub_803D8B5C(0, lbl_805DBCFC, lbl_805DBCFC, lbl_805DBCFC);
+        fn_801FBA6C(M2C_FIELD(arg0, s32 *, 0x34));
+        TObjPlayer__sub_803D9B78();
+            break;
+        }
+    }
 }
 
 }

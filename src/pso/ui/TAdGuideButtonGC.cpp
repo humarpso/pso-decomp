@@ -56,6 +56,17 @@ struct Obj_8032D708 {
     s32 x19C;
 };
 
+struct Obj_8032D85C {
+    u8 pad0[0x11C];
+    u32 vals[8];
+    s32 x13C;
+    u8 pad140[0x198 - 0x140];
+    s32 x198;
+    s32 x19C;
+    s32 x1A0;
+    s32 x1A4;
+};
+
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 TAdMultiPlyChrSelectGC__sub_802C6FA8(void);
@@ -67,6 +78,8 @@ M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 extern UV_8032D600 lbl_80477350[];
 void TAdGuideButtonGC__sub_8032D600(Obj_8032D600 *arg0, Src_8032D600 *arg1);
 void TAdGuideButtonGC__sub_8032D708(Obj_8032D708 *arg0);
+void TAdGuideButtonGC__sub_8032D708(Obj_8032D708 *arg0);
+void run_task__16TAdGuideButtonGCFv(Obj_8032D85C *arg0);
 }
 
 extern "C" {
@@ -127,6 +140,23 @@ void TAdGuideButtonGC__sub_8032D708(Obj_8032D708 *arg0) {
         arg0->quads[i].y0 = arg0->from.y + d[i].y;
         arg0->quads[i].x1 = 20.0f + arg0->quads[i].x0;
         arg0->quads[i].y1 = 20.0f + arg0->quads[i].y0;
+    }
+}
+
+struct Obj_8032D708;
+void run_task__16TAdGuideButtonGCFv(Obj_8032D85C *arg0) {
+    s32 i;
+    if (arg0->x1A4 != 0) {
+        if (arg0->x13C < arg0->x19C) {
+            arg0->x13C++;
+        }
+        for (i = 0; i < 8; i++) {
+            if (arg0->vals[i] < 0xFF) {
+                arg0->vals[i] += arg0->x198;
+            }
+            arg0->vals[i] = arg0->vals[i] > 0xFF ? 0xFF : arg0->vals[i];
+        }
+        TAdGuideButtonGC__sub_8032D708((Obj_8032D708 *)arg0);
     }
 }
 

@@ -46,6 +46,11 @@ extern RecoveredGlobal_803D2E04_lbl_80587880 lbl_80587880;
 extern u8 lbl_804F9E30[];
 extern u8 lbl_8047DEDC[];
 Obj_803D2C84 *TLobby__sub_803D2C84(s32 data, s32 bsize, s32 x24);
+M2C_UNK memset(void *, int, int);
+extern RecoveredGlobal_803D2E04_lbl_80587880 lbl_80587880;
+extern s32 lbl_805D7648;
+extern const char *const volatile lbl_805E0DB8;
+void TLobby__sub_803D2E44(void);
 }
 
 extern "C" {
@@ -91,6 +96,14 @@ void TLobby__sub_803D2E04(void) {
     }
 }
 typedef char RecoveredGlobal_803D2E94_lbl_8058A880_size[sizeof(RecoveredGlobal_803D2E94_lbl_8058A880) == 0xC00 ? 1 : -1];
+
+void TLobby__sub_803D2E44(void) {
+    const char *ver = lbl_805E0DB8;
+    if (lbl_805D7648 == 0) {
+        memset(&lbl_80587880, 0, 0x3000);
+    }
+    lbl_805D7648 += 1;
+}
 
 void TLobby__sub_803D2E90(void) {
     while (1) {

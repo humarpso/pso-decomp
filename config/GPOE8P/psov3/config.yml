@@ -37,6 +37,7 @@ force_active:
   - TKeyBoardControl__sub_80290D10
   - TLobby__sub_803CBE40
   - TLobby__sub_803D0F1C
+  - TLobby__sub_803D2E90
   - TLockOnCursor__sub_8013EBBC
   - TLockOnCursor__sub_8013EBE8
   - TLockOnCursor__sub_8013EC14
@@ -71,11 +72,13 @@ force_active:
   - TObjPlayer__sub_801BF60C
   - TObjPlayer__sub_801BF7B8
   - TObjPlayer__sub_801BF8CC
+  - TObjPlayer__sub_801BFD3C
   - TObjPlayer__sub_801C1A30
   - TObjPlayer__sub_801D0B44
   - TObjPlayer__sub_801D1FA4
   - TObjPlayer__sub_801D2004
   - TObjPlayer__sub_80307784
+  - TObjPlayer__sub_80312FB0
   - TObjPlayer__sub_803DA84C
   - TObjPlayer__sub_803DAA70
   - TObjPlayer__sub_803DAD84

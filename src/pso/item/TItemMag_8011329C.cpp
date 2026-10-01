@@ -91,6 +91,14 @@ struct Self_801135E0 {
     VObj_18_801135E0 *subs[2];
 };
 
+struct Grp_80113B6C { u32 a, b, c, d; };
+
+struct Rec_80113B6C {
+    u32 f0; u32 f4; u32 f8; u32 fC; u32 f10; u32 f14; u32 f18; u32 f1C;
+    u32 f20; u32 f24; u32 f28; u32 f2C; u32 f30;
+    Grp_80113B6C g[3];
+};
+
 extern "C" {
 M2C_UNK refresh_if_current_player__20TWindowSubStatusDispFPv(void *);
 int TItemData__sub_8010EE40(void*);
@@ -179,6 +187,17 @@ void warn_if_gauge_low__10TObjPlayerFv();
 void TObjPlayer__sub_8036414C();
 extern const f32 TItemMag__data_805DABA8;
 void TItemMag__vt24(Self_801135E0 *self);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+void *load_buffer__9TItemLoadFPvUii(void *arg0, u32 arg1, s32 arg2);
+int fn_800F955C(void *p);
+int bswap_32__FPUl(void *);
+s32 *get_type__8TItemMagFPv(void *);
+extern u8 lbl_8043E568[];
+extern u8 lbl_8043E57C[];
+extern int TItemMag__data_805D54A8;
+extern int lbl_805D54AC;
+extern int lbl_805D54B0;
+void TItemMag__sub_80113B6C(void);
 }
 
 extern "C" {
@@ -487,6 +506,49 @@ u8 *TItemMag__sub_80113AD4(s32 arg0) {
 }
 
 void cleanup__8TItemMagFv(void) { __dt__9TItemLoadFPvs((void*)(TItemMag__data_805D54A8), (void*)1); fn_800F953C((void*)(lbl_805D54B0)); TItemMag__data_805D54A8 = 0; lbl_805D54AC = 0; lbl_805D54B0 = 0; }
+
+void TItemMag__sub_80113B6C(void) {
+    s32 i;
+    s32 j;
+    Rec_80113B6C *rec;
+    Grp_80113B6C *g;
+    s32 *type;
+    void *buf;
+    lbl_805D54B0 = fn_800F955C(lbl_8043E568);
+    rec = (Rec_80113B6C *)lbl_805D54B0;
+    for (i = 0; i < 0x5A; i++, rec++) {
+        bswap_32__FPUl(&rec->f0);
+        bswap_32__FPUl(&rec->f8);
+        bswap_32__FPUl(&rec->f10);
+        bswap_32__FPUl(&rec->f14);
+        bswap_32__FPUl(&rec->f18);
+        bswap_32__FPUl(&rec->f1C);
+        bswap_32__FPUl(&rec->f20);
+        bswap_32__FPUl(&rec->f24);
+        bswap_32__FPUl(&rec->f28);
+        bswap_32__FPUl(&rec->f2C);
+        bswap_32__FPUl(&rec->f30);
+        g = rec->g;
+        for (j = 0; j < 3; j++, g++) {
+            bswap_32__FPUl(&g->a);
+            bswap_32__FPUl(&g->b);
+            bswap_32__FPUl(&g->c);
+            bswap_32__FPUl(&g->d);
+        }
+    }
+    type = NULL;
+    buf = alloc__23TAdSinglePlyChrSelectGCFPv(8);
+    if (buf != NULL) {
+        buf = load_buffer__9TItemLoadFPvUii(buf, (u32)lbl_8043E57C, 0x1000);
+    }
+    TItemMag__data_805D54A8 = (int)buf;
+    if (buf != NULL) {
+        type = get_type__8TItemMagFPv(buf);
+    }
+    if (type != NULL) {
+        lbl_805D54AC = *type;
+    }
+}
 
 void set_flags64__8TItemMagFPvUi(void* p, u32 v) { *(u32*)((char*)p + 0x64) |= v; }
 

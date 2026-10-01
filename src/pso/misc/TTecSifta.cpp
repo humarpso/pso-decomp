@@ -68,6 +68,7 @@ struct Sifta_8023AF94 {
     s32 captured;
 };
 
+typedef s32 M2C_UNK;
 extern "C" {
 s32 obj_getField1c(int);
 s32 TObjPlayer__sub_8004433C(void *);
@@ -91,6 +92,17 @@ u32 TPhotonMylla__sub_80154CB4(int);
 s32 is_parents_unqueued__9TTecLukerFUi(u32);
 void fn_802370D8(void *);
 void run_task__9TTecSiftaFv(Sifta_8023AF94 *self);
+s32 obj_getField1c(int);
+s32 TObjPlayer__sub_8004433C(void *);
+s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
+int TTecSifta__sub_8023AC88(void* p);
+void TTecSifta__sub_8023ACA8(Obj_8023ACA8 *arg0);
+void update_effect_params__9TTecSiftaFPv(u8 *arg0);
+void TTecAnti__sub_8022B3E8(void *, void *);
+extern M2C_UNK __vt__9TTecSifta[];
+extern s32 lbl_805D3820;
+extern const f32 lbl_805DC940;
+void *TTecSifta__ct(void *arg0_, void *arg1, void *arg2, void *arg3, void *arg4);
 }
 
 extern "C" {
@@ -104,7 +116,6 @@ void update_effect_params__9TTecSiftaFPv(u8 *arg0);
 void TObjPlayer__sub_8023AC84(void);
 M2C_UNK TTecAnti__sub_8022B35C(void *, s32);
 s32 TTecCtrl__sub_8022DBC4(M2C_UNK, s16, M2C_UNK);
-void *TTecSifta__ct(void *, void *, void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__19TTecPlayerInfluenceFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -149,7 +160,7 @@ void create_instance__9TTecSiftaFPvPvPvPv(void *arg0, void *arg1, void *arg2, vo
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {
-        TTecSifta__ct(o, arg0, arg1, arg2, arg3);
+        TTecSifta__ct((void *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (void *)(arg3));
     }
 }
 
@@ -218,6 +229,37 @@ void run_task__9TTecSiftaFv(Sifta_8023AF94 *self) {
     }
     ((void (*)(void *))queue_destruction__7TObjectFv)(self);
 }
+
+#pragma push
+#pragma opt_common_subs off
+struct Obj_8023ACA8;
+#define arg0 ((u8 *)arg0_)
+void *TTecSifta__ct(void *arg0_, void *arg1, void *arg2, void *arg3, void *arg4) {
+    u8 *temp_r3;
+    u32 t;
+    TTecPlayerInfluence__ct(arg0, arg1, arg2, arg4);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TTecSifta;
+    TObjPlayer__sub_8004433C(arg0 + 0xE0);
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3820;
+    M2C_FIELD(arg0, s32 *, 0x13C) = 1;
+    TTecAnti__sub_8022B3E8(arg0 + 0xE0, arg3);
+    update_effect_params__9TTecSiftaFPv(arg0);
+    temp_r3 = M2C_FIELD(arg0, u8 **, 0xDC);
+    if (temp_r3 != NULL) {
+        M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0xA4), f32 *, 0xC) = lbl_805DC940 + M2C_FIELD(arg0, f32 *, 0x7C);
+    }
+    t = M2C_FIELD(arg0, u32 *, 0x1C);
+    if (t != 0U) {
+        M2C_FIELD(arg0, s16 *, 0xA8) = obj_getField1c((int)t);
+    }
+    if (M2C_FIELD(arg0, s32 *, 0xAC) != 0) {
+        TTecSifta__sub_8023AC88((void*)(arg0));
+        TTecSifta__sub_8023ACA8((Obj_8023ACA8 *)arg0);
+    }
+    return arg0_;
+}
+#undef arg0
+#pragma pop
 
 u8 *TTecSifta__sub_8023B17C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 temp_r3_2;

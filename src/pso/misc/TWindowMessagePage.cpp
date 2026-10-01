@@ -12,6 +12,8 @@ struct RecoveredGlobal_8026AF24_lbl_8050E208 {
     u8 remaining[0x1AC];
 };
 
+struct Page_8026AE20 { u8 pad[0x90]; s32 flags; void *msg; };
+
 extern "C" {
 u8 *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TLobby__sub_80269DA4(void *, void *);
@@ -29,6 +31,8 @@ M2C_UNK draw__14TWindowMessageFPv();
 void update_message__18TWindowMessagePageFPv(void *arg0);
 extern RecoveredGlobal_8026AF24_lbl_8050E208 lbl_8050E208;
 void run_task__18TWindowMessagePageFv(u8 *arg0);
+void update_message__18TWindowMessagePageFPv(void *arg0);
+void TWindowMessagePage__sub_8026AE20(Page_8026AE20 *self, void *msg, s32 flags);
 }
 
 extern "C" {
@@ -62,6 +66,15 @@ void update_message__18TWindowMessagePageFPv(void *arg0) {
 }
 
 extern s32 lbl_805D53A0;
+
+void TWindowMessagePage__sub_8026AE20(Page_8026AE20 *self, void *msg, s32 flags) {
+    while (self->msg != NULL) {
+        update_message__18TWindowMessagePageFPv(self);
+    }
+    self->flags = flags | 2;
+    self->msg = msg;
+    update_message__18TWindowMessagePageFPv(self);
+}
 
 u8 *TWindowMessagePage__sub_8026AE7C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 *temp_r3;

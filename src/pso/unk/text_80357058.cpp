@@ -28,6 +28,10 @@ struct Pkt_803570E4 { u8 hdr[4]; s8 d[0x40]; };
 
 struct Vec_803570E4 { f32 x, y, z; };
 
+struct V4_8035740C { f32 x, y, z; s32 w; };
+
+struct O_8035740C { u8 pad0[0xC4]; V4_8035740C v[10]; };
+
 extern "C" {
 u8 * fn_802E4A4C(void *, M2C_UNK, void *);
 f32 TBoss8Dragon__sub_803D64C0(s32);
@@ -55,6 +59,17 @@ void TBoss6Rock__sub_80353EDC(s32 i, s32 a, s32 b);
 int read_be16_field2_forward(void* p);
 extern int lbl_805D6F20;
 void handle_6xAD_olga_flow_subordinate_boss_actions(Pkt_803570E4 *pkt);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK disallow_rendering__7TObjectFv(void *);
+M2C_UNK decrement_packed_timer__15TObjBoss2TunnelFPvi(void *, int);
+M2C_UNK approach_value__20TItemEffOrgaFlowShotFPvff(void *, f32, f32);
+s32 has_game_join_id();
+M2C_UNK TItemAttackCol__sub_802E4918(void *);
+void TItemEffOrgaFlowShot__sub_80357284(void *arg0);
+void TItemEffOrgaFlowShot__sub_80357358(u8 *arg0);
+extern const f32 lbl_805E0030;
+extern const f32 lbl_805E0034;
+void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0);
 }
 
 extern "C" {
@@ -229,6 +244,33 @@ void render__20TItemEffOrgaFlowShotFv(s32 arg0) {
 }
 
 extern M2C_UNK __vt__20TItemEffOrgaFlowShot[];
+
+void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0) {
+    s32 temp_r3;
+    s32 var_r30;
+    if (has_game_join_id() != 0) {
+        TItemAttackCol__sub_802E4918((void *) (arg0));
+    } else {
+        queue_destruction__7TObjectFv((void *) (arg0));
+        disallow_rendering__7TObjectFv((void *) (arg0));
+    }
+    approach_value__20TItemEffOrgaFlowShotFPvff((void *) (arg0 + 0x190), (f32) (lbl_805E0030), (f32) (M2C_FIELD(arg0, f32 *, 0x18C)));
+    if (M2C_FIELD(arg0, f32 *, 0x190) == M2C_FIELD(arg0, f32 *, 0x18C)) {
+        approach_value__20TItemEffOrgaFlowShotFPvff((void *) (arg0 + 0x194), (f32) (lbl_805E0034), (f32) (M2C_FIELD(arg0, f32 *, 0x198)));
+    }
+    for (var_r30 = 0; var_r30 != 10; var_r30++) {
+        decrement_packed_timer__15TObjBoss2TunnelFPvi(&((O_8035740C *)arg0)->v[var_r30].w, 2);
+    }
+    if (M2C_FIELD(arg0, f32 *, 0x194) == M2C_FIELD(arg0, f32 *, 0x198)) {
+        temp_r3 = M2C_FIELD(arg0, s32 *, 0x19C);
+        M2C_FIELD(arg0, s32 *, 0x19C) = (s32) (temp_r3 - 1);
+        if (temp_r3 == 0) {
+            queue_destruction__7TObjectFv((void *) (arg0));
+        }
+    }
+    TItemEffOrgaFlowShot__sub_80357284((void *) (arg0));
+    TItemEffOrgaFlowShot__sub_80357358(arg0);
+}
 
 void *__dt__20TItemEffOrgaFlowShotFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

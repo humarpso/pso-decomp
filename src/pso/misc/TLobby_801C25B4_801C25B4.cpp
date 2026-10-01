@@ -12,12 +12,13 @@ typedef struct Lobby_801C2898 {
 
 struct Pair_801C271C { s32 v[2]; };
 
+struct Ent_801C26A8 { u16 id; s16 active; u8 pad[4]; };
+
 extern "C" {
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
 u8 TPlayerBattleCtrl4P__sub_803102C8(void);
 extern u8 *TLobby__data_805D5D98;
 u8 TLobby__sub_801C2614(void);
-s32 TLobby__sub_801C26A8(void);
 extern s32 TLobby__data_805D5DC0;
 s32 TLobby__sub_801C2678(void);
 void send_battle_mode_data__6TLobbyFv(void *);
@@ -35,6 +36,9 @@ u8 TLobby__sub_801D7100(void *);
 extern u8 lbl_8050EA40[];
 extern s32 TLobby__data_80511CA0[];
 u8 TLobby__sub_801C271C(void);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+extern Ent_801C26A8 TLobby__data_80511C80[];
+s32 TLobby__sub_801C26A8(void);
 }
 
 extern "C" {
@@ -94,6 +98,20 @@ s32 TLobby__sub_801C2678(void) {
         return 0;
     }
     return TLobby__data_805D5DC0;
+}
+
+s32 TLobby__sub_801C26A8(void) {
+    Ent_801C26A8 *e;
+    s32 result = 1;
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        e = &TLobby__data_80511C80[i];
+        if (TPlayerBattleCtrl4P__sub_801BA74C(e->id) != 0 && e->active != 0) {
+            result = 0;
+            break;
+        }
+    }
+    return result;
 }
 
 u8 TLobby__sub_801C271C(void) {

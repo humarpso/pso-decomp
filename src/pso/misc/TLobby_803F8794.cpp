@@ -5,6 +5,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Self_803FD85C;
+struct Tbl_803FD85C {
+    u8 pad[0x14];
+    void (*f14)(Self_803FD85C *, Tbl_803FD85C *);
+    u8 pad18[8];
+    void (*f20)(Self_803FD85C *, Tbl_803FD85C *);
+};
+struct Self_803FD85C {
+    u8 f0; u8 f1; u8 f2; u8 f3; u8 f4; u8 f5; u8 f6; u8 f7;
+    u8 pad8[8];
+    u8 f10[0x1C];
+    Tbl_803FD85C *tbl;
+    void *f30;
+};
+
+struct Ch_8040098C { s16 flags; u8 pad[6]; u16 code; };
+struct Info_8040098C { u8 pad[0x1C]; s16 f1C; u8 pad1E[6]; u16 f24; u8 pad26[0x2A]; s16 f50; u8 pad52[6]; u16 f58; };
+struct St_8040098C { s8 f0; u8 f1; u8 f2; u8 pad3[0x69]; u8 f6C[0x9C]; s32 f108; s32 f10C; };
+struct Self_8040098C { u8 pad[0xC]; St_8040098C *st; u8 pad10[0x20]; Info_8040098C *info; };
+
 struct RecoveredGlobal_803F8AA0_lbl_805BA5C0 {
     M2C_UNK value;
     u8 remaining[0x30A8];
@@ -1624,6 +1644,32 @@ void TLobby__sub_803FD694(u8 *arg0) {
     TLobby__sub_80405298((N_80405298 *) (temp_r31), (s32) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2C), s32 *, 0xC)));
 }
 
+#define self ((Self_803FD85C *)arg0)
+void TLobby__sub_803FD85C(void *arg0) {
+    if (self->f30 != NULL) {
+        switch (self->f0) {
+        case 2:
+        case 3:
+        case 4:
+            TLobby__sub_80405304(self->f10);
+            self->f0 = (self->f2 & 0xC0) ? 1 : 0;
+            self->f3 = self->f4;
+            self->f6 = self->f7;
+            self->tbl->f14(self, self->tbl);
+            break;
+        case 5:
+            self->tbl->f20(self, self->tbl);
+        case 6:
+            self->f0 = (self->f2 & 0xC0) ? 1 : 0;
+            self->f3 = self->f4;
+            self->f6 = self->f7;
+            self->tbl->f14(self, self->tbl);
+            break;
+        }
+    }
+}
+#undef self
+
 void TLobby__sub_803FD958(u8 *arg0) {
   u8 temp_r0;
   u8 temp_r3;
@@ -1935,6 +1981,45 @@ s32 TLobby__sub_804004DC(Conn_804004DC *c) {
 
 void TLobby__sub_80400988(void) {
 
+}
+
+void TLobby__sub_8040098C(Self_8040098C *self) {
+    Info_8040098C *info = self->info;
+    St_8040098C *st;
+    u32 now;
+
+    self->st->f0 = 2;
+    self->st->f2 &= ~0x30;
+    self->st->f10C = 0;
+    if (info->f1C & 8) {
+        switch (info->f24) {
+        case 0xC023:
+            set_active__6TLobbyFPv((u8 *)self->st);
+            break;
+        case 0xC223:
+            TLobby__sub_803FC480((Obj_803FC480 *)self->st);
+            set_active_flag__6TLobbyFPv((u8 *)self->st);
+            break;
+        }
+    }
+    if (info->f50 & 8) {
+        switch (info->f58) {
+        case 0xC023:
+            mark_ready__6TLobbyFPv((u8 *)self->st);
+            break;
+        case 0xC223:
+            set_active_flag__6TLobbyFPv((u8 *)self->st);
+            TLobby__sub_803FC480((Obj_803FC480 *)self->st);
+            break;
+        }
+    }
+    st = self->st;
+    if (!(st->f2 & 0x30)) {
+        st->f0 = 3;
+        TLobby__sub_803F9214((s32 *)&now);
+        st->f108 = (s16)(now / 1000);
+        TLobby__sub_803FD958(st->f6C);
+    }
 }
 
 struct O_80400ACC { u8 b0; u8 b1; u8 b2; u8 pad3[0x108 - 3]; s32 f108; };

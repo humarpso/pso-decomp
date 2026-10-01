@@ -73,6 +73,22 @@ struct Win_80215CB8 { u8 pad[0x16c]; void *cb0; void *cb1; void *cb2; };
 
 struct Seq_80215CB8 { u8 pad[0x24]; s32 f24; };
 
+struct VtBase80215E74 { char pad[0x18]; };
+
+struct VtObj80215E74 : VtBase80215E74 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+};
+
 extern "C" {
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 u32 TShopSequence__sub_80223600(void *, s32, s32);
@@ -101,6 +117,11 @@ void TJudgmentSequence__sub_80215BA0(void *arg0);
 void TJudgmentSequence__sub_80215BF8(void *arg0);
 extern void *tl_05;
 void TJudgmentSequence__sub_80215CB8(Seq_80215CB8 *self);
+void TJudgmentSequence__sub_80215DA0(u8 *arg0);
+void TJudgmentSequence__sub_80215CB8(Seq_80215CB8 *self);
+void handle_close_input__17TJudgmentSequenceFPv(void *arg0);
+void handle_confirm__17TJudgmentSequenceFPv(void *arg0);
+void TJudgmentSequence__vt9(void *arg0);
 }
 
 extern "C" {
@@ -180,6 +201,30 @@ void TJudgmentSequence__sub_80215DA0(u8 *arg0) {
 void TJudgmentSequence__vt10(void* p) { restore_player_state__13TShopSequenceFPv(p); set_field_20__12TQuestListVMFPvi((void*)(p), (void*)((void*)1)); }
 typedef char RecoveredGlobal_80215EF8___vt__17TJudgmentSequence_size[sizeof(RecoveredGlobal_80215EF8___vt__17TJudgmentSequence) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80_size[sizeof(RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80) == 0x10 ? 1 : -1];
+
+struct Seq_80215CB8;
+void TJudgmentSequence__vt9(void *arg0) {
+    switch (M2C_FIELD(arg0, s32 *, 0x20)) {
+    case 0:
+        ((VtObj80215E74*)arg0)->m10();
+        break;
+    case 1:
+        TJudgmentSequence__sub_80215DA0((u8 *)arg0);
+        break;
+    case 2:
+        handle_confirm__17TJudgmentSequenceFPv(arg0);
+        break;
+    case 3:
+        TJudgmentSequence__sub_80215CB8((Seq_80215CB8 *)arg0);
+        break;
+    case 4:
+        handle_close_input__17TJudgmentSequenceFPv(arg0);
+        break;
+    case 5:
+        break;
+    }
+}
+
 u8 *__dt__17TJudgmentSequenceFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__17TJudgmentSequence.value;

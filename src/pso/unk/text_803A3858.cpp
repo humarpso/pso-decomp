@@ -421,6 +421,19 @@ struct V_803B1F24 {
     u8 pad0[0x3C]; V_803B1F24 *vnext; V_803B1F24 *vprev; V_803B1F24 *next; V_803B1F24 *prev; s32 i4C;
     u8 pad50[0x48]; u64 deadline; u64 started; u8 padA8[0x6C]; u32 fh; u32 fl;
 };
+#pragma pack(push, 4)
+struct Ch_803B202C {
+    u8 pad0[0x3C]; V_803B1F24 *wnext; V_803B1F24 *wprev;
+    Program_803B1DA4 *next; Program_803B1DA4 *prev; s32 state; u8 pad50[0x48];
+    s64 f98; s64 fa0; u8 padA8[0x114 - 0xA8]; u64 flags;
+};
+#pragma pack(pop)
+#pragma pack(push, 4)
+struct Ch_803B1E48 {
+    u8 pad0[0x44]; Program_803B1DA4 *next; Program_803B1DA4 *prev; u8 pad4c[0x4C];
+    s64 f98; s64 fa0; u8 padA8[0x114 - 0xA8]; u64 flags;
+};
+#pragma pack(pop)
 void TLobby__sub_803B1C98(Voice_803B1C98 *, u32);
 u16 TLobby__sub_803BC168(Ch_803A897C *);
 void TLobby__sub_803BD138(s32, u8);
@@ -1543,6 +1556,27 @@ void TLobby__sub_803B1DA4(Program_803B1DA4 *self) {
     }
 }
 
+void TLobby__sub_803B1E48(Ch_803B1E48 *o, u32 arg1) {
+    if (o->f98 != 0) {
+        if (o->f98 != -1) {
+            if (o->prev == NULL) {
+                lbl_805D7420 = o->next;
+            } else {
+                o->prev->next = o->next;
+            }
+            if (o->next != NULL) {
+                o->next->prev = o->prev;
+            }
+        }
+        if (arg1 == 0) {
+            TLobby__sub_803A8CC0(o);
+        }
+        o->f98 = 0;
+        o->fa0 = lbl_805D7428;
+        o->flags &= ~0x40004ULL;
+    }
+}
+
 #define p1F24 ((V_803B1F24 *)arg0)
 #undef FLAGS
 #define FLAGS (*(u64 *)&p1F24->fh)
@@ -1575,6 +1609,42 @@ void TLobby__sub_803B1F24(void *arg0) {
 #undef p1F24
 #undef FLAGS
 #define FLAGS (*(u64 *)&o->fh)
+
+#define o ((Ch_803B202C *)ov)
+void TLobby__sub_803B202C(Obj_803B312C *ov, s32 state) {
+    if (o->state == state) {
+        return;
+    }
+    if (o->state == 0) {
+        if (o->wprev == NULL) {
+            lbl_805D741C = o->wnext;
+        } else {
+            o->wprev->vnext = o->wnext;
+        }
+        if (o->wnext != NULL) {
+            o->wnext->vprev = o->wprev;
+        }
+    }
+    if (state == 2) {
+        if (o->f98 != 0) {
+            if (o->f98 != -1) {
+                if (o->prev == NULL) {
+                    lbl_805D7420 = o->next;
+                } else {
+                    o->prev->next = o->next;
+                }
+                if (o->next != NULL) {
+                    o->next->prev = o->prev;
+                }
+            }
+            o->f98 = 0;
+            o->fa0 = lbl_805D7428;
+            o->flags &= ~0x40004ULL;
+        }
+    }
+    o->state = state;
+}
+#undef o
 
 void TLobby__sub_803B24A0(void) {
     s32 i;

@@ -149,6 +149,8 @@ struct Spawn_8018990C {
 
 struct Obj_8018990C { u8 pad[0x38]; f32 x, y, z; u8 pad44[0x326 - 0x44]; s16 f326; };
 
+struct CE_80189614 { u8 pad[0x34]; s32 f34; u8 f38[0x28]; s32 f60; u8 pad2[0x326 - 0x64]; s16 mode; };
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
@@ -189,6 +191,17 @@ extern Spawn_8018990C *const lbl_805D5B80;
 extern Spawn_8018990C *const lbl_805D5B84;
 extern void *tl_05;
 void TObjContainerEnemy__vt77(Obj_8018990C *self);
+void fn_801FBA6C(s32);
+void TOMonitorMachine01__sub_803D8B5C(s32, f32, f32, f32);
+void rotate_matrix_y(s32, s32);
+void TObjPlayer__sub_803D9B2C(void);
+void TObjPlayer__sub_803D9B78(void);
+void TOHangerMachine01__sub_803D9C00(void *);
+void set_global_param__8TObjFishFi(s32);
+extern u32 lbl_805D5B78;
+extern s32 lbl_805D5B7C;
+extern const f32 lbl_805DBCFC;
+void TObjContainerEnemy__vt79(CE_80189614 *self);
 }
 
 extern "C" {
@@ -327,6 +340,24 @@ void TObjContainerEnemy__vt80(Obj_801895A4 *self) {
     TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_80444EF4, self->id);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
     TObjRoomId__sub_80141CF4(self->pos, lbl_804A7448, lbl_805DBCF8);
+}
+void TObjContainerEnemy__vt79(CE_80189614 *self) {
+    if (lbl_805D5B78 == 0) {
+        return;
+    }
+    switch (self->mode) {
+    case 0:
+        set_global_param__8TObjFishFi(lbl_805D5B7C);
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(self->f38);
+        rotate_matrix_y(0, self->f60);
+        TOMonitorMachine01__sub_803D8B5C(0, lbl_805DBCFC, lbl_805DBCFC, lbl_805DBCFC);
+        fn_801FBA6C(self->f34);
+        TObjPlayer__sub_803D9B78();
+        break;
+    case 1:
+        break;
+    }
 }
 
 }

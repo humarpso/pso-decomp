@@ -19,6 +19,8 @@ struct O_801C21C4 { E_801C21C4 recs[8]; };
 
 struct O_801C21D4 { u8 pad[0x3a1]; u8 id; u8 pad2[0x408 - 0x3a2]; u8 arr[1]; };
 
+struct S_801C20A4 { u16 f0; s16 f2; s32 f4; f32 f8; f32 fC; f32 f10; s32 f14; u8 f18[1]; };
+
 extern "C" {
 s32 TObjPlayer__sub_801C2044(s32 *arg0);
 u32 TObjPlayer__sub_801C2154(O_801C2154 *self);
@@ -34,6 +36,10 @@ void __construct_array(void *, void *, void *, int, int);
 void TObjPlayer__sub_801AA528(void);
 void init_arrays__10TObjPlayerFi(void);
 void *fn_801C2360(void *arg0);
+int init_forward__10TObjPlayerFPv(void*);
+void set_state__9TTecLukerFPvi(void *, s32);
+extern const f32 TObjPlayer__data_805DC278;
+S_801C20A4 *TObjPlayer__sub_801C20A4(S_801C20A4 *arg0);
 }
 
 extern "C" {
@@ -94,6 +100,19 @@ void* TObjPlayer__sub_801C2058(void* p) { return (char*)p + 0x8; }
 void set_field4__10TObjPlayerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 void* init_c2098_return_self__10TObjPlayerFPv(void* p) { TObjPlayer__sub_801C2098((void*)(p)); return p; }
 void TObjPlayer__sub_801C2098(void* p) { *(s32*)((char*)p + 0x0) = 0; }
+
+S_801C20A4 *TObjPlayer__sub_801C20A4(S_801C20A4 *arg0) {
+    init_forward__10TObjPlayerFPv(arg0->f18);
+    arg0->f0 = 0xFFFF;
+    arg0->f4 = 0;
+    arg0->f8 = TObjPlayer__data_805DC278;
+    arg0->fC = TObjPlayer__data_805DC278;
+    arg0->f10 = TObjPlayer__data_805DC278;
+    arg0->f14 = 0;
+    arg0->f2 = 0;
+    set_state__9TTecLukerFPvi(arg0->f18, 0xFFFF);
+    return arg0;
+}
 
 void TObjPlayer__sub_801C210C(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
 int TObjPlayer__sub_801C2114(void) { return 0; }

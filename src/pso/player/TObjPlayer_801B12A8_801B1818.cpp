@@ -4,6 +4,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
 extern "C" {
 s16 get_model_field_m25__10TObjPlayerFPv(void *);
 s16 get_action_animation__10TObjPlayerFPv(void *);
@@ -20,6 +21,8 @@ s16 get_vobj_state_28__10TObjPlayerFPv(void *);
 s16 TObjPlayer__sub_801CFBFC(void *);
 s16 TObjPlayer__sub_801D0458(void *);
 void TObjPlayer__sub_801B18C0(s32 arg0, u32 arg1);
+extern M2C_UNK lbl_8050EA10[];
+void TObjPlayer__sub_801B1A84(void (*arg0)(void *));
 }
 
 extern "C" {
@@ -137,6 +140,16 @@ void foreach_player__10TObjPlayerFv(M2C_UNK (*arg0)(u32)) {
         var_r29 += 1;
         var_r31 += 1;
     } while (var_r29 < 0xC);
+}
+void TObjPlayer__sub_801B1A84(void (*arg0)(void *)) {
+    s32 i;
+    void **p;
+    p = (void **)lbl_8050EA10;
+    for (i = 0; i < 12; i++, p++) {
+        if (*p != NULL) {
+            arg0(*p);
+        }
+    }
 }
 
 }

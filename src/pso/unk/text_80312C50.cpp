@@ -51,6 +51,11 @@ u8 * get_element__10TObjPlayerFPvi(void *, int);
 int query_field40__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_803131AC(void* a0);
 u16 TObjPlayer__sub_80312E0C(void *o);
+u8 * get_element__10TObjPlayerFPvi(void *, int);
+int TObjPlayer__sub_803131AC(void* a0);
+void *TObjPlayer__sub_803131B4(void *, int);
+s32 get_section_id__10TObjPlayerFPv(void *);
+void *TObjPlayer__sub_80312CCC(void *list, s32 section);
 }
 
 extern "C" {
@@ -83,6 +88,20 @@ void TObjPlayer__sub_80312C50(void *registry) {
             }
         }
     }
+}
+
+void *TObjPlayer__sub_80312CCC(void *list, s32 section) {
+    s32 n;
+    s32 i;
+    u8 *e;
+    n = TObjPlayer__sub_803131AC(list);
+    for (i = 0; i < n; i++) {
+        e = get_element__10TObjPlayerFPvi(list, i);
+        if ((u16)section == (u16)get_section_id__10TObjPlayerFPv(e)) {
+            return TObjPlayer__sub_803131B4(e, 0);
+        }
+    }
+    return 0;
 }
 
 void TObjPlayer__sub_80312D4C(void *o, s32 id) {

@@ -25,6 +25,10 @@ void TLobby__sub_8001EDF4(s32);
 s32 TLobby__sub_8001EEF4();
 extern M2C_UNK lbl_8044BEB0[];
 void TQuestListOnline__sub_8021786C(void);
+s32 fn_802183B4();
+extern void *TQuestListOnline__data_805D61E0;
+extern s32 lbl_805D61F8;
+s32 TQuestListOnline__sub_80217464(void);
 }
 
 extern "C" {
@@ -46,6 +50,31 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern void *TQuestListOnline__data_805D6194;
 extern void *TQuestListOnline__data_805D61E0;
+
+s32 TQuestListOnline__sub_80217464(void) {
+    if ((void *) TQuestListOnline__data_805D61E0 == NULL) {
+        return 0;
+    }
+    if ((u32) M2C_FIELD(TQuestListOnline__data_805D61E0, u32 *, 0x38) == 0U) {
+        return 0;
+    }
+    switch (fn_802183B4()) {
+    case 0:
+        return 1;
+    case 1:
+    case 2:
+        switch (lbl_805D61F8) {
+        case 0:
+            return 2;
+        case 1:
+            return 3;
+        default:
+            return 2;
+        }
+    default:
+        return 0;
+    }
+}
 
 #pragma push
 #pragma fp_contract on

@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct V3_8023E834 { s32 x; s32 y; s32 z; };
+
 extern "C" {
 M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
 extern s32 lbl_805D3848;
@@ -44,6 +46,11 @@ void request_transition__21TAdMultiChgGameModeGCFv(void);
 u32 get_main_phase();
 extern s32 lbl_805D3848;
 s32 TAdMultiChgGameModeGC__sub_8023E7A8();
+s32 TCameraCtrl__sub_80069C94(void *, void *);
+s32 TCameraCtrl__sub_80069E7C(int);
+extern V3_8023E834 lbl_8044DD00;
+extern V3_8023E834 lbl_8044DD0C;
+void TAdMultiChgGameModeGC__sub_8023E834(void);
 }
 
 extern "C" {
@@ -87,6 +94,13 @@ s32 TAdMultiChgGameModeGC__sub_8023E7A8() {
         break;
     }
     return r;
+}
+
+void TAdMultiChgGameModeGC__sub_8023E834(void) {
+    V3_8023E834 a = lbl_8044DD00;
+    V3_8023E834 b = lbl_8044DD0C;
+    TCameraCtrl__sub_80069E7C(9);
+    TCameraCtrl__sub_80069C94(&a, &b);
 }
 
 void set_mode_change_state__21TAdMultiChgGameModeGCFv(void) {

@@ -49,6 +49,44 @@ typedef struct TObjPlayer_80237FB8 {
     Vec_80237FB8 pos;
 } TObjPlayer_80237FB8;
 
+struct VBase_18_80237BD8 { char pad[0x18]; };
+
+struct VObj_18_80237BD8 : VBase_18_80237BD8 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6(s32);
+    virtual void m7();
+};
+
+struct Eff_80237BD8 { u8 pad[0xc]; f32 scale; };
+
+struct Holder_80237BD8 { u8 pad[0xa4]; Eff_80237BD8 *eff; };
+
+struct Self_80237BD8 {
+    u32 f0;
+    u8 pad4[0x18 - 4];
+    void *vt;
+    void *source;
+    u8 pos[0xc];
+    u8 pad2c[0x7c - 0x2c];
+    u8 src_pos[0xc];
+    u8 pad88[0x90 - 0x88];
+    f32 range;
+    u8 pad94[0xb4 - 0x94];
+    u16 fb4;
+    u8 padb6[0xe8 - 0xb6];
+    Holder_80237BD8 *holder;
+    u8 padec[4];
+    s32 ff0;
+    u8 padf4[4];
+    u16 ids[32];
+    s32 f138;
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u32 TPhotonMylla__sub_80154CB4(int);
@@ -94,6 +132,13 @@ M2C_UNK TLobby__sub_80226294(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK destroy_technique_base__9TTecLukerFPvs(void *, int);
 extern struct Profile_80237A94 lbl_8044D9F8[];
+void VecCopy__FP3VecPC3Vec(Vec_80237DAC *, const Vec_80237DAC *);
+u16 obj_getField1c(void *);
+void fn_8022C2A8(void *, void *, void *, void *, void *);
+void TTecRaBarta__sub_802377FC(void *);
+extern M2C_UNK __vt__11TTecRaBarta[];
+extern u32 lbl_805D37F8;
+void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *level);
 }
 
 extern "C" {
@@ -103,7 +148,6 @@ void create__11TTecRaBartaFPvPvPv(void *arg0, void *arg1, void *arg2);
 void create__11TTecRaBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void render__11TTecRaBartaFv(void);
 s32 TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
-void *TTecRaBarta__ct(void *, void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
 
@@ -111,7 +155,7 @@ void create__11TTecRaBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *ar
     void *o;
     o = __nw__7TObjectFUl(0x13C);
     if (o != NULL) {
-        TTecRaBarta__ct(o, arg0, arg1, arg2, arg3);
+        TTecRaBarta__ct((void *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (void *)(arg3));
     }
 }
 
@@ -165,6 +209,37 @@ void run_task__11TTecRaBartaFv(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }
+
+#pragma push
+#pragma opt_common_subs off
+struct Vec_80237DAC;
+typedef s32 M2C_UNK;
+#define self ((Self_80237BD8 *)self_)
+void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *level) {
+    s32 i;
+    typedef Vec_80237DAC *(*VecCopyFn_80237BD8)(void *, void *);
+    fn_8022C2A8(self_, source, origin, pos, level);
+    self->vt = __vt__11TTecRaBarta;
+    self->f0 = lbl_805D37F8;
+    TTecRaBarta__sub_802377FC(self);
+    self->ff0 = 1;
+    ((VecCopyFn_80237BD8)VecCopy__FP3VecPC3Vec)(self->pos, ((VecCopyFn_80237BD8)VecCopy__FP3VecPC3Vec)(self->src_pos, pos));
+    if (self->holder != 0) {
+        self->holder->eff->scale = self->range;
+    }
+    for (i = 0; i < 32; i++) {
+        self->ids[i] = 0xFFFF;
+    }
+    self->f138 = 0;
+    ((VObj_18_80237BD8 *)self)->m6((s32)self->pos);
+    ((VObj_18_80237BD8 *)self)->m7();
+    if (self->source != 0) {
+        self->fb4 = obj_getField1c(self->source);
+    }
+    return self_;
+}
+#undef self
+#pragma pop
 
 void *TTecRaBarta__sub_80237CCC(void *self, void *source, void *origin, void *level) {
     s32 i;

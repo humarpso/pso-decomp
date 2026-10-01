@@ -43,6 +43,8 @@ void set_flag_103__10TObjPlayerFPvUc(void *, u8);
 void set_flag_e7__10TObjPlayerFPvUc(void *, u8);
 extern const f32 lbl_805DE530;
 void TObjPlayer__sub_802C38B4(void *cls, Char_802C38B4 *c, s32 level);
+s8 get_item_count_max__10TObjPlayerFv();
+void TObjPlayer__sub_802C3790(s32 flags, s8 *counts);
 }
 
 extern "C" {
@@ -74,6 +76,17 @@ void TObjPlayer__sub_802C3720(S_802C3720 *arg0) {
         TObjPlayer__sub_802C457C(arg0, 0, 0);
     }
     clear_30_slots__10TObjPlayerFPv((void*)(arg0));
+}
+
+void TObjPlayer__sub_802C3790(s32 flags, s8 *counts) {
+    s32 i;
+    s8 *p = counts;
+    for (i = 0; i < 0x14; i++, p++) {
+        *p = get_item_count_max__10TObjPlayerFv();
+    }
+    if (flags & 0x80) {
+        *counts = 0;
+    }
 }
 
 void setup_effect_slots__10TObjPlayerFii(s32 arg0, s32 arg1) {

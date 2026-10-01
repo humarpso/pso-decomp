@@ -21,6 +21,9 @@ struct Node_801103F4 : Base_801103F4 {
     virtual void m0(s32);
 };
 
+typedef s32 M2C_UNK;
+struct Load_8011006C { void *buf; s32 f4; s32 f8; s32 fC; s32 f10; void *f14; };
+
 extern "C" {
 s32 TItemLoad__sub_801107E4(void *p);
 extern u32 TItemLoad__data_805D5488;
@@ -42,6 +45,10 @@ extern u32 TItemLoad__data_805D5488;
 extern void *TItemLoad__data_805D5484;
 extern s32 *TItemLoad__data_805D548C;
 void TItemLoad__sub_801103F4(s32 id);
+void *alloc_buffer__11TOBoss4RockFPv(u32);
+void TLobby__sub_801E3E9C(s32, s32, void *, s32);
+extern M2C_UNK lbl_8049F43C[];
+Load_8011006C *TItemLoad__sub_8011006C(Load_8011006C *self, s32 arg1, s32 arg2, s32 count);
 }
 
 extern "C" {
@@ -77,6 +84,18 @@ void *TItemLoad__sub_80110010(void *arg0, s16 arg1) {
 }
 
 extern s32 TItemLoad__data_805D5480;
+
+Load_8011006C *TItemLoad__sub_8011006C(Load_8011006C *self, s32 arg1, s32 arg2, s32 count) {
+    s32 n = (count + 1) * 2;
+    self->f14 = lbl_8049F43C;
+    self->buf = alloc_buffer__11TOBoss4RockFPv((n + 0x116) & ~3);
+    self->f8 = arg2;
+    self->f4 = 0;
+    self->fC = 0;
+    TLobby__sub_801E3E9C(arg2, arg1, self->buf, 0);
+    self->f10 = 1;
+    return self;
+}
 
 s32 TItemLoad__sub_801100F0(s32 id) {
     Node_801100F0 *n;

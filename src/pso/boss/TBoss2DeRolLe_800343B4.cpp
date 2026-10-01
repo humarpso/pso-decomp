@@ -43,6 +43,8 @@ f32 TBoss8Dragon__sub_803D64DC(s32);
 extern const f32 TBoss2DeRolLe__data_805D827C;
 extern const f32 TBoss2DeRolLe__data_805D832C;
 void TBoss2DeRolLe__sub_800344A4(DeRolLe_800344A4 *self, s32 idx, s32 arg2);
+s32 TBoss2DeRolLe__sub_80035FCC(void *);
+u8 TBoss2DeRolLe__sub_80034574(u8 *arg0);
 }
 
 extern "C" {
@@ -107,6 +109,38 @@ void TBoss2DeRolLe__sub_800344A4(DeRolLe_800344A4 *self, s32 idx, s32 arg2) {
     }
     TBoss3Volopt__sub_8022675C(0x4003B708, &self->pts[idx], 0, 1);
     call_36A90_with_1__11TBoss2JointFPv(self->joints[idx]);
+}
+
+u8 TBoss2DeRolLe__sub_80034574(u8 *arg0) {
+    f32 var_f2;
+    s32 temp_r0;
+    TBoss2DeRolLe__sub_80035FCC(arg0 + 0x664);
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x660);
+    switch (temp_r0) {
+    case 2:
+        break;
+    case 1:
+        var_f2 = M2C_FIELD(arg0, f32 *, 0x694) - 0.1f;
+        if (var_f2 < -4.0f) {
+            var_f2 = -4.0f;
+        }
+        M2C_FIELD(arg0, f32 *, 0x694) = var_f2;
+        M2C_FIELD(arg0, f32 *, 0x69C) = (f32) (M2C_FIELD(arg0, f32 *, 0x69C) + var_f2);
+        if (M2C_FIELD(arg0, f32 *, 0x67C) > 30.0f) {
+            M2C_FIELD(arg0, s32 *, 0x660) = 3;
+        }
+        break;
+    case 3:
+        if (TBoss2DeRolLe__sub_80035FCC(arg0 + 0x684) == 3) {
+            M2C_FIELD(arg0, s32 *, 0x660) = 4;
+        }
+        break;
+    }
+    M2C_FIELD(arg0, f32 *, 0xC8) += 0.1f;
+    if (M2C_FIELD(arg0, f32 *, 0xC8) > 0.9f) {
+        M2C_FIELD(arg0, f32 *, 0xC8) = 0.9f;
+    }
+    return (u8) (M2C_FIELD(arg0, s32 *, 0x660) == 4);
 }
 
 void init_wave_params__13TBoss2DeRolLeFPv(u8 *arg0) {

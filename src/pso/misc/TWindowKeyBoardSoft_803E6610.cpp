@@ -36,8 +36,11 @@ struct Req_803E693C { s32 id; s32 a; s32 b; };
 struct Req_803E689C { s32 id; s32 a; s32 b; };
 
 struct Req_803E6868 { s32 id; s32 a; s32 b; };
+typedef s32 (*Fn_803E6610)(void *);
+struct S_803E6610 { s32 idx; s32 rest; };
 
 extern "C" {
+extern Fn_803E6610 lbl_8047E570[];
 s32 TWindowKeyBoardSoft__sub_803E6610(void *);
 void TWindowKeyBoardSoft__sub_803E683C(void);
 s32 TWindowKeyBoardSoft__sub_803E6610(void *);
@@ -71,6 +74,16 @@ void TWindowKeyBoardSoft__sub_803E6868(s32 a, s32 b);
 }
 
 extern "C" {
+
+s32 TWindowKeyBoardSoft__sub_803E6610(void *p) {
+    S_803E6610 *arg0 = (S_803E6610 *)p;
+    s32 i = arg0->idx;
+    void *rest = &arg0->rest;
+    if (i <= 0 || (u32)i > 0x3F) {
+        return -1;
+    }
+    return lbl_8047E570[i - 1](rest);
+}
 
 void TWindowKeyBoardSoft__sub_803E6668(s32 a, s32 b) {
     Req_803E6668 req;

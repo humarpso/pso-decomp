@@ -44,6 +44,8 @@ struct Tomb_80075A00 {
     char text[1];
 };
 
+struct Tomb_80075B5C { u8 pad[0xCC]; s32 rt_index; u8 pad2[0x1A0 - 0xD0]; char text[0x30]; };
+
 extern "C" {
 void TObjTombstone__sub_80075D68(O_80075D68 *self);
 void TBoss6Type1__sub_803D9370(Vec_8007598C *, Vec_8007598C *);
@@ -77,6 +79,11 @@ extern char lbl_804387E0[];
 extern s32 lbl_805D53A0;
 extern s32 lbl_805D5544;
 void TObjTombstone__sub_80075A00(Tomb_80075A00 *self);
+const char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
+s32 enemy_name_for_rt_index(s32);
+int sprintf(char *, const char *, ...);
+char *strncpy(char *, const char *, unsigned long);
+void TObjTombstone__sub_80075B5C(Tomb_80075B5C *self);
 }
 
 extern "C" {
@@ -158,6 +165,22 @@ void TObjTombstone__sub_80075AE8(Obj_80075AE8 *self) {
         sprintf(buf, lbl_804387F8, self->name);
     }
     buf[0x2F] = 0;
+}
+
+void TObjTombstone__sub_80075B5C(Tomb_80075B5C *self) {
+    char fmt[0x30];
+    char *text = self->text;
+    s32 name;
+    text[0] = 0;
+    if (self->rt_index > 0) {
+        name = enemy_name_for_rt_index(self->rt_index);
+        if (name != 0) {
+            strncpy(fmt, TQuestVmDownLoadServer__sub_8006EF6C(0x4E), 0x2F);
+            fmt[0x2F] = 0;
+            sprintf(text, fmt, name);
+        }
+    }
+    text[0x2F] = 0;
 }
 
 void TObjTombstone__sub_80075BE0(Obj_80075BE0 *self) {

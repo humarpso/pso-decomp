@@ -46,6 +46,7 @@ void TWindowSubStatusDisp__sub_80258A28(u8 *arg0, s32 arg1, s32 arg2);
 void TWindowSubStatusDisp__sub_80258CB8(Obj_80258BB8 *o, s32 x);
 extern const f32 lbl_805DCF04;
 void TWindowSubStatusDisp__sub_80258BB8(Obj_80258BB8 *o, s32 x);
+void TWindowSubStatusDisp__sub_802586FC(void *arg0, s32 arg1, u8 arg2, u8 arg3, s32 arg4);
 }
 
 extern "C" {
@@ -216,6 +217,64 @@ void update_item_colors__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
 }
 
 extern const f32 lbl_805DCF08;
+
+void TWindowSubStatusDisp__sub_802586FC(void *arg0, s32 arg1, u8 arg2, u8 arg3, s32 arg4) {
+    if (arg4 != 0) {
+        M2C_FIELD(arg0, s8 *, 0x1D) = 8;
+        return;
+    }
+    switch (arg1) {
+    case 1:
+        M2C_FIELD(arg0, s8 *, 0x1D) = 0;
+        return;
+    case 3:
+        M2C_FIELD(arg0, s8 *, 0x1D) = 1;
+        return;
+    case 2:
+        M2C_FIELD(arg0, s8 *, 0x1D) = 2;
+        return;
+    default:
+        switch ((s32) arg2) {
+        case 1:
+            if (arg3 == 3) {
+                M2C_FIELD(arg0, s8 *, 0x1D) = 4;
+                return;
+            }
+            if (arg3 == 2) {
+                M2C_FIELD(arg0, s8 *, 0x1D) = 0xA;
+                return;
+            }
+            M2C_FIELD(arg0, s8 *, 0x1D) = 0xB;
+            return;
+        case 2:
+            M2C_FIELD(arg0, s8 *, 0x1D) = 3;
+            return;
+        case 3:
+            if (arg3 == 0) {
+                M2C_FIELD(arg0, s8 *, 0x1D) = 5;
+                return;
+            }
+            if (arg3 == 1) {
+                M2C_FIELD(arg0, s8 *, 0x1D) = 7;
+                return;
+            }
+            if (arg3 == 2) {
+                M2C_FIELD(arg0, s8 *, 0x1D) = 6;
+                return;
+            }
+            M2C_FIELD(arg0, s8 *, 0x1D) = 8;
+            return;
+        case 4:
+            M2C_FIELD(arg0, s8 *, 0x1D) = 9;
+            return;
+        case 0:
+        default:
+            M2C_FIELD(arg0, s8 *, 0x1D) = 0x33;
+            return;
+        }
+        break;
+    }
+}
 
 void TWindowSubStatusDisp__sub_8025882C(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, f32 *, 8) = (f32) lbl_805DCF04;

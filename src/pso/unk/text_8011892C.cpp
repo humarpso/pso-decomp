@@ -51,6 +51,8 @@ struct Owner_80118AD4 { u8 pad0[0x428]; u8 f428[0x88D - 0x428]; u8 f88d; };
 
 struct Unit_80118AD4 { u8 pad0[0xF0]; Owner_80118AD4 *owner; u8 padF4[0x190 - 0xF4]; s16 f190; s16 arr[19]; };
 
+struct PU_801189AC { u8 pad[0x192]; s16 arr[0x13]; };
+
 extern "C" {
 void TItemProUnit__vt12(u8 *arg0);
 s32 get_id__13TItemProArmorFPv(void *);
@@ -73,6 +75,12 @@ u8 TObjPlayer__sub_8011C1C8(u8, u8);
 u8 fn_801D9870(void *, s16);
 void TItemProUnit__sub_801D98F8(void *, s16, u8);
 void TItemProUnit__vt46(Unit_80118AD4 *self);
+void set_evp__12TItemProUnitFPvf(void *, f32);
+u8 fn_801D9870(void *, s16);
+void TItemProUnit__sub_801D98F8(void *, s16, u8);
+M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
+extern const f32 TItemProUnit__data_805DABF8;
+void TItemProUnit__vt47(u8 *arg0);
 }
 
 extern "C" {
@@ -122,6 +130,19 @@ void TItemProUnit__vt12(u8 *arg0) {
 void TItemProUnit__vt16(Self_80118958 *self, Out_80118958 *out) {
     out->b4 = (s8)self->m31() - 9;
     TItemData__sub_8010CDC8(out, self->s1bc);
+}
+
+void TItemProUnit__vt47(u8 *arg0) {
+    s32 var_r30;
+    if ((s16) M2C_FIELD(arg0, s16 *, 0x18C) == 0x13) {
+        set_evp__12TItemProUnitFPvf((void *)(M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC), TItemProUnit__data_805DABF8);
+    }
+    var_r30 = 0;
+    do {
+        TItemProUnit__sub_801D98F8((void *)(M2C_FIELD(arg0, s32 *, 0xF0) + 0x428), (s16) var_r30, (u8) (fn_801D9870((void *)(M2C_FIELD(arg0, s32 *, 0xF0) + 0x428), (s16) var_r30) - ((PU_801189AC *)arg0)->arr[var_r30]));
+        var_r30 += 1;
+    } while (var_r30 != 0x13);
+    memset(arg0 + 0x192, 0, 0x26);
 }
 
 void TItemProUnit__vt43(void *arg0) {

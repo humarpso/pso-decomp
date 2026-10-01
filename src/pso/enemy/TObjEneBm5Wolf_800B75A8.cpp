@@ -31,6 +31,10 @@ typedef struct Wolf_800B78F8 {
     Vec_800B78F8 knockback;
 } Wolf_800B78F8;
 
+struct Vec_800B79E0 { f32 x, y, z; };
+
+struct Obj_800B79E0 { u8 pad[0x38]; Vec_800B79E0 pos; };
+
 extern "C" {
 s32 TObjEneDellBiter__sub_80087350(s32, s32);
 extern const f32 TObjEneBm5Wolf__data_805D9DE0;
@@ -68,6 +72,10 @@ f32 TBoss8Dragon__sub_803D64DC(int);
 extern const f64 TObjEneBm5Wolf__data_8043B5B0;
 extern const f32 TObjEneBm5Wolf__data_805D9D78;
 s32 TObjEneBm5Wolf__sub_800B78F8(Wolf_800B78F8 *s, s32 *heading);
+f32 TObjPlayer__sub_8001978C(f32);
+extern const f32 TObjEneBm5Wolf__data_805D9D78;
+extern const f32 TObjEneBm5Wolf__data_805D9D8C;
+f32 TObjEneBm5Wolf__sub_800B79E0(Obj_800B79E0 *self, Vec_800B79E0 *target, Vec_800B79E0 *out);
 }
 
 extern "C" {
@@ -209,6 +217,22 @@ s32 TObjEneBm5Wolf__sub_800B78F8(Wolf_800B78F8 *s, s32 *heading) {
     *heading = (s16)*heading;
     return ret;
 }
+
+#pragma push
+#pragma fp_contract on
+f32 TObjEneBm5Wolf__sub_800B79E0(Obj_800B79E0 *self, Vec_800B79E0 *target, Vec_800B79E0 *out) {
+    f32 dx;
+    f32 dz;
+    dz = self->pos.z - target->z;
+    dx = self->pos.x - target->x;
+    f32 distSq = dx * dx + dz * dz;
+    f32 inv = TObjEneBm5Wolf__data_805D9D8C / ((f32 (*)(f32, f32))TObjPlayer__sub_8001978C)(distSq, self->pos.x);
+    out->x = dx * inv;
+    out->y = TObjEneBm5Wolf__data_805D9D78;
+    out->z = dz * inv;
+    return distSq * inv;
+}
+#pragma pop
 
 void set_anim_state__14TObjEneBm5WolfFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3D8) != 0) {
