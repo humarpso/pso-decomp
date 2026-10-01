@@ -11,6 +11,8 @@ struct RecoveredGlobal_802E2A88_lbl_804C89BC {
 
 typedef struct S_802E24B8 { u8 pad0[0x54]; void *f54; } S_802E24B8;
 
+typedef struct S_802E2588 { u8 pad0[0x54]; void *f54; u8 pad58[4]; s32 f5C; } S_802E2588;
+
 extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
 s32 TAdPlyStatusGC__sub_802E11C8(void *);
@@ -42,11 +44,14 @@ void TWindowSubComCard__sub_80265BF8(void *);
 s32 TAdSinglePlyChrSelectGC__sub_802E1DF8(void *, s32);
 void TAdSinglePlyChrSelectGC__sub_802E1F14(void *);
 void TAdSinglePlyChrSelectGC__sub_802E24B8(S_802E24B8 *arg0);
+s32 TAdSinglePlyChrSelectGC__sub_802E1DF8(void *, s32);
+s32 is_visible__17TWindowSubComCardFPv(void *);
+void TWindowSubComCard__sub_80265BF8(void *);
+void TAdSinglePlyChrSelectGC__sub_802E2588(S_802E2588 *arg0);
 }
 
 extern "C" {
 
-int TAdSinglePlyChrSelectGC__sub_802E2588(void);
 void TAdSinglePlyChrSelectGC__sub_802E2848(void* p);
 void TAdSinglePlyChrSelectGC__sub_802E289C(void *arg0);
 void TAdSinglePlyChrSelectGC__sub_802E2A7C(void* p);
@@ -103,7 +108,20 @@ void TAdSinglePlyChrSelectGC__sub_802E2520(u8 *arg0) {
     close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv((s32)(arg0), (s32)(arg0 + 0x68), (s32)((void *)-2), (s32)(((u8 *)TAdSinglePlyChrSelectGC__sub_80132F2C((s32)(0x1C), (s32)(0x16)))), (s32)(NULL));
 }
 
-int TAdSinglePlyChrSelectGC__sub_802E2588(void) { return 0; }
+void TAdSinglePlyChrSelectGC__sub_802E2588(S_802E2588 *arg0) {
+    if (arg0->f54 == 0 || is_visible__17TWindowSubComCardFPv(arg0->f54) == 0) {
+        return;
+    }
+    switch (((s32 (*)(void *))TWindowSubComCard__sub_80265BF8)(arg0->f54)) {
+    case 0:
+        arg0->f5C = 1;
+        TAdSinglePlyChrSelectGC__sub_802E1DF8(arg0, 0x18);
+        return;
+    case 1:
+        TAdSinglePlyChrSelectGC__sub_802E1DF8(arg0, 0xC);
+        break;
+    }
+}
 
 void TAdSinglePlyChrSelectGC__sub_802E2610(u8 *arg0) {
     ((M2C_UNK)create_backgrounds__23TAdSinglePlyChrSelectGCFPv((void*)(arg0)));

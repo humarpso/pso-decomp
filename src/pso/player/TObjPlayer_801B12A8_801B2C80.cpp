@@ -28,6 +28,62 @@ struct Eff_801B2D88 { u16 f0; u16 f2; u32 f4; u32 f8; };
 
 struct Pair_801B2D88 { u32 a; u32 b; };
 
+struct VBase_801B2CE4 { char pad[0x18]; };
+
+struct VObj_801B2CE4 : VBase_801B2CE4 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+};
+
+struct Eff_801B2CE4 { u16 f0; u16 f2; u32 f4; u32 f8; };
+
 extern "C" {
 M2C_UNK set_params__10TObjPlayerFPvPvPviPv(void *, void *, void *, int, int);
 s32 TObjPlayer__sub_801D92F4(void *);
@@ -45,6 +101,12 @@ void apply_status_effect__10TObjPlayerFPv(void *);
 M2C_UNK set_code_12_3__10TObjPlayerFPv(M2C_UNK *);
 s32 fn_8036B770(void *);
 void handle_6x0C_add_or_remove_status_effect(void *arg0);
+s32 clear_negative_status_effects__10TObjPlayerFi(s32 arg0);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void TFontSmallLobby__sub_801C01BC(void *);
+void set_code_14_1__10TObjPlayerFPv(void *);
+s32 validate_6x0E_clear_negative_status_effects(void *);
+void handle_6x0E_clear_negative_status_effects(s32 arg0);
 }
 
 extern "C" {
@@ -95,6 +157,19 @@ void send_code_13_3__10TObjPlayerFii(s32 arg0, s32 arg1) {
         M2C_FIELD(&sp8, s16 *, 2) = obj_getField1c(arg0);
         obj_copyVec2_0(&spC, arg1);
         update_and_send__10TObjPlayerFPv(&sp8);
+    }
+}
+
+void handle_6x0E_clear_negative_status_effects(s32 arg0) {
+    Eff_801B2CE4 e;
+    set_code_14_1__10TObjPlayerFPv(&e);
+    ((void (*)(void *, s32))clear_negative_status_effects__10TObjPlayerFi)(&e, arg0);
+    TFontSmallLobby__sub_801C01BC(&e);
+    if (validate_6x0E_clear_negative_status_effects(&e) != 0) {
+        VObj_801B2CE4 *p = (VObj_801B2CE4 *)TPlayerBattleCtrl4P__sub_801BA74C(e.f2);
+        if (p != 0) {
+            p->m48();
+        }
     }
 }
 

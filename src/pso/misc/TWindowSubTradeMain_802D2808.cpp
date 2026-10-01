@@ -18,6 +18,8 @@ extern s32 lbl_805D53A0;
 extern u8 TLobby__data_805D688A;
 extern s32 TLobby__data_805D688C;
 void TWindowSubTradeMain__sub_802D2870(void);
+extern u16 lbl_805D6888;
+s32 TWindowSubTradeMain__sub_802D2808(void);
 }
 
 extern "C" {
@@ -35,6 +37,14 @@ void TLobby__sub_802D3228(int, void *, void *);
 void draw_item_slot__19TWindowSubTradeMainFPv(void *);
 
 extern u16 lbl_805D6888;
+
+s32 TWindowSubTradeMain__sub_802D2808(void) {
+    u16 v = lbl_805D6888;
+    if (!(v & 0x20)) {
+        return 0;
+    }
+    return (v & 0x40) ? 1 : 0;
+}
 
 void TWindowSubTradeMain__sub_802D2824(void) {
     lbl_805D6888 &= 0xFFFFFF7F;

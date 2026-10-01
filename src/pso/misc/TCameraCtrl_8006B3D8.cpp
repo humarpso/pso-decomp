@@ -50,6 +50,19 @@ struct Obj_8006B798 {
     V_8006B798 tgt;
 };
 
+struct Vec_8006B6A8 { f32 x, y, z; };
+
+struct Cam_8006B6A8 {
+    u8 pad0[0x1C];
+    f32 f1C;
+    u16 f20;
+    u16 f22;
+    u16 f24;
+    u8 pad26[2];
+    Vec_8006B6A8 v28;
+    Vec_8006B6A8 v34;
+};
+
 extern "C" {
 s32 is_split_screen(void);
 void *__nw__7TObjectFUl(int);
@@ -87,6 +100,12 @@ f32 TObjPlayer__sub_803E1A58(void *, void *);
 extern M2C_UNK lbl_80488AF0[];
 extern const f32 lbl_805D8FFC;
 M2C_UNK TCameraCtrl__sub_8006B798(void *p, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+void queue_destruction__7TObjectFv(void *);
+s32 TCameraCtrl__sub_8006BADC(void);
+void TCameraCtrl__sub_8006CD78(void *, void *);
+void TEffStarLightChild__sub_80141FBC(Vec_8006B6A8 *, Vec_8006B6A8 *, Vec_8006B6A8 *, f32);
+extern u32 lbl_805D4DF0;
+void TCameraCtrl__sub_8006B6A8(Cam_8006B6A8 *arg0);
 }
 
 extern "C" {
@@ -200,6 +219,17 @@ void create__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
 }
 
 extern M2C_UNK lbl_80488AF0[];
+
+void TCameraCtrl__sub_8006B6A8(Cam_8006B6A8 *arg0) {
+    TEffStarLightChild__sub_80141FBC(&arg0->v34, &arg0->v28, &arg0->v34, arg0->f1C);
+    if (TCameraCtrl__sub_8006BADC() == 1) {
+        TCameraCtrl__sub_8006CD78((void *)(lbl_805D4DF0 + 0x178), &arg0->v34);
+    }
+    arg0->f20++;
+    if (arg0->f20 == arg0->f22 + arg0->f24 || TCameraCtrl__sub_8006BADC() == 0) {
+        queue_destruction__7TObjectFv(arg0);
+    }
+}
 
 void *destroy__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

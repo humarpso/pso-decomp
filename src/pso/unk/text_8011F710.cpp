@@ -97,6 +97,10 @@ struct Item_8011F760 { u8 pad[0x10]; s32 count; };
 
 #include "pso/items/TItemWeapon.h"
 
+struct Stats_8011F710 { u8 pad[0x16]; u8 max; };
+
+struct Obj_8011F710 { u8 pad[0x1D1]; u8 cur; u8 pad2[0x1DC - 0x1D2]; Stats_8011F710 *stats; };
+
 extern "C" {
 s32 obj_getField1c(void *);
 s8 get_field_ed__10TObjPlayerFPv(void *);
@@ -131,9 +135,21 @@ void draw_status_icon__10TObjPlayerFPvi(void*,WeaponVector*);
 void TObjPlayer__sub_8011EB84(void*,WeaponVector*,s32,s32);
 void update_active_game_effect__10TObjPlayerFPv(void*);
 
+s32 TObjPlayer__sub_8010069C(Obj_8011F710 *arg0);
+s32 TObjPlayer__sub_8011F710(Obj_8011F710 *arg0, s32 arg1);
 }
 
 extern "C" {
+
+s32 TObjPlayer__sub_8011F710(Obj_8011F710 *arg0, s32 arg1) {
+    if ((s32)(arg0->stats->max - (u8)arg1) < arg0->cur) {
+        arg0->cur = arg0->stats->max;
+    } else {
+        arg0->cur += arg1;
+    }
+    TObjPlayer__sub_8010069C(arg0);
+    return 1;
+}
 
 u32 TObjPlayer__sub_8011F760(void *self) {
     u32 flags = 0;

@@ -32,6 +32,10 @@ struct Rec_80208BD8 { s32 id; s16 f4; s16 f6; u8 pad[0xC]; };
 struct Grp_80208BD8 { u8 pad[8]; s32 count; s32 pad3; Rec_80208BD8 recs[1]; };
 typedef void (*Fn_80208BD8)(Rec_80208BD8 *);
 
+struct Rec_802089B0 { u8 pad[4]; s16 f4; u8 pad2[0xE]; };
+
+struct Grp_802089B0 { u8 pad[8]; s32 count; s32 pad3; Rec_802089B0 recs[1]; };
+
 extern "C" {
 s32 TObjPlayer__sub_800196EC();
 extern Fn_80208BD8 lbl_804C9428[];
@@ -57,6 +61,8 @@ void bswap_16__FPUs(void *);
 s32 TLobby__sub_80208A04(void);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
 s32 TLobby__sub_80208AD8(s16 *arg0);
+extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
+void TLobby__sub_802089B0(void);
 }
 
 extern "C" {
@@ -116,6 +122,28 @@ void TLobby__sub_80208904(s32 idx) {
             bswap_32__FPUl(&r->f10);
         }
     }
+}
+
+void TLobby__sub_802089B0(void) {
+    Grp_802089B0 **t;
+    Grp_802089B0 *g;
+    s32 i;
+    s32 n;
+    Rec_802089B0 *r;
+    s32 j;
+    i = 0;
+    t = (Grp_802089B0 **)&lbl_805139F8;
+    do {
+        g = t[i];
+        if (g != NULL) {
+            n = g->count;
+            r = g->recs;
+            for (j = 0; j < n; j++, r++) {
+                r->f4 = 0;
+            }
+        }
+        i++;
+    } while (i < 0x12);
 }
 
 s32 TLobby__sub_80208A04(void) {

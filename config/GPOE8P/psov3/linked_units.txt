@@ -43,17 +43,21 @@ card/CARDRename.c
 card/CARDStat.c
 card/CARDStatEx.c
 card/CARDWrite.c
+dsp/dsp.c
 dsp/dsp_debug.c
+dvd/dvd.c
 gba/GBA.c
 gba/GBAGetProcessStatus.c
 gba/GBAKey.c
 gba/GBARead.c
 gba/GBAWrite.c
 gba/GBAXfer.c
+gx/GXPerf.c
 gx/GXPixel.c
 gx/GXTransform.c
 mtx/mtx44.c
 mtx/vec.c
+os/OSError.c
 pso/boss/TBoss1DragonEffBullet.cpp
 pso/boss/TBoss1Dragon_800BC3C4.cpp
 pso/boss/TBoss2DeRolLe_800340A0.cpp
@@ -1065,6 +1069,7 @@ pso/misc/TLobby_801F3A24_801F40E8.cpp
 pso/misc/TLobby_801F3A24_801F429C.cpp
 pso/misc/TLobby_801F3A24_801F42D4.cpp
 pso/misc/TLobby_801F487C.cpp
+pso/misc/TLobby_80207DA8.cpp
 pso/misc/TLobby_80207DA8_80207DA8.cpp
 pso/misc/TLobby_80207DA8_80207EF0.cpp
 pso/misc/TLobby_80207DA8_80208280.cpp
@@ -1621,6 +1626,7 @@ pso/misc/TTecReverser_8034DED4.cpp
 pso/misc/TTecSlicer.cpp
 pso/misc/TTecZarua.cpp
 pso/misc/TUdpSocket.cpp
+pso/misc/TUdpSocket_80078064.cpp
 pso/misc/TUserAns.cpp
 pso/misc/TWindowActionPalette_8013DF4C.cpp
 pso/misc/TWindowActionPalette_801C1890.cpp
@@ -1889,6 +1895,7 @@ pso/misc/TWindowSubShortMail.cpp
 pso/misc/TWindowSubShortMail_80131998.cpp
 pso/misc/TWindowSubShortMail_80131AA4.cpp
 pso/misc/TWindowSubShortMail_80246CB8.cpp
+pso/misc/TWindowSubShortMail_8027E620_8027E620.cpp
 pso/misc/TWindowSubShortMail_802A571C.cpp
 pso/misc/TWindowSubStatusDisp.cpp
 pso/misc/TWindowSubStatusDisp_8006F044.cpp
@@ -1938,6 +1945,7 @@ pso/misc/TWindowSubStatusDisp_803DEE6C.cpp
 pso/misc/TWindowSubSymbolChat.cpp
 pso/misc/TWindowSubSymbolChatFaceType.cpp
 pso/misc/TWindowSubSymbolChatParts.cpp
+pso/misc/TWindowSubSymbolChat_80076F88.cpp
 pso/misc/TWindowSubSymbolChat_8007763C.cpp
 pso/misc/TWindowSubSymbolChat_802483F0.cpp
 pso/misc/TWindowSubSymbolChat_802838C4.cpp
@@ -1954,6 +1962,7 @@ pso/misc/TWindowSubTradeMain_80187C98.cpp
 pso/misc/TWindowSubTradeMain_80266C44.cpp
 pso/misc/TWindowSubTradeMain_80268468.cpp
 pso/misc/TWindowSubTradeMain_802785B0.cpp
+pso/misc/TWindowSubTradeMain_802D2808.cpp
 pso/misc/TWindowSubTradeMain_802D3924.cpp
 pso/misc/TWindowSubTradeMain_80332148.cpp
 pso/misc/TWindowSubTradeMain_803322B8.cpp
@@ -2773,6 +2782,7 @@ pso/player/TObjPlayer_801D222C.cpp
 pso/player/TObjPlayer_801D22D0.cpp
 pso/player/TObjPlayer_801D2618.cpp
 pso/player/TObjPlayer_801D2680.cpp
+pso/player/TObjPlayer_801D281C.cpp
 pso/player/TObjPlayer_801D3554.cpp
 pso/player/TObjPlayer_801D4890.cpp
 pso/player/TObjPlayer_801D4890_801D4A6C.cpp
@@ -3146,6 +3156,7 @@ pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E1D5C.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E1E7C.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E2158.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E2374.cpp
+pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E23E8.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E3AE4.cpp
 pso/ui/TAdSinglePlyChrSelectGC_80336054.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8033C640.cpp
@@ -3335,6 +3346,7 @@ pso/unk/text_8011BEF0.cpp
 pso/unk/text_8011D2B4.cpp
 pso/unk/text_8011D3B8.cpp
 pso/unk/text_8011F63C.cpp
+pso/unk/text_8011F710.cpp
 pso/unk/text_80120150.cpp
 pso/unk/text_80120C5C.cpp
 pso/unk/text_80121180.cpp

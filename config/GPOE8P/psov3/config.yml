@@ -24,6 +24,7 @@ force_active:
   - AISetStreamVolLeft
   - AISetStreamVolRight
   - CARDCheckExAsync
+  - Dolphin_DVDCancelAsync
   - TAdSinglePlyChrSelectGC__sub_80133530
   - TBoss2DeRolLe__sub_80034D58
   - TBoss3Volopt__sub_800D8F78
@@ -77,6 +78,9 @@ force_active:
   - TObjPlayer__sub_801D0B44
   - TObjPlayer__sub_801D1FA4
   - TObjPlayer__sub_801D2004
+  - TObjPlayer__sub_801D2DDC
+  - TObjPlayer__sub_801D2EE8
+  - TObjPlayer__sub_801D2F8C
   - TObjPlayer__sub_80307784
   - TObjPlayer__sub_80312FB0
   - TObjPlayer__sub_803DA84C

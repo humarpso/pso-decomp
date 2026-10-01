@@ -51,6 +51,14 @@ struct E_801D2C18 { u8 d[4]; };
 
 struct Obj_801D2C18 { s32 n; E_801D2C18 e[1]; };
 
+struct Vec_801D3224 { f32 x, y, z; };
+
+struct Rec_801D3224 { u8 pad[0x1C]; Vec_801D3224 pos; u8 pad28[4]; };
+
+struct Obj_801D3224 { u8 pad[0xA4]; Rec_801D3224 *recs; };
+
+struct Slot_801D3224 { s16 a; s16 idx; };
+
 extern "C" {
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
@@ -114,6 +122,11 @@ int is_flag32_clear__10TObjPlayerFPv(void* p);
 int get_field_340__10TObjPlayerFPv(void* p, int);
 void dispatch_to_child__11TWindowCtrlFiPv(u16, s32);
 void TObjPlayer__sub_801D2FB0(u8 *self, void *obj, s32 arg2, s16 arg3);
+void VecCopy__FP3VecPC3Vec(Vec_801D3224 *, Vec_801D3224 *);
+u16 get_uid__10TObjPlayerFPv(void *);
+Obj_801D3224 *TPhotonMylla__sub_80154CB4(u16);
+int TObjPlayer__sub_801D345C(void* p);
+s32 TObjPlayer__sub_801D3224(void *arg0, Vec_801D3224 *out);
 }
 
 extern "C" {
@@ -442,6 +455,21 @@ void TObjPlayer__sub_801D31A8(u8 *arg0, M2C_UNK arg1, s16 arg2, s32 arg3) {
   {
     *((f32 *) (((s8 *) arg0) + 4)) = (f32) ((*((f32 *) (new_var + 4))) * lbl_805DC3B8);
   }
+}
+
+s32 TObjPlayer__sub_801D3224(void *arg0, Vec_801D3224 *out) {
+    Slot_801D3224 *s = (Slot_801D3224 *)TObjPlayer__sub_801D345C((void*)(arg0));
+    u16 uid = get_uid__10TObjPlayerFPv(s);
+    Obj_801D3224 *o;
+    if (uid == 0xFFFF) {
+        return 0;
+    }
+    o = TPhotonMylla__sub_80154CB4(uid);
+    if (o == NULL) {
+        return 0;
+    }
+    VecCopy__FP3VecPC3Vec(out, &o->recs[s->idx].pos);
+    return 1;
 }
 
 void *TObjPlayer__sub_801D32A0(Self_801D32A0 *self, Pl_801D32A0 *player) {

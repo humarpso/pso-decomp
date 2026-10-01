@@ -41,7 +41,6 @@ void TWindowSubSymbolChat__sub_800771B0(Obj_800771B0 *arg0, s32 arg1);
 s32 TWindowSubSymbolChat__sub_800771C4(Obj_800771C4 *arg0, s32 arg1);
 void TWindowSubSymbolChat__sub_800771E4(Obj_800771E4 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6);
 u8 *get_symbol_chat_data__20TWindowSubSymbolChatFPv(u8 *arg0);
-s32 TWindowSubSymbolChat__sub_80077464();
 u8 *get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
     extern int lbl_805D4E50;
 u8 *get_symbol_chat_data__20TWindowSubSymbolChatFPv(u8 *arg0);
@@ -100,6 +99,7 @@ s32 TWindowSubSymbolChat__sub_80077108(Obj_80077108 *self, s32 i);
 void TWindowSubSymbolChat__sub_8007728C(Obj_8007728C *self, u16 v, s32 a, s32 idx, s32 b, s32 c);
 void TLobby__sub_803DE7BC(void *, void *, u32);
 void TWindowSubSymbolChat__sub_8007714C(Obj_8007714C *self, s32 i);
+s32 TWindowSubSymbolChat__sub_80077464(u32 *arg0);
 }
 
 extern "C" {
@@ -301,7 +301,7 @@ void TWindowSubSymbolChat__sub_800773BC(s32 arg0) {
 }
 
 u8 *get_symbol_chat_data__20TWindowSubSymbolChatFPv(u8 *arg0) {
-    if (TWindowSubSymbolChat__sub_80077464() == 0) {
+    if (TWindowSubSymbolChat__sub_80077464((u32 *)(arg0)) == 0) {
         return get_message_10__20TWindowSubStatusDispFPv(0xCC);
     }
     if ((s8) M2C_FIELD(arg0, u8 *, 4) == 0) {
@@ -309,6 +309,16 @@ u8 *get_symbol_chat_data__20TWindowSubSymbolChatFPv(u8 *arg0) {
     }
     return arg0 + 4;
 }
+
+s32 TWindowSubSymbolChat__sub_80077464(u32 *arg0) {
+    u32 temp_r3;
+    temp_r3 = *arg0;
+    if (temp_r3 & 1) {
+        return 1;
+    }
+    return (temp_r3 & 2) ? 1 : 0;
+}
+
 u8 *TWindowSubSymbolChat__sub_80077480(s32 i) {
     E_80077480 *e = &get_card_window__17TWindowSubComCardFUi(0xFFFF)[i];
     return ((X_80077480 *)e)->sub;
