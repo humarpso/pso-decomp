@@ -1,5 +1,9 @@
 #include "types.h"
 
+#define __HI_803A22A4(x) *(int *)&x
+#define __LO_803A22A4(x) *(1 + (int *)&x)
+#define __HI_803A24E4(x) *(int *)&x
+#define __LO_803A24E4(x) *(1 + (int *)&x)
 extern "C" {
 f64 TAdEndText__sub_803A23E8(f64 x, f64 y);
 f64 TAdEndText__sub_803A0EA8(f64 x, f64 y);
@@ -7,6 +11,8 @@ f64 TAdEndText__sub_803A0EA8(f64 x, f64 y);
 s32 TAdEndText__sub_803A0B08(f64 x, f64 *y);
 f64 TLobby__sub_803A1DF0(f64 x, f64 y, s32 iy);
 f64 TLobby__sub_803A2410(f64 x);
+f64 TWindowSubStatusDisp__sub_803A22A4(f64 x);
+f64 TWindowSubComCard__sub_803A24E4(f64 x);
 }
 
 extern "C" {
@@ -50,6 +56,64 @@ f64 TAdEndText__sub_803A0EA8(f64 x, f64 y) {
 }
 #pragma pop
 
+__declspec(section ".sdata2") extern const f64 lbl_805E0A78;
+__declspec(section ".sdata2") extern const f64 lbl_805E0A80;
+f64 TWindowSubStatusDisp__sub_803A22A4(f64 x) {
+    int i0, i1, j0;
+    unsigned i, j;
+    i0 = __HI_803A22A4(x);
+    i1 = __LO_803A22A4(x);
+    j0 = ((i0 >> 20) & 0x7ff) - 0x3ff;
+    if (j0 < 20) {
+        if (j0 < 0) {
+            if (lbl_805E0A78 + x > lbl_805E0A80) {
+                if (i0 < 0) {
+                    i0 = 0x80000000;
+                    i1 = 0;
+                } else if ((i0 | i1) != 0) {
+                    i0 = 0x3ff00000;
+                    i1 = 0;
+                }
+            }
+        } else {
+            i = (0x000fffff) >> j0;
+            if (((i0 & i) | i1) == 0)
+                return x;
+            if (lbl_805E0A78 + x > lbl_805E0A80) {
+                if (i0 > 0)
+                    i0 += (0x00100000) >> j0;
+                i0 &= (~i);
+                i1 = 0;
+            }
+        }
+    } else if (j0 > 51) {
+        if (j0 == 0x400)
+            return x + x;
+        else
+            return x;
+    } else {
+        i = ((unsigned)(0xffffffff)) >> (j0 - 20);
+        if ((i1 & i) == 0)
+            return x;
+        if (lbl_805E0A78 + x > lbl_805E0A80) {
+            if (i0 > 0) {
+                if (j0 == 20)
+                    i0 += 1;
+                else {
+                    j = i1 + (1 << (52 - j0));
+                    if (j < i1)
+                        i0 += 1;
+                    i1 = j;
+                }
+            }
+            i1 &= (~i);
+        }
+    }
+    __HI_803A22A4(x) = i0;
+    __LO_803A22A4(x) = i1;
+    return x;
+}
+
 f64 TAdEndText__sub_803A23E8(f64 x, f64 y) {
     *(s32 *)&x = (*(s32 *)&x & 0x7fffffff) | (*(s32 *)&y & 0x80000000);
     return x;
@@ -77,6 +141,62 @@ f64 TLobby__sub_803A2410(f64 x) {
             return TLobby__sub_803A1DF0(y[0], y[1], 1);
         }
     }
+}
+__declspec(section ".sdata2") extern const f64 lbl_805E0A90;
+__declspec(section ".sdata2") extern const f64 lbl_805E0A98;
+f64 TWindowSubComCard__sub_803A24E4(f64 x) {
+    int i0, i1, j0;
+    unsigned i, j;
+    i0 = __HI_803A24E4(x);
+    i1 = __LO_803A24E4(x);
+    j0 = ((i0 >> 20) & 0x7ff) - 0x3ff;
+    if (j0 < 20) {
+        if (j0 < 0) {
+            if (lbl_805E0A90 + x > lbl_805E0A98) {
+                if (i0 >= 0) {
+                    i0 = i1 = 0;
+                } else if (((i0 & 0x7fffffff) | i1) != 0) {
+                    i0 = 0xbff00000;
+                    i1 = 0;
+                }
+            }
+        } else {
+            i = (0x000fffff) >> j0;
+            if (((i0 & i) | i1) == 0)
+                return x;
+            if (lbl_805E0A90 + x > lbl_805E0A98) {
+                if (i0 < 0)
+                    i0 += (0x00100000) >> j0;
+                i0 &= (~i);
+                i1 = 0;
+            }
+        }
+    } else if (j0 > 51) {
+        if (j0 == 0x400)
+            return x + x;
+        else
+            return x;
+    } else {
+        i = ((unsigned)(0xffffffff)) >> (j0 - 20);
+        if ((i1 & i) == 0)
+            return x;
+        if (lbl_805E0A90 + x > lbl_805E0A98) {
+            if (i0 < 0) {
+                if (j0 == 20)
+                    i0 += 1;
+                else {
+                    j = i1 + (1 << (52 - j0));
+                    if (j < i1)
+                        i0 += 1;
+                    i1 = j;
+                }
+            }
+            i1 &= (~i);
+        }
+    }
+    __HI_803A24E4(x) = i0;
+    __LO_803A24E4(x) = i1;
+    return x;
 }
 
 }

@@ -3,6 +3,9 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct Desc_8036D774 { f32 *pos; u32 *col; s32 a; s32 n; };
+
 extern "C" {
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
@@ -24,16 +27,55 @@ M2C_UNK fn_80141A30();
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TWindowSubStatusDisp__sub_8036D774();
 M2C_UNK TWindowSubStatusDisp__sub_8036D88C();
 M2C_UNK TWindowSubStatusDisp__sub_8036D994();
 void TWindowSubStatusDisp__sub_8036DA94(void);
 extern s32 lbl_805D7018;
 extern s32 lbl_805D701C;
 void TWindowSubStatusDisp__sub_8036DB54(void);
+void TWindowCtrlMain__sub_801E352C(Desc_8036D774 *, int, int, f32);
+extern const f32 lbl_805E03E8;
+extern const f32 lbl_805E03EC;
+extern const f32 lbl_805E03F0;
+extern const f32 lbl_805E03F4;
+extern const f32 lbl_805E03F8;
+extern const f32 lbl_805E03FC;
+void TWindowSubStatusDisp__sub_8036D774(void);
 }
 
 extern "C" {
+
+void TWindowSubStatusDisp__sub_8036D774(void) {
+    f32 verts[8];
+    Desc_8036D774 d;
+    u32 cols[4];
+    d.pos = verts;
+    d.col = cols;
+    d.a = 0;
+    d.n = 4;
+    d.pos[0] = lbl_805E03E8;
+    d.pos[1] = lbl_805E03EC;
+    d.col[0] = 0xFF000000;
+    d.pos[2] = lbl_805E03F0;
+    d.pos[3] = lbl_805E03EC;
+    d.col[1] = 0xFF000000;
+    d.pos[4] = lbl_805E03F0;
+    d.pos[5] = lbl_805E03F0;
+    d.col[2] = 0xFF000000;
+    d.pos[6] = lbl_805E03E8;
+    d.pos[7] = lbl_805E03F0;
+    d.col[3] = 0xFF000000;
+    TWindowCtrlMain__sub_801E352C(&d, 4, 0x16, lbl_805E03F4);
+    d.pos[0] = lbl_805E03F8;
+    d.pos[1] = lbl_805E03F8;
+    d.pos[2] = lbl_805E03FC;
+    d.pos[3] = lbl_805E03F8;
+    d.pos[4] = lbl_805E03FC;
+    d.pos[5] = lbl_805E03EC;
+    d.pos[6] = lbl_805E03F8;
+    d.pos[7] = lbl_805E03EC;
+    TWindowCtrlMain__sub_801E352C(&d, 4, 0x16, lbl_805E03F4);
+}
 
 void TWindowSubStatusDisp__sub_8036DA94(void) {
   s32 var_r31;

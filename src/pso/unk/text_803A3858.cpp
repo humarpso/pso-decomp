@@ -98,6 +98,20 @@ struct Rec_803A996C {
     u8 pad11D[0x404 - 0x11D];
 };
 
+struct Lim_803A3A28 { s32 v; s32 pad; };
+
+struct Ch_803A3A28 { Lim_803A3A28 lim[2]; u8 pad[0x28]; };
+
+struct Tbl_803A3A28 { u8 pad[0x150C]; Ch_803A3A28 ch[1]; };
+
+struct Slot_803A4EB8 { Node_803A4964 n; u8 pad10[0xEDA - 0x10]; u8 fEDA; u8 padEDB[0x1868 - 0xEDB]; };
+
+struct Rec_803ADBF0 { u8 pad[9]; u8 f9; };
+
+struct Ent_803ADBF0 { u16 id; u16 count; Rec_803ADBF0 *data; };
+
+struct Tbl_803ADBF0 { u8 pad[0xA200]; Ent_803ADBF0 ents[1]; };
+
 extern "C" {
 void TLobby__sub_803A49C8(s32);
 void TLobby__sub_803A4B7C(s32);
@@ -109,7 +123,6 @@ void TLobby__sub_803A4DDC(u32, s16);
 void TLobby__sub_803BE700(void);
 void TLobby__sub_803BE738(void);
 void TLobby__sub_803A9F80(s32 arg0, s16 arg1);
-void TLobby__sub_803A4EB8(s32);
 void TLobby__sub_803BE700(void);
 void TLobby__sub_803BE738(void);
 void TLobby__sub_803A9FC8(s32 arg0);
@@ -245,6 +258,18 @@ void TLobby__sub_803B1AF4(Rec_803A996C *);
 void TLobby__sub_803B36A8(u8);
 s32 TLobby__sub_803B46A4(u8);
 s32 TLobby__sub_803A996C(s32 op, u32 idx);
+s32 TLobby__sub_803A9454(int id);
+extern Owner_803A3C24 *lbl_805D7360;
+s32 TLobby__sub_803A3A28(void);
+extern Node_803A4964 *lbl_805D7378;
+extern Node_803A4964 *lbl_805D737C;
+extern Slot_803A4EB8 lbl_8054AB48[];
+void TLobby__sub_803A4EB8(s32 arg0);
+void TLobby__sub_803BE700(void);
+void TLobby__sub_803BE738(void);
+extern u8 lbl_80559E70[];
+extern u16 lbl_805D73DA;
+s32 TLobby__sub_803ADBF0(u16 arg0, Rec_803ADBF0 *arg1, u16 arg2);
 }
 
 extern "C" {
@@ -423,6 +448,37 @@ Node_803A3C24 *TLobby__sub_803A3934(s32 key, u8 ch) {
     return n;
 }
 
+s32 TLobby__sub_803A3A28(void) {
+    Node_803A3C24 *n;
+    u32 i;
+    s32 r;
+    for (i = 0; i < 2; i++) {
+        n = lbl_805D7360->lists[i];
+        if (n == NULL) {
+            continue;
+        }
+        while (n->key <= ((Tbl_803A3A28 *)lbl_805D7360)->ch[n->ch].lim[i].v) {
+            TLobby__sub_803A9454(n->f8);
+            if ((lbl_805D7360->lists[i] = n->next) != NULL) {
+                lbl_805D7360->lists[i]->prev = NULL;
+            }
+            if ((n->next = lbl_805D7360->head) != NULL) {
+                lbl_805D7360->head->prev = n;
+            }
+            lbl_805D7360->head = n;
+            n = lbl_805D7360->lists[i];
+            if (n == NULL) {
+                break;
+            }
+        }
+    }
+    r = 1;
+    if (lbl_805D7360->lists[0] == NULL && lbl_805D7360->lists[1] == NULL) {
+        r = 0;
+    }
+    return r;
+}
+
 void TLobby__sub_803A3B54(void) {
     Node_803A3C24 *n;
     Node_803A3C24 *next;
@@ -520,6 +576,47 @@ found:
         Slot_803A4DDC *s = (Slot_803A4DDC *)(base + (h & 0x7FFFFFFF) * 0x1868);
         s->flags |= 0x20;
         s->f0 = v;
+    }
+}
+
+void TLobby__sub_803A4EB8(s32 arg0) {
+    Node_803A4964 *n;
+    u32 key = arg0 & 0x7FFFFFFF;
+    s32 h;
+    for (n = lbl_805D737C; n != NULL; n = n->next) {
+        if (n->id == key) {
+            h = (n->idx & 0x7FFFFFFF) | (arg0 & 0x80000000);
+            goto found;
+        }
+    }
+    for (n = lbl_805D7378; n != NULL; n = n->next) {
+        if (n->id == key) {
+            h = (n->idx & 0x7FFFFFFF) | (arg0 & 0x80000000);
+            goto found;
+        }
+    }
+    h = -1;
+found:
+    if (!(h & 0x80000000)) {
+        Node_803A4964 *s = &lbl_8054AB48[h].n;
+        if ((u8)s->state == 2) {
+            if (s->prev != 0) {
+                s->prev->next = s->next;
+            } else {
+                lbl_805D7378 = s->next;
+            }
+            if (s->next != 0) {
+                s->next->prev = s->prev;
+            }
+            if ((s->next = lbl_805D737C) != 0) {
+                lbl_805D737C->prev = s;
+            }
+            s->prev = 0;
+            lbl_805D737C = s;
+            s->state = 1;
+        }
+    } else {
+        lbl_8054AB48[h & 0x7FFFFFFF].fEDA &= ~8;
     }
 }
 
@@ -755,7 +852,7 @@ void TLobby__sub_803A9F80(s32 arg0, s16 arg1) {
 
 void TLobby__sub_803A9FC8(s32 arg0) {
     TLobby__sub_803BE738();
-    TLobby__sub_803A4EB8(arg0);
+    TLobby__sub_803A4EB8((s32)(arg0));
     TLobby__sub_803BE700();
 }
 
@@ -892,6 +989,38 @@ s32 TLobby__sub_803ADB58(u16 id) {
                 return 1;
             }
         }
+    }
+    return 0;
+}
+
+s32 TLobby__sub_803ADBF0(u16 arg0, Rec_803ADBF0 *arg1, u16 arg2) {
+    Tbl_803ADBF0 *t = (Tbl_803ADBF0 *)lbl_80559E70;
+    Ent_803ADBF0 *e;
+    s32 i;
+    u16 n;
+    s32 k;
+    n = lbl_805D73DA;
+    e = t->ents;
+    i = 0;
+    while (i < n && arg0 != e->id) {
+        e++;
+        i++;
+    }
+    if (i == n && n < 0x80) {
+        TLobby__sub_803BE738();
+        k = lbl_805D73DA;
+        t->ents[k].id = arg0;
+        t->ents[k].count = arg2;
+        t->ents[k].data = arg1;
+        k = 0;
+        while (k < arg2) {
+            arg1->f9 = 0x1F;
+            k++;
+            arg1++;
+        }
+        lbl_805D73DA++;
+        TLobby__sub_803BE700();
+        return 1;
     }
     return 0;
 }
