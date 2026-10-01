@@ -1,6 +1,8 @@
 
 
 #define AnalogMode lbl_805D4560
+#define Type lbl_80544930
+#define CmdProbeDevice lbl_80544970
 #define CheckingBits lbl_805D7204
 #define CmdCalibrate lbl_805D4570
 #define CmdReadOrigin lbl_805D456C

@@ -6,7 +6,7 @@
 
 #include "dsp/__dsp.h"
 
-static u32 t0, t1, t2;
+
 
 DSPTaskInfo *__DSP_curr_task;
 DSPTaskInfo *__DSP_first_task;

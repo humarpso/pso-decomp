@@ -29,10 +29,10 @@ struct OSThreadQueue __DVDThreadQueue;
 unsigned long __DVDLongFileNameFlag;
 
 
-static BOOL isSame(const char* path, const char* string);
-static u32 myStrncpy(char* dest, char* src, u32 maxlen);
+static inline BOOL isSame(const char* path, const char* string);
+static inline u32 myStrncpy(char* dest, char* src, u32 maxlen);
 static u32 entryToPath(u32 entry, char* path, u32 maxlen);
-static BOOL DVDConvertEntrynumToPath(s32 entrynum, char* path, u32 maxlen);
+static inline BOOL DVDConvertEntrynumToPath(s32 entrynum, char* path, u32 maxlen);
 static void cbForReadAsync(s32 result, DVDCommandBlock* block);
 static void cbForReadSync();
 static void cbForSeekAsync(long result, struct DVDCommandBlock * block);
@@ -57,7 +57,7 @@ void __DVDFSInit() {
 #define filePosition(i) (FstStart[i].parentOrPosition)
 #define fileLength(i) (FstStart[i].nextEntryOrLength)
 
-static BOOL isSame(const char* path, const char* string) {
+static inline BOOL isSame(const char* path, const char* string) {
     while (*string != '\0') {
         if (tolower(*path++) != tolower(*string++)) {
             return FALSE;
@@ -207,7 +207,7 @@ BOOL DVDClose(DVDFileInfo* fileInfo) {
     return TRUE;
 }
 
-static u32 myStrncpy(char* dest, char* src, u32 maxlen) {
+static inline u32 myStrncpy(char* dest, char* src, u32 maxlen) {
     u32 i = maxlen;
 
     while ((i > 0) && (*src != 0)) {
@@ -241,7 +241,7 @@ static u32 entryToPath(u32 entry, char* path, u32 maxlen) {
     return loc;
 }
 
-static BOOL DVDConvertEntrynumToPath(s32 entrynum, char* path, u32 maxlen) {
+static inline BOOL DVDConvertEntrynumToPath(s32 entrynum, char* path, u32 maxlen) {
     u32 loc;
 
     ASSERTMSG1LINE(0x263, (entrynum >= 0) && (entrynum < MaxEntryNum), "DVDConvertEntrynumToPath: specified entrynum(%d) is out of range  ", entrynum);
