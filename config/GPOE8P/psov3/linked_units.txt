@@ -3313,6 +3313,7 @@ pso/unk/text_80126104.cpp
 pso/unk/text_80126334.cpp
 pso/unk/text_8012654C.cpp
 pso/unk/text_80126740.cpp
+pso/unk/text_8012685C.cpp
 pso/unk/text_80126A34.cpp
 pso/unk/text_80126B6C.cpp
 pso/unk/text_80126D78.cpp
