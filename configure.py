@@ -663,6 +663,18 @@ if args.target == "psov3":
             ],
         ),
         DolphinLib(
+            "gba",
+            [
+                NonMatching("gba/GBA.c"),
+                NonMatching("gba/GBAGetProcessStatus.c"),
+                NonMatching("gba/GBAJoyBoot.c"),
+                NonMatching("gba/GBARead.c"),
+                NonMatching("gba/GBAWrite.c"),
+                NonMatching("gba/GBAXfer.c"),
+                NonMatching("gba/GBAKey.c"),
+            ],
+        ),
+        DolphinLib(
             "amcstubs",
             [
                 Matching("amcstubs/AmcExi2Stubs.c"),

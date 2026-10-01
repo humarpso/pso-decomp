@@ -15,8 +15,8 @@ u32 TAdWarningBaseGC__sub_8032D020();
 M2C_UNK TDLGraph__sub_8007F6F8(s32, M2C_UNK);
 M2C_UNK TLobby__sub_800F9DF4(s32, u32);
 s32 TLobby__sub_801F34F8();
-int TLobby__sub_804326DC(void*);
-s32 TLobby__sub_80432858(M2C_UNK, u8 *);
+int GBAInit(void*);
+s32 GBAGetProcessStatus(M2C_UNK, u8 *);
 u32 get_alloc_size__16TAdWarningBaseGCFv();
 u32 update_lobby_scene__6TSceneFPv();
 
@@ -59,7 +59,7 @@ void update_alloc_size__6TLobbyFv(void) {
     TLobby__data_805D6CC8 = 0U;
 }
 
-int TLobby__sub_8032C91C(void* p) { return TLobby__sub_804326DC(p); }
+int TLobby__sub_8032C91C(void* p) { return GBAInit(p); }
 
 extern u32 TLobby__data_805D6CC4;
 
@@ -67,7 +67,7 @@ u8 get_selected_slot__6TLobbyFv(void) {
     u8 sp8;
 
     if (TLobby__sub_801F34F8() == 3) {
-        if (TLobby__sub_80432858(3, &sp8) == 0) {
+        if (GBAGetProcessStatus(3, &sp8) == 0) {
             return 0U;
         }
         if ((u32) TLobby__data_805D6CC4 != 0U) {

@@ -1,0 +1,86 @@
+
+#define OnReset GBA_OnReset
+#define ResetFunctionInfo lbl_804FDC38
+#define SecParams lbl_805D2100
+#define __GBA lbl_805D2200
+#define __GBAReset lbl_805D7CF8
+
+#include "gba/__gba.h"
+
+
+static BOOL OnReset(BOOL final);
+
+
+static OSResetFunctionInfo ResetFunctionInfo = {OnReset, 127, NULL, NULL};
+
+
+static GBASecParam SecParams[4];
+GBAControl __GBA[4];
+
+
+BOOL __GBAReset;
+
+static void ShortCommandProc(s32 chan) {
+    GBAControl* gba = &__GBA[chan];
+
+    if (gba->ret != 0) {
+        return;
+    }
+
+    if (gba->input[0] != 0 || gba->input[1] != 4) {
+        gba->ret = 1;
+        return;
+    }
+
+    *gba->status = gba->input[2] & GBA_JSTAT_MASK;
+}
+
+void GBAInit(void) {
+    GBAControl* gba;
+    s32 chan;
+
+    for (chan = 0; chan < 4; chan++) {
+        gba = &__GBA[chan];
+        gba->delay = OSMicrosecondsToTicks(60);
+        OSInitThreadQueue(&gba->threadQueue);
+        gba->param = &SecParams[chan];
+        ASSERTLINE(90, (u32) gba->param % 32 == 0);
+    }
+
+    OSInitAlarm();
+    DSPInit();
+
+    __GBAReset = FALSE;
+    OSRegisterResetFunction(&ResetFunctionInfo);
+}
+
+s32 GBAGetStatusAsync(s32 chan, u8* status, GBACallback callback) {
+    GBAControl* gba = &__GBA[chan];
+
+    if (gba->callback != NULL) {
+        return GBA_BUSY;
+    }
+
+    gba->output[0] = 0;
+    gba->status = status;
+    gba->callback = callback;
+    return __GBATransfer(chan, 1, 3, ShortCommandProc);
+}
+
+s32 GBAResetAsync(s32 chan, u8* status, GBACallback callback) {
+    GBAControl *gba = &__GBA[chan];
+
+    if (gba->callback != NULL) {
+        return GBA_BUSY;
+    }
+
+    gba->output[0] = 0xFF;
+    gba->status = status;
+    gba->callback = callback;
+    return __GBATransfer(chan, 1, 3, ShortCommandProc);
+}
+
+static BOOL OnReset(BOOL final) {
+    __GBAReset = TRUE;
+    return TRUE;
+}

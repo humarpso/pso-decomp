@@ -18644,7 +18644,30 @@ si/SIBios.c:
 si/SISamplingRate.c:
 	.text       start:0x80432580 end:0x80432688
 	.data       start:0x804FDBA0 end:0x804FDC38
-	.sbss       start:0x805D7CF0 end:0x805D7CF4
+	.sbss       start:0x805D7CF0 end:0x805D7CF8
 
-pso/unk/text_80432688.cpp:
-	.text       start:0x80432688 end:0x80433F20
+gba/GBA.c:
+	.text       start:0x80432688 end:0x80432858
+	.data       start:0x804FDC38 end:0x804FDC48
+	.bss        start:0x805D2100 end:0x805D2600
+	.sbss       start:0x805D7CF8 end:0x805D7CFC
+
+gba/GBAGetProcessStatus.c:
+	.text       start:0x80432858 end:0x804329CC
+
+gba/GBAJoyBoot.c:
+	.text       start:0x804329CC end:0x80433890
+	.data       start:0x804FDC48 end:0x804FDC78
+
+gba/GBARead.c:
+	.text       start:0x80433890 end:0x8043395C
+
+gba/GBAWrite.c:
+	.text       start:0x8043395C end:0x80433A20
+
+gba/GBAXfer.c:
+	.text       start:0x80433A20 end:0x80433CB8
+
+gba/GBAKey.c:
+	.text       start:0x80433CB8 end:0x80433F20
+	.data       start:0x804FDC78 end:0x804FE01E
