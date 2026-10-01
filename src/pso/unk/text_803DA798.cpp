@@ -45,6 +45,9 @@ struct Obj_803DA8E4 { u8 pad[0x24]; s32 refs; };
 struct Rec_803DA8E4 { u32 a; u32 b; u32 c; Obj_803DA8E4 *obj; s32 cnt; s32 v14; };
 
 typedef s32 M2C_UNK;
+
+struct B_803DAE1C { u32 a; u32 b; Obj_803DAD84 *c; };
+
 extern "C" {
 extern s32 lbl_805D7768;
 void TObjPlayer__sub_803DAC1C(s32 arg0);
@@ -93,6 +96,11 @@ s32 TObjPlayer__sub_803DA8E4(u32 arg0, u32 arg1, s32 arg2, s32 *arg3);
 s32 TObjPlayer__sub_803DAA70(u32 arg0, u32 arg1, s32 *arg2);
 void TObjPlayer__sub_803DAB7C(Obj_803DAB7C *self, s32 i, s32 j);
 s32 TObjPlayer__sub_803DAC48(Obj_803DAB7C *arg0, s32 arg1, u32 arg2, u32 arg3, s32 *arg4, s32 *arg5);
+void TObjPlayer__sub_803DA7E0(void);
+s32 TObjPlayer__sub_803DAD84(struct Obj_803DAD84 *arg0, s32 arg1, u32 arg2);
+extern S_803DA7E0 lbl_8058D470;
+extern u8 *lbl_805D774C;
+s32 TObjPlayer__sub_803DAE1C(s32 arg0, s32 arg1, u32 arg2);
 }
 
 extern "C" {
@@ -340,6 +348,16 @@ s32 TObjPlayer__sub_803DAD84(struct Obj_803DAD84 *arg0, s32 arg1, u32 arg2) {
     while (TObjPlayer__sub_803DB244() != 0) {
     }
     return 1;
+}
+
+struct Obj_803DAD84;
+s32 TObjPlayer__sub_803DAE1C(s32 arg0, s32 arg1, u32 arg2) {
+    TObjPlayer__sub_803DA7E0();
+    s32 r = TObjPlayer__sub_803DAD84((**(B_803DAE1C ***)(lbl_805D774C + 0x20))[arg0].c, arg1, arg2);
+    if (r < 0) {
+        lbl_8058D470.a = arg0;
+    }
+    return r;
 }
 
 #pragma push

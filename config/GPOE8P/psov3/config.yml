@@ -76,6 +76,9 @@ force_active:
   - TObjPlayer__sub_801D1FA4
   - TObjPlayer__sub_801D2004
   - TObjPlayer__sub_80307784
+  - TObjPlayer__sub_803DA84C
+  - TObjPlayer__sub_803DAA70
+  - TObjPlayer__sub_803DAD84
   - TPlyDispConfig__sub_801E0A68
   - TRecvGenerateID__sub_801DFBC4
   - TWindowActionPalette__sub_801C1C20

@@ -45,6 +45,10 @@ typedef struct Hit_802EF99C { s32 a; f32 f; } Hit_802EF99C;
 
 typedef struct Obj_802EF99C { u8 pad0[0x44]; s32 flags[12]; } Obj_802EF99C;
 
+struct Cnt_802EF898 { u8 pad[4]; u32 n; };
+
+struct Ten_802EF898 { u8 pad[0x74]; f32 t; Cnt_802EF898 *c; };
+
 extern "C" {
 int queue_destruction__7TObjectFv(void*);
 M2C_UNK TObjFish__sub_800660D4(int, int, int, int, int, f32);
@@ -65,7 +69,6 @@ s32 obj_testFlags30(void *, s32);
 s32 TObjEneDellBiter__sub_80087350(void *, int);
 f32 TObjPlayer__sub_80141CF8(void *, void *);
 u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
-s32 TBoss7Tentacle__sub_802EF898(void *, f32);
 extern RecoveredGlobal_802EFB1C_lbl_80541918 lbl_80541918;
 extern const f32 TBoss7Tentacle__data_805DEC00;
 extern const f32 TBoss7Tentacle__data_805DEC04;
@@ -73,6 +76,8 @@ extern const f32 lbl_805DEC08;
 extern const f32 lbl_805DEC0C;
 extern const f32 lbl_805DEC10;
 void TBoss7Tentacle__sub_802EF99C(u8 *arg0);
+extern const f32 TBoss7Tentacle__data_805DEC00;
+s32 TBoss7Tentacle__sub_802EF898(void *p, f32 d);
 }
 
 extern "C" {
@@ -104,6 +109,15 @@ void TBoss7Tentacle__sub_802EF800(u8 *arg0) {
   TBoss3Volopt__sub_8022675C((int) 0x3A809, (void *) (arg0 + 0x1C), (int) 0, (int) 0);
 }
 
+s32 TBoss7Tentacle__sub_802EF898(void *p, f32 d) {
+    Ten_802EF898 *o = (Ten_802EF898 *)p;
+    f32 lim = (f32)o->c->n - TBoss7Tentacle__data_805DEC00;
+    o->t += d;
+    if (lim <= o->t) {
+        o->t -= lim;
+    }
+}
+
 s32 advance_toward_limit__14TBoss7TentacleFPvf(void *arg0, f32 farg0) {
     f32 temp_f4;
 
@@ -124,7 +138,7 @@ typedef char RecoveredGlobal_802EFB1C_lbl_80541918_size[sizeof(RecoveredGlobal_8
 void TBoss7Tentacle__sub_802EF99C(u8 *arg0) {
     s32 i;
     u8 *p;
-    TBoss7Tentacle__sub_802EF898(arg0, lbl_805DEC08);
+    TBoss7Tentacle__sub_802EF898((void *)(arg0), lbl_805DEC08);
     for (i = 0; (u16)i != 12; i++) {
         p = TPlayerBattleCtrl4P__sub_801BA74C((u16)i);
         if (p != NULL && TObjPlayer__sub_80141CF8(p + 0x38, arg0 + 0x1C) < lbl_805DEC0C) {

@@ -13,6 +13,12 @@ struct Entry804C69D8_801F2910 {
     void (*handler)(s32, s32, s32);
 };
 
+typedef s32 M2C_UNK;
+struct Entry804C69D8_801F28AC {
+    u32 field0;
+    void (*handler)(s32, s32, s32);
+};
+
 extern "C" {
 extern struct Entry804C69D8 lbl_804C69D8[];
 s32 read_packet_byte__6TLobbyFv(void*);
@@ -23,6 +29,11 @@ void append_string_to_buffer(void*);
 void TLobby__sub_801F2748(s32 arg0);
 void qst_getargs_801F27A0(s32 op);
 void qst_getargs_801F2828(s32 op);
+extern struct Entry804C69D8 lbl_804C69D8[];
+s32 read_packet_byte__6TLobbyFv(void*);
+M2C_UNK read_be_u16(void *);
+s32 stream_read_be32();
+void qst_getargs_801F28AC(s32 arg0);
 }
 
 extern "C" {
@@ -79,6 +90,15 @@ void qst_getargs_801F2828(s32 op) {
         buf[i] = ((s32 (*)(void))read_packet_byte__6TLobbyFv)();
     }
     fn(label, count, buf);
+}
+
+void qst_getargs_801F28AC(s32 arg0) {
+    Entry804C69D8_801F28AC* e = ((Entry804C69D8_801F28AC *)&lbl_804C69D8);
+    e += arg0;
+    void (*fn)(s32, s32, s32) = e->handler;
+    s32 a = read_packet_byte__6TLobbyFv(e);
+    s32 b = stream_read_be32();
+    fn(a, b, read_be_u16((void *)b));
 }
 
 void qst_getargs_801F2910(s32 arg0) {
