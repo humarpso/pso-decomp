@@ -9,7 +9,8 @@
     "mw_version": "GC/1.3",
     "optimization": "-O4,p",
     "inline": "auto",
-    "use_lmw_stmw": "on"
+    "use_lmw_stmw": "on",
+    "sdata2": 8
   },
   "pso/misc/TLobby_803F8794.cpp": {
     "mw_version": "GC/1.2.5n",
@@ -54,7 +55,8 @@
     "optimization": "-O4,p",
     "inline": "off",
     "use_lmw_stmw": "on",
-    "opt": "nocse"
+    "opt": "nocse",
+    "sdata2": 8
   },
   "pso/unk/text_803C1780.cpp": {
     "mw_version": "GC/1.3",
@@ -85,7 +87,8 @@
     "mw_version": "GC/1.3",
     "optimization": "-O4,p",
     "inline": "auto",
-    "use_lmw_stmw": "on"
+    "use_lmw_stmw": "on",
+    "sdata2": 8
   },
   "pso/unk/text_8041ED8C.cpp": {
     "mw_version": "GC/1.2.5n",
@@ -115,7 +118,8 @@
     "mw_version": "GC/1.2.5n",
     "optimization": "-O4,p",
     "inline": "off",
-    "use_lmw_stmw": "on"
+    "use_lmw_stmw": "on",
+    "sdata2": 8
   },
   "pso/boss/TObjBoss2Tunnel_803E2BAC.cpp": {
     "mw_version": "GC/2.6",
@@ -135,7 +139,8 @@
     "optimization": "-O3,p",
     "inline": "off",
     "use_lmw_stmw": "on",
-    "opt": "nopeephole"
+    "opt": "nopeephole",
+    "sdata2": 8
   },
   "pso/misc/TKeyBoardControl_803DD2E0.cpp": {
     "mw_version": "GC/2.6",
@@ -160,7 +165,8 @@
     "mw_version": "GC/2.6",
     "optimization": "-O4,p",
     "inline": "off",
-    "use_lmw_stmw": "on"
+    "use_lmw_stmw": "on",
+    "sdata2": 8
   },
   "pso/misc/TParticleCtrl_803E29FC.cpp": {
     "mw_version": "GC/2.6",
@@ -187,7 +193,8 @@
     "optimization": "-O3,p",
     "inline": "off",
     "use_lmw_stmw": "on",
-    "opt": "nopeephole"
+    "opt": "nopeephole",
+    "sdata2": 8
   },
   "pso/object/TObjLight_803DF220.cpp": {
     "mw_version": "GC/2.6",
@@ -200,14 +207,16 @@
     "mw_version": "GC/2.6",
     "optimization": "-O4,p",
     "inline": "off",
-    "use_lmw_stmw": "on"
+    "use_lmw_stmw": "on",
+    "sdata2": 8
   },
   "pso/player/TObjPlayer_803DF7A8.cpp": {
     "mw_version": "GC/2.6",
     "optimization": "-O3,p",
     "inline": "off",
     "use_lmw_stmw": "on",
-    "opt": "nopeephole"
+    "opt": "nopeephole",
+    "sdata2": 8
   },
   "pso/player/TObjPlayer_803E21B8.cpp": {
     "mw_version": "GC/2.6",
@@ -269,7 +278,8 @@
     "mw_version": "GC/2.6",
     "optimization": "-O4,p",
     "inline": "off",
-    "use_lmw_stmw": "on"
+    "use_lmw_stmw": "on",
+    "sdata2": 8
   },
   "pso/unk/text_803CE240.cpp": {
     "mw_version": "GC/2.6",
@@ -354,7 +364,8 @@
     "optimization": "-O3,p",
     "inline": "off",
     "use_lmw_stmw": "on",
-    "opt": "nopeephole"
+    "opt": "nopeephole",
+    "sdata2": 8
   },
   "pso/unk/text_803D853C.cpp": {
     "mw_version": "GC/2.6",
@@ -433,14 +444,16 @@
     "optimization": "-O3,p",
     "inline": "off",
     "use_lmw_stmw": "on",
-    "opt": "nopeephole"
+    "opt": "nopeephole",
+    "sdata2": 8
   },
   "pso/unk/text_803DD430.cpp": {
     "mw_version": "GC/2.6",
     "optimization": "-O3,p",
     "inline": "off",
     "use_lmw_stmw": "on",
-    "opt": "nopeephole"
+    "opt": "nopeephole",
+    "sdata2": 8
   },
   "pso/unk/text_803DE8BC.cpp": {
     "mw_version": "GC/2.6",
@@ -500,14 +513,16 @@
     "optimization": "-O3,p",
     "inline": "off",
     "use_lmw_stmw": "on",
-    "opt": "nopeephole"
+    "opt": "nopeephole",
+    "sdata2": 8
   },
   "pso/unk/text_803D8DE0.cpp": {
     "mw_version": "GC/2.6",
     "optimization": "-O3,p",
     "inline": "off",
     "use_lmw_stmw": "on",
-    "opt": "nopeephole"
+    "opt": "nopeephole",
+    "sdata2": 8
   },
   "pso/unk/text_803D9650.cpp": {
     "mw_version": "GC/2.6",
@@ -598,7 +613,8 @@
     "optimization": "-O3,p",
     "inline": "off",
     "use_lmw_stmw": "on",
-    "opt": "nopeephole"
+    "opt": "nopeephole",
+    "sdata2": 8
   },
   "pso/unk/text_803DCEC8.cpp": {
     "mw_version": "GC/2.6",
@@ -738,7 +754,8 @@
     "optimization": "-O3,p",
     "inline": "off",
     "use_lmw_stmw": "on",
-    "opt": "nopeephole"
+    "opt": "nopeephole",
+    "sdata2": 8
   },
   "pso/misc/TLobby_803E2D50.cpp": {
     "mw_version": "GC/2.6",
