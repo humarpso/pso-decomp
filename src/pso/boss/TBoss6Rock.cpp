@@ -36,6 +36,8 @@ struct R_80353B7C { u8 pad0[4]; f32 f4; f32 f8; };
 
 struct Vec_80353C60 { f32 x, y, z; };
 
+struct Vec_80353A14 { f32 x, y, z; };
+
 extern "C" {
 void release_object__10TBoss6RockFPv(void* p);
 void TBoss6Rock__sub_803542E8(void *, s32);
@@ -104,6 +106,19 @@ extern const f32 TBoss6Rock__data_805DFF5C;
 extern const f32 lbl_805DFF60;
 extern const f32 lbl_805DFF64;
 s32 TBoss6Rock__sub_80353C60(Vec_80353C60 *arg0, f32 r);
+s32 TBoss6Rock__sub_80353E10(s32 arg0);
+u8 *TBoss6Rock__sub_80354148(s32 arg0);
+void VecCopy__FP3VecPC3Vec(void *, const void *);
+void TBoss4Zako__sub_803D8910(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+void TBoss6Type1__sub_803D9370(void *, void *);
+void TNpcPlayer__sub_803D97B4(void *);
+extern u8 TBoss6Rock__data_805437F8[];
+extern u8 *TBoss6Rock__data_805D6EF8;
+extern const f32 TBoss6Rock__data_805DFF50;
+extern const f32 lbl_805DFF54;
+extern const f32 lbl_805DFF58;
+s32 TBoss6Rock__sub_80353A14(s32 arg0, Vec_80353A14 *out, f32 *outR);
 }
 
 extern "C" {
@@ -210,6 +225,50 @@ extern u8 TBoss6Rock__data_805437F8[];
 typedef char RecoveredGlobal_80353E10_TBoss6Rock__data_80543778_size[sizeof(RecoveredGlobal_80353E10_TBoss6Rock__data_80543778) == 0x80 ? 1 : -1];
 
 typedef char RecoveredGlobal_80353DC4_TBoss6Rock__data_80543778_size[sizeof(RecoveredGlobal_80353DC4_TBoss6Rock__data_80543778) == 0x80 ? 1 : -1];
+
+#pragma push
+#pragma fp_contract on
+s32 TBoss6Rock__sub_80353A14(s32 arg0, Vec_80353A14 *out, f32 *outR) {
+    u8 *rec;
+    f32 r;
+    f32 d;
+    f32 s;
+    Vec_80353A14 a;
+    Vec_80353A14 b;
+    Vec_80353A14 c;
+    if (TBoss6Rock__sub_80353E10(arg0) == 0) {
+        return 0;
+    }
+    if (TBoss6Rock__data_805D6EF8 == NULL) {
+        return 0;
+    }
+    rec = TBoss6Rock__sub_80354148(arg0);
+    if (rec == NULL) {
+        return 0;
+    }
+    r = *(f32 *)(rec + 4);
+    VecCopy__FP3VecPC3Vec(&a, TBoss6Rock__data_805D6EF8 + 0x38);
+    a.y = TBoss6Rock__data_805DFF50;
+    VecCopy__FP3VecPC3Vec(&b, &((Vec_80353A14 *)TBoss6Rock__data_805437F8)[arg0]);
+    VecCopy__FP3VecPC3Vec(&c, &b);
+    TBoss6Type1__sub_803D9370(&c, &a);
+    d = TBoss6Kakusan__sub_803D8BD8(&c);
+    if (d <= lbl_805DFF54) {
+        return 0;
+    }
+    if (d > lbl_805DFF58) {
+        d = lbl_805DFF58;
+    }
+    TNpcPlayer__sub_803D97B4(&c);
+    s = r - r * (1.0f - (d - 100.0f) / 100.0f);
+    c.x *= s;
+    c.z *= s;
+    TBoss4Zako__sub_803D8910(&c, &b);
+    VecCopy__FP3VecPC3Vec(out, &c);
+    *outR = r;
+    return 1;
+}
+#pragma pop
 
 void TBoss6Rock__sub_80353B7C(Vec_80353B7C *arg0, f32 r) {
     Vec_80353B7C v;

@@ -16972,6 +16972,7 @@ pso/object/TObjKabochaLobby_803536DC.cpp:
 pso/boss/TBoss6Rock.cpp:
 	.text       start:0x803537D4 end:0x8035477C
 	.rodata     start:0x80479290 end:0x80479298
+	.sdata2     start:0x805DFF54 end:0x805DFF60
 
 pso/boss/TBoss6Rock_8035477C.cpp:
 	.text       start:0x8035477C end:0x80354A30
@@ -17225,6 +17226,7 @@ pso/enemy/TObjEneEpsilon.cpp:
 
 pso/enemy/TObjEneEpsilonGuard_8035F5C8.cpp:
 	.text       start:0x8035F5C8 end:0x80361D4C
+	.data       start:0x804F2488 end:0x804F24C0
 
 pso/enemy/TObjEneEpsilonGuard_8035F5C8_80361D4C.cpp:
 	.text       start:0x80361D4C end:0x80361FB4
@@ -17352,6 +17354,7 @@ pso/object/TObjIllGillKage.cpp:
 
 pso/enemy/TObjEneIllGill.cpp:
 	.text       start:0x80365688 end:0x8036897C
+	.rodata     start:0x8047A350 end:0x8047A358
 	.data       start:0x804F3010 end:0x804F3038
 
 pso/boss/TBoss6MagMine.cpp:
@@ -17359,6 +17362,7 @@ pso/boss/TBoss6MagMine.cpp:
 
 pso/object/TObjParticleLobby.cpp:
 	.text       start:0x80369654 end:0x80369B5C
+	.sdata2     start:0x805E0340 end:0x805E0350
 
 pso/object/TObjSuisouLobby.cpp:
 	.text       start:0x80369B5C end:0x8036A064

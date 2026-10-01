@@ -239,6 +239,41 @@ struct O_8035DDC8 { u8 pad[0x30]; u32 f30; u8 pad2[0x46c - 0x34]; u32 f46c; };
 
 struct O_8035DE08 { u8 pad[0x30]; u32 f30; u8 pad2[0x46c - 0x34]; u32 f46c; };
 
+struct VB_8035E430 { char pad[0x18]; };
+
+struct VO_8035E430 : VB_8035E430 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
+    virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27();
+    virtual void m28(); virtual void m29(); virtual void m30(); virtual void m31();
+    virtual void m32(); virtual void m33(); virtual void m34(); virtual void m35();
+    virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
+    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43();
+    virtual void m44(); virtual void m45(); virtual void m46(); virtual void m47();
+    virtual void m48(); virtual void m49(); virtual void m50(); virtual void m51();
+    virtual void m52(); virtual void m53(); virtual void m54(); virtual void m55();
+    virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59();
+    virtual void m60(); virtual void m61(); virtual void m62(); virtual void m63();
+    virtual void m64(); virtual void m65(); virtual void m66(); virtual void m67();
+    virtual void m68(); virtual void m69(); virtual void m70(); virtual void m71();
+    virtual void m72(); virtual void m73(); virtual void m74(); virtual void m75();
+    virtual void m76(); virtual void m77(); virtual void m78(); virtual void m79();
+    virtual void m80(); virtual void m81(); virtual void m82(); virtual void m83();
+    virtual void m84(); virtual void m85(); virtual void m86(); virtual void m87();
+    virtual void m88(); virtual void m89(); virtual void m90(); virtual void m91();
+    virtual void m92(); virtual void m93(); virtual void m94();
+};
+
+struct G_8035E430 {
+    u8 pad0[0x24]; s32 x24; u8 pad28[0x10]; u8 x38[0x28]; s32 x60; u8 pad64[0x54];
+    s16 xB8; u8 padBA[0x2FC - 0xBA]; u8 x2FC[0x430 - 0x2FC]; s32 x430; s32 x434;
+    u8 pad438[0x28]; u8 x460[0xC]; s32 flags;
+};
+
 extern "C" {
 s32 TObjEneEpsilonGuard__sub_8035DD74(u8 *arg0);
 s32 TObjEneEpsilonGuard__sub_8035DD94(u8 *arg0);
@@ -267,6 +302,16 @@ M2C_UNK TBoss1Dragon__sub_80143504(void *);
 void TObjEneEpsilonGuard__sub_8035E578(u8 *arg0, s32 arg1);
 s32 TObjEneEpsilonGuard__sub_8035DDC8(O_8035DDC8 *self);
 s32 TObjEneEpsilonGuard__sub_8035DE08(O_8035DE08 *self);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+void create_breakup_mdl__12TBoss3VoloptFiiiii(s32, void *, s32, void *, s32);
+void spawn_effect_f8__10TObjPlayerFii(void *, int);
+void trigger_dell_biter_events__10TObjPlayerFPv(void *);
+void TBoss3Volopt__sub_8022675C(int, void *, int, int);
+extern u8 lbl_80479C50[];
+extern s32 lbl_805D6FA8;
+void TObjEneEpsilonGuard__sub_8035E430(G_8035E430 *o, s32 arg1);
 }
 
 extern "C" {
@@ -502,6 +547,42 @@ extern const f32 lbl_805E01F0;
 #pragma opt_common_subs off
 typedef char RecoveredFields_8035E578_arg0_B8_offset[offsetof(RecoveredFields_8035E578_arg0, field_B8) == 0xB8 ? 1 : -1];
 typedef char RecoveredFields_8035E578_arg0_46C_offset[offsetof(RecoveredFields_8035E578_arg0, field_46C) == 0x46C ? 1 : -1];
+
+typedef s32 M2C_UNK;
+void TObjEneEpsilonGuard__sub_8035E430(G_8035E430 *o, s32 arg1) {
+    switch (arg1) {
+    case 4:
+        o->xB8 = 0;
+        set_field_378__9TObjEneDDFPvi(o, 4);
+        o->flags |= 0x40;
+        o->flags &= ~0x14;
+        ((VO_8035E430 *)o)->m94();
+        spawn_effect_f8__10TObjPlayerFii(o->x460, 0x14);
+        o->x430 = 0;
+        o->x434 = 0;
+        break;
+    case 3:
+        if (o->x430 == 1) {
+            TObjEneDD__sub_800BBA18(o, 5);
+        }
+        break;
+    case 5:
+        break;
+    case 0:
+        TBoss1Dragon__sub_80143504(o);
+        o->x434++;
+        if (o->x434 >= 0x14) {
+            ((VO_8035E430 *)o)->m94();
+            create_breakup_mdl__12TBoss3VoloptFiiiii(lbl_805D6FA8, lbl_80479C50, o->x24, o->x38, o->x60);
+            TBoss3Volopt__sub_8022675C(0x4003AD4C, o->x2FC, 0, 0);
+            trigger_dell_biter_events__10TObjPlayerFPv(o->x2FC);
+            o->x430 = 1;
+        }
+        ((VO_8035E430 *)o)->m87();
+        break;
+    }
+}
+
 void TObjEneEpsilonGuard__sub_8035E578(u8 *arg0, s32 arg1) {
     s32 temp_r4;
     switch (arg1) {

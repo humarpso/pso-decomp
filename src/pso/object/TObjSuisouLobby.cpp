@@ -13,6 +13,24 @@ struct Suisou_80369BF4 {
     f32 cc;
 };
 
+struct VBase_80369ED4 { char pad[0x18]; };
+
+struct VObj_80369ED4 : VBase_80369ED4 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5(void *);
+};
+
+struct Vec_80369ED4 { s32 x, y, z; };
+
+struct Self_80369ED4 {
+    u8 pad0[0x24]; s32 x24; u8 pad28[0xC]; s32 x34; u8 x38[0x28]; s32 x60;
+    u8 pad64[0x64]; s32 state; f32 cc; s32 padd0; void *p1; void *p2;
+};
+
 extern "C" {
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -27,6 +45,25 @@ s32 is_lobby_obj_active__6TLobbyFv();
 void TObjSuisouLobby__sub_80369B5C(void);
 void update_particle__15TObjSuisouLobbyFPv(void *arg0);
 void run_task__15TObjSuisouLobbyFv(Suisou_80369BF4 *self);
+u32 TBoss4Type2__sub_800874F4(void *, int);
+s32 enable__13TParticleCtrlFPv(void *);
+s32 init_map_object_base(void *, void *);
+s32 is_lobby_event_active(void);
+void TObjSuisouLobby__sub_80369D68(void);
+s32 TCameraCtrl__sub_803D8934(int, void *, void *);
+s32 TObjPlayer__sub_803D8CD4(int);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+extern Vec_80369ED4 lbl_8047A3D0[];
+extern Vec_80369ED4 lbl_8047A3DC[];
+extern M2C_UNK __vt__15TObjSuisouLobby[];
+extern s32 lbl_805D44C4;
+extern u32 TObjSuisouLobby__data_805D6FF0;
+extern s32 lbl_805D6FF4;
+extern const f32 TObjSuisouLobby__data_805E0350;
+void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2);
 }
 
 extern "C" {
@@ -45,7 +82,6 @@ M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-void *TObjSuisouLobby__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -137,7 +173,7 @@ extern void *tl_05;
 void *create__15TObjSuisouLobbyFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xDC);
     if (o != NULL) {
-        o = TObjSuisouLobby__ct(o, tl_05, arg0);
+        o = TObjSuisouLobby__ct((void *)(o), (void *)(tl_05), (void *)(arg0));
     }
     return o;
 }
@@ -177,5 +213,51 @@ void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+#pragma push
+#pragma opt_common_subs off
+#define self ((Self_80369ED4 *)arg0)
+void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2) {
+    init_map_object_base(arg0, arg1);
+    *(void ***)((u8 *)arg0 + 0x18) = ((void * *)&__vt__15TObjSuisouLobby);
+    *(s32 *)arg0 = lbl_805D44C4;
+    ((VObj_80369ED4 *)arg0)->m5(arg2);
+    {
+        Vec_80369ED4 v = lbl_8047A3D0[0];
+        TObjPlayer__sub_803D9B2C();
+        TObjPlayer__sub_803D8CD4(0);
+        TOHangerMachine01__sub_803D9C00(self->x38);
+        rotate_matrix_y(0, self->x60);
+        TCameraCtrl__sub_803D8934(0, &v, &v);
+        self->p1 = (void *)TBoss4Type2__sub_800874F4(&v, 0x222);
+        TObjPlayer__sub_803D9B78();
+        if (self->p1 != NULL) {
+            enable__13TParticleCtrlFPv(self->p1);
+        }
+    }
+    {
+        Vec_80369ED4 v = lbl_8047A3DC[0];
+        TObjPlayer__sub_803D9B2C();
+        TObjPlayer__sub_803D8CD4(0);
+        TOHangerMachine01__sub_803D9C00(self->x38);
+        rotate_matrix_y(0, self->x60);
+        TCameraCtrl__sub_803D8934(0, &v, &v);
+        self->p2 = (void *)TBoss4Type2__sub_800874F4(&v, 0x222);
+        TObjPlayer__sub_803D9B78();
+        if (self->p2 != NULL) {
+            enable__13TParticleCtrlFPv(self->p2);
+        }
+    }
+    if (is_lobby_event_active() != 0) {
+        self->state = 0;
+    } else {
+        self->state = 3;
+    }
+    ((void (*)(void *))TObjSuisouLobby__sub_80369D68)(arg0);
+    self->cc = TObjSuisouLobby__data_805E0350;
+    self->x34 = *(s32 *)(*(u8 **)((u8 *)TObjSuisouLobby__data_805D6FF0 + 0x42C) + 8);
+    self->x24 = lbl_805D6FF4;
+    return arg0;
+}
+#pragma pop
 
 }

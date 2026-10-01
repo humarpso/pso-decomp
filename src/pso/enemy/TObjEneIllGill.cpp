@@ -76,6 +76,8 @@ struct Gill_803683BC {
     s32 x39c;
 };
 
+struct Vec_80367860 { f32 x, y, z; };
+
 extern "C" {
 int obj_clearFlags30(void*, int);
 void free_resources__14TObjEneIllGillFPv(void *arg0);
@@ -135,14 +137,40 @@ void TObjPlayer__sub_801B4A18(void *, int);
 void TObjEneIllGill__sub_80365688(void *);
 void TObjEneIllGill__sub_803660A4(void *);
 void TObjEneIllGill__sub_803665B4(u8 *arg0);
-void TObjEneIllGill__sub_803667B8(void *);
 void TObjEneIllGill__sub_803669B0(u8 *arg0);
 void TObjEneIllGill__sub_80366AE4(void *);
 void TObjEneIllGill__sub_80367588(void *);
-void TObjEneIllGill__sub_80367860(void *);
 void run_attack_phase__14TObjEneIllGillFPv(u8 *arg0);
 extern const f32 TObjEneIllGill__data_805E02CC;
 void run_task__14TObjEneIllGillFv(Gill_803683BC *o);
+M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
+f32 TObjPlayer__sub_80017804(void *, Vec_80367860, f32);
+M2C_UNK obj_setFlags30(void *, int);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK minimap_render_dot(void *, int, int, int);
+f32 TBoss4Zako__sub_803D8910(void *, void *);
+s32 TScene__sub_803D8DB4(int, void *, void *);
+s32 rotate_matrix_y(int, void *);
+s32 TObjPlayer__sub_803D97F0(void *);
+s32 TCameraCtrl__sub_803D9858(int);
+extern RecoveredGlobal_80367DC8_lbl_8058D490 lbl_8058D490;
+extern const f32 lbl_805E02B8;
+extern const f32 TObjEneIllGill__data_805E02BC;
+extern const f32 TObjEneIllGill__data_805E02CC;
+extern const f32 TObjEneIllGill__data_805E02DC;
+void TObjEneIllGill__sub_80367860(u8 *arg0);
+M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
+void VecCopy__FP3VecPC3Vec(void *, const void *);
+int obj_clearFlags30(void*, int);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+void update_collisions__10TObjPlayerFPv(void *);
+M2C_UNK minimap_render_dot(void *, int, int, int);
+s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+extern const f32 TObjEneIllGill__data_805E02BC;
+extern const f32 TObjEneIllGill__data_805E02C0;
+extern const f32 lbl_805E02E8;
+void TObjEneIllGill__sub_803667B8(u8 *arg0);
 }
 
 extern "C" {
@@ -240,6 +268,32 @@ void TObjEneIllGill__vt61(u8 *arg0) {
         refresh_lobby_state__10TObjPlayerFPv(arg0);
         send_entity_set_flags__6TLobbyFPv(arg0);
     }
+}
+
+void TObjEneIllGill__sub_803667B8(u8 *arg0) {
+    obj_clearFlags30((void*)(arg0), (int)(0x04040000));
+    TBoss1Dragon__sub_80143504(arg0);
+    M2C_FIELD(arg0, f32 *, 0x310) = TObjEneIllGill__data_805E02BC;
+    M2C_FIELD(arg0, f32 *, 0x308) = TObjEneIllGill__data_805E02BC;
+    TObjPlayer__sub_80011734(arg0, 0, TObjEneIllGill__data_805E02BC);
+    update_collisions__10TObjPlayerFPv(arg0);
+    if (objInBand__FP7GameObjf(arg0, TObjEneIllGill__data_805E02C0) != 0) {
+        TBoss3Volopt__sub_8022675C(0x4003A350, arg0 + 0x38, 0, 0);
+    }
+    if (M2C_FIELD(arg0, u32 *, 0xB4) != 8) {
+        M2C_FIELD(arg0, u32 *, 0x30) &= ~0x600;
+        M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), u32 *, 0x18) &= ~0x04000000;
+        if ((f32)M2C_FIELD(arg0, s16 *, 0x32C) < lbl_805E02E8 * (f32)M2C_FIELD(arg0, s16 *, 0x2B8)) {
+            M2C_FIELD(arg0, u32 *, 0x30) |= 0x2000;
+            M2C_FIELD(arg0, s32 *, 0x2A8) = 0;
+            M2C_FIELD(arg0, u16 *, 0x338) = 0xFFFF;
+            VecCopy__FP3VecPC3Vec(arg0 + 0x290, arg0 + 0x2FC);
+            VecCopy__FP3VecPC3Vec(arg0 + 0x29C, arg0 + 0x2FC);
+            M2C_FIELD(arg0, f32 *, 0x3AC) = TObjEneIllGill__data_805E02BC;
+        }
+        M2C_FIELD(arg0, s16 *, 0x33E) = M2C_FIELD(arg0, s16 *, 0x32C);
+    }
+    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
 }
 
 void TObjEneIllGill__vt60(void *arg0) {
@@ -342,6 +396,35 @@ void TObjEneIllGill__vt57(u8 *arg0) {
         obj_clearFlags30((void*)(arg0), (int)(0x04040000U));
         free_resources__14TObjEneIllGillFPv(arg0);
     }
+}
+
+void TObjEneIllGill__sub_80367860(u8 *arg0) {
+    Vec_80367860 v;
+    f32 d;
+    f32 a;
+    f32 b;
+    f32 *r;
+    M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+    TBoss1Dragon__sub_80143504(arg0);
+    obj_setFlags30(arg0, 0x04040000);
+    v.y = TObjEneIllGill__data_805E02BC;
+    v.x = TObjEneIllGill__data_805E02BC;
+    v.z = TObjEneIllGill__data_805E02CC;
+    TObjPlayer__sub_803D97F0(&lbl_8058D490);
+    rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
+    TScene__sub_803D8DB4(0, &v, &v);
+    TCameraCtrl__sub_803D9858(1);
+    TBoss4Zako__sub_803D8910(&v, arg0 + 0x50);
+    M2C_FIELD(arg0, f32 *, 0x300) += TObjEneIllGill__data_805E02DC;
+    d = TObjPlayer__sub_80017804(arg0, v, lbl_805E02B8 * M2C_FIELD(arg0, f32 **, 0x350)[1]);
+    r = M2C_FIELD(arg0, f32 **, 0x350);
+    a = r[0] * r[0];
+    b = r[1] * r[1];
+    if (a < d || d < b) {
+        M2C_FIELD(arg0, s32 *, 0x2A8) = 0;
+    }
+    TObjPlayer__sub_80011734(arg0, 0, TObjEneIllGill__data_805E02BC);
+    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
 }
 
 void run_attack_phase__14TObjEneIllGillFPv(u8 *arg0) {
@@ -463,7 +546,7 @@ void run_task__14TObjEneIllGillFv(Gill_803683BC *o) {
         run_attack_phase__14TObjEneIllGillFPv((u8 *)o);
         break;
     case 1:
-        TObjEneIllGill__sub_80367860(o);
+        TObjEneIllGill__sub_80367860((u8 *)(o));
         break;
     case 2:
         TObjEneIllGill__sub_80367588(o);
@@ -481,7 +564,7 @@ void run_task__14TObjEneIllGillFv(Gill_803683BC *o) {
         TObjEneIllGill__sub_803669B0((u8 *)o);
         break;
     case 7:
-        TObjEneIllGill__sub_803667B8(o);
+        TObjEneIllGill__sub_803667B8((u8 *)(o));
         break;
     case 8:
         TObjEneIllGill__sub_803665B4((u8 *)o);

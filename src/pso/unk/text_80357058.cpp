@@ -24,6 +24,10 @@ struct Shot_80357284 {
     f32 speed;
 };
 
+struct Pkt_803570E4 { u8 hdr[4]; s8 d[0x40]; };
+
+struct Vec_803570E4 { f32 x, y, z; };
+
 extern "C" {
 u8 * fn_802E4A4C(void *, M2C_UNK, void *);
 f32 TBoss8Dragon__sub_803D64C0(s32);
@@ -44,6 +48,13 @@ void bswap_6xAD_subordinate_action__20TItemEffOrgaFlowShotFPv(void* p);
 void build_6xAD_olga_flow_subordinate_boss_actions(void* p);
 void send_6xAD_olga_flow_subordinate_boss_actions(u8 *arg0);
 void TItemEffOrgaFlowShot__sub_80357284(void *arg0);
+void TBoss6Type2__sub_802B9994(u8, u8, Vec_803570E4 *);
+void TBoss6Type2__sub_8032F3E0(s32, Vec_803570E4 *, s32);
+void TBoss6Rock__sub_80353EA4(s32 i, s32 a, s32 b);
+void TBoss6Rock__sub_80353EDC(s32 i, s32 a, s32 b);
+int read_be16_field2_forward(void* p);
+extern int lbl_805D6F20;
+void handle_6xAD_olga_flow_subordinate_boss_actions(Pkt_803570E4 *pkt);
 }
 
 extern "C" {
@@ -94,6 +105,58 @@ void TBoss6Type2__sub_803570C8(s8 *arg0) {
 }
 
     extern int lbl_805D6F20;
+
+struct B_80357058;
+void handle_6xAD_olga_flow_subordinate_boss_actions(Pkt_803570E4 *pkt) {
+    Vec_803570E4 v[3];
+    s8 boss;
+    s32 n;
+    s8 *p;
+    s32 i;
+    s32 j;
+    if (lbl_805D6F20 == 0) {
+        return;
+    }
+    read_be16_field2_forward((void*)(pkt));
+    boss = pkt->d[0];
+    if (boss >= 0) {
+        p = &pkt->d[1];
+        n = 0;
+        for (i = 0; i < 3; i++, p += 2) {
+            if (p[0] < 0 || p[1] < 0) {
+                break;
+            }
+            TBoss6Type2__sub_802B9994(p[0], p[1], &v[i]);
+            n++;
+        }
+        TBoss6Type2__sub_8032F3E0(boss, v, n);
+    }
+    for (j = 0; j < 0x40; j++) {
+        if (pkt->d[j] >= 0 && j >= 7 && j <= 0x26) {
+            s8 c = pkt->d[j];
+            s32 idx = j - 7;
+            s32 a = 0;
+            s32 type = c & 0xF;
+            s32 f;
+            if (c & 0x40) {
+                a = 1;
+            }
+            f = 0;
+            if (c & 0x20) {
+                f = 1;
+            }
+            switch (type) {
+            case 0:
+                TBoss6Rock__sub_80353EDC(idx, a, f);
+                break;
+            case 1:
+                TBoss6Rock__sub_80353EA4(idx, a, f);
+                break;
+            }
+        }
+    }
+}
+
 void TItemEffOrgaFlowShot__sub_80357204(void) { lbl_805D6F20 = 0; }
 
     extern int lbl_805D6F20;

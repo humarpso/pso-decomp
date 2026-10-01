@@ -20,6 +20,8 @@ struct RecoveredGlobal_80369ADC___vt__17TObjParticleLobby {
     u8 remaining[0x34];
 };
 
+struct Self_803696A0 { u8 pad0[0xC8]; s32 state; f32 t; s32 target; void *ctrl; };
+
 extern "C" {
 M2C_UNK TObjParticleLobby__sub_803697E8(void *);
 s32 TBoss4Type2__sub_800874F4(void *, int);
@@ -30,6 +32,12 @@ extern const f32 lbl_805E0344;
 u8 *TObjParticleLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_80351DFC();
 s32 TObjParticleLobby__sub_80369654(void);
+s32 check_demo_mode__10TObjPlayerFv(void);
+void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
+void enable__13TParticleCtrlFPv(void *);
+s32 TObjParticleLobby__sub_80369654(void);
+void TObjParticleLobby__sub_80369698(void);
+void run_task__17TObjParticleLobbyFv(Self_803696A0 *o);
 }
 
 extern "C" {
@@ -60,6 +68,50 @@ void TObjParticleLobby__sub_80369698(void) {  }
 void render__17TObjParticleLobbyFv(void) {  }
 
 extern void *tl_05;
+
+void run_task__17TObjParticleLobbyFv(Self_803696A0 *o) {
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
+        ((void (*)(void *))TObjParticleLobby__sub_80369698)(o);
+        return;
+    }
+    switch (o->state) {
+    case 0:
+        if (o->target == ((s32 (*)(void *))TObjParticleLobby__sub_80369654)(o)) {
+            o->state = 2;
+        }
+        if (o->ctrl != NULL) {
+            enable__13TParticleCtrlFPv(o->ctrl);
+        }
+        break;
+    case 2:
+        o->t += 0.1f;
+        if (o->t >= 1.0f) {
+            o->t = 1.0f;
+            o->state = 3;
+        }
+        if (o->ctrl != NULL) {
+            set_position_xy__10TObjPlayerFPvff(o->ctrl, o->t, 1.0f);
+        }
+        break;
+    case 1:
+        o->t -= 0.1f;
+        if (o->t <= 0.0f) {
+            o->t = 0.0f;
+            o->state = 0;
+            break;
+        }
+        if (o->ctrl != NULL) {
+            set_position_xy__10TObjPlayerFPvff(o->ctrl, o->t, 1.0f);
+        }
+        break;
+    case 3:
+    default:
+        if (o->target != ((s32 (*)(void *))TObjParticleLobby__sub_80369654)(o)) {
+            o->state = 1;
+        }
+        break;
+    }
+}
 
 void *create__17TObjParticleLobbyFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD8);
