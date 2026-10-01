@@ -57,8 +57,23 @@ struct M_80038908 { u8 pad[0x2c]; N_80038908 *first; };
 
 struct O_80038908 { u8 pad[0x34]; M_80038908 *m; u8 pad2[0x3a8 - 0x38]; s32 f3a8; };
 
+typedef struct Mine_80038760 {
+    u8 pad0[0x38C];
+    s32 flags;
+    u8 pad390[0x3B0 - 0x390];
+    s32 angle;
+    f32 scale;
+    f32 speed;
+    s32 timer;
+    s32 wait;
+    s32 state;
+} Mine_80038760;
+
 extern "C" {
 void TBoss2Mine__sub_80038908(O_80038908 *self);
+extern const f32 TBoss2Mine__data_805D84D4;
+extern const f32 lbl_805D8508;
+void TBoss2Mine__sub_80038760(Mine_80038760 *self);
 }
 
 extern "C" {
@@ -225,6 +240,44 @@ void TBoss2Mine__vt85(void *arg0, s32 arg1, s32 arg2) {
 }
 
 extern const f32 lbl_805D850C;
+
+void TBoss2Mine__sub_80038760(Mine_80038760 *self) {
+    self->timer++;
+    switch (self->state) {
+    case 2:
+        if (self->timer >= self->wait) {
+            self->timer = 0;
+            self->scale = TBoss2Mine__data_805D84D4;
+            self->state = 0;
+        } else {
+            self->flags &= ~4;
+            break;
+        }
+    case 0: {
+        self->scale += self->speed;
+        if (self->scale >= 1.0f) {
+            self->scale = 1.0f;
+            self->state = 1;
+        }
+        self->angle = (s32)(lbl_805D8508 * self->scale) << 16;
+        self->flags |= 4;
+        break;
+    }
+    case 1: {
+        self->scale -= self->speed;
+        if (self->scale <= 0.0f) {
+            self->scale = 0.0f;
+            self->timer = 0;
+            self->state = 2;
+        }
+        self->angle = (s32)(lbl_805D8508 * self->scale) << 16;
+        self->flags |= 4;
+        break;
+    }
+    case 3:
+        break;
+    }
+}
 
 void set_state_by_distance__10TBoss2MineFPvi(void *arg0, s32 arg1) {
     if (arg1 < 0x5A) {

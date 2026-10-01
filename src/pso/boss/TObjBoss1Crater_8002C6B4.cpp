@@ -5,11 +5,21 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Ent_8002C730 { u8 pad0[0x38]; f32 f38; u8 pad3c[4]; f32 f40; };
+
+struct Obj_8002C730 { f32 x; u8 pad[4]; f32 z; };
+
 extern "C" {
 void fn_8002C7EC(u8 *arg0, s32 arg1);
 extern s32 TObjBoss1Crater__data_805D4B58;
 extern s32 TObjBoss1Crater__data_804FE1E8[];
 void TObjBoss1Crater__sub_8002C7B8(void);
+f32 TObjPlayer__sub_8001978C(f32);
+extern s32 TObjBoss1Crater__data_804FE1E8[];
+extern s32 TObjBoss1Crater__data_805D4B58;
+extern const f32 lbl_805D8168;
+extern const f32 lbl_805D816C;
+f32 TObjBoss1Crater__sub_8002C730(Obj_8002C730 *self);
 }
 
 extern "C" {
@@ -50,6 +60,35 @@ void * create__15TObjBoss1CraterFPvPv(void *arg0, void *arg1) {
     }
     return o;
 }
+
+#pragma push
+#pragma fp_contract on
+f32 TObjBoss1Crater__sub_8002C730(Obj_8002C730 *self) {
+    f32 best;
+    s32 i;
+    f32 x;
+    f32 z;
+    f32 d;
+    f32 dx;
+    f32 dz;
+    best = lbl_805D8168;
+    if (TObjBoss1Crater__data_805D4B58 == 0) {
+        return lbl_805D816C;
+    }
+    x = self->x;
+    z = self->z;
+    for (i = 0; i < TObjBoss1Crater__data_805D4B58; i++) {
+        Ent_8002C730 *e = (Ent_8002C730 *)TObjBoss1Crater__data_804FE1E8[i];
+        dx = e->f38 - x;
+        dz = e->f40 - z;
+        d = dx * dx + dz * dz;
+        if (d < best) {
+            best = d;
+        }
+    }
+    return TObjPlayer__sub_8001978C(best);
+}
+#pragma pop
 
 void TObjBoss1Crater__sub_8002C7B4(void) {  }
 

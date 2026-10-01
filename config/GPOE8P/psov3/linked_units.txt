@@ -250,6 +250,7 @@ pso/boss/TBoss8Dragon_802FCD10.cpp
 pso/boss/TBoss8Dragon_802FD9D0.cpp
 pso/boss/TBoss8Dragon_80324D3C.cpp
 pso/boss/TBoss8Dragon_80359A7C.cpp
+pso/boss/TObjBoss1Crater_8002C6B4.cpp
 pso/boss/TObjBoss1Floor.cpp
 pso/boss/TObjBoss2CeilJunk_8003B07C.cpp
 pso/boss/TObjBoss2Dust.cpp
@@ -599,6 +600,7 @@ pso/enemy/TObjEnemyCustom_800C8018.cpp
 pso/enemy/TObjEnemyCustom_800C8040.cpp
 pso/enemy/TObjEnemy_8020C3E0.cpp
 pso/item/TItem.cpp
+pso/item/TItemAttackCol_802E4798.cpp
 pso/item/TItemBuff.cpp
 pso/item/TItemData_80104D0C.cpp
 pso/item/TItemData_80105934.cpp
@@ -925,6 +927,7 @@ pso/misc/TFontSmallHelp.cpp
 pso/misc/TFontSmallLobby.cpp
 pso/misc/TFontSmallLobby_801C013C.cpp
 pso/misc/TFontSmallLobby_801D62D0_801D62D0.cpp
+pso/misc/TGStream.cpp
 pso/misc/TGStream_800FDCB4.cpp
 pso/misc/TGStream_800FDD28.cpp
 pso/misc/TGStream_800FDD50.cpp
@@ -2162,6 +2165,7 @@ pso/object/TObjAreaWarp_80307B70.cpp
 pso/object/TObjBagWarnWin4P.cpp
 pso/object/TObjBgmCol.cpp
 pso/object/TObjBgmColCtrl.cpp
+pso/object/TObjBgmColCtrl_8017E2EC.cpp
 pso/object/TObjBgmColCtrl_8017E498.cpp
 pso/object/TObjBgmColCtrl_8017E8E4.cpp
 pso/object/TObjBgmColCtrl_8036A4AC.cpp
@@ -2189,6 +2193,7 @@ pso/object/TObjCityAreaWarp_80185DB8.cpp
 pso/object/TObjCityDoor_Lobby.cpp
 pso/object/TObjCityDoor_Shop.cpp
 pso/object/TObjCityMainWarpChallenge.cpp
+pso/object/TObjCityMainWarp_801867F4.cpp
 pso/object/TObjCityMainWarp_80186C44.cpp
 pso/object/TObjCityMainWarp_80186E24.cpp
 pso/object/TObjCityMainWarp_80266354.cpp
@@ -2316,6 +2321,7 @@ pso/object/TObjTombstone_80075764.cpp
 pso/object/TObjTombstone_80075854.cpp
 pso/object/TObjTombstone_800764E0.cpp
 pso/object/TObjTombstone_8007666C.cpp
+pso/object/TObjTradeCollision.cpp
 pso/object/TObjTreeLobby_80364A74.cpp
 pso/object/TObjTuitate.cpp
 pso/object/TObjVoloptCage.cpp

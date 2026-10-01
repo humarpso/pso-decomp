@@ -4,6 +4,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct B_8017E410 { u8 pad[0x18]; };
+
+struct V_8017E410 : B_8017E410 { virtual ~V_8017E410(); };
+
 extern "C" {
 s32 TObjBgmColCtrl__ct(int, int);
 s32 TObjBgmColCtrl__sub_8017E550();
@@ -12,6 +16,11 @@ u32 __ct__7TObjectFP7TObject(int, int);
 extern u32 TObjBgmColCtrl__data_805D5B08;
 extern s32 tl_05;
 void TObjBgmColCtrl__sub_8017E3B8(void);
+M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
+M2C_UNK __dl__7TObjectFPv(void *);
+extern void *__vt__14TObjBgmColCtrl[];
+extern u32 TObjBgmColCtrl__data_805D5B08;
+void *__dt__14TObjBgmColCtrlFv(void *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -73,6 +82,20 @@ void TObjBgmColCtrl__sub_8017E3B8(void) {
         TObjBgmColCtrl__ct((int) (temp_r3_2), (int) (tl_05));
     }
     TObjBgmColCtrl__sub_8017E550();
+}
+void *__dt__14TObjBgmColCtrlFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, void ***, 0x18) = __vt__14TObjBgmColCtrl;
+        if (TObjBgmColCtrl__data_805D5B08 != 0) {
+            delete (V_8017E410 *)TObjBgmColCtrl__data_805D5B08;
+            TObjBgmColCtrl__data_805D5B08 = 0;
+        }
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
 }
 
 }

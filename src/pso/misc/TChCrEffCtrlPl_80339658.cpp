@@ -21,6 +21,10 @@ struct VObj803398CC_803398cc_80339658 : VBase803398CC_803398cc_80339658 {
 
 struct O_80339808 { s32 f0; u8 pad[0x14]; void *vt; s32 f1c; s32 f20; u8 v[8]; f32 f2c; u8 pad2[4]; s32 f34; };
 
+struct Vec2_803396C8 { f32 x, y; };
+
+struct O_803396C8 { u8 pad[0x24]; f32 x; f32 y; f32 f2c; f32 f30; s32 f34; };
+
 extern "C" {
 M2C_UNK set_depth_buffer_settings_1__Fv();
 M2C_UNK fn_80141A30();
@@ -37,6 +41,13 @@ extern u8 __vt__14TChCrEffCtrlPl[];
 extern s32 lbl_805D4270;
 extern const f32 lbl_805DFA08;
 O_80339808 *__ct__14TChCrEffCtrlPlFv(O_80339808 *arg0, void * _w1);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+extern const f32 lbl_80477C78[];
+extern const f32 lbl_805DF9F4;
+extern const f32 lbl_805DF9FC;
+extern const f32 lbl_805DFA00;
+extern const f32 lbl_805DFA04;
+void run_task__14TChCrEffCtrlPlFv(O_803396C8 *self);
 }
 
 extern "C" {
@@ -59,6 +70,32 @@ void render__14TChCrEffCtrlPlFv(u8 *arg0) {
     draw_ui_sprite((int) (M2C_FIELD(arg0, s32 *, 0x1C)), (void *) (arg0 + 0x24), (f32) (lbl_805DF9F8), (f32) (var_f2));
     draw_ui_sprite((int) (M2C_FIELD(arg0, s32 *, 0x20)), (void *) (arg0 + 0x24), (f32) (lbl_805DF9F8), (f32) (M2C_FIELD(arg0, f32 *, 0x30)));
     fn_80141A30();
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+void run_task__14TChCrEffCtrlPlFv(O_803396C8 *self) {
+    f32 s;
+    f32 v;
+    f32 x;
+    f32 y;
+    self->f34 += 0xB60;
+    self->x += lbl_805DF9FC * (lbl_80477C78[0] - self->x);
+    self->y += lbl_805DF9FC * (lbl_80477C78[1] - self->y);
+    self->f2c += lbl_805DFA00;
+    if (self->f2c > 1.0f) {
+        self->f2c = 1.0f;
+    }
+    self->f30 = self->f2c;
+    if (lbl_805DF9F4 == self->f2c) {
+        s = lbl_805DF9F4;
+        v = TBoss8Dragon__sub_803D64C0(self->f34);
+        if ((self->f34 & 0x20000) && v > lbl_805DFA04) {
+            s -= v - lbl_805DFA04;
+        }
+        self->f30 = s * self->f2c;
+    }
 }
 #pragma pop
 

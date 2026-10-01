@@ -8,6 +8,16 @@ struct Hit_802E4798 { u8 *obj; s32 idx; };
 
 struct Rec_802E4798 { u8 pad[0x18]; s32 flags; u8 pad2[0x2C - 0x1C]; };
 
+struct VBase_18_909b87 { char pad[0x18]; };
+
+struct VObj_18_909b87 : VBase_18_909b87 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual M2C_UNK m4(s32);
+};
+
 extern "C" {
 s32 TObjPlayer__sub_80019570(void *);
 s32 obj_testFlags30(void *, u32);
@@ -16,6 +26,15 @@ s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
 s32 is_technique_ready__8TTecCtrlFv();
 void copy_pos__14TItemAttackColFPvPv(void* p, void* q);
 s32 TItemAttackCol__sub_802E4798(u8 *arg0, Hit_802E4798 *arg1);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK apply_status_effect__10TObjPlayerFi(void *);
+M2C_UNK TObjPlayer__sub_801542F4(void *);
+M2C_UNK TObjPlayer__sub_8015431C(void *);
+M2C_UNK reset_global_table();
+s32 TItemAttackCol__sub_802E4798(u8 *arg0, Hit_802E4798 *arg1);
+s32 get_instance__16TObjOnlineEndingFv();
+Hit_802E4798 *get_attack_entry__16TObjOnlineEndingFi(int);
+void TItemAttackCol__sub_802E4918(u8 *arg0);
 }
 
 extern "C" {
@@ -66,6 +85,32 @@ s32 TItemAttackCol__sub_802E4798(u8 *arg0, Hit_802E4798 *arg1) {
 void copy_pos__14TItemAttackColFPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
 
 extern M2C_UNK lbl_804E355C[];
+
+void TItemAttackCol__sub_802E4918(u8 *arg0) {
+    s32 i;
+    Hit_802E4798 *e;
+    reset_global_table();
+    TObjPlayer__sub_801542F4(arg0 + 0x1C);
+    if (M2C_FIELD(arg0, s32 *, 0xC0) != 0) {
+        TObjPlayer__sub_8015431C(arg0 + 0x1C);
+    }
+    if (M2C_FIELD(arg0, s32 *, 0xBC) != 0) {
+        apply_status_effect__10TObjPlayerFi(arg0 + 0x1C);
+    }
+    for (i = 0; i != get_instance__16TObjOnlineEndingFv(); i++) {
+        e = get_attack_entry__16TObjOnlineEndingFi(i);
+        if (TItemAttackCol__sub_802E4798(arg0, e) != 0) {
+            ((VObj_18_909b87 *)arg0)->m4((s32)e);
+            M2C_FIELD(arg0, s32 *, 0xA4) -= 1;
+            if (M2C_FIELD(arg0, s32 *, 0xA4) == 0) {
+                queue_destruction__7TObjectFv(arg0);
+                reset_global_table();
+                return;
+            }
+        }
+    }
+    reset_global_table();
+}
 
 void *destroy_attack_collision__14TItemAttackColFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

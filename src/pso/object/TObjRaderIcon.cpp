@@ -24,7 +24,6 @@ struct Icon_80197110 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x1C]; s32 f60; u8 pa
 
 extern "C" {
 s32 disallow_rendering__7TObjectFv(void *);
-s32 TObjRaderIcon__sub_80197200(void *);
 s32 TPhotonMagicSquare__sub_801A2640(void *);
 extern M2C_UNK __vt__13TObjRaderIcon[];
 extern s32 lbl_805D3418;
@@ -32,6 +31,8 @@ u8 *TObjRaderIcon__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void TObjRaderIcon__sub_801F9914(void *, u32, u16, s32, s32, f32);
 u8 TODoorAncient08__sub_80229220(u16);
 void run_task__13TObjRaderIconFv(Icon_80197110 *arg0);
+extern const f32 lbl_805DBF08;
+void TObjRaderIcon__sub_80197200(u8 *arg0);
 }
 
 extern "C" {
@@ -80,6 +81,41 @@ void run_task__13TObjRaderIconFv(Icon_80197110 *arg0) {
     }
 }
 
+void TObjRaderIcon__sub_80197200(u8 *arg0) {
+    s32 temp_r0;
+    M2C_FIELD(arg0, s32 *, 0x90) = 0;
+    M2C_FIELD(arg0, s32 *, 0x94) = 1;
+    M2C_FIELD(arg0, s32 *, 0x98) = 0;
+    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) lbl_805DBF08;
+    M2C_FIELD(arg0, s32 *, 0xA0) = 0;
+    M2C_FIELD(arg0, s32 *, 0x90) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x90) < 0) {
+        M2C_FIELD(arg0, s32 *, 0x90) = 0;
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x90) > 1) {
+        M2C_FIELD(arg0, s32 *, 0x90) = 1;
+    }
+    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) M2C_FIELD(arg0, f32 *, 0x68);
+    if (M2C_FIELD(arg0, f32 *, 0x9C) < 0.0f) {
+        M2C_FIELD(arg0, f32 *, 0x9C) = 0.0f;
+    }
+    M2C_FIELD(arg0, s32 *, 0xA0) = (s32) M2C_FIELD(arg0, s32 *, 0x8C);
+    M2C_FIELD(arg0, s32 *, 0x94) = (s32) (u16) ((s32) M2C_FIELD(arg0, s32 *, 0x88) >> 0x10);
+    M2C_FIELD(arg0, s32 *, 0x98) = (s32) (u16) M2C_FIELD(arg0, s32 *, 0x88);
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x94) < 0) {
+        M2C_FIELD(arg0, s32 *, 0x94) = 0;
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x94) > 0xC) {
+        M2C_FIELD(arg0, s32 *, 0x94) = 0xC;
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x98) < 0) {
+        M2C_FIELD(arg0, s32 *, 0x98) = 0;
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x98) > 0xFF - M2C_FIELD(arg0, s32 *, 0x94)) {
+        M2C_FIELD(arg0, s32 *, 0x98) = 0xFF - M2C_FIELD(arg0, s32 *, 0x94);
+    }
+}
+
 void *__dt__13TObjRaderIconFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjRaderIcon;
@@ -96,7 +132,7 @@ u8 *TObjRaderIcon__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8019733C___vt__13TObjRaderIcon *)&__vt__13TObjRaderIcon).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3418;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    TObjRaderIcon__sub_80197200((void *) (arg0));
+    TObjRaderIcon__sub_80197200((u8 *)((void *) (arg0)));
     disallow_rendering__7TObjectFv((void *) (arg0));
     return arg0;
 }

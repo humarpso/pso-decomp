@@ -23,6 +23,16 @@ struct RecoveredGlobal_8035BF68___vt__16TObjWeddingLobby {
     u8 remaining[0x38];
 };
 
+struct Obj_8035BCE8 {
+    u8 pad0[0xB0];
+    f32 b0;
+    u8 padB4[0xC8 - 0xB4];
+    s32 state;
+    f32 cc;
+};
+
+struct Fish_8035BCE8 { u32 a; u32 n; };
+
 extern "C" {
 s32 TObjFish__sub_8001ED9C(void *, int);
 s32 TObjFish__sub_8001EDC4(void *, int);
@@ -54,6 +64,12 @@ extern s32 lbl_805D4428;
 extern const f32 TObjWeddingLobby__data_805E0158;
 extern const f32 lbl_805E0160;
 u8 *TObjWeddingLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
+s32 TObjFish__sub_8001ED9C(void *, int);
+s32 check_demo_mode__10TObjPlayerFv();
+s32 TLobby__sub_80351DFC();
+void TObjWeddingLobby__sub_8035BC20(void);
+extern u32 TObjWeddingLobby__data_805D6F60;
+void run_task__16TObjWeddingLobbyFv(Obj_8035BCE8 *self);
 }
 
 extern "C" {
@@ -90,6 +106,47 @@ void render__16TObjWeddingLobbyFv(u8 *arg0) {
         TObjDoor__sub_803DC894((int) TObjFish__sub_8001EDC4((void *) ((*(s32 *)&TObjWeddingLobby__data_805D6F60)), (int) (1)), (int) TObjFish__sub_8001ED9C((void *) ((*(s32 *)&TObjWeddingLobby__data_805D6F60)), (int) (0)), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
         TObjPlayer__sub_803D9B78();
         end_effect_render__13TParticleCtrlFv();
+    }
+}
+
+void run_task__16TObjWeddingLobbyFv(Obj_8035BCE8 *self) {
+    f32 last;
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
+        ((void (*)(Obj_8035BCE8 *))TObjWeddingLobby__sub_8035BC20)(self);
+    }
+    switch (self->state) {
+    case 0:
+        if (TLobby__sub_80351DFC() == 0xA) {
+            self->state = 2;
+        }
+        break;
+    case 2: {
+        self->cc += 0.1f;
+        if (self->cc >= 1.0f) {
+            self->cc = 1.0f;
+            self->state = 3;
+        }
+        break;
+    }
+    case 1: {
+        self->cc -= 0.1f;
+        if (self->cc <= 0.0f) {
+            self->cc = 0.0f;
+            self->state = 0;
+        }
+        break;
+    }
+    case 3:
+    default:
+        if (TLobby__sub_80351DFC() != 0xA) {
+            self->state = 1;
+        }
+        break;
+    }
+    last = (f32)((Fish_8035BCE8 *)TObjFish__sub_8001ED9C((void *)TObjWeddingLobby__data_805D6F60, 0))->n - 1.0f;
+    self->b0 += 2.0f;
+    if (last < self->b0) {
+        self->b0 -= last;
     }
 }
 

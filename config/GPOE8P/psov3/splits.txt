@@ -530,6 +530,7 @@ pso/boss/TBoss2Mine_80038140.cpp:
 
 pso/boss/TBoss2Mine_80038610.cpp:
 	.text       start:0x80038610 end:0x800389E4
+	.sdata2     start:0x805D84D4 end:0x805D84F0
 
 pso/boss/TBoss2Mine_800389E4.cpp:
 	.text       start:0x800389E4 end:0x80038B40
@@ -8149,6 +8150,7 @@ pso/misc/TQuestThreadBoard.cpp:
 
 pso/object/TObjRaderIcon.cpp:
 	.text       start:0x801970C0 end:0x801973AC
+	.sdata2     start:0x805DBF0C end:0x805DBF10
 
 pso/object/TObjRaderHideCol.cpp:
 	.text       start:0x801973AC end:0x80197508
@@ -16526,6 +16528,7 @@ pso/ui/TAdEnterPPPPassGC.cpp:
 
 pso/misc/TChCrEffCtrlPl_80339658.cpp:
 	.text       start:0x80339658 end:0x80339954
+	.sdata2     start:0x805DF9F4 end:0x805DF9F8
 
 pso/unk/text_80339954.cpp:
 	.text       start:0x80339954 end:0x803399B0
@@ -17173,6 +17176,8 @@ pso/object/TObjCurtainLobby_8035BB24.cpp:
 
 pso/object/TObjWeddingLobby.cpp:
 	.text       start:0x8035BC20 end:0x8035BFF8
+	.rodata     start:0x804799C0 end:0x804799C8
+	.sdata2     start:0x805E0158 end:0x805E0168
 
 pso/unk/text_8035BFF8.cpp:
 	.text       start:0x8035BFF8 end:0x8035C034
