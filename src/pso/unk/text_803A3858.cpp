@@ -112,6 +112,16 @@ struct Ent_803ADBF0 { u16 id; u16 count; Rec_803ADBF0 *data; };
 
 struct Tbl_803ADBF0 { u8 pad[0xA200]; Ent_803ADBF0 ents[1]; };
 
+struct Ent_803ADD18 { u16 id; u16 f2; u32 f4; };
+
+struct Obj_803AEC00 { u8 pad0[0x34]; s32 i34; s32 i38; u8 pad3C[0x6E]; u16 cnt; u8 padAC[0x48]; u32 iF4; u8 padF8[0x1C]; u32 fh; u32 fl; };
+
+struct Op_803AEC00 { u32 w0; u32 w4; };
+
+struct Obj_803AF0CC { u8 pad0[0x114]; u32 fh; u32 fl; u8 pad11C[0x24]; s8 b140; s8 b141; u8 pad142[2]; u32 i144; u32 i148; };
+
+struct Op_803AF0CC { u32 w0; u32 w4; };
+
 extern "C" {
 void TLobby__sub_803A49C8(s32);
 void TLobby__sub_803A4B7C(s32);
@@ -270,6 +280,17 @@ void TLobby__sub_803BE738(void);
 extern u8 lbl_80559E70[];
 extern u16 lbl_805D73DA;
 s32 TLobby__sub_803ADBF0(u16 arg0, Rec_803ADBF0 *arg1, u16 arg2);
+void TLobby__sub_803BE700(void);
+void TLobby__sub_803BE738(void);
+extern Ent_803ADD18 lbl_80564070[];
+extern u16 lbl_805D73DA;
+s32 TLobby__sub_803ADD18(u16 id);
+u16 TLobby__sub_803BC91C(void);
+u32 TLobby__sub_803BCCE0(s32 i);
+void TLobby__sub_803AEC00(Obj_803AEC00 *o, Op_803AEC00 *op);
+void shift_left_8__6TLobbyFPv(void *);
+void TLobby__sub_803BCA50(void *, void *);
+void TLobby__sub_803AF0CC(Obj_803AF0CC *o, Op_803AF0CC *op);
 }
 
 extern "C" {
@@ -1025,6 +1046,27 @@ s32 TLobby__sub_803ADBF0(u16 arg0, Rec_803ADBF0 *arg1, u16 arg2) {
     return 0;
 }
 
+s32 TLobby__sub_803ADD18(u16 id) {
+    s32 i;
+    s32 j;
+    s32 n;
+    i = 0;
+    n = lbl_805D73DA;
+    while (i < n && id != lbl_80564070[i].id) {
+        i++;
+    }
+    if (i != n) {
+    TLobby__sub_803BE738();
+    for (j = i + 1; j < lbl_805D73DA; j++) {
+        lbl_80564070[j - 1] = lbl_80564070[j];
+    }
+    lbl_805D73DA--;
+    TLobby__sub_803BE700();
+    return 1;
+    }
+    return 0;
+}
+
 s32 TLobby__sub_803AE420(u8 *arg0, u8 *arg1) {
     return M2C_FIELD(arg0, u16 *, 4) - M2C_FIELD(arg1, u16 *, 4);
 }
@@ -1102,6 +1144,88 @@ void TLobby__sub_803AE814(void *arg0, void *arg1) {
         lbl_8055F870[i].start = 0;
     }
     TLobby__sub_803BD884(arg0, arg1);
+}
+
+#define FLAGS (*(u64 *)&o->fh)
+void TLobby__sub_803AEC00(Obj_803AEC00 *o, Op_803AEC00 *op) {
+    u32 w;
+    if (o->cnt == 0) {
+        if ((op->w0 >> 16) & 1) {
+            o->cnt = TLobby__sub_803BC91C() % (u16)(op->w4 >> 16);
+        } else {
+            o->cnt = op->w4 >> 16;
+        }
+        if (o->cnt == 0xFFFF) {
+            goto body;
+        }
+        o->cnt++;
+    } else if (o->cnt == 0xFFFF) {
+        goto body;
+    }
+    if (--o->cnt == 0) {
+        return;
+    }
+body:
+    w = op->w0;
+    if (((w >> 8) & 1) && (FLAGS & 0x10000000008ULL) == 8) {
+        o->cnt = 0;
+        return;
+    }
+    if (((w >> 24) & 1) && (FLAGS & 0x20ULL) == 0 && TLobby__sub_803BCCE0((u8)o->iF4) == 0) {
+        o->cnt = 0;
+        return;
+    }
+    o->i38 = o->i34 + ((op->w4 & 0xFFFF) << 3);
+}
+
+#define FLAGS (*(u64 *)&o->fh)
+void TLobby__sub_803AF0CC(Obj_803AF0CC *o, Op_803AF0CC *op) {
+    u32 v;
+    s8 hi;
+    s8 lo;
+    if ((op->w0 >> 24) & 3) {
+        FLAGS |= 0x4000ULL;
+    } else {
+        FLAGS &= ~0x4000ULL;
+    }
+    v = op->w4 >> 16;
+    if ((op->w4 >> 8) & 1) {
+        shift_left_8__6TLobbyFPv(&v);
+    } else {
+        TLobby__sub_803BCA50(&v, o);
+    }
+    if (v != 0) {
+        FLAGS |= 0x2000ULL;
+        o->i144 = v;
+        hi = op->w0 >> 8;
+        lo = op->w0 >> 16;
+        if (hi < 0) {
+            if (lo < 0) {
+                o->b141 = -lo;
+            } else {
+                o->b141 = lo;
+            }
+            o->b140 = -hi;
+            o->i148 = o->i144 >> 1;
+        } else {
+            if (lo < 0) {
+                if (hi == 0) {
+                    o->b141 = -lo;
+                    o->i148 = o->i144 >> 1;
+                } else {
+                    o->b141 = 100 - lo;
+                    hi--;
+                    o->i148 = 0;
+                }
+            } else {
+                o->b141 = lo;
+                o->i148 = 0;
+            }
+            o->b140 = hi;
+        }
+    } else {
+        FLAGS &= ~0x2000ULL;
+    }
 }
 
 s32 TLobby__sub_803AFF38(Obj_803AFF38 *arg0, u32 arg1, u32 arg2) {
