@@ -6,6 +6,7 @@
 class TPlyOnCreated : public TObject {
 public:
     virtual ~TPlyOnCreated();
+    virtual void run_task();
 };
 
 #endif

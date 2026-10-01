@@ -6,6 +6,8 @@
 class TObjCMName : public TObject {
 public:
     virtual ~TObjCMName();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

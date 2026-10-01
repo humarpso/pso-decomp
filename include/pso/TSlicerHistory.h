@@ -6,6 +6,8 @@
 class TSlicerHistory : public TObject {
 public:
     virtual ~TSlicerHistory();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

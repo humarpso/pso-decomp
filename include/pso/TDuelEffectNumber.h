@@ -6,6 +6,8 @@
 class TDuelEffectNumber : public TObject {
 public:
     virtual ~TDuelEffectNumber();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

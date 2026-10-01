@@ -6,6 +6,8 @@
 class TAdChrSelMovePlateGC : public TObject {
 public:
     virtual ~TAdChrSelMovePlateGC();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

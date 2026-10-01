@@ -6,6 +6,8 @@
 class TObjBoss5FloorStone : public TObject {
 public:
     virtual ~TObjBoss5FloorStone();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

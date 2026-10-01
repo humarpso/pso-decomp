@@ -6,6 +6,8 @@
 class TObjVoloptShutter : public TObject {
 public:
     virtual ~TObjVoloptShutter();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

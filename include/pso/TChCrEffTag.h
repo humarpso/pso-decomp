@@ -10,6 +10,7 @@ public:
     f32 width,targetWidth;
     TObject* label;
     virtual ~TChCrEffTag();
+    virtual void render();
 };
 
 #endif

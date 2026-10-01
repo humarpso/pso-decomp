@@ -6,6 +6,8 @@
 class TBoss2Fin : public TObjEZRopeBase {
 public:
     virtual ~TBoss2Fin();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

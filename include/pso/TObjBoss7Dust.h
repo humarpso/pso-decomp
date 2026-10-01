@@ -6,6 +6,8 @@
 class TObjBoss7Dust : public TObject {
 public:
     virtual ~TObjBoss7Dust();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

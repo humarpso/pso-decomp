@@ -6,6 +6,8 @@
 class TAdMultiChgGameModeGC : public TObject {
 public:
     virtual ~TAdMultiChgGameModeGC();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

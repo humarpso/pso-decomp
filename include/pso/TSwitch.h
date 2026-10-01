@@ -6,6 +6,8 @@
 class TSwitch : public TObject {
 public:
     virtual ~TSwitch();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

@@ -6,6 +6,8 @@
 class TAdMultiPlayerNoGC : public TObject {
 public:
     virtual ~TAdMultiPlayerNoGC();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

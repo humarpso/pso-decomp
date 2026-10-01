@@ -6,6 +6,8 @@
 class TBoss4Fade : public TObject {
 public:
     virtual ~TBoss4Fade();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

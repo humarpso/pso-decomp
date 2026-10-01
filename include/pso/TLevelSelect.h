@@ -6,6 +6,8 @@
 class TLevelSelect : public TObject {
 public:
     virtual ~TLevelSelect();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

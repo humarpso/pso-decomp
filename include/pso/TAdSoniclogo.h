@@ -7,6 +7,7 @@ class TAdSoniclogo : public TObject {
 public:
     virtual void render();
     virtual ~TAdSoniclogo();
+    virtual void run_task();
 };
 
 #endif

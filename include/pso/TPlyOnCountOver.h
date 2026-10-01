@@ -6,6 +6,7 @@
 class TPlyOnCountOver : public TObject {
 public:
     virtual ~TPlyOnCountOver();
+    virtual void run_task();
 };
 
 #endif

@@ -6,6 +6,8 @@
 class TItemReverseTechPart2 : public TObject {
 public:
     virtual ~TItemReverseTechPart2();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

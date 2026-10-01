@@ -6,6 +6,7 @@
 class TFontSmallTask : public TObject {
 public:
     virtual ~TFontSmallTask();
+    virtual void render();
     virtual void run_task();
     f32 position[3];
     f32 offset_x, offset_y;

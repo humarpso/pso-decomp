@@ -6,6 +6,8 @@
 class TDuelEffectString : public TObject {
 public:
     virtual ~TDuelEffectString();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

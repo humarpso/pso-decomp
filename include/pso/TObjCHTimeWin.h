@@ -6,6 +6,7 @@
 class TObjCHTimeWin : public TObject {
 public:
     virtual ~TObjCHTimeWin();
+    virtual void run_task();
 };
 
 #endif

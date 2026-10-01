@@ -6,6 +6,8 @@
 class TAdFloorLoadGC : public TObject {
 public:
     virtual ~TAdFloorLoadGC();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

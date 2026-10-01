@@ -6,6 +6,8 @@
 class TAdRicoRing : public TObject {
 public:
     virtual ~TAdRicoRing();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

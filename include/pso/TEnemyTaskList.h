@@ -11,6 +11,7 @@ public:
  void* m_28;
 public:
     virtual ~TEnemyTaskList();
+    virtual void run_task();
 };
 
 #endif

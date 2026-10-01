@@ -6,6 +6,7 @@
 class TObjResultWin : public TObject {
 public:
     virtual ~TObjResultWin();
+    virtual void run_task();
 };
 
 #endif

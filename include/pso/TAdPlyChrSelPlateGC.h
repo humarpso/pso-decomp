@@ -6,6 +6,8 @@
 class TAdPlyChrSelPlateGC : public TObject {
 public:
     virtual ~TAdPlyChrSelPlateGC();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

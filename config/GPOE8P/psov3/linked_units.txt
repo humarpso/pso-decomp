@@ -58,10 +58,12 @@ gx/GXTransform.c
 mtx/mtx44.c
 mtx/vec.c
 os/OSError.c
+pso/boss/TBoss1DragonDemo.cpp
 pso/boss/TBoss1DragonEffBullet.cpp
 pso/boss/TBoss1Dragon_800BC3C4.cpp
 pso/boss/TBoss2DeRolLe_800340A0.cpp
 pso/boss/TBoss2DeRolLe_80034A14.cpp
+pso/boss/TBoss2Fin.cpp
 pso/boss/TBoss2Mine.cpp
 pso/boss/TBoss2Mine_80037C8C.cpp
 pso/boss/TBoss2Mine_80038140.cpp
@@ -86,8 +88,10 @@ pso/boss/TBoss3Volopt_80131700.cpp
 pso/boss/TBoss3Volopt_8016A47C.cpp
 pso/boss/TBoss3Volopt_80242C48.cpp
 pso/boss/TBoss3Volopt_80242D74.cpp
+pso/boss/TBoss4CheckEmpty.cpp
 pso/boss/TBoss4CheckEmpty_8034A8B0.cpp
 pso/boss/TBoss4CheckEmpty_8034A8FC.cpp
+pso/boss/TBoss4Fade.cpp
 pso/boss/TBoss4Thanks_8035C8F0.cpp
 pso/boss/TBoss4Type1.cpp
 pso/boss/TBoss4Type2.cpp
@@ -108,8 +112,10 @@ pso/boss/TBoss4ZakoDraw_8030AD58.cpp
 pso/boss/TBoss5Gryphon.cpp
 pso/boss/TBoss5GryphonDemo_80066128.cpp
 pso/boss/TBoss5GryphonLightning.cpp
+pso/boss/TBoss5GryphonLightningHorn.cpp
 pso/boss/TBoss5GryphonLightningWing_80324CEC.cpp
 pso/boss/TBoss5GryphonTornado.cpp
+pso/boss/TBoss6CrushRock.cpp
 pso/boss/TBoss6CrushRock_80359FC4.cpp
 pso/boss/TBoss6CrushRock_80359FEC.cpp
 pso/boss/TBoss6EffHyoui.cpp
@@ -230,6 +236,7 @@ pso/boss/TBoss8Dragon_80324D3C.cpp
 pso/boss/TBoss8Dragon_80359A7C.cpp
 pso/boss/TObjBoss1Floor.cpp
 pso/boss/TObjBoss2CeilJunk_8003B07C.cpp
+pso/boss/TObjBoss2Dust.cpp
 pso/boss/TObjBoss2DustCtrl_8003ACD8.cpp
 pso/boss/TObjBoss2DustCtrl_8003AD1C.cpp
 pso/boss/TObjBoss2RaftSplash.cpp
@@ -254,8 +261,10 @@ pso/boss/TObjBoss2Tunnel_8036EF0C_8036EF0C.cpp
 pso/boss/TObjBoss2Tunnel_803E2BAC.cpp
 pso/boss/TObjBoss5Ctrl_80067124.cpp
 pso/boss/TObjBoss5Ctrl_800673D0.cpp
+pso/boss/TObjBoss5FloorGrass.cpp
 pso/boss/TObjBoss5FloorGrass_8028AAB8.cpp
 pso/boss/TObjBoss5FloorGrass_8028AAFC.cpp
+pso/boss/TObjBoss5FloorStone.cpp
 pso/boss/TObjBoss5FloorStone_80289868.cpp
 pso/boss/TObjBoss5FloorStone_802898AC.cpp
 pso/boss/TObjBoss5PillarCtrl.cpp
@@ -266,6 +275,7 @@ pso/boss/TObjBoss5Pillar_8028B08C.cpp
 pso/boss/TObjBoss5Pillar_8028B6C0.cpp
 pso/boss/TObjBoss5Pillar_8028B714.cpp
 pso/boss/TObjBoss5Pillar_8028B810.cpp
+pso/boss/TObjBoss7Dust.cpp
 pso/boss/TObjBoss7DustCtrl_802F13D8.cpp
 pso/boss/TObjBoss7DustCtrl_802F141C.cpp
 pso/boss/TObjBoss7RaftSplash.cpp
@@ -273,16 +283,20 @@ pso/boss/TObjBoss7RaftSplash_802F17B0.cpp
 pso/boss/TObjBoss7RaftSplash_802F1848.cpp
 pso/boss/TObjBoss7RaftSplash_802F18E8.cpp
 pso/boss/TObjBoss7TunnelCol.cpp
+pso/boss/TObjBoss8DemoRoom.cpp
 pso/boss/TObjBoss8DemoRoom_8036B654.cpp
+pso/boss/TObjBoss8Piller.cpp
 pso/boss/TObjBoss8PillerCtrl.cpp
 pso/boss/TObjBoss8Piller_8030ADBC.cpp
 pso/boss/TObjDFRecoverFactory.cpp
 pso/camera/CreationManualCamera.cpp
 pso/effect/TDPBShower.cpp
+pso/effect/TEffClitical.cpp
 pso/effect/TEffGuard.cpp
 pso/effect/TEffHit.cpp
 pso/effect/TEffect.cpp
 pso/encryption/PSOV3EncryptionTCP.cpp
+pso/enemy/TEnemyTaskList.cpp
 pso/enemy/TObjEneBalClawBody.cpp
 pso/enemy/TObjEneBalClawClaw_8008DC18.cpp
 pso/enemy/TObjEneBalClawClaw_80090D3C.cpp
@@ -587,6 +601,7 @@ pso/item/TItemEffNeedlePos_801097F0.cpp
 pso/item/TItemEffOrgaFlowShot.cpp
 pso/item/TItemEffPG.cpp
 pso/item/TItemEffPG_8034FF4C.cpp
+pso/item/TItemEffShield.cpp
 pso/item/TItemEffShield_8010A390.cpp
 pso/item/TItemEffectWeapon_80115C24.cpp
 pso/item/TItemEffectWeapon_803631A0.cpp
@@ -698,6 +713,7 @@ pso/item/TItemEquipVariant_80130AC4.cpp
 pso/item/TItemEquipVariant_80130D84.cpp
 pso/item/TItemList_8010ED0C.cpp
 pso/item/TItemList_801D57B0.cpp
+pso/item/TItemLoad.cpp
 pso/item/TItemLoad_8010F2AC.cpp
 pso/item/TItemLoad_8010F3D8.cpp
 pso/item/TItemLoad_8010F484.cpp
@@ -749,6 +765,8 @@ pso/item/TItemProShield_80116634.cpp
 pso/item/TItemProShield_80116634_80116840.cpp
 pso/item/TItemProUnit.cpp
 pso/item/TItemReverseTech.cpp
+pso/item/TItemReverseTechBG.cpp
+pso/item/TItemReverseTechPart2.cpp
 pso/item/TItemReverseTechPart2_801198F8.cpp
 pso/item/TItemReverseTech_8011A1E8.cpp
 pso/item/TItemShootHook.cpp
@@ -797,6 +815,8 @@ pso/item/TObjItemOKWindow.cpp
 pso/item/TObjItemOKWindow_801F4A6C.cpp
 pso/menu/TAdEndText_80307A34.cpp
 pso/menu/TAdEndText_80399904.cpp
+pso/menu/TAdPlyChrSelPlateGC.cpp
+pso/menu/TAdRicoRing.cpp
 pso/menu/TAdRicoRing_8001BEE8.cpp
 pso/menu/TChCrLoadGmNjReq.cpp
 pso/menu/TObjTagChallenge_80074B44.cpp
@@ -831,6 +851,9 @@ pso/misc/TChCrCharSelect_80293D58.cpp
 pso/misc/TChCrCharSelect_802993CC.cpp
 pso/misc/TChCrCharSelect_802A207C.cpp
 pso/misc/TChCrEffCtrlPl.cpp
+pso/misc/TChCrEffFade.cpp
+pso/misc/TChCrEffTag.cpp
+pso/misc/TChCrEffTagStr.cpp
 pso/misc/TChCrEffTag_8029AC44.cpp
 pso/misc/TChCrEffTag_8029ACA8.cpp
 pso/misc/TChCrEffTag_8029B098.cpp
@@ -856,15 +879,18 @@ pso/misc/TContainerAncient01_8018B79C.cpp
 pso/misc/TContainerAncient01_8018BAE0.cpp
 pso/misc/TDLGraph_8007F7DC.cpp
 pso/misc/TDLGraph_8007F85C.cpp
+pso/misc/TDuelEffectNumber_80080460.cpp
 pso/misc/TEffIndirectCtrl.cpp
 pso/misc/TEnding.cpp
 pso/misc/TEndingAB.cpp
 pso/misc/TEndingAB_8008C9FC.cpp
 pso/misc/TEndingAB_8008CCC4.cpp
+pso/misc/TEndingAB_8008CE08.cpp
 pso/misc/TEndingC.cpp
 pso/misc/TEndingC_8008D00C_8008D538.cpp
 pso/misc/TEndingC_8008D00C_8008D56C.cpp
 pso/misc/TEndingC_8008D00C_8008D5A0.cpp
+pso/misc/TEndingPic.cpp
 pso/misc/TEnding_8008C5C0.cpp
 pso/misc/TFogCtrl_800FAB94.cpp
 pso/misc/TFontSmallHelp.cpp
@@ -909,6 +935,7 @@ pso/misc/TLanguage_801A5694.cpp
 pso/misc/TLanguage_801E4874.cpp
 pso/misc/TLanguage_803DAF68.cpp
 pso/misc/TLazerFenceSw.cpp
+pso/misc/TLevelSelect.cpp
 pso/misc/TLoadCtrl.cpp
 pso/misc/TLoadingCur_801A6DE0.cpp
 pso/misc/TLobby_80019E24.cpp
@@ -1511,8 +1538,10 @@ pso/misc/TPlyMeetUserExtension.cpp
 pso/misc/TPlyMeetUserExtension_801DAC6C.cpp
 pso/misc/TPlyOnCountOver.cpp
 pso/misc/TPlyOnCountOver_801C5FF8.cpp
+pso/misc/TPlyOnCountOver_801C70BC.cpp
 pso/misc/TPlyOnCreated.cpp
 pso/misc/TPlyOnCreated_801C61D0.cpp
+pso/misc/TPlyOnCreated_801C7114.cpp
 pso/misc/TPlyPhotonChair_80142524.cpp
 pso/misc/TPlyPhotonChair_80143888.cpp
 pso/misc/TPlyPhotonChair_801BEC44.cpp
@@ -1604,6 +1633,8 @@ pso/misc/TShopJudgmentItemWindow_8026DF00.cpp
 pso/misc/TShopWindowBase_80213FD0.cpp
 pso/misc/TShopWindowBase_80217454.cpp
 pso/misc/TSlicerHistory.cpp
+pso/misc/TSlicerHistory_8023BDD0.cpp
+pso/misc/TSwitch.cpp
 pso/misc/TTecAnti.cpp
 pso/misc/TTecCtrl_801B0EE8.cpp
 pso/misc/TTecFoie.cpp
@@ -1806,6 +1837,7 @@ pso/misc/TWindowOptionCtrl_8026CBA4.cpp
 pso/misc/TWindowPartyStatus.cpp
 pso/misc/TWindowQuantity.cpp
 pso/misc/TWindowRoom.cpp
+pso/misc/TWindowSetLevelUp.cpp
 pso/misc/TWindowShop.cpp
 pso/misc/TWindowShortCut.cpp
 pso/misc/TWindowShortListCtrl.cpp
@@ -2053,6 +2085,7 @@ pso/object/TObjAreaWarpEndingJung.cpp
 pso/object/TObjAreaWarpEndingJung_8019B364.cpp
 pso/object/TObjAreaWarpQuest.cpp
 pso/object/TObjAreaWarp_80307B70.cpp
+pso/object/TObjBagWarnWin4P.cpp
 pso/object/TObjBgmCol.cpp
 pso/object/TObjBgmColCtrl.cpp
 pso/object/TObjBgmColCtrl_8017E498.cpp
@@ -2066,11 +2099,13 @@ pso/object/TObjButterflyLobby_8007A5D8.cpp
 pso/object/TObjCHTimeWin.cpp
 pso/object/TObjCHTimeWin_80074C94.cpp
 pso/object/TObjCHTimeWin_80074C94_80074CF0.cpp
+pso/object/TObjCHTimeWin_80074C94_80074D18.cpp
 pso/object/TObjCHTimeWin_80074C94_80074D70.cpp
 pso/object/TObjCHTimeWin_80074C94_80074DBC.cpp
 pso/object/TObjCMAutoMkData_80295948.cpp
 pso/object/TObjCMIcon.cpp
 pso/object/TObjCMMainMenu_8029427C.cpp
+pso/object/TObjCMName_80294CA0.cpp
 pso/object/TObjCMProportion_802951EC.cpp
 pso/object/TObjCamera.cpp
 pso/object/TObjCamera_8017F80C.cpp
@@ -2142,6 +2177,7 @@ pso/object/TObjLight_8023347C.cpp
 pso/object/TObjLight_80235C44.cpp
 pso/object/TObjLight_80236D60.cpp
 pso/object/TObjLiveCamera.cpp
+pso/object/TObjLiveMonitorSmall.cpp
 pso/object/TObjLiveMonitor_8030B4FC.cpp
 pso/object/TObjLiveMonitor_8030B574.cpp
 pso/object/TObjLiveMonitor_8030B5E8.cpp
@@ -2179,10 +2215,12 @@ pso/object/TObjQuestColBase_80196BFC.cpp
 pso/object/TObjQuestCol_80196B3C.cpp
 pso/object/TObjQuestCol_8019703C.cpp
 pso/object/TObjRaderHideCol.cpp
+pso/object/TObjRain.cpp
 pso/object/TObjRainCtrl.cpp
 pso/object/TObjRainCtrl_80197CE8.cpp
 pso/object/TObjRainbowLobby_803507D0.cpp
 pso/object/TObjRainbowLobby_80350858.cpp
+pso/object/TObjResultWin.cpp
 pso/object/TObjRoomId_800FD8C8.cpp
 pso/object/TObjSeabedSuisoBrakable_801315D4.cpp
 pso/object/TObjSeabedSuisoBrakable_802A69BC.cpp
@@ -2210,6 +2248,7 @@ pso/object/TObjWarpBossMulti_8019E97C.cpp
 pso/object/TObjWarpBossMulti_801B3514.cpp
 pso/object/TObjWarpLobby.cpp
 pso/object/TObjWarpLobby_801A0A34.cpp
+pso/object/TObjWarpString.cpp
 pso/object/TObject_80019A50.cpp
 pso/object/TObject_8001A448.cpp
 pso/object/TObject_8003F3DC.cpp
@@ -3040,6 +3079,7 @@ pso/system/TSetEvtDestroy.cpp
 pso/ui/TAdADXlogo.cpp
 pso/ui/TAdAgreementBaseGC.cpp
 pso/ui/TAdBackGC.cpp
+pso/ui/TAdBackGC_8029A7B0.cpp
 pso/ui/TAdChrMoveEffectGC_80257720.cpp
 pso/ui/TAdChrSelASlotGC_80266508.cpp
 pso/ui/TAdChrSelASlotGC_802A596C.cpp
@@ -3047,6 +3087,7 @@ pso/ui/TAdChrSelBSlotGC.cpp
 pso/ui/TAdChrSelBSlotGC_8030FE74.cpp
 pso/ui/TAdChrSelBSlotGC_80310050.cpp
 pso/ui/TAdChrSelBSlotGC_803100A4.cpp
+pso/ui/TAdChrSelMovePlateGC.cpp
 pso/ui/TAdChrSelPlayerGC.cpp
 pso/ui/TAdChrSelPlyPlateGC.cpp
 pso/ui/TAdDialingGC.cpp
@@ -3066,7 +3107,9 @@ pso/ui/TAdEnterSerialAccessGC_802ACF04.cpp
 pso/ui/TAdEnterSerialAccessGC_802E0110.cpp
 pso/ui/TAdExNetConfirmGC.cpp
 pso/ui/TAdExNetConfirmGC_8032C504.cpp
+pso/ui/TAdFloorLoadGC.cpp
 pso/ui/TAdFloorLoadPrtGC.cpp
+pso/ui/TAdGameStartBackGC.cpp
 pso/ui/TAdGameStartBackGC_80307298.cpp
 pso/ui/TAdGameStartBackGC_803072CC.cpp
 pso/ui/TAdGameStartSubGC_802E67FC.cpp
@@ -3083,6 +3126,7 @@ pso/ui/TAdMcSelectCursorGC_8032A610.cpp
 pso/ui/TAdMcSelectGC.cpp
 pso/ui/TAdMcSelectGC_8032A0A4.cpp
 pso/ui/TAdMcSelectMcGC.cpp
+pso/ui/TAdMultiChgGameModeGC.cpp
 pso/ui/TAdMultiChgGameModeGC_8023E7A8.cpp
 pso/ui/TAdMultiChgGameModeGC_8023F4E4.cpp
 pso/ui/TAdMultiConfirmGC_802E072C.cpp
@@ -3115,6 +3159,7 @@ pso/ui/TAdPlyPltAnimGC_80356190.cpp
 pso/ui/TAdPlyStatusGC_802E1128.cpp
 pso/ui/TAdPlyStatusGC_8033FD48.cpp
 pso/ui/TAdPsoPassSaveGC.cpp
+pso/ui/TAdRayGC.cpp
 pso/ui/TAdRayGC_8029BFC8.cpp
 pso/ui/TAdRayGC_8029BFFC.cpp
 pso/ui/TAdRayGC_8029C030.cpp
@@ -3162,6 +3207,7 @@ pso/ui/TAdSinglePlyChrSelectGC_80336054.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8033C640.cpp
 pso/ui/TAdSnAkPassConfirmGC.cpp
 pso/ui/TAdSoniclogo.cpp
+pso/ui/TAdSoniclogo_8001C1C4.cpp
 pso/ui/TAdStorySelectGC.cpp
 pso/ui/TAdStorySelectGC_8019DC14.cpp
 pso/ui/TAdSubPlyItemGC.cpp
@@ -3181,6 +3227,9 @@ pso/ui/TObjBagWarnWin_8006EF24.cpp
 pso/ui/TObjDFTenchuFuru_80051B98.cpp
 pso/ui/TObjDFTenchuFuru_80051D5C.cpp
 pso/ui/TObjDFTenchuFuru_80052000.cpp
+pso/ui/TObjDFYutai.cpp
+pso/ui/TObjLiveMonitor.cpp
+pso/ui/TObjNewFloorWin.cpp
 pso/ui/TWindowCtrlSub.cpp
 pso/unk/text_8000F740.cpp
 pso/unk/text_80010E44.cpp

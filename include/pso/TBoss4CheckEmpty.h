@@ -6,6 +6,8 @@
 class TBoss4CheckEmpty : public TObject {
 public:
     virtual ~TBoss4CheckEmpty();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

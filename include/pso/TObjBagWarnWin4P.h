@@ -6,6 +6,7 @@
 class TObjBagWarnWin4P : public TObject {
 public:
     virtual ~TObjBagWarnWin4P();
+    virtual void run_task();
 };
 
 #endif

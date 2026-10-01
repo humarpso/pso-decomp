@@ -6,6 +6,8 @@
 class TEndingAB : public TObject {
 public:
     virtual ~TEndingAB();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

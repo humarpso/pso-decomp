@@ -6,6 +6,8 @@
 class TObjRain : public TObject {
 public:
     virtual ~TObjRain();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

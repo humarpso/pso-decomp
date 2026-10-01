@@ -6,6 +6,8 @@
 class TBoss8DragonDemo : public TObject {
 public:
     virtual ~TBoss8DragonDemo();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

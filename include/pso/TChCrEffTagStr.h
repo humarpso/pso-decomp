@@ -6,6 +6,8 @@
 class TChCrEffTagStr : public TObject {
 public:
     virtual ~TChCrEffTagStr();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

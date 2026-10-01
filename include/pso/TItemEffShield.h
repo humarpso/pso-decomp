@@ -6,6 +6,7 @@
 class TItemEffShield : public TObject {
 public:
     virtual ~TItemEffShield();
+    virtual void run_task();
 };
 
 #endif

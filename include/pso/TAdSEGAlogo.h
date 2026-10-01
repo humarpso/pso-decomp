@@ -7,6 +7,7 @@ class TAdSEGAlogo : public TObject {
 public:
     virtual void render();
     virtual ~TAdSEGAlogo();
+    virtual void run_task();
 };
 
 #endif

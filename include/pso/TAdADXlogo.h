@@ -6,5 +6,6 @@ class TAdADXlogo : public TObject {
 public:
     virtual void render();
     virtual ~TAdADXlogo();
+    virtual void run_task();
 };
 #endif

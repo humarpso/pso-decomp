@@ -6,6 +6,8 @@
 class TChCrEffFade : public TObject {
 public:
     virtual ~TChCrEffFade();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

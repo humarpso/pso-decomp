@@ -6,6 +6,8 @@
 class TObjBoss8DemoRoom : public TObject {
 public:
     virtual ~TObjBoss8DemoRoom();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

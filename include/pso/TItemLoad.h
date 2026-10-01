@@ -6,6 +6,7 @@
 class TItemLoad : public TObject {
 public:
     virtual ~TItemLoad();
+    virtual void run_task();
 };
 
 #endif

@@ -6,6 +6,8 @@
 class TEndingPic : public TObject {
 public:
     virtual ~TEndingPic();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

@@ -6,6 +6,8 @@
 class TObjBoss8Piller : public TObject {
 public:
     virtual ~TObjBoss8Piller();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

@@ -25,6 +25,7 @@ force_active:
   - AISetStreamVolRight
   - CARDCheckExAsync
   - Dolphin_DVDCancelAsync
+  - TAdRayGC__sub_8029BCB4
   - TAdSinglePlyChrSelectGC__sub_80133530
   - TBoss2DeRolLe__sub_80034D58
   - TBoss3Volopt__sub_800D8F78
@@ -86,44 +87,77 @@ force_active:
   - TObjPlayer__sub_803DA84C
   - TObjPlayer__sub_803DAA70
   - TObjPlayer__sub_803DAD84
+  - TObjResultWin__sub_80074664
   - TPlyDispConfig__sub_801E0A68
   - TRecvGenerateID__sub_801DFBC4
   - TWindowActionPalette__sub_801C1C20
   - TWindowActionPalette__sub_801C1C30
   - TWindowMainMenu1P__sub_80288520
+  - TWindowSetLevelUp__sub_8026DDE0
   - TypeAndStatusCallback
   - __ARQCallbackHack
   - __ARQInterruptServiceRoutine
   - __ARQServiceQueueLo
   - __CARDFormatRegionAsync
+  - __ct__15TBoss6CrushRockFv
   - __ct__9TEffGuardFPC3Vec
+  - __dt__10TBoss4FadeFv
   - __dt__10TDPBShowerFv
+  - __dt__10TEndingPicFv
   - __dt__10TItemTimerFv
+  - __dt__10TObjCMNameFv
+  - __dt__11TAdRicoRingFv
+  - __dt__11TChCrEffTagFv
   - __dt__11TMapCsnCtrlFv
+  - __dt__11TObjDFYutaiFv
+  - __dt__12TAdSoniclogoFv
+  - __dt__12TChCrEffFadeFv
   - __dt__12TItemDropSubFv
   - __dt__12TItemEffCaneFv
   - __dt__12TItemTexLoadFv
+  - __dt__12TLevelSelectFv
   - __dt__12TMemberCheckFv
   - __dt__12TObjRainCtrlFv
   - __dt__13TItemMenuCtrlFv
+  - __dt__13TObjBoss2DustFv
+  - __dt__13TObjBoss7DustFv
+  - __dt__13TObjResultWinFv
+  - __dt__13TPlyOnCreatedFv
+  - __dt__14TAdFloorLoadGCFv
   - __dt__14TAdLoadQuestGCFv
   - __dt__14TBoss6EffHyouiFv
+  - __dt__14TChCrEffTagStrFv
+  - __dt__14TEnemyTaskListFv
+  - __dt__14TItemEffShieldFv
+  - __dt__14TObjWarpStringFv
   - __dt__14TSetEvtDestroyFv
+  - __dt__14TSlicerHistoryFv
   - __dt__14TWindowCtrlSubFv
   - __dt__15TAdDrawLineCtrlFv
+  - __dt__15TBoss6CrushRockFv
   - __dt__15TBoss6SwordShotFv
   - __dt__15TItemEffLandHitFv
   - __dt__15TItemMagGrowEffFv
+  - __dt__15TObjBoss8PillerFv
   - __dt__15TObjDeadListWinFv
+  - __dt__15TObjNewFloorWinFv
   - __dt__15TObjSoloPlayWinFv
+  - __dt__15TPlyOnCountOverFv
+  - __dt__16TBoss1DragonDemoFv
   - __dt__16TBoss3VoloptCtrlFv
+  - __dt__16TBoss4CheckEmptyFv
   - __dt__16TChCrLoadGmNjReqFv
   - __dt__16TItemReverseTechFv
+  - __dt__16TObjBagWarnWin4PFv
   - __dt__16TObjItemOKWindowFv
   - __dt__17TOSwitchAttackSubFv
+  - __dt__17TObjBoss8DemoRoomFv
   - __dt__17TObjItemNameEntryFv
+  - __dt__17TWindowSetLevelUpFv
+  - __dt__18TAdGameStartBackGCFv
   - __dt__18TAdLoadQuestLineGCFv
   - __dt__18TItemLockCountCtrlFv
+  - __dt__18TItemReverseTechBGFv
   - __dt__18TOChatSensorFolderFv
   - __dt__18TObjItemNameSelectFv
   - __dt__18TObjTailsTailsMoveFv
@@ -132,14 +166,29 @@ force_active:
   - __dt__19TItemShootModelRotZFv
   - __dt__19TOChatSensorCaptureFv
   - __dt__19TObjBoss2RaftSplashFv
+  - __dt__19TObjBoss5FloorGrassFv
+  - __dt__19TObjBoss5FloorStoneFv
   - __dt__19TObjBoss7RaftSplashFv
+  - __dt__20TAdChrSelMovePlateGCFv
+  - __dt__20TObjLiveMonitorSmallFv
+  - __dt__21TAdMultiChgGameModeGCFv
   - __dt__21TItemEffArmorParticleFv
+  - __dt__21TItemReverseTechPart2Fv
   - __dt__21TODummyKeyCave01SoundFv
   - __dt__22TChallenge4PItemSelectFv
+  - __dt__26TBoss5GryphonLightningHornFv
   - __dt__7TEffHitFv
   - __dt__7TEndingFv
+  - __dt__7TSwitchFv
+  - __dt__8TAdRayGCFv
+  - __dt__8TObjRainFv
+  - __dt__9TAdBackGCFv
+  - __dt__9TBoss2FinFv
   - __dt__9TEffGuardFv
+  - __dt__9TEndingABFv
+  - __dt__9TItemLoadFv
   - __dt__9TSaveChCrFv
+  - advance_animation_state__10TEndingPicFPv
   - advance_bone_rotation__19TObjEZBoneRotPlayerFPv
   - bswap_guild_card_tag__17TWindowSubComCardFPv
   - create__13TItemProArmorFiUi
@@ -175,19 +224,56 @@ force_active:
   - is_target_in_range__11TObjInfoColFf
   - load_item_pmt
   - open_windows__22TAdMultiPlyChrSelectGCFPv
+  - render__10TEndingPicFv
+  - render__11TAdRicoRingFv
+  - render__11TChCrEffTagFv
+  - render__12TAdSoniclogoFv
+  - render__12TChCrEffFadeFv
+  - render__12TLevelSelectFv
+  - render__13TObjBoss7DustFv
+  - render__14TAdFloorLoadGCFv
   - render__14TAdLoadQuestGCFv
+  - render__14TChCrEffTagStrFv
   - render__15TAdDrawLineCtrlFv
+  - render__16TBoss1DragonDemoFv
+  - render__16TBoss4CheckEmptyFv
+  - render__17TObjBoss8DemoRoomFv
+  - render__17TWindowSetLevelUpFv
+  - render__18TAdGameStartBackGCFv
   - render__18TAdLoadQuestLineGCFv
+  - render__18TItemReverseTechBGFv
+  - render__20TAdChrSelMovePlateGCFv
+  - render__20TObjLiveMonitorSmallFv
+  - render__21TAdMultiChgGameModeGCFv
+  - render__26TBoss5GryphonLightningHornFv
+  - render__7TSwitchFv
+  - render__8TAdRayGCFv
+  - render__8TObjRainFv
+  - render__9TAdBackGCFv
+  - render_background_status__18TAdGameStartBackGCFPv
   - reset_and_invoke__6TLobbyFv
   - reset_state__13TObjWarnChimeFPv
   - run_task__10TDPBShowerFv
+  - run_task__10TEndingPicFv
   - run_task__10TItemTimerFv
+  - run_task__11TAdRicoRingFv
+  - run_task__11TChCrEffTagFv
+  - run_task__12TAdSoniclogoFv
+  - run_task__12TChCrEffFadeFv
   - run_task__12TItemEffCaneFv
   - run_task__12TItemTexLoadFv
+  - run_task__12TLevelSelectFv
   - run_task__12TMemberCheckFv
   - run_task__12TObjRainCtrlFv
+  - run_task__13TObjBoss2DustFv
+  - run_task__13TObjBoss7DustFv
+  - run_task__13TObjResultWinFv
+  - run_task__14TAdFloorLoadGCFv
   - run_task__14TAdLoadQuestGCFv
   - run_task__14TBoss6EffHyouiFv
+  - run_task__14TChCrEffTagStrFv
+  - run_task__14TEnemyTaskListFv
+  - run_task__14TObjWarpStringFv
   - run_task__14TSetEvtDestroyFv
   - run_task__14TWindowCtrlSubFv
   - run_task__15TAdDrawLineCtrlFv
@@ -196,23 +282,39 @@ force_active:
   - run_task__15TItemMagGrowEffFv
   - run_task__15TObjDeadListWinFv
   - run_task__15TObjSoloPlayWinFv
+  - run_task__16TBoss1DragonDemoFv
   - run_task__16TBoss3VoloptCtrlFv
+  - run_task__16TBoss4CheckEmptyFv
   - run_task__16TChCrLoadGmNjReqFv
   - run_task__16TItemReverseTechFv
+  - run_task__16TObjBagWarnWin4PFv
   - run_task__17TOSwitchAttackSubFv
+  - run_task__17TObjBoss8DemoRoomFv
+  - run_task__17TWindowSetLevelUpFv
+  - run_task__18TAdGameStartBackGCFv
   - run_task__18TAdLoadQuestLineGCFv
+  - run_task__18TItemReverseTechBGFv
   - run_task__18TObjTailsTailsMoveFv
   - run_task__19THunterGuildWarningFv
   - run_task__19TItemDisconnectCtrlFv
   - run_task__19TOChatSensorCaptureFv
   - run_task__19TObjBoss2RaftSplashFv
   - run_task__19TObjBoss7RaftSplashFv
+  - run_task__20TAdChrSelMovePlateGCFv
+  - run_task__20TObjLiveMonitorSmallFv
+  - run_task__21TAdMultiChgGameModeGCFv
   - run_task__21TItemEffArmorParticleFv
   - run_task__21TODummyKeyCave01SoundFv
   - run_task__22TChallenge4PItemSelectFv
+  - run_task__26TBoss5GryphonLightningHornFv
   - run_task__7TEffHitFv
   - run_task__7TEndingFv
+  - run_task__7TSwitchFv
+  - run_task__8TAdRayGCFv
+  - run_task__8TObjRainFv
+  - run_task__9TAdBackGCFv
   - run_task__9TEffGuardFv
+  - run_task__9TEndingABFv
   - run_task__9TSaveChCrFv
   - set_code_43_6__10TObjPlayerFPv
   - setup_state_helper__10TObjPlayerFPv

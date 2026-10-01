@@ -6,6 +6,8 @@
 class TEffClitical : public TEffect {
 public:
     virtual ~TEffClitical();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

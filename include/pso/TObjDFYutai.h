@@ -6,6 +6,8 @@
 class TObjDFYutai : public TObject {
 public:
     virtual ~TObjDFYutai();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif
