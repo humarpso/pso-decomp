@@ -9,7 +9,7 @@ void fn_801A6A28(void *, s32, s32);
 void fn_801A6A5C(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
 void fn_801A6A28(void *, s32, s32);
 void fn_801A6AF4(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
-s32 fn_801A6B8C(void *, void *, int, int);
+void fn_801A6B8C(void *, void *, int, int);
 void fn_801A6BB0(u8 *arg0);
 }
 
@@ -42,6 +42,15 @@ void fn_801A6AF4(u8 *arg0, s16 arg1, s16 arg2, s32 arg3) {
     if (arg1 < -0x30) {
         fn_801A6A28(arg0, 0x400000, arg3);
     }
+}
+void fn_801A6B8C(void *arg0, void *arg1, int mask, int held) {
+    s16 value = *(s16 *)arg1;
+    if (held & mask) {
+        value++;
+    } else {
+        value = 0;
+    }
+    *(s16 *)arg1 = value;
 }
 void fn_801A6BB0(u8 *arg0) {
     fn_801A6B8C((void *) (arg0), (void *) (arg0 + 0x2C), (int) (0x10), (int) (M2C_FIELD(arg0, s32 *, 0x48)));

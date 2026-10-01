@@ -69,6 +69,20 @@ void TLobby__sub_80134AB8(s32 arg0) {
 
 int render__6TLobbyFv(void* p) { return get_instance__15TAdPlayerLoadGCFv(p); }
 
+struct E_80134B58 { u8 d[0x11C]; };
+struct In_80134B58 { u32 type; u8 rest[0x118]; };
+extern E_80134B58 lbl_80509D5C[];
+void TLobby__sub_80134BC4(u8 *, u8 *);
+void TLobby__sub_80134B58(In_80134B58 *arg0, s32 arg1) {
+    s32 i;
+    for (i = 0; i < arg1; i++) {
+        if (arg0[i].type > 0xC) {
+            return;
+        }
+        TLobby__sub_80134BC4((u8 *)&lbl_80509D5C[arg0[i].type], (u8 *)&arg0[i]);
+    }
+}
+
 struct M2CCopy_100 { u8 bytes[0x100]; };
 void TLobby__sub_80134BC4(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);

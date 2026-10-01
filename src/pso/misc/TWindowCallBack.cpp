@@ -55,6 +55,25 @@ void fn_802ACD60(void* p) { fn_802ACD40((void*)(p)); TLobby__send_and_handle_60(
 void build_6xA3_olga_flow_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 163; *(u8*)((char*)p + 0x1) = 5; }
 void set_field_60__15TWindowCallBackFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x60) = v; }
 
+}
+
+extern "C" s32 draw_default_entry__9TWindowDDFi(void *);
+class TWindowCallBack {
+public:
+    u8 pad[0x60];
+    void (*callback)(TWindowCallBack *, s32);
+    void render();
+};
+
+void TWindowCallBack::render() {
+    s32 r = draw_default_entry__9TWindowDDFi(this);
+    if (callback != NULL) {
+        callback(this, r);
+    }
+}
+
+extern "C" {
+
 void run_task__15TWindowCallBackFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); }
 
 extern M2C_UNK __vt__15TWindowCallBack[];

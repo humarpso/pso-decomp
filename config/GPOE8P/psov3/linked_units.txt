@@ -949,6 +949,7 @@ pso/misc/TLazerFenceSw.cpp
 pso/misc/TLevelSelect.cpp
 pso/misc/TLoadCtrl.cpp
 pso/misc/TLoadingCur_801A6DE0.cpp
+pso/misc/TLobby.cpp
 pso/misc/TLobby_80019E24.cpp
 pso/misc/TLobby_8001D6A0_8001D6A0.cpp
 pso/misc/TLobby_8001D6A0_8001DB44.cpp
@@ -1173,6 +1174,7 @@ pso/misc/TLobby_80243370.cpp
 pso/misc/TLobby_80244D2C.cpp
 pso/misc/TLobby_8024A148.cpp
 pso/misc/TLobby_802676A8.cpp
+pso/misc/TLobby_80269C6C.cpp
 pso/misc/TLobby_8026B06C.cpp
 pso/misc/TLobby_8026DE30.cpp
 pso/misc/TLobby_80271E48.cpp
@@ -1642,6 +1644,7 @@ pso/misc/TShopItemTecSequence.cpp
 pso/misc/TShopJudgmentItemWindow_801B853C.cpp
 pso/misc/TShopJudgmentItemWindow_80267580.cpp
 pso/misc/TShopJudgmentItemWindow_8026DF00.cpp
+pso/misc/TShopSequence.cpp
 pso/misc/TShopWindowBase_80213FD0.cpp
 pso/misc/TShopWindowBase_80217454.cpp
 pso/misc/TSlicerHistory.cpp
@@ -1676,6 +1679,7 @@ pso/misc/TWindowActionPalette_801C1890.cpp
 pso/misc/TWindowAddition.cpp
 pso/misc/TWindowArea.cpp
 pso/misc/TWindowBreakIn.cpp
+pso/misc/TWindowCallBack.cpp
 pso/misc/TWindowChat.cpp
 pso/misc/TWindowChatSymbol.cpp
 pso/misc/TWindowChatSymbol_802486A8.cpp
@@ -2252,6 +2256,7 @@ pso/object/TObjTuitate.cpp
 pso/object/TObjVoloptCage.cpp
 pso/object/TObjVoloptCage_8004912C.cpp
 pso/object/TObjVoloptPillar.cpp
+pso/object/TObjWaitEntryHairMoveSim_800FE300.cpp
 pso/object/TObjWaitEntryHairMoveSim_800FE45C.cpp
 pso/object/TObjWarnChime.cpp
 pso/object/TObjWarpBase.cpp
@@ -3672,6 +3677,7 @@ pso/unk/text_801A2B38.cpp
 pso/unk/text_801A5778.cpp
 pso/unk/text_801A69E4.cpp
 pso/unk/text_801A6A28.cpp
+pso/unk/text_801A6A5C.cpp
 pso/unk/text_801A6F84.cpp
 pso/unk/text_801A73B0.cpp
 pso/unk/text_801AA3B4.cpp
