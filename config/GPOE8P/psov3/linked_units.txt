@@ -1736,6 +1736,7 @@ pso/misc/TShopSequence.cpp
 pso/misc/TShopWindowBase_80213FD0.cpp
 pso/misc/TShopWindowBase_80217454.cpp
 pso/misc/TSlicerHistory.cpp
+pso/misc/TSlicerHistory_8023B220.cpp
 pso/misc/TSlicerHistory_8023BDD0.cpp
 pso/misc/TSwitch.cpp
 pso/misc/TTecAnti.cpp
@@ -1794,6 +1795,7 @@ pso/misc/TWindowCtrlMain_8024674C.cpp
 pso/misc/TWindowCtrlMain_8024C820.cpp
 pso/misc/TWindowCtrlMain_8024CB74.cpp
 pso/misc/TWindowCtrlMain_8024EEF8.cpp
+pso/misc/TWindowCtrlPlayer.cpp
 pso/misc/TWindowCtrlScreen.cpp
 pso/misc/TWindowCtrlScreen_8024CA5C.cpp
 pso/misc/TWindowCtrl_8006E85C.cpp
@@ -3055,6 +3057,7 @@ pso/player/TObjPlayer_8032DA84_8032DE2C.cpp
 pso/player/TObjPlayer_8032DA84_8032DEB4.cpp
 pso/player/TObjPlayer_8032DA84_8032DF74.cpp
 pso/player/TObjPlayer_8032E4C8.cpp
+pso/player/TObjPlayer_803302D8.cpp
 pso/player/TObjPlayer_803302D8_803302D8.cpp
 pso/player/TObjPlayer_803302D8_80330384.cpp
 pso/player/TObjPlayer_8033E910.cpp
@@ -4129,6 +4132,7 @@ pso/unk/text_802A1154.cpp
 pso/unk/text_802A1324.cpp
 pso/unk/text_802A3138.cpp
 pso/unk/text_802A4D74.cpp
+pso/unk/text_802A8210.cpp
 pso/unk/text_802A9568.cpp
 pso/unk/text_802A9588.cpp
 pso/unk/text_802AA8FC_802AABEC.cpp
@@ -4254,6 +4258,7 @@ pso/unk/text_8036F764.cpp
 pso/unk/text_80396328.cpp
 pso/unk/text_80397520.cpp
 pso/unk/text_8039A298.cpp
+pso/unk/text_8039A924.cpp
 pso/unk/text_803C1668.cpp
 pso/unk/text_803CBCA0.cpp
 pso/unk/text_803CBCF8.cpp
@@ -4276,6 +4281,7 @@ pso/unk/text_803DA754.cpp
 pso/unk/text_803DA798.cpp
 pso/unk/text_803DAF30.cpp
 pso/unk/text_803DAFA8.cpp
+pso/unk/text_803DB390.cpp
 pso/unk/text_803DC86C.cpp
 pso/unk/text_803DC88C.cpp
 pso/unk/text_803DCDB0.cpp
@@ -4290,6 +4296,7 @@ pso/unk/text_803DE8BC.cpp
 pso/unk/text_803DEE48.cpp
 pso/unk/text_803DF204.cpp
 pso/unk/text_803E1FC8.cpp
+pso/unk/text_803E2008.cpp
 pso/unk/text_803E2070.cpp
 pso/unk/text_803E29B0.cpp
 pso/unk/text_803E4CE8.cpp

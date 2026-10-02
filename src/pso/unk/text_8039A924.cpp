@@ -3,6 +3,7 @@
 extern "C" {
 void *printf___StringWrite(void *osc, const char *buf, u32 n);
 int sprintf(char *s, const char *format, ...);
+int TLobby__sub_8039AA04(char *s, const char *format, va_list arg);
 }
 
 extern "C" {
@@ -32,6 +33,13 @@ int sprintf(char *s, const char *format, ...) {
     va_list args;
     va_start(args, format);
     return vsnprintf_8039A924(s, 0xFFFFFFFF, format, args);
+}
+#pragma pop
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+int TLobby__sub_8039AA04(char *s, const char *format, va_list arg) {
+    return vsnprintf_8039A924(s, 0xFFFFFFFF, format, arg);
 }
 #pragma pop
 

@@ -1,5 +1,17 @@
 #include "pso/TProtocol.h"
 
+extern "C" void fn_801DA140(TProtocol *self, s8 flags, const char *filename) {
+    TSendDownloadHead pkt;
+    memset(&pkt, 0, sizeof(pkt));
+    pkt.header.command = 0xD7;
+    pkt.header.flags = flags;
+    strncpy(pkt.filename, filename, sizeof(pkt.filename));
+    pkt.header.size = sizeof(pkt);
+    strncpy(pkt.filename, filename, sizeof(pkt.filename));
+    pkt.bswap();
+    self->send((u8 *)&pkt, sizeof(pkt));
+}
+
 void TProtocol::send_message_box_closed() {
     packet_header header;
     header.command = 0xD6;

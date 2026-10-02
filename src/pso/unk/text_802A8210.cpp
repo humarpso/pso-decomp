@@ -13,7 +13,10 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_802A8210_lbl_804DDF04 lbl_804DDF04;
 u8 *fn_802A8210(u8 *arg0, s32 arg1, u8 *arg2);
 u8 *__nw__7TObjectFUl(u32);
-s8 fn_802A82DC();
+s8 fn_802A82DC(u8 arg0);
+s32 check_demo_mode__10TObjPlayerFv();
+void TEffIndirectCtrl__sub_802A9548(u8 *);
+u8 TEffIndirectCtrl__sub_802A9554(u8 *);
 u8 *TEffIndirectCtrl__ct(u8 *, s32, s32);
 extern u8 *lbl_80540B10[];
 extern s32 tl_01;
@@ -33,7 +36,7 @@ u8 *fn_802A8210(u8 *arg0, s32 arg1, u8 *arg2) {
 }
 void fn_802A8260(s32 arg0) {
     u8 *p;
-    if (fn_802A82DC() < 0 && lbl_805D66AC < 6) {
+    if (((s8 (*)(s32))fn_802A82DC)(arg0) < 0 && lbl_805D66AC < 6) {
         p = __nw__7TObjectFUl(0x54);
         if (p != NULL) {
             p = TEffIndirectCtrl__ct(p, arg0, tl_01);
@@ -41,6 +44,21 @@ void fn_802A8260(s32 arg0) {
         lbl_80540B10[lbl_805D66AC] = p;
         lbl_805D66AC++;
     }
+}
+s8 fn_802A82DC(u8 arg0) {
+    s32 i;
+    for (i = 0; i < lbl_805D66AC; i++) {
+        if (lbl_80540B10[i] != 0) {
+            u8 id = TEffIndirectCtrl__sub_802A9554(lbl_80540B10[i]);
+            if (id == arg0) {
+                if (check_demo_mode__10TObjPlayerFv() == 0) {
+                    TEffIndirectCtrl__sub_802A9548(lbl_80540B10[i]);
+                }
+                return i;
+            }
+        }
+    }
+    return -1;
 }
 
 }
