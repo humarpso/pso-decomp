@@ -34,6 +34,30 @@ struct Flags_8006835C { u8 pad0[8]; u32 flags; };
 
 struct Scissor_8006835C { u8 pad0[8]; f32 x; f32 y; u8 pad10[0x30 - 0x10]; u8 f30[4]; };
 
+struct View_80068530 {
+    u8 pad0[0xD4];
+    Vec_8006835C eye[4];
+    Vec_8006835C look[4];
+    u8 pad134[0x178 - 0x134];
+    Vec_8006835C pos;
+    Vec_8006835C target;
+    u8 pad190[0x19C - 0x190];
+    s32 f19c;
+    Vec_8006835C curPos;
+    Vec_8006835C curTarget;
+    f32 f1b8;
+    f32 f1bc;
+};
+
+struct Cam_80068530 {
+    u8 pad0[0x3C];
+    Vec_8006835C pos;
+    Vec_8006835C target;
+    s32 f54;
+    f32 f58;
+    f32 f5c;
+};
+
 extern "C" {
 extern G_80068018 lbl_8050E208;
 extern M2C_UNK lbl_80488838[];
@@ -58,6 +82,11 @@ extern const f32 lbl_805D8F94;
 extern const f32 lbl_805D8F98;
 extern const f32 lbl_805D8F9C;
 void TCameraCtrl__sub_8006835C(void);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 get_camera_no__11TCameraCtrlFv(void);
+extern Flags_8006835C TCameraCtrl__data_804FF628;
+extern View_8006835C *lbl_805D4DF0;
+void TCameraCtrl__sub_80068530(Cam_80068530 *arg0);
 }
 
 extern "C" {
@@ -128,6 +157,42 @@ void TCameraCtrl__sub_8006835C(void) {
         GXSetScissorBoxOffset((s32)-(TCameraCtrl__data_804FF634.x - lbl_805D8F98), (s32)-(TCameraCtrl__data_804FF634.y - lbl_805D8F9C));
         TCameraCtrl__sub_801E32D8(TCameraCtrl__data_804FF634.x, TCameraCtrl__data_804FF634.y);
         TCameraCtrl__sub_801E317C(2, TCameraCtrl__data_804FF634.f30);
+    }
+}
+
+#define V ((View_80068530 *)lbl_805D4DF0)
+void TCameraCtrl__sub_80068530(Cam_80068530 *arg0) {
+    s32 no;
+    s32 id;
+    if ((TCameraCtrl__data_804FF628.flags & 4) || (TCameraCtrl__data_804FF628.flags & 8)) {
+        V->curPos.x = arg0->pos.x;
+        V->curPos.y = arg0->pos.y;
+        V->curPos.z = arg0->pos.z;
+        V->curTarget.x = arg0->target.x;
+        V->curTarget.y = arg0->target.y;
+        V->curTarget.z = arg0->target.z;
+        V->pos.x = V->curPos.x;
+        V->pos.y = V->curPos.y;
+        V->pos.z = V->curPos.z;
+        V->target.x = V->curTarget.x;
+        V->target.y = V->curTarget.y;
+        V->target.z = V->curTarget.z;
+        no = get_camera_no__11TCameraCtrlFv();
+        VecCopy__FP3VecPC3Vec(&V->eye[no], &arg0->pos);
+        VecCopy__FP3VecPC3Vec(&V->look[no], &arg0->target);
+    } else {
+        V->curPos.x = arg0->pos.x;
+        V->curPos.y = arg0->pos.y;
+        V->curPos.z = arg0->pos.z;
+        V->curTarget.x = arg0->target.x;
+        V->curTarget.y = arg0->target.y;
+        V->curTarget.z = arg0->target.z;
+    }
+    V->f1b8 = arg0->f58;
+    V->f1bc = arg0->f5c;
+    if (V->f19c != arg0->f54) {
+        TCameraCtrl__data_804FF628.flags |= 0x40;
+        V->f19c = arg0->f54;
     }
 }
 

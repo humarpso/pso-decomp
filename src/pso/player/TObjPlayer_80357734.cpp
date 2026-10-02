@@ -175,6 +175,14 @@ extern s32 tl_07;
 extern const f32 lbl_805E0048;
 extern const f32 lbl_805E0080;
 void weapon_special_lightning_bolt_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+M2C_UNK spawn_particle_effect(M2C_UNK *, M2C_UNK);
+u32 __nw__7TObjectFUl(M2C_UNK);
+u32 TTecRaFoie__sub_802385EC(u32, s32, s32, s32, f32);
+extern s32 tl_particle;
+extern const f32 lbl_805E0088;
+extern const f32 lbl_805E008C;
+extern const f32 lbl_805E0090;
+void TObjPlayer__sub_8035886C(s32 arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -614,6 +622,25 @@ void TObjPlayer__sub_80358824(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
 }
 
 extern s32 tl_05;
+
+void TObjPlayer__sub_8035886C(s32 arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
+    u32 obj;
+    if (arg3 == 0) {
+        spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), 0x69);
+    }
+    if (arg3 == 1) {
+        obj = __nw__7TObjectFUl(0x64);
+        if (obj != 0U) {
+            obj = ((u32 (*)(f32, u32, s32, s32, s32))TTecRaFoie__sub_802385EC)(lbl_805E0088, obj, arg2, 0, tl_particle);
+        }
+        if (obj != 0U) {
+            M2C_FIELD(obj, f32 *, 0x34) = lbl_805E008C;
+            M2C_FIELD(obj, f32 *, 0x38) = lbl_805E008C;
+            M2C_FIELD(obj, f32 *, 0x3C) = lbl_805E008C;
+            M2C_FIELD(obj, f32 *, 0x40) = lbl_805E0090;
+        }
+    }
+}
 
 void spawn_mirror_pair__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s32 arg3) {
     u32 obj;

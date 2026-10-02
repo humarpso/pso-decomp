@@ -52,6 +52,7 @@ struct VObj_18_cc39a7 : VBase_18_cc39a7 {
 
 struct Vec_800AEE54 { f32 x, y, z; };
 
+typedef s32 M2C_UNK;
 extern "C" {
 void TObjPlayer__sub_800ADE48(Moja_800ADE48 *self);
 s32 TObjPlayer__sub_80016D78();
@@ -115,6 +116,20 @@ u8 *get_player_by_client_id(u16);
 M2C_UNK minimap_render_dot(void *, int, int, int, f32);
 extern const f32 lbl_805D9BDC;
 void run_task__11TObjEneMojaFPv(u8 *arg0);
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
+s32 select_enemy_destination(void *, Vec_800AE18C *, int);
+M2C_UNK copy_position_if_valid__10TObjPlayerFii(void *, Vec_800AE18C *);
+f32 TObjPlayer__sub_800186E8(void *, void *, Vec_800AE18C *);
+s32 get_field_0c__10TObjPlayerFPv(u32);
+f32 get_pos_x__10TObjPlayerFPv(u32);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 angle_difference_abs(s32, s32);
+extern const f64 lbl_8043B0C8[];
+extern u32 *lbl_805D50CC;
+extern const f32 lbl_805D9BE8;
+extern const f32 lbl_805D9C1C;
+extern const f32 lbl_805D9C30;
+s32 TObjPlayer__sub_800ADEDC(u8 *arg0);
 }
 
 extern "C" {
@@ -222,6 +237,79 @@ void TObjPlayer__sub_800ADE48(Moja_800ADE48 *self) {
     self->flags &= 0xF9FBFFFF;
     self->collision->flags |= 1;
     self->f374 = 0;
+}
+
+s32 TObjPlayer__sub_800ADEDC(u8 *arg0) {
+    s32 angd;
+    s32 lim;
+    s32 i;
+    f32 sq;
+    f32 dist;
+    f32 radius;
+    u8 *t;
+    u8 *c;
+    Vec_800AE18C d;
+    if (M2C_FIELD(arg0, s16 *, 0x326) > 1 && (t = M2C_FIELD(arg0, u8 **, 0x2A8)) != NULL &&
+        M2C_FIELD(arg0, u32 *, 0x318) != 0 && !(M2C_FIELD(t, u32 *, 0x30) & 0x02000800)) {
+        dist = TObjPlayer__sub_800186E8(arg0, t, &d);
+        angd = angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60),
+                                    (s32)(lbl_8043B0C8[0] * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z)));
+        c = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2A8), u8 **, 0xA4);
+        if (c != NULL) {
+            radius = M2C_FIELD(c, f32 *, 0xC);
+        } else {
+            radius = lbl_805D9BE8;
+        }
+        for (i = 0; i < 3; i++) {
+            M2C_FIELD(arg0, u32 *, 0x318) = lbl_805D50CC[i + M2C_FIELD(arg0, s32 *, 0x368) * 3];
+            sq = (radius + get_pos_x__10TObjPlayerFPv(M2C_FIELD(arg0, u32 *, 0x318))) *
+                 (radius + get_pos_x__10TObjPlayerFPv(M2C_FIELD(arg0, u32 *, 0x318)));
+            lim = get_field_0c__10TObjPlayerFPv(M2C_FIELD(arg0, u32 *, 0x318));
+            if (dist <= sq && angd <= lim) {
+                M2C_FIELD(arg0, s32 *, 0x380) = i;
+                switch (M2C_FIELD(arg0, s32 *, 0x380)) {
+                case 0:
+                    if (M2C_FIELD(arg0, s32 *, 0x384) == -1) {
+                        M2C_FIELD(arg0, s32 *, 0x384) = 0;
+                    }
+                    return 1;
+                case 1:
+                    if (M2C_FIELD(arg0, s32 *, 0x384) != -1 && !(M2C_FIELD(arg0, f32 *, 0x390) < lbl_805D9C1C)) {
+                        if (calc_boss4_scale__10TObjPlayerFi(arg0) < M2C_FIELD(arg0, f32 *, 0x390)) {
+                            return 1;
+                        }
+                        M2C_FIELD(arg0, s32 *, 0x384) = -1;
+                        {
+                            Vec_800AE18C v = *(Vec_800AE18C *)(arg0 + 0x2FC);
+                            select_enemy_destination(arg0, &v, 1);
+                        }
+                        {
+                            Vec_800AE18C v2 = *(Vec_800AE18C *)(arg0 + 0x2FC);
+                            copy_position_if_valid__10TObjPlayerFii(arg0, &v2);
+                        }
+                    }
+                    break;
+                case 2:
+                    if (M2C_FIELD(arg0, s32 *, 0x384) != -1) {
+                        if (lbl_805D9C30 < dist && calc_boss4_scale__10TObjPlayerFi(arg0) < M2C_FIELD(arg0, f32 *, 0x394)) {
+                            return 1;
+                        }
+                        M2C_FIELD(arg0, s32 *, 0x384) = -1;
+                        {
+                            Vec_800AE18C v = *(Vec_800AE18C *)(arg0 + 0x2FC);
+                            select_enemy_destination(arg0, &v, 1);
+                        }
+                        {
+                            Vec_800AE18C v2 = *(Vec_800AE18C *)(arg0 + 0x2FC);
+                            copy_position_if_valid__10TObjPlayerFii(arg0, &v2);
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+    }
+    return 0;
 }
 
 M2C_UNK TObjPlayer__sub_800AE18C(u8 *arg0) {
