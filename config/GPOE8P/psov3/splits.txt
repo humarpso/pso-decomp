@@ -1280,6 +1280,7 @@ pso/misc/TCameraCtrl_8006B3D8.cpp:
 
 pso/misc/TCameraCtrl_8006BA68.cpp:
 	.text       start:0x8006BA68 end:0x8006BC8C
+	.sdata2     start:0x805D900C end:0x805D9018
 
 pso/misc/TCameraCtrl_8006BC8C.cpp:
 	.text       start:0x8006BC8C end:0x8006C580
@@ -16932,6 +16933,7 @@ pso/unk/text_803505C4.cpp:
 
 pso/object/TObjRainbowLobby.cpp:
 	.text       start:0x8035061C end:0x803507D0
+	.sdata2     start:0x805DFE30 end:0x805DFE40
 
 pso/object/TObjRainbowLobby_803507D0.cpp:
 	.text       start:0x803507D0 end:0x80350858

@@ -7,6 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern s32 lbl_805D53D8;
 void TLobby__sub_800FDFEC(void *self, s32 n);
+s32 fn_800FE0A8();
+s32 fn_800FE0C8(s32);
+M2C_UNK move_data__6TLobbyFv(s32, s32, s32);
+extern s32 lbl_805D53C0;
+extern s32 lbl_805D53D8;
+s32 TLobby__sub_800FE008(void *arg0, s32 dst, s32 size);
 }
 
 extern "C" {
@@ -36,6 +42,27 @@ loop_1:
 }
 void TLobby__sub_800FDFEC(void *self, s32 n) {
     lbl_805D53D8 = n * ((lbl_805D53D8 + n - 1) / n);
+}
+s32 TLobby__sub_800FE008(void *arg0, s32 dst, s32 size) {
+    s32 total;
+    s32 n;
+    total = 0;
+    while (size > 0) {
+        if (fn_800FE0C8(M2C_FIELD(arg0, s32 *, 0x20)) <= 0) {
+            break;
+        }
+        if (size < fn_800FE0A8()) {
+            n = size;
+        } else {
+            n = fn_800FE0A8();
+        }
+        move_data__6TLobbyFv(dst, lbl_805D53C0 + lbl_805D53D8, n);
+        dst += n;
+        size -= n;
+        total += n;
+        lbl_805D53D8 += n;
+    }
+    return total;
 }
 
 }

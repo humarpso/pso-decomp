@@ -10,12 +10,24 @@ struct ItemData_801B7C78 {
     u8 rest[0x16];
 };
 
+struct ItemData_801B7CEC {
+    s8 kind;
+    s8 group;
+    s8 sub;
+    u8 rest[0x15];
+};
+
 extern "C" {
 s32 get_field_d8__10TObjPlayerFPv();
 void init__9TItemDataFv(void *);
 u32 TObjPlayer__sub_801D4DE8(int, void *);
 u32 get_owner_if_alive__10TObjPlayerFPv();
 s32 fn_801B7C78(u8 *arg0, s8 arg1, s8 arg2);
+s32 get_field_d8__10TObjPlayerFPv();
+void init__9TItemDataFv(void *);
+u32 set_mode_and_refresh_object__10TObjPlayerFPvi(int, void *);
+u32 get_owner_if_alive__10TObjPlayerFPv();
+s32 fn_801B7CEC(u8 *arg0, s8 arg1, s8 arg2, s8 arg3);
 }
 
 extern "C" {
@@ -47,7 +59,19 @@ s32 fn_801B7C78(u8 *arg0, s8 arg1, s8 arg2) {
     }
     return get_field_d8__10TObjPlayerFPv();
 }
-
-int fn_801B7CEC(void) { return 0; }
+s32 fn_801B7CEC(u8 *arg0, s8 arg1, s8 arg2, s8 arg3) {
+    struct ItemData_801B7CEC item;
+    init__9TItemDataFv(&item);
+    item.kind = arg1;
+    item.group = arg2;
+    item.sub = arg3;
+    if (set_mode_and_refresh_object__10TObjPlayerFPvi(M2C_FIELD(arg0, s32 *, 0xD00), &item) == 0U) {
+        return -1;
+    }
+    if (get_owner_if_alive__10TObjPlayerFPv() == 0U) {
+        return -1;
+    }
+    return get_field_d8__10TObjPlayerFPv();
+}
 
 }

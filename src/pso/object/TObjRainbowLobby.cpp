@@ -4,6 +4,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Obj_803506A4 { u8 pad[0xC8]; s32 state; f32 val; };
+
+extern "C" {
+s32 is_connected__6TLobbyFv();
+s32 is_lobby_obj_active__6TLobbyFv();
+void run_task__16TObjRainbowLobbyFv(Obj_803506A4 *arg0);
+}
+
 extern "C" {
 
 void *create__16TObjRainbowLobbyFPv(void *arg0);
@@ -42,6 +50,36 @@ void render__16TObjRainbowLobbyFv(u8 *arg0) {
 }
 
 extern void *tl_05;
+
+void run_task__16TObjRainbowLobbyFv(Obj_803506A4 *arg0) {
+    switch (arg0->state) {
+    case 0:
+        if (is_connected__6TLobbyFv() != 0) {
+            arg0->state = 2;
+        }
+        break;
+    case 2:
+        arg0->val += 0.1f;
+        if (arg0->val >= 1.0f) {
+            arg0->val = 1.0f;
+            arg0->state = 3;
+        }
+        break;
+    case 1:
+        arg0->val -= 0.1f;
+        if (arg0->val <= 0.0f) {
+            arg0->val = 0.0f;
+            arg0->state = 0;
+        }
+        break;
+    case 3:
+    default:
+        if (is_lobby_obj_active__6TLobbyFv() != 0) {
+            arg0->state = 1;
+        }
+        break;
+    }
+}
 
 void *create__16TObjRainbowLobbyFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD0);

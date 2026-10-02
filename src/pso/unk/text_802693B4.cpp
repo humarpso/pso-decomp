@@ -5,14 +5,39 @@ struct Entry_80269454 { u16 flags; };
 
 struct Win_80269454 { u8 pad[0x5c]; u32 f5c; u8 pad2[0xc]; f32 f6c; u8 pad3[0xc]; Line_80269454 *lines; u8 pad4[4]; f32 f84; u8 pad5[4]; u32 count; };
 
+typedef s32 M2C_UNK;
+struct Win_802693B4 { u8 pad[0x6c]; f32 f6c; u8 pad2[0x84 - 0x70]; f32 f84; u8 pad3[4]; u32 count; };
+
 extern "C" {
 Entry_80269454 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void *get_field_20__17TWindowSubComCardFPv(void *);
 void reset_float_field__15TWindowHelpItemFPv(void *);
 void TLobby__sub_80269454(Win_80269454 *self);
+Entry_80269454 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+void *get_field_20__17TWindowSubComCardFPv(void *);
+s32 TWindowSubComCard__sub_80244AD8();
+s32 TMCFormatSequence__sub_802693B4(struct Win_802693B4 *arg0);
 }
 
 extern "C" {
+
+s32 TMCFormatSequence__sub_802693B4(struct Win_802693B4 *arg0) {
+    Entry_80269454 *e;
+    u32 i;
+    if (TWindowSubComCard__sub_80244AD8() == 0) {
+        return 0;
+    }
+    if (arg0->f6c != arg0->f84) {
+        return 0;
+    }
+    for (i = 0; i < arg0->count; i++) {
+        e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, i);
+        if (get_field_20__17TWindowSubComCardFPv(e) != 0 && !(e->flags & 0x10)) {
+            return 0;
+        }
+    }
+    return 1;
+}
 
 void TLobby__sub_80269454(Win_80269454 *self) {
     Line_80269454 *lines;

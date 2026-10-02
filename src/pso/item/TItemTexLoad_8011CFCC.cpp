@@ -3,12 +3,16 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 M2C_UNK unload_texture__12TItemTexLoadFPv(void *);
 s32 TLobby__sub_803CC53C(int);
 M2C_UNK TLobby__sub_803CCB5C(int, int, int);
 u32 TLobby__sub_803CD16C(int, int);
 s32 TItemTexLoad__sub_8011CFCC(u8 *arg0, s32 arg1);
+s32 *TItemData__sub_8010EA38(void *);
+s32 TItemTexLoad__sub_8011CFCC(u8 *arg0, s32 arg1);
+s32 TItemTexLoad__sub_8011D098(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -35,6 +39,31 @@ s32 TItemTexLoad__sub_8011CFCC(u8 *arg0, s32 arg1) {
             TLobby__sub_803CCB5C((int) (M2C_FIELD(arg0, u32 *, 0x28)), r, (int) (M2C_FIELD(arg0, u32 *, 0x1C)));
         }
         return 1;
+    }
+    return 0;
+}
+s32 TItemTexLoad__sub_8011D098(u8 *arg0, u8 *arg1) {
+    s32 *rec;
+    s32 id;
+    if (arg1 != NULL) {
+        rec = TItemData__sub_8010EA38(arg1);
+        id = *rec;
+        if (rec != NULL) {
+            switch (arg1[0]) {
+            case 0:
+                if (id >= 0x94 && id < 0x20E) {
+                    return TItemTexLoad__sub_8011CFCC(arg0, id - 0x94);
+                }
+                return TItemTexLoad__sub_8011CFCC(arg0, 0x17A);
+            case 1:
+                break;
+            case 2:
+                if (arg1[1] < 0x42U) {
+                    return TItemTexLoad__sub_8011CFCC(arg0, arg1[1] + 0x12E);
+                }
+                return TItemTexLoad__sub_8011CFCC(arg0, 0x12E);
+            }
+        }
     }
     return 0;
 }
