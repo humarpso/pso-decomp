@@ -9,6 +9,14 @@ struct RecoveredGlobal_8033670C_lbl_804EE58C {
     u8 remaining[0x4C];
 };
 
+typedef struct { s32 a, b, c; } V3_80336520;
+typedef struct {
+    s32 pad0[2];
+    f32 f8, fC;
+    s32 pad10[6];
+    f32 f28, f2C, f30, f34, f38, f3C, f40, f44;
+} Cam_80336520;
+
 struct O_8033612C { u8 pad[0x1C]; void *f1c; void *f20; void *f24; u8 pad2[0x3C - 0x28]; u32 flags; void *h[3]; };
 
 extern "C" {
@@ -46,6 +54,35 @@ void TLobby__sub_8033670C(void);
 M2C_UNK queue_destruction__7TObjectFv(void*);
 s32 disallow_rendering__7TObjectFv(void *);
 void TLobby__sub_8033612C(O_8033612C *arg0);
+s32 TKeyBoardControl__sub_8000F828(void);
+void TKeyBoardControl__sub_8000F90C(int);
+void set_flag_4__9TObjLukerFPv(void *);
+void TCameraCtrl__sub_800695A0(void *);
+s32 TAdLoadQuestPrtTxtGC__sub_80086E28(void *, int, int);
+void init_fade__6TLobbyFPvPvPv(void *, s32, void *);
+void create__20TItemReverseTechCtrlFPv(void *);
+void *__nw__7TObjectFUl(u32);
+void __ct__7TObjectFP7TObject(void *);
+void apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFi(void *);
+void TAdMultiPlyChrSelectGC__sub_802C6A10(void);
+void reset_count__14TObjEneDolmOlmFv(void);
+void *init_camera_state__6TLobbyFPvi(void *, void *);
+void *ct_with_parent__6TLobbyFPvPv(void *, s32);
+void *construct__6TLobbyFPvPv(void *, void *);
+extern V3_80336520 lbl_80477818;
+extern u8 lbl_80477824[];
+extern s32 tl_clipout;
+extern s32 tl_fade;
+extern const f32 lbl_805DF8E8;
+extern const f32 lbl_805DF8EC;
+extern const f32 lbl_805DF8F0;
+extern const f32 lbl_805DF8F4;
+extern const f32 lbl_805DF8F8;
+extern const f32 lbl_805DF8FC;
+extern const f32 lbl_805DF900;
+extern const f32 lbl_805DF904;
+extern const f32 lbl_805DF908;
+
 }
 
 extern "C" {
@@ -123,6 +160,72 @@ void *destroy__6TLobbyFPvs(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+u8 *TLobby__sub_80336520(u8 *arg0) {
+    void *p;
+
+    __ct__7TObjectFP7TObject(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EEF64;
+    lbl_805D6D40 = (u32)arg0;
+    M2C_FIELD(arg0, s32 *, 0x30) = 0;
+    M2C_FIELD(arg0, s32 *, 0x34) = 0;
+    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
+    TKeyBoardControl__sub_8000F90C(1);
+    TAdMultiPlyChrSelectGC__sub_802C6A10();
+    reset_count__14TObjEneDolmOlmFv();
+    TAdMultiPlyChrSelectGC__sub_803367E8();
+    lbl_805D6D44 = 0;
+    if (TKeyBoardControl__sub_8000F828() == 0) {
+        M2C_FIELD(arg0, s32 *, 0x38) = 0x4B0;
+    } else {
+        M2C_FIELD(arg0, s32 *, 0x38) = 0x320;
+    }
+    p = __nw__7TObjectFUl(0x24);
+    if (p != 0) {
+        p = construct__6TLobbyFPvPv(p, arg0);
+    }
+    M2C_FIELD(arg0, void **, 0x1C) = p;
+    p = __nw__7TObjectFUl(0x3C);
+    if (p != 0) {
+        p = init_camera_state__6TLobbyFPvi(p, arg0);
+    }
+    M2C_FIELD(arg0, void **, 0x24) = p;
+    p = __nw__7TObjectFUl(0x20);
+    if (p != 0) {
+        p = ct_with_parent__6TLobbyFPvPv(p, tl_clipout);
+    }
+    M2C_FIELD(arg0, void **, 0x20) = p;
+    M2C_FIELD(arg0, s32 *, 0x28) = 0;
+    if (M2C_FIELD(arg0, void **, 0x24) != 0) {
+        set_flag_4__9TObjLukerFPv(M2C_FIELD(arg0, void **, 0x24));
+    }
+    apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFi(lbl_80477824);
+    {
+        Cam_80336520 cam;
+        cam.f8 = lbl_805DF8E8;
+        cam.fC = lbl_805DF8EC;
+        cam.f28 = lbl_805DF8F0;
+        cam.f2C = lbl_805DF8F4;
+        cam.f34 = cam.f30 = lbl_805DF8F8;
+        cam.f38 = lbl_805DF8FC;
+        cam.f3C = lbl_805DF900;
+        cam.f40 = lbl_805DF904;
+        cam.f44 = lbl_805DF908;
+        TCameraCtrl__sub_800695A0(&cam);
+    }
+    {
+        V3_80336520 v = lbl_80477818;
+        M2C_FIELD(arg0, s32 *, 0x40) = TAdLoadQuestPrtTxtGC__sub_80086E28(&v, 0x1E3, 1);
+        M2C_FIELD(arg0, s32 *, 0x44) = TAdLoadQuestPrtTxtGC__sub_80086E28(&v, 0x1E4, 1);
+        M2C_FIELD(arg0, s32 *, 0x48) = TAdLoadQuestPrtTxtGC__sub_80086E28(&v, 0x1E5, 1);
+    }
+    p = __nw__7TObjectFUl(0x28);
+    if (p != 0) {
+        init_fade__6TLobbyFPvPvPv(p, tl_fade, (void *)destroy_download_server__6TLobbyFv);
+    }
+    create__20TItemReverseTechCtrlFPv(arg0);
     return arg0;
 }
 
