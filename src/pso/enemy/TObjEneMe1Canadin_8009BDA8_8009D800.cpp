@@ -500,6 +500,36 @@ void handle_state__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1);
 void TObjEneMe1Canadin__sub_8009E0AC(Canadin_8009E0AC *self, u32 which, s32 arg);
 }
 
+struct VBase_8009DB08 { char pad[0x18]; };
+struct VObj_8009DB08 : VBase_8009DB08 {
+    virtual M2C_UNK m0(); virtual M2C_UNK m1(); virtual M2C_UNK m2(); virtual M2C_UNK m3();
+    virtual M2C_UNK m4(); virtual M2C_UNK m5(); virtual M2C_UNK m6(); virtual M2C_UNK m7();
+    virtual M2C_UNK m8(); virtual M2C_UNK m9(); virtual M2C_UNK m10(); virtual M2C_UNK m11();
+    virtual M2C_UNK m12(); virtual M2C_UNK m13(); virtual M2C_UNK m14(); virtual M2C_UNK m15();
+    virtual M2C_UNK m16(); virtual M2C_UNK m17(); virtual M2C_UNK m18(); virtual M2C_UNK m19();
+    virtual M2C_UNK m20(); virtual M2C_UNK m21(); virtual M2C_UNK m22(); virtual M2C_UNK m23();
+    virtual M2C_UNK m24(); virtual M2C_UNK m25(); virtual M2C_UNK m26(); virtual M2C_UNK m27();
+    virtual M2C_UNK m28(); virtual M2C_UNK m29(); virtual M2C_UNK m30(); virtual M2C_UNK m31();
+    virtual M2C_UNK m32(); virtual M2C_UNK m33(); virtual M2C_UNK m34(); virtual M2C_UNK m35();
+    virtual M2C_UNK m36(); virtual M2C_UNK m37(); virtual M2C_UNK m38(); virtual M2C_UNK m39();
+    virtual M2C_UNK m40(); virtual M2C_UNK m41(); virtual M2C_UNK m42(); virtual M2C_UNK m43();
+    virtual M2C_UNK m44(); virtual M2C_UNK m45(); virtual M2C_UNK m46(); virtual M2C_UNK m47();
+    virtual M2C_UNK m48(); virtual M2C_UNK m49(); virtual M2C_UNK m50(); virtual M2C_UNK m51();
+    virtual M2C_UNK m52(); virtual M2C_UNK m53(); virtual M2C_UNK m54(); virtual M2C_UNK m55();
+    virtual M2C_UNK m56(); virtual M2C_UNK m57(); virtual M2C_UNK m58(); virtual M2C_UNK m59();
+    virtual M2C_UNK m60(); virtual M2C_UNK m61(); virtual M2C_UNK m62(); virtual M2C_UNK m63();
+    virtual M2C_UNK m64(); virtual M2C_UNK m65(); virtual M2C_UNK m66(); virtual M2C_UNK m67();
+    virtual M2C_UNK m68(); virtual M2C_UNK m69(); virtual M2C_UNK m70(); virtual M2C_UNK m71();
+    virtual M2C_UNK m72(); virtual M2C_UNK m73(); virtual M2C_UNK m74(); virtual M2C_UNK m75();
+    virtual M2C_UNK m76(); virtual M2C_UNK m77(); virtual M2C_UNK m78(); virtual M2C_UNK m79();
+    virtual M2C_UNK m80(); virtual M2C_UNK m81(); virtual M2C_UNK m82(); virtual M2C_UNK m83();
+    virtual M2C_UNK m84(); virtual M2C_UNK m85(); virtual M2C_UNK m86(); virtual M2C_UNK m87();
+    virtual M2C_UNK m88(); virtual M2C_UNK m89(); virtual M2C_UNK m90(); virtual M2C_UNK m91();
+    virtual M2C_UNK m92(); virtual M2C_UNK m93(); virtual M2C_UNK m94(); virtual M2C_UNK m95();
+    virtual M2C_UNK m96(); virtual M2C_UNK m97(); virtual M2C_UNK m98(); virtual M2C_UNK m99();
+    virtual M2C_UNK m100(); virtual M2C_UNK m101(); virtual M2C_UNK m102(); virtual M2C_UNK m103();
+    virtual M2C_UNK m104(); virtual M2C_UNK m105(); virtual M2C_UNK m106();
+};
 extern "C" {
 
 void TObjEneMe1Canadin__vt109(void *arg0, s32 arg1);
@@ -521,6 +551,10 @@ M2C_UNK update_hover_height__17TObjEneMe1CanadinFPv(void *);
 M2C_UNK update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 M2C_UNK update_move__17TObjEneMe1CanadinFPv(void *);
 
+M2C_UNK set_attack_flag__23TObjEneMe1CanadinLeaderFPv(void *);
+int TObjEneMe1Canadin__sub_8009E3E4(void *);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+extern const M2C_UNK lbl_8043A280[];
 extern const f32 TObjEneMe1Canadin__data_805D988C;
 
 void move__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1) {
@@ -623,6 +657,83 @@ void TObjEneMe1Canadin__vt109(void *arg0, s32 arg1) {
 extern const f32 TObjEneMe1Canadin__data_805D988C;
 extern const f32 lbl_805D9890;
 
+void TObjEneMe1Canadin__vt108(u8 *arg0, s32 arg1) {
+    s32 temp_r0;
+    s32 temp_r0_2;
+    s32 temp_r3;
+    f32 temp_f1;
+
+    switch (arg1) {
+    case 4:
+        advance_state_5_to_4__17TObjEneMe1CanadinFPv();
+        set_field_378__9TObjEneDDFPvi(arg0, 3);
+        M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) & 0xFFBFFFFF);
+        ((VObj_8009DB08 *) arg0)->m94();
+        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFEFFFFFF);
+        {
+            const f32 *p = (const f32 *) lbl_8043A280;
+            M2C_FIELD(arg0, f32 *, 0x4A8) = p[1];
+            M2C_FIELD(arg0, f32 *, 0x4AC) = p[2];
+            M2C_FIELD(arg0, f32 *, 0x4B0) = p[3];
+            TObjEneMe1Canadin__sub_8009E3E4(arg0);
+        }
+        M2C_FIELD(arg0, s32 *, 0x470) = 0;
+        return;
+    case 3:
+        if (((VObj_8009DB08 *) arg0)->m106() == 0) {
+            temp_r3 = M2C_FIELD(arg0, s32 *, 0x3C8);
+            if (temp_r3 & 2) {
+                M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (temp_r3 & 0xFFFFFFFD);
+                if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 1) {
+                    TObjEneDD__sub_800BBA18(arg0, 5);
+                } else {
+                    TObjEneDD__sub_800BBA18(arg0, 4);
+                }
+            }
+        }
+    case 1:
+        return;
+    case 0:
+        TBoss1Dragon__sub_80143504();
+        update_linked_position__14TObjEneEpsilonFPv(arg0, TObjEneMe1Canadin__data_805D988C);
+        temp_r0 = M2C_FIELD(arg0, s32 *, 0x470);
+        switch (temp_r0) {
+        case 2:
+            break;
+        case 0:
+            M2C_FIELD(arg0, s32 *, 0x400) = (s32) (M2C_FIELD(arg0, s32 *, 0x400) - 1);
+            if ((s32) M2C_FIELD(arg0, s32 *, 0x400) <= 0) {
+                M2C_FIELD(arg0, s32 *, 0x4B8) = 2;
+                M2C_FIELD(arg0, s32 *, 0x470) = 1;
+                TBoss3Volopt__sub_8022675C(0x4003B21A, arg0 + 0x2FC, 0, 0);
+            }
+            break;
+        case 1:
+            if ((s32) M2C_FIELD(arg0, s32 *, 0x4B8) == 0) {
+                M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) | 0x8000);
+                temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x3C4);
+                switch (temp_r0_2) {
+                case 0:
+                    set_attack_flag__23TObjEneMe1CanadinLeaderFPv(arg0);
+                case 1:
+                    M2C_FIELD(arg0, s32 *, 0x470) = 3;
+                    break;
+                }
+            }
+            update_move__17TObjEneMe1CanadinFPv(arg0);
+            break;
+        case 3:
+            update_move__17TObjEneMe1CanadinFPv(arg0);
+            break;
+        }
+        set_target_speed_z__17TObjEneMe1CanadinFPv(arg0);
+        ((VObj_8009DB08 *) arg0)->m87();
+        return;
+    case 5:
+        ((VObj_8009DB08 *) arg0)->m90();
+        break;
+    }
+}
 void action__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1) {
     s32 temp_r3;
 

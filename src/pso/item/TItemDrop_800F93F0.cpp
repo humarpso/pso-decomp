@@ -21,8 +21,9 @@ void TLobby__sub_800F957C(u32 arg0);
 
 extern "C" {
 
-int TItemDrop__sub_800F9448(void);
-int TItemDrop__sub_800F94BC(void);
+s32 TItemDrop__sub_800F9C00(void *);
+void *construct__9TItemDropFPv(void *);
+s32 TLobby__sub_800F9DF4(void *, void *);
 void *destroy__9TItemDropFPvs(void *arg0, s16 arg1);
 int fn_800F953C(void* p);
 int fn_800F955C(void* p);
@@ -44,8 +45,55 @@ void *destroy__9TItemDropFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-int TItemDrop__sub_800F9448(void) { return 0; }
-int TItemDrop__sub_800F94BC(void) { return 0; }
+}
+
+#pragma push
+#pragma inline_depth(1)
+#pragma dont_inline off
+
+struct Drop_800F9448 {
+    u8 pad_0[0x1C];
+    s32 a;
+    s32 b;
+    u8 pad_24[0x14];
+    Drop_800F9448() { construct__9TItemDropFPv(this); }
+};
+
+static inline s32 finish_800F9448(Drop_800F9448 *d, s32 r) {
+    destroy__9TItemDropFPvs(d, -1);
+    return r;
+}
+
+extern "C" {
+
+s32 TItemDrop__sub_800F9448(s32 arg0, s32 arg1) {
+    Drop_800F9448 d;
+
+    if (arg1 > 0) {
+        d.a = arg0;
+        d.b = arg1;
+        return finish_800F9448(&d, TItemDrop__sub_800F9C00(&d));
+    }
+    return finish_800F9448(&d, 0);
+}
+
+s32 TItemDrop__sub_800F94BC(s32 arg0, s32 arg1) {
+    Drop_800F9448 d;
+    s32 n;
+
+    n = TLobby__sub_800F9DF4((void *) arg0, (void *) arg1);
+    if (n > 0) {
+        d.b = n;
+        d.a = arg1;
+        return finish_800F9448(&d, TItemDrop__sub_800F9C00(&d));
+    }
+    return finish_800F9448(&d, 0);
+}
+
+}
+#pragma pop
+
+extern "C" {
 int fn_800F953C(void* p) { return safe_free__23TAdSinglePlyChrSelectGCFUi(p); }
 int fn_800F955C(void* p) { return set_stream_and_load_file__6TLobbyFi(p); }
 void TLobby__sub_800F957C(u32 arg0) {

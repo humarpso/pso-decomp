@@ -137,6 +137,8 @@ struct Node_800B850C { void *obj; Node_800B850C *next; };
 
 struct Wolf_800B850C { u8 pad[0x3dc]; s32 id; };
 
+struct DBase_800B8174 { u8 pad[0x18]; };
+struct D_800B8174 : DBase_800B8174 { virtual ~D_800B8174(); };
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -160,6 +162,11 @@ extern RecoveredGlobal_800B85D0_TObjEneBm5Wolf__data_80500B78 TObjEneBm5Wolf__da
 void TObjEneBm5Wolf__sub_800B8600(s32 arg0);
 extern RecoveredGlobal_800B8570_TObjEneBm5Wolf__data_80500B8C TObjEneBm5Wolf__data_80500B8C;
 Wolf_800B850C *play_sound__14TObjEneBm5WolfFPv(Node_800B850C *);
+M2C_UNK destroy__14TObjEneBm5WolfFis(void *, int);
+M2C_UNK __dt__9TObjEneDDFv(void *, int);
+M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK __dl__7TObjectFPv(void *);
+extern u8 lbl_804922F8[];
 Wolf_800B850C *TObjEneBm5Wolf__sub_800B850C(s32 id);
 }
 
@@ -238,6 +245,28 @@ void TObjEneBm5Wolf__sub_800B8024(u8 *arg0) {
     ((VObj_18 *)(arg0))->m98();
 }
 
+u8 *TObjEneBm5Wolf__sub_800B8174(u8 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, u8 **, 0x18) = lbl_804922F8;
+        if (M2C_FIELD(arg0, D_800B8174 **, 0x410) != NULL) {
+            TObjEneGibbles__sub_80156720(M2C_FIELD(arg0, D_800B8174 **, 0x410));
+            delete M2C_FIELD(arg0, D_800B8174 **, 0x410);
+            M2C_FIELD(arg0, D_800B8174 **, 0x410) = NULL;
+        }
+        TObjEneBm5Wolf__sub_800B85D0((s32) arg0);
+        if (M2C_FIELD(arg0, s32 *, 0x3D8) != 0) {
+            TObjEneBm5Wolf__sub_800B8570((s32) arg0);
+        }
+        TObjEneGibbles__sub_80156720(arg0);
+        destroy__14TObjEneBm5WolfFis(arg0 + 0x3CC, -1);
+        destroy__14TObjEneBm5WolfFis(arg0 + 0x3C0, -1);
+        __dt__9TObjEneDDFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
 typedef char RecoveredGlobal_800B8570_TObjEneBm5Wolf__data_80500B8C_size[sizeof(RecoveredGlobal_800B8570_TObjEneBm5Wolf__data_80500B8C) == 0xC ? 1 : -1];
 
 Wolf_800B850C *TObjEneBm5Wolf__sub_800B850C(s32 id) {

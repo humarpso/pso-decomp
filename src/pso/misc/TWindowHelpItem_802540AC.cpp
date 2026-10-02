@@ -78,6 +78,56 @@ struct Stats_802541E0 {
     u8 pad16[2];
 };
 
+class Entry_802544D8 {
+public:
+    virtual void m0();
+};
+
+typedef void (Entry_802544D8::*EntryFn_802544D8)(s32);
+
+struct Op_802544D8 {
+    u8 slot;
+    s8 value;
+};
+
+struct Pair_8025500C {
+    s32 x;
+    s32 y;
+};
+
+struct Vec3_8025500C {
+    Pair_8025500C xy;
+    s32 z;
+};
+
+struct HelpItem_8025500C {
+    u8 pad0[0x20];
+    s16 player;
+    u8 pad22[0x68 - 0x22];
+    s32 itemId;
+    u8 pad6C[0xB0 - 0x6C];
+    Vec3_8025500C pos;
+};
+
+struct Pair_802551C4 {
+    s32 x;
+    s32 y;
+};
+
+struct Vec3_802551C4 {
+    Pair_802551C4 xy;
+    s32 z;
+};
+
+struct HelpItem_802551C4 {
+    u8 pad0[0x20];
+    s16 player;
+    u8 pad22[0x68 - 0x22];
+    s32 itemId;
+    u8 pad6C[0xB0 - 0x6C];
+    Vec3_802551C4 pos;
+};
+
 extern "C" {
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 M2C_UNK set_flag0_bit2__15TWindowHelpItemFPv(int);
@@ -139,6 +189,15 @@ M2C_UNK set_help_text__15TWindowHelpItemFPvUi(void *, int);
 extern u8 lbl_804CF290[];
 extern Vec3_802541E0 lbl_804CF868;
 void TWindowHelpItem__sub_802541E0(void *arg0);
+void TWindowHelpItem__sub_8025B08C(s32, f32, f32);
+extern Vec3_8025500C lbl_804CF820;
+extern Vec3_802551C4 lbl_804CF814;
+extern const f32 TWindowHelpItem__data_805DCDE4;
+extern const f32 lbl_805DCE00;
+extern const f32 lbl_805DCE04;
+extern const f32 lbl_805DCE08;
+extern const f32 lbl_805DCDEC;
+extern const f32 lbl_805DCE0C;
 }
 
 extern "C" {
@@ -247,6 +306,45 @@ void TWindowHelpItem__vt4(void *arg0) {
     reset_float_field__15TWindowHelpItemFPv(temp_r30);
     M2C_FIELD(temp_r31, s32 *, 0x20) = (s32) M2C_FIELD(M2C_FIELD(arg0, void **, 0x68), u8 *, 5);
 }
+void TWindowHelpItem__sub_802544D8(void *self, Op_802544D8 *ops, EntryFn_802544D8 fn) {
+    u32 i;
+    Entry_802544D8 *e0;
+    Entry_802544D8 *e1;
+    Entry_802544D8 *e2;
+    Entry_802544D8 *e3;
+    Entry_802544D8 *e4;
+
+    e0 = (Entry_802544D8 *)get_array_entry__20TWindowSubStatusDispFPvi(self, 0);
+    e1 = (Entry_802544D8 *)get_array_entry__20TWindowSubStatusDispFPvi(self, 1);
+    e2 = (Entry_802544D8 *)get_array_entry__20TWindowSubStatusDispFPvi(self, 2);
+    e3 = (Entry_802544D8 *)get_array_entry__20TWindowSubStatusDispFPvi(self, 3);
+    e4 = (Entry_802544D8 *)get_array_entry__20TWindowSubStatusDispFPvi(self, 4);
+    (e0->*fn)(0);
+    (e1->*fn)(0);
+    (e2->*fn)(0);
+    (e3->*fn)(0);
+    if (ops != NULL) {
+        for (i = 0; i < 3; i++, ops++) {
+            switch (ops->slot) {
+            case 1:
+                (e0->*fn)(ops->value);
+                break;
+            case 2:
+                (e1->*fn)(ops->value);
+                break;
+            case 3:
+                (e2->*fn)(ops->value);
+                break;
+            case 4:
+                (e3->*fn)(ops->value);
+                break;
+            case 5:
+                (e4->*fn)(ops->value);
+                break;
+            }
+        }
+    }
+}
 void update_stat_disp2__15TWindowHelpItemFPv(void *arg0) {
     M2C_UNK sp8;
     s32 temp_r31;
@@ -342,6 +440,118 @@ void TWindowHelpItem__vt9(HelpItem_80254F18 *self) {
     set_flag0_bit2__15TWindowHelpItemFPv(d);
     set_flag0_bit2__15TWindowHelpItemFPv(e);
     set_flag0_bit2__15TWindowHelpItemFPv(f);
+}
+
+void TWindowHelpItem__vt3(HelpItem_8025500C *self) {
+    s32 pl;
+    u8 *item;
+    M2C_UNK flags;
+    s32 a;
+    s32 b;
+    s32 c;
+    s32 d;
+    s32 e;
+    s32 f;
+
+    pl = TPlayerBattleCtrl4P__sub_801BA74C(self->player);
+    if (pl != 0) {
+        TWindowHelpItem__sub_80254DEC(self);
+        self->pos = lbl_804CF820;
+        a = get_array_entry__20TWindowSubStatusDispFPvi(self, 6);
+        b = get_array_entry__20TWindowSubStatusDispFPvi(self, 7);
+        c = get_array_entry__20TWindowSubStatusDispFPvi(self, 8);
+        d = get_array_entry__20TWindowSubStatusDispFPvi(self, 9);
+        e = get_array_entry__20TWindowSubStatusDispFPvi(self, 10);
+        f = get_array_entry__20TWindowSubStatusDispFPvi(self, 11);
+        item = TItemData__sub_8010EA38(self->itemId);
+        if (TWindowHelpItem__sub_80104FCC(pl, self->itemId, &flags) == 0 && (flags & 1)) {
+            TWindowHelpItem__sub_8025B08C(a, TWindowHelpItem__data_805DCDE4, lbl_805DCE00);
+            set_flag0_bit2__15TWindowHelpItemFPv(b);
+            set_flag0_bit2__15TWindowHelpItemFPv(c);
+            set_flag0_bit2__15TWindowHelpItemFPv(d);
+            set_flag0_bit2__15TWindowHelpItemFPv(e);
+            set_flag0_bit2__15TWindowHelpItemFPv(f);
+            return;
+        }
+        if (item[0x10] != 0) {
+            TWindowHelpItem__sub_8025B08C(a, TWindowHelpItem__data_805DCDE4, lbl_805DCE04);
+            reset_float_field__15TWindowHelpItemFPv((void *)b);
+            reset_float_field__15TWindowHelpItemFPv((void *)d);
+            reset_float_field__15TWindowHelpItemFPv((void *)f);
+            *(s32 *)(c + 0x20) = item[0x10] + 1;
+            return;
+        }
+        set_flag0_bit2__15TWindowHelpItemFPv(a);
+        set_flag0_bit2__15TWindowHelpItemFPv(b);
+        set_flag0_bit2__15TWindowHelpItemFPv(c);
+        set_flag0_bit2__15TWindowHelpItemFPv(d);
+        set_flag0_bit2__15TWindowHelpItemFPv(e);
+        set_flag0_bit2__15TWindowHelpItemFPv(f);
+    }
+}
+
+void TWindowHelpItem__vt0(HelpItem_802551C4 *self) {
+    s32 pl;
+    u8 *item;
+    M2C_UNK flags;
+    s32 a;
+    s32 b;
+    s32 c;
+    s32 d;
+    s32 e;
+    s32 f;
+
+    pl = TPlayerBattleCtrl4P__sub_801BA74C(self->player);
+    if (pl != 0) {
+        TWindowHelpItem__sub_80254DEC(self);
+        self->pos = lbl_804CF814;
+        a = get_array_entry__20TWindowSubStatusDispFPvi(self, 6);
+        b = get_array_entry__20TWindowSubStatusDispFPvi(self, 7);
+        c = get_array_entry__20TWindowSubStatusDispFPvi(self, 8);
+        d = get_array_entry__20TWindowSubStatusDispFPvi(self, 9);
+        e = get_array_entry__20TWindowSubStatusDispFPvi(self, 10);
+        f = get_array_entry__20TWindowSubStatusDispFPvi(self, 11);
+        item = TItemData__sub_8010EA38(self->itemId);
+        if (TWindowHelpItem__sub_80104FCC(pl, self->itemId, &flags) == 0 && (flags & 1)) {
+            TWindowHelpItem__sub_8025B08C(a, TWindowHelpItem__data_805DCDE4, lbl_805DCE00);
+            set_flag0_bit2__15TWindowHelpItemFPv(b);
+            set_flag0_bit2__15TWindowHelpItemFPv(c);
+            set_flag0_bit2__15TWindowHelpItemFPv(d);
+            set_flag0_bit2__15TWindowHelpItemFPv(e);
+            set_flag0_bit2__15TWindowHelpItemFPv(f);
+            return;
+        }
+        if (*(u16 *)(item + 0xE) != 0) {
+            TWindowHelpItem__sub_8025B08C(a, TWindowHelpItem__data_805DCDE4, lbl_805DCE08);
+            reset_float_field__15TWindowHelpItemFPv((void *)b);
+            reset_float_field__15TWindowHelpItemFPv((void *)d);
+            reset_float_field__15TWindowHelpItemFPv((void *)f);
+            *(s32 *)(c + 0x20) = *(u16 *)(item + 0xE);
+            return;
+        }
+        if (*(u16 *)(item + 0x10) != 0) {
+            TWindowHelpItem__sub_8025B08C(a, TWindowHelpItem__data_805DCDE4, lbl_805DCDEC);
+            reset_float_field__15TWindowHelpItemFPv((void *)b);
+            reset_float_field__15TWindowHelpItemFPv((void *)d);
+            reset_float_field__15TWindowHelpItemFPv((void *)f);
+            *(s32 *)(c + 0x20) = *(u16 *)(item + 0x10);
+            return;
+        }
+        if (*(u16 *)(item + 0x12) != 0) {
+            TWindowHelpItem__sub_8025B08C(a, TWindowHelpItem__data_805DCDE4, lbl_805DCE0C);
+            reset_float_field__15TWindowHelpItemFPv((void *)b);
+            reset_float_field__15TWindowHelpItemFPv((void *)d);
+            reset_float_field__15TWindowHelpItemFPv((void *)f);
+            *(s32 *)(c + 0x20) = *(u16 *)(item + 0x12);
+            return;
+        }
+        set_flag0_bit2__15TWindowHelpItemFPv(a);
+        set_flag0_bit2__15TWindowHelpItemFPv(b);
+        set_flag0_bit2__15TWindowHelpItemFPv(c);
+        set_flag0_bit2__15TWindowHelpItemFPv(d);
+        set_flag0_bit2__15TWindowHelpItemFPv(e);
+        set_flag0_bit2__15TWindowHelpItemFPv(f);
+    }
 }
 
 void TWindowHelpItem__set_displayed_item_by_id(u8 *arg0, s32 arg1) {

@@ -219,10 +219,9 @@ void TObjPlayer__sub_8011FE04(u8 *arg0) {
 void TItemWeapon::update_active_weapon() {
     TItemWeapon* self=this;
     s32 stage;
-    f32 frame;
     u32 frames;
-    s32 count,offset;
-    s32 idle_count,idle_offset;
+    s32 count;
+    s32 idle_count;
     if(test_flags_1b8__10TObjPlayerFPvUi(self,0x100)==0) {
         if(test_flags_1b8__10TObjPlayerFPvUi(self,0x4000)!=0) TObjPlayer__sub_80100F34(self);
         TItemEquipBase__sub_8010A78C(self);
@@ -237,27 +236,26 @@ void TItemWeapon::update_active_weapon() {
         else self->update_idle();
         if(self->motion) {
             self->motion_frame+=lbl_805DAC9C;
-            frame=self->motion_frame;
             frames=self->motion->frame_count;
-            if((f32)frames<=frame) self->motion_frame=frame-(f32)frames;
+            if((f32)frames<=self->motion_frame) self->motion_frame-=(f32)frames;
         }
         TItemEquipBase__sub_8010A89C(self,self->material);
         self->update_weapon();
         if(!TItemMag__sub_80113EC8(self->player)) advance_weapon_photon_phase(self);
         if(get_flag_40__8TItemMagFPv(self)) {
-            count=0; offset=0;
+            count=0;
             do {
-                void* trail=*(void**)((u8*)self+(offset+0x18C));
+                void* trail=self->trails[count];
                 if(trail) TItemEffectWeapon__sub_8036340C(trail);
-                count++; offset+=4;
+                count++;
             } while(count!=4);
             return;
         }
-        idle_count=0; idle_offset=0;
+        idle_count=0;
         do {
-            void* trail=*(void**)((u8*)self+(idle_offset+0x18C));
+            void* trail=self->trails[idle_count];
             if(trail) TItemEffectWeapon__sub_80363410(trail);
-            idle_count++; idle_offset+=4;
+            idle_count++;
         } while(idle_count!=4);
     }
 }

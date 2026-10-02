@@ -375,6 +375,7 @@ pso/enemy/TObjEneBm5GibonU_800D0D14.cpp
 pso/enemy/TObjEneBm5Wolf_800B7B14.cpp
 pso/enemy/TObjEneBm9Mericarol_802D04C0.cpp
 pso/enemy/TObjEneBm9Mericarol_802D05BC.cpp
+pso/enemy/TObjEneBm9Mericarol_802D17F4.cpp
 pso/enemy/TObjEneDD.cpp
 pso/enemy/TObjEneDD_800B99B4.cpp
 pso/enemy/TObjEneDD_800B99D8.cpp
@@ -669,6 +670,7 @@ pso/item/TItemDropSub.cpp
 pso/item/TItemDropSub_80107B74.cpp
 pso/item/TItemDropSub_80107BF0.cpp
 pso/item/TItemDropSub_80107C40.cpp
+pso/item/TItemDrop_800F93F0.cpp
 pso/item/TItemDrop_800F9C00_800F9CA4.cpp
 pso/item/TItemEffArmor.cpp
 pso/item/TItemEffArmorParticle.cpp
@@ -1304,6 +1306,7 @@ pso/misc/TLobby_80271E48.cpp
 pso/misc/TLobby_8028A7C8.cpp
 pso/misc/TLobby_8028D714.cpp
 pso/misc/TLobby_8028EA28.cpp
+pso/misc/TLobby_80291D94.cpp
 pso/misc/TLobby_80291D94_80291D94.cpp
 pso/misc/TLobby_80291D94_80291E54.cpp
 pso/misc/TLobby_80291D94_80292678.cpp
@@ -2478,6 +2481,7 @@ pso/object/TObjRain.cpp
 pso/object/TObjRainCtrl.cpp
 pso/object/TObjRainCtrl_80197CE8.cpp
 pso/object/TObjResultWin.cpp
+pso/object/TObjRoomId.cpp
 pso/object/TObjRoomId_800FD8C8.cpp
 pso/object/TObjSeabedSuisoBrakable_801315D4.cpp
 pso/object/TObjSeabedSuisoBrakable_802A62E8.cpp
@@ -3719,6 +3723,7 @@ pso/unk/text_8011D2B4.cpp
 pso/unk/text_8011D3B8.cpp
 pso/unk/text_8011F63C.cpp
 pso/unk/text_8011F710.cpp
+pso/unk/text_8011FC24.cpp
 pso/unk/text_80120150.cpp
 pso/unk/text_80120568.cpp
 pso/unk/text_80120C5C.cpp
@@ -4289,6 +4294,7 @@ pso/unk/text_8029945C.cpp
 pso/unk/text_8029A97C.cpp
 pso/unk/text_8029BA3C.cpp
 pso/unk/text_8029E7BC.cpp
+pso/unk/text_8029EC3C.cpp
 pso/unk/text_8029EE2C.cpp
 pso/unk/text_802A0A30.cpp
 pso/unk/text_802A1020.cpp
@@ -4308,8 +4314,12 @@ pso/unk/text_802AF64C.cpp
 pso/unk/text_802B1AB4.cpp
 pso/unk/text_802C095C.cpp
 pso/unk/text_802C09E0.cpp
+pso/unk/text_802C0A74.cpp
+pso/unk/text_802C13C8.cpp
+pso/unk/text_802C1B9C.cpp
 pso/unk/text_802C20E8.cpp
 pso/unk/text_802C27FC.cpp
+pso/unk/text_802C2958.cpp
 pso/unk/text_802C2F04.cpp
 pso/unk/text_802C39F8.cpp
 pso/unk/text_802C9924.cpp

@@ -35,6 +35,40 @@ struct Rec_801A67A4
   s32 f4C;
 };
 
+struct Src_801A66B8 {
+    u8 pad0[8];
+    s32 f8;
+    s32 fC;
+    s32 f10;
+    s32 f14;
+    u16 f18;
+    u16 f1A;
+    s16 f1C;
+    s16 f1E;
+    s16 f20;
+    s16 f22;
+};
+
+struct Pad_801A66B8 {
+    s32 f0;
+    s32 f4;
+    s32 f8;
+    s32 fC;
+    u16 f10;
+    u16 f12;
+    s16 f14;
+    s16 f16;
+    s16 f18;
+    s16 f1A;
+    s32 f1C;
+    u8 pad20[4];
+    f32 f24;
+    u8 pad28[4];
+    s16 f2C[14];
+    s32 f48;
+    s32 f4C;
+};
+
 extern "C" {
 s32 TKeyBoardControl__sub_803DEB74(int);
 extern s32 lbl_8050E208[];
@@ -54,9 +88,42 @@ extern u32 lbl_804C2354[];
 extern u8 TKeyBoardControl__data_80506270[];
 s32 TKeyBoardControl__sub_801A6910(Kb_801A6910 *self);
 void TKeyBoardControl__sub_801A67A4(Rec_801A67A4 *arg0, Rec_801A67A4 *arg1);
+void reset__16TKeyBoardControlFv();
+extern Src_801A66B8 lbl_804C2308[];
+extern const f32 lbl_805DC0C0;
 }
 
 extern "C" {
+
+void TKeyBoardControl__sub_801A66B8(void) {
+    s32 i;
+    s32 j;
+    Pad_801A66B8 *p;
+
+    p = (Pad_801A66B8 *)((u8 *)lbl_8050E208 + 0x20);
+    for (i = 0; i < 4; i++) {
+        p->f0 = lbl_804C2308[0].f8;
+        p->f4 = lbl_804C2308[0].fC;
+        p->f8 = lbl_804C2308[0].f10;
+        p->fC = lbl_804C2308[0].f14;
+        p->f12 = lbl_804C2308[0].f1A;
+        p->f10 = lbl_804C2308[0].f18;
+        p->f14 = lbl_804C2308[0].f1C;
+        p->f16 = lbl_804C2308[0].f1E;
+        p->f18 = lbl_804C2308[0].f20;
+        p->f1A = lbl_804C2308[0].f22;
+        p->f1C = 0;
+        p->f24 = lbl_805DC0C0;
+        for (j = 0; j < 14; j++) {
+            p->f2C[j] = 0;
+        }
+        p->f48 = 0;
+        p->f4C = 0;
+        p++;
+    }
+    TKeyBoardControl__sub_801A67A4((Rec_801A67A4 *)&lbl_8050E208[0x58], (Rec_801A67A4 *)((u8 *)lbl_8050E208 + 0x20));
+    reset__16TKeyBoardControlFv();
+}
 
 typedef struct Rec_801A67A4 Rec_801A67A4;
 typedef struct Sub_801A67A4 Sub_801A67A4;

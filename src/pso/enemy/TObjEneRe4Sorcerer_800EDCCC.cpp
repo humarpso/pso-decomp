@@ -226,6 +226,7 @@ struct VObj_14_763762 : VBase_14_763762 {
     virtual M2C_UNK m2();
     virtual void m3();
     virtual s32 m4();
+    virtual s32 m5();
 };
 
 struct VBase_18_9c7b63 { char pad[0x18]; };
@@ -334,6 +335,11 @@ struct VObj_18_9c7b63 : VBase_18_9c7b63 {
     virtual M2C_UNK m100();
 };
 
+struct Sorc_800EEDE4 {
+    u8 pad0[0x3E4];
+    u16 ids[2];
+};
+
 struct Sorc_800EEC00 {
     u8 pad0[0x3E4];
     u16 ids[2];
@@ -417,6 +423,12 @@ M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
 extern const f64 TObjEneRe4Sorcerer__data_8043D408;
 extern u8 *lbl_805D52DC;
 s32 TObjEneRe4Sorcerer__sub_800EF354(u8 *arg0);
+M2C_UNK reset_transform__13TObjEneRe4BitFPv();
+M2C_UNK clear_state_flag_0x10__18TObjEneRe4SorcererFPv(u32);
+M2C_UNK TObjEneRe4Sorcerer__sub_800EF7C8(void *);
+M2C_UNK set_motion_by_state__18TObjEneRe4SorcererFPv();
+f32 *TBoss3Volopt__sub_800F059C(void *);
+extern const f32 lbl_805DA7D4;
 }
 
 extern "C" {
@@ -590,6 +602,72 @@ s32 TObjEneRe4Sorcerer__sub_800EEC00(void *arg0p, void *arg1p) {
         break;
     }
 }
+
+#define arg0 ((u8 *)arg0p)
+#pragma push
+#pragma opt_common_subs off
+s32 TObjEneRe4Sorcerer__sub_800EEDE4(void *arg0p, void *arg1p) {
+    s32 i;
+    u32 r;
+
+    switch ((s32)arg1p) {
+    case 4:
+        M2C_FIELD(arg0, s16 *, 0xB8) = 7;
+        set_field_378__9TObjEneDDFPvi(arg0, 3);
+        M2C_FIELD(arg0, s32 *, 0x3C8) |= 0xE;
+        ((VObj_18_9c7b63 *)(arg0))->m94();
+        TObjEneRe4Sorcerer__sub_800EF844(arg0);
+        ((VObj_14_763762 *)(arg0 + 0x3FC))->m3();
+        for (i = 0; i < 2; i++) {
+            if ((r = TPhotonMylla__sub_80154CB4(((Sorc_800EEDE4 *)arg0)->ids[i])) != 0) {
+                reset_transform__13TObjEneRe4BitFPv();
+                clear_state_flag_0x10__18TObjEneRe4SorcererFPv(r);
+            }
+        }
+        M2C_FIELD(arg0, f32 *, 0x3F8) = TObjEneRe4Sorcerer__data_805DA790;
+        M2C_FIELD(arg0, s32 *, 0x4E4) = 0;
+        M2C_FIELD(arg0, s32 *, 0x4E8) = 0;
+        TBoss3Volopt__sub_800D8B30(arg0 + 0x38);
+        break;
+    case 3:
+        if (M2C_FIELD(arg0, s32 *, 0x4E4) >= 0x3C) {
+            set_motion_by_state__18TObjEneRe4SorcererFPv();
+        }
+        break;
+    case 0:
+        if (*TBoss3Volopt__sub_800F059C(arg0 + 0x3FC) >= lbl_805DA7D4) {
+            TBoss1Dragon__sub_80143504(arg0);
+            turn_to_target__18TObjEneRe4SorcererFPv(arg0);
+        }
+        switch (M2C_FIELD(arg0, s32 *, 0x4E8)) {
+        case 0:
+            if (((VObj_14_763762 *)(arg0 + 0x3FC))->m5() != 0) {
+                M2C_FIELD(arg0, s32 *, 0x4E4) = 0;
+                M2C_FIELD(arg0, s32 *, 0x4E8) = 1;
+                M2C_FIELD(arg0, s32 *, 0x3C8) &= ~4;
+                TObjEneRe4Sorcerer__sub_800EF7C8(arg0);
+            }
+            break;
+        case 1:
+            M2C_FIELD(arg0, s32 *, 0x4E4) += 1;
+            if (M2C_FIELD(arg0, f32 *, 0x3F8) < TObjEneRe4Sorcerer__data_805DA7D0) {
+                M2C_FIELD(arg0, f32 *, 0x3F8) += lbl_805DA7CC;
+            }
+            ((VObj_18_9c7b63 *)(arg0))->m87();
+            break;
+        }
+        ((VObj_18_9c7b63 *)(arg0))->m100();
+        TObjEneRe4Sorcerer__sub_800EF214((s32)arg0);
+        break;
+    case 5:
+        M2C_FIELD(arg0, f32 *, 0x3F8) = TObjEneRe4Sorcerer__data_805DA7D0;
+        M2C_FIELD(arg0, s32 *, 0x3C8) &= ~4;
+        break;
+    }
+}
+
+#pragma pop
+#undef arg0
 
 void TObjEneRe4Sorcerer__sub_800EEFE4(u8 *arg0, s32 arg1) {
   switch (arg1)
