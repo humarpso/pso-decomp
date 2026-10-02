@@ -3788,6 +3788,7 @@ pso/unk/text_801289C0.cpp
 pso/unk/text_80128BD4.cpp
 pso/unk/text_80128CE8.cpp
 pso/unk/text_80128FF0.cpp
+pso/unk/text_80129170.cpp
 pso/unk/text_8012934C.cpp
 pso/unk/text_801293FC.cpp
 pso/unk/text_80129588.cpp
@@ -3810,6 +3811,7 @@ pso/unk/text_8012AFF8.cpp
 pso/unk/text_8012B140.cpp
 pso/unk/text_8012B3C4.cpp
 pso/unk/text_8012B524.cpp
+pso/unk/text_8012B664.cpp
 pso/unk/text_8012B898.cpp
 pso/unk/text_8012BCD4.cpp
 pso/unk/text_8012BEFC.cpp
@@ -3822,6 +3824,7 @@ pso/unk/text_8012CB2C.cpp
 pso/unk/text_8012CC74.cpp
 pso/unk/text_8012CE44.cpp
 pso/unk/text_8012CF84.cpp
+pso/unk/text_8012D080.cpp
 pso/unk/text_8012D354.cpp
 pso/unk/text_8012D468.cpp
 pso/unk/text_8012D65C.cpp

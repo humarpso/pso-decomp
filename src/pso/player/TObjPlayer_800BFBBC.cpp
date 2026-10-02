@@ -137,6 +137,18 @@ struct Obj_800BFCD4 { u8 pad[0xa4]; Sub_800BFCD4 *fa4; u8 pad2[0x368 - 0xa8]; s3
 
 struct G_800BFCD4 { u8 pad[0x68]; f32 f68; u8 pad2[0x1c]; f32 f88; };
 
+struct Vec_800C1224 { f32 x, y, z; };
+
+struct VBase_18_800C1224 { char pad[0x18]; };
+
+struct VObj_18_800C1224 : VBase_18_800C1224 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
+    virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8(); virtual void m9();
+    virtual void m10(); virtual void m11(); virtual void m12(); virtual void m13(); virtual void m14();
+    virtual void m15(); virtual void m16();
+    virtual s32 m17(s32);
+};
+
 extern "C" {
 s32 TObjPlayer__sub_800F06B4(s32, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -233,6 +245,21 @@ void update_invuln_timer__10TObjPlayerFPv(u8 *arg0);
 extern f32 *lbl_80500BF8[];
 extern G_800BFCD4 lbl_80492E18;
 void TObjPlayer__sub_800BFCD4(Obj_800BFCD4 *self);
+u16 TObjPlayer__sub_800115C4(void *, int, f32);
+s32 TObjPlayer__sub_80018428(void *, void *);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+u8 *get_player_data__10TObjPlayerFi(s32);
+s32 obj_testFlags30(void *, M2C_UNK);
+s32 obj_getField1c(void *);
+f32 fn_8013157C(void *, void *);
+M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+extern M2C_UNK lbl_8043BA08[];
+extern s32 lbl_805D586C;
+extern s32 lbl_805D5870;
+extern const f32 lbl_805D9F4C;
+extern const f32 lbl_805D9F60;
+extern const f32 lbl_805D9F88;
+void TObjPlayer__sub_800C1224(u8 *arg0);
 }
 
 extern "C" {
@@ -472,6 +499,67 @@ typedef char RecoveredFields_800C1478_arg0_374_offset[offsetof(RecoveredFields_8
 typedef char RecoveredFields_800C1478_arg0_380_offset[offsetof(RecoveredFields_800C1478_arg0, field_380) == 0x380 ? 1 : -1];
 typedef char RecoveredFields_800C1478_temp_r3_30_offset[offsetof(RecoveredFields_800C1478_temp_r3, field_30) == 0x30 ? 1 : -1];
 typedef char RecoveredFields_800C1478_temp_r3_2_18_offset[offsetof(RecoveredFields_800C1478_temp_r3_2, field_18) == 0x18 ? 1 : -1];
+
+void TObjPlayer__sub_800C1224(u8 *arg0) {
+    s32 best_id;
+    s32 i;
+    s32 id;
+    u8 *p;
+    f32 best;
+    f32 d;
+    if (((VObj_18_800C1224 *)(arg0))->m17(0x1E) != 0) {
+        if (M2C_FIELD(arg0, s32 *, 0x30) & 0x1000) {
+            if ((M2C_FIELD(arg0, f32 *, 0x2B4) -= lbl_805D9F60) < lbl_805D9F4C) {
+                M2C_FIELD(arg0, u16 *, 0x338) = 0xFFFFU;
+                M2C_FIELD(arg0, f32 *, 0x2B4) = lbl_805D9F4C;
+            } else {
+                M2C_FIELD(arg0, u16 *, 0x338) = TObjPlayer__sub_800115C4((void *) (arg0), 0, M2C_FIELD(M2C_FIELD(arg0, f32 **, 0x350), f32 *, 0));
+            }
+        } else if (obj_testFlags30((void *)((void *) (arg0)), (M2C_UNK)(0x10)) != 0) {
+            i = 0;
+            best_id = 0xFFFF;
+            Vec_800C1224 v = *(Vec_800C1224 *)lbl_8043BA08;
+            best = M2C_FIELD(M2C_FIELD(arg0, f32 **, 0x350), f32 *, 0) * M2C_FIELD(M2C_FIELD(arg0, f32 **, 0x350), f32 *, 0);
+            for (; i < lbl_805D586C + lbl_805D5870; i++) {
+                p = get_player_data__10TObjPlayerFi(i);
+                if (p == NULL) {
+                    break;
+                }
+                id = obj_getField1c(p);
+                if ((u16)id < 0x4000 && (u16)id != M2C_FIELD(arg0, u16 *, 0x1C) && !(M2C_FIELD(p, s32 *, 0x30) & 0x800)) {
+                    f32 xx;
+                    f32 zz;
+                    VecCopy__FP3VecPC3Vec(&v, p + 0x2FC);
+                    TBoss6Type1__sub_803D9370(&v, arg0 + 0x2FC);
+                    xx = v.x * v.x;
+                    zz = v.z * v.z;
+                    d = xx + zz;
+                    if (d < best && TObjPlayer__sub_80018428((void *) (arg0), p + 0x2FC) != 1) {
+                        best_id = id;
+                        best = d;
+                    }
+                }
+            }
+            M2C_FIELD(arg0, u16 *, 0x338) = best_id;
+        } else {
+            M2C_FIELD(arg0, u16 *, 0x338) = TObjPlayer__sub_800115C4((void *) (arg0), 0, M2C_FIELD(M2C_FIELD(arg0, f32 **, 0x350), f32 *, 0));
+        }
+    }
+    if (M2C_FIELD(arg0, s16 *, 0x384) > 3 && M2C_FIELD(arg0, s16 *, 0x382) == M2C_FIELD(arg0, u16 *, 0x338)) {
+        s32 j;
+        u8 *q;
+        for (j = 0; j < lbl_805D586C; j++) {
+            q = get_player_data__10TObjPlayerFi(j);
+            if (q != NULL && M2C_FIELD(arg0, s16 *, 0x382) != (u16) obj_getField1c(q) && !(M2C_FIELD(q, s32 *, 0x30) & 0x800)) {
+                if (fn_8013157C(q + 0x2FC, arg0 + 0x2FC) < lbl_805D9F88) {
+                    M2C_FIELD(arg0, u16 *, 0x338) = j;
+                }
+                break;
+            }
+        }
+    }
+}
+
 void TObjPlayer__sub_800C1478(u8 *arg0) {
     f32 var_f1;
     s16 temp_r0;

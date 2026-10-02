@@ -2382,6 +2382,7 @@ pso/player/TObjPlayer_800ACA60_800ACD80.cpp:
 
 pso/player/TObjPlayer_800ACA60.cpp:
 	.text       start:0x800ACE48 end:0x800AF450
+	.data       start:0x80491B08 end:0x80491B30
 
 pso/enemy/TObjEneMoja.cpp:
 	.text       start:0x800AF450 end:0x800AF56C
@@ -2559,6 +2560,7 @@ pso/object/TObjGrassWeb.cpp:
 pso/object/TObjGrass.cpp:
 	.text       start:0x800BCA2C end:0x800BFBBC
 	.rodata     start:0x8043B7B0 end:0x8043B7B8
+	.data       start:0x80492A60 end:0x80492A88
 
 pso/player/TObjPlayer_800BFBBC.cpp:
 	.text       start:0x800BFBBC end:0x800C16E0
@@ -3563,6 +3565,7 @@ pso/misc/TFogCtrl_800FAB94.cpp:
 
 pso/misc/TFogCtrl.cpp:
 	.text       start:0x800FB12C end:0x800FBA58
+	.rodata     start:0x8043DA60 end:0x8043DA70
 
 pso/misc/TFogCtrl_800FBA58.cpp:
 	.text       start:0x800FBA58 end:0x800FC0F8
@@ -4054,6 +4057,7 @@ pso/item/TItemEquipBase_8010B76C.cpp:
 pso/item/TItemData_8010B7F8.cpp:
 	.text       start:0x8010B7F8 end:0x8010C6A0
 	.rodata     start:0x8043E348 end:0x8043E350
+	.data       start:0x8049F2AC end:0x8049F2E8
 
 pso/item/TItemData.cpp:
 	.text       start:0x8010C6A0 end:0x8010C940
@@ -5316,6 +5320,7 @@ pso/player/TObjPlayer_80129048.cpp:
 
 pso/unk/text_80129170.cpp:
 	.text       start:0x80129170 end:0x80129308
+	.rodata     start:0x8043E960 end:0x8043E968
 
 pso/player/TObjPlayer_80129308.cpp:
 	.text       start:0x80129308 end:0x8012934C
@@ -5503,6 +5508,7 @@ pso/player/TObjPlayer_8012B618.cpp:
 
 pso/unk/text_8012B664.cpp:
 	.text       start:0x8012B664 end:0x8012B7FC
+	.rodata     start:0x8043E988 end:0x8043E990
 
 pso/item/TItemEquipVariant_8012B7FC.cpp:
 	.text       start:0x8012B7FC end:0x8012B854
@@ -5639,6 +5645,7 @@ pso/player/TObjPlayer_8012D034.cpp:
 
 pso/unk/text_8012D080.cpp:
 	.text       start:0x8012D080 end:0x8012D218
+	.rodata     start:0x8043E998 end:0x8043E9A0
 
 pso/player/TObjPlayer_8012D218.cpp:
 	.text       start:0x8012D218 end:0x8012D354

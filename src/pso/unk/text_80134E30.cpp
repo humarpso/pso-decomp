@@ -116,6 +116,22 @@ struct Entry_80136080 {
     u8 char_data[0x420];
 };
 
+struct Base_80134F9C { u8 pad[0x18]; };
+
+struct Obj_80134F9C : Base_80134F9C { virtual ~Obj_80134F9C(); };
+
+struct Pair_80134F9C { s32 a; s32 b; };
+
+struct DateStamp_80134F9C { s32 v[3]; };
+
+struct Timer_80134F9C {
+    u8 pad[0x1C];
+    s32 now;
+    s32 start;
+    u32 limit;
+    u8 state;
+};
+
 extern "C" {
 int bswap_packet_header__6TLobbyFPv(void *);
 M2C_UNK TLobby__sub_801E44D8(void *, void *);
@@ -284,6 +300,28 @@ void TProtocol__sub_801DC1E4(void *, void *, void *, void *, void *, void *, voi
 extern s32 lbl_805D53A0;
 extern void *TLobby__data_805D5580;
 void TLobby__sub_80134E30(void);
+s32 queue_destruction__7TObjectFv(void *);
+s32 TKeyBoardControl__sub_80132368(void *);
+char *get_seq_phase__6TLobbyFPv(int);
+s32 TLobby__sub_801A51C0(void *);
+s32 TKeyBoardControl__sub_801A57D0();
+s32 DateToSeconds__FP9DateStampPi(void *, void *);
+s32 getDateStamp__FP9DateStamp(void *);
+void set_field_1c__6TLobbyFPvf(void *, f32);
+s32 TWindowCtrlMain__sub_8024CE58();
+void TLobby__sub_80269454(void *);
+void send_and_handle__6TLobbyFPvii(void *, char *, int);
+void *set_window_mode_4__6TLobbyFPvii(void *, void *, int);
+void *TWindowSubComCard__sub_8026CBB8(int);
+int sprintf(char *, const char *, ...);
+extern Pair_80134F9C lbl_8043EE28[];
+extern u8 TKeyBoardControl__data_80506270[];
+extern char lbl_8050ADB8[];
+extern s32 lbl_805D53A0;
+extern s32 TLobby__data_805D55A8;
+extern s32 TLobby__data_805D5608;
+extern const f32 lbl_805DB0A8;
+void TLobby__sub_80134F9C(u8 *arg0);
 }
 
 extern "C" {
@@ -334,6 +372,54 @@ void TLobby__sub_80134E30(void) {
     d.w0 = *(u32 *)(card + 0x21B8);
     d.w1 = *(u32 *)(card + 0x21BC);
     TProtocol__sub_801DC1E4(TLobby__data_805D5580, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF), &d, &a, b, e, c);
+}
+
+void TLobby__sub_80134F9C(u8 *arg0) {
+    Timer_80134F9C *t = (Timer_80134F9C *)arg0;
+    Pair_80134F9C tmp = lbl_8043EE28[0];
+    DateStamp_80134F9C ds;
+    u32 limit;
+    u32 elapsed;
+    getDateStamp__FP9DateStamp(&ds);
+    DateToSeconds__FP9DateStampPi(&ds, &t->now);
+    if (TWindowCtrlMain__sub_8024CE58() == 0) {
+        (*(Obj_80134F9C * *)&TLobby__data_805D5608) = 0;
+    }
+    if (TKeyBoardControl__sub_80132368(TKeyBoardControl__data_80506270) != 0 || TKeyBoardControl__sub_801A57D0() != 0) {
+        t->start = t->now;
+        t->state = 0;
+        if ((*(Obj_80134F9C * *)&TLobby__data_805D5608) != 0) {
+            delete (*(Obj_80134F9C * *)&TLobby__data_805D5608);
+            (*(Obj_80134F9C * *)&TLobby__data_805D5608) = 0;
+        }
+    }
+    t->limit = TLobby__sub_801A51C0((void *)lbl_805D53A0);
+    elapsed = t->now - t->start;
+    switch (t->state) {
+    case 0:
+        if (t->limit != 0 && elapsed + 0x1E > t->limit) {
+            t->state = 1;
+            if ((*(Obj_80134F9C * *)&TLobby__data_805D5608) == 0 && TWindowCtrlMain__sub_8024CE58() != 0) {
+                sprintf(lbl_8050ADB8, get_seq_phase__6TLobbyFPv(0x1F), t->limit - elapsed);
+                (*(Obj_80134F9C * *)&TLobby__data_805D5608) = (Obj_80134F9C *)set_window_mode_4__6TLobbyFPvii(TWindowSubComCard__sub_8026CBB8(0xCA), &tmp, 1);
+                send_and_handle__6TLobbyFPvii((void *)(*(Obj_80134F9C * *)&TLobby__data_805D5608), lbl_8050ADB8, 0x80);
+                set_field_1c__6TLobbyFPvf((void *)(*(Obj_80134F9C * *)&TLobby__data_805D5608), lbl_805DB0A8);
+                TLobby__sub_80269454((void *)(*(Obj_80134F9C * *)&TLobby__data_805D5608));
+            }
+        }
+        break;
+    case 1:
+        limit = t->limit;
+        if (elapsed > limit) {
+            delete (*(Obj_80134F9C * *)&TLobby__data_805D5608);
+            (*(Obj_80134F9C * *)&TLobby__data_805D5608) = 0;
+            TLobby__data_805D55A8 = 1;
+            queue_destruction__7TObjectFv(arg0);
+        } else {
+            sprintf(lbl_8050ADB8, get_seq_phase__6TLobbyFPv(0x1F), limit - elapsed);
+        }
+        break;
+    }
 }
 
 u8 *TLobby__sub_80135198(u8 *arg0, s32 arg1) {

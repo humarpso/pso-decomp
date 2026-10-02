@@ -55,6 +55,10 @@ struct Obj_800A5A68 {
     s16 mode;
 };
 
+struct Vec_800A5BBC { f32 x, y, z; };
+
+struct Vec_800A5DC4 { f32 x, y, z; };
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
 M2C_UNK TObjPlayer__sub_800A0554(void *);
@@ -83,6 +87,32 @@ extern const f64 lbl_8043A8D0[];
 extern s32 *lbl_805D5044;
 extern f32 *lbl_805D504C;
 void TObjPlayer__sub_800A5A68(Obj_800A5A68 *self);
+f32 TObjPlayer__sub_800186E8(void *, void *, Vec_800A5BBC *);
+s32 get_field_0c__10TObjPlayerFPv(int);
+f32 get_pos_x__10TObjPlayerFPv(int);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 TObjPlayer__sub_80141F84(s32, s32);
+extern const f64 lbl_8043A8D0[];
+extern s32 *lbl_805D5044;
+extern const f32 lbl_805D9A70;
+extern const f32 lbl_805D9A74;
+s32 TObjPlayer__sub_800A5BBC(u8 *arg0);
+M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
+M2C_UNK TObjPlayer__sub_80017700(void *, s32, Vec_800A5DC4 *, int, f32 *, f32);
+s32 TObjPlayer__sub_800182A0(void *, Vec_800A5DC4 *, int);
+M2C_UNK copy_position_if_valid__10TObjPlayerFii(void *, Vec_800A5DC4 *);
+M2C_UNK TObjPlayer__sub_800A6B14(void *);
+M2C_UNK TObjPlayer__sub_800A7798(void *, f32);
+f32 TObjPlayer__sub_80141CF8(int, void *);
+M2C_UNK TBoss1Dragon__sub_80143504(void *, int);
+M2C_UNK TObjPlayer__sub_801564A0(void *);
+M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
+M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
+M2C_UNK minimap_render_dot(void *, int, int, int);
+extern f32 *lbl_805D504C;
+extern const f32 lbl_805D9A14;
+extern const f32 lbl_805D9A78;
+void TObjPlayer__sub_800A5DC4(u8 *arg0);
 }
 
 extern "C" {
@@ -175,6 +205,102 @@ void TObjPlayer__sub_800A5A68(Obj_800A5A68 *self) {
     self->sub->flags |= 1;
     self->f30 &= 0xF9FBFFFF;
     self->f30 |= 0x200000;
+}
+
+s32 TObjPlayer__sub_800A5BBC(u8 *arg0) {
+    Vec_800A5BBC v;
+    f32 var_f29;
+    f32 r;
+    f32 dist;
+    s32 ang;
+    s32 flags;
+    u8 *tgt;
+    u8 *p;
+    if (M2C_FIELD(arg0, s16 *, 0x326) >= 3) {
+        tgt = M2C_FIELD(arg0, u8 **, 0x2A8);
+        if (tgt != NULL && M2C_FIELD(arg0, u32 *, 0x318) != 0U && !(M2C_FIELD(tgt, s32 *, 0x30) & 0x02000800)) {
+            dist = TObjPlayer__sub_800186E8(arg0, tgt, &v);
+            ang = TObjPlayer__sub_80141F84(M2C_FIELD(arg0, s32 *, 0x60), (s32)(lbl_8043A8D0[0] * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)));
+            p = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2A8), u8 **, 0xA4);
+            if (p != NULL) {
+                var_f29 = M2C_FIELD(p, f32 *, 0xC);
+            } else {
+                var_f29 = lbl_805D9A70;
+            }
+            flags = M2C_FIELD(arg0, s32 *, 0x374);
+            if (flags & 8) {
+                M2C_FIELD(arg0, s16 *, 0x37C) = 2;
+                if (dist <= (var_f29 + get_pos_x__10TObjPlayerFPv(lbl_805D5044[M2C_FIELD(arg0, s16 *, 0x37C)])) * (var_f29 + get_pos_x__10TObjPlayerFPv(lbl_805D5044[M2C_FIELD(arg0, s16 *, 0x37C)])) && ang <= get_field_0c__10TObjPlayerFPv(lbl_805D5044[M2C_FIELD(arg0, s16 *, 0x37C)])) {
+                    return 1;
+                }
+            } else if (flags & 0x10) {
+                M2C_FIELD(arg0, s16 *, 0x37C) = 1;
+                r = lbl_805D9A74 + var_f29;
+                if (dist <= r * r && ang <= 0xAAA) {
+                    return 1;
+                }
+            } else {
+                M2C_FIELD(arg0, s16 *, 0x37C) = 0;
+                if (dist <= (var_f29 + get_pos_x__10TObjPlayerFPv(lbl_805D5044[M2C_FIELD(arg0, s16 *, 0x37C)])) * (var_f29 + get_pos_x__10TObjPlayerFPv(lbl_805D5044[M2C_FIELD(arg0, s16 *, 0x37C)])) && ang <= get_field_0c__10TObjPlayerFPv(lbl_805D5044[M2C_FIELD(arg0, s16 *, 0x37C)])) {
+                    return 1;
+                }
+            }
+        }
+    }
+    return 0;
+}
+
+void TObjPlayer__sub_800A5DC4(u8 *arg0) {
+    f32 temp_f0;
+    f32 temp_f1;
+    u8 *temp_r5;
+    u8 *temp_r8;
+    temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
+    M2C_FIELD(temp_r5, s32 *, 0x18) |= 1;
+    M2C_FIELD(arg0, s32 *, 0x30) &= 0xF9DBFFFF;
+    temp_r8 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x2A8));
+    if (temp_r8 != NULL) {
+        switch (M2C_FIELD(arg0, s16 *, 0x328)) {
+        case 0: {
+            Vec_800A5DC4 v = *(Vec_800A5DC4 *)(temp_r8 + 0x2FC);
+            if (TObjPlayer__sub_800182A0((void *) (arg0), &v, 1) != 0) {
+                TObjPlayer__sub_800A7798((void *) (arg0), lbl_805D504C[3]);
+                M2C_FIELD(arg0, s16 *, 0x328) = 1;
+                {
+                Vec_800A5DC4 v2 = *(Vec_800A5DC4 *)(arg0 + 0x2FC);
+                copy_position_if_valid__10TObjPlayerFii((void *) (arg0), &v2);
+                }
+                TObjPlayer__sub_80011734((void *) (arg0), 0, lbl_805D9A14);
+            }
+            break;
+        }
+        case 1: {
+            Vec_800A5DC4 v3 = *(Vec_800A5DC4 *)(temp_r8 + 0x2FC);
+            TObjPlayer__sub_80017700((void *) (arg0), M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8), &v3, 0, lbl_805D504C, lbl_805D504C[2]);
+            temp_f1 = TObjPlayer__sub_80141CF8((int) (arg0 + 0x29C), (void *) (arg0 + 0x38));
+            if (temp_f1 < lbl_805D9A78) {
+                M2C_FIELD(arg0, s32 *, 0x374) &= ~0x10;
+            } else {
+                M2C_FIELD(arg0, s32 *, 0x374) |= 0x10;
+            }
+            temp_f0 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 4) + M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC);
+            if (temp_f1 < (temp_f0 * temp_f0)) {
+                M2C_FIELD(arg0, s16 *, 0x328) = 2;
+            }
+            break;
+        }
+        case 2:
+            M2C_FIELD(arg0, s32 *, 0x374) &= ~0x10;
+            M2C_FIELD(arg0, s16 *, 0x328) = 0;
+            break;
+        }
+        ((M2C_UNK (*)(void *)) TBoss1Dragon__sub_80143504)((void *) (arg0));
+        TObjPlayer__sub_800A6B14((void *) (arg0));
+        check_object_collisions__10TObjPlayerFPv((void *) (arg0));
+        TObjPlayer__sub_801564A0((void *) (arg0));
+        minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
+        TObjPlayer__sub_801B4A18((void *) (arg0), (int) (-1));
+    }
 }
 
 void TObjPlayer__sub_800A5FA8(u8 *arg0) {

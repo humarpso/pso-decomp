@@ -19,6 +19,10 @@ struct Item_8010C52C { u8 kind; u8 pad1[2]; u8 b3; u8 b4; u8 pad5[0xD]; u8 b12; 
 
 struct Parm_8010C0A4 { u8 pad[8]; s16 x8; s16 xa; u8 pad2[5]; s8 x11; s8 x12; s8 x13; s8 x14; s8 x15; };
 
+struct Stats_8010BEC4 { s16 s0; s16 s2; s16 s4; s16 s6; s16 s8; s16 sA; s16 sC; };
+
+struct Stats2_8010BEC4 { s16 s0; s16 s2; };
+
 extern "C" {
 void TItemData__sub_8010B848(u8 *arg0, s32 arg1);
 s32 TItemData__sub_8010B8B0(u8 *arg0);
@@ -56,6 +60,14 @@ void TItemData__sub_8010EDC8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
 void add_quantity__9TItemDataFPvi(void *arg0, s32 arg1);
 void TItemData__sub_8010C0A4(u8 *self, s32 player, s32 unused, s16 *out);
+s32 get_field6_bswap__9TItemDataFPv(void *);
+Parm_8010C1E0 *TItemData__sub_8010EA38(void *);
+void adjust_count__9TItemDataFPvi(void *arg0, s32 arg1);
+void TItemData__sub_8010EDD8(void *arg0, s32 arg1);
+void TItemData__sub_8010EDC8(void *arg0, s32 arg1);
+void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
+void add_quantity__9TItemDataFPvi(void *arg0, s32 arg1);
+void TItemData__sub_8010BEC4(void *self, s32 arg1, s32 arg2, void *res, Stats_8010BEC4 *st, Stats2_8010BEC4 *st2);
 }
 
 extern "C" {
@@ -121,6 +133,77 @@ s32 TItemData__sub_8010B8B0(u8 *arg0) {
     default:
     case 2:
         return 0;
+    }
+}
+
+void TItemData__sub_8010BEC4(void *self, s32 arg1, s32 arg2, void *res, Stats_8010BEC4 *st, Stats2_8010BEC4 *st2) {
+    Parm_8010C1E0 *parm;
+    s32 kind;
+    s16 amount;
+    parm = TItemData__sub_8010EA38(self);
+    if (parm != NULL && st != NULL && res != NULL) {
+    kind = parm->dfp;
+    amount = parm->evp + get_field6_bswap__9TItemDataFPv(self);
+    switch (kind) {
+    case 0:
+        st->s0 += amount;
+        break;
+    case 1:
+        st->s2 += amount;
+        break;
+    case 2:
+        st->sA += amount * 10;
+        break;
+    case 3:
+        st->s4 += amount;
+        break;
+    case 4:
+        if (st2 != NULL) {
+            st2->s0 += amount;
+        }
+        break;
+    case 5:
+        if (st2 != NULL) {
+            st2->s2 += amount;
+        }
+        break;
+    case 6:
+        st->s8 += amount;
+        break;
+    case 7:
+        st->sC += amount;
+        break;
+    case 8:
+        st->s0 += amount;
+        st->s2 += amount;
+        st->sA += amount;
+        st->s4 += amount;
+        st->s8 += amount;
+        st->sC += amount;
+        break;
+    case 9:
+        adjust_count__9TItemDataFPvi(res, amount);
+        break;
+    case 10:
+        TItemData__sub_8010EDD8(res, amount);
+        break;
+    case 11:
+        TItemData__sub_8010EDC8(res, amount);
+        break;
+    case 12:
+        TItemData__sub_8010EDA8(res, amount);
+        break;
+    case 13:
+        add_quantity__9TItemDataFPvi(res, amount);
+        break;
+    case 14:
+        adjust_count__9TItemDataFPvi(res, amount);
+        TItemData__sub_8010EDD8(res, amount);
+        TItemData__sub_8010EDC8(res, amount);
+        TItemData__sub_8010EDA8(res, amount);
+        add_quantity__9TItemDataFPvi(res, amount);
+        break;
+    }
     }
 }
 

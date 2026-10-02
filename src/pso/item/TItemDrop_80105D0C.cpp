@@ -32,6 +32,10 @@ struct TItemDrop_80107900 {
     s32 *list;
 };
 
+struct Item_8010663C { u8 type; u8 sub; u8 pad2[0xE]; u32 id; };
+
+struct Tbl_8010663C { u8 pad[0x18]; s32 f18; u8 *chance; u8 *kind; };
+
 extern "C" {
 M2C_UNK clear_item_if_player_picked_up__9TItemDropFPvPv(void *, void *);
 M2C_UNK TItemDrop__sub_80105EA4(void *, void *);
@@ -114,6 +118,14 @@ extern const f32 lbl_805DAAD4;
 extern const f32 lbl_805DAAD8;
 extern const f32 lbl_805DAAE4;
 TItemDrop_80107900 *TItemDrop__ct(TItemDrop_80107900 *self, void *parent, s8 arg2);
+s32 is_not_special__9TItemDropFv(u8 *);
+u32 TItemDrop__sub_801065F8(u8 *arg0, M2C_UNK arg1, u32 arg2);
+void TItemDrop__sub_80106930(u8 *self, s32 idx, u8 *item);
+s32 drop_item__9TItemDropFiii(s32 arg0, s32 arg1, s32 arg2);
+u16 TItemDrop__sub_801075B4(void *, s32, s32, s32, s32);
+M2C_UNK init__9TItemDataFv(void *);
+extern void *TItemDrop__data_805D5460;
+void TItemDrop__sub_8010663C(u8 *self, s32 area, s32 idx, Item_8010663C *item);
 }
 
 extern "C" {
@@ -185,6 +197,70 @@ u32 TItemDrop__sub_801065F8(u8 *arg0, M2C_UNK arg1, u32 arg2) {
     var_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x20));
     var_r3 = (u8 *)(M2C_FIELD(var_r3, u8 **, 0x40));
     return (u32)TItemDrop__sub_80107B0C((s32)((int) (var_r3)), (u32)(arg1));
+}
+
+void TItemDrop__sub_8010663C(u8 *self, s32 area, s32 idx, Item_8010663C *item) {
+    s32 r;
+    u8 kind;
+    if (item == NULL) {
+        return;
+    }
+    init__9TItemDataFv(item);
+    if (area > 0x58) {
+        return;
+    }
+    if (TItemDrop__sub_801065F8(self, 0x64, 0) >= ((Tbl_8010663C *)TItemDrop__data_805D5460)->chance[area]) {
+        return;
+    }
+    if (drop_item__9TItemDropFiii((s32)self, area, (s32)item) != 0) {
+        return;
+    }
+    if (is_not_special__9TItemDropFv(self) == 1) {
+        r = TItemDrop__sub_801065F8(self, 3, 1);
+    } else {
+        r = TItemDrop__sub_801065F8(self, 2, 1) + 1;
+    }
+    switch (r) {
+    case 0:
+        kind = 5;
+        break;
+    case 1:
+        kind = 4;
+        break;
+    case 2:
+        kind = ((Tbl_8010663C *)TItemDrop__data_805D5460)->kind[area];
+        break;
+    default:
+        return;
+    }
+    switch (kind) {
+    case 0:
+        item->type = 0;
+        break;
+    case 1:
+        item->sub = item->type = 1;
+        break;
+    case 2:
+        item->type = 1;
+        item->sub = 2;
+        break;
+    case 3:
+        item->type = 1;
+        item->sub = 3;
+        break;
+    case 4:
+        item->type = 3;
+        break;
+    case 5:
+        item->type = 4;
+        item->id = TItemDrop__sub_801075B4(self, ((Tbl_8010663C *)TItemDrop__data_805D5460)->f18, area, 0, 1);
+        break;
+    default:
+        return;
+    }
+    if (item->type != 4) {
+        TItemDrop__sub_80106930(self, idx, (u8 *)item);
+    }
 }
 
 void TItemDrop__sub_80106930(u8 *self, s32 idx, u8 *item) {
