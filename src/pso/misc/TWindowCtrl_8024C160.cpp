@@ -1,3 +1,205 @@
+#include "types.h"
+struct TWindowCtrl_8024C160 {
+    u8 pad0[0x18];
+    void *vt;
+    u8 pad1C[0x2C - 0x1C];
+    void *f2C;
+    void *f30;
+    void *f34;
+    void *f38;
+    void *f3C;
+    void *f40;
+    void *f44;
+    void *objs[12];
+    void *wins78[3];
+    void *wins84[4];
+};
+
+struct TWindowCtrl_8024C308 {
+    s32 f0;
+    u8 pad4[0x18 - 0x4];
+    void *vt;
+    s16 f1C;
+    s16 f1E;
+    s16 f20;
+    s16 f22;
+    s32 f24;
+    u16 f28;
+    void *f2C;
+    void *f30;
+    void *f34;
+    void *f38;
+    void *f3C;
+    void *f40;
+    void *f44;
+    void *objs[12];
+    void *wins78[3];
+    void *wins84[4];
+    u8 f94[4];
+};
+
 extern "C" {
+void __dt__7TObjectFv(void *, int);
+void queue_destruction__7TObjectFv(void *);
+void __dl__7TObjectFPv(void *);
+void TWindow__close(void *);
+extern u8 __vt__11TWindowCtrl[];
+extern void *TWindowCtrl__data_805D63F8;
+TWindowCtrl_8024C160 *__dt__11TWindowCtrlFv(TWindowCtrl_8024C160 *self, s16 flag);
+s32 is_split_screen();
+s32 get_player_count__10TObjPlayerFv();
+void queue_destruction__7TObjectFv(void *);
+void set_flag_4__9TObjLukerFPv(void *);
+s32 get_global_state__14TOKeyMachine01Fv();
+void *__nw__7TObjectFUl(u32);
+void __ct__7TObjectFP7TObject(void *);
+void *TWindowBreakIn__ct(void *);
+void *TWindowChat__ct(void *, s32, void *);
+void open_status_112__11TWindowCtrlFv();
+void set_flag1e_bit40__11TWindowCtrlFPv(void *);
+void *TWindowCtrlPlayer__ct(void *, void *, s32);
+void *fn_8030C340(s32);
+extern u8 __vt__11TWindowCtrl[];
+extern s32 lbl_805D38C8;
+extern s32 lbl_805D53A0;
+extern s32 tl_00;
+extern void *TWindowCtrl__data_805D63F8;
+TWindowCtrl_8024C308 *TWindowCtrl__ct(TWindowCtrl_8024C308 *self);
+}
+
+extern "C" {
+
+TWindowCtrl_8024C160 *__dt__11TWindowCtrlFv(TWindowCtrl_8024C160 *self, s16 flag) {
+    s32 i;
+    if (self != NULL) {
+        self->vt = __vt__11TWindowCtrl;
+        for (i = 3; i >= 0; i--) {
+            if (self->wins84[i] != NULL) {
+                TWindow__close(self->wins84[i]);
+                self->wins84[i] = NULL;
+            }
+        }
+        if (self->f44 != NULL) {
+            TWindow__close(self->f44);
+            self->f44 = NULL;
+        }
+        if (self->f34 != NULL) {
+            TWindow__close(self->f34);
+            self->f34 = NULL;
+        }
+        if (self->f30 != NULL) {
+            TWindow__close(self->f30);
+            self->f30 = NULL;
+        }
+        if (self->f40 != NULL) {
+            queue_destruction__7TObjectFv(self->f40);
+            self->f40 = NULL;
+        }
+        if (self->f3C != NULL) {
+            queue_destruction__7TObjectFv(self->f3C);
+            self->f3C = NULL;
+        }
+        for (i = 2; i >= 0; i--) {
+            if (self->wins78[i] != NULL) {
+                TWindow__close(self->wins78[i]);
+                self->wins78[i] = NULL;
+            }
+        }
+        for (i = 11; i >= 0; i--) {
+            if (self->objs[i] != NULL) {
+                queue_destruction__7TObjectFv(self->objs[i]);
+                self->objs[i] = NULL;
+            }
+        }
+        if (self->f38 != NULL) {
+            queue_destruction__7TObjectFv(self->f38);
+            self->f38 = NULL;
+        }
+        if (self->f2C != NULL) {
+            TWindow__close(self->f2C);
+            self->f2C = NULL;
+        }
+        if (TWindowCtrl__data_805D63F8 == self) {
+            TWindowCtrl__data_805D63F8 = NULL;
+        }
+        __dt__7TObjectFv(self, 0);
+        if (flag > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
+}
+TWindowCtrl_8024C308 *TWindowCtrl__ct(TWindowCtrl_8024C308 *self) {
+    s32 i;
+    void *p;
+    __ct__7TObjectFP7TObject(self);
+    self->vt = __vt__11TWindowCtrl;
+    self->f0 = lbl_805D38C8;
+    if (TWindowCtrl__data_805D63F8 != NULL) {
+        queue_destruction__7TObjectFv(TWindowCtrl__data_805D63F8);
+    }
+    TWindowCtrl__data_805D63F8 = self;
+    self->f1C = 0;
+    self->f1E = 0;
+    self->f20 = 0;
+    self->f22 = 0;
+    self->f24 = 0;
+    self->f28 = 0xFFFF;
+    self->f2C = NULL;
+    self->f30 = NULL;
+    self->f34 = NULL;
+    self->f38 = NULL;
+    self->f3C = NULL;
+    self->f40 = NULL;
+    self->f44 = NULL;
+    for (i = 0; i < 12; i++) {
+        self->objs[i] = NULL;
+    }
+    for (i = 0; i < 3; i++) {
+        self->wins78[i] = NULL;
+    }
+    for (i = 0; i < 4; i++) {
+        self->wins84[i] = NULL;
+    }
+    p = __nw__7TObjectFUl(0x60);
+    if (p != NULL) {
+        p = TWindowBreakIn__ct(p);
+    }
+    self->f2C = p;
+    if (is_split_screen() == 0) {
+        p = __nw__7TObjectFUl(0x3C);
+        if (p != NULL) {
+            p = TWindowChat__ct(p, tl_00, self->f94);
+        }
+        self->f38 = p;
+        set_flag1e_bit40__11TWindowCtrlFPv(self->f38);
+    }
+    if (is_split_screen() != 0) {
+        for (i = 0; i < 4; i++) {
+            p = __nw__7TObjectFUl(0x40);
+            if (p != NULL) {
+                p = TWindowCtrlPlayer__ct(p, self, i);
+            }
+            self->objs[i] = p;
+            set_flag_4__9TObjLukerFPv(self->objs[i]);
+        }
+    } else {
+        p = __nw__7TObjectFUl(0x40);
+        if (p != NULL) {
+            p = TWindowCtrlPlayer__ct(p, self, lbl_805D53A0);
+        }
+        self->objs[lbl_805D53A0] = p;
+        for (i = 0; i < 3; i++) {
+            if (get_global_state__14TOKeyMachine01Fv() != 0xF && is_split_screen() == 0) {
+                self->wins78[i] = fn_8030C340(i);
+                set_flag_4__9TObjLukerFPv(self->wins78[i]);
+            }
+        }
+    }
+    if (get_player_count__10TObjPlayerFv() == 1) {
+        open_status_112__11TWindowCtrlFv();
+    }
+    return self;
+}
 
 }

@@ -12300,6 +12300,7 @@ pso/misc/TWindowEffectParty.cpp:
 
 pso/misc/TWindowSubStatusDisp_8024FBA8.cpp:
 	.text       start:0x8024FBA8 end:0x8025010C
+	.rodata     start:0x8044ECF8 end:0x8044ED00
 
 pso/misc/TWindowFukidasi_8025010C.cpp:
 	.text       start:0x8025010C end:0x802502BC
@@ -12337,7 +12338,7 @@ pso/misc/TWindowFukidasi.cpp:
 
 pso/misc/TWindowFukidasi_80251EC8.cpp:
 	.text       start:0x80251EC8 end:0x80252AE4
-	.data       start:0x804CF0F8 end:0x804CF120
+	.data       start:0x804CF0D0 end:0x804CF120
 
 pso/misc/TWindowFukidasi_80252AE4.cpp:
 	.text       start:0x80252AE4 end:0x80252B74
@@ -13026,6 +13027,7 @@ pso/unk/text_802754EC.cpp:
 
 pso/misc/TWindowSubComCardList.cpp:
 	.text       start:0x8027553C end:0x80275C0C
+	.data       start:0x804D1178 end:0x804D1198
 
 pso/misc/TWindowSubEquip_80275C0C.cpp:
 	.text       start:0x80275C0C end:0x80275D84

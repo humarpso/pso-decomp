@@ -1930,6 +1930,7 @@ pso/misc/TWindowCtrl_8024BD68.cpp
 pso/misc/TWindowCtrl_8024BE80.cpp
 pso/misc/TWindowCtrl_8024BFB8.cpp
 pso/misc/TWindowCtrl_8024C024.cpp
+pso/misc/TWindowCtrl_8024C160.cpp
 pso/misc/TWindowCtrl_8024C530.cpp
 pso/misc/TWindowCtrl_8024C56C.cpp
 pso/misc/TWindowCtrl_8024C598.cpp
