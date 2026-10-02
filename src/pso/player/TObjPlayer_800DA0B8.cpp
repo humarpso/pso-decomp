@@ -61,6 +61,24 @@ extern const f32 lbl_805DA414;
 extern const f32 lbl_805DA418;
 extern const f32 lbl_805DA41C;
 void TObjPlayer__sub_800DA508(Ene_800DA508 *arg0, Vec_800DA508 *center, f32 radius);
+M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
+M2C_UNK TObjPlayer__sub_80018570(void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK);
+M2C_UNK TBoss3VoloptMonitor__sub_8004292C();
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK TObjPlayer__sub_800D9E8C(void *);
+void TObjPlayer__sub_800DA4B4(Obj_800DA4B4 *self, s32 i);
+M2C_UNK TObjPlayer__sub_800DC83C(u32, void *, void *, u8, void *);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK update_collisions__10TObjPlayerFPv(void *);
+M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+u32 __nw__7TObjectFUl(u32);
+extern const f32 lbl_805DA3F8;
+extern const f32 lbl_805DA3FC;
+extern const f32 lbl_805DA45C;
+void TObjPlayer__sub_800DB390(u8 *arg0);
 }
 
 extern "C" {
@@ -121,6 +139,79 @@ void TObjPlayer__sub_800DA508(Ene_800DA508 *arg0, Vec_800DA508 *center, f32 radi
     TObjPlayer__sub_80017E6C(arg0);
 }
 #pragma pop
+
+struct Obj_800DA4B4;
+void TObjPlayer__sub_800DB390(u8 *arg0) {
+    s32 temp_r0;
+    s32 temp_r4;
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0x37C);
+    switch (temp_r4) {
+    case -1:
+        break;
+    case 0:
+        TBoss3VoloptMonitor__sub_8004292C();
+        M2C_FIELD(arg0, s32 *, 0x384) = 0x5A;
+        if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x01000000)) {
+            M2C_FIELD(arg0, s16 *, 0xB8) = 2;
+        } else {
+            M2C_FIELD(arg0, s16 *, 0xB8) = 9;
+        }
+        M2C_FIELD(arg0, s32 *, 0x37C) = 1;
+        TBoss1Dragon__sub_80143504((void *) (arg0));
+        M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFBFFFF);
+        break;
+    case 3:
+    case 2:
+    case 1:
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x2A8) == 0U) {
+            M2C_FIELD(arg0, s32 *, 0x37C) = 4;
+            return;
+        }
+        switch (temp_r4) {
+        case 1:
+            if (M2C_FIELD(arg0, f32 *, 0xC0) >= lbl_805DA45C) {
+                TObjPlayer__sub_800D9E8C((void *) (arg0));
+                TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x39C), (int) (0xF7));
+                M2C_FIELD(arg0, s32 *, 0x37C) = 2;
+            }
+            break;
+        case 2:
+            TOTrapAncient01__sub_80226578((int) (0x4003AD1E), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            if (M2C_FIELD(arg0, f32 *, 0xC0) >= lbl_805DA3FC) {
+                TObjPlayer__sub_800D9E8C((void *) (arg0));
+                u32 obj = __nw__7TObjectFUl(0x100);
+                if (obj != 0U) {
+                    TObjPlayer__sub_800DC83C(obj, arg0 + 0x39C, (void *) (M2C_FIELD(arg0, u32 *, 0x2A8) + 0x2FC), (u8) !(M2C_FIELD(arg0, s32 *, 0x30) & 0x01000000), arg0);
+                }
+                TObjPlayer__sub_800DA4B4((Obj_800DA4B4 *) (arg0), 0);
+                TBoss3Volopt__sub_8022675C((int) (0x4003A527), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+                M2C_FIELD(arg0, s32 *, 0x37C) = 3;
+            }
+            break;
+        }
+        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x29C), (void *) (M2C_FIELD(arg0, u32 *, 0x2A8) + 0x2FC));
+        TObjPlayer__sub_80018570((void *) (arg0));
+        TBoss1Dragon__sub_80143504((void *) (arg0));
+        if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x01000000)) {
+            TObjPlayer__sub_80011734((void *) (arg0), (int) (0), (f32) (lbl_805DA3F8));
+        }
+        update_collisions__10TObjPlayerFPv((void *) (arg0));
+        temp_r0 = M2C_FIELD(arg0, s32 *, 0x384) - 1;
+        M2C_FIELD(arg0, s32 *, 0x384) = temp_r0;
+        if (temp_r0 <= 0) {
+            M2C_FIELD(arg0, s32 *, 0x37C) = 4;
+        }
+        break;
+    case 4:
+        if (M2C_FIELD(arg0, s32 *, 0x30) & 0x01000000) {
+            M2C_FIELD(arg0, s32 *, 0x378) = 0;
+            update_if_active__15TObjEneMe1GiGueFPv(arg0, 0xB);
+            return;
+        }
+        update_if_active__15TObjEneMe1GiGueFPv(arg0, 0);
+        break;
+    }
+}
 
 void TObjPlayer__sub_800DB8D4(u8 *arg0) {
     set_state__15TObjEneMe1GiGueFPvi(arg0, 5);

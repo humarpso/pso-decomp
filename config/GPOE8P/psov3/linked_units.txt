@@ -1593,6 +1593,7 @@ pso/misc/TOMineTrapDisp.cpp
 pso/misc/TOMineTrap_8016ED9C.cpp
 pso/misc/TOMonumentAncient01.cpp
 pso/misc/TOMonumentAncient01_801726D4.cpp
+pso/misc/TOMonumentAncient02.cpp
 pso/misc/TORainbowCave01.cpp
 pso/misc/TORevlightCave01.cpp
 pso/misc/TORevlightCave01_80173478.cpp
@@ -3647,6 +3648,7 @@ pso/unk/text_800C2A88.cpp
 pso/unk/text_800C3088.cpp
 pso/unk/text_800C3A60.cpp
 pso/unk/text_800C3B80.cpp
+pso/unk/text_800C8CD4.cpp
 pso/unk/text_800C9318.cpp
 pso/unk/text_800D3E54.cpp
 pso/unk/text_800D7824.cpp
@@ -3892,17 +3894,20 @@ pso/unk/text_8015DAE4.cpp
 pso/unk/text_8015FC40.cpp
 pso/unk/text_80160838.cpp
 pso/unk/text_801611CC.cpp
+pso/unk/text_80165940.cpp
 pso/unk/text_80166B6C.cpp
 pso/unk/text_80168244.cpp
 pso/unk/text_801682A4.cpp
 pso/unk/text_80168AA8.cpp
 pso/unk/text_8016916C.cpp
+pso/unk/text_80169334.cpp
 pso/unk/text_80169BD0.cpp
 pso/unk/text_8016A408.cpp
 pso/unk/text_8016CF5C.cpp
 pso/unk/text_8016D8F8.cpp
 pso/unk/text_8016F1C0.cpp
 pso/unk/text_8016F1C0_8016F1C0.cpp
+pso/unk/text_80171A98.cpp
 pso/unk/text_80173874.cpp
 pso/unk/text_801739F8.cpp
 pso/unk/text_80173B7C.cpp
@@ -4029,6 +4034,7 @@ pso/unk/text_801C5454.cpp
 pso/unk/text_801C5470.cpp
 pso/unk/text_801C7430.cpp
 pso/unk/text_801C75A4.cpp
+pso/unk/text_801C7874.cpp
 pso/unk/text_801C851C.cpp
 pso/unk/text_801C88CC.cpp
 pso/unk/text_801C8A28.cpp

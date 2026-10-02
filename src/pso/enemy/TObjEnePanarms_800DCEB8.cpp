@@ -63,6 +63,8 @@ struct Vec_800DE6A8 { f32 x, y, z; };
 
 struct Vec_800DEB48 { f32 x, y, z; };
 
+struct Vec_800DE7EC { f32 x, y, z; };
+
 extern "C" {
 void obj_clearFlags30(void *, u32);
 void TObjEnePanarms__sub_800DD738(u8 *arg0);
@@ -139,7 +141,6 @@ extern const f32 TObjEnePanarms__data_805DA4A0;
 extern const f32 lbl_805DA4D8;
 void TObjEnePanarms__sub_800DDFDC(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TObjEnePanarms__sub_800DE7EC(void *);
 s32 TObjEnePanarms__sub_800DFB44(s32);
 s32 get_state_flag__14TObjEnePanarmsFPv(void *);
 s32 TObjEnePanarms__sub_800DFB74(void *);
@@ -254,6 +255,20 @@ extern const f32 TObjEnePanarms__data_805DA4A0;
 extern const f32 TObjEnePanarms__data_805DA4A4;
 extern const f32 lbl_805DA4E4;
 s32 TObjEnePanarms__sub_800DEB48(u8 *arg0, Vec_800DEB48 *arg1);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 TObjEnePanarms__sub_800DE528(void *arg0, Vec_800DE528 *arg1);
+s32 TObjEnePanarms__sub_800DE6A8(void *arg0, Vec_800DE6A8 *arg1, Vec_800DE6A8 *arg2, f32 step, f32 dy);
+s32 TObjPlayer__sub_80156844(void *, void *, int);
+f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK TNpcPlayer__sub_803D97B4(void *);
+extern const f64 TObjEnePanarms__data_8043CD20;
+extern const f32 TObjEnePanarms__data_805DA4A0;
+extern const f32 TObjEnePanarms__data_805DA4A4;
+extern const f32 lbl_805DA4AC;
+M2C_UNK TObjEnePanarms__sub_800DE7EC(void *p);
 }
 
 extern "C" {
@@ -384,7 +399,7 @@ void TObjEnePanarms__sub_800DD1B8(u8 *arg0) {
                 M2C_FIELD(arg0, s32 *, 0x388) = (s32) ((f32) M2C_FIELD(arg0, s32 *, 0x388) + lbl_805DA498);
                 return;
             }
-            TObjEnePanarms__sub_800DE7EC((void *) (arg0));
+            TObjEnePanarms__sub_800DE7EC((void *)((void *) (arg0)));
             init_state__14TObjEnePanarmsFi((void *) (M2C_FIELD(arg0, u8 **, 0x3E4)));
             init_state__14TObjEnePanarmsFi((void *) (M2C_FIELD(arg0, u8 **, 0x3E8)));
             return;
@@ -817,6 +832,55 @@ s32 TObjEnePanarms__sub_800DE6A8(void *arg0, Vec_800DE6A8 *arg1, Vec_800DE6A8 *a
     }
     return 1;
 }
+
+#pragma push
+#pragma opt_common_subs off
+struct Vec_800DE528;
+struct Vec_800DE6A8;
+#define arg0 ((u8 *)p)
+M2C_UNK TObjEnePanarms__sub_800DE7EC(void *p) {
+    Vec_800DE7EC sp14;
+    Vec_800DE7EC sp8;
+    f32 dist;
+    f32 t;
+    VecCopy__FP3VecPC3Vec(&sp14, M2C_FIELD(arg0, u8 **, 0x3E4) + 0x38);
+    TBoss4Zako__sub_803D8910(&sp14, M2C_FIELD(arg0, u8 **, 0x3E8) + 0x38);
+    sp14.x *= lbl_805DA4AC;
+    sp14.y *= lbl_805DA4AC;
+    sp14.z *= lbl_805DA4AC;
+    VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0x38);
+    TBoss6Type1__sub_803D9370(&sp8, &sp14);
+    dist = TBoss6Kakusan__sub_803D8BD8(&sp8);
+    if (dist >= TObjEnePanarms__data_805DA4A4) {
+        TNpcPlayer__sub_803D97B4(&sp8);
+        sp8.x *= TObjEnePanarms__data_805DA4A4;
+        sp8.y *= TObjEnePanarms__data_805DA4A4;
+        sp8.z *= TObjEnePanarms__data_805DA4A4;
+    }
+    t = TObjEnePanarms__data_805DA4A0;
+    while (t < dist) {
+        sp14.y += TObjEnePanarms__data_805DA4A4;
+        if (TObjPlayer__sub_80156844(arg0, &sp14, 0) != 0 &&
+            TObjEnePanarms__sub_800DE528(arg0, (Vec_800DE528 *) &sp14) != 0 &&
+            TObjEnePanarms__sub_800DE6A8(arg0, (Vec_800DE6A8 *) (M2C_FIELD(arg0, u8 **, 0x3E4) + 0x38), (Vec_800DE6A8 *) &sp14, TObjEnePanarms__data_805DA4A4, TObjEnePanarms__data_805DA4A4) != 0 &&
+            TObjEnePanarms__sub_800DE6A8(arg0, (Vec_800DE6A8 *) (M2C_FIELD(arg0, u8 **, 0x3E8) + 0x38), (Vec_800DE6A8 *) &sp14, TObjEnePanarms__data_805DA4A4, TObjEnePanarms__data_805DA4A4) != 0) {
+            u8 *a;
+            u8 *b;
+            VecCopy__FP3VecPC3Vec(arg0 + 0x38, &sp14);
+            a = M2C_FIELD(arg0, u8 **, 0x3E4);
+            b = M2C_FIELD(arg0, u8 **, 0x3E8);
+            M2C_FIELD(arg0, s32 *, 0x60) = (s32) (TObjEnePanarms__data_8043CD20 * get_ad_end_text_start__10TObjPlayerFv(
+                M2C_FIELD(b, f32 *, 0x38) - M2C_FIELD(a, f32 *, 0x38),
+                M2C_FIELD(b, f32 *, 0x40) - M2C_FIELD(a, f32 *, 0x40))) + 0x4000;
+            return 1;
+        }
+        t += TObjEnePanarms__data_805DA4A4;
+        TBoss4Zako__sub_803D8910(&sp14, &sp8);
+    }
+    return 0;
+}
+#undef arg0
+#pragma pop
 
 void TObjEnePanarms__sub_800DE9F0(Obj_800DE9F0 *arg0, s32 arg1) {
     f32 sp[3];

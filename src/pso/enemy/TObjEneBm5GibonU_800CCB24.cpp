@@ -618,6 +618,108 @@ struct Node_800CFE34 { void *obj; Node_800CFE34 *next; };
 
 struct List_800CFE34 { Node_800CFE34 *head; u8 pad[8]; };
 
+struct VBase_18_4225ac { char pad[0x18]; };
+
+struct VObj_18_4225ac : VBase_18_4225ac {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual M2C_UNK m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual void m93();
+    virtual M2C_UNK m94();
+};
+
+struct Vec_800CE370 { f32 x, y, z; };
+
 extern "C" {
 void TObjEneEpsilon__sub_800B96A4(void *);
 void fn_800B98C0(void *);
@@ -725,7 +827,6 @@ void TBoss3Volopt__sub_800D8E80(void *);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 void TObjEneBm5GibonU__sub_800D02F8(Gibon_800D02F8 *g, s32 arg1);
 void TObjEneBm5GibonU__sub_800D062C(u8 *arg0, s32 arg1);
-void TObjEneBm5GibonU__sub_800D0420(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800D02F8(Gibon_800D02F8 *g, s32 arg1);
 void TObjEneBm5GibonU__sub_800D01DC(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CFE30(u8 *arg0, s32 arg1);
@@ -739,7 +840,6 @@ void TObjEneBm5GibonU__sub_800CEBD8(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CE978(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CE694(u8 *arg0, s32 arg1);
 void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1);
-void TObjEneBm5GibonU__sub_800CE370(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CE060(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CD5B8(void *self, s32 msg);
 void TObjEneBm5GibonU__sub_800CDB98(u8 *arg0, s32 arg1);
@@ -761,6 +861,45 @@ M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
 extern List_800CFE34 TObjEneBm5GibonU__data_80500EC4;
 extern const f32 TObjEneBm5GibonU__data_805DA184;
 void TObjEneBm5GibonU__sub_800CFE34(u8 *arg0, s32 arg1);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+M2C_UNK clear_field_388__9TObjEneDDFPv(void *);
+M2C_UNK set_active__9TObjEneDDFPv(void *);
+M2C_UNK TObjEneDD__sub_800BACE0(void *, f32, f32, f32);
+M2C_UNK TBoss8Dragon__sub_800BB780(void *);
+M2C_UNK TBoss8Dragon__sub_800BB7D4(void *, int);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK TObjEneBm5GibonU__sub_800D0AE8(void *, void *);
+M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
+s32 TObjPlayer__sub_801423A4(s32, s32, s32);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
+M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
+extern const f32 TObjEneBm5GibonU__data_805DA158;
+extern const f32 lbl_805DA1B4;
+extern const f32 TObjEneBm5GibonU__data_805DA1BC;
+void TObjEneBm5GibonU__sub_800CE370(u8 *arg0, s32 arg1);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
+void fn_800B98C0(void *);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+void TObjEneBm5GibonU__sub_800CCD8C(u8 *arg0);
+s32 update_target__16TObjEneBm5GibonUFPv(void *);
+M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
+f32 TBoss8Dragon__sub_803D64C0(int);
+f32 TBoss8Dragon__sub_803D64DC(int);
+extern const f32 TObjEneBm5GibonU__data_805DA160;
+extern const f32 TObjEneBm5GibonU__data_805DA174;
+extern const f32 TObjEneBm5GibonU__data_805DA1B8;
+extern const f32 lbl_805DA1DC;
+extern const f32 lbl_805DA230;
+extern const f32 lbl_805DA234;
+void TObjEneBm5GibonU__sub_800D0420(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -918,6 +1057,65 @@ void TObjEneBm5GibonU__sub_800CD5B8(void *self, s32 msg) {
     case 3:
         queue_destruction__7TObjectFv(self);
         return;
+    }
+}
+
+void TObjEneBm5GibonU__sub_800CE370(u8 *arg0, s32 arg1) {
+    Vec_800CE370 sp8;
+    switch (arg1) {
+    case 4:
+        ((VObj_18_4225ac *)(arg0))->m94();
+        TBoss8Dragon__sub_800BB7D4(arg0, 0xF1);
+        M2C_FIELD(arg0, s32 *, 0x51C) = 0;
+        M2C_FIELD(arg0, s32 *, 0x528) = 0;
+        M2C_FIELD(arg0, s16 *, 0xB8) = 6;
+        M2C_FIELD(arg0, s32 *, 0x518) = 0;
+        if (M2C_FIELD(arg0, s16 *, 0x33E) - M2C_FIELD(arg0, s16 *, 0x32C) < 0x14) {
+            TBoss3Volopt__sub_8022675C((void *) copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3A824), arg0 + 0x38, 0, 0);
+        }
+        set_active__9TObjEneDDFPv(arg0);
+        break;
+    case 3:
+        if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
+            switch (M2C_FIELD(arg0, s32 *, 0x378)) {
+            case 12:
+                TObjEneDD__sub_800BBA18(arg0, 0xE);
+                break;
+            case 3:
+                TObjEneDD__sub_800BBA18(arg0, 8);
+                break;
+            default:
+                TObjEneDD__sub_800BBA18(arg0, M2C_FIELD(arg0, s32 *, 0x378));
+                break;
+            }
+        }
+        break;
+    case 0:
+        TBoss1Dragon__sub_80143504(arg0);
+        VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0x308);
+        {
+            f32 v = clamp_velocity__15TObjBoss2TunnelFPv(&sp8);
+            TObjEneDD__sub_800BACE0(arg0, sp8.x, sp8.z, v);
+        }
+        if (M2C_FIELD(arg0, s32 *, 0x518) == 0) {
+            M2C_FIELD(arg0, f32 *, 0x308) *= TObjEneBm5GibonU__data_805DA158;
+            M2C_FIELD(arg0, f32 *, 0x310) *= TObjEneBm5GibonU__data_805DA158;
+        } else {
+            M2C_FIELD(arg0, f32 *, 0x308) *= TObjEneBm5GibonU__data_805DA1BC;
+            M2C_FIELD(arg0, f32 *, 0x310) *= TObjEneBm5GibonU__data_805DA1BC;
+            M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x528), 0x300);
+            M2C_FIELD(arg0, s32 *, 0x60) = (s16) M2C_FIELD(arg0, s32 *, 0x60);
+            if (objInBand__FP7GameObjf(arg0, lbl_805DA1B4) != 0) {
+                TObjEneBm5GibonU__sub_800D0AE8(arg0, &sp8);
+            }
+        }
+        ((VObj_18_4225ac *)(arg0))->m87();
+        update_enemy_collision_flags__10TObjPlayerFPv(arg0);
+        break;
+    case 5:
+        TBoss8Dragon__sub_800BB780(arg0);
+        clear_field_388__9TObjEneDDFPv(arg0);
+        break;
     }
 }
 
@@ -1167,6 +1365,57 @@ void TObjEneBm5GibonU__sub_800D02F8(Gibon_800D02F8 *g, s32 arg1) {
     }
 }
 
+#pragma push
+#pragma fp_contract on
+void TObjEneBm5GibonU__sub_800D0420(u8 *arg0, s32 arg1) {
+    u8 *home = arg0 + 0x540;
+    switch (arg1) {
+    case 4:
+        M2C_FIELD(arg0, s16 *, 0xB8) = 0xF;
+        set_field_378__9TObjEneDDFPvi(arg0, 8);
+        ((VObj_18_7b3d65 *)(arg0))->m93();
+        M2C_FIELD(arg0, s32 *, 0x4AC) = (s32) (M2C_FIELD(arg0, s32 *, 0x4AC) & 0xFFFFFFFC);
+        fn_800B98C0((void *) (arg0));
+        M2C_FIELD(arg0, s32 *, 0x478) = 0;
+        VecCopy__FP3VecPC3Vec(home, (void *) (arg0 + 0x38));
+        M2C_FIELD(arg0, f32 *, 0x38) -= lbl_805DA230 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
+        M2C_FIELD(arg0, f32 *, 0x40) -= lbl_805DA230 * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
+        M2C_FIELD(arg0, f32 *, 0x530) = lbl_805DA234;
+        break;
+    case 3:
+        if (get_flag_b4__21TObjEneMe3ShinowaRealFPv() != 0) {
+            if (update_target__16TObjEneBm5GibonUFPv((void *) (arg0)) != 0) {
+                TObjEneDD__sub_800BBA18(arg0, 8);
+            } else {
+                TObjEneDD__sub_800BBA18(arg0, 3);
+            }
+        }
+        break;
+    case 5:
+        break;
+    case 0:
+        TBoss1Dragon__sub_80143504(arg0);
+        if (!(M2C_FIELD(arg0, s32 *, 0xB0) & 4)) {
+            TObjEneBm5GibonU__sub_800CCD8C(arg0);
+            if (objInBand__FP7GameObjf((void *) (arg0), TObjEneBm5GibonU__data_805DA160) != 0) {
+                TBoss3Volopt__sub_8022675C((void *) copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3A828), arg0 + 0x38, 0, 0);
+            }
+            if (objInBand__FP7GameObjf((void *) (arg0), lbl_805DA1DC) != 0) {
+                TBoss3Volopt__sub_8022675C((void *) copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3A529), arg0 + 0x38, 0, 0);
+            }
+            if (M2C_FIELD(arg0, f32 *, 0xC0) > TObjEneBm5GibonU__data_805DA174) {
+                M2C_FIELD(arg0, f32 *, 0x530) *= TObjEneBm5GibonU__data_805DA1B8;
+            }
+            M2C_FIELD(arg0, f32 *, 0x38) += M2C_FIELD(arg0, f32 *, 0x530) * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
+            M2C_FIELD(arg0, f32 *, 0x40) += M2C_FIELD(arg0, f32 *, 0x530) * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
+        }
+        ((VObj_18_7b3d65 *)(arg0))->m100();
+        ((VObj_18_7b3d65 *)(arg0))->m86();
+        break;
+    }
+}
+#pragma pop
+
 void TObjEneBm5GibonU__sub_800D062C(u8 *arg0, s32 arg1) {
   int new_var;
   switch (arg1)
@@ -1217,7 +1466,7 @@ void TObjEneBm5GibonU__sub_800D0738(u8 *arg0, u32 arg1, s32 arg2) {
         TObjEneBm5GibonU__sub_800D062C(arg0, arg2);
         break;
     case 1:
-        TObjEneBm5GibonU__sub_800D0420(arg0, arg2);
+        TObjEneBm5GibonU__sub_800D0420((u8 *)(arg0), (s32)(arg2));
         break;
     case 2:
         TObjEneBm5GibonU__sub_800D02F8((Gibon_800D02F8 *)(arg0), (s32)(arg2));
@@ -1262,7 +1511,7 @@ void TObjEneBm5GibonU__sub_800D0738(u8 *arg0, u32 arg1, s32 arg2) {
         action__16TObjEneBm5GibonUFPvi(arg0, arg2);
         break;
     case 16:
-        TObjEneBm5GibonU__sub_800CE370(arg0, arg2);
+        TObjEneBm5GibonU__sub_800CE370((u8 *)(arg0), (s32)(arg2));
         break;
     case 17:
         TObjEneBm5GibonU__sub_800CE060(arg0, arg2);

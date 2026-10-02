@@ -56,6 +56,29 @@ struct Npc_801518A4 {
 };
 struct Tgt_801518A4 { s32 a; s32 b; };
 
+typedef s32 M2C_UNK;
+struct Cand_80151708 { u32 id; s32 idx; f32 dist; };
+
+struct View_80151708 { s32 count; Cand_80151708 c[10]; };
+
+struct Pos_80151708 { u8 pad[0x38]; f32 x; f32 y; f32 z; };
+
+struct Obj_80151708 { u8 pad[0x38]; f32 pos[0x300 / 4 - 0x38 / 4]; f32 f300; };
+
+struct Owner_80151708 { u8 pad[0x94]; Obj_80151708 *obj; };
+
+struct Npc_80151708 {
+    u8 pad0[0x4C];
+    f32 f4C;
+    u8 pad50[0x5C - 0x50];
+    u8 f5C[0x78 - 0x5C];
+    Owner_80151708 *f78;
+    u8 pad7C[4];
+    u32 f80;
+    u8 pad84[0xDC - 0x84];
+    f32 dst[3];
+};
+
 extern "C" {
 s32 TNpcPlayer__sub_801528DC(void *);
 u16 get_npc_state__10TNpcPlayerFPv(void *);
@@ -69,6 +92,17 @@ void TNpcPlayer__sub_80150A34(Npc_80150A34 *self, s32 kind);
 u8 *TNpcPlayer__sub_800D87EC(int);
 Tgt_801518A4 *TNpcPlayer__sub_80152A30(void *);
 s32 TNpcPlayer__sub_801518A4(Npc_801518A4 *arg0);
+Tgt_801518A4 *TNpcPlayer__sub_80152A30(void *);
+M2C_UNK TNpcPlayer__sub_801528C8(void *, M2C_UNK);
+M2C_UNK TNpcPlayer__sub_80152900(void *, M2C_UNK, M2C_UNK);
+s32 get_condition__10TNpcPlayerFPv(s32);
+M2C_UNK TNpcPlayer__sub_8014E33C(void *, M2C_UNK);
+s32 TNpcPlayer__sub_8014F728(void *, u32);
+u8 *TNpcPlayer__sub_800D87EC(int);
+void TNpcPlayer__sub_80152A34(void *, u32, s32);
+f32 TObjPlayer__sub_80141CF8(void *, void *, int);
+extern const f32 TNpcPlayer__data_805DB1F4;
+s32 TNpcPlayer__sub_80151708(Npc_80151708 *self);
 }
 
 extern "C" {
@@ -355,6 +389,45 @@ s32 TNpcPlayer__sub_801515E0(u8 *arg0) {
     return 1;
 }
 #pragma pop
+
+s32 TNpcPlayer__sub_80151708(Npc_80151708 *self) {
+    s32 i;
+    View_80151708 *view;
+    Pos_80151708 *tgt;
+    view = (View_80151708 *)TNpcPlayer__sub_80152A30(self->f78);
+    if (view->count >= 3) {
+        self->f80 |= 0x2000;
+        TNpcPlayer__sub_801528C8(self->f5C, 6);
+        if (TNpcPlayer__sub_80152900(self->f5C, 6, 100) != 0) {
+            if (get_condition__10TNpcPlayerFPv((s32)self->f78) & 8) {
+                TNpcPlayer__sub_8014E33C(self, 1);
+            } else {
+                TNpcPlayer__sub_8014E33C(self, 0);
+            }
+        }
+    } else {
+        self->f80 &= ~0x2000;
+    }
+    if (view->count != 0) {
+        for (i = 0; i < view->count; i++) {
+            if (TNpcPlayer__sub_8014F728(self->f78, view->c[i].id) != 0) {
+                tgt = (Pos_80151708 *)TNpcPlayer__sub_800D87EC((u16)view->c[0].id);
+                TNpcPlayer__sub_80152A34(self->f78, view->c[i].id, view->c[i].idx);
+                self->dst[0] = tgt->x;
+                self->dst[1] = self->f78->obj->f300;
+                self->dst[2] = tgt->z;
+                if (((f32 (*)(void *, void *))TObjPlayer__sub_80141CF8)(self->dst, self->f78->obj->pos) < (TNpcPlayer__data_805DB1F4 + self->f4C) * (TNpcPlayer__data_805DB1F4 + self->f4C)) {
+                    self->f80 |= 0x1000;
+                }
+                self->f80 &= ~0x40;
+                return 1;
+            }
+        }
+        TNpcPlayer__sub_8014E33C(self, 8);
+        self->f80 |= 0x40;
+    }
+    return 0;
+}
 
 s32 TNpcPlayer__sub_801518A4(Npc_801518A4 *arg0) {
     Tgt_801518A4 *t;

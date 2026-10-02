@@ -21,6 +21,16 @@ struct RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270
   u8 remaining[0xAC];
 };
 
+typedef s32 M2C_UNK;
+struct RecoveredGlobal_801A5EC4_lbl_8050E208;
+struct Pad_801A5C4C {
+    u8 pad0[0x20];
+    u32 hold;
+    u8 pad24[0x50 - 0x24];
+};
+
+struct Masks_801A5C4C { u32 m[4]; };
+
 extern "C" {
 M2C_UNK check_and_read__16TKeyBoardControlFi(void *);
 void TKeyBoardControl__sub_801A5EA0(u8 arg0);
@@ -42,6 +52,16 @@ s32 DVDCheckDisk();
 extern s32 lbl_805D49B4;
 extern u8 lbl_805D5D09;
 s32 func_801A5E54__Fv(void);
+s32 check_reset_button__16TKeyBoardControlFv();
+M2C_UNK PADRecalibrate(u32);
+extern Masks_801A5C4C lbl_804469D8;
+extern const f64 lbl_804469E8[];
+extern RecoveredGlobal_801A5EC4_lbl_8050E208 lbl_8050E208;
+extern u32 lbl_8050E568[];
+extern u8 lbl_805D5D09;
+extern s8 lbl_805D5D0C[4];
+extern const f32 lbl_805DC0B4;
+void TKeyBoardControl__sub_801A5C4C(void);
 }
 
 extern "C" {
@@ -126,6 +146,44 @@ s32 TKeyBoardControl__sub_801A5B00(void) {
       var_r3 = 0;
       return var_r3;
   }
+}
+
+void TKeyBoardControl__sub_801A5C4C(void) {
+    s32 i;
+    s32 j;
+    Masks_801A5C4C masks = lbl_804469D8;
+    for (i = 0; i < 4; i++) {
+        if ((((Pad_801A5C4C *)&lbl_8050E208)[i].hold & 0x40A) == 0x40A) {
+            lbl_805D5D0C[i]++;
+            if (lbl_804469E8[0] == (f64)lbl_805D5D0C[i]) {
+                lbl_805D5D09 = 1;
+                for (j = 0; j < 4; j++) {
+                    PADRecalibrate(masks.m[j]);
+                }
+            } else if ((f64)lbl_805D5D0C[i] > lbl_804469E8[0]) {
+                lbl_805D5D0C[i] = 0x10;
+            }
+        } else {
+            lbl_805D5D0C[i] = 0;
+        }
+    }
+    for (i = 0; i < 4; i++) {
+        if ((((Pad_801A5C4C *)&lbl_8050E208)[i].hold & 0x608) == 0x608) {
+            lbl_8050E568[i]++;
+            if ((f32)lbl_8050E568[i] >= lbl_805DC0B4) {
+                lbl_8050E568[i] = 0;
+                PADRecalibrate(masks.m[i]);
+            }
+        } else {
+            lbl_8050E568[i] = 0;
+        }
+    }
+    if (check_reset_button__16TKeyBoardControlFv() != 0) {
+        lbl_805D5D09 = 1;
+        for (j = 0; j < 4; j++) {
+            PADRecalibrate(masks.m[j]);
+        }
+    }
 }
 
 s32 func_801A5E54__Fv(void) {

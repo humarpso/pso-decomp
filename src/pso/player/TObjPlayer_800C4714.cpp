@@ -283,6 +283,107 @@ typedef struct Obj_800C55E0 {
     void *f34C;
 } Obj_800C55E0;
 
+struct VBase_18_d4e8d1 { char pad[0x18]; };
+
+struct VObj_18_d4e8d1 : VBase_18_d4e8d1 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual void m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual f64 m93();
+};
+
+struct Vec_800C5900 { f32 x, y, z; };
+
 extern "C" {
 M2C_UNK enemy_wander_home(void *, int, f32, f32, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -393,6 +494,22 @@ M2C_UNK obj_setFlags30(void *, M2C_UNK);
 int clear_player_status_flag__10TObjPlayerFPviUi(void*, void*, void*);
 extern const f32 lbl_805DA03C;
 void TObjPlayer__sub_800C55E0(Obj_800C55E0 *o);
+M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
+M2C_UNK TObjPlayer__sub_80017700(void *, s32, void *, int, f32);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 obj_clearFlags30(void * a0, s32 a1);
+void TObjPlayer__sub_800C4E08(u8 *arg0);
+M2C_UNK TObjPlayer__sub_800C4E64(void *);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK TBoss1Dragon__sub_80143504();
+s32 test_elt_flag__10TObjPlayerFPvii(void *, int, int);
+M2C_UNK update_collisions__10TObjPlayerFPv(void *);
+M2C_UNK minimap_render_dot(void *, int, int, int);
+extern const f32 lbl_805DA034;
+extern const f32 lbl_805DA044;
+extern const f32 lbl_805DA054;
+void TObjPlayer__sub_800C5900(u8 *arg0);
 }
 
 extern "C" {
@@ -659,6 +776,55 @@ s32 TObjPlayer__sub_800C576C(u8 *arg0) {
 #define PSO_VCALL_VObj_18_477421_m88(_self) (((VObj_18_477421 *)(_self))->m88())
 #define PSO_VCALL_VObj_18_477421_m89(_self) (((VObj_18_477421 *)(_self))->m89())
 #define PSO_VCALL_VObj_18_477421_m90(_self) (((VObj_18_477421 *)(_self))->m90())
+
+void TObjPlayer__sub_800C5900(u8 *arg0) {
+    Vec_800C5900 sp14;
+    f32 r;
+    switch (M2C_FIELD(arg0, s16 *, 0x328)) {
+    case 0:
+        TObjPlayer__sub_80011734(arg0, 0, lbl_805DA034);
+        ((void (*)(void *))TBoss1Dragon__sub_80143504)(arg0);
+        if (objInBand__FP7GameObjf(arg0, lbl_805DA034) != 0) {
+            ((VObj_18_d4e8d1 *)(arg0))->m93();
+        }
+        if (M2C_FIELD(arg0, u32 *, 0xB4) != 0x20U) {
+            M2C_FIELD(arg0, s16 *, 0x328) = 1;
+            M2C_FIELD(arg0, s16 *, 0xB8) = 2;
+        }
+        break;
+    default:
+        if (M2C_FIELD(arg0, u32 *, 0x2A8) != 0U) {
+            if (test_elt_flag__10TObjPlayerFPvii(arg0, 0, 0x300000) != 0) {
+                if ((f32) M2C_FIELD(arg0, u32 *, 0x38C)++ < lbl_805DA054) {
+                    VecCopy__FP3VecPC3Vec(&sp14, arg0 + 0x50);
+                } else {
+                    VecCopy__FP3VecPC3Vec(&sp14, (void *) (M2C_FIELD(arg0, u32 *, 0x2A8) + 0x2FC));
+                }
+            } else {
+                M2C_FIELD(arg0, u32 *, 0x38C) = 0U;
+                VecCopy__FP3VecPC3Vec(&sp14, (void *) (M2C_FIELD(arg0, u32 *, 0x2A8) + 0x2FC));
+            }
+            TObjPlayer__sub_800C4E64(arg0);
+            TObjPlayer__sub_800C4E08(arg0);
+            ((void (*)(void *))TBoss1Dragon__sub_80143504)(arg0);
+            {
+                Vec_800C5900 sp8 = sp14;
+                TObjPlayer__sub_80017700(arg0, M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8), &sp8, 0, M2C_FIELD(arg0, f32 *, 0x394));
+            }
+            if (M2C_FIELD(arg0, u16 *, 0x338) == 0xFFFF) {
+                if (TObjPlayer__sub_80141CF8(arg0 + 0x29C, arg0 + 0x38) < (r = M2C_FIELD(arg0, f32 *, 0x394) + M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC)) * r ||
+                    lbl_805DA044 < (f32) M2C_FIELD(arg0, s32 *, 0x2AC)++) {
+                    M2C_FIELD(arg0, u32 *, 0x2A8) = 0U;
+                    M2C_FIELD(arg0, s32 *, 0x2AC) = 0;
+                }
+            }
+        }
+        break;
+    }
+    update_collisions__10TObjPlayerFPv(arg0);
+    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
+    obj_clearFlags30(arg0, 0x200000);
+}
 
 void beast_idle_update(u8 *arg0) {
     f32 distance;

@@ -92,6 +92,55 @@ struct Vec_8018085C { f32 x, y, z; };
 
 struct Out_8018085C { f32 x, y; };
 
+typedef s32 M2C_UNK;
+struct Vec_801803C0 { f32 x, y, z; };
+
+struct IVec_801803C0 { s32 x, y, z; };
+
+struct Chip_801803C0 {
+    Vec_801803C0 pos;
+    Vec_801803C0 vel;
+    IVec_801803C0 rot;
+    IVec_801803C0 angvel;
+    f32 alpha;
+    s32 life;
+};
+
+struct Task_801803C0 {
+    u8 pad0[0x30];
+    Vec_801803C0 origin;
+    Vec_801803C0 vel;
+    IVec_801803C0 angvel;
+    s32 count;
+    s32 life;
+    u8 pad5c[0x70 - 0x5C];
+    Chip_801803C0 chips[8];
+};
+
+struct Vec_80180614 { f32 x, y, z; };
+
+struct IVec_80180614 { s32 x, y, z; };
+
+struct Chip_80180614 {
+    Vec_80180614 pos;
+    Vec_80180614 vel;
+    IVec_80180614 rot;
+    IVec_80180614 angvel;
+    f32 alpha;
+    s32 life;
+};
+
+struct Task_80180614 {
+    u8 pad0[0x30];
+    Vec_80180614 origin;
+    Vec_80180614 vel;
+    IVec_80180614 angvel;
+    s32 count;
+    s32 life;
+    u8 pad5c[0x70 - 0x5C];
+    Chip_80180614 chips[8];
+};
+
 extern "C" {
 M2C_UNK set_global_param__8TObjFishFi(int);
 void TObjChip__sub_80180134(u8 *arg0);
@@ -136,6 +185,18 @@ void TCameraCtrl__sub_803D8934(int, Vec_8018085C *, Vec_8018085C *);
 void TParticleCtrl__sub_803D8D1C(int, Vec_8018085C *, Out_8018085C *, Vec_8018085C *);
 extern Vec_8018085C lbl_804FF610;
 s32 TObjChip__vt8(s32 arg0, Vec_8018085C *arg1, f32 farg0, f32 farg1);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+int rand(void);
+extern const f32 TObjChip__data_805DBB84;
+extern const f32 lbl_805DBB88;
+extern const f32 lbl_805DBB8C;
+s32 TObjChip__sub_801803C0(u8 *arg0, u8 *arg1);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+int rand(void);
+extern const f32 TObjChip__data_805DBB84;
+extern const f32 lbl_805DBB88;
+extern const f32 lbl_805DBB8C;
+s32 TObjChip__sub_80180614(u8 *arg0);
 }
 
 extern "C" {
@@ -162,6 +223,67 @@ void TObjChip__sub_80180134(u8 *arg0) {
     }
     ((VObj_18 *)(arg0))->m11();
 }
+
+#pragma push
+#pragma fp_contract on
+s32 TObjChip__sub_801803C0(u8 *arg0, u8 *arg1) {
+    IVec_801803C0 *r = (IVec_801803C0 *)arg1;
+    Task_801803C0 *t = (Task_801803C0 *)arg0;
+    Chip_801803C0 *c;
+    s32 i;
+    f32 v;
+    if (t->count > 8) {
+        return 0;
+    }
+    c = t->chips;
+    for (i = 0; i < t->count; i++, c++) {
+        VecCopy__FP3VecPC3Vec(&c->pos, &t->origin);
+        v = t->vel.x;
+        c->vel.x = v * (lbl_805DBB88 * (f32)rand()) - TObjChip__data_805DBB84 * v;
+        c->vel.y = t->vel.y * (lbl_805DBB88 * (f32)rand());
+        v = t->vel.z;
+        c->vel.z = v * (lbl_805DBB88 * (f32)rand()) - TObjChip__data_805DBB84 * v;
+        c->rot.x = r->x;
+        c->rot.y = r->y;
+        c->rot.z = r->z;
+        c->angvel.x = (s32)((f32)t->angvel.x * (lbl_805DBB88 * (f32)rand()));
+        c->angvel.y = (s32)((f32)t->angvel.y * (lbl_805DBB88 * (f32)rand()));
+        c->angvel.z = (s32)((f32)t->angvel.z * (lbl_805DBB88 * (f32)rand()));
+        c->alpha = lbl_805DBB8C;
+        c->life = t->life;
+    }
+    return 1;
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+s32 TObjChip__sub_80180614(u8 *arg0) {
+    Task_80180614 *t = (Task_80180614 *)arg0;
+    Chip_80180614 *c;
+    s32 i;
+    f32 v;
+    if (t->count > 8) {
+        return 0;
+    }
+    c = t->chips;
+    for (i = 0; i < t->count; i++, c++) {
+        VecCopy__FP3VecPC3Vec(&c->pos, &t->origin);
+        v = t->vel.x;
+        c->vel.x = v * (lbl_805DBB88 * (f32)rand()) - TObjChip__data_805DBB84 * v;
+        c->vel.y = t->vel.y * (lbl_805DBB88 * (f32)rand());
+        v = t->vel.z;
+        c->vel.z = v * (lbl_805DBB88 * (f32)rand()) - TObjChip__data_805DBB84 * v;
+        c->rot.z = c->rot.y = c->rot.x = 0;
+        c->angvel.x = (s32)((f32)t->angvel.x * (lbl_805DBB88 * (f32)rand()));
+        c->angvel.y = (s32)((f32)t->angvel.y * (lbl_805DBB88 * (f32)rand()));
+        c->angvel.z = (s32)((f32)t->angvel.z * (lbl_805DBB88 * (f32)rand()));
+        c->alpha = lbl_805DBB8C;
+        c->life = t->life;
+    }
+    return 1;
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on

@@ -37,6 +37,15 @@ struct RecoveredGlobal_80163158___vt__15TODoorMachine01 {
     u8 remaining[0x50];
 };
 
+typedef struct Door_80162A70 {
+    u8 pad0[0xC8];
+    s32 fC8;
+    s32 fCC;
+    u32 fD0;
+    s32 fD4;
+    s32 fD8;
+} Door_80162A70;
+
 extern "C" {
 M2C_UNK set_indexed_flags(void *, int, int);
 s32 TODragonfly__sub_80158360(f32);
@@ -57,6 +66,9 @@ extern u32 lbl_805D5970;
 extern const f32 lbl_805DB4FC;
 extern const f32 lbl_805DB508;
 u8 *TODoorMachine01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+void fn_8015D5D4(void *);
+u8 TODoorAncient08__sub_80229220(u16);
+void TODoorMachine01__vt12(Door_80162A70 *self);
 }
 
 extern "C" {
@@ -108,6 +120,71 @@ void TODoorMachine01__vt13(u8 *arg0) {
         if (M2C_FIELD(arg0, f32 *, 0xE0) <= lbl_805DB500) {
             M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 0x100000);
         }
+    }
+}
+
+void TODoorMachine01__vt12(Door_80162A70 *self) {
+    s32 i;
+    s32 j;
+    s32 k;
+    switch (self->fCC) {
+    case 1:
+        fn_8015D5D4(self);
+        self->fD0 |= 0xF0001;
+        self->fD4 = 4;
+        break;
+    case 2:
+        self->fD0 &= ~0xF0000;
+        if (self->fD8 == 1) {
+            if (TODoorAncient08__sub_80229220(self->fC8) == 1) {
+                self->fD4 = 4;
+                self->fD0 |= 0xF0000;
+            } else {
+                self->fD4 = 0;
+            }
+        } else {
+            self->fD4 = 4 - self->fD8;
+            for (i = 0; i < self->fD8; i++) {
+                if (TODoorAncient08__sub_80229220(self->fC8 + i) == 1) {
+                    self->fD4++;
+                }
+            }
+            for (j = 0; j < self->fD4; j++) {
+                self->fD0 |= 1 << (j + 16);
+            }
+        }
+        if (self->fD4 == 4) {
+            fn_8015D5D4(self);
+            self->fD0 |= 1;
+        } else {
+            self->fD0 &= ~1;
+        }
+        break;
+    case 3:
+        if (self->fD8 == 1) {
+            if (TODoorAncient08__sub_80229220(self->fC8) == 1) {
+                self->fD4 = 4;
+                self->fD0 |= 0xF0000;
+            } else {
+                self->fD4 = 0;
+            }
+        } else {
+            self->fD4 = 4 - self->fD8;
+            for (k = 0; k < self->fD8; k++) {
+                if (TODoorAncient08__sub_80229220(self->fC8 + k) == 1) {
+                    self->fD4++;
+                    self->fD0 |= 1 << (k + 16);
+                }
+            }
+        }
+        if (self->fD4 == 4) {
+            fn_8015D5D4(self);
+            self->fD0 |= 1;
+        }
+        break;
+    default:
+        self->fD0 &= ~0xF0001;
+        break;
     }
 }
 

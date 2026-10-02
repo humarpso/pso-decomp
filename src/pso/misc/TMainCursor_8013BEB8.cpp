@@ -4,9 +4,30 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef struct Vec_8013BF0C { f32 x, y, z; } Vec_8013BF0C;
+
+typedef struct Vec_8013C0A0 { f32 x, y, z; } Vec_8013C0A0;
+
 extern "C" {
 u8 * TObjButterflyLobby__sub_8007A5D8(s32, s32, s32);
 void TMainCursor__sub_8013C260(M2C_UNK arg0, s32 arg1, s32 arg2);
+void update_scale__15TObjBoss2TunnelFPv(void *);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 TObjPlayer__sub_803D89C0(void *, void *);
+extern const f32 TMainCursor__data_805DB0C0;
+extern const f32 TMainCursor__data_805DB0CC;
+extern const f32 lbl_805DB0E0;
+s32 TMainCursor__sub_8013BF0C(Vec_8013BF0C *p, Vec_8013BF0C *q, s32 yaw, f32 range, f32 dist);
+void update_scale__15TObjBoss2TunnelFPv(void *);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 TObjPlayer__sub_803D89C0(void *, void *);
+extern const f32 TMainCursor__data_805DB0C0;
+extern const f32 TMainCursor__data_805DB0CC;
+extern const f32 lbl_805DB0E0;
+extern Vec_8013C0A0 lbl_8050BEE0;
+s32 TMainCursor__sub_8013C0A0(Vec_8013C0A0 *p, Vec_8013C0A0 *q, Vec_8013C0A0 *r, s32 yaw, f32 range, f32 dist);
 }
 
 extern "C" {
@@ -43,6 +64,90 @@ s32 try_move__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
 }
 
 extern const f32 TMainCursor__data_805DB0C0;
+
+#pragma push
+#pragma fp_contract on
+s32 TMainCursor__sub_8013BF0C(Vec_8013BF0C *p, Vec_8013BF0C *q, s32 yaw, f32 range, f32 dist) {
+    Vec_8013BF0C a;
+    Vec_8013BF0C b;
+    f32 x;
+    f32 y;
+    f32 z;
+    if (lbl_805DB0E0 < range && range < TMainCursor__data_805DB0CC) {
+        if (TMainCursor__data_805DB0C0 == dist) {
+            a.x = q->x - p->x;
+            a.y = TMainCursor__data_805DB0C0;
+            a.z = q->z - p->z;
+            b.x = a.x;
+            b.y = q->y - p->y;
+            b.z = a.z;
+            update_scale__15TObjBoss2TunnelFPv(&a);
+            update_scale__15TObjBoss2TunnelFPv(&b);
+            if (TObjPlayer__sub_803D89C0(&a, &b) < range) {
+                return 0;
+            }
+        } else {
+            x = dist * TBoss8Dragon__sub_803D64C0(yaw + 0x8000) + p->x;
+            y = p->y;
+            z = dist * TBoss8Dragon__sub_803D64DC(yaw + 0x8000) + p->z;
+            a.x = q->x - x;
+            a.y = TMainCursor__data_805DB0C0;
+            a.z = q->z - z;
+            b.x = a.x;
+            b.y = q->y - y;
+            b.z = a.z;
+            update_scale__15TObjBoss2TunnelFPv(&a);
+            update_scale__15TObjBoss2TunnelFPv(&b);
+            if (TObjPlayer__sub_803D89C0(&a, &b) < range) {
+                return 0;
+            }
+        }
+    }
+    return 1;
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+s32 TMainCursor__sub_8013C0A0(Vec_8013C0A0 *p, Vec_8013C0A0 *q, Vec_8013C0A0 *r, s32 yaw, f32 range, f32 dist) {
+    Vec_8013C0A0 a;
+    Vec_8013C0A0 b;
+    f32 x;
+    f32 z;
+    if (lbl_805DB0E0 < range && range < TMainCursor__data_805DB0CC) {
+        a.x = TBoss8Dragon__sub_803D64C0(yaw);
+        a.y = TMainCursor__data_805DB0C0;
+        a.z = TBoss8Dragon__sub_803D64DC(yaw);
+        if (TMainCursor__data_805DB0C0 == dist) {
+            b.x = q->x - p->x;
+            b.y = TMainCursor__data_805DB0C0;
+            b.z = q->z - p->z;
+            update_scale__15TObjBoss2TunnelFPv(&b);
+            if (TObjPlayer__sub_803D89C0(&a, &b) < range) {
+                return 0;
+            }
+        } else {
+            x = dist * TBoss8Dragon__sub_803D64C0(yaw + 0x8000) + p->x;
+            z = dist * TBoss8Dragon__sub_803D64DC(yaw + 0x8000) + p->z;
+            b.x = q->x - x;
+            b.y = TMainCursor__data_805DB0C0;
+            b.z = q->z - z;
+            update_scale__15TObjBoss2TunnelFPv(&b);
+            if (TObjPlayer__sub_803D89C0(&a, &b) < range) {
+                return 0;
+            }
+            lbl_8050BEE0.x = q->x - r->x;
+            lbl_8050BEE0.y = TMainCursor__data_805DB0C0;
+            lbl_8050BEE0.z = q->z - r->z;
+            update_scale__15TObjBoss2TunnelFPv(&lbl_8050BEE0);
+            if (TObjPlayer__sub_803D89C0(&a, &lbl_8050BEE0) < TMainCursor__data_805DB0C0) {
+                return 0;
+            }
+        }
+    }
+    return 1;
+}
+#pragma pop
 
 void TMainCursor__sub_8013C260(M2C_UNK arg0, s32 arg1, s32 arg2) {
     TObjButterflyLobby__sub_8007A5D8(arg2, arg1, 0x28A0);

@@ -2614,6 +2614,7 @@ pso/enemy/TObjEneRe2Flower_800C3E14.cpp:
 
 pso/player/TObjPlayer_800C4714.cpp:
 	.text       start:0x800C4714 end:0x800C69E8
+	.rodata     start:0x8043BC78 end:0x8043BC88
 	.data       start:0x804935EC end:0x80493614
 
 pso/unk/text_800C69E8.cpp:
@@ -2913,6 +2914,7 @@ pso/object/TObjGyaranzoMissile.cpp:
 
 pso/enemy/TObjEneMerillLia.cpp:
 	.text       start:0x800D4D70 end:0x800D72A4
+	.rodata     start:0x8043C6E0 end:0x8043C6F8
 	.data       start:0x804948C4 end:0x80494934
 
 pso/enemy/TObjEneMe3SinowZoa_800D72A4.cpp:
@@ -7065,6 +7067,7 @@ pso/system/TODummyKeyCave01Sound.cpp:
 
 pso/unk/text_80165940.cpp:
 	.text       start:0x80165940 end:0x80165B50
+	.data       start:0x804B19B0 end:0x804B1A40
 
 pso/misc/TODummyKeyCave01.cpp:
 	.text       start:0x80165B50 end:0x80165F84
@@ -7245,6 +7248,7 @@ pso/misc/TOMineIcon03.cpp:
 
 pso/unk/text_80171A98.cpp:
 	.text       start:0x80171A98 end:0x80171C78
+	.rodata     start:0x80442248 end:0x80442250
 
 pso/misc/TOMineIcon04.cpp:
 	.text       start:0x80171C78 end:0x8017205C
@@ -7253,6 +7257,7 @@ pso/misc/TOMineIcon04.cpp:
 
 pso/misc/TOMonitorMachine01.cpp:
 	.text       start:0x8017205C end:0x8017262C
+	.sdata2     start:0x805DB8F8 end:0x805DB8FC
 
 pso/misc/TOMonumentAncient01.cpp:
 	.text       start:0x8017262C end:0x801726D4
@@ -7262,6 +7267,7 @@ pso/misc/TOMonumentAncient01_801726D4.cpp:
 
 pso/misc/TOMonumentAncient02.cpp:
 	.text       start:0x80172A34 end:0x80173014
+	.rodata     start:0x804423E0 end:0x804423E8
 
 pso/misc/TORainbowCave01_80173014.cpp:
 	.text       start:0x80173014 end:0x80173478
@@ -7618,6 +7624,7 @@ pso/object/TObjCamera_8017F80C.cpp:
 
 pso/object/TObjChip.cpp:
 	.text       start:0x8017FE58 end:0x80180E70
+	.rodata     start:0x80443B10 end:0x80443B18
 	.sdata2     start:0x805DBB7C end:0x805DBB94
 
 pso/unk/text_80180E70.cpp:
@@ -8123,6 +8130,7 @@ pso/unk/text_80198960.cpp:
 
 pso/unk/text_80198A2C.cpp:
 	.text       start:0x80198A2C end:0x80198C84
+	.rodata     start:0x80446080 end:0x80446088
 
 pso/misc/TWindowTimer_80198C84.cpp:
 	.text       start:0x80198C84 end:0x80198E84
@@ -8393,6 +8401,7 @@ pso/misc/TKeyBoardControl_801A57C4.cpp:
 
 pso/player/TObjPlayer_801A5AEC.cpp:
 	.text       start:0x801A5AEC end:0x801A6510
+	.rodata     start:0x804469F0 end:0x80446A00
 	.data       start:0x804C237C end:0x804C2438
 
 pso/misc/TKeyBoardControl_801A6510.cpp:
@@ -8750,6 +8759,7 @@ pso/player/TObjPlayer_801B3540.cpp:
 
 pso/misc/TChallenge4PResult_801B3B90.cpp:
 	.text       start:0x801B3B90 end:0x801B3FD8
+	.data       start:0x804C3DEC end:0x804C3E08
 
 pso/player/TObjPlayer_801B3FD8_801B3FD8.cpp:
 	.text       start:0x801B3FD8 end:0x801B4264
@@ -9706,6 +9716,7 @@ pso/player/TObjPlayer_801CE134.cpp:
 pso/unk/text_801CE19C.cpp:
 	.text       start:0x801CE19C end:0x801CEBBC
 	.data       start:0x804C4284 end:0x804C42A8
+	.sdata2     start:0x805DC360 end:0x805DC370
 
 pso/player/TObjPlayer_801CEBBC.cpp:
 	.text       start:0x801CEBBC end:0x801CEC1C

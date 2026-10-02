@@ -102,6 +102,100 @@ struct VObj_801B2AE8 : VBase_801B2AE8 {
     virtual void m50(Pair_801B2AE8);
 };
 
+struct Pair_801B2AE8;
+struct Item_801B2014 { s32 id; f32 val; };
+
+struct Item_801B21AC { s32 id; f32 val; };
+
+struct VBase_801B21AC { char pad[0x18]; };
+
+struct VObj_801B21AC : VBase_801B21AC {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76(Item_801B21AC);
+};
+
+struct Player_801B21AC {
+    u8 pad0[0x30];
+    u32 flags;
+    u8 pad34[0x3CC - 0x34];
+    u32 prev;
+};
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 s32 obj_isState2_324();
@@ -157,6 +251,13 @@ s32 validate_6x24_teleport_player(Pkt_801B1EE0 *);
 void TObjPlayer__sub_801BE6E4(void);
 void handle_6x24_teleport_player(s32 arg0);
 void TObjPlayer__sub_801B2AE8(u32 arg0, Pair_801B2AE8 *msg);
+s32 obj_testFlags30(s32, M2C_UNK);
+void TObjPlayer__sub_801B2AE8(u32 arg0, Pair_801B2AE8 *msg);
+extern const f32 TObjPlayer__data_805DC278;
+void TObjPlayer__sub_801B2014(s32 arg0);
+M2C_UNK send_code_13_3__10TObjPlayerFii(void *, Item_801B21AC);
+extern const f32 TObjPlayer__data_805DC278;
+void TObjPlayer__sub_801B21AC(s32 *arg0);
 }
 
 extern "C" {
@@ -317,6 +418,88 @@ void TObjPlayer__sub_801B1FA4(u16 slot, void *pos, s32 heading) {
         pkt.heading = heading;
         VecCopy__FP3VecPC3Vec((s32) &pkt.pos, (s32) pos);
         send_lobby_update__10TObjPlayerFPv(&pkt);
+    }
+}
+
+void TObjPlayer__sub_801B2014(s32 arg0) {
+    Item_801B2014 item;
+    item.val = TObjPlayer__data_805DC278;
+    if (obj_testFlags30(arg0, 1) != 0) {
+        item.id = 0xF;
+        ((void (*)(s32, Item_801B2014))TObjPlayer__sub_801B2AE8)(arg0, item);
+    }
+    if (obj_testFlags30(arg0, 2) != 0) {
+        item.id = 0x10;
+        ((void (*)(s32, Item_801B2014))TObjPlayer__sub_801B2AE8)(arg0, item);
+    }
+    if (obj_testFlags30(arg0, 0x40) != 0) {
+        item.id = 7;
+        ((void (*)(s32, Item_801B2014))TObjPlayer__sub_801B2AE8)(arg0, item);
+    }
+    if (obj_testFlags30(arg0, 8) != 0) {
+        item.id = 0x11;
+        ((void (*)(s32, Item_801B2014))TObjPlayer__sub_801B2AE8)(arg0, item);
+    }
+    if (obj_testFlags30(arg0, 0x10) != 0) {
+        item.id = 0x12;
+        ((void (*)(s32, Item_801B2014))TObjPlayer__sub_801B2AE8)(arg0, item);
+    }
+    if (obj_testFlags30(arg0, 0x20) != 0) {
+        item.id = 2;
+        ((void (*)(s32, Item_801B2014))TObjPlayer__sub_801B2AE8)(arg0, item);
+    }
+    if (obj_testFlags30(arg0, 4) != 0) {
+        item.id = 3;
+        ((void (*)(s32, Item_801B2014))TObjPlayer__sub_801B2AE8)(arg0, item);
+    }
+}
+
+void TObjPlayer__sub_801B21AC(s32 *arg0) {
+    Player_801B21AC *self = (Player_801B21AC *)arg0;
+    Item_801B21AC item;
+    u32 diff;
+    item.val = TObjPlayer__data_805DC278;
+    diff = (self->prev ^ self->flags) & 0x3F;
+    if (diff != 0) {
+        if (diff & 3) {
+            if (self->flags & 3) {
+                if (self->flags & 1) {
+                    item.id = 0xF;
+                }
+                if (self->flags & 2) {
+                    item.id = 0x10;
+                }
+                ((VObj_801B21AC *)arg0)->m76(item);
+            } else {
+                item.id = 0;
+                send_code_13_3__10TObjPlayerFii(arg0, item);
+            }
+        }
+        if (diff & 0x3C) {
+            if (self->flags & 0x3C) {
+                if (self->flags & 8) {
+                    item.id = 0x11;
+                }
+                if (self->flags & 0x10) {
+                    item.id = 0x12;
+                }
+                if (self->flags & 0x20) {
+                    item.id = 2;
+                }
+                if (self->flags & 4) {
+                    item.id = 3;
+                }
+                ((VObj_801B21AC *)arg0)->m76(item);
+            } else {
+                item.id = 1;
+                send_code_13_3__10TObjPlayerFii(arg0, item);
+            }
+        }
+        if (diff & 0x40) {
+            item.id = 7;
+            ((VObj_801B21AC *)arg0)->m76(item);
+        }
+        self->prev = self->flags;
     }
 }
 

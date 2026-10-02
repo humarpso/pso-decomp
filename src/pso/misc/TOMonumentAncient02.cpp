@@ -25,6 +25,46 @@ struct RecoveredGlobal_80172EA0___vt__19TOMonumentAncient02 {
     u8 remaining[0x38];
 };
 
+struct Node_80172AE0 { u8 pad0[4]; s32 f4; f32 x; f32 y; f32 z; u8 pad14[0x2C - 0x14]; Node_80172AE0 *child; };
+
+struct Model_80172AE0 { u8 pad0[4]; s32 f4; u8 mtx[0x2C - 8]; Node_80172AE0 *child; };
+
+struct VBase_80172AE0 { char pad[0x18]; };
+
+struct VObj_80172AE0 : VBase_80172AE0 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+struct Mon_80172AE0 : VObj_80172AE0 {
+    u8 pad1C[0x24 - 0x1C];
+    s32 f24;
+    u8 pad28[0x34 - 0x28];
+    Model_80172AE0 *model;
+    u8 pos38[0x60 - 0x38];
+    s32 f60;
+    u8 pad64[0x68 - 0x64];
+    f32 f68;
+    f32 f6C;
+    f32 f70;
+    u8 pad74[0xC0 - 0x74];
+    f32 fC0;
+    f32 fC4;
+    s32 fC8;
+    s32 fCC;
+    u8 padD0[0xD8 - 0xD0];
+    f32 fD8;
+    u8 padDC[0xEC - 0xDC];
+    s32 fEC;
+};
+
 extern "C" {
 s32 TBoss4Type2__sub_800874F4(s32, s32);
 u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
@@ -50,6 +90,26 @@ s32 get_global_state__14TOKeyMachine01Fv(void);
 extern u8 lbl_804B3960[];
 extern u32 TOMonumentAncient02__data_805D5A68;
 void TOMonumentAncient02__sub_80172D50(void);
+s32 rand(void);
+int rotate_matrix_y(int, int);
+int TObjPlayer__sub_803D9B2C();
+int TObjPlayer__sub_803D9B78();
+int TOHangerMachine01__sub_803D9C00(void *);
+int set_global_param__8TObjFishFi(int);
+int TOSignCave03__sub_803DB510(int);
+void TObjPlayer__sub_803D9624(s32, f32, f32, f32);
+int begin_effect_render__13TParticleCtrlFv();
+int end_effect_render__13TParticleCtrlFv();
+void set_chunk_material_color(void *);
+extern s32 lbl_805D5660;
+extern s32 some_id_805c6f74;
+extern u8 lbl_804A7418[];
+extern const f32 lbl_805DB920;
+extern const f32 lbl_805DB924;
+extern const f32 lbl_805DB928;
+extern const f32 lbl_805DB92C;
+extern const f32 lbl_805DB930;
+void render__19TOMonumentAncient02Fv(Mon_80172AE0 *self);
 }
 
 extern "C" {
@@ -97,6 +157,58 @@ void run_task__19TOMonumentAncient02Fv(u8 *arg0) {
 }
 
 extern void *tl_05;
+
+#pragma push
+#pragma fp_contract on
+#pragma opt_common_subs off
+void render__19TOMonumentAncient02Fv(Mon_80172AE0 *self) {
+    Model_80172AE0 *m;
+    Node_80172AE0 *n;
+    self->fEC = self->m8(self->fC0, self->fC4);
+    if (self->fEC == 1) {
+        TObjPlayer__sub_803D9B2C();
+        if (self->fC8 == 1) {
+            self->f68 = lbl_805DB920 * (lbl_805DB924 * (f32)rand()) - lbl_805DB928;
+            self->f70 = lbl_805DB920 * (lbl_805DB924 * (f32)rand()) - lbl_805DB928;
+            TOHangerMachine01__sub_803D9C00(&self->f68);
+        }
+        TOHangerMachine01__sub_803D9C00(self->pos38);
+        rotate_matrix_y(0, self->f60);
+        set_global_param__8TObjFishFi(self->f24);
+        m = self->model;
+        TOHangerMachine01__sub_803D9C00(m->mtx);
+        TOSignCave03__sub_803DB510(m->f4);
+        if (self->fC8 == 1) {
+            if (self->fCC != 0) {
+                self->fD8 += lbl_805DB928;
+                if (lbl_805DB92C <= self->fD8) {
+                    self->fD8 = lbl_805DB92C;
+                    self->fCC = 0;
+                }
+            } else {
+                self->fD8 -= lbl_805DB928;
+                if (self->fD8 <= lbl_805DB930) {
+                    self->fD8 = lbl_805DB930;
+                    self->fCC = 1;
+                }
+            }
+            n = m->child;
+            TObjPlayer__sub_803D9B2C();
+            TObjPlayer__sub_803D9624(0, n->x, n->y, n->z);
+            begin_effect_render__13TParticleCtrlFv();
+            lbl_805D5660 = some_id_805c6f74;
+            some_id_805c6f74 = some_id_805c6f74 | 0x20;
+            set_chunk_material_color(&self->fD8);
+            TOSignCave03__sub_803DB510(n->f4);
+            set_chunk_material_color(lbl_804A7418);
+            some_id_805c6f74 = lbl_805D5660;
+            end_effect_render__13TParticleCtrlFv();
+            TObjPlayer__sub_803D9B78();
+        }
+        TObjPlayer__sub_803D9B78();
+    }
+}
+#pragma pop
 
 void *create__19TOMonumentAncient02FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF0);
