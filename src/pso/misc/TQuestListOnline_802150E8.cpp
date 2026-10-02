@@ -115,7 +115,7 @@ extern G_802156E0 *lbl_805D61C0;
 u8 TLobby__sub_802156E0(s8 x);
 extern G_802156E0 *lbl_805D61C0;
 u8 TLobby__sub_802156A0(s8 x);
-s32 TItemData__sub_8010DF68(Item_8021587C *);
+s32 is_rare_item__9TItemDataFPv(Item_8021587C *);
 u8 get_entry_field16__9TItemDataFv(Item_8021587C *);
 s32 pop_byte__6TLobbyFPv(void *);
 void TLobby__sub_8020EEFC(void *, s32);
@@ -452,7 +452,7 @@ void TLobby__sub_8021587C(Item_8021587C *item) {
     s32 n;
     s32 c;
     s32 r;
-    if (TItemData__sub_8010DF68(item) == 0) {
+    if (is_rare_item__9TItemDataFPv(item) == 0) {
         reset_counter_64__6TLobbyFPv(buf);
         Tbl_8021587C *t = (*(G_8021587C **)&lbl_805D61C0)->t;
         n = t->count;

@@ -10,7 +10,7 @@ s32 __nw__7TObjectFUl(int);
 s32 TLobby__sub_80269DA4(void *, int);
 s32 TWindowMessageQuest__ct(int, void *);
 s32 fn_8026B0C4(s32 arg0, s32 arg1);
-int fn_80269A0C(void *w, int text, int flags, int color);
+int append_message_window_line(void *w, int text, int flags, int color);
 int send_and_handle__6TLobbyFPvii(void *w, int text, int flags);
 int fn_8026B074(void *w, int text, int flags);
 }
@@ -24,7 +24,7 @@ void set_field_90__6TLobbyFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x90) = v; }
 int fn_8026B074(void *w, int text, int flags) {
     switch (*(s32 *)((u8 *)w + 0x90)) {
     case 0:
-        return fn_80269A0C(w, text, flags, 0xFF000000);
+        return append_message_window_line(w, text, flags, 0xFF000000);
     case 1:
     case 2:
         return send_and_handle__6TLobbyFPvii(w, text, flags);

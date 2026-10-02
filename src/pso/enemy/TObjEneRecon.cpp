@@ -513,7 +513,7 @@ void spawn_trap_a__12TObjEneReconFi(s32 arg0);
 void spawn_trap_b__12TObjEneReconFi(s32 arg0);
 u16 TObjEneRecon__sub_8031D878(void *arg0);
 void TObjEneRecon__vt102(void *arg0, f32 farg0);
-M2C_UNK TOTrapAncient01__sub_80226578(s32, s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK play_persistent_sound(s32, s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK spawn_part__14TObjEneEpsilonFi(void *, f32);
 M2C_UNK select_and_apply_target__14TObjEneEpsilonFPvf(void *, f32);
 M2C_UNK TObjEneRecobox__sub_8032013C(M2C_UNK);
@@ -527,11 +527,11 @@ void TObjEneRecon__vt102(void *arg0, f32 farg0) {
 }
 
 void spawn_trap_a__12TObjEneReconFi(s32 arg0) {
-    TOTrapAncient01__sub_80226578((s32)(TObjEneRecobox__sub_8032013C(0x4003AD07)), (s32)(arg0), (s32)(arg0 + 0x38), (M2C_UNK)(0), (M2C_UNK)(0));
+    play_persistent_sound((s32)(TObjEneRecobox__sub_8032013C(0x4003AD07)), (s32)(arg0), (s32)(arg0 + 0x38), (M2C_UNK)(0), (M2C_UNK)(0));
 }
 
 void spawn_trap_b__12TObjEneReconFi(s32 arg0) {
-    TOTrapAncient01__sub_80226578((s32)(TObjEneRecobox__sub_8032013C(0x4003B206)), (s32)(arg0), (s32)(arg0 + 0x38), (M2C_UNK)(0), (M2C_UNK)(0));
+    play_persistent_sound((s32)(TObjEneRecobox__sub_8032013C(0x4003B206)), (s32)(arg0), (s32)(arg0 + 0x38), (M2C_UNK)(0), (M2C_UNK)(0));
 }
 
 u16 TObjEneRecon__sub_8031D878(void *arg0) {

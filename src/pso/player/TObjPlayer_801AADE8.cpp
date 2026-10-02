@@ -30,7 +30,7 @@ extern u8 *lbl_805D5D28;
 extern u32 lbl_805D5D30;
 void TObjPlayer__sub_801AAE20(void);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 TObjPlayer__sub_800F5BC0(void *, s16, int);
+s32 scroll_strip_uvs(void *, s16, int);
 s32 draw__16TObjEneRe7BeruraFPv(void *);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_801A7638(void *);
@@ -110,7 +110,7 @@ void update_all_slots__10TObjPlayerFPv(void *arg0) {
 }
 void TObjPlayer__sub_801AAF00(Self_801AAF00 *self) {
     if (self->started != 0) {
-        TObjPlayer__sub_800F5BC0(lbl_805D5D38, self->f14C, 0);
+        scroll_strip_uvs(lbl_805D5D38, self->f14C, 0);
         begin_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi(self->f24);
         TObjPlayer__sub_803D9B2C();

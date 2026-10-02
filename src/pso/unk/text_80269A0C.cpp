@@ -44,12 +44,12 @@ extern const f32 lbl_805DD21C;
 extern const f32 lbl_805DD234;
 extern const f32 lbl_805DD238;
 extern const f32 lbl_805DD23C;
-s32 fn_80269A0C(Msg_80269A0C *self, s32 text, s32 flags, s32 arg3);
+s32 append_message_window_line(Msg_80269A0C *self, s32 text, s32 flags, s32 arg3);
 }
 
 extern "C" {
 
-s32 fn_80269A0C(Msg_80269A0C *self, s32 text, s32 flags, s32 arg3) {
+s32 append_message_window_line(Msg_80269A0C *self, s32 text, s32 flags, s32 arg3) {
     Entry_80269A0C *e;
     Rec_80269A0C *rec;
     f32 y;

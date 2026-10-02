@@ -50,10 +50,10 @@ extern const f32 lbl_805DB98C;
 extern const f32 lbl_805DB990;
 void TOSensorAncient01__sub_8017585C(u8 *arg0);
 u32 get_global_state__14TOKeyMachine01Fv();
-void TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+void play_persistent_sound(int, void *, void *, int, int);
 void TOSensor__sub_8017546C(u8 *arg0);
 u32 get_global_state__14TOKeyMachine01Fv();
-void TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+void play_persistent_sound(int, void *, void *, int, int);
 void TOSensor__sub_80175514(u8 *arg0);
 s32 get_current_floor();
 void queue_destruction__7TObjectFv(void *);
@@ -98,16 +98,16 @@ void TOSensor__sub_8017546C(u8 *arg0) {
     case 3:
     case 4:
     case 5:
-        TOTrapAncient01__sub_80226578(0x43C1C, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound(0x43C1C, arg0, arg0 + 0x38, 0, 0);
         return;
     case 6:
     case 7:
-        TOTrapAncient01__sub_80226578(0x4004BC13, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound(0x4004BC13, arg0, arg0 + 0x38, 0, 0);
         return;
     case 8:
     case 9:
     case 10:
-        TOTrapAncient01__sub_80226578(0x46419, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound(0x46419, arg0, arg0 + 0x38, 0, 0);
     case 0:
         return;
     case 1:
@@ -132,16 +132,16 @@ void TOSensor__sub_80175514(u8 *arg0) {
     case 3:
     case 4:
     case 5:
-        TOTrapAncient01__sub_80226578(0x4411D, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound(0x4411D, arg0, arg0 + 0x38, 0, 0);
         return;
     case 6:
     case 7:
-        TOTrapAncient01__sub_80226578(0x4004C114, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound(0x4004C114, arg0, arg0 + 0x38, 0, 0);
         return;
     case 8:
     case 9:
     case 10:
-        TOTrapAncient01__sub_80226578(0x4641A, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound(0x4641A, arg0, arg0 + 0x38, 0, 0);
     case 0:
         return;
     case 1:

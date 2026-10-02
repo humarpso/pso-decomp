@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80130040(u8 *arg0);
+void update_cane_weapon_idle(u8 *arg0);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 M2C_UNK approach_value__20TItemEffOrgaFlowShotFPvff(void *, f32, f32);
 
 extern const f32 lbl_805DAFF0;
 extern const f32 lbl_805DAFF4;
 
-void TObjPlayer__sub_80130040(u8 *arg0) {
+void update_cane_weapon_idle(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1FC) == 1) {
         M2C_FIELD(arg0, s32 *, 0x1FC) = 0;
     }

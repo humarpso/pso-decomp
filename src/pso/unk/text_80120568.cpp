@@ -177,7 +177,7 @@ s32 get_flag_40__8TItemMagFPv(void *);
 M2C_UNK spawn_item_timer__13TItemAttackerFiii(void *, void *, s32);
 u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
 M2C_UNK create__13TItemEffEquipFPvPvPvPvPv(void *, s32, s32, s32, s32);
-s32 TItemMag__sub_80113EC8(s32);
+s32 obj_isState7_324(s32);
 s32 get_item_flags__10TObjPlayerFPv(void *);
 M2C_UNK set_status_flags__10TObjPlayerFPvUi(void *, u32);
 void clear_equip_flags__10TObjPlayerFPvUi(void *, u32);
@@ -216,7 +216,7 @@ void TObjPlayer__sub_8012065C(Player_8012065C *arg0) {
             TKeyBoardControl__sub_801AFCF4(M2C_FIELD(arg0, void **, 0xF0), arg0->v41());
         }
         clear_equip_flags__10TObjPlayerFPvUi(arg0, 0x100);
-        if (get_flag_40__8TItemMagFPv(arg0) != 0 || TItemMag__sub_80113EC8(M2C_FIELD(arg0, s32 *, 0xF0)) != 0) {
+        if (get_flag_40__8TItemMagFPv(arg0) != 0 || obj_isState7_324(M2C_FIELD(arg0, s32 *, 0xF0)) != 0) {
             set_status_flags__10TObjPlayerFPvUi(arg0, 8);
         } else {
             spawn_item_timer__13TItemAttackerFiii(arg0, (void *)&TObjPlayer__sub_8011E6A4, 0x14);

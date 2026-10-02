@@ -30,7 +30,7 @@ extern "C" {
 s32 TObjCity_Season_EasterEgg__sub_80184A08(void *, s32, f32);
 extern const f32 lbl_805DBC5C;
 void fn_80183E08(u8 *arg0);
-M2C_UNK TObjPlayer__sub_800F5BC0(void *, int, int);
+M2C_UNK scroll_strip_uvs(void *, int, int);
 u8 *get_anim_frame__25TObjCity_Season_EasterEggFPv();
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -67,7 +67,7 @@ void fn_80183D4C(u8 *arg0) {
     if (temp_r3 != NULL) {
         if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBC44, lbl_805DBC60) != 0) {
             set_global_param__8TObjFishFi((int) (M2C_FIELD(&lbl_8050DC50.value, s32 *, 0x10)));
-            TObjPlayer__sub_800F5BC0((void *) (lbl_805D5B34), (int) (0), (int) ((s16) M2C_FIELD(arg0, s32 *, 0xB4)));
+            scroll_strip_uvs((void *) (lbl_805D5B34), (int) (0), (int) ((s16) M2C_FIELD(arg0, s32 *, 0xB4)));
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
             rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));

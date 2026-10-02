@@ -150,7 +150,7 @@ s32 TCameraCtrl__sub_80069E7C(s32);
 void clear_player_status_flag__10TObjPlayerFPviUi(TObjDoor*,s32,u32);
 void set_indexed_flags(TObjDoor*,s32,u32);
 s32 fn_8018E258(TObjDoor*,s32,f32);
-void TOTrapAncient01__sub_80226578(s32,TObjDoor*,f32*,s32,s32);
+void play_persistent_sound(s32,TObjDoor*,f32*,s32,s32);
 u8 TODoorAncient08__sub_80229220(u16);
 extern s32 TObjDoor__data_805D5BC8;
 extern const f32 TObjDoor__data_805DBDC4,lbl_805DBDD8,lbl_805DBDE8,lbl_805DBDEC,lbl_805DBDF0;
@@ -169,7 +169,7 @@ s32 TCameraCtrl__sub_80069E7C(s32);
 void clear_player_status_flag__10TObjPlayerFPviUi(TObjDoor*,s32,u32);
 void set_indexed_flags(TObjDoor*,s32,u32);
 s32 fn_8018E258(TObjDoor*,s32,f32);
-void TOTrapAncient01__sub_80226578(s32,TObjDoor*,f32*,s32,s32);
+void play_persistent_sound(s32,TObjDoor*,f32*,s32,s32);
 u8 TODoorAncient08__sub_80229220(u16);
 extern DoorMotionHeader* TObjDoor__data_8050DC78[];
 extern s32 TObjDoor__data_805D5BC8;
@@ -388,14 +388,14 @@ void TObjDoor__sub_8018EC84(TObjDoor* door) {
         }
         break;
     case 4:
-        TOTrapAncient01__sub_80226578(0x49e08,door,door->position,0,0);
+        play_persistent_sound(0x49e08,door,door->position,0,0);
         door->frame+=lbl_805DBDEC;
         if(door->frame>(f32)(TObjDoor__data_8050DC78[0]->frameCount-1)) {
             door->frame=(f32)(TObjDoor__data_8050DC78[0]->frameCount-1);door->state=5;
         }
         break;
     case 3:
-        TOTrapAncient01__sub_80226578(0x49e08,door,door->position,0,0);
+        play_persistent_sound(0x49e08,door,door->position,0,0);
         door->frame-=1.8f;
         if(door->frame<0.0f) {door->frame=0.0f;door->state=2;}
         break;

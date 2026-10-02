@@ -17,7 +17,7 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TBoss4Type2__sub_8004A98C(void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
-void TOTrapAncient01__sub_80226578(s32, void *, void *, s32, s32);
+void play_persistent_sound(s32, void *, void *, s32, s32);
 void TBoss4Zako__sub_803D8910(Vec_80053440 *, Vec_80053440 *);
 extern Vec_80053440 lbl_80486194[4];
 void fn_80053440(Obj_80053440 *arg0);
@@ -42,7 +42,7 @@ void fn_80053440(Obj_80053440 *arg0) {
         }
     }
     TBoss4Type2__sub_8004A98C(arg0->f378);
-    TOTrapAncient01__sub_80226578(0x4003BC0E, arg0, &arg0->pos, 0x40, 2);
+    play_persistent_sound(0x4003BC0E, arg0, &arg0->pos, 0x40, 2);
 }
 
 }

@@ -103,7 +103,7 @@ void request_destroy__11TBoss4Type2FUi(u32);
 void spawn_particle_effect(void *, s32);
 u32 create_particle_emitter(int, int);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK create__11TTecRaBartaFPvPvPvPv(void *, void *, void *, s32);
 M2C_UNK create__10TTecRaFoieFPvPvPvPv(void *, void *, void *, s32);
@@ -316,7 +316,7 @@ void TBoss4Type2__sub_8005294C(u8 *arg0) {
         }
     }
     if (M2C_FIELD(arg0, f32 *, 0x3E8) >= lbl_805D8B14 && M2C_FIELD(arg0, f32 *, 0x3E8) <= lbl_805D8B10) {
-        TOTrapAncient01__sub_80226578(0x4003B512, arg0, arg0 + 0x38, 0, 1);
+        play_persistent_sound(0x4003B512, arg0, arg0 + 0x38, 0, 1);
     }
     if (M2C_FIELD(arg0, s32 *, 0x398) == 0x26) {
         if ((r = ((u32 (*)(void *, s32))spawn_particle_effect)(ent, 0xFD)) != 0) {

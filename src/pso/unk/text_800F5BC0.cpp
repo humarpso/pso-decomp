@@ -9,7 +9,7 @@ struct StripRef_800F5BC0 { s16 *strip; s16 *uv; };
 struct Provider_800F5BC0 { s32 unk0; s32 count; StripRef_800F5BC0 *refs; };
 
 extern "C" {
-void TObjPlayer__sub_800F5BC0(Provider_800F5BC0 *arg0, s16 arg1, s16 arg2);
+void scroll_strip_uvs(Provider_800F5BC0 *arg0, s16 arg1, s16 arg2);
 }
 
 extern "C" {
@@ -17,7 +17,7 @@ extern "C" {
 M2C_UNK __dl__FPv(void *);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 
-void TObjPlayer__sub_800F5BC0(Provider_800F5BC0 *arg0, s16 arg1, s16 arg2) {
+void scroll_strip_uvs(Provider_800F5BC0 *arg0, s16 arg1, s16 arg2) {
     s32 i;
     s16 *strip;
     s16 *uv;

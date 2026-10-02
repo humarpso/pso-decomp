@@ -99,7 +99,7 @@ void render_forward__20TWindowSubStatusDispFPv(void);
 void TWindowSubStatusDisp__sub_803DF160(int, u32);
 void build_small_font_glyph_quad(u8, Quad_800FCD40 *);
 void draw_textured_quad_at_depth(Quad_800FCD40 *, f32);
-u8 TWindowSubStatusDisp__sub_800FC220(u8);
+u8 get_small_font_glyph_width(u8);
 void get_player__20TWindowSubStatusDispFv(void);
 extern u8 lbl_8058D490[];
 extern u8 *lbl_805D4DF0;
@@ -206,7 +206,7 @@ void TFontSmallTask::render() {
         q.right = scale * (q.right - x) + x;
         q.bottom = scale * (q.bottom - y) + y;
         draw_textured_quad_at_depth(&q, depth);
-        adv = (f32)(u8)TWindowSubStatusDisp__sub_800FC220(c);
+        adv = (f32)(u8)get_small_font_glyph_width(c);
         x = adv * scale + x;
         reveal = reveal - lbl_805DAA2C * (adv / text_width);
     }

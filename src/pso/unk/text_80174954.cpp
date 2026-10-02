@@ -29,7 +29,7 @@ s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 void reset_photon_effect__10TObjPlayerFPv(s32);
 void refresh_collision_body_centers(void *);
-u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
+u32 init_collision_body_parts(void *, s32, s32);
 u8 * TORockCave__ct(void *);
 extern RecoveredGlobal_80174954_lbl_804B3BA8 lbl_804B3BA8;
 extern RecoveredGlobal_80174954___vt__13TORockCaveL01 __vt__13TORockCaveL01;
@@ -51,7 +51,7 @@ u8 *TORockCaveL01__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model(lbl_805D5A80, 0);
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(lbl_805D5A80, 0);
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) lbl_805DB970;
-    TObjEneGibbles__sub_80156780(arg0, (s32) ((u8 *)&lbl_804B3BA8.value + 0x58), 1);
+    init_collision_body_parts(arg0, (s32) ((u8 *)&lbl_804B3BA8.value + 0x58), 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv((s32) arg0);
     return arg0;

@@ -32,7 +32,7 @@ struct RecoveredGlobal_8018D85C___vt__17TObjContainerJung {
 
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TLobby__sub_8010567C(void *, void *, int);
+M2C_UNK request_box_item_drop(void *, void *, int);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
 void TObjContainerJung__vt4(u8 *arg0, s16 *arg1, s32 arg2);
@@ -48,7 +48,7 @@ extern s32 TObjContainerJung__data_805D5BA4;
 void TObjContainerJung__sub_8018D47C(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void reset_photon_effect__10TObjPlayerFPv(s32);
-u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
+u32 init_collision_body_parts(void *, s32, s32);
 u8 * fn_8018A150(void *, s32);
 extern RecoveredGlobal_8018D85C_lbl_804B7168 lbl_804B7168;
 extern M2C_UNK __vt__17TObjContainerJung[];
@@ -133,7 +133,7 @@ void TObjContainerJung__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             ((VObj*)arg0)->m77();
-            TLobby__sub_8010567C((void *) (arg0), (void *) (arg0 + 0x38), (int) (1));
+            request_box_item_drop((void *) (arg0), (void *) (arg0 + 0x38), (int) (1));
             clear_player_status_flag__10TObjPlayerFPviUi((void *) (arg0), (int) (0), (int) (1));
             set_flag8__6TLobbyFPv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));
@@ -206,7 +206,7 @@ u8 *TObjContainerJung__ct(u8 *arg0, s32 arg1, s32 _w2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3318;
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);
-    TObjEneGibbles__sub_80156780(arg0, (s32) &lbl_804B7168.value, 1);
+    init_collision_body_parts(arg0, (s32) &lbl_804B7168.value, 1);
     reset_photon_effect__10TObjPlayerFPv((s32) arg0);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);

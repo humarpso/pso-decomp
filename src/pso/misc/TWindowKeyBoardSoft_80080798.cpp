@@ -22,8 +22,8 @@ struct Kb_800808FC {
 };
 
 extern "C" {
-u16 TWindowSubStatusDisp__sub_80145054(u16);
-u8 TWindowSubStatusDisp__sub_80144FCC(u16);
+u16 map_char_to_font_code(u16);
+u8 get_font_char_advance(u16);
 s32 TWindowKeyBoardSoft__sub_80080D1C(Field_80080D1C *f, u16 code, u32 *x, u32 *y, u32 *count);
 void TWindowKeyBoardSoft__sub_80080C64(Field_80080C64 *f, s32 pos, s32 n);
 extern u16 lbl_8048E020[];
@@ -194,7 +194,7 @@ void TWindowKeyBoardSoft__sub_80080CC0(Field_80080CC0 *f) {
 
 s32 TWindowKeyBoardSoft__sub_80080D1C(Field_80080D1C *f, u16 code, u32 *x, u32 *y, u32 *count) {
     u8 w;
-    code = TWindowSubStatusDisp__sub_80145054(code);
+    code = map_char_to_font_code(code);
     (*count)++;
     if (code & 0xFF00) {
         (*count)++;
@@ -205,7 +205,7 @@ s32 TWindowKeyBoardSoft__sub_80080D1C(Field_80080D1C *f, u16 code, u32 *x, u32 *
     if (f->linePixels == 0) {
         return 0;
     }
-    w = TWindowSubStatusDisp__sub_80144FCC(code);
+    w = get_font_char_advance(code);
     *x += w;
     if (*x <= f->width) {
         return 0;

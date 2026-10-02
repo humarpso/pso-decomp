@@ -28,7 +28,7 @@ struct RecoveredGlobal_80192E70___vt__18TObjLazerFenceNorm {
 extern "C" {
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 s32 TObjPlayer__sub_801569F4(void *);
 s32 TObjFish__sub_80192A3C(void *);
 extern RecoveredGlobal_80192E70_lbl_804B7FB0 lbl_804B7FB0;
@@ -108,7 +108,7 @@ u8 *TObjLazerFenceNorm__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     TObjFish__sub_80192A3C((void *) (arg0));
     temp_r4 = M2C_FIELD(arg0, u32 *, 0x8C);
     temp_r6 = temp_r4 >> 0x1FU;
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) ((u8 *)&lbl_804B7FB0.value + ((((temp_r4 & 1) ^ temp_r6) - temp_r6) * 0x84)), (int) (3));
+    init_collision_body_parts((void *) (arg0), (void *) ((u8 *)&lbl_804B7FB0.value + ((((temp_r4 & 1) ^ temp_r6) - temp_r6) * 0x84)), (int) (3));
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     refresh_collision_body_centers((void *) (arg0));

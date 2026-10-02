@@ -10,7 +10,7 @@ typedef char RecoveredGlobal_8012B524_lbl_804A4D70_size[sizeof(RecoveredGlobal_8
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_8012B5C0(u8 *arg0);
+u8 *create_partisan_weapon(u8 *arg0);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 u8 * TObjPlayer__sub_80120D50(void *, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, s32);
@@ -42,7 +42,7 @@ u8 *TItemWeaponPartisan__ct(u8 *arg0, u8 *arg1, s32 _w2) {
     return arg0;
 }
 
-u8 *TObjPlayer__sub_8012B5C0(u8 *arg0) {
+u8 *create_partisan_weapon(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

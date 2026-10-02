@@ -617,7 +617,7 @@ void* init_enemy_base__10TObjPlayerFPv(void* a0);
 s32 TObjPlayer__sub_80016D78(void *);
 s32 obj_clearFlags30(void * a0, s32 a1);
 int clear_player_status_flag__10TObjPlayerFPviUi(void*, void*, void*);
-s32 TObjPlayer__sub_800C56E8(u8 *arg0);
+s32 tick_freeze_and_reset_appearance(u8 *arg0);
 M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
@@ -660,7 +660,7 @@ s32 obj_clearFlags30(void * a0, s32 a1);
 M2C_UNK obj_setFlags30(void *, M2C_UNK);
 int clear_player_status_flag__10TObjPlayerFPviUi(void*, void*, void*);
 extern const f32 lbl_805DA03C;
-void TObjPlayer__sub_800C55E0(Obj_800C55E0 *o);
+void beast_start_attack(Obj_800C55E0 *o);
 M2C_UNK apply_actor_gravity(void *, int, f32);
 M2C_UNK enemy_move_toward(void *, s32, void *, int, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -963,7 +963,7 @@ void beast_update_attack(Self_800C53DC *arg0) {
     minimap_render_dot(arg0->pos, -0x5DB4, 1, 0);
 }
 
-void TObjPlayer__sub_800C55E0(Obj_800C55E0 *o) {
+void beast_start_attack(Obj_800C55E0 *o) {
     switch (o->state) {
     case 0:
         break;
@@ -996,7 +996,7 @@ void TObjPlayer__sub_800C55E0(Obj_800C55E0 *o) {
     }
 }
 
-s32 TObjPlayer__sub_800C56E8(u8 *arg0) {
+s32 tick_freeze_and_reset_appearance(u8 *arg0) {
   if (TObjPlayer__sub_80016D78((void *) arg0) != 0)
   {
     if ((*((s16 *) (((s8 *) arg0) + 0x326))) != 0)

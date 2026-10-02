@@ -8,7 +8,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
 u16 obj_getField1c(s32);
 s32 get_type__10TObjPlayerFPv(s32);
 void *__ct__7TEffectFv(void *);
-M2C_UNK TObjEneGibbles__sub_80156780(u32, void *, M2C_UNK);
+M2C_UNK init_collision_body_parts(u32, void *, M2C_UNK);
 u32 TObjPlayer__sub_801569F4(u32, void *);
 u32 __nw__7TObjectFUl(M2C_UNK);
 s16 get_level_tier__10TObjPlayerFi(s16);
@@ -72,7 +72,7 @@ u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 ar
     }
     M2C_FIELD(arg0, u32 *, 0xE8) = var_r0;
     if (M2C_FIELD(arg0, u32 *, 0xE8) != 0U) {
-        TObjEneGibbles__sub_80156780(M2C_FIELD(arg0, u32 *, 0xE8), arg0 + 0xBC, 1);
+        init_collision_body_parts(M2C_FIELD(arg0, u32 *, 0xE8), arg0 + 0xBC, 1);
     }
     return arg0;
 }

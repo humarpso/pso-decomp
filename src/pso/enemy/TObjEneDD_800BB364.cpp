@@ -29,7 +29,7 @@ s32 is_alive__9TObjEneDDFPv(void *);
 s32 get_enemy_count__9TObjEneDDFv(void);
 f32 horizontal_distance_squared(void *, void *);
 
-u16 TObjEneDD__sub_800BB388(Ent_800BB388 *self, f32 range);
+u16 enemy_nearest_visible_enemy_sq(Ent_800BB388 *self, f32 range);
 }
 
 extern "C" {
@@ -37,9 +37,9 @@ extern "C" {
 void set_squared_value__9TObjEneDDFf(f32 farg0);
 
 void set_squared_value__9TObjEneDDFf(f32 farg0) {
-    ((M2C_UNK (*)(f32))TObjEneDD__sub_800BB388)(farg0 * farg0);
+    ((M2C_UNK (*)(f32))enemy_nearest_visible_enemy_sq)(farg0 * farg0);
 }
-u16 TObjEneDD__sub_800BB388(Ent_800BB388 *self, f32 range) {
+u16 enemy_nearest_visible_enemy_sq(Ent_800BB388 *self, f32 range) {
     s32 count;
     s32 base;
     Ent_800BB388 *p;

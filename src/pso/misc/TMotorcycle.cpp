@@ -56,7 +56,7 @@ extern const f32 lbl_805DBEDC;
 void TMotorcycle__sub_801950B8(void);
 f32 get_random_float__8TObjFishFv(f32);
 void reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 M2C_UNK TObjMesBase__ct(void *, void *, void *);
 extern s32 lbl_80445DF4[];
 extern M2C_UNK lbl_804B8574[];
@@ -159,7 +159,7 @@ void *TMotorcycle__ct(void *arg0, void *arg1, void *arg2) {
     self->xBC = get_random_float__8TObjFishFv(self->x68);
     self->xBC = self->xBC % 2;
     self->xBC = lbl_80445DF4[self->xBC];
-    TObjEneGibbles__sub_80156780(arg0, lbl_804B8574, 1);
+    init_collision_body_parts(arg0, lbl_804B8574, 1);
     self->flags |= 0x40000000;
     reset_photon_effect__10TObjPlayerFPv(arg0);
     return arg0;

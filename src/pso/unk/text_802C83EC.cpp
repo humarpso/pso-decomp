@@ -66,7 +66,7 @@ void TObjEneBm5GibonU__sub_803D853C(s32, const char *, ...);
 extern char lbl_80471F88[];
 void TOTrapChainSawKey__vt12(void);
 M2C_UNK TOTrapChainSaw__sub_802C9600();
-s32 TOTrapAncient01__sub_80226578(void *, void *, void *, int, int);
+s32 play_persistent_sound(void *, void *, void *, int, int);
 s32 TOTrapChainSawKey__sub_802C8F68(void *, int);
 extern const f32 lbl_805DE618;
 void TOTrapChainSawKey__vt22(u8 *arg0);
@@ -142,9 +142,9 @@ void TOTrapChainSawKey__vt22(u8 *arg0) {
     if (M2C_FIELD(arg0, f32 *, 0x104) > (f32) (u32) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x100), s32 *, 4) - 1)) {
         M2C_FIELD(arg0, f32 *, 0x104) = (f32) lbl_805DE618;
     }
-    TOTrapAncient01__sub_80226578((void *) (TOTrapChainSawKey__sub_802C8F68((void *) (arg0), (int) (2))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_persistent_sound((void *) (TOTrapChainSawKey__sub_802C8F68((void *) (arg0), (int) (2))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     if ((s32) M2C_FIELD(arg0, s32 *, 0xF0) == 1) {
-        TOTrapAncient01__sub_80226578((void *) (TOTrapChainSawKey__sub_802C8F68((void *) (arg0), (int) (1))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_persistent_sound((void *) (TOTrapChainSawKey__sub_802C8F68((void *) (arg0), (int) (1))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     }
 }
 

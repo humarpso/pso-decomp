@@ -38,7 +38,7 @@ struct Obj_800B79E0 { u8 pad[0x38]; Vec_800B79E0 pos; };
 extern "C" {
 s32 spawn_particle_effect(s32, s32);
 extern const f32 TObjEneBm5Wolf__data_805D9DE0;
-void TObjEneBm5Wolf__sub_800B7808(s32 arg0, u8 *arg1);
+void spawn_recoil_dust__14TObjEneBm5WolfFiPv(s32 arg0, u8 *arg1);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK play_sound_effect(void *, void *, int, int);
 void *copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
@@ -161,7 +161,7 @@ void play_footsteps__14TObjEneBm5WolfFPv(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TObjEneBm5Wolf__sub_800B7808(s32 arg0, u8 *arg1) {
+void spawn_recoil_dust__14TObjEneBm5WolfFiPv(s32 arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_800B7808, sp8) == 0x0) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800B7808, sp10) == 0x8) ? 1 : -1];
     Stack_800B7808 stack;

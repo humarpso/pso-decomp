@@ -62,7 +62,7 @@ s32 is_photon_ready__11TCameraCtrlFv(void);
 M2C_UNK TBoss3Volopt__sub_8003DD4C(void *);
 int TCameraCtrl__sub_8003D1E8(void *);
 s32 TLobby__sub_800C6C10();
-M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_persistent_sound(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
 u32 __nw__7TObjectFUl(M2C_UNK);
 s32 get_main_phase();
 M2C_UNK init_object__16TBoss3VoloptCtrlFPv();
@@ -194,7 +194,7 @@ void update_volopt_seq__11TCameraCtrlFPv(void *arg0) {
                 init_object__16TBoss3VoloptCtrlFPv();
             }
         }
-        TOTrapAncient01__sub_80226578(0x4003C601, arg0, 0, 0, 0);
+        play_persistent_sound(0x4003C601, arg0, 0, 0, 0);
         break;
     case -1:
         break;

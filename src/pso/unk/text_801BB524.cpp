@@ -36,7 +36,7 @@ M2C_UNK TObjPlayer__sub_801BB8A8(void *);
 M2C_UNK TFontSmallLobby__ct(void *);
 M2C_UNK TObjPlayer__sub_801BBB74(void *);
 M2C_UNK update_lock_on_cursor__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801BC194(void *);
+M2C_UNK place_on_area_entry__10TObjPlayerFPv(void *);
 M2C_UNK reset_state__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801BC858(void *);
 M2C_UNK TObjPlayer__sub_801BCA0C(void *);
@@ -91,7 +91,7 @@ void TObjPlayer__vt6(s32 arg0) {
     TObjPlayer__sub_80018F64((void *) (arg0));
     reset_state__10TObjPlayerFPv((void *) (arg0));
     TObjPlayer__sub_801BD3A4((void *) (arg0));
-    TObjPlayer__sub_801BC194((void *) (arg0));
+    place_on_area_entry__10TObjPlayerFPv((void *) (arg0));
     update_input_and_draw__10TObjPlayerFi((void *) (arg0));
     TObjPlayer__sub_801BCD50((void *) (arg0));
     can_cast_technique__10TObjPlayerFPv((void *) (arg0));

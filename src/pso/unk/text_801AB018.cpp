@@ -28,7 +28,7 @@ s32 TObjPlayer__sub_801A7748(void *, int);
 s32 update_state__10TSceneSoraFPv(void *);
 s32 update_all_slots__10TObjPlayerFPv(void *);
 s32 TPhotonMagicSquare__sub_801AD218(int, void *, int, void *, int);
-s32 TOTrapAncient01__sub_80226578(int, void *, int, int, int);
+s32 play_persistent_sound(int, void *, int, int, int);
 u32 __nw__7TObjectFUl(int);
 extern const f32 lbl_805DC15C;
 extern const f32 lbl_805DC160;
@@ -115,7 +115,7 @@ void fn_801AB018(u8 *arg0) {
         }
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1A0) != 0) {
-        TOTrapAncient01__sub_80226578((int) (0x4002462F), (void *) (arg0), (int) (0), (int) (0), (int) (0));
+        play_persistent_sound((int) (0x4002462F), (void *) (arg0), (int) (0), (int) (0), (int) (0));
     }
 }
 #pragma pop

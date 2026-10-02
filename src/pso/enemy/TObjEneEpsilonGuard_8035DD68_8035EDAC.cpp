@@ -18,7 +18,7 @@ extern "C" {
 void TObjEneEpsilonGuard__vt87(void *arg0);
 void update_center_position__19TObjEneEpsilonGuardFPv(u8 *arg0);
 void update_guard_state__19TObjEneEpsilonGuardFPv(u8 *arg0);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 M2C_UNK transition_enemy_state(void *, int);
 M2C_UNK TObjEneDD__vt86();
 M2C_UNK TObjEneEpsilonGuard__sub_8035EA90(void *);
@@ -47,12 +47,12 @@ void update_guard_state__19TObjEneEpsilonGuardFPv(u8 *arg0) {
             TObjEneEpsilonGuard__sub_8035EA90((void *) (arg0));
         }
         if (M2C_FIELD(arg0, s32 *, 0x46C) & 0x20) {
-            TOTrapAncient01__sub_80226578((int) (0x4003A846), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            play_persistent_sound((int) (0x4003A846), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             return;
         }
         temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
         if ((temp_r0 != 4) && (temp_r0 != 5)) {
-            TOTrapAncient01__sub_80226578((int) (0x4003AD43), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            play_persistent_sound((int) (0x4003AD43), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         }
     }
 }

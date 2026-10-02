@@ -9,7 +9,7 @@ extern "C" {
 void open_menu__13TItemMenuCtrlFUi(u32 arg0);
 M2C_UNK TItemMenuCtrl__ct(u32, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK fn_80115AF0(u32, s32);
+M2C_UNK set_menu_flags__13TItemMenuCtrlFPv(u32, s32);
 M2C_UNK queue_destruction__7TObjectFv(u32);
 
 extern u32 TItemMenuCtrl__data_805D54C0;
@@ -25,7 +25,7 @@ void open_menu__13TItemMenuCtrlFUi(u32 arg0) {
             queue_destruction__7TObjectFv(TItemMenuCtrl__data_805D54C0);
             return;
         }
-        fn_80115AF0(TItemMenuCtrl__data_805D54C0, 1 << arg0);
+        set_menu_flags__13TItemMenuCtrlFPv(TItemMenuCtrl__data_805D54C0, 1 << arg0);
     }
 }
 

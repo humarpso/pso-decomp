@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 s32 TObjPlayer__sub_80104A94(void *, void *, s32);
-s32 TObjPlayer__sub_801049C8(u8 *arg0, u8 *arg1);
-M2C_UNK TObjPlayer__sub_8011C8BC(u8, s16 *, s16 *);
+s32 item_identity_matches(u8 *arg0, u8 *arg1);
+M2C_UNK get_weapon_special_type_amount(u8, s16 *, s16 *);
 u8 TObjPlayer__sub_8010494C(u8 arg0);
 }
 
@@ -17,7 +17,7 @@ s32 is_active_battle_player__10TObjPlayerFv(void);
 u8 find_adjacent_matching_slot__10TObjPlayerFUc(u8 arg0);
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(s32);
-M2C_UNK TObjPlayer__sub_8011C8BC(u8, s16 *, s16 *);
+M2C_UNK get_weapon_special_type_amount(u8, s16 *, s16 *);
 s32 get_player_by_client_id(s32);
 s32 is_split_screen();
 
@@ -45,8 +45,8 @@ u8 find_adjacent_matching_slot__10TObjPlayerFUc(u8 arg0) {
     int temp_r31;
 
     temp_r31 = (u8) arg0 - 1;
-    TObjPlayer__sub_8011C8BC((u8) temp_r31, &spC, &sp8);
-    TObjPlayer__sub_8011C8BC(arg0, &spA, &sp8);
+    get_weapon_special_type_amount((u8) temp_r31, &spC, &sp8);
+    get_weapon_special_type_amount(arg0, &spA, &sp8);
     if ((spC != -1) && (spA != -1)) {
         if (spC == spA) {
             return (u8) temp_r31;
@@ -61,9 +61,9 @@ u8 TObjPlayer__sub_8010494C(u8 arg0) {
     s16 spA;
     s16 sp8;
     int next;
-    TObjPlayer__sub_8011C8BC(arg0, &spC, &sp8);
+    get_weapon_special_type_amount(arg0, &spC, &sp8);
     next = (u8)arg0 + 1;
-    TObjPlayer__sub_8011C8BC((u8)next, &spA, &sp8);
+    get_weapon_special_type_amount((u8)next, &spA, &sp8);
     if ((spC != -1) && (spA != -1)) {
         if (spC == spA) {
             return (u8)next;
@@ -73,7 +73,7 @@ u8 TObjPlayer__sub_8010494C(u8 arg0) {
     return arg0;
 }
 
-s32 TObjPlayer__sub_801049C8(u8 *arg0, u8 *arg1) {
+s32 item_identity_matches(u8 *arg0, u8 *arg1) {
   s32 var_r3;
   u8 var_r5;
   u8 var_r6;

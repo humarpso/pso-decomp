@@ -8,9 +8,9 @@ void *__dt__9TObjEneDDFv(void *arg0, s16 arg1);
 void *init_object__9TObjEneDDFPv(void *arg0);
 void TObjEneDD__ct(void *);
 void TObjEneDD__vt0(void *, int);
-void TObjEneEpsilon__sub_800B965C(void *, int);
+void enemy_init_validate_period(void *, int);
 void __dl__7TObjectFPv(void *);
-void fn_800B98A4(void *, int);
+void enemy_init_acquire_period(void *, int);
 void enemy_clear_target(void *);
 void init_float_params__9TObjEneDDFPv(void *);
 
@@ -36,8 +36,8 @@ void *init_object__9TObjEneDDFPv(void *arg0) {
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2A34;
     enemy_clear_target(arg0);
     init_float_params__9TObjEneDDFPv(arg0);
-    fn_800B98A4(arg0, 30);
-    TObjEneEpsilon__sub_800B965C(arg0, 30);
+    enemy_init_acquire_period(arg0, 30);
+    enemy_init_validate_period(arg0, 30);
     return arg0;
 }
 

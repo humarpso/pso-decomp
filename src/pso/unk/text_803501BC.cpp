@@ -9,7 +9,7 @@ struct T_803501BC { s32 n; E_803501BC *e; };
 extern "C" {
 s32 get_field_d8__10TObjPlayerFPv(void *);
 void consume_item_by_id(s32);
-s32 TItem__sub_801008F0(void *, void *);
+s32 replace_item_with_new_code(void *, void *);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 T_803501BC *get_item_pmt_entry__10TObjPlayerFUc(u8);
 s32 rand(void);
@@ -33,7 +33,7 @@ void fn_803501BC(void *arg0) {
                 d.a = e->a;
                 d.b = e->b;
                 d.c = e->c;
-                TItem__sub_801008F0(&d, arg0);
+                replace_item_with_new_code(&d, arg0);
                 return;
             }
             r -= e->w;

@@ -99,9 +99,9 @@ int TItemProShield__vt44(void* p);
 void TItemProShield__vt49(void);
 void deactivate_shield_effect__14TItemProShieldFPvi(void *arg0, s32 arg1);
 void set_params__14TItemProShieldFiPv(s32 arg0, void *arg1);
-M2C_UNK TItemEquipBase__sub_8010A78C(void *);
+M2C_UNK bind_loaded_resources__14TItemEquipBaseFPv(void *);
 int TItemEquipBase__sub_8010A82C(void*);
-M2C_UNK TItemEquipBase__sub_8010A89C(void *, s32);
+M2C_UNK register_technique_boosts__14TItemEquipBaseFPvPv(void *, s32);
 M2C_UNK draw_ginja_object(u32);
 M2C_UNK refresh_owner_stats__5TItemFPv(void *);
 M2C_UNK TObjPlayer__sub_80364028();
@@ -160,11 +160,11 @@ void TItemProShield__vt12(u8 *arg0) {
 
 void TItemProShield__vt14(void *arg0) {
     ((VObj_80118334_801181D0 *)arg0)->m51();
-    TItemEquipBase__sub_8010A89C(arg0, M2C_FIELD(arg0, s32 *, 0x194));
+    register_technique_boosts__14TItemEquipBaseFPvPv(arg0, M2C_FIELD(arg0, s32 *, 0x194));
     if (M2C_FIELD(arg0, s32 *, 0x19C) & 4) {
         refresh_owner_stats__5TItemFPv(arg0);
     }
-    TItemEquipBase__sub_8010A78C(arg0);
+    bind_loaded_resources__14TItemEquipBaseFPv(arg0);
 }
 void TItemProShield__vt16(void *arg0, void *arg1) {
     TItemData__sub_8010CE70((s32)(arg1), (int)(M2C_FIELD(arg0, u8 *, 0x198)));

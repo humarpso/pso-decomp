@@ -15,7 +15,7 @@ M2C_UNK play_particle_effect_once__10TObjPlayerFv();
 M2C_UNK spawn_cane_effect__10TObjPlayerFiUii(s32, s32, M2C_UNK);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(s32);
 M2C_UNK update_active_game_effect__10TObjPlayerFPv(s32);
-s32 TObjPlayer__sub_8011F63C();
+s32 get_attack_stage__11TItemWeaponFPv();
 s32 get_player_list__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_8012B9B4(s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
@@ -43,7 +43,7 @@ void sync_hp_damage__10TObjPlayerFPv(void *arg0) {
 extern s32 tl_05;
 
 void update_cane_cast__10TObjPlayerFi(s32 arg0) {
-    if (TObjPlayer__sub_8011F63C() == 0) {
+    if (get_attack_stage__11TItemWeaponFPv() == 0) {
         spawn_cane_effect__10TObjPlayerFiUii(tl_05, arg0, 4);
     }
     if (is_mode_two_and_ready__10TObjPlayerFPv(arg0) != 0) {

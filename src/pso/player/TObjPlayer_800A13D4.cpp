@@ -218,7 +218,7 @@ s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 int is_flag_set_388_bit26__10TObjPlayerFPv(void* p);
 M2C_UNK scale_velocity__19TObjGyaranzoMissileFPvf(void *, f32);
 f32 TObjPlayer__sub_8013153C(void *, int);
-M2C_UNK TObjEneGibbles__sub_80156780(void *, void *, int);
+M2C_UNK init_collision_body_parts(void *, void *, int);
 M2C_UNK TObjPlayer__sub_801569F4(void *, void *);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
 M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
@@ -606,7 +606,7 @@ u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     u8 *temp_r3;
     TObjPlayer__sub_801569F4(arg0, tl_04);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804909C4;
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (lbl_80490998), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (lbl_80490998), (int) (1));
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC) = lbl_805D99D4 * lbl_805D5008;
     M2C_FIELD(arg0, s16 *, 0xC8) = obj_getField1c((void *) (arg1), lbl_805D99D4);
     if (is_flag_set_388_bit26__10TObjPlayerFPv((void *) (arg1)) != 0) {

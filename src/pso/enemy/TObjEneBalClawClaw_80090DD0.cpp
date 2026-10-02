@@ -131,7 +131,7 @@ s32 check_path_obstructed(void *, void *);
 M2C_UNK reset_active_state__18TObjEneBalClawClawFPv(void *, s32, s32);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 extern const f32 TObjEneBalClawClaw__data_805D968C;
 extern const f32 lbl_805D96B4;
 void TObjEneBalClawClaw__sub_80091200(Claw_80091200 *self);
@@ -145,7 +145,7 @@ M2C_UNK find_target_in_range__10TObjPlayerFPvf(void *, f32);
 Claw_80091354 *find_active_entity_by_id(u16);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 extern const f32 TObjEneBalClawClaw__data_805D968C;
 extern const f32 lbl_805D96B8;
 void TObjEneBalClawClaw__sub_80091354(Claw_80091354 *self);
@@ -328,7 +328,7 @@ void TObjEneBalClawClaw__sub_80091200(Claw_80091200 *self) {
         self->vel.z *= lbl_805D96B4;
         apply_actor_gravity(self, 0, TObjEneBalClawClaw__data_805D968C);
         update_collisions__10TObjPlayerFPv(self);
-        TOTrapAncient01__sub_80226578(0x4003B235, self, (u8 *)self + 0x38, 0, 0);
+        play_persistent_sound(0x4003B235, self, (u8 *)self + 0x38, 0, 0);
         if (self->fB4 != 8) {
             self->f30 &= ~0x200;
             self->f388 &= ~1;
@@ -364,7 +364,7 @@ void TObjEneBalClawClaw__sub_80091354(Claw_80091354 *self) {
             RESET(self);
             break;
         }
-        TOTrapAncient01__sub_80226578(0x4003B235, self, (u8 *)self + 0x38, 0, 0);
+        play_persistent_sound(0x4003B235, self, (u8 *)self + 0x38, 0, 0);
         Vec_80091354 v = self->target->pos;
         TObjPlayer__sub_80017D68(self, &v, 1, self->info, self->info->f4);
         update_angle__10TObjPlayerFPviPv(self, self->info->f8, (u8 *)self + 0x308);

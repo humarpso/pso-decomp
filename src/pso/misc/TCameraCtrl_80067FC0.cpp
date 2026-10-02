@@ -86,7 +86,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_camera_no__11TCameraCtrlFv(void);
 extern Flags_8006835C TCameraCtrl__data_804FF628;
 extern View_8006835C *lbl_805D4DF0;
-void TCameraCtrl__sub_80068530(Cam_80068530 *arg0);
+void apply_camera_controller_pose(Cam_80068530 *arg0);
 }
 
 extern "C" {
@@ -161,7 +161,7 @@ void TCameraCtrl__sub_8006835C(void) {
 }
 
 #define V ((View_80068530 *)lbl_805D4DF0)
-void TCameraCtrl__sub_80068530(Cam_80068530 *arg0) {
+void apply_camera_controller_pose(Cam_80068530 *arg0) {
     s32 no;
     s32 id;
     if ((TCameraCtrl__data_804FF628.flags & 4) || (TCameraCtrl__data_804FF628.flags & 8)) {

@@ -73,7 +73,7 @@ extern s32 lbl_805D586C;
 s32 get_field_3e0__12TBoss3VoloptFPv(void *p);
 void TObjPlayer__sub_801B0FF4(void *p);
 void TBoss6PlotFalz__sub_802AC4D8(void *self);
-void TObjPlayer__sub_800F5BC0(u32, s16, s16);
+void scroll_strip_uvs(u32, s16, s16);
 void TBoss6PlotFalz__sub_802AC1D8(Obj_802AC1D8 *o, s32 dx, s32 dy);
 s32 get_bml_model(s32, s32);
 int get_fish_count__8TObjFishFv(void);
@@ -124,7 +124,7 @@ void TBoss6PlotFalz__sub_802AC1D8(Obj_802AC1D8 *o, s32 dx, s32 dy) {
     for (; i < o->count; i++, j += 4) {
         u32 e = *(u32 *)((u8 *)o->list + j);
         if (e != 0) {
-            TObjPlayer__sub_800F5BC0(e, o->x, o->y);
+            scroll_strip_uvs(e, o->x, o->y);
         }
     }
 }

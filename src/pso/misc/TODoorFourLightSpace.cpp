@@ -39,7 +39,7 @@ extern "C" {
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(int, int);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK refresh_collision_body_centers(void *);
-M2C_UNK TObjEneGibbles__sub_80156780(void *, void *, int);
+M2C_UNK init_collision_body_parts(void *, void *, int);
 M2C_UNK init_door_base();
 u8 *fn_8028A714(M2C_UNK);
 s32 fn_8028A750(int);
@@ -319,7 +319,7 @@ u8 *TODoorFourLightSpace__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3B1C;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
     ((VObj_18_4a4f5b *)(arg0))->m17();
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (lbl_804D3500), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (lbl_804D3500), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0xD4) = fn_8028A78C((int) (0));
@@ -533,7 +533,7 @@ extern "C" {
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(int, int);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK refresh_collision_body_centers(void *);
-M2C_UNK TObjEneGibbles__sub_80156780(void *, void *, int);
+M2C_UNK init_collision_body_parts(void *, void *, int);
 M2C_UNK init_door_base();
 u8 *fn_8028A714(M2C_UNK);
 s32 fn_8028A750(int);
@@ -554,7 +554,7 @@ u8 *TODoorFourLightRuins__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3B18;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
     ((VObj_18_4a4f5b *)(arg0))->m17();
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (lbl_804D3500), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (lbl_804D3500), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0xD4) = fn_8028A78C((int) (0));

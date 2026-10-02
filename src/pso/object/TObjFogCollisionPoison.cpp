@@ -69,7 +69,7 @@ M2C_UNK TObjPlayer__sub_801B1E54(M2C_UNK, s32, s16);
 s32 get_player_by_client_id(u16);
 void TObjFogCollisionPoison__sub_8015346C(void *arg0, s32 arg1);
 s32 get_global_state__14TOKeyMachine01Fv();
-M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK play_persistent_sound(M2C_UNK, s32, s32, M2C_UNK, M2C_UNK);
 void TObjFogCollisionPoison__sub_80153520(s32 arg0);
 s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
@@ -271,14 +271,14 @@ void TObjFogCollisionPoison__sub_80153520(s32 arg0) {
     switch (get_global_state__14TOKeyMachine01Fv()) {
     case 0x15:
     case 0x16:
-        TOTrapAncient01__sub_80226578(0x4004BC16, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound(0x4004BC16, arg0, arg0 + 0x38, 0, 0);
         break;
     case 0x1C:
     case 0x1D:
-        TOTrapAncient01__sub_80226578(0x4004BC24, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound(0x4004BC24, arg0, arg0 + 0x38, 0, 0);
         break;
     default:
-        TOTrapAncient01__sub_80226578(0x4004BC1C, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound(0x4004BC1C, arg0, arg0 + 0x38, 0, 0);
         break;
     }
 }

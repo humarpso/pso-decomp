@@ -15,7 +15,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(Sp8Type_80123524 *);
 M2C_UNK draw_ginja_object(void *);
 M2C_UNK get_mag_scale__10TObjPlayerFPv(void *);
 M2C_UNK spawn_cane_effect__10TObjPlayerFiUii(s32, s32, M2C_UNK);
-s32 TObjPlayer__sub_8011F63C();
+s32 get_attack_stage__11TItemWeaponFPv();
 s32 draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, Sp8Type_80123524 *, s32);
 M2C_UNK TObjPlayer__sub_80120BBC(void *, M2C_UNK, void *);
 M2C_UNK warn_if_gauge_low__10TObjPlayerFv(s32);
@@ -80,7 +80,7 @@ void draw_mag__10TObjPlayerFPv(void *arg0) {
 extern s32 tl_05;
 
 void try_spawn_cane_effect__10TObjPlayerFi(s32 arg0) {
-    if (TObjPlayer__sub_8011F63C() == 0) {
+    if (get_attack_stage__11TItemWeaponFPv() == 0) {
         spawn_cane_effect__10TObjPlayerFiUii(tl_05, arg0, 4);
     }
 }

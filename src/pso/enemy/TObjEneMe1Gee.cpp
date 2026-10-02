@@ -934,7 +934,7 @@ M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 M2C_UNK update_hover_height__13TObjEneMe1GeeFPv(void *);
 M2C_UNK TObjEneMe1Gee__sub_800CBE6C(void *, f32);
-s32 fn_800B9194(void *);
+s32 enemy_has_live_target(void *);
 M2C_UNK advance_animation_playback();
 
 extern const f32 TObjEneMe1Gee__data_805DA0A8;
@@ -958,7 +958,7 @@ void state_hover__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1) {
             if (temp_r3 & 1) {
                 M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (temp_r3 & 0xFFFFFFFE);
                 transition_enemy_state(arg0, 4);
-            } else if (fn_800B9194(arg0) != 0) {
+            } else if (enemy_has_live_target(arg0) != 0) {
                 transition_enemy_state(arg0, 4);
             }
         }
@@ -1416,7 +1416,7 @@ s32 check_can_attack__13TObjEneMe1GeeFPv(void *arg0) {
 
 extern "C" {
 
-int fn_800B9194(void*);
+int enemy_has_live_target(void*);
 int TObjEneEpsilon__sub_800B96A4(void*);
 int update_velocity__9TObjEneDDFPv(void*);
 int update_angle__13TObjEneMe1GeeFPv(void*);
@@ -1433,7 +1433,7 @@ int TObjEneMe1Gee__vt87(void* p) { return TObjEneDD__vt86(p); }
 
 extern "C" {
 
-int fn_800B9194(void*);
+int enemy_has_live_target(void*);
 int TObjEneEpsilon__sub_800B96A4(void*);
 int update_velocity__9TObjEneDDFPv(void*);
 int update_angle__13TObjEneMe1GeeFPv(void*);
@@ -1441,7 +1441,7 @@ void update__13TObjEneMe1GeeFPv(void* p);
 int TObjEneMe1Gee__vt87(void* p);
 int TObjEneDD__vt86(void*);
 
-void update__13TObjEneMe1GeeFPv(void* p) { if (fn_800B9194(p) != 0) { TObjEneEpsilon__sub_800B96A4(p); update_velocity__9TObjEneDDFPv(p); update_angle__13TObjEneMe1GeeFPv(p); } }
+void update__13TObjEneMe1GeeFPv(void* p) { if (enemy_has_live_target(p) != 0) { TObjEneEpsilon__sub_800B96A4(p); update_velocity__9TObjEneDDFPv(p); update_angle__13TObjEneMe1GeeFPv(p); } }
 
 }
 #endif

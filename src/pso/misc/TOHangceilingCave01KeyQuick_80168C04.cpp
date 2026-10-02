@@ -31,7 +31,7 @@ s32 TObjFish__sub_8001ED9C(void *, void *);
 s32 get_bml_model(void *, void *);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 s32 reset_state(void *);
 extern RecoveredGlobal_80168C6C_lbl_804B2174 lbl_804B2174;
 extern M2C_UNK lbl_804B2578[];
@@ -77,7 +77,7 @@ u8 *TOHangceilingCave01KeyQuick__sub_80168C6C(u8 *arg0, M2C_UNK arg1, s32 arg2) 
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) (lbl_805D59D0), (void *) (lbl_805D59E0));
     M2C_FIELD(arg0, s32 *, 0xF8) = TObjFish__sub_8001ED9C((void *) (lbl_805D59D0), (void *) (lbl_805D59E4));
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B2174.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B2174.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     reset_state((void *) (arg0));

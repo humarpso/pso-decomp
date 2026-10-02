@@ -17,7 +17,7 @@ struct RecoveredGlobal_8018CEDC___vt__22TObjContainerJungEnemy {
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void reset_photon_effect__10TObjPlayerFPv(s32);
-u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
+u32 init_collision_body_parts(void *, s32, s32);
 u8 * fn_8018A150(void *, s32);
 void load_models__22TObjContainerJungEnemyFPv(void *arg0);
 extern RecoveredGlobal_8018CEDC_lbl_804B7168 lbl_804B7168;
@@ -120,7 +120,7 @@ u8 *TObjContainerJungEnemy__ct(u8 *arg0, s32 arg1, s32 _w2) {
     load_models__22TObjContainerJungEnemyFPv(arg0);
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);
-    TObjEneGibbles__sub_80156780(arg0, (s32) &lbl_804B7168.value, 1);
+    init_collision_body_parts(arg0, (s32) &lbl_804B7168.value, 1);
     reset_photon_effect__10TObjPlayerFPv((s32) arg0);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);

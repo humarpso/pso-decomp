@@ -417,7 +417,7 @@ s32 TBoss4DarkFalz__sub_8004B3BC(s32);
 int TBoss4DarkFalz__sub_8004B77C(void*);
 int TBoss4DarkFalz__sub_8004BA18(void*);
 s32 TLobby__sub_8022743C();
-s32 TOTrapAncient01__sub_80226578(s32, s32, s32, s32, s32);
+s32 play_persistent_sound(s32, s32, s32, s32, s32);
 s32 is_timer_expired__14TBoss4DarkFalzFPv();
 
 void TBoss4DarkFalz__sub_8004C93C(void) {  }
@@ -504,7 +504,7 @@ void TBoss4DarkFalz__sub_8004CBC0(u8 *arg0) {
 
 void spawn_ancient_trap__14TBoss4DarkFalzFi(s32 arg0) {
     if (((s32 (*)(void))TBoss4DarkFalz__sub_8004D990)() > 0) {
-        TOTrapAncient01__sub_80226578((s32)(0x4003A30A), (s32)(arg0), (s32)(0), (s32)(-0x20), (s32)(2));
+        play_persistent_sound((s32)(0x4003A30A), (s32)(arg0), (s32)(0), (s32)(-0x20), (s32)(2));
     }
 }
 
@@ -572,7 +572,7 @@ void start_effect__14TBoss4DarkFalzFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x380) = 0;
 }
 void spawn_trap__14TBoss4DarkFalzFi(s32 arg0) {
-    TOTrapAncient01__sub_80226578((s32)(0x4003A30A), (s32)(arg0), (s32)(0), (s32)(-0x18), (s32)(2));
+    play_persistent_sound((s32)(0x4003A30A), (s32)(arg0), (s32)(0), (s32)(-0x18), (s32)(2));
 }
 void check_timeout__14TBoss4DarkFalzFi(s32 arg0) {
     if ((is_timer_expired__14TBoss4DarkFalzFPv() != 0) || (TBoss4DarkFalz__sub_8004B07C(arg0) != 0)) {

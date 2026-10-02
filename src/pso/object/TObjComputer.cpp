@@ -163,7 +163,7 @@ void TObjContainerAbeEnemy__vt80(Obj_80188814 *self);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 get_bml_model(void *, s32);
 void reset_photon_effect__10TObjPlayerFPv(void *);
-u32 TObjEneGibbles__sub_80156780(void *, void *, s32);
+u32 init_collision_body_parts(void *, void *, s32);
 void set_type__14TOKeyAncient01FPv(void *);
 void *TObjMesBase__ct(void *, void *, void *);
 extern M2C_UNK lbl_804B6254[];
@@ -372,7 +372,7 @@ void *TObjComputer__ct(void *arg0, void *parent, void *row) {
         queue_destruction__7TObjectFv(self);
         return self;
     }
-    TObjEneGibbles__sub_80156780(self, lbl_804B6254, 1);
+    init_collision_body_parts(self, lbl_804B6254, 1);
     self->flags30 |= 0x40000000;
     reset_photon_effect__10TObjPlayerFPv(self);
     set_type__14TOKeyAncient01FPv(self->aux98);

@@ -12,7 +12,7 @@ struct Obj_800BB780 { u8 pad[0x30]; u32 flags; u8 pad1[0x70]; Part_800BB780 *par
 struct Pl_800BB688 { u8 pad0[0x38]; f32 pos[3]; };
 extern "C" {
 void TBoss8Dragon__sub_800BB664(f32 farg0);
-s32 TBoss8Dragon__sub_800BB688(u8 *arg0, f32 farg0);
+s32 enemy_nearest_visible_player_sq(u8 *arg0, f32 farg0);
 s32 get_player_data__10TObjPlayerFi(int);
 s32 obj_getField1c(void *);
 s32 get_game_mode__6TLobbyFv();
@@ -40,10 +40,10 @@ int send_entity_set_flags__6TLobbyFPv(void*);
 void TBoss8Dragon__sub_800BB650(void* p, void* q) { *(u16*)((char*)p + 0x0) = *(u16*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); }
 
 void TBoss8Dragon__sub_800BB664(f32 farg0) {
-    ((s32 (*)(f32))TBoss8Dragon__sub_800BB688)(farg0 * farg0);
+    ((s32 (*)(f32))enemy_nearest_visible_player_sq)(farg0 * farg0);
 }
 
-s32 TBoss8Dragon__sub_800BB688(u8 *arg0, f32 farg0) {
+s32 enemy_nearest_visible_player_sq(u8 *arg0, f32 farg0) {
     f32 d;
     f32 best;
     s32 n;

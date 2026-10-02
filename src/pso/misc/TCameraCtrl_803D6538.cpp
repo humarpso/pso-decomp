@@ -374,7 +374,7 @@ void TObjPlayer__sub_803D6F20(u8 *arg0, s32 arg1, s32 *arg2, f32 farg0) {
 
 #pragma push
 #pragma scheduling off
-void TObjPlayer__sub_803D6FC8(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
+void sample_motion_angle_keys(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_803D6FC8, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_803D6FC8, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_803D6FC8, sp10) == 0x8) ? 1 : -1];
@@ -396,7 +396,7 @@ void TObjPlayer__sub_803D6FC8(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
 
 #pragma push
 #pragma scheduling off
-void TObjPlayer__sub_803D7128(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
+void sample_motion_angle_keys_s16(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_803D7128, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_803D7128, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_803D7128, sp10) == 0x8) ? 1 : -1];

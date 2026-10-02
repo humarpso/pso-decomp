@@ -8,7 +8,7 @@ struct RecoveredGlobal_803655F8___vt__15TObjIllGillKage { M2C_UNK value; u8 rema
 typedef char RecoveredGlobal_803655F8___vt__15TObjIllGillKage_size[sizeof(RecoveredGlobal_803655F8___vt__15TObjIllGillKage) == 0x34 ? 1 : -1];
 
 extern "C" {
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 void TObjIllGillKage__sub_80365470(u8 *arg0);
 int queue_destruction__15TObjIllGillKageFPv(void* p);
 void TObjIllGillKage__sub_80365470(u8 *arg0);
@@ -42,7 +42,7 @@ int queue_destruction__15TObjIllGillKageFPv(void* p) { return queue_destruction_
 
 void TObjIllGillKage__sub_80365470(u8 *arg0) {
     s32 temp_r3;
-    TOTrapAncient01__sub_80226578((int) (0x4003A357), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_persistent_sound((int) (0x4003A357), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x94);
     M2C_FIELD(arg0, s32 *, 0x94) = (s32) (temp_r3 - 1);
     if (temp_r3 < 0) {

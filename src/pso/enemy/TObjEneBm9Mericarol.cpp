@@ -127,7 +127,7 @@ s32 transition_enemy_state(void * a0, s32 a1);
 void TObjEneBm9Mericarol__sub_802D095C(u8 *arg0);
 void TObjEneBm9Mericarol__sub_802D0B04(u8 *arg0);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
-s32 TOTrapAncient01__sub_80226578(void *, void *, void *, int, int);
+s32 play_persistent_sound(void *, void *, void *, int, int);
 void TObjEneBm9Mericarol__sub_802D073C(s32 arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 extern const f32 lbl_805DE6F4;
@@ -184,7 +184,7 @@ void *__nw__7TObjectFUl(int);
 M2C_UNK fn_802D1C84();
 
 void TObjEneBm9Mericarol__sub_802D073C(s32 arg0) {
-    TOTrapAncient01__sub_80226578((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x3A810))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_persistent_sound((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x3A810))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
 }
 
 s32 get_phase__19TObjEneBm9MericarolFPv(void* p) { return *(s32*)((char*)p + 0x45c); }

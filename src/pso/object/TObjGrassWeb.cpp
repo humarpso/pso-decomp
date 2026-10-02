@@ -25,7 +25,7 @@ extern M2C_UNK __vt__12TObjGrassWeb[];
 extern s32 lbl_805D2A3C;
 u8 *TObjGrassWeb__ct(u8 *arg0, s32 arg1, u32 arg2);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_persistent_sound(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 extern s32 enable_v2_features;
 void TObjGrassWeb__sub_800BC798(Web_800BC798 *o);
 }
@@ -56,19 +56,19 @@ void TObjGrassWeb__sub_800BC798(Web_800BC798 *o) {
     case 3:
     case 4:
     case 5:
-        TOTrapAncient01__sub_80226578(0x4003A809, o, o->pos, 0, 0);
+        play_persistent_sound(0x4003A809, o, o->pos, 0, 0);
         break;
     case 16:
     case 17:
         if (enable_v2_features == 1) {
-            TOTrapAncient01__sub_80226578(0x3051E, o, o->pos, 0, 0);
+            play_persistent_sound(0x3051E, o, o->pos, 0, 0);
         }
         break;
     case 18:
         break;
     case 19:
     case 20:
-        TOTrapAncient01__sub_80226578(0x3A81D, o, o->pos, 0, 0);
+        play_persistent_sound(0x3A81D, o, o->pos, 0, 0);
         break;
     }
     if (o->timer-- < 0) {

@@ -45,7 +45,7 @@ struct TNeedleShoot_802A47C8 {
 extern "C" {
 f32 get_random_float__8TObjFishFv(f32);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-void TObjEneGibbles__sub_80156780(void *, void *, int);
+void init_collision_body_parts(void *, void *, int);
 void *TObjPlayer__sub_801569F4(void *, void *);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -135,7 +135,7 @@ TNeedleShoot_802A47C8 *TNeedleShoot__ct(TNeedleShoot_802A47C8 *self, s32 arg1, V
     }
     self->f68 = p;
     if (self->f68 != NULL) {
-        TObjEneGibbles__sub_80156780(self->f68, &self->f3c, 1);
+        init_collision_body_parts(self->f68, &self->f3c, 1);
     }
     return self;
 }

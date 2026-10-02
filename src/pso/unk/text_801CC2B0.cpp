@@ -45,7 +45,7 @@ s16 get_valid_index__15TFontSmallLobbyFPv(void *);
 M2C_UNK TObjPlayer__sub_801D8F0C(void *);
 f32 TObjPlayer__sub_801D8F60(void *);
 f32 TObjPlayer__sub_801D8FB4(void *);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, int, int, int);
+M2C_UNK play_persistent_sound(int, void *, int, int, int);
 extern f32 TObjPlayer__data_805DC360;
 extern f32 TObjPlayer__data_805DC36C;
 extern const f32 lbl_805DC398;
@@ -139,7 +139,7 @@ void update_photon_blast_action__10TObjPlayerFPv(u8 *arg0) {
       set_field8__10TObjPlayerFPvi((void *) (arg0 + 0x4AC), (int) (*((s16 *) (((s8 *) get_photon_blast_entry__10TObjPlayerFi(get_valid_index__15TFontSmallLobbyFPv((void *) (arg0 + 0x4AC)))) + 0x12))));
       set_field_0c__10TObjPlayerFPvf((void *) (arg0 + 0x4AC), (f32) lbl_805DC398);
     }
-      TOTrapAncient01__sub_80226578((int) 0x4002A823, (void *) arg0, (int) 0, (int) 0, (int) 0);
+      play_persistent_sound((int) 0x4002A823, (void *) arg0, (int) 0, (int) 0, (int) 0);
       break;
     case 1:
       *((f32 *) (((s8 *) arg0) + 0xC0)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xC0))) + TObjPlayer__sub_801D2A98((void *) (arg0 + 0x4AC)));
@@ -166,7 +166,7 @@ void update_photon_blast_action__10TObjPlayerFPv(u8 *arg0) {
       TObjPlayer__sub_801D8F0C((void *) arg0);
       TObjPlayer__sub_801D2A78((void *) (arg0 + 0x4AC));
     }
-      TOTrapAncient01__sub_80226578((int) 0x4002A823, (void *) arg0, (int) 0, (int) 0, (int) 0);
+      play_persistent_sound((int) 0x4002A823, (void *) arg0, (int) 0, (int) 0, (int) 0);
       break;
     case 3:
       if (TObjPlayer__sub_801D2A50((void *) (arg0 + 0x4AC)) != 0)

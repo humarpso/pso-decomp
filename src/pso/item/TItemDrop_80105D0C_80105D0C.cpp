@@ -27,7 +27,7 @@ void TItemDrop__sub_8010643C(void);
 u8 can_drop__9TItemDropFv(void);
 u8 get_bool_from_1d6ddc__9TItemDropFPv(void *);
 u8 TItemDrop__sub_80107B04(void *);
-s32 TItemData__sub_8010DF68(void *);
+s32 is_rare_item__9TItemDataFPv(void *);
 M2C_UNK init__9TItemDataFv(void *);
 u8 TLobby__sub_801D6F94(void *);
 u8 TLobby__sub_801D6FFC(void *);
@@ -38,7 +38,7 @@ u8 fn_801D7204(void *);
 u8 TOMineTrap__sub_801D7238(void *);
 s32 TLobby__sub_8030A7B0();
 extern M2C_UNK lbl_8050EA40[];
-void TItemDrop__sub_80105EA4(M2C_UNK arg0, Item_80105EA4 *it);
+void apply_drop_restrictions(M2C_UNK arg0, Item_80105EA4 *it);
 }
 
 extern "C" {
@@ -56,7 +56,7 @@ int TItemData__sub_8010C638(void*, void*);
 s8 TItemDrop__sub_80107790(s32, s32, s32, s32, s32);
 s32 TLobby__sub_8030A7B0();
 int is_unsealable_item(void*);
-u8 TObjPlayer__sub_8011C914(s32);
+u8 get_item_star_count(s32);
 s32 get_drop_flag__6TLobbyFv();
 s32 get_instance__6TLobbyFv();
 
@@ -96,14 +96,14 @@ s32 calc_drop_offset__9TItemDropFi(s32 arg0) {
     return var_r31;
 }
 
-void TItemDrop__sub_80105EA4(M2C_UNK arg0, Item_80105EA4 *it) {
+void apply_drop_restrictions(M2C_UNK arg0, Item_80105EA4 *it) {
     void *p;
     u8 m;
     u8 t;
     if (it == NULL) {
         return;
     }
-    if (((s32 (*)(void))can_drop__9TItemDropFv)() == 0 && TItemData__sub_8010DF68(it) != 0) {
+    if (((s32 (*)(void))can_drop__9TItemDropFv)() == 0 && is_rare_item__9TItemDataFPv(it) != 0) {
         init__9TItemDataFv(it);
         return;
     }
@@ -128,7 +128,7 @@ void TItemDrop__sub_80105EA4(M2C_UNK arg0, Item_80105EA4 *it) {
             init__9TItemDataFv(it);
             return;
         case 3:
-            if (TItemData__sub_8010DF68(it) == 1) {
+            if (is_rare_item__9TItemDataFPv(it) == 1) {
                 init__9TItemDataFv(it);
             }
             return;
@@ -208,7 +208,7 @@ void init_drop_table__9TItemDropFv(void) {
     var_r31 = 0;
     var_r30 = TItemDrop__data_805D5468;
     do {
-        temp_r3 = TObjPlayer__sub_8011C914(var_r31 + 0x2AF);
+        temp_r3 = get_item_star_count(var_r31 + 0x2AF);
         temp_r5 = temp_r3;
         var_r31 += 1;
         temp_r4 = temp_r5 - 1;
@@ -221,7 +221,7 @@ void init_drop_table__9TItemDropFv(void) {
         var_r30 += 5;
     } while (var_r31 != 0x10);
     while (var_r31 != 0x48) {
-        *var_r30 = TObjPlayer__sub_8011C914(var_r31 + 0x2AF);
+        *var_r30 = get_item_star_count(var_r31 + 0x2AF);
         var_r30 += 1;
         var_r31 += 1;
     }

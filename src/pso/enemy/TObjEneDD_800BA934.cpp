@@ -56,7 +56,7 @@ void clear_field_388__9TObjEneDDFPv(void* p);
 void init_model__9TObjEneDDFPv(void* p);
 void set_active__9TObjEneDDFPv(void* p);
 void TObjEneDD__vt85(void);
-int TObjEneGibbles__sub_80156780(void*);
+int init_collision_body_parts(void*);
 
 void TObjEneDD__sub_800BA934(Obj_800BA934 *self) {
     s32 i;
@@ -104,7 +104,7 @@ void TObjEneDD__sub_800BAAE4(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s32 i) {
     rotate_xz_pair_by_angle(&p->x, &p->z, -self->angle);
 }
 
-void init_model__9TObjEneDDFPv(void* p) { TObjEneGibbles__sub_80156780(p); TObjEneDD__sub_800BA934((Obj_800BA934 *)((void*)(p))); }
+void init_model__9TObjEneDDFPv(void* p) { init_collision_body_parts(p); TObjEneDD__sub_800BA934((Obj_800BA934 *)((void*)(p))); }
 void clear_field_388__9TObjEneDDFPv(void* p) { *(s32*)((char*)p + 0x388) = 0; }
 void set_active__9TObjEneDDFPv(void* p) { *(s32*)((char*)p + 0x388) = 1; }
 

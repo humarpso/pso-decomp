@@ -113,7 +113,7 @@ struct VObj_18_8e9c4f : VBase_18_8e9c4f {
 };
 
 extern "C" {
-s32 fn_800B9194(void *);
+s32 enemy_has_live_target(void *);
 s32 TObjEneEpsilon__sub_800BBE64(void *, s32 *, s32);
 M2C_UNK enemy_clear_target(void *);
 s32 TObjEneEpsilon__sub_800B96FC(u8 *arg0, s32 *counter, s32 limit, f32 scale);
@@ -133,7 +133,7 @@ s32 TObjEneEpsilon__sub_800B96FC(u8 *arg0, s32 *counter, s32 limit, f32 scale) {
     if (TObjEneEpsilon__sub_800BBE64(arg0, counter, limit) != 0) {
         var_r31 = ((VObj_18_8e9c4f *)(arg0))->m102(scale);
     } else {
-        var_r31 = fn_800B9194(arg0);
+        var_r31 = enemy_has_live_target(arg0);
         if (var_r31 == 0) {
             enemy_clear_target((void *) (arg0));
         }

@@ -39,7 +39,7 @@ void reset_state__10TBoss6TubeFv(void);
 void spawn_trap__10TBoss6TubeFi(s32 arg0);
 void update_timer__10TBoss6TubeFPv(void *arg0);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, s32, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_persistent_sound(M2C_UNK, s32, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK set_shake_preset__11TCameraCtrlFi(M2C_UNK);
 
 extern f32 lbl_805DE254;
@@ -100,7 +100,7 @@ void TBoss6Tube__sub_802B138C(u8 *arg0) {
 
 void spawn_trap__10TBoss6TubeFi(s32 arg0) {
     TBoss6Tube__sub_802B129C((u8 *)(arg0));
-    TOTrapAncient01__sub_80226578(0x40033520, arg0, 0, 0, 0);
+    play_persistent_sound(0x40033520, arg0, 0, 0, 0);
 }
 
 void update_timer__10TBoss6TubeFPv(void *arg0) {

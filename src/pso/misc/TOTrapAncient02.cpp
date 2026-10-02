@@ -125,7 +125,7 @@ struct Trap_8017ADC4 {
 
 extern "C" {
 u32 get_global_state__14TOKeyMachine01Fv();
-void TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+void play_persistent_sound(int, void *, void *, int, int);
 void scroll_ginja_mesh_uvs(u32, s32, s32, u16, s32);
 extern s32 lbl_805D53A4;
 extern s32 lbl_805D5ADC;
@@ -210,20 +210,20 @@ void TOTrapAncient02__sub_8017ACA0(Obj_8017ACA0 *self) {
         case 3:
         case 4:
         case 5:
-            TOTrapAncient01__sub_80226578(0x4461B, self, (u8 *)self + 0x38, 0, 0);
+            play_persistent_sound(0x4461B, self, (u8 *)self + 0x38, 0, 0);
             return;
         case 6:
         case 7:
-            TOTrapAncient01__sub_80226578(0x4004C612, self, (u8 *)self + 0x38, 0, 0);
+            play_persistent_sound(0x4004C612, self, (u8 *)self + 0x38, 0, 0);
             return;
         case 8:
         case 9:
         case 10:
-            TOTrapAncient01__sub_80226578(0x4004C618, self, (u8 *)self + 0x38, 0, 0);
+            play_persistent_sound(0x4004C618, self, (u8 *)self + 0x38, 0, 0);
             return;
         case 21:
         case 22:
-            TOTrapAncient01__sub_80226578(0x4004C610, self, (u8 *)self + 0x38, 0, 0);
+            play_persistent_sound(0x4004C610, self, (u8 *)self + 0x38, 0, 0);
         case 0:
             return;
         case 1:

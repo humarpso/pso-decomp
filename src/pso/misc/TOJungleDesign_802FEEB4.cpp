@@ -39,7 +39,7 @@ struct RecoveredGlobal_802FEF98___vt__14TOJungleDesign {
 
 extern "C" {
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjEneGibbles__sub_80156780(void *, int, int);
+s32 init_collision_body_parts(void *, int, int);
 s32 TObjPlayer__sub_801569F4(void *);
 s32 init_design_variant__14TOJungleDesignFPv(void *);
 extern RecoveredGlobal_802FEF98_lbl_804E6580 lbl_804E6580;
@@ -99,7 +99,7 @@ u8 *TOJungleDesign__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4044;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     init_design_variant__14TOJungleDesignFPv((void *) (arg0));
-    TObjEneGibbles__sub_80156780((void *) (arg0), (int) ((u8 *)&lbl_804E6580.value + (M2C_FIELD(arg0, s32 *, 0xB0) * 0x2C)), (int) (1));
+    init_collision_body_parts((void *) (arg0), (int) ((u8 *)&lbl_804E6580.value + (M2C_FIELD(arg0, s32 *, 0xB0) * 0x2C)), (int) (1));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     return arg0;
 }

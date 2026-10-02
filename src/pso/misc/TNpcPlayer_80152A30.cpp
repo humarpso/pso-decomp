@@ -38,7 +38,7 @@ void TNpcPlayer__sub_80152B5C(void* p);
 void TNpcPlayer__sub_80152BEC(void* p);
 void TNpcPlayer__sub_80152D64(void* p);
 void TNpcPlayer__sub_80152E74(void* a0);
-int TObjPlayer__sub_80152F40(void);
+int get_registered_object_count(void);
 void byteswap_pos__10TNpcPlayerFPv(void* p);
 void* fn_80152EF8(void* p);
 u16 get_action_flags__10TNpcPlayerFPv(void* p);
@@ -183,7 +183,7 @@ void TFontSmallLobby__sub_80152F28(Obj_80152F28 *self) {
     self->b = 0;
 }
 
-int TObjPlayer__sub_80152F40(void) {  return TObjPlayer__data_805D5874; }
+int get_registered_object_count(void) {  return TObjPlayer__data_805D5874; }
 
 u16 get_action_flags__10TNpcPlayerFPv(void* p) { return *(u16*)((char*)p + 0x678); }
 

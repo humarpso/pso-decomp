@@ -89,14 +89,14 @@ extern u8 *lbl_805D4DF0;
 extern const f32 TWindowFukidasi__data_805DCD08;
 extern const f32 lbl_805DCD78;
 extern const f32 lbl_805DCD90;
-void TWindowFukidasi__sub_802521E8(Fuki_802521E8 *b, void *view, u32 color, f32 *off, f32 depth);
+void draw_tail__15TWindowFukidasiFPvPvUiPvf(Fuki_802521E8 *b, void *view, u32 color, f32 *off, f32 depth);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void TWindowFukidasi__sub_802521E8(Fuki_802521E8 *b, void *view, u32 color, f32 *off, f32 depth) {
+void draw_tail__15TWindowFukidasiFPvPvUiPvf(Fuki_802521E8 *b, void *view, u32 color, f32 *off, f32 depth) {
     f32 verts[6];
     f32 pos[3];
     Prim_802521E8 prim;
@@ -167,11 +167,11 @@ void render__15TWindowFukidasiFPv(Fuki_80252764 *b) {
     off[0] = TWindowFukidasi__data_805DCD28 * b->tail;
     off[1] = lbl_805DCDB8 * b->tail;
     TWindowFukidasi__sub_80252558(b, v, 0xFF000000, off, lbl_805DCDBC + b->f54);
-    TWindowFukidasi__sub_802521E8((Fuki_802521E8 *)((Fuki_802521E8 *)b), (void *)(v), (u32)(0xFF000000), (f32 *)(off), lbl_805DCDC0 + b->f54);
+    draw_tail__15TWindowFukidasiFPvPvUiPvf((Fuki_802521E8 *)((Fuki_802521E8 *)b), (void *)(v), (u32)(0xFF000000), (f32 *)(off), lbl_805DCDC0 + b->f54);
     off[0] = TWindowFukidasi__data_805DCD30;
     off[1] = TWindowFukidasi__data_805DCD30;
     TWindowFukidasi__sub_80252558(b, v, b->color, off, lbl_805DCDC0 + b->f54);
-    TWindowFukidasi__sub_802521E8((Fuki_802521E8 *)((Fuki_802521E8 *)b), (void *)(v), (u32)(b->color), (f32 *)(off), lbl_805DCD90 + b->f54);
+    draw_tail__15TWindowFukidasiFPvPvUiPvf((Fuki_802521E8 *)((Fuki_802521E8 *)b), (void *)(v), (u32)(b->color), (f32 *)(off), lbl_805DCD90 + b->f54);
     if (is_active__15TWindowFukidasiFPv(b) != 0) {
         TWindowSubStatusDisp__sub_80257BC0(b, b->f24, v);
         TWindowFukidasi__sub_80251EC8(b, v, b->color);

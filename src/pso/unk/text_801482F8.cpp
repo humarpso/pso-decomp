@@ -192,8 +192,8 @@ typedef struct Vec_801489B8 { f32 x, y, z; } Vec_801489B8;
 
 extern "C" {
 s32 approach_angle_limited(s32, s32, s32);
-void TObjPlayer__sub_80148C14(u8 *arg0);
-void TObjPlayer__sub_80148CF8(void *arg0);
+void update_standing__11TObjNpcBaseFPv(u8 *arg0);
+void activate_idle_mode__11TObjNpcBaseFPv(void *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi();
 void move_with_wall_slide(void *);
 void enemy_set_heading_velocity(void *, s32, f32);
@@ -215,7 +215,7 @@ extern const f32 lbl_805DB1D0;
 extern const f32 lbl_805DB1D4;
 extern const f32 lbl_805DB1D8;
 extern const f32 lbl_805DB1DC;
-void TObjPlayer__sub_801489B8(u8 *arg0);
+void update_wandering__11TObjNpcBaseFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -252,7 +252,7 @@ void handle_message_event__17TObjNpcFemaleBaseFPvUs(void *arg0, u16 arg1) {
     }
 }
 
-void TObjPlayer__sub_801489B8(u8 *arg0) {
+void update_wandering__11TObjNpcBaseFPv(u8 *arg0) {
     switch (M2C_FIELD(arg0, s16 *, 0x328)) {
     case 0: {
         Vec_801489B8 v;
@@ -310,7 +310,7 @@ void TObjPlayer__sub_801489B8(u8 *arg0) {
     update_collisions__10TObjPlayerFPv(arg0);
 }
 
-void TObjPlayer__sub_80148C14(u8 *arg0) {
+void update_standing__11TObjNpcBaseFPv(u8 *arg0) {
     switch (M2C_FIELD(arg0, s16 *, 0x328)) {
     case 0:
         if (M2C_FIELD(arg0, s32 *, 0x60) != M2C_FIELD(arg0, s32 *, 0x384)) {
@@ -334,7 +334,7 @@ void TObjPlayer__sub_80148C14(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_80148CF8(void *arg0) {
+void activate_idle_mode__11TObjNpcBaseFPv(void *arg0) {
     s16 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
     if ((temp_r0 >= 4) || (temp_r0 < 1)) {

@@ -64,7 +64,7 @@ extern const f32 lbl_805DBCF4;
 f32 TObjContainerNoItem__vt20(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void reset_photon_effect__10TObjPlayerFPv(s32);
-u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
+u32 init_collision_body_parts(void *, s32, s32);
 u8 * fn_8018A150(void *, s32);
 extern RecoveredGlobal_80188DC0_lbl_804B63BC lbl_804B63BC;
 extern M2C_UNK __vt__17TObjContainerBase[];
@@ -142,7 +142,7 @@ u8 *TObjContainerBase__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D32E8;
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);
-    TObjEneGibbles__sub_80156780(arg0, (s32) &lbl_804B63BC.value, 1);
+    init_collision_body_parts(arg0, (s32) &lbl_804B63BC.value, 1);
     reset_photon_effect__10TObjPlayerFPv((s32) arg0);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);

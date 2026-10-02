@@ -158,7 +158,7 @@ M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 void TObjEneDD__sub_800BA5A4(void *, void *, void *);
 void transition_enemy_state(void *, s16);
 M2C_UNK advance_animation_playback();
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 extern u8 lbl_8043A340[];
 extern const f32 TObjEneMe1Canadin__data_805D988C;
 extern const f32 lbl_805D98B8;
@@ -333,7 +333,7 @@ void TObjEneMe1Canadin__sub_8009C2EC(u8 *arg0, s32 arg1) {
         } else {
             M2C_FIELD(arg0, s32 *, 0x410) = 0xFF000000;
         }
-        TOTrapAncient01__sub_80226578(0x4003B71D, arg0, arg0 + 0x2FC, 0, 0);
+        play_persistent_sound(0x4003B71D, arg0, arg0 + 0x2FC, 0, 0);
         ((VObj_18 *)arg0)->m87();
         break;
     }

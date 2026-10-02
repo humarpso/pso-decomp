@@ -200,7 +200,7 @@ M2C_UNK TItemProArmor__sub_801178A8(u8 *, u32);
 M2C_UNK set_params__14TItemProShieldFiPv(u8 *, u32);
 M2C_UNK TItem__sub_8011892C(u8 *, u32);
 M2C_UNK copy_field6_from__10TObjPlayerFPvPv(u8 *, u32);
-void TItem__sub_801008F0(void *arg0, u32 arg1);
+void replace_item_with_new_code(void *arg0, u32 arg1);
 }
 
 extern "C" {
@@ -320,7 +320,7 @@ s32 consume_item_by_id(s32 arg0) {
 }
 
 typedef struct TItemData TItemData;
-void TItem__sub_801008F0(void *arg0, u32 arg1) {
+void replace_item_with_new_code(void *arg0, u32 arg1) {
   struct TItemData sp8;
   s32 temp_r31;
   u8 temp_r3;

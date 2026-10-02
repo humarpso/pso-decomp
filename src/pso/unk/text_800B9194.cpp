@@ -11,14 +11,14 @@ s32 fn_800B91F4(void *arg0);
 M2C_UNK enemy_clear_target(void *);
 s32 is_alive__9TObjEneDDFPv(s32);
 u32 find_entity_by_id(u32);
-s32 fn_800B9194(void *arg0);
+s32 enemy_has_live_target(void *arg0);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-s32 fn_800B9194(void *arg0) {
+s32 enemy_has_live_target(void *arg0) {
     u32 id = M2C_FIELD(arg0, u16 *, 0x38C);
     if (id == 0xFFFF) {
         return 0;

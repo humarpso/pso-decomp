@@ -21,7 +21,7 @@ s32 test_flags_1b8__10TObjPlayerFPvUi(void *, s32);
 M2C_UNK set_status_flags__10TObjPlayerFPvUi(void *, int);
 M2C_UNK set_action_type__10TObjPlayerFPvs(int, int);
 s16 TObjPlayer__sub_801D2F4C(int);
-void TObjPlayer__sub_8011E4D8(u8 *arg0);
+void remap_extra_attack_type(u8 *arg0);
 }
 
 extern "C" {
@@ -35,7 +35,7 @@ void TObjPlayer__sub_8011E5D0(void);
 void TObjPlayer__sub_8011E5D4(void);
 void TObjPlayer__sub_8011E5D8(void);
 void TObjPlayer__sub_8011E5DC(void);
-void TObjPlayer__sub_8011E5E0(void);
+void weapon_prepare_marker_noop(void);
 void TObjPlayer__sub_8011E610(void* p, s32 v);
 
 void TObjPlayer__sub_8011E484(u8 *arg0) {
@@ -45,7 +45,7 @@ void TObjPlayer__sub_8011E484(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_8011E4D8(u8 *arg0) {
+void remap_extra_attack_type(u8 *arg0) {
     if ((test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x20) != 0U) && (TObjPlayer__sub_801D2F4C((int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC)) == 2)) {
         if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x100000) != 0U) {
             set_action_type__10TObjPlayerFPvs((int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC), (int) (0));

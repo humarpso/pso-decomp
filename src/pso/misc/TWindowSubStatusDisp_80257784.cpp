@@ -59,7 +59,7 @@ s32 TItemData__sub_8010C738(s32);
 s32 TItemData__sub_8010CC68(s32);
 s32 TItemData__sub_8010CEF4(s32);
 u32 TItemData__sub_8010D028(s32, M2C_UNK, s32);
-s32 TItemData__sub_8010DF68(s32);
+s32 is_rare_item__9TItemDataFPv(s32);
 s32 TItem__sub_801013E8(void *);
 s32 get_usable_action_flags__5TItemFPvUiUi(void *, M2C_UNK, s32);
 s32 TObjPlayer__sub_80203418();
@@ -169,7 +169,7 @@ void update_item_colors__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
         temp_r29 = TWindowHelpItem__sub_80104FCC(temp_r3, arg1, &sp8);
         temp_r30 = check_item_flags__9TItemDataFPv(arg1);
         if ((u8) M2C_FIELD(arg0, u8 *, 0x1C) == 0x33) {
-            if ((temp_r30 == 0) && (TItemData__sub_8010DF68(arg1) != 0)) {
+            if ((temp_r30 == 0) && (is_rare_item__9TItemDataFPv(arg1) != 0)) {
                 M2C_FIELD(arg0, u8 *, 0x1C) = 0x19U;
             } else if (sp8 & 1) {
                 M2C_FIELD(arg0, u8 *, 0x1C) = 0x13U;

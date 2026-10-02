@@ -125,7 +125,7 @@ extern u16 lbl_80445CB8[];
 extern u8 lbl_80445CD8[];
 void TLazerFenceSw__vt24(Sw_80193978 *arg0);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 M2C_UNK fn_80156CEC(void *);
 M2C_UNK init_vtable_804AF8D8__14TOAirconCave01FPv(void *);
 M2C_UNK init_key__5TOKeyFPv(void *, void *);
@@ -141,7 +141,7 @@ extern const f32 lbl_805DBE90;
 void *TLazerFenceSw__ct(void *arg0, void *arg1, void *arg2);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 void refresh_collision_body_centers(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 void TObjPlayer__sub_801569F4(void *);
 void TObjLazerFence4__sub_80193188(void *);
 extern u16 lbl_80445BE0[];
@@ -222,7 +222,7 @@ void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2) {
     }
     self->fB8 = lbl_80445BE0[i];
     TObjLazerFence4__sub_80193188(self);
-    TObjEneGibbles__sub_80156780(self, lbl_804B8128 + (self->f8C % 2) * 0xDC, 5);
+    init_collision_body_parts(self, lbl_804B8128 + (self->f8C % 2) * 0xDC, 5);
     self->flags |= 0x40000000;
     reset_photon_effect__10TObjPlayerFPv(self);
     refresh_collision_body_centers(self);
@@ -362,7 +362,7 @@ void *TLazerFenceSw__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, u16 *, 0xE8) = lbl_80445CB8[M2C_FIELD(arg0, s32 *, 0x8C) % 4];
     M2C_FIELD(arg0, f32 *, 0xB8) = lbl_805DBE8C;
     M2C_FIELD(arg0, f32 *, 0xEC) = TLazerFenceSw__data_805DBE84;
-    TObjEneGibbles__sub_80156780(arg0, lbl_804B8370, 1);
+    init_collision_body_parts(arg0, lbl_804B8370, 1);
     M2C_FIELD(arg0, s32 *, 0x30) |= 0x40000000;
     reset_photon_effect__10TObjPlayerFPv(arg0);
     fn_80156CEC((u8 *)arg0 + 0xF0);

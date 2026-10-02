@@ -60,13 +60,13 @@ void TWindowSubStatusDisp__sub_801454E0(s32 _w0);
 extern const f32 lbl_805DB190;
 extern const f32 lbl_805DB194;
 extern const f32 lbl_805DB198;
-void TWindowSubStatusDisp__sub_80144BF4(u8 arg0, u8 *arg1);
+void set_glyph_quad_extents(u8 arg0, u8 *arg1);
 extern RecoveredGlobal_80144FCC_lbl_804A74F0 lbl_804A74F0;
-u32 TWindowSubStatusDisp__sub_80144FCC(u16 arg0);
-u16 TWindowSubStatusDisp__sub_80145054(u16 c);
+u32 get_font_char_advance(u16 arg0);
+u16 map_char_to_font_code(u16 c);
 s32 get_field24__11TWindowCtrlFv();
 extern s32 lbl_8043F390[];
-char *TWindowSubStatusDisp__sub_80144B14(char *p, s32 *a, s32 *b);
+char *parse_text_control_codes(char *p, s32 *a, s32 *b);
 }
 
 extern "C" {
@@ -81,7 +81,7 @@ int begin_screen_draw(void*);
 int TWindowSubStatusDisp__sub_803DF160(void*, void*);
 int get_player__20TWindowSubStatusDispFv(void*);
 
-char *TWindowSubStatusDisp__sub_80144B14(char *p, s32 *a, s32 *b) {
+char *parse_text_control_codes(char *p, s32 *a, s32 *b) {
     while (*p == '\t') {
         switch (*++p) {
         case 'J':
@@ -109,7 +109,7 @@ char *TWindowSubStatusDisp__sub_80144B14(char *p, s32 *a, s32 *b) {
 
 #pragma push
 #pragma fp_contract on
-void TWindowSubStatusDisp__sub_80144BF4(u8 arg0, u8 *arg1) {
+void set_glyph_quad_extents(u8 arg0, u8 *arg1) {
     M2C_FIELD(arg1, f32 *, 8) = (f32) (M2C_FIELD(arg1, f32 *, 0) + (f32) arg0);
     M2C_FIELD(arg1, f32 *, 0xC) = (f32) (lbl_805DB190 + M2C_FIELD(arg1, f32 *, 4));
     M2C_FIELD(arg1, f32 *, 0x18) = (f32) (((f32) arg0 * lbl_805DB194) + M2C_FIELD(arg1, f32 *, 0x10));
@@ -119,7 +119,7 @@ void TWindowSubStatusDisp__sub_80144BF4(u8 arg0, u8 *arg1) {
 
 typedef struct RecoveredGlobal_80144FCC_lbl_804A74F0 RecoveredGlobal_80144FCC_lbl_804A74F0;
 typedef char RecoveredGlobal_80144FCC_lbl_804A74F0_size[((sizeof(RecoveredGlobal_80144FCC_lbl_804A74F0)) == 0x2FC) ? (1) : (-1)];
-u32 TWindowSubStatusDisp__sub_80144FCC(u16 arg0) {
+u32 get_font_char_advance(u16 arg0) {
   volatile unsigned long pad;
   unsigned short new_var;
   if (arg0 < 0x21U)
@@ -148,7 +148,7 @@ s32 is_alpha_char__20TWindowSubStatusDispFUs(u16 arg0) {
     return arg0 <= 0x5AU ? 1 : 0;
 }
 
-u16 TWindowSubStatusDisp__sub_80145054(u16 c) {
+u16 map_char_to_font_code(u16 c) {
     if (c & 0x80) {
         c = c - 1;
     }

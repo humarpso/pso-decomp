@@ -28,7 +28,7 @@ extern "C" {
 s32 copy_and_register_item_data__11TItemObjectFPv(u32);
 u32 find_item_by_id();
 M2C_UNK copy_to_item_data__5TItemFPvPv(void *, void *);
-s32 TObjPlayer__sub_801049C8(void *, void *);
+s32 item_identity_matches(void *, void *);
 s32 TObjPlayer__sub_801C1AC8();
 void *get_trade_obj_ptr__6TLobbyFPv(s32);
 Entry_802D20C8 *TLobby__sub_802D230C(void *);
@@ -135,7 +135,7 @@ s32 TLobby__sub_802D20C8(Entry_802D20C8 *arg0, u32 arg1, s32 arg2) {
                 found = ((u32 (*)(u32)) find_item_by_id)(e->id);
                 if (found != 0) {
                     copy_to_item_data__5TItemFPvPv((void *) found, &b);
-                    if (TObjPlayer__sub_801049C8(&b, &a) != 0) {
+                    if (item_identity_matches(&b, &a) != 0) {
                         e->count += arg2;
                         if (e->count > copy_and_register_item_data__11TItemObjectFPv(found)) {
                             return 2;

@@ -125,7 +125,7 @@ void queue_destruction__7TObjectFv(void *);
 void reset_photon_effect__12TBoss3VoloptFPv(void *);
 void TObjEnemyCustom__ct();
 void set_param__12TObjEneLappyFPvi(void *, int);
-void TObjEneGibbles__sub_80156780(void *, void *, int);
+void init_collision_body_parts(void *, void *, int);
 s32 get_player_by_client_id(int);
 extern u8 lbl_804848D0[];
 extern RecoveredGlobal_8004938C___vt__14TObjVoloptCage __vt__14TObjVoloptCage;
@@ -233,7 +233,7 @@ Obj_80049430 *TObjVoloptCage__ct(Obj_80049430 *arg0, Obj_80049430 *arg1, u16 arg
         queue_destruction__7TObjectFv(arg0);
         return arg0;
     }
-    TObjEneGibbles__sub_80156780(arg0, lbl_804848D0, 1);
+    init_collision_body_parts(arg0, lbl_804848D0, 1);
     arg0->f1c = arg3;
     arg0->f2c = arg4;
     arg0->f80 = 0;

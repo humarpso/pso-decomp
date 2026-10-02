@@ -100,7 +100,7 @@ u16 obj_getField1c(void *);
 s32 spawn_particle_effect(s32, s32);
 u8 * find_entity_by_id(u16);
 u8 * TPhotonMagicSquare__ct(void *, M2C_UNK, s32, s32, s32, f32);
-s32 TOTrapAncient01__sub_80226578(s32, s32, u32, s16, s32);
+s32 play_persistent_sound(s32, s32, u32, s16, s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 M2C_UNK advance_animation_playback(void *);
@@ -314,7 +314,7 @@ void run_task__12TPhotonMyllaFv(u8 *arg0) {
         }
     }
     if ((s32) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A0 != 0) {
-        TOTrapAncient01__sub_80226578(0x4002462F, (s32) arg0, 0U, 0, 0);
+        play_persistent_sound(0x4002462F, (s32) arg0, 0U, 0, 0);
     }
 }
 #pragma pop

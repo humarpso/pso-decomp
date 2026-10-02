@@ -33,7 +33,7 @@ s32 get_instance__6TLobbyFv();
 s32 TCameraCtrl__sub_8006B368();
 void create_tasks__6TLobbyFv();
 s32 check_disconnect_conditions__6TLobbyFv();
-void TObjLight__sub_80133D78();
+void init_area_lights();
 void TLobby__sub_801403B4(int);
 void dispatch_by_main_phase__14TBoss4DarkFalzFUs(u16);
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -54,7 +54,7 @@ s32 fn_80140D50(void) {
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
-    TObjLight__sub_80133D78();
+    init_area_lights();
     create_tasks__6TLobbyFv();
     if (get_main_phase() != 0xE || TCameraCtrl__sub_8006B368() == 0) {
         switch (get_global_state__14TOKeyMachine01Fv()) {

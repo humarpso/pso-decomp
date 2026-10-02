@@ -83,7 +83,7 @@ void TItemMag__sub_80112360(u8 *arg0);
 void apply_form_change__8TItemMagFPv(u8 *arg0);
 s16 TItemMagSub__sub_8011455C(void *);
 extern s32 lbl_8043E534[];
-void TItemMag__sub_801124C4(Self_801124C4 *self);
+void apply_natural_evolution__8TItemMagFPv(Self_801124C4 *self);
 }
 
 extern "C" {
@@ -92,7 +92,7 @@ void do_action_by_class__8TItemMagFi(s32 arg0);
 void feed_by_item_flags__8TItemMagFPvc(void *arg0, s8 arg1);
 void update_feed_anim__8TItemMagFPv(void *arg0);
 s32 check_class_equip_permission(void *, M2C_UNK);
-M2C_UNK TItemMag__sub_80112E20(void *, u8);
+M2C_UNK request_support_action__8TItemMagFPvi(void *, u8);
 s32 check_action_probability__8TItemMagFPvi(void *, M2C_UNK);
 u8 get_field_ed__10TObjPlayerFPv(s32);
 s16 get_mag_item_data(void *);
@@ -367,7 +367,7 @@ void apply_form_change__8TItemMagFPv(u8 *arg0) {
 }
 
 typedef struct Self_801124C4 Self_801124C4;
-void TItemMag__sub_801124C4(Self_801124C4 *self) {
+void apply_natural_evolution__8TItemMagFPv(Self_801124C4 *self) {
   unsigned int new_var;
   s32 stage;
   s16 level;
@@ -408,35 +408,35 @@ void feed_by_item_flags__8TItemMagFPvc(void *arg0, s8 arg1) {
     rand();
     if (arg1 & 0x40) {
         if (check_action_probability__8TItemMagFPvi(arg0, 0) != 0) {
-            TItemMag__sub_80112E20(arg0, M2C_FIELD(arg0, u8 *, 0x1BD));
+            request_support_action__8TItemMagFPvi(arg0, M2C_FIELD(arg0, u8 *, 0x1BD));
         }
     } else if (arg1 & 1) {
         if (check_action_probability__8TItemMagFPvi(arg0, 1) != 0) {
-            TItemMag__sub_80112E20(arg0, M2C_FIELD(arg0, u8 *, 0x1BE));
+            request_support_action__8TItemMagFPvi(arg0, M2C_FIELD(arg0, u8 *, 0x1BE));
         }
     } else if (arg1 & 2) {
         if (check_action_probability__8TItemMagFPvi(arg0, 2) != 0) {
-            TItemMag__sub_80112E20(arg0, M2C_FIELD(arg0, u8 *, 0x1BF));
+            request_support_action__8TItemMagFPvi(arg0, M2C_FIELD(arg0, u8 *, 0x1BF));
         }
     } else if (arg1 & 0x80) {
         if (check_action_probability__8TItemMagFPvi(arg0, 3) != 0) {
-            TItemMag__sub_80112E20(arg0, M2C_FIELD(arg0, u8 *, 0x1C0));
+            request_support_action__8TItemMagFPvi(arg0, M2C_FIELD(arg0, u8 *, 0x1C0));
         }
     } else {
         if (arg1 & 0x20) {
-            TItemMag__sub_80112E20(arg0, 2U);
+            request_support_action__8TItemMagFPvi(arg0, 2U);
             return;
         }
         if (arg1 & 0x10) {
-            TItemMag__sub_80112E20(arg0, 3U);
+            request_support_action__8TItemMagFPvi(arg0, 3U);
             return;
         }
         if (arg1 & 4) {
-            TItemMag__sub_80112E20(arg0, 5U);
+            request_support_action__8TItemMagFPvi(arg0, 5U);
             return;
         }
         if (arg1 & 8) {
-            TItemMag__sub_80112E20(arg0, 4U);
+            request_support_action__8TItemMagFPvi(arg0, 4U);
         }
     }
 }

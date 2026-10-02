@@ -59,7 +59,7 @@ void run_task__13TOSwitchTimerFv(void *arg0);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TOChatSensor__sub_801781D8(void *);
 u8 TODoorAncient08__sub_80229220(u16);
-M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_persistent_sound(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
 void *__nw__7TObjectFUl(int);
 
 void render__13TOSwitchTimerFv(s32 arg0) {
@@ -100,7 +100,7 @@ void run_task__13TOSwitchTimerFv(void *arg0) {
                     play_sound_effect(0x53218, 0, 0, 0);
                 }
             } else {
-                TOTrapAncient01__sub_80226578(0x53218, arg0, 0, 0, 0);
+                play_persistent_sound(0x53218, arg0, 0, 0, 0);
             }
         }
         temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x94);

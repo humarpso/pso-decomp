@@ -8,7 +8,7 @@ extern "C" {
 M2C_UNK create_jisin__11TBoss4Type2FPvPv(void *, int);
 M2C_UNK TBoss4Type2__sub_80057048(void *, int);
 M2C_UNK set_shake_preset__11TCameraCtrlFi(int);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 void TBoss4Type2__vt12(u8 *arg0);
 M2C_UNK TBoss4Type2__sub_80057048(void *, int);
 void TBoss4Type2__vt6(u8 *arg0);
@@ -31,7 +31,7 @@ void TBoss4Type2__vt12(u8 *arg0) {
         create_jisin__11TBoss4Type2FPvPv((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x3A0)));
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x398) <= 0x1E) {
-        TOTrapAncient01__sub_80226578((int) (0x4003AD16), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (1));
+        play_persistent_sound((int) (0x4003AD16), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (1));
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x398) - 1;
     M2C_FIELD(arg0, s32 *, 0x398) = temp_r0;

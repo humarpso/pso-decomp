@@ -127,7 +127,7 @@ s32 TLobby__sub_800F7A64(void *);
 void distribute_experience(TObjPlayer_800F6B68 *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void copy_xyz__10TObjPlayerFPvPv(void *, void *);
-void TAdSinglePlyChrSelectGC__sub_8007C48C(void *, s32);
+void subtractive_rng_seed(void *, s32);
 extern s32 lbl_805D5328;
 void apply_set_data__9TObjEnemyFPvPv(A_800F698C *arg0, B_800F698C *arg1);
 void TObjPlayer__sub_800F6E2C(void *arg0, Node_800F6E2C *arg1, Node_800F6E2C *arg2);
@@ -159,7 +159,7 @@ void apply_set_data__9TObjEnemyFPvPv(A_800F698C *arg0, B_800F698C *arg1) {
     arg0->f28 = arg1->f8;
     arg0->f2A = arg1->fA;
     arg0->f2C = arg1->f0;
-    TAdSinglePlyChrSelectGC__sub_8007C48C(arg0->f160, arg0->f1C + lbl_805D5328);
+    subtractive_rng_seed(arg0->f160, arg0->f1C + lbl_805D5328);
 }
 
 void refresh_lobby_state__10TObjPlayerFPv(void* p) { distribute_experience((TObjPlayer_800F6B68 *)((void*)(p))); query_lobby_state__10TObjPlayerFPv((void*)(p)); }

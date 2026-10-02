@@ -67,7 +67,7 @@ struct Mon_80172AE0 : VObj_80172AE0 {
 
 extern "C" {
 s32 create_particle_emitter(s32, s32);
-u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
+u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_map_object_base(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 TLobby__sub_8030A7B0(void);
@@ -119,7 +119,7 @@ void *create__19TOMonumentAncient02FPv(void *arg0);
 void free_shared_data__19TOMonumentAncient02Fv(void);
 void run_task__19TOMonumentAncient02Fv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TOTrapAncient01__sub_80226578(s32, void *, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_persistent_sound(s32, void *, void *, M2C_UNK, M2C_UNK);
 void TObjEneGibbles__sub_80156720(void *);
 void TObjPlayer__sub_80154A00(void *);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
@@ -151,7 +151,7 @@ void run_task__19TOMonumentAncient02Fv(u8 *arg0) {
         }
         break;
     case 2:
-        TOTrapAncient01__sub_80226578(M2C_FIELD(arg0, s32 *, 0xD4), arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound(M2C_FIELD(arg0, s32 *, 0xD4), arg0, arg0 + 0x38, 0, 0);
         break;
     }
 }
@@ -280,7 +280,7 @@ u8 *TOMonumentAncient02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOMonumentAncient02__data_805D5A68), u8 **, 0x42C), s32 *, 8);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOMonumentAncient02__data_805D5A68), u8 **, 0x42C), s32 *, 0xC);
-    TObjEneGibbles__sub_80156780(arg0, (s32) &lbl_804B39A8.value, 1);
+    init_collision_body_parts(arg0, (s32) &lbl_804B39A8.value, 1);
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     temp_r3 = get_global_state__14TOKeyMachine01Fv();

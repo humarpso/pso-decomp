@@ -522,7 +522,7 @@ int TBoss8Dragon__sub_80065F4C(void*);
 void TBoss8Dragon__sub_80065F80(void *);
 M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
 s32 spawn_particle_effect_with_flags(void *, M2C_UNK, M2C_UNK);
-M2C_UNK TOTrapAncient01__sub_80226578(s32, s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK play_persistent_sound(s32, s32, s32, M2C_UNK, M2C_UNK);
 s32 get_bml_model(s32, M2C_UNK);
 M2C_UNK attach_particle_model(s32, s32, s32, M2C_UNK, M2C_UNK, f32);
 int VecCopy__FP3VecPC3Vec(void*, void*);
@@ -980,7 +980,7 @@ void TBoss8Dragon__sub_80064E3C(u8 *arg0) {
 }
 
 void spawn_ancient_trap__12TBoss8DragonFii(s32 arg0, s32 arg1) {
-    TOTrapAncient01__sub_80226578(arg1, arg0, arg0 + 0x560, 0, 0);
+    play_persistent_sound(arg1, arg0, arg0 + 0x560, 0, 0);
 }
 
 void play_se__12TBoss8DragonFii(s32 arg0, s32 arg1) {

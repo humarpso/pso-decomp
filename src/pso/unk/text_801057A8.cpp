@@ -20,7 +20,7 @@ struct Item_801057A8 {
 
 extern "C" {
 s8 get_current_floor(void);
-s32 TItem__sub_80102424(Item_801057A8 *, s32, f32 *, s32);
+s32 place_on_ground__5TItemFPvsPvi(Item_801057A8 *, s32, f32 *, s32);
 s32 is_active_battle_player__10TObjPlayerFv(void);
 Item_801057A8 *TLobby__sub_8010542C(void *);
 s32 TLobby__sub_8011AED8(s32, s32, void *, f32, f32);
@@ -48,7 +48,7 @@ Item_801057A8 *fn_801057A8(Msg_801057A8 *arg0, s32 arg1) {
                 item->x = arg0->x;
                 item->z = arg0->z;
                 item->area = arg0->area;
-                TItem__sub_80102424(item, arg0->client, &item->x, 1);
+                place_on_ground__5TItemFPvsPvi(item, arg0->client, &item->x, 1);
             }
         }
         if (arg1 == 0) {

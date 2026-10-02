@@ -516,7 +516,7 @@ void queue_destruction__7TObjectFv(void *);
 extern M2C_UNK lbl_80484610[];
 void *destroy__12TBoss3VoloptFPvs(void *arg0, s16 arg1);
 s32 spawn_particle_effect(s32, s32);
-s32 TOTrapAncient01__sub_80226578(s32, s32, u32, s16, s32);
+s32 play_persistent_sound(s32, s32, u32, s16, s32);
 s32 rand(void);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
@@ -1102,7 +1102,7 @@ void TBoss3Volopt__sub_80045A04(u8 *arg0) {
         stack.sp10 = (temp_f31 * TBoss8Dragon__sub_803D64C0(temp_r31)) + M2C_FIELD(arg0, f32 *, 0x40);
         spawn_particle_effect((s32) &stack.sp8, 0xFB);
     }
-    TOTrapAncient01__sub_80226578(0x4003AD21, (s32) arg0, (u32) (arg0 + 0x38), 0, 0);
+    play_persistent_sound(0x4003AD21, (s32) arg0, (u32) (arg0 + 0x38), 0, 0);
 }
 #pragma pop
 

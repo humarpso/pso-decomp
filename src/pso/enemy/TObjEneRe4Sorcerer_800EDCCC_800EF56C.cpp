@@ -177,7 +177,7 @@ f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 void TObjEneEpsilon__sub_800B96A4(void *);
 void update_velocity__9TObjEneDDFPv(void *);
 void TObjEneDD__sub_800BA934(void *);
-void TObjEneDD__sub_800BAF1C(void *, Vec_800EF95C *, f32, f32, f32);
+void calc_wall_clamped_destination(void *, Vec_800EF95C *, f32, f32, f32);
 void reset_transform__13TObjEneRe4BitFPv(u32);
 void calc_orb_positions__18TObjEneRe4SorcererFPv(void *arg0);
 void update_collision_center__18TObjEneRe4SorcererFPv(void *);
@@ -210,7 +210,7 @@ s32 TObjEneRe4Sorcerer__sub_800EFB60(s32, f32, f32);
 void TObjEneRe4Sorcerer__sub_800EFE30(void);
 u32 find_entity_by_id(u16);
 s32 check_v2_mode__9TObjEneDDFv();
-s32 fn_800B9194(s32);
+s32 enemy_has_live_target(s32);
 M2C_UNK enemy_clear_target(s32);
 s16 get_field_2b8__14TItemProShieldFPv(void *);
 
@@ -336,7 +336,7 @@ void TObjEneRe4Sorcerer__sub_800EF95C(Obj_800EF95C *self, f32 speed) {
     TBoss4Zako__sub_803D8910(&v, self->mtx);
     TBoss6Type1__sub_803D9370(&v, &self->pos);
     speed = clamp_velocity__15TObjBoss2TunnelFPv(&v);
-    TObjEneDD__sub_800BAF1C(self, &out, v.x, v.z, speed);
+    calc_wall_clamped_destination(self, &out, v.x, v.z, speed);
     t.x = out.x;
     t.y = lbl_805DA7E8 + out.y;
     t.z = out.z;
@@ -362,7 +362,7 @@ s32 try_attack__18TObjEneRe4SorcererFiff(s32 arg0, f32 farg0, f32 farg1) {
     if (TObjEneEpsilon__sub_800BBE64(arg0, arg0 + 0x3B0, 0x1E) != 0) {
         return TObjEneRe4Sorcerer__sub_800EFB60(arg0, farg0, farg1);
     }
-    if (fn_800B9194(arg0) != 0) {
+    if (enemy_has_live_target(arg0) != 0) {
         return 1;
     }
     enemy_clear_target(arg0);

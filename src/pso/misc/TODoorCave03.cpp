@@ -69,11 +69,11 @@ extern "C" {
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
 extern const f32 lbl_805DB4D8;
 void TODoorCave03__vt15(u8 *arg0);
-s32 TOTrapAncient01__sub_80226578(s32, s32, u32, s16, s32);
+s32 play_persistent_sound(s32, s32, u32, s16, s32);
 extern const f32 lbl_805DB4D0;
 extern const f32 TODoorCave03__data_805DB4D4;
 void TODoorCave03__vt16(u8 *arg0);
-s32 TOTrapAncient01__sub_80226578(s32, s32, u32, s16, s32);
+s32 play_persistent_sound(s32, s32, u32, s16, s32);
 extern const f32 TODoorCave03__data_805DB4D4;
 extern const f32 lbl_805DB4DC;
 void TODoorCave03__vt14(u8 *arg0);
@@ -94,7 +94,7 @@ extern u32 TODoorCave03__data_805D5968;
 void TODoorCave03__sub_80162740(void);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_80162848_lbl_804B1548 lbl_804B1548;
 extern M2C_UNK __vt__12TODoorCave03[];
@@ -147,7 +147,7 @@ void TODoorCave03__vt16(u8 *arg0) {
     } else {
         M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (temp_f2 - TODoorCave03__data_805DB4D4);
     }
-    TOTrapAncient01__sub_80226578(0x42807, (s32) arg0, (u32) (arg0 + 0x38), 0, 0);
+    play_persistent_sound(0x42807, (s32) arg0, (u32) (arg0 + 0x38), 0, 0);
 }
 
 void TODoorCave03__vt15(u8 *arg0) {
@@ -176,7 +176,7 @@ void TODoorCave03__vt14(u8 *arg0) {
   {
     *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) (temp_f1 + TODoorCave03__data_805DB4D4);
   }
-  TOTrapAncient01__sub_80226578(0x42807, (s32) arg0, (u32) (arg0 + 0x38), 0, 0);
+  play_persistent_sound(0x42807, (s32) arg0, (u32) (arg0 + 0x38), 0, 0);
 }
 
 void TODoorCave03__vt13(u8 *arg0) {
@@ -294,7 +294,7 @@ u8 *TODoorCave03__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TODoorCave03__data_805D5968), u8 **, 0x42C), s32 *, 8);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TODoorCave03__data_805D5968), u8 **, 0x42C), s32 *, 0xC);
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B1548.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B1548.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     ((VObj_18_4a4f5b *)(arg0))->m17();

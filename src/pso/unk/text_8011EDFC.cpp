@@ -73,7 +73,7 @@ struct PlSelf_8011F474 : Pl_8011F474 {
 
 extern "C" {
 void TObjPlayer__sub_8011E484(void *);
-void TObjPlayer__sub_8011E4D8(void *);
+void remap_extra_attack_type(void *);
 s32 is_active_in_game__10TObjPlayerFPv(void *);
 s16 is_status_subsystem_ready__10TObjPlayerFPv(void *);
 void *get_extended_state__10TObjPlayerFPv(void *);
@@ -98,7 +98,7 @@ void TObjPlayer__sub_8011F474(PlSelf_8011F474 *self, f32 range) {
     s32 id;
     s32 ready;
     if (is_active_in_game__10TObjPlayerFPv(self) != 0) {
-        TObjPlayer__sub_8011E4D8(self);
+        remap_extra_attack_type(self);
         state = get_extended_state__10TObjPlayerFPv(self->owner);
         if (state != NULL) {
             for (i = 0; i != TObjPlayer__sub_8012125C(state); i++) {

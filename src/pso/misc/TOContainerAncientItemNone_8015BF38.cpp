@@ -21,7 +21,7 @@ extern "C" {
 
 void *TOContainerAncientItemNone__ct(void *arg0);
 void TOContainerAncientItemRare__vt4(u8 *arg0, s16 *arg1, s32 arg2);
-M2C_UNK TLobby__sub_8010567C(void *, void *, M2C_UNK);
+M2C_UNK request_box_item_drop(void *, void *, M2C_UNK);
 void TOContainerAncientItemRare__ct(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
@@ -40,7 +40,7 @@ void TOContainerAncientItemRare__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
         if (arg2 != 0) {
             ((VObj_8015BF38*)arg0)->m77();
-            TLobby__sub_8010567C(arg0, arg0 + 0x38, 1);
+            request_box_item_drop(arg0, arg0 + 0x38, 1);
         }
         M2C_FIELD(arg0, s16 *, 0x326) = 1;
         set_flag8__6TLobbyFPv(arg0);

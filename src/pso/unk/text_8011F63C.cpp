@@ -5,12 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 s32 TLobby__sub_800822E8(int, int);
-s32 TObjPlayer__sub_8011F63C(u8 *arg0);
+s32 get_attack_stage__11TItemWeaponFPv(u8 *arg0);
 }
 
 extern "C" {
 
-s32 TObjPlayer__sub_8011F63C(u8 *arg0) {
+s32 get_attack_stage__11TItemWeaponFPv(u8 *arg0) {
     u32 temp_r3;
     temp_r3 = M2C_FIELD(arg0, u32 *, 0xF0);
     if (temp_r3 != 0U) {

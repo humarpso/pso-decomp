@@ -78,7 +78,7 @@ u8 TODoorAncient08__sub_80229220(u16);
 extern const f32 lbl_805DB600;
 M2C_UNK TOExplosiveMachine__sub_80166778(void *arg0);
 s32 TODragonfly__sub_80158360(f32);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 u8 TODoorAncient08__sub_80229220(u16);
 extern const f32 lbl_805DB604;
 M2C_UNK TOExplosiveMachine__sub_80166814(void *arg0);
@@ -197,7 +197,7 @@ M2C_UNK TOExplosiveMachine__sub_80166814(void *arg0) {
         }
         break;
     }
-    TOTrapAncient01__sub_80226578((int) (0x4004C10F), (void *) (arg0), (void *) ((u8 *)arg0 + 0x38), (int) (0), (int) (0));
+    play_persistent_sound((int) (0x4004C10F), (void *) (arg0), (void *) ((u8 *)arg0 + 0x38), (int) (0), (int) (0));
 }
 
 void update__18TOExplosiveMachineFPv(void *arg0) {

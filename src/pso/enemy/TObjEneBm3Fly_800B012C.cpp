@@ -135,11 +135,11 @@ struct VObj_18_b7c757 : VBase_18_b7c757 {
 extern "C" {
 void *copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(int);
-s32 TOTrapAncient01__sub_80226578(void *, void *, void *, int, int);
+s32 play_persistent_sound(void *, void *, void *, int, int);
 void TObjEneBm3Fly__sub_800B1574(s32 arg0);
 void *copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(int);
-s32 TOTrapAncient01__sub_80226578(void *, void *, void *, int, int);
+s32 play_persistent_sound(void *, void *, void *, int, int);
 void TObjEneBm3Fly__sub_800B15C4(s32 arg0);
 f32 calc_scaled_value__15TObjBoss2TunnelFif(int, int, f32, f32);
 void TObjEneBm3Fly__sub_800B15C4(s32 arg0);
@@ -379,11 +379,11 @@ void TObjEneBm3Fly__vt102(void *arg0, f32 farg0) {
     spawn_part__14TObjEneEpsilonFi(arg0, farg0);
 }
 void TObjEneBm3Fly__sub_800B1574(s32 arg0) {
-    TOTrapAncient01__sub_80226578((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003AB23)))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_persistent_sound((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003AB23)))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     play_effect_if_v2__10TObjPlayerFi((int) (-0x400));
 }
 void TObjEneBm3Fly__sub_800B15C4(s32 arg0) {
-    TOTrapAncient01__sub_80226578((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x40039E22)))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_persistent_sound((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x40039E22)))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     play_effect_if_v2__10TObjPlayerFi((int) (-0x400));
 }
 

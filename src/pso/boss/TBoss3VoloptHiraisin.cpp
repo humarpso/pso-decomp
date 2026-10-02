@@ -292,7 +292,7 @@ void TBoss3VoloptHiraisin__sub_80041B34(O_80041B34 *self, s32 i);
 void TObjEnemyCustom__sub_800C7860(void *);
 void set_param__12TObjEneLappyFPvi(void *, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
-void TObjEneGibbles__sub_80156780(void *, void *, s32);
+void init_collision_body_parts(void *, void *, s32);
 extern Param_800418C8 lbl_80483BB8;
 extern s32 lbl_805D4C70;
 extern s32 lbl_805D4C74;
@@ -397,7 +397,7 @@ void TBoss3VoloptHiraisin__sub_800418C8(Hira_800418C8 *self) {
     self->unkDC = *(s32 *)(TBoss3VoloptHiraisin__data_805D4C80 + 0x430);
     self->unkD8 = prm->unk1C;
     set_field_d8__10TObjPlayerFPvi(self, self->unkD8);
-    TObjEneGibbles__sub_80156780(self, prm->unk88, 1);
+    init_collision_body_parts(self, prm->unk88, 1);
     self->unk368 = 0;
     self->unk350 = prm->unk6C;
     TObjPlayer__sub_80018990(self, lbl_805D4C70, lbl_805D4C74, lbl_805D4C78, lbl_805D8728, lbl_805D8728);

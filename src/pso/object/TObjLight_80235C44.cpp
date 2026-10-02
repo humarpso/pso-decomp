@@ -62,7 +62,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 M2C_UNK TObjLight__sub_800827E0(void *, void *, f32);
 s32 TObjLight__sub_801344A4(void *, void *, int);
-M2C_UNK TObjLight__sub_80134548(int, f32, f32);
+M2C_UNK publish_actor_light_scalars(int, f32, f32);
 M2C_UNK TObjLight__sub_801345F8(int, void *, void *);
 M2C_UNK TEffStarLightChild__sub_80141FBC(void *, void *, void *, f32);
 u32 get_player_by_client_id(int);
@@ -100,7 +100,7 @@ void update_actor_light_task(Light_80235C44 *arg0) {
         frac = (f32) arg0->age / mid;
         amb1 = frac * (arg0->peak - TObjLight__data_80506320.f20) + TObjLight__data_80506320.f20;
         inten1 = frac * (arg0->intensity - TObjLight__data_80506320.f1c) + TObjLight__data_80506320.f1c;
-        TObjLight__sub_80134548((u16) obj_getField1c(arg0->source), inten1, amb1);
+        publish_actor_light_scalars((u16) obj_getField1c(arg0->source), inten1, amb1);
         copy_vec4__13TRaderMapCoreFPvPv(&unused, &baseColor);
         TEffStarLightChild__sub_80141FBC(&arg0->direction, &arg0->desired, &arg0->direction, arg0->step);
         TObjLight__sub_800827E0(&unused, &arg0->color, lbl_805DC894);
@@ -110,7 +110,7 @@ void update_actor_light_task(Light_80235C44 *arg0) {
         frac = ((f32) arg0->age - mid) / mid;
         amb2 = frac * (TObjLight__data_80506320.f20 - arg0->peak) + arg0->peak;
         inten2 = frac * (TObjLight__data_80506320.f1c - arg0->intensity) + arg0->intensity;
-        TObjLight__sub_80134548((u16) obj_getField1c(arg0->source), inten2, amb2);
+        publish_actor_light_scalars((u16) obj_getField1c(arg0->source), inten2, amb2);
         TEffStarLightChild__sub_80141FBC(&arg0->direction, &baseDir, &arg0->direction, arg0->step);
         TObjLight__sub_800827E0(&arg0->color, &baseColor, lbl_805DC894);
     }

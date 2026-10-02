@@ -98,7 +98,7 @@ s32 get_global_state__14TOKeyMachine01Fv();
 s32 TOTrapChainSawKey__sub_802C8F68(s32 arg0, s32 arg1);
 void *TOTrapChainSaw__ct(void *, void *, void *);
 void *TOTrapChainSawEdge__ct(void *, void *, void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 s32 refresh_collision_body_centers(void *);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -204,7 +204,7 @@ void *TOTrapChainSawDamage__ct(void *arg0, void *arg1, void *arg2) {
     *(s32 *)(self + 0) = lbl_805D3F04;
     ((VObj_802C8E24 *)arg0)->m13();
     ((VObj_802C8E24 *)arg0)->m14();
-    TObjEneGibbles__sub_80156780(arg0, &lbl_804E0C10[*(s32 *)(self + 0xF8)], 2);
+    init_collision_body_parts(arg0, &lbl_804E0C10[*(s32 *)(self + 0xF8)], 2);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     *(f32 *)(self + 0x3C) += lbl_805DE624;

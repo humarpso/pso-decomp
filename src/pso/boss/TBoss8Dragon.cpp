@@ -896,10 +896,10 @@ extern "C" {
 void spawn_ancient_trap__12TBoss8DragonFii(s32 arg0, s32 arg1);
 void play_se__12TBoss8DragonFii(s32 arg0, s32 arg1);
 M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
-M2C_UNK TOTrapAncient01__sub_80226578(s32, s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK play_persistent_sound(s32, s32, s32, M2C_UNK, M2C_UNK);
 
 void spawn_ancient_trap__12TBoss8DragonFii(s32 arg0, s32 arg1) {
-    TOTrapAncient01__sub_80226578(arg1, arg0, arg0 + 0x560, 0, 0);
+    play_persistent_sound(arg1, arg0, arg0 + 0x560, 0, 0);
 }
 
 void play_se__12TBoss8DragonFii(s32 arg0, s32 arg1) {
@@ -1854,7 +1854,7 @@ extern "C" {
 void spawn_effect__12TBoss8DragonFii(s32 arg0, s32 arg1);
 void spawn_trap__12TBoss8DragonFii(s32 arg0, s32 arg1);
 void try_spawn_trap__12TBoss8DragonFPv(void *arg0);
-M2C_UNK TOTrapAncient01__sub_80226578(s32, s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK play_persistent_sound(s32, s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
 s32 TBoss8Dragon__sub_802F376C();
 
@@ -1865,7 +1865,7 @@ void try_spawn_trap__12TBoss8DragonFPv(void *arg0) {
 }
 
 void spawn_trap__12TBoss8DragonFii(s32 arg0, s32 arg1) {
-    TOTrapAncient01__sub_80226578(arg1, arg0, arg0 + 0x634, 0, 0);
+    play_persistent_sound(arg1, arg0, arg0 + 0x634, 0, 0);
 }
 
 void spawn_effect__12TBoss8DragonFii(s32 arg0, s32 arg1) {

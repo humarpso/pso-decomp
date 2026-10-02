@@ -19,7 +19,7 @@ s32 subtractive_rng_next(s32 *arg0);
 void subtractive_rng_xor_buffer(s32 *self, u32 *data, s32 len);
 void TAdSinglePlyChrSelectGC__sub_8007C438(Crypt_8007C438 *c);
 void TAdSinglePlyChrSelectGC__sub_8007C438(Crypt_8007C438 *c);
-void TAdSinglePlyChrSelectGC__sub_8007C48C(R_8007C48C *arg0, s32 arg1);
+void subtractive_rng_seed(R_8007C48C *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -71,7 +71,7 @@ void TAdSinglePlyChrSelectGC__sub_8007C438(Crypt_8007C438 *c) {
         c->k[i] -= c->k[i - 0x18];
     }
 }
-void TAdSinglePlyChrSelectGC__sub_8007C48C(R_8007C48C *arg0, s32 arg1) {
+void subtractive_rng_seed(R_8007C48C *arg0, s32 arg1) {
     s32 x;
     s32 idx;
     s32 a;

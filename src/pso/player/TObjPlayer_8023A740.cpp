@@ -11,7 +11,7 @@ f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 M2C_UNK register_object__10TObjPlayerFi(void *);
 void *__ct__7TEffectFv(void *);
 M2C_UNK direction_to_rotation_xz(void *, void *, void *);
-M2C_UNK TObjEneGibbles__sub_80156780(u32, void *, int);
+M2C_UNK init_collision_body_parts(u32, void *, int);
 u32 TObjPlayer__sub_801569F4(u32, void *);
 u32 __nw__7TObjectFUl(int);
 s16 get_level_tier__10TObjPlayerFi(s16);
@@ -126,7 +126,7 @@ u8 *construct_aimed_technique_projectile(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3,
     }
     M2C_FIELD(arg0, u32 *, 0x128) = var_r0;
     if (M2C_FIELD(arg0, u32 *, 0x128) != 0U) {
-        TObjEneGibbles__sub_80156780(M2C_FIELD(arg0, u32 *, 0x128), arg0 + 0xFC, 1);
+        init_collision_body_parts(M2C_FIELD(arg0, u32 *, 0x128), arg0 + 0xFC, 1);
     }
     return arg0;
 }

@@ -117,7 +117,7 @@ struct VObj_18_f90cfc : VBase_18_f90cfc {
 extern "C" {
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK refresh_collision_body_centers(void *);
-M2C_UNK TObjEneGibbles__sub_80156780(void *, void *, int, int, f32);
+M2C_UNK init_collision_body_parts(void *, void *, int, int, f32);
 M2C_UNK init_fields__16TOFenceAncient01FPv();
 M2C_UNK fn_80166E64(void *);
 s32 fn_80166EA8(void *, int);
@@ -258,7 +258,7 @@ u8 *TOFenceAncient04__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     temp_r6 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xBC));
     temp_f1 = (f32) M2C_FIELD(temp_r6, u32 *, 4);
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) (temp_f1 - lbl_805DB640);
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B1F80.value), (int) (8), (int) (temp_r6), (f32) (temp_f1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B1F80.value), (int) (8), (int) (temp_r6), (f32) (temp_f1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     fn_80166E64((void *) (arg0));

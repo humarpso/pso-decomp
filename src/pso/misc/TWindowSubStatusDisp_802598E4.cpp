@@ -16,7 +16,7 @@ struct RecoveredGlobal_80259D3C_lbl_804CF9C8 {
 
 extern "C" {
 f32 get_random_float__8TObjFishFv(f32, f32);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, int, int, int);
+M2C_UNK play_persistent_sound(int, void *, int, int, int);
 void TWindowSubStatusDisp__sub_80259F74(u8 *arg0);
 f32 get_random_float__8TObjFishFv(f32, f32);
 extern const f32 lbl_805DCF58;
@@ -146,7 +146,7 @@ void TWindowSubStatusDisp__sub_80259F74(u8 *arg0) {
     f32 temp_f31;
     if (M2C_FIELD(arg0, f32 *, 0x28) != M2C_FIELD(arg0, f32 *, 0x24)) {
         if (M2C_FIELD(arg0, u16 *, 0) & 8) {
-            TOTrapAncient01__sub_80226578((int) (0x44E03), (void *) (arg0), (int) (0), (int) (0), (int) (0));
+            play_persistent_sound((int) (0x44E03), (void *) (arg0), (int) (0), (int) (0), (int) (0));
         }
         temp_f2 = M2C_FIELD(arg0, f32 *, 0x28);
         temp_f30 = temp_f2 - M2C_FIELD(arg0, f32 *, 0x24);

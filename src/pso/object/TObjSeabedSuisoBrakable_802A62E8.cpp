@@ -85,7 +85,7 @@ void TObjSeabedSuisoBrakable__sub_802A6438(u8 *arg0);
 f32 get_random_float__8TObjFishFv(f32);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 u8 * TORockCaveBrakable__ct(void *);
-M2C_UNK TObjEneGibbles__sub_80156780(void *, int, int);
+M2C_UNK init_collision_body_parts(void *, int, int);
 void TObjSeabedSuisoBrakable__sub_802A6438(u8 *arg0);
 extern RecoveredGlobal_802A6668_lbl_804DD6E8 lbl_804DD6E8;
 extern M2C_UNK __vt__23TObjSeabedSuisoBrakable[];
@@ -269,7 +269,7 @@ u8 *TObjSeabedSuisoBrakable__ct(u8 *arg0, s32 arg1) {
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
         M2C_FIELD(arg0, s32 *, 0xB8) = -1;
     }
-    TObjEneGibbles__sub_80156780((void *) (arg0), (int) ((u8 *)&lbl_804DD6E8.value + (M2C_FIELD(arg0, s32 *, 0xBC) * 0x2C)), (int) (1));
+    init_collision_body_parts((void *) (arg0), (int) ((u8 *)&lbl_804DD6E8.value + (M2C_FIELD(arg0, s32 *, 0xBC) * 0x2C)), (int) (1));
     reset_photon_effect__10TObjPlayerFPv(arg0);
     return arg0;
 }
@@ -584,7 +584,7 @@ Obj_802A6DA8 *TObjSeabedSuisoBrakable__sub_802A6DA8(Obj_802A6DA8 *self, s32 arg1
     if (self->kind > 3) {
         self->kind = 3;
     }
-    TObjEneGibbles__sub_80156780(self, (int)&lbl_804DD2D8[self->kind], 1);
+    init_collision_body_parts(self, (int)&lbl_804DD2D8[self->kind], 1);
     reset_photon_effect__10TObjPlayerFPv(self);
     if (lbl_804DD278[self->kind].id >= 0) {
         self->fd8 = create_particle_emitter(self->pos, lbl_804DD278[self->kind].id);

@@ -62,7 +62,7 @@ s32 TBoss6Type2__sub_802BD76C(void *);
 s32 TBoss6Type2__sub_802BD7EC(void *);
 int TBoss6Type2__sub_802BDC5C(void*);
 int TBoss6Type2__sub_802BDDF8(void*, void*);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 s32 get_phase__11TBoss6Type2FPv(void *);
 s16 is_falz_ready__11TBoss6Type2FPv(void *);
 s32 is_ready_to_attack__11TBoss6Type2FPv(void *);
@@ -241,7 +241,7 @@ void TBoss6Type2__sub_802BF9A8(u8 *arg0) {
 void TBoss6Type2__sub_802BFA1C(u8 *arg0) {
     s32 temp_r0;
 
-    TOTrapAncient01__sub_80226578((int) (0x4006A612), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (1));
+    play_persistent_sound((int) (0x4006A612), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (1));
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x460) - 1;
     M2C_FIELD(arg0, s32 *, 0x460) = temp_r0;
     if (temp_r0 < 0) {

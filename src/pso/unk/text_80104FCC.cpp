@@ -88,7 +88,7 @@ void process_and_dispatch_packet__6TLobbyFPv(void *);
 extern s32 TLobby__data_805D53AC;
 extern Entry_8010567C *TLobby__data_805D6140;
 extern s32 lbl_805D53A0;
-void TLobby__sub_8010567C(Obj_8010567C *self, void *unused, s16 arg2);
+void request_box_item_drop(Obj_8010567C *self, void *unused, s16 arg2);
 int check_class_equip_permission(Player_80105348 *player, s32 perm);
 void *get_player_by_client_id(s32);
 s8 get_current_floor();
@@ -108,7 +108,7 @@ void send_6x60_standard_drop_item_request(Obj_80105538 *self);
 extern "C" {
 
 int TLobby__sub_8010540C(void* p);
-int TObjPlayer__sub_8011C974(void*);
+int roll_weapon_special_for_stars(void*);
 
 int check_class_equip_permission(Player_80105348 *player, s32 perm) {
     s32 t = player->traits;
@@ -134,7 +134,7 @@ int check_class_equip_permission(Player_80105348 *player, s32 perm) {
     return 1;
 }
 
-int TLobby__sub_8010540C(void* p) { return TObjPlayer__sub_8011C974(p); }
+int TLobby__sub_8010540C(void* p) { return roll_weapon_special_for_stars(p); }
 s32 TLobby__sub_8010542C(Item_8010542C *src) {
     Fn_8010542C fn;
     if (src != 0) {
@@ -190,7 +190,7 @@ void send_6x60_standard_drop_item_request(Obj_80105538 *self) {
     }
 }
 
-void TLobby__sub_8010567C(Obj_8010567C *self, void *unused, s16 arg2) {
+void request_box_item_drop(Obj_8010567C *self, void *unused, s16 arg2) {
     void *p1;
     void *p2;
     if (self != 0) {

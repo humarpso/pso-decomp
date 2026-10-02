@@ -11,7 +11,7 @@ void TObjPlayer__sub_8012ED74(void *arg0);
 void try_spawn_cane_effects__10TObjPlayerFi(s32 arg0);
 M2C_UNK play_particle_effect_once__10TObjPlayerFv();
 M2C_UNK spawn_cane_effects__10TObjPlayerFiUiii(s32, s32, M2C_UNK, M2C_UNK);
-s32 TObjPlayer__sub_8011F63C();
+s32 get_attack_stage__11TItemWeaponFPv();
 s32 get_player_list__10TObjPlayerFv();
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 
@@ -39,7 +39,7 @@ void TObjPlayer__sub_8012ED74(void *arg0) {
 extern s32 tl_05;
 
 void try_spawn_cane_effects__10TObjPlayerFi(s32 arg0) {
-    if (TObjPlayer__sub_8011F63C() == 0) {
+    if (get_attack_stage__11TItemWeaponFPv() == 0) {
         spawn_cane_effects__10TObjPlayerFiUiii(tl_05, arg0, 2, 4);
     }
 }

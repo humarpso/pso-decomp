@@ -121,7 +121,7 @@ s32 get_instance__6TLobbyFv();
 s32 TCameraCtrl__sub_8006B368();
 s32 TItemDropSub__sub_80107B74();
 extern Tbl_801044B8 lbl_8043E068;
-void TLobby__sub_801044B8(s32 *p);
+void normalize_drop_area(s32 *p);
 }
 
 extern "C" {
@@ -237,7 +237,7 @@ void handle_select_confirm__6TLobbyFv(void) {
     }
 }
 
-void TLobby__sub_801044B8(s32 *p) {
+void normalize_drop_area(s32 *p) {
     s32 v;
     if (TCameraCtrl__sub_8006B368() != 0 && p != NULL) {
         switch (*p) {

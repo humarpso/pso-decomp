@@ -113,7 +113,7 @@ void play_sound_effect(int, void *, int, int);
 void TObjDoorKey__vt16(u8 *arg0);
 s32 spawn_continuous_particle_effect_with_flags(Vec_80190020 *, int, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 M2C_UNK init_key__5TOKeyFPv(void *, void *);
 u8 *TOKey__ct(void *);
 void set_type__14TOKeyAncient01FPv(void *);
@@ -325,7 +325,7 @@ void *TObjDoorKey__ct(void *arg0, void *arg1, void *arg2) {
     if (M2C_FIELD(arg0, s32 *, 0x8C) > 9) {
         M2C_FIELD(arg0, s32 *, 0x8C) = 9;
     }
-    TObjEneGibbles__sub_80156780(arg0, lbl_804B7930, 1);
+    init_collision_body_parts(arg0, lbl_804B7930, 1);
     M2C_FIELD(arg0, s32 *, 0x30) |= 0x40000000;
     reset_photon_effect__10TObjPlayerFPv(arg0);
     Vec_80190020 pos = M2C_FIELD(arg0, Vec_80190020 *, 0x38);

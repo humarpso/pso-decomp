@@ -66,7 +66,7 @@ s32 is_split_screen(void);
 void fn_8001CAD4(void *);
 void fn_8001CBC4(void *, void *);
 s32 is_flag_set__11TLoadingCurFPv(void *, s32);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 extern Pad_8001CD90 lbl_8050E208;
 extern const f32 TLoadingCur__data_805D7E9C;
 extern const f32 lbl_805D7EB0;
@@ -171,9 +171,9 @@ void run_task__11TLoadingCurFv(void *arg0) {
     fn_8001CAD4(arg0);
     if (TLoadingCur__data_805D7E9C != x || TLoadingCur__data_805D7E9C != y) {
         if (is_split_screen() != 0) {
-            TOTrapAncient01__sub_80226578(0x53C10, arg0, (u8 *)arg0 + 0x2C, 0, 1);
+            play_persistent_sound(0x53C10, arg0, (u8 *)arg0 + 0x2C, 0, 1);
         } else {
-            TOTrapAncient01__sub_80226578(0x53C10, arg0, (u8 *)arg0 + 0x2C, 0, 0);
+            play_persistent_sound(0x53C10, arg0, (u8 *)arg0 + 0x2C, 0, 0);
         }
     }
 }

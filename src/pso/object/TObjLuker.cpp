@@ -126,7 +126,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 M2C_UNK play_effect_default__10TObjPlayerFii(void *, int);
 s32 check_flag_100__10TObjPlayerFPv(void *);
 Ctrl_801A0E38 *get_player_by_client_id(u16 id);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 s32 play_sound_effect(s32, u32, s16, s32);
 void *__nw__7TObjectFUl(int);
 s32 TTecLuker__sub_8023401C(void *);
@@ -319,7 +319,7 @@ void run_task__9TObjLukerFv(u8 *arg0) {
                 M2C_FIELD(arg0, void **, 0xA4) = o;
                 M2C_FIELD(arg0, s32 *, 0xB4) = 0;
             }
-            TOTrapAncient01__sub_80226578(0x4002B219, arg0, arg0 + 0x38, 0, 0);
+            play_persistent_sound(0x4002B219, arg0, arg0 + 0x38, 0, 0);
             switch (M2C_FIELD(arg0, s16 *, 0xB0)) {
             case 0:
                 sp8 = 0;

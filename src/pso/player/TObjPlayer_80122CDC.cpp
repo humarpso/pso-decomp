@@ -10,13 +10,13 @@ void spawn_cane__10TObjPlayerFi(s32 arg0);
 void *set_vtable_804A1478__10TObjPlayerFPv(void *arg0);
 u8 get_slot_count__14TItemProShieldFPv();
 M2C_UNK spawn_cane_effects__10TObjPlayerFiUiii(s32, s32, M2C_UNK, M2C_UNK);
-s32 TObjPlayer__sub_8011F63C(s32);
+s32 get_attack_stage__11TItemWeaponFPv(s32);
 void TObjPlayer__sub_80120D50(void *);
 
 extern s32 tl_05;
 
 void spawn_cane__10TObjPlayerFi(s32 arg0) {
-    if ((get_slot_count__14TItemProShieldFPv() < 4U) && (TObjPlayer__sub_8011F63C(arg0) == 0)) {
+    if ((get_slot_count__14TItemProShieldFPv() < 4U) && (get_attack_stage__11TItemWeaponFPv(arg0) == 0)) {
         spawn_cane_effects__10TObjPlayerFiUiii(tl_05, arg0, 1, 2);
     }
 }

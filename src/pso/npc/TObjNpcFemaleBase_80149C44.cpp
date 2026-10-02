@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjNpcFemaleBase__sub_80149C44(void *arg0, s32 arg1);
+void request_action__17TObjNpcFemaleBaseFPvi(void *arg0, s32 arg1);
 void TObjNpcFemaleBase__sub_80149C64(void);
 
-void TObjNpcFemaleBase__sub_80149C44(void *arg0, s32 arg1) {
+void request_action__17TObjNpcFemaleBaseFPvi(void *arg0, s32 arg1) {
     if (arg1 != 1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         return;

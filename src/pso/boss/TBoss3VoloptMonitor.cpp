@@ -218,7 +218,7 @@ struct VObj_18_b8f5cb : VBase_18_b8f5cb {
 extern "C" {
 void TBoss3VoloptMonitor__sub_8004292C(u8 *arg0);
 s32 TObjEnemyCustom__ct(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_80042888_lbl_80483DD4 lbl_80483DD4;
 extern M2C_UNK __vt__19TBoss3VoloptMonitor[];
 extern s32 lbl_805D2740;
@@ -520,7 +520,7 @@ u8 *TBoss3VoloptMonitor__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x368) = 0;
     M2C_FIELD(arg0, s16 *, 0x33C) = 0;
     TBoss3VoloptMonitor__sub_80042510((u8 *)((void *) (arg0)));
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_80483DD4.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_80483DD4.value), (int) (1));
     TBoss3VoloptMonitor__sub_80042944((O_80042944 *)((void *) (arg0)), (s32)((int) (1)));
     return arg0;
 }

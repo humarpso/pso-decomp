@@ -114,7 +114,7 @@ extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 M2C_UNK transition_enemy_state(void *, int);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 M2C_UNK update_guard_flag__19TObjEneEpsilonGuardFPv(void *);
 M2C_UNK update_position__19TObjEneEpsilonGuardFPv(void *);
 void fn_80362164(u8 *arg0);
@@ -134,7 +134,7 @@ void fn_80362164(u8 *arg0) {
         transition_enemy_state((void *) (arg0), (int) (0));
     }
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 9) {
-        TOTrapAncient01__sub_80226578((int) (0x4003AD43), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_persistent_sound((int) (0x4003AD43), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     }
     ((VObj_18 *)(arg0))->m86();
     update_position__19TObjEneEpsilonGuardFPv((void *) (arg0));

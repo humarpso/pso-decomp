@@ -242,7 +242,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 s32 fn_8018A150(void *, int, void *);
 extern RecoveredGlobal_8015BD68_lbl_804B00C8 lbl_804B00C8;
 extern M2C_UNK __vt__23TOContainerAncientEnemy[];
@@ -429,7 +429,7 @@ u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F08;
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B00C8.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B00C8.value), (int) (1));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x38));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));

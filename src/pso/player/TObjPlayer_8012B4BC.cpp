@@ -8,7 +8,7 @@ extern "C" {
 
 void apply_proshield_charge_bonus__10TObjPlayerFPv(u8 *arg0);
 u8 get_slot_count__14TItemProShieldFPv();
-M2C_UNK TObjPlayer__sub_80115BFC(void *, s32);
+M2C_UNK advance_angle_wrap(void *, s32);
 s32 obj_getPtr2B0_20(s32);
 
 void apply_proshield_charge_bonus__10TObjPlayerFPv(u8 *arg0) {
@@ -20,7 +20,7 @@ void apply_proshield_charge_bonus__10TObjPlayerFPv(u8 *arg0) {
         if (var_r4 > 0x1555) {
             var_r4 = 0x1555;
         }
-        TObjPlayer__sub_80115BFC(arg0 + 0x1F8, var_r4 + 0x1555);
+        advance_angle_wrap(arg0 + 0x1F8, var_r4 + 0x1555);
     }
 }
 

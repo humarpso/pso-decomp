@@ -10,7 +10,7 @@ struct MagData_80113F64 { u8 pad[0xC]; u8 flags; u8 blasts; };
 
 extern "C" {
 void TItemMag__sub_80113E48(u8 *arg0, u8 *arg1);
-u8 TItemMag__sub_80113EC8(u8 *arg0);
+u8 obj_isState7_324(u8 *arg0);
 s16 TItemMagSub__sub_8011455C(void *);
 s16 TItemData__sub_801146A4(void *);
 void TItemMag__sub_801140F4(u8 *arg0, s16 arg1);
@@ -85,7 +85,7 @@ s32 get_sub_value__8TItemMagFi(s32 arg0) {
     return (s32) TItemMag__sub_80113EEC((void*)((void*)(arg0 + 0x4AC)));
 }
 
-u8 TItemMag__sub_80113EC8(u8 *arg0) {
+u8 obj_isState7_324(u8 *arg0) {
     return (u8) (M2C_FIELD(arg0, s16 *, 0x324) == 7);
 }
 

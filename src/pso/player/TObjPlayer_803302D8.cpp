@@ -46,7 +46,7 @@ extern "C" {
 void TObjPlayer__sub_8033051C(void* p);
 void save_position__10TObjPlayerFi(s32 arg0);
 void spawn_trap_by_stat__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 
 void save_position__10TObjPlayerFi(s32 arg0) {
@@ -94,7 +94,7 @@ void spawn_trap_by_stat__10TObjPlayerFPv(u8 *arg0) {
             var_r3 = 0x6B518;
         }
     }
-    TOTrapAncient01__sub_80226578(var_r3, arg0, arg0 + 0x38, 0, 0);
+    play_persistent_sound(var_r3, arg0, arg0 + 0x38, 0, 0);
 }
 
 void TObjPlayer__sub_8033051C(void* p) { TObjPlayer__sub_8033040C((u8 *)(p)); }

@@ -39,8 +39,8 @@ void initialize_mag_data__9TItemDataFPv(void *);
 void TItemData__sub_8010D614(void *, void *);
 void init__9TItemDataFv(void *);
 s16 TItemMagSub__sub_8011455C(void *);
-Rec_80104DAC *TObjPlayer__sub_8011C0B8(u8 *, void *);
-s32 TItemData__sub_80104DAC(s32 arg0, u8 *arg1);
+Rec_80104DAC *find_item_combination_recipe(u8 *, void *);
+s32 find_eligible_combination_recipe(s32 arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -57,12 +57,12 @@ u8 is_item_usable__9TItemDataFiPv(s32 arg0, u8 *arg1) {
         if (M2C_FIELD(lookup_item_pmt_record(arg1), s32 *, 0x10) & 1) {
             return 1U;
         }
-        return (u8) (TItemData__sub_80104DAC((s32)(arg0), (u8 *)(arg1)) != 0);
+        return (u8) (find_eligible_combination_recipe((s32)(arg0), (u8 *)(arg1)) != 0);
     }
-    return (u8) (TItemData__sub_80104DAC((s32)(arg0), (u8 *)(arg1)) != 0);
+    return (u8) (find_eligible_combination_recipe((s32)(arg0), (u8 *)(arg1)) != 0);
 }
 #define o ((Obj_80104DAC *)arg0)
-s32 TItemData__sub_80104DAC(s32 arg0, u8 *arg1) {
+s32 find_eligible_combination_recipe(s32 arg0, u8 *arg1) {
     ItemData_80104DAC d;
     ItemData_80104DAC d2;
     MagData_80104DAC mag;
@@ -76,7 +76,7 @@ s32 TItemData__sub_80104DAC(s32 arg0, u8 *arg1) {
         if (it != NULL) {
             init__9TItemDataFv(&d);
             copy_to_item_data__5TItemFPvPv(it, &d);
-            rec = TObjPlayer__sub_8011C0B8(arg1, it);
+            rec = find_item_combination_recipe(arg1, it);
         } else {
             return 0;
         }

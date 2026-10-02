@@ -38,7 +38,7 @@ struct Obj_80190AA0 {
 extern "C" {
 s32 fn_80190884(void *, int);
 s32 fn_801908F8(f32);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 void run_task__12TObjEnvSoundFv(u8 *arg0);
 void byteswap_event_packet__6TLobbyFi(Pkt_80190BA0 *pkt);
 s32 get_current_floor(void);
@@ -79,10 +79,10 @@ void run_task__12TObjEnvSoundFv(u8 *arg0) {
         case 0:
             break;
         case 1:
-            TOTrapAncient01__sub_80226578((int) (M2C_FIELD(arg0, s32 *, 0x98)), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            play_persistent_sound((int) (M2C_FIELD(arg0, s32 *, 0x98)), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             return;
         case 2:
-            TOTrapAncient01__sub_80226578((int) (M2C_FIELD(arg0, s32 *, 0x98)), (void *) (arg0), (void *) (arg0 + 0x38), (int) (M2C_FIELD(arg0, s32 *, 0x94)), (int) (2));
+            play_persistent_sound((int) (M2C_FIELD(arg0, s32 *, 0x98)), (void *) (arg0), (void *) (arg0 + 0x38), (int) (M2C_FIELD(arg0, s32 *, 0x94)), (int) (2));
             break;
         }
     }

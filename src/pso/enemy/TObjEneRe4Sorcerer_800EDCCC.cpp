@@ -348,7 +348,7 @@ struct Sorc_800EEC00 {
 typedef struct { f32 x, y, z; } Vec_800EF354;
 extern "C" {
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
-M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_persistent_sound(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 void TObjEneRe4Sorcerer__sub_800EF214(s32 arg0);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -437,7 +437,7 @@ s32 cast_resta__18TObjEneRe4SorcererFPv(u8 *arg0);
 void create_effect__18TObjEneRe4SorcererFPv(u8 *arg0);
 void state_wait__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1);
 void turn_to_target__18TObjEneRe4SorcererFPv(void *arg0);
-M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_persistent_sound(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK TObjEneRe4Sorcerer__sub_800EF95C(void *, f32);
 s32 approach_angle_limited(s32, s32, M2C_UNK);
@@ -752,15 +752,15 @@ void TObjEneRe4Sorcerer__vt85(s32 arg0, u32 arg1, s32 arg2) {
 }
 
 void TObjEneRe4Sorcerer__sub_800EF214(s32 arg0) {
-    TOTrapAncient01__sub_80226578((M2C_UNK)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) (arg0)), (M2C_UNK)((int) (0x4003A81D)))))), (void *)((void *) (arg0)), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
+    play_persistent_sound((M2C_UNK)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) (arg0)), (M2C_UNK)((int) (0x4003A81D)))))), (void *)((void *) (arg0)), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
 }
 
 void create_effect__18TObjEneRe4SorcererFPv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3E8) == 0) {
-        TOTrapAncient01__sub_80226578(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003A812), arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003A812), arg0, arg0 + 0x38, 0, 0);
         return;
     }
-    TOTrapAncient01__sub_80226578(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003AB13), arg0, arg0 + 0x38, 0, 0);
+    play_persistent_sound(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003AB13), arg0, arg0 + 0x38, 0, 0);
 }
 
 extern u8 *lbl_805D52DC;

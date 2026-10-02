@@ -97,8 +97,8 @@ s32 update__19TWindowKeyBoardSoftFPv(void *);
 void TWindowKeyBoardSoft__sub_8025C24C(u8 *arg0);
 bool TWindowKeyBoardSoft__sub_8025B85C(u16 arg0);
 extern s32 lbl_805D5544;
-u16 TWindowSubStatusDisp__sub_80145054(u16);
-u8 TWindowSubStatusDisp__sub_80144FCC(u16);
+u16 map_char_to_font_code(u16);
+u8 get_font_char_advance(u16);
 s32 TWindowKeyBoardSoft__sub_80080D1C(Field_8025C974 *, u16, u32 *, u32 *, u32 *);
 void TWindowKeyBoardSoft__sub_8025C974(Base_8025C974 *base, char *out);
 s32 TWindowKeyBoardSoft__sub_80080D1C(Field_8025C974 *, u16, u32 *, u32 *, u32 *);
@@ -677,7 +677,7 @@ void TWindowKeyBoardSoft__sub_8025C974(Base_8025C974 *base, char *out) {
     }
     while ((s32)*in != 0) {
         code = *in++;
-        TWindowSubStatusDisp__sub_80144FCC(TWindowSubStatusDisp__sub_80145054(code));
+        get_font_char_advance(map_char_to_font_code(code));
         if (TWindowKeyBoardSoft__sub_80080D1C(&base->field, code, &a, &b, &c)) {
             *out = 0;
             return;

@@ -122,7 +122,7 @@ extern RecoveredGlobal_8006A788_camera_controller_registry camera_controller_reg
 extern s8 TCameraCtrl__data_804FF628[];
 void select_camera_controller(s8 arg0);
 s32 is_split_screen();
-M2C_UNK TCameraCtrl__sub_80068530(int);
+M2C_UNK apply_camera_controller_pose(int);
 M2C_UNK TCameraCtrl__sub_800696D0(void *, int);
 M2C_UNK TCameraCtrl__sub_800698C8(void *, int);
 M2C_UNK TCameraCtrl__sub_80069A6C(void *);
@@ -354,7 +354,7 @@ void update_active_controller__11TCameraCtrlFPv(u8 *arg0) {
     {
       PSO_VCALL_VObj_18_9639c7_m4(temp_r30, 1);
     }
-    TCameraCtrl__sub_80068530((int) temp_r30);
+    apply_camera_controller_pose((int) temp_r30);
     new_var = (s32 *) (((s8 *) (&(*(RecoveredGlobal_8006A7D8_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value)) + 8);
     var_r27 = 0;
     if (is_split_screen() != 0)

@@ -12,7 +12,7 @@ M2C_UNK update_player_state__9TObjEneDDFPv(void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
 M2C_UNK get_target_info__9TObjEneDDFPv();
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_800F5BC0(s32, s16, M2C_UNK);
+M2C_UNK scroll_strip_uvs(s32, s16, M2C_UNK);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
@@ -52,7 +52,7 @@ void TObjEneRe4Sorcerer__vt104(u8 *arg0) {
         translate_matrix(0, TObjEneRe4Sorcerer__data_805DA790, TObjEneRe4Sorcerer__data_805DA794, TObjEneRe4Sorcerer__data_805DA790);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         M2C_FIELD(arg0, s16 *, 0x3C0) = (s16) (M2C_FIELD(arg0, s16 *, 0x3C0) + 5);
-        TObjPlayer__sub_800F5BC0(TObjEneRe4Sorcerer__data_805D52F4, M2C_FIELD(arg0, s16 *, 0x3C0), 0);
+        scroll_strip_uvs(TObjEneRe4Sorcerer__data_805D52F4, M2C_FIELD(arg0, s16 *, 0x3C0), 0);
         M2C_FIELD(arg0, f32 *, 0x3C4) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C4) + lbl_805DA798);
         some_id_805c6f74 |= 0x20000;
         TObjEneRe4Sorcerer__sub_801E3F1C(TObjEneRe4Sorcerer__data_805DA790, M2C_FIELD(arg0, f32 *, 0x3C4));

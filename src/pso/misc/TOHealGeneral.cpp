@@ -92,7 +92,7 @@ void set_owner_id__13TParticleCtrlFPvUs(u32, u16);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void refresh_collision_body_centers(void *);
-void TObjEneGibbles__sub_80156780(void *, void *, s32, void *);
+void init_collision_body_parts(void *, void *, s32, void *);
 void init_map_object_base(void *, s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
 extern u8 lbl_804B2770[];
@@ -284,7 +284,7 @@ void *TOHealGeneral__ct(void *arg0, void *arg1) {
     model = M2C_FIELD(TOHealGeneral__data_805D59F0, u8 **, 0x42C);
     self->f24 = M2C_FIELD(model, s32 *, 0xC);
     self->fC4 = lbl_805DB6CC;
-    TObjEneGibbles__sub_80156780(self, lbl_804B2770, 1, model);
+    init_collision_body_parts(self, lbl_804B2770, 1, model);
     refresh_collision_body_centers(self);
     reset_photon_effect__10TObjPlayerFPv(self);
     clear_player_status_flag__10TObjPlayerFPviUi(self, 0, 1);

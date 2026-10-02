@@ -280,7 +280,7 @@ void TObjEneDD__sub_800BACE0(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 int TObjEneDD__sub_800BABA4(u8 *arg0, s32 arg1);
 f32 newton_sqrtf(f32);
 s32 enemy_probe_wall_ahead(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
-void TObjEneDD__sub_800BAF1C(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist);
+void calc_wall_clamped_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 s32 enemy_probe_wall_ahead(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
@@ -290,7 +290,7 @@ void calc_wall_slide_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dis
 
 extern "C" {
 
-int TObjEneGibbles__sub_80156780(void*);
+int init_collision_body_parts(void*);
 int TObjEneDD__sub_800BA934(void* a0 = 0);
 void init_model__9TObjEneDDFPv(void* p);
 void TObjEneDD__vt85(void);
@@ -308,7 +308,7 @@ int TObjEneDD__sub_800BABA4(u8 *arg0, s32 arg1) {
 
 void TObjEneDD__sub_800BABCC(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
     M2C_UNK sp8;
-    TObjEneDD__sub_800BAF1C((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
+    calc_wall_clamped_destination((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
     ((VObj_18_807e53 *)(arg0))->m99(&sp8);
 }
 
@@ -326,7 +326,7 @@ void TObjEneDD__sub_800BAC5C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
 
 void TObjEneDD__sub_800BACA4(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
     M2C_UNK sp8;
-    TObjEneDD__sub_800BAF1C((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
+    calc_wall_clamped_destination((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
     try_move_actor_xz_on_ground((u8 *)(arg0), (u8 *)(&sp8));
 }
 
@@ -392,7 +392,7 @@ u8 *try_move_actor_xz_on_ground(u8 *arg0, u8 *arg1) {
 }
 #pragma push
 #pragma fp_contract on
-void TObjEneDD__sub_800BAF1C(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist) {
+void calc_wall_clamped_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist) {
     Ene_800BAF1C *e = (Ene_800BAF1C *)arg0;
     Vec_800BAF1C *out = (Vec_800BAF1C *)arg1;
     Node_800BAF1C *n = (Node_800BAF1C *)enemy_probe_wall_ahead((u8 *)e, dx, dz, dist + e->reach);

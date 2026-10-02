@@ -92,7 +92,7 @@ void free_if_valid__10TObjPlayerFi(s32);
 extern u8 *TOKeyAncient01__data_805D59F8;
 extern u32 TOKeyAncient01__data_805D59FC;
 void TOKeyAncient01__sub_8016AEFC(void);
-u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
+u32 init_collision_body_parts(void *, s32, s32);
 u8 * TOKey__ct(void *);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK refresh_collision_body_centers(void *);
@@ -259,7 +259,7 @@ u8 *TOKeyAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD(TOKeyAncient01__data_805D59F8, u8 **, 0x430), void **, 4));
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB6E8);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB6EC;
-    TObjEneGibbles__sub_80156780(arg0, (s32) &lbl_804B29D0.value, 1);
+    init_collision_body_parts(arg0, (s32) &lbl_804B29D0.value, 1);
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB6F0;

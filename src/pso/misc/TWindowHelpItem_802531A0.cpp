@@ -68,7 +68,7 @@ void TWindowHelpItem__vt2(u8 *arg0);
 s32 TLobby__sub_8001DC24();
 void TWindowHelpItem__sub_80104FCC(int, void *, void *);
 s16 get_technique_level__9TItemDataFPv(void *);
-void TItemData__sub_8010E414(void *);
+void format_item_description(void *);
 s32 get_player_by_client_id(int);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 void text_builder_append();
@@ -145,7 +145,7 @@ void TWindowHelpItem__sub_802532E8(u8 *arg0) {
         *(V3_802532E8 *)(arg0 + 0xB0) = lbl_804CF898;
         e0 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
         TWindowSubStatusDisp__sub_802290E0();
-        TItemData__sub_8010E414(*(void **)(arg0 + 0x68));
+        format_item_description(*(void **)(arg0 + 0x68));
         text_builder_append();
         if (lbl_805D5544 == 0) {
             TWindowHelpItem__sub_80255DC8(*(*(u8 **)(arg0 + 0x68) + 4));

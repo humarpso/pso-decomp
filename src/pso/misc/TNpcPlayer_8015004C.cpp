@@ -109,7 +109,7 @@ extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(int, f32, f32, f32);
 M2C_UNK request_chatter__10TNpcPlayerFPvUi(void *, M2C_UNK);
-M2C_UNK TNpcPlayer__sub_8014F140(void *);
+M2C_UNK partner_probe_obstacles(void *);
 s32 partner_view_update_hp_change(void *);
 M2C_UNK partner_view_update_conditions(s32);
 M2C_UNK try_update_target_flag__10TNpcPlayerFPvi(void *, void *, f32);
@@ -119,7 +119,7 @@ u16 get_npc_type__10TNpcPlayerFPv(void *);
 s32 get_condition__10TNpcPlayerFPv(s32);
 s32 get_action_state__10TNpcPlayerFPv(void *);
 extern const f64 lbl_8043FFD8;
-void TNpcPlayer__sub_801506DC(u8 *arg0);
+void partner_observe_surroundings(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 TBoss6Kakusan__sub_803D8BD8(void *, int, f32, f32);
 M2C_UNK TNpcPlayer__sub_803D97B4(void *);
@@ -198,7 +198,7 @@ s32 TNpcPlayer__sub_801500F4(u8 *arg0, void * _w1, int _w2) {
 
 #pragma push
 #pragma fp_contract on
-void TNpcPlayer__sub_801506DC(u8 *arg0) {
+void partner_observe_surroundings(u8 *arg0) {
     f32 temp_f3;
     s32 temp_r3_2;
     s32 temp_r5;
@@ -215,7 +215,7 @@ void TNpcPlayer__sub_801506DC(u8 *arg0) {
     temp_f3 = M2C_FIELD(arg0, f32 *, 0xDC);
     temp_r3 = (u8 *)(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x78), void **, 0x94));
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x78), s32 *, 0x98) = (s32) (lbl_8043FFD8 * get_ad_end_text_start__10TObjPlayerFv((int) (temp_r3), (f32) (temp_f3 - M2C_FIELD(temp_r3, f32 *, 0x38)), (f32) (M2C_FIELD(arg0, f32 *, 0xE4) - M2C_FIELD(temp_r3, f32 *, 0x40)), (f32) (temp_f3)));
-    TNpcPlayer__sub_8014F140((void *) (M2C_FIELD(arg0, u8 **, 0x78)));
+    partner_probe_obstacles((void *) (M2C_FIELD(arg0, u8 **, 0x78)));
     if (partner_view_update_hp_change((void *) (M2C_FIELD(arg0, u8 **, 0x78))) != 0) {
         if (get_condition__10TNpcPlayerFPv((s32)((void *) (M2C_FIELD(arg0, u8 **, 0x78)))) & 0x40) {
             request_chatter__10TNpcPlayerFPvUi((void *)((void *) (arg0)), (M2C_UNK)((int) (0xE)));

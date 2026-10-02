@@ -100,7 +100,7 @@ void play_particle_effect_once__10TObjPlayerFv();
 s32 TObjPlayer__sub_8001BEF8(void*,u32);
 void TObjPlayer__sub_801211F0();
 void apply_weapon_node_material();
-WeaponColorDescriptor_80120304 *TObjPlayer__sub_8011CDA0(s16 color_index);
+WeaponColorDescriptor_80120304 *get_photon_color_record(s16 color_index);
 f32 get_mag_scale__10TObjPlayerFPv(void *weapon);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, const void *);
 extern const f32 lbl_805DAC98;
@@ -160,7 +160,7 @@ WeaponArgb get_weapon_color__11TItemWeaponFPv(void *weapon) {
     WeaponColorDescriptor_80120304 *descriptor;
     f32 override_alpha;
     if (M2C_FIELD(weapon, s16 *, 0x1E8) != -1) {
-        descriptor = TObjPlayer__sub_8011CDA0(M2C_FIELD(weapon, s16 *, 0x1E8));
+        descriptor = get_photon_color_record(M2C_FIELD(weapon, s16 *, 0x1E8));
         if (descriptor->mode == 1) {
             copy_vec4__13TRaderMapCoreFPvPv(&first, &descriptor->first);
             copy_vec4__13TRaderMapCoreFPvPv(&second, &descriptor->second);

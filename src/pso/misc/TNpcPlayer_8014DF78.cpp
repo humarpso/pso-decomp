@@ -102,7 +102,7 @@ void reset_partner_counter(s32, s32);
 void request_chatter__10TNpcPlayerFPvUi(u8 *arg0, u32 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u8 *csnVector(s32, s32, M2C_UNK);
-s32 TNpcPlayer__sub_8014F0D4(M2C_UNK arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+s32 partner_find_wall_segment(M2C_UNK arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 void TNpcPlayer__sub_8014E090(u8 *arg0, u32 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
@@ -121,17 +121,17 @@ Actor_8014F140 *get_player_data__10TObjPlayerFi(s32);
 s32 get_game_mode__6TLobbyFv(void);
 M2C_UNK fn_8002B630(void *, void *);
 s32 get_enemy_count__9TObjEneDDFv(void);
-s32 TObjPlayer__sub_80152F40(void);
+s32 get_registered_object_count(void);
 Contact_8014F140 *find_actor_body_contact(void *, void *, f32);
 extern const f32 lbl_805DB210;
-s32 TNpcPlayer__sub_8014F140(View_8014F140 *view);
+s32 partner_probe_obstacles(View_8014F140 *view);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u8 *csnVector(s32, s32, M2C_UNK);
 f32 TBoss6Kakusan__sub_803D8BD8(Vec_8014E3B0 *);
 void TNpcPlayer__sub_803D97B4(Vec_8014E3B0 *);
 extern const f32 TNpcPlayer__data_805DB1F0;
 extern const f32 TNpcPlayer__data_805DB1F4;
-s32 TNpcPlayer__sub_8014E3B0(void *self, f32 *from, f32 *to, f32 *out);
+s32 partner_clip_path_point(void *self, f32 *from, f32 *to, f32 *out);
 }
 
 extern "C" {
@@ -152,7 +152,7 @@ void TCameraCtrl__sub_803D8934(s32, Vec_8014E3B0 *, Vec_8014E3B0 *);
 f32 TObjPlayer__sub_803D89C0(Vec_8014E3B0 *, Vec_8014E3B0 *);
 f32 TBoss6Kakusan__sub_803D8BD8(Vec_8014E3B0 *);
 void TNpcPlayer__sub_803D97B4(Vec_8014E3B0 *);
-void TNpcPlayer__sub_8014ECD8(u8 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out);
+void partner_compute_stalled_detour(u8 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out);
 }
 
 typedef struct Obj_8014EE98 { u8 pad[0x2FC]; Vec_8014E3B0 pos; } Obj_8014EE98;
@@ -174,7 +174,7 @@ f32 TObjPlayer__sub_803D89C0(Vec_8014E3B0 *, Vec_8014E3B0 *);
 f32 TBoss6Kakusan__sub_803D8BD8(Vec_8014E3B0 *);
 void TNpcPlayer__sub_803D97B4(Vec_8014E3B0 *);
 void TNpcPlayer__sub_803E18C0(void *, Line_8014EE98 *, Vec_8014E3B0 *);
-s32 TNpcPlayer__sub_8014EE98(Self_8014EE98 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out, Vec_8014E3B0 *out2);
+s32 partner_route_around_wall(Self_8014EE98 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out, Vec_8014E3B0 *out2);
 }
 
 void dispatch_action__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
@@ -333,7 +333,7 @@ void request_chatter__10TNpcPlayerFPvUi(u8 *arg0, u32 arg1) {
 
 #pragma push
 #pragma fp_contract on
-s32 TNpcPlayer__sub_8014E3B0(void *self, f32 *from, f32 *to, f32 *out) {
+s32 partner_clip_path_point(void *self, f32 *from, f32 *to, f32 *out) {
     Vec_8014E3B0 dir;
     u8 *contact;
     contact = csnVector((s32) from, (s32) to, 0x2100);
@@ -356,7 +356,7 @@ s32 TNpcPlayer__sub_8014E3B0(void *self, f32 *from, f32 *to, f32 *out) {
 
 #pragma push
 #pragma fp_contract on
-void TNpcPlayer__sub_8014ECD8(u8 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out) {
+void partner_compute_stalled_detour(u8 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out) {
     Vec_8014E3B0 dir;
     Vec_8014E3B0 save;
     Vec_8014E3B0 a;
@@ -403,7 +403,7 @@ void TNpcPlayer__sub_8014ECD8(u8 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Ve
 #pragma push
 #pragma fp_contract on
 #pragma opt_common_subs off
-s32 TNpcPlayer__sub_8014EE98(Self_8014EE98 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out, Vec_8014E3B0 *out2) {
+s32 partner_route_around_wall(Self_8014EE98 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out, Vec_8014E3B0 *out2) {
     Line_8014EE98 line;
     Vec_8014E3B0 dir;
     Vec_8014E3B0 perp;
@@ -459,7 +459,7 @@ s32 TNpcPlayer__sub_8014EE98(Self_8014EE98 *self, Vec_8014E3B0 *from, Vec_8014E3
 }
 #pragma pop
 
-s32 TNpcPlayer__sub_8014F0D4(M2C_UNK arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+s32 partner_find_wall_segment(M2C_UNK arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(csnVector(arg1, arg2, 0x2100));
     if (temp_r3 != NULL) {
@@ -470,7 +470,7 @@ s32 TNpcPlayer__sub_8014F0D4(M2C_UNK arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg
     return 0;
 }
 
-s32 TNpcPlayer__sub_8014F140(View_8014F140 *view) {
+s32 partner_probe_obstacles(View_8014F140 *view) {
     s32 i;
     Actor_8014F140 *actor;
     Contact_8014F140 *contact;
@@ -481,7 +481,7 @@ s32 TNpcPlayer__sub_8014F140(View_8014F140 *view) {
     }
     VecCopy__FP3VecPC3Vec(probe->pos38, (int)(M2C_FIELD(view, s32 *, 0x94) + 0x38));
     view->probe->field_0x60 = view->field_0x98;
-    for (i = get_game_mode__6TLobbyFv(); i < get_game_mode__6TLobbyFv() + get_enemy_count__9TObjEneDDFv() + TObjPlayer__sub_80152F40(); i++) {
+    for (i = get_game_mode__6TLobbyFv(); i < get_game_mode__6TLobbyFv() + get_enemy_count__9TObjEneDDFv() + get_registered_object_count(); i++) {
         actor = get_player_data__10TObjPlayerFi(i);
         if ((actor != NULL) && !(actor->flags30 & 0x80000000)) {
             contact = find_actor_body_contact(view->probe, actor, lbl_805DB210);

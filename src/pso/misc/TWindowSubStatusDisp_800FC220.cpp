@@ -6,7 +6,7 @@ struct Quad_800FC310 { f32 x0; f32 y0; f32 x1; f32 y1; f32 u0; f32 v0; f32 u1; f
 
 extern "C" {
 extern E_800FC220 *lbl_805D5398;
-s32 TWindowSubStatusDisp__sub_800FC220(u8 c);
+s32 get_small_font_glyph_width(u8 c);
 extern E_800FC220 *lbl_805D5398;
 extern const f32 lbl_805DA9B8;
 void build_small_font_glyph_quad(u8 c, Quad_800FC310 *q);
@@ -16,7 +16,7 @@ extern "C" {
 
 void TWindowSubStatusDisp__sub_800FC248(void);
 
-s32 TWindowSubStatusDisp__sub_800FC220(u8 c) {
+s32 get_small_font_glyph_width(u8 c) {
     return (s32)lbl_805D5398[c - 0x20].w;
 }
 

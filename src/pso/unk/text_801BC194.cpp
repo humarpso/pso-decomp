@@ -44,7 +44,7 @@ extern s32 lbl_805D53A0;
 extern s32 tl_02;
 extern const f32 TObjPlayer__data_805DC278;
 
-void TObjPlayer__sub_801BC194(u8 *arg0) {
+void place_on_area_entry__10TObjPlayerFPv(u8 *arg0) {
     void *obj;
     void *p;
     Ent_801BC194 *e;

@@ -75,7 +75,7 @@ s32 get_global_state__14TOKeyMachine01Fv();
 extern RecoveredGlobal_800FBB68_lbl_8049C670 lbl_8049C670;
 extern M2C_UNK *tl_02;
 void TFogCtrl__sub_800FBB68(void);
-u8 TWindowSubStatusDisp__sub_800FC220(s32);
+u8 get_small_font_glyph_width(s32);
 s32 TWindowSubStatusDisp__sub_800FC248(s32);
 void build_small_font_glyph_quad(s32, Pos_800FBEA8 *);
 s32 render_forward__20TWindowSubStatusDispFPv();
@@ -85,7 +85,7 @@ s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 TWindowSubStatusDisp__sub_803DF160(int, void *);
 void TWindowSubStatusDisp__sub_800FBEA8(void *color, s16 value, u16 digits, f32 x, f32 y, f32 scale);
-u8 TWindowSubStatusDisp__sub_800FC220(s32);
+u8 get_small_font_glyph_width(s32);
 s32 TWindowSubStatusDisp__sub_800FC248(s32);
 void build_small_font_glyph_quad(s32, Pos_800FBEA8 *);
 s32 render_forward__20TWindowSubStatusDispFPv();
@@ -116,7 +116,7 @@ extern M2C_UNK TFogCtrl__data_80501188[];
 extern FogParam_800FBC5C lbl_80501198;
 extern u32 lbl_805D5388;
 extern s32 lbl_805D538C;
-void TFogCtrl__sub_800FBC5C(void);
+void init_scene_fog_system(void);
 }
 
 extern "C" {
@@ -235,7 +235,7 @@ void reset__8TFogCtrlFv(void) {
     begin_effect_render__13TParticleCtrlFv();
 }
 
-void TFogCtrl__sub_800FBC5C(void) {
+void init_scene_fog_system(void) {
     s32 i;
     lbl_805D538C = 0;
     lbl_80501198.f0 = 1;
@@ -311,7 +311,7 @@ void TWindowSubStatusDisp__sub_800FBEA8(void *color, s16 value, u16 digits, f32 
     TWindowSubStatusDisp__sub_803DF160(0, color);
     for (i = 0; i < digits; i++) {
         id = TWindowSubStatusDisp__sub_800FC248((u8)(value % 10) + '0');
-        x -= TWindowSubStatusDisp__sub_800FC220(id);
+        x -= get_small_font_glyph_width(id);
         pos.x = x;
         pos.y = y;
         build_small_font_glyph_quad(id, &pos);
@@ -335,7 +335,7 @@ void TLobby__sub_800FBFD8(void *color, const char *s, f32 x, f32 y, f32 scale) {
         id = TWindowSubStatusDisp__sub_800FC248(c);
         build_small_font_glyph_quad((s32)(id), (Pos_800FBEA8 *)(&pos));
         draw_textured_quad_at_depth(&pos, scale);
-        x += TWindowSubStatusDisp__sub_800FC220(id);
+        x += get_small_font_glyph_width(id);
     }
     get_player__20TWindowSubStatusDispFv();
 }

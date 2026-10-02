@@ -12,7 +12,7 @@ void TObjPlayer__sub_8012A2EC(void *arg0);
 void update_recovery_meter__10TObjPlayerFPv(void *arg0);
 void update_field1fc__10TObjPlayerFPv(u8 *arg0);
 int rotate_matrix_x(void*, void*);
-M2C_UNK TObjPlayer__sub_80115BFC(void *, s32);
+M2C_UNK advance_angle_wrap(void *, s32);
 M2C_UNK update_trail_slot__11TItemWeaponFPvi(void *, M2C_UNK);
 M2C_UNK draw_weapon_model(void *);
 int get_player_list__10TObjPlayerFv(void*);
@@ -57,7 +57,7 @@ void update_recovery_meter__10TObjPlayerFPv(void *arg0) {
 }
 
 void update_field1fc__10TObjPlayerFPv(u8 *arg0) {
-    TObjPlayer__sub_80115BFC(arg0 + 0x1FC, M2C_FIELD(arg0, s32 *, 0x200));
+    advance_angle_wrap(arg0 + 0x1FC, M2C_FIELD(arg0, s32 *, 0x200));
 }
 
 }

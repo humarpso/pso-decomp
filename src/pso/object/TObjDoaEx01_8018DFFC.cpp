@@ -52,7 +52,7 @@ void TObjDoaEx01__sub_8018E1E0(void);
 u8 *TObjFish__sub_8001ED9C(s32, s32);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_8018E064_lbl_804B7598 lbl_804B7598;
 extern M2C_UNK __vt__11TObjDoaEx01[];
@@ -101,7 +101,7 @@ u8 *TObjDoaEx01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3328;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
     ((VObj_18_4a4f5b *)(arg0))->m17();
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B7598.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B7598.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) TObjDoaEx01__data_805DBDA0;

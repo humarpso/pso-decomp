@@ -21,7 +21,7 @@ extern u32 TObjHashiVersus2__data_805D5C18;
 void TObjHashiVersus2__sub_80191340(void);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
-u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
+u32 init_collision_body_parts(void *, s32, s32);
 u8 * TObjHashiBase__ct(void *, s32);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 u8 TODoorAncient08__sub_80229220(int);
@@ -100,7 +100,7 @@ u8 *TObjHashiVersus2__ct(u8 *arg0, s32 arg1, s32 _w2) {
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DBE20;
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((*(u8 * *)&TObjHashiVersus2__data_805D5C18), 0);
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TObjHashiVersus2__data_805D5C18), 0);
-    TObjEneGibbles__sub_80156780(arg0, (s32) &lbl_804B7D24.value, 2);
+    init_collision_body_parts(arg0, (s32) &lbl_804B7D24.value, 2);
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     return arg0;

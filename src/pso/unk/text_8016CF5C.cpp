@@ -62,7 +62,7 @@ extern s32 lbl_805D53A0;
 void TOKeyMachine01__sub_8016D148(Self_8016D148 *self, s32 flags);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK refresh_collision_body_centers(void *);
-M2C_UNK TObjEneGibbles__sub_80156780(void *, void *, s32);
+M2C_UNK init_collision_body_parts(void *, void *, s32);
 M2C_UNK init_switch_id__5TOKeyFPv(void *);
 void *TOKey__ct(void *, void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
@@ -94,7 +94,7 @@ void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source) {
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) M2C_FIELD(M2C_FIELD(arg0, void **, 0xBC), u32 *, 4) - lbl_805DB768;
     M2C_FIELD(arg0, f32 *, 0xB8) = lbl_805DB76C;
     M2C_FIELD(arg0, u32 *, 0x24) = TOKeyGenericSw__data_805D5A28[1];
-    TObjEneGibbles__sub_80156780(arg0, lbl_804B2D30, 1);
+    init_collision_body_parts(arg0, lbl_804B2D30, 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     M2C_FIELD(arg0, f32 *, 0xC0) = lbl_805DB770;

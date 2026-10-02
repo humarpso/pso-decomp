@@ -454,7 +454,7 @@ M2C_UNK delete_children__7TObjectFv(void *);
 void unequip__14TItemEquipBaseFPv(u8 *arg0);
 s32 TItemLoad__sub_801100F0(s32);
 s32 TItemLoad__sub_8011038C(s32);
-void TItemEquipBase__sub_8010A78C(u8 *arg0);
+void bind_loaded_resources__14TItemEquipBaseFPv(u8 *arg0);
 M2C_UNK get_id__13TItemProArmorFPv(void *);
 M2C_UNK TItemEquipBase__sub_8010B73C(void *);
 M2C_UNK TItemEquipBase__sub_8022C680(void *, void *, void *);
@@ -532,7 +532,7 @@ s16 add_mst__10TObjPlayerFPvi(void *, int);
 s16 add_hp__10TObjPlayerFPvi(void *, int);
 s16 add_dfp__10TObjPlayerFPvi(void *, int);
 s16 add_stat__10TObjPlayerFPvi(void *, int);
-void TItemEquipBase__sub_8010B224(VObj_8010B224 *self, s32 arg1);
+void add_equip_stats__14TItemEquipBaseFPvi(VObj_8010B224 *self, s32 arg1);
 }
 
 extern "C" {
@@ -550,7 +550,7 @@ struct VObj_8010B054_8010A710 : Base_8010B054_8010A710 {
 };
 
 void TItemEquipBase__sub_8010A788(void);
-void TItemEquipBase__sub_8010A89C(void *arg0, Row_8010A89C *row);
+void register_technique_boosts__14TItemEquipBaseFPvPv(void *arg0, Row_8010A89C *row);
 void TItemEquipBase__sub_8010A938(void);
 void TItemEquipBase__sub_8010A93C(void);
 void TItemEquipBase__sub_8010A940(void);
@@ -605,7 +605,7 @@ s8 TItemEquipBase__sub_8010A77C(u8 *arg0) {
 
 void TItemEquipBase__sub_8010A788(void) {  }
 
-void TItemEquipBase__sub_8010A78C(u8 *arg0) {
+void bind_loaded_resources__14TItemEquipBaseFPv(u8 *arg0) {
     s16 temp_r3;
     u8 *temp_r3_2;
     if ((u32) M2C_FIELD(arg0, u32 *, 0xF4) == 0U) {
@@ -638,7 +638,7 @@ void TItemEquipBase__sub_8010A82C(s32 arg0) {
     } while (var_r30 != 3);
 }
 
-void TItemEquipBase__sub_8010A89C(void *arg0, Row_8010A89C *row) {
+void register_technique_boosts__14TItemEquipBaseFPvPv(void *arg0, Row_8010A89C *row) {
     s32 base;
     Row_8010A89C *p;
     s32 i;
@@ -870,7 +870,7 @@ void unequip__14TItemEquipBaseFPv(u8 *arg0) {
     }
 }
 
-void TItemEquipBase__sub_8010B224(VObj_8010B224 *self, s32 arg1) {
+void add_equip_stats__14TItemEquipBaseFPvi(VObj_8010B224 *self, s32 arg1) {
     ItemData_8010B224 item;
     s32 t;
     u8 *p;

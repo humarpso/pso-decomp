@@ -45,7 +45,7 @@ s32 get_bml_model(void *, s32);
 void init_position_vectors__10TObjPlayerFi(void *);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void refresh_collision_body_centers(void *);
-void TObjEneGibbles__sub_80156780(void *, void *, s32);
+void init_collision_body_parts(void *, void *, s32);
 void update_state__10TOMineTrapFPv(void *);
 void TOMine__ct(void *, void *, void *);
 extern u8 lbl_804B2F3C[];
@@ -99,7 +99,7 @@ void *TOMineIcon03__ct(void *arg0, void *arg1, void *arg2) {
     update_state__10TOMineTrapFPv(self);
     self->f35C = 0xFFFF;
     self->f30 |= 0x60000000;
-    TObjEneGibbles__sub_80156780(self, lbl_804B2F3C, 1);
+    init_collision_body_parts(self, lbl_804B2F3C, 1);
     refresh_collision_body_centers(self);
     reset_photon_effect__10TObjPlayerFPv(self);
     return self;

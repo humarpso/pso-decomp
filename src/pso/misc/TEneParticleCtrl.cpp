@@ -23,7 +23,7 @@ s32 TBoss4DarkFalz__sub_8004C220(void *, void *);
 u32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 s32 set_owner_id__13TParticleCtrlFPvUs(int, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 s32 TObjPlayer__sub_801569F4(void *, void *);
 extern RecoveredGlobal_80338C88_lbl_804EF458 lbl_804EF458;
 extern M2C_UNK __vt__16TEneParticleCtrl[];
@@ -76,7 +76,7 @@ u8 *TEneParticleCtrl__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TObjPlayer__sub_801569F4((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80338C88___vt__16TEneParticleCtrl *)&__vt__16TEneParticleCtrl).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4258;
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804EF458.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804EF458.value), (int) (1));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
     M2C_FIELD(temp_r4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r4, s32 *, 0x18) & 0xFFFFFFFE);

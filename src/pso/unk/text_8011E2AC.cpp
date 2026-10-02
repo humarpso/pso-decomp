@@ -37,12 +37,12 @@ struct VObj_8011E2AC : VBase_8011E2AC {
 
 extern "C" {
 void set_status_flags__10TObjPlayerFPvUi(void *, u32);
-void TObjPlayer__sub_8011E2AC(u8 *arg0);
+void set_weapon_category_flags(u8 *arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_8011E2AC(u8 *arg0) {
+void set_weapon_category_flags(u8 *arg0) {
     s32 r = ((VObj_8011E2AC *)arg0)->m30();
     u32 flags = 0x10000;
     if (r & 1) {

@@ -42,9 +42,9 @@ int send_and_handle__6TLobbyFPvii(void* p, int a1, int a2);
 void set_window_mode_4__6TLobbyFPvii(void *arg0, M2C_UNK arg1, M2C_UNK arg2);
 void update_window_mode_from_progress__6TLobbyFiPv(s32 arg0, void *arg1);
 f32 TWindowSubStatusDisp__sub_803D647C(f32);
-int fn_80269A0C(void*, int, int, int);
+int append_message_window_line(void*, int, int, int);
 
-int send_and_handle__6TLobbyFPvii(void* p, int a1, int a2) { return fn_80269A0C(p, a1, a2, -1); }
+int send_and_handle__6TLobbyFPvii(void* p, int a1, int a2) { return append_message_window_line(p, a1, a2, -1); }
 
 typedef char RecoveredGlobal_80269CA4_lbl_804D071C_size[sizeof(RecoveredGlobal_80269CA4_lbl_804D071C) == 0x14 ? 1 : -1];
 

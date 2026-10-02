@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 u32 get_global_state__14TOKeyMachine01Fv();
-void TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+void play_persistent_sound(int, void *, void *, int, int);
 void TOBarrierEnergy01__sub_80157D28(s32 arg0);
 }
 
@@ -31,21 +31,21 @@ void TOBarrierEnergy01__sub_80157D28(s32 arg0) {
     switch (temp_r3) {
     case 1:
     case 2:
-        TOTrapAncient01__sub_80226578((int) (0x4CB09), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_persistent_sound((int) (0x4CB09), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         return;
     case 3:
     case 4:
     case 5:
-        TOTrapAncient01__sub_80226578((int) (0x44B08), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_persistent_sound((int) (0x44B08), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         return;
     case 6:
     case 7:
-        TOTrapAncient01__sub_80226578((int) (0x4004CB02), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_persistent_sound((int) (0x4004CB02), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         return;
     case 8:
     case 9:
     case 10:
-        TOTrapAncient01__sub_80226578((int) (0x4004CB09), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_persistent_sound((int) (0x4004CB09), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         return;
     case 0:
         return;

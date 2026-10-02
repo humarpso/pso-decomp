@@ -27,7 +27,7 @@ extern const f32 lbl_805DAF54;
 void TObjPlayer__sub_8012DB48(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_8012DC94(u8 *arg0);
+u8 *create_slicer_weapon(u8 *arg0);
 u8 get_slot_count__14TItemProShieldFPv();
 M2C_UNK approach_value__20TItemEffOrgaFlowShotFPvff(void *, f32, f32);
 M2C_UNK TObjPlayer__sub_80115BC0(void *, int, int);
@@ -41,7 +41,7 @@ void set_status_flags__10TObjPlayerFPvUi(void *, s32);
 extern RecoveredGlobal_8012DBF4_lbl_804A5B20 lbl_804A5B20;
 extern const f32 lbl_805DAF38;
 extern const f32 lbl_805DAF3C;
-u8 *TObjPlayer__sub_8012DBF4(u8 *arg0, u8 *arg1, u8 *arg2);
+u8 *construct_slicer_weapon(u8 *arg0, u8 *arg1, u8 *arg2);
 void TObjPlayer__sub_801295FC(SlicerLaunchData_8012D9C8 *);
 u16 obj_getField1c(void *);
 u32 get_field_d8__10TObjPlayerFPv(void *);
@@ -52,12 +52,12 @@ void get_weapon_color__11TItemWeaponFPv(f32 *, void *);
 void copy_vec4__13TRaderMapCoreFPvPv(f32 *, f32 *);
 void draw_icon__10TObjPlayerFPvii(void *, int, f32 *);
 void create__10TTecSlicerFPUs(SlicerLaunchData_8012D9C8 *);
-void TObjPlayer__sub_8012D9C8(u8 *weapon);
+void launch_slicer_shot(u8 *weapon);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_8012D9C8(u8 *weapon) {
+void launch_slicer_shot(u8 *weapon) {
     f32 tmp[4];
     SlicerLaunchData_8012D9C8 launch;
     TObjPlayer__sub_801295FC(&launch);
@@ -124,7 +124,7 @@ void TObjPlayer__sub_8012DB48(u8 *arg0) {
 }
 
 typedef char RecoveredGlobal_8012DBF4_lbl_804A5B20_size[sizeof(RecoveredGlobal_8012DBF4_lbl_804A5B20) == 0xF8 ? 1 : -1];
-u8 *TObjPlayer__sub_8012DBF4(u8 *arg0, u8 *arg1, u8 *arg2) {
+u8 *construct_slicer_weapon(u8 *arg0, u8 *arg1, u8 *arg2) {
     u8 temp_r0;
     TObjPlayer__sub_80120D50(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804A5B20.value;
@@ -148,14 +148,14 @@ u8 *TObjPlayer__sub_8012DBF4(u8 *arg0, u8 *arg1, u8 *arg2) {
     return arg0;
 }
 
-u8 *TObjPlayer__sub_8012DC94(u8 *arg0) {
+u8 *create_slicer_weapon(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x208));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(TObjPlayer__sub_8012DBF4((u8 *)(temp_r3), (u8 *)(tl_05), (u8 *)(arg0)));
+            var_r0 = (u8 *)(construct_slicer_weapon((u8 *)(temp_r3), (u8 *)(tl_05), (u8 *)(arg0)));
         }
         return var_r0;
     }

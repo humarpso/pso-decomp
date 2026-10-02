@@ -224,7 +224,7 @@ void TODoorJungleMain__sub_8029B3C8(void);
 s32 TObjFish__sub_8001ED9C(void *, s32);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void refresh_collision_body_centers(void *);
-u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
+u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_door_base(void *);
 s32 create__10TObjMapCsnFi(s32);
 extern RecoveredGlobal_8029B924_lbl_804DC014 lbl_804DC014;
@@ -297,7 +297,7 @@ extern s32 lbl_805D5550;
 M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
 M2C_UNK TRaderMapCore__sub_801F9AC4(void *, u32, u16, s32, s32);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 M2C_UNK TCameraCtrl__sub_803D8934(void *, void *, void *);
 M2C_UNK set_position_vec3__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK TObjPlayer__sub_803D8CD4(void *);
@@ -424,7 +424,7 @@ void run_task__16TODoorJungleMainFv(u8 *arg0) {
             flag = 0;
             M2C_FIELD(arg0, f32 *, 0xB4) = (f32)(u32)(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), s32 *, 4) - 1);
         } else {
-            TOTrapAncient01__sub_80226578(0x43220, arg0, arg0 + 0x38, 0, 0);
+            play_persistent_sound(0x43220, arg0, arg0 + 0x38, 0, 0);
         }
         if (flag != 0) {
             if (++M2C_FIELD(arg0, s32 *, 0xD8) % 30 == 0) {
@@ -471,7 +471,7 @@ u8 *TODoorJungleMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0xBC) = TObjFish__sub_8001ED9C((*(u8 * *)&TODoorJungleMain__data_805D65B8), 0);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DDCD8;
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) lbl_805DDCDC;
-    TObjEneGibbles__sub_80156780(arg0, (s32) &lbl_804DC014.value, 1);
+    init_collision_body_parts(arg0, (s32) &lbl_804DC014.value, 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DDCE0;

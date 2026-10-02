@@ -76,8 +76,8 @@ void update_projectile_spawns__13TBoss2DeRolLeFPv(u8 *arg0);
 int play_sound_effect(void*, int, int, int);
 M2C_UNK TBoss4Zako__sub_803D8910(int, void *);
 s32 TBoss8Dragon__sub_800B9958(void * a0 = 0, u16 a1 = 0);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
-M2C_UNK TObjEneDD__sub_800B9BEC(void *, void *, f32);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
+M2C_UNK project_sound_origin_from_camera(void *, void *, f32);
 s32 transition_enemy_state(void * a0 = 0, s16 a1 = 0);
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
 M2C_UNK create_particle__17TObjBoss2CeilJunkFv(s32, M2C_UNK);
@@ -215,7 +215,7 @@ void TBoss2DeRolLe__sub_8003383C(u8 *arg0) {
 }
 #pragma pop
 
-int spawn_trap__13TBoss2DeRolLeFPvii(void* p, int a1, int a2) { return TOTrapAncient01__sub_80226578((int)(p), (void *)(a1), (void *)(a2), (int)(0), (int)(0)); }
+int spawn_trap__13TBoss2DeRolLeFPvii(void* p, int a1, int a2) { return play_persistent_sound((int)(p), (void *)(a1), (void *)(a2), (int)(0), (int)(0)); }
 int play_sound(void* p, int a1) { return play_sound_effect(p, a1, 0, 0); }
 void TBoss2DeRolLe__sub_800338BC(void) {  }
 
@@ -227,8 +227,8 @@ extern const f32 TBoss2DeRolLe__data_805D82F0;
 void update_projectile_spawns__13TBoss2DeRolLeFPv(u8 *arg0) {
     u8 *temp_r31;
 
-    TObjEneDD__sub_800B9BEC((void *) (arg0 + 0x38), (void *) (arg0 + 0x518), (f32) (TBoss2DeRolLe__data_805D8280));
-    TObjEneDD__sub_800B9BEC((void *) (arg0 + 0x4D0), (void *) (arg0 + 0x524), (f32) (TBoss2DeRolLe__data_805D8280));
+    project_sound_origin_from_camera((void *) (arg0 + 0x38), (void *) (arg0 + 0x518), (f32) (TBoss2DeRolLe__data_805D8280));
+    project_sound_origin_from_camera((void *) (arg0 + 0x4D0), (void *) (arg0 + 0x524), (f32) (TBoss2DeRolLe__data_805D8280));
     temp_r31 = arg0 + 0x530;
     VecCopy__FP3VecPC3Vec((int) (temp_r31), (void *) (arg0 + 0x524));
     TBoss4Zako__sub_803D8910((int) (temp_r31), (void *) (arg0 + 0x524));
@@ -239,7 +239,7 @@ void update_projectile_spawns__13TBoss2DeRolLeFPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x53C) = 0;
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x53C) <= 0x10) {
-        TOTrapAncient01__sub_80226578((int)((int) (0x4003AD00)), (void *)((void *) (arg0)), (void *)((void *) (arg0 + 0x530)), (int)((int) (0)), (int)((int) (0)));
+        play_persistent_sound((int)((int) (0x4003AD00)), (void *)((void *) (arg0)), (void *)((void *) (arg0 + 0x530)), (int)((int) (0)), (int)((int) (0)));
         M2C_FIELD(arg0, s32 *, 0x53C) = (s32) (M2C_FIELD(arg0, s32 *, 0x53C) + 1);
     }
 }

@@ -21,7 +21,7 @@ u32 get_npc_state__10TNpcPlayerFPv(s32);
 M2C_UNK npc_counter_reset_if_reached(void *, M2C_UNK, M2C_UNK);
 M2C_UNK TNpcPlayer__sub_8015296C(void *, M2C_UNK, M2C_UNK);
 u32 TNpcPlayer__sub_80152978(s32);
-void TNpcPlayer__sub_8014DF0C(u8 *arg0);
+void partner_request_physical_attack(u8 *arg0);
 u8 *find_active_entity_by_id(s32);
 u8 *get_state_ptr__10TObjPlayerFPv(void *);
 s16 calc_angle_to__10TObjPlayerFPvPv(void *, void *);
@@ -151,7 +151,7 @@ void TNpcPlayer__sub_8014DC5C(Self_8014DC5C *self) {
 
 #pragma push
 #pragma scheduling off
-void TNpcPlayer__sub_8014DF0C(u8 *arg0) {
+void partner_request_physical_attack(u8 *arg0) {
     u32 temp_r31;
     u32 temp_r3;
     temp_r31 = TNpcPlayer__sub_80152978(M2C_FIELD(arg0, s32 *, 0x78));

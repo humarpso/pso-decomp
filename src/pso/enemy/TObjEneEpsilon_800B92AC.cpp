@@ -110,7 +110,7 @@ struct VObj_18_807e53 : VBase_18_807e53 {
 };
 
 extern "C" {
-void TObjEneEpsilon__sub_800B965C(u8 *arg0, s32 arg1);
+void enemy_init_validate_period(u8 *arg0, s32 arg1);
 int copy_position__14TObjEneEpsilonFPv(void *, void *);
 void TObjEneEpsilon__sub_800B96A4(u8 *arg0);
 void fire_attack_b__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
@@ -123,7 +123,7 @@ void fire_attack_a__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 f
 void TObjEneEpsilon__sub_800B92AC(u8 *arg0, s32 arg1, f32 farg0);
 void fire_attack_b__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 void TObjEneEpsilon__sub_800B92F8(u8 *arg0, s32 arg1, f32 farg0);
-s32 fn_800B9194(void *);
+s32 enemy_has_live_target(void *);
 s32 TObjEneEpsilon__sub_800BBE64(M2C_UNK, void *, s32);
 M2C_UNK enemy_clear_target(void *);
 s32 transform_relative_position__9TObjEneDDFPvPv(void *, int);
@@ -169,7 +169,7 @@ s32 update_death_check__14TObjEneEpsilonFPv(void *arg0);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 s32 TObjEneDD__sub_800BA828(u16);
-M2C_UNK TObjEneDD__sub_800BAF1C(void *, s32, f32, f32, f32);
+M2C_UNK calc_wall_clamped_destination(void *, s32, f32, f32, f32);
 M2C_UNK calc_wall_slide_destination(void *, s32, f32, f32, f32);
 int TObjEneEpsilon__sub_800B96FC(void*, void*, void*);
 s16 approach_angle_limited(s32, s32, s32);
@@ -209,7 +209,7 @@ void fire_attack_a__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 f
     temp_f30 = farg0;
     update_angle__14TObjEneEpsilonFPvi((void *)(arg0), (s32)(arg2));
     temp_f31 = TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
-    TObjEneDD__sub_800BAF1C(arg0, arg1, TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60)), temp_f31, temp_f30);
+    calc_wall_clamped_destination(arg0, arg1, TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60)), temp_f31, temp_f30);
 }
 
 void fire_attack_b__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
@@ -253,7 +253,7 @@ s32 enemy_validate_retained_target(u8 *arg0) {
         }
         goto block_5;
     }
-    if (fn_800B9194(arg0) != 0) {
+    if (enemy_has_live_target(arg0) != 0) {
         return 1;
     }
 block_5:
@@ -261,7 +261,7 @@ block_5:
     return 0;
 }
 
-void TObjEneEpsilon__sub_800B965C(u8 *arg0, s32 arg1) {
+void enemy_init_validate_period(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x3BC) = arg1;
     M2C_FIELD(arg0, s32 *, 0x3B8) = (s32) ((M2C_FIELD(arg0, u16 *, 0x1C) + 3) % M2C_FIELD(arg0, s32 *, 0x3BC));
 }

@@ -74,7 +74,7 @@ extern const f32 lbl_805DB21C;
 extern const f32 lbl_805DB220;
 s32 partner_view_update_hp_change(void *arg0);
 s32 find_entity_by_id(u16);
-void TObjEneGibbles__sub_80156780(void *, void *, s32);
+void init_collision_body_parts(void *, void *, s32);
 void *TObjPlayer__sub_801569F4(void *, void *);
 void *__nw__7TObjectFUl(u32);
 extern void *tl_05;
@@ -156,7 +156,7 @@ Npc_8014F844 *TNpcPlayer__sub_8014F844(Npc_8014F844 *self, s32 id) {
     }
     self->fA8 = p;
     if (self->fA8 != 0) {
-        TObjEneGibbles__sub_80156780(self->fA8, &self->fAC, 1);
+        init_collision_body_parts(self->fA8, &self->fAC, 1);
     }
     self->f7C = 0xFFFF;
     self->f80 = 0xFFFF;

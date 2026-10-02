@@ -17,14 +17,14 @@ M2C_UNK TObjPlayer__sub_801D1A24(Pkt_801CADA4 *);
 M2C_UNK send_head_pair_packet__10TObjPlayerFPv(Pkt_801CADA4 *);
 extern const f64 lbl_80447148;
 extern const f32 lbl_805DC390;
-void TObjPlayer__sub_801CADA4(void *arg0);
+void begin_fall_reaction__10TObjPlayerFPv(void *arg0);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_801CADA4(void *arg0) {
+void begin_fall_reaction__10TObjPlayerFPv(void *arg0) {
     f32 x;
     f32 z;
     Pkt_801CADA4 pkt;

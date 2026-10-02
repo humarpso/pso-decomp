@@ -1,7 +1,7 @@
 #include "types.h"
 extern "C" {
 void *get_equip_field_d04__10TObjPlayerFPv(void *p, s32 slot);
-void *TObjPlayer__sub_8011C0B8(void *item, void *equip);
+void *find_item_combination_recipe(void *item, void *equip);
 void *find_unique_combination_target(void *player, void *item);
 }
 
@@ -14,7 +14,7 @@ void *find_unique_combination_target(void *player, void *item) {
     void *e;
     for (i = 0; i != 13; i++) {
         e = get_equip_field_d04__10TObjPlayerFPv(player, i);
-        if (TObjPlayer__sub_8011C0B8(item, e) != NULL) {
+        if (find_item_combination_recipe(item, e) != NULL) {
             found = e;
             count++;
         }

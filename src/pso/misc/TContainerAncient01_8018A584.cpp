@@ -187,7 +187,7 @@ extern const f32 lbl_805DBD40;
 extern const f32 TContainerAncient01__data_805DBD44;
 extern const f32 lbl_805DBD48;
 void TContainerAncient01__sub_8018A9D8(u8 *arg0);
-void TLobby__sub_8010567C(void *, void *, int);
+void request_box_item_drop(void *, void *, int);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, int, u32);
 void trigger_spawn__19TContainerAncient01FPvPvPv(void *, void *, void *);
 s32 TContainerAncient01__sub_8020335C();
@@ -237,7 +237,7 @@ u8 *get_player_by_client_id(int);
 extern const float TContainerAncient01__data_805DBD1C;
 extern const f32 lbl_805DBD38;
 void TContainerAncient01__sub_8018B510(Obj_8018B510 *arg0);
-void TLobby__sub_8010567C(void *, void *, int);
+void request_box_item_drop(void *, void *, int);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, int, u32);
 void TContainerAncient01__sub_8018B158(void* p, void* a1, void* a2);
 s32 TContainerAncient01__sub_8020335C();
@@ -454,7 +454,7 @@ void TContainerAncient01__sub_8018AB44(Obj_8018AB44 *arg0) {
         trigger_spawn__19TContainerAncient01FPvPvPv((void *)(arg0), (void *)(arg0->pos), (void *)(lbl_8050DC70[0]));
         trigger_spawn__19TContainerAncient01FPvPvPv((void *)(arg0), (void *)(arg0->pos), (void *)(lbl_8050DC70[1]));
         if (TContainerAncient01__sub_8020335C() == 0) {
-            TLobby__sub_8010567C(arg0, arg0->pos, 1);
+            request_box_item_drop(arg0, arg0->pos, 1);
         }
         set_flag8__6TLobbyFPv(arg0);
     }
@@ -740,7 +740,7 @@ void TContainerAncient01__sub_8018B700(Obj_8018B700 *arg0) {
         TContainerAncient01__sub_8018B158((void*)(arg0), (void*)(arg0->pos), (void*)(lbl_8050DC68[0]));
         TContainerAncient01__sub_8018B158((void*)(arg0), (void*)(arg0->pos), (void*)(lbl_8050DC68[1]));
         if (TContainerAncient01__sub_8020335C() == 0) {
-            TLobby__sub_8010567C(arg0, arg0->pos, 1);
+            request_box_item_drop(arg0, arg0->pos, 1);
         }
         set_flag8__6TLobbyFPv(arg0);
     }

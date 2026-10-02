@@ -11,7 +11,7 @@ s32 is_split_screen();
 s32 TCameraCtrl__sub_8006B368();
 M2C_UNK create_tasks__6TLobbyFv();
 s32 check_disconnect_conditions__6TLobbyFv();
-M2C_UNK TObjLight__sub_80133D78();
+M2C_UNK init_area_lights();
 M2C_UNK TLobby__sub_801403B4(M2C_UNK);
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(M2C_UNK);
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -32,7 +32,7 @@ s32 initialize_boss_scene(void) {
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
-    TObjLight__sub_80133D78();
+    init_area_lights();
     if (is_split_screen() == 0) {
         temp_new = __nw__7TObjectFUl(0x3C);
         if (temp_new != 0U) {

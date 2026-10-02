@@ -33,7 +33,7 @@ extern "C" {
 u16 obj_getField1c(void *);
 u8 * find_entity_by_id(u16);
 u8 * TPhotonMagicSquare__sub_801AD218(void *, M2C_UNK, s32, s32, s32);
-s32 TOTrapAncient01__sub_80226578(s32, s32, u32, s16, s32);
+s32 play_persistent_sound(s32, s32, u32, s16, s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 M2C_UNK advance_animation_playback(void *);
@@ -51,7 +51,7 @@ extern const f32 lbl_805DC1D0;
 extern const f32 lbl_805DC1D4;
 void run_task__13TPhotonLeillaFv(u8 *arg0);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 TObjPlayer__sub_800F5BC0(void *, s16, int);
+s32 scroll_strip_uvs(void *, s16, int);
 s32 draw__16TObjEneRe7BeruraFPv(void *);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_801A7638(void *);
@@ -82,7 +82,7 @@ extern "C" {
 
 void render__13TPhotonLeillaFv(Self_801AC45C *self) {
     if (self->started != 0) {
-        TObjPlayer__sub_800F5BC0(lbl_805D5D48, self->f14C, 0);
+        scroll_strip_uvs(lbl_805D5D48, self->f14C, 0);
         begin_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi(self->f24);
         TObjPlayer__sub_803D9B2C();
@@ -158,7 +158,7 @@ void run_task__13TPhotonLeillaFv(u8 *arg0) {
         }
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x19C) != 0) {
-        TOTrapAncient01__sub_80226578(0x4002462F, (s32) arg0, 0U, 0, 0);
+        play_persistent_sound(0x4002462F, (s32) arg0, 0U, 0, 0);
     }
 }
 

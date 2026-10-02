@@ -11,7 +11,7 @@ int TObjPlayer__sub_8012EF40(void* p);
 void *init_effect_state__10TObjPlayerFPv(void *arg0);
 s32 rotate_matrix_z(s32, s32);
 s32 play_particle_effect_once__10TObjPlayerFv();
-int TObjPlayer__sub_80115BFC(void*, int);
+int advance_angle_wrap(void*, int);
 void TObjPlayer__sub_80120D50(void *);
 s32 get_player_list__10TObjPlayerFv();
 
@@ -33,7 +33,7 @@ void update_boss2tunnel_move__10TObjPlayerFPv(void *arg0) {
         return;
     }
 }
-int TObjPlayer__sub_8012EF40(void* p) { return TObjPlayer__sub_80115BFC((char*)p + 0x1f8, 3276); }
+int TObjPlayer__sub_8012EF40(void* p) { return advance_angle_wrap((char*)p + 0x1f8, 3276); }
 
 extern M2C_UNK lbl_804A6108[];
 

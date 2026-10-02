@@ -112,7 +112,7 @@ extern "C" {
 void *item_equip_variant_deleting_dtor_80363148(void *arg0, s16 arg1);
 void create_cane_if_ready__10TObjPlayerFi(s32 arg0, void *position);
 void set_pause_flag_from_state__10TObjPlayerFPv(void *arg0);
-s32 TObjPlayer__sub_8011F63C();
+s32 get_attack_stage__11TItemWeaponFPv();
 void TObjPlayer__sub_8012A884(void *);
 M2C_UNK create_item_eff_cane__10TObjPlayerFiUiii(s32, s32, M2C_UNK, M2C_UNK);
 void free_obj_heap__10TObjPlayerFPv(void *);
@@ -121,7 +121,7 @@ void *item_equip_variant_deleting_dtor_80363148(void *arg0, s16 arg1);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
 
 void set_pause_flag_from_state__10TObjPlayerFPv(void *arg0) {
-    if (TObjPlayer__sub_8011F63C() == 2) {
+    if (get_attack_stage__11TItemWeaponFPv() == 2) {
         M2C_FIELD(arg0, s32 *, 0x1FC) = (s32) (M2C_FIELD(arg0, s32 *, 0x1FC) | 1);
         return;
     }
@@ -131,7 +131,7 @@ void set_pause_flag_from_state__10TObjPlayerFPv(void *arg0) {
 extern s32 tl_05;
 
 void create_cane_if_ready__10TObjPlayerFi(s32 arg0, void *position) {
-    if (TObjPlayer__sub_8011F63C() == 0) {
+    if (get_attack_stage__11TItemWeaponFPv() == 0) {
         create_item_eff_cane__10TObjPlayerFiUiii(tl_05, arg0, -1, 0x1BD);
     }
 }

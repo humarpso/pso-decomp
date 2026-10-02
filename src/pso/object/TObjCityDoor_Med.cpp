@@ -706,7 +706,7 @@ s32 TLobby__sub_80182E60(void);
     extern const float lbl_805DBC00;
 void fn_80182E7C(void* a0);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
-M2C_UNK TObjEneGibbles__sub_80156780(void *, void *, int, int);
+M2C_UNK init_collision_body_parts(void *, void *, int, int);
 M2C_UNK TObjPlayer__sub_801569F4();
 extern RecoveredGlobal_80182D8C_lbl_80443F20 lbl_80443F20;
 extern M2C_UNK lbl_804B5BA8[];
@@ -885,7 +885,7 @@ u8 *TObjPlayer__sub_80182D8C(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3) {
     temp_r6 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xB8));
     (*(f32 *)(copy_storage_80182D8C.bytes + 0xC)) = M2C_FIELD(temp_r6, f32 *, 0xC);
     (*(f32 *)(copy_storage_80182D8C.bytes + 0x10)) = M2C_FIELD(temp_r6, f32 *, 0x10);
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) ((copy_storage_80182D8C.bytes)), (int) (1), (int) (temp_r6));
+    init_collision_body_parts((void *) (arg0), (void *) ((copy_storage_80182D8C.bytes)), (int) (1), (int) (temp_r6));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     return arg0;
 }

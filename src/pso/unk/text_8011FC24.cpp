@@ -127,13 +127,13 @@ struct Trails_8011FE04 { u8 pad[0x18C]; void *trails[4]; };
 extern "C" {
 
 void TObjPlayer__sub_80100F34(void*);
-void TItemEquipBase__sub_8010A78C(void*);
-s32 TObjPlayer__sub_8011F63C(void*);
+void bind_loaded_resources__14TItemEquipBaseFPv(void*);
+s32 get_attack_stage__11TItemWeaponFPv(void*);
 void clear_equip_flags__10TObjPlayerFPvUi(void*,u32);
 void set_status_flags__10TObjPlayerFPvUi(void*,u32);
 s32 test_flag30_bit0x100000__10TObjPlayerFPv(void*);
-void TItemEquipBase__sub_8010A89C(void*,void*);
-s32 TItemMag__sub_80113EC8(void*);
+void register_technique_boosts__14TItemEquipBaseFPvPv(void*,void*);
+s32 obj_isState7_324(void*);
 void advance_weapon_photon_phase(void*);
 s32 get_flag_40__8TItemMagFPv(void*);
 void TItemEffectWeapon__sub_8036340C(void*);
@@ -224,8 +224,8 @@ void TItemWeapon::update_active_weapon() {
     s32 idle_count;
     if(test_flags_1b8__10TObjPlayerFPvUi(self,0x100)==0) {
         if(test_flags_1b8__10TObjPlayerFPvUi(self,0x4000)!=0) TObjPlayer__sub_80100F34(self);
-        TItemEquipBase__sub_8010A78C(self);
-        stage=TObjPlayer__sub_8011F63C(self);
+        bind_loaded_resources__14TItemEquipBaseFPv(self);
+        stage=get_attack_stage__11TItemWeaponFPv(self);
         if(stage!=self->stage) {
             clear_equip_flags__10TObjPlayerFPvUi(self,0x1000000);
             self->stage=stage;
@@ -239,9 +239,9 @@ void TItemWeapon::update_active_weapon() {
             frames=self->motion->frame_count;
             if((f32)frames<=self->motion_frame) self->motion_frame-=(f32)frames;
         }
-        TItemEquipBase__sub_8010A89C(self,self->material);
+        register_technique_boosts__14TItemEquipBaseFPvPv(self,self->material);
         self->update_weapon();
-        if(!TItemMag__sub_80113EC8(self->player)) advance_weapon_photon_phase(self);
+        if(!obj_isState7_324(self->player)) advance_weapon_photon_phase(self);
         if(get_flag_40__8TItemMagFPv(self)) {
             count=0;
             do {

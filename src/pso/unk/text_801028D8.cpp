@@ -26,7 +26,7 @@ u8 get_field_ec__12TOSwitchItemFPv(void *);
 void set_item_count__6TLobbyFPvs(void *, s32);
 void TItem__sub_801031C0(void *);
 s8 TItemData__sub_8010B8B0(void *);
-s32 TItemData__sub_8010DF68(void *);
+s32 is_rare_item__9TItemDataFPv(void *);
 s32 clamp_s32__10TObjPlayerFiii(s32, s32, s32);
 void initialize_linked_object_reference(void *, void *);
 void TObjPlayer__sub_801569F4(void *, void *);
@@ -61,7 +61,7 @@ u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
     M2C_FIELD(self, s16 *, 0xE8) = 0;
     apply_item_flags__10TObjPlayerFPvi(self, item);
     M2C_FIELD(self, s8 *, 0xEA) = TItemData__sub_8010B8B0(item);
-    if (TItemData__sub_8010DF68(item) != 0) {
+    if (is_rare_item__9TItemDataFPv(item) != 0) {
         TObjPlayer__sub_8010043C(self, 4);
     } else {
         TObjPlayer__sub_8010043C(self, lbl_8043DF94[clamp_s32__10TObjPlayerFiii(get_field_ec__12TOSwitchItemFPv(self), 0, 4)]);

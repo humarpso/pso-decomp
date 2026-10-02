@@ -176,7 +176,7 @@ void create_cane_effect_from_state__10TObjPlayerFPv(void *arg0);
 void* init_state_445__10TObjPlayerFPv(void* a0);
 void set_radar_marker_params__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 void update_swim_flag__10TObjPlayerFPv(void *arg0);
-s32 TObjPlayer__sub_8011F63C();
+s32 get_attack_stage__11TItemWeaponFPv();
 M2C_UNK get_weapon_color__11TItemWeaponFPv(M2C_UNK *, void *);
 int TObjPlayer__sub_80120D50(void);
 M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, M2C_UNK *);
@@ -196,7 +196,7 @@ void set_radar_marker_params__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
 }
 
 void update_swim_flag__10TObjPlayerFPv(void *arg0) {
-    if (TObjPlayer__sub_8011F63C() == 2) {
+    if (get_attack_stage__11TItemWeaponFPv() == 2) {
         M2C_FIELD(arg0, s32 *, 0x1F8) = (s32) (M2C_FIELD(arg0, s32 *, 0x1F8) | 1);
         return;
     }
@@ -206,7 +206,7 @@ void update_swim_flag__10TObjPlayerFPv(void *arg0) {
 extern s32 tl_05;
 
 void create_cane_effect_from_state__10TObjPlayerFPv(void *arg0) {
-    if (TObjPlayer__sub_8011F63C() == 0) {
+    if (get_attack_stage__11TItemWeaponFPv() == 0) {
         create_item_eff_cane__10TObjPlayerFiUiii(tl_05, arg0, -1, M2C_FIELD(arg0, s32 *, 0x1FC));
     }
 }

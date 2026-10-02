@@ -49,10 +49,10 @@ extern const f32 lbl_805DBE14;
 extern const f32 lbl_805DBE18;
 extern const f32 lbl_805DBE1C;
 s32 TObjEnvSoundGlobal__sub_801902D8(u8 *arg0);
-void TOTrapAncient01__sub_80226578(s32, void *, f32 *, s32, s32);
+void play_persistent_sound(s32, void *, f32 *, s32, s32);
 void run_task__18TObjEnvSoundGlobalFv(Obj_801903B4 *self);
 f32 xz_distance_squared(void *, void *);
-void TOTrapAncient01__sub_80226578(s32, void *, f32 *, s32, s32);
+void play_persistent_sound(s32, void *, f32 *, s32, s32);
 extern u8 *lbl_805D4DF0;
 extern const f32 lbl_805DBE10;
 void run_task__14TObjEnvSoundExFv(Env_80190624 *o);
@@ -104,10 +104,10 @@ void run_task__18TObjEnvSoundGlobalFv(Obj_801903B4 *self) {
     case 0:
         break;
     case 1:
-        TOTrapAncient01__sub_80226578(self->sound, self, self->pos, 0, 0);
+        play_persistent_sound(self->sound, self, self->pos, 0, 0);
         break;
     case 2:
-        TOTrapAncient01__sub_80226578(self->sound, self, 0, (s32)self->param, 2);
+        play_persistent_sound(self->sound, self, 0, (s32)self->param, 2);
         break;
     }
 }
@@ -208,10 +208,10 @@ void run_task__14TObjEnvSoundExFv(Env_80190624 *o) {
         case 0:
             break;
         case 1:
-            TOTrapAncient01__sub_80226578((s32)(o->f9C), (void *)(o), (f32 *)(o->pos), (s32)(0), (s32)(0));
+            play_persistent_sound((s32)(o->f9C), (void *)(o), (f32 *)(o->pos), (s32)(0), (s32)(0));
             break;
         case 2:
-            TOTrapAncient01__sub_80226578((s32)(o->f9C), (void *)(o), (f32 *)(0), (s32)((s32)o->vol), (s32)(2));
+            play_persistent_sound((s32)(o->f9C), (void *)(o), (f32 *)(0), (s32)((s32)o->vol), (s32)(2));
             break;
         }
     } else {
@@ -224,10 +224,10 @@ void run_task__14TObjEnvSoundExFv(Env_80190624 *o) {
             case 0:
                 break;
             case 1:
-                TOTrapAncient01__sub_80226578((s32)(o->f9C), (void *)(o), (f32 *)(o->pos), (s32)(0), (s32)(0));
+                play_persistent_sound((s32)(o->f9C), (void *)(o), (f32 *)(o->pos), (s32)(0), (s32)(0));
                 break;
             case 2:
-                TOTrapAncient01__sub_80226578((s32)(o->f9C), (void *)(o), (f32 *)(0), (s32)((s32)o->vol), (s32)(2));
+                play_persistent_sound((s32)(o->f9C), (void *)(o), (f32 *)(0), (s32)((s32)o->vol), (s32)(2));
                 break;
             }
         }

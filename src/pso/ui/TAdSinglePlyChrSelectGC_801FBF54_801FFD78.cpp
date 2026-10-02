@@ -96,7 +96,7 @@ void TAdSinglePlyChrSelectGC__sub_8007C0CC(void *, void *, s32);
 void TAdSinglePlyChrSelectGC__sub_8007C134(void *, s32, s32, s32);
 void TAdSinglePlyChrSelectGC__sub_8007C264(void *);
 s32 subtractive_rng_xor_buffer(void *, void *, s32);
-void TAdSinglePlyChrSelectGC__sub_8007C48C(void *, s32);
+void subtractive_rng_seed(void *, s32);
 void __dl__FPv(s32);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 void TAdSinglePlyChrSelectGC__sub_801FFC74(s32, void *);
@@ -126,7 +126,7 @@ void TAdSinglePlyChrSelectGC__sub_8007C0CC(void *, void *, s32);
 void TAdSinglePlyChrSelectGC__sub_8007C134(void *, s32, s32, s32);
 void TAdSinglePlyChrSelectGC__sub_8007C264(void *);
 s32 subtractive_rng_xor_buffer(void *, void *, s32);
-void TAdSinglePlyChrSelectGC__sub_8007C48C(void *, s32);
+void subtractive_rng_seed(void *, s32);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 s32 TAdSinglePlyChrSelectGC__sub_801FC900(s32 arg0);
 s32 TAdSinglePlyChrSelectGC__sub_801FCCC0(u8 *arg0);
@@ -140,7 +140,7 @@ void TAdSinglePlyChrSelectGC__sub_8007C1CC(void *, s32, s32, s32);
 void TAdSinglePlyChrSelectGC__sub_8007C264(void *);
 s32 subtractive_rng_xor_buffer(void *, void *, s32);
 s32 subtractive_rng_next(void *);
-void TAdSinglePlyChrSelectGC__sub_8007C48C(void *, s32);
+void subtractive_rng_seed(void *, s32);
 void __dl__FPv(s32);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 void TAdSinglePlyChrSelectGC__sub_801FFC74(s32, void *);
@@ -154,7 +154,7 @@ void TAdSinglePlyChrSelectGC__sub_8007C1CC(void *, s32, s32, s32);
 void TAdSinglePlyChrSelectGC__sub_8007C264(void *);
 s32 subtractive_rng_xor_buffer(void *, void *, s32);
 s32 subtractive_rng_next(void *);
-void TAdSinglePlyChrSelectGC__sub_8007C48C(void *, s32);
+void subtractive_rng_seed(void *, s32);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 s32 register_callback__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
 s32 TAdSinglePlyChrSelectGC__sub_801FC900(s32 arg0);
@@ -252,15 +252,15 @@ s32 TAdSinglePlyChrSelectGC__sub_801FFF98(void *arg0) {
     }
     TAdSinglePlyChrSelectGC__sub_801FFC74(a, arg0);
     TAdSinglePlyChrSelectGC__sub_801FFC74(b, arg0);
-    TAdSinglePlyChrSelectGC__sub_8007C48C(lbl_8051381C, ((Ser_801FFF98 *)&lbl_80513910)[0].b);
+    subtractive_rng_seed(lbl_8051381C, ((Ser_801FFF98 *)&lbl_80513910)[0].b);
     TAdSinglePlyChrSelectGC__sub_8007C264(lbl_8051381C);
     TAdSinglePlyChrSelectGC__sub_8007C134(lbl_8051381C, a, b, 0xE28C);
     TAdSinglePlyChrSelectGC__sub_801FFC74((s32)arg0, (void *)b);
     __dl__FPv(b);
     __dl__FPv(a);
-    TAdSinglePlyChrSelectGC__sub_8007C48C(lbl_8051381C, ((Ser_801FFF98 *)&lbl_80513910)[0].a);
+    subtractive_rng_seed(lbl_8051381C, ((Ser_801FFF98 *)&lbl_80513910)[0].a);
     TAdSinglePlyChrSelectGC__sub_8007C0CC(lbl_8051381C, arg0, 0xE28C);
-    TAdSinglePlyChrSelectGC__sub_8007C48C(lbl_8051381C, *(s32 *)((u8 *)arg0 + 0xE288));
+    subtractive_rng_seed(lbl_8051381C, *(s32 *)((u8 *)arg0 + 0xE288));
     return subtractive_rng_xor_buffer(lbl_8051381C, arg0, 0xE288);
 }
 
@@ -273,9 +273,9 @@ M2C_UNK TAdSinglePlyChrSelectGC__sub_802000C8(void *arg0_, void *arg1) {
     *(s32 *)((u8 *)self + 0xE288) = subtractive_rng_next(lbl_8051381C);
     self[0] = 0;
     self[0] = TAdSinglePlyChrSelectGC__sub_80201204(self, 0xE28C);
-    TAdSinglePlyChrSelectGC__sub_8007C48C(lbl_8051381C, *(s32 *)((u8 *)self + 0xE288));
+    subtractive_rng_seed(lbl_8051381C, *(s32 *)((u8 *)self + 0xE288));
     subtractive_rng_xor_buffer(lbl_8051381C, self, 0xE288);
-    TAdSinglePlyChrSelectGC__sub_8007C48C(lbl_8051381C, ((Ser_802000C8 *)&lbl_80513910)[0].a);
+    subtractive_rng_seed(lbl_8051381C, ((Ser_802000C8 *)&lbl_80513910)[0].a);
     TAdSinglePlyChrSelectGC__sub_8007C0CC(lbl_8051381C, self, 0xE28C);
     a = alloc__23TAdSinglePlyChrSelectGCFPv(0xE28C);
     if (a != 0) {
@@ -287,7 +287,7 @@ M2C_UNK TAdSinglePlyChrSelectGC__sub_802000C8(void *arg0_, void *arg1) {
     }
     TAdSinglePlyChrSelectGC__sub_801FFC74(a, self);
     TAdSinglePlyChrSelectGC__sub_801FFC74(b, self);
-    TAdSinglePlyChrSelectGC__sub_8007C48C(lbl_8051381C, ((Ser_802000C8 *)&lbl_80513910)[0].b);
+    subtractive_rng_seed(lbl_8051381C, ((Ser_802000C8 *)&lbl_80513910)[0].b);
     TAdSinglePlyChrSelectGC__sub_8007C264(lbl_8051381C);
     TAdSinglePlyChrSelectGC__sub_8007C1CC(lbl_8051381C, a, b, 0xE28C);
     TAdSinglePlyChrSelectGC__sub_801FFC74((s32)self, (void *)b);
@@ -391,15 +391,15 @@ void TAdSinglePlyChrSelectGC__sub_80200560(void *arg0) {
         b = TAdSinglePlyChrSelectGC__sub_801FC900(b);
     }
     TAdSinglePlyChrSelectGC__sub_80200690(a, (s32)arg0);
-    TAdSinglePlyChrSelectGC__sub_8007C48C(lbl_8051381C, ((Ser_80200560 *)&lbl_80513910)[0].b);
+    subtractive_rng_seed(lbl_8051381C, ((Ser_80200560 *)&lbl_80513910)[0].b);
     TAdSinglePlyChrSelectGC__sub_8007C264(lbl_8051381C);
     TAdSinglePlyChrSelectGC__sub_8007C134(lbl_8051381C, a, b, 0x1156C);
     TAdSinglePlyChrSelectGC__sub_80200690((s32)arg0, b);
     register_callback__23TAdSinglePlyChrSelectGCFis(b, 1);
     register_callback__23TAdSinglePlyChrSelectGCFis(a, 1);
-    TAdSinglePlyChrSelectGC__sub_8007C48C(lbl_8051381C, ((Ser_80200560 *)&lbl_80513910)[0].a);
+    subtractive_rng_seed(lbl_8051381C, ((Ser_80200560 *)&lbl_80513910)[0].a);
     TAdSinglePlyChrSelectGC__sub_8007C0CC(lbl_8051381C, arg0, 0x1156C);
-    TAdSinglePlyChrSelectGC__sub_8007C48C(lbl_8051381C, TAdSinglePlyChrSelectGC__sub_801FCCC0((u8 *)arg0));
+    subtractive_rng_seed(lbl_8051381C, TAdSinglePlyChrSelectGC__sub_801FCCC0((u8 *)arg0));
     subtractive_rng_xor_buffer(lbl_8051381C, arg0, 0x11568);
 }
 
@@ -429,9 +429,9 @@ M2C_UNK TAdSinglePlyChrSelectGC__sub_80200778(void *arg0, void *arg1) {
     TAdSinglePlyChrSelectGC__sub_801FCCB4(self, subtractive_rng_next(lbl_8051381C));
     set_id__23TAdSinglePlyChrSelectGCFPvi(self, 0);
     set_id__23TAdSinglePlyChrSelectGCFPvi(self, TAdSinglePlyChrSelectGC__sub_80201204(self, 0x1156C));
-    TAdSinglePlyChrSelectGC__sub_8007C48C(lbl_8051381C, TAdSinglePlyChrSelectGC__sub_801FCCC0((u8 *)self));
+    subtractive_rng_seed(lbl_8051381C, TAdSinglePlyChrSelectGC__sub_801FCCC0((u8 *)self));
     subtractive_rng_xor_buffer(lbl_8051381C, self, 0x11568);
-    TAdSinglePlyChrSelectGC__sub_8007C48C(lbl_8051381C, ((Ser_80200778 *)&lbl_80513910)[0].a);
+    subtractive_rng_seed(lbl_8051381C, ((Ser_80200778 *)&lbl_80513910)[0].a);
     TAdSinglePlyChrSelectGC__sub_8007C0CC(lbl_8051381C, self, 0x1156C);
     a = alloc__23TAdSinglePlyChrSelectGCFPv(0x1156C);
     if (a != 0) {
@@ -442,7 +442,7 @@ M2C_UNK TAdSinglePlyChrSelectGC__sub_80200778(void *arg0, void *arg1) {
         b = TAdSinglePlyChrSelectGC__sub_801FC900(b);
     }
     TAdSinglePlyChrSelectGC__sub_80200690(a, (s32)self);
-    TAdSinglePlyChrSelectGC__sub_8007C48C(lbl_8051381C, ((Ser_80200778 *)&lbl_80513910)[0].b);
+    subtractive_rng_seed(lbl_8051381C, ((Ser_80200778 *)&lbl_80513910)[0].b);
     TAdSinglePlyChrSelectGC__sub_8007C264(lbl_8051381C);
     TAdSinglePlyChrSelectGC__sub_8007C1CC(lbl_8051381C, a, b, 0x1156C);
     TAdSinglePlyChrSelectGC__sub_80200690((s32)self, b);

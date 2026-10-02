@@ -3,7 +3,7 @@ extern "C" {
 s32 TObjPlayer__sub_801CAAD8(void *);
 s32 update_fall_reaction__10TObjPlayerFPv(void *);
 s32 start_action_0e__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_801CADA4(void *);
+s32 begin_fall_reaction__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CAEAC();
 s32 TObjPlayer__sub_801CAEB0(void *);
 s32 TObjPlayer__sub_801CAF6C();
@@ -31,7 +31,7 @@ void TObjPlayer__sub_801CAFB4(s32 arg0, s16 arg1) {
         TObjPlayer__sub_801CAEAC();
         return;
       case 5:
-        TObjPlayer__sub_801CADA4((void *) arg0);
+        begin_fall_reaction__10TObjPlayerFPv((void *) arg0);
         return;
       new_var = (void *) arg0;
       case 0:

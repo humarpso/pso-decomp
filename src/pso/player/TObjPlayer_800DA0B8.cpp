@@ -72,7 +72,7 @@ void TObjPlayer__sub_800DA4B4(Obj_800DA4B4 *self, s32 i);
 M2C_UNK TObjPlayer__sub_800DC83C(u32, void *, void *, u8, void *);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 M2C_UNK play_sound_effect(int, void *, int, int);
 u32 __nw__7TObjectFUl(u32);
 extern const f32 lbl_805DA3F8;
@@ -176,7 +176,7 @@ void TObjPlayer__sub_800DB390(u8 *arg0) {
             }
             break;
         case 2:
-            TOTrapAncient01__sub_80226578((int) (0x4003AD1E), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            play_persistent_sound((int) (0x4003AD1E), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             if (M2C_FIELD(arg0, f32 *, 0xC0) >= lbl_805DA3FC) {
                 TObjPlayer__sub_800D9E8C((void *) (arg0));
                 u32 obj = __nw__7TObjectFUl(0x100);

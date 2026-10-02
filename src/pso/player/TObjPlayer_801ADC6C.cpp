@@ -30,7 +30,7 @@ typedef struct Packet_801ADD10 { Vec_801ADD10 pos; u32 w[9]; } Packet_801ADD10;
 
 extern "C" {
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 TObjPlayer__sub_800F5BC0(void *, s16, int);
+s32 scroll_strip_uvs(void *, s16, int);
 s32 draw__16TObjEneRe7BeruraFPv(void *);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_801A7638(void *);
@@ -73,7 +73,7 @@ void apply_photon_blast_effects__10TObjPlayerFPv(void *arg0);
 void update_photon_blast(void *arg0);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK TCameraCtrl__sub_801A7310(void *, M2C_UNK);
-M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_persistent_sound(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK mark_enemy_body_contacts(void *);
 M2C_UNK queue_photon_blast_hit(u16, M2C_UNK, M2C_UNK, f32);
 M2C_UNK update_photon_blast_attachments(void *);
@@ -144,7 +144,7 @@ void TObjPlayer__sub_801ADD10(u8 *self) {
 
 void TObjPlayer__sub_801ADDDC(Self_801ADDDC *self) {
     if (self->started != 0) {
-        TObjPlayer__sub_800F5BC0(lbl_805D5D58, self->f14C, 0);
+        scroll_strip_uvs(lbl_805D5D58, self->f14C, 0);
         begin_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi(self->f24);
         TObjPlayer__sub_803D9B2C();
@@ -210,7 +210,7 @@ void update_photon_blast(void *arg0) {
         apply_photon_blast_effects__10TObjPlayerFPv((void *)(arg0));
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1A4) != 0) {
-        TOTrapAncient01__sub_80226578(0x4002462F, arg0, 0, 0, 0);
+        play_persistent_sound(0x4002462F, arg0, 0, 0, 0);
     }
 }
 

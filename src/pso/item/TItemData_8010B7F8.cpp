@@ -63,7 +63,7 @@ void TItemData__sub_8010EDD8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDC8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
 void add_quantity__9TItemDataFPvi(void *arg0, s32 arg1);
-void TItemData__sub_8010C0A4(u8 *self, s32 player, s32 unused, s16 *out);
+void add_shield_stat_contribution__9TItemDataFPviiPv(u8 *self, s32 player, s32 unused, s16 *out);
 s32 get_field6_bswap__9TItemDataFPv(void *);
 Parm_8010C1E0 *lookup_item_pmt_record(void *);
 void adjust_count__9TItemDataFPvi(void *arg0, s32 arg1);
@@ -301,7 +301,7 @@ void TItemData__sub_8010BEC4(void *self, s32 arg1, s32 arg2, void *res, Stats_80
 
 #pragma push
 #pragma fp_contract on
-void TItemData__sub_8010C0A4(u8 *self, s32 player, s32 unused, s16 *out) {
+void add_shield_stat_contribution__9TItemDataFPviiPv(u8 *self, s32 player, s32 unused, s16 *out) {
     s32 b06;
     Parm_8010C0A4 *parm;
     f32 mult = get_set_bonus_multiplier__9TItemDataFPvi(self, player);

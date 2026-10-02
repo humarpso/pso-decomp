@@ -151,7 +151,7 @@ void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 void __ct__7TEffectFv(void *);
-void TObjEneGibbles__sub_80156780(void *, f32 *, s32);
+void init_collision_body_parts(void *, f32 *, s32);
 void *TObjPlayer__sub_801569F4(void *, void *);
 void *__nw__7TObjectFUl(u32);
 int get_level_tier__10TObjPlayerFi(s32);
@@ -282,7 +282,7 @@ Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner,
   self->fdc = p;
   if (self->fdc != 0)
   {
-    TObjEneGibbles__sub_80156780(self->fdc, self->fb0, 1);
+    init_collision_body_parts(self->fdc, self->fb0, 1);
   }
   self->fac = 1;
   if (((self->owner != 0) && (obj_getField1c(self->owner) < 4)) && (self->owner->flags & 0x02000000))

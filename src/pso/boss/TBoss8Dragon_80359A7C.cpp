@@ -120,7 +120,7 @@ struct RecoveredGlobal_80359DC4_lbl_804F1A78 {
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK TObjEneDD__sub_800B9BEC(void *, void *, f32);
+M2C_UNK project_sound_origin_from_camera(void *, void *, f32);
 s32 query_teammate_state__9TObjEneDDFPv();
 s32 update_lobby_state__9TObjEneDDFPv(void *);
 s32 is_main_phase_15__9TObjEneDDFv();
@@ -228,7 +228,7 @@ void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
     if (temp_r30_2 == 0) {
         run_tasks__7TObjectFv((void *) (arg0 + 0x3C4));
     }
-    TObjEneDD__sub_800B9BEC((void *) (arg0 + 0x38), (void *) (arg0 + 0x634), (f32) (lbl_805E00B4));
+    project_sound_origin_from_camera((void *) (arg0 + 0x38), (void *) (arg0 + 0x634), (f32) (lbl_805E00B4));
 }
 
 void *TBoss8Dragon__sub_80359D6C(void *arg0, s16 arg1) {

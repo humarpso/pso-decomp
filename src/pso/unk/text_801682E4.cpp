@@ -32,7 +32,7 @@ struct Pair_80168488 { s32 a; f32 b; };
 
 extern "C" {
 s32 get_global_state__14TOKeyMachine01Fv(void);
-s32 TOTrapAncient01__sub_80226578(s32, void *, void *, s32, s32);
+s32 play_persistent_sound(s32, void *, void *, s32, s32);
 void fn_80168398(u8 *arg0);
 M2C_UNK obj_setFlags30(void *, M2C_UNK);
 s32 get_current_floor();
@@ -83,7 +83,7 @@ void fn_80168398(u8 *arg0) {
         break;
     }
     if (id != 0) {
-        TOTrapAncient01__sub_80226578(id, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound(id, arg0, arg0 + 0x38, 0, 0);
     }
 }
 #pragma dont_inline off

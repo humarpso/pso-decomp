@@ -53,7 +53,7 @@ void *TObjPlayer__sub_8032DC3C(void *arg0, s16 arg1);
 void TObjPlayer__sub_8032DDE8(void* p);
 void fire_projectiles__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_8011EB84(void *, M2C_UNK *, s32, M2C_UNK);
-s32 TObjPlayer__sub_8011F63C(void *);
+s32 get_attack_stage__11TItemWeaponFPv(void *);
 void TObjPlayer__sub_80120D50(void *);
 s16 TObjPlayer__sub_801D2EA8(s32);
 void __dl__7TObjectFPv(void *);
@@ -78,7 +78,7 @@ void fire_projectiles__10TObjPlayerFPv(void *arg0) {
     } else {
         TObjPlayer__sub_8011EB84(arg0, &sp8, M2C_FIELD(arg0, s32 *, 0xF4), 0);
     }
-    if (TObjPlayer__sub_8011F63C(arg0) == 0) {
+    if (get_attack_stage__11TItemWeaponFPv(arg0) == 0) {
         spawn_cane_effect__10TObjPlayerFiUii(tl_05, arg0, 4);
     }
 }

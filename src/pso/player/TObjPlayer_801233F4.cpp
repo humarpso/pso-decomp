@@ -8,12 +8,12 @@ extern "C" {
 
 void spawn_cane_effect_active__10TObjPlayerFi(s32 arg0);
 M2C_UNK spawn_cane_effect__10TObjPlayerFiUii(s32, s32, M2C_UNK);
-s32 TObjPlayer__sub_8011F63C();
+s32 get_attack_stage__11TItemWeaponFPv();
 
 extern s32 tl_05;
 
 void spawn_cane_effect_active__10TObjPlayerFi(s32 arg0) {
-    if (TObjPlayer__sub_8011F63C() == 0) {
+    if (get_attack_stage__11TItemWeaponFPv() == 0) {
         spawn_cane_effect__10TObjPlayerFiUii(tl_05, arg0, 1);
     }
 }

@@ -10,7 +10,7 @@ s32 is_split_screen();
 s32 TCameraCtrl__sub_8006B368();
 M2C_UNK create_tasks__6TLobbyFv();
 s32 check_disconnect_conditions__6TLobbyFv();
-M2C_UNK TObjLight__sub_80133D78();
+M2C_UNK init_area_lights();
 void dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
 void TLobby__sub_80226E44(s32);
@@ -39,7 +39,7 @@ int TLobby__sub_80227248(void);
 int TLobby__sub_8022743C(void);
 M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
-M2C_UNK TObjLight__sub_80133D78();
+M2C_UNK init_area_lights();
 u32 __nw__7TObjectFUl(M2C_UNK);
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK create__15TBoss6EmptyWarpFv();
@@ -68,7 +68,7 @@ s32 init_particle_model__6TLobbyFv(void) {
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
-    TObjLight__sub_80133D78();
+    init_area_lights();
     create_tasks__6TLobbyFv();
     if ((is_split_screen() == 0) && ((obj = (void*)__nw__7TObjectFUl(0x3C)) != 0)) {
         create_instance__10TSceneSoraFPv((void*)(obj), (s32)(tl_particlemodel));
@@ -88,7 +88,7 @@ s32 load_dragon2_scene(void) {
         return 0;
     }
     fn_802FEA0C();
-    TObjLight__sub_80133D78();
+    init_area_lights();
     create_tasks__6TLobbyFv();
     create_boss8_demo_objects();
     TObjBgmColCtrl__sub_802274B8(lbl_804651A0);
@@ -108,7 +108,7 @@ s32 init_scene_delo2(void) {
         return 0;
     }
     init_scene_boss2_tunnel();
-    TObjLight__sub_80133D78();
+    init_area_lights();
     create_tasks__6TLobbyFv();
     fn_802F1084();
     TLobby__sub_801403B4(0);
@@ -127,7 +127,7 @@ s32 TLobby__sub_80299C7C(void) {
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
-    TObjLight__sub_80133D78();
+    init_area_lights();
     create_tasks__6TLobbyFv();
     if ((get_main_phase() != 0xE) || (TCameraCtrl__sub_8006B368() == 0)) {
         switch (((s32)get_global_state__14TOKeyMachine01Fv())) {

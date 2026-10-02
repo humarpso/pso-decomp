@@ -6,7 +6,7 @@ extern void *lbl_805187D8[];
 extern void *lbl_805D6460;
 extern void *lbl_805D6464;
 void fn_8026A14C(void);
-char *TWindowSubStatusDisp__sub_80144B14(char *, s32 *, s32);
+char *parse_text_control_codes(char *, s32 *, s32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
 extern s32 lbl_805D5544;
@@ -51,7 +51,7 @@ void fn_8026A1C4(char *dst, char *src, s32 size) {
                 }
                 return;
             }
-            next = TWindowSubStatusDisp__sub_80144B14(src, &sjis, 0);
+            next = parse_text_control_codes(src, &sjis, 0);
             if (next != src) {
                 n = next - src;
                 if (n >= size) {

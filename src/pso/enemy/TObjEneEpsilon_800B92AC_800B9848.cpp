@@ -12,7 +12,7 @@ struct Obj_800B9958 { u8 pad[0x38c]; u16 id; u8 pad2[2]; s32 ptr; };
 struct Obj_800B98D8 { u8 pad[0x38c]; u16 target_id; u8 pad2[2]; void *target; };
 
 extern "C" {
-void fn_800B98A4(u8 *arg0, s32 arg1);
+void enemy_init_acquire_period(u8 *arg0, s32 arg1);
 s32 TObjEneEpsilon__sub_800B9848(void *self, u16 x);
 void enemy_clear_target(O_800B98C0 *self, u16 _w1);
 s32 find_active_entity_by_id(u16);
@@ -39,7 +39,7 @@ s32 TObjEneEpsilon__sub_800B9848(void *self, u16 x) {
 
 int TObjEneEpsilon__vt101(void* p) { return spawn_part__14TObjEneEpsilonFi(p); }
 
-void fn_800B98A4(u8 *arg0, s32 arg1) {
+void enemy_init_acquire_period(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x3B0) = (s32) (M2C_FIELD(arg0, u16 *, 0x1C) % arg1);
     M2C_FIELD(arg0, s32 *, 0x3B4) = arg1;
 }

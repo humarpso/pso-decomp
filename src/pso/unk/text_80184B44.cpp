@@ -33,7 +33,7 @@ struct RecoveredGlobal_80184B44_lbl_804B5E48 {
 
 extern "C" {
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 s32 TObjPlayer__sub_801569F4(void *);
 u32 get_anim_frame__25TObjCity_Season_EasterEggFPv(void *);
 extern RecoveredGlobal_80184B44_lbl_804440B0 lbl_804440B0;
@@ -58,7 +58,7 @@ u8 *fn_80184B44(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, f32 farg0) {
         temp_r4 = (u8 *)&lbl_804440B0.value - 4;
         *(M2CCopy_2C *)(copy_storage_80184B44.bytes) = *(const M2CCopy_2C *)((s32) temp_r4 + 4);
         (*(f32 *)(copy_storage_80184B44.bytes + 0xC)) = farg0;
-        TObjEneGibbles__sub_80156780((void *) (arg0), (void *) ((copy_storage_80184B44.bytes)), (int) (1));
+        init_collision_body_parts((void *) (arg0), (void *) ((copy_storage_80184B44.bytes)), (int) (1));
         reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     } else {
         M2C_FIELD(arg0, s32 *, 0xA4) = 0;

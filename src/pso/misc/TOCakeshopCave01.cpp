@@ -68,7 +68,7 @@ extern const f32 lbl_805DB364;
 void TOCakeshopCave01__sub_80159E24(void *arg0, void *arg1);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK refresh_collision_body_centers(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 M2C_UNK init_map_object_base(void *, s32);
 extern M2C_UNK lbl_804AFE08[];
 extern M2C_UNK __vt__16TOCakeshopCave01[];
@@ -217,7 +217,7 @@ void *TOCakeshopCave01__ct(void *arg0_, void *arg1) {
     M2C_FIELD(arg0, f32 *, 0xC0) = lbl_805DB36C;
     M2C_FIELD(arg0, f32 *, 0xC4) = lbl_805DB370;
     M2C_FIELD(arg0, s32 *, 0x30) |= 0x40000000;
-    TObjEneGibbles__sub_80156780(arg0, lbl_804AFE08, 1);
+    init_collision_body_parts(arg0, lbl_804AFE08, 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     for (i = 0; i < 8; i++) {

@@ -12,7 +12,7 @@ struct RecoveredGlobal_8034FCF0_lbl_804F0BF0 {
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void disallow_rendering__7TObjectFv(void *);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 extern const f32 lbl_805DFE08;
 extern const f32 lbl_805DFE0C;
 void TItemEffPG__sub_8034FBA4(u8 *arg0);
@@ -159,7 +159,7 @@ void TItemEffPG__sub_8034FBA4(u8 *arg0) {
             M2C_FIELD(arg0, f32 *, 0x28) = (f32) (temp_f1_3 - lbl_805DFE0C);
         }
     }
-    TOTrapAncient01__sub_80226578((int) (0x4001A343), (void *) (arg0), (void *) (arg0 + 0x5C), (int) (0), (int) (0));
+    play_persistent_sound((int) (0x4001A343), (void *) (arg0), (void *) (arg0 + 0x5C), (int) (0), (int) (0));
 }
 
 void *__dt__10TItemEffPGFPvs(void *arg0, s16 arg1) {

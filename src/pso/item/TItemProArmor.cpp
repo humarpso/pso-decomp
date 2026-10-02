@@ -136,7 +136,7 @@ struct Armor_80117954 {
 };
 
 extern "C" {
-void TItemProArmor__sub_801178B4(u8 *arg0);
+void increment_slot_count__13TItemProArmorFPv(u8 *arg0);
 void TItemProArmor__sub_801178D4(u8 *arg0);
 void * TItemProArmor__sub_80117650(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
@@ -191,7 +191,7 @@ void write_item_data__13TItemProArmorFPvPv(void *arg0, void *arg1);
 s32 TItemData__sub_8010CE1C(void *, u8);
 s32 TItemData__sub_8010CE70(void *, u8);
 void TItemObject__ct(void *);
-s32 TItemObject__sub_80115D84(void *);
+s32 get_tool_pmt_amount_byte(void *);
 void TItemTimerEvent__ct(void *);
 M2C_UNK refresh_owner_stats__5TItemFPv();
 int TObjPlayer__sub_80108164(void);
@@ -230,7 +230,7 @@ void apply_to_player__13TItemProArmorFPv(void *arg0) {
 
     temp_r3 = get_item_field_6__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0xF0));
     if (temp_r3 != 0) {
-        add_weapon_grind(temp_r3, TItemObject__sub_80115D84(arg0));
+        add_weapon_grind(temp_r3, get_tool_pmt_amount_byte(arg0));
     }
 }
 
@@ -291,7 +291,7 @@ void TItemProArmor__sub_8011781C(TItemProArmor_8011781C *self) {
 
 void TItemProArmor__sub_801178A8(void* p, void* q) { *(u8*)((char*)p + 0x5) = *(u8*)((char*)q + 0x192); }
 
-void TItemProArmor__sub_801178B4(u8 *arg0) {
+void increment_slot_count__13TItemProArmorFPv(u8 *arg0) {
     u8 temp_r4;
     temp_r4 = M2C_FIELD(arg0, u8 *, 0x192);
     if (temp_r4 < 4U) {

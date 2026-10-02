@@ -132,7 +132,7 @@ s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 update_prev_position__10TObjPlayerFPv(void *);
 s32 TObjNpcBase__ct(void *);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 s16 *TObjNpcEnemy__sub_802D72E4(s16 arg0);
 void set_npc_data__12TObjNpcEnemyFPvPv(void *arg0, void *arg1);
 extern RecoveredGlobal_802D78A0_lbl_804A7CB8 lbl_804A7CB8;
@@ -421,7 +421,7 @@ u8 *TObjNpcEnemy__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     ((VObj_18_cff70e *)(arg0))->m85(0, 1);
     M2C_FIELD(arg0, M2C_UNK **, 0x350) = &lbl_804A7CDC.value;
     TObjPlayer__sub_8001882C((void *) (arg0), (void *) (&lbl_804A7CB8.value));
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804E2680.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804E2680.value), (int) (1));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     update_prev_position__10TObjPlayerFPv((void *) (arg0));
     copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Obj_8004A98C { s32 count; u8 pad[4]; s32 x; s32 y; void **items; };
 
 extern "C" {
-void TObjPlayer__sub_800F5BC0(void *, s16, s16);
+void scroll_strip_uvs(void *, s16, s16);
 void TBoss4Type2__sub_8004A98C(Obj_8004A98C *self);
 }
 
@@ -25,7 +25,7 @@ void TBoss4Type2__sub_8004A98C(Obj_8004A98C *self) {
     self->x += 8;
     for (i = 0; i < self->count; i++) {
         if (self->items[i] != 0) {
-            TObjPlayer__sub_800F5BC0(self->items[i], self->x, self->y);
+            scroll_strip_uvs(self->items[i], self->x, self->y);
         }
     }
 }

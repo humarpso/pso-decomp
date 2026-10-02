@@ -129,7 +129,7 @@ void TObjFish__sub_80192A3C(Fish_80192A3C *arg0);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void refresh_collision_body_centers(void *);
-void TObjEneGibbles__sub_80156780(void *, void *, s32);
+void init_collision_body_parts(void *, void *, s32);
 void TObjPlayer__sub_801569F4(void *, void *);
 void TObjFish__sub_80192434(void *);
 extern Ent_80192874 lbl_804B7FB0[];
@@ -205,7 +205,7 @@ void *TObjLazerFenceExtra__ct(void *arg0, void *arg1, void *arg2) {
         M2C_FIELD(self, s32 *, 0xD8) = 1;
     }
     TObjFish__sub_80192434(self);
-    TObjEneGibbles__sub_80156780(self, &lbl_804B7FB0[M2C_FIELD(self, s32 *, 0x8C) % 2], 3);
+    init_collision_body_parts(self, &lbl_804B7FB0[M2C_FIELD(self, s32 *, 0x8C) % 2], 3);
     M2C_FIELD(self, u32 *, 0x30) |= 0x40000000;
     M2C_FIELD(M2C_FIELD(self, u8 **, 0xA4), f32 *, 0x10) = M2C_FIELD(self, f32 *, 0x6C);
     M2C_FIELD(M2C_FIELD(self, u8 **, 0xA4), f32 *, 0xC) = M2C_FIELD(self, f32 *, 0x70);

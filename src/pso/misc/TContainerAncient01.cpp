@@ -71,7 +71,7 @@ s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 s32 set_field_d8__10TObjPlayerFPvi(void *, void *);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 s32 TContainerAncient01__sub_8018B5D0(void *);
 extern RecoveredGlobal_8018BD00_TContainerAncient01__data_804B6DC0 TContainerAncient01__data_804B6DC0;
 extern RecoveredGlobal_8018BD00_lbl_804B6DEC lbl_804B6DEC;
@@ -146,7 +146,7 @@ u8 *TContainerAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));
     set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&TContainerAncient01__data_804B6DC0.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&TContainerAncient01__data_804B6DC0.value), (int) (1));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x38));
     M2C_FIELD(arg0, f32 *, 0x78) = (f32) ((M2C_FIELD(&TContainerAncient01__data_804B6DC0.value, f32 *, 4) * lbl_805DBD5C) + M2C_FIELD(arg0, f32 *, 0x78));
@@ -335,7 +335,7 @@ u8 TODoorAncient08__sub_80229220(u16);
 f32 xyz_distance(void *, void *);
 s32 push_matrix_from(void *);
 void rotate_vector_by_matrix(int, void *, void *);
-void TOTrapAncient01__sub_80226578(s32, void *, void *, s32, s32);
+void play_persistent_sound(s32, void *, void *, s32, s32);
 void play_sound_effect(s32, void *, s32, s32);
 s32 rand();
 void spawn_particle_effect(void *, int);
@@ -395,7 +395,7 @@ void run_task__16TObjContainerIdoFv(Ido_8018C18C *self) {
             self->pos.y -= v.y;
             self->pos.z -= v.z;
             self->e0 |= 0x04000000;
-            TOTrapAncient01__sub_80226578(0x4B717, self, &self->pos, 0, 0);
+            play_persistent_sound(0x4B717, self, &self->pos, 0, 0);
         } else if (!(self->e0 & 0x01000000)) {
             play_sound_effect(0x4C118, &self->pos, 0, 0);
             self->e0 |= 0x01000000;
@@ -413,7 +413,7 @@ void run_task__16TObjContainerIdoFv(Ido_8018C18C *self) {
             self->pos.y += w.y;
             self->pos.z += w.z;
             self->e0 |= 0x04000000;
-            TOTrapAncient01__sub_80226578(0x4B717, self, &self->pos, 0, 0);
+            play_persistent_sound(0x4B717, self, &self->pos, 0, 0);
         } else if (!(self->e0 & 0x01000000)) {
             play_sound_effect(0x4C118, &self->pos, 0, 0);
             self->e0 |= 0x01000000;
@@ -652,7 +652,7 @@ u8 *TObjContainerIdo__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, f32 *, 0xE8) = M2C_FIELD(arg0, f32 *, 0x68) / M2C_FIELD(arg0, s32 *, 0xDC);
     M2C_FIELD(arg0, f32 *, 0xEC) = M2C_FIELD(arg0, f32 *, 0x6C);
     activate_and_dispatch__10TObjPlayerFPv(arg0 + 0xF0);
-    TObjEneGibbles__sub_80156780(arg0, lbl_804B70B4, 1);
+    init_collision_body_parts(arg0, lbl_804B70B4, 1);
     M2C_FIELD(arg0, u32 *, 0x30) |= 0x40000000;
     reset_photon_effect__10TObjPlayerFPv(arg0);
     return arg0;

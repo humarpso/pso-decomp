@@ -543,7 +543,7 @@ M2C_UNK TObjEneMe1CanadinLeader__sub_8009E4AC(void *, M2C_UNK);
 M2C_UNK TObjEneMe1Canadin__sub_8009EB14(void *, f32);
 M2C_UNK advance_state_4_to_5__17TObjEneMe1CanadinFPv(void *);
 M2C_UNK advance_state_5_to_4__17TObjEneMe1CanadinFPv();
-s32 fn_800B9194(void *);
+s32 enemy_has_live_target(void *);
 M2C_UNK noop__17TObjEneMe1CanadinFv(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK set_target_speed_z__17TObjEneMe1CanadinFPv(void *);
@@ -753,7 +753,7 @@ void action__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1) {
             if (temp_r3 & 1) {
                 M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (temp_r3 & 0xFFFFFFFE);
                 transition_enemy_state(arg0, 3);
-            } else if (fn_800B9194(arg0) != 0) {
+            } else if (enemy_has_live_target(arg0) != 0) {
                 transition_enemy_state(arg0, 3);
             }
         }

@@ -9,7 +9,7 @@ typedef char RecoveredGlobal_8006754C___vt__13TObjCollision_size[sizeof(Recovere
 
 extern "C" {
 f32 get_random_float__8TObjFishFv(f32);
-u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
+u32 init_collision_body_parts(void *, s32, s32);
 u8 * TObjPlayer__sub_801569F4(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
@@ -86,7 +86,7 @@ u8 *TObjCollision__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     } else {
         M2C_FIELD(arg0, s32 *, 0xC4) = (s32) (M2C_FIELD(arg0, s32 *, 0xC4) | 0x100);
     }
-    TObjEneGibbles__sub_80156780(arg0, (s32) (arg0 + 0xAC), 1);
+    init_collision_body_parts(arg0, (s32) (arg0 + 0xAC), 1);
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     return arg0;
 }

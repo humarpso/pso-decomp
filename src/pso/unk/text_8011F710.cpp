@@ -121,7 +121,7 @@ u32 TObjPlayer__sub_8011F760(void *self);
 s32 is_active_in_game__10TObjPlayerFPv(void*);
 s32 get_flag_40__8TItemMagFPv(void*);
 s32 reset_key_machine_state__10TObjPlayerFv();
-s32 TObjPlayer__sub_8011F63C(void*);
+s32 get_attack_stage__11TItemWeaponFPv(void*);
 M2C_UNK reset_status_block__10TObjPlayerFPv(void *);
 s8 get_field_ed__10TObjPlayerFPv(void *);
 s8 get_slot_count__14TItemProShieldFPv(void *);
@@ -228,7 +228,7 @@ void TItemWeapon::dispatch_attack_marker() {
     WeaponVector fallback_point;
     if (is_active_in_game__10TObjPlayerFPv(self) && !get_flag_40__8TItemMagFPv(self) && reset_key_machine_state__10TObjPlayerFv()) {
         self->heading=self->player->heading;
-        self->stage=TObjPlayer__sub_8011F63C(self);
+        self->stage=get_attack_stage__11TItemWeaponFPv(self);
         reset_status_block__10TObjPlayerFPv((void *)(&packet));
         packet.kind=get_field_ed__10TObjPlayerFPv((void *)(self));
         packet.variant=get_slot_count__14TItemProShieldFPv((void *)(self));

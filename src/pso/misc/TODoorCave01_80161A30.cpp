@@ -40,7 +40,7 @@ struct RecoveredGlobal_80161BE4___vt__12TODoorCave01 {
 extern "C" {
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_80161BE4_lbl_804B13C8 lbl_804B13C8;
 extern M2C_UNK __vt__12TODoorCave01[];
@@ -141,7 +141,7 @@ u8 *TODoorCave01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5958), u8 **, 0x430), void **, 4));
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB49C);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB4A8;
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B13C8.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B13C8.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     ((VObj_18_4a4f5b *)(arg0))->m17();

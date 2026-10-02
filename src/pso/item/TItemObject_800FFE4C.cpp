@@ -9,12 +9,12 @@ s32 get_field_d8__10TObjPlayerFPv(void *);
 M2C_UNK notify_owner__5TItemFPvi(void *, M2C_UNK);
 M2C_UNK apply_switch_attack__5TItemFPvi(void *, M2C_UNK);
 M2C_UNK consume_item_by_id();
-M2C_UNK TItem__sub_801008F0(u8 *, void *);
+M2C_UNK replace_item_with_new_code(u8 *, void *);
 u32 find_item_by_id(s32);
 M2C_UNK copy_to_item_data__5TItemFPvPv(void *, void *);
 M2C_UNK add_item_flags__10TObjPlayerFPvUi(u32, M2C_UNK);
 s32 has_flag_128__10TObjPlayerFPv(void *);
-void *TItemData__sub_80104DAC(u32, void *);
+void *find_eligible_combination_recipe(u32, void *);
 void *find_unique_combination_target(u32, void *);
 M2C_UNK init__9TItemDataFv(u8 *);
 void use_combination_recipe__5TItemFPv(void *arg0);
@@ -42,7 +42,7 @@ void use_combination_recipe__5TItemFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) {
         copy_to_item_data__5TItemFPvPv(arg0, sp1C);
         temp_r30 = find_unique_combination_target(M2C_FIELD(arg0, u32 *, 0xF0), sp1C);
-        temp_r3 = TItemData__sub_80104DAC(M2C_FIELD(arg0, u32 *, 0xF0), sp1C);
+        temp_r3 = find_eligible_combination_recipe(M2C_FIELD(arg0, u32 *, 0xF0), sp1C);
         if ((temp_r3 != NULL) && (temp_r30 != NULL)) {
             init__9TItemDataFv(sp8);
             sp8[0] = M2C_FIELD(temp_r3, u8 *, 6);
@@ -50,7 +50,7 @@ void use_combination_recipe__5TItemFPv(void *arg0) {
             sp8[2] = M2C_FIELD(temp_r3, u8 *, 8);
             temp_r31 = has_flag_128__10TObjPlayerFPv(temp_r30);
             temp_r30_2 = get_field_d8__10TObjPlayerFPv(temp_r30);
-            TItem__sub_801008F0(sp8, temp_r30);
+            replace_item_with_new_code(sp8, temp_r30);
             temp_r3_2 = find_item_by_id(temp_r30_2);
             if ((temp_r31 != 0) && (temp_r3_2 != 0U)) {
                 add_item_flags__10TObjPlayerFPvUi(temp_r3_2, 0x80);

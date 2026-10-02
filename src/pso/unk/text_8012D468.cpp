@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #include <stddef.h>
 extern "C" {
 u16 TObjPlayer__sub_80100474(void *);
-s32 TItem__sub_801008F0(void *, void *);
+s32 replace_item_with_new_code(void *, void *);
 void TObjPlayer__sub_8012D468(s32 arg0);
 }
 
@@ -19,7 +19,7 @@ void TObjPlayer__sub_8012D468(s32 arg0) {
         item_data.data1.data_u8[0] = 0;
         item_data.data1.data_u8[1] = 0x32;
         item_data.data1.data_u8[2] = 0;
-        TItem__sub_801008F0((void *) (&item_data.data1.data_u8[0]), (void *) (arg0));
+        replace_item_with_new_code((void *) (&item_data.data1.data_u8[0]), (void *) (arg0));
     }
 }
 

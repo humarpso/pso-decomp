@@ -143,7 +143,7 @@ extern "C" {
 
 u8 *TItemTimer__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void TItemTimer__sub_8011D7DC(void *arg0);
-void TItemTimer__sub_8011D94C(void *arg0);
+void add_owner_pb_gauge_point(void *arg0);
 void apply_to_player__10TItemTimerFPv(void *arg0);
 void invoke_callback__10TItemTimerFPv(void *arg0);
 void reset_fields__10TItemTimerFPv(void* p);
@@ -270,7 +270,7 @@ void update__10TItemTimerFPv(void *arg0) {
 
 extern f32 lbl_805DAC80;
 
-void TItemTimer__sub_8011D94C(void *arg0) {
+void add_owner_pb_gauge_point(void *arg0) {
     struct VObj_8011D94C_8011D414 *o;
 
     if (obj_testFlags30((void *)((void *)(M2C_FIELD(arg0, void **, 0x28))), (M2C_UNK)((M2C_UNK)(0x800))) == 0) {

@@ -20,7 +20,7 @@ typedef struct Node_801D535C {
 
 extern "C" {
 M2C_UNK copy_to_item_data__5TItemFPvPv(M2C_UNK, M2C_UNK *);
-s32 TObjPlayer__sub_801049C8(M2C_UNK *, s32);
+s32 item_identity_matches(M2C_UNK *, s32);
 s32 get_owner_if_alive__10TObjPlayerFPv(void *arg0);
 s32 is_item_valid__9TItemListFi(void *);
 extern s32 lbl_805D5DFC;
@@ -40,7 +40,7 @@ void count_items_recursive__10TObjPlayerFPv(void *arg0);
 void count_owned_items__10TObjPlayerFPv(void *arg0);
 s32 get_owner_if_alive__10TObjPlayerFPv(void *arg0);
 void set_field_1c__10TObjPlayerFPvi(void* p, s32 v);
-s32 TObjPlayer__sub_801049C8(M2C_UNK *, s32);
+s32 item_identity_matches(M2C_UNK *, s32);
 s32 TObjPlayer__sub_801D4308(u32, s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(s32);
 M2C_UNK copy_to_item_data__5TItemFPvPv(M2C_UNK, M2C_UNK *);
@@ -115,7 +115,7 @@ void count_items_recursive__10TObjPlayerFPv(void *arg0) {
     while (var_r31 != NULL) {
         if ((is_item_valid__9TItemListFi((void *)(var_r31)) != 0) && ((temp = get_owner_if_alive__10TObjPlayerFPv((void *)(var_r31))) != 0U)) {
             copy_to_item_data__5TItemFPvPv(temp, &sp8[0]);
-            if (TObjPlayer__sub_801049C8(&sp8[0], lbl_805D5DFC) != 0) {
+            if (item_identity_matches(&sp8[0], lbl_805D5DFC) != 0) {
                 lbl_805D5DF4 += 1;
             }
         }
@@ -134,7 +134,7 @@ void *TObjPlayer__sub_801D563C(ItemNode_801D563C *root) {
             owner = get_owner_if_alive__10TObjPlayerFPv(node);
             if (owner != 0) {
                 copy_to_item_data__5TItemFPvPv((M2C_UNK)(owner), (M2C_UNK *)(data));
-                if (TObjPlayer__sub_801049C8((M2C_UNK *)(data), (s32)(lbl_805D5DFC)) != 0) {
+                if (item_identity_matches((M2C_UNK *)(data), (s32)(lbl_805D5DFC)) != 0) {
                     return node;
                 }
             }

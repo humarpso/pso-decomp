@@ -281,7 +281,7 @@ s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 M2C_UNK set_param__12TObjEneLappyFPvi(void *, int);
 M2C_UNK TObjPlayer__sub_800F7478(void *, int, int, int);
 M2C_UNK set_animation__10TObjPlayerFPvs(void *, int);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 u8 *get_data__15TObjEneDelDepthFv();
 s32 fn_80316680(s32, void *);
 extern M2C_UNK lbl_804E8168[];
@@ -420,7 +420,7 @@ void TObjEneDelDepth__sub_803158B0(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(TObjEneDelDepth__data_805D6AC4 = get_data__15TObjEneDelDepthFv(), 0);
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TObjEneDelDepth__data_805D6AC4), (int) (0));
     VecCopy__FP3VecPC3Vec(arg0 + 0x44, VecCopy__FP3VecPC3Vec(arg0 + 0x50, VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38)));
-    M2C_FIELD(arg0, s32 *, 0x380) = TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (lbl_804E8168), (int) (1));
+    M2C_FIELD(arg0, s32 *, 0x380) = init_collision_body_parts((void *) (arg0), (void *) (lbl_804E8168), (int) (1));
     set_field_d8__10TObjPlayerFPvi((void *) (arg0), (void *) (lbl_804E8194));
     set_field_dc__10TObjPlayerFPvi((void *) (arg0), (int) (M2C_FIELD(TObjEneDelDepth__data_805D6AC4, s32 *, 0x430)));
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (0));

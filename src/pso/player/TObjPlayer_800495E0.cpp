@@ -57,7 +57,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u32 csnVector(void *, void *, int);
 M2C_UNK TObjPlayer__sub_80142170(void *, void *, void *);
 u8 *get_player_by_client_id(s32);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
 M2C_UNK TBoss6Type1__sub_803D9370(void *, void *, int);
 extern const f32 lbl_805D8890;
@@ -69,7 +69,7 @@ s16 obj_getField1c(void *);
 s32 TBoss3Volopt__sub_8004816C(int);
 f32 TObjPlayer__sub_800499FC(s32 arg0);
 s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
-void TObjEneGibbles__sub_80156780(void *, void *, int);
+void init_collision_body_parts(void *, void *, int);
 void TObjPlayer__sub_801569F4();
 void rotate_vector_by_matrix(int, void *, void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -212,7 +212,7 @@ void TObjPlayer__sub_800496D8(u8 *arg0) {
     queue_destruction__7TObjectFv(arg0);
     return;
   }
-  TOTrapAncient01__sub_80226578((int) 0x4003C11D, (void *) arg0, (void *) (arg0 + 0x38), (int) 0, (int) 0);
+  play_persistent_sound((int) 0x4003C11D, (void *) arg0, (void *) (arg0 + 0x38), (int) 0, (int) 0);
 }
 
 void *destroy__10TObjPlayerFPvs(void *arg0, s16 arg1) {
@@ -233,7 +233,7 @@ void *destroy__10TObjPlayerFPvs(void *arg0, s16 arg1) {
 Obj_800498E8 *TObjPlayer__sub_800498E8(Obj_800498E8 *arg0, Obj_800498E8 *arg1, void *arg2, s32 arg3) {
     TObjPlayer__sub_801569F4();
     arg0->vt = lbl_80484A94;
-    TObjEneGibbles__sub_80156780(arg0, lbl_80484A68, 1);
+    init_collision_body_parts(arg0, lbl_80484A68, 1);
     arg0->fdc = obj_getField1c(arg1);
     VecCopy__FP3VecPC3Vec(&arg0->pos, arg2);
     arg0->fcc = arg3;

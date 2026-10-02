@@ -20,7 +20,7 @@ void text_builder_append(u8 *arg0);
 extern RecoveredGlobal_802290E0_lbl_80515BC8 lbl_80515BC8;
 extern u8 *lbl_805D6338;
 void TWindowSubStatusDisp__sub_802290E0(void);
-s8 *TWindowSubStatusDisp__sub_80144B14(s8 *, s32 *, s32);
+s8 *parse_text_control_codes(s8 *, s32 *, s32);
 extern s32 lbl_805D5544;
 extern u8 *lbl_805D6338;
 s8 *TWindowSubStatusDisp__sub_80228F84(s8 *s);
@@ -44,7 +44,7 @@ s8 *TWindowSubStatusDisp__sub_80228F84(s8 *s) {
         if (*s == 9 && ((u8 *)s)[1] == 'P') {
             break;
         }
-        s = TWindowSubStatusDisp__sub_80144B14(s, &sjis, 0);
+        s = parse_text_control_codes(s, &sjis, 0);
         s32 t = *(u8 *)s;
         if (t == 9 && ((u8 *)s)[1] == 'P') {
             continue;

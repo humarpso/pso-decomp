@@ -117,7 +117,7 @@ void *TItemProArmor__sub_80117160(void *arg0, s16 arg1);
 s16 calc_scaled_offset__13TItemProArmorFv(void);
 int get_stat_value__13TItemProArmorFPv(void* p);
 void TItemObject__ct(void *);
-u8 TItemObject__sub_80115D84();
+u8 get_tool_pmt_amount_byte();
 M2C_UNK TObjPlayer__sub_8022D27C(M2C_UNK, M2C_UNK, s32);
 void __dt__11TItemObjectFv(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
@@ -229,7 +229,7 @@ int get_stat_value__13TItemProArmorFPv(void* p) { return obj_getS16_2BA(*(void**
 extern s32 lbl_805D5550;
 
 s16 calc_scaled_offset__13TItemProArmorFv(void) {
-    return (s16) ((lbl_805D5550 * 0x32) + TItemObject__sub_80115D84());
+    return (s16) ((lbl_805D5550 * 0x32) + get_tool_pmt_amount_byte());
 }
 
 }

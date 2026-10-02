@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_cane_effect__10TObjPlayerFPv(u8 *arg0);
-s32 TObjPlayer__sub_8011F63C();
+s32 get_attack_stage__11TItemWeaponFPv();
 M2C_UNK create_ex__9TTecBartaFPvPvPvPv(int, void *, int, int);
 M2C_UNK draw_icon__10TObjPlayerFPvii(void *, int, void *);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
@@ -20,7 +20,7 @@ void update_cane_effect__10TObjPlayerFPv(u8 *arg0) {
     M2C_UNK sp8;
     u8 *temp_r3;
 
-    if (TObjPlayer__sub_8011F63C() == 0) {
+    if (get_attack_stage__11TItemWeaponFPv() == 0) {
         spawn_cane_effects__10TObjPlayerFiUiii((void *) (tl_05), (void *) (arg0), (int) (3), (int) (2));
     }
     draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (0), (void *) (&sp8));

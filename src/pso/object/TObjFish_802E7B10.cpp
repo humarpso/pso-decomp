@@ -52,12 +52,12 @@ void TObjFish__sub_802E7B94(Fish_802E7B94* o);
 
 extern "C" {
 
-s32 TObjPlayer__sub_800F5E08(void *);
+s32 render_actor_shadows_default(void *);
 void set_flag_800__11TBoss7JointFPv(void* p);
 
 void fn_802E7B10(void *arg0) {
     if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 1) {
-        TObjPlayer__sub_800F5E08(arg0);
+        render_actor_shadows_default(arg0);
     }
 }
 

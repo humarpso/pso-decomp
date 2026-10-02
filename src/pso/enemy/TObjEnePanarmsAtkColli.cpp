@@ -481,7 +481,7 @@ struct Obj_800E37E4 {
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
-M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_persistent_sound(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 void run_task__22TObjEnePanarmsAtkColliFv(u8 *arg0);
 M2C_UNK set_flag_0x100__23TObjEneMe3ShinowaMirageFPv();
 extern f32 TObjEneMe3ShinowaMirage__data_805DA5B8;
@@ -529,7 +529,7 @@ void run_task__22TObjEnePanarmsAtkColliFv(u8 *arg0) {
         ((void (*)(void *))fn_800E35C8)(arg0);
         return;
     case 1:
-        TOTrapAncient01__sub_80226578(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003BA2A), arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003BA2A), arg0, arg0 + 0x38, 0, 0);
         ((void (*)(void *))fn_800E3428)(arg0);
         return;
     }

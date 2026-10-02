@@ -45,7 +45,7 @@ u8 *TORockJungleS01__sub_8029CAFC(s32 arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 s32 TORockCaveBrakable__ct(void *);
 s32 create__10TObjMapCsnFi(void *);
 u8 *TORockJungleS01__sub_8029CAFC(s32 arg0);
@@ -138,7 +138,7 @@ u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, u8 **, 0x34) = TORockJungleS01__sub_8029CAFC(0);
     M2C_FIELD(arg0, s32 *, 0x24) = TORockJungleS01__sub_8029CAE8((s32)((int) (0)));
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (lbl_805DDD1C + M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14));
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804DC3A0.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804DC3A0.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0xB8) = (s32) M2C_FIELD(arg0, s32 *, 0x84);

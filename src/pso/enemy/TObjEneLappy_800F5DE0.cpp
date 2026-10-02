@@ -19,7 +19,7 @@ void set_shadow_flag__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801415BC(void);
 void set_chunk_material_override_pair(s32, s32);
 extern s32 some_id_805c6f74;
-void TObjPlayer__sub_800F5E08(u8 *arg0);
+void render_actor_shadows_default(u8 *arg0);
 }
 
 extern "C" {
@@ -32,7 +32,7 @@ int reset_photon_effect__12TBoss3VoloptFPv(void*);
 void set_param__12TObjEneLappyFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x370) = v; }
 
 int initialize_enemy_photon_effect(void* p) { return reset_photon_effect__12TBoss3VoloptFPv(p); }
-void TObjPlayer__sub_800F5E08(u8 *arg0) {
+void render_actor_shadows_default(u8 *arg0) {
     if (obj_testFlags30(arg0, 0x800) == 0) {
         set_shadow_flag__10TObjPlayerFPv(arg0);
         some_id_805c6f74 |= 0xC10;

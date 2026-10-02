@@ -47,7 +47,7 @@ s32 set_flags__11TBoss4Type2FPvUi(int, int);
 s32 enable__13TParticleCtrlFPv(int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 s32 init_map_object_base(void *);
 s32 TObjLobbyMain__sub_80352240(void *);
 extern RecoveredGlobal_80352940_lbl_804F0F34 lbl_804F0F34;
@@ -183,7 +183,7 @@ u8 *TObjLobbyMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0xC8) = 2;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DFEEC;
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) lbl_805DFEE8;
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804F0F34.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804F0F34.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     return arg0;

@@ -151,9 +151,9 @@ void TObjPlayer__sub_800BC394(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(Vec_800BBFD0 *dst, const Vec_800BBFD0 *src);
 void TBoss6Type1__sub_803D9370(Vec_800BBFD0 *a, Vec_800BBFD0 *b);
 void clamp_velocity__15TObjBoss2TunnelFPv(void *p);
-void TObjPlayer__sub_800BBFD0(Obj_800BBFD0 *a, Obj_800BBFD0 *b, f32 s);
+void area_attack_apply_recoil(Obj_800BBFD0 *a, Obj_800BBFD0 *b, f32 s);
 s32 obj_isState2_324(void *);
-void TObjPlayer__sub_800BBF08(Actor_800BBF08 *src, Actor_800BBF08 *dst, f32 *recoil, Desc_800BBF08 *desc);
+void area_attack_receive_direct(Actor_800BBF08 *src, Actor_800BBF08 *dst, f32 *recoil, Desc_800BBF08 *desc);
 s32 obj_is_hit_receivable();
 Tgt_800BC080 *get_battle_param__10TObjPlayerFi(s32);
 s32 TObjPlayer__sub_800BC3FC(void *, int);
@@ -169,7 +169,7 @@ s32 TObjPlayer__sub_800BC53C(void *, void *);
 M2C_UNK init_all_slots__10TObjPlayerFv();
 M2C_UNK mark_enemy_body_contacts(void *);
 M2C_UNK TObjPlayer__sub_801561C4(void *, f32);
-s32 TObjPlayer__sub_800BC250(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, void *arg3, f32 farg0);
+s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, void *arg3, f32 farg0);
 }
 
 extern "C" {
@@ -213,7 +213,7 @@ void apply_hit_if_active__10TObjPlayerFPvPvPv(void *arg0, void *arg1, f32 *arg2)
     }
 }
 
-void TObjPlayer__sub_800BBF08(Actor_800BBF08 *src, Actor_800BBF08 *dst, f32 *recoil, Desc_800BBF08 *desc) {
+void area_attack_receive_direct(Actor_800BBF08 *src, Actor_800BBF08 *dst, f32 *recoil, Desc_800BBF08 *desc) {
     s32 i;
     Rec_800BBF08 *rec;
     for (i = 0; i < dst->nrecs; i++) {
@@ -230,7 +230,7 @@ void TObjPlayer__sub_800BBF08(Actor_800BBF08 *src, Actor_800BBF08 *dst, f32 *rec
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_800BBFD0(Obj_800BBFD0 *a, Obj_800BBFD0 *b, f32 s) {
+void area_attack_apply_recoil(Obj_800BBFD0 *a, Obj_800BBFD0 *b, f32 s) {
     Vec_800BBFD0 v;
     VecCopy__FP3VecPC3Vec(&v, &b->pos);
     TBoss6Type1__sub_803D9370(&v, &a->pos);
@@ -301,7 +301,7 @@ void TObjPlayer__sub_800BC220(void *arg0, void *arg1, void *arg2) {
     ((VObj800BC220_800bc220_800BBE90*)arg0)->m12(arg1, arg2, 0);
 }
 
-s32 TObjPlayer__sub_800BC250(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, void *arg3, f32 farg0) {
+s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, void *arg3, f32 farg0) {
     s32 hit = 0;
     s32 mask = 0;
     Tgt_800BC250 *t;

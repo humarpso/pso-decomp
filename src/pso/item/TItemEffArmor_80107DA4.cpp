@@ -24,7 +24,7 @@ u16 obj_getField1c(void *);
 void queue_destruction__7TObjectFv(void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK TObjLight__sub_80134548(int, f32, f32);
+M2C_UNK publish_actor_light_scalars(int, f32, f32);
 extern const f32 TItemEffArmor__data_805DAAEC;
 extern const f32 lbl_805DAAF0;
 extern const f32 lbl_805DAAF4;
@@ -97,7 +97,7 @@ void run_task__13TItemEffArmorFv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x38) = (f32) (TItemEffArmor__data_805DAAEC - (M2C_FIELD(arg0, f32 *, 0x24) / lbl_805DAAF0));
     temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x6C));
     if (temp_r3_2 != NULL) {
-        TObjLight__sub_80134548((int) (obj_getField1c(temp_r3_2)), (f32) (M2C_FIELD(arg0, f32 *, 0x60)), (f32) (M2C_FIELD(arg0, f32 *, 0x5C)));
+        publish_actor_light_scalars((int) (obj_getField1c(temp_r3_2)), (f32) (M2C_FIELD(arg0, f32 *, 0x60)), (f32) (M2C_FIELD(arg0, f32 *, 0x5C)));
     }
     if (M2C_FIELD(arg0, f32 *, 0x5C) >= TItemEffArmor__data_805DAAEC) {
         M2C_FIELD(arg0, f32 *, 0x64) = (f32) (lbl_805DAAF4 * M2C_FIELD(arg0, f32 *, 0x64));

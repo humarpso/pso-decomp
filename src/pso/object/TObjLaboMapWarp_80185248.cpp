@@ -24,7 +24,7 @@ extern RecoveredGlobal_80185428_lbl_80444878 lbl_80444878;
 void TObjLaboMapWarp__vt13(u8 *arg0, s32 arg1);
 s32 get_instance__6TLobbyFv(void);
 s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
-M2C_UNK TObjPlayer__sub_8019D250(void *);
+M2C_UNK process_player_warps__11TObjMapWarpFPv(void *);
 s32 TLobby__sub_8030A7B0();
 extern s32 TObjLaboMapWarp__data_805D5B58;
 extern const f32 lbl_805DBC88;
@@ -99,7 +99,7 @@ void run_task__15TObjLaboMapWarpFv(u8 *arg0) {
     if (get_instance__6TLobbyFv() == 0 && (TLobby__sub_8030A7B0() == 1 || TLobby__sub_8030A7B0() == 2)) {
         return;
     }
-    TObjPlayer__sub_8019D250(arg0);
+    process_player_warps__11TObjMapWarpFPv(arg0);
 }
 
 int is_field88_zero__15TObjLaboMapWarpFPv(void* p) { return *(u32*)((char*)p + 0x88) == 0; }

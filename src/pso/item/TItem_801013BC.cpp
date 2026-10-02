@@ -42,7 +42,7 @@ void set_mode__5TItemFPvc(void *arg0, s8 arg1);
 void update_item_data__5TItemFPv(void *arg0);
 s32 TItemAttacker__sub_80103548(M2C_UNK);
 void TItemData__sub_8010CC68(void *);
-void TItemData__sub_8010DF68(void *);
+void is_rare_item__9TItemDataFPv(void *);
 M2C_UNK TItemData__sub_8010E59C(M2C_UNK *, s32);
 int TItem__sub_80101B20(void*);
 s32 TLobby__sub_80103AD4();
@@ -66,7 +66,7 @@ void TItem__sub_801013E8(void *arg0) {
     M2C_UNK sp8[4];
 
     copy_to_item_data__5TItemFPvPv((void *)(arg0), (void *)(&sp8));
-    TItemData__sub_8010DF68(&sp8);
+    is_rare_item__9TItemDataFPv(&sp8);
 }
 
 void destroy__5TItemFPv(void* p) { TItem__sub_80101B20(p); disallow_rendering__7TObjectFv(p); queue_destruction__7TObjectFv(p); }

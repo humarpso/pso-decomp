@@ -131,7 +131,7 @@ M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
 int TBoss7Crawfish__sub_80308F8C(void*, int);
 int TBoss7Tentacle__sub_803D9BA0(void*);
 int TOHangerMachine01__sub_803D9C00(void*);
-M2C_UNK TOTrapAncient01__sub_80226578(s32, s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK play_persistent_sound(s32, s32, s32, M2C_UNK, M2C_UNK);
 int rotate_matrix_yxz(void*, void*, void*, void*);
 int TObjPlayer__sub_803D9B2C(void);
 int pop_matrix(void);
@@ -180,7 +180,7 @@ void TBoss7Crawfish__sub_803086A8(Obj_803086A8 *o) {
 }
 
 void TBoss7Crawfish__sub_803087D4(s32 arg0, s32 arg1) {
-    TOTrapAncient01__sub_80226578(arg1, arg0, arg0 + 0x38, 0, 0);
+    play_persistent_sound(arg1, arg0, arg0 + 0x38, 0, 0);
 }
 
 void spawn_effect__14TBoss7CrawfishFii(s32 arg0, s32 arg1) {

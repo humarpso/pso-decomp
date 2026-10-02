@@ -196,7 +196,7 @@ extern const f32 TObjEneDf2Bringer__data_805D97E0;
 extern const f32 lbl_805D97E8;
 void TObjEneDf2Bringer__sub_80099188(u8 *arg0);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
-s32 TOTrapAncient01__sub_80226578(void *, void *, void *, int, int);
+s32 play_persistent_sound(void *, void *, void *, int, int);
 void TObjEneDf2Bringer__sub_80098EB4(s32 arg0);
 Obj_80098FF4 *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
@@ -379,7 +379,7 @@ void TObjEneDf2Bringer__vt102(void *arg0, f32 farg0) {
 extern f32 TObjEneDf2Bringer__data_805D9820;
 
 void TObjEneDf2Bringer__sub_80098EB4(s32 arg0) {
-    TOTrapAncient01__sub_80226578((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003B708))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_persistent_sound((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003B708))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
 }
 
 s32 TObjEneDf2Bringer__sub_80098EFC(Obj_80098EFC *self) {

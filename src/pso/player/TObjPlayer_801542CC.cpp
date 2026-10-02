@@ -205,7 +205,7 @@ void *alloc_buffer__11TOBoss4RockFPv(s32);
 void fn_8002B630(Part_80156780 *, Part_80156780 *);
 void init_forward__10TObjPlayerFPv(void *);
 void *__construct_new_array(void *, void (*)(void *), void *, s32, s32);
-Part_80156780 *TObjEneGibbles__sub_80156780(Obj_80156780 *self, Part_80156780 *src, s32 count);
+Part_80156780 *init_collision_body_parts(Obj_80156780 *self, Part_80156780 *src, s32 count);
 void *get_player_by_client_id(u32 id);
 extern s32 TObjPlayer__data_8050D460[];
 extern s32 lbl_805D5868;
@@ -777,7 +777,7 @@ s32 test_player_overlap_with_players(void *arg0, Obj_801559D0 *self, CollisionVe
     return 0;
 }
 
-s32 TObjPlayer__sub_80155B34(M2C_UNK arg0, u8 *self, void *pos) {
+s32 test_player_body_overlap_at(M2C_UNK arg0, u8 *self, void *pos) {
     CollisionBody_80155FBC source;
     CollisionBody_80155FBC destination;
     s32 i;
@@ -982,7 +982,7 @@ void TObjEneGibbles__sub_80156720(G_80156720 *arg0) {
     }
 }
 
-Part_80156780 *TObjEneGibbles__sub_80156780(Obj_80156780 *self, Part_80156780 *src, s32 count) {
+Part_80156780 *init_collision_body_parts(Obj_80156780 *self, Part_80156780 *src, s32 count) {
     s32 n;
     s32 i;
     if (self->parts == 0) {

@@ -33,7 +33,7 @@ void spawn_particle_effect_with_flags(void *, int, int);
 void *create_particle_emitter(void *, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
-void TOTrapAncient01__sub_80226578(int, void *, int, int, int);
+void play_persistent_sound(int, void *, int, int, int);
 void play_sound_effect(int, void *, int, int);
 void queue_event_1D__12TBoss3VoloptFss(int, int);
 s32 get_phase__8TObjFishFPv(s32);
@@ -68,7 +68,7 @@ void fn_8033D6DC(O_8033D6DC *self) {
         play_sound_effect(0x40031C2B, 0, 0, 0);
         break;
     }
-    TOTrapAncient01__sub_80226578(0x4003C627, self, 0, 0, 0);
+    play_persistent_sound(0x4003C627, self, 0, 0, 0);
     switch (self->frame) {
     case 0xB9:
         spawn_particle_effect_with_flags(self->obj40, 0x220, 0x40);

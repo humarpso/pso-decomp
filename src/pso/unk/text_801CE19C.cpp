@@ -40,7 +40,7 @@ s32 TObjPlayer__sub_80354D5C(s16);
 s32 TObjPlayer__sub_801CEAC8(u8 *self);
 s16 obj_getField1c(void *);
 M2C_UNK set_state_flags__10TObjPlayerFPvUi(void *, u32);
-M2C_UNK TObjLight__sub_80134548(u16, f32, f32);
+M2C_UNK publish_actor_light_scalars(u16, f32, f32);
 M2C_UNK send_field_state_if_active__10TObjPlayerFii(void *, s32);
 M2C_UNK TObjPlayer__sub_801D2DB4(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
@@ -113,7 +113,7 @@ void start_attack_preparation__10TObjPlayerFPv(u8 *arg0) {
         if (p != NULL) {
             construct_actor_light_task(p, lbl_8050BFE0, lbl_8050BEE0, 8, arg0, TObjPlayer__data_805DC39C, tl_07);
         }
-        TObjLight__sub_80134548(obj_getField1c(arg0), TObjPlayer__data_805DC360, TObjPlayer__data_805DC3AC);
+        publish_actor_light_scalars(obj_getField1c(arg0), TObjPlayer__data_805DC360, TObjPlayer__data_805DC3AC);
         send_field_state_if_active__10TObjPlayerFii(arg0, 0x1AD1C);
         break;
     case 2:
@@ -128,7 +128,7 @@ void start_attack_preparation__10TObjPlayerFPv(u8 *arg0) {
         if (p != NULL) {
             construct_actor_light_task(p, lbl_8050BFE0, lbl_8050BEE0, 8, arg0, TObjPlayer__data_805DC39C, tl_07);
         }
-        TObjLight__sub_80134548(obj_getField1c(arg0), TObjPlayer__data_805DC360, TObjPlayer__data_805DC3AC);
+        publish_actor_light_scalars(obj_getField1c(arg0), TObjPlayer__data_805DC360, TObjPlayer__data_805DC3AC);
         send_field_state_if_active__10TObjPlayerFii(arg0, 0x1AD1D);
         break;
     }

@@ -188,7 +188,7 @@ M2C_UNK update_all__8TFogCtrlFi(int);
 u8 * find_entity_by_id(u16);
 M2C_UNK TObjPlayer__sub_801BA42C();
 M2C_UNK TObjPlayer__sub_801BA494();
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, int, int, int);
+M2C_UNK play_persistent_sound(int, void *, int, int, int);
 M2C_UNK init_all_slots__11TWindowCtrlFv();
 M2C_UNK init_all_slots2__11TWindowCtrlFv();
 extern u16 lbl_805D271A;
@@ -264,7 +264,7 @@ void TBoss3Volopt__sub_8003DA78(u8 *arg0) {
         cache_target_and_forward__11TCameraCtrlFii(&c1, 0x271C);
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
-        TOTrapAncient01__sub_80226578(0x4003B202, arg0, 0, 0, 0);
+        play_persistent_sound(0x4003B202, arg0, 0, 0, 0);
         if (--M2C_FIELD(arg0, s32 *, 0x384) <= 0) {
             M2C_FIELD(arg0, s32 *, 0x384) = 0x3C;
             M2C_FIELD(arg0, s32 *, 0x37C) = 2;

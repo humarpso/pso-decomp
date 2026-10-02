@@ -96,7 +96,7 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 s32 TObjPlayer__sub_801569F4(void *, int);
 s32 rotate_vector_by_matrix(int, int, int);
 M2C_UNK rotate_matrix_y(int, int);
@@ -114,7 +114,7 @@ extern const f32 lbl_805DA2B8;
 u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 s32 TObjPlayer__sub_801569F4(void *, int);
 s32 rand();
 s32 TCameraCtrl__sub_803D8934(int, int, int);
@@ -238,7 +238,7 @@ u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s3
     rotate_vector_by_matrix((int) (0), (int) (temp_r4), (int) (temp_r4));
     pop_matrix();
     M2C_FIELD(arg0, f32 *, 0xD4) = (f32) lbl_805DA2A4;
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_80494400.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_80494400.value), (int) (1));
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC) = (f32) lbl_805DA2B8;
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0xEC) = 0xF;
@@ -355,7 +355,7 @@ u8 *TObjGyaranzoMissile__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
     TObjPlayer__sub_801569F4((void *) (arg0), (int) (tl_04));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800D4BD0___vt__19TObjGyaranzoMissile *)&__vt__19TObjGyaranzoMissile).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2A80;
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_80494468.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_80494468.value), (int) (1));
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC) = (f32) lbl_805DA2CC;
     VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x38)), (void *)((int) (M2C_FIELD(arg2, s32 *, 0))));
     M2C_FIELD(arg0, s16 *, 0xC4) = arg3;

@@ -47,7 +47,7 @@ extern "C" {
 Res_8029F7E0 *TObjFish__sub_8001ED9C(s32, s32);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void refresh_collision_body_centers(void *);
-void TObjEneGibbles__sub_80156780(void *, void *, s32);
+void init_collision_body_parts(void *, void *, s32);
 void init_field_d4__16TODoorLaboNormalFPv(void* a0);
 void TODoorFourLightBase__ct(void *);
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32, s32);
@@ -123,7 +123,7 @@ Self_8029F7E0 *TODoorLaboNormal__ct(Self_8029F7E0 *self) {
     TODoorFourLightBase__ct(self);
     self->vt = ((s32 *)&__vt__16TODoorLaboNormal);
     self->f0 = lbl_805D3D70;
-    TObjEneGibbles__sub_80156780(self, lbl_804DC864, 1);
+    init_collision_body_parts(self, lbl_804DC864, 1);
     refresh_collision_body_centers(self);
     reset_photon_effect__10TObjPlayerFPv(self);
     init_field_d4__16TODoorLaboNormalFPv((void*)(self));
@@ -215,7 +215,7 @@ Door_8029FAE4 *TODoorLabo__ct(Door_8029FAE4 *arg0) {
     TODoorFourLightBase__ct(arg0);
     arg0->vt = __vt__10TODoorLabo;
     arg0->f0 = lbl_805D3D6C;
-    TObjEneGibbles__sub_80156780(arg0, lbl_804DC864, 1);
+    init_collision_body_parts(arg0, lbl_804DC864, 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     TODoorLabo__sub_8029F9EC(arg0);
@@ -380,7 +380,7 @@ u8 *TODoorFourLightSeabedU__ct(u8 *arg0) {
     TODoorFourLightBase__ct(arg0);
     self->vt18 = __vt__22TODoorFourLightSeabedU;
     self->f0 = lbl_805D3D68;
-    TObjEneGibbles__sub_80156780(arg0, lbl_804DC864, 1);
+    init_collision_body_parts(arg0, lbl_804DC864, 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     self->fD4 = get_bml_model((s32)lbl_805D660C, 0);
@@ -559,7 +559,7 @@ u8 *TODoorFourLightSeabed__ct(u8 *arg0) {
     TODoorFourLightBase__ct(arg0);
     self->vt18 = __vt__21TODoorFourLightSeabed;
     self->f0 = lbl_805D3D64;
-    TObjEneGibbles__sub_80156780(arg0, lbl_804DC864, 1);
+    init_collision_body_parts(arg0, lbl_804DC864, 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     self->fD4 = get_bml_model(lbl_805D6600, 0);

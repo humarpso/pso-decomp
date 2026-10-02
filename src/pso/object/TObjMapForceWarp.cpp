@@ -11,14 +11,14 @@ void *__dt__16TObjMapForceWarpFv(void *arg0, s16 arg1);
 void render__16TObjMapForceWarpFv(void);
 int run_task__16TObjMapForceWarpFv(void* p);
 M2C_UNK TObjMapWarp__ct();
-int TObjPlayer__sub_8019D250(void*);
+int process_player_warps__11TObjMapWarpFPv(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__11TObjMapWarpFv(void *, int);
 M2C_UNK disallow_rendering__7TObjectFv(void *);
 M2C_UNK set_flag_4__9TObjLukerFPv(u32);
 
 void render__16TObjMapForceWarpFv(void) {  }
-int run_task__16TObjMapForceWarpFv(void* p) { return TObjPlayer__sub_8019D250(p); }
+int run_task__16TObjMapForceWarpFv(void* p) { return process_player_warps__11TObjMapWarpFPv(p); }
 
 extern M2C_UNK __vt__16TObjMapForceWarp[];
 

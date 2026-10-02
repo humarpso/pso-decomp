@@ -53,7 +53,7 @@ struct T_80120C5C { s32 a; s32 b; s32 c; u16 d; u8 e; };
 extern "C" {
 u8 get_field_ed__10TObjPlayerFPv();
 void TItemEquipBase__sub_8010B58C(void *, u8);
-void TObjPlayer__sub_8011E950(void *);
+void create_weapon_trail_effects(void *);
 extern T_80120C5C lbl_8043E828[];
 void TObjPlayer__sub_80120C5C(Pl_80120C5C *arg0);
 }
@@ -72,7 +72,7 @@ void TObjPlayer__sub_80120C5C(Pl_80120C5C *arg0) {
         v = ((u8 *)&t)[arg0->m41()];
     }
     TItemEquipBase__sub_8010B58C(arg0, v);
-    TObjPlayer__sub_8011E950(arg0);
+    create_weapon_trail_effects(arg0);
 }
 
 }

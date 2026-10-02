@@ -64,7 +64,7 @@ extern const f32 lbl_805DF5BC;
 extern const f32 lbl_805DF5C0;
 extern const f32 lbl_805DF5C4;
 void TBoss6Mine__vt0(u8 *arg0);
-M2C_UNK TObjPlayer__sub_800F5E08();
+M2C_UNK render_actor_shadows_default();
 extern const f32 TBoss6Mine__data_805DF580;
 void TBoss6Mine__sub_80323E1C(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
@@ -148,7 +148,7 @@ M2C_UNK update_camera_target__14TBoss6PlotFalzFv();
 
 void TBoss6Mine__sub_80323E1C(u8 *arg0) {
     if (M2C_FIELD(arg0, f32 *, 0x3C) >= (*(const f32 *)&TBoss6Mine__data_805DF580)) {
-        TObjPlayer__sub_800F5E08();
+        render_actor_shadows_default();
     }
 }
 

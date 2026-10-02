@@ -35,7 +35,7 @@ extern "C" {
 M2C_UNK TLobby__sub_80226E44(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
-M2C_UNK TObjLight__sub_80133D78();
+M2C_UNK init_area_lights();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK create_tasks__6TLobbyFv();
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
@@ -51,7 +51,7 @@ void update_floor_state__6TLobbyFv(void);
 M2C_UNK TLobby__sub_80226E44(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
-M2C_UNK TObjLight__sub_80133D78();
+M2C_UNK init_area_lights();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK create_tasks__6TLobbyFv();
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
@@ -87,7 +87,7 @@ M2C_UNK create_tasks__6TLobbyFv();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK load_floor_sound_bank();
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
-M2C_UNK TObjLight__sub_80133D78();
+M2C_UNK init_area_lights();
 u32 __nw__7TObjectFUl(s32);
 s32 spawn_boss3_volopt_ctrl__6TLobbyFv(void);
 int TLobby__sub_8007BA20(void);
@@ -102,7 +102,7 @@ M2C_UNK create_tasks__6TLobbyFv();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK load_floor_sound_bank();
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
-M2C_UNK TObjLight__sub_80133D78();
+M2C_UNK init_area_lights();
 s32 init_heap__13TParticleCtrlFPv(s32);
 s32 create__16TBoss4CheckEmptyFv();
 s32 init_lobby_scene__6TLobbyFv(void);
@@ -127,7 +127,7 @@ void TLobby__sub_801403B4(M2C_UNK);
 M2C_UNK TLobby__sub_80226E44(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
-M2C_UNK TObjLight__sub_80133D78();
+M2C_UNK init_area_lights();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK create_tasks__6TLobbyFv();
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(M2C_UNK);
@@ -146,7 +146,7 @@ void TLobby__sub_801403B4(M2C_UNK _w0);
 M2C_UNK TLobby__sub_80226E44(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
-M2C_UNK TObjLight__sub_80133D78();
+M2C_UNK init_area_lights();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK create_tasks__6TLobbyFv();
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
@@ -163,7 +163,7 @@ void TLobby__sub_801403B4(M2C_UNK _w0);
 M2C_UNK TLobby__sub_80226E44(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
-M2C_UNK TObjLight__sub_80133D78();
+M2C_UNK init_area_lights();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK create_tasks__6TLobbyFv();
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
@@ -184,7 +184,7 @@ M2C_UNK TLobby__sub_80207E44();
 M2C_UNK TLobby__sub_8021EF84();
 M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_8017E3B8();
-M2C_UNK TObjLight__sub_80133D78();
+M2C_UNK init_area_lights();
 M2C_UNK TQuestBgmCtrl__ct(void *, s32);
 u32 __nw__7TObjectFUl(s32);
 s32 check_disconnect_conditions__6TLobbyFv();
@@ -207,7 +207,7 @@ void update_floor_objects__6TLobbyFv(void);
 M2C_UNK TLobby__sub_80226E44(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
-M2C_UNK TObjLight__sub_80133D78();
+M2C_UNK init_area_lights();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK create_tasks__6TLobbyFv();
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(M2C_UNK);
@@ -223,7 +223,7 @@ int update_current_floor__6TLobbyFv(void);
 void update_all__6TLobbyFv(void);
 M2C_UNK create_tasks__6TLobbyFv();
 s32 check_disconnect_conditions__6TLobbyFv();
-M2C_UNK TObjLight__sub_80133D78();
+M2C_UNK init_area_lights();
 void TLobby__sub_801403B4(M2C_UNK _w0);
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
 M2C_UNK load_floor_sound_bank();
@@ -245,7 +245,7 @@ void update_floor_download__6TLobbyFv(void);
 M2C_UNK create_tasks__6TLobbyFv();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK TLobby__sub_800FD6F8(M2C_UNK *, M2C_UNK);
-M2C_UNK TObjLight__sub_80133D78();
+M2C_UNK init_area_lights();
 void TLobby__sub_801403B4(M2C_UNK _w0);
 M2C_UNK TObjBgmColCtrl__sub_8017E3B8();
 M2C_UNK reset_settings_to_default__6TLobbyFPv(M2C_UNK *);
@@ -266,7 +266,7 @@ void TLobby__sub_801403B4(M2C_UNK _w0);
 M2C_UNK TLobby__sub_80226E44(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
-M2C_UNK TObjLight__sub_80133D78();
+M2C_UNK init_area_lights();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK create_tasks__6TLobbyFv();
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(M2C_UNK);
@@ -285,7 +285,7 @@ void TLobby__sub_801403B4(M2C_UNK _w0);
 M2C_UNK TLobby__sub_80226E44(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
-M2C_UNK TObjLight__sub_80133D78();
+M2C_UNK init_area_lights();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK create_tasks__6TLobbyFv();
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
@@ -308,7 +308,7 @@ M2C_UNK create_boss2_tunnel__6TLobbyFv();
 M2C_UNK create_tasks__6TLobbyFv();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK TLobby__sub_800FD6F8(M2C_UNK *, M2C_UNK);
-M2C_UNK TObjLight__sub_80133D78();
+M2C_UNK init_area_lights();
 void TLobby__sub_801403B4(M2C_UNK _w0);
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
@@ -327,7 +327,7 @@ M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
 M2C_UNK load_floor_sound_bank();
 extern M2C_UNK lbl_8043F1B8[];
 extern M2C_UNK lbl_804A7358[];
-s32 TLobby__sub_801401D0(void);
+s32 init_dragon_area_scene(void);
 M2C_UNK create__13TObjBoss5CtrlFv();
 M2C_UNK create_tasks__6TLobbyFv();
 s32 check_disconnect_conditions__6TLobbyFv();
@@ -354,7 +354,7 @@ M2C_UNK TLobby__sub_80226E44(M2C_UNK);
 int TLobby__sub_8022743C(void);
 M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
-M2C_UNK TObjLight__sub_80133D78();
+M2C_UNK init_area_lights();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK create_tasks__6TLobbyFv();
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(M2C_UNK);
@@ -375,7 +375,7 @@ s32 ship_scene_update(void) {
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
-    TObjLight__sub_80133D78();
+    init_area_lights();
     create_tasks__6TLobbyFv();
     if (is_split_screen() != 0) {
         TObjBgmColCtrl__sub_802274B8(lbl_8043F188);
@@ -393,7 +393,7 @@ s32 init_ship_scene(void) {
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
-    TObjLight__sub_80133D78();
+    init_area_lights();
     create_tasks__6TLobbyFv();
     if (is_split_screen() != 0) {
         TObjBgmColCtrl__sub_802274B8(lbl_8043F198);
@@ -409,7 +409,7 @@ s32 load_scene_ship_b(void) {
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
-    TObjLight__sub_80133D78();
+    init_area_lights();
     create_tasks__6TLobbyFv();
     if (is_split_screen() != 0) {
         TObjBgmColCtrl__sub_802274B8(lbl_8043F1A8);
@@ -428,7 +428,7 @@ void TLobby__sub_8014018C(void) {
     TLobby__sub_8007BA20();
 }
 
-s32 TLobby__sub_801401D0(void) {
+s32 init_dragon_area_scene(void) {
     Light_801401D0 l;
     get_global_state__14TOKeyMachine01Fv();
     load_floor_sound_bank();
@@ -490,7 +490,7 @@ s32 TLobby__sub_80140348(void) {
         return 0;
     }
     TLobby__sub_800FD6F8((M2C_UNK *)((void *) (lbl_804A7360)), (M2C_UNK)((int) (8)));
-    TObjLight__sub_80133D78();
+    init_area_lights();
     create_tasks__6TLobbyFv();
     create_boss2_tunnel__6TLobbyFv();
     TLobby__sub_801403B4((M2C_UNK)((int) (0)));
@@ -506,7 +506,7 @@ s32 spawn_boss3_volopt_ctrl__6TLobbyFv(void) {
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
-    TObjLight__sub_80133D78();
+    init_area_lights();
     create_tasks__6TLobbyFv();
     if (__nw__7TObjectFUl(0x24) != 0U) {
         TBoss3VoloptCtrl__ct();
@@ -520,7 +520,7 @@ s32 init_lobby_scene__6TLobbyFv(void) {
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
-    TObjLight__sub_80133D78();
+    init_area_lights();
     create_tasks__6TLobbyFv();
     init_heap__13TParticleCtrlFPv(0x10000);
     create__16TBoss4CheckEmptyFv();
@@ -575,7 +575,7 @@ s32 init_cave_b_stage(void) {
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
-    TObjLight__sub_80133D78();
+    init_area_lights();
     create_tasks__6TLobbyFv();
     TLobby__sub_801403B4((M2C_UNK)(0));
     if (is_split_screen() != 0) {
@@ -595,7 +595,7 @@ s32 load_scene_cave_b(void) {
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
-    TObjLight__sub_80133D78();
+    init_area_lights();
     create_tasks__6TLobbyFv();
     TLobby__sub_801403B4(0);
     if (is_split_screen() != 0) {
@@ -612,7 +612,7 @@ s32 init_stage_cave_b(void) {
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
-    TObjLight__sub_80133D78();
+    init_area_lights();
     create_tasks__6TLobbyFv();
     TLobby__sub_801403B4(0);
     if (is_split_screen() != 0) {
@@ -639,7 +639,7 @@ s32 setup_scene__6TLobbyFv(void) {
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
-    TObjLight__sub_80133D78();
+    init_area_lights();
     TLobby__sub_8021EF84();
     TLobby__sub_800FD6F8(lbl_804A7370, 0x60);
     reset_settings_to_default__6TLobbyFPv(lbl_8050EA40);
@@ -665,7 +665,7 @@ s32 init_stage_forest_b(void) {
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
-    TObjLight__sub_80133D78();
+    init_area_lights();
     create_tasks__6TLobbyFv();
     if (is_split_screen() != 0) {
         TObjBgmColCtrl__sub_802274B8(lbl_8043F218);
@@ -682,7 +682,7 @@ s32 init_forest_b(void) {
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
-    TObjLight__sub_80133D78();
+    init_area_lights();
     create_tasks__6TLobbyFv();
     create__12TObjRainCtrlFv();
     TLobby__sub_801403B4(0);
@@ -712,7 +712,7 @@ s32 TLobby__sub_80140A6C(void) {
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
-    TObjLight__sub_80133D78();
+    init_area_lights();
     TQuestVmDownLoadServer__sub_801F8F14();
     reset_settings_to_default__6TLobbyFPv((M2C_UNK *)((void *) (&(*(RecoveredGlobal_80140A6C_lbl_8050EA40 *)&lbl_8050EA40).value)));
     create_tasks__6TLobbyFv();
@@ -727,7 +727,7 @@ s32 init_machine_scene(void) {
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
-    TObjLight__sub_80133D78();
+    init_area_lights();
     create_tasks__6TLobbyFv();
     TLobby__sub_801403B4(0);
     if (is_split_screen() != 0) {
@@ -747,7 +747,7 @@ s32 init_machine_b_scene(void) {
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
-    TObjLight__sub_80133D78();
+    init_area_lights();
     create_tasks__6TLobbyFv();
     TLobby__sub_801403B4(0);
     if (is_split_screen() != 0) {

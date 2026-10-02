@@ -139,7 +139,7 @@ typedef struct TItemMagSub_80114F0C {
 } TItemMagSub_80114F0C;
 
 extern "C" {
-s32 TItemMag__sub_80113EC8(void *);
+s32 obj_isState7_324(void *);
 s32 calc_feed_level__11TItemMagSubFPv(void *arg0);
 M2C_UNK TBoss7Tentacle__sub_803D8A6C(int, int, int, int, int);
 M2C_UNK scale_matrix(int, f32, f32, f32);
@@ -239,7 +239,7 @@ void queue_destruction__7TObjectFv(void *);
 f32 get_mag_scale_f__10TObjPlayerFPv(void *);
 s32 is_mag_active__11TItemMagSubFPv(int);
 u32 test_feed_flags__11TItemMagSubFPvUi(void *, u32);
-s32 TItemMag__sub_80113EC8(void *);
+s32 obj_isState7_324(void *);
 u32 TItemMagSub__sub_801159BC(void *);
 void TItemMagSub__sub_801151E0(MagSub_801151E0 *self);
 void TItemMagSub__sub_801152AC(TItemMagSub_801152AC *self);
@@ -332,7 +332,7 @@ void TItemMagSub__sub_80114E4C(u8 *arg0) {
   s32 a3;
   s32 a4;
   TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0xA0));
-  if (TItemMag__sub_80113EC8((void *) (*((void **) (((s8 *) arg0) + 0x20)))) != 0)
+  if (obj_isState7_324((void *) (*((void **) (((s8 *) arg0) + 0x20)))) != 0)
   {
     feed = (void *) calc_feed_level__11TItemMagSubFPv((void *) arg0);
     rotate_matrix_y((int) 0, feed);
@@ -492,7 +492,7 @@ void TItemMagSub__vt1(u8 *arg0) {
         TItemMagSub__sub_801159BC(M2C_FIELD(arg0, u8 **, 0x1C)) != 0U) {
         return;
     }
-    if (TItemMag__sub_80113EC8(M2C_FIELD(arg0, u8 **, 0x20)) != 0) {
+    if (obj_isState7_324(M2C_FIELD(arg0, u8 **, 0x20)) != 0) {
         TItemMagSub__sub_801151E0((MagSub_801151E0 *)arg0);
         return;
     }

@@ -10,7 +10,7 @@ void update_motion_state__10TObjPlayerFi(s32 arg0);
 void update_photon_chair_sit__10TObjPlayerFPv(u8 *arg0);
 void* init_state_object__10TObjPlayerFPv(void* a0);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_80115BFC(void *, M2C_UNK);
+M2C_UNK advance_angle_wrap(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8011E2FC(s32, f32);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_8011EDFC(s32, M2C_UNK, M2C_UNK, f32);
@@ -34,7 +34,7 @@ void update_motion_state__10TObjPlayerFi(s32 arg0) {
 void update_photon_chair_sit__10TObjPlayerFPv(u8 *arg0) {
     if (get_player_list__10TObjPlayerFv() == 2) {
         rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x1F8));
-        TObjPlayer__sub_80115BFC(arg0 + 0x1F8, 0x1999);
+        advance_angle_wrap(arg0 + 0x1F8, 0x1999);
     }
 }
 

@@ -37,12 +37,12 @@ extern const f32 lbl_805D9E54;
 extern const f32 lbl_805D9E58;
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
-void TObjEneBm5Wolf__sub_800B7DDC(Wolf_800B7DDC *s, s32 target);
+void advance_pose_turn__14TObjEneBm5WolfFPvi(Wolf_800B7DDC *s, s32 target);
 }
 
 extern "C" {
 
-void TObjEneBm5Wolf__sub_800B7F48(void *arg0);
+void update_colliders__14TObjEneBm5WolfFPv(void *arg0);
 void approach_target__14TObjEneBm5WolfFPvf(void *arg0, f32 farg0);
 
 void approach_target__14TObjEneBm5WolfFPvf(void *arg0, f32 farg0) {
@@ -101,7 +101,7 @@ void TObjEneBm5Wolf::choose_roaming_destination() {
 }
 #pragma pop
 
-void TObjEneBm5Wolf__sub_800B7DDC(Wolf_800B7DDC *s, s32 target) {
+void advance_pose_turn__14TObjEneBm5WolfFPvi(Wolf_800B7DDC *s, s32 target) {
     s32 d;
     d = TBoss4Type2__sub_80141FA8(s->facing, target);
     if (d > 0x4000) {
@@ -136,7 +136,7 @@ void select_subtype__14TObjEneBm5WolfFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TObjEneBm5Wolf__data_805D5120, u8 **, 0x42C), s32 *, 0xC);
 }
 
-void TObjEneBm5Wolf__sub_800B7F48(void *arg0) {
+void update_colliders__14TObjEneBm5WolfFPv(void *arg0) {
     M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 4) = (f32) (TObjEneBm5Wolf__data_805D9DB4 + M2C_FIELD(arg0, f32 *, 0x40C));
 }
 

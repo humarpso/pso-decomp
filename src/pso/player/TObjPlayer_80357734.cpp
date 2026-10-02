@@ -182,7 +182,7 @@ extern s32 tl_particle;
 extern const f32 lbl_805E0088;
 extern const f32 lbl_805E008C;
 extern const f32 lbl_805E0090;
-void TObjPlayer__sub_8035886C(s32 arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
+void weapon_fire_explosion_effect(s32 arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -623,7 +623,7 @@ void TObjPlayer__sub_80358824(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
 
 extern s32 tl_05;
 
-void TObjPlayer__sub_8035886C(s32 arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
+void weapon_fire_explosion_effect(s32 arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     u32 obj;
     if (arg3 == 0) {
         spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), 0x69);

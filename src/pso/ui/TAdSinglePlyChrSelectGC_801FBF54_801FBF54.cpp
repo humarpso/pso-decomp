@@ -146,7 +146,7 @@ M2C_UNK TCheckRoomSequence__sub_802114D4(int, void *);
 s32 TCheckRoomSequence__sub_80211574(int);
 s32 TLobby__sub_8030A770();
 s32 TLobby__sub_8030A7B0();
-s32 TObjPlayer__sub_801049C8(s32, s32);
+s32 item_identity_matches(s32, s32);
 M2C_UNK __destroy_arr(s32, M2C_UNK *, M2C_UNK, M2C_UNK);
 int __ct__12TPlyCharDataFv(void*);
 M2C_UNK __dl__FPv(s32);
@@ -224,7 +224,7 @@ s32 find_entry__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1) {
     var_r31 = arg0 + 0x250;
     var_r30 = 0;
 loop_1:
-    if ((TCheckRoomSequence__sub_80211574((int)(var_r31)) == 0) && (TObjPlayer__sub_801049C8(arg1, var_r31) != 0)) {
+    if ((TCheckRoomSequence__sub_80211574((int)(var_r31)) == 0) && (item_identity_matches(arg1, var_r31) != 0)) {
         return 1;
     }
     var_r30 += 1;

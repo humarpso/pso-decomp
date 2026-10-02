@@ -505,7 +505,7 @@ void TObjEneBalClawClaw__sub_80091CCC(void) {  }
 void TObjEneBalClawClaw__sub_80091CD0(s32 arg0) {
     play_sound_effect(0x4003E431, arg0 + 0x38, 0, 0);
 }
-void TObjPlayer__sub_8009211C(Obj_8009211C *o) {
+void render__12TObjEneBeastFPv(Obj_8009211C *o) {
     s32 drawMode;
     s32 fade;
     s32 cam;

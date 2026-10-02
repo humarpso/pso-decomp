@@ -12,7 +12,7 @@ struct RecoveredGlobal_801224D4_lbl_804A0FA0 {
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_80122548(u8 *arg0);
+u8 *create_dagger_weapon(u8 *arg0);
 u8 * TObjPlayer__sub_80120D50(void *, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, s32);
 void set_atp__10TObjPlayerFPvs(void *, s16);
@@ -37,7 +37,7 @@ u8 *construct_dagger_weapon(u8 *arg0, u8 *arg1, u8 *arg2) {
     return arg0;
 }
 
-u8 *TObjPlayer__sub_80122548(u8 *arg0) {
+u8 *create_dagger_weapon(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

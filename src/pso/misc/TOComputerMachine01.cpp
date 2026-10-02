@@ -69,7 +69,7 @@ extern s32 TOComputerMachine01__data_805D58E4;
 void render__19TOComputerMachine01Fv(u8 *arg0);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 s32 update_heal_gauge_state__13TOHealGeneralFPv(void *);
 s32 init__5TOKeyFPv(void *, int);
 extern RecoveredGlobal_8015B644_lbl_804AFFF8 lbl_804AFFF8;
@@ -200,7 +200,7 @@ u8 *TOComputerMachine01__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB390;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB394;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804AFFF8.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFFF8.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     update_heal_gauge_state__13TOHealGeneralFPv((void *) (arg0));

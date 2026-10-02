@@ -16,7 +16,7 @@ struct RecoveredGlobal_80187F78___vt__13TObjGbAdvance {
 
 extern "C" {
 void reset_photon_effect__10TObjPlayerFPv(s32);
-u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
+u32 init_collision_body_parts(void *, s32, s32);
 void set_type__14TOKeyAncient01FPv(void *);
 u8 * TObjMesBase__ct(void *, s32);
 extern RecoveredGlobal_80187F78_lbl_804B6280 lbl_804B6280;
@@ -71,7 +71,7 @@ u8 *TObjGbAdvance__ct(u8 *arg0, s32 arg1) {
     TObjMesBase__ct(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80187F78___vt__13TObjGbAdvance *)&__vt__13TObjGbAdvance).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D32D0;
-    TObjEneGibbles__sub_80156780(arg0, (s32) &lbl_804B6280.value, 1);
+    init_collision_body_parts(arg0, (s32) &lbl_804B6280.value, 1);
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
     reset_photon_effect__10TObjPlayerFPv((s32) arg0);
     set_type__14TOKeyAncient01FPv(arg0 + 0x98);

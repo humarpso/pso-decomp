@@ -396,7 +396,7 @@ void set_grabbed_state__10TObjPlayerFi(s32 arg0);
 void update_state_spin__10TObjPlayerFPv(void *arg0);
 void update_topple_state__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK advance_animation_playback(void *);
-M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_persistent_sound(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8003FCD0(void *);
 s32 TObjPlayer__sub_80040AE4(M2C_UNK);
 s32 angle_difference_abs(s32, s32);
@@ -452,7 +452,7 @@ void update_topple_state__10TObjPlayerFPv(u8 *arg0) {
         }
         break;
     case 3:
-        TOTrapAncient01__sub_80226578(0x4003BC05, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound(0x4003BC05, arg0, arg0 + 0x38, 0, 0);
         advance_animation_playback(arg0);
         M2C_FIELD(arg0, s32 *, 0x390) = (s32) (M2C_FIELD(arg0, s32 *, 0x390) - TObjPlayer__sub_80040AE4(0));
         M2C_FIELD(arg0, s32 *, 0x394) = (s32) (M2C_FIELD(arg0, s32 *, 0x394) - TObjPlayer__sub_80040AE4(0));

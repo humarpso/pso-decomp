@@ -8,10 +8,10 @@ extern "C" {
 
 s32 run_step__9TItemDropFi(s32 arg0);
 
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8007C48C();
+M2C_UNK subtractive_rng_seed();
 
 s32 run_step__9TItemDropFi(s32 arg0) {
-    TAdSinglePlyChrSelectGC__sub_8007C48C();
+    subtractive_rng_seed();
     return arg0;
 }
 

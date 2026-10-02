@@ -33,7 +33,7 @@ struct Msg_801160E0 { u8 hdr[4]; s16 id; s16 types[3]; u8 pad[0xC]; };
 struct Item_801160E0 { u8 pad[0x424]; u32 f424; };
 
 extern "C" {
-u8 TItemObject__sub_80115D84(u8 *arg0);
+u8 get_tool_pmt_amount_byte(u8 *arg0);
 s16 obj_getField1c(Obj_80116004 *);
 void bswap_and_send_item__10TObjPlayerFPv(void *);
 void set_type_bytes__10TObjPlayerFPv(void *);
@@ -94,7 +94,7 @@ M2C_UNK refresh_if_current_player__20TWindowSubStatusDispFPv(void *);
 
 u8 TItemObject__sub_80115D7C(void* p) { return *(u8*)((char*)p + 0x100); }
 
-u8 TItemObject__sub_80115D84(u8 *arg0) {
+u8 get_tool_pmt_amount_byte(u8 *arg0) {
     return (u8) M2C_FIELD(M2C_FIELD(arg0, void **, 0xF8), u16 *, 8);
 }
 

@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s16 calc_armor_value__13TItemProArmorFv(void);
-u8 TItemObject__sub_80115D84();
+u8 get_tool_pmt_amount_byte();
 
 extern s32 lbl_805D5550;
 
 s16 calc_armor_value__13TItemProArmorFv(void) {
-    return (s16) ((lbl_805D5550 * 0x19) + TItemObject__sub_80115D84());
+    return (s16) ((lbl_805D5550 * 0x19) + get_tool_pmt_amount_byte());
 }
 
 }

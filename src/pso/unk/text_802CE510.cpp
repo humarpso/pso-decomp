@@ -25,7 +25,7 @@ u32 spawn_particle_effect(void *, int);
 s32 fn_800D8830(void *, void *);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 s32 objInBand__FP7GameObjf(void *, f32);
-s32 TOTrapAncient01__sub_80226578(void *, void *, void *, int, int);
+s32 play_persistent_sound(void *, void *, void *, int, int);
 extern const f32 lbl_805DE6E8;
 extern const f32 lbl_805DE6EC;
 extern const f32 lbl_805DE6F0;
@@ -60,7 +60,7 @@ void fn_802CE510(int arg0) {
     }
     else
     {
-      TOTrapAncient01__sub_80226578((void *) copy_target_state__14TObjEnePanarmsFPvPv((void *) arg0, (int) 0x3B211), (void *) arg0, (void *) (arg0 + 0x38), (int) 0, (int) 0);
+      play_persistent_sound((void *) copy_target_state__14TObjEnePanarmsFPvPv((void *) arg0, (int) 0x3B211), (void *) arg0, (void *) (arg0 + 0x38), (int) 0, (int) 0);
     }
     if (((objInBand__FP7GameObjf((void *) arg0, (f32) lbl_805DE6EC) != 0) || (objInBand__FP7GameObjf((void *) arg0, (f32) lbl_805DE6E8) != 0)) || (objInBand__FP7GameObjf((void *) arg0, (f32) lbl_805DE6F0) != 0))
     {

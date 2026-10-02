@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 int TItemEquipBase__sub_8010A77C(void);
 int TItemEquipBase__sub_8010A82C(void);
-int TItemEquipBase__sub_8010A89C(void);
+int register_technique_boosts__14TItemEquipBaseFPvPv(void);
 int TItemEquipBase__sub_8010AC60(void);
 s32 set_parent__7TObjectFP7TObject(s32, s32);
 int TObjPlayer__sub_8010A770(void);
@@ -18,7 +18,7 @@ int fn_8010A710(void);
 int TObjPlayer__sub_8010A770(void);
 int TItemEquipBase__sub_8010A77C(void);
 int TItemEquipBase__sub_8010A82C(void);
-int TItemEquipBase__sub_8010A89C(void);
+int register_technique_boosts__14TItemEquipBaseFPvPv(void);
 int TItemEquipBase__sub_8010AC60(void);
 s32 set_parent__7TObjectFP7TObject(s32, s32);
 extern M2C_UNK __vt__14TItemEquipBase[];

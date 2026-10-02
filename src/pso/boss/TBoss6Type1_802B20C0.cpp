@@ -45,7 +45,7 @@ int TBoss6Type1__sub_802B9204(void*, void*);
 extern const f32 lbl_805DE2B8;
 void TBoss6Type1__sub_802B2F00(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 M2C_UNK TBoss6Type1__sub_802B4EAC(void *, s32, s32);
 M2C_UNK TBoss6Type1__sub_802B82B8(void *, M2C_UNK);
 M2C_UNK TBoss6Type1__sub_802B865C(void *, int);
@@ -78,7 +78,7 @@ int TBoss6Type1__sub_802B4B64(void*, void*);
 int TBoss6Type1__sub_802B4BA8(void*, void*);
 extern RecoveredGlobal_802B2D68_lbl_80470C80 lbl_80470C80;
 void TBoss6Type1__sub_802B2D68(u8 *arg0);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 M2C_UNK TBoss6Type1__sub_802B4A9C(void *);
 M2C_UNK TBoss6Type1__sub_802B4B04(void *);
 int TBoss6Type1__sub_802B4B64(void*, void*);
@@ -152,7 +152,7 @@ M2C_UNK TBoss6Type1__sub_802B82B8(void *, M2C_UNK);
 M2C_UNK TBoss6Type1__sub_802B865C(void *, int);
 int TBoss6Type1__sub_802B8E1C(void*);
 int TBoss6Type1__sub_802B9204(void*, void*);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK activate_warp__14TBoss6PlotFalzFPv(s32);
 M2C_UNK free_child__14TBoss6PlotFalzFPv(s32);
@@ -402,7 +402,7 @@ void init_move_attack__11TBoss6Type1FPv(u8 *arg0) {
 void update_hit_timer__11TBoss6Type1FPv(u8 *arg0) {
     s32 temp_r3;
 
-    TOTrapAncient01__sub_80226578((int)(0x40032614), (void *)(arg0), (void *)(0), (int)(0), (int)(0));
+    play_persistent_sound((int)(0x40032614), (void *)(arg0), (void *)(0), (int)(0), (int)(0));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x410) == 0x3C) {
         play_sound_effect((void*)(0x39403), (void*)(arg0 + 0x38), (void*)(0), (void*)(1));
     }
@@ -457,7 +457,7 @@ void TBoss6Type1__sub_802B2A94(u8 *arg0) {
             VecCopy__FP3VecPC3Vec(arg0 + 0x420, &lbl_80470C98.value);
         }
     }
-    TOTrapAncient01__sub_80226578((int)(0x4003B012), (void *)((s32) arg0), (void *)((u32) (arg0 + 0x38)), (int)(0), (int)(0));
+    play_persistent_sound((int)(0x4003B012), (void *)((s32) arg0), (void *)((u32) (arg0 + 0x38)), (int)(0), (int)(0));
     temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x410) - 1;
     M2C_FIELD(arg0, s32 *, 0x410) = temp_r0_2;
     if (temp_r0_2 < 0) {
@@ -546,7 +546,7 @@ void init_state__11TBoss6Type1FPv(u8 *arg0) {
 void tick_trap_countdown__11TBoss6Type1FPv(u8 *arg0) {
     s32 temp_r0;
 
-    TOTrapAncient01__sub_80226578((int)(0x40038F0F), (void *)(arg0), (void *)(arg0 + 0x38), (int)(0), (int)(0));
+    play_persistent_sound((int)(0x40038F0F), (void *)(arg0), (void *)(arg0 + 0x38), (int)(0), (int)(0));
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x410) - 1;
     M2C_FIELD(arg0, s32 *, 0x410) = temp_r0;
     if (temp_r0 < 0) {
@@ -574,7 +574,7 @@ void update_charge__11TBoss6Type1FPv(u8 *arg0) {
     s32 temp_r0;
 
     TBoss6Type1__sub_802B4EAC((void *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x410)), (s32)(M2C_FIELD(arg0, s32 *, 0x40C)));
-    TOTrapAncient01__sub_80226578((int)(0x40038F0F), (void *)(arg0), (void *)(arg0 + 0x38), (int)(0), (int)(0));
+    play_persistent_sound((int)(0x40038F0F), (void *)(arg0), (void *)(arg0 + 0x38), (int)(0), (int)(0));
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x410) - 1;
     M2C_FIELD(arg0, s32 *, 0x410) = temp_r0;
     if (temp_r0 < 0) {
@@ -642,7 +642,7 @@ void TBoss6Type1__sub_802B31E4(u8 *arg0) {
         if (M2C_FIELD(arg0, f32 *, 0x4DC) > lbl_805DE2BC) {
             var_r3 = 0x4003AD0D;
         }
-        TOTrapAncient01__sub_80226578((int) (var_r3), (void *) (arg0), (void *) (arg0 + 0x5CC), (int) (0), (int) (1));
+        play_persistent_sound((int) (var_r3), (void *) (arg0), (void *) (arg0 + 0x5CC), (int) (0), (int) (1));
     }
     if (M2C_FIELD(arg0, f32 *, 0x4DC) > lbl_805DE2BC) {
         TBoss6Type1__sub_802B4B04((void *) (arg0));

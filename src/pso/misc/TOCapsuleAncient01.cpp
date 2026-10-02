@@ -51,7 +51,7 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 set_indexed_flags(void *, int, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 s32 update_heal_gauge_state__13TOHealGeneralFPv(void *);
 s32 init__5TOKeyFPv(void *);
 s32 TLobby__sub_8030A7B0();
@@ -169,7 +169,7 @@ u8 *TOCapsuleAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOCapsuleAncient01__data_805D58B8), u8 **, 0x42C), s32 *, 8);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOCapsuleAncient01__data_805D58B8), u8 **, 0x42C), s32 *, 0xC);
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804AFE88.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFE88.value), (int) (1));
     set_indexed_flags((void *) (arg0), (int) (0), (int) (0x1288));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));

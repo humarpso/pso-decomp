@@ -17,7 +17,7 @@ u16 get_part_count_plus__12TBoss8DragonFPvi(void *, s32);
 extern u8 *lbl_805D6978;
 u16 TBoss8Dragon__sub_802F3388(s32 arg0);
 f32 calc_random_ratio__10TObjPlayerFv(void *);
-void TAdSinglePlyChrSelectGC__sub_8007C48C(void *, s32);
+void subtractive_rng_seed(void *, s32);
 void init_single_player_chr_select__6TLobbyFPv(void *);
 s32 get_enemy_entity();
 void TBoss8Dragon__sub_802F3A48(void *, Vec_802F33C8 *, u16, s32, s32);
@@ -54,7 +54,7 @@ void TBoss8Dragon__sub_802F33C8(s32 n, s32 arg1, s32 arg2) {
     Ent_802F33C8 *e;
     init_single_player_chr_select__6TLobbyFPv(buf);
     if (n <= 5 && lbl_805D6978 != NULL) {
-        TAdSinglePlyChrSelectGC__sub_8007C48C(buf, arg2);
+        subtractive_rng_seed(buf, arg2);
         ang = (s32)(lbl_805DED40 * calc_random_ratio__10TObjPlayerFv(buf));
         step = 0x10000 / (n + 1);
         get_part_count_plus__12TBoss8DragonFPvi(lbl_805D6978, 0);

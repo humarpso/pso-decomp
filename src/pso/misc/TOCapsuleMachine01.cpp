@@ -45,7 +45,7 @@ extern s32 TOCapsuleMachine01__data_805D58C8;
 void TOCapsuleMachine01__sub_8015A6F0(void);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 s32 init_map_object_base(void *, int);
 extern RecoveredGlobal_8015A814_lbl_804AFF10 lbl_804AFF10;
 extern M2C_UNK __vt__18TOCapsuleMachine01[];
@@ -182,7 +182,7 @@ u8 *TOCapsuleMachine01__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB380;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB384;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804AFF10.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFF10.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     return arg0;

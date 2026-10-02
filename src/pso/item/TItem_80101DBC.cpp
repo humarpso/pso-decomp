@@ -13,12 +13,12 @@ extern "C" {
 void *csnVecterUnder(f32 *, M2C_UNK, f32);
 extern const f32 lbl_805DAA94;
 extern const f32 lbl_805DAA98;
-void TItem__sub_80101DBC(void *arg0);
+void snap_to_ground__5TItemFPv(void *arg0);
 }
 
 extern "C" {
 
-void TItem__sub_80101DBC(void *arg0) {
+void snap_to_ground__5TItemFPv(void *arg0) {
     Stack_80101DBC stack;
     void *temp_r3;
     stack.sp8 = M2C_FIELD(arg0, f32 *, 0x38);

@@ -1113,7 +1113,7 @@ struct Stack_802B9204_boss6_1 {
 
 extern "C" {
 u8 * TBoss6Type1__sub_802B96C0(s32 arg0, s32 arg1);
-M2C_UNK TObjPlayer__sub_800F5E08();
+M2C_UNK render_actor_shadows_default();
 extern const f32 lbl_805DE3D0;
 void render_shadows__11TBoss6Type1Fv(u8 *arg0);
 f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
@@ -1621,7 +1621,7 @@ void TBoss6Type1__sub_802B865C(Boss_802B865C *arg0, s32 arg1) {
 
 void render_shadows__11TBoss6Type1Fv(u8 *arg0) {
     if (M2C_FIELD(arg0, f32 *, 0x3C) >= lbl_805DE3D0) {
-        TObjPlayer__sub_800F5E08();
+        render_actor_shadows_default();
     }
 }
 

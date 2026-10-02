@@ -48,7 +48,7 @@ s32 check_trigger_flag__15TOTrapAncient01Fii(s32 arg0, s32 arg1) {
     }
     return 1;
 }
-s32 TOTrapAncient01__sub_80226578(s32 id, s32 a1, u32 src, s32 a3, s32 flags) {
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags) {
     s32 idx = -1;
     s32 i;
     s32 ok;

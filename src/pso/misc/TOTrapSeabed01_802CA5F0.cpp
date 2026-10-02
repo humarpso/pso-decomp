@@ -39,7 +39,7 @@ s32 TObjFish__sub_8001ED9C(int, int);
 s32 get_bml_model(int, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 s32 TOTrap__ct(void *);
 s32 TOTrapSeabed01__sub_802CA5F4(void *);
 extern RecoveredGlobal_802CA9AC_lbl_804E0FB8 lbl_804E0FB8;
@@ -171,7 +171,7 @@ u8 *TOTrapSeabed01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DE640;
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) TOTrapSeabed01__data_805DE644;
     TOTrapSeabed01__sub_802CA5F4((void *) (arg0));
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804E0FB8.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804E0FB8.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60040000);

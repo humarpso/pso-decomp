@@ -129,7 +129,7 @@ extern u32 *lbl_805D50CC;
 extern const f32 lbl_805D9BE8;
 extern const f32 lbl_805D9C1C;
 extern const f32 lbl_805D9C30;
-s32 TObjPlayer__sub_800ADEDC(u8 *arg0);
+s32 select_attack__11TObjEneMojaFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -239,7 +239,7 @@ void TObjPlayer__sub_800ADE48(Moja_800ADE48 *self) {
     self->f374 = 0;
 }
 
-s32 TObjPlayer__sub_800ADEDC(u8 *arg0) {
+s32 select_attack__11TObjEneMojaFPv(u8 *arg0) {
     s32 angd;
     s32 lim;
     s32 i;

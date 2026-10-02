@@ -54,7 +54,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 s32 draw_ginja_model(int);
 void TObjLaboDesignBase__sub_80364F18(s32 arg0, u8 *arg1);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
-M2C_UNK TObjEneGibbles__sub_80156780(void *, int, int);
+M2C_UNK init_collision_body_parts(void *, int, int);
 M2C_UNK TObjPlayer__sub_801569F4();
 s32 create__10TObjMapCsnFi(void *, f32, f32);
 void* fn_80365320(int a0);
@@ -247,7 +247,7 @@ u8 *TObjLaboDesignBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0xB0) = arg3;
     M2C_FIELD(arg0, s32 *, 0xAC) = ((s32)fn_80365334((int) (M2C_FIELD(arg0, s32 *, 0xB0))));
-    TObjEneGibbles__sub_80156780((void *) (arg0), (int) (((s32)fn_80365320((int) (M2C_FIELD(arg0, s32 *, 0xB0))))), (int) (1));
+    init_collision_body_parts((void *) (arg0), (int) (((s32)fn_80365320((int) (M2C_FIELD(arg0, s32 *, 0xB0))))), (int) (1));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) lbl_805E02A0;
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805E02A4;

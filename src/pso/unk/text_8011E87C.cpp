@@ -37,7 +37,7 @@ u32 TObjPlayer__sub_8011EA10(void *);
 M2C_UNK TObjPlayer__sub_80121228(void *, M2C_UNK);
 void *__ct__17TItemEffectWeaponFv(void *, u32, u32);
 void *alloc__13TItemProArmorFi(M2C_UNK);
-void TObjPlayer__sub_8011E950(Pl_8011E950 *arg0);
+void create_weapon_trail_effects(Pl_8011E950 *arg0);
 }
 
 extern "C" {
@@ -56,7 +56,7 @@ void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot) {
         }
     }
 }
-void TObjPlayer__sub_8011E950(Pl_8011E950 *arg0) {
+void create_weapon_trail_effects(Pl_8011E950 *arg0) {
     u32 flags;
     s32 i;
     flags = TObjPlayer__sub_8011EA10(arg0) & 0x8FFFFFFF;

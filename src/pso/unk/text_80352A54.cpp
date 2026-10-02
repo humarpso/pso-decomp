@@ -13,7 +13,7 @@ struct Stack_80352A54 {
 
 extern "C" {
 u16 TObjPlayer__sub_80100474(void *);
-s32 TItem__sub_801008F0(void *, void *);
+s32 replace_item_with_new_code(void *, void *);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 s32 get_item_flags__10TObjPlayerFPv(void *);
 void fn_80352A54(s32 arg0);
@@ -30,7 +30,7 @@ void fn_80352A54(s32 arg0) {
         stack.sp8 = 3;
         stack.sp9 = 0x17;
         stack.spA = TObjPlayer__sub_80100474((void *) (arg0));
-        TItem__sub_801008F0((void *) (&stack.sp8), (void *) (arg0));
+        replace_item_with_new_code((void *) (&stack.sp8), (void *) (arg0));
     }
 }
 

@@ -95,7 +95,7 @@ void TObjPlayer__sub_8012685C(s32 arg0);
 void spawn_particle_effect(void *, s32);
 void spawn_cane_effects__10TObjPlayerFiUiii(s32, void *, s32, s32);
 u8 get_slot_count__14TItemProShieldFPv(s32);
-s32 TObjPlayer__sub_8011F63C(void *);
+s32 get_attack_stage__11TItemWeaponFPv(void *);
 s32 has_valid_handle__10TObjPlayerFPv(void *);
 s16 TObjPlayer__sub_801D2EA8(void *);
 extern s32 lbl_804A2B50[];
@@ -126,7 +126,7 @@ void TItemWeaponFist::emit_marker_effects() {
   s32 index;
   if (get_slot_count__14TItemProShieldFPv((s32)(arg0)) == 3)
   {
-    if (TObjPlayer__sub_8011F63C(arg0) == 0)
+    if (get_attack_stage__11TItemWeaponFPv(arg0) == 0)
     {
       spawn_cane_effects__10TObjPlayerFiUiii(tl_05, arg0, -1, -2);
     }

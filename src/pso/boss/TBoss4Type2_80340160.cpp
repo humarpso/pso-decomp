@@ -11,7 +11,7 @@ int query_teammate_state__9TObjEneDDFPv(void *);
 s32 get_phase__8TObjFishFPv(void *);
 void advance_offset__11TBoss4Type2FPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 M2C_UNK fn_8033FE30(void *);
 M2C_UNK fn_8033FF78(void *);
 void TBoss4Type2__sub_80340180(u8 *arg0);
@@ -45,7 +45,7 @@ void TBoss4Type2__sub_80340180(u8 *arg0) {
             copy_pos__11TNowLoadingFPvPv(temp_r3, arg0 + 0x40);
         }
         fn_8033FF78((void *) (arg0));
-        TOTrapAncient01__sub_80226578((int) (0x4003A126), (void *) (arg0), (void *) (arg0 + 0x40), (int) (0), (int) (0));
+        play_persistent_sound((int) (0x4003A126), (void *) (arg0), (void *) (arg0 + 0x40), (int) (0), (int) (0));
         if (get_phase__8TObjFishFPv(M2C_FIELD(arg0, u8 **, 0x1C)) != 4) {
             queue_destruction__7TObjectFv(arg0);
         }

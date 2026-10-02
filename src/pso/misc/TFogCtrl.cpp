@@ -72,7 +72,7 @@ extern s32 lbl_805D53A4;
 extern const f32 TFogCtrl__data_805DA948;
 extern const f32 TFogCtrl__data_805DA94C;
 extern const f32 lbl_805DA954;
-void TFogCtrl__sub_800FB134(FogCtrl_800FB134 *self, s32 idx);
+void apply_slot_params__8TFogCtrlFPvi(FogCtrl_800FB134 *self, s32 idx);
 }
 
 extern "C" {
@@ -85,7 +85,7 @@ s32 get_param__8TFogCtrlFPv(void* p) { return *(s32*)((char*)p + 0x1c0); }
 
 #pragma push
 #pragma fp_contract on
-void TFogCtrl__sub_800FB134(FogCtrl_800FB134 *self, s32 idx) {
+void apply_slot_params__8TFogCtrlFPvi(FogCtrl_800FB134 *self, s32 idx) {
     FogRow_800FB134 *row = self->slots[idx];
     f32 t;
     self->color = row->color;

@@ -61,7 +61,7 @@ void* TObjPlayer__sub_8011CD48(int type, int id) {
     return NULL;
 }
 
-void* TObjPlayer__sub_8011CDA0(int i) {
+void* get_photon_color_record(int i) {
     if (i < 32) {
         return *(char**)((char*)item_pmt_tbl + 0x18) + i * 36;
     }

@@ -33,7 +33,7 @@ extern const f32 lbl_805DBA30;
 void render__17TOSymbolchatColliFv(u8 *arg0);
 void TObjPlayer__sub_80019038(void *);
 void reset_photon_effect__10TObjPlayerFPv(void *);
-void TObjEneGibbles__sub_80156780(void *, void *, int);
+void init_collision_body_parts(void *, void *, int);
 void TOSymbolchatColli__sub_8017873C(void *);
 extern u8 lbl_804B4550[];
 extern M2C_UNK __vt__17TOSymbolchatColli[];
@@ -163,7 +163,7 @@ Obj_80178AD4 *TOSymbolchatColli__ct(Obj_80178AD4 *arg0, void *arg1, s32 arg2) {
     *(u8 **)((u8 *)arg0 + 0x18) = ((u8 *)&__vt__17TOSymbolchatColli);
     *(s32 *)arg0 = lbl_805D3194;
     arg0->v5(arg2);
-    TObjEneGibbles__sub_80156780(arg0, lbl_804B4550, 1);
+    init_collision_body_parts(arg0, lbl_804B4550, 1);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     TOSymbolchatColli__sub_8017873C(arg0);
     for (i = 0; i < 4; i++) {

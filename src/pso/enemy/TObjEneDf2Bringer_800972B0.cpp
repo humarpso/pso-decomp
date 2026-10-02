@@ -259,7 +259,7 @@ extern "C" {
 
 void action__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1);
 u32 create_particle_emitter(void *, M2C_UNK);
-M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_persistent_sound(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK enable__13TParticleCtrlFPv(void *);
@@ -476,7 +476,7 @@ void action__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1) {
         }
         ((TObj *)arg0)->v100();
         ((TObj *)arg0)->v87();
-        TOTrapAncient01__sub_80226578(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003AD0F), arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003AD0F), arg0, arg0 + 0x38, 0, 0);
         return;
     case 5:
         if ((u32) M2C_FIELD(arg0, u32 *, 0x4C4) != 0U) {

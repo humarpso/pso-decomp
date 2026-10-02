@@ -178,7 +178,7 @@ extern "C" {
 void update_item_data__5TItemFPv(void *arg0);
 void TItem__sub_801013E8(void *arg0);
 void TItemData__sub_8010CC68(void *);
-void TItemData__sub_8010DF68(void *);
+void is_rare_item__9TItemDataFPv(void *);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 
 void update_item_data__5TItemFPv(void *arg0) {
@@ -192,7 +192,7 @@ void TItem__sub_801013E8(void *arg0) {
     M2C_UNK sp8[4];
 
     copy_to_item_data__5TItemFPvPv(arg0, &sp8);
-    TItemData__sub_8010DF68(&sp8);
+    is_rare_item__9TItemDataFPv(&sp8);
 }
 
 }

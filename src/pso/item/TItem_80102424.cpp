@@ -150,7 +150,7 @@ s32 get_current_floor(void);
 void spawn_particle_effect(void *, s32);
 void set_mode__5TItemFPvc(void *, s32);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
-void TItem__sub_80101DBC(void *, f32);
+void snap_to_ground__5TItemFPv(void *, f32);
 s32 is_active_battle_player__10TObjPlayerFv(void);
 void TLobby__sub_8011AED8(s16, s16, void *, f32, f32);
 void refresh_collision_body_centers(void *);
@@ -160,7 +160,7 @@ extern void *tl_05;
 extern s32 lbl_805D543C;
 extern const f32 lbl_805DAA9C;
 extern const f32 lbl_805DAAA0;
-void TItem__sub_80102424(TItem_80102424 *self, s16 client, f32 *pos, s32 quiet);
+void place_on_ground__5TItemFPvsPvi(TItem_80102424 *self, s16 client, f32 *pos, s32 quiet);
 }
 
 extern "C" {
@@ -168,7 +168,7 @@ extern "C" {
 typedef char RecoveredGlobal_8010255C_lbl_8050BEC0_size[sizeof(RecoveredGlobal_8010255C_lbl_8050BEC0) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_8010255C_lbl_8058D4C0_size[sizeof(RecoveredGlobal_8010255C_lbl_8058D4C0) == 0x10 ? 1 : -1];
 
-void TItem__sub_80102424(TItem_80102424 *self, s16 client, f32 *pos, s32 quiet) {
+void place_on_ground__5TItemFPvsPvi(TItem_80102424 *self, s16 client, f32 *pos, s32 quiet) {
     ItemData_80102424 data;
     f32 r;
     set_parent__7TObjectFP7TObject(self, tl_05);
@@ -187,7 +187,7 @@ void TItem__sub_80102424(TItem_80102424 *self, s16 client, f32 *pos, s32 quiet) 
     self->f64 = 0;
     r = lbl_805DAAA0 * (f32)rand();
     self->f60 = (s32)(lbl_805DAA9C * r);
-    TItem__sub_80101DBC(self, r);
+    snap_to_ground__5TItemFPv(self, r);
     refresh_collision_body_centers(self);
     if (lbl_805D543C != 0) {
         spawn_particle_effect(&self->x, 0x9B);

@@ -122,13 +122,13 @@ struct Obj_8018990C { u8 pad[0x38]; f32 x, y, z; u8 pad44[0x326 - 0x44]; s16 f32
 
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TLobby__sub_8010567C(void *, void *, int);
+M2C_UNK request_box_item_drop(void *, void *, int);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
 void TObjContainerItem__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 s32 fn_8018A150(void *, void *, void *);
 s32 get_container_param(int);
 extern RecoveredGlobal_801897A4_lbl_804B63BC lbl_804B63BC;
@@ -219,7 +219,7 @@ u8 *TObjContainerEnemy__ct(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x34) = get_container_param((int) (1));
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B63BC.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B63BC.value), (int) (1));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x38));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
@@ -231,7 +231,7 @@ void TObjContainerItem__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             ((VObj18 *) arg0)->m77();
-            TLobby__sub_8010567C((void *) (arg0), (void *) (arg0 + 0x38), (int) (1));
+            request_box_item_drop((void *) (arg0), (void *) (arg0 + 0x38), (int) (1));
             clear_player_status_flag__10TObjPlayerFPviUi((void *) (arg0), (int) (0), (int) (1));
             set_flag8__6TLobbyFPv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));

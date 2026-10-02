@@ -53,7 +53,7 @@ u8 is_valid_target__9TObjEneDDFPv(void *arg0);
 int TObjEneDD__sub_800BA6B8(void* p);
 int TObjEneDD__sub_800BA6C4(void* p);
 int TObjEneDD__sub_800BA934(void* a0 = 0);
-int TObjEneGibbles__sub_80156780(void*);
+int init_collision_body_parts(void*);
 M2C_UNK check_enemy_body_collisions(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);

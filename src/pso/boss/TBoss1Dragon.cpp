@@ -1341,7 +1341,7 @@ void update_position_history__12TBoss1DragonFi(s32 arg0);
 void check_death__12TBoss1DragonFPv(void *arg0);
 void choose_next_action__12TBoss1DragonFPv(void *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK TObjEneDD__sub_800B9BEC(void *, void *, f32);
+M2C_UNK project_sound_origin_from_camera(void *, void *, f32);
 s32 query_teammate_state__9TObjEneDDFPv();
 s32 update_lobby_state__9TObjEneDDFPv(void *);
 s32 is_main_phase_15__9TObjEneDDFv();
@@ -1686,7 +1686,7 @@ void spawn_trap__12TBoss1DragonFii(s32 arg0, s32 arg1);
 void play_se_at_pos__12TBoss1DragonFii(s32 arg0, s32 arg1);
 M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
-M2C_UNK TOTrapAncient01__sub_80226578(s32, s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK play_persistent_sound(s32, s32, s32, M2C_UNK, M2C_UNK);
 void bswap_dragon_boss_fields__10TObjPlayerFPv(void *);
 void bswap_stats__10TObjPlayerFPv(void *);
 void calc_target_vector__12TBoss1DragonFPv(u8 *arg0);
@@ -1964,7 +1964,7 @@ void TBoss1Dragon::handleFallState(u32 reason) {
 
 extern "C" {
 
-void TBoss1Dragon__sub_80020A54(u8 *arg0) {
+void render_shadows__12TBoss1DragonFPv(u8 *arg0) {
     s32 temp_r31;
     s32 var_r31;
     u8 *temp_r3;
@@ -3970,7 +3970,7 @@ void TBoss1Dragon__sub_80028BE0(u8 *arg0) {
 }
 
 void spawn_trap__12TBoss1DragonFii(s32 arg0, s32 arg1) {
-    TOTrapAncient01__sub_80226578(arg1, arg0, arg0 + 0x63C, 0, 0);
+    play_persistent_sound(arg1, arg0, arg0 + 0x63C, 0, 0);
 }
 
 void play_se_at_pos__12TBoss1DragonFii(s32 arg0, s32 arg1) {
@@ -4533,7 +4533,7 @@ void run_task__12TBoss1DragonFPv(u8 *arg0) {
     if (temp_r30_2 == 0) {
         run_tasks__7TObjectFv((void *) (arg0 + 0x3C4));
     }
-    TObjEneDD__sub_800B9BEC((void *) (arg0 + 0x38), (void *) (arg0 + 0x63C), (f32) (lbl_805D80C0));
+    project_sound_origin_from_camera((void *) (arg0 + 0x38), (void *) (arg0 + 0x63C), (f32) (lbl_805D80C0));
 }
 #pragma pop
 

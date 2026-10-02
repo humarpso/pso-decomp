@@ -376,7 +376,7 @@ void init_common_from__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1);
 void init_position_vectors__9TObjEneDDFPv(u8 *arg0);
 void invoke_initialization_hook__9TObjEneDDFPv(void *arg0);
 void set_field_378__9TObjEneDDFPvi(void* p, s32 v);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8007C48C(void *, int);
+M2C_UNK subtractive_rng_seed(void *, int);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK call_vt78__10TObjPlayerFPv();
 int fn_800FD8A0(void*);
@@ -388,7 +388,7 @@ void init_common_from__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1) {
     TObjEneDD__sub_800BB88C((Obj_800BB88C *)(arg0));
     M2C_FIELD(arg0, s16 *, 0x28) = (s16) M2C_FIELD(arg1, s16 *, 0x28);
     M2C_FIELD(arg0, s16 *, 0x2A) = (s16) M2C_FIELD(arg1, s16 *, 0x2A);
-    TAdSinglePlyChrSelectGC__sub_8007C48C((void *) (arg0 + 0x160), (int) (M2C_FIELD(arg0, u16 *, 0x1C) + lbl_805D5328));
+    subtractive_rng_seed((void *) (arg0 + 0x160), (int) (M2C_FIELD(arg0, u16 *, 0x1C) + lbl_805D5328));
 }
 
 int get_target_info__9TObjEneDDFPv(void* p) { return fn_800FD8A0(p); }

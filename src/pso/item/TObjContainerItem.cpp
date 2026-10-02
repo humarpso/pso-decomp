@@ -17,7 +17,7 @@ struct RecoveredGlobal_80189BE0___vt__17TObjContainerItem {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 s32 fn_8018A150(void *, void *, void *);
 s32 get_container_param(int);
 extern RecoveredGlobal_80189BE0_lbl_804B63BC lbl_804B63BC;
@@ -35,7 +35,7 @@ void TObjContainerItem__vt78(void *arg0);
 void *__dt__17TObjContainerItemFv(void *arg0, s16 arg1);
 void *create__17TObjContainerItemFPv(void *arg0);
 void spawn_item__17TObjContainerItemFPvi(u8 *arg0, s32 arg1);
-M2C_UNK TLobby__sub_8010567C(s32, void *, s32, void *);
+M2C_UNK request_box_item_drop(s32, void *, s32, void *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
@@ -91,7 +91,7 @@ u8 *TObjContainerItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x34) = get_container_param((int) (1));
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B63BC.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B63BC.value), (int) (1));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x38));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
@@ -100,7 +100,7 @@ u8 *TObjContainerItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
 }
 
 void spawn_item__17TObjContainerItemFPvi(u8 *arg0, s32 arg1) {
-    TLobby__sub_8010567C(arg1, arg0 + 0x38, M2C_FIELD(arg0, s32 *, 0x360), arg0);
+    request_box_item_drop(arg1, arg0 + 0x38, M2C_FIELD(arg0, s32 *, 0x360), arg0);
 }
 void TBoss3Volopt__sub_80189CC0(s32 arg0) {
     u32 temp_r3;

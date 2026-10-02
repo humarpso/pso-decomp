@@ -95,7 +95,7 @@ s32 calc_attach_pos__10TObjPlayerFPv(void *);
 s32 obj_setFlags30(void *, int);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_collision_body_parts(void *, void *, int);
 void init_params__15TOAttackableColFPv(void *arg0);
 extern RecoveredGlobal_80157AD8_lbl_804AF9A8 lbl_804AF9A8;
 extern M2C_UNK __vt__15TOAttackableCol[];
@@ -369,7 +369,7 @@ u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1) {
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
     calc_attach_pos__10TObjPlayerFPv((void *) (arg0));
     obj_setFlags30((void *) (arg0), (int) (0x60000000));
-    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804AF9A8.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AF9A8.value), (int) (1));
     set_indexed_flags((void *)((void *) (arg0)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0x718)));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, s16 *, 0x326) = 0;

@@ -32,12 +32,12 @@ struct RecoveredGlobal_802C8910_lbl_804E0CC0 {
 
 extern "C" {
 void set_damage__20TOTrapChainSawDamageFPvi(void *, void *);
-M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, int, int);
+M2C_UNK play_persistent_sound(M2C_UNK, void *, void *, int, int);
 M2C_UNK TOTrapChainSawKey__sub_802C8F68(void *, int);
 M2C_UNK TOTrapChainSawDamage__sub_802C9C00(void *, int);
 void TOTrapChainSawDamage__vt25(u8 *arg0);
 M2C_UNK TOTrapChainSaw__ct();
-M2C_UNK TObjEneGibbles__sub_80156780(void *, int, int);
+M2C_UNK init_collision_body_parts(void *, int, int);
 M2C_UNK refresh_collision_body_centers(void *);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 extern M2C_UNK __vt__17TOTrapChainSawKey[];
@@ -106,7 +106,7 @@ u8 *TOTrapChainSawKey__ct(u8 *arg0, void * _w1, void * _w2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3F08;
     ((VObj_18_373ea7 *)(arg0))->m13();
     ((VObj_18_373ea7 *)(arg0))->m14();
-    TObjEneGibbles__sub_80156780((void *) (arg0), (int) ((u8 *)(&lbl_804E0CC0.value) + (M2C_FIELD(arg0, s32 *, 0xF8) * 0x58)), (int) (2));
+    init_collision_body_parts((void *) (arg0), (int) ((u8 *)(&lbl_804E0CC0.value) + (M2C_FIELD(arg0, s32 *, 0xF8) * 0x58)), (int) (2));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     return arg0;
@@ -132,7 +132,7 @@ void TOTrapChainSawDamage__vt25(u8 *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x100) == 0xA) && ((p = M2C_FIELD(arg0, void **, 0x108)) != NULL)) {
         TOTrapChainSawDamage__sub_802C9C00(p, (int) (1));
     }
-    TOTrapAncient01__sub_80226578(TOTrapChainSawKey__sub_802C8F68((void *) (arg0), (int) (0)), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_persistent_sound(TOTrapChainSawKey__sub_802C8F68((void *) (arg0), (int) (0)), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
 }
 #pragma pop
 

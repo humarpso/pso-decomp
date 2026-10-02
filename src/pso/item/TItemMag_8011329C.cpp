@@ -113,8 +113,8 @@ s16 obj_getS16_32C(void *);
 s32 TObjPlayer__sub_8001BEF8(void *, int);
 s32 get_flag_40__8TItemMagFPv(void *);
 M2C_UNK register_photon_blasts__8TItemMagFPv(void *);
-M2C_UNK TItemMag__sub_80112E20(void *, int);
-s32 TItemMag__sub_80113EC8(void *);
+M2C_UNK request_support_action__8TItemMagFPvi(void *, int);
+s32 obj_isState7_324(void *);
 s16 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK play_sound_effect(int, void *, int, int);
 void TItemMag__vt42(u8 *arg0);
@@ -156,7 +156,7 @@ s32 TObjPlayer__sub_803D9B2C();
 s32 pop_matrix();
 extern const f32 TItemMag__data_805DABA8;
 void TItemMag__vt25(Self_801134CC *self);
-s32 TItemEquipBase__sub_8010A78C(void *);
+s32 bind_loaded_resources__14TItemEquipBaseFPv(void *);
 int TItemMag__sub_80110F04(void*);
 void feed_by_item_flags__8TItemMagFPvc(void *, s8);
 void TItemMag__sub_8011271C(void *);
@@ -263,7 +263,7 @@ void update__8TItemMagFPv(void *arg0) {
 void TItemMag__vt14(Self_80113310 *self) {
     s8 events;
     TItemMag__sub_80110F04((void*)(self));
-    TItemEquipBase__sub_8010A78C(self);
+    bind_loaded_resources__14TItemEquipBaseFPv(self);
     if (self->f18C & 0x20) {
         return;
     }
@@ -408,7 +408,7 @@ void TItemMag__vt42(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x18C) = 0x10;
         register_photon_blasts__8TItemMagFPv((void *) (arg0));
     }
-    TItemMag__sub_80112E20((void *) (arg0), (int) (1));
+    request_support_action__8TItemMagFPvi((void *) (arg0), (int) (1));
     temp_r3 = M2C_FIELD(arg0, u8 **, 0xF0);
     M2C_FIELD(arg0, s16 *, 0x1D4) = ((VObj_18 *)(temp_r3))->m14();
     if ((s16) M2C_FIELD(arg0, s16 *, 0x1D6) == -1) {
@@ -421,7 +421,7 @@ void TItemMag__vt42(u8 *arg0) {
     } else {
         M2C_FIELD(arg0, s32 *, 0x18C) = (s32) (M2C_FIELD(arg0, s32 *, 0x18C) | 0x20);
     }
-    if ((get_flag_40__8TItemMagFPv((void *) (arg0)) == 0) && (TItemMag__sub_80113EC8((void *) (M2C_FIELD(arg0, u8 **, 0xF0))) == 0)) {
+    if ((get_flag_40__8TItemMagFPv((void *) (arg0)) == 0) && (obj_isState7_324((void *) (M2C_FIELD(arg0, u8 **, 0xF0))) == 0)) {
         play_sound_effect((int) (0x4000B20A), (void *) (M2C_FIELD(arg0, u8 **, 0xF0) + 0x38), (int) (0), (int) (0));
     }
 }
