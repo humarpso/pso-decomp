@@ -4,6 +4,28 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Ent_8033CB4C
+{
+  s32 a;
+  s32 b;
+  s32 c;
+};
+
+struct Fish_8033CB4C
+{
+  s32 x0;
+  u8 pad4[0x18 - 4];
+  const M2C_UNK *vt;
+  Ent_8033CB4C tbl[2];
+  f32 x34;
+  s32 x38;
+  s32 x3C;
+  u8 x40[0x54 - 0x40];
+  u8 x54[0x60 - 0x54];
+  s32 x60;
+  s32 x64;
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK request_destroy__11TBoss4Type2FUi(void *);
@@ -17,6 +39,27 @@ s32 get_phase__8TObjFishFPv(int);
 extern const f32 lbl_805DFA48;
 extern const f32 lbl_805DFA4C;
 void TBoss4Type2__sub_8033C86C(u8 *arg0);
+s32 TObjFish__sub_8001ED9C(s32, s32);
+s32 TObjFish__sub_8001EDB0(s32, s32);
+s32 TObjFish__sub_8001EDC4(s32, s32);
+int TCameraCtrl__sub_80069E7C(int);
+int set_scripted_camera_pose(void *, void *, void *);
+int cache_target_and_forward__11TCameraCtrlFii(void *, int);
+s32 TObjFish__sub_800E3124(void *, void *);
+int __ct__7TObjectFP7TObject(void *, void *);
+int TBoss6PlotFalz__sub_802AC2D8(void *, void *, int);
+s32 get_fish_count__8TObjFishFv();
+extern M2C_UNK lbl_80477DEC[];
+extern M2C_UNK lbl_80477DF8[];
+extern M2C_UNK lbl_80477E18[];
+extern M2C_UNK lbl_80477E30[];
+extern M2C_UNK lbl_80477E3C[];
+extern s32 lbl_804DF614[];
+extern s32 lbl_804EF9B8[];
+extern const M2C_UNK lbl_804EF9C0[];
+extern s32 lbl_805D4298;
+extern const f32 lbl_805DFA50;
+Fish_8033CB4C *TObjFish__sub_8033CB4C(Fish_8033CB4C *self, void *parent);
 }
 
 extern "C" {
@@ -31,7 +74,6 @@ M2C_UNK TCameraCtrl__sub_80069DA8();
 M2C_UNK TOHangerMachine01__sub_803D9C00(M2C_UNK *);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
 M2C_UNK TObjFish__sub_800E3074(s32);
-void *TObjFish__sub_8033CB4C(void *, void *);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -164,10 +206,43 @@ u8 *TObjFish__sub_8033CAB0(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
+#pragma push
+#pragma opt_common_subs off
+typedef struct Ent_8033CB4C Ent_8033CB4C;
+typedef struct Fish_8033CB4C Fish_8033CB4C;
+Fish_8033CB4C *TObjFish__sub_8033CB4C(Fish_8033CB4C *self, void *parent) {
+  s32 k;
+  s32 n;
+  s32 i;
+  __ct__7TObjectFP7TObject(self, parent);
+  self->vt = lbl_804EF9C0;
+  self->x0 = lbl_805D4298;
+  self->x3C = (s32) parent;
+  n = get_fish_count__8TObjFishFv();
+  for (i = 0; i < 2; i++)
+  {
+    k = lbl_804DF614[i];
+    k = k & 0xFFFFFFFFu;
+    self->tbl[i].a = TObjFish__sub_8001EDC4(n, k);
+    self->tbl[i].b = TObjFish__sub_8001EDB0(n, k);
+    self->tbl[i].c = TObjFish__sub_8001ED9C(n, lbl_804EF9B8[i]);
+  }
+  self->x60 = TObjFish__sub_800E3124(lbl_80477DF8, self->x54);
+  self->x64 = 0;
+  TBoss6PlotFalz__sub_802AC2D8(self->x40, lbl_80477E18, 2);
+  TCameraCtrl__sub_80069E7C(5);
+  set_scripted_camera_pose(lbl_80477DEC, lbl_80477DEC, lbl_80477E30);
+  cache_target_and_forward__11TCameraCtrlFii(lbl_80477E3C, 0x416C);
+  self->x34 = lbl_805DFA50;
+  self->x38 = 0;
+  return self;
+}
+#pragma pop
+
 void *create_instance__8TObjFishFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x68);
     if (o != NULL) {
-        o = TObjFish__sub_8033CB4C(o, arg0);
+        o = TObjFish__sub_8033CB4C((Fish_8033CB4C *)(o), (void *)(arg0));
     }
     return o;
 }

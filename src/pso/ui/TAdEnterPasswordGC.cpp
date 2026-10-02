@@ -33,6 +33,18 @@ struct O_8032BC1C { u8 pad[0x20]; VObj_8032BC1C *items[1]; };
 
 struct O2_8032BC1C { u8 pad[0x80]; s32 n; };
 
+struct Pw_8032B6A0
+{
+  u8 pad0[0x20];
+  s32 f20;
+  u8 pad24[0x2C - 0x24];
+  u32 serial;
+  u8 pad30[0x38 - 0x30];
+  s32 f38;
+  s32 f3C;
+  s32 len;
+};
+
 extern "C" {
 void TAdEnterPasswordGC__sub_8032BC94(u8 *arg0, s32 arg1);
 void queue_destruction__7TObjectFv(void *);
@@ -73,6 +85,31 @@ void render__18TAdEnterPasswordGCFv(void *self);
 void TAdEnterPasswordGC__sub_8032BBF0(T_8032BBF0 *self);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void TAdEnterPasswordGC__sub_8032BC1C(O_8032BC1C *arg0);
+s32 realloc_buffer__17TWindowSubComCardFPv(void *);
+s32 update_keyboard__17TWindowSubComCardFPv(void *);
+s32 get_selected_slot__23TAdSinglePlyChrSelectGCFPv(u32);
+void free__11TOBoss4RockFUi(s32);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
+s32 TWindowShortListCtrl__check_controller_button(void *, int);
+void free_menu_object(void *);
+s32 get_field_118__22TAdEnterSerialAccessGCFv(void);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
+M2C_UNK TAdEnterSerialAccessGC__sub_802AEBA8(void *);
+M2C_UNK TLevelSelect__sub_802AEBE4(int, void *);
+M2C_UNK set_active__22TAdEnterSerialAccessGCFPv(int);
+void TAdEnterSerialAccessGC__sub_80322418(s32, int);
+void set_state_3__22TAdEnterSerialAccessGCFPv(u32);
+s32 forward_input__22TAdEnterSerialAccessGCFPv(void *, int, s32);
+void strncpy(s32, s32, s32);
+M2C_UNK memset(void *, int, int);
+s32 strlen(s32);
+extern RecoveredGlobal_8032B904_lbl_80477278 lbl_80477278;
+extern RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__data_804EDA20;
+extern u8 lbl_8050E208[];
+extern u8 lbl_8050E3B8[];
+extern u8 *lbl_805D6CA0;
+extern s32 lbl_805D6CA4;
+void TAdEnterPasswordGC__sub_8032B6A0(Pw_8032B6A0 *self);
 }
 
 extern "C" {
@@ -121,6 +158,89 @@ int set_multi_chg_game_mode_0x14__18TAdEnterPasswordGCFPv(void* p) { return set_
 int request_transition__18TAdEnterPasswordGCFPv(void* p) { return request_transition__21TAdMultiChgGameModeGCFv(p); }
 
 extern M2C_UNK __vt__18TAdEnterPasswordGC[];
+
+typedef struct Pw_8032B6A0 Pw_8032B6A0;
+typedef struct RecoveredGlobal_8032B904_lbl_80477278 RecoveredGlobal_8032B904_lbl_80477278;
+typedef struct RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20;
+void TAdEnterPasswordGC__sub_8032B6A0(Pw_8032B6A0 *self) {
+  s32 buf = realloc_buffer__17TWindowSubComCardFPv(lbl_805D6CA0);
+  s32 prev;
+  int cur;
+  if (((self->len == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E3B8 + 0x20, 2) != 0)) || ((self->len == 0) && (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208 + 0x160, 2) != 0)))
+  {
+    free__11TOBoss4RockFUi(buf);
+    memset(&TAdEnterPasswordGC__data_804EDA20.value, 0, 9);
+    self->f20 = 2;
+    lbl_805D6CA4 = 4;
+    return;
+  }
+  self->f3C = self->f38;
+  if (lbl_805D6CA0 != 0)
+  {
+    if (update_keyboard__17TWindowSubComCardFPv(lbl_805D6CA0) != 0)
+    {
+      if ((TWindowShortListCtrl__check_controller_button(lbl_8050E3B8 + 0x20, 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208 + 0x160, 2) != 0))
+      {
+        free_menu_object(lbl_805D6CA0);
+        self->f38 = 0;
+        if (self->serial != 0)
+        {
+          set_active__22TAdEnterSerialAccessGCFPv(self->serial);
+        }
+      }
+      else
+        if (forward_input__22TAdEnterSerialAccessGCFPv(self, 2, buf) == 0)
+      {
+        free_menu_object(lbl_805D6CA0);
+        TBoss3Volopt__sub_8022675C(0x53F06, 0, 0, 0);
+      }
+      else
+      {
+        self->f38 = 1;
+        if (self->serial != 0)
+        {
+          set_state_3__22TAdEnterSerialAccessGCFPv(self->serial);
+        }
+      }
+    }
+    else
+    {
+      self->f38 = 0;
+      if (self->serial != 0)
+      {
+        set_active__22TAdEnterSerialAccessGCFPv(self->serial);
+      }
+    }
+  }
+  prev = self->f3C;
+  cur = self->f38;
+  if (prev != cur)
+  {
+    if (cur != 0)
+    {
+      if (self->serial != 0)
+      {
+        TAdEnterSerialAccessGC__sub_802AEBA8((void *) self->serial);
+        TLevelSelect__sub_802AEBE4(self->serial, ((u8 *) (&lbl_80477278.value)) + 8);
+      }
+    }
+    else
+      if (self->serial != 0)
+    {
+      TAdEnterSerialAccessGC__sub_802AEBA8((void *) self->serial);
+      TLevelSelect__sub_802AEBE4(self->serial, &lbl_80477278.value);
+    }
+  }
+  if ((get_selected_slot__23TAdSinglePlyChrSelectGCFPv(self->serial) == 1) && (update_keyboard__17TWindowSubComCardFPv(lbl_805D6CA0) != 0))
+  {
+    strncpy((s32) (&TAdEnterPasswordGC__data_804EDA20.value), buf, 9);
+    TAdEnterSerialAccessGC__sub_80322418(get_field_118__22TAdEnterSerialAccessGCFv(), 2);
+    self->f20 = 3;
+    lbl_805D6CA4 = 4;
+  }
+  self->len = strlen(buf);
+  free__11TOBoss4RockFUi(buf);
+}
 
 void TAdEnterPasswordGC__sub_8032B904(s32 arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = TAdEnterSerialAccessGC__sub_8032AE54(arg0, 2);

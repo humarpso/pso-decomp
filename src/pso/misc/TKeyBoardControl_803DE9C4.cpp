@@ -13,6 +13,39 @@ struct Ent_803DEBC8 { u32 mask; u32 val; };
 
 struct V4_803DECFC { f32 a, b, c, d; };
 
+typedef struct Pad_803DEA18
+{
+  u16 button;
+  s8 stickX;
+  s8 stickY;
+  s8 substickX;
+  s8 substickY;
+  u8 triggerL;
+  u8 triggerR;
+  u8 analogA;
+  u8 analogB;
+  s8 err;
+  u8 pad;
+} Pad_803DEA18;
+
+typedef struct Out_803DEA18
+{
+  s32 f0;
+  s32 f4;
+  s32 held;
+  s32 notHeld;
+  s32 pressed;
+  s32 released;
+  s16 trigR;
+  s16 trigL;
+  s16 stickX;
+  s16 stickY;
+  s16 substickX;
+  s16 substickY;
+  u8 unk24[0xC];
+  s32 *conn;
+} Out_803DEA18;
+
 extern "C" {
 extern RecoveredGlobal_803DEB74_lbl_8058D8E0 lbl_8058D8E0;
 u8 *TKeyBoardControl__sub_803DEB74(u32 arg0);
@@ -46,6 +79,16 @@ extern u32 lbl_805D7774;
 void PSMTXIdentity(void *);
 void move_data__6TLobbyFv(u32, void *, s32);
 void TObjPlayer__sub_803DEC98(s32 arg0, s32 arg1);
+extern RecoveredGlobal_803DEB74_lbl_8058D8E0 lbl_8058D8E0;
+s16 TKeyBoardControl__sub_803DEC10(s16 x);
+M2C_UNK Dolphin_PADRead(void *, void *);
+extern M2C_UNK lbl_8058D880[];
+extern Pad_803DEA18 lbl_8058D8B0[4];
+s32 TKeyBoardControl__sub_803DEBC8(u16 arg0);
+void clamp_axes__16TKeyBoardControlFPv(u8 *arg0);
+void *memmove(void *, const void *, u32);
+M2C_UNK PADReset(u32);
+void TKeyBoardControl__sub_803DEA18(void);
 }
 
 extern "C" {
@@ -64,6 +107,55 @@ void TKeyBoardControl__sub_803DE9C4(void) {
     M2C_FIELD(((M2C_UNK *)&lbl_8058D8E0), u8 **, 0xCC) = (unsigned char *) ((void *) ((u8 *)lbl_8058D9B0 + 0x168));
     Dolphin_PADRead((void *) (lbl_8058D880), (void *) (lbl_8058D9B0));
 }
+
+typedef struct Out_803DEA18 Out_803DEA18;
+typedef struct Pad_803DEA18 Pad_803DEA18;
+typedef struct RecoveredGlobal_803DEB74_lbl_8058D8E0 RecoveredGlobal_803DEB74_lbl_8058D8E0;
+#pragma push
+#pragma use_lmw_stmw off
+void TKeyBoardControl__sub_803DEA18(void) {
+  u32 diff;
+  unsigned short new_var;
+  Pad_803DEA18 *pad;
+  Pad_803DEA18 *old;
+  Out_803DEA18 *out;
+  int i;
+  u16 cur;
+  u16 released;
+  u16 prev;
+  memmove(lbl_8058D8B0, lbl_8058D880, 0x30);
+  ((M2C_UNK (*)(void *)) Dolphin_PADRead)(lbl_8058D880);
+  for (i = 0; i < 4; i++)
+  {
+    pad = &((Pad_803DEA18 *) lbl_8058D880)[i];
+    old = &lbl_8058D8B0[i];
+    out = &((Out_803DEA18 *) (&lbl_8058D8E0))[i];
+    if (pad->err == 0)
+    {
+      clamp_axes__16TKeyBoardControlFPv((u8 *) pad);
+      diff = old->button ^ (new_var = pad->button);
+      cur = new_var;
+      released = old->button & diff;
+      out->held = TKeyBoardControl__sub_803DEBC8(cur);
+      out->notHeld = ~out->held;
+      out->pressed = TKeyBoardControl__sub_803DEBC8(cur & diff);
+      out->released = TKeyBoardControl__sub_803DEBC8(released);
+      out->stickX = TKeyBoardControl__sub_803DEC10(pad->stickX);
+      out->stickY = -TKeyBoardControl__sub_803DEC10(pad->stickY);
+      out->substickX = pad->substickX;
+      out->substickY = pad->substickY;
+      out->trigL = pad->triggerL;
+      out->trigR = pad->triggerR;
+      *out->conn = 0x101;
+    }
+    else
+    {
+      *out->conn = 0;
+      PADReset(0x80000000U >> i);
+    }
+  }
+}
+#pragma pop
 
 u8 *TKeyBoardControl__sub_803DEB74(u32 arg0) {
     s32 var_r5;

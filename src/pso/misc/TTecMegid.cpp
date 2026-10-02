@@ -197,6 +197,47 @@ struct Obj_80235740 {
     void **emitters;
 };
 
+struct Row_802351B4
+{
+  u32 entry;
+  u32 flags;
+  f32 scale;
+};
+
+struct Data_802351B4
+{
+  Row_802351B4 *rows;
+  u32 count;
+};
+
+struct Vec_802351B4
+{
+  f32 x;
+  f32 y;
+  f32 z;
+};
+
+struct Arg_802351B4
+{
+  s32 a;
+  s32 b;
+  s32 c;
+};
+
+struct Obj_802351B4
+{
+  u8 pad0[0x20];
+  Vec_802351B4 pos;
+  u8 pad2c[0x54 - 0x2C];
+  s32 f54;
+  s32 f58;
+  s32 f5c;
+  u8 pad60[0xC6 - 0x60];
+  s16 band;
+  u8 padc8[0x130 - 0xC8];
+  void **emitters;
+};
+
 extern "C" {
 s32 TTecCtrl__sub_8022DBC4(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
@@ -213,7 +254,6 @@ extern void *__vt__9TTecMegid[];
 TTecGiBarta_80230B48 *__dt__9TTecMegidFv(TTecGiBarta_80230B48 *self, s16 deleting);
 u16 obj_getField1c(void *);
 void update_by_state__9TTecMegidFPv(u8 *arg0);
-void TTecMegid__sub_802351B4(void *);
 void TTecMegid__sub_80235348(u8 *arg0);
 void TObjPlayer__sub_8023A7B4();
 extern void *__vt__9TTecMegid[];
@@ -222,7 +262,6 @@ extern const f32 lbl_805DC884;
 u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
 u16 obj_getField1c(void *);
 void update_by_state__9TTecMegidFPv(u8 *arg0);
-void TTecMegid__sub_802351B4(void *);
 void TTecMegid__sub_80235348(u8 *arg0);
 void TObjPlayer__sub_8023AA4C();
 extern void *__vt__9TTecMegid[];
@@ -249,6 +288,17 @@ void TObjPlayer__sub_8023A148(Obj_80235740 *, s32);
 extern Vec_80235740 lbl_8044D8B0;
 extern u8 lbl_8058D490[];
 void run_task__9TTecMegidFv(Obj_80235740 *self);
+void *TObjFish__sub_8001EDC4(s32, u32);
+M2C_UNK TObjFish__sub_800660D4(void *, void *, s32, int, int, f32);
+M2C_UNK set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
+void *TObjParticle__sub_800870BC(void *, void *, u32, u16);
+void *TBoss8Dragon__sub_8008741C(void *, u32, u16);
+void **alloc_buffer__11TOBoss4RockFPv(u32, s32);
+extern TTecGiBartaData_80230B48 TTecMegid__data_8044D874[];
+extern s32 lbl_805D63AC;
+extern s32 lbl_805D63B0;
+extern const f32 lbl_805DC880;
+void TTecMegid__sub_802351B4(void *arg0);
 }
 
 extern "C" {
@@ -304,6 +354,59 @@ typedef struct RecoveredGlobal_80235348_lbl_804CC510 RecoveredGlobal_80235348_lb
 typedef struct RecoveredGlobal_80235348_lbl_804CC55C RecoveredGlobal_80235348_lbl_804CC55C;
 typedef char RecoveredGlobal_80235348_lbl_804CC510_size[((sizeof(RecoveredGlobal_80235348_lbl_804CC510)) == 0x4C) ? (1) : (-1)];
 typedef char RecoveredGlobal_80235348_lbl_804CC55C_size[((sizeof(RecoveredGlobal_80235348_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
+
+typedef struct Arg_802351B4 Arg_802351B4;
+typedef struct Data_802351B4 Data_802351B4;
+typedef struct Obj_802351B4 Obj_802351B4;
+typedef struct Row_802351B4 Row_802351B4;
+typedef struct TTecGiBartaData_80230B48 TTecGiBartaData_80230B48;
+typedef struct Vec_802351B4 Vec_802351B4;
+void TTecMegid__sub_802351B4(void *arg0) {
+  Obj_802351B4 *self = (Obj_802351B4 *) arg0;
+  u32 fl;
+  u32 flags;
+  Row_802351B4 *row;
+  u32 i;
+  long long new_var;
+  s32 mode;
+  Arg_802351B4 sp8;
+  sp8.a = self->f54;
+  sp8.b = 0;
+  sp8.c = self->f5c;
+  self->emitters = alloc_buffer__11TOBoss4RockFPv(TTecMegid__data_8044D874[self->band].count * 4, self->f54);
+  for (i = 0; i < ((Data_802351B4 *) TTecMegid__data_8044D874)[self->band].count; i++)
+  {
+    mode = 0;
+    row = &((Data_802351B4 *) TTecMegid__data_8044D874)[self->band].rows[i];
+    flags = row->flags;
+    if (flags & 0x1000)
+    {
+      mode = 0x2000;
+    }
+    if (flags & 2)
+    {
+      self->emitters[i] = TObjParticle__sub_800870BC(&self->pos, &sp8, row->entry, mode | 0x1000);
+    }
+    else
+    {
+      self->emitters[i] = TBoss8Dragon__sub_8008741C(&self->pos, row->entry, mode | 0x1000);
+    }
+    if (self->emitters[i] != 0)
+    {
+      row = &((Data_802351B4 *) TTecMegid__data_8044D874)[self->band].rows[i];
+      if (row->flags & 0x40)
+      {
+        set_position_xy__10TObjPlayerFPvff(self->emitters[i], row->scale, row->scale);
+      }
+      if (((Data_802351B4 *) TTecMegid__data_8044D874)[self->band].rows[i].flags & 0x20)
+      {
+        new_var = ((Data_802351B4 *) TTecMegid__data_8044D874)[self->band].rows[i].flags >> 16;
+        TObjFish__sub_800660D4(self->emitters[i], TObjFish__sub_8001EDC4(lbl_805D63AC, new_var), lbl_805D63B0, 0, 1, lbl_805DC880);
+      }
+    }
+  }
+}
+
 void TTecMegid__sub_80235348(u8 *arg0) {
   s32 new_var;
   new_var = TTecCtrl__sub_8022DBC4((int) 0x12, (int) ((RecoveredFields_80235348_arg0 *) arg0)->field_C4, (int) 0xFFFF);
@@ -431,7 +534,7 @@ u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
         ((Obj_8023589C *)arg0)->ids[i] = 0xFFFF;
     }
     M2C_FIELD(arg0, s32 *, 0x174) = 0;
-    TTecMegid__sub_802351B4(arg0);
+    TTecMegid__sub_802351B4((void *)(arg0));
     update_by_state__9TTecMegidFPv(arg0);
     if (M2C_FIELD(arg0, void **, 0x1C) != 0) {
         M2C_FIELD(arg0, s16 *, 0xC8) = obj_getField1c(M2C_FIELD(arg0, void **, 0x1C));
@@ -450,7 +553,7 @@ u8 *TTecMegid__sub_80235940(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
         ((Obj_80235940 *)arg0)->ids[i] = 0xFFFF;
     }
     M2C_FIELD(arg0, s32 *, 0x174) = 0;
-    TTecMegid__sub_802351B4(arg0);
+    TTecMegid__sub_802351B4((void *)(arg0));
     update_by_state__9TTecMegidFPv(arg0);
     if (M2C_FIELD(arg0, void **, 0x1C) != 0) {
         M2C_FIELD(arg0, s16 *, 0xC8) = obj_getField1c(M2C_FIELD(arg0, void **, 0x1C));

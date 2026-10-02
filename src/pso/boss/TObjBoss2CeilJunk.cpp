@@ -36,6 +36,49 @@ struct RecoveredGlobal_8003A6F4___vt__17TObjBoss2CeilJunk {
     u8 remaining[0x34];
 };
 
+struct Color_8003A1B4
+{
+  f32 a;
+  s32 b;
+  s32 c;
+  s32 d;
+};
+
+struct Vec_8003A1B4
+{
+  f32 x;
+  f32 y;
+  f32 z;
+};
+
+struct Mdl_8003A1B4
+{
+  u8 pad[8];
+  s32 f8;
+  u8 padC[4];
+};
+
+struct Holder_8003A1B4
+{
+  u8 pad[0x42C];
+  Mdl_8003A1B4 *mdls;
+};
+
+struct Obj_8003A1B4
+{
+  u8 pad0[0x38];
+  u8 pos[0x44 - 0x38];
+  u8 f44[0x5C - 0x44];
+  s32 f5C;
+  s32 f60;
+  u8 pad64[0x9C - 0x64];
+  u8 f9C[0xA8 - 0x9C];
+  s32 fA8;
+  s32 fAC;
+  u8 padB0[4];
+  f32 fB4;
+};
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 TTecZondeEff__sub_8002DF28();
@@ -52,6 +95,28 @@ extern const f32 lbl_805D85A0;
 extern const f32 lbl_805D85A4;
 extern const f32 lbl_805D85A8;
 u8 *TObjBoss2CeilJunk__ct(struct RecoveredFields_8003A6F4_arg0 *arg0, s32 arg1, s32 arg2);
+M2C_UNK TObjEneDD__sub_800B9D94(void *, void *, int, void *);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK rotate_matrix_x(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(s32);
+M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
+M2C_UNK set_chunk_material_override_pair(int, int);
+M2C_UNK set_chunk_material_color(void *);
+M2C_UNK TObjPlayer__sub_803E38FC(int);
+extern s32 lbl_80435BC0[];
+extern f32 lbl_80435BF0[];
+extern Color_8003A1B4 lbl_80435C1C;
+extern Holder_8003A1B4 *lbl_805D4BE8;
+extern s32 lbl_805D4BEC;
+extern s32 lbl_805D5660;
+extern s32 some_id_805c6f74;
+extern const f32 lbl_805D8568;
+extern const f32 lbl_805D856C;
+extern const f32 lbl_805D8570;
+void render__17TObjBoss2CeilJunkFv(Obj_8003A1B4 *self);
 }
 
 extern "C" {
@@ -61,6 +126,45 @@ void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 extern M2C_UNK __vt__17TObjBoss2CeilJunk[];
+
+typedef struct Color_8003A1B4 Color_8003A1B4;
+typedef struct Holder_8003A1B4 Holder_8003A1B4;
+typedef struct Mdl_8003A1B4 Mdl_8003A1B4;
+typedef struct Obj_8003A1B4 Obj_8003A1B4;
+typedef struct Vec_8003A1B4 Vec_8003A1B4;
+void render__17TObjBoss2CeilJunkFv(Obj_8003A1B4 *self) {
+  float new_var;
+  if (self->fA8 == 2)
+  {
+    Vec_8003A1B4 s;
+    f32 t = lbl_80435BF0[self->fAC];
+    new_var = lbl_805D8568 * t;
+    s.y = lbl_805D856C;
+    s.x = (s.z = new_var);
+    TObjEneDD__sub_800B9D94(self->f44, self->f9C, 0, &s);
+  }
+  lbl_805D5660 = some_id_805c6f74;
+  if (self->fB4 < lbl_805D856C)
+  {
+    some_id_805c6f74 = lbl_805D5660 | 0x8820;
+    {
+      Color_8003A1B4 c = lbl_80435C1C;
+      c.a = lbl_805D8570 + self->fB4;
+      set_chunk_material_color(&c);
+    }
+    set_chunk_material_override_pair(0xFF00, 0x800);
+    TObjPlayer__sub_803E38FC(0x2500);
+  }
+  TObjPlayer__sub_803D9B2C();
+  set_global_param__8TObjFishFi(lbl_805D4BEC);
+  TOHangerMachine01__sub_803D9C00(self->pos);
+  rotate_matrix_y(0, self->f60);
+  rotate_matrix_x(0, self->f5C);
+  TObjBoss2Tunnel__sub_803DB470(lbl_805D4BE8->mdls[lbl_80435BC0[self->fAC]].f8);
+  TObjPlayer__sub_803D9B78();
+  some_id_805c6f74 = lbl_805D5660;
+  set_chunk_material_override_pair(0xFF00, 0);
+}
 
 void *__dt__17TObjBoss2CeilJunkFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

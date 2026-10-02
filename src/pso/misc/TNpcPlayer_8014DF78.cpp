@@ -58,11 +58,41 @@ struct Cand_8014F424 { u32 id; s32 idx; f32 dist; };
 struct View_8014F424 { s32 count; Cand_8014F424 c[10]; };
 struct Actor_8014F424 { u8 pad[0xA4]; u8 *cols; s32 ncols; };
 
+struct Col_8014F57C { u8 pad[0x18]; u32 flags; u8 pos[0x2C - 0x1C]; };
+
+struct Actor_8014F57C { u8 pad0[0x30]; u32 flags30; u8 pad1[0xA4 - 0x34]; Col_8014F57C *cols; s32 ncols; };
+
+struct View_8014F57C { s32 count; Cand_8014F424 c[10]; u8 pad[0x94 - 0x7C]; void *f94; };
+
 extern "C" {
 s32 is_alive__9TObjEneDDFPv(void *);
 f32 TObjPlayer__sub_80141CF8(void *, void *);
 Actor_8014F424 *TPhotonMylla__sub_80154CB4(s32);
 s32 TNpcPlayer__sub_8014F424(View_8014F424 *view, void *pos, s32 id, f32 range);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+void rotate_matrix_y(s32, s32);
+void TObjPlayer__sub_803D97F0(void *);
+void TCameraCtrl__sub_803D9858(s32);
+extern u8 lbl_8058D490[];
+extern const f32 TNpcPlayer__data_805DB1F0;
+extern const f32 TNpcPlayer__data_805DB204;
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
+s32 get_game_mode__6TLobbyFv(void);
+s32 get_enemy_count__9TObjEneDDFv(void);
+Actor_8014F140 *get_player_data__10TObjPlayerFi(s32);
+s32 is_active__12TTecReverserFPv(void *);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
+s32 obj_getField1c(void *obj);
+void quick_sort__10TNpcPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+extern const f32 TNpcPlayer__data_805DB1F0;
+s32 TNpcPlayer__sub_8014F57C(View_8014F57C *view, void *pos, f32 range);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+u8 *TObjButterflyLobby__sub_8007A5D8(s32, s32, M2C_UNK);
+extern const f32 TNpcPlayer__data_805DB1F0;
+extern const f32 TNpcPlayer__data_805DB204;
+extern const f32 lbl_805DB208;
+extern const f32 TNpcPlayer__data_805DB20C;
 }
 
 typedef struct Vec_8014E3B0 { f32 x, y, z; } Vec_8014E3B0;
@@ -116,6 +146,36 @@ M2C_UNK TNpcPlayer__sub_80150A34(void *, M2C_UNK);
 s32 fn_801B7C78(s32, M2C_UNK, M2C_UNK);
 M2C_UNK fn_801B7F4C(s32, s32, void *);
 s32 get_condition__10TNpcPlayerFPv(s32);
+
+extern "C" {
+void TCameraCtrl__sub_803D8934(s32, Vec_8014E3B0 *, Vec_8014E3B0 *);
+f32 TObjPlayer__sub_803D89C0(Vec_8014E3B0 *, Vec_8014E3B0 *);
+f32 TBoss6Kakusan__sub_803D8BD8(Vec_8014E3B0 *);
+void TNpcPlayer__sub_803D97B4(Vec_8014E3B0 *);
+void TNpcPlayer__sub_8014ECD8(u8 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out);
+}
+
+typedef struct Obj_8014EE98 { u8 pad[0x2FC]; Vec_8014E3B0 pos; } Obj_8014EE98;
+
+typedef struct Owner_8014EE98 { u8 pad[0x94]; Obj_8014EE98 *obj; } Owner_8014EE98;
+
+typedef struct Self_8014EE98 {
+    u8 pad[0x74];
+    Owner_8014EE98 *f74;
+    Owner_8014EE98 *f78;
+    u8 pad7C[0xDC - 0x7C];
+    u8 fDC[4];
+} Self_8014EE98;
+
+typedef struct Line_8014EE98 { Vec_8014E3B0 p; Vec_8014E3B0 d; } Line_8014EE98;
+
+extern "C" {
+f32 TObjPlayer__sub_803D89C0(Vec_8014E3B0 *, Vec_8014E3B0 *);
+f32 TBoss6Kakusan__sub_803D8BD8(Vec_8014E3B0 *);
+void TNpcPlayer__sub_803D97B4(Vec_8014E3B0 *);
+void TNpcPlayer__sub_803E18C0(void *, Line_8014EE98 *, Vec_8014E3B0 *);
+s32 TNpcPlayer__sub_8014EE98(Self_8014EE98 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out, Vec_8014E3B0 *out2);
+}
 
 void dispatch_action__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
@@ -294,6 +354,111 @@ s32 TNpcPlayer__sub_8014E3B0(void *self, f32 *from, f32 *to, f32 *out) {
 }
 #pragma pop
 
+#pragma push
+#pragma fp_contract on
+void TNpcPlayer__sub_8014ECD8(u8 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out) {
+    Vec_8014E3B0 dir;
+    Vec_8014E3B0 save;
+    Vec_8014E3B0 a;
+    Vec_8014E3B0 b;
+    Vec_8014E3B0 diff;
+    dir.x = -d->x;
+    dir.y = TNpcPlayer__data_805DB1F0;
+    dir.z = -d->z;
+    if (TNpcPlayer__data_805DB1F0 != TBoss6Kakusan__sub_803D8BD8(&dir)) {
+        TNpcPlayer__sub_803D97B4(&dir);
+    }
+    VecCopy__FP3VecPC3Vec(&save, (int)&dir);
+    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    rotate_matrix_y(0, 0x4000);
+    TCameraCtrl__sub_803D8934(0, &dir, &a);
+    TCameraCtrl__sub_803D9858(1);
+    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    rotate_matrix_y(0, -0x4000);
+    TCameraCtrl__sub_803D8934(0, &dir, &b);
+    TCameraCtrl__sub_803D9858(1);
+    diff.x = to->x - from->x;
+    diff.y = TNpcPlayer__data_805DB1F0;
+    diff.z = to->z - from->z;
+    if (TNpcPlayer__data_805DB1F0 != TBoss6Kakusan__sub_803D8BD8(&diff)) {
+        TNpcPlayer__sub_803D97B4(&diff);
+    }
+    if (TObjPlayer__sub_803D89C0(&diff, &a) > TNpcPlayer__data_805DB1F0) {
+        VecCopy__FP3VecPC3Vec(&dir, (int)&b);
+    } else {
+        VecCopy__FP3VecPC3Vec(&dir, (int)&a);
+    }
+    if ((s8)self[0x8C] >= 0x14) {
+        out->x = -((TNpcPlayer__data_805DB204 * dir.x) - from->x);
+        out->y = from->y;
+        out->z = -((TNpcPlayer__data_805DB204 * dir.z) - from->z);
+    } else {
+        out->x = TNpcPlayer__data_805DB204 * dir.x + from->x;
+        out->y = from->y;
+        out->z = TNpcPlayer__data_805DB204 * dir.z + from->z;
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+#pragma opt_common_subs off
+s32 TNpcPlayer__sub_8014EE98(Self_8014EE98 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out, Vec_8014E3B0 *out2) {
+    Line_8014EE98 line;
+    Vec_8014E3B0 dir;
+    Vec_8014E3B0 perp;
+    Vec_8014E3B0 hit;
+    Vec_8014E3B0 tmp;
+    Vec_8014E3B0 v;
+    f32 len;
+    f32 s;
+    dir.x = to->x - from->x;
+    dir.y = TNpcPlayer__data_805DB1F0;
+    dir.z = to->z - from->z;
+    len = TBoss6Kakusan__sub_803D8BD8(&dir);
+    if (TNpcPlayer__data_805DB1F0 != len) {
+        TNpcPlayer__sub_803D97B4(&dir);
+    }
+    perp.x = d->z;
+    perp.y = TNpcPlayer__data_805DB1F0;
+    perp.z = -d->x;
+    if (TObjPlayer__sub_803D89C0(&dir, &perp) < TNpcPlayer__data_805DB1F0) {
+        perp.x = -perp.x;
+        perp.z = -perp.z;
+    }
+    line.p.x = self->f78->obj->pos.x;
+    line.p.y = self->f78->obj->pos.y;
+    line.p.z = self->f78->obj->pos.z;
+    line.d.x = perp.x;
+    line.d.y = TNpcPlayer__data_805DB1F0;
+    line.d.z = perp.z;
+    TNpcPlayer__sub_803E18C0(self->fDC, &line, &hit);
+    s = lbl_805DB208 * len;
+    if (s <= TNpcPlayer__data_805DB204) {
+        s = TNpcPlayer__data_805DB204;
+    }
+    out->x = perp.x * s + from->x;
+    out->y = from->y;
+    out->z = perp.z * s + from->z;
+    VecCopy__FP3VecPC3Vec(&tmp, (int)&self->f74->obj->pos);
+    if (TObjButterflyLobby__sub_8007A5D8((s32)((s32)&tmp), (s32)((s32)&hit), (M2C_UNK)(0x2100)) != 0) {
+        hit.x = TNpcPlayer__data_805DB20C * perp.x + hit.x;
+        hit.z = TNpcPlayer__data_805DB20C * perp.z + hit.z;
+        return 0;
+    }
+    v.x = self->f74->obj->pos.x - hit.x;
+    v.z = self->f74->obj->pos.z - hit.z;
+    v.y = TNpcPlayer__data_805DB1F0;
+    if (TNpcPlayer__data_805DB1F0 != TBoss6Kakusan__sub_803D8BD8(&v)) {
+        TNpcPlayer__sub_803D97B4(&v);
+    }
+    out2->x = TNpcPlayer__data_805DB20C * perp.x + hit.x;
+    out2->z = TNpcPlayer__data_805DB20C * perp.z + hit.z;
+    out2->y = TNpcPlayer__data_805DB1F0;
+    return 1;
+}
+#pragma pop
+
 s32 TNpcPlayer__sub_8014F0D4(M2C_UNK arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(TObjButterflyLobby__sub_8007A5D8(arg1, arg2, 0x2100));
@@ -402,6 +567,53 @@ s32 TNpcPlayer__sub_8014F424(View_8014F424 *view, void *pos, s32 id, f32 range) 
                 view->c[view->count].id = (u16)obj_getField1c(actor);
                 view->c[view->count].dist = d;
                 view->c[view->count].idx = i;
+                if (view->count >= 9) {
+                    break;
+                }
+                view->count++;
+            }
+        }
+    }
+    quick_sort__10TNpcPlayerFiiii((s32)view, (s32)&view->c[0], 0, view->count - 1);
+    return found;
+}
+
+s32 TNpcPlayer__sub_8014F57C(View_8014F57C *view, void *pos, f32 range) {
+    f32 origin[3];
+    Actor_8014F57C *actor;
+    s32 found;
+    s32 i;
+    s32 c;
+    s32 j;
+    f32 d;
+    found = 0;
+    get_stat_by_key_state__10TObjPlayerFPv(view->f94);
+    VecCopy__FP3VecPC3Vec(origin, (int)pos);
+    view->count = 0;
+    for (j = 0; j < 10; j++) {
+        view->c[j].id = 0xFFFF;
+        view->c[j].dist = TNpcPlayer__data_805DB1F0;
+    }
+    i = get_game_mode__6TLobbyFv();
+    range = range * range;
+    for (; i < get_game_mode__6TLobbyFv() + get_enemy_count__9TObjEneDDFv(); i++) {
+        actor = (Actor_8014F57C *)get_player_data__10TObjPlayerFi(i);
+        if (is_active__12TTecReverserFPv(actor) == 0 || !(actor->flags30 & 0x20000000)) {
+            continue;
+        }
+        for (c = 0; c < actor->ncols; c++) {
+            if (actor->cols == 0) {
+                break;
+            }
+            if (!(actor->cols[c].flags & 0x8000)) {
+                continue;
+            }
+            d = TObjPlayer__sub_80141CF8(origin, actor->cols[c].pos);
+            if (d < range) {
+                found = 1;
+                view->c[view->count].id = (u16)obj_getField1c(actor);
+                view->c[view->count].dist = d;
+                view->c[view->count].idx = c;
                 if (view->count >= 9) {
                     break;
                 }

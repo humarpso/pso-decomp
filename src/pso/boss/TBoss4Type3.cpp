@@ -39,6 +39,45 @@ struct O_80058BA0 {
     s32 f52c;
 };
 
+struct Vec_800590F4
+{
+  f32 x;
+  f32 y;
+  f32 z;
+};
+
+struct VBase_800590F4
+{
+  char pad[0x18];
+};
+
+struct VObj_800590F4 : VBase_800590F4 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4(Vec_800590F4 *, Vec_800590F4 *);
+};
+
+struct O_800590F4
+{
+  u8 pad0[0x38];
+  u8 f38[0x28];
+  s32 f60;
+  u8 pad64[0x374 - 0x64];
+  s32 f374;
+  u8 pad378[0x398 - 0x378];
+  s32 f398;
+  f32 f39c;
+  u8 pad3a0[0x3A8 - 0x3A0];
+  s32 f3a8;
+  u8 pad3ac[0x3F4 - 0x3AC];
+  f32 f3f4;
+  u8 pad3f8[0x51C - 0x3F8];
+  s32 f51c[2];
+  VObj_800590F4 *f524[2];
+};
+
 extern "C" {
 void TBoss4Type3__vt2(void *arg0);
 M2C_UNK TBoss4Type3__sub_8005A398(void *, M2C_UNK);
@@ -122,6 +161,22 @@ void create_horming__11TBoss4Type3FPvPvPv(void *, void *, u16);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void TBoss4Type3__vt30(O_80058BA0 *o);
+void TBoss4Type3__sub_80059C20(void *);
+M2C_UNK TBoss4Type3__sub_8005A398(void *, M2C_UNK);
+M2C_UNK create__13TObjBs4CutAtkFPvPvPv(void *, s32, s32);
+u8 *lookup_entry_by_value__10TObjPlayerFPvf(s32);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
+M2C_UNK TObjPlayer__sub_803D8CD4(int);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+extern const f32 TBoss4Type3__data_805D8C34;
+extern const f32 lbl_805D8C54;
+extern const f32 lbl_805D8C58;
+extern const f32 lbl_805D8C5C;
+void TBoss4Type3__vt9(O_800590F4 *o);
 }
 
 extern "C" {
@@ -415,6 +470,51 @@ void TBoss4Type3__vt22(u8 *arg0) {
     TBoss3Volopt__sub_8022675C((int)(0x4003B031), (void *)(arg0 + 0x38), (int)(0), (int)(1));
     M2C_FIELD(arg0, s32 *, 0x52C) = 1;
     M2C_FIELD(arg0, s32 *, 0x398) = 0x31;
+}
+
+typedef struct O_800590F4 O_800590F4;
+typedef struct VBase_800590F4 VBase_800590F4;
+typedef struct VObj_800590F4 VObj_800590F4;
+typedef struct Vec_800590F4 Vec_800590F4;
+void TBoss4Type3__vt9(O_800590F4 *o) {
+  s32 pb;
+  Vec_800590F4 b;
+  Vec_800590F4 a;
+  if (o->f398 > 0x2A)
+  {
+    o->f39c = TBoss4Type3__data_805D8C34 - (((f32) (o->f398 - 0x2A)) / lbl_805D8C54);
+  }
+  else
+  {
+    o->f39c = TBoss4Type3__data_805D8C34;
+  }
+  TBoss4Type3__sub_80059C20(o);
+  if (o->f398 == 0x28)
+  {
+    create__13TObjBs4CutAtkFPvPvPv(o, o->f3a8, (o->f374 - 4) & 1);
+    TBoss3Volopt__sub_8022675C(0x4003B228, o->f38, 0, 1);
+  }
+  if ((o->f3f4 >= lbl_805D8C58) && (o->f3f4 <= lbl_805D8C5C))
+  {
+    s32 idx = (o->f374 - 4) & 1;
+    u8 *e = lookup_entry_by_value__10TObjPlayerFPvf(o->f51c[idx]);
+    if (e != 0)
+    {
+      TObjPlayer__sub_803D9B2C();
+      TObjPlayer__sub_803D8CD4(0);
+      TOHangerMachine01__sub_803D9C00(o->f38);
+      rotate_matrix_y(0, o->f60);
+      TCameraCtrl__sub_803D8934(0, e, &a);
+      pb = (0, (s32) (&b));
+      TCameraCtrl__sub_803D8934(0, e + 0xC, (void *) pb);
+      TObjPlayer__sub_803D9B78();
+      o->f524[idx]->m4(&a, (Vec_800590F4 *) pb);
+    }
+  }
+  if ((--o->f398) < 0)
+  {
+    TBoss4Type3__sub_8005A398(o, 1);
+  }
 }
 
 void TBoss4Type3__vt8(u8 *arg0) {

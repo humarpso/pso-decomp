@@ -38,6 +38,9 @@ s32 TAdPlayerLoadGC__sub_803F3AF0(s32 arg0, const char *arg1);
 extern char lbl_804FCE68[];
 extern AdLoadState_805A82C0 lbl_805A82C0;
 void TAdPlayerLoadGC__sub_803F467C(void);
+s32 CARDGetSerialNo(s32 chan, u64 *serialNo);
+s32 CARDGetUniqueCode(s32 chan, u64 *code);
+s32 TAdPlayerLoadGC__sub_803F4B8C(int chan, u8 *out);
 }
 
 extern "C" {
@@ -190,5 +193,40 @@ s32 TLobby__sub_803F4B68(s32 mode) {
 s32 TAdPlayerLoadGC__sub_803F4B80(void) {
     return 0x8000;
 }
+#pragma push
+#pragma scheduling off
+s32 TAdPlayerLoadGC__sub_803F4B8C(int chan, u8 *out) {
+  u64 serial;
+  u64 code;
+  s32 rc;
+  rc = CARDGetSerialNo(chan, &serial);
+  if (rc != 0)
+  {
+    return rc;
+  }
+  rc = CARDGetUniqueCode(chan, &code);
+  if (rc != 0)
+  {
+    return rc;
+  }
+  out[0] = serial & 0xFF;
+  out[1] = (serial >> 8) & 0xFF;
+  out[2] = (serial >> 16) & 0xFF;
+  out[3] = (serial >> 24) & 0xFF;
+  out[4] = (serial >> 32) & 0xFF;
+  out[5] = (serial >> 40) & 0xFF;
+  out[6] = (serial >> 48) & 0xFF;
+  out[7] = (serial >> 56) & 0xFF;
+  out[8] = code & 0xFF;
+  out[9] = (code >> 8) & 0xFF;
+  out[10] = (code >> 16) & 0xFF;
+  out[11] = (code >> 24) & 0xFF;
+  out[12] = (code >> 32) & 0xFF;
+  out[13] = (code >> 40) & 0xFF;
+  out[14] = (code >> 48) & 0xFF;
+  out[15] = (code >> 56) & 0xFF;
+  return rc;
+}
+#pragma pop
 
 }

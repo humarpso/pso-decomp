@@ -84,6 +84,26 @@ struct Vec_800D9C7C { f32 x, y, z; };
 
 struct Hit_800D9C7C { u8 pad[4]; s32 x4; };
 
+typedef struct Vec_800D9FC4
+{
+  f32 x;
+  f32 y;
+  f32 z;
+} Vec_800D9FC4;
+
+typedef struct Obj_800D9FC4
+{
+  u8 pad0[0x30];
+  u32 flags;
+  u8 pad34[0x38 - 0x34];
+  Vec_800D9FC4 pos;
+  u8 pad44[0x60 - 0x44];
+  s32 angle;
+  u8 pad64[0x3B4 - 0x64];
+  s32 count;
+  s16 ids[12];
+} Obj_800D9FC4;
+
 extern "C" {
 s32 TObjPlayer__sub_800DC420(void *, int);
 f32 TObjPlayer__sub_800DC434(void *, int);
@@ -106,7 +126,6 @@ extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 void *get_player_data__10TObjPlayerFi(s32 i);
 s32 is_valid_and_active__10TObjPlayerFUi(void *p);
-void TObjPlayer__sub_800D9FC4(Obj_800D9F4C *self, void *p);
 s32 TObjPlayer__sub_800D9F4C(Obj_800D9F4C *self);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 Hit_800D9C7C *TObjButterflyLobby__sub_8007A5D8(void *, void *, s32);
@@ -123,6 +142,13 @@ extern RecoveredGlobal_800D9E8C_lbl_8058D490 lbl_8058D490;
 extern const f32 lbl_805DA3F8;
 extern const f32 lbl_805DA3FC;
 void TObjPlayer__sub_800D9C7C(u8 *arg0, f32 *arg1);
+s16 obj_getField1c(void *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 TObjPlayer__sub_80141F84(s32, s32);
+void TBoss6Type1__sub_803D9370(Vec_800D9FC4 *, Vec_800D9FC4 *);
+extern const f64 lbl_8043C900[];
+extern const f32 lbl_805DA400;
+void TObjPlayer__sub_800D9FC4(void *self, void *p);
 }
 
 extern "C" {
@@ -216,10 +242,32 @@ s32 TObjPlayer__sub_800D9F4C(Obj_800D9F4C *self) {
     for (i = 0; i < lbl_805D586C + lbl_805D5870; i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (is_valid_and_active__10TObjPlayerFUi(p) != 0) {
-            TObjPlayer__sub_800D9FC4(self, p);
+            TObjPlayer__sub_800D9FC4((void *)(self), (void *)(p));
         }
     }
     return self->f3b4;
+}
+typedef struct Obj_800D9FC4 Obj_800D9FC4;
+typedef struct Vec_800D9FC4 Vec_800D9FC4;
+void TObjPlayer__sub_800D9FC4(void *self, void *p) {
+  f32 new_var;
+  int new_var2;
+  if ((((((Obj_800D9FC4 *) self)->count < 12) && (p != 0)) && (p != self)) && (!(((Obj_800D9FC4 *) p)->flags & 0x6000800)))
+  {
+    Vec_800D9FC4 v = ((Obj_800D9FC4 *) p)->pos;
+    TBoss6Type1__sub_803D9370(&v, &((Obj_800D9FC4 *) self)->pos);
+    if (!(((v.x * v.x) + (v.z * v.z)) > lbl_805DA400))
+    {
+      new_var = v.x;
+      new_var2 = (-((s32) (lbl_8043C900[0] * get_ad_end_text_start__10TObjPlayerFv(v.z, new_var)))) + 0x4000;
+      if (TObjPlayer__sub_80141F84(new_var2, ((Obj_800D9FC4 *) self)->angle) <= 0xAAA)
+      {
+        s16 id = obj_getField1c(p);
+        s16 *ids = ((Obj_800D9FC4 *) self)->ids;
+        ids[((Obj_800D9FC4 *) self)->count++] = id;
+      }
+    }
+  }
 }
 
 }

@@ -61,6 +61,33 @@ struct TTecFoie_80230144 {
     void **emitters;
 };
 
+struct Angles_8022FC94
+{
+  s32 x;
+  s32 y;
+  s32 z;
+};
+
+struct Binding_8022FC94
+{
+  u32 entry;
+  u32 flags;
+  f32 scale;
+};
+
+struct Foie_8022FC94
+{
+  u8 pad0[0x20];
+  u8 pos[0x54 - 0x20];
+  s32 ax;
+  s32 ay;
+  s32 az;
+  u8 pad60[0xC6 - 0x60];
+  s16 band;
+  u8 padc8[0x130 - 0xC8];
+  void **emitters;
+};
+
 extern "C" {
 s32 TTecCtrl__sub_8022DBC4(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
@@ -79,6 +106,17 @@ void destroy_technique_effect_resources__10TObjPlayerFPvs(void *, s16);
 extern TTecFoieData_80230144 TTecFoie__data_8044D13C[];
 extern void *__vt__8TTecFoie[];
 TTecFoie_80230144 *__dt__8TTecFoieFv(TTecFoie_80230144 *self, s16 deleting);
+s32 TObjFish__sub_800660D4(int, int, int, int, int, f32);
+void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
+s32 TParticleCtrl__sub_80086884(int);
+void *fn_80086D50(void *pos, void *dir, s32 id);
+void *TObjParticle__sub_800870BC(void *pos, void *dir, s32 id, u16 e);
+void *TBoss8Dragon__sub_8008741C(void *, s32, u16);
+s32 alloc_buffer__11TOBoss4RockFPv(s32);
+extern TTecFoieData_80230144 TTecFoie__data_8044D13C[];
+extern s32 lbl_805D63B0;
+extern const f32 lbl_805DC7F8;
+void TTecFoie__sub_8022FC94(Foie_8022FC94 *self);
 }
 
 extern "C" {
@@ -96,6 +134,52 @@ typedef struct RecoveredGlobal_8022FE84_lbl_804CC510 RecoveredGlobal_8022FE84_lb
 typedef struct RecoveredGlobal_8022FE84_lbl_804CC55C RecoveredGlobal_8022FE84_lbl_804CC55C;
 typedef char RecoveredGlobal_8022FE84_lbl_804CC510_size[((sizeof(RecoveredGlobal_8022FE84_lbl_804CC510)) == 0x4C) ? (1) : (-1)];
 typedef char RecoveredGlobal_8022FE84_lbl_804CC55C_size[((sizeof(RecoveredGlobal_8022FE84_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
+
+typedef struct Angles_8022FC94 Angles_8022FC94;
+typedef struct Binding_8022FC94 Binding_8022FC94;
+typedef struct Foie_8022FC94 Foie_8022FC94;
+typedef struct TTecFoieData_80230144 TTecFoieData_80230144;
+void TTecFoie__sub_8022FC94(Foie_8022FC94 *self) {
+  Angles_8022FC94 fwd;
+  Angles_8022FC94 rev;
+  u32 i;
+  s32 f;
+  fwd.x = self->ax;
+  fwd.y = 0;
+  fwd.z = self->az;
+  fn_80086D50(self->pos, &fwd, 0x18);
+  self->emitters = (void **) alloc_buffer__11TOBoss4RockFPv(TTecFoie__data_8044D13C[self->band].count * 4);
+  for (i = 0; i < TTecFoie__data_8044D13C[self->band].count; i++)
+  {
+    Binding_8022FC94 *b = &(*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i];
+    f = (b->flags & 0x1000) ? (0x2000) : (0);
+    if ((&(*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i])->flags & 1)
+    {
+      rev.x = self->ax + 0x8000;
+      rev.y = 0;
+      rev.z = self->az;
+      self->emitters[i] = TObjParticle__sub_800870BC(self->pos, &rev, (*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i].entry, f);
+    }
+    else
+      if ((&(*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i])->flags & 2)
+    {
+      self->emitters[i] = TObjParticle__sub_800870BC(self->pos, &fwd, (&(*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i])->entry, f);
+    }
+    else
+    {
+      self->emitters[i] = TBoss8Dragon__sub_8008741C(self->pos, b->entry, f);
+    }
+    if (self->emitters[i] != 0)
+    {
+      if ((*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i].flags & 0x20)
+      {
+        TObjFish__sub_800660D4((int) self->emitters[i], TParticleCtrl__sub_80086884(0), lbl_805D63B0, 0, 1, lbl_805DC7F8);
+      }
+      set_position_xy__10TObjPlayerFPvff(self->emitters[i], (*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i].scale, (*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i].scale);
+    }
+  }
+}
+
 void TTecFoie__sub_8022FE84(u8 *arg0) {
   s32 new_var;
   new_var = TTecCtrl__sub_8022DBC4((int) 0, (int) ((RecoveredFields_8022FE84_arg0 *) arg0)->field_C4, (int) 0xFFFF);

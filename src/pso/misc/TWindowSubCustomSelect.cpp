@@ -27,6 +27,12 @@ struct Sub_80277AEC { u8 pad[0x34]; s32 flags; };
 
 struct Big_80277AEC { u8 pad[0x85C]; Sub_80277AEC sub; };
 
+struct Stack_80277368
+{
+  f32 sp8;
+  f32 spC;
+};
+
 extern "C" {
 s32 TWindowSubStatusDisp__sub_80244364();
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
@@ -50,7 +56,6 @@ s32 increment_counter__20TWindowSubStatusDispFPv(int);
 s32 is_active__22TWindowSubCustomSelectFPv(void *);
 void handle_cancel__22TWindowSubCustomSelectFPv(void *arg0);
 void handle_decide__22TWindowSubCustomSelectFPv(void *arg0);
-s32 TWindowSubCustomSelect__sub_80277368(void *);
 s32 update_subwindow__20TWindowSubStatusDispFPv(int);
 extern RecoveredGlobal_80277928_lbl_8050E208 lbl_8050E208;
 extern const f32 lbl_805DD5E4;
@@ -76,6 +81,15 @@ extern const f32 TWindowSubCustomSelect__data_805DD5B0;
 extern const f32 lbl_805DD5E8;
 extern const f32 lbl_805DD5EC;
 u8 *TWindowSubCustomSelect__ct(u8 *arg0, s32 arg1);
+s32 TWindowSubComCard__sub_8026D740(void *, void *, void *);
+extern const f32 lbl_805DD5A8;
+extern const f32 lbl_805DD5AC;
+extern const f32 TWindowSubCustomSelect__data_805DD5B0;
+extern const f32 lbl_805DD5B4;
+extern const f32 lbl_805DD5B8;
+extern const f32 lbl_805DD5BC;
+extern const f32 lbl_805DD5C0;
+s32 TWindowSubCustomSelect__sub_80277368(void *a);
 }
 
 extern "C" {
@@ -106,6 +120,26 @@ void handle_decide__22TWindowSubCustomSelectFPv(void *arg0) {
 extern M2C_UNK __vt__22TWindowSubCustomSelect[];
 
 typedef char RecoveredGlobal_80277408_lbl_8050E208_size[sizeof(RecoveredGlobal_80277408_lbl_8050E208) == 0x1B0 ? 1 : -1];
+
+typedef struct Stack_80277368 Stack_80277368;
+#pragma fp_contract on
+s32 TWindowSubCustomSelect__sub_80277368(void *a) {
+  u8 *arg0 = (u8 *) a;
+  Stack_80277368 stack;
+  u8 *new_var;
+  f32 *new_var3;
+  f32 tgt;
+  float new_var2;
+  new_var2 = (TWindowSubCustomSelect__data_805DD5B0 * ((f32) ((s8) (*((u8 *) (((s8 *) arg0) + 0x71)))))) + lbl_805DD5AC;
+  tgt = lbl_805DD5A8 + new_var2;
+  tgt -= lbl_805DD5B4;
+  new_var3 = (f32 *) (((s8 *) arg0) + 0x6C);
+  *new_var3 = (*new_var3) + (tgt - (*((f32 *) (((s8 *) arg0) + 0x6C))));
+  stack.sp8 = lbl_805DD5B8;
+  stack.spC = ((*((f32 *) (((s8 *) arg0) + 0x4C))) - lbl_805DD5BC) - lbl_805DD5C0;
+  TWindowSubComCard__sub_8026D740(*((u8 **) (((s8 *) arg0) + 0x80)), (new_var = arg0) + 0x68, &stack.sp8);
+}
+
 void TWindowSubCustomSelect__sub_80277408(u8 *arg0) {
     u8 temp_r3;
     u8 temp_r3_2;
@@ -186,7 +220,7 @@ void run_task__22TWindowSubCustomSelectFv(u8 *arg0) {
             handle_cancel__22TWindowSubCustomSelectFPv((void *) (arg0));
         }
     }
-    TWindowSubCustomSelect__sub_80277368((void *) (arg0));
+    TWindowSubCustomSelect__sub_80277368((void *)((void *) (arg0)));
     if ((f32) M2C_FIELD(arg0, s32 *, 0x5C) >= lbl_805DD5E4) {
         update_subwindow__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x7C)));
         increment_counter__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x80)));

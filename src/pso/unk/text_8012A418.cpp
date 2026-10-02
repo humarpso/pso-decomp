@@ -126,6 +126,12 @@ struct VObj_8012A508 : VBase_8012A508 {
 
 struct Self_8012A508 { u8 pad[0xF0]; u32 fF0; u8 padF4[0x1F8 - 0xF4]; s32 mode; };
 
+typedef struct Pl_8012A470
+{
+  u8 pad[0xF0];
+  void *f0;
+} Pl_8012A470;
+
 extern "C" {
 s8 TObjPlayer__sub_80102C30();
 M2C_UNK TObjPlayer__sub_8011F7CC(void *, u32, u32, s32, s32, f32);
@@ -137,11 +143,18 @@ u8 *TObjPlayer__sub_8012A418(s32 arg0);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
 s32 update_active_game_effect__10TObjPlayerFPv(void *);
 s32 draw_status_icon__10TObjPlayerFPvi(void *, void *);
-s32 TObjPlayer__sub_8012A470(void *);
 void TObjPlayer__sub_8012A6B4(u8 *arg0);
 extern const f32 lbl_805DAE60;
 extern const f32 lbl_805DAE64;
 s32 TObjPlayer__sub_8012A508(void *arg0, u32 arg1, s32 arg2);
+s32 get_extended_state__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_80121238(s32);
+u16 get_uid__10TObjPlayerFPv(s32);
+s32 TObjPlayer__sub_80121248(s32, s32);
+s32 TObjPlayer__sub_8012125C(s32);
+s32 TObjPlayer__sub_8012A508(void *arg0, u32 arg1, s32 arg2);
+s32 TObjPlayer__sub_80154804(s32, s32);
+void TObjPlayer__sub_8012A470(Pl_8012A470 *arg0);
 }
 
 extern "C" {
@@ -165,6 +178,30 @@ u8 *TObjPlayer__sub_8012A418(s32 arg0) {
 #include "types.h"
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+typedef struct Pl_8012A470 Pl_8012A470;
+void TObjPlayer__sub_8012A470(Pl_8012A470 *arg0) {
+  s32 st;
+  s32 i;
+  s32 e;
+  u16 uid;
+  s32 r;
+  s32 v;
+  st = get_extended_state__10TObjPlayerFPv(arg0->f0);
+  if (st != 0)
+  {
+    for (i = 0; i != TObjPlayer__sub_8012125C((((((((((((st & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF); i++)
+    {
+      e = TObjPlayer__sub_80121248(st, i);
+      uid = get_uid__10TObjPlayerFPv(e);
+      r = TObjPlayer__sub_80154804(uid, v = (s16) ((unsigned long long) TObjPlayer__sub_80121238(e)));
+      if (r != 0)
+      {
+        TObjPlayer__sub_8012A508(arg0, r, v);
+      }
+    }
+  }
+}
 
 s32 TObjPlayer__sub_8012A508(void *arg0, u32 arg1, s32 arg2) {
     Self_8012A508 *self = (Self_8012A508 *)arg0;
@@ -239,7 +276,7 @@ void TObjPlayer__sub_8012A6B4(u8 *arg0) {
       }
       if (is_mode_two_and_ready__10TObjPlayerFPv((void *) arg0) != 0)
       {
-        TObjPlayer__sub_8012A470((void *) arg0);
+        TObjPlayer__sub_8012A470((Pl_8012A470 *)((void *) arg0));
         return;
       }
       update_active_game_effect__10TObjPlayerFPv((void *) arg0);

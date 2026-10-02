@@ -10,6 +10,16 @@ struct Stack_8031EE54 {
 
 struct T_8031EDBC { u8 pad[0x424]; u16 ids[30]; };
 
+struct Rec_8031EDF8
+{
+  u8 pad0[0x1C];
+  u16 base;
+  u8 pad1[0x3F4 - 0x1E];
+  s32 count;
+  u8 pad2[0x424 - 0x3F8];
+  u16 ids[1];
+};
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * csnVectorUnder(s32, void *, s32);
@@ -18,6 +28,7 @@ extern s32 lbl_805D53A4;
 extern const f32 lbl_805DF448;
 void TObjEneRecon__sub_8031EE54(u8 *arg0);
 void TObjEneRecon__sub_8031EDBC(T_8031EDBC *self, s32 id);
+u16 TObjEneRecon__sub_8031EDF8(Rec_8031EDF8 *o);
 }
 
 extern "C" {
@@ -31,6 +42,27 @@ void TObjEneRecon__sub_8031EDBC(T_8031EDBC *self, s32 id) {
         }
     }
 }
+
+#pragma push
+#pragma opt_propagation off
+typedef struct Rec_8031EDF8 Rec_8031EDF8;
+u16 TObjEneRecon__sub_8031EDF8(Rec_8031EDF8 *o) {
+  s32 new_var;
+  s32 i;
+  s32 v;
+  for (i = 0; i < o->count; i++)
+  {
+    if (o->ids[i] == 0xFFFF)
+    {
+      v = (0, o->base + i);
+      new_var = i;
+      o->ids[new_var] = v + 1;
+      return o->ids[new_var];
+    }
+  }
+  return 0xFFFF;
+}
+#pragma pop
 
 void TObjEneRecon__sub_8031EE54(u8 *arg0) {
     Stack_8031EE54 stack;

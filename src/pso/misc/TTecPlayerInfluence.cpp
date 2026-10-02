@@ -66,6 +66,76 @@ struct Obj_80237900 {
     s32 cursor;
 };
 
+struct Owner_80237310
+{
+  u8 pad[0x30];
+  u32 flags;
+};
+
+struct Obj_80237310
+{
+  s32 f0;
+  u8 pad4[0x14];
+  void *vt;
+  Owner_80237310 *owner;
+  f32 pos[3];
+  f32 f2c;
+  f32 f30;
+  f32 f34;
+  f32 f38;
+  f32 f3c;
+  f32 f40;
+  f32 f44;
+  u8 pad48[0x64 - 0x48];
+  f32 f64;
+  u8 pad68[0x70 - 0x68];
+  f32 f70;
+  u8 pad74[0xA0 - 0x74];
+  s32 fa0;
+  s16 level;
+  s16 tier;
+  u16 fa8;
+  u8 padaa[2];
+  s32 fac;
+  f32 fb0[3];
+  f32 fbc;
+  f32 fc0;
+  s32 fc4;
+  s32 fc8;
+  u8 padcc[0xDC - 0xCC];
+  void *fdc;
+};
+
+typedef struct Vec_80237494
+{
+  f32 x;
+  f32 y;
+  f32 z;
+} Vec_80237494;
+
+typedef struct Emitter_80237494
+{
+  u32 entry;
+  u32 flags;
+  f32 scale;
+} Emitter_80237494;
+
+typedef struct Profile_80237494
+{
+  Emitter_80237494 *emitters;
+  u32 count;
+} Profile_80237494;
+
+typedef struct Rabarta_80237494
+{
+  u8 pad0[0x1C];
+  u8 *source;
+  u8 pad20[0x7A - 0x20];
+  s16 band;
+  u8 pad7c[0xF4 - 0x7C];
+  void **emitters;
+} Rabarta_80237494;
+
 extern "C" {
 void TTecPlayerInfluence__sub_80237258(void* p);
 void run_task__19TTecPlayerInfluenceFv(void *arg0);
@@ -78,6 +148,37 @@ extern const f32 lbl_805DC8A0;
 void render__19TTecPlayerInfluenceFv(u8 *arg0);
 u16 obj_getField1c(void *);
 void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+u16 obj_getField1c(void *);
+void __ct__7TEffectFv(void *);
+void TObjEneGibbles__sub_80156780(void *, f32 *, s32);
+void *TObjPlayer__sub_801569F4(void *, void *);
+void *__nw__7TObjectFUl(u32);
+int get_level_tier__10TObjPlayerFi(s32);
+extern M2C_UNK __vt__19TTecPlayerInfluence[];
+extern s32 lbl_805D37F0;
+extern const f32 lbl_805DC8A4;
+extern const f32 lbl_805DC8A8;
+extern const f32 lbl_805DC8AC;
+extern const f32 lbl_805DC8B0;
+extern const f32 lbl_805DC8B4;
+extern const f32 lbl_805DC8B8;
+Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner, void *pos, s32 level);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void *TObjFish__sub_8001ED9C(void *, int);
+void *TObjFish__sub_8001EDC4(void *, int);
+void TObjFish__sub_800660D4(void *, void *, void *, void *, int, f32);
+void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
+void *TObjEneDellBiter__sub_80087350(void *, int);
+void *TBoss4Type2__sub_800874F4(void *, int);
+void **alloc_buffer__11TOBoss4RockFPv(int);
+extern Profile_80237494 lbl_8044D9F8[];
+extern Emitter_80237494 lbl_8044DA28;
+extern void *lbl_805D63AC;
+extern void *lbl_805D63B0;
+extern const f32 lbl_805DC8C0;
+extern const f32 lbl_805DC8C4;
+void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos);
 }
 
 extern "C" {
@@ -132,7 +233,122 @@ void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
+typedef struct Obj_80237310 Obj_80237310;
+typedef struct Owner_80237310 Owner_80237310;
+Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner, void *pos, s32 level) {
+  void *p;
+  __ct__7TEffectFv(self);
+  self->vt = __vt__19TTecPlayerInfluence;
+  self->f0 = lbl_805D37F0;
+  self->fa8 = 0xFFFF;
+  VecCopy__FP3VecPC3Vec(self->pos, pos);
+  if (level < 0)
+  {
+    self->level = 0;
+  }
+  else
+    if (level >= 30)
+  {
+    self->level = 30;
+  }
+  else
+  {
+    self->level = level;
+  }
+  self->tier = get_level_tier__10TObjPlayerFi(self->level);
+  self->f64 = lbl_805DC8A4;
+  self->f70 = lbl_805DC8A8;
+  self->f3c = lbl_805DC8AC;
+  self->f40 = lbl_805DC8AC;
+  self->f44 = lbl_805DC8AC;
+  self->owner = owner;
+  self->f2c = lbl_805DC8B0;
+  self->f30 = lbl_805DC8AC;
+  self->f34 = lbl_805DC8AC;
+  self->f38 = lbl_805DC8AC;
+  self->fa0 = 0;
+  self->fb0[0] = lbl_805DC8B4;
+  self->fb0[1] = lbl_805DC8B4;
+  self->fb0[2] = lbl_805DC8B4;
+  self->fbc = lbl_805DC8B8;
+  self->fc0 = lbl_805DC8AC;
+  self->fc4 = 0;
+  self->fc8 = 0x40107;
+  p = __nw__7TObjectFUl(0xAC);
+  if (p != 0)
+  {
+    p = TObjPlayer__sub_801569F4(p, self);
+  }
+  self->fdc = p;
+  if (self->fdc != 0)
+  {
+    TObjEneGibbles__sub_80156780(self->fdc, self->fb0, 1);
+  }
+  self->fac = 1;
+  if (((self->owner != 0) && (obj_getField1c(self->owner) < 4)) && (self->owner->flags & 0x02000000))
+  {
+    self->fac = 0;
+  }
+  return self;
+}
+
 void TTecPlayerInfluence__vt5(void) {  }
+
+typedef struct Emitter_80237494 Emitter_80237494;
+typedef struct Profile_80237494 Profile_80237494;
+typedef struct Rabarta_80237494 Rabarta_80237494;
+typedef struct Vec_80237494 Vec_80237494;
+void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos) {
+  u32 i;
+  Vec_80237494 point;
+  Emitter_80237494 *binding;
+  self->emitters = alloc_buffer__11TOBoss4RockFPv(lbl_8044D9F8[self->band].count * 4);
+  for (i = 0; i < lbl_8044D9F8[self->band].count; i++)
+  {
+    VecCopy__FP3VecPC3Vec(&point, self->source + 0x38);
+    if (pos != 0)
+    {
+      VecCopy__FP3VecPC3Vec(&point, pos);
+    }
+    self->emitters[i] = TBoss4Type2__sub_800874F4(&point, lbl_8044D9F8[self->band].emitters[i].entry);
+    binding = &lbl_8044D9F8[self->band].emitters[i];
+    if ((binding->flags & 0x40) && (self->emitters[i] != 0))
+    {
+      set_position_xy__10TObjPlayerFPvff(self->emitters[i], binding->scale, binding->scale);
+    }
+    if (lbl_8044D9F8[self->band].emitters[i].flags & 0x20)
+    {
+      u32 mid = lbl_8044D9F8[self->band].emitters[i].flags >> 16;
+      if (self && self)
+      {
+      }
+      TObjFish__sub_800660D4(self->emitters[i], TObjFish__sub_8001EDC4(lbl_805D63AC, mid), lbl_805D63B0, 0, 0, lbl_805DC8C0);
+    }
+  }
+  if (self->band == 5)
+  {
+    Vec_80237494 point2;
+    Emitter_80237494 *b2 = &lbl_8044DA28;
+    f32 dy = lbl_805DC8C4;
+    u32 id;
+    void *emitter;
+    if (pos != 0)
+    {
+      VecCopy__FP3VecPC3Vec(&point2, pos);
+    }
+    else
+    {
+      VecCopy__FP3VecPC3Vec(&point2, self->source + 0x38);
+    }
+    point2.y += dy;
+    emitter = TObjEneDellBiter__sub_80087350(&point2, b2->entry);
+    id = b2->flags >> 16;
+    if (emitter != 0)
+    {
+      TObjFish__sub_800660D4(emitter, TObjFish__sub_8001EDC4(lbl_805D63AC, id), lbl_805D63B0, TObjFish__sub_8001ED9C(lbl_805D63AC, 1), 0, lbl_805DC8C0);
+    }
+  }
+}
 
 void TTecRaBarta__vt7(void *arg0) {
     s16 temp_r0;

@@ -83,6 +83,35 @@ typedef struct S_802CB10C { u8 pad0[0x3C0]; s32 f3C0; } S_802CB10C;
 struct RecoveredGlobal_802CB03C_lbl_8058D490;
 struct Vec_802CAD98 { f32 x, y, z; };
 
+struct Vec_802CB170
+{
+  f32 x;
+  f32 y;
+  f32 z;
+};
+
+struct Tgt_802CB170
+{
+  u8 pad[0x30];
+  u32 flags;
+  u8 pad34[4];
+  Vec_802CB170 pos;
+};
+
+struct Gi_802CB170
+{
+  u8 pad[0x38];
+  Vec_802CB170 pos;
+  u8 pad44[0x60 - 0x44];
+  s32 angle;
+  u8 pad64[0x3C0 - 0x64];
+  s32 count;
+  s16 list[12];
+  u8 pad3dc[0x434 - 0x3DC];
+  s32 fov;
+  f32 range;
+};
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK);
@@ -108,7 +137,6 @@ M2C_UNK clear_global_state__10TObjPlayerFv();
 extern RecoveredGlobal_802CB03C_lbl_8058D490 lbl_8058D490;
 void TObjEneMe1GiGue__sub_802CB03C(u8 *arg0);
 s32 get_player_data__10TObjPlayerFi(int);
-void TObjEneMe1GiGue__sub_802CB170(void *, s32);
 extern s32 lbl_805D586C;
 s32 TObjEneMe1GiGue__sub_802CB10C(S_802CB10C *arg0);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
@@ -126,6 +154,12 @@ extern RecoveredGlobal_802CB03C_lbl_8058D490 lbl_8058D490;
 extern const f32 TObjEneMe1GiGue__data_805DE660;
 extern const f32 TObjEneMe1GiGue__data_805DE664;
 void TObjEneMe1GiGue__sub_802CAD98(u8 *arg0, Vec_802CAD98 *arg1);
+s16 obj_getField1c(void *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 TObjPlayer__sub_80141F84(s32, s32);
+void TBoss6Type1__sub_803D9370(Vec_802CB170 *, Vec_802CB170 *);
+extern const f64 TObjEneMe1GiGue__data_80472298;
+void TObjEneMe1GiGue__sub_802CB170(Gi_802CB170 *self, Tgt_802CB170 *t);
 }
 
 extern "C" {
@@ -256,9 +290,28 @@ s32 TObjEneMe1GiGue__sub_802CB10C(S_802CB10C *arg0) {
     arg0->f3C0 = 0;
     for (i = 0; i < lbl_805D586C; i++) {
         s32 t = get_player_data__10TObjPlayerFi(i);
-        TObjEneMe1GiGue__sub_802CB170(arg0, t);
+        TObjEneMe1GiGue__sub_802CB170((Gi_802CB170 *)(arg0), (Tgt_802CB170 *)(t));
     }
     return arg0->f3C0;
+}
+typedef struct Gi_802CB170 Gi_802CB170;
+typedef struct Tgt_802CB170 Tgt_802CB170;
+typedef struct Vec_802CB170 Vec_802CB170;
+void TObjEneMe1GiGue__sub_802CB170(Gi_802CB170 *self, Tgt_802CB170 *t) {
+  int new_var;
+  if ((((self->count < 12) && (t != 0)) && (((void *) t) != ((void *) self))) && (!(t->flags & 0x06000800)))
+  {
+    Vec_802CB170 v = t->pos;
+    TBoss6Type1__sub_803D9370(&v, &self->pos);
+    if (!(((v.x * v.x) + (v.z * v.z)) > (self->range * self->range)))
+    {
+      new_var = (-((s32) (((const f64 *)&TObjEneMe1GiGue__data_80472298)[0] * get_ad_end_text_start__10TObjPlayerFv(v.z, v.x)))) + 0x4000;
+      if (TObjPlayer__sub_80141F84(new_var, self->angle) <= (self->fov / 2))
+      {
+        self->list[self->count++] = obj_getField1c(t);
+      }
+    }
+  }
 }
 
 }

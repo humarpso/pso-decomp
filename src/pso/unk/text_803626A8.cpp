@@ -31,6 +31,89 @@ struct Obj_80362DE8 {
     u8 pad0[0x40]; u32 flags; u8 pad44[8]; f32 f4C; u8 pad50[8]; s32 i58; u8 pad5C[4]; u8 v60[0x10]; void *fn70; void *fn74;
 };
 
+struct VBase_18_c22f9c
+{
+  char pad[0x18];
+};
+
+struct VObj_18_c22f9c : VBase_18_c22f9c {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63(s32, void *);
+};
+
+struct T_80362C80
+{
+  u8 pad0[0xF0];
+  VObj_18_c22f9c *obj;
+};
+
+struct S_80362C80
+{
+  s32 v;
+};
+
 extern "C" {
 M2C_UNK set_evp__12TItemProUnitFPvf(int, f32);
 extern const f32 lbl_805E0258;
@@ -64,6 +147,11 @@ void TObjPlayer__sub_8032E648();
 void create_network_object__10TObjPlayerFiPvi();
 extern const f32 lbl_805E0260;
 void TObjPlayer__sub_80362DE8(void *arg0, Obj_80362DE8 *arg1);
+s32 TObjEneDellBiter__sub_80087350(void *, s32);
+s32 has_valid_handle__10TObjPlayerFPv(void *);
+s16 TObjPlayer__sub_801D2EA8(void *);
+extern s32 lbl_804A2B50[];
+void TObjPlayer__sub_80362C80(T_80362C80 *arg0);
 }
 
 extern "C" {
@@ -133,6 +221,17 @@ void TObjPlayer__sub_80362C28(u8 *arg0) {
 
 void TObjPlayer__sub_80362C54(u8 *arg0) {
     set_evp__12TItemProUnitFPvf((int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC), (f32) (lbl_805E025C));
+}
+
+typedef struct S_80362C80 S_80362C80;
+typedef struct T_80362C80 T_80362C80;
+typedef struct VBase_18_c22f9c VBase_18_c22f9c;
+typedef struct VObj_18_c22f9c VObj_18_c22f9c;
+void TObjPlayer__sub_80362C80(T_80362C80 *arg0) {
+  u8 sp8[0x10];
+  s32 n;
+  arg0->obj->m63(lbl_804A2B50[(has_valid_handle__10TObjPlayerFPv(arg0->obj) * 3) + TObjPlayer__sub_801D2EA8(((u8 *) arg0->obj) + 0x7CC)], sp8);
+  TObjEneDellBiter__sub_80087350(sp8, 0x1D0);
 }
 
 void *TObjPlayer__sub_80362CFC(void *arg0, M2C_UNK _w1, void * _w2) {
