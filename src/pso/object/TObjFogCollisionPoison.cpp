@@ -62,6 +62,18 @@ void TObjFogCollisionSwitch__vt12(void *self);
 void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
 extern char lbl_80440078[];
 void TObjFogCollisionPoison__vt12(void *self);
+s16 obj_getS16_32C(s32);
+s32 obj_getField1c(s32);
+s32 is_valid_target__9TObjEneDDFPv(s32);
+M2C_UNK TObjPlayer__sub_801B1E54(M2C_UNK, s32, s16);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+void TObjFogCollisionPoison__sub_8015346C(void *arg0, s32 arg1);
+s32 get_global_state__14TOKeyMachine01Fv();
+M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, s32, s32, M2C_UNK, M2C_UNK);
+void TObjFogCollisionPoison__sub_80153520(s32 arg0);
+s32 get_global_state__14TOKeyMachine01Fv();
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+void TObjFogCollisionPoison__sub_801535D0(s32 arg0);
 }
 
 extern "C" {
@@ -239,8 +251,51 @@ u8 check_switch__22TObjFogCollisionPoisonFPv(void *arg0) {
     return (u8) (temp_r31 == TODoorAncient08__sub_80229220((u16) M2C_FIELD(arg0, s32 *, 0x8C)));
 }
 
+void TObjFogCollisionPoison__sub_8015346C(void *arg0, s32 arg1) {
+    s32 p;
+    s16 v;
+    p = TPlayerBattleCtrl4P__sub_801BA74C(arg1);
+    if (is_valid_target__9TObjEneDDFPv(p) != 0) {
+        v = obj_getS16_32C(p) - M2C_FIELD(arg0, s32 *, 0x98);
+        if (v < 0) {
+            v = 0;
+        }
+        TObjPlayer__sub_801B1E54(0xFFFF, obj_getField1c(p), v);
+    }
+}
+
 void TObjFogCollisionPoison__sub_801534E8(u8 *arg0, u16 arg1) {
     TObjFogCollisionPoison__sub_801531EC((s32)((void *) (arg1)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x84))), (s32)((int) ((u8) (M2C_FIELD(arg0, s32 *, 0x88) == 0))));
+}
+void TObjFogCollisionPoison__sub_80153520(s32 arg0) {
+    switch (get_global_state__14TOKeyMachine01Fv()) {
+    case 0x15:
+    case 0x16:
+        TOTrapAncient01__sub_80226578(0x4004BC16, arg0, arg0 + 0x38, 0, 0);
+        break;
+    case 0x1C:
+    case 0x1D:
+        TOTrapAncient01__sub_80226578(0x4004BC24, arg0, arg0 + 0x38, 0, 0);
+        break;
+    default:
+        TOTrapAncient01__sub_80226578(0x4004BC1C, arg0, arg0 + 0x38, 0, 0);
+        break;
+    }
+}
+void TObjFogCollisionPoison__sub_801535D0(s32 arg0) {
+    switch (get_global_state__14TOKeyMachine01Fv()) {
+    case 0x15:
+    case 0x16:
+        TBoss3Volopt__sub_8022675C(0x4004C115, arg0 + 0x38, 0, 0);
+        break;
+    case 0x1C:
+    case 0x1D:
+        TBoss3Volopt__sub_8022675C(0x4004C123, arg0 + 0x38, 0, 0);
+        break;
+    default:
+        TBoss3Volopt__sub_8022675C(0x4004C11B, arg0 + 0x38, 0, 0);
+        break;
+    }
 }
 
 }

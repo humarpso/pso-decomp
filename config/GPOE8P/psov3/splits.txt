@@ -807,6 +807,7 @@ pso/boss/TBoss4Uro.cpp:
 pso/unk/text_8004C1AC.cpp:
 	.text       start:0x8004C1AC end:0x8004D050
 	.rodata     start:0x80437290 end:0x80437298
+	.sdata2     start:0x805D8938 end:0x805D8940
 
 pso/boss/TBoss4DarkFalz_8004C93C.cpp:
 	.text       start:0x8004D050 end:0x8004D9A8
@@ -3414,7 +3415,7 @@ pso/enemy/TObjEnePanarms_800F5E90.cpp:
 
 pso/object/TObjControl.cpp:
 	.text       start:0x800F5EE0 end:0x800F6960
-	.rodata     start:0x8043D778 end:0x8043D780
+	.rodata     start:0x8043D778 end:0x8043D788
 
 pso/player/TObjPlayer_800F6960.cpp:
 	.text       start:0x800F6960 end:0x800F7744
@@ -8240,6 +8241,7 @@ pso/misc/TKeyBoardControl_8019BB2C.cpp:
 pso/object/TObjAreaWarpEnding.cpp:
 	.text       start:0x8019BB9C end:0x8019CA24
 	.rodata     start:0x804463C8 end:0x804463D0
+	.sdata2     start:0x805DBFE4 end:0x805DBFE8
 
 pso/object/TObjAreaWarp.cpp:
 	.text       start:0x8019CA24 end:0x8019D4E4

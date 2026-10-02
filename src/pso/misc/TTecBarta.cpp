@@ -83,6 +83,27 @@ struct Obj_8022BCB8 {
 
 struct Vec_8022BA98 { f32 x; f32 y; f32 z; };
 
+struct List_8022BD74 { u32 ids[16]; s32 vals[16]; s32 count; };
+
+struct VBase_8022BD74 { u8 pad[0x18]; };
+
+struct VObj_8022BD74 : VBase_8022BD74 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4(u32 target);
+};
+
+struct Tec_8022BD74 {
+    u8 pad0[0x1C];
+    void *owner;
+    u8 pad20[0xB8 - 0x20];
+    s32 fb8;
+    u8 padbc[0xE8 - 0xBC];
+    u32 fe8;
+};
+
 extern "C" {
 s32 TTecCtrl__sub_8022DBC4(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
@@ -101,7 +122,6 @@ u16 obj_getField1c(void *);
 void TTecBarta__vt6(Obj_8022B8F4 *self, VObj_8022B8F4 *target);
 u16 obj_getField1c(void *);
 void update_technique_by_state__9TTecBartaFPv(u8 *arg0);
-void TTecBarta__sub_8022B540(void *);
 void TTecBarta__sub_8022B6FC(u8 *arg0);
 void TObjPlayer__sub_8023A7B4();
 extern TechniqueContactVtable __vt__9TTecBarta;
@@ -109,7 +129,6 @@ extern s32 lbl_805D3798;
 TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _w2, void * _w3, void * _w4);
 u16 obj_getField1c(void *);
 void update_technique_by_state__9TTecBartaFPv(u8 *arg0);
-void TTecBarta__sub_8022B540(void *);
 void TTecBarta__sub_8022B6FC(u8 *arg0);
 void TObjPlayer__sub_8023AA4C();
 extern TechniqueContactVtable __vt__9TTecBarta;
@@ -131,6 +150,25 @@ extern s32 lbl_805D63B0;
 extern const f32 lbl_805DC7A0;
 extern const f32 lbl_805DC7A4;
 void run_task__9TTecBartaFv(TTecBarta *self);
+s32 TObjFish__sub_8001ED9C(s32, s32);
+s32 TObjFish__sub_8001EDC4(s32, s32);
+void TObjFish__sub_800660D4(TechniqueParticleEmitter *, s32, s32, s32, s32, f32);
+void set_position_xy__10TObjPlayerFPvff(TechniqueParticleEmitter *, f32, f32);
+TechniqueParticleEmitter *fn_800871A0(f32 *, s32 *, u32);
+TechniqueParticleEmitter *TBoss4Type2__sub_800874F4(f32 *, u32);
+TechniqueParticleEmitter **alloc_buffer__11TOBoss4RockFPv(u32);
+extern TechniqueEmitterSourceTable TTecBarta__data_8044CD98[];
+extern s32 lbl_805D63AC;
+extern s32 lbl_805D63B0;
+extern const f32 lbl_805DC7A0;
+void TTecBarta__sub_8022B540(void *arg);
+void queue_destruction__7TObjectFv(TechniqueParticleEmitter*);
+u16 obj_getField1c(void *);
+s32 get_type__10TObjPlayerFPv(void *);
+s32 is_valid_and_active__10TObjPlayerFUi(u32);
+List_8022BD74 *TObjPlayer__sub_80236728(Tec_8022BD74 *, void *);
+List_8022BD74 *TObjPlayer__sub_80236754(Tec_8022BD74 *, void *);
+void TObjPlayer__sub_8022BD74(Tec_8022BD74 *self);
 }
 
 extern "C" {
@@ -185,6 +223,44 @@ typedef struct RecoveredGlobal_8022B6FC_lbl_804CC510 RecoveredGlobal_8022B6FC_lb
 typedef struct RecoveredGlobal_8022B6FC_lbl_804CC55C RecoveredGlobal_8022B6FC_lbl_804CC55C;
 typedef char RecoveredGlobal_8022B6FC_lbl_804CC510_size[((sizeof(RecoveredGlobal_8022B6FC_lbl_804CC510)) == 0x4C) ? (1) : (-1)];
 typedef char RecoveredGlobal_8022B6FC_lbl_804CC55C_size[((sizeof(RecoveredGlobal_8022B6FC_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
+
+void TTecBarta__sub_8022B540(void *arg) {
+#define self ((TTecBarta *)arg)
+    s32 angles[3];
+    s32 reverse[3];
+    u32 i;
+    TechniqueEmitterSourceRow *row;
+    u32 flags;
+    s32 base = (s32)arg;
+    angles[0] = self->angles[0];
+    angles[1] = 0;
+    angles[2] = self->angles[2];
+    self->emitters = alloc_buffer__11TOBoss4RockFPv(TTecBarta__data_8044CD98[self->band].count * 4);
+    for (i = 0; i < TTecBarta__data_8044CD98[self->band].count; i++) {
+        row = &TTecBarta__data_8044CD98[self->band].rows[i];
+        flags = row->flags;
+        if (flags & 2) {
+            self->emitters[i] = fn_800871A0((f32 *)(base + 0x20), angles, row->entry);
+        } else if (flags & 1) {
+            reverse[0] = self->angles[0] + 0x8000;
+            reverse[1] = 0;
+            reverse[2] = self->angles[2];
+            self->emitters[i] = fn_800871A0((f32 *)(base + 0x20), reverse, TTecBarta__data_8044CD98[self->band].rows[i].entry);
+        } else {
+            self->emitters[i] = TBoss4Type2__sub_800874F4((f32 *)(base + 0x20), row->entry);
+        }
+        if (self->emitters[i] != NULL) {
+            row = &TTecBarta__data_8044CD98[self->band].rows[i];
+            if (row->flags & 0x20) {
+                TObjFish__sub_800660D4(self->emitters[i], TObjFish__sub_8001EDC4(lbl_805D63AC, 0), lbl_805D63B0, TObjFish__sub_8001ED9C(lbl_805D63AC, 0), 0, lbl_805DC7A0);
+            } else {
+                set_position_xy__10TObjPlayerFPvff(self->emitters[i], row->scale, row->scale);
+            }
+        }
+    }
+#undef self
+}
+
 void TTecBarta__sub_8022B6FC(u8 *arg0) {
   int new_var;
   new_var = (int) TTecCtrl__sub_8022DBC4((int) 3, (int) (*((s16 *) (((s8 *) arg0) + 0xC4))), (int) 0xFFFF);
@@ -302,7 +378,7 @@ TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _
         self->slots[i] = 0xFFFF;
     }
     self->f174 = 0;
-    TTecBarta__sub_8022B540(self);
+    TTecBarta__sub_8022B540((void *)(self));
     update_technique_by_state__9TTecBartaFPv((u8 *)self);
     if (self->owner) {
         self->fc8 = ((s16)obj_getField1c(self->owner));
@@ -322,7 +398,7 @@ u8 *TTecBarta__sub_8022BCB8(u8 *arg0, void * _w1, void * _w2, void * _w3, void *
     M2C_FIELD(arg0, s32 *, 0x174) = 0;
     M2C_FIELD(arg0, s32 *, 0x114) = 0x40003;
     M2C_FIELD(arg0, f32 *, 0x24) = M2C_FIELD(arg0, f32 *, 0x24) + lbl_805DC7A8;
-    TTecBarta__sub_8022B540(arg0);
+    TTecBarta__sub_8022B540((void *)(arg0));
     update_technique_by_state__9TTecBartaFPv((u8 *)(arg0));
     if (M2C_FIELD(arg0, void **, 0x1C) != 0) {
         M2C_FIELD(arg0, s16 *, 0xC8) = obj_getField1c(M2C_FIELD(arg0, void **, 0x1C));
@@ -331,5 +407,31 @@ u8 *TTecBarta__sub_8022BCB8(u8 *arg0, void * _w1, void * _w2, void * _w3, void *
 }
 
 void TObjPlayer__sub_8022BD70(void) {  }
+struct TechniqueParticleEmitter;
+void TObjPlayer__sub_8022BD74(Tec_8022BD74 *self) {
+    List_8022BD74 *list;
+    s32 i;
+    u32 id;
+    if (self->fe8 == 0) {
+        queue_destruction__7TObjectFv((TechniqueParticleEmitter *)self);
+        return;
+    }
+    if (obj_getField1c(self->owner) < 4) {
+        if (get_type__10TObjPlayerFPv((u8 *)self->owner + 0x828) != 0) {
+            list = TObjPlayer__sub_80236754(self, self->owner);
+        } else {
+            list = TObjPlayer__sub_80236728(self, self->owner);
+        }
+    } else {
+        list = TObjPlayer__sub_80236754(self, self->owner);
+    }
+    for (i = 0; i < list->count; i++) {
+        if (is_valid_and_active__10TObjPlayerFUi(list->ids[i]) != 0) {
+            id = list->ids[i];
+            self->fb8 = list->vals[i];
+            ((VObj_8022BD74 *)self)->m4(id);
+        }
+    }
+}
 
 }

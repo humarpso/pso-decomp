@@ -85,6 +85,20 @@ extern RecoveredGlobal_8004C5E8_TBoss4DarkFalz__data_804FF1E8 TBoss4DarkFalz__da
 extern int TBoss4DarkFalz__data_805D4D64;
 extern const f32 lbl_805D8940;
 void TBoss4DarkFalz__sub_8004C5E8(u8 *arg0);
+void TBoss4DarkFalz__sub_8004B654(void *);
+s32 TBoss4DarkFalz__sub_8004B730(void *, f32, int);
+int TBoss4DarkFalz__sub_8004B77C(void*);
+void TBoss4DarkFalz__sub_8004C2D8(void *arg0);
+s32 is_ending_or_split_screen__14TBoss4DarkFalzFv();
+void TBoss4DarkFalz__sub_8004B20C(void *, s32);
+void TBoss4DarkFalz__sub_8004B654(void *);
+s32 TBoss4DarkFalz__sub_8004B730(void *, f32, int);
+void TBoss4DarkFalz__sub_8004C3B4(void *arg0);
+s32 is_ending_or_split_screen__14TBoss4DarkFalzFv();
+void TBoss4DarkFalz__sub_8004B20C(void *, s32);
+void TBoss4DarkFalz__sub_8004B654(void *);
+s32 TBoss4DarkFalz__sub_8004B730(void *, f32, int);
+void TBoss4DarkFalz__sub_8004C7E8(void *arg0);
 }
 
 extern "C" {
@@ -146,7 +160,51 @@ void swap_and_send__14TBoss4DarkFalzFPv(void* p) { swap_bytes__14TBoss4DarkFalzF
 void swap_bytes__14TBoss4DarkFalzFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); bswap_32__FPUl((char*)p + 0xc); }
 void set_code_25_4__14TBoss4DarkFalzFPv(void* p) { *(u8*)((char*)p + 0x0) = 25; *(u8*)((char*)p + 0x1) = 4; }
 
+void TBoss4DarkFalz__sub_8004C2D8(void *arg0) {
+    f32 v;
+    s32 t;
+    t = M2C_FIELD(arg0, s32 *, 0x380);
+    if (t > 0x1BC) {
+        v = (f32)(t - 0x1BC) / 6.0f;
+        if (v > 1.0f) {
+            v = 1.0f;
+        }
+        TBoss4DarkFalz__sub_8004B730(arg0, v, 0xFFFFFF);
+    }
+    t = M2C_FIELD(arg0, s32 *, 0x380) - 1;
+    M2C_FIELD(arg0, s32 *, 0x380) = t;
+    if (t < 0) {
+        TBoss4DarkFalz__sub_8004B77C((void*)(arg0));
+        TBoss4DarkFalz__sub_8004B654(arg0);
+    }
+}
+
 void set_state__14TBoss4DarkFalzFPv(void* p) { TBoss4DarkFalz__sub_8004BA70((void*)(p)); create__16TObjOnlineEndingFPv(p); *(int*)((char*)p + 0x380) = 454; }
+
+void TBoss4DarkFalz__sub_8004C3B4(void *arg0) {
+    f32 v;
+    s32 t;
+    if (is_ending_or_split_screen__14TBoss4DarkFalzFv() != 0) {
+        t = M2C_FIELD(arg0, s32 *, 0x380);
+        if (t < 0xA) {
+            v = (f32)(0xA - t) / 6.0f;
+            if (v > 1.0f) {
+                v = 1.0f;
+            }
+            TBoss4DarkFalz__sub_8004B730(arg0, v, 0xFFFFFF);
+        }
+    }
+    t = M2C_FIELD(arg0, s32 *, 0x380) - 1;
+    M2C_FIELD(arg0, s32 *, 0x380) = t;
+    if (t < 0) {
+        if (is_ending_or_split_screen__14TBoss4DarkFalzFv() != 0) {
+            TBoss4DarkFalz__sub_8004B20C(arg0, 0xF);
+            return;
+        }
+        TBoss4DarkFalz__sub_8004B654(arg0);
+    }
+}
+
 void begin_defeat_sequence__14TBoss4DarkFalzFPv(u8 *arg0) {
     u16 sp8[4];
     s32 var_r29;
@@ -227,6 +285,31 @@ void init_state__14TBoss4DarkFalzFPv(void *arg0) {
     TObjBgmColCtrl__sub_802274B8(lbl_80437298);
     M2C_FIELD(arg0, u32 *, 0x380) = 114;
 }
+
+void TBoss4DarkFalz__sub_8004C7E8(void *arg0) {
+    f32 v;
+    s32 t;
+    if (is_ending_or_split_screen__14TBoss4DarkFalzFv() != 0) {
+        t = M2C_FIELD(arg0, s32 *, 0x380);
+        if (t < 0xA) {
+            v = (f32)(0xA - t) / 6.0f;
+            if (v > 1.0f) {
+                v = 1.0f;
+            }
+            TBoss4DarkFalz__sub_8004B730(arg0, v, 0xFFFFFF);
+        }
+    }
+    t = M2C_FIELD(arg0, s32 *, 0x380) - 1;
+    M2C_FIELD(arg0, s32 *, 0x380) = t;
+    if (t < 0) {
+        if (is_ending_or_split_screen__14TBoss4DarkFalzFv() != 0) {
+            TBoss4DarkFalz__sub_8004B20C(arg0, 0xF);
+            return;
+        }
+        TBoss4DarkFalz__sub_8004B654(arg0);
+    }
+}
+
 void TBoss4DarkFalz__sub_8004C8A8(void) {  }
 void enter_state_142__14TBoss4DarkFalzFPv(void* p) { TBoss4DarkFalz__sub_8004BA70((void*)(p)); create__11TObjDFDemo3FPvPvPv(p, (char*)p + 0x39c, *(void**)((char*)p + 0x3a8)); *(int*)((char*)p + 0x380) = 142; }
 void update_timer__14TBoss4DarkFalzFPv(void *arg0) {

@@ -120,12 +120,41 @@ struct Obj_80238AE8 : VObj_18_acd6eb {
 
 struct Sub_80238AE8 { u8 pad[0xA4]; u8 *inner; };
 
+struct Elec_80238E14 { s32 type; f32 val; };
+
+struct VBase_18_9c98dd { char pad[0x18]; };
+
+struct VObj_18_9c98dd : VBase_18_9c98dd {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual s32 m21(s32, Elec_80238E14, s32, s32, s32);
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u32 TPhotonMylla__sub_80154CB4(int);
 s32 is_parents_unqueued__9TTecLukerFUi();
 s32 is_valid_and_active__10TObjPlayerFUi(int);
-M2C_UNK TTecRaFoie__sub_80238828(void *, void *);
+void TTecRaFoie__sub_80238828(void *, void *);
 void run_task__10TTecRaFoieFv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
@@ -175,6 +204,7 @@ void TTecRaFoie__sub_802380F4(void *);
 extern M2C_UNK __vt__10TTecRaFoie[];
 extern u32 lbl_805D3800;
 Obj_80238AE8 *TTecRaFoie__ct(Obj_80238AE8 *arg0, void * _w1, void * _w2, void * _w3, int _w4);
+void TTecRaZonde__vt4(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -394,6 +424,12 @@ void TTecRaZonde__sub_80238D10(u8 *arg0) {
   {
     ((RecoveredFields_80238D10_arg0 *) arg0)->field_88 = (f32) (((RecoveredFields_80238D10_arg0 *) arg0)->field_88 * (*((f32 *) (((s8 *) (&lbl_804CC55C.value)) + 0x40))));
   }
+}
+void TTecRaZonde__vt4(u8 *arg0, u8 *arg1) {
+    Elec_80238E14 d;
+    d.type = 3;
+    d.val = M2C_FIELD(arg0, f32 *, 0x88);
+    ((VObj_18_9c98dd *)(arg1))->m21(M2C_FIELD(arg0, s32 *, 0x1C), d, 0, 8, -1);
 }
 
 }

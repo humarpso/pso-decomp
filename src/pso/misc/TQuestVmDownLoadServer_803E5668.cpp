@@ -99,6 +99,39 @@ M2C_UNK TQuestVmDownLoadServer__sub_803EAE84(int, int, int);
 s32 TQuestVmDownLoadServer__sub_803EDB90(void *, void *);
 extern s32 lbl_805D7898;
 extern s32 lbl_805D789C;
+M2C_UNK strcpy(int, int);
+extern char lbl_8047E68C[];
+extern u8 lbl_8058DC48[80];
+extern u8 lbl_8058DC98[80];
+extern RecoveredGlobal_803E5EFC_lbl_8058DD88 lbl_8058DD88;
+extern u8 lbl_80591AC4[];
+extern u8 lbl_80596258[];
+extern s32 lbl_805D7820;
+extern u8 *lbl_805D7824;
+extern s32 lbl_805D7828;
+extern s32 lbl_805D782C;
+extern s32 lbl_805D7830;
+extern s32 lbl_805D7834;
+extern s32 lbl_805D7838;
+extern s32 lbl_805D783C;
+extern s32 lbl_805D7840;
+extern s32 lbl_805D7844;
+extern s32 lbl_805D7848;
+extern s32 lbl_805D7880;
+extern s32 lbl_805D7884;
+extern s32 lbl_805D7888;
+extern u8 lbl_805D7894[];
+extern s32 lbl_805D78A8;
+extern s32 lbl_805D78DC;
+extern s16 lbl_805D78E0;
+extern s32 lbl_805D78E4;
+extern s32 lbl_805D78F4;
+extern s32 lbl_805D78F8;
+extern s32 lbl_805D78FC;
+extern s32 lbl_805D7900;
+extern s32 lbl_805D7904;
+extern s32 lbl_805E10C0;
+s32 TQuestVmDownLoadServer__sub_803E5B94(s32 *arg0);
 }
 
 extern "C" {
@@ -232,6 +265,45 @@ s32 TQuestVmDownLoadServer__sub_803E5A8C(u8 *arg0) {
     strcpy((int) (temp_r30), (int) (TQuestVmDownLoadServer__sub_803EE718((void *) (lbl_805D78F0 + lbl_805D78EC), (void *) ((lbl_805D78C0 - lbl_805D78F0) - lbl_805D78EC))));
     return TQuestVmDownLoadServer__sub_803EB844(lbl_80595998[lbl_805D78F0].c);
 }
+
+s32 TQuestVmDownLoadServer__sub_803E5B94(s32 *arg0) {
+    u32 i;
+    for (i = 0; i < 80; i++) {
+        lbl_8058DC98[i] = 0;
+        lbl_8058DC48[i] = 0;
+    }
+    {
+        s32 src = *arg0;
+        strcpy((int)&lbl_8058DD88.value, src);
+    }
+    lbl_805D7834 = 0;
+    lbl_805D7830 = 0;
+    lbl_805D782C = 1;
+    lbl_805D7828 = 0;
+    lbl_805D7824 = lbl_80591AC4 + 0x4E;
+    lbl_805D7904 = -1;
+    lbl_805D7820 = 0;
+    lbl_805D7900 = 0;
+    lbl_805D78FC = 0;
+    lbl_805D78F8 = 0x8002;
+    lbl_805D7888 = 0;
+    lbl_805D7884 = 1;
+    lbl_805D7880 = 0;
+    lbl_805D78E4 = 1;
+    lbl_805D78E0 = 0x4000;
+    lbl_805D7848 = 0;
+    lbl_805D78DC = 0x24;
+    strcpy((int)lbl_805D7894, (int)&lbl_805E10C0);
+    strcpy((int)lbl_80596258, (int)lbl_8047E68C);
+    lbl_805D78F4 = 0;
+    lbl_805D7844 = 0;
+    lbl_805D7840 = 0;
+    lbl_805D783C = 0;
+    lbl_805D7838 = 0;
+    lbl_805D78A8 = 1;
+    return 0;
+}
+
 s32 TQuestVmDownLoadServer__sub_803E5EB8(void) {
     if ((s32) lbl_805D782C == 0) {
         return -1;

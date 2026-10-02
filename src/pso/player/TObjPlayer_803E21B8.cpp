@@ -37,16 +37,23 @@ typedef union WGPipe_803E26A4 {
     f32 f32;
 } WGPipe_803E26A4;
 
+typedef struct Vtx_803E2810 { f32 x, y, w; f32 s, t; u32 color; } Vtx_803E2810;
+
+typedef union WGPipe_803E2810 {
+    u8 u8;
+    u16 u16;
+    u32 u32;
+    f32 f32;
+} WGPipe_803E2810;
+
 extern "C" {
 M2C_UNK GXClearVtxDesc();
 M2C_UNK Dolphin_GXSetVtxDesc(int, int);
 M2C_UNK GXSetVtxAttrFmt(int, int, int, int, int);
-M2C_UNK TObjPlayer__sub_803E2468(int);
 void setup_vertex_format__10TObjPlayerFv(void);
 M2C_UNK GXClearVtxDesc();
 M2C_UNK Dolphin_GXSetVtxDesc(int, int);
 M2C_UNK GXSetVtxAttrFmt(int, int, int, int, int);
-M2C_UNK TObjPlayer__sub_803E2468(int);
 void setup_vtx_desc__10TObjPlayerFv(void);
 M2C_UNK GXSetTevOp(int, int);
 M2C_UNK GXSetTevColorIn(int, int, int, int, int);
@@ -80,6 +87,17 @@ void TObjPlayer__sub_803E21DC(void);
 void TObjPlayer__sub_803E2248(void);
 extern const f32 lbl_805E1070;
 void TObjPlayer__sub_803E26A4(Vtx_803E26A4 *v, s32 n, s32 mode);
+void GXSetNumChans(u8);
+void GXSetChanCtrl(int, int, int, int, int, int, int);
+M2C_UNK TObjPlayer__sub_803E2468(int arg0);
+void GXBegin(int, int, u16);
+M2C_UNK TObjPlayer__sub_803E20B0();
+void setup_render__10TObjPlayerFv(void);
+void TObjPlayer__sub_803E2224(void);
+void TObjPlayer__sub_803E2248(void);
+void TObjPlayer__sub_803E224C(void);
+extern const f32 lbl_805E1078;
+void TObjPlayer__sub_803E2810(Vtx_803E2810 *v, s32 n, s32 mode);
 }
 
 extern "C" {
@@ -154,7 +172,7 @@ void setup_vertex_format__10TObjPlayerFv(void) {
     Dolphin_GXSetVtxDesc((int) (0xB), (int) (1));
     GXSetVtxAttrFmt((int) (4), (int) (9), (int) (1), (int) (4), (int) (0));
     GXSetVtxAttrFmt((int) (4), (int) (0xB), (int) (1), (int) (5), (int) (0));
-    TObjPlayer__sub_803E2468((int) (1));
+    TObjPlayer__sub_803E2468((int)((int) (1)));
     TObjPlayer__sub_803E2528();
     TObjPlayer__sub_803E2640();
 }
@@ -166,13 +184,22 @@ void setup_vtx_desc__10TObjPlayerFv(void) {
     GXSetVtxAttrFmt((int) (4), (int) (9), (int) (1), (int) (4), (int) (0));
     GXSetVtxAttrFmt((int) (4), (int) (0xB), (int) (1), (int) (5), (int) (0));
     GXSetVtxAttrFmt((int) (4), (int) (0xD), (int) (1), (int) (4), (int) (0));
-    TObjPlayer__sub_803E2468((int) (1));
+    TObjPlayer__sub_803E2468((int)((int) (1)));
     TObjPlayer__sub_803E256C((s32)((int) (1)));
     TObjPlayer__sub_803E2664();
 }
 
 #pragma push
 #pragma scheduling off
+
+M2C_UNK TObjPlayer__sub_803E2468(int arg0) {
+    GXSetNumChans(arg0);
+    GXSetChanCtrl(4, 0, 0, 1, 0, 0, 2);
+    if (arg0 == 2) {
+        GXSetChanCtrl(5, 0, 0, 1, 0, 0, 2);
+    }
+}
+
 s32 TObjPlayer__sub_803E24E0(void) { return TObjPlayer__sub_803DCD38(0x0); }
 #pragma pop
 
@@ -249,6 +276,44 @@ void TObjPlayer__sub_803E26A4(Vtx_803E26A4 *v, s32 n, s32 mode) {
         GXPosition3f32_803E26A4(v->x * inv, v->y * inv, inv);
         c = v->color;
         GXColor1u32_803E26A4(((c & 0xFFFFFF) << 8) | ((c & 0xFF000000) >> 24));
+        v++;
+    }
+    TObjPlayer__sub_803E2248();
+}
+#pragma pop
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+static inline void GXPosition3f32_803E2810(f32 x, f32 y, f32 z) {
+    (*(volatile WGPipe_803E2810 *)0xCC008000).f32 = x;
+    (*(volatile WGPipe_803E2810 *)0xCC008000).f32 = y;
+    (*(volatile WGPipe_803E2810 *)0xCC008000).f32 = z;
+}
+static inline void GXColor1u32_803E2810(u32 c) {
+    (*(volatile WGPipe_803E2810 *)0xCC008000).u32 = c;
+}
+static inline void GXTexCoord2f32_803E2810(f32 s, f32 t) {
+    (*(volatile WGPipe_803E2810 *)0xCC008000).f32 = s;
+    (*(volatile WGPipe_803E2810 *)0xCC008000).f32 = t;
+}
+void TObjPlayer__sub_803E2810(Vtx_803E2810 *v, s32 n, s32 mode) {
+    f32 inv;
+    u32 c;
+    TObjPlayer__sub_803E20B0();
+    if (mode != 0) {
+        TObjPlayer__sub_803E2224();
+    } else {
+        setup_render__10TObjPlayerFv();
+    }
+    TObjPlayer__sub_803E224C();
+    GXBegin(0x98, 4, n);
+    for (; n > 0; n--) {
+        inv = lbl_805E1078 / v->w;
+        GXPosition3f32_803E2810(v->x * inv, v->y * inv, inv);
+        c = v->color;
+        GXColor1u32_803E2810(((c & 0xFFFFFF) << 8) | ((c & 0xFF000000) >> 24));
+        GXTexCoord2f32_803E2810(v->s, v->t);
         v++;
     }
     TObjPlayer__sub_803E2248();

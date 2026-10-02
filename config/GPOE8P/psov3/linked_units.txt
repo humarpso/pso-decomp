@@ -1177,6 +1177,7 @@ pso/misc/TLobby_801D6DC4.cpp
 pso/misc/TLobby_801D726C.cpp
 pso/misc/TLobby_801D726C_801D76B0.cpp
 pso/misc/TLobby_801DEFC4.cpp
+pso/misc/TLobby_801E6544_801E6544.cpp
 pso/misc/TLobby_801E6544_801E6948.cpp
 pso/misc/TLobby_801E6544_801E6C2C.cpp
 pso/misc/TLobby_801E6544_801E6C40.cpp
@@ -1544,6 +1545,7 @@ pso/misc/TOHangceilingCave01KeyQuick.cpp
 pso/misc/TOHangceilingCave01KeyQuick_80168C04.cpp
 pso/misc/TOHangceilingCave01Normal.cpp
 pso/misc/TOHangerMachine01.cpp
+pso/misc/TOHealGeneral.cpp
 pso/misc/TOJungleDesign.cpp
 pso/misc/TOJungleDesign_802FEDE8.cpp
 pso/misc/TOJungleDesign_802FEEB4.cpp
@@ -1962,6 +1964,7 @@ pso/misc/TWindowKeyBoardHard_801A529C.cpp
 pso/misc/TWindowKeyBoardHard_801A529C_801A5478.cpp
 pso/misc/TWindowKeyBoardHard_801A529C_801A54A4.cpp
 pso/misc/TWindowKeyBoardHard_801A529C_801A54E8.cpp
+pso/misc/TWindowKeyBoardHard_801FBA48.cpp
 pso/misc/TWindowKeyBoardHard_8025EB68.cpp
 pso/misc/TWindowKeyBoardHard_802601D4.cpp
 pso/misc/TWindowKeyBoardHard_8026038C.cpp
@@ -2102,6 +2105,7 @@ pso/misc/TWindowSubItemList.cpp
 pso/misc/TWindowSubItem_801F8FD4.cpp
 pso/misc/TWindowSubItem_80249058.cpp
 pso/misc/TWindowSubLog.cpp
+pso/misc/TWindowSubMagPhoton.cpp
 pso/misc/TWindowSubMag_801B7E78.cpp
 pso/misc/TWindowSubMag_802559F8.cpp
 pso/misc/TWindowSubMag_80255E14.cpp
@@ -2239,6 +2243,7 @@ pso/npc/TObjNpcBase_80149128.cpp
 pso/npc/TObjNpcBringer.cpp
 pso/npc/TObjNpcCloakroomBase.cpp
 pso/npc/TObjNpcConnoisseur.cpp
+pso/npc/TObjNpcEnemy.cpp
 pso/npc/TObjNpcEnemy_802D7070.cpp
 pso/npc/TObjNpcExpertBase.cpp
 pso/npc/TObjNpcFemaleBase.cpp
@@ -2359,6 +2364,7 @@ pso/object/TObjFish_8001ED90.cpp
 pso/object/TObjFish_800E2FFC.cpp
 pso/object/TObjFish_802ED828.cpp
 pso/object/TObjFogCollision.cpp
+pso/object/TObjFogCollisionPoison.cpp
 pso/object/TObjFogCollisionSwitch.cpp
 pso/object/TObjGbAdvance.cpp
 pso/object/TObjGbAdvance_80187D90.cpp
@@ -3159,6 +3165,7 @@ pso/player/TObjPlayer_80363BE0_80364258.cpp
 pso/player/TObjPlayer_80363BE0_80364280.cpp
 pso/player/TObjPlayer_80363BE0_803642A8.cpp
 pso/player/TObjPlayer_803DC834.cpp
+pso/player/TObjPlayer_803E21B8.cpp
 pso/player/TObjPlayer_803E4954.cpp
 pso/player/TObjPlayer_803E5470.cpp
 pso/protocol/subcommand_validation_actions.cpp
@@ -3372,6 +3379,7 @@ pso/ui/TAdMcSelectMcGC.cpp
 pso/ui/TAdMultiChgGameModeGC.cpp
 pso/ui/TAdMultiChgGameModeGC_8023E7A8.cpp
 pso/ui/TAdMultiChgGameModeGC_8023F4E4.cpp
+pso/ui/TAdMultiChgGameModeGC_8036DE10.cpp
 pso/ui/TAdMultiConfirmGC_802E072C.cpp
 pso/ui/TAdMultiPlyChrSelectGC_801A6EA0.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802B1850.cpp

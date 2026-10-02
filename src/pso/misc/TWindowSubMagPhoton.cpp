@@ -24,11 +24,13 @@ struct RecoveredGlobal_8027C2D0_lbl_8050E208 {
     u8 remaining[0x1AC];
 };
 
+typedef s32 M2C_UNK;
+struct Win_8027C4C8 { u8 pad[0x62]; s16 f62; };
+
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
-M2C_UNK TWindowSubMagPhoton__sub_8027C4C8(void *, int);
 void render__19TWindowSubMagPhotonFv(s32 arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
@@ -53,6 +55,28 @@ s32 is_player_input_active(int);
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
 extern RecoveredGlobal_8027C56C_lbl_8050E208 lbl_8050E208;
 void TWindowSubMagPhoton__sub_8027C2D0(u8 *arg0);
+void fn_8027C13C(void *, void *);
+void TWindowSubCustomEquip__sub_80275DE8(void *, void *, int, f32);
+extern const f32 lbl_805DD680;
+M2C_UNK TWindowSubMagPhoton__sub_8027C4C8(void *arg0, int arg1);
+s32 test_card_flag_2__12TBoss8DragonFPv(int);
+s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
+s32 fn_801A51F0(int);
+s32 get_card_window_flags__20TWindowSubStatusDispFi(int);
+s32 is_card_flag_set__19TWindowKeyBoardHardFPv(int);
+M2C_UNK set_flag70_bit10__20TWindowShortListCtrlFPv(int);
+s32 test_card_flag8__23TAdSinglePlyChrSelectGCFPv(int);
+M2C_UNK set_field_1c__6TLobbyFPvf(s32);
+M2C_UNK set_selected_index__20TWindowSubStatusDispFPvs(int, s16);
+M2C_UNK draw_status__20TWindowSubStatusDispFiii(int, int, int);
+M2C_UNK dispatch_without_flags__20TWindowSubStatusDispFiii(int, int, int);
+s32 TWindowSubStatusDisp__sub_80248BE8(M2C_UNK, void *, int);
+M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
+s32 test_keyboard_card_flag4(int);
+M2C_UNK ensure_status_display__20TWindowSubStatusDispFPvi(int, int);
+M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+extern u8 lbl_8044FA28[];
+s32 TWindowSubStatusDisp__sub_8027C884(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -131,12 +155,18 @@ void TWindowSubMagPhoton__sub_8027C2D0(u8 *arg0) {
     }
 }
 
+M2C_UNK TWindowSubMagPhoton__sub_8027C4C8(void *arg0, int arg1) {
+    u8 sp8[16];
+    fn_8027C13C(arg0, sp8);
+    ((void (*)(f32, void *, void *, int))TWindowSubCustomEquip__sub_80275DE8)(lbl_805DD680, (void *)arg1, sp8, ((Win_8027C4C8 *)arg0)->f62);
+}
+
 void render__19TWindowSubMagPhotonFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFi();
     TWindowSubComCard__sub_80245F98((void *) (arg0), (int) (temp_r3));
     TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
-    TWindowSubMagPhoton__sub_8027C4C8((void *) (arg0), (int) (temp_r3));
+    TWindowSubMagPhoton__sub_8027C4C8((void *)((void *) (arg0)), (int)((int) (temp_r3)));
 }
 
 typedef char RecoveredGlobal_8027C56C_lbl_8050E208_size[sizeof(RecoveredGlobal_8027C56C_lbl_8050E208) == 0x1B0 ? 1 : -1];
@@ -232,6 +262,62 @@ void update_quest_board_card_flags(void *arg0) {
 }
 
 extern const f32 lbl_805DD688;
+
+s32 TWindowSubStatusDisp__sub_8027C884(u8 *arg0, s32 arg1) {
+    s16 var_r29;
+    s32 temp_r31;
+    s32 temp_r3;
+    temp_r31 = TWindowSubStatusDisp__sub_80248BE8(TWindowSubComCard__sub_8026CBB8(0x16), lbl_8044FA28, M2C_FIELD(arg0, s32 *, 0x20));
+    switch (arg1) {
+    case 0:
+        ensure_status_display__20TWindowSubStatusDispFPvi((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x66))));
+        dispatch_without_flags__20TWindowSubStatusDispFiii((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x6F))), (int) (0));
+        dispatch_without_flags__20TWindowSubStatusDispFiii((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x70))), (int) (1));
+        var_r29 = is_card_flag_set__19TWindowKeyBoardHardFPv((int) (M2C_FIELD(arg0, s32 *, 0x20)));
+        break;
+    case 1:
+        ensure_status_display__20TWindowSubStatusDispFPvi((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x67))));
+        draw_status__20TWindowSubStatusDispFiii((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x71))), (int) (0));
+        draw_status__20TWindowSubStatusDispFiii((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x72))), (int) (1));
+        var_r29 = test_card_flag_2__12TBoss8DragonFPv((int) (M2C_FIELD(arg0, s32 *, 0x20)));
+        break;
+    case 2:
+        ensure_status_display__20TWindowSubStatusDispFPvi((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x68))));
+        dispatch_without_flags__20TWindowSubStatusDispFiii((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x73))), (int) (0));
+        dispatch_without_flags__20TWindowSubStatusDispFiii((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x74))), (int) (1));
+        var_r29 = test_keyboard_card_flag4((int) (M2C_FIELD(arg0, s32 *, 0x20)));
+        break;
+    case 4:
+        ensure_status_display__20TWindowSubStatusDispFPvi((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x6A))));
+        dispatch_without_flags__20TWindowSubStatusDispFiii((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0xA6))), (int) (0));
+        dispatch_without_flags__20TWindowSubStatusDispFiii((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0xA7))), (int) (1));
+        temp_r3 = test_card_flag8__23TAdSinglePlyChrSelectGCFPv((int) (M2C_FIELD(arg0, s32 *, 0x20)));
+        M2C_FIELD(arg0, s8 *, 0x1D) = temp_r3;
+        var_r29 = (s16) temp_r3;
+        break;
+    case 3:
+        ensure_status_display__20TWindowSubStatusDispFPvi((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x69))));
+        dispatch_without_flags__20TWindowSubStatusDispFiii((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x75))), (int) (0));
+        dispatch_without_flags__20TWindowSubStatusDispFiii((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x76))), (int) (1));
+        dispatch_without_flags__20TWindowSubStatusDispFiii((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x77))), (int) (2));
+        dispatch_without_flags__20TWindowSubStatusDispFiii((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x78))), (int) (3));
+        var_r29 = get_card_window_flags__20TWindowSubStatusDispFi((int) (M2C_FIELD(arg0, s32 *, 0x20)));
+        break;
+    case 5:
+        ensure_status_display__20TWindowSubStatusDispFPvi((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x6E))));
+        dispatch_without_flags__20TWindowSubStatusDispFiii((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x79))), (int) (0));
+        dispatch_without_flags__20TWindowSubStatusDispFiii((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x7A))), (int) (1));
+        dispatch_without_flags__20TWindowSubStatusDispFiii((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x7B))), (int) (2));
+        dispatch_without_flags__20TWindowSubStatusDispFiii((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x7C))), (int) (3));
+        var_r29 = fn_801A51F0((int) (M2C_FIELD(arg0, s32 *, 0x20)));
+        break;
+    }
+    set_selected_index__20TWindowSubStatusDispFPvs((int) (temp_r31), var_r29);
+    set_flag70_bit10__20TWindowShortListCtrlFPv((int) (temp_r31));
+    TWindowSubEquip__sub_80263AF8((int) (M2C_FIELD(arg0, s32 *, 0x24)), (int) (1));
+    set_field_1c__6TLobbyFPvf(temp_r31);
+    return temp_r31;
+}
 
 s32 create_option_menu_window(void *arg0) {
     s32 temp_r31;

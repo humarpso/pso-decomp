@@ -6,6 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 typedef s32 M2C_UNK;
+
 extern "C" {
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
@@ -50,6 +51,21 @@ extern char lbl_804C8954[];
 extern s32 lbl_80513910[];
 extern s32 lbl_805D49B4;
 u8 TAdSinglePlyChrSelectGC__sub_801FBD6C(char *name, char *desc);
+s32 TAdPlayerLoadGC__sub_801E0D8C(s32);
+s32 TAdPlayerLoadGC__sub_801E2048(s32, char *);
+void poll_load_status__15TAdPlayerLoadGCFi(s32, void *);
+extern char lbl_804C88C0[];
+void TAdSinglePlyChrSelectGC__sub_801FBB1C(void);
+s32 TAdPlayerLoadGC__sub_801E0D8C(s32);
+s32 TAdPlayerLoadGC__sub_801E2048(s32, char *);
+void poll_load_status__15TAdPlayerLoadGCFi(s32, void *);
+extern char lbl_804C89BC[];
+void TAdSinglePlyChrSelectGC__sub_801FBB7C(void);
+s32 TAdPlayerLoadGC__sub_801E0D8C(s32);
+s32 TAdPlayerLoadGC__sub_801E2048(s32, char *);
+void poll_load_status__15TAdPlayerLoadGCFi(s32, void *);
+extern char lbl_804C8914[];
+void TAdSinglePlyChrSelectGC__sub_801FBBDC(void);
 }
 
 extern "C" {
@@ -92,6 +108,36 @@ void fn_801FBA6C(u8 *arg0) {
         TObjPlayer__sub_803D9B78();
         var_r30 = (u8 *)(M2C_FIELD(var_r30, u8 **, 0x30));
     } while (var_r30 != NULL);
+}
+
+void TAdSinglePlyChrSelectGC__sub_801FBB1C(void) {
+    s32 r;
+    if (TAdPlayerLoadGC__sub_801E0D8C(0) != 0) {
+        r = TAdPlayerLoadGC__sub_801E2048(0, lbl_804C88C0);
+        if (r == 0 || (u32)r == 0xFFFFFF41U) {
+            poll_load_status__15TAdPlayerLoadGCFi(0, lbl_804C88C0);
+        }
+    }
+}
+
+void TAdSinglePlyChrSelectGC__sub_801FBB7C(void) {
+    s32 r;
+    if (TAdPlayerLoadGC__sub_801E0D8C(0) != 0) {
+        r = TAdPlayerLoadGC__sub_801E2048(0, lbl_804C89BC);
+        if (r == 0 || (u32)r == 0xFFFFFF41U) {
+            poll_load_status__15TAdPlayerLoadGCFi(0, lbl_804C89BC);
+        }
+    }
+}
+
+void TAdSinglePlyChrSelectGC__sub_801FBBDC(void) {
+    s32 r;
+    if (TAdPlayerLoadGC__sub_801E0D8C(0) != 0) {
+        r = TAdPlayerLoadGC__sub_801E2048(0, lbl_804C8914);
+        if (r == 0 || (u32)r == 0xFFFFFF41U) {
+            poll_load_status__15TAdPlayerLoadGCFi(0, lbl_804C8914);
+        }
+    }
 }
 
 void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0) {

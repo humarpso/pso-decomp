@@ -56,7 +56,6 @@ s32 is_player_input_active(int);
 s32 TWindowSubStatusDisp__sub_80257C28(void *, void *);
 s32 is_selected__21TWindowSubCustomEquipFPv(void *);
 void reset_selection__21TWindowSubCustomEquipFPv(void* p);
-s32 TWindowSubCustomEquip__sub_80276870(void *);
 void update_rotate_anim__21TWindowSubCustomEquipFPv(void *arg0);
 void handle_cancel__21TWindowSubCustomEquipFPv(void *arg0);
 void handle_decide__21TWindowSubCustomEquipFPv(void *arg0);
@@ -71,6 +70,12 @@ M2C_UNK set_help_text__15TWindowHelpItemFii(u8 *, s32);
 extern const f32 lbl_805DD570;
 extern const f32 lbl_805DD574;
 int TWindowSubCustomEquip__sub_8027654C(void *arg0, void *arg1);
+s32 select_action_palette__10TObjPlayerFi(u8 *, s32);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 TWindowActionPalette__sub_801C1D7C(s32, s32, s32);
+s32 TWindowActionPalette__sub_801C1DE0(s32, s32, s32);
+s32 TWindowSubCustomEquip__sub_80275FD8(void *, s32, s32, s32);
+s32 TWindowSubCustomEquip__sub_80276870(void *arg0);
 }
 
 extern "C" {
@@ -132,6 +137,33 @@ int TWindowSubCustomEquip__sub_8027654C(void *arg0, void *arg1) {
 }
 
 void reset_selection__21TWindowSubCustomEquipFPv(void* p) { TWindowSubCustomEquip__sub_802766C8(p, (void*)9); TWindowSubCustomEquip__sub_802766C8(p, (void*)0); TWindowSubCustomEquip__sub_8027654C((void *)(p), (void *)((void*)9)); }
+
+s32 TWindowSubCustomEquip__sub_80276870(void *arg0) {
+    u8 *player;
+    s32 pal;
+    player = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s16 *, 0x20));
+    if (player == NULL || (pal = select_action_palette__10TObjPlayerFi(player, 0)) == 0) {
+        return;
+    }
+    TWindowSubCustomEquip__sub_80275FD8(arg0, 0,
+        TWindowActionPalette__sub_801C1DE0(pal, M2C_FIELD(arg0, s8 *, 0x64), 2),
+        TWindowActionPalette__sub_801C1D7C(pal, M2C_FIELD(arg0, s8 *, 0x64), 2));
+    TWindowSubCustomEquip__sub_80275FD8(arg0, 1,
+        TWindowActionPalette__sub_801C1DE0(pal, M2C_FIELD(arg0, s8 *, 0x64), 1),
+        TWindowActionPalette__sub_801C1D7C(pal, M2C_FIELD(arg0, s8 *, 0x64), 1));
+    TWindowSubCustomEquip__sub_80275FD8(arg0, 2,
+        TWindowActionPalette__sub_801C1DE0(pal, M2C_FIELD(arg0, s8 *, 0x64), 3),
+        TWindowActionPalette__sub_801C1D7C(pal, M2C_FIELD(arg0, s8 *, 0x64), 3));
+    TWindowSubCustomEquip__sub_80275FD8(arg0, 3,
+        TWindowActionPalette__sub_801C1DE0(pal, M2C_FIELD(arg0, s8 *, 0x65), 2),
+        TWindowActionPalette__sub_801C1D7C(pal, M2C_FIELD(arg0, s8 *, 0x65), 2));
+    TWindowSubCustomEquip__sub_80275FD8(arg0, 4,
+        TWindowActionPalette__sub_801C1DE0(pal, M2C_FIELD(arg0, s8 *, 0x65), 1),
+        TWindowActionPalette__sub_801C1D7C(pal, M2C_FIELD(arg0, s8 *, 0x65), 1));
+    TWindowSubCustomEquip__sub_80275FD8(arg0, 5,
+        TWindowActionPalette__sub_801C1DE0(pal, M2C_FIELD(arg0, s8 *, 0x65), 3),
+        TWindowActionPalette__sub_801C1D7C(pal, M2C_FIELD(arg0, s8 *, 0x65), 3));
+}
 
 #pragma push
 #pragma fp_contract on
@@ -287,7 +319,7 @@ void run_task__21TWindowSubCustomEquipFv(u8 *arg0) {
     }
     update_rotate_anim__21TWindowSubCustomEquipFPv((void *) (arg0));
     reset_selection__21TWindowSubCustomEquipFPv((void*)((void *) (arg0)));
-    TWindowSubCustomEquip__sub_80276870((void *) (arg0));
+    TWindowSubCustomEquip__sub_80276870((void *)((void *) (arg0)));
     if ((f32) M2C_FIELD(arg0, s32 *, 0x5C) >= lbl_805DD5A4) {
         update_subwindow__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x6C)));
     }

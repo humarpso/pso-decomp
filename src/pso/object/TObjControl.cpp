@@ -197,6 +197,70 @@ struct Pkt_800F65D0 {
     s8 bv;
 };
 
+struct Pair_800F673C { s32 a; f32 b; };
+
+struct VBase_800F673C { char pad[0x18]; };
+
+struct VObj_800F673C : VBase_800F673C {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46(s32);
+    virtual void m47();
+    virtual void m48();
+    virtual void m49(Pair_800F673C);
+    virtual void m50(Pair_800F673C);
+    u8 pad1c[0x2B8 - 0x1C];
+    s16 f2B8;
+    u8 pad2ba[0x32C - 0x2BA];
+    s16 f32C;
+};
+
+struct Msg_800F673C { u32 flags; u8 pad4[2]; s16 f6; u8 b8; u8 b9; u8 bA; u8 bB; };
+
 extern "C" {
 void TLobby__sub_800F79C4(u8 *arg0);
 void broadcast_state__6TLobbyFPv(void* p);
@@ -222,6 +286,10 @@ extern const f32 lbl_805DA8C0;
 extern const f32 lbl_805DA8C4;
 extern const f32 lbl_805DA8C8;
 s32 TObjPlayer__sub_800F65D0(u8 *self, s32 kind);
+s32 obj_testFlags30(void *, s32);
+void obj_setFlags30(void *, s32);
+extern s32 lbl_805D5550;
+void TObjPlayer__sub_800F673C(VObj_800F673C *arg0, Msg_800F673C *arg1);
 }
 
 extern "C" {
@@ -437,6 +505,49 @@ s32 TObjPlayer__sub_800F65D0(u8 *self, s32 kind) {
         }
     }
     return ret;
+}
+void TObjPlayer__sub_800F673C(VObj_800F673C *arg0, Msg_800F673C *arg1) {
+    s32 flags;
+    Pair_800F673C p;
+    arg0->f32C = arg0->f2B8 - arg1->f6;
+    if (lbl_805D5550 == 3) {
+        flags = arg1->flags & ~0x3F;
+    } else {
+        flags = arg1->flags;
+        if ((flags & 2) && obj_testFlags30(arg0, 2) == 0) {
+            arg0->m43();
+        }
+        if ((flags & 4) && obj_testFlags30(arg0, 4) == 0) {
+            arg0->m47();
+        }
+        if ((flags & 0x10) && obj_testFlags30(arg0, 0x10) == 0) {
+            arg0->m45();
+        }
+        if ((flags & 0x20) && obj_testFlags30(arg0, 0x20) == 0) {
+            arg0->m46(0);
+        }
+    }
+    obj_setFlags30(arg0, flags);
+    p.a = arg1->b8;
+    p.b = arg1->b9;
+    arg1->b8 = 0;
+    arg1->b9 = 0;
+    switch (p.a) {
+    case 9:
+    case 11:
+        arg0->m49(p);
+        break;
+    }
+    p.a = arg1->bA;
+    p.b = arg1->bB;
+    arg1->bA = 0;
+    arg1->bB = 0;
+    switch (p.a) {
+    case 10:
+    case 12:
+        arg0->m50(p);
+        break;
+    }
 }
 
 }

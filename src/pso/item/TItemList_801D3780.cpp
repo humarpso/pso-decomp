@@ -55,6 +55,30 @@ struct Req_801D3780 {
     s32 extra;
 };
 
+struct Shape_801D3C38 {
+    u8 pad0[0xC];
+    f32 radius;
+    u8 pad10[4];
+    s32 f14;
+    s32 mask;
+};
+
+struct Ground_801D3C38 { u8 pad0[4]; Vec_801D3E20 *pos; };
+
+struct Search_801D3C38 {
+    u8 pad[0x1d];
+    s8 ring;
+    s8 sample;
+    s8 count;
+    u8 pad20[0xC];
+    s32 step;
+    s32 angle;
+    f32 radius;
+    Vec_801D3E20 origin;
+    Vec_801D3E20 candidate;
+    s32 online;
+};
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
@@ -89,7 +113,6 @@ void *TItemList__sub_801D3E20(void *self, Body_801D3E20 *s);
 extern const f32 lbl_805DC3C8;
 s32 TItemList__sub_801D3F3C(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-s32 TItemList__sub_801D3C38();
 void TItemList__sub_801D588C(void *, int);
 void TItemList__sub_801D59A0(void *, int);
 void TItemList__sub_801D5A70(void *);
@@ -101,7 +124,6 @@ void send_code_45_1__10TObjPlayerFi(void *);
 void TObjPlayer__sub_801B8870(void *, s32, void *, s32);
 void TObjPlayer__sub_801B8DE8(void *, s32, s32);
 void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
-s32 TItemList__sub_801D3C38();
 void *get_ptr_0x44__9TItemListFPv(void *);
 void TItemList__sub_801D588C(void *, int);
 s32 TItemList__sub_801D58DC(void *);
@@ -109,6 +131,23 @@ u8 *TItemList__sub_801D58E4(void *);
 void TItemList__sub_801D591C(void *);
 void TItemList__sub_801D59A0(void *, int);
 void TItemList__sub_801D3780(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
+Ground_801D3C38 *TBoss8Dragon__sub_8007A544(Vec_801D3E20 *, s32);
+M2C_UNK disconnect_protocol__6TLobbyFv();
+void *TItemList__sub_801D3E20(void *self, Body_801D3E20 *s);
+s32 TItemList__sub_801D3F3C(void *arg0);
+s32 check_player_action_allowed(void);
+s32 TAdPlayerLoadGC__sub_801E1B50(s32);
+s32 TAdPlayerLoadGC__sub_801E1E38(s32);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern Shape_801D3C38 lbl_804C43E8;
+extern Body_801D3E20 lbl_804C4414;
+extern const f32 lbl_805DC3C8;
+extern const f32 lbl_805DC3CC;
+s32 TItemList__sub_801D3C38(Search_801D3C38 *s);
 }
 
 extern "C" {
@@ -129,7 +168,7 @@ extern void *tl_07;
 void TItemList__sub_801D3780(u8 *arg0) {
     Req_801D3780 *r;
     void *player;
-    switch (TItemList__sub_801D3C38()) {
+    switch (TItemList__sub_801D3C38((Search_801D3C38 *)(arg0))) {
     case 0:
         return;
     case 1:
@@ -212,7 +251,7 @@ block_5:
 }
 
 void TItemList__sub_801D3A80(u8 *arg0) {
-    switch (TItemList__sub_801D3C38()) {
+    switch (TItemList__sub_801D3C38((Search_801D3C38 *)(arg0))) {
     case 0:
         return;
     case 1:
@@ -261,6 +300,52 @@ u8 *TItemList__sub_801D3BD4(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8
     TItemList__sub_801D3F3C((void *)(arg0));
     return arg0;
 }
+
+#pragma push
+#pragma fp_contract on
+s32 TItemList__sub_801D3C38(Search_801D3C38 *s) {
+    Ground_801D3C38 *g;
+    if (check_player_action_allowed() != 0 && s->online != 0 &&
+        TAdPlayerLoadGC__sub_801E1E38(get_chr_select_state__23TAdSinglePlyChrSelectGCFv()) != 1) {
+        disconnect_protocol__6TLobbyFv();
+        queue_destruction__7TObjectFv(s);
+        return 2;
+    }
+    if (s->ring > 5) {
+        s->ring = 1;
+        TItemList__sub_801D3F3C(s);
+        return 2;
+    }
+    if (s->sample >= s->count) {
+        s->ring++;
+        TItemList__sub_801D3F3C(s);
+    }
+    s->candidate.x = s->radius * TBoss8Dragon__sub_803D64C0(s->angle) + s->origin.x;
+    s->candidate.y = s->origin.y;
+    s->candidate.z = s->radius * TBoss8Dragon__sub_803D64DC(s->angle) + s->origin.z;
+    g = TBoss8Dragon__sub_8007A544(&s->candidate, 0x41);
+    if (g == NULL) {
+        s->angle += s->step;
+        s->sample++;
+        return 0;
+    }
+    s->candidate.y = lbl_805DC3C8 + g->pos->y;
+    lbl_804C43E8.radius = lbl_805DC3CC;
+    lbl_804C43E8.f14 = 0;
+    lbl_804C43E8.mask = 0x31F03;
+    VecCopy__FP3VecPC3Vec(&lbl_804C4414.position, &s->candidate);
+    if (TItemList__sub_801D3E20(s, &lbl_804C4414) != NULL) {
+        s->angle += s->step;
+        s->sample++;
+        return 0;
+    }
+    if (check_player_action_allowed() != 0 && s->online != 0 &&
+        TAdPlayerLoadGC__sub_801E1B50(get_chr_select_state__23TAdSinglePlyChrSelectGCFv()) != 0) {
+        return 0;
+    }
+    return 1;
+}
+#pragma pop
 
 void *TItemList__sub_801D3E20(void *self, Body_801D3E20 *s) {
     s32 end = get_lobby_flag__6TLobbyFv();

@@ -44,6 +44,14 @@ void set_flags__11TBoss4Type2FPvUi(void *, int);
 extern u8 TBoss4Thanks__data_80479B40[];
 extern Ent_8035C35C lbl_80479B58[];
 void TBoss4Thanks__sub_8035C35C(void *arg0);
+void *get_player_data__10TObjPlayerFi(s32);
+s32 obj_getField1c(void *);
+s32 get_game_mode__6TLobbyFv(void);
+s32 TBoss4Type3__sub_8005254C(s32);
+f32 TObjPlayer__sub_803E1A58(void *, void *);
+extern u8 TBoss4Thanks__data_80479B40[];
+extern const f32 lbl_805E0180;
+int TBoss4Thanks__sub_8035C4A4(void *arg0);
 }
 
 extern "C" {
@@ -56,7 +64,6 @@ u8 is_door_0x97_open__12TBoss4ThanksFv(void);
 void mark_done__12TBoss4ThanksFPv(void* p);
 void update_fade_out__12TBoss4ThanksFPv(void *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-int TBoss4Thanks__sub_8035C4A4(void*);
 s32 TODoorVoShip__sub_801F44BC(s32);
 int dispatch_by_main_phase__14TBoss4DarkFalzFUs(void*);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -114,6 +121,23 @@ void TBoss4Thanks__sub_8035C480(s32 arg0) {
     }
 }
 
+int TBoss4Thanks__sub_8035C4A4(void *arg0) {
+    s32 n;
+    s32 i;
+    f32 lim;
+    u8 *p;
+    n = get_game_mode__6TLobbyFv();
+    lim = lbl_805E0180;
+    for (i = 0; i < n; i++) {
+        p = (u8 *)get_player_data__10TObjPlayerFi(i);
+        if (p != NULL && TBoss4Type3__sub_8005254C(obj_getField1c(p)) != 0 &&
+            TObjPlayer__sub_803E1A58(p + 0x38, TBoss4Thanks__data_80479B40) <= lim) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
 void update_fade_out__12TBoss4ThanksFPv(void *arg0) {
     s32 temp_r3;
 
@@ -140,7 +164,7 @@ void advance_thanks_state__12TBoss4ThanksFPv(void *arg0) {
     }
 }
 
-void mark_done__12TBoss4ThanksFPv(void* p) { if (TBoss4Thanks__sub_8035C4A4(p) != 0) { *(int*)((char*)p + 0x24) = 1; *(int*)((char*)p + 0x1c) = 1; } }
+void mark_done__12TBoss4ThanksFPv(void* p) { if (TBoss4Thanks__sub_8035C4A4((void *)(p)) != 0) { *(int*)((char*)p + 0x24) = 1; *(int*)((char*)p + 0x1c) = 1; } }
 
 u8 *__dt__12TBoss4ThanksFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {

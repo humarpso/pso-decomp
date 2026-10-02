@@ -35,6 +35,40 @@ typedef struct TOHealGeneral_801697C0 {
     u32 handles[2];
 } TOHealGeneral_801697C0;
 
+typedef s32 M2C_UNK;
+struct Vec_80169858 { f32 x, y, z; };
+
+struct VBase_80169858 { char pad[0x18]; };
+
+struct VObj_80169858 : VBase_80169858 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5(void *);
+};
+
+struct Heal_80169858 {
+    s32 f0;
+    u8 pad4[0x18 - 0x4];
+    void **vtable;
+    u16 f1c;
+    u8 pad1e[0x24 - 0x1E];
+    s32 f24;
+    u8 pad28[0x34 - 0x28];
+    s32 f34;
+    Vec_80169858 pos;
+    u8 pad44[0xC4 - 0x44];
+    f32 fC4;
+    u8 padC8[0xCC - 0xC8];
+    s32 fCC;
+    f32 fD0;
+    Vec_80169858 pts[2];
+    u32 handles[2];
+    u16 fF4;
+};
+
 extern "C" {
 void TOHealGeneral__sub_801699F8(u8 *arg0, s16 *arg1);
 u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
@@ -51,6 +85,30 @@ void destroy_key_base__5TOKeyFPvs(void *, s16);
 void __dl__7TObjectFPv(void *);
 extern void *__vt__13TOHealGeneral[];
 TOHealGeneral_801697C0 *__dt__13TOHealGeneralFv(TOHealGeneral_801697C0 *self, s16 flag);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+u32 TBoss8Dragon__sub_8008741C(void *, s32, s32);
+u32 TBoss4Type2__sub_800874F4(void *, s32);
+void TObjPlayer__sub_80087638(u32, u16);
+void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
+void reset_photon_effect__10TObjPlayerFPv(void *);
+void TObjPlayer__sub_80154E3C(void *);
+void TObjEneGibbles__sub_80156780(void *, void *, s32, void *);
+void init_map_object_base(void *, s32);
+s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
+extern u8 lbl_804B2770[];
+extern void *__vt__13TOHealGeneral[];
+extern s32 lbl_805D3008;
+extern u32 TOHealGeneral__data_805D59F0;
+extern s32 tl_05;
+extern const f32 lbl_805DB6BC;
+extern const f32 lbl_805DB6C0;
+extern const f32 lbl_805DB6CC;
+extern const f32 lbl_805DB6D0;
+void *TOHealGeneral__ct(void *arg0, void *arg1);
+void play_effect_default__10TObjPlayerFii(void *, s32);
+void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+extern s32 lbl_805D53A0;
+void TOHealGeneral__sub_80169A04(void *arg0, u16 arg1);
 }
 
 extern "C" {
@@ -70,7 +128,6 @@ u8 TODoorAncient08__sub_80229220(u16);
 s32 TODragonfly__sub_80158360(f32);
 M2C_UNK TOHangerMachine01__sub_80169168(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-void *TOHealGeneral__ct(void *, void *);
 M2C_UNK TOSignCave03__sub_803DB510(int);
 M2C_UNK TObjPlayer__sub_80169334(void *);
 M2C_UNK rotate_matrix_y(int, int);
@@ -136,7 +193,7 @@ void render__13TOHealGeneralFv(u8 *arg0) {
 void *create__13TOHealGeneralFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF8);
     if (o != NULL) {
-        o = TOHealGeneral__ct(o, arg0);
+        o = TOHealGeneral__ct((void *)(o), (void *)(arg0));
     }
     return o;
 }
@@ -215,6 +272,43 @@ TOHealGeneral_801697C0 *__dt__13TOHealGeneralFv(TOHealGeneral_801697C0 *self, s1
     return self;
 }
 
+void *TOHealGeneral__ct(void *arg0, void *arg1) {
+    Heal_80169858 *self = (Heal_80169858 *)arg0;
+    s32 i;
+    u8 *model;
+    init_map_object_base(self, tl_05);
+    self->vtable = __vt__13TOHealGeneral;
+    self->f0 = lbl_805D3008;
+    ((VObj_80169858 *)self)->m5(arg1);
+    self->f34 = M2C_FIELD(M2C_FIELD(TOHealGeneral__data_805D59F0, u8 **, 0x42C), s32 *, 8);
+    model = M2C_FIELD(TOHealGeneral__data_805D59F0, u8 **, 0x42C);
+    self->f24 = M2C_FIELD(model, s32 *, 0xC);
+    self->fC4 = lbl_805DB6CC;
+    TObjEneGibbles__sub_80156780(self, lbl_804B2770, 1, model);
+    TObjPlayer__sub_80154E3C(self);
+    reset_photon_effect__10TObjPlayerFPv(self);
+    clear_player_status_flag__10TObjPlayerFPviUi(self, 0, 1);
+    self->fCC = 0;
+    self->fD0 = lbl_805DB6C0;
+    for (i = 0; i < 2; i++) {
+        VecCopy__FP3VecPC3Vec(&self->pts[i], &self->pos);
+    }
+    self->pts[0].y += lbl_805DB6D0;
+    self->pts[1].y += lbl_805DB6BC;
+    self->handles[0] = TBoss4Type2__sub_800874F4(&self->pts[0], 0x63);
+    if (self->handles[0] != 0 && all_parents_unqueued_for_destruction__7TObjectFv(self->handles[0]) == 0) {
+        self->handles[0] = 0;
+    }
+    self->handles[1] = TBoss8Dragon__sub_8008741C(&self->pts[1], 0x63, 0x10);
+    if (self->handles[1] != 0 && all_parents_unqueued_for_destruction__7TObjectFv(self->handles[1]) != 0) {
+        TObjPlayer__sub_80087638(self->handles[1], self->f1c);
+    } else {
+        self->handles[1] = 0;
+    }
+    self->fF4 = 0xFFFF;
+    return self;
+}
+
 void* TOHealGeneral__vt7(void* p) { return (char*)p + 0xe0; }
 
 void TOHealGeneral__sub_801699F4(void) {  }
@@ -223,6 +317,23 @@ extern f32 lbl_805DB6D8;
 
 void TOHealGeneral__sub_801699F8(u8 *arg0, s16 *arg1) {
     M2C_FIELD(arg0, s32 *, 0xAC) = (s32) *arg1;
+}
+
+void TOHealGeneral__sub_80169A04(void *arg0, u16 arg1) {
+    void *p;
+    if (M2C_FIELD(arg0, s32 *, 0xD8) > 0) {
+        if (arg1 == lbl_805D53A0) {
+            p = TPlayerBattleCtrl4P__sub_801BA74C(arg1);
+            if (p == NULL || M2C_FIELD(arg0, s32 *, 0xAC) != 1) {
+                return;
+            }
+            M2C_FIELD(arg0, s32 *, 0xAC) = 2;
+            M2C_FIELD(arg0, u16 *, 0x94) = arg1;
+            play_effect_default__10TObjPlayerFii(p, -1);
+        } else {
+            M2C_FIELD(arg0, u16 *, 0x94) = 0xFFFF;
+        }
+    }
 }
 
 s32 update_active_state__13TOHealGeneralFPv(void *arg0) {

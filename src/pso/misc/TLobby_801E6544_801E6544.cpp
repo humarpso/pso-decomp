@@ -53,6 +53,8 @@ struct CmdTable_801E6604 {
     Cmd_801E6604 e[12];
 };
 
+typedef s32 M2C_UNK;
+
 extern "C" {
 M2C_UNK append_string(void *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_80512350;
@@ -70,7 +72,6 @@ void TLobby__sub_801E6C2C(s8);
 void TLobby__sub_801E6C40();
 s32 TLobby__sub_801E6580(s32 arg0, s32 arg1);
 void TLobby__sub_801E6868(s32 arg0);
-s32 TLobby__sub_801E68A4(char *);
 s32 parse_f_index(s32 a0);
 s32 parse_r_index(char *);
 void TLobby__sub_801E6A60(s32);
@@ -80,6 +81,21 @@ s8 read_byte_advance__6TLobbyFv();
 int strcmp(const char *, const char *);
 extern CmdTable_801E6604 lbl_80449C04;
 void TLobby__sub_801E6604();
+char *get_unit_list__6TLobbyFv();
+M2C_UNK append_string(void *);
+int strcmp(const char *, const char *);
+extern char lbl_80449C64[];
+extern M2C_UNK TLobby__data_805DC4A0;
+void TLobby__sub_801E6728(void);
+char *TLobby__sub_80070ACC();
+M2C_UNK append_string(void *);
+int strcmp(const char *, const char *);
+extern char lbl_80449C64[];
+extern M2C_UNK TLobby__data_805DC4A0;
+void TLobby__sub_801E677C(void);
+int sscanf(M2C_UNK, M2C_UNK *, ...);
+extern M2C_UNK lbl_80449C7C[];
+s32 TLobby__sub_801E68A4(char *s);
 }
 
 extern "C" {
@@ -142,7 +158,7 @@ void TLobby__sub_801E6604() {
                 TLobby__sub_801E6A60(idx);
                 return;
             }
-            if ((idx = TLobby__sub_801E68A4(buf)) != -1) {
+            if ((idx = TLobby__sub_801E68A4((char *)(buf))) != -1) {
                 TLobby__sub_801E6868(idx);
                 return;
             }
@@ -157,6 +173,26 @@ void TLobby__sub_801E6604() {
             break;
         }
     }
+}
+
+void TLobby__sub_801E6728(void) {
+    char *s;
+    s = get_unit_list__6TLobbyFv();
+    if (strcmp(s, (const char *)&TLobby__data_805DC4A0) == 0) {
+        append_string(lbl_80449C64);
+        return;
+    }
+    append_string(s);
+}
+
+void TLobby__sub_801E677C(void) {
+    char *s;
+    s = TLobby__sub_80070ACC();
+    if (strcmp(s, (const char *)&TLobby__data_805DC4A0) == 0) {
+        append_string(lbl_80449C64);
+        return;
+    }
+    append_string(s);
 }
 
 void append_card_window_text__6TLobbyFv(void) {
@@ -193,6 +229,16 @@ void TLobby__sub_801E6868(s32 arg0) {
     char buf[64];
     sprintf(buf, lbl_80449C74, arg0);
     append_string(buf);
+}
+
+s32 TLobby__sub_801E68A4(char *s) {
+    s32 v;
+    v = -1;
+    sscanf((M2C_UNK)s, lbl_80449C7C, &v);
+    if ((v <= 7) && (v >= 0)) {
+        return v;
+    }
+    return -1;
 }
 
 s32 parse_f_index(s32 a0) {

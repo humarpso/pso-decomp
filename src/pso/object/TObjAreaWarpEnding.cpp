@@ -127,6 +127,25 @@ struct Obj_8019C604 {
 
 struct Colors_8019C604 { u16 c[2]; };
 
+struct Obj_8019BCBC {
+    u8 pad0[0x8C];
+    s32 f8C;
+};
+
+struct Obj_8019C53C {
+    u8 pad0[0x8C];
+    s32 f8C;
+};
+
+struct Obj_8019C144 {
+    u8 pad0[0x68];
+    f32 f68;
+    u8 pad1[0x8C - 0x6C];
+    s32 f8C;
+    u8 pad2[0xC4 - 0x90];
+    s32 fC4;
+};
+
 extern "C" {
 void TObjAreaWarp__sub_8019CAB0(void *);
 extern const f32 lbl_805DBFDC;
@@ -255,6 +274,25 @@ extern Colors_8019C604 lbl_805DBFC8;
 extern const f32 lbl_805DBFD4;
 extern const f32 lbl_805DBFD8;
 void render__18TObjAreaWarpForestFv(Obj_8019C604 *self);
+void set_global_count__12TObjNpcEnemyFi(s32 arg0);
+void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void TObjAreaWarp__sub_8019C924(Obj_8019C924 *self);
+extern char lbl_804463A4[];
+extern char lbl_804463B4[];
+void TObjAreaWarpEnding__vt18(Obj_8019BCBC *self);
+void set_global_count__12TObjNpcEnemyFi(s32 arg0);
+void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void TObjAreaWarp__sub_8019C924(Obj_8019C924 *self);
+extern char lbl_804463A4[];
+extern char lbl_804463B4[];
+void TObjAreaWarpForest__vt18(Obj_8019C53C *self);
+void set_global_count__12TObjNpcEnemyFi(s32 arg0);
+void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void TObjAreaWarp__sub_8019C924(Obj_8019C924 *self);
+extern char lbl_804463A4[];
+extern char lbl_804463B4[];
+extern char lbl_80446404[];
+void TObjAreaWarpQuest__vt18(Obj_8019C144 *self);
 }
 
 extern "C" {
@@ -305,6 +343,23 @@ void open_confirm_window__18TObjAreaWarpEndingFPvs(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__18TObjAreaWarpEnding[];
+
+void TObjAreaWarpEnding__vt18(Obj_8019BCBC *self) {
+    TObjAreaWarp__sub_8019C924((Obj_8019C924 *)self);
+    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    if (self->f8C < 0) {
+        self->f8C = 0;
+    }
+    self->f8C = self->f8C % 2;
+    if (self->f8C == 0) {
+        set_global_count__12TObjNpcEnemyFi(0xFFFFFF);
+        TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804463B4);
+    } else {
+        set_global_count__12TObjNpcEnemyFi(0xFF0000FF);
+        TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804463A4);
+    }
+    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+}
 
 void render__18TObjAreaWarpEndingFv(Obj_8019BD84 *self) {
     Warp_8019BD84 *arg0 = (Warp_8019BD84 *)self;
@@ -436,6 +491,28 @@ void TObjAreaWarpQuest__vt17(Warp_8019C05C *arg0, void *arg1) {
     TTecLuker__sub_801BAB1C(arg1, get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0));
 }
 
+void TObjAreaWarpQuest__vt18(Obj_8019C144 *self) {
+    TObjAreaWarp__sub_8019C924((Obj_8019C924 *)self);
+    if (self->f68 < 0.0f) {
+        self->f68 = 0.0f;
+    }
+    self->fC4 = (s32)self->f68;
+    if (self->f8C < 0) {
+        self->f8C = 0;
+    }
+    self->f8C = self->f8C % 2;
+    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    TObjEneBm5GibonU__sub_803D853C(0x13001C, lbl_80446404, self->fC4);
+    if (self->f8C == 0) {
+        set_global_count__12TObjNpcEnemyFi(0xFFFFFF);
+        TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804463B4);
+    } else {
+        set_global_count__12TObjNpcEnemyFi(0xFF0000FF);
+        TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804463A4);
+    }
+    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+}
+
 void render__17TObjAreaWarpQuestFv(Obj_8019C250 *self) {
     Node_8019C250 *m;
     Node_8019C250 *n;
@@ -544,6 +621,23 @@ u8 *TObjAreaWarpQuest__ct(u8 *arg0, s32 arg1, s32 arg2) {
         M2C_FIELD(arg0, s32 *, 0xC0) = 0;
     }
     return arg0;
+}
+
+void TObjAreaWarpForest__vt18(Obj_8019C53C *self) {
+    TObjAreaWarp__sub_8019C924((Obj_8019C924 *)self);
+    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    if (self->f8C < 0) {
+        self->f8C = 0;
+    }
+    self->f8C = self->f8C % 2;
+    if (self->f8C == 0) {
+        set_global_count__12TObjNpcEnemyFi(0xFFFFFF);
+        TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804463B4);
+    } else {
+        set_global_count__12TObjNpcEnemyFi(0xFF0000FF);
+        TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804463A4);
+    }
+    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
 
 void render__18TObjAreaWarpForestFv(Obj_8019C604 *self) {

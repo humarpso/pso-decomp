@@ -62,6 +62,8 @@ struct P_803109D4 { s32 v[2]; };
 
 struct O_803109D4 { u8 pad[0x264]; s32 active[4]; };
 
+struct Ent_8031030C { u16 id; s16 idx; u32 pad; };
+
 extern "C" {
 extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 TPlayerBattleCtrl4P__data_80542E90;
 M2C_UNK *TPlayerBattleCtrl4P__sub_80310300(void);
@@ -83,7 +85,7 @@ s32 TPlayerBattleCtrl4P__sub_8031012C(Ctl_8031012C *self);
 void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 get_state__19TPlayerBattleCtrl4PFPv(void *);
 u8 TLobby__sub_801D7100(void *);
-void TPlayerBattleCtrl4P__sub_80310380(void *, void *);
+s32 TPlayerBattleCtrl4P__sub_80310380(void *, void *);
 extern u8 lbl_8050EA40[];
 void TPlayerBattleCtrl4P__sub_803104CC(Ctl_803104CC *self);
 void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
@@ -113,6 +115,15 @@ u8 TLobby__sub_801D7100(void *);
 extern P_803109D4 lbl_80475B80[];
 extern u8 lbl_8050EA40[];
 u8 TPlayerBattleCtrl4P__sub_803109D4(O_803109D4 *o);
+void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 TPlayerBattleCtrl4P__data_80542E90;
+s32 TPlayerBattleCtrl4P__sub_8031030C(void);
+void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_801FCE6C();
+void *get_card_window__17TWindowSubComCardFUi(u16);
+s32 TPlayerBattleCtrl4P__sub_8031030C(void);
+extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 TPlayerBattleCtrl4P__data_80542E90;
+void TPlayerBattleCtrl4P__sub_80310674(void);
 }
 
 extern "C" {
@@ -196,6 +207,21 @@ M2C_UNK *TPlayerBattleCtrl4P__sub_80310300(void) {
     return &TPlayerBattleCtrl4P__data_80542E90.value;
 }
 
+s32 TPlayerBattleCtrl4P__sub_8031030C(void) {
+    Ent_8031030C *e;
+    s32 result;
+    s32 i;
+    result = 1;
+    for (i = 0; i < 4; i++) {
+        e = &((Ent_8031030C *)&TPlayerBattleCtrl4P__data_80542E90)[i];
+        if (TPlayerBattleCtrl4P__sub_801BA74C(e->id) != NULL && e->idx != 0) {
+            result = 0;
+            break;
+        }
+    }
+    return result;
+}
+
 void TPlayerBattleCtrl4P__sub_803104CC(Ctl_803104CC *self) {
     s32 i;
     Ent_803104CC *e;
@@ -240,6 +266,69 @@ void init__19TPlayerBattleCtrl4PFv(void) {
 int init_ctrl_default__19TPlayerBattleCtrl4PFPv(void* p) { return TPlayerBattleCtrl4P__sub_803112AC(p, 0); }
 void notify_lobby__19TPlayerBattleCtrl4PFPvPvPv(void* p, void* a1, void* a2) { TLobby__sub_8022727C(a1); fn_801C23A8((void*)-50, a2); }
 void reset_score_counters__19TPlayerBattleCtrl4PFPv(void* p) { *(s32*)((char*)p + 0x260) = 0; *(s32*)((char*)p + 0x290) = 0; }
+
+void TPlayerBattleCtrl4P__sub_80310674(void) {
+    void *obj;
+    s8 *base;
+    s32 outer;
+    s32 off;
+    s8 *entry;
+    outer = 0;
+    base = (s8 *)&TPlayerBattleCtrl4P__data_80542E90;
+    off = 0;
+    do {
+        entry = base + off;
+        if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(entry, u16 *, 0)) != NULL) {
+            obj = get_card_window__17TWindowSubComCardFUi(M2C_FIELD(entry, u16 *, 0));
+            if (obj != NULL) {
+                s16 field2 = M2C_FIELD(entry, s16 *, 2);
+                if (TPlayerBattleCtrl4P__sub_8031030C() == 0) {
+                    switch (field2) {
+                    case 0:
+                        {
+                            s32 inc = (s32)(u16)M2C_FIELD(obj, u16 *, 0x2354) + 1;
+                            s32 lim = 0xFFFF;
+                            if (inc < lim) lim = inc;
+                            M2C_FIELD(obj, u16 *, 0x2354) = lim;
+                        }
+                        break;
+                    case 1:
+                        {
+                            s32 inc = (s32)(u16)M2C_FIELD(obj, u16 *, 0x2356) + 1;
+                            s32 lim = 0xFFFF;
+                            if (inc < lim) lim = inc;
+                            M2C_FIELD(obj, u16 *, 0x2356) = lim;
+                        }
+                        break;
+                    case 2:
+                        {
+                            s32 inc = (s32)(u16)M2C_FIELD(obj, u16 *, 0x2358) + 1;
+                            s32 lim = 0xFFFF;
+                            if (inc < lim) lim = inc;
+                            M2C_FIELD(obj, u16 *, 0x2358) = lim;
+                        }
+                        break;
+                    case 3:
+                        {
+                            s32 inc = (s32)(u16)M2C_FIELD(obj, u16 *, 0x235A) + 1;
+                            s32 lim = 0xFFFF;
+                            if (inc < lim) lim = inc;
+                            M2C_FIELD(obj, u16 *, 0x235A) = lim;
+                        }
+                        break;
+                    }
+                }
+                {
+                    s32 v = M2C_FIELD(obj, u16 *, 0x235C) - 1;
+                    M2C_FIELD(obj, u16 *, 0x235C) = (u16) (v & ((s32) (-v & ~v) >> 0x1F));
+                }
+            }
+        }
+        outer += 1;
+        off += 8;
+    } while (outer < 4);
+    TAdSinglePlyChrSelectGC__sub_801FCE6C();
+}
 
 s32 set_state__19TPlayerBattleCtrl4PFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x260) = 2;
