@@ -32,6 +32,8 @@ struct Ent_800777C4 { u16 a; u16 b; u8 pad[0x1C]; };
 
 struct Tbl_800777C4 { u8 f0; u8 count; u8 pad[2]; Ent_800777C4 e[1]; };
 
+struct Out_800778B4 { s32 a; s32 b; };
+
 extern "C" {
 void __dl__FPv(void*);
 extern s32 lbl_805D4E5C;
@@ -44,6 +46,11 @@ void fn_80077814(S_80077814 *arr, u16 key, s32 val);
 void TLobby__sub_80077798(S_80077798 *src, DO_80077798 *dst);
 void TWindowSubComCard__sub_80077980(S_80077980 *arr);
 u32 fn_800777C4(Tbl_800777C4 *t, u16 a, u32 b);
+u8 * TWindowSubComCard__sub_80077958(s32 arg0, s32 arg1);
+s32 TWindowSubComCard__sub_80077840(S_80077840 *arr, u16 key);
+void TWindowSubComCard__sub_80077980(S_80077980 *arr);
+u32 fn_800777C4(Tbl_800777C4 *t, u16 a, u32 b);
+void TWindowSubComCard__sub_800778B4(Out_800778B4 *arg0, Tbl_800777C4 *arg1);
 }
 
 extern "C" {
@@ -122,6 +129,33 @@ void release__17TWindowSubComCardFv(void) {
 s32 get_chr_select__17TWindowSubComCardFv(void) {
     return lbl_805D4E58;
 }
+
+void TWindowSubComCard__sub_800778B4(Out_800778B4 *arg0, Tbl_800777C4 *arg1) {
+    s32 i;
+    s32 n;
+    u16 id;
+    u32 k;
+    Out_800778B4 *dst;
+    Ent_800777C4 *e;
+    S_80077840 tmp[5];
+    TWindowSubComCard__sub_80077958((s32) tmp, (s32) arg0);
+    TWindowSubComCard__sub_80077980((S_80077980 *) arg0);
+    n = arg1->count;
+    dst = arg0;
+    e = arg1->e;
+    i = 0;
+    while (i < n) {
+        if (e->a == 0) {
+            id = dst->a = e->b;
+            k = TWindowSubComCard__sub_80077840(tmp, id);
+            dst->b = (u16) fn_800777C4(arg1, id, k);
+            dst++;
+        }
+        i++;
+        e++;
+    }
+}
+
 u8 * TWindowSubComCard__sub_80077958(s32 arg0, s32 arg1) {
     *(M2CCopy_28 *)(arg0) = *(const M2CCopy_28 *)(arg1);
     return (u8 *)arg0;

@@ -1,7 +1,5 @@
 #include "pso/TAdTitleGC.h"
 
-TAdTitleGC::~TAdTitleGC() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -31,6 +29,19 @@ typedef struct TAdTitleGC_802A0E08 {
     s32 f134;
 } TAdTitleGC_802A0E08;
 
+typedef s32 M2C_UNK;
+struct Rec_802A0C84 {
+    f32 x0, y0, x1, y1;
+    u8 pad[0x10];
+};
+
+struct Title_802A0C84 {
+    u8 pad[0x20];
+    Rec_802A0C84 rects[8];
+    u8 pad120[0x128 - 0x120];
+    s32 f128;
+};
+
 extern "C" {
 u32 TWindowSubStatusDisp__sub_80144D68(void *);
 extern const f32 lbl_805DDDD0;
@@ -53,6 +64,12 @@ extern const f32 lbl_805DDDE4;
 extern const f32 lbl_805DDDE8;
 extern const f32 lbl_805DDDF0;
 TAdTitleGC_802A0E08 *__ct__10TAdTitleGCFv(TAdTitleGC_802A0E08 *self, void *parent, s32 idx);
+extern f32 lbl_8046620C[];
+extern const f32 lbl_805DDDD8;
+extern const f32 lbl_805DDDDC;
+extern const f32 lbl_805DDDE0;
+extern const f32 lbl_805DDDE4;
+M2C_UNK TAdTitleGC__sub_802A0C84(void *p);
 }
 
 extern "C" {
@@ -60,7 +77,6 @@ extern "C" {
 void render__10TAdTitleGCFv(u8 *arg0);
 void run_task__10TAdTitleGCFv(u8 *arg0);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, s32);
-M2C_UNK TAdTitleGC__sub_802A0C84(void *);
 M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
 M2C_UNK fn_80141A30();
 M2C_UNK fn_802A0A30(void *, void *, s32, s32, s32);
@@ -109,6 +125,18 @@ void TAdTitleGC__sub_802A0C24(M2C_UNK arg0, u8 *arg1, s32 arg2) {
 }
 #pragma pop
 
+M2C_UNK TAdTitleGC__sub_802A0C84(void *p) {
+    Title_802A0C84 *arg0 = (Title_802A0C84 *)p;
+    s32 i;
+    for (i = 0; i < 8; i++) {
+        arg0->rects[i].x0 = lbl_805DDDD8 - ((f32)(10 - arg0->f128) * ((f32)(10 - arg0->f128) * lbl_8046620C[i]));
+        arg0->rects[i].y0 = lbl_805DDDDC;
+        arg0->rects[i].x1 = lbl_805DDDE0 + arg0->rects[i].x0;
+        arg0->rects[i].y1 = lbl_805DDDE4 + arg0->rects[i].y0;
+    }
+    return (M2C_UNK)p;
+}
+
 void run_task__10TAdTitleGCFv(u8 *arg0) {
     s32 temp_r3;
 
@@ -120,11 +148,12 @@ void run_task__10TAdTitleGCFv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x12C) > 0xFF) {
         M2C_FIELD(arg0, s32 *, 0x12C) = 0xFF;
     }
-    TAdTitleGC__sub_802A0C84(arg0);
+    TAdTitleGC__sub_802A0C84((void *)(arg0));
     TAdTitleGC__sub_802A0C24((M2C_UNK)(arg0), (u8 *)(arg0 + 0x120), (s32)(TAdSinglePlyChrSelectGC__sub_80132F2C(0x13, M2C_FIELD(arg0, s32 *, 0x1C))));
 }
 #pragma push
 #pragma opt_common_subs off
+TAdTitleGC::~TAdTitleGC() {}
 TAdTitleGC_802A0E08 *__ct__10TAdTitleGCFv(TAdTitleGC_802A0E08 *self, void *parent, s32 idx) {
     s32 off;
     s32 i;

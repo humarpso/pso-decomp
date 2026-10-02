@@ -1,8 +1,10 @@
 #include "pso/TBoss6DPB.h"
 
-TBoss6DPB::~TBoss6DPB() {}
-
 #include "types.h"
+
+struct V_8035D8B0 { s32 a; f32 b; s32 c; };
+
+struct W_8035D8B0 { u8 pad0[0x20]; V_8035D8B0 v; };
 
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -17,7 +19,10 @@ struct Msg_8035DD18 { s32 type; s32 value; };
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 int query_teammate_state__9TObjEneDDFPv(void *);
-void fn_8035D8B0(void *);
+s32 TOSwitchAttack__sub_80087278(void *, int, int);
+void create_TDPBShower(int, void *);
+extern s32 tl_02;
+void fn_8035D8B0(W_8035D8B0 *arg0);
 void fn_8035D924(void *);
 extern const f32 lbl_805E01C8;
 void run_task__9TBoss6DPBFv(u8 *arg0);
@@ -48,6 +53,14 @@ extern "C" {
 
 void render__9TBoss6DPBFv(void);
 
+void fn_8035D8B0(W_8035D8B0 *arg0) {
+    V_8035D8B0 v = arg0->v;
+    v.b = lbl_805E01C8;
+    TOSwitchAttack__sub_80087278(&v, 0x21C, 0x40);
+    TOSwitchAttack__sub_80087278(&v, 0x21D, 0x40);
+    create_TDPBShower(tl_02, &arg0->v);
+}
+
 void render__9TBoss6DPBFv(void) {  }
 void run_task__9TBoss6DPBFv(u8 *arg0) {
     if (query_teammate_state__9TObjEneDDFPv(arg0) == 0) {
@@ -55,11 +68,16 @@ void run_task__9TBoss6DPBFv(u8 *arg0) {
         if ((f32) M2C_FIELD(arg0, s32 *, 0x30) > lbl_805E01C8) {
             fn_8035D924(arg0);
             TBoss3Volopt__sub_8022675C(0x40069411, (u32) (arg0 + 0x20), 0, 0);
-            fn_8035D8B0(arg0);
+            fn_8035D8B0((W_8035D8B0 *)arg0);
             queue_destruction__7TObjectFv(arg0);
         }
     }
 }
+}
+
+TBoss6DPB::~TBoss6DPB() {}
+
+extern "C" {
 
 u8 *__ct__9TBoss6DPBFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
     f32 temp_f1;

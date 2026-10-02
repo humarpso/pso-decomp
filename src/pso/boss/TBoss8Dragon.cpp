@@ -1774,64 +1774,6 @@ void spawn_effect__12TBoss8DragonFi(s32 arg0) {
 
 }
 #endif
-#if PSO_CLASS_PACKAGE == 0x802FB984
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-int TBoss8Dragon__sub_802FB984(void);
-s32 check_damage_reaction__12TBoss8DragonFPv(void *arg0);
-s32 TBoss8Dragon__sub_802FBBFC(void * a0 = 0, s32 a1 = 0);
-s32 set_damage_phase_value__12TBoss8DragonFPvi(void * a0 = 0, s32 a1 = 0);
-
-int TBoss8Dragon__sub_802FB984(void) { return 0; }
-s32 check_damage_reaction__12TBoss8DragonFPv(void *arg0) {
-    if (M2C_FIELD(arg0, s32 *, 0x3C0) & 0x40) {
-        return 0;
-    }
-    if ((s16) M2C_FIELD(arg0, s16 *, 0x32C) <= (s16) M2C_FIELD(arg0, s16 *, 0x67A)) {
-        M2C_FIELD(arg0, s16 *, 0x32C) = M2C_FIELD(arg0, s16 *, 0x67A);
-        set_damage_phase_value__12TBoss8DragonFPvi(arg0, 1);
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x3E4) == 0) {
-            TBoss8Dragon__sub_802FBBFC(arg0, 0xD);
-            return 1;
-        }
-        TBoss8Dragon__sub_802FBBFC(arg0, 0xB);
-        return 1;
-    }
-    return 0;
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x802FBB54
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void copy_pos_to_field688__12TBoss8DragonFPv(void* p);
-void set_speed__12TBoss8DragonFPvi(u8 *arg0, s32 arg1);
-
-void copy_pos_to_field688__12TBoss8DragonFPv(void* p) { *(f32*)((char*)p + 0x688) = *(f32*)((char*)p + 0x38); *(f32*)((char*)p + 0x68c) = *(f32*)((char*)p + 0x40); }
-
-extern M2C_UNK TBoss8Dragon__data_80474B10;
-extern const f32 TBoss8Dragon__data_805DED50;
-
-void set_speed__12TBoss8DragonFPvi(u8 *arg0, s32 arg1) {
-    M2C_FIELD(arg0, f32 *, 0x688) = (f32) arg1;
-    M2C_FIELD(arg0, f32 *, 0x68C) = (f32) TBoss8Dragon__data_805DED50;
-}
-
-}
-#endif
 #if PSO_CLASS_PACKAGE == 0x802FBBA0
 #include "types.h"
 

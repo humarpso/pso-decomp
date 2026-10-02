@@ -13,6 +13,8 @@ struct E_80071868 { s32 a; s32 b; };
 
 struct W_80071868 { u8 pad[0x2288]; E_80071868 e[3]; u8 pad2[0xc]; s32 def; };
 
+struct G_800718D0 { u8 pad[0xC]; s32 fc; u8 rest[0x100]; };
+
 extern "C" {
 s32 get_layout_id__20TWindowSubStatusDispFv(void *);
 s32 TWindowSubStatusDisp__sub_8006F0D8(void *, void *);
@@ -32,6 +34,13 @@ s32 TWindowSubStatusDisp__sub_8006F0D8(void *, void *);
 s32 TLobby__sub_8006F994(int);
 u32 get_card_window__17TWindowSubComCardFUi(u32);
 s32 TWindowSubStatusDisp__sub_80071988(s32 arg0, s32 arg1);
+s32 calc_layout_hash__20TWindowSubStatusDispFv(int);
+s32 get_layout_id__20TWindowSubStatusDispFv(void *);
+s32 is_flag_set__6TLobbyFv();
+s32 TWindowSubStatusDisp__sub_80071A24(s32 arg0, u16 arg1, s32 arg2);
+u32 get_card_window__17TWindowSubComCardFUi(u32);
+extern G_800718D0 lbl_8048C9D8;
+s32 TWindowSubStatusDisp__sub_800718D0(void);
 }
 
 extern "C" {
@@ -94,6 +103,29 @@ s32 TWindowSubStatusDisp__sub_80071868(u16 id, s32 slot) {
         v = w->def;
     }
     return get_slot_clamped__6TLobbyFv(v);
+}
+
+s32 TWindowSubStatusDisp__sub_800718D0(void) {
+    s32 last;
+    s32 hash;
+    s32 sum;
+    s32 i;
+    s32 r;
+    hash = calc_layout_hash__20TWindowSubStatusDispFv(-1);
+    if (is_flag_set__6TLobbyFv() == 0 || get_card_window__17TWindowSubComCardFUi(0xFFFF) == 0) {
+        return hash;
+    }
+    sum = 0;
+    last = get_layout_id__20TWindowSubStatusDispFv((void *)-1);
+    for (i = 0; i <= last - 2; i++) {
+        r = TWindowSubStatusDisp__sub_80071A24(i, 0xFFFF, -1);
+        if (r == 0) {
+            return hash;
+        }
+        sum += r;
+    }
+    sum += lbl_8048C9D8.fc;
+    return sum;
 }
 
 s32 TWindowSubStatusDisp__sub_80071988(s32 arg0, s32 arg1) {

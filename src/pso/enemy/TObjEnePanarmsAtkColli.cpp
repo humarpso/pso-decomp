@@ -1,4 +1,231 @@
 #include "types.h"
+struct Entry_800E31C4 { s32 id; u8 data[0xC]; };
+
+struct Vec_800E31C4 { f32 x; f32 y; f32 z; };
+
+struct Obj_800E31C4 { Entry_800E31C4 *list; Vec_800E31C4 *vecs; };
+
+struct Base_800E32C0 { u8 pad[0x18]; };
+
+struct Pair_800E32C0 { s32 a; f32 b; };
+
+struct V_800E32C0 : Base_800E32C0 {
+    virtual void v0();
+    virtual void v1();
+    virtual void v2();
+    virtual void v3();
+    virtual void v4();
+    virtual void v5();
+    virtual void v6();
+    virtual void v7();
+    virtual void v8();
+    virtual void v9();
+    virtual void v10();
+    virtual void v11();
+    virtual void v12();
+    virtual void v13();
+    virtual void v14();
+    virtual void v15();
+    virtual void v16();
+    virtual void v17();
+    virtual void v18();
+    virtual void v19();
+    virtual void v20();
+    virtual f32 m21(s32, void *, s32, s32, s32);
+    virtual void v22();
+    virtual void m23(void *);
+};
+
+struct Obj_800E32C0 { u8 pad0[0x10]; s32 f10; u8 pad1[0x388-0x14]; V_800E32C0 *f388; f32 f38C; };
+
+struct Base_800E3374 { u8 pad[0x18]; };
+
+struct Pair_800E3374 { s32 a; f32 b; };
+
+struct V_800E3374 : Base_800E3374 {
+    virtual void v0();
+    virtual void v1();
+    virtual void v2();
+    virtual void v3();
+    virtual void v4();
+    virtual void v5();
+    virtual void v6();
+    virtual void v7();
+    virtual void v8();
+    virtual void v9();
+    virtual void v10();
+    virtual void v11();
+    virtual void v12();
+    virtual void v13();
+    virtual void v14();
+    virtual void v15();
+    virtual void v16();
+    virtual void v17();
+    virtual void v18();
+    virtual void v19();
+    virtual void v20();
+    virtual f32 m21(s32, void *, s32, s32, s32);
+    virtual void v22();
+    virtual void m23(void *);
+};
+
+struct Obj_800E3374 { u8 pad0[0x10]; s32 f10; u8 pad1[0x384-0x14]; V_800E3374 *f384; u8 pad2[4]; f32 f38C; };
+
+struct Vec_800E35C8 { f32 x, y, z; };
+
+struct Obj_800E35C8 { u8 pad0[0x38]; Vec_800E35C8 pos; u8 pad1[0x378 - 0x44]; f32 f378; };
+
+struct Player_800E35C8 { u8 pad0[0x30]; u32 f30; };
+
+struct Vec_800E3428 { f32 x, y, z; };
+struct Obj_800E3428 { u8 pad0[0x38]; Vec_800E3428 pos; Vec_800E3428 dir; u8 pad1[0x378 - 0x50]; f32 f378; };
+
+struct Vec_800E322C { f32 x, y, z; };
+
+struct Obj_800E322C { u8 pad0[0x10]; u32 f10; u8 pad1[0x38 - 0x14]; Vec_800E322C pos; u8 pad2[0x378 - 0x44]; f32 f378; };
+
+extern "C" {
+void VecCopy__FP3VecPC3Vec(void *, void *);
+extern Vec_800E31C4 lbl_80495A88;
+Obj_800E31C4 *fn_800E31C4(Obj_800E31C4 *self, Entry_800E31C4 *list, Vec_800E31C4 *vecs);
+extern Pair_800E32C0 lbl_8043CDF8[];
+void fn_800E32C0(Obj_800E32C0 *arg0, V_800E32C0 *arg1);
+extern Pair_800E3374 lbl_8043CDF0[];
+void fn_800E3374(Obj_800E3374 *arg0, V_800E3374 *arg1);
+Player_800E35C8 *get_player_data__10TObjPlayerFi(s32);
+void fn_800E3374(Obj_800E3374 *arg0, V_800E3374 *arg1);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
+extern s32 lbl_805D586C;
+void fn_800E35C8(Obj_800E35C8 *arg0);
+u16 TObjPlayer__sub_800114D8(void *, s32, f32);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void fn_800E32C0(Obj_800E32C0 *arg0, V_800E32C0 *arg1);
+u32 get_enemy_entity(u16);
+void fn_800E322C(void *p, void *t);
+void TBoss4Zako__sub_803D8910(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+void TBoss6Type1__sub_803D9370(void *, void *);
+void TNpcPlayer__sub_803D97B4(void *);
+extern const f32 lbl_805DA5A4;
+}
+
+extern "C" {
+
+Obj_800E31C4 *fn_800E31C4(Obj_800E31C4 *self, Entry_800E31C4 *list, Vec_800E31C4 *vecs) {
+    Entry_800E31C4 *p;
+    Vec_800E31C4 *q;
+    self->list = list;
+    self->vecs = vecs;
+    p = self->list;
+    q = self->vecs;
+    while (p->id != -1) {
+        VecCopy__FP3VecPC3Vec(q, &lbl_80495A88);
+        p++;
+        q++;
+    }
+    return self;
+}
+
+void fn_800E322C(void *p, void *t) {
+    Obj_800E322C *arg0 = (Obj_800E322C *)p;
+    Vec_800E322C sp = arg0->pos;
+    s32 r;
+    u32 ent;
+    VecCopy__FP3VecPC3Vec(&arg0->pos, t);
+    if ((r = TObjPlayer__sub_800114D8(arg0, 0, arg0->f378)) != 0xFFFF) {
+        if ((ent = get_enemy_entity(r)) != 0 && ent != arg0->f10) {
+            fn_800E32C0((Obj_800E32C0 *)arg0, (V_800E32C0 *)ent);
+        }
+    }
+    VecCopy__FP3VecPC3Vec(&arg0->pos, &sp);
+}
+
+void fn_800E32C0(Obj_800E32C0 *arg0, V_800E32C0 *arg1) {
+    Pair_800E32C0 sp10 = lbl_8043CDF8[0];
+    Pair_800E32C0 sp8;
+    sp10.b = arg0->f38C;
+    if (arg0->f388 != arg1) {
+        sp8.a = sp10.a; *(s32 *)&sp8.b = *(s32 *)&sp10.b;
+        if (0.0f != arg1->m21(arg0->f10, &sp8, 0, -1, -1)) {
+            arg1->m23(arg0);
+        }
+        arg0->f388 = arg1;
+    }
+}
+void fn_800E3374(Obj_800E3374 *arg0, V_800E3374 *arg1) {
+    Pair_800E3374 sp10 = lbl_8043CDF0[0];
+    Pair_800E3374 sp8;
+    sp10.b = arg0->f38C;
+    if (arg0->f384 != arg1) {
+        sp8.a = sp10.a; *(s32 *)&sp8.b = *(s32 *)&sp10.b;
+        if (0.0f != arg1->m21(arg0->f10, &sp8, 0, -1, -1)) {
+            arg1->m23(arg0);
+        }
+        arg0->f384 = arg1;
+    }
+}
+#pragma push
+#pragma opt_loop_invariants off
+void fn_800E3428(Obj_800E3428 *self) {
+    Vec_800E3428 d;
+    f32 len;
+    f32 lim;
+    f32 dist;
+    s32 i;
+    Player_800E35C8 *p;
+
+    lim = self->f378 * self->f378;
+    VecCopy__FP3VecPC3Vec(&d, &self->dir);
+    TBoss6Type1__sub_803D9370(&d, &self->pos);
+    len = TBoss6Kakusan__sub_803D8BD8(&d);
+    if (0.0f == len) {
+        d.x = lbl_805DA5A4;
+    }
+    TNpcPlayer__sub_803D97B4(&d);
+    d.x *= self->f378;
+    d.z *= self->f378;
+    for (i = 0; i < lbl_805D586C; i++) {
+        p = get_player_data__10TObjPlayerFi(i);
+        if (p != NULL && !(p->f30 & 0x02000A00)) {
+            Vec_800E3428 v = self->pos;
+            for (dist = 0.0f; dist < len; ) {
+                if (!(TObjPlayer__sub_80141CF8(&v, (u8 *)p + 0x2FC) > lim)) {
+                    fn_800E3374((Obj_800E3374 *)self, (V_800E3374 *)p);
+                    break;
+                }
+                dist += self->f378;
+                TBoss4Zako__sub_803D8910(&v, &d);
+            }
+        }
+    }
+    {
+    Vec_800E3428 w = self->pos;
+    f32 dist2;
+    for (dist2 = 0.0f; dist2 < len; ) {
+        fn_800E322C(self, &w);
+        dist2 += self->f378;
+        TBoss4Zako__sub_803D8910(&w, &d);
+    }
+    }
+}
+
+#pragma pop
+
+void fn_800E35C8(Obj_800E35C8 *arg0) {
+    s32 i;
+    Player_800E35C8 *p;
+    f32 lim = arg0->f378 * arg0->f378;
+    for (i = 0; i < lbl_805D586C; i++) {
+        p = get_player_data__10TObjPlayerFi(i);
+        if (p != NULL && !(p->f30 & 0x02000A00) && !(TObjPlayer__sub_80141CF8(&arg0->pos, (u8 *) p + 0x2FC) > lim)) {
+            fn_800E3374((Obj_800E3374 *)(arg0), (V_800E3374 *)(p));
+        }
+    }
+    fn_800E322C((void *)(arg0), (void *)(&arg0->pos));
+}
+
+}
+
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
@@ -252,13 +479,9 @@ struct Obj_800E37E4 {
 };
 
 extern "C" {
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK fn_800E3428(void *);
-M2C_UNK fn_800E35C8(void *);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
 void run_task__22TObjEnePanarmsAtkColliFv(u8 *arg0);
 M2C_UNK set_flag_0x100__23TObjEneMe3ShinowaMirageFPv();
 extern f32 TObjEneMe3ShinowaMirage__data_805DA5B8;
@@ -266,14 +489,11 @@ extern const f32 lbl_805DA5BC;
 extern const f32 lbl_805DA5C0;
 extern f32 TObjEneMe3ShinowaMirage__data_805DA5C4;
 void TObjEneMe3ShinowaMirage__vt113(u8 *arg0, s32 arg1);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *dispatch_shared_handler_a__6TLobbyFPv(int);
 void set_param__12TObjEneLappyFPvi(void *, int);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 void initialize__9TObjEnemyFPv(void *, void *);
 int TBoss3Volopt__sub_8022675C(void *, void *, void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TNpcPlayer__sub_803D97B4(void *);
 extern s32 lbl_80495A80[];
 extern M2C_UNK __vt__22TObjEnePanarmsAtkColli[];
 extern s32 lbl_805D2AC0;
@@ -306,11 +526,11 @@ void run_task__22TObjEnePanarmsAtkColliFv(u8 *arg0) {
     temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x374);
     switch (temp_r0_2) {
     case 0:
-        fn_800E35C8(arg0);
+        ((void (*)(void *))fn_800E35C8)(arg0);
         return;
     case 1:
         TOTrapAncient01__sub_80226578(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003BA2A), arg0, arg0 + 0x38, 0, 0);
-        fn_800E3428(arg0);
+        ((void (*)(void *))fn_800E3428)(arg0);
         return;
     }
 }

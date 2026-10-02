@@ -113,7 +113,40 @@ void start_download__12TChCrLoadAfsFPv(void *arg0) {
 }
 }
 
-void TChCrLoadAfs::run_task() {}
+#include "types.h"
+
+class Afs_8028BA64 {
+public:
+    u8 pad[0x2C];
+    s32 state;
+    u8 pad2[0x34 - 0x30];
+    s32 wait;
+    void m0();
+    void m1();
+    void m2();
+    void m3();
+};
+
+typedef void (Afs_8028BA64::*Handler_8028BA64)();
+
+extern "C" {
+
+void TChCrLoadAfs::run_task() {
+    Afs_8028BA64 *arg0 = (Afs_8028BA64 *)this;
+    if (--arg0->wait < 0) {
+        arg0->state = 3;
+        return;
+    }
+    static Handler_8028BA64 tbl[] = {
+        &Afs_8028BA64::m0,
+        &Afs_8028BA64::m1,
+        &Afs_8028BA64::m2,
+        &Afs_8028BA64::m3,
+    };
+    (arg0->*tbl[arg0->state])();
+}
+
+}
 
 TChCrLoadAfs::~TChCrLoadAfs() {
     u32 handle = load_handle;

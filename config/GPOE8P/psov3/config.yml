@@ -129,6 +129,7 @@ force_active:
   - TWindowKeyBoardSoft__sub_8024ECDC
   - TWindowMainMenu1P__sub_80288520
   - TWindowSetLevelUp__sub_8026DDE0
+  - TWindowSubComCard__sub_80077958
   - TypeAndStatusCallback
   - __ARQCallbackHack
   - __ARQInterruptServiceRoutine
@@ -185,7 +186,6 @@ force_active:
   - __dt__15TAdDrawLineCtrlFv
   - __dt__15TBoss6CrushPtclFv
   - __dt__15TBoss6CrushRockFv
-  - __dt__15TBoss6SwordShotFv
   - __dt__15TChCrCharSelectFv
   - __dt__15TItemEffBringerFv
   - __dt__15TItemEffLandHitFv
@@ -374,7 +374,6 @@ force_active:
   - run_task__14TWindowCtrlSubFv
   - run_task__15TAdDrawLineCtrlFv
   - run_task__15TBoss6CrushPtclFv
-  - run_task__15TBoss6SwordShotFv
   - run_task__15TItemEffLandHitFv
   - run_task__15TItemMagGrowEffFv
   - run_task__15TObjDeadListWinFv

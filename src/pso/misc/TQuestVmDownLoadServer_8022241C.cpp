@@ -4,6 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+class TQVDLS_8022256C {
+public:
+    void a();
+    void b();
+    void c();
+    void d();
+    void e();
+};
+
+struct Cmd_8022256C {
+    const char *name;
+    void (TQVDLS_8022256C::*fn)();
+};
+
 extern "C" {
 M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
 int sprintf(char *, const char *, ...);
@@ -18,7 +32,6 @@ s32 TLobby__sub_8030A7B0(void);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
 extern u8 lbl_8044C290[];
 void TQuestVmDownLoadServer__sub_80222480(void *arg0);
-void TQuestVmDownLoadServer__sub_8022256C(void *);
 u8 is_idle__22TQuestVmDownLoadServerFPv(void *arg0);
 u8 read_byte__22TQuestVmDownLoadServerFPv(void *arg0);
 void TQuestVmDownLoadServer__sub_80222754(void *arg0, s8 arg1);
@@ -29,6 +42,15 @@ void TQuestVmDownLoadServer__sub_80222704(void *arg0, s32 arg1);
 int strcmp(const char *, const char *);
 extern u8 lbl_8044C290[];
 void TQuestVmDownLoadServer__sub_8022250C(void *arg0);
+u8 is_idle__22TQuestVmDownLoadServerFPv(void *arg0);
+u8 read_byte__22TQuestVmDownLoadServerFPv(void *arg0);
+int strcmp(const char *, const char *);
+extern const char lbl_8044C200[];
+extern const char lbl_8044C20C[];
+extern const char lbl_8044C218[];
+extern const char lbl_8044C224[];
+extern const char lbl_8044C234[];
+void TQuestVmDownLoadServer__sub_8022256C(void *arg0);
 }
 
 extern "C" {
@@ -88,6 +110,35 @@ void TQuestVmDownLoadServer__sub_8022250C(void *arg0) {
     TQuestVmDownLoadServer__sub_80222704(arg0, t);
 }
 
+void TQuestVmDownLoadServer__sub_8022256C(void *arg0) {
+    Cmd_8022256C cmds[5] = {
+        { lbl_8044C200, &TQVDLS_8022256C::a },
+        { lbl_8044C20C, &TQVDLS_8022256C::b },
+        { lbl_8044C218, &TQVDLS_8022256C::c },
+        { lbl_8044C224, &TQVDLS_8022256C::d },
+        { lbl_8044C234, &TQVDLS_8022256C::e },
+    };
+    char buf[0x40];
+    u32 n = 0;
+    while (n < 0x40 && ((s32 (*)(void *))is_idle__22TQuestVmDownLoadServerFPv)(arg0) == 0) {
+        s8 ch = ((s8 (*)(void *))read_byte__22TQuestVmDownLoadServerFPv)(arg0);
+        switch (ch) {
+        case 0x3E: {
+            u32 i;
+            buf[n] = 0;
+            for (i = 0; i < 5; i++) {
+                if (strcmp(cmds[i].name, buf) == 0) {
+                    (((TQVDLS_8022256C *)arg0)->*cmds[i].fn)();
+                }
+            }
+            return;
+        }
+        }
+        buf[n] = ch;
+        n++;
+    }
+}
+
 u8 is_idle__22TQuestVmDownLoadServerFPv(void *arg0) {
     return (u8) ((s8) *M2C_FIELD(arg0, u8 **, 0x204) == 0);
 }
@@ -128,7 +179,7 @@ s32 TQuestVmDownLoadServer__sub_80222774(void *arg0, s32 arg1, s32 arg2) {
         b = ((s8 (*)(void *))read_byte__22TQuestVmDownLoadServerFPv)(arg0);
         switch (b) {
         case 0x3C:
-            TQuestVmDownLoadServer__sub_8022256C(arg0);
+            TQuestVmDownLoadServer__sub_8022256C((void *)(arg0));
             break;
         case 0x3E:
             for (;;) {

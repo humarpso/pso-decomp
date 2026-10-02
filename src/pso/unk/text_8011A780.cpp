@@ -47,6 +47,11 @@ struct Pkt_8011ADF4 {
     u8 item[20];
 };
 
+struct Req_8011AD1C {
+    u8 cmd; u8 size; u16 pad2; s8 client; u8 area; s16 source;
+    f32 x; f32 z; s16 room; s16 x12; s8 slot;
+};
+
 extern "C" {
 s32 get_global_state__14TOKeyMachine01Fv();
 extern s32 lbl_805D54E8;
@@ -108,6 +113,11 @@ s32 fn_801057A8(void *, int);
 extern Source_8011AB64 *TLobby__data_805D6144;
 extern Source_8011AA68 *TLobby__data_805D6140;
 void handle_6x5F_drop_item(Pkt_8011ADF4 *pkt);
+void TLobby__sub_80105A60(void *);
+void TLobby__sub_8011AA68(s16 source, int client, s16 room, int slot, f32 x, f32 z);
+void TLobby__sub_8011AB64(s8 area, s16 source, int client, s16 room, int slot, f32 x, f32 z);
+s32 get_player_floor__6TLobbyFi(s32);
+void handle_6x60_standard_drop_item_request(void *arg0);
 }
 
 extern "C" {
@@ -241,6 +251,31 @@ void handle_6xA2_specializable_item_drop_request(void *arg0) {
     TLobby__sub_8011AB64((s8)(temp_b), (s16)(M2C_FIELD(arg0, s16 *, 6)), (int)(M2C_FIELD(arg0, s8 *, 4)), (s16)(M2C_FIELD(arg0, s16 *, 0x10)), (int)(M2C_FIELD(arg0, s8 *, 0x14)), M2C_FIELD(arg0, f32 *, 8), M2C_FIELD(arg0, f32 *, 0xC));
 }
 #pragma pop
+
+void handle_6x60_standard_drop_item_request(void *arg0) {
+    Req_8011AD1C *req = (Req_8011AD1C *)arg0;
+    s32 client;
+    s32 slot;
+    s8 area;
+    TLobby__sub_80105A60(arg0);
+    if ((u32)(req->size * 4) == 0x14) {
+        client = req->client;
+        slot = get_player_floor__6TLobbyFi(client);
+    } else {
+        client = req->client;
+        slot = req->slot;
+    }
+    area = (s8)req->area;
+    if (area == 0x30) {
+        if (req->x12 != 0) {
+            TLobby__sub_8011AA68(req->source, client, req->room, slot, req->x, req->z);
+            return;
+        }
+        TLobby__sub_8011AA68(req->source, client, req->room, slot, req->x, req->z);
+        return;
+    }
+    TLobby__sub_8011AB64(area, req->source, client, req->room, slot, req->x, req->z);
+}
 
 void handle_6x5F_drop_item(Pkt_8011ADF4 *pkt) {
     bswap_item_packet__6TLobbyFPv(pkt);

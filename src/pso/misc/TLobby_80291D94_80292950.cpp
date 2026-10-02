@@ -15,6 +15,11 @@ struct RecoveredGlobal_8029299C_lbl_804DB1F0 {
 };
 
 typedef s32 M2C_UNK;
+
+struct Win_80292AB4 { u8 pad[0x21C4]; u8 sub; };
+
+struct Ent_80292AB4 { s32 id; s32 mask; u8 pad[0x14]; };
+
 extern "C" {
 u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
 extern s32 lbl_804DB1F0[];
@@ -43,6 +48,12 @@ u8 *get_card_window__17TWindowSubComCardFUi();
 s32 TLobby__sub_80292F34(s32 arg0);
 extern s32 lbl_804DB1F0[];
 s32 TLobby__sub_80292BB8(s32 seed, u16 card, s32 id);
+s32 calc_layout_hash__20TWindowSubStatusDispFv(s32);
+s32 calc_entry_offset__20TWindowSubStatusDispFv(s32);
+s32 *TWindowSubStatusDisp__sub_8006F134(u8 *, s32);
+u8 *get_card_window__17TWindowSubComCardFUi();
+extern s32 lbl_804DB1F0[];
+s32 TLobby__sub_80292AB4(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -107,6 +118,41 @@ loop_3:
         return 1;
     }
     goto loop_3;
+}
+
+#define GCW_80292AB4 ((u8 *(*)(u32))get_card_window__17TWindowSubComCardFUi)
+s32 TLobby__sub_80292AB4(s32 arg0, s32 arg1, s32 arg2) {
+    s32 lo;
+    s32 hi;
+    s32 *flags;
+    s32 i;
+    Ent_80292AB4 *e;
+    s32 w;
+    lo = calc_entry_offset__20TWindowSubStatusDispFv(arg2);
+    hi = calc_layout_hash__20TWindowSubStatusDispFv(arg2);
+    if (GCW_80292AB4((u16)arg1) == NULL) {
+        return -4;
+    }
+    if (arg0 < lo || arg0 > hi) {
+        return -4;
+    }
+    w = ((s32 (*)(u32))get_card_window__17TWindowSubComCardFUi)((u16)arg1) + 0x21C4;
+    flags = TWindowSubStatusDisp__sub_8006F134((u8 *)w, arg2);
+    e = (Ent_80292AB4 *)((u8 *)lbl_804DB1F0 + 0x254);
+    for (i = 2; i >= 0; i--, e--) {
+        if (e->id != 0 && e->id >= arg0) {
+            if (e->id < lo || e->id > hi) {
+                return -4;
+            }
+            if ((*flags & e->mask) == 0) {
+                break;
+            }
+        }
+    }
+    if (i < 0) {
+        return -2;
+    }
+    return i;
 }
 
 s32 TLobby__sub_80292BB8(s32 seed, u16 card, s32 id) {
