@@ -259,6 +259,7 @@ force_active:
   - __ull2dec
   - advance_animation_state__10TEndingPicFPv
   - advance_bone_rotation__19TObjEZBoneRotPlayerFPv
+  - apply_room_transform
   - bswap_guild_card_tag__17TWindowSubComCardFPv
   - capture_attachment__17TObjEneBm3FlyNestFv
   - create__13TItemProArmorFiUi
@@ -423,6 +424,7 @@ force_active:
   - run_task__9TSaveChCrFv
   - set_code_43_6__10TObjPlayerFPv
   - setup_state_helper__10TObjPlayerFPv
+  - spawn_decorations_in_range
   - spawn_effect__10TObjPlayerFiUiii
   - strstr
   - update_and_destroy__10TObjPlayerFPv

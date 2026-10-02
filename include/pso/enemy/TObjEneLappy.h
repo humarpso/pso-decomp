@@ -26,6 +26,7 @@ struct TObjEneLappy : LappyObjectHeader
     virtual void virtual_15();
     virtual void virtual_16();
     virtual s32 has_update_cadence(s32 period);
+    s32 advance_flee_step();
     u8 _pad1C[0x14];
     u32 m_30;
     u8 _pad34[0x4];

@@ -273,7 +273,6 @@ s32 TObjPlayer__sub_803D97F0(void *);
 s32 TCameraCtrl__sub_803D9858(s32);
 extern f32 lbl_8058D490[3][4];
 extern const f32 lbl_805D9F24;
-s32 TObjPlayer__sub_800BFD24(TObjEneLappy *arg0);
 }
 
 extern "C" {
@@ -336,7 +335,8 @@ void TObjPlayer__sub_800BFCD4(Obj_800BFCD4 *self) {
     lbl_80492E18.f88 = p[2];
 }
 
-s32 TObjPlayer__sub_800BFD24(TObjEneLappy *arg0) {
+s32 TObjEneLappy::advance_flee_step() {
+    TObjEneLappy *arg0 = this;
     LappyVec sp20;
     LappyVec sp14;
     LappyVec sp8;
