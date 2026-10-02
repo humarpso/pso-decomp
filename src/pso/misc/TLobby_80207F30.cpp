@@ -43,10 +43,6 @@ int TLobby__sub_80207F30(R_80207F30 *arg0) {
     return r;
 }
 
-void update_current_floor__6TLobbyFv(void) { get_global_state__14TOKeyMachine01Fv(); ((void (*)(void))TLobby__sub_80207F80)(); }
-
-void update_key_machine__6TLobbyFv(void) { get_global_state__14TOKeyMachine01Fv(); ((int (*)(void))TLobby__sub_80208020)(); }
-
 void TLobby__sub_80207F80(s32 arg0) {
     E_80207F80 *p = (E_80207F80 *)lbl_804BB118[arg0];
     s32 n;
@@ -63,6 +59,7 @@ void TLobby__sub_80207F80(s32 arg0) {
     }
 }
 
+void update_current_floor__6TLobbyFv(void) { get_global_state__14TOKeyMachine01Fv(); ((void (*)(void))TLobby__sub_80207F80)(); }
 s32 TLobby__sub_80208020(s32 arg0) {
     E_80208020 *p = lbl_804BB118[arg0];
     Fn_80208020 f;
@@ -79,6 +76,7 @@ s32 TLobby__sub_80208020(s32 arg0) {
     return 1;
 }
 
+void update_key_machine__6TLobbyFv(void) { get_global_state__14TOKeyMachine01Fv(); ((int (*)(void))TLobby__sub_80208020)(); }
 void TLobby__sub_802080C0(void *arg0) {
     bswap_16__FPUs((s32)(arg0));
     TLobby__sub_802080F4((void *)((void *)((char *)arg0 + 4)));

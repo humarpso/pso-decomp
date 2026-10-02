@@ -142,6 +142,18 @@ void TProtocol::recv_trade_result(packet &pkt) {
     }
 }
 
+void handle_cmd_D3(u8 *arg0, Pkt_801DA35C *src) {
+    char buf[0x80];
+    Pkt_801DA35C pkt;
+    void (*cb)(void *);
+    pkt = *src;
+    bswap_cmd_D3_item_bank(&pkt);
+    sprintf(buf, lbl_804495E8, ((PktHdr_801DA35C *)&pkt)->b, ((PktHdr_801DA35C *)&pkt)->a);
+    cb = *(void (**)(void *))(arg0 + 0xBC98);
+    if (cb != NULL) {
+        cb(&pkt);
+    }
+}
 void TProtocol::send_trade_ready() {
     packet_header header;
     header.command = 0xD2;
@@ -160,19 +172,6 @@ void TProtocol::recv_advance_trade_state(packet &pkt) {
 }
 
 extern "C" {
-
-void handle_cmd_D3(u8 *arg0, Pkt_801DA35C *src) {
-    char buf[0x80];
-    Pkt_801DA35C pkt;
-    void (*cb)(void *);
-    pkt = *src;
-    bswap_cmd_D3_item_bank(&pkt);
-    sprintf(buf, lbl_804495E8, ((PktHdr_801DA35C *)&pkt)->b, ((PktHdr_801DA35C *)&pkt)->a);
-    cb = *(void (**)(void *))(arg0 + 0xBC98);
-    if (cb != NULL) {
-        cb(&pkt);
-    }
-}
 
 void TLobby__sub_801DA4A0(VObj_18_801DA4A0 *obj, Pkt_801DA4A0 *src) {
     char buf[0x80];
@@ -208,21 +207,6 @@ void handle_cmd_D8(u8 *arg0, Pkt_801DA5E4 *arg1) {
         f(&tmp);
     }
 }
-void TLobby__sub_801DA734(VObj_18_801DA734 *obj, char *str) {
-    if (*(s32 *)((char *)obj + 0x1910) != 0) {
-    Pkt_801DA734 pkt;
-    s32 n;
-    memset(&pkt, 0, 0x204);
-    pkt.cmd = 0xC7;
-    pkt.flag = 0;
-    char *t = pkt.text;
-    strncpy(t, str, 0x1FF);
-    n = (strlen(t) + 8) & ~3;
-    pkt.size = n;
-    TLobby__sub_801DF064(&pkt);
-    obj->m8(&pkt, n);
-    }
-}
 
 }
 
@@ -243,4 +227,19 @@ void TProtocol::send_disable_auto_reply() {
     header.size = sizeof(header);
     header.bswap();
     send((u8*)&header, sizeof(header));
+}
+void TLobby__sub_801DA734(VObj_18_801DA734 *obj, char *str) {
+    if (*(s32 *)((char *)obj + 0x1910) != 0) {
+    Pkt_801DA734 pkt;
+    s32 n;
+    memset(&pkt, 0, 0x204);
+    pkt.cmd = 0xC7;
+    pkt.flag = 0;
+    char *t = pkt.text;
+    strncpy(t, str, 0x1FF);
+    n = (strlen(t) + 8) & ~3;
+    pkt.size = n;
+    TLobby__sub_801DF064(&pkt);
+    obj->m8(&pkt, n);
+    }
 }

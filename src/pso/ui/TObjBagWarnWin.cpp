@@ -1,7 +1,5 @@
 #include "pso/TObjBagWarnWin.h"
 
-TObjBagWarnWin::~TObjBagWarnWin() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -118,5 +116,6 @@ void TObjBagWarnWin__sub_8006EDD8(u8 *arg0) {
         send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, u32 *, 0x1C), arg0 + 0x20, 0);
     }
 }
+TObjBagWarnWin::~TObjBagWarnWin() {}
 
 }

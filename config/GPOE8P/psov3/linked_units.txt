@@ -147,6 +147,7 @@ pso/boss/TBoss4Type3_800D7A20.cpp
 pso/boss/TBoss4Type3_800D9960.cpp
 pso/boss/TBoss4Uro.cpp
 pso/boss/TBoss4Uro_8005CF10.cpp
+pso/boss/TBoss4ZakoDraw.cpp
 pso/boss/TBoss4ZakoDraw_8030A96C.cpp
 pso/boss/TBoss4ZakoDraw_8030AD38.cpp
 pso/boss/TBoss4ZakoDraw_8030AD58.cpp
@@ -154,8 +155,10 @@ pso/boss/TBoss5Gryphon.cpp
 pso/boss/TBoss5GryphonDemo_80066128.cpp
 pso/boss/TBoss5GryphonLightning.cpp
 pso/boss/TBoss5GryphonLightningHorn.cpp
+pso/boss/TBoss5GryphonLightningWing.cpp
 pso/boss/TBoss5GryphonLightningWing_80324CEC.cpp
 pso/boss/TBoss5GryphonTornado.cpp
+pso/boss/TBoss6CrushPtcl.cpp
 pso/boss/TBoss6CrushRock.cpp
 pso/boss/TBoss6CrushRock_80359FC4.cpp
 pso/boss/TBoss6CrushRock_80359FEC.cpp
@@ -646,6 +649,7 @@ pso/enemy/TObjEnemyCustom_800C8040.cpp
 pso/enemy/TObjEnemy_8020C3E0.cpp
 pso/item/TItem.cpp
 pso/item/TItemAttackCol_802E4798.cpp
+pso/item/TItemAttacker.cpp
 pso/item/TItemBuff.cpp
 pso/item/TItemData_80104D0C.cpp
 pso/item/TItemData_80105934.cpp
@@ -893,6 +897,7 @@ pso/menu/TAdEndText_80399904.cpp
 pso/menu/TAdPlyChrSelPlateGC.cpp
 pso/menu/TAdRicoRing.cpp
 pso/menu/TAdRicoRing_8001BEE8.cpp
+pso/menu/TChCrCharSelect.cpp
 pso/menu/TChCrLoadGmNjReq.cpp
 pso/menu/TObjTagChallenge_80074B44.cpp
 pso/menu/TObjTagChallenge_80074B88.cpp
@@ -1187,6 +1192,7 @@ pso/misc/TLobby_801E6544_801F2700.cpp
 pso/misc/TLobby_801E6544_801F2974.cpp
 pso/misc/TLobby_801E6544_801F29CC.cpp
 pso/misc/TLobby_801E6544_801F2A14.cpp
+pso/misc/TLobby_801E6544_801F2B0C.cpp
 pso/misc/TLobby_801E6544_801F2C34.cpp
 pso/misc/TLobby_801E6544_801F2CE0.cpp
 pso/misc/TLobby_801F2D2C.cpp
@@ -1214,6 +1220,7 @@ pso/misc/TLobby_80207DA8_80208804.cpp
 pso/misc/TLobby_80207DA8_80208D98.cpp
 pso/misc/TLobby_80207DA8_80208F7C.cpp
 pso/misc/TLobby_80207DA8_80208FFC.cpp
+pso/misc/TLobby_80207F30.cpp
 pso/misc/TLobby_80209524.cpp
 pso/misc/TLobby_8020970C.cpp
 pso/misc/TLobby_80209BD8.cpp
@@ -2209,6 +2216,7 @@ pso/misc/pso_obj_flags.cpp
 pso/misc/pso_vec.cpp
 pso/network/TProtocolChoiceSearch.cpp
 pso/network/TProtocol_801D9EEC.cpp
+pso/network/TProtocol_801DA240.cpp
 pso/network/TProtocol_801DAFD0.cpp
 pso/network/TProtocol_801DB0AC.cpp
 pso/network/TProtocol_801DB34C.cpp
@@ -2444,6 +2452,7 @@ pso/object/TObjTuitate.cpp
 pso/object/TObjVoloptCage.cpp
 pso/object/TObjVoloptCage_8004912C.cpp
 pso/object/TObjVoloptPillar.cpp
+pso/object/TObjVoloptShutter.cpp
 pso/object/TObjWaitEntryHairMoveSim_800FE300.cpp
 pso/object/TObjWaitEntryHairMoveSim_800FE45C.cpp
 pso/object/TObjWarnChime.cpp
@@ -3111,6 +3120,7 @@ pso/player/TObjPlayer_80307618.cpp
 pso/player/TObjPlayer_803083B0.cpp
 pso/player/TObjPlayer_80309D80.cpp
 pso/player/TObjPlayer_803130BC.cpp
+pso/player/TObjPlayer_80326578.cpp
 pso/player/TObjPlayer_80326578_80326E10.cpp
 pso/player/TObjPlayer_80326578_80326EF8.cpp
 pso/player/TObjPlayer_80326578_803270A4.cpp
@@ -3128,6 +3138,7 @@ pso/player/TObjPlayer_8033D324.cpp
 pso/player/TObjPlayer_8033E910.cpp
 pso/player/TObjPlayer_8033FE28.cpp
 pso/player/TObjPlayer_8034DF2C.cpp
+pso/player/TObjPlayer_8034EFDC.cpp
 pso/player/TObjPlayer_80351748.cpp
 pso/player/TObjPlayer_80354EC8.cpp
 pso/player/TObjPlayer_80355A58.cpp
@@ -3151,6 +3162,7 @@ pso/player/TObjPlayer_80363BE0_80364258.cpp
 pso/player/TObjPlayer_80363BE0_80364280.cpp
 pso/player/TObjPlayer_80363BE0_803642A8.cpp
 pso/player/TObjPlayer_803DC834.cpp
+pso/player/TObjPlayer_803E4954.cpp
 pso/player/TObjPlayer_803E5470.cpp
 pso/protocol/subcommand_validation_actions.cpp
 pso/protocol/subcommand_validation_movement.cpp
@@ -3303,6 +3315,7 @@ pso/system/TODummyKeyCave01Sound.cpp
 pso/system/TOSwitchAttackSub.cpp
 pso/system/TSetEvtDestroy.cpp
 pso/ui/TAdADXlogo.cpp
+pso/ui/TAdADXlogo_80019848.cpp
 pso/ui/TAdAgreementBaseGC.cpp
 pso/ui/TAdBackGC.cpp
 pso/ui/TAdBackGC_8029A7B0.cpp
@@ -3343,6 +3356,7 @@ pso/ui/TAdFloorLoadPrtGC.cpp
 pso/ui/TAdGameStartBackGC.cpp
 pso/ui/TAdGameStartBackGC_80307298.cpp
 pso/ui/TAdGameStartBackGC_803072CC.cpp
+pso/ui/TAdGameStartShadowGC.cpp
 pso/ui/TAdGameStartSubGC_802E67FC.cpp
 pso/ui/TAdLicAgreementGC.cpp
 pso/ui/TAdLoadNetworkGC.cpp
@@ -3401,6 +3415,7 @@ pso/ui/TAdRayGC_8029BFFC.cpp
 pso/ui/TAdRayGC_8029C030.cpp
 pso/ui/TAdRicoRingCtrl.cpp
 pso/ui/TAdSEGAlogo.cpp
+pso/ui/TAdSEGAlogo_8001BF4C.cpp
 pso/ui/TAdScrollWinGC.cpp
 pso/ui/TAdScrollWinGC_8026A5F8.cpp
 pso/ui/TAdScrollWinGC_803274D0.cpp
@@ -3409,6 +3424,7 @@ pso/ui/TAdSelectCurGC.cpp
 pso/ui/TAdSelectCurGC_802AEA38.cpp
 pso/ui/TAdSelectGameModeGC.cpp
 pso/ui/TAdSelectGameModeGC_801A2F7C.cpp
+pso/ui/TAdSelectTxtGC.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8001C5E8.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8001ED80.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8007B7E4.cpp
@@ -3463,6 +3479,7 @@ pso/ui/TAdWarningBaseGC_8032D154.cpp
 pso/ui/TAdWarningBaseGC_8032D188.cpp
 pso/ui/TAdWarningBaseGC_8032D1A4.cpp
 pso/ui/TAdYesNoBaseGC.cpp
+pso/ui/TObjBagWarnWin.cpp
 pso/ui/TObjBagWarnWin_8006EED4.cpp
 pso/ui/TObjBagWarnWin_8006EF24.cpp
 pso/ui/TObjDFTenchuFuru_80051B98.cpp

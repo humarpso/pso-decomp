@@ -1,7 +1,5 @@
 #include "pso/TAdMultiPlayerNoGC.h"
 
-TAdMultiPlayerNoGC::~TAdMultiPlayerNoGC() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -65,6 +63,7 @@ void render_status__18TAdMultiPlayerNoGCFi(s32 arg0) {
 void render__18TAdMultiPlayerNoGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)10); render_status__18TAdMultiPlayerNoGCFi((s32)(p)); abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)6); } }
 void run_task__18TAdMultiPlayerNoGCFv(void) {  }
 #pragma fp_contract on
+TAdMultiPlayerNoGC::~TAdMultiPlayerNoGC() {}
 Self_8033A668 *__ct__18TAdMultiPlayerNoGCFv(Self_8033A668 *self, void *parent, s32 n, u32 idx, u32 arg) {
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = __vt__18TAdMultiPlayerNoGC;

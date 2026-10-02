@@ -1,7 +1,5 @@
 #include "pso/TBoss4ZakoDraw.h"
 
-TBoss4ZakoDraw::~TBoss4ZakoDraw() {}
-
 #include "types.h"
 
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -38,5 +36,6 @@ void run_task__14TBoss4ZakoDrawFv(void *arg0) {
         lbl_805D6A74 = 0;
     }
 }
+TBoss4ZakoDraw::~TBoss4ZakoDraw() {}
 
 }

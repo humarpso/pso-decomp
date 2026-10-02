@@ -6,6 +6,8 @@
 class TAdTitleTexGC : public TObject {
 public:
     virtual ~TAdTitleTexGC();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

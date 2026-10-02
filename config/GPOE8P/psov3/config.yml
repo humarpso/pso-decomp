@@ -52,6 +52,8 @@ force_active:
   - TFontSmallLobby__sub_801C0258
   - TItemEquipBase__sub_8022F1F4
   - TKeyBoardControl__sub_80290D10
+  - TLobby__sub_802080F4
+  - TLobby__sub_802081E0
   - TLobby__sub_803CBE40
   - TLobby__sub_803D0F1C
   - TLobby__sub_803D2E90
@@ -66,6 +68,7 @@ force_active:
   - TMainCursor__sub_8013E570
   - TMainCursor__sub_8013E694
   - TNpcPlayer__sub_80152CE8
+  - TObjBagWarnWin__sub_8006EC20
   - TObjEneDD__sub_800BB980
   - TObjEneMe1Canadin__sub_8009FB54
   - TObjFish__sub_800E2FFC
@@ -150,6 +153,7 @@ force_active:
   - __dt__12TLevelSelectFv
   - __dt__12TMemberCheckFv
   - __dt__12TObjRainCtrlFv
+  - __dt__13TItemAttackerFv
   - __dt__13TItemMenuCtrlFv
   - __dt__13TObjBoss2DustFv
   - __dt__13TObjBoss7DustFv
@@ -157,6 +161,8 @@ force_active:
   - __dt__13TPlyOnCreatedFv
   - __dt__14TAdFloorLoadGCFv
   - __dt__14TAdLoadQuestGCFv
+  - __dt__14TAdSelectTxtGCFv
+  - __dt__14TBoss4ZakoDrawFv
   - __dt__14TBoss6EffHyouiFv
   - __dt__14TChCrEffTagStrFv
   - __dt__14TEnemyTaskListFv
@@ -166,8 +172,10 @@ force_active:
   - __dt__14TSlicerHistoryFv
   - __dt__14TWindowCtrlSubFv
   - __dt__15TAdDrawLineCtrlFv
+  - __dt__15TBoss6CrushPtclFv
   - __dt__15TBoss6CrushRockFv
   - __dt__15TBoss6SwordShotFv
+  - __dt__15TChCrCharSelectFv
   - __dt__15TItemEffLandHitFv
   - __dt__15TItemMagGrowEffFv
   - __dt__15TObjBoss8PillerFv
@@ -185,6 +193,7 @@ force_active:
   - __dt__17TOSwitchAttackSubFv
   - __dt__17TObjBoss8DemoRoomFv
   - __dt__17TObjItemNameEntryFv
+  - __dt__17TObjVoloptShutterFv
   - __dt__17TWindowSetLevelUpFv
   - __dt__18TAdGameStartBackGCFv
   - __dt__18TAdLoadQuestLineGCFv
@@ -202,6 +211,7 @@ force_active:
   - __dt__19TObjBoss5FloorStoneFv
   - __dt__19TObjBoss7RaftSplashFv
   - __dt__20TAdChrSelMovePlateGCFv
+  - __dt__20TAdGameStartShadowGCFv
   - __dt__20TObjLiveMonitorSmallFv
   - __dt__21TAdMultiChgGameModeGCFv
   - __dt__21TItemEffArmorParticleFv
@@ -209,6 +219,7 @@ force_active:
   - __dt__21TODummyKeyCave01SoundFv
   - __dt__22TChallenge4PItemSelectFv
   - __dt__26TBoss5GryphonLightningHornFv
+  - __dt__26TBoss5GryphonLightningWingFv
   - __dt__26__partial_array_destructorFv
   - __dt__7TEffHitFv
   - __dt__7TEndingFv
@@ -274,8 +285,10 @@ force_active:
   - is_target_in_range__11TObjInfoColFf
   - load_item_pmt
   - open_windows__22TAdMultiPlyChrSelectGCFPv
+  - render__10TAdADXlogoFv
   - render__10TEndingPicFv
   - render__11TAdRicoRingFv
+  - render__11TAdSEGAlogoFv
   - render__11TChCrEffTagFv
   - render__12TAdSoniclogoFv
   - render__12TChCrEffFadeFv
@@ -283,19 +296,24 @@ force_active:
   - render__13TObjBoss7DustFv
   - render__14TAdFloorLoadGCFv
   - render__14TAdLoadQuestGCFv
+  - render__14TAdSelectTxtGCFv
+  - render__14TBoss4ZakoDrawFv
   - render__14TChCrEffTagStrFv
   - render__15TAdDrawLineCtrlFv
   - render__16TBoss1DragonDemoFv
   - render__16TBoss4CheckEmptyFv
   - render__17TObjBoss8DemoRoomFv
+  - render__17TObjVoloptShutterFv
   - render__17TWindowSetLevelUpFv
   - render__18TAdGameStartBackGCFv
   - render__18TAdLoadQuestLineGCFv
   - render__18TItemReverseTechBGFv
   - render__20TAdChrSelMovePlateGCFv
+  - render__20TAdGameStartShadowGCFv
   - render__20TObjLiveMonitorSmallFv
   - render__21TAdMultiChgGameModeGCFv
   - render__26TBoss5GryphonLightningHornFv
+  - render__26TBoss5GryphonLightningWingFv
   - render__7TSwitchFv
   - render__8TAdRayGCFv
   - render__8TObjRainFv
@@ -303,10 +321,12 @@ force_active:
   - render_background_status__18TAdGameStartBackGCFPv
   - reset_and_invoke__6TLobbyFv
   - reset_state__13TObjWarnChimeFPv
+  - run_task__10TAdADXlogoFv
   - run_task__10TDPBShowerFv
   - run_task__10TEndingPicFv
   - run_task__10TItemTimerFv
   - run_task__11TAdRicoRingFv
+  - run_task__11TAdSEGAlogoFv
   - run_task__11TChCrEffTagFv
   - run_task__12TAdSoniclogoFv
   - run_task__12TChCrEffFadeFv
@@ -315,11 +335,14 @@ force_active:
   - run_task__12TLevelSelectFv
   - run_task__12TMemberCheckFv
   - run_task__12TObjRainCtrlFv
+  - run_task__13TItemAttackerFv
   - run_task__13TObjBoss2DustFv
   - run_task__13TObjBoss7DustFv
   - run_task__13TObjResultWinFv
   - run_task__14TAdFloorLoadGCFv
   - run_task__14TAdLoadQuestGCFv
+  - run_task__14TAdSelectTxtGCFv
+  - run_task__14TBoss4ZakoDrawFv
   - run_task__14TBoss6EffHyouiFv
   - run_task__14TChCrEffTagStrFv
   - run_task__14TEnemyTaskListFv
@@ -327,6 +350,7 @@ force_active:
   - run_task__14TSetEvtDestroyFv
   - run_task__14TWindowCtrlSubFv
   - run_task__15TAdDrawLineCtrlFv
+  - run_task__15TBoss6CrushPtclFv
   - run_task__15TBoss6SwordShotFv
   - run_task__15TItemEffLandHitFv
   - run_task__15TItemMagGrowEffFv
@@ -340,6 +364,7 @@ force_active:
   - run_task__16TObjBagWarnWin4PFv
   - run_task__17TOSwitchAttackSubFv
   - run_task__17TObjBoss8DemoRoomFv
+  - run_task__17TObjVoloptShutterFv
   - run_task__17TWindowSetLevelUpFv
   - run_task__18TAdGameStartBackGCFv
   - run_task__18TAdLoadQuestLineGCFv
@@ -351,12 +376,14 @@ force_active:
   - run_task__19TObjBoss2RaftSplashFv
   - run_task__19TObjBoss7RaftSplashFv
   - run_task__20TAdChrSelMovePlateGCFv
+  - run_task__20TAdGameStartShadowGCFv
   - run_task__20TObjLiveMonitorSmallFv
   - run_task__21TAdMultiChgGameModeGCFv
   - run_task__21TItemEffArmorParticleFv
   - run_task__21TODummyKeyCave01SoundFv
   - run_task__22TChallenge4PItemSelectFv
   - run_task__26TBoss5GryphonLightningHornFv
+  - run_task__26TBoss5GryphonLightningWingFv
   - run_task__7TEffHitFv
   - run_task__7TEndingFv
   - run_task__7TSwitchFv

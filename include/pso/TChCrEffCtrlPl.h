@@ -6,6 +6,8 @@
 class TChCrEffCtrlPl : public TObject {
 public:
     virtual ~TChCrEffCtrlPl();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

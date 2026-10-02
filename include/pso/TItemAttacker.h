@@ -6,6 +6,7 @@
 class TItemAttacker : public TObject {
 public:
     virtual ~TItemAttacker();
+    virtual void run_task();
 };
 
 #endif

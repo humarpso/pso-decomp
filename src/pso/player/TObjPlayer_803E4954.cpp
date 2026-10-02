@@ -129,6 +129,11 @@ void set_global_flag__10TObjPlayerFv(void) {
     lbl_805D7808 = 1;
 }
 
+extern s32 lbl_805D7808;
+
+void clear_global_state__10TObjPlayerFv(void) {
+    lbl_805D7808 = 0;
+}
 void TObjPlayer__sub_803E4BDC(void *arg0, void *arg1, s32 arg2) {
     TObjPlayer__sub_803D7B68(arg1);
     lbl_805D4698->fc = arg2;
@@ -136,12 +141,6 @@ void TObjPlayer__sub_803E4BDC(void *arg0, void *arg1, s32 arg2) {
         lbl_805D76BC->f28 = lbl_804FA50C[3];
     }
     TObjPlayer__sub_803E4C48((void *)(arg0));
-}
-
-extern s32 lbl_805D7808;
-
-void clear_global_state__10TObjPlayerFv(void) {
-    lbl_805D7808 = 0;
 }
 void TObjPlayer__sub_803E4C48(void *arg) {
     struct Node_803E49FC *arg0 = (struct Node_803E49FC *)arg;

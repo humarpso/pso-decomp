@@ -6,6 +6,8 @@
 class TBoss6DPB : public TObject {
 public:
     virtual ~TBoss6DPB();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

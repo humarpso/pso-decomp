@@ -28,6 +28,12 @@ void destroy_and_mark_done__11TAdSEGAlogoFv(void) { queue_destruction__7TObjectF
 
     extern int TAdSEGAlogo__data_805D4A3C;
 void request_destroy__11TAdSEGAlogoFv(void) { queue_destruction__7TObjectFv(); TAdSEGAlogo__data_805D4A3C = 1; }
+
+}
+
+void TAdSEGAlogo::render() {
+    render_logo_with_default(lbl_805D4A38, 8, -1, lbl_805D7E70);
+}
 void run_task__11TAdSEGAlogoFv(Obj_8001BFCC *self) {
     switch (TAdSEGAlogo__data_805D4A3C) {
     case 0:
@@ -45,10 +51,4 @@ void run_task__11TAdSEGAlogoFv(Obj_8001BFCC *self) {
     case 2:
         break;
     }
-}
-
-}
-
-void TAdSEGAlogo::render() {
-    render_logo_with_default(lbl_805D4A38, 8, -1, lbl_805D7E70);
 }

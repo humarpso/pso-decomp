@@ -1,7 +1,5 @@
 #include "pso/TItemAttacker.h"
 
-TItemAttacker::~TItemAttacker() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -91,6 +89,7 @@ void TItemAttacker__sub_8010349C(u32 arg0) {
     }
 }
 
+TItemAttacker::~TItemAttacker() {}
 void run_task__13TItemAttackerFv(void* p) { if (*(int*)((char*)p + 0x34) != 0) { queue_destruction__7TObjectFv(p); } }
 
     extern int lbl_80506200[];

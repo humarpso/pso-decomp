@@ -6,6 +6,7 @@
 class TChCrCharSelect : public TObject {
 public:
     virtual ~TChCrCharSelect();
+    virtual void run_task();
 };
 
 #endif

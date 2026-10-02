@@ -258,6 +258,19 @@ void *enter_timed_state__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
 
 extern M2C_UNK lbl_804F0908[];
 
+u8 *TObjPlayer__sub_8034F1AC(u8 *arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (arg0 != NULL) {
+        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
+        var_r0 = (u8 *)(temp_r3);
+        if (var_r0 != NULL) {
+            var_r0 = (u8 *)(((u8 *)enter_timed_state__10TObjPlayerFPv((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
+        }
+        return var_r0;
+    }
+    return NULL;
+}
 void TObjPlayer__sub_8034F204(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 *temp_r5;
     void *temp_r3;
@@ -310,20 +323,6 @@ void *item_equip_variant_deleting_dtor_8034F36C(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK lbl_804F0908[];
-
-u8 *TObjPlayer__sub_8034F1AC(u8 *arg0) {
-    u8 *temp_r3;
-    u8 *var_r0;
-    if (arg0 != NULL) {
-        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
-        var_r0 = (u8 *)(temp_r3);
-        if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)enter_timed_state__10TObjPlayerFPv((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
-        }
-        return var_r0;
-    }
-    return NULL;
-}
 
 void *init_photon_state__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
     TObjPlayer__sub_80120D50((void *)(arg0), (void *)(_w1));

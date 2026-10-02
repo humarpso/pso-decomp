@@ -28,6 +28,12 @@ void TAdADXlogo__sub_80019848(void) { queue_destruction__7TObjectFv(); lbl_805D4
 
     extern int TAdADXlogo__data_805D49CC;
 void destroy__10TAdADXlogoFv(void) { queue_destruction__7TObjectFv(); TAdADXlogo__data_805D49CC = 1; }
+
+}
+
+void TAdADXlogo::render() {
+    render_logo_with_default(lbl_805D49C8, 0, -1, lbl_805D7DD0);
+}
 void run_task__10TAdADXlogoFv(Obj_800198C8 *self) {
     switch (TAdADXlogo__data_805D49CC) {
     case 0:
@@ -45,10 +51,4 @@ void run_task__10TAdADXlogoFv(Obj_800198C8 *self) {
     case 2:
         break;
     }
-}
-
-}
-
-void TAdADXlogo::render() {
-    render_logo_with_default(lbl_805D49C8, 0, -1, lbl_805D7DD0);
 }

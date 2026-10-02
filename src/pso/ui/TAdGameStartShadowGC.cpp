@@ -1,7 +1,5 @@
 #include "pso/TAdGameStartShadowGC.h"
 
-TAdGameStartShadowGC::~TAdGameStartShadowGC() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -67,6 +65,7 @@ void run_task__20TAdGameStartShadowGCFv(void *arg0) {
     }
     M2C_FIELD(arg0, s32 *, 0xBC) = (s32) ((M2C_FIELD(arg0, s32 *, 0xC0) << 0x18) | 0xFF0000 | 0xFFFF);
 }
+TAdGameStartShadowGC::~TAdGameStartShadowGC() {}
 Shadow_80320CB8 *__ct__20TAdGameStartShadowGCFv(Shadow_80320CB8 *arg0, void *parent) {
     u32 i;
     __ct__7TObjectFP7TObject(arg0, parent);
