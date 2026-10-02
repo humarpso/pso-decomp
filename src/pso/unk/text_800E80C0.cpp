@@ -42,7 +42,6 @@ struct Obj_800E81B4 { u8 pad[0x39C]; Vec_800E81B4 pts[4]; };
 struct Vec_800E82B8 { f32 x, y, z; };
 
 extern "C" {
-M2C_UNK TObjPlayer__sub_800E841C();
 extern const f32 lbl_805DA68C;
 extern const f32 lbl_805DA690;
 extern const f32 lbl_805DA694;
@@ -105,6 +104,21 @@ extern const f32 lbl_805DA684;
 extern const f32 lbl_805DA688;
 extern const f32 lbl_805DA68C;
 void TObjPlayer__sub_800E82B8(u8 *arg0, Vec_800E82B8 *arg1, Vec_800E82B8 *arg2, f32 t);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+void TObjPlayer__sub_800E80C0(u8 *arg0);
+void TObjPlayer__sub_800E81A8(void);
+M2C_UNK init_render_globals__10TObjPlayerFv();
+M2C_UNK TObjPlayer__sub_800EBE48(f32);
+M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
+M2C_UNK set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(s32);
+M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
+void TObjPlayer__sub_800E8128(void);
+void TObjPlayer__sub_800E841C(u8 *arg0);
 }
 
 extern "C" {
@@ -198,10 +212,36 @@ void TObjPlayer__sub_800E82B8(u8 *arg0, Vec_800E82B8 *arg1, Vec_800E82B8 *arg2, 
 }
 #pragma pop
 
+void TObjPlayer__sub_800E841C(u8 *arg0) {
+    TObjPlayer__sub_803D9B2C();
+    TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x378) != 0) {
+        TObjPlayer__sub_800E81A8();
+        set_global_state__16TObjEneRe7BeruraFi((void *) (TObjPlayer__sub_800E8128));
+        draw__16TObjEneRe7BeruraFPv((void *) (arg0));
+        set_global_state__16TObjEneRe7BeruraFi((void *) (NULL));
+        TObjPlayer__sub_800E80C0(arg0 + 0x390);
+        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x390));
+    } else {
+        TObjPlayer__sub_800EBE48((f32) (M2C_FIELD(arg0, f32 *, 0x38C)));
+        set_monitor_position_vec3__10TObjPlayerFPvPv((int) (0), (void *) (arg0 + 0x380));
+        TObjPlayer__sub_800E81A8();
+        set_global_state__16TObjEneRe7BeruraFi((void *) (TObjPlayer__sub_800E8128));
+        draw__16TObjEneRe7BeruraFPv((void *) (arg0));
+        set_global_state__16TObjEneRe7BeruraFi((void *) (NULL));
+        TObjPlayer__sub_800E80C0(arg0 + 0x390);
+        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x390));
+        init_render_globals__10TObjPlayerFv();
+    }
+    TObjPlayer__sub_803D9B78();
+}
+
 void TObjPlayer__sub_800E84F8(u8 *arg0) {
   f32 temp_f1;
   f32 temp_f3;
-  TObjPlayer__sub_800E841C();
+  TObjPlayer__sub_800E841C((u8 *)(arg0));
   if (((s32) (*((s32 *) (((s8 *) arg0) + 0x378)))) != 0)
   {
     temp_f3 = *((f32 *) (((s8 *) arg0) + 0xC0));

@@ -73,6 +73,48 @@ struct Claw_80091354 {
     s32 state;
 };
 
+struct Vec_80090ECC { f32 x, y, z; };
+
+struct Info_80090ECC { u8 pad0[8]; s32 f8; };
+
+struct VBase_80090ECC { char pad[0x18]; };
+
+struct VObj_80090ECC : VBase_80090ECC {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17();
+    virtual s32 m18(void *, f32);
+    virtual void m19();
+    virtual void m20(void *, f32);
+    virtual void m21(); virtual void m22();
+    virtual void m23(void *, f32);
+};
+
+struct Claw_80090ECC {
+    u8 pad0[0x38];
+    u8 f38[0xB4 - 0x38];
+    u32 fB4;
+    s16 fB8;
+    u8 padBA[0x2A8 - 0xBA];
+    VObj_80090ECC *target;
+    u8 pad2AC[0x2FC - 0x2AC];
+    Vec_80090ECC pos;
+    u8 f308[0x318 - 0x308];
+    s32 f318;
+    u8 pad31C[0x33C - 0x31C];
+    s16 f33C;
+    u8 pad33E[0x350 - 0x33E];
+    Info_80090ECC *info;
+    u8 pad354[0x37C - 0x354];
+    s32 state;
+    u8 pad380[0x388 - 0x380];
+    u32 f388;
+    u8 pad38C[0x3C0 - 0x38C];
+    f32 f3C0;
+};
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void TObjPlayer__sub_800A04F0(void *);
@@ -107,6 +149,23 @@ M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
 extern const f32 TObjEneBalClawClaw__data_805D968C;
 extern const f32 lbl_805D96B8;
 void TObjEneBalClawClaw__sub_80091354(Claw_80091354 *self);
+M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
+M2C_UNK TObjPlayer__sub_80017D68(void *, void *, int, void *, f32);
+M2C_UNK update_angle__10TObjPlayerFPviPv(void *, s32, void *);
+f32 get_pos_x__10TObjPlayerFPv(s32);
+M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, int);
+M2C_UNK clear_attack_flag__18TObjEneBalClawClawFPv(void *);
+M2C_UNK reset_active_state__18TObjEneBalClawClawFPv(void *, s32, s32);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK update_collisions__10TObjPlayerFPv(void *);
+void TBoss3Volopt__sub_8022675C(int, void *, int, int);
+extern const f32 TObjEneBalClawClaw__data_805D968C;
+extern const f32 lbl_805D96A4;
+extern const f32 lbl_805D96A8;
+extern const f32 lbl_805D96AC;
+extern const f32 lbl_805D96B0;
+void TObjEneBalClawClaw__sub_80090ECC(Claw_80090ECC *self);
 }
 
 extern "C" {
@@ -163,6 +222,68 @@ void action__18TObjEneBalClawClawFPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFBFFFFFF);
         break;
     }
+}
+
+#define RESET_80090ECC(p) ((M2C_UNK (*)(void *))reset_active_state__18TObjEneBalClawClawFPv)(p)
+#define SEEK_80090ECC(p, v, f) ((M2C_UNK (*)(void *, void *, int, f32))TObjPlayer__sub_80017D68)(p, v, 1, f)
+void TObjEneBalClawClaw__sub_80090ECC(Claw_80090ECC *self) {
+    switch (self->state) {
+    case -1:
+        break;
+    case 0:
+        if (self->target == NULL) {
+            RESET_80090ECC(self);
+            return;
+        }
+        clear_attack_flag__18TObjEneBalClawClawFPv(self);
+        self->f388 &= ~8;
+        self->state = self->fB8 = 1;
+        break;
+    case 1: {
+        if (self->target == NULL) {
+            RESET_80090ECC(self);
+            return;
+        }
+        Vec_80090ECC v = ((Claw_80090ECC *)self->target)->pos;
+        SEEK_80090ECC(self, &v, lbl_805D96A4);
+        update_angle__10TObjPlayerFPviPv(self, self->info->f8, self->f308);
+        if (self->f3C0 <= get_pos_x__10TObjPlayerFPv(self->f318) * get_pos_x__10TObjPlayerFPv(self->f318)) {
+            self->state = self->fB8 = 2;
+        }
+        break;
+    }
+    case 2: {
+        if (self->target == NULL) {
+            RESET_80090ECC(self);
+            return;
+        }
+        Vec_80090ECC v = ((Claw_80090ECC *)self->target)->pos;
+        SEEK_80090ECC(self, &v, lbl_805D96A4);
+        update_angle__10TObjPlayerFPviPv(self, self->info->f8, self->f308);
+        if (objInBand__FP7GameObjf(self, lbl_805D96A8) != 0) {
+            TBoss3Volopt__sub_8022675C(0x4003B032, self->f38, 0, 0);
+            if (self->target->m18(self, lbl_805D96AC) != 0) {
+                self->target->m23(self, lbl_805D96B0);
+                self->target->m20(self, lbl_805D96AC);
+                self->f388 |= 8;
+            }
+        }
+        if (self->fB4 != 4) {
+            self->f33C = 0x5A;
+            update_if_active__15TObjEneMe1GiGueFPv(self, 0xC);
+        }
+        break;
+    }
+    case 3:
+        self->f33C = self->f33C - 1;
+        if (self->f33C <= 0) {
+            RESET_80090ECC(self);
+        }
+        break;
+    }
+    TBoss1Dragon__sub_80143504(self);
+    TObjPlayer__sub_80011734(self, 0, TObjEneBalClawClaw__data_805D968C);
+    update_collisions__10TObjPlayerFPv(self);
 }
 
 void TObjEneBalClawClaw__sub_80091134(Claw_80091134 *self) {

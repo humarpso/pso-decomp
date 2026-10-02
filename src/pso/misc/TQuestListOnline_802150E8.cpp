@@ -64,6 +64,15 @@ struct Obj_80215720 { u8 pad[7]; s8 a; u8 p8; s8 b; u8 pa; s8 c; };
 
 struct Ctr_80215720 { u8 buf[0x68]; };
 
+typedef s32 M2C_UNK;
+struct Pair_802150E8 { s32 a; s32 b; };
+
+struct Slot_802150E8 { char name[0x34]; s32 size; void *buf; };
+
+struct Ent_802150E8 { u8 pad[0x28]; char name[0x10]; s32 size; };
+
+struct Pair_80215380 { s32 a; s32 b; };
+
 extern "C" {
 void TQuestListOnline__sub_8013ACF4(s32);
 M2C_UNK memcpy(int, void *, int);
@@ -143,6 +152,60 @@ extern s32 lbl_805D61C4;
 extern s32 lbl_805D61C8;
 extern s32 lbl_805D6238;
 void TLobby__sub_80215720(Obj_80215720 *arg0);
+void TDLGraph__sub_8007F6F8(s32, s32);
+void *alloc_buffer__11TOBoss4RockFPv(s32);
+void render_tick__Fv();
+s32 TLobby__sub_80222C54(s32);
+void render_screen_overlay__9TMainTaskFv(void *);
+void some_empty_func__9TMainTaskFv(void *);
+void run_all_lists__9TMainTaskFv(void *);
+void run_tl_camera_tasks__9TMainTaskFv(void *);
+void render__9TMainTaskFv(void *);
+M2C_UNK set_field_1c__6TLobbyFPvf(int, f32);
+M2C_UNK TWindowCtrl__sub_8024AEAC(s32);
+void TLobby__sub_80269454(int);
+M2C_UNK send_and_handle__6TLobbyFPvii(int, s32, s32);
+int update_window_mode_from_progress__6TLobbyFiPv(s32, Pair_802150E8 *);
+s32 TWindowSubComCard__sub_8026CBB8(s32);
+char *strtok(char *, const char *);
+s32 strncmp(const char *, const char *, u32);
+char *strncpy(char *, const char *, u32);
+int memset(void*, void*, void*);
+extern Pair_802150E8 lbl_8044BCC0[];
+extern unsigned char TQuestListOnline__data_80513DE8[];
+extern unsigned char TQuestListOnline__data_80513E24[];
+extern u8 main_task[];
+extern s32 lbl_805D53A0;
+extern int TQuestListOnline__data_805D6198;
+extern int TQuestListOnline__data_805D619C;
+extern int TQuestListOnline__data_805D61A0;
+extern int lbl_805D61AC;
+extern int lbl_805D61B0;
+extern int lbl_805D61B4;
+extern const f32 lbl_805DC664;
+extern char lbl_805DC668[4];
+extern char lbl_805DC66C[4];
+extern char lbl_805DC670[4];
+extern char lbl_805DC674[4];
+void TQuestListOnline__sub_802150E8(Ent_802150E8 *arg0);
+s32 get_camera_id__11TCameraCtrlFv();
+void TQuestListOnline__sub_8013ACF4(s32);
+s32 THunterGuildSeqOffline__sub_80212074();
+M2C_UNK set_position_xy(int, f32, f32);
+s32 TWindow__close(int);
+M2C_UNK set_field_1c__6TLobbyFPvf(int, f32);
+M2C_UNK TWindowCtrl__sub_8024AEAC(s32);
+M2C_UNK send_and_handle__6TLobbyFPvii(int, s32, s32);
+int TLobby__sub_80269CC0(s32, Pair_80215380 *, s32, s32);
+s32 TWindowSubComCard__sub_8026CBB8(s32);
+M2C_UNK memcpy(int, void *, int);
+extern Pair_80215380 lbl_8044BCB8[];
+extern s32 lbl_805D53A0;
+extern s32 TQuestListOnline__data_805D6194;
+extern int TQuestListOnline__data_805D61A4;
+extern const f32 lbl_805DC664;
+extern const f32 lbl_805DC678;
+void TQuestListOnline__sub_80215380(void *arg0);
 }
 
 extern "C" {
@@ -157,6 +220,97 @@ extern "C" {
     extern int lbl_805D61AC;
     extern int lbl_805D61B0;
     extern int lbl_805D61B4;
+
+void TQuestListOnline__sub_802150E8(Ent_802150E8 *arg0) {
+    Pair_802150E8 p;
+    char buf[0x10];
+    char *tok;
+    Slot_802150E8 *s;
+    if ((u32) TQuestListOnline__data_805D61A0 == 0U) {
+        p.a = lbl_8044BCC0[0].a;
+        p.b = lbl_8044BCC0[0].b;
+        TQuestListOnline__data_805D61A0 = update_window_mode_from_progress__6TLobbyFiPv(TWindowSubComCard__sub_8026CBB8(0x2C), &p);
+        send_and_handle__6TLobbyFPvii(TQuestListOnline__data_805D61A0, TLobby__sub_80222C54(0x14), 1);
+        TLobby__sub_80269454(TQuestListOnline__data_805D61A0);
+        set_field_1c__6TLobbyFPvf(TQuestListOnline__data_805D61A0, lbl_805DC664);
+        some_empty_func__9TMainTaskFv(main_task);
+        run_tl_camera_tasks__9TMainTaskFv(main_task);
+        render__9TMainTaskFv(main_task);
+        render_screen_overlay__9TMainTaskFv(main_task);
+        render_tick__Fv();
+        some_empty_func__9TMainTaskFv(main_task);
+        run_tl_camera_tasks__9TMainTaskFv(main_task);
+        render__9TMainTaskFv(main_task);
+        render_screen_overlay__9TMainTaskFv(main_task);
+        render_tick__Fv();
+        some_empty_func__9TMainTaskFv(main_task);
+        run_tl_camera_tasks__9TMainTaskFv(main_task);
+        render__9TMainTaskFv(main_task);
+        render_screen_overlay__9TMainTaskFv(main_task);
+        render_tick__Fv();
+        TWindowCtrl__sub_8024AEAC(lbl_805D53A0);
+        run_all_lists__9TMainTaskFv(main_task);
+        lbl_805D61AC = 1;
+        lbl_805D61B0 = 0;
+        lbl_805D61B4 = 0;
+    }
+    if (arg0 == NULL) {
+        return;
+    }
+    memset(buf, 0, (void *)0x10);
+    strncpy(buf, arg0->name, 0x10);
+    if (strtok(buf, lbl_805DC668) == NULL) {
+        return;
+    }
+    tok = strtok(NULL, lbl_805DC66C);
+    if (tok == NULL) {
+        return;
+    }
+    if (strncmp(tok, lbl_805DC670, 4) == 0) {
+        s = (Slot_802150E8 *)TQuestListOnline__data_80513DE8;
+        if (s->buf == NULL) {
+            strncpy(s->name, arg0->name, 0x10);
+            ((Slot_802150E8 *)TQuestListOnline__data_80513DE8)->size = arg0->size;
+            s->buf = alloc_buffer__11TOBoss4RockFPv(arg0->size);
+            memset(s->buf, 0, (void *)arg0->size);
+            TQuestListOnline__data_805D619C = 0;
+            lbl_805D61B0 += arg0->size;
+        }
+    } else if (strncmp(tok, lbl_805DC674, 4) == 0) {
+        s = (Slot_802150E8 *)TQuestListOnline__data_80513E24;
+        if (s->buf == NULL) {
+            strncpy(s->name, arg0->name, 0x10);
+            ((Slot_802150E8 *)TQuestListOnline__data_80513E24)->size = arg0->size;
+            s->buf = alloc_buffer__11TOBoss4RockFPv(arg0->size);
+            memset(s->buf, 0, (void *)arg0->size);
+            TQuestListOnline__data_805D6198 = 0;
+            TDLGraph__sub_8007F6F8(lbl_805D61B4, lbl_805D61B0 += arg0->size);
+        }
+    }
+}
+
+void TQuestListOnline__sub_80215380(void *arg0) {
+    Pair_80215380 p;
+    if ((u32) TQuestListOnline__data_805D6194 != 0U) {
+        memcpy(TQuestListOnline__data_805D6194, arg0, 0x124);
+        TQuestListOnline__sub_8013ACF4(2);
+        if (THunterGuildSeqOffline__sub_80212074() != 0) {
+            TWindowCtrl__sub_8024AEAC(lbl_805D53A0);
+            if ((u32) TQuestListOnline__data_805D61A4 != 0U) {
+                TWindow__close(TQuestListOnline__data_805D61A4);
+                TQuestListOnline__data_805D61A4 = 0;
+            }
+            p.a = lbl_8044BCB8[0].a;
+            p.b = lbl_8044BCB8[0].b;
+            TQuestListOnline__data_805D61A4 = TLobby__sub_80269CC0(TWindowSubComCard__sub_8026CBB8(0x2E), &p, 1, lbl_805D53A0);
+            set_field_1c__6TLobbyFPvf(TQuestListOnline__data_805D61A4, lbl_805DC664);
+            send_and_handle__6TLobbyFPvii(TQuestListOnline__data_805D61A4, TQuestListOnline__data_805D6194 + 4, 0x80);
+            if (get_camera_id__11TCameraCtrlFv() >= 2) {
+                set_position_xy(TQuestListOnline__data_805D61A4, lbl_805DC678, lbl_805DC678);
+            }
+        }
+    }
+}
 
 void TQuestListOnline__sub_80215458(s32 arg0) {
     if ((u32) TQuestListOnline__data_805D6190 != 0U) {

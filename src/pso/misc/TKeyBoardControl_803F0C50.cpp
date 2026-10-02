@@ -126,7 +126,6 @@ void TKeyBoardControl__sub_803F0E8C(void);
 s32 TKeyBoardControl__sub_803F0E90(s32 arg0, void *arg1);
 extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
 extern s32 lbl_805D7930;
-void TKeyBoardControl__sub_803F1560(s32);
 void TKeyBoardControl__sub_803F0D74(s32 chan);
 extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
 extern s32 lbl_805D7930;
@@ -138,6 +137,11 @@ void TKeyBoardControl__sub_803F1210(Kbd_803F1210 *p);
 s32 SITransfer(s32 chan, void *out, u32 outBytes, void *in, u32 inBytes, void (*cb)(s32, u32, OSContext_803F0F84 *), s64 delay);
 OSContext_803F0F84 *OSGetCurrentContext(void);
 s32 __OSReschedule(void);
+void SISetCommand(s32, u32);
+void SIEnablePolling(u32);
+s32 SIGetResponse(s32, void *);
+extern s32 lbl_805D793C;
+void TKeyBoardControl__sub_803F1560(s32 arg0);
 }
 
 extern "C" {
@@ -230,7 +234,7 @@ void TKeyBoardControl__sub_803F0D74(s32 chan) {
         return;
     }
     if (p->x3 == 0xFF && lbl_805D7930 == 0) {
-        TKeyBoardControl__sub_803F1560(chan);
+        TKeyBoardControl__sub_803F1560((s32)(chan));
     }
 }
 
@@ -374,6 +378,20 @@ void TKeyBoardControl__sub_803F1210(Kbd_803F1210 *p) {
 u8 TKeyBoardControl__sub_803F1548(s32 arg0) {
     return M2C_FIELD(((u8 *)&lbl_805A2720.value + (arg0 * 0x68)), u8 *, 1);
 }
+
+void TKeyBoardControl__sub_803F1560(s32 arg0) {
+    u32 cmd;
+    u32 buf[2];
+    u32 bit = 0x80000000U >> arg0;
+    if (!(lbl_805D793C & bit)) {
+        lbl_805D793C |= bit;
+        SIGetResponse(arg0, buf);
+        cmd = 0x540000;
+        SISetCommand(arg0, cmd);
+        SIEnablePolling(lbl_805D793C);
+    }
+}
+
 void TKeyBoardControl__sub_803F15C4(s32 arg0) {
     u32 temp_r31;
     temp_r31 = 0x80000000U >> arg0;

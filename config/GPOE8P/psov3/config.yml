@@ -53,6 +53,7 @@ force_active:
   - TFontSmallLobby__sub_801B117C
   - TFontSmallLobby__sub_801C0258
   - TItemEquipBase__sub_8022F1F4
+  - TItemList__sub_801D3E20
   - TKeyBoardControl__sub_80290D10
   - TLobby__sub_801E6604
   - TLobby__sub_802080F4
@@ -122,6 +123,7 @@ force_active:
   - TWindowActionPalette__sub_801C1C30
   - TWindowCtrl__sub_8024A714
   - TWindowCtrl__sub_8024A7CC
+  - TWindowKeyBoardSoft__sub_8024ECDC
   - TWindowMainMenu1P__sub_80288520
   - TWindowSetLevelUp__sub_8026DDE0
   - TypeAndStatusCallback

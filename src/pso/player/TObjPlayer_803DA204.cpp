@@ -17,6 +17,8 @@ struct Slot_803DA5A8 { u32 id; u8 pad[0x24]; };
 
 struct Err_803DA5A8 { s32 a; s32 b; s32 code; };
 
+struct Slot_803DA388 { s32 id; s32 a; s32 b; s32 c; s32 d; s32 e; s32 f; s32 g; s32 h; s32 i; };
+
 extern "C" {
 extern s32 lbl_805D7758;
 void TObjPlayer__sub_803DA6E0(u8 *arg0);
@@ -36,6 +38,9 @@ extern Slot_803DA5A8 *lbl_805D7760;
 extern s32 lbl_805D7764;
 extern Rec_803DA688 *lbl_805D7768;
 s32 TObjPlayer__sub_803DA5A8(Rec_803DA688 **arg0, Slot_803DA5A8 **arg1);
+extern s32 lbl_805D775C;
+extern Slot_803DA5A8 *lbl_805D7760;
+void TObjPlayer__sub_803DA388(Slot_803DA388 *p, s32 n);
 }
 
 extern "C" {
@@ -80,6 +85,28 @@ void TObjPlayer__sub_803DA244(Rec_803DA688 *arg0, s32 arg1) {
         arg0->e = 0;
         arg0->f = 0;
         arg0++;
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma optimize_for_size off
+void TObjPlayer__sub_803DA388(Slot_803DA388 *p, s32 n) {
+    s32 i;
+    lbl_805D7760 = (Slot_803DA5A8 *)p;
+    lbl_805D775C = n;
+    for (i = 0; i < n; i++) {
+        p->id = -1;
+        p->a = 0;
+        p->b = 0;
+        p->c = 0;
+        p->d = 0;
+        p->e = 0;
+        p->f = 0;
+        p->g = 0;
+        p->h = 0;
+        p->i = 0;
+        p++;
     }
 }
 #pragma pop

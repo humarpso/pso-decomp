@@ -19,6 +19,7 @@ struct Ent_8035CB88 { s32 id; s32 lo; s32 hi; };
 
 struct Obj_8035CB88 { u8 pad[0x34]; s32 x30; u8 pad38[0x1C]; void *p[4]; };
 
+typedef s32 M2C_UNK;
 extern "C" {
 s32 TObjFish__sub_8001ED9C(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
@@ -44,6 +45,13 @@ void set_flags__11TBoss4Type2FPvUi(void *, int);
 extern u8 TBoss6Thanks__data_80479BA8[];
 extern Ent_8035CB88 lbl_80479BD4[];
 void TBoss6Thanks__sub_8035CB88(void *arg0);
+u8 *get_player_data__10TObjPlayerFi(s32);
+s32 get_game_mode__6TLobbyFv();
+s32 is_active__14TBoss6PlotFalzFPv(void *);
+f32 TObjPlayer__sub_803E1A58(void *, void *);
+extern u8 TBoss6Thanks__data_80479BA8[];
+extern const f32 lbl_805E0198;
+int TBoss6Thanks__sub_8035CCD0(void *arg0);
 }
 
 extern "C" {
@@ -56,7 +64,6 @@ u8 fn_8035CAE0(void);
 void mark_done__12TBoss6ThanksFPv(void* p);
 void update_fade_out__12TBoss6ThanksFPv(void *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-int TBoss6Thanks__sub_8035CCD0(void*);
 s32 TODoorVoShip__sub_801F44BC(s32);
 int dispatch_by_main_phase__14TBoss4DarkFalzFUs(void*);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -114,6 +121,23 @@ void TBoss6Thanks__sub_8035CCAC(s32 arg0) {
     }
 }
 
+int TBoss6Thanks__sub_8035CCD0(void *arg0) {
+    s32 i;
+    s32 n;
+    u8 *p;
+    f32 r;
+    n = get_game_mode__6TLobbyFv();
+    r = lbl_805E0198;
+    for (i = 0; i < n; i++) {
+        p = get_player_data__10TObjPlayerFi(i);
+        if (p != NULL && is_active__14TBoss6PlotFalzFPv(p) != 0 &&
+            TObjPlayer__sub_803E1A58(p + 0x38, TBoss6Thanks__data_80479BA8) <= r) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
 void update_fade_out__12TBoss6ThanksFPv(void *arg0) {
     s32 temp_r3;
 
@@ -140,7 +164,7 @@ void advance_thanks_state__12TBoss6ThanksFPv(void *arg0) {
     }
 }
 
-void mark_done__12TBoss6ThanksFPv(void* p) { if (TBoss6Thanks__sub_8035CCD0(p) != 0) { *(int*)((char*)p + 0x24) = 1; *(int*)((char*)p + 0x1c) = 1; } }
+void mark_done__12TBoss6ThanksFPv(void* p) { if (TBoss6Thanks__sub_8035CCD0((void *)(p)) != 0) { *(int*)((char*)p + 0x24) = 1; *(int*)((char*)p + 0x1c) = 1; } }
 
 u8 *__dt__12TBoss6ThanksFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {

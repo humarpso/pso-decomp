@@ -32,6 +32,21 @@ struct Pkt_80072494 { u32 hdr; s32 idx; };
 
 struct Stack_800722AC { s32 sp8; s32 spC; s32 sp10; s32 sp14; };
 
+typedef s32 M2C_UNK;
+struct Rec_80072230 { s32 flag; u8 data[0x100]; };
+
+struct Chal_80072230 {
+    u8 pad0[0x38];
+    s32 dead[4];
+    u8 pad48[0x270 - 0x48];
+    Rec_80072230 recs[4];
+    s32 time[4];
+};
+
+struct Pkt_80072230 { u32 hdr; s32 idx; s32 val; };
+
+struct Pkt7C_80072230 { u32 hdr; u16 id; u8 pad6[2]; u8 recs[0x100]; };
+
 extern "C" {
 M2C_UNK send_challenge_packet__6TLobbyFPv(void *);
 M2C_UNK TLobby__sub_800728FC(void *);
@@ -71,6 +86,14 @@ extern M2C_UNK lbl_8048C9D8[];
 extern void *lbl_805D4E28;
 extern s32 lbl_805D53A0;
 void TLobby__sub_80072618(void);
+s32 TLobby__sub_800703D0(void *, void *);
+s32 is_flag_set__6TLobbyFv();
+void TLobby__sub_800726A0(u32 _w0);
+M2C_UNK bswap_6x7C_packet__6TLobbyFi(void *);
+extern M2C_UNK lbl_8048C9D8[];
+extern void *lbl_805D4E28;
+extern s32 lbl_805D53A0;
+void handle_6x7C_set_challenge_records(Pkt7C_80072230 *pkt);
 }
 
 extern "C" {
@@ -147,6 +170,32 @@ void TLobby__sub_800724F0(M2C_UNK arg0, s32 arg1) {
     TLobby__sub_800728FC((void *) (&stack.sp8));
     stack.spC = arg1;
     send_challenge_packet__6TLobbyFPv((void *) (&stack.sp8));
+}
+
+void handle_6x7C_set_challenge_records(Pkt7C_80072230 *pkt) {
+    s32 id;
+    Rec_80072230 *rec;
+    if (is_flag_set__6TLobbyFv() == 0) {
+        return;
+    }
+    bswap_6x7C_packet__6TLobbyFi(pkt);
+    id = pkt->id;
+    if (id == lbl_805D53A0) {
+        return;
+    }
+    if (id == 0xFFFF) {
+        TLobby__sub_800726A0((u32)lbl_805D4E28);
+        return;
+    }
+    if (id < 0 || id >= 4) {
+        return;
+    }
+    rec = &(*(Chal_80072230 *)&lbl_8048C9D8).recs[id];
+    if (rec->flag == 0) {
+        TLobby__sub_800726A0((u32)lbl_805D4E28);
+    }
+    rec->flag = 1;
+    TLobby__sub_800703D0(rec->data, pkt->recs);
 }
 
 void TLobby__sub_800725E0(void) {

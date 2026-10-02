@@ -362,6 +362,7 @@ pso/enemy/TObjEneBalClawClaw_8008DC18.cpp
 pso/enemy/TObjEneBalClawClaw_80090504.cpp
 pso/enemy/TObjEneBalClawClaw_80090950.cpp
 pso/enemy/TObjEneBalClawClaw_80090D3C.cpp
+pso/enemy/TObjEneBalClawClaw_80090DD0.cpp
 pso/enemy/TObjEneBm3Fly.cpp
 pso/enemy/TObjEneBm3FlyNest_800B2E8C.cpp
 pso/enemy/TObjEneBm3FlyNest_800B2FD0.cpp
@@ -791,6 +792,7 @@ pso/item/TItemEquipVariant_80130658.cpp
 pso/item/TItemEquipVariant_80130AC4.cpp
 pso/item/TItemEquipVariant_80130D84.cpp
 pso/item/TItemList_8010ED0C.cpp
+pso/item/TItemList_801D3780.cpp
 pso/item/TItemList_801D57B0.cpp
 pso/item/TItemLoad.cpp
 pso/item/TItemLoad_8010F2AC.cpp
@@ -1719,6 +1721,7 @@ pso/misc/TQuestColCtrl.cpp
 pso/misc/TQuestColCtrl_8003F3BC.cpp
 pso/misc/TQuestColCtrl_80195CF0.cpp
 pso/misc/TQuestListOnline_801F6530.cpp
+pso/misc/TQuestListOnline_802150E8.cpp
 pso/misc/TQuestListOnline_80217464.cpp
 pso/misc/TQuestListOnline_8021824C.cpp
 pso/misc/TQuestListOnline_80218310.cpp
@@ -1806,6 +1809,7 @@ pso/misc/TSlicerHistory_8023B220.cpp
 pso/misc/TSlicerHistory_8023BDD0.cpp
 pso/misc/TSwitch.cpp
 pso/misc/TTecAnti.cpp
+pso/misc/TTecBarta.cpp
 pso/misc/TTecCtrl_801B0EE8.cpp
 pso/misc/TTecDeband.cpp
 pso/misc/TTecFoie.cpp
@@ -1824,10 +1828,12 @@ pso/misc/TTecLuker_802360E4.cpp
 pso/misc/TTecMegid_80235B24.cpp
 pso/misc/TTecRaBarta.cpp
 pso/misc/TTecRaFoie.cpp
+pso/misc/TTecResta.cpp
 pso/misc/TTecReverser.cpp
 pso/misc/TTecReverser_8034DED4.cpp
 pso/misc/TTecSifta.cpp
 pso/misc/TTecSlicer.cpp
+pso/misc/TTecSlicer_8023B5C8.cpp
 pso/misc/TTecZarua.cpp
 pso/misc/TUdpSocket.cpp
 pso/misc/TUdpSocket_80078064.cpp
@@ -1971,6 +1977,7 @@ pso/misc/TWindowKeyBoardHard_8026038C.cpp
 pso/misc/TWindowKeyBoardSoft_80132A5C.cpp
 pso/misc/TWindowKeyBoardSoft_80132A5C_80132E58.cpp
 pso/misc/TWindowKeyBoardSoft_80228BEC.cpp
+pso/misc/TWindowKeyBoardSoft_8024E68C.cpp
 pso/misc/TWindowKeyBoardSoft_80261440_8026262C.cpp
 pso/misc/TWindowKeyBoardSoft_80261440_802626E8.cpp
 pso/misc/TWindowKeyBoardSoft_803E6610.cpp
@@ -3164,6 +3171,7 @@ pso/player/TObjPlayer_80363BE0_80364220.cpp
 pso/player/TObjPlayer_80363BE0_80364258.cpp
 pso/player/TObjPlayer_80363BE0_80364280.cpp
 pso/player/TObjPlayer_80363BE0_803642A8.cpp
+pso/player/TObjPlayer_803DA204.cpp
 pso/player/TObjPlayer_803DC834.cpp
 pso/player/TObjPlayer_803E21B8.cpp
 pso/player/TObjPlayer_803E4954.cpp
@@ -3456,6 +3464,7 @@ pso/ui/TAdSinglePlyChrSelectGC_8028D5D4_8028D5D4.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8029A914.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8029BC4C.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8029FC10.cpp
+pso/ui/TAdSinglePlyChrSelectGC_802D3AB8.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E13C8.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E1CEC.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E1D5C.cpp
@@ -3464,6 +3473,7 @@ pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E2158.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E21AC.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E2374.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E23E8.cpp
+pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E2AD4.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E3AE4.cpp
 pso/ui/TAdSinglePlyChrSelectGC_80336054.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8033C640.cpp
