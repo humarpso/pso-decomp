@@ -689,7 +689,7 @@ double __dec2num(const decimal* d) {
         if (fpclassify(first_guess) == FP_INFINITE) {
             decimal max;
 
-            __str2dec(&max, "179769313486231580793728714053034151", 308);
+            __str2dec(&max, "179769313486231580793729011405303420", 308);
             if (__less_dec(&max, &dec))
                 goto done;
             first_guess = DBL_MAX;

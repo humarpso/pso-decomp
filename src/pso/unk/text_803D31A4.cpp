@@ -59,7 +59,7 @@ extern P_803D33E4 lbl_805D766C;
 extern M2C_UNK lbl_805D765C;
 void TLobby__sub_803D3678(s32 arg0, s32 arg1);
 M2C_UNK memset(void *, int, int);
-int TLobby__sub_8039AA04(char *s, const char *fmt, va_list ap);
+int vsprintf(char *s, const char *fmt, va_list ap);
 extern u8 lbl_8058B4A0[];
 extern M2C_UNK lbl_805D765C;
 void TLobby__sub_803D38B4(const char *fmt, ...);
@@ -220,7 +220,7 @@ void TLobby__sub_803D38B4(const char *fmt, ...) {
     va_list ap;
     memset(lbl_8058B4A0, 0, 0x100);
     va_start(ap, fmt);
-    TLobby__sub_8039AA04((char *)lbl_8058B4A0, fmt, ap);
+    vsprintf((char *)lbl_8058B4A0, fmt, ap);
     if (CB765C.fn != 0) {
         CB765C.fn(CB765C.arg, lbl_8058B4A0);
     }

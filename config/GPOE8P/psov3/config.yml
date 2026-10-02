@@ -31,9 +31,11 @@ force_active:
   - Dolphin_GXFlush
   - GXInitFifoLimits
   - GXInitFifoPtrs
+  - GXSetTevIndirect
   - ICEnable
   - L2GlobalInvalidate
   - PADSetSamplingCallback
+  - PSMTXRotTrig
   - TAdRayGC__sub_8029BCB4
   - TAdSinglePlyChrSelectGC__sub_80133530
   - TBoss2DeRolLe__sub_80034D58
@@ -121,6 +123,7 @@ force_active:
   - __DSP_remove_task
   - __DSP_rude_task
   - __DSP_rude_task_pending
+  - __GXInitGX
   - __VIInit
   - __ct__15TBoss6CrushRockFv
   - __ct__9TEffGuardFPC3Vec
@@ -212,6 +215,13 @@ force_active:
   - __dt__9TEndingABFv
   - __dt__9TItemLoadFv
   - __dt__9TSaveChCrFv
+  - __equals_dec
+  - __less_dec
+  - __minus_dec
+  - __num2dec_internal
+  - __str2dec
+  - __timesdec
+  - __ull2dec
   - advance_animation_state__10TEndingPicFPv
   - advance_bone_rotation__19TObjEZBoneRotPlayerFPv
   - bswap_guild_card_tag__17TWindowSubComCardFPv
@@ -344,6 +354,7 @@ force_active:
   - set_code_43_6__10TObjPlayerFPv
   - setup_state_helper__10TObjPlayerFPv
   - spawn_effect__10TObjPlayerFiUiii
+  - strstr
   - update_and_destroy__10TObjPlayerFPv
   - update_load_state__9TItemLoadFPv
   - update_transition_anim__22TAdMultiPlyChrSelectGCFPv

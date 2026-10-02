@@ -1,4 +1,3 @@
-#define __pformatter __pformatter_8039ABBC
 #define __FileWrite printf___FileWrite
 #define __StringWrite printf___StringWrite
 #define __ctype_map lbl_804F5800
@@ -1220,4 +1219,14 @@ int snprintf(char* s, size_t n, const char* format, ...) {
     va_list args;
     va_start(args, format);
     return vsnprintf(s, n, format, args);
+}
+
+int vsprintf(char* s, const char* format, va_list arg) {
+    return vsnprintf(s, 0xFFFFFFFF, format, arg);
+}
+
+int sprintf(char* s, const char* format, ...) {
+    va_list args;
+    va_start(args, format);
+    return vsnprintf(s, 0xFFFFFFFF, format, args);
 }

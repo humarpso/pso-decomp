@@ -17813,6 +17813,7 @@ gx/GXTexture.c:
 
 gx/GXBump.c:
 	.text       start:0x8038CE4C end:0x8038D51C
+	.sdata2     start:0x805E0518 end:0x805E0520
 
 gx/GXTev.c:
 	.text       start:0x8038D51C end:0x8038DDF8
@@ -17997,13 +17998,11 @@ PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mem_funcs.c:
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/misc_io.c:
 	.text       start:0x8039A914 end:0x8039A924
 
-pso/unk/text_8039A924.cpp:
-	.text       start:0x8039A924 end:0x8039AA7C
-
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/printf.c:
-	.text       start:0x8039AA7C end:0x8039C880
+	.text       start:0x8039A924 end:0x8039C880
 	.rodata     start:0x8047BB98 end:0x8047BBC0
 	.data       start:0x804F5B38 end:0x804F5D68
+	.sdata      start:0x805D45E8 end:0x805D45F0
 	.sdata2     start:0x805E05D0 end:0x805E05D8
 
 pso/misc/TOBoss4Rock_8039C880.cpp:
@@ -18016,6 +18015,7 @@ PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/scanf.c:
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/string.c:
 	.text       start:0x8039D8E8 end:0x8039DDB4
+	.rodata     start:0x8047BBE8 end:0x8047BF78
 	.sdata      start:0x805D45F8 end:0x805D4600
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/strtoul.c:

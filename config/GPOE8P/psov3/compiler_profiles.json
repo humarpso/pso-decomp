@@ -256,12 +256,6 @@
     "inline": "off",
     "use_lmw_stmw": "on"
   },
-  "pso/unk/text_8039A924.cpp": {
-    "mw_version": "GC/2.6",
-    "optimization": "-O4,p",
-    "inline": "off",
-    "use_lmw_stmw": "on"
-  },
   "pso/unk/text_803CBCF8.cpp": {
     "mw_version": "GC/2.6",
     "optimization": "-O4,p",

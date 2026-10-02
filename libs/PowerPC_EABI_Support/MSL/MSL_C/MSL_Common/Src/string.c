@@ -316,3 +316,52 @@ char* strstr(const char* str, const char* pat) {
 
     return NULL;
 }
+
+extern int sprintf(char* s, const char* format, ...);
+
+char* __strerror(int errnum, char* str) {
+    if (errnum == 1) strcpy(str, "Argument list too long");
+    else if (errnum == 2) strcpy(str, "Permission denied");
+    else if (errnum == 3) strcpy(str, "Resource temporarily unavailable");
+    else if (errnum == 4) strcpy(str, "Bad file descriptor");
+    else if (errnum == 5) strcpy(str, "Device busy");
+    else if (errnum == 6) strcpy(str, "No child processes");
+    else if (errnum == 7) strcpy(str, "Resource deadlock avoided");
+    else if (errnum == 8) strcpy(str, "Numerical argument out of domain");
+    else if (errnum == 9) strcpy(str, "File exists");
+    else if (errnum == 10) strcpy(str, "Bad address");
+    else if (errnum == 11) strcpy(str, "File too large");
+    else if (errnum == 12) strcpy(str, "File Position Error");
+    else if (errnum == 13) strcpy(str, "Wide character encoding error");
+    else if (errnum == 14) strcpy(str, "Interrupted system call");
+    else if (errnum == 15) strcpy(str, "Invalid argument");
+    else if (errnum == 16) strcpy(str, "Input/output error");
+    else if (errnum == 17) strcpy(str, "Is a directory");
+    else if (errnum == 18) strcpy(str, "Too many open files");
+    else if (errnum == 19) strcpy(str, "Too many links");
+    else if (errnum == 20) strcpy(str, "File name too long");
+    else if (errnum == 21) strcpy(str, "Too many open files in system");
+    else if (errnum == 22) strcpy(str, "Operation not supported by device");
+    else if (errnum == 23) strcpy(str, "No such file or directory");
+    else if (errnum == 24) strcpy(str, "No error detected");
+    else if (errnum == 25) strcpy(str, "Exec format error");
+    else if (errnum == 26) strcpy(str, "No locks available");
+    else if (errnum == 27) strcpy(str, "Cannot allocate memory");
+    else if (errnum == 28) strcpy(str, "No space left on device");
+    else if (errnum == 29) strcpy(str, "Function not implemented");
+    else if (errnum == 30) strcpy(str, "Not a directory");
+    else if (errnum == 31) strcpy(str, "Directory not empty");
+    else if (errnum == 32) strcpy(str, "Inappropriate ioctl for device");
+    else if (errnum == 33) strcpy(str, "Device not configured");
+    else if (errnum == 34) strcpy(str, "Operation not permitted");
+    else if (errnum == 35) strcpy(str, "Broken pipe");
+    else if (errnum == 36) strcpy(str, "Result too large");
+    else if (errnum == 37) strcpy(str, "Read-only file system");
+    else if (errnum == 38) strcpy(str, "Signal error");
+    else if (errnum == 39) strcpy(str, "Illegal seek");
+    else if (errnum == 40) strcpy(str, "No such process");
+    else if (errnum == 41) strcpy(str, "Unknown error");
+    else if (errnum == 42) strcpy(str, "Cross-device link");
+    else sprintf(str, "Unknown Error (%d)", errnum);
+    return str;
+}

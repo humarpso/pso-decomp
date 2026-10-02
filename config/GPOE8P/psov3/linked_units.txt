@@ -1,4 +1,8 @@
 # Units linked into the DOL from compiled source
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_fp.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/printf.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/string.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/strtoul.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_acos.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_asin.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_atan2.c
@@ -34,6 +38,7 @@ ar/arq.c
 card/CARDBlock.c
 card/CARDCheck.c
 card/CARDCreate.c
+card/CARDDelete.c
 card/CARDDir.c
 card/CARDFormat.c
 card/CARDMount.c
@@ -60,12 +65,15 @@ gba/GBARead.c
 gba/GBAWrite.c
 gba/GBAXfer.c
 gx/GXAttr.c
+gx/GXBump.c
 gx/GXFifo.c
+gx/GXInit.c
 gx/GXLight.c
 gx/GXMisc.c
 gx/GXPerf.c
 gx/GXPixel.c
 gx/GXTransform.c
+mtx/mtx.c
 mtx/mtx44.c
 mtx/mtxvec.c
 mtx/vec.c
@@ -4269,7 +4277,6 @@ pso/unk/text_8036F764.cpp
 pso/unk/text_80396328.cpp
 pso/unk/text_80397520.cpp
 pso/unk/text_8039A298.cpp
-pso/unk/text_8039A924.cpp
 pso/unk/text_803C1668.cpp
 pso/unk/text_803CBCA0.cpp
 pso/unk/text_803CBCF8.cpp
