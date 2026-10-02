@@ -811,6 +811,16 @@ struct Obj_80029C78 {
     VObj_80029C78 *f774;
 };
 
+struct Vec_800278A8 { f32 x, y, z; };
+
+struct Params_800278A8 { s32 a; s32 b; f32 scale; s32 c; s32 d; };
+
+struct Locals_800278A8 { Params_800278A8 params; u8 *pts[8]; };
+
+struct Vec_80029408 { f32 x, y, z; };
+
+struct Coll_80029408 { Vec_80029408 local; f32 radius; u32 type, attribute, flags; Vec_80029408 world; f32 defense; };
+
 extern "C" {
 f32 TObjPlayer__sub_8001978C(f32);
 f32 TObjPlayer__sub_803D89C0(void *, void *);
@@ -1080,6 +1090,26 @@ void TObjPlayer__sub_800D7C58(void);
 extern M2C_UNK lbl_80481280[];
 extern s32 TBoss1Dragon__data_805D4B2C;
 Obj_80029C78 *TBoss1Dragon__sub_80029C78(Obj_80029C78 *o, s16 flag);
+s32 VecCopy__FP3VecPC3Vec(s32, s32);
+s32 isV2Mode__12TBoss1DragonFv(void);
+void TBoss1Dragon__sub_800275BC(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3);
+void TBoss1Dragon__sub_80027A80(u8 *arg0, u8 *arg1);
+M2C_UNK fn_8002B094(s32);
+s32 reset_hp__9TObjEneDDFPv(void *, int, int, int);
+M2C_UNK emit_enemy_effect__9TObjEneDDFiiPvi(void *, void *, void *, s32);
+extern u8 TBoss1Dragon__data_80434EA0[];
+extern RecoveredGlobal_8006435C_lbl_804FF5A0 TBoss1Dragon__data_804FE168;
+extern const f32 TBoss1Dragon__data_805D7F38;
+extern const f32 lbl_805D7FD0;
+extern const f32 lbl_805D8024;
+void TBoss1Dragon__sub_800278A8(u8 *arg0);
+s32 VecCopy__FP3VecPC3Vec(s32, s32);
+M2C_UNK TObjEneDD__sub_800BA870(void *);
+M2C_UNK TObjEneDD__sub_800BA88C(void *);
+M2C_UNK TObjEneDD__sub_800BAA2C(void *, void *);
+extern RecoveredGlobal_80027634_TBoss1Dragon__data_804FE17C TBoss1Dragon__data_804FE17C;
+extern const f32 TBoss1Dragon__data_805D7FAC;
+void TBoss1Dragon__sub_80029408(u8 *arg0);
 }
 
 extern "C" {
@@ -1888,6 +1918,59 @@ void TBoss1Dragon__sub_800277D8(u8 *arg0) {
     }
 }
 
+#pragma push
+#pragma opt_common_subs off
+void TBoss1Dragon__sub_800278A8(u8 *arg0) {
+    u8 *pts[8];
+    Vec_800278A8 pos;
+    Params_800278A8 params;
+    s32 i;
+    s32 off;
+    reset_hp__9TObjEneDDFPv(arg0, 0, M2C_FIELD(&TBoss1Dragon__data_804FE168, s32 *, 0x10), 0);
+    fn_8002B094(M2C_FIELD(arg0, s32 *, 0x688));
+    TBoss1Dragon__sub_80027A80((u8 *)&params, TBoss1Dragon__data_80434EA0);
+    VecCopy__FP3VecPC3Vec((s32)&pos, (s32)(arg0 + 0x4C0));
+    params.scale = lbl_805D7FD0;
+    switch (isV2Mode__12TBoss1DragonFv()) {
+    case 0:
+        emit_enemy_effect__9TObjEneDDFiiPvi(arg0, &pos, &params, M2C_FIELD(arg0, s32 *, 0x688));
+        break;
+    case 1:
+        TBoss1Dragon__sub_800275BC(arg0, (M2C_UNK)&pos, (u8 *)&params, M2C_FIELD(arg0, s32 *, 0x688));
+        break;
+    }
+    params.scale = TBoss1Dragon__data_805D7F38;
+    pts[0] = arg0 + 0x484;
+    pts[1] = arg0 + 0x49C;
+    for (i = 0; i < 2; i++) {
+        switch (isV2Mode__12TBoss1DragonFv()) {
+        case 0:
+            emit_enemy_effect__9TObjEneDDFiiPvi(arg0, pts[i], &params, M2C_FIELD(arg0, s32 *, 0x688));
+            break;
+        case 1:
+            TBoss1Dragon__sub_800275BC(arg0, (M2C_UNK)pts[i], (u8 *)&params, M2C_FIELD(arg0, s32 *, 0x688));
+            break;
+        }
+    }
+    params.scale = lbl_805D8024;
+    pts[0] = arg0 + 0x4D8;
+    pts[1] = arg0 + 0x4E4;
+    pts[2] = arg0 + 0x4F0;
+    pts[3] = arg0 + 0x4FC;
+    for (i = 0; i < 4; i++) {
+        switch (isV2Mode__12TBoss1DragonFv()) {
+        case 0:
+            emit_enemy_effect__9TObjEneDDFiiPvi(arg0, pts[i], &params, M2C_FIELD(arg0, s32 *, 0x688));
+            break;
+        case 1:
+            TBoss1Dragon__sub_800275BC(arg0, (M2C_UNK)pts[i], (u8 *)&params, M2C_FIELD(arg0, s32 *, 0x688));
+            break;
+        }
+    }
+    reset_hp__9TObjEneDDFPv(arg0, 0, M2C_FIELD(&TBoss1Dragon__data_804FE168, s32 *, 0), 0);
+}
+#pragma pop
+
 void TBoss1Dragon__sub_80027A80(u8 *arg0, u8 *arg1) {
     *(M2CCopy_8 *)(arg0) = *(const M2CCopy_8 *)(arg1);
     M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 8);
@@ -2444,6 +2527,48 @@ void calc_target_vector__12TBoss1DragonFPv(u8 *arg0) {
 
 void update_linked_epsilon_position__12TBoss1DragonFv(void) {
     update_linked_position__14TObjEneEpsilonFPv(lbl_805D7F30);
+}
+
+void TBoss1Dragon__sub_80029408(u8 *arg0) {
+    Vec_80029408 pts[7];
+    Vec_80029408 *p;
+    f32 lim;
+    s32 off;
+    s32 i;
+    Coll_80029408 *c;
+    p = pts;
+    VecCopy__FP3VecPC3Vec((s32)p++, (s32)(arg0 + 0x430));
+    VecCopy__FP3VecPC3Vec((s32)p++, (s32)(arg0 + 0x46C));
+    VecCopy__FP3VecPC3Vec((s32)p++, (s32)(arg0 + 0x454));
+    VecCopy__FP3VecPC3Vec((s32)p++, (s32)(arg0 + 0x43C));
+    VecCopy__FP3VecPC3Vec((s32)p++, (s32)(arg0 + 0x5B0));
+    VecCopy__FP3VecPC3Vec((s32)p++, (s32)(arg0 + 0x4C0));
+    VecCopy__FP3VecPC3Vec((s32)p, (s32)(arg0 + 0x4FC));
+    TObjEneDD__sub_800BAA2C(arg0, pts);
+    lim = TBoss1Dragon__data_805D7FAC;
+    i = 0;
+    off = 0;
+    do {
+        c = (Coll_80029408 *)(M2C_FIELD(arg0, u8 **, 0xA4) + off);
+        if (c->local.y >= lim) {
+            TObjEneDD__sub_800BA88C(c);
+        } else {
+            TObjEneDD__sub_800BA870(c);
+        }
+        i++;
+        off += 0x2C;
+    } while (i < 7);
+    if (M2C_FIELD(arg0, s16 *, 0x326) != 9) {
+        TObjEneDD__sub_800BA88C(M2C_FIELD(arg0, Coll_80029408 **, 0xA4) + 3);
+        TObjEneDD__sub_800BA88C(M2C_FIELD(arg0, Coll_80029408 **, 0xA4) + 4);
+    }
+    M2C_FIELD(arg0, Coll_80029408 **, 0xA4)[0].defense = M2C_FIELD(TBoss1Dragon__data_804FE17C.value, s32 *, 0x20);
+    M2C_FIELD(arg0, Coll_80029408 **, 0xA4)[1].defense = M2C_FIELD(TBoss1Dragon__data_804FE17C.value, s32 *, 0x1C);
+    M2C_FIELD(arg0, Coll_80029408 **, 0xA4)[2].defense = M2C_FIELD(TBoss1Dragon__data_804FE17C.value, s32 *, 0x1C);
+    M2C_FIELD(arg0, Coll_80029408 **, 0xA4)[3].defense = M2C_FIELD(TBoss1Dragon__data_804FE17C.value, s32 *, 0x20);
+    M2C_FIELD(arg0, Coll_80029408 **, 0xA4)[4].defense = M2C_FIELD(TBoss1Dragon__data_804FE17C.value, s32 *, 0x20);
+    M2C_FIELD(arg0, Coll_80029408 **, 0xA4)[5].defense = M2C_FIELD(TBoss1Dragon__data_804FE17C.value, s32 *, 0x18);
+    M2C_FIELD(arg0, Coll_80029408 **, 0xA4)[6].defense = M2C_FIELD(TBoss1Dragon__data_804FE17C.value, s32 *, 0x20);
 }
 
 void update_position_history__12TBoss1DragonFi(s32 arg0) {

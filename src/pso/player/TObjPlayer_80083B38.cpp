@@ -29,6 +29,17 @@ struct G_80084694 { A_80084694 *a; u8 pad[0x1c]; };
 
 struct GXColor_80083B8C { u8 r, g, b, a; };
 
+typedef s32 M2C_UNK;
+struct Vec_80083D54 { f32 x, y, z; };
+
+struct View_80083D54 {
+    u8 pad0[0x178];
+    Vec_80083D54 pos;
+    Vec_80083D54 target;
+};
+
+struct Mtx44_80083D54 { f32 m[4][4]; };
+
 extern "C" {
 extern int lbl_805D4EE0;
 void TObjPlayer__sub_80083FB0(void);
@@ -114,6 +125,36 @@ extern const f32 lbl_805D9408;
 extern const f32 lbl_805D9430;
 extern GXColor_80083B8C lbl_805E120C;
 void func_80083a00__Fv(void);
+s32 is_split_screen();
+M2C_UNK TCameraCtrl__sub_80069024();
+void TObjPlayer__sub_80083FA4(void);
+s32 check_all_players_ready__10TObjPlayerFv(void);
+void C_MTXFrustum(void *, f32, f32, f32, f32, f32, f32);
+M2C_UNK GXSetProjection(void *, int);
+M2C_UNK GXSetViewport(f32, f32, f32, f32, f32, f32);
+M2C_UNK GXSetScissor(int, int, int, int);
+f32 TCameraCtrl__sub_803D8D00(void *);
+void TNpcPlayer__sub_803D97B4(void *);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803DD5E0(int);
+M2C_UNK TObjLight__sub_803DF268(f32, f32, f32);
+M2C_UNK TObjLight__sub_803DF31C(int, int);
+M2C_UNK TObjLight__sub_803DF528(int);
+void TObjPlayer__sub_803E1C40(f32, f32, f32);
+void TObjPlayer__sub_803E1CC4(s32);
+void TObjPlayer__sub_803E1F98();
+extern RecoveredGlobal_80083CEC_lbl_8048E5D0 lbl_8048E5D0;
+extern u32 lbl_805D4DF0;
+extern const f32 lbl_805D93C8;
+extern const f32 lbl_805D93D0;
+extern const f32 lbl_805D93D8;
+extern const f32 lbl_805D9418;
+extern const f32 lbl_805D941C;
+extern const f32 lbl_805D9420;
+extern const f32 lbl_805D9424;
+extern const f32 lbl_805D9438;
+extern const f32 lbl_805D943C;
+void camera_stuff__Fv(void);
 }
 
 extern "C" {
@@ -171,6 +212,57 @@ s32 TObjPlayer__sub_80083CEC(u8 *arg0, f32 farg0) {
         return 1;
     }
     return 0;
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+#define VIEW ((View_80083D54 *)lbl_805D4DF0)
+#define LIGHT (*(Vec_80083D54 *)&lbl_8048E5D0)
+void camera_stuff__Fv(void) {
+    Mtx44_80083D54 proj;
+    Vec_80083D54 d;
+    f32 t;
+    f32 r;
+    if (is_split_screen() != 0) {
+        return;
+    }
+    TObjPlayer__sub_80083FA4();
+    if (check_all_players_ready__10TObjPlayerFv() == 0) {
+        return;
+    }
+    TCameraCtrl__sub_80069024();
+    if (lbl_805D4DF0 == 0) {
+        return;
+    }
+    d.x = VIEW->target.x - VIEW->pos.x;
+    d.y = VIEW->target.y - VIEW->pos.y;
+    d.z = VIEW->target.z - VIEW->pos.z;
+    if (lbl_805D93D0 != TCameraCtrl__sub_803D8D00(&d)) {
+        TNpcPlayer__sub_803D97B4(&d);
+        LIGHT.x = VIEW->pos.x + lbl_805D9438 * (lbl_805D93C8 * d.x);
+        LIGHT.y = VIEW->pos.y;
+        LIGHT.z = VIEW->pos.z + lbl_805D9438 * (lbl_805D93C8 * d.z);
+    } else {
+        LIGHT.x = lbl_805D93D0;
+        LIGHT.y = lbl_805D93D0;
+        LIGHT.z = lbl_805D93D0;
+    }
+    TObjPlayer__sub_803D9B2C();
+    GXSetViewport(lbl_805D93D0, lbl_805D93D0, lbl_805D93C8, lbl_805D93C8, lbl_805D93D0, lbl_805D93D8);
+    GXSetScissor(1, 1, 0xFE, 0xFE);
+    t = lbl_805D941C;
+    r = lbl_805D9420;
+    C_MTXFrustum(&proj, t, -t, r, -r, lbl_805D9424, lbl_805D943C);
+    GXSetProjection(&proj, 0);
+    TObjLight__sub_803DF268(lbl_805D93D8, lbl_805D93D8, lbl_805D93D8);
+    TObjLight__sub_803DF31C(0, 0);
+    TObjLight__sub_803DF528(0);
+    TObjPlayer__sub_803E1F98();
+    TObjPlayer__sub_803E1C40(lbl_805D93D0, lbl_805D93D0, lbl_805D9418);
+    TObjPlayer__sub_803E1CC4(0x3800);
+    TObjPlayer__sub_803E1C40(-LIGHT.x, -LIGHT.y, -LIGHT.z);
+    TObjPlayer__sub_803DD5E0(2);
 }
 #pragma pop
 

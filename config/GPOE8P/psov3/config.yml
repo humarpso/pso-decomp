@@ -130,6 +130,7 @@ force_active:
   - TWindowMainMenu1P__sub_80288520
   - TWindowSetLevelUp__sub_8026DDE0
   - TWindowSubComCard__sub_80077958
+  - TWindowSubStatusDisp__sub_80271A6C
   - TypeAndStatusCallback
   - __ARQCallbackHack
   - __ARQInterruptServiceRoutine

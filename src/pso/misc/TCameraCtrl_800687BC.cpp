@@ -262,6 +262,43 @@ struct Cam_80068810 {
     void *f194;
 };
 
+typedef s32 M2C_UNK;
+struct Vec_800696D0 { f32 x, y, z; };
+
+struct Hit_800696D0 { u32 f0; Vec_800696D0 *point; };
+
+struct View_800696D0 {
+    u8 pad0[0xD4];
+    Vec_800696D0 split_pos[4];
+    Vec_800696D0 split_tgt[4];
+    Vec_800696D0 split_look[4];
+    s32 split_flags[4];
+    s32 flag;
+    Vec_800696D0 pos;
+    Vec_800696D0 tgt;
+    u8 pad190[0x1A0 - 0x190];
+    Vec_800696D0 eye;
+    u8 pad1AC[0x1C8 - 0x1AC];
+    Vec_800696D0 look;
+};
+
+struct Vec_800698C8 { f32 x, y, z; };
+
+struct Hit_800698C8 { u32 f0; Vec_800698C8 *point; };
+
+struct View_800698C8 {
+    u8 pad0[0xD4];
+    Vec_800698C8 split_pos[4];
+    Vec_800698C8 split_tgt[4];
+    Vec_800698C8 split_look[4];
+    s32 split_flags[4];
+    s32 flag;
+    Vec_800698C8 pos;
+    Vec_800698C8 tgt;
+    u8 pad190[0x1C8 - 0x190];
+    Vec_800698C8 look;
+};
+
 extern "C" {
 void TCameraCtrl__sub_800689E8(void);
 void update_position__11TCameraCtrlFPv(u8 *arg0);
@@ -444,6 +481,19 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u16 TCameraCtrl__sub_80068958(s32 n);
 extern u8 *lbl_805D4DF0;
 void TCameraCtrl__sub_80068810(s32 arg0, s32 arg1);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+s32 is_split_screen();
+u8 *TObjButterflyLobby__sub_8007A5D8(void *, void *, u32);
+s32 get_camera_no__11TCameraCtrlFv();
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+void TNpcPlayer__sub_803D97B4(void *);
+extern f32 TCameraCtrl__data_805D8FA8;
+void TCameraCtrl__sub_800696D0(View_800696D0 *self);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+s32 is_split_screen();
+u8 *TObjButterflyLobby__sub_8007A5D8(void *, void *, u32);
+s32 get_camera_no__11TCameraCtrlFv();
+void TCameraCtrl__sub_800698C8(View_800698C8 *self);
 }
 
 extern "C" {
@@ -875,6 +925,98 @@ void* get_target__11TCameraCtrlFPv(void* p) { return (char*)p + 0x68; }
 
 typedef char RecoveredGlobal_80069A6C_camera_controller_registry_size[sizeof(RecoveredGlobal_80069A6C_camera_controller_registry) == 0x68 ? 1 : -1];
 typedef char RecoveredGlobal_80069A6C_TCameraCtrl__data_804FF628_size[sizeof(RecoveredGlobal_80069A6C_TCameraCtrl__data_804FF628) == 0xC ? 1 : -1];
+
+void TCameraCtrl__sub_800696D0(View_800696D0 *self) {
+    Vec_800696D0 d;
+    s32 n;
+    s32 *flag;
+    Hit_800696D0 *hit;
+    if (is_split_screen() != 0) {
+        n = get_camera_no__11TCameraCtrlFv();
+        flag = &self->split_flags[n];
+        hit = (Hit_800696D0 *)TObjButterflyLobby__sub_8007A5D8(&self->split_look[n], &self->eye, 0x901);
+    } else {
+        hit = (Hit_800696D0 *)TObjButterflyLobby__sub_8007A5D8(&self->look, &self->eye, 0x901);
+        flag = &self->flag;
+    }
+    if (hit != NULL) {
+        if (is_split_screen() != 0) {
+            n = get_camera_no__11TCameraCtrlFv();
+            d.x = self->eye.x - self->split_look[n].x;
+            d.y = self->eye.y - self->split_look[n].y;
+            d.z = self->eye.z - self->split_look[n].z;
+        } else {
+            d.x = self->eye.x - self->look.x;
+            d.y = self->eye.y - self->look.y;
+            d.z = self->eye.z - self->look.z;
+        }
+        if (TCameraCtrl__data_805D8FA8 != TBoss6Kakusan__sub_803D8BD8(&d)) {
+            TNpcPlayer__sub_803D97B4(&d);
+        }
+        if (is_split_screen() != 0) {
+            n = get_camera_no__11TCameraCtrlFv();
+            self->split_look[n].x = hit->point->x - d.x;
+            self->split_look[n].y = hit->point->y - d.y;
+            self->split_look[n].z = hit->point->z - d.z;
+        } else {
+            self->look.x = hit->point->x - d.x;
+            self->look.y = hit->point->y - d.y;
+            self->look.z = hit->point->z - d.z;
+        }
+        *flag = 1;
+    } else {
+        if (is_split_screen() != 0) {
+            n = get_camera_no__11TCameraCtrlFv();
+            VecCopy__FP3VecPC3Vec(&self->split_look[n], (int)&self->split_pos[n]);
+        } else {
+            VecCopy__FP3VecPC3Vec(&self->look, (int)&self->pos);
+        }
+        *flag = 0;
+    }
+}
+
+void TCameraCtrl__sub_800698C8(View_800698C8 *self) {
+    s32 n;
+    Hit_800698C8 *hit;
+    s32 *flag;
+    n = get_camera_no__11TCameraCtrlFv();
+    if (is_split_screen() != 0) {
+        flag = &self->split_flags[n];
+    } else {
+        flag = &self->flag;
+    }
+    if (*flag == 0) {
+        return;
+    }
+    if (is_split_screen() != 0) {
+        hit = (Hit_800698C8 *)TObjButterflyLobby__sub_8007A5D8(&self->split_tgt[n], &self->split_pos[n], 0x901);
+    } else {
+        hit = (Hit_800698C8 *)TObjButterflyLobby__sub_8007A5D8(&self->tgt, &self->pos, 0x901);
+    }
+    if (hit == NULL) {
+        return;
+    }
+    if (is_split_screen() != 0) {
+        self->split_pos[n].x = hit->point->x;
+        self->split_pos[n].y = hit->point->y;
+        self->split_pos[n].z = hit->point->z;
+        VecCopy__FP3VecPC3Vec(&self->pos, (int)&self->split_pos[n]);
+    } else {
+        self->pos.x = hit->point->x;
+        self->pos.y = hit->point->y;
+        self->pos.z = hit->point->z;
+    }
+    if (is_split_screen() != 0) {
+        self->split_look[n].x = self->split_pos[n].x + hit->point[1].x;
+        self->split_look[n].y = self->split_pos[n].y + hit->point[1].y;
+        self->split_look[n].z = self->split_pos[n].z + hit->point[1].z;
+    } else {
+        self->look.x = self->pos.x + hit->point[1].x;
+        self->look.y = self->pos.y + hit->point[1].y;
+        self->look.z = self->pos.z + hit->point[1].z;
+    }
+}
+
 void TCameraCtrl__sub_80069A6C(u8 *arg0) {
     u8 *temp_r3;
     u8 *temp_r3_2;

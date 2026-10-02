@@ -208,10 +208,6 @@ void TTecRaFoie__sub_80238388(u8 *arg0) {
 
 }
 
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
 extern "C" {
 
 void *__dt__10TTecRaFoieFPvs(void *arg0, s16 arg1);
@@ -236,13 +232,6 @@ void *__dt__10TTecRaFoieFPvs(void *arg0, s16 arg1) {
 
 }
 
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#include <stddef.h>
 struct Stack_802384E0 {
     M2C_UNK sp8;
     f32 spC;
@@ -727,6 +716,134 @@ void TTecRaZonde__vt4(u8 *arg0, u8 *arg1) {
     d.type = 3;
     d.val = M2C_FIELD(arg0, f32 *, 0x88);
     ((VObj_18_9c98dd *)(arg1))->m21(M2C_FIELD(arg0, s32 *, 0x1C), d, 0, 8, -1);
+}
+
+}
+
+struct Tec_802393D0 { u8 pad[0x20]; f32 pos[3]; u8 pad2c[0xA6 - 0x2C]; s16 band; };
+
+struct RBurst_80238F84 { s32 entry; s32 flags; f32 scale; };
+
+struct RProfile_80238F84 { RBurst_80238F84 *entries; u32 count; };
+
+struct Obj_80238F84 {
+    u8 pad0[0x1C];
+    void *source;
+    u8 pad20[0x7A - 0x20];
+    s16 band;
+    u8 pad7C[0xB4 - 0x7C];
+    u16 sourceId;
+    u8 padB6[0xE8 - 0xB6];
+    void *proxy;
+};
+
+extern "C" {
+s32 TBoss3Volopt__sub_8022675C(s32 id, void *pos, s32 a, s32 b);
+void update_technique_slot__10TTecRaFoieFi(s32 handle, s32 pitch, s32 c);
+void fn_802393D0(Tec_802393D0 *self);
+void TLobby__sub_800869A4(void *, s32, s32, s32, void *);
+void TObjEneDellBiter__sub_80087350(void *, s32, void *);
+void TObjPlayer__sub_8022BD74(void *);
+void run_task__11TTecRaZondeFv(Obj_80238F84 *self);
+}
+
+extern "C" {
+
+void create__11TTecRaZondeFPvPvPv(void *arg0, void *arg1, void *arg2);
+void render__11TTecRaZondeFv(void);
+void *TTecRaZonde__ct(void *, void *, void *, void *);
+void *__nw__7TObjectFUl(int);
+int fn_80236EE8(void*);
+int init_cast__9TTecRestaFPv(void* p);
+
+void create__11TTecRaZondeFPvPvPv(void *arg0, void *arg1, void *arg2) {
+    void *o;
+    o = __nw__7TObjectFUl(0x150);
+    if (o != NULL) {
+        TTecRaZonde__ct(o, arg0, arg1, arg2);
+    }
+}
+
+}
+struct Self_80238EC8 {
+    u8 pad0[0x18];
+    void *vtable;
+    u8 pad1[0x7A - 0x1C];
+    s16 band;
+    u8 pad2[0xEC - 0x7C];
+    void **objs;
+};
+extern "C" {
+void free__11TOBoss4RockFUi(void *);
+extern void *__vt__11TTecRaZonde[];
+
+Self_80238EC8 *__dt__11TTecRaZondeFv(Self_80238EC8 *self, s16 arg1) {
+    u32 i;
+    if (self != NULL) {
+        self->vtable = __vt__11TTecRaZonde;
+        for (i = 0; i < ((RProfile_80238F84 *)TTecRaZonde__data_8044DB44)[self->band].count; i++) {
+            if (self->objs[i] != 0) {
+                queue_destruction__7TObjectFv(self->objs[i]);
+                self->objs[i] = 0;
+            }
+        }
+        free__11TOBoss4RockFUi(self->objs);
+        destroy_technique_base__9TTecLukerFPvs(self, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
+}
+
+void render__11TTecRaZondeFv(void) {  }
+
+void run_task__11TTecRaZondeFv(Obj_80238F84 *self) {
+    s32 i;
+    if (self->proxy == NULL) {
+        ((void (*)(void *))queue_destruction__7TObjectFv)(self);
+        return;
+    }
+    self->source = ((void * (*)(u16))TPhotonMylla__sub_80154CB4)(self->sourceId);
+    if (self->source == NULL) {
+        ((void (*)(void *))queue_destruction__7TObjectFv)(self);
+        return;
+    }
+    for (i = 0; i < ((RProfile_80238F84 *)TTecRaZonde__data_8044DB44)[self->band].count; i++) {
+        if (self->sourceId < 12) {
+            if (i == 1) {
+                TLobby__sub_800869A4((u8 *)self->source + 0x2FC, ((RProfile_80238F84 *)TTecRaZonde__data_8044DB44)[self->band].entries[i].entry, 0, 60, self->source);
+            } else {
+                TObjEneDellBiter__sub_80087350((u8 *)self->source + 0x2FC, ((RProfile_80238F84 *)TTecRaZonde__data_8044DB44)[self->band].entries[i].entry, self->source);
+            }
+        }
+    }
+    TObjPlayer__sub_8022BD74(self);
+    ((void (*)(void *))queue_destruction__7TObjectFv)(self);
+}
+
+void fn_802393D0(Tec_802393D0 *self) {
+    s32 h;
+    switch (self->band) {
+    case 0:
+    case 1:
+        h = TBoss3Volopt__sub_8022675C(0x4002AB0E, self->pos, 0, 0);
+        if (h >= 0) {
+            update_technique_slot__10TTecRaFoieFi(h, 0x100, 0);
+        }
+        break;
+    case 2:
+    case 3:
+        TBoss3Volopt__sub_8022675C(0x4002AB0E, self->pos, 0, 0);
+        break;
+    case 4:
+    case 5:
+        h = TBoss3Volopt__sub_8022675C(0x4002AB0E, self->pos, 0, 0);
+        if (h >= 0) {
+            update_technique_slot__10TTecRaFoieFi(h, -0x100, 0);
+        }
+        break;
+    }
 }
 
 }

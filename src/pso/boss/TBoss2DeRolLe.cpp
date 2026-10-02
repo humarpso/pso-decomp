@@ -47,12 +47,18 @@ s32 TBoss2DeRolLe__sub_800327C8(void *, void *, int, int);
 s32 TBoss2DeRolLe__sub_80032B28(void *, void *);
 s32 TBoss2DeRolLe__sub_80032E38(void *, void *);
 void TBoss2DeRolLe__sub_8003344C(s32 arg0, u32 arg1, s32 arg2);
-void TBoss2DeRolLe__sub_80033D44(Obj_80034034 *self);
 void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
 void TBoss2DeRolLe__sub_80034034(Obj_80034034 *self);
 void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
 void TBoss1Dragon__sub_80143504(void *);
 void TBoss2DeRolLe__sub_800333F4(Obj_800333F4 *self, u32 arg1);
+void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
+s32 check_v2_mode__9TObjEneDDFv(void);
+f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
+extern s32 lbl_80482108[];
+extern s32 lbl_804821B8[];
+extern const f32 TBoss2DeRolLe__data_805D827C;
+void TBoss2DeRolLe__sub_80033D44(Obj_80034034 *self);
 }
 
 extern "C" {
@@ -262,6 +268,97 @@ void TBoss2DeRolLe__sub_80033A80(M2C_UNK arg0, s32 arg1) {
     TObjBoss2Tunnel__sub_8003B1D8((void *) (arg1));
 }
 
+void TBoss2DeRolLe__sub_80033D44(Obj_80034034 *self) {
+    s32 retry;
+    s32 mode;
+    do {
+        retry = 0;
+        M2C_FIELD(self, s32 *, 0x3D4)++;
+        if (check_v2_mode__9TObjEneDDFv() != 0) {
+            mode = lbl_804821B8[M2C_FIELD(self, s32 *, 0x3D4)];
+        } else {
+            mode = lbl_80482108[M2C_FIELD(self, s32 *, 0x3D4)];
+        }
+        switch (mode) {
+        case 33:
+            if (calc_elapsed_scaled__9TObjEneDDFv(self) > TBoss2DeRolLe__data_805D827C) {
+                mode = 8;
+            } else {
+                mode = 6;
+            }
+            break;
+        case 34:
+            if (M2C_FIELD(self, s32 *, 0x658) == 0) {
+                mode = 5;
+            } else {
+                mode = 9;
+            }
+            break;
+        case 35:
+            if (calc_elapsed_scaled__9TObjEneDDFv(self) > TBoss2DeRolLe__data_805D827C) {
+                mode = 0xC;
+            } else {
+                mode = 0xE;
+            }
+            break;
+        case 36:
+            if (M2C_FIELD(self, s32 *, 0x658) == 0) {
+                mode = 3;
+            } else {
+                mode = 0xB;
+            }
+            break;
+        case 37:
+            if (calc_elapsed_scaled__9TObjEneDDFv(self) > TBoss2DeRolLe__data_805D827C) {
+                mode = 0x18;
+            } else {
+                mode = 0x19;
+            }
+            break;
+        case 39:
+            if (M2C_FIELD(self, s32 *, 0x658) == 0) {
+                mode = 4;
+            } else {
+                mode = 0xA;
+            }
+            break;
+        case 40:
+            if (M2C_FIELD(self, s32 *, 0x658) == 0) {
+                mode = 0x10;
+            } else {
+                mode = 0x11;
+            }
+            break;
+        case 41:
+            if (M2C_FIELD(self, s32 *, 0x658) == 0) {
+                mode = 0x12;
+            } else {
+                mode = 0x13;
+            }
+            break;
+        case 42:
+            if (M2C_FIELD(self, s32 *, 0x658) == 0) {
+                mode = 0x14;
+            } else {
+                mode = 0x15;
+            }
+            break;
+        case 43:
+            if (M2C_FIELD(self, s32 *, 0x658) == 0) {
+                mode = 0x16;
+            } else {
+                mode = 0x17;
+            }
+            break;
+        case 44:
+            retry = 1;
+            M2C_FIELD(self, s32 *, 0x3D4) = 5;
+            break;
+        }
+    } while (retry != 0);
+    TBoss2DeRolLe__sub_80034E90(self, mode);
+}
+
 void reset_fields_3d0__13TBoss2DeRolLeFPv(void* p) { *(s32*)((char*)p + 0x3d0) = 0; *(s32*)((char*)p + 0x3d4) = 0; }
 void set_params__13TBoss2DeRolLeFPvPv(void *arg0, void *arg1) {
     TBoss8Dragon__sub_800B9958(arg0, (u16) M2C_FIELD(arg1, s32 *, 8));
@@ -294,7 +391,7 @@ void TBoss2DeRolLe__sub_80034034(Obj_80034034 *self) {
     s16 st = self->f326;
     if (st != 0x1f && st != 0x20) {
         if (st == 0x14 || st == 0x15) {
-            TBoss2DeRolLe__sub_80033D44(self);
+            TBoss2DeRolLe__sub_80033D44((Obj_80034034 *)(self));
         } else if (st == 0x16 || st == 0x17) {
             TBoss2DeRolLe__sub_80034E90(self, 0x1f);
         } else {

@@ -102,6 +102,8 @@ struct RecoveredGlobal_8003EFF0_lbl_804FEE68 { M2C_UNK value; u8 remaining[0x8];
 
 struct S_8003EF38 { u8 pad0[0x18]; void *vt; };
 
+struct Cam_8003DA78 { s8 a; s8 b; s16 c; f32 d; f32 e; };
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_800192DC(void *);
 s32 TObjPlayer__sub_800194AC(void *, int, int);
@@ -173,6 +175,27 @@ extern s32 lbl_805D4D48;
 extern s32 lbl_805D4D4C;
 extern s32 lbl_805D4D50;
 void TBoss3Volopt__sub_8003EE10(void);
+void reset_vol_opt_state(void* a0);
+M2C_UNK set_player_flag_08000000__12TBoss3VoloptFPv();
+M2C_UNK set_flag_08000000__12TBoss3VoloptFPv();
+M2C_UNK TCameraCtrl__sub_80069DA8();
+M2C_UNK TCameraCtrl__sub_80069E7C(int);
+M2C_UNK cache_target_and_forward__11TCameraCtrlFii(void *, int);
+u8 *get_scripted_camera_playback();
+M2C_UNK TObjEnemyCustom__sub_800C7860();
+M2C_UNK apply_all__8TFogCtrlFii(int, int);
+M2C_UNK update_all__8TFogCtrlFi(int);
+u8 * TPhotonMylla__sub_80154CB4(u16);
+M2C_UNK TObjPlayer__sub_801BA42C();
+M2C_UNK TObjPlayer__sub_801BA494();
+M2C_UNK TOTrapAncient01__sub_80226578(int, void *, int, int, int);
+M2C_UNK init_all_slots__11TWindowCtrlFv();
+M2C_UNK init_all_slots2__11TWindowCtrlFv();
+extern u16 lbl_805D271A;
+extern u16 lbl_805D271C;
+extern const f32 lbl_805D8660;
+extern const f32 lbl_805D8678;
+void TBoss3Volopt__sub_8003DA78(u8 *arg0);
 }
 
 extern "C" {
@@ -218,6 +241,67 @@ int reset_photon_effect__10TObjPlayerFPv(void*);
     extern int lbl_805D4C1C;
     extern int lbl_805D4C24;
     extern int lbl_805D4C2C;
+
+void TBoss3Volopt__sub_8003DA78(u8 *arg0) {
+    Cam_8003DA78 c1;
+    Cam_8003DA78 c2;
+    switch (M2C_FIELD(arg0, s32 *, 0x37C)) {
+    case 0:
+        reset_vol_opt_state((void*)(arg0));
+        TObjPlayer__sub_801BA494();
+        init_all_slots__11TWindowCtrlFv();
+        if (TPhotonMylla__sub_80154CB4(lbl_805D271A) != NULL) {
+            set_flag_08000000__12TBoss3VoloptFPv();
+        }
+        M2C_FIELD(arg0, s32 *, 0x384) = 0xD2;
+        apply_all__8TFogCtrlFii(0xA, 0);
+        c1.b = 0;
+        c1.a = 1;
+        c1.c = 0;
+        c1.d = lbl_805D8660;
+        c1.e = lbl_805D8660;
+        TCameraCtrl__sub_80069E7C(5);
+        cache_target_and_forward__11TCameraCtrlFii(&c1, 0x271C);
+        M2C_FIELD(arg0, s32 *, 0x37C) = 1;
+    case 1:
+        TOTrapAncient01__sub_80226578(0x4003B202, arg0, 0, 0, 0);
+        if (--M2C_FIELD(arg0, s32 *, 0x384) <= 0) {
+            M2C_FIELD(arg0, s32 *, 0x384) = 0x3C;
+            M2C_FIELD(arg0, s32 *, 0x37C) = 2;
+            update_all__8TFogCtrlFi(0);
+            c2.b = 0;
+            c2.a = 1;
+            c2.c = 0;
+            c2.d = lbl_805D8660;
+            c2.e = lbl_805D8678;
+            TCameraCtrl__sub_80069E7C(5);
+            cache_target_and_forward__11TCameraCtrlFii(&c2, 0x271C);
+        }
+        break;
+    case 2:
+        if (M2C_FIELD(get_scripted_camera_playback(), u16 *, 2) & 1) {
+            if (TPhotonMylla__sub_80154CB4(lbl_805D271C) != NULL) {
+                TObjEnemyCustom__sub_800C7860();
+            }
+            M2C_FIELD(arg0, s32 *, 0x384) = 0x5A;
+            M2C_FIELD(arg0, s32 *, 0x37C) = 3;
+        }
+        break;
+    case 3:
+        if (--M2C_FIELD(arg0, s32 *, 0x384) <= 0) {
+            M2C_FIELD(arg0, s32 *, 0x374) = 2;
+        }
+        break;
+    case -1:
+        if (TPhotonMylla__sub_80154CB4(lbl_805D271A) != NULL) {
+            set_player_flag_08000000__12TBoss3VoloptFPv();
+        }
+        init_all_slots2__11TWindowCtrlFv();
+        TCameraCtrl__sub_80069DA8();
+        TObjPlayer__sub_801BA42C();
+        break;
+    }
+}
 
 void TBoss3Volopt__sub_8003DC34(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3A8) = 1;

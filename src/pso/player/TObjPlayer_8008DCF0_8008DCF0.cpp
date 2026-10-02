@@ -51,6 +51,34 @@ struct Obj_8008DD14 {
     u32 f388;
 };
 
+struct Obj_8008DE9C {
+    u8 pad0[0x30];
+    u32 f30;
+    u8 pad34[0xB8 - 0x34];
+    s16 fB8;
+    u8 padBA[0x290 - 0xBA];
+    Vec_8008DD14 f290;
+    Vec_8008DD14 f29C;
+    Obj_8008DE9C *target;
+    u8 pad2AC[0x2FC - 0x2AC];
+    Vec_8008DD14 pos;
+    Vec_8008DD14 vel;
+    u8 pad314[0x350 - 0x314];
+    Info_8008DD14 *info;
+    u8 pad354[0x37C - 0x354];
+    s32 state;
+};
+
+struct VBase_8008DE9C { char pad[0x18]; };
+
+struct VObj_8008DE9C : VBase_8008DE9C {
+    virtual s32 m0(); virtual s32 m1(); virtual s32 m2(); virtual s32 m3();
+    virtual s32 m4(); virtual s32 m5(); virtual s32 m6(); virtual s32 m7();
+    virtual s32 m8(); virtual s32 m9(); virtual s32 m10(); virtual s32 m11();
+    virtual s32 m12(); virtual s32 m13(); virtual s32 m14(); virtual s32 m15();
+    virtual s32 m16(); virtual s32 m17(s32);
+};
+
 extern "C" {
 int get_flag_0x388_b24__10TObjPlayerFPv(void *p);
 int update_if_active__15TObjEneMe1GiGueFPv(void*, int);
@@ -86,6 +114,22 @@ M2C_UNK TBoss1Dragon__sub_80143504(void *);
 extern const f32 lbl_805D961C;
 extern const f32 lbl_805D9620;
 void TObjPlayer__sub_8008DD14(Obj_8008DD14 *self);
+int get_flag_0x388_b24__10TObjPlayerFPv(void *p);
+M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
+M2C_UNK TObjPlayer__sub_80017E6C(void *);
+M2C_UNK TObjPlayer__sub_800180E8(void *, Vec_8008DD14, Vec_8008DD14, Info_8008DD14 *, f32);
+s32 TObjPlayer__sub_80018428(void *, void *);
+M2C_UNK update_angle__10TObjPlayerFPviPv(void *, s32, void *);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+int reset_enemy_state__10TObjPlayerFPv(void* p);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK update_collisions__10TObjPlayerFPv(void *);
+M2C_UNK TObjPlayer__sub_800C6A48(void *, void *, f32, f32);
+M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+extern const f32 lbl_805D9620;
+extern const f32 lbl_805D9624;
+extern const f32 lbl_805D9628;
+void TObjPlayer__sub_8008DE9C(Obj_8008DE9C *self);
 }
 
 extern "C" {
@@ -167,6 +211,46 @@ void TObjPlayer__sub_8008DD14(Obj_8008DD14 *self) {
     }
     case -1:
         break;
+    }
+}
+
+void TObjPlayer__sub_8008DE9C(Obj_8008DE9C *self) {
+    switch (self->state) {
+    case -1:
+        break;
+    case 0: {
+        self->f30 &= ~0x100;
+        self->fB8 = get_flag_0x388_b24__10TObjPlayerFPv(self) != 0 ? 1 : 6;
+        Vec_8008DD14 d = self->pos;
+        TBoss6Type1__sub_803D9370(&d, &self->target->pos);
+        TObjPlayer__sub_800C6A48(self, &d, lbl_805D9624, lbl_805D9628);
+        self->state = 1;
+        break;
+    }
+    case 1: {
+        if (self->target == NULL) {
+            reset_enemy_state__10TObjPlayerFPv(self);
+            break;
+        }
+        if (((VObj_8008DE9C *)self)->m17(0x5A) != 0) {
+            Vec_8008DD14 d2 = self->pos;
+            TBoss6Type1__sub_803D9370(&d2, &self->target->pos);
+            TObjPlayer__sub_800C6A48(self, &d2, lbl_805D9624, lbl_805D9628);
+        }
+        VecCopy__FP3VecPC3Vec(&self->f290, &self->pos);
+        TObjPlayer__sub_800180E8(self, self->f290, self->f29C, self->info, self->info->f4);
+        update_angle__10TObjPlayerFPviPv(self, self->info->f8, &self->vel);
+        Vec_8008DD14 v = self->pos;
+        v.x += self->vel.x;
+        v.z += self->vel.z;
+        if (TObjPlayer__sub_80018428(self, &v) == 0) {
+            TObjPlayer__sub_80017E6C(self);
+        }
+        TBoss1Dragon__sub_80143504(self);
+        TObjPlayer__sub_80011734(self, 0, lbl_805D9620);
+        update_collisions__10TObjPlayerFPv(self);
+        break;
+    }
     }
 }
 

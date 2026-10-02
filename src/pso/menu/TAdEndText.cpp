@@ -28,6 +28,38 @@ struct RecoveredGlobal_8001B404_lbl_804F5800 {
     u8 remaining[0xFC];
 };
 
+struct Pos_8001AD8C { f32 x, y; };
+
+struct Box_8001AD8C { f32 x0, y0, x1, y1; };
+
+struct Self_8001AD8C {
+    u8 pad0[0x24];
+    f32 scroll;
+    Pos_8001AD8C pos[800];
+    u32 count;
+    Box_8001AD8C box1;
+    u8 pad193C[0x194C - 0x193C];
+    Box_8001AD8C box2;
+};
+
+struct Pos_8001AF80 { f32 x, y; };
+
+struct Box_8001AF80 { f32 x0, y0, x1, y1; };
+
+struct Self_8001AF80 {
+    u8 pad0[0x24];
+    f32 scroll;
+    Pos_8001AF80 pos[800];
+    u32 count;
+    Box_8001AF80 box1;
+    u8 pad193C[0x194C - 0x193C];
+    Box_8001AF80 box2;
+    u8 pad195C[0x196C - 0x195C];
+    f32 speed;
+    f32 scale;
+    s32 sizeIdx;
+};
+
 extern "C" {
 extern RecoveredGlobal_8001B3BC_lbl_804F5800 lbl_804F5800;
 s32 TAdEndText__sub_8001B3BC(u8 arg0);
@@ -46,6 +78,37 @@ extern s32 TAdEndText__data_805D49F0;
 void TScene__sub_8023E638(const char *name, void *data);
 void *create_named_object(const char *name);
 void TAdEndText__sub_8001B370(void);
+M2C_UNK TAdEndText__sub_8001A998(s32, f32, f32, f32);
+M2C_UNK TLobby__sub_800FBFD8(s32, f32, f32, f32);
+u32 __cvt_fp2unsigned(f32);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
+M2C_UNK get_player__20TWindowSubStatusDispFv();
+M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32);
+M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
+extern u32 TAdEndText__data_805D49F4;
+extern u32 TAdEndText__data_805D49F8;
+extern const f32 lbl_805D7E04;
+extern const f32 lbl_805D7E08;
+extern const f32 lbl_805D7E0C;
+extern const f32 lbl_805D7E10;
+extern const f32 lbl_805D7E14;
+extern const f32 lbl_805D7E18;
+void render__10TAdEndTextFv(u8 *arg0);
+extern const f32 lbl_804345D8[];
+extern s32 TAdEndText__data_805D49F0;
+extern u32 TAdEndText__data_805D49F8;
+extern const f32 TAdEndText__data_805D7DF8;
+extern const f32 lbl_805D7E1C;
+extern const f32 lbl_805D7E20;
+extern const f32 lbl_805D7E24;
+extern const f32 lbl_805D7E28;
+extern const f32 lbl_805D7E2C;
+extern const f32 lbl_805D7E30;
+extern const f32 lbl_805D7E34;
+extern const f32 lbl_805D7E38;
+extern const f32 lbl_805D7E3C;
+void run_task__10TAdEndTextFv(u8 *arg0);
 }
 
 extern "C" {
@@ -71,6 +134,102 @@ s32 TAdEndText__sub_8001A990(void) {
 
 extern u32 TAdEndText__data_805D49F4;
 extern u32 TAdEndText__data_805D49F8;
+
+void render__10TAdEndTextFv(u8 *arg0) {
+    Self_8001AD8C *self = (Self_8001AD8C *)arg0;
+    f32 hi;
+    f32 lo;
+    f32 y;
+    u32 i;
+    s32 col;
+    lo = lbl_805D7E04;
+    hi = lbl_805D7E14;
+    for (i = 0; i < self->count; i++) {
+        col = -1;
+        y = self->pos[i].y;
+        if (y <= lo || lbl_805D7E08 <= y) {
+            col = 0xFFFFFF;
+        }
+        if (lo < y && y < lbl_805D7E0C) {
+            col = (__cvt_fp2unsigned((lbl_805D7E10 * (y - lo)) / lo) << 24) | 0xFF0000 | 0xFFFF;
+        }
+        if (hi < y && y < lbl_805D7E08) {
+            col = (__cvt_fp2unsigned((lbl_805D7E10 * (lbl_805D7E08 - y)) / lbl_805D7E04) << 24) | 0xFF0000 | 0xFFFF;
+        }
+        switch ((s8)((char **)TAdEndText__data_805D49F8)[i][0]) {
+        case 0x23:
+            if (col != 0xFFFFFF) {
+                TAdEndText__sub_8001A998(col, self->pos[i].x, y, lbl_805D7E18);
+            }
+            break;
+        case 0x21:
+            set_global_param__8TObjFishFi(TAdEndText__data_805D49F4);
+            TWindowSubStatusDisp__sub_803DEE6C(1);
+            TWindowSubStatusDisp__sub_803DF160(3, -1);
+            TWindowSubComCard__sub_803DEECC(&self->box1, lbl_805D7E18);
+            get_player__20TWindowSubStatusDispFv();
+            break;
+        case 0x40:
+            set_global_param__8TObjFishFi(TAdEndText__data_805D49F4);
+            TWindowSubStatusDisp__sub_803DEE6C(1);
+            TWindowSubStatusDisp__sub_803DF160(4, -1);
+            TWindowSubComCard__sub_803DEECC(&self->box2, lbl_805D7E18);
+            get_player__20TWindowSubStatusDispFv();
+            break;
+        default:
+            if (col != 0xFFFFFF) {
+                TLobby__sub_800FBFD8(col, self->pos[i].x, y, lbl_805D7E18);
+            }
+            break;
+        }
+    }
+}
+
+#pragma push
+#pragma fp_contract on
+void run_task__10TAdEndTextFv(u8 *arg0) {
+    Self_8001AF80 *self = (Self_8001AF80 *)arg0;
+    u32 count;
+    u32 i;
+    count = self->count;
+    if (TAdEndText__data_805D49F0 == 1) {
+        count -= 9;
+    }
+    self->pos[0].y = lbl_805D7E1C - (lbl_805D7E20 / (lbl_804345D8[self->sizeIdx] / lbl_804345D8[0])) * ((self->scale / lbl_805D7E24) * (self->scroll / lbl_805D7E28));
+    for (i = 0; i < count; i++) {
+        switch ((s8)((char **)TAdEndText__data_805D49F8)[i][0]) {
+        case 0x23:
+            self->pos[i].x = lbl_805D7E2C;
+            self->pos[i + 1].y = TAdEndText__data_805D7DF8 + self->pos[i].y;
+            break;
+        case 0x21:
+            self->pos[i].x = lbl_805D7E30;
+            self->pos[i + 1].y = lbl_805D7E34 + self->pos[i].y;
+            self->box1.x0 = self->pos[i].x;
+            self->box1.y0 = self->pos[i].y;
+            self->box1.x1 = lbl_805D7E34 + self->box1.x0;
+            self->box1.y1 = lbl_805D7E34 + self->box1.y0;
+            break;
+        case 0x40:
+            self->pos[i].x = lbl_805D7E30;
+            self->pos[i + 1].y = lbl_805D7E34 + self->pos[i].y;
+            self->box2.x0 = self->pos[i].x;
+            self->box2.y0 = self->pos[i].y;
+            self->box2.x1 = lbl_805D7E34 + self->box2.x0;
+            self->box2.y1 = lbl_805D7E34 + self->box2.y0;
+            break;
+        default:
+            self->pos[i].x = lbl_805D7E2C;
+            self->pos[i + 1].y = lbl_805D7E38 + self->pos[i].y;
+            break;
+        }
+    }
+    self->scroll = self->scroll + self->speed;
+    if (self->pos[self->count].y < lbl_805D7E3C) {
+        TAdEndText__data_805D49F0 = 1;
+    }
+}
+#pragma pop
 
 void free_resources__10TAdEndTextFv(void) {
     if ((u32) TAdEndText__data_805D49F4 != 0U) {

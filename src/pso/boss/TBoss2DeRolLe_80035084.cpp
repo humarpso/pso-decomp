@@ -217,6 +217,29 @@ struct RecoveredGlobal_800365C8_lbl_80435A44 {
     u8 remaining[0x8];
 };
 
+struct Self_80035420 {
+    u8 pad0[0x18];
+    void *vtable;
+    u8 pad1C[0x5E0 - 0x1C];
+    void *a5E0[10];
+    s32 x608[4];
+    s32 x618;
+    s32 x61C;
+    void *a620[4];
+    void *a630[5];
+    void *a644[3];
+    void *x650;
+    u8 pad654[0x6B8 - 0x654];
+    void *x6B8;
+    u8 pad6BC[0x6C8 - 0x6BC];
+    void *x6C8;
+    void *x6CC;
+    void *x6D0;
+    u8 pad6D4[0x73C - 0x6D4];
+    void *x73C;
+    void *a740[6];
+};
+
 extern "C" {
 void TBoss2DeRolLe__sub_800361E8(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -254,6 +277,17 @@ void TBoss2Fin__sub_80036620(u8 *arg0);
 s32 fn_800FF788(void *, void *);
 extern RecoveredGlobal_800365C8_lbl_80435A44 lbl_80435A44;
 void run_task__9TBoss2FinFv(s32 arg0);
+M2C_UNK __dt__7TObjectFv(void *, int);
+s32 queue_destruction__7TObjectFv(void *);
+s32 free_if_positive__13TBoss2DeRolLeFis(s32 arg0, s16 arg1);
+M2C_UNK __dt__9TObjEneDDFv(void *, int);
+M2C_UNK TBoss8Dragon__sub_800BC5A0(void *, int);
+M2C_UNK free__11TOBoss4RockFUi(int);
+M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK __dl__7TObjectFPv(void *);
+extern u8 lbl_804824D0[];
+extern s32 TBoss2DeRolLe__data_805D4BC4;
+u8 *TBoss2DeRolLe__sub_80035420(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -438,6 +472,76 @@ void TBoss2DeRolLe__sub_800350E8(u8 *arg0) {
     run_tasks__7TObjectFv((void *) (arg0 + 0x3D8));
   }
 }
+
+#define self ((Self_80035420 *)arg0)
+u8 *TBoss2DeRolLe__sub_80035420(u8 *arg0, s16 arg1) {
+    s32 i;
+    if (arg0 != NULL) {
+        self->vtable = lbl_804824D0;
+        if (self->x73C != NULL) {
+            queue_destruction__7TObjectFv(self->x73C);
+            self->x73C = NULL;
+        }
+        for (i = 0; i < 6; i++) {
+            if (self->a740[i] != NULL) {
+                queue_destruction__7TObjectFv(self->a740[i]);
+                self->a740[i] = NULL;
+            }
+        }
+        free__11TOBoss4RockFUi(self->x618);
+        self->x618 = 0;
+        if (self->x6CC != NULL) {
+            queue_destruction__7TObjectFv(self->x6CC);
+            self->x6CC = NULL;
+        }
+        if (self->x6D0 != NULL) {
+            queue_destruction__7TObjectFv(self->x6D0);
+            self->x6D0 = NULL;
+        }
+        if (self->x6C8 != NULL) {
+            TBoss8Dragon__sub_800BC5A0(self->x6C8, 1);
+            self->x6C8 = NULL;
+        }
+        if (self->x6B8 != NULL) {
+            queue_destruction__7TObjectFv(self->x6B8);
+            self->x6B8 = NULL;
+        }
+        if (self->x650 != NULL) {
+            queue_destruction__7TObjectFv(self->x650);
+            self->x650 = NULL;
+        }
+        for (i = 2; i >= 0; i--) {
+            queue_destruction__7TObjectFv(self->a644[i]);
+            self->a644[i] = NULL;
+        }
+        for (i = 4; i >= 0; i--) {
+            queue_destruction__7TObjectFv(self->a630[i]);
+            self->a630[i] = NULL;
+        }
+        for (i = 9; i >= 0; i--) {
+            queue_destruction__7TObjectFv(self->a5E0[i]);
+            self->a5E0[i] = NULL;
+        }
+        for (i = 3; i >= 0; i--) {
+            queue_destruction__7TObjectFv(self->a620[i]);
+            self->a620[i] = NULL;
+        }
+        free__11TOBoss4RockFUi(self->x61C);
+        TObjEneGibbles__sub_80156720(self);
+        if ((u32)TBoss2DeRolLe__data_805D4BC4 == (u32)arg0) {
+            TBoss2DeRolLe__data_805D4BC4 = 0;
+        }
+        free_if_positive__13TBoss2DeRolLeFis((s32)(arg0 + 0x684), -1);
+        free_if_positive__13TBoss2DeRolLeFis((s32)(arg0 + 0x664), -1);
+        __dt__7TObjectFv(arg0 + 0x3D8, -1);
+        __dt__9TObjEneDDFv(self, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return arg0;
+}
+#undef self
 
 void reset_parts__13TBoss2DeRolLeFv(void) {
     clear_target_ref__10TObjPlayerFv();

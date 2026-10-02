@@ -94,6 +94,18 @@ extern M2C_UNK lbl_8048C9D8[];
 extern void *lbl_805D4E28;
 extern s32 lbl_805D53A0;
 void handle_6x7C_set_challenge_records(Pkt7C_80072230 *pkt);
+s32 is_flag_set__6TLobbyFv();
+M2C_UNK bswap_challenge_dead_flag__6TLobbyFPv(void *);
+void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+extern M2C_UNK lbl_8048C9D8[];
+void handle_6x9D_set_challenge_dead_flag(Pkt_80072230 *pkt);
+s32 check_challenge_time_range__6TLobbyFi(s32);
+s32 TLobby__sub_8006F994(s32);
+s32 mix_seed_checked__6TLobbyFi(void *);
+s32 is_flag_set__6TLobbyFv();
+M2C_UNK byteswap_challenge_time_packet__6TLobbyFPv(void *);
+extern M2C_UNK lbl_8048C9D8[];
+void handle_6x95_set_challenge_time(Pkt_80072230 *pkt);
 }
 
 extern "C" {
@@ -101,6 +113,21 @@ extern "C" {
 s32 is_flag_set__6TLobbyFv();
 M2C_UNK TLobby__sub_800727A0(void *);
 extern M2C_UNK lbl_8048C9D8[];
+
+void handle_6x9D_set_challenge_dead_flag(Pkt_80072230 *pkt) {
+    s32 idx;
+    if (is_flag_set__6TLobbyFv() == 0) {
+        return;
+    }
+    bswap_challenge_dead_flag__6TLobbyFPv(pkt);
+    idx = pkt->idx;
+    if (idx < 0 || idx >= 4) {
+        return;
+    }
+    if (TPlayerBattleCtrl4P__sub_801BA74C(idx) != NULL) {
+        lbl_8048C9D8[idx + 0x38 / 4] = 1;
+    }
+}
 
 void TLobby__sub_800722AC(s32 arg0) {
     Stack_800722AC stack;
@@ -139,6 +166,26 @@ void handle_6x97_select_challenge_mode_failure_option(void *arg0) {
         }
         M2C_FIELD(&lbl_8048C9D8, s32 *, 0x24) = var_r0;
     }
+}
+
+void handle_6x95_set_challenge_time(Pkt_80072230 *pkt) {
+    s32 idx;
+    s32 t;
+    s32 r;
+    if (is_flag_set__6TLobbyFv() == 0) {
+        return;
+    }
+    byteswap_challenge_time_packet__6TLobbyFPv(pkt);
+    t = pkt->val;
+    idx = pkt->idx;
+    r = TLobby__sub_8006F994(t);
+    if (idx < 0 || idx >= 4) {
+        return;
+    }
+    if (check_challenge_time_range__6TLobbyFi(r) != 0) {
+        t = mix_seed_checked__6TLobbyFi((void *)0x8C9F);
+    }
+    lbl_8048C9D8[idx + 0x680 / 4] = t;
 }
 
 void TLobby__sub_80072448(s32 arg0) {

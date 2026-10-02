@@ -20,6 +20,8 @@ typedef struct Floor_8002C968 {
     void *objs[4];
 } Floor_8002C968;
 
+struct Obj_8002CA38 { u8 pad[0x28]; u32 slot[4]; };
+
 extern "C" {
 void __ct__7TObjectFP7TObject(void *self, void *parent);
 extern char __vt__14TObjBoss1Floor[];
@@ -33,6 +35,11 @@ s32 check_v2_mode__9TObjEneDDFv();
 Player_8002C968 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern const f32 lbl_805D8170;
 void run_task__14TObjBoss1FloorFv(Floor_8002C968 *self);
+void *__dt__7TObjectFv(void *, int);
+void queue_destruction__7TObjectFv(void *);
+void __dl__7TObjectFPv(void *);
+extern char __vt__14TObjBoss1Floor[];
+u8 *__dt__14TObjBoss1FloorFv(u8 *self, s16 flag);
 }
 
 extern "C" {
@@ -120,6 +127,24 @@ void run_task__14TObjBoss1FloorFv(Floor_8002C968 *self) {
             }
         }
     }
+}
+
+u8 *__dt__14TObjBoss1FloorFv(u8 *self, s16 flag) {
+    s32 i;
+    if (self != NULL) {
+        *(void **)(self + 0x18) = __vt__14TObjBoss1Floor;
+        for (i = 0; i * 0x10 != 0; i++) {
+            if (((Obj_8002CA38 *)self)->slot[i] != 0) {
+                queue_destruction__7TObjectFv((void *)((Obj_8002CA38 *)self)->slot[i]);
+                ((Obj_8002CA38 *)self)->slot[i] = 0;
+            }
+        }
+        __dt__7TObjectFv(self, 0);
+        if (flag > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
 }
 
 Obj_8002CACC *TObjBoss1Floor__ct(Obj_8002CACC *self, void *parent) {

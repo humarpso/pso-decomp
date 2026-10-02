@@ -287,9 +287,42 @@ struct Leader_8009B274 {
     s32 mode;
 };
 
+struct Vec_8009B43C { f32 x, y, z; };
+
+struct Info_8009B43C { u8 pad0[0x2C]; s32 f2C; };
+
+struct Leader_8009B43C {
+    u8 pad0[0x1C];
+    u16 f1C;
+    u8 pad1E[0x2C - 0x1E];
+    s16 f2C;
+    u8 pad2E[0x38 - 0x2E];
+    Vec_8009B43C pos;
+    u8 pad44[0x60 - 0x44];
+    s32 angle;
+    u8 pad64[0x468 - 0x64];
+    Info_8009B43C *info;
+    u8 pad46C[0x4CC - 0x46C];
+    s32 max;
+    s32 count;
+    void *ids[8];
+};
+
+struct Obj_8009AF54 {
+    u8 pad0[0x2FC];
+    u8 pos[0x3C8 - 0x2FC];
+    u32 flags3C8;
+    u8 pad3CC[0x4A4 - 0x3CC];
+    u8 v4A4[0x4B8 - 0x4A4];
+    s32 f4B8;
+    u8 pad4BC[0x4D0 - 0x4BC];
+    s32 count;
+    void *members[8];
+    s32 state;
+};
+
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK TObjEneMe1CanadinLeader__sub_8009AF54(void *);
 M2C_UNK TObjEneMe1CanadinLeader__sub_8009E504(void *);
 M2C_UNK copy_pos__17TObjEneMe1CanadinFPv(void *);
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
@@ -333,6 +366,24 @@ f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
 M2C_UNK set_flag3c8_bit8__23TObjEneMe1CanadinLeaderFPv(s32);
 s32 TPhotonMylla__sub_80154CB4(u16);
 void TObjEneMe1CanadinLeader__vt115(Leader_8009B274 *self, u32 id);
+f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
+M2C_UNK TObjEneMe1CanadinLeader__sub_8009E334(void *);
+M2C_UNK TObjEneMe1CanadinLeader__sub_8009E350(void *);
+void *create_canadin__23TObjEneMe1CanadinLeaderFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
+f32 TBoss8Dragon__sub_803D64C0(int);
+f32 TBoss8Dragon__sub_803D64DC(int);
+void TBoss4Zako__sub_803D8910(void *, void *);
+extern const f32 lbl_805D9894;
+extern const f32 lbl_805D9898;
+void TObjEneMe1CanadinLeader__vt105(Leader_8009B43C *self);
+M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+M2C_UNK TObjEneMe1CanadinLeader__sub_8009E258(void *);
+M2C_UNK TObjEneMe1CanadinLeader__sub_8009E27C(void *);
+s32 TObjEneMe1CanadinLeader__sub_8009E31C(void *, s32);
+M2C_UNK TObjEneMe1CanadinLeader__sub_8009E4AC(void *, s32);
+s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+extern M2C_UNK lbl_8043A280[];
+void TObjEneMe1CanadinLeader__sub_8009AF54(void *arg0);
 }
 
 extern "C" {
@@ -447,6 +498,77 @@ void TObjEneMe1CanadinLeader__vt110(Leader_8009AB4C *obj, s32 mode) {
     }
 }
 
+#define self ((Obj_8009AF54 *)arg0)
+void TObjEneMe1CanadinLeader__sub_8009AF54(void *arg0) {
+    s32 i;
+    s32 j;
+    if (self->flags3C8 & 0x10) {
+        self->flags3C8 &= ~0x10;
+        self->state = 7;
+    }
+    switch (self->state) {
+    case 1:
+        TObjEneMe1CanadinLeader__sub_8009E4AC(arg0, 0);
+        self->state = 2;
+        TBoss3Volopt__sub_8022675C(0x4003AD1B, self->pos, 0, 0);
+        break;
+    case 2:
+        if (self->f4B8 == 0) {
+            self->state = 3;
+            self->flags3C8 &= ~8;
+            copy_vec4__13TRaderMapCoreFPvPv(self->v4A4, lbl_8043A280);
+            for (i = 0; i < self->count; i++) {
+                if (TObjEneMe1CanadinLeader__sub_8009E31C(self->members[i], 0x200) != 0) {
+                    TObjEneMe1CanadinLeader__sub_8009E27C(self->members[i]);
+                }
+            }
+        }
+        break;
+    case 3:
+        if (self->flags3C8 & 8) {
+            self->state = 4;
+        }
+        break;
+    case 4:
+        TObjEneMe1CanadinLeader__sub_8009E4AC(arg0, 2);
+        self->state = 5;
+        TBoss3Volopt__sub_8022675C(0x4003AD1C, self->pos, 0, 0);
+        break;
+    case 5:
+        if (self->f4B8 == 0) {
+            copy_vec4__13TRaderMapCoreFPvPv(self->v4A4, lbl_8043A280);
+            self->state = 6;
+            for (i = 0; i < self->count; i++) {
+                if (TObjEneMe1CanadinLeader__sub_8009E31C(self->members[i], 0x100) != 0) {
+                    TObjEneMe1CanadinLeader__sub_8009E27C(self->members[i]);
+                }
+            }
+        }
+        break;
+    case 6:
+        break;
+    case 7:
+        TObjEneMe1CanadinLeader__sub_8009E4AC(arg0, 4);
+        self->state = 8;
+        TBoss3Volopt__sub_8022675C(0x4003AD1B, self->pos, 0, 0);
+        break;
+    case 8:
+        if (self->f4B8 == 0) {
+            self->state = 9;
+            copy_vec4__13TRaderMapCoreFPvPv(self->v4A4, lbl_8043A280);
+            for (j = 0; j < self->count; j++) {
+                TObjEneMe1CanadinLeader__sub_8009E258(self->members[j]);
+            }
+            TObjEneMe1CanadinLeader__sub_8009E258(arg0);
+        }
+        break;
+    case 0:
+    case 9:
+        break;
+    }
+}
+#undef self
+
 u8 TObjEneMe1CanadinLeader__vt107(void *arg0) {
     return (u8) (M2C_FIELD(arg0, s32 *, 0x4D0) <= 0);
 }
@@ -514,6 +636,43 @@ s32 TObjEneMe1CanadinLeader__vt106(Obj_8009B3C0 *self) {
     return 0;
 }
 
+void TObjEneMe1CanadinLeader__vt105(Leader_8009B43C *self) {
+    s32 id;
+    s32 sub;
+    s32 angle;
+    s32 n;
+    s32 i;
+    s32 j;
+    Vec_8009B43C v;
+    n = (s32)get_status_value_f32__23TObjEneMe1CanadinLeaderFv((f32)self->max / (f32)self->info->f2C);
+    if (n < 1) {
+        n = 1;
+    }
+    angle = self->angle;
+    id = (self->f1C + 1) & 0xFFFF;
+    sub = self->f2C + 1;
+    for (i = 0; i < n; i++) {
+        v.x = lbl_805D9894 * TBoss8Dragon__sub_803D64C0(angle);
+        v.y = lbl_805D9898;
+        v.z = lbl_805D9894 * TBoss8Dragon__sub_803D64DC(angle);
+        TBoss4Zako__sub_803D8910(&v, &self->pos);
+        angle += 0x10000 / self->max;
+        self->ids[i] = create_canadin__23TObjEneMe1CanadinLeaderFPvPvPvPv(self, &v, (void *)id++, (void *)sub++);
+        TObjEneMe1CanadinLeader__sub_8009E334(self->ids[i]);
+        self->count++;
+    }
+    for (j = n; j < self->max; j++) {
+        v.x = lbl_805D9894 * TBoss8Dragon__sub_803D64C0(angle);
+        v.y = lbl_805D9898;
+        v.z = lbl_805D9894 * TBoss8Dragon__sub_803D64DC(angle);
+        TBoss4Zako__sub_803D8910(&v, &self->pos);
+        angle += 0x10000 / self->max;
+        self->ids[j] = create_canadin__23TObjEneMe1CanadinLeaderFPvPvPvPv(self, &v, (void *)id++, (void *)sub++);
+        TObjEneMe1CanadinLeader__sub_8009E350(self->ids[j]);
+        self->count++;
+    }
+}
+
 void TObjEneMe1CanadinLeader__vt103(Obj_8009B638 *self) {
     switch (self->step) {
     case 0:
@@ -543,7 +702,7 @@ void run_task__23TObjEneMe1CanadinLeaderFv(u8 *arg0) {
     if (((VObj_18 *)(arg0))->m81() != 4) {
         ((VObj_18 *)(arg0))->m83();
         TObjEneMe1CanadinLeader__sub_8009E504((void *) (arg0));
-        TObjEneMe1CanadinLeader__sub_8009AF54((void *) (arg0));
+        TObjEneMe1CanadinLeader__sub_8009AF54((void *)((void *) (arg0)));
     }
     copy_pos__17TObjEneMe1CanadinFPv((void *) (arg0));
     set_player_state_default__12TBoss8DragonFPv((void *) (arg0));

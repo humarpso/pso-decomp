@@ -16,6 +16,18 @@ V(80)V(81)V(82)V(83)V(84)V(85)V(86)V(87)V(88)V(89)V(90)V(91)V(92)V(93)V(94)V(95)
 #undef V
 };
 
+struct VBase_80037EE0 { char pad[0x18]; };
+
+struct VObj_80037EE0 : VBase_80037EE0 {
+#define V(n) virtual void m##n();
+V(0)V(1)V(2)V(3)V(4)V(5)V(6)V(7)V(8)V(9)V(10)V(11)V(12)V(13)V(14)V(15)V(16)V(17)V(18)V(19)
+V(20)V(21)V(22)V(23)V(24)V(25)V(26)V(27)V(28)V(29)V(30)V(31)V(32)V(33)V(34)V(35)V(36)V(37)V(38)V(39)
+V(40)V(41)V(42)V(43)V(44)V(45)V(46)V(47)V(48)V(49)V(50)V(51)V(52)V(53)V(54)V(55)V(56)V(57)V(58)V(59)
+V(60)V(61)V(62)V(63)V(64)V(65)V(66)V(67)V(68)V(69)V(70)V(71)V(72)V(73)V(74)V(75)V(76)V(77)V(78)V(79)
+V(80)V(81)V(82)V(83)V(84)V(85)V(86)V(87)V(88)V(89)V(90)V(91)V(92)V(93)V(94)V(95)
+#undef V
+};
+
 extern "C" {
 M2C_UNK TBoss2Mine__sub_80038760(void *);
 M2C_UNK set_state_by_distance__10TBoss2MineFPvi(void *, int);
@@ -29,6 +41,19 @@ void TBoss2Mine__sub_80037D4C(u8 *arg0, s32 arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 TBoss2Mine__data_805D84EC;
 void TBoss2Mine__sub_800380B8(u8 *arg0, u8 *arg1, u8 *arg2);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 TObjPlayer__sub_8001978C(s32, f32, f32, f32);
+void update_move_flag__10TBoss2MineFPv(void *);
+f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
+M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+extern const f64 lbl_80435AF8;
+extern const f32 TBoss2Mine__data_805D84C8;
+extern const float TBoss2Mine__data_805D84D4;
+extern const f32 lbl_805D84F4;
+extern const f32 lbl_805D84F8;
+void TBoss2Mine__sub_80037EE0(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -92,6 +117,59 @@ void TBoss2Mine__sub_80037D4C(u8 *arg0, s32 arg1) {
             TBoss2Mine__sub_80038760((void *) (arg0));
             break;
         }
+        break;
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+void TBoss2Mine__sub_80037EE0(u8 *arg0, s32 arg1) {
+    f32 temp_f1;
+    f32 temp_f2;
+    s32 temp_r3;
+    switch (arg1) {
+    case 4:
+        ((VObj_80037EE0 *)arg0)->m93();
+        M2C_FIELD(arg0, s32 *, 0x38C) = (s32) (M2C_FIELD(arg0, s32 *, 0x38C) & 0xFFFFFFF8);
+        VecCopy__FP3VecPC3Vec(arg0 + 0x39C, arg0 + 0x390);
+        TBoss6Type1__sub_803D9370(arg0 + 0x39C, arg0 + 0x2FC);
+        M2C_FIELD(arg0, f32 *, 0x3DC) = clamp_velocity__15TObjBoss2TunnelFPv(arg0 + 0x39C);
+        temp_r3 = (s32) (lbl_80435AF8 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x39C), M2C_FIELD(arg0, f32 *, 0x3A4)));
+        M2C_FIELD(arg0, s32 *, 0x60) = temp_r3;
+        M2C_FIELD(arg0, s32 *, 0x5C) = 0x4000;
+        temp_f2 = M2C_FIELD(arg0, f32 *, 0x300);
+        M2C_FIELD(arg0, f32 *, 0x3E4) = (f32) (lbl_805D84F8 * TObjPlayer__sub_8001978C(temp_r3, (lbl_805D84F4 * (temp_f2 - M2C_FIELD(arg0, f32 *, 0x394))) / TBoss2Mine__data_805D84C8, temp_f2, lbl_805D84F4));
+        M2C_FIELD(arg0, f32 *, 0x3EC) = (f32) lbl_805D84F8;
+        M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) (*(const f32 *)&TBoss2Mine__data_805D84D4);
+        M2C_FIELD(arg0, s32 *, 0x3D8) = 0;
+        M2C_FIELD(arg0, f32 *, 0x3E0) = (f32) M2C_FIELD(arg0, f32 *, 0x3DC);
+        break;
+    case 3:
+        if (M2C_FIELD(arg0, f32 *, 0x300) < M2C_FIELD(arg0, f32 *, 0x394)) {
+            M2C_FIELD(arg0, f32 *, 0x300) = M2C_FIELD(arg0, f32 *, 0x394);
+            TObjEneDD__sub_800BBA18(arg0, 2);
+        }
+        break;
+    case 5:
+        break;
+    case 0:
+        M2C_FIELD(arg0, f32 *, 0x2FC) = (f32) ((M2C_FIELD(arg0, f32 *, 0x39C) * M2C_FIELD(arg0, f32 *, 0x3EC)) + M2C_FIELD(arg0, f32 *, 0x2FC));
+        M2C_FIELD(arg0, f32 *, 0x304) = (f32) ((M2C_FIELD(arg0, f32 *, 0x3A4) * M2C_FIELD(arg0, f32 *, 0x3EC)) + M2C_FIELD(arg0, f32 *, 0x304));
+        M2C_FIELD(arg0, f32 *, 0x3E0) = (f32) (M2C_FIELD(arg0, f32 *, 0x3E0) - M2C_FIELD(arg0, f32 *, 0x3EC));
+        if (M2C_FIELD(arg0, f32 *, 0x3E0) < M2C_FIELD(arg0, f32 *, 0x3E4)) {
+            M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) (M2C_FIELD(arg0, f32 *, 0x3E8) - TBoss2Mine__data_805D84C8);
+            M2C_FIELD(arg0, f32 *, 0x300) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) + M2C_FIELD(arg0, f32 *, 0x3E8));
+            if ((s32) M2C_FIELD(arg0, s32 *, 0x5C) >= 0x8000) {
+                M2C_FIELD(arg0, s32 *, 0x5C) = 0x8000;
+            } else {
+                M2C_FIELD(arg0, s32 *, 0x3D8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3D8) + 0x300);
+                M2C_FIELD(arg0, s32 *, 0x5C) = (s32) (M2C_FIELD(arg0, s32 *, 0x3D8) + 0x4000);
+            }
+        } else {
+            M2C_FIELD(arg0, s32 *, 0x5C) = 0x4000;
+        }
+        update_move_flag__10TBoss2MineFPv(arg0);
         break;
     }
 }
