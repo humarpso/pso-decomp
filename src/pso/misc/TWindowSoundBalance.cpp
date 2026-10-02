@@ -48,6 +48,19 @@ extern s32 lbl_805D39F0;
 extern const f32 lbl_805DD414;
 extern const f32 lbl_805DD418;
 u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1);
+s16 obj_getS16_2BA(void *);
+s16 get_field_2b8__14TItemProShieldFPv(void *);
+s32 get_sub_value__8TItemMagFi(void *);
+u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+void update_status_entry__20TWindowSubStatusDispFi(void *);
+s32 update_hp_gauge__20TWindowSubStatusDispFi(void *);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C();
+M2C_UNK get_width__11TWindowCtrlFPv();
+M2C_UNK TWindowSubStatusDisp__sub_8025995C(void *);
+M2C_UNK TWindowSubStatusDisp__sub_80259EB8(void *, s32);
+s32 fn_8026F8CC(void *);
+extern const f32 lbl_805DD430;
+void TWindowSubStatusDisp__sub_80270F14(u8 *arg0);
 }
 
 extern "C" {
@@ -169,5 +182,52 @@ u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1) {
     return arg0;
 }
 #pragma pop
+
+void TWindowSubStatusDisp__sub_80270F14(u8 *arg0) {
+    u8 *pl;
+    u8 *e;
+    u8 *a;
+    u8 *b;
+    u8 *c;
+    u8 *d;
+    s32 v;
+    get_width__11TWindowCtrlFPv();
+    pl = TPlayerBattleCtrl4P__sub_801BA74C();
+    if (pl != NULL) {
+        a = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 7);
+        b = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 9);
+        c = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 6);
+        d = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 8);
+        M2C_FIELD(b, s32 *, 0x20) = get_field_2b8__14TItemProShieldFPv(pl);
+        M2C_FIELD(a, s32 *, 0x20) = M2C_FIELD(pl, s16 *, 0x32C);
+        v = fn_8026F8CC(arg0);
+        M2C_FIELD(a, s32 *, 0x1C) = v;
+        M2C_FIELD(c, s32 *, 0x24) = v;
+        M2C_FIELD(b, s32 *, 0x1C) = v;
+        M2C_FIELD(d, s32 *, 0x24) = v;
+        TWindowSubStatusDisp__sub_8025995C(b);
+        TWindowSubStatusDisp__sub_8025995C(a);
+        M2C_FIELD(a, f32 *, 8) = M2C_FIELD(b, f32 *, 8) - M2C_FIELD(b, f32 *, 0x10) - lbl_805DD430;
+        M2C_FIELD(d, f32 *, 8) = M2C_FIELD(a, f32 *, 8);
+        a = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xB);
+        b = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xD);
+        c = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xA);
+        d = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xC);
+        M2C_FIELD(b, s32 *, 0x20) = obj_getS16_2BA(pl);
+        M2C_FIELD(a, s32 *, 0x20) = M2C_FIELD(pl, s16 *, 0x32E);
+        v = update_hp_gauge__20TWindowSubStatusDispFi(arg0);
+        M2C_FIELD(a, s32 *, 0x1C) = v;
+        M2C_FIELD(c, s32 *, 0x24) = v;
+        M2C_FIELD(b, s32 *, 0x1C) = v;
+        M2C_FIELD(d, s32 *, 0x24) = v;
+        TWindowSubStatusDisp__sub_8025995C(b);
+        TWindowSubStatusDisp__sub_8025995C(a);
+        M2C_FIELD(a, f32 *, 8) = M2C_FIELD(b, f32 *, 8) - M2C_FIELD(b, f32 *, 0x10) - lbl_805DD430;
+        M2C_FIELD(d, f32 *, 8) = M2C_FIELD(a, f32 *, 8);
+        update_status_entry__20TWindowSubStatusDispFi(arg0);
+        e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xE);
+        TWindowSubStatusDisp__sub_80259EB8(e, get_sub_value__8TItemMagFi(pl));
+    }
+}
 
 }

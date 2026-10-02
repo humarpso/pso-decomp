@@ -53,6 +53,18 @@ typedef struct Player_801CD72C {
     u8 techs[4];
 } Player_801CD72C;
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+typedef struct Msg_801CD6BC {
+    u8 pad0[2];
+    u16 id;
+    u8 level;
+    u8 pad5[3];
+} Msg_801CD6BC;
+
 extern "C" {
 s32 test_bit1_at_10__10TObjPlayerFPv(void *techs);
 s32 obj_testFlags30(void *obj, u32 flags);
@@ -100,6 +112,41 @@ void split_capped_value__10TObjPlayerFUcPvPv(u8, u8 *, u8 *);
 u8 fn_801D9870(void *techs, s16 tech);
 void TObjPlayer__sub_8022CDE8(s32, void *);
 void TObjPlayer__sub_801CD72C(Player_801CD72C *self);
+M2C_UNK apply_velocity__10TObjPlayerFPv(void *);
+s32 obj_isState2_324(void *obj);
+s32 obj_getField1c(void *obj);
+s32 TObjPlayer__sub_80082300(void *);
+void TObjPlayer__sub_8011E204(void *obj, s32 v);
+M2C_UNK set_state_flags__10TObjPlayerFPvUi(void *, int);
+s32 is_flag_b0_4__10TObjPlayerFPv(void *);
+s32 lerp_angle_half__10TObjPlayerFUsUs(int, int);
+s32 objInBand__FP7GameObjf(void *, f32);
+u32 TObjPlayer__sub_801B5EA4(void *);
+M2C_UNK TObjPlayer__sub_801CCEDC(void *);
+s16 TObjPlayer__sub_801D0458(void *);
+M2C_UNK set_action_flag_40__10TObjPlayerFPv(void *);
+void clear_status_bit6__10TObjPlayerFPv(void *obj);
+M2C_UNK set_technique_state__10TObjPlayerFPvi(void *, int);
+M2C_UNK TObjPlayer__sub_801D2CAC(void *);
+f32 get_float_14__10TObjPlayerFPv(void *);
+M2C_UNK TObjPlayer__sub_801D2CC4(void *, f32);
+u8 *TObjPlayer__sub_801D8DCC(void *);
+s16 get_or_init_field_4__10TObjPlayerFPv(void *);
+u8 TObjPlayer__sub_801D96CC(void *);
+M2C_UNK TObjLight__sub_8022C738(s16, void *);
+Rec_801CD078 *TTecCtrl__sub_8022DBC4(s32 tech, s32 level, s32 id);
+extern const f32 TObjPlayer__data_805DC36C;
+extern const f32 TObjPlayer__data_805DC39C;
+extern const f32 lbl_805DC3A0;
+extern const f32 lbl_805DC3A4;
+void TObjPlayer__sub_801CD1F0(u8 *arg0);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+void swap_field6__10TObjPlayerFPv(void *);
+void TObjPlayer__sub_801D2260(void *, void *);
+void TObjPlayer__sub_801D22AC(void *);
+void set_tech_override__10TObjPlayerFPvUc(void *, u8);
+s32 validate_6x8D_set_technique_level_override(void *);
+void handle_6x8D_set_technique_level_override(void *arg0);
 }
 
 extern "C" {
@@ -125,6 +172,67 @@ void TObjPlayer__sub_801CD188(Player_801CD188 *self) {
     clear_status_bit6__10TObjPlayerFPv(self);
     if (self->sub != 0) {
         self->sub->f508 = 0xFFFF;
+    }
+}
+
+void TObjPlayer__sub_801CD1F0(u8 *arg0) {
+    s16 temp_r0;
+    s32 temp_r30;
+    u8 temp_r31;
+    u8 *temp_r3;
+    M2C_FIELD(arg0, s32 *, 0x60) = lerp_angle_half__10TObjPlayerFUsUs((int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x3F0)));
+    temp_r3 = (u8 *)(TObjPlayer__sub_801D8DCC(arg0));
+    temp_r0 = M2C_FIELD(arg0, s16 *, 0x328);
+    switch (temp_r0) {
+    case 3:
+    case 5:
+        break;
+    case 0:
+        M2C_FIELD(arg0, s16 *, 0x328) = 1;
+        set_state_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (0x80));
+        TObjLight__sub_8022C738((s16) (get_or_init_field_4__10TObjPlayerFPv((void *) (arg0 + 0x428))), (void *) (arg0));
+        set_technique_state__10TObjPlayerFPvi((void *) (arg0 + 0x428), (int) (M2C_FIELD(TTecCtrl__sub_8022DBC4(get_or_init_field_4__10TObjPlayerFPv((void *) (arg0 + 0x428)), TObjPlayer__sub_801D96CC((void *) (arg0 + 0x428)), obj_getField1c((void *) (arg0))), s16 *, 0x12)));
+        TObjPlayer__sub_801D2CC4((void *) (arg0 + 0x428), (f32) (lbl_805DC3A0));
+        break;
+    case 1:
+        if (is_flag_b0_4__10TObjPlayerFPv((void *) (arg0)) == 0) {
+            M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) | 0x40);
+            M2C_FIELD(arg0, f32 *, 0xC0) = (f32) (M2C_FIELD(arg0, f32 *, 0xC0) + get_float_14__10TObjPlayerFPv((void *) (arg0 + 0x428)));
+            if (get_float_14__10TObjPlayerFPv((void *) (arg0 + 0x428)) > TObjPlayer__data_805DC36C) {
+                if (M2C_FIELD(arg0, f32 *, 0xC0) >= TObjPlayer__data_805DC39C) {
+                    TObjPlayer__sub_801D2CC4((void *) (arg0 + 0x428), (f32) (lbl_805DC3A4));
+                }
+            } else if (M2C_FIELD(arg0, f32 *, 0xC0) < TObjPlayer__data_805DC36C) {
+                TObjPlayer__sub_801D2CC4((void *) (arg0 + 0x428), (f32) (lbl_805DC3A0));
+            }
+        }
+        TObjPlayer__sub_801D2CAC((void *) (arg0 + 0x428));
+        if (TObjPlayer__sub_80082300((void *) (arg0 + 0x428)) < 0) {
+            M2C_FIELD(arg0, s16 *, 0x328) = 2;
+            M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) & 0xFFFFFFBF);
+        }
+        break;
+    case 2:
+        if (objInBand__FP7GameObjf((void *) (arg0), (f32) (M2C_FIELD(temp_r3, f32 *, 0xC))) != 0) {
+            M2C_FIELD(arg0, s16 *, 0x328) = 3;
+            TObjPlayer__sub_8011E204((void *) (arg0), (int) (0x80));
+            set_action_flag_40__10TObjPlayerFPv((void *) (arg0));
+            if (obj_isState2_324((void *) (arg0)) == 0) {
+                TObjPlayer__sub_801CCEDC((void *) (arg0));
+            }
+        }
+        break;
+    case 4:
+        TObjPlayer__sub_801D2CAC((void *) (arg0 + 0x428));
+        if (TObjPlayer__sub_80082300((void *) (arg0 + 0x428)) < 0) {
+            M2C_FIELD(arg0, s16 *, 0x328) = 5;
+            M2C_FIELD(arg0, s16 *, 0xB8) = TObjPlayer__sub_801D0458((void *) (arg0));
+            clear_status_bit6__10TObjPlayerFPv((void *) (arg0));
+        }
+        break;
+    }
+    if (TObjPlayer__sub_801B5EA4((void *) (arg0)) == 0U) {
+        apply_velocity__10TObjPlayerFPv((void *) (arg0));
     }
 }
 
@@ -157,6 +265,21 @@ void TObjPlayer__sub_801CD424(Player_801CD424 *self) {
     }
     set_action_state__10TObjPlayerFPvss(self, 8, get_status__10TObjPlayerFPv(self));
 }
+
+void handle_6x8D_set_technique_level_override(void *arg0) {
+    Msg_801CD6BC m;
+    u8 *p;
+    TObjPlayer__sub_801D22AC(&m);
+    TObjPlayer__sub_801D2260(&m, arg0);
+    swap_field6__10TObjPlayerFPv(&m);
+    if (validate_6x8D_set_technique_level_override(&m) != 0) {
+        p = TPlayerBattleCtrl4P__sub_801BA74C(m.id);
+        if (p != NULL) {
+            set_tech_override__10TObjPlayerFPvUc(p + 0x428, m.level);
+        }
+    }
+}
+
 void TObjPlayer__sub_801CD72C(Player_801CD72C *self) {
     u8 hi;
     u8 lo;

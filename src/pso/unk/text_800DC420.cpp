@@ -52,6 +52,10 @@ struct Me_800DC648 {
     u16 owner;
 };
 
+struct Vec_800DC83C { f32 x, y, z; };
+
+struct Ang_800DC83C { s32 x, y, z; };
+
 extern "C" {
 s32 TObjPlayer__sub_800DC478(u8 *arg0, s32 arg1, f32 farg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
@@ -89,6 +93,22 @@ extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern const f32 lbl_805DA478;
 void TObjPlayer__sub_800DC648(Me_800DC648 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+u16 obj_getField1c(void *);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 TObjParticle__sub_800870BC(void *, void *, int, int);
+s32 TBoss8Dragon__sub_8008741C(void *, int, int);
+s32 TObjPlayer__sub_800DC5F4(M2C_UNK arg0, s32 arg1);
+f32 TObjPlayer__sub_8013153C(void *, void *);
+M2C_UNK TObjPlayer__sub_801569F4(void *, int);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+extern const f64 lbl_8043C918[];
+extern M2C_UNK lbl_80494E10[];
+extern const f32 lbl_805D525C;
+extern s32 tl_06;
+extern const f32 lbl_805DA47C;
+u8 *TObjPlayer__sub_800DC83C(u8 *arg0, Vec_800DC83C *arg1, Vec_800DC83C *arg2, s32 arg3, void *arg4);
 }
 
 extern "C" {
@@ -214,6 +234,35 @@ void *TObjPlayer__sub_800DC7B0(void *arg0, s16 arg1) {
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
+    }
+    return arg0;
+}
+u8 *TObjPlayer__sub_800DC83C(u8 *arg0, Vec_800DC83C *arg1, Vec_800DC83C *arg2, s32 arg3, void *arg4) {
+    Ang_800DC83C ang;
+    f32 s;
+    TObjPlayer__sub_801569F4(arg0, tl_06);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80494E10;
+    M2C_FIELD(arg0, s32 *, 0xF4) = arg3;
+    VecCopy__FP3VecPC3Vec(arg0 + 0xAC, (int)arg1);
+    M2C_FIELD(arg0, f32 *, 0xDC) = lbl_805DA47C;
+    VecCopy__FP3VecPC3Vec(arg0 + 0xB8, (int)arg2);
+    TBoss6Type1__sub_803D9370(arg0 + 0xB8, arg1);
+    s = lbl_805D525C / TBoss6Kakusan__sub_803D8BD8(arg0 + 0xB8);
+    M2C_FIELD(arg0, f32 *, 0xB8) *= s;
+    M2C_FIELD(arg0, f32 *, 0xBC) *= s;
+    M2C_FIELD(arg0, f32 *, 0xC0) *= s;
+    M2C_FIELD(arg0, s16 *, 0xFC) = obj_getField1c(arg4);
+    ang.x = 0;
+    ang.y = (s32)(lbl_8043C918[0] * get_ad_end_text_start__10TObjPlayerFv(arg2->x - arg1->x, arg2->z - arg1->z)) + 0x4000;
+    ang.z = 0x4000 - (s32)(lbl_8043C918[0] * get_ad_end_text_start__10TObjPlayerFv(arg2->y - arg1->y, TObjPlayer__sub_8013153C(arg2, arg1)));
+    M2C_FIELD(arg0, s32 *, 0xE0) = TObjParticle__sub_800870BC(arg1, &ang, 0xF5, 2);
+    if (M2C_FIELD(arg0, s32 *, 0xF4) != 0) {
+        VecCopy__FP3VecPC3Vec(arg0 + 0xE8, (int)(arg0 + 0xAC));
+        TObjPlayer__sub_800DC5F4((M2C_UNK)arg0, (s32)(arg0 + 0xE8));
+        M2C_FIELD(arg0, s32 *, 0xE4) = TBoss8Dragon__sub_8008741C(arg0 + 0xE8, 0xF9, 2);
+        M2C_FIELD(arg0, s32 *, 0xF8) = 0;
+    } else {
+        M2C_FIELD(arg0, s32 *, 0xE4) = 0;
     }
     return arg0;
 }

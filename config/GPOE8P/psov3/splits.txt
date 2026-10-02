@@ -1217,10 +1217,7 @@ pso/boss/TObjBoss5Ctrl_80067124.cpp:
 	.text       start:0x80067124 end:0x8006715C
 
 pso/boss/TObjBoss5Ctrl.cpp:
-	.text       start:0x8006715C end:0x800672BC
-
-pso/boss/TObjBoss5Ctrl_800672BC.cpp:
-	.text       start:0x800672BC end:0x800673D0
+	.text       start:0x8006715C end:0x800673D0
 	.rodata     start:0x80438138 end:0x80438140
 
 pso/boss/TObjBoss5Ctrl_800673D0.cpp:
@@ -1275,11 +1272,9 @@ pso/misc/TCameraCtrl_8006B3D8.cpp:
 	.rodata     start:0x804383C0 end:0x804383D0
 
 pso/misc/TCameraCtrl_8006BA68.cpp:
-	.text       start:0x8006BA68 end:0x8006BC8C
+	.text       start:0x8006BA68 end:0x8006C580
+	.rodata     start:0x804383F0 end:0x804383F8
 	.sdata2     start:0x805D900C end:0x805D9018
-
-pso/misc/TCameraCtrl_8006BC8C.cpp:
-	.text       start:0x8006BC8C end:0x8006C580
 
 pso/misc/TCameraCtrl_8006C580.cpp:
 	.text       start:0x8006C580 end:0x8006C5D8
@@ -1950,11 +1945,8 @@ pso/player/TObjPlayer_80084B84.cpp:
 	.text       start:0x80084B84 end:0x80084BC4
 
 pso/misc/TEffStarLight2D_Base.cpp:
-	.text       start:0x80084BC4 end:0x80084E98
+	.text       start:0x80084BC4 end:0x80085168
 	.rodata     start:0x804393C0 end:0x804393C8
-
-pso/misc/TEffStarLight2D_80084E98.cpp:
-	.text       start:0x80084E98 end:0x80085168
 
 pso/object/TObjCamera.cpp:
 	.text       start:0x80085168 end:0x800851B0
@@ -2616,11 +2608,8 @@ pso/unk/text_800C2CE0.cpp:
 	.text       start:0x800C2CE0 end:0x800C3088
 
 pso/unk/text_800C3088.cpp:
-	.text       start:0x800C3088 end:0x800C34FC
+	.text       start:0x800C3088 end:0x800C38D0
 	.rodata     start:0x8043BBD0 end:0x8043BBD8
-
-pso/unk/text_800C34FC.cpp:
-	.text       start:0x800C34FC end:0x800C38D0
 
 pso/enemy/TObjEneDD_800C38D0.cpp:
 	.text       start:0x800C38D0 end:0x800C3A60
@@ -2652,11 +2641,8 @@ pso/unk/text_800C69E8.cpp:
 	.text       start:0x800C69E8 end:0x800C6CF0
 
 pso/enemy/TObjEnemyCustom_800C6CF0.cpp:
-	.text       start:0x800C6CF0 end:0x800C70E4
+	.text       start:0x800C6CF0 end:0x800C7458
 	.rodata     start:0x8043BCD0 end:0x8043BCD8
-
-pso/player/TObjPlayer_800C70E4.cpp:
-	.text       start:0x800C70E4 end:0x800C7458
 
 pso/boss/TBoss3Volopt_800C7458_800C7458.cpp:
 	.text       start:0x800C7458 end:0x800C7544
@@ -7080,11 +7066,8 @@ pso/misc/TODoorVS2Door01.cpp:
 	.text       start:0x80163E14 end:0x80164414
 
 pso/misc/TODragonflyCave01.cpp:
-	.text       start:0x80164414 end:0x80164760
-
-pso/misc/TODragonfly.cpp:
-	.text       start:0x80164760 end:0x80164F50
-	.rodata     start:0x804411A8 end:0x804411B0
+	.text       start:0x80164414 end:0x80164F50
+	.rodata     start:0x804411A0 end:0x804411B0
 
 pso/misc/TODragonflyMachine01.cpp:
 	.text       start:0x80164F50 end:0x8016582C
@@ -7412,13 +7395,9 @@ pso/misc/TORockCave.cpp:
 	.text       start:0x80175134 end:0x80175468
 
 pso/misc/TOSensor.cpp:
-	.text       start:0x80175468 end:0x80175994
-	.rodata     start:0x804429E0 end:0x804429E8
+	.text       start:0x80175468 end:0x80175F88
+	.rodata     start:0x804429E0 end:0x80442A38
 	.data       start:0x804B4160 end:0x804B41E0
-
-pso/misc/TOSensorAncient01.cpp:
-	.text       start:0x80175994 end:0x80175F88
-	.rodata     start:0x80442A30 end:0x80442A38
 
 pso/misc/TOSensorGeneral01.cpp:
 	.text       start:0x80175F88 end:0x801764DC

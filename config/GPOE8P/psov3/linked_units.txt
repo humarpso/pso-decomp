@@ -1538,6 +1538,7 @@ pso/misc/TODoorFourLightBase.cpp
 pso/misc/TODoorMachine02.cpp
 pso/misc/TODoorVoShip.cpp
 pso/misc/TODoorVoShip_8021A05C.cpp
+pso/misc/TODragonflyCave01.cpp
 pso/misc/TOExplosiveMachine01.cpp
 pso/misc/TOExplosiveMachine02.cpp
 pso/misc/TOExplosiveMachine03.cpp
@@ -3623,6 +3624,7 @@ pso/unk/text_800B9194.cpp
 pso/unk/text_800B9254.cpp
 pso/unk/text_800BC4C8.cpp
 pso/unk/text_800C2A88.cpp
+pso/unk/text_800C3088.cpp
 pso/unk/text_800C3A60.cpp
 pso/unk/text_800C3B80.cpp
 pso/unk/text_800C9318.cpp
@@ -3854,6 +3856,7 @@ pso/unk/text_8014AAC4.cpp
 pso/unk/text_8014AB24.cpp
 pso/unk/text_8014B8A4.cpp
 pso/unk/text_8014B904.cpp
+pso/unk/text_80153674.cpp
 pso/unk/text_80153A7C_80153A7C.cpp
 pso/unk/text_80153A7C_80153AD4.cpp
 pso/unk/text_801582C4.cpp

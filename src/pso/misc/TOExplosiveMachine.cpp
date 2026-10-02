@@ -27,6 +27,34 @@ struct O_80166664 { u8 pad[0x18]; void *vt; u8 pad1c[0x9C - 0x1C]; s32 a[2]; s32
 
 struct O_801666E8 { s32 id; u8 pad4[0x14]; void *vt; u8 pad1c[0x68 - 0x1C]; f32 f68; u8 pad6c[0x90 - 0x6C]; f32 f90; f32 f94; f32 f98; s32 a[2]; s32 b[2]; };
 
+struct VBase_80166778 { char pad[0x18]; };
+
+struct VObj_80166778 : VBase_80166778 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual M2C_UNK m12();
+};
+
+struct VBase_80166814 { char pad[0x18]; };
+
+struct VObj_80166814 : VBase_80166814 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual M2C_UNK m13();
+};
+
 extern "C" {
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -45,6 +73,15 @@ extern const f32 lbl_805DB5F0;
 extern const f32 lbl_805DB5F4;
 extern const f32 lbl_805DB5F8;
 O_801666E8 *TOExplosiveMachine__ct(O_801666E8 *arg0);
+s32 TODragonfly__sub_80158360(f32);
+u8 TODoorAncient08__sub_80229220(u16);
+extern const f32 lbl_805DB600;
+M2C_UNK TOExplosiveMachine__sub_80166778(void *arg0);
+s32 TODragonfly__sub_80158360(f32);
+M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+u8 TODoorAncient08__sub_80229220(u16);
+extern const f32 lbl_805DB604;
+M2C_UNK TOExplosiveMachine__sub_80166814(void *arg0);
 }
 
 extern "C" {
@@ -53,8 +90,6 @@ void destroy_static_lobby__18TOExplosiveMachineFv(void);
 void explode__18TOExplosiveMachineFPv(u8 *arg0);
 void update__18TOExplosiveMachineFPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TOExplosiveMachine__sub_80166778(void *);
-M2C_UNK TOExplosiveMachine__sub_80166814(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -128,6 +163,43 @@ O_801666E8 *TOExplosiveMachine__ct(O_801666E8 *arg0) {
     return arg0;
 }
 
+M2C_UNK TOExplosiveMachine__sub_80166778(void *arg0) {
+    switch (M2C_FIELD(arg0, s32 *, 0xC8)) {
+    case 0:
+        break;
+    case 1:
+        if (TODragonfly__sub_80158360(lbl_805DB600) == 1) {
+            ((VObj_80166778 *)arg0)->m12();
+        }
+        break;
+    case 2:
+        if (TODoorAncient08__sub_80229220(M2C_FIELD(arg0, s32 *, 0xCC)) == 1) {
+            ((VObj_80166778 *)arg0)->m12();
+        }
+        break;
+    }
+}
+
+M2C_UNK TOExplosiveMachine__sub_80166814(void *arg0) {
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0xC8);
+    switch (temp_r0) {
+    case 0:
+        break;
+    case 1:
+        if (TODragonfly__sub_80158360((f32) (lbl_805DB604)) != 1) {
+            ((VObj_80166814 *)(arg0))->m13();
+        }
+        break;
+    case 2:
+        if (TODoorAncient08__sub_80229220(M2C_FIELD(arg0, s32 *, 0xCC)) != 1) {
+            ((VObj_80166814 *)(arg0))->m13();
+        }
+        break;
+    }
+    TOTrapAncient01__sub_80226578((int) (0x4004C10F), (void *) (arg0), (void *) ((u8 *)arg0 + 0x38), (int) (0), (int) (0));
+}
+
 void update__18TOExplosiveMachineFPv(void *arg0) {
     f32 temp_f0;
     f32 temp_f1;
@@ -140,10 +212,10 @@ void update__18TOExplosiveMachineFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xAC);
     switch (temp_r0) {
     case 0:
-        TOExplosiveMachine__sub_80166778(arg0);
+        TOExplosiveMachine__sub_80166778((void *)(arg0));
         break;
     case 1:
-        TOExplosiveMachine__sub_80166814(arg0);
+        TOExplosiveMachine__sub_80166814((void *)(arg0));
         break;
     }
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (M2C_FIELD(arg0, f32 *, 0xB0) + lbl_805DB608);

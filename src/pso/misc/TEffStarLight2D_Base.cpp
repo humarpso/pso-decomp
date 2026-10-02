@@ -76,7 +76,7 @@ void * __nw__7TObjectFUl(M2C_UNK, s32);
 extern M2C_UNK lbl_8048E640[];
 extern void *tl_particle;
 u8 *TEffStarLight2D_Base__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
-void copy_position__15TEffStarLight2DFPv(void *, void *);
+int copy_position__15TEffStarLight2DFPv(void* p);
 void copy_from_subobject__15TEffStarLight2DFPvPv(void *, void *);
 void TEffStarLight2D_Base__sub_80084C64(Eff_80084C64 *self);
 }
@@ -120,7 +120,7 @@ void TEffStarLight2D_Base__sub_80084C64(Eff_80084C64 *self) {
     if (self->sub == NULL) {
         return;
     }
-    copy_position__15TEffStarLight2DFPv(self->sub, self->pos);
+    ((void (*)(void *, void *))copy_position__15TEffStarLight2DFPv)(self->sub, self->pos);
     s.x = self->x;
     s.y = self->y;
     s.a = self->alpha;
@@ -173,5 +173,16 @@ u8 *TEffStarLight2D_Base__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, u8 **, 0x90) = var_r0;
     return arg0;
 }
+
+}
+
+#include "types.h"
+
+extern "C" {
+
+int copy_position__15TEffStarLight2DFPv(void* p);
+int VecCopy__FP3VecPC3Vec(void*);
+
+int copy_position__15TEffStarLight2DFPv(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x2c); }
 
 }

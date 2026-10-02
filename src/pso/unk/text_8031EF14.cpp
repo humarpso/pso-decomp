@@ -5,6 +5,12 @@ struct Obj_8031F0F0 { u8 pad[0x410]; s32 count; u8 pad2[4]; u16 ids[6]; };
 
 struct Obj_8031EFAC { u8 pad[0x410]; s32 count; s32 f414; u16 ids[6]; };
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct Obj_8031F070 { u8 pad[0x410]; s32 count; u8 pad2[4]; u16 ids[6]; };
+
 extern "C" {
 u8 *TPhotonMylla__sub_80154CB4(u16);
 void TObjEneRecon__sub_8031EF14(Obj_8031EF14 *arg0, u8 *arg1);
@@ -15,6 +21,9 @@ s32 TObjEneRecon__sub_8031F0F0(Obj_8031F0F0 *arg0, u16 arg1);
 u8 *TPhotonMylla__sub_80154CB4(u16);
 void TObjEneRecon__sub_8031EDBC(void *, u16);
 void TObjEneRecon__sub_8031EFAC(Obj_8031EFAC *o, u8 *target);
+u8 *TPhotonMylla__sub_80154CB4(u16);
+s32 is_anim_5__12TObjEneReconFPv();
+s32 TObjEneRecon__sub_8031F070(Obj_8031F070 *arg0);
 }
 
 extern "C" {
@@ -46,6 +55,19 @@ void TObjEneRecon__sub_8031EFAC(Obj_8031EFAC *o, u8 *target) {
             return;
         }
     }
+}
+
+s32 TObjEneRecon__sub_8031F070(Obj_8031F070 *arg0) {
+    s32 i;
+    if (arg0->count <= 0) {
+        return 0;
+    }
+    for (i = 0; i < 6; i++) {
+        if (TPhotonMylla__sub_80154CB4(arg0->ids[i]) != NULL && is_anim_5__12TObjEneReconFPv() == 1) {
+            return 1;
+        }
+    }
+    return 0;
 }
 
 s32 TObjEneRecon__sub_8031F0F0(Obj_8031F0F0 *arg0, u16 arg1) {

@@ -4,12 +4,44 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_801537CC { char pad[0x18]; };
+
+struct VObj_801537CC : VBase_801537CC {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+};
+
+struct O_801538D4 { u8 pad[0x8C]; s32 v; };
+
 extern "C" {
 extern const f32 lbl_805DB250;
 s32 TObjFogCollisionSwitch__sub_80153A0C(u8 *arg0);
 s32 TObjFogCollision__sub_80153F70(void *self);
 s32 TObjFogCollision__sub_80153F68(void *self);
 void run_task__22TObjFogCollisionPoisonFv(void *self);
+s32 is_split_screen();
+M2C_UNK TObjFogCollisionPoison__sub_80153084(void *, void *, u16);
+M2C_UNK TObjFogCollisionSwitch__ct(void *, void *, void *);
+void *__nw__7TObjectFUl(int);
+extern M2C_UNK __vt__22TObjFogCollisionPoison[];
+extern s32 lbl_805D2E80;
+extern s32 lbl_805D53A0;
+void *TObjFogCollisionPoison__ct(void *arg0, void *arg1, void *arg2);
+s32 TObjFogCollisionSwitch__sub_80153A0C(u8 *arg0);
+void TObjFogCollision__vt12(O_801538D4 *);
+void TObjEneBm5GibonU__sub_803D853C(int, void *, ...);
+extern char lbl_80440090[];
+extern char lbl_804400A4[];
+extern char lbl_804400B8[];
+void TObjFogCollisionSwitch__vt12(O_801538D4 *arg0);
+M2C_UNK TObjFogCollisionPoison__sub_801531EC(s32, s32, u8);
+s32 TObjFogCollisionSwitch__sub_80153A0C(u8 *arg0);
+s32 check_collision__16TObjFogCollisionFPvUs(void *, u16);
+s32 TObjFogCollision__sub_80153F68(void *self);
+s32 TObjFogCollision__sub_80153F70(void *self);
+u8 TODoorAncient08__sub_80229220(u16);
+void run_task__22TObjFogCollisionSwitchFv(void *arg0);
 }
 
 extern "C" {
@@ -17,7 +49,6 @@ extern "C" {
 void TObjFogCollisionPoison__vt11(void *arg0);
 void *__dt__22TObjFogCollisionPoisonFv(void *arg0, s16 arg1);
 void *create__22TObjFogCollisionPoisonFPv(void *arg0);
-void *TObjFogCollisionPoison__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__22TObjFogCollisionSwitchFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -76,13 +107,62 @@ void *__dt__22TObjFogCollisionPoisonFv(void *arg0, s16 arg1) {
 
 extern void *tl_05;
 
+void *TObjFogCollisionPoison__ct(void *arg0, void *arg1, void *arg2) {
+    u16 i;
+    void *o;
+    TObjFogCollisionSwitch__ct(arg0, arg1, arg2);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TObjFogCollisionPoison;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D2E80;
+    ((VObj_801537CC *)arg0)->m11();
+    if (is_split_screen() != 0) {
+        for (i = 0; i != 4; i++) {
+            o = __nw__7TObjectFUl(0x2C);
+            if (o != NULL) {
+                TObjFogCollisionPoison__sub_80153084(o, arg0, i);
+            }
+        }
+    } else {
+        o = __nw__7TObjectFUl(0x2C);
+        if (o != NULL) {
+            TObjFogCollisionPoison__sub_80153084(o, arg0, lbl_805D53A0);
+        }
+    }
+    return arg0;
+}
+
 void *create__22TObjFogCollisionPoisonFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x9C);
     if (o != NULL) {
-        o = TObjFogCollisionPoison__ct(o, tl_05, arg0);
+        o = TObjFogCollisionPoison__ct((void *)(o), (void *)(tl_05), (void *)(arg0));
     }
     return o;
 }
+
+void TObjFogCollisionSwitch__vt12(O_801538D4 *arg0) {
+    TObjFogCollision__vt12(arg0);
+    if (TObjFogCollisionSwitch__sub_80153A0C((u8 *)arg0) != 0) {
+        TObjEneBm5GibonU__sub_803D853C(0x13001E, lbl_80440090);
+    } else {
+        TObjEneBm5GibonU__sub_803D853C(0x13001E, lbl_804400A4);
+    }
+    TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804400B8, arg0->v);
+}
+
+void run_task__22TObjFogCollisionSwitchFv(void *arg0) {
+    s32 st;
+    u16 i;
+    if (TObjFogCollision__sub_80153F70(arg0) == 0 && TObjFogCollision__sub_80153F68(arg0) == 0) {
+        st = TObjFogCollisionSwitch__sub_80153A0C((u8 *)arg0);
+        if (st == TODoorAncient08__sub_80229220(M2C_FIELD(arg0, s32 *, 0x8C))) {
+            for (i = 0; i != 4; i++) {
+                if (check_collision__16TObjFogCollisionFPvUs(arg0, i) != 0) {
+                    TObjFogCollisionPoison__sub_801531EC(i, M2C_FIELD(arg0, s32 *, 0x84), M2C_FIELD(arg0, s32 *, 0x88) == 0);
+                }
+            }
+        }
+    }
+}
+
 s32 TObjFogCollisionSwitch__sub_80153A0C(u8 *arg0) {
     return M2C_FIELD(arg0, f32 *, 0x70) >= lbl_805DB250;
 }

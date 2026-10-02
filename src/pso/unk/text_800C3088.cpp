@@ -439,3 +439,287 @@ void fn_800C32DC(u8 *arg0, s32 arg1) {
 }
 
 }
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+#define CAT2(a, b) a##b
+#define CAT(a, b) CAT2(a, b)
+#define PADV virtual void CAT(pv, __LINE__)();
+#define PADV4 virtual void CAT(pa, __LINE__)(); virtual void CAT(pb, __LINE__)(); virtual void CAT(pc, __LINE__)(); virtual void CAT(pd, __LINE__)();
+
+struct Base_A { char pad[0x18]; };
+struct V_A : Base_A {
+    PADV4
+    PADV4
+    PADV4
+    PADV4
+    PADV4
+    PADV4
+    PADV4
+    PADV4
+    PADV4
+    PADV4
+    PADV4
+    PADV4
+    PADV4
+    PADV4
+    PADV4
+    PADV4
+    PADV4
+    PADV4
+    PADV4
+    PADV4
+    PADV4
+    PADV
+    PADV
+    virtual void m86();
+    PADV
+    PADV
+    PADV
+    PADV
+    PADV
+    PADV
+    PADV
+    virtual void m94();
+    PADV
+    PADV
+    PADV
+    PADV
+    PADV
+    virtual void m100();
+};
+
+struct VBase_18 { char pad[0x18]; };
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual M2C_UNK m86();
+    virtual void m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual void m93();
+    virtual M2C_UNK m94();
+    virtual void m95();
+    virtual void m96();
+    virtual s32 m97();
+    virtual void m98();
+    virtual void m99();
+    virtual M2C_UNK m100();
+};
+
+extern "C" {
+
+s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
+M2C_UNK fn_800B98C0(void *);
+M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
+extern const f32 lbl_805D9FF0;
+
+s32 get_field_0c__10TObjPlayerFPv(int);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 update_death_check__14TObjEneEpsilonFPv(void *);
+M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
+M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
+M2C_UNK update_velocity__9TObjEneDDFPv(void *);
+u16 set_squared_value__9TObjEneDDFf(void *, f32);
+u16 TBoss8Dragon__sub_800BB664(void *, f32);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
+s32 TObjEneEpsilon__sub_800BBE64(void *, void *, int);
+M2C_UNK noop__9TObjEneDDFv(void *);
+s32 get_flag_11__16TObjEneRe2FlowerFPv(void *);
+M2C_UNK set_child_flags__16TObjEneRe2FlowerFPv(void *);
+s32 TObjPlayer__sub_80141F84(int, int);
+s32 TObjPlayer__sub_801423A4(int, int, void *);
+extern const f64 lbl_8043BBD8;
+extern const f32 lbl_805D9FE0;
+extern const f32 lbl_805D9FE4;
+extern const f32 lbl_805D9FE8;
+extern const f32 lbl_805D9FEC;
+
+void TObjEneDD__sub_800C34FC(u8 *arg0, s32 arg1) {
+    f32 d;
+    s32 t;
+    u16 idx;
+
+    switch (arg1) {
+    case 5:
+        break;
+    case 4:
+        if (M2C_FIELD(arg0, s16 *, 0x326) == 2) {
+            M2C_FIELD(arg0, s16 *, 0xB8) = 3;
+        } else {
+            M2C_FIELD(arg0, s16 *, 0xB8) = 2;
+        }
+        ((VObj_18 *)(arg0))->m94();
+        set_child_flags__16TObjEneRe2FlowerFPv(arg0);
+        M2C_FIELD(arg0, s32 *, 0x3C4) &= ~8;
+        set_field_378__9TObjEneDDFPvi(arg0, 3);
+        M2C_FIELD(arg0, s32 *, 0x414) = 0;
+        M2C_FIELD(arg0, s32 *, 0x420) = 0;
+        if (get_flag_11__16TObjEneRe2FlowerFPv(arg0) != 0) {
+            TBoss3Volopt__sub_8022675C((void *)0x4003A840, arg0 + 0x38, 0, 0);
+        }
+        break;
+    case 3:
+        if (((s32 (*)())check_hit_flag__16TObjEneRe2FlowerFPv)() == 0) {
+            d = M2C_FIELD(arg0, f32 *, 0x3AC);
+            if (d > lbl_805D9FE0 || M2C_FIELD(arg0, void **, 0x390) == NULL) {
+                TObjEneDD__sub_800BBA18(arg0, 2);
+            } else if (d < lbl_805D9FE4) {
+                t = TObjPlayer__sub_80141F84(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x420));
+                if (t < get_field_0c__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0x318))) {
+                    TObjEneDD__sub_800BBA18(arg0, 5);
+                }
+            } else if ((f32)M2C_FIELD(arg0, s32 *, 0x414) > lbl_805D9FE8) {
+                TObjEneDD__sub_800BBA18(arg0, 4);
+            }
+        }
+        break;
+    case 0:
+        ((M2C_UNK (*)())TBoss1Dragon__sub_80143504)();
+        idx = 0xFFFF;
+        if (TObjEneEpsilon__sub_800BBE64(arg0, arg0 + 0x3D0, 0x14) != 0) {
+            if (M2C_FIELD(arg0, f32 *, 0x3AC) > lbl_805D9FEC) {
+                if (((VObj_18 *)(arg0))->m97() != 0) {
+                    idx = set_squared_value__9TObjEneDDFf(arg0, M2C_FIELD(arg0, f32 *, 0x3AC) - lbl_805D9FEC);
+                }
+                if (idx == 0xFFFF) {
+                    idx = TBoss8Dragon__sub_800BB664(arg0, M2C_FIELD(arg0, f32 *, 0x3AC) - lbl_805D9FEC);
+                }
+                if (idx != 0xFFFF) {
+                    TBoss8Dragon__sub_800B9958(arg0, idx);
+                }
+            }
+        } else if (update_death_check__14TObjEneEpsilonFPv(arg0) == 0) {
+            break;
+        }
+        TObjEneEpsilon__sub_800B96A4(arg0);
+        update_velocity__9TObjEneDDFPv(arg0);
+        M2C_FIELD(arg0, s32 *, 0x414)++;
+        M2C_FIELD(arg0, s32 *, 0x420) = (s32)(lbl_8043BBD8 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8)));
+        M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x420), M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), void **, 8));
+        M2C_FIELD(arg0, s32 *, 0x60) = (s16)M2C_FIELD(arg0, s32 *, 0x60);
+        ((VObj_18 *)(arg0))->m100();
+        ((VObj_18 *)(arg0))->m86();
+        noop__9TObjEneDDFv(arg0);
+        break;
+    }
+}
+
+void handle_flower_state_change(void *arg0, s32 arg1) {
+    switch (arg1) {
+    case 4:
+        M2C_FIELD(arg0, s16 *, 0xB8) = 1;
+        ((V_A *) arg0)->m94();
+        clear_child_flags__16TObjEneRe2FlowerFPv(arg0);
+        M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) & 0xFFFFFFF7);
+        set_field_378__9TObjEneDDFPvi(arg0, 2);
+        fn_800B98C0(arg0);
+        return;
+    case 3:
+        if ((((s32 (*)())check_hit_flag__16TObjEneRe2FlowerFPv)() == 0) && (update_linked_position__14TObjEneEpsilonFPv(arg0, lbl_805D9FF0) != 0)) {
+            TObjEneDD__sub_800BBA18(arg0, 3);
+        }
+    case 5:
+    case 1:
+        return;
+    case 0:
+        ((M2C_UNK (*)())TBoss1Dragon__sub_80143504)();
+        ((V_A *) arg0)->m100();
+        ((V_A *) arg0)->m86();
+        break;
+    }
+}
+
+}

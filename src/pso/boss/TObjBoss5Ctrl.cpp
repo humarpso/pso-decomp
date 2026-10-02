@@ -1,53 +1,16 @@
 #ifndef PSO_CLASS_PACKAGE
 #include "pso/TObjBoss5Ctrl.h"
-
-extern "C" void queue_destruction__7TObjectFv(void*);
-extern s32 lbl_805D4DE0;
-
-void TObjBoss5Ctrl::run_task() {}
-
-TObjBoss5Ctrl::~TObjBoss5Ctrl() {
-    if (m_28 != nullptr) { queue_destruction__7TObjectFv(m_28); m_28 = nullptr; }
-    if (m_24 != nullptr) { queue_destruction__7TObjectFv(m_24); m_24 = nullptr; }
-    if (m_20 != nullptr) { queue_destruction__7TObjectFv(m_20); m_20 = nullptr; }
-    if (m_1c != nullptr) { queue_destruction__7TObjectFv(m_1c); m_1c = nullptr; }
-    lbl_805D4DE0 = 0;
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x80067124
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void play_pillar_sound__13TObjBoss5CtrlFv(void);
-M2C_UNK play_sound_once__19TObjBoss5PillarCtrlFPv(void*);
-
-extern void *lbl_805D4DE0;
-
-void play_pillar_sound__13TObjBoss5CtrlFv(void) {
-    void *sp4;
-    sp4 = lbl_805D4DE0;
-    if (sp4 != NULL && (u32) M2C_FIELD(sp4, u32 *, 0x28) != 0U) {
-        play_sound_once__19TObjBoss5PillarCtrlFPv(M2C_FIELD(sp4, void **, 0x28));
-    }
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x800672BC
-#include "types.h"
 #pragma fp_contract on
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
-extern "C" {
+extern "C" void queue_destruction__7TObjectFv(void*);
+extern s32 lbl_805D4DE0;
 
+extern "C" {
+M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
 void *TObjBoss5Ctrl__ct(void *arg0);
 s32 rand();
 M2C_UNK __ct__7TObjectFP7TObject(void *);
@@ -57,14 +20,30 @@ u32 create__19TObjBoss5FloorStoneFv();
 u32 create__19TObjBoss5FloorGrassFv();
 u32 TObjBoss5PillarDemo__sub_8028AC8C();
 u32 TObjBoss5PillarCtrl__sub_8028B324(void *);
-
 s32 is_split_screen();
-extern const f64 lbl_80438138;
 extern void *__vt__13TObjBoss5Ctrl[];
 extern s32 lbl_805D2828;
 extern const f32 lbl_805D8F10;
 extern const f32 lbl_805D8F14;
 extern const f32 lbl_805D8F18;
+}
+
+void TObjBoss5Ctrl::run_task() {
+    if (M2C_FIELD(this, s16 *, 0x2C)-- <= 0) {
+        TBoss3Volopt__sub_8022675C(0x40033215, 0, 0, 0);
+        M2C_FIELD(this, s16 *, 0x2C) = (s16) (lbl_805D8F14 * (lbl_805D8F18 * (f32) rand()) + lbl_805D8F10);
+    }
+}
+
+TObjBoss5Ctrl::~TObjBoss5Ctrl() {
+    if (m_28 != nullptr) { queue_destruction__7TObjectFv(m_28); m_28 = nullptr; }
+    if (m_24 != nullptr) { queue_destruction__7TObjectFv(m_24); m_24 = nullptr; }
+    if (m_20 != nullptr) { queue_destruction__7TObjectFv(m_20); m_20 = nullptr; }
+    if (m_1c != nullptr) { queue_destruction__7TObjectFv(m_1c); m_1c = nullptr; }
+    lbl_805D4DE0 = 0;
+}
+
+extern "C" {
 
 void *TObjBoss5Ctrl__ct(void *arg0) {
     s32 temp_r3;
@@ -99,6 +78,30 @@ void *TObjBoss5Ctrl__ct(void *arg0) {
         }
     }
     return arg0;
+}
+
+}
+#else
+#if PSO_CLASS_PACKAGE == 0x80067124
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void play_pillar_sound__13TObjBoss5CtrlFv(void);
+M2C_UNK play_sound_once__19TObjBoss5PillarCtrlFPv(void*);
+
+extern void *lbl_805D4DE0;
+
+void play_pillar_sound__13TObjBoss5CtrlFv(void) {
+    void *sp4;
+    sp4 = lbl_805D4DE0;
+    if (sp4 != NULL && (u32) M2C_FIELD(sp4, u32 *, 0x28) != 0U) {
+        play_sound_once__19TObjBoss5PillarCtrlFPv(M2C_FIELD(sp4, void **, 0x28));
+    }
 }
 
 }

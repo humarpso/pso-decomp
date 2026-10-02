@@ -72,6 +72,7 @@ force_active:
   - TMainCursor__sub_8013E570
   - TMainCursor__sub_8013E694
   - TNpcPlayer__sub_80152CE8
+  - TODragonfly__sub_80164764
   - TObjBagWarnWin__sub_8006EC20
   - TObjEneDD__sub_800BB980
   - TObjEneMe1Canadin__sub_8009FB54
