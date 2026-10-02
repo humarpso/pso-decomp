@@ -34,6 +34,34 @@ struct Menu_80296648 {
     f32 timer;
 };
 
+struct Chara_80297128 {
+    u8 pad0[0x34];
+    u32 flags;
+    s16 f38[4];
+};
+
+struct Menu_80297128 {
+    const char *name;
+    u8 pad4[0x18 - 0x4];
+    void *vt;
+    Chara_80297128 *chara;
+    s32 f20;
+    s32 kind;
+    s32 f28;
+    s32 count;
+    s32 n;
+    u32 mask;
+    s32 f38;
+    s32 f3C;
+    f32 f40;
+    u8 pad44[0x48 - 0x44];
+    s32 f48;
+    u8 pad4C[0x58 - 0x4C];
+    f32 f58;
+};
+
+struct Row_80297128 { s16 v[0x16]; };
+
 extern "C" {
 void draw_ui_sprite(s32, void *, f32, f32);
 extern s32 lbl_8046507C[];
@@ -53,13 +81,22 @@ extern const f32 TObjCMAssignMenu__data_805DDB20;
 extern const f32 lbl_805DDB48;
 extern const f32 lbl_805DDB4C;
 void TObjCMAssignMenu__sub_80296648(Menu_80296648 *self);
+void __ct__7TObjectFP7TObject(void *, void *);
+s32 get_display_index__12TCharaMakingFPv(void *);
+void calc_grid_layout__16TObjCMAssignMenuFPv(void *arg0);
+void set_eff_tag__11TChCrEffTagFi(s32);
+extern void *__vt__16TObjCMAssignMenu[];
+extern const char *lbl_805D3CDC;
+extern Chara_80297128 *lbl_805D6520;
+extern Row_80297128 lbl_804D8E20[];
+extern const f32 lbl_805DDA90;
+void *__ct__16TObjCMAssignMenuFv(void *arg0, void *parent, void *kind);
 }
 
 extern "C" {
 
 void calc_grid_layout__16TObjCMAssignMenuFPv(void *arg0);
 void * create__16TObjCMAssignMenuFPvPv(void *arg0, void *arg1);
-void *__ct__16TObjCMAssignMenuFv(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 #pragma push
@@ -160,9 +197,54 @@ void * create__16TObjCMAssignMenuFPvPv(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x5C);
     if (o != NULL) {
-        o = __ct__16TObjCMAssignMenuFv(o, arg0, arg1);
+        o = __ct__16TObjCMAssignMenuFv((void *)(o), (void *)(arg0), (void *)(arg1));
     }
     return o;
+}
+void *__ct__16TObjCMAssignMenuFv(void *arg0, void *parent, void *kind) {
+#define self ((Menu_80297128 *)arg0)
+    u32 bit;
+    s32 i;
+    __ct__7TObjectFP7TObject(arg0, parent);
+    self->vt = __vt__16TObjCMAssignMenu;
+    self->name = lbl_805D3CDC;
+    self->chara = lbl_805D6520;
+    self->f20 = 0;
+    self->kind = (s32)kind;
+    self->count = lbl_804D8E20[get_display_index__12TCharaMakingFPv(self->chara)].v[self->kind];
+    self->f28 = self->chara->f38[self->kind];
+    self->n = 0;
+    self->mask = 0;
+    bit = 1;
+    for (i = 0; i < self->count; i++) {
+        self->n++;
+        self->mask |= bit;
+        bit <<= 1;
+    }
+    calc_grid_layout__16TObjCMAssignMenuFPv(arg0);
+    self->f58 = self->f48;
+    self->f3C = 1;
+    self->f40 = lbl_805DDA90;
+    switch (self->kind) {
+    case 0:
+        set_eff_tag__11TChCrEffTagFi(6);
+        break;
+    case 1:
+        if (self->chara->flags & 0x10) {
+            set_eff_tag__11TChCrEffTagFi(8);
+        } else {
+            set_eff_tag__11TChCrEffTagFi(7);
+        }
+        break;
+    case 2:
+        set_eff_tag__11TChCrEffTagFi(4);
+        break;
+    case 3:
+        set_eff_tag__11TChCrEffTagFi(3);
+        break;
+    }
+    return arg0;
+#undef self
 }
 
 }

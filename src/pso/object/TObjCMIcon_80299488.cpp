@@ -22,6 +22,23 @@ struct RecoveredGlobal_8029951C_TObjCMIcon__data_805409E0 {
 
 struct Ent_80299488 { s32 a; s32 b; s32 c; };
 
+typedef s32 M2C_UNK;
+struct Ent_802995A0 {
+    s32 a;
+    f32 depth;
+    f32 x;
+};
+
+struct Grp_802995A0 {
+    s32 n;
+    s32 ids[4];
+};
+
+struct V2_802995A0 {
+    f32 x;
+    f32 y;
+};
+
 extern "C" {
 s32 TObjCMIcon__sub_80299598(M2C_UNK arg0, s32 arg1);
 extern RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0 TObjCMIcon__data_805409E0;
@@ -37,6 +54,20 @@ void TObjCMIcon__sub_80299488(void);
 void TObjCMIcon__sub_80299488(void);
 void TObjCMIcon__sub_802994B0(s32 arg0);
 void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1);
+s32 TObjCMIcon__sub_80299598(M2C_UNK arg0, s32 arg1);
+extern RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0 TObjCMIcon__data_805409E0;
+extern f32 TObjCMIcon__data_805D65A8;
+void set_depth_buffer_settings_1__Fv(void);
+void set_depth_buffer_settings_id__FUl(u32);
+f32 get_scale__14TObjCMMainMenuFv(void);
+s32 TObjCMMainMenu__sub_80290DEC(s32);
+void draw_ui_sprite(s32, void *, f32, f32);
+void fn_80141A30(void);
+extern f32 lbl_804DBE6C[];
+extern Grp_802995A0 lbl_804DBDE0[];
+extern const f32 lbl_805DDC3C;
+extern const f32 lbl_805DDC40;
+void render__10TObjCMIconFv(M2C_UNK self);
 }
 
 extern "C" {
@@ -85,6 +116,59 @@ void TObjCMIcon__sub_8029951C(void) {
 void TObjCMIcon__sub_8029957C(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); }
 s32 TObjCMIcon__sub_80299598(M2C_UNK arg0, s32 arg1) {
     return arg1;
+}
+struct RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0;
+void render__10TObjCMIconFv(M2C_UNK self) {
+    s32 idx[7];
+    f32 keys[7];
+    V2_802995A0 pos;
+    s32 i;
+    s32 j;
+    s32 id;
+    Ent_802995A0 *e;
+    Grp_802995A0 *g;
+    s32 n;
+    s32 tid;
+    s32 s;
+    f32 k;
+    f32 tk;
+    f32 z;
+    f32 depth;
+    f32 x0;
+    e = (Ent_802995A0 *)&TObjCMIcon__data_805409E0;
+    for (i = 0; i < 7; i++, e++) {
+        k = e->depth * e->depth;
+        id = i;
+        for (j = 0; j < i; j++) {
+            if (k < keys[j]) {
+                tk = k;
+                tid = id;
+                id = idx[j];
+                k = keys[j];
+                idx[j] = tid;
+                keys[j] = tk;
+            }
+        }
+        idx[j] = id;
+        keys[j] = k;
+    }
+    set_depth_buffer_settings_1__Fv();
+    set_depth_buffer_settings_id__FUl(2);
+    x0 = lbl_804DBE6C[0] - TObjCMIcon__data_805D65A8;
+    for (i = 0; i < 7; i++) {
+        id = idx[i];
+        depth = keys[i];
+        g = &lbl_804DBDE0[id];
+        pos.x = x0 + ((Ent_802995A0 *)&TObjCMIcon__data_805409E0)[id].x;
+        pos.y = lbl_804DBE6C[1] * get_scale__14TObjCMMainMenuFv();
+        z = lbl_805DDC3C - (lbl_805DDC40 - (f32)(i / 7));
+        for (n = 0; n < g->n; n++) {
+            s = TObjCMIcon__sub_80299598(self, g->ids[n]);
+            draw_ui_sprite(s, &pos, z, depth);
+            pos.x += (f32)(TObjCMMainMenu__sub_80290DEC(s) + 4);
+        }
+    }
+    fn_80141A30();
 }
 
 }

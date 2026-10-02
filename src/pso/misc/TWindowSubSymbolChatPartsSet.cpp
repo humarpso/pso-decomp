@@ -9,6 +9,20 @@ struct RecoveredGlobal_80286824_lbl_8050E208 {
     u8 remaining[0x1AC];
 };
 
+struct Set_8028625C {
+    u8 pad0[0x69];
+    s8 mode;
+    s16 x;
+    s16 y;
+    s16 color;
+    s8 *p70;
+    s32 cur;
+    u32 sel;
+    s32 *p7C;
+    s32 *p80;
+    s32 *p84;
+};
+
 extern "C" {
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
@@ -17,13 +31,20 @@ s32 TWindowSubStatusDisp__sub_80257C28(void *, void *);
 s32 is_active__20TWindowSubSymbolChatFPv(void *);
 void handle_cancel__28TWindowSubSymbolChatPartsSetFPv(void *arg0);
 void handle_decide__28TWindowSubSymbolChatPartsSetFPv(void *arg0);
-s32 TWindowSubSymbolChatPartsSet__sub_8028625C(void *);
 s32 TWindowSubSymbolChatPartsSet__sub_8028642C(void *);
 s32 TWindowSubSymbolChatPartsSet__sub_802864C4(void *);
 s32 update_subwindow__20TWindowSubStatusDispFPv(int);
 extern RecoveredGlobal_80286824_lbl_8050E208 lbl_8050E208;
 extern const f32 lbl_805DD820;
 void run_task__28TWindowSubSymbolChatPartsSetFv(u8 *arg0);
+void TWindowSubSymbolChatPartsSet__sub_80247F10(void *, s16, s16);
+void TWindowSubSymbolChatPartsSet__sub_80247F68(void *, s16, s32, s32);
+u16 *get_entry_offset_d__28TWindowSubSymbolChatPartsSetFPvi(void *, s32);
+void TWindowSubSymbolChatPartsSet__sub_802480EC(void *, void *, void *, u16, s32, s32, s32, s32);
+void *TWindowSubSymbolChatPartsSet__sub_802482B8(void *, s32);
+void *get_parts_entry__28TWindowSubSymbolChatPartsSetFPvi(void *, s32);
+void *get_parts_entry__28TWindowSubSymbolChatPartsSetFii(void *, s32);
+void TWindowSubSymbolChatPartsSet__sub_8028625C(Set_8028625C *arg0);
 }
 
 extern "C" {
@@ -61,6 +82,43 @@ void handle_decide__28TWindowSubSymbolChatPartsSetFPv(void *arg0) {
 
 extern M2C_UNK lbl_8044FC38;
 extern const f32 lbl_805DD820;
+
+void TWindowSubSymbolChatPartsSet__sub_8028625C(Set_8028625C *arg0) {
+    u16 *e2;
+    void *b3;
+    void *a1;
+    void *a3;
+    void *b1;
+    u16 *e;
+    void *c;
+    switch (arg0->mode) {
+    case 0:
+    case 2:
+        e = get_entry_offset_d__28TWindowSubSymbolChatPartsSetFPvi(arg0, arg0->cur);
+        TWindowSubSymbolChatPartsSet__sub_80247F10(e, arg0->x, arg0->y);
+        TWindowSubSymbolChatPartsSet__sub_80247F68(e, arg0->color, *arg0->p7C, *arg0->p80);
+        if (*arg0->p84 != 0) {
+            e2 = get_entry_offset_d__28TWindowSubSymbolChatPartsSetFPvi(arg0, arg0->sel);
+            *e2 &= ~2;
+            TWindowSubSymbolChatPartsSet__sub_80247F10(e2, (s16)(0x40 - arg0->x), arg0->y);
+            TWindowSubSymbolChatPartsSet__sub_80247F68(e2, arg0->color, *arg0->p7C == 0, *arg0->p80);
+        } else if (arg0->sel < 0xC) {
+            *get_entry_offset_d__28TWindowSubSymbolChatPartsSetFPvi(arg0, arg0->sel) |= 2;
+        }
+        break;
+    case 3:
+        a3 = get_parts_entry__28TWindowSubSymbolChatPartsSetFii(arg0, arg0->sel);
+        b3 = get_parts_entry__28TWindowSubSymbolChatPartsSetFPvi(arg0, arg0->sel);
+        c = TWindowSubSymbolChatPartsSet__sub_802482B8(arg0, arg0->sel);
+        TWindowSubSymbolChatPartsSet__sub_802480EC(a3, b3, c, 0xFF, 0, 0, 0, 0);
+    case 1:
+        a1 = get_parts_entry__28TWindowSubSymbolChatPartsSetFii(arg0, arg0->cur);
+        b1 = get_parts_entry__28TWindowSubSymbolChatPartsSetFPvi(arg0, arg0->cur);
+        c = TWindowSubSymbolChatPartsSet__sub_802482B8(arg0, arg0->cur);
+        TWindowSubSymbolChatPartsSet__sub_802480EC(a1, b1, c, arg0->color, *arg0->p70, *arg0->p7C, *arg0->p80, arg0->cur);
+        break;
+    }
+}
 
 void render__28TWindowSubSymbolChatPartsSetFv(u8 *arg0) {
     struct Vec2_80286708_802861AC sp10;
@@ -107,7 +165,7 @@ void run_task__28TWindowSubSymbolChatPartsSetFv(u8 *arg0) {
         }
     }
     TWindowSubSymbolChatPartsSet__sub_8028642C((void *) (arg0));
-    TWindowSubSymbolChatPartsSet__sub_8028625C((void *) (arg0));
+    TWindowSubSymbolChatPartsSet__sub_8028625C((Set_8028625C *)((void *) (arg0)));
     if ((f32) M2C_FIELD(arg0, s32 *, 0x5C) >= lbl_805DD820) {
         update_subwindow__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x88)));
     }
