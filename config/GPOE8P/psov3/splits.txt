@@ -10474,6 +10474,7 @@ pso/misc/TLobby_801E2F94.cpp:
 
 pso/misc/TCameraCtrl_801E317C.cpp:
 	.text       start:0x801E317C end:0x801E32E8
+	.sdata2     start:0x805DC424 end:0x805DC440
 
 pso/misc/TWindowDD_801E32E8.cpp:
 	.text       start:0x801E32E8 end:0x801E3330
