@@ -180,6 +180,13 @@ extern void *lbl_805D4F4C;
 extern void *lbl_805D4F50;
 extern const f32 lbl_805D96E4;
 void TObjPlayer__sub_80091EA4(Obj_80091EA4 *self);
+M2C_UNK obj_clearFlags30(void *, int);
+M2C_UNK obj_setFlags30(void *, int);
+M2C_UNK advance_animation_playback(void *);
+M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, u32);
+M2C_UNK set_indexed_flags(void *, int, int);
+s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+void TObjPlayer__sub_80092028(u8 *arg0);
 }
 
 extern "C" {
@@ -522,6 +529,37 @@ void select_subtype__12TObjEneBeastFPv(u8 *arg0) {
         set_param__12TObjEneLappyFPvi(arg0, 9);
         return;
     }
+}
+void TObjPlayer__sub_80092028(u8 *arg0) {
+    s16 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s16 *, 0x328);
+    switch (temp_r0) {
+    case 0:
+    default:
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x390) != 1) {
+            M2C_FIELD(arg0, s16 *, 0x328) = 2;
+        } else {
+            M2C_FIELD(arg0, s16 *, 0x328) = 1;
+            M2C_FIELD(arg0, s16 *, 0xB8) = 0xB;
+            set_indexed_flags((void *) (arg0), (int) (0), (int) (0x0A000000));
+            obj_setFlags30((void *) (arg0), (int) (0x04000000));
+            TBoss3Volopt__sub_8022675C(0x4003AB32, (s32) (arg0 + 0x38), 0, 0);
+        }
+        break;
+    case 1:
+        if ((u32) M2C_FIELD(arg0, u32 *, 0xB4) != 0x20U) {
+            M2C_FIELD(arg0, s16 *, 0x328) = 2;
+            M2C_FIELD(arg0, s32 *, 0x390) = 0;
+            M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+            clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 0x0A000000);
+            obj_clearFlags30((void *) (arg0), (int) (0x04000000));
+        }
+        break;
+    case 2:
+        M2C_FIELD(arg0, s16 *, 0x326) = 1;
+        break;
+    }
+    advance_animation_playback((void *) (arg0));
 }
 
 }

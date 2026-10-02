@@ -407,6 +407,151 @@ struct VObj_18 : VBase_18 {
     virtual s32 m17(M2C_UNK);
 };
 
+struct VBase_800C53DC { char pad[0x18]; };
+
+struct Tgt_800C53DC : VBase_800C53DC {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual s32 m18(void *, f32);
+    virtual void m19();
+    virtual void m20(void *, f32);
+    virtual void m21();
+    virtual void m22();
+    virtual void m23(void *, f32);
+};
+
+struct Self_800C53DC : VBase_800C53DC {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual void m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual void m93();
+    virtual void m94();
+    virtual void m95();
+    virtual void m96();
+    virtual void m97();
+    virtual void m98();
+    u8 pad1C[0x38 - 0x1C];
+    u8 pos[0xB4 - 0x38];
+    u32 fB4;
+    s16 fB8;
+    u8 padBA[0x2A8 - 0xBA];
+    Tgt_800C53DC *target;
+    u8 pad2AC[0x328 - 0x2AC];
+    s16 f328;
+    u8 pad32A[0x338 - 0x32A];
+    u16 f338;
+    u8 pad33A[0x33C - 0x33A];
+    s16 f33C;
+    u8 pad33E[0x350 - 0x33E];
+    s32 *f350;
+};
+
 extern "C" {
 M2C_UNK enemy_wander_home(void *, int, f32, f32, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -540,6 +685,22 @@ extern const f32 lbl_805DA028;
 extern const f32 lbl_805DA02C;
 extern const f32 lbl_805DA030;
 M2C_UNK TObjPlayer__sub_800C4E64(void *arg0);
+M2C_UNK apply_actor_gravity(void *, int, f32);
+M2C_UNK TObjPlayer__sub_80018660(void *, s32);
+s32 obj_clearFlags30(void * a0, s32 a1);
+s32 get_current_floor(void);
+s32 get_field_3e4__10TObjPlayerFPv(void *);
+Tgt_800C53DC *get_enemy_entity(u16);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK advance_animation_playback();
+M2C_UNK update_collisions__10TObjPlayerFPv(void *);
+Tgt_800C53DC *get_player_by_client_id(u16);
+M2C_UNK minimap_render_dot(void *, int, int, int);
+extern const f32 lbl_805DA034;
+extern const f32 lbl_805DA048;
+extern const f32 lbl_805DA04C;
+extern const f32 lbl_805DA050;
+void TObjPlayer__sub_800C53DC(Self_800C53DC *arg0);
 }
 
 extern "C" {
@@ -753,6 +914,54 @@ void enter_state7__10TObjPlayerFPv(void *arg0) {
 }
 void TObjPlayer__sub_800C53B4(void) {  }
 int clear_flag_0x100__10TObjPlayerFPv(void* p) { return obj_clearFlags30(p, 256); }
+
+void TObjPlayer__sub_800C53DC(Self_800C53DC *arg0) {
+    Tgt_800C53DC *p;
+    if (arg0->f338 < 0x1000) {
+        p = get_player_by_client_id(arg0->f338);
+        if (p != NULL && get_field_3e4__10TObjPlayerFPv(p) == get_current_floor()) {
+            arg0->target = p;
+        } else {
+            arg0->target = NULL;
+        }
+    } else if (arg0->f338 < 0x4000) {
+        arg0->target = get_enemy_entity(arg0->f338);
+    } else {
+        arg0->target = NULL;
+    }
+    ((M2C_UNK (*)(void *))advance_animation_playback)(arg0);
+    switch (arg0->f328) {
+    case 0:
+        arg0->f328 = 1;
+    case 1:
+        if (objInBand__FP7GameObjf(arg0, lbl_805DA04C) != 0) {
+            if (arg0->target != NULL && arg0->target->m18(arg0, lbl_805DA048) != 0) {
+                arg0->target->m20(arg0, lbl_805DA048);
+                arg0->target->m23(arg0, lbl_805DA050);
+            }
+            arg0->m94();
+        }
+        arg0->m91();
+        if (arg0->fB4 != 4) {
+            arg0->f328 = 2;
+            arg0->fB8 = 0;
+            arg0->f33C = 0xF;
+        }
+        break;
+    case 2:
+        arg0->f33C--;
+        if (arg0->f33C < 0) {
+            obj_clearFlags30(arg0, 0x200000);
+            arg0->f33C = 0;
+            arg0->m98();
+        }
+        break;
+    }
+    apply_actor_gravity(arg0, 0, lbl_805DA034);
+    TObjPlayer__sub_80018660(arg0, arg0->f350[2]);
+    update_collisions__10TObjPlayerFPv(arg0);
+    minimap_render_dot(arg0->pos, -0x5DB4, 1, 0);
+}
 
 void TObjPlayer__sub_800C55E0(Obj_800C55E0 *o) {
     switch (o->state) {
