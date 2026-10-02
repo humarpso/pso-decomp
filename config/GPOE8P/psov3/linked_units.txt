@@ -880,6 +880,7 @@ pso/misc/TCameraCtrl_801A2FE0.cpp
 pso/misc/TCameraCtrl_801A3C24.cpp
 pso/misc/TCameraCtrl_801A6E60.cpp
 pso/misc/TChCrCharSelect_802937D4.cpp
+pso/misc/TChCrCharSelect_802937E8.cpp
 pso/misc/TChCrCharSelect_80293860.cpp
 pso/misc/TChCrCharSelect_802938E4.cpp
 pso/misc/TChCrCharSelect_80293BEC.cpp
@@ -965,6 +966,7 @@ pso/misc/TKeyBoardControl_8000F764.cpp
 pso/misc/TKeyBoardControl_8019BB2C.cpp
 pso/misc/TKeyBoardControl_801A57C4.cpp
 pso/misc/TKeyBoardControl_802433DC.cpp
+pso/misc/TKeyBoardControl_8025CB70.cpp
 pso/misc/TKeyBoardControl_80290CB0.cpp
 pso/misc/TKeyBoardControl_802A1180.cpp
 pso/misc/TKeyBoardControl_803CBDE0.cpp
@@ -2102,6 +2104,7 @@ pso/misc/TWindowSubTradeMain_802D2808.cpp
 pso/misc/TWindowSubTradeMain_802D3924.cpp
 pso/misc/TWindowSubTradeMain_80332148.cpp
 pso/misc/TWindowSubTradeMain_803322B8.cpp
+pso/misc/TWindowSubTradeMessage.cpp
 pso/misc/TWindowTimer.cpp
 pso/misc/TWindowTimer_80198814.cpp
 pso/misc/TWindowTimer_80198C84.cpp
@@ -4037,6 +4040,7 @@ pso/unk/text_802752D8.cpp
 pso/unk/text_802754EC.cpp
 pso/unk/text_80277DF8.cpp
 pso/unk/text_80278460.cpp
+pso/unk/text_802787F0.cpp
 pso/unk/text_80278964.cpp
 pso/unk/text_802789E0.cpp
 pso/unk/text_80278E48.cpp
@@ -4154,6 +4158,7 @@ pso/unk/text_803281B8.cpp
 pso/unk/text_8032AC9C.cpp
 pso/unk/text_8032D9BC.cpp
 pso/unk/text_8032DA60.cpp
+pso/unk/text_8032E294.cpp
 pso/unk/text_8032E400.cpp
 pso/unk/text_803374F0.cpp
 pso/unk/text_80338F3C.cpp
@@ -4251,6 +4256,7 @@ pso/unk/text_803E2070.cpp
 pso/unk/text_803E29B0.cpp
 pso/unk/text_803E4CE8.cpp
 pso/unk/text_803F1804.cpp
+pso/unk/text_803F4D10.cpp
 pso/unk/text_803F632C.cpp
 pso/unk/text_8042EE4C.cpp
 si/SIBios.c

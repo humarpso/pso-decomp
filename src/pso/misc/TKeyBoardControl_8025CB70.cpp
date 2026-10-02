@@ -14,6 +14,12 @@ void TKeyBoardControl__sub_8025CC3C(void* p);
 void TKeyBoardControl__sub_8025CC04(u8 *arg0);
 void TKeyBoardControl__sub_8025CC3C(void* p);
 void TKeyBoardControl__sub_8025CBCC(u8 *arg0);
+s32 test_card_flag_0x80__19TWindowKeyBoardHardFPv(s16);
+s32 test_card_flag_64__19TWindowKeyBoardHardFPv(s16);
+s32 call_1A529C_with_32__19TWindowKeyBoardHardFPv(s16);
+s32 test_card_flag_16__19TWindowKeyBoardHardFPv(s16);
+extern s32 lbl_805D5544;
+void TWindowKeyBoardHard__sub_8025CC48(void *arg0);
 }
 
 extern "C" {
@@ -44,5 +50,30 @@ void TKeyBoardControl__sub_8025CC04(u8 *arg0) {
 }
 
 void TKeyBoardControl__sub_8025CC3C(void* p) { *(s32*)((char*)p + 0xb4) = 18; }
+void TWindowKeyBoardHard__sub_8025CC48(void *arg0) {
+    switch (lbl_805D5544) {
+    case 0:
+        M2C_FIELD(arg0, s32 *, 0xB4) = 0;
+        if (test_card_flag_16__19TWindowKeyBoardHardFPv(M2C_FIELD(arg0, s16 *, 0x20)) != 0) {
+            M2C_FIELD(arg0, s32 *, 0xB4) = (s32) (M2C_FIELD(arg0, s32 *, 0xB4) | 1);
+        }
+        if (call_1A529C_with_32__19TWindowKeyBoardHardFPv(M2C_FIELD(arg0, s16 *, 0x20)) != 0) {
+            M2C_FIELD(arg0, s32 *, 0xB4) = (s32) (M2C_FIELD(arg0, s32 *, 0xB4) | 2);
+        }
+        if (test_card_flag_64__19TWindowKeyBoardHardFPv(M2C_FIELD(arg0, s16 *, 0x20)) != 0) {
+            M2C_FIELD(arg0, s32 *, 0xB4) = (s32) (M2C_FIELD(arg0, s32 *, 0xB4) | 4);
+        }
+        if (test_card_flag_0x80__19TWindowKeyBoardHardFPv(M2C_FIELD(arg0, s16 *, 0x20)) != 0) {
+            M2C_FIELD(arg0, s32 *, 0xB4) = (s32) (M2C_FIELD(arg0, s32 *, 0xB4) | 8);
+        }
+        break;
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+        M2C_FIELD(arg0, s32 *, 0xB4) = 6;
+        break;
+    }
+}
 
 }

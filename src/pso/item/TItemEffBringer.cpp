@@ -1,8 +1,54 @@
 #include "pso/TItemEffBringer.h"
 
-extern "C" void TObjEneDellBiter__sub_80087350(Vec*, int);
-extern "C" void TBoss6Type1__sub_803D9370(Vec*, Vec*);
-extern "C" void request_destroy__11TBoss4Type2FUi(s32);
+#include "types.h"
+#include "dolphin/mtx.h"
+typedef s32 M2C_UNK;
+struct Vec_8010834C { f32 x, y, z; };
+
+struct Bringer_8010834C {
+    s32 f0;
+    u8 pad4[0x18 - 4];
+    void *vt;
+    u8 pad1C[0x2C - 0x1C];
+    s32 f2C;
+    u8 pad30[0x38 - 0x30];
+    Vec_8010834C f38;
+    u8 pad44[0x58 - 0x44];
+    s32 m_particles[10];
+    s32 m_particle_count;
+    Vec_8010834C m_84;
+};
+
+extern "C" {
+void VecCopy__FP3VecPC3Vec(void *, const void *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+void disallow_rendering__7TObjectFv(void *);
+void *__ct__10TItemShootFPvPC3VecPC3Vecf(void *, u32, s32, s32, f32);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+void TObjPlayer__sub_803D89E8(s32);
+void TBoss6Type1__sub_803D9370(Vec*, Vec*);
+void TObjPlayer__sub_803D9884(void *, void *);
+void TObjPlayer__sub_803D9B2C(void);
+void TObjPlayer__sub_803D9B78(void);
+extern const f64 lbl_8043E188[];
+extern void *__vt__15TItemEffBringer[];
+extern s32 lbl_805D2B90;
+extern f32 lbl_805DAB10;
+extern const f32 lbl_805DAB14;
+extern const f32 lbl_805DAB18;
+extern const f32 lbl_805DAB1C;
+void *__ct__15TItemEffBringerFv(Bringer_8010834C *self, u32 arg1, Vec_8010834C *src, s32 arg3, f32 farg0);
+}
+
+extern "C" {
+void TObjEneDellBiter__sub_80087350(Vec*, int);
+}
+extern "C" {
+void TBoss6Type1__sub_803D9370(Vec*, Vec*);
+}
+extern "C" {
+void request_destroy__11TBoss4Type2FUi(s32);
+}
 
 void TItemEffBringer::hook() {
     Vec work = this->m_pos;
@@ -27,16 +73,52 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *create__15TItemEffBringerFUiiif(u32 arg0, s32 arg1, s32 arg2, f32 farg0);
-void *__ct__15TItemEffBringerFv(void *, u32, s32, s32, f32);
 void *__nw__7TObjectFUl(M2C_UNK);
 
 extern f32 lbl_805DAB10;
+
+#pragma push
+#pragma fp_contract on
+void *__ct__15TItemEffBringerFv(Bringer_8010834C *self, u32 arg1, Vec_8010834C *src, s32 arg3, f32 farg0) {
+    Vec_8010834C w;
+    Vec_8010834C out;
+    Vec_8010834C z;
+    f32 r;
+    f32 n;
+    s32 i;
+    __ct__10TItemShootFPvPC3VecPC3Vecf(self, arg1, (s32)src, arg3, farg0);
+    self->vt = __vt__15TItemEffBringer;
+    self->f0 = lbl_805D2B90;
+    TObjPlayer__sub_803D9B2C();
+    z.x = z.y = z.z = lbl_805DAB10;
+    TObjPlayer__sub_803D89E8(0);
+    TObjPlayer__sub_803D9884(&z, &out);
+    VecCopy__FP3VecPC3Vec(&w, src);
+    TBoss6Type1__sub_803D9370((Vec*)((Vec *)&w), (Vec*)((Vec *)&out));
+    TObjPlayer__sub_803D9B78();
+    r = TBoss8Dragon__sub_803D64C0(self->f2C - (s32)(lbl_8043E188[0] * get_ad_end_text_start__10TObjPlayerFv(w.x, w.z)));
+    if (r < lbl_805DAB10) {
+        r *= lbl_805DAB14;
+    }
+    n = lbl_805DAB1C * r + lbl_805DAB18;
+    VecCopy__FP3VecPC3Vec(&self->m_84, &self->f38);
+    self->m_84.x /= n;
+    self->m_84.y /= n;
+    self->m_84.z /= n;
+    self->m_particle_count = (s32)n + 1;
+    for (i = 0; i != self->m_particle_count; i++) {
+        self->m_particles[i] = 0;
+    }
+    disallow_rendering__7TObjectFv(self);
+    return self;
+}
+#pragma pop
 
 void *create__15TItemEffBringerFUiiif(u32 arg0, s32 arg1, s32 arg2, f32 farg0) {
     if ((lbl_805DAB10 != farg0) && (arg0 != 0U)) {
         void *obj = __nw__7TObjectFUl(0x90);
         if (obj != NULL) {
-            obj = __ct__15TItemEffBringerFv(obj, arg0, arg1, arg2, farg0);
+            obj = __ct__15TItemEffBringerFv((Bringer_8010834C *)(obj), (u32)(arg0), (Vec_8010834C *)(arg1), (s32)(arg2), farg0);
         }
         return obj;
     }

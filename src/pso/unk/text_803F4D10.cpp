@@ -1,7 +1,10 @@
 #include "types.h"
+
 extern "C" {
 extern u32 lbl_804FCF34[];
 u32 fn_803F4D10(u32 crc, u8 *buf, s32 len);
+u32 fn_803F4D10(u32 crc, u8 *buf, s32 len);
+u32 fn_803F4D4C(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -16,6 +19,18 @@ u32 fn_803F4D10(u32 crc, u8 *buf, s32 len) {
         crc = (crc >> 8) ^ lbl_804FCF34[(u8)(crc ^ buf[i])];
     }
     return crc;
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+#pragma peephole off
+#pragma optimization_level 1
+u32 fn_803F4D4C(s32 arg0, s32 arg1) {
+    u32 r = fn_803F4D10(-1, (u8 *)arg0, arg1);
+    r ^= 0xFFFF0000;
+    r ^= 0xFFFF;
+    return r;
 }
 #pragma pop
 

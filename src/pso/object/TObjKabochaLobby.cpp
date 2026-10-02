@@ -16,6 +16,18 @@ struct VObj18_8035346c : VBase18_8035346c {
     virtual M2C_UNK m8(f32, f32);
 };
 
+struct Kabocha_80353520 {
+    u8 pad0[0xC8];
+    s32 state;
+    f32 scale;
+};
+
+extern "C" {
+s32 TLobby__sub_80351DFC(void);
+extern const f32 lbl_805DFF3C;
+void run_task__16TObjKabochaLobbyFv(Kabocha_80353520 *o);
+}
+
 extern "C" {
 
 void *create__16TObjKabochaLobbyFPv(void *arg0);
@@ -55,6 +67,40 @@ void render__16TObjKabochaLobbyFv(u8 *arg0) {
 }
 
 extern void *tl_05;
+
+void run_task__16TObjKabochaLobbyFv(Kabocha_80353520 *o) {
+    switch (o->state) {
+    case 0:
+        if (TLobby__sub_80351DFC() == 5) {
+            o->state = 2;
+        }
+        break;
+    case 2:
+        {
+        o->scale += lbl_805DFF3C;
+        if (o->scale >= 1.0f) {
+            o->scale = 1.0f;
+            o->state = 3;
+        }
+        }
+        break;
+    case 1:
+        {
+        o->scale -= lbl_805DFF3C;
+        if (o->scale <= 0.0f) {
+            o->scale = 0.0f;
+            o->state = 0;
+        }
+        }
+        break;
+    case 3:
+    default:
+        if (TLobby__sub_80351DFC() != 5) {
+            o->state = 1;
+        }
+        break;
+    }
+}
 
 void *create__16TObjKabochaLobbyFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD0);
