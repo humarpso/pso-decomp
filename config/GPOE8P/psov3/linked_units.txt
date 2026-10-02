@@ -4143,6 +4143,7 @@ pso/unk/text_8020A2AC.cpp
 pso/unk/text_8020A508.cpp
 pso/unk/text_8020A768.cpp
 pso/unk/text_8020A9C4.cpp
+pso/unk/text_8020AB50.cpp
 pso/unk/text_8020AD40.cpp
 pso/unk/text_8020B118.cpp
 pso/unk/text_8020B374.cpp

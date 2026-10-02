@@ -29,6 +29,10 @@ struct W_8020430C { s32 a, b, c; };
 struct Cam_8020430C { u8 pad[0x178]; W_8020430C pos; };
 
 struct Obj_802040D4;
+typedef s32 M2C_UNK;
+struct Obj_80204B78 { u8 pad0[4]; f32 x; f32 y; f32 z; u8 pad10[0xC]; f32 radius; u8 pad20[0x10]; u32 flags; };
+
+typedef void (*RecoveredCallback_2be3cacebb2e)(void);
 extern "C" {
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 SceneMaterialSection *TScene__sub_80203600(s32 id);
@@ -59,6 +63,34 @@ s32 TScene__sub_802040D4(void *arg0, Obj_802040D4 *o, f32 f0, f32 f1);
 extern const f32 lbl_805DC5DC;
 extern const f32 lbl_805DC5E0;
 void TScene__sub_802041F4(void *task, SceneMaterialSection *room);
+extern SceneMaterialRoot* TScene__data_805D5FCC;
+extern const f32 TScene__data_805DC5D8;
+extern const f32 TScene__data_805DC600;
+extern u8 lbl_8058D490[];
+f32 TObjPlayer__sub_803D89C0(void *, void *);
+s32 TScene__sub_80204024(f32 thr, s32 unused, void *a, void *b, Vec_80204024 *c);
+void TNpcPlayer__sub_803D97B4(Vec_80204024 *);
+void TObjPlayer__sub_803D97F0(void *);
+void rotate_matrix_y(s32, s32);
+void TScene__sub_803D8DB4(s32, void *, Vec_80204024 *);
+void TObjPlayer__sub_803D9B78(void);
+s32 TScene__sub_80204B78(s32 arg0, Obj_80204B78 *obj, Vec_80204024 *pos, void *arg3, s32 arg4);
+extern SceneMaterialRoot* TScene__data_805D5FCC;
+extern RecoveredCallback_2be3cacebb2e TScene__data_805D5FF4;
+extern s32 some_id_805c6f74;
+extern s32 lbl_805D5660;
+void draw_if_all_ready__10TObjPlayerFv(void);
+void set_global_param__8TObjFishFi(void *);
+void prepare_ginja_model(void);
+void TObjPlayer__sub_803DC6F4(void);
+void TObjPlayer__sub_803D9B2C(void);
+void TObjPlayer__sub_803D9B78(void);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+void TScene__sub_8020533C(void *, SceneMaterialSection *, s32);
+void TScene__sub_80205078(void *, SceneMaterialSection *, s32);
+void TOHangerMachine01__sub_803D9C00(f32 *);
+void TObjPlayer__sub_803D99F8(s32 *, s32);
+void TScene__sub_802056C4(void *scene);
 }
 
 extern "C" {
@@ -257,6 +289,121 @@ void TScene__sub_8020430C(void) {
         } else {
             rec->flags &= ~0x10000;
         }
+    }
+}
+s32 TScene__sub_80204B78(s32 arg0, Obj_80204B78 *obj, Vec_80204024 *pos, void *arg3, s32 arg4) {
+    Vec_80204024 c;
+    Vec_80204024 a;
+    Vec_80204024 b;
+    f32 r2;
+    f32 g2;
+    f32 k;
+    f32 z;
+    f32 x;
+    f32 dist2;
+    f32 d;
+    k = TScene__data_805DC5D8;
+    x = obj->x;
+    a.x = x;
+    a.y = k;
+    z = obj->z;
+    a.z = z;
+    b.x = x - pos->x;
+    b.y = k;
+    b.z = z - pos->z;
+    dist2 = b.x * b.x + b.y * b.y + b.z * b.z;
+    r2 = obj->radius * obj->radius;
+    g2 = TScene__data_805D5FCC->radius * TScene__data_805D5FCC->radius;
+    if (dist2 < r2) {
+        obj->flags |= 0x10000;
+        return 1;
+    }
+    if (dist2 > g2) {
+        obj->flags &= ~0x10000;
+        return 0;
+    }
+    TNpcPlayer__sub_803D97B4(&b);
+    d = TObjPlayer__sub_803D89C0(arg3, &b);
+    if (d < TScene__data_805DC5D8) {
+        obj->flags &= ~0x10000;
+        return 0;
+    }
+    if (d >= TScene__data_805DC5D8 && d < TScene__data_805DC600) {
+        TObjPlayer__sub_803D97F0(lbl_8058D490);
+        rotate_matrix_y(0, arg4);
+        TScene__sub_803D8DB4(0, arg3, &c);
+        TNpcPlayer__sub_803D97B4(&c);
+        TObjPlayer__sub_803D9B78();
+        if (TScene__sub_80204024(obj->radius, arg0, &a, &b, &c) != 0) {
+            obj->flags |= 0x10000;
+            return 1;
+        }
+        TObjPlayer__sub_803D97F0(lbl_8058D490);
+        rotate_matrix_y(0, -arg4);
+        TScene__sub_803D8DB4(0, arg3, &c);
+        TNpcPlayer__sub_803D97B4(&c);
+        TObjPlayer__sub_803D9B78();
+        if (TScene__sub_80204024(obj->radius, arg0, &a, &b, &c) != 0) {
+            obj->flags |= 0x10000;
+            return 1;
+        }
+    } else {
+        obj->flags |= 0x10000;
+        return 1;
+    }
+    obj->flags &= ~0x10000;
+    return 0;
+}
+void TScene__sub_802056C4(void *scene) {
+    SceneMaterialSection *sec;
+    s32 i;
+    if (TScene__data_805D5FCC != NULL) {
+        draw_if_all_ready__10TObjPlayerFv();
+        if (TScene__data_805D5FF4 != NULL) {
+            TScene__data_805D5FF4();
+        }
+        if (*(void **)((u8 *)TScene__data_805D5FCC + 0x14) != NULL) {
+            set_global_param__8TObjFishFi(*(void **)((u8 *)TScene__data_805D5FCC + 0x14));
+        }
+        sec = TScene__data_805D5FCC->sections;
+        prepare_ginja_model();
+        lbl_805D5660 = some_id_805c6f74;
+        for (i = 0; i < TScene__data_805D5FCC->count; i++, sec++) {
+            if (sec->flags & 0x10000) {
+                if (sec->flags & 0x80000) {
+                    TObjPlayer__sub_803D9B2C();
+                    switch (get_global_state__14TOKeyMachine01Fv()) {
+                    case 0:
+                    case 0xF:
+                    case 0x12:
+                        TScene__sub_8020533C(scene, sec, 0);
+                        TScene__sub_80205078(scene, sec, 0);
+                        break;
+                    default:
+                        TScene__sub_8020533C(scene, sec, 1);
+                        TScene__sub_80205078(scene, sec, 1);
+                        break;
+                    }
+                    TObjPlayer__sub_803D9B78();
+                } else if (sec->flags & 0x100000) {
+                    TObjPlayer__sub_803D9B2C();
+                    TOHangerMachine01__sub_803D9C00(sec->position);
+                    TObjPlayer__sub_803D99F8(sec->angles, 1);
+                    TScene__sub_8020533C(scene, sec, 1);
+                    TScene__sub_80205078(scene, sec, 1);
+                    TObjPlayer__sub_803D9B78();
+                } else {
+                    TObjPlayer__sub_803D9B2C();
+                    TOHangerMachine01__sub_803D9C00(sec->position);
+                    TObjPlayer__sub_803D99F8(sec->angles, 1);
+                    TScene__sub_8020533C(scene, sec, 0);
+                    TScene__sub_80205078(scene, sec, 0);
+                    TObjPlayer__sub_803D9B78();
+                }
+            }
+        }
+        some_id_805c6f74 = lbl_805D5660;
+        TObjPlayer__sub_803DC6F4();
     }
 }
 

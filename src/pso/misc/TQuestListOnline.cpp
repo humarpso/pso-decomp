@@ -13,6 +13,21 @@ struct Stack_80217EC4 {
 struct RecoveredGlobal_80217EC4_lbl_8044BEDC { M2C_UNK value; u8 remaining[0x8]; };
 typedef char RecoveredGlobal_80217EC4_lbl_8044BEDC_size[sizeof(RecoveredGlobal_80217EC4_lbl_8044BEDC) == 0xC ? 1 : -1];
 
+typedef s32 M2C_UNK;
+struct VBase_18_80217F88 { char pad[0x18]; };
+
+struct VObj_18_80217F88 : VBase_18_80217F88 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8();
+};
+
 extern "C" {
 s32 obj_getField1c(int);
 s32 get_camera_id__11TCameraCtrlFv();
@@ -27,6 +42,19 @@ extern u32 TQuestListOnline__data_805D6194;
 extern const f32 lbl_805DC6A4;
 extern const f32 lbl_805DC6A8;
 void TQuestListOnline__sub_80217EC4(u8 *arg0);
+s32 obj_getField1c(int);
+int set_field_20__12TQuestListVMFPvi(void*, int);
+s32 TLobby__sub_80222C54(int);
+M2C_UNK TShopArmorListWindow__sub_80266DB0(u32);
+M2C_UNK TLobby__sub_80266E34(u32);
+s32 send_and_handle__6TLobbyFPvii(int, void *, int);
+u32 set_window_mode_4__6TLobbyFPvii(s32, void *, int);
+s32 TWindowSubComCard__sub_8026CBB8(int);
+void add_list_entry__6TLobbyFPviii(u32, int, void *, int);
+u32 TShopJudgmentItemWindow__sub_8026DF00(s32, int, u16);
+extern Stack_80217EC4 lbl_8044BED4[];
+extern u8 *TQuestListOnline__data_805D6190;
+void TQuestListOnline__sub_80217F88(u8 *arg0);
 }
 
 extern "C" {
@@ -79,6 +107,53 @@ void TQuestListOnline__sub_80217EC4(u8 *arg0) {
         send_and_handle__6TLobbyFPvii((int) (M2C_FIELD(arg0, u32 *, 0x40)), (void *) (TQuestListOnline__data_805D6194 + 4), (int) (0x80));
     }
     set_field_20__12TQuestListVMFPvi((void*)((void *) (arg0)), (int)((int) (3)));
+}
+void TQuestListOnline__sub_80217F88(u8 *arg0) {
+    u16 id;
+    s32 off;
+    s32 i;
+    u8 *e;
+    if (((VObj_18_80217F88 *)M2C_FIELD(arg0, void **, 0x6C))->m8() != 0) {
+        if (M2C_FIELD(arg0, u32 *, 0x38) == 0U) {
+            id = obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
+            M2C_FIELD(arg0, u32 *, 0x38) = TShopJudgmentItemWindow__sub_8026DF00(TLobby__sub_80222C54(0), 0x40, id);
+        } else {
+            TShopArmorListWindow__sub_80266DB0(M2C_FIELD(arg0, u32 *, 0x38));
+        }
+        if (TQuestListOnline__data_805D6190 != NULL && TQuestListOnline__data_805D6190[1] == 0) {
+            set_field_20__12TQuestListVMFPvi(arg0, 0xB);
+            return;
+        }
+        if (TQuestListOnline__data_805D6190 != NULL) {
+            for (i = 0, off = 0; i < TQuestListOnline__data_805D6190[1]; i++, off += 0x98) {
+                e = TQuestListOnline__data_805D6190 + off;
+                switch (e[5]) {
+                case 0:
+                    add_list_entry__6TLobbyFPviii(M2C_FIELD(arg0, u32 *, 0x38), 0x2C, e + 0xC, i);
+                    break;
+                case 1:
+                    add_list_entry__6TLobbyFPviii(M2C_FIELD(arg0, u32 *, 0x38), 0x17, e + 0xC, i);
+                    break;
+                case 2:
+                    add_list_entry__6TLobbyFPviii(M2C_FIELD(arg0, u32 *, 0x38), 0x31, e + 0xC, i);
+                    break;
+                default:
+                    add_list_entry__6TLobbyFPviii(M2C_FIELD(arg0, u32 *, 0x38), 0x17, e + 0xC, i);
+                    break;
+                }
+            }
+            TLobby__sub_80266E34(M2C_FIELD(arg0, u32 *, 0x38));
+        }
+        if (M2C_FIELD(arg0, u32 *, 0x3C) == 0U) {
+            Stack_80217EC4 sp8 = lbl_8044BED4[0];
+            M2C_FIELD(arg0, u32 *, 0x3C) = set_window_mode_4__6TLobbyFPvii(TWindowSubComCard__sub_8026CBB8(0x2D), &sp8, 1);
+            send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, u32 *, 0x3C), TQuestListOnline__data_805D6190 + 0x2C, 0x80);
+        } else {
+            send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, u32 *, 0x3C), TQuestListOnline__data_805D6190 + 0x2C, 0x80);
+        }
+        M2C_FIELD(arg0, s32 *, 0x48) = 0;
+        set_field_20__12TQuestListVMFPvi(arg0, 3);
+    }
 }
 
 }

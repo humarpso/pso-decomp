@@ -8,6 +8,11 @@ struct Cyc_80205D24 { u16 id; u16 reserved; s16 texture; s16 index; s32 timer; }
 struct Uv_80205DE4 { u16 id; };
 
 #include "pso/misc/TSceneMaterial.h"
+typedef s32 M2C_UNK;
+struct Node_80205AEC { u32 flags; void *obj; u32 tex; u16 id; u8 b; u8 c; };
+
+struct Info_80205AEC { u8 a0; u8 a1; u8 tex; u8 b; u8 c; };
+
 extern "C" {
 u8 *TScene__sub_80081A30(void *, M2C_UNK, s32, s32, s32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
@@ -23,6 +28,13 @@ extern void* TScene__data_805D6004;
 s32 TScene__sub_80205D24(void *task, Cyc_80205D24 *c);
 s32 TScene__sub_80205DE4(void *task, Uv_80205DE4 *uv);
 void TScene__sub_802062B8(void *task);
+u8 *__nw__7TObjectFUl(M2C_UNK);
+extern SceneMaterialRoot* TScene__data_805D5FCC;
+Info_80205AEC *TScene__sub_80205AA8(void *, u16);
+void *fn_802A8210(void *, u8, void *);
+extern u32 lbl_8044A800[];
+extern u8 lbl_8044A80C[];
+void TScene__sub_80205AEC(void *scene);
 }
 
 extern "C" {
@@ -32,6 +44,71 @@ void TScene__sub_80205FD0(void);
 void copy_header_and_vec__6TSceneFPvPv(void* p, void* q);
 
 void TScene__sub_80205AE8(void) {  }
+
+void TScene__sub_80205AEC(void *scene) {
+    SceneMaterialSection *sec;
+    s32 i;
+    SceneMaterialStatic *st;
+    s32 j;
+    Node_80205AEC *node;
+    Info_80205AEC *info;
+    void *o;
+    SceneMaterialAnimated *an;
+    s32 j2;
+    Node_80205AEC *node2;
+    Info_80205AEC *info2;
+    void *o2;
+    if (TScene__data_805D5FCC != NULL) {
+        for (i = 0, sec = TScene__data_805D5FCC->sections; i < TScene__data_805D5FCC->count; i++, sec++) {
+            for (j = 0, st = sec->objects; j < sec->count; j++, st++) {
+                if (st->flags & 0x200) {
+                    node = (Node_80205AEC *)st->node;
+                    if (node->obj == NULL) {
+                        info = TScene__sub_80205AA8(scene, node->id);
+                        if (info != NULL) {
+                            o = __nw__7TObjectFUl(0x20);
+                            if (o != NULL) {
+                                o = fn_802A8210(o, info->c, scene);
+                            }
+                            node->obj = o;
+                            node->tex = lbl_8044A800[info->tex];
+                            node->b = lbl_8044A80C[info->b];
+                            node->c = info->c;
+                        } else {
+                            node->obj = 0;
+                            node->tex = 0;
+                            node->b = 0;
+                            node->c = 0;
+                        }
+                    }
+                }
+            }
+            for (j2 = 0, an = sec->animated; j2 < sec->animatedCount; j2++, an++) {
+                if (an->flags & 0x200) {
+                    node2 = (Node_80205AEC *)an->node;
+                    if (node2->obj == NULL) {
+                        info2 = TScene__sub_80205AA8(scene, node2->id);
+                        if (info2 != NULL) {
+                            o2 = __nw__7TObjectFUl(0x20);
+                            if (o2 != NULL) {
+                                o2 = fn_802A8210(o2, info2->c, scene);
+                            }
+                            node2->obj = o2;
+                            node2->tex = lbl_8044A800[info2->tex];
+                            node2->b = lbl_8044A80C[info2->b];
+                            node2->c = info2->c;
+                        } else {
+                            node2->obj = 0;
+                            node2->tex = 0;
+                            node2->b = 0;
+                            node2->c = 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 void TScene__sub_80205CC4(s32 arg0) {
   s8 *new_var;
