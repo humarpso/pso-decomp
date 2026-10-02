@@ -20,6 +20,32 @@ struct VObj_18_1a504b : VBase_18_1a504b {
 
 struct RecoveredGlobal_801733D8___vt__15TORainbowCave01 { M2C_UNK value; u8 remaining[0x34]; };
 
+struct Color_8017310C { f32 a, b, c, d; };
+
+struct VBase_8017310C { u8 pad[0x18]; };
+
+struct Cave_8017310C : VBase_8017310C {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual s32 m8(f32, f32);
+    u8 pad1C[0x24 - 0x1C];
+    s32 f24;
+    u8 pad28[0x34 - 0x28];
+    s32 f34;
+    u8 pos38[0x60 - 0x38];
+    s32 f60;
+    u8 pad64[0xC0 - 0x64];
+    f32 fC0;
+    f32 fC4;
+    f32 fC8;
+    f32 fCC;
+    u8 padD0[0xD4 - 0xD0];
+    u8 fD4[4];
+};
+
+typedef s32 M2C_UNK;
+struct Cave_801731F8 { u8 pad[0xC8]; f32 speed; f32 alpha; f32 range; };
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805DB940;
@@ -40,6 +66,24 @@ extern const f32 lbl_805DB94C;
 extern const f32 TORainbowCave01__data_805DB954;
 extern const f32 lbl_805DB958;
 u8 *TORainbowCave01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+s32 check_demo_mode__10TObjPlayerFv(void);
+void begin_effect_render__13TParticleCtrlFv(void);
+void end_effect_render__13TParticleCtrlFv(void);
+void rotate_matrix_y(s32, s32);
+void TObjPlayer__sub_803D9B2C(void);
+void TObjPlayer__sub_803D9B78(void);
+void TBoss7Tentacle__sub_803D9BA0(void *);
+void TOHangerMachine01__sub_803D9C00(void *);
+void set_global_param__8TObjFishFi(s32);
+void TObjBoss2Tunnel__sub_803DB470(s32);
+void set_chunk_material_color(void *);
+extern Color_8017310C lbl_804A7418[];
+extern s32 lbl_805D5660;
+extern s32 some_id_805c6f74;
+void render__15TORainbowCave01Fv(Cave_8017310C *self);
+void update__15TORainbowCave01FPv(void *);
+s32 is_player_in_range__15TORainbowCave01Fif(s32 arg0, f32 farg0);
+void run_task__15TORainbowCave01Fv(Cave_801731F8 *self);
 }
 
 extern "C" {
@@ -77,6 +121,53 @@ void TORainbowCave01__sub_8017307C(u8 *arg0, int _w1, f32 _w2, f32 _w3) {
     VecCopy__FP3VecPC3Vec(arg0 + 0xD4, arg0 + 0x68);
 }
 #pragma pop
+
+void render__15TORainbowCave01Fv(Cave_8017310C *self) {
+    Color_8017310C c;
+    s32 old;
+    if (self->m8(self->fC0, self->fC4) != 0 && -1.0f < self->fCC) {
+        begin_effect_render__13TParticleCtrlFv();
+        set_global_param__8TObjFishFi(self->f24);
+        old = some_id_805c6f74;
+        lbl_805D5660 = old;
+        some_id_805c6f74 = old | 0x20;
+        c.d = c.c = c.b = 0.0f;
+        if (check_demo_mode__10TObjPlayerFv() == 1) {
+            c.a = 0.0f;
+        } else {
+            c.a = self->fCC;
+        }
+        set_chunk_material_color(&c);
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(self->pos38);
+        rotate_matrix_y(0, self->f60);
+        TBoss7Tentacle__sub_803D9BA0(self->fD4);
+        TObjBoss2Tunnel__sub_803DB470(self->f34);
+        TObjPlayer__sub_803D9B78();
+        set_chunk_material_color(lbl_804A7418);
+        some_id_805c6f74 = lbl_805D5660;
+        end_effect_render__13TParticleCtrlFv();
+    }
+}
+
+void run_task__15TORainbowCave01Fv(Cave_801731F8 *self) {
+    s32 in = (is_player_in_range__15TORainbowCave01Fif((s32)self, self->range) == 1) ? 1 : 0;
+    switch (in + 1) {
+    case 1:
+        self->alpha += self->speed;
+        if (0.0f <= self->alpha) {
+            self->alpha = 0.0f;
+        }
+        break;
+    case 2:
+        self->alpha -= self->speed;
+        if (self->alpha <= -1.0f) {
+            self->alpha = -1.0f;
+        }
+        break;
+    }
+    update__15TORainbowCave01FPv(self);
+}
 
 void *create__15TORainbowCave01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE0);

@@ -24,6 +24,11 @@ u8 read_byte__22TQuestVmDownLoadServerFPv(void *arg0);
 void TQuestVmDownLoadServer__sub_80222754(void *arg0, s8 arg1);
 void TQuestVmDownLoadServer__sub_80222768(void *arg0, s32 arg1, s32 arg2);
 s32 TQuestVmDownLoadServer__sub_80222774(void *arg0, s32 arg1, s32 arg2);
+s32 TQuestThread__sub_801F5E58(void);
+void TQuestVmDownLoadServer__sub_80222704(void *arg0, s32 arg1);
+int strcmp(const char *, const char *);
+extern u8 lbl_8044C290[];
+void TQuestVmDownLoadServer__sub_8022250C(void *arg0);
 }
 
 extern "C" {
@@ -72,6 +77,15 @@ void TQuestVmDownLoadServer__sub_80222480(void *arg0) {
         return;
     }
     TQuestVmDownLoadServer__sub_80222704(arg0, (s32)lbl_8044C290);
+}
+
+void TQuestVmDownLoadServer__sub_8022250C(void *arg0) {
+    s32 t = TQuestThread__sub_801F5E58();
+    if (strcmp((const char *)t, (const char *)lbl_8044C290) == 0) {
+        TQuestVmDownLoadServer__sub_80222704(arg0, t);
+        return;
+    }
+    TQuestVmDownLoadServer__sub_80222704(arg0, t);
 }
 
 u8 is_idle__22TQuestVmDownLoadServerFPv(void *arg0) {

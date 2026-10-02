@@ -20,13 +20,15 @@ struct Hdr_80209AEC { s32 a; s32 table; s32 c; s32 count; };
 
 struct Ent_80209AEC { u8 b0; u8 b1; u8 weight; u8 pad; };
 
+struct Rec_802099FC;
+struct Tmp_8020994C { u8 pad[0x18]; s16 v; u8 pad2[2]; };
+
 extern "C" {
 s32 TLobby__sub_80209410(s32);
 void swap_header_endian__6TLobbyFPv(void *);
 extern s32 lbl_805D60A4;
 extern Ent_802098AC *lbl_805D60B8;
 void TLobby__sub_802098AC(Out_802098AC *out);
-Rec_802099FC *TLobby__sub_8020994C(void *, s32, s32);
 s16 clamp_min_drop__6TLobbyFUi(s32, s32);
 void TLobby__sub_8020A48C(void *p);
 void TLobby__sub_8020A568(void *p);
@@ -37,6 +39,9 @@ void TLobby__sub_8020A568(void *p);
 extern s32 lbl_805D60A0;
 extern u8 *lbl_805D60B0;
 void TLobby__sub_80209AEC(s32 *arg0, s32 *arg1);
+void TLobby__sub_8020A48C(void *p);
+void TLobby__sub_8020A508(void *, void *);
+Rec_802099FC *TLobby__sub_8020994C(void *arg0, s32 n, s32 key);
 }
 
 extern "C" {
@@ -52,11 +57,40 @@ void TLobby__sub_802098AC(Out_802098AC *out) {
     out->e = e.e;
     out->f = e.f;
 }
+
+Rec_802099FC *TLobby__sub_8020994C(void *arg0, s32 n, s32 key) {
+    u8 *arr = (u8 *)arg0;
+    u8 *e;
+    Tmp_8020994C t;
+    s32 lo;
+    s32 hi;
+    s32 mid;
+    hi = n - 1;
+    lo = 0;
+    while (lo < hi) {
+        mid = (lo + hi) / 2;
+        TLobby__sub_8020A508(&t, arr + mid * 32);
+        TLobby__sub_8020A48C(&t);
+        if (t.v < key) {
+            lo = mid + 1;
+        } else {
+            hi = mid;
+        }
+    }
+    e = arr + lo * 32;
+    TLobby__sub_8020A508(&t, e);
+    TLobby__sub_8020A48C(&t);
+    if (t.v == key) {
+        return (Rec_802099FC *)e;
+    }
+    return NULL;
+}
+
 void TLobby__sub_802099FC(Out_802099FC *arg0, s32 arg1) {
     Hdr_802099FC hdr = *(Hdr_802099FC *)lbl_805D60B0;
     Rec_802099FC *p;
     TLobby__sub_8020A568(&hdr);
-    p = TLobby__sub_8020994C(lbl_805D60B0 + hdr.table, hdr.count, arg1);
+    p = TLobby__sub_8020994C((void *)(lbl_805D60B0 + hdr.table), (s32)(hdr.count), (s32)(arg1));
     if (p != NULL) {
         Rec_802099FC r = *p;
         TLobby__sub_8020A48C(&r);

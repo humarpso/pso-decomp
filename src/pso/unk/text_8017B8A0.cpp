@@ -32,6 +32,22 @@ struct Obj_8017BAFC { u8 pad0[0x1C]; u16 f1C; u8 pad1[0x62]; Sub_8017BAFC *sub; 
 
 struct Pkt_8017BAFC { u16 a; u16 b; s32 c; s32 d; u16 e; s16 f; };
 
+struct Pkt_8017B9B0 { u16 a; u16 b; s32 c; s32 d; u16 e; u16 f; };
+
+struct Ent_8017B9B0 { s16 a; s16 b; };
+
+struct VBase_8017B9B0 { u8 pad[0x18]; };
+
+struct VObj_8017B9B0 : VBase_8017B9B0 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4(void *, s32);
+    u8 pad2[0x326 - 0x1C];
+    s16 state;
+};
+
 extern "C" {
 void fn_8017B908(u8 *arg0);
 void fn_8017B950(u8 *arg0);
@@ -44,6 +60,17 @@ s32 TLobby__sub_80156A80(void *, void *, int);
 void update_and_send__11TOVS2Wall01FPv(void *);
 void init__11TOVS2Wall01FPv(void *);
 void TOVS2Wall01__sub_8017BAFC(Obj_8017BAFC *arg0, u16 arg1);
+s32 check_value_equals__13TQuestColCtrlFPvi(void *, int);
+void apply_table_entry__6TLobbyFs(s16, void *);
+VObj_8017B9B0 *TPhotonMylla__sub_80154CB4();
+s32 TLobby__sub_80156A80(void *, void *, int);
+void init__11TOVS2Wall01Fi(void *);
+void TOVS2Wall01__sub_8017CA48(void *, s32);
+s32 TOVS2Wall01__sub_8017CA50(void *);
+void byteswap_hit_packet__11TOVS2Wall01FPv(void *);
+extern s32 lbl_805D31E0;
+extern Ent_8017B9B0 *TLobby__data_805D6140;
+void handle_6x86_hit_destructible_object(Pkt_8017B9B0 *arg0);
 }
 
 extern "C" {
@@ -94,6 +121,60 @@ void fn_8017B984(u8 *arg0) {
 }
 
 void TOVS2Wall01__sub_8017B9AC(void) {  }
+
+void handle_6x86_hit_destructible_object(Pkt_8017B9B0 *arg0) {
+    Ent_8017B9B0 spC;
+    Ent_8017B9B0 sp8;
+    VObj_8017B9B0 *o;
+    u16 id;
+    if (arg0 == NULL) {
+        return;
+    }
+    byteswap_hit_packet__11TOVS2Wall01FPv(arg0);
+    id = arg0->b;
+    if (id == 0xFFFF) {
+        return;
+    }
+    if (id < 0x4000) {
+        return;
+    }
+    o = ((VObj_8017B9B0 *(*)(u16))TPhotonMylla__sub_80154CB4)(id);
+    if (o != NULL) {
+        if (check_value_equals__13TQuestColCtrlFPvi(o, lbl_805D31E0) == 0) {
+            return;
+        }
+        switch (arg0->e) {
+        case 0:
+            switch (o->state) {
+            case 1:
+                break;
+            default:
+                o->state = 0;
+            case 0:
+                if (arg0->f < TOVS2Wall01__sub_8017CA50(o)) {
+                    TOVS2Wall01__sub_8017CA48(o, arg0->f);
+                }
+                break;
+            }
+            break;
+        case 1:
+            o->state = 1;
+            init__11TOVS2Wall01Fi(o);
+            break;
+        }
+        TLobby__sub_80156A80(o, &spC, 1);
+        spC.a = o->state;
+        TLobby__sub_80156A80(o, &spC, 0);
+        o->m4(&spC, 0);
+    } else {
+        *(s32 *)&sp8 = *(s32 *)&TLobby__data_805D6140[arg0->d];
+        if (sp8.a != 1) {
+            sp8.a = arg0->c;
+            apply_table_entry__6TLobbyFs(arg0->d, &sp8);
+        }
+    }
+}
+
 void TOVS2Wall01__sub_8017BAFC(Obj_8017BAFC *arg0, u16 arg1) {
     s16 sp8;
     Pkt_8017BAFC pkt;

@@ -44,6 +44,16 @@ struct Rev_8023A364 {
     s16 fe0;
 };
 
+struct VBase_8023A148 { char pad[0x18]; };
+
+struct VObj_8023A148 : VBase_8023A148 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(void *); };
+
+struct VBase_8023A244 { char pad[0x18]; };
+
+struct VObj_8023A244 : VBase_8023A244 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(void *); };
+
+struct List_8023A244 { u32 objs[16]; s32 vals[16]; s32 count; };
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u32 TPhotonMylla__sub_80154CB4(int);
@@ -76,6 +86,20 @@ extern char lbl_8044DBD4[];
 extern char lbl_8044DBE0[];
 extern char lbl_8044DBEC[];
 void TObjEneBm5GibonU__sub_8023A364(Rev_8023A364 *self);
+s32 obj_getField1c(int);
+s32 get_type__10TObjPlayerFPv(int);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 is_valid_and_active__10TObjPlayerFUi(int);
+u8 *TObjPlayer__sub_802367D8(void *, s32);
+u8 *TObjPlayer__sub_80236A20(void *, s32);
+void TObjPlayer__sub_8023A148(u8 *arg0);
+s32 obj_getField1c(int);
+s32 get_type__10TObjPlayerFPv(int);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 is_valid_and_active__10TObjPlayerFUi(int);
+u8 *TObjPlayer__sub_802367D8(void *, s32);
+u8 *TObjPlayer__sub_80236A20(void *, s32);
+void TObjPlayer__sub_8023A244(u8 *arg0);
 }
 
 extern "C" {
@@ -191,6 +215,68 @@ u8 *TTecReverser__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     }
     return arg0;
 }
+
+void TObjPlayer__sub_8023A148(u8 *arg0) {
+    u8 *var_r31;
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x128) == 0U) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return;
+    }
+    if ((u16) obj_getField1c((int) (M2C_FIELD(arg0, s32 *, 0x1C))) < 4U) {
+        if (get_type__10TObjPlayerFPv((int) (M2C_FIELD(arg0, s32 *, 0x1C) + 0x828)) != 0) {
+            var_r31 = TObjPlayer__sub_80236A20(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
+        } else {
+            var_r31 = TObjPlayer__sub_802367D8(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
+        }
+    } else {
+        var_r31 = TObjPlayer__sub_80236A20(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
+    }
+    if (var_r31 == NULL) {
+        ((VObj_8023A148*)arg0)->m4();
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return;
+    }
+    if (is_valid_and_active__10TObjPlayerFUi((int) (M2C_FIELD(var_r31, u32 *, 0))) != 0) {
+        void *p = M2C_FIELD(var_r31, void **, 0);
+        if (p != NULL) {
+            M2C_FIELD(arg0, s32 *, 0xF8) = (s32) M2C_FIELD(var_r31, s32 *, 0x40);
+            ((VObj_8023A148*)arg0)->m6(p);
+        }
+    }
+}
+
+void TObjPlayer__sub_8023A244(u8 *arg0) {
+    List_8023A244 *list;
+    s32 i;
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x128) == 0U) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return;
+    }
+    if ((u16) obj_getField1c((int) (M2C_FIELD(arg0, s32 *, 0x1C))) < 4U) {
+        if (get_type__10TObjPlayerFPv((int) (M2C_FIELD(arg0, s32 *, 0x1C) + 0x828)) != 0) {
+            list = (List_8023A244 *) TObjPlayer__sub_80236A20(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
+        } else {
+            list = (List_8023A244 *) TObjPlayer__sub_802367D8(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
+        }
+    } else {
+        list = (List_8023A244 *) TObjPlayer__sub_80236A20(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
+    }
+    if (list == NULL) {
+        ((VObj_8023A244 *) arg0)->m4();
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return;
+    }
+    for (i = 0; i < list->count; i++) {
+        if (is_valid_and_active__10TObjPlayerFUi((int) list->objs[i]) != 0) {
+            void *p = (void *) list->objs[i];
+            if (p != NULL) {
+                M2C_FIELD(arg0, s32 *, 0xF8) = list->vals[i];
+                ((VObj_8023A244 *) arg0)->m6(p);
+            }
+        }
+    }
+}
+
 void TObjEneBm5GibonU__sub_8023A364(Rev_8023A364 *self) {
     TObjEneBm5GibonU__sub_803D853C(0x1E0014, lbl_8044DBB0, self->fcc);
     TObjEneBm5GibonU__sub_803D853C(0x1E0015, lbl_8044DBBC, self->fdc);

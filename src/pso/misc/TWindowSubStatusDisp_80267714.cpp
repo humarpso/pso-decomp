@@ -10,12 +10,16 @@ struct Stack_80267B18 {
     f32 spC;
 };
 
+struct Win_80267AA8 { u8 p0[0x74]; s16 f74; s16 f76; };
+
 extern "C" {
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 u32 reset_selection__20TWindowSubStatusDispFPv(int, void *);
 extern const f32 lbl_805DD180;
 extern const f32 lbl_805DD188;
 void TWindowSubStatusDisp__sub_80267B18(u8 *arg0);
+s32 TWindowMenu__sub_80266B18(void *, s32);
+void TWindowSubStatusDisp__sub_80267AA8(Win_80267AA8 *w, s16 v);
 }
 
 extern "C" {
@@ -102,6 +106,22 @@ block_4:
                 goto loop_1;
             }
         }
+    }
+}
+
+void TWindowSubStatusDisp__sub_80267AA8(Win_80267AA8 *w, s16 v) {
+    if (v >= 0) {
+        if (v >= w->f76) {
+            return;
+        }
+        while (TWindowMenu__sub_80266B18(w, v) == 0) {
+            if (v > 0) {
+                v -= 1;
+                continue;
+            }
+            break;
+        }
+        w->f74 = v;
     }
 }
 

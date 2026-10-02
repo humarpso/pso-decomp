@@ -96,12 +96,6 @@
     "inline": "off",
     "use_lmw_stmw": "on"
   },
-  "pso/unk/text_80432688.cpp": {
-    "mw_version": "GC/1.2.5n",
-    "optimization": "-O4,p",
-    "inline": "off",
-    "use_lmw_stmw": "on"
-  },
   "pso/ui/TAdPlayerLoadGC_803F18B8.cpp": {
     "mw_version": "GC/1.2.5",
     "optimization": "-O4,p",
@@ -127,12 +121,6 @@
     "inline": "off",
     "use_lmw_stmw": "on",
     "opt": "nopeephole"
-  },
-  "pso/menu/TAdEndText_8039F7FC.cpp": {
-    "mw_version": "GC/2.6",
-    "optimization": "-O4,p",
-    "inline": "off",
-    "use_lmw_stmw": "on"
   },
   "pso/misc/TCameraCtrl_803D6538.cpp": {
     "mw_version": "GC/2.6",
@@ -234,12 +222,6 @@
   },
   "pso/ui/TAdPlayerLoadGC_803F3F64.cpp": {
     "mw_version": "GC/2.6",
-    "optimization": "-O4,p",
-    "inline": "off",
-    "use_lmw_stmw": "on"
-  },
-  "pso/unk/text_803820C0.cpp": {
-    "mw_version": "GC/1.2.5n",
     "optimization": "-O4,p",
     "inline": "off",
     "use_lmw_stmw": "on"

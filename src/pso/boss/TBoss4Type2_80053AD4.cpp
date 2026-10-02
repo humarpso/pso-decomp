@@ -18,6 +18,9 @@ extern const f32 lbl_805D8B64;
 extern const f32 lbl_805D8B68;
 extern const f32 lbl_805D8B6C;
 void TBoss4Type2__sub_80053B48(S_80053B48 *o, s32 *a, s32 *b);
+void TBoss4Type2__sub_80053AD4(void *);
+M2C_UNK TBoss4Type2__sub_800542B0(void *, int);
+void TBoss4Type2__sub_80053BF4(void *arg0, u32 arg1);
 }
 
 extern "C" {
@@ -39,6 +42,25 @@ void TBoss4Type2__sub_80053B48(S_80053B48 *o, s32 *a, s32 *b) {
     } else {
         *b = 2;
     }
+}
+
+void TBoss4Type2__sub_80053BF4(void *arg0, u32 arg1) {
+    s32 n;
+    M2C_FIELD(arg0, s32 *, 0x3A4) = (s32) ((arg1 >> 4U) & 3);
+    M2C_FIELD(arg0, s32 *, 0x3A0) = (s32) ((arg1 >> 6U) & 3);
+    M2C_FIELD(arg0, s32 *, 0x3AC) = (s32) ((arg1 >> 8U) & 3);
+    M2C_FIELD(arg0, s32 *, 0x3A8) = (s32) ((arg1 >> 0xAU) & 3);
+    if (M2C_FIELD(arg0, s32 *, 0x3AC) > 2 || M2C_FIELD(arg0, s32 *, 0x3A8) > 2) {
+        return;
+    }
+    M2C_FIELD(arg0, s32 *, 0x3B0) = (s32) ((arg1 >> 0xCU) & 0xF);
+    M2C_FIELD(arg0, s32 *, 0x3B4) = (s32) ((arg1 >> 0x10U) & 0xF);
+    TBoss4Type2__sub_80053AD4(arg0);
+    n = arg1 & 0xF;
+    if (n < 0 || n >= 0xB) {
+        return;
+    }
+    TBoss4Type2__sub_800542B0(arg0, n);
 }
 
 void TBoss4Type2__sub_80053C8C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {

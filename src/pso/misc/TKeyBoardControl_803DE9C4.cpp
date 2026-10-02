@@ -39,6 +39,13 @@ extern const f32 lbl_805E0FBC;
 void GXInitLightAttnK(void *, f32, f32, f32);
 void fn_803E2070(void);
 void TObjLight__sub_803DECFC(void);
+extern u8 lbl_8058D490[];
+extern u32 lbl_805D776C;
+extern u32 lbl_805D7770;
+extern u32 lbl_805D7774;
+void PSMTXIdentity(void *);
+void move_data__6TLobbyFv(u32, void *, s32);
+void TObjPlayer__sub_803DEC98(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -133,6 +140,14 @@ void clamp_axes__16TKeyBoardControlFPv(u8 *arg0) {
 }
 
 extern s32 some_id_805c6f74;
+
+void TObjPlayer__sub_803DEC98(s32 arg0, s32 arg1) {
+    lbl_805D7770 = 0xE0000000;
+    lbl_805D7774 = 0xE0000000;
+    lbl_805D776C = (arg1 - 1) * 0x30 + 0xE0000000;
+    PSMTXIdentity(lbl_8058D490 == 0 ? (u8 *)0xE0000000 : lbl_8058D490);
+    move_data__6TLobbyFv(lbl_805D7770, lbl_8058D490, 0x30);
+}
 
 void TObjLight__sub_803DECFC(void) {
     some_id_805c6f74 = 0;

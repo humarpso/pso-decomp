@@ -27,6 +27,8 @@ typedef char RecoveredGlobal_802ABBC4_lbl_804705CC_size[sizeof(RecoveredGlobal_8
 struct RecoveredGlobal_802ABC14_lbl_804705C0 { M2C_UNK value; u8 remaining[0x8]; };
 typedef char RecoveredGlobal_802ABC14_lbl_804705C0_size[sizeof(RecoveredGlobal_802ABC14_lbl_804705C0) == 0xC ? 1 : -1];
 
+struct Color_802ABF44 { f32 a, b, c, d; };
+
 extern "C" {
 M2C_UNK TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 u32 create__11TBoss6Type1Fi(void *, int);
@@ -47,6 +49,25 @@ extern RecoveredGlobal_802ABC14_lbl_804705C0 lbl_804705C0;
 extern u32 TBoss6PlotFalz__data_805D66F0;
 s32 TBoss6PlotFalz__sub_802ABC14(M2C_UNK arg0, s32 arg1);
 s32 TBoss6Type1__sub_802ABDEC(s32 seed);
+s32 TObjPlayer__sub_80019248(s32);
+s32 get_player_data__10TObjPlayerFi(s32);
+s16 obj_getField1c(s32);
+s32 get_game_mode__6TLobbyFv(void);
+void spawn_effect__11TBoss4Type3Fsss(s16, s16, s16);
+s32 is_state_1f__14TBoss6PlotFalzFUi(u32);
+f32 TObjPlayer__sub_803E1A58(void *, void *);
+extern const f32 TBoss6PlotFalz__data_805DE09C;
+void TBoss6PlotFalz__sub_802ABE3C(void *pos, s16 amount, s16 kind, f32 range);
+void set_chunk_material_override_pair(int, int, s32, s32);
+void set_chunk_material_color(Color_802ABF44 *);
+extern int lbl_805D5660;
+extern int lbl_805D5664;
+extern int lbl_805D5668;
+extern int lbl_805D7780;
+extern int lbl_805D7784;
+extern int some_id_805c6f74;
+extern s32 lbl_805DE0B8;
+void TBoss6PlotFalz__sub_802ABF44(f32 f);
 }
 
 extern "C" {
@@ -134,5 +155,34 @@ s32 TBoss6Type1__sub_802ABDEC(s32 seed) {
 }
 
 void reset_fish_globals__8TObjFishFv(void) { lbl_805D7784 = lbl_805D5664; lbl_805D7780 = lbl_805D5668; some_id_805c6f74 = lbl_805D5660; }
+void TBoss6PlotFalz__sub_802ABE3C(void *pos, s16 amount, s16 kind, f32 range) {
+    s32 n;
+    s32 i;
+    s32 p;
+    f32 d;
+    n = get_game_mode__6TLobbyFv();
+    for (i = 0; i < n; i++) {
+        p = get_player_data__10TObjPlayerFi(i);
+        if (is_state_1f__14TBoss6PlotFalzFUi(p) != 0 && TObjPlayer__sub_80019248(p) != 0) {
+            d = TObjPlayer__sub_803E1A58((void *)(p + 0x38), pos);
+            if (!(d >= range)) {
+                spawn_effect__11TBoss4Type3Fsss((s16)((f32)amount * (TBoss6PlotFalz__data_805DE09C - d / range)), kind, (s16)((s32 (*)(s32))obj_getField1c)(p));
+            }
+        }
+    }
+}
+void TBoss6PlotFalz__sub_802ABF44(f32 f) {
+    Color_802ABF44 c;
+    s32 old = (*(s32 *)&some_id_805c6f74);
+    (*(s32 *)&some_id_805c6f74) = old & ~0x10;
+    (*(s32 *)&lbl_805D5660) = old;
+    (*(s32 *)&lbl_805D5664) = (*(s32 *)&lbl_805D7784);
+    (*(s32 *)&lbl_805D5668) = (*(s32 *)&lbl_805D7780);
+    (*(s32 *)&some_id_805c6f74) |= lbl_805DE0B8;
+    set_chunk_material_override_pair(0xFF00, 0x800, (*(s32 *)&lbl_805D7780), (*(s32 *)&lbl_805D7784));
+    c.a = -1.0f + f;
+    c.b = c.c = c.d = 0.0f;
+    set_chunk_material_color(&c);
+}
 
 }

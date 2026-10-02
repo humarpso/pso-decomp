@@ -45,6 +45,15 @@ Player_80178890 *TPhotonMylla__sub_80154CB4(u16);
 void fn_8017866C(void *, s32, u16);
 s32 get_state__17TOSymbolchatColliFPv(void *arg0);
 void run_task__17TOSymbolchatColliFv(Obj_80178890 *self);
+void bswap_entry__20TWindowSubSymbolChatFPv(void *);
+void safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
+void TLobby__sub_800F7DAC(s32, s32);
+s32 set_stream_and_load_file__6TLobbyFi(s32);
+s32 alloc_buffer__11TOBoss4RockFPv(s32);
+extern u32 lbl_8050DB70[];
+extern s32 lbl_805D3190;
+extern int lbl_805D5AC8;
+void TOSymbolchatColli__sub_801789D4(void);
 }
 
 extern "C" {
@@ -118,6 +127,23 @@ void *create__17TOSymbolchatColliFPv(void *arg0) {
 void free_rock__17TOSymbolchatColliFv(void) { free__11TOBoss4RockFUi((void*)(lbl_805D5AC8)); lbl_805D5AC8 = 0; }
 
 extern M2C_UNK __vt__17TOSymbolchatColli[];
+
+void TOSymbolchatColli__sub_801789D4(void) {
+    s32 h;
+    s32 i;
+    lbl_805D5AC8 = alloc_buffer__11TOBoss4RockFPv(0x840);
+    h = set_stream_and_load_file__6TLobbyFi(lbl_805D3190);
+    if (h != 0) {
+        TLobby__sub_800F7DAC(h, lbl_805D5AC8);
+    }
+    safe_free__23TAdSinglePlyChrSelectGCFUi(h);
+    for (i = 0; i < 0x18; i++) {
+        bswap_entry__20TWindowSubSymbolChatFPv((u8 *)lbl_805D5AC8 + i * 0x58);
+    }
+    for (i = 0; i < 3; i++) {
+        lbl_8050DB70[i] = 0;
+    }
+}
 
 void *__dt__17TOSymbolchatColliFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

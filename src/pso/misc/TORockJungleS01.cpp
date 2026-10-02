@@ -37,6 +37,7 @@ struct RecoveredGlobal_8029C9C8___vt__15TORockJungleS01 {
     u8 remaining[0x4C];
 };
 
+typedef s32 M2C_UNK;
 extern "C" {
 u8 * TObjFish__sub_8001EDC4(void *, int);
 extern u32 lbl_805D65D0;
@@ -56,6 +57,22 @@ extern const f32 lbl_805DDD1C;
 u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1);
 extern u32 lbl_805D65D4;
 s32 TORockJungleS01__sub_8029CAE8(s32 a);
+void *TLobby__sub_80020004(void *, M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
+s32 TLanguage__sub_801E4874(void *);
+s32 get_global_state__14TOKeyMachine01Fv();
+s32 TORockJungleS01__sub_8029CAE8(s32 a);
+u8 *TORockJungleS01__sub_8029CAFC(s32 arg0);
+M2C_UNK add_entry__11TMotorcycleFsiiff(M2C_UNK, void *, s32, f32, f32);
+extern u8 lbl_804658EC[];
+extern u8 lbl_80465904[];
+extern u8 lbl_8046591C[];
+extern u8 lbl_804DC390[];
+extern u32 lbl_805D65D0;
+extern u32 lbl_805D65D4;
+extern const f32 lbl_805DDD20;
+extern const f32 lbl_805DDD24;
+void TORockJungleS01__sub_8029CB90(void);
 }
 
 extern "C" {
@@ -158,6 +175,27 @@ void free_globals__15TORockJungleS01Fv(void) {
         TLobby__sub_8001FE7C((void*)lbl_805D65D0, 1);
         lbl_805D65D0 = 0U;
     }
+}
+void TORockJungleS01__sub_8029CB90(void) {
+    void *o;
+    o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    if (o != NULL) {
+        o = TLobby__sub_80020004(o, 1, lbl_804DC390, 0, 0, 0);
+    }
+    lbl_805D65D0 = (u32)o;
+    switch (get_global_state__14TOKeyMachine01Fv()) {
+    case 27:
+        lbl_805D65D4 = TLanguage__sub_801E4874(lbl_804658EC);
+        break;
+    case 26:
+        lbl_805D65D4 = TLanguage__sub_801E4874(lbl_80465904);
+        break;
+    case 25:
+    default:
+        lbl_805D65D4 = TLanguage__sub_801E4874(lbl_8046591C);
+        break;
+    }
+    add_entry__11TMotorcycleFsiiff(0x3E, TORockJungleS01__sub_8029CAFC(0), TORockJungleS01__sub_8029CAE8(0), lbl_805DDD20, lbl_805DDD24);
 }
 
 }

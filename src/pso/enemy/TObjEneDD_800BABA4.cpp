@@ -235,6 +235,30 @@ struct VObj_18_807e53 : VBase_18_807e53 {
     virtual M2C_UNK m99(M2C_UNK *);
 };
 
+struct Vec_800BAF1C { f32 x, y, z; };
+
+struct Node_800BAF1C { u8 pad0[4]; Vec_800BAF1C *pos; };
+
+struct Ene_800BAF1C {
+    u8 pad0[0x38];
+    Vec_800BAF1C pos;
+    u8 pad44[0x37C - 0x44];
+    f32 reach;
+    s32 count;
+};
+
+struct Vec_800BB000 { f32 x, y, z; };
+
+struct Node_800BB000 { u8 pad0[4]; u8 *wall; };
+
+struct Ene_800BB000 {
+    u8 pad0[0x38];
+    Vec_800BB000 pos;
+    u8 pad44[0x37C - 0x44];
+    f32 reach;
+    s32 count;
+};
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u8 *TObjEneDD__vt99(u8 *arg0);
@@ -247,17 +271,21 @@ void calc_shot_position__9TObjEneDDFPvPvfff(void *, void *, f32, f32, f32);
 void TObjEneDD__sub_800BAD1C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 void calc_shot_position__9TObjEneDDFPvPvfff(void *, void *, f32, f32, f32);
 void TObjEneDD__sub_800BAC5C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
-void TObjEneDD__sub_800BAF1C(void *, void *, f32, f32, f32);
 void TObjEneDD__sub_800BABCC(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
-void TObjEneDD__sub_800BB000(void *, void *, f32, f32, f32);
 void TObjEneDD__sub_800BAC14(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 u8 *TObjEneDD__sub_800BAE74(u8 *arg0, u8 *arg1);
-void TObjEneDD__sub_800BAF1C(void *, void *, f32, f32, f32);
 void TObjEneDD__sub_800BACA4(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 u8 *TObjEneDD__sub_800BAE74(u8 *arg0, u8 *arg1);
-void TObjEneDD__sub_800BB000(void *, void *, f32, f32, f32);
 void TObjEneDD__sub_800BACE0(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 int TObjEneDD__sub_800BABA4(u8 *arg0, s32 arg1);
+f32 TObjPlayer__sub_8001978C(f32);
+s32 TObjEneDD__sub_800BB218(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
+void TObjEneDD__sub_800BAF1C(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+s32 TObjEneDD__sub_800BB218(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
+extern const f32 TObjEneDD__data_805D9E8C;
+void TObjEneDD__sub_800BB000(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist);
 }
 
 extern "C" {
@@ -280,13 +308,13 @@ int TObjEneDD__sub_800BABA4(u8 *arg0, s32 arg1) {
 
 void TObjEneDD__sub_800BABCC(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
     M2C_UNK sp8;
-    TObjEneDD__sub_800BAF1C(arg0, &sp8, farg0, farg1, farg2);
+    TObjEneDD__sub_800BAF1C((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
     ((VObj_18_807e53 *)(arg0))->m99(&sp8);
 }
 
 void TObjEneDD__sub_800BAC14(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
     M2C_UNK sp8;
-    TObjEneDD__sub_800BB000(arg0, &sp8, farg0, farg1, farg2);
+    TObjEneDD__sub_800BB000((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
     ((VObj_18_807e53 *)(arg0))->m99(&sp8);
 }
 
@@ -298,13 +326,13 @@ void TObjEneDD__sub_800BAC5C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
 
 void TObjEneDD__sub_800BACA4(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
     M2C_UNK sp8;
-    TObjEneDD__sub_800BAF1C(arg0, &sp8, farg0, farg1, farg2);
+    TObjEneDD__sub_800BAF1C((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
     TObjEneDD__sub_800BAE74((u8 *)(arg0), (u8 *)(&sp8));
 }
 
 void TObjEneDD__sub_800BACE0(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
     M2C_UNK sp8;
-    TObjEneDD__sub_800BB000(arg0, &sp8, farg0, farg1, farg2);
+    TObjEneDD__sub_800BB000((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
     TObjEneDD__sub_800BAE74((u8 *)(arg0), (u8 *)(&sp8));
 }
 
@@ -362,5 +390,68 @@ u8 *TObjEneDD__sub_800BAE74(u8 *arg0, u8 *arg1) {
     }
     return temp_r3;
 }
+#pragma push
+#pragma fp_contract on
+void TObjEneDD__sub_800BAF1C(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist) {
+    Ene_800BAF1C *e = (Ene_800BAF1C *)arg0;
+    Vec_800BAF1C *out = (Vec_800BAF1C *)arg1;
+    Node_800BAF1C *n = (Node_800BAF1C *)TObjEneDD__sub_800BB218((u8 *)e, dx, dz, dist + e->reach);
+    if (n == NULL) {
+        e->count = 0;
+    } else {
+        Vec_800BAF1C *p;
+        f32 ddx;
+        f32 px;
+        f32 ddz;
+        e->count++;
+        p = n->pos;
+        px = p->x;
+        ddz = p->z - e->pos.z;
+        ddx = px - e->pos.x;
+        dist = ((f32 (*)(f32, f32, f32))TObjPlayer__sub_8001978C)(ddx * ddx + ddz * ddz, px, ddz) - e->reach;
+    }
+    out->x = dx * dist + e->pos.x;
+    out->y = e->pos.y;
+    out->z = dz * dist + e->pos.z;
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+#define e ((Ene_800BB000 *)arg0)
+#define out ((Vec_800BB000 *)arg1)
+void TObjEneDD__sub_800BB000(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist) {
+    Node_800BB000 *n;
+    Vec_800BB000 v;
+    n = (Node_800BB000 *)TObjEneDD__sub_800BB218((u8 *)e, dx, dz, dist + e->reach);
+    if (n == NULL) {
+        out->x = dx * dist + e->pos.x;
+        out->y = e->pos.y;
+        out->z = dz * dist + e->pos.z;
+        e->count = 0;
+        return;
+    }
+    e->count++;
+    v.x = *(f32 *)(n->wall + 0x14);
+    v.z = -*(f32 *)(n->wall + 0xC);
+    clamp_velocity__15TObjBoss2TunnelFPv(&v);
+    if (dx * v.x + dz * v.z >= TObjEneDD__data_805D9E8C) {
+        dx = v.x;
+        dz = v.z;
+    } else {
+        dx = -v.x;
+        dz = -v.z;
+    }
+    if ((Node_800BB000 *)TObjEneDD__sub_800BB218((u8 *)e, dx, dz, dist + e->reach) == NULL) {
+        out->x = dx * dist + e->pos.x;
+        out->y = e->pos.y;
+        out->z = dz * dist + e->pos.z;
+        return;
+    }
+    VecCopy__FP3VecPC3Vec(out, (int)&e->pos);
+}
+#undef e
+#undef out
+#pragma pop
 
 }

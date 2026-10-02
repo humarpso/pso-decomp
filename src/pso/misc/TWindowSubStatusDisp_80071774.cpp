@@ -27,6 +27,11 @@ u32 get_card_window__17TWindowSubComCardFUi(u32);
 s32 TWindowSubStatusDisp__sub_8006F190(s32 slot);
 s32 get_slot_clamped__6TLobbyFv(s32);
 s32 TWindowSubStatusDisp__sub_80071868(u16 id, s32 slot);
+s32 get_layout_id__20TWindowSubStatusDispFv(void *);
+s32 TWindowSubStatusDisp__sub_8006F0D8(void *, void *);
+s32 TLobby__sub_8006F994(int);
+u32 get_card_window__17TWindowSubComCardFUi(u32);
+s32 TWindowSubStatusDisp__sub_80071988(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -89,6 +94,30 @@ s32 TWindowSubStatusDisp__sub_80071868(u16 id, s32 slot) {
         v = w->def;
     }
     return get_slot_clamped__6TLobbyFv(v);
+}
+
+s32 TWindowSubStatusDisp__sub_80071988(s32 arg0, s32 arg1) {
+    s32 *p;
+    s32 n;
+    s32 r;
+    s32 sum;
+    s32 i;
+    u32 w;
+    w = get_card_window__17TWindowSubComCardFUi((u16)arg0);
+    if (w == 0U) {
+        return 0;
+    }
+    p = (s32 *)TWindowSubStatusDisp__sub_8006F0D8((void *)(w + 0x21C4), (void *)arg1);
+    sum = 0;
+    n = get_layout_id__20TWindowSubStatusDispFv((void *)arg1);
+    for (i = 0; i < n; i++, p++) {
+        r = TLobby__sub_8006F994(*p);
+        if (r == 0) {
+            return 0;
+        }
+        sum += r;
+    }
+    return sum;
 }
 
 s32 TWindowSubStatusDisp__sub_80071A24(s32 arg0, u16 arg1, s32 arg2) {

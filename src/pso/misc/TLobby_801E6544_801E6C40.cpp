@@ -20,6 +20,8 @@ struct RecoveredGlobal_801E6E20_TLobby__data_80512220 {
 #pragma dont_inline off
 struct Tbl_801E6CA4 { u32 w[18]; };
 
+typedef s32 M2C_UNK;
+
 extern "C" {
 s32 is_phase_reached__14TBoss6PlotFalzFv();
 extern s32 TLobby__data_805D5E78;
@@ -38,6 +40,15 @@ extern Tbl_801E6CA4 lbl_80449B34;
 extern RecoveredGlobal_801E6D18_TLobby__data_80512220 TLobby__data_80512220;
 extern u8 lbl_80515BA0[];
 void TLobby__sub_801E6CA4(void);
+void send_slot_entity_or_local__6TLobbyFUsi(u16 arg0, s32 arg1);
+void *memcpy(void *, const void *, u32);
+extern RecoveredGlobal_801E6D18_TLobby__data_80512220 TLobby__data_80512220;
+extern s32 TLobby__data_805D5E78;
+void TLobby__sub_801E6DC4(void);
+s32 TOChatSensorCapture__sub_8015A8D8(u16 arg0, const char *arg1);
+extern RecoveredGlobal_801E6D18_TLobby__data_80512220 TLobby__data_80512220;
+extern s32 TLobby__data_805D5E78;
+void TLobby__sub_801E6E88(void);
 }
 
 extern "C" {
@@ -85,6 +96,15 @@ void TLobby__sub_801E6D18(void) {
 
 void create_singleton__6TLobbyFv(void) { create_singleton__6TLobbyFPv((void*)(tl_01)); }
 typedef char RecoveredGlobal_801E6E20_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801E6E20_TLobby__data_80512220) == 0x20 ? 1 : -1];
+
+void TLobby__sub_801E6DC4(void) {
+    u8 buf[0x3C];
+    u8 idx;
+    idx = (u8) M2C_FIELD(&TLobby__data_80512220.value, s32 *, 4);
+    send_slot_entity_or_local__6TLobbyFUsi((u16) TLobby__data_80512220.value, (s32) buf);
+    memcpy((void *) (TLobby__data_805D5E78 + ((idx * 4) & 0x3FC)), buf, 0x3C);
+}
+
 void TLobby__sub_801E6E20(void) {
     u8 temp_r31;
     u8 *temp_r3;
@@ -95,6 +115,16 @@ void TLobby__sub_801E6E20(void) {
         return;
     }
     M2C_FIELD((TLobby__data_805D5E78 + ((temp_r31 * 4) & 0x3FC)), s32 *, 0) = -1;
+}
+void TLobby__sub_801E6E88(void) {
+    u8 idx;
+    idx = (u8) TLobby__data_80512220.value;
+    if (TOChatSensorCapture__sub_8015A8D8((u16) M2C_FIELD(&TLobby__data_80512220.value, s32 *, 4),
+                                          (const char *) M2C_FIELD(&TLobby__data_80512220.value, s32 *, 8)) != 0) {
+        *(s32 *) (TLobby__data_805D5E78 + ((idx * 4) & 0x3FC)) = 1;
+        return;
+    }
+    *(s32 *) (TLobby__data_805D5E78 + ((idx * 4) & 0x3FC)) = 0;
 }
 
 }

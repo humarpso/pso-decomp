@@ -12,11 +12,25 @@ struct Ent_801F3A80 {
     u8 rest[0x44];
 };
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 void TLobby__sub_802081AC(void *arg0);
 void TLobby__sub_801F3AD8(struct QuestObjRow_801F3AD8 *rows, u32 byte_size);
 void TLobby__sub_802080C0(void*);
 void TLobby__sub_801F3A80(u8* arg0, u32 arg1);
+M2C_UNK TLobby__sub_801F3F40(s32);
+s32 handle_msg_type2__6TLobbyFi(s32);
+M2C_UNK init_buffers__6TLobbyFii(s32, s32);
+extern s16 TLobby__data_805127D0[];
+extern s32 TLobby__data_805D5EE0;
+void TLobby__sub_801F3B30(void);
+void handle_msg_type1__6TLobbyFi(s32);
+extern s16 TLobby__data_805127D0[];
+void TLobby__sub_801F3BC4(void);
 }
 
 extern "C" {
@@ -62,6 +76,44 @@ void TLobby__sub_801F3AD8(struct QuestObjRow_801F3AD8 *rows, u32 byte_size) {
     for (i = 0; i < count; ++i, p++) {
         TLobby__sub_802081AC(p);
         p->flags = 0;
+    }
+}
+void TLobby__sub_801F3B30(void) {
+    s32 i;
+    s32 ok;
+    for (i = 0; i < 0x12; i++) {
+        ok = 0;
+        switch (TLobby__data_805127D0[i]) {
+        case 0:
+            if (handle_msg_type2__6TLobbyFi(i) != 0) {
+                ok = 1;
+            }
+            if (ok == 1) {
+                TLobby__sub_801F3F40(i);
+            }
+            break;
+        case 1:
+        case 2:
+        case 3:
+            break;
+        }
+        if (ok == 0) {
+            init_buffers__6TLobbyFii(i, TLobby__data_805D5EE0);
+        }
+    }
+}
+void TLobby__sub_801F3BC4(void) {
+    s32 i;
+    for (i = 0; i < 0x12; i++) {
+        switch (TLobby__data_805127D0[i]) {
+        case 0:
+            handle_msg_type1__6TLobbyFi(i);
+            break;
+        case 1:
+        case 2:
+        case 3:
+            break;
+        }
     }
 }
 

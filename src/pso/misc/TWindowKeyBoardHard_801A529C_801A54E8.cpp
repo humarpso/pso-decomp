@@ -16,10 +16,15 @@ struct VObj_801a54e8_801A529C : VBase_801a54e8_801A529C {
     virtual void m8(void *, s32);
 };
 
+struct S_801A5544 { u8 pad[0x8B8]; s32 cnt; u8 buf[0x5B4]; };
+
+extern "C" {
+void fn_801A5544(S_801A5544 *arg0, u8 *arg1);
+}
+
 extern "C" {
 
 void TLobby__sub_801A54E8(u8 *arg0);
-int fn_801A5544(void);
 void clear_send_buffer__7TPacketFPv(void* p);
 
 void TLobby__sub_801A54E8(u8 *arg0) {
@@ -34,7 +39,16 @@ void TLobby__sub_801A54E8(u8 *arg0) {
         ((VObj_801a54e8_801A529C *) arg0)->m8(arg0 + 0x8BC, M2C_FIELD(arg0, s32 *, 0x8B8));
     }
 }
-
-int fn_801A5544(void) { return 0; }
+void fn_801A5544(S_801A5544 *arg0, u8 *arg1) {
+    s32 n;
+    s32 i;
+    if (arg0->cnt + arg1[1] * 4 > 0x5B4) {
+        return;
+    }
+    n = arg1[1] * 4;
+    for (i = 0; i < n; i++) {
+        arg0->buf[arg0->cnt++] = *arg1++;
+    }
+}
 
 }

@@ -51,6 +51,25 @@ struct Stack_801DB6F0
   s16 spA;
 };
 
+typedef s32 M2C_UNK;
+struct VBase_18 { char pad[0x18]; };
+
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual M2C_UNK m8(void *, M2C_UNK);
+};
+
+struct Pkt_801DB760 { u8 cmd; u8 flag; u16 size; u8 tag[0x18]; };
+
+struct Pkt_801DB7EC { u8 cmd; u8 flag; u16 size; u8 tag[0x18]; };
+
 extern "C" {
 void bswap__12TChatMessageFv(s32);
 void fn_801DB878(u8 *arg0, u8 *arg1);
@@ -58,6 +77,16 @@ void fn_801DF838(s32);
 void fn_801DB684(u8 *arg0, s32 arg1, s32 arg2);
 void bswap__13packet_headerFv(s32);
 void fn_801DB6F0(u8 *arg0);
+M2C_UNK __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
+M2C_UNK fn_801DF874(void *);
+M2C_UNK fn_801DF8A8(void *);
+M2C_UNK memset(void *, int, int);
+void fn_801DB760(u8 *arg0);
+M2C_UNK __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
+M2C_UNK fn_801DF874(void *);
+M2C_UNK fn_801DF8A8(void *);
+M2C_UNK memset(void *, int, int);
+void fn_801DB7EC(u8 *arg0);
 }
 
 extern "C" {
@@ -94,6 +123,34 @@ void fn_801DB6F0(u8 *arg0) {
     bswap__13packet_headerFv((s32) (&stack.sp8));
     PSO_VCALL_VObj_18_44382c_m8(arg0, &stack.sp8, 4);
   }
+}
+
+void fn_801DB760(u8 *arg0) {
+    Pkt_801DB760 pkt;
+    u8 pad[8];
+    if (*(s32 *)(arg0 + 0x1910) != 0) {
+        fn_801DF8A8(&pkt);
+        memset(&pkt, 0, 0x1C);
+        pkt.cmd = 0xA1;
+        pkt.size = 0x1C;
+        __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(pkt.tag, arg0 + 0x1900);
+        fn_801DF874(&pkt);
+        ((VObj_18 *)(arg0))->m8(&pkt, 0x1C);
+    }
+}
+
+void fn_801DB7EC(u8 *arg0) {
+    Pkt_801DB7EC pkt;
+    u8 pad[8];
+    if (*(s32 *)(arg0 + 0x1910) != 0) {
+        fn_801DF8A8(&pkt);
+        memset(&pkt, 0, 0x1C);
+        pkt.cmd = 0xA0;
+        pkt.size = 0x1C;
+        __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(pkt.tag, arg0 + 0x1900);
+        fn_801DF874(&pkt);
+        ((VObj_18 *)(arg0))->m8(&pkt, 0x1C);
+    }
 }
 
 void fn_801DB878(u8 *arg0, u8 *arg1) {

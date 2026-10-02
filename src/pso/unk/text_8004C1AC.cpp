@@ -243,3 +243,277 @@ void update_timer__14TBoss4DarkFalzFPv(void *arg0) {
 }
 
 }
+
+struct RecoveredGlobal_8004CBC0_lbl_80485448 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct Obj_8004CD08 { u8 pad0[0x1C]; u16 id; u8 pad1e[0xE]; s16 f2c; u8 pad2e[0x352]; s32 f380; };
+
+struct Sub_8004CD08 { s16 x; u8 pad2[4]; s16 id; s16 f8; u8 pada[0x42]; };
+
+struct Params_8004CD08 { void *owner; Sub_8004CD08 sub; };
+
+struct D_8004CB28 {
+    s16 a0, a2, a4;
+    u16 a6;
+    s16 a8, aa, ac, ae;
+    u8 pad10[0x30];
+};
+
+struct Arg_8004CB28 { void *owner; D_8004CB28 d; };
+
+struct S_8004CB28 {
+    u8 pad0[0x1c];
+    u16 f1c;
+    u8 pad1e[0x0e];
+    s16 f2c;
+    u8 pad2e[0x352];
+    s32 f380;
+};
+
+typedef struct Vec_8004C940 {
+    f32 x, y, z;
+} Vec_8004C940;
+
+typedef struct Obj_8004C940 {
+    u8 pad0[0x2D4];
+    u16 f2d4;
+    u16 f2d6;
+    u8 pad2d8[0x380 - 0x2D8];
+    s32 f380;
+    u8 pad384[0x39C - 0x384];
+    Vec_8004C940 pos;
+    s32 f3a8;
+} Obj_8004C940;
+
+extern "C" {
+u8 * create_demo1__14TBoss4DarkFalzFPvPvPv(void *, void *, void *);
+extern RecoveredGlobal_8004CBC0_lbl_80485448 lbl_80485448;
+void TBoss4DarkFalz__sub_8004CBC0(u8 *arg0);
+s32 create__11TBoss4Type1Fi(void *params);
+int TBoss4DarkFalz__sub_8004B77C(void*);
+int TBoss4DarkFalz__sub_8004BA18(void*);
+void TBoss4DarkFalz__sub_8004CD08(Obj_8004CD08 *self);
+void TBoss4DarkFalz__sub_8004B20C(void *, s32);
+void *create__11TBoss4Type2Fi(void *);
+void TBoss4DarkFalz__sub_8004CB28(S_8004CB28 *o);
+void TBoss4DarkFalz__sub_8004D92C(void *, u16 *, u16 *, u16 *);
+void create_demo2__14TBoss4DarkFalzFPvPvPvPv(void *, Vec_8004C940 *, s32, s32);
+s32 TLobby__sub_8022743C();
+void TNpcPlayer__sub_803D97B4(Vec_8004C940 *);
+extern s32 lbl_805D5550;
+extern const f32 lbl_805D8948;
+extern const f32 lbl_805D894C;
+void TBoss4DarkFalz__sub_8004C940(Obj_8004C940 *arg0);
+}
+
+extern "C" {
+
+void TBoss4DarkFalz__sub_8004C93C(void);
+void TBoss4DarkFalz__sub_8004CA80(void);
+void TBoss4DarkFalz__sub_8004CBBC(void);
+void TBoss4DarkFalz__sub_8004CE90(void);
+void check_timeout__14TBoss4DarkFalzFi(s32 arg0);
+void request_action_7__14TBoss4DarkFalzFi(s32 arg0);
+void request_action_9__14TBoss4DarkFalzFi(s32 arg0);
+void spawn_ancient_trap__14TBoss4DarkFalzFi(s32 arg0);
+void spawn_trap__14TBoss4DarkFalzFi(s32 arg0);
+void start_effect__14TBoss4DarkFalzFPv(void *arg0);
+void update_parts__14TBoss4DarkFalzFPv(void* p);
+void update_parts__14TBoss4DarkFalzFi(s32 arg0);
+s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+s32 TBoss4DarkFalz__sub_8004B07C(s32);
+s32 TBoss4DarkFalz__sub_8004B1BC(s32, s32);
+s32 TBoss4DarkFalz__sub_8004B3BC(s32);
+int TBoss4DarkFalz__sub_8004B77C(void*);
+int TBoss4DarkFalz__sub_8004BA18(void*);
+s32 TBoss4DarkFalz__sub_8004D990();
+s32 TLobby__sub_8022743C();
+s32 TOTrapAncient01__sub_80226578(s32, s32, s32, s32, s32);
+s32 is_timer_expired__14TBoss4DarkFalzFPv();
+
+void TBoss4DarkFalz__sub_8004C93C(void) {  }
+
+#pragma fp_contract on
+void TBoss4DarkFalz__sub_8004C940(Obj_8004C940 *arg0) {
+    u16 arr[4];
+    Vec_8004C940 v;
+    s32 flag;
+    s32 i;
+    ((s32 (*)(void))TBoss4DarkFalz__sub_8004BA70)();
+    TLobby__sub_8022743C();
+    if ((u32)TBoss4DarkFalz__data_805D4D60 != 0) {
+        VecCopy__FP3VecPC3Vec(&v, (void *)VecCopy__FP3VecPC3Vec(&arg0->pos, (Vec_8004C940 *)(TBoss4DarkFalz__data_805D4D60 + 0x38)));
+        v.y = lbl_805D8948;
+        TNpcPlayer__sub_803D97B4(&v);
+        arg0->pos.x -= lbl_805D894C * v.x;
+        arg0->pos.z -= lbl_805D894C * v.z;
+        arg0->pos.y = lbl_805D8948;
+        arg0->f3a8 = *(s32 *)(TBoss4DarkFalz__data_805D4D60 + 0x60);
+    } else {
+        arg0->pos.x = arg0->pos.y = arg0->pos.z = lbl_805D8948;
+        arg0->f3a8 = 0;
+    }
+    flag = 0;
+    if (lbl_805D5550 != 0) {
+        flag = 1;
+    }
+    create_demo2__14TBoss4DarkFalzFPvPvPvPv(arg0, &arg0->pos, arg0->f3a8, flag);
+    dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x35);
+    if ((u32)TBoss4DarkFalz__data_805D4D60 != 0) {
+        TBoss4DarkFalz__sub_8004D92C((void *)TBoss4DarkFalz__data_805D4D60, &arg0->f2d6, &arg0->f2d4, arr);
+        queue_destruction__7TObjectFv((void *)TBoss4DarkFalz__data_805D4D60);
+        TBoss4DarkFalz__data_805D4D60 = 0;
+        for (i = 0; i < 4; i++) {
+            obj_setArrS16_FC(arg0, i, arr[i]);
+        }
+    }
+    arg0->f380 = 0x118;
+}
+
+void TBoss4DarkFalz__sub_8004CA80(void) {  }
+
+void request_action_9__14TBoss4DarkFalzFi(s32 arg0) {
+    if (((u32) TBoss4DarkFalz__data_805D4D60 == 0U) || (get_phase__14TBoss4DarkFalzFPv((void *)TBoss4DarkFalz__data_805D4D60) == 3) || (get_phase__14TBoss4DarkFalzFPv((void *)TBoss4DarkFalz__data_805D4D60) == 2) || (TBoss4DarkFalz__sub_8004B07C(arg0) != 0)) {
+        TBoss4DarkFalz__sub_8004B1BC((s32)(arg0), (s32)(9));
+    }
+}
+
+void update_parts__14TBoss4DarkFalzFPv(void* p) { TBoss4DarkFalz__sub_8004BA18((void*)(p)); TBoss4DarkFalz__sub_8004B77C((void*)(p)); }
+
+void TBoss4DarkFalz__sub_8004CB28(S_8004CB28 *o) {
+    Arg_8004CB28 a;
+    o->f380 = o->f380 - 1;
+    if (o->f380 < 0) {
+        a.owner = o;
+        TBoss4DarkFalz__sub_8004B4F0(&a.d, (u8 *)&TBoss4DarkFalz__data_804FF1E8);
+        a.d.a8 = 1;
+        a.d.a0 = o->f2c + 0x1FF;
+        a.d.a6 = o->f1c + 0x1FF;
+        (*(void * *)&TBoss4DarkFalz__data_805D4D60) = create__11TBoss4Type2Fi(&a);
+        dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x34);
+        TBoss4DarkFalz__sub_8004B20C(o, 8);
+    }
+}
+
+void TBoss4DarkFalz__sub_8004CBBC(void) {  }
+
+typedef char RecoveredGlobal_8004CBC0_lbl_80485448_size[sizeof(RecoveredGlobal_8004CBC0_lbl_80485448) == 0xC ? 1 : -1];
+void TBoss4DarkFalz__sub_8004CBC0(u8 *arg0) {
+    ((s32 (*)(void))TBoss4DarkFalz__sub_8004BA70)();
+    if ((void *) (*(u8 * *)&TBoss4DarkFalz__data_805D4D5C) != NULL) {
+        create_demo1__14TBoss4DarkFalzFPvPvPv(arg0, (u8 *)((*(u8 * *)&TBoss4DarkFalz__data_805D4D5C)) + 0x38, M2C_FIELD((*(u8 * *)&TBoss4DarkFalz__data_805D4D5C), u8 **, 0x60));
+    } else {
+        create_demo1__14TBoss4DarkFalzFPvPvPv(arg0, &lbl_80485448.value, NULL);
+    }
+    dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x33U);
+    if ((void *) (*(u8 * *)&TBoss4DarkFalz__data_805D4D5C) != NULL) {
+        queue_destruction__7TObjectFv((*(u8 * *)&TBoss4DarkFalz__data_805D4D5C));
+        (*(u8 * *)&TBoss4DarkFalz__data_805D4D5C) = NULL;
+    }
+    M2C_FIELD(arg0, s32 *, 0x380) = 0x12C;
+}
+
+void spawn_ancient_trap__14TBoss4DarkFalzFi(s32 arg0) {
+    if (TBoss4DarkFalz__sub_8004D990() > 0) {
+        TOTrapAncient01__sub_80226578((s32)(0x4003A30A), (s32)(arg0), (s32)(0), (s32)(-0x20), (s32)(2));
+    }
+}
+
+void request_action_7__14TBoss4DarkFalzFi(s32 arg0) {
+    if (((u32) TBoss4DarkFalz__data_805D4D5C == 0U) || (get_state__14TBoss4DarkFalzFPv((void *)TBoss4DarkFalz__data_805D4D5C) == 3) || (get_state__14TBoss4DarkFalzFPv((void *)TBoss4DarkFalz__data_805D4D5C) == 4) || (TBoss4DarkFalz__sub_8004B07C(arg0) != 0)) {
+        TBoss4DarkFalz__sub_8004B1BC((s32)(arg0), (s32)(7));
+    }
+}
+
+void TBoss4DarkFalz__sub_8004CD08(Obj_8004CD08 *self) {
+    Params_8004CD08 params;
+    params.owner = self;
+    TBoss4DarkFalz__sub_8004B4F0(&params.sub, (u8 *)&TBoss4DarkFalz__data_804FF1E8);
+    params.sub.f8 = 1;
+    params.sub.x = self->f2c + 0x200;
+    params.sub.id = self->id + 0x200;
+    TBoss4DarkFalz__data_805D4D5C = create__11TBoss4Type1Fi(&params);
+    self->f380 = 0;
+    TBoss4DarkFalz__sub_8004BA18((void*)(self));
+    TBoss4DarkFalz__sub_8004B77C((void*)(self));
+}
+
+M2C_UNK TBoss4DarkFalz__sub_8004D9A0(M2C_UNK, M2C_UNK);
+M2C_UNK create__11TObjDFDemo0FPv(void *);
+extern M2C_UNK lbl_804372A4[];
+extern const f32 lbl_805D8950;
+
+void TBoss4DarkFalz__sub_8004CD88(void *arg0) {
+    s32 temp_r0;
+    s32 temp_r3;
+
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x380);
+    if (temp_r0 < 4) {
+        ((void (*)(void *, s32, f32))TBoss4DarkFalz__sub_8004B730)(arg0, 0xFFFFFF, (f32) (4 - temp_r0) * lbl_805D8950);
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x380) == 0x2D) {
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x394) != 0U) {
+            TBoss4DarkFalz__sub_8004D9A0(M2C_FIELD(arg0, u32 *, 0x394), 1);
+        }
+        create__11TObjDFDemo0FPv(arg0);
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x380) == 0xB9) {
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x394) != 0U) {
+            TBoss4DarkFalz__sub_8004D9A0(M2C_FIELD(arg0, u32 *, 0x394), 2);
+        }
+        TObjBgmColCtrl__sub_802274B8(lbl_804372A4);
+    }
+    temp_r3 = M2C_FIELD(arg0, s32 *, 0x380);
+    if (temp_r3 > 0x145) {
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x394) != 0U) {
+            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x394));
+            M2C_FIELD(arg0, u32 *, 0x394) = 0U;
+        }
+        dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x32);
+        TBoss4DarkFalz__sub_8004B20C(arg0, 6);
+        return;
+    }
+    M2C_FIELD(arg0, s32 *, 0x380) = (s32) (temp_r3 + 1);
+}
+
+void TBoss4DarkFalz__sub_8004CE90(void) {  }
+void start_effect__14TBoss4DarkFalzFPv(void *arg0) {
+    ((s32 (*)(void))TBoss4DarkFalz__sub_8004BA70)();
+    TLobby__sub_8022743C();
+    TBoss3Volopt__sub_8022675C(0x4003A80B, 0, 0, 0);
+    M2C_FIELD(arg0, s32 *, 0x380) = 0;
+}
+void spawn_trap__14TBoss4DarkFalzFi(s32 arg0) {
+    TOTrapAncient01__sub_80226578((s32)(0x4003A30A), (s32)(arg0), (s32)(0), (s32)(-0x18), (s32)(2));
+}
+void check_timeout__14TBoss4DarkFalzFi(s32 arg0) {
+    if ((is_timer_expired__14TBoss4DarkFalzFPv() != 0) || (TBoss4DarkFalz__sub_8004B07C(arg0) != 0)) {
+        TBoss4DarkFalz__sub_8004B1BC((s32)(arg0), (s32)(5));
+    }
+}
+void update_parts__14TBoss4DarkFalzFi(s32 arg0) {
+    TBoss3Volopt__sub_8022675C(0x4003AD0C, 0, 0, 0);
+    TBoss4DarkFalz__sub_8004BA18((void*)(arg0));
+    TBoss4DarkFalz__sub_8004B77C((void*)(arg0));
+    TBoss4DarkFalz__sub_8004B3BC(arg0);
+}
+
+extern const f32 lbl_805D8954;
+
+void TBoss4DarkFalz__sub_8004CFC4(u8 *arg0) {
+    f32 temp_f1;
+    s32 temp_r0;
+
+    temp_f1 = (f32) M2C_FIELD(arg0, s32 *, 0x380) / lbl_805D8954;
+    TBoss4DarkFalz__sub_8004B730(arg0, temp_f1 * (temp_f1 * (temp_f1 * temp_f1)), 0xFFFFFF);
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x380) - 1;
+    M2C_FIELD(arg0, s32 *, 0x380) = temp_r0;
+    if (temp_r0 <= 0) {
+        TBoss4DarkFalz__sub_8004B20C((void *) (arg0), (int) (4));
+    }
+}
+
+}

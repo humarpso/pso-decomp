@@ -9,6 +9,29 @@ struct Msg_80116004 { u8 hdr[4]; s16 ids[4]; };
 
 struct Obj_80116004 { u8 pad0[0x38]; f32 pos[3]; };
 
+struct VBase_80115F28 { char pad[0x18]; };
+
+struct VObj_80115F28 : VBase_80115F28 {
+    virtual M2C_UNK m0(); virtual M2C_UNK m1(); virtual M2C_UNK m2();
+    virtual M2C_UNK m3(); virtual M2C_UNK m4(); virtual M2C_UNK m5();
+    virtual M2C_UNK m6(); virtual M2C_UNK m7(); virtual M2C_UNK m8();
+    virtual M2C_UNK m9(); virtual M2C_UNK m10(); virtual M2C_UNK m11();
+    virtual M2C_UNK m12(); virtual M2C_UNK m13(); virtual M2C_UNK m14();
+    virtual M2C_UNK m15(); virtual M2C_UNK m16(); virtual M2C_UNK m17();
+    virtual M2C_UNK m18(); virtual M2C_UNK m19(); virtual M2C_UNK m20();
+    virtual M2C_UNK m21(); virtual M2C_UNK m22(); virtual M2C_UNK m23();
+    virtual M2C_UNK m24(); virtual M2C_UNK m25(); virtual M2C_UNK m26();
+    virtual M2C_UNK m27(); virtual M2C_UNK m28(); virtual M2C_UNK m29();
+    virtual M2C_UNK m30(); virtual M2C_UNK m31(); virtual M2C_UNK m32();
+    virtual M2C_UNK m33();
+};
+
+struct Pkt_80115F28 { u8 pad[4]; s16 ids[4]; };
+
+struct Msg_801160E0 { u8 hdr[4]; s16 id; s16 types[3]; u8 pad[0xC]; };
+
+struct Item_801160E0 { u8 pad[0x424]; u32 f424; };
+
 extern "C" {
 u8 TItemObject__sub_80115D84(u8 *arg0);
 s16 obj_getField1c(Obj_80116004 *);
@@ -21,6 +44,22 @@ void TItemObject__sub_80116004(Obj_80116004 *self, f32 range);
 u8 get_field_ed__10TObjPlayerFPv(void *);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 s32 TItemObject__sub_80115DE8(void *item);
+M2C_UNK TObjPlayer__sub_800113E4(void *, s32);
+s32 get_field_3e4__10TObjPlayerFPv(void *);
+s32 get_field_2b8__14TItemProShieldFPv(void *);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
+void bswap_fields_x4__10TObjPlayerFPv(void *);
+Obj_80116004 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 reset_key_machine_state__10TObjPlayerFv();
+void handle_6x66_use_star_atomizer(u8 *arg0);
+s16 obj_getField1c(Obj_80116004 *);
+void bswap_and_send_item__10TObjPlayerFPv(void *);
+void set_type_bytes__10TObjPlayerFPv(void *);
+s16 get_type_id__10TObjPlayerFPv(void *);
+void *TObjPlayer__sub_80116620(void *, s32);
+s32 find_by_pos__11TMainCursorFiss(u32, s32, s32);
+s32 is_current_room__10TObjRoomIdFPv(void *);
+void TItemObject__sub_801160E0(void *arg0);
 }
 
 void TItemObject::store_encoded_value(s32 value) {
@@ -104,6 +143,32 @@ s32 TItemObject__sub_80115DE8(void *item) {
     return -1;
 }
 
+void handle_6x66_use_star_atomizer(u8 *arg0) {
+    u8 *temp_r3;
+    s32 var_r28;
+    u8 *temp_r3_2;
+    bswap_fields_x4__10TObjPlayerFPv(arg0);
+    temp_r3 = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s16 *, 4));
+    if (temp_r3 != NULL) {
+        var_r28 = 0;
+        do {
+            temp_r3_2 = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(((Pkt_80115F28 *)arg0)->ids[var_r28]);
+            if ((temp_r3_2 != NULL) && (((VObj_80115F28 *)temp_r3_2)->m31() == 0)) {
+                if (get_field_3e4__10TObjPlayerFPv(temp_r3) == get_field_3e4__10TObjPlayerFPv(temp_r3_2)) {
+                    TObjPlayer__sub_800113E4(temp_r3_2, get_field_2b8__14TItemProShieldFPv(temp_r3_2));
+                    if (reset_key_machine_state__10TObjPlayerFv() != 0) {
+                        if (var_r28 == 0) {
+                            TObjEneDellBiter__sub_80087350(temp_r3_2 + 0x2FC, 0x19);
+                        }
+                        TObjEneDellBiter__sub_80087350(temp_r3_2 + 0x2FC, 0xC2);
+                    }
+                }
+            }
+            var_r28 += 1;
+        } while (var_r28 != 4);
+    }
+}
+
 void TItemObject__sub_80116004(Obj_80116004 *self, f32 range) {
     Msg_80116004 msg;
     s32 j;
@@ -125,6 +190,23 @@ void TItemObject__sub_80116004(Obj_80116004 *self, f32 range) {
             }
         }
         bswap_and_send_item__10TObjPlayerFPv(&msg);
+    }
+}
+
+void TItemObject__sub_801160E0(void *arg0) {
+    Msg_801160E0 msg;
+    s32 t;
+    s32 i;
+    if (arg0 != NULL && is_current_room__10TObjRoomIdFPv(arg0) != 0 && ((Item_801160E0 *)arg0)->f424 != 0) {
+        t = find_by_pos__11TMainCursorFiss(((Item_801160E0 *)arg0)->f424, 4, 0xA);
+        if (t != 0) {
+            set_type_bytes__10TObjPlayerFPv(&msg);
+            msg.id = obj_getField1c((Obj_80116004 *)arg0);
+            for (i = 0; i != 3; i++) {
+                msg.types[i] = get_type_id__10TObjPlayerFPv(TObjPlayer__sub_80116620((void *)(t + 0x9C), i));
+            }
+            bswap_and_send_item__10TObjPlayerFPv(&msg);
+        }
     }
 }
 

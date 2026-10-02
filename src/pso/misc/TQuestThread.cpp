@@ -13,6 +13,7 @@ struct QThread_801F6418 {
     s32 f1A0;
 };
 
+struct TObj_801F62E0;
 extern "C" {
 s32 get_instance__12TQuestListVMFv();
 M2C_UNK reset__12TQuestListVMFv();
@@ -46,6 +47,22 @@ extern M2C_UNK TQuestThread__data_804C8678[];
 extern u8 *lbl_805D5EE8;
 extern u8 lbl_805DC50C;
 QThread_801F6418 *TQuestThread__sub_801F6418(QThread_801F6418 *self, void *unused, void *scene);
+int queue_destruction__7TObjectFv(void*);
+s32 alloc__22TQuestVmDownLoadServerFPv(s32);
+void copy_name(void *);
+s32 update_lobby_scene__6TSceneFPv(void *);
+void TLobby__sub_800F9DF4(void *, s32);
+M2C_UNK TLobby__sub_801F3124(s32, void *);
+M2C_UNK TQuestThread__sub_801F5E7C();
+M2C_UNK __ct__7TObjectFP7TObject();
+M2C_UNK __ct__12TQuestThreadFv(void *, void *, M2C_UNK);
+s32 __nw__7TObjectFUl(M2C_UNK);
+extern u8 lbl_8044A640[];
+extern M2C_UNK TQuestThread__data_804C8678[];
+extern u8 *lbl_805D5EE8;
+extern u32 lbl_805D5EEC;
+extern u8 lbl_805DC50C;
+u8 *TQuestThread__sub_801F62E0(u8 *arg0, void *parent, void *arg2, s32 arg3);
 }
 
 extern "C" {
@@ -136,6 +153,52 @@ u8 *TQuestThread__sub_801F624C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     return arg0;
 }
 #pragma pop
+
+u8 *TQuestThread__sub_801F62E0(u8 *arg0, void *parent, void *arg2, s32 arg3) {
+    s32 size;
+    void *mem;
+    TObj_801F62E0 *obj;
+    ((void (*)(void *, void *))__ct__7TObjectFP7TObject)(arg0, parent);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = TQuestThread__data_804C8678;
+    M2C_FIELD(arg0, s32 *, 0x1A0) = arg3;
+    M2C_FIELD(arg0, s32 *, 0x198) = 0;
+    obj = (TObj_801F62E0 *)arg0;
+    switch (M2C_FIELD(arg0, s32 *, 0x1A0)) {
+    case 0:
+        copy_name(lbl_8044A640);
+        size = update_lobby_scene__6TSceneFPv(arg2);
+        if (size < 0) {
+            queue_destruction__7TObjectFv(arg0);
+        } else {
+            M2C_FIELD(arg0, s32 *, 0x198) = alloc__22TQuestVmDownLoadServerFPv(size + 0x400);
+            TLobby__sub_800F9DF4(arg2, M2C_FIELD(arg0, s32 *, 0x198));
+            copy_name(&lbl_805DC50C);
+            lbl_805D5EE8 = arg0;
+            TLobby__sub_801F3124(M2C_FIELD(arg0, s32 *, 0x198), arg0 + 0x24);
+            mem = (void *)__nw__7TObjectFUl(0x194);
+            if (mem != NULL) {
+                __ct__12TQuestThreadFv(mem, arg0, 0);
+            }
+        }
+        TQuestThread__sub_801F5E7C();
+        break;
+    case 1:
+        size = update_lobby_scene__6TSceneFPv(arg2);
+        if (size < 0) {
+            queue_destruction__7TObjectFv(arg0);
+        } else {
+            M2C_FIELD(arg0, s32 *, 0x198) = alloc__22TQuestVmDownLoadServerFPv(size + 0x400);
+            TLobby__sub_800F9DF4(arg2, M2C_FIELD(arg0, s32 *, 0x198));
+            lbl_805D5EEC = (u32)arg0;
+            TLobby__sub_801F3124(M2C_FIELD(arg0, s32 *, 0x198), arg0 + 0x24);
+        }
+        break;
+    default:
+        queue_destruction__7TObjectFv(obj);
+        break;
+    }
+    return arg0;
+}
 
 QThread_801F6418 *TQuestThread__sub_801F6418(QThread_801F6418 *self, void *unused, void *scene) {
     s32 r;

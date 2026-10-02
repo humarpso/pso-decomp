@@ -24,6 +24,16 @@ struct RecoveredGlobal_8001A8F0_lbl_80480938 {
     u8 remaining[0x14];
 };
 
+struct Vec_8001A77C { f32 x, y, z; };
+
+struct Cam_8001A77C { u8 pad0[0x14]; s32 f14; s32 f18; Vec_8001A77C v1c; Vec_8001A77C v28; s32 tail[4]; };
+
+typedef struct Color_8001A6A8 { u8 r, g, b, a; } Color_8001A6A8;
+
+typedef struct ColorF_8001A6A8 { f32 r, g, b, a; } ColorF_8001A6A8;
+
+typedef struct Light_8001A6A8 { u8 bytes[0xC]; } Light_8001A6A8;
+
 extern "C" {
 s32 init__9TItemDataFv(void *);
 s32 query_darkfalz_state__10TObjPlayerFPv(int, void *);
@@ -35,6 +45,17 @@ extern M2C_UNK lbl_80480938[];
 extern s32 lbl_805D49E0;
 extern s8 lbl_805D49E4;
 u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void TCameraCtrl__sub_80069D04(void *);
+void TCameraCtrl__sub_80069E7C(int);
+extern Vec_8001A77C lbl_80434568;
+extern Vec_8001A77C lbl_80434574;
+int TObjPlayer__sub_8001A77C(void *p);
+M2C_UNK TObjLight__sub_801345F8(int, void *, void *);
+extern Color_8001A6A8 lbl_80434478[];
+extern Light_8001A6A8 lbl_804344CC[];
+extern s8 lbl_805D49E4;
+int TObjPlayer__sub_8001A6A8(void *p);
 }
 
 extern "C" {
@@ -45,8 +66,6 @@ void *destroy_base__10TObjPlayerFPvs(void *arg0, s16 arg1);
 s32 get_flag890_state__10TObjPlayerFPv(void *arg0);
 void update_flag890_state__10TObjPlayerFi(s32 arg0);
 M2C_UNK TObjPlayer__sub_8001A4CC(s32, s8);
-int TObjPlayer__sub_8001A6A8(void*);
-int TObjPlayer__sub_8001A77C(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 fn_8001A988();
@@ -74,6 +93,26 @@ extern s8 lbl_805D49E4;
 extern s32 lbl_805D49E8;
 extern s32 lbl_805D5550;
 
+int TObjPlayer__sub_8001A6A8(void *p) {
+    ColorF_8001A6A8 c;
+    c.r = lbl_80434478[lbl_805D49E4].r / 255.0f;
+    c.g = lbl_80434478[lbl_805D49E4].g / 255.0f;
+    c.b = lbl_80434478[lbl_805D49E4].b / 255.0f;
+    c.a = lbl_80434478[lbl_805D49E4].a / 255.0f;
+    return TObjLight__sub_801345F8(0, &lbl_804344CC[lbl_805D49E4], &c);
+}
+
+int TObjPlayer__sub_8001A77C(void *p) {
+    Cam_8001A77C sp20;
+    Vec_8001A77C sp14 = lbl_80434568;
+    Vec_8001A77C sp8 = lbl_80434574;
+    TCameraCtrl__sub_80069E7C(9);
+    VecCopy__FP3VecPC3Vec(&sp20.v1c, &sp14);
+    VecCopy__FP3VecPC3Vec(&sp20.v28, &sp8);
+    sp20.f14 = 0x1693;
+    TCameraCtrl__sub_80069D04(&sp20);
+}
+
 void update_flag890_state__10TObjPlayerFi(s32 arg0) {
     if (((s32) lbl_805D5550 != 3) && (fn_8001A988() == 0)) {
         s32 temp;
@@ -85,7 +124,7 @@ void update_flag890_state__10TObjPlayerFi(s32 arg0) {
 }
 
 void TObjPlayer__sub_8001A860(void) {  }
-void TObjPlayer__sub_8001A864(void* p) { TObjPlayer__sub_8001A77C(p); TObjPlayer__sub_8001A6A8(p); }
+void TObjPlayer__sub_8001A864(void* p) { TObjPlayer__sub_8001A77C((void *)(p)); TObjPlayer__sub_8001A6A8((void *)(p)); }
 
 extern M2C_UNK lbl_80480938[];
 

@@ -1,6 +1,8 @@
 # Units linked into the DOL from compiled source
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_fp.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/printf.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/rand.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/scanf.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/string.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/strtoul.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/uart_console_io.c
@@ -360,7 +362,6 @@ pso/enemy/TObjEneBm3FlyNest_800B2FD0.cpp
 pso/enemy/TObjEneBm3FlyNest_800B4160.cpp
 pso/enemy/TObjEneBm5GibonU_800D0CB8.cpp
 pso/enemy/TObjEneBm5GibonU_800D0D14.cpp
-pso/enemy/TObjEneBm5GibonU_801833C8.cpp
 pso/enemy/TObjEneBm5Wolf_800B7B14.cpp
 pso/enemy/TObjEneBm9Mericarol_802D04C0.cpp
 pso/enemy/TObjEneBm9Mericarol_802D05BC.cpp
@@ -376,6 +377,7 @@ pso/enemy/TObjEneDD_800B9F98.cpp
 pso/enemy/TObjEneDD_800BA138.cpp
 pso/enemy/TObjEneDD_800BA754.cpp
 pso/enemy/TObjEneDD_800BA934.cpp
+pso/enemy/TObjEneDD_800BABA4.cpp
 pso/enemy/TObjEneDD_800BB158.cpp
 pso/enemy/TObjEneDD_800BB804.cpp
 pso/enemy/TObjEneDD_800BB804_800BBD18.cpp
@@ -482,6 +484,7 @@ pso/enemy/TObjEneMe1GiGueBarrier_802CABE4.cpp
 pso/enemy/TObjEneMe1GiGueMissile.cpp
 pso/enemy/TObjEneMe1GiGueMissile_802A4628.cpp
 pso/enemy/TObjEneMe1GiGue_80040B3C.cpp
+pso/enemy/TObjEneMe1GiGue_802CAA84.cpp
 pso/enemy/TObjEneMe3ShinowaMirage_800E728C.cpp
 pso/enemy/TObjEneMe3ShinowaReal.cpp
 pso/enemy/TObjEneMe3ShinowaReal_8002ADD8.cpp
@@ -1165,6 +1168,7 @@ pso/misc/TLobby_801D726C_801D76B0.cpp
 pso/misc/TLobby_801DEFC4.cpp
 pso/misc/TLobby_801E6544_801E6948.cpp
 pso/misc/TLobby_801E6544_801E6C2C.cpp
+pso/misc/TLobby_801E6544_801E6C40.cpp
 pso/misc/TLobby_801E6544_801E6EF8.cpp
 pso/misc/TLobby_801E6544_801E765C.cpp
 pso/misc/TLobby_801E6544_801ED6CC.cpp
@@ -1184,6 +1188,7 @@ pso/misc/TLobby_801E6544_801F2C34.cpp
 pso/misc/TLobby_801E6544_801F2CE0.cpp
 pso/misc/TLobby_801F2D2C.cpp
 pso/misc/TLobby_801F3A24.cpp
+pso/misc/TLobby_801F3A24_801F3A24.cpp
 pso/misc/TLobby_801F3A24_801F3FFC.cpp
 pso/misc/TLobby_801F3A24_801F40E8.cpp
 pso/misc/TLobby_801F3A24_801F429C.cpp
@@ -1253,6 +1258,7 @@ pso/misc/TLobby_802230F8.cpp
 pso/misc/TLobby_80226070_80226070.cpp
 pso/misc/TLobby_80226070_802260C4.cpp
 pso/misc/TLobby_80226070_802260F0.cpp
+pso/misc/TLobby_80227A2C_80227AF8.cpp
 pso/misc/TLobby_80228C84.cpp
 pso/misc/TLobby_8023F734_8024074C.cpp
 pso/misc/TLobby_80242910.cpp
@@ -1467,6 +1473,7 @@ pso/misc/TOBarrierEnergy01_80158014.cpp
 pso/misc/TOBind.cpp
 pso/misc/TOBind_80158608.cpp
 pso/misc/TOBind_801586B8.cpp
+pso/misc/TOBiwaMushi.cpp
 pso/misc/TOBoss4.cpp
 pso/misc/TOBoss4Bird.cpp
 pso/misc/TOBoss4Rock.cpp
@@ -1476,6 +1483,7 @@ pso/misc/TOCakeshopCave01.cpp
 pso/misc/TOCapsuleAncient01.cpp
 pso/misc/TOCapsuleLabo.cpp
 pso/misc/TOCapsuleMachine01.cpp
+pso/misc/TOChatSensor.cpp
 pso/misc/TOChatSensorCapture.cpp
 pso/misc/TOChatSensorFolder.cpp
 pso/misc/TOChatSensor_8015AC80.cpp
@@ -1537,8 +1545,9 @@ pso/misc/TOKeyMachine01_8029E764.cpp
 pso/misc/TOKey_8015845C.cpp
 pso/misc/TOKey_80169EE4.cpp
 pso/misc/TOLightMachine01.cpp
-pso/misc/TOMekaFish00.cpp
+pso/misc/TOMine.cpp
 pso/misc/TOMineDisp.cpp
+pso/misc/TOMineDisp_8016EF68.cpp
 pso/misc/TOMineIcon01.cpp
 pso/misc/TOMineIcon02.cpp
 pso/misc/TOMineIcon03.cpp
@@ -1630,7 +1639,6 @@ pso/misc/TPhotonGolla.cpp
 pso/misc/TPhotonLaser.cpp
 pso/misc/TPhotonLeilla.cpp
 pso/misc/TPhotonLeilla_801AC45C.cpp
-pso/misc/TPhotonMagicSquare.cpp
 pso/misc/TPhotonMylla.cpp
 pso/misc/TPhotonPilla.cpp
 pso/misc/TPhotonRainbow.cpp
@@ -1797,6 +1805,7 @@ pso/misc/TTecLuker_802360E4.cpp
 pso/misc/TTecMegid_80235B24.cpp
 pso/misc/TTecRaBarta.cpp
 pso/misc/TTecRaFoie.cpp
+pso/misc/TTecReverser.cpp
 pso/misc/TTecReverser_8034DED4.cpp
 pso/misc/TTecSifta.cpp
 pso/misc/TTecSlicer.cpp
@@ -1934,6 +1943,7 @@ pso/misc/TWindowKeyBoardHard.cpp
 pso/misc/TWindowKeyBoardHard_801A529C.cpp
 pso/misc/TWindowKeyBoardHard_801A529C_801A5478.cpp
 pso/misc/TWindowKeyBoardHard_801A529C_801A54A4.cpp
+pso/misc/TWindowKeyBoardHard_801A529C_801A54E8.cpp
 pso/misc/TWindowKeyBoardHard_8025EB68.cpp
 pso/misc/TWindowKeyBoardHard_802601D4.cpp
 pso/misc/TWindowKeyBoardHard_8026038C.cpp
@@ -2080,6 +2090,7 @@ pso/misc/TWindowSubMag_80255E14.cpp
 pso/misc/TWindowSubMag_802627D8.cpp
 pso/misc/TWindowSubMag_80267BF8.cpp
 pso/misc/TWindowSubMag_80278760.cpp
+pso/misc/TWindowSubQuestBoard.cpp
 pso/misc/TWindowSubQuestBoardSelect.cpp
 pso/misc/TWindowSubQuestBoardSelect_8027D3BC.cpp
 pso/misc/TWindowSubQuestBoardSelect_8027D9AC.cpp
@@ -2289,7 +2300,6 @@ pso/object/TObjCityAreaWarp_80185C7C.cpp
 pso/object/TObjCityAreaWarp_80185D14.cpp
 pso/object/TObjCityAreaWarp_80185DB8.cpp
 pso/object/TObjCityDoor_Lobby.cpp
-pso/object/TObjCityDoor_Shop.cpp
 pso/object/TObjCityMainWarpChallenge.cpp
 pso/object/TObjCityMainWarp_801867F4.cpp
 pso/object/TObjCityMainWarp_80186C44.cpp
@@ -3306,6 +3316,7 @@ pso/ui/TAdDialingGC_80328A4C.cpp
 pso/ui/TAdDialingGC_80328A70.cpp
 pso/ui/TAdDialingGC_80328DB0.cpp
 pso/ui/TAdDialingGC_80328E50.cpp
+pso/ui/TAdDialingGC_80328E90.cpp
 pso/ui/TAdDialingMessageWindow.cpp
 pso/ui/TAdDialingMessageWindow_8036A064.cpp
 pso/ui/TAdDrawLineCtrl.cpp
@@ -3463,6 +3474,7 @@ pso/unk/text_8002B094.cpp
 pso/unk/text_8002B164.cpp
 pso/unk/text_8002C190.cpp
 pso/unk/text_8002E090.cpp
+pso/unk/text_8002E174.cpp
 pso/unk/text_8002F5AC.cpp
 pso/unk/text_8002F61C.cpp
 pso/unk/text_80039084.cpp
@@ -3571,6 +3583,7 @@ pso/unk/text_800E24A4.cpp
 pso/unk/text_800E9238.cpp
 pso/unk/text_800E9538.cpp
 pso/unk/text_800EB778.cpp
+pso/unk/text_800F591C.cpp
 pso/unk/text_800F5BC0.cpp
 pso/unk/text_800F7D30.cpp
 pso/unk/text_800F8A0C.cpp
@@ -3825,6 +3838,7 @@ pso/unk/text_80174AB4.cpp
 pso/unk/text_80174C14.cpp
 pso/unk/text_80177608.cpp
 pso/unk/text_8017866C.cpp
+pso/unk/text_8017B8A0.cpp
 pso/unk/text_8017D39C.cpp
 pso/unk/text_8017D7CC.cpp
 pso/unk/text_8017D8F0.cpp
@@ -3845,6 +3859,7 @@ pso/unk/text_80182234.cpp
 pso/unk/text_80182348.cpp
 pso/unk/text_80182E90.cpp
 pso/unk/text_80183018.cpp
+pso/unk/text_801830BC.cpp
 pso/unk/text_8018386C.cpp
 pso/unk/text_80183BFC.cpp
 pso/unk/text_80183D00.cpp
@@ -3991,6 +4006,7 @@ pso/unk/text_801DB10C.cpp
 pso/unk/text_801DB2D4.cpp
 pso/unk/text_801DB554.cpp
 pso/unk/text_801DB630.cpp
+pso/unk/text_801DB684.cpp
 pso/unk/text_801DB8EC.cpp
 pso/unk/text_801DBA58.cpp
 pso/unk/text_801DF280.cpp
@@ -4257,6 +4273,7 @@ pso/unk/text_8032E294.cpp
 pso/unk/text_8032E400.cpp
 pso/unk/text_803374F0.cpp
 pso/unk/text_80338F3C.cpp
+pso/unk/text_8033D6DC.cpp
 pso/unk/text_8033F314.cpp
 pso/unk/text_8033FE30.cpp
 pso/unk/text_8033FF78.cpp

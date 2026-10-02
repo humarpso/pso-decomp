@@ -15,7 +15,7 @@ M2C_UNK TWindowSubSymbolChat__sub_800771B0(struct TWSC *, s32);
 s32 TWindowSubSymbolChat__sub_800771C4(struct TWSC *, s32);
 struct TWSC *get_instance__20TWindowSubSymbolChatFv();
 s32 calc_remaining_slots__20TWindowSubSymbolChatFv();
-s32 calc_symbol_index__20TWindowSubSymbolChatFPv();
+s32 calc_symbol_index__20TWindowSubSymbolChatFPv(void *arg0);
 void fn_80284CB8(void);
 void copy_position__11TWindowMenuFPvPv(void *, void *);
 f32 TWindowSubStatusDisp__sub_803D647C(f32);
@@ -46,7 +46,7 @@ void fn_80284CB8(void) {
     s32 temp_r30;
     s32 temp_r3;
     struct TWSC *temp_r29;
-    temp_r30 = calc_symbol_index__20TWindowSubSymbolChatFPv();
+    temp_r30 = ((s32 (*)(void))calc_symbol_index__20TWindowSubSymbolChatFPv)();
     temp_r29 = get_instance__20TWindowSubSymbolChatFv();
     temp_r3 = calc_remaining_slots__20TWindowSubSymbolChatFv();
     if (temp_r3 > temp_r30) {
@@ -64,4 +64,56 @@ void fn_80284CB8(void) {
     }
 }
 
+}
+
+extern "C" {
+
+s32 calc_symbol_index__20TWindowSubSymbolChatFPv(void *arg0);
+
+s32 calc_symbol_index__20TWindowSubSymbolChatFPv(void *arg0) {
+    return (s8) M2C_FIELD(arg0, u8 *, 0x72) + ((s8) M2C_FIELD(arg0, u8 *, 0x73) * 4);
+}
+
+}
+extern "C" {
+#pragma push
+struct Vec2_80284D68 { f32 x, y; };
+struct Win_80284D68 {
+    u8 pad[0x4C];
+    f32 height;
+    u8 pad2[0x68 - 0x50];
+    Vec2_80284D68 pos;
+    u8 pad3[2];
+    s8 col;
+    s8 row;
+    u8 pad4[2];
+    s16 count;
+    u8 pad5[0x8C - 0x78];
+    s32 card;
+};
+
+void TWindowSubComCard__sub_8026D740(s32, Vec2_80284D68 *, Vec2_80284D68 *);
+extern const f32 lbl_805DD7D4;
+extern const f32 lbl_805DD7D8;
+extern const f32 lbl_805DD7DC;
+extern const f32 lbl_805DD7E0;
+extern const f32 lbl_805DD7E4;
+extern const f32 lbl_805DD7E8;
+
+#pragma fp_contract on
+void TWindowSubSymbolChat__sub_80284D68(Win_80284D68 *arg0, s32 arg1) {
+    Vec2_80284D68 v;
+
+    if (arg1 >= arg0->count) {
+        arg1 = arg0->count - 1;
+    }
+    arg0->row = arg1 / 4;
+    arg0->col = arg1 % 4;
+    arg0->pos.y = lbl_805DD7D8 + (lbl_805DD7D4 * (f32)arg0->row + lbl_805DD7DC);
+    arg0->pos.y -= lbl_805DD7E0;
+    v.x = lbl_805DD7E4;
+    v.y = arg0->height - lbl_805DD7E8 - lbl_805DD7D8;
+    TWindowSubComCard__sub_8026D740(arg0->card, &arg0->pos, &v);
+}
+#pragma pop
 }

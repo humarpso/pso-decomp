@@ -38,6 +38,34 @@ struct RecoveredFields_800413C8_arg0 {
 
 struct Obj_8004118C { u8 pad[0xb8]; s16 anim; u8 pad2[0x37c - 0xba]; s32 state; u8 pad3[0x38c - 0x380]; s32 angle; };
 
+struct VBase18 { char pad[0x18]; };
+
+struct VObj18 : VBase18 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11(); virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15(); virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19(); virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23(); virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27(); virtual void m28(); virtual void m29(); virtual void m30(); virtual void m31(); virtual void m32(); virtual void m33(); virtual void m34(); virtual void m35(); virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39(); virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43(); virtual void m44(); virtual void m45(); virtual void m46(); virtual void m47(); virtual void m48(); virtual void m49(); virtual void m50(); virtual void m51(); virtual void m52(); virtual void m53(); virtual void m54(); virtual void m55(); virtual void m56(); virtual void m57(); };
+
+typedef struct Sub_800411F0 {
+    u8 pad0[0x18];
+    u32 flags;
+} Sub_800411F0;
+
+typedef struct Hira_800411F0 {
+    u8 pad0[0x38];
+    f32 x;
+    f32 y;
+    u8 pad40[0xA4 - 0x40];
+    Sub_800411F0 *sub;
+    u8 padA8[0xB8 - 0xA8];
+    s16 unkB8;
+    u8 padBA[0xC0 - 0xBA];
+    f32 unkC0;
+    f32 unkC4;
+    u8 padC8[0x30C - 0xC8];
+    f32 speed;
+    u8 pad310[0x37C - 0x310];
+    s32 state;
+    u8 pad380[0x38C - 0x380];
+    s32 unk38C;
+} Hira_800411F0;
+
 extern "C" {
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDC4(int, int);
@@ -71,6 +99,15 @@ extern const f32 lbl_805D8730;
 void render__20TBoss3VoloptHiraisinFv(u8 *arg0);
 s32 TObjPlayer__sub_80154E3C(void *);
 void TBoss3VoloptHiraisin__sub_8004118C(Obj_8004118C *self);
+void TBoss1Dragon__sub_80143504(void *);
+s32 TObjPlayer__sub_80154E3C(void *);
+void TBoss3VoloptHiraisin__sub_80041314(void *arg0);
+void TBoss1Dragon__sub_80143504(void *);
+void update_collisions__10TObjPlayerFPv(void *);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+extern const f32 lbl_805D870C;
+extern const f32 lbl_805D8714;
+void TBoss3VoloptHiraisin__sub_800411F0(Hira_800411F0 *self);
 }
 
 extern "C" {
@@ -126,6 +163,62 @@ void TBoss3VoloptHiraisin__sub_8004118C(Obj_8004118C *self) {
     }
     TObjPlayer__sub_80154E3C(self);
     self->angle += 0x800;
+}
+
+void TBoss3VoloptHiraisin__sub_800411F0(Hira_800411F0 *self) {
+    switch (self->state) {
+    case 0:
+        self->unkB8 = 4;
+        self->speed = lbl_805D870C;
+        self->state = 1;
+        self->unk38C = 0;
+        break;
+    case 1:
+        TBoss1Dragon__sub_80143504(self);
+        self->y = self->y + self->speed;
+        if (self->y <= 4.6f) {
+            self->y = 4.6f;
+            self->state = 2;
+            self->sub->flags &= ~4;
+            self->sub->flags |= 2;
+            TBoss3Volopt__sub_8022675C((M2C_UNK)(0x4003A808), (void *)(&self->x), (M2C_UNK)(0), (M2C_UNK)(0));
+        }
+        break;
+    case 2:
+        TBoss1Dragon__sub_80143504(self);
+        if (self->unkC0 >= self->unkC4 - lbl_805D8714) {
+            self->state = 3;
+        }
+        break;
+    case -1:
+        return;
+    case 3:
+        break;
+    }
+    update_collisions__10TObjPlayerFPv(self);
+}
+
+void TBoss3VoloptHiraisin__sub_80041314(void *arg0) {
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);
+    switch (temp_r0) {
+    case -1:
+        break;
+    case 0:
+        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFDFFFFF);
+        M2C_FIELD(arg0, s16 *, 0xB8) = 3;
+        M2C_FIELD(arg0, s32 *, 0x37C) = 1;
+    case 1:
+        TBoss1Dragon__sub_80143504(arg0);
+        if ((u32) M2C_FIELD(arg0, u32 *, 0xB4) != 8U) {
+            M2C_FIELD(arg0, s16 *, 0x33E) = (s16) M2C_FIELD(arg0, s16 *, 0x32C);
+            M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFFDFF);
+            M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
+            ((VObj18*)arg0)->m57();
+        }
+        break;
+    }
+    TObjPlayer__sub_80154E3C(arg0);
 }
 
 void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {

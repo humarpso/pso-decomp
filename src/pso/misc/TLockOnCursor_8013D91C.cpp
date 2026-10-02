@@ -14,6 +14,11 @@ struct Obj_8013DCCC : Base_8013DCCC {
     virtual ~Obj_8013DCCC();
 };
 
+struct Obj_8013DCCC;
+struct Elem_8013DAB0 { u8 b[0x124]; };
+
+struct Cur_8013DAB0 { u8 pad[0x5C]; Elem_8013DAB0 arr[4]; };
+
 extern "C" {
 u8 * TLobby__sub_8001FE7C(void *, s16);
 extern u8 *lbl_805D5640;
@@ -43,6 +48,26 @@ void __destroy_arr(void *, void *, int, int);
 extern M2C_UNK __dt_deleting__13TLockOnCursorFis[];
 extern M2C_UNK __vt__13TLockOnCursor[];
 u8 *__dt__13TLockOnCursorFv(u8 *arg0, s16 arg1);
+void clear_id__10TObjPlayerFPv(void *);
+s32 init_lockon__11TMainCursorFPv(s32, s32, s32);
+s32 init_vtable__11TMainCursorFPv(s32, s32, s32);
+s32 init__11TMainCursorFPv(s32, s32, s32);
+M2C_UNK TMainCursor__sub_8013B3AC(s32);
+M2C_UNK destroy_lock_on__11TMainCursorFPvi(s32, s32);
+M2C_UNK set_target__11TMainCursorFPvi(s32, s32);
+M2C_UNK TMainCursor__sub_8013E240(s32);
+M2C_UNK set_sub_cursor_value__11TMainCursorFPvi(s32, s32);
+s32 get_target_id__11TMainCursorFPv(s32);
+Obj_8013DCCC *release_target__13TLockOnCursorFPv(void *);
+Obj_8013DCCC *cleanup_field__13TLockOnCursorFPv(void *);
+Obj_8013DCCC *cleanup_field_3c__13TLockOnCursorFPv(void *);
+M2C_UNK TLockOnCursor__sub_8013EC1C(s32);
+M2C_UNK TLockOnCursor__sub_8013EC38(s32);
+s32 __nw__7TObjectFUl(M2C_UNK);
+extern s32 tl_loc_start;
+extern s32 tl_loc_end;
+extern s32 tl_window;
+void TLockOnCursor__sub_8013DAB0(s32 arg0);
 }
 
 extern "C" {
@@ -76,6 +101,41 @@ void run_task__13TLockOnCursorFv(s32 arg0) {
         return;
     }
     TLockOnCursor__sub_8013EB80(arg0 + 0x520);
+}
+
+void TLockOnCursor__sub_8013DAB0(s32 arg0) {
+    s32 var_r31_2;
+    s32 var_r31_3;
+    s32 var_r31_4;
+    s32 var_r30;
+    clear_id__10TObjPlayerFPv((void *)(arg0 + 0x1C));
+    for (var_r30 = 0; var_r30 < 4; var_r30++) {
+        TMainCursor__sub_8013B3AC((s32)&((Cur_8013DAB0 *)arg0)->arr[var_r30]);
+    }
+    TLockOnCursor__sub_8013EC38(arg0 + 0x4EC);
+    TLockOnCursor__sub_8013EC1C(arg0 + 0x508);
+    TMainCursor__sub_8013E240(arg0 + 0x510);
+    if (cleanup_field_3c__13TLockOnCursorFPv((void *)arg0) == NULL) {
+        var_r31_2 = __nw__7TObjectFUl(0x24);
+        if (var_r31_2 != 0) {
+            var_r31_2 = init__11TMainCursorFPv(var_r31_2, tl_loc_start, get_target_id__11TMainCursorFPv(arg0));
+        }
+        set_sub_cursor_value__11TMainCursorFPvi(arg0, var_r31_2);
+    }
+    if (cleanup_field__13TLockOnCursorFPv((void *)arg0) == NULL) {
+        var_r31_3 = __nw__7TObjectFUl(0x24);
+        if (var_r31_3 != 0) {
+            var_r31_3 = init_vtable__11TMainCursorFPv(var_r31_3, tl_loc_end, get_target_id__11TMainCursorFPv(arg0));
+        }
+        set_target__11TMainCursorFPvi(arg0, var_r31_3);
+    }
+    if (release_target__13TLockOnCursorFPv((void *)arg0) == NULL) {
+        var_r31_4 = __nw__7TObjectFUl(0x24);
+        if (var_r31_4 != 0) {
+            var_r31_4 = init_lockon__11TMainCursorFPv(var_r31_4, tl_window, get_target_id__11TMainCursorFPv(arg0));
+        }
+        destroy_lock_on__11TMainCursorFPvi(arg0, var_r31_4);
+    }
 }
 
 void TLockOnCursor__sub_8013DBF4(void) {

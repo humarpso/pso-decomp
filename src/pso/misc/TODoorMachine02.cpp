@@ -37,6 +37,51 @@ struct RecoveredGlobal_80163760___vt__15TODoorMachine02 {
     u8 remaining[0x50];
 };
 
+typedef s32 M2C_UNK;
+struct VBase_80163408 { char pad[0x18]; };
+
+struct VObj_80163408 : VBase_80163408 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+struct Node_80163408 {
+    u8 pad0[4];
+    s32 f4;
+    u8 f8[0x2C - 8];
+    Node_80163408 *next2C;
+    Node_80163408 *next30;
+};
+
+struct Model_80163408 {
+    u8 pad[0x2C];
+    Node_80163408 *root;
+};
+
+struct Door_80163408 {
+    u8 pad0[0x34];
+    Model_80163408 *model;
+    u8 f38[0x60 - 0x38];
+    s32 f60;
+    u8 pad64[0xAC - 0x64];
+    s32 fAC;
+    f32 fB0;
+    u8 padB4[0xBC - 0xB4];
+    s32 fBC;
+    f32 fC0;
+    f32 fC4;
+    u8 padC8[0xD0 - 0xC8];
+    s32 fD0;
+    u8 fD4[4];
+};
+
 extern "C" {
 M2C_UNK set_indexed_flags(void *, int, int);
 s32 TODragonfly__sub_80158360(f32);
@@ -57,6 +102,34 @@ extern u32 lbl_805D5978;
 extern const f32 lbl_805DB51C;
 extern const f32 lbl_805DB528;
 u8 *TODoorMachine02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+s32 fn_801582C4(void *, f32);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK TOSignCave03__sub_803DB510(int);
+M2C_UNK TObjDoor__sub_803DC894(void *, int, f32);
+M2C_UNK set_chunk_material_color(void *);
+extern char lbl_804A7418[];
+extern s32 lbl_805D5660;
+extern s32 *lbl_805D597C;
+extern s32 some_id_805c6f74;
+extern const f32 lbl_805DB524;
+void render__15TODoorMachine02Fv(Door_80163408 *arg0);
+void *TLobby__sub_80020004(void *, M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
+void *alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
+s32 TLanguage__sub_801E4874(void *);
+s32 is_online_ready__6TLobbyFv();
+extern u8 lbl_80440FD8[];
+extern u8 lbl_80440FF0[];
+extern u8 lbl_804B1698[];
+extern u8 lbl_804B16B8[];
+extern s32 enable_v2_features;
+extern u32 lbl_805D5978;
+extern s32 *lbl_805D597C;
+void TODoorMachine02__sub_80163610(void);
 }
 
 extern "C" {
@@ -111,6 +184,49 @@ void TODoorMachine02__vt13(u8 *arg0) {
     }
 }
 
+void render__15TODoorMachine02Fv(Door_80163408 *arg0) {
+    s32 flag;
+    Node_80163408 *n;
+    if (((VObj_80163408 *)arg0)->m8(arg0->fC0, arg0->fC4) != 0 && fn_801582C4(arg0, lbl_805DB524) != 0) {
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(arg0->f38);
+        rotate_matrix_y(0, arg0->f60);
+        flag = arg0->fD0 & 1;
+        set_global_param__8TObjFishFi(lbl_805D597C[arg0->fD0 & 1]);
+        if (arg0->fAC == 0) {
+            n = arg0->model->root;
+            TOHangerMachine01__sub_803D9C00(n->f8);
+            TOSignCave03__sub_803DB510(n->f4);
+            if (flag != 1) {
+                s32 id = some_id_805c6f74;
+                lbl_805D5660 = id;
+                some_id_805c6f74 = id | 0x10;
+                set_chunk_material_color(arg0->fD4);
+            }
+            TObjPlayer__sub_803D9B2C();
+            n = n->next2C;
+            TOHangerMachine01__sub_803D9C00(n->f8);
+            TOSignCave03__sub_803DB510(n->f4);
+            TObjPlayer__sub_803D9B78();
+            TObjPlayer__sub_803D9B2C();
+            n = n->next30;
+            TOHangerMachine01__sub_803D9C00(n->f8);
+            TOSignCave03__sub_803DB510(n->f4);
+            TObjPlayer__sub_803D9B78();
+            if (flag != 1) {
+                set_chunk_material_color(lbl_804A7418);
+                some_id_805c6f74 = lbl_805D5660;
+            }
+            n = arg0->model->root->next30;
+            TOHangerMachine01__sub_803D9C00(n->f8);
+            TOSignCave03__sub_803DB510(n->f4);
+        } else {
+            TObjDoor__sub_803DC894(arg0->model, arg0->fBC, arg0->fB0);
+        }
+        TObjPlayer__sub_803D9B78();
+    }
+}
+
 void *create__15TODoorMachine02FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE4);
     if (o != NULL) {
@@ -137,6 +253,27 @@ void free_statics__15TODoorMachine02Fv(void) {
 }
 
 extern M2C_UNK __vt__15TODoorMachine02[];
+
+void TODoorMachine02__sub_80163610(void) {
+    void *o;
+    lbl_805D597C = (s32 *)alloc_buffer__11TOBoss4RockFPv(8);
+    if (enable_v2_features == 1 && is_online_ready__6TLobbyFv() != 0) {
+        o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (o != NULL) {
+            o = TLobby__sub_80020004(o, 1, lbl_804B16B8, 0, 0, 0);
+        }
+        lbl_805D5978 = (u32)o;
+        lbl_805D597C[0] = TLanguage__sub_801E4874(lbl_80440FD8);
+    } else {
+        o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (o != NULL) {
+            o = TLobby__sub_80020004(o, 1, lbl_804B1698, 0, 0, 0);
+        }
+        lbl_805D5978 = (u32)o;
+        lbl_805D597C[0] = TLanguage__sub_801E4874(lbl_80440FF0);
+    }
+    lbl_805D597C[1] = *(s32 *)(*(u8 **)((u8 *)lbl_805D5978 + 0x42C) + 0xC);
+}
 
 void *__dt__15TODoorMachine02Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

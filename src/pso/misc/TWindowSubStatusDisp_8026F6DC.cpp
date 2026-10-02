@@ -149,3 +149,51 @@ extern "C" {
 }
 
 #pragma pop
+
+extern "C" {
+#define get_array_entry__20TWindowSubStatusDispFPvi ((s32 (*)(void *, int))get_array_entry__20TWindowSubStatusDispFPvi)
+void update_status_entry__20TWindowSubStatusDispFi(s32);
+s32 update_hp_gauge__20TWindowSubStatusDispFi(s32);
+#define fn_8026F8CC ((s32 (*)(void *))fn_8026F8CC)
+void fn_8026FEA8(u8 *arg0);
+}
+
+extern "C" {
+
+#pragma push
+#pragma fp_contract on
+
+s32 rand(void);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern const f32 lbl_805DD3A0;
+extern const f32 lbl_805DD3A4;
+extern const f32 lbl_805DD3A8;
+
+void fn_8026FDC0(u8 *arg0) {
+    s32 ang;
+    f32 dist;
+
+    if (*(u32 *)(arg0 + 0x60) != 0) {
+        (*(u32 *)(arg0 + 0x60))--;
+        ang = (s32)(lbl_805DD3A0 * (lbl_805DD3A4 * (f32)rand()));
+        dist = lbl_805DD3A8 * (lbl_805DD3A4 * (f32)rand());
+        *(f32 *)(arg0 + 0x40) += dist * TBoss8Dragon__sub_803D64DC(ang);
+        *(f32 *)(arg0 + 0x44) += dist * TBoss8Dragon__sub_803D64C0(ang);
+    }
+}
+#pragma pop
+void fn_8026FEA8(u8 *arg0) {
+    s32 temp_r31;
+    s32 temp_r31_2;
+    temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 6);
+    M2C_FIELD(temp_r31, s32 *, 0x2C) = fn_8026F8CC((void *) (arg0));
+    temp_r31_2 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 7);
+    M2C_FIELD(temp_r31_2, s32 *, 0x2C) = update_hp_gauge__20TWindowSubStatusDispFi((s32) arg0);
+    update_status_entry__20TWindowSubStatusDispFi((s32) arg0);
+}
+
+}
+
+#undef get_array_entry__20TWindowSubStatusDispFPvi
+#undef fn_8026F8CC

@@ -6,6 +6,29 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Desc_8036D774 { f32 *pos; u32 *col; s32 a; s32 n; };
 
+#include <stddef.h>
+struct Stack_8036D88C {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+    f32 sp14;
+    f32 sp18;
+    f32 sp1C;
+    f32 sp20;
+    f32 sp24;
+};
+
+struct Stack_8036D994 {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+    f32 sp14;
+    f32 sp18;
+    f32 sp1C;
+    f32 sp20;
+    f32 sp24;
+};
+
 extern "C" {
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
@@ -27,8 +50,6 @@ M2C_UNK fn_80141A30();
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TWindowSubStatusDisp__sub_8036D88C();
-M2C_UNK TWindowSubStatusDisp__sub_8036D994();
 void TWindowSubStatusDisp__sub_8036DA94(void);
 extern s32 lbl_805D7018;
 extern s32 lbl_805D701C;
@@ -41,6 +62,23 @@ extern const f32 lbl_805E03F4;
 extern const f32 lbl_805E03F8;
 extern const f32 lbl_805E03FC;
 void TWindowSubStatusDisp__sub_8036D774(void);
+M2C_UNK set_global_param__8TObjFishFi(void *);
+M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
+M2C_UNK get_player__20TWindowSubStatusDispFv();
+M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32);
+M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
+extern s32 lbl_805D7018;
+void TWindowSubStatusDisp__sub_8036D88C(void);
+M2C_UNK reset_transform_state__10TObjPlayerFv();
+M2C_UNK init_xyz_limits__10TObjPlayerFv();
+M2C_UNK set_global_param__8TObjFishFi(void *);
+M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
+M2C_UNK get_player__20TWindowSubStatusDispFv();
+M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32);
+M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
+extern s32 lbl_805D7018;
+extern s32 lbl_805D701C;
+void TWindowSubStatusDisp__sub_8036D994(void);
 }
 
 extern "C" {
@@ -76,6 +114,68 @@ void TWindowSubStatusDisp__sub_8036D774(void) {
     d.pos[7] = lbl_805E03EC;
     TWindowCtrlMain__sub_801E352C(&d, 4, 0x16, lbl_805E03F4);
 }
+
+void TWindowSubStatusDisp__sub_8036D88C(void) {
+    s32 i;
+    s32 j;
+    f32 buf[8];
+    TWindowSubStatusDisp__sub_803DEE6C((int) (1));
+    set_global_param__8TObjFishFi((void *) (lbl_805D7018));
+    TWindowSubStatusDisp__sub_803DF160((int) (0), (int) (-1));
+    i = 0;
+    buf[4] = 0.5f;
+    buf[5] = 0.0f;
+    buf[6] = 1.0f;
+    buf[7] = 0.5f;
+    buf[0] = 0.0f;
+    buf[2] = 64.0f;
+    do {
+        buf[1] = 192.0f;
+        j = 0;
+        buf[3] = 256.0f;
+        do {
+            TWindowSubComCard__sub_803DEECC((void *) buf, 0.5f);
+            j++;
+            buf[1] += 64.0f;
+            buf[3] += 64.0f;
+        } while (j < 5);
+        i++;
+        buf[0] += 64.0f;
+        buf[2] += 64.0f;
+    } while (i < 10);
+    get_player__20TWindowSubStatusDispFv();
+}
+
+#pragma push
+#pragma fp_contract on
+void TWindowSubStatusDisp__sub_8036D994(void) {
+    s32 i;
+    f32 buf[8];
+    if (lbl_805D701C <= 0x1E) {
+        init_xyz_limits__10TObjPlayerFv();
+        TWindowSubStatusDisp__sub_803DEE6C((int) (1));
+        set_global_param__8TObjFishFi((void *) (lbl_805D7018));
+        TWindowSubStatusDisp__sub_803DF160((int) (0), (int) (-1));
+        i = 0;
+        buf[0] = 0.0f;
+        buf[1] = 10.133333f * lbl_805D701C + 176.0f;
+        buf[2] = 64.0f;
+        buf[3] = buf[1] + 64.0f;
+        buf[4] = 0.5f;
+        buf[5] = 0.5f;
+        buf[6] = 1.0f;
+        buf[7] = 1.0f;
+        do {
+            TWindowSubComCard__sub_803DEECC((void *) buf, 0.5f);
+            i++;
+            buf[0] += 64.0f;
+            buf[2] += 64.0f;
+        } while (i < 10);
+        get_player__20TWindowSubStatusDispFv();
+        reset_transform_state__10TObjPlayerFv();
+    }
+}
+#pragma pop
 
 void TWindowSubStatusDisp__sub_8036DA94(void) {
   s32 var_r31;

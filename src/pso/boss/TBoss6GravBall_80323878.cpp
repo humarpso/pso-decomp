@@ -20,6 +20,20 @@ extern M2C_UNK __vt__14TBoss6GravBall[];
 extern s32 lbl_805D4170;
 extern const f32 TBoss6GravBall__data_805DF550;
 Obj_80323D20 *TBoss6GravBall__ct(Obj_80323D20 *arg0, s32 arg1, void *arg2);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 get_state__14TBoss6GravBallFPv(int);
+M2C_UNK fn_80323134(void *);
+M2C_UNK TBoss6GravBall__sub_803231D0(void *, int);
+M2C_UNK TBoss6GravBall__sub_80323214(void *, int);
+M2C_UNK TBoss6GravBall__sub_80323278(void *, int);
+M2C_UNK TBoss6GravBall__sub_80323544(void *);
+M2C_UNK TBoss6GravBall__sub_803236F8(void *);
+s32 TBoss6GravBall__sub_803237A0();
+extern const f32 lbl_805DF568;
+extern const f32 lbl_805DF578;
+void TBoss6GravBall__sub_80323A78(u8 *arg0);
 }
 
 extern "C" {
@@ -105,6 +119,50 @@ void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
 }
 
 extern M2C_UNK __vt__14TBoss6GravBall[];
+
+void TBoss6GravBall__sub_80323A78(u8 *arg0) {
+    f32 temp_f2;
+    s32 temp_r3;
+    s32 temp_r3_2;
+    temp_r3 = TBoss6GravBall__sub_803237A0();
+    if (temp_r3 != 0) {
+        TBoss6GravBall__sub_803236F8((void *) (arg0));
+    }
+    fn_80323134((void *) (arg0));
+    if (temp_r3 != 0) {
+        TBoss6GravBall__sub_80323278((void *) (arg0), (int) (2));
+        temp_f2 = M2C_FIELD(arg0, f32 *, 0xBC);
+        if (temp_f2 < lbl_805DF568) {
+            M2C_FIELD(arg0, f32 *, 0xBC) = (f32) (temp_f2 + lbl_805DF578);
+            if (M2C_FIELD(arg0, f32 *, 0xBC) > lbl_805DF568) {
+                M2C_FIELD(arg0, f32 *, 0xBC) = (f32) lbl_805DF568;
+            }
+        }
+        TBoss6GravBall__sub_80323544((void *) (arg0));
+        TOTrapAncient01__sub_80226578((int) (0x4003B51A), (void *) (arg0), (void *) (arg0 + 0xC8), (int) (0), (int) (0));
+        switch (get_state__14TBoss6GravBallFPv((int) (M2C_FIELD(arg0, s32 *, 0xAC)))) {
+        case 0x27:
+            return;
+        case 0x1D:
+            break;
+        case 0x1E:
+        case 0x1F:
+            TBoss6GravBall__sub_803231D0((void *) (arg0), (int) (0));
+            TBoss6GravBall__sub_803231D0((void *) (arg0), (int) (1));
+            TBoss6GravBall__sub_803231D0((void *) (arg0), (int) (2));
+            TBoss6GravBall__sub_80323214((void *) (arg0), (int) (4));
+            M2C_FIELD(arg0, s32 *, 0xB8) = 0;
+            M2C_FIELD(arg0, s32 *, 0xB4) = 0;
+            M2C_FIELD(arg0, s32 *, 0xB0) = 1;
+            TBoss3Volopt__sub_8022675C((int) (0x4003B516), (void *) (arg0 + 0xC8), (int) (0), (int) (0));
+            break;
+        case 0x20:
+        default:
+            queue_destruction__7TObjectFv((void *) (arg0));
+            break;
+        }
+    }
+}
 
 void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -16,6 +16,12 @@ void set_flags64__8TItemMagFPvUi(void *p, u32 v);
 void spawn_item_timer__13TItemAttackerFiii(void *a, void *fn, s32 t);
 void clear_flag2__11TItemMagSubFPv(void *arg0);
 void TItemMag__vt40(TItemMag_80110B94 *self);
+u8 get_slot_count__14TItemProShieldFPv();
+void TItemMag__sub_80113EDC(s32, s16, s8);
+s32 TItemMag__sub_801143E8(void *, s32);
+void TItemMag__sub_801D7964(s32);
+void fn_801D79DC(u8 *arg0, s32 arg1);
+void TItemMag__sub_80110E7C(u8 *arg0);
 }
 
 extern "C" {
@@ -146,6 +152,22 @@ void copy_owner_data__8TItemMagFPv(u8 *arg0) {
         TItemMag__sub_80111140(arg0, temp_r3 + 0xC, temp_r3 + 0x10);
     }
 }
+
+void TItemMag__sub_80110E7C(u8 *arg0) {
+    s32 temp_r3;
+    s32 var_r30;
+    TItemMag__sub_801D7964(M2C_FIELD(arg0, s32 *, 0xF0) + 0x500);
+    var_r30 = 0;
+    do {
+        temp_r3 = TItemMag__sub_801143E8(arg0 + 0x198, var_r30);
+        if (temp_r3 != -1) {
+            TItemMag__sub_80113EDC(M2C_FIELD(arg0, s32 *, 0xF0) + 0x4AC, (s16) temp_r3, ((u8 (*)(void *)) get_slot_count__14TItemProShieldFPv)(arg0));
+            fn_801D79DC(M2C_FIELD(arg0, u8 **, 0xF0) + 0x500, (s16) temp_r3);
+        }
+        var_r30 += 1;
+    } while (var_r30 != 3);
+}
+
 void TItemMag__sub_80110F04(O_80110F04 *self) {
     if (TItemMag__data_805DABA4 != self->f190) {
         self->f190 -= TItemMag__data_805DABA8;
