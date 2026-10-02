@@ -18,8 +18,11 @@ u32 *fn_803F74CC(s32);
 void fn_803F7660(u32 *mask);
 extern u32 lbl_805A8AE8[];
 s32 fn_803F7254(s32 arg0, u8 *arg1, u32 arg2, s32 arg3);
-void fn_803F7388(u32 *, Block_803F7438 *, Block_803F7438 *);
 s32 fn_803F7438(u32 *key, u8 *src, s32 len, u8 *dst);
+void fn_803F7330(u32 *arg0, u32 *arg1);
+void fn_803F7308(u32 *dst, u32 *src);
+void fn_803F7330(u32 *arg0, u32 *arg1);
+void fn_803F7388(u32 *arg0, Block_803F7438 *arg1, Block_803F7438 *arg2);
 }
 
 extern "C" {
@@ -86,6 +89,34 @@ void fn_803F7308(u32 *dst, u32 *src) {
 
 #pragma push
 #pragma scheduling off
+#pragma peephole off
+#pragma optimization_level 2
+void fn_803F7330(u32 *arg0, u32 *arg1) {
+    u32 t = arg1[3];
+    arg1[3] = ~(arg1[0] ^ ((arg0[1] - arg1[1]) >> 1));
+    arg1[0] = arg0[3] ^ arg1[1];
+    arg1[1] = ~(arg1[2] ^ ((arg0[2] + t) >> 1));
+    arg1[2] = arg0[0] ^ t;
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+#pragma peephole off
+#pragma optimization_level 2
+void fn_803F7388(u32 *arg0, Block_803F7438 *arg1, Block_803F7438 *arg2) {
+    u32 sp8[4];
+    s32 i;
+    fn_803F7308(sp8, (u32 *)arg1);
+    for (i = 4; i > 0; i--) {
+        fn_803F7330(arg0 + (i - 1) * 4 + 1, sp8);
+    }
+    fn_803F7308((u32 *)arg2, sp8);
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
 #pragma optimization_level 1
 void fn_803F7404(u32 *p, s32 n) {
     lbl_805D79F0 = p;
@@ -124,7 +155,7 @@ s32 fn_803F7438(u32 *key, u8 *src, s32 len, u8 *dst) {
     p = (Block_803F7438 *)src;
     q = (Block_803F7438 *)dst;
     for (i = 0; i < (len >> 4); i++) {
-        fn_803F7388(key, p++, q++);
+        fn_803F7388((u32 *)(key), (Block_803F7438 *)(p++), (Block_803F7438 *)(q++));
     }
     return 0;
 }

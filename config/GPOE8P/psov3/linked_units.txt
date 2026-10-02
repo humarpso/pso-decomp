@@ -1179,6 +1179,7 @@ pso/misc/TLobby_801D6DC4.cpp
 pso/misc/TLobby_801D726C.cpp
 pso/misc/TLobby_801D726C_801D76B0.cpp
 pso/misc/TLobby_801DEFC4.cpp
+pso/misc/TLobby_801E43E4.cpp
 pso/misc/TLobby_801E6544_801E6544.cpp
 pso/misc/TLobby_801E6544_801E6948.cpp
 pso/misc/TLobby_801E6544_801E6C2C.cpp
@@ -1192,6 +1193,7 @@ pso/misc/TLobby_801E6544_801EDF30.cpp
 pso/misc/TLobby_801E6544_801EE44C.cpp
 pso/misc/TLobby_801E6544_801EE48C.cpp
 pso/misc/TLobby_801E6544_801EE4B0.cpp
+pso/misc/TLobby_801E6544_801EE63C.cpp
 pso/misc/TLobby_801E6544_801EF560.cpp
 pso/misc/TLobby_801E6544_801F2498.cpp
 pso/misc/TLobby_801E6544_801F2700.cpp
@@ -1866,6 +1868,7 @@ pso/misc/TWindowComCard_80249D7C.cpp
 pso/misc/TWindowCost.cpp
 pso/misc/TWindowCtrl.cpp
 pso/misc/TWindowCtrlClipOut.cpp
+pso/misc/TWindowCtrlMain.cpp
 pso/misc/TWindowCtrlMain_800FC91C.cpp
 pso/misc/TWindowCtrlMain_800FC91C_800FCB04.cpp
 pso/misc/TWindowCtrlMain_8024674C.cpp
@@ -1915,6 +1918,7 @@ pso/misc/TWindowCtrl_8024C660.cpp
 pso/misc/TWindowCtrl_8024C680.cpp
 pso/misc/TWindowCtrl_8024C6CC.cpp
 pso/misc/TWindowCtrl_8024C7D4.cpp
+pso/misc/TWindowCtrl_8024D960.cpp
 pso/misc/TWindowCtrl_80269FB0.cpp
 pso/misc/TWindowCtrl_8026AD44.cpp
 pso/misc/TWindowCtrl_8026F6A4.cpp
@@ -2098,6 +2102,7 @@ pso/misc/TWindowSubComCard_80275484.cpp
 pso/misc/TWindowSubComCard_802A55E0.cpp
 pso/misc/TWindowSubComCard_802A5748.cpp
 pso/misc/TWindowSubComCard_8033BC34.cpp
+pso/misc/TWindowSubComCard_8033BDB0.cpp
 pso/misc/TWindowSubComCard_8033C2E8.cpp
 pso/misc/TWindowSubComCard_8034CD98.cpp
 pso/misc/TWindowSubCustomEquip_802760AC.cpp
@@ -2383,6 +2388,7 @@ pso/object/TObjGoalWarpAncient.cpp
 pso/object/TObjGoalWarpAncient_8017CB60.cpp
 pso/object/TObjGrassWeb.cpp
 pso/object/TObjGyaranzoMissile.cpp
+pso/object/TObjGyaranzoMissile_800D40D8.cpp
 pso/object/TObjGyaranzoMissile_80131100.cpp
 pso/object/TObjHashi.cpp
 pso/object/TObjHashiBase.cpp
@@ -3120,6 +3126,7 @@ pso/player/TObjPlayer_802C2EAC.cpp
 pso/player/TObjPlayer_802C367C.cpp
 pso/player/TObjPlayer_802C3B14.cpp
 pso/player/TObjPlayer_802C3B14_802C3B14.cpp
+pso/player/TObjPlayer_802C422C.cpp
 pso/player/TObjPlayer_802C422C_802C422C.cpp
 pso/player/TObjPlayer_802C422C_802C4288.cpp
 pso/player/TObjPlayer_802C422C_802C42B4.cpp
@@ -4106,6 +4113,7 @@ pso/unk/text_8020CC48.cpp
 pso/unk/text_8020CCF4.cpp
 pso/unk/text_8020CF40.cpp
 pso/unk/text_8020CFEC.cpp
+pso/unk/text_8020D2B4.cpp
 pso/unk/text_8020ED44.cpp
 pso/unk/text_8020EE2C.cpp
 pso/unk/text_80211D58.cpp

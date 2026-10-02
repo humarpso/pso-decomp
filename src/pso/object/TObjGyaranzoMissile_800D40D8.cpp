@@ -40,6 +40,31 @@ struct VObj_18_e08757 : VBase_18_e08757 {
 
 struct Info_800D4200 { u8 pad[0xc]; f32 xc; u8 pad10[8]; s32 flags; };
 
+typedef s32 M2C_UNK;
+struct Info_800D43B4 { u8 pad[0x18]; u32 flags; };
+
+struct Missile_800D43B4 {
+    u8 pad0[0x30];
+    u32 flags;
+    u8 pad34[0x38 - 0x34];
+    Vec pos;
+    u8 pad44[0xA4 - 0x44];
+    Info_800D43B4 *info;
+    u8 padA8[0xAC - 0xA8];
+    Vec vel;
+    u8 padB8[0xBC - 0xB8];
+    s32 angle;
+    s32 fC0;
+    u8 padC4[0xCC - 0xC4];
+    s32 state;
+    s32 timer;
+    f32 fD4;
+    u8 padD8[0xDC - 0xD8];
+    s32 spin;
+    Vec fE0;
+    s32 fEC;
+};
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjPlayer__sub_80156844(void *, void *, int);
@@ -64,6 +89,22 @@ M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 extern Hit_800D4200 lbl_8043C440[];
 extern const f32 lbl_805DA2A8;
 void TObjGyaranzoMissile__sub_800D4200(u8 *arg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+void TObjGyaranzoMissile__sub_800D4110(u8 *arg0, M2C_UNK *arg1, f32 farg0);
+void TObjGyaranzoMissile__sub_800D4200(u8 *arg0);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B78();
+void TObjPlayer__sub_803D97F0(void *);
+void TScene__sub_803D8DB4(int, void *, void *);
+u32 TObjButterflyLobby__sub_8007A5D8(void *, void *, int);
+void update_collisions__10TObjPlayerFPv(void *);
+extern u8 lbl_8058D490[];
+extern const f32 lbl_805DA2A4;
+extern const f32 lbl_805DA2A8;
+extern const f32 lbl_805DA2AC;
+extern const f32 lbl_805DA2B0;
+void TObjGyaranzoMissile__sub_800D43B4(Missile_800D43B4 *self);
 }
 
 extern "C" {
@@ -161,6 +202,67 @@ void draw__19TObjGyaranzoMissileFPv(u8 *arg0) {
     some_id_805c6f74 &= 0xFFFFFBFF;
     TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0xC4));
     TObjPlayer__sub_803D9B78();
+}
+void TObjGyaranzoMissile__sub_800D43B4(Missile_800D43B4 *self) {
+    self->timer++;
+    switch (self->state) {
+    case 0:
+        self->fC0 += 0x200;
+        if (self->fC0 >= 0) {
+            self->fC0 = 0;
+        }
+        self->pos.x += self->vel.x;
+        self->pos.z += self->vel.z;
+        TObjGyaranzoMissile__sub_800D4110((u8 *)self, NULL, lbl_805DA2A4);
+        if (self->flags & 0x800000) {
+            TObjPlayer__sub_803D97F0(lbl_8058D490);
+            self->vel.x = lbl_805DA2A4;
+            self->vel.y = lbl_805DA2A4;
+            self->vel.z = lbl_805DA2AC;
+            self->angle += self->spin;
+            rotate_matrix_y(0, self->angle);
+            TScene__sub_803D8DB4(0, &self->vel, &self->vel);
+            TObjPlayer__sub_803D9B78();
+            self->fC0 = 0;
+            TObjEneDellBiter__sub_80087350(&self->pos, 0xF3);
+            self->state = 1;
+        }
+        break;
+    case 1: {
+        Vec v = self->fE0;
+        v.x += self->vel.x;
+        v.z += self->vel.z;
+        if (TObjButterflyLobby__sub_8007A5D8(&self->fE0, &v, -1) == 0) {
+            self->pos.x = v.x;
+            self->pos.z = v.z;
+        } else {
+            self->state = 2;
+        }
+        TObjGyaranzoMissile__sub_800D4110((u8 *)self, NULL, lbl_805DA2A4);
+        if (self->fEC > 0) {
+            self->fEC--;
+        } else {
+            update_collisions__10TObjPlayerFPv(self);
+            if (self->info->flags & 0x380000) {
+                TObjGyaranzoMissile__sub_800D4200((u8 *)self);
+                break;
+            }
+        }
+        self->fD4 += lbl_805DA2AC;
+        if (self->fD4 >= lbl_805DA2B0) {
+            self->state = 2;
+        }
+        break;
+    }
+    case 2:
+        TObjGyaranzoMissile__sub_800D4110((u8 *)self, NULL, lbl_805DA2A4);
+        break;
+    }
+    VecCopy__FP3VecPC3Vec(&self->fE0, &self->pos);
+    self->fE0.y += lbl_805DA2A8;
+    if (self->timer >= 0x96) {
+        TObjGyaranzoMissile__sub_800D4200((u8 *)self);
+    }
 }
 
 }

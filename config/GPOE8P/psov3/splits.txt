@@ -3285,6 +3285,7 @@ pso/enemy/TObjEneRe4Sorcerer_800EDCCC_800EFE44.cpp:
 
 pso/enemy/TObjEneRe4Sorcerer_800EDCCC_800EFED8.cpp:
 	.text       start:0x800EFED8 end:0x800F0810
+	.sdata2     start:0x805DA798 end:0x805DA7D4
 
 pso/player/TObjPlayer_800F0810.cpp:
 	.text       start:0x800F0810 end:0x800F0AE4
@@ -7422,6 +7423,7 @@ pso/misc/TOSensorAncient01.cpp:
 pso/misc/TOSensorGeneral01.cpp:
 	.text       start:0x80175F88 end:0x801764DC
 	.rodata     start:0x80442A78 end:0x80442A80
+	.sdata2     start:0x805DB9C0 end:0x805DB9D0
 
 pso/misc/TOSignCave01.cpp:
 	.text       start:0x801764DC end:0x80176890
@@ -13299,6 +13301,8 @@ pso/unk/text_802841FC.cpp:
 
 pso/misc/TWindowSubSymbolChatHelp.cpp:
 	.text       start:0x8028429C end:0x80284C04
+	.rodata     start:0x8044FBE0 end:0x8044FBE8
+	.sdata2     start:0x805DD7A0 end:0x805DD7C8
 
 pso/unk/text_80284C04.cpp:
 	.text       start:0x80284C04 end:0x80284E34
@@ -17018,6 +17022,7 @@ pso/unk/text_80356374.cpp:
 pso/boss/TBoss6SwordWave.cpp:
 	.text       start:0x803564F4 end:0x80356E30
 	.rodata     start:0x804793A8 end:0x804793B0
+	.data       start:0x804F1470 end:0x804F1488
 
 pso/unk/text_80356E30.cpp:
 	.text       start:0x80356E30 end:0x80356E50

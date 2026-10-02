@@ -8,6 +8,14 @@ struct Ent_8024D520 { void *obj; u8 pad[0x18]; };
 
 struct Obj_8024D520 { s32 id; u8 pad[0x14]; void *vt; };
 
+struct WBase_8024D3C0 { u8 pad[0x18]; };
+
+struct W_8024D3C0 : WBase_8024D3C0 { virtual ~W_8024D3C0(); };
+
+struct WBase_8024D690 { u8 pad[0x18]; };
+
+struct W_8024D690 : WBase_8024D690 { virtual ~W_8024D690(); };
+
 extern "C" {
 bool TWindowCtrlMain__sub_8024D868(u8 *arg0);
 void *__nw__7TObjectFUl(u32);
@@ -29,11 +37,46 @@ extern void *TWindowCtrlMain__data_805D640C;
 extern void *TWindowCtrlMain__data_805D6410;
 extern void *TWindowCtrlMain__data_805D6414;
 Obj_8024D520 *TWindowCtrlMain__ct(Obj_8024D520 *arg0);
+M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
+M2C_UNK __dl__7TObjectFPv(void *);
+M2C_UNK release_ptr__15TWindowCtrlMainFPv(void *);
+extern u8 __vt__15TWindowCtrlMain[];
+extern Ent_8024D520 TWindowCtrlMain__data_80518730[6];
+extern void *TWindowCtrlMain__data_805D6404;
+extern void *TWindowCtrlMain__data_805D6408;
+extern void *TWindowCtrlMain__data_805D640C;
+extern void *TWindowCtrlMain__data_805D6410;
+extern void *TWindowCtrlMain__data_805D6414;
+void *__dt__15TWindowCtrlMainFv(void *arg0, s16 arg1);
+M2C_UNK free_window__15TWindowCtrlMainFv();
+M2C_UNK release_ptr__15TWindowCtrlMainFPv(void *);
+M2C_UNK free_keyboard_soft__15TWindowCtrlMainFv();
+extern Ent_8024D520 TWindowCtrlMain__data_80518730[6];
+extern void *TWindowCtrlMain__data_805D6404;
+extern void *TWindowCtrlMain__data_805D6408;
+extern void *TWindowCtrlMain__data_805D640C;
+extern void *TWindowCtrlMain__data_805D6410;
+extern void *TWindowCtrlMain__data_805D6414;
+void TWindowCtrlMain__sub_8024D690(void);
+M2C_UNK TLanguage__sub_80246780();
+void init_fields__15TWindowCtrlMainFPv(void *);
+M2C_UNK TWindowKeyBoardSoft__sub_8024EDF8();
+M2C_UNK TWindowCtrlMain__sub_8024EF30();
+extern Ent_8024D520 TWindowCtrlMain__data_80518730[6];
+extern void *TWindowCtrlMain__data_805D6400;
+extern void *TWindowCtrlMain__data_805D6404;
+extern void *TWindowCtrlMain__data_805D6408;
+extern void *TWindowCtrlMain__data_805D640C;
+extern void *TWindowCtrlMain__data_805D6410;
+extern void *TWindowCtrlMain__data_805D6414;
+extern f32 lbl_805D6418;
+extern const f32 lbl_805DCC58;
+void TWindowCtrlMain__sub_8024D7C0(void* _w0);
 }
 
 extern "C" {
 
-int TWindowCtrlMain__sub_8024D838(void);
+void TWindowCtrlMain__sub_8024D838(void);
 void TWindowCtrlMain__sub_8024D85C(void* p);
 void TWindowCtrlMain__sub_8024D8A8(void* p);
 void free_member__15TWindowCtrlMainFPv(void* p);
@@ -45,7 +88,6 @@ void update_field28__15TWindowCtrlMainFPv(void* p);
 int TCameraCtrl__sub_80068EF0(void);
 int TCameraCtrl__sub_80069024(void);
 int TWindowCtrlMain__sub_8024CE24(void);
-int TWindowCtrlMain__sub_8024D7C0(void*);
 s32 TWindowMainMenu__sub_8024E3D4(void *);
 s32 TWindowMainMenu__sub_8024E3E0(void *);
 int begin_effect_render__13TParticleCtrlFv(void);
@@ -60,6 +102,43 @@ int update_com_card__9TWindowDDFPv(void*);
 
 void render__15TWindowCtrlMainFv(void* p) { reset_transform_state__10TObjPlayerFv(p); begin_effect_render__13TParticleCtrlFv(); TCameraCtrl__sub_80069024(); TWindowCtrlMain__sub_8024CE24(); render_nodes__7TObjectFv(); TCameraCtrl__sub_80068EF0(); end_effect_render__13TParticleCtrlFv(); }
 int run_task__15TWindowCtrlMainFv(void* p) { return update_com_card__9TWindowDDFPv(p); }
+
+void *__dt__15TWindowCtrlMainFv(void *arg0, s16 arg1) {
+    W_8024D3C0 *root;
+    s32 i;
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, u8 **, 0x18) = __vt__15TWindowCtrlMain;
+        root = (W_8024D3C0 *)TWindowCtrlMain__data_805D6408;
+        TWindowCtrlMain__data_805D6408 = NULL;
+        if (TWindowCtrlMain__data_805D6414 != NULL) {
+            delete (W_8024D3C0 *)TWindowCtrlMain__data_805D6414;
+            TWindowCtrlMain__data_805D6414 = NULL;
+        }
+        if (TWindowCtrlMain__data_805D6410 != NULL) {
+            delete (W_8024D3C0 *)TWindowCtrlMain__data_805D6410;
+            TWindowCtrlMain__data_805D6410 = NULL;
+        }
+        if (TWindowCtrlMain__data_805D640C != NULL) {
+            delete (W_8024D3C0 *)TWindowCtrlMain__data_805D640C;
+            TWindowCtrlMain__data_805D640C = NULL;
+        }
+        for (i = 5; i >= 0; i--) {
+            release_ptr__15TWindowCtrlMainFPv(&TWindowCtrlMain__data_80518730[i]);
+        }
+        if (TWindowCtrlMain__data_805D6404 != NULL) {
+            delete (W_8024D3C0 *)TWindowCtrlMain__data_805D6404;
+            TWindowCtrlMain__data_805D6404 = NULL;
+        }
+        if (root != NULL) {
+            delete root;
+        }
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
 
 Obj_8024D520 *TWindowCtrlMain__ct(Obj_8024D520 *arg0) {
     Ent_8024D520 *e;
@@ -115,7 +194,55 @@ Obj_8024D520 *TWindowCtrlMain__ct(Obj_8024D520 *arg0) {
     return arg0;
 }
 
-int TWindowCtrlMain__sub_8024D838(void) { return TWindowCtrlMain__sub_8024D7C0((void*)(0)); }
+void TWindowCtrlMain__sub_8024D690(void) {
+    W_8024D690 *root;
+    s32 i;
+    root = (W_8024D690 *)TWindowCtrlMain__data_805D6408;
+    TWindowCtrlMain__data_805D6408 = NULL;
+    if (TWindowCtrlMain__data_805D6414 != NULL) {
+        delete (W_8024D690 *)TWindowCtrlMain__data_805D6414;
+        TWindowCtrlMain__data_805D6414 = NULL;
+    }
+    if (TWindowCtrlMain__data_805D6410 != NULL) {
+        delete (W_8024D690 *)TWindowCtrlMain__data_805D6410;
+        TWindowCtrlMain__data_805D6410 = NULL;
+    }
+    if (TWindowCtrlMain__data_805D640C != NULL) {
+        delete (W_8024D690 *)TWindowCtrlMain__data_805D640C;
+        TWindowCtrlMain__data_805D640C = NULL;
+    }
+    for (i = 5; i >= 0; i--) {
+        release_ptr__15TWindowCtrlMainFPv(&TWindowCtrlMain__data_80518730[i]);
+    }
+    if (TWindowCtrlMain__data_805D6404 != NULL) {
+        delete (W_8024D690 *)TWindowCtrlMain__data_805D6404;
+        TWindowCtrlMain__data_805D6404 = NULL;
+    }
+    if (root != NULL) {
+        delete root;
+    }
+    free_keyboard_soft__15TWindowCtrlMainFv();
+    free_window__15TWindowCtrlMainFv();
+}
+
+void TWindowCtrlMain__sub_8024D7C0(void* _w0) {
+    s32 i;
+    TLanguage__sub_80246780();
+    TWindowCtrlMain__sub_8024EF30();
+    TWindowKeyBoardSoft__sub_8024EDF8();
+    TWindowCtrlMain__data_805D6400 = 0;
+    TWindowCtrlMain__data_805D6408 = 0;
+    TWindowCtrlMain__data_805D640C = 0;
+    TWindowCtrlMain__data_805D6410 = 0;
+    TWindowCtrlMain__data_805D6414 = 0;
+    TWindowCtrlMain__data_805D6404 = 0;
+    lbl_805D6418 = lbl_805DCC58;
+    for (i = 0; i < 6; i++) {
+        init_fields__15TWindowCtrlMainFPv(&TWindowCtrlMain__data_80518730[i]);
+    }
+}
+
+void TWindowCtrlMain__sub_8024D838(void) { TWindowCtrlMain__sub_8024D7C0((void*)((void*)(0))); }
 void TWindowCtrlMain__sub_8024D85C(void* p) { *(s16*)((char*)p + 0x20) = 60; }
 
 bool TWindowCtrlMain__sub_8024D868(u8 *arg0) {

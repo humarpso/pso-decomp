@@ -56,6 +56,10 @@ struct Plr_801A0F34 { u8 pad[0x30]; s32 flags; u8 pad34[4]; u8 pos[0xc]; };
 
 struct Pad_801A0F34 { u8 pad[0x20]; u8 btn[0x30]; };
 
+struct Ctrl_801A0E38;
+struct Obj_801A0DB4;
+struct Obj_801A0E38;
+struct Obj_801A0CE8;
 extern "C" {
 void allow_rendering__7TObjectFv(void *);
 void clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
@@ -109,6 +113,32 @@ s32 get_map_id__13TRaderMapCoreFPv(void *);
 s32 check_flag_100__10TObjPlayerFPv(void *);
 extern Pad_801A0F34 lbl_8050E208[];
 s32 TObjLuker__sub_801A0F34(void *arg0, s32 *arg1, f32 range);
+s32 is_split_screen(void);
+void queue_destruction__7TObjectFv(void *);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+void TObjLuker__sub_801A0CE8(Obj_801A0CE8 *self);
+void TObjLuker__sub_801A0DB4(Obj_801A0DB4 *self);
+void TObjLuker__sub_801A0E38(Obj_801A0E38 *self);
+s32 TObjLuker__sub_801A0F34(void *arg0, s32 *arg1, f32 range);
+s32 TObjLuker__sub_801A10A0(s32 arg0, f32 farg0);
+void TObjLuker__sub_801A1260(u8 *arg0);
+s32 TWindowShortListCtrl__check_controller_button(void *, int);
+M2C_UNK play_effect_default__10TObjPlayerFii(void *, int);
+s32 check_flag_100__10TObjPlayerFPv(void *);
+Ctrl_801A0E38 *TPlayerBattleCtrl4P__sub_801BA74C(u16 id);
+M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+void *__nw__7TObjectFUl(int);
+s32 TTecLuker__sub_8023401C(void *);
+void *TTecLuker__sub_8023453C(void *, void *, int, int);
+M2C_UNK fn_8023601C(void *, void *, f32);
+M2C_UNK init_all_slots__11TWindowCtrlFv();
+M2C_UNK init_all_slots2__11TWindowCtrlFv();
+extern Pad_801A0F34 lbl_8050E208[];
+extern s32 lbl_805D53A0;
+extern s32 tl_07;
+extern const f32 lbl_805DC080;
+void run_task__9TObjLukerFv(u8 *arg0);
 }
 
 extern "C" {
@@ -256,6 +286,97 @@ s32 TObjLuker__sub_801A0F34(void *arg0, s32 *arg1, f32 range) {
 void render__9TObjLukerFv(void) {  }
 
 extern void *tl_05;
+
+#define PBC_801A1418(x) (((u8 *(*)(s32))TPlayerBattleCtrl4P__sub_801BA74C)(x))
+void run_task__9TObjLukerFv(u8 *arg0) {
+    s32 sp8;
+    u8 spC[0xC];
+    u8 *p;
+    void *o;
+    s32 flag;
+    p = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0xA8));
+    if (p != NULL) {
+        TObjLuker__sub_801A0CE8((Obj_801A0CE8 *) arg0);
+        TObjLuker__sub_801A0E38((Obj_801A0E38 *) arg0);
+    }
+    if (p == NULL) {
+        if (M2C_FIELD(arg0, void **, 0xA4) != NULL) {
+            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xA4));
+            M2C_FIELD(arg0, void **, 0xA4) = NULL;
+        }
+        M2C_FIELD(arg0, s32 *, 0xB4) = 1;
+        TObjLuker__sub_801A0DB4((Obj_801A0DB4 *) arg0);
+        return;
+    }
+    if (M2C_FIELD(arg0, u16 *, 0xA8) != 0xFFFF && p != NULL) {
+        if (TTecLuker__sub_8023401C(p + 0x830) != 0) {
+            M2C_FIELD(arg0, s16 *, 0xAE) = 1;
+            if (M2C_FIELD(arg0, s32 *, 0xB4) != 0 && M2C_FIELD(arg0, void **, 0xA4) == NULL) {
+                o = __nw__7TObjectFUl(0x44);
+                if (o != NULL) {
+                    o = TTecLuker__sub_8023453C(o, arg0 + 0x38, M2C_FIELD(arg0, u16 *, 0xA8), tl_07);
+                }
+                M2C_FIELD(arg0, void **, 0xA4) = o;
+                M2C_FIELD(arg0, s32 *, 0xB4) = 0;
+            }
+            TOTrapAncient01__sub_80226578(0x4002B219, arg0, arg0 + 0x38, 0, 0);
+            switch (M2C_FIELD(arg0, s16 *, 0xB0)) {
+            case 0:
+                sp8 = 0;
+                if (TObjLuker__sub_801A10A0((s32) arg0, lbl_805DC080) != 0) {
+                    flag = 0;
+                    if (is_split_screen() != 0) {
+                        if (TObjLuker__sub_801A0F34(arg0 + 0x38, &sp8, lbl_805DC080) != 0) {
+                            flag = 1;
+                            M2C_FIELD(arg0, u16 *, 0xAA) = M2C_FIELD(arg0, u16 *, 0xA8);
+                        }
+                    } else {
+                        p = PBC_801A1418(lbl_805D53A0);
+                        if (p != NULL && check_flag_100__10TObjPlayerFPv(p) == 0 &&
+                            TWindowShortListCtrl__check_controller_button(lbl_8050E208[sp8].btn, 4) != 0) {
+                            flag = 1;
+                        }
+                    }
+                    if (flag != 0) {
+                        M2C_FIELD(arg0, s16 *, 0xB0) = 1;
+                        fn_8023601C(arg0 + 0x38, spC, lbl_805DC080);
+                        TObjEneDellBiter__sub_80087350(spC, 0xB3);
+                        p = PBC_801A1418(lbl_805D53A0);
+                        if (p != NULL) {
+                            play_effect_default__10TObjPlayerFii(p, 0xA);
+                            TBoss3Volopt__sub_8022675C(0x40022D1A, (u32) (arg0 + 0x38), 0, 0);
+                        }
+                        init_all_slots__11TWindowCtrlFv();
+                        M2C_FIELD(arg0, s32 *, 0xB8) = 1;
+                    }
+                }
+                break;
+            case 1:
+                if (M2C_FIELD(arg0, s16 *, 0xAC)++ > 10) {
+                    M2C_FIELD(arg0, s16 *, 0xB0) = 2;
+                }
+                break;
+            case 2:
+                TObjLuker__sub_801A1260(arg0);
+                queue_destruction__7TObjectFv(arg0);
+                break;
+            }
+        } else {
+            TObjLuker__sub_801A0DB4((Obj_801A0DB4 *) arg0);
+            M2C_FIELD(arg0, s16 *, 0xB0) = M2C_FIELD(arg0, s16 *, 0xAE) = 0;
+            if (M2C_FIELD(arg0, s32 *, 0xB8) != 0) {
+                M2C_FIELD(arg0, s32 *, 0xB8) = 0;
+                init_all_slots2__11TWindowCtrlFv();
+            }
+            M2C_FIELD(arg0, s16 *, 0xAC) = 0;
+            if (M2C_FIELD(arg0, void **, 0xA4) != NULL) {
+                queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xA4));
+                M2C_FIELD(arg0, void **, 0xA4) = NULL;
+            }
+            M2C_FIELD(arg0, s32 *, 0xB4) = 1;
+        }
+    }
+}
 
 Luker_801A16D8 *__dt__9TObjLukerFv(Luker_801A16D8 *arg0, s16 arg1) {
     if (arg0 != NULL) {

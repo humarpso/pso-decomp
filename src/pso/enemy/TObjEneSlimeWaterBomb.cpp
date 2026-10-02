@@ -21,6 +21,7 @@ struct Bomb_800E8D4C {
     s32 timer;
 };
 
+typedef struct { f32 x, y, z; } Vec_800E8C6C;
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 *dispatch_shared_handler_a__6TLobbyFPv(s32);
@@ -50,6 +51,20 @@ extern const f32 lbl_805DA6D4;
 extern const f32 lbl_805DA6D8;
 extern const f32 lbl_805DA6DC;
 void run_task__21TObjEneSlimeWaterBombFv(Bomb_800E8D4C *arg0);
+M2C_UNK TObjPlayer__sub_800F09E8(int);
+M2C_UNK TBoss1Dragon__sub_8014220C(void *, s32 *, s32 *);
+M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
+M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
+M2C_UNK rotate_matrix_x(int, int);
+int TObjPlayer__sub_803D9B2C(void*);
+int TObjPlayer__sub_803D9B78(void);
+M2C_UNK TBoss7Tentacle__sub_803D9BA0(Vec_800E8C6C *);
+extern const f32 lbl_805DA670;
+extern const f32 lbl_805DA67C;
+extern const f32 lbl_805DA6B4;
+extern const f32 lbl_805DA6C8;
+extern const f32 lbl_805DA6CC;
+void render__21TObjEneSlimeWaterBombFv(u8 *arg0);
 }
 
 extern "C" {
@@ -60,6 +75,35 @@ void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void request_destroy__11TBoss4Type2FUi(void *);
+
+#pragma push
+#pragma fp_contract on
+#pragma opt_common_subs off
+void render__21TObjEneSlimeWaterBombFv(u8 *arg0) {
+    Vec_800E8C6C v;
+    s32 spC;
+    s32 sp8;
+    f32 d;
+    f32 k;
+    TObjPlayer__sub_803D9B2C(arg0);
+    TObjPlayer__sub_803D9624(0, M2C_FIELD(arg0, f32 *, 0x38), lbl_805DA670 + M2C_FIELD(arg0, f32 *, 0x380), M2C_FIELD(arg0, f32 *, 0x40));
+    TBoss1Dragon__sub_8014220C(arg0 + 0x248, &spC, &sp8);
+    TObjBoss2Tunnel__sub_803D929C(0, sp8);
+    rotate_matrix_x(0, spC + 0x4000);
+    d = M2C_FIELD(arg0, f32 *, 0x3C) - M2C_FIELD(arg0, f32 *, 0x380);
+    if (d > lbl_805DA6C8) {
+        d = lbl_805DA6C8;
+    } else if (d < lbl_805DA6B4) {
+        d = lbl_805DA6B4;
+    }
+    k = lbl_805DA6CC * (lbl_805DA67C - d / lbl_805DA6C8) + lbl_805DA670;
+    v.x = v.y = k;
+    v.z = lbl_805DA67C;
+    TBoss7Tentacle__sub_803D9BA0(&v);
+    TObjPlayer__sub_800F09E8(0);
+    TObjPlayer__sub_803D9B78();
+}
+#pragma pop
 
 void run_task__21TObjEneSlimeWaterBombFv(Bomb_800E8D4C *arg0) {
     s32 die = 0;

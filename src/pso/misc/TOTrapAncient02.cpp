@@ -107,6 +107,22 @@ struct Obj_8017ACA0 {
     s32 angle;
 };
 
+struct Trap_8017ADC4 {
+    u8 pad0[0x2A8];
+    void *target;
+    u8 pad2AC[0x326 - 0x2AC];
+    s16 mode;
+    s16 state;
+    u8 pad32A[0x33C - 0x32A];
+    u16 player;
+    u8 pad33E[0x344 - 0x33E];
+    f32 h344;
+    f32 h348;
+    u8 pad34C[0x350 - 0x34C];
+    s32 reset;
+    s32 timer;
+};
+
 extern "C" {
 u32 get_global_state__14TOKeyMachine01Fv();
 void TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
@@ -127,6 +143,18 @@ extern s32 lbl_805D5ADC;
 extern u32 lbl_805D5AE0;
 extern s32 lbl_805D5AE4;
 void TOTrapAncient02__sub_8017B4EC(void);
+u16 obj_getField1c(void *);
+void obj_setFlags30(void *, u32);
+void fn_8002AE64(void *);
+s32 check_player_flag1__6TLobbyFPv();
+void TObjPlayer__sub_800A7798(void *, f32);
+void TObjPlayer__sub_801B4A18(void *, s32);
+void send_code_45_1__10TObjPlayerFi(s32);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+extern s32 lbl_805D53A0;
+extern const f32 lbl_805DBA78;
+extern const f32 lbl_805DBA80;
+void TOTrapAncient02__vt80(Trap_8017ADC4 *self);
 }
 
 extern "C" {
@@ -222,6 +250,56 @@ void TOTrapAncient02__sub_8017ACA0(Obj_8017ACA0 *self) {
             return;
         case 20:
             return;
+        }
+        break;
+    }
+}
+
+void TOTrapAncient02__vt80(Trap_8017ADC4 *self) {
+    s32 p;
+    TObjPlayer__sub_801B4A18(self, -1);
+    switch (self->state) {
+    case 0:
+    case 1:
+        self->state = 2;
+    case 2:
+        if (self->target != NULL) {
+            obj_setFlags30(self->target, 0x200);
+            fn_8002AE64(self->target);
+            TObjPlayer__sub_800A7798(self->target, lbl_805DBA78);
+            self->timer--;
+            if (self->timer < 0) {
+                self->state = 3;
+                self->timer = self->reset;
+                if (self->target != NULL && lbl_805D53A0 == obj_getField1c(self->target)) {
+                    p = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+                    if (p != 0 && check_player_flag1__6TLobbyFPv() != 0) {
+                        send_code_45_1__10TObjPlayerFi(p);
+                    }
+                }
+            }
+        } else {
+            self->state = 3;
+            self->timer = self->reset;
+        }
+        break;
+    case 3:
+        if (lbl_805DBA80 < self->h348) {
+            self->h348 -= lbl_805DBA78;
+        } else {
+            self->state = 4;
+            self->h348 = lbl_805DBA80;
+        }
+        break;
+    case 4:
+        if (lbl_805DBA80 < self->h344) {
+            self->h344 -= lbl_805DBA78;
+        } else {
+            self->mode = 0;
+            self->state = 0;
+            self->h344 = lbl_805DBA80;
+            self->player = 0xFFFF;
+            self->target = NULL;
         }
         break;
     }

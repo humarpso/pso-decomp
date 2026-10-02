@@ -27,6 +27,9 @@ struct Obj_8001B824 { u8 pad[0x1c]; u32 slot[2]; };
 
 struct Vt_8001B824 { s32 value; u8 remaining[0x14]; };
 
+typedef s32 M2C_UNK;
+struct Obj_8001B534 { u8 pad0[0x1c]; u32 slot[2]; u8 pad24[4]; f32 f28; };
+
 extern "C" {
 s32 fn_8001B424(void *, void *);
 s32 set_scale4__15TAdRicoRingCtrlFPvf(int, f32);
@@ -53,6 +56,10 @@ void queue_destruction__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8001B8AC___vt__15TAdRicoRingCtrl __vt__15TAdRicoRingCtrl;
 u8 *__dt__15TAdRicoRingCtrlFv(u8 *self, s16 flag);
+void start_fade__15TAdRicoRingCtrlFPvf(u8 *arg0, f32 farg0);
+extern const f32 lbl_805D7E4C;
+extern const f32 lbl_805D7E54;
+void TAdRicoRingCtrl__sub_8001B534(Obj_8001B534 *self, f32 x);
 }
 
 extern "C" {
@@ -79,6 +86,18 @@ void TAdRicoRingCtrl__sub_8001B4A0(Obj_8001B4A0 *self, f32 x) {
     f32 t = lbl_805D7E48 + x;
     if (lbl_805D7E4C != t) {
         self->f28 = TAdRicoRingCtrl__data_805D7E50 / t;
+    }
+}
+
+void TAdRicoRingCtrl__sub_8001B534(Obj_8001B534 *self, f32 x) {
+    s32 i;
+    for (i = 0; i != 2; i++) {
+        if (self->slot[i] != 0) {
+            start_fade__15TAdRicoRingCtrlFPvf((u8 *)self->slot[i], x);
+        }
+    }
+    if (lbl_805D7E4C != x) {
+        self->f28 = lbl_805D7E54 / x;
     }
 }
 

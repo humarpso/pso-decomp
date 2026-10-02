@@ -68,6 +68,40 @@ struct RecoveredGlobal_80193B4C_lbl_8050DCF0 {
 struct Sw_80193978 { u8 pad0[0x8C]; s32 f8C; u8 pad90[0x58]; u16 fE8; };
 
 typedef s32 M2C_UNK;
+#define CAT2(a, b) a##b
+#define CAT(a, b) CAT2(a, b)
+#define PADV virtual void CAT(pv, __LINE__)();
+struct Base_801935D8 { char pad[0x18]; };
+
+struct V_801935D8 : Base_801935D8 {
+    PADV
+    PADV
+    PADV
+    PADV
+    PADV
+    virtual void init(void *);
+};
+
+struct Fence_801935D8 {
+    s32 id;
+    u8 pad4[0x18 - 0x4];
+    void *vt;
+    u8 pad1C[0x30 - 0x1C];
+    u32 flags;
+    u8 pad34[0x68 - 0x34];
+    f32 f68;
+    u8 pad6C[0x84 - 0x6C];
+    s32 f84;
+    u8 pad88[0x8C - 0x88];
+    s32 f8C;
+    u8 pad90[0xAC - 0x90];
+    s32 fAC;
+    f32 fB0;
+    u8 padB4[0xB8 - 0xB4];
+    u16 fB8;
+    s16 fBA;
+};
+
 extern "C" {
 extern RecoveredGlobal_80193A84_lbl_8050DCF0 lbl_8050DCF0;
 void TLazerFenceSw__vt14(u8 *arg0);
@@ -105,6 +139,17 @@ extern const f32 TLazerFenceSw__data_805DBE84;
 extern const f32 lbl_805DBE8C;
 extern const f32 lbl_805DBE90;
 void *TLazerFenceSw__ct(void *arg0, void *arg1, void *arg2);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+void TObjPlayer__sub_80154E3C(void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+void TObjPlayer__sub_801569F4(void *);
+void TObjLazerFence4__sub_80193188(void *);
+extern u16 lbl_80445BE0[];
+extern u8 lbl_804B8128[];
+extern M2C_UNK __vt__15TObjLazerFence4[];
+extern s32 lbl_805D33A8;
+extern const f32 lbl_805DBE6C;
+void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2);
 }
 
 extern "C" {
@@ -121,7 +166,6 @@ M2C_UNK TLobby__sub_8001FE7C(void *, s32);
 void TOKey__sub_8016A8D0(void *);
 M2C_UNK TOKey__sub_8016AAE0(void *);
 void TObjEneGibbles__sub_80156720(void *);
-void *TObjLazerFence4__ct(void *, void *, void *);
 void TObjPlayer__sub_80154A00(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
@@ -137,7 +181,7 @@ extern void *tl_05;
 void *create__15TObjLazerFence4FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF8);
     if (o != NULL) {
-        o = TObjLazerFence4__ct(o, tl_05, arg0);
+        o = TObjLazerFence4__ct((void *)(o), (void *)(tl_05), (void *)(arg0));
     }
     return o;
 }
@@ -158,6 +202,33 @@ void *__dt__15TObjLazerFence4Fv(void *arg0, s16 arg1) {
 }
 
 extern const f32 TLazerFenceSw__data_805DBE84;
+
+#define self ((Fence_801935D8 *)arg0)
+void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2) {
+    s32 i;
+    ((void (*)(void *, void *, void *))TObjPlayer__sub_801569F4)(self, arg1, arg2);
+    self->vt = (void *)__vt__15TObjLazerFence4;
+    self->id = lbl_805D33A8;
+    ((V_801935D8 *)self)->init(arg2);
+    self->fAC = 0;
+    self->fB0 = lbl_805DBE6C;
+    self->fBA = self->f84;
+    i = self->f68;
+    if (i < 0) {
+        i = 0;
+    }
+    if (i > 3) {
+        i = 3;
+    }
+    self->fB8 = lbl_80445BE0[i];
+    TObjLazerFence4__sub_80193188(self);
+    TObjEneGibbles__sub_80156780(self, lbl_804B8128 + (self->f8C % 2) * 0xDC, 5);
+    self->flags |= 0x40000000;
+    reset_photon_effect__10TObjPlayerFPv(self);
+    TObjPlayer__sub_80154E3C(self);
+    return self;
+}
+#undef self
 
 #pragma push
 #pragma opt_common_subs off

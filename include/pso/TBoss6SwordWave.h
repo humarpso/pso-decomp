@@ -6,6 +6,8 @@
 class TBoss6SwordWave : public TObject {
 public:
     virtual ~TBoss6SwordWave();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

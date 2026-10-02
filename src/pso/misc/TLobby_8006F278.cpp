@@ -36,6 +36,22 @@ struct Win_8006F48C {
     char term;
 };
 
+struct Entry_8006F38C {
+    s32 value;
+    u32 mask;
+    u8 pad[0x14];
+};
+
+struct Win_8006F38C {
+    u8 pad[0x21C4];
+    u8 sub[4];
+};
+
+struct Table_8006F38C {
+    u8 pad[0x21C];
+    Entry_8006F38C entries[3];
+};
+
 extern "C" {
 s32 get_layout_id__20TWindowSubStatusDispFv(int);
 s32 TWindowSubStatusDisp__sub_8006F0D8(void *, int);
@@ -53,13 +69,19 @@ s32 is_id_out_of_range__6TLobbyFi(s32 arg0);
 s32 TLobby__sub_8006F994(int id);
 void TLobby__sub_8006F910(u8 *dst, u8 *src, s32 n);
 s32 TWindowSubStatusDisp__sub_8006F190(int);
-M2C_UNK TLobby__sub_8006F888(void *, void *, int);
 s16 TLobby__sub_80071640(int);
 u32 get_card_window__17TWindowSubComCardFUi(int);
 s32 strncmp(void *, void *, int);
 M2C_UNK strncpy(void *, void *, int);
 extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 lbl_8048C9D8;
 void TLobby__sub_8006F48C(void);
+s32 calc_layout_hash__20TWindowSubStatusDispFv(int);
+s32 calc_entry_offset__20TWindowSubStatusDispFv(int);
+u32 *TWindowSubStatusDisp__sub_8006F134(void *, s32);
+u32 get_card_window__17TWindowSubComCardFUi(int);
+extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 lbl_8048C9D8;
+s32 TLobby__sub_8006F38C(s32 arg0);
+void TLobby__sub_8006F888(void *arg0, void *arg1, int arg2);
 }
 
 extern "C" {
@@ -83,6 +105,41 @@ s32 is_id_out_of_range__6TLobbyFi(s32 arg0) {
 }
 
 #define TBL_8006F48C (*(Table_8006F48C *)&lbl_8048C9D8)
+
+#define TBL_8006F38C (*(Table_8006F38C *)&lbl_8048C9D8)
+s32 TLobby__sub_8006F38C(s32 arg0) {
+    s32 lo;
+    s32 hi;
+    u32 *flags;
+    s32 i;
+    Entry_8006F38C *e;
+    u32 w;
+    lo = calc_entry_offset__20TWindowSubStatusDispFv(-1);
+    hi = calc_layout_hash__20TWindowSubStatusDispFv(-1);
+    if (get_card_window__17TWindowSubComCardFUi(0xFFFF) == 0) {
+        return -4;
+    }
+    if (arg0 < lo || arg0 > hi) {
+        return -4;
+    }
+    w = get_card_window__17TWindowSubComCardFUi(0xFFFF) + 0x21C4;
+    flags = TWindowSubStatusDisp__sub_8006F134((void *)w, -1);
+    for (i = 2, e = &TBL_8006F38C.entries[2]; i >= 0; i--, e--) {
+        if (e->value != 0 && e->value >= arg0) {
+            if (e->value < lo || e->value > hi) {
+                return -4;
+            }
+            if ((*flags & e->mask) == 0) {
+                break;
+            }
+        }
+    }
+    if (i < 0) {
+        return -2;
+    }
+    return i;
+}
+
 void TLobby__sub_8006F48C(void) {
     char cur[12];
     char key[12];
@@ -97,10 +154,10 @@ void TLobby__sub_8006F48C(void) {
         return;
     }
     if (TBL_8006F48C.count > 0) {
-        TLobby__sub_8006F888(cur, win->name, 12);
+        TLobby__sub_8006F888((void *)(cur), (void *)(win->name), (int)(12));
         for (i = 0; i < TBL_8006F48C.count; i++) {
             e = &TBL_8006F48C.entries[i];
-            TLobby__sub_8006F888(key, e, 12);
+            TLobby__sub_8006F888((void *)(key), (void *)(e), (int)(12));
             if (strncmp(key, cur, 12) == 0) {
                 strncpy(win->name, e->name, 11);
                 win->term = 0;
@@ -157,6 +214,32 @@ typedef char RecoveredGlobal_8006F848_lbl_804FF800_size[sizeof(RecoveredGlobal_8
 void TLobby__sub_8006F848(s32 arg0) {
     strncpy((void *) (&lbl_804FF800.value), (void *) (arg0), (int) (0x1F));
     M2C_FIELD(&lbl_804FF800.value, s8 *, 0x1F) = 0;
+}
+
+void TLobby__sub_8006F888(void *arg0, void *arg1, int arg2) {
+    u8 *dst = (u8 *)arg0;
+    u8 *src = (u8 *)arg1;
+    s32 n = arg2;
+    u8 c;
+    s32 i;
+    if (n < 1) {
+        n = 1;
+    } else if (n > 0x20) {
+        n = 0x20;
+    }
+    for (i = 0; i < n - 1; i++, src++, dst++) {
+        c = *src;
+        if ((s8)c == 0) {
+            *dst = 0;
+            return;
+        }
+        if (i == 0) {
+            *dst = c ^ 0x7F;
+        } else {
+            *dst = dst[-1] + (s8)(c ^ 0x7F);
+        }
+    }
+    *dst = 0;
 }
 
 void TLobby__sub_8006F910(u8 *dst, u8 *src, s32 n) {

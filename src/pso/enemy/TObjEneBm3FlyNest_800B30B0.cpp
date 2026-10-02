@@ -359,6 +359,105 @@ struct Stack_800B318C {
     f32 sp10;
 };
 
+struct VBase_18 { char pad[0x18]; };
+
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual void m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual M2C_UNK m93();
+};
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjEneDellBiter__sub_80087350(void *, int);
@@ -379,6 +478,17 @@ extern const f32 lbl_805D9D38;
 extern const f32 lbl_805D9D3C;
 extern const f32 lbl_805D9D40;
 void TObjEneBm3FlyNest__sub_800B318C(u8 *arg0, s32 arg1);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
+M2C_UNK TObjEneBm3FlyNest__sub_800B39CC(void *);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+extern const f32 lbl_805D9D04;
+extern const f32 lbl_805D9D14;
+extern const f32 lbl_805D9D18;
+extern const f32 lbl_805D9D30;
+void TObjEneBm3FlyNest__sub_800B34F0(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -525,6 +635,74 @@ void state_wait__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
         TBoss1Dragon__sub_80143504((void *)(arg0));
         TObjEneBm3FlyNest__sub_800B3ADC(arg0);
         ((struct VObj_800B3428_800B30B0 *)arg0)->m100();
+        break;
+    }
+}
+void TObjEneBm3FlyNest__sub_800B34F0(u8 *arg0, s32 arg1) {
+    switch (arg1) {
+    case 4:
+        M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+        ((VObj_18 *)(arg0))->m93();
+        set_field_378__9TObjEneDDFPvi((void *) (arg0), 2);
+        M2C_FIELD(arg0, f32 *, 0x4B0) = lbl_805D9D04;
+        M2C_FIELD(arg0, s32 *, 0x4C8) = 0;
+        M2C_FIELD(arg0, s32 *, 0x4CC) = 0;
+        M2C_FIELD(arg0, s32 *, 0x4D0) = 0;
+        break;
+    case 3:
+        TBoss1Dragon__sub_80143504((void *) (arg0));
+        if (M2C_FIELD(arg0, s32 *, 0x4D0) == 3) {
+            switch (M2C_FIELD(arg0, s32 *, 0x38C)) {
+            case 2:
+                TObjEneDD__sub_800BBA18((void *) (arg0), M2C_FIELD(arg0, s32 *, 0x38C));
+                break;
+            case 5:
+                TObjEneDD__sub_800BBA18((void *) (arg0), M2C_FIELD(arg0, s32 *, 0x38C));
+                break;
+            case 9:
+                M2C_FIELD(arg0, s16 *, 0xB8) = 7;
+                TBoss1Dragon__sub_80143504((void *) (arg0));
+                M2C_FIELD(arg0, f32 *, 0xC0) = lbl_805D9D14;
+                TBoss1Dragon__sub_80143504((void *) (arg0));
+                M2C_FIELD(arg0, f32 *, 0xC0) = M2C_FIELD(arg0, f32 *, 0xC4) - lbl_805D9D18;
+                M2C_FIELD(arg0, s32 *, 0x30) |= 0x800;
+                M2C_FIELD(arg0, s32 *, 0x3A8) = 1;
+                TObjEneDD__sub_800BBA18((void *) (arg0), M2C_FIELD(arg0, s32 *, 0x38C));
+                break;
+            }
+        }
+        break;
+    case 5:
+        break;
+    case 0:
+        TBoss1Dragon__sub_80143504((void *) (arg0));
+        M2C_FIELD(arg0, s32 *, 0x4C8) += 1;
+        switch (M2C_FIELD(arg0, s32 *, 0x4D0)) {
+        case 0:
+            if (M2C_FIELD(arg0, s32 *, 0x4C8) > 0x3C) {
+                M2C_FIELD(arg0, s32 *, 0x4D0) = 2;
+                M2C_FIELD(arg0, s16 *, 0xB8) = 1;
+            }
+            break;
+        case 1:
+            if (objInBand__FP7GameObjf((void *) (arg0), lbl_805D9D30) != 0) {
+                M2C_FIELD(arg0, s32 *, 0x4D0) = 2;
+            }
+            break;
+        case 2:
+            if (get_flag_b4__21TObjEneMe3ShinowaRealFPv((void *) (arg0)) != 0) {
+                M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+            }
+            if ((M2C_FIELD(arg0, s32 *, 0x4C8) % 10) == 0) {
+                if (M2C_FIELD(arg0, s32 *, 0x4CC) < M2C_FIELD(arg0, s32 *, 0x390)) {
+                    TObjEneBm3FlyNest__sub_800B39CC((void *) (arg0));
+                    M2C_FIELD(arg0, s32 *, 0x4CC) += 1;
+                } else {
+                    M2C_FIELD(arg0, s32 *, 0x4D0) = 3;
+                }
+            }
+            break;
+        }
         break;
     }
 }
