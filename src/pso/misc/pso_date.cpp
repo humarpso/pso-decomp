@@ -12,6 +12,17 @@ struct DateStamp {
     u8 _pad;
 };
 
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+extern "C" {
+void render_model_tree__10TObjPlayerFPv(void *arg0);
+void TObjPlayer__sub_803D749C(void *);
+void prepare_ginja_model(void *);
+void TObjPlayer__sub_803DC6F4();
+void draw_ginja_model_lists();
+extern void *lbl_805D4698;
+void TObjPlayer__sub_801E2CCC(void *arg0, void *arg1);
+}
+
 void DateToSeconds(DateStamp* date, int* out) {
     int cumdays[12] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
     int y = date->year - 2000;
@@ -54,5 +65,13 @@ int VISetBlack(int);
 void fn_801E2C50(void) {  }
 void reset_system(void) { VISetBlack(1); VIFlush(); VIWaitForRetrace(); OSResetSystem(1, 0, 0); }
 void system_reset(void) { VISetBlack(1); VIFlush(); VIWaitForRetrace(); OSResetSystem(1, 0, 1); }
+void TObjPlayer__sub_801E2CCC(void *arg0, void *arg1) {
+    TObjPlayer__sub_803D749C(arg1);
+    void *g = lbl_805D4698;
+    M2C_FIELD(g, void (**)(), 0xC) = draw_ginja_model_lists;
+    prepare_ginja_model(g);
+    render_model_tree__10TObjPlayerFPv(arg0);
+    TObjPlayer__sub_803DC6F4();
+}
 
 }

@@ -429,6 +429,7 @@ pso/unk/text_8002C190.cpp:
 
 pso/boss/TObjBoss1Crater.cpp:
 	.text       start:0x8002C214 end:0x8002C6B4
+	.rodata     start:0x80435588 end:0x80435590
 
 pso/boss/TObjBoss1Crater_8002C6B4.cpp:
 	.text       start:0x8002C6B4 end:0x8002C838
@@ -3821,6 +3822,7 @@ pso/item/TItem_801023A8.cpp:
 
 pso/item/TItem_80102424.cpp:
 	.text       start:0x80102424 end:0x80102864
+	.rodata     start:0x8043E020 end:0x8043E028
 
 pso/item/TItem_80102864.cpp:
 	.text       start:0x80102864 end:0x801028D8
@@ -8326,6 +8328,7 @@ pso/unk/text_801A069C.cpp:
 
 pso/object/TObjWarpLobby_801A0760.cpp:
 	.text       start:0x801A0760 end:0x801A0A34
+	.rodata     start:0x80446868 end:0x80446870
 
 pso/object/TObjWarpLobby_801A0A34.cpp:
 	.text       start:0x801A0A34 end:0x801A0B08
@@ -9292,6 +9295,7 @@ pso/player/TObjPlayer_801C5558.cpp:
 
 pso/misc/TForceOperate.cpp:
 	.text       start:0x801C57D0 end:0x801C5AB8
+	.sdata2     start:0x805DC320 end:0x805DC334
 
 pso/player/TObjPlayer_801C5AB8.cpp:
 	.text       start:0x801C5AB8 end:0x801C5D14
@@ -14398,6 +14402,7 @@ pso/boss/TBoss6Type2_802B9858.cpp:
 
 pso/boss/TBoss6Type2.cpp:
 	.text       start:0x802B98FC end:0x802B9A24
+	.sdata2     start:0x805DE414 end:0x805DE424
 
 pso/boss/TBoss6Type2_802B9A24.cpp:
 	.text       start:0x802B9A24 end:0x802BA20C
@@ -17416,6 +17421,7 @@ pso/unk/text_8036AE2C.cpp:
 
 pso/boss/TBoss8Dragon_8036AEF8.cpp:
 	.text       start:0x8036AEF8 end:0x8036B204
+	.sdata2     start:0x805E0388 end:0x805E0398
 
 pso/misc/TLobby_8036B204.cpp:
 	.text       start:0x8036B204 end:0x8036B514

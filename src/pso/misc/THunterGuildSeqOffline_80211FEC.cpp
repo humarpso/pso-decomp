@@ -5,6 +5,12 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Seq_80212304 {
+    u8 pad0[0x1C];
+    void *win;
+    char names[4][0x18];
+};
+
 extern "C" {
 f32 fn_8013157C(void *, void *);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
@@ -19,6 +25,25 @@ extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D53AC;
 extern f32 THunterGuildSeqOffline__data_805DC648;
 s32 THunterGuildSeqOffline__sub_80212074(void);
+s32 get_player_count__10TObjPlayerFv();
+s32 get_field_3e0__12TBoss3VoloptFPv(int);
+s32 is_flag_set__6TLobbyFv();
+f32 fn_8013157C(void *, void *);
+s32 TLobby__sub_801B0974();
+s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+extern s32 TLobby__data_805D53AC;
+extern f32 THunterGuildSeqOffline__data_805DC648;
+s32 THunterGuildSeqOffline__sub_80212120(void);
+void set_close_flag__19TWindowSubTradeMainFPv(void *);
+void set_visible__19TWindowSubTradeMainFPv(void *);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+void TWindow__close(void *);
+void dispatch_without_flags__20TWindowSubStatusDispFiii(void *, char *, s32);
+void *refresh_with_default_list__20TWindowSubStatusDispFii(void *, void *);
+void *TWindowSubComCard__sub_8026CBB8(s32);
+char *strcpy(char *, const char *);
+extern u8 lbl_804C96B8[];
+void THunterGuildSeqOffline__sub_80212304(Seq_80212304 *self);
 }
 
 extern "C" {
@@ -71,6 +96,45 @@ s32 THunterGuildSeqOffline__sub_80212074(void) {
     return (u32)__cntlzw((u32)((fn_8013157C((void *) (temp_r3 + 0x38), (void *) (temp_r3_2 + 0x38)) > (*(const f32 *)&THunterGuildSeqOffline__data_805DC648)))) >> 5;
 }
 
+s32 THunterGuildSeqOffline__sub_80212120(void) {
+    s32 i;
+    s32 result;
+    s32 j;
+    s32 me;
+    f32 lim;
+    s32 p;
+    if (get_player_count__10TObjPlayerFv() != 0 && TLobby__sub_801B0974() == 1) {
+        return 2;
+    }
+    if (is_flag_set__6TLobbyFv() != 0 && TLobby__sub_801B0974() == 1) {
+        return 2;
+    }
+    for (i = 0; i < 4; i++) {
+        u32 q = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        if (q != 0) {
+            switch (get_field_3e0__12TBoss3VoloptFPv(q)) {
+            case 0:
+            case 0x12:
+                break;
+            default:
+                return 0;
+            }
+        }
+    }
+    result = 1;
+    me = TPlayerBattleCtrl4P__sub_801BA74C(TLobby__data_805D53AC);
+    lim = THunterGuildSeqOffline__data_805DC648;
+    for (j = 0; j < 4; j++) {
+        if (j != TLobby__data_805D53AC) {
+            p = TPlayerBattleCtrl4P__sub_801BA74C(j);
+            if (p != 0 && fn_8013157C((void *)(me + 0x38), (void *)(p + 0x38)) > lim) {
+                result = 0;
+            }
+        }
+    }
+    return result;
+}
+
 void THunterGuildSeqOffline__sub_80212230(u8 *arg0) {
     s32 temp_r31;
     s32 temp_r3;
@@ -95,6 +159,28 @@ void THunterGuildSeqOffline__sub_80212230(u8 *arg0) {
             }
             var_r30 += 1;
         } while (var_r30 < 4);
+    }
+}
+void THunterGuildSeqOffline__sub_80212304(Seq_80212304 *self) {
+    s32 i;
+    if (self->win != 0) {
+        TWindow__close(self->win);
+        self->win = 0;
+    }
+    self->win = refresh_with_default_list__20TWindowSubStatusDispFii(TWindowSubComCard__sub_8026CBB8(0xBD), lbl_804C96B8);
+    if (self->win != 0) {
+        set_visible__19TWindowSubTradeMainFPv(self->win);
+        set_close_flag__19TWindowSubTradeMainFPv(self->win);
+        for (i = 0; i < 4; i++) {
+            u32 p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+            if (p != 0) {
+                strcpy(self->names[i], (char *)(p + 0x85C));
+                dispatch_without_flags__20TWindowSubStatusDispFiii(self->win, self->names[i], i);
+            } else {
+                self->names[i][0] = 0;
+                dispatch_without_flags__20TWindowSubStatusDispFiii(self->win, self->names[i], i);
+            }
+        }
     }
 }
 

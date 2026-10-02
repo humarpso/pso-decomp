@@ -188,6 +188,7 @@ pso/boss/TBoss6Type2_802B97E0.cpp
 pso/boss/TBoss6Type2_802B9858.cpp
 pso/boss/TBoss6Type2_802B9A24.cpp
 pso/boss/TBoss6Type2_802BA20C.cpp
+pso/boss/TBoss6Type2_802BA31C.cpp
 pso/boss/TBoss6Type2_802BA4D8.cpp
 pso/boss/TBoss6Type2_802BA7B0.cpp
 pso/boss/TBoss6Type2_802BA860.cpp
@@ -214,6 +215,7 @@ pso/boss/TBoss7LaserPtcl_802ECDA0.cpp
 pso/boss/TBoss7LaserPtcl_8035A934.cpp
 pso/boss/TBoss7LaserPtcl_8035A9B8.cpp
 pso/boss/TBoss7LaserPtcl_8035AA98.cpp
+pso/boss/TBoss7PhotonBullet.cpp
 pso/boss/TBoss7TentacleNeedle_802EFBA4.cpp
 pso/boss/TBoss8Dragon.cpp
 pso/boss/TBoss8DragonEffBreath.cpp
@@ -984,6 +986,7 @@ pso/misc/TGStream_800FE1C4.cpp
 pso/misc/TGameProtocol.cpp
 pso/misc/THunterGuildSeqOffline.cpp
 pso/misc/THunterGuildSeqOffline_801F3718.cpp
+pso/misc/THunterGuildSeqOffline_80211FEC.cpp
 pso/misc/THunterGuildSeqOffline_8021250C.cpp
 pso/misc/THunterGuildSeqOffline_80212564.cpp
 pso/misc/THunterGuildSeqOffline_80212644.cpp
@@ -1302,6 +1305,7 @@ pso/misc/TLobby_802D1EFC.cpp
 pso/misc/TLobby_802D22F0.cpp
 pso/misc/TLobby_802D2B64_802D2B64.cpp
 pso/misc/TLobby_802D2B64_802D2DCC.cpp
+pso/misc/TLobby_802D2B64_802D37C8.cpp
 pso/misc/TLobby_802D3970.cpp
 pso/misc/TLobby_802D71E0.cpp
 pso/misc/TLobby_802D79EC.cpp
@@ -1515,6 +1519,7 @@ pso/misc/TODoorCave01_80161A30.cpp
 pso/misc/TODoorCave02.cpp
 pso/misc/TODoorCave02_8016206C.cpp
 pso/misc/TODoorCave03.cpp
+pso/misc/TODoorMachine02.cpp
 pso/misc/TODoorVoShip.cpp
 pso/misc/TODoorVoShip_8021A05C.cpp
 pso/misc/TOExplosiveMachine01.cpp
@@ -1594,6 +1599,7 @@ pso/misc/TOTrapChainSawDamage.cpp
 pso/misc/TOTrapChainSawDamage_802C9BF8.cpp
 pso/misc/TOTrapChainSawKey.cpp
 pso/misc/TOTrapChainSaw_802C9BE4.cpp
+pso/misc/TOTrapSeabed01.cpp
 pso/misc/TOTrapSeabed01_802CA2F0.cpp
 pso/misc/TOTrap_80179140.cpp
 pso/misc/TOTrap_801791EC.cpp
@@ -1746,6 +1752,7 @@ pso/misc/TScene.cpp
 pso/misc/TSceneSora.cpp
 pso/misc/TSceneSora_801A7964.cpp
 pso/misc/TSceneSora_8029F428.cpp
+pso/misc/TScene_800838C4.cpp
 pso/misc/TScene_800F9D80.cpp
 pso/misc/TScene_801A7E40.cpp
 pso/misc/TScene_801FBA20.cpp
@@ -2449,6 +2456,7 @@ pso/object/TObjWarpBossMulti_8019E97C.cpp
 pso/object/TObjWarpBossMulti_801B3514.cpp
 pso/object/TObjWarpJung_801A03D8.cpp
 pso/object/TObjWarpLobby.cpp
+pso/object/TObjWarpLobby_801A0760.cpp
 pso/object/TObjWarpLobby_801A0A34.cpp
 pso/object/TObjWarpString.cpp
 pso/object/TObject_80019A50.cpp
@@ -3116,6 +3124,7 @@ pso/player/TObjPlayer_8032E4C8.cpp
 pso/player/TObjPlayer_803302D8.cpp
 pso/player/TObjPlayer_803302D8_803302D8.cpp
 pso/player/TObjPlayer_803302D8_80330384.cpp
+pso/player/TObjPlayer_8033D324.cpp
 pso/player/TObjPlayer_8033E910.cpp
 pso/player/TObjPlayer_8033FE28.cpp
 pso/player/TObjPlayer_8034DF2C.cpp
@@ -3381,6 +3390,7 @@ pso/ui/TAdPlayerLoadGC_802D6488.cpp
 pso/ui/TAdPlayerLoadGC_802D64B4.cpp
 pso/ui/TAdPlayerLoadGC_8033BB14.cpp
 pso/ui/TAdPlyPltAnimCtrlGC.cpp
+pso/ui/TAdPlyPltAnimCtrlGC_80355D20.cpp
 pso/ui/TAdPlyPltAnimGC_80356190.cpp
 pso/ui/TAdPlyStatusGC_802E1128.cpp
 pso/ui/TAdPlyStatusGC_8033FD48.cpp
@@ -3536,6 +3546,7 @@ pso/unk/text_8007FA24.cpp
 pso/unk/text_8008197C.cpp
 pso/unk/text_80081A30.cpp
 pso/unk/text_80081B7C.cpp
+pso/unk/text_80081BB0.cpp
 pso/unk/text_800832EC.cpp
 pso/unk/text_80086B64.cpp
 pso/unk/text_80086D50.cpp
@@ -3922,6 +3933,7 @@ pso/unk/text_801B0520_801B0520.cpp
 pso/unk/text_801B1050.cpp
 pso/unk/text_801B1090.cpp
 pso/unk/text_801B7D68.cpp
+pso/unk/text_801B7F4C.cpp
 pso/unk/text_801B811C.cpp
 pso/unk/text_801B8CB0.cpp
 pso/unk/text_801B91F0.cpp
@@ -4344,6 +4356,7 @@ pso/unk/text_803D2C84.cpp
 pso/unk/text_803D39F8.cpp
 pso/unk/text_803D43A8.cpp
 pso/unk/text_803D4418.cpp
+pso/unk/text_803D4448.cpp
 pso/unk/text_803D60C8.cpp
 pso/unk/text_803D64F8.cpp
 pso/unk/text_803D8030.cpp

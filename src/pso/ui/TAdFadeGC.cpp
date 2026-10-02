@@ -8,6 +8,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 s32 get_main_phase(void);
 s32 TObjPlayer__sub_800196EC(void);
@@ -15,6 +16,11 @@ s32 get_field_3e4__10TObjPlayerFPv(void *);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
 f32 fn_8013157C(void *, void *);
 bool fn_802C7ECC(u8 *arg0, u32 arg1);
+extern const f32 TAdFadeGC__data_805DE5E8;
+extern const f32 lbl_805DE604;
+extern const f32 lbl_805DE60C;
+extern const f32 lbl_805DE610;
+void TAdFadeGC__sub_802C7DBC(void *arg0, void *arg1);
 }
 
 extern "C" {
@@ -22,7 +28,6 @@ extern "C" {
 void *__ct__9TAdFadeGCFv(void *arg0, void *arg1, void *arg2);
 void render__9TAdFadeGCFv(void* p);
 int TAdFadeGC__sub_802C79C8(void*);
-void TAdFadeGC__sub_802C7DBC(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 int all_parents_unqueued_for_destruction__7TObjectFv(void*);
 void render__18TObjTradeCollisionFv(void);
@@ -33,6 +38,23 @@ extern M2C_UNK __vt__9TAdFadeGC[];
 extern const f32 TAdFadeGC__data_805DE5E8;
 extern void *lbl_805D3EF0;
 
+void TAdFadeGC__sub_802C7DBC(void *arg0, void *arg1) {
+    switch ((s32)arg1) {
+    case 0:
+        break;
+    case 1:
+        M2C_FIELD(arg0, f32 *, 0x2C) = TAdFadeGC__data_805DE5E8;
+        M2C_FIELD(arg0, s32 *, 0x30) = 0;
+        M2C_FIELD(arg0, f32 *, 0x34) = lbl_805DE60C;
+        break;
+    case 2:
+        M2C_FIELD(arg0, f32 *, 0x2C) = lbl_805DE604;
+        M2C_FIELD(arg0, s32 *, 0x30) = 0;
+        M2C_FIELD(arg0, f32 *, 0x34) = lbl_805DE610;
+        break;
+    }
+}
+
 void *__ct__9TAdFadeGCFv(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TAdFadeGC;
@@ -40,7 +62,7 @@ void *__ct__9TAdFadeGCFv(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, u32 *, 0x1C) = -1;
     M2C_FIELD(arg0, f32 *, 0x20) = TAdFadeGC__data_805DE5E8;
     M2C_FIELD(arg0, void **, 0x28) = arg2;
-    TAdFadeGC__sub_802C7DBC(arg0, M2C_FIELD(arg0, void **, 0x28));
+    TAdFadeGC__sub_802C7DBC((void *)(arg0), (void *)(M2C_FIELD(arg0, void **, 0x28)));
     return arg0;
 }
 #pragma push

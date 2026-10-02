@@ -15,6 +15,10 @@ extern u32 lbl_805D6624;
 extern u32 lbl_805D6628;
 extern u32 lbl_805D662C;
 void TODoorLabo__sub_8029F97C(void);
+s32 TObjFish__sub_8001EDC4(s32, s32);
+extern s32 lbl_80465FF8[];
+extern s32 lbl_805D6618;
+void TODoorLabo__sub_8029F9EC(void *arg0);
 }
 
 extern "C" {
@@ -62,6 +66,19 @@ void TODoorLabo__sub_8029F97C(void) {
     (*(s32 *)&lbl_805D6624) = r;
     (*(s32 *)&lbl_805D6628) = TLanguage__sub_801E4874(lbl_80466040);
     (*(s32 *)&lbl_805D662C) = TLanguage__sub_801E4874(lbl_8046605C);
+}
+
+void TODoorLabo__sub_8029F9EC(void *arg0) {
+    s32 tbl[2];
+    tbl[0] = lbl_80465FF8[0];
+    tbl[1] = lbl_80465FF8[1];
+    if (M2C_FIELD(arg0, s32 *, 0x88) < 0) {
+        M2C_FIELD(arg0, s32 *, 0x88) = 0;
+    }
+    if (M2C_FIELD(arg0, s32 *, 0x88) > 1) {
+        M2C_FIELD(arg0, s32 *, 0x88) = 1;
+    }
+    M2C_FIELD(arg0, s32 *, 0xD4) = TObjFish__sub_8001EDC4(lbl_805D6618, tbl[M2C_FIELD(arg0, s32 *, 0x88)]);
 }
 
 s32 TODoorLabo__vt20(void) {

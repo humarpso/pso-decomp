@@ -57,6 +57,15 @@ void TObjPlayer__vt73(s32 arg0, f32 farg0);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
 void clear_flag_200__10TObjPlayerFPv(u32);
 void TObjPlayer__sub_801CBFA4(u16 *p);
+u16 obj_getField1c(void *);
+s32 TLobby__sub_800822E8(void *, s32);
+s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
+s32 is_single_screen__10TObjPlayerFv(void);
+s32 TObjPlayer__sub_801AFF0C(void *);
+void TObjPlayer__sub_801D0F70(void *);
+void TObjPlayer__sub_801D0BC0(void *, s32, s32);
+extern void *lbl_8050EA10[];
+void TObjPlayer__sub_801CC010(s16 arg0, u16 *arg1);
 }
 
 extern "C" {
@@ -96,6 +105,28 @@ void TObjPlayer__sub_801CBFA4(u16 *p) {
             }
         }
     }
+}
+void TObjPlayer__sub_801CC010(s16 arg0, u16 *arg1) {
+    s32 i;
+    void *obj;
+    void **tbl;
+    tbl = lbl_8050EA10;
+    i = 0;
+    do {
+        obj = *tbl;
+        if (obj != NULL && TObjPlayer__sub_801AFF0C(obj) != 0 && TLobby__sub_800822E8(obj, 0x8000) == 0 &&
+            (is_single_screen__10TObjPlayerFv() != 0 ||
+             (is_single_screen__10TObjPlayerFv() == 0 && arg0 == get_stat_by_key_state__10TObjPlayerFPv(obj)))) {
+            TObjPlayer__sub_801D0F70(obj);
+            if (arg1 != NULL) {
+                *arg1 = obj_getField1c(obj);
+                arg1++;
+            }
+            TObjPlayer__sub_801D0BC0(obj, 0x13, 0);
+        }
+        i++;
+        tbl++;
+    } while (i < 4);
 }
 
 typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];

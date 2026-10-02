@@ -10,6 +10,42 @@ struct WarpLobbyVObj_801A07F8 : WarpLobbyBase_801A07F8 {
     virtual s32 m8(f32, f32);
 };
 
+struct VB_801A0894 { char pad[0x18]; };
+
+struct VO_801A0894 : VB_801A0894 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
+    virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8(); virtual void m9();
+    virtual void m10(); virtual void m11(); virtual void m12(); virtual void m13();
+    virtual s32 m14();
+};
+
+extern "C" {
+M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
+M2C_UNK request_active_window_close();
+M2C_UNK TWindowSubComCard__sub_80265C30(s32);
+M2C_UNK TWindowSubComCard__sub_80265F60(s32);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, s32);
+s32 check_room_seq_4__16TAdChrSelASlotGCFii(f32 *, M2C_UNK, f32);
+extern s32 lbl_804B9710[];
+extern const f32 lbl_805DC058;
+extern const f32 lbl_805DC05C;
+void TObjWarpLobby__sub_801A0760(void *arg0);
+M2C_UNK queue_destruction__7TObjectFv(u32);
+s32 is_visible__17TWindowSubComCardFPv(u32);
+M2C_UNK send_room_change__6TLobbyFi(s32);
+s32 is_idle__6TLobbyFv();
+u32 TObjWarpBase__sub_8019D9CC(void *, u16, f32);
+void TObjWarpLobby__sub_801A0760(void *arg0);
+M2C_UNK TWindow__close(void *);
+M2C_UNK clear_flag__11TWindowCtrlFv();
+s32 TWindowSubComCard__sub_80265BF8(u32);
+extern s32 lbl_805D53A0;
+extern const f32 lbl_805DC068;
+extern const f32 lbl_805DC06C;
+extern const f32 lbl_805DC070;
+void run_task__13TObjWarpLobbyFv(VO_801A0894 *arg0);
+}
+
 extern "C" {
 
 void *__dt__13TObjWarpLobbyFv(void *arg0, s16 arg1);
@@ -30,6 +66,21 @@ extern s32 lbl_805D5CCC;
 extern const f32 lbl_805DC060;
 extern const f32 lbl_805DC064;
 
+void TObjWarpLobby__sub_801A0760(void *arg0) {
+    f32 sp[2];
+    s32 i;
+    sp[0] = lbl_805DC058;
+    sp[1] = lbl_805DC05C;
+    M2C_FIELD(arg0, s32 *, 0xB0) = check_room_seq_4__16TAdChrSelASlotGCFii(sp, 0xF, lbl_805DC058);
+    for (i = 0; i < 0xF; i++) {
+        forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, s32 *, 0xB0), lbl_804B9710[i], 6, i);
+    }
+    TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, s32 *, 0xB0));
+    TWindowSubComCard__sub_80265C30(M2C_FIELD(arg0, s32 *, 0xB0));
+    set_flag70_bit10__16TObjCityMainWarpFPv(M2C_FIELD(arg0, s32 *, 0xB0));
+    request_active_window_close();
+}
+
 void render__13TObjWarpLobbyFv(u8 *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0xCC) != 0) && (((WarpLobbyVObj_801A07F8*)arg0)->m8(lbl_805DC060, lbl_805DC064) != 0)) {
         set_global_param__8TObjFishFi(lbl_805D5CCC);
@@ -44,6 +95,33 @@ void render__13TObjWarpLobbyFv(u8 *arg0) {
 }
 
 extern M2C_UNK __vt__13TObjWarpLobby[];
+
+void run_task__13TObjWarpLobbyFv(VO_801A0894 *arg0) {
+    s32 temp_r31;
+    M2C_FIELD(arg0, f32 *, 0xC8) = (f32) (M2C_FIELD(arg0, f32 *, 0xC8) + lbl_805DC068);
+    if ((f32) (M2C_FIELD(M2C_FIELD(arg0, void **, 0xD8), u32 *, 4) - 1) < M2C_FIELD(arg0, f32 *, 0xC8)) {
+        M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DC06C;
+    }
+    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (M2C_FIELD(arg0, f32 *, 0xC4) + lbl_805DC070);
+    if ((TObjWarpBase__sub_8019D9CC(arg0, (u16) lbl_805D53A0, M2C_FIELD(arg0, f32 *, 0xAC)) != 0U) && (arg0->m14() != 0)) {
+        if (((u32) M2C_FIELD(arg0, u32 *, 0xB0) == 0U) && (is_idle__6TLobbyFv() != 0)) {
+            TObjWarpLobby__sub_801A0760(arg0);
+        }
+        if (((u32) M2C_FIELD(arg0, u32 *, 0xB0) != 0U) && (is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0xB0)) != 0)) {
+            temp_r31 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u32 *, 0xB0));
+            if (M2C_FIELD(arg0, u32 *, 0xB0) != 0U) {
+                queue_destruction__7TObjectFv(M2C_FIELD(arg0, u32 *, 0xB0));
+                M2C_FIELD(arg0, u32 *, 0xB0) = 0U;
+                clear_flag__11TWindowCtrlFv();
+            }
+            send_room_change__6TLobbyFi(temp_r31);
+        }
+    } else if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) != 0U) {
+        TWindow__close(M2C_FIELD(arg0, void **, 0xB0));
+        M2C_FIELD(arg0, u32 *, 0xB0) = 0U;
+        clear_flag__11TWindowCtrlFv();
+    }
+}
 
 void *__dt__13TObjWarpLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

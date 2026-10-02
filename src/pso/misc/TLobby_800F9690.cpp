@@ -5,6 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
+s32 TLobby__sub_800F979C(char *arg0, s32 *arg1);
+s32 alloc_named_object(s32, s32, s32, s32);
+int sprintf(char *, const char *, ...);
+extern char lbl_8043D9FC[];
+extern char lbl_8043DA04[];
+s32 TWindowKeyBoardSoft__sub_800F98F0(s32 arg0);
+}
+
+extern "C" {
 
 u32 write_packet_header__6TLobbyFPviiUi(u8 *arg0, s32 arg1, s32 arg2, u32 arg3);
 s32 alloc_download_quest__6TLobbyFPviPv(u8 *arg0, s32 arg1, s32 *arg2);
@@ -49,6 +59,20 @@ s32 alloc_download_quest__6TLobbyFPviPv(u8 *arg0, s32 arg1, s32 *arg2) {
         *arg2 = v0;
     }
     return ret;
+}
+s32 TWindowKeyBoardSoft__sub_800F98F0(s32 arg0) {
+    s32 sp8;
+    char buf[0x40];
+    s32 a;
+    s32 b;
+    s32 r;
+    sprintf(buf, lbl_8043D9FC, arg0);
+    a = TLobby__sub_800F979C(buf, &sp8);
+    sprintf(buf, lbl_8043DA04, arg0);
+    b = TLobby__sub_800F979C(buf, &sp8);
+    r = alloc_named_object(arg0, a, sp8, b);
+    safe_free__23TAdSinglePlyChrSelectGCFUi((void *)b);
+    return r;
 }
 
 }

@@ -43,9 +43,44 @@ struct V2_8002C3FC { s32 a, b; };
 
 struct Src_8002C3FC { u8 pad[0xAC]; s32 fAC; u8 padB0[0xC8 - 0xB0]; s32 fC8; };
 
+struct Sub_8002C544 { u8 pad[0xC]; f32 fC; };
+
+struct Crater_8002C544 {
+    s32 f0;
+    u8 pad4[0x18 - 0x4];
+    s32 *vt;
+    u8 pad1c[0x38 - 0x1C];
+    u8 pos[0x60 - 0x38];
+    s32 f60;
+    u8 pad64[0xA4 - 0x64];
+    Sub_8002C544 *fA4;
+    u8 padA8[0xB0 - 0xA8];
+    s32 fB0;
+    void *fB4;
+    s32 fB8[4];
+    s32 fC8;
+};
+
+struct V3_8002C544 { f32 x, y, z; };
+
 extern "C" {
 M2C_UNK TBoss1Dragon__sub_8002AB6C(void *);
 void TObjBoss1Crater__vt19(Src_8002C3FC *arg0, VObj_18_5c1903 *self, M2C_UNK arg2, s32 *arg3);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 isV2Mode__12TBoss1DragonFv();
+void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
+s32 TBoss4Type2__sub_800874F4(void *, int, f32);
+void fn_800BC4C8(void *);
+void *TBoss8Dragon__sub_800BC5EC(void *, int);
+s32 rand();
+extern const V3_8002C544 lbl_80435560;
+extern M2C_UNK __vt__15TObjBoss1Crater[];
+extern Crater_8002C544 *TObjBoss1Crater__data_804FE1E8[];
+extern s32 lbl_805D2688;
+extern s32 TObjBoss1Crater__data_805D4B58;
+extern const f32 lbl_805D8160;
+extern const f32 lbl_805D8164;
+Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *arg2, void *arg3);
 }
 
 extern "C" {
@@ -114,6 +149,41 @@ void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1) {
 }
 
 extern s32 TObjBoss1Crater__data_805D4B58;
+
+Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *arg2, void *arg3) {
+    f32 r;
+    void *p;
+    s32 i;
+    fn_800BC4C8(self);
+    self->vt = ((s32 *)&__vt__15TObjBoss1Crater);
+    r = lbl_80435560.z;
+    self->f0 = lbl_805D2688;
+    self->fA4->fC = r;
+    VecCopy__FP3VecPC3Vec(self->pos, arg3);
+    r = lbl_805D8164 * (f32)rand();
+    self->f60 = (s32)(lbl_805D8160 * r);
+    self->fB0 = TBoss4Type2__sub_800874F4(self->pos, 0x40, r);
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
+    if (p != NULL) {
+        p = TBoss8Dragon__sub_800BC5EC(p, 4);
+    }
+    self->fB4 = p;
+    for (i = 0; i < 4; i++) {
+        self->fB8[i] = 0;
+    }
+    if (TObjBoss1Crater__data_805D4B58 < 0x14) {
+        TObjBoss1Crater__data_804FE1E8[TObjBoss1Crater__data_805D4B58++] = self;
+    }
+    switch (isV2Mode__12TBoss1DragonFv()) {
+    case 0:
+        self->fC8 = 1;
+        break;
+    case 1:
+        self->fC8 = 0x13;
+        break;
+    }
+    return self;
+}
 
 s32 is_count_below_limit__15TObjBoss1CraterFv(void) {
     return TObjBoss1Crater__data_805D4B58 < 0x14;

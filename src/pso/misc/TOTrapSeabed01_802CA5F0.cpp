@@ -49,6 +49,21 @@ extern u32 TOTrapSeabed01__data_805D6810;
 extern const f32 lbl_805DE640;
 extern const f32 TOTrapSeabed01__data_805DE644;
 u8 *TOTrapSeabed01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+s32 TObjFish__sub_8001EDC4(int, int);
+void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32, s32);
+u32 TLanguage__sub_801E4874(void *);
+s32 TObjDoorJung__sub_8023DBEC(u32, void *);
+extern u8 lbl_804720E8[];
+extern u8 lbl_80472100[];
+extern u8 lbl_804E0FA8[];
+extern u32 TOTrapSeabed01__data_805D6810;
+extern u32 TOTrapSeabed01__data_805D6814;
+extern s32 lbl_805D6818;
+extern s32 lbl_805D681C;
+extern s32 lbl_805D6820;
+void TOTrapSeabed01__sub_802CA820(void);
 }
 
 extern "C" {
@@ -95,6 +110,23 @@ void free_static_resources__14TOTrapSeabed01Fv(void) {
     if ((u32) TOTrapSeabed01__data_805D6810 != 0U) {
         TLobby__sub_8001FE7C((void*)TOTrapSeabed01__data_805D6810, 1);
         TOTrapSeabed01__data_805D6810 = 0U;
+    }
+}
+
+void TOTrapSeabed01__sub_802CA820(void) {
+    void *p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    if (p != 0) {
+        p = TLobby__sub_80020004(p, 5, lbl_804E0FA8, 0, 0, 0);
+    }
+    TOTrapSeabed01__data_805D6810 = (u32)p;
+    TOTrapSeabed01__data_805D6814 = TLanguage__sub_801E4874(lbl_804720E8);
+    s32 n = count_linked_switches__23TObjSeabedSuisoBrakableFUii(TObjFish__sub_8001EDC4(TOTrapSeabed01__data_805D6810, 0), 5);
+    u32 t = TOTrapSeabed01__data_805D6814;
+    lbl_805D6818 = n;
+    lbl_805D681C = 0;
+    lbl_805D6820 = -1;
+    if (t != 0U) {
+        lbl_805D6820 = TObjDoorJung__sub_8023DBEC(t, lbl_80472100);
     }
 }
 
