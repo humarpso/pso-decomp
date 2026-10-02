@@ -73,7 +73,7 @@ void TObjPlayer__sub_803D6DDC(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
 void TObjPlayer__sub_803D7A54(void *, s32, s32 count, f32 t, void *, void *, void *);
 extern const f32 lbl_805E0E50;
 void TObjPlayer__sub_803D6E8C(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
-void MTXLookAt(void *, void *, void *, void *);
+void C_MTXLookAt(void *, void *, void *, void *);
 extern u8 *lbl_805D7774;
 void set_camera_look_at(u8 *arg0, u8 *arg1, u8 *arg2);
 M2C_UNK TObjPlayer__sub_803D7BB0(int, f32);
@@ -171,7 +171,7 @@ void TCameraCtrl__sub_803D65F8(u8 * _w0) {
 #pragma push
 #pragma scheduling off
 void set_camera_look_at(u8* eye, u8* target, u8* up) {
-    MTXLookAt(lbl_805D7774, eye, up, target);
+    C_MTXLookAt(lbl_805D7774, eye, up, target);
 }
 #pragma pop
 

@@ -85,14 +85,14 @@ void close_and_play_effect__6TLobbyFii(int arg0, s32 arg1);
 extern s32 TLobby__data_805D5DA0;
 s32 TLobby__sub_801C417C(void);
 extern void *lbl_805D5DB8;
-void fn_8039667C(void *, void *);
+void __destroy_new_array(void *, void *);
 void TLobby__sub_801C3A40(void);
 s32 TKeyBoardControl__sub_8000F828(void);
 void *alloc_buffer__11TOBoss4RockFPv(s32);
 void TLobby__sub_801C2C70(void);
 void TAdSinglePlyChrSelectGC__sub_801C5120(void);
 void TAdSinglePlyChrSelectGC__sub_801C5158(void);
-void *TCheckRoomSequence__sub_80396920(void *, void *, void *, s32, s32);
+void *__construct_new_array(void *, void *, void *, s32, s32);
 void destroy_char_data__10TObjPlayerFis(int, s16);
 void init_char_data__10TObjPlayerFPv(void);
 extern void *TLobby__data_805D5D98;
@@ -280,7 +280,7 @@ void init_battle_ctrl__6TLobbyFii(s32 arg0, s32 arg1) {
 
 void TLobby__sub_801C3A40(void) {
     if (lbl_805D5DB8 != 0) {
-        fn_8039667C(lbl_805D5DB8, (void *)destroy_char_data__10TObjPlayerFis);
+        __destroy_new_array(lbl_805D5DB8, (void *)destroy_char_data__10TObjPlayerFis);
         lbl_805D5DB8 = 0;
     }
 }
@@ -288,7 +288,7 @@ void TLobby__sub_801C3A40(void) {
 void TLobby__sub_801C3A7C(void) {
     TLobby__data_805D5D98 = 0;
     lbl_805D5D9C = TKeyBoardControl__sub_8000F828() == 1 ? 0x19 : 0x1E;
-    lbl_805D5DB8 = TCheckRoomSequence__sub_80396920(alloc_buffer__11TOBoss4RockFPv(0x3220), (void *)init_char_data__10TObjPlayerFPv, (void *)destroy_char_data__10TObjPlayerFis, 0x42C, 0xC);
+    lbl_805D5DB8 = __construct_new_array(alloc_buffer__11TOBoss4RockFPv(0x3220), (void *)init_char_data__10TObjPlayerFPv, (void *)destroy_char_data__10TObjPlayerFis, 0x42C, 0xC);
     TAdSinglePlyChrSelectGC__sub_801C5158();
     TLobby__sub_801C2C70();
     TLobby__data_805D5DC0 = 1;

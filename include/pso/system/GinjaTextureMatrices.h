@@ -20,7 +20,7 @@ void GXSetCurrentMtx(u32);
 void PSMTXScale(GinjaMatrix,f32,f32,f32);
 void PSMTXTrans(GinjaMatrix,f32,f32,f32);
 u32 PSMTXInverse(const GinjaMatrix,GinjaMatrix);
-void TObjPlayer__sub_803764EC(const GinjaMatrix,GinjaMatrix);
+void PSMTXTranspose(const GinjaMatrix,GinjaMatrix);
 void PSMTXConcat(const GinjaMatrix,const GinjaMatrix,GinjaMatrix);
 }
 #endif

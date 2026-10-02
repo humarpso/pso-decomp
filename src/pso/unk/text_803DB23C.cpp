@@ -12,7 +12,7 @@ extern u8 lbl_8058CD48[];
 extern S_803DB24C lbl_8058CD70;
 void TObjPlayer__sub_803DB24C(s32 x);
 void PSMTXConcat(void *, void *, void *);
-void TObjPlayer__sub_803764EC(void *, void *);
+void PSMTXTranspose(void *, void *);
 void PSMTXInverse(void *, void *);
 void PSMTXTrans(void *, f32, f32, f32);
 void PSMTXScale(void *, f32, f32, f32);
@@ -58,7 +58,7 @@ void TObjPlayer__sub_803DB270(s32 arg0, void *mtx) {
         PSMTXScale(scale, -0.5f, -0.5f, 0.0f);
         PSMTXTrans(trans, 0.5f, 0.5f, 1.0f);
         PSMTXInverse(lbl_805D7774, inv);
-        TObjPlayer__sub_803764EC(inv, inv);
+        PSMTXTranspose(inv, inv);
         PSMTXConcat(scale, inv, inv);
         PSMTXConcat(trans, inv, lbl_8058CB68[lbl_8058CD70.b]);
     }

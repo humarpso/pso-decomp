@@ -27,7 +27,7 @@ typedef struct {
     char *NextChar;
     int NullCharDetected;
 } __InStrCtrl_8039C8A0;
-int TAdEndText__sub_8039C9F4(int (*ReadProc)(void *, int, int), void *ReadProcArg,
+int __sformatter(int (*ReadProc)(void *, int, int), void *ReadProcArg,
                              const char *format_str, va_list arg);
 inline int vsscanf_8039C8A0(const char *s, const char *format, va_list arg) {
     __InStrCtrl_8039C8A0 isc;
@@ -35,7 +35,7 @@ inline int vsscanf_8039C8A0(const char *s, const char *format, va_list arg) {
     if ((s == NULL) || (*isc.NextChar == '\0'))
         return -1;
     isc.NullCharDetected = 0;
-    return TAdEndText__sub_8039C9F4(&__StringRead, (void *)&isc, format, arg);
+    return __sformatter(&__StringRead, (void *)&isc, format, arg);
 }
 #pragma push
 #pragma dont_inline off

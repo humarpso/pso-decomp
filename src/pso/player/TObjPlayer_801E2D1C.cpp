@@ -24,7 +24,7 @@ M2C_UNK GXLoadNrmMtxImm(M2C_UNK *, M2C_UNK);
 M2C_UNK GXLoadPosMtxImm(s32, M2C_UNK);
 extern M2C_UNK (*lbl_805D7710)(void *);
 M2C_UNK PSMTXInverse(s32, M2C_UNK *);
-M2C_UNK TObjPlayer__sub_803764EC(M2C_UNK *, M2C_UNK *);
+M2C_UNK PSMTXTranspose(M2C_UNK *, M2C_UNK *);
 M2C_UNK TObjPlayer__sub_803D76B4(void *);
 M2C_UNK TObjPlayer__sub_803D7CA4(void *);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -48,7 +48,7 @@ void render_model_tree__10TObjPlayerFPv(void *arg0) {
         if (((u32) M2C_FIELD(var_r31, u32 *, 4) != 0U) && !(M2C_FIELD(var_r31, s32 *, 0) & 8)) {
             GXLoadPosMtxImm(lbl_805D7774, 0);
             PSMTXInverse(lbl_805D7774, sp8);
-            TObjPlayer__sub_803764EC(sp8, sp38);
+            PSMTXTranspose(sp8, sp38);
             GXLoadNrmMtxImm(sp38, 0);
             M2C_FIELD(lbl_805D4698, M2C_UNK (**)(u32, void *), 0xC)(M2C_FIELD(var_r31, u32 *, 4), lbl_805D4698);
         }
@@ -88,7 +88,7 @@ void render_matrix_chain__10TObjPlayerFPv(void *arg0) {
         if (((u32) M2C_FIELD(var_r31, u32 *, 4) != 0U) && !(M2C_FIELD(var_r31, s32 *, 0) & 8)) {
             GXLoadPosMtxImm(lbl_805D7774, 0);
             PSMTXInverse(lbl_805D7774, sp8);
-            TObjPlayer__sub_803764EC(sp8, sp38);
+            PSMTXTranspose(sp8, sp38);
             GXLoadNrmMtxImm(sp38, 0);
             M2C_FIELD(lbl_805D4698, M2C_UNK (**)(u32, void *), 0xC)(M2C_FIELD(var_r31, u32 *, 4), lbl_805D4698);
         }

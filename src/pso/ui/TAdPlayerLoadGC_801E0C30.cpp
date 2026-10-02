@@ -64,7 +64,7 @@ s32 CARDFreeBlocks(s32, s32 *, M2C_UNK *);
 s32 check_memcard_status__15TAdPlayerLoadGCFi(s32 arg0);
 extern s32 TAdPlayerLoadGC__data_805D5E40;
 s32 query_memcard_capacity__15TAdPlayerLoadGCFi(s32 arg0);
-s32 TAdPlayerLoadGC__sub_80386DC4();
+s32 CARDDelete();
 extern s32 TAdPlayerLoadGC__data_805D5E40;
 s32 poll_load_status__15TAdPlayerLoadGCFi(s32 arg0);
 M2C_UNK TAdPlayerLoadGC__sub_801E101C(s32);
@@ -508,7 +508,7 @@ s32 poll_load_status__15TAdPlayerLoadGCFi(s32 arg0) {
         TAdPlayerLoadGC__data_805D5E40 = -1;
         return -1;
     }
-    temp_r3 = TAdPlayerLoadGC__sub_80386DC4();
+    temp_r3 = CARDDelete();
     switch (temp_r3) {
     case -1:
         TAdPlayerLoadGC__data_805D5E40 = -1;

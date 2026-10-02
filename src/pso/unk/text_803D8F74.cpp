@@ -20,7 +20,7 @@ void TBoss8Dragon__sub_803D9394(u8 *arg0, u8 *arg1);
 f32 TBoss8Dragon__sub_803D64C0(int);
 f32 TBoss8Dragon__sub_803D64DC(int);
 void TBoss8Dragon__sub_803D94DC(u8 *arg0, u8 *arg1);
-void MTXRotRad(Matrix34*, char, f32);
+void PSMTXRotRad(Matrix34*, char, f32);
 f32 PSMTXConcat(int, int, int);
 extern u32 lbl_805D7774;
 void rotate_matrix_y(Matrix34* matrix, s32 angle);
@@ -113,7 +113,7 @@ void rotate_matrix_y(Matrix34* matrix, s32 angle) {
     if (angle != 0) {
         if (matrix == NULL) selected = (Matrix34*)lbl_805D7774;
         else selected = matrix;
-        MTXRotRad(&rotation, 'y', (f32)(lbl_805E0F28 * (f64)angle));
+        PSMTXRotRad(&rotation, 'y', (f32)(lbl_805E0F28 * (f64)angle));
         PSMTXConcat((int)selected, (int)&rotation, (int)selected);
     }
 }

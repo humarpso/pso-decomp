@@ -104,7 +104,7 @@ extern s32 lbl_805D7700;
 extern s32 some_id_805c6f74;
 void OSDetachThread(u32 arg0);
 void PSMTXConcat(void *, void *, void *);
-void TObjPlayer__sub_803764EC(void *, void *);
+void PSMTXTranspose(void *, void *);
 void PSMTXInverse(void *, void *);
 void PSMTXTrans(void *, f32, f32, f32);
 void PSMTXScale(void *, f32, f32, f32);
@@ -411,7 +411,7 @@ M2C_UNK TObjPlayer__sub_803DC76C(int arg0) {
         PSMTXScale(s, -0.5f, -0.5f, 0.0f);
         PSMTXTrans(t, 0.5f, 0.5f, 1.0f);
         PSMTXInverse((void *)lbl_805D7774, m);
-        TObjPlayer__sub_803764EC(m, m);
+        PSMTXTranspose(m, m);
         PSMTXConcat(s, m, m);
         PSMTXConcat(t, m, m);
         GXLoadTexMtxImm(m, 0x2A, 0);

@@ -47,7 +47,7 @@ void TObjPlayer__sub_803D993C(f32 *arg0, f32 farg0);
 s32 fn_803DA12C(u8 *, s32, s32, s32);
 extern G_803D9DA8 lbl_8058D470;
 s32 TObjPlayer__sub_803D9DA8(A_803D9DA8 *arg0, B_803D9DA8 *arg1);
-void MTXRotRad(Matrix34*, char, f32);
+void PSMTXRotRad(Matrix34*, char, f32);
 f32 PSMTXConcat(int, int, int);
 extern u32 lbl_805D7774;
 void rotate_matrix_x(Matrix34* matrix, s32 angle);
@@ -62,7 +62,7 @@ void rotate_matrix_x(Matrix34* matrix, s32 angle) {
     if (angle != 0) {
         if (matrix == NULL) selected = (Matrix34*)lbl_805D7774;
         else selected = matrix;
-        MTXRotRad(&rotation, 'x', (f32)(lbl_805E0F48 * (f64)angle));
+        PSMTXRotRad(&rotation, 'x', (f32)(lbl_805E0F48 * (f64)angle));
         PSMTXConcat((int)selected, (int)&rotation, (int)selected);
     }
 }

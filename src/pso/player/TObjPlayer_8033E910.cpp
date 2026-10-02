@@ -32,7 +32,7 @@ M2C_UNK TCameraCtrl__sub_80082FCC(void *, void *);
 f64 TObjPlayer__sub_80083A50();
 M2C_UNK set_tex_coord_gen2(int, int, int, int);
 M2C_UNK PSMTXConcat(void *, void *, void *);
-M2C_UNK TObjPlayer__sub_80376B70(void *, f32, f32, f32, f32, f32, f32);
+M2C_UNK C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
 M2C_UNK GXSetTevOp(int, int);
 M2C_UNK GXSetTevOrder(int, int, int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -98,9 +98,9 @@ void TObjPlayer__sub_8033E988(void) {
         TCameraCtrl__sub_80082FCC((void *) (&spC), (void *) (&sp8));
         temp_f31 = (f32) (lbl_804783B0 * TObjPlayer__sub_80083A50());
         if (TCameraCtrl__sub_800689F4() != 0) {
-            TObjPlayer__sub_80376B70((void *) (&sp10), (f32) (temp_f31), (f32) (lbl_805DFAC8), (f32) (lbl_805DFACC), (f32) (lbl_805DFAD0), (f32) (lbl_805DFACC - spC), (f32) (lbl_805DFACC - sp8));
+            C_MTXLightPerspective((void *) (&sp10), (f32) (temp_f31), (f32) (lbl_805DFAC8), (f32) (lbl_805DFACC), (f32) (lbl_805DFAD0), (f32) (lbl_805DFACC - spC), (f32) (lbl_805DFACC - sp8));
         } else {
-            TObjPlayer__sub_80376B70((void *) (&sp10), (f32) (temp_f31), (f32) (lbl_805DFAC8), (f32) (lbl_805DFACC), (f32) (lbl_805DFAD0), (f32) (lbl_805DFACC), (f32) (lbl_805DFACC));
+            C_MTXLightPerspective((void *) (&sp10), (f32) (temp_f31), (f32) (lbl_805DFAC8), (f32) (lbl_805DFACC), (f32) (lbl_805DFAD0), (f32) (lbl_805DFACC), (f32) (lbl_805DFACC));
         }
         PSMTXConcat((void *) (&sp10), (void *) (lbl_805D7774), (void *) (lbl_805D7774));
         TObjPlayer__sub_803E1D54((int) (2));

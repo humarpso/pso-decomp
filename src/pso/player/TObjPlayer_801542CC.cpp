@@ -179,7 +179,7 @@ void *alloc_buffer__11TOBoss4RockFPv(s32);
 void fn_8002B630(Part_80156780 *, Part_80156780 *);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
 void init_forward__10TObjPlayerFPv(void *);
-void *TCheckRoomSequence__sub_80396920(void *, void (*)(void *), void *, s32, s32);
+void *__construct_new_array(void *, void (*)(void *), void *, s32, s32);
 Part_80156780 *TObjEneGibbles__sub_80156780(Obj_80156780 *self, Part_80156780 *src, s32 count);
 void *TPlayerBattleCtrl4P__sub_801BA74C(u32 id);
 extern s32 TObjPlayer__data_8050D460[];
@@ -901,7 +901,7 @@ Part_80156780 *TObjEneGibbles__sub_80156780(Obj_80156780 *self, Part_80156780 *s
     }
     if (self->f9c == 0) {
         n = self->count;
-        self->f9c = TCheckRoomSequence__sub_80396920(alloc_buffer__11TOBoss4RockFPv(n * 4 + 0x10), init_forward__10TObjPlayerFPv, 0, 4, n);
+        self->f9c = __construct_new_array(alloc_buffer__11TOBoss4RockFPv(n * 4 + 0x10), init_forward__10TObjPlayerFPv, 0, 4, n);
     }
     return self->parts;
 }

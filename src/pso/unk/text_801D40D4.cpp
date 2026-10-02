@@ -50,7 +50,7 @@ void __dl__FPv(void *);
 void free__11TOBoss4RockFUi(int);
 u8 *TObjPlayer__sub_801D4678(u8 *arg0, s16 arg1);
 void *alloc_buffer__11TOBoss4RockFPv(void *);
-s32 TCheckRoomSequence__sub_80396920(void *, void *, int, int, int);
+s32 __construct_new_array(void *, void *, int, int, int);
 void TObjPlayer__sub_801D4730(void* p);
 u8 *TObjPlayer__sub_801D46D4(u8 *arg0, s32 arg1);
 void fn_801C1BA8(void *, void *);
@@ -195,7 +195,7 @@ u8 *TObjPlayer__sub_801D46D4(u8 *arg0, s32 arg1) {
     s32 n;
     *(s32 *)arg0 = arg1;
     n = *(s32 *)arg0;
-    *(s32 *)(arg0 + 4) = TCheckRoomSequence__sub_80396920(alloc_buffer__11TOBoss4RockFPv((void *)(n * 8 + 0x10)), TObjPlayer__sub_801D4730, 0, 8, n);
+    *(s32 *)(arg0 + 4) = __construct_new_array(alloc_buffer__11TOBoss4RockFPv((void *)(n * 8 + 0x10)), TObjPlayer__sub_801D4730, 0, 8, n);
     return arg0;
 }
 

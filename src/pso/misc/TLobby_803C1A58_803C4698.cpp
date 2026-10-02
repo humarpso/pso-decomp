@@ -37,7 +37,7 @@ extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
 extern s32 lbl_805D7528;
 extern s32 lbl_805D752C;
 char *strncpy(char *dst, const char *src, u32 n);
-void TQuestVmDownLoadServer__sub_8039DC24(char *buf, s32 arg, s32 n);
+void strncat(char *buf, s32 arg, s32 n);
 void TLobby__sub_803D38B4(const char *fmt, ...);
 void TLobby__sub_803C5744(const char *msg, s32 arg);
 s32 TLobby__sub_803C46A4(Hdr_803C46A4 *p, s32 size, s16 *out);
@@ -272,7 +272,7 @@ extern s32 lbl_805D752C;
 typedef void (*Callback_803C5744)(s32 ctx, char *msg);
 void TLobby__sub_803C5744(const char *msg, s32 arg) {
     strncpy(((char *)&lbl_80572020), msg, 0xFF);
-    TQuestVmDownLoadServer__sub_8039DC24(((char *)&lbl_80572020), arg, 0xFF);
+    strncat(((char *)&lbl_80572020), arg, 0xFF);
     if ((*(Callback_803C5744 *)&lbl_805D7528) != 0) {
         (*(Callback_803C5744 *)&lbl_805D7528)(lbl_805D752C, ((char *)&lbl_80572020));
     }
