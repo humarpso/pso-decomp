@@ -235,6 +235,18 @@ extern s32 lbl_805D5668;
 extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 void TItemMagSub__vt3(TItemMagSub_80114F0C *self);
+void queue_destruction__7TObjectFv(void *);
+f32 get_mag_scale_f__10TObjPlayerFPv(void *);
+s32 is_mag_active__11TItemMagSubFPv(int);
+u32 test_feed_flags__11TItemMagSubFPvUi(void *, u32);
+s32 TItemMag__sub_80113EC8(void *);
+u32 TItemMagSub__sub_801159BC(void *);
+void TItemMagSub__sub_801151E0(MagSub_801151E0 *self);
+void TItemMagSub__sub_801152AC(TItemMagSub_801152AC *self);
+void TItemMagSub__sub_80115334(void *);
+extern const f32 TItemMagSub__data_805DABC8;
+extern const f32 TItemMagSub__data_805DABD8;
+void TItemMagSub__vt1(u8 *arg0);
 }
 
 extern "C" {
@@ -467,6 +479,35 @@ void TItemMagSub__sub_801152AC(TItemMagSub_801152AC *self) {
         self->f94 = TItemMagSub__data_805DABC8;
     }
     TItemMagSub__sub_80115334(self);
+}
+
+struct MagSub_801151E0;
+struct TItemMagSub_801152AC;
+void TItemMagSub__vt1(u8 *arg0) {
+    if (test_feed_flags__11TItemMagSubFPvUi(arg0, 0x80U) != 0U) {
+        queue_destruction__7TObjectFv(arg0);
+        return;
+    }
+    if (is_mag_active__11TItemMagSubFPv(M2C_FIELD(arg0, s32 *, 0x1C)) != 0 ||
+        TItemMagSub__sub_801159BC(M2C_FIELD(arg0, u8 **, 0x1C)) != 0U) {
+        return;
+    }
+    if (TItemMag__sub_80113EC8(M2C_FIELD(arg0, u8 **, 0x20)) != 0) {
+        TItemMagSub__sub_801151E0((MagSub_801151E0 *)arg0);
+        return;
+    }
+    M2C_FIELD(arg0, f32 *, 0xB8) = get_mag_scale_f__10TObjPlayerFPv(M2C_FIELD(arg0, u8 **, 0x20) + 0x608);
+    if (test_feed_flags__11TItemMagSubFPvUi(arg0, 8U) != 0U) {
+        TItemMagSub__sub_801152AC((TItemMagSub_801152AC *)arg0);
+    } else {
+        TItemMagSub__sub_80115334(arg0);
+    }
+    if (M2C_FIELD(arg0, u32 *, 0x28) != 0U) {
+        M2C_FIELD(arg0, f32 *, 0x80) = M2C_FIELD(arg0, f32 *, 0x80) + TItemMagSub__data_805DABD8;
+        if (M2C_FIELD(arg0, f32 *, 0x84) <= M2C_FIELD(arg0, f32 *, 0x80)) {
+            M2C_FIELD(arg0, f32 *, 0x80) = TItemMagSub__data_805DABC8;
+        }
+    }
 }
 
 void *TItemMagSub__vt0(void *arg0, s16 arg1) {
