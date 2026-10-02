@@ -64,6 +64,35 @@ struct Obj_8023448C {
 
 struct Pkt_802341B0 { u8 hdr[4]; Rec_8023402C rec; };
 
+struct Vec_80234D50 { f32 x, y, z; };
+
+struct Owner_80234D50 {
+    u8 pad0[0x38];
+    Vec_80234D50 pos;
+    u8 pad44[0x60 - 0x44];
+    s32 f60;
+    u8 pad64[0x838 - 0x64];
+    Vec_80234D50 pipe_pos;
+};
+
+struct Luker_80234D50 {
+    s32 f0;
+    u8 pad4[0x18 - 0x4];
+    void *vt;
+    Owner_80234D50 *owner;
+    u8 pad20[0xB4 - 0x20];
+    u16 owner_id;
+    u8 padb6[0xEC - 0xB6];
+    void *fx;
+    s32 fF0;
+    s16 fF4;
+    u16 fF6;
+    s32 fF8;
+    Vec_80234D50 pos;
+    s32 f108;
+    s32 f10C;
+};
+
 extern "C" {
 void TTecLuker__sub_80234F7C(void* p);
 void TTecLuker__sub_80234F7C(void* p);
@@ -175,6 +204,26 @@ u8 *TPhotonMylla__sub_80154CB4(u16);
 s32 get_field_3e4__10TObjPlayerFPv(u32);
 extern s32 lbl_805D53A0;
 void handle_6x68_set_telepipe_state(Pkt_802341B0 *pkt);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 obj_getField1c(void *);
+s32 is_split_screen();
+s32 TObjPlayer__sub_800196EC(void);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+M2C_UNK TTecLuker__sub_801D3728(void *, void *, void *);
+void *init_array__9TItemListFPv(void *);
+s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK fn_8022C2A8(void *, void *, void *);
+M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
+M2C_UNK rotate_matrix_y(int, s32);
+M2C_UNK TObjPlayer__sub_803D97F0(void *);
+M2C_UNK TCameraCtrl__sub_803D9858(int);
+extern Vec_80234D50 lbl_8044D72C;
+extern void* __vt__9TTecLuker[];
+extern u8 lbl_8058D490[];
+extern s32 lbl_805D37E4;
+extern s32 lbl_805D53A0;
+extern const f32 lbl_805DC878;
+void *TTecLuker__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 }
 
 extern "C" {
@@ -197,7 +246,6 @@ s32 TObjLuker__sub_801A0F34(void *, M2C_UNK, f32);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-void *TTecLuker__ct(void *, void *, void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -488,7 +536,7 @@ void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3)
     void *o;
     o = __nw__7TObjectFUl(0x110);
     if (o != NULL) {
-        TTecLuker__ct(o, arg0, arg1, arg2, arg3);
+        TTecLuker__ct((void *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (void *)(arg3));
     }
 }
 
@@ -550,6 +598,54 @@ void *__dt__9TTecLukerFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+#define L ((Luker_80234D50 *)arg0)
+void *TTecLuker__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
+    Owner_80234D50 *o;
+    void *p;
+    fn_8022C2A8(arg0, arg1, arg2);
+    L->vt = __vt__9TTecLuker;
+    L->f0 = lbl_805D37E4;
+    L->f108 = 0;
+    L->f10C = 0;
+    L->fF0 = 0;
+    L->fF8 = 0;
+    L->fF4 = TObjPlayer__sub_800196EC();
+    L->fx = NULL;
+    if (L->owner != NULL) {
+        L->owner_id = obj_getField1c(L->owner);
+    }
+    L->fF6 = lbl_805D53A0;
+    if (is_split_screen() == 0 && L->owner_id != lbl_805D53A0) {
+        VecCopy__FP3VecPC3Vec(&L->pos, &L->owner->pipe_pos);
+    } else {
+        L->fF6 = L->owner_id;
+        if ((s32)arg4 == 0xA) {
+            VecCopy__FP3VecPC3Vec(&L->pos, arg3);
+        } else {
+            p = alloc__23TAdSinglePlyChrSelectGCFPv(0xA8);
+            if (p != NULL) {
+                p = init_array__9TItemListFPv(p);
+            }
+            L->fx = p;
+            if (L->fx != NULL) {
+                Vec_80234D50 v = lbl_8044D72C;
+                TObjPlayer__sub_803D97F0(lbl_8058D490);
+                rotate_matrix_y(0, L->owner->f60);
+                TCameraCtrl__sub_803D8934(0, &v, &v);
+                TCameraCtrl__sub_803D9858(1);
+                o = L->owner;
+                v.x += o->pos.x;
+                v.y += lbl_805DC878 + o->pos.y;
+                v.z += o->pos.z;
+                TTecLuker__sub_801D3728(L->fx, &v, o);
+            }
+        }
+    }
+    TBoss3Volopt__sub_8022675C(0x4002A818, (u8 *)arg0 + 0x20, 0, 0);
+    return arg0;
+}
+#undef L
 
 void TTecLuker__sub_80234F08(void) {
     s32 i;
