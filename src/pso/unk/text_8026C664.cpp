@@ -14,7 +14,7 @@ struct Stack_8026C708
 
 extern "C" {
 void TWindowKeyBoardSoft__sub_8024E6D8(void *, void *);
-void TWindowSubComCard__sub_803DEECC(void *, f32);
+void draw_textured_quad_at_depth(void *, f32);
 extern const f32 lbl_805DD270;
 extern const f32 lbl_805DD274;
 extern const f32 lbl_805DD278;
@@ -24,7 +24,7 @@ extern const f32 lbl_805DD284;
 extern const f32 lbl_805DD288;
 void fn_8026C664(u8 *arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3);
 void TWindowKeyBoardSoft__sub_8024E6D8(void *, void *);
-void TWindowSubComCard__sub_803DEECC(void *, f32);
+void draw_textured_quad_at_depth(void *, f32);
 extern const f32 lbl_805DD270;
 extern const f32 lbl_805DD274;
 extern const f32 lbl_805DD278;
@@ -52,7 +52,7 @@ void fn_8026C664(u8 *arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
   buffer_8[6] = lbl_805DD284;
   buffer_8[7] = lbl_805DD288;
   TWindowKeyBoardSoft__sub_8024E6D8(arg0, &buffer_8[0]);
-  TWindowSubComCard__sub_803DEECC(&buffer_8[0], farg2);
+  draw_textured_quad_at_depth(&buffer_8[0], farg2);
 }
 typedef struct Stack_8026C708 Stack_8026C708;
 void fn_8026C708(u8 *arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
@@ -72,7 +72,7 @@ void fn_8026C708(u8 *arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
   stack.sp20 = lbl_805DD290;
   stack.sp24 = lbl_805DD288;
   TWindowKeyBoardSoft__sub_8024E6D8(arg0, &stack.sp8);
-  TWindowSubComCard__sub_803DEECC(&stack.sp8, farg2);
+  draw_textured_quad_at_depth(&stack.sp8, farg2);
 }
 
 }

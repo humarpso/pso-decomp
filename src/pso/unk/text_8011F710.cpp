@@ -125,7 +125,7 @@ s32 TObjPlayer__sub_8011F63C(void*);
 M2C_UNK reset_status_block__10TObjPlayerFPv(void *);
 s8 get_field_ed__10TObjPlayerFPv(void *);
 s8 get_slot_count__14TItemProShieldFPv(void *);
-void TObjPlayer__sub_8011C7C8(void*);
+void play_weapon_owner_sounds(void*);
 u32 test_flags_1b8__10TObjPlayerFPvUi(void*,u32);
 s32 obj_getField1c(void *);
 void spawn_effect__11TBoss4Type3Fsss(s16,s16,s16);
@@ -233,7 +233,7 @@ void TItemWeapon::dispatch_attack_marker() {
         packet.kind=get_field_ed__10TObjPlayerFPv((void *)(self));
         packet.variant=get_slot_count__14TItemProShieldFPv((void *)(self));
         packet.player=self->player;
-        TObjPlayer__sub_8011C7C8(&packet);
+        play_weapon_owner_sounds(&packet);
         if(test_flags_1b8__10TObjPlayerFPvUi(self,0x40000)) {
             spawn_effect__11TBoss4Type3Fsss(0x80,5,(s16)obj_getField1c((void *)(self->player)));
         } else if(test_flags_1b8__10TObjPlayerFPvUi(self,0x80000) && is_mode_two_and_ready__10TObjPlayerFPv(self)) {

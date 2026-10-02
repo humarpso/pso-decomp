@@ -110,8 +110,8 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(int, f32, f32, f32);
 M2C_UNK request_chatter__10TNpcPlayerFPvUi(void *, M2C_UNK);
 M2C_UNK TNpcPlayer__sub_8014F140(void *);
-s32 TNpcPlayer__sub_8014F950(void *);
-M2C_UNK TNpcPlayer__sub_8014FAB0(s32);
+s32 partner_view_update_hp_change(void *);
+M2C_UNK partner_view_update_conditions(s32);
 M2C_UNK try_update_target_flag__10TNpcPlayerFPvi(void *, void *, f32);
 s32 check_and_set_reached__10TNpcPlayerFPv(s32, f32);
 M2C_UNK TNpcPlayer__sub_8014FEAC(s32);
@@ -148,7 +148,7 @@ void init_state__10TNpcPlayerFPv(void *arg0);
 void render__10TNpcPlayerFv(void);
 void update_condition_flags__10TNpcPlayerFPv(u8 *arg0);
 M2C_UNK request_chatter__10TNpcPlayerFPvUi(void *, M2C_UNK);
-M2C_UNK TNpcPlayer__sub_8014FAB0(s32);
+M2C_UNK partner_view_update_conditions(s32);
 M2C_UNK TNpcPlayer__sub_8014FEAC(s32);
 M2C_UNK reset_partner_counter(void *, M2C_UNK);
 M2C_UNK increment_partner_counter(void *, M2C_UNK);
@@ -211,12 +211,12 @@ void TNpcPlayer__sub_801506DC(u8 *arg0) {
     } else {
         check_and_set_reached__10TNpcPlayerFPv((s32)((void *) (M2C_FIELD(arg0, u8 **, 0x78))), (f32) (M2C_FIELD(arg0, f32 *, 0x38)));
     }
-    TNpcPlayer__sub_8014FAB0((s32)((void *) (M2C_FIELD(arg0, u8 **, 0x78))));
+    partner_view_update_conditions((s32)((void *) (M2C_FIELD(arg0, u8 **, 0x78))));
     temp_f3 = M2C_FIELD(arg0, f32 *, 0xDC);
     temp_r3 = (u8 *)(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x78), void **, 0x94));
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x78), s32 *, 0x98) = (s32) (lbl_8043FFD8 * get_ad_end_text_start__10TObjPlayerFv((int) (temp_r3), (f32) (temp_f3 - M2C_FIELD(temp_r3, f32 *, 0x38)), (f32) (M2C_FIELD(arg0, f32 *, 0xE4) - M2C_FIELD(temp_r3, f32 *, 0x40)), (f32) (temp_f3)));
     TNpcPlayer__sub_8014F140((void *) (M2C_FIELD(arg0, u8 **, 0x78)));
-    if (TNpcPlayer__sub_8014F950((void *) (M2C_FIELD(arg0, u8 **, 0x78))) != 0) {
+    if (partner_view_update_hp_change((void *) (M2C_FIELD(arg0, u8 **, 0x78))) != 0) {
         if (get_condition__10TNpcPlayerFPv((s32)((void *) (M2C_FIELD(arg0, u8 **, 0x78)))) & 0x40) {
             request_chatter__10TNpcPlayerFPvUi((void *)((void *) (arg0)), (M2C_UNK)((int) (0xE)));
         } else if (get_condition__10TNpcPlayerFPv((s32)((void *) (M2C_FIELD(arg0, u8 **, 0x78)))) & 0x80) {
@@ -258,7 +258,7 @@ void TNpcPlayer__sub_801506DC(u8 *arg0) {
 
 void update_condition_flags__10TNpcPlayerFPv(u8 *arg0) {
     TNpcPlayer__sub_8014FEAC(M2C_FIELD(arg0, s32 *, 0x74));
-    TNpcPlayer__sub_8014FAB0(M2C_FIELD(arg0, s32 *, 0x74));
+    partner_view_update_conditions(M2C_FIELD(arg0, s32 *, 0x74));
     if (get_condition__10TNpcPlayerFPv(M2C_FIELD(arg0, s32 *, 0x74)) & 2) {
         if (get_partner_counter(arg0 + 0x5C, 0xA) == 0) {
             request_chatter__10TNpcPlayerFPvUi(arg0, 9);

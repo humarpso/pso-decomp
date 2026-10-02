@@ -145,10 +145,10 @@ M2C_UNK create_timed_particle_emitter(void *, int, int, int);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, s32);
 u8 *find_entity_by_id(u16);
 M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 void TObjEneMe1Canadin__sub_8009C178(u8 *arg0, s32 arg1);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, s32);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 void advance_state_4_to_5__17TObjEneMe1CanadinFPv(void *);
 void TObjEneMe1Canadin__sub_8009EB98(void *, f32);
 void TObjEneEpsilon__sub_800B92AC(void *, s32, f32);
@@ -279,7 +279,7 @@ void TObjEneMe1Canadin__sub_8009C178(u8 *arg0, s32 arg1) {
         create_timed_particle_emitter((void *) (arg0 + 0x2FC), (int) (0x118), (int) (0x19), (int) (0xF));
         ((Sub_8009C178 *)(arg0 + 0x3CC))->s1(0x19);
         ((Sub_8009C178 *)(arg0 + 0x3CC))->s2();
-        TBoss3Volopt__sub_8022675C((int) (0x4003AD18), (void *) (arg0 + 0x2FC), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4003AD18), (void *) (arg0 + 0x2FC), (int) (0), (int) (0));
         return;
     case 3:
         if ((((Sub_8009C178 *)(arg0 + 0x3CC))->s4() != 0) && (((VObj_18 *)(arg0))->m107() != 0)) {
@@ -306,7 +306,7 @@ void TObjEneMe1Canadin__sub_8009C2EC(u8 *arg0, s32 arg1) {
             transition_enemy_state(arg0, 0xD);
             M2C_FIELD(arg0, s16 *, 0x32C) = 0;
             M2C_FIELD(arg0, s32 *, 0x30) |= 0x800;
-            TBoss3Volopt__sub_8022675C(0x4003AD1F, arg0 + 0x2FC, 0, 0);
+            play_sound_effect(0x4003AD1F, arg0 + 0x2FC, 0, 0);
         }
         break;
     case 1:

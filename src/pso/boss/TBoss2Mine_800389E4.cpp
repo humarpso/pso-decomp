@@ -122,7 +122,7 @@ M2C_UNK save_position__10TBoss2MineFPv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 M2C_UNK TObjEneDD__sub_800BBA0C(void *);
-M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK refresh_collision_body_centers(void *);
 void run_task__10TBoss2MineFv(u8 *arg0);
 }
 
@@ -155,7 +155,7 @@ void run_task__10TBoss2MineFv(u8 *arg0) {
         set_player_state_default__12TBoss8DragonFPv((void *) (arg0));
         ((VObj_18 *)(arg0))->m98();
     }
-    TObjPlayer__sub_80154E3C((void *) (arg0));
+    refresh_collision_body_centers((void *) (arg0));
 }
 
 }

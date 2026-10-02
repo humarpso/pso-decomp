@@ -21,7 +21,7 @@ s32 run_action_state_phase__10TObjPlayerFisi(void * a0 = 0, s16 a1 = 0, s32 a2 =
 s32 call_obj_vt26__10TObjPlayerFPv(void * a0 = 0);
 s32 set_action_state__10TObjPlayerFPvss(void * a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 apply_velocity__10TObjPlayerFPv(s32);
-u32 TObjPlayer__sub_801B5EA4();
+u32 resolve_move_collision__10TObjPlayerFPv();
 s32 update_position_from_target__10TObjPlayerFPv();
 void TObjPlayer__sub_801CB424(void);
 void TObjPlayer__sub_801CB52C(void);

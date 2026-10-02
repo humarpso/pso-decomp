@@ -8,7 +8,7 @@ extern "C" {
 extern const f32 lbl_805DB6B8;
 extern const f32 lbl_805DB6BC;
 void fn_80169230(u8 *arg0);
-M2C_UNK TObjPlayer__sub_800112A4(s32, M2C_UNK);
+M2C_UNK add_actor_tp(s32, M2C_UNK);
 M2C_UNK add_actor_hp(s32, M2C_UNK);
 s32 obj_testFlags30(M2C_UNK, M2C_UNK);
 f32 horizontal_distance_squared(s32, void *);
@@ -71,7 +71,7 @@ void fn_801692AC(u8 *arg0) {
         temp_r3_2 = get_player_by_client_id(id);
         if ((temp_r3_2 != 0) && (obj_testFlags30(temp_r3_2, 0x800) == 0) && (horizontal_distance_squared(temp_r3_2 + 0x38, arg0 + 0x38) < lbl_805DB6C4)) {
             add_actor_hp(temp_r3_2, 9);
-            TObjPlayer__sub_800112A4(temp_r3_2, 9);
+            add_actor_tp(temp_r3_2, 9);
         }
     }
 }

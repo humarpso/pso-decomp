@@ -49,7 +49,7 @@ int queue_destruction__7TObjectFv(void*);
 void *spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 VObj_8010900C *resolve_hittable_target(u16, s16);
-void TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+void play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DAB28;
 extern const f32 lbl_805DAB2C;
 extern const f32 lbl_805DAB30;
@@ -81,7 +81,7 @@ void TItemEffHeaven::run_task() {
         self->arr[0] = spawn_continuous_particle_effect_with_flags(&self->pos, 0x13B, 0x40);
     }
     if (self->f28 == 0xF) {
-        TBoss3Volopt__sub_8022675C(0x4002A408, &self->pos, 0, 0);
+        play_sound_effect(0x4002A408, &self->pos, 0, 0);
         self->arr[1] = spawn_continuous_particle_effect_with_flags(&self->pos, 0x134, 0x40);
         self->f38 = lbl_805DAB28;
     }

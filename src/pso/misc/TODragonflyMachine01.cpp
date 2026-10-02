@@ -52,7 +52,7 @@ void play_cave01_key_sound(void *arg0);
 void run_task__20TODragonflyMachine01Fv(void *arg0);
 void unload_static_data__20TODragonflyMachine01Fv(void);
 void update_timer__20TODragonflyMachine01Fv(void);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TODragonflyMachine01__sub_80164F50(void *);
@@ -174,30 +174,30 @@ void play_cave01_key_sound(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
     switch (temp_r0) {
     case 1:
-        TBoss3Volopt__sub_8022675C(0x4005281F, 0, 0, 0);
+        play_sound_effect(0x4005281F, 0, 0, 0);
         return;
     case 2:
-        TBoss3Volopt__sub_8022675C(0x53F06, 0, 0, 0);
+        play_sound_effect(0x53F06, 0, 0, 0);
         return;
     case 3:
         temp_r3 = get_global_state__14TOKeyMachine01Fv();
         if ((temp_r3 != 0x10) && (temp_r3 != 0x11)) {
-            TBoss3Volopt__sub_8022675C(0x52812, 0, 0, 0);
+            play_sound_effect(0x52812, 0, 0, 0);
             return;
         }
         break;
     case 4:
         temp_r3_2 = get_global_state__14TOKeyMachine01Fv();
         if ((temp_r3_2 != 0x10) && (temp_r3_2 != 0x11)) {
-            TBoss3Volopt__sub_8022675C(0x52813, 0, 0, 0);
+            play_sound_effect(0x52813, 0, 0, 0);
             return;
         }
         break;
     case 5:
-        TBoss3Volopt__sub_8022675C(0x4001C112, 0, 0, 0);
+        play_sound_effect(0x4001C112, 0, 0, 0);
         return;
     case 6:
-        TBoss3Volopt__sub_8022675C(0x4002A60B, 0, 0, 0);
+        play_sound_effect(0x4002A60B, 0, 0, 0);
         break;
     }
 }

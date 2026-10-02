@@ -38,7 +38,7 @@ M2C_UNK TOTrapChainSawDamage__sub_802C9C00(void *, int);
 void TOTrapChainSawDamage__vt25(u8 *arg0);
 M2C_UNK TOTrapChainSaw__ct();
 M2C_UNK TObjEneGibbles__sub_80156780(void *, int, int);
-M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK refresh_collision_body_centers(void *);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 extern M2C_UNK __vt__17TOTrapChainSawKey[];
 extern RecoveredGlobal_802C8910_lbl_804E0CC0 lbl_804E0CC0;
@@ -107,7 +107,7 @@ u8 *TOTrapChainSawKey__ct(u8 *arg0, void * _w1, void * _w2) {
     ((VObj_18_373ea7 *)(arg0))->m13();
     ((VObj_18_373ea7 *)(arg0))->m14();
     TObjEneGibbles__sub_80156780((void *) (arg0), (int) ((u8 *)(&lbl_804E0CC0.value) + (M2C_FIELD(arg0, s32 *, 0xF8) * 0x58)), (int) (2));
-    TObjPlayer__sub_80154E3C((void *) (arg0));
+    refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     return arg0;
 }

@@ -233,7 +233,7 @@ void qst_op_npc_play(void);
 s32 TNpcPlayer__sub_8034E4B0(int);
 extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
 void qst_op_npc_kill(void);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
+M2C_UNK play_sound_effect(int, int, int, int);
 extern RecoveredGlobal_801F196C_lbl_804499A8 lbl_804499A8;
 extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
 void qst_op_se(void);
@@ -603,7 +603,7 @@ void qst_op_bgm(void) {
 }
 
 void qst_op_se(void) {
-    TBoss3Volopt__sub_8022675C((int) (M2C_FIELD(((u8 *)(&lbl_804499A8.value) + ((*(RecoveredGlobal_801F196C_TLobby__data_80512220 *)&TLobby__data_80512220).value * 4)), s32 *, 0)), (int) (0), (int) (0), (int) (0));
+    play_sound_effect((int) (M2C_FIELD(((u8 *)(&lbl_804499A8.value) + ((*(RecoveredGlobal_801F196C_TLobby__data_80512220 *)&TLobby__data_80512220).value * 4)), s32 *, 0)), (int) (0), (int) (0), (int) (0));
 }
 
 void qst_op_fadeout(void) { init_fadeout_state__6TLobbyFi((void*)0); TLobby__data_805D5E98 = 8; }

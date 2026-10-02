@@ -48,7 +48,7 @@ bool TWindowLockOn__sub_80262DC4(s32 arg0);
 void TWindow__close(void *);
 void update_fade__17TWindowSubComCardFPv(void *);
 void initialize_subwindow__9TWindowDDFPv(void *);
-void TWindowSubStatusDisp__sub_80257C28(void *, void *);
+void update_window_entry_list(void *, void *);
 void fn_80262C3C(void *);
 void run_task__13TWindowLockOnFv(Win_8026385C *w);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
@@ -205,7 +205,7 @@ void run_task__13TWindowLockOnFv(Win_8026385C *w) {
     fn_80262C3C(w);
     initialize_subwindow__9TWindowDDFPv(w);
     update_fade__17TWindowSubComCardFPv(w);
-    TWindowSubStatusDisp__sub_80257C28(w, w->m24);
+    update_window_entry_list(w, w->m24);
     old = w->retention;
     w->retention = old - 1;
     if (old < 0) {

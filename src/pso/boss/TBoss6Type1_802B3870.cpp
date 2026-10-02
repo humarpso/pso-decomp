@@ -75,7 +75,7 @@ void render__11TBoss6Type1Fv(void* p);
 void start_attack__11TBoss6Type1FPv(u8 *arg0);
 void tick_countdown__11TBoss6Type1FPv(void *arg0);
 void update_attack_countdown_reset__11TBoss6Type1FPv(void *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 int TBoss6Type1__sub_802B4B64(void*, void*);
 int TBoss6Type1__sub_802B4BA8(void*, void*);
 M2C_UNK TBoss6Type1__sub_802B4EAC(void *, s32, s32);
@@ -107,12 +107,12 @@ void start_attack__11TBoss6Type1FPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x40C) = 0x1E;
         M2C_FIELD(arg0, s32 *, 0x410) = 0x1E;
     }
-    TBoss3Volopt__sub_8022675C(0x40039706, arg0 + 0x38, 0, 0);
+    play_sound_effect(0x40039706, arg0 + 0x38, 0, 0);
     TBoss6Type1__sub_802B4B64((void*)(arg0), (void*)(0));
     TBoss6Type1__sub_802B4BA8((void*)(arg0), (void*)(1));
     if (TBoss6Type1__sub_802B529C(arg0, 0x19, 4) > 0) {
         latch_phase_counter__11TBoss6Type1FPv(arg0);
-        TBoss3Volopt__sub_8022675C(0x68A24, arg0 + 0x38, 0, 1);
+        play_sound_effect(0x68A24, arg0 + 0x38, 0, 1);
     }
 }
 

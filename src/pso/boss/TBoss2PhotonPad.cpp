@@ -31,7 +31,7 @@ struct S_80039288 {
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void TObjBoss2Tunnel__sub_8007E7D8(void *, void *, s32);
+void rotate_xz_pair_by_angle(void *, void *, s32);
 extern Rec_80039288 lbl_80435B08[];
 extern u8 __vt__15TBoss2PhotonPad[];
 extern s32 lbl_805D26D8;
@@ -63,7 +63,7 @@ void run_task__15TBoss2PhotonPadFv(Pad_80039140 *self) {
             }
         }
         self->timer = lbl_80435B08[self->level].b;
-        TObjBoss2Tunnel__sub_8007E7D8(self->pos, self->unk28, lbl_80435B08[self->level].c / lbl_80435B08[self->level].a);
+        rotate_xz_pair_by_angle(self->pos, self->unk28, lbl_80435B08[self->level].c / lbl_80435B08[self->level].a);
         self->shots--;
         if (self->shots == 0) {
             queue_destruction__7TObjectFv(self);
@@ -77,7 +77,7 @@ S_80039288 *__ct__15TBoss2PhotonPadFv(S_80039288 *o, void *parent, s32 arg2, voi
     o->f1c = arg2;
     o->f2c = arg4;
     VecCopy__FP3VecPC3Vec(o->v20, arg3);
-    TObjBoss2Tunnel__sub_8007E7D8(o->v20, o->v28, -(lbl_80435B08[o->f2c].c / 2));
+    rotate_xz_pair_by_angle(o->v20, o->v28, -(lbl_80435B08[o->f2c].c / 2));
     o->f30 = lbl_80435B08[o->f2c].a;
     o->f34 = 0;
     return o;

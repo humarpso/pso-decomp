@@ -111,7 +111,7 @@ f32 get_scale__15TShopWindowBaseFv(void *);
 M2C_UNK set_position_xy(void *, f32, f32);
 M2C_UNK TWindow__close(void *);
 M2C_UNK set_field_1c__6TLobbyFPvf(void *, f32);
-void *TShopJudgmentItemWindow__sub_80266388(void *, s32, s32, s32);
+void *create_yes_no_window(void *, s32, s32, s32);
 s32 select_cursor_entry__6TLobbyFPv(s32);
 M2C_UNK send_and_handle__6TLobbyFPvii(void *, s32, s32);
 void *TLobby__sub_80269CC0(void *, void *, s32, s32);
@@ -250,7 +250,7 @@ void TLobby__sub_80216CF8(Win_80216CF8 *self) {
             }
         }
         if (self->f38 == NULL) {
-            self->f38 = TShopJudgmentItemWindow__sub_80266388(get_window_layout_position(0x2B), obj_getField1c(self->f24), 0, 0);
+            self->f38 = create_yes_no_window(get_window_layout_position(0x2B), obj_getField1c(self->f24), 0, 0);
             set_position_xy(self->f38, get_scale__15TShopWindowBaseFv(self), get_scale__15TShopWindowBaseFv(self));
             if (self->f34 != NULL) {
                 self->f34->m7(5, 1);

@@ -22,7 +22,7 @@ extern const f32 TBoss6GravBall__data_805DF550;
 Obj_80323D20 *TBoss6GravBall__ct(Obj_80323D20 *arg0, s32 arg1, void *arg2);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 s32 get_state__14TBoss6GravBallFPv(int);
 M2C_UNK fn_80323134(void *);
 M2C_UNK TBoss6GravBall__sub_803231D0(void *, int);
@@ -40,7 +40,7 @@ extern "C" {
 
 void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1);
 void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK TBoss6GravBall__sub_803231D0(void *, int);
 M2C_UNK TBoss6GravBall__sub_80323278(void *, int);
 void TBoss6GravBall__sub_80323348(void *);
@@ -110,7 +110,7 @@ void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0xB4) = 0;
         TBoss6GravBall__sub_80323348((void *)((void *) (arg0)));
         M2C_FIELD(arg0, s32 *, 0xB0) = 2;
-        TBoss3Volopt__sub_8022675C((int) (0x4003C417), (void *) (arg0 + 0xC8), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4003C417), (void *) (arg0 + 0xC8), (int) (0), (int) (0));
         return;
     default:
         queue_destruction__7TObjectFv((void *) (arg0));
@@ -154,7 +154,7 @@ void TBoss6GravBall__sub_80323A78(u8 *arg0) {
             M2C_FIELD(arg0, s32 *, 0xB8) = 0;
             M2C_FIELD(arg0, s32 *, 0xB4) = 0;
             M2C_FIELD(arg0, s32 *, 0xB0) = 1;
-            TBoss3Volopt__sub_8022675C((int) (0x4003B516), (void *) (arg0 + 0xC8), (int) (0), (int) (0));
+            play_sound_effect((int) (0x4003B516), (void *) (arg0 + 0xC8), (int) (0), (int) (0));
             break;
         case 0x20:
         default:

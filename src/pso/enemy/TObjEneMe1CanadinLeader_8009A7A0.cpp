@@ -336,7 +336,7 @@ extern const f32 lbl_805D9880;
 extern const f32 lbl_805D9884;
 void TObjEneMe1CanadinLeader__sub_8009A938(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TObjBoss2Tunnel__sub_8007E7D8(void *, void *, int);
+s32 rotate_xz_pair_by_angle(void *, void *, int);
 s32 TObjBoss2Tunnel__sub_8007E84C(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 TBoss8Dragon__sub_803D64C0(int);
@@ -359,7 +359,7 @@ void set_flag3c8_bit20__23TObjEneMe1CanadinLeaderFPv(void *);
 void create_breakup_mdl__12TBoss3VoloptFiiiii(void *, int, s32, void *, s32);
 void refresh_lobby_state__10TObjPlayerFPv(void *);
 void send_entity_set_flags__6TLobbyFPv(void *);
-s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+s32 play_sound_effect(s32, void *, s32, s32);
 extern void *lbl_805D4FDC;
 void TObjEneMe1CanadinLeader__vt110(Leader_8009AB4C *obj, s32 mode);
 f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
@@ -381,7 +381,7 @@ M2C_UNK TObjEneMe1CanadinLeader__sub_8009E258(void *);
 M2C_UNK TObjEneMe1CanadinLeader__sub_8009E27C(void *);
 s32 TObjEneMe1CanadinLeader__sub_8009E31C(void *, s32);
 M2C_UNK TObjEneMe1CanadinLeader__sub_8009E4AC(void *, s32);
-s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+s32 play_sound_effect(s32, void *, s32, s32);
 extern M2C_UNK lbl_8043A280[];
 void TObjEneMe1CanadinLeader__sub_8009AF54(void *arg0);
 }
@@ -461,9 +461,9 @@ u8 *TObjEneMe1CanadinLeader__sub_8009AA64(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3
     M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805D9860;
     M2C_FIELD(arg0, f32 *, 0x28) = TBoss8Dragon__sub_803D64DC((int) (M2C_FIELD(arg2, s32 *, 0x60)));
     if (TObjBoss2Tunnel__sub_8007E84C((void *) (arg0 + 0x20), (void *) (&stack.sp8)) != 0) {
-        TObjBoss2Tunnel__sub_8007E7D8((void *) (arg0 + 0x20), (void *) (arg0 + 0x28), (int) (-0x1800));
+        rotate_xz_pair_by_angle((void *) (arg0 + 0x20), (void *) (arg0 + 0x28), (int) (-0x1800));
     } else {
-        TObjBoss2Tunnel__sub_8007E7D8((void *) (arg0 + 0x20), (void *) (arg0 + 0x28), (int) (0x1800));
+        rotate_xz_pair_by_angle((void *) (arg0 + 0x20), (void *) (arg0 + 0x28), (int) (0x1800));
     }
     return arg0;
 }
@@ -479,7 +479,7 @@ void TObjEneMe1CanadinLeader__vt110(Leader_8009AB4C *obj, s32 mode) {
             set_flag3c8_bit20__23TObjEneMe1CanadinLeaderFPv(self->members[i]);
         }
         self->flags3C8 |= 0x400000;
-        TBoss3Volopt__sub_8022675C(0x4003B71D, self->pos2FC, 0, 0);
+        play_sound_effect(0x4003B71D, self->pos2FC, 0, 0);
         refresh_lobby_state__10TObjPlayerFPv(self);
         break;
     case 0:
@@ -510,7 +510,7 @@ void TObjEneMe1CanadinLeader__sub_8009AF54(void *arg0) {
     case 1:
         TObjEneMe1CanadinLeader__sub_8009E4AC(arg0, 0);
         self->state = 2;
-        TBoss3Volopt__sub_8022675C(0x4003AD1B, self->pos, 0, 0);
+        play_sound_effect(0x4003AD1B, self->pos, 0, 0);
         break;
     case 2:
         if (self->f4B8 == 0) {
@@ -532,7 +532,7 @@ void TObjEneMe1CanadinLeader__sub_8009AF54(void *arg0) {
     case 4:
         TObjEneMe1CanadinLeader__sub_8009E4AC(arg0, 2);
         self->state = 5;
-        TBoss3Volopt__sub_8022675C(0x4003AD1C, self->pos, 0, 0);
+        play_sound_effect(0x4003AD1C, self->pos, 0, 0);
         break;
     case 5:
         if (self->f4B8 == 0) {
@@ -550,7 +550,7 @@ void TObjEneMe1CanadinLeader__sub_8009AF54(void *arg0) {
     case 7:
         TObjEneMe1CanadinLeader__sub_8009E4AC(arg0, 4);
         self->state = 8;
-        TBoss3Volopt__sub_8022675C(0x4003AD1B, self->pos, 0, 0);
+        play_sound_effect(0x4003AD1B, self->pos, 0, 0);
         break;
     case 8:
         if (self->f4B8 == 0) {

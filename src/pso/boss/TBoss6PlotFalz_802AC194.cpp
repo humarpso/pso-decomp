@@ -84,7 +84,7 @@ s32 *alloc_buffer__11TOBoss4RockFPv(s32);
 void TBoss6PlotFalz__sub_802AC2D8(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void *get_player_data__10TObjPlayerFi(s32 i);
-M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK refresh_collision_body_centers(void *);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
 M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
 f32 xyz_distance(void *, void *);
@@ -189,7 +189,7 @@ void TBoss6PlotFalz__sub_802AC3E8(void) {
             TBoss4Zako__sub_803D8910(&v, lbl_8047059C);
             v.y = lbl_805DE0D4;
             VecCopy__FP3VecPC3Vec(&p->pos, &v);
-            TObjPlayer__sub_80154E3C(p);
+            refresh_collision_body_centers(p);
         }
     }
 }

@@ -204,7 +204,7 @@ void TContainerAncient01__sub_8018A584(Obj_8018A584 *self, f32 range);
 
 u8 *get_player_by_client_id(int);
 s32 get_global_state__14TOKeyMachine01Fv();
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 extern const f32 TContainerAncient01__data_805DBD20;
 extern const f32 lbl_805DBD24;
 extern const f32 lbl_805DBD28;
@@ -256,7 +256,7 @@ void TContainerAncient01__sub_8018B158(void* p, void* a1, void* a2);
 void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range);
 void reset_state__19TContainerAncient01FPv(void* a0);
 s32 get_global_state__14TOKeyMachine01Fv();
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 extern const f32 TContainerAncient01__data_805DBD20;
 extern const f32 lbl_805DBD24;
 extern const f32 lbl_805DBD28;
@@ -331,16 +331,16 @@ M2C_UNK TContainerAncient01__sub_8018A688(void *arg0) {
         case 0x19:
         case 0x1A:
         case 0x1B:
-            TBoss3Volopt__sub_8022675C(0x4BC1C, (u8 *)self + 0x38, 0, 0);
+            play_sound_effect(0x4BC1C, (u8 *)self + 0x38, 0, 0);
             break;
         case 0x22:
-            TBoss3Volopt__sub_8022675C(0x4004BC1C, (u8 *)self + 0x38, 0, 0);
+            play_sound_effect(0x4004BC1C, (u8 *)self + 0x38, 0, 0);
             break;
         case 0x23:
-            TBoss3Volopt__sub_8022675C(0x4004BC1C, (u8 *)self + 0x38, 0, 0);
+            play_sound_effect(0x4004BC1C, (u8 *)self + 0x38, 0, 0);
             break;
         default:
-            TBoss3Volopt__sub_8022675C(0x4004BC16, (u8 *)self + 0x38, 0, 0);
+            play_sound_effect(0x4004BC16, (u8 *)self + 0x38, 0, 0);
             break;
         }
     }
@@ -631,16 +631,16 @@ void TContainerAncient01__sub_8018B284(Obj_8018B284 *self) {
         case 0x19:
         case 0x1A:
         case 0x1B:
-            TBoss3Volopt__sub_8022675C(0x4BC1C, self->pos, 0, 0);
+            play_sound_effect(0x4BC1C, self->pos, 0, 0);
             break;
         case 0x22:
-            TBoss3Volopt__sub_8022675C(0x4004BC1C, self->pos, 0, 0);
+            play_sound_effect(0x4004BC1C, self->pos, 0, 0);
             break;
         case 0x23:
-            TBoss3Volopt__sub_8022675C(0x4004BC1C, self->pos, 0, 0);
+            play_sound_effect(0x4004BC1C, self->pos, 0, 0);
             break;
         default:
-            TBoss3Volopt__sub_8022675C(0x4004BC16, self->pos, 0, 0);
+            play_sound_effect(0x4004BC16, self->pos, 0, 0);
             break;
         }
     }

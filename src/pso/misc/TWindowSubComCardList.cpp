@@ -82,7 +82,7 @@ void TWindowSubCustomEquip__sub_80275A88(void);
 void *__dt__21TWindowSubComCardListFv(void *arg0, s16 arg1);
 void render__21TWindowSubComCardListFv(u8 *arg0);
 void run_task__21TWindowSubComCardListFv(void *arg0);
-s32 TWindowShortListCtrl__sub_8026C9DC(s32);
+s32 handle_list_page_flip_input(s32);
 M2C_UNK TWindowSubComCardList__sub_80275360(void *);
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
 s32 TWindowSubStatusDisp__sub_80244364();
@@ -116,7 +116,7 @@ void render__21TWindowSubComCardListFv(u8 *arg0) {
 
 void run_task__21TWindowSubComCardListFv(void *arg0) {
     run_task__11TWindowMenuFv();
-    if ((is_visible__17TWindowSubComCardFPv(arg0) == 0) && (TWindowShortListCtrl__sub_8026C9DC(M2C_FIELD(arg0, s32 *, 0x8C)) != 0)) {
+    if ((is_visible__17TWindowSubComCardFPv(arg0) == 0) && (handle_list_page_flip_input(M2C_FIELD(arg0, s32 *, 0x8C)) != 0)) {
         set_selected_index__17TWindowSubComCardFPvs(arg0, 0);
         TWindowSubComCardList__sub_80275360(arg0);
     }

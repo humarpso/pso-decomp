@@ -23,7 +23,7 @@ struct Obj_800DCD04 {
 
 extern "C" {
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-s32 TObjParticle__sub_800870BC(Vec_800DCD04 *, s32 *, s32, s32);
+s32 spawn_particle_effect_with_rotation(Vec_800DCD04 *, s32 *, s32, s32);
 f32 TObjPlayer__sub_8013153C(Vec_800DCD04 *, Vec_800DCD04 *);
 f32 xz_distance_squared(Vec_800DCD04 *, Vec_800DCD04 *);
 u8 *find_entity_by_id(s16);
@@ -88,7 +88,7 @@ Obj_800DCD04 *TObjPlayer__sub_800DCD04(Obj_800DCD04 *self, Vec_800DCD04 *pos, s1
         ang[0] = 0;
         ang[1] = (s32)(lbl_8043C940[0] * get_ad_end_text_start__10TObjPlayerFv(pp->x - pos->x, pp->z - pos->z)) + 0x4000;
         ang[2] = 0x4000 - (s32)(lbl_8043C940[0] * get_ad_end_text_start__10TObjPlayerFv(pp->y - pos->y, TObjPlayer__sub_8013153C(pp, pos)));
-        self->ff8 = TObjParticle__sub_800870BC(pos, ang, 0xf4, 2);
+        self->ff8 = spawn_particle_effect_with_rotation(pos, ang, 0xf4, 2);
     }
     self->ff4 = lbl_805D5264;
     if (xz_distance_squared(pp, pos) < lbl_805DA484) {

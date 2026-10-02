@@ -36,7 +36,7 @@ void cleanup__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void reset__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 M2C_UNK TAdEnterSerialAccessGC__sub_802AEBA8(s32);
 M2C_UNK *get_localized_text_entry(M2C_UNK, M2C_UNK);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
@@ -90,7 +90,7 @@ void cleanup__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
         M2C_FIELD(arg0, u32 *, 0x54) = 0U;
     }
     if ((TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208 + 0x160, 2) != 0)) {
-        TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
+        play_sound_effect(0x52F16, 0, 0, 0);
         M2C_FIELD(arg0, s32 *, 0x20) = 0xB;
         return;
     }

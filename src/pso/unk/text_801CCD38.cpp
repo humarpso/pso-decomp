@@ -15,12 +15,12 @@ Rec_801CCEDC *TTecCtrl__sub_8022DBC4(s32 tech, s32 level, s32 id);
 void split_capped_value__10TObjPlayerFUcPvPv(u8 v, void *a, void *b);
 void TObjPlayer__sub_801D2178(void *pkt);
 void send_swapped_header__10TObjPlayerFPv(void *pkt);
-void TObjPlayer__sub_801CCEDC(Player_801CCEDC *self);
+void pay_tp_and_send_6x48_cast__10TObjPlayerFPv(Player_801CCEDC *self);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_801CCEDC(Player_801CCEDC *self) {
+void pay_tp_and_send_6x48_cast__10TObjPlayerFPv(Player_801CCEDC *self) {
     s16 tech;
     u8 hi;
     u8 lo;

@@ -9,7 +9,7 @@ extern "C" {
 void TObjPlayer__sub_801CB5FC(void);
 void apply_velocity_if_ready__10TObjPlayerFi(s32 arg0);
 void start_action_c__10TObjPlayerFPv(void *arg0);
-u32 TObjPlayer__sub_801B5EA4();
+u32 resolve_move_collision__10TObjPlayerFPv();
 s32 set_action_state__10TObjPlayerFPvss(void * a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 get_weapon_stat_c__10TObjPlayerFPv(void * a0 = 0);
 s32 run_action_state_phase__10TObjPlayerFisi(void * a0 = 0, s16 a1 = 0, s32 a2 = 0);
@@ -19,7 +19,7 @@ s16 ret_801D26AC(void);
 
 void TObjPlayer__sub_801CB5FC(void) {  }
 void apply_velocity_if_ready__10TObjPlayerFi(s32 arg0) {
-    if (TObjPlayer__sub_801B5EA4() == 0U) {
+    if (resolve_move_collision__10TObjPlayerFPv() == 0U) {
         apply_velocity__10TObjPlayerFPv(arg0);
     }
 }

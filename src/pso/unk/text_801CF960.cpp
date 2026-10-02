@@ -7,7 +7,7 @@ extern "C" {
 s32 obj_testFlags30(void *, int);
 s32 TObjPlayer__sub_8001BEF8(void *, int);
 s32 calc_scaled_value__10TObjPlayerFii(void *, int);
-s32 TObjPlayer__sub_801B3C20(void *);
+s32 handle_palette_button_input__10TObjPlayerFPv(void *);
 s32 check_flag_48__10TObjPlayerFPv(void *);
 M2C_UNK set_ring_action__10TObjPlayerFPvi(void *, int);
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, int, int);
@@ -27,7 +27,7 @@ void TObjPlayer__sub_801CF960(u8 *arg0) {
     s32 temp_r31_2;
     temp_r31 = get_target_field_1c__10TObjPlayerFPv(arg0 + 0x550);
     temp_f31 = get_attached_float_24__10TObjPlayerFPv(arg0 + 0x550);
-    if ((TObjPlayer__sub_801B3C20(arg0) == 0) || (check_flag_48__10TObjPlayerFPv(arg0) == 0)) {
+    if ((handle_palette_button_input__10TObjPlayerFPv(arg0) == 0) || (check_flag_48__10TObjPlayerFPv(arg0) == 0)) {
         if (temp_f31 < TObjPlayer__data_805DC368) {
             if (TObjPlayer__sub_8001BEF8(arg0 + 0x5EC, 4) != 0) {
                 run_action_state_phase__10TObjPlayerFisi(arg0, 1, 5);

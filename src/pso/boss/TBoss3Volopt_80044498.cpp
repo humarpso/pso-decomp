@@ -548,7 +548,7 @@ void TBoss3Volopt__sub_800477A0(u8 *arg0);
 void set_flag8_list__12TBoss3VoloptFPv(void *);
 void TBoss3Volopt__sub_800C7698(void *);
 void create_breakup_mdl__12TBoss3VoloptFiiiii(s32, s32, s32, s32, s32);
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8 TBoss3Volopt__data_804845E8;
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804FF038 TBoss3Volopt__data_804FF038;
 extern RecoveredGlobal_80045628_lbl_804FF14C lbl_804FF14C;
@@ -556,7 +556,7 @@ void TBoss3Volopt__sub_80045628(u8 *arg0);
 void set_flag8_list__12TBoss3VoloptFPv(void *);
 void TBoss3Volopt__sub_800C7698(void *);
 void create_breakup_mdl__12TBoss3VoloptFiiiii(s32, s32, s32, s32, s32);
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8 TBoss3Volopt__data_804845E8;
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804FF038 TBoss3Volopt__data_804FF038;
 extern RecoveredGlobal_800456E4_lbl_804FF10C lbl_804FF10C;
@@ -564,7 +564,7 @@ void TBoss3Volopt__sub_800456E4(u8 *arg0);
 void set_flag8_list__12TBoss3VoloptFPv(void *);
 void TBoss3Volopt__sub_800C7698(void *);
 void create_breakup_mdl__12TBoss3VoloptFiiiii(s32, s32, s32, s32, s32);
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8 TBoss3Volopt__data_804845E8;
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804FF038 TBoss3Volopt__data_804FF038;
 extern RecoveredGlobal_800457A0_lbl_804FF0CC lbl_804FF0CC;
@@ -996,7 +996,7 @@ void TBoss3Volopt__sub_80045628(u8 *arg0) {
         ((VObj_18_f1aa6a *)(arg0))->m63(0x29, &sp8);
         create_breakup_mdl__12TBoss3VoloptFiiiii(M2C_FIELD(&TBoss3Volopt__data_804FF038.value, s32 *, 0x10), (s32) &TBoss3Volopt__data_804845E8.value, M2C_FIELD(arg0, s32 *, 0x24), (s32) (arg0 + 0x2FC), M2C_FIELD(arg0, s32 *, 0x60));
         set_flag8_list__12TBoss3VoloptFPv(&lbl_804FF14C.value);
-        TBoss3Volopt__sub_8022675C(0x4003A80F, (u32) (arg0 + 0x38), 0, 1);
+        play_sound_effect(0x4003A80F, (u32) (arg0 + 0x38), 0, 1);
     }
 }
 
@@ -1016,7 +1016,7 @@ void TBoss3Volopt__sub_800456E4(u8 *arg0) {
         ((VObj_18_f1aa6a *)(arg0))->m63(0x22, &sp8);
         create_breakup_mdl__12TBoss3VoloptFiiiii(M2C_FIELD(&(*(RecoveredGlobal_800456E4_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__data_804FF038).value, s32 *, 0xC), (s32) &(*(RecoveredGlobal_800456E4_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value, M2C_FIELD(arg0, s32 *, 0x24), (s32) &sp8, M2C_FIELD(arg0, s32 *, 0x60));
         set_flag8_list__12TBoss3VoloptFPv(&lbl_804FF10C.value);
-        TBoss3Volopt__sub_8022675C(0x4003A80F, (u32) (arg0 + 0x38), 0, 1);
+        play_sound_effect(0x4003A80F, (u32) (arg0 + 0x38), 0, 1);
     }
 }
 
@@ -1036,7 +1036,7 @@ void TBoss3Volopt__sub_800457A0(u8 *arg0) {
         ((VObj_18_f1aa6a *)(arg0))->m63(0x32, &sp8);
         create_breakup_mdl__12TBoss3VoloptFiiiii(M2C_FIELD(&(*(RecoveredGlobal_800457A0_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__data_804FF038).value, s32 *, 8), (s32) &(*(RecoveredGlobal_800457A0_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value, M2C_FIELD(arg0, s32 *, 0x24), (s32) &sp8, M2C_FIELD(arg0, s32 *, 0x60));
         set_flag8_list__12TBoss3VoloptFPv(&lbl_804FF0CC.value);
-        TBoss3Volopt__sub_8022675C(0x4003A80F, (u32) (arg0 + 0x38), 0, 1);
+        play_sound_effect(0x4003A80F, (u32) (arg0 + 0x38), 0, 1);
     }
 }
 

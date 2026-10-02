@@ -51,15 +51,15 @@ void TObjPlayer__sub_803DCBD8(s32 arg0);
 s32 TObjPlayer__sub_803D7CA4(int);
 s32 TObjPlayer__sub_803D9B2C();
 s32 pop_matrix();
-s32 TObjPlayer__sub_803DB270(int, void *);
+s32 queue_model_draw_matrix(int, void *);
 extern s32 lbl_805D7710;
 extern s32 lbl_805D7774;
-void TObjPlayer__sub_803DC904(u8 *arg0);
+void draw_ginja_motion_node_tree(u8 *arg0);
 void TObjPlayer__sub_803D7B68(void *);
 void TObjPlayer__sub_803DB24C(void *);
 void fn_803DB390(void);
 void prepare_ginja_model(void *);
-void TObjPlayer__sub_803DC904(u8 *arg0);
+void draw_ginja_motion_node_tree(u8 *arg0);
 void draw_ginja_model_lists(void);
 extern struct MotionCtx_803DC894 * const lbl_805D4698;
 extern RecoveredCallback_2be3cacebb2e lbl_805D76E4;
@@ -69,7 +69,7 @@ void TObjPlayer__sub_803DC994(struct Mtx_803DC994 *src);
 void GXSetBlendMode(int, int, int, int);
 extern u32 lbl_8047E408[];
 extern u8 *lbl_805D774C;
-void TObjPlayer__sub_803DCD38(s32 arg0);
+void apply_cached_blend_mode(s32 arg0);
 void TObjPlayer__sub_803DCBF0(C_803DCBF0 *arg0);
 s32 TObjPlayer__sub_803D7CA4(int);
 s32 TObjPlayer__sub_803D9B2C();
@@ -106,7 +106,7 @@ void draw_ginja_model_with_motion(void *arg0, void *arg1) {
     lbl_805D4698->fn = draw_ginja_model_lists;
     prepare_ginja_model(lbl_805D4698);
     TObjPlayer__sub_803DB24C((void *) draw_ginja_model_lists);
-    TObjPlayer__sub_803DC904((u8 *)(arg0));
+    draw_ginja_motion_node_tree((u8 *)(arg0));
     fn_803DB390();
     if (lbl_805D76E4 != NULL) {
         lbl_805D76E4();
@@ -116,7 +116,7 @@ void draw_ginja_model_with_motion(void *arg0, void *arg1) {
 #pragma push
 #pragma peephole off
 #pragma scheduling off
-void TObjPlayer__sub_803DC904(u8 *arg0) {
+void draw_ginja_motion_node_tree(u8 *arg0) {
     u32 temp_r3;
     u8 *temp_r3_2;
     u8 *var_r31;
@@ -129,11 +129,11 @@ void TObjPlayer__sub_803DC904(u8 *arg0) {
         }
         temp_r3 = M2C_FIELD(var_r31, u32 *, 4);
         if ((temp_r3 != 0U) && ((u32) (M2C_FIELD(var_r31, s32 *, 0) & 8) == 0)) {
-            TObjPlayer__sub_803DB270((int) (temp_r3), (void *) (lbl_805D7774));
+            queue_model_draw_matrix((int) (temp_r3), (void *) (lbl_805D7774));
         }
         temp_r3_2 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0x2C));
         if (temp_r3_2 != NULL) {
-            TObjPlayer__sub_803DC904(temp_r3_2);
+            draw_ginja_motion_node_tree(temp_r3_2);
         }
         pop_matrix();
         var_r31 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0x30));
@@ -246,7 +246,7 @@ void abs__4cXyzCFv(s32 arg0, s32 arg1) {
     }
 }
 
-void TObjPlayer__sub_803DCD38(s32 arg0) {
+void apply_cached_blend_mode(s32 arg0) {
     u32 v = M2C_FIELD(lbl_805D774C, u32 *, 0xC);
     int src = lbl_8047E408[(v & 0xE0000000) >> 29];
     int dst = lbl_8047E408[(v & 0x1C000000) >> 26];

@@ -764,7 +764,7 @@ extern const f32 lbl_805E0210;
 void TObjEneEpsilonGuard__sub_8035FFA8(void *arg0);
 f32 TObjPlayer__sub_80011824(void *, void *, void *);
 void try_apply_damage__19TObjEneEpsilonGuardFPvUii(void *, u32, s32);
-s32 TObjPlayer__sub_8001622C(void *, void *);
+s32 show_miss_popup(void *, void *);
 s16 obj_getS16_118(void *);
 s16 obj_getS16_116(void *);
 s32 obj_testFlags30(void *, int);
@@ -775,7 +775,7 @@ f32 TObjEneEpsilonGuard__sub_8035F5C8(Self_8035F5C8 *o, void *src, Hit_8035F5C8 
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK advance_animation_playback(void *);
-void TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+void play_sound_effect(s32, void *, s32, s32);
 s32 TObjEneEpsilonGuard__sub_8035F970(Guard_8035F970 *o);
 void TObjEneEpsilonGuard__sub_8035FA50(W_8035FA50 *arg0);
 s32 TObjEneEpsilonGuard__sub_8035FBBC(W_8035FBBC *arg0);
@@ -799,7 +799,7 @@ f32 TObjEneEpsilonGuard__sub_8035F5C8(Self_8035F5C8 *o, void *src, Hit_8035F5C8 
         obj_getS16_118(src);
         strong = 0;
         if (src == NULL || obj_getField1c(src) == 0xFFFF) {
-            TObjPlayer__sub_8001622C(o, o->x38);
+            show_miss_popup(o, o->x38);
             return lbl_805E0208;
         }
         if (obj_testFlags30(o, 0x04000000) != 0) {
@@ -827,7 +827,7 @@ f32 TObjEneEpsilonGuard__sub_8035F5C8(Self_8035F5C8 *o, void *src, Hit_8035F5C8 
             case 11:
             case 12:
             case 13:
-                TObjPlayer__sub_8001622C(o, o->x2FC);
+                show_miss_popup(o, o->x2FC);
                 break;
             }
             return lbl_805E0208;
@@ -1286,7 +1286,7 @@ void TObjEneEpsilonGuard__sub_80361508(W_80361508 *self, s32 arg1) {
         ((void (*)(void *))set_guard_state__19TObjEneEpsilonGuardFPv)(self);
         self->state = 0;
         self->timer = 0xF;
-        TBoss3Volopt__sub_8022675C(0x4003A64B, (u8 *)self + 0x38, 0, 0);
+        play_sound_effect(0x4003A64B, (u8 *)self + 0x38, 0, 0);
         break;
     case 3:
         if (self->state == 3) {
@@ -1314,7 +1314,7 @@ void TObjEneEpsilonGuard__sub_80361508(W_80361508 *self, s32 arg1) {
         case 1:
             self->timer--;
             if (self->timer == 0xF) {
-                TBoss3Volopt__sub_8022675C(0x4003A345, (u8 *)self + 0x38, 0, 0);
+                play_sound_effect(0x4003A345, (u8 *)self + 0x38, 0, 0);
             }
             if (TObjEneEpsilonGuard__sub_8035FBBC((W_8035FBBC *)self) != 0 || self->timer <= 0) {
                 self->state = 3;

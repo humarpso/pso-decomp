@@ -62,7 +62,7 @@ extern "C" {
 void TObjPlayer__sub_801AAE6C(void* a0);
 void destroy_global_buffer__10TObjPlayerFv(void);
 void update_all_slots__10TObjPlayerFPv(void *arg0);
-M2C_UNK TObjPlayer__sub_8015610C(void *);
+M2C_UNK mark_enemy_body_contacts(void *);
 M2C_UNK TObjPlayer__sub_801A720C(u16, M2C_UNK, M2C_UNK, f32);
 M2C_UNK destroy_buffer_pair(void*, M2C_UNK);
 u32 get_battle_param__10TObjPlayerFi(s32);
@@ -97,7 +97,7 @@ void update_all_slots__10TObjPlayerFPv(void *arg0) {
     s32 var_r31;
 
     init_all_slots__10TObjPlayerFv();
-    TObjPlayer__sub_8015610C(arg0);
+    mark_enemy_body_contacts(arg0);
     if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 0x100000) {
         var_r31 = 0;
         do {

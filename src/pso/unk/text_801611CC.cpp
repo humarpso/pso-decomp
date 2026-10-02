@@ -60,14 +60,14 @@ extern "C" {
 void TODoorCave01__vt4(u8 *arg0, s16 *arg1);
 M2C_UNK set_indexed_flags(void *, int, int);
 s32 TODragonfly__sub_80158360(f32);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805DB494;
 extern const f32 lbl_805DB498;
 extern const f32 lbl_805DB49C;
 extern const f32 lbl_805DB4A0;
 void TODoorCave01__vt13(u8 *arg0);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_80154E3C(void *);
+s32 refresh_collision_body_centers(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_801611CC_lbl_804B1248 lbl_804B1248;
@@ -92,7 +92,7 @@ extern "C" {
 void TODoorCave01__vt15(u8 *arg0);
 s32 TODoorCave01__vt17(void *arg0);
 void TODoorCave01__vt18(void);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 s32 TODragonfly__sub_80158360(f32);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
 s32 get_main_phase();
@@ -112,7 +112,7 @@ u8 *TODoorAncient09__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB484);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) (M2C_FIELD(arg0, f32 *, 0xB4) / lbl_805DB480);
     TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B1248.value), (int) (1));
-    TObjPlayer__sub_80154E3C((void *) (arg0));
+    refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x84);
     if (temp_r0 < 0) {
@@ -183,14 +183,14 @@ void TODoorCave01__vt15(u8 *arg0) {
     if (((u8) ((u32) __cntlzw(M2C_FIELD(arg0, s32 *, 0xD0) & 1) >> 5) == 1) || (TODragonfly__sub_80158360(lbl_805DB490) != 1)) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 3;
         clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 8);
-        TBoss3Volopt__sub_8022675C(0x42807, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
     }
 }
 void TODoorCave01__vt13(u8 *arg0) {
     if ((M2C_FIELD(arg0, s32 *, 0xD0) & 1) && (TODragonfly__sub_80158360((f32) (lbl_805DB494)) == 1)) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 1;
         set_indexed_flags((void *) (arg0), (int) (0), (int) (8));
-        TBoss3Volopt__sub_8022675C((M2C_UNK)((int) (0x42807)), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
+        play_sound_effect((M2C_UNK)((int) (0x42807)), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
     }
     if (M2C_FIELD(arg0, s32 *, 0xD0) & 0x100000) {
         M2C_FIELD(arg0, f32 *, 0xE0) = (f32) (M2C_FIELD(arg0, f32 *, 0xE0) + lbl_805DB498);

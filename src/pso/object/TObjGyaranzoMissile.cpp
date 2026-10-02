@@ -145,7 +145,7 @@ void *find_entity_by_id(u16);
 void init_all_slots__10TObjPlayerFv(void *);
 void check_enemy_body_collisions(void *);
 void check_object_collisions__10TObjPlayerFPv(void *);
-s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+s32 play_sound_effect(void *, void *, int, int);
 s32 is_valid_and_active__10TObjPlayerFUi(void *);
 extern Parm_800D47B4 lbl_8043C464[];
 extern const f32 lbl_805DA2C0;
@@ -268,7 +268,7 @@ void TObjGyaranzoMissile__sub_800D47B4(Missile_800D47B4 *arg0) {
         }
     }
     spawn_particle_effect(arg0->pos, 0xFB);
-    TBoss3Volopt__sub_8022675C((void *)TObjPlayer__sub_800F06B4(0x4003A80C, 0x19), arg0->pos, 0, 0);
+    play_sound_effect((void *)TObjPlayer__sub_800F06B4(0x4003A80C, 0x19), arg0->pos, 0, 0);
     queue_destruction__7TObjectFv(arg0);
 }
 

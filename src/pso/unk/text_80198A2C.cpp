@@ -27,11 +27,11 @@ struct Sys_80198A2C { u8 pad0[0x48]; u16 mode; };
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-void *TObjParticle__sub_800870BC(void *, void *, int, int);
+void *spawn_particle_effect_with_rotation(void *, void *, int, int);
 M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
 M2C_UNK spawn_particle_effect(void *, int);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 extern Vec_80198A2C lbl_80446070;
 extern Sys_80198A2C lbl_8050DD58;
 extern Pad_80198A2C lbl_8050DDAC;
@@ -57,15 +57,15 @@ void TBoss3Volopt__sub_80198A2C(u8 *arg0) {
     if (state == 0) {
         if (self->f50 != 0) {
             if (lbl_8050DDAC.buttons & (self->f54 != 0 ? 0x10 : 1)) {
-                TBoss3Volopt__sub_8022675C(0x4002A605, &self->pos, 0, 0);
-                TBoss3Volopt__sub_8022675C(0x40052D15, &self->pos, 0, 0);
+                play_sound_effect(0x4002A605, &self->pos, 0, 0);
+                play_sound_effect(0x40052D15, &self->pos, 0, 0);
                 self->state = 1;
                 return;
             }
         } else {
             if (lbl_8050DDAC.buttons & (self->f54 != 0 ? 0x20 : 2)) {
-                TBoss3Volopt__sub_8022675C(0x4002A605, &self->pos, 0, 0);
-                TBoss3Volopt__sub_8022675C(0x40052D15, &self->pos, 0, 0);
+                play_sound_effect(0x4002A605, &self->pos, 0, 0);
+                play_sound_effect(0x40052D15, &self->pos, 0, 0);
                 self->state = 1;
                 return;
             }
@@ -75,7 +75,7 @@ void TBoss3Volopt__sub_80198A2C(u8 *arg0) {
         if (self->effect == NULL) {
             Vec_80198A2C init = lbl_80446070;
             if (lbl_8050DD58.mode != 6) {
-                self->effect = TObjParticle__sub_800870BC(&self->pos, &init, 0xC0, 2);
+                self->effect = spawn_particle_effect_with_rotation(&self->pos, &init, 0xC0, 2);
             }
         }
         if (self->timer++ >= 1000) {

@@ -49,7 +49,7 @@ struct Self_80049C10 {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 TBoss3Volopt__sub_8004812C(int);
-s32 TObjParticle__sub_800870BC(void *, void *, int, int);
+s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
 s32 TObjPlayer__sub_801569F4(void *, void *);
 s32 TCameraCtrl__sub_803D8934(int, int, int);
@@ -187,7 +187,7 @@ u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
     M2C_FIELD(arg0, s32 *, 0xEC) = 0;
     M2C_FIELD(arg0, s32 *, 0xE8) = 0;
     M2C_FIELD(arg0, s32 *, 0xE4) = 0;
-    M2C_FIELD(arg0, s32 *, 0xE0) = TObjParticle__sub_800870BC((void *) (arg0 + 0x38), (void *) (arg0 + 0xE4), (int) (0x112), (int) (2));
+    M2C_FIELD(arg0, s32 *, 0xE0) = spawn_particle_effect_with_rotation((void *) (arg0 + 0x38), (void *) (arg0 + 0xE4), (int) (0x112), (int) (2));
     lbl_805D4D30 = (s32) TBoss3Volopt__sub_8004812C((int) (3)) + 0xF0;
     return arg0;
 }

@@ -39,7 +39,7 @@ extern u8 lbl_8047733C[];
 s32 TAdWarningBaseGC__sub_8032D214(V_8032D214 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-void TBoss3Volopt__sub_8022675C(int, int, int, int);
+void play_sound_effect(int, int, int, int);
 void TWindow__close(void *);
 s32 TAdWarningBaseGC__sub_8032D214(V_8032D214 *arg0);
 extern u8 lbl_8050E208[];
@@ -54,7 +54,7 @@ void *TAdWarningBaseGC__ct(void *arg0);
 void TAdWarningBaseGC__sub_8032D1E4(void);
 void *TAdWarningBaseGC__vt0(void *arg0, s16 arg1);
 void render__16TAdWarningBaseGCFi(s32 arg0);
-M2C_UNK TWindowSubComCard__sub_803DEECC(s32, f32);
+M2C_UNK draw_textured_quad_at_depth(s32, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(M2C_UNK);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(M2C_UNK, M2C_UNK);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
@@ -93,7 +93,7 @@ void TAdWarningBaseGC__vt4(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;
         break;
     case 1:
-        TBoss3Volopt__sub_8022675C(0x53F06, 0, 0, 0);
+        play_sound_effect(0x53F06, 0, 0, 0);
         M2C_FIELD(arg0, s32 *, 0x1C) = 2;
         break;
     case 2:
@@ -174,7 +174,7 @@ void render__16TAdWarningBaseGCFi(s32 arg0) {
         set_global_param__8TObjFishFi(lbl_805D6D00);
         TWindowSubStatusDisp__sub_803DEE6C(1);
         TWindowSubStatusDisp__sub_803DF160(0, -1);
-        TWindowSubComCard__sub_803DEECC(arg0 + 0x1C, lbl_805DF7C0);
+        draw_textured_quad_at_depth(arg0 + 0x1C, lbl_805DF7C0);
         get_player__20TWindowSubStatusDispFv();
     }
 }

@@ -12,7 +12,7 @@ int fn_80101A98(int a0);
 int fn_80101AA8(void);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 void get_item_use_result__9TItemDataFPv(void *);
-u8 *TLobby__sub_80101AB0(s32 id);
+u8 *find_item_by_id(s32 id);
 
 void copy_and_register_item_data__11TItemObjectFPv(void *arg0) {
     M2C_UNK sp8[4];
@@ -43,7 +43,7 @@ int fn_80101A98(int a0) {  return lbl_805D53F4[a0]; }
     extern int lbl_805D53F0;
 int fn_80101AA8(void) {  return lbl_805D53F0; }
 
-u8 *TLobby__sub_80101AB0(s32 id) {
+u8 *find_item_by_id(s32 id) {
     s32 lo;
     s32 mid;
     s32 hi;

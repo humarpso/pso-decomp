@@ -23,7 +23,7 @@ M2C_UNK pop_matrix();
 s32 TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
-s32 TOSignCave03__sub_803DB510(int);
+s32 draw_ginja_model(int);
 extern s32 TOTrapSeabed01__data_805D6814;
 void TOTrapSeabed01__sub_802CA3EC(u8 *arg0, u8 *arg1);
 s32 is_split_screen();
@@ -117,10 +117,10 @@ void TOTrapSeabed01__sub_802CA3EC(u8 *arg0, u8 *arg1) {
                 setup_particle_tev((int) (0));
                 set_global_param__8TObjFishFi((void *)((int) (TOTrapSeabed01__data_805D6814)));
                 TOTrapAncient02__sub_800837D4((int) (0x38E));
-                TOSignCave03__sub_803DB510((int) (M2C_FIELD(var_r30, s32 *, 4)));
+                draw_ginja_model((int) (M2C_FIELD(var_r30, s32 *, 4)));
                 disable_if_single_screen__13TParticleCtrlFv();
             } else {
-                TOSignCave03__sub_803DB510((int) (M2C_FIELD(var_r30, s32 *, 4)));
+                draw_ginja_model((int) (M2C_FIELD(var_r30, s32 *, 4)));
             }
         }
         if (!(temp_r31 & 0x10)) {

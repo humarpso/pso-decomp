@@ -30,7 +30,7 @@ s32 TObjPlayer__sub_80142344(s32, s32);
 s32 lerp_angle_half__10TObjPlayerFUsUs(s32, s32);
 void emit_footstep_effect__10TObjPlayerFiff(void *, f32, f32);
 void play_footstep_sound__10TObjPlayerFi(void *, f32, f32);
-void *TObjPlayer__sub_801B5EA4(void *);
+void *resolve_move_collision__10TObjPlayerFPv(void *);
 f32 TObjPlayer__sub_801BF814(void *p);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
@@ -56,7 +56,7 @@ void TObjPlayer__sub_801CF56C(Plr_801CF56C *self) {
     if ((lbl_805DC3B4 * TObjPlayer__sub_801BF814(self->motion)) * (lbl_805DC3B4 * TObjPlayer__sub_801BF814(self->motion)) > dist) {
         set_flags__10TObjPlayerFPvUi(self->flags, 4);
     }
-    if (TObjPlayer__sub_801B5EA4(self) == NULL) {
+    if (resolve_move_collision__10TObjPlayerFPv(self) == NULL) {
         apply_velocity__10TObjPlayerFPv(self);
     } else {
         set_flags__10TObjPlayerFPvUi(self->flags, 4);

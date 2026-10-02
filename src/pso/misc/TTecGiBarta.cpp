@@ -121,7 +121,7 @@ u16 obj_getField1c(void *);
 void update_technique_by_phase__11TTecGiBartaFPv(u8 *arg0);
 void TObjFish__sub_802304A0(void *);
 void TTecGiBarta__sub_802308A0(u8 *arg0);
-void TObjPlayer__sub_8023A7B4();
+void construct_aimed_technique_projectile();
 extern void *__vt__11TTecGiBarta[];
 extern s32 lbl_805D37B8;
 extern const f32 lbl_805DC80C;
@@ -143,7 +143,7 @@ void create_ex__11TTecGiBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void 
 void render__11TTecGiBartaFv(void);
 void run_task__11TTecGiBartaFv(void *arg0);
 void update_technique_by_phase__11TTecGiBartaFPv(u8 *arg0);
-s32 TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8023A244(void *);
 u32 find_entity_by_id(u16);
 void *__nw__7TObjectFUl(int);
@@ -159,29 +159,29 @@ void update_technique_by_phase__11TTecGiBartaFPv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s16 *, 0xC6);
     switch (temp_r0) {
     case 0:
-        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A605, (int) (arg0 + 0x20), 0, 0);
+        temp_r3 = play_sound_effect(0x4002A605, (int) (arg0 + 0x20), 0, 0);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, 0x100, 0);
         }
         return;
     case 1:
-        TBoss3Volopt__sub_8022675C(0x4002A605, (int) (arg0 + 0x20), 0, 0);
+        play_sound_effect(0x4002A605, (int) (arg0 + 0x20), 0, 0);
         return;
     case 2:
     case 3:
-        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A605, (int) (arg0 + 0x20), 0, 0);
+        temp_r3 = play_sound_effect(0x4002A605, (int) (arg0 + 0x20), 0, 0);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x180, 0);
         }
         break;
     case 4:
-        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A605, (int) (arg0 + 0x20), 0, 0);
+        temp_r3 = play_sound_effect(0x4002A605, (int) (arg0 + 0x20), 0, 0);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x250, 0);
         }
         break;
     case 5:
-        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A605, (int) (arg0 + 0x20), 0, 0);
+        temp_r3 = play_sound_effect(0x4002A605, (int) (arg0 + 0x20), 0, 0);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x100, 0);
         }
@@ -279,7 +279,7 @@ void run_task__11TTecGiBartaFv(void *arg0) {
 
 TTecGiBarta_80230C58 *TTecGiBarta__ct(TTecGiBarta_80230C58 *self, void * _w1, void * _w2, void * _w3, void * _w4) {
     s32 i;
-    TObjPlayer__sub_8023A7B4();
+    construct_aimed_technique_projectile();
     self->vtable = __vt__11TTecGiBarta;
     self->f0 = lbl_805D37B8;
     TTecGiBarta__sub_802308A0((u8 *)self);

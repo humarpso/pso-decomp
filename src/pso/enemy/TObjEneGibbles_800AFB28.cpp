@@ -204,7 +204,7 @@ M2C_UNK TObjPlayer__sub_800D9340(void *, M2C_UNK);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 M2C_UNK advance_animation_playback();
 u32 find_entity_by_id(u16);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern const f32 TObjEneBm3Fly__data_805D9C70;
 extern const f32 lbl_805D9C74;
 extern const f32 TObjEneBm3Fly__data_805D9C78;
@@ -320,7 +320,7 @@ void TObjEneBm3Fly__vt104(u8 *arg0);
 void action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1);
 f32 get_pos_x__14TObjEneGibblesFPv(void* p);
 void handle_message__13TObjEneBm3FlyFPvi(void *arg0, s32 arg1);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TBoss8Dragon__sub_800BB7D8(void *, M2C_UNK, f32);
 M2C_UNK TBoss8Dragon__sub_800BB7DC(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -450,7 +450,7 @@ void TObjEneBm3Fly__sub_800AFDC8(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, f32 *, 0x438) = (f32) M2C_FIELD(arg0, f32 *, 0x310);
         M2C_FIELD(arg0, f32 *, 0x3E4) = clamp_velocity__15TObjBoss2TunnelFPv(arg0 + 0x430);
         temp_copy = copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003E425);
-        TBoss3Volopt__sub_8022675C(temp_copy, arg0 + 0x38, 0, 0);
+        play_sound_effect(temp_copy, arg0 + 0x38, 0, 0);
         return;
     case 3:
         if ((M2C_FIELD(arg0, f32 *, 0x42C) - M2C_FIELD(arg0, f32 *, 0x3C)) < lbl_805D9C74) {
@@ -512,7 +512,7 @@ void action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
         }
         TBoss8Dragon__sub_800BB7DC(arg0);
         TBoss8Dragon__sub_800BB7D8(arg0, 0xF1, TObjEneBm3Fly__data_805D9C88);
-        TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003E425), arg0 + 0x38, 0, 0);
+        play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003E425), arg0 + 0x38, 0, 0);
         create_breakup_mdl__12TBoss3VoloptFiiiii(TObjEneBm3Fly__data_805D50F4, lbl_8043B0D0, M2C_FIELD(arg0, s32 *, 0x24), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
         M2C_FIELD(arg0, s32 *, 0x3C0) = 0;
         return;

@@ -37,7 +37,7 @@ struct RecoveredGlobal_80365210___vt__18TObjLaboDesignBase {
 extern "C" {
 s16 TObjLaboDesignBase__vt8(u8 *arg0, f32 farg0, f32 farg1);
 f32 xz_distance_squared(void *, s32);
-s16 fn_801A2340(void *, f32, f32);
+s16 update_object_view_visibility(void *, f32, f32);
 s32 get_state_flag__9TMainTaskFv();
 extern s32 lbl_805D4DF0;
 extern void *lbl_805D5C28;
@@ -51,7 +51,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 s32 TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-s32 TOSignCave03__sub_803DB510(int);
+s32 draw_ginja_model(int);
 void TObjLaboDesignBase__sub_80364F18(s32 arg0, u8 *arg1);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK TObjEneGibbles__sub_80156780(void *, int, int);
@@ -165,7 +165,7 @@ s16 TObjLaboDesignBase__vt8(u8 *arg0, f32 farg0, f32 farg1) {
         M2C_FIELD(arg0, s16 *, 0x1E) = 1;
         return M2C_FIELD(arg0, s16 *, 0x1E);
     }
-    return fn_801A2340(arg0, farg0, farg1);
+    return update_object_view_visibility(arg0, farg0, farg1);
 }
 
 void TObjLaboDesignBase__sub_80364F18(s32 arg0, u8 *arg1) {
@@ -191,7 +191,7 @@ void TObjLaboDesignBase__sub_80364F18(s32 arg0, u8 *arg1) {
             TBoss7Tentacle__sub_803D9BA0((void *) (var_r30 + 0x20));
         }
         if (!(temp_r31 & 8)) {
-            TOSignCave03__sub_803DB510((int) (M2C_FIELD(var_r30, s32 *, 4)));
+            draw_ginja_model((int) (M2C_FIELD(var_r30, s32 *, 4)));
         }
         if (!(temp_r31 & 0x10)) {
             temp_r4 = (u8 *)(M2C_FIELD(var_r30, u8 **, 0x2C));

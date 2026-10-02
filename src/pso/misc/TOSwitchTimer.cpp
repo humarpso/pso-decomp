@@ -56,7 +56,7 @@ void TOSwitchTimer__sub_80178584(void);
 void TOSwitchTimer__sub_80178588(void);
 void *create__13TOSwitchTimerFPv(void *arg0);
 void run_task__13TOSwitchTimerFv(void *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TOChatSensor__sub_801781D8(void *);
 u8 TODoorAncient08__sub_80229220(u16);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -97,7 +97,7 @@ void run_task__13TOSwitchTimerFv(void *arg0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x9C) == 1) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x94) < (s32) M2C_FIELD(arg0, s32 *, 0xA4)) {
                 if ((M2C_FIELD(arg0, s32 *, 0x94) % 30) == 0) {
-                    TBoss3Volopt__sub_8022675C(0x53218, 0, 0, 0);
+                    play_sound_effect(0x53218, 0, 0, 0);
                 }
             } else {
                 TOTrapAncient01__sub_80226578(0x53218, arg0, 0, 0, 0);

@@ -97,14 +97,14 @@ extern const f32 lbl_805D8728;
 extern const f32 lbl_805D872C;
 extern const f32 lbl_805D8730;
 void render__20TBoss3VoloptHiraisinFv(u8 *arg0);
-s32 TObjPlayer__sub_80154E3C(void *);
+s32 refresh_collision_body_centers(void *);
 void TBoss3VoloptHiraisin__sub_8004118C(Obj_8004118C *self);
 void advance_animation_playback(void *);
-s32 TObjPlayer__sub_80154E3C(void *);
+s32 refresh_collision_body_centers(void *);
 void TBoss3VoloptHiraisin__sub_80041314(void *arg0);
 void advance_animation_playback(void *);
 void update_collisions__10TObjPlayerFPv(void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805D870C;
 extern const f32 lbl_805D8714;
 void TBoss3VoloptHiraisin__sub_800411F0(Hira_800411F0 *self);
@@ -117,7 +117,7 @@ s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 M2C_UNK TObjEnemyCustom__sub_800C7860(void *, s32);
 M2C_UNK create_breakup_mdl__12TBoss3VoloptFiiiii(s32, M2C_UNK *, s32, void *, s32);
 M2C_UNK trigger_dell_biter_events__10TObjPlayerFPv(void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 
 extern M2C_UNK lbl_80483BB8[];
 extern s32 TBoss3VoloptHiraisin__data_805D4C80;
@@ -129,7 +129,7 @@ void start_attack__20TBoss3VoloptHiraisinFPv(u8 *arg0) {
 
     create_breakup_mdl__12TBoss3VoloptFiiiii(lbl_805D4C88, lbl_80483BB8, TObjFish__sub_8001EDB0(TBoss3VoloptHiraisin__data_805D4C80, 0x10), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
     trigger_dell_biter_events__10TObjPlayerFPv(arg0 + 0x2FC);
-    TBoss3Volopt__sub_8022675C(0x4001C112, arg0 + 0x38, 0, 0);
+    play_sound_effect(0x4001C112, arg0 + 0x38, 0, 0);
     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
     temp_r4 = M2C_FIELD(arg0, s16 *, 0x2B8);
     M2C_FIELD(arg0, s16 *, 0x33E) = temp_r4;
@@ -161,7 +161,7 @@ void TBoss3VoloptHiraisin__sub_8004118C(Obj_8004118C *self) {
     case -1:
         break;
     }
-    TObjPlayer__sub_80154E3C(self);
+    refresh_collision_body_centers(self);
     self->angle += 0x800;
 }
 
@@ -181,7 +181,7 @@ void TBoss3VoloptHiraisin__sub_800411F0(Hira_800411F0 *self) {
             self->state = 2;
             self->sub->flags &= ~4;
             self->sub->flags |= 2;
-            TBoss3Volopt__sub_8022675C((M2C_UNK)(0x4003A808), (void *)(&self->x), (M2C_UNK)(0), (M2C_UNK)(0));
+            play_sound_effect((M2C_UNK)(0x4003A808), (void *)(&self->x), (M2C_UNK)(0), (M2C_UNK)(0));
         }
         break;
     case 2:
@@ -218,7 +218,7 @@ void TBoss3VoloptHiraisin__sub_80041314(void *arg0) {
         }
         break;
     }
-    TObjPlayer__sub_80154E3C(arg0);
+    refresh_collision_body_centers(arg0);
 }
 
 void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {

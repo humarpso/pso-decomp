@@ -16,7 +16,7 @@ extern const f32 lbl_805DE89C;
 void TAdMultiPlyChrSelectGC__sub_802DCD90(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
 s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(u32);
 s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
@@ -26,7 +26,7 @@ extern s8 lbl_8050E3B8[];
 void TAdMultiPlyChrSelectGC__sub_802DD400(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
 s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
 M2C_UNK set_state_ready__22TAdMultiPlyChrSelectGCFPv(s32);
@@ -54,7 +54,7 @@ u32 TAdMultiPlyChrSelectGC__sub_802DBE4C(void *, M2C_UNK *);
 s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(void *, M2C_UNK *);
 s32 TAdMultiPlyChrSelectGC__sub_802DC294(void *, s32);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802E0024(s32, u32);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
 M2C_UNK TWindow__close(void *);
 M2C_UNK begin_change_game_mode__21TAdMultiChgGameModeGCFv();
@@ -132,7 +132,7 @@ void handle_cancel_state__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
             TAdMultiPlyChrSelectGC__sub_802C6A10();
         }
         set_state_ready__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C));
-        TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
+        play_sound_effect(0x52F16, 0, 0, 0);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x68) != 0U) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x68));
             M2C_FIELD(arg0, u32 *, 0x68) = 0U;
@@ -163,7 +163,7 @@ void TAdMultiPlyChrSelectGC__sub_802DCF68(void *arg0) {
     {
         TAdMultiPlyChrSelectGC__sub_802C6A10();
         set_state_ready__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C));
-        TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
+        play_sound_effect(0x52F16, 0, 0, 0);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x68) != 0U) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x68));
             M2C_FIELD(arg0, u32 *, 0x68) = 0U;
@@ -176,7 +176,7 @@ void TAdMultiPlyChrSelectGC__sub_802DD010(void *arg0) {
     if (get_mode__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x6C)) <= 1) {
         TAdMultiPlyChrSelectGC__sub_802C6A10();
         set_state_ready__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C));
-        TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
+        play_sound_effect(0x52F16, 0, 0, 0);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x68) != 0U) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x68));
             M2C_FIELD(arg0, u32 *, 0x68) = 0U;
@@ -218,7 +218,7 @@ void update_state_move__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     }
     temp_r5 = get_instance__22TAdMultiPlyChrSelectGCFv(M2C_FIELD(arg0, s32 *, 0x5C)) * 0x50;
     if (TWindowShortListCtrl__check_controller_button(lbl_8050E3B8 + temp_r5 + 0x20, 2, temp_r5) != 0) {
-        TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
+        play_sound_effect(0x52F16, 0, 0, 0);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x68) != 0U) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x68));
             M2C_FIELD(arg0, u32 *, 0x68) = 0U;
@@ -285,7 +285,7 @@ void handle_confirm_state__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
             TAdMultiPlyChrSelectGC__sub_802C6A10();
         }
         set_state_ready__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C));
-        TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
+        play_sound_effect(0x52F16, 0, 0, 0);
         M2C_FIELD(arg0, s32 *, 0x50) = 0;
         if ((u32) M2C_FIELD(arg0, u32 *, 0x68) != 0U) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x68));
@@ -318,7 +318,7 @@ block_2:
             TAdMultiPlyChrSelectGC__sub_802C6A10();
         }
         set_state_ready__22TAdMultiPlyChrSelectGCFPv((s32)((int) (M2C_FIELD(arg0, s32 *, 0x5C))));
-        TBoss3Volopt__sub_8022675C((M2C_UNK)((int) (0x52F16)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
+        play_sound_effect((M2C_UNK)((int) (0x52F16)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x68) != 0U) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x68));
             M2C_FIELD(arg0, u32 *, 0x68) = 0U;

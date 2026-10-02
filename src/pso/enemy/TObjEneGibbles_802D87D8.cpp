@@ -63,7 +63,7 @@ f32 enemy_wander_home(void *, s32, f32, f32, f32);
 M2C_UNK minimap_render_dot(void *, int, int, int);
 M2C_UNK obj_clearFlags30(void *, int);
 M2C_UNK advance_animation_playback(int);
-M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK refresh_collision_body_centers(void *);
 M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(int);
 M2C_UNK check_enemy_body_collisions(int);
 M2C_UNK check_object_collisions__10TObjPlayerFPv(int);
@@ -133,7 +133,7 @@ void set_state_dead__14TObjEneGibblesFPv(void *arg0);
 void update_death_sequence__14TObjEneGibblesFPv(u8 *arg0);
 void update_spawn_state__14TObjEneGibblesFPv(u8 *arg0);
 void update_spawn_timer__14TObjEneGibblesFv(void);
-M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+M2C_UNK play_sound_effect(void *, void *, int, int);
 M2C_UNK TBoss4DarkFalz__sub_8004C220(void *, void *);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
@@ -146,7 +146,7 @@ s32 TObjEneGibbles__sub_802D9A04(void *);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK apply_actor_gravity(void *, int, f32);
 f32 horizontal_distance_squared(int, void *);
-M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK refresh_collision_body_centers(void *);
 void *__nw__7TObjectFUl(int);
 void free__11TOBoss4RockFUi(void*);
 s32 lerp_angle_half__10TObjPlayerFUsUs(s32, s32);
@@ -283,7 +283,7 @@ void update_death_sequence__14TObjEneGibblesFPv(u8 *arg0) {
                 break;
             default:
             case 1:
-                TBoss3Volopt__sub_8022675C((void *) TObjEneGibbles__sub_802D7F94((void *) (arg0), (int) (0x3AD32)), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+                play_sound_effect((void *) TObjEneGibbles__sub_802D7F94((void *) (arg0), (int) (0x3AD32)), (void *) (arg0 + 0x38), (int) (0), (int) (0));
                 break;
             }
             TObjEneGibbles__sub_802D7A54((void *) (arg0));
@@ -430,7 +430,7 @@ void TObjEneGibbles__sub_802DA96C(u8 *arg0) {
     var_r4 = (u8 *)(M2C_FIELD(var_r4, u8 **, 8));
     enemy_wander_home(var_r3, (s32) var_r4, var_f1, var_f2, var_f3);
     var_r3 = (u8 *)(var_r31);
-    TObjPlayer__sub_80154E3C((void *)((int) (var_r3)));
+    refresh_collision_body_centers((void *)((int) (var_r3)));
     var_r3 = (u8 *)(var_r31);
     check_object_collisions__10TObjPlayerFPv((int) (var_r3));
     var_r3 = (u8 *)(var_r31);
@@ -456,7 +456,7 @@ void init_state__14TObjEneGibblesFPv(u8 *arg0) {
     u8 *temp_r3;
 
     TBoss4DarkFalz__sub_8004C220((void *) arg0, (void *) (arg0 + 0x50));
-    TObjPlayer__sub_80154E3C((void *) (arg0));
+    refresh_collision_body_centers((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFDFFFFF);
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x06040000);
     temp_r3 = (unsigned char *) (M2C_FIELD(arg0, void **, 0xA4));

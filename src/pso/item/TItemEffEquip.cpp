@@ -383,7 +383,7 @@ extern "C" {
 
 void create__13TItemEffEquipFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void play_effect__13TItemEffFlameFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 void *TItemEffEquip__ct(void *, void *, void *, void *, void *, void *);
 M2C_UNK spawn_particle_effect(s32, M2C_UNK);
 void *__nw__7TObjectFUl(int);
@@ -432,7 +432,7 @@ void create__13TItemEffEquipFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void
 
 void play_effect__13TItemEffFlameFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     spawn_particle_effect(arg3, 0x45);
-    TBoss3Volopt__sub_8022675C(0x4001C112, 0, 0, 0);
+    play_sound_effect(0x4001C112, 0, 0, 0);
 }
 
 }

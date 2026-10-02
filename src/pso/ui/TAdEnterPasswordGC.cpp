@@ -93,7 +93,7 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 void free_menu_object(void *);
 s32 get_field_118__22TAdEnterSerialAccessGCFv(void);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
+M2C_UNK play_sound_effect(int, int, int, int);
 M2C_UNK TAdEnterSerialAccessGC__sub_802AEBA8(void *);
 M2C_UNK TLevelSelect__sub_802AEBE4(int, void *);
 M2C_UNK set_active__22TAdEnterSerialAccessGCFPv(int);
@@ -192,7 +192,7 @@ void TAdEnterPasswordGC__sub_8032B6A0(Pw_8032B6A0 *self) {
         if (forward_input__22TAdEnterSerialAccessGCFPv(self, 2, buf) == 0)
       {
         free_menu_object(lbl_805D6CA0);
-        TBoss3Volopt__sub_8022675C(0x53F06, 0, 0, 0);
+        play_sound_effect(0x53F06, 0, 0, 0);
       }
       else
       {

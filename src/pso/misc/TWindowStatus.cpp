@@ -23,7 +23,7 @@ void run_task__13TWindowStatusFv(s32 arg0);
 M2C_UNK TWindowComCard__sub_8026F9F4(s32, s32);
 void TWindowSimpleStatus__ct(void *);
 s32 get_window_layout_position(M2C_UNK);
-M2C_UNK TWindowSubStatusDisp__sub_80257C28(s32, s32);
+M2C_UNK update_window_entry_list(s32, s32);
 M2C_UNK TWindowSubStatusDisp__sub_80270F14();
 void __dl__7TObjectFPv(void *);
 void __dt__19TWindowSimpleStatusFv(void *, int);
@@ -57,7 +57,7 @@ void run_task__13TWindowStatusFv(s32 arg0) {
     TWindowComCard__sub_8026F9F4(arg0, get_window_layout_position(0x1D));
     initialize_subwindow__9TWindowDDFPv(arg0);
     update_fade__17TWindowSubComCardFPv(arg0);
-    TWindowSubStatusDisp__sub_80257C28(arg0, arg0 + 0x24);
+    update_window_entry_list(arg0, arg0 + 0x24);
 }
 
 extern M2C_UNK __vt__13TWindowStatus[];

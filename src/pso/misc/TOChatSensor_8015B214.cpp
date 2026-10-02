@@ -15,7 +15,7 @@ int TLobby__send_and_handle_60(void*);
 int bswap_16__FPUs(void* a0 = 0);
 int fn_800F9990(void*);
 f32 xz_distance_squared(s32, s32);
-s32 fn_801A2340(s32, f32, f32);
+s32 update_object_view_visibility(s32, f32, f32);
 int read_be16_field2__10TObjPlayerFPv(void* a0 = 0);
 
     extern unsigned char lbl_804404B0[];
@@ -35,7 +35,7 @@ s32 TOComputerMachine01__vt8(s32 arg0, f32 farg0, f32 farg1) {
         M2C_FIELD(arg0, s16 *, 0x1e) = 1;
         return M2C_FIELD(arg0, s16 *, 0x1e);
     }
-    return fn_801A2340(arg0, farg0, farg1);
+    return update_object_view_visibility(arg0, farg0, farg1);
 }
 
 }

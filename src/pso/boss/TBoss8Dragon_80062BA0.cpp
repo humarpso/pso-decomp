@@ -517,7 +517,7 @@ void spawn_switch_attack__12TBoss8DragonFPv(void *arg0);
 void update_animation_by_state__12TBoss8DragonFPv(struct VObj_80065370_80062BA0 *obj);
 void update_epsilon_position__12TBoss8DragonFv(void);
 int update_state_3__12TBoss8DragonFPv(void* p);
-M2C_UNK TBoss3Volopt__sub_8022675C(s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
 int TBoss8Dragon__sub_80065F4C(void*);
 void TBoss8Dragon__sub_80065F80(void *);
 M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
@@ -984,7 +984,7 @@ void spawn_ancient_trap__12TBoss8DragonFii(s32 arg0, s32 arg1) {
 }
 
 void play_se__12TBoss8DragonFii(s32 arg0, s32 arg1) {
-    TBoss3Volopt__sub_8022675C(arg1, arg0 + 0x560, 0, 0);
+    play_sound_effect(arg1, arg0 + 0x560, 0, 0);
 }
 
 extern const f32 lbl_805D8EC8;

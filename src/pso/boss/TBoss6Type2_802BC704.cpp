@@ -117,7 +117,7 @@ struct TBoss6Type2_802BD014 {
 struct Pkt_802BDD6C { u8 d[0x18]; };
 
 extern "C" {
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 s32 add_damage__11TBoss6Type2FPvi(void *, int);
 extern const f32 TBoss6Type2__data_805DE40C;
 void TBoss6Type2__vt60(u8 *arg0);
@@ -462,7 +462,7 @@ void TBoss6Type2__vt60(u8 *arg0) {
         }
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x418) != 0) {
-        TBoss3Volopt__sub_8022675C(0x68A24, arg0 + 0x38, 0, 1);
+        play_sound_effect(0x68A24, arg0 + 0x38, 0, 1);
     }
 }
 

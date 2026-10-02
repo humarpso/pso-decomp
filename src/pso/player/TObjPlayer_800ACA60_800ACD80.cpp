@@ -8,7 +8,7 @@ extern "C" {
 
 void update_ground_effect__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK advance_animation_playback();
-M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+M2C_UNK play_sound_effect(void *, void *, int, int);
 M2C_UNK apply_actor_gravity(void *, int, f32);
 void * copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -22,7 +22,7 @@ void update_ground_effect__10TObjPlayerFPv(u8 *arg0) {
 
     advance_animation_playback();
     if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D9BD8)) != 0) {
-        TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x3A807)), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x3A807)), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         play_effect_if_v2__10TObjPlayerFi((int) (-0x300));
     }
     M2C_FIELD(arg0, f32 *, 0x310) = (f32) lbl_805D9BD8;

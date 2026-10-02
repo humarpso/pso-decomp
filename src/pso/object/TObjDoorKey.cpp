@@ -90,7 +90,7 @@ extern s32 lbl_805D5660;
 extern s32 TObjDoorKey__data_805D5BFC;
 extern s32 TObjDoorKey__data_805D5C04;
 extern s32 some_id_805c6f74;
-M2C_UNK TObjDoorKey__sub_8018FBB8(void *arg);
+M2C_UNK draw_active_beam__11TObjDoorKeyFPv(void *arg);
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(void *, int);
@@ -109,7 +109,7 @@ extern s32 TObjDoorKey__data_805D5BFC;
 extern s32 some_id_805c6f74;
 M2C_UNK TObjDoorKey__sub_8018FCD8(void *arg);
 s32 get_global_state__14TOKeyMachine01Fv();
-void TBoss3Volopt__sub_8022675C(int, void *, int, int);
+void play_sound_effect(int, void *, int, int);
 void TObjDoorKey__vt16(u8 *arg0);
 s32 spawn_continuous_particle_effect_with_flags(Vec_80190020 *, int, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
@@ -182,13 +182,13 @@ void render__11TObjDoorKeyFv(void *arg0) {
             TObjDoorKey__sub_8018FCD8((void *)(arg0));
             return;
         case 1:
-            TObjDoorKey__sub_8018FBB8((void *)(arg0));
+            draw_active_beam__11TObjDoorKeyFPv((void *)(arg0));
             return;
         }
     }
 }
 
-M2C_UNK TObjDoorKey__sub_8018FBB8(void *arg) {
+M2C_UNK draw_active_beam__11TObjDoorKeyFPv(void *arg) {
     Key_8018FBB8 *arg0 = (Key_8018FBB8 *)arg;
     if (TObjDoorKey__data_805D5C04 != lbl_805D53A4) {
         scroll_ginja_mesh_uvs(((Node_8018FBB8 *)TObjDoorKey__data_8050DCA8[1])->f4, 0, 0x14, 0xE, 1);
@@ -257,18 +257,18 @@ void TObjDoorKey__vt16(u8 *arg0) {
     case 3:
     case 4:
     case 5:
-        TBoss3Volopt__sub_8022675C(0x42D0A, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x42D0A, arg0 + 0x38, 0, 0);
         break;
     case 0x13:
     case 0x14:
-        TBoss3Volopt__sub_8022675C(0x4C601, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x4C601, arg0 + 0x38, 0, 0);
         break;
     case 0x15:
     case 0x16:
-        TBoss3Volopt__sub_8022675C(0x4004C601, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x4004C601, arg0 + 0x38, 0, 0);
         break;
     default:
-        TBoss3Volopt__sub_8022675C(0x4C60A, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x4C60A, arg0 + 0x38, 0, 0);
         break;
     }
     *(s32 *)(arg0 + 0xE8) = 1;

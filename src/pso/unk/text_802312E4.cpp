@@ -64,7 +64,7 @@ f32 newton_sqrtf(f32);
 M2C_UNK queue_destruction__7TObjectFv(int);
 f32 horizontal_distance_squared(void *, void *);
 void *find_entity_by_id(u16);
-void TObjPlayer__sub_8022BD74(void *);
+void apply_technique_to_area_targets(void *);
 s32 is_parents_unqueued__9TTecLukerFUi(u32);
 extern const f32 TTecGiFoie__data_805DC81C;
 void run_task__10TTecGiFoieFv(u8 *self);
@@ -156,7 +156,7 @@ void run_task__10TTecGiFoieFv(u8 *self) {
         if (M2C_FIELD(self, u8 **, 0xE8) != NULL) {
             M2C_FIELD(M2C_FIELD(M2C_FIELD(self, u8 **, 0xE8), u8 **, 0xA4), f32 *, 0xC) = TTecGiFoie__data_805DC81C + distance;
         }
-        TObjPlayer__sub_8022BD74(self);
+        apply_technique_to_area_targets(self);
         if (distance >= M2C_FIELD(self, f32 *, 0x90)) {
             queue_destruction__7TObjectFv((int) self);
         }

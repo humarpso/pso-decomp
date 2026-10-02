@@ -5,7 +5,7 @@ extern "C" {
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
-M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32, f32, f32);
+M2C_UNK draw_textured_quad_at_depth(void *, f32, f32, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(void *, void *);
 extern s32 lbl_805D65C0;
 extern const f32 lbl_805DDCF8;
@@ -29,7 +29,7 @@ void draw_character_background_frame(u8 *arg0, s32 arg1, s32 arg2) {
   buffer_8[4] = lbl_805DDCF8;
   buffer_8[5] = lbl_805DDCF8;
   buffer_8[7] = (buffer_8[6] = lbl_805DDD04);
-  TWindowSubComCard__sub_803DEECC((void *) (&buffer_8[0]), (f32) (*((f32 *) (((s8 *) arg0) + 0x20))), (f32) lbl_805DDCFC, (f32) lbl_805DDCF8);
+  draw_textured_quad_at_depth((void *) (&buffer_8[0]), (f32) (*((f32 *) (((s8 *) arg0) + 0x20))), (f32) lbl_805DDCFC, (f32) lbl_805DDCF8);
   get_player__20TWindowSubStatusDispFv();
 }
 

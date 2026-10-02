@@ -440,7 +440,7 @@ M2C_UNK advance_animation_playback(void *);
 void create_breakup_mdl__12TBoss3VoloptFiiiii(s32, void *, s32, void *, s32);
 void spawn_effect_f8__10TObjPlayerFii(void *, int);
 void trigger_dell_biter_events__10TObjPlayerFPv(void *);
-void TBoss3Volopt__sub_8022675C(int, void *, int, int);
+void play_sound_effect(int, void *, int, int);
 extern u8 lbl_80479C50[];
 extern s32 lbl_805D6FA8;
 void TObjEneEpsilonGuard__sub_8035E430(G_8035E430 *o, s32 arg1);
@@ -832,7 +832,7 @@ void TObjEneEpsilonGuard__sub_8035E430(G_8035E430 *o, s32 arg1) {
         if (o->x434 >= 0x14) {
             ((VO_8035E430 *)o)->m94();
             create_breakup_mdl__12TBoss3VoloptFiiiii(lbl_805D6FA8, lbl_80479C50, o->x24, o->x38, o->x60);
-            TBoss3Volopt__sub_8022675C(0x4003AD4C, o->x2FC, 0, 0);
+            play_sound_effect(0x4003AD4C, o->x2FC, 0, 0);
             trigger_dell_biter_events__10TObjPlayerFPv(o->x2FC);
             o->x430 = 1;
         }

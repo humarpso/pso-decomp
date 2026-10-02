@@ -52,7 +52,7 @@ int update_gigue__15TObjEnemyCustomFPv(void* p);
 M2C_UNK advance_animation_playback(void *);
 int update_if_active__15TObjEneMe1GiGueFPv(void*, int);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
-M2C_UNK TObjPlayer__sub_80018660(void *, s32);
+M2C_UNK enemy_turn_toward_dest(void *, s32);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 
@@ -108,7 +108,7 @@ void update__15TObjEnemyCustomFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x200000);
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
-        TObjPlayer__sub_80018660(arg0, M2C_FIELD(M2C_FIELD(arg0, void **, 0x350), s32 *, 8));
+        enemy_turn_toward_dest(arg0, M2C_FIELD(M2C_FIELD(arg0, void **, 0x350), s32 *, 8));
         advance_animation_playback(arg0);
         if (objInBand__FP7GameObjf(arg0, lbl_805DA068) != 0) {
             temp_r3 = M2C_FIELD(arg0, Obj2A8_800c7ae4 **, 0x2A8);

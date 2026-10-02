@@ -395,8 +395,8 @@ s32 is_valid_and_active__10TObjPlayerFUi(int);
 void TTecRaFoie__sub_80238828(void *, void *);
 void run_task__10TTecRaFoieFv(u8 *arg0);
 void update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
-s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
-void TObjPlayer__sub_8022BD74(void *);
+s32 play_sound_effect(s32, void *, s32, s32);
+void apply_technique_to_area_targets(void *);
 extern s32 tl_particle;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
@@ -438,7 +438,7 @@ void TTecRaZonde__vt6(struct Self_80238C6C *self);
 u16 obj_getField1c(void *);
 void TObjPlayer__sub_8004433C(void *);
 void fn_80044330(void *);
-void fn_8022C2A8(void *, void *, void *, void *, int);
+void construct_area_technique_base(void *, void *, void *, void *, int);
 extern M2C_UNK __vt__10TTecRaFoie[];
 extern u32 lbl_805D3800;
 Obj_80238AE8 *TTecRaFoie__ct(Obj_80238AE8 *arg0, void * _w1, void * _w2, void * _w3, int _w4);
@@ -577,35 +577,35 @@ void TTecRaFoie__sub_80238828(void *arg0, void *arg1) {
     }
     switch (self->band) {
     case 0:
-        h = TBoss3Volopt__sub_8022675C(0x4002A803, self->target, 0, 0);
+        h = play_sound_effect(0x4002A803, self->target, 0, 0);
         if (h >= 0) {
             update_technique_slot__10TTecRaFoieFi(h, 0x100, 0);
         }
         break;
     case 1:
-        TBoss3Volopt__sub_8022675C(0x4002A803, self->target, 0, 0);
+        play_sound_effect(0x4002A803, self->target, 0, 0);
         break;
     case 2:
     case 3:
-        h = TBoss3Volopt__sub_8022675C(0x4002A803, self->target, 0, 0);
+        h = play_sound_effect(0x4002A803, self->target, 0, 0);
         if (h >= 0) {
             update_technique_slot__10TTecRaFoieFi(h, -0x180, 0);
         }
         break;
     case 4:
-        h = TBoss3Volopt__sub_8022675C(0x4002A803, self->target, 0, 0);
+        h = play_sound_effect(0x4002A803, self->target, 0, 0);
         if (h >= 0) {
             update_technique_slot__10TTecRaFoieFi(h, -0x250, 0);
         }
         break;
     case 5:
-        h = TBoss3Volopt__sub_8022675C(0x4002A803, self->target, 0, 0);
+        h = play_sound_effect(0x4002A803, self->target, 0, 0);
         if (h >= 0) {
             update_technique_slot__10TTecRaFoieFi(h, -0x100, 0);
         }
         break;
     }
-    TObjPlayer__sub_8022BD74(self);
+    apply_technique_to_area_targets(self);
     queue_destruction__7TObjectFv(self);
 }
 
@@ -647,7 +647,7 @@ typedef char RecoveredGlobal_80238D10_lbl_804CC55C_size[((sizeof(RecoveredGlobal
 #pragma opt_common_subs off
 Obj_80238AE8 *TTecRaFoie__ct(Obj_80238AE8 *arg0, void * _w1, void * _w2, void * _w3, int _w4) {
     Sub_80238AE8 *t;
-    fn_8022C2A8((void *)(arg0), (void *)(_w1), (void *)(_w2), (void *)(_w3), (int)(_w4));
+    construct_area_technique_base((void *)(arg0), (void *)(_w1), (void *)(_w2), (void *)(_w3), (int)(_w4));
     M2C_FIELD(arg0, void **, 0x18) = ((void * *)&__vt__10TTecRaFoie);
     TObjPlayer__sub_8004433C((u8 *)arg0 + 0xEC);
     M2C_FIELD(arg0, u32 *, 0) = lbl_805D3800;
@@ -669,7 +669,7 @@ Obj_80238AE8 *TTecRaFoie__ct(Obj_80238AE8 *arg0, void * _w1, void * _w2, void * 
 
 u8 *TTecRaFoie__sub_80238BA4(u8 *self, void *source, void *origin, void *targets, int level) {
     u8 *proxy;
-    fn_8022C2A8(self, source, origin, origin, level);
+    construct_area_technique_base(self, source, origin, origin, level);
     M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__10TTecRaFoie;
     TObjPlayer__sub_8004433C(self + 0xEC);
     M2C_FIELD(self, u32 *, 0) = lbl_805D3800;
@@ -738,12 +738,12 @@ struct Obj_80238F84 {
 };
 
 extern "C" {
-s32 TBoss3Volopt__sub_8022675C(s32 id, void *pos, s32 a, s32 b);
+s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
 void update_technique_slot__10TTecRaFoieFi(s32 handle, s32 pitch, s32 c);
 void fn_802393D0(Tec_802393D0 *self);
 void create_timed_particle_emitter(void *, s32, s32, s32, void *);
 void spawn_particle_effect(void *, s32, void *);
-void TObjPlayer__sub_8022BD74(void *);
+void apply_technique_to_area_targets(void *);
 void run_task__11TTecRaZondeFv(Obj_80238F84 *self);
 }
 
@@ -818,7 +818,7 @@ void run_task__11TTecRaZondeFv(Obj_80238F84 *self) {
             }
         }
     }
-    TObjPlayer__sub_8022BD74(self);
+    apply_technique_to_area_targets(self);
     ((void (*)(void *))queue_destruction__7TObjectFv)(self);
 }
 
@@ -827,18 +827,18 @@ void fn_802393D0(Tec_802393D0 *self) {
     switch (self->band) {
     case 0:
     case 1:
-        h = TBoss3Volopt__sub_8022675C(0x4002AB0E, self->pos, 0, 0);
+        h = play_sound_effect(0x4002AB0E, self->pos, 0, 0);
         if (h >= 0) {
             update_technique_slot__10TTecRaFoieFi(h, 0x100, 0);
         }
         break;
     case 2:
     case 3:
-        TBoss3Volopt__sub_8022675C(0x4002AB0E, self->pos, 0, 0);
+        play_sound_effect(0x4002AB0E, self->pos, 0, 0);
         break;
     case 4:
     case 5:
-        h = TBoss3Volopt__sub_8022675C(0x4002AB0E, self->pos, 0, 0);
+        h = play_sound_effect(0x4002AB0E, self->pos, 0, 0);
         if (h >= 0) {
             update_technique_slot__10TTecRaFoieFi(h, -0x100, 0);
         }

@@ -186,7 +186,7 @@ extern "C" {
 void TTecPlayerInfluence__vt5(void);
 void TTecRaBarta__vt7(void *arg0);
 void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
-s32 TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 void TObjEneGibbles__sub_80156720(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TEffectFv(void *, int);
@@ -357,32 +357,32 @@ void TTecRaBarta__vt7(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x7A);
     switch (temp_r0) {
     case 0:
-        M2C_FIELD(arg0, s32 *, 0xEC) = TBoss3Volopt__sub_8022675C(0x4002A706, M2C_FIELD(arg0, s32 *, 0x1C) + 0x2FC, 0, 0);
+        M2C_FIELD(arg0, s32 *, 0xEC) = play_sound_effect(0x4002A706, M2C_FIELD(arg0, s32 *, 0x1C) + 0x2FC, 0, 0);
         temp_r3 = M2C_FIELD(arg0, s32 *, 0xEC);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, 0x100, 0);
         }
         return;
     case 1:
-        M2C_FIELD(arg0, s32 *, 0xEC) = TBoss3Volopt__sub_8022675C(0x4002A706, M2C_FIELD(arg0, s32 *, 0x1C) + 0x2FC, 0, 0);
+        M2C_FIELD(arg0, s32 *, 0xEC) = play_sound_effect(0x4002A706, M2C_FIELD(arg0, s32 *, 0x1C) + 0x2FC, 0, 0);
         return;
     case 2:
     case 3:
-        M2C_FIELD(arg0, s32 *, 0xEC) = TBoss3Volopt__sub_8022675C(0x4002A706, M2C_FIELD(arg0, s32 *, 0x1C) + 0x2FC, 0, 0);
+        M2C_FIELD(arg0, s32 *, 0xEC) = play_sound_effect(0x4002A706, M2C_FIELD(arg0, s32 *, 0x1C) + 0x2FC, 0, 0);
         temp_r3 = M2C_FIELD(arg0, s32 *, 0xEC);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x180, 0);
         }
         break;
     case 4:
-        M2C_FIELD(arg0, s32 *, 0xEC) = TBoss3Volopt__sub_8022675C(0x4002A706, M2C_FIELD(arg0, s32 *, 0x1C) + 0x2FC, 0, 0);
+        M2C_FIELD(arg0, s32 *, 0xEC) = play_sound_effect(0x4002A706, M2C_FIELD(arg0, s32 *, 0x1C) + 0x2FC, 0, 0);
         temp_r3 = M2C_FIELD(arg0, s32 *, 0xEC);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x250, 0);
         }
         break;
     case 5:
-        M2C_FIELD(arg0, s32 *, 0xEC) = TBoss3Volopt__sub_8022675C(0x4002A706, M2C_FIELD(arg0, s32 *, 0x1C) + 0x2FC, 0, 0);
+        M2C_FIELD(arg0, s32 *, 0xEC) = play_sound_effect(0x4002A706, M2C_FIELD(arg0, s32 *, 0x1C) + 0x2FC, 0, 0);
         temp_r3 = M2C_FIELD(arg0, s32 *, 0xEC);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x100, 0);

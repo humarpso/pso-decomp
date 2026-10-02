@@ -43,7 +43,7 @@ void TOMonumentAncient01__sub_80172758(void);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_80154E3C(void *);
+s32 refresh_collision_body_centers(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
 s32 update_heal_gauge_state__13TOHealGeneralFPv(void *);
 s32 init__5TOKeyFPv(void *);
@@ -127,7 +127,7 @@ u8 *TOMonumentAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TOMonumentAncient01__data_805D5A60)), (int) (2));
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOMonumentAncient01__data_805D5A60)), (int) (2));
     TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B38F0.value), (int) (1));
-    TObjPlayer__sub_80154E3C((void *) (arg0));
+    refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     update_heal_gauge_state__13TOHealGeneralFPv((void *) (arg0));
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB918;

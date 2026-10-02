@@ -140,7 +140,7 @@ s8 TObjPlayer__sub_801AFDB0(s32 _w0);
 s32 TObjPlayer__sub_801D921C(s32 arg0, s32 arg1);
 s16 get_tech_level__10TObjPlayerFPv(void *);
 s32 get_move_mode__10TObjPlayerFPv(void *);
-f32 TObjPlayer__sub_801D90DC(s32, s16, s16, s32);
+f32 lookup_attack_marker(s32, s16, s16, s32);
 extern M2C_UNK lbl_804477F0[];
 extern M2C_UNK lbl_804478D4[];
 extern M2C_UNK lbl_804478F8[];
@@ -162,7 +162,7 @@ extern RecoveredGlobal_801D8B8C_lbl_8044926C lbl_8044926C;
 extern RecoveredGlobal_801D8B8C_lbl_8044927C lbl_8044927C;
 extern RecoveredGlobal_801D8B8C_lbl_8044928C lbl_8044928C;
 extern s32 lbl_805D5550;
-M2C_UNK *TObjPlayer__sub_801D8B8C(M2C_UNK *arg0);
+M2C_UNK *get_hurt_protection_ticks__10TObjPlayerFPv(M2C_UNK *arg0);
 s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_801D8C6C_lbl_8044923C lbl_8044923C;
 u8 *TObjPlayer__sub_801D8C6C(void);
@@ -173,7 +173,7 @@ extern RecoveredGlobal_801D8E60_lbl_804C4980 lbl_804C4980;
 s32 TObjPlayer__sub_801D8E60(u8 *arg0);
 s8 TObjPlayer__sub_801AFDB0(s32 _w0);
 extern RecoveredGlobal_801D9328_lbl_80447430 lbl_80447430;
-u8 *TObjPlayer__sub_801D9328(u8 *arg0);
+u8 *get_class_defense_template(u8 *arg0);
 s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_80449254;
 s32 TObjPlayer__sub_801D8C3C(void);
@@ -325,7 +325,7 @@ typedef char RecoveredGlobal_801D8B8C_lbl_8044925C_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_801D8B8C_lbl_8044926C_size[sizeof(RecoveredGlobal_801D8B8C_lbl_8044926C) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_801D8B8C_lbl_8044927C_size[sizeof(RecoveredGlobal_801D8B8C_lbl_8044927C) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_801D8B8C_lbl_8044928C_size[sizeof(RecoveredGlobal_801D8B8C_lbl_8044928C) == 0x10 ? 1 : -1];
-M2C_UNK *TObjPlayer__sub_801D8B8C(M2C_UNK *arg0) {
+M2C_UNK *get_hurt_protection_ticks__10TObjPlayerFPv(M2C_UNK *arg0) {
     M2C_UNK *var_r31;
     M2C_UNK *var_r3;
     var_r31 = (M2C_UNK *)(arg0);
@@ -444,12 +444,12 @@ void TObjPlayer__sub_801D9078(u8 *arg0) {
   new_var = get_tech_level__10TObjPlayerFPv(arg0 + 0x7CC);
   temp_r30 = new_var;
   temp_r31 = get_falz_phase__10TObjPlayerFPv((void*)((void*)(arg0)));
-  TObjPlayer__sub_801D90DC((s32) get_handle_value__10TObjPlayerFPv((void *)(arg0)), temp_r31, temp_r30, temp_r29);
+  lookup_attack_marker((s32) get_handle_value__10TObjPlayerFPv((void *)(arg0)), temp_r31, temp_r30, temp_r29);
 }
 
 #pragma pop
 
-f32 TObjPlayer__sub_801D90DC(s32 arg0, s16 arg1, s16 arg2, s32 arg3) {
+f32 lookup_attack_marker(s32 arg0, s16 arg1, s16 arg2, s32 arg3) {
     switch (arg0) {
     case 3:
         return M2C_FIELD(((u8 *)(((u8 *)(lbl_804478D4) + (arg2 * 0xC))) + (arg1 * 4)), f32 *, 0);
@@ -498,7 +498,7 @@ u8 *TObjPlayer__sub_801D92F4(u8 *arg0) {
     return (u8 *)&lbl_804475B0.value + (TObjPlayer__sub_801AFDB0((s32)(arg0)) * 0x30);
 }
 
-u8 *TObjPlayer__sub_801D9328(u8 *arg0) {
+u8 *get_class_defense_template(u8 *arg0) {
     return (u8 *)&lbl_80447430.value + (TObjPlayer__sub_801AFDB0((s32)(arg0)) << 5);
 }
 

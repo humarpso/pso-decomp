@@ -109,7 +109,7 @@ extern Ent_801037A0 **lbl_805D541C;
 extern s32 lbl_805D5420;
 extern u16 *lbl_805D542C;
 s32 TLobby__sub_80103DD8(Ent_80103DD8 *e);
-void *TLobby__sub_80101AB0(s32);
+void *find_item_by_id(s32);
 void fn_801057A8(void *, s32);
 extern Ent_801037A0 **lbl_805D541C;
 extern s32 lbl_805D5420;
@@ -118,7 +118,7 @@ void TLobby__sub_80103B70(s32 n);
 
 extern "C" {
 
-void *TLobby__sub_80101AB0(s32);
+void *find_item_by_id(s32);
 M2C_UNK bswap_player_packet__6TLobbyFPv();
 
 void TLobby__sub_801036CC(void) {
@@ -138,7 +138,7 @@ void handle_6x63_destroy_floor_item(void *arg0) {
 
     bswap_player_packet__6TLobbyFPv();
     TLobby__sub_80103BFC((s32)(M2C_FIELD(arg0, s32 *, 8)), (s32)(M2C_FIELD(arg0, s32 *, 4)));
-    o = (struct VObj_80103748 *)TLobby__sub_80101AB0(M2C_FIELD(arg0, s32 *, 4));
+    o = (struct VObj_80103748 *)find_item_by_id(M2C_FIELD(arg0, s32 *, 4));
     if (o != NULL) {
         o->m27();
     }
@@ -242,7 +242,7 @@ void TLobby__sub_80103B70(s32 n) {
         if (lbl_805D541C[n] != 0) {
             for (i = 0; i != (*(s32 **)&lbl_805D5420)[n]; i++) {
                 Ent_801037A0 *e = &lbl_805D541C[n][i];
-                if (TLobby__sub_80101AB0(e->val) == 0) {
+                if (find_item_by_id(e->val) == 0) {
                     fn_801057A8(e, 1);
                 }
             }

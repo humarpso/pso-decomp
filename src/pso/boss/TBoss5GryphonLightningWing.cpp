@@ -46,7 +46,7 @@ s32 __nw__7TObjectFUl(int);
 extern const f32 lbl_805D8D48;
 s32 TBoss8Dragon__sub_80351CF0(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 s32 queue_destruction__7TObjectFv(void *);
-s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 M2C_UNK get_wing_position__26TBoss5GryphonLightningWingFii(s32, M2C_UNK *);
 s32 update_wing_segments(void *);
 s32 fn_80324E10(void *);
@@ -104,7 +104,7 @@ void run_task__26TBoss5GryphonLightningWingFv(u8 *arg0) {
     apply_lightning_effect__26TBoss5GryphonLightningWingFi((s32)((void *) (arg0)));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x94) == (s32) M2C_FIELD(arg0, s32 *, 0x98)) {
         get_wing_position__26TBoss5GryphonLightningWingFii((s32)((void *) (arg0)), (M2C_UNK *)((void *) (&stack.sp8)));
-        TBoss3Volopt__sub_8022675C((int) (0x40032516), (void *) (&stack.sp8), (int) (0), (int) (0));
+        play_sound_effect((int) (0x40032516), (void *) (&stack.sp8), (int) (0), (int) (0));
     }
     fn_80324E10((void *) (arg0));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x94) >= (s32) M2C_FIELD(arg0, s32 *, 0x9C)) {

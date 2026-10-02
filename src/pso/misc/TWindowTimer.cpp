@@ -21,7 +21,7 @@ extern M2C_UNK __vt__14TWindowMessage[];
 void render__12TWindowTimerFv(s32 arg0);
 s16 TWindowTimer__sub_8019A70C(int);
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
-M2C_UNK TWindowSubStatusDisp__sub_80257C28(void *, void *);
+M2C_UNK update_window_entry_list(void *, void *);
 M2C_UNK fn_80287BE8(void *);
 void update_chat_parts__12TWindowTimerFPv(u8 *arg0);
 void draw__12TWindowTimerFPvii(void *arg0, s32 arg1, s32 arg2);
@@ -171,7 +171,7 @@ void run_task__12TWindowTimerFv(u8 *arg0) {
     temp_r31 = TWindowTimer__sub_8019A70C((int) 1);
     draw__12TWindowTimerFPvii((void *)((void *) arg0), (s32)((int) TWindowTimer__sub_8019A70C((int) 0)), (s32)((int) temp_r31));
   }
- do { initialize_subwindow__9TWindowDDFPv((void *) arg0); update_chat_parts__12TWindowTimerFPv((u8 *)((void *) arg0)); fn_80287BE8((void *) arg0); TWindowSubStatusDisp__sub_80257C28((void *) arg0, (void *) (arg0 + 0x24)); } while (0);
+ do { initialize_subwindow__9TWindowDDFPv((void *) arg0); update_chat_parts__12TWindowTimerFPv((u8 *)((void *) arg0)); fn_80287BE8((void *) arg0); update_window_entry_list((void *) arg0, (void *) (arg0 + 0x24)); } while (0);
 }
 
 void *__dt__12TWindowTimerFv(void *arg0, s16 arg1) {

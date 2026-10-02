@@ -54,7 +54,7 @@ void rotate_matrix_y(int, void *);
 void TObjPlayer__sub_803D9B2C(void);
 void pop_matrix(void);
 f32 xz_distance_squared(void *, s32);
-s16 fn_801A2340(void *, f32, f32);
+s16 update_object_view_visibility(void *, f32, f32);
 s32 get_state_flag__9TMainTaskFv();
 void set_global_param__8TObjFishFi(void *);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
@@ -69,7 +69,7 @@ s16 TObjLazerFence4__vt8(u8 *arg0, f32 farg0, f32 farg1) {
         M2C_FIELD(arg0, s16 *, 0x1E) = 1;
         return M2C_FIELD(arg0, s16 *, 0x1E);
     }
-    return fn_801A2340(arg0, farg0, farg1);
+    return update_object_view_visibility(arg0, farg0, farg1);
 }
 
 extern void *lbl_805D5C28;

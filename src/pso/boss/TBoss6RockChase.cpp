@@ -49,7 +49,7 @@ u8 *TBoss6RockChase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void queue_destruction__7TObjectFv(void *);
 s32 query_teammate_state__9TObjEneDDFPv(void);
 M2C_UNK spawn_particle_effect(void *, int);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK TBoss6PlotFalz__sub_802ABE3C(void *, int, int, f32);
 M2C_UNK TBoss6Rock__sub_8035A460(void *, int);
 M2C_UNK TBoss6RockChase__sub_8036D1B4(void *);
@@ -99,12 +99,12 @@ void run_task__15TBoss6RockChaseFv(u8 *arg0) {
             M2C_FIELD(arg0, f32 *, 0x3C) = (f32) TBoss6RockChase__data_805E03B8;
             M2C_FIELD(arg0, f32 *, 0xB8) = (f32) TBoss6RockChase__data_805E03B8;
             TBoss6RockChase__sub_8036D1B4((void *) (arg0));
-            TBoss3Volopt__sub_8022675C((int) (0x4006B51E), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            play_sound_effect((int) (0x4006B51E), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x220));
             spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x222));
             TBoss6PlotFalz__sub_802ABE3C((void *) (arg0 + 0x38), (int) (0xC0), (int) (0xF), (f32) (lbl_805E03C8));
             TBoss6Rock__sub_8035A460((void *) (arg0 + 0x38), (int) (M2C_FIELD(arg0, s32 *, 0xB0)));
-            TBoss3Volopt__sub_8022675C((int) (0x4006AB1F), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            play_sound_effect((int) (0x4006AB1F), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             queue_destruction__7TObjectFv(arg0);
         }
     }

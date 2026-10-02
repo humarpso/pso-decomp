@@ -68,7 +68,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 s32 TBoss3Volopt__sub_8004816C(int);
 f32 TObjPlayer__sub_800499FC(s32 arg0);
-s32 TObjParticle__sub_800870BC(void *, void *, int, int);
+s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 void TObjEneGibbles__sub_80156780(void *, void *, int);
 void TObjPlayer__sub_801569F4();
 void rotate_vector_by_matrix(int, void *, void *);
@@ -88,7 +88,7 @@ s32 TObjVoloptPillar__sub_80048118(s32);
 M2C_UNK spawn_particle_effect(void *, s32);
 M2C_UNK init_all_slots__10TObjPlayerFv();
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+M2C_UNK play_sound_effect(s32, void *, s32, s32);
 s32 rand();
 extern Dmg_80049A1C lbl_80436710[];
 extern const f32 lbl_805D8898;
@@ -238,8 +238,8 @@ Obj_800498E8 *TObjPlayer__sub_800498E8(Obj_800498E8 *arg0, Obj_800498E8 *arg1, v
     VecCopy__FP3VecPC3Vec(&arg0->pos, arg2);
     arg0->fcc = arg3;
     arg0->f5c = 0;
-    arg0->fd4 = TObjParticle__sub_800870BC(&arg0->pos, &arg0->f5c, 0x11C, 2);
-    arg0->fd8 = TObjParticle__sub_800870BC(&arg0->pos, &arg0->f5c, 0x11D, 2);
+    arg0->fd4 = spawn_particle_effect_with_rotation(&arg0->pos, &arg0->f5c, 0x11C, 2);
+    arg0->fd8 = spawn_particle_effect_with_rotation(&arg0->pos, &arg0->f5c, 0x11D, 2);
     push_matrix_from(lbl_8058D490);
     Vec_800498E8 v = lbl_804366F8;
     v.z = TObjPlayer__sub_800499FC(0);
@@ -266,8 +266,8 @@ void TBoss3Volopt__sub_80049A1C(u8 *arg0) {
     if (TBoss3Volopt__sub_8003F398() != 0 && lbl_805D8898 * (f32)rand() < lbl_805D889C) {
         d.type = 0x11;
     }
-    TBoss3Volopt__sub_8022675C(0x4003AD15, arg0 + 0x38, 0, 0);
-    TBoss3Volopt__sub_8022675C(0x4001C112, arg0 + 0x38, 0, 0);
+    play_sound_effect(0x4003AD15, arg0 + 0x38, 0, 0);
+    play_sound_effect(0x4001C112, arg0 + 0x38, 0, 0);
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC) = lbl_805D88A0;
     init_all_slots__10TObjPlayerFv();
     check_object_collisions__10TObjPlayerFPv(arg0);

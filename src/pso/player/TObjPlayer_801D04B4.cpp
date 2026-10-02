@@ -13,7 +13,7 @@ void start_animation__10TObjPlayerFPv(void *arg0);
 s32 TFontSmallLobby__sub_801AFEE0();
 s32 add_actor_hp(s32, s32);
 s32 TObjPlayer__sub_801AF290(s32);
-u32 TObjPlayer__sub_801B5EA4();
+u32 resolve_move_collision__10TObjPlayerFPv();
 s32 TObjPlayer__sub_801B6024(s32);
 s32 TObjPlayer__sub_801BE2D0(s32);
 int TObjPlayer__sub_801BF964(void*);
@@ -23,7 +23,7 @@ s32 TObjPlayer__sub_801D1018(s32);
 int clear_status_bit6__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_8001053C(void*);
 s32 apply_velocity__10TObjPlayerFPv(s32);
-s32 TObjPlayer__sub_800112A4(s32, s32);
+s32 add_actor_tp(s32, s32);
 int TObjPlayer__sub_8011E204(void*, void*);
 s32 set_action_state__10TObjPlayerFPvss(void *, s32, s32);
 int set_ring_action__10TObjPlayerFPvi(void*, void*);
@@ -35,14 +35,14 @@ void TObjPlayer__sub_801D0514(void) {  }
 void update_action__10TObjPlayerFi(s32 arg0) {
     u32 temp_r3;
 
-    temp_r3 = TObjPlayer__sub_801B5EA4();
+    temp_r3 = resolve_move_collision__10TObjPlayerFPv();
     if (temp_r3 == 0U) {
         apply_velocity__10TObjPlayerFPv(arg0);
     } else if (temp_r3 == 1U) {
         TObjPlayer__sub_801B6024(arg0);
     }
     if ((TObjPlayer__sub_801BE2D0(arg0) != 0) && (TFontSmallLobby__sub_801AFEE0() == 0) && (TObjPlayer__sub_801AF290(arg0) != 0)) {
-        TObjPlayer__sub_800112A4(arg0, 1);
+        add_actor_tp(arg0, 1);
     }
     if ((TObjPlayer__sub_801D1018(arg0) != 0) && (TFontSmallLobby__sub_801AFEE0() == 0) && (TObjPlayer__sub_801AF290(arg0) != 0)) {
         add_actor_hp(arg0, 1);

@@ -14,18 +14,18 @@ struct Ctl_8026C9DC {
 
 extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(void *, u32);
-void TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+void play_sound_effect(s32, s32, s32, s32);
 s32 is_player_input_active(s32);
 void fn_8026C9C8(void);
 extern Pad_8026C9DC lbl_8050E208[];
 extern const f32 lbl_805DD294;
 extern const f32 lbl_805DD298;
-s32 TWindowShortListCtrl__sub_8026C9DC(Ctl_8026C9DC *arg0);
+s32 handle_list_page_flip_input(Ctl_8026C9DC *arg0);
 }
 
 extern "C" {
 
-s32 TWindowShortListCtrl__sub_8026C9DC(Ctl_8026C9DC *arg0) {
+s32 handle_list_page_flip_input(Ctl_8026C9DC *arg0) {
     void *pad;
     s8 cur;
     fn_8026C9C8();
@@ -34,7 +34,7 @@ s32 TWindowShortListCtrl__sub_8026C9DC(Ctl_8026C9DC *arg0) {
     if (TWindowShortListCtrl__check_controller_button(pad, 0x30000) == 0) {
         return 0;
     }
-    TBoss3Volopt__sub_8022675C(0x54100, 0, 0, 0);
+    play_sound_effect(0x54100, 0, 0, 0);
     if (TWindowShortListCtrl__check_controller_button(pad, 0x10000) != 0) {
         cur++;
     }

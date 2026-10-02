@@ -3,7 +3,7 @@
 extern "C" void queue_destruction__7TObjectFv(void*);
 
 extern "C" {
-s32 TEnemyTaskList__sub_800F7BD0(void*);
+s32 has_undefeated_entry__14TEnemyTaskListFPv(void*);
 s32 TLobby__sub_8020881C();
 void TLobby__sub_80208884(void*);
 s32 spawn_matching_objects__6TLobbyFssi(s32, s32, void*);
@@ -25,7 +25,7 @@ void TSetEvtDestroy::run_task() {
         }
         break;
     case 1:
-        if (TEnemyTaskList__sub_800F7BD0(m_30) == 0) {
+        if (has_undefeated_entry__14TEnemyTaskListFPv(m_30) == 0) {
             m_1c[2] |= 0x10;
             m_phase = 2;
         }

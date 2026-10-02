@@ -158,14 +158,14 @@ void set_flags__11TBoss4Type2FPvUi(void *, u32);
 void request_destroy__11TBoss4Type2FUi(void *);
 u8 *dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 void create_horming__11TBoss4Type3FPvPvPv(void *, void *, u16);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void TBoss4Type3__vt30(O_80058BA0 *o);
 void TBoss4Type3__sub_80059C20(void *);
 M2C_UNK TBoss4Type3__sub_8005A398(void *, M2C_UNK);
 M2C_UNK create__13TObjBs4CutAtkFPvPvPv(void *, s32, s32);
 u8 *lookup_entry_by_value__10TObjPlayerFPvf(s32);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
 M2C_UNK TObjPlayer__sub_803D8CD4(int);
 M2C_UNK rotate_matrix_y(int, int);
@@ -192,7 +192,7 @@ void TBoss4Type3__vt37(void *arg0);
 void TBoss4Type3__vt38(void *arg0);
 void TBoss4Type3__vt4(void *arg0);
 void TBoss4Type3__vt5(void);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 s32 TBoss4Type3__sub_8005254C(u16);
 int TBoss4Type3__sub_800599F4(void*, void*, void*);
 int TBoss4Type3__sub_80059F64(void*, void*);
@@ -210,14 +210,14 @@ void TBoss4Type3__vt38(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x398) == 0) {
         M2C_FIELD(arg0, u16 *, 0x3BA) = (u16) M2C_FIELD(arg0, u16 *, 0x3B8);
         M2C_FIELD(arg0, u16 *, 0x3B8) = 0xFFFFU;
-        TBoss3Volopt__sub_8022675C((int)(0x4003C12C), (void *)(0), (int)(0), (int)(0));
+        play_sound_effect((int)(0x4003C12C), (void *)(0), (int)(0), (int)(0));
         M2C_FIELD(arg0, s32 *, 0x3BC) = 0;
         spawn_random_effect__11TBoss4Type3Fi(arg0);
     }
 }
 
 void TBoss4Type3__vt37(void *arg0) {
-    TBoss3Volopt__sub_8022675C((int)(0x4003C12B), (void *)(0), (int)(0), (int)(0));
+    play_sound_effect((int)(0x4003C12B), (void *)(0), (int)(0), (int)(0));
     M2C_FIELD(arg0, s32 *, 0x52C) = 0;
     M2C_FIELD(arg0, s32 *, 0x398) = 0x62;
 }
@@ -265,7 +265,7 @@ void TBoss4Type3__vt34(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3A0) = 0x11;
     M2C_FIELD(arg0, s32 *, 0x3A4) = 0x11;
     M2C_FIELD(arg0, s32 *, 0x3AC) = (s32) M2C_FIELD(arg0, s32 *, 0x3A8);
-    TBoss3Volopt__sub_8022675C((int)(0x4003B238), (void *)(0), (int)(0), (int)(0));
+    play_sound_effect((int)(0x4003B238), (void *)(0), (int)(0), (int)(0));
     M2C_FIELD(arg0, s32 *, 0x52C) = 1;
     M2C_FIELD(arg0, s32 *, 0x398) = 0x62;
 }
@@ -364,7 +364,7 @@ void TBoss4Type3__vt30(O_80058BA0 *o) {
         if (o->f398 == v) {
             create_horming__11TBoss4Type3FPvPvPv(o, a, o->f3b8);
             create_horming__11TBoss4Type3FPvPvPv(o, b, o->f3b8);
-            TBoss3Volopt__sub_8022675C(0x4003B229, o->f38, 0, 1);
+            play_sound_effect(0x4003B229, o->f38, 0, 1);
             break;
         }
         v += step;
@@ -427,9 +427,9 @@ void TBoss4Type3__vt25(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3A4) = 0x11;
     M2C_FIELD(arg0, s32 *, 0x3A0) = 0x10;
     M2C_FIELD(arg0, s32 *, 0x3AC) = (s32) M2C_FIELD(arg0, s32 *, 0x3A8);
-    TBoss3Volopt__sub_8022675C((int)(0x4003B032), (void *)(arg0 + 0x38), (int)(0), (int)(1));
+    play_sound_effect((int)(0x4003B032), (void *)(arg0 + 0x38), (int)(0), (int)(1));
     if ((u16) M2C_FIELD(arg0, u16 *, 0x3BA) == (u16)-1) {
-        TBoss3Volopt__sub_8022675C((int)(0x4003C62D), (void *)(0), (int)(0), (int)(0));
+        play_sound_effect((int)(0x4003C62D), (void *)(0), (int)(0), (int)(0));
     }
     M2C_FIELD(arg0, s32 *, 0x52C) = 0;
     M2C_FIELD(arg0, s32 *, 0x398) = 0x31;
@@ -467,7 +467,7 @@ void TBoss4Type3__vt22(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3A4) = (s32) M2C_FIELD(arg0, s32 *, 0x3A0);
     M2C_FIELD(arg0, s32 *, 0x3A0) = 0x11;
     M2C_FIELD(arg0, s32 *, 0x3AC) = (s32) M2C_FIELD(arg0, s32 *, 0x3A8);
-    TBoss3Volopt__sub_8022675C((int)(0x4003B031), (void *)(arg0 + 0x38), (int)(0), (int)(1));
+    play_sound_effect((int)(0x4003B031), (void *)(arg0 + 0x38), (int)(0), (int)(1));
     M2C_FIELD(arg0, s32 *, 0x52C) = 1;
     M2C_FIELD(arg0, s32 *, 0x398) = 0x31;
 }
@@ -492,7 +492,7 @@ void TBoss4Type3__vt9(O_800590F4 *o) {
   if (o->f398 == 0x28)
   {
     create__13TObjBs4CutAtkFPvPvPv(o, o->f3a8, (o->f374 - 4) & 1);
-    TBoss3Volopt__sub_8022675C(0x4003B228, o->f38, 0, 1);
+    play_sound_effect(0x4003B228, o->f38, 0, 1);
   }
   if ((o->f3f4 >= lbl_805D8C58) && (o->f3f4 <= lbl_805D8C5C))
   {

@@ -43,7 +43,7 @@ M2C_UNK refresh_lobby_state__10TObjPlayerFPv(void *);
 M2C_UNK advance_animation_playback(void *);
 u8 *find_entity_by_id(u16);
 M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805D964C;
 extern const f32 lbl_805D9664;
 extern const f32 lbl_805D9668;
@@ -114,7 +114,7 @@ void TObjPlayer__sub_8008F730(u8 *arg0) {
             M2C_FIELD(arg0, f32 *, 0x30C) = M2C_FIELD(arg0, f32 *, 0x3B4) / lbl_805D9664;
             M2C_FIELD(arg0, s32 *, 0x37C) = 2;
         }
-        TBoss3Volopt__sub_8022675C(0x4003AD37, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x4003AD37, arg0 + 0x38, 0, 0);
         break;
     case 1:
         advance_animation_playback(arg0);

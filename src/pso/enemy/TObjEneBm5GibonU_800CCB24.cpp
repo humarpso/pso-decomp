@@ -761,7 +761,7 @@ s32 TObjEneBm5GibonU__sub_800D0F44(void *);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback(void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(void *, void *, M2C_UNK, M2C_UNK);
 extern const f32 TObjEneBm5GibonU__data_805DA184;
 void TObjEneBm5GibonU__sub_800CFFBC(u8 *arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -812,7 +812,7 @@ s32 get_instance__13TParticleCtrlFv();
 void *spawn_particle_effect(void *, s32);
 s32 fn_800D88E4(void *);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
-M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(void *, void *, M2C_UNK, M2C_UNK);
 extern const f32 TObjEneBm5GibonU__data_805DA164;
 extern const f32 TObjEneBm5GibonU__data_805DA168;
 extern const f32 TObjEneBm5GibonU__data_805DA16C;
@@ -857,7 +857,7 @@ s32 TObjEneBm5GibonU__sub_800D1D70();
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback(void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(void *, void *, M2C_UNK, M2C_UNK);
 extern List_800CFE34 TObjEneBm5GibonU__data_80500EC4;
 extern const f32 TObjEneBm5GibonU__data_805DA184;
 void TObjEneBm5GibonU__sub_800CFE34(u8 *arg0, s32 arg1);
@@ -871,11 +871,11 @@ M2C_UNK TBoss8Dragon__sub_800BB7D4(void *, int);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK TObjEneBm5GibonU__sub_800D0AE8(void *, void *);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
-s32 TObjPlayer__sub_801423A4(s32, s32, s32);
+s32 approach_angle_limited(s32, s32, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(void *, void *, M2C_UNK, M2C_UNK);
 extern const f32 TObjEneBm5GibonU__data_805DA158;
 extern const f32 lbl_805DA1B4;
 extern const f32 TObjEneBm5GibonU__data_805DA1BC;
@@ -890,7 +890,7 @@ s32 update_target__16TObjEneBm5GibonUFPv(void *);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback(void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(void *, void *, M2C_UNK, M2C_UNK);
 f32 TBoss8Dragon__sub_803D64C0(int);
 f32 TBoss8Dragon__sub_803D64DC(int);
 extern const f32 TObjEneBm5GibonU__data_805DA160;
@@ -910,7 +910,7 @@ void advance_anim_frame__16TObjEneBm5GibonUFv(void);
 int get_attack_state__16TObjEneBm5GibonUFPv(void* p, void * _w1);
 void update_state__16TObjEneBm5GibonUFPv(void *arg0);
 M2C_UNK advance_animation_playback(void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneBm5GibonU__sub_800D0FDC(void *, s32);
 M2C_UNK TObjEneBm5GibonU__sub_800D10A0(void *);
 M2C_UNK TObjEneBm5GibonU__sub_800D17E8(s32);
@@ -997,7 +997,7 @@ int TObjEneBm5GibonU__sub_800CCC6C(Ene_800CCC6C *arg0, void *arg1) {
         }
         return fn_800D88E4(&arg0->pos);
     }
-    return ((s32)TBoss3Volopt__sub_8022675C((void *)((void *)((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)(arg0), (M2C_UNK)(0x3BC21)))), (void *)(&arg0->pos), (M2C_UNK)(0), (M2C_UNK)(0)));
+    return ((s32)play_sound_effect((void *)((void *)((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)(arg0), (M2C_UNK)(0x3BC21)))), (void *)(&arg0->pos), (M2C_UNK)(0), (M2C_UNK)(0)));
 }
 
 #pragma push
@@ -1071,7 +1071,7 @@ void TObjEneBm5GibonU__sub_800CE370(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 6;
         M2C_FIELD(arg0, s32 *, 0x518) = 0;
         if (M2C_FIELD(arg0, s16 *, 0x33E) - M2C_FIELD(arg0, s16 *, 0x32C) < 0x14) {
-            TBoss3Volopt__sub_8022675C((void *) copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3A824), arg0 + 0x38, 0, 0);
+            play_sound_effect((void *) copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3A824), arg0 + 0x38, 0, 0);
         }
         set_active__9TObjEneDDFPv(arg0);
         break;
@@ -1103,7 +1103,7 @@ void TObjEneBm5GibonU__sub_800CE370(u8 *arg0, s32 arg1) {
         } else {
             M2C_FIELD(arg0, f32 *, 0x308) *= TObjEneBm5GibonU__data_805DA1BC;
             M2C_FIELD(arg0, f32 *, 0x310) *= TObjEneBm5GibonU__data_805DA1BC;
-            M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x528), 0x300);
+            M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x528), 0x300);
             M2C_FIELD(arg0, s32 *, 0x60) = (s16) M2C_FIELD(arg0, s32 *, 0x60);
             if (objInBand__FP7GameObjf(arg0, lbl_805DA1B4) != 0) {
                 TObjEneBm5GibonU__sub_800D0AE8(arg0, &sp8);
@@ -1140,7 +1140,7 @@ void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1) {
         advance_animation_playback(arg0);
         TObjEneBm5GibonU__sub_800D0FDC(arg0, M2C_FIELD(arg0, s32 *, 0x60));
         if (objInBand__FP7GameObjf(arg0, TObjEneBm5GibonU__data_805DA178) != 0) {
-            TBoss3Volopt__sub_8022675C((void *)copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3AA22), arg0 + 0x38, 0, 0);
+            play_sound_effect((void *)copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3AA22), arg0 + 0x38, 0, 0);
         }
         M2C_FIELD(arg0, s32 *, 0x518) = (s32) (M2C_FIELD(arg0, s32 *, 0x518) + 1);
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x518);
@@ -1193,7 +1193,7 @@ void TObjEneBm5GibonU__sub_800CFE34(u8 *arg0, s32 arg1) {
     case 0:
         ((void (*)(void *, s32))advance_animation_playback)(arg0, M2C_FIELD(arg0, s32 *, 0x518)++);
         if (objInBand__FP7GameObjf(arg0, TObjEneBm5GibonU__data_805DA184) != 0) {
-            TBoss3Volopt__sub_8022675C((void *)copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3A523), arg0 + 0x38, 0, 0);
+            play_sound_effect((void *)copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3A523), arg0 + 0x38, 0, 0);
         }
         if (M2C_FIELD(arg0, s32 *, 0x518) == 0x3C) {
             for (n = TObjEneBm5GibonU__data_80500EC4.head; n != NULL; n = n->next) {
@@ -1240,7 +1240,7 @@ void TObjEneBm5GibonU__sub_800CFFBC(u8 *arg0, s32 arg1) {
       advance_animation_playback((void *) arg0);
       if (objInBand__FP7GameObjf((void *) arg0, (f32) TObjEneBm5GibonU__data_805DA184) != 0)
     {
-      TBoss3Volopt__sub_8022675C((void *)((void *) ((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) arg0), (M2C_UNK)((int) 0x3A523)))), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) 0), (M2C_UNK)((int) 0));
+      play_sound_effect((void *)((void *) ((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) arg0), (M2C_UNK)((int) 0x3A523)))), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) 0), (M2C_UNK)((int) 0));
     }
       if (enemy_validate_retained_target((void *) arg0) != 0)
     {
@@ -1398,10 +1398,10 @@ void TObjEneBm5GibonU__sub_800D0420(u8 *arg0, s32 arg1) {
         if (!(M2C_FIELD(arg0, s32 *, 0xB0) & 4)) {
             TObjEneBm5GibonU__sub_800CCD8C(arg0);
             if (objInBand__FP7GameObjf((void *) (arg0), TObjEneBm5GibonU__data_805DA160) != 0) {
-                TBoss3Volopt__sub_8022675C((void *) copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3A828), arg0 + 0x38, 0, 0);
+                play_sound_effect((void *) copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3A828), arg0 + 0x38, 0, 0);
             }
             if (objInBand__FP7GameObjf((void *) (arg0), lbl_805DA1DC) != 0) {
-                TBoss3Volopt__sub_8022675C((void *) copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3A529), arg0 + 0x38, 0, 0);
+                play_sound_effect((void *) copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3A529), arg0 + 0x38, 0, 0);
             }
             if (M2C_FIELD(arg0, f32 *, 0xC0) > TObjEneBm5GibonU__data_805DA174) {
                 M2C_FIELD(arg0, f32 *, 0x530) *= TObjEneBm5GibonU__data_805DA1B8;

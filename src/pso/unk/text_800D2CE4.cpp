@@ -72,7 +72,7 @@ void set_state__15TObjEneMe1GiGueFPvi(void *, s32);
 s32 fn_800D2900(void *);
 s32 fn_800D2A68(void *);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
-s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+s32 play_sound_effect(void *, void *, int, int);
 void TObjPlayer__sub_800D31EC(u8 *arg0);
 s32 update_state__15TObjEnemyCustomFPv(void *);
 s32 TObjPlayer__sub_800D1E4C(void *);
@@ -94,7 +94,7 @@ s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 void refresh_lobby_state__10TObjPlayerFPv(void *);
 s32 advance_animation_playback(void *);
 void send_entity_set_flags__6TLobbyFPv(void *);
-s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+s32 play_sound_effect(void *, void *, int, int);
 extern u8 lbl_8049426C[];
 extern s32 lbl_805D5208;
 extern const f32 lbl_805DA27C;
@@ -165,7 +165,7 @@ void TObjPlayer__sub_800D2F6C(Ene_800D2F6C *arg0) {
             create_breakup_mdl__12TBoss3VoloptFiiiii(lbl_805D5208, lbl_8049426C, arg0->f24, arg0->v2FC, arg0->f60);
             send_entity_set_flags__6TLobbyFPv(arg0);
             trigger_dell_biter_events__10TObjPlayerFPv(arg0->v2FC);
-            TBoss3Volopt__sub_8022675C((void *)copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003AD10), arg0->pos, 0, 0);
+            play_sound_effect((void *)copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003AD10), arg0->pos, 0, 0);
             queue_destruction__7TObjectFv(arg0);
         }
         break;
@@ -205,7 +205,7 @@ void TObjPlayer__sub_800D31EC(u8 *arg0) {
       fn_800D2900((void *) arg0);
     }
     *((s16 *) (((s8 *) arg0) + 0x33E)) = (s16) (*((s16 *) (((s8 *) arg0) + 0x32C)));
-    TBoss3Volopt__sub_8022675C((void *) copy_target_state__14TObjEnePanarmsFPvPv((void *) arg0, (int) 0x4003AD0F), (void *) (arg0 + 0x38), (int) 0, (int) 0);
+    play_sound_effect((void *) copy_target_state__14TObjEnePanarmsFPvPv((void *) arg0, (int) 0x4003AD0F), (void *) (arg0 + 0x38), (int) 0, (int) 0);
     if (!((*((s32 *) (((s8 *) arg0) + 0x388))) & 0x40000))
     {
       set_state__15TObjEneMe1GiGueFPvi((void *)((void *) arg0), (s32)((int) 4));

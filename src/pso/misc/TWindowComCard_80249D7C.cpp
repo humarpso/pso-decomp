@@ -63,7 +63,7 @@ extern s32 lbl_804CE950[];
 extern const f32 lbl_805DCBD0;
 M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *, int, f32);
-M2C_UNK TWindowSubStatusDisp__sub_80257C28(void *, void *);
+M2C_UNK update_window_entry_list(void *, void *);
 void TWindowComCard__sub_80249E24(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 extern struct Obj054_80249DE4 *TWindowCtrl__data_805D63F8;
@@ -100,7 +100,7 @@ void TWindowComCard__sub_80249E24(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x44) = (f32) M2C_FIELD(arg0, f32 *, 0x34);
     initialize_subwindow__9TWindowDDFPv((void *)(arg0), (int) (temp_r4), (f32) (temp_f1));
     update_fade__17TWindowSubComCardFPv((void *) (arg0));
-    TWindowSubStatusDisp__sub_80257C28((void *) (arg0), (void *) (arg0 + 0x24));
+    update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
 }
 
 void *TWindowComCard__sub_80249E80(void *arg0, s16 arg1) {

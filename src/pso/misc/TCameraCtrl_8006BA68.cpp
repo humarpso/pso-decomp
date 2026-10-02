@@ -253,7 +253,7 @@ s32 clamp_distance__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
 void* init_defaults__11TCameraCtrlFPv(void* a0);
 int TCameraCtrl__sub_80068714(void);
 s32 angle_difference_abs(s32, s32);
-s32 TObjPlayer__sub_801423A4(s32, s32, s32);
+s32 approach_angle_limited(s32, s32, s32);
 void *__nw__7TObjectFUl(int);
 void *reset__11TCameraCtrlFPv(void *);
 
@@ -325,7 +325,7 @@ s32 clamp_distance__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
     if (angle_difference_abs(arg1, arg0) < (s32) (arg2 * 0x7F)) {
         return arg1;
     }
-    return TObjPlayer__sub_801423A4(arg0, arg1, arg2 * 0x7F);
+    return approach_angle_limited(arg0, arg1, arg2 * 0x7F);
 }
 
 void set_scripted_camera_pose(const Vec* position, const Vec* target, const CameraAngles* angles) {

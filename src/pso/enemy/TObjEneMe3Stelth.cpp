@@ -55,17 +55,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void play_hit_effect__16TObjEneMe3StelthFi(s32 arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 M2C_UNK spawn_particle_effect(s32, M2C_UNK);
 s32 TObjEneMe3Stelth__sub_800F0B4C(s32, s32);
 
 void play_hit_effect__16TObjEneMe3StelthFi(s32 arg0) {
     if (TObjEneMe3Stelth__sub_800F0B4C(arg0, arg0 + 0x38) != 0) {
-        TBoss3Volopt__sub_8022675C(0x3A836, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x3A836, arg0 + 0x38, 0, 0);
         return;
     }
     spawn_particle_effect(arg0 + 0x38, 0xF3);
-    TBoss3Volopt__sub_8022675C(0x3A836, arg0 + 0x38, 0, 0);
+    play_sound_effect(0x3A836, arg0 + 0x38, 0, 0);
 }
 
 }
@@ -85,7 +85,7 @@ M2C_UNK transition_enemy_state(void *, M2C_UNK);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 s32 TObjEneMe3SinowZoa__sub_800D7310(void *, f32);
 M2C_UNK advance_animation_playback();
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK, s32);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 
 s32 is_split_screen();
@@ -137,7 +137,7 @@ void exec__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
         temp_r7 = M2C_FIELD(arg0, s32 *, 0x3CC) | 1;
         M2C_FIELD(arg0, s32 *, 0x3CC) = temp_r7;
         M2C_FIELD(arg0, s32 *, 0x424) = 0;
-        TBoss3Volopt__sub_8022675C(0x3B23B, arg0 + 0x38, 0, 0, temp_r7);
+        play_sound_effect(0x3B23B, arg0 + 0x38, 0, 0, temp_r7);
         return;
     case 3:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x424) == 3) {

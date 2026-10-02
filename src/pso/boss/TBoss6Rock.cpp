@@ -61,7 +61,7 @@ extern const f32 lbl_805DFF74;
 extern const f32 lbl_805DFF78;
 void TBoss6Rock__sub_80353FF0(u8 *arg0);
 M2C_UNK spawn_particle_effect(void *, int);
-s32 TBoss3Volopt__sub_8022675C(s32, u32, int, s32);
+s32 play_sound_effect(s32, u32, int, s32);
 M2C_UNK TBoss6PlotFalz__sub_802ABE3C(void *, int, int, f32);
 M2C_UNK TBoss6Rock__sub_80353F5C(void *);
 void TBoss6Rock__sub_803542E8(void *, s32);
@@ -419,7 +419,7 @@ void TBoss6Rock__sub_80354494(u8 *arg0) {
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0xC8) != 2) {
         TBoss6Rock__sub_8035A460(arg0 + 0xD4, M2C_FIELD(arg0, s32 *, 0xB4));
-        TBoss3Volopt__sub_8022675C(0x4006AB1F, (u32) (arg0 + 0x38), 0, 0);
+        play_sound_effect(0x4006AB1F, (u32) (arg0 + 0x38), 0, 0);
         release_object__10TBoss6RockFPv((void*)(arg0));
         TBoss6Rock__sub_80353FF0((u8 *)(arg0));
         M2C_FIELD(arg0, s32 *, 0xC4) = 0;
@@ -450,7 +450,7 @@ void TBoss6Rock__sub_80354520(u8 *arg0) {
         M2C_FIELD(arg0, f32 *, 0xCC) = (f32) TBoss6Rock__data_805DFF50;
         TBoss6Rock__sub_803542E8((void *)((void *) (arg0)), (s32)((int) (1)));
         TBoss6Rock__sub_80353F5C((void *) (arg0));
-        TBoss3Volopt__sub_8022675C((s32)((int) (0x4006B51E)), (u32)((void *) (arg0 + 0x38)), (int)((int) (0)), (s32)((int) (0)));
+        play_sound_effect((s32)((int) (0x4006B51E)), (u32)((void *) (arg0 + 0x38)), (int)((int) (0)), (s32)((int) (0)));
         spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x220));
         spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x222));
         TBoss6PlotFalz__sub_802ABE3C((void *) (arg0 + 0x38), (int) (0xC0), (int) (0xF), (f32) (lbl_805DFF54));

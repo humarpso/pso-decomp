@@ -36,7 +36,7 @@ extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 f32 TObjEneEpsilonGuard__vt20(s32 arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *dispatch_shared_handler_a__6TLobbyFPv(s32);
-s32 TBoss3Volopt__sub_8022675C(s32, u32, int, s32);
+s32 play_sound_effect(s32, u32, int, s32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8035DB70___vt__9TBoss6DPB __vt__9TBoss6DPB;
 extern s32 lbl_805D4450;
@@ -67,7 +67,7 @@ void run_task__9TBoss6DPBFv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) + 1);
         if ((f32) M2C_FIELD(arg0, s32 *, 0x30) > lbl_805E01C8) {
             fn_8035D924(arg0);
-            TBoss3Volopt__sub_8022675C(0x40069411, (u32) (arg0 + 0x20), 0, 0);
+            play_sound_effect(0x40069411, (u32) (arg0 + 0x20), 0, 0);
             fn_8035D8B0((W_8035D8B0 *)arg0);
             queue_destruction__7TObjectFv(arg0);
         }
@@ -99,7 +99,7 @@ u8 *__ct__9TBoss6DPBFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
     if (lbl_805E01CC == temp_f1) {
         M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805E01D4;
     }
-    TBoss3Volopt__sub_8022675C((s32)((int) (0x40069410)), (u32)((void *) (arg0 + 0x20)), (int)((int) (0)), (s32)((int) (0)));
+    play_sound_effect((s32)((int) (0x40069410)), (u32)((void *) (arg0 + 0x20)), (int)((int) (0)), (s32)((int) (0)));
     M2C_FIELD(arg0, s32 *, 0x30) = 0;
     return arg0;
 }

@@ -90,9 +90,9 @@ struct Smp_803D7D30 {
 };
 
 extern "C" {
-void TObjPlayer__sub_803D7A54(void *, s32, s32 count, f32 t, void *, void *, void *);
-void TObjPlayer__sub_803D6DDC(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
-void TObjPlayer__sub_803D7A54(void *, s32, s32 count, f32 t, void *, void *, void *);
+void find_motion_key_interval(void *, s32, s32 count, f32 t, void *, void *, void *);
+void interpolate_motion_vector_keys(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
+void find_motion_key_interval(void *, s32, s32 count, f32 t, void *, void *, void *);
 extern const f32 lbl_805E0E50;
 void TObjPlayer__sub_803D6E8C(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
 void C_MTXLookAt(void *, void *, void *, void *);
@@ -160,10 +160,10 @@ s32 TObjPlayer__sub_803D6D0C(s32 arg0);
 s32 TObjPlayer__sub_803D7FD0(void);
 s32 TObjPlayer__sub_803D7FD8(void);
 extern u8 *lbl_805D76BC;
-void TObjPlayer__sub_803D7BB0(int arg0, f32 farg0);
+void bind_motion_channel_samplers(int arg0, f32 farg0);
 void TObjPlayer__sub_803D7784(void);
 extern u8 *lbl_805D76BC;
-s32 TObjPlayer__sub_803D7D30(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
+s32 sample_motion_node_transform(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 }
 
 extern "C" {
@@ -290,7 +290,7 @@ s32 TObjPlayer__sub_803D6D0C(s32 arg0) {
 
 #pragma push
 #pragma scheduling off
-void TObjPlayer__sub_803D6DDC(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
+void interpolate_motion_vector_keys(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_803D6DDC, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_803D6DDC, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_803D6DDC, sp10) == 0x8) ? 1 : -1];
@@ -298,7 +298,7 @@ void TObjPlayer__sub_803D6DDC(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     f32 temp_f2;
     f32 temp_f2_2;
     f32 temp_f2_3;
-    TObjPlayer__sub_803D7A54(arg0, 0x10, arg1, farg0, &stack.spC, &stack.sp8, &stack.sp10);
+    find_motion_key_interval(arg0, 0x10, arg1, farg0, &stack.spC, &stack.sp8, &stack.sp10);
     temp_f2 = M2C_FIELD(stack.spC, f32 *, 4);
     M2C_FIELD(arg2, f32 *, 0) = (f32) (temp_f2 + (stack.sp10 * (M2C_FIELD(stack.sp8, f32 *, 4) - temp_f2)));
     temp_f2_2 = M2C_FIELD(stack.spC, f32 *, 8);
@@ -317,7 +317,7 @@ void TObjPlayer__sub_803D6E8C(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     Stack_803D6E8C stack;
     f32 temp_f2;
     f32 temp_f2_2;
-    TObjPlayer__sub_803D7A54(arg0, 0x10, arg1, farg0, &stack.spC, &stack.sp8, &stack.sp10);
+    find_motion_key_interval(arg0, 0x10, arg1, farg0, &stack.spC, &stack.sp8, &stack.sp10);
     temp_f2 = M2C_FIELD(stack.spC, f32 *, 4);
     M2C_FIELD(arg2, f32 *, 0) = (f32) (temp_f2 + (stack.sp10 * (M2C_FIELD(stack.sp8, f32 *, 4) - temp_f2)));
     temp_f2_2 = M2C_FIELD(stack.spC, f32 *, 8);
@@ -330,9 +330,9 @@ void TObjPlayer__sub_803D6E8C(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
 #pragma scheduling off
 void TObjPlayer__sub_803D749C(u8 *arg0, f32 farg0) {
     TBoss8Dragon__sub_803D78A8((s32)((int) (1)));
-    TObjPlayer__sub_803D7BB0((int)((int) (M2C_FIELD(arg0, s32 *, 4))), (f32) (M2C_FIELD(arg0, f32 *, 0xC)));
+    bind_motion_channel_samplers((int)((int) (M2C_FIELD(arg0, s32 *, 4))), (f32) (M2C_FIELD(arg0, f32 *, 0xC)));
     TBoss8Dragon__sub_803D78A8((s32)((int) (0)));
-    TObjPlayer__sub_803D7BB0((int)((int) (M2C_FIELD(arg0, s32 *, 0))), (f32) (M2C_FIELD(arg0, f32 *, 8)));
+    bind_motion_channel_samplers((int)((int) (M2C_FIELD(arg0, s32 *, 0))), (f32) (M2C_FIELD(arg0, f32 *, 8)));
     lbl_805D76B0 = farg0;
 }
 #pragma pop
@@ -485,7 +485,7 @@ void TObjPlayer__sub_803D7940(u8 *keys, u32 stride, u32 count, f32 t, u16 **k0, 
 #pragma push
 #pragma optimize_for_size on
 #pragma use_lmw_stmw off
-void TObjPlayer__sub_803D7A54(void *keys, s32 stride, s32 count, f32 t, void *k0, void *k1, void *frac) {
+void find_motion_key_interval(void *keys, s32 stride, s32 count, f32 t, void *k0, void *k1, void *frac) {
     u32 i;
     u32 *a;
     u32 *b;
@@ -513,11 +513,11 @@ void TObjPlayer__sub_803D7A54(void *keys, s32 stride, s32 count, f32 t, void *k0
 #pragma scheduling off
 void TObjPlayer__sub_803D7B68(s32 arg0, f32 farg0) {
     TBoss8Dragon__sub_803D78A8((s32)((int) (0)));
-    TObjPlayer__sub_803D7BB0((int)((int)((void *) (arg0))), (f32) (farg0));
+    bind_motion_channel_samplers((int)((int)((void *) (arg0))), (f32) (farg0));
 }
 #pragma pop
 
-void TObjPlayer__sub_803D7BB0(int arg0, f32 farg0) {
+void bind_motion_channel_samplers(int arg0, f32 farg0) {
     s32 temp_r5;
     select_motion_sampler((M2C_UNK *)arg0, farg0);
     temp_r5 = M2C_FIELD(lbl_805D76BC, s32 *, 0x20);
@@ -549,7 +549,7 @@ void TObjPlayer__sub_803D7CA4(void *arg0) {
     struct Angles_803D7CA4 rot;
     struct Quat_803D7CA4 quat;
     s32 kind;
-    kind = TObjPlayer__sub_803D7D30((void *)(arg0), (void *)(&trans), (void *)(&rot), (void *)(&scale), (void *)(&quat));
+    kind = sample_motion_node_transform((void *)(arg0), (void *)(&trans), (void *)(&rot), (void *)(&scale), (void *)(&quat));
     TOHangerMachine01__sub_803D9C00(&trans);
     switch (kind) {
     case 0:
@@ -572,7 +572,7 @@ void TObjPlayer__sub_803D7CA4(void *arg0) {
 #pragma peephole off
 #pragma scheduling off
 #pragma use_lmw_stmw off
-s32 TObjPlayer__sub_803D7D30(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
+s32 sample_motion_node_transform(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
 #define kK ((Key_803D7D30 *)arg0)
 #define pP ((Vec_803D7D30 *)arg1)
 #define rR ((Vec_803D7D30 *)arg2)

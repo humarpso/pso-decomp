@@ -22,7 +22,7 @@ struct RecoveredGlobal_802DEDA8_lbl_8050E3B8 {
 extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 s32 is_slot_active__23TAdSinglePlyChrSelectGCFUi();
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5594(int);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5A44(int, void *, int);
 s32 TAdMultiPlyChrSelectGC__sub_802C64D0(int);
@@ -48,7 +48,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802C6848(M2C_UNK);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802DC118(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK *get_localized_text_entry(M2C_UNK, M2C_UNK);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 count_ready__22TAdMultiPlyChrSelectGCFv();
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
@@ -61,7 +61,7 @@ extern M2C_UNK TAdMultiPlyChrSelectGC__data_805DE898;
 
 void update_button_input__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     if ((TWindowShortListCtrl__check_controller_button(lbl_8050E3B8 + 0x20, 2) != 0) && (get_chr_select_state__22TAdMultiPlyChrSelectGCFv() == 0) && (TAdMultiPlyChrSelectGC__sub_802C6558() < 1)) {
-        TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
+        play_sound_effect(0x52F16, 0, 0, 0);
         M2C_FIELD(arg0, s32 *, 0x20) = 0x1B;
         return;
     }
@@ -95,7 +95,7 @@ void TAdMultiPlyChrSelectGC__sub_802DEDA8(u8 *arg0) {
     s32 var_r30;
     set_index_and_close_status__22TAdMultiPlyChrSelectGCFPvi((int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (0));
     if ((TWindowShortListCtrl__check_controller_button((void *)((void *) ((u8 *)&(*(RecoveredGlobal_802DEDA8_lbl_8050E3B8 *)&lbl_8050E3B8).value + 0x20)), (M2C_UNK)((int) (2))) != 0) && (get_chr_select_state__22TAdMultiPlyChrSelectGCFv() == 0) && (TAdMultiPlyChrSelectGC__sub_802C6558() < 1)) {
-        TBoss3Volopt__sub_8022675C((M2C_UNK)((int) (0x52F16)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
+        play_sound_effect((M2C_UNK)((int) (0x52F16)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
         M2C_FIELD(arg0, s32 *, 0x20) = 0x1B;
         return;
     }

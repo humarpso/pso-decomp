@@ -65,8 +65,8 @@ void TItem__sub_80100648(void);
 void apply_switch_attack__5TItemFPvi(void *arg0, s32 arg1);
 void notify_owner__5TItemFPvi(void *arg0, s32 arg1);
 s32 PPCSync();
-s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
-s32 TLobby__sub_80101AB0();
+s32 play_sound_effect(s32, s32, s32, s32);
+s32 find_item_by_id();
 s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
 s32 set_owner_id__13TParticleCtrlFPvUs(s32, s32);
@@ -77,7 +77,7 @@ s32 test_flag_2000000__10TObjPlayerFPv(u32);
 
 void notify_owner__5TItemFPvi(void *arg0, s32 arg1) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (test_flag_2000000__10TObjPlayerFPv(M2C_FIELD(arg0, u32 *, 0xF0)) == 0)) {
-        TBoss3Volopt__sub_8022675C(arg1, M2C_FIELD(arg0, u32 *, 0xF0) + 0x38, 0, 0);
+        play_sound_effect(arg1, M2C_FIELD(arg0, u32 *, 0xF0) + 0x38, 0, 0);
     }
 }
 void apply_switch_attack__5TItemFPvi(void *arg0, s32 arg1) {

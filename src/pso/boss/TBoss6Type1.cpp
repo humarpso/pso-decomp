@@ -380,7 +380,7 @@ extern const float TBoss6Type1__data_805DE344;
 void TBoss6Type1__sub_802B6B34(Boss_802B6B34 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_random_float__8TObjFishFv(f32);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int, void *);
+M2C_UNK play_sound_effect(int, void *, int, int, void *);
 void TBoss6PlotFalz__sub_802ABE3C(void *, int, int, f32);
 int TBoss6Type1__sub_802B60E8(void*);
 void fn_8035648C(void *, void *, int, f32);
@@ -1024,7 +1024,7 @@ extern const f32 lbl_805DE3D0;
 void render_shadows__11TBoss6Type1Fv(u8 *arg0);
 f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
 s32 angle_difference_abs(int, int);
-s32 TObjPlayer__sub_801423A4(int, int, int);
+s32 approach_angle_limited(int, int, int);
 extern const f64 TBoss6Type1__data_80471038;
 extern const f32 TBoss6Type1__data_805DE2D0;
 extern const f32 TBoss6Type1__data_805DE310;
@@ -1064,7 +1064,7 @@ void set_sync_data__11TBoss6Type1FPvPv(void *arg0, void *arg1);
 void step_and_send_60__11TBoss6Type1FPv(void* p);
 void update_parts_flags__11TBoss6Type1FPv(void *arg0);
 void update_position__11TBoss6Type1FPv(u8 *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int, void *);
+M2C_UNK play_sound_effect(int, void *, int, int, void *);
 s32 TBoss6Type1__ct(s32, s32, s32);
 M2C_UNK TBoss6Type1__sub_802B909C(void *, M2C_UNK *);
 M2C_UNK TBoss6Type1__sub_802B9178(void *, M2C_UNK, M2C_UNK *);
@@ -1200,7 +1200,7 @@ void TBoss6Type1__sub_802B73AC(Boss_802B73AC *self) {
         }
         fn_8035648C(self, &p, flag, sc);
         if (flag != 0) {
-            ((M2C_UNK (*)(int, void *, int, int))TBoss3Volopt__sub_8022675C)(0x4003B210, &p, 0, 0);
+            ((M2C_UNK (*)(int, void *, int, int))play_sound_effect)(0x4003B210, &p, 0, 0);
             TBoss6PlotFalz__sub_802ABE3C(&p, 0xC0, 0xF, TBoss6Type1__data_805DE318);
         }
     }
@@ -1393,7 +1393,7 @@ void TBoss6Type1__sub_802B7D74(u8 *arg0) {
     {
       var_r5 = 0x1B4;
     }
-    *((s32 *) (((s8 *) arg0) + 0x60)) = TObjPlayer__sub_801423A4(new_var, (int) var_r4, (int) var_r5);
+    *((s32 *) (((s8 *) arg0) + 0x60)) = approach_angle_limited(new_var, (int) var_r4, (int) var_r5);
   }
 }
 
@@ -1538,7 +1538,7 @@ extern const f32 TBoss6Type1__data_805DE2E4;
 void TBoss6Type1__vt60(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFFDFF);
     M2C_FIELD(arg0, f32 *, 0x4D4) = (f32) TBoss6Type1__data_805DE2E4;
-    TBoss3Volopt__sub_8022675C(0x39E01, arg0 + 0x584, 0, 1, arg0);
+    play_sound_effect(0x39E01, arg0 + 0x584, 0, 1, arg0);
 }
 
 void TBoss6Type1__sub_802B8E1C(T1_802B8E1C *arg0) {

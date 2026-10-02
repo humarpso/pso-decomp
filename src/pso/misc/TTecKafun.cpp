@@ -15,17 +15,17 @@ extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK spawn_particle_effect(void *, int);
 u32 find_entity_by_id(int);
-M2C_UNK TObjPlayer__sub_8022BD74(void *);
+M2C_UNK apply_technique_to_area_targets(void *);
 void run_task__9TTecKafunFv(u8 *arg0);
 u16 obj_getField1c(void *);
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
-u8 * fn_8022C2A8(void *, s32, s32, s32, s16);
+s32 play_sound_effect(s32, u32, s16, s32);
+u8 * construct_area_technique_base(void *, s32, s32, s32, s16);
 extern M2C_UNK __vt__9TTecKafun[];
 extern s32 lbl_805D3E30;
 u8 *TTecKafun__sub_802A9948(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5, f32 farg0, f32 farg1);
 u16 obj_getField1c(void *);
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
-u8 * fn_8022C2A8(void *, s32, s32, s32, s16);
+s32 play_sound_effect(s32, u32, s16, s32);
+u8 * construct_area_technique_base(void *, s32, s32, s32, s16);
 extern M2C_UNK __vt__9TTecKafun[];
 extern s32 lbl_805D3E30;
 u8 *TTecKafun__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s16 arg6, f32 farg0, f32 farg1);
@@ -66,14 +66,14 @@ void run_task__9TTecKafunFv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xFC) == 1) {
         spawn_particle_effect((void *) (arg0 + 0x20), (int) (M2C_FIELD(arg0, s32 *, 0xF4)));
     }
-    TObjPlayer__sub_8022BD74((void *) (arg0));
+    apply_technique_to_area_targets((void *) (arg0));
     queue_destruction__7TObjectFv((void *) (arg0));
 }
 
 u8 *TTecKafun__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s16 arg6, f32 farg0, f32 farg1) {
     u8 *temp_r3;
     u8 *temp_r3_2;
-    fn_8022C2A8(arg0, arg1, arg2, arg2, arg6);
+    construct_area_technique_base(arg0, arg1, arg2, arg2, arg6);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802A9880___vt__9TTecKafun *)&__vt__9TTecKafun).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E30;
     M2C_FIELD(arg0, f32 *, 0xEC) = farg0;
@@ -85,7 +85,7 @@ u8 *TTecKafun__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s1
     if (temp_r3 != NULL) {
         M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0xA4), f32 *, 0xC) = farg1;
     }
-    TBoss3Volopt__sub_8022675C(0x4002A50A, (u32) (arg0 + 0x20), 0, 0);
+    play_sound_effect(0x4002A50A, (u32) (arg0 + 0x20), 0, 0);
     temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x1C));
     if (temp_r3_2 != NULL) {
         M2C_FIELD(arg0, u16 *, 0xB4) = obj_getField1c(temp_r3_2);
@@ -96,7 +96,7 @@ u8 *TTecKafun__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s1
 u8 *TTecKafun__sub_802A9948(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5, f32 farg0, f32 farg1) {
     u8 *temp_r3;
     u8 *temp_r3_2;
-    fn_8022C2A8(arg0, arg1, arg2, arg2, arg5);
+    construct_area_technique_base(arg0, arg1, arg2, arg2, arg5);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802A9948___vt__9TTecKafun *)&__vt__9TTecKafun).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E30;
     M2C_FIELD(arg0, f32 *, 0xEC) = farg0;
@@ -107,7 +107,7 @@ u8 *TTecKafun__sub_802A9948(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s1
     if (temp_r3 != NULL) {
         M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0xA4), f32 *, 0xC) = farg1;
     }
-    TBoss3Volopt__sub_8022675C(0x4002A50A, (u32) (arg0 + 0x20), 0, 0);
+    play_sound_effect(0x4002A50A, (u32) (arg0 + 0x20), 0, 0);
     temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x1C));
     if (temp_r3_2 != NULL) {
         M2C_FIELD(arg0, u16 *, 0xB4) = obj_getField1c(temp_r3_2);

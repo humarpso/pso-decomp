@@ -43,7 +43,7 @@ void dispatch_state__9TWindowDDFv(void);
 void set_state__9TWindowDDFPv(void* p);
 int test_input_flag_4__9TWindowDDFPv(void* p);
 void update_state__9TWindowDDFv(void);
-int TBoss3Volopt__sub_8022675C(void*, void*, void*, void*);
+int play_sound_effect(void*, void*, void*, void*);
 M2C_UNK TWindowDD__sub_8034435C();
 M2C_UNK TWindowDD__sub_80344568();
 M2C_UNK TWindowDD__sub_80344774();

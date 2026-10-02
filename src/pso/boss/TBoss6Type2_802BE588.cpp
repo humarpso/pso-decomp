@@ -32,7 +32,7 @@ s32 TBoss6Type2__sub_802BD014(void * a0, s32 a1);
 M2C_UNK spawn_particle_effect(void *, int);
 u32 get_player_by_client_id(int);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 s32 check_target__11TBoss6Type2FPv(void *);
 s32 is_target_valid__11TBoss6Type2FPv(void *);
 extern const f32 lbl_805DE4E0;
@@ -57,7 +57,7 @@ void update_state_34__11TBoss6Type2FPv(void* p);
 void update_timer__11TBoss6Type2FPv(u8 *arg0);
 void update_when_timer_zero__11TBoss6Type2FPv(void* p);
 void update_zako_timer__11TBoss6Type2FPv(void *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK TBoss6Type2__sub_802B9BBC(void *, M2C_UNK);
 s32 TBoss6Type2__sub_802B9C00(void *, s32);
 s32 TBoss6Type2__sub_802BA944(void *);
@@ -232,7 +232,7 @@ void update_attack_timer__11TBoss6Type2FPv(u8 *arg0) {
     if (temp_r0 < 0) {
         if (check_target__11TBoss6Type2FPv((void *) (arg0)) != 0) {
             if (is_target_valid__11TBoss6Type2FPv((void *) (arg0)) == 0) {
-                TBoss3Volopt__sub_8022675C((int) (0x40069E13), (void *) (arg0 + 0x38), (int) (0), (int) (1));
+                play_sound_effect((int) (0x40069E13), (void *) (arg0 + 0x38), (int) (0), (int) (1));
             }
             temp_r3 = get_player_by_client_id((int) (M2C_FIELD(arg0, u16 *, 0x55C)));
             if (temp_r3 != 0U) {
@@ -265,7 +265,7 @@ void TBoss6Type2__sub_802BEC28(u8 *arg0) {
         M2C_FIELD(arg0, f32 *, 0x41C) = (f32) lbl_805DE4E4;
         if (check_target__11TBoss6Type2FPv((void *) (arg0)) != 0) {
             if (is_target_valid__11TBoss6Type2FPv((void *) (arg0)) == 0) {
-                TBoss3Volopt__sub_8022675C((int) (0x40069E13), (void *) (arg0 + 0x38), (int) (0), (int) (1));
+                play_sound_effect((int) (0x40069E13), (void *) (arg0 + 0x38), (int) (0), (int) (1));
             }
             temp_r3 = get_player_by_client_id((int) ((s32) M2C_FIELD(arg0, u16 *, 0x55C)));
             if (temp_r3 != 0U) {
@@ -303,7 +303,7 @@ void update_attack_sequence__11TBoss6Type2FPv(u8 *arg0) {
     s32 temp_r0_2;
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0x460) == (s32) (M2C_FIELD(arg0, s32 *, 0x45C) - 0x3C)) {
-        TBoss3Volopt__sub_8022675C((int)(0x69C0F), (void *)(arg0 + 0x38), (int)(0), (int)(1));
+        play_sound_effect((int)(0x69C0F), (void *)(arg0 + 0x38), (int)(0), (int)(1));
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x460) == (s32) (M2C_FIELD(arg0, s32 *, 0x45C) - 0x78)) {
         TBoss6Type2__sub_802BAD04(arg0);
@@ -349,7 +349,7 @@ void update_state_34__11TBoss6Type2FPv(void* p) { if (*(int*)((char*)p + 0x460) 
 void init_attack_timers__11TBoss6Type2FPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x45C) = 0xB4;
     M2C_FIELD(arg0, s32 *, 0x460) = 0xB4;
-    TBoss3Volopt__sub_8022675C((int)(0x4006970E), (void *)(arg0 + 0x38), (int)(0), (int)(1));
+    play_sound_effect((int)(0x4006970E), (void *)(arg0 + 0x38), (int)(0), (int)(1));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x418) == 0) {
         TBoss6Type2__sub_802BB7C0((void *)(arg0));
         return;
@@ -393,7 +393,7 @@ void update_timer__11TBoss6Type2FPv(u8 *arg0) {
     s32 temp_r0;
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0x460) == (s32) (M2C_FIELD(arg0, s32 *, 0x45C) - 7)) {
-        TBoss3Volopt__sub_8022675C((int) (0x4006A604), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4006A604), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x460) - 1;
     M2C_FIELD(arg0, s32 *, 0x460) = temp_r0;

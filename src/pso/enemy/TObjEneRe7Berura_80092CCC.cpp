@@ -140,7 +140,7 @@ void TObjEneDD__sub_800BACA4(void *arg0, f32 farg0, f32 farg1, f32 farg2);
 void clear_attack_receipts(void *);
 s32 transition_enemy_state(void *, s32);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
-s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+s32 play_sound_effect(s32, void *, s32, s32);
 s32 advance_animation_playback(void *);
 extern const f32 TObjEneRe7Berura__data_805D9738;
 void TObjEneRe7Berura__sub_80093470(Berura_80093470 *obj, s32 mode);
@@ -224,7 +224,7 @@ void TObjEneRe7Berura__sub_80093470(Berura_80093470 *obj, s32 mode) {
         obj->m94();
         self->field3C0 &= ~7;
         advance_animation_playback(self);
-        TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv(self, 0x4003A826), &self->pos, 0, 0);
+        play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(self, 0x4003A826), &self->pos, 0, 0);
         set_active__9TObjEneDDFPv(self);
         break;
     case 3:

@@ -49,7 +49,7 @@ s32 render_forward__20TWindowSubStatusDispFPv();
 s32 reset_transform_state__10TObjPlayerFv();
 s32 TWindowSubStatusDisp__sub_803DEE6C(int);
 s32 get_player__20TWindowSubStatusDispFv();
-s32 TWindowSubComCard__sub_803DEECC(void *, f32);
+s32 draw_textured_quad_at_depth(void *, f32);
 s32 TWindowSubStatusDisp__sub_803DF160(int, void *);
 extern const f32 lbl_805DA978;
 extern const f32 lbl_805DA97C;
@@ -77,22 +77,22 @@ extern M2C_UNK *tl_02;
 void TFogCtrl__sub_800FBB68(void);
 u8 TWindowSubStatusDisp__sub_800FC220(s32);
 s32 TWindowSubStatusDisp__sub_800FC248(s32);
-void TWindowSubStatusDisp__sub_800FC310(s32, Pos_800FBEA8 *);
+void build_small_font_glyph_quad(s32, Pos_800FBEA8 *);
 s32 render_forward__20TWindowSubStatusDispFPv();
 s32 reset_transform_state__10TObjPlayerFv();
 s32 TWindowSubStatusDisp__sub_803DEE6C(int);
 s32 get_player__20TWindowSubStatusDispFv();
-s32 TWindowSubComCard__sub_803DEECC(void *, f32);
+s32 draw_textured_quad_at_depth(void *, f32);
 s32 TWindowSubStatusDisp__sub_803DF160(int, void *);
 void TWindowSubStatusDisp__sub_800FBEA8(void *color, s16 value, u16 digits, f32 x, f32 y, f32 scale);
 u8 TWindowSubStatusDisp__sub_800FC220(s32);
 s32 TWindowSubStatusDisp__sub_800FC248(s32);
-void TWindowSubStatusDisp__sub_800FC310(s32, Pos_800FBEA8 *);
+void build_small_font_glyph_quad(s32, Pos_800FBEA8 *);
 s32 render_forward__20TWindowSubStatusDispFPv();
 s32 reset_transform_state__10TObjPlayerFv();
 s32 TWindowSubStatusDisp__sub_803DEE6C(int);
 s32 get_player__20TWindowSubStatusDispFv();
-s32 TWindowSubComCard__sub_803DEECC(void *, f32);
+s32 draw_textured_quad_at_depth(void *, f32);
 s32 TWindowSubStatusDisp__sub_803DF160(int, void *);
 void TLobby__sub_800FBFD8(void *color, const char *s, f32 x, f32 y, f32 scale);
 void TLobby__sub_800F9DF4(void *, void *);
@@ -286,7 +286,7 @@ void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg
     stack.sp1C = lbl_805DA984;
     stack.sp20 = lbl_805DA988;
     stack.sp24 = lbl_805DA98C;
-    TWindowSubComCard__sub_803DEECC((void *) (&stack.sp8), (f32) (farg2));
+    draw_textured_quad_at_depth((void *) (&stack.sp8), (f32) (farg2));
     temp_f8 = stack.sp8 + lbl_805DA990;
     temp_f7 = stack.spC + lbl_805DA994;
     stack.sp8 = temp_f8;
@@ -297,7 +297,7 @@ void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg
     stack.sp1C = lbl_805DA9A4;
     stack.sp20 = lbl_805DA9A8;
     stack.sp24 = lbl_805DA9AC;
-    TWindowSubComCard__sub_803DEECC((void *) (&stack.sp8), (f32) (farg2));
+    draw_textured_quad_at_depth((void *) (&stack.sp8), (f32) (farg2));
     get_player__20TWindowSubStatusDispFv();
 }
 
@@ -314,8 +314,8 @@ void TWindowSubStatusDisp__sub_800FBEA8(void *color, s16 value, u16 digits, f32 
         x -= TWindowSubStatusDisp__sub_800FC220(id);
         pos.x = x;
         pos.y = y;
-        TWindowSubStatusDisp__sub_800FC310(id, &pos);
-        TWindowSubComCard__sub_803DEECC(&pos, scale);
+        build_small_font_glyph_quad(id, &pos);
+        draw_textured_quad_at_depth(&pos, scale);
         value /= 10;
     }
     get_player__20TWindowSubStatusDispFv();
@@ -333,8 +333,8 @@ void TLobby__sub_800FBFD8(void *color, const char *s, f32 x, f32 y, f32 scale) {
         pos.x = x;
         pos.y = y;
         id = TWindowSubStatusDisp__sub_800FC248(c);
-        TWindowSubStatusDisp__sub_800FC310((s32)(id), (Pos_800FBEA8 *)(&pos));
-        TWindowSubComCard__sub_803DEECC(&pos, scale);
+        build_small_font_glyph_quad((s32)(id), (Pos_800FBEA8 *)(&pos));
+        draw_textured_quad_at_depth(&pos, scale);
         x += TWindowSubStatusDisp__sub_800FC220(id);
     }
     get_player__20TWindowSubStatusDispFv();

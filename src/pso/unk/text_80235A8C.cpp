@@ -8,7 +8,7 @@ typedef char RecoveredGlobal_80235A8C_lbl_804CCA78_size[sizeof(RecoveredGlobal_8
 
 extern "C" {
 s32 update_technique_slot__10TTecRaFoieFi(int, void *, int);
-s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_80235A8C_lbl_804CCA78 lbl_804CCA78;
 u8 *TOSwitchAttack__sub_80235A8C(u8 *arg0, s32 arg1, s16 arg2, s32 arg3, s32 arg4, s32 arg5);
@@ -23,7 +23,7 @@ u8 *TOSwitchAttack__sub_80235A8C(u8 *arg0, s32 arg1, s16 arg2, s32 arg3, s32 arg
     M2C_FIELD(arg0, s16 *, 0x1C) = arg2;
     M2C_FIELD(arg0, s16 *, 0x1E) = 0;
     M2C_FIELD(arg0, s32 *, 0x20) = arg3;
-    M2C_FIELD(arg0, s32 *, 0x24) = TBoss3Volopt__sub_8022675C((int) (M2C_FIELD(arg0, s32 *, 0x20)), (void *) (arg1), (int) (0), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x24) = play_sound_effect((int) (M2C_FIELD(arg0, s32 *, 0x20)), (void *) (arg1), (int) (0), (int) (0));
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x24);
     if ((temp_r3 >= 0) && (arg4 != 0)) {
         update_technique_slot__10TTecRaFoieFi((int) (temp_r3), (void *) (arg4), (int) (0));

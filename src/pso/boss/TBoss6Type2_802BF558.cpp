@@ -16,13 +16,13 @@ typedef struct S_802BF6CC {
 
 extern "C" {
 M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 s32 TBoss6Type2__sub_802BD014(void * a0, s32 a1);
 void TBoss6Type2__sub_802BF834(u8 *arg0);
 int TBoss6Type2__sub_802BDC5C(void*);
 int TBoss6Type2__sub_802BDDF8(void*, void*);
 void TBoss6Type2__sub_802BF65C(u8 *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 extern s32 lbl_805D6750;
 extern u8 lbl_805D6754;
 extern const f32 lbl_805DE3F4;
@@ -48,7 +48,7 @@ void tick_action_timer__11TBoss6Type2FPv(void *arg0);
 void tick_timer_460__11TBoss6Type2FPv(void *arg0);
 void update_zako_phase__11TBoss6Type2FPv(void *arg0);
 void update_zako_spawn_timer__11TBoss6Type2FPv(void *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK TBoss6Type2__sub_802B9BBC(int, int);
 s32 TBoss6Type2__sub_802B9C00(void *, s32);
 s32 TBoss6Type2__sub_802BA944(void *);
@@ -96,7 +96,7 @@ void start_death_sequence__11TBoss6Type2FPv(u8 *arg0) {
         var_r3 = (unsigned char *) ((void *)0x68523);
         break;
     }
-    TBoss3Volopt__sub_8022675C((int) (var_r3), (void *) (temp_r31 + 0x38), (int) (0), (int) (1));
+    play_sound_effect((int) (var_r3), (void *) (temp_r31 + 0x38), (int) (0), (int) (1));
     TBoss6Type2__sub_802B9BBC((int) (temp_r31), (int) (0xD));
 }
 
@@ -192,8 +192,8 @@ void init_attack_params__11TBoss6Type2FPv(void *arg0) {
 void TBoss6Type2__sub_802BF834(u8 *arg0) {
     s32 temp_r0;
     if (((s32) M2C_FIELD(arg0, s32 *, 0x460) == (s32) (M2C_FIELD(arg0, s32 *, 0x45C) - 0x1E)) && ((u16) M2C_FIELD(arg0, u16 *, 0x466) != 0xFFFF)) {
-        TBoss3Volopt__sub_8022675C((int) (0x4006A10A), (void *) (arg0 + 0x38), (int) (0), (int) (1));
-        TBoss3Volopt__sub_8022675C((int) (0x69E27), (void *) (arg0 + 0x38), (int) (0), (int) (1));
+        play_sound_effect((int) (0x4006A10A), (void *) (arg0 + 0x38), (int) (0), (int) (1));
+        play_sound_effect((int) (0x69E27), (void *) (arg0 + 0x38), (int) (0), (int) (1));
         spawn_particle_effect_with_flags((void *) (arg0 + 0x62C), (int) (0x223), (int) (0x40));
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x460) - 1;
@@ -235,7 +235,7 @@ void TBoss6Type2__sub_802BF9A8(u8 *arg0) {
     lbl_805D6750 = (s32) (lbl_805DE4DC / lbl_805DE3F4);
   }
   *((0, (s32 *) (((s8 *) arg0) + 0x460))) = (*((s32 *) (((s8 *) arg0) + 0x45C)) = (s32) lbl_805D6750);
-  TBoss3Volopt__sub_8022675C((int) 0x69126, (void *) (arg0 + 0x38), (int) 0, (int) 1);
+  play_sound_effect((int) 0x69126, (void *) (arg0 + 0x38), (int) 0, (int) 1);
 }
 
 void TBoss6Type2__sub_802BFA1C(u8 *arg0) {
@@ -245,7 +245,7 @@ void TBoss6Type2__sub_802BFA1C(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x460) - 1;
     M2C_FIELD(arg0, s32 *, 0x460) = temp_r0;
     if (temp_r0 < 0) {
-        TBoss3Volopt__sub_8022675C((int) (0x40069E13), (void *) (arg0 + 0x38), (int) (0), (int) (1));
+        play_sound_effect((int) (0x40069E13), (void *) (arg0 + 0x38), (int) (0), (int) (1));
         TBoss6Type2__sub_802BD014((void *) (arg0), (int) (2));
     }
 }

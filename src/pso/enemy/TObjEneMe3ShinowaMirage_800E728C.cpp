@@ -63,7 +63,7 @@ extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 s32 fn_800B91F4(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+s32 play_sound_effect(s32, u32, s16, s32);
 M2C_UNK TObjEneDD__sub_800BA438(void *, void *);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 extern const f32 TObjEneMe3ShinowaMirage__data_805DA5DC;
@@ -159,7 +159,7 @@ void TObjEneMe3ShinowaMirage__sub_800E7378(u8 *arg0) {
                 }
             }
         }
-        TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003AD13)), (u32) (arg0 + 0x38), 0, 0);
+        play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003AD13)), (u32) (arg0 + 0x38), 0, 0);
     }
 }
 #pragma pop

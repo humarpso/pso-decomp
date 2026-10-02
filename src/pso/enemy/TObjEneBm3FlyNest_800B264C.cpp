@@ -291,7 +291,7 @@ void TObjEneBm3FlyNest__sub_800B2A5C(Obj_800B2A5C *self, u8 *child);
 u8 *find_entity_by_id(u16);
 u16 get_active_id__13TObjEneBm3FlyFPv(void *);
 s32 check_v2_mode__9TObjEneDDFv();
-s32 TObjEneBm3FlyNest__sub_800B2AF4(Obj_800B2AF4 *self, u16 id);
+s32 has_free_attack_slot__17TObjEneBm3FlyNestFPvUs(Obj_800B2AF4 *self, u16 id);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
@@ -342,7 +342,7 @@ extern const f32 lbl_805D9E88;
 void TObjEneBm3FlyNest__sub_800B264C(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
-M2C_UNK TObjBoss2Tunnel__sub_8007E7D8(void *, void *, int);
+M2C_UNK rotate_xz_pair_by_angle(void *, void *, int);
 M2C_UNK spawn_particle_effect(void *, int);
 s32 get_random_scaled__9TObjEneDDFv(void *);
 f32 rand_range__9TObjEneDDFff(void *, f32, f32);
@@ -352,7 +352,7 @@ M2C_UNK spawn_dead_spot_scale15(void *, int);
 int copy_target_state__14TObjEnePanarmsFPvPv(void*);
 M2C_UNK refresh_lobby_state__10TObjPlayerFPv(void *);
 M2C_UNK advance_animation_playback();
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 f32 TBoss8Dragon__sub_803D64C0(int);
 f32 TBoss8Dragon__sub_803D64DC(int);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
@@ -533,7 +533,7 @@ void TObjEneBm3FlyNest__sub_800B2A5C(Obj_800B2A5C *self, u8 *child) {
     }
 }
 
-s32 TObjEneBm3FlyNest__sub_800B2AF4(Obj_800B2AF4 *self, u16 id) {
+s32 has_free_attack_slot__17TObjEneBm3FlyNestFPvUs(Obj_800B2AF4 *self, u16 id) {
     s32 n = 0;
     s32 i;
     for (i = 0; i < self->count; i++) {
@@ -597,7 +597,7 @@ void TObjEneBm3FlyNest__sub_800B2C24(u8 *arg0, s32 arg1) {
                 v.x = lbl_805D9D24;
                 v.y = lbl_805D9CF8;
                 v.z = lbl_805D9D28;
-                TObjBoss2Tunnel__sub_8007E7D8(&v, &v.z, M2C_FIELD(arg0, s32 *, 0x60));
+                rotate_xz_pair_by_angle(&v, &v.z, M2C_FIELD(arg0, s32 *, 0x60));
                 TBoss4Zako__sub_803D8910(&v, arg0 + 0x38);
                 spawn_dead_spot_scale15(&v, 0x32);
                 set_field_e4__10TObjPlayerFii(&v, 0x46, lbl_805D9D10);
@@ -616,7 +616,7 @@ void TObjEneBm3FlyNest__sub_800B2C24(u8 *arg0, s32 arg1) {
                 }
                 M2C_FIELD(arg0, s32 *, 0x4CC) += 1;
                 if (M2C_FIELD(arg0, s32 *, 0x4CC) >= 0x14) {
-                    TBoss3Volopt__sub_8022675C(((int (*)(void *, s32))copy_target_state__14TObjEnePanarmsFPvPv)(arg0, 0x4003AD2B), arg0 + 0x38, 0, 0);
+                    play_sound_effect(((int (*)(void *, s32))copy_target_state__14TObjEnePanarmsFPvPv)(arg0, 0x4003AD2B), arg0 + 0x38, 0, 0);
                     M2C_FIELD(arg0, s32 *, 0x4CC) = 0;
                 }
             }

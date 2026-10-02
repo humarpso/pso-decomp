@@ -43,7 +43,7 @@ extern M2C_UNK *lbl_805D4B48;
 void TBoss1Dragon__sub_8002BCE0(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
-s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 TBoss6Type1__sub_803D9370(void *, void *);
 extern M2C_UNK __vt__21TBoss1DragonEffBullet[];
@@ -56,7 +56,7 @@ s32 get_instance__12TBoss1DragonFv();
 s32 spawn_particle_effect_with_flags(void *, int, int);
 u8 * spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
-s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 extern M2C_UNK *lbl_805D4B48;
 extern const f32 lbl_805D8140;
 void run_task__21TBoss1DragonEffBulletFv(struct RecoveredFields_8002B9D0_arg0 *arg0);
@@ -126,7 +126,7 @@ void run_task__21TBoss1DragonEffBulletFv(struct RecoveredFields_8002B9D0_arg0 *a
                 queue_destruction__7TObjectFv(temp_r3_4);
                 arg0->field_44 = NULL;
             }
-            TBoss3Volopt__sub_8022675C(0x4003AD0C, &arg0->field_1C, 0, 0);
+            play_sound_effect(0x4003AD0C, &arg0->field_1C, 0, 0);
             TBoss1Dragon__sub_80027650(get_instance__12TBoss1DragonFv(), &arg0->field_1C);
         }
         if ((s32) arg0->field_34 <= 2) {
@@ -174,7 +174,7 @@ u8 *TBoss1DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     M2C_FIELD(arg0, s32 *, 0x38) = 0;
     M2C_FIELD(arg0, s32 *, 0x44) = 0;
     M2C_FIELD(arg0, s32 *, 0x48) = 0;
-    TBoss3Volopt__sub_8022675C((int) (0x4003B20B), (void *) (arg0 + 0x1C), (int) (0), (int) (0));
+    play_sound_effect((int) (0x4003B20B), (void *) (arg0 + 0x1C), (int) (0), (int) (0));
     return arg0;
 }
 

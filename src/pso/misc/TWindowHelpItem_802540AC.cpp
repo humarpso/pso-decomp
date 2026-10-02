@@ -149,10 +149,10 @@ s32 get_player_by_client_id(s16);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 M2C_UNK TWindowHelpItem__sub_802549B0(void *);
 void TWindowHelpItem__sub_80254C30(u8 *arg0);
-u8 * TLobby__sub_80101AB0(s32);
+u8 * find_item_by_id(s32);
 s32 copy_to_item_data__5TItemFPvPv(void *, void *);
 void TWindowHelpItem__set_displayed_item_by_id(u8 *arg0, s32 arg1);
-u8 * TLobby__sub_80101AB0(s32);
+u8 * find_item_by_id(s32);
 s32 copy_to_item_data__5TItemFPvPv(void *, void *);
 void TWindowHelpItem__sub_802558D0(u8 *arg0, s32 arg1);
 void set_displayed_item_colored__15TWindowHelpItemFPvUi(void *arg0, u32 arg1);
@@ -560,7 +560,7 @@ void TWindowHelpItem__set_displayed_item_by_id(u8 *arg0, s32 arg1) {
         set_displayed_item_data__15TWindowHelpItemFPvPvPv((void*)((void*)(arg0)), (void*)((void*)(NULL)), (void*)((void*)((void *)-1)));
         return;
     }
-    temp_r3 = (u8 *)(TLobby__sub_80101AB0(arg1));
+    temp_r3 = (u8 *)(find_item_by_id(arg1));
     if (temp_r3 == NULL) {
         set_displayed_item_data__15TWindowHelpItemFPvPvPv((void*)((void*)(arg0)), (void*)((void*)(NULL)), (void*)((void*)((void *) arg1)));
         return;
@@ -574,7 +574,7 @@ void TWindowHelpItem__sub_802558D0(u8 *arg0, s32 arg1) {
         set_items_and_refresh__15TWindowHelpItemFPvPvPv((void*)((void*)(arg0)), (void*)((void*)(NULL)), (void*)((void*)((void *)-1)));
         return;
     }
-    temp_r3 = (u8 *)(TLobby__sub_80101AB0(arg1));
+    temp_r3 = (u8 *)(find_item_by_id(arg1));
     if (temp_r3 == NULL) {
         set_items_and_refresh__15TWindowHelpItemFPvPvPv((void*)((void*)(arg0)), (void*)((void*)(NULL)), (void*)((void*)((void *) arg1)));
         return;

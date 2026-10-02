@@ -148,7 +148,7 @@ u8 TObjPlayer__sub_8011E29C(int);
 s32 reset_key_machine_state__10TObjPlayerFv();
 void update_battle_control_on_unlock__10TObjPlayerFPvPvPvi(void *arg0, void *arg1, void *arg2, s32 arg3);
 extern RecoveredGlobal_803589F8_lbl_804F15C8 lbl_804F15C8;
-void TObjPlayer__sub_803589F8(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
+void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 fn_800871A0(void *, void *, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -643,7 +643,7 @@ void handle_hit_effect__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32 a
         TObjPlayer__sub_800868C4(arg2, 0x18, 0, 5, 0x40);
     }
 }
-void TObjPlayer__sub_803589F8(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
+void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
     M2C_UNK (*temp_r12)(s32, u32, s32, s32);
     s32 temp_r3;
     u8 temp_r3_2;

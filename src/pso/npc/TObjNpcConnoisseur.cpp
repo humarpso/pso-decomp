@@ -97,7 +97,7 @@ struct RecoveredGlobal_801499DC___vt__18TObjNpcConnoisseur {
 extern "C" {
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 fn_80148274(void *);
-s32 fn_8014B8A4(void *);
+s32 construct_male_npc_base(void *);
 extern M2C_UNK __vt__18TObjNpcConnoisseur[];
 extern s32 lbl_805D2D60;
 extern u32 TObjNpcConnoisseur__data_805D574C;
@@ -160,7 +160,7 @@ extern void *tl_04;
 
 typedef char RecoveredGlobal_801499DC___vt__18TObjNpcConnoisseur_size[sizeof(RecoveredGlobal_801499DC___vt__18TObjNpcConnoisseur) == 0x178 ? 1 : -1];
 u8 *TObjNpcConnoisseur__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    fn_8014B8A4((void *) (arg0));
+    construct_male_npc_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801499DC___vt__18TObjNpcConnoisseur *)&__vt__18TObjNpcConnoisseur).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2D60;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

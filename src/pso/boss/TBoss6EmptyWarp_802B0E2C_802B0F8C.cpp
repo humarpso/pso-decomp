@@ -10,7 +10,7 @@ void *create__15TBoss6EmptyWarpFv(void);
 void activate_warp__15TBoss6EmptyWarpFPv(void *arg0);
 void TBoss6EmptyWarp__sub_802B1004(void* p);
 int TBoss6EmptyWarp__sub_802B1018(void);
-s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+s32 play_sound_effect(s32, s32, s32, s32);
 void *TBoss6EmptyWarp__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
@@ -26,7 +26,7 @@ void *create__15TBoss6EmptyWarpFv(void) {
 
 void activate_warp__15TBoss6EmptyWarpFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x1C) = 1;
-    TBoss3Volopt__sub_8022675C(0x4003351F, 0, 0, 0);
+    play_sound_effect(0x4003351F, 0, 0, 0);
 }
 void TBoss6EmptyWarp__sub_802B1004(void* p) { *(s32*)((char*)p + 0x20) = 0; *(s32*)((char*)p + 0x1c) = 2; }
 int TBoss6EmptyWarp__sub_802B1018(void) { return 0; }

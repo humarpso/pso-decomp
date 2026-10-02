@@ -224,7 +224,7 @@ void disallow_rendering__7TObjectFv(void *);
 M2C_UNK set_flags__10TObjPlayerFPvUi(s32, M2C_UNK);
 void init_forward__10TObjPlayerFPv(void *);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 TLobby__sub_80101AB0(s32);
+s32 find_item_by_id(s32);
 void set_item_count__6TLobbyFPvs(void *, s32);
 s32 TLobby__sub_80103AD4(void);
 f32 *get_weapon_range_record(s32, s32);
@@ -480,7 +480,7 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
         TNpcPlayer__sub_803D97B4((s32)&self->dir);
     }
     self->f10c = (s32)arg2;
-    self->f108 = TLobby__sub_80101AB0(self->f118);
+    self->f108 = find_item_by_id(self->f118);
     TTecSlicer__sub_8023B770((M2C_UNK *)self, (M2C_UNK *)self->f10c, init->f28);
     TTecSlicer__sub_8023B72C((Obj_8023B72C *)self, (void *)self->f10c, &init->a, &init->b);
     self->fb8 = *get_weapon_range_record(self->f108, 0);

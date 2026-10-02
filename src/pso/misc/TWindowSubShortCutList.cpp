@@ -42,7 +42,7 @@ extern "C" {
 void *__dt__22TWindowSubShortCutListFv(void *arg0, s16 arg1);
 void render__22TWindowSubShortCutListFv(u8 *arg0);
 void run_task__22TWindowSubShortCutListFv(void *arg0);
-s32 TWindowShortListCtrl__sub_8026C9DC(s32);
+s32 handle_list_page_flip_input(s32);
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
 s32 TWindowSubStatusDisp__sub_80244364();
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, s32);
@@ -120,7 +120,7 @@ void render__22TWindowSubShortCutListFv(u8 *arg0) {
 
 void run_task__22TWindowSubShortCutListFv(void *arg0) {
     TWindowSubStatusDisp__sub_80268048();
-    if ((get_status_flag__6TLobbyFPv(arg0) == 0) && (TWindowShortListCtrl__sub_8026C9DC(M2C_FIELD(arg0, s32 *, 0x88)) != 0)) {
+    if ((get_status_flag__6TLobbyFPv(arg0) == 0) && (handle_list_page_flip_input(M2C_FIELD(arg0, s32 *, 0x88)) != 0)) {
         TWindowSubShortCutList__sub_8027E278((void *)(arg0));
     }
 }

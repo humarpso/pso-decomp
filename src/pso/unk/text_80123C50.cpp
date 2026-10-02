@@ -35,7 +35,7 @@ struct RecoveredGlobal_80123CA8_lbl_8043E8D8 {
 };
 
 extern "C" {
-s32 TObjPlayer__sub_800112A4(void *, s32);
+s32 add_actor_tp(void *, s32);
 s16 obj_getS16_32E(void *);
 extern const f32 lbl_805DAD20;
 void TObjPlayer__sub_80123D3C(u8 *arg0);
@@ -125,7 +125,7 @@ void TObjPlayer__sub_80123D3C(u8 *arg0) {
         return;
     }
     if (temp_r0 > 0) {
-        TObjPlayer__sub_800112A4(M2C_FIELD(arg0, u8 **, 0xF0), (s32) (lbl_805DAD20 * (f32) temp_r0));
+        add_actor_tp(M2C_FIELD(arg0, u8 **, 0xF0), (s32) (lbl_805DAD20 * (f32) temp_r0));
         M2C_FIELD(arg0, s16 *, 0x1FC) = obj_getS16_32E(M2C_FIELD(arg0, u8 **, 0xF0));
     }
 }

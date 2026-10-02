@@ -82,19 +82,19 @@ extern u32 lbl_805D5950;
 extern void *TODoorAncient09__data_805D5954;
 void TODoorAncient09__sub_801610E0(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+s32 play_sound_effect(s32, void *, s32, s32);
 void TODoorAncient09__sub_80160968(void *arg0_);
 s32 clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
 s32 TODragonfly__sub_80158360(void *, f32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+s32 play_sound_effect(s32, void *, s32, s32);
 extern void *TODoorAncient09__data_805D5954;
 extern const f32 lbl_805DB488;
 void TODoorAncient09__vt15(u8 *arg0);
 s32 set_indexed_flags(void *, s32, s32);
 s32 TODragonfly__sub_80158360(void *, f32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+s32 play_sound_effect(s32, void *, s32, s32);
 extern void *TODoorAncient09__data_805D5954;
 extern const f32 lbl_805DB48C;
 void TODoorAncient09__vt13(u8 *arg0);
@@ -106,7 +106,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
-int TOSignCave03__sub_803DB510(void *);
+int draw_ginja_model(void *);
 extern void *TODoorAncient09__data_805D5954;
 void TODoorAncient09__sub_80160BA8(Door_80160BA8 *self);
 }
@@ -179,25 +179,25 @@ void TODoorAncient09__sub_80160968(void *arg0_) {
     if (!(*(s32 *)(arg0 + 0xD0) & 1)) {
         switch ((u32)get_global_state__14TOKeyMachine01Fv()) {
         case 0:
-            TBoss3Volopt__sub_8022675C(0x42A04, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x42A04, arg0 + 0x38, 0, 0);
             break;
         case 1:
         case 2:
-            TBoss3Volopt__sub_8022675C(0x4BC07, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4BC07, arg0 + 0x38, 0, 0);
             break;
         case 3:
         case 4:
         case 5:
-            TBoss3Volopt__sub_8022675C(0x42807, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
             break;
         case 6:
         case 7:
-            TBoss3Volopt__sub_8022675C(0x4004BC00, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4004BC00, arg0 + 0x38, 0, 0);
             break;
         case 8:
         case 9:
         case 10:
-            TBoss3Volopt__sub_8022675C(0x4004BC07, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4004BC07, arg0 + 0x38, 0, 0);
             break;
         case 15:
             break;
@@ -272,8 +272,8 @@ void TODoorAncient09__sub_80160BA8(Door_80160BA8 *self) {
     TOHangerMachine01__sub_803D9C00(self->pos);
     TOHangerMachine01__sub_803D9C00(root->pos);
     rotate_matrix_y((M2C_UNK)(0), (s32)(self->x60));
-    TOSignCave03__sub_803DB510(root->model);
-    TOSignCave03__sub_803DB510(root->x2c->model);
+    draw_ginja_model(root->model);
+    draw_ginja_model(root->x2c->model);
     begin_effect_render__13TParticleCtrlFv();
     for (i = 0; i < 2; i++) {
         if (on[i] != 0) {
@@ -284,11 +284,11 @@ void TODoorAncient09__sub_80160BA8(Door_80160BA8 *self) {
         TObjPlayer__sub_803D9B2C();
         pp = pairs[i];
         TOHangerMachine01__sub_803D9C00(pp[0]->pos);
-        TOSignCave03__sub_803DB510(pp[0]->model);
+        draw_ginja_model(pp[0]->model);
         pop_matrix();
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(pp[1]->pos);
-        TOSignCave03__sub_803DB510(pp[1]->model);
+        draw_ginja_model(pp[1]->model);
         pop_matrix();
     }
     end_effect_render__13TParticleCtrlFv();
@@ -342,16 +342,16 @@ void TODoorAncient09__vt15(u8 *arg0) {
         case 3:
         case 4:
         case 5:
-            TBoss3Volopt__sub_8022675C(0x42807, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
             break;
         case 6:
         case 7:
-            TBoss3Volopt__sub_8022675C(0x4004BC01, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4004BC01, arg0 + 0x38, 0, 0);
             break;
         case 8:
         case 9:
         case 10:
-            TBoss3Volopt__sub_8022675C(0x4004B708, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4004B708, arg0 + 0x38, 0, 0);
             break;
         case 0:
         case 15:
@@ -375,16 +375,16 @@ void TODoorAncient09__vt13(u8 *arg0) {
         case 3:
         case 4:
         case 5:
-            TBoss3Volopt__sub_8022675C(0x42807, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
             break;
         case 6:
         case 7:
-            TBoss3Volopt__sub_8022675C(0x4004BC01, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4004BC01, arg0 + 0x38, 0, 0);
             break;
         case 8:
         case 9:
         case 10:
-            TBoss3Volopt__sub_8022675C(0x4004B708, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4004B708, arg0 + 0x38, 0, 0);
             break;
         case 0:
         case 15:

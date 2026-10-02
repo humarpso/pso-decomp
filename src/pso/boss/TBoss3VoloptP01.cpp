@@ -252,7 +252,7 @@ M2C_UNK spawn_effect_f8__10TObjPlayerFii(void *, s32);
 M2C_UNK trigger_dell_biter_events__10TObjPlayerFPv(void *);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern u8 lbl_80484218[];
 extern s32 lbl_805D4C28;
 extern s32 lbl_805D4CC4;
@@ -266,7 +266,7 @@ void reset_state__15TBoss3VoloptP01FPv(void *arg0);
 void update_state__15TBoss3VoloptP01FPv(u8 *arg0);
 M2C_UNK advance_animation_playback(void *);
 s32 TBoss3Volopt__sub_8003F398();
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TBoss8Dragon__sub_803D64C0(s32);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK draw_chunk_object(void *);
@@ -425,7 +425,7 @@ void TBoss3VoloptP01__sub_800437F4(u8 *arg0) {
             create_breakup_mdl__12TBoss3VoloptFiiiii(lbl_805D4CC4, lbl_80484218, M2C_FIELD(arg0, s32 *, 0x24), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
             trigger_dell_biter_events__10TObjPlayerFPv(arg0 + 0x2FC);
             M2C_FIELD(arg0, s32 *, 0x388) |= 0x40000;
-            TBoss3Volopt__sub_8022675C(0x4003AD07, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4003AD07, arg0 + 0x38, 0, 0);
             M2C_FIELD(arg0, s32 *, 0x37C) = 2;
             M2C_FIELD(arg0, s32 *, 0x30) &= 0xFFFFF7FF;
         }
@@ -464,7 +464,7 @@ void update_state__15TBoss3VoloptP01FPv(u8 *arg0) {
                 M2C_FIELD(arg0, s32 *, 0x388) = (s32) (temp_r3 & 0xFFFFFFFE);
                 TBoss3VoloptP01__sub_80042F84((u8 *)(arg0));
             } else {
-                TBoss3Volopt__sub_8022675C(0x4003A810, arg0 + 0x38, 0xA, 0);
+                play_sound_effect(0x4003A810, arg0 + 0x38, 0xA, 0);
                 M2C_FIELD(arg0, s32 *, 0x37C) = 2;
             }
         } else {
@@ -481,7 +481,7 @@ void update_state__15TBoss3VoloptP01FPv(u8 *arg0) {
                     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (temp_r3_2 & 0xFFFFFFFE);
                     TBoss3VoloptP01__sub_80042F84((u8 *)(arg0));
                 } else {
-                    TBoss3Volopt__sub_8022675C(0x4003A810, arg0 + 0x38, 0xA, 0);
+                    play_sound_effect(0x4003A810, arg0 + 0x38, 0xA, 0);
                     M2C_FIELD(arg0, s32 *, 0x37C) = 2;
                 }
             }

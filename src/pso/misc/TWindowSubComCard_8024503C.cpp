@@ -9,7 +9,7 @@ struct Quad_802455CC { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 struct Rect_802455CC { f32 x, y, w, h; u8 pad10[0x20 - 0x10]; f32 px, py, sx, sy; u8 pad30[0x38 - 0x30]; f32 depth; };
 
 extern "C" {
-M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32);
+M2C_UNK draw_textured_quad_at_depth(void *, f32);
 extern const f32 lbl_805DCAD4;
 extern const f32 lbl_805DCAE4;
 extern const f32 lbl_805DCAF4;
@@ -50,14 +50,14 @@ void TWindowSubComCard__sub_802455CC(u8 *a, Quad_802455CC *q, Rect_802455CC *r) 
     q->u1 = lbl_805DCB18;
     q->x0 = r->sx * (q->x0 - r->px) + r->px;
     q->x1 = r->sx * (q->x1 - r->px) + r->px;
-    TWindowSubComCard__sub_803DEECC(q, z);
+    draw_textured_quad_at_depth(q, z);
     q->x0 = (r->x + M2C_FIELD(a, f32 *, 0x48)) - w;
     q->x1 = r->x + M2C_FIELD(a, f32 *, 0x48);
     q->u0 = lbl_805DCB1C;
     q->u1 = lbl_805DCB20;
     q->x0 = r->sx * (q->x0 - r->px) + r->px;
     q->x1 = r->sx * (q->x1 - r->px) + r->px;
-    TWindowSubComCard__sub_803DEECC(q, z);
+    draw_textured_quad_at_depth(q, z);
     q->x0 = lbl_805DCAFC + r->x;
     q->u0 = lbl_805DCB18;
     q->u1 = lbl_805DCB1C;
@@ -71,7 +71,7 @@ void TWindowSubComCard__sub_802455CC(u8 *a, Quad_802455CC *q, Rect_802455CC *r) 
         } else {
             q->x1 = lbl_805DCAFC + q->x0;
         }
-        TWindowSubComCard__sub_803DEECC(q, z);
+        draw_textured_quad_at_depth(q, z);
         rem -= lbl_805DCAFC;
         q->x0 = q->x0 + lbl_805DCAFC;
     }

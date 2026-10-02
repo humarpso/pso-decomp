@@ -304,7 +304,7 @@ extern "C" {
 s32 obj_testFlags30(void *, s32);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 M2C_UNK advance_animation_playback(void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TCameraCtrl__sub_8006A044(M2C_UNK, f32);
 void set_grabbed_state__10TObjPlayerFi(s32 arg0);
 void update_if_active__15TObjEneMe1GiGueFPv(void*, M2C_UNK);
@@ -376,10 +376,10 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TBoss3Volopt__sub_8003F398();
 u32 create_particle_emitter(void *, int);
 s32 angle_difference_abs(s32, s32);
-s32 TObjPlayer__sub_801423A4(s32, s32, s32);
+s32 approach_angle_limited(s32, s32, s32);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 extern s32 lbl_805D4C14;
 extern s32 lbl_805D4C64;
 extern s32 lbl_805D4C68;
@@ -400,7 +400,7 @@ M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK)
 M2C_UNK TObjPlayer__sub_8003FCD0(void *);
 s32 TObjPlayer__sub_80040AE4(M2C_UNK);
 s32 angle_difference_abs(s32, s32);
-s32 TObjPlayer__sub_801423A4(s32, s32, s32);
+s32 approach_angle_limited(s32, s32, s32);
 void *find_entity_by_id(u16);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 obj_testFlags30(void *, s32);
@@ -446,7 +446,7 @@ void update_topple_state__10TObjPlayerFPv(u8 *arg0) {
         }
         break;
     case 2:
-        M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000, lbl_805D4C68);
+        M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000, lbl_805D4C68);
         if (angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000) <= (s32) lbl_805D4C68) {
             M2C_FIELD(arg0, s32 *, 0x37C) = 3;
         }
@@ -529,7 +529,7 @@ void TObjPlayer__sub_8003F81C(u8 *arg0) {
         M2C_FIELD(arg0, u32 *, 0x3CC) = 0U;
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
-        M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801423A4((int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x398) - 0x8000), lbl_805D4C68);
+        M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited((int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x398) - 0x8000), lbl_805D4C68);
         if (angle_difference_abs((int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x398) - 0x8000)) <= (s32) lbl_805D4C68) {
             M2C_FIELD(arg0, s16 *, 0x33C) = (TBoss3Volopt__sub_8003F398() != 0) ? 5 : 0x1E;
             M2C_FIELD(arg0, s32 *, 0x37C) = 2;
@@ -540,7 +540,7 @@ void TObjPlayer__sub_8003F81C(u8 *arg0) {
             Vec_8003F81C v = *(Vec_8003F81C *)(arg0 + 0x38);
             v.y -= lbl_805D86B8;
             M2C_FIELD(arg0, u32 *, 0x3CC) = create_particle_emitter(&v, 0x31);
-            TBoss3Volopt__sub_8022675C((int) (0x4003AD1E), (s32) (arg0 + 0x38), 0, 0);
+            play_sound_effect((int) (0x4003AD1E), (s32) (arg0 + 0x38), 0, 0);
             M2C_FIELD(arg0, s32 *, 0x37C) = 3;
         }
         break;
@@ -696,8 +696,8 @@ void update_grabbed_state__10TObjPlayerFPv(void *arg0) {
         obj_clearFlags30(arg0, 0x02200200);
         M2C_FIELD(arg0, s16 *, 0x33E) = (s16) M2C_FIELD(arg0, s16 *, 0x32C);
         M2C_FIELD(arg0, s16 *, 0xB8) = 3;
-        TBoss3Volopt__sub_8022675C(0x4003A81F, 0, 0, 0);
-        TBoss3Volopt__sub_8022675C(0x4003BC20, 0, 0, 0);
+        play_sound_effect(0x4003A81F, 0, 0, 0);
+        play_sound_effect(0x4003BC20, 0, 0, 0);
         if ((s32) lbl_805D53A0 == (s32) M2C_FIELD(arg0, u16 *, 0x2D4)) {
             TCameraCtrl__sub_8006A044(0x1E, lbl_805D86D8);
         }

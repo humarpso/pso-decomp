@@ -22,7 +22,7 @@ M2C_UNK set_current_scene__6TSceneFi(int);
 extern RecoveredGlobal_80141A30_lbl_8050C000 lbl_8050C000;
 extern RecoveredGlobal_80141A30_lbl_8050C028 lbl_8050C028;
 void fn_80141A30(void);
-u32 fn_80141AB8(u8 r, u8 g, u8 b, s32 frame, s32 period, s32 start, s32 peak, s32 end);
+u32 calc_pulse_flash_color(u8 r, u8 g, u8 b, s32 frame, s32 period, s32 start, s32 peak, s32 end);
 }
 
 extern "C" {
@@ -37,7 +37,7 @@ void fn_80141A30(void) {
     set_current_scene__6TSceneFi((int) (M2C_FIELD(&lbl_8050C000.value, u8 *, 0xD)));
 }
 #pragma fp_contract on
-u32 fn_80141AB8(u8 r, u8 g, u8 b, s32 frame, s32 period, s32 start, s32 peak, s32 end) {
+u32 calc_pulse_flash_color(u8 r, u8 g, u8 b, s32 frame, s32 period, s32 start, s32 peak, s32 end) {
     f32 t;
     s32 m;
     m = frame % period;

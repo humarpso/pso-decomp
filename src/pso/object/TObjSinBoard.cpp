@@ -41,7 +41,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TOSignCave03__sub_803DB510(void *);
+M2C_UNK draw_ginja_model(void *);
 extern RecoveredGlobal_801982D4_lbl_804B8DAC lbl_804B8DAC;
 extern s32 lbl_805D5C60;
 void TObjPlayer__sub_801982D4(u8 *arg0);
@@ -174,18 +174,18 @@ void TObjPlayer__sub_801982D4(u8 *arg0) {
         }
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x1C));
-        TOSignCave03__sub_803DB510((void *) (M2C_FIELD(temp_r3, s32 *, 4)));
+        draw_ginja_model((void *) (M2C_FIELD(temp_r3, s32 *, 4)));
         TObjPlayer__sub_803D9B2C();
-        TOSignCave03__sub_803DB510((void *) (M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0x2C), s32 *, 4)));
+        draw_ginja_model((void *) (M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0x2C), s32 *, 4)));
         pop_matrix();
         TObjPlayer__sub_803D9B2C();
         rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x38)));
         rotate_matrix_y((int) (0), (int) (0x8000));
-        TOSignCave03__sub_803DB510((void *) (M2C_FIELD(M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0x2C), void **, 0x30), s32 *, 4)));
+        draw_ginja_model((void *) (M2C_FIELD(M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0x2C), void **, 0x30), s32 *, 4)));
         pop_matrix();
         TObjPlayer__sub_803D9B2C();
         rotate_matrix_z((int) (0), (int) (-M2C_FIELD(arg0, s32 *, 0x38)));
-        TOSignCave03__sub_803DB510((void *) (M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0x2C), void **, 0x30), void **, 0x30), s32 *, 4)));
+        draw_ginja_model((void *) (M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0x2C), void **, 0x30), void **, 0x30), s32 *, 4)));
         pop_matrix();
         pop_matrix();
     }

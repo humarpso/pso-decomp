@@ -194,7 +194,7 @@ struct VObj_800B150C_800B07D0 : Base_800B150C_800B07D0 {
 void TObjEneBm3Fly__vt102(void *arg0, f32 farg0);
 void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1);
 M2C_UNK advance_animation_playback();
-M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+M2C_UNK play_sound_effect(void *, void *, int, int);
 f32 TBoss8Dragon__sub_803D64C0(int);
 f32 TBoss8Dragon__sub_803D64DC(int);
 s32 TObjEneBm3Fly__sub_800B177C(void *);
@@ -347,7 +347,7 @@ void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
                         TObjEneDD__sub_800BA3D8((void *) (arg0), (void *) (M2C_FIELD(arg0, void **, 0x390)));
                     }
                 }
-                TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003A524)), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+                play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003A524)), (void *) (arg0 + 0x38), (int) (0), (int) (0));
                 play_effect_if_v2__10TObjPlayerFi((int) (-0x400));
             }
             if (get_flag_b4__21TObjEneMe3ShinowaRealFPv((void *) (arg0)) != 0) {

@@ -49,7 +49,7 @@ s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 void init_position_vectors__10TObjPlayerFi(void *);
 void reset_photon_effect__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_80154E3C(void *);
+void refresh_collision_body_centers(void *);
 void TObjEneGibbles__sub_80156780(void *, void *, s32);
 void update_state__10TOMineTrapFPv(void *);
 void TOMine__ct(void *, void *, void *);
@@ -139,7 +139,7 @@ void *TOMineIcon01__ct(void *arg0, void *arg1, void *arg2) {
     self->f35C = 0xFFFF;
     self->f30 |= 0x60000000;
     TObjEneGibbles__sub_80156780(self, lbl_804B2F3C, 1);
-    TObjPlayer__sub_80154E3C(self);
+    refresh_collision_body_centers(self);
     reset_photon_effect__10TObjPlayerFPv(self);
     return self;
 #undef self

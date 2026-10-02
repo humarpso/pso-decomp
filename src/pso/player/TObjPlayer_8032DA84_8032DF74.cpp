@@ -31,7 +31,7 @@ u32 create_particle_emitter(void *, int);
 M2C_UNK TTecLuker__sub_8008764C(u32, int);
 void TObjPlayer__sub_8032E058(u8 *arg0);
 M2C_UNK set_position_xy__10TObjPlayerFPvff(u32, f32, f32);
-u32 TObjParticle__sub_800870BC(void *, void *, int, int);
+u32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 M2C_UNK spawn_particle_effect(void *, int);
 M2C_UNK TTecLuker__sub_8008764C(u32, int);
 extern const f32 lbl_805DF7E8;
@@ -42,7 +42,7 @@ void queue_destruction__7TObjectFv(void *);
 void TObjPlayer__sub_8032DFF8(O_8032DFF8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
-u32 TLobby__sub_80101AB0(s32);
+u32 find_item_by_id(s32);
 s8 TObjPlayer__sub_80102C30();
 void TObjPlayer__sub_8032DF74(u8 *arg0);
 void TObjPlayer__sub_8032DFF8(O_8032DFF8 *arg0);
@@ -95,7 +95,7 @@ void TObjPlayer__sub_8032E058(u8 *arg0) {
 void TObjPlayer__sub_8032E0A4(u8 *arg0) {
     u32 p;
     u32 q;
-    M2C_FIELD(arg0, u32 *, 0x1C) = TObjParticle__sub_800870BC((void *) (arg0 + 0x64), (void *) (arg0 + 0x54), (int) (0x1B9), (int) (0x104));
+    M2C_FIELD(arg0, u32 *, 0x1C) = spawn_particle_effect_with_rotation((void *) (arg0 + 0x64), (void *) (arg0 + 0x54), (int) (0x1B9), (int) (0x104));
     p = M2C_FIELD(arg0, u32 *, 0x1C);
     if (p != 0U) {
         set_position_xy__10TObjPlayerFPvff(p, (f32) (lbl_805DF7E8), (f32) (lbl_805DF7E8));
@@ -110,7 +110,7 @@ void TObjPlayer__sub_8032E0A4(u8 *arg0) {
 
 void TObjPlayer__sub_8032E11C(u8 *arg0) {
     s32 i;
-    if (TLobby__sub_80101AB0(M2C_FIELD(arg0, s32 *, 0x60)) == 0U) {
+    if (find_item_by_id(M2C_FIELD(arg0, s32 *, 0x60)) == 0U) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }

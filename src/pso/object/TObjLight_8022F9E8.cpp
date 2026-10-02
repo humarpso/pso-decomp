@@ -17,7 +17,7 @@ extern "C" {
 
 void *__dt__9TObjLightFPvs(void *arg0, s16 arg1);
 u8 *initialize__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2);
-s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 void TLobby__sub_80226294(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
@@ -55,7 +55,7 @@ u8 *initialize__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x1C) = arg1;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x20), (int) (M2C_FIELD(arg0, s32 *, 0x1C) + 0x2FC));
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x30) = TBoss3Volopt__sub_8022675C((int) (0x4002B21C), (void *) (arg0 + 0x20), (int) (0), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x30) = play_sound_effect((int) (0x4002B21C), (void *) (arg0 + 0x20), (int) (0), (int) (0));
     return arg0;
 }
 

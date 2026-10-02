@@ -123,7 +123,7 @@ void apply_effect_variant_a__10TObjPlayerFii(void *, int);
 void refresh_lobby_state__10TObjPlayerFPv(void *);
 M2C_UNK advance_animation_playback(void *);
 void send_entity_set_flags__6TLobbyFPv(void *);
-void TBoss3Volopt__sub_8022675C(int, void *, int, int);
+void play_sound_effect(int, void *, int, int);
 void TObjEneBalClawClaw__sub_80091134(Claw_80091134 *self);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK move_with_wall_slide(void *);
@@ -159,7 +159,7 @@ M2C_UNK reset_active_state__18TObjEneBalClawClawFPv(void *, s32, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
-void TBoss3Volopt__sub_8022675C(int, void *, int, int);
+void play_sound_effect(int, void *, int, int);
 extern const f32 TObjEneBalClawClaw__data_805D968C;
 extern const f32 lbl_805D96A4;
 extern const f32 lbl_805D96A8;
@@ -261,7 +261,7 @@ void TObjEneBalClawClaw__sub_80090ECC(Claw_80090ECC *self) {
         SEEK_80090ECC(self, &v, lbl_805D96A4);
         update_angle__10TObjPlayerFPviPv(self, self->info->f8, self->f308);
         if (objInBand__FP7GameObjf(self, lbl_805D96A8) != 0) {
-            TBoss3Volopt__sub_8022675C(0x4003B032, self->f38, 0, 0);
+            play_sound_effect(0x4003B032, self->f38, 0, 0);
             if (self->target->m18(self, lbl_805D96AC) != 0) {
                 self->target->m23(self, lbl_805D96B0);
                 self->target->m20(self, lbl_805D96AC);
@@ -293,7 +293,7 @@ void TObjEneBalClawClaw__sub_80091134(Claw_80091134 *self) {
         self->fieldB8 = 4;
         TObjPlayer__sub_800A04F0(&self->motion);
         request_two_effects__10TObjPlayerFPv(self->effects);
-        TBoss3Volopt__sub_8022675C(0x4003AD37, self->pos, 0, 0);
+        play_sound_effect(0x4003AD37, self->pos, 0, 0);
         self->state = 1;
     case 1:
         ((s32)advance_animation_playback(self));

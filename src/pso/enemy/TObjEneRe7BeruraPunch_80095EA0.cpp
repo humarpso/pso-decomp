@@ -50,7 +50,7 @@ s32 TObjEneRe7Berura__sub_80094C68(u8 *);
 s32 TObjEneRe7Berura__sub_80094CD0(u8 *);
 s32 check_v2_mode__9TObjEneDDFv(void);
 u8 *find_entity_by_id(u16);
-s32 TObjPlayer__sub_80154E3C(void *, void *, f32, f32);
+s32 refresh_collision_body_centers(void *, void *, f32, f32);
 s32 update_enemy_collision_flags__10TObjPlayerFPv(void *);
 extern Pair_80096150 lbl_80439F28[];
 extern const f32 lbl_805D97AC;
@@ -191,7 +191,7 @@ s32 TObjEneRe7BeruraPunch__sub_80096150(void *arg0) {
     M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 0x30) = M2C_FIELD(arg0, f32 *, 0xCC);
     temp_r4_2 = M2C_FIELD(arg0, void **, 0xA4);
     M2C_FIELD(temp_r4_2, f32 *, 0x34) = lbl_805D97AC * (lbl_805D97B0 * M2C_FIELD(arg0, f32 *, 0xF4));
-    TObjPlayer__sub_80154E3C(arg0, temp_r4_2, lbl_805D97B0, lbl_805D97AC);
+    refresh_collision_body_centers(arg0, temp_r4_2, lbl_805D97B0, lbl_805D97AC);
     update_enemy_collision_flags__10TObjPlayerFPv(arg0);
     temp_r4_2 = M2C_FIELD(arg0, void **, 0xA4);
     if ((M2C_FIELD(temp_r4_2, s32 *, 0x18) | M2C_FIELD(temp_r4_2, s32 *, 0x44)) & 0x200000) {

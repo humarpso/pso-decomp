@@ -116,7 +116,7 @@ M2C_UNK register_photon_blasts__8TItemMagFPv(void *);
 M2C_UNK TItemMag__sub_80112E20(void *, int);
 s32 TItemMag__sub_80113EC8(void *);
 s16 get_global_state__14TOKeyMachine01Fv();
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 void TItemMag__vt42(u8 *arg0);
 s32 obj_isState2_324(void *);
 s32 TItemMag__sub_801143E8(void *, s32);
@@ -422,7 +422,7 @@ void TItemMag__vt42(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x18C) = (s32) (M2C_FIELD(arg0, s32 *, 0x18C) | 0x20);
     }
     if ((get_flag_40__8TItemMagFPv((void *) (arg0)) == 0) && (TItemMag__sub_80113EC8((void *) (M2C_FIELD(arg0, u8 **, 0xF0))) == 0)) {
-        TBoss3Volopt__sub_8022675C((int) (0x4000B20A), (void *) (M2C_FIELD(arg0, u8 **, 0xF0) + 0x38), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4000B20A), (void *) (M2C_FIELD(arg0, u8 **, 0xF0) + 0x38), (int) (0), (int) (0));
     }
 }
 

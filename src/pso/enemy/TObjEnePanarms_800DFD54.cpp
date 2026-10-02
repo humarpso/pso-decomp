@@ -12,7 +12,7 @@ u8 *dispatch_shared_handler_a__6TLobbyFPv(s32);
 M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, M2C_UNK);
 s32 TObjEnePanarms__sub_800E1C98(void *, int);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
-s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+s32 play_sound_effect(void *, void *, int, int);
 s32 create__9TTecRestaFPvPvPv(void *, void *, int);
 extern const f32 lbl_805DA528;
 void TObjEnePanarms__sub_800DFE08(u8 *arg0);
@@ -62,7 +62,7 @@ void TObjEnePanarms__sub_800DFE08(u8 *arg0) {
             var_r5 = 0;
         }
         create__9TTecRestaFPvPvPv((void *) (arg0), (void *) (arg0 + 0x38), (int) (var_r5));
-        TBoss3Volopt__sub_8022675C((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003BC31))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003BC31))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     }
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
         TObjEnePanarms__sub_800E1C98((void *) (arg0), (int) (2));

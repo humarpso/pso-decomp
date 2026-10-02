@@ -13,7 +13,7 @@ M2C_UNK TObjPlayer__sub_8012ADD4(void *, void *);
 s32 test_flag_2000000__10TObjPlayerFPv(void *);
 s32 reset_volopt_state__10TObjPlayerFv(void *);
 M2C_UNK build_packet_header__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801D2404(void *);
+M2C_UNK send_6x46_attack_finished(void *);
 u32 capture_lockon_targets(void *, void *);
 void send_attack_target_packet__10TObjPlayerFUi(u32 arg0);
 s32 reset_target_link__10TObjPlayerFPv(void *);
@@ -45,8 +45,8 @@ M2C_UNK send_field_state_if_active__10TObjPlayerFii(void *, s32);
 M2C_UNK TObjPlayer__sub_801D2DB4(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
 void *__nw__7TObjectFUl(u32);
-M2C_UNK TObjPlayer__sub_80235F60(void *, f32 *, f32 *, int, void *, f32, s32);
-M2C_UNK TObjPlayer__sub_803589F8(void *, int, int, int);
+M2C_UNK construct_actor_light_task(void *, f32 *, f32 *, int, void *, f32, s32);
+M2C_UNK dispatch_weapon_special_effect(void *, int, int, int);
 extern f32 lbl_8050BEE0[];
 extern f32 lbl_8050BFE0[];
 extern s32 tl_07;
@@ -54,7 +54,7 @@ extern const f32 TObjPlayer__data_805DC360;
 extern const f32 TObjPlayer__data_805DC39C;
 extern const f32 lbl_805DC3A8;
 extern const f32 TObjPlayer__data_805DC3AC;
-void TObjPlayer__sub_801CE218(u8 *arg0);
+void start_attack_preparation__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -95,7 +95,7 @@ void TObjPlayer__sub_801CE19C(s32 arg0, s16 arg1) {
   }
 }
 
-void TObjPlayer__sub_801CE218(u8 *arg0) {
+void start_attack_preparation__10TObjPlayerFPv(u8 *arg0) {
     void *p;
     switch (TObjPlayer__sub_801D2F4C(arg0 + 0x7CC)) {
     case 0:
@@ -111,7 +111,7 @@ void TObjPlayer__sub_801CE218(u8 *arg0) {
         lbl_8050BFE0[3] = 1.0f;
         p = __nw__7TObjectFUl(0x64);
         if (p != NULL) {
-            TObjPlayer__sub_80235F60(p, lbl_8050BFE0, lbl_8050BEE0, 8, arg0, TObjPlayer__data_805DC39C, tl_07);
+            construct_actor_light_task(p, lbl_8050BFE0, lbl_8050BEE0, 8, arg0, TObjPlayer__data_805DC39C, tl_07);
         }
         TObjLight__sub_80134548(obj_getField1c(arg0), TObjPlayer__data_805DC360, TObjPlayer__data_805DC3AC);
         send_field_state_if_active__10TObjPlayerFii(arg0, 0x1AD1C);
@@ -119,14 +119,14 @@ void TObjPlayer__sub_801CE218(u8 *arg0) {
     case 2:
         *(s16 *)(arg0 + 0x328) = 1;
         set_state_flags__10TObjPlayerFPvUi(arg0, 0x80);
-        TObjPlayer__sub_803589F8(arg0, 0, 0, 0);
+        dispatch_weapon_special_effect(arg0, 0, 0, 0);
         lbl_8050BEE0[1] = lbl_8050BEE0[0] = 0.0f;
         lbl_8050BFE0[0] = lbl_8050BEE0[2] = 1.0f;
         lbl_8050BFE0[2] = lbl_8050BFE0[1] = lbl_805DC3A8;
         lbl_8050BFE0[3] = 1.0f;
         p = __nw__7TObjectFUl(0x64);
         if (p != NULL) {
-            TObjPlayer__sub_80235F60(p, lbl_8050BFE0, lbl_8050BEE0, 8, arg0, TObjPlayer__data_805DC39C, tl_07);
+            construct_actor_light_task(p, lbl_8050BFE0, lbl_8050BEE0, 8, arg0, TObjPlayer__data_805DC39C, tl_07);
         }
         TObjLight__sub_80134548(obj_getField1c(arg0), TObjPlayer__data_805DC360, TObjPlayer__data_805DC3AC);
         send_field_state_if_active__10TObjPlayerFii(arg0, 0x1AD1D);
@@ -157,7 +157,7 @@ void send_attack_target_packet__10TObjPlayerFUi(u32 arg0) {
         build_packet_header__10TObjPlayerFPv((void *) (sp8));
         sp8[1] = obj_getField1c((void *) (arg0));
         TObjPlayer__sub_8012ADD4((void *) (&sp8[2]), (void *) (get_state_ptr__10TObjPlayerFPv((void *) (arg0 + 0x7CC))));
-        TObjPlayer__sub_801D2404((void *) (sp8));
+        send_6x46_attack_finished((void *) (sp8));
     }
 }
 s32 TObjPlayer__sub_801CEAC8(u8 *self) {

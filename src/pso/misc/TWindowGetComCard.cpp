@@ -52,7 +52,7 @@ void set_flag70_bit10__16TObjCityMainWarpFPv(void *);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void clear_flag_and_release__17TWindowSubComCardFPv(void *);
-void TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+void play_sound_effect(s32, s32, s32, s32);
 s32 is_player_input_active(s32);
 s32 TWindowSubComCard__sub_80265BF8(void *);
 void *init_shop_judgment_window(void *);
@@ -156,7 +156,7 @@ void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self) {
             self->state = 6;
         } else if (TWindowShortListCtrl__check_controller_button(lbl_8050E208[port].m20, 2) != 0 ||
                    test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208[4].m20, 2) != 0) {
-            TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
+            play_sound_effect(0x52F16, 0, 0, 0);
             self->state = 2;
         }
         break;

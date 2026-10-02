@@ -232,7 +232,7 @@ s32 apply_effect_variant_b__10TObjPlayerFii(void *, int);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 M2C_UNK advance_animation_playback(void *);
 s32 play_effect_if_v2__10TObjPlayerFi(int);
-s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+s32 play_sound_effect(void *, void *, int, int);
 void TObjEneDf2Bringer__sub_80097620(u8 *arg0, s32 arg1);
 M2C_UNK get_camera_ctrl__9TObjEneDDFPv(void *, int);
 M2C_UNK rotate_matrix_x(int, int);
@@ -401,7 +401,7 @@ void TObjEneDf2Bringer__sub_80097620(u8 *arg0, s32 arg1) {
         refresh_and_send_entity_flags__12TBoss8DragonFPv((void *) (arg0));
         request_two_effects__10TObjPlayerFPv((void *) (arg0 + 0x2FC));
         TObjPlayer__sub_800A04F0((void *) (arg0 + 0x3C4));
-        TBoss3Volopt__sub_8022675C((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) (arg0)), (M2C_UNK)((int) (0x4003A511))))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) (arg0)), (M2C_UNK)((int) (0x4003A511))))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         play_effect_if_v2__10TObjPlayerFi((int) (-0x200));
         return;
     case 0:

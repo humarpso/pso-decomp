@@ -14,7 +14,7 @@ int TWindowMainMenu__sub_8024E3F4(void* p);
 void TWindowMainMenu__vt4(void);
 void TWindowMainMenu__vt6(void);
 void set_entry_field_20__15TWindowMainMenuFii(s32 arg0, s32 arg1);
-int TWindowSubStatusDisp__sub_80257C28(void*, void*);
+int update_window_entry_list(void*, void*);
 M2C_UNK TWindowSubStatusDisp__sub_80287580(s32, s32, M2C_UNK, f32);
 void * get_array_entry__20TWindowSubStatusDispFPvi(s32 a0 = 0, s32 a1 = 0);
 int initialize_subwindow__9TWindowDDFPv(void*);

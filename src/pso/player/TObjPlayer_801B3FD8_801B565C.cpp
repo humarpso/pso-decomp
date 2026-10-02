@@ -100,7 +100,7 @@ M2C_UNK TObjPlayer__sub_8001053C(void *);
 s32 TObjPlayer__sub_801B50C0(void *, f32 *);
 u32 TObjPlayer__sub_801B7298(void *);
 s32 TObjPlayer__sub_801BE8F4(void *, M2C_UNK, M2C_UNK);
-s32 TObjPlayer__sub_801B5EA4(Obj_801B5EA4 *arg0);
+s32 resolve_move_collision__10TObjPlayerFPv(Obj_801B5EA4 *arg0);
 }
 
 extern "C" {
@@ -302,7 +302,7 @@ s32 check_actor_blocking_move__10TObjPlayerFPv(Obj_801B5DDC *self) {
     return 0;
 }
 
-s32 TObjPlayer__sub_801B5EA4(Obj_801B5EA4 *arg0) {
+s32 resolve_move_collision__10TObjPlayerFPv(Obj_801B5EA4 *arg0) {
     Vec_801B5EA4 p;
     p.x = arg0->pos.x + arg0->vel.x;
     p.y = arg0->pos.y + arg0->vel.y;

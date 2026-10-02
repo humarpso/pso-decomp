@@ -41,7 +41,7 @@ void render__12TObjParticleFv(P_8019527C *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK disallow_rendering__7TObjectFv(void *);
 M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
-s32 TObjParticle__sub_800870BC(void *, void *, s32, u16);
+s32 spawn_particle_effect_with_rotation(void *, void *, s32, u16);
 s32 fn_800871A0(void *, void *, s32);
 M2C_UNK TPhotonMagicSquare__sub_801A2640(void *, void *);
 extern M2C_UNK __vt__12TObjParticle[];
@@ -143,7 +143,7 @@ Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, M2C_UNK arg1, Src_80195400 
         if (arg0->ints[1] == 1) {
             flags = base | 0x2000;
         }
-        arg0->emitter = TObjParticle__sub_800870BC(&arg0->pos, &arg0->ang, entry, flags);
+        arg0->emitter = spawn_particle_effect_with_rotation(&arg0->pos, &arg0->ang, entry, flags);
     } else if ((s32) arg0->params[2] == 2) {
         flags = 8;
         if (arg0->ints[0] == 1) {
@@ -152,7 +152,7 @@ Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, M2C_UNK arg1, Src_80195400 
         if (arg0->ints[1] == 1) {
             flags |= 0x2000;
         }
-        arg0->emitter = TObjParticle__sub_800870BC(&arg0->pos, &arg0->ang, entry, flags);
+        arg0->emitter = spawn_particle_effect_with_rotation(&arg0->pos, &arg0->ang, entry, flags);
     } else if ((s32) arg0->params[2] == 3) {
         flags = 4;
         if (arg0->ints[0] == 1) {
@@ -161,7 +161,7 @@ Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, M2C_UNK arg1, Src_80195400 
         if (arg0->ints[1] == 1) {
             flags |= 0x2000;
         }
-        arg0->emitter = TObjParticle__sub_800870BC(&arg0->pos, &arg0->ang, entry, flags);
+        arg0->emitter = spawn_particle_effect_with_rotation(&arg0->pos, &arg0->ang, entry, flags);
     } else {
         if (arg0->ints[0] == 1) {
             other = 0x40;
@@ -170,7 +170,7 @@ Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, M2C_UNK arg1, Src_80195400 
             other |= 0x2000;
         }
         if (arg0->ints[0] == 1 || arg0->ints[1] == 1) {
-            arg0->emitter = TObjParticle__sub_800870BC(&arg0->pos, &arg0->ang, entry, (u16)other);
+            arg0->emitter = spawn_particle_effect_with_rotation(&arg0->pos, &arg0->ang, entry, (u16)other);
         } else {
             arg0->emitter = fn_800871A0(&arg0->pos, &arg0->ang, entry);
         }

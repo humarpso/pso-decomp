@@ -255,7 +255,7 @@ TTecGiBarta_80230B48 *__dt__9TTecMegidFv(TTecGiBarta_80230B48 *self, s16 deletin
 u16 obj_getField1c(void *);
 void update_by_state__9TTecMegidFPv(u8 *arg0);
 void TTecMegid__sub_80235348(u8 *arg0);
-void TObjPlayer__sub_8023A7B4();
+void construct_aimed_technique_projectile();
 extern void *__vt__9TTecMegid[];
 extern s32 lbl_805D37E8;
 extern const f32 lbl_805DC884;
@@ -271,7 +271,7 @@ u8 *TTecMegid__sub_80235940(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
 u16 obj_getField1c(void *);
 s32 obj_isState3_324(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-s32 TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 s32 TTecCtrl__sub_8022C4D4(s32, u16);
 void TTecMegid__vt6(Obj_80235490 *self, VObj_80235490 *target);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -291,7 +291,7 @@ void run_task__9TTecMegidFv(Obj_80235740 *self);
 void *get_bml_model(s32, u32);
 M2C_UNK attach_particle_model(void *, void *, s32, int, int, f32);
 M2C_UNK set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
-void *TObjParticle__sub_800870BC(void *, void *, u32, u16);
+void *spawn_particle_effect_with_rotation(void *, void *, u32, u16);
 void *spawn_continuous_particle_effect_with_flags(void *, u32, u16);
 void **alloc_buffer__11TOBoss4RockFPv(u32, s32);
 extern TTecGiBartaData_80230B48 TTecMegid__data_8044D874[];
@@ -308,7 +308,7 @@ void create_ex__9TTecMegidFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void fn_802359E4(void *arg0);
 void render__9TTecMegidFv(void);
 void update_by_state__9TTecMegidFPv(u8 *arg0);
-s32 TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
 
@@ -319,29 +319,29 @@ void update_by_state__9TTecMegidFPv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s16 *, 0xC6);
     switch (temp_r0) {
     case 0:
-        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A60B, (int) (arg0 + 0x20), 0, 0);
+        temp_r3 = play_sound_effect(0x4002A60B, (int) (arg0 + 0x20), 0, 0);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, 0x100, 0);
         }
         return;
     case 1:
-        TBoss3Volopt__sub_8022675C(0x4002A60B, (int) (arg0 + 0x20), 0, 0);
+        play_sound_effect(0x4002A60B, (int) (arg0 + 0x20), 0, 0);
         return;
     case 2:
     case 3:
-        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A60B, (int) (arg0 + 0x20), 0, 0);
+        temp_r3 = play_sound_effect(0x4002A60B, (int) (arg0 + 0x20), 0, 0);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x180, 0);
         }
         break;
     case 4:
-        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A60B, (int) (arg0 + 0x20), 0, 0);
+        temp_r3 = play_sound_effect(0x4002A60B, (int) (arg0 + 0x20), 0, 0);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x250, 0);
         }
         break;
     case 5:
-        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A60B, (int) (arg0 + 0x20), 0, 0);
+        temp_r3 = play_sound_effect(0x4002A60B, (int) (arg0 + 0x20), 0, 0);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x100, 0);
         }
@@ -385,7 +385,7 @@ void TTecMegid__sub_802351B4(void *arg0) {
     }
     if (flags & 2)
     {
-      self->emitters[i] = TObjParticle__sub_800870BC(&self->pos, &sp8, row->entry, mode | 0x1000);
+      self->emitters[i] = spawn_particle_effect_with_rotation(&self->pos, &sp8, row->entry, mode | 0x1000);
     }
     else
     {
@@ -450,7 +450,7 @@ void TTecMegid__vt6(Obj_80235490 *self, VObj_80235490 *target) {
         }
         HitInfo_80235490 info = tmp;
         target->m21(self->source, &info, self->contact, 0x12, -1);
-        TBoss3Volopt__sub_8022675C(0x4002AD29, (s32)((u8 *)target + 0x38), 0, 0);
+        play_sound_effect(0x4002AD29, (s32)((u8 *)target + 0x38), 0, 0);
         if (self->fc8 < 12) {
             if ((TTecCtrl__sub_8022C4D4(0x12, self->fc8) & 1) == 0) {
                 queue_destruction__7TObjectFv(self);
@@ -525,7 +525,7 @@ void run_task__9TTecMegidFv(Obj_80235740 *self) {
 
 u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
     s32 i;
-    TObjPlayer__sub_8023A7B4();
+    construct_aimed_technique_projectile();
     M2C_FIELD(arg0, void **, 0x18) = __vt__9TTecMegid;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D37E8;
     TTecMegid__sub_80235348(arg0);

@@ -120,7 +120,7 @@ void * TObjNpcConnoisseur__create(void *arg0);
 void *__dt__20TObjNpcCloakroomBaseFv(void *arg0, s16 arg1);
 void * create__20TObjNpcCloakroomBaseFPv(void *arg0);
 void destroy_static_instance__20TObjNpcCloakroomBaseFv(void);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcConnoisseur__ct(void *, void *, void *);
@@ -131,10 +131,10 @@ s32 get_global_state__14TOKeyMachine01Fv();
 
 void TObjNpcCloakroomBase__vt88(s32 arg0) {
     if (get_global_state__14TOKeyMachine01Fv() != 5) {
-        TBoss3Volopt__sub_8022675C(0x40003804, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x40003804, arg0 + 0x38, 0, 0);
         return;
     }
-    TBoss3Volopt__sub_8022675C(0x40003802, arg0 + 0x38, 0, 0);
+    play_sound_effect(0x40003802, arg0 + 0x38, 0, 0);
 }
 
 extern void *tl_04;

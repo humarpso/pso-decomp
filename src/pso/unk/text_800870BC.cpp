@@ -7,14 +7,14 @@ extern Ent_800870BC *lbl_805D4EF8;
 extern Ent_800870BC *lbl_805D4EFC;
 void *__nw__7TObjectFUl(int);
 void *__ct__13TParticleCtrlFv(void *self, void *pos, void *dir, void *ent, int a, int b, int c, int d, int e);
-void *TObjParticle__sub_800870BC(void *pos, void *dir, s32 id, int e);
+void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 }
 
 extern "C" {
 
 #pragma push
 #pragma opt_propagation off
-void *TObjParticle__sub_800870BC(void *pos, void *dir, s32 id, int e) {
+void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e) {
     void *p;
     s32 idx = id;
     if (lbl_805D2948 > idx) {

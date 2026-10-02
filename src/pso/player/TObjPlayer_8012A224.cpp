@@ -14,7 +14,7 @@ void update_field1fc__10TObjPlayerFPv(u8 *arg0);
 int rotate_matrix_x(void*, void*);
 M2C_UNK TObjPlayer__sub_80115BFC(void *, s32);
 M2C_UNK update_trail_slot__11TItemWeaponFPvi(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_80120908(void *);
+M2C_UNK draw_weapon_model(void *);
 int get_player_list__10TObjPlayerFv(void*);
 
 void drop_item_if_state3__10TObjPlayerFPv(void* p) { if (get_player_list__10TObjPlayerFv(p) == 3) { rotate_matrix_x((void*)0, *(void**)((char*)p + 0x1fc)); } }
@@ -27,7 +27,7 @@ void update_guarded_by_flag__10TObjPlayerFPv(void *arg0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x208) == 0) {
             *temp_r31 |= 0x10;
         }
-        TObjPlayer__sub_80120908(arg0);
+        draw_weapon_model(arg0);
         update_trail_slot__11TItemWeaponFPvi(arg0, 0);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x208) == 0) {
             *temp_r31 &= 0xFFFFFFEF;

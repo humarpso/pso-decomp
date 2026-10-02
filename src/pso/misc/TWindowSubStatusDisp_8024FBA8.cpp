@@ -23,13 +23,13 @@ void TWindowSubStatusDisp__sub_802500F4(s32 arg0, s32 arg1, s32 arg2, f32 farg0,
 u8 TWindowSubStatusDisp__sub_800FC220(s32);
 s32 TWindowSubStatusDisp__sub_800FC248(s32);
 void TWindowSubStatusDisp__sub_800FC24C(s32, void *);
-void TWindowSubStatusDisp__sub_800FC310(s32, void *);
+void build_small_font_glyph_quad(s32, void *);
 void render_forward__20TWindowSubStatusDispFPv();
 void TWindowKeyBoardSoft__sub_8024E6D8(s32, void *);
 s32 TWindowKeyBoardSoft__sub_8024E8E8(s32, void *);
 void TWindowSubStatusDisp__sub_803DEE6C(s32);
 void get_player__20TWindowSubStatusDispFv();
-void TWindowSubComCard__sub_803DEECC(void *, f32);
+void draw_textured_quad_at_depth(void *, f32);
 void TWindowSubStatusDisp__sub_803DF160(s32, u32);
 extern s32 lbl_805D6430;
 extern f32 lbl_805D6434;
@@ -81,7 +81,7 @@ s32 TWindowSubStatusDisp__sub_8024FBB0(f32 *pos, const char *s, u32 color, f32 w
             if (lbl_805D6440 != 0) {
                 TWindowSubStatusDisp__sub_800FC24C(glyph, &q);
             } else {
-                TWindowSubStatusDisp__sub_800FC310(glyph, &q);
+                build_small_font_glyph_quad(glyph, &q);
             }
             if ((f32)adv > width) {
                 ok = 0;
@@ -91,7 +91,7 @@ s32 TWindowSubStatusDisp__sub_8024FBB0(f32 *pos, const char *s, u32 color, f32 w
             width -= (f32)adv;
             if (lbl_805D643C == 0 || TWindowKeyBoardSoft__sub_8024E8E8(lbl_805D6430, &q) != 0) {
                 TWindowKeyBoardSoft__sub_8024E6D8(lbl_805D6430, &q);
-                TWindowSubComCard__sub_803DEECC(&q, lbl_805D6434);
+                draw_textured_quad_at_depth(&q, lbl_805D6434);
             }
         }
     }

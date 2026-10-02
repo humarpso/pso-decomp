@@ -85,14 +85,14 @@ struct Door_80163408 {
 extern "C" {
 M2C_UNK set_indexed_flags(void *, int, int);
 s32 TODragonfly__sub_80158360(f32);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805DB514;
 extern const f32 lbl_805DB518;
 extern const f32 lbl_805DB51C;
 extern const f32 lbl_805DB520;
 void TODoorMachine02__vt13(u8 *arg0);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_80154E3C(void *);
+s32 refresh_collision_body_centers(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_80163760_lbl_804B16C8 lbl_804B16C8;
@@ -108,7 +108,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TOSignCave03__sub_803DB510(int);
+M2C_UNK draw_ginja_model(int);
 M2C_UNK draw_ginja_model_with_motion(void *, int, f32);
 M2C_UNK set_chunk_material_color(void *);
 extern char lbl_804A7418[];
@@ -139,7 +139,7 @@ void TODoorMachine02__vt18(void);
 void *__dt__15TODoorMachine02Fv(void *arg0, s16 arg1);
 void *create__15TODoorMachine02FPv(void *arg0);
 void free_statics__15TODoorMachine02Fv(void);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TODragonfly__sub_80158360(f32);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
@@ -159,7 +159,7 @@ void TODoorMachine02__vt15(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0xD0) & 1) || (TODragonfly__sub_80158360(lbl_805DB510) != 1)) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 3;
         clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 8);
-        TBoss3Volopt__sub_8022675C(0x4004BC01, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x4004BC01, arg0 + 0x38, 0, 0);
     }
 }
 
@@ -169,7 +169,7 @@ void TODoorMachine02__vt13(u8 *arg0) {
     if ((M2C_FIELD(arg0, s32 *, 0xD0) & 1) && (TODragonfly__sub_80158360((f32) (lbl_805DB514)) == 1)) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 1;
         set_indexed_flags((void *) (arg0), (int) (0), (int) (8));
-        TBoss3Volopt__sub_8022675C((M2C_UNK)((int) (0x4004BC01)), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
+        play_sound_effect((M2C_UNK)((int) (0x4004BC01)), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
     }
     if (M2C_FIELD(arg0, s32 *, 0xD0) & 0x10000) {
         M2C_FIELD(arg0, f32 *, 0xD8) = (f32) (M2C_FIELD(arg0, f32 *, 0xD8) + lbl_805DB518);
@@ -196,7 +196,7 @@ void render__15TODoorMachine02Fv(Door_80163408 *arg0) {
         if (arg0->fAC == 0) {
             n = arg0->model->root;
             TOHangerMachine01__sub_803D9C00(n->f8);
-            TOSignCave03__sub_803DB510(n->f4);
+            draw_ginja_model(n->f4);
             if (flag != 1) {
                 s32 id = some_id_805c6f74;
                 lbl_805D5660 = id;
@@ -206,12 +206,12 @@ void render__15TODoorMachine02Fv(Door_80163408 *arg0) {
             TObjPlayer__sub_803D9B2C();
             n = n->next2C;
             TOHangerMachine01__sub_803D9C00(n->f8);
-            TOSignCave03__sub_803DB510(n->f4);
+            draw_ginja_model(n->f4);
             pop_matrix();
             TObjPlayer__sub_803D9B2C();
             n = n->next30;
             TOHangerMachine01__sub_803D9C00(n->f8);
-            TOSignCave03__sub_803DB510(n->f4);
+            draw_ginja_model(n->f4);
             pop_matrix();
             if (flag != 1) {
                 set_chunk_material_color(lbl_804A7418);
@@ -219,7 +219,7 @@ void render__15TODoorMachine02Fv(Door_80163408 *arg0) {
             }
             n = arg0->model->root->next30;
             TOHangerMachine01__sub_803D9C00(n->f8);
-            TOSignCave03__sub_803DB510(n->f4);
+            draw_ginja_model(n->f4);
         } else {
             draw_ginja_model_with_motion(arg0->model, arg0->fBC, arg0->fB0);
         }
@@ -300,7 +300,7 @@ u8 *TODoorMachine02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB51C);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB528;
     TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B16C8.value), (int) (1));
-    TObjPlayer__sub_80154E3C((void *) (arg0));
+    refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     ((VObj_18_4a4f5b *)(arg0))->m17();
     M2C_FIELD(arg0, f32 *, 0xD4) = (f32) lbl_805DB51C;

@@ -26,7 +26,7 @@ struct VObj802D1F30 : VBase802D1F30 {
 
 extern "C" {
 s32 copy_and_register_item_data__11TItemObjectFPv(u32);
-u32 TLobby__sub_80101AB0();
+u32 find_item_by_id();
 M2C_UNK copy_to_item_data__5TItemFPvPv(void *, void *);
 s32 TObjPlayer__sub_801049C8(void *, void *);
 s32 TObjPlayer__sub_801C1AC8();
@@ -34,7 +34,7 @@ void *get_trade_obj_ptr__6TLobbyFPv(s32);
 Entry_802D20C8 *TLobby__sub_802D230C(void *);
 s32 TLobby__sub_802D20C8(Entry_802D20C8 *arg0, u32 arg1, s32 arg2);
 u8 *get_quest_id__12TQuestListVMFPv(void *);
-u32 TLobby__sub_80101AB0();
+u32 find_item_by_id();
 u8 *get_player_by_client_id(s32);
 s32 run_and_get_result__10TObjPlayerFPvi(int, void *);
 void update_both_halves__6TLobbyFPv(void* p);
@@ -47,7 +47,7 @@ extern "C" {
 void clear_stale_entries__6TLobbyFPv(u8 *arg0);
 void set_trade_field_4__6TLobbyFii(s32 arg0, s32 arg1);
 void update_both_halves__6TLobbyFPv(void* p);
-u32 TLobby__sub_80101AB0();
+u32 find_item_by_id();
 int TLobby__sub_802D2358(void*);
 void *get_trade_obj_ptr__6TLobbyFPv(s32);
 
@@ -72,7 +72,7 @@ void TLobby__sub_802D1F30(s32 arg0, s32 arg1) {
         var_r25 = (unsigned char *) (arg0 + 0xF8);
         var_r26 = 0;
         while (var_r26 < temp_r29) {
-            temp_r3_2 = ((u8 *(*)(s32)) TLobby__sub_80101AB0)(ids[var_r26]);
+            temp_r3_2 = ((u8 *(*)(s32)) find_item_by_id)(ids[var_r26]);
             if (temp_r3_2 != NULL) {
                 M2C_FIELD(var_r25, s32 *, 0) = ids[var_r26];
                 M2C_FIELD(var_r25, s32 *, 4) = ((VObj802D1F30 *)temp_r3_2)->m34();
@@ -103,7 +103,7 @@ void clear_stale_entries__6TLobbyFPv(u8 *arg0) {
     var_r29 = arg0;
     var_r28 = 0;
     do {
-        if (((u32) (M2C_FIELD(var_r29, s32 *, 0) + 0x10000) != 0xFFFFU) && ((TLobby__sub_80101AB0() == 0U) || ((s32) M2C_FIELD(var_r29, s32 *, 4) <= 0))) {
+        if (((u32) (M2C_FIELD(var_r29, s32 *, 0) + 0x10000) != 0xFFFFU) && ((find_item_by_id() == 0U) || ((s32) M2C_FIELD(var_r29, s32 *, 4) <= 0))) {
             M2C_FIELD(var_r29, s32 *, 0) = -1;
             M2C_FIELD(var_r29, s32 *, 4) = 0;
         }
@@ -123,7 +123,7 @@ s32 TLobby__sub_802D20C8(Entry_802D20C8 *arg0, u32 arg1, s32 arg2) {
         t[1] += arg2;
         return t[1] > 999999;
     }
-    item = ((u32 (*)(u32)) TLobby__sub_80101AB0)(arg1);
+    item = ((u32 (*)(u32)) find_item_by_id)(arg1);
     if (item == 0) {
         return 0;
     }
@@ -132,7 +132,7 @@ s32 TLobby__sub_802D20C8(Entry_802D20C8 *arg0, u32 arg1, s32 arg2) {
         e = arg0;
         for (i = 0; i < 30; i++, e++) {
             if (e->id != 0xFFFFFFFF && e->id != 0xFFFFFF01) {
-                found = ((u32 (*)(u32)) TLobby__sub_80101AB0)(e->id);
+                found = ((u32 (*)(u32)) find_item_by_id)(e->id);
                 if (found != 0) {
                     copy_to_item_data__5TItemFPvPv((void *) found, &b);
                     if (TObjPlayer__sub_801049C8(&b, &a) != 0) {

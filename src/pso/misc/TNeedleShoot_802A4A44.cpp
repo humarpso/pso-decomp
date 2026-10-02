@@ -43,7 +43,7 @@ extern "C" {
 void *TNeedleShoot__sub_802A4B60(void *arg0, s16 arg1);
 void* get_shoot_data__12TNeedleShootFPv(void* p);
 void init_velocity__12TNeedleShootFPv(u8 *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 void __dl__7TObjectFPv(void *);
 void __dt__12TNeedleShootFv(void *, int);
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -75,9 +75,9 @@ void TNeedleShoot__sub_802A4A4C(u8 *arg0) {
 
 void init_velocity__12TNeedleShootFPv(u8 *arg0) {
     if (get_global_state__14TOKeyMachine01Fv() == 0x22) {
-        TBoss3Volopt__sub_8022675C((int) (0x4003B20E), (void *) (arg0 + 0x6C), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4003B20E), (void *) (arg0 + 0x6C), (int) (0), (int) (0));
     } else {
-        TBoss3Volopt__sub_8022675C((int) (0x3A847), (void *) (arg0 + 0x6C), (int) (0), (int) (0));
+        play_sound_effect((int) (0x3A847), (void *) (arg0 + 0x6C), (int) (0), (int) (0));
     }
     M2C_FIELD(arg0, s32 *, 0xB8) = 0;
 }

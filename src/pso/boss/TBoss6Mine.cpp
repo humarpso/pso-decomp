@@ -78,7 +78,7 @@ extern const f32 lbl_805DF5A0;
 void TBoss6Mine__vt5(u8 *arg0);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 get_game_mode__6TLobbyFv();
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 s32 is_active__14TBoss6PlotFalzFPv(void *);
 s32 TBoss6PlotFalz__sub_802AB5B4(s32, f32);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
@@ -95,7 +95,7 @@ extern const f32 lbl_805DF588;
 void TBoss6Mine__vt3(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-s32 TObjPlayer__sub_801423A4(s32, s32, s32);
+s32 approach_angle_limited(s32, s32, s32);
 f64 TBoss5GryphonLightningWing__sub_80324CEC(f32);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 f32 TBoss6Type1__sub_803D9370(void *, void *);
@@ -118,7 +118,7 @@ s32 create__10TBoss6MineFi(s32 arg0);
 void draw__10TBoss6MineFPv(void *arg0);
 void draw_parts__10TBoss6MineFPv(void* p);
 void set_state7__10TBoss6MineFPv(void *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 s32 TBoss6Mine__ct(s32, s32, s32);
 M2C_UNK TBoss6PlotFalz__sub_802ABE3C(s32, M2C_UNK, M2C_UNK, f32);
 M2C_UNK TBoss6PlotFalz__sub_802AC008(f32, f32);
@@ -207,8 +207,8 @@ void TBoss6Mine__sub_80323FA4(u8 *arg0) {
                 b = 0x2000;
             }
         }
-        M2C_FIELD(arg0, s32 *, 0x390) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x390), a, 0x1111);
-        M2C_FIELD(arg0, s32 *, 0x394) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x394), b, 0x444);
+        M2C_FIELD(arg0, s32 *, 0x390) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x390), a, 0x1111);
+        M2C_FIELD(arg0, s32 *, 0x394) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x394), b, 0x444);
         M2C_FIELD(arg0, s32 *, 0x398) += 0x888;
         break;
     }
@@ -240,7 +240,7 @@ void TBoss6Mine__sub_803240F8(u8 *arg0) {
             }
         }
     }
-    TBoss3Volopt__sub_8022675C(0x4003BA1E, arg0 + 0x38, 0, 0);
+    play_sound_effect(0x4003BA1E, arg0 + 0x38, 0, 0);
 }
 
 void TBoss6Mine__vt7(void* p) { spawn_particle_effect_with_flags((void*)((char*)p + 0x38), (void*)((void*)252), (void*)((void*)64)); queue_destruction__7TObjectFv((void*)(p)); }
@@ -297,7 +297,7 @@ void TBoss6Mine__vt4(u8 *arg0) {
     if (temp_r3 > (s32) M2C_FIELD(arg0, s32 *, 0x3A8)) {
         M2C_FIELD(arg0, s32 *, 0x38C) = 0;
         M2C_FIELD(arg0, s32 *, 0x380) = 5;
-        TBoss3Volopt__sub_8022675C(0x4003B51D, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x4003B51D, arg0 + 0x38, 0, 0);
     }
 }
 

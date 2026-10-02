@@ -40,12 +40,12 @@ s32 handle_ring_hit__10TObjPlayerFi(void *);
 s32 check_ring_action__10TObjPlayerFi(void *);
 s32 TObjPlayer__sub_801D023C(void *);
 s32 TObjPlayer__sub_801D03BC(void *);
-void TObjPlayer__sub_801D03DC(s32 arg0, s16 arg1);
+void run_walk_state_phase__10TObjPlayerFis(s32 arg0, s16 arg1);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_801D03DC(s32 arg0, s16 arg1) {
+void run_walk_state_phase__10TObjPlayerFis(s32 arg0, s16 arg1) {
   int new_var;
   new_var = ((u32) arg1) <= 8U;
   {

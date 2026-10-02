@@ -71,7 +71,7 @@ s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback();
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(int);
-M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+M2C_UNK play_sound_effect(void *, void *, int, int);
 extern u8 **lbl_805D50D4;
 extern const f32 lbl_805D9BD8;
 extern const f32 lbl_805D9BF0;
@@ -114,7 +114,7 @@ M2C_UNK submit_cursor_candidate(void *, int);
 u8 *get_player_by_client_id(u16);
 M2C_UNK minimap_render_dot(void *, int, int, int, f32);
 extern const f32 lbl_805D9BDC;
-void TObjPlayer__sub_800AF28C(u8 *arg0);
+void run_task__11TObjEneMojaFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -232,7 +232,7 @@ M2C_UNK TObjPlayer__sub_800AE18C(u8 *arg0) {
     case 0:
         apply_actor_gravity((void *) arg0, 0, lbl_805D9BD8);
         if (objInBand__FP7GameObjf((void *) (arg0), lbl_805D9BD8) != 0) {
-            TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), 0x3AD0A), arg0 + 0x38, 0, 0);
+            play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), 0x3AD0A), arg0 + 0x38, 0, 0);
             play_effect_if_v2__10TObjPlayerFi(-0x200);
         }
         if (M2C_FIELD(arg0, u32 *, 0xB4) != 0x20U) {
@@ -265,7 +265,7 @@ M2C_UNK TObjPlayer__sub_800AE18C(u8 *arg0) {
             }
         }
         if (objInBand__FP7GameObjf((void *) (arg0), lbl_805D9C34) != 0 || objInBand__FP7GameObjf((void *) (arg0), lbl_805D9C38) != 0) {
-            TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), 0x3A801), arg0 + 0x38, 0, 0);
+            play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), 0x3A801), arg0 + 0x38, 0, 0);
             play_effect_if_v2__10TObjPlayerFi(-0x400);
         }
         break;
@@ -426,7 +426,7 @@ void TObjPlayer__sub_800AEE54(u8 *arg0) {
         M2C_FIELD(arg0, u8 **, 0x2A8) = NULL;
     }
 }
-void TObjPlayer__sub_800AF28C(u8 *arg0) {
+void run_task__11TObjEneMojaFPv(u8 *arg0) {
     f32 temp_f1;
     s16 temp_r0;
     s32 temp_r30;

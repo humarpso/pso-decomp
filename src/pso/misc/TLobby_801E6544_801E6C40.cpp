@@ -26,7 +26,7 @@ extern "C" {
 s32 is_phase_reached__14TBoss6PlotFalzFv();
 extern s32 TLobby__data_805D5E78;
 void TLobby__sub_801E6C4C(s32 arg0);
-u32 TLobby__sub_80101AB0(int);
+u32 find_item_by_id(int);
 s32 TObjPlayer__sub_801C1AC8();
 extern RecoveredGlobal_801E6D18_TLobby__data_80512220 TLobby__data_80512220;
 extern s32 TLobby__data_805D5E78;
@@ -83,7 +83,7 @@ void TLobby__sub_801E6CA4(void) {
 void TLobby__sub_801E6D18(void) {
     u8 temp_r31;
     temp_r31 = (u8) M2C_FIELD(&TLobby__data_80512220.value, s32 *, 4);
-    if (TLobby__sub_80101AB0((int) (M2C_FIELD(&TLobby__data_80512220.value, s32 *, 0))) != 0U) {
+    if (find_item_by_id((int) (M2C_FIELD(&TLobby__data_80512220.value, s32 *, 0))) != 0U) {
         if (TObjPlayer__sub_801C1AC8() != 0) {
             M2C_FIELD((TLobby__data_805D5E78 + ((temp_r31 * 4) & 0x3FC)), s32 *, 0) = 1;
             return;

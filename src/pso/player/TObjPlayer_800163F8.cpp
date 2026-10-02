@@ -181,14 +181,14 @@ s32 push_matrix_from(void *);
 s32 pop_matrix();
 extern RecoveredGlobal_8001806C_lbl_8058D490 lbl_8058D490;
 extern const f32 TObjPlayer__data_805D7D24;
-void TObjPlayer__sub_8001806C(u8 *arg0, s32 arg1, f32 farg0);
+void enemy_set_heading_velocity(u8 *arg0, s32 arg1, f32 farg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 void TBoss6Type1__sub_803D9370(void *a, void *b);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-s32 TObjPlayer__sub_801423A4(s32, s32, s32);
+s32 approach_angle_limited(s32, s32, s32);
 M2C_UNK angle_difference_abs(s32, s32);
 extern const f64 TObjPlayer__data_804340B8;
-void TObjPlayer__sub_80018660(Obj_80018660 *self, s32 turn);
+void enemy_turn_toward_dest(Obj_80018660 *self, s32 turn);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 void TBoss6Type1__sub_803D9370(void *a, void *b);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
@@ -260,10 +260,10 @@ extern Vec_800182A0 lbl_8050BEE0;
 extern RecoveredGlobal_8001806C_lbl_8058D490 lbl_8058D490;
 extern const f32 TObjPlayer__data_805D7D24;
 M2C_UNK select_enemy_destination(Obj_800182A0 *self, Vec_800182A0 *arg1, int flags);
-void TObjPlayer__sub_8001806C(u8 *arg0, s32 arg1, f32 farg0);
+void enemy_set_heading_velocity(u8 *arg0, s32 arg1, f32 farg0);
 M2C_UNK select_enemy_destination(Obj_800182A0 *self, Vec_800182A0 *arg1, int flags);
 s32 copy_position_if_valid__10TObjPlayerFii(s32 arg0, s32 arg1);
-void TObjPlayer__sub_80018660(Obj_80018660 *self, s32 turn);
+void enemy_turn_toward_dest(Obj_80018660 *self, s32 turn);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 horizontal_distance_squared(void *, void *);
@@ -291,9 +291,9 @@ extern const f32 TObjPlayer__data_805D7D74;
 void move_with_wall_slide(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void move_with_wall_slide(u8 *arg0);
-void TObjPlayer__sub_8001806C(u8 *arg0, s32 arg1, f32 farg0);
+void enemy_set_heading_velocity(u8 *arg0, s32 arg1, f32 farg0);
 M2C_UNK select_enemy_destination(Obj_800182A0 *self, Vec_800182A0 *arg1, int flags);
-void TObjPlayer__sub_80018660(Obj_80018660 *self, s32 turn);
+void enemy_turn_toward_dest(Obj_80018660 *self, s32 turn);
 f32 horizontal_distance_squared(void *, void *);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -321,7 +321,7 @@ M2C_UNK show_miss_for_collider__10TObjPlayerFi(void *, s32);
 M2C_UNK TObjPlayer__sub_800192DC(void *);
 s32 TObjPlayer__sub_800194AC(void *, M2C_UNK, M2C_UNK);
 M2C_UNK angle_difference_abs(s32, s32);
-s32 TObjPlayer__sub_801423A4(s32, s32, s32);
+s32 approach_angle_limited(s32, s32, s32);
 s32 project_actor_to_ground(s32, s32, s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
@@ -385,8 +385,8 @@ f32 TObjPlayer__sub_80017700(u8 *arg0, s32 arg1, Vec_800180E8 arg2, s32 arg3, f3
             ((s32 (*)(void *, Vec_800180E8)) copy_position_if_valid__10TObjPlayerFii)(arg0, *(Vec_800180E8 *)(arg0 + 0x2FC));
         }
     }
-    TObjPlayer__sub_80018660((Obj_80018660 *)arg0, arg1);
-    TObjPlayer__sub_8001806C(arg0, M2C_FIELD(arg0, s32 *, 0x60), farg0);
+    enemy_turn_toward_dest((Obj_80018660 *)arg0, arg1);
+    enemy_set_heading_velocity(arg0, M2C_FIELD(arg0, s32 *, 0x60), farg0);
     move_with_wall_slide((u8 *)(arg0));
     return horizontal_distance_squared(&arg2, arg0 + 0x38);
 }
@@ -424,8 +424,8 @@ f32 TObjPlayer__sub_800178C8(u8 *arg0, s32 arg1, Vec_800180E8 arg2, f32 farg0, f
             ((s32 (*)(void *, Vec_800180E8)) copy_position_if_valid__10TObjPlayerFii)(arg0, *(Vec_800180E8 *)(arg0 + 0x2FC));
         }
     }
-    TObjPlayer__sub_80018660((Obj_80018660 *)arg0, arg1);
-    TObjPlayer__sub_8001806C(arg0, M2C_FIELD(arg0, s32 *, 0x60), farg0);
+    enemy_turn_toward_dest((Obj_80018660 *)arg0, arg1);
+    enemy_set_heading_velocity(arg0, M2C_FIELD(arg0, s32 *, 0x60), farg0);
     move_with_wall_slide((u8 *)(arg0));
     return horizontal_distance_squared(&arg2, arg0 + 0x2FC);
 }
@@ -464,8 +464,8 @@ f32 enemy_wander_home(u8 *arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2) {
         M2C_FIELD(arg0, f32 *, 0x308) = M2C_FIELD(arg0, f32 *, 0x310) = TObjPlayer__data_805D7D24;
         M2C_FIELD(arg0, s32 *, 0x2AC) = 0;
     } else {
-        TObjPlayer__sub_80018660((Obj_80018660 *) arg0, arg1);
-        TObjPlayer__sub_8001806C(arg0, M2C_FIELD(arg0, s32 *, 0x60), farg0);
+        enemy_turn_toward_dest((Obj_80018660 *) arg0, arg1);
+        enemy_set_heading_velocity(arg0, M2C_FIELD(arg0, s32 *, 0x60), farg0);
         move_with_wall_slide(arg0);
         var_f31 = horizontal_distance_squared((void *) (arg0 + 0x29C), (void *) (arg0 + 0x2FC));
         M2C_FIELD(arg0, s32 *, 0x2AC) = M2C_FIELD(arg0, s32 *, 0x2AC) + 1;
@@ -550,7 +550,7 @@ void move_with_wall_slide(u8 *arg0) {
 }
 #pragma pop
 
-void TObjPlayer__sub_8001806C(u8 *arg0, s32 arg1, f32 farg0) {
+void enemy_set_heading_velocity(u8 *arg0, s32 arg1, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_8001806C, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8001806C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8001806C, sp10) == 0x8) ? 1 : -1];
@@ -686,18 +686,18 @@ void update_angle__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2) {
     s32 temp_r31;
 
     temp_r31 = (s32) (TObjPlayer__data_804340B8 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg2, f32 *, 0), M2C_FIELD(arg2, f32 *, 8)));
-    M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x60), temp_r31, arg1);
+    M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), temp_r31, arg1);
     angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), temp_r31);
 }
 typedef struct Stack_80018780 Stack_80018780;
 
-void TObjPlayer__sub_80018660(Obj_80018660 *self, s32 turn) {
+void enemy_turn_toward_dest(Obj_80018660 *self, s32 turn) {
     Vec_80018660 d;
     s32 a;
     VecCopy__FP3VecPC3Vec((s32)&d, (s32)&self->dest);
     TBoss6Type1__sub_803D9370(&d, &self->pos);
     a = (s32)(TObjPlayer__data_804340B8 * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z));
-    self->angle = TObjPlayer__sub_801423A4(self->angle, a, turn);
+    self->angle = approach_angle_limited(self->angle, a, turn);
     angle_difference_abs(self->angle, a);
 }
 

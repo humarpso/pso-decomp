@@ -170,7 +170,7 @@ s32 TObjPlayer__sub_801AB6A0(void *arg0);
 s32 find_entity_by_id(int);
 s32 rotate_matrix_y(int, int);
 void init_all_slots__10TObjPlayerFv(void);
-void TObjPlayer__sub_8015610C(void *);
+void mark_enemy_body_contacts(void *);
 Target_801AB868 *get_battle_param__10TObjPlayerFi(s32);
 void TBoss6Type1__sub_803D9370(void *, void *);
 f32 TCameraCtrl__sub_803D8D00(void *);
@@ -281,7 +281,7 @@ void TObjPlayer__sub_801AB868(void *arg0) {
     s32 i;
     Target_801AB868 *candidate;
     init_all_slots__10TObjPlayerFv();
-    TObjPlayer__sub_8015610C(self);
+    mark_enemy_body_contacts(self);
     if (self->fa4->flags & 0x100000) {
         for (i = 0; i < 16; i++) {
             candidate = get_battle_param__10TObjPlayerFi(i);

@@ -158,7 +158,7 @@ M2C_UNK TObjPlayer__sub_8011EB84(void *, void *, int, int);
 s16 TObjPlayer__sub_801D2EA8(void *);
 void TObjPlayer__sub_802D5D18(u8 *arg0);
 int test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
-M2C_UNK TObjPlayer__sub_80120908(void *);
+M2C_UNK draw_weapon_model(void *);
 void TObjPlayer__sub_802D5E8C(u8 *arg0);
 s32 check_boss2tunnel_field_f4__10TObjPlayerFPv(void *);
 s32 get_player_list__10TObjPlayerFv();
@@ -258,7 +258,7 @@ void TObjPlayer__sub_802D5DE0(u8 *arg0) {
 
 void TObjPlayer__sub_802D5E8C(u8 *arg0) {
     if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x01000000U) == 0U) {
-        TObjPlayer__sub_80120908((void *) (arg0));
+        draw_weapon_model((void *) (arg0));
     }
 }
 

@@ -9,7 +9,7 @@ struct Obj_8012AFF8 {
 extern "C" {
 void set_flags__10TObjPlayerFPvUi(void *, u32);
 void update_trail_slot__11TItemWeaponFPvi(void *, s32);
-void TObjPlayer__sub_80120908(void *);
+void draw_weapon_model(void *);
 void TObjPlayer__sub_80120BBC(void *, s32);
 s32 is_rand_below_threshold__10TObjPlayerFv(void *);
 void TObjPlayer__sub_8012B1F0(void *p, s16 v);
@@ -29,7 +29,7 @@ void TObjPlayer__sub_8012AFF8(Obj_8012AFF8 *arg0) {
         TObjPlayer__sub_8012B1F0(arg0, 8);
         set_flags__10TObjPlayerFPvUi(&lbl_805D53EC, 4);
     }
-    TObjPlayer__sub_80120908(arg0);
+    draw_weapon_model(arg0);
     if (TObjPlayer__sub_8012B1F8(arg0) != 8) {
         update_trail_slot__11TItemWeaponFPvi(arg0, 0);
     }

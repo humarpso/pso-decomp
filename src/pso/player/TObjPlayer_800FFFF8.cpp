@@ -38,7 +38,7 @@ M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-s32 TOSignCave03__sub_803DB510(void *);
+s32 draw_ginja_model(void *);
 s32 set_chunk_material_color(int);
 extern RecoveredGlobal_80100070_lbl_8049E8F8 lbl_8049E8F8;
 extern RecoveredGlobal_80100070_lbl_8049E958 lbl_8049E958;
@@ -64,13 +64,13 @@ void draw_item_model__10TObjPlayerFPv(u8 *arg0);
 s32 query_game_join_id__10TObjPlayerFv(void);
 void submit_computer_command__10TObjPlayerFPv(void *arg0);
 s32 PPCSync();
-s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+s32 play_sound_effect(s32, s32, s32, s32);
 s32 TItemData__sub_8010C52C(s32);
 void TItem__sub_801005D8(void);
 void TItem__sub_801005DC(void);
 void TItem__sub_801005E0(void);
 int TItem__sub_801005E4(void);
-s32 TLobby__sub_80101AB0();
+s32 find_item_by_id();
 s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
@@ -124,9 +124,9 @@ void TObjPlayer__sub_80100070(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
         rotate_matrix_y((M2C_UNK)((int) (0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x60))));
         set_chunk_material_color((int) ((u8 *)&lbl_8049E8F8.value + ((s8) M2C_FIELD(arg0, u8 *, 0xEA) * 0x10)));
-        TOSignCave03__sub_803DB510((void *) (M2C_FIELD(spC, s32 *, 4)));
+        draw_ginja_model((void *) (M2C_FIELD(spC, s32 *, 4)));
         set_chunk_material_color((int) ((u8 *)&lbl_8049E958.value + ((s8) M2C_FIELD(arg0, u8 *, 0xEA) * 0x10)));
-        TOSignCave03__sub_803DB510((void *) (M2C_FIELD(M2C_FIELD(spC, u8 **, 0x2C), s32 *, 4)));
+        draw_ginja_model((void *) (M2C_FIELD(M2C_FIELD(spC, u8 **, 0x2C), s32 *, 4)));
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
         reset_transform_state__10TObjPlayerFv();
@@ -183,7 +183,7 @@ void TObjPlayer__sub_8010047C(u8 *arg0, s16 arg1) {
 s32 query_game_join_id__10TObjPlayerFv(void) {
     s32 temp_r3;
 
-    temp_r3 = TLobby__sub_80101AB0();
+    temp_r3 = find_item_by_id();
     if ((temp_r3 != 0) && (TObjPlayer__sub_80102C30() == 2)) {
         return temp_r3;
     }

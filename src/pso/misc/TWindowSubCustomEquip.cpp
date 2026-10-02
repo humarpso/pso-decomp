@@ -45,7 +45,7 @@ s32 fn_8002AE08(int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 is_player_input_active(int);
 extern RecoveredGlobal_80276D14_lbl_8050E208 lbl_8050E208;
 void TWindowSubCustomEquip__sub_80276D14(u8 *arg0);
@@ -53,7 +53,7 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 initialize_subwindow__9TWindowDDFPv(void *);
 s32 is_player_input_active(int);
-s32 TWindowSubStatusDisp__sub_80257C28(void *, void *);
+s32 update_window_entry_list(void *, void *);
 s32 is_selected__21TWindowSubCustomEquipFPv(void *);
 void reset_selection__21TWindowSubCustomEquipFPv(void* p);
 void update_rotate_anim__21TWindowSubCustomEquipFPv(void *arg0);
@@ -87,7 +87,7 @@ void handle_decide__21TWindowSubCustomEquipFPv(void *arg0);
 void reset_selection__21TWindowSubCustomEquipFPv(void* p);
 void set_relative_pos__21TWindowSubCustomEquipFPvPv(void *arg0, void *arg1);
 void update_rotate_anim__21TWindowSubCustomEquipFPv(void *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 int TWindowSubCustomEquip__sub_802766C8(void*, void*);
 void __dl__7TObjectFPv(void *);
 void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
@@ -229,13 +229,13 @@ void update_rotate_anim__21TWindowSubCustomEquipFPv(void *arg0) {
 
 void handle_cancel__21TWindowSubCustomEquipFPv(void *arg0) {
     if (is_selected__21TWindowSubCustomEquipFPv((void *)(arg0)) == 0) {
-        TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
+        play_sound_effect(0x52F16, 0, 0, 0);
         M2C_FIELD(arg0, u8 *, 0x60) = (u8) (M2C_FIELD(arg0, u8 *, 0x60) | 2);
     }
 }
 
 void handle_decide__21TWindowSubCustomEquipFPv(void *arg0) {
-    TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
+    play_sound_effect(0x52D01, 0, 0, 0);
     M2C_FIELD(arg0, u8 *, 0x60) = (u8) (M2C_FIELD(arg0, u8 *, 0x60) | 1);
     set_entry_state__20TWindowSubStatusDispFPvc(M2C_FIELD(arg0, s32 *, 0x6C), 2);
 }
@@ -265,7 +265,7 @@ void TWindowSubCustomEquip__sub_80276D14(u8 *arg0) {
     }
     temp_r31_2 = (u8 *)&lbl_8050E208.value + (temp_r29 * 0x50) + 0x20;
     if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r31_2), (int) (0xF0), (int) (6), (int) (1)) != 0) || (TWindowShortListCtrl__check_controller_button((int) (temp_r31_2), (int) (fn_8002AE08((int) (M2C_FIELD(arg0, s16 *, 0x20))))) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (0xF0), (int) (6), (int) (1)) != 0)) {
-        TBoss3Volopt__sub_8022675C((M2C_UNK)((int) (0x54100)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
+        play_sound_effect((M2C_UNK)((int) (0x54100)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
         if (TWindowShortListCtrl__check_controller_button((int) (temp_r31_2), (int) (fn_8002AE08((int) (M2C_FIELD(arg0, s16 *, 0x20))))) != 0) {
             M2C_FIELD(arg0, u8 *, 0x62) = (u8) (1 - M2C_FIELD(arg0, u8 *, 0x62));
             M2C_FIELD(arg0, u8 *, 0x63) = 3U;
@@ -324,7 +324,7 @@ void run_task__21TWindowSubCustomEquipFv(u8 *arg0) {
         update_subwindow__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x6C)));
     }
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));
-    TWindowSubStatusDisp__sub_80257C28((void *) (arg0), (void *) (arg0 + 0x24));
+    update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
     M2C_FIELD(arg0, s16 *, 0x66) = (s16) (M2C_FIELD(arg0, s16 *, 0x66) + 1);
 }
 

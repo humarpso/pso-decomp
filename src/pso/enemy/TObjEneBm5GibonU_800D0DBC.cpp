@@ -39,7 +39,7 @@ extern const f32 lbl_805DA254;
 void TObjEneBm5GibonU__sub_800D10A0(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 Hit_800D0E14 *csnVector(void *, void *, s32);
-void TObjBoss2Tunnel__sub_8007E7D8(f32 *, f32 *, s32);
+void rotate_xz_pair_by_angle(f32 *, f32 *, s32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(Vec_800D0E14 *);
 f32 rand_range__9TObjEneDDFff(void *, f32, f32);
 extern const f32 TObjEneBm5GibonU__data_805DA15C;
@@ -50,7 +50,7 @@ extern const f32 lbl_805DA24C;
 extern const f32 lbl_805DA250;
 void TObjEneBm5GibonU__sub_800D0E14(Ene_800D0E14 *arg0);
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
-s32 TObjPlayer__sub_801423A4(s32, s32, s32);
+s32 approach_angle_limited(s32, s32, s32);
 void TObjEneBm5GibonU__sub_800D0FDC(Ene_800D0FDC *arg0, s32 arg1);
 }
 
@@ -91,7 +91,7 @@ void TObjEneBm5GibonU__sub_800D0E14(Ene_800D0E14 *arg0) {
     v.y = TObjEneBm5GibonU__data_805DA15C;
     v.z = arg0->pos.z - arg0->home.z;
     clamp_velocity__15TObjBoss2TunnelFPv(&v);
-    TObjBoss2Tunnel__sub_8007E7D8(&v.x, &v.z, (s32)(lbl_805DA24C * calc_boss4_scale__10TObjPlayerFi(arg0)) + 0x4000);
+    rotate_xz_pair_by_angle(&v.x, &v.z, (s32)(lbl_805DA24C * calc_boss4_scale__10TObjPlayerFi(arg0)) + 0x4000);
     d = lbl_805DA214 * rand_range__9TObjEneDDFff(arg0, TObjEneBm5GibonU__data_805DA194, TObjEneBm5GibonU__data_805DA168);
     arg0->dest.x = v.x * d + arg0->home.x;
     arg0->dest.z = v.z * d + arg0->home.z;
@@ -115,7 +115,7 @@ void TObjEneBm5GibonU__sub_800D0FDC(Ene_800D0FDC *arg0, s32 arg1) {
         d = -0x3000;
     }
     if (arg0->turn * d >= 0) {
-        arg0->turn = TObjPlayer__sub_801423A4(arg0->turn, d, 0x400);
+        arg0->turn = approach_angle_limited(arg0->turn, d, 0x400);
     } else if (arg0->turn * TBoss4Type2__sub_80141FA8(arg0->turn, d) >= 0) {
         if (arg0->turn >= 0) {
             arg0->turn -= 0x400;
@@ -123,7 +123,7 @@ void TObjEneBm5GibonU__sub_800D0FDC(Ene_800D0FDC *arg0, s32 arg1) {
             arg0->turn += 0x400;
         }
     } else {
-        arg0->turn = TObjPlayer__sub_801423A4(arg0->turn, d, 0x400);
+        arg0->turn = approach_angle_limited(arg0->turn, d, 0x400);
     }
     arg0->turn = (s16)arg0->turn;
 }

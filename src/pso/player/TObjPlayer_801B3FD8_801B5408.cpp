@@ -10,7 +10,7 @@ s32 get_move_mode__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801B5450(u8 *arg0);
 s8 TObjPlayer__sub_801AFDB0(void *);
 s32 forward_801C210C__10TObjPlayerFPv(int, int);
-void TObjPlayer__sub_801B55B0(u8 *arg0);
+void select_class_action_provider__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -81,7 +81,7 @@ void apply_input_mode__10TObjPlayerFi(s32 arg0) {
     }
     set_input_mode__10TObjPlayerFPvi(arg0, 2);
 }
-void TObjPlayer__sub_801B55B0(u8 *arg0) {
+void select_class_action_provider__10TObjPlayerFPv(u8 *arg0) {
   s8 temp_r3;
   temp_r3 = TObjPlayer__sub_801AFDB0((void *) arg0);
   {

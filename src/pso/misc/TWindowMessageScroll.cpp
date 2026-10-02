@@ -14,7 +14,7 @@ extern "C" {
 s32 fn_80244994(void *);
 M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
-M2C_UNK TWindowSubStatusDisp__sub_80257C28(void *, void *);
+M2C_UNK update_window_entry_list(void *, void *);
 M2C_UNK fn_802697B4(f32);
 void run_task__20TWindowMessageScrollFv(u8 *arg0);
 s32 TWindowMessageQuest__ct(void *, void *);
@@ -44,7 +44,7 @@ void run_task__20TWindowMessageScrollFv(u8 *arg0) {
     fn_802697B4((f32) (temp_f1));
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));
     update_fade__17TWindowSubComCardFPv((void *) (arg0));
-    TWindowSubStatusDisp__sub_80257C28((void *) (arg0), (void *) (arg0 + 0x24));
+    update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
     if ((fn_80244994((void *) (arg0)) != 0) && (M2C_FIELD(arg0, f32 *, 0x80) <= M2C_FIELD(arg0, f32 *, 0x6C))) {
         *M2C_FIELD(arg0, s32 **, 0x98) = 1;
     }

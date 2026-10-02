@@ -73,7 +73,7 @@ void restore_shop_and_init_quest_state(void *arg0);
 void update__15TShopWindowBaseFPv(void *arg0);
 void update_confirm_input__15TShopWindowBaseFPv(void *arg0);
 s32 THunterGuildSeqOffline__sub_8022350C(void *, M2C_UNK);
-s32 TShopJudgmentItemWindow__sub_80266388(s32, u16, s32, s32);
+s32 create_yes_no_window(s32, u16, s32, s32);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 s32 get_window_layout_position(s32);
@@ -92,7 +92,7 @@ void create_judgment_item_window__15TShopWindowBaseFPv(void *arg0) {
 
     if ((vobj->m8r() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         temp_r31 = (u16)obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
-        M2C_FIELD(arg0, s32 *, 0x38) = TShopJudgmentItemWindow__sub_80266388(get_window_layout_position(0x2B), temp_r31, 0, 0);
+        M2C_FIELD(arg0, s32 *, 0x38) = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
         set_selected_index__17TWindowSubComCardFPvs(M2C_FIELD(arg0, s32 *, 0x38), 1);
         temp_f31 = get_scale__15TShopWindowBaseFv(arg0);
         set_position_xy(M2C_FIELD(arg0, s32 *, 0x38), get_scale__15TShopWindowBaseFv(arg0), temp_f31);

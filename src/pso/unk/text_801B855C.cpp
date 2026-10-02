@@ -82,7 +82,7 @@ s32 get_field_d8__10TObjPlayerFPv(void*);
 s32 is_script_controlled__10TObjPlayerFPv(TObjPlayer*);
 s32 check_flag_01000000__10TObjPlayerFPv(TObjPlayer*);
 s32 is_technique_ready__8TTecCtrlFv();
-void TObjPlayer__sub_801B9EDC(TObjPlayer*,s32);
+void send_6x26_unequip_item__10TObjPlayerFPvPv(TObjPlayer*,s32);
 TItemData* TObjPlayer__sub_801C2058(DeathDropRecord*);
 void set_field4__10TObjPlayerFPvi(DeathDropRecord*,s32);
 void TItemList__sub_801D35FC(u8*,DeathItemPosition*,TObjPlayer*,DeathDropRecord*,s32);
@@ -112,13 +112,13 @@ u32 start_inventory_update__10TObjPlayerFPvi(s32, s32);
 VObj_801B8AF8 *get_owner_if_alive__10TObjPlayerFPv();
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E1E38(s32);
-void TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+void play_sound_effect(s32, s32, s32, s32);
 void TObjPlayer__sub_801B8AF8(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
 
-s32 TObjPlayer__sub_80011138(s32, s32);
+s32 try_spend_actor_meseta(s32, s32);
 s32 obj_getField1c(s32);
 s32 init_owner__5TItemFPvUs(void *, s32);
 s32 get_item_type_or_default__9TItemListFPv(void *);
@@ -131,7 +131,7 @@ s32 try_buy_item(s32 arg0, void *arg1) {
     if (can_pickup_item__10TObjPlayerFPvPv() == 0) {
         return 1;
     }
-    if (TObjPlayer__sub_80011138(arg0, M2C_FIELD(arg1, s32 *, 0x10) * get_item_type_or_default__9TItemListFPv(arg1)) != 0) {
+    if (try_spend_actor_meseta(arg0, M2C_FIELD(arg1, s32 *, 0x10) * get_item_type_or_default__9TItemListFPv(arg1)) != 0) {
         init_owner__5TItemFPvUs(arg1, obj_getField1c(arg0));
         return 0;
     }
@@ -170,7 +170,7 @@ void drop_items_on_death__10TObjPlayerFPv(TObjPlayer* player) {
     } else {
         equipped=get_item_field_6__10TObjPlayerFPv(player);
         if (equipped!=NULL) {
-            TObjPlayer__sub_801B9EDC(player,get_field_d8__10TObjPlayerFPv(equipped));
+            send_6x26_unequip_item__10TObjPlayerFPvPv(player,get_field_d8__10TObjPlayerFPv(equipped));
         }
     }
     if (count>0) {
@@ -216,7 +216,7 @@ void TObjPlayer__sub_801B8AF8(u8 *arg0, s32 arg1, s32 arg2) {
     if (check_player_action_allowed() != 0 &&
         (TAdPlayerLoadGC__sub_801E1B50(get_chr_select_state__23TAdSinglePlyChrSelectGCFv()) != 0 ||
          TAdPlayerLoadGC__sub_801E1E38(get_chr_select_state__23TAdSinglePlyChrSelectGCFv()) != 1)) {
-        TBoss3Volopt__sub_8022675C(0x53F06, 0, 0, 0);
+        play_sound_effect(0x53F06, 0, 0, 0);
         return;
     }
     if (start_inventory_update__10TObjPlayerFPvi(*(s32 *)(arg0 + 0xD00), arg1) == 0) {

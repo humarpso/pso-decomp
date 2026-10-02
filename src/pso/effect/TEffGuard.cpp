@@ -4,7 +4,7 @@ void queue_destruction__7TObjectFv(void*);
 s32 spawn_particle_effect(const Vec*, s32);
 void VecCopy__FP3VecPC3Vec(Vec*, const Vec*);
 extern const char* lbl_805D2918;
-s32 TBoss3Volopt__sub_8022675C(u32, const Vec*, s32, s32);
+s32 play_sound_effect(u32, const Vec*, s32, s32);
 }
 
 void TEffGuard::run_task() {
@@ -37,5 +37,5 @@ TEffGuard::TEffGuard(const Vec* initial_position) : TEffect() {
 
 void TEffGuard::create(const Vec* position) {
     new TEffGuard(position);
-    TBoss3Volopt__sub_8022675C(0x4001AA00, position, 0, 0);
+    play_sound_effect(0x4001AA00, position, 0, 0);
 }

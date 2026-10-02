@@ -121,7 +121,7 @@ s32 check_demo_mode__10TObjPlayerFv();
 void copy_pos__17TObjEneBm3FlyNestFPv(void* p);
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 s32 transition_enemy_state(void * a0, s32 a1);
-void TObjEneBm3FlyNest__sub_800B3D70(u8 *arg0);
+void run_task__17TObjEneBm3FlyNestFPv(u8 *arg0);
 s32 handle_state__17TObjEneBm3FlyNestFPvi(void *, void *);
 s32 TObjEneBm3FlyNest__sub_800B2C24(void *, void *);
 s32 handle_motion_event__17TObjEneBm3FlyNestFPvi(void *, void *);
@@ -293,7 +293,7 @@ void TObjEneBm3FlyNest__sub_800B3CC0(s32 arg0, u32 arg1, s32 arg2) {
 
 #pragma push
 #pragma fp_contract on
-void TObjEneBm3FlyNest__sub_800B3D70(u8 *arg0) {
+void run_task__17TObjEneBm3FlyNestFPv(u8 *arg0) {
     if (check_demo_mode__10TObjPlayerFv() != 0) {
         ((VObj_18 *)(arg0))->m102();
         return;

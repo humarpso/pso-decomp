@@ -451,7 +451,7 @@ void TItemEquipBase__sub_8010A948(u8 *arg0);
 M2C_UNK set_mode__5TItemFPvc(void *, int);
 M2C_UNK clear_item_flags__10TObjPlayerFPvUi(void *, int);
 M2C_UNK delete_children__7TObjectFv(void *);
-void TItemEquipBase__sub_8010B198(u8 *arg0);
+void unequip__14TItemEquipBaseFPv(u8 *arg0);
 s32 TItemLoad__sub_801100F0(s32);
 s32 TItemLoad__sub_8011038C(s32);
 void TItemEquipBase__sub_8010A78C(u8 *arg0);
@@ -473,7 +473,7 @@ M2C_UNK set_mode__5TItemFPvc(void *, int);
 s32 add_item_flags__10TObjPlayerFPvUi(void *, int);
 void TItemEquipBase__sub_8010A948(u8 *arg0);
 s32 get_global_state__14TOKeyMachine01Fv();
-void TItemEquipBase__sub_8010B46C(u8 *arg0);
+void equip__14TItemEquipBaseFPv(u8 *arg0);
 M2C_UNK get_id__13TItemProArmorFPv(void *);
 s32 apply_ad_rico_ring__14TItemEquipBaseFii(s32 arg0, s32 arg1);
 s32 clear_flag_c_bit5__14TItemEquipBaseFPv(void *);
@@ -857,7 +857,7 @@ void TItemEquipBase__sub_8010B0A8(u8 *arg0, s32 arg1) {
   }
 }
 
-void TItemEquipBase__sub_8010B198(u8 *arg0) {
+void unequip__14TItemEquipBaseFPv(u8 *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) {
         set_mode__5TItemFPvc((void *)(arg0), (int) (1));
         clear_item_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (0x28));
@@ -913,7 +913,7 @@ void TItemEquipBase__sub_8010B224(VObj_8010B224 *self, s32 arg1) {
     }
 }
 
-void TItemEquipBase__sub_8010B46C(u8 *arg0) {
+void equip__14TItemEquipBaseFPv(u8 *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) {
         update_owner_visibility__5TItemFPv((void *) (arg0));
         set_mode__5TItemFPvc((void *) (arg0), (int) (2));

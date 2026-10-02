@@ -24,7 +24,7 @@ void *init_fields__16TOFenceAncient01FPv(void *arg0);
 void on_zone_exit__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TOSignCave03__sub_803DB510(int);
+M2C_UNK draw_ginja_model(int);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK draw_ginja_model_with_motion(void *, int, f32);
@@ -54,7 +54,7 @@ void on_zone_exit__10TObjPlayerFPv(u8 *arg0) {
             rotate_matrix_x((int) (0), (int) (M2C_FIELD(temp_r31, s32 *, 0x14)));
             rotate_matrix_y((int) (0), (int) (M2C_FIELD(temp_r31, s32 *, 0x18)));
             TBoss7Tentacle__sub_803D9BA0((void *) (temp_r31 + 0x20));
-            TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31, s32 *, 4)));
+            draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
             pop_matrix();
         }
         pop_matrix();

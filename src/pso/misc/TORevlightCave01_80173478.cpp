@@ -27,7 +27,7 @@ struct TORevlightCave01_80173478 : TORevlightCave01Base_80173478 {
 
 void render__16TORevlightCave01Fv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TOSignCave03__sub_803DB510(s32);
+M2C_UNK draw_ginja_model(s32);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -54,11 +54,11 @@ void render__16TORevlightCave01Fv(u8 *arg0) {
         rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-        TOSignCave03__sub_803DB510(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), s32 *, 4));
+        draw_ginja_model(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), s32 *, 4));
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0xC8));
-        TOSignCave03__sub_803DB510(M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C), s32 *, 4));
+        draw_ginja_model(M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C), s32 *, 4));
         begin_effect_render__13TParticleCtrlFv();
-        TOSignCave03__sub_803DB510(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C), void **, 0x2C), s32 *, 4));
+        draw_ginja_model(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C), void **, 0x2C), s32 *, 4));
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
     }

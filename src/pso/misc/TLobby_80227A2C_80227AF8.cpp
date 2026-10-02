@@ -236,7 +236,7 @@ int TLobby__sub_80227D38(void);
 void handle_6xB2_play_sound_from_player(void *arg0);
 s32 is_camera_state_active__6TLobbyFv(void);
 void set_mode__6TLobbyFi(s32 arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
 u16 TCameraCtrl__sub_8006A5DC();
 int TLobby__sub_8023F754(void*);
 int TLobby__sub_8023F8B0(void*, int);
@@ -279,12 +279,12 @@ void handle_6xB2_play_sound_from_player(void *arg0) {
     bswap_6xB2_play_sound();
     if ((s8) M2C_FIELD(arg0, u8 *, 4) == get_global_state__14TOKeyMachine01Fv()) {
         if (M2C_FIELD(arg0, s16 *, 6) == 0xFFFF) {
-            TBoss3Volopt__sub_8022675C(M2C_FIELD(arg0, s32 *, 8), 0, 0, 0);
+            play_sound_effect(M2C_FIELD(arg0, s32 *, 8), 0, 0, 0);
             return;
         }
         temp_r3 = get_player_by_client_id(lbl_805D53A0);
         if (temp_r3 != 0) {
-            TBoss3Volopt__sub_8022675C(M2C_FIELD(arg0, s32 *, 8), temp_r3 + 0x38, 0, 0);
+            play_sound_effect(M2C_FIELD(arg0, s32 *, 8), temp_r3 + 0x38, 0, 0);
         }
     }
 }

@@ -45,7 +45,7 @@ struct VObj_8029CD90 : Base_8029CD90 {
 void TOKeyJungleMain__vt20(s32 arg0);
 void *__dt__13TOGrassJungleFv(void *arg0, s16 arg1);
 void render__13TOGrassJungleFv(u8 *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK draw_ginja_object();
 M2C_UNK get_bml_model(s32, s32);
@@ -117,7 +117,7 @@ void TOKeyJungleMain__vt20(s32 arg0) {
         var_r31 = 0x4004AD12;
         break;
     }
-    TBoss3Volopt__sub_8022675C(var_r31, arg0 + 0x38, 0, 0);
+    play_sound_effect(var_r31, arg0 + 0x38, 0, 0);
 }
 
 }

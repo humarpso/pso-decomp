@@ -20,7 +20,7 @@ s32 update_medical_font__10TObjPlayerFi(s32 arg0, void * _w1);
 void handle_6x31_use_medical_center(void *arg0);
 s32 obj_getArrWord_254(void *, M2C_UNK);
 s32 obj_testFlags30(void *, M2C_UNK);
-s32 TObjPlayer__sub_801B4684(void *arg0);
+s32 get_recovery_need_flags__10TObjPlayerFPv(void *arg0);
 }
 
 extern "C" {
@@ -113,7 +113,7 @@ void send_code_49_1__10TObjPlayerFi(s32 arg0) {
     }
 }
 
-s32 TObjPlayer__sub_801B4684(void *arg0) {
+s32 get_recovery_need_flags__10TObjPlayerFPv(void *arg0) {
     s32 var_r31;
     var_r31 = 0;
     if ((s16) M2C_FIELD(arg0, s16 *, 0x32C) < (s16) M2C_FIELD(arg0, s16 *, 0x2B8)) {

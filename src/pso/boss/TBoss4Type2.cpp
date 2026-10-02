@@ -21,7 +21,7 @@ u32 spawn_particle_effect(void *, int);
 u32 create_particle_emitter(void *, int);
 s32 set_flags__11TBoss4Type2FPvUi(int, int);
 u32 get_player_by_client_id(int);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 s32 create__9TTecRestaFPvPvPv(void *, void *, int);
 extern const f32 lbl_805D8BA4;
 extern const f32 lbl_805D8BA8;
@@ -33,7 +33,7 @@ extern "C" {
 void TBoss4Type2__vt34(u8 *arg0);
 void TBoss4Type2__vt35(void);
 void * create_zanzo__11TBoss4Type2FPvPv(void *arg0, void *arg1);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 void *__ct__11TBoss4ZanzoFv(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
@@ -106,7 +106,7 @@ void TBoss4Type2__vt36(u8 *arg0) {
   *((int *) (((s8 *) arg0) + 0x398)) = temp_r0;
   if (temp_r0 < 0)
   {
-    TBoss3Volopt__sub_8022675C((M2C_UNK)((int) 0x4003AD1A), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) 0), (M2C_UNK)((int) 1));
+    play_sound_effect((M2C_UNK)((int) 0x4003AD1A), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) 0), (M2C_UNK)((int) 1));
     create__9TTecRestaFPvPvPv((void *) arg0, (void *) (arg0 + 0x38), (int) (*((int *) (((s8 *) arg0) + 0x428))));
     TBoss4Type2__sub_80057048((void *) arg0, (int) (*((int *) (((s8 *) arg0) + 0x424))));
   }
@@ -118,7 +118,7 @@ extern const f32 TBoss4Type2__data_805D8BAC;
 
 void TBoss4Type2__vt34(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) TBoss4Type2__data_805D8BAC;
-    TBoss3Volopt__sub_8022675C(0x40039E21, arg0 + 0x38, 0, 1);
+    play_sound_effect(0x40039E21, arg0 + 0x38, 0, 1);
     M2C_FIELD(arg0, s32 *, 0x398) = 0x96;
 }
 

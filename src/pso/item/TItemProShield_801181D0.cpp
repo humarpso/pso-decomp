@@ -53,7 +53,7 @@ s32 TItemData__sub_8010CE1C(s32 a0, int a1);
 void TItemProShield__vt16(void *arg0, void *arg1);
 int TItemEquipBase__sub_8010A82C(void*);
 int TItemProShield__vt43(void* p);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
+M2C_UNK play_sound_effect(int, int, int, int);
 M2C_UNK TItemEffShield__sub_8010A404(int, int, void *);
 M2C_UNK TObjPlayer__sub_8010A1D0(int, int, void *, int);
 s32 __nw__7TObjectFUl(int);
@@ -178,7 +178,7 @@ void TItemProShield__vt42(u8 *arg0) {
     s32 temp_r3_5;
     u8 temp_r3;
     if (get_flag_40__8TItemMagFPv((void *)(arg0)) == 0) {
-        TBoss3Volopt__sub_8022675C((int) (0x4000B20A), (int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x38), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4000B20A), (int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x38), (int) (0), (int) (0));
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x174) != 0U) {
         temp_r3 = get_slot_count__14TItemProShieldFPv((void *) (arg0));

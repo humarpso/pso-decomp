@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjPlayer__sub_801CA48C(u8 *arg0);
 s32 TBoss1Dragon__sub_80143960(void *, M2C_UNK);
-u32 TObjPlayer__sub_801B5EA4(void *);
+u32 resolve_move_collision__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801C5954(void *);
 M2C_UNK TObjPlayer__sub_801CA35C(void *);
 M2C_UNK TObjPlayer__sub_801D2834(void *, f32);
@@ -22,7 +22,7 @@ void TObjPlayer__sub_801CA48C(u8 *arg0) {
     }
     TObjPlayer__sub_801D2834(arg0 + 0x5FC, lbl_805DC37C);
     TObjPlayer__sub_801C5954(arg0 + 0x5FC);
-    if (TObjPlayer__sub_801B5EA4(arg0) == 0U) {
+    if (resolve_move_collision__10TObjPlayerFPv(arg0) == 0U) {
         apply_velocity__10TObjPlayerFPv(arg0);
     }
 }

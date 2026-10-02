@@ -91,7 +91,7 @@ struct Vec_800A34E8 { f32 x, y, z; };
 extern "C" {
 M2C_UNK obj_clearFlags30(void *, s32);
 M2C_UNK spawn_particle_effect(void *, int);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 void TObjPlayer__sub_800A17B4(u8 *arg0);
 int TObjPlayer__sub_800A1808(void* p);
 M2C_UNK TOHangerMachine01__sub_803D9C00(s32);
@@ -214,7 +214,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *, f32);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 u8 *csnVector(void *, Vec_800A34E8 *, s32);
-s32 TObjParticle__sub_800870BC(void *, void *, int, int);
+s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 int is_flag_set_388_bit26__10TObjPlayerFPv(void* p);
 M2C_UNK scale_velocity__19TObjGyaranzoMissileFPvf(void *, f32);
 f32 TObjPlayer__sub_8013153C(void *, int);
@@ -350,7 +350,7 @@ void TObjPlayer__sub_800A159C(Obj_800A159C *o) {
 void TObjPlayer__sub_800A17B4(u8 *arg0) {
     obj_clearFlags30((void *)(arg0), (s32)(0x100U));
     spawn_particle_effect((void *) (arg0 + 0x2FC), (int) (0xD7));
-    TBoss3Volopt__sub_8022675C((int) (0x4003B22D), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_sound_effect((int) (0x4003B22D), (void *) (arg0 + 0x38), (int) (0), (int) (0));
 }
 int TObjPlayer__sub_800A1808(void* p) { return (*(u32*)((char*)p + 0x30) >> 23) & 0x1; }
 
@@ -624,7 +624,7 @@ u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     M2C_FIELD(arg0, s32 *, 0xB8) = 0;
     M2C_FIELD(arg0, s32 *, 0xBC) = (s32) (lbl_8043A6F8[0] * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0xAC), M2C_FIELD(arg0, f32 *, 0xB4))) + 0x4000;
     M2C_FIELD(arg0, s32 *, 0xC0) = 0x4000;
-    M2C_FIELD(arg0, s32 *, 0xD0) = TObjParticle__sub_800870BC((void *) (arg0 + 0x38), (void *) (arg0 + 0xB8), M2C_FIELD(arg0, s32 *, 0xCC), 0x42);
+    M2C_FIELD(arg0, s32 *, 0xD0) = spawn_particle_effect_with_rotation((void *) (arg0 + 0x38), (void *) (arg0 + 0xB8), M2C_FIELD(arg0, s32 *, 0xCC), 0x42);
     {
     Vec_800A34E8 v = *(Vec_800A34E8 *)(arg0 + 0xAC);
     scale_velocity__19TObjGyaranzoMissileFPvf((void *) (&v), lbl_805D99DC);

@@ -65,7 +65,7 @@ extern const f32 lbl_805DBFE4;
 u8 *TObjMapWarpForest__ct(u8 *arg0);
 s32 get_dest_area__17TObjAreaWarpQuestFPv(void *);
 s32 TLobby__sub_80207770(s32);
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+s32 play_sound_effect(s32, u32, s16, s32);
 M2C_UNK TKeyBoardControl__sub_8000F998();
 M2C_UNK TTecLuker__sub_801BAB1C(void *, void *);
 M2C_UNK set_area__6TLobbyFPvi(void *, int, int);
@@ -140,7 +140,7 @@ void TObjAreaWarp__sub_8019CA24(u8 *arg0, s32 arg1) {
     get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0.value);
     TNpcPlayer__sub_8034E7A0();
     TTecLuker__sub_801BAB1C((void *) (arg1), (void *) (get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0.value)));
-    TBoss3Volopt__sub_8022675C(0x40003205, 0U, 0, 0);
+    play_sound_effect(0x40003205, 0U, 0, 0);
 }
 
 s32 is_warp_enabled__12TObjAreaWarpFi(s32 arg0) {

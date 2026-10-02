@@ -16,7 +16,7 @@ M2C_UNK load_tables(s32);
 u32 TAdSinglePlyChrSelectGC__sub_801FE4BC(s32);
 s32 is_slot_active__23TAdSinglePlyChrSelectGCFUi(s32);
 u32 check_flag__23TAdSinglePlyChrSelectGCFi(M2C_UNK);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TWindow__close(void *);
 M2C_UNK close__17TWindowSubComCardFPv(void *);
@@ -79,7 +79,7 @@ M2C_UNK TWindow__close(void *);
 M2C_UNK clear_flag_and_release__17TWindowSubComCardFPv(u32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FE2D0();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FE338(s32);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK clear_transition_flag__17TWindowSubComCardFPv(u32);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C561C(s32);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5688(s32);
@@ -265,13 +265,13 @@ void update_state_option__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         temp_r3 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, s32 *, 0x7C));
         switch (temp_r3) {
         case 0:
-            TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
+            play_sound_effect(0x52D01, 0, 0, 0);
             TAdMultiPlyChrSelectGC__sub_802C561C(M2C_FIELD(arg0, s32 *, 0x5C));
             TAdMultiPlyChrSelectGC__sub_802C5688(M2C_FIELD(arg0, s32 *, 0x5C));
             M2C_FIELD(arg0, s32 *, 0x20) = 0x19;
             return;
         case 1:
-            TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
+            play_sound_effect(0x52D01, 0, 0, 0);
             update_field_4E8__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C));
             restore_selection__22TAdMultiPlyChrSelectGCFv(M2C_FIELD(arg0, s32 *, 0x5C));
             TAdMultiPlyChrSelectGC__sub_802C5688(M2C_FIELD(arg0, s32 *, 0x5C));
@@ -323,7 +323,7 @@ void update_card_confirm__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x20) = 3;
             return;
         case 0:
-            TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
+            play_sound_effect(0x52D01, 0, 0, 0);
             TAdMultiPlyChrSelectGC__sub_802C561C(M2C_FIELD(arg0, s32 *, 0x5C));
             TAdMultiPlyChrSelectGC__sub_802C5688(M2C_FIELD(arg0, s32 *, 0x5C));
             lbl_805D68C8 = 1;
@@ -375,7 +375,7 @@ void TAdMultiPlyChrSelectGC__sub_802DE7D0(void *arg0) {
         var_r3 = TWindowShortListCtrl__check_controller_button((s8 *)lbl_8050E3B8 + temp_r5_2 + 0x20, 2, temp_r5_2);
     }
     if (var_r3 != 0) {
-        TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
+        play_sound_effect(0x52F16, 0, 0, 0);
         if (TAdMultiPlyChrSelectGC__sub_802C6558() > 0) {
             TAdMultiPlyChrSelectGC__sub_802C5BCC(TAdMultiPlyChrSelectGC__sub_802C6920(), &stack.spC, &stack.sp8);
             init__22TAdMultiPlyChrSelectGCFv();
@@ -417,7 +417,7 @@ void TAdMultiPlyChrSelectGC__sub_802DE7D0(void *arg0) {
             load_tables(temp_r30);
             if (get_cursor__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C)) == 1) {
                 if (is_slot_active__23TAdSinglePlyChrSelectGCFUi(temp_r30) == 0) {
-                    TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
+                    play_sound_effect(0x52D01, 0, 0, 0);
                     update_field_4E8__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C));
                     restore_selection__22TAdMultiPlyChrSelectGCFv(M2C_FIELD(arg0, s32 *, 0x5C));
                     TAdMultiPlyChrSelectGC__sub_802C5688(M2C_FIELD(arg0, s32 *, 0x5C));
@@ -443,7 +443,7 @@ void TAdMultiPlyChrSelectGC__sub_802DE7D0(void *arg0) {
                     M2C_FIELD(arg0, s32 *, 0x20) = 7;
                     return;
                 }
-                TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
+                play_sound_effect(0x52D01, 0, 0, 0);
                 TAdMultiPlyChrSelectGC__sub_802C561C(M2C_FIELD(arg0, s32 *, 0x5C));
                 TAdMultiPlyChrSelectGC__sub_802C5688(M2C_FIELD(arg0, s32 *, 0x5C));
                 M2C_FIELD(arg0, s32 *, 0x20) = 0x19;

@@ -9,7 +9,7 @@ extern "C" {
 void TBoss6Type1__sub_802B3564(void *arg0);
 void init_attack_timer__11TBoss6Type1FPv(u8 *arg0);
 void update_timer_state__11TBoss6Type1FPv(void *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TBoss6Type1__sub_802B4B64(void *, M2C_UNK);
 M2C_UNK TBoss6Type1__sub_802B4BA8(void *, M2C_UNK);
 M2C_UNK TBoss6Type1__sub_802B4EAC(void *, s32, s32);
@@ -42,7 +42,7 @@ void init_attack_timer__11TBoss6Type1FPv(u8 *arg0) {
     }
     M2C_FIELD(arg0, s32 *, 0x410) = (s32) M2C_FIELD(arg0, s32 *, 0x40C);
     TBoss6Type1__sub_802B5598(arg0, arg0 + 0x420);
-    TBoss3Volopt__sub_8022675C(0x4003BF07, arg0 + 0x5E4, 0, 0);
+    play_sound_effect(0x4003BF07, arg0 + 0x5E4, 0, 0);
     TBoss6Type1__sub_802B4B64(arg0, 0);
     TBoss6Type1__sub_802B4BA8(arg0, 1);
 }

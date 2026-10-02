@@ -30,7 +30,7 @@ bool TLobby__sub_801F3F40(s32 arg0);
 s32 TLobby__sub_802077CC(s32, Sel_801F3E1C *);
 void TLobby__sub_80208E8C(s32, s32, s32, s32);
 void TLobby__sub_8020AB50(s32, s32, s32, s32);
-void TLobby__sub_8020AD40(s32, s32, s32, s32);
+void load_area_object_set(s32, s32, s32, s32);
 void free_data_60F0__6TLobbyFv(void);
 void handle_msg_type1__6TLobbyFi(s32);
 void handle_msg_type2__6TLobbyFi(s32);
@@ -123,7 +123,7 @@ void TLobby__sub_801F3E1C(void) {
         case 2:
             if (TLobby__sub_802077CC(i, &sel) == 1 && sel.area >= 0) {
                 TItemDrop__sub_800FDE7C(lbl_80449D08);
-                TLobby__sub_8020AD40(i, sel.area, sel.terrain, sel.entities);
+                load_area_object_set(i, sel.area, sel.terrain, sel.entities);
                 TItemDrop__sub_800FDDF4();
                 TItemDrop__sub_800FDE7C(lbl_80449D1C);
                 TLobby__sub_8020AB50(i, sel.area, sel.terrain, sel.entities);

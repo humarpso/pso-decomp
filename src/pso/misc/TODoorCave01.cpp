@@ -23,7 +23,7 @@ M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TOSignCave03__sub_803DB510(int);
+M2C_UNK draw_ginja_model(int);
 M2C_UNK set_chunk_material_color(void *, int);
 extern u8 lbl_804A7418[];
 extern s32 lbl_805D5660;
@@ -56,7 +56,7 @@ M2C_UNK TODoorCave01__sub_80161804(void *p0, int p1, int arg2) {
     set_global_param__8TObjFishFi((int) (M2C_FIELD(TODoorCave01__data_805D595C, M2C_UNK *, (arg2 * 4))));
     TObjPlayer__sub_803D9B2C();
     translate_matrix((int) (0), (f32) (M2C_FIELD(((u8 *) p1), f32 *, 8)), (f32) (M2C_FIELD(((u8 *) p1), f32 *, 0xC)), (f32) (M2C_FIELD(((u8 *) p1), f32 *, 0x10)));
-    TOSignCave03__sub_803DB510((int) (M2C_FIELD(((u8 *) p1), s32 *, 4)));
+    draw_ginja_model((int) (M2C_FIELD(((u8 *) p1), s32 *, 4)));
     temp_r31 = M2C_FIELD(((u8 *) p1), u8 **, 0x2C);
     if (arg2 != 1) {
         temp_r4 = some_id_805c6f74;
@@ -67,11 +67,11 @@ M2C_UNK TODoorCave01__sub_80161804(void *p0, int p1, int arg2) {
     begin_effect_render__13TParticleCtrlFv();
     TObjPlayer__sub_803D9B2C();
     translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r31, f32 *, 8)), (f32) (M2C_FIELD(temp_r31, f32 *, 0xC)), (f32) (M2C_FIELD(temp_r31, f32 *, 0x10)));
-    TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31, s32 *, 4)));
+    draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
     temp_r31_2 = M2C_FIELD(temp_r31, u8 **, 0x2C);
     TObjPlayer__sub_803D9B2C();
     translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r31_2, f32 *, 8)), (f32) (M2C_FIELD(temp_r31_2, f32 *, 0xC)), (f32) (M2C_FIELD(temp_r31_2, f32 *, 0x10)));
-    TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
+    draw_ginja_model((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
     pop_matrix();
     pop_matrix();
     end_effect_render__13TParticleCtrlFv();

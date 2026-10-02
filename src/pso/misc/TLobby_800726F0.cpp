@@ -88,7 +88,7 @@ void close_window_2c__6TLobbyFPv(void* p);
 void open_loss_menu__6TLobbyFPv(void *arg0);
 void send_45_and_close_windows__6TLobbyFv(void * _w0);
 void play_player_default_effect__6TLobbyFv(s32 _w0);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK play_cue_stream_file(M2C_UNK *);
 extern M2C_UNK lbl_804385D4[];
 void handle_loss_sequence(void *arg0);
@@ -343,7 +343,7 @@ void handle_loss_sequence(void *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     case 1:
-        TBoss3Volopt__sub_8022675C(0x52812, 0, 0, 0);
+        play_sound_effect(0x52812, 0, 0, 0);
         send_45_and_close_windows__6TLobbyFv(arg0);
         play_default_effect__6TLobbyFPv((void*)(arg0));
         TLobby__sub_80072B70((u8 *)(arg0));

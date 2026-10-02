@@ -154,10 +154,10 @@ M2C_UNK TBoss7Crawfish__sub_80308D1C(void *);
 M2C_UNK TBoss7Crawfish__sub_80308F8C(void *, int);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
-M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK refresh_collision_body_centers(void *);
 M2C_UNK submit_cursor_candidate(void *, int);
 M2C_UNK TRaderMapCore__sub_801F99EC(void *, int, int, int, f32);
-int TWindowSubStatusDisp__sub_80257C28(void*, void*);
+int update_window_entry_list(void*, void*);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__9TObjEnemyFv(void *, M2C_UNK);
 M2C_UNK check_band_and_destroy__14TBoss7CrawfishFi(void *);
@@ -200,7 +200,7 @@ void run_task__14TBoss7CrawfishFv(u8 *arg0) {
         check_band_and_destroy__14TBoss7CrawfishFi((void *) (arg0));
         break;
     }
-    TObjPlayer__sub_80154E3C((void *) (arg0));
+    refresh_collision_body_centers((void *) (arg0));
     if (!(M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 0x02000000)) {
         submit_cursor_candidate((void *) (arg0), (int) (-1));
     }

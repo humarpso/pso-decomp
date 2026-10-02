@@ -90,7 +90,7 @@ s32 send_symbol_chat__20TWindowSubSymbolChatFPv(void *);
 s32 TWindowSubSymbolChat__sub_80077704(void *);
 extern s32 lbl_805D53A0;
 void TWindowSubSymbolChat__sub_80076F88(s32 *arg0);
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_800773BC_lbl_80438830 lbl_80438830;
 void TWindowSubSymbolChat__sub_800773BC(s32 arg0);
 E_80077480 *get_card_window__17TWindowSubComCardFUi(u32 id);
@@ -296,7 +296,7 @@ void update_selected_symbol__20TWindowSubSymbolChatFPv(void *arg0) {
 typedef char RecoveredGlobal_800773BC_lbl_80438830_size[sizeof(RecoveredGlobal_800773BC_lbl_80438830) == 0x24 ? 1 : -1];
 void TWindowSubSymbolChat__sub_800773BC(s32 arg0) {
     if ((arg0 >= 0) && (arg0 < 9)) {
-        TBoss3Volopt__sub_8022675C(M2C_FIELD(&lbl_80438830.value, M2C_UNK *, (arg0 * 4)), 0U, 0, 0);
+        play_sound_effect(M2C_FIELD(&lbl_80438830.value, M2C_UNK *, (arg0 * 4)), 0U, 0, 0);
     }
 }
 

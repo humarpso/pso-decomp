@@ -29,7 +29,7 @@ s32 initialize_subwindow__9TWindowDDFPv(void *);
 s32 fn_80249078(void *);
 s32 is_open__17TWindowSubComCardFPv(void *);
 s32 is_selected__20TWindowChoiceSettingFPv(void *);
-s32 TWindowSubStatusDisp__sub_80257C28(void *, void *);
+s32 update_window_entry_list(void *, void *);
 s32 request_close__20TWindowChoiceSettingFPv(void *);
 s32 draw__20TWindowChoiceSettingFPv(void *);
 s32 move_next_choice__20TWindowChoiceSettingFPv(void *);
@@ -117,7 +117,7 @@ void run_task__20TWindowChoiceSettingFv(u8 *arg0) {
     TWindowSubStatusDisp__sub_80244238((void *) (arg0));
     TWindowChoiceSetting__sub_802689EC((void *) (arg0));
     TWindowChoiceSetting__sub_80268A6C((void *) (arg0));
-    TWindowSubStatusDisp__sub_80257C28((void *) (arg0), (void *) (arg0 + 0x24));
+    update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
 }
 
 void *__dt__20TWindowChoiceSettingFv(void *arg0, s16 arg1) {

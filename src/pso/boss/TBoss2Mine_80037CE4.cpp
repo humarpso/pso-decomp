@@ -34,7 +34,7 @@ M2C_UNK set_state_by_distance__10TBoss2MineFPvi(void *, int);
 M2C_UNK init_params__10TBoss2MineFPvif(void *, int, f32);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *, int, int);
 M2C_UNK transition_enemy_state(void *, int);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int, int);
 extern const f32 lbl_805D84BC;
 extern const f32 lbl_805D84F0;
 void TBoss2Mine__sub_80037D4C(u8 *arg0, s32 arg1);
@@ -82,7 +82,7 @@ void TBoss2Mine__sub_80037D4C(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x3C8) = 0;
         temp_r7 = (s32) (lbl_805D84F0 * calc_elapsed_scaled__9TObjEneDDFv((void *) (arg0), (int) (0x8000), (int) (temp_r5)));
         M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (temp_r7 + 0xB4);
-        TBoss3Volopt__sub_8022675C((int) (0x4003A804), (void *) (arg0 + 0x2FC), (int) (0), (int) (0), (int) (temp_r7));
+        play_sound_effect((int) (0x4003A804), (void *) (arg0 + 0x2FC), (int) (0), (int) (0), (int) (temp_r7));
         init_params__10TBoss2MineFPvif((void *) (arg0), (int) (0x1E), (f32) (lbl_805D84BC));
         return;
     case 3:

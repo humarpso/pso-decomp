@@ -9,7 +9,7 @@ extern "C" {
 void update_item_camera_target__10TObjPlayerFPv(void *arg0);
 void *TObjPlayer__sub_8012417C(void *arg0, s16 arg1);
 s32 get_flag_40__8TItemMagFPv(s32);
-s32 TLobby__sub_80101AB0(s32);
+s32 find_item_by_id(s32);
 u32 get_item_ctrl__10TObjPlayerFv();
 s8 TObjPlayer__sub_80102C30();
 s32 draw_icon__10TObjPlayerFPvii(s32, s32, M2C_UNK *);
@@ -28,7 +28,7 @@ void update_item_camera_target__10TObjPlayerFPv(void *arg0) {
         return;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
-        temp_r3 = TLobby__sub_80101AB0(M2C_FIELD(arg0, s32 *, 0x1C));
+        temp_r3 = find_item_by_id(M2C_FIELD(arg0, s32 *, 0x1C));
         if ((temp_r3 != 0) && (TObjPlayer__sub_80102C30() == 2) && (draw_icon__10TObjPlayerFPvii(temp_r3, M2C_FIELD(arg0, s32 *, 0x20), &sp8) != 0)) {
             if (get_flag_40__8TItemMagFPv(temp_r3) == 0) {
                 copy_position__15TEffStarLight2DFPv(M2C_FIELD(arg0, u32 *, 0x24), &sp8);

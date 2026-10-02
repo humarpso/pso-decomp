@@ -28,7 +28,7 @@ M2C_UNK free__11TOBoss4RockFUi(int);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 M2C_UNK clear_flag_and_release__17TWindowSubComCardFPv(int);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
+M2C_UNK play_sound_effect(int, int, int, int);
 void TWindow__close(void *);
 s32 TWindowSubComCard__sub_80265BF8(int);
 s32 get_cursor_pos__20TWindowShortListCtrlFPv(int);
@@ -99,7 +99,7 @@ void run_task__26TWindowSubInformationBoardFv(u8 *arg0) {
         M2C_FIELD(arg0, u8 *, 0x1C) = 4U;
     case 4:
         if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(lbl_8050E208) + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)(lbl_8050E208) + 0x160), (int) (2)) != 0)) {
-            TBoss3Volopt__sub_8022675C((int) (0x52F16), (int) (0), (int) (0), (int) (0));
+            play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
             M2C_FIELD(arg0, u8 *, 0x1C) = 5U;
         }
         if (TLobby__sub_8034C1FC() != 0U) {

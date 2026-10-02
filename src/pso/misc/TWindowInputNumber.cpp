@@ -13,7 +13,7 @@ void move_cursor_next__18TWindowInputNumberFPv(void *arg0);
 void set_value__18TWindowInputNumberFPvf(void *arg0, f32 farg0);
 void update__18TWindowInputNumberFPv(void *arg0);
 void update_value__18TWindowInputNumberFPv(void *arg0);
-s32 TBoss3Volopt__sub_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
+s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowHelpItem__sub_80255DDC(void* p);
 M2C_UNK TWindowInputNumber__sub_802561E8(void *);
 M2C_UNK TWindowInputNumber__sub_802562F0(void *);
@@ -38,10 +38,10 @@ void confirm_input__18TWindowInputNumberFPv(void *arg0) {
 
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x6C);
     if ((temp_r3 < (s32) M2C_FIELD(arg0, s32 *, 0x64)) || (temp_r3 > (s32) M2C_FIELD(arg0, s32 *, 0x68))) {
-        TBoss3Volopt__sub_8022675C((s32)(0x53F06), (s32)(0), (s32)(0), (s32)(0));
+        play_sound_effect((s32)(0x53F06), (s32)(0), (s32)(0), (s32)(0));
         return;
     }
-    TBoss3Volopt__sub_8022675C((s32)(0x52D01), (s32)(0), (s32)(0), (s32)(0));
+    play_sound_effect((s32)(0x52D01), (s32)(0), (s32)(0), (s32)(0));
     M2C_FIELD(arg0, u16 *, 0x60) = (u16) (M2C_FIELD(arg0, u16 *, 0x60) | 2);
     temp = (u32) M2C_FIELD(arg0, u32 *, 0x70);
     if (temp != 0U) {
@@ -52,7 +52,7 @@ void confirm_input__18TWindowInputNumberFPv(void *arg0) {
 extern M2C_UNK lbl_8044EE0C[];
 
 void update__18TWindowInputNumberFPv(void *arg0) {
-    TBoss3Volopt__sub_8022675C((s32)(0x54100), (s32)(0), (s32)(0), (s32)(0));
+    play_sound_effect((s32)(0x54100), (s32)(0), (s32)(0), (s32)(0));
     M2C_FIELD(arg0, s32 *, 0x6C) = (s32) (M2C_FIELD(arg0, s32 *, 0x6C) - lbl_8044EE0C[(s8) M2C_FIELD(arg0, u8 *, 0x63)]);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x6C) < (s32) M2C_FIELD(arg0, s32 *, 0x64)) {
         M2C_FIELD(arg0, s32 *, 0x6C) = (s32) M2C_FIELD(arg0, s32 *, 0x68);
@@ -64,7 +64,7 @@ void update__18TWindowInputNumberFPv(void *arg0) {
 extern M2C_UNK lbl_8044EE0C[];
 
 void update_value__18TWindowInputNumberFPv(void *arg0) {
-    TBoss3Volopt__sub_8022675C((s32)(0x54100), (s32)(0), (s32)(0), (s32)(0));
+    play_sound_effect((s32)(0x54100), (s32)(0), (s32)(0), (s32)(0));
     M2C_FIELD(arg0, s32 *, 0x6C) = (s32) (M2C_FIELD(arg0, s32 *, 0x6C) + lbl_8044EE0C[(s8) M2C_FIELD(arg0, u8 *, 0x63)]);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x6C) > (s32) M2C_FIELD(arg0, s32 *, 0x68)) {
         M2C_FIELD(arg0, s32 *, 0x6C) = (s32) M2C_FIELD(arg0, s32 *, 0x64);
@@ -74,7 +74,7 @@ void update_value__18TWindowInputNumberFPv(void *arg0) {
 }
 
 void handle_decrement__18TWindowInputNumberFPv(void *arg0) {
-    TBoss3Volopt__sub_8022675C((s32)(0x54100), (s32)(0), (s32)(0), (s32)(0));
+    play_sound_effect((s32)(0x54100), (s32)(0), (s32)(0), (s32)(0));
     M2C_FIELD(arg0, u8 *, 0x63) = (u8) (M2C_FIELD(arg0, u8 *, 0x63) - 1);
     if ((s8) M2C_FIELD(arg0, u8 *, 0x63) < 0) {
         if (M2C_FIELD(arg0, u16 *, 0x60) & 1) {
@@ -88,7 +88,7 @@ void handle_decrement__18TWindowInputNumberFPv(void *arg0) {
 void move_cursor_next__18TWindowInputNumberFPv(void *arg0) {
     u8 temp_r4;
 
-    TBoss3Volopt__sub_8022675C((s32)(0x54100), (s32)(0), (s32)(0), (s32)(0));
+    play_sound_effect((s32)(0x54100), (s32)(0), (s32)(0), (s32)(0));
     M2C_FIELD(arg0, u8 *, 0x63) = (u8) (M2C_FIELD(arg0, u8 *, 0x63) + 1);
     if ((s8) M2C_FIELD(arg0, u8 *, 0x63) >= (s8) (temp_r4 = M2C_FIELD(arg0, u8 *, 0x62))) {
         if (M2C_FIELD(arg0, u16 *, 0x60) & 1) {

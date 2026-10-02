@@ -30,7 +30,7 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 is_flag_set__11TLoadingCurFPv(void *, int);
 s32 is_on_current_screen__11TCameraCtrlFPv(int, int);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
+M2C_UNK play_sound_effect(int, int, int, int);
 s32 TWindowCtrl__sub_8024701C(int);
 M2C_UNK TWindowChat__sub_80247DFC(int);
 s32 is_visible__11TWindowChatFPv(int);
@@ -107,7 +107,7 @@ void run_task__13TWindowSubLogFv(u8 *arg0) {
     }
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x24));
     if ((M2C_FIELD(temp_r3, f32 *, 0x3C) == M2C_FIELD(temp_r3, f32 *, 0x4C)) && ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (2)) != 0))) {
-        TBoss3Volopt__sub_8022675C((int) (0x52F16), (int) (0), (int) (0), (int) (0));
+        play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
         temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x20));
         ((VObj_18_204a81 *)(temp_r3_2))->m7();
         clear_flag4c_bit8__13TWindowSubLogFPv((void*)((void *) (M2C_FIELD(arg0, u8 **, 0x20))));

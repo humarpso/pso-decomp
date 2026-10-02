@@ -370,7 +370,7 @@ s32 request_two_effects__10TObjPlayerFPv(void *);
 s32 apply_effect_variant_b__10TObjPlayerFii(void *, int);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 s32 advance_animation_playback(void *);
-s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+s32 play_sound_effect(void *, void *, int, int);
 extern const f32 TObjEneRe4Sorcerer__data_805DA790;
 void TObjEneRe4Sorcerer__sub_800EE01C(u8 *arg0, s32 arg1);
 void TObjEneRe4Sorcerer__sub_800EE01C(u8 *arg0, s32 arg1);
@@ -440,7 +440,7 @@ void turn_to_target__18TObjEneRe4SorcererFPv(void *arg0);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK TObjEneRe4Sorcerer__sub_800EF95C(void *, f32);
-s32 TObjPlayer__sub_801423A4(s32, s32, M2C_UNK);
+s32 approach_angle_limited(s32, s32, M2C_UNK);
 u32 find_entity_by_id(u16);
 s32 clamp_frame_index__9TObjEneDDFi(s32);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
@@ -466,7 +466,7 @@ void TObjEneRe4Sorcerer__sub_800EE01C(u8 *arg0, s32 arg1) {
         request_two_effects__10TObjPlayerFPv((void *) (arg0 + 0x2FC));
         TObjPlayer__sub_800A04F0((void *) (arg0 + 0x3FC));
         M2C_FIELD(arg0, f32 *, 0x3F8) = (f32) TObjEneRe4Sorcerer__data_805DA790;
-        TBoss3Volopt__sub_8022675C((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) (arg0)), (M2C_UNK)((int) (0x4003AD19))))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) (arg0)), (M2C_UNK)((int) (0x4003AD19))))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         return;
     case 0:
         advance_animation_playback((void *) (arg0));
@@ -820,7 +820,7 @@ s32 TObjEneRe4Sorcerer__sub_800EF354(u8 *arg0) {
 void turn_to_target__18TObjEneRe4SorcererFPv(void *arg0) {
     TObjEneEpsilon__sub_800B96A4((void *)(arg0));
     update_velocity__9TObjEneDDFPv(arg0);
-    M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x60), (s32) (TObjEneRe4Sorcerer__data_8043D408 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), 0xA00);
+    M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32) (TObjEneRe4Sorcerer__data_8043D408 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), 0xA00);
 }
 
 }

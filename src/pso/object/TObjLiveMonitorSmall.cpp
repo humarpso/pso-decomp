@@ -16,7 +16,7 @@ s32 get_table_entry__18TObjLiveCameraCtrlFi(s32);
 s32 TObjLiveMonitor__sub_8030C050(s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
-M2C_UNK TOSignCave03__sub_803DB510(void *);
+M2C_UNK draw_ginja_model(void *);
 int TObjPlayer__sub_8030B208(void *arg0);
 }
 
@@ -110,7 +110,7 @@ int TObjPlayer__sub_8030B208(void *arg0) {
     }
     free_children__12TObjDoorJungFPvPv((void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), s32 *, 4)), var_r4);
     TObjPlayer__sub_803D9B2C();
-    TOSignCave03__sub_803DB510((void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), s32 *, 4)));
+    draw_ginja_model((void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), s32 *, 4)));
     return pop_matrix();
 }
 

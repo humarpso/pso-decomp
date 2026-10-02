@@ -58,7 +58,7 @@ s32 is_confirmed__18TWindowInputNumberFPv(u32);
 f32 get_scale__15TShopWindowBaseFv(void *);
 M2C_UNK set_position_xy(u32, f32, f32);
 void TWindow__close(void *);
-u32 TShopJudgmentItemWindow__sub_80266388(M2C_UNK, u16, M2C_UNK, M2C_UNK);
+u32 create_yes_no_window(M2C_UNK, u16, M2C_UNK, M2C_UNK);
 M2C_UNK get_window_layout_position(M2C_UNK);
 void TShopGetItemWindow__sub_8021E76C(void *arg0);
 s32 is_visible__17TWindowSubComCardFPv(int);
@@ -98,7 +98,7 @@ void *__nw__7TObjectFUl(u32);
 M2C_UNK set_position_xy(u32, f32, f32);
 void set_displayed_item_colored__15TWindowHelpItemFPvUi(u32, void *);
 u32 TWindowInputNumber__ct(void *, s32, s32, s32, s32, s16);
-u32 TShopJudgmentItemWindow__sub_80266388(M2C_UNK, u16, M2C_UNK, M2C_UNK);
+u32 create_yes_no_window(M2C_UNK, u16, M2C_UNK, M2C_UNK);
 s32 select_cursor_entry__6TLobbyFPv(int);
 M2C_UNK get_window_layout_position(M2C_UNK);
 s32 is_camera_ctrl_active__6TLobbyFv(void);
@@ -199,7 +199,7 @@ void TShopGetItemWindow__sub_8021E76C(void *arg0) {
     if ((w != 0U) && (is_confirmed__18TWindowInputNumberFPv(w) != 0)) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) == 0U) {
             temp_r31 = (u16) obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
-            M2C_FIELD(arg0, u32 *, 0x2C) = TShopJudgmentItemWindow__sub_80266388(get_window_layout_position(0x2B), temp_r31, 0, 0);
+            M2C_FIELD(arg0, u32 *, 0x2C) = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
             set_ready_flag__18TCheckRoomSequenceFPv(M2C_FIELD(arg0, u32 *, 0x2C));
             temp_f31 = get_scale__15TShopWindowBaseFv(arg0);
             set_position_xy(M2C_FIELD(arg0, u32 *, 0x2C), get_scale__15TShopWindowBaseFv(arg0), temp_f31);
@@ -256,7 +256,7 @@ s32 TShopGetItemWindow__sub_8021E870(void *p) {
                 return;
             }
             sel = (u16)obj_getField1c(arg0->f24);
-            arg0->f2C = TShopJudgmentItemWindow__sub_80266388(get_window_layout_position(0x2B), sel, 0, 0);
+            arg0->f2C = create_yes_no_window(get_window_layout_position(0x2B), sel, 0, 0);
             set_ready_flag__18TCheckRoomSequenceFPv(arg0->f2C);
             scale = get_scale__15TShopWindowBaseFv(arg0);
             set_position_xy(arg0->f2C, get_scale__15TShopWindowBaseFv(arg0), scale);

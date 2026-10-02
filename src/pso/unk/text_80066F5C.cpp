@@ -12,7 +12,7 @@ int TObjPlayer__sub_803D9B2C(void);
 int pop_matrix(void);
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TOSignCave03__sub_803DB510(int);
+M2C_UNK draw_ginja_model(int);
 void TObjPlayer__sub_80066F5C(u8 *arg0);
 }
 
@@ -32,7 +32,7 @@ void TObjPlayer__sub_80066F5C(u8 *arg0) {
         TBoss7Tentacle__sub_803D9BA0((void *) (arg0 + 0x20));
         if (!(M2C_FIELD(arg0, s32 *, 0) & 8) && ((u32) M2C_FIELD(arg0, u32 *, 4) != 0U)) {
             TObjPlayer__sub_80083914((void *) (arg0 + 8), (void *) (arg0 + 0x14));
-            TOSignCave03__sub_803DB510((int) (M2C_FIELD(arg0, u32 *, 4)));
+            draw_ginja_model((int) (M2C_FIELD(arg0, u32 *, 4)));
             apply_single_screen_state__6TSceneFv();
         }
         TObjPlayer__sub_80066F5C(M2C_FIELD(arg0, u8 **, 0x2C));

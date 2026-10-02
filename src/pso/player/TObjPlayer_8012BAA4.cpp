@@ -10,7 +10,7 @@ void sync_hp_damage__10TObjPlayerFPv(void *arg0);
 void update_cane_cast__10TObjPlayerFi(s32 arg0);
 void play_action_sound__10TObjPlayerFPv(void *arg0);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_800112A4(s32, s16);
+M2C_UNK add_actor_tp(s32, s16);
 M2C_UNK play_particle_effect_once__10TObjPlayerFv();
 M2C_UNK spawn_cane_effect__10TObjPlayerFiUii(s32, s32, M2C_UNK);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(s32);
@@ -35,7 +35,7 @@ void sync_hp_damage__10TObjPlayerFPv(void *arg0) {
         }
         if (temp_r0 > 0) {
             TObjectV8047c128_subtract_hp(M2C_FIELD(arg0, s32 *, 0xF0), temp_r0);
-            TObjPlayer__sub_800112A4(M2C_FIELD(arg0, s32 *, 0xF0), (s16) (temp_r0 / 2));
+            add_actor_tp(M2C_FIELD(arg0, s32 *, 0xF0), (s16) (temp_r0 / 2));
         }
     }
 }

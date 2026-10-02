@@ -36,7 +36,7 @@ void initialize_subwindow__9TWindowDDFPv(void *);
 s32 can_scroll__9TWindowDDFPvi(void *, s32);
 s32 TWindowDD__sub_80341AC0(void *);
 void add_scroll_offset__9TWindowDDFPvi(void* a0, int a1);
-M2C_UNK TWindowSubStatusDisp__sub_80257C28(void *, void *);
+M2C_UNK update_window_entry_list(void *, void *);
 s32 TWindowDD__sub_803404A4(void *, int);
 s32 TWindowDD__sub_80342268();
 extern const f32 TWindowDD__data_805DFB20;
@@ -172,7 +172,7 @@ void TWindowDD__sub_80341B28(u8 *arg0) {
     }
     initialize_subwindow__9TWindowDDFPv(arg0);
     update_fade__17TWindowSubComCardFPv(arg0);
-    TWindowSubStatusDisp__sub_80257C28((void *) (arg0), (void *) (arg0 + 0x24));
+    update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
 }
 #pragma pop
 

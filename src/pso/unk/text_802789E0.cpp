@@ -1,7 +1,7 @@
 #include "types.h"
 extern "C" {
-u32 TItem__sub_8010147C(void *, s32, s32);
-void *TLobby__sub_80101AB0(u32);
+u32 get_usable_action_flags__5TItemFPvUiUi(void *, s32, s32);
+void *find_item_by_id(u32);
 u8 *get_player_by_client_id(s16);
 u32 run_and_get_result__10TObjPlayerFPvi(void *, u32 *);
 void TLobby__sub_80266E34(void *);
@@ -22,8 +22,8 @@ void fn_802789E0(u8 *arg0) {
     if (pl != NULL) {
         n = run_and_get_result__10TObjPlayerFPvi(*(void **)(pl + 0xD00), ids);
         for (i = 0; i < n; i++) {
-            item = TLobby__sub_80101AB0(ids[i]);
-            if (item != NULL && TItem__sub_8010147C(item, 2, 0) != 0 && TItem__sub_8010147C(item, 1, 0) == 0) {
+            item = find_item_by_id(ids[i]);
+            if (item != NULL && get_usable_action_flags__5TItemFPvUiUi(item, 2, 0) != 0 && get_usable_action_flags__5TItemFPvUiUi(item, 1, 0) == 0) {
                 add_list_entry__23TShopJudgmentItemWindowFPvii(arg0, item, ids[i]);
             }
         }

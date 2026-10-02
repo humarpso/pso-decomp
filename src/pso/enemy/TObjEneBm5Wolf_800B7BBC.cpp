@@ -27,7 +27,7 @@ void select_subtype__14TObjEneBm5WolfFPv(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *actor);
 f32 rand_range__9TObjEneDDFff(void *actor, f32 low, f32 high);
 void *csnVector(void *from, void *to, u32 flags);
-void TObjBoss2Tunnel__sub_8007E7D8(f32 *x, f32 *z, s32 angle);
+void rotate_xz_pair_by_angle(f32 *x, f32 *z, s32 angle);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(f32 *vector);
 extern const f32 TObjEneBm5Wolf__data_805D9D78;
 extern const f32 TObjEneBm5Wolf__data_805D9D84;
@@ -36,7 +36,7 @@ extern const f32 lbl_805D9E18;
 extern const f32 lbl_805D9E54;
 extern const f32 lbl_805D9E58;
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
-s32 TObjPlayer__sub_801423A4(s32, s32, s32);
+s32 approach_angle_limited(s32, s32, s32);
 void TObjEneBm5Wolf__sub_800B7DDC(Wolf_800B7DDC *s, s32 target);
 }
 
@@ -85,7 +85,7 @@ void TObjEneBm5Wolf::choose_roaming_destination() {
     stack.spC = TObjEneBm5Wolf__data_805D9D78;
     stack.sp10 = this->position[2] - this->groupAnchor[2];
     clamp_velocity__15TObjBoss2TunnelFPv(&stack.sp8);
-    TObjBoss2Tunnel__sub_8007E7D8(&stack.sp8, &stack.sp10, (s32) (lbl_805D9E54 * calc_boss4_scale__10TObjPlayerFi(this)) + 0x4000);
+    rotate_xz_pair_by_angle(&stack.sp8, &stack.sp10, (s32) (lbl_805D9E54 * calc_boss4_scale__10TObjPlayerFi(this)) + 0x4000);
     temp_f3 = lbl_805D9E18 * rand_range__9TObjEneDDFff(this, TObjEneBm5Wolf__data_805D9D84, TObjEneBm5Wolf__data_805D9D8C);
     this->destination[0] = (f32) ((stack.sp8 * temp_f3) + this->groupAnchor[0]);
     this->destination[2] = (f32) ((stack.sp10 * temp_f3) + this->groupAnchor[2]);
@@ -110,7 +110,7 @@ void TObjEneBm5Wolf__sub_800B7DDC(Wolf_800B7DDC *s, s32 target) {
         d = -0x4000;
     }
     if (s->turn * d >= 0) {
-        s->turn = TObjPlayer__sub_801423A4(s->turn, d, 0x800);
+        s->turn = approach_angle_limited(s->turn, d, 0x800);
     } else if (s->turn * TBoss4Type2__sub_80141FA8(s->turn, d) >= 0) {
         if (s->turn >= 0) {
             s->turn -= 0x800;
@@ -118,7 +118,7 @@ void TObjEneBm5Wolf__sub_800B7DDC(Wolf_800B7DDC *s, s32 target) {
             s->turn += 0x800;
         }
     } else {
-        s->turn = TObjPlayer__sub_801423A4(s->turn, d, 0x800);
+        s->turn = approach_angle_limited(s->turn, d, 0x800);
     }
     s->turn = (s16)s->turn;
 }

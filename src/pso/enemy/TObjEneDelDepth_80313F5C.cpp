@@ -65,7 +65,7 @@ extern const f32 lbl_805DF2B4;
 extern const f32 lbl_805DF2B8;
 void TObjEneDelDepth__sub_80314C10(u8 *arg0);
 u16 find_nearest_visible_player(void *, int, f32);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK TObjEneDelDepth__sub_803154A8(void *, int);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 extern const RecoveredGlobal_80314D1C_lbl_80475D6C lbl_80475D6C;
@@ -93,7 +93,7 @@ void try_enter_appear__15TObjEneDelDepthFPv(u8 *arg0);
 void try_relocate_on_timer__15TObjEneDelDepthFPv(u8 *arg0);
 void update_state__15TObjEneDelDepthFPv(void *arg0);
 M2C_UNK TBoss3Volopt__sub_800D8C48(void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK TObjEneDelDepth__sub_803154A8(void *, int);
 int TObjEneDelDepth__sub_80316488(void*, void*);
 u16 find_nearest_visible_player(void *, int, f32);
@@ -137,14 +137,14 @@ void try_enter_appear__15TObjEneDelDepthFPv(u8 *arg0) {
     if (is_state_complete__15TObjEneDelDepthFPv((int)((int) (M2C_FIELD(arg0, s32 *, 0x37C)))) == 1) {
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x04000000);
         TObjEneDelDepth__sub_803154A8((void *)((void *) (arg0)), (int)((int) (3)));
-        TBoss3Volopt__sub_8022675C((int) (0x4003A822), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4003A822), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     }
 }
 
 void enter_appear_state__15TObjEneDelDepthFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x04000000);
     M2C_FIELD(arg0, s32 *, 0x388) = 0x14;
-    TBoss3Volopt__sub_8022675C((int) (0x4003A820), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_sound_effect((int) (0x4003A820), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     TObjEneDelDepth__sub_80316488((void*)((int) (M2C_FIELD(arg0, s32 *, 0x37C))), (void*)((int) (0xB)));
     set_draw_mode__15TObjEneDelDepthFPvi((void*)((void *) (arg0)), (void*)((int) (1)));
 }
@@ -164,7 +164,7 @@ void enter_state8__15TObjEneDelDepthFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x04000000);
     M2C_FIELD(arg0, s32 *, 0x388) = 8;
     TObjEneDelDepth__sub_80316488((void*)((int) (M2C_FIELD(arg0, s32 *, 0x37C))), (void*)((int) (0xA)));
-    TBoss3Volopt__sub_8022675C((int) (0x4003A820), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_sound_effect((int) (0x4003A820), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     set_draw_mode__15TObjEneDelDepthFPvi((void*)((void *) (arg0)), (void*)((int) (1)));
 }
 
@@ -268,7 +268,7 @@ void TObjEneDelDepth__sub_80314EC4(u8 *arg0) {
     if (temp_f1_4 > (*(const f32 *)&TObjEneDelDepth__data_805DF260)) {
         if (find_nearest_visible_player((void *) (arg0), (int) (0), (f32) (TObjEneDelDepth__data_805DF26C)) != 0xFFFF) {
             TObjEneDelDepth__sub_803154A8((void *) (arg0), (int) (3));
-            TBoss3Volopt__sub_8022675C((int) (0x4003A822), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            play_sound_effect((int) (0x4003A822), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         } else {
             TObjEneDelDepth__sub_803154A8((void *) (arg0), (int) (2));
         }

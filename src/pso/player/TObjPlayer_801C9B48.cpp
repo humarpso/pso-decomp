@@ -9,7 +9,7 @@ extern "C" {
 void notify_lobby__10TObjPlayerFi(s32 arg0);
 void ensure_default__10TObjPlayerFPv(void *arg0);
 void init_action__10TObjPlayerFPv(u8 *arg0);
-void *TObjPlayer__sub_801B5EA4(void *);
+void *resolve_move_collision__10TObjPlayerFPv(void *);
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, s16, M2C_UNK);
 M2C_UNK clear_status_bit6__10TObjPlayerFPv();
 M2C_UNK TTecReverser__sub_80239E44(void *, void *, s32);
@@ -33,7 +33,7 @@ void notify_lobby__10TObjPlayerFi(s32 arg0) {
 
 void ensure_default__10TObjPlayerFPv(void *arg0) {
     void *x;
-    x = TObjPlayer__sub_801B5EA4(arg0);
+    x = resolve_move_collision__10TObjPlayerFPv(arg0);
     if (x == NULL) {
         apply_velocity__10TObjPlayerFPv(arg0);
     }

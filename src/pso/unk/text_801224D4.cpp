@@ -18,13 +18,13 @@ void set_status_flags__10TObjPlayerFPvUi(void *, s32);
 void set_atp__10TObjPlayerFPvs(void *, s16);
 extern RecoveredGlobal_801224D4_lbl_804A0FA0 lbl_804A0FA0;
 extern const f32 lbl_805DACE0;
-u8 *TObjPlayer__sub_801224D4(u8 *arg0, u8 *arg1, u8 *arg2);
+u8 *construct_dagger_weapon(u8 *arg0, u8 *arg1, u8 *arg2);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_801224D4_lbl_804A0FA0_size[sizeof(RecoveredGlobal_801224D4_lbl_804A0FA0) == 0xF8 ? 1 : -1];
-u8 *TObjPlayer__sub_801224D4(u8 *arg0, u8 *arg1, u8 *arg2) {
+u8 *construct_dagger_weapon(u8 *arg0, u8 *arg1, u8 *arg2) {
     u8 temp_r0;
     TObjPlayer__sub_80120D50(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804A0FA0.value;
@@ -44,7 +44,7 @@ u8 *TObjPlayer__sub_80122548(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(TObjPlayer__sub_801224D4((u8 *)(temp_r3), (u8 *)(tl_05), (u8 *)(arg0)));
+            var_r0 = (u8 *)(construct_dagger_weapon((u8 *)(temp_r3), (u8 *)(tl_05), (u8 *)(arg0)));
         }
         return var_r0;
     }

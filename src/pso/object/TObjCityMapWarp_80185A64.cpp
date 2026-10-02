@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjCityAreaWarp__vt17(void);
 void *TObjCityMapWarp__ct(void *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 void TObjCityMapWarp__sub_801858E4(void *);
 void TObjMapWarp__ct(void *);
 
@@ -30,7 +30,7 @@ void *TObjCityMapWarp__ct(void *arg0) {
 extern s16 TLobby__data_805D5CE8;
 
 void TObjCityAreaWarp__vt17(void) {
-    TBoss3Volopt__sub_8022675C(0x40003205, 0, 0, 0);
+    play_sound_effect(0x40003205, 0, 0, 0);
     TLobby__data_805D5CE8 = 1;
 }
 

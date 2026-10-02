@@ -38,7 +38,7 @@ typedef s32 M2C_UNK;
 extern "C" {
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(int, int);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK refresh_collision_body_centers(void *);
 M2C_UNK TObjEneGibbles__sub_80156780(void *, void *, int);
 M2C_UNK init_door_base();
 u8 *fn_8028A714(M2C_UNK);
@@ -65,7 +65,7 @@ M2C_UNK set_global_param__8TObjFishFi();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 u8 TODoorAncient08__sub_80229220(u16);
-void TOSignCave03__sub_803DB510(s32);
+void draw_ginja_model(s32);
 M2C_UNK TODoorFourLightSpace__sub_80289B4C(void *arg0);
 }
 
@@ -219,12 +219,12 @@ M2C_UNK TODoorFourLightSpace__sub_80289B4C(void *arg0) {
     TOHangerMachine01__sub_803D9C00(mdl + 8);
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(M2C_FIELD(mdl, u8 **, 0x2C) + 8);
-    TOSignCave03__sub_803DB510(M2C_FIELD(M2C_FIELD(mdl, u8 **, 0x2C), s32 *, 4));
+    draw_ginja_model(M2C_FIELD(M2C_FIELD(mdl, u8 **, 0x2C), s32 *, 4));
     pop_matrix();
     TOHangerMachine01__sub_803D9C00(M2C_FIELD(M2C_FIELD(mdl, u8 **, 0x2C), u8 **, 0x30) + 8);
-    TOSignCave03__sub_803DB510(M2C_FIELD(M2C_FIELD(M2C_FIELD(mdl, u8 **, 0x2C), u8 **, 0x30), s32 *, 4));
+    draw_ginja_model(M2C_FIELD(M2C_FIELD(M2C_FIELD(mdl, u8 **, 0x2C), u8 **, 0x30), s32 *, 4));
     TOHangerMachine01__sub_803D9C00(M2C_FIELD(M2C_FIELD(M2C_FIELD(mdl, u8 **, 0x2C), u8 **, 0x30), u8 **, 0x2C) + 8);
-    TOSignCave03__sub_803DB510(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(mdl, u8 **, 0x2C), u8 **, 0x30), u8 **, 0x2C), s32 *, 4));
+    draw_ginja_model(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(mdl, u8 **, 0x2C), u8 **, 0x30), u8 **, 0x2C), s32 *, 4));
     begin_effect_render__13TParticleCtrlFv();
     i = 0;
     do {
@@ -237,13 +237,13 @@ M2C_UNK TODoorFourLightSpace__sub_80289B4C(void *arg0) {
         if (*pa != NULL) {
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(*pa + 8);
-            TOSignCave03__sub_803DB510(M2C_FIELD(*pa, s32 *, 4));
+            draw_ginja_model(M2C_FIELD(*pa, s32 *, 4));
             pop_matrix();
         }
         if (*pb != NULL) {
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(*pb + 8);
-            TOSignCave03__sub_803DB510(M2C_FIELD(*pb, s32 *, 4));
+            draw_ginja_model(M2C_FIELD(*pb, s32 *, 4));
             pop_matrix();
         }
         i++;
@@ -320,7 +320,7 @@ u8 *TODoorFourLightSpace__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
     ((VObj_18_4a4f5b *)(arg0))->m17();
     TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (lbl_804D3500), (int) (1));
-    TObjPlayer__sub_80154E3C((void *) (arg0));
+    refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0xD4) = fn_8028A78C((int) (0));
     M2C_FIELD(arg0, s32 *, 0x24) = fn_8028A750((int) (0));
@@ -532,7 +532,7 @@ extern "C" {
 
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(int, int);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK refresh_collision_body_centers(void *);
 M2C_UNK TObjEneGibbles__sub_80156780(void *, void *, int);
 M2C_UNK init_door_base();
 u8 *fn_8028A714(M2C_UNK);
@@ -555,7 +555,7 @@ u8 *TODoorFourLightRuins__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
     ((VObj_18_4a4f5b *)(arg0))->m17();
     TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (lbl_804D3500), (int) (1));
-    TObjPlayer__sub_80154E3C((void *) (arg0));
+    refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0xD4) = fn_8028A78C((int) (0));
     M2C_FIELD(arg0, s32 *, 0x24) = fn_8028A750((int) (0));

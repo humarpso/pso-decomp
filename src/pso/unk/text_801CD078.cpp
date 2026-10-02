@@ -121,8 +121,8 @@ M2C_UNK set_state_flags__10TObjPlayerFPvUi(void *, int);
 s32 is_flag_b0_4__10TObjPlayerFPv(void *);
 s32 lerp_angle_half__10TObjPlayerFUsUs(int, int);
 s32 objInBand__FP7GameObjf(void *, f32);
-u32 TObjPlayer__sub_801B5EA4(void *);
-M2C_UNK TObjPlayer__sub_801CCEDC(void *);
+u32 resolve_move_collision__10TObjPlayerFPv(void *);
+M2C_UNK pay_tp_and_send_6x48_cast__10TObjPlayerFPv(void *);
 s16 get_idle_animation__10TObjPlayerFPv(void *);
 M2C_UNK set_action_flag_40__10TObjPlayerFPv(void *);
 void clear_status_bit6__10TObjPlayerFPv(void *obj);
@@ -218,7 +218,7 @@ void update_technique_cast__10TObjPlayerFPv(u8 *arg0) {
             TObjPlayer__sub_8011E204((void *) (arg0), (int) (0x80));
             set_action_flag_40__10TObjPlayerFPv((void *) (arg0));
             if (obj_isState2_324((void *) (arg0)) == 0) {
-                TObjPlayer__sub_801CCEDC((void *) (arg0));
+                pay_tp_and_send_6x48_cast__10TObjPlayerFPv((void *) (arg0));
             }
         }
         break;
@@ -231,7 +231,7 @@ void update_technique_cast__10TObjPlayerFPv(u8 *arg0) {
         }
         break;
     }
-    if (TObjPlayer__sub_801B5EA4((void *) (arg0)) == 0U) {
+    if (resolve_move_collision__10TObjPlayerFPv((void *) (arg0)) == 0U) {
         apply_velocity__10TObjPlayerFPv((void *) (arg0));
     }
 }

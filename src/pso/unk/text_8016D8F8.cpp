@@ -12,7 +12,7 @@ struct Stack_8016D8F8 {
 
 extern "C" {
 s32 copy_xyz__10TObjPlayerFPvPv(void *, void *);
-s32 TObjPlayer__sub_801423A4(int, int, int);
+s32 approach_angle_limited(int, int, int);
 extern const f32 lbl_805DB7A0;
 extern const f32 lbl_805DB7A4;
 void fn_8016D8F8(u8 *arg0);
@@ -27,8 +27,8 @@ void fn_8016D8F8(u8 *arg0) {
     copy_xyz__10TObjPlayerFPvPv((void *) (&stack.sp8), (void *) (arg0 + 0x5C));
     M2C_FIELD(arg0, s32 *, 0x5C) = (s32) (lbl_805DB7A0 * (M2C_FIELD(arg0, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x4C)));
     M2C_FIELD(arg0, s32 *, 0x64) = (s32) (lbl_805DB7A4 * (M2C_FIELD(arg0, f32 *, 0x38) - M2C_FIELD(arg0, f32 *, 0x44)));
-    M2C_FIELD(arg0, s32 *, 0x5C) = TObjPlayer__sub_801423A4((int) (stack.sp8), (int) (M2C_FIELD(arg0, s32 *, 0x5C)), (int) (0x40));
-    M2C_FIELD(arg0, s32 *, 0x64) = TObjPlayer__sub_801423A4((int) (stack.sp10), (int) (M2C_FIELD(arg0, s32 *, 0x64)), (int) (0x40));
+    M2C_FIELD(arg0, s32 *, 0x5C) = approach_angle_limited((int) (stack.sp8), (int) (M2C_FIELD(arg0, s32 *, 0x5C)), (int) (0x40));
+    M2C_FIELD(arg0, s32 *, 0x64) = approach_angle_limited((int) (stack.sp10), (int) (M2C_FIELD(arg0, s32 *, 0x64)), (int) (0x40));
 }
 
 }

@@ -62,7 +62,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 get_bml_model(void *, int);
 u8 *get_quest_id__12TQuestListVMFPv(void *);
 s32 create_particle_emitter(void *, int);
-M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK refresh_collision_body_centers(void *);
 extern M2C_UNK lbl_8048E1A4[];
 extern u32 lbl_805D4ED0;
 extern s32 tl_05;
@@ -154,7 +154,7 @@ u8 *TObjPlayer__sub_8008213C(u8 *arg0, u8 *arg1, u8 *arg2) {
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0x1C));
             ((RecoveredFields_8008213C_arg0 *)arg0)->field_338 = (f32) (lbl_805D9398 * ((RecoveredFields_8008213C_arg2 *)arg2)->field_C);
         } else if ((void *) ((RecoveredFields_8008213C_arg1 *)arg1)->field_A4 != NULL) {
-            TObjPlayer__sub_80154E3C((void *) (arg1));
+            refresh_collision_body_centers((void *) (arg1));
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (((RecoveredFields_8008213C_arg1 *)arg1)->field_A4 + 0x1C));
             ((RecoveredFields_8008213C_arg0 *)arg0)->field_338 = (f32) (lbl_805D9398 * M2C_FIELD(((RecoveredFields_8008213C_arg1 *)arg1)->field_A4, f32 *, 0xC));
         } else {

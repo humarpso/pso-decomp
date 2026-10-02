@@ -71,7 +71,7 @@ int TObjPlayer__sub_803D9B2C();
 int pop_matrix();
 int TOHangerMachine01__sub_803D9C00(void *);
 int set_global_param__8TObjFishFi(int);
-int TOSignCave03__sub_803DB510(int);
+int draw_ginja_model(int);
 void translate_matrix(s32, f32, f32, f32);
 void scale_matrix(s32, f32, f32, f32);
 int begin_effect_render__13TParticleCtrlFv();
@@ -146,42 +146,42 @@ void render__18TOMonitorMachine01Fv(Mon_80172220 *self) {
         n = self->model->root;
         TObjPlayer__sub_803D9B2C();
         translate_matrix(0, -self->fCC, 0.0f, 0.0f);
-        TOSignCave03__sub_803DB510(n->f4);
+        draw_ginja_model(n->f4);
         pop_matrix();
         begin_effect_render__13TParticleCtrlFv();
         n = n->next;
         if (self->f84 == 2) {
             TObjPlayer__sub_803D9B2C();
             scale_matrix(0, self->fD0, self->fD0, lbl_805DB8F0);
-            TOSignCave03__sub_803DB510(n->f4);
+            draw_ginja_model(n->f4);
             pop_matrix();
         }
         n = n->next;
         if (self->f84 == 1) {
             TObjPlayer__sub_803D9B2C();
             scale_matrix(0, self->fD0, self->fD0, lbl_805DB8F0);
-            TOSignCave03__sub_803DB510(n->f4);
+            draw_ginja_model(n->f4);
             pop_matrix();
         }
         end_effect_render__13TParticleCtrlFv();
         n = n->next;
         TObjPlayer__sub_803D9B2C();
         translate_matrix(0, self->fCC, TOMonitorMachine01__data_805DB8F8, TOMonitorMachine01__data_805DB8F8);
-        TOSignCave03__sub_803DB510(n->f4);
+        draw_ginja_model(n->f4);
         pop_matrix();
         begin_effect_render__13TParticleCtrlFv();
         n = n->next;
         if (self->f84 == 0) {
             TObjPlayer__sub_803D9B2C();
             scale_matrix(0, self->fD0, self->fD0, lbl_805DB8F0);
-            TOSignCave03__sub_803DB510(n->f4);
+            draw_ginja_model(n->f4);
             pop_matrix();
         }
         n = n->next;
         if (self->f84 == 3) {
             TObjPlayer__sub_803D9B2C();
             scale_matrix(0, self->fD0, self->fD0, lbl_805DB8F0);
-            TOSignCave03__sub_803DB510(n->f4);
+            draw_ginja_model(n->f4);
             pop_matrix();
         }
         end_effect_render__13TParticleCtrlFv();

@@ -49,7 +49,7 @@ void* get_kbd_ptr__14TWindowComCardFPv(void* p);
 void run_task__14TWindowComCardFv(void* p);
 void set_display_value__14TWindowComCardFiii(s32 arg0, s32 arg1, s32 arg2);
 void *TWindowSubComCard__sub_8007A8F8(void *);
-int TWindowSubStatusDisp__sub_80257C28(void*, void*);
+int update_window_entry_list(void*, void*);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
@@ -140,7 +140,7 @@ void render__14TWindowComCardFv(s32 arg0) {
     TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 
-void run_task__14TWindowComCardFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); TWindowSubStatusDisp__sub_80257C28(p, (char*)p + 0x24); }
+void run_task__14TWindowComCardFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); update_window_entry_list(p, (char*)p + 0x24); }
 
 extern M2C_UNK __vt__14TWindowComCard[];
 

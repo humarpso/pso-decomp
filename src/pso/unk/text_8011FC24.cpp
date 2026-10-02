@@ -144,11 +144,11 @@ u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
 void TObjPlayer__sub_8011FCC4(u8 *arg0);
 u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
 M2C_UNK update_trail_slot__11TItemWeaponFPvi(void *, int);
-M2C_UNK TObjPlayer__sub_80120908(void *);
+M2C_UNK draw_weapon_model(void *);
 M2C_UNK TObjPlayer__sub_80120BBC(void *, int);
 void update_trails__11TItemWeaponFPv(u8 *arg0);
 u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
-M2C_UNK TObjPlayer__sub_80120908(void *);
+M2C_UNK draw_weapon_model(void *);
 M2C_UNK TObjPlayer__sub_80120BBC(void *, int);
 void TObjPlayer__sub_8011FD38(u8 *arg0);
 M2C_UNK get_field_d8__10TObjPlayerFPv(void *);
@@ -170,7 +170,7 @@ void update_trails__11TItemWeaponFPv(u8 *arg0) {
         return;
     }
     if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 1U) == 0U) {
-        TObjPlayer__sub_80120908((void *) (arg0));
+        draw_weapon_model((void *) (arg0));
         update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (0));
         update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (1));
     }
@@ -191,7 +191,7 @@ void TObjPlayer__sub_8011FD38(u8 *arg0) {
             return;
         }
         if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 1U) == 0U) {
-            TObjPlayer__sub_80120908((void *) (arg0));
+            draw_weapon_model((void *) (arg0));
         }
     }
 }

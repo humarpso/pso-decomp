@@ -83,7 +83,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TOSignCave03__sub_803DB510(void *);
+M2C_UNK draw_ginja_model(void *);
 M2C_UNK draw_ginja_model_with_motion(void *, int, f32);
 void render__14TOKeyAncient01Fv(u8 *arg0);
 u8 *TLobby__sub_8001FE7C(void *, s16);
@@ -95,7 +95,7 @@ void TOKeyAncient01__sub_8016AEFC(void);
 u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
 u8 * TOKey__ct(void *);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK refresh_collision_body_centers(void *);
 M2C_UNK init_switch_id__5TOKeyFPv(void *);
 extern RecoveredGlobal_8016B0A0_lbl_804B29D0 lbl_804B29D0;
 extern M2C_UNK __vt__14TOKeyAncient01[];
@@ -160,7 +160,7 @@ void render__14TOKeyAncient01Fv(u8 *arg0) {
             rotate_matrix_z((int) (0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 0x1C)));
             rotate_matrix_x((int) (0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 0x14)));
             rotate_matrix_y((int) (0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 0x18)));
-            TOSignCave03__sub_803DB510((void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 4)));
+            draw_ginja_model((void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 4)));
             pop_matrix();
         }
         pop_matrix();
@@ -260,7 +260,7 @@ u8 *TOKeyAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB6E8);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB6EC;
     TObjEneGibbles__sub_80156780(arg0, (s32) &lbl_804B29D0.value, 1);
-    TObjPlayer__sub_80154E3C((void *) (arg0));
+    refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB6F0;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB6F4;

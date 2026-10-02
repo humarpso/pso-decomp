@@ -19,7 +19,7 @@ extern "C" {
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
-M2C_UNK TWindowSubComCard__sub_803DEECC(void *, int, f32);
+M2C_UNK draw_textured_quad_at_depth(void *, int, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
 extern s32 lbl_805D6908;
 extern const f32 lbl_805DE998;
@@ -32,7 +32,7 @@ void TAdGameStartSubGC__sub_802E6864(u8 *arg0) {
     set_global_param__8TObjFishFi((void *) (lbl_805D6908));
     TWindowSubStatusDisp__sub_803DF160((int) (0), (int) ((M2C_FIELD(arg0, s32 *, 0x80) << 0x18) | 0xFF0000 | 0xFFFF));
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x1C);
-    TWindowSubComCard__sub_803DEECC((void *) (arg0 + 0x40), (int) (temp_r4), (f32) ((lbl_805DE99C * (f32) temp_r4) + lbl_805DE998));
+    draw_textured_quad_at_depth((void *) (arg0 + 0x40), (int) (temp_r4), (f32) ((lbl_805DE99C * (f32) temp_r4) + lbl_805DE998));
     get_player__20TWindowSubStatusDispFv();
 }
 #pragma pop

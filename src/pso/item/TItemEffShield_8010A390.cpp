@@ -112,7 +112,7 @@ void queue_destruction__7TObjectFv(void *);
 void copy_xyz__10TObjPlayerFPvPv(void *, void *);
 void TItemEffShield__sub_8010A460(u8 *arg0);
 Player_8010A4C0 *get_player_by_client_id(u16);
-void TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+void play_sound_effect(s32, void *, s32, s32);
 void run_task__14TItemEffShieldFv(Shield_8010A4C0 *self);
 }
 
@@ -182,7 +182,7 @@ void run_task__14TItemEffShieldFv(Shield_8010A4C0 *self) {
         switch (self->m_3c) {
         case 0:
             if (self->m_38 - 1 == r->m_20) {
-                TBoss3Volopt__sub_8022675C(0x4001A81E, self->m_1c, 0, 0);
+                play_sound_effect(0x4001A81E, self->m_1c, 0, 0);
                 TItemEffShield__sub_8010A460((u8 *)self);
                 self->m_3c++;
                 self->m_38 = 0;

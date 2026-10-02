@@ -11,7 +11,7 @@ extern "C" {
 M2C_UNK TWindowSubStatusDisp__sub_80257D44(void *, void *, int);
 f32 TWindowSubStatusDisp__sub_801A5228(int);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
-s32 TBoss3Volopt__sub_8022675C(int, int, int, int);
+s32 play_sound_effect(int, int, int, int);
 u32 strnlen__19TWindowKeyBoardSoftFPvUi(void *, int);
 s32 refresh_status_display__9TWindowDDFv(int);
 s32 init_flags__15TWindowFukidasiFPvi(void *, void *);
@@ -75,7 +75,7 @@ void TWindowFukidasi__sub_80251BA0(u8 *arg0, s32 arg1, s32 arg2) {
   {
     *((s32 *) (((s8 *) arg0) + 0x5C)) = 0;
   }
-  TBoss3Volopt__sub_8022675C((int) 0x53705, (int) 0, (int) 0, (int) 0);
+  play_sound_effect((int) 0x53705, (int) 0, (int) 0, (int) 0);
   if (((u8) (*((u8 *) (((s8 *) arg0) + 0x70)))) != 0)
   {
     *((u8 *) (((s8 *) arg0) + 0x70)) = 5U;

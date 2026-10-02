@@ -32,7 +32,7 @@ void TBoss6PlotFalz__sub_802AB684(s32 arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 Player_802AB3E0 *get_player_data__10TObjPlayerFi(int);
 int spawn_particle_effect(void *, int);
-int TBoss3Volopt__sub_8022675C(int, int, int, int);
+int play_sound_effect(int, int, int, int);
 int is_state_1f__14TBoss6PlotFalzFUi(Player_802AB3E0 *);
 int TBoss6Thanks__sub_8035D270();
 extern s32 lbl_805D586C;
@@ -60,7 +60,7 @@ void TBoss6PlotFalz__sub_802AB3E0(void) {
     s32 i;
     f32 k;
     if (TBoss6Thanks__sub_8035D270() != 0) {
-        TBoss3Volopt__sub_8022675C(0x40033231, 0, 0, 0);
+        play_sound_effect(0x40033231, 0, 0, 0);
         k = lbl_805DE094;
         for (i = 0; i < lbl_805D586C; i++) {
             p = get_player_data__10TObjPlayerFi(i);

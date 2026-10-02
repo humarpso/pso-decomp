@@ -36,7 +36,7 @@ struct VObjItemLight_80192060 {
 
 u8 *TObjItemLight__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void *__dt__13TObjItemLightFv(void *arg0, s16 arg1);
-s32 TObjParticle__sub_800870BC(void *, void *, M2C_UNK, M2C_UNK);
+s32 spawn_particle_effect_with_rotation(void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TPhotonMagicSquare__sub_801A2640();
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
@@ -93,7 +93,7 @@ u8 *TObjItemLight__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     if (M2C_FIELD(arg0, f32 *, 0x90) < lbl_805DBE40) {
         M2C_FIELD(arg0, f32 *, 0x90) = (f32) lbl_805DBE44;
     }
-    M2C_FIELD(arg0, s32 *, 0x94) = TObjParticle__sub_800870BC(arg0 + 0x38, arg0 + 0x5C, 0x1CA, 0x40);
+    M2C_FIELD(arg0, s32 *, 0x94) = spawn_particle_effect_with_rotation(arg0 + 0x38, arg0 + 0x5C, 0x1CA, 0x40);
     return arg0;
 }
 

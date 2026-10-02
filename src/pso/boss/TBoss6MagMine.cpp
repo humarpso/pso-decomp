@@ -21,7 +21,7 @@ void TBoss6MagMine__vt1(u8 *arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 void *get_player_data__10TObjPlayerFi(int);
 s32 get_game_mode__6TLobbyFv(void);
-void TBoss3Volopt__sub_8022675C(int, Vec_80368C14 *, int, int);
+void play_sound_effect(int, Vec_80368C14 *, int, int);
 s32 is_active__14TBoss6PlotFalzFPv(void *);
 void TBoss6MagMine__sub_80368AB8(void *, void *);
 f32 TBoss6Kakusan__sub_803D8BD8(Vec_80368C14 *);
@@ -118,7 +118,7 @@ void TBoss6MagMine__sub_80368C14(Mine_80368C14 *o) {
             }
         }
     }
-    TBoss3Volopt__sub_8022675C(0x4003BA1E, &o->pos, 0, 0);
+    play_sound_effect(0x4003BA1E, &o->pos, 0, 0);
 }
 
 void TBoss6MagMine__vt4(void* p) { spawn_particle_effect_with_flags((void*)((char*)p + 0x38), (void*)((void*)252), (void*)((void*)64)); queue_destruction__7TObjectFv((void*)(p)); }

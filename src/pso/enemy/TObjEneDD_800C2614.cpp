@@ -170,7 +170,7 @@ M2C_UNK fn_800C3A60(void *, M2C_UNK);
 s32 get_flag_11__16TObjEneRe2FlowerFPv(void *);
 M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
 M2C_UNK advance_animation_playback();
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern Prm_800C2628 lbl_8043BA68;
 extern Prm_800C2628 lbl_8043BBA0;
 extern f32 *const lbl_805D5170;
@@ -184,7 +184,7 @@ void TObjEneDD__sub_800C2614(void);
 void TObjEneDD__sub_800C2618(void* p);
 void handle_event__16TObjEneRe2FlowerFPvi(u8 *arg0, s32 arg1);
 M2C_UNK advance_animation_playback();
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
 M2C_UNK fn_800C3A60(void *, M2C_UNK);
@@ -237,7 +237,7 @@ void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1) {
                     TObjEneDD__sub_800BA5A4(arg0, &lbl_8043BA68);
                 }
             }
-            TBoss3Volopt__sub_8022675C(fn_800C3A60(arg0, 0x4003A311), arg0 + 0x38, 0, 0);
+            play_sound_effect(fn_800C3A60(arg0, 0x4003A311), arg0 + 0x38, 0, 0);
         }
         break;
     case 0:
@@ -271,7 +271,7 @@ void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1) {
                 if (F(s32, 0x3D8) > 0xFF) {
                     F(s32, 0x3D8) = 0xFF - (F(s32, 0x3D8) - 0xFF);
                     F(s32, 0x414) = 1;
-                    TBoss3Volopt__sub_8022675C(fn_800C3A60(arg0, 0x4003AD10), arg0 + 0x38, 0, 0);
+                    play_sound_effect(fn_800C3A60(arg0, 0x4003AD10), arg0 + 0x38, 0, 0);
                 }
             } else {
                 F(s32, 0x3D8) -= step;
@@ -302,7 +302,7 @@ void handle_event__16TObjEneRe2FlowerFPvi(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) & 0xFFFFFFF7);
         set_field_378__9TObjEneDDFPvi(arg0, 3);
         M2C_FIELD(arg0, s32 *, 0x410) = 0;
-        TBoss3Volopt__sub_8022675C(fn_800C3A60(arg0, 0x4003A315), arg0 + 0x38, 0, 0);
+        play_sound_effect(fn_800C3A60(arg0, 0x4003A315), arg0 + 0x38, 0, 0);
         play_effect_if_v2__10TObjPlayerFi(-0x200);
         return;
     case 3:

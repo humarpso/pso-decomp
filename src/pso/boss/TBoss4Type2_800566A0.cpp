@@ -280,7 +280,7 @@ void init_hanger__11TBoss4Type2FPv(void* p);
 void init_state__11TBoss4Type2FPv(u8 *arg0);
 void set_grid_pos__11TBoss4Type2FPvPv(void *arg0, void *arg1);
 void set_state3_unless_2or3__11TBoss4Type2FPv(void *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int, void *);
+M2C_UNK play_sound_effect(int, void *, int, int, void *);
 s32 TBoss4Type2__ct(s32, s32, s32);
 M2C_UNK TBoss4Type2__sub_80057048(void *, M2C_UNK);
 void TBoss4Type2__vt4(void* p);
@@ -629,7 +629,7 @@ void init_state__11TBoss4Type2FPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3E4) = 1;
     M2C_FIELD(arg0, f32 *, 0x3F0) = (f32) TBoss4Type2__data_805D8BD8;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFFDFF);
-    TBoss3Volopt__sub_8022675C(0x4003B723, arg0 + 0x38, 0, 1, arg0);
+    play_sound_effect(0x4003B723, arg0 + 0x38, 0, 1, arg0);
 }
 
 extern s32 tl_04;

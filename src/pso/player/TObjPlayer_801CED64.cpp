@@ -8,7 +8,7 @@ extern "C" {
 
 void apply_movement_if_ready__10TObjPlayerFPv(u8 *arg0);
 s32 check_actor_blocking_move__10TObjPlayerFPv(void *);
-u32 TObjPlayer__sub_801B5EA4(void *);
+u32 resolve_move_collision__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801D2680(void *);
 M2C_UNK TObjPlayer__sub_8001053C(void *);
 M2C_UNK apply_velocity__10TObjPlayerFPv(void *);
@@ -29,7 +29,7 @@ void apply_movement_if_ready__10TObjPlayerFPv(u8 *arg0) {
         if (check_actor_blocking_move__10TObjPlayerFPv(arg0) != 0) {
             TObjPlayer__sub_8001053C(arg0);
         }
-        if (TObjPlayer__sub_801B5EA4(arg0) == 0U) {
+        if (resolve_move_collision__10TObjPlayerFPv(arg0) == 0U) {
             apply_velocity__10TObjPlayerFPv(arg0);
         }
     }

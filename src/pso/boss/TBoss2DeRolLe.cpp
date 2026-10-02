@@ -73,7 +73,7 @@ void set_params__13TBoss2DeRolLeFPvPv(void *arg0, void *arg1);
 void spawn_ceil_junk__13TBoss2DeRolLeFii(s32 arg1, s32 arg2);
 int spawn_trap__13TBoss2DeRolLeFPvii(void* p, int a1, int a2);
 void update_projectile_spawns__13TBoss2DeRolLeFPv(u8 *arg0);
-int TBoss3Volopt__sub_8022675C(void*, int, int, int);
+int play_sound_effect(void*, int, int, int);
 M2C_UNK TBoss4Zako__sub_803D8910(int, void *);
 s32 TBoss8Dragon__sub_800B9958(void * a0 = 0, u16 a1 = 0);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
@@ -216,7 +216,7 @@ void TBoss2DeRolLe__sub_8003383C(u8 *arg0) {
 #pragma pop
 
 int spawn_trap__13TBoss2DeRolLeFPvii(void* p, int a1, int a2) { return TOTrapAncient01__sub_80226578((int)(p), (void *)(a1), (void *)(a2), (int)(0), (int)(0)); }
-int play_sound(void* p, int a1) { return TBoss3Volopt__sub_8022675C(p, a1, 0, 0); }
+int play_sound(void* p, int a1) { return play_sound_effect(p, a1, 0, 0); }
 void TBoss2DeRolLe__sub_800338BC(void) {  }
 
 extern const f32 TBoss2DeRolLe__data_805D8280;

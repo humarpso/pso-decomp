@@ -10,7 +10,7 @@ struct RecoveredGlobal_80291290_lbl_804DAA78 {
 };
 
 extern "C" {
-s32 TObjPlayer__sub_801423A4(int, void *, int);
+s32 approach_angle_limited(int, void *, int);
 extern const f32 lbl_805DD974;
 extern const f32 lbl_805DD97C;
 extern const f32 lbl_805DD980;
@@ -102,8 +102,8 @@ void fn_802912C4(u8 *arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
         M2C_FIELD(arg0, f32 *, 0x8C) = (f32) lbl_805DD974;
     }
     M2C_FIELD(arg0, f32 *, 0x4C) = (f32) (M2C_FIELD(arg0, f32 *, 0x4C) + M2C_FIELD(arg0, f32 *, 0x8C));
-    M2C_FIELD(arg0, s32 *, 0x74) = TObjPlayer__sub_801423A4((int) (M2C_FIELD(arg0, s32 *, 0x74)), (void *) (arg2), (int) (0xC0));
-    M2C_FIELD(arg0, s32 *, 0x70) = TObjPlayer__sub_801423A4((int) (M2C_FIELD(arg0, s32 *, 0x70)), (void *) (arg1), (int) (0xC0));
+    M2C_FIELD(arg0, s32 *, 0x74) = approach_angle_limited((int) (M2C_FIELD(arg0, s32 *, 0x74)), (void *) (arg2), (int) (0xC0));
+    M2C_FIELD(arg0, s32 *, 0x70) = approach_angle_limited((int) (M2C_FIELD(arg0, s32 *, 0x70)), (void *) (arg1), (int) (0xC0));
 }
 
 }

@@ -8,7 +8,7 @@ struct V3_80313E34 { s32 a, b, c; };
 
 extern "C" {
 M2C_UNK render_anim_model__10TObjPlayerFPvf(void *, f32);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK create__19TObjEneDelDepthBombFPvPvPvPv(void *, void *, void *, int);
 M2C_UNK TObjEneDelDepth__sub_803154A8(void *, int);
 s32 get_flag_bit4__15TObjEneDelDepthFPv(void *);
@@ -86,7 +86,7 @@ void TObjEneDelDepth__sub_80313E34(u8 *arg0) {
         }
         pop_matrix();
         clear_global_state__10TObjPlayerFv();
-        TBoss3Volopt__sub_8022675C((int) (0x4003A81D), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4003A81D), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         create__19TObjEneDelDepthBombFPvPvPvPv((void *) (arg0), (void *) (arg0), (void *) (&out), (int) (M2C_FIELD(TObjEneDelDepth__data_805D6AC0, s32 *, 0x18)));
     }
     temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x384) - 1;

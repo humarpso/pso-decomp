@@ -96,7 +96,7 @@ M2C_UNK TObjPlayer__sub_80102D84(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 void TObjPlayer__sub_801012DC(u8 *arg0, s32 arg1);
 s32 get_global_state__14TOKeyMachine01Fv();
-struct VObj_80101350_80100E00 *TLobby__sub_80101AB0(s32);
+struct VObj_80101350_80100E00 *find_item_by_id(s32);
 M2C_UNK swap_6x61_fields__10TObjPlayerFPv(void *);
 void handle_6x61_activate_mag_effect(void *arg0);
 }
@@ -278,7 +278,7 @@ void handle_6x61_activate_mag_effect(void *arg0) {
     struct VObj_80101350_80100E00 *obj;
     if (get_global_state__14TOKeyMachine01Fv() != 0xF) {
         swap_6x61_fields__10TObjPlayerFPv(arg0);
-        obj = TLobby__sub_80101AB0(M2C_FIELD(arg0, s32 *, 4));
+        obj = find_item_by_id(M2C_FIELD(arg0, s32 *, 4));
         if ((obj != NULL) && ((u32) M2C_FIELD(obj, u32 *, 0xF0) != 0U)) {
             obj->m17(M2C_FIELD(arg0, s32 *, 8));
         }

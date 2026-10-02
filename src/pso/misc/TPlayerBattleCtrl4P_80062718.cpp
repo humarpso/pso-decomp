@@ -19,7 +19,7 @@ M2C_UNK get_target_state_a__9TObjEneDDFPv(void *);
 M2C_UNK get_target_state_b__9TObjEneDDFPv(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback(void *);
-s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 void *__nw__7TObjectFUl(u32);
 M2C_UNK queue_event_1D__12TBoss3VoloptFss(int, int);
 M2C_UNK init_all_slots__11TWindowCtrlFv();
@@ -131,17 +131,17 @@ void TBoss3Volopt__sub_800627E4(u8 *arg0, u32 arg1) {
                     spawn_particle_effect_with_flags((void *) (sp8), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x5F0), s32 *, 0)), (int) (0x40));
                 }
                 if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D8E70)) != 0) {
-                    TBoss3Volopt__sub_8022675C((int) (0x40032A00), (void *) (0), (int) (0), (int) (0));
+                    play_sound_effect((int) (0x40032A00), (void *) (0), (int) (0), (int) (0));
                     queue_event_1D__12TBoss3VoloptFss((int) (0xA0), (int) (0x3C));
                 }
                 if ((objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D8D6C)) != 0) || (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D8E74)) != 0)) {
-                    TBoss3Volopt__sub_8022675C((int) (0x40033409), (void *) (0), (int) (0), (int) (0));
+                    play_sound_effect((int) (0x40033409), (void *) (0), (int) (0), (int) (0));
                 }
                 if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D8E64)) != 0) {
-                    TBoss3Volopt__sub_8022675C((int) (0x40032D0D), (void *) (0), (int) (0), (int) (0));
+                    play_sound_effect((int) (0x40032D0D), (void *) (0), (int) (0), (int) (0));
                 }
                 if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D8E78)) != 0) {
-                    TBoss3Volopt__sub_8022675C((int) (0x40033409), (void *) (0), (int) (0), (int) (0));
+                    play_sound_effect((int) (0x40033409), (void *) (0), (int) (0), (int) (0));
                     queue_event_1D__12TBoss3VoloptFss((int) (0x80), (int) (7));
                 }
                 if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D8E7C)) != 0) {

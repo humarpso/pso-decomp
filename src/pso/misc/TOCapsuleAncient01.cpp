@@ -50,7 +50,7 @@ s32 is_split_screen();
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_indexed_flags(void *, int, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_80154E3C(void *);
+s32 refresh_collision_body_centers(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
 s32 update_heal_gauge_state__13TOHealGeneralFPv(void *);
 s32 init__5TOKeyFPv(void *);
@@ -74,7 +74,7 @@ void destroy_static_instance__18TOCapsuleAncient01Fv(void);
 void render__18TOCapsuleAncient01Fv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TOSignCave03__sub_803DB510(int);
+M2C_UNK draw_ginja_model(int);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK rotate_matrix_y(int, int);
@@ -100,14 +100,14 @@ void render__18TOCapsuleAncient01Fv(u8 *arg0) {
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         temp_r31 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x34));
         translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r31, f32 *, 8)), (f32) (M2C_FIELD(temp_r31, f32 *, 0xC)), (f32) (M2C_FIELD(temp_r31, f32 *, 0x10)));
-        TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31, s32 *, 4)));
+        draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) == 1) {
             begin_effect_render__13TParticleCtrlFv();
             temp_r31_2 = (unsigned char *) (M2C_FIELD(temp_r31, void **, 0x2C));
             TObjPlayer__sub_803D9B2C();
             translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r31_2, f32 *, 8)), (f32) (M2C_FIELD(temp_r31_2, f32 *, 0xC)), (f32) (M2C_FIELD(temp_r31_2, f32 *, 0x10)));
             rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xE4)));
-            TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
+            draw_ginja_model((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
             pop_matrix();
             end_effect_render__13TParticleCtrlFv();
         }
@@ -171,7 +171,7 @@ u8 *TOCapsuleAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOCapsuleAncient01__data_805D58B8), u8 **, 0x42C), s32 *, 0xC);
     TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804AFE88.value), (int) (1));
     set_indexed_flags((void *) (arg0), (int) (0), (int) (0x1288));
-    TObjPlayer__sub_80154E3C((void *) (arg0));
+    refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     update_heal_gauge_state__13TOHealGeneralFPv((void *) (arg0));
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB378;

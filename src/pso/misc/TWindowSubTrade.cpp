@@ -34,7 +34,7 @@ s32 get_message_10__20TWindowSubStatusDispFPv(int);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
 M2C_UNK clear_flag_and_release__17TWindowSubComCardFPv(int);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
+M2C_UNK play_sound_effect(int, int, int, int);
 void TWindow__close(void *);
 s32 is_player_input_active(int);
 s32 TWindowSubComCard__sub_80265BF8(int);
@@ -123,7 +123,7 @@ void run_task__15TWindowSubTradeFv(u8 *arg0) {
     case 6:
         temp_r5 = temp_r30 * 0x50;
         if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(((u8 *)(lbl_8050E208) + temp_r5)) + 0x20), (int) (2), (int) (temp_r5)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)(lbl_8050E208) + 0x160), (int) (2)) != 0)) {
-            TBoss3Volopt__sub_8022675C((int) (0x52F16), (int) (0), (int) (0), (int) (0));
+            play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
             TLobby__sub_802D2D64();
             M2C_FIELD(arg0, u8 *, 0x1C) = 1U;
         }

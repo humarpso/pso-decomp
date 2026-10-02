@@ -48,13 +48,13 @@ extern const f32 TObjDoaEx01__data_805DBDA8;
 void TObjDoaEx01__vt14(O_8018DB94 *self);
 s32 TODragonfly__sub_80158360(void *, f32);
 s32 get_global_state__14TOKeyMachine01Fv();
-void TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+void play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DBDA4;
 void TObjDoaEx01__vt15(Obj_8018DA54 *self);
 void set_indexed_flags(void *, int, int);
 s32 TODragonfly__sub_80158360(void *, f32);
 s32 get_global_state__14TOKeyMachine01Fv();
-void TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+void play_sound_effect(s32, void *, s32, s32);
 extern const f32 TObjDoaEx01__data_805DBDA0;
 extern const f32 TObjDoaEx01__data_805DBDA8;
 extern const f32 lbl_805DBDAC;
@@ -119,14 +119,14 @@ void TObjDoaEx01__vt15(Obj_8018DA54 *self) {
             switch (get_global_state__14TOKeyMachine01Fv()) {
             case 19:
             case 20:
-                TBoss3Volopt__sub_8022675C(0x4BF0B, self->pos, 0, 0);
+                play_sound_effect(0x4BF0B, self->pos, 0, 0);
                 break;
             case 21:
             case 22:
-                TBoss3Volopt__sub_8022675C(0x4004AA0B, self->pos, 0, 0);
+                play_sound_effect(0x4004AA0B, self->pos, 0, 0);
                 break;
             default:
-                TBoss3Volopt__sub_8022675C(0x4004AA0B, self->pos, 0, 0);
+                play_sound_effect(0x4004AA0B, self->pos, 0, 0);
                 break;
             }
         }
@@ -135,14 +135,14 @@ void TObjDoaEx01__vt15(Obj_8018DA54 *self) {
         switch (get_global_state__14TOKeyMachine01Fv()) {
         case 19:
         case 20:
-            TBoss3Volopt__sub_8022675C(0x4BF0B, self->pos, 0, 0);
+            play_sound_effect(0x4BF0B, self->pos, 0, 0);
             break;
         case 21:
         case 22:
-            TBoss3Volopt__sub_8022675C(0x4004AA0B, self->pos, 0, 0);
+            play_sound_effect(0x4004AA0B, self->pos, 0, 0);
             break;
         default:
-            TBoss3Volopt__sub_8022675C(0x4004AA0B, self->pos, 0, 0);
+            play_sound_effect(0x4004AA0B, self->pos, 0, 0);
             break;
         }
     }
@@ -163,14 +163,14 @@ void TObjDoaEx01__vt13(Obj_8018DBCC *self) {
             switch (get_global_state__14TOKeyMachine01Fv()) {
             case 19:
             case 20:
-                TBoss3Volopt__sub_8022675C(0x4BF0B, self->pos, 0, 0);
+                play_sound_effect(0x4BF0B, self->pos, 0, 0);
                 break;
             case 21:
             case 22:
-                TBoss3Volopt__sub_8022675C(0x4004AA0B, self->pos, 0, 0);
+                play_sound_effect(0x4004AA0B, self->pos, 0, 0);
                 break;
             default:
-                TBoss3Volopt__sub_8022675C(0x4004AA0B, self->pos, 0, 0);
+                play_sound_effect(0x4004AA0B, self->pos, 0, 0);
                 break;
             }
         }

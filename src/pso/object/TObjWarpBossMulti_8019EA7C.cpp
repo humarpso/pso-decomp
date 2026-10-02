@@ -49,7 +49,7 @@ void TObjPlayer__sub_8019EE14(u8 *arg0);
 extern "C" {
 
 void update_warp_state__17TObjWarpBossMultiFPv(u8 *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 s32 TObjWarpBossMulti__sub_8019E4E8(void *);
 u32 TObjWarpBossMulti__sub_8019E570(f32);
 M2C_UNK close_windows__17TObjWarpBossMultiFPv();
@@ -72,7 +72,7 @@ void update_warp_state__17TObjWarpBossMultiFPv(u8 *arg0) {
         break;
     case 0:
         M2C_FIELD(arg0, s32 *, 0x160) = 0x12C;
-        TBoss3Volopt__sub_8022675C(0x40003205, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x40003205, arg0 + 0x38, 0, 0);
         M2C_FIELD(arg0, s16 *, 0xE0) = 1;
         M2C_FIELD(arg0, s32 *, 0xD0) = (s32) lbl_805D5C94;
         M2C_FIELD(arg0, s32 *, 0xD4) = (s32) lbl_805D5C9C;

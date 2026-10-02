@@ -142,7 +142,7 @@ int set_field_20__12TQuestListVMFPvi(void*, void*);
 f32 get_scale__15TShopWindowBaseFv(void *);
 void set_position_xy(u32, f32, f32);
 void set_field_1c__6TLobbyFPvf(u32, f32);
-u32 TShopJudgmentItemWindow__sub_80266388(int, u16, int, int);
+u32 create_yes_no_window(int, u16, int, int);
 void send_and_handle__6TLobbyFPvii(u32, void *, int);
 u32 TLobby__sub_80269CC0(int, Pair_80218D40 *, int, u16);
 int get_window_layout_position(int);
@@ -351,7 +351,7 @@ void TQuestListVM__sub_80218D40(u8 *arg0) {
         }
         {
             u16 id = obj_getField1c(*(s32 *)(arg0 + 0x24));
-            *(u32 *)(arg0 + 0x2378) = TShopJudgmentItemWindow__sub_80266388(get_window_layout_position(0x2B), id, 0, 0);
+            *(u32 *)(arg0 + 0x2378) = create_yes_no_window(get_window_layout_position(0x2B), id, 0, 0);
         }
         set_position_xy(*(u32 *)(arg0 + 0x2378), get_scale__15TShopWindowBaseFv(arg0), get_scale__15TShopWindowBaseFv(arg0));
         ((VObj_80218D40 *)(arg0))->m7(5, 1);

@@ -10,7 +10,7 @@ void TAdYesNoBaseGC__vt4(void);
 void TAdYesNoBaseGC__vt5(void);
 s32 check_progressive_ready__5TLogoFv(void);
 u32 OSGetProgressiveMode();
-u32 TLobby__sub_80101AB0(void);
+u32 find_item_by_id(void);
 M2C_UNK disable_progressive_mode__13TAdVIConfigGCFv();
 s32 fn_80308294(u32 a0 = 0, s32 a1 = 0);
 u32 VIGetDTVStatus();

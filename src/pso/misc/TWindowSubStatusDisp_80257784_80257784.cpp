@@ -44,7 +44,7 @@ extern M2C_UNK lbl_804CF948[];
 u8 *TWindowSubStatusDisp__sub_80257B4C(u8 *arg0, u8 *arg1);
 void TWindowSubStatusDisp__sub_80257BC0(void *self, List_80257BC0 *list, void *ctx);
 extern const f32 lbl_805DCEF0;
-void TWindowSubStatusDisp__sub_80257C28(Win_80257C28 *self, List_80257C28 *list);
+void update_window_entry_list(Win_80257C28 *self, List_80257C28 *list);
 void free__11TOBoss4RockFUi(void *);
 void TWindowSubStatusDisp__sub_80257CB8(List_80257CB8 *arg0);
 }
@@ -94,7 +94,7 @@ void TWindowSubStatusDisp__sub_80257BC0(void *self, List_80257BC0 *list, void *c
     }
 }
 
-void TWindowSubStatusDisp__sub_80257C28(Win_80257C28 *self, List_80257C28 *list) {
+void update_window_entry_list(Win_80257C28 *self, List_80257C28 *list) {
     Ent_80257C28 **p;
     u32 n;
     if (!(self->flags & 0x2000) && (f32)self->counter < lbl_805DCEF0) return;

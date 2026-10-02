@@ -57,14 +57,14 @@ M2C_UNK TBoss4Type2__sub_800542B0(void *, int);
 M2C_UNK TBoss4Type2__sub_80054DA8();
 M2C_UNK TBoss4Type2__sub_80054F6C();
 u32 create_particle_emitter(int, int);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805D8AF8;
 extern const f32 lbl_805D8AFC;
 extern const f32 lbl_805D8B00;
 extern const f32 lbl_805D8B04;
 void TBoss4Type2__sub_800525AC(u8 *arg0);
 M2C_UNK TBoss4Type2__sub_800542B0(void *, int);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 void update_attack_countdown__11TBoss4Type2FPv(u8 *arg0);
 M2C_UNK TBoss4Type2__sub_800535A8(void *);
 void update_state__11TBoss4Type2FPv(void *arg0);
@@ -94,7 +94,7 @@ void TBoss4DarkFalz__sub_8004D990(s32);
 M2C_UNK TBoss4Type2__sub_800542B0(void *, int);
 void *create__9TBoss4UroFi(Params_80052CDC *);
 void spawn_particle_effect(void *, s32);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 extern u8 TBoss4DarkFalz__data_804FF1E8[];
 void TBoss4DarkFalz__sub_80052CDC(Obj_80052CDC *arg0);
 u8 *dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
@@ -104,7 +104,7 @@ void spawn_particle_effect(void *, s32);
 u32 create_particle_emitter(int, int);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK create__11TTecRaBartaFPvPvPvPv(void *, void *, void *, s32);
 M2C_UNK create__10TTecRaFoieFPvPvPvPv(void *, void *, void *, s32);
 M2C_UNK queue_event_1D__12TBoss3VoloptFss(s16, s16);
@@ -231,7 +231,7 @@ void TBoss4Type2__sub_800525AC(u8 *arg0) {
                 if (temp_r3_11 != 0) {
                     set_flags__11TBoss4Type2FPvUi((void *) M2C_FIELD(arg0, u32 *, 0x41C), 0x40U);
                 }
-                TBoss3Volopt__sub_8022675C((int) (0x40039717), (void *) (arg0 + 0x38), (int) (0), (int) (1));
+                play_sound_effect((int) (0x40039717), (void *) (arg0 + 0x38), (int) (0), (int) (1));
             }
             if ((u32) M2C_FIELD(arg0, u32 *, 0x420) == 0) {
                 temp_r3_12 = create_particle_emitter((int) (temp_r31), (int) (0x13B));
@@ -322,7 +322,7 @@ void TBoss4Type2__sub_8005294C(u8 *arg0) {
         if ((r = ((u32 (*)(void *, s32))spawn_particle_effect)(ent, 0xFD)) != 0) {
             set_flags__11TBoss4Type2FPvUi((void *)r, 0x40);
         }
-        TBoss3Volopt__sub_8022675C(0x4003A813, arg0 + 0x38, 0, 1);
+        play_sound_effect(0x4003A813, arg0 + 0x38, 0, 1);
         if (idx == 0) {
             create__11TTecRaBartaFPvPvPvPv(arg0, arg0 + 0x3B8, arg0 + 0x3B8, M2C_FIELD(dispatch_shared_handler_a__6TLobbyFPv(0x36), s32 *, 0x1C));
         } else {
@@ -362,7 +362,7 @@ typedef struct { char pad[0x444]; struct { char b[0x18]; } arr[1]; } Foo;
 void update_attack_countdown__11TBoss4Type2FPv(u8 *arg0) {
     s32 temp_r0;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x398) == 0x2D) {
-        TBoss3Volopt__sub_8022675C((int)(0x4003AD11), (void *)(&((Foo *) arg0)->arr[M2C_FIELD(arg0, s32 *, 0x3A8)]), (int)(0), (int)(1));
+        play_sound_effect((int)(0x4003AD11), (void *)(&((Foo *) arg0)->arr[M2C_FIELD(arg0, s32 *, 0x3A8)]), (int)(0), (int)(1));
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x398) - 1;
     M2C_FIELD(arg0, s32 *, 0x398) = temp_r0;
@@ -410,14 +410,14 @@ void TBoss4DarkFalz__sub_80052CDC(Obj_80052CDC *arg0) {
             VecCopy__FP3VecPC3Vec(&p.pos, s);
             if (create__9TBoss4UroFi(&p) != NULL) {
                 spawn_particle_effect(s, 0x7D);
-                TBoss3Volopt__sub_8022675C(0x4003A810, s, 0, 1);
+                play_sound_effect(0x4003A810, s, 0, 1);
                 arg0->count++;
             }
         }
     }
     TBoss4DarkFalz__sub_8004D990(arg0->owner);
     if (arg0->timer == 0x106) {
-        TBoss3Volopt__sub_8022675C(0x4003AD0F, s, 0, 1);
+        play_sound_effect(0x4003AD0F, s, 0, 1);
     }
     if (--arg0->timer < 0) {
         arg0->f3d0 = 5;

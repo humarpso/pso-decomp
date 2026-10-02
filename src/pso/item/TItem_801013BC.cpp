@@ -27,7 +27,7 @@ void copy_to_item_data__5TItemFPvPv(void *, void *);
 u32 test_item_flags__10TObjPlayerFPvUi(void *, int);
 s32 has_flag_128__10TObjPlayerFPv(void *);
 u32 TItemData__sub_8010D028(void *, u32, u32);
-u32 TItem__sub_8010147C(Player_8010147C *p, u32 mask, u32 kind);
+u32 get_usable_action_flags__5TItemFPvUiUi(Player_8010147C *p, u32 mask, u32 kind);
 }
 
 extern "C" {
@@ -78,7 +78,7 @@ void copy_item_data_and_process__5TItemFPv(void *arg0) {
     get_item_price_if_valid__24TShopEquipmentSellWindowFUi(&sp8);
 }
 
-u32 TItem__sub_8010147C(Player_8010147C *p, u32 mask, u32 kind) {
+u32 get_usable_action_flags__5TItemFPvUiUi(Player_8010147C *p, u32 mask, u32 kind) {
     u8 item[0x14];
     u32 r;
     copy_to_item_data__5TItemFPvPv(p, item);

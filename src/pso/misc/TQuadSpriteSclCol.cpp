@@ -55,7 +55,7 @@ void TObjPlayer__sub_803D9884(void *, void *);
 s32 set_global_param__8TObjFishFi(void *);
 s32 TWindowSubStatusDisp__sub_803DEE6C(int);
 void get_player__20TWindowSubStatusDispFv(void);
-s32 TWindowSubComCard__sub_803DEECC(void *, f32);
+s32 draw_textured_quad_at_depth(void *, f32);
 s32 TWindowSubStatusDisp__sub_803DF160(int, int);
 s32 TWindowKeyBoardSoft__sub_803DF1B0(int);
 extern Cam_801E5C24 lbl_8058D4F8;
@@ -157,7 +157,7 @@ void render__17TQuadSpriteSclColFv(Self_801E5C24 *self) {
                 q.x1 = x + w;
                 q.y0 = y - h;
                 q.y1 = y + h;
-                TWindowSubComCard__sub_803DEECC(&q, d);
+                draw_textured_quad_at_depth(&q, d);
             }
             n = n->next;
         }

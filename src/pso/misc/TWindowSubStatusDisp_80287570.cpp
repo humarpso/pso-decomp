@@ -68,7 +68,7 @@ void TWindowKeyBoardSoft__sub_8024E6D8(void *, Rect_80287580 *);
 void set_global_param__8TObjFishFi(s32);
 void TWindowSubStatusDisp__sub_803DEE6C(int);
 void get_player__20TWindowSubStatusDispFv(void);
-void TWindowSubComCard__sub_803DEECC(Rect_80287580 *, f32);
+void draw_textured_quad_at_depth(Rect_80287580 *, f32);
 void TWindowSubStatusDisp__sub_803DF160(int, s32);
 extern const UV_80287580 lbl_8044FC90[];
 extern s32 lbl_805D63F0;
@@ -115,7 +115,7 @@ void TWindowSubStatusDisp__sub_80287580(Obj_80287580 *obj, f32 *pos, u8 idx, f32
     r1.u1 = (40.0f + lbl_8044FC90[idx].u) / 256.0f;
     r1.v1 = (27.0f + lbl_8044FC90[idx].v) / 256.0f;
     TWindowKeyBoardSoft__sub_8024E6D8(obj, &r1);
-    TWindowSubComCard__sub_803DEECC(&r1, scale);
+    draw_textured_quad_at_depth(&r1, scale);
     r2.x0 = 40.0f + pos[0];
     r2.y0 = pos[1];
     r2.x1 = r2.x0 + w;
@@ -125,7 +125,7 @@ void TWindowSubStatusDisp__sub_80287580(Obj_80287580 *obj, f32 *pos, u8 idx, f32
     r2.u1 = (20.0f + (40.0f + lbl_8044FC90[idx].u)) / 256.0f;
     r2.v1 = (27.0f + lbl_8044FC90[idx].v) / 256.0f;
     TWindowKeyBoardSoft__sub_8024E6D8(obj, &r2);
-    TWindowSubComCard__sub_803DEECC(&r2, scale);
+    draw_textured_quad_at_depth(&r2, scale);
     r3.x0 = 40.0f + (pos[0] + w);
     r3.y0 = pos[1];
     r3.x1 = 40.0f + r3.x0;
@@ -135,7 +135,7 @@ void TWindowSubStatusDisp__sub_80287580(Obj_80287580 *obj, f32 *pos, u8 idx, f32
     r3.u1 = (80.0f + lbl_8044FC90[idx].u) / 256.0f;
     r3.v1 = (27.0f + lbl_8044FC90[idx].v) / 256.0f;
     TWindowKeyBoardSoft__sub_8024E6D8(obj, &r3);
-    TWindowSubComCard__sub_803DEECC(&r3, scale);
+    draw_textured_quad_at_depth(&r3, scale);
     get_player__20TWindowSubStatusDispFv();
 }
 

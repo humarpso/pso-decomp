@@ -63,9 +63,9 @@ struct Obj_801A0CE8;
 extern "C" {
 void allow_rendering__7TObjectFv(void *);
 void clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+s32 play_sound_effect(s32, u32, s16, s32);
 void TObjLuker__sub_801A0C7C(s32 arg0, s32 arg1);
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+s32 play_sound_effect(s32, u32, s16, s32);
 void set_flag_4__9TObjLukerFPv(void *w);
 void disallow_rendering__7TObjectFv(void *w);
 void TObjLuker__sub_801A0DB4(Obj_801A0DB4 *self);
@@ -127,7 +127,7 @@ M2C_UNK play_effect_default__10TObjPlayerFii(void *, int);
 s32 check_flag_100__10TObjPlayerFPv(void *);
 Ctrl_801A0E38 *get_player_by_client_id(u16 id);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+s32 play_sound_effect(s32, u32, s16, s32);
 void *__nw__7TObjectFUl(int);
 s32 TTecLuker__sub_8023401C(void *);
 void *TTecLuker__sub_8023453C(void *, void *, int, int);
@@ -163,7 +163,7 @@ void TObjLuker__sub_801A0C7C(s32 arg0, s32 arg1) {
     temp_r3 = (u8 *)(M2C_FIELD(temp_r31, u8 **, 0x90));
     if (temp_r3 != NULL) {
         if (M2C_FIELD(temp_r3, u16 *, 4) & 4) {
-            TBoss3Volopt__sub_8022675C(0x53703, 0U, 0, 0);
+            play_sound_effect(0x53703, 0U, 0, 0);
         }
         clear_flag4_bit4__22TQuestVmDownLoadServerFPv(M2C_FIELD(temp_r31, u8 **, 0x90));
         allow_rendering__7TObjectFv(M2C_FIELD(temp_r31, u8 **, 0x90));
@@ -195,7 +195,7 @@ void TObjLuker__sub_801A0DB4(Obj_801A0DB4 *self) {
     for (i = 0; i < 4; i++) {
         if (self->wins[i] != 0) {
             if (!(self->wins[i]->flags & 4)) {
-                TBoss3Volopt__sub_8022675C(0x53704, 0, 0, 0);
+                play_sound_effect(0x53704, 0, 0, 0);
             }
             set_flag_4__9TObjLukerFPv(self->wins[i]);
             disallow_rendering__7TObjectFv(self->wins[i]);
@@ -344,7 +344,7 @@ void run_task__9TObjLukerFv(u8 *arg0) {
                         p = PBC_801A1418(lbl_805D53A0);
                         if (p != NULL) {
                             play_effect_default__10TObjPlayerFii(p, 0xA);
-                            TBoss3Volopt__sub_8022675C(0x40022D1A, (u32) (arg0 + 0x38), 0, 0);
+                            play_sound_effect(0x40022D1A, (u32) (arg0 + 0x38), 0, 0);
                         }
                         init_all_slots__11TWindowCtrlFv();
                         M2C_FIELD(arg0, s32 *, 0xB8) = 1;

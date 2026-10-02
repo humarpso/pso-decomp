@@ -30,7 +30,7 @@ void *__nw__7TObjectFUl(int);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 M2C_UNK advance_animation_playback(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 s32 TObjEneMe1GiGueBarrier__sub_802CAC04(int);
 s32 get_timer__22TObjEneMe1GiGueBarrierFPv(int);
 s32 update_and_get_pos__22TObjEneMe1GiGueBarrierFPv(int);
@@ -128,9 +128,9 @@ void run_task__22TObjEneMe1GiGueBarrierFv(u8 *arg0) {
             M2C_FIELD(arg0, s32 *, 0x104) = 1;
             M2C_FIELD(arg0, s16 *, 0xB8) = 1;
             if (get_global_state__14TOKeyMachine01Fv() == 0x23) {
-                TBoss3Volopt__sub_8022675C((int) (0x4003A316), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+                play_sound_effect((int) (0x4003A316), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             } else {
-                TBoss3Volopt__sub_8022675C((int) (0x3A346), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+                play_sound_effect((int) (0x3A346), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             }
         }
         break;

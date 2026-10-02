@@ -185,7 +185,7 @@ M2C_UNK obj_setFlags30(void *, int);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, u32);
 M2C_UNK set_indexed_flags(void *, int, int);
-s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+s32 play_sound_effect(s32, s32, s32, s32);
 void TObjPlayer__sub_80092028(u8 *arg0);
 }
 
@@ -210,7 +210,7 @@ void play_claw_sound__18TObjEneBalClawClawFi(s32 arg0);
 void play_hit_effect__18TObjEneBalClawClawFi(s32 arg0);
 void spawn_claw_effect__18TObjEneBalClawClawFi(s32 arg0);
 void update_attack_distance_state__18TObjEneBalClawClawFPv(u8 *arg0);
-s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+s32 play_sound_effect(s32, s32, s32, s32);
 void *TObjControl__ct(void *, void *);
 void TObjEneGibbles__sub_80156720(void *);
 void __dl__7TObjectFPv(void *);
@@ -434,22 +434,22 @@ u8 *TObjEneBalClawClaw__sub_80091C58(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
 
 void TObjEneBalClawClaw__sub_80091CCC(void) {  }
 void TObjEneBalClawClaw__sub_80091CD0(s32 arg0) {
-    TBoss3Volopt__sub_8022675C(0x4003E431, arg0 + 0x38, 0, 0);
+    play_sound_effect(0x4003E431, arg0 + 0x38, 0, 0);
 }
 void play_hit_effect__18TObjEneBalClawClawFi(s32 arg0) {
-    TBoss3Volopt__sub_8022675C(0x4003AB2D, arg0 + 0x38, 0, 0);
+    play_sound_effect(0x4003AB2D, arg0 + 0x38, 0, 0);
     play_effect_if_v2__10TObjPlayerFi(-0x200);
 }
 void play_claw_sound__18TObjEneBalClawClawFi(s32 arg0) {
-    TBoss3Volopt__sub_8022675C(0x4003A32E, arg0 + 0x38, 0, 0);
+    play_sound_effect(0x4003A32E, arg0 + 0x38, 0, 0);
     play_effect_if_v2__10TObjPlayerFi(-0x100);
 }
 void spawn_claw_effect__18TObjEneBalClawClawFi(s32 arg0) {
-    TBoss3Volopt__sub_8022675C(0x4003A62F, arg0 + 0x38, 0, 0);
+    play_sound_effect(0x4003A62F, arg0 + 0x38, 0, 0);
     play_effect_if_v2__10TObjPlayerFi(-0x100);
 }
 void play_claw_effect__18TObjEneBalClawClawFi(s32 arg0) {
-    TBoss3Volopt__sub_8022675C(0x4003A82C, arg0 + 0x38, 0, 0);
+    play_sound_effect(0x4003A82C, arg0 + 0x38, 0, 0);
     play_effect_if_v2__10TObjPlayerFi(-0x200);
 }
 
@@ -543,7 +543,7 @@ void TObjPlayer__sub_80092028(u8 *arg0) {
             M2C_FIELD(arg0, s16 *, 0xB8) = 0xB;
             set_indexed_flags((void *) (arg0), (int) (0), (int) (0x0A000000));
             obj_setFlags30((void *) (arg0), (int) (0x04000000));
-            TBoss3Volopt__sub_8022675C(0x4003AB32, (s32) (arg0 + 0x38), 0, 0);
+            play_sound_effect(0x4003AB32, (s32) (arg0 + 0x38), 0, 0);
         }
         break;
     case 1:

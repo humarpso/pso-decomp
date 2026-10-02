@@ -55,12 +55,12 @@ extern u8 lbl_8044BBE8[];
 extern Grp_8020AD40 *TLobby__data_805D6068;
 extern Rec_8020AD40 *TLobby__data_805D60F0;
 extern s32 TLobby__data_805D60F4;
-s32 TLobby__sub_8020AD40(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
 
-s32 TLobby__sub_8020AD40(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     char name[0x20];
     Sub_8020AD40 *subs;
     Item_8020AD40 *items;
@@ -144,7 +144,7 @@ loop_1:
         if (TLobby__sub_800F8AE8() != 0) {
             return 0;
         }
-        TLobby__sub_8020AD40((s32)((int) (var_r31)), (s32)((int) (stack.sp8)), (s32)((int) (stack.spC)), (s32)((int) (stack.sp10)));
+        load_area_object_set((s32)((int) (var_r31)), (s32)((int) (stack.sp8)), (s32)((int) (stack.spC)), (s32)((int) (stack.sp10)));
         goto block_6;
     }
 block_6:

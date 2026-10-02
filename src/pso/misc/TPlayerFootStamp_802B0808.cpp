@@ -15,7 +15,7 @@ void enter_active_state__14TBoss6PlotFalzFPv(void* p);
 void init_proto1_adx(void *arg0);
 void tick_timeout__14TBoss6PlotFalzFPv(void *arg0);
 void update_phase__14TBoss6PlotFalzFi(s32 arg0);
-s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+s32 play_sound_effect(s32, s32, s32, s32);
 s32 TBoss6PlotFalz__sub_802AB2B8(void *, s32);
 s32 TBoss6PlotFalz__sub_802ABADC();
 int TBoss6PlotFalz__sub_802ABCDC(void*);
@@ -62,7 +62,7 @@ void init_proto1_adx(void *arg0) {
 
 void advance_intro_timer__14TBoss6PlotFalzFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3CC) == 0x69) {
-        TBoss3Volopt__sub_8022675C(0x40030F00, 0, 0, 0);
+        play_sound_effect(0x40030F00, 0, 0, 0);
     }
     M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) + 1);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3CC) > 0x12C) {

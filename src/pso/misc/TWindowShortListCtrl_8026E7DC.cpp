@@ -35,7 +35,7 @@ struct Wn_8026EBB0 { u8 pad[0x24]; s32 card; };
 extern "C" {
 s16 get_cursor_pos__20TWindowShortListCtrlFPv(void* p);
 void TWindowShortListCtrl__sub_8026F66C(u8 *arg0);
-u8 * TLobby__sub_80101AB0(s32);
+u8 * find_item_by_id(s32);
 u8 get_field_ec__12TOSwitchItemFPv(void *);
 s32 canSetMenuCursorAction(M2C_UNK, s32, u8, u8);
 s32 get_player_by_client_id(s32);
@@ -144,7 +144,7 @@ void TWindowShortListCtrl__sub_8026E93C(u32 arg0, u32 arg1) {
         var_r29 = M2C_FIELD(var_r30, u32 *, 0x424);
         if (var_r29 != 0U) {
             var_r3 = var_r31;
-            temp_r3 = (unsigned long) (TLobby__sub_80101AB0((s32) var_r3));
+            temp_r3 = (unsigned long) (find_item_by_id((s32) var_r3));
             var_r31 = temp_r3;
             if ((var_r31 != 0) && (get_field_ec__12TOSwitchItemFPv((void *) temp_r3) == 3)) {
                 var_r3 = var_r31;

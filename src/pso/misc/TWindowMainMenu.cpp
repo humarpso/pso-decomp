@@ -78,7 +78,7 @@ void TWindowMainMenu__sub_80263DBC(void *);
 void update_keyboard_card_state__15TWindowMainMenuFPv(void *, int);
 void close_child_window__15TWindowMainMenuFPv(void *);
 void update_description_text__15TWindowMainMenuFPvi(void *, int);
-void TWindowSubEquip__sub_8026417C(void *, int);
+void create_submenu__15TWindowMainMenuFPvUi(void *, int);
 void update_submenu__15TWindowMainMenuFPv(void *arg0);
 void close_submenu__15TWindowMainMenuFPvPv(void* p, void* a1);
 void refresh_submenu__15TWindowMainMenuFPvPv(void* p, void* a1);
@@ -205,7 +205,7 @@ void TWindowMainMenu__sub_802647CC(Menu_802647CC *arg0) {
             }
             close_child_window__15TWindowMainMenuFPv(arg0);
             update_submenu__15TWindowMainMenuFPv(arg0);
-            TWindowSubEquip__sub_8026417C(arg0, id);
+            create_submenu__15TWindowMainMenuFPvUi(arg0, id);
             return;
         }
         if (is_flag_set__15TWindowMainMenuFPv(node) != 0) {

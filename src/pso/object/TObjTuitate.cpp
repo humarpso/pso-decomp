@@ -76,7 +76,7 @@ void render__11TObjTuitateFv(Obj_8019ADA0 *self);
 M2C_UNK activate_and_dispatch__10TObjPlayerFPv(void *);
 M2C_UNK init_and_activate__10TObjPlayerFPv(void *);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK refresh_collision_body_centers(void *);
 M2C_UNK TObjEneGibbles__sub_80156780(void *, void *, int);
 M2C_UNK TObjPlayer__sub_801569F4();
 s32 create__10TObjMapCsnFi(void *);
@@ -174,7 +174,7 @@ void *TObjTuitate__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3450;
     ((VObj_18_1a504b *)(arg0))->m5((s32)arg2);
     TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (lbl_804B9008), (int) (1));
-    TObjPlayer__sub_80154E3C((void *) (arg0));
+    refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     temp_r4 = (s32)arg2 - 4;
     *(M2CCopy_3C *)(copy_storage_8019AF6C.bytes) = *(const M2CCopy_3C *)(temp_r4 + 4);

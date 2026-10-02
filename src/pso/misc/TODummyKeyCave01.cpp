@@ -49,7 +49,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TOSignCave03__sub_803DB510(s32);
+M2C_UNK draw_ginja_model(s32);
 M2C_UNK set_chunk_material_color(void *);
 extern u8 lbl_804A7418[];
 extern s32 lbl_805D5660;
@@ -83,7 +83,7 @@ void render__16TODummyKeyCave01Fv(u8 *arg0) {
         TBoss7Tentacle__sub_803D8A6C(0, *(s32 *)(arg0 + 0x5C), *(s32 *)(arg0 + 0x60), *(s32 *)(arg0 + 0x64));
         TBoss7Tentacle__sub_803D9BA0(arg0 + 0x68);
         node = *(u8 **)(arg0 + 0x34);
-        TOSignCave03__sub_803DB510(*(s32 *)(node + 4));
+        draw_ginja_model(*(s32 *)(node + 4));
         if (*(u16 *)(arg0 + 0x9A) == 0) {
             id = some_id_805c6f74;
             lbl_805D5660 = id;
@@ -98,10 +98,10 @@ void render__16TODummyKeyCave01Fv(u8 *arg0) {
             TOHangerMachine01__sub_803D9C00(arg0 + 0xAC);
         }
         TOHangerMachine01__sub_803D9C00(node + 8);
-        TOSignCave03__sub_803DB510(*(s32 *)(node + 4));
+        draw_ginja_model(*(s32 *)(node + 4));
         node = *(u8 **)(node + 0x2C);
         TOHangerMachine01__sub_803D9C00(node + 8);
-        TOSignCave03__sub_803DB510(*(s32 *)(node + 4));
+        draw_ginja_model(*(s32 *)(node + 4));
         if (*(u16 *)(arg0 + 0x9A) == 0) {
             set_chunk_material_color(lbl_804A7418);
             some_id_805c6f74 = lbl_805D5660;

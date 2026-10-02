@@ -40,7 +40,7 @@ void set_effect_target_position__8TObjFishFPvPvPv(void* p, void* a1, void* a2);
 void spawn_particle_201__8TObjFishFii(s32 arg1, s32 arg2);
 void spawn_via_trap__8TObjFishFiii(s32 arg0, s32 arg1, s32 arg2);
 void update_projectile_spawns__8TObjFishFPv(u8 *arg0);
-int TBoss3Volopt__sub_8022675C(void*, void*, void*, void*);
+int play_sound_effect(void*, void*, void*, void*);
 M2C_UNK TBoss4Zako__sub_803D8910(int, void *);
 s32 TOTrapAncient01__sub_80226578(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0, s32 a4 = 0);
 M2C_UNK TObjEneDD__sub_800B9BEC(void *, void *, f32);
@@ -83,7 +83,7 @@ void TObjFish__sub_802E8EEC(u8 *arg0, u32 arg1) {
 void spawn_via_trap__8TObjFishFiii(s32 arg0, s32 arg1, s32 arg2) {
     TOTrapAncient01__sub_80226578(arg1, arg0, arg2, 0, 0);
 }
-void set_effect_target_position__8TObjFishFPvPvPv(void* p, void* a1, void* a2) { TBoss3Volopt__sub_8022675C(a1, a2, (void*)0, (void*)0); }
+void set_effect_target_position__8TObjFishFPvPvPv(void* p, void* a1, void* a2) { play_sound_effect(a1, a2, (void*)0, (void*)0); }
 void TObjFish__sub_802EC32C(void) {  }
 
 extern const f32 lbl_805DEA14;

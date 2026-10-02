@@ -39,7 +39,7 @@ s32 get_selected_slot__23TAdSinglePlyChrSelectGCFPv(int);
 s32 TAdSinglePlyChrSelectGC__sub_801334DC(int);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
+M2C_UNK play_sound_effect(int, int, int, int);
 M2C_UNK TAdMultiChgGameModeGC__sub_8023E834();
 M2C_UNK request_scene_change__21TAdMultiChgGameModeGCFv();
 M2C_UNK set_change_game_mode__21TAdMultiChgGameModeGCFv();
@@ -133,7 +133,7 @@ void run_task__19TAdSelectGameModeGCFv(u8 *arg0) {
     }
     lbl_805D67C8 = TAdSinglePlyChrSelectGC__sub_801334DC((int) (M2C_FIELD(arg0, s32 *, 0x1C)));
     if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E3B8.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (2)) != 0)) {
-        TBoss3Volopt__sub_8022675C((int) (0x52F16), (int) (0), (int) (0), (int) (0));
+        play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
         request_scene_change__21TAdMultiChgGameModeGCFv();
         return;
     }

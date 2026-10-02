@@ -50,7 +50,7 @@ s32 TObjPlayer__sub_803D9B2C();
 s32 pop_matrix();
 extern A_803E4BDC *lbl_805D4698;
 extern RecoveredCallback_1268626c296b lbl_805D7810;
-void TObjPlayer__sub_803E4C48(void *arg);
+void traverse_animated_node_tree(void *arg);
 }
 
 extern "C" {
@@ -140,9 +140,9 @@ void TObjPlayer__sub_803E4BDC(void *arg0, void *arg1, s32 arg2) {
     if (lbl_805D7808 != 0) {
         lbl_805D76BC->f28 = lbl_804FA50C[3];
     }
-    TObjPlayer__sub_803E4C48((void *)(arg0));
+    traverse_animated_node_tree((void *)(arg0));
 }
-void TObjPlayer__sub_803E4C48(void *arg) {
+void traverse_animated_node_tree(void *arg) {
     struct Node_803E49FC *arg0 = (struct Node_803E49FC *)arg;
     u32 t;
     do {
@@ -156,7 +156,7 @@ void TObjPlayer__sub_803E4C48(void *arg) {
             ((void (*)(u32, A_803E4BDC *))lbl_805D4698->fc)(t, lbl_805D4698);
         }
         if (arg0->child != NULL) {
-            TObjPlayer__sub_803E4C48((void *)arg0->child);
+            traverse_animated_node_tree((void *)arg0->child);
         }
         pop_matrix();
         arg0 = arg0->next;

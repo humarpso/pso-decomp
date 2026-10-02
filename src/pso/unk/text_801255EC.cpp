@@ -27,7 +27,7 @@ extern void *TWindowCtrl__data_805D63F8;
 extern void *TWindowCtrl__data_805D63F8;
 s32 TWindowCtrl__sub_8024A314(void);
 void TObjPlayer__sub_801255EC(s32 arg0, s32 arg1);
-u32 TLobby__sub_80101AB0(void);
+u32 find_item_by_id(void);
 s32 TObjPlayer__sub_80125678(u32 a0 = 0, s32 a1 = 0);
 void TObjPlayer__sub_801255EC(s32 arg0, s32 arg1);
 extern void *TWindowCtrl__data_805D63F8;
@@ -41,7 +41,7 @@ extern void *TWindowCtrl__data_805D63F8;
 extern void *TWindowCtrl__data_805D63F8;
 extern void *TWindowCtrl__data_805D63F8;
 void TObjPlayer__sub_801255EC(s32 arg0, s32 arg1);
-u32 TLobby__sub_80101AB0(void);
+u32 find_item_by_id(void);
 s32 TObjPlayer__sub_80125678(u32 a0, s32 a1);
 void TObjPlayer__sub_80125628(s32 arg0, s32 arg1);
 void TObjPlayer__sub_801255EC(s32 arg0, s32 arg1);
@@ -52,14 +52,14 @@ void TObjPlayer__sub_8012573C(Self_8012573C *self, Out_8012573C *out);
 extern "C" {
 
 void TObjPlayer__sub_801255EC(s32 arg0, s32 arg1) {
-    u32 temp_r3 = TLobby__sub_80101AB0();
+    u32 temp_r3 = find_item_by_id();
     if (temp_r3 != 0U) {
         TObjPlayer__sub_80125678(temp_r3, arg1);
     }
 }
 void TObjPlayer__sub_80125628(s32 arg0, s32 arg1) {
     Ctx_80125628 *ctx = (Ctx_80125628 *)arg1;
-    u32 p = TLobby__sub_80101AB0();
+    u32 p = find_item_by_id();
     if (p != 0U) {
         TObjPlayer__sub_80125678(p, (s32)ctx->obj->elems[ctx->idx].f1c);
     }

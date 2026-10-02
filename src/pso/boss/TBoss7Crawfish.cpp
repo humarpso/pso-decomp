@@ -80,7 +80,7 @@ void check_band_and_destroy__14TBoss7CrawfishFi(s32 arg0);
 void free_child__14TBoss7CrawfishFPv(void* p);
 void render__14TBoss7CrawfishFv(void* p);
 void spawn_effect__14TBoss7CrawfishFii(s32 arg0, s32 arg1);
-M2C_UNK TBoss3Volopt__sub_8022675C(s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
 int TBoss7Crawfish__sub_80308F8C(void*, int);
 int TBoss7Tentacle__sub_803D9BA0(void*);
 int TOHangerMachine01__sub_803D9C00(void*);
@@ -137,7 +137,7 @@ void TBoss7Crawfish__sub_803087D4(s32 arg0, s32 arg1) {
 }
 
 void spawn_effect__14TBoss7CrawfishFii(s32 arg0, s32 arg1) {
-    TBoss3Volopt__sub_8022675C(arg1, arg0 + 0x38, 0, 0);
+    play_sound_effect(arg1, arg0 + 0x38, 0, 0);
 }
 
 typedef char RecoveredGlobal_80308840_lbl_8047559C_size[sizeof(RecoveredGlobal_80308840_lbl_8047559C) == 0xC ? 1 : -1];

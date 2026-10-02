@@ -84,7 +84,7 @@ s32 __nw__7TObjectFUl(int);
 void TItemAttacker__sub_8010349C(u32);
 void TObjPlayer__sub_801032CC(s32 arg0, u32 arg1, s32 arg2, u8 *arg3);
 M2C_UNK show_miss_for_collider__10TObjPlayerFi(int, int);
-u8 *TLobby__sub_80101AB0(s32);
+u8 *find_item_by_id(s32);
 f32 horizontal_distance_squared(void *, void *);
 u8 *resolve_hittable_target(u16, s16);
 u32 get_player_by_client_id(int);
@@ -154,7 +154,7 @@ void deliver_delayed_weapon_hit(u8 *arg0) {
         temp_r30 = (u8 *)&((Tbl_801031CC *)temp_r5)->r[M2C_FIELD(arg0, s16 *, 0x2C)];
         if (horizontal_distance_squared((void *) (arg0 + 0x38), (void *) (temp_r30)) < lbl_805DAAA8) {
             temp_r30_2 = get_player_by_client_id((int) (M2C_FIELD(arg0, u16 *, 0x28)));
-            temp_r3_2 = (u8 *)(TLobby__sub_80101AB0(M2C_FIELD(arg0, s32 *, 0x24)));
+            temp_r3_2 = (u8 *)(find_item_by_id(M2C_FIELD(arg0, s32 *, 0x24)));
             if ((temp_r30_2 != 0U) && (temp_r3_2 != NULL)) {
                 ((AttackWeapon*)temp_r3_2)->m59(temp_r30_2,temp_r3,M2C_FIELD(arg0,s32*,0x20),M2C_FIELD(arg0,f32*,0x30),M2C_FIELD(arg0,s16*,0x2C));
             }

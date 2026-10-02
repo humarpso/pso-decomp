@@ -93,7 +93,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TOSignCave03__sub_803DB510(int);
+M2C_UNK draw_ginja_model(int);
 M2C_UNK draw_ginja_model_with_motion(void *, int, f32);
 extern void *TODoorAncient03__data_805D590C;
 extern const f32 lbl_805DB3F8;
@@ -108,7 +108,7 @@ extern u32 lbl_805D5908;
 extern void *TODoorAncient03__data_805D590C;
 void TODoorAncient03__sub_8015E548(void);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_80154E3C(void *);
+s32 refresh_collision_body_centers(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_8015E634_lbl_804B0E08 lbl_804B0E08;
@@ -129,7 +129,7 @@ void TODoorAncient03__vt18(void);
 void *__dt__15TODoorAncient03Fv(void *arg0, s16 arg1);
 void *create__15TODoorAncient03FPv(void *arg0);
 void free_resources__15TODoorAncient03Fv(void);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TODragonfly__sub_80158360(f32);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
@@ -150,7 +150,7 @@ void TODoorAncient03__vt15(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0xD0) & 1) || (TODragonfly__sub_80158360(lbl_805DB3F0) == 0)) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 3;
         clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 8);
-        TBoss3Volopt__sub_8022675C(0x4004B708, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x4004B708, arg0 + 0x38, 0, 0);
     }
 }
 
@@ -160,7 +160,7 @@ void TODoorAncient03__vt13(u8 *arg0) {
     if ((M2C_FIELD(arg0, s32 *, 0xD0) & 1) && (TODragonfly__sub_80158360(lbl_805DB3F4) != 0)) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 1;
         set_indexed_flags(arg0, 0, 8);
-        TBoss3Volopt__sub_8022675C(0x4004B708, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x4004B708, arg0 + 0x38, 0, 0);
     }
 }
 
@@ -179,22 +179,22 @@ void render__15TODoorAncient03Fv(u8 *arg0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0xAC) == 0) {
             temp_r31 = M2C_FIELD(arg0, u8 **, 0x34);
             TOHangerMachine01__sub_803D9C00((void *) (temp_r31 + 8));
-            TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31, s32 *, 4)));
+            draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
             temp_r31_2 = M2C_FIELD(temp_r31, u8 **, 0x2C);
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00((void *) (temp_r31_2 + 8));
-            TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
+            draw_ginja_model((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
             pop_matrix();
             begin_effect_render__13TParticleCtrlFv();
             temp_r31_3 = M2C_FIELD(temp_r31_2, u8 **, 0x30);
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00((void *) (temp_r31_3 + 8));
-            TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
+            draw_ginja_model((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
             pop_matrix();
             temp_r31_4 = M2C_FIELD(temp_r31_3, u8 **, 0x30);
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00((void *) (temp_r31_4 + 8));
-            TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_4, s32 *, 4)));
+            draw_ginja_model((int) (M2C_FIELD(temp_r31_4, s32 *, 4)));
             pop_matrix();
             end_effect_render__13TParticleCtrlFv();
         } else {
@@ -276,7 +276,7 @@ u8 *TODoorAncient03__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB3FC);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) (M2C_FIELD(arg0, f32 *, 0xB4) / lbl_805DB3F8);
     TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B0E08.value), (int) (1));
-    TObjPlayer__sub_80154E3C((void *) (arg0));
+    refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     ((VObj_18_4a4f5b *)(arg0))->m17();
     return arg0;

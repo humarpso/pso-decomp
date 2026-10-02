@@ -11,7 +11,7 @@ void TWindowSubMag__sub_80255E24(u8 *arg0);
 extern "C" {
 
 void set_flag60_bit4__13TWindowSubMagFPv(void* p);
-s32 TBoss3Volopt__sub_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
+s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowHelpItem__sub_80255DDC(void* p);
 s16 get_field_2F8__20TWindowSubStatusDispFPv(void* p);
 s16 get_item_type__20TWindowSubStatusDispFPv(void* p);

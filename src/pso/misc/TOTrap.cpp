@@ -264,7 +264,7 @@ void TOTrap__vt80(void *arg0);
 void play_sounds__6TOTrapFi(s32 arg0);
 void trigger__6TOTrapFPvPvi(void *arg0, s16 *arg1, s32 arg2);
 M2C_UNK spawn_particle_effect(s32, M2C_UNK);
-M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK refresh_collision_body_centers(void *);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 s32 get_player_by_client_id(u32);
 M2C_UNK calc_attach_pos__10TObjPlayerFPv();
@@ -305,7 +305,7 @@ void TOTrap__vt80(void *arg0) {
     s32 temp_r31;
 
     calc_attach_pos__10TObjPlayerFPv();
-    TObjPlayer__sub_80154E3C(arg0);
+    refresh_collision_body_centers(arg0);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x84) < 0) {
         u32 p;
         ((V_A_80178BC0 *)arg0)->m20(M2C_FIELD(arg0, u32 *, 0x2A8), TOTrap__data_805DBA38);

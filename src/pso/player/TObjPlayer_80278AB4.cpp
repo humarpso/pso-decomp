@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void build_shop_item_list__10TObjPlayerFPv(u8 *arg0);
-u32 TItem__sub_8010147C(s32, M2C_UNK, M2C_UNK);
-s32 TLobby__sub_80101AB0(s32);
+u32 get_usable_action_flags__5TItemFPvUiUi(s32, M2C_UNK, M2C_UNK);
+s32 find_item_by_id(s32);
 M2C_UNK TLobby__sub_80266E34(void *);
 u8 get_field_ec__12TOSwitchItemFPv();
 s32 get_field_d8__10TObjPlayerFPv();
@@ -34,8 +34,8 @@ void build_shop_item_list__10TObjPlayerFPv(u8 *arg0) {
     if (temp_r3 != NULL) {
         temp_r30 = run_and_get_result__10TObjPlayerFPvi(M2C_FIELD(temp_r3, s32 *, 0xD00), spC);
         for (i = 0; i < temp_r30; i++) {
-            temp_r3_2 = TLobby__sub_80101AB0(spC[i]);
-            if ((temp_r3_2 != 0) && (get_field_ec__12TOSwitchItemFPv() == 0) && (get_item_info__10TObjPlayerFiiPv(temp_r3_2, temp_r3, &sp8) != 0) && (test_item_flags__10TObjPlayerFPvUi(temp_r3_2, 8) == 0U) && (TItem__sub_8010147C(temp_r3_2, 8, 0) != 0U)) {
+            temp_r3_2 = find_item_by_id(spC[i]);
+            if ((temp_r3_2 != 0) && (get_field_ec__12TOSwitchItemFPv() == 0) && (get_item_info__10TObjPlayerFiiPv(temp_r3_2, temp_r3, &sp8) != 0) && (test_item_flags__10TObjPlayerFPvUi(temp_r3_2, 8) == 0U) && (get_usable_action_flags__5TItemFPvUiUi(temp_r3_2, 8, 0) != 0U)) {
                 add_list_entry__23TShopJudgmentItemWindowFPvii(arg0, temp_r3_2, spC[i]);
             }
         }

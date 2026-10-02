@@ -44,7 +44,7 @@ extern u32 lbl_805D65D0;
 u8 *TORockJungleS01__sub_8029CAFC(s32 arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_80154E3C(void *);
+s32 refresh_collision_body_centers(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
 s32 TORockCaveBrakable__ct(void *);
 s32 create__10TObjMapCsnFi(void *);
@@ -81,7 +81,7 @@ void TORockJungleS01__vt16(s32 arg0);
 void *__dt__15TORockJungleS01Fv(void *arg0, s16 arg1);
 void *create__15TORockJungleS01FPv(void *arg0);
 void free_globals__15TORockJungleS01Fv(void);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TLobby__sub_803DA16C(void*);
 void TObjEneGibbles__sub_80156720(void *);
@@ -93,7 +93,7 @@ void queue_destruction__7TObjectFv(void *);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 void TORockJungleS01__vt16(s32 arg0) {
-    TBoss3Volopt__sub_8022675C(0x4BC19, arg0 + 0x38, 0, 0);
+    play_sound_effect(0x4BC19, arg0 + 0x38, 0, 0);
 }
 
 void *create__15TORockJungleS01FPv(void *arg0) {
@@ -139,7 +139,7 @@ u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x24) = TORockJungleS01__sub_8029CAE8((s32)((int) (0)));
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (lbl_805DDD1C + M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14));
     TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804DC3A0.value), (int) (1));
-    TObjPlayer__sub_80154E3C((void *) (arg0));
+    refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0xB8) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xB8);

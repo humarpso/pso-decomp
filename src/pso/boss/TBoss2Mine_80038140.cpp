@@ -189,7 +189,7 @@ s32 create_timed_particle_emitter(s32, s32, s32, s32);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
 void TObjEneDD__sub_800BA5A4(s32, s32);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_800384C8_lbl_80435AB0 lbl_80435AB0;
 void TBoss2Mine__vt105(u8 *arg0, s32 arg1);
 void render_with_position_override__10TObjPlayerFPvPvi(void *, void *, s32);
@@ -383,7 +383,7 @@ void TBoss2Mine__vt105(u8 *arg0, s32 arg1) {
       TObjEneDD__sub_800BA5A4((s32) arg0, (s32) copy_storage_800384C8.bytes);
       spawn_particle_effect_with_flags((*((s32 *) (((s8 *) arg0) + 0xA4))) + 0x1C, 0x16B, 0x40);
       *((s32 *) (((s8 *) arg0) + 0x3CC)) = 2;
-      TBoss3Volopt__sub_8022675C(0x4003AD05, (u32) (arg0 + 0x2FC), 0, 0);
+      play_sound_effect(0x4003AD05, (u32) (arg0 + 0x2FC), 0, 0);
     }
       break;
   }

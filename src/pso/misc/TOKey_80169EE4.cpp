@@ -58,7 +58,7 @@ void *init__5TOKeyFPv(void *arg0);
 s32 is_confirm_pressed__5TOKeyFPv(void *arg0);
 s32 set_ready_if_pressed__5TOKeyFPv(void *arg0);
 void trigger_camera_pan__5TOKeyFPvi(u8 *arg0, s32 arg1);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 get_current_floor();
 void *find_entity_by_id(u16);
 M2C_UNK clear_floor_switch_flag(u16, s32);
@@ -70,7 +70,7 @@ void __dl__7TObjectFPv(void *);
 M2C_UNK bswap_6x05_switch_flag__5TOKeyFPv();
 s32 calc_angle_to__10TObjPlayerFPvPv(s32, void *);
 void destroy_key_base__5TOKeyFPvs(void *, int);
-s32 fn_801A2340();
+s32 update_object_view_visibility();
 void init_map_object_base(void *);
 M2C_UNK start_camera_pan__10TObjPlayerFPvs(s32, M2C_UNK, s32);
 
@@ -106,7 +106,7 @@ void *init__5TOKeyFPv(void *arg0) {
 
 void TOKey__sub_80169FB0(void* p) { *(s32*)((char*)p + 0x0) = 1; }
 s32 set_ready_if_pressed__5TOKeyFPv(void *arg0) {
-    if (fn_801A2340() == 1) {
+    if (update_object_view_visibility() == 1) {
         M2C_FIELD(arg0, s32 *, 0xE4) = 1;
         return 1;
     }
@@ -117,7 +117,7 @@ void handle_switch_trigger__5TOKeyFPvPv(void *arg0, void *arg1) {
     s32 temp_r0;
 
     if ((M2C_FIELD(arg1, u8 *, 0xB) & 2) && ((s8) M2C_FIELD(arg1, u8 *, 0xA) == get_current_floor())) {
-        TBoss3Volopt__sub_8022675C(0x4005281F, 0, 0, 0);
+        play_sound_effect(0x4005281F, 0, 0, 0);
     }
     if (M2C_FIELD(arg1, u8 *, 0xB) & 1) {
         TSwitch__sub_802293A0(M2C_FIELD(arg1, u16 *, 8));
@@ -147,7 +147,7 @@ void handle_6x05_write_switch_flag(void *arg0) {
         return;
     }
     if ((M2C_FIELD(arg0, u8 *, 0xB) & 2) && ((s8) M2C_FIELD(arg0, u8 *, 0xA) == get_current_floor())) {
-        TBoss3Volopt__sub_8022675C(0x4005281F, 0, 0, 0);
+        play_sound_effect(0x4005281F, 0, 0, 0);
     }
     if (M2C_FIELD(arg0, u8 *, 0xB) & 1) {
         set_floor_switch_flag(M2C_FIELD(arg0, u16 *, 8), M2C_FIELD(arg0, s8 *, 0xA));

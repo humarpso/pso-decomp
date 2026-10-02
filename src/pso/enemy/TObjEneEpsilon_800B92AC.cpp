@@ -115,7 +115,7 @@ int copy_position__14TObjEneEpsilonFPv(void *, void *);
 void TObjEneEpsilon__sub_800B96A4(u8 *arg0);
 void fire_attack_b__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 u8 * try_move_actor_xz_on_ground(void *, void *);
-void TObjEneEpsilon__sub_800B9344(u8 *arg0, s32 arg1, f32 farg0);
+void enemy_turn_and_move_on_ground(u8 *arg0, s32 arg1, f32 farg0);
 void fire_attack_c__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 u8 * try_move_actor_xz_on_ground(void *, void *);
 void TObjEneEpsilon__sub_800B9384(u8 *arg0, s32 arg1, f32 farg0);
@@ -172,7 +172,7 @@ s32 TObjEneDD__sub_800BA828(u16);
 M2C_UNK TObjEneDD__sub_800BAF1C(void *, s32, f32, f32, f32);
 M2C_UNK calc_wall_slide_destination(void *, s32, f32, f32, f32);
 int TObjEneEpsilon__sub_800B96FC(void*, void*, void*);
-s16 TObjPlayer__sub_801423A4(s32, s32, s32);
+s16 approach_angle_limited(s32, s32, s32);
 int VecCopy__FP3VecPC3Vec(void*);
 M2C_UNK calc_shot_position__9TObjEneDDFPvPvfff(void *, s32, f32, f32, f32);
 M2C_UNK enemy_clear_target(void *);
@@ -190,7 +190,7 @@ void TObjEneEpsilon__sub_800B92F8(u8 *arg0, s32 arg1, f32 farg0) {
     ((VObj_18_807e53 *)(arg0))->m99(&sp8);
 }
 
-void TObjEneEpsilon__sub_800B9344(u8 *arg0, s32 arg1, f32 farg0) {
+void enemy_turn_and_move_on_ground(u8 *arg0, s32 arg1, f32 farg0) {
     M2C_UNK sp8;
     fire_attack_b__14TObjEneEpsilonFPviif(arg0, (s32) &sp8, arg1, farg0);
     try_move_actor_xz_on_ground(arg0, &sp8);
@@ -235,7 +235,7 @@ void fire_attack_c__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 f
 extern const f64 lbl_8043B698;
 
 void update_angle__14TObjEneEpsilonFPvi(void *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0x60) = (s32) TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x60), (s32) (lbl_8043B698 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), arg1);
+    M2C_FIELD(arg0, s32 *, 0x60) = (s32) approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32) (lbl_8043B698 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), arg1);
 }
 
 s32 update_death_check__14TObjEneEpsilonFPv(void *arg0) {

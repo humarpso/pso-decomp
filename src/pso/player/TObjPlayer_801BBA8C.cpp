@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801BBA8C(u8 *arg0, u8 *arg1);
+void setup_fresh_player_state__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 s32 TFontSmallLobby__sub_801AFEE0();
 u32 TLockOnCursor__ct(u32, void *, s32);
 int TLockOnCursor__sub_8013DAB0(void*);
@@ -41,7 +41,7 @@ void update_lock_on_cursor__10TObjPlayerFPv(void* p);
 #include "types.h"
 extern "C" {
 
-void TObjPlayer__sub_801BBA8C(u8 *arg0, u8 *arg1) {
+void setup_fresh_player_state__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s16 *, 0x32C) = (s16) M2C_FIELD(arg0, s16 *, 0x2B8);
     M2C_FIELD(arg0, s16 *, 0x32E) = (s16) M2C_FIELD(arg0, s16 *, 0x2BA);
     if ((obj_isState2_324() != 0) && (TFontSmallLobby__sub_801AFEE0() == 0) && (check_camera_mode__10TObjPlayerFv() == 0)) {

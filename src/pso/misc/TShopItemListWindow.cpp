@@ -97,7 +97,7 @@ s32 count_items_by_id__10TObjPlayerFPvi(s32, void *);
 s32 TShopItemListWindow__sub_8021F964(void *);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
+M2C_UNK play_sound_effect(int, int, int, int);
 M2C_UNK set_displayed_item_colored__15TWindowHelpItemFPvUi(void *, void *);
 s32 select_cursor_entry__6TLobbyFPv(void *);
 M2C_UNK set_entry1_field20__20TWindowSubStatusDispFPvi(void *, s32);
@@ -177,11 +177,11 @@ s32 TShopItemListWindow__sub_8021F798(void *p) {
     }
     if (TShopWindowBase__sub_802239EC(W) != 0) {
         *(s32 *)((u8 *)W + 0x20) = 3;
-        TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
+        play_sound_effect(0x52D01, 0, 0, 0);
         return;
     }
     if (TShopWindowBase__sub_80223A48(W) != 0) {
-        TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
+        play_sound_effect(0x52D01, 0, 0, 0);
         switch (TShopItemListWindow__sub_8021F964(W)) {
         case 0:
             W->base.m4(0xF, 1);

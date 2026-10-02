@@ -37,7 +37,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TOSignCave03__sub_803DB510(int);
+M2C_UNK draw_ginja_model(int);
 M2C_UNK set_chunk_material_color(void *);
 extern u8 lbl_804A7418[];
 extern s32 lbl_805D5660;
@@ -114,12 +114,12 @@ M2C_UNK TObjDoaEx01__sub_8018DD0C(void *arg0, s32 arg1) {
             lbl_805D5660 = some_id_805c6f74;
             some_id_805c6f74 = some_id_805c6f74 | 0x10;
             set_chunk_material_color((u8 *)arg0 + 0xD4);
-            TOSignCave03__sub_803DB510(obj->model);
+            draw_ginja_model(obj->model);
             set_chunk_material_color(lbl_804A7418);
             some_id_805c6f74 = lbl_805D5660;
             end_effect_render__13TParticleCtrlFv();
         } else {
-            TOSignCave03__sub_803DB510(obj->model);
+            draw_ginja_model(obj->model);
         }
     }
     if (obj->child != 0) {

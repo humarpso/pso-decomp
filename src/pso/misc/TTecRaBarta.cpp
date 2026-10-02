@@ -90,7 +90,7 @@ struct Self_80237BD8 {
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u32 find_entity_by_id(int);
-M2C_UNK TObjPlayer__sub_8022BD74(void *, int);
+M2C_UNK apply_technique_to_area_targets(void *, int);
 void run_task__11TTecRaBartaFv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(Vec_80237DAC *, const Vec_80237DAC *);
 void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
@@ -99,7 +99,7 @@ extern RafoieBursts_80237DAC lbl_8044DAB4[];
 extern const f32 lbl_805DC8C8;
 void TTecRaFoie__sub_80237DAC(Obj_80237DAC *self);
 u16 obj_getField1c(void *);
-void fn_8022C2A8(void *, void *, void *, void *, void *);
+void construct_area_technique_base(void *, void *, void *, void *, void *);
 void TTecRaBarta__sub_802377FC(void *);
 extern M2C_UNK __vt__11TTecRaBarta[];
 extern u32 lbl_805D37F8;
@@ -134,7 +134,7 @@ M2C_UNK destroy_technique_base__9TTecLukerFPvs(void *, int);
 extern struct Profile_80237A94 lbl_8044D9F8[];
 void VecCopy__FP3VecPC3Vec(Vec_80237DAC *, const Vec_80237DAC *);
 u16 obj_getField1c(void *);
-void fn_8022C2A8(void *, void *, void *, void *, void *);
+void construct_area_technique_base(void *, void *, void *, void *, void *);
 void TTecRaBarta__sub_802377FC(void *);
 extern M2C_UNK __vt__11TTecRaBarta[];
 extern u32 lbl_805D37F8;
@@ -147,7 +147,7 @@ void TTecRaFoie__vt7(u8 *arg0);
 void create__11TTecRaBartaFPvPvPv(void *arg0, void *arg1, void *arg2);
 void create__11TTecRaBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void render__11TTecRaBartaFv(void);
-s32 TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 void *__nw__7TObjectFUl(int);
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
 
@@ -204,7 +204,7 @@ void run_task__11TTecRaBartaFv(u8 *arg0) {
     }
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x68);
     M2C_FIELD(arg0, s32 *, 0x68) = (s32) (temp_r4 + 1);
-    TObjPlayer__sub_8022BD74((void *) (arg0), (int) (temp_r4));
+    apply_technique_to_area_targets((void *) (arg0), (int) (temp_r4));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x68) > (s16) M2C_FIELD(arg0, s16 *, 0xA8)) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
@@ -218,7 +218,7 @@ typedef s32 M2C_UNK;
 void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *level) {
     s32 i;
     typedef Vec_80237DAC *(*VecCopyFn_80237BD8)(void *, void *);
-    fn_8022C2A8(self_, source, origin, pos, level);
+    construct_area_technique_base(self_, source, origin, pos, level);
     self->vt = __vt__11TTecRaBarta;
     self->f0 = lbl_805D37F8;
     TTecRaBarta__sub_802377FC(self);
@@ -243,7 +243,7 @@ void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *
 
 void *TTecRaBarta__sub_80237CCC(void *self, void *source, void *origin, void *level) {
     s32 i;
-    fn_8022C2A8(self, source, origin, origin, level);
+    construct_area_technique_base(self, source, origin, origin, level);
     M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__11TTecRaBarta;
     M2C_FIELD(self, u32 *, 0) = lbl_805D37F8;
     M2C_FIELD(self, s32 *, 0xF0) = 0;
@@ -293,29 +293,29 @@ void TTecRaFoie__vt7(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x7A);
     switch (temp_r0) {
     case 0:
-        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A602, (int) (arg0 + 0x7C), 0, 0);
+        temp_r3 = play_sound_effect(0x4002A602, (int) (arg0 + 0x7C), 0, 0);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, 0x100, 0);
         }
         return;
     case 1:
-        TBoss3Volopt__sub_8022675C(0x4002A602, (int) (arg0 + 0x7C), 0, 0);
+        play_sound_effect(0x4002A602, (int) (arg0 + 0x7C), 0, 0);
         return;
     case 2:
     case 3:
-        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A602, (int) (arg0 + 0x7C), 0, 0);
+        temp_r3 = play_sound_effect(0x4002A602, (int) (arg0 + 0x7C), 0, 0);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x180, 0);
         }
         break;
     case 4:
-        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A602, (int) (arg0 + 0x7C), 0, 0);
+        temp_r3 = play_sound_effect(0x4002A602, (int) (arg0 + 0x7C), 0, 0);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x250, 0);
         }
         break;
     case 5:
-        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A602, (int) (arg0 + 0x7C), 0, 0);
+        temp_r3 = play_sound_effect(0x4002A602, (int) (arg0 + 0x7C), 0, 0);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x100, 0);
         }

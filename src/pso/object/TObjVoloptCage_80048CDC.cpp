@@ -198,7 +198,7 @@ extern Pair_80048C04 lbl_804366E8[];
 void fn_80048C04(Self_80048C04 *self);
 void TObjVoloptCage__sub_80048CDC(u8 *arg0);
 s32 TObjVoloptPillar__sub_80048118(s32);
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+s32 play_sound_effect(s32, u32, s16, s32);
 extern const f32 lbl_805D8874;
 extern const f32 lbl_805D8878;
 void TObjVoloptCage__sub_80049000(u8 *arg0);
@@ -310,7 +310,7 @@ void TObjVoloptCage__sub_80048CDC(u8 *arg0) {
     case -1:
         break;
     case 0:
-        TBoss3Volopt__sub_8022675C(0x4001C112, (u32)(arg0 + 0x38), 0, 0);
+        play_sound_effect(0x4001C112, (u32)(arg0 + 0x38), 0, 0);
         create_breakup_mdl__12TBoss3VoloptFiiiii(lbl_805D4D20, lbl_804848FC, TObjVoloptCage__data_805D4D28, arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
         create_breakup_mdl__12TBoss3VoloptFiiiii(lbl_805D4D20, lbl_804848FC, TObjVoloptCage__data_805D4D28, arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
         trigger_dell_biter_events__10TObjPlayerFPv(arg0 + 0x2FC);
@@ -403,7 +403,7 @@ void TObjVoloptCage__sub_80049000(u8 *arg0) {
     case 0:
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000);
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
-        TBoss3Volopt__sub_8022675C(0x4003A80A, (u32) ((u8 *)(arg0) + 0x38), 0xA, 0);
+        play_sound_effect(0x4003A80A, (u32) ((u8 *)(arg0) + 0x38), 0xA, 0);
         break;
     case 1:
         M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + lbl_805D8874);

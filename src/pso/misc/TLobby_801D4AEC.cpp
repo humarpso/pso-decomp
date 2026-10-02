@@ -55,7 +55,7 @@ void set_globals_and_update__6TLobbyFPvii(void* a0, int a1, int a2);
 s32 use_item__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 int TLobby__sub_801D5004(void*);
 int TLobby__sub_801D50E0(void*);
-M2C_UNK TObjPlayer__sub_80011138(s32, s32);
+M2C_UNK try_spend_actor_meseta(s32, s32);
 s32 TObjPlayer__sub_801C1A70(void *);
 int TObjPlayer__sub_801D52A8(void*);
 void *get_owner_if_alive__10TObjPlayerFPv(s32);
@@ -87,7 +87,7 @@ s32 use_item__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r3;
 
     if (arg2 == -1) {
-        TObjPlayer__sub_80011138(arg1, arg3);
+        try_spend_actor_meseta(arg1, arg3);
         return 1;
     }
     temp_r3 = start_inventory_update__10TObjPlayerFPvi(arg0, arg2);

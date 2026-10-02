@@ -20,7 +20,7 @@ s32 TObjPlayer__sub_80011378(O_80011378 *self, s32 x);
 extern "C" {
 
 s32 obj_isState2_324();
-s32 TObjPlayer__sub_8001119C(void* p);
+s32 get_actor_level_index(void* p);
 
 int TObjPlayer__sub_80011350(u8 *arg0) {
   s16 temp_r0;

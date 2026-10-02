@@ -34,7 +34,7 @@ void *create_particle_emitter(void *, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void TOTrapAncient01__sub_80226578(int, void *, int, int, int);
-void TBoss3Volopt__sub_8022675C(int, void *, int, int);
+void play_sound_effect(int, void *, int, int);
 void queue_event_1D__12TBoss3VoloptFss(int, int);
 s32 get_phase__8TObjFishFPv(s32);
 extern u8 lbl_80477F2C[];
@@ -56,16 +56,16 @@ void fn_8033D6DC(O_8033D6DC *self) {
     }
     switch (self->frame) {
     case 0xE:
-        TBoss3Volopt__sub_8022675C(0x40039E28, 0, 0, 0);
+        play_sound_effect(0x40039E28, 0, 0, 0);
         break;
     case 0x72:
-        TBoss3Volopt__sub_8022675C(0x4003A129, 0, 0, 0);
+        play_sound_effect(0x4003A129, 0, 0, 0);
         break;
     case 0xEE:
-        TBoss3Volopt__sub_8022675C(0x4003972A, 0, 0, 0);
+        play_sound_effect(0x4003972A, 0, 0, 0);
         break;
     case 0x11D:
-        TBoss3Volopt__sub_8022675C(0x40031C2B, 0, 0, 0);
+        play_sound_effect(0x40031C2B, 0, 0, 0);
         break;
     }
     TOTrapAncient01__sub_80226578(0x4003C627, self, 0, 0, 0);

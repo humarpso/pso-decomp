@@ -125,7 +125,7 @@ s32 drop_item__9TItemDropFiii(s32 arg0, s32 arg1, s32 arg2);
 u16 TItemDrop__sub_801075B4(void *, s32, s32, s32, s32);
 M2C_UNK init__9TItemDataFv(void *);
 extern void *TItemDrop__data_805D5460;
-void TItemDrop__sub_8010663C(u8 *self, s32 area, s32 idx, Item_8010663C *item);
+void select_enemy_drop__9TItemDropFPviiPv(u8 *self, s32 area, s32 idx, Item_8010663C *item);
 }
 
 extern "C" {
@@ -199,7 +199,7 @@ u32 TItemDrop__sub_801065F8(u8 *arg0, M2C_UNK arg1, u32 arg2) {
     return (u32)item_drop_rng_below((s32)((int) (var_r3)), (u32)(arg1));
 }
 
-void TItemDrop__sub_8010663C(u8 *self, s32 area, s32 idx, Item_8010663C *item) {
+void select_enemy_drop__9TItemDropFPviiPv(u8 *self, s32 area, s32 idx, Item_8010663C *item) {
     s32 r;
     u8 kind;
     if (item == NULL) {

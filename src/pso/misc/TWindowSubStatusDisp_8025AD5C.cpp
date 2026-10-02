@@ -55,7 +55,7 @@ s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
 void set_global_param__8TObjFishFi(s32);
 void TWindowSubStatusDisp__sub_803DEE6C(s32);
 void get_player__20TWindowSubStatusDispFv(void);
-void TWindowSubComCard__sub_803DEECC(void *, f32);
+void draw_textured_quad_at_depth(void *, f32);
 void TWindowSubStatusDisp__sub_803DF160(s32, s32);
 extern const f32 lbl_805DCFE4;
 extern const f32 lbl_805DCFE8;
@@ -253,9 +253,9 @@ void TWindowSubStatusDisp__sub_8025B0D0(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1) 
     q.v[7] = arg0->f28;
     if (arg0->flags & 0x10) {
         TWindowKeyBoardSoft__sub_8024E6D8(arg1, &q);
-        TWindowSubComCard__sub_803DEECC(&q, scale);
+        draw_textured_quad_at_depth(&q, scale);
     } else if (try_open__19TWindowKeyBoardSoftFii(arg1, &q) != 0) {
-        TWindowSubComCard__sub_803DEECC(&q, scale);
+        draw_textured_quad_at_depth(&q, scale);
     }
     get_player__20TWindowSubStatusDispFv();
     reset_transform_state__10TObjPlayerFv();

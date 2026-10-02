@@ -183,7 +183,7 @@ void TObjEneDf2Bringer__sub_80099148(s32 arg0);
 void TBoss2DeRolLe__sub_800B98D8(void *, u32);
 s32 get_player_by_client_id(u32);
 void TObjEneDf2Bringer__sub_80098DEC(u8 *arg0);
-M2C_UNK TObjBoss2Tunnel__sub_8007E7D8(f32 *, f32 *, s32, f32, f32);
+M2C_UNK rotate_xz_pair_by_angle(f32 *, f32 *, s32, f32, f32);
 M2C_UNK spawn_particle_effect(f32 *, M2C_UNK);
 M2C_UNK TBoss4Zako__sub_803D8910(f32 *, void *);
 extern const f32 TObjEneDf2Bringer__data_805D97E0;
@@ -212,7 +212,7 @@ s32 TObjEneDf2Bringer__sub_80098FF4(Obj_80098FF4 *self);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 check_v2_mode__9TObjEneDDFv(void);
 Entry_800993E8 *lookup_entry_by_value__10TObjPlayerFPvf(void *, f32);
-void TObjPlayer__sub_80154E3C(void *);
+void refresh_collision_body_centers(void *);
 extern Pair_800993E8 lbl_8043A0CC[];
 extern void *TObjEneDf2Bringer__data_805D4FC8;
 extern const f32 lbl_805D980C;
@@ -465,7 +465,7 @@ void TObjEneDf2Bringer__sub_800991E0(u8 *arg0) {
     stack.sp8 = lbl_805D9830;
     stack.spC = TObjEneDf2Bringer__data_805D97E0;
     stack.sp10 = TObjEneDf2Bringer__data_805D9808;
-    TObjBoss2Tunnel__sub_8007E7D8(&stack.sp8, &stack.sp10, M2C_FIELD(arg0, s32 *, 0x60), TObjEneDf2Bringer__data_805D97E0, lbl_805D9830);
+    rotate_xz_pair_by_angle(&stack.sp8, &stack.sp10, M2C_FIELD(arg0, s32 *, 0x60), TObjEneDf2Bringer__data_805D97E0, lbl_805D9830);
     TBoss4Zako__sub_803D8910(&stack.sp8, arg0 + 0x38);
     spawn_particle_effect(&stack.sp8, 0xF3);
 }
@@ -484,7 +484,7 @@ void TObjEneDf2Bringer__sub_800993E8(Bringer_800993E8 *obj) {
         ((ChildFields_800993E8 *)self->child)->angle = self->angle;
         VecCopy__FP3VecPC3Vec(((ChildFields_800993E8 *)self->child)->model, &entry->a);
         VecCopy__FP3VecPC3Vec(&((ChildFields_800993E8 *)self->child)->model->b, &entry->b);
-        TObjPlayer__sub_80154E3C(self->child);
+        refresh_collision_body_centers(self->child);
         Pair_800993E8 pair = lbl_8043A0CC[0];
         if (obj->m97() != 0) {
             pair.flags |= 2;

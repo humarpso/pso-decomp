@@ -105,7 +105,7 @@ extern u32 TObjNpcSoldierMacho__data_805D5858;
 void TObjNpcSoldierMacho__sub_8014D9A4(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 fn_80148274(void *);
-s32 fn_8014B8A4(void *);
+s32 construct_male_npc_base(void *);
 extern M2C_UNK __vt__19TObjNpcSoldierMacho[];
 extern s32 lbl_805D2E6C;
 extern u32 TObjNpcSoldierMacho__data_805D5858;
@@ -154,7 +154,7 @@ void *__dt__19TObjNpcSoldierMachoFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_8014DA4C___vt__19TObjNpcSoldierMacho_size[sizeof(RecoveredGlobal_8014DA4C___vt__19TObjNpcSoldierMacho) == 0x178 ? 1 : -1];
 u8 *TObjNpcSoldierMacho__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    fn_8014B8A4((void *) (arg0));
+    construct_male_npc_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8014DA4C___vt__19TObjNpcSoldierMacho *)&__vt__19TObjNpcSoldierMacho).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2E6C;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

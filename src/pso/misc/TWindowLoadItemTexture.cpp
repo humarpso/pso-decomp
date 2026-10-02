@@ -32,7 +32,7 @@ u32 TItemTexLoad__sub_8011D164(s32);
 s32 TWindowSubComCard__sub_80244C0C(void *, void *);
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, s32);
-int TWindowSubStatusDisp__sub_80257C28(void*, void*);
+int update_window_entry_list(void*, void*);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
@@ -76,7 +76,7 @@ void render__22TWindowLoadItemTextureFv(u8 *arg0) {
     TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r31);
 }
 
-void run_task__22TWindowLoadItemTextureFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); TWindowSubStatusDisp__sub_80257C28(p, (char*)p + 0x24); }
+void run_task__22TWindowLoadItemTextureFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); update_window_entry_list(p, (char*)p + 0x24); }
 
 extern M2C_UNK __vt__22TWindowLoadItemTexture[];
 

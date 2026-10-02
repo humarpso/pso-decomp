@@ -72,7 +72,7 @@ s16 get_field_2b8__14TItemProShieldFPv(void *);
 s16 obj_getS16_32C(void *);
 s16 obj_getS16_2BA(void *);
 s16 obj_getS16_32E(void *);
-u32 TObjPlayer__sub_801B4684(void *);
+u32 get_recovery_need_flags__10TObjPlayerFPv(void *);
 s32 is_alive_and_ready__10TObjPlayerFi(void *);
 s32 TObjPlayer__sub_801AF734(void *);
 s32 is_valid_slot__17TOHangerMachine01FiUs(void *, u16);
@@ -80,7 +80,7 @@ void TObjPlayer__sub_801B5328(void *, void *, s32, s32, f32);
 void TObjPlayer__sub_801AF7E0(void *);
 void *spawn_particle_effect_with_flags(void *, s32, s32);
 void set_owner_id__13TParticleCtrlFPvUs(void *, u16);
-s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+s32 play_sound_effect(s32, void *, s32, s32);
 extern s32 lbl_805D586C;
 extern const f32 lbl_805DB6C8;
 void TObjPlayer__sub_80169334(Ring_80169334 *self);
@@ -113,7 +113,7 @@ void TObjPlayer__sub_80169334(Ring_80169334 *self) {
         self->fF4 = id;
         if (obj_getS16_32C(actor) < get_field_2b8__14TItemProShieldFPv(actor) ||
             obj_getS16_32E(actor) < obj_getS16_2BA(actor) ||
-            TObjPlayer__sub_801B4684(actor) != 0 ||
+            get_recovery_need_flags__10TObjPlayerFPv(actor) != 0 ||
             (is_alive_and_ready__10TObjPlayerFi(actor) != 0 && TObjPlayer__sub_801AF734(actor) == 0)) {
             void *e;
             self->fAC = 1;
@@ -132,7 +132,7 @@ void TObjPlayer__sub_80169334(Ring_80169334 *self) {
             if (e != 0) {
                 set_owner_id__13TParticleCtrlFPvUs(e, self->fF4);
             }
-            TBoss3Volopt__sub_8022675C(0x4002AB0E, self->pos, 0, 0);
+            play_sound_effect(0x4002AB0E, self->pos, 0, 0);
             break;
         }
     }

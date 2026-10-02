@@ -6,7 +6,7 @@ extern "C" {
 
 void render_status__20TWindowSubStatusDispFPv(void *arg0);
 void set_global_param__8TObjFishFi(void *);
-void TWindowSubComCard__sub_803DEECC(void *, f32);
+void draw_textured_quad_at_depth(void *, f32);
 void TWindowSubStatusDisp__sub_803DEE6C(int);
 void get_player__20TWindowSubStatusDispFv(void);
 void TWindowSubStatusDisp__sub_803DF160(void *, void *);
@@ -18,7 +18,7 @@ void render_status__20TWindowSubStatusDispFPv(void *arg0) {
     TWindowSubStatusDisp__sub_803DEE6C(1);
     set_global_param__8TObjFishFi(lbl_805D6648);
     TWindowSubStatusDisp__sub_803DF160(M2C_FIELD(arg0, void **, 0x20), M2C_FIELD(arg0, void **, 0x80));
-    TWindowSubComCard__sub_803DEECC((void *)((char *)arg0 + 68), lbl_805DDF38);
+    draw_textured_quad_at_depth((void *)((char *)arg0 + 68), lbl_805DDF38);
     get_player__20TWindowSubStatusDispFv();
 }
 

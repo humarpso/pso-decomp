@@ -21,7 +21,7 @@ s32 dt__10TTecSlicerFis(s32 arg0, s16 arg1);
 s32 get_field_110__10TTecSlicerFPv(void* p);
 s16 get_remain_count__10TTecSlicerFPv(void* p);
 u8 *init_from_owner__10TTecSlicerFPvii(u8 *arg0, s32 arg1, s32 arg2);
-s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 void TLobby__sub_80226294(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
@@ -74,7 +74,7 @@ u8 *init_from_owner__10TTecSlicerFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x1C) = arg1;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x20), (int) (M2C_FIELD(arg0, s32 *, 0x1C) + 0x2FC));
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x30) = TBoss3Volopt__sub_8022675C((int) (0x4002B51E), (void *) (arg0 + 0x20), (int) (0), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x30) = play_sound_effect((int) (0x4002B51E), (void *) (arg0 + 0x20), (int) (0), (int) (0));
     return arg0;
 }
 

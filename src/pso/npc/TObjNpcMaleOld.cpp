@@ -105,7 +105,7 @@ extern u32 TObjNpcMaleOld__data_805D5800;
 void TObjNpcMaleOld__sub_8014C2DC(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 fn_80148274(void *);
-s32 fn_8014B8A4(void *);
+s32 construct_male_npc_base(void *);
 extern M2C_UNK __vt__14TObjNpcMaleOld[];
 extern s32 lbl_805D2E0C;
 extern u32 TObjNpcMaleOld__data_805D5800;
@@ -161,7 +161,7 @@ extern void *tl_04;
 
 typedef char RecoveredGlobal_8014C384___vt__14TObjNpcMaleOld_size[sizeof(RecoveredGlobal_8014C384___vt__14TObjNpcMaleOld) == 0x178 ? 1 : -1];
 u8 *TObjNpcMaleOld__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    fn_8014B8A4((void *) (arg0));
+    construct_male_npc_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8014C384___vt__14TObjNpcMaleOld *)&__vt__14TObjNpcMaleOld).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2E0C;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

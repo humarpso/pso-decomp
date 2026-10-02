@@ -59,7 +59,7 @@ void TWindowSubSymbolChatHelp__sub_80284A28(u8 *arg0);
 int TWindowSubSymbolChatHelp__sub_80247EE8(int);
 int get_parts_entry__28TWindowSubSymbolChatPartsSetFi(int);
 void TWindowKeyBoardSoft__sub_8024E6D8(void *, void *);
-void TWindowSubComCard__sub_803DEECC(void *, f32);
+void draw_textured_quad_at_depth(void *, f32);
 void TWindowKeyBoardSoft__sub_803DF1B0(s32);
 extern const f32 lbl_805DD788;
 extern const f32 lbl_805DD78C;
@@ -71,7 +71,7 @@ extern const f32 lbl_805DD7B0;
 extern const f32 lbl_805DD7B4;
 void TWindowSubSymbolChatHelp__sub_8028429C(Self_8028429C *arg0, Win_8028429C *arg1);
 void TWindowKeyBoardSoft__sub_8024E6D8(void *, void *);
-void TWindowSubComCard__sub_803DEECC(void *, f32);
+void draw_textured_quad_at_depth(void *, f32);
 void TWindowKeyBoardSoft__sub_803DF1B0(s32);
 extern UV_802844C8 lbl_8044FBA4[];
 extern const f32 lbl_805DD788;
@@ -79,7 +79,7 @@ extern const f32 lbl_805DD78C;
 extern const f32 lbl_805DD7B8;
 void TWindowSubSymbolChatHelp__sub_802844C8(Self_802844C8 *arg0, Win_802844C8 *arg1, s32 arg2, s32 arg3);
 void TWindowKeyBoardSoft__sub_8024E6D8(void *, void *);
-void TWindowSubComCard__sub_803DEECC(void *, f32);
+void draw_textured_quad_at_depth(void *, f32);
 void TWindowKeyBoardSoft__sub_803DF1B0(s32);
 extern UV_802845EC lbl_8044FB74[];
 extern const f32 lbl_805DD788;
@@ -130,7 +130,7 @@ void TWindowSubSymbolChatHelp__sub_8028429C(Self_8028429C *arg0, Win_8028429C *a
         q.x2 = 14.0f + q.x;
         q.y2 = 14.0f + q.y;
         TWindowKeyBoardSoft__sub_8024E6D8(arg1, &q);
-        TWindowSubComCard__sub_803DEECC(&q, scale);
+        draw_textured_quad_at_depth(&q, scale);
     }
     if (arg0->flags & 2) {
         TWindowKeyBoardSoft__sub_803DF1B0(-1);
@@ -146,7 +146,7 @@ void TWindowSubSymbolChatHelp__sub_8028429C(Self_8028429C *arg0, Win_8028429C *a
     q.u1 = lbl_805DD7B4;
     q.v1 = lbl_805DD79C;
     TWindowKeyBoardSoft__sub_8024E6D8(arg1, &q);
-    TWindowSubComCard__sub_803DEECC(&q, scale);
+    draw_textured_quad_at_depth(&q, scale);
 }
 #pragma pop
 
@@ -173,7 +173,7 @@ void TWindowSubSymbolChatHelp__sub_802844C8(Self_802844C8 *arg0, Win_802844C8 *a
     q.u1 = (231.0f + uv->u) / 256.0f;
     q.v1 = (lbl_805DD7B8 + uv->v) / 256.0f;
     TWindowKeyBoardSoft__sub_8024E6D8(arg1, &q);
-    TWindowSubComCard__sub_803DEECC(&q, scale);
+    draw_textured_quad_at_depth(&q, scale);
 }
 #pragma pop
 
@@ -195,7 +195,7 @@ void TWindowSubSymbolChatHelp__sub_802845EC(s32 arg0, Win_802845EC *arg1, s32 ar
     q.u1 = (lbl_805DD7B8 + uv->u) / 256.0f;
     q.v1 = (lbl_805DD7B8 + uv->v) / 256.0f;
     TWindowKeyBoardSoft__sub_8024E6D8(arg1, &q);
-    TWindowSubComCard__sub_803DEECC(&q, scale);
+    draw_textured_quad_at_depth(&q, scale);
 }
 #pragma pop
 

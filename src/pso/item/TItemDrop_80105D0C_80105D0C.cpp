@@ -38,7 +38,7 @@ void set_drop_index__9TItemDropFPvPv(void *arg0, void *arg1);
 int TItemData__sub_8010C638(void*, void*);
 s8 TItemDrop__sub_80107790(s32, s32, s32, s32, s32);
 s32 TLobby__sub_8030A7B0();
-int TObjPlayer__sub_8011C030(void*);
+int is_unsealable_item(void*);
 u8 TObjPlayer__sub_8011C914(s32);
 s32 get_drop_flag__6TLobbyFv();
 s32 get_instance__6TLobbyFv();
@@ -48,7 +48,7 @@ void TItemDrop__sub_80105D0C(void) {  }
     extern int lbl_805D5450;
 void TItemDrop__sub_80105D10(void) { lbl_805D5450 = 0; }
 
-void clear_item_if_player_picked_up__9TItemDropFPvPv(void* p, void* a1) { if (TObjPlayer__sub_8011C030(a1) == 1) { TItemData__sub_8010C638(a1, (void*)0); } }
+void clear_item_if_player_picked_up__9TItemDropFPvPv(void* p, void* a1) { if (is_unsealable_item(a1) == 1) { TItemData__sub_8010C638(a1, (void*)0); } }
 
 extern s32 lbl_805D5550;
 

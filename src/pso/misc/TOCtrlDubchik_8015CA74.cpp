@@ -256,7 +256,7 @@ s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 initialize__9TObjEnemyFPv(void *);
 void set_indexed_flags(void *, s32, s32);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_80154E3C(void *);
+s32 refresh_collision_body_centers(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
 extern RecoveredGlobal_8015D3CC_lbl_804B0A20 lbl_804B0A20;
 extern M2C_UNK __vt__13TOCtrlDubchik[];
@@ -294,7 +294,7 @@ void TOCtrlDubchik__sub_8015CE80(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_testFlags30(void *, s32);
 s32 check_demo_mode__10TObjPlayerFv(void);
-s32 TObjPlayer__sub_80154E3C(void *);
+s32 refresh_collision_body_centers(void *);
 void TOCtrlDubchik__sub_8015C9D0(u8 *);
 void TOCtrlDubchik__sub_8015CB4C(u8 *arg0);
 void TOCtrlDubchik__sub_8015CBDC(u8 *arg0);
@@ -310,7 +310,7 @@ s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
 void spawn_particle_effect(void *, s32);
 void TObjPlayer__sub_800A8C1C(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+s32 play_sound_effect(s32, void *, s32, s32);
 extern s32 lbl_805D29F8;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
@@ -347,7 +347,7 @@ void TOCtrlDubchik__sub_8015CA74(void *arg0_) {
     spawn_particle_effect(arg0 + 0x38, 0x46);
     state = get_global_state__14TOKeyMachine01Fv();
     if (state >= 0x17 || state < 0x13) {
-        TBoss3Volopt__sub_8022675C(0x4003AD16, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x4003AD16, arg0 + 0x38, 0, 0);
     }
     for (i = lbl_805D586C; i < lbl_805D586C + lbl_805D5870; i++) {
         p = get_player_data__10TObjPlayerFi(i);
@@ -475,7 +475,7 @@ void run_task__13TOCtrlDubchikFv(u8 *arg0) {
     if (obj_testFlags30(arg0, 0x800) != 0) {
         *(s16 *)(arg0 + 0x326) = 6;
     } else if (((VObj_18_9ebd6c *)(arg0))->m37() != 0) {
-        TObjPlayer__sub_80154E3C(arg0);
+        refresh_collision_body_centers(arg0);
         submit_cursor_candidate(arg0, -1);
         return;
     }
@@ -503,7 +503,7 @@ void run_task__13TOCtrlDubchikFv(u8 *arg0) {
         break;
     }
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
-    TObjPlayer__sub_80154E3C(arg0);
+    refresh_collision_body_centers(arg0);
     submit_cursor_candidate(arg0, -1);
 }
 
@@ -561,7 +561,7 @@ u8 *TOCtrlDubchik__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, u8 **, 0x34) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOCtrlDubchik__data_805D58F0), u8 **, 0x42C), void **, 8));
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOCtrlDubchik__data_805D58F0), u8 **, 0x42C), s32 *, 0xC);
     TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B0A20.value), (int) (1));
-    TObjPlayer__sub_80154E3C((void *) (arg0));
+    refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     set_indexed_flags((void *)((void *) (arg0)), (s32)((int) (0)), (s32)((int) (0x08000000)));
     M2C_FIELD(arg0, s16 *, 0x326) = 0;

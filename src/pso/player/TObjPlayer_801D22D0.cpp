@@ -8,7 +8,7 @@ extern "C" {
 
 void *TObjPlayer__sub_801D2304(void *arg0, void *arg1);
 void *TObjPlayer__sub_801D2348(void *arg0, void *arg1);
-void TObjPlayer__sub_801D2404(u8 *arg0);
+void send_6x46_attack_finished(u8 *arg0);
 void TObjPlayer__sub_801D2448(void* p);
 void bswap_field4_sub__10TObjPlayerFPv(void* p);
 void* build_packet_header__10TObjPlayerFPv(void* p);
@@ -56,7 +56,7 @@ void *TObjPlayer__sub_801D2348(void *arg0, void *arg1) {
 void bswap_field4_sub__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); TObjPlayer__sub_801D2B2C((char*)p + 0x4); }
 void* build_packet_header__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8012AF00((char*)p + 0x4); *(unsigned char*)(p) = 70; *(unsigned char*)((char*)p + 0x1) = 12; return p; }
 
-void TObjPlayer__sub_801D2404(u8 *arg0) {
+void send_6x46_attack_finished(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 1) = (s8) ((TObjPlayer__sub_801D247C() >> 2U) & 0x3F);
     TObjPlayer__sub_801D2448((void*)((void *) (arg0)));
     TLobby__send_and_handle_60((void*)((void *) (arg0)));

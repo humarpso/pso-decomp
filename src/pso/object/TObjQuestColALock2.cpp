@@ -43,7 +43,7 @@ extern s32 tl_00;
 u8 *TObjQuestColALock2__vt14(u8 *arg0);
 void set_indexed_flags(void *, s32, s32);
 void reset_photon_effect__10TObjPlayerFPv(s32);
-void TObjPlayer__sub_80154E3C(void *);
+void refresh_collision_body_centers(void *);
 u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
 u8 * TObjQuestColBase__ct(void *, s32);
 extern RecoveredGlobal_80195BEC_lbl_80445E84 lbl_80445E84;
@@ -183,7 +183,7 @@ u8 *TObjQuestColALock2__ct(u8 *arg0, s32 arg1, s32 _w2) {
     set_indexed_flags(arg0, 0, 0xF0);
     temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
     M2C_FIELD(temp_r4, f32 *, 4) = (f32) (M2C_FIELD(temp_r4, f32 *, 4) + M2C_FIELD(arg0, f32 *, 0x6C));
-    TObjPlayer__sub_80154E3C(arg0);
+    refresh_collision_body_centers(arg0);
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
     reset_photon_effect__10TObjPlayerFPv((s32) arg0);
     M2C_FIELD(arg0, s32 *, 0xC0) = (s32) M2C_FIELD(arg0, s32 *, 0x88);

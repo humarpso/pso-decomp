@@ -37,7 +37,7 @@ s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(M2C_UNK);
 s32 get_current_char_flag__14TObjCMMainMenuFv(void);
 u8 * TNpcPlayer__sub_8007206C(void *, void *);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(M2C_UNK);
-s32 TCharaMaking__sub_8028DE78(int);
+s32 get_class_appearance_preset(int);
 void fn_8028DBC4(s32 _w0);
 int TAdSinglePlyChrSelectGC__sub_8028DC14(void);
 void fn_8028DBC4(s32 _w0);
@@ -131,7 +131,7 @@ s32 get_current_char_flag__14TObjCMMainMenuFv(void) {
 void fn_8028DBC4(s32 _w0) {
     u8 *temp_r31;
     temp_r31 = (u8 *)(((s32)((void *)get_char_index__23TAdSinglePlyChrSelectGCFUi((M2C_UNK)((s32)((int) (0xFFFF)))))) + 0x370);
-    TNpcPlayer__sub_8007206C((void *)((int) (temp_r31)), (void *)((int) (TCharaMaking__sub_8028DE78((int) (0)))));
+    TNpcPlayer__sub_8007206C((void *)((int) (temp_r31)), (void *)((int) (get_class_appearance_preset((int) (0)))));
     M2C_FIELD(temp_r31, s8 *, 0x30) = -1;
 }
 int TAdSinglePlyChrSelectGC__sub_8028DC14(void) { return 1; }

@@ -61,9 +61,9 @@ M2C_UNK GXSetTevColorOp(int, int, int, int, int, int);
 M2C_UNK GXSetTevOrder(int, int, int, int);
 M2C_UNK GXSetNumTevStages(void *);
 void TObjPlayer__sub_803E256C(s32 arg0);
-s32 TObjPlayer__sub_803DCD38(s32 arg0);
+s32 apply_cached_blend_mode(s32 arg0);
 s32 TObjPlayer__sub_803E24E0(void);
-s32 TObjPlayer__sub_803DCD38(s32 arg0);
+s32 apply_cached_blend_mode(s32 arg0);
 s32 TObjPlayer__sub_803E2504(void);
 s32 GXSetNumTexGens(s32 arg0);
 s32 TObjPlayer__sub_803E2640(void);
@@ -200,12 +200,12 @@ M2C_UNK TObjPlayer__sub_803E2468(int arg0) {
     }
 }
 
-s32 TObjPlayer__sub_803E24E0(void) { return TObjPlayer__sub_803DCD38(0x0); }
+s32 TObjPlayer__sub_803E24E0(void) { return apply_cached_blend_mode(0x0); }
 #pragma pop
 
 #pragma push
 #pragma scheduling off
-s32 TObjPlayer__sub_803E2504(void) { return TObjPlayer__sub_803DCD38(0x1); }
+s32 TObjPlayer__sub_803E2504(void) { return apply_cached_blend_mode(0x1); }
 #pragma pop
 
 #pragma push

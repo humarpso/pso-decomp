@@ -95,8 +95,8 @@ s32 TTecAnti__sub_8022B35C(void *, int);
 s32 TTecCtrl__sub_8022EF78(int);
 extern RecoveredGlobal_8022FE84_lbl_804CC510 lbl_804CC510;
 extern RecoveredGlobal_8022FE84_lbl_804CC55C lbl_804CC55C;
-void TTecFoie__sub_8022FE84(u8 *arg0);
-s32 TBoss3Volopt__sub_8022675C(s32 id, void *pos, s32 a, s32 b);
+void init_projectile_params__8TTecFoieFPv(u8 *arg0);
+s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
 void queue_destruction__7TObjectFv(void *self);
 void TTecFoie__vt6(Tec_80230004 *self, Target_80230004 *target);
 void queue_destruction__7TObjectFv(void *self);
@@ -110,7 +110,7 @@ s32 attach_particle_model(int, int, int, int, int, f32);
 void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
 s32 TParticleCtrl__sub_80086884(int);
 void *fn_80086D50(void *pos, void *dir, s32 id);
-void *TObjParticle__sub_800870BC(void *pos, void *dir, s32 id, u16 e);
+void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, u16 e);
 void *spawn_continuous_particle_effect_with_flags(void *, s32, u16);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
 extern TTecFoieData_80230144 TTecFoie__data_8044D13C[];
@@ -158,12 +158,12 @@ void TTecFoie__sub_8022FC94(Foie_8022FC94 *self) {
       rev.x = self->ax + 0x8000;
       rev.y = 0;
       rev.z = self->az;
-      self->emitters[i] = TObjParticle__sub_800870BC(self->pos, &rev, (*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i].entry, f);
+      self->emitters[i] = spawn_particle_effect_with_rotation(self->pos, &rev, (*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i].entry, f);
     }
     else
       if ((&(*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i])->flags & 2)
     {
-      self->emitters[i] = TObjParticle__sub_800870BC(self->pos, &fwd, (&(*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i])->entry, f);
+      self->emitters[i] = spawn_particle_effect_with_rotation(self->pos, &fwd, (&(*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i])->entry, f);
     }
     else
     {
@@ -180,7 +180,7 @@ void TTecFoie__sub_8022FC94(Foie_8022FC94 *self) {
   }
 }
 
-void TTecFoie__sub_8022FE84(u8 *arg0) {
+void init_projectile_params__8TTecFoieFPv(u8 *arg0) {
   s32 new_var;
   new_var = TTecCtrl__sub_8022DBC4((int) 0, (int) ((RecoveredFields_8022FE84_arg0 *) arg0)->field_C4, (int) 0xFFFF);
   TTecAnti__sub_8022B35C((void *) (arg0 + 0xCC), (int) new_var);
@@ -210,7 +210,7 @@ void TTecFoie__vt6(Tec_80230004 *self, Target_80230004 *target) {
     d.kind = 1;
     d.amount = self->power;
     target->receive(self->owner, d, self->f8, 0, -1);
-    TBoss3Volopt__sub_8022675C(0x4002A828, target->pos, 0, 0);
+    play_sound_effect(0x4002A828, target->pos, 0, 0);
     queue_destruction__7TObjectFv(self);
 }
 

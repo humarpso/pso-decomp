@@ -25,7 +25,7 @@ s32 TObjPlayer__sub_80116620(void *, int);
 u32 find_by_pos__11TMainCursorFiss(u32, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 int is_flag_clear__17TObjWarpBossMultiFPv(void* p);
-s32 TObjPlayer__sub_801B4684(void *);
+s32 get_recovery_need_flags__10TObjPlayerFPv(void *);
 u8 fn_801D7168(void *);
 extern u8 lbl_8050EA40[];
 s32 can_use_item__10TObjPlayerFPvPv(u8 *arg0, void *arg1);
@@ -147,7 +147,7 @@ s32 can_use_item__10TObjPlayerFPvPv(u8 *arg0, void *arg1) {
             }
             break;
         case 3:
-            if (!(TObjPlayer__sub_801B4684(arg0) & 4)) {
+            if (!(get_recovery_need_flags__10TObjPlayerFPv(arg0) & 4)) {
                 return 0;
             }
             break;

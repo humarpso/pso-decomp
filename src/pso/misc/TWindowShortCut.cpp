@@ -35,7 +35,7 @@ extern "C" {
 
 void *__dt__15TWindowShortCutFv(void *arg0, s16 arg1);
 void run_task__15TWindowShortCutFv(void* p);
-int TWindowSubStatusDisp__sub_80257C28(void*, void*);
+int update_window_entry_list(void*, void*);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
@@ -52,7 +52,7 @@ void render__15TWindowShortCutFv(u8 *arg0) {
     forward_render__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (temp_r3));
 }
 
-void run_task__15TWindowShortCutFv(void* p) { update_subwindow__20TWindowSubStatusDispFPv(*(void**)((char*)p + 0x60)); initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); TWindowSubStatusDisp__sub_80257C28(p, (char*)p + 0x24); }
+void run_task__15TWindowShortCutFv(void* p) { update_subwindow__20TWindowSubStatusDispFPv(*(void**)((char*)p + 0x60)); initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); update_window_entry_list(p, (char*)p + 0x24); }
 
 extern M2C_UNK __vt__15TWindowShortCut[];
 

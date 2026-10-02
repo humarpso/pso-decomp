@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_80011138(s32, s32);
+s32 try_spend_actor_meseta(s32, s32);
 s32 obj_getField1c(s32);
 s32 init_owner__5TItemFPvUs(void *, s32);
 s32 get_item_type_or_default__9TItemListFPv(void *);

@@ -249,7 +249,7 @@ M2C_UNK TLobby__sub_8002AFD4(void *, void *, int);
 M2C_UNK apply_effect_variant_a__10TObjPlayerFii(void *, int);
 M2C_UNK TLobby__sub_800F6510(void *, void *);
 M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805DF27C;
 void TObjEneDelDepth__sub_80313954(u8 *arg0);
 }
@@ -260,7 +260,7 @@ void TObjEneDelDepth__sub_803138F8(void* a0);
 void init_move__15TObjEneDelDepthFPv(void *arg0);
 void start_attack_motion__15TObjEneDelDepthFPv(u8 *arg0);
 void update_ai_state__15TObjEneDelDepthFPv(u8 *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 M2C_UNK TObjEneDelDepth__sub_803154A8(void *, int);
 int TObjEneDelDepth__sub_80316488(void*, void*);
@@ -377,7 +377,7 @@ void TObjEneDelDepth__sub_80313954(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x384) = temp_r0_2;
         if (temp_r0_2 <= 0) {
             M2C_FIELD(arg0, s32 *, 0x378) = 1;
-            TBoss3Volopt__sub_8022675C((int) (0x4003A321), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            play_sound_effect((int) (0x4003A321), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             M2C_FIELD(arg0, s32 *, 0x384) = 5;
         }
         break;
@@ -444,7 +444,7 @@ void update_ai_state__15TObjEneDelDepthFPv(u8 *arg0) {
                 return;
             }
             TObjEneDelDepth__sub_803154A8((void *) (arg0), (int) (3));
-            TBoss3Volopt__sub_8022675C((int) (0x4003A822), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            play_sound_effect((int) (0x4003A822), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         }
     }
 }
@@ -456,7 +456,7 @@ void start_attack_motion__15TObjEneDelDepthFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) TObjEneDelDepth__data_805DF260;
     M2C_FIELD(arg0, f32 *, 0x3A4) = (f32) TObjEneDelDepth__data_805DF260;
     M2C_FIELD(arg0, f32 *, 0x3A0) = (f32) TObjEneDelDepth__data_805DF260;
-    TBoss3Volopt__sub_8022675C((int) (0x4003A321), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_sound_effect((int) (0x4003A321), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     if (get_type__15TObjEneDelDepthFPv((int)((int) (M2C_FIELD(arg0, s32 *, 0x37C)))) < 6) {
         TObjEneDelDepth__sub_80316488((void*)((int) (M2C_FIELD(arg0, s32 *, 0x37C))), (void*)((int) (4)));
     } else {

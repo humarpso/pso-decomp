@@ -10,7 +10,7 @@ extern "C" void queue_destruction__7TObjectFv(void*);
 extern s32 lbl_805D4DE0;
 
 extern "C" {
-M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
+M2C_UNK play_sound_effect(int, int, int, int);
 void *TObjBoss5Ctrl__ct(void *arg0);
 s32 rand();
 M2C_UNK __ct__7TObjectFP7TObject(void *);
@@ -30,7 +30,7 @@ extern const f32 lbl_805D8F18;
 
 void TObjBoss5Ctrl::run_task() {
     if (M2C_FIELD(this, s16 *, 0x2C)-- <= 0) {
-        TBoss3Volopt__sub_8022675C(0x40033215, 0, 0, 0);
+        play_sound_effect(0x40033215, 0, 0, 0);
         M2C_FIELD(this, s16 *, 0x2C) = (s16) (lbl_805D8F14 * (lbl_805D8F18 * (f32) rand()) + lbl_805D8F10);
     }
 }

@@ -17,13 +17,13 @@ u8 * TObjPlayer__sub_80120D50(void *, void *);
 void set_atp__10TObjPlayerFPvs(void *, s16);
 extern RecoveredGlobal_801301D0_lbl_804A68C8 lbl_804A68C8;
 extern const f32 lbl_805DAFFC;
-u8 *TObjPlayer__sub_801301D0(u8 *arg0, u8 *arg1, u8 *arg2);
+u8 *construct_cane_weapon(u8 *arg0, u8 *arg1, u8 *arg2);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_801301D0_lbl_804A68C8_size[sizeof(RecoveredGlobal_801301D0_lbl_804A68C8) == 0xF8 ? 1 : -1];
-u8 *TObjPlayer__sub_801301D0(u8 *arg0, u8 *arg1, u8 *arg2) {
+u8 *construct_cane_weapon(u8 *arg0, u8 *arg1, u8 *arg2) {
     TObjPlayer__sub_80120D50(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804A68C8.value;
     M2C_FIELD(arg0, f32 *, 0x1F8) = (f32) lbl_805DAFFC;
@@ -41,7 +41,7 @@ u8 *TObjPlayer__sub_80130238(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x200));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(TObjPlayer__sub_801301D0((u8 *)(temp_r3), (u8 *)(tl_05), (u8 *)(arg0)));
+            var_r0 = (u8 *)(construct_cane_weapon((u8 *)(temp_r3), (u8 *)(tl_05), (u8 *)(arg0)));
         }
         return var_r0;
     }

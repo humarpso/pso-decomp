@@ -20,7 +20,7 @@ s32 fn_80244994(void *);
 s32 initialize_subwindow__9TWindowDDFPv(void *);
 s32 get_flag__20TWindowSubStatusDispFPv(void *);
 s32 is_player_input_active(int);
-s32 TWindowSubStatusDisp__sub_80257C28(void *, void *);
+s32 update_window_entry_list(void *, void *);
 s32 set_flag4__20TWindowSubStatusDispFPv(void *);
 s32 handle_open__20TWindowSubStatusDispFPv(void *);
 s32 move_cursor_next__20TWindowSubStatusDispFPv(void *);
@@ -117,7 +117,7 @@ void TWindowSubStatusDisp__sub_80268048(u8 *arg0) {
     TWindowSubStatusDisp__sub_80244238((void *) (arg0));
     TWindowSubStatusDisp__sub_80267C94((void *) (arg0));
     TWindowSubStatusDisp__sub_80267D14((void *) (arg0));
-    TWindowSubStatusDisp__sub_80257C28((void *) (arg0), (void *) (arg0 + 0x24));
+    update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
 }
 
 void *destroy_item_list_resources__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {

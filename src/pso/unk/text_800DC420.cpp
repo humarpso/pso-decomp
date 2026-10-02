@@ -96,7 +96,7 @@ void TObjPlayer__sub_800DC648(Me_800DC648 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u16 obj_getField1c(void *);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-s32 TObjParticle__sub_800870BC(void *, void *, int, int);
+s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 s32 TObjPlayer__sub_800DC5F4(M2C_UNK arg0, s32 arg1);
 f32 TObjPlayer__sub_8013153C(void *, void *);
@@ -255,7 +255,7 @@ u8 *TObjPlayer__sub_800DC83C(u8 *arg0, Vec_800DC83C *arg1, Vec_800DC83C *arg2, s
     ang.x = 0;
     ang.y = (s32)(lbl_8043C918[0] * get_ad_end_text_start__10TObjPlayerFv(arg2->x - arg1->x, arg2->z - arg1->z)) + 0x4000;
     ang.z = 0x4000 - (s32)(lbl_8043C918[0] * get_ad_end_text_start__10TObjPlayerFv(arg2->y - arg1->y, TObjPlayer__sub_8013153C(arg2, arg1)));
-    M2C_FIELD(arg0, s32 *, 0xE0) = TObjParticle__sub_800870BC(arg1, &ang, 0xF5, 2);
+    M2C_FIELD(arg0, s32 *, 0xE0) = spawn_particle_effect_with_rotation(arg1, &ang, 0xF5, 2);
     if (M2C_FIELD(arg0, s32 *, 0xF4) != 0) {
         VecCopy__FP3VecPC3Vec(arg0 + 0xE8, (int)(arg0 + 0xAC));
         TObjPlayer__sub_800DC5F4((M2C_UNK)arg0, (s32)(arg0 + 0xE8));

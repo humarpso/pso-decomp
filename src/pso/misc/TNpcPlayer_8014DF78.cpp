@@ -115,7 +115,7 @@ char *fn_8034D9E0(s32 state, u16 id);
 void open__11TWindowCtrlFiii(u16 id, char *text, s32 kind);
 s32 npc_counter_reset_if_reached(void *timer, s32 a, s32 b);
 extern Text_8014E250 lbl_804F0280[];
-void TNpcPlayer__sub_8014E250(Npc_8014E250 *self);
+void deliver_partner_chatter(Npc_8014E250 *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 Actor_8014F140 *get_player_data__10TObjPlayerFi(s32);
 s32 get_game_mode__6TLobbyFv(void);
@@ -274,7 +274,7 @@ void handle_action__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
     }
 }
 
-void TNpcPlayer__sub_8014E250(Npc_8014E250 *self) {
+void deliver_partner_chatter(Npc_8014E250 *self) {
     u16 id;
     char *text;
     if (self->state >= 0x19) {

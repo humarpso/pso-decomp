@@ -33,11 +33,11 @@ void clear_global_state__10TObjPlayerFv(void);
 int pop_matrix(void);
 void TObjEneDD__sub_800BA934(Obj_800BA934 *self);
 void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
-void TObjBoss2Tunnel__sub_8007E7D8(f32 *x, f32 *z, s32 angle);
+void rotate_xz_pair_by_angle(f32 *x, f32 *z, s32 angle);
 void TBoss6Type1__sub_803D9370(Vec_800BAAE4 *a, Vec_800BAAE4 *b);
 void TObjEneDD__sub_800BAAE4(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s32 i);
 void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
-void TObjBoss2Tunnel__sub_8007E7D8(f32 *x, f32 *z, s32 angle);
+void rotate_xz_pair_by_angle(f32 *x, f32 *z, s32 angle);
 void TBoss4Zako__sub_803D8910(Vec_800BA9BC *a, Vec_800BA9BC *b);
 void TObjEneDD__sub_800BA9BC(Obj_800BA9BC *self, Vec_800BA9BC *v, s32 i);
 void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
@@ -47,7 +47,7 @@ int rotate_matrix_y(void *, void *);
 void translate_matrix(int, f32, f32, f32);
 int TObjPlayer__sub_803D9B2C(void);
 int pop_matrix(void);
-void TObjEneDD__sub_800BAA2C(Obj_800BAA2C *arg0, V3_800BAA2C *arg1);
+void update_local_colliders_from_world(Obj_800BAA2C *arg0, V3_800BAA2C *arg1);
 }
 
 extern "C" {
@@ -77,11 +77,11 @@ void TObjEneDD__sub_800BA9BC(Obj_800BA9BC *self, Vec_800BA9BC *v, s32 i) {
     VecCopy__FP3VecPC3Vec((Vec_800BAAE4 *)(&self->parts[i].a), (const Vec_800BAAE4 *)(v));
     p = &self->parts[i].b;
     VecCopy__FP3VecPC3Vec((Vec_800BAAE4 *)(p), (const Vec_800BAAE4 *)(v));
-    TObjBoss2Tunnel__sub_8007E7D8(&p->x, &p->z, self->angle);
+    rotate_xz_pair_by_angle(&p->x, &p->z, self->angle);
     TBoss4Zako__sub_803D8910(p, &self->pos);
 }
 
-void TObjEneDD__sub_800BAA2C(Obj_800BAA2C *arg0, V3_800BAA2C *arg1) {
+void update_local_colliders_from_world(Obj_800BAA2C *arg0, V3_800BAA2C *arg1) {
     s32 i;
     TObjPlayer__sub_803D9B2C();
     TObjPlayer__sub_803D8CD4((void *)(0));
@@ -101,7 +101,7 @@ void TObjEneDD__sub_800BAAE4(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s32 i) {
     p = &self->parts[i].a;
     VecCopy__FP3VecPC3Vec(p, v);
     TBoss6Type1__sub_803D9370(p, &self->pos);
-    TObjBoss2Tunnel__sub_8007E7D8(&p->x, &p->z, -self->angle);
+    rotate_xz_pair_by_angle(&p->x, &p->z, -self->angle);
 }
 
 void init_model__9TObjEneDDFPv(void* p) { TObjEneGibbles__sub_80156780(p); TObjEneDD__sub_800BA934((Obj_800BA934 *)((void*)(p))); }

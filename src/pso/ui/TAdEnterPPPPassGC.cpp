@@ -68,7 +68,7 @@ void free__11TOBoss4RockFUi(void *);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 void free_menu_object(void *);
-void TBoss3Volopt__sub_8022675C(int, int, int, int);
+void play_sound_effect(int, int, int, int);
 s32 TAdEnterSerialAccessGC__sub_802AEBA8(int);
 s32 TLevelSelect__sub_802AEBE4(int, void *);
 s32 set_active__22TAdEnterSerialAccessGCFPv(int);
@@ -158,7 +158,7 @@ void TAdEnterPPPPassGC__sub_803390B0(u8 *arg0) {
                 }
             } else if (forward_input__22TAdEnterSerialAccessGCFPv(arg0, 3, buf) == 0) {
                 free_menu_object(lbl_805D6CA0);
-                TBoss3Volopt__sub_8022675C(0x53F06, 0, 0, 0);
+                play_sound_effect(0x53F06, 0, 0, 0);
             } else {
                 M2C_FIELD(arg0, s32 *, 0x38) = 1;
                 if (M2C_FIELD(arg0, u32 *, 0x2C) != 0) {

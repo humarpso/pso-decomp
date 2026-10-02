@@ -65,12 +65,12 @@ extern u32 lbl_805D5EEC;
 extern s32 tl_00;
 extern const f32 lbl_805DB6D8;
 extern const f32 lbl_805DB6DC;
-void fn_80169BD0(u8 *arg0);
+void run_script_object_task(u8 *arg0);
 }
 
 extern "C" {
 
-void fn_80169BD0(u8 *arg0) {
+void run_script_object_task(u8 *arg0) {
     f32 temp_f0;
     f32 temp_f1;
     s32 temp_r0;

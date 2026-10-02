@@ -27,7 +27,7 @@ s32 clear_global_state__10TObjPlayerFv();
 extern int lbl_805D6858;
 void render__22TObjEneMe1GiGueMissileFv(u8 *arg0);
 u16 obj_getField1c(void *);
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+s32 play_sound_effect(s32, u32, s16, s32);
 u8 * TNeedleShoot__ct(void *, s32, void *, void *);
 extern M2C_UNK __vt__22TObjEneMe1GiGueMissile[];
 extern s32 lbl_805D3F20;
@@ -135,7 +135,7 @@ u8 *TObjEneMe1GiGueMissile__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3F20;
     M2C_FIELD(arg0, f32 *, 0xC0) = farg1;
     M2C_FIELD(arg0, f32 *, 0xAC) = farg0;
-    TBoss3Volopt__sub_8022675C(0x4002A600, (u32) (arg0 + 0x6C), 0, 0);
+    play_sound_effect(0x4002A600, (u32) (arg0 + 0x6C), 0, 0);
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x1C));
     if (temp_r3 != NULL) {
         M2C_FIELD(arg0, u16 *, 0x34) = obj_getField1c(temp_r3);

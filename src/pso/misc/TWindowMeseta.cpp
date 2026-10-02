@@ -46,7 +46,7 @@ extern "C" {
 
 void *__dt__13TWindowMesetaFv(void *arg0, s16 arg1);
 void run_task__13TWindowMesetaFv(u8 *arg0);
-M2C_UNK TWindowSubStatusDisp__sub_80257C28(void *, void *);
+M2C_UNK update_window_entry_list(void *, void *);
 void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
@@ -65,7 +65,7 @@ void run_task__13TWindowMesetaFv(u8 *arg0) {
         set_animated_target__20TWindowSubStatusDispFPvif(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1), M2C_FIELD(arg0, s32 *, 0x68), lbl_805DD200);
     }
     initialize_subwindow__9TWindowDDFPv(arg0);
-    TWindowSubStatusDisp__sub_80257C28(arg0, arg0 + 0x24);
+    update_window_entry_list(arg0, arg0 + 0x24);
 }
 
 extern M2C_UNK __vt__13TWindowMeseta[];

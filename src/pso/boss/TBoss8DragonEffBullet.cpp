@@ -47,7 +47,7 @@ struct RecoveredFields_802FE0E4_arg0 {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
-s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 TBoss6Type1__sub_803D9370(void *, void *);
 extern RecoveredGlobal_802FE378_lbl_80474B68 lbl_80474B68;
@@ -62,7 +62,7 @@ s32 spawn_particle_effect_with_flags(void *, void *, int);
 u8 * spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 s32 get_enemy_entity(int);
-s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 s32 TBoss8Dragon__sub_802FB220(int, void *, int);
 extern const f32 lbl_805DEF00;
 void run_task__21TBoss8DragonEffBulletFv(struct RecoveredFields_802FE0E4_arg0 *arg0);
@@ -135,7 +135,7 @@ void run_task__21TBoss8DragonEffBulletFv(struct RecoveredFields_802FE0E4_arg0 *a
                 queue_destruction__7TObjectFv(temp_r3_4);
                 arg0->field_4C = NULL;
             }
-            TBoss3Volopt__sub_8022675C(0x4003AD0C, &arg0->field_1C, 0, 0);
+            play_sound_effect(0x4003AD0C, &arg0->field_1C, 0, 0);
             TBoss8Dragon__sub_802FB220(get_enemy_entity((s32) arg0->field_48), &arg0->field_1C, arg0->field_44);
         }
         if ((s32) arg0->field_34 <= 2) {
@@ -186,7 +186,7 @@ u8 *TBoss8DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, 
     M2C_FIELD(arg0, s16 *, 0x48) = arg5;
     M2C_FIELD(arg0, s32 *, 0x4C) = 0;
     M2C_FIELD(arg0, s32 *, 0x50) = 0;
-    TBoss3Volopt__sub_8022675C((int) (0x4003B20B), (void *) (arg0 + 0x1C), (int) (0), (int) (0));
+    play_sound_effect((int) (0x4003B20B), (void *) (arg0 + 0x1C), (int) (0), (int) (0));
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x44);
     switch (temp_r0) {
     case 1:

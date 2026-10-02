@@ -83,8 +83,8 @@ void *destroy__17TWindowDuelResultFPvs(void *arg0, s16 arg1);
 void update__17TWindowDuelResultFPv(u8 *arg0);
 M2C_UNK TWindowDuelResult__sub_8024F330(void *);
 M2C_UNK TWindowDuelResult__sub_8024F3CC(void *);
-s32 TWindowShortListCtrl__sub_8026C9DC(s32);
-M2C_UNK TWindowSubStatusDisp__sub_80257C28(void *, void *);
+s32 handle_list_page_flip_input(s32);
+M2C_UNK update_window_entry_list(void *, void *);
 void __dl__7TObjectFPv(void *);
 void delete_if_allocated(void *, int);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
@@ -190,12 +190,12 @@ void update__17TWindowDuelResultFPv(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 2)) {
         M2C_FIELD(arg0, s32 *, 0x5C) = 0x01000000;
     }
-    if (TWindowShortListCtrl__sub_8026C9DC(M2C_FIELD(arg0, s32 *, 0x68)) != 0) {
+    if (handle_list_page_flip_input(M2C_FIELD(arg0, s32 *, 0x68)) != 0) {
         TWindowDuelResult__sub_8024F3CC(arg0);
     }
     TWindowDuelResult__sub_8024F330(arg0);
     initialize_subwindow__9TWindowDDFPv(arg0);
-    TWindowSubStatusDisp__sub_80257C28(arg0, arg0 + 0x24);
+    update_window_entry_list(arg0, arg0 + 0x24);
 }
 
 extern M2C_UNK lbl_804CF020[];

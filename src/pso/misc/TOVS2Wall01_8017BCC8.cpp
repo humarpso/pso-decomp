@@ -8,7 +8,7 @@ extern "C" {
 
 void init__11TOVS2Wall01Fi(s32 arg0);
 f32 take_hit__11TOVS2Wall01FPvUi(u8 *arg0, u32 arg1);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TOVS2Wall01__sub_8017BAFC(void *, M2C_UNK);
 M2C_UNK TOVS2Wall01__sub_8017BC10(s32, s32);
 M2C_UNK spawn_particle_effect(void *, M2C_UNK);
@@ -27,7 +27,7 @@ void init__11TOVS2Wall01Fi(s32 arg0) {
     } while (var_r31 <= 0xF);
     spawn_particle_effect((void *)(arg0 + 0x38), (M2C_UNK)(0x45));
     spawn_particle_effect((void *)(arg0 + 0x38), (M2C_UNK)(0x46));
-    TBoss3Volopt__sub_8022675C(0x4004BC05, arg0 + 0x38, 0, 0);
+    play_sound_effect(0x4004BC05, arg0 + 0x38, 0, 0);
 }
 
 extern const f32 lbl_805DBAA8;

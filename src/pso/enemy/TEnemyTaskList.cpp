@@ -15,7 +15,7 @@ struct TEnemyTaskList_800F7C84 {
 };
 
 extern "C" {
-s32 TEnemyTaskList__sub_800F7BD0(List_800F7BD0 *self);
+s32 has_undefeated_entry__14TEnemyTaskListFPv(List_800F7BD0 *self);
 s32 *alloc_buffer__11TOBoss4RockFPv(int);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__14TEnemyTaskList[];
@@ -44,7 +44,7 @@ void reset_keyboard_control__6TLobbyFv(void);
 void handle_disconnect_cleanup(void) { get_global_state__14TOKeyMachine01Fv(); TLobby__sub_800F7B08(); }
 
 void run_task__14TEnemyTaskListFv(void) {  }
-s32 TEnemyTaskList__sub_800F7BD0(List_800F7BD0 *self) {
+s32 has_undefeated_entry__14TEnemyTaskListFPv(List_800F7BD0 *self) {
     s32 i;
     for (i = 0; i < self->count; i++) {
         Task_800F7BD0 *t = self->tasks[i];

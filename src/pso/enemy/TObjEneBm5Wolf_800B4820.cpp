@@ -379,12 +379,12 @@ M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK advance_animation_playback(void *);
 u8 *find_entity_by_id(u16);
-void TObjEneBm5Wolf__sub_800B6EFC(u8 *arg0, s32 arg1);
+void sleeping_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 s32 spawn_particle_effect(s32, s32);
 void play_proximity_effect__14TObjEneBm5WolfFi(s32);
 void approach_target__14TObjEneBm5WolfFPvf(void *, f32);
 void TObjEneBm5Wolf__sub_800B7D44(void *);
-void TObjEneEpsilon__sub_800B9344(void *, s32, f32);
+void enemy_turn_and_move_on_ground(void *, s32, f32);
 s32 update_death_check__14TObjEneEpsilonFPv(void *);
 void TObjEneEpsilon__sub_800B96A4(void *);
 void update_velocity__9TObjEneDDFPv(void *);
@@ -412,7 +412,7 @@ void approach_target__14TObjEneBm5WolfFPvf(void *, f32);
 void TObjEneBm5Wolf__sub_800B7D44(void *);
 M2C_UNK TObjEneBm5Wolf__sub_800B7DDC(void *, s32);
 s32 TObjEneBm5Wolf__sub_800B8A9C(void *actor, s32 max);
-void TObjEneEpsilon__sub_800B9344(void *, s32, f32);
+void enemy_turn_and_move_on_ground(void *, s32, f32);
 void update_velocity__9TObjEneDDFPv(void *);
 f32 rand_range__9TObjEneDDFff(void *actor, f32 low, f32 high);
 int TObjEneDD__sub_800BABA4(void *, s32);
@@ -443,9 +443,9 @@ void TObjEneBm5Wolf__sub_800B7530(Obj_800B7530 *self);
 u8 *find_entity_by_id(u16);
 extern const f32 TObjEneBm5Wolf__data_805D9D8C;
 void TObjEneBm5Wolf__sub_800B74B8(Obj_800B74B8 *self);
-void TObjEneBm5Wolf__sub_800B72B4(u8 *arg0, s32 arg1);
+void anchor_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 void TObjEneBm5Wolf__sub_800B7018(u8 *arg0, s32 arg1);
-void TObjEneBm5Wolf__sub_800B6EFC(u8 *arg0, s32 arg1);
+void sleeping_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 void TObjEneBm5Wolf__sub_800B6B4C(void);
 void TObjEneBm5Wolf__sub_800B6E10(u8 *arg0, s32 arg1);
 void TObjEneBm5Wolf__sub_800B6D04(u8 *arg0, s32 arg1);
@@ -469,15 +469,15 @@ M2C_UNK clear_attack_receipts(void *);
 M2C_UNK TBoss8Dragon__sub_800BB7D4(void *, int);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void *copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
-s32 TObjPlayer__sub_801423A4(int, int, int);
+s32 approach_angle_limited(int, int, int);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
-M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(void *, void *, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805D9DA0;
 extern const f32 TObjEneBm5Wolf__data_805D9DAC;
 extern const f32 TObjEneBm5Wolf__data_805D9DB0;
-void TObjEneBm5Wolf__sub_800B50CC(u8 *arg0, s32 arg1);
+void hurt_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 calc_scaled_value__15TObjBoss2TunnelFif(s32 angle, f32 speed);
@@ -486,12 +486,12 @@ void TObjEneBm5Wolf__sub_800B7794(void *actor);
 void approach_target__14TObjEneBm5WolfFPvf(void *, f32);
 void TObjEneBm5Wolf__sub_800B7D44(void *);
 s32 fn_800B9194(void *);
-void TObjEneEpsilon__sub_800B9344(void *, s32, f32);
+void enemy_turn_and_move_on_ground(void *, s32, f32);
 s32 update_death_check__14TObjEneEpsilonFPv(void *);
 void update_velocity__9TObjEneDDFPv(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
-s32 TObjPlayer__sub_801423A4(int, int, int);
+s32 approach_angle_limited(int, int, int);
 M2C_UNK advance_animation_playback(void *);
 f32 TBoss8Dragon__sub_803D64C0(s32 angle);
 f32 TBoss8Dragon__sub_803D64DC(s32 angle);
@@ -514,11 +514,11 @@ void *copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
-M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(void *, void *, M2C_UNK, M2C_UNK);
 extern List_800B6B50 TObjEneBm5Wolf__data_80500B8C;
 extern const f32 TObjEneBm5Wolf__data_805D9DEC;
 extern const f32 lbl_805D9E34;
-void TObjEneBm5Wolf__sub_800B6B50(u8 *arg0, s32 arg1);
+void howling_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -545,11 +545,11 @@ struct VObj2_800B4820 : VBase2_800B4820 { virtual void *m0(); virtual void *m1()
 
 void TObjEneBm5Wolf__sub_800B4820(void);
 void TObjEneBm5Wolf__sub_800B6B4C(void);
-void TObjEneBm5Wolf__sub_800B72B4(u8 *arg0, s32 arg1);
+void anchor_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 void action__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 void advance_spawn_timer__14TObjEneBm5WolfFv(void);
 void update_state__14TObjEneBm5WolfFPv(void *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneBm5Wolf__sub_800B7DDC(void *, s32);
 M2C_UNK select_subtype__14TObjEneBm5WolfFPv(void *);
 u32 TObjEneBm5Wolf__sub_800B850C(s32);
@@ -609,7 +609,7 @@ void TObjEneBm5Wolf__sub_800B4D4C(void *self, s32 msg) {
     }
 }
 
-void TObjEneBm5Wolf__sub_800B50CC(u8 *arg0, s32 arg1) {
+void hurt_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         ((VObj_18_4225ac *)(arg0))->m94();
@@ -619,7 +619,7 @@ void TObjEneBm5Wolf__sub_800B50CC(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 6;
         M2C_FIELD(arg0, s32 *, 0x41C) = 0;
         if (M2C_FIELD(arg0, s16 *, 0x33E) - M2C_FIELD(arg0, s16 *, 0x32C) < 0x14) {
-            TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), 0x3AB1B), arg0 + 0x38, 0, 0);
+            play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), 0x3AB1B), arg0 + 0x38, 0, 0);
             play_effect_if_v2__10TObjPlayerFi(-0x500);
         }
         set_active__9TObjEneDDFPv((void *) (arg0));
@@ -653,7 +653,7 @@ void TObjEneBm5Wolf__sub_800B50CC(u8 *arg0, s32 arg1) {
         } else {
             M2C_FIELD(arg0, f32 *, 0x308) *= TObjEneBm5Wolf__data_805D9DB0;
             M2C_FIELD(arg0, f32 *, 0x310) *= TObjEneBm5Wolf__data_805D9DB0;
-            M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x42C), 0x300);
+            M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x42C), 0x300);
             M2C_FIELD(arg0, s32 *, 0x60) = (s16) M2C_FIELD(arg0, s32 *, 0x60);
             if (objInBand__FP7GameObjf((void *) (arg0), lbl_805D9DA0) != 0) {
                 TObjEneBm5Wolf__sub_800B7808((void *) (arg0), &v);
@@ -688,7 +688,7 @@ void action__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
         advance_animation_playback((void *)(arg0));
         TObjEneBm5Wolf__sub_800B7DDC(arg0, M2C_FIELD(arg0, s32 *, 0x60));
         if (objInBand__FP7GameObjf(arg0, TObjEneBm5Wolf__data_805D9DB4) != 0) {
-            TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3AA1A), arg0 + 0x38, 0, 0);
+            play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3AA1A), arg0 + 0x38, 0, 0);
             play_effect_if_v2__10TObjPlayerFi(-0x100);
         }
         M2C_FIELD(arg0, s32 *, 0x41C) = (s32) (M2C_FIELD(arg0, s32 *, 0x41C) + 1);
@@ -752,13 +752,13 @@ void TObjEneBm5Wolf__sub_800B56CC(u8 *arg0, s32 arg1) {
         advance_animation_playback((void *) arg0);
         if (update_death_check__14TObjEneEpsilonFPv((void *) (arg0)) != 0) {
             TObjEneBm5Wolf__sub_800B7794((void *) (arg0));
-            M2C_FIELD(arg0, s32 *, 0x42C) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x42C), M2C_FIELD(arg0, s32 *, 0x430), 0x100);
+            M2C_FIELD(arg0, s32 *, 0x42C) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x42C), M2C_FIELD(arg0, s32 *, 0x430), 0x100);
             M2C_FIELD(arg0, f32 *, 0x394) = TObjEneBm5Wolf__data_805D9DC8 * TBoss8Dragon__sub_803D64C0((s32)(M2C_FIELD(arg0, s32 *, 0x42C))) + home->x;
             M2C_FIELD(arg0, f32 *, 0x39C) = TObjEneBm5Wolf__data_805D9DC8 * TBoss8Dragon__sub_803D64DC((s32)(M2C_FIELD(arg0, s32 *, 0x42C))) + home->z;
             update_velocity__9TObjEneDDFPv((void *) (arg0));
             approach_target__14TObjEneBm5WolfFPvf((void *) (arg0), lbl_805D9DCC);
             M2C_FIELD(arg0, f32 *, 0xC8) = TObjEneBm5Wolf__data_805D9DD0 * M2C_FIELD(arg0, f32 *, 0x404);
-            TObjEneEpsilon__sub_800B9344((void *) (arg0), 0x500, M2C_FIELD(arg0, f32 *, 0x404));
+            enemy_turn_and_move_on_ground((void *) (arg0), 0x500, M2C_FIELD(arg0, f32 *, 0x404));
             TObjEneBm5Wolf__sub_800B7D44((void *) (arg0));
             ((VObj_18_4225ac *)(arg0))->m87();
         }
@@ -809,12 +809,12 @@ void TObjEneBm5Wolf__sub_800B6554(u8 *arg0, s32 arg1) {
                 M2C_FIELD(arg0, f32 *, 0x404) = (f32) (M2C_FIELD(arg0, f32 *, 0x404) * TObjEneBm5Wolf__data_805D9DB0);
                 M2C_FIELD(arg0, f32 *, 0xC8) = (f32) (TObjEneBm5Wolf__data_805D9DA4 * M2C_FIELD(arg0, f32 *, 0x404));
                 temp_f1 = M2C_FIELD(arg0, f32 *, 0x404);
-                TObjEneEpsilon__sub_800B9344(arg0, (s32) (lbl_805D9E10 * temp_f1), temp_f1);
+                enemy_turn_and_move_on_ground(arg0, (s32) (lbl_805D9E10 * temp_f1), temp_f1);
             } else {
                 approach_target__14TObjEneBm5WolfFPvf(arg0, TObjEneBm5Wolf__data_805D9DA8);
                 M2C_FIELD(arg0, f32 *, 0xC8) = (f32) (TObjEneBm5Wolf__data_805D9DA4 * M2C_FIELD(arg0, f32 *, 0x404));
                 temp_f1_2 = M2C_FIELD(arg0, f32 *, 0x404);
-                TObjEneEpsilon__sub_800B9344(arg0, (s32) (lbl_805D9E10 * temp_f1_2), temp_f1_2);
+                enemy_turn_and_move_on_ground(arg0, (s32) (lbl_805D9E10 * temp_f1_2), temp_f1_2);
             }
             TObjEneBm5Wolf__sub_800B7D44(arg0);
             ((VObj_18_4225ac *)(arg0))->m87();
@@ -892,7 +892,7 @@ void TObjEneBm5Wolf::roaming_state(int event) {
             }
             this->playbackSpeed = (f32) (TObjEneBm5Wolf__data_805D9DD0 * this->currentSpeed);
             temp_f1_2 = this->currentSpeed;
-            TObjEneEpsilon__sub_800B9344(this, (s32) (lbl_805D9E24 * temp_f1_2), temp_f1_2);
+            enemy_turn_and_move_on_ground(this, (s32) (lbl_805D9E24 * temp_f1_2), temp_f1_2);
             break;
         case 1:
             TObjEneBm5Wolf__sub_800B7794(this);
@@ -905,7 +905,7 @@ void TObjEneBm5Wolf::roaming_state(int event) {
             }
             this->playbackSpeed = (f32) (TObjEneBm5Wolf__data_805D9DD0 * this->currentSpeed);
             temp_f1_3 = this->currentSpeed;
-            TObjEneEpsilon__sub_800B9344(this, (s32) (lbl_805D9E24 * temp_f1_3), temp_f1_3);
+            enemy_turn_and_move_on_ground(this, (s32) (lbl_805D9E24 * temp_f1_3), temp_f1_3);
             break;
         case 2:
             this->requestedAction = 0;
@@ -937,7 +937,7 @@ typedef struct VObj_18_7b3d65 VObj_18_7b3d65;
 #define PSO_VCALL_VObj_18_7b3d65_m100(_self) (((VObj_18_7b3d65 *)(_self))->m100())
 #define PSO_VCALL_VObj_18_7b3d65_m86(_self) (((VObj_18_7b3d65 *)(_self))->m86())
 
-void TObjEneBm5Wolf__sub_800B6B50(u8 *arg0, s32 arg1) {
+void howling_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
     Node_800B6B50 *p;
     void *r;
     switch (arg1) {
@@ -960,7 +960,7 @@ void TObjEneBm5Wolf__sub_800B6B50(u8 *arg0, s32 arg1) {
         if (M2C_FIELD(arg0, s16 *, 0xB8) == 0x10) {
             objInBand__FP7GameObjf((void *) (arg0), TObjEneBm5Wolf__data_805D9DEC);
         } else if (M2C_FIELD(arg0, s16 *, 0xB8) == 0xB && objInBand__FP7GameObjf((void *) (arg0), lbl_805D9E34) != 0) {
-            TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), 0x3A819), arg0 + 0x38, 0, 0);
+            play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), 0x3A819), arg0 + 0x38, 0, 0);
             play_effect_if_v2__10TObjPlayerFi(-0x200);
         }
         if (M2C_FIELD(arg0, s32 *, 0x41C) == 0x3C) {
@@ -1058,7 +1058,7 @@ void TObjEneBm5Wolf__sub_800B6E10(u8 *arg0, s32 arg1) {
 #define PSO_VCALL_VObj_18_7b3d65_m93(_self) (((VObj_18_7b3d65 *)(_self))->m93())
 #define PSO_VCALL_VObj_18_7b3d65_m100(_self) (((VObj_18_7b3d65 *)(_self))->m100())
 #define PSO_VCALL_VObj_18_7b3d65_m86(_self) (((VObj_18_7b3d65 *)(_self))->m86())
-void TObjEneBm5Wolf__sub_800B6EFC(u8 *arg0, s32 arg1) {
+void sleeping_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
   u8 *temp_r3;
   switch (arg1)
   {
@@ -1100,7 +1100,7 @@ void TObjEneBm5Wolf__sub_800B6EFC(u8 *arg0, s32 arg1) {
   }
 }
 
-void TObjEneBm5Wolf__sub_800B72B4(u8 *arg0, s32 arg1) {
+void anchor_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
     u32 temp_r3;
 
     switch (arg1) {
@@ -1135,13 +1135,13 @@ typedef void (*State_800B73A8)(u8 *, s32);
 void dispatch_state__14TObjEneBm5WolfFPvUii(u8 *arg0, u32 state, s32 event) {
     switch (state) {
     case 0:
-        TObjEneBm5Wolf__sub_800B72B4(arg0, event);
+        anchor_state__14TObjEneBm5WolfFPvi(arg0, event);
         break;
     case 1:
         TObjEneBm5Wolf__sub_800B7018(arg0, event);
         break;
     case 2:
-        TObjEneBm5Wolf__sub_800B6EFC(arg0, event);
+        sleeping_state__14TObjEneBm5WolfFPvi(arg0, event);
         break;
     case 3:
         ((State_800B73A8)TObjEneBm5Wolf__sub_800B6B4C)(arg0, event);
@@ -1153,7 +1153,7 @@ void dispatch_state__14TObjEneBm5WolfFPvUii(u8 *arg0, u32 state, s32 event) {
         TObjEneBm5Wolf__sub_800B6D04(arg0, event);
         break;
     case 6:
-        TObjEneBm5Wolf__sub_800B6B50((u8 *)(arg0), (s32)(event));
+        howling_state__14TObjEneBm5WolfFPvi((u8 *)(arg0), (s32)(event));
         break;
     case 7:
         roaming_state__14TObjEneBm5WolfFi(arg0, event);
@@ -1180,7 +1180,7 @@ void dispatch_state__14TObjEneBm5WolfFPvUii(u8 *arg0, u32 state, s32 event) {
         action__14TObjEneBm5WolfFPvi(arg0, event);
         break;
     case 15:
-        TObjEneBm5Wolf__sub_800B50CC((u8 *)(arg0), (s32)(event));
+        hurt_state__14TObjEneBm5WolfFPvi((u8 *)(arg0), (s32)(event));
         break;
     case 16:
         TObjEneBm5Wolf__sub_800B4D88(arg0, event);

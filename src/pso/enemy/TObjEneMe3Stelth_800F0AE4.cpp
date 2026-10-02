@@ -28,7 +28,7 @@ extern const f32 TObjEneMe3Stelth__data_805DA80C;
 s32 TObjEneMe3Stelth__sub_800F0B4C(s32 arg0, s32 arg1);
 M2C_UNK spawn_particle_effect(s32, M2C_UNK);
 s32 TObjEneMe3Stelth__sub_800F0B4C(s32 arg0, s32 arg1);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 void play_hit_effect__16TObjEneMe3StelthFi(s32 arg0);
 s32 objInBand__FP7GameObjf(void *, f32);
 extern const f32 lbl_805DA814;
@@ -77,11 +77,11 @@ s32 TObjEneMe3Stelth__sub_800F0B4C(s32 arg0, s32 arg1) {
 }
 void play_hit_effect__16TObjEneMe3StelthFi(s32 arg0) {
     if (TObjEneMe3Stelth__sub_800F0B4C((s32)(arg0), (s32)(arg0 + 0x38)) != 0) {
-        TBoss3Volopt__sub_8022675C(0x3A836, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x3A836, arg0 + 0x38, 0, 0);
         return;
     }
     spawn_particle_effect(arg0 + 0x38, 0xF3);
-    TBoss3Volopt__sub_8022675C(0x3A836, arg0 + 0x38, 0, 0);
+    play_sound_effect(0x3A836, arg0 + 0x38, 0, 0);
 }
 void TObjEneMe3Stelth__sub_800F0C90(u8 *arg0) {
     if ((objInBand__FP7GameObjf(arg0, lbl_805DA814) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805DA818) != 0)) {

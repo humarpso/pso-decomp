@@ -378,7 +378,7 @@ extern const f32 lbl_805D9088;
 extern const f32 lbl_805D909C;
 extern const f32 lbl_805D90A0;
 extern const f32 lbl_805D90A4;
-void TCameraCtrl__sub_8006DB68(Cam_8006DB68 *arg0);
+void update_follow_flags__11TCameraCtrlFPv(Cam_8006DB68 *arg0);
 u8 * csnVector(void *, void *, u32);
 void TCameraCtrl__sub_803D8934(s32, void *, void *);
 f32 TCameraCtrl__sub_803D8D00(FollowVector *);
@@ -425,7 +425,7 @@ extern const float TCameraCtrl__data_805D905C;
 extern const f32 lbl_805D9094;
 extern const f32 lbl_805D90AC;
 extern const f32 lbl_805D90B0;
-void TCameraCtrl__sub_8006E170(Cam_8006E170 *self);
+void compute_follow_target__11TCameraCtrlFPv(Cam_8006E170 *self);
 s32 is_split_screen();
 void TBoss1Dragon__sub_8002AA0C(Vec_8006D9F0 *, Vec_8006D9F0 *);
 void TBoss8Dragon__sub_80065EA0(Vec_8006D9F0 *, Vec_8006D9F0 *);
@@ -439,7 +439,7 @@ extern const float TCameraCtrl__data_805D905C;
 extern const f32 lbl_805D9090;
 extern const f32 lbl_805D9094;
 extern const f32 lbl_805D9098;
-void TCameraCtrl__sub_8006D9F0(Cam_8006D9F0 *arg0);
+void select_follow_camera_offsets(Cam_8006D9F0 *arg0);
 FollowVector *get_position_ptr__10TObjPlayerFPv(void *);
 FollowVector *get_target_ptr__11TCameraCtrlFPv(void *);
 s32 clamp_distance__11TCameraCtrlFiii(int, void *, int);
@@ -794,7 +794,7 @@ void TCameraCtrl__sub_8006D95C(Cam_8006D95C *self) {
     self->pos.z = self->tgt->pos.z + v.z;
 }
 
-void TCameraCtrl__sub_8006D9F0(Cam_8006D9F0 *arg0) {
+void select_follow_camera_offsets(Cam_8006D9F0 *arg0) {
     s32 state = get_global_state__14TOKeyMachine01Fv();
     if (state == 11) {
         Vec_8006D9F0 b0;
@@ -833,7 +833,7 @@ void TCameraCtrl__sub_8006D9F0(Cam_8006D9F0 *arg0) {
     }
 }
 
-void TCameraCtrl__sub_8006DB68(Cam_8006DB68 *arg0) {
+void update_follow_flags__11TCameraCtrlFPv(Cam_8006DB68 *arg0) {
     FollowVector *src;
     arg0->state = 5;
     if (get_camera_id__11TCameraCtrlFv() == 2) {
@@ -979,7 +979,7 @@ extern M2C_UNK lbl_80488E00[];
 
 #pragma push
 #pragma fp_contract on
-void TCameraCtrl__sub_8006E170(Cam_8006E170 *self) {
+void compute_follow_target__11TCameraCtrlFPv(Cam_8006E170 *self) {
     FollowVector o;
     FollowVector d;
     f32 k;

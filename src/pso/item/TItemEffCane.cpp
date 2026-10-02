@@ -4,7 +4,7 @@ extern "C" {
 void request_destroy__11TBoss4Type2FUi(void*);
 void queue_destruction__7TObjectFv(void*);
 void disallow_rendering__7TObjectFv(void*);
-TItem* TLobby__sub_80101AB0(s32 item_id);
+TItem* find_item_by_id(s32 item_id);
 s8 TObjPlayer__sub_80102C30(TItem* item);
 u32 test_flags_1b8__10TObjPlayerFPvUi(TItem* item, u32 flags);
 s32 draw_icon__10TObjPlayerFPvii(TItem* item, s32 attachment, f32* position);
@@ -16,7 +16,7 @@ extern const char* lbl_805D2B98;
 
 void TItemEffCane::run_task() {
     f32 position[3];
-    TItem* item = TLobby__sub_80101AB0(item_id);
+    TItem* item = find_item_by_id(item_id);
     if (item == NULL) {
         queue_destruction__7TObjectFv(this);
         return;

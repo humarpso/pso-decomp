@@ -10,7 +10,7 @@ struct RecoveredGlobal_800A887C_lbl_80491260
 extern "C" {
 s32 get_instance__6TLobbyFv(void);
 s32 send_entity_set_flags__6TLobbyFPv(void *);
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+s32 play_sound_effect(s32, u32, s16, s32);
 M2C_UNK obj_setFlags30(void *, int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_flag_start_effect__10TObjPlayerFPv();
@@ -34,11 +34,11 @@ void TObjPlayer__sub_800A887C(u8 *arg0) {
   {
     if (get_instance__6TLobbyFv() != 0)
     {
-      TBoss3Volopt__sub_8022675C(0x4003AD10, (u32) (arg0 + 0x38), 0, 0);
+      play_sound_effect(0x4003AD10, (u32) (arg0 + 0x38), 0, 0);
     }
     else
     {
-      TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv((void *) arg0, (int) 0x4003AD16), (u32) (arg0 + 0x38), 0, 0);
+      play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv((void *) arg0, (int) 0x4003AD16), (u32) (arg0 + 0x38), 0, 0);
     }
     create_breakup_mdl__12TBoss3VoloptFiiiii((void *) lbl_805D50A4, (void *) (&lbl_80491260.value), (int) (*((s32 *) (((s8 *) arg0) + 0x24))), (void *) (arg0 + 0x2FC), (int) (*((s32 *) (((s8 *) arg0) + 0x60))));
     refresh_lobby_state__10TObjPlayerFPv((void *) arg0);

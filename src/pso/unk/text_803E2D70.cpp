@@ -134,7 +134,7 @@ void TObjPlayer__sub_803E36C4(s16 *list, Vtx_803E36C4 *verts, u32 info);
 void GXSetChanCtrl(s32 chan, u8 enable, s32 ambSrc, s32 matSrc, u32 lightMask, s32 diffFn, s32 attnFn);
 extern u32 lbl_805D7794;
 extern u32 lbl_805D77E0;
-void TObjPlayer__sub_803E3A6C(u32 flags);
+void set_strip_lighting_chan_ctrl(u32 flags);
 void Dolphin_GXSetVtxDesc(int, int);
 void GXClearVtxDesc(void);
 void GXBegin(int, int, u16);
@@ -360,7 +360,7 @@ void TObjPlayer__sub_803E39EC(void) {
 }
 #pragma pop
 
-void TObjPlayer__sub_803E3A6C(u32 flags) {
+void set_strip_lighting_chan_ctrl(u32 flags) {
     u8 enable;
     if (lbl_805D77E0 != 0) {
         enable = 0;

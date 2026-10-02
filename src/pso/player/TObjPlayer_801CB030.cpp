@@ -12,10 +12,10 @@ void update_move_state__10TObjPlayerFi(s32 arg0);
 int TObjPlayer__sub_8001053C(void*);
 M2C_UNK set_type__10TObjPlayerFPvi(void *, s32);
 s32 check_actor_blocking_move__10TObjPlayerFPv(s32);
-u32 TObjPlayer__sub_801B5EA4(s32);
+u32 resolve_move_collision__10TObjPlayerFPv(s32);
 M2C_UNK TObjPlayer__sub_801B5FB0();
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, s16, M2C_UNK);
-s32 TObjPlayer__sub_801D8B8C(void *);
+s32 get_hurt_protection_ticks__10TObjPlayerFPv(void *);
 s32 is_technique_ready__8TTecCtrlFv();
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK apply_velocity__10TObjPlayerFPv(s32);
@@ -34,7 +34,7 @@ void update_move_state__10TObjPlayerFi(s32 arg0) {
     if (check_actor_blocking_move__10TObjPlayerFPv(arg0) != 0) {
         TObjPlayer__sub_8001053C((void*)(arg0));
     }
-    if (TObjPlayer__sub_801B5EA4(arg0) == 0U) {
+    if (resolve_move_collision__10TObjPlayerFPv(arg0) == 0U) {
         apply_velocity__10TObjPlayerFPv(arg0);
     }
 }
@@ -61,7 +61,7 @@ void end_freeze_action__10TObjPlayerFPv(u8 *arg0) {
     if (is_technique_ready__8TTecCtrlFv() != 0) {
         set_type__10TObjPlayerFPvi(arg0 + 0x644, 0x1E);
     } else {
-        set_type__10TObjPlayerFPvi(arg0 + 0x644, TObjPlayer__sub_801D8B8C(arg0));
+        set_type__10TObjPlayerFPvi(arg0 + 0x644, get_hurt_protection_ticks__10TObjPlayerFPv(arg0));
     }
     send_field_state_if_active__10TObjPlayerFii(arg0, 0x4000AD12);
     if (obj_isState2_324(arg0) != 0) {

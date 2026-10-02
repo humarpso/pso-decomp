@@ -9,7 +9,7 @@ struct Obj_800767D8 {
 };
 
 extern "C" {
-void TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+void play_sound_effect(s32, s32, s32, s32);
 void fn_80076760(Obj_80076760 *self);
 s16 obj_getS16_32C(void *);
 s16 get_field_2b8__14TItemProShieldFPv(void *);
@@ -27,7 +27,7 @@ void fn_80076760(Obj_80076760 *self) {
         return;
     }
     if (self->count % self->interval == 0) {
-        TBoss3Volopt__sub_8022675C(0x23230, 0, 0, 0);
+        play_sound_effect(0x23230, 0, 0, 0);
     }
     self->count--;
 }

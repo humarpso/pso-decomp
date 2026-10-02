@@ -10,7 +10,7 @@ s16 get_field_2F8__20TWindowSubStatusDispFPv(void* p);
 s16 get_item_type__20TWindowSubStatusDispFPv(void* p);
 s16 get_stat__20TWindowSubStatusDispFPv(void* p);
 s16 get_value__20TWindowSubStatusDispFPv(void* p);
-s32 TBoss3Volopt__sub_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
+s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowHelpItem__sub_80255DDC(void* p);
 s32 is_confirmed__18TWindowInputNumberFPv();
 s32 set_entry_state__20TWindowSubStatusDispFPvc(s32 a0 = 0, s32 a1 = 0);

@@ -34,7 +34,7 @@ u8 *TLobby__sub_80020004(u8 *, s32, void *, s32, s32, s32);
 void **TLanguage__sub_801E4874(void *);
 void TScene__sub_8023E638(void *, void *);
 void TTecZondeEff__sub_8023DBB4(void);
-void TLobby__sub_8022F0EC(void);
+void load_technique_resources(void);
 }
 
 extern "C" {
@@ -96,7 +96,7 @@ void TLobby__sub_8022F068(void) {
     }
     lbl_805D63AC = NULL;
 }
-void TLobby__sub_8022F0EC(void) {
+void load_technique_resources(void) {
     u8 *p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != 0) {
         p = TLobby__sub_80020004(p, 1, lbl_804CC1BC, 0, 0, 0);

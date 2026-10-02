@@ -15,7 +15,7 @@ s32 TAdStorySelectGC__sub_8019DC14(void);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void set_state__16TAdStorySelectGCFi(s32);
-void TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+void play_sound_effect(s32, s32, s32, s32);
 void TAdMultiChgGameModeGC__sub_8023E834(void);
 void set_change_mode_flags__21TAdMultiChgGameModeGCFv(void);
 void set_game_mode__21TAdMultiChgGameModeGCFv(void);
@@ -55,7 +55,7 @@ void run_task__16TAdStorySelectGCFv(Obj_802C3288 *self) {
     default:
         if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 2) != 0 ||
             test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208 + 0x160, 2) != 0) {
-            TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
+            play_sound_effect(0x52F16, 0, 0, 0);
             set_game_mode__21TAdMultiChgGameModeGCFv();
         }
         break;

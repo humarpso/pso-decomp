@@ -143,7 +143,7 @@ u16 obj_getField1c(void *);
 s32 TOTrapChainSaw__sub_802C9174(S_802C9174 *arg0, void *arg1);
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(s32);
-u32 TObjPlayer__sub_80156268(void *, s32, f32);
+u32 check_actor_body_contact(void *, s32, f32);
 s32 get_player_by_client_id(s32);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern s32 lbl_805D53A0;
@@ -223,7 +223,7 @@ int TOTrapChainSaw__sub_802C91DC(void *arg0) {
                 if (get_field_3e4__10TObjPlayerFPv(p) == get_current_floor()) {
                     t = M2C_FIELD(self, s32 *, 0x60);
                     M2C_FIELD(self, s32 *, 0x60) = t + M2C_FIELD(self, s32 *, 0xD4);
-                    if (TObjPlayer__sub_80156268(self, p, lbl_805DE634) != 0) {
+                    if (check_actor_body_contact(self, p, lbl_805DE634) != 0) {
                         self->m16(p);
                         self->m18(p);
                     }
@@ -239,7 +239,7 @@ int TOTrapChainSaw__sub_802C91DC(void *arg0) {
             if (get_field_3e4__10TObjPlayerFPv(q) == get_current_floor()) {
                 t2 = M2C_FIELD(self, s32 *, 0x60);
                 M2C_FIELD(self, s32 *, 0x60) = t2 + M2C_FIELD(self, s32 *, 0xD4);
-                if (TObjPlayer__sub_80156268(self, q, lbl_805DE634) != 0) {
+                if (check_actor_body_contact(self, q, lbl_805DE634) != 0) {
                     self->m16(q);
                     self->m18(q);
                 }

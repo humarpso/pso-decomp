@@ -67,7 +67,7 @@ extern const f32 TOCakeshopCave01__data_805DB360;
 extern const f32 lbl_805DB364;
 void TOCakeshopCave01__sub_80159E24(void *arg0, void *arg1);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK refresh_collision_body_centers(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
 M2C_UNK init_map_object_base(void *, s32);
 extern M2C_UNK lbl_804AFE08[];
@@ -87,7 +87,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TOSignCave03__sub_803DB510(int);
+M2C_UNK draw_ginja_model(int);
 extern const f32 TOCakeshopCave01__data_805DB360;
 extern const f32 lbl_805DB368;
 void render__16TOCakeshopCave01Fv(u8 *arg0);
@@ -145,7 +145,7 @@ void render__16TOCakeshopCave01Fv(u8 *arg0) {
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         m = M2C_FIELD(arg0, Model_80159F78 **, 0x34);
         TOHangerMachine01__sub_803D9C00(m->m8);
-        TOSignCave03__sub_803DB510(m->m4);
+        draw_ginja_model(m->m4);
         m = m->child;
         begin_effect_render__13TParticleCtrlFv();
         for (i = 0; i < 8; i++) {
@@ -153,7 +153,7 @@ void render__16TOCakeshopCave01Fv(u8 *arg0) {
                 TObjPlayer__sub_803D9B2C();
                 TOHangerMachine01__sub_803D9C00(m->m8);
                 scale_matrix(0, lbl_805DB368 - ((Obj_80159F78 *)arg0)->val[i], lbl_805DB368 - ((Obj_80159F78 *)arg0)->val[i], TOCakeshopCave01__data_805DB360);
-                TOSignCave03__sub_803DB510(m->m4);
+                draw_ginja_model(m->m4);
                 pop_matrix();
             }
             m = m->next;
@@ -218,7 +218,7 @@ void *TOCakeshopCave01__ct(void *arg0_, void *arg1) {
     M2C_FIELD(arg0, f32 *, 0xC4) = lbl_805DB370;
     M2C_FIELD(arg0, s32 *, 0x30) |= 0x40000000;
     TObjEneGibbles__sub_80156780(arg0, lbl_804AFE08, 1);
-    TObjPlayer__sub_80154E3C(arg0);
+    refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     for (i = 0; i < 8; i++) {
         ((TOCakeshopCave01_8015A1C0 *)arg0)->val[i] = TOCakeshopCave01__data_805DB360;

@@ -1047,7 +1047,7 @@ M2C_UNK pop_matrix();
 extern u8 lbl_8058D490[];
 extern const f32 TBoss1Dragon__data_805D7F24;
 extern const f32 TBoss1Dragon__data_805D7F28;
-f32 TBoss1Dragon__sub_80029238(u8 *arg0);
+f32 sample_root_height__12TBoss1DragonFPv(u8 *arg0);
 f32 TObjPlayer__sub_803D89C0(void *, void *);
 extern const f32 TBoss1Dragon__data_805D7F28;
 extern const f32 lbl_805D808C;
@@ -1106,7 +1106,7 @@ void TBoss1Dragon__sub_800278A8(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 M2C_UNK TObjEneDD__sub_800BA870(void *);
 M2C_UNK TObjEneDD__sub_800BA88C(void *);
-M2C_UNK TObjEneDD__sub_800BAA2C(void *, void *);
+M2C_UNK update_local_colliders_from_world(void *, void *);
 extern RecoveredGlobal_80027634_TBoss1Dragon__data_804FE17C TBoss1Dragon__data_804FE17C;
 extern const f32 TBoss1Dragon__data_805D7FAC;
 void TBoss1Dragon__sub_80029408(u8 *arg0);
@@ -1160,7 +1160,7 @@ void handle_6x10_dragon_boss_actions(void *arg0);
 void set_result_flag__12TBoss1DragonFPvii(void *arg0, s32 arg1, s32 arg2);
 void spawn_trap__12TBoss1DragonFii(s32 arg0, s32 arg1);
 void play_se_at_pos__12TBoss1DragonFii(s32 arg0, s32 arg1);
-M2C_UNK TBoss3Volopt__sub_8022675C(s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
 M2C_UNK TOTrapAncient01__sub_80226578(s32, s32, s32, M2C_UNK, M2C_UNK);
 void bswap_dragon_boss_fields__10TObjPlayerFPv(void *);
@@ -1182,7 +1182,7 @@ void TBoss1Dragon__sub_8002ADAC(void);
 void TBoss1Dragon__sub_8002ADB0(void);
 void TBoss1Dragon__sub_8002ADB4(void);
 void TBoss1Dragon__sub_8002ADB8(void);
-void TBoss1Dragon__sub_8002ADBC(void);
+void apply_freeze__12TBoss1DragonFv(void);
 void TBoss1Dragon__sub_8002ADC0(void);
 void TBoss1Dragon__sub_8002ADC4(void);
 void TLobby__sub_8001FE7C(void*, int);
@@ -1379,7 +1379,7 @@ void TBoss1Dragon::handleFallState(u32 reason) {
             break;
         case 0:
             advance_animation_playback();
-            this->rootHeight = TBoss1Dragon__sub_80029238((u8 *)((void *) (this)));
+            this->rootHeight = sample_root_height__12TBoss1DragonFPv((u8 *)((void *) (this)));
             if (this->animationFrame >= lbl_805D8020) {
                 this->stateStep = 1;
             }
@@ -2375,7 +2375,7 @@ void spawn_trap__12TBoss1DragonFii(s32 arg0, s32 arg1) {
 }
 
 void play_se_at_pos__12TBoss1DragonFii(s32 arg0, s32 arg1) {
-    TBoss3Volopt__sub_8022675C(arg1, arg0 + 0x63C, 0, 0);
+    play_sound_effect(arg1, arg0 + 0x63C, 0, 0);
 }
 
 }
@@ -2466,7 +2466,7 @@ s32 TBoss1Dragon__sub_80028EA8(Dragon_80028EA8 *arg0, Vec_80028EA8 *arg1) {
     return 1;
 }
 
-f32 TBoss1Dragon__sub_80029238(u8 *arg0) {
+f32 sample_root_height__12TBoss1DragonFPv(u8 *arg0) {
     struct Vec_80029238 v;
     v.x = TBoss1Dragon__data_805D7F28;
     v.y = TBoss1Dragon__data_805D7F28;
@@ -2544,7 +2544,7 @@ void TBoss1Dragon__sub_80029408(u8 *arg0) {
     VecCopy__FP3VecPC3Vec((s32)p++, (s32)(arg0 + 0x5B0));
     VecCopy__FP3VecPC3Vec((s32)p++, (s32)(arg0 + 0x4C0));
     VecCopy__FP3VecPC3Vec((s32)p, (s32)(arg0 + 0x4FC));
-    TObjEneDD__sub_800BAA2C(arg0, pts);
+    update_local_colliders_from_world(arg0, pts);
     lim = TBoss1Dragon__data_805D7FAC;
     i = 0;
     off = 0;
@@ -3115,7 +3115,7 @@ void TBoss1Dragon__sub_8002ADB4(void) {  }
 
 void TBoss1Dragon__sub_8002ADB8(void) {  }
 
-void TBoss1Dragon__sub_8002ADBC(void) {  }
+void apply_freeze__12TBoss1DragonFv(void) {  }
 
 void TBoss1Dragon__sub_8002ADC0(void) {  }
 

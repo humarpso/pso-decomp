@@ -27,7 +27,7 @@ s32 TWindowSubTrade__ct(int, void *, int);
 s32 TWindowSubTradeMain__ct(int, void *, int);
 s32 TWindowSubTradeMessage__ct(int, void *, int);
 s32 TWindowSubInformationBoard__ct(int, void *, int);
-void TWindowSubEquip__sub_8026417C(u8 *arg0, u32 arg1);
+void create_submenu__15TWindowMainMenuFPvUi(u8 *arg0, u32 arg1);
 }
 
 extern "C" {
@@ -48,7 +48,7 @@ void create_char_select_slot__17TWindowMainMenu1PFPv(void *arg0) {
     }
     M2C_FIELD(arg0, void **, 0x20) = o;
 }
-void TWindowSubEquip__sub_8026417C(u8 *arg0, u32 arg1) {
+void create_submenu__15TWindowMainMenuFPvUi(u8 *arg0, u32 arg1) {
     s32 temp_r3;
     s32 temp_r3_10;
     s32 temp_r3_11;

@@ -43,12 +43,12 @@ extern const f32 lbl_805DB788;
 extern const f32 lbl_805DB78C;
 void TOKeyMachine01__vt15(u8 *arg0);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_8016D1A8_lbl_80441D84 lbl_80441D84;
 extern s32 enable_v2_features;
 void TOKeyMachine01__vt17(s32 arg0);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_8016D1A8_lbl_80441D84 lbl_80441D84;
 extern s32 enable_v2_features;
 void TOKeyMachine01__vt16(s32 arg0);
@@ -61,7 +61,7 @@ s32 get_current_floor();
 extern s32 lbl_805D53A0;
 void TOKeyMachine01__sub_8016D148(Self_8016D148 *self, s32 flags);
 void reset_photon_effect__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK refresh_collision_body_centers(void *);
 M2C_UNK TObjEneGibbles__sub_80156780(void *, void *, s32);
 M2C_UNK init_switch_id__5TOKeyFPv(void *);
 void *TOKey__ct(void *, void *);
@@ -95,7 +95,7 @@ void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source) {
     M2C_FIELD(arg0, f32 *, 0xB8) = lbl_805DB76C;
     M2C_FIELD(arg0, u32 *, 0x24) = TOKeyGenericSw__data_805D5A28[1];
     TObjEneGibbles__sub_80156780(arg0, lbl_804B2D30, 1);
-    TObjPlayer__sub_80154E3C(arg0);
+    refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     M2C_FIELD(arg0, f32 *, 0xC0) = lbl_805DB770;
     M2C_FIELD(arg0, f32 *, 0xC4) = lbl_805DB774;
@@ -157,17 +157,17 @@ void TOKeyMachine01__vt17(s32 arg0) {
     if (((s32) enable_v2_features == 1) && ((get_global_state__14TOKeyMachine01Fv() == 0x10) || (get_global_state__14TOKeyMachine01Fv() == 0x11))) {
         temp_r3 = M2C_FIELD(&lbl_80441D84.value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
         if (temp_r3 >= 0) {
-            TBoss3Volopt__sub_8022675C(temp_r3, arg0 + 0x38, 0, 0);
+            play_sound_effect(temp_r3, arg0 + 0x38, 0, 0);
         }
     } else if (((s32) enable_v2_features == 1) && ((get_global_state__14TOKeyMachine01Fv() == 1) || (get_global_state__14TOKeyMachine01Fv() == 2))) {
         temp_r3_2 = M2C_FIELD(&lbl_80441D84.value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
         if (temp_r3_2 >= 0) {
-            TBoss3Volopt__sub_8022675C(temp_r3_2, arg0 + 0x38, 0, 0);
+            play_sound_effect(temp_r3_2, arg0 + 0x38, 0, 0);
         }
     } else {
         temp_r3_3 = M2C_FIELD(&lbl_80441D84.value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
         if (temp_r3_3 >= 0) {
-            TBoss3Volopt__sub_8022675C(temp_r3_3, arg0 + 0x38, 0, 0);
+            play_sound_effect(temp_r3_3, arg0 + 0x38, 0, 0);
         }
     }
 }
@@ -180,17 +180,17 @@ void TOKeyMachine01__vt16(s32 arg0) {
     if (((s32) enable_v2_features == 1) && ((get_global_state__14TOKeyMachine01Fv() == 0x10) || (get_global_state__14TOKeyMachine01Fv() == 0x11))) {
         temp_r3 = M2C_FIELD(&(*(RecoveredGlobal_8016D2A4_lbl_80441D84 *)&lbl_80441D84).value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
         if (temp_r3 >= 0) {
-            TBoss3Volopt__sub_8022675C(temp_r3, arg0 + 0x38, 0, 0);
+            play_sound_effect(temp_r3, arg0 + 0x38, 0, 0);
         }
     } else if (((s32) enable_v2_features == 1) && ((get_global_state__14TOKeyMachine01Fv() == 1) || (get_global_state__14TOKeyMachine01Fv() == 2))) {
         temp_r3_2 = M2C_FIELD(&(*(RecoveredGlobal_8016D2A4_lbl_80441D84 *)&lbl_80441D84).value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
         if (temp_r3_2 >= 0) {
-            TBoss3Volopt__sub_8022675C(temp_r3_2, arg0 + 0x38, 0, 0);
+            play_sound_effect(temp_r3_2, arg0 + 0x38, 0, 0);
         }
     } else {
         temp_r3_3 = M2C_FIELD(&(*(RecoveredGlobal_8016D2A4_lbl_80441D84 *)&lbl_80441D84).value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
         if (temp_r3_3 >= 0) {
-            TBoss3Volopt__sub_8022675C(temp_r3_3, arg0 + 0x38, 0, 0);
+            play_sound_effect(temp_r3_3, arg0 + 0x38, 0, 0);
         }
     }
 }

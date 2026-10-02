@@ -62,7 +62,7 @@ struct P_8028DCCC { f32 a; f32 b; };
 
 extern "C" {
 extern RecoveredGlobal_8028DE78_lbl_804D9164 lbl_804D9164;
-u8 *TCharaMaking__sub_8028DE78(s32 arg0);
+u8 *get_class_appearance_preset(s32 arg0);
 M2C_UNK TObjPlayer__sub_801415BC();
 M2C_UNK draw_chunk_object(void *);
 extern s32 lbl_805D5660;
@@ -170,7 +170,7 @@ void setup_from_data__12TCharaMakingFii(M2C_UNK arg0, M2C_UNK arg1) {
 }
 
 typedef char RecoveredGlobal_8028DE78_lbl_804D9164_size[sizeof(RecoveredGlobal_8028DE78_lbl_804D9164) == 0x414 ? 1 : -1];
-u8 *TCharaMaking__sub_8028DE78(s32 arg0) {
+u8 *get_class_appearance_preset(s32 arg0) {
     s32 var_r3;
     var_r3 = arg0;
     if ((var_r3 < 0) || (var_r3 >= 0xD)) {

@@ -19,12 +19,12 @@ extern M2C_UNK lbl_8058D340[];
 extern s32 lbl_805D772C;
 extern s32 lbl_805D7730;
 extern s32 *lbl_805D7734;
-void fn_803DD080(M2C_UNK *arg0, s32 arg1);
+void set_present_interval(M2C_UNK *arg0, s32 arg1);
 }
 
 extern "C" {
 
-void fn_803DD080(M2C_UNK *arg0, s32 arg1) {
+void set_present_interval(M2C_UNK *arg0, s32 arg1) {
     s32 var_r4;
     var_r4 = arg1;
     if (arg0 != NULL) {

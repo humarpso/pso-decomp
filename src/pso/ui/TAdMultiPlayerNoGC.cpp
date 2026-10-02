@@ -41,7 +41,7 @@ extern "C" {
 void render__18TAdMultiPlayerNoGCFv(void* p);
 void render_status__18TAdMultiPlayerNoGCFi(s32 arg0);
 void run_task__18TAdMultiPlayerNoGCFv(void);
-M2C_UNK TWindowSubComCard__sub_803DEECC(s32, f32);
+M2C_UNK draw_textured_quad_at_depth(s32, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(M2C_UNK);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(M2C_UNK, M2C_UNK);
 int abs__4cXyzCFv(void*, void*);
@@ -56,7 +56,7 @@ void render_status__18TAdMultiPlayerNoGCFi(s32 arg0) {
     TWindowSubStatusDisp__sub_803DEE6C(1);
     set_global_param__8TObjFishFi(lbl_805D6D78);
     TWindowSubStatusDisp__sub_803DF160(0, -1);
-    TWindowSubComCard__sub_803DEECC(arg0 + 0x20, lbl_805DFA10);
+    draw_textured_quad_at_depth(arg0 + 0x20, lbl_805DFA10);
     get_player__20TWindowSubStatusDispFv();
 }
 

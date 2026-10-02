@@ -17,7 +17,7 @@ void TNpcPlayer__sub_80149448(void *arg0);
 extern "C" {
 
 void send_6x3E__10TNpcPlayerFi(s32 arg0);
-s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+s32 play_sound_effect(s32, s32, s32, s32);
 M2C_UNK TLobby__send_and_handle_60(void *);
 void TObjNpcBase__sub_80149358(void* p, s32 v);
 void TObjNpcBase__sub_80149360(void* p, s32 v);

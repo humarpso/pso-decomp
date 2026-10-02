@@ -27,7 +27,7 @@ extern "C" {
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 initialize_subwindow__9TWindowDDFPv(void *);
-s32 TWindowSubStatusDisp__sub_80257C28(void *, void *);
+s32 update_window_entry_list(void *, void *);
 s32 is_active__20TWindowSubSymbolChatFPv(void *);
 void handle_cancel__28TWindowSubSymbolChatPartsSetFPv(void *arg0);
 void handle_decide__28TWindowSubSymbolChatPartsSetFPv(void *arg0);
@@ -55,7 +55,7 @@ void *__dt__28TWindowSubSymbolChatPartsSetFv(void *arg0, s16 arg1);
 void handle_cancel__28TWindowSubSymbolChatPartsSetFPv(void *arg0);
 void handle_decide__28TWindowSubSymbolChatPartsSetFPv(void *arg0);
 void render__28TWindowSubSymbolChatPartsSetFv(u8 *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80245808(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int, f32);
 M2C_UNK TWindowSubSymbolChatPartsSet__sub_80286120(void *, int);
@@ -69,13 +69,13 @@ M2C_UNK set_entry_state__20TWindowSubStatusDispFPvc(s32, M2C_UNK);
 
 void handle_cancel__28TWindowSubSymbolChatPartsSetFPv(void *arg0) {
     if (is_active__20TWindowSubSymbolChatFPv((void *)(arg0)) == 0) {
-        TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
+        play_sound_effect(0x52F16, 0, 0, 0);
         M2C_FIELD(arg0, u8 *, 0x68) = (u8) (M2C_FIELD(arg0, u8 *, 0x68) | 2);
     }
 }
 
 void handle_decide__28TWindowSubSymbolChatPartsSetFPv(void *arg0) {
-    TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
+    play_sound_effect(0x52D01, 0, 0, 0);
     M2C_FIELD(arg0, u8 *, 0x68) = (u8) (M2C_FIELD(arg0, u8 *, 0x68) | 1);
     set_entry_state__20TWindowSubStatusDispFPvc(M2C_FIELD(arg0, s32 *, 0x88), 2);
 }
@@ -170,7 +170,7 @@ void run_task__28TWindowSubSymbolChatPartsSetFv(u8 *arg0) {
         update_subwindow__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x88)));
     }
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));
-    TWindowSubStatusDisp__sub_80257C28((void *) (arg0), (void *) (arg0 + 0x24));
+    update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
 }
 
 void *__dt__28TWindowSubSymbolChatPartsSetFv(void *arg0, s16 arg1) {

@@ -98,7 +98,7 @@ struct Self_80108020 {
 };
 
 extern "C" {
-void TBoss3Volopt__sub_8022675C(u32, void *, s32, s32);
+void play_sound_effect(u32, void *, s32, s32);
 f32 xyz_distance(Vec_80108164 *, Vec_80108164 *);
 Player_80108164 *get_player_by_client_id(u16);
 void *__nw__7TObjectFUl(u32);
@@ -111,7 +111,7 @@ s32 create_particle_emitter(void *, s32);
 void get_item_params__9TItemLoadFPvPvPv(void *, void *, void *);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, s32);
-void TObjPlayer__sub_80235F60(void *, void *, void *, s32, u8 *, f32, s32);
+void construct_actor_light_task(void *, void *, void *, s32, u8 *, f32, s32);
 extern u8 lbl_8043E140[];
 extern Vec_80108020 lbl_8043E160[];
 extern void *__vt__13TItemEffArmor[];
@@ -147,7 +147,7 @@ Self_80108020 *TItemEffArmor__ct(Self_80108020 *self, u8 *obj, f32 a, f32 b) {
         Vec_80108020 v = lbl_8043E160[0];
         p = __nw__7TObjectFUl(0x64);
         if (p != NULL) {
-            TObjPlayer__sub_80235F60(p, lbl_8043E140, &v, 0x3A, obj, lbl_805DAB00, tl_07);
+            construct_actor_light_task(p, lbl_8043E140, &v, 0x3A, obj, lbl_805DAB00, tl_07);
         }
     }
     return self;
@@ -170,7 +170,7 @@ void TObjPlayer__sub_80108164(s32 idx) {
             if (o != 0) {
                 TItemEffArmor__ct((Self_80108020 *)(o), (u8 *)(p), s, v);
             }
-            TBoss3Volopt__sub_8022675C(0x4000B20A, (u8 *)p + 0x38, 0, 0);
+            play_sound_effect(0x4000B20A, (u8 *)p + 0x38, 0, 0);
         }
     }
 }

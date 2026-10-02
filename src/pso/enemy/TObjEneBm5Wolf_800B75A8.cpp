@@ -40,7 +40,7 @@ s32 spawn_particle_effect(s32, s32);
 extern const f32 TObjEneBm5Wolf__data_805D9DE0;
 void TObjEneBm5Wolf__sub_800B7808(s32 arg0, u8 *arg1);
 s32 objInBand__FP7GameObjf(void *, f32);
-M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+M2C_UNK play_sound_effect(void *, void *, int, int);
 void *copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(int);
 extern const f32 TObjEneBm5Wolf__data_805D9DE8;
@@ -88,7 +88,7 @@ void select_target__14TObjEneBm5WolfFPv(void *arg0);
 void set_anim_state__14TObjEneBm5WolfFPv(void *arg0);
 void set_attack_flag__14TObjEneBm5WolfFPv(void* p);
 void set_state_by_timer__14TObjEneBm5WolfFi(s32 arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+M2C_UNK play_sound_effect(void *, void *, int, int);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 f32 calc_boss4_scale__10TObjPlayerFi();
 void *copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
@@ -144,7 +144,7 @@ f32 TObjEneBm5Wolf__sub_800B76E0(Obj_800B76E0 *arg0, f32 farg0) {
 
 void play_proximity_effect__14TObjEneBm5WolfFi(s32 arg0) {
     if (objInBand__FP7GameObjf((void *)arg0, lbl_805D9E48) != 0) {
-        TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x3C618)), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x3C618)), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         play_effect_if_v2__10TObjPlayerFi((int) (-0x1000));
     }
 }
@@ -154,7 +154,7 @@ extern f32 lbl_805D9E50;
 
 void TObjEneBm5Wolf__sub_800B7794(u8 *arg0) {
     if ((objInBand__FP7GameObjf(arg0, TObjEneBm5Wolf__data_805D9DEC) != 0) || (objInBand__FP7GameObjf(arg0, TObjEneBm5Wolf__data_805D9DE8) != 0)) {
-        TBoss3Volopt__sub_8022675C((void *)(((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x3C618)))), (void *)((u32) (arg0 + 0x38)), (int)(0), (int)(0));
+        play_sound_effect((void *)(((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x3C618)))), (void *)((u32) (arg0 + 0x38)), (int)(0), (int)(0));
         play_effect_if_v2__10TObjPlayerFi((int) (-0x1000));
     }
 }

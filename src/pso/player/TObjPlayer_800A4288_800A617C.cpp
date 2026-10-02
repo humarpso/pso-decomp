@@ -83,7 +83,7 @@ M2C_UNK TBoss4DarkFalz__sub_8004C220(void *, void *);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 void *TObjEneSaver__ct(void *, void *, void *);
-M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK refresh_collision_body_centers(void *);
 void __dt__11TBoss4Type3FPvs(void*, int);
 void *__nw__7TObjectFUl(int);
 void free__11TOBoss4RockFUi(void*);
@@ -149,7 +149,7 @@ void init_render_flags__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
 
     TBoss4DarkFalz__sub_8004C220((void *) arg0, (void *) (arg0 + 0x50));
-    TObjPlayer__sub_80154E3C((void *) (arg0));
+    refresh_collision_body_centers((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFDFFFFF);
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x06040000);
     temp_r3 = (unsigned char *) (M2C_FIELD(arg0, void **, 0xA4));

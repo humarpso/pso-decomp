@@ -114,7 +114,7 @@ s32 register_boss__6TLobbyFPv(M2C_UNK);
 M2C_UNK TObjEneDD__sub_800B9E84(void *, s32, s32, s32);
 void TBoss7PhotonBullet__sub_802ED5A0(void *arg0, int arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK TObjEneDD__sub_800BAA2C(void *, void *);
+M2C_UNK update_local_colliders_from_world(void *, void *);
 extern const f32 lbl_805DEA1C;
 extern const f32 lbl_805DEA5C;
 extern const f32 lbl_805DEAF4;
@@ -196,7 +196,7 @@ void TObjFish__sub_802ED73C(u8 *arg0) {
     s32 clr;
     s32 i;
     VecCopy__FP3VecPC3Vec(sp8, arg0 + 0x434);
-    TObjEneDD__sub_800BAA2C(arg0, sp8);
+    update_local_colliders_from_world(arg0, sp8);
     f = M2C_FIELD(arg0, f32 *, 0x3C);
     if (f < lbl_805DEA1C) {
         set = 0;

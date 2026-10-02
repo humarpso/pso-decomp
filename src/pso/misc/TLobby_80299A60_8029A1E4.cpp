@@ -10,7 +10,7 @@ M2C_UNK TKeyBoardControl__sub_8000F950();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TCameraCtrl__sub_8006B368();
 M2C_UNK clear_counter__6TLobbyFv();
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK play_cue_stream_file(M2C_UNK *);
 s32 TLobby__sub_80291F9C();
 M2C_UNK close_window_field30__6TLobbyFPv(void *);
@@ -42,7 +42,7 @@ void giveup_window_handle_select(void *arg0) {
         }
         return;
     case 1:
-        TBoss3Volopt__sub_8022675C(0x52812, 0, 0, 0);
+        play_sound_effect(0x52812, 0, 0, 0);
         send_giveup_to_all_players__6TLobbyFv(arg0);
         play_all_players_effect__6TLobbyFPv(arg0);
         close_window_field30__6TLobbyFPv(arg0);

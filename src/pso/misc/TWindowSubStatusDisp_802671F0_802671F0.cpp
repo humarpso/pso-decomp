@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void refresh_selected_entry__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK finalize_state__20TWindowSubStatusDispFPv(s32);
 s32 is_flag80_set__20TWindowSubStatusDispFPv();
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
@@ -19,7 +19,7 @@ void TWindowSubStatusDisp__sub_802671F0(u8 *arg0, s32 arg1) {
     ((s32 (*)(void *, s32))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, *(s16 *)(arg0 + 0x74));
     if (is_flag80_set__20TWindowSubStatusDispFPv() == 0) {
         if (arg1 != 0) {
-            TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
+            play_sound_effect(0x52D01, 0, 0, 0);
         }
         for (i = 0; i < *(s16 *)(arg0 + 0x76); i++) {
             ((s32 (*)(void *, s32))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, i);
@@ -36,7 +36,7 @@ void refresh_selected_entry__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
     temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, M2C_FIELD(arg0, s16 *, 0x74));
     if (is_flag80_set__20TWindowSubStatusDispFPv() == 0) {
         if (arg1 != 0) {
-            TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
+            play_sound_effect(0x52D01, 0, 0, 0);
         }
         finalize_state__20TWindowSubStatusDispFPv(temp_r31);
     }

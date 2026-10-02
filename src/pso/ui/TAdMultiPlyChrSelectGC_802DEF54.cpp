@@ -47,7 +47,7 @@ u32 get_field_118__22TAdEnterSerialAccessGCFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
 M2C_UNK close__17TWindowSubComCardFPv(void *);
 M2C_UNK TWindow__close(void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5594(s32);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
@@ -95,12 +95,12 @@ void update_state_serial__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (temp_r5 + 1);
     if ((TWindowShortListCtrl__check_controller_button((void *)(lbl_8050E3B8 + 0x20), 2, temp_r5) != 0) && (get_chr_select_state__22TAdMultiPlyChrSelectGCFv() == 0)) {
         if ((get_player_index__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x68)) != 0xE) && ((s32) M2C_FIELD(arg0, s32 *, 0x1C) > 0xA)) {
-            TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
+            play_sound_effect(0x52F16, 0, 0, 0);
             M2C_FIELD(arg0, s32 *, 0x20) = 0x1B;
             return;
         }
         if (TAdMultiPlyChrSelectGC__sub_802C6558() < 1) {
-            TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
+            play_sound_effect(0x52F16, 0, 0, 0);
             M2C_FIELD(arg0, s32 *, 0x20) = 0x1B;
             return;
         }

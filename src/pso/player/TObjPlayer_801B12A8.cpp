@@ -277,7 +277,7 @@ s32 is_flag30_10_set__10TObjPlayerFi(s32 arg0);
 s32 is_flag30_8_set__10TObjPlayerFi(s32 arg0);
 u8 is_in_tl03_state__10TObjPlayerFPv(void *arg0);
 void send_field_state_if_active__10TObjPlayerFii(s32 arg0, s32 arg1);
-M2C_UNK TBoss3Volopt__sub_8022675C(s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TFontSmallLobby__sub_801C0228();
 s32 TObjPlayer__sub_800166DC(s32);
 s32 TObjPlayer__sub_80016944(s32);
@@ -328,7 +328,7 @@ void TObjPlayer__sub_801B1C8C(void) {
 
 void send_field_state_if_active__10TObjPlayerFii(s32 arg0, s32 arg1) {
     if (TObjPlayer__sub_801AFF0C() != 0) {
-        TBoss3Volopt__sub_8022675C(arg1, get_position_ptr__10TObjPlayerFPv(arg0), 0, 0);
+        play_sound_effect(arg1, get_position_ptr__10TObjPlayerFPv(arg0), 0, 0);
     }
 }
 

@@ -161,7 +161,7 @@ s32 apply_effect_variant_a__10TObjPlayerFii(void *, int);
 s32 TObjPlayer__sub_800D9290(void *, int);
 s32 advance_animation_playback(void *);
 s32 play_effect_if_v2__10TObjPlayerFi(int);
-s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+s32 play_sound_effect(void *, void *, int, int);
 f32 TBoss8Dragon__sub_803D64C0(int);
 f32 TBoss8Dragon__sub_803D64DC(int);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
@@ -212,7 +212,7 @@ void fn_800C2AC4(u8 *arg0, int arg1) {
       TBoss8Dragon__sub_800BB7D4((void *) arg0, (int) 0xF2);
       ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_410 = 0;
       ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_424 = (f32) lbl_805D9FAC;
-      TBoss3Volopt__sub_8022675C((void *) fn_800C3A60((void *) arg0, (int) 0x4003A812), (void *) (arg0 + 0x38), (int) 0, (int) 0);
+      play_sound_effect((void *) fn_800C3A60((void *) arg0, (int) 0x4003A812), (void *) (arg0 + 0x38), (int) 0, (int) 0);
       play_effect_if_v2__10TObjPlayerFi((int) (-0x200));
       return;
     case 3:

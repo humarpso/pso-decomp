@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Wn_80278DA4 { u8 pad0[0x20]; s16 f20; u8 pad22[0x50]; s16 f72; };
 
 extern "C" {
-u8 *TLobby__sub_80101AB0(int);
+u8 *find_item_by_id(int);
 u8 *get_player_by_client_id(s16);
 u32 run_and_get_result__10TObjPlayerFPvi(int, void *);
 void TLobby__sub_80266E34(void *);
@@ -27,7 +27,7 @@ void fn_80278DA4(Wn_80278DA4 *arg0) {
     if (p != NULL) {
         count = run_and_get_result__10TObjPlayerFPvi(*(s32 *)(p + 0xD00), list);
         for (i = 0; i < count; i++) {
-            id = TLobby__sub_80101AB0(list[i]);
+            id = find_item_by_id(list[i]);
             if (id != NULL) {
                 add_list_entry__23TShopJudgmentItemWindowFPvii(arg0, id, list[i]);
             }

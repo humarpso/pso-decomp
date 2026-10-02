@@ -68,7 +68,7 @@ s32 get_field_3e4__10TObjPlayerFPv(int);
 s8 TObjPlayer__sub_80102C30(void *);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 update_technique_slot__10TTecRaFoieFi(int, int, int);
-s32 TBoss3Volopt__sub_8022675C(int, int, int, int);
+s32 play_sound_effect(int, int, int, int);
 void TObjPlayer__sub_801303D8(u8 *arg0);
 s32 init_shoot_model__10TObjPlayerFPv(int, void *, void *, void *, f32);
 s32 __nw__7TObjectFUl(int);
@@ -116,7 +116,7 @@ void TObjPlayer__sub_801303D8(u8 *arg0) {
       if (!arg0)
       {
       }
-      update_technique_slot__10TTecRaFoieFi((int) TBoss3Volopt__sub_8022675C((int) 0x4001AA05, (int) ((*((u32 *) (((s8 *) arg0) + 0xF0))) + 0x38), (int) 0, (int) 0), (int) 0x300, (int) 0);
+      update_technique_slot__10TTecRaFoieFi((int) play_sound_effect((int) 0x4001AA05, (int) ((*((u32 *) (((s8 *) arg0) + 0xF0))) + 0x38), (int) 0, (int) 0), (int) 0x300, (int) 0);
       PSO_VCALL_VObj_18_382324_m49(arg0, arg0 + 0x208, 0, 0, 1);
     }
   }

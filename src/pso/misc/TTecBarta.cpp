@@ -123,7 +123,7 @@ void TTecBarta__vt6(Obj_8022B8F4 *self, VObj_8022B8F4 *target);
 u16 obj_getField1c(void *);
 void update_technique_by_state__9TTecBartaFPv(u8 *arg0);
 void TTecBarta__sub_8022B6FC(u8 *arg0);
-void TObjPlayer__sub_8023A7B4();
+void construct_aimed_technique_projectile();
 extern TechniqueContactVtable __vt__9TTecBarta;
 extern s32 lbl_805D3798;
 TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _w2, void * _w3, void * _w4);
@@ -168,7 +168,7 @@ s32 get_type__10TObjPlayerFPv(void *);
 s32 is_valid_and_active__10TObjPlayerFUi(u32);
 List_8022BD74 *TObjPlayer__sub_80236728(Tec_8022BD74 *, void *);
 List_8022BD74 *TObjPlayer__sub_80236754(Tec_8022BD74 *, void *);
-void TObjPlayer__sub_8022BD74(Tec_8022BD74 *self);
+void apply_technique_to_area_targets(Tec_8022BD74 *self);
 }
 
 extern "C" {
@@ -178,7 +178,7 @@ void create__9TTecBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3)
 void create_ex__9TTecBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void render__9TTecBartaFv(void);
 void update_technique_by_state__9TTecBartaFPv(u8 *arg0);
-s32 TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 void *__nw__7TObjectFUl(int);
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
 
@@ -189,29 +189,29 @@ void update_technique_by_state__9TTecBartaFPv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s16 *, 0xC6);
     switch (temp_r0) {
     case 0:
-        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A604, (int) (arg0 + 0x20), 0, 0);
+        temp_r3 = play_sound_effect(0x4002A604, (int) (arg0 + 0x20), 0, 0);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, 0x100, 0);
         }
         return;
     case 1:
-        TBoss3Volopt__sub_8022675C(0x4002A604, (int) (arg0 + 0x20), 0, 0);
+        play_sound_effect(0x4002A604, (int) (arg0 + 0x20), 0, 0);
         return;
     case 2:
     case 3:
-        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A604, (int) (arg0 + 0x20), 0, 0);
+        temp_r3 = play_sound_effect(0x4002A604, (int) (arg0 + 0x20), 0, 0);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x180, 0);
         }
         break;
     case 4:
-        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A604, (int) (arg0 + 0x20), 0, 0);
+        temp_r3 = play_sound_effect(0x4002A604, (int) (arg0 + 0x20), 0, 0);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x250, 0);
         }
         break;
     case 5:
-        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A604, (int) (arg0 + 0x20), 0, 0);
+        temp_r3 = play_sound_effect(0x4002A604, (int) (arg0 + 0x20), 0, 0);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x100, 0);
         }
@@ -369,7 +369,7 @@ void render__9TTecBartaFv(void) {  }
 
 TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _w2, void * _w3, void * _w4) {
     s32 i;
-    TObjPlayer__sub_8023A7B4();
+    construct_aimed_technique_projectile();
     self->vtable = ((void * *)&__vt__9TTecBarta);
     self->f0 = lbl_805D3798;
     TTecBarta__sub_8022B6FC((u8 *)self);
@@ -408,7 +408,7 @@ u8 *TTecBarta__sub_8022BCB8(u8 *arg0, void * _w1, void * _w2, void * _w3, void *
 
 void TObjPlayer__sub_8022BD70(void) {  }
 struct TechniqueParticleEmitter;
-void TObjPlayer__sub_8022BD74(Tec_8022BD74 *self) {
+void apply_technique_to_area_targets(Tec_8022BD74 *self) {
     List_8022BD74 *list;
     s32 i;
     u32 id;

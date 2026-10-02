@@ -11,8 +11,8 @@ void TWindowSubSymbolChat__sub_802483F0(void *, f32 *);
 extern const f32 lbl_805DCCF8;
 extern const f32 TWindowFukidasi__data_805DCCF4;
 extern const f32 TWindowFukidasi__data_805DCCFC;
-void TWindowFukidasi__sub_80250380(Fuki_80250380 *b, f32 *out);
-void TWindowFukidasi__sub_80250380(Fuki_80250380 *b, f32 *out);
+void calc_text_size__15TWindowFukidasiFPvPv(Fuki_80250380 *b, f32 *out);
+void calc_text_size__15TWindowFukidasiFPvPv(Fuki_80250380 *b, f32 *out);
 void TWindowFukidasi__sub_80250314(Fuki_80250314 *b, f32 *out);
 }
 
@@ -20,7 +20,7 @@ extern "C" {
 
 void TWindowFukidasi__sub_80250314(Fuki_80250314 *b, f32 *out) {
     f32 size[2];
-    TWindowFukidasi__sub_80250380((Fuki_80250380 *)(b), (f32 *)(size));
+    calc_text_size__15TWindowFukidasiFPvPv((Fuki_80250380 *)(b), (f32 *)(size));
     if (b->anchor[0] > size[0]) {
         out[0] = size[0];
     } else {
@@ -33,7 +33,7 @@ void TWindowFukidasi__sub_80250314(Fuki_80250314 *b, f32 *out) {
     }
 }
 
-void TWindowFukidasi__sub_80250380(Fuki_80250380 *b, f32 *out) {
+void calc_text_size__15TWindowFukidasiFPvPv(Fuki_80250380 *b, f32 *out) {
     Entry_80250380 *e;
     switch (b->kind) {
     case 0:

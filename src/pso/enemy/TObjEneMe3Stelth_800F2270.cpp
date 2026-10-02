@@ -108,7 +108,7 @@ M2C_UNK TObjEneDD__sub_800BACA4(void *, f32, f32, f32);
 M2C_UNK clear_attack_receipts(void *);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK advance_animation_playback(void *, s32);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805DA858;
 void TObjEneMe3Stelth__sub_800F290C(u8 *arg0, s32 arg1);
 }
@@ -123,7 +123,7 @@ void TObjEneMe3Stelth__sub_800F290C(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 4;
         advance_animation_playback(arg0, arg1);
         set_active__9TObjEneDDFPv(arg0);
-        TBoss3Volopt__sub_8022675C(0x3A839, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x3A839, arg0 + 0x38, 0, 0);
         break;
     case 3:
         if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(arg0) != 0) {

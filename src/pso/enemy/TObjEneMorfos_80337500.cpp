@@ -52,7 +52,7 @@ extern const f32 lbl_805DF988;
 void TObjEneMorfos__sub_80337500(O_80337500 *arg0, V_80337500 *arg1, V_80337500 *arg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 s16 obj_getField1c(void *);
-s32 TObjParticle__sub_800870BC(void *, void *, s32, s32);
+s32 spawn_particle_effect_with_rotation(void *, void *, s32, s32);
 void TObjPlayer__sub_801569F4(void *, s32);
 s32 TObjEneMorfos__sub_803375F0(M2C_UNK arg0, s32 arg1);
 f32 TBoss8Dragon__sub_803D64C0(s32);
@@ -175,7 +175,7 @@ O_80337824 *TObjEneMorfos__sub_80337824(O_80337824 *arg0, Vec_80337824 *arg1, s3
     arg0->vel.x = lbl_805D6D30 * TBoss8Dragon__sub_803D64C0(arg2);
     arg0->vel.y = lbl_805DF994;
     arg0->vel.z = lbl_805D6D30 * TBoss8Dragon__sub_803D64DC(arg2);
-    arg0->fE0 = TObjParticle__sub_800870BC(arg1, &a, 0x213, 2);
+    arg0->fE0 = spawn_particle_effect_with_rotation(arg1, &a, 0x213, 2);
     VecCopy__FP3VecPC3Vec((void *)(&arg0->pos2), (int)(&arg0->pos));
     TObjEneMorfos__sub_803375F0((M2C_UNK)(arg0), (s32)(&arg0->pos2));
     arg0->fF4 = 0;

@@ -19,12 +19,12 @@ extern const f32 lbl_805DC7BC;
 extern const f32 lbl_805DC7C0;
 extern const f32 lbl_805DC7C4;
 extern const f32 lbl_805DC7C8;
-u8 *fn_8022C2A8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 }
 
 extern "C" {
 
-u8 *fn_8022C2A8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u32 var_r0;
     __ct__7TEffectFv(arg0);
     M2C_FIELD(arg0, void ***, 0x18) = lbl_804CC148;

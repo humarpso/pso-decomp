@@ -8,7 +8,7 @@ extern "C" {
 s32 is_visible__17TWindowSubComCardFPv(s32);
 s32 TWindowSubComCard__sub_802A57FC(void *arg0);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
-u8 * TShopJudgmentItemWindow__sub_80266388(M2C_UNK, s32, void *, u32);
+u8 * create_yes_no_window(M2C_UNK, s32, void *, u32);
 s32 TCheckRoomSequence__sub_802664A8(s32, s32, s32);
 u8 * fn_8026652C(M2C_UNK, M2C_UNK, s32, s32);
 int set_flag_40__16TAdChrSelASlotGCFPv(void*);
@@ -87,7 +87,7 @@ void TWindowSubShortMail__sub_802A58AC(u8 *arg0, u32 arg1, s32 arg2, s32 arg3, f
     set_status_flag_80__12TQuestThreadFPv((s32)((int) (M2C_FIELD(arg0, s32 *, 0x28))));
     TWindowSubComCard__sub_80265CFC((s32)((int) (M2C_FIELD(arg0, s32 *, 0x28))), (f32) (farg0));
     get_position_offset__14TChCrTagPlBackFPvPv((void *) (arg0), (void *) (&sp8));
-    M2C_FIELD(arg0, u8 **, 0x2C) = TShopJudgmentItemWindow__sub_80266388((s32) &sp8, M2C_FIELD(arg0, s32 *, 0x24), M2C_FIELD(arg0, u8 **, 0x20), M2C_FIELD(arg0, u32 *, 0x1C));
+    M2C_FIELD(arg0, u8 **, 0x2C) = create_yes_no_window((s32) &sp8, M2C_FIELD(arg0, s32 *, 0x24), M2C_FIELD(arg0, u8 **, 0x20), M2C_FIELD(arg0, u32 *, 0x1C));
 }
 
 }

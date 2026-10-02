@@ -2,12 +2,12 @@
 extern "C" {
 extern u8 lbl_805127F8[4][128];
 extern s32 lbl_805D5550;
-void fn_801F4790(s32 flag);
+void set_story_flag(s32 flag);
 }
 
 extern "C" {
 
-void fn_801F4790(s32 flag) {
+void set_story_flag(s32 flag) {
     s32 v;
     s32 bit;
     s32 byteIdx;

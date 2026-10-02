@@ -28,7 +28,7 @@ extern RecoveredGlobal_802D298C_TLobby__data_80540BD0 TLobby__data_80540BD0;
 u8 *TLobby__sub_802D299C(void);
 extern RecoveredGlobal_802D298C_TLobby__data_80540BD0 TLobby__data_80540BD0;
 M2C_UNK *TLobby__sub_802D29AC(void);
-M2C_UNK TObjPlayer__sub_80011138(s32, s32);
+M2C_UNK try_spend_actor_meseta(s32, s32);
 M2C_UNK TObjPlayer__sub_801B8DE8(s32, s32, s32);
 s32 get_player_by_client_id(s32);
 s32 check_player_action_allowed();
@@ -133,7 +133,7 @@ void TLobby__sub_802D2A70(void) {
                     id = p->id;
                     if (count > 0) {
                         if (id == 0xFFFFFF01) {
-                            TObjPlayer__sub_80011138(player, count);
+                            try_spend_actor_meseta(player, count);
                         } else {
                             if ((allowed != 0) && (fn_801D4270(id) != 0)) {
                                 fn_801D41B4(id);

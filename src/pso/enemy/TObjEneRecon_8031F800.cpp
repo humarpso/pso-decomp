@@ -32,7 +32,7 @@ extern "C" {
 extern const f32 lbl_805DF44C;
 void TObjEneRecon__sub_8031F800(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(Vec_8031F8C4 *, Vec_8031F8C4 *);
-void TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+void play_sound_effect(s32, void *, s32, s32);
 u32 create__12TObjEneReconFPvPvPvPvPv(void *, u16, s32, Vec_8031F8C4 *, Vec_8031F8C4 *);
 s32 TObjEneRecon__sub_8031EDF8(void *);
 s32 TObjEneRecobox__sub_8032013C(s32, s32, s32);
@@ -114,7 +114,7 @@ void TObjEneRecon__sub_8031F8C4(Recon_8031F8C4 *o) {
     if (create__12TObjEneReconFPvPvPvPvPv(o, id, arg, &pos, &dir) != 0) {
         n = o->f410++;
         o->ids[n] = id;
-        TBoss3Volopt__sub_8022675C(TObjEneRecobox__sub_8032013C(0x4003A80F, o->f414++, n), o->pos38, 0, 0);
+        play_sound_effect(TObjEneRecobox__sub_8032013C(0x4003A80F, o->f414++, n), o->pos38, 0, 0);
     }
 }
 

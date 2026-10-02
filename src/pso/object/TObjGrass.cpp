@@ -79,7 +79,7 @@ M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
-s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+s32 play_sound_effect(void *, void *, int, int);
 extern const f32 TObjGrass__data_805D9EB8;
 extern u32 TObjGrass__data_805D5154;
 void TObjGrass__sub_800BFB8C(O_800BFB8C *self, s32 i);
@@ -230,7 +230,7 @@ M2C_UNK TObjGrass__sub_800BCE44(u8 *arg0) {
   update_collisions__10TObjPlayerFPv((void *) arg0);
   if (objInBand__FP7GameObjf((void *) arg0, (f32) TObjGrass__data_805D9EB8) != 0)
   {
-    TBoss3Volopt__sub_8022675C((void *) ((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) arg0), (M2C_UNK)((int) 0x4003A603))), (void *) (arg0 + 0x38), (int) 0, (int) 0);
+    play_sound_effect((void *) ((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) arg0), (M2C_UNK)((int) 0x4003A603))), (void *) (arg0 + 0x38), (int) 0, (int) 0);
     play_effect_if_v2__10TObjPlayerFi((M2C_UNK)((int) (-0x200)));
   }
   if (((u32) (*((u32 *) (((s8 *) arg0) + 0xB4)))) != 8U)

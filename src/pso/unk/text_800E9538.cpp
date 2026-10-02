@@ -10,7 +10,7 @@ void set_display_mode__15TObjEneSlimeOneFPvi(void *, s32);
 void fn_800EB778(void *, s32);
 void TObjEneSlimeOne__sub_800EC7F4(void *, s32);
 void refresh_lobby_state__10TObjPlayerFPv(void *);
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+s32 play_sound_effect(s32, u32, s16, s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 extern const f32 lbl_805DA67C;
 void fn_800E95F4(u8 *arg0);
@@ -69,7 +69,7 @@ void fn_800E95F4(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) lbl_805DA67C;
     M2C_FIELD(arg0, s32 *, 0x390) = 5;
     refresh_lobby_state__10TObjPlayerFPv(arg0);
-    TBoss3Volopt__sub_8022675C(0x4003A81B, (u32) (arg0 + 0x38), 0, 0);
+    play_sound_effect(0x4003A81B, (u32) (arg0 + 0x38), 0, 0);
     spawn_particle_effect((s32) (arg0 + 0x2FC), 0xFE);
     TObjEneSlimeOne__sub_800EC7F4(M2C_FIELD(arg0, u8 **, 0x388), 5);
     set_display_mode__15TObjEneSlimeOneFPvi(arg0, 0);

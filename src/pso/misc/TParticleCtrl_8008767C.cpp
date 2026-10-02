@@ -110,7 +110,7 @@ extern int lbl_805D4EF8;
 s32 get_particle_by_index__13TParticleCtrlFi(s32 arg0);
 void *alloc_particle_memory(int);
 u8 * TParticleCtrl__sub_800896E4(void *, void *, void *, void *, s32, u16, s16);
-u8 *TParticleCtrl__sub_8008877C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
+u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 void *alloc_particle_memory(int);
 void *TParticleCtrl__sub_80089B50(void *, void *, void *, void *);
 void * TParticleCtrl__sub_800887EC(void *arg0, void *arg1, void *arg2);
@@ -138,7 +138,7 @@ void free_from_heap__13TParticleCtrlFPv(void *);
 extern M2C_UNK TParticleCtrl__data_8048E790[];
 void *TParticleCtrl__sub_8008ABCC(void *arg0, s16 arg1);
 void *alloc_particle_memory(int);
-u8 *TParticleCtrl__sub_8008B478(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4);
+u8 *create_radial_particle(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4);
 void *alloc_particle_memory(int);
 void * TParticleCtrl__sub_8008B4E0(void *arg0, void *arg1, void *arg2);
 int queue_destruction__7TObjectFv(void *);
@@ -175,7 +175,7 @@ extern const f32 TParticleCtrl__data_805D9558;
 extern const f32 TParticleCtrl__data_805D955C;
 extern const f32 lbl_805D9568;
 extern const f32 lbl_805D956C;
-u8 *TParticleCtrl__sub_8008BF58(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
+u8 *construct_radial_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 void *TLobby__sub_80020004(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 TLobby__sub_800F9DF4(s32, s32);
@@ -223,7 +223,7 @@ extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 TParticleCtrl__data_805D9528;
 extern const f32 lbl_805D9540;
-void TParticleCtrl__sub_8008A92C(u8 *arg0);
+void draw_orbit_particle_sprite(u8 *arg0);
 }
 
 extern "C" {
@@ -551,7 +551,7 @@ void TParticleCtrl__sub_8008869C(void) {
     TParticleCtrl__data_805D4F04 = TLanguage__sub_801E4874(lbl_804394D4);
 }
 
-u8 *TParticleCtrl__sub_8008877C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5) {
+u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5) {
     u8 *temp_r3;
     u8 *var_r0;
     temp_r3 = (u8 *)(((u8 *)alloc_particle_memory((int)(0xD0))));
@@ -620,7 +620,7 @@ void TParticleCtrl__sub_8008A04C(u8 *arg0) {
     }
 }
 
-void TParticleCtrl__sub_8008A92C(u8 *arg0) {
+void draw_orbit_particle_sprite(u8 *arg0) {
     Vec_8008A92C sp8;
     f32 temp_f1;
     f32 temp_f1_2;
@@ -706,13 +706,13 @@ void *TParticleCtrl__sub_8008ABCC(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TParticleCtrl__sub_8008B478(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4) {
+u8 *create_radial_particle(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4) {
     u8 *temp_r3;
     u8 *var_r0;
     temp_r3 = (u8 *)(((u8 *)alloc_particle_memory((int)(0xC4))));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TParticleCtrl__sub_8008BF58((u8 *)(temp_r3), (u8 *)(arg0), (u8 *)(arg1), (s32)(arg2), arg3, arg4));
+        var_r0 = (u8 *)(construct_radial_particle((u8 *)(temp_r3), (u8 *)(arg0), (u8 *)(arg1), (s32)(arg2), arg3, arg4));
     }
     return var_r0;
 }
@@ -749,7 +749,7 @@ typedef char RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70_size[sizeof(R
 #pragma fp_contract on
 typedef char RecoveredGlobal_8008BF58_TParticleCtrl__data_8048E7A8_size[sizeof(RecoveredGlobal_8008BF58_TParticleCtrl__data_8048E7A8) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8008BF58_TParticleCtrl__data_80511F70_size[sizeof(RecoveredGlobal_8008BF58_TParticleCtrl__data_80511F70) == 0x1B0 ? 1 : -1];
-u8 *TParticleCtrl__sub_8008BF58(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5) {
+u8 *construct_radial_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5) {
     struct Fields_arg0 { u8 pad_0[24]; M2C_UNK * field_18; u16 field_1C; u8 pad_1E[6]; u16 field_24; s16 field_26; f32 field_28; f32 field_2C; f32 field_30; f32 field_34; f32 field_38; f32 field_3C; f32 field_40; f32 field_44; u8 pad_48[20]; f32 field_5C; u8 pad_60[8]; f32 field_68; u8 pad_6C[4]; f32 field_70; f32 field_74; f32 field_78; u8 pad_7C[25]; s8 field_95; };
     struct Fields_arg1 { u8 pad_0[24]; f32 field_18; f32 field_1C; f32 field_20; f32 field_24; f32 field_28; u8 pad_2C[4]; f32 field_30; u8 pad_34[4]; f32 field_38; u8 pad_3C[12]; s32 field_48; s32 field_4C; u8 pad_50[56]; u8 field_88; };
     struct Fields_arg2 { f32 field_0; f32 field_4; f32 field_8; };

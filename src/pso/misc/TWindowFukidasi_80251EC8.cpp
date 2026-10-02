@@ -27,7 +27,7 @@ struct View_80252764 {
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void TWindowFukidasi__sub_80250314(void *, void *);
-void TWindowFukidasi__sub_80250380(void *, void *);
+void calc_text_size__15TWindowFukidasiFPvPv(void *, void *);
 void sync_display_pos__15TWindowFukidasiFPv(void *);
 s32 approach__15TWindowFukidasiFPvf(void *, f32);
 void TWindowFukidasi__sub_80251790(void *);
@@ -36,7 +36,7 @@ void clear_flag2c_bit100__15TWindowFukidasiFPv(void *);
 void TWindowFukidasi__sub_80252C38(void *);
 int is_active__15TWindowFukidasiFPv(void *);
 void clear_flag__15TWindowFukidasiFPv(void *);
-void TWindowSubStatusDisp__sub_80257C28(void *, void *);
+void update_window_entry_list(void *, void *);
 extern const f32 TWindowFukidasi__data_805DCCE8;
 extern const f32 TWindowFukidasi__data_805DCCF4;
 extern const f32 TWindowFukidasi__data_805DCD0C;
@@ -61,14 +61,14 @@ extern const f32 lbl_805DCD90;
 extern const f32 lbl_805DCDB8;
 extern const f32 lbl_805DCDBC;
 extern const f32 lbl_805DCDC0;
-void TWindowFukidasi__sub_80252764(Fuki_80252764 *b);
+void render__15TWindowFukidasiFPv(Fuki_80252764 *b);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void TWindowFukidasi__sub_80252764(Fuki_80252764 *b) {
+void render__15TWindowFukidasiFPv(Fuki_80252764 *b) {
     f32 off[2];
     View_80252764 *v;
     switch (b->phase) {
@@ -119,7 +119,7 @@ void TWindowFukidasi__sub_8025291C(u8 *arg0) {
   switch (temp_r0)
   {
     case 1:
-      TWindowFukidasi__sub_80250380(arg0, ((u8 *) arg0) + 0x38);
+      calc_text_size__15TWindowFukidasiFPvPv(arg0, ((u8 *) arg0) + 0x38);
       *((s32 *) (((s8 *) arg0) + 0x50)) = 6;
       clear_flag__15TWindowFukidasiFPv(arg0);
       set_flag2c_bit100__15TWindowFukidasiFPv(arg0);
@@ -180,7 +180,7 @@ void TWindowFukidasi__sub_8025291C(u8 *arg0) {
   TWindowFukidasi__sub_80251790(arg0);
   if (is_active__15TWindowFukidasiFPv(arg0) != 0)
   {
-    TWindowSubStatusDisp__sub_80257C28(arg0, ((u8 *) arg0) + 0x24);
+    update_window_entry_list(arg0, ((u8 *) arg0) + 0x24);
   }
 }
 

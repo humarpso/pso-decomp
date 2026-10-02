@@ -47,7 +47,7 @@ void play_sound_once__19TObjBoss5PillarCtrlFPv(void *arg0);
 void render__19TObjBoss5PillarCtrlFv(void);
 void run_task__19TObjBoss5PillarCtrlFv(void);
 int update_pillar__19TObjBoss5PillarCtrlFPv(void* p);
-s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+s32 play_sound_effect(s32, s32, s32, s32);
 int TObjBoss5Pillar__sub_8028B70C(void*);
 int TObjBoss5Pillar__sub_8028B710(void*);
 
@@ -111,7 +111,7 @@ int update_pillar__19TObjBoss5PillarCtrlFPv(void* p) { return TObjBoss5Pillar__s
 int forward_pillar_2B710__19TObjBoss5PillarCtrlFPv(void* p) { return TObjBoss5Pillar__sub_8028B710(p); }
 void play_sound_once__19TObjBoss5PillarCtrlFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) == 0) {
-        TBoss3Volopt__sub_8022675C(0x4003A819, 0, 0, 0);
+        play_sound_effect(0x4003A819, 0, 0, 0);
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;
     }
 }

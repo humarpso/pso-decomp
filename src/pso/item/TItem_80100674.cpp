@@ -183,7 +183,7 @@ void set_facing__10TObjPlayerFPvs(void *, s16);
 void refresh_owner_stats__5TItemFPv(u8 *arg0);
 int is_locally_controlled__10TObjPlayerFPv(void *);
 s32 get_field_d8__10TObjPlayerFPv(void *);
-u8 *TLobby__sub_80101AB0(s32);
+u8 *find_item_by_id(s32);
 void dispatch_action__10TObjPlayerFPvii(void *, s32, s32);
 void TObjPlayer__sub_801B9634(u32);
 s32 get_player_by_client_id(void *);
@@ -295,7 +295,7 @@ s32 consume_item_by_id(s32 arg0) {
   s32 temp_r31;
   s32 temp_r3_2;
   u8 *temp_r3;
-  temp_r3 = (u8 *) TLobby__sub_80101AB0(arg0);
+  temp_r3 = (u8 *) find_item_by_id(arg0);
   if (temp_r3 == 0)
   {
     return 0;
@@ -312,7 +312,7 @@ s32 consume_item_by_id(s32 arg0) {
   {
     TObjPlayer__sub_801B9634((u32) temp_r3_2);
   }
-  if ((TLobby__sub_80101AB0(temp_r30) != 0) && (temp_r31 < 2))
+  if ((find_item_by_id(temp_r30) != 0) && (temp_r31 < 2))
   {
     return 0;
   }

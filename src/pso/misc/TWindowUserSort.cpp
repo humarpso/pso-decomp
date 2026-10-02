@@ -58,7 +58,7 @@ void TWindowMainMenu1P__vt7(void* p);
 void *__dt__15TWindowUserSortFv(void *arg0, s16 arg1);
 void run_task__15TWindowUserSortFv(void* p);
 M2C_UNK TCameraCtrl__sub_800695A0(void *);
-int TWindowSubStatusDisp__sub_80257C28(void*, void*);
+int update_window_entry_list(void*, void*);
 void __dl__7TObjectFPv(void *);
 int close_active_submenu__15TWindowMainMenuFPv(void*);
 M2C_UNK close_and_clear_flags__15TWindowMainMenuFPv();
@@ -74,7 +74,7 @@ void render__15TWindowUserSortFv(s32 arg0) {
     TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 
-void run_task__15TWindowUserSortFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); TWindowSubStatusDisp__sub_80257C28(p, (char*)p + 0x24); }
+void run_task__15TWindowUserSortFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); update_window_entry_list(p, (char*)p + 0x24); }
 
 extern M2C_UNK __vt__15TWindowUserSort[];
 

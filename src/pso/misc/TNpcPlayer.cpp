@@ -66,13 +66,13 @@ extern f32 TNpcPlayer__data_805DB218;
 extern const f32 lbl_805DB224;
 extern const f32 lbl_805DB228;
 extern f32 TNpcPlayer__data_805DB22C;
-s32 TNpcPlayer__sub_8014FAB0(u8 *arg0);
+s32 partner_view_update_conditions(u8 *arg0);
 s16 obj_getS16_32C(void *);
 s16 get_field_2b8__14TItemProShieldFPv(void *);
 extern f32 TNpcPlayer__data_805DB218;
 extern const f32 lbl_805DB21C;
 extern const f32 lbl_805DB220;
-s32 TNpcPlayer__sub_8014F950(void *arg0);
+s32 partner_view_update_hp_change(void *arg0);
 s32 find_entity_by_id(u16);
 void TObjEneGibbles__sub_80156780(void *, void *, s32);
 void *TObjPlayer__sub_801569F4(void *, void *);
@@ -163,7 +163,7 @@ Npc_8014F844 *TNpcPlayer__sub_8014F844(Npc_8014F844 *self, s32 id) {
     return self;
 }
 
-s32 TNpcPlayer__sub_8014F950(void *arg0) {
+s32 partner_view_update_hp_change(void *arg0) {
     s16 temp_r0;
     s16 temp_r31;
     s16 temp_r3;
@@ -191,7 +191,7 @@ s32 TNpcPlayer__sub_8014F950(void *arg0) {
     return temp_r0 ? 1 : 0;
 }
 
-s32 TNpcPlayer__sub_8014FAB0(u8 *arg0) {
+s32 partner_view_update_conditions(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f2;
     f32 temp_f31;

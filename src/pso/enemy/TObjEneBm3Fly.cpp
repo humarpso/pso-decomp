@@ -139,7 +139,7 @@ f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 extern const f32 TObjEneBm3Fly__data_805D9C94;
 extern const f32 lbl_805D9CD8;
 void TObjEneBm3Fly__sub_800B1634(u8 *arg0);
-s32 TObjEneBm3FlyNest__sub_800B2AF4(void *, u16);
+s32 has_free_attack_slot__17TObjEneBm3FlyNestFPvUs(void *, u16);
 M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
 s32 TObjEneDD__sub_800BB484(void *, Cand_800B1684 *, f32);
 M2C_UNK transition_enemy_state(void *, int);
@@ -188,14 +188,14 @@ void TObjEneBm3Fly__sub_800B1684(Fly_800B1684 *s) {
         transition_enemy_state(s, 4);
         s->f454 = 0;
     }
-    if (TObjEneBm3FlyNest__sub_800B2AF4(nest, s->f38C) != 0) {
+    if (has_free_attack_slot__17TObjEneBm3FlyNestFPvUs(nest, s->f38C) != 0) {
         transition_enemy_state(s, 3);
         return;
     }
     count = TObjEneDD__sub_800BB484(s, players, lbl_805D9CDC);
     for (i = 0; i < count; i++) {
         id = players[i].id;
-        if (id != s->f38C && TObjEneBm3FlyNest__sub_800B2AF4(nest, id) != 0) {
+        if (id != s->f38C && has_free_attack_slot__17TObjEneBm3FlyNestFPvUs(nest, id) != 0) {
             TBoss8Dragon__sub_800B9958(s, id);
             transition_enemy_state(s, 3);
             return;

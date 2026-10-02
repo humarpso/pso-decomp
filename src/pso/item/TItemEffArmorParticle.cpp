@@ -14,7 +14,7 @@ s32 obj_testFlags30(int, int);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 s32 clear_active_flag__13TParticleCtrlFPv(int);
 s32 enable__13TParticleCtrlFPv(int);
-u32 TLobby__sub_80101AB0(int);
+u32 find_item_by_id(int);
 s32 get_item_ctrl__10TObjPlayerFv();
 s8 TObjPlayer__sub_80102C30();
 s32 get_flag_40__8TItemMagFPv(int);
@@ -32,7 +32,7 @@ void TItemEffArmorParticle::run_task() {
     active = 0;
     if ((u32)m_20 != 0U) {
         player = (u32)get_player_by_client_id(m_player_id);
-        item = TLobby__sub_80101AB0(m_item_id);
+        item = find_item_by_id(m_item_id);
         if (player != 0U) {
             if (item != 0U) {
                 if (TObjPlayer__sub_80102C30() == 2) {

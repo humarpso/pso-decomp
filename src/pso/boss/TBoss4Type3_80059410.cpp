@@ -83,7 +83,7 @@ struct O_80059618 {
 };
 
 extern "C" {
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 extern const f32 TBoss4Type3__data_805D8C34;
 extern const f32 TBoss4Type3__data_805D8C40;
 extern const f32 lbl_805D8C90;
@@ -106,7 +106,7 @@ void request_destroy__11TBoss4Type2FUi(void *p);
 void TBoss4Type3__sub_8005A2A4(Obj_8005A2A4 *self);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 void calc_grid_index__11TBoss4Type3FPv(void *arg0);
-s32 TObjPlayer__sub_801423A4(s32, s32, s32);
+s32 approach_angle_limited(s32, s32, s32);
 Ply_80059ABC *get_player_by_client_id(u16);
 extern const f64 lbl_80437890[];
 extern const f32 lbl_805D8C7C;
@@ -151,7 +151,7 @@ void calc_grid_index__11TBoss4Type3FPv(void *arg0);
 s32 get_random_scaled__11TBoss4Type3Fv(void);
 void spawn_random_effect__11TBoss4Type3Fi(s32 arg0);
 void update_target_effect_timer__11TBoss4Type3FPv(void *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 int TBoss4Type3__sub_800599F4(void*, void*, void*);
 f32 calc_boss4_scale__10TObjPlayerFi();
 s32 is_split_screen();
@@ -232,7 +232,7 @@ void update_target_effect_timer__11TBoss4Type3FPv(void *arg0) {
         spawn_effect__11TBoss4Type3Fsss(0x60, 0xF, (s16) M2C_FIELD(arg0, u16 *, 0x3BA));
     }
     if (temp_r30 == (s32) lbl_805D4D80) {
-        TBoss3Volopt__sub_8022675C(0x4003C133, 0, 0, 0);
+        play_sound_effect(0x4003C133, 0, 0, 0);
     }
     M2C_FIELD(arg0, s32 *, 0x3D8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3D8) + 1);
 }
@@ -285,7 +285,7 @@ void TBoss4Type3__sub_80059ABC(Obj_80059ABC *self, s32 arg1) {
     if ((u16)arg1 != 0xFFFF) {
         p = get_player_by_client_id((u16)arg1);
         if (p != NULL) {
-            self->f60 = TObjPlayer__sub_801423A4(self->f60, (s32)(lbl_80437890[0] * get_ad_end_text_start__10TObjPlayerFv(p->f38 - lbl_805D8C7C, p->f40)), 0x888);
+            self->f60 = approach_angle_limited(self->f60, (s32)(lbl_80437890[0] * get_ad_end_text_start__10TObjPlayerFv(p->f38 - lbl_805D8C7C, p->f40)), 0x888);
             calc_grid_index__11TBoss4Type3FPv(self);
         }
     }
@@ -375,7 +375,7 @@ void TBoss4Type3__sub_80059FC4(u8 *arg0) {
             var_r3 = 0x4003B02F;
             var_r5 = 0;
             var_r6 = 1;
-            TBoss3Volopt__sub_8022675C((M2C_UNK)((int) (0x4003B02F)), (M2C_UNK)((int) (var_r4)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (1)));
+            play_sound_effect((M2C_UNK)((int) (0x4003B02F)), (M2C_UNK)((int) (var_r4)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (1)));
         }
         if ((temp_f31 > TBoss4Type3__data_805D8C40) && (TBoss4Type3__data_805D8C40 == M2C_FIELD(var_r31, f32 *, 0x3B0))) {
             var_r3 = 0x40040000;
@@ -383,7 +383,7 @@ void TBoss4Type3__sub_80059FC4(u8 *arg0) {
             var_r3 = 0x4003AD30;
             var_r5 = 0;
             var_r6 = 1;
-            TBoss3Volopt__sub_8022675C((M2C_UNK)((int) (0x4003AD30)), (M2C_UNK)((int) (var_r4)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (1)));
+            play_sound_effect((M2C_UNK)((int) (0x4003AD30)), (M2C_UNK)((int) (var_r4)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (1)));
         }
     }
 }

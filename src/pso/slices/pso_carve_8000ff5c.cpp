@@ -13,7 +13,7 @@ s32 TObjPlayer__sub_8000FF5C(s32 arg0);
 extern "C" {
 
 s32 set_owner_id__13TParticleCtrlFPvUs(s32, s32);
-s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+s32 play_sound_effect(s32, s32, s32, s32);
 s32 trigger_switch_attack__10TObjPlayerFPvi(s32, s32);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
 s32 is_locally_controlled__10TObjPlayerFPv(s32);

@@ -28,7 +28,7 @@ extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 void reset_photon_effect__10TObjPlayerFPv(s32);
-void TObjPlayer__sub_80154E3C(void *);
+void refresh_collision_body_centers(void *);
 u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
 u8 * TORockCaveBrakable__ct(void *);
 extern RecoveredGlobal_801739F8_lbl_804B3BA8 lbl_804B3BA8;
@@ -53,7 +53,7 @@ u8 *TORockCaveBL02__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(lbl_805D5A80, 0);
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) lbl_805DB970;
     TObjEneGibbles__sub_80156780(arg0, (s32) ((u8 *)&lbl_804B3BA8.value + 0x58), 1);
-    TObjPlayer__sub_80154E3C(arg0);
+    refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv((s32) arg0);
     M2C_FIELD(arg0, s32 *, 0xB8) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xB8);

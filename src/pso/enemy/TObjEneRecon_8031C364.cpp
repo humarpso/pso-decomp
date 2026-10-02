@@ -118,7 +118,7 @@ void noop__12TBoss8DragonFv(void *);
 void set_field_378__9TObjEneDDFPvi(void *, s32);
 void transition_enemy_state(void *, s32);
 void advance_animation_playback(void *);
-void TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+void play_sound_effect(s32, void *, s32, s32);
 void TObjEneRecon__sub_8031D994(void *, s32);
 void TObjEneRecon__sub_8031DD14(void *);
 void set_flag2__12TObjEneReconFPv(void *, f32, f32, f32);
@@ -144,7 +144,7 @@ void TObjEneRecon__sub_8031C624(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x444) |= 2;
         set_field_378__9TObjEneDDFPvi(arg0, M2C_FIELD(arg0, s16 *, 0x326));
         noop__12TBoss8DragonFv(arg0);
-        TBoss3Volopt__sub_8022675C(TObjEneRecobox__sub_8032013C(0x4003E425), arg0 + 0x38, 0, 0);
+        play_sound_effect(TObjEneRecobox__sub_8032013C(0x4003E425), arg0 + 0x38, 0, 0);
         M2C_FIELD(arg0, s32 *, 0x3C0) = 0;
         break;
     case 3:

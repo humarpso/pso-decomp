@@ -69,7 +69,7 @@ void copy_owner_data__8TItemMagFPv(void *);
 u8 * get_pmt_record__10TObjPlayerFi(int);
 M2C_UNK register_photon_blasts__8TItemMagFPv(void *);
 M2C_UNK TItemMag__sub_80113F64(void *, int);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
+M2C_UNK play_sound_effect(int, int, int, int);
 void apply_form_change__8TItemMagFPv(u8 *arg0);
 s32 check_class_equip_permission(void *, M2C_UNK);
 M2C_UNK try_add_action__8TItemMagFii(void *, M2C_UNK);
@@ -361,7 +361,7 @@ void apply_form_change__8TItemMagFPv(u8 *arg0) {
         register_photon_blasts__8TItemMagFPv((void *) (arg0));
     }
     if (get_flag_40__8TItemMagFPv(arg0) == 0) {
-        TBoss3Volopt__sub_8022675C((int) (0x4000B20A), (int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x38), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4000B20A), (int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x38), (int) (0), (int) (0));
     }
     copy_owner_data__8TItemMagFPv(arg0);
 }

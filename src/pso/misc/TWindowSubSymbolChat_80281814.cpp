@@ -72,7 +72,7 @@ f32 get_scale__15TWindowCtrlMainFv(s32);
 void set_global_param__8TObjFishFi(s32);
 void TWindowSubStatusDisp__sub_803DEE6C(s32);
 void get_player__20TWindowSubStatusDispFv(void);
-void TWindowSubComCard__sub_803DEECC(void *, f32);
+void draw_textured_quad_at_depth(void *, f32);
 void TWindowSubStatusDisp__sub_803DF160(s32, u32);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DD710;
@@ -168,7 +168,7 @@ void TWindowSubSymbolChat__sub_80281840(Win_80281840 *arg0) {
         q.v0 = lbl_805DD72C;
         q.u1 = lbl_805DD730;
         q.v1 = lbl_805DD734;
-        TWindowSubComCard__sub_803DEECC(&q, scale);
+        draw_textured_quad_at_depth(&q, scale);
         get_player__20TWindowSubStatusDispFv();
     }
 }

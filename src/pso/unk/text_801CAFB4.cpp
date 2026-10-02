@@ -1,7 +1,7 @@
 #include "types.h"
 extern "C" {
 s32 TObjPlayer__sub_801CAAD8(void *);
-s32 TObjPlayer__sub_801CAAF8(void *);
+s32 update_fall_reaction__10TObjPlayerFPv(void *);
 s32 start_action_0e__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CADA4(void *);
 s32 TObjPlayer__sub_801CAEAC();
@@ -38,7 +38,7 @@ void TObjPlayer__sub_801CAFB4(s32 arg0, s16 arg1) {
         start_action_0e__10TObjPlayerFPv(new_var);
         return;
       case 1:
-        TObjPlayer__sub_801CAAF8(new_var);
+        update_fall_reaction__10TObjPlayerFPv(new_var);
         return;
       case 6:
         TObjPlayer__sub_801CAAD8(new_var);

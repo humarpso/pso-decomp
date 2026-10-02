@@ -24,12 +24,12 @@ void notify_owner__5TItemFPvi(void *arg0, s32 arg1);
 void apply_switch_attack__5TItemFPvi(void *arg0, s32 arg1);
 void TItem__sub_801005D8(void);
 s32 PPCSync();
-s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+s32 play_sound_effect(s32, s32, s32, s32);
 s32 get_id__13TItemProArmorFPv(void *);
 void TItem__sub_801005DC(void);
 void TItem__sub_801005E0(void);
 int TItem__sub_801005E4(void);
-s32 TLobby__sub_80101AB0();
+s32 find_item_by_id();
 s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
 s32 set_owner_id__13TParticleCtrlFPvUs(s32, s32);
@@ -39,7 +39,7 @@ s32 test_flag_2000000__10TObjPlayerFPv(u32);
 
 void notify_owner__5TItemFPvi(void *arg0, s32 arg1) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (test_flag_2000000__10TObjPlayerFPv(M2C_FIELD(arg0, u32 *, 0xF0)) == 0)) {
-        TBoss3Volopt__sub_8022675C(arg1, M2C_FIELD(arg0, u32 *, 0xF0) + 0x38, 0, 0);
+        play_sound_effect(arg1, M2C_FIELD(arg0, u32 *, 0xF0) + 0x38, 0, 0);
     }
 }
 void apply_switch_attack__5TItemFPvi(void *arg0, s32 arg1) {
@@ -68,11 +68,11 @@ extern "C" {
 s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 s32 PPCSync();
 s32 test_flag_2000000__10TObjPlayerFPv(u32);
-s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+s32 play_sound_effect(s32, s32, s32, s32);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
 s32 set_owner_id__13TParticleCtrlFPvUs(s32, s32);
 s32 get_id__13TItemProArmorFPv(void *);
-s32 TLobby__sub_80101AB0();
+s32 find_item_by_id();
 s8 TObjPlayer__sub_80102C30();
 u16 TObjPlayer__sub_80100474(void* p);
 void TItem__sub_801005D8(void);

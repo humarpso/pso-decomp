@@ -54,7 +54,7 @@ void pop_matrix();
 extern u8 lbl_8058D490[];
 extern const f32 lbl_805DA3F8;
 extern const f32 lbl_805DA404;
-void TObjPlayer__sub_80154E3C(void *);
+void refresh_collision_body_centers(void *);
 
 void update_death_state__10TObjPlayerFPv(u8 *arg0);
 void trigger_hit_camera_shake__10TObjPlayerFPvUi(void *arg0, u32 arg1);
@@ -118,7 +118,7 @@ void TObjPlayer__sub_800DA1F4(Obj_800DA1F4 *arg0) {
     arg0->flags |= 0x01000000;
     ((void (*)(void *, int))update_if_active__15TObjEneMe1GiGueFPv)(arg0, 0xB);
     arg0->f378 = 1;
-    TObjPlayer__sub_80154E3C(arg0);
+    refresh_collision_body_centers(arg0);
 }
 void TObjPlayer__sub_800DA2A0(Ene_800DA2A0 *arg0) {
     switch (arg0->state) {

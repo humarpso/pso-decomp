@@ -466,7 +466,7 @@ M2C_UNK transition_enemy_state(void *, M2C_UNK);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback(void *);
-s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+s32 play_sound_effect(void *, void *, int, int);
 f32 TBoss8Dragon__sub_803D64C0(int);
 f32 TBoss8Dragon__sub_803D64DC(int);
 extern const f32 lbl_805D9CF8;
@@ -562,7 +562,7 @@ void TObjEneBm3FlyNest__sub_800B318C(u8 *arg0, s32 arg1) {
     case 0:
         ((s32)advance_animation_playback((void *)((void *) (arg0))));
         if ((objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D9D10)) != 0) || (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D9D34)) != 0)) {
-            TBoss3Volopt__sub_8022675C((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003B72A))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003B72A))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         }
         if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D9D38)) != 0) {
             spawn_particle_effect((void *) (arg0 + 0x38), (int) (0xF0));

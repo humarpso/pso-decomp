@@ -18,7 +18,7 @@ struct S_80054938 {
 };
 
 extern "C" {
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+s32 play_sound_effect(s32, u32, s16, s32);
 extern const f32 lbl_805D8B18;
 void fn_800548E4(u8 *arg0);
 void fn_8004AA04(void *);
@@ -37,7 +37,7 @@ void fn_800548E4(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFFDFF);
     M2C_FIELD(arg0, s32 *, 0x3D4) = 1;
     M2C_FIELD(arg0, f32 *, 0x3DC) = (f32) lbl_805D8B18;
-    TBoss3Volopt__sub_8022675C(0x4003A822, (u32) (arg0 + 0x38), 0, 1);
+    play_sound_effect(0x4003A822, (u32) (arg0 + 0x38), 0, 1);
 }
 S_80054938 *fn_80054938(S_80054938 *o, s16 flag) {
     s32 i;

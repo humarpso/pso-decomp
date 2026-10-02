@@ -21,7 +21,7 @@ extern "C" {
 void TObjPlayer__sub_800E9D7C(void* p);
 void begin_appear__15TObjEneSlimeOneFPv(void* p);
 void update_water_bomb_timer__15TObjEneSlimeOneFPv(u8 *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK spawn_particle_effect(void *, M2C_UNK);
 M2C_UNK TObjEneSlimeOne__sub_800EAE78(void *, M2C_UNK);
 int TObjEneSlimeOne__sub_800EC7F4(void*, void*);
@@ -39,7 +39,7 @@ void update_water_bomb_timer__15TObjEneSlimeOneFPv(u8 *arg0) {
     if (temp_r0 > 0) {
         spawn_particle_effect(arg0 + 0x2FC, 0xFF);
     } else if (temp_r0 == 0) {
-        TBoss3Volopt__sub_8022675C(0x4003A017, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x4003A017, arg0 + 0x38, 0, 0);
         spawn_particle_effect(arg0 + 0x2FC, 0xE2);
         create__21TObjEneSlimeWaterBombFPvPv(arg0, arg0);
     }

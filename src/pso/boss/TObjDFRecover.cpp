@@ -10,7 +10,7 @@ u32 create_particle_emitter(void *, int);
 s32 set_flags__11TBoss4Type2FPvUi(int, int);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 s32 get_player_by_client_id(u16);
-s32 TBoss3Volopt__sub_8022675C(int, int, int, int);
+s32 play_sound_effect(int, int, int, int);
 s32 spawn_effect__11TBoss4Type3Fsss(int, int, int);
 }
 
@@ -61,7 +61,7 @@ void TObjDFRecover::run_task() {
         break;
     case 2:
         if ((countdown % 5) == 0) {
-            TBoss3Volopt__sub_8022675C(0x4003AD19, 0, 0, 0);
+            play_sound_effect(0x4003AD19, 0, 0, 0);
             create__13TObjDFRecBallFPvPvPv((int)m_up, position, cached_position);
         }
         if (countdown <= 0) {

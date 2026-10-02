@@ -140,7 +140,7 @@ extern const f32 lbl_805DBE8C;
 extern const f32 lbl_805DBE90;
 void *TLazerFenceSw__ct(void *arg0, void *arg1, void *arg2);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_80154E3C(void *);
+void refresh_collision_body_centers(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
 void TObjPlayer__sub_801569F4(void *);
 void TObjLazerFence4__sub_80193188(void *);
@@ -225,7 +225,7 @@ void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2) {
     TObjEneGibbles__sub_80156780(self, lbl_804B8128 + (self->f8C % 2) * 0xDC, 5);
     self->flags |= 0x40000000;
     reset_photon_effect__10TObjPlayerFPv(self);
-    TObjPlayer__sub_80154E3C(self);
+    refresh_collision_body_centers(self);
     return self;
 }
 #undef self

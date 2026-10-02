@@ -33,7 +33,7 @@ extern "C" {
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
-M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32);
+M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
 extern s32 lbl_805D7018;
 extern const f32 lbl_805E03F0;
@@ -65,7 +65,7 @@ void TWindowSubStatusDisp__sub_8036D774(void);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
-M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32);
+M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
 extern s32 lbl_805D7018;
 void TWindowSubStatusDisp__sub_8036D88C(void);
@@ -74,7 +74,7 @@ M2C_UNK init_xyz_limits__10TObjPlayerFv();
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
-M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32);
+M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
 extern s32 lbl_805D7018;
 extern s32 lbl_805D701C;
@@ -134,7 +134,7 @@ void TWindowSubStatusDisp__sub_8036D88C(void) {
         j = 0;
         buf[3] = 256.0f;
         do {
-            TWindowSubComCard__sub_803DEECC((void *) buf, 0.5f);
+            draw_textured_quad_at_depth((void *) buf, 0.5f);
             j++;
             buf[1] += 64.0f;
             buf[3] += 64.0f;
@@ -166,7 +166,7 @@ void TWindowSubStatusDisp__sub_8036D994(void) {
         buf[6] = 1.0f;
         buf[7] = 1.0f;
         do {
-            TWindowSubComCard__sub_803DEECC((void *) buf, 0.5f);
+            draw_textured_quad_at_depth((void *) buf, 0.5f);
             i++;
             buf[0] += 64.0f;
             buf[2] += 64.0f;
@@ -196,7 +196,7 @@ void TWindowSubStatusDisp__sub_8036DA94(void) {
   buffer_8[7] = lbl_805E0404;
   do
   {
-    TWindowSubComCard__sub_803DEECC((void *) (&buffer_8[0]), (f32) lbl_805E0400);
+    draw_textured_quad_at_depth((void *) (&buffer_8[0]), (f32) lbl_805E0400);
     var_r31 += 1;
     buffer_8[0] += lbl_805E0408;
     buffer_8[2] += lbl_805E0408;

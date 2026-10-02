@@ -12,7 +12,7 @@ u32 spawn_particle_effect(void *, M2C_UNK);
 u32 create_particle_emitter(void *, M2C_UNK);
 M2C_UNK set_flags__11TBoss4Type2FPvUi(void *, M2C_UNK);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805D89D0;
 extern const f32 lbl_805D89DC;
 void TBoss4Type2__sub_8004EE74(u8 *arg0);
@@ -129,7 +129,7 @@ void TBoss4Type2__sub_8004EE74(u8 *arg0) {
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xB0);
     if ((temp_r0 == 0x28) || (temp_r0 == 0x3C)) {
-        TBoss3Volopt__sub_8022675C(0x4003D03A, arg0 + 0xA0, 0, 1);
+        play_sound_effect(0x4003D03A, arg0 + 0xA0, 0, 1);
     }
     cur = M2C_FIELD(arg0, f32 *, 0xB4);
     nxt = cur + lbl_805D89D0;

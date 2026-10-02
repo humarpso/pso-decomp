@@ -15,7 +15,7 @@ extern "C" {
 
 void draw_card_icon__17TWindowSubComCardFiii(s32 arg0, s32 arg1, s32 arg2);
 void render_selected_entry__17TWindowSubComCardFPvi(void *arg0, s32 arg1);
-int TShopJudgmentItemWindow__sub_80266388(void*, int, int, int);
+int create_yes_no_window(void*, int, int, int);
 M2C_UNK TWindowSubComCard__sub_8024503C(s32, u16 *, s32);
 int fn_8026652C(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);
 int init_shop_judgment_window(void* p);

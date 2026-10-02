@@ -203,13 +203,13 @@ u8 get_team_id__10TObjPlayerFPv(s32);
 u8 get_char_class__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_801C214C();
 s32 TObjPlayer__sub_801D9250(s32, s32);
-s32 TObjPlayer__sub_801B6CE0(Obj_801B6CE0 *self);
+s32 apply_exp_level_growth__10TObjPlayerFPv(Obj_801B6CE0 *self);
 s32 is_locally_controlled__10TObjPlayerFPv();
 u16 obj_getField1c(void *);
 s32 get_max_level__10TObjPlayerFv();
 s8 TObjPlayer__sub_801AFDB0();
 void TObjPlayer__sub_801B6C30(Player_801B6C30 *arg0);
-s32 TObjPlayer__sub_801B6CE0(Obj_801B6CE0 *self);
+s32 apply_exp_level_growth__10TObjPlayerFPv(Obj_801B6CE0 *self);
 s32 can_destroy_with_parents__10TObjPlayerFUi();
 s16 clamp_nested_index__10TObjPlayerFPv(void *, int);
 M2C_UNK reset_sub_status_disp__10TObjPlayerFPv(void *);
@@ -220,7 +220,7 @@ u8 *get_slot_value__10TObjPlayerFPvi(void *, s32);
 s32 get_current_state_field__10TObjPlayerFv(void *, int);
 s32 reset_key_machine_state__10TObjPlayerFv();
 M2C_UNK create_level_up_window__11TWindowCtrlFii(void *, void *);
-void TObjPlayer__sub_801B6DF0(u8 *arg0);
+void check_level_up__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -288,7 +288,7 @@ void TObjPlayer__sub_801B6C30(Player_801B6C30 *arg0) {
     }
 }
 
-s32 TObjPlayer__sub_801B6CE0(Obj_801B6CE0 *self) {
+s32 apply_exp_level_growth__10TObjPlayerFPv(Obj_801B6CE0 *self) {
     s32 i;
     s32 lvl;
     s32 cls;
@@ -320,7 +320,7 @@ s32 TObjPlayer__sub_801B6CE0(Obj_801B6CE0 *self) {
 
 struct Player_801B6C30;
 struct Obj_801B6CE0;
-void TObjPlayer__sub_801B6DF0(u8 *arg0) {
+void check_level_up__10TObjPlayerFPv(u8 *arg0) {
     struct Buf1C sp40;
     struct Buf1C sp24;
     struct Buf1C sp8;
@@ -345,7 +345,7 @@ void TObjPlayer__sub_801B6DF0(u8 *arg0) {
                     var_r30 += 1;
                 } while (var_r30 < 0xD);
                 init_shield_params__10TObjPlayerFPvi((void *) (&sp40), (void *) (arg0), (void *) (M2C_FIELD(arg0, void **, 0x2B0)), (int) (M2C_FIELD(arg0, s32 *, 0x318)), (int) (M2C_FIELD(arg0, s32 *, 0x31C)));
-                TObjPlayer__sub_801B6CE0((Obj_801B6CE0 *)((struct Obj_801B6CE0 *) (arg0)));
+                apply_exp_level_growth__10TObjPlayerFPv((Obj_801B6CE0 *)((struct Obj_801B6CE0 *) (arg0)));
                 init_shield_params__10TObjPlayerFPvi((void *) (&sp24), (void *) (arg0), (void *) (M2C_FIELD(arg0, void **, 0x2B0)), (int) (M2C_FIELD(arg0, s32 *, 0x318)), (int) (M2C_FIELD(arg0, s32 *, 0x31C)));
                 var_r31 = 0;
                 do {

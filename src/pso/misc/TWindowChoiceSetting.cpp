@@ -26,7 +26,7 @@ u32 TWindowSubStatusDisp__sub_802880BC(u32, s32, s16);
 s32 set_entry_state__20TWindowSubStatusDispFPvc(s32 a0 = 0, s32 a1 = 0);
 s32 TWindowSubComCard__sub_8026906C(void);
 void move_next_choice__20TWindowChoiceSettingFPv(void *arg0);
-s32 TBoss3Volopt__sub_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
+s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowMenu__sub_80266B18(void *, s32);
 void move_cursor_prev__20TWindowChoiceSettingFPv(void *arg0);
 void request_close__20TWindowChoiceSettingFPv(void *arg0);
@@ -40,14 +40,14 @@ int is_flag80_set__20TWindowSubStatusDispFPv(void* p);
 
 void request_close__20TWindowChoiceSettingFPv(void *arg0) {
     if (!(M2C_FIELD(arg0, u16 *, 0x70) & 8) && (is_open__17TWindowSubComCardFPv() == 0)) {
-        TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
+        play_sound_effect(0x52F16, 0, 0, 0);
         M2C_FIELD(arg0, u16 *, 0x70) = (u16) (M2C_FIELD(arg0, u16 *, 0x70) | 4);
     }
 }
 void draw__20TWindowChoiceSettingFPv(void *arg0) {
     get_array_entry__20TWindowSubStatusDispFPvi(arg0, M2C_FIELD(arg0, s16 *, 0x74));
     if (TWindowSubComCard__sub_8026906C() == 0) {
-        TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
+        play_sound_effect(0x52D01, 0, 0, 0);
         M2C_FIELD(arg0, u16 *, 0x70) = (u16) (M2C_FIELD(arg0, u16 *, 0x70) | 2);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x78) != 0U) {
             set_entry_state__20TWindowSubStatusDispFPvc(M2C_FIELD(arg0, s32 *, 0x78), 2);
@@ -57,7 +57,7 @@ void draw__20TWindowChoiceSettingFPv(void *arg0) {
 void move_next_choice__20TWindowChoiceSettingFPv(void *arg0) {
     s16 var_r31;
 
-    TBoss3Volopt__sub_8022675C(0x54100, 0, 0, 0);
+    play_sound_effect(0x54100, 0, 0, 0);
     var_r31 = M2C_FIELD(arg0, s16 *, 0x74);
 loop_1:
     var_r31 += 1;
@@ -80,7 +80,7 @@ block_4:
 void move_cursor_prev__20TWindowChoiceSettingFPv(void *arg0) {
     s16 var_r31;
 
-    TBoss3Volopt__sub_8022675C(0x54100, 0, 0, 0);
+    play_sound_effect(0x54100, 0, 0, 0);
     var_r31 = M2C_FIELD(arg0, s16 *, 0x74);
 loop_1:
     var_r31 -= 1;
@@ -234,7 +234,7 @@ s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
 s32 TWindowSubStatusDisp__sub_80244238(void *);
 s32 initialize_subwindow__9TWindowDDFPv(void *);
 s32 is_selected__20TWindowChoiceSettingFPv(void *);
-s32 TWindowSubStatusDisp__sub_80257C28(void *, void *);
+s32 update_window_entry_list(void *, void *);
 s32 increment_counter__20TWindowSubStatusDispFPv(int);
 s32 update_subwindow__20TWindowSubStatusDispFPv(int);
 extern RecoveredGlobal_80268D08_lbl_8050E208 lbl_8050E208;
@@ -320,7 +320,7 @@ void TWindowSubStatusDisp__sub_80268D08(u8 *arg0) {
     TWindowSubStatusDisp__sub_80244238((void *) (arg0));
     ((s32 (*)(void *))TWindowChoiceSetting__sub_802689EC)((void *) (arg0));
     ((s32 (*)(void *))TWindowChoiceSetting__sub_80268A6C)((void *) (arg0));
-    TWindowSubStatusDisp__sub_80257C28((void *) (arg0), (void *) (arg0 + 0x24));
+    update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
 }
 
 void *destroy_children__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {

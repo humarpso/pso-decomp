@@ -62,7 +62,7 @@ void spawn_armor_effects__10TObjPlayerFPv(void *arg0);
 void step_angles__10TObjPlayerFPv(u8 *arg0);
 void sync_hp_from_target__10TObjPlayerFPv(void *arg0);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
-s32 TObjPlayer__sub_800112A4(s32, s16);
+s32 add_actor_tp(s32, s16);
 int refresh_owner_stats__5TItemFPv(void*);
 M2C_UNK TObjPlayer__sub_80115BC0(void *, int, int);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
@@ -157,7 +157,7 @@ void sync_hp_from_target__10TObjPlayerFPv(void *arg0) {
         if (temp_r0 > 0) {
             temp_r31 = temp_r0 / 2;
             TObjectV8047c128_subtract_hp(M2C_FIELD(arg0, s32 *, 0xF0), (s16) temp_r31);
-            TObjPlayer__sub_800112A4(M2C_FIELD(arg0, s32 *, 0xF0), (s16) temp_r31);
+            add_actor_tp(M2C_FIELD(arg0, s32 *, 0xF0), (s16) temp_r31);
         }
     }
     M2C_FIELD(arg0, s32 *, 0x1F8) = (s32) (M2C_FIELD(arg0, s32 *, 0x1F8) + 1);

@@ -90,9 +90,9 @@ void update_player_object__10TEndingPicFPv(void *arg0);
 void update_shield__10TEndingPicFPv(void *arg0);
 int TItemObject__sub_80116004(void*, f32);
 s32 add_actor_hp(s32, s32);
-s32 TObjPlayer__sub_800112A4(s32, s32);
+s32 add_actor_tp(s32, s32);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
-M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32);
+M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
 s32 get_field_2b8__14TItemProShieldFPv(s32);
@@ -174,12 +174,12 @@ void draw_current_pic__10TEndingPicFPv(u8 *arg0) {
         break;
     case 2:
         TWindowSubStatusDisp__sub_803DF160((int) ((M2C_FIELD(arg0, s32 *, 0x28) * 2) + 2), (int) (-1));
-        TWindowSubComCard__sub_803DEECC((void *) (arg0 + 0xAC), (f32) (lbl_805DFEF0));
+        draw_textured_quad_at_depth((void *) (arg0 + 0xAC), (f32) (lbl_805DFEF0));
         break;
     case 4:
     case 5:
         TWindowSubStatusDisp__sub_803DF160((int) ((M2C_FIELD(arg0, s32 *, 0x28) * 2) + 3), (int) (-1));
-        TWindowSubComCard__sub_803DEECC((void *) (arg0 + 0xCC), (f32) (lbl_805DFEF0));
+        draw_textured_quad_at_depth((void *) (arg0 + 0xCC), (f32) (lbl_805DFEF0));
         break;
     default:
         break;
@@ -274,7 +274,7 @@ void update_shield__10TEndingPicFPv(void *arg0) {
     add_actor_hp(M2C_FIELD(arg0, s32 *, 0xF0), get_field_2b8__14TItemProShieldFPv(M2C_FIELD(arg0, s32 *, 0xF0)));
 }
 void TEndingPic__sub_80353194(void *arg0) {
-    TObjPlayer__sub_800112A4(M2C_FIELD(arg0, s32 *, 0xF0), obj_getS16_2BA(M2C_FIELD(arg0, s32 *, 0xF0)));
+    add_actor_tp(M2C_FIELD(arg0, s32 *, 0xF0), obj_getS16_2BA(M2C_FIELD(arg0, s32 *, 0xF0)));
 }
 
     extern const f32 lbl_805DFF34;

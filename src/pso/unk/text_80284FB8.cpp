@@ -9,7 +9,7 @@ struct RecoveredGlobal_80285054_lbl_8050E208 {
 };
 
 extern "C" {
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+s32 play_sound_effect(s32, u32, s16, s32);
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
 extern RecoveredGlobal_80285054_lbl_8050E208 lbl_8050E208;
 void fn_80285054(u8 *arg0);
@@ -27,7 +27,7 @@ void fn_80285054(u8 *arg0) {
     u8 *temp_r31;
     temp_r31 = (u8 *)&lbl_8050E208.value + 0x20;
     if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r31), (int) (0xF0), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (0xF0), (int) (6), (int) (1)) != 0)) {
-        TBoss3Volopt__sub_8022675C(0x54100, 0U, 0, 0);
+        play_sound_effect(0x54100, 0U, 0, 0);
         if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r31), (int) (0x80), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (0x80), (int) (6), (int) (1)) != 0)) {
             M2C_FIELD(arg0, u8 *, 0x72) = (u8) (M2C_FIELD(arg0, u8 *, 0x72) + 1);
         }

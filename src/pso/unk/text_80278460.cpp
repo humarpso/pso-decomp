@@ -7,7 +7,7 @@ struct Wn_80278460 { u8 pad0[0x20]; s16 f20; u8 pad22[0x54]; s16 f76; };
 
 extern "C" {
 s32 get_item_info__10TObjPlayerFiiPv(u32, void *, void *);
-u32 TLobby__sub_80101AB0();
+u32 find_item_by_id();
 u8 *get_player_by_client_id(s16);
 u16 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
 void get_cursor_pos__14TWindowSubItemFPv(void *);
@@ -34,7 +34,7 @@ void fn_80278460(Wn_80278460 *arg0) {
             e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, i);
             if (e != NULL && is_flag_4_set__20TWindowSubStatusDispFPv() != 0 && is_flag80_set__20TWindowSubStatusDispFPv(e) == 0) {
                 get_cursor_pos__14TWindowSubItemFPv(e);
-                if ((t = TLobby__sub_80101AB0()) != 0 && get_item_info__10TObjPlayerFiiPv(t, item, sp8) == 0) {
+                if ((t = find_item_by_id()) != 0 && get_item_info__10TObjPlayerFiiPv(t, item, sp8) == 0) {
                     *e |= 0x80;
                 }
             }

@@ -16,7 +16,7 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 extern s32 lbl_805D53A0;
 void fn_802C9D38(u8 *arg0);
 s32 get_global_state__14TOKeyMachine01Fv();
-s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+s32 play_sound_effect(s32, void *, s32, s32);
 extern Sounds_802C9C18 lbl_804720B8;
 void fn_802C9C18(u8 *arg0, s32 arg1);
 }
@@ -31,17 +31,17 @@ void fn_802C9C18(u8 *arg0, s32 arg1) {
     case 0x19:
     case 0x1A:
     case 0x1B:
-        *(s32 *)(arg0 + 0x358) = TBoss3Volopt__sub_8022675C(s.a[arg1], arg0 + 0x38, 0, 0);
+        *(s32 *)(arg0 + 0x358) = play_sound_effect(s.a[arg1], arg0 + 0x38, 0, 0);
         break;
     case 0x1C:
     case 0x1D:
-        *(s32 *)(arg0 + 0x358) = TBoss3Volopt__sub_8022675C(s.b[arg1], arg0 + 0x38, 0, 0);
+        *(s32 *)(arg0 + 0x358) = play_sound_effect(s.b[arg1], arg0 + 0x38, 0, 0);
         break;
     case 0x22:
-        *(s32 *)(arg0 + 0x358) = TBoss3Volopt__sub_8022675C(s.c[arg1], arg0 + 0x38, 0, 0);
+        *(s32 *)(arg0 + 0x358) = play_sound_effect(s.c[arg1], arg0 + 0x38, 0, 0);
         break;
     case 0x23:
-        *(s32 *)(arg0 + 0x358) = TBoss3Volopt__sub_8022675C(s.d[arg1], arg0 + 0x38, 0, 0);
+        *(s32 *)(arg0 + 0x358) = play_sound_effect(s.d[arg1], arg0 + 0x38, 0, 0);
         break;
     }
 }

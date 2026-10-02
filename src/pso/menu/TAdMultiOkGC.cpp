@@ -40,14 +40,14 @@ extern const f32 lbl_805DF060;
 extern const f32 lbl_805DF064;
 void TAdMultiOkGC__sub_80306C70(void *arg0, int arg1);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 extern Ports_80306DF4 lbl_80475410;
 extern Pad_80306DF4 lbl_8050E3B8[];
 void TAdMultiOkGC__sub_80306DF4(void *arg0, int arg1);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
-M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32);
+M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, s32);
 extern s32 lbl_805D6A48;
 extern const f32 lbl_805DF040;
@@ -74,7 +74,7 @@ void TAdMultiOkGC__sub_80306B04(void *arg0, int arg1) {
             TWindowSubStatusDisp__sub_803DF160(0, e->vals[i]);
             if (e->t - (i - 1) >= 0) {
                 f32 t = lbl_805DF048 * (f32)i + lbl_805DF044;
-                TWindowSubComCard__sub_803DEECC(&e->q[i], t + base);
+                draw_textured_quad_at_depth(&e->q[i], t + base);
             }
         }
         get_player__20TWindowSubStatusDispFv();
@@ -138,17 +138,17 @@ void TAdMultiOkGC__sub_80306DF4(void *arg0, int arg1) {
             e->t = -1;
             e->flags &= ~1;
             e->flags &= ~4;
-            TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
+            play_sound_effect(0x52F16, 0, 0, 0);
         } else if (!(e->flags & 2)) {
             e->t = -1;
             e->flags |= 1;
             e->flags |= 2;
-            TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
+            play_sound_effect(0x52D01, 0, 0, 0);
         }
     } else if (TWindowShortListCtrl__check_controller_button(lbl_8050E3B8[ports.v[o->port[arg1]]].btn, 2) != 0) {
         if (!(o->e[arg1].flags & 2)) {
             o->flags |= 1;
-            TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
+            play_sound_effect(0x52F16, 0, 0, 0);
         }
     }
 }

@@ -78,7 +78,7 @@ void TORockCaveBrakable__sub_80174CC4(void* p);
 void *__dt__18TORockCaveBrakableFv(void *arg0, s16 arg1);
 void spawn_break_effect__18TORockCaveBrakableFPv(u8 *arg0);
 void update_break_state__18TORockCaveBrakableFPv(void *arg0);
-int TBoss3Volopt__sub_8022675C(void*, void*, void*, void*);
+int play_sound_effect(void*, void*, void*, void*);
 u8 TODoorAncient08__sub_80229220(u16);
 void TORockCave__ct(void *);
 M2C_UNK spawn_particle_effect(void *, M2C_UNK);
@@ -89,7 +89,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
 
 void TORockCaveBrakable__sub_80174CC0(void) {  }
-void TORockCaveBrakable__sub_80174CC4(void* p) { TBoss3Volopt__sub_8022675C((void*)277521, (char*)p + 0x38, (void*)0, (void*)0); }
+void TORockCaveBrakable__sub_80174CC4(void* p) { play_sound_effect((void*)277521, (char*)p + 0x38, (void*)0, (void*)0); }
 
 void TORockCaveBrakable__sub_80174CFC(u8 *arg0) {
     Vec_80174CFC v;

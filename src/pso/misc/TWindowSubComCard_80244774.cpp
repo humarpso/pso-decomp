@@ -53,7 +53,7 @@ int TWindowSubComCard__sub_80244774(void);
 f32 calc_offset__17TWindowSubComCardFPv(void *arg0);
 s32 get_field_20__17TWindowSubComCardFPv(void* p);
 void save_position__17TWindowSubComCardFPv(void* p);
-s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+s32 play_sound_effect(s32, s32, s32, s32);
 s32 TWindowCtrlMain__sub_8024CE24();
 s32 TWindowSubAreaMapDisp__sub_80246948();
 int copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void*);
@@ -135,7 +135,7 @@ int copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void*);
 void fn_8024491C(void *arg0);
 int copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void*);
 void fn_80244958(void *arg0);
-s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+s32 play_sound_effect(s32, s32, s32, s32);
 void TWindowSubTradeMain__sub_80244A4C(u8 *arg0);
 void disallow_rendering__7TObjectFv(void *);
 void fn_802449E0(u8 *arg0);
@@ -146,7 +146,7 @@ s32 fn_80244994(void *arg0);
 extern "C" {
 
 void window_request_show(void *arg0);
-s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+s32 play_sound_effect(s32, s32, s32, s32);
 s32 TWindowCtrlMain__sub_8024CE24();
 s32 TWindowSubAreaMapDisp__sub_80246948();
 f32 TWindowSubStatusDisp__sub_801A5228(s16);
@@ -209,7 +209,7 @@ void TWindowSubTradeMain__sub_80244A4C(u8 *arg0) {
         return;
     }
     if (!(temp_r3 & 0x20)) {
-        ((M2C_UNK)TBoss3Volopt__sub_8022675C((s32)((int) (0x53704)), (s32)((int) (0)), (s32)((int) (0)), (s32)((int) (0))));
+        ((M2C_UNK)play_sound_effect((s32)((int) (0x53704)), (s32)((int) (0)), (s32)((int) (0)), (s32)((int) (0))));
     }
     M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) & 0xFFFFFFFE);
     M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) | 2);
@@ -242,7 +242,7 @@ void window_request_show(void *arg0) {
     }
     M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) | 3);
     if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 0x20)) {
-        TBoss3Volopt__sub_8022675C((s32)(0x53703), (s32)(0), (s32)(0), (s32)(0));
+        play_sound_effect((s32)(0x53703), (s32)(0), (s32)(0), (s32)(0));
     }
     allow_rendering__7TObjectFv(arg0);
 }

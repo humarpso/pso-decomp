@@ -131,7 +131,7 @@ struct Info_8034F4FC {
 extern "C" {
 void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1);
 int fn_80308244(void);
-u32 TLobby__sub_80101AB0(void);
+u32 find_item_by_id(void);
 int fn_80308244(void);
 void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1);
 void * enter_timed_state__10TObjPlayerFPv(void *, M2C_UNK, void *);
@@ -151,7 +151,7 @@ extern M2C_UNK lbl_804F0A00[];
 u8 *TObjPlayer__sub_8034F754(u8 *arg0, u8 *arg1, s32 _w2);
 void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1);
 void TObjPlayer__sub_8034F590(void *a, O_8034F590 *o);
-u32 TLobby__sub_80101AB0(void);
+u32 find_item_by_id(void);
 void TObjPlayer__sub_8034F4AC(s32 arg0, s32 arg1);
 s32 get_player_list__10TObjPlayerFv();
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
@@ -347,7 +347,7 @@ u8 *TObjPlayer__sub_8034F418(u8 *arg0) {
 }
 
 void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1) {
-    u32 temp_r3 = TLobby__sub_80101AB0();
+    u32 temp_r3 = find_item_by_id();
     if (temp_r3 != 0U) {
         TObjPlayer__sub_8034F4FC((u32)(temp_r3), (s32)(arg1));
     }
@@ -355,7 +355,7 @@ void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1) {
 
 void TObjPlayer__sub_8034F4AC(s32 arg0, s32 arg1) {
     Ctx_80125628 *ctx = (Ctx_80125628 *)arg1;
-    u32 p = TLobby__sub_80101AB0();
+    u32 p = find_item_by_id();
     if (p != 0U) {
         TObjPlayer__sub_8034F4FC((u32)(p), (s32)((s32)ctx->obj->elems[ctx->idx].f1c));
     }

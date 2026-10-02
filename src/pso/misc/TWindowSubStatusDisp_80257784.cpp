@@ -61,7 +61,7 @@ s32 TItemData__sub_8010CEF4(s32);
 u32 TItemData__sub_8010D028(s32, M2C_UNK, s32);
 s32 TItemData__sub_8010DF68(s32);
 s32 TItem__sub_801013E8(void *);
-s32 TItem__sub_8010147C(void *, M2C_UNK, s32);
+s32 get_usable_action_flags__5TItemFPvUiUi(void *, M2C_UNK, s32);
 s32 TObjPlayer__sub_80203418();
 s32 get_player_by_client_id(s16);
 s32 TWindowHelpItem__sub_80104FCC(s32, s32, s32 *);
@@ -93,7 +93,7 @@ void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1
     temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, s16 *, 2));
     if (temp_r3 != 0) {
         temp_r26 = test_item_flags__10TObjPlayerFPvUi(arg1, 8);
-        temp_r28 = TItem__sub_8010147C(arg1, 0x10, temp_r3);
+        temp_r28 = get_usable_action_flags__5TItemFPvUiUi(arg1, 0x10, temp_r3);
         temp_r27 = get_item_info__10TObjPlayerFiiPv(arg1, temp_r3, &sp8);
         temp_r28_2 = ((VObj18B_802582c4_80257784 *) arg1)->vm8C();
         if (temp_r28 != 0) {
@@ -137,7 +137,7 @@ void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1
                 M2C_FIELD(arg0, s32 *, 0x30) = 0xFF61E853;
                 return;
             }
-            if (TItem__sub_8010147C(arg1, 0x10000, temp_r3) != 0U) {
+            if (get_usable_action_flags__5TItemFPvUiUi(arg1, 0x10000, temp_r3) != 0U) {
                 M2C_FIELD(arg0, s32 *, 0x30) = 0xFF909090;
                 return;
             }

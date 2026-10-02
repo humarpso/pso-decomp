@@ -40,7 +40,7 @@ extern u8 *TOFenceAncient01__data_805D59B0;
 extern u32 TOFenceAncient01__data_805D59B4;
 void TOFenceAncient01__sub_80166BB8(void);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK refresh_collision_body_centers(void *);
 M2C_UNK TObjEneGibbles__sub_80156780(void *, void *, int, int, f32);
 M2C_UNK init_fields__16TOFenceAncient01FPv();
 s32 fn_80166E64(u8 *arg0);
@@ -168,7 +168,7 @@ u8 *TOFenceAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     temp_f1 = (f32) M2C_FIELD(temp_r6, u32 *, 4);
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) (temp_f1 - lbl_805DB610);
     TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B1BE8.value), (int) (3), (int) (temp_r6), (f32) (temp_f1));
-    TObjPlayer__sub_80154E3C((void *) (arg0));
+    refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     fn_80166E64((u8 *)((void *) (arg0)));
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB614;

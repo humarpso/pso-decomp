@@ -50,7 +50,7 @@ M2C_UNK TItemMag__sub_8011423C(void *, int);
 M2C_UNK TItemMag__sub_801142E0(void *, int);
 M2C_UNK refresh_owner_stats__5TItemFPv(void *);
 s8 TObjPlayer__sub_80102C30(void *);
-M2C_UNK TObjPlayer__sub_801B9EDC(int, int);
+M2C_UNK send_6x26_unequip_item__10TObjPlayerFPvPv(int, int);
 M2C_UNK add_clamped_stat__8TItemMagFPvi(void *, int);
 M2C_UNK add_stat_clamped__8TItemMagFPvi(void *, int);
 M2C_UNK apply_switch_attack__5TItemFPvi(void *, M2C_UNK);
@@ -116,7 +116,7 @@ s32 apply_feed_stats__8TItemMagFPvPv(u8 *arg0, u8 *arg1) {
             if (obj_isState2_324((int) (M2C_FIELD(arg0, s32 *, 0xF0))) == 0) {
                 arg1 = (u8 *) get_item_field_6__10TObjPlayerFPv((int) (M2C_FIELD(arg0, s32 *, 0xF0)));
                 if ((arg1 != NULL) && (get_item_info__10TObjPlayerFiiPv((int) (arg1), (int) (M2C_FIELD(arg0, s32 *, 0xF0)), (int) (0)) == 0)) {
-                    TObjPlayer__sub_801B9EDC((int) (M2C_FIELD(arg0, s32 *, 0xF0)), (int) (get_field_d8__10TObjPlayerFPv((int) (arg1))));
+                    send_6x26_unequip_item__10TObjPlayerFPvPv((int) (M2C_FIELD(arg0, s32 *, 0xF0)), (int) (get_field_d8__10TObjPlayerFPv((int) (arg1))));
                 }
             }
         }

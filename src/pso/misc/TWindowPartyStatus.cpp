@@ -34,7 +34,7 @@ s32 TWindowKeyBoardSoft__sub_8024E6D8(void *, void *);
 s32 set_global_param__8TObjFishFi(void *);
 s32 TWindowSubStatusDisp__sub_803DEE6C(int);
 s32 get_player__20TWindowSubStatusDispFv();
-s32 TWindowSubComCard__sub_803DEECC(void *, f32);
+s32 draw_textured_quad_at_depth(void *, f32);
 s32 TWindowSubStatusDisp__sub_803DF160(int, int);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DF1EC;
@@ -60,7 +60,7 @@ void draw__18TWindowPartyStatusFPv(void* p);
 void run_task__18TWindowPartyStatusFv(s32 arg0);
 M2C_UNK TWindowComCard__sub_8026F9F4(void *, int);
 s32 get_window_layout_position(int);
-M2C_UNK TWindowSubStatusDisp__sub_80257C28(void *, void *);
+M2C_UNK update_window_entry_list(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__19TWindowSimpleStatusFv(void *, int);
 int fn_8026F8CC(void*);
@@ -104,7 +104,7 @@ void TWindowPartyStatus__sub_8030C0C4(u8 *arg0, u8 *arg1) {
     stack.sp20 = lbl_805DF200;
     stack.sp24 = lbl_805DF204;
     TWindowKeyBoardSoft__sub_8024E6D8((void *) (arg1), (void *) (&stack.sp8));
-    TWindowSubComCard__sub_803DEECC((void *) (&stack.sp8), (f32) (temp_f31));
+    draw_textured_quad_at_depth((void *) (&stack.sp8), (f32) (temp_f31));
     get_player__20TWindowSubStatusDispFv();
     if (TWindowSubComCard__sub_80245558((void *) (arg1), (void *) (arg1 + 0x10), (void *) (arg1 + 0x18)) != 0) {
         TWindowSubComCard__sub_802454E4((int) (0xB));
@@ -127,7 +127,7 @@ void run_task__18TWindowPartyStatusFv(s32 arg0) {
     TWindowComCard__sub_8026F9F4((void *) (arg0), (int) (get_window_layout_position((int) (0xAC))));
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));
     update_fade__17TWindowSubComCardFPv((void *) (arg0));
-    TWindowSubStatusDisp__sub_80257C28((void *) (arg0), (void *) (arg0 + 0x24));
+    update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
     fn_8026FDC0((void *) (arg0));
 }
 

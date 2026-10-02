@@ -23,7 +23,7 @@ typedef struct Player_801CCA84 {
 } Player_801CCA84;
 
 extern "C" {
-s32 TObjPlayer__sub_801CC2B0(void *);
+s32 exit_photon_blast_action__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CC34C(void *);
 s32 enter_photon_blast_action__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CC7F8(void *);
@@ -84,7 +84,7 @@ void TObjPlayer__sub_801CCA08(s32 arg0, s16 arg1) {
         TObjPlayer__sub_801CC34C((void *) arg0);
         return;
       case 6:
-        TObjPlayer__sub_801CC2B0((void *) arg0);
+        exit_photon_blast_action__10TObjPlayerFPv((void *) arg0);
         break;
     }
   }

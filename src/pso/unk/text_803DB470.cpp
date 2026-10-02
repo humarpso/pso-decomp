@@ -37,7 +37,7 @@ struct S_803DB9A0 { u8 pad[0x60]; C_803DB9A0 c; };
 struct F_803DB9A0 { f32 r, g, b, a; };
 
 extern "C" {
-void TOSignCave03__sub_803DB510(s32 arg0);
+void draw_ginja_model(s32 arg0);
 M2C_UNK Dolphin_GXSetVtxDesc(int, void *);
 M2C_UNK GXClearVtxDesc();
 s32 TObjPlayer__sub_803DB550(u32 arg0, s32 arg1);
@@ -50,7 +50,7 @@ extern RecoveredCallback_d26337a2813d lbl_805D76E4;
 extern s32 lbl_805D7788;
 extern s32 some_id_805c6f74;
 void TObjPlayer__sub_803DC6F4(void);
-void TObjPlayer__sub_803DB270(s32, s32);
+void queue_model_draw_matrix(s32, s32);
 extern s32 lbl_805D7774;
 s32 TObjPlayer__sub_803DB4E8(s32 arg0);
 extern S_803DB560 lbl_8058CD80;
@@ -162,12 +162,12 @@ void draw_ginja_object(void *arg0) {
 #pragma push
 #pragma scheduling off
 s32 TObjPlayer__sub_803DB4E8(s32 arg0) {
-    TObjPlayer__sub_803DB270(arg0, lbl_805D7774);
+    queue_model_draw_matrix(arg0, lbl_805D7774);
     return 1;
 }
 #pragma pop
 
-void TOSignCave03__sub_803DB510(s32 arg0) {
+void draw_ginja_model(s32 arg0) {
     TObjPlayer__sub_803DC76C((int)((int) (0)));
     prepare_ginja_model();
     draw_ginja_model_lists((GinjaModel *)arg0);

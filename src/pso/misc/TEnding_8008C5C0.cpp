@@ -12,7 +12,7 @@ void TCameraCtrl__ct(void *, void *);
 void __ct__7TEndingFv(void *);
 void TLobby__sub_800F9B84(void);
 void TLobby__sub_800FD6F8(void *, int);
-void TObjLight__sub_80133B10(void *);
+void init_map_lights(void *);
 void TKeyBoardControl__sub_801A66B8(void);
 void TLobby__sub_801E2F44(int, int, int);
 int render_tick__Fv(void);
@@ -44,7 +44,7 @@ int TEnding__sub_8008C5E8() {
     TCameraCtrl__sub_803D6688(lbl_805D9570, lbl_805D9574);
     TLobby__sub_801E2F44(0, 0, 0);
     TKeyBoardControl__sub_801A66B8();
-    TObjLight__sub_80133B10(lbl_804A6F34);
+    init_map_lights(lbl_804A6F34);
     p = __nw__7TObjectFUl(0x1D4);
     if (p != 0) {
         TCameraCtrl__ct(p, tl_camera);

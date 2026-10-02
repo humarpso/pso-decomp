@@ -154,7 +154,7 @@ void TBoss2DeRolLe__sub_80034DCC(s32 arg0);
 extern f32 TBoss2DeRolLe__data_805D82BC;
 void TBoss2DeRolLe__sub_80034D58(u8 *arg0, u8 *arg1);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
-M2C_UNK TObjEneDD__sub_800BAA2C(s32, Vec *);
+M2C_UNK update_local_colliders_from_world(s32, Vec *);
 void TBoss2DeRolLe__sub_80034F40(s32 arg0);
 int play_sound(void *, int);
 void TBoss2DeRolLe__sub_800339BC(s32, f32, f32);
@@ -414,7 +414,7 @@ void TBoss2DeRolLe__sub_80034F40(s32 arg0) {
     VecCopy__FP3VecPC3Vec((s32)(&sp8), (s32)(arg0 + 0x440));
     VecCopy__FP3VecPC3Vec((s32)(&sp14), (s32)(arg0 + 0x500));
     VecCopy__FP3VecPC3Vec((s32)(&sp20), (s32)(arg0 + 0x50C));
-    TObjEneDD__sub_800BAA2C(arg0, &sp8);
+    update_local_colliders_from_world(arg0, &sp8);
 }
 #pragma pop
 

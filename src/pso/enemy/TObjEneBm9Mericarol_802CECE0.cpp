@@ -387,7 +387,7 @@ M2C_UNK transition_enemy_state(void *, M2C_UNK);
 s32 spawn_ground_effect__10TObjPlayerFPvi(void *, int);
 s32 spawn_dead_spot_here__10TObjPlayerFii(void *, int);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneBm9Mericarol__sub_802D093C(void *);
 f32 TBoss8Dragon__sub_803D64C0(int);
 f32 TBoss8Dragon__sub_803D64DC(int);
@@ -399,7 +399,7 @@ extern const f32 lbl_805DE718;
 void TObjEneBm9Mericarol__sub_802CF1B4(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK clear_attack_receipts();
 s32 TBoss8Dragon__sub_800BB7D4(void *, int);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
@@ -413,7 +413,7 @@ M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 s32 set_facing__10TObjPlayerFPvs(int, int);
 M2C_UNK advance_animation_playback(void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 u32 __nw__7TObjectFUl(int);
 M2C_UNK TObjEneBm9Mericarol__sub_802D073C(void *);
 s32 TObjEneBm9Mericarol__sub_802D0854(void *);
@@ -432,7 +432,7 @@ void TObjEneBm9Mericarol__sub_802CED3C(void);
 void TObjEneBm9Mericarol__sub_802CED40(void* p);
 void handle_motion_event__19TObjEneBm9MericarolFPvi(u8 *arg0, s32 arg1);
 void update_particle_effect__19TObjEneBm9MericarolFv(void);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneBm9Mericarol__sub_802D093C(void *);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -496,7 +496,7 @@ void handle_motion_event__19TObjEneBm9MericarolFPvi(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x438) = (s32) (temp_r5 & ~0x28);
         set_field_378__9TObjEneDDFPvi(arg0, 3, temp_r5);
         M2C_FIELD(arg0, s32 *, 0x490) = 0;
-        TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3AD0F), arg0 + 0x38, 0, 0);
+        play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3AD0F), arg0 + 0x38, 0, 0);
         return;
     case 3:
         if (objInBand__FP7GameObjf(M2C_FIELD(arg0, f32 *, 0xC4) - lbl_805DE6F4) != 0) {
@@ -548,7 +548,7 @@ void TObjEneBm9Mericarol__sub_802CF1B4(u8 *arg0, s32 arg1) {
       TBoss8Dragon__sub_800BB7D4((void *) arg0, (int) 0xF2);
       *((s32 *) (((s8 *) arg0) + 0x490)) = 0;
       *((f32 *) (((s8 *) arg0) + 0x4A4)) = (f32) lbl_805DE70C;
-      TBoss3Volopt__sub_8022675C((M2C_UNK)((void *) ((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) arg0), (M2C_UNK)((int) 0x3AA0B)))), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) 0), (M2C_UNK)((int) 0));
+      play_sound_effect((M2C_UNK)((void *) ((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) arg0), (M2C_UNK)((int) 0x3AA0B)))), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) 0), (M2C_UNK)((int) 0));
       return;
       return;
     case 3:
@@ -607,7 +607,7 @@ void TObjEneBm9Mericarol__sub_802CF368(u8 *arg0, s32 arg1) {
       temp_r5 = *((s32 *) (((s8 *) arg0) + 0x438));
       *((s32 *) (((s8 *) arg0) + 0x438)) = (s32) (temp_r5 & (~0x28));
       TBoss8Dragon__sub_800BB7D4((void *)((void *) arg0), (int)((int) 0xF2));
-      TBoss3Volopt__sub_8022675C((M2C_UNK)(((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) arg0), (M2C_UNK)((int) 0x3AA0C)))), (void *)((u32) (arg0 + 0x38)), (M2C_UNK)(0), (M2C_UNK)(0));
+      play_sound_effect((M2C_UNK)(((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) arg0), (M2C_UNK)((int) 0x3AA0C)))), (void *)((u32) (arg0 + 0x38)), (M2C_UNK)(0), (M2C_UNK)(0));
       return;
     case 3:
       if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(arg0) != 0)
@@ -686,7 +686,7 @@ void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1) {
         }
         *((s32 *) (((s8 *) arg0) + 0x390)) = temp_r3;
         *((s32 *) (((s8 *) arg0) + 0x494)) = 1;
-        TBoss3Volopt__sub_8022675C((M2C_UNK)((void *) ((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) arg0), (M2C_UNK)((int) 0x3A808)))), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) 0), (M2C_UNK)((int) 0));
+        play_sound_effect((M2C_UNK)((void *) ((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) arg0), (M2C_UNK)((int) 0x3A808)))), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) 0), (M2C_UNK)((int) 0));
       }
     }
     else

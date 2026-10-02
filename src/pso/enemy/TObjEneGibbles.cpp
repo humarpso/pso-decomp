@@ -49,11 +49,11 @@ extern const f32 TObjEneGibbles__data_805DE7F4;
 s32 TObjEneGibbles__sub_802D7BE0(s32 arg0);
 M2C_UNK apply_actor_gravity(void *, int, f32);
 M2C_UNK queue_destruction__7TObjectFv();
-M2C_UNK TObjBoss2Tunnel__sub_8007E7D8(f32 *, f32 *, s32, f32);
+M2C_UNK rotate_xz_pair_by_angle(f32 *, f32 *, s32, f32);
 M2C_UNK spawn_effect_at_ground__10TObjPlayerFPvi(f32 *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_800D93C4(f32 *, M2C_UNK);
 M2C_UNK advance_animation_playback();
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 int TObjEneGibbles__sub_802D7F94(void *, int);
 M2C_UNK TBoss4Zako__sub_803D8910(f32 *, void *);
 extern const f32 lbl_805DE7E0;
@@ -63,7 +63,7 @@ extern const f32 lbl_805DE814;
 void TObjEneGibbles__sub_802D8140(u8 *arg0);
 s32 TObjEneGibbles__sub_800D8988(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK TObjEneGibbles__sub_802D7ACC(void *, void *, f32);
 int TObjEneGibbles__sub_802D7F94(void *, int);
 extern const f32 TObjEneGibbles__data_805DE7F4;
@@ -73,7 +73,7 @@ extern const f32 lbl_805DE800;
 void TObjEneGibbles__sub_802D7C78(s32 arg0);
 s32 TObjEneGibbles__sub_800D8988(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK TObjEneGibbles__sub_802D7ACC(void *, void *, f32);
 int TObjEneGibbles__sub_802D7F94(void *, int);
 extern const f32 TObjEneGibbles__data_805DE7F4;
@@ -118,7 +118,7 @@ void update_move_state__14TObjEneGibblesFPv(void *arg0);
 void update_position__14TObjEneGibblesFPv(u8 *arg0);
 void update_shadow_height__14TObjEneGibblesFPv(void *arg0);
 M2C_UNK advance_animation_playback();
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK apply_actor_gravity(void *, int, f32);
 M2C_UNK check_enemy_body_collisions(void *);
 M2C_UNK submit_cursor_candidate(void *, int);
@@ -184,7 +184,7 @@ void TObjEneGibbles__sub_802D7C78(s32 arg0) {
             TObjEneGibbles__sub_800D8988((void *) (arg0 + 0x38));
             return;
         }
-        TBoss3Volopt__sub_8022675C((int)((void *) (((s32)TObjEneGibbles__sub_802D7F94((void *) (arg0), (int) (0x3A83D))))), (void *)((void *) (arg0 + 0x38)), (int)((int) (0)), (int)((int) (0)));
+        play_sound_effect((int)((void *) (((s32)TObjEneGibbles__sub_802D7F94((void *) (arg0), (int) (0x3A83D))))), (void *)((void *) (arg0 + 0x38)), (int)((int) (0)), (int)((int) (0)));
         return;
     }
     if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805DE7FC)) != 0) {
@@ -192,7 +192,7 @@ void TObjEneGibbles__sub_802D7C78(s32 arg0) {
             TObjEneGibbles__sub_800D8988((void *) (arg0 + 0x38));
             return;
         }
-        TBoss3Volopt__sub_8022675C((int)((void *) (((s32)TObjEneGibbles__sub_802D7F94((void *) (arg0), (int) (0x3A83E))))), (void *)((void *) (arg0 + 0x38)), (int)((int) (0)), (int)((int) (0)));
+        play_sound_effect((int)((void *) (((s32)TObjEneGibbles__sub_802D7F94((void *) (arg0), (int) (0x3A83E))))), (void *)((void *) (arg0 + 0x38)), (int)((int) (0)), (int)((int) (0)));
         return;
     }
     if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805DE800)) != 0) {
@@ -200,7 +200,7 @@ void TObjEneGibbles__sub_802D7C78(s32 arg0) {
             TObjEneGibbles__sub_800D8988((void *) (arg0 + 0x38));
             return;
         }
-        TBoss3Volopt__sub_8022675C((int)((void *) (((s32)TObjEneGibbles__sub_802D7F94((void *) (arg0), (int) (0x3A83F))))), (void *)((void *) (arg0 + 0x38)), (int)((int) (0)), (int)((int) (0)));
+        play_sound_effect((int)((void *) (((s32)TObjEneGibbles__sub_802D7F94((void *) (arg0), (int) (0x3A83F))))), (void *)((void *) (arg0 + 0x38)), (int)((int) (0)), (int)((int) (0)));
     }
 }
 
@@ -210,7 +210,7 @@ void TObjEneGibbles__sub_802D7DAC(s32 arg0) {
             TObjEneGibbles__sub_800D8988((void *) (arg0 + 0x38));
             return;
         }
-        TBoss3Volopt__sub_8022675C((int)((void *) (((s32)TObjEneGibbles__sub_802D7F94((void *) (arg0), (int) (0x3A82B))))), (void *)((void *) (arg0 + 0x38)), (int)((int) (0)), (int)((int) (0)));
+        play_sound_effect((int)((void *) (((s32)TObjEneGibbles__sub_802D7F94((void *) (arg0), (int) (0x3A82B))))), (void *)((void *) (arg0 + 0x38)), (int)((int) (0)), (int)((int) (0)));
     }
 }
 
@@ -320,7 +320,7 @@ void TObjEneGibbles__sub_802D8140(u8 *arg0) {
       *((s16 *) (((s8 *) arg0) + 0x328)) = 1;
       *((f32 *) (((s8 *) arg0) + 0x3A0)) = (f32) TObjEneGibbles__data_805DE7E4;
       apply_actor_gravity((void *)((void *) arg0), (int)(0), TObjEneGibbles__data_805DE7E4);
-      TBoss3Volopt__sub_8022675C((int)((void *) ((M2C_UNK)TObjEneGibbles__sub_802D7F94((void *)(arg0), (int)(0x3A333)))), (void *)(arg0 + 0x38), (int)(0), (int)(0));
+      play_sound_effect((int)((void *) ((M2C_UNK)TObjEneGibbles__sub_802D7F94((void *)(arg0), (int)(0x3A333)))), (void *)(arg0 + 0x38), (int)(0), (int)(0));
       return;
     case 1:
       advance_animation_playback();
@@ -330,7 +330,7 @@ void TObjEneGibbles__sub_802D8140(u8 *arg0) {
       stack.sp8 = TObjEneGibbles__data_805DE7E4;
       stack.spC = TObjEneGibbles__data_805DE7E4;
       stack.sp10 = lbl_805DE810;
-      TObjBoss2Tunnel__sub_8007E7D8(&stack.sp8, &stack.sp10, *((s32 *) (((s8 *) arg0) + 0x60)), TObjEneGibbles__data_805DE7E4);
+      rotate_xz_pair_by_angle(&stack.sp8, &stack.sp10, *((s32 *) (((s8 *) arg0) + 0x60)), TObjEneGibbles__data_805DE7E4);
       TBoss4Zako__sub_803D8910(&stack.sp8, arg0 + 0x38);
       TObjPlayer__sub_800D93C4(&stack.sp8, 0xA);
       spawn_effect_at_ground__10TObjPlayerFPvi(&stack.sp8, 0x46);
@@ -382,7 +382,7 @@ void update_action_state__14TObjEneGibblesFPv(u8 *arg0) {
     case 0:
         M2C_FIELD(arg0, s16 *, 0x328) = 1;
         apply_actor_gravity((void *) (arg0), (int) (0), (f32) (TObjEneGibbles__data_805DE7E4));
-        TBoss3Volopt__sub_8022675C(TObjEneGibbles__sub_802D7F94((void *)((void *) (arg0)), (int)((int) (0x3AD34))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(TObjEneGibbles__sub_802D7F94((void *)((void *) (arg0)), (int)((int) (0x3AD34))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         break;
     case 1:
         M2C_FIELD(arg0, f32 *, 0x310) = (f32) TObjEneGibbles__data_805DE7E4;

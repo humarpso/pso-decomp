@@ -13,7 +13,7 @@ M2C_UNK TObjPlayer__sub_80019038();
 M2C_UNK clear_header_struct__10TObjPlayerFPv(void *);
 M2C_UNK setup_control_role__10TObjPlayerFPvi(void *, void *);
 M2C_UNK TObjPlayer__sub_801BB8B0(void *, void *);
-M2C_UNK TObjPlayer__sub_801BBA8C(void *, void *);
+M2C_UNK setup_fresh_player_state__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK TObjPlayer__sub_801BBB98(void *, void *);
 M2C_UNK TObjPlayer__sub_801BC6C4(void *);
 M2C_UNK TObjPlayer__sub_801BC8F0(void *);
@@ -133,7 +133,7 @@ u8 *construct_player_instance__10TObjPlayerFPvisiPv(u8 *arg0, s32 arg1, s16 arg2
     load_character_state__10TObjPlayerFPvPv((void *) (arg0), (void *) (arg4));
     update_if_active__10TObjPlayerFPv((void *) (arg0));
     TObjPlayer__sub_801BC8F0((void *) (arg0));
-    TObjPlayer__sub_801BBA8C((void *) (arg0), (void *) (arg4));
+    setup_fresh_player_state__10TObjPlayerFPvPv((void *) (arg0), (void *) (arg4));
     TObjPlayer__sub_801BB8B0((void *) (arg0), (void *) (arg4));
     set_com_card_window__10TObjPlayerFi((void *) (obj_getField1c((void *) (arg0))));
     return arg0;

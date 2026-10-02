@@ -398,7 +398,7 @@ s32 advance_animation_playback(void *);
 extern const f32 TObjEneMe3Stelth__data_805DA844;
 extern const f32 lbl_805DA890;
 void TObjEneMe3Stelth__sub_800F42B8(u8 *arg0, s32 arg1);
-M2C_UNK TObjEneEpsilon__sub_800B9344(void *, int, f32);
+M2C_UNK enemy_turn_and_move_on_ground(void *, int, f32);
 s32 update_angle__14TObjEneEpsilonFPvi(void *, int);
 s32 TObjEneEpsilon__sub_800B96A4(void *);
 s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
@@ -460,7 +460,7 @@ void TObjEneMe3Stelth__sub_800F39E4(u8 *arg0, s32 arg1) {
                 update_angle__14TObjEneEpsilonFPvi((void *) (arg0), (int) (0x500));
                 ((VObj_18_e66632 *)(arg0))->m100();
             } else {
-                TObjEneEpsilon__sub_800B9344((void *) (arg0), (int) (0x500), (f32) (M2C_FIELD(arg0, f32 *, 0x430)));
+                enemy_turn_and_move_on_ground((void *) (arg0), (int) (0x500), (f32) (M2C_FIELD(arg0, f32 *, 0x430)));
             }
             ((VObj_18_e66632 *)(arg0))->m87();
         }

@@ -8,7 +8,7 @@ extern "C" {
 
 void *TItemProArmor__sub_80117368(void *arg0, s16 arg1);
 void apply_armor_stat__13TItemProArmorFPv(void *arg0);
-M2C_UNK TObjPlayer__sub_800112A4(s32, s32);
+M2C_UNK add_actor_tp(s32, s32);
 void __dt__11TItemObjectFv(void *, int);
 s32 calc_armor_value__13TItemProArmorFv(void *);
 s32 calc_scaled_offset__13TItemProArmorFv(void *);
@@ -33,7 +33,7 @@ void apply_armor_stat__13TItemProArmorFPv(void *arg0) {
         var_r31 = get_stat_value__13TItemProArmorFPv(arg0);
         break;
     }
-    TObjPlayer__sub_800112A4(M2C_FIELD(arg0, s32 *, 0xF0), var_r31);
+    add_actor_tp(M2C_FIELD(arg0, s32 *, 0xF0), var_r31);
 }
 
 extern M2C_UNK lbl_8049FE00[];

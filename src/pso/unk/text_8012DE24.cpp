@@ -63,12 +63,12 @@ extern "C" {
 s32 spawn_particle_effect(void *, int);
 s32 draw_icon__10TObjPlayerFPvii(void *, int, void *);
 extern s32 lbl_8043E9A0[];
-void TObjPlayer__sub_8012DE24(u8 *self);
+void emit_shot_marker_effects(u8 *self);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_8012DE24(u8 *self) {
+void emit_shot_marker_effects(u8 *self) {
     s32 sp8[3];
     s32 i;
     for (i = 0; (u32)i != 5U; i++) {

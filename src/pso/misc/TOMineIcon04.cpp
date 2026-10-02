@@ -44,14 +44,14 @@ struct Icon_80171E7C {
 
 extern "C" {
 u32 get_global_state__14TOKeyMachine01Fv();
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 void TOMineIcon04__vt78(s32 arg0);
 void calc_attach_pos__10TObjPlayerFPv(void *);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 void init_position_vectors__10TObjPlayerFi(void *);
 void reset_photon_effect__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_80154E3C(void *);
+void refresh_collision_body_centers(void *);
 void TObjEneGibbles__sub_80156780(void *, void *, s32);
 void update_state__10TOMineTrapFPv(void *);
 void TOMine__ct(void *, void *, void *);
@@ -92,39 +92,39 @@ void TOMineIcon04__vt78(s32 arg0) {
     switch (temp_r3) {
     case 1:
     case 2:
-        TBoss3Volopt__sub_8022675C((int) (0x4C111), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4C111), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         return;
     case 3:
     case 4:
     case 5:
-        TBoss3Volopt__sub_8022675C((int) (0x44110), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect((int) (0x44110), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         return;
     case 6:
     case 7:
-        TBoss3Volopt__sub_8022675C((int) (0x4004C10A), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4004C10A), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         return;
     case 8:
     case 9:
     case 10:
-        TBoss3Volopt__sub_8022675C((int) (0x4004C111), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4004C111), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         return;
     case 19:
     case 20:
-        TBoss3Volopt__sub_8022675C((int) (0x4BC07), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4BC07), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         return;
     case 21:
     case 22:
-        TBoss3Volopt__sub_8022675C((int) (0x4004BC07), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4004BC07), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         return;
     case 23:
     case 24:
     case 25:
     case 26:
     case 27:
-        TBoss3Volopt__sub_8022675C((int) (0x4BC19), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4BC19), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     case 28:
     case 29:
-        TBoss3Volopt__sub_8022675C((int) (0x4004BC19), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4004BC19), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     default:
         return;
     }
@@ -189,7 +189,7 @@ void *TOMineIcon04__ct(void *arg0, void *arg1, void *arg2) {
     self->f35C = 0xFFFF;
     self->f30 |= 0x60000000;
     TObjEneGibbles__sub_80156780(self, lbl_804B2F3C, 1);
-    TObjPlayer__sub_80154E3C(self);
+    refresh_collision_body_centers(self);
     reset_photon_effect__10TObjPlayerFPv(self);
     return self;
 #undef self

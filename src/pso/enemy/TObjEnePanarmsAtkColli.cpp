@@ -493,7 +493,7 @@ u8 *dispatch_shared_handler_a__6TLobbyFPv(int);
 void set_param__12TObjEneLappyFPvi(void *, int);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 void initialize__9TObjEnemyFPv(void *, void *);
-int TBoss3Volopt__sub_8022675C(void *, void *, void *, void *);
+int play_sound_effect(void *, void *, void *, void *);
 extern s32 lbl_80495A80[];
 extern M2C_UNK __vt__22TObjEnePanarmsAtkColli[];
 extern s32 lbl_805D2AC0;
@@ -587,7 +587,7 @@ void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *arg1, void *arg2, voi
     TNpcPlayer__sub_803D97B4(&self->scale);
     switch (self->type) {
     case 0:
-        TBoss3Volopt__sub_8022675C((void *)copy_target_state__14TObjEnePanarmsFPvPv(self, 0x4003BC2B), &self->pos, 0, 0);
+        play_sound_effect((void *)copy_target_state__14TObjEnePanarmsFPvPv(self, 0x4003BC2B), &self->pos, 0, 0);
         self->f378 = lbl_805DA5B0;
         self->f37C = lbl_805DA5B4;
         self->f380 = 0xC;

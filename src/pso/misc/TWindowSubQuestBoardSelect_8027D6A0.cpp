@@ -25,7 +25,7 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 update_fade__17TWindowSubComCardFPv(void *);
 s32 initialize_subwindow__9TWindowDDFPv(void *);
-s32 TWindowSubStatusDisp__sub_80257C28(void *, void *);
+s32 update_window_entry_list(void *, void *);
 s32 is_open__20TWindowSubQuestBoardFPv(void *);
 s32 select_next__26TWindowSubQuestBoardSelectFPv(void *);
 s32 handle_cancel__26TWindowSubQuestBoardSelectFPv(void *);
@@ -35,7 +35,7 @@ extern RecoveredGlobal_8027D888_lbl_8050E208 lbl_8050E208;
 extern const f32 lbl_805DD6B4;
 void run_task__26TWindowSubQuestBoardSelectFv(u8 *arg0);
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, s32, s32, s32);
-void TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+void play_sound_effect(s32, s32, s32, s32);
 void fn_8027D230(void *);
 s32 get_slot_flag__26TWindowSubQuestBoardSelectFic(void *, u8);
 s32 is_shortcut_active__18TWindowSubShortCutFPv();
@@ -53,7 +53,7 @@ s32 TWindowSubQuestBoardSelect__sub_8027D6A0(void *arg0) {
     if (is_shortcut_active__18TWindowSubShortCutFPv() == 0 &&
         (apply_choice__20TWindowChoiceSettingFiiii(p = TBL_8027D6A0[0].f20, 0xC0, 6, 1) != 0 ||
         apply_choice__20TWindowChoiceSettingFiiii(TBL_8027D6A0[4].f20, 0xC0, 6, 1) != 0)) {
-        TBoss3Volopt__sub_8022675C(0x54100, 0, 0, 0);
+        play_sound_effect(0x54100, 0, 0, 0);
         d = 0;
         if (apply_choice__20TWindowChoiceSettingFiiii(p, 0x80, 6, 1) != 0 ||
             apply_choice__20TWindowChoiceSettingFiiii(TBL_8027D6A0[4].f20, 0x80, 6, 1) != 0) {
@@ -106,7 +106,7 @@ void run_task__26TWindowSubQuestBoardSelectFv(u8 *arg0) {
         update_subwindow__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x64)));
     }
     update_fade__17TWindowSubComCardFPv((void *) (arg0));
-    TWindowSubStatusDisp__sub_80257C28((void *) (arg0), (void *) (arg0 + 0x24));
+    update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
 }
 
 }

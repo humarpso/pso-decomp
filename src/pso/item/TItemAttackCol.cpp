@@ -166,7 +166,7 @@ s32 has_game_join_id(void *);
 s32 TItemAttackCol__sub_802E4918(void *);
 void run_task__14TItemAttackColFv(u8 *arg0);
 u8 get_field_ed__10TObjPlayerFPv(int);
-u32 TLobby__sub_80101AB0(int);
+u32 find_item_by_id(int);
 u8 get_slot_count__14TItemProShieldFPv(int);
 s32 TObjPlayer__sub_8011C620(void *);
 s32 reset_status_block__10TObjPlayerFPv(void *);
@@ -228,7 +228,7 @@ void TItemAttackCol__vt4(Obj_802E3C4C *o, s32 *a) {
             o->cb(o->fAC, a, o->fD0);
         }
         if (o->fE4 & 0x200) {
-            VObj_802E3C4C *p = (VObj_802E3C4C *)TLobby__sub_80101AB0(o->fAC);
+            VObj_802E3C4C *p = (VObj_802E3C4C *)find_item_by_id(o->fAC);
             u8 *b = get_player_by_client_id(o->fA8);
             if (p != NULL) {
                 p->m59(b, a[0], o->fB8, o->fB4, a[1]);
@@ -360,7 +360,7 @@ s32 TObjPlayer__sub_802E456C(u8 *arg0, u8 *arg1) {
     f32 var_f31;
     temp_r30 = (u8 *)(M2C_FIELD(arg1, u8 **, 0));
     temp_r29 = (u8 *)(get_player_by_client_id((s32) M2C_FIELD(arg0, u16 *, 0xA8)));
-    temp_r28 = TLobby__sub_80101AB0((int) (M2C_FIELD(arg0, s32 *, 0xAC)));
+    temp_r28 = find_item_by_id((int) (M2C_FIELD(arg0, s32 *, 0xAC)));
     temp_r31 = M2C_FIELD(M2C_FIELD(arg1, u8 **, 0), s32 *, 0xA4) + (M2C_FIELD(arg1, s32 *, 4) * 0x2C);
     if ((temp_r29 != NULL) && (temp_r28 != 0U) && (((VObj_18_f2ea1e *)(temp_r30))->m19(temp_r29, temp_r31, 0, M2C_FIELD(arg0, f32 *, 0xB0)) != 0)) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0xB8);

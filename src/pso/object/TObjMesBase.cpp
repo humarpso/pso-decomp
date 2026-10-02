@@ -73,7 +73,7 @@ void __dl__7TObjectFPv(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *obj);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 f32 xz_distance_squared(s32, s32);
-s32 fn_801A2340(s32, f32, f32);
+s32 update_object_view_visibility(s32, f32, f32);
 
 }
 
@@ -180,7 +180,7 @@ s32 TMotorcycle__vt8(s32 arg0, f32 farg0, f32 farg1) {
     if (xz_distance_squared(lbl_805D4DF0 + 0x178, arg0 + 0x38) < (farg1 * farg1)) {
         return 1;
     }
-    return fn_801A2340(arg0, farg0, farg1);
+    return update_object_view_visibility(arg0, farg0, farg1);
 }
 void TMotorcycle__vt14(Mc_80194EC4 *arg0) {
     TObjMesBase__sub_80194AEC((Mes_80194AEC *)(arg0));

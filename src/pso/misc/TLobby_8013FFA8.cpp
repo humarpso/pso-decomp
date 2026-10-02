@@ -321,7 +321,7 @@ M2C_UNK create_tasks__6TLobbyFv();
 s32 check_disconnect_conditions__6TLobbyFv();
 s32 check_v2_mode__9TObjEneDDFv();
 M2C_UNK TLobby__sub_800FD6F8(M2C_UNK *, M2C_UNK);
-M2C_UNK TObjLight__sub_80133B10(Light_801401D0 *);
+M2C_UNK init_map_lights(Light_801401D0 *);
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
 M2C_UNK TLobby__sub_80227FB4();
@@ -333,7 +333,7 @@ M2C_UNK create_tasks__6TLobbyFv();
 s32 check_disconnect_conditions__6TLobbyFv();
 s32 init_heap__13TParticleCtrlFPv(s32);
 M2C_UNK TLobby__sub_800FD6F8(M2C_UNK *, M2C_UNK);
-M2C_UNK TObjLight__sub_80133B10(Light_801401D0 *);
+M2C_UNK init_map_lights(Light_801401D0 *);
 M2C_UNK create__12TObjRainCtrlFv();
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
@@ -467,7 +467,7 @@ s32 TLobby__sub_801401D0(void) {
         l.c[2] = 1.0f;
         l.c[3] = 1.0f;
     }
-    TObjLight__sub_80133B10(&l);
+    init_map_lights(&l);
     create_tasks__6TLobbyFv();
     forward_floor_2CB44__6TLobbyFPv();
     TObjBgmColCtrl__sub_802274B8(lbl_8043F1B8);
@@ -560,7 +560,7 @@ s32 TLobby__sub_80140514(void) {
     l.c[1] = 0.64f;
     l.c[2] = 0.7f;
     l.c[3] = 0.74f;
-    TObjLight__sub_80133B10((Light_801401D0 *)(&l));
+    init_map_lights((Light_801401D0 *)(&l));
     create_tasks__6TLobbyFv();
     create__12TObjRainCtrlFv();
     create__13TObjBoss5CtrlFv();

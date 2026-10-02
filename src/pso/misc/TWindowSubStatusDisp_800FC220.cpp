@@ -9,7 +9,7 @@ extern E_800FC220 *lbl_805D5398;
 s32 TWindowSubStatusDisp__sub_800FC220(u8 c);
 extern E_800FC220 *lbl_805D5398;
 extern const f32 lbl_805DA9B8;
-void TWindowSubStatusDisp__sub_800FC310(u8 c, Quad_800FC310 *q);
+void build_small_font_glyph_quad(u8 c, Quad_800FC310 *q);
 }
 
 extern "C" {
@@ -21,7 +21,7 @@ s32 TWindowSubStatusDisp__sub_800FC220(u8 c) {
 }
 
 void TWindowSubStatusDisp__sub_800FC248(void) {  }
-void TWindowSubStatusDisp__sub_800FC310(u8 c, Quad_800FC310 *q) {
+void build_small_font_glyph_quad(u8 c, Quad_800FC310 *q) {
     f32 a = (f32)((c << 4) & 0xF0);
     f32 b = (f32)(c & 0xF0);
     E_800FC220 *g = &lbl_805D5398[c - 0x20];

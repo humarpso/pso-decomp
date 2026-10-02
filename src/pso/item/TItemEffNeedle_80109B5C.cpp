@@ -20,7 +20,7 @@ extern "C" {
 
 s32 obj_getField1c(void *);
 M2C_UNK create_timed_particle_emitter(void *, M2C_UNK, M2C_UNK, M2C_UNK, void *);
-s32 TLobby__sub_80101AB0();
+s32 find_item_by_id();
 s32 get_entity_id__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_8010A058(s32);
 void *__nw__7TObjectFUl(M2C_UNK);
@@ -54,7 +54,7 @@ void create_needle_effect(s32 arg0, void *arg1) {
     s32 temp_r29;
     void *temp_r7;
 
-    temp_r29 = TLobby__sub_80101AB0();
+    temp_r29 = find_item_by_id();
     var_r31 = __nw__7TObjectFUl(0x64);
     if (var_r31 != NULL) {
         temp_r30 = M2C_FIELD(arg1, void **, 0);

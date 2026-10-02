@@ -15,7 +15,7 @@ extern "C" {
 
 void TObjPlayer__sub_80327140(int a0, void* a1);
 void fire_spread_attack__10TObjPlayerFPv(void *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8011EB84(void *, s32, M2C_UNK, M2C_UNK);
 int TObjPlayer__sub_80120D50(void);
 s16 get_field_2b8__14TItemProShieldFPv(s32);
@@ -56,7 +56,7 @@ void fire_spread_attack__10TObjPlayerFPv(void *arg0) {
             TObjPlayer__sub_8011EB84(arg0, M2C_FIELD(arg0, s32 *, 0xF0) + 0x38, 0, 0);
             TObjPlayer__sub_8011EB84(arg0, M2C_FIELD(arg0, s32 *, 0xF0) + 0x38, 0, 0x11C7);
             TObjPlayer__sub_8011EB84(arg0, M2C_FIELD(arg0, s32 *, 0xF0) + 0x38, 0, 0x238E);
-            TBoss3Volopt__sub_8022675C(0x4001A642, M2C_FIELD(arg0, s32 *, 0xF0) + 0x38, 0, 0);
+            play_sound_effect(0x4001A642, M2C_FIELD(arg0, s32 *, 0xF0) + 0x38, 0, 0);
             return;
         }
         update_active_game_effect__10TObjPlayerFPv(arg0);

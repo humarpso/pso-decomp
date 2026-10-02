@@ -131,7 +131,7 @@ void TTecLuker__sub_80234F90(void* p);
 void TTecLuker__sub_80235028(void* p);
 void TTecLuker__sub_802340E4(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_804CC990[];
 u8 *TTecLuker__sub_80233B9C(u8 *arg0, s32 arg1, s32 arg2);
@@ -211,8 +211,8 @@ s32 get_current_floor(void);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 M2C_UNK TTecLuker__sub_801D3728(void *, void *, void *);
 void *init_array__9TItemListFPv(void *);
-s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
-M2C_UNK fn_8022C2A8(void *, void *, void *);
+s32 play_sound_effect(int, void *, int, int);
+M2C_UNK construct_area_technique_base(void *, void *, void *);
 M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, s32);
 M2C_UNK push_matrix_from(void *);
@@ -285,7 +285,7 @@ u8 *TTecLuker__sub_80233B9C(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x1C) = arg1;
     VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x20)), (void *)((int) (M2C_FIELD(arg0, s32 *, 0x1C) + 0x2FC)));
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x30) = TBoss3Volopt__sub_8022675C((int) (0x4002BC20), (void *) (arg0 + 0x20), (int) (0), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x30) = play_sound_effect((int) (0x4002BC20), (void *) (arg0 + 0x20), (int) (0), (int) (0));
     return arg0;
 }
 
@@ -603,7 +603,7 @@ void *__dt__9TTecLukerFv(void *arg0, s16 arg1) {
 void *TTecLuker__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
     Owner_80234D50 *o;
     void *p;
-    fn_8022C2A8(arg0, arg1, arg2);
+    construct_area_technique_base(arg0, arg1, arg2);
     L->vt = __vt__9TTecLuker;
     L->f0 = lbl_805D37E4;
     L->f108 = 0;
@@ -642,7 +642,7 @@ void *TTecLuker__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) 
             }
         }
     }
-    TBoss3Volopt__sub_8022675C(0x4002A818, (u8 *)arg0 + 0x20, 0, 0);
+    play_sound_effect(0x4002A818, (u8 *)arg0 + 0x20, 0, 0);
     return arg0;
 }
 #undef L

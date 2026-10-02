@@ -80,7 +80,7 @@ extern s32 lbl_805D3820;
 extern const f32 lbl_805DC940;
 u8 *TTecSifta__sub_8023B17C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
-s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 void TTecSifta__sub_8023ACA8(Obj_8023ACA8 *arg0);
 s32 obj_getField1c(int);
 s32 is_split_screen();
@@ -130,18 +130,18 @@ void TTecSifta__sub_8023ACA8(Obj_8023ACA8 *arg0) {
     switch (arg0->state) {
     case 0:
     case 1:
-        r = TBoss3Volopt__sub_8022675C(0x4002AD14, (u8 *)arg0 + 0x20, 0, 0);
+        r = play_sound_effect(0x4002AD14, (u8 *)arg0 + 0x20, 0, 0);
         if (r >= 0) {
             update_technique_slot__10TTecRaFoieFi(r, 0x100, 0);
         }
         break;
     case 2:
     case 3:
-        TBoss3Volopt__sub_8022675C(0x4002AD14, (u8 *)arg0 + 0x20, 0, 0);
+        play_sound_effect(0x4002AD14, (u8 *)arg0 + 0x20, 0, 0);
         break;
     case 4:
     case 5:
-        r = TBoss3Volopt__sub_8022675C(0x4002AD14, (u8 *)arg0 + 0x20, 0, 0);
+        r = play_sound_effect(0x4002AD14, (u8 *)arg0 + 0x20, 0, 0);
         if (r >= 0) {
             update_technique_slot__10TTecRaFoieFi(r, -0x100, 0);
         }

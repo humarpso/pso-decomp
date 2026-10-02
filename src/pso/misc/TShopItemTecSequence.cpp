@@ -184,7 +184,7 @@ int TShopItemTecSequence__sub_8021FE6C(int a0);
 void close__20TShopItemTecSequenceFPv(void *arg0);
 void select_and_advance__20TShopItemTecSequenceFPv(void *arg0);
 void set_judgment_target_flag(void *arg0, void *arg1);
-u32 TLobby__sub_80101AB0(s32);
+u32 find_item_by_id(s32);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 M2C_UNK add_item_flags__10TObjPlayerFPvUi(u32, M2C_UNK);
@@ -401,7 +401,7 @@ void TShopItemTecSequence__sub_80220560(void) {
 
 void set_judgment_target_flag(void *arg0, void *arg1) {
     u32 temp_r3;
-    if ((is_not_split_screen__13TRaderMapCoreFv() == 1) && ((temp_r3 = TLobby__sub_80101AB0(M2C_FIELD(arg1, s32 *, 0xC))) != 0U) && ((s32) M2C_FIELD(arg0, s32 *, 0x168) != 0)) {
+    if ((is_not_split_screen__13TRaderMapCoreFv() == 1) && ((temp_r3 = find_item_by_id(M2C_FIELD(arg1, s32 *, 0xC))) != 0U) && ((s32) M2C_FIELD(arg0, s32 *, 0x168) != 0)) {
         add_item_flags__10TObjPlayerFPvUi(temp_r3, 0x80);
     }
 }

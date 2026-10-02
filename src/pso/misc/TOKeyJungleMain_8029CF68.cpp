@@ -144,7 +144,7 @@ extern RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 TOKeyJungleMain__
 extern s32 lbl_805D5550;
 void TOKeyJungleMain__vt19(u8 *arg0);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_80154E3C(void *);
+s32 refresh_collision_body_centers(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
 s32 init_switch_id__5TOKeyFPv(void *);
 s32 TOKey__ct(void *);
@@ -289,7 +289,7 @@ u8 *TOKeyJungleMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     init_switch_id__5TOKeyFPv((void *) (arg0));
     TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804DC5A0.value), (int) (1));
-    TObjPlayer__sub_80154E3C((void *) (arg0));
+    refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0xD0) = 0;
     M2C_FIELD(arg0, s32 *, 0xC8) = (s32) M2C_FIELD(arg0, s32 *, 0x84);

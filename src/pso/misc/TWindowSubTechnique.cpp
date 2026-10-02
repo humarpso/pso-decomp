@@ -56,7 +56,7 @@ void update_cursor__10TObjPlayerFPvi(s32, s32);
 s32 try_equip_item__10TObjPlayerFii(s32, s32);
 void set_status_flag_80__12TQuestThreadFPv(void *);
 void clear_flag_and_release__17TWindowSubComCardFPv(void *);
-void TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+void play_sound_effect(s32, s32, s32, s32);
 void TWindow__close(void *);
 M2C_UNK set_field_1c__6TLobbyFPvf(s32);
 s32 is_player_input_active(s32);
@@ -229,7 +229,7 @@ void run_task__19TWindowSubTechniqueFv(Tech_802870C4 *self) {
         if (TWindowSubTechnique__sub_80286BF4(TWindowSubComCard__sub_80265BF8(self->sel), self->player) == 0 ||
             TWindowShortListCtrl__check_controller_button(lbl_8050E208[port].m20, 2) != 0 ||
             test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208[4].m20, 2) != 0) {
-            TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
+            play_sound_effect(0x52F16, 0, 0, 0);
             rebuildTechniqueList__19TWindowSubTechniqueFll(self, self->sel, TWindowSubComCard__sub_80265BF8(self->list));
             self->state = 1;
         } else if (try_equip_item__10TObjPlayerFii(ply, TWindowSubComCard__sub_80265BF8(self->sel)) != 0) {

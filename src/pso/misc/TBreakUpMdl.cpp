@@ -119,7 +119,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(void *);
-void TOSignCave03__sub_803DB510(s32);
+void draw_ginja_model(s32);
 void set_chunk_material_override_pair(u32, u32);
 void set_chunk_material_color(Color_8009680C *);
 void TObjPlayer__sub_803E4684(s32);
@@ -168,7 +168,7 @@ void render__11TBreakUpMdlFv(BreakUp_8009680C *self) {
         TOHangerMachine01__sub_803D9C00(part->pos);
         TObjPlayer__sub_803D99F8(part->rot, 0);
         if (self->model->is_chunk != 0) {
-            TOSignCave03__sub_803DB510(self->model->chunks[i].model);
+            draw_ginja_model(self->model->chunks[i].model);
         } else {
             TObjPlayer__sub_803E4684(self->model->chunks[i].model);
         }

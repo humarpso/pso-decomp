@@ -184,7 +184,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 find_entity_by_id(void *);
 s32 TPhotonMagicSquare__sub_801A2640(void *);
-s32 TBoss3Volopt__sub_8022675C(int, int, int, int);
+s32 play_sound_effect(int, int, int, int);
 extern RecoveredGlobal_801AD0F0_TPhotonMagicSquare__data_804C3940 TPhotonMagicSquare__data_804C3940;
 extern RecoveredGlobal_801AD0F0___vt__18TPhotonMagicSquare __vt__18TPhotonMagicSquare;
 extern s32 TPhotonMagicSquare__data_805D3508;
@@ -286,7 +286,7 @@ u8 *TPhotonMagicSquare__sub_801AD330(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3)
     M2C_FIELD(arg0, s32 *, 0xC4) = 0x37;
     M2C_FIELD(arg0, f32 *, 0xC8) = (f32) TPhotonMagicSquare__data_805DC1F0;
     M2C_FIELD(arg0, s32 *, 0xCC) = 2;
-    TBoss3Volopt__sub_8022675C((int) (0x4002AD2E), (int) (0), (int) (0), (int) (0));
+    play_sound_effect((int) (0x4002AD2E), (int) (0), (int) (0), (int) (0));
     return arg0;
 }
 

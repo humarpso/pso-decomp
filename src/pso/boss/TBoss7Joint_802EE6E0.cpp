@@ -15,7 +15,7 @@ s32 register_object__6TLobbyFPv(int);
 s32 dispatch_shared_handler_b__6TLobbyFPv(int);
 s32 register_boss__6TLobbyFPv(int);
 M2C_UNK TObjEneDD__sub_800B9E84(void *, int, int, int);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 u32 __nw__7TObjectFUl(int);
 M2C_UNK TObjPlayer__sub_802E72DC(void *, void *, void *, int);
 void TBoss7Joint__sub_802EE820(u8 *arg0);
@@ -74,7 +74,7 @@ void TBoss7Joint__sub_802EE820(u8 *arg0) {
     if (p != 0U) {
         TObjPlayer__sub_802E72DC((void *)p, arg0, arg0 + 0x38, M2C_FIELD(arg0, s32 *, 0x3B8));
     }
-    TBoss3Volopt__sub_8022675C(0x3A312, arg0 + 0x38, 0, 0);
+    play_sound_effect(0x3A312, arg0 + 0x38, 0, 0);
 }
 
 void TBoss7Joint__vt91(void *arg0) {

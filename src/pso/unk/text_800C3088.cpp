@@ -261,7 +261,7 @@ s32 set_child_flags__16TObjEneRe2FlowerFPv(void *);
 s32 TObjPlayer__sub_800C4A5C(int, void *, void *, int);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
-s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+s32 play_sound_effect(void *, void *, int, int);
 u32 __nw__7TObjectFUl(int);
 s32 create_ex__9TTecMegidFiiii(void *, void *, int, int);
 extern u8 *lbl_805D5170;
@@ -278,7 +278,7 @@ s32 set_child_flags__16TObjEneRe2FlowerFPv(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
 s32 play_effect_if_v2__10TObjPlayerFi(int);
-s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+s32 play_sound_effect(void *, void *, int, int);
 extern const f32 lbl_805D9FAC;
 extern const f32 lbl_805D9FC0;
 extern const f32 lbl_805D9FC4;
@@ -352,7 +352,7 @@ void fn_800C3088(u8 *arg0, int arg1) {
             PSO_VCALL_VObj_18_880cfd_m23(temp_r3_3, arg0, lbl_805D9FD4);
           }
         }
-        TBoss3Volopt__sub_8022675C((void *) fn_800C3A60((void *) arg0, (int) 0x4003A814), (void *) (arg0 + 0x38), (int) 0, (int) 0);
+        play_sound_effect((void *) fn_800C3A60((void *) arg0, (int) 0x4003A814), (void *) (arg0 + 0x38), (int) 0, (int) 0);
         play_effect_if_v2__10TObjPlayerFi((int) (-0x200));
       }
         break;
@@ -422,7 +422,7 @@ void fn_800C32DC(u8 *arg0, s32 arg1) {
                     TObjPlayer__sub_800C4A5C((int) (temp_r3_3), (void *) (arg0), (void *) (&stack.sp8), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
                 }
             }
-            TBoss3Volopt__sub_8022675C((void *) (fn_800C3A60((void *) (arg0), (int) (0x4003A10E))), (void *) (arg0 + 0x3DC), (int) (0), (int) (0));
+            play_sound_effect((void *) (fn_800C3A60((void *) (arg0), (int) (0x4003A10E))), (void *) (arg0 + 0x3DC), (int) (0), (int) (0));
         }
         ((VObj_18_9e83f9 *)(arg0))->m100();
         ((VObj_18_9e83f9 *)(arg0))->m86();
@@ -620,7 +620,7 @@ M2C_UNK noop__9TObjEneDDFv(void *);
 s32 get_flag_11__16TObjEneRe2FlowerFPv(void *);
 M2C_UNK set_child_flags__16TObjEneRe2FlowerFPv(void *);
 s32 angle_difference_abs(int, int);
-s32 TObjPlayer__sub_801423A4(int, int, void *);
+s32 approach_angle_limited(int, int, void *);
 extern const f64 lbl_8043BBD8;
 extern const f32 lbl_805D9FE0;
 extern const f32 lbl_805D9FE4;
@@ -648,7 +648,7 @@ void TObjEneDD__sub_800C34FC(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x414) = 0;
         M2C_FIELD(arg0, s32 *, 0x420) = 0;
         if (get_flag_11__16TObjEneRe2FlowerFPv(arg0) != 0) {
-            TBoss3Volopt__sub_8022675C((void *)0x4003A840, arg0 + 0x38, 0, 0);
+            play_sound_effect((void *)0x4003A840, arg0 + 0x38, 0, 0);
         }
         break;
     case 3:
@@ -688,7 +688,7 @@ void TObjEneDD__sub_800C34FC(u8 *arg0, s32 arg1) {
         update_velocity__9TObjEneDDFPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x414)++;
         M2C_FIELD(arg0, s32 *, 0x420) = (s32)(lbl_8043BBD8 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8)));
-        M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x420), M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), void **, 8));
+        M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x420), M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), void **, 8));
         M2C_FIELD(arg0, s32 *, 0x60) = (s16)M2C_FIELD(arg0, s32 *, 0x60);
         ((VObj_18 *)(arg0))->m100();
         ((VObj_18 *)(arg0))->m86();

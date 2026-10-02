@@ -33,7 +33,7 @@ extern "C" {
 
 void set_help_text__15TWindowHelpItemFii(s32 arg0, s32 arg1);
 s32 get_help_value__15TWindowHelpItemFv(void);
-void *TLobby__sub_80101AB0();
+void *find_item_by_id();
 s32 TWindowHelpItem__sub_802434B8();
 M2C_UNK TWindowHelpItem__sub_8025B08C(s32, f32, f32);
 s32 test_card_flag_2__12TBoss8DragonFPv(s32);
@@ -56,7 +56,7 @@ s32 get_help_value__15TWindowHelpItemFv(void) {
     if (TWindowHelpItem__sub_802434B8() == -1) {
         return 0;
     }
-    o = (struct VObj_80243464 *)TLobby__sub_80101AB0();
+    o = (struct VObj_80243464 *)find_item_by_id();
     if (o == NULL) {
         return 0;
     }

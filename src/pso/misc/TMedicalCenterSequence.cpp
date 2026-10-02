@@ -144,11 +144,11 @@ extern "C" {
 
 void TMedicalCenterSequence__vt10(void* p);
 void TMedicalCenterSequence__vt11(void *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TObjPlayer__sub_80011138(s32, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK try_spend_actor_meseta(s32, M2C_UNK);
 s32 TObjPlayer__sub_801AF734(s32);
 M2C_UNK TObjPlayer__sub_801AF7E0(s32);
-u32 TObjPlayer__sub_801B4684(s32);
+u32 get_recovery_need_flags__10TObjPlayerFPv(s32);
 int TShopWindowBase__sub_802239EC(void *);
 int TShopWindowBase__sub_80223A48(void *);
 s32 TWindowSubComCard__sub_80265BF8(u32);
@@ -186,14 +186,14 @@ void exec_heal__22TMedicalCenterSequenceFPv(void *arg0) {
         set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(0xA));
         return;
     }
-    TBoss3Volopt__sub_8022675C(0x42D08, 0, 0, 0);
+    play_sound_effect(0x42D08, 0, 0, 0);
     send_code_49_1__10TObjPlayerFi(M2C_FIELD(arg0, s32 *, 0x24));
     send_code50_packet__10TObjPlayerFi(M2C_FIELD(arg0, s32 *, 0x24));
     if (is_alive_and_ready__10TObjPlayerFi(M2C_FIELD(arg0, s32 *, 0x24)) != 0) {
         TObjPlayer__sub_801AF7E0(M2C_FIELD(arg0, s32 *, 0x24));
     }
     send_field_state__10TObjPlayerFi(M2C_FIELD(arg0, s32 *, 0x24));
-    TObjPlayer__sub_80011138(M2C_FIELD(arg0, s32 *, 0x24), 0xA);
+    try_spend_actor_meseta(M2C_FIELD(arg0, s32 *, 0x24), 0xA);
     ((VObj_802165D8_802163AC *)arg0)->m4(0x22, 1);
     set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(0xA));
 }
@@ -228,7 +228,7 @@ block_6:
 void handle_confirm__22TMedicalCenterSequenceFPv(void *arg0) {
     struct VObj_80216784_802163AC *o = (struct VObj_80216784_802163AC *)arg0;
     if ((o->m8() != 0) && ((TShopWindowBase__sub_80223A48((void *)(arg0)) != 0) || (TShopWindowBase__sub_802239EC((void *)(arg0)) != 0))) {
-        if ((TObjPlayer__sub_801B4684(M2C_FIELD(arg0, s32 *, 0x24)) != 0U) || ((is_alive_and_ready__10TObjPlayerFi(M2C_FIELD(arg0, s32 *, 0x24)) != 0) && (TObjPlayer__sub_801AF734(M2C_FIELD(arg0, s32 *, 0x24)) == 0))) {
+        if ((get_recovery_need_flags__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0x24)) != 0U) || ((is_alive_and_ready__10TObjPlayerFi(M2C_FIELD(arg0, s32 *, 0x24)) != 0) && (TObjPlayer__sub_801AF734(M2C_FIELD(arg0, s32 *, 0x24)) == 0))) {
             set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(7));
             return;
         }

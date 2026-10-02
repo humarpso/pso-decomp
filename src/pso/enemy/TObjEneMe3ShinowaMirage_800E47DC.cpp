@@ -1300,7 +1300,7 @@ M2C_UNK trigger_dell_biter_events__10TObjPlayerFPv(void *);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback(void *, s32);
-M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+M2C_UNK play_sound_effect(void *, void *, int, int);
 f32 TBoss8Dragon__sub_803D64C0(int);
 f32 TBoss8Dragon__sub_803D64DC(int);
 extern u8 lbl_8043CE00[];
@@ -1311,7 +1311,7 @@ extern const f32 TObjEneMe3ShinowaMirage__data_805DA5E4;
 extern const f32 TObjEneMe3ShinowaMirage__data_805DA5E8;
 extern const f32 TObjEneMe3ShinowaMirage__data_805DA5EC;
 void TObjEneMe3ShinowaMirage__sub_800E4DD0(u8 *arg0, s32 arg1);
-M2C_UNK TObjEneEpsilon__sub_800B9344(void *, int, f32);
+M2C_UNK enemy_turn_and_move_on_ground(void *, int, f32);
 M2C_UNK update_angle__14TObjEneEpsilonFPvi(void *, int);
 M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
 s32 update_linked_position__14TObjEneEpsilonFPv(f32);
@@ -1487,7 +1487,7 @@ void TObjEneMe3ShinowaMirage__sub_800E4DD0(u8 *arg0, s32 arg1) {
         case 0:
             ((void (*)())advance_animation_playback)();
             if ((objInBand__FP7GameObjf((void *) (arg0), lbl_805DA5E0) != 0) || (objInBand__FP7GameObjf((void *) (arg0), TObjEneMe3ShinowaMirage__data_805DA5E4) != 0)) {
-                TBoss3Volopt__sub_8022675C((void *) copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003AD12), arg0 + 0x38, 0, 0);
+                play_sound_effect((void *) copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003AD12), arg0 + 0x38, 0, 0);
             }
             if (get_flag_b4__21TObjEneMe3ShinowaRealFPv((void *) (arg0)) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x404) = 1;
@@ -1509,7 +1509,7 @@ void TObjEneMe3ShinowaMirage__sub_800E4DD0(u8 *arg0, s32 arg1) {
                 sp8.x += TObjEneMe3ShinowaMirage__data_805DA5EC * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
                 sp8.z += TObjEneMe3ShinowaMirage__data_805DA5EC * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
                 trigger_dell_biter_events__10TObjPlayerFPv(&sp8);
-                TBoss3Volopt__sub_8022675C((void *) copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003AD16), arg0 + 0x38, 0, 0);
+                play_sound_effect((void *) copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003AD16), arg0 + 0x38, 0, 0);
             }
             ((VObj_18_64d9d3 *)(arg0))->m100();
             break;
@@ -1675,7 +1675,7 @@ void TObjEneMe3ShinowaMirage__sub_800E64F4(u8 *arg0, s32 arg1) {
                 update_angle__14TObjEneEpsilonFPvi((void *) (arg0), (int) (0x500));
                 ((VObj_18_e66632 *)(arg0))->m100();
             } else {
-                TObjEneEpsilon__sub_800B9344((void *) (arg0), (int) (0x500), (f32) (M2C_FIELD(arg0, f32 *, 0x410)));
+                enemy_turn_and_move_on_ground((void *) (arg0), (int) (0x500), (f32) (M2C_FIELD(arg0, f32 *, 0x410)));
             }
             ((VObj_18_e66632 *)(arg0))->m87();
         }

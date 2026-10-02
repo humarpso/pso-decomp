@@ -305,7 +305,7 @@ void TBoss3VoloptHiraisin__sub_80041B64(u8 *arg0);
 void TBoss3VoloptHiraisin__sub_80041BB4(u8 *arg0);
 void damage_player_if_aligned__20TBoss3VoloptHiraisinFPv(void *arg0);
 u8 *find_entity_by_id(u16);
-int TBoss3Volopt__sub_8022675C(int, void *, int, int);
+int play_sound_effect(int, void *, int, int);
 extern s8 lbl_804FEED0[];
 extern u16 lbl_805D4C18;
 void TBoss3VoloptHiraisin__sub_80041D3C(Hira_80041D3C *self);
@@ -520,7 +520,7 @@ void TBoss3VoloptHiraisin__sub_80041D3C(Hira_80041D3C *self) {
     u8 *p;
     switch (self->state) {
     case 0:
-        TBoss3Volopt__sub_8022675C(0x4003A804, self->pos, 0, 0);
+        play_sound_effect(0x4003A804, self->pos, 0, 0);
         damage_player_if_aligned__20TBoss3VoloptHiraisinFPv(self);
         TBoss3VoloptHiraisin__sub_80041BB4((u8 *)self);
         lbl_804FEED0[self->idx] = 1;

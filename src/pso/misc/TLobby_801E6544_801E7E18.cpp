@@ -154,7 +154,7 @@ void TLobby__sub_801E83E8(void);
 extern s32 TLobby__data_80512220[];
 s32 TObjPlayer__sub_80354DF4(int);
 void TLobby__sub_801E8414(void);
-void *TLobby__sub_80101AB0(s32);
+void *find_item_by_id(s32);
 void copy_to_item_data__5TItemFPvPv(void *, ItemData_801E8000 *);
 extern s32 TLobby__data_80512220[];
 extern int* TLobby__data_805D5E78;
@@ -201,7 +201,7 @@ void TLobby__sub_801E8000(void) {
     void *item;
     ItemData_801E8000 d;
     r = TLobby__data_80512220[1];
-    item = TLobby__sub_80101AB0(TLobby__data_80512220[0]);
+    item = find_item_by_id(TLobby__data_80512220[0]);
     if (item != NULL) {
         copy_to_item_data__5TItemFPvPv(item, &d);
         TLobby__data_805D5E78[r++] = d.b0;

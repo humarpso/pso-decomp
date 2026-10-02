@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void notify_and_cleanup_fishing__10TObjPlayerFPv(u8 *arg0);
-s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+s32 play_sound_effect(s32, s32, s32, s32);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK draw_ginja_object(int);
 M2C_UNK rotate_matrix_x(int, int);

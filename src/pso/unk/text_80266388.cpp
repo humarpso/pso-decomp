@@ -20,14 +20,14 @@ s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, void *, int, int
 s32 TCheckRoomSequence__sub_802664A8(s32 arg0, s32 arg1, s32 arg2);
 extern const f32 lbl_805DD170;
 extern const f32 lbl_805DD174;
-u8 *TShopJudgmentItemWindow__sub_80266388(s32 arg0, s32 arg1, u32 arg2, u32 arg3);
+u8 *create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3);
 }
 
 extern "C" {
 
 u8 * init_shop_judgment_window(void* p);
 
-u8 *TShopJudgmentItemWindow__sub_80266388(s32 arg0, s32 arg1, u32 arg2, u32 arg3) {
+u8 *create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3) {
   u8 *temp_r31;
   u8 *temp_r3;
   temp_r3 = (u8 *) ((u8 *)TCheckRoomSequence__sub_802664A8(arg0, 2, arg1));
@@ -59,7 +59,7 @@ u8 *TShopJudgmentItemWindow__sub_80266388(s32 arg0, s32 arg1, u32 arg2, u32 arg3
   return (u8 *) temp_r3;
 }
 
-u8 * init_shop_judgment_window(void* p) { return TShopJudgmentItemWindow__sub_80266388((s32)(p), (s32)(4), (u32)(0), (u32)(0)); }
+u8 * init_shop_judgment_window(void* p) { return create_yes_no_window((s32)(p), (s32)(4), (u32)(0), (u32)(0)); }
 s32 TCheckRoomSequence__sub_802664A8(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
     s32 var_r0;

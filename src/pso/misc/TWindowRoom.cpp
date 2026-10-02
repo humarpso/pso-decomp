@@ -43,7 +43,7 @@ void fn_8026D564(void *arg0, s32 arg1);
 void run_task__11TWindowRoomFv(void* p);
 void set_entry_display_value__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1);
 s32 TWindowSubStatusDisp__sub_80257BC0(s32, s32, s32);
-int TWindowSubStatusDisp__sub_80257C28(void*, void*);
+int update_window_entry_list(void*, void*);
 s32 TWindowSubStatusDisp__sub_8025AC50(s32, s32, s32);
 M2C_UNK TWindowSubStatusDisp__sub_80287580(s32, s32, M2C_UNK, f32);
 void __dl__7TObjectFPv(void *);
@@ -66,7 +66,7 @@ void draw_status__11TWindowRoomFi(s32 arg0) {
     fn_8026D564((void *)((void *)(arg0)), (s32)(temp_r3));
     TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3);
 }
-void run_task__11TWindowRoomFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); TWindowSubStatusDisp__sub_80257C28(p, (char*)p + 0x24); }
+void run_task__11TWindowRoomFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_window_entry_list(p, (char*)p + 0x24); }
 
 extern M2C_UNK __vt__11TWindowRoom[];
 

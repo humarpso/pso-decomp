@@ -49,8 +49,8 @@ u32 __nw__7TObjectFUl(u32);
 void TObjPlayer__sub_800DA414(Obj_800DA414 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void move_with_wall_slide(void *);
-void TObjPlayer__sub_8001806C(void *, f32, s32);
-void TObjPlayer__sub_80018660(void *, s32);
+void enemy_set_heading_velocity(void *, f32, s32);
+void enemy_turn_toward_dest(void *, s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 xz_distance_squared(void *, void *);
 f32 TBoss8Dragon__sub_803D64C0(s32);
@@ -73,7 +73,7 @@ M2C_UNK TObjPlayer__sub_800DC83C(u32, void *, void *, u8, void *);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 u32 __nw__7TObjectFUl(u32);
 extern const f32 lbl_805DA3F8;
 extern const f32 lbl_805DA3FC;
@@ -134,8 +134,8 @@ void TObjPlayer__sub_800DA508(Ene_800DA508 *arg0, Vec_800DA508 *center, f32 radi
         arg0->dest.z = r * TBoss8Dragon__sub_803D64C0(ang) + center->z;
     }
     VecCopy__FP3VecPC3Vec(&arg0->v29C, &arg0->dest);
-    TObjPlayer__sub_80018660(arg0, arg0->param->turn);
-    TObjPlayer__sub_8001806C(arg0, arg0->speed, arg0->angle);
+    enemy_turn_toward_dest(arg0, arg0->param->turn);
+    enemy_set_heading_velocity(arg0, arg0->speed, arg0->angle);
     move_with_wall_slide(arg0);
 }
 #pragma pop
@@ -184,7 +184,7 @@ void TObjPlayer__sub_800DB390(u8 *arg0) {
                     TObjPlayer__sub_800DC83C(obj, arg0 + 0x39C, (void *) (M2C_FIELD(arg0, u32 *, 0x2A8) + 0x2FC), (u8) !(M2C_FIELD(arg0, s32 *, 0x30) & 0x01000000), arg0);
                 }
                 TObjPlayer__sub_800DA4B4((Obj_800DA4B4 *) (arg0), 0);
-                TBoss3Volopt__sub_8022675C((int) (0x4003A527), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+                play_sound_effect((int) (0x4003A527), (void *) (arg0 + 0x38), (int) (0), (int) (0));
                 M2C_FIELD(arg0, s32 *, 0x37C) = 3;
             }
             break;

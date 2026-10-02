@@ -144,7 +144,7 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK abs__4cXyzCFv(int, int);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
-M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32);
+M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
 extern s32 lbl_805D67D4;
 extern s32 TAdMultiPlyChrSelectGC__data_805D67DC;
@@ -153,7 +153,7 @@ extern const f32 lbl_805DE580;
 void TAdMultiPlyChrSelectGC__sub_802C5314(S_802C5314 *self);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(void *, int, int, int);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5F1C(void *, int);
 extern u8 lbl_8050E3B8[];
 extern int TAdMultiPlyChrSelectGC__data_805D67D8;
@@ -218,9 +218,9 @@ void TAdMultiPlyChrSelectGC__sub_802C5314(S_802C5314 *self) {
                 TWindowSubStatusDisp__sub_803DEE6C(1);
                 set_global_param__8TObjFishFi(lbl_805D67D4);
                 TWindowSubStatusDisp__sub_803DF160(0, self->sel[i][j]);
-                TWindowSubComCard__sub_803DEECC(self->r324, lbl_805DE580);
-                TWindowSubComCard__sub_803DEECC(self->r344, lbl_805DE580);
-                TWindowSubComCard__sub_803DEECC(self->r364, lbl_805DE580);
+                draw_textured_quad_at_depth(self->r324, lbl_805DE580);
+                draw_textured_quad_at_depth(self->r344, lbl_805DE580);
+                draw_textured_quad_at_depth(self->r364, lbl_805DE580);
                 get_player__20TWindowSubStatusDispFv();
                 abs__4cXyzCFv(0, 8);
                 abs__4cXyzCFv(1, 6);
@@ -316,11 +316,11 @@ void TAdMultiPlyChrSelectGC__sub_802C6008(S_802C6008 *self) {
     TAdMultiPlyChrSelectGC__sub_802C5F1C(self, self->f1C++);
     if (self->f4DC[self->f4EC] != 0 && self->f4F8 == 0) {
         if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(WIN_802C6008, 0x10, 6, 1) != 0) {
-            TBoss3Volopt__sub_8022675C(0x54100, 0, 0, 0);
+            play_sound_effect(0x54100, 0, 0, 0);
             self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]--;
         }
         if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(WIN_802C6008, 0x20, 6, 1) != 0) {
-            TBoss3Volopt__sub_8022675C(0x54100, 0, 0, 0);
+            play_sound_effect(0x54100, 0, 0, 0);
             self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]++;
         }
         if (self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC] > self->f4DC[self->f4EC] - 1) {

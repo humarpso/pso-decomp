@@ -23,7 +23,7 @@ extern Mtx_803DB270 lbl_8058CB68[];
 extern S_803DB24C lbl_8058CD70;
 extern void *lbl_805D7774;
 extern u32 some_id_805c6f74;
-void TObjPlayer__sub_803DB270(s32 arg0, void *mtx);
+void queue_model_draw_matrix(s32 arg0, void *mtx);
 }
 
 extern "C" {
@@ -48,7 +48,7 @@ void TObjPlayer__sub_803DB24C(s32 x) {
 }
 #pragma pop
 
-void TObjPlayer__sub_803DB270(s32 arg0, void *mtx) {
+void queue_model_draw_matrix(s32 arg0, void *mtx) {
     Mtx_803DB270 inv;
     Mtx_803DB270 trans;
     Mtx_803DB270 scale;

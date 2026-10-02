@@ -13,7 +13,7 @@ M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK TBoss3Volopt__sub_800D8E80(void *, s32);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, s32, s32);
+M2C_UNK play_sound_effect(void *, void *, s32, s32);
 
 }
 
@@ -44,7 +44,7 @@ void init__15TObjEneMe1GiGueFPv(u8 *arg0) {
         advance_animation_playback(arg0);
         if (((VObj410 *)(arg0 + 0x3FC))->m5() == 1) {
             M2C_FIELD(arg0, s32 *, 0x37C) = -1;
-            TBoss3Volopt__sub_8022675C((void *)TObjEneMe1GiGue__sub_802CB5A0(arg0, 0x3A345), arg0 + 0x38, 0, 0);
+            play_sound_effect((void *)TObjEneMe1GiGue__sub_802CB5A0(arg0, 0x3A345), arg0 + 0x38, 0, 0);
         }
         update_collisions__10TObjPlayerFPv(arg0);
         return;

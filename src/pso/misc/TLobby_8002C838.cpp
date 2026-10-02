@@ -49,7 +49,7 @@ void init_bosses__6TLobbyFv(void);
 void render__14TObjBoss1FloorFv(void);
 void update_boss1_objects__6TLobbyFv(void);
 int TBoss8Dragon__sub_8002D5F8(void);
-M2C_UNK TOSignCave03__sub_803DB510(int);
+M2C_UNK draw_ginja_model(int);
 int TObjBoss1Crater__sub_8002C7B4(void);
 int TObjBoss1Crater__sub_8002C7B8(void);
 s32 TObjBoss1Crater__sub_8002C7E4(void* p);
@@ -99,7 +99,7 @@ void render__14TObjBoss1FloorFv(void) {
         set_global_param__8TObjFishFi((void *) (lbl_805D4B54));
         temp_r31 = (unsigned char *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), void **, 0x58));
         TObjPlayer__sub_80083914((void *) (temp_r31 + 8), (void *) (temp_r31 + 0x14));
-        TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31, s32 *, 4)));
+        draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
         apply_single_screen_state__6TSceneFv();
         func_80141618__Fv();
         pop_matrix();

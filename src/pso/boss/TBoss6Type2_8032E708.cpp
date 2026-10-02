@@ -253,7 +253,7 @@ extern const f32 lbl_805DF7F8;
 extern const f32 lbl_805DF800;
 void TBoss6Type2__sub_8032ECE0(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TObjPlayer__sub_801423A4(s32, s32, s32);
+s32 approach_angle_limited(s32, s32, s32);
 s32 project_actor_to_ground(void *, void *, s32);
 u8 *get_player_by_client_id(s32);
 s32 get_state__11TBoss6Type2FPv(int);
@@ -737,7 +737,7 @@ void TBoss6Type2__sub_8032F690(u8 *arg0) {
     }
     TBoss6Type2__sub_8032EF34((void *)(arg0), (s32 *)(&a), (s32 *)(&b), (Vec_8032EF34 *)((struct Vec_8032EF34 *)&v));
     M2C_FIELD(arg0, s32 *, 0x60) = TBoss6Type2__sub_8032EA34(arg0, M2C_FIELD(arg0, s32 *, 0x60), a, turn);
-    M2C_FIELD(arg0, s32 *, 0x5C) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x5C), b, 0x1B4);
+    M2C_FIELD(arg0, s32 *, 0x5C) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x5C), b, 0x1B4);
 }
 #pragma pop
 

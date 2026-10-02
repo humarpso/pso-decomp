@@ -8,7 +8,7 @@ struct Obj_8022ACB4 { u8 pad[0xA6]; s16 state; };
 
 extern "C" {
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
-s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 void fn_8022ACB4(Obj_8022ACB4 *arg0);
 }
 
@@ -29,18 +29,18 @@ void fn_8022ACB4(Obj_8022ACB4 *arg0) {
     switch (arg0->state) {
     case 0:
     case 1:
-        r = TBoss3Volopt__sub_8022675C(0x4002AB10, (u8 *)arg0 + 0x20, 0, 0);
+        r = play_sound_effect(0x4002AB10, (u8 *)arg0 + 0x20, 0, 0);
         if (r >= 0) {
             update_technique_slot__10TTecRaFoieFi(r, 0x100, 0);
         }
         break;
     case 2:
     case 3:
-        TBoss3Volopt__sub_8022675C(0x4002AB10, (u8 *)arg0 + 0x20, 0, 0);
+        play_sound_effect(0x4002AB10, (u8 *)arg0 + 0x20, 0, 0);
         break;
     case 4:
     case 5:
-        r = TBoss3Volopt__sub_8022675C(0x4002AB10, (u8 *)arg0 + 0x20, 0, 0);
+        r = play_sound_effect(0x4002AB10, (u8 *)arg0 + 0x20, 0, 0);
         if (r >= 0) {
             update_technique_slot__10TTecRaFoieFi(r, -0x100, 0);
         }

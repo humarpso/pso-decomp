@@ -128,7 +128,7 @@ int TShopWindowBase__sub_8022397C(void*);
 void TWindow__close(TWin_8020F070 *);
 M2C_UNK set_entry_field_20__15TWindowMainMenuFii(int, int);
 void TCheckRoomSequence__sub_8020F348(u8 *arg0);
-M2C_UNK TObjPlayer__sub_80011138(int, int);
+M2C_UNK try_spend_actor_meseta(int, int);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 s32 TCheckRoomSequence__sub_80210D1C(s32 v, s32 i);
 M2C_UNK TCheckRoomSequence__sub_8021118C(int);
@@ -320,7 +320,7 @@ void TCheckRoomSequence__sub_8020F600(u8 *arg0) {
         temp_r31 = get_result__24TShopEquipmentSellWindowFPv((void*)((int) (M2C_FIELD(arg0, u32 *, 0x34))));
         temp_r3 = ((s32)TShopWindowBase__sub_8022397C((void*)((void *) (arg0))));
         TCheckRoomSequence__sub_80210D1C((s32)((int) (temp_r31)), (s32)((int) (temp_r3)));
-        TObjPlayer__sub_80011138((int) (M2C_FIELD(arg0, s32 *, 0x24)), (int) (temp_r31));
+        try_spend_actor_meseta((int) (M2C_FIELD(arg0, s32 *, 0x24)), (int) (temp_r31));
         TCheckRoomSequence__sub_8021118C((int) (temp_r3));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x40) != 0U) {
             set_entry_field_20__15TWindowMainMenuFii((int) (M2C_FIELD(arg0, u32 *, 0x40)), (int) (get_room_data__18TCheckRoomSequenceFi((int) (temp_r3))));

@@ -10,19 +10,19 @@ s32 objInBand__FP7GameObjf(f32);
 M2C_UNK send_field_state_if_active__10TObjPlayerFii(void *, M2C_UNK);
 s32 classify_action_state__10TObjPlayerFv(void *);
 s32 check_actor_blocking_move__10TObjPlayerFPv(void *);
-u32 TObjPlayer__sub_801B5EA4(void *);
+u32 resolve_move_collision__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801B5FB0(void *);
 s16 query_child_state2__10TObjPlayerFPv();
 extern const f32 TObjPlayer__data_805DC360;
 extern const f32 TObjPlayer__data_805DC36C;
 extern const f32 lbl_805DC370;
 extern const f32 lbl_805DC38C;
-void TObjPlayer__sub_801CAAF8(void *arg0);
+void update_fall_reaction__10TObjPlayerFPv(void *arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_801CAAF8(void *arg0) {
+void update_fall_reaction__10TObjPlayerFPv(void *arg0) {
     f32 temp_f1;
     s16 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x328);
@@ -55,7 +55,7 @@ void TObjPlayer__sub_801CAAF8(void *arg0) {
     if (check_actor_blocking_move__10TObjPlayerFPv(arg0) != 0) {
         TObjPlayer__sub_8001053C(arg0);
     }
-    if (TObjPlayer__sub_801B5EA4(arg0) == 0U) {
+    if (resolve_move_collision__10TObjPlayerFPv(arg0) == 0U) {
         apply_velocity__10TObjPlayerFPv(arg0);
     }
 }

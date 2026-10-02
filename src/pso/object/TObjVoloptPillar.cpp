@@ -130,7 +130,7 @@ void fn_80049FD8(void *);
 void set_shake_preset__11TCameraCtrlFi(s32);
 void init_all_slots__10TObjPlayerFv(void *);
 void check_object_collisions__10TObjPlayerFPv(void *);
-void TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+void play_sound_effect(s32, void *, s32, s32);
 void *__nw__7TObjectFUl(u32);
 void TCameraCtrl__sub_803D8934(s32, void *, void *);
 void rotate_matrix_y(s32, s32);
@@ -262,7 +262,7 @@ void run_task__16TObjVoloptPillarFv(Self_8004A1CC *self) {
                 }
             }
             set_shake_preset__11TCameraCtrlFi(1);
-            TBoss3Volopt__sub_8022675C(0x4003AD09, &self->pos, 0, 0);
+            play_sound_effect(0x4003AD09, &self->pos, 0, 0);
         }
         break;
     case 3:

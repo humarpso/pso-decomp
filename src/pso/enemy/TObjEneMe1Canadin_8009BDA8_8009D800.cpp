@@ -553,7 +553,7 @@ M2C_UNK update_move__17TObjEneMe1CanadinFPv(void *);
 
 M2C_UNK set_attack_flag__23TObjEneMe1CanadinLeaderFPv(void *);
 int TObjEneMe1Canadin__sub_8009E3E4(void *);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern const M2C_UNK lbl_8043A280[];
 extern const f32 TObjEneMe1Canadin__data_805D988C;
 
@@ -705,7 +705,7 @@ void TObjEneMe1Canadin__vt108(u8 *arg0, s32 arg1) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x400) <= 0) {
                 M2C_FIELD(arg0, s32 *, 0x4B8) = 2;
                 M2C_FIELD(arg0, s32 *, 0x470) = 1;
-                TBoss3Volopt__sub_8022675C(0x4003B21A, arg0 + 0x2FC, 0, 0);
+                play_sound_effect(0x4003B21A, arg0 + 0x2FC, 0, 0);
             }
             break;
         case 1:

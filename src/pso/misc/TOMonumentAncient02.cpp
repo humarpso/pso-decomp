@@ -73,7 +73,7 @@ s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 TLobby__sub_8030A7B0(void);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK refresh_collision_body_centers(void *);
 M2C_UNK set_type__14TOKeyAncient01FPv(void *);
 extern RecoveredGlobal_80172EA0_lbl_804B39A8 lbl_804B39A8;
 extern M2C_UNK __vt__19TOMonumentAncient02[];
@@ -96,7 +96,7 @@ int TObjPlayer__sub_803D9B2C();
 int pop_matrix();
 int TOHangerMachine01__sub_803D9C00(void *);
 int set_global_param__8TObjFishFi(int);
-int TOSignCave03__sub_803DB510(int);
+int draw_ginja_model(int);
 void translate_matrix(s32, f32, f32, f32);
 int begin_effect_render__13TParticleCtrlFv();
 int end_effect_render__13TParticleCtrlFv();
@@ -177,7 +177,7 @@ void render__19TOMonumentAncient02Fv(Mon_80172AE0 *self) {
         set_global_param__8TObjFishFi(self->f24);
         m = self->model;
         TOHangerMachine01__sub_803D9C00(m->mtx);
-        TOSignCave03__sub_803DB510(m->f4);
+        draw_ginja_model(m->f4);
         if (self->fC8 == 1) {
             if (self->fCC != 0) {
                 self->fD8 += lbl_805DB928;
@@ -199,7 +199,7 @@ void render__19TOMonumentAncient02Fv(Mon_80172AE0 *self) {
             lbl_805D5660 = some_id_805c6f74;
             some_id_805c6f74 = some_id_805c6f74 | 0x20;
             set_chunk_material_color(&self->fD8);
-            TOSignCave03__sub_803DB510(n->f4);
+            draw_ginja_model(n->f4);
             set_chunk_material_color(lbl_804A7418);
             some_id_805c6f74 = lbl_805D5660;
             end_effect_render__13TParticleCtrlFv();
@@ -281,7 +281,7 @@ u8 *TOMonumentAncient02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOMonumentAncient02__data_805D5A68), u8 **, 0x42C), s32 *, 8);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOMonumentAncient02__data_805D5A68), u8 **, 0x42C), s32 *, 0xC);
     TObjEneGibbles__sub_80156780(arg0, (s32) &lbl_804B39A8.value, 1);
-    TObjPlayer__sub_80154E3C((void *) (arg0));
+    refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     temp_r3 = get_global_state__14TOKeyMachine01Fv();
     switch (temp_r3) {

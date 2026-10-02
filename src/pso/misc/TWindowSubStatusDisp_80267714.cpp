@@ -29,7 +29,7 @@ void handle_open__20TWindowSubStatusDispFPv(void *arg0);
 void move_cursor__20TWindowSubStatusDispFPv(void *arg0);
 void move_cursor_next__20TWindowSubStatusDispFPv(void *arg0);
 void set_flag4__20TWindowSubStatusDispFPv(void *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 TWindowMenu__sub_80266B18(void *, s32);
 u32 TWindowSubStatusDisp__sub_802880BC(u32, s32, s16);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
@@ -40,7 +40,7 @@ M2C_UNK set_entry_state__20TWindowSubStatusDispFPvc(void *, M2C_UNK);
 
 void set_flag4__20TWindowSubStatusDispFPv(void *arg0) {
     if (!(M2C_FIELD(arg0, u16 *, 0x70) & 8) && (get_status_flag__6TLobbyFPv() == 0)) {
-        TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
+        play_sound_effect(0x52F16, 0, 0, 0);
         M2C_FIELD(arg0, u16 *, 0x70) = (u16) (M2C_FIELD(arg0, u16 *, 0x70) | 4);
     }
 }
@@ -49,11 +49,11 @@ void handle_open__20TWindowSubStatusDispFPv(void *arg0) {
     s32 temp_r31;
     temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, M2C_FIELD(arg0, s16 *, 0x74));
     if ((is_flag_4_set__20TWindowSubStatusDispFPv() == 0) || (is_flag80_set__20TWindowSubStatusDispFPv(temp_r31) != 0)) {
-        TBoss3Volopt__sub_8022675C(0x53F06, 0, 0, 0);
+        play_sound_effect(0x53F06, 0, 0, 0);
         return;
     }
     if (!(M2C_FIELD(arg0, u16 *, 0x70) & 0x100)) {
-        TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
+        play_sound_effect(0x52D01, 0, 0, 0);
     }
     M2C_FIELD(arg0, u16 *, 0x70) = (u16) (M2C_FIELD(arg0, u16 *, 0x70) | 2);
     if (M2C_FIELD(arg0, void **, 0x80) != NULL) {
@@ -64,7 +64,7 @@ void handle_open__20TWindowSubStatusDispFPv(void *arg0) {
 void move_cursor_next__20TWindowSubStatusDispFPv(void *arg0) {
     s16 var_r31;
 
-    TBoss3Volopt__sub_8022675C(0x54100, 0, 0, 0);
+    play_sound_effect(0x54100, 0, 0, 0);
     var_r31 = M2C_FIELD(arg0, s16 *, 0x74);
 loop_1:
     var_r31 += 1;
@@ -88,7 +88,7 @@ block_4:
 void move_cursor__20TWindowSubStatusDispFPv(void *arg0) {
     s16 var_r31;
 
-    TBoss3Volopt__sub_8022675C(0x54100, 0, 0, 0);
+    play_sound_effect(0x54100, 0, 0, 0);
     var_r31 = M2C_FIELD(arg0, s16 *, 0x74);
 loop_1:
     var_r31 -= 1;

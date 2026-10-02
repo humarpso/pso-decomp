@@ -1456,12 +1456,12 @@ extern "C" {
 
 void update_angle__13TObjEneMe1GeeFPv(void *arg0);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-s32 TObjPlayer__sub_801423A4(s32, s32, M2C_UNK);
+s32 approach_angle_limited(s32, s32, M2C_UNK);
 
 extern const f64 lbl_8043BF28;
 
 void update_angle__13TObjEneMe1GeeFPv(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x60), (s32) (lbl_8043BF28 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), 0x400);
+    M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32) (lbl_8043BF28 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), 0x400);
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) (s16) M2C_FIELD(arg0, s32 *, 0x60);
 }
 

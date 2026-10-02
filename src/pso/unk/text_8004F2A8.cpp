@@ -59,7 +59,7 @@ u32 spawn_particle_effect(void *, s32);
 u32 create_particle_emitter(void *, s32);
 void set_flags__11TBoss4Type2FPvUi(u32, u32);
 void copy_pos__11TNowLoadingFPvPv(u32, void *);
-void TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+void play_sound_effect(s32, void *, s32, s32);
 void queue_event_1D__12TBoss3VoloptFss(s16, s16);
 extern Vec_8004F3D4 lbl_804373F4[];
 extern Vec_8004F3D4 lbl_80437400[];
@@ -134,12 +134,12 @@ void TBoss4Type2__sub_8004F3D4(Self_8004F3D4 *self) {
     {
       set_flags__11TBoss4Type2FPvUi(r, 0x40);
     }
-    TBoss3Volopt__sub_8022675C(0x40039E09, &self->pos, 0, 1);
+    play_sound_effect(0x40039E09, &self->pos, 0, 1);
     queue_event_1D__12TBoss3VoloptFss(0xC0, 0xF);
   }
   if (self->fF8 == 0x72)
   {
-    TBoss3Volopt__sub_8022675C(0x4003B227, &self->pos, 0, 1);
+    play_sound_effect(0x4003B227, &self->pos, 0, 1);
   }
   if (self->fF8 >= 0xAA)
   {

@@ -31,7 +31,7 @@ M2C_UNK TObjPlayer__sub_8011E204(void *, int);
 s32 lerp_angle_half__10TObjPlayerFUsUs(int, int);
 s32 objInBand__FP7GameObjf(void *);
 u8 *get_photon_blast_entry__10TObjPlayerFi(unsigned int);
-u32 TObjPlayer__sub_801B5EA4(void *);
+u32 resolve_move_collision__10TObjPlayerFPv(void *);
 M2C_UNK update_active_instance__10TObjPlayerFi(void *, void *);
 M2C_UNK clear_status_bit6__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801D2A50(void *);
@@ -59,7 +59,7 @@ s32 is_final_phase__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_801CBD38();
 M2C_UNK update_photon_blast_state__10TObjPlayerFv();
 M2C_UNK TFontSmallLobby__sub_801D6498(void *);
-void TObjPlayer__sub_801CC2B0(u8 *arg0);
+void exit_photon_blast_action__10TObjPlayerFPv(u8 *arg0);
 s32 get_current_floor(void);
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 s32 TLobby__sub_800822E8(void *, s32);
@@ -100,7 +100,7 @@ void enter_photon_blast_action__10TObjPlayerFPv(u8 *arg0);
 
 extern "C" {
 
-void TObjPlayer__sub_801CC2B0(u8 *arg0) {
+void exit_photon_blast_action__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r4;
     M2C_FIELD(arg0, u32 *, 0xB0) &= ~0x40;
     TObjPlayer__sub_8011E204((void *) (arg0), (int) (0x80));
@@ -178,7 +178,7 @@ void TObjPlayer__sub_801CC34C(u8 *arg0) {
     }
       break;
   }
-  if (TObjPlayer__sub_801B5EA4((void *) arg0) == 0U)
+  if (resolve_move_collision__10TObjPlayerFPv((void *) arg0) == 0U)
   {
     apply_velocity__10TObjPlayerFPv((void *) arg0);
   }

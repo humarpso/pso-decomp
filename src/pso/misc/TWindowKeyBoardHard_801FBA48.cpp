@@ -15,7 +15,7 @@ s32 TObjPlayer__sub_803D9B2C();
 s32 pop_matrix();
 s32 TBoss7Tentacle__sub_803D9BA0(void *);
 f32 TOHangerMachine01__sub_803D9C00(void *);
-s32 TOSignCave03__sub_803DB510(int);
+s32 draw_ginja_model(int);
 void fn_801FBA6C(u8 *arg0);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E1E38(s32);
@@ -97,7 +97,7 @@ void fn_801FBA6C(u8 *arg0) {
             begin_effect_render__13TParticleCtrlFv();
         }
         if (!(temp_r31 & 8)) {
-            TOSignCave03__sub_803DB510((int) (M2C_FIELD(var_r30, s32 *, 4)));
+            draw_ginja_model((int) (M2C_FIELD(var_r30, s32 *, 4)));
         }
         if (!(temp_r31 & 0x10)) {
             temp_r3 = (u8 *)(M2C_FIELD(var_r30, u8 **, 0x2C));

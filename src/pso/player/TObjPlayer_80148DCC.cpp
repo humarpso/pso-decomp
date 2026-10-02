@@ -136,7 +136,7 @@ M2C_UNK advance_animation_playback(void *);
 M2C_UNK submit_cursor_candidate(void *, int);
 extern u8 *lbl_805D5EE8;
 extern u8 *lbl_805D5EEC;
-void TObjPlayer__sub_80148F30(u8 *arg0);
+void run_task__11TObjNpcBaseFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -207,7 +207,7 @@ typedef struct VObj_18_3eea3b VObj_18_3eea3b;
 #define PSO_VCALL_VObj_18_3eea3b_m82(_self) (((VObj_18_3eea3b *)(_self))->m82())
 #define PSO_VCALL_VObj_18_3eea3b_m83(_self) (((VObj_18_3eea3b *)(_self))->m83())
 #define PSO_VCALL_VObj_18_3eea3b_m84(_self) (((VObj_18_3eea3b *)(_self))->m84())
-void TObjPlayer__sub_80148F30(u8 *arg0) {
+void run_task__11TObjNpcBaseFPv(u8 *arg0) {
   s16 temp_r0;
   s32 temp_r4;
   s32 temp_r4_2;

@@ -129,7 +129,7 @@ s32 request_two_effects__10TObjPlayerFPv(void *);
 s32 apply_effect_variant_b__10TObjPlayerFii(void *, int);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback(void *);
-s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 extern const f32 TObjEneIllGill__data_805E02BC;
 extern const f32 TObjEneIllGill__data_805E02C0;
 extern const f32 TObjEneIllGill__data_805E02D8;
@@ -192,7 +192,7 @@ s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback(void *);
 void update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK minimap_render_dot(void *, int, int, int);
-s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 extern const f32 TObjEneIllGill__data_805E02BC;
 extern const f32 TObjEneIllGill__data_805E02C0;
 extern const f32 lbl_805E02E8;
@@ -236,7 +236,7 @@ M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK apply_actor_gravity(void *, int, f32);
 M2C_UNK enemy_wander_home(void *, int, f32, f32, f32);
 f32 horizontal_distance_squared(void *, void *);
-M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK refresh_collision_body_centers(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
 void __dt__9TObjEnemyFv(void *, int);
@@ -260,7 +260,7 @@ void TObjEneIllGill__sub_803665B4(u8 *arg0) {
       ((s32)apply_actor_gravity((void *) arg0, (int) 0, (f32) TObjEneIllGill__data_805E02BC));
       if (objInBand__FP7GameObjf((void *) arg0, (f32) TObjEneIllGill__data_805E02D8) != 0)
     {
-      TBoss3Volopt__sub_8022675C((int) 0x4003A351, (void *) (arg0 + 0x38), (int) 0, (int) 0);
+      play_sound_effect((int) 0x4003A351, (void *) (arg0 + 0x38), (int) 0, (int) 0);
       *((s16 *) (((s8 *) arg0) + 0x328)) = 2;
     }
       return;
@@ -280,7 +280,7 @@ void TObjEneIllGill__sub_803665B4(u8 *arg0) {
     case 3:
       if (objInBand__FP7GameObjf((void *) arg0, (f32) lbl_805E02E4) != 0)
     {
-      TBoss3Volopt__sub_8022675C((int) 0x4003A358, (void *) (arg0 + 0x38), (int) 0, (int) 0);
+      play_sound_effect((int) 0x4003A358, (void *) (arg0 + 0x38), (int) 0, (int) 0);
       apply_effect_variant_b__10TObjPlayerFii((void *) (arg0 + 0x38), (int) 0xA);
       request_two_effects__10TObjPlayerFPv((void *) (arg0 + 0x38));
       *((s16 *) (((s8 *) arg0) + 0x328)) = 4;
@@ -322,7 +322,7 @@ void TObjEneIllGill__sub_803667B8(u8 *arg0) {
     apply_actor_gravity(arg0, 0, TObjEneIllGill__data_805E02BC);
     update_collisions__10TObjPlayerFPv(arg0);
     if (objInBand__FP7GameObjf(arg0, TObjEneIllGill__data_805E02C0) != 0) {
-        TBoss3Volopt__sub_8022675C(0x4003A350, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x4003A350, arg0 + 0x38, 0, 0);
     }
     if (M2C_FIELD(arg0, u32 *, 0xB4) != 8) {
         M2C_FIELD(arg0, u32 *, 0x30) &= ~0x600;
@@ -502,7 +502,7 @@ void run_attack_phase__14TObjEneIllGillFPv(u8 *arg0) {
             temp_r4 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x350));
             enemy_wander_home((void *) (arg0), (int) (M2C_FIELD(temp_r4, s32 *, 8)), (f32) (lbl_805E02E8 * M2C_FIELD(temp_r4, f32 *, 4)), (f32) (lbl_805E02C4), (f32) (lbl_805E02FC));
         }
-        TObjPlayer__sub_80154E3C((void *) (arg0));
+        refresh_collision_body_centers((void *) (arg0));
         break;
     default:
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;

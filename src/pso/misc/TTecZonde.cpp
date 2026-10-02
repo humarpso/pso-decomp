@@ -191,7 +191,7 @@ void render__9TTecZondeFv(void) {  }
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u8 *find_entity_by_id(u16);
 void update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
-s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+s32 play_sound_effect(s32, void *, s32, s32);
 void *__nw__7TObjectFUl(int);
 s32 is_parents_unqueued__9TTecLukerFUi(u32);
 s32 is_valid_and_active__10TObjPlayerFUi(void *);
@@ -316,29 +316,29 @@ void run_task__9TTecZondeFv(Zonde_8023C79C *self) {
             s32 h;
             switch (self->level) {
             case 0:
-                h = TBoss3Volopt__sub_8022675C(0x4002A408, &t->x, 0, 0);
+                h = play_sound_effect(0x4002A408, &t->x, 0, 0);
                 if (h >= 0) {
                     update_technique_slot__10TTecRaFoieFi(h, 0x100, 0);
                 }
                 break;
             case 1:
-                TBoss3Volopt__sub_8022675C(0x4002A408, &t->x, 0, 0);
+                play_sound_effect(0x4002A408, &t->x, 0, 0);
                 break;
             case 2:
             case 3:
-                h = TBoss3Volopt__sub_8022675C(0x4002A408, &t->x, 0, 0);
+                h = play_sound_effect(0x4002A408, &t->x, 0, 0);
                 if (h >= 0) {
                     update_technique_slot__10TTecRaFoieFi(h, -0x180, 0);
                 }
                 break;
             case 4:
-                h = TBoss3Volopt__sub_8022675C(0x4002A408, &t->x, 0, 0);
+                h = play_sound_effect(0x4002A408, &t->x, 0, 0);
                 if (h >= 0) {
                     update_technique_slot__10TTecRaFoieFi(h, -0x250, 0);
                 }
                 break;
             case 5:
-                h = TBoss3Volopt__sub_8022675C(0x4002A408, &t->x, 0, 0);
+                h = play_sound_effect(0x4002A408, &t->x, 0, 0);
                 if (h >= 0) {
                     update_technique_slot__10TTecRaFoieFi(h, -0x100, 0);
                 }

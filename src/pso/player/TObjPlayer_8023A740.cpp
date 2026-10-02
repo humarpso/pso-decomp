@@ -26,7 +26,7 @@ extern const f32 lbl_805DC92C;
 extern const f32 lbl_805DC930;
 extern const f32 lbl_805DC934;
 extern const f32 lbl_805DC938;
-u8 *TObjPlayer__sub_8023A7B4(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s32 arg4);
+u8 *construct_aimed_technique_projectile(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s32 arg4);
 }
 
 extern "C" {
@@ -53,7 +53,7 @@ void *destroy_technique_effect_resources__10TObjPlayerFPvs(void *arg0, s16 arg1)
     return arg0;
 }
 
-u8 *TObjPlayer__sub_8023A7B4(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s32 arg4) {
+u8 *construct_aimed_technique_projectile(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s32 arg4) {
     f32 dx;
     f32 dz;
     f32 dy;

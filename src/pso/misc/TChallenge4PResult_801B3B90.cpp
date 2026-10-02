@@ -58,7 +58,7 @@ s32 TObjPlayer__sub_80354D5C(s32);
 u8 *find_entity_by_id(u16);
 s32 execute_palette_action__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2);
 void dispatch_to_child__11TWindowCtrlFiPv(u16, s32);
-s32 TObjPlayer__sub_801B3C20(u8 *arg0);
+s32 handle_palette_button_input__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -77,7 +77,7 @@ int get_player_rank__18TChallenge4PResultFPv(void* p) { return TObjPlayer__sub_8
 int get_field_340__18TChallenge4PResultFPv(void* p) { return TObjPlayer__sub_801BF488((char*)p + 0x340); }
 int get_player_result__18TChallenge4PResultFPv(void* p) { return TObjPlayer__sub_801BF4A0((char*)p + 0x340); }
 
-s32 TObjPlayer__sub_801B3C20(u8 *arg0) {
+s32 handle_palette_button_input__10TObjPlayerFPv(u8 *arg0) {
     if (check_action_usable__10TObjPlayerFPvi(arg0 + 0x550, 4) != 0 && ((int (*)(void *, s32))get_result_entry__18TChallenge4PResultFPv)(arg0, 1) != 0) {
         s32 mode;
         void *target;

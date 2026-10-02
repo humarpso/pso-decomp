@@ -56,7 +56,7 @@ extern "C" {
 
 s32 check_can_pickup__11TMainCursorFi(s32 arg0);
 void run_task__11TMainCursorFv(u8 *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TMainCursor__sub_8013F180(void *);
 s32 find_entity_by_id();
 s32 can_pickup_item_by_id__10TObjPlayerFii(u32, s32);
@@ -227,10 +227,10 @@ void run_task__11TMainCursorFv(u8 *arg0) {
             M2C_FIELD(arg0, s32 *, 0x1C) = 1;
             if (init_render_flags__11TMainCursorFPv(arg0) == 0) {
                 if (update__11TMainCursorFPv(arg0) != 0) {
-                    TBoss3Volopt__sub_8022675C(0x3816, arg0 + 0x40, 0, 1);
+                    play_sound_effect(0x3816, arg0 + 0x40, 0, 1);
                     return;
                 }
-                TBoss3Volopt__sub_8022675C(0x3111, arg0 + 0x40, 0, 1);
+                play_sound_effect(0x3111, arg0 + 0x40, 0, 1);
             }
         }
     case 1:

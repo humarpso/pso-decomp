@@ -19,7 +19,7 @@ void TItemData__sub_8010CBAC(u8 *self, u8 *in);
 
 extern "C" {
 
-u32 TLobby__sub_80101AB0(u32);
+u32 find_item_by_id(u32);
 int TItemData__sub_8010CB10(void);
 void TItemData__sub_8010CCB0(void);
 void TItemData__sub_8010CCB4(void);
@@ -37,7 +37,7 @@ int register_item_drop__10TObjPlayerFPv(void*);
 int TItemData::isValidGroundDrop() {
     u8 category;
     u8 group;
-    if (TLobby__sub_80101AB0(id) == 0U) {
+    if (find_item_by_id(id) == 0U) {
         category=data1.data_u8[0];
         switch ((s32)category) {
         case 3:

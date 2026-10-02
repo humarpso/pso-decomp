@@ -18,7 +18,7 @@ void *create__14TOAirconCave01FPv(void *arg0);
 void render__14TOAirconCave01Fv(u8 *arg0);
 void *TOAirconCave01__ct(void *, void *, void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TOSignCave03__sub_803DB510(int);
+M2C_UNK draw_ginja_model(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C(int);
 M2C_UNK pop_matrix();
@@ -41,7 +41,7 @@ void render__14TOAirconCave01Fv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-        TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31, s32 *, 4)));
+        draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
         pop_matrix();
     }
 }

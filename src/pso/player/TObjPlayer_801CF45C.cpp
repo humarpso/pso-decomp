@@ -10,7 +10,7 @@ s32 update_aim_target__10TObjPlayerFPv(void *arg0);
 void apply_damage_and_reset__10TObjPlayerFPv(void* p);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 s32 check_actor_blocking_move__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_801B5EA4(void *);
+s32 resolve_move_collision__10TObjPlayerFPv(void *);
 int TObjPlayer__sub_8001053C(void*);
 s32 check_player_flag1__6TLobbyFPv(void *);
 s32 is_inactive__10TObjPlayerFPv();
@@ -36,7 +36,7 @@ s32 update_aim_target__10TObjPlayerFPv(void *arg0) {
         TObjPlayer__sub_8001053C((void*)(arg0));
         return 0;
     }
-    temp_r3 = TObjPlayer__sub_801B5EA4(arg0);
+    temp_r3 = resolve_move_collision__10TObjPlayerFPv(arg0);
     if (temp_r3 == 0) {
         return 1;
     }

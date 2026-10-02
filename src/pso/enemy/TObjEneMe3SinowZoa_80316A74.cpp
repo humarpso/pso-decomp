@@ -136,7 +136,7 @@ void set_field_378__9TObjEneDDFPvi(void *, s32);
 void transition_enemy_state(void *, s16);
 void advance_animation_playback(void *);
 void set_indexed_flags(void *, s32, s32);
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+s32 play_sound_effect(s32, u32, s16, s32);
 void TObjEneMe3SinowZoa__sub_80317254(u8 *arg0, s32 arg1);
 int get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 void set_field_378__9TObjEneDDFPvi(void *, s32);
@@ -190,7 +190,7 @@ void TObjEneMe3SinowZoa__sub_80317254(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & 0xFFEFFFFD);
         M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) | 5);
         ((VObj_14_c5778e *)((u8 *)(arg0) + (1044)))->m1(0x1E);
-        TBoss3Volopt__sub_8022675C(0x4003AD2F, (u32) ((u8 *)(arg0) + 0x38), 0, 0);
+        play_sound_effect(0x4003AD2F, (u32) ((u8 *)(arg0) + 0x38), 0, 0);
         M2C_FIELD(arg0, s32 *, 0x434) = 0;
         break;
     case 3:

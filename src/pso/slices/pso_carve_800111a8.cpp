@@ -12,7 +12,7 @@ struct O_800112D4 { u8 pad[0x32e]; s16 v; };
 extern "C" {
 s32 TObjPlayer__sub_800111A8(u8 *arg0, s32 arg1);
 s32 TObjPlayer__sub_800111D8(u8 *arg0, s32 arg1);
-s32 TObjPlayer__sub_800112A4(u8 *arg0, s32 arg1);
+s32 add_actor_tp(u8 *arg0, s32 arg1);
 int TObjPlayer__sub_8001124C(u8 *arg0);
 s32 TObjPlayer__sub_80011210(u8 *arg0, s32 arg1);
 s32 TObjPlayer__sub_80011274(O_80011274 *self, s32 x);
@@ -22,7 +22,7 @@ s32 TObjPlayer__sub_800112D4(O_800112D4 *self, s32 x);
 extern "C" {
 
 s32 obj_isState2_324();
-s32 TObjPlayer__sub_8001119C(void* p);
+s32 get_actor_level_index(void* p);
 
 s32 TObjPlayer__sub_800111A8(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s16 *, 0x11A) = (s16) (M2C_FIELD(arg0, s16 *, 0x11A) + arg1);
@@ -87,7 +87,7 @@ s32 TObjPlayer__sub_80011274(O_80011274 *self, s32 x) {
     return 1;
 }
 
-s32 TObjPlayer__sub_800112A4(u8 *arg0, s32 arg1) {
+s32 add_actor_tp(u8 *arg0, s32 arg1) {
     s16 temp_r4;
     M2C_FIELD(arg0, s16 *, 0x32E) = (s16) (M2C_FIELD(arg0, s16 *, 0x32E) + arg1);
     if (M2C_FIELD(arg0, s16 *, 0x32E) > M2C_FIELD(arg0, s16 *, 0x2BA)) {

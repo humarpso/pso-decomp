@@ -249,7 +249,7 @@ extern char lbl_804468F8[];
 extern char lbl_80446908[];
 extern s32 TLobby__data_805D6148;
 extern s32 TLobby__data_805D614C;
-void TLobby__sub_801A35C8(void);
+void run_offline_game_frame(void);
 }
 
 extern "C" {
@@ -475,7 +475,7 @@ void TLobby__sub_801A3540(void) {
 
 typedef char RecoveredGlobal_801A3770_main_task_size[sizeof(RecoveredGlobal_801A3770_main_task) == 0x34 ? 1 : -1];
 
-void TLobby__sub_801A35C8(void) {
+void run_offline_game_frame(void) {
     func_803DCDFC__Fv();
     controller_stuff__Fv();
     TKeyBoardControl__sub_801A5EC4();
@@ -518,7 +518,7 @@ void TLobby__sub_801A3770(void) {
 
 void TLobby__sub_801A3988(void) {
     if (TCameraCtrl__sub_8006B368() != 0) {
-        TLobby__sub_801A35C8();
+        run_offline_game_frame();
         return;
     }
     TLobby__sub_801A3698();

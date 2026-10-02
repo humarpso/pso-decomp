@@ -62,7 +62,7 @@ void TWindowKeyBoardSoft__sub_8024E6D8(void *, void *);
 s32 set_global_param__8TObjFishFi(s32);
 void TWindowSubStatusDisp__sub_803DEE6C(s32);
 void get_player__20TWindowSubStatusDispFv(void);
-void TWindowSubComCard__sub_803DEECC(void *, f32);
+void draw_textured_quad_at_depth(void *, f32);
 void TWindowSubStatusDisp__sub_803DF160(s32, s32);
 extern const f64 lbl_8044F690;
 extern s32 lbl_805D63F0;
@@ -138,7 +138,7 @@ void fn_80271848(M2C_UNK arg0, u8 *arg1) {
     r.u1 = lbl_805DD4A8;
     r.v1 = lbl_805DD4AC;
     TWindowKeyBoardSoft__sub_8024E6D8(arg1, &r);
-    TWindowSubComCard__sub_803DEECC(&r, scale);
+    draw_textured_quad_at_depth(&r, scale);
     {
         f32 y;
         f32 x;
@@ -152,7 +152,7 @@ void fn_80271848(M2C_UNK arg0, u8 *arg1) {
     r.u0 = lbl_805DD4B4;
     r.u1 = lbl_805DD4B8;
     TWindowKeyBoardSoft__sub_8024E6D8(arg1, &r);
-    TWindowSubComCard__sub_803DEECC(&r, scale);
+    draw_textured_quad_at_depth(&r, scale);
     {
         f32 y;
         f32 x;
@@ -168,7 +168,7 @@ void fn_80271848(M2C_UNK arg0, u8 *arg1) {
     r.u1 = lbl_805DD4C8;
     r.v1 = lbl_805DD4CC;
     TWindowKeyBoardSoft__sub_8024E6D8(arg1, &r);
-    TWindowSubComCard__sub_803DEECC(&r, scale);
+    draw_textured_quad_at_depth(&r, scale);
     {
         f32 y;
         f32 x;
@@ -182,7 +182,7 @@ void fn_80271848(M2C_UNK arg0, u8 *arg1) {
     r.v0 = lbl_805DD4D4;
     r.v1 = lbl_805DD4D8;
     TWindowKeyBoardSoft__sub_8024E6D8(arg1, &r);
-    TWindowSubComCard__sub_803DEECC(&r, scale);
+    draw_textured_quad_at_depth(&r, scale);
     get_player__20TWindowSubStatusDispFv();
 }
 

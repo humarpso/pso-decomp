@@ -115,7 +115,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void *get_player_data__10TObjPlayerFi(s32 i);
 s32 get_field_3e0__12TBoss3VoloptFPv(void *p);
 void spawn_particle_effect(void *, s32);
-void TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+void play_sound_effect(s32, s32, s32, s32);
 s32 TBoss4Thanks__sub_8035C96C();
 extern s32 lbl_805D586C;
 extern const f32 lbl_805D8928;
@@ -346,7 +346,7 @@ void TBoss4DarkFalz__sub_8004B5A0(void) {
     s32 i;
     f32 k;
     if (TBoss4Thanks__sub_8035C96C() != 0) {
-        TBoss3Volopt__sub_8022675C(0x40033231, 0, 0, 0);
+        play_sound_effect(0x40033231, 0, 0, 0);
         k = lbl_805D8928;
         for (i = 0; i < lbl_805D586C; i++) {
             p = (P_8004B5A0 *)get_player_data__10TObjPlayerFi(i);

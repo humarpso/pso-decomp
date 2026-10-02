@@ -97,7 +97,7 @@ void TObjPlayer__sub_803D9B2C();
 void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(int);
-void TOSignCave03__sub_803DB510(int);
+void draw_ginja_model(int);
 void render__16TOSparkMachine01Fv(Obj_801771F4 *self);
 }
 
@@ -164,7 +164,7 @@ void render__16TOSparkMachine01Fv(Obj_801771F4 *self) {
             case 1:
                 TObjPlayer__sub_803D9B2C();
                 TOHangerMachine01__sub_803D9C00(n->m);
-                TOSignCave03__sub_803DB510(n->f4);
+                draw_ginja_model(n->f4);
                 pop_matrix();
                 break;
             }

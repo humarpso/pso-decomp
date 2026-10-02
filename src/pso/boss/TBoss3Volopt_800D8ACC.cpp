@@ -21,23 +21,23 @@ extern const f32 lbl_805DA3C0;
 void TBoss3Volopt__sub_800D8F78(s32 arg0);
 s32 TObjPlayer__sub_800F06B4(int, int);
 s32 get_global_state__14TOKeyMachine01Fv();
-s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 void TBoss3Volopt__sub_800D8B30(s32 arg0);
 void TBoss3Volopt__sub_800D8F78(s32 arg0);
 s32 TBoss3Volopt__sub_800F05A0(int);
 s32 get_global_state__14TOKeyMachine01Fv();
-s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 void TBoss3Volopt__sub_800D8D88(s32 arg0);
 void TBoss3Volopt__sub_800D8F78(s32 arg0);
 s32 TBoss3Volopt__sub_800F05A0(int);
 s32 get_global_state__14TOKeyMachine01Fv();
-s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 void TBoss3Volopt__sub_800D8E80(s32 arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK spawn_particle_effect(void *, int, f32);
 s32 TObjPlayer__sub_800F06B4(int, int);
 s32 get_global_state__14TOKeyMachine01Fv();
-s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805DA3C0;
 void TBoss3Volopt__sub_800D8C48(s32 arg0);
 }
@@ -66,28 +66,28 @@ void TBoss3Volopt__sub_800D8B30(s32 arg0) {
     case 25:
     case 26:
     case 27:
-        TBoss3Volopt__sub_8022675C((int) (0x3AB3C), (void *) (arg0), (int) (0), (int) (0));
+        play_sound_effect((int) (0x3AB3C), (void *) (arg0), (int) (0), (int) (0));
         return;
     case 28:
     case 29:
-        TBoss3Volopt__sub_8022675C((int) (0x4003AD32), (void *) (arg0), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4003AD32), (void *) (arg0), (int) (0), (int) (0));
         return;
     case 34:
-        TBoss3Volopt__sub_8022675C((int) (0x4003B22A), (void *) (arg0), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4003B22A), (void *) (arg0), (int) (0), (int) (0));
         return;
     case 35:
-        TBoss3Volopt__sub_8022675C((int) (0x4003A35A), (void *) (arg0), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4003A35A), (void *) (arg0), (int) (0), (int) (0));
         return;
     case 19:
     case 20:
-        TBoss3Volopt__sub_8022675C((int) (0x3AD43), (void *) (arg0), (int) (0), (int) (0));
+        play_sound_effect((int) (0x3AD43), (void *) (arg0), (int) (0), (int) (0));
         return;
     case 21:
     case 22:
-        TBoss3Volopt__sub_8022675C((int) (0x4003AD3F), (void *) (arg0), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4003AD3F), (void *) (arg0), (int) (0), (int) (0));
         return;
     default:
-        TBoss3Volopt__sub_8022675C((int) (TObjPlayer__sub_800F06B4((int) (0x4003AD06), (int) (0x1E))), (void *) (arg0), (int) (0), (int) (0));
+        play_sound_effect((int) (TObjPlayer__sub_800F06B4((int) (0x4003AD06), (int) (0x1E))), (void *) (arg0), (int) (0), (int) (0));
         return;
     }
 }
@@ -101,28 +101,28 @@ void TBoss3Volopt__sub_800D8C48(s32 arg0) {
     case 25:
     case 26:
     case 27:
-        TBoss3Volopt__sub_8022675C(0x3AB3C, (void *)arg0, 0, 0);
+        play_sound_effect(0x3AB3C, (void *)arg0, 0, 0);
         break;
     case 28:
     case 29:
-        TBoss3Volopt__sub_8022675C(0x4003AD32, (void *)arg0, 0, 0);
+        play_sound_effect(0x4003AD32, (void *)arg0, 0, 0);
         break;
     case 34:
-        TBoss3Volopt__sub_8022675C(0x4003B22A, (void *)arg0, 0, 0);
+        play_sound_effect(0x4003B22A, (void *)arg0, 0, 0);
         break;
     case 35:
-        TBoss3Volopt__sub_8022675C(0x4003A35A, (void *)arg0, 0, 0);
+        play_sound_effect(0x4003A35A, (void *)arg0, 0, 0);
         break;
     case 19:
     case 20:
-        TBoss3Volopt__sub_8022675C(0x3AD43, (void *)arg0, 0, 0);
+        play_sound_effect(0x3AD43, (void *)arg0, 0, 0);
         break;
     case 21:
     case 22:
-        TBoss3Volopt__sub_8022675C(0x4003AD3F, (void *)arg0, 0, 0);
+        play_sound_effect(0x4003AD3F, (void *)arg0, 0, 0);
         break;
     default:
-        TBoss3Volopt__sub_8022675C(TObjPlayer__sub_800F06B4(0x4003AD06, 0x1E), (void *)arg0, 0, 0);
+        play_sound_effect(TObjPlayer__sub_800F06B4(0x4003AD06, 0x1E), (void *)arg0, 0, 0);
         break;
     }
     VecCopy__FP3VecPC3Vec(&v, (void *)arg0);
@@ -138,20 +138,20 @@ void TBoss3Volopt__sub_800D8D88(s32 arg0) {
     case 25:
     case 26:
     case 27:
-        TBoss3Volopt__sub_8022675C(0x3AB3C, (void *)arg0, 0, 0);
+        play_sound_effect(0x3AB3C, (void *)arg0, 0, 0);
         break;
     case 28:
     case 29:
-        TBoss3Volopt__sub_8022675C(0x4003AB31, (void *)arg0, 0, 0);
+        play_sound_effect(0x4003AB31, (void *)arg0, 0, 0);
         break;
     case 34:
-        TBoss3Volopt__sub_8022675C(0x4003B22A, (void *)arg0, 0, 0);
+        play_sound_effect(0x4003B22A, (void *)arg0, 0, 0);
         break;
     case 35:
-        TBoss3Volopt__sub_8022675C(0x4003A359, (void *)arg0, 0, 0);
+        play_sound_effect(0x4003A359, (void *)arg0, 0, 0);
         break;
     default:
-        TBoss3Volopt__sub_8022675C(TBoss3Volopt__sub_800F05A0(0x4003AB20), (void *)arg0, 0, 0);
+        play_sound_effect(TBoss3Volopt__sub_800F05A0(0x4003AB20), (void *)arg0, 0, 0);
         break;
     }
     TBoss3Volopt__sub_800D8F78(arg0);
@@ -164,20 +164,20 @@ void TBoss3Volopt__sub_800D8E80(s32 arg0) {
     case 25:
     case 26:
     case 27:
-        TBoss3Volopt__sub_8022675C(0x3AB3C, (void *)arg0, 0, 0);
+        play_sound_effect(0x3AB3C, (void *)arg0, 0, 0);
         break;
     case 28:
     case 29:
-        TBoss3Volopt__sub_8022675C(0x4003AB31, (void *)arg0, 0, 0);
+        play_sound_effect(0x4003AB31, (void *)arg0, 0, 0);
         break;
     case 34:
-        TBoss3Volopt__sub_8022675C(0x4003B22A, (void *)arg0, 0, 0);
+        play_sound_effect(0x4003B22A, (void *)arg0, 0, 0);
         break;
     case 35:
-        TBoss3Volopt__sub_8022675C(0x4003A359, (void *)arg0, 0, 0);
+        play_sound_effect(0x4003A359, (void *)arg0, 0, 0);
         break;
     default:
-        TBoss3Volopt__sub_8022675C(TBoss3Volopt__sub_800F05A0(0x4003AB37), (void *)arg0, 0, 0);
+        play_sound_effect(TBoss3Volopt__sub_800F05A0(0x4003AB37), (void *)arg0, 0, 0);
         break;
     }
     TBoss3Volopt__sub_800D8F78(arg0);

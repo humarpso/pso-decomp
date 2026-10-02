@@ -105,7 +105,7 @@ extern u32 TObjNpcExpertBase__data_805D5750;
 void TObjNpcExpertBase__sub_80149B0C(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 fn_80148274(void *);
-s32 fn_8014B8A4(void *);
+s32 construct_male_npc_base(void *);
 extern M2C_UNK __vt__17TObjNpcExpertBase[];
 extern s32 lbl_805D2D6C;
 extern u32 TObjNpcExpertBase__data_805D5750;
@@ -154,7 +154,7 @@ void *__dt__17TObjNpcExpertBaseFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80149BB4___vt__17TObjNpcExpertBase_size[sizeof(RecoveredGlobal_80149BB4___vt__17TObjNpcExpertBase) == 0x178 ? 1 : -1];
 u8 *TObjNpcExpertBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    fn_8014B8A4((void *) (arg0));
+    construct_male_npc_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80149BB4___vt__17TObjNpcExpertBase *)&__vt__17TObjNpcExpertBase).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2D6C;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

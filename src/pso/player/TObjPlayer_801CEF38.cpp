@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_action_state__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK TObjPlayer__sub_801CE218(void *);
+M2C_UNK start_attack_preparation__10TObjPlayerFPv(void *);
 M2C_UNK update_by_state__10TObjPlayerFPv(void *);
 M2C_UNK apply_movement_if_ready__10TObjPlayerFPv(void *);
 M2C_UNK update_anim_action__10TObjPlayerFPv(void *);
@@ -26,7 +26,7 @@ void update_action_state__10TObjPlayerFPv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x328);
     switch (temp_r0) {
     case 0:
-        TObjPlayer__sub_801CE218(arg0);
+        start_attack_preparation__10TObjPlayerFPv(arg0);
     case 1:
         if (is_anim_finished__10TObjPlayerFPv(arg0) != 0) {
             M2C_FIELD(arg0, s16 *, 0x328) = 2;

@@ -59,7 +59,7 @@ struct RuleTbl_8011C0B8 { s32 count; Rule_8011C0B8 *rules; };
 struct Pmt_8011C0B8 { u8 pad[0x44]; RuleTbl_8011C0B8 *tbl; };
 
 extern "C" {
-M2C_UNK TItemDrop__sub_8010663C(u32, s32, s32, s32);
+M2C_UNK select_enemy_drop__9TItemDropFPviiPv(u32, s32, s32, s32);
 M2C_UNK TLobby__sub_801044B8(s32 *);
 extern void *item_mgr;
 void drop_item_from_slot__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
@@ -93,13 +93,13 @@ u8 get_slot_count__14TItemProShieldFPv(void *p);
 extern void *item_pmt_tbl;
 Entry_8011CB18 *get_weapon_range_record(Item_8011CB18 *item, s16 mode);
 extern void *item_pmt_tbl;
-s32 TObjPlayer__sub_8011C030(u8 *id);
+s32 is_unsealable_item(u8 *id);
 extern void *item_pmt_tbl;
 void TObjPlayer__sub_8011C8BC(u32 x, s16 *a, s16 *b);
 void update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
-s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+s32 play_sound_effect(s32, void *, s32, s32);
 extern void *item_pmt_tbl;
-void TObjPlayer__sub_8011C7C8(Ctx_8011C7C8 *c);
+void play_weapon_owner_sounds(Ctx_8011C7C8 *c);
 extern void *item_pmt_tbl;
 extern const f32 lbl_805DAC74;
 extern s32 lbl_8043E7B4[];
@@ -135,7 +135,7 @@ s32 get_item_pmt_entry__10TObjPlayerFUc(u8 arg0) {
 
 extern void *item_pmt_tbl;
 
-s32 TObjPlayer__sub_8011C030(u8 *id) {
+s32 is_unsealable_item(u8 *id) {
     List_8011C030 *l = ((Tbl_8011C030 *)item_pmt_tbl)->list;
     s32 n = l->count;
     Entry_8011C030 *e = l->entries;
@@ -210,7 +210,7 @@ void drop_item_from_slot__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
         TLobby__sub_801044B8(&sp8);
         temp_r5 = sp8 - 1;
         sp8 = temp_r5;
-        TItemDrop__sub_8010663C((*(u32 *)&item_mgr), arg0, temp_r5, arg2);
+        select_enemy_drop__9TItemDropFPviiPv((*(u32 *)&item_mgr), arg0, temp_r5, arg2);
     }
 }
 void drop_item__10TObjPlayerFii(s32 arg0, s32 arg1) {
@@ -242,7 +242,7 @@ s32 get_unit_attribute_index__10TObjPlayerFUc(u8 arg0) {
     return 0;
 }
 
-void TObjPlayer__sub_8011C7C8(Ctx_8011C7C8 *c) {
+void play_weapon_owner_sounds(Ctx_8011C7C8 *c) {
     s32 key[2];
     s32 pitch[2];
     u8 group = c->group;
@@ -264,7 +264,7 @@ void TObjPlayer__sub_8011C7C8(Ctx_8011C7C8 *c) {
             s32 k = key[i];
             s32 p = pitch[i];
             if (k != 0) {
-                s32 handle = TBoss3Volopt__sub_8022675C(k, pos, 0, 0);
+                s32 handle = play_sound_effect(k, pos, 0, 0);
                 if (p != 0) {
                     update_technique_slot__10TTecRaFoieFi(handle, p, 0);
                 }

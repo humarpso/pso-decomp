@@ -20,7 +20,7 @@ M2C_UNK TObjPlayer__sub_801C0E40(void *);
 M2C_UNK TObjPlayer__sub_801C0E5C(void *);
 u32 start_inventory_update__10TObjPlayerFPvi(s32, s32);
 void *get_owner_if_alive__10TObjPlayerFPv();
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 fn_801B7F4C(void *arg0, s32 arg1);
 M2C_UNK queue_destruction__7TObjectFv(u32);
 M2C_UNK TObjPlayer__sub_801B81E8(void *, M2C_UNK *, s32);
@@ -51,7 +51,7 @@ s32 fn_801B7F4C(void *arg0, s32 arg1) {
         return 0;
     }
     if (can_use_item__10TObjPlayerFPvPv(arg0, temp) == 0) {
-        TBoss3Volopt__sub_8022675C(0x3816, 0, 0, 0);
+        play_sound_effect(0x3816, 0, 0, 0);
         return 0;
     }
     if ((arg0 != NULL) && (obj_isState2_324(arg0) != 0)) {

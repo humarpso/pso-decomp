@@ -9,7 +9,7 @@ extern "C" {
 void update_item_follow_effect__10TObjPlayerFPv(void *arg0);
 void *__dt__10TObjPlayerFPvs(void *arg0, s16 arg1);
 s32 get_flag_40__8TItemMagFPv(s32);
-s32 TLobby__sub_80101AB0(s32);
+s32 find_item_by_id(s32);
 u32 get_item_ctrl__10TObjPlayerFv();
 s8 TObjPlayer__sub_80102C30();
 s32 draw_icon__10TObjPlayerFPvii(s32, s32, M2C_UNK *);
@@ -32,7 +32,7 @@ void update_item_follow_effect__10TObjPlayerFPv(void *arg0) {
     }
     var_r31 = 0;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
-        var_r30 = TLobby__sub_80101AB0(M2C_FIELD(arg0, s32 *, 0x1C));
+        var_r30 = find_item_by_id(M2C_FIELD(arg0, s32 *, 0x1C));
         if ((var_r30 != 0) && (TObjPlayer__sub_80102C30() == 2)) {
             var_r31 = 1;
             if (draw_icon__10TObjPlayerFPvii(var_r30, M2C_FIELD(arg0, s32 *, 0x20), sp8) != 0) {

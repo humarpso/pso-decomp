@@ -73,7 +73,7 @@ void TCameraCtrl__sub_8006A5EC(s32);
 void TCameraCtrl__ct(void *, s32);
 void TLobby__sub_800F9B84();
 void create__16TItemReverseTechFv(void);
-void TObjLight__sub_80133B10(void *);
+void init_map_lights(void *);
 void TKeyBoardControl__sub_801A66B8();
 void TLobby__sub_801E2F44(s32, s32, s32);
 M2C_UNK render_tick__Fv();
@@ -228,7 +228,7 @@ void TItemReverseTech__sub_8011A43C(void) {
             fn();
         }
     }
-    TObjLight__sub_80133B10(lbl_804A6F34);
+    init_map_lights(lbl_804A6F34);
     cam = __nw__7TObjectFUl((M2C_UNK)(0x1D4));
     if (cam != NULL) {
         TCameraCtrl__ct(cam, tl_camera);

@@ -63,7 +63,7 @@ u8 fn_8035C2B4(void);
 u8 is_door_0x97_open__12TBoss4ThanksFv(void);
 void mark_done__12TBoss4ThanksFPv(void* p);
 void update_fade_out__12TBoss4ThanksFPv(void *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 TODoorVoShip__sub_801F44BC(s32);
 int dispatch_by_main_phase__14TBoss4DarkFalzFUs(void*);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -143,13 +143,13 @@ void update_fade_out__12TBoss4ThanksFPv(void *arg0) {
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0x20) != 1) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x30) == 0) {
-            TBoss3Volopt__sub_8022675C(0x40033231, 0, 0, 0);
+            play_sound_effect(0x40033231, 0, 0, 0);
         }
         TBoss4Thanks__sub_8035C35C((void *)(arg0));
         M2C_FIELD(arg0, f32 *, 0x2C) = (f32) (lbl_805E0188 * (lbl_805E018C - ((f32) M2C_FIELD(arg0, s32 *, 0x30) / lbl_805E0190)));
         temp_r3 = M2C_FIELD(arg0, s32 *, 0x30);
         if (temp_r3 == 0x78) {
-            TBoss3Volopt__sub_8022675C(0x40033232, 0, 0, 0);
+            play_sound_effect(0x40033232, 0, 0, 0);
             queue_destruction__7TObjectFv(arg0);
             return;
         }

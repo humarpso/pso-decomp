@@ -91,7 +91,7 @@ extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D53AC;
 void forward_to_player__6TLobbyFiPv(int arg0, void *arg1);
 s32 is_locally_controlled__10TObjPlayerFPv();
-M2C_UNK TObjPlayer__sub_801B9EDC(s32, s32);
+M2C_UNK send_6x26_unequip_item__10TObjPlayerFPvPv(s32, s32);
 s32 get_player_by_client_id(u16);
 s32 is_script_controlled__10TObjPlayerFPv(s32);
 u32 activate_d04_slot__10TObjPlayerFPv(s32);
@@ -317,7 +317,7 @@ void handle_player_event__6TLobbyFii(s32 arg0, s32 arg1) {
             break;
         }
         if (var_r3 != 0U) {
-            TObjPlayer__sub_801B9EDC(temp_r3, get_field_d8__10TObjPlayerFPv());
+            send_6x26_unequip_item__10TObjPlayerFPvPv(temp_r3, get_field_d8__10TObjPlayerFPv());
         }
     }
 }

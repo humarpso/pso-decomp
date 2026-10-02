@@ -32,7 +32,7 @@ M2C_UNK TObjEneSlimeOne__sub_800EAE78(void *, s32);
 int TObjEneSlimeOne__sub_800EC7F4(void*, void*);
 s32 project_actor_to_ground(void *, void *, int);
 Tgt_800E984C *get_player_by_client_id(s32);
-s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 void TBoss4Zako__sub_803D8910(void *, void *);
@@ -117,7 +117,7 @@ void TObjEneSlimeOne__sub_800E984C(Self_800E984C *self) {
     }
     self->f390 = 0x5A;
     TObjEneSlimeOne__sub_800EC7F4((void*)((void *)self->f388), (void*)((void *)0));
-    TBoss3Volopt__sub_8022675C(0x4003A318, &self->dest, 0, 0);
+    play_sound_effect(0x4003A318, &self->dest, 0, 0);
     create__22TObjEneSlimeTailAttackFiiii(self, &self->dest, self->f60, self);
     set_display_mode__15TObjEneSlimeOneFPvi((void*)(self), (void*)((void *)2));
 }

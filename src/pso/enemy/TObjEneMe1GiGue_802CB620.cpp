@@ -47,15 +47,15 @@ s32 spawn_particle_effect(void *, int);
 s32 create_breakup_mdl__12TBoss3VoloptFiiiii(int, int, int, void *, int);
 s32 refresh_lobby_state__10TObjPlayerFPv(void *);
 s32 send_entity_set_flags__6TLobbyFPv(void *);
-s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+s32 play_sound_effect(void *, void *, int, int);
 s32 TObjEneMe1GiGue__sub_802CB5A0(void *, int);
 extern s32 TObjEneMe1GiGue__data_805D683C;
 extern const f32 TObjEneMe1GiGue__data_805DE674;
 void TObjEneMe1GiGue__sub_802CB9E4(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 move_with_wall_slide(void *);
-s32 TObjPlayer__sub_8001806C(void *, f32, s32);
-s32 TObjPlayer__sub_80018660(void *, s32);
+s32 enemy_set_heading_velocity(void *, f32, s32);
+s32 enemy_turn_toward_dest(void *, s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 xz_distance_squared(void *, void *);
 f32 TBoss8Dragon__sub_803D64C0(s32);
@@ -79,7 +79,7 @@ M2C_UNK TBoss3VoloptMonitor__sub_8004292C();
 s32 spawn_particle_effect(void *, int);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
-s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+s32 play_sound_effect(void *, void *, int, int);
 M2C_UNK create__9TTecJelinFiiii(void *, void *, void *, s32);
 M2C_UNK create_instance__9TTecZaruaFiiii(void *, void *, void *, s32);
 M2C_UNK TObjEneMe1GiGue__sub_802CB03C(void *);
@@ -102,7 +102,7 @@ M2C_UNK TBoss3VoloptMonitor__sub_8004292C();
 M2C_UNK TObjEneMe1GiGueBarrier__sub_80325CC4(void *, void *);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK enemy_wander_home(void *, s32, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK refresh_collision_body_centers(void *);
 u32 get_player_by_client_id(M2C_UNK);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK set_shake_preset__11TCameraCtrlFi(M2C_UNK);
@@ -121,7 +121,7 @@ void init_move__15TObjEneMe1GiGueFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x01000000);
     update_if_active__15TObjEneMe1GiGueFPv((void *)(arg0), (int)(0xE));
     M2C_FIELD(arg0, s32 *, 0x378) = 1;
-    TObjPlayer__sub_80154E3C(arg0);
+    refresh_collision_body_centers(arg0);
 }
 
 extern const f32 TObjEneMe1GiGue__data_805DE660;
@@ -169,8 +169,8 @@ void TObjEneMe1GiGue__sub_802CB8F0(Obj_802CB8F0 *o, Vec_802CB8F0 *c, f32 r) {
         o->v390.z = d * TBoss8Dragon__sub_803D64C0(k) + c->z;
     }
     VecCopy__FP3VecPC3Vec(&o->v29C, &o->v390);
-    TObjPlayer__sub_80018660(o, o->f350->f8);
-    TObjPlayer__sub_8001806C(o, o->f3E4, o->f60);
+    enemy_turn_toward_dest(o, o->f350->f8);
+    enemy_set_heading_velocity(o, o->f3E4, o->f60);
     move_with_wall_slide(o);
 }
 
@@ -183,7 +183,7 @@ void TObjEneMe1GiGue__sub_802CB9E4(u8 *arg0) {
     send_entity_set_flags__6TLobbyFPv((void *) (arg0));
     spawn_particle_effect((void *) (&position.x), (int) (0x205));
     spawn_particle_effect((void *) (&position.x), (int) (0x206));
-    TBoss3Volopt__sub_8022675C((void *) (TObjEneMe1GiGue__sub_802CB5A0((void *) (arg0), (int) (0x3AF1C))), (void *) (&position.x), (int) (0), (int) (0));
+    play_sound_effect((void *) (TObjEneMe1GiGue__sub_802CB5A0((void *) (arg0), (int) (0x3AF1C))), (void *) (&position.x), (int) (0), (int) (0));
     queue_destruction__7TObjectFv((void *) (arg0));
 }
 
@@ -253,7 +253,7 @@ void TObjEneMe1GiGue__sub_802CC45C(u8 *arg0) {
             }
             break;
         case 2:
-            TBoss3Volopt__sub_8022675C((void *)TObjEneMe1GiGue__sub_802CB5A0(arg0, 0x3A344), arg0 + 0x38, 0, 0);
+            play_sound_effect((void *)TObjEneMe1GiGue__sub_802CB5A0(arg0, 0x3A344), arg0 + 0x38, 0, 0);
             if (M2C_FIELD(arg0, f32 *, 0xC0) >= TObjEneMe1GiGue__data_805DE6A0) {
                 TObjEneMe1GiGue__sub_802CB03C(arg0);
                 M2C_FIELD(arg0, s32 *, 0x37C) = 3;

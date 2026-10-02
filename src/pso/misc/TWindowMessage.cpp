@@ -21,7 +21,7 @@ extern "C" {
 
 void *__dt__14TWindowMessageFv(void *arg0, s16 arg1);
 void draw__14TWindowMessageFPv(u8 *arg0);
-M2C_UNK TWindowSubStatusDisp__sub_80257C28(void *, void *);
+M2C_UNK update_window_entry_list(void *, void *);
 void __dl__7TObjectFPv(void *);
 void destroy_window__15TWindowAdditionFPvs(void *, int);
 M2C_UNK fn_802695A8(void *);
@@ -49,7 +49,7 @@ void draw__14TWindowMessageFPv(u8 *arg0) {
     fn_802695A8(arg0);
     initialize_subwindow__9TWindowDDFPv(arg0);
     update_fade__17TWindowSubComCardFPv(arg0);
-    TWindowSubStatusDisp__sub_80257C28(arg0, arg0 + 0x24);
+    update_window_entry_list(arg0, arg0 + 0x24);
 }
 
 extern M2C_UNK __vt__14TWindowMessage[];

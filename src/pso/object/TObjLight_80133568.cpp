@@ -192,8 +192,8 @@ f32 TNpcPlayer__sub_803D97B4(void *);
 extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
 extern s32 tl_02;
 extern const float TObjLight__data_805DB088;
-void TObjLight__sub_80133B10(u8 *arg0);
-void TObjLight__sub_80133B10(u8 *arg0);
+void init_map_lights(u8 *arg0);
+void init_map_lights(u8 *arg0);
 void bswap_data__9TObjLightFPv(void* p);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 is_online_ready__6TLobbyFv();
@@ -444,7 +444,7 @@ void TObjLight__sub_80133A04(u8 *arg0) {
     }
 }
 
-void TObjLight__sub_80133B10(u8 *arg0) {
+void init_map_lights(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_80133B10, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80133B10, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80133B10, sp10) == 0x8) ? 1 : -1];
@@ -520,10 +520,10 @@ void TObjLight__sub_80133D78(void) {
         temp_r4 = (TObjLight__data_805D5574 + (var_r31 * 0x44)) - 4;
         *(M2CCopy_44 *)(copy_storage_80133D78.bytes) = *(const M2CCopy_44 *)(temp_r4 + 4);
         bswap_data__9TObjLightFPv((void*)((void *) ((copy_storage_80133D78.bytes))));
-        TObjLight__sub_80133B10((u8 *)((void *) ((copy_storage_80133D78.bytes))));
+        init_map_lights((u8 *)((void *) ((copy_storage_80133D78.bytes))));
         return;
     }
-    TObjLight__sub_80133B10((u8 *)((void *) (&lbl_804A6F34.value)));
+    init_map_lights((u8 *)((void *) (&lbl_804A6F34.value)));
 }
 
 void free_shared_data__9TObjLightFv(void) {

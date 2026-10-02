@@ -93,7 +93,7 @@ extern s32 enable_v2_features;
 extern u32 TODoorCave03__data_805D5968;
 void TODoorCave03__sub_80162740(void);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_80154E3C(void *);
+s32 refresh_collision_body_centers(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_80162848_lbl_804B1548 lbl_804B1548;
@@ -110,7 +110,7 @@ void TObjPlayer__sub_803D9B2C(void);
 void pop_matrix(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(s32);
-void TOSignCave03__sub_803DB510(s32);
+void draw_ginja_model(s32);
 s32 set_chunk_material_color(void *);
 extern u8 lbl_804A7418[];
 extern s32 lbl_805D5660;
@@ -210,7 +210,7 @@ void render__12TODoorCave03Fv(u8 *arg0) {
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         m = *(Model_801625AC **)(arg0 + 0x34);
         TOHangerMachine01__sub_803D9C00(m->m8);
-        TOSignCave03__sub_803DB510(m->m4);
+        draw_ginja_model(m->m4);
         begin_effect_render__13TParticleCtrlFv();
         lbl_805D5660 = some_id_805c6f74;
         some_id_805c6f74 |= 0x10;
@@ -221,10 +221,10 @@ void render__12TODoorCave03Fv(u8 *arg0) {
             m = (*(Model_801625AC **)(arg0 + 0x34))->child;
         }
         TOHangerMachine01__sub_803D9C00(m->m8);
-        TOSignCave03__sub_803DB510(m->m4);
+        draw_ginja_model(m->m4);
         m = m->child;
         TOHangerMachine01__sub_803D9C00(m->m8);
-        TOSignCave03__sub_803DB510(m->m4);
+        draw_ginja_model(m->m4);
         set_chunk_material_color(lbl_804A7418);
         some_id_805c6f74 = lbl_805D5660;
         end_effect_render__13TParticleCtrlFv();
@@ -295,7 +295,7 @@ u8 *TODoorCave03__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TODoorCave03__data_805D5968), u8 **, 0x42C), s32 *, 8);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TODoorCave03__data_805D5968), u8 **, 0x42C), s32 *, 0xC);
     TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B1548.value), (int) (1));
-    TObjPlayer__sub_80154E3C((void *) (arg0));
+    refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     ((VObj_18_4a4f5b *)(arg0))->m17();
     M2C_FIELD(arg0, f32 *, 0xD4) = (f32) TODoorCave03__data_805DB4D4;

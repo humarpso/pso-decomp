@@ -10,7 +10,7 @@ void update_action_timer__14TObjEnePanarmsFPv(void *arg0);
 M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, M2C_UNK);
 M2C_UNK TObjEnePanarms__sub_800E1C98(void *, M2C_UNK);
 s32 angle_difference_abs(s32, s32);
-s32 TObjPlayer__sub_801423A4(s32, s32, M2C_UNK);
+s32 approach_angle_limited(s32, s32, M2C_UNK);
 
 void update_action_timer__14TObjEnePanarmsFPv(void *arg0) {
     s32 temp_r0;
@@ -23,7 +23,7 @@ void update_action_timer__14TObjEnePanarmsFPv(void *arg0) {
         return;
     }
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x60);
-    M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x3D4), 0x888);
+    M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x3D4), 0x888);
     if (angle_difference_abs(temp_r3, M2C_FIELD(arg0, s32 *, 0x60)) == 0) {
         set_field_b8__14TObjEnePanarmsFPvs(arg0, 0);
     }

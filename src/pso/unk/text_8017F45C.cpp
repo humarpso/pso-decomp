@@ -32,7 +32,7 @@ extern RecoveredGlobal_8017F45C_lbl_804B5830 lbl_804B5830;
 extern s32 lbl_805D5B10;
 void fn_8017F45C(void);
 void fn_8017F52C(O_8017F52C *self);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 void fn_8017F4AC(Self_8017F4AC *self);
 void fn_8017F5F0(u8 *arg0, u8 *arg1);
 void TBoss4Zako__sub_803D8910(void *, void *);
@@ -62,7 +62,7 @@ void fn_8017F4AC(Self_8017F4AC *self) {
     s32 i;
     for (i = 0; i < 8; i++) {
         if (self->e[i].done == 0 && self->t >= self->e[i].time) {
-            TBoss3Volopt__sub_8022675C((M2C_UNK)self->e[i].obj, self->e[i].vec, 0, 0);
+            play_sound_effect((M2C_UNK)self->e[i].obj, self->e[i].vec, 0, 0);
             self->e[i].done = 1;
         }
     }

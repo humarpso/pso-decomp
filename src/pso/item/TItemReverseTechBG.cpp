@@ -28,7 +28,7 @@ extern "C" {
 
 void *__ct__18TItemReverseTechBGFv(void *arg0, void *arg1, void *arg3);
 void render__18TItemReverseTechBGFv(void *arg0);
-void TWindowSubComCard__sub_803DEECC(void *, f32);
+void draw_textured_quad_at_depth(void *, f32);
 void TWindowSubStatusDisp__sub_803DEE6C(int);
 void TWindowSubStatusDisp__sub_803DF160(void *, void *);
 M2C_UNK __ct__7TObjectFP7TObject();
@@ -41,7 +41,7 @@ void render__18TItemReverseTechBGFv(void *arg0) {
     notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, void **, 0x2C));
     TWindowSubStatusDisp__sub_803DEE6C(1);
     TWindowSubStatusDisp__sub_803DF160(M2C_FIELD(arg0, void **, 0x30), M2C_FIELD(arg0, void **, 0x34));
-    TWindowSubComCard__sub_803DEECC((void *)((char *)arg0 + 56), M2C_FIELD(arg0, f32 *, 0x58));
+    draw_textured_quad_at_depth((void *)((char *)arg0 + 56), M2C_FIELD(arg0, f32 *, 0x58));
     get_player__20TWindowSubStatusDispFv();
 }
 

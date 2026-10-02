@@ -8,7 +8,7 @@ extern "C" {
 
 void clear_flag70_bit80__19TWindowSubTradeMainFPv(void* p);
 void clear_flag__19TWindowSubTradeMainFPv(void* p);
-s32 TBoss3Volopt__sub_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
+s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowMenu__sub_80266B18(void *, s32);
 s32 TWindowSubComCard__sub_8026906C(void);
 u32 TWindowSubStatusDisp__sub_802880BC(u32, s32, s16);

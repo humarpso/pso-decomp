@@ -277,7 +277,7 @@ M2C_UNK set_state_flags__18TObjEneRe4SorcererFPv(void *);
 M2C_UNK set_hold_flags__18TObjEneRe4SorcererFPv(void *);
 M2C_UNK TObjEneRe4Sorcerer__sub_800ED47C();
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, int, int);
+M2C_UNK play_sound_effect(M2C_UNK, void *, int, int);
 extern const f32 TObjEneRe4Bit__data_805DA770;
 void TObjEneRe4Bit__sub_800ECC14(u8 *arg0, s32 arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -408,11 +408,11 @@ void TObjEneRe4Bit__sub_800ECC14(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x408) = 0;
         set_hold_flags__18TObjEneRe4SorcererFPv((void *) (arg0));
         M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) | 0x400);
-        TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003A815)), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003A815)), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         break;
     case 3:
         if (M2C_FIELD(arg0, s32 *, 0x3CC) & 8) {
-            TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003AD16)), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003AD16)), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             transition_enemy_state((void *)((void *) (arg0)), (M2C_UNK)((int) (1)));
         }
         break;

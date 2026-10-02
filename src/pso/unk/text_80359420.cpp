@@ -102,7 +102,7 @@ s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 fn_80148274(void *);
-s32 fn_8014B8A4(void *);
+s32 construct_male_npc_base(void *);
 extern RecoveredGlobal_80359420___vt__14TObjNpcNgcBase __vt__14TObjNpcNgcBase;
 extern s32 lbl_805D43F0;
 u8 *TObjNpcNgcBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
@@ -113,7 +113,7 @@ extern "C" {
 
 typedef char RecoveredGlobal_80359420___vt__14TObjNpcNgcBase_size[sizeof(RecoveredGlobal_80359420___vt__14TObjNpcNgcBase) == 0x178 ? 1 : -1];
 u8 *TObjNpcNgcBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
-    fn_8014B8A4((void *) (arg0));
+    construct_male_npc_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__14TObjNpcNgcBase.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D43F0;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);

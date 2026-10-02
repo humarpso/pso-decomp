@@ -114,7 +114,7 @@ struct Npc_801480FC {
 };
 
 extern "C" {
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 void TObjNpcARW00__vt88(s32 arg0);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 fn_80148274(void *);
@@ -200,7 +200,7 @@ u8 *TObjNpcARW00__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
 }
 
 void TObjNpcARW00__vt88(s32 arg0) {
-    TBoss3Volopt__sub_8022675C((int) (0x40004C15), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_sound_effect((int) (0x40004C15), (void *) (arg0 + 0x38), (int) (0), (int) (0));
 }
 
 void TObjNpcFemaleBase__sub_801480F4(void) {  }

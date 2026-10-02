@@ -94,7 +94,7 @@ void init_slime_display__10TObjPlayerFPv(void* a0);
 void init_slime_state__10TObjPlayerFPv(void *arg0);
 void update_dive_timer__10TObjPlayerFPv(u8 *arg0);
 void update_slime_timer__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK spawn_particle_effect(void *, M2C_UNK);
 M2C_UNK TObjEneSlimeOne__sub_800EAE78(void *, M2C_UNK);
 int TObjEneSlimeOne__sub_800EC7F4(void*, void*);
@@ -146,7 +146,7 @@ void update_dive_timer__10TObjPlayerFPv(u8 *arg0) {
 
 void enter_appear_state__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x394) = 0x14;
-    TBoss3Volopt__sub_8022675C(0x4003AD1D, arg0 + 0x38, 0, 0);
+    play_sound_effect(0x4003AD1D, arg0 + 0x38, 0, 0);
     TObjEneSlimeOne__sub_800EC7F4((void*)(M2C_FIELD(arg0, s32 *, 0x388)), (void*)(0xA));
     set_display_mode__15TObjEneSlimeOneFPvi((void*)(arg0), (int)(1));
 }
@@ -171,7 +171,7 @@ void update_slime_timer__10TObjPlayerFPv(u8 *arg0) {
 void enter_slime_state__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x394) = 8;
     TObjEneSlimeOne__sub_800EC7F4((void*)(M2C_FIELD(arg0, s32 *, 0x388)), (void*)(9));
-    TBoss3Volopt__sub_8022675C(0x4003AD1D, arg0 + 0x38, 0, 0);
+    play_sound_effect(0x4003AD1D, arg0 + 0x38, 0, 0);
     set_display_mode__15TObjEneSlimeOneFPvi((void*)(arg0), (int)(1));
 }
 

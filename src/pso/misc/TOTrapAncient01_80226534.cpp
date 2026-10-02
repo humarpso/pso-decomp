@@ -26,7 +26,7 @@ extern SndEnt_8022675C lbl_805145F0[40];
 extern s32 lbl_805D370C;
 extern s32 lbl_805D62B0;
 extern s32 lbl_805DC748;
-s32 TBoss3Volopt__sub_8022675C(s32 id, Vec_8022675C *src, s32 a2, s32 flags);
+s32 play_sound_effect(s32 id, Vec_8022675C *src, s32 a2, s32 flags);
 }
 
 extern "C" {
@@ -47,7 +47,7 @@ s32 check_trigger_flag__15TOTrapAncient01Fii(s32 arg0, s32 arg1) {
     }
     return 1;
 }
-s32 TBoss3Volopt__sub_8022675C(s32 id, Vec_8022675C *src, s32 a2, s32 flags) {
+s32 play_sound_effect(s32 id, Vec_8022675C *src, s32 a2, s32 flags) {
     s32 i;
     s32 idx;
     Vec_8022675C *pos;

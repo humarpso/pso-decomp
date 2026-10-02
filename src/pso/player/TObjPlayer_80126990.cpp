@@ -9,7 +9,7 @@ extern "C" {
 void update_shield_ready__10TObjPlayerFi(s32 arg0);
 void *init_vtable_and_flags__10TObjPlayerFPv(void *arg0);
 u8 get_slot_count__14TItemProShieldFPv();
-M2C_UNK TObjPlayer__sub_80120908(s32);
+M2C_UNK draw_weapon_model(s32);
 M2C_UNK TObjPlayer__sub_80120BBC(s32, M2C_UNK);
 void TObjPlayer__sub_80120D50(void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
@@ -19,7 +19,7 @@ extern s32 lbl_805D5518;
 void update_shield_ready__10TObjPlayerFi(s32 arg0) {
     if (get_slot_count__14TItemProShieldFPv() == 3) {
         lbl_805D5518 = 0;
-        TObjPlayer__sub_80120908(arg0);
+        draw_weapon_model(arg0);
         lbl_805D5518 = 1;
         TObjPlayer__sub_80120BBC(arg0, 0x23);
     }

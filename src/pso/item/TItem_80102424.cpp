@@ -126,7 +126,7 @@ M2C_UNK update_timer__5TItemFPv(void *);
 u16 get_id__13TItemProArmorFPv(void *);
 u32 get_player_by_client_id(void *);
 M2C_UNK push_to_player_list__5TItemFPv();
-void TItem__sub_80102748(u8 *arg0);
+void run_task__5TItemFPv(u8 *arg0);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 clear_shadow_flag__10TObjPlayerFPv(void *);
 s32 set_shadow_flag__10TObjPlayerFPv(void *);
@@ -153,7 +153,7 @@ void copy_to_item_data__5TItemFPvPv(void *, void *);
 void TItem__sub_80101DBC(void *, f32);
 s32 is_active_battle_player__10TObjPlayerFv(void);
 void TLobby__sub_8011AED8(s16, s16, void *, f32, f32);
-void TObjPlayer__sub_80154E3C(void *);
+void refresh_collision_body_centers(void *);
 void set_parent__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
 extern void *tl_05;
@@ -188,7 +188,7 @@ void TItem__sub_80102424(TItem_80102424 *self, s16 client, f32 *pos, s32 quiet) 
     r = lbl_805DAAA0 * (f32)rand();
     self->f60 = (s32)(lbl_805DAA9C * r);
     TItem__sub_80101DBC(self, r);
-    TObjPlayer__sub_80154E3C(self);
+    refresh_collision_body_centers(self);
     if (lbl_805D543C != 0) {
         spawn_particle_effect(&self->x, 0x9B);
     }
@@ -217,7 +217,7 @@ void TItem__sub_8010255C(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TItem__sub_80102748(u8 *arg0) {
+void run_task__5TItemFPv(u8 *arg0) {
     s8 temp_r3;
     u32 temp_r4;
     temp_r3 = TObjPlayer__sub_80102C30((void *)(arg0));

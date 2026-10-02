@@ -168,7 +168,7 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 free_menu_object(int);
 s32 get_field_118__22TAdEnterSerialAccessGCFv();
-s32 TBoss3Volopt__sub_8022675C(int, int, int, int);
+s32 play_sound_effect(int, int, int, int);
 s32 TWindow__close(int);
 s32 TAdEnterSerialAccessGC__sub_802AEBA8(int);
 s32 TLevelSelect__sub_802AEBE4(int, void *);
@@ -556,7 +556,7 @@ void TAdEnterSerialAccessGC__sub_80321B28(u8 *arg0, int arg1) {
     if ((update_keyboard__17TWindowSubComCardFPv((int) TAdEnterSerialAccessGC__data_805D6C20) != 0) && (forward_input__22TAdEnterSerialAccessGCFPv((void *) arg0, (void *) arg1, (int) temp_r30) == 0))
     {
       free_menu_object((int) TAdEnterSerialAccessGC__data_805D6C20);
-      TBoss3Volopt__sub_8022675C((int) 0x53F06, (int) 0, (int) 0, (int) 0);
+      play_sound_effect((int) 0x53F06, (int) 0, (int) 0, (int) 0);
     }
   }
   temp_r3_8 = *((int *) (((s8 *) arg0) + 0x60));

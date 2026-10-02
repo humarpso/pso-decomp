@@ -95,11 +95,11 @@ struct RecoveredGlobal_80147C18___vt__12TObjNpcAHM01 {
 };
 
 extern "C" {
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 void TObjNpcAHM01__vt88(s32 arg0);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 fn_80148274(void *);
-s32 fn_8014B8A4(void *);
+s32 construct_male_npc_base(void *);
 extern M2C_UNK __vt__12TObjNpcAHM01[];
 extern s32 lbl_805D2D08;
 extern u32 TObjNpcAHM01__data_805D5720;
@@ -164,7 +164,7 @@ void *__dt__12TObjNpcAHM01Fv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80147C18___vt__12TObjNpcAHM01_size[sizeof(RecoveredGlobal_80147C18___vt__12TObjNpcAHM01) == 0x178 ? 1 : -1];
 u8 *TObjNpcAHM01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    fn_8014B8A4((void *) (arg0));
+    construct_male_npc_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80147C18___vt__12TObjNpcAHM01 *)&__vt__12TObjNpcAHM01).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2D08;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
@@ -176,7 +176,7 @@ u8 *TObjNpcAHM01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
 }
 
 void TObjNpcAHM01__vt88(s32 arg0) {
-    TBoss3Volopt__sub_8022675C((int) (0x40004C15), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_sound_effect((int) (0x40004C15), (void *) (arg0 + 0x38), (int) (0), (int) (0));
 }
 
 int TObjNpcFemaleBase__sub_80147CD4(void) { return 0; }

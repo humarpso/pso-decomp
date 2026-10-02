@@ -31,7 +31,7 @@ extern "C" {
 s32 set_global_param__8TObjFishFi(void *);
 s32 TWindowSubStatusDisp__sub_803DEE6C(int);
 s32 get_player__20TWindowSubStatusDispFv();
-s32 TWindowSubComCard__sub_803DEECC(void *, f32);
+s32 draw_textured_quad_at_depth(void *, f32);
 s32 TWindowSubStatusDisp__sub_803DF160(int, int);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805D93C0;
@@ -126,7 +126,7 @@ void TObjPlayer__sub_80082C30(void) {
     stack.sp1C = lbl_805D93D4;
     stack.sp20 = lbl_805D93D8;
     stack.sp24 = lbl_805D93D8;
-    TWindowSubComCard__sub_803DEECC((void *) (&stack.sp8), (f32) (lbl_805D93DC));
+    draw_textured_quad_at_depth((void *) (&stack.sp8), (f32) (lbl_805D93DC));
     get_player__20TWindowSubStatusDispFv();
 }
 #pragma pop

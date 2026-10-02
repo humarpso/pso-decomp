@@ -60,12 +60,12 @@ extern u8 *lbl_805D5514;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DACA8;
 extern const f32 lbl_805DACAC;
-s32 TObjPlayer__sub_80120908(void *arg0);
+s32 draw_weapon_model(void *arg0);
 }
 
 extern "C" {
 
-s32 TObjPlayer__sub_80120908(void *arg0) {
+s32 draw_weapon_model(void *arg0) {
     s32 var_r30;
     u8 *temp_r4;
     if ((void *) M2C_FIELD(arg0, u8 **, 0xF0) == NULL || (u32) M2C_FIELD(arg0, u32 *, 0xF4) == 0U) {
@@ -150,7 +150,7 @@ void TObjPlayer__sub_80120BBC(s32 arg0, s8 arg1) {
     s8 temp_r31;
     temp_r31 = TObjPlayer__sub_8010A770((void *) (arg0));
     set_equip_flag__14TItemEquipBaseFPvUc((void *) (arg0), (void *) (arg1));
-    TObjPlayer__sub_80120908((void *)((void *) (arg0)));
+    draw_weapon_model((void *)((void *) (arg0)));
     set_equip_flag__14TItemEquipBaseFPvUc((void *) (arg0), (void *) (temp_r31));
 }
 

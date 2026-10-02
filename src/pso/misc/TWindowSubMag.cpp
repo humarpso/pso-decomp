@@ -22,7 +22,7 @@ struct TWindowSubMag_8027B62C {
     s32 field_0x2c;
     s32 field_0x30;
 };
-u8 *TLobby__sub_80101AB0(s32);
+u8 *find_item_by_id(s32);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(void *);
 M2C_UNK TWindowSubComCard__sub_80265C30(void *);
 M2C_UNK TWindowSubComCard__sub_80265E60(void *, f32);
@@ -216,7 +216,7 @@ void *TWindowSubMag__sub_8027B62C(TWindowSubMag_8027B62C *menu, s32 id) {
     void *window;
     u8 *item;
     initialize_mag_data__9TItemDataFPv(mag);
-    item = TLobby__sub_80101AB0(id);
+    item = find_item_by_id(id);
     window = fn_8026652C(get_window_layout_position(8), 2, get_message_10__20TWindowSubStatusDispFPv(0x1D), menu->field_0x28);
     TWindowSubEquip__sub_80263AF8(menu->field_0x30, 1);
     set_field_1c__6TLobbyFPvf(window);

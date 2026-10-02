@@ -10,7 +10,7 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void disallow_rendering__7TObjectFv(void *);
 void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
-void *TObjParticle__sub_800870BC(void *, Parm_80177608 *, s32, int);
+void *spawn_particle_effect_with_rotation(void *, Parm_80177608 *, s32, int);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern Tbl_80177608 lbl_80442BE4;
 extern Tbl_80177608 lbl_80442C2C;
@@ -40,7 +40,7 @@ u8 *TOSwitchAttackSub__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, u32 arg4, f32 
         p.b = 0;
         p.a = 0;
         p.c = b.v[arg4];
-        *(void **)(arg0 + 0x20) = TObjParticle__sub_800870BC(arg0 + 0x24, &p, a.v[arg4], 0x40);
+        *(void **)(arg0 + 0x20) = spawn_particle_effect_with_rotation(arg0 + 0x24, &p, a.v[arg4], 0x40);
         if (*(void **)(arg0 + 0x20) != 0) {
             if ((s32) arg4 == 10) {
                 set_position_xy__10TObjPlayerFPvff(*(void **)(arg0 + 0x20), lbl_805DBA04 * farg0, lbl_805DBA04 * farg0);

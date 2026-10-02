@@ -224,7 +224,7 @@ void TObjPlayer__sub_803D9B2C();
 void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(int);
-void TOSignCave03__sub_803DB510(void *);
+void draw_ginja_model(void *);
 void draw_ginja_model_with_motion(s32, s32, f32);
 extern Ids_8019BD84 lbl_805DBFD0;
 extern const f32 lbl_805DBFD4;
@@ -252,7 +252,7 @@ void TObjPlayer__sub_803D9B2C();
 void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(int);
-void TOSignCave03__sub_803DB510(void *);
+void draw_ginja_model(void *);
 void draw_ginja_model_with_motion(s32, s32, f32);
 extern Colors_8019C250 lbl_805DBFCC;
 extern const f32 lbl_805DBFD4;
@@ -268,7 +268,7 @@ void TObjPlayer__sub_803D9B2C();
 void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(int);
-void TOSignCave03__sub_803DB510(void *);
+void draw_ginja_model(void *);
 void draw_ginja_model_with_motion(s32, s32, f32);
 extern Colors_8019C604 lbl_805DBFC8;
 extern const f32 lbl_805DBFD4;
@@ -301,7 +301,7 @@ void *__dt__18TObjAreaWarpEndingFv(void *arg0, s16 arg1);
 void create_and_init__18TObjAreaWarpEndingFv(void);
 void open_confirm_window__18TObjAreaWarpEndingFPvs(void *arg0, s16 arg1);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 u32 TCheckRoomSequence__sub_802664A8(M2C_UNK, s32, s16);
 M2C_UNK TWindowSubComCard__sub_80265C30(u32);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
@@ -319,7 +319,7 @@ extern M2C_UNK dispatch_select_phase__16TKeyBoardControlFv[];
 extern s32 tl_00;
 
 void create_and_init__18TObjAreaWarpEndingFv(void) {
-    TBoss3Volopt__sub_8022675C(0x40003205, 0, 0, 0);
+    play_sound_effect(0x40003205, 0, 0, 0);
     u32 obj = __nw__7TObjectFUl(0x28);
     if (obj != 0U) {
         init__22THunterGuildSeqOfflineFPvPvPv(obj, tl_00, dispatch_select_phase__16TKeyBoardControlFv);
@@ -381,14 +381,14 @@ void render__18TObjAreaWarpEndingFv(Obj_8019BD84 *self) {
     rotate_matrix_y(0, arg0->f60);
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(root->pos);
-    TOSignCave03__sub_803DB510(root->model);
+    draw_ginja_model(root->model);
     begin_effect_render__13TParticleCtrlFv();
     for (root = root->child; root != 0; root = root->sibling) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(root->pos);
         TBoss7Tentacle__sub_803D8A6C(0, root->ang[0], root->ang[1], root->ang[2]);
         rotate_matrix_x(0, arg0->fC8);
-        TOSignCave03__sub_803DB510(root->model);
+        draw_ginja_model(root->model);
         pop_matrix();
     }
     end_effect_render__13TParticleCtrlFv();
@@ -532,7 +532,7 @@ void render__17TObjAreaWarpQuestFv(Obj_8019C250 *self) {
         rotate_matrix_y((int)(0), (int)(self->f60));
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(m->f8);
-        TOSignCave03__sub_803DB510(m->f4);
+        draw_ginja_model(m->f4);
         begin_effect_render__13TParticleCtrlFv();
         m = m->next2C;
         while (m != NULL) {
@@ -540,7 +540,7 @@ void render__17TObjAreaWarpQuestFv(Obj_8019C250 *self) {
             TOHangerMachine01__sub_803D9C00(m->f8);
             TBoss7Tentacle__sub_803D8A6C((int)(0), (s32)(m->f14), (s32)(m->f18), (s32)(m->f1C));
             rotate_matrix_x((int)(0), (s32)(self->fCC));
-            TOSignCave03__sub_803DB510(m->f4);
+            draw_ginja_model(m->f4);
             pop_matrix();
             m = m->next30;
         }
@@ -659,7 +659,7 @@ void render__18TObjAreaWarpForestFv(Obj_8019C604 *self) {
         rotate_matrix_y((int)(0), (int)(self->f60));
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(m->f8);
-        TOSignCave03__sub_803DB510(m->f4);
+        draw_ginja_model(m->f4);
         begin_effect_render__13TParticleCtrlFv();
         m = m->next2C;
         while (m != NULL) {
@@ -667,7 +667,7 @@ void render__18TObjAreaWarpForestFv(Obj_8019C604 *self) {
             TOHangerMachine01__sub_803D9C00(m->f8);
             TBoss7Tentacle__sub_803D8A6C((int)(0), (s32)(m->f14), (s32)(m->f18), (s32)(m->f1C));
             rotate_matrix_x((int)(0), (s32)(self->fCC));
-            TOSignCave03__sub_803DB510(m->f4);
+            draw_ginja_model(m->f4);
             pop_matrix();
             m = m->next30;
         }

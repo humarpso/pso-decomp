@@ -184,7 +184,7 @@ void clear_equip_flags__10TObjPlayerFPvUi(void *, u32);
 void TKeyBoardControl__sub_801AFCF4(void *, s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
 M2C_UNK update_technique_slot__10TTecRaFoieFi(M2C_UNK, s32, s32);
-M2C_UNK TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+M2C_UNK play_sound_effect(s32, s32, s32, s32);
 void TObjPlayer__sub_8011E6A4();
 extern void *tl_05;
 void TObjPlayer__sub_8012065C(Player_8012065C *arg0);
@@ -224,7 +224,7 @@ void TObjPlayer__sub_8012065C(Player_8012065C *arg0) {
             if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x200) != 0U) {
                 create__13TItemEffEquipFPvPvPvPvPv(tl_05, obj_getField1c(M2C_FIELD(arg0, s32 *, 0xF0)), 0x23, 0x9D, 0x9E);
             }
-            update_technique_slot__10TTecRaFoieFi(TBoss3Volopt__sub_8022675C(0x4000B20A, M2C_FIELD(arg0, s32 *, 0xF0) + 0x38, 0, 0), 0x300, 0);
+            update_technique_slot__10TTecRaFoieFi(play_sound_effect(0x4000B20A, M2C_FIELD(arg0, s32 *, 0xF0) + 0x38, 0, 0), 0x300, 0);
         }
     } else {
         TKeyBoardControl__sub_801AFCF4(M2C_FIELD(arg0, void **, 0xF0), 0);

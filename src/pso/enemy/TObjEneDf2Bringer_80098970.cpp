@@ -240,7 +240,7 @@ struct SubObj_80098970 : SubBase_80098970 {
 void exec__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1);
 void handle_state__17TObjEneDf2BringerFPvi(void *arg0, s32 arg1);
 M2C_UNK advance_animation_playback();
-M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BACE0(void *, f32, f32, f32);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK TObjEneDf2Bringer__sub_80098EB4(void *);
@@ -269,7 +269,7 @@ void exec__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1) {
         ((SubObj_80098970 *)(arg0 + 0x3C4))->v3();
         M2C_FIELD(arg0, s32 *, 0x4AC) = 0;
         M2C_FIELD(arg0, s32 *, 0x4B0) = 0;
-        TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3640D), arg0 + 0x38, 0, 0);
+        play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3640D), arg0 + 0x38, 0, 0);
         VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0x50);
         VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
         VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
@@ -291,7 +291,7 @@ void exec__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x4AC) > 0x14) {
                 M2C_FIELD(arg0, s32 *, 0x4B0) = 1;
                 M2C_FIELD(arg0, s16 *, 0xB8) = 3;
-                TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003B40E), arg0 + 0x38, 0, 0);
+                play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003B40E), arg0 + 0x38, 0, 0);
                 play_effect_if_v2__10TObjPlayerFi(-0x200);
             }
             TObjEneDf2Bringer__sub_80099188(arg0);

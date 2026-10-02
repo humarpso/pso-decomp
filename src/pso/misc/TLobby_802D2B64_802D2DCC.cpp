@@ -24,7 +24,7 @@ void reset__6TLobbyFv(void);
 s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 void update_sub_status_disp__6TLobbyFi(s32 arg0);
 s32 TLobby__sub_8001DC24();
-void *TLobby__sub_80101AB0(s32);
+void *find_item_by_id(s32);
 M2C_UNK TWindowSubStatusDisp__sub_80229080();
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 M2C_UNK fn_80330A40(s32);
@@ -66,7 +66,7 @@ s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
         TWindowSubStatusDisp__sub_80229080();
         return TLobby__sub_8001DC24();
     case 2:
-        temp_r3 = TLobby__sub_80101AB0(arg2);
+        temp_r3 = find_item_by_id(arg2);
         if (temp_r3 == NULL) {
             return 0;
         }

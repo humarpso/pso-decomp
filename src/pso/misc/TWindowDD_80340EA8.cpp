@@ -14,7 +14,7 @@ void init_window__9TWindowDDFPv(void* p);
 void *TWindowDD__sub_80340F00(void *);
 M2C_UNK TWindowDD__sub_80348AFC(s32, void *);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(s32, s32, void *, f32);
-int TWindowSubStatusDisp__sub_80257C28(void*, void*);
+int update_window_entry_list(void*, void*);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
@@ -67,6 +67,6 @@ void draw_entry_if_visible__9TWindowDDFPvPv(void *arg0, void *arg1) {
     }
 }
 
-void init_window__9TWindowDDFPv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); TWindowSubStatusDisp__sub_80257C28(p, (char*)p + 0x24); }
+void init_window__9TWindowDDFPv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); update_window_entry_list(p, (char*)p + 0x24); }
 
 }

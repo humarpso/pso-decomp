@@ -36,7 +36,7 @@ extern const f32 lbl_805D8440;
 u8 TBoss2DeRolLe__sub_80034960(u8 *arg0);
 void call_36A90_with_1__11TBoss2JointFPv(void *);
 void *__ct__15TBoss2PhotonPadFv(void *, void *, Vec_800344A4 *, Vec_800344A4 *, s32);
-void TBoss3Volopt__sub_8022675C(s32, Vec_800344A4 *, s32, s32);
+void play_sound_effect(s32, Vec_800344A4 *, s32, s32);
 void *__nw__7TObjectFUl(u32);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
@@ -107,7 +107,7 @@ void TBoss2DeRolLe__sub_800344A4(DeRolLe_800344A4 *self, s32 idx, s32 arg2) {
     if (p != NULL) {
         __ct__15TBoss2PhotonPadFv(p, self->unk3D8, &self->pts[idx], &v, arg2);
     }
-    TBoss3Volopt__sub_8022675C(0x4003B708, &self->pts[idx], 0, 1);
+    play_sound_effect(0x4003B708, &self->pts[idx], 0, 1);
     call_36A90_with_1__11TBoss2JointFPv(self->joints[idx]);
 }
 

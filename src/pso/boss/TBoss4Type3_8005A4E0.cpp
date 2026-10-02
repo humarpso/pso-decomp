@@ -62,7 +62,7 @@ void copy_pair__11TBoss4Type3FPvPv(void* p, void* q);
 s32 create__11TBoss4Type3Fi(s32 arg0);
 void draw__11TBoss4Type3FPv(void *arg0);
 void init_effect__11TBoss4Type3FPv(u8 *arg0);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int, void *);
+M2C_UNK play_sound_effect(int, void *, int, int, void *);
 s32 TBoss4Type3__ct(s32, s32, s32);
 void TBoss4Type3__sub_8005A438(void *);
 void TOHangerMachine01__sub_803D9C00(void *);
@@ -164,7 +164,7 @@ void TBoss4Type3__sub_8005ACBC(Obj_8005ACBC *self) {
 void init_effect__11TBoss4Type3FPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFFDFF);
     M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) TBoss4Type3__data_805D8C34;
-    TBoss3Volopt__sub_8022675C(0x4003B734, arg0 + 0x38, 0, 1, arg0);
+    play_sound_effect(0x4003B734, arg0 + 0x38, 0, 1, arg0);
 }
 
 extern s32 tl_04;

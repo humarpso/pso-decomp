@@ -137,7 +137,7 @@ M2C_UNK refresh_and_send_entity_flags__12TBoss8DragonFPv(void *);
 M2C_UNK create_breakup_mdl__12TBoss3VoloptFiiiii(void *, int, int, void *, int);
 M2C_UNK trigger_dell_biter_events__10TObjPlayerFPv(void *, f32);
 u8 *find_entity_by_id(u16);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
 extern s32 lbl_805D4FE0;
 extern const f32 TObjEneMe1Canadin__data_805D98AC;
 void TObjEneMe1Canadin__vt110(u8 *arg0, s32 arg1);
@@ -217,7 +217,7 @@ void TObjEneMe1Canadin__vt110(u8 *arg0, s32 arg1) {
         stack.spC = temp_f1 - TObjEneMe1Canadin__data_805D98AC;
         trigger_dell_biter_events__10TObjPlayerFPv((void *) (&stack.sp8), (f32) (temp_f1));
         refresh_and_send_entity_flags__12TBoss8DragonFPv((void *) (arg0));
-        TBoss3Volopt__sub_8022675C((int) (0x4003AA1E), (void *) (arg0 + 0x2FC), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4003AA1E), (void *) (arg0 + 0x2FC), (int) (0), (int) (0));
         return;
     case 0:
         queue_destruction__7TObjectFv();

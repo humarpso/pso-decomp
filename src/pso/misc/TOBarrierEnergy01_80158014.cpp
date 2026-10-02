@@ -59,7 +59,7 @@ void TOBarrierEnergy01__sub_80158078(void);
 u8 *TObjFish__sub_8001ED9C(s32, s32);
 s32 get_bml_model(void *, s32);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_80154E3C(void *);
+s32 refresh_collision_body_centers(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_80158188_lbl_804AFB34 lbl_804AFB34;
@@ -148,7 +148,7 @@ u8 *TOBarrierEnergy01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB2D8);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB2DC;
     TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804AFB34.value), (int) (1));
-    TObjPlayer__sub_80154E3C((void *) (arg0));
+    refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     ((VObj_18_4a4f5b *)(arg0))->m17();
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB2E0;

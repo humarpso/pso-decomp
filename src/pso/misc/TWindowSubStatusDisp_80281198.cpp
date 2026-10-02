@@ -8,10 +8,10 @@ struct SD_80281760 { s32 f0; u8 pad4[0x14]; void *vt; u8 pad1c[4]; s16 f20; u8 p
 
 extern "C" {
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
-M2C_UNK TWindowSubStatusDisp__sub_80257C28(void *, void *);
+M2C_UNK update_window_entry_list(void *, void *);
 M2C_UNK TWindowSubStatusDisp__sub_80257CB8(void *);
 M2C_UNK fn_8026C7AC(int, int);
-s32 TWindowShortListCtrl__sub_8026C9DC(int);
+s32 handle_list_page_flip_input(int);
 M2C_UNK TWindowSubStatusDisp__sub_80281198(void *);
 M2C_UNK TWindowSubStatusDisp__sub_802813B4(void *);
 extern M2C_UNK lbl_805DD6F4;
@@ -60,7 +60,7 @@ void TWindowSubStatusDisp__sub_80281644(u8 *arg0) {
   {
     *((s32 *) (((s8 *) arg0) + 0x5C)) = 0x01000000;
   }
-  if ((TWindowShortListCtrl__sub_8026C9DC((int) (*((s32 *) (((s8 *) arg0) + 0x68)))) != 0) || (((s16) (*((s16 *) (((s8 *) arg0) + 0x60)))) != ((s16) (*((s16 *) (((s8 *) arg0) + 0x62))))))
+  if ((handle_list_page_flip_input((int) (*((s32 *) (((s8 *) arg0) + 0x68)))) != 0) || (((s16) (*((s16 *) (((s8 *) arg0) + 0x60)))) != ((s16) (*((s16 *) (((s8 *) arg0) + 0x62))))))
   {
     temp_r3 = *((s16 *) (((s8 *) arg0) + 0x62));
     if (((s16) (*((s16 *) (((s8 *) arg0) + 0x60)))) != temp_r3)
@@ -73,7 +73,7 @@ void TWindowSubStatusDisp__sub_80281644(u8 *arg0) {
   }
   TWindowSubStatusDisp__sub_80281198((void *) arg0);
   initialize_subwindow__9TWindowDDFPv((void *) arg0);
-  TWindowSubStatusDisp__sub_80257C28((void *) arg0, (void *) (((u8 *) arg0) + 0x24));
+  update_window_entry_list((void *) arg0, (void *) (((u8 *) arg0) + 0x24));
 }
 
 void *dt__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {

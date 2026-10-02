@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 M2C_UNK approach_value__20TItemEffOrgaFlowShotFPvff(void *, f32, f32);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
+M2C_UNK play_sound_effect(int, int, int, int);
 extern const f32 lbl_805DAF98;
 extern const f32 lbl_805DAF9C;
 extern const f32 lbl_805DAFA0;
@@ -29,7 +29,7 @@ void TObjPlayer__sub_8012F0F8(u8 *arg0) {
     approach_value__20TItemEffOrgaFlowShotFPvff((void *) (arg0 + 0x1FC), (f32) (lbl_805DAFA0), (f32) (lbl_805DAF98));
     approach_value__20TItemEffOrgaFlowShotFPvff((void *) (arg0 + 0x200), (f32) (lbl_805DAF9C), (f32) (lbl_805DAF98));
     if (var_r31 == 1) {
-        TBoss3Volopt__sub_8022675C((int) (0x4001AA24), (int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x38), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4001AA24), (int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x38), (int) (0), (int) (0));
     }
 }
 

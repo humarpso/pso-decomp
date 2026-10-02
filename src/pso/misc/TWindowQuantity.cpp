@@ -48,7 +48,7 @@ void *create_window_quantity(void *arg0);
 void *__dt__15TWindowQuantityFv(void *arg0, s16 arg1);
 void run_task__15TWindowQuantityFv(void* p);
 void set_position__15TWindowQuantityFPvi(void *arg0, s32 arg1);
-int TWindowSubStatusDisp__sub_80257C28(void*, void*);
+int update_window_entry_list(void*, void*);
 M2C_UNK TWindowSubStatusDisp__sub_80287580(s32, s32, M2C_UNK, f32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -66,7 +66,7 @@ void render__15TWindowQuantityFv(s32 arg0) {
     TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 
-void run_task__15TWindowQuantityFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); TWindowSubStatusDisp__sub_80257C28(p, (char*)p + 0x24); }
+void run_task__15TWindowQuantityFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_window_entry_list(p, (char*)p + 0x24); }
 
 extern M2C_UNK __vt__15TWindowQuantity[];
 

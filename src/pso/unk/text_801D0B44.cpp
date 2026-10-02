@@ -11,7 +11,7 @@ s32 TObjPlayer__sub_801D09FC(void *);
 s32 try_apply_status_action_2__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801D0B44(s32 arg0, s16 arg1);
 void TObjPlayer__sub_801D0B44(s32 arg0, s16 arg1);
-void TObjPlayer__sub_801D03DC(s32, s32);
+void run_walk_state_phase__10TObjPlayerFis(s32, s32);
 void TObjPlayer__sub_801CFB80(s32, s32);
 void TObjPlayer__sub_801CFAC4(s32, s32);
 void TObjPlayer__sub_801CF3E0(s32, s32);
@@ -77,7 +77,7 @@ void run_action_state_phase__10TObjPlayerFisi(s32 arg0, s16 arg1, s32 arg2) {
         ((void (*)(s32, s32))TObjPlayer__sub_801D0B44)(arg0, arg2);
         break;
     case 2:
-        TObjPlayer__sub_801D03DC(arg0, arg2);
+        run_walk_state_phase__10TObjPlayerFis(arg0, arg2);
         break;
     case 3:
         TObjPlayer__sub_801CFB80(arg0, arg2);

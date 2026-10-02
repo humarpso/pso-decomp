@@ -32,7 +32,7 @@ M2C_UNK request_destroy__11TBoss4Type2FUi(void *);
 u32 create_particle_emitter(int, int);
 M2C_UNK set_flags__11TBoss4Type2FPvUi(int, int);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(int, int);
-M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
+M2C_UNK play_sound_effect(int, int, int, int);
 M2C_UNK queue_event_1D__12TBoss3VoloptFss(int, int);
 M2C_UNK TBoss6PlotFalz__sub_802AC1D8(void *, int, int);
 s32 get_phase__8TObjFishFPv(int);
@@ -121,16 +121,16 @@ void TBoss4Type2__sub_8033C86C(u8 *arg0) {
     }
     TBoss6PlotFalz__sub_802AC1D8((void *) (arg0 + 0x40), (int) (8), (int) (0));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x38) == 0x78) {
-        TBoss3Volopt__sub_8022675C((int) (0x4003A105), (int) (0), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4003A105), (int) (0), (int) (0), (int) (0));
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x38);
     switch (temp_r0) {
     case 0x1B8:
     case 0xFA:
-        TBoss3Volopt__sub_8022675C((int) (0x4003A811), (int) (0), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4003A811), (int) (0), (int) (0), (int) (0));
         break;
     case 0x154:
-        TBoss3Volopt__sub_8022675C((int) (0x40031222), (int) (0), (int) (0), (int) (0));
+        play_sound_effect((int) (0x40031222), (int) (0), (int) (0), (int) (0));
         break;
     }
     temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x38);

@@ -336,7 +336,7 @@ f32 xyz_distance(void *, void *);
 s32 push_matrix_from(void *);
 void rotate_vector_by_matrix(int, void *, void *);
 void TOTrapAncient01__sub_80226578(s32, void *, void *, s32, s32);
-void TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+void play_sound_effect(s32, void *, s32, s32);
 s32 rand();
 void spawn_particle_effect(void *, int);
 int TObjPlayer__sub_800D7BB0(void*);
@@ -397,7 +397,7 @@ void run_task__16TObjContainerIdoFv(Ido_8018C18C *self) {
             self->e0 |= 0x04000000;
             TOTrapAncient01__sub_80226578(0x4B717, self, &self->pos, 0, 0);
         } else if (!(self->e0 & 0x01000000)) {
-            TBoss3Volopt__sub_8022675C(0x4C118, &self->pos, 0, 0);
+            play_sound_effect(0x4C118, &self->pos, 0, 0);
             self->e0 |= 0x01000000;
         }
     } else {
@@ -415,7 +415,7 @@ void run_task__16TObjContainerIdoFv(Ido_8018C18C *self) {
             self->e0 |= 0x04000000;
             TOTrapAncient01__sub_80226578(0x4B717, self, &self->pos, 0, 0);
         } else if (!(self->e0 & 0x01000000)) {
-            TBoss3Volopt__sub_8022675C(0x4C118, &self->pos, 0, 0);
+            play_sound_effect(0x4C118, &self->pos, 0, 0);
             self->e0 |= 0x01000000;
         }
     }
