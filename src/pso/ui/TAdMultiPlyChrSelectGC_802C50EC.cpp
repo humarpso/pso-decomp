@@ -49,6 +49,43 @@ struct S_802C5944 {
     f32 oy;
 };
 
+struct E_802C5314 { f32 x; f32 y; f32 z; f32 w; u8 pad[0x10]; };
+
+struct S_802C5314 {
+    u8 pad0[0x24];
+    E_802C5314 e[4][3];
+    u8 pad1a4[0x324 - 0x1A4];
+    f32 r324[8];
+    f32 r344[8];
+    f32 r364[8];
+    u8 pad384[0x474 - 0x384];
+    s32 sel[4][3];
+    u8 pad4a4[0x500 - 0x4A4];
+    s32 y[4][3];
+};
+
+struct S_802C6008 {
+    u8 pad0[0x1C];
+    s32 f1C;
+    u8 pad20[0x4AC - 0x20];
+    s32 sel[4][3];
+    s32 f4DC[4];
+    s32 f4EC;
+    u8 pad4f0[0x8];
+    s32 f4F8;
+};
+
+struct S_802C61E4 {
+    u8 pad0[0x1C];
+    s32 f1C;
+    u8 pad20[0x4AC - 0x20];
+    s32 sel[4][3];
+    s32 f4DC[4];
+    s32 f4EC;
+    u8 pad4f0[0x8];
+    s32 f4F8;
+};
+
 extern "C" {
 void TAdMultiPlyChrSelectGC__sub_802C5BCC(s32 arg0, s32 *arg1, s32 *arg2);
 int TAdMultiPlyChrSelectGC__sub_802C65C0(void);
@@ -99,6 +136,38 @@ void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *);
 void TAdMultiPlyChrSelectGC__sub_802C5944(S_802C5944 *arg0, s32 arg1, s32 arg2, s32 arg3);
 extern s32 TAdMultiPlyChrSelectGC__data_804E0A58[];
 void TAdMultiPlyChrSelectGC__sub_802C689C(s32 arg0);
+s32 count_ready__22TAdMultiPlyChrSelectGCFv(void);
+s32 TAdMultiPlyChrSelectGC__sub_802C6558(void);
+s32 get_field_20__22TAdMultiPlyChrSelectGCFPv();
+M2C_UNK get_state__22TAdMultiPlyChrSelectGCFv();
+M2C_UNK set_global_param__8TObjFishFi(s32);
+M2C_UNK abs__4cXyzCFv(int, int);
+M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
+M2C_UNK get_player__20TWindowSubStatusDispFv();
+M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32);
+M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
+extern s32 lbl_805D67D4;
+extern s32 TAdMultiPlyChrSelectGC__data_805D67DC;
+extern const f32 lbl_805DE57C;
+extern const f32 lbl_805DE580;
+void TAdMultiPlyChrSelectGC__sub_802C5314(S_802C5314 *self);
+s32 TWindowShortListCtrl__check_controller_button(void *, int);
+s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(void *, int, int, int);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5F1C(void *, int);
+extern u8 lbl_8050E3B8[];
+extern int TAdMultiPlyChrSelectGC__data_805D67D8;
+extern s32 TAdMultiPlyChrSelectGC__data_805D67E0;
+void TAdMultiPlyChrSelectGC__sub_802C6008(S_802C6008 *self);
+s32 TWindowShortListCtrl__check_controller_button(void *, int);
+s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(void *, int, int, int);
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5C84(void *, int, int, int, int, int);
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5F1C(void *, int);
+s32 count_ready__22TAdMultiPlyChrSelectGCFv(void);
+s32 TAdMultiPlyChrSelectGC__sub_802C6558(void);
+extern u8 lbl_8050E3B8[];
+extern int TAdMultiPlyChrSelectGC__data_805D67D8;
+void TAdMultiPlyChrSelectGC__sub_802C61E4(S_802C61E4 *self);
 }
 
 extern "C" {
@@ -106,14 +175,63 @@ extern "C" {
 void update__22TAdMultiPlyChrSelectGCFi(s32 arg0);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C50EC(s32);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C522C(s32);
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5314(s32);
 s32 get_state_flag__9TMainTaskFv();
 
 extern s32 TAdMultiPlyChrSelectGC__data_805D67DC;
 
+void TAdMultiPlyChrSelectGC__sub_802C5314(S_802C5314 *self) {
+    u32 i;
+    u32 j;
+    s32 n;
+    s32 m;
+    if (TAdMultiPlyChrSelectGC__data_805D67DC == 0) {
+        n = count_ready__22TAdMultiPlyChrSelectGCFv();
+        m = TAdMultiPlyChrSelectGC__sub_802C6558();
+        if (m == n) {
+            return;
+        }
+    }
+    if (TAdMultiPlyChrSelectGC__data_805D67DC == 1) {
+        get_state__22TAdMultiPlyChrSelectGCFv();
+        get_state__22TAdMultiPlyChrSelectGCFv();
+        if (get_field_20__22TAdMultiPlyChrSelectGCFPv() < 0xD) {
+            return;
+        }
+    }
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 3; j++) {
+            if (self->y[i][j] != 0) {
+                self->r324[0] = lbl_805DE57C + self->e[i][j].x;
+                self->r324[2] = self->e[i][j].z - lbl_805DE57C;
+                self->r324[1] = self->e[i][j].y;
+                self->r324[3] = self->e[i][j].w;
+                self->r344[0] = self->e[i][j].x;
+                self->r344[2] = lbl_805DE57C + self->r344[0];
+                self->r344[1] = self->e[i][j].y;
+                self->r344[3] = self->e[i][j].w;
+                self->r364[0] = self->e[i][j].z - lbl_805DE57C;
+                self->r364[2] = lbl_805DE57C + self->r364[0];
+                self->r364[1] = self->e[i][j].y;
+                self->r364[3] = self->e[i][j].w;
+                abs__4cXyzCFv(0, 8);
+                abs__4cXyzCFv(1, 0xA);
+                TWindowSubStatusDisp__sub_803DEE6C(1);
+                set_global_param__8TObjFishFi(lbl_805D67D4);
+                TWindowSubStatusDisp__sub_803DF160(0, self->sel[i][j]);
+                TWindowSubComCard__sub_803DEECC(self->r324, lbl_805DE580);
+                TWindowSubComCard__sub_803DEECC(self->r344, lbl_805DE580);
+                TWindowSubComCard__sub_803DEECC(self->r364, lbl_805DE580);
+                get_player__20TWindowSubStatusDispFv();
+                abs__4cXyzCFv(0, 8);
+                abs__4cXyzCFv(1, 6);
+            }
+        }
+    }
+}
+
 void update__22TAdMultiPlyChrSelectGCFi(s32 arg0) {
     if (get_state_flag__9TMainTaskFv() != 1) {
-        TAdMultiPlyChrSelectGC__sub_802C5314(arg0);
+        TAdMultiPlyChrSelectGC__sub_802C5314((S_802C5314 *)(arg0));
         switch ((s32) TAdMultiPlyChrSelectGC__data_805D67DC) {
         case 0:
             TAdMultiPlyChrSelectGC__sub_802C522C(arg0);
@@ -190,6 +308,56 @@ void TAdMultiPlyChrSelectGC__sub_802C5C28(s32 arg0, u32 *arg1) {
                 return;
             }
         }
+    }
+}
+
+#define WIN_802C6008 ((void *)(lbl_8050E3B8 + TAdMultiPlyChrSelectGC__data_805D67E0 * 0x50 + 0x20))
+void TAdMultiPlyChrSelectGC__sub_802C6008(S_802C6008 *self) {
+    TAdMultiPlyChrSelectGC__sub_802C5F1C(self, self->f1C++);
+    if (self->f4DC[self->f4EC] != 0 && self->f4F8 == 0) {
+        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(WIN_802C6008, 0x10, 6, 1) != 0) {
+            TBoss3Volopt__sub_8022675C(0x54100, 0, 0, 0);
+            self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]--;
+        }
+        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(WIN_802C6008, 0x20, 6, 1) != 0) {
+            TBoss3Volopt__sub_8022675C(0x54100, 0, 0, 0);
+            self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]++;
+        }
+        if (self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC] > self->f4DC[self->f4EC] - 1) {
+            self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC] = 0;
+        }
+        if (self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC] < 0) {
+            self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC] = self->f4DC[self->f4EC] - 1;
+        }
+    }
+    if (TWindowShortListCtrl__check_controller_button(WIN_802C6008, 4) != 0 && self->f4F8 == 0) {
+        self->f4F8 = 1;
+    }
+}
+
+#define WIN_802C61E4 ((void *)(lbl_8050E3B8 + TAdMultiPlyChrSelectGC__data_805D67D8 * 0x50 + 0x20))
+void TAdMultiPlyChrSelectGC__sub_802C61E4(S_802C61E4 *self) {
+    s32 n;
+    s32 m;
+    TAdMultiPlyChrSelectGC__sub_802C5F1C(self, self->f1C++);
+    n = count_ready__22TAdMultiPlyChrSelectGCFv();
+    m = TAdMultiPlyChrSelectGC__sub_802C6558();
+    if (m != n && self->f4DC[self->f4EC] != 0 && self->f4F8 == 0) {
+        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(WIN_802C61E4, 0x10, 6, 1) != 0) {
+            TAdMultiPlyChrSelectGC__sub_802C5C84(self, self->f4EC, self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC], 0, -1, self->f4DC[self->f4EC]);
+        }
+        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(WIN_802C61E4, 0x20, 6, 1) != 0) {
+            TAdMultiPlyChrSelectGC__sub_802C5C84(self, self->f4EC, self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC], 0, 1, self->f4DC[self->f4EC]);
+        }
+        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(WIN_802C61E4, 0x80, 6, 1) != 0) {
+            TAdMultiPlyChrSelectGC__sub_802C5C84(self, self->f4EC, self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC], 1, 0, 2);
+        }
+        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(WIN_802C61E4, 0x40, 6, 1) != 0) {
+            TAdMultiPlyChrSelectGC__sub_802C5C84(self, self->f4EC, self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC], -1, 0, 2);
+        }
+    }
+    if (TWindowShortListCtrl__check_controller_button(WIN_802C61E4, 4) != 0 && self->f4F8 == 0) {
+        self->f4F8 = 1;
     }
 }
 

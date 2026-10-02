@@ -283,6 +283,8 @@ typedef struct Obj_800C55E0 {
     void *f34C;
 } Obj_800C55E0;
 
+struct Vec_802D1880 { f32 x, y, z; };
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
@@ -296,6 +298,20 @@ extern u8 *lbl_805D4DF0;
 extern const f32 lbl_805DE778;
 extern const f32 lbl_805DE77C;
 void TObjEneBm9Mericarol__sub_802D1AB8(Obj_800C4B78 *o);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s16 obj_getField1c(void *);
+s32 check_v2_mode__9TObjEneDDFv();
+M2C_UNK fn_800BC4C8(void *, void *, void *);
+s32 get_phase__19TObjEneBm9MericarolFPv(void *);
+f32 TBoss6Kakusan__sub_803D8BD8(Vec_802D1880 *);
+M2C_UNK TNpcPlayer__sub_803D97B4(Vec_802D1880 *);
+extern M2C_UNK lbl_804E18A8[];
+extern s32 lbl_805D3F30;
+extern const f32 lbl_805DE764;
+extern const f32 lbl_805DE76C;
+extern const f32 lbl_805DE770;
+extern const f32 lbl_805DE774;
+u8 *TObjEneBm9Mericarol__sub_802D1880(u8 *arg0, u8 *arg1, Vec_802D1880 *arg2, Vec_802D1880 *arg3, s32 arg4, f32 farg0, f32 farg1);
 }
 
 extern "C" {
@@ -330,6 +346,74 @@ extern M2C_UNK lbl_804E1908[];
 
 #pragma push
 #pragma fp_contract on
+
+u8 *TObjEneBm9Mericarol__sub_802D1880(u8 *arg0, u8 *arg1, Vec_802D1880 *arg2, Vec_802D1880 *arg3, s32 arg4, f32 farg0, f32 farg1) {
+    Vec_802D1880 d;
+    f32 k;
+    fn_800BC4C8(arg0, arg1, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E18A8;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3F30;
+    if (check_v2_mode__9TObjEneDDFv() != 0) {
+        M2C_FIELD(arg0, s32 *, 0xF0) = 5;
+    } else {
+        switch (get_phase__19TObjEneBm9MericarolFPv(arg1)) {
+        case 1:
+            M2C_FIELD(arg0, s32 *, 0xF0) = 2;
+            break;
+        case 2:
+            M2C_FIELD(arg0, s32 *, 0xF0) = 3;
+            break;
+        case 0:
+        default:
+            M2C_FIELD(arg0, s32 *, 0x108) = arg4;
+            M2C_FIELD(arg0, s32 *, 0xF0) = 0;
+            break;
+        }
+    }
+    M2C_FIELD(arg0, f32 *, 0xF4) = farg0;
+    switch (get_phase__19TObjEneBm9MericarolFPv(arg1)) {
+    case 1:
+        M2C_FIELD(arg0, s32 *, 0x104) = 0x20A;
+        break;
+    case 2:
+        M2C_FIELD(arg0, s32 *, 0x104) = 0x209;
+        break;
+    case 0:
+    default:
+        M2C_FIELD(arg0, s32 *, 0x104) = 0x208;
+        break;
+    }
+    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC) = lbl_805DE76C;
+    M2C_FIELD(arg0, s16 *, 0xB0) = obj_getField1c(arg1);
+    VecCopy__FP3VecPC3Vec(arg0 + 0xB4, arg2);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0xB4);
+    M2C_FIELD(arg0, f32 *, 0xD8) = lbl_805DE770;
+    M2C_FIELD(arg0, f32 *, 0xDC) = lbl_805DE770;
+    M2C_FIELD(arg0, f32 *, 0xE0) = lbl_805DE770;
+    d.x = arg3->x - arg2->x;
+    d.y = lbl_805DE774 + (arg3->y - arg2->y);
+    d.z = arg3->z - arg2->z;
+    if (lbl_805DE770 != TBoss6Kakusan__sub_803D8BD8(&d)) {
+        TNpcPlayer__sub_803D97B4(&d);
+    }
+    M2C_FIELD(arg0, f32 *, 0xC0) = d.x * farg1;
+    k = lbl_805DE764 + farg1;
+    M2C_FIELD(arg0, f32 *, 0xC4) = d.y * farg1;
+    M2C_FIELD(arg0, f32 *, 0xC8) = d.z * farg1;
+    M2C_FIELD(arg0, f32 *, 0xCC) = d.x * k;
+    M2C_FIELD(arg0, f32 *, 0xD0) = d.y * k;
+    M2C_FIELD(arg0, f32 *, 0xD4) = d.z * k;
+    M2C_FIELD(arg0, f32 *, 0xE4) = lbl_805DE770;
+    M2C_FIELD(arg0, s32 *, 0xE8) = 1;
+    M2C_FIELD(arg0, f32 *, 0xF8) = lbl_805DE770;
+    M2C_FIELD(arg0, s32 *, 0xFC) = 0;
+    M2C_FIELD(arg0, s32 *, 0x100) = 0;
+    M2C_FIELD(arg0, s32 *, 0x110) = 0;
+    M2C_FIELD(arg0, s32 *, 0x114) = 0;
+    M2C_FIELD(arg0, s32 *, 0x10C) = 1;
+    return arg0;
+}
+
 void TObjEneBm9Mericarol__sub_802D1AB8(Obj_800C4B78 *o) {
     Vec_800C4B78 a;
     Vec_800C4B78 b;

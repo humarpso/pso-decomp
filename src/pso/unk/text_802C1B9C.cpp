@@ -31,6 +31,21 @@ struct Obj_802C1E34 {
     s32 fC8;
 };
 
+struct Obj_802C1BFC {
+    u8 pad0[0x98];
+    s32 f98;
+    s32 f9C;
+    s32 fA0;
+    f32 fA4;
+    u8 padA8[0x4];
+    Vec_802C1E34 vAC;
+    s32 fB8;
+    s32 fBC;
+    s32 fC0;
+    s32 fC4;
+    s32 fC8;
+};
+
 extern "C" {
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -49,6 +64,16 @@ extern Entry_802C1E34 lbl_80471890[];
 extern const f64 lbl_80471960[];
 extern const f32 lbl_805DE4F8;
 s32 TObjPlayer__sub_802C1E34(Obj_802C1E34 *self);
+void VecCopy__FP3VecPC3Vec(Vec_802C1E34 *, Vec_802C1E34 *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+void TBoss1Dragon__sub_8014220C(Vec_802C1E34 *, s32 *, s32 *);
+s32 clamp_value_to_max__10TObjPlayerFPviPvif(void *, s32, s32, Vec_802C1E34 *, f32);
+f32 TBoss6Type1__sub_803D9370(Vec_802C1E34 *, Vec_802C1E34 *);
+s32 TObjPlayer__sub_801423A4(s32, s32, s32);
+s32 TBoss4Type2__sub_80141FA8(s32, s32);
+extern Entry_802C1E34 lbl_80471890[];
+extern const f64 lbl_80471960[];
+s32 TObjPlayer__sub_802C1BFC(Obj_802C1BFC *self);
 }
 
 extern "C" {
@@ -66,6 +91,64 @@ void TObjPlayer__sub_802C1B9C(void) {
     lbl_805D67A8 = var_r0;
     lbl_805D67AC = TLanguage__sub_801E4874((s32) &lbl_80471990.value);
 }
+
+s32 TObjPlayer__sub_802C1BFC(Obj_802C1BFC *self) {
+    Vec_802C1E34 a;
+    Vec_802C1E34 b;
+    Vec_802C1E34 d;
+    s32 tmp;
+    s32 tmp2;
+    s32 r;
+    s32 old;
+    s32 diff;
+    clamp_value_to_max__10TObjPlayerFPviPvif(self, self->f98, self->fA0, &a, self->fA4);
+    VecCopy__FP3VecPC3Vec(&self->vAC, &a);
+    r = clamp_value_to_max__10TObjPlayerFPviPvif(self, self->f98, self->fA0, &b, self->fA4 + lbl_80471890[self->fC8].d);
+    VecCopy__FP3VecPC3Vec(&d, &b);
+    TBoss6Type1__sub_803D9370(&d, &a);
+    TBoss1Dragon__sub_8014220C(&d, &tmp, &tmp2);
+    self->fBC = TObjPlayer__sub_801423A4(self->fBC, tmp, lbl_80471890[self->fC8].e);
+    old = self->fB8;
+    tmp = (s32)(lbl_80471960[0] * get_ad_end_text_start__10TObjPlayerFv(b.x - a.x, b.z - a.z));
+    self->fB8 = TObjPlayer__sub_801423A4(old, tmp, lbl_80471890[self->fC8].e);
+    diff = TBoss4Type2__sub_80141FA8(old, tmp);
+    if (diff > 0x30) {
+        if (self->fC4 > 0) {
+            self->fC4 = 0;
+        }
+        self->fC4 -= 0x40;
+        if (self->fC4 < -0x200) {
+            self->fC4 = -0x200;
+        }
+        self->fC0 += self->fC4;
+        if (self->fC0 < -0x2000) {
+            self->fC0 = -0x2000;
+        }
+    } else if (diff < -0x30) {
+        if (self->fC4 < 0) {
+            self->fC4 = 0;
+        }
+        self->fC4 += 0x40;
+        if (self->fC4 > 0x200) {
+            self->fC4 = 0x200;
+        }
+        self->fC0 += self->fC4;
+        if (self->fC0 > 0x2000) {
+            self->fC0 = 0x2000;
+        }
+    } else {
+        self->fC4 = 0;
+        if (self->fC0 > 0x100) {
+            self->fC0 -= 0x100;
+        } else if (self->fC0 < -0x100) {
+            self->fC0 += 0x100;
+        } else {
+            self->fC0 = 0;
+        }
+    }
+    return r;
+}
+
 s32 TObjPlayer__sub_802C1E34(Obj_802C1E34 *self) {
     Vec_802C1E34 a;
     Vec_802C1E34 b;
