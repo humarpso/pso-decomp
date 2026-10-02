@@ -76,6 +76,16 @@ struct Win_8021F798 {
     Rec_8021F798 recs[16];
 };
 
+struct Rec_8021F964 { s32 w[4]; s32 qty; };
+
+struct Win_8021F964 {
+    u8 pad0[0x24];
+    s32 player;
+    void *list;
+    u8 pad2c[0x58 - 0x2C];
+    Rec_8021F964 recs[16];
+};
+
 extern "C" {
 s32 calc_item_count__18TShopGetItemWindowFPvPv(int, void *);
 s32 TShopWindowBase__sub_8022397C(void *);
@@ -94,7 +104,6 @@ s32 TShopItemListWindow__sub_8021F9EC(void *);
 void TShopItemListWindow__vt9(u8 *arg0);
 s32 set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 count_items_by_id__10TObjPlayerFPvi(s32, void *);
-s32 TShopItemListWindow__sub_8021F964(void *);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 M2C_UNK play_sound_effect(int, int, int, int);
@@ -103,6 +112,10 @@ s32 select_cursor_entry__6TLobbyFPv(void *);
 M2C_UNK set_entry1_field20__20TWindowSubStatusDispFPvi(void *, s32);
 M2C_UNK get_item_count__24TShopEquipmentSellWindowFPv(void *a, s32 b);
 s32 TShopItemListWindow__sub_8021F798(void *p);
+s32 obj_getPtr2B0_20(s32);
+s32 can_inventory_accept_item__10TObjPlayerFPvPv(s32, void *);
+s32 select_cursor_entry__6TLobbyFPv(void *);
+s32 TShopItemListWindow__sub_8021F964(void *arg0);
 }
 
 extern "C" {
@@ -182,7 +195,7 @@ s32 TShopItemListWindow__sub_8021F798(void *p) {
     }
     if (TShopWindowBase__sub_80223A48(W) != 0) {
         play_sound_effect(0x52D01, 0, 0, 0);
-        switch (TShopItemListWindow__sub_8021F964(W)) {
+        switch (TShopItemListWindow__sub_8021F964((void *)(W))) {
         case 0:
             W->base.m4(0xF, 1);
             set_field_20__12TQuestListVMFPvi(W, 5);
@@ -200,6 +213,24 @@ s32 TShopItemListWindow__sub_8021F798(void *p) {
     }
 }
 #undef W
+
+s32 TShopItemListWindow__sub_8021F964(void *arg0) {
+    Win_8021F964 *self = (Win_8021F964 *)arg0;
+    s32 sel;
+    s32 meseta;
+    if (self->list == NULL) {
+        return 0;
+    }
+    sel = select_cursor_entry__6TLobbyFPv(self->list);
+    meseta = obj_getPtr2B0_20(self->player);
+    if (self->recs[sel].qty > meseta) {
+        return 0;
+    }
+    if (can_inventory_accept_item__10TObjPlayerFPvPv(self->player, &self->recs[sel]) == 0) {
+        return 1;
+    }
+    return 3;
+}
 
 void TShopItemListWindow__vt9(u8 *arg0) {
     M2C_UNK (*temp_r12)(s32);

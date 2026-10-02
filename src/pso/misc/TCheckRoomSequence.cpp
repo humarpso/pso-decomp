@@ -63,6 +63,43 @@ struct VObj_18_8d1630 : VBase_18_8d1630 {
     virtual s32 m8();
 };
 
+typedef s32 M2C_UNK;
+struct VBase_8020F478 { char pad[0x18]; };
+
+struct VObj_8020F478 : VBase_8020F478 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual M2C_UNK m4(M2C_UNK, M2C_UNK);
+};
+
+struct Seq_8020F478 : VObj_8020F478 {
+    u8 pad1C[0x24 - 0x1C];
+    s32 f24;
+    u8 pad28[0x34 - 0x28];
+    void *f34;
+};
+
+struct VBase_8020F730 { char pad[0x18]; };
+
+struct VObj_8020F730 : VBase_8020F730 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual M2C_UNK m4(M2C_UNK, M2C_UNK);
+};
+
+struct Seq_8020F730 : VObj_8020F730 {
+    u8 pad1C[0x24 - 0x1C];
+    s32 f24;
+    u8 pad28[0x34 - 0x28];
+    void *f34;
+};
+
+struct Item_80210A04 { u8 b0, b1, b2, b3, b4; u8 pad5[0x14 - 5]; s16 f14; u8 pad16[2]; };
+
 extern "C" {
 extern Rec_80211034 *lbl_80513D88[];
 u8 TCheckRoomSequence__sub_80211574(u8 *arg0);
@@ -157,6 +194,50 @@ int TShopWindowBase__sub_8022397C(void*);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 void TCheckRoomSequence__vt11(u8 *arg0);
+s32 obj_getPtr2B0_20(s32);
+int set_field_20__12TQuestListVMFPvi(void*, void*);
+int TKeyBoardControl__sub_801A66B8(void *);
+void set_position__18TCheckRoomSequenceFPvff(void* p, f32 a, f32 b);
+s32 get_room_data__18TCheckRoomSequenceFi(int);
+int TShopWindowBase__sub_8022397C(void*);
+s16 get_child_field1c__15TShopWindowBaseFPv(void *);
+void *__nw__7TObjectFUl(u32);
+void *TWindowInputNumber__ct(void *, s32, s32, s32, s32, s16);
+s32 get_window_layout_position(s32);
+s32 is_camera_ctrl_active__6TLobbyFv();
+extern s32 TCheckRoomSequence__data_805D6164;
+extern s32 TCheckRoomSequence__data_805D6168;
+extern const f32 lbl_805DC630;
+void TCheckRoomSequence__sub_8020F478(Seq_8020F478 *self);
+s32 obj_getPtr2B0_20(s32);
+int set_field_20__12TQuestListVMFPvi(void*, void*);
+int TKeyBoardControl__sub_801A66B8(void *);
+void set_position__18TCheckRoomSequenceFPvff(void* p, f32 a, f32 b);
+s32 TCheckRoomSequence__sub_802108E0(s32 i);
+int TShopWindowBase__sub_8022397C(void*);
+s16 get_child_field1c__15TShopWindowBaseFPv(void *);
+void *__nw__7TObjectFUl(u32);
+void *TWindowInputNumber__ct(void *, s32, s32, s32, s32, s16);
+s32 get_window_layout_position(s32);
+s32 is_camera_ctrl_active__6TLobbyFv();
+extern s32 TCheckRoomSequence__data_805D6164;
+extern s32 TCheckRoomSequence__data_805D6168;
+extern const f32 lbl_805DC630;
+void TCheckRoomSequence__sub_8020F730(Seq_8020F730 *self);
+extern Rec_80211034 *lbl_80513D88[];
+u8 TCheckRoomSequence__sub_80211574(u8 *arg0);
+u8 TCheckRoomSequence__sub_802108B0(s32 i);
+s32 get_item_use_result__9TItemDataFPv(void *);
+s32 get_item_def__18TCheckRoomSequenceFUi(void *);
+s32 TCheckRoomSequence__sub_80210A04(Item_80210A04 *item, s32 slot);
+extern Rec_80211034 *lbl_80513D88[];
+extern s32 lbl_80513D98[];
+u8 TCheckRoomSequence__sub_80211574(u8 *arg0);
+u8 TCheckRoomSequence__sub_802108B0(s32 i);
+s32 TCheckRoomSequence__sub_80210B34(u8 *, s32, s32);
+void TCheckRoomSequence__sub_802114D4(u8 *arg0, u8 *arg1);
+M2C_UNK TCheckRoomSequence__sub_8021118C(int);
+s32 TCheckRoomSequence__sub_802110B4(u8 *item, s32 arg1, s32 slot);
 }
 
 extern "C" {
@@ -313,6 +394,47 @@ void TCheckRoomSequence__sub_8020F348(u8 *arg0) {
 
 #pragma push
 #pragma optimization_level 1
+void TCheckRoomSequence__sub_8020F478(Seq_8020F478 *self) {
+    s16 id;
+    void *w;
+    s32 count;
+    s32 n;
+    count = get_room_data__18TCheckRoomSequenceFi(TShopWindowBase__sub_8022397C(self));
+    if (count > 0) {
+        n = 999999 - obj_getPtr2B0_20(self->f24);
+        n = (n < count) ? n : count;
+        if (n > 0) {
+            if (self->f34 == NULL) {
+                w = __nw__7TObjectFUl(0x7C);
+                if (w != NULL) {
+                    id = ((s32 (*)(void *))get_child_field1c__15TShopWindowBaseFPv)(self);
+                    w = TWindowInputNumber__ct(w, get_window_layout_position(0x2B), 1, n, 1, id);
+                }
+                self->f34 = w;
+                if (self->f34 != NULL && is_camera_ctrl_active__6TLobbyFv() > 2) {
+                    set_position__18TCheckRoomSequenceFPvff(self->f34, lbl_805DC630, lbl_805DC630);
+                }
+            }
+            ((void (*)())TKeyBoardControl__sub_801A66B8)();
+            self->m4(0x3F, 1);
+            set_field_20__12TQuestListVMFPvi(self, (void *)0xC);
+            return;
+        }
+        self->m4(0x4A, 1);
+        TCheckRoomSequence__data_805D6164 = 0x46;
+        TCheckRoomSequence__data_805D6168 = 2;
+        set_field_20__12TQuestListVMFPvi(self, (void *)0x10);
+        return;
+    }
+    self->m4(0x3D, 1);
+    TCheckRoomSequence__data_805D6164 = 0x46;
+    TCheckRoomSequence__data_805D6168 = 2;
+    set_field_20__12TQuestListVMFPvi(self, (void *)0x10);
+}
+#pragma pop
+
+#pragma push
+#pragma optimization_level 1
 void TCheckRoomSequence__sub_8020F600(u8 *arg0) {
     s32 temp_r31;
     s32 temp_r3;
@@ -336,6 +458,49 @@ void TCheckRoomSequence__sub_8020F600(u8 *arg0) {
         TWindow__close((TWin_8020F070 *)((int) (M2C_FIELD(arg0, u32 *, 0x34))));
         M2C_FIELD(arg0, u32 *, 0x34) = 0U;
     }
+}
+#pragma pop
+
+#pragma push
+#pragma optimization_level 1
+void TCheckRoomSequence__sub_8020F730(Seq_8020F730 *self) {
+    s16 id;
+    s32 meseta;
+    void *w;
+    s32 slot;
+    s32 n;
+    slot = TShopWindowBase__sub_8022397C(self);
+    if (TCheckRoomSequence__sub_802108E0(slot) > 0) {
+        meseta = obj_getPtr2B0_20(self->f24);
+        if (meseta > 0) {
+            n = TCheckRoomSequence__sub_802108E0(slot);
+            n = (n < meseta) ? n : meseta;
+            if (self->f34 == NULL) {
+                w = __nw__7TObjectFUl(0x7C);
+                if (w != NULL) {
+                    id = ((s32 (*)(void *))get_child_field1c__15TShopWindowBaseFPv)(self);
+                    w = TWindowInputNumber__ct(w, get_window_layout_position(0x2B), 1, n, 1, id);
+                }
+                self->f34 = w;
+                if (self->f34 != NULL && is_camera_ctrl_active__6TLobbyFv() > 2) {
+                    set_position__18TCheckRoomSequenceFPvff(self->f34, lbl_805DC630, lbl_805DC630);
+                }
+            }
+            ((void (*)())TKeyBoardControl__sub_801A66B8)();
+            self->m4(0x34, 1);
+            set_field_20__12TQuestListVMFPvi(self, (void *)5);
+            return;
+        }
+        self->m4(0x47, 1);
+        TCheckRoomSequence__data_805D6164 = 0x46;
+        TCheckRoomSequence__data_805D6168 = 2;
+        set_field_20__12TQuestListVMFPvi(self, (void *)0x10);
+        return;
+    }
+    self->m4(0x37, 1);
+    TCheckRoomSequence__data_805D6164 = 0x46;
+    TCheckRoomSequence__data_805D6168 = 2;
+    set_field_20__12TQuestListVMFPvi(self, (void *)0x10);
 }
 #pragma pop
 
@@ -421,6 +586,31 @@ void TCheckRoomSequence__sub_80210904(s32 slot) {
 
 #pragma push
 #pragma optimization_level 1
+s32 TCheckRoomSequence__sub_80210A04(Item_80210A04 *item, s32 slot) {
+    Item_80210A04 *recs = (Item_80210A04 *)lbl_80513D88[slot];
+    s32 i;
+    if (item->b0 != 3) {
+        return 0;
+    }
+    if (get_item_def__18TCheckRoomSequenceFUi(item) == 0) {
+        return 0;
+    }
+    for (i = 0; i < 200; i++) {
+        if (((s32 (*)(u8 *))TCheckRoomSequence__sub_80211574)((u8 *)&recs[i]) == 0 &&
+            item->b0 == recs[i].b0 && item->b1 == recs[i].b1 &&
+            item->b2 == recs[i].b2 && item->b4 == recs[i].b4) {
+            return get_item_use_result__9TItemDataFPv(&recs[i]) - recs[i].f14;
+        }
+    }
+    if (((s32 (*)(s32))TCheckRoomSequence__sub_802108B0)(slot) == 0) {
+        return 0;
+    }
+    return get_item_use_result__9TItemDataFPv(item);
+}
+#pragma pop
+
+#pragma push
+#pragma optimization_level 1
 s32 TCheckRoomSequence__sub_80210CD0(s32 v, s32 i) {
     if (lbl_80513DA8[i] < v) {
         return 0;
@@ -450,6 +640,29 @@ s32 TCheckRoomSequence__sub_80211034(s32 idx, void *data, s32 slot) {
     }
     copy_data__18TCheckRoomSequenceFPvPv(&recs[idx], data);
     return 1;
+}
+#pragma pop
+
+#pragma push
+#pragma optimization_level 1
+s32 TCheckRoomSequence__sub_802110B4(u8 *item, s32 arg1, s32 slot) {
+    Rec_80211034 *recs = lbl_80513D88[slot];
+    s32 i;
+    if (TCheckRoomSequence__sub_80210B34(item, arg1, slot) != 0) {
+        return 1;
+    }
+    if (((s32 (*)(s32))TCheckRoomSequence__sub_802108B0)(slot) == 0) {
+        return 0;
+    }
+    for (i = 0; i < 200; i++) {
+        if (((s32 (*)(u8 *))TCheckRoomSequence__sub_80211574)((u8 *)&recs[i]) != 0) {
+            TCheckRoomSequence__sub_802114D4((u8 *)&recs[i], item);
+            lbl_80513D98[slot]++;
+            TCheckRoomSequence__sub_8021118C(slot);
+            return 1;
+        }
+    }
+    return 0;
 }
 #pragma pop
 
