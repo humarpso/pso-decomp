@@ -1,7 +1,5 @@
 #include "pso/TAdGameStartLineGC.h"
 
-TAdGameStartLineGC::~TAdGameStartLineGC() {}
-
 #include "types.h"
 
 struct Quad_80320EF0 {
@@ -99,6 +97,7 @@ void run_task__18TAdGameStartLineGCFv(TAdGameStartLineGC_80320EF0 *self) {
 
 #pragma push
 #pragma fp_contract on
+TAdGameStartLineGC::~TAdGameStartLineGC() {}
 TAdGameStartLineGC_80320EF0 *__ct__18TAdGameStartLineGCFv(TAdGameStartLineGC_80320EF0 *self, void *parent) {
     s32 i;
     __ct__7TObjectFP7TObject(self, parent);

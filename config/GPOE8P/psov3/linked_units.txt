@@ -3391,6 +3391,7 @@ pso/ui/TAdFloorLoadPrtGC.cpp
 pso/ui/TAdGameStartBackGC.cpp
 pso/ui/TAdGameStartBackGC_80307298.cpp
 pso/ui/TAdGameStartBackGC_803072CC.cpp
+pso/ui/TAdGameStartLineGC.cpp
 pso/ui/TAdGameStartShadowGC.cpp
 pso/ui/TAdGameStartShineGC.cpp
 pso/ui/TAdGameStartSubGC_802E67FC.cpp
