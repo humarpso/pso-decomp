@@ -11,6 +11,12 @@ struct Word_8032AACC { s32 v; };
 
 struct Arg_8032AACC { f32 x, y; u8 pad[8]; };
 
+struct Plate_8032AC24 { u8 data[0x3B4]; };
+
+struct Word_8032AC24 { s32 v; };
+
+struct Arg_8032AC24 { f32 x, y; u8 pad[8]; };
+
 extern "C" {
 char *realloc_buffer__17TWindowSubComCardFPv(void *);
 s32 TWindowSubStatusDisp__sub_80144D68(void *);
@@ -31,6 +37,14 @@ extern void *lbl_805D6CA0;
 extern Word_8032AACC lbl_805DF76C;
 extern char lbl_805DF774[4];
 void fn_8032AACC(s32 arg0);
+void *__ct__19TAdPlyChrSelPlateGCFv(void *, s32, void *);
+void __dt__19TAdPlyChrSelPlateGCFv(void *, int);
+void TAdEnterSerialAccessGC__sub_802C4B64(void *, void *, void *, int);
+extern u8 lbl_80477200[];
+extern const f32 lbl_80477208[];
+extern s32 tl_clipout;
+extern Word_8032AC24 lbl_805DF768;
+void fn_8032AC24(void);
 }
 
 extern "C" {
@@ -66,6 +80,17 @@ void fn_8032AACC(s32 arg0) {
         fn_8025DE10(arg0, &p2);
         __dt__19TAdPlyChrSelPlateGCFv(&plate, -1);
     }
+}
+void fn_8032AC24(void) {
+    Plate_8032AC24 plate;
+    Arg_8032AC24 p1;
+    const f32 *src = lbl_80477208;
+    p1.x = src[0];
+    p1.y = src[1];
+    __ct__19TAdPlyChrSelPlateGCFv(&plate, tl_clipout, &p1);
+    Word_8032AC24 w = lbl_805DF768;
+    TAdEnterSerialAccessGC__sub_802C4B64(&plate, lbl_80477200, &w, 0);
+    __dt__19TAdPlyChrSelPlateGCFv(&plate, -1);
 }
 
 }

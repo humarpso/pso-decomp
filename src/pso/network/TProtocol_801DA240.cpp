@@ -53,6 +53,49 @@ struct PktHdr_801DA4A0 {
     u16 b;
 };
 
+#include <string.h>
+struct VBase_18_801DA548 { char pad[0x18]; };
+
+struct VObj_18_801DA548 : VBase_18_801DA548 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8(void *, s32);
+};
+
+struct Pkt_801DA548 {
+    u8 cmd;
+    u8 flag;
+    u16 size;
+    char text[0xac];
+};
+
+struct VBase_18_801DA734 { char pad[0x18]; };
+
+struct VObj_18_801DA734 : VBase_18_801DA734 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8(void *, s32);
+};
+
+struct Pkt_801DA734 {
+    u8 cmd;
+    u8 flag;
+    u16 size;
+    char text[0x1fc];
+};
+
 extern "C" {
 void bswap_cmd_D3_item_bank(void *);
 int sprintf(char *, const char *, ...);
@@ -62,6 +105,10 @@ void bswap_cmd_D3_item_bank(void *);
 int sprintf(char *, const char *, ...);
 extern char lbl_804495FC[];
 void TLobby__sub_801DA4A0(VObj_18_801DA4A0 *obj, Pkt_801DA4A0 *src);
+int TLobby__sub_801DF024(void *);
+void TLobby__sub_801DA548(VObj_18_801DA548 *obj, char *str);
+int TLobby__sub_801DF064(void *);
+void TLobby__sub_801DA734(VObj_18_801DA734 *obj, char *str);
 }
 
 extern "C" {
@@ -139,6 +186,20 @@ void TLobby__sub_801DA4A0(VObj_18_801DA4A0 *obj, Pkt_801DA4A0 *src) {
     obj->m8(&pkt, 0x288);
 }
 
+void TLobby__sub_801DA548(VObj_18_801DA548 *obj, char *str) {
+    Pkt_801DA548 pkt;
+    s32 n;
+    memset(&pkt, 0, 0xB0);
+    pkt.cmd = 0xD9;
+    pkt.flag = 0;
+    char *t = pkt.text;
+    strncpy(t, str, 0xAC);
+    n = (strlen(t) + 8) & ~3;
+    pkt.size = n;
+    TLobby__sub_801DF024(&pkt);
+    obj->m8(&pkt, n);
+}
+
 void handle_cmd_D8(u8 *arg0, Pkt_801DA5E4 *arg1) {
     Pkt_801DA5E4 tmp = *arg1;
     bswap_cmd_d8_header__6TLobbyFPv(&tmp);
@@ -147,6 +208,22 @@ void handle_cmd_D8(u8 *arg0, Pkt_801DA5E4 *arg1) {
         f(&tmp);
     }
 }
+void TLobby__sub_801DA734(VObj_18_801DA734 *obj, char *str) {
+    if (*(s32 *)((char *)obj + 0x1910) != 0) {
+    Pkt_801DA734 pkt;
+    s32 n;
+    memset(&pkt, 0, 0x204);
+    pkt.cmd = 0xC7;
+    pkt.flag = 0;
+    char *t = pkt.text;
+    strncpy(t, str, 0x1FF);
+    n = (strlen(t) + 8) & ~3;
+    pkt.size = n;
+    TLobby__sub_801DF064(&pkt);
+    obj->m8(&pkt, n);
+    }
+}
+
 }
 
 void TProtocol::send_info_board_request() {

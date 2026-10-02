@@ -11,6 +11,12 @@ struct Ent_80281B18 { s8 c; u8 pad[3]; };
 
 struct Data_80281B18 { u8 pad0[4]; u16 w[4]; Ent_80281B18 e[1]; };
 
+struct Quad_80281840 { f32 x, y, x2, y2, u0, v0, u1, v1; };
+
+struct Sub_80281840 { u8 pad[0x5C]; s32 count; };
+
+struct Win_80281840 { u8 pad[0x24]; s32 ctrl; u8 pad2[0x34 - 0x28]; Sub_80281840 *sub; };
+
 extern "C" {
 s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, int);
 s32 TWindow__close(int);
@@ -55,6 +61,31 @@ extern M2C_UNK TWindowSubSymbolChat__data_805D6498;
 extern M2C_UNK TWindowSubSymbolChat__data_805D649C;
 extern s32 TWindowSubSymbolChat__data_805D64A0;
 void TWindowSubSymbolChat__sub_80281B18(u8 *arg0);
+M2C_UNK TWindowSubSymbolChat__sub_8007728C(s32, s32, s32, s32, s32, s32);
+s32 get_cursor_pos__20TWindowSubSymbolChatFPv(int);
+s32 get_cursor_x__20TWindowSubSymbolChatFPv(int);
+extern s8 TWindowSubSymbolChat__data_805D6494;
+extern M2C_UNK TWindowSubSymbolChat__data_805D6498;
+extern M2C_UNK TWindowSubSymbolChat__data_805D649C;
+void TWindowSubSymbolChat__sub_80281C60(void *arg0);
+f32 get_scale__15TWindowCtrlMainFv(s32);
+void set_global_param__8TObjFishFi(s32);
+void TWindowSubStatusDisp__sub_803DEE6C(s32);
+void get_player__20TWindowSubStatusDispFv(void);
+void TWindowSubComCard__sub_803DEECC(void *, f32);
+void TWindowSubStatusDisp__sub_803DF160(s32, u32);
+extern s32 lbl_805D63F0;
+extern const f32 lbl_805DD710;
+extern const f32 lbl_805DD714;
+extern const f32 lbl_805DD718;
+extern const f32 lbl_805DD71C;
+extern const f32 lbl_805DD720;
+extern const f32 lbl_805DD724;
+extern const f32 lbl_805DD728;
+extern const f32 lbl_805DD72C;
+extern const f32 lbl_805DD730;
+extern const f32 lbl_805DD734;
+void TWindowSubSymbolChat__sub_80281840(Win_80281840 *arg0);
 }
 
 extern "C" {
@@ -79,7 +110,6 @@ s32 TWindowSubSymbolChatPartsSet__ct(s32, s32, s16, M2C_UNK *, M2C_UNK *);
 s32 TWindowSubSymbolChatParts__ct(s32, s32, M2C_UNK *, M2C_UNK *);
 s32 TWindowSubSymbolChat__sub_80076FE0(s32);
 M2C_UNK TWindowSubSymbolChat__sub_802484C0(s32);
-M2C_UNK TWindowSubSymbolChat__sub_80281840(void *);
 s32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK add_menu_item__17TWindowOptionCtrlFiii(s32, s32, M2C_UNK);
 s32 compute_total_height__20TWindowSubSymbolChatFv();
@@ -110,7 +140,36 @@ void close_child__20TWindowSubSymbolChatFv(void) {
     void *temp_r3;
     temp_r3 = lbl_805D6490;
     if (temp_r3 != NULL) {
-        TWindowSubSymbolChat__sub_80281840(temp_r3);
+        TWindowSubSymbolChat__sub_80281840((Win_80281840 *)(temp_r3));
+    }
+}
+
+void TWindowSubSymbolChat__sub_80281840(Win_80281840 *arg0) {
+    Quad_80281840 q;
+    u32 color;
+    f32 scale;
+    Sub_80281840 *sub;
+    sub = arg0->sub;
+    if (sub != NULL) {
+        if (sub->count < 6) {
+            color = ((s32)(lbl_805DD710 * (f32)(sub->count * 0xFF)) << 24) | 0xFFFFFF;
+        } else {
+            color = 0xFFFFFFFF;
+        }
+        scale = lbl_805DD714 / get_scale__15TWindowCtrlMainFv(arg0->ctrl);
+        TWindowSubStatusDisp__sub_803DEE6C(1);
+        set_global_param__8TObjFishFi(lbl_805D63F0);
+        TWindowSubStatusDisp__sub_803DF160(0, color);
+        q.x = lbl_805DD718;
+        q.y = lbl_805DD71C;
+        q.x2 = lbl_805DD720 + q.x;
+        q.y2 = lbl_805DD724 + q.y;
+        q.u0 = lbl_805DD728;
+        q.v0 = lbl_805DD72C;
+        q.u1 = lbl_805DD730;
+        q.v1 = lbl_805DD734;
+        TWindowSubComCard__sub_803DEECC(&q, scale);
+        get_player__20TWindowSubStatusDispFv();
     }
 }
 
@@ -202,6 +261,14 @@ void TWindowSubSymbolChat__sub_80281B18(u8 *arg0) {
             }
         }
     }
+}
+
+void TWindowSubSymbolChat__sub_80281C60(void *arg0) {
+    s16 x;
+    s16 y;
+    x = get_cursor_x__20TWindowSubSymbolChatFPv(M2C_FIELD(arg0, s32 *, 0x50));
+    y = get_cursor_pos__20TWindowSubSymbolChatFPv(M2C_FIELD(arg0, s32 *, 0x50));
+    TWindowSubSymbolChat__sub_8007728C(M2C_FIELD(arg0, s32 *, 0x28), M2C_FIELD(arg0, s16 *, 0x1E), TWindowSubSymbolChat__data_805D6494, x + y * 2, TWindowSubSymbolChat__data_805D6498, TWindowSubSymbolChat__data_805D649C);
 }
 
 void TWindowSubSymbolChat__sub_80281CC4(u8 *arg0) {

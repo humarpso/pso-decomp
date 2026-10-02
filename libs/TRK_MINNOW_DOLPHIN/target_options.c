@@ -1,3 +1,4 @@
+#define _MATH_H_
 #include "PowerPC_EABI_Support/MetroTRK/trk.h"
 
 static u8 bUseSerialIO;

@@ -78,6 +78,19 @@ int TBoss6Type1__sub_802B4B64(void*, void*);
 int TBoss6Type1__sub_802B4BA8(void*, void*);
 extern RecoveredGlobal_802B2D68_lbl_80470C80 lbl_80470C80;
 void TBoss6Type1__sub_802B2D68(u8 *arg0);
+M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK TBoss6Type1__sub_802B4A9C(void *);
+M2C_UNK TBoss6Type1__sub_802B4B04(void *);
+int TBoss6Type1__sub_802B4B64(void*, void*);
+M2C_UNK TBoss6Type1__sub_802B4D5C(void *, int, int);
+M2C_UNK reset_param__11TBoss6Type1FPv(void *);
+M2C_UNK TBoss6Type1__sub_802B64B4(void *);
+M2C_UNK TBoss6Type1__sub_802B64DC(void *);
+M2C_UNK TBoss6Type1__sub_802B6C30(void *);
+M2C_UNK TBoss6Type1__sub_802B82B8(void *, M2C_UNK);
+M2C_UNK TBoss6Type1__sub_802B865C(void *, int);
+extern const f32 lbl_805DE2BC;
+void TBoss6Type1__sub_802B31E4(u8 *arg0);
 }
 
 extern "C" {
@@ -594,6 +607,55 @@ void update_timer__11TBoss6Type1FPv(void *arg0) {
 }
 
 void TBoss6Type1__sub_802B3178(void* p) { *(int*)((char*)p + 0x40c) = 123; *(int*)((char*)p + 0x410) = 123; TBoss6Type1__sub_802B54F0(p, (char*)p + 0x420); TBoss3Volopt__sub_8022675C((void*)((void*)231170), (void*)((void*)0), (void*)((void*)0), (void*)((void*)0)); TBoss6Type1__sub_802B4BA8((void*)(p), (void*)((void*)0)); TBoss6Type1__sub_802B4B64((void*)(p), (void*)((void*)1)); }
+
+void TBoss6Type1__sub_802B31E4(u8 *arg0) {
+    M2C_UNK var_r3;
+    s32 temp_r0;
+    s32 temp_r0_2;
+    s32 temp_r3;
+    s32 temp_r4;
+    s32 temp_r5;
+    s32 temp_r6;
+    temp_r5 = M2C_FIELD(arg0, s32 *, 0x4A0);
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0x49C);
+    temp_r6 = M2C_FIELD(arg0, s32 *, 0x410);
+    temp_r0 = temp_r5 + 0x1E;
+    temp_r0 = temp_r4 + temp_r0;
+    temp_r0 -= temp_r4;
+    temp_r3 = temp_r0 - temp_r5;
+    if (temp_r6 == temp_r0) {
+        TBoss6Type1__sub_802B82B8((void *) (arg0), 0x11);
+    } else if (temp_r6 == temp_r3) {
+        TBoss6Type1__sub_802B4B64((void *) (arg0), (void *) (2));
+        TBoss6Type1__sub_802B82B8((void *) (arg0), 0x13);
+    }
+    TBoss6Type1__sub_802B4D5C((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x410)), (int) (M2C_FIELD(arg0, s32 *, 0x40C)));
+    temp_r3 = M2C_FIELD(arg0, s32 *, 0x410);
+    if ((temp_r3 <= (s32) M2C_FIELD(arg0, s32 *, 0x4A0)) && (temp_r3 >= 0x1E)) {
+        TBoss6Type1__sub_802B64DC((void *) (arg0));
+        TBoss6Type1__sub_802B6C30((void *) (arg0));
+    } else {
+        TBoss6Type1__sub_802B64B4((void *) (arg0));
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x410) >= 0x1E) {
+        var_r3 = 0x4003B50C;
+        if (M2C_FIELD(arg0, f32 *, 0x4DC) > lbl_805DE2BC) {
+            var_r3 = 0x4003AD0D;
+        }
+        TOTrapAncient01__sub_80226578((int) (var_r3), (void *) (arg0), (void *) (arg0 + 0x5CC), (int) (0), (int) (1));
+    }
+    if (M2C_FIELD(arg0, f32 *, 0x4DC) > lbl_805DE2BC) {
+        TBoss6Type1__sub_802B4B04((void *) (arg0));
+    } else {
+        TBoss6Type1__sub_802B4A9C((void *) (arg0));
+    }
+    temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x410) - 1;
+    M2C_FIELD(arg0, s32 *, 0x410) = temp_r0_2;
+    if (temp_r0_2 < 0) {
+        reset_param__11TBoss6Type1FPv((void *) (arg0));
+        TBoss6Type1__sub_802B865C((void *) (arg0), (int) (1));
+    }
+}
 
 void update_attack_timer2__11TBoss6Type1FPv(void *arg0) {
     s32 temp_r0;

@@ -24,15 +24,18 @@ void TWindowDD__sub_803484C4(u8 *arg0);
 s32 TWindowDD__sub_80348470(u8 *arg0);
 int TWindowDD__sub_8034B008(s32, s32);
 void TWindowDD__sub_80348448(M2C_UNK arg0, s16 arg1);
-int TWindowDD__sub_803485F4(s32, s32 *);
 void TWindowDD__sub_80348688(u8 *arg0, s32 *arg1);
 M2C_UNK TWindow__close(void *);
 void TWindowDD__sub_80348520(void *p);
+s32 get_player_count__10TObjPlayerFv();
+s32 is_flag_set__6TLobbyFv();
+s32 get_global_state__14TOKeyMachine01Fv();
+s32 TWindowDD__sub_80348398(u8 *arg0);
+s32 TWindowDD__sub_803485F4(s32 arg0, s32 *arg1);
 }
 
 extern "C" {
 
-int TWindowDD__sub_80348398(void);
 int TWindowDD__sub_80348424(s32 _w0, s32 _w1);
 s32 clamp_range_2C9_552__9TWindowDDFs(s16 arg0);
 s32 clamp_range_5FA_682__9TWindowDDFs(s16 arg0);
@@ -76,7 +79,23 @@ void dispatch_state__9TWindowDDFv(void) {
     }
 }
 
-int TWindowDD__sub_80348398(void) { return 0; }
+s32 TWindowDD__sub_80348398(u8 *arg0) {
+    s32 temp_r3;
+    temp_r3 = get_global_state__14TOKeyMachine01Fv();
+    if (temp_r3 == 0 || temp_r3 == 18) {
+        return 1;
+    }
+    if (temp_r3 == 15) {
+        return 0;
+    }
+    if (get_player_count__10TObjPlayerFv() != 0) {
+        return 4;
+    }
+    if (is_flag_set__6TLobbyFv() != 0) {
+        return 5;
+    }
+    return (M2C_FIELD(arg0, s32 *, 0xA0) != 0 ? 1 : 0) + 2;
+}
 
 int TWindowDD__sub_80348424(s32 _w0, s32 _w1) { return TWindowDD__sub_8034B008((s32)((void*)(1)), (s32)(_w1)); }
 
@@ -133,9 +152,12 @@ void TWindowDD__sub_80348520(void *p) {
     }
 }
 
-int TWindowDD__sub_803485F4(s32 _w0, s32 * _w1) { return 0; }
-
 extern s32 TWindowDD__data_805D6E08;
+
+s32 TWindowDD__sub_803485F4(s32 arg0, s32 *arg1) {
+    s32 t = *arg1;
+    return (arg0 + t + 1) < 0x80;
+}
 
 void update_state__9TWindowDDFv(void) {
     switch ((s32) TWindowDD__data_805D6E08) {
@@ -159,7 +181,7 @@ void update_state__9TWindowDDFv(void) {
 
 void TWindowDD__sub_80348688(u8 *arg0, s32 *arg1) {
     s32 p = *arg1;
-    if (((s32)TWindowDD__sub_803485F4((s32)(3), (s32 *)(arg1))) != 0) {
+    if (((s32)TWindowDD__sub_803485F4((s32)((s32)(3)), (s32 *)((s32 *)(arg1)))) != 0) {
         arg0[p++] = 0xA;
         arg0[p++] = 0x3E;
         arg0[p++] = 0x20;

@@ -4,6 +4,25 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+struct W4_80072994 { u8 b[4]; };
+
+struct W8_80072994 { u8 b[8]; };
+
+struct S_80072994 {
+    u16 h;
+    u8 pad2[2];
+    W4_80072994 a[0x17];
+    u8 x60[0x50];
+    u8 xB0[0x10];
+    W8_80072994 c[3];
+    u8 padD8[0xC];
+    u8 xE4[8];
+    W4_80072994 e[5];
+};
+
+struct Obj_80072BB0 { u8 pad[0x30]; u32 f30; };
+
 extern "C" {
 void TLobby__sub_80072880(u8 *arg0);
 void byteswap_challenge_packet__6TLobbyFPv(void *arg0);
@@ -11,7 +30,6 @@ void byteswap_challenge_packet__6TLobbyFPv(void *arg0);
 void TLobby__send_and_handle_60(void *);
 void send_challenge_packet__6TLobbyFPv(void *arg0);
 void TLobby__sub_800728FC(u8 *arg0);
-M2C_UNK TLobby__sub_80072994(s32);
 void read_be16_field2__10TObjPlayerFPv(void *);
 M2C_UNK bswap_16__FPUs(s32);
 void TLobby__send_and_handle_60(void *);
@@ -95,6 +113,21 @@ s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern s8 lbl_8050E208[];
 extern s32 lbl_805D53A0;
 void handle_challenge_retry_confirm(void *arg0);
+void bswap_fields_0_4__6TLobbyFPv(void *arg0);
+void bswap_fields_4_8_12__6TLobbyFPv(void *arg0);
+M2C_UNK bswap_16__FPUs(s32);
+void TLobby__sub_80072AB8(void *arg0);
+void bswap_packet_field__6TLobbyFv(void * _w0);
+M2C_UNK TLobby__sub_80072994(s32 arg0);
+s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
+int TWindow__close(void*);
+void set_field_1c__6TLobbyFPvf(u32, f32);
+void send_and_handle__6TLobbyFPvii(u32, s32, s32);
+u32 set_window_mode_4__6TLobbyFPvii(s32, void *, s32);
+M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+extern u8 lbl_8048D12C[];
+extern const f32 lbl_805D9110;
+void TLobby__sub_80072BB0(Obj_80072BB0 *self);
 }
 
 extern "C" {
@@ -173,7 +206,7 @@ void TLobby__sub_800728FC(u8 *arg0) {
 void bswap_6x7C_packet__6TLobbyFi(s32 arg0) {
     read_be16_field2__10TObjPlayerFPv((void *)(arg0));
     bswap_16__FPUs(arg0 + 4);
-    TLobby__sub_80072994(arg0 + 8);
+    TLobby__sub_80072994((s32)(arg0 + 8));
 }
 void send_6x7C_packet__6TLobbyFi(s32 arg0) {
     bswap_6x7C_packet__6TLobbyFi((s32)(arg0));
@@ -183,6 +216,25 @@ void init_pkt_cmd_7C__6TLobbyFPv(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 0) = 0x7C;
     M2C_FIELD(arg0, s8 *, 1) = 0x42;
 }
+
+M2C_UNK TLobby__sub_80072994(s32 arg0) {
+    S_80072994 *s = (S_80072994 *)arg0;
+    s32 i;
+    bswap_16__FPUs(arg0);
+    for (i = 0; i < 0x17; i++) {
+        bswap_packet_field__6TLobbyFv(&s->a[i]);
+    }
+    TLobby__sub_80072AB8(s->x60);
+    bswap_fields_4_8_12__6TLobbyFPv(s->xB0);
+    for (i = 0; i < 3; i++) {
+        bswap_fields_0_4__6TLobbyFPv(&s->c[i]);
+    }
+    bswap_fields_0_4__6TLobbyFPv(s->xE4);
+    for (i = 0; i < 5; i++) {
+        bswap_packet_field__6TLobbyFv(&s->e[i]);
+    }
+}
+
 void bswap_fields_0_4__6TLobbyFPv(void *arg0) {
     bswap_32__FPUl(arg0);
     bswap_32__FPUl((void *)((char *)arg0 + 4));
@@ -215,6 +267,19 @@ void TLobby__sub_80072B70(u8 *arg0) {
         M2C_FIELD(arg0, u32 *, 0x30) = 0U;
     }
 }
+
+void TLobby__sub_80072BB0(Obj_80072BB0 *self) {
+    if (self->f30 != 0) {
+        TWindow__close((void *)self->f30);
+        self->f30 = 0;
+    }
+    self->f30 = set_window_mode_4__6TLobbyFPvii(TWindowSubComCard__sub_8026CBB8(0x39), lbl_8048D12C, 1);
+    if (self->f30 != 0) {
+        set_field_1c__6TLobbyFPvf(self->f30, lbl_805D9110);
+        send_and_handle__6TLobbyFPvii(self->f30, TQuestVmDownLoadServer__sub_8006EF6C(0x5E), 1);
+    }
+}
+
 void close_window_2c__6TLobbyFPv(void* p) { if (*(unsigned int*)((char*)p + 0x2c) != 0) { TWindow__close((void*)(*(void**)((char*)p + 0x2c))); *(int*)((char*)p + 0x2c) = 0; } }
 void open_loss_menu__6TLobbyFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {

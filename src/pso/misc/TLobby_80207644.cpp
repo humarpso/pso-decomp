@@ -40,6 +40,8 @@ struct Tbl_8020765C { s32 w[2][18]; };
 
 struct Ent_8020780C { s32 pad; s32 a; s32 b; };
 
+typedef struct FloorEntry_80207770 { s32 a; s32 b; s32 c; } FloorEntry_80207770;
+
 extern "C" {
 extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
 s32 TLobby__sub_80207798(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -73,6 +75,8 @@ s32 TLobby__sub_8020765C(void);
 extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
 extern int lbl_805D6060;
 void TLobby__sub_8020780C(s32 *src, u32 size);
+extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
+s32 TLobby__sub_80207770(s32 arg0);
 }
 
 extern "C" {
@@ -125,6 +129,15 @@ void TLobby__sub_80207750(s32 arg0, s32 arg1) {
 #pragma push
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_80207798_lbl_80513920_size[sizeof(RecoveredGlobal_80207798_lbl_80513920) == 0xD8 ? 1 : -1];
+
+s32 TLobby__sub_80207770(s32 arg0) {
+    if (arg0 > 0x11) {
+        return 0;
+    }
+    s32 *p = (s32 *)&lbl_80513920;
+    return p[arg0 * 3 + 1];
+}
+
 s32 TLobby__sub_80207798(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r0;
     u8 *temp_r4;

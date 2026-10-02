@@ -117,11 +117,21 @@ typedef struct SlicerLaunchData_8012D9C8 {
     s32 facing, spin; f32 first[3], second[3];
 } SlicerLaunchData_8012D9C8;
 
+struct Elem_8034F204 { u8 x[0x2C]; };
+
+struct Tbl_8034F204 { u8 pad[0x1C]; Elem_8034F204 arr[1]; };
+
+typedef s32 M2C_UNK;
+struct Info_8034F4FC {
+    u8 pad0[0x10];
+    s32 f10;
+    u8 pad14[0x80 - 0x14];
+};
+
 extern "C" {
 void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1);
 int fn_80308244(void);
 u32 TLobby__sub_80101AB0(void);
-s32 TObjPlayer__sub_8034F4FC(u32 a0 = 0, s32 a1 = 0);
 int fn_80308244(void);
 void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1);
 void * enter_timed_state__10TObjPlayerFPv(void *, M2C_UNK, void *);
@@ -142,7 +152,6 @@ u8 *TObjPlayer__sub_8034F754(u8 *arg0, u8 *arg1, s32 _w2);
 void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1);
 void TObjPlayer__sub_8034F590(void *a, O_8034F590 *o);
 u32 TLobby__sub_80101AB0(void);
-s32 TObjPlayer__sub_8034F4FC(u32 a0, s32 a1);
 void TObjPlayer__sub_8034F4AC(s32 arg0, s32 arg1);
 s32 get_player_list__10TObjPlayerFv();
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
@@ -159,6 +168,19 @@ void draw_icon__10TObjPlayerFPvii(void *, int, f32 *);
 u8 *create__10TTecSlicerFPUs(SlicerLaunchData_8012D9C8 *);
 extern const f32 lbl_805DFDF8;
 void TObjPlayer__sub_8034F268(u8 *weapon);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
+void *TPhotonMylla__sub_80154CB4(s32);
+void TObjPlayer__sub_8034F204(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
+M2C_UNK fill_status_info__10TObjPlayerFPvPv(u32, void *);
+M2C_UNK init_vtable_c4__10TObjPlayerFPv(void *, s32, void *);
+void *__nw__7TObjectFUl(u32);
+M2C_UNK TTecRaFoie__sub_802385EC(void *, void *, s32, s32, f32);
+M2C_UNK TObjPlayer__sub_802E449C(void *);
+extern s32 tl_05;
+extern s32 tl_particle;
+extern const f32 lbl_805DFE00;
+s32 TObjPlayer__sub_8034F4FC(u32 a0, s32 a1);
 }
 
 extern "C" {
@@ -236,6 +258,18 @@ void *enter_timed_state__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
 
 extern M2C_UNK lbl_804F0908[];
 
+void TObjPlayer__sub_8034F204(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+    u8 *temp_r5;
+    void *temp_r3;
+    temp_r3 = TPhotonMylla__sub_80154CB4(arg2);
+    if (temp_r3 != NULL) {
+        temp_r5 = M2C_FIELD(temp_r3, u8 **, 0xA4);
+        if ((temp_r5 != NULL) && (arg3 < (s32) M2C_FIELD(temp_r3, s32 *, 0xA8))) {
+            TObjEneDellBiter__sub_80087350(&((Tbl_8034F204 *)temp_r5)->arr[arg3], 0x1BF);
+        }
+    }
+}
+
 void TObjPlayer__sub_8034F268(u8 *weapon) {
     f32 tmp[4];
     SlicerLaunchData_8012D9C8 launch;
@@ -276,7 +310,6 @@ void *item_equip_variant_deleting_dtor_8034F36C(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK lbl_804F0908[];
-extern M2C_UNK TObjPlayer__sub_8034F204[];
 
 u8 *TObjPlayer__sub_8034F1AC(u8 *arg0) {
     u8 *temp_r3;
@@ -295,7 +328,7 @@ u8 *TObjPlayer__sub_8034F1AC(u8 *arg0) {
 void *init_photon_state__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
     TObjPlayer__sub_80120D50((void *)(arg0), (void *)(_w1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F0908;
-    M2C_FIELD(arg0, M2C_UNK **, 0x1F4) = TObjPlayer__sub_8034F204;
+    M2C_FIELD(arg0, M2C_UNK **, 0x1F4) = ((M2C_UNK *)TObjPlayer__sub_8034F204);
     set_status_flags__10TObjPlayerFPvUi(arg0, 2);
     return arg0;
 }
@@ -317,7 +350,7 @@ u8 *TObjPlayer__sub_8034F418(u8 *arg0) {
 void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1) {
     u32 temp_r3 = TLobby__sub_80101AB0();
     if (temp_r3 != 0U) {
-        TObjPlayer__sub_8034F4FC(temp_r3, arg1);
+        TObjPlayer__sub_8034F4FC((u32)(temp_r3), (s32)(arg1));
     }
 }
 
@@ -325,7 +358,24 @@ void TObjPlayer__sub_8034F4AC(s32 arg0, s32 arg1) {
     Ctx_80125628 *ctx = (Ctx_80125628 *)arg1;
     u32 p = TLobby__sub_80101AB0();
     if (p != 0U) {
-        TObjPlayer__sub_8034F4FC(p, (s32)ctx->obj->elems[ctx->idx].f1c);
+        TObjPlayer__sub_8034F4FC((u32)(p), (s32)((s32)ctx->obj->elems[ctx->idx].f1c));
+    }
+}
+
+s32 TObjPlayer__sub_8034F4FC(u32 a0, s32 a1) {
+    Info_8034F4FC info;
+    void *o;
+    TObjPlayer__sub_802E449C(&info);
+    fill_status_info__10TObjPlayerFPvPv(a0, &info);
+    VecCopy__FP3VecPC3Vec(&info, a1);
+    info.f10 = 0xA;
+    o = __nw__7TObjectFUl(0xC8);
+    if (o != NULL) {
+        init_vtable_c4__10TObjPlayerFPv(o, tl_05, &info);
+    }
+    o = __nw__7TObjectFUl(0x64);
+    if (o != NULL) {
+        ((M2C_UNK (*)(f32, void *, void *, s32, s32))TTecRaFoie__sub_802385EC)(lbl_805DFE00, o, &info, 0, tl_particle);
     }
 }
 

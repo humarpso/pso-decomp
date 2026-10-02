@@ -85,6 +85,15 @@ virtual void m13();virtual void m14();virtual void m15();virtual void m16();
 virtual void m17();virtual void m18();virtual void m19();virtual s32 m20();
 };
 
+struct CityDoorParameters { f32 speed, openingDistanceSquared, closingDistanceSquared; };
+
+struct CityDoorCollider { u8 padding[0x18]; s32 flags; };
+
+struct CityDoorFields {
+ u8 padding[0xA4]; CityDoorCollider* collider; s32 reserved;
+ s32 phase; f32 endFrame, frame; CityDoorParameters* parameters;
+};
+
 extern "C" {
 s32 is_player_in_range__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0);
 s32 check_player_in_range__10TObjPlayerFPv(void *arg0, s32 _w1, f32 _w2);
@@ -106,6 +115,7 @@ extern M2C_UNK lbl_804B5BA8[];
 extern const f32 lbl_805DBBE8;
 u8 *TObjPlayer__sub_80182D8C(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3);
 void city_door_tick_opening(void* o);
+void TObjPlayer__sub_80182ABC(void* o);
 }
 
 extern "C" {
@@ -187,6 +197,21 @@ void check_ground_or_fall__10TObjPlayerFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 3;
         ((VObj_80182A58_8018291C *)arg0)->m17();
     }
+}
+
+void TObjPlayer__sub_80182ABC(void* o) {
+ CityDoorFields* door = (CityDoorFields*)o;
+ if (((CityDoorProbe*)o)->m12(door->parameters->openingDistanceSquared) != 0) {
+  door->phase = 1;
+  ((CityDoorProbe*)o)->m18();
+ } else {
+  door->frame -= door->parameters->speed;
+  if (door->frame <= 0.0f) {
+   door->frame = 0.0f;
+   door->phase = 0;
+   door->collider->flags |= 1;
+  }
+ }
 }
 
 void city_door_tick_opening(void* o) {

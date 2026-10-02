@@ -44,6 +44,9 @@ extern u8 lbl_8058D490[];
 extern const f32 lbl_805DEA10;
 extern const f32 lbl_805DEB24;
 f32 TObjFish__sub_802ED3E4(u8 *arg0);
+M2C_UNK TBoss2DeRolLe__sub_80035FCC(void *);
+extern const f32 lbl_805DEA5C;
+u8 TObjFish__sub_802ECF50(u8 *arg0);
 }
 
 extern "C" {
@@ -54,6 +57,46 @@ void set_swim_direction__8TObjFishFPv(void *arg0);
 void update_wobble_angle__8TObjFishFPv(void *arg0);
 M2C_UNK TBoss2DeRolLe__sub_80035FCC(void *);
 void *dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
+
+u8 TObjFish__sub_802ECF50(u8 *arg0) {
+    f32 var_f2;
+    s32 temp_r0;
+    s32 var_r3;
+    TBoss2DeRolLe__sub_80035FCC(arg0 + 0x630);
+    if (TBoss2DeRolLe__sub_80035FCC(arg0 + 0x650) == 3) {
+        M2C_FIELD(arg0, s32 *, 0x6CC) = 1;
+    }
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x6D0);
+    switch (temp_r0) {
+    case 2:
+        break;
+    case 1:
+        var_f2 = M2C_FIELD(arg0, f32 *, 0x680) - 0.1f;
+        if (var_f2 < -4.0f) {
+            var_f2 = -4.0f;
+        }
+        M2C_FIELD(arg0, f32 *, 0x680) = var_f2;
+        M2C_FIELD(arg0, f32 *, 0x688) = (f32) (M2C_FIELD(arg0, f32 *, 0x688) + var_f2);
+        if (M2C_FIELD(arg0, f32 *, 0x648) > lbl_805DEA5C) {
+            M2C_FIELD(arg0, s32 *, 0x6D0) = 3;
+        }
+        break;
+    case 3:
+        if (TBoss2DeRolLe__sub_80035FCC(arg0 + 0x670) == 3) {
+            M2C_FIELD(arg0, s32 *, 0x6D0) = 4;
+        }
+        break;
+    }
+    M2C_FIELD(arg0, f32 *, 0xC8) += 0.1f;
+    if (M2C_FIELD(arg0, f32 *, 0xC8) > 0.9f) {
+        M2C_FIELD(arg0, f32 *, 0xC8) = 0.9f;
+    }
+    var_r3 = 0;
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x6D0) == 4) && ((s32) M2C_FIELD(arg0, s32 *, 0x6CC) == 1)) {
+        var_r3 = 1;
+    }
+    return var_r3;
+}
 
 #pragma push
 #pragma fp_contract on

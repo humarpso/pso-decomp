@@ -1,3 +1,5 @@
+#define _MATH_H_
+
 #include "PowerPC_EABI_Support/MetroTRK/trk.h"
 
 asm void TRK_flush_cache(register void* param_1, register int param_2) {

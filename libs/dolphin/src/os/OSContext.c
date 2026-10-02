@@ -135,9 +135,3 @@ void __OSContextInit(void) {
     __OSFPUContext = NULL;
     DBPrintf("FPU-unavailable handler installed\n");
 }
-
-#ifdef __GEKKO__
-asm void OSFillFPUContext(__REGISTER OSContext* context) {
-#include "orig_asm/os/OSContext/OSFillFPUContext.inc"
-}
-#endif

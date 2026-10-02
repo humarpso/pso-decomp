@@ -120,6 +120,20 @@ struct Guild_8021317C : Base_8021317C {
     u32 phase;
 };
 
+struct Base_A_80213474 { char pad[0x18]; };
+
+struct V_A_80213474 : Base_A_80213474 {
+    virtual void f0();
+    virtual void f1();
+    virtual void f2();
+    virtual void f3();
+    virtual void f4();
+    virtual void f5();
+    virtual void f6();
+    virtual void m7(int, int);
+    virtual s32 m8();
+};
+
 extern "C" {
 s32 TWindowSubComCard__sub_8026CBB8(s32);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
@@ -177,6 +191,18 @@ void handle_select__22THunterGuildSeqOfflineFPv(void *arg0);
 void handle_window_input__22THunterGuildSeqOfflineFPv(void *arg0);
 void handle_click__22THunterGuildSeqOfflineFPv(void *arg0);
 void THunterGuildSeqOffline__vt9(Guild_8021317C *self);
+u16 obj_getField1c(s32);
+s32 queue_destruction__7TObjectFv(int);
+void init__22THunterGuildSeqOfflineFPvPvPv(void *, void *, void *);
+void THunterGuildSeqOffline__sub_8021E180(void);
+void close_window__13TShopSequenceFPv(void *);
+s32 TShopWindowBase__sub_802239EC(void *);
+s32 TShopWindowBase__sub_80223A48(void *);
+void *__nw__7TObjectFUl(u32);
+s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
+extern u8 reset_random_enemies_mode[];
+extern void *tl_00;
+void THunterGuildSeqOffline__sub_80213474(void *arg0);
 }
 
 extern "C" {
@@ -382,6 +408,36 @@ s32 THunterGuildSeqOffline__sub_80213458(void) {
 }
 
 typedef char RecoveredGlobal_8021354C_THunterGuildSeqOffline__data_80513DC8_size[sizeof(RecoveredGlobal_8021354C_THunterGuildSeqOffline__data_80513DC8) == 0x10 ? 1 : -1];
+
+void THunterGuildSeqOffline__sub_80213474(void *arg0) {
+    void *p = M2C_FIELD(arg0, void **, 0x38);
+    if (p != NULL) {
+        if (all_parents_unqueued_for_destruction__7TObjectFv(p) != 0) {
+            return;
+        }
+        M2C_FIELD(arg0, u32 *, 0x38) = 0U;
+    }
+    if ((((V_A_80213474 *) arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
+        switch (M2C_FIELD(arg0, s32 *, 0x34)) {
+        case 1: {
+            void *o = __nw__7TObjectFUl(0x28);
+            if (o != NULL) {
+                init__22THunterGuildSeqOfflineFPvPvPv(o, tl_00, reset_random_enemies_mode);
+            }
+            obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
+            THunterGuildSeqOffline__sub_8021E180();
+            break;
+        }
+        case 0:
+            break;
+        case 2:
+            break;
+        }
+        close_window__13TShopSequenceFPv(arg0);
+        queue_destruction__7TObjectFv((int)arg0);
+    }
+}
+
 void THunterGuildSeqOffline__sub_8021354C(u8 *arg0) {
     s32 temp_r3_2;
     u8 *temp_r3;

@@ -31,6 +31,19 @@ struct Pos_800FBFD8 {
     u8 pad[0x18];
 };
 
+typedef s32 M2C_UNK;
+
+struct FogParam_800FBC5C {
+    s32 f0;
+    s32 f4;
+    f32 f8;
+    f32 fC;
+    f32 f10;
+    s32 f14;
+    f32 f18[8];
+    u8 f38[8];
+};
+
 extern "C" {
 s32 render_forward__20TWindowSubStatusDispFPv();
 s32 reset_transform_state__10TObjPlayerFv();
@@ -82,6 +95,28 @@ s32 get_player__20TWindowSubStatusDispFv();
 s32 TWindowSubComCard__sub_803DEECC(void *, f32);
 s32 TWindowSubStatusDisp__sub_803DF160(int, void *);
 void TLobby__sub_800FBFD8(void *color, const char *s, f32 x, f32 y, f32 scale);
+void TLobby__sub_800F9DF4(void *, void *);
+void TFogCtrl__sub_800FBAAC(void);
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+s32 is_online_ready__6TLobbyFv();
+extern u8 lbl_8043DA20[];
+extern u8 lbl_8043DA30[];
+extern M2C_UNK TFogCtrl__data_80501188[];
+extern u32 lbl_805D5388;
+extern s32 lbl_805D538C;
+void TFogCtrl__sub_800FBAB0(void);
+void TLobby__sub_800F9DF4(void *, void *);
+void create_instance__8TFogCtrlFv(void);
+void TFogCtrl__sub_800FAC90(u8 *arg0, u8 *arg1);
+FogParam_800FBC5C *alloc_buffer__11TOBoss4RockFPv(s32);
+void TObjFogCollisionPoison__sub_801533C0(void);
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+extern u8 lbl_8043DA20[];
+extern M2C_UNK TFogCtrl__data_80501188[];
+extern FogParam_800FBC5C lbl_80501198;
+extern u32 lbl_805D5388;
+extern s32 lbl_805D538C;
+void TFogCtrl__sub_800FBC5C(void);
 }
 
 extern "C" {
@@ -124,6 +159,32 @@ void TFogCtrl__sub_800FBAAC(void) {  }
 extern u32 lbl_805D5388;
 extern f32 lbl_805DA964;
 extern f32 lbl_805DA968;
+
+void TFogCtrl__sub_800FBAB0(void) {
+    s32 i;
+    s32 j;
+    M2C_UNK v;
+    if (is_online_ready__6TLobbyFv() != 0) {
+        if (!(lbl_805D538C & 2)) {
+            TLobby__sub_800F9DF4(lbl_8043DA30, (void *)lbl_805D5388);
+            lbl_805D538C |= 2;
+        }
+    } else if (lbl_805D538C & 2) {
+        TLobby__sub_800F9DF4(lbl_8043DA20, (void *)lbl_805D5388);
+        lbl_805D538C &= ~2;
+    }
+    i = 0;
+    j = 0;
+    do {
+        v = *(TFogCtrl__data_80501188 + j);
+        if ((u32)v != 0U) {
+            ((void (*)(M2C_UNK))TFogCtrl__sub_800FBAAC)(v);
+        }
+        i += 1;
+        j += 1;
+    } while (i != 4);
+    end_effect_render__13TParticleCtrlFv();
+}
 
 void TFogCtrl__sub_800FBB68(void) {
     M2C_UNK *var_r3;
@@ -172,6 +233,33 @@ void reset__8TFogCtrlFv(void) {
     fn_803E1FFC(lbl_805DA964, lbl_805DA968);
     fn_803E2070();
     begin_effect_render__13TParticleCtrlFv();
+}
+
+void TFogCtrl__sub_800FBC5C(void) {
+    s32 i;
+    lbl_805D538C = 0;
+    lbl_80501198.f0 = 1;
+    lbl_80501198.f4 = 0;
+    lbl_80501198.f8 = 4000.0f;
+    lbl_80501198.fC = 100.0f;
+    lbl_80501198.f10 = 0.01f;
+    lbl_80501198.f14 = 0;
+    for (i = 0; i < 8; i++) {
+        lbl_80501198.f18[i] = 0.0f;
+        lbl_80501198.f38[i] = 0;
+    }
+    lbl_80501198.f18[6] = 640.0f;
+    lbl_805D5388 = (u32)alloc_buffer__11TOBoss4RockFPv(0x2000);
+    for (i = 0; i < 0x80; i++) {
+        TFogCtrl__sub_800FAC90((u8 *)&((FogParam_800FBC5C *)lbl_805D5388)[i], (u8 *)&lbl_80501198);
+    }
+    TLobby__sub_800F9DF4(lbl_8043DA20, (void *)lbl_805D5388);
+    for (i = 0; i < 4; i++) {
+        TFogCtrl__data_80501188[i] = 0;
+    }
+    end_effect_render__13TParticleCtrlFv();
+    create_instance__8TFogCtrlFv();
+    TObjFogCollisionPoison__sub_801533C0();
 }
 
 void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg2) {

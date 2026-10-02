@@ -30,6 +30,7 @@ u16 TObjPlayer__sub_80141F84(s32 a, s32 b);
 s16 TBoss4Type2__sub_80141FA8(s32 a, s32 b);
 void getDateStamp__FP9DateStamp(DS_80142108 *);
 void TAdSinglePlyChrSelectGC__sub_80142108(DS_80142108 *arg0);
+u16 TObjPlayer__sub_801423A4(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -193,6 +194,20 @@ u16 TObjPlayer__sub_80142344(s32 a0, s32 b0) {
 
 u16 lerp_angle_half__10TObjPlayerFUsUs(u16 arg0, u16 arg1) {
     return (u16) (arg0 + ((s16) ((u16) arg1 - arg0) >> 1));
+}
+
+u16 TObjPlayer__sub_801423A4(s32 arg0, s32 arg1, s32 arg2) {
+    s16 d = (u16)arg1 - (u16)arg0;
+    s16 out;
+    if (d > arg2 || d < -arg2) {
+        if (d & 0x8000) {
+            out = (u16)arg0 - arg2;
+        } else {
+            out = (u16)arg0 + arg2;
+        }
+        return out;
+    }
+    return arg1;
 }
 
 void vsub(void *arg0, void *arg1, void *arg2) {

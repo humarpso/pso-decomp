@@ -187,6 +187,24 @@ struct VObj_18_f90cfc : VBase_18_f90cfc {
     virtual M2C_UNK m77();
 };
 
+typedef s32 M2C_UNK;
+struct Obj_80178CF8 {
+    u8 pad[0x38];
+    f32 pos[3];
+    u8 pad44[0x84 - 0x44];
+    s32 x84;
+    u8 pad88[0x2A8 - 0x88];
+    u8 *target;
+    u8 pad2ac[0x326 - 0x2AC];
+    s16 state;
+    u8 pad328[0x334 - 0x328];
+    f32 x334;
+    f32 range;
+    u16 idx;
+};
+
+struct Obj_80178E10 { u8 pad0[0x2A8]; u8 *target; u8 pad1[0x7A]; s16 state; u8 pad2[0xC]; f32 range; u8 pad3[4]; u16 idx; };
+
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
 s32 is_any_teammate_in_state__10TObjPlayerFv();
@@ -209,6 +227,18 @@ s32 fn_80171314(void *);
 s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
 s32 TOTrap__sub_80178BC4(void *arg0);
+u16 TObjPlayer__sub_800115C4(void *, int, f32);
+M2C_UNK calc_attach_pos__10TObjPlayerFPv();
+s32 TObjPlayer__sub_80019248(int);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
+void TObjPlayer__sub_801B5328(void *, void *, s32, int, f32);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+void TOTrap__vt79(Obj_80178CF8 *self);
+M2C_UNK calc_attach_pos__10TObjPlayerFPv();
+u16 TObjPlayer__sub_800115C4(void *, int, f32);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+void TOTrap__sub_80178E10(Obj_80178E10 *arg0);
 }
 
 extern "C" {
@@ -293,9 +323,50 @@ void TOTrap__vt80(void *arg0) {
     TObjPlayer__sub_801B4A18(arg0, -1);
 }
 
+void TOTrap__vt79(Obj_80178CF8 *self) {
+    u8 *pl;
+    calc_attach_pos__10TObjPlayerFPv();
+    self->idx = TObjPlayer__sub_800115C4(self, 0, self->x334);
+    if (self->idx != 0xFFFF) {
+        pl = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(self->idx);
+        self->target = pl;
+        if (self->target != 0) {
+            if (TObjPlayer__sub_80141CF8(self->target + 0x38, self->pos) < self->range * self->range) {
+                self->state = 3;
+                if (TObjPlayer__sub_80019248((int)pl) != 0) {
+                    ((void (*)(f32, void *, void *, s32, int))TObjPlayer__sub_801B5328)(self->range, pl, self->pos, self->x84, 0);
+                }
+            } else {
+                self->idx = 0xFFFF;
+                self->target = 0;
+            }
+        }
+    } else {
+        self->target = 0;
+    }
+}
+
 void TOTrap__sub_80178DCC(u8 *arg0) {
     TObjPlayer__sub_801B4A18((void *)((void *) (arg0)), (M2C_UNK)((int) (-1)));
     ((VObj_18_f90cfc *)(arg0))->m77();
+}
+
+void TOTrap__sub_80178E10(Obj_80178E10 *arg0) {
+    calc_attach_pos__10TObjPlayerFPv();
+    arg0->idx = TObjPlayer__sub_800115C4(arg0, 0, arg0->range);
+    if (arg0->idx != (u16)0xFFFF) {
+        arg0->target = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(arg0->idx);
+        if (arg0->target != 0) {
+            if (TObjPlayer__sub_80141CF8(arg0->target + 0x38, (u8 *)arg0 + 0x38) < arg0->range * arg0->range) {
+                arg0->state = 2;
+            }
+        } else {
+            arg0->idx = 0xFFFF;
+            arg0->target = 0;
+        }
+    } else {
+        arg0->target = 0;
+    }
 }
 
 void play_sounds__6TOTrapFi(s32 arg0) {

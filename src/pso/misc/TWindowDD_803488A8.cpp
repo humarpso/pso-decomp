@@ -8,9 +8,10 @@ struct Src_80348A9C { f32 x; f32 y; };
 
 struct Dst_80348A9C { u8 pad[0xc]; f32 x; f32 y; u8 pad2[4]; };
 
+typedef s32 M2C_UNK;
 extern "C" {
 extern f32 lbl_805DFB1C;
-extern f32 TWindowDD__data_805DFCD8;
+extern const f32 TWindowDD__data_805DFCD8;
 extern f32 lbl_805DFCDC;
 void TWindowDD__sub_80348A2C(void *arg0, void *arg1);
 extern const f32 lbl_805DFCE0;
@@ -22,6 +23,11 @@ extern s32 *TWindowDD__data_805D6E18;
 extern s32 *TWindowDD__data_805D6E28;
 extern s16 *lbl_805D6E34;
 s32 TWindowDD__sub_80348B70(s16 arg0);
+extern const f32 TWindowDD__data_805DFB58;
+extern const f32 lbl_805DFB5C;
+extern const f32 lbl_805DFCD4;
+extern const f32 TWindowDD__data_805DFCD8;
+void TWindowDD__sub_80348AFC(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -128,6 +134,36 @@ s32 get_draw_count__9TWindowDDFPv(void **arg0) {
 
 extern s32 TWindowDD__data_805D6E30;
 extern s32 lbl_805D6E3C;
+
+#pragma push
+#pragma fp_contract on
+void TWindowDD__sub_80348AFC(u8 *arg0, u8 *arg1) {
+    f32 y0;
+    f32 ky;
+    f32 x0;
+    f32 x;
+    f32 y;
+    f32 w;
+    f32 h;
+    x = M2C_FIELD(arg0, f32 *, 0x40);
+    y = M2C_FIELD(arg0, f32 *, 0x44);
+    ky = lbl_805DFB5C;
+    x0 = x + TWindowDD__data_805DFB58;
+    w = M2C_FIELD(arg0, f32 *, 0x48);
+    h = M2C_FIELD(arg0, f32 *, 0x4C);
+    y0 = y + ky;
+    M2C_FIELD(arg1, f32 *, 0x10) = x0;
+    M2C_FIELD(arg1, f32 *, 0x14) = y0;
+    M2C_FIELD(arg1, f32 *, 0x18) = w - lbl_805DFCD4 * TWindowDD__data_805DFB58;
+    M2C_FIELD(arg1, f32 *, 0x1C) = h - lbl_805DFCD4 * ky;
+    M2C_FIELD(arg1, f32 *, 0x3C) = x0;
+    M2C_FIELD(arg1, f32 *, 0x40) = y0;
+    M2C_FIELD(arg1, f32 *, 0x44) = (x + w) - TWindowDD__data_805DFB58;
+    M2C_FIELD(arg1, f32 *, 0x48) = (y + h) - ky;
+    M2C_FIELD(arg1, f32 *, 0x20) = TWindowDD__data_805DFCD8 * w + x;
+    M2C_FIELD(arg1, f32 *, 0x24) = TWindowDD__data_805DFCD8 * h + y;
+}
+#pragma pop
 
 s32 TWindowDD__sub_80348B70(s16 arg0) {
     s32 *t = TWindowDD__data_805D6E18;

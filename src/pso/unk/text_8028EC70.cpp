@@ -19,6 +19,14 @@ struct Chr_8028EE20 { u8 pad[0x38]; s16 sel[5]; u8 pad2[0x50 - 0x42]; };
 
 struct Row_8028EE20 { s16 max[0x16]; };
 
+struct A_8028EC70 { u8 pad0[4]; s16 v[5]; s8 e; };
+
+struct B_8028EC70 { u8 pad0[0x30]; s8 e; u8 pad31[7]; s16 v[5]; };
+
+struct A_8028ECCC { u8 pad0[4]; s16 v[5]; s8 e; };
+
+struct B_8028ECCC { u8 pad0[0x30]; s8 e; u8 pad31[7]; s16 v[5]; };
+
 extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_8028EF90(int);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8028F084(u32, void *);
@@ -33,9 +41,38 @@ s32 get_display_index__12TCharaMakingFPv(void *);
 s32 TAdSinglePlyChrSelectGC__sub_8028F198(void *);
 extern Row_8028EE20 lbl_804D8E20[];
 s32 TAdSinglePlyChrSelectGC__sub_8028EE20(void *arg0, void *arg1_);
+s32 TAdSinglePlyChrSelectGC__sub_8028EC70(A_8028EC70 *a, B_8028EC70 *b);
+s32 TAdSinglePlyChrSelectGC__sub_8028ECCC(A_8028ECCC *a, B_8028ECCC *b);
 }
 
 extern "C" {
+
+s32 TAdSinglePlyChrSelectGC__sub_8028EC70(A_8028EC70 *a, B_8028EC70 *b) {
+    s32 i;
+    if (a->e != b->e) {
+        return 0;
+    }
+    for (i = 0; i < 5; i++) {
+        if (a->v[i] != b->v[i]) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+s32 TAdSinglePlyChrSelectGC__sub_8028ECCC(A_8028ECCC *a, B_8028ECCC *b) {
+    s32 n = 0;
+    s32 i;
+    for (i = 0; i < 5; i++) {
+        if (a->v[i] != b->v[i]) {
+            n++;
+        }
+    }
+    if (a->e != b->e) {
+        n++;
+    }
+    return n;
+}
 
 void TAdSinglePlyChrSelectGC__sub_8028ED24(Dst_8028ED24 *d, Src_8028ED24 *s) {
     s32 i;

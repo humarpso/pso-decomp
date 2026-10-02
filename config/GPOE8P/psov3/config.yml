@@ -38,6 +38,7 @@ force_active:
   - PSMTXRotTrig
   - TAdRayGC__sub_8029BCB4
   - TAdSinglePlyChrSelectGC__sub_80133530
+  - TAdSinglePlyChrSelectGC__sub_8028EE20
   - TBoss2DeRolLe__sub_80034D58
   - TBoss3Volopt__sub_800D8F78
   - TBoss8Dragon__sub_8005DC0C
@@ -112,6 +113,8 @@ force_active:
   - TSaveChCr__sub_8033A010
   - TWindowActionPalette__sub_801C1C20
   - TWindowActionPalette__sub_801C1C30
+  - TWindowCtrl__sub_8024A714
+  - TWindowCtrl__sub_8024A7CC
   - TWindowMainMenu1P__sub_80288520
   - TWindowSetLevelUp__sub_8026DDE0
   - TypeAndStatusCallback
@@ -245,7 +248,15 @@ force_active:
   - fn_801C1F40
   - fn_801D36B4
   - fn_801D371C
+  - fn_801DF360
+  - fn_801DF3F0
+  - fn_801DF47C
+  - fn_801DF4B8
+  - fn_801DF558
+  - fn_801DF740
+  - fn_801DF7F8
   - fn_8026D564
+  - fn_80349C54
   - fn_803CBE00
   - free_item_pmt
   - has_serial_input__22TAdEnterSerialAccessGCFv

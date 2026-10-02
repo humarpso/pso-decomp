@@ -44,6 +44,21 @@ struct Player_802BA078 { u8 pad0[0x30]; s32 f30; u8 pad34[4]; V3_802BA078 pos; }
 
 struct Boss_802BA078 { u8 pad0[0x4B8]; s32 f4B8; u8 pad4BC[0x55C - 0x4BC]; u16 f55C; };
 
+struct Ent_802B9B20 { u8 pad[0x18]; u32 flags; u8 pad1C[0x2C - 0x1C]; };
+
+struct Boss_802B9B20 { u8 pad[0xA4]; Ent_802B9B20 *list; };
+
+struct Vec_802B9C80 { f32 x, y, z; };
+
+struct Tb_802B9C80 { s32 a; s32 b; };
+
+struct Boss_802B9C80 {
+    u8 pad0[0x38];
+    Vec_802B9C80 pos;
+    u8 pad44[0x77C - 0x44];
+    u32 arr[14];
+};
+
 extern "C" {
 u8 *TPlayerBattleCtrl4P__sub_801BA74C(u32);
 void copy_vec2__11TBoss6Type2FPvPv(void* p, void* q);
@@ -93,6 +108,13 @@ s32 is_target_valid__11TBoss6Type2FPv(void *);
 extern const f32 TBoss6Type2__data_805DE430;
 extern const f32 TBoss6Type2__data_805DE434;
 void TBoss6Type2__sub_802BA078(Boss_802BA078 *arg0);
+s32 TObjEneDellBiter__sub_80087350(s32, s32);
+extern s32 lbl_804713A8[];
+void TBoss6Type2__sub_802B9B20(Boss_802B9B20 *o);
+void VecCopy__FP3VecPC3Vec(Vec_802B9A68 *, Vec_802B9A68 *);
+void copy_pos__11TNowLoadingFPvPv(s32, Vec_802B9C80 *);
+extern Tbl_802B9C00 lbl_804710CC[];
+void TBoss6Type2__sub_802B9C80(Boss_802B9C80 *o);
 }
 
 extern "C" {
@@ -149,6 +171,25 @@ s32 TBoss6Type2__sub_802B9A68(s32 id) {
     return 0;
 }
 
+void TBoss6Type2__sub_802B9B20(Boss_802B9B20 *o) {
+    s32 found = 0;
+    Ent_802B9B20 *e;
+    s32 i;
+    Ent_802B9B20 *t = o->list;
+    if (t != NULL) {
+        e = t;
+        for (i = 0; i < 3; i++, e++) {
+            if (e->flags & 0x04000000) {
+                TObjEneDellBiter__sub_80087350((s32)((u8 *)o + lbl_804713A8[i] * 0xC + 0x59C), 0x223);
+                found = 1;
+            }
+        }
+    }
+    if (found == 0) {
+        TObjEneDellBiter__sub_80087350((s32)((u8 *)o + 0x2FC), 0x223);
+    }
+}
+
 #pragma push
 #pragma opt_common_subs off
 void TBoss6Type2__sub_802B9BBC(s32 arg0, s32 arg1) {
@@ -172,6 +213,22 @@ void TBoss6Type2__sub_802B9C00(u8 *arg0, s32 arg1) {
             set_flags__11TBoss4Type2FPvUi(*(u32 *)(p + 0x77C), 0x40);
         }
     }
+}
+
+void TBoss6Type2__sub_802B9C80(Boss_802B9C80 *o) {
+    s32 i = 0;
+    do {
+        Vec_802B9C80 v = o->pos;
+        Tb_802B9C80 *e = &((Tb_802B9C80 *)&lbl_804710CC)[i];
+        if (o->arr[i] != 0) {
+            s32 idx = e->b;
+            if (idx >= 0) {
+                VecCopy__FP3VecPC3Vec((Vec_802B9A68 *)(&v), (Vec_802B9A68 *)((Vec_802B9C80 *)((u8 *)o + idx * 0xC + 0x59C)));
+            }
+            copy_pos__11TNowLoadingFPvPv((s32)o->arr[i], &v);
+        }
+        i++;
+    } while (i < 14);
 }
 
 void init_parts__11TBoss6Type2FPv(s32 arg0) {

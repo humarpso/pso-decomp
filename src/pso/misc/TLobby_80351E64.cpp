@@ -7,6 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_80351FDC_lbl_804F0EA8 { M2C_UNK value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_80351FDC_lbl_804F0EA8_size[sizeof(RecoveredGlobal_80351FDC_lbl_804F0EA8) == 0x18 ? 1 : -1];
 
+struct L_80351EAC { u8 pad[0x1C]; u32 flags; s32 mode; };
+
 extern "C" {
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
@@ -29,6 +31,9 @@ extern u8 *tl_00;
 u8 *TLobby__sub_80351FDC(u8 *arg0);
 s32 TLobby__sub_80351DFC(void);
 s32 fn_80352094(void);
+void TLobby__sub_80351DF8(void *, s32);
+s32 TLobby__sub_80351DFC(void);
+void TLobby__sub_80351EAC(L_80351EAC *arg0);
 }
 
 extern "C" {
@@ -61,6 +66,21 @@ s32 is_lobby_obj_active__6TLobbyFv(void) {
 int get_lobby_type__6TLobbyFv(void) {  return lbl_805D6EC4; }
 
 extern void *lbl_805D6EC0;
+
+void TLobby__sub_80351EAC(L_80351EAC *arg0) {
+    s32 mode = TLobby__sub_80351DFC();
+    arg0->flags &= ~7;
+    if (arg0->mode != mode) {
+        arg0->flags |= 1;
+        if (arg0->mode == 0) {
+            arg0->flags |= 2;
+        } else if (mode == 0) {
+            arg0->flags |= 4;
+        }
+        arg0->mode = mode;
+    }
+    TLobby__sub_80351DF8(arg0, mode);
+}
 
 void TLobby__sub_80351F3C(void) {
     void *o;

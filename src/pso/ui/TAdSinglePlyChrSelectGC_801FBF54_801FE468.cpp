@@ -22,6 +22,9 @@ struct Slot_801FE5F8 {
     u8 tail[8];
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
 extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_801FCCDC(s32, s32);
 extern s32 lbl_805D5F5C;
@@ -30,13 +33,18 @@ s32 TAdSinglePlyChrSelectGC__sub_801FCCDC(s32, s32);
 extern RecoveredGlobal_801FE4BC_lbl_805137C8 lbl_805137C8;
 extern u32 lbl_805D5F58;
 M2C_UNK *TAdSinglePlyChrSelectGC__sub_801FE4BC(u32 arg0);
-void TAdSinglePlyChrSelectGC__sub_801FE710(void *, void *);
 void *memcpy(void *, const void *, u32);
 void *memset(void *, int, u32);
 extern int lbl_805137D8[];
 extern u8 lbl_805137F8[];
 extern u32 lbl_805D5F58;
 void TAdSinglePlyChrSelectGC__sub_801FE5F8(Req_801FE5F8 *arg0);
+void *memcpy(void *, const void *, u32);
+extern int lbl_805137D8[];
+extern u8 lbl_805137F8[];
+extern u32 lbl_805D5F58;
+void TAdSinglePlyChrSelectGC__sub_801FE538(void);
+void TAdSinglePlyChrSelectGC__sub_801FE710(void *arg0, void *arg1);
 }
 
 extern "C" {
@@ -100,10 +108,21 @@ M2C_UNK *TAdSinglePlyChrSelectGC__sub_801FE4BC(u32 arg0) {
     return &lbl_805137C8.value;
 }
 
+void TAdSinglePlyChrSelectGC__sub_801FE538(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        Req_801FE5F8 *r = (Req_801FE5F8 *)lbl_805137F8;
+        if (r->slot[i] < 7 && r->slot[i] >= 0) {
+            memcpy(((Slot_801FE5F8 *)lbl_805D5F58)[r->slot[i]].chr, (void *)lbl_805137D8[r->dest[i]], 0x41C);
+            memcpy(((Slot_801FE5F8 *)lbl_805D5F58)[r->slot[i]].inv, (void *)lbl_805137D8[r->dest[i] + 4], 0x2370);
+        }
+    }
+}
+
 void TAdSinglePlyChrSelectGC__sub_801FE5F8(Req_801FE5F8 *arg0) {
     s32 i;
     if (arg0->count <= 4) {
-        TAdSinglePlyChrSelectGC__sub_801FE710(lbl_805137F8, arg0);
+        TAdSinglePlyChrSelectGC__sub_801FE710((void *)(lbl_805137F8), (void *)(arg0));
         for (i = 0; i < 4; i++) {
             memset((void *)lbl_805137D8[i], 0, 0x41C);
             memset((void *)lbl_805137D8[i + 4], 0, 0x2370);
@@ -115,6 +134,10 @@ void TAdSinglePlyChrSelectGC__sub_801FE5F8(Req_801FE5F8 *arg0) {
             }
         }
     }
+}
+
+void TAdSinglePlyChrSelectGC__sub_801FE710(void *arg0, void *arg1) {
+    *(Req_801FE5F8 *)arg0 = *(Req_801FE5F8 *)arg1;
 }
 
 s32 TAdSinglePlyChrSelectGC__sub_801FE75C(void) {

@@ -54,6 +54,31 @@ struct VObj_802A752C_802A7290 : Base_802A752C_802A7290 {
     virtual void m12();
 };
 
+struct Node_802A7378 { u8 pad0[0xA]; u16 flags; };
+
+struct Slot_802A7378 { Node_802A7378 *node; u32 x4; };
+
+struct PBase_802A7378 { char pad[0x8]; };
+
+struct VObj_802A7378 : PBase_802A7378 {
+    virtual void m0();   virtual void m1();   virtual void m2();   virtual void m3();
+    virtual void m4();   virtual void m5();   virtual void m6();   virtual void m7();
+    virtual void m8();   virtual void m9();   virtual void m10();  virtual void m11();
+    virtual void m12();  virtual void m13();  virtual void m14();
+    virtual s32 m15();   virtual s32 m16();   virtual s32 m17();
+    u32 xC;
+    Slot_802A7378 slots[1];
+};
+
+struct Base_802A75C8 { char pad[0x8]; };
+
+struct VObj_802A75C8 : Base_802A75C8 {
+    virtual void m0();   virtual void m1();   virtual void m2();   virtual void m3();
+    virtual void m4();   virtual void m5();   virtual void m6();   virtual void m7();
+    virtual void m8();   virtual void m9();   virtual void m10();  virtual void m11();
+    virtual void m12();
+};
+
 extern "C" {
 int TLobby__sub_802A7260(void* a0);
 int TLobby__sub_802A7278(void* a0);
@@ -93,6 +118,11 @@ extern s32 lbl_805D6680;
 int TLobby__sub_802A7790(void);
 extern RecoveredGlobal_802A7444_lbl_804DDBD8 lbl_804DDBD8;
 s32 TLobby__sub_802A7420(void *self, s32 a, s32 b, s32 c);
+void TLobby__sub_802A7378(u8 *arg0);
+s32 sub_802a7290_fwd__10TObjPlayerFPv(void *);
+s32 is_handle_valid__10TObjPlayerFPv(void *);
+s32 TLobby__sub_802A7994(void *, s32, s32, s32);
+s32 TLobby__sub_802A75C8(void *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -126,6 +156,13 @@ s32 calc_cell_offset__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2) {
     return lbl_805D6680 + ((arg2 + (arg1 * o->m73())) << 0xE);
 }
 typedef char RecoveredGlobal_802A7444_lbl_804DDBD8_size[sizeof(RecoveredGlobal_802A7444_lbl_804DDBD8) == 0x18 ? 1 : -1];
+
+void TLobby__sub_802A7378(u8 *arg0) {
+    VObj_802A7378 *o = (VObj_802A7378 *)arg0;
+    o->slots[o->m15()].node->flags |= 0x80;
+    o->slots[o->m16()].node->flags |= 0x80;
+    o->slots[o->m17()].node->flags |= 0x80;
+}
 
 s32 TLobby__sub_802A7420(void *self, s32 a, s32 b, s32 c) {
     return ((s32 ** *)&lbl_804DDBD8)[a][b][c];
@@ -163,6 +200,17 @@ s32 handle_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
     return temp_r3;
 }
+
+s32 TLobby__sub_802A75C8(void *arg0, s32 arg1) {
+    s32 a = is_handle_valid__10TObjPlayerFPv(arg0);
+    s32 b = sub_802a7290_fwd__10TObjPlayerFPv(arg0);
+    s32 r = TLobby__sub_802A7994(arg0, arg1, a, b);
+    if (r != 0) {
+        ((VObj_802A75C8 *)arg0)->m12();
+    }
+    return r;
+}
+
 void TLobby__sub_802A7640(void) {
     if ((u32) (*(u32 *)&lbl_805D6680) != 0U) {
         free__11TOBoss4RockFUi((void*)(*(u32 *)&lbl_805D6680));

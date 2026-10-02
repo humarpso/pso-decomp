@@ -16,6 +16,103 @@ struct RecoveredGlobal_8035B3C0_lbl_8047975C { M2C_UNK value; u8 remaining[0xA0]
 
 struct RecoveredGlobal_8035B3C0___vt__15TPlyPhotonChair { M2C_UNK value; u8 remaining[0x34]; };
 
+struct Vec_8035B058 { f32 x, y, z; };
+
+struct Quat_8035B058 { f32 w, x, y, z; };
+
+struct PBase_8035B058 { char pad[0x18]; };
+
+struct Player_8035B058 : PBase_8035B058 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63(s32, Vec_8035B058 *);
+};
+
+struct SBase_8035B058 { char pad[4]; };
+
+struct Sub_8035B058 : SBase_8035B058 {
+    virtual void s0();
+    virtual void s1();
+};
+
+struct Chair_8035B058 {
+    u8 pad0[0x24];
+    s32 x24;
+    u8 pad28[0x38 - 0x28];
+    Vec_8035B058 pos;
+    u8 pad44[0x5C - 0x44];
+    u8 rot[4];
+    s32 x60;
+    u8 pad64[4];
+    u8 x68[0x98 - 0x68];
+    Sub_8035B058 a;
+    u8 padA0[0xB4 - 0xA0];
+    Sub_8035B058 b;
+    u8 padBC[0xD0 - 0xBC];
+    u8 parts[4];
+};
+
 extern "C" {
 void set_field90__15TPlyPhotonChairFPvs(void* p, s32 v);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -60,6 +157,23 @@ extern s32 lbl_805D4418;
 extern u32 TPlyPhotonChair__data_805D6F40;
 extern const f32 lbl_805E0130;
 u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 arg2);
+s32 get_state_flag__9TMainTaskFv();
+int copy_xyz__10TObjPlayerFPvPv(void *, void *);
+s32 is_inactive__10TObjPlayerFPv(void *);
+int play_sound_with_arg__15TPlyPhotonChairFPvPv(void *, void *);
+int update_parts__15TPlyPhotonChairFPv(void *);
+int update_parts2__15TPlyPhotonChairFPv(void *);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u16 TPlyPhotonChair__sub_8035B530(void* p);
+void render__15TPlyPhotonChairFPvPv(void* p, void* a1);
+int rotate_matrix_y(int, int);
+int TObjPlayer__sub_803D9B2C();
+int TObjPlayer__sub_803D9B78();
+int TBoss7Tentacle__sub_803D9BA0(void *);
+int TOHangerMachine01__sub_803D9C00(void *);
+int set_global_param__8TObjFishFi(int);
+extern const f32 lbl_805E0124;
+void render__15TPlyPhotonChairFv(Chair_8035B058 *self);
 }
 
 extern "C" {
@@ -85,6 +199,45 @@ void destroy__15TPlyPhotonChairFPvs(void *, int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 extern u32 TPlyPhotonChair__data_805D6F40;
+
+void render__15TPlyPhotonChairFv(Chair_8035B058 *self) {
+    Vec_8035B058 out;
+    Quat_8035B058 q;
+    Quat_8035B058 q2;
+    Player_8035B058 *pl;
+    pl = (Player_8035B058 *)TPlayerBattleCtrl4P__sub_801BA74C(TPlyPhotonChair__sub_8035B530(self));
+    if (pl != NULL) {
+        render__15TPlyPhotonChairFPvPv(self->parts, &q);
+        {
+            q2.w = q.w;
+            q2.x = 0.5f * q.x;
+            q2.y = 0.5f * q.y;
+            q2.z = 0.5f * q.z;
+        }
+        pl->m63(2, &out);
+        self->pos.x = out.x;
+        self->pos.y = out.y - lbl_805E0124;
+        self->pos.z = out.z;
+        copy_xyz__10TObjPlayerFPvPv(self->rot, (u8 *)pl + 0x5C);
+        if (is_inactive__10TObjPlayerFPv(pl) != 0) {
+            update_parts2__15TPlyPhotonChairFPv(self->parts);
+            set_global_param__8TObjFishFi(self->x24);
+            TObjPlayer__sub_803D9B2C();
+            TOHangerMachine01__sub_803D9C00(&self->pos);
+            rotate_matrix_y(0, self->x60);
+            TBoss7Tentacle__sub_803D9BA0(self->x68);
+            if (get_state_flag__9TMainTaskFv() != 0) {
+                play_sound_with_arg__15TPlyPhotonChairFPvPv(self->parts, &q);
+                self->a.s1();
+            } else {
+                play_sound_with_arg__15TPlyPhotonChairFPvPv(self->parts, &q2);
+                self->b.s1();
+            }
+            TObjPlayer__sub_803D9B78();
+            update_parts__15TPlyPhotonChairFPv(self->parts);
+        }
+    }
+}
 
 void run_task__15TPlyPhotonChairFv(u8 *arg0) {
     u32 temp_r0;

@@ -3605,6 +3605,7 @@ pso/misc/TFogCtrl.cpp:
 pso/misc/TFogCtrl_800FBA58.cpp:
 	.text       start:0x800FBA58 end:0x800FC0F8
 	.rodata     start:0x8043DA70 end:0x8043DA78
+	.sdata2     start:0x805DA948 end:0x805DA978
 
 pso/unk/text_800FC0F8.cpp:
 	.text       start:0x800FC0F8 end:0x800FC220
@@ -7715,6 +7716,7 @@ pso/unk/text_8018289C.cpp:
 
 pso/player/TObjPlayer_8018291C.cpp:
 	.text       start:0x8018291C end:0x80182E90
+	.sdata2     start:0x805DBBE8 end:0x805DBBEC
 
 pso/unk/text_80182E90.cpp:
 	.text       start:0x80182E90 end:0x80183018
@@ -13312,6 +13314,7 @@ pso/misc/TWindowSubStatusDisp_80281198.cpp:
 
 pso/misc/TWindowSubSymbolChat_80281814.cpp:
 	.text       start:0x80281814 end:0x8028239C
+	.rodata     start:0x8044FB28 end:0x8044FB30
 
 pso/misc/TWindowSubSymbolChat_8028239C.cpp:
 	.text       start:0x8028239C end:0x802837A8
@@ -15127,6 +15130,7 @@ pso/boss/TBoss7LaserPtcl_802ECDA0.cpp:
 
 pso/object/TObjFish_802ECE90.cpp:
 	.text       start:0x802ECE90 end:0x802ED524
+	.sdata2     start:0x805DEA7C end:0x805DEB8C
 
 pso/boss/TBoss7PhotonBullet.cpp:
 	.text       start:0x802ED524 end:0x802ED828
@@ -17178,6 +17182,7 @@ pso/unk/text_8035B00C.cpp:
 pso/misc/TPlyPhotonChair.cpp:
 	.text       start:0x8035B058 end:0x8035B6B0
 	.rodata     start:0x80479800 end:0x80479808
+	.sdata2     start:0x805E0120 end:0x805E0124
 
 pso/unk/text_8035B6B0.cpp:
 	.text       start:0x8035B6B0 end:0x8035B750

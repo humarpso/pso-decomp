@@ -2,9 +2,16 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+struct R_80207F30 { s16 a; s16 b; u16 c; };
+
+extern "C" {
+s32 TObjPlayer__sub_800196EC();
+void *memset(void *, int, unsigned long);
+int TLobby__sub_80207F30(R_80207F30 *arg0);
+}
+
 extern "C" {
 
-int TLobby__sub_80207F30(void);
 void TLobby__sub_802080C0(void *arg0);
 void TLobby__sub_802080F4(void *arg0);
 void TLobby__sub_802081AC(void *arg0);
@@ -26,7 +33,15 @@ int get_global_state__14TOKeyMachine01Fv(void);
 int reset_story_select__6TLobbyFPv(void* p);
 int reset_story_select__6TLobbyFv(void*);
 
-int TLobby__sub_80207F30(void) { return 0; }
+int TLobby__sub_80207F30(R_80207F30 *arg0) {
+    s32 r;
+    memset(arg0, 0, 0x3C);
+    arg0->a = -1;
+    r = TObjPlayer__sub_800196EC();
+    arg0->b = r;
+    arg0->c = 0xFFFF;
+    return r;
+}
 
 void update_current_floor__6TLobbyFv(void) { get_global_state__14TOKeyMachine01Fv(); ((void (*)(void))TLobby__sub_80207F80)(); }
 

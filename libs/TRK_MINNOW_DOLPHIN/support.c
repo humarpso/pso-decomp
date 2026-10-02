@@ -1,3 +1,4 @@
+#define _MATH_H_
 #define TRKRequestSend Runtime_TRKRequestSend
 #define TRKSuppAccessFile Runtime_TRKSuppAccessFile
 

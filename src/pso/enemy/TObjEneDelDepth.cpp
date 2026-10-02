@@ -218,6 +218,24 @@ struct VObj_18_b31a3c : VBase_18_b31a3c {
     virtual M2C_UNK m80();
 };
 
+typedef s32 M2C_UNK;
+struct Vec_8031551C { f32 x; f32 y; f32 z; };
+
+struct Dep_8031551C {
+    u8 pad0[0x38];
+    Vec_8031551C pos;
+    u8 pad1[0x60 - 0x44];
+    s32 f60;
+    u8 pad2[0x37C - 0x64];
+    s32 f37C;
+    u8 pad3[0x398 - 0x380];
+    f32 f398;
+    f32 f39C;
+    u8 f3A0[0x3E0 - 0x3A0];
+    s32 flags;
+    u8 f3E4[4];
+};
+
 extern "C" {
 s32 add_flags_2e4__10TObjPlayerFPvUi(void *, int);
 s32 initialize__9TObjEnemyFPv(void *);
@@ -235,7 +253,6 @@ s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 void TObjEneDelDepth__sub_80315518(void);
-s32 TObjEneDelDepth__sub_8031551C(void *);
 M2C_UNK reset_globals__15TObjEneDelDepthFv();
 M2C_UNK TObjEneDelDepth__sub_80315D34();
 M2C_UNK TObjEneDelDepth__sub_803162A8(s32);
@@ -272,6 +289,17 @@ extern M2C_UNK lbl_804E8194[];
 extern u8 *TObjEneDelDepth__data_805D6AC4;
 extern const f32 TObjEneDelDepth__data_805DF258;
 void TObjEneDelDepth__sub_803158B0(u8 *arg0);
+s32 get_mode__11TCameraCtrlFPv(void *);
+s32 TObjEneRecon__sub_8029E960(void *);
+M2C_UNK restore_render_scissor(int);
+M2C_UNK TObjEneDelDepth__sub_803162A8(s32);
+M2C_UNK set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK rotate_matrix_y(int, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+extern u8 main_task[];
+s32 TObjEneDelDepth__sub_8031551C(void *arg0);
 }
 
 extern "C" {
@@ -304,6 +332,25 @@ void TObjEneDelDepth__sub_80315518(void) {  }
 
 extern M2C_UNK __vt__15TObjEneDelDepth[];
 
+s32 TObjEneDelDepth__sub_8031551C(void *arg0) {
+    Dep_8031551C *o = (Dep_8031551C *)arg0;
+    if (get_mode__11TCameraCtrlFPv(main_task) & 0x20) {
+        if (TObjEneRecon__sub_8029E960(o->f3E4) != 0) {
+            TObjPlayer__sub_803D9B2C();
+            Vec_8031551C v = o->pos;
+            v.y += o->f39C;
+            TOHangerMachine01__sub_803D9C00(&v);
+            rotate_matrix_y(0, o->f60);
+            set_monitor_position_vec3__10TObjPlayerFPvPv(0, o->f3A0);
+            TObjEneDelDepth__sub_803162A8(o->f37C);
+            TObjPlayer__sub_803D9B78();
+            restore_render_scissor(1);
+        }
+        return 1;
+    }
+    return 0;
+}
+
 void render__15TObjEneDelDepthFv(Dep_803155D4 *o) {
     if (check_demo_mode__10TObjPlayerFv() != 0) {
         ((void (*)(void *))TObjEneDelDepth__sub_80315518)(o);
@@ -315,7 +362,7 @@ void render__15TObjEneDelDepthFv(Dep_803155D4 *o) {
     if (((VObj_18_26a62c *)o)->m8(lbl_805DF294, lbl_805DF2D8) == 0) {
         return;
     }
-    if (TObjEneDelDepth__sub_8031551C(o) != 0) {
+    if (TObjEneDelDepth__sub_8031551C((void *)(o)) != 0) {
         return;
     }
     if (o->f398 < TObjEneDelDepth__data_805DF260) {

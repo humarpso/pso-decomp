@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Rec_801378AC { u8 b[0x43c]; };
 
+typedef s32 M2C_UNK;
+
 extern "C" {
 extern void *TLobby__data_805D5580;
 extern char lbl_8043F038[];
@@ -67,6 +69,30 @@ void *get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
 extern char lbl_8043F05C[];
 extern void *TLobby__data_805D5580;
 void TLobby__sub_80137708(u32 arg0);
+void dispatch_by_index__6TLobbyFi(s32 arg0);
+s32 get_option_state__6TLobbyFv(void);
+void reset_state__6TLobbyFv(s32);
+void TLobby__sub_8013A170(const char *fmt, ...);
+void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+M2C_UNK TLobby__sub_801DA8C4(int, void *, int);
+void *get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
+extern char lbl_8043F038[];
+extern char lbl_8043F044[];
+extern s32 lbl_805D53A0;
+extern void *TLobby__data_805D5580;
+void TLobby__sub_80137608(s32 arg0);
+M2C_UNK TLobby__sub_801366AC(Rec_801378AC *, s16, s16, s32);
+M2C_UNK TLobby__sub_80136A8C();
+M2C_UNK TLobby__sub_801384E4();
+M2C_UNK TLobby__sub_801A5350();
+extern Rec_801378AC TLobby__data_80506A6C[];
+extern s32 TLobby__data_805D53AC;
+extern void *TLobby__data_805D5580;
+extern s16 TLobby__data_805D558C;
+extern s16 TLobby__data_805D558E;
+extern s32 TLobby__data_805D5590;
+extern s32 TLobby__data_805D55FC;
+void TLobby__sub_80137928(void);
 }
 
 extern "C" {
@@ -175,6 +201,21 @@ void TLobby__sub_801374EC(u32 arg0) {
     }
 }
 
+void TLobby__sub_80137608(s32 arg0) {
+    s32 opt;
+    if (arg0 != 0) {
+        TLobby__sub_8013A170(lbl_8043F038);
+        TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+        opt = get_option_state__6TLobbyFv();
+        TLobby__sub_801DA8C4((int)TLobby__data_805D5580, (u8 *)get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF) + 0x370, opt);
+        dispatch_by_index__6TLobbyFi(1);
+        return;
+    }
+    TLobby__sub_8013A170(lbl_8043F044);
+    dispatch_by_index__6TLobbyFi(2);
+    reset_state__6TLobbyFv(0x50);
+}
+
 void TLobby__sub_801376A0(s32 ok) {
     if (ok) {
         TLobby__sub_8013A170(lbl_8043F038);
@@ -268,6 +309,30 @@ void TLobby__sub_801378AC(Rec_801378AC *src, s32 n, s16 v, s32 w) {
     }
     TLobby__data_805D558E += n;
     TLobby__data_805D53AC = w;
+}
+
+void TLobby__sub_80137928(void) {
+    TLobby__data_805D55FC = 0;
+    switch (TLobby__data_805D5590) {
+    case 1:
+    case 2:
+        TLobby__sub_801366AC(TLobby__data_80506A6C, TLobby__data_805D558E, TLobby__data_805D558C, TLobby__data_805D53AC);
+        break;
+    case 3:
+    case 4:
+        TLobby__sub_80136A8C();
+        break;
+    case 5:
+        TLobby__sub_801384E4();
+        break;
+    }
+    if (TLobby__data_805D5580 != NULL) {
+        M2C_FIELD(TLobby__data_805D5580, s32 *, 0x191C) = 0;
+        TLobby__sub_801A5350();
+    }
+    TLobby__data_805D5590 = 0;
+    TLobby__data_805D558E = 0;
+    TLobby__data_805D558C = 0;
 }
 
 void reset_state_flags__6TLobbyFv(void) {

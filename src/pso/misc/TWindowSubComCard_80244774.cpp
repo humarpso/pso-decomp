@@ -30,6 +30,21 @@ void TWindowSubComCard__sub_80244B1C(u8 *arg0);
 extern f32 lbl_805DCAC8;
 extern const f32 lbl_805DCAD0;
 f32 TWindowSubComCard__sub_80244818(u8 *arg0);
+f32 calc_offset__17TWindowSubComCardFPv(void *arg0);
+f32 TWindowSubComCard__sub_80244818(u8 *arg0);
+extern f32 lbl_805DCAC8;
+f32 TWindowSubComCard__sub_80244784(void *arg0);
+M2C_UNK TWindowKeyBoardSoft__sub_8024E754(int, int);
+M2C_UNK TWindowKeyBoardSoft__sub_8024E7B8(int, int);
+M2C_UNK set_bounds__19TWindowKeyBoardSoftFPvffff(int, f32, f32, f32, f32);
+M2C_UNK TWindowKeyBoardSoft__sub_8024E84C(int);
+M2C_UNK animate_scale__19TWindowKeyBoardSoftFPv();
+s32 open_singleton__19TWindowKeyBoardSoftFiiii(void *, void *, void *, int, f32);
+extern const f32 lbl_805DCAD0;
+extern const f32 lbl_805DCAD4;
+extern const f32 lbl_805DCAD8;
+extern const f32 lbl_805DCADC;
+s32 TWindowSubComCard__sub_80244C0C(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -52,6 +67,14 @@ s32 get_field_20__17TWindowSubComCardFPv(void* p) { return *(s32*)((char*)p + 0x
 extern M2C_UNK lbl_8044E678;
 extern f32 lbl_805DCAC8;
 extern f32 lbl_805DCACC;
+
+f32 TWindowSubComCard__sub_80244784(void *arg0) {
+    f32 v = calc_offset__17TWindowSubComCardFPv(arg0);
+    if (v < lbl_805DCAC8) {
+        return v;
+    }
+    return TWindowSubComCard__sub_80244818((u8 *)arg0);
+}
 
 f32 calc_offset__17TWindowSubComCardFPv(void *arg0) {
     s16 temp_r3;
@@ -222,6 +245,27 @@ void window_request_show(void *arg0) {
         TBoss3Volopt__sub_8022675C((s32)(0x53703), (s32)(0), (s32)(0), (s32)(0));
     }
     allow_rendering__7TObjectFv(arg0);
+}
+s32 TWindowSubComCard__sub_80244C0C(u8 *arg0, s32 arg1) {
+    s32 temp_r31;
+    s32 var_r4;
+    temp_r31 = ((s32 (*)(void *, void *, void *, f32, int))open_singleton__19TWindowKeyBoardSoftFiiii)((void *) (arg0 + 0x40), (void *) (arg0 + 0x48), (void *) (arg1), (f32) (M2C_FIELD(arg0, f32 *, 0x54)), (int) (M2C_FIELD(arg0, s32 *, 0x2C)));
+    if (M2C_FIELD(arg0, s32 *, 0x2C) & 0x40) {
+        animate_scale__19TWindowKeyBoardSoftFPv();
+    }
+    if (M2C_FIELD(arg0, s32 *, 0x2C) & 0x80) {
+        TWindowKeyBoardSoft__sub_8024E84C((int) (temp_r31));
+    }
+    if (M2C_FIELD(arg0, s32 *, 0x2C) & 8) {
+        set_bounds__19TWindowKeyBoardSoftFPvffff((int) (temp_r31), (f32) (lbl_805DCAD4), (f32) (lbl_805DCAD4), (f32) (lbl_805DCAD8), (f32) (lbl_805DCADC));
+    }
+    var_r4 = M2C_FIELD(arg0, s32 *, 0x5C);
+    if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 0x2000)) {
+        var_r4 = (s32) ((f32) var_r4 - lbl_805DCAD0);
+    }
+    TWindowKeyBoardSoft__sub_8024E7B8((int) (temp_r31), (int) (var_r4));
+    TWindowKeyBoardSoft__sub_8024E754((int) (temp_r31), (int) (M2C_FIELD(arg0, s16 *, 0x22)));
+    return temp_r31;
 }
 
 }

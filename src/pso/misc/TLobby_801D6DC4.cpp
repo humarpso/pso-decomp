@@ -41,6 +41,8 @@ u8 ret_801D791C(Obj_801D7098 *p);
 u8 TLobby__sub_801D7098(Obj_801D7098 *p);
 u8 ret_801D792C(Obj_801D7100 *p);
 u8 TLobby__sub_801D7100(Obj_801D7100 *p);
+s32 is_invalid_slot__10TObjPlayerFUc(u8);
+u8 TLobby__sub_801D6DDC(void *arg0);
 }
 
 extern "C" {
@@ -63,6 +65,17 @@ void set_volume__6TLobbyFPvUc(void *arg0, u8 arg1) {
         var_r4 = 0;
     }
     M2C_FIELD(arg0, u8 *, 0x10) = var_r4;
+}
+
+u8 TLobby__sub_801D6DDC(void *arg0) {
+    u8 v;
+    s32 t;
+    t = M2C_FIELD(arg0, u8 *, 0x11);
+    v = t;
+    if (is_invalid_slot__10TObjPlayerFUc(t) == 0 && v > 0x1DU) {
+        v = 0;
+    }
+    return v;
 }
 
 void set_validated_field_0x11__6TLobbyFPvUc(void *arg0, u8 arg1) {
