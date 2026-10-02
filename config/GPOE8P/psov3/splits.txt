@@ -3416,6 +3416,7 @@ pso/misc/TLobby_800F7F5C_800F7F5C.cpp:
 pso/misc/TLobby_800F7F5C.cpp:
 	.text       start:0x800F8208 end:0x800F85C0
 	.rodata     start:0x8043D7A0 end:0x8043D7A8
+	.sdata2     start:0x805DA8FC end:0x805DA910
 
 pso/misc/TLobby_800F7F5C_800F85C0.cpp:
 	.text       start:0x800F85C0 end:0x800F8628
@@ -10833,6 +10834,7 @@ pso/player/TObjPlayer_802034EC.cpp:
 
 pso/misc/TScene_80203510.cpp:
 	.text       start:0x80203510 end:0x80205A54
+	.rodata     start:0x8044A930 end:0x8044A938
 
 pso/misc/TScene_80205A54.cpp:
 	.text       start:0x80205A54 end:0x80205A6C
@@ -13029,6 +13031,7 @@ pso/unk/text_802754EC.cpp:
 
 pso/misc/TWindowSubComCardList.cpp:
 	.text       start:0x8027553C end:0x80275C0C
+	.rodata     start:0x8044F710 end:0x8044F718
 	.data       start:0x804D1178 end:0x804D1198
 
 pso/misc/TWindowSubEquip_80275C0C.cpp:
@@ -13638,6 +13641,7 @@ pso/object/TObjCMAssignMenu.cpp:
 
 pso/object/TObjCMMainMenu_802972BC.cpp:
 	.text       start:0x802972BC end:0x802981BC
+	.rodata     start:0x80465148 end:0x80465150
 
 pso/object/TObjCMMainMenu.cpp:
 	.text       start:0x802981BC end:0x802984FC
@@ -13912,6 +13916,7 @@ pso/misc/TChCrCharSelect_802A207C.cpp:
 pso/misc/TChCrTagName.cpp:
 	.text       start:0x802A208C end:0x802A2A00
 	.rodata     start:0x80466438 end:0x80466440
+	.sdata2     start:0x805DDE48 end:0x805DDE4C
 
 pso/unk/text_802A2A00.cpp:
 	.text       start:0x802A2A00 end:0x802A2BD8
@@ -14101,6 +14106,7 @@ pso/misc/TBGLightningCtrl_802A9D14.cpp:
 pso/misc/TBGLightning.cpp:
 	.text       start:0x802A9D40 end:0x802AA2D4
 	.rodata     start:0x8046FC98 end:0x8046FCA0
+	.sdata2     start:0x805DE030 end:0x805DE060
 
 pso/misc/TOBiwaMushi.cpp:
 	.text       start:0x802AA2D4 end:0x802AABEC
@@ -16304,6 +16310,7 @@ pso/boss/TBoss6Type2_803309D8.cpp:
 
 pso/misc/TWindowSubTradeMain_80330A84.cpp:
 	.text       start:0x80330A84 end:0x8033133C
+	.data       start:0x804EDFA8 end:0x804EE034
 
 pso/misc/TWindowSubTradeMain_8033133C.cpp:
 	.text       start:0x8033133C end:0x80332148
@@ -17994,6 +18001,7 @@ pso/unk/text_803A3858.cpp:
 	extab       start:0x8000E568 end:0x8000EA38
 	extabindex  start:0x8000EC9C end:0x8000F3D4
 	.text       start:0x803A3858 end:0x803BAC70
+	.sdata2     start:0x805E0B80 end:0x805E0BA8
 
 pso/misc/TLobby_803BAC70.cpp:
 	extab       start:0x8000EA38 end:0x8000EC58

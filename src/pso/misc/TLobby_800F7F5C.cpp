@@ -29,6 +29,9 @@ u32 TWindowCtrlMain__sub_8024CD5C(s32);
 extern RecoveredGlobal_800F8428_lbl_80499988 lbl_80499988;
 extern s32 lbl_805D53A0;
 void *TLobby__sub_800F8498(void *arg0, void *arg1, s32 arg2, s32 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7);
+void set_flag_4__9TObjLukerFPv(void *);
+void set_value__15TWindowCtrlMainFii(s32, s32);
+void TLobby__sub_800F8534(u8 *arg0);
 }
 
 extern "C" {
@@ -91,5 +94,19 @@ void *TLobby__sub_800F8498(void *arg0, void *arg1, s32 arg2, s32 arg3, u8 arg4, 
 }
 
 void TLobby__sub_800F8530(void) {  }
+void TLobby__sub_800F8534(u8 *arg0) {
+    M2C_UNK (*temp_r12)();
+    M2C_FIELD(arg0, f32 *, 0x1C) += 2.0f;
+    if (M2C_FIELD(arg0, f32 *, 0x1C) >= 128.0f) {
+        M2C_FIELD(arg0, f32 *, 0x1C) = 128.0f;
+        temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x28);
+        if (temp_r12 != NULL) {
+            temp_r12();
+        }
+        set_flag_4__9TObjLukerFPv((void *) (arg0));
+    }
+    M2C_FIELD(arg0, s8 *, 0x23) = (s8) M2C_FIELD(arg0, f32 *, 0x1C);
+    set_value__15TWindowCtrlMainFii(M2C_FIELD(arg0, s32 *, 0x24), M2C_FIELD(arg0, s32 *, 0x20));
+}
 
 }

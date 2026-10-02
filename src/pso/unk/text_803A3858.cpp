@@ -291,6 +291,13 @@ void TLobby__sub_803AEC00(Obj_803AEC00 *o, Op_803AEC00 *op);
 void shift_left_8__6TLobbyFPv(void *);
 void TLobby__sub_803BCA50(void *, void *);
 void TLobby__sub_803AF0CC(Obj_803AF0CC *o, Op_803AF0CC *op);
+extern const f32 lbl_805E0B78;
+s32 TLobby__sub_803B3DAC(s32 current);
+f32 powf(f32, f32, f32);
+extern const f32 lbl_805E0B90;
+extern const f32 lbl_805E0B94;
+extern const f32 lbl_805E0B98;
+u32 TLobby__sub_803B3ED8(s32 arg0);
 }
 
 extern "C" {
@@ -1769,6 +1776,14 @@ void TLobby__sub_803B3B80(Obj_803B3B80 *arg0) {
             }
         }
     }
+}
+
+s32 TLobby__sub_803B3DAC(s32 current) {
+    return (s32)(lbl_805E0B78 * (f32)(u16)current);
+}
+
+u32 TLobby__sub_803B3ED8(s32 arg0) {
+    return (u32)(lbl_805E0B90 * powf(lbl_805E0B94, lbl_805E0B98 * (f32)arg0, lbl_805E0B98));
 }
 
 void TLobby__sub_803B41A0(u8 *arg0) {

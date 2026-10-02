@@ -9,12 +9,46 @@ struct RecoveredGlobal_8029756C_TObjCMMainMenu__data_804DB9C8 {
     u8 remaining[0x9C];
 };
 
+struct V2_80297DB8 {
+    f32 x;
+    f32 y;
+};
+
+struct Quad_80297DB8 {
+    V2_80297DB8 p[4];
+};
+
+struct Cols_80297DB8 {
+    u32 c[4];
+};
+
+struct Prim_80297DB8 {
+    V2_80297DB8 *pts;
+    u32 *colors;
+    s32 start;
+    s32 count;
+};
+
+struct Menu_80297DB8 {
+    u8 pad[0x38];
+    f32 alpha;
+};
+
 extern "C" {
 s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
 s32 create__16TObjCMAssignMenuFPvPv(s32, s32);
 extern RecoveredGlobal_8029756C_TObjCMMainMenu__data_804DB9C8 TObjCMMainMenu__data_804DB9C8;
 extern s32 TObjCMMainMenu__data_805D659C;
 void TObjCMMainMenu__sub_8029756C(u8 *arg0);
+void TWindowCtrlMain__sub_801E352C(void *, int, int, f32);
+f32 get_scale__14TObjCMMainMenuFv(void);
+u32 __cvt_fp2unsigned(f32);
+extern Cols_80297DB8 lbl_804DBC68[2];
+extern Quad_80297DB8 lbl_804DBC88[2];
+extern const f32 lbl_805DDB90;
+extern const f32 lbl_805DDBB0;
+extern const f32 lbl_805DDBB4;
+void TObjCMMainMenu__sub_80297DB8(Menu_80297DB8 *self);
 }
 
 extern "C" {
@@ -117,6 +151,34 @@ void TObjCMMainMenu__sub_8029756C(u8 *arg0) {
     TBoss3Volopt__sub_8022675C((s32)(0x52D01), (s32)(0U), (s32)(0), (s32)(0));
     TObjCMMainMenu__data_805D659C = 1;
     create__16TObjCMAssignMenuFPvPv(M2C_FIELD(arg0, s32 *, 0x50), M2C_FIELD(&TObjCMMainMenu__data_804DB9C8.value, M2C_UNK *, (M2C_FIELD(M2C_FIELD(arg0, s32 *, 0x24), M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x2C) * 4)) * 0x10)));
+}
+void TObjCMMainMenu__sub_80297DB8(Menu_80297DB8 *self) {
+    Prim_80297DB8 prim;
+    u32 cols[4];
+    f32 s = get_scale__14TObjCMMainMenuFv();
+    f32 top = lbl_805DDBB0 * s;
+    f32 bot = top + lbl_805DDBB4 * s;
+    Cols_80297DB8 *src;
+    Quad_80297DB8 *q;
+    s32 i;
+    s32 j;
+    prim.start = 0;
+    prim.count = 4;
+    for (i = 0; i < 2; i++) {
+        q = &lbl_804DBC88[i];
+        src = &lbl_804DBC68[i];
+        q->p[1].y = top;
+        q->p[0].y = top;
+        q->p[3].y = bot;
+        q->p[2].y = bot;
+        for (j = 0; j < 4; j++) {
+            u32 c = src->c[j];
+            cols[j] = (c & 0x00FFFFFF) | (__cvt_fp2unsigned((f32)(c >> 24) * self->alpha) << 24);
+        }
+        prim.colors = cols;
+        prim.pts = q->p;
+        TWindowCtrlMain__sub_801E352C(&prim, 4, 6, lbl_805DDB90);
+    }
 }
 
 }

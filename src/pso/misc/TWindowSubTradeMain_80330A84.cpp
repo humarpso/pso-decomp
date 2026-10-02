@@ -4,6 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef struct TradeMain_80330BCC {
+    u8 pad0[0x1C];
+    u8 state;
+    u8 pad1D[0x30 - 0x1D];
+    void *w30;
+    void *w34;
+    void *w38;
+    void *w3C;
+    void *w40;
+    void *w44;
+    void *w48;
+    void *w4C;
+} TradeMain_80330BCC;
+
 extern "C" {
 extern s32 lbl_805D49C0;
 void TKeyBoardControl__sub_8000F950(void);
@@ -30,6 +44,17 @@ extern f32 TWindowSubTradeMain__data_805DF858;
 u8 *TWindowSubTradeMain__sub_803312BC(u8 *arg0, s32 arg1);
 M2C_UNK TWindowSubTradeMain__sub_802448E4(void *, void *);
 void TWindowSubTradeMain__sub_80330B84(M2C_UNK arg0, u8 *arg1, u8 *arg2);
+void set_flag_40__16TAdChrSelASlotGCFPv(void *);
+void set_visible__19TWindowSubTradeMainFPv(void *);
+void set_flag60_bit4__13TWindowSubMagFPv(void *);
+void TWindowSubMag__sub_80255E24(void *);
+void clear_flag__19TWindowSubTradeMainFPv(void *);
+void clear_trade_flag__19TWindowSubTradeMainFPv(void *);
+void update_card_slot__17TWindowSubComCardFPv(void *);
+void notify_trade_main__17TWindowSubComCardFPv(void *);
+void TWindowSubTradeMain__sub_803323A8(void *);
+void TWindowSubTradeMain__sub_803323B8(void *);
+void TWindowSubTradeMain__sub_80330BCC(TradeMain_80330BCC *self, s32 on);
 }
 
 extern "C" {
@@ -92,6 +117,99 @@ void update_trade_window__19TWindowSubTradeMainFPv(void *arg0) {
 void TWindowSubTradeMain__sub_80330B84(M2C_UNK arg0, u8 *arg1, u8 *arg2) {
     if ((M2C_FIELD(arg1, f32 *, 0x30) != M2C_FIELD(arg2, f32 *, 0)) || (M2C_FIELD(arg1, f32 *, 0x34) != M2C_FIELD(arg2, f32 *, 4))) {
         TWindowSubTradeMain__sub_802448E4((void *) (arg1), (void *) (arg2));
+    }
+}
+
+void TWindowSubTradeMain__sub_80330BCC(TradeMain_80330BCC *self, s32 on) {
+    switch (self->state) {
+    case 2:
+        if (self->w30 != 0) {
+            if (on != 0) {
+                clear_trade_flag__19TWindowSubTradeMainFPv(self->w30);
+            } else {
+                set_flag_40__16TAdChrSelASlotGCFPv(self->w30);
+            }
+        }
+        break;
+    case 4:
+        if (self->w4C != 0) {
+            if (on != 0) {
+                TWindowSubMag__sub_80255E24(self->w4C);
+            } else {
+                set_flag60_bit4__13TWindowSubMagFPv(self->w4C);
+            }
+        }
+        if (self->w44 != 0) {
+            if (on != 0) {
+                clear_flag__19TWindowSubTradeMainFPv(self->w44);
+            } else {
+                set_visible__19TWindowSubTradeMainFPv(self->w44);
+            }
+        }
+        break;
+    case 7:
+    case 14:
+        if (self->w48 != 0) {
+            if (on != 0) {
+                TWindowSubTradeMain__sub_803323B8(self->w48);
+            } else {
+                TWindowSubTradeMain__sub_803323A8(self->w48);
+            }
+        }
+        break;
+    case 11:
+        if (self->w4C != 0) {
+            if (on != 0) {
+                TWindowSubMag__sub_80255E24(self->w4C);
+            } else {
+                set_flag60_bit4__13TWindowSubMagFPv(self->w4C);
+            }
+        }
+        if (self->w40 != 0) {
+            if (on != 0) {
+                clear_flag__19TWindowSubTradeMainFPv(self->w40);
+            } else {
+                set_visible__19TWindowSubTradeMainFPv(self->w40);
+            }
+        }
+        break;
+    case 18:
+        if (self->w4C != 0) {
+            if (on != 0) {
+                TWindowSubMag__sub_80255E24(self->w4C);
+            } else {
+                set_flag60_bit4__13TWindowSubMagFPv(self->w4C);
+            }
+        }
+        if (self->w3C != 0) {
+            if (on != 0) {
+                clear_flag__19TWindowSubTradeMainFPv(self->w3C);
+            } else {
+                set_visible__19TWindowSubTradeMainFPv(self->w3C);
+            }
+        }
+        break;
+    case 21:
+        if (self->w34 != 0) {
+            if (on != 0) {
+                clear_trade_flag__19TWindowSubTradeMainFPv(self->w34);
+            } else {
+                set_flag_40__16TAdChrSelASlotGCFPv(self->w34);
+            }
+        }
+        break;
+    case 24:
+    case 27:
+        if (self->w38 != 0) {
+            if (on != 0) {
+                notify_trade_main__17TWindowSubComCardFPv(self->w38);
+            } else {
+                update_card_slot__17TWindowSubComCardFPv(self->w38);
+            }
+        }
+        break;
+    case 34:
+        break;
     }
 }
 

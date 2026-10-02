@@ -32,12 +32,28 @@ struct Obj_802A9F48 {
 };
 
 extern "C" {
+void TBGLightningCtrl__sub_802A9A08(void);
+void TParticleCtrl__sub_803DA7A8(s32);
+void TParticleCtrl__sub_803E2B68(s32 arg0);
+u32 __cvt_fp2unsigned(f32);
+void fn_802A9D40(void *arg0, f32 *p, f32 *d, s32 c);
+void reset_particles__13TParticleCtrlFv(void);
+extern s32 lbl_8046FC8C[];
+void fn_802A9DF4(Obj_802A9DF4 *self, Vec_802A9DF4 *dir);
+void TBGLightningCtrl__sub_802A9A08(void);
+void TParticleCtrl__sub_803DA7A8(s32);
+void TParticleCtrl__sub_803E2B68(s32 arg0);
+u32 __cvt_fp2unsigned(f32);
+void fn_802A9D40(void *arg0, f32 *p, f32 *d, s32 c);
+void reset_particles__13TParticleCtrlFv(void);
+void fn_802A9F48(Obj_802A9F48 *self, Vec_802A9F48 *dir);
+}
+
+extern "C" {
 void TParticleCtrl__sub_803E2A1C(void *, int);
 extern const f32 lbl_805DE030;
 extern const f32 lbl_805DE040;
 void fn_802A9D40(void *arg0, f32 *p, f32 *d, s32 c);
-void fn_802A9DF4(Obj_802A9DF4 *self, Vec_802A9DF4 *dir);
-void fn_802A9F48(Obj_802A9F48 *self, Vec_802A9F48 *dir);
 void TBGLightningCtrl__sub_802A9A08(void);
 void TParticleCtrl__sub_803DA7A8(s32);
 void TParticleCtrl__sub_803E2B68(s32 arg0);
@@ -88,6 +104,11 @@ void fn_802A9D40(void *arg0, f32 *p, f32 *d, s32 c) {
 
 #pragma push
 #pragma fp_contract on
+
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
 void fn_802A9DF4(Obj_802A9DF4 *self, Vec_802A9DF4 *dir) {
     Vec_802A9DF4 p;
     Vec_802A9DF4 d;
@@ -120,9 +141,14 @@ void fn_802A9DF4(Obj_802A9DF4 *self, Vec_802A9DF4 *dir) {
     TBGLightningCtrl__sub_802A9A08();
     TParticleCtrl__sub_803DA7A8(idx + lbl_8046FC8C[self->f1c]);
     TParticleCtrl__sub_803E2B68(1);
-    ((void (*)(Obj_802A9DF4 *, Vec_802A9DF4 *, Vec_802A9DF4 *, u32))fn_802A9D40)(self, &p, &d, __cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF);
+    fn_802A9D40((void *)(self), (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
     reset_particles__13TParticleCtrlFv();
 }
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+
 #pragma pop
 
 #pragma push
@@ -153,7 +179,7 @@ void fn_802A9F48(Obj_802A9F48 *self, Vec_802A9F48 *dir) {
     TBGLightningCtrl__sub_802A9A08();
     TParticleCtrl__sub_803DA7A8(0);
     TParticleCtrl__sub_803E2B68(1);
-    ((void (*)(Obj_802A9F48 *, Vec_802A9F48 *, Vec_802A9F48 *, u32))fn_802A9D40)(self, &p, &d, __cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF);
+    fn_802A9D40((void *)(self), (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
     reset_particles__13TParticleCtrlFv();
 }
 #pragma pop

@@ -33,6 +33,29 @@ typedef s32 M2C_UNK;
 struct Obj_80204B78 { u8 pad0[4]; f32 x; f32 y; f32 z; u8 pad10[0xC]; f32 radius; u8 pad20[0x10]; u32 flags; };
 
 typedef void (*RecoveredCallback_2be3cacebb2e)(void);
+struct SceneMaterialRoot;
+struct Motion_80203F0C { u8 pad[4]; u32 frames; };
+
+struct Anim_80203F0C {
+    u8 pad0[4];
+    Motion_80203F0C *motion;
+    u8 pad8[4];
+    f32 frame;
+    f32 speed;
+    u8 pad14[8];
+    u32 flags;
+};
+
+struct Group_80203F0C {
+    u8 pad0[0x24];
+    Anim_80203F0C *anims;
+    u8 pad28[4];
+    s32 count;
+    u8 pad30[4];
+};
+
+struct Root_80203F0C { u8 pad[8]; s16 count; u8 pad2[6]; Group_80203F0C *groups; };
+
 extern "C" {
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 SceneMaterialSection *TScene__sub_80203600(s32 id);
@@ -91,6 +114,9 @@ void TScene__sub_80205078(void *, SceneMaterialSection *, s32);
 void TOHangerMachine01__sub_803D9C00(f32 *);
 void TObjPlayer__sub_803D99F8(s32 *, s32);
 void TScene__sub_802056C4(void *scene);
+extern SceneMaterialRoot* TScene__data_805D5FCC;
+extern const f32 TScene__data_805DC5D8;
+void TScene__sub_80203F0C(void);
 }
 
 extern "C" {
@@ -208,6 +234,36 @@ void TScene__sub_80203640(void* task) {
         }
     }
     PPCSync();
+}
+
+void TScene__sub_80203F0C(void) {
+    Group_80203F0C *g;
+    s32 i;
+    Anim_80203F0C *a;
+    s32 j;
+    if ((*(Root_80203F0C **)&TScene__data_805D5FCC) == NULL) {
+        return;
+    }
+    g = (*(Root_80203F0C **)&TScene__data_805D5FCC)->groups;
+    for (i = 0; i < (*(Root_80203F0C **)&TScene__data_805D5FCC)->count; i++, g++) {
+        a = g->anims;
+        for (j = 0; j < g->count; j++, a++) {
+            a->flags &= ~0x40000;
+        }
+    }
+    g = (*(Root_80203F0C **)&TScene__data_805D5FCC)->groups;
+    for (i = 0; i < (*(Root_80203F0C **)&TScene__data_805D5FCC)->count; i++, g++) {
+        a = g->anims;
+        for (j = 0; j < g->count; j++, a++) {
+            if (!(a->flags & 0x40000)) {
+                a->frame += a->speed;
+                if (a->motion != NULL && a->frame > (f32)(a->motion->frames - 1)) {
+                    a->frame = TScene__data_805DC5D8;
+                }
+                a->flags |= 0x40000;
+            }
+        }
+    }
 }
 
 s32 TScene__sub_80204024(f32 thr, s32 unused, void *a, void *b, Vec_80204024 *c) {
