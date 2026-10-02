@@ -3601,19 +3601,10 @@ pso/misc/TWindowCtrlMain_800FC91C_800FCB04.cpp:
 pso/unk/text_800FCC78.cpp:
 	.text       start:0x800FCC78 end:0x800FCCC8
 
-pso/unk/text_800FCCC8.cpp:
-	.text       start:0x800FCCC8 end:0x800FD37C
-
-pso/enemy/TObjEneEpsilonGuard_800FD37C.cpp:
-	.text       start:0x800FD37C end:0x800FD3FC
-
-pso/misc/TOCtrlDubchik.cpp:
-	.text       start:0x800FD3FC end:0x800FD47C
-
 pso/ui/TFontSmallTask.cpp:
-	.text       start:0x800FD47C end:0x800FD78C
+	.text       start:0x800FCCC8 end:0x800FD78C
 	.ctors      start:0x80433F70 end:0x80433F74
-	.rodata     start:0x8043DAF0 end:0x8043DAF8
+	.rodata     start:0x8043DAD0 end:0x8043DAF8
 	.data       start:0x8049CA70 end:0x8049CA88
 
 pso/misc/TLobby_800FD78C.cpp:
@@ -13822,23 +13813,8 @@ pso/player/TObjPlayer_8029F694.cpp:
 	.text       start:0x8029F694 end:0x8029F730
 
 pso/misc/TODoorLabo.cpp:
-	.text       start:0x8029F730 end:0x8029FC10
+	.text       start:0x8029F730 end:0x802A018C
 	.rodata     start:0x80466038 end:0x80466040
-
-pso/ui/TAdSinglePlyChrSelectGC_8029FC10.cpp:
-	.text       start:0x8029FC10 end:0x8029FC88
-
-pso/unk/text_8029FC88.cpp:
-	.text       start:0x8029FC88 end:0x8029FCF8
-
-pso/misc/TODoorFourLightSeabedU.cpp:
-	.text       start:0x8029FCF8 end:0x8029FE94
-
-pso/misc/TLobby_8029FE94.cpp:
-	.text       start:0x8029FE94 end:0x8029FFF0
-
-pso/misc/TODoorFourLightSeabed.cpp:
-	.text       start:0x8029FFF0 end:0x802A018C
 
 pso/misc/TLobby_802A018C.cpp:
 	.text       start:0x802A018C end:0x802A031C

@@ -409,7 +409,6 @@ pso/enemy/TObjEneDf2Bringer_80099F0C.cpp
 pso/enemy/TObjEneDubchik.cpp
 pso/enemy/TObjEneEpsilon.cpp
 pso/enemy/TObjEneEpsilonGuard.cpp
-pso/enemy/TObjEneEpsilonGuard_800FD37C.cpp
 pso/enemy/TObjEneEpsilonGuard_8035DD68.cpp
 pso/enemy/TObjEneEpsilonGuard_8035DD68_8035EDAC.cpp
 pso/enemy/TObjEneEpsilonGuard_8035F5C8_80361D4C.cpp
@@ -1324,7 +1323,6 @@ pso/misc/TLobby_80299A60_8029A184.cpp
 pso/misc/TLobby_80299A60_8029A1E4.cpp
 pso/misc/TLobby_80299A60_8029A304.cpp
 pso/misc/TLobby_80299A60_8029A398.cpp
-pso/misc/TLobby_8029FE94.cpp
 pso/misc/TLobby_802A018C.cpp
 pso/misc/TLobby_802A0F3C.cpp
 pso/misc/TLobby_802A6080.cpp
@@ -1530,7 +1528,6 @@ pso/misc/TOContainerAncientItemCommon.cpp
 pso/misc/TOContainerAncientItemNone.cpp
 pso/misc/TOContainerAncientItemNone_8015BF38.cpp
 pso/misc/TOContainerAncientItemRare.cpp
-pso/misc/TOCtrlDubchik.cpp
 pso/misc/TODoorAncient01.cpp
 pso/misc/TODoorAncient01_8015DD2C.cpp
 pso/misc/TODoorAncient01_8015DDE8.cpp
@@ -1551,6 +1548,7 @@ pso/misc/TODoorCave02_8016206C.cpp
 pso/misc/TODoorCave03.cpp
 pso/misc/TODoorFourLightBase.cpp
 pso/misc/TODoorJungleMain.cpp
+pso/misc/TODoorLabo.cpp
 pso/misc/TODoorMachine02.cpp
 pso/misc/TODoorVoShip.cpp
 pso/misc/TODoorVoShip_8021A05C.cpp
@@ -3505,7 +3503,6 @@ pso/ui/TAdSinglePlyChrSelectGC_8028D5D4.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8028D5D4_8028D5D4.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8029A914.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8029BC4C.cpp
-pso/ui/TAdSinglePlyChrSelectGC_8029FC10.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802D3AB8.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E13C8.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E1CEC.cpp
@@ -4293,7 +4290,6 @@ pso/unk/text_8029A97C.cpp
 pso/unk/text_8029BA3C.cpp
 pso/unk/text_8029E7BC.cpp
 pso/unk/text_8029EE2C.cpp
-pso/unk/text_8029FC88.cpp
 pso/unk/text_802A0A30.cpp
 pso/unk/text_802A1020.cpp
 pso/unk/text_802A1144.cpp

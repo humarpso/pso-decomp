@@ -1,8 +1,334 @@
+#include "types.h"
 #include "pso/TFontSmallTask.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct Vec_800FD4D4 {
+    f32 x, y, z;
+};
+
+struct TFontSmallTask_800FD4D4 {
+    s32 f0;
+    u8 pad4[0x18 - 4];
+    void *vt;
+    Vec_800FD4D4 pos;
+    f32 ofs_x;
+    f32 ofs_y;
+    f32 width;
+    char text[0x10];
+    u32 rgb;
+    s32 f48;
+    s32 life;
+    s32 delay;
+    s16 f54;
+    u16 view;
+};
+extern "C" {
+TFontSmallTask_800FD4D4 *__ct__14TFontSmallTaskFv(TFontSmallTask_800FD4D4 *self, Vec_800FD4D4 *pos, u32 color, s32 life, s32 delay, const char *text, u16 view);
+}
+
+struct Vec_800FCD40 { f32 x, y, z; };
+static const Vec_800FCD40 lbl_8043DAD0 = {0.0f, 0.0f, -1.0f};
+extern "C" {
+f32 get_view_scale__11TCameraCtrlFv(void);
+void allow_rendering__7TObjectFv(TObject*);
+void disallow_rendering__7TObjectFv(TObject*);
+void queue_destruction__7TObjectFv(TObject*);
+extern const f32 lbl_805DAA30;
+extern const f32 lbl_805DAA00;
+extern const f32 lbl_805DAA04;
+f32 TFontSmallTask__sub_800FCCFC(void);
+}
+
+extern "C" {
+
+void TBoss3Volopt__sub_800FD344(s32 arg0, s32 arg1, s32 arg2, void *arg3, void *arg4);
+s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, M2C_UNK *arg4, s32 arg5, s32 arg6);
+s32 create_font_small_task_default_color(s32 arg0, s32 arg1, s32 arg2, s32 arg3, M2C_UNK *arg4, s32 arg5);
+void fn_800FCCC8(s32 arg0, s32 arg1);
+s32 fn_800FCCF4(void* p);
+s32 TLobby__sub_8001DC24();
+M2C_UNK TWindowSubStatusDisp__sub_80228F5C(s32);
+M2C_UNK TWindowSubStatusDisp__sub_80229080(M2C_UNK *);
+M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+s32 __nw__7TObjectFUl(M2C_UNK);
+s32 set_card_window_flags__19TWindowKeyBoardHardFPvii(s32, s32, s32);
+
+void fn_800FCCC8(s32 arg0, s32 arg1) {
+    set_card_window_flags__19TWindowKeyBoardHardFPvii(arg0, arg1 << 0xD, 0xFFFF1FFF);
+}
+s32 fn_800FCCF4(void* p) { return *(s32*)((char*)p + 0x874); }
+
+extern M2C_UNK lbl_805DAA34;
+
+f32 TFontSmallTask__sub_800FCCFC(void) {
+    f32 temp_f1;
+    temp_f1 = get_view_scale__11TCameraCtrlFv();
+    if (temp_f1 >= 1.0) {
+        return lbl_805DAA00;
+    }
+    return lbl_805DAA04 / temp_f1;
+}
+
+}
+
+extern "C" {
+
+struct Quad_800FCD40 { f32 x, y, right, bottom, u, v, u2, v2; };
+
+s32 get_camera_no__11TCameraCtrlFv(void);
+s32 TCameraCtrl__sub_80068958(s32);
+void TObjPlayer__sub_803D97F0(void *);
+void rotate_matrix_y(int, s32);
+void rotate_matrix_x(int, s32);
+void rotate_matrix_z(int, s32);
+void TScene__sub_803D8DB4(int, Vec_800FCD40 *, Vec_800FCD40 *);
+void TObjPlayer__sub_803D9B78(void);
+s32 TObjPlayer__sub_80203418(void);
+f32 TObjPlayer__sub_803D89C0(Vec_800FCD40 *, Vec_800FCD40 *);
+void TObjPlayer__sub_803D9B2C(void);
+void TParticleCtrl__sub_803D8D1C(int, f32 *, f32 *);
+s32 is_split_screen(void);
+s32 get_screen_height__11TCameraCtrlFv(void);
+s32 get_screen_width__11TCameraCtrlFv(void);
+f32 get_fov__11TCameraCtrlFv(void);
+f32 get_scale__15TWindowCtrlMainFv(s32);
+void TWindowSubStatusDisp__sub_803DEE6C(int);
+void render_forward__20TWindowSubStatusDispFPv(void);
+void TWindowSubStatusDisp__sub_803DF160(int, u32);
+void TWindowSubStatusDisp__sub_800FC310(u8, Quad_800FCD40 *);
+void TWindowSubComCard__sub_803DEECC(Quad_800FCD40 *, f32);
+u8 TWindowSubStatusDisp__sub_800FC220(u8);
+void get_player__20TWindowSubStatusDispFv(void);
+extern u8 lbl_8058D490[];
+extern u8 *lbl_805D4DF0;
+extern const f32 lbl_805DAA04;
+extern const f32 lbl_805DAA08;
+extern const f32 lbl_805DAA0C;
+extern const f32 lbl_805DAA10;
+extern const f32 lbl_805DAA14;
+extern const f32 lbl_805DAA18;
+extern const f32 lbl_805DAA1C;
+extern const f32 lbl_805DAA20;
+extern const f32 lbl_805DAA24;
+extern const f32 lbl_805DAA28;
+extern const f32 lbl_805DAA2C;
+
+}
+
+#pragma push
+#pragma fp_contract on
+void TFontSmallTask::render() {
+    Vec_800FCD40 forward = lbl_8043DAD0;
+    Vec_800FCD40 diff;
+    f32 screen[2];
+    Quad_800FCD40 q;
+    f32 depth;
+    f32 y;
+    f32 x;
+    f32 reveal;
+    f32 fade;
+    f32 scale;
+    char *cursor;
+
+    if (active == 0) {
+        return;
+    }
+    if (view != 0xFFFF) {
+        s32 cam = (u16)TCameraCtrl__sub_80068958(get_camera_no__11TCameraCtrlFv());
+        if (cam != view) {
+            return;
+        }
+    }
+    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    rotate_matrix_y(0, *(s32 *)(lbl_805D4DF0 + 0x194));
+    rotate_matrix_x(0, *(s32 *)(lbl_805D4DF0 + 0x190));
+    rotate_matrix_z(0, *(s32 *)(lbl_805D4DF0 + 0x198));
+    TScene__sub_803D8DB4(0, &forward, &forward);
+    TObjPlayer__sub_803D9B78();
+    diff.x = position[0] - *(f32 *)(lbl_805D4DF0 + 0x178);
+    diff.y = position[1] - *(f32 *)(lbl_805D4DF0 + 0x17C);
+    diff.z = position[2] - *(f32 *)(lbl_805D4DF0 + 0x180);
+    if (TObjPlayer__sub_80203418() == 0) {
+        f32 xx = diff.x * diff.x;
+        f32 yy = diff.y * diff.y;
+        f32 zz = diff.z * diff.z;
+        if (zz + (xx + yy) > lbl_805DAA08) {
+            return;
+        }
+    }
+    if (TObjPlayer__sub_803D89C0(&forward, &diff) <= lbl_805DAA0C) {
+        return;
+    }
+    TObjPlayer__sub_803D9B2C();
+    TParticleCtrl__sub_803D8D1C(0, position, screen);
+    TObjPlayer__sub_803D9B78();
+    if (is_split_screen() != 0) {
+        screen[0] -= (f32)get_screen_height__11TCameraCtrlFv();
+        screen[0] /= get_view_scale__11TCameraCtrlFv();
+        screen[1] -= (f32)get_screen_width__11TCameraCtrlFv();
+        screen[1] /= get_fov__11TCameraCtrlFv();
+    }
+    x = screen[0] += offset_x;
+    y = screen[1] += offset_y;
+    {
+        f32 sc = get_scale__15TWindowCtrlMainFv(get_camera_no__11TCameraCtrlFv());
+        depth = lbl_805DAA10 / (lbl_805DAA14 + sc);
+    }
+    cursor = text;
+    reveal = (f32)age;
+    if (reveal > (f32)lifetime - lbl_805DAA1C) {
+        fade = lbl_805DAA18 * ((f32)lifetime - reveal);
+    } else {
+        fade = lbl_805DAA04;
+    }
+    scale = ((f32 (*)(void *))TFontSmallTask__sub_800FCCFC)(this);
+    TWindowSubStatusDisp__sub_803DEE6C(1);
+    render_forward__20TWindowSubStatusDispFPv();
+    while (*cursor != 0) {
+        u8 c = *cursor++;
+        u32 alpha;
+        f32 adv;
+        if (reveal <= lbl_805DAA0C) {
+            continue;
+        }
+        if (reveal < lbl_805DAA28) {
+            alpha = lbl_805DAA20 * (lbl_805DAA24 * reveal);
+        } else {
+            alpha = 0xFF;
+        }
+        alpha = (f32)alpha * fade;
+        TWindowSubStatusDisp__sub_803DF160(0, (alpha << 24) | rgb);
+        q.x = x;
+        q.y = y;
+        TWindowSubStatusDisp__sub_800FC310(c, &q);
+        q.right = scale * (q.right - x) + x;
+        q.bottom = scale * (q.bottom - y) + y;
+        TWindowSubComCard__sub_803DEECC(&q, depth);
+        adv = (f32)(u8)TWindowSubStatusDisp__sub_800FC220(c);
+        x = adv * scale + x;
+        reveal = reveal - lbl_805DAA2C * (adv / text_width);
+    }
+    get_player__20TWindowSubStatusDispFv();
+}
+#pragma pop
+
+void TFontSmallTask::run_task() {
+    switch (active) {
+    case 0:
+        if (--delay < 0) {
+            active = 1;
+            allow_rendering__7TObjectFv(this);
+        }
+        break;
+    default:
+        offset_y += lbl_805DAA30;
+        if (++age >= lifetime) {
+            disallow_rendering__7TObjectFv(this);
+            queue_destruction__7TObjectFv(this);
+        }
+        break;
+    }
+}
+
+extern "C" {
+
+s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, M2C_UNK *arg4, s32 arg5, s32 arg6) {
+    s32 var_r31;
+
+    TWindowSubStatusDisp__sub_802290E0();
+    TWindowSubStatusDisp__sub_80229080(arg4);
+    if (arg5 >= 0) {
+        TWindowSubStatusDisp__sub_80229080(&lbl_805DAA34);
+    }
+    TWindowSubStatusDisp__sub_80228F5C(arg5);
+    var_r31 = __nw__7TObjectFUl(0x58);
+    if (var_r31 != 0) {
+        var_r31 = ((s32 (*)(s32, s32, s32, s32, s32, s32, s32))__ct__14TFontSmallTaskFv)((s32)(var_r31), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3), (s32)(TLobby__sub_8001DC24()), (s32)(arg6));
+    }
+    return var_r31;
+}
+
+extern M2C_UNK lbl_805DAA34;
+
+s32 create_font_small_task_default_color(s32 arg0, s32 arg1, s32 arg2, s32 arg3, M2C_UNK *arg4, s32 arg5) {
+    s32 var_r31;
+
+    TWindowSubStatusDisp__sub_802290E0();
+    TWindowSubStatusDisp__sub_80229080(arg4);
+    if (arg5 >= 0) {
+        TWindowSubStatusDisp__sub_80229080(&lbl_805DAA34);
+    }
+    TWindowSubStatusDisp__sub_80228F5C(arg5);
+    var_r31 = __nw__7TObjectFUl(0x58);
+    if (var_r31 != 0) {
+        var_r31 = ((s32 (*)(s32, s32, s32, s32, s32, s32, s32))__ct__14TFontSmallTaskFv)((s32)(var_r31), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3), (s32)(TLobby__sub_8001DC24()), (s32)(0xFFFF));
+    }
+    return var_r31;
+}
+
+void TBoss3Volopt__sub_800FD344(s32 arg0, s32 arg1, s32 arg2, void *arg3, void *arg4) {
+    create_font_small_task((s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(0), (M2C_UNK *)(arg3), (s32)(arg4), (s32)(0xFFFF));
+}
+
+}
+
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+s32 create_damage_font__19TObjEneEpsilonGuardFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 TLobby__sub_8001DC24();
+M2C_UNK TWindowSubStatusDisp__sub_80228F5C(s32);
+M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+s32 __nw__7TObjectFUl(M2C_UNK);
+
+s32 create_damage_font__19TObjEneEpsilonGuardFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+    s32 var_r31;
+
+    TWindowSubStatusDisp__sub_802290E0();
+    TWindowSubStatusDisp__sub_80228F5C(arg3);
+    var_r31 = __nw__7TObjectFUl(0x58);
+    if (var_r31 != 0) {
+        var_r31 = ((s32 (*)(s32, s32, s32, s32, s32, s32, s32))__ct__14TFontSmallTaskFv)(var_r31, arg0, arg1, arg2, 0, TLobby__sub_8001DC24(), 0xFFFF);
+    }
+    return var_r31;
+}
+
+}
+
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+s32 create_font__13TOCtrlDubchikFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+
+s32 TLobby__sub_8001DC24();
+M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+s32 __nw__7TObjectFUl(M2C_UNK);
+
+s32 create_font__13TOCtrlDubchikFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+    s32 var_r31;
+
+    TWindowSubStatusDisp__sub_802290E0();
+    ((M2C_UNK (*)(s32))TWindowSubStatusDisp__sub_80229080)(arg3);
+    var_r31 = __nw__7TObjectFUl(0x58);
+    if (var_r31 != 0) {
+        var_r31 = ((s32 (*)(s32, s32, s32, s32, s32, s32, s32))__ct__14TFontSmallTaskFv)(var_r31, arg0, arg1, arg2, 0, TLobby__sub_8001DC24(), 0xFFFF);
+    }
+    return var_r31;
+}
+
+}
 
 TFontSmallTask::~TFontSmallTask() {}
-
-#include "types.h"
 
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -63,27 +389,6 @@ struct VObj_800FD614 : VBase_800FD614 {
 
 struct Out_800FD614 { s32 a; s32 b; };
 
-struct Vec_800FD4D4 {
-    f32 x, y, z;
-};
-
-struct TFontSmallTask_800FD4D4 {
-    s32 f0;
-    u8 pad4[0x18 - 4];
-    void *vt;
-    Vec_800FD4D4 pos;
-    f32 ofs_x;
-    f32 ofs_y;
-    f32 width;
-    char text[0x10];
-    u32 rgb;
-    s32 f48;
-    s32 life;
-    s32 delay;
-    s16 f54;
-    u16 view;
-};
-
 extern "C" {
 void TFontSmallTask__sub_800FD604(void* p);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 TLobby__data_805011D8;
@@ -97,17 +402,14 @@ s32 get_game_mode__6TLobbyFv();
 s32 TLobby__sub_8007B844(void *);
 void TLobby__sub_800FD614(struct Out_800FD614 *out, s32 arg1);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
-void disallow_rendering__7TObjectFv(void *);
 u32 fn_800FC0F8(char *);
 void *get_instance__15TWindowCtrlMainFv(void);
-f32 TFontSmallTask__sub_800FCCFC(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 char *strncpy(char *, const char *, u32);
 extern u8 __vt__14TFontSmallTask[];
 extern s32 lbl_805D2B30;
 extern const f32 lbl_805DAA0C;
 extern const f32 lbl_805DAA20;
-TFontSmallTask_800FD4D4 *__ct__14TFontSmallTaskFv(TFontSmallTask_800FD4D4 *self, Vec_800FD4D4 *pos, u32 color, s32 life, s32 delay, const char *text, u16 view);
 }
 
 extern "C" {
@@ -134,11 +436,11 @@ TFontSmallTask_800FD4D4 *__ct__14TFontSmallTaskFv(TFontSmallTask_800FD4D4 *self,
     if (self->view >= 4) {
         self->view = 0xFFFF;
     }
-    disallow_rendering__7TObjectFv(self);
+    ((void (*)(void *))disallow_rendering__7TObjectFv)(self);
     strncpy(self->text, text, 0xF);
     self->text[0xF] = 0;
     self->width = fn_800FC0F8(self->text);
-    self->ofs_x -= lbl_805DAA20 * self->width * TFontSmallTask__sub_800FCCFC(self);
+    self->ofs_x -= lbl_805DAA20 * self->width * ((f32 (*)(void *))TFontSmallTask__sub_800FCCFC)(self);
     return self;
 }
 #pragma pop
