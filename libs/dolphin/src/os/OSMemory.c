@@ -1,20 +1,22 @@
-#include <dolphin/dolphin.h>
+#define PSO_SDK_COMPACT_MATH
+#define OnReset OnReset_8037340C
+#define ResetFunctionInfo ResetFunctionInfo_804F4458
+
+#include <dolphin/types.h>
 #include <dolphin/os.h>
-#include <dolphin/dvd.h>
+#include "macros.h"
 
 #include "os/__os.h"
 
 #define TRUNC(n, a) (((u32)(n)) & ~((a)-1))
 #define ROUND(n, a) (((u32)(n) + (a)-1) & ~((a)-1))
 
-static BOOL OnReset(BOOL final);
 
-static OSResetFunctionInfo ResetFunctionInfo = {
-    OnReset,
-    0x7F,
-    NULL,
-    NULL
-};
+BOOL OnReset(BOOL final);
+
+
+
+extern OSResetFunctionInfo ResetFunctionInfo;
 
 u32 OSGetPhysicalMemSize(void) {
 #if DEBUG
@@ -36,7 +38,7 @@ u32 OSGetConsoleSimulatedMemSize(void) {
 #endif
 }
 
-static BOOL OnReset(BOOL final) {
+BOOL OnReset(BOOL final) {
     if (final != FALSE) {
         __MEMRegs[8] = 0xFF;
         __OSMaskInterrupts(OS_INTERRUPTMASK_MEM_RESET);
@@ -121,15 +123,19 @@ static asm void RealMode(__REGISTER u32 addr) {
 #endif
 
 void __OSInitMemoryProtection(void) {
-#if !DEBUG
     u32 padding[9];
     u32 temp;
-#endif
+    u32 simulatedSize;
     BOOL enabled;
-    u32 size;
 
-    size = OSGetConsoleSimulatedMemSize();
+    simulatedSize = OSGetConsoleSimulatedMemSize();
     enabled = OSDisableInterrupts();
+
+    if (simulatedSize <= 0x1800000) {
+        RealMode((u32)&Config24MB);
+    } else if (simulatedSize <= 0x3000000) {
+        RealMode((u32)&Config48MB);
+    }
 
     __MEMRegs[16] = 0;
     __MEMRegs[8] = 0xFF;
@@ -143,21 +149,9 @@ void __OSInitMemoryProtection(void) {
     __OSSetInterruptHandler(__OS_INTERRUPT_MEM_ADDRESS, MEMIntrruptHandler);
     OSRegisterResetFunction(&ResetFunctionInfo);
 
-#if DEBUG
-    if (OSGetConsoleSimulatedMemSize() < OSGetPhysicalMemSize() && OSGetConsoleSimulatedMemSize() == 0x1800000)
-#else
     temp = OSGetConsoleSimulatedMemSize();
-    if (temp < OSGetPhysicalMemSize() && temp == 0x1800000)
-#endif
-    {
-        DCInvalidateRange((void*)0x81800000, 0x1800000);
+    if (temp < OSGetPhysicalMemSize() && temp == 0x1800000) {
         __MEMRegs[20] = 2;
-    }
-
-    if (size <= 0x1800000) {
-        RealMode((u32)&Config24MB);
-    } else if (size <= 0x3000000) {
-        RealMode((u32)&Config48MB);
     }
 
     __OSUnmaskInterrupts(OS_INTERRUPTMASK_MEM_ADDRESS);
