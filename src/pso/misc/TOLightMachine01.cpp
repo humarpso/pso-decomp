@@ -39,7 +39,7 @@ void TOLightMachine01__sub_8016EB3C(void);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 TObjFish__sub_8001EDC4(void *, s32);
 s32 TPhotonMagicSquare__sub_801A2640(void *, int);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 f32 TBoss8Dragon__sub_803D64C0(s32);
 extern M2C_UNK __vt__16TOLightMachine01[];
 extern s32 lbl_805D306C;
@@ -165,7 +165,7 @@ u8 *TOLightMachine01__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
     M2C_FIELD(arg0, f32 *, 0xA0) = (f32) ((lbl_805DB834 * (f32) M2C_FIELD(arg0, s32 *, 0x84)) + lbl_805DB830);
     M2C_FIELD(arg0, s32 *, 0xA4) = (s32) (lbl_805DB838 * (lbl_805DB83C / (lbl_805DB840 / M2C_FIELD(arg0, f32 *, 0xA0))));
-    M2C_FIELD(arg0, s32 *, 0xA8) = (s32) (lbl_805DB838 * (lbl_805DB83C * (lbl_805DB844 * (f32) rand__11TOBoss4RockFv())));
+    M2C_FIELD(arg0, s32 *, 0xA8) = (s32) (lbl_805DB838 * (lbl_805DB83C * (lbl_805DB844 * (f32) rand())));
     M2C_FIELD(arg0, f32 *, 0x98) = (f32) ((lbl_805DB834 * (f32) M2C_FIELD(arg0, s32 *, 0x88)) + lbl_805DB848);
     M2C_FIELD(arg0, f32 *, 0x9C) = (f32) (M2C_FIELD(arg0, f32 *, 0x98) * TBoss8Dragon__sub_803D64C0((s32)((int) (M2C_FIELD(arg0, s32 *, 0xA8)))));
     M2C_FIELD(arg0, s32 *, 0xAC) = 0;

@@ -34,7 +34,7 @@ struct O_80164A90 { u8 pad[0x38]; u8 pos[0x34]; f32 f6c; f32 f70; u8 pad74[0xAC 
 
 extern "C" {
 s32 TODragonfly__sub_80158360(s32, f32);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 extern const f32 lbl_805DB560;
 extern const f32 lbl_805DB578;
 extern const f32 lbl_805DB57C;
@@ -42,7 +42,7 @@ extern const f32 lbl_805DB588;
 extern const f32 lbl_805DB58C;
 void TODragonfly__sub_80164990(u8 *arg0);
 s32 TODragonfly__sub_80158360(s32, f32);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 extern const f32 lbl_805DB560;
 extern const f32 lbl_805DB578;
 extern const f32 lbl_805DB57C;
@@ -52,7 +52,7 @@ void TODragonfly__sub_80164B34(s32 arg0);
 f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_camera_distance__10TObjPlayerFi(void *);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
 s32 TScene__sub_803D8DB4(int, void *, void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -70,7 +70,7 @@ extern const f32 lbl_805DB580;
 s32 TODragonfly__sub_80164764(u8 *arg0, f32 farg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 init_map_object_base(void *, int);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 extern M2C_UNK __vt__11TODragonfly[];
 extern s32 lbl_805D2F98;
@@ -140,8 +140,8 @@ typedef char RecoveredGlobal_80164764_lbl_8058D490_size[sizeof(RecoveredGlobal_8
 s32 TODragonfly__sub_80164764(u8 *arg0, f32 farg0) {
     M2C_FIELD(&lbl_8050BEE0.value, f32 *, 0) = (f32) lbl_805DB580;
     M2C_FIELD(&lbl_8050BEE0.value, f32 *, 4) = farg0;
-    M2C_FIELD(&lbl_8050BEE0.value, f32 *, 8) = (f32) (M2C_FIELD(arg0, f32 *, 0xD0) * (lbl_805DB57C * (f32) rand__11TOBoss4RockFv()));
-    M2C_FIELD(&lbl_8050BFA0.value, s32 *, 4) = (s32) (lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32) rand__11TOBoss4RockFv())));
+    M2C_FIELD(&lbl_8050BEE0.value, f32 *, 8) = (f32) (M2C_FIELD(arg0, f32 *, 0xD0) * (lbl_805DB57C * (f32) rand()));
+    M2C_FIELD(&lbl_8050BFA0.value, s32 *, 4) = (s32) (lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32) rand())));
     TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
     rotate_matrix_y((M2C_UNK)((int) (0)), (s32)((int) (M2C_FIELD(&lbl_8050BFA0.value, s32 *, 4))));
     TScene__sub_803D8DB4((int) (0), (void *) (&lbl_8050BEE0.value), (void *) (&lbl_8050BEE0.value));
@@ -182,7 +182,7 @@ void TODragonfly__sub_80164990(u8 *arg0) {
                 M2C_FIELD(arg0, s32 *, 0xAC) = 3;
                 M2C_FIELD(arg0, s32 *, 0xCC) = 0;
             }
-        } else if (TODragonfly__sub_80164764((u8 *)(arg0), M2C_FIELD(arg0, f32 *, 0x6C) * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand__11TOBoss4RockFv())) - lbl_805DB560)) == 1) {
+        } else if (TODragonfly__sub_80164764((u8 *)(arg0), M2C_FIELD(arg0, f32 *, 0x6C) * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand())) - lbl_805DB560)) == 1) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 1;
             M2C_FIELD(arg0, s32 *, 0xCC) = 0;
         }
@@ -221,7 +221,7 @@ void TODragonfly__sub_80164B34(s32 arg0) {
     } else {
         temp_r4 = M2C_FIELD(arg0, s32 *, 0xCC);
         M2C_FIELD(arg0, s32 *, 0xCC) = (s32) (temp_r4 + 1);
-        if ((lbl_805DB578 < (f32) temp_r4) && (TODragonfly__sub_80164764((u8 *)((void *) arg0), M2C_FIELD(arg0, f32 *, 0x6C) * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand__11TOBoss4RockFv())) - lbl_805DB560)) == 1)) {
+        if ((lbl_805DB578 < (f32) temp_r4) && (TODragonfly__sub_80164764((u8 *)((void *) arg0), M2C_FIELD(arg0, f32 *, 0x6C) * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand())) - lbl_805DB560)) == 1)) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 1;
             M2C_FIELD(arg0, s32 *, 0xCC) = 0;
         }
@@ -294,7 +294,7 @@ u8 *TODragonfly__ct(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0xE0) = (f32) lbl_805DB580;
     M2C_FIELD(arg0, f32 *, 0xF4) = (f32) ((lbl_805DB56C * (f32) M2C_FIELD(arg0, s32 *, 0x84)) + lbl_805DB560);
     M2C_FIELD(arg0, s32 *, 0xF8) = (s32) (lbl_805DB570 * (lbl_805DB574 / (lbl_805DB578 / M2C_FIELD(arg0, f32 *, 0xF4))));
-    M2C_FIELD(arg0, s32 *, 0xFC) = (s32) (lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32) rand__11TOBoss4RockFv())));
+    M2C_FIELD(arg0, s32 *, 0xFC) = (s32) (lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32) rand())));
     M2C_FIELD(arg0, f32 *, 0xEC) = (f32) ((lbl_805DB56C * (f32) M2C_FIELD(arg0, s32 *, 0x88)) + lbl_805DB560);
     M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (M2C_FIELD(arg0, f32 *, 0xEC) * TBoss8Dragon__sub_803D64C0((s32)((int) (M2C_FIELD(arg0, s32 *, 0xFC)))));
     return arg0;

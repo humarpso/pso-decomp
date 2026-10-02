@@ -517,7 +517,7 @@ extern M2C_UNK lbl_80484610[];
 void *destroy__12TBoss3VoloptFPvs(void *arg0, s16 arg1);
 s32 TObjEneDellBiter__sub_80087350(s32, s32);
 s32 TOTrapAncient01__sub_80226578(s32, s32, u32, s16, s32);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 extern s32 lbl_805D53A4;
@@ -1095,10 +1095,10 @@ void TBoss3Volopt__sub_80045A04(u8 *arg0) {
     f32 temp_f31;
     s32 temp_r31;
     if (lbl_805D53A4 & 1) {
-        temp_f31 = (lbl_805D87CC * (lbl_805D87BC * (f32) rand__11TOBoss4RockFv())) + lbl_805D87C8;
-        temp_r31 = (s32) (lbl_805D87D0 * (lbl_805D87D4 * (lbl_805D87BC * (f32) rand__11TOBoss4RockFv())));
+        temp_f31 = (lbl_805D87CC * (lbl_805D87BC * (f32) rand())) + lbl_805D87C8;
+        temp_r31 = (s32) (lbl_805D87D0 * (lbl_805D87D4 * (lbl_805D87BC * (f32) rand())));
         stack.sp8 = (temp_f31 * TBoss8Dragon__sub_803D64DC(temp_r31)) + M2C_FIELD(arg0, f32 *, 0x38);
-        stack.spC = (lbl_805D87DC * (lbl_805D87BC * (f32) rand__11TOBoss4RockFv())) + TBoss3Volopt__data_805D87D8;
+        stack.spC = (lbl_805D87DC * (lbl_805D87BC * (f32) rand())) + TBoss3Volopt__data_805D87D8;
         stack.sp10 = (temp_f31 * TBoss8Dragon__sub_803D64C0(temp_r31)) + M2C_FIELD(arg0, f32 *, 0x40);
         TObjEneDellBiter__sub_80087350((s32) &stack.sp8, 0xFB);
     }

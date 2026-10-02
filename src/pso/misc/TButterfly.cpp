@@ -16,7 +16,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 M2C_UNK fn_8017E900(void *);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 M2C_UNK set_global_param__8TObjFishFi();
 
 extern M2C_UNK lbl_80443970;
@@ -29,7 +29,7 @@ void init_motion__10TButterflyFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x9C) = (f32) lbl_805DBAD8;
     M2C_FIELD(arg0, f32 *, 0xA0) = (f32) lbl_805DBAD8;
     M2C_FIELD(arg0, f32 *, 0xA4) = (f32) lbl_805DBAD8;
-    M2C_FIELD(arg0, f32 *, 0xA8) = (f32) (lbl_805DBADC * (lbl_805DBAE0 * (f32) rand__11TOBoss4RockFv()));
+    M2C_FIELD(arg0, f32 *, 0xA8) = (f32) (lbl_805DBADC * (lbl_805DBAE0 * (f32) rand()));
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) lbl_805DBAD8;
     M2C_FIELD(arg0, s8 *, 0xB8) = 0;
     M2C_FIELD(arg0, s8 *, 0xB9) = 0;

@@ -126,7 +126,7 @@ void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int get_target_info__9TObjEneDDFPv(void*);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 
 extern void *lbl_805D4B8C;
 
@@ -341,7 +341,7 @@ void TObjPlayer__sub_8002EF80(void) {
 }
 
 s32 calc_random_scaled__10TObjPlayerFv(void) {
-    return (s32) (lbl_805D8248 * (lbl_805D8244 * (f32) rand__11TOBoss4RockFv()));
+    return (s32) (lbl_805D8248 * (lbl_805D8244 * (f32) rand()));
 }
 
 int TObjLight__sub_8002F238(void* p) { return get_target_info__9TObjEneDDFPv(p); }

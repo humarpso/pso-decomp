@@ -43,7 +43,7 @@ f32 update_scale__15TObjBoss2TunnelFPv(void *);
 s32 TObjEneBm5GibonU__sub_8018343C(int, void *, void *, f32);
 s32 TLobby__sub_80184C54();
 u32 __nw__7TObjectFUl(int);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 f32 TObjPlayer__sub_803D89C0(void *, void *);
 f32 TBoss6Type1__sub_803D9370(void *, void *);
 extern RecoveredGlobal_80183604_lbl_804FF5E8 lbl_804FF5E8;
@@ -105,7 +105,7 @@ void fn_80183604(u8 *arg0) {
         temp_f31 = temp_f30;
         new_var = (*((f32 *) (((s8 *) arg0) + 0x70))) * TTecZondeEff__sub_8002DF28();
         temp_f30 = new_var;
-        temp_f29 = (lbl_805DBC40 * (lbl_805DBC20 * ((f32) rand__11TOBoss4RockFv()))) + (*((f32 *) (((s8 *) arg0) + 0x6C)));
+        temp_f29 = (lbl_805DBC40 * (lbl_805DBC20 * ((f32) rand()))) + (*((f32 *) (((s8 *) arg0) + 0x6C)));
         VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));
         stack.sp8 += temp_f31;
         stack.sp10 += temp_f30;
@@ -115,7 +115,7 @@ void fn_80183604(u8 *arg0) {
           TObjEneBm5GibonU__sub_8018343C((int) temp_r3, (void *) arg0, (void *) (&stack.sp8), (f32) temp_f29);
         }
       }
-      *((s32 *) (((s8 *) arg0) + 0x90)) = (s32) (lbl_805DBC38 * (((f32) ((*((s32 *) (((s8 *) arg0) + 0x84))) + 0x3C)) * (lbl_805DBC20 * ((f32) rand__11TOBoss4RockFv()))));
+      *((s32 *) (((s8 *) arg0) + 0x90)) = (s32) (lbl_805DBC38 * (((f32) ((*((s32 *) (((s8 *) arg0) + 0x84))) + 0x3C)) * (lbl_805DBC20 * ((f32) rand()))));
     }
   }
 }

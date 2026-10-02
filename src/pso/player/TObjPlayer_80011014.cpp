@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 f32 calc_boss4_scale__10TObjPlayerFi(s32 arg0);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 f32 calc_random_ratio__10TObjPlayerFv(s32);
 
 s32 get_main_phase();
@@ -16,7 +16,7 @@ extern f32 lbl_805D7D38;
 
 f32 calc_boss4_scale__10TObjPlayerFi(s32 arg0) {
     if (get_main_phase() == 0xE) {
-        return lbl_805D7D38 * (f32) rand__11TOBoss4RockFv();
+        return lbl_805D7D38 * (f32) rand();
     }
     return calc_random_ratio__10TObjPlayerFv(arg0 + 0x160);
 }

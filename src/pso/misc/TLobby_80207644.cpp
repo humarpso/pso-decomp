@@ -50,7 +50,7 @@ s32 TLobby__sub_802077CC(s32 arg0, u8 *arg1);
 s32 get_main_phase(void);
 M2C_UNK set_state__16TAdStorySelectGCFi(void*);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 extern RecoveredGlobal_802078A4_lbl_8044B658 lbl_8044B658;
 extern RecoveredGlobal_802078A4_lbl_8044B778 lbl_8044B778;
 extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
@@ -219,16 +219,16 @@ void TOBoss4Rock__sub_802078A4(void) {
       switch (var_r30)
       {
         case 14:
-          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((M2C_UNK *) (((s8 *) (&lbl_8044B658.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand__11TOBoss4RockFv())));
-          *((s32 *) (((s8 *) var_r31) + 8)) = (s32) (((f32) (*((s32 *) (((s8 *) (((u8 *) (&lbl_8044B658.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))) + 4)))) * (lbl_805DC610 * ((f32) rand__11TOBoss4RockFv())));
+          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((M2C_UNK *) (((s8 *) (&lbl_8044B658.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand())));
+          *((s32 *) (((s8 *) var_r31) + 8)) = (s32) (((f32) (*((s32 *) (((s8 *) (((u8 *) (&lbl_8044B658.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))) + 4)))) * (lbl_805DC610 * ((f32) rand())));
           break;
         case 15:
-          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((M2C_UNK *) (((s8 *) (&lbl_8044B778.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand__11TOBoss4RockFv())));
-          *((s32 *) (((s8 *) var_r31) + 8)) = (s32) (((f32) (*((s32 *) (((s8 *) (((u8 *) (&lbl_8044B778.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))) + 4)))) * (lbl_805DC610 * ((f32) rand__11TOBoss4RockFv())));
+          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((M2C_UNK *) (((s8 *) (&lbl_8044B778.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand())));
+          *((s32 *) (((s8 *) var_r31) + 8)) = (s32) (((f32) (*((s32 *) (((s8 *) (((u8 *) (&lbl_8044B778.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))) + 4)))) * (lbl_805DC610 * ((f32) rand())));
           break;
         default:
-          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((M2C_UNK *) (((s8 *) (&lbl_8044B658.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand__11TOBoss4RockFv())));
-          *((s32 *) (((s8 *) var_r31) + 8)) = (s32) (((f32) (*((s32 *) (((s8 *) (((u8 *) (&lbl_8044B658.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))) + 4)))) * (lbl_805DC610 * ((f32) rand__11TOBoss4RockFv())));
+          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((M2C_UNK *) (((s8 *) (&lbl_8044B658.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand())));
+          *((s32 *) (((s8 *) var_r31) + 8)) = (s32) (((f32) (*((s32 *) (((s8 *) (((u8 *) (&lbl_8044B658.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))) + 4)))) * (lbl_805DC610 * ((f32) rand())));
           break;
       }
     }

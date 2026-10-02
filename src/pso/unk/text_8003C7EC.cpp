@@ -15,7 +15,7 @@ extern RecoveredGlobal_8003C7EC_lbl_80483578 lbl_80483578;
 extern const f32 lbl_805D825C;
 void fn_8003C7EC(void);
 u16 obj_getField1c(void *);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 s32 TObjPlayer__sub_8003C964();
 extern RecoveredGlobal_8003C8B4_lbl_804FEEAC lbl_804FEEAC;
 extern s32 lbl_805D4C48;
@@ -35,7 +35,7 @@ u16 fn_8003C8B4(void) {
     if (TObjPlayer__sub_8003C964() == 0) {
         return 0xFFFFU;
     }
-    temp_r3 = (u8 *)(M2C_FIELD(&lbl_804FEEAC.value, M2C_UNK *, ((s32) ((f32) lbl_805D4C48 * (lbl_805D8658 * (f32) rand__11TOBoss4RockFv())) * 4)));
+    temp_r3 = (u8 *)(M2C_FIELD(&lbl_804FEEAC.value, M2C_UNK *, ((s32) ((f32) lbl_805D4C48 * (lbl_805D8658 * (f32) rand())) * 4)));
     if (temp_r3 != NULL) {
         return obj_getField1c(temp_r3);
     }

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 extern s32 lbl_805D26A0;
 extern const f32 lbl_805D8200;
 extern const f32 lbl_805D821C;
@@ -36,8 +36,8 @@ void TObjBoss1Rock__ct(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D26A0;
     VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg1);
     VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) (lbl_805D821C * (lbl_805D8220 * (f32) rand__11TOBoss4RockFv()));
-    M2C_FIELD(arg0, s32 *, 0x38) = (s32) (lbl_805D821C * (lbl_805D8220 * (f32) rand__11TOBoss4RockFv()));
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) (lbl_805D821C * (lbl_805D8220 * (f32) rand()));
+    M2C_FIELD(arg0, s32 *, 0x38) = (s32) (lbl_805D821C * (lbl_805D8220 * (f32) rand()));
     M2C_FIELD(arg0, s32 *, 0x3C) = 0;
     M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805D8200;
     M2C_FIELD(arg0, f32 *, 0x44) = (f32) lbl_805D8200;

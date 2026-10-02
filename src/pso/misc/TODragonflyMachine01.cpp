@@ -29,7 +29,7 @@ struct RecoveredGlobal_80165538___vt__20TODragonflyMachine01 {
 
 extern "C" {
 u8 * TODragonfly__ct(void *);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 extern M2C_UNK __vt__20TODragonflyMachine01[];
 extern s32 lbl_805D2FA0;
@@ -156,7 +156,7 @@ u8 *TODragonflyMachine01__ct(u8 *arg0, int arg1) {
     ((Fields_arg0*)arg0)->field_AC = 0;
     ((Fields_arg0*)arg0)->field_F4 = (f32) ((lbl_805DB5C0 * (f32) ((Fields_arg0*)arg0)->field_84) + lbl_805DB5B8);
     ((Fields_arg0*)arg0)->field_F8 = (int) (lbl_805DB5C4 * (lbl_805DB5C8 / (lbl_805DB5CC / ((Fields_arg0*)arg0)->field_F4)));
-    ((Fields_arg0*)arg0)->field_FC = (int) (lbl_805DB5C4 * (lbl_805DB5C8 * (lbl_805DB598 * (f32) rand__11TOBoss4RockFv())));
+    ((Fields_arg0*)arg0)->field_FC = (int) (lbl_805DB5C4 * (lbl_805DB5C8 * (lbl_805DB598 * (f32) rand())));
     ((Fields_arg0*)arg0)->field_EC = (f32) ((lbl_805DB5C0 * (f32) ((Fields_arg0*)arg0)->field_88) + lbl_805DB5B8);
     ((Fields_arg0*)arg0)->field_F0 = (f32) (((Fields_arg0*)arg0)->field_EC * TBoss8Dragon__sub_803D64C0(((Fields_arg0*)arg0)->field_FC));
     ((Fields_arg0*)arg0)->field_100 = 0;

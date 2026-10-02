@@ -40,7 +40,7 @@ extern RecoveredGlobal_80048560_lbl_804FF1D0 lbl_804FF1D0;
 void fn_80048560(u8 *arg0);
 void TObjPlayer__sub_801422A8(Vec_800483F8 *, s32 *, s32 *);
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 f32 TBoss6Kakusan__sub_803D8BD8(Vec_800483F8 *);
 void TBoss6Type1__sub_803D9370(Vec_800483F8 *, Vec_800483F8 *);
 extern M2C_UNK lbl_80484840[];
@@ -70,8 +70,8 @@ Obj_800483F8 *fn_800483F8(Obj_800483F8 *self, Vec_800483F8 *from, Vec_800483F8 *
         self->f40 = lbl_805D8828 * TBoss6Kakusan__sub_803D8BD8(&d);
         TObjPlayer__sub_801422A8(&d, &self->f28, &self->f2c);
     }
-    self->f2c -= n * 0x71c + (s32)(lbl_805D882C * (lbl_805D8830 * (f32)rand__11TOBoss4RockFv()));
-    self->f38 = n * (s32)(lbl_805D882C * ((lbl_805D8828 * (lbl_805D8830 * (f32)rand__11TOBoss4RockFv()) + lbl_805D8834) / (f32)m));
+    self->f2c -= n * 0x71c + (s32)(lbl_805D882C * (lbl_805D8830 * (f32)rand()));
+    self->f38 = n * (s32)(lbl_805D882C * ((lbl_805D8828 * (lbl_805D8830 * (f32)rand()) + lbl_805D8834) / (f32)m));
     return self;
 }
 

@@ -52,7 +52,7 @@ extern Tbl_802242F8 **lbl_805D6260;
 extern s32 lbl_805D6264;
 void TLobby__sub_802242F8(s32 arg0);
 s32 TLobby__sub_80223D48(s32 arg0);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 extern Tbl_802242F8 **lbl_805D6260;
 extern s32 lbl_805D6264;
 void TLobby__sub_80223EE0(Obj_80223EE0 *arg0, s32 arg1);
@@ -181,7 +181,7 @@ void TLobby__sub_80223EE0(Obj_80223EE0 *arg0, s32 arg1) {
     }
     case 2: {
         s32 lo;
-        s8 v = (s8)((f32)e->b * ((1.0f / 32768.0f) * (f32)rand__11TOBoss4RockFv()));
+        s8 v = (s8)((f32)e->b * ((1.0f / 32768.0f) * (f32)rand()));
         lo = e->a - 1;
         if (v < lo) {
             v = lo;

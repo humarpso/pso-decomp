@@ -39,7 +39,7 @@ s16 TObjPlayer__sub_80121238(s32);
 s16 get_uid__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_80121248(s32, s32);
 s32 TObjPlayer__sub_8012125C(s32);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 extern const f32 lbl_805DAEC0;
 extern const f32 lbl_805DAEC4;
 void TObjPlayer__sub_8012B9B4(Self_8012B9B4 *self);
@@ -103,7 +103,7 @@ void TObjPlayer__sub_8012B9B4(Self_8012B9B4 *self) {
     }
     self->f264 = self->owner->f60;
     VecCopy__FP3VecPC3Vec(self->f268, self->owner->pos);
-    TObjPlayer__sub_801012DC(self, lbl_805DAEC0 * (lbl_805DAEC4 * (f32)rand__11TOBoss4RockFv()));
+    TObjPlayer__sub_801012DC(self, lbl_805DAEC0 * (lbl_805DAEC4 * (f32)rand()));
 }
 
 }

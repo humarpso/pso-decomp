@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void TObjPlayer__sub_801012DC(void *, s32);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 extern const f32 lbl_805DAC8C;
 void TObjPlayer__sub_8011E618(u8 *arg0);
 s8 TObjPlayer__sub_80102C30(void *);
@@ -18,7 +18,7 @@ extern "C" {
 
 void TObjPlayer__sub_8011E618(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x1C0) = (s32) M2C_FIELD(arg0, s32 *, 0x1BC);
-    TObjPlayer__sub_801012DC(arg0, (s32) ((f32) M2C_FIELD(arg0, s32 *, 0x1C4) * (lbl_805DAC8C * (f32) rand__11TOBoss4RockFv())));
+    TObjPlayer__sub_801012DC(arg0, (s32) ((f32) M2C_FIELD(arg0, s32 *, 0x1C4) * (lbl_805DAC8C * (f32) rand())));
 }
 void TObjPlayer__sub_8011E6A4(u8 *arg0) {
     u8 *var_r31;

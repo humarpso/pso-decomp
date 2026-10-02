@@ -69,7 +69,7 @@ u8 TLobby__sub_801E6BB8(void);
 void append_string(s32 arg0);
 s32 parse_r_index(s32 arg0);
 u8 read_byte_advance__6TLobbyFv(void);
-M2C_UNK TAdEnterSerialAccessGC__sub_8039C8A0(M2C_UNK, M2C_UNK *, s32 *, ...);
+M2C_UNK sscanf(M2C_UNK, M2C_UNK *, s32 *, ...);
 M2C_UNK strcpy(s32, s32);
 s32 strlen();
 
@@ -79,7 +79,7 @@ s32 parse_r_index(s32 arg0) {
     s32 sp8;
 
     sp8 = -1;
-    TAdEnterSerialAccessGC__sub_8039C8A0(arg0, &lbl_805DC4A8, &sp8);
+    sscanf(arg0, &lbl_805DC4A8, &sp8);
     if ((sp8 < 0x100) && (sp8 >= 0)) {
         return sp8;
     }

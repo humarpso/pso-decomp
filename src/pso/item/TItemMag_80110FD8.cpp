@@ -28,7 +28,7 @@ extern "C" {
 int TItemMag__sub_801112B0(void);
 int TItemMag__sub_801112B8(void);
 s32 check_action_probability__8TItemMagFPvi(u8 *arg0, s32 arg1);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 
 extern M2C_UNK TItemMag__data_8043E558;
 extern const f32 lbl_805DAB9C;
@@ -84,7 +84,7 @@ s32 check_action_probability__8TItemMagFPvi(u8 *arg0, s32 arg1) {
             }
             break;
         }
-        if ((u8) (s32) (lbl_805DABAC * (lbl_805DAB9C * (f32) rand__11TOBoss4RockFv())) < var_r31) {
+        if ((u8) (s32) (lbl_805DABAC * (lbl_805DAB9C * (f32) rand())) < var_r31) {
             return 1;
         }
         goto block_29;

@@ -21,7 +21,7 @@ struct Obj_8002DF7C {
 };
 
 extern "C" {
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 extern const f32 lbl_805D817C;
 extern const f32 lbl_805D8184;
 extern const f32 lbl_805D818C;
@@ -46,16 +46,16 @@ void TObjPlayer__sub_8002DF7C(Obj_8002DF7C *self);
 extern "C" {
 
 f32 lerp__9TDeadSpotFff(f32 farg0, f32 farg1);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 
 extern M2C_UNK lbl_804355D0;
 extern const f32 lbl_805D818C;
 
 f32 lerp__9TDeadSpotFff(f32 farg0, f32 farg1) {
-    return ((farg1 - farg0) * (lbl_805D818C * (f32) rand__11TOBoss4RockFv())) + farg0;
+    return ((farg1 - farg0) * (lbl_805D818C * (f32) rand())) + farg0;
 }
 f32 TTecZondeEff__sub_8002DF28(void) {
-    return lbl_805D8184 * ((lbl_805D818C * (f32) rand__11TOBoss4RockFv()) - lbl_805D817C);
+    return lbl_805D8184 * ((lbl_805D818C * (f32) rand()) - lbl_805D817C);
 }
 void TObjPlayer__sub_8002DF7C(Obj_8002DF7C *self) {
     if (self->color < lbl_805D8200) {

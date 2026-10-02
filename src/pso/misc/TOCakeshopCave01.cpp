@@ -60,7 +60,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8015A108_lbl_804AFDF8 lbl_804AFDF8;
 extern u32 TOCakeshopCave01__data_805D58B0;
 void TOCakeshopCave01__sub_8015A108(void);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 extern const f32 lbl_805DB358;
 extern const f32 lbl_805DB35C;
 extern const f32 TOCakeshopCave01__data_805DB360;
@@ -112,7 +112,7 @@ void TOCakeshopCave01__sub_80159E24(void *arg0, void *arg1) {
     switch (o->state[i]) {
     default:
         o->val[i] += lbl_805DB358;
-        if (lbl_805DB35C * (f32)rand__11TOBoss4RockFv() < o->val[i]) {
+        if (lbl_805DB35C * (f32)rand() < o->val[i]) {
             o->state[i] = 1;
             o->val[i] = TOCakeshopCave01__data_805DB360;
         }

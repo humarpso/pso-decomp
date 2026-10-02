@@ -9,7 +9,7 @@ s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 TLobby__sub_80209584(int, int);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 __cvt_fp2unsigned(f32);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 extern s32 lbl_805D60A0;
 extern s32 lbl_805D60A4;
 extern s32 lbl_805D60D0;
@@ -26,7 +26,7 @@ void TLobby__sub_8020A2AC(void) {
     s32 var_r0;
     s32 var_r0_2;
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-        lbl_805D60D0 = __cvt_fp2unsigned((f32) (lbl_805DC618 * (lbl_805DC61C * (f32) rand__11TOBoss4RockFv())));
+        lbl_805D60D0 = __cvt_fp2unsigned((f32) (lbl_805DC618 * (lbl_805DC61C * (f32) rand())));
     }
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0xE8));
     var_r0 = temp_r3;

@@ -126,7 +126,7 @@ s32 VecCopy__FP3VecPC3Vec(s32 a0, s32 a1);
 void TBoss6Type2__sub_802BD2D0(s32 arg0, s32 arg1, s32 arg2);
 void TBoss6Type2__sub_802BB5B4(void *, void *, void *);
 s32 TBoss6Type2__sub_802BC23C(void *);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 extern const f32 TBoss6Type2__data_805DE468;
 extern const f32 lbl_805DE4D0;
 void TBoss6Type2__sub_802BDF50(u8 *arg0, u8 *arg1);
@@ -142,7 +142,7 @@ void TBoss6Type2__sub_802BC754(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(s32 a0, s32 a1);
 M2C_UNK TPlayerBattleCtrl4P__sub_801BA74C(int);
 s32 TBoss6Type2__sub_802B9938(void *, void *, void *);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 f32 TBoss8Dragon__sub_803D64C0(int);
 f32 TBoss8Dragon__sub_803D64DC(int);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
@@ -170,7 +170,7 @@ void TBoss6Type2__sub_802BD3CC(Obj_8004D8C8 *self, u16 *a, u16 *b, u16 *out);
 s32 VecCopy__FP3VecPC3Vec(s32 a0, s32 a1);
 void TBoss6Type2__sub_802BD378(T2_802BD378 *arg0, s32 arg1, void *arg2, s32 *arg3);
 s32 TBoss6Type2__sub_802BD68C(T1_802BD68C *arg0, s32 arg1, s32 arg2);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 extern const f32 TBoss6Type2__data_805DE468;
 extern const f32 lbl_805DE4C4;
 s32 TBoss6Type2__sub_802BD76C(T2_802BD76C *arg0);
@@ -504,7 +504,7 @@ void set_target_state__11TBoss6Type2FPvii(void *arg0, s32 arg1, s32 arg2) {
     extern int lbl_804710BC[];
 
 s32 TBoss6Type2__sub_802BD76C(T2_802BD76C *arg0) {
-    s32 k = (s32)(lbl_805DE4C4 * (TBoss6Type2__data_805DE468 * (f32)rand__11TOBoss4RockFv())) + 1;
+    s32 k = (s32)(lbl_805DE4C4 * (TBoss6Type2__data_805DE468 * (f32)rand())) + 1;
     s32 r = arg0->f42C + k;
     if (r > 4) {
         r -= 4;
@@ -546,12 +546,12 @@ void TBoss6Type2__sub_802BD938(u8 *arg0, u8 *arg1) {
         VecCopy__FP3VecPC3Vec((s32)((void *) (&stack.sp18)), (s32)((void *) (temp_r3 + 0x38)));
     } else {
         M2C_FIELD(arg0, u16 *, 0x466) = 0xFFFFU;
-        temp_r29 = (s32) ((lbl_805DE4C8 * -((TBoss6Type2__data_805DE468 * (f32) rand__11TOBoss4RockFv()) - lbl_805DE414)) + (f32) M2C_FIELD(arg0, s32 *, 0x60));
+        temp_r29 = (s32) ((lbl_805DE4C8 * -((TBoss6Type2__data_805DE468 * (f32) rand()) - lbl_805DE414)) + (f32) M2C_FIELD(arg0, s32 *, 0x60));
         VecCopy__FP3VecPC3Vec((s32)((void *) (&stack.sp18)), (s32)((void *) (arg0 + 0x38)));
         stack.sp18 += TBoss6Type2__data_805DE45C * TBoss8Dragon__sub_803D64C0((int) (temp_r29));
         stack.sp20 += TBoss6Type2__data_805DE45C * TBoss8Dragon__sub_803D64DC((int) (temp_r29));
         if (TObjPlayer__sub_803E1A58((void *) (arg0 + 0x38), (void *) (&TBoss6Type2__data_8047105C.value)) > lbl_805DE4CC) {
-            temp_r29_2 = (s32) (lbl_805DE46C * (TBoss6Type2__data_805DE468 * (f32) rand__11TOBoss4RockFv()));
+            temp_r29_2 = (s32) (lbl_805DE46C * (TBoss6Type2__data_805DE468 * (f32) rand()));
             VecCopy__FP3VecPC3Vec((s32)((void *) (&stack.sp18)), (s32)((void *) (&TBoss6Type2__data_8047105C.value)));
             stack.sp18 += TBoss6Type2__data_805DE45C * TBoss8Dragon__sub_803D64C0((int) (temp_r29_2));
             stack.sp20 += TBoss6Type2__data_805DE45C * TBoss8Dragon__sub_803D64DC((int) (temp_r29_2));
@@ -689,7 +689,7 @@ void TBoss6Type2__sub_802BDF50(u8 *arg0, u8 *arg1) {
     u16 spA;
     u16 sp8;
     M2C_FIELD(arg1, u16 *, 2) = (u16) M2C_FIELD(arg0, u16 *, 0x1C);
-    M2C_FIELD(arg1, s8 *, 8) = (s8) (lbl_805DE4D0 * (TBoss6Type2__data_805DE468 * (f32) rand__11TOBoss4RockFv()));
+    M2C_FIELD(arg1, s8 *, 8) = (s8) (lbl_805DE4D0 * (TBoss6Type2__data_805DE468 * (f32) rand()));
     M2C_FIELD(arg1, s8 *, 9) = TBoss6Type2__sub_802BC23C(arg0);
     M2C_FIELD(arg1, s8 *, 0xA) = (s8) M2C_FIELD(arg0, s32 *, 0x428);
     M2C_FIELD(arg1, s8 *, 0xB) = (s8) M2C_FIELD(arg0, s32 *, 0x430);

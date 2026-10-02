@@ -156,7 +156,7 @@ int TLobby__sub_8022743C(void);
 void destroy_keyboard_objects(void * _w0);
 u8 * TParticleCtrl__sub_800865BC(void *, void *, s32);
 int get_object__13TParticleCtrlFPv(void *);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 extern M2C_UNK TParticleCtrl__data_8048E7A8[];
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 extern const f32 TParticleCtrl__data_805D9558;
@@ -166,7 +166,7 @@ extern const f32 lbl_805D956C;
 u8 *TParticleCtrl__sub_8008C21C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3);
 u8 * TParticleCtrl__sub_800865BC(void *, void *, s32);
 int get_object__13TParticleCtrlFPv(void *);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 extern M2C_UNK TParticleCtrl__data_8048E7A8[];
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 extern const f32 TParticleCtrl__data_805D9558;
@@ -647,9 +647,9 @@ u8 *TParticleCtrl__sub_8008BF58(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4
     s32 temp_r0;
     TParticleCtrl__sub_800865BC(arg0, arg1, arg3);
     ((Fields_arg0*)arg0)->field_18 = &(*(RecoveredGlobal_8008BF58_TParticleCtrl__data_8048E7A8 *)&TParticleCtrl__data_8048E7A8).value;
-    ((Fields_arg0*)arg0)->field_70 = (f32) ((((Fields_arg1*)arg1)->field_18 * ((lbl_805D9568 * (f32) rand__11TOBoss4RockFv()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_0);
-    ((Fields_arg0*)arg0)->field_74 = (f32) ((((Fields_arg1*)arg1)->field_1C * ((lbl_805D9568 * (f32) rand__11TOBoss4RockFv()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_4);
-    ((Fields_arg0*)arg0)->field_78 = (f32) ((((Fields_arg1*)arg1)->field_20 * ((lbl_805D9568 * (f32) rand__11TOBoss4RockFv()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_8);
+    ((Fields_arg0*)arg0)->field_70 = (f32) ((((Fields_arg1*)arg1)->field_18 * ((lbl_805D9568 * (f32) rand()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_0);
+    ((Fields_arg0*)arg0)->field_74 = (f32) ((((Fields_arg1*)arg1)->field_1C * ((lbl_805D9568 * (f32) rand()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_4);
+    ((Fields_arg0*)arg0)->field_78 = (f32) ((((Fields_arg1*)arg1)->field_20 * ((lbl_805D9568 * (f32) rand()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_8);
     ((Fields_arg0*)arg0)->field_24 = arg4;
     if (((Fields_arg0*)arg0)->field_24 & 0x80) {
         ((Fields_arg0*)arg0)->field_95 = 1;
@@ -658,15 +658,15 @@ u8 *TParticleCtrl__sub_8008BF58(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4
     ((Fields_arg0*)arg0)->field_30 = (f32) ((Fields_arg2*)arg2)->field_0;
     ((Fields_arg0*)arg0)->field_34 = (f32) ((Fields_arg2*)arg2)->field_4;
     ((Fields_arg0*)arg0)->field_38 = (f32) ((Fields_arg2*)arg2)->field_8;
-    ((Fields_arg0*)arg0)->field_28 = (f32) ((((Fields_arg1*)arg1)->field_28 * (lbl_805D9568 * (f32) rand__11TOBoss4RockFv())) + ((Fields_arg1*)arg1)->field_24);
+    ((Fields_arg0*)arg0)->field_28 = (f32) ((((Fields_arg1*)arg1)->field_28 * (lbl_805D9568 * (f32) rand())) + ((Fields_arg1*)arg1)->field_24);
     ((Fields_arg0*)arg0)->field_2C = (f32) ((Fields_arg0*)arg0)->field_28;
-    temp_r0 = (s32) (((f32) ((Fields_arg1*)arg1)->field_4C * (lbl_805D9568 * (f32) rand__11TOBoss4RockFv())) + (f32) ((Fields_arg1*)arg1)->field_48);
+    temp_r0 = (s32) (((f32) ((Fields_arg1*)arg1)->field_4C * (lbl_805D9568 * (f32) rand())) + (f32) ((Fields_arg1*)arg1)->field_48);
     if (((Fields_arg1*)arg1)->field_88 & 1) {
         ((Fields_arg0*)arg0)->field_5C = (f32) (TParticleCtrl__data_805D9558 / (f32) M2C_FIELD(M2C_FIELD(M2C_FIELD(&(*(RecoveredGlobal_8008BF58_TParticleCtrl__data_80511F70 *)&TParticleCtrl__data_80511F70).value, M2C_UNK *, (((Fields_arg0*)arg0)->field_1C * 4)), void **, 0x28), s32 *, 0xC));
     } else {
         ((Fields_arg0*)arg0)->field_5C = (f32) (TParticleCtrl__data_805D9558 / (f32) temp_r0);
     }
-    ((Fields_arg0*)arg0)->field_68 = (f32) ((((Fields_arg1*)arg1)->field_38 * (lbl_805D9568 * (f32) rand__11TOBoss4RockFv())) + ((Fields_arg1*)arg1)->field_30);
+    ((Fields_arg0*)arg0)->field_68 = (f32) ((((Fields_arg1*)arg1)->field_38 * (lbl_805D9568 * (f32) rand())) + ((Fields_arg1*)arg1)->field_30);
     ((Fields_arg0*)arg0)->field_3C = (f32) TParticleCtrl__data_805D955C;
     ((Fields_arg0*)arg0)->field_40 = (f32) TParticleCtrl__data_805D955C;
     ((Fields_arg0*)arg0)->field_44 = (f32) TParticleCtrl__data_805D955C;
@@ -684,21 +684,21 @@ u8 *TParticleCtrl__sub_8008C21C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3) {
     s32 temp_r0;
     TParticleCtrl__sub_800865BC(arg0, arg1, arg3);
     ((Fields_arg0*)arg0)->field_18 = &(*(RecoveredGlobal_8008C21C_TParticleCtrl__data_8048E7A8 *)&TParticleCtrl__data_8048E7A8).value;
-    ((Fields_arg0*)arg0)->field_70 = (f32) ((((Fields_arg1*)arg1)->field_18 * ((lbl_805D9568 * (f32) rand__11TOBoss4RockFv()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_0);
-    ((Fields_arg0*)arg0)->field_74 = (f32) ((((Fields_arg1*)arg1)->field_1C * ((lbl_805D9568 * (f32) rand__11TOBoss4RockFv()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_4);
-    ((Fields_arg0*)arg0)->field_78 = (f32) ((((Fields_arg1*)arg1)->field_20 * ((lbl_805D9568 * (f32) rand__11TOBoss4RockFv()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_8);
+    ((Fields_arg0*)arg0)->field_70 = (f32) ((((Fields_arg1*)arg1)->field_18 * ((lbl_805D9568 * (f32) rand()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_0);
+    ((Fields_arg0*)arg0)->field_74 = (f32) ((((Fields_arg1*)arg1)->field_1C * ((lbl_805D9568 * (f32) rand()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_4);
+    ((Fields_arg0*)arg0)->field_78 = (f32) ((((Fields_arg1*)arg1)->field_20 * ((lbl_805D9568 * (f32) rand()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_8);
     ((Fields_arg0*)arg0)->field_30 = (f32) ((Fields_arg2*)arg2)->field_0;
     ((Fields_arg0*)arg0)->field_34 = (f32) ((Fields_arg2*)arg2)->field_4;
     ((Fields_arg0*)arg0)->field_38 = (f32) ((Fields_arg2*)arg2)->field_8;
-    ((Fields_arg0*)arg0)->field_28 = (f32) ((((Fields_arg1*)arg1)->field_28 * (lbl_805D9568 * (f32) rand__11TOBoss4RockFv())) + ((Fields_arg1*)arg1)->field_24);
+    ((Fields_arg0*)arg0)->field_28 = (f32) ((((Fields_arg1*)arg1)->field_28 * (lbl_805D9568 * (f32) rand())) + ((Fields_arg1*)arg1)->field_24);
     ((Fields_arg0*)arg0)->field_2C = (f32) ((Fields_arg0*)arg0)->field_28;
-    temp_r0 = (s32) (((f32) ((Fields_arg1*)arg1)->field_4C * (lbl_805D9568 * (f32) rand__11TOBoss4RockFv())) + (f32) ((Fields_arg1*)arg1)->field_48);
+    temp_r0 = (s32) (((f32) ((Fields_arg1*)arg1)->field_4C * (lbl_805D9568 * (f32) rand())) + (f32) ((Fields_arg1*)arg1)->field_48);
     if (((Fields_arg1*)arg1)->field_88 & 1) {
         ((Fields_arg0*)arg0)->field_5C = (f32) (TParticleCtrl__data_805D9558 / (f32) M2C_FIELD(M2C_FIELD(M2C_FIELD(&TParticleCtrl__data_80511F70.value, M2C_UNK *, (((Fields_arg0*)arg0)->field_1C * 4)), void **, 0x28), s32 *, 0xC));
     } else {
         ((Fields_arg0*)arg0)->field_5C = (f32) (TParticleCtrl__data_805D9558 / (f32) temp_r0);
     }
-    ((Fields_arg0*)arg0)->field_68 = (f32) ((((Fields_arg1*)arg1)->field_38 * (lbl_805D9568 * (f32) rand__11TOBoss4RockFv())) + ((Fields_arg1*)arg1)->field_30);
+    ((Fields_arg0*)arg0)->field_68 = (f32) ((((Fields_arg1*)arg1)->field_38 * (lbl_805D9568 * (f32) rand())) + ((Fields_arg1*)arg1)->field_30);
     ((Fields_arg0*)arg0)->field_3C = (f32) TParticleCtrl__data_805D955C;
     ((Fields_arg0*)arg0)->field_40 = (f32) TParticleCtrl__data_805D955C;
     ((Fields_arg0*)arg0)->field_44 = (f32) TParticleCtrl__data_805D955C;

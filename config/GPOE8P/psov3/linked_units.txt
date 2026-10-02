@@ -1471,7 +1471,6 @@ pso/misc/TOBoss4.cpp
 pso/misc/TOBoss4Bird.cpp
 pso/misc/TOBoss4Rock.cpp
 pso/misc/TOBoss4Rock_8035A7FC.cpp
-pso/misc/TOBoss4Rock_8039C880.cpp
 pso/misc/TOBoss4Tower.cpp
 pso/misc/TOCakeshopCave01.cpp
 pso/misc/TOCapsuleAncient01.cpp

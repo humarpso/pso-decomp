@@ -21,7 +21,7 @@ s32 TObjFish__sub_8001EDC4(int, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 TBoss6Rock__sub_80353A04();
 s32 TBoss6Rock__sub_80353A0C();
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 extern RecoveredGlobal_8035A1A4___vt__15TBoss6CrushRock __vt__15TBoss6CrushRock;
 extern s32 lbl_805D4408;
 extern const f32 lbl_805E00C8;
@@ -57,15 +57,15 @@ u8 *__ct__15TBoss6CrushRockFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     M2C_FIELD(arg0, s32 *, 0x1C) = TObjFish__sub_8001EDC4((int) (TBoss6Rock__sub_80353A0C()), (void *) (arg3));
     M2C_FIELD(arg0, s32 *, 0x20) = TBoss6Rock__sub_80353A04();
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x24), (void *) (arg2));
-    M2C_FIELD(arg0, f32 *, 0x30) = (f32) (lbl_805E00C8 * ((lbl_805E00CC * (f32) rand__11TOBoss4RockFv()) - lbl_805E00C8));
-    M2C_FIELD(arg0, f32 *, 0x34) = (f32) (lbl_805E00C8 * ((lbl_805E00CC * (f32) rand__11TOBoss4RockFv()) - lbl_805E00C8));
-    M2C_FIELD(arg0, f32 *, 0x38) = (f32) (lbl_805E00C8 * ((lbl_805E00CC * (f32) rand__11TOBoss4RockFv()) - lbl_805E00C8));
-    M2C_FIELD(arg0, s32 *, 0x3C) = (s32) (lbl_805E00D0 * (lbl_805E00CC * (f32) rand__11TOBoss4RockFv()));
-    M2C_FIELD(arg0, s32 *, 0x40) = (s32) (lbl_805E00D0 * (lbl_805E00CC * (f32) rand__11TOBoss4RockFv()));
-    M2C_FIELD(arg0, s32 *, 0x44) = (s32) (lbl_805E00D0 * (lbl_805E00CC * (f32) rand__11TOBoss4RockFv()));
-    M2C_FIELD(arg0, s32 *, 0x48) = (s32) (lbl_805E00D4 * ((lbl_805E00CC * (f32) rand__11TOBoss4RockFv()) - lbl_805E00C8));
-    M2C_FIELD(arg0, s32 *, 0x4C) = (s32) (lbl_805E00D4 * ((lbl_805E00CC * (f32) rand__11TOBoss4RockFv()) - lbl_805E00C8));
-    M2C_FIELD(arg0, s32 *, 0x50) = (s32) (lbl_805E00D4 * ((lbl_805E00CC * (f32) rand__11TOBoss4RockFv()) - lbl_805E00C8));
+    M2C_FIELD(arg0, f32 *, 0x30) = (f32) (lbl_805E00C8 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));
+    M2C_FIELD(arg0, f32 *, 0x34) = (f32) (lbl_805E00C8 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));
+    M2C_FIELD(arg0, f32 *, 0x38) = (f32) (lbl_805E00C8 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));
+    M2C_FIELD(arg0, s32 *, 0x3C) = (s32) (lbl_805E00D0 * (lbl_805E00CC * (f32) rand()));
+    M2C_FIELD(arg0, s32 *, 0x40) = (s32) (lbl_805E00D0 * (lbl_805E00CC * (f32) rand()));
+    M2C_FIELD(arg0, s32 *, 0x44) = (s32) (lbl_805E00D0 * (lbl_805E00CC * (f32) rand()));
+    M2C_FIELD(arg0, s32 *, 0x48) = (s32) (lbl_805E00D4 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));
+    M2C_FIELD(arg0, s32 *, 0x4C) = (s32) (lbl_805E00D4 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));
+    M2C_FIELD(arg0, s32 *, 0x50) = (s32) (lbl_805E00D4 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));
     return arg0;
 }
 #pragma pop
@@ -101,9 +101,9 @@ void TBoss6Rock__sub_8035A460(Vec_8035A460 *self, s32 kind) {
     for (i = 0; i < 0x12 / n; i++) {
         for (j = 0; j < n; j++) {
             Vec_8035A460 p = *self;
-            s32 angle = (s32)(lbl_805E00D0 * (lbl_805E00CC * (f32)rand__11TOBoss4RockFv()));
+            s32 angle = (s32)(lbl_805E00D0 * (lbl_805E00CC * (f32)rand()));
             p.x += radius * TBoss8Dragon__sub_803D64C0(angle);
-            p.y += lbl_805E00E0 * (lbl_805E00CC * (f32)rand__11TOBoss4RockFv());
+            p.y += lbl_805E00E0 * (lbl_805E00CC * (f32)rand());
             p.z += radius * TBoss8Dragon__sub_803D64DC(angle);
             u8 *o = (u8 *)__nw__7TObjectFUl(0x54);
             if (o != NULL) {

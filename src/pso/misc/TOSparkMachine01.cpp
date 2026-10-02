@@ -86,7 +86,7 @@ extern const f32 lbl_805DB9F0;
 extern const f32 lbl_805DB9F4;
 extern const f32 lbl_805DB9F8;
 void *TOSparkMachine01__ct(void *arg0, void *arg1);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 extern const f32 lbl_805DB9E8;
 extern const f32 TOSparkMachine01__data_805DB9EC;
 void TOSparkMachine01__sub_80177088(void *arg0, s32 i);
@@ -116,14 +116,14 @@ void TOSparkMachine01__sub_80177088(void *arg0, s32 i) {
     switch (self->on[i]) {
     case 1:
         self->timer[i] += self->speed;
-        if (lbl_805DB9E8 * (f32)rand__11TOBoss4RockFv() < self->timer[i]) {
+        if (lbl_805DB9E8 * (f32)rand() < self->timer[i]) {
             self->on[i] = 0;
             self->timer[i] = TOSparkMachine01__data_805DB9EC;
         }
         break;
     default:
         self->timer[i] += self->speed;
-        if (lbl_805DB9E8 * (f32)rand__11TOBoss4RockFv() < self->timer[i]) {
+        if (lbl_805DB9E8 * (f32)rand() < self->timer[i]) {
             self->on[i] = 1;
             self->timer[i] = TOSparkMachine01__data_805DB9EC;
         }

@@ -12,7 +12,7 @@ void TItem__sub_80100824(s32);
 s32 TItem__sub_801008F0(void *, void *);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 T_803501BC *get_item_pmt_entry__10TObjPlayerFUc(u8);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 extern const f32 lbl_805DFE28;
 extern const f32 lbl_805DFE2C;
 void fn_803501BC(void *arg0);
@@ -24,7 +24,7 @@ void fn_803501BC(void *arg0) {
     T_803501BC *t;
     t = get_item_pmt_entry__10TObjPlayerFUc(get_slot_count__14TItemProShieldFPv(arg0));
     if (t != NULL) {
-        s32 r = (s32)(lbl_805DFE28 * (lbl_805DFE2C * (f32)rand__11TOBoss4RockFv()));
+        s32 r = (s32)(lbl_805DFE28 * (lbl_805DFE2C * (f32)rand()));
         E_803501BC *e = t->e;
         s32 i;
         for (i = t->n; i != 0; i++) {

@@ -15,7 +15,7 @@ struct Obj_80325248 { u8 pad[0x38]; s32 n; u8 pad2[0xD8 - 0x3C]; Ent_80325248 en
 extern "C" {
 void TOSwitchAttack__sub_80087278(void *, s32, s32);
 void run_task__12TTecZondeEffFv(void *);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 extern const f32 lbl_805DF5F4;
 extern const f32 lbl_805DF5F8;
 void run_task__25TBoss5GryphonLightningEffFv(Obj_80325248 *arg0);
@@ -71,8 +71,8 @@ void render__25TBoss5GryphonLightningEffFv(void *arg0) {
 }
 void run_task__25TBoss5GryphonLightningEffFv(Obj_80325248 *arg0) {
     run_task__12TTecZondeEffFv(arg0);
-    if (lbl_805DF5F4 * (f32)rand__11TOBoss4RockFv() > lbl_805DF5F8) {
-        s32 i = (f32)arg0->n * (lbl_805DF5F4 * (f32)rand__11TOBoss4RockFv());
+    if (lbl_805DF5F4 * (f32)rand() > lbl_805DF5F8) {
+        s32 i = (f32)arg0->n * (lbl_805DF5F4 * (f32)rand());
         TOSwitchAttack__sub_80087278(&arg0->ents[i], 0x215, 0x40);
     }
     (*(s16 *)((u8 *)arg0 + 0x25C))++;

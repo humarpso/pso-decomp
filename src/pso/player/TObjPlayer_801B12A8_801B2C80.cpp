@@ -126,7 +126,7 @@ s32 is_flag30_8_set__10TObjPlayerFi();
 M2C_UNK obj_copyVec2_0(M2C_UNK *, s32);
 s16 obj_getField1c(s32);
 s32 obj_isState2_324();
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 int recover_full__10TObjPlayerFPv(void*);
 M2C_UNK reinit_update_sub4_and_send__10TObjPlayerFPv(M2C_UNK *);
 M2C_UNK set_code_12_3__10TObjPlayerFPv(M2C_UNK *);
@@ -224,7 +224,7 @@ s32 TObjPlayer__sub_801B2E68(u8 *arg0) {
 
 s32 calc_scaled_value__10TObjPlayerFii(s32 arg0, s32 arg1) {
     if (is_flag30_10_set__10TObjPlayerFi() != 0) {
-        return (s32) (lbl_805DC280 * (lbl_805DC284 * (lbl_805DC288 * (f32) rand__11TOBoss4RockFv())));
+        return (s32) (lbl_805DC280 * (lbl_805DC284 * (lbl_805DC288 * (f32) rand())));
     }
     return arg1;
 }

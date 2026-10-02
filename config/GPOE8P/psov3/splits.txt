@@ -18020,11 +18020,12 @@ PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/printf.c:
 	.sdata      start:0x805D45E8 end:0x805D45F0
 	.sdata2     start:0x805E05D0 end:0x805E05D8
 
-pso/misc/TOBoss4Rock_8039C880.cpp:
-	.text       start:0x8039C880 end:0x8039C964
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/rand.c:
+	.text       start:0x8039C880 end:0x8039C8A0
+	.sdata      start:0x805D45F0 end:0x805D45F8
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/scanf.c:
-	.text       start:0x8039C964 end:0x8039D8E8
+	.text       start:0x8039C8A0 end:0x8039D8E8
 	.rodata     start:0x8047BBC0 end:0x8047BBE8
 	.data       start:0x804F5D68 end:0x804F5E38
 

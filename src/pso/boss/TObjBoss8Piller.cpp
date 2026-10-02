@@ -24,7 +24,7 @@ extern u32 TObjBoss8Piller__data_805D6A78;
 void TObjBoss8Piller__sub_8030B048(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 extern RecoveredGlobal_8030AF60___vt__15TObjBoss8Piller __vt__15TObjBoss8Piller;
 extern s32 lbl_805D40D8;
 extern u32 TObjBoss8Piller__data_805D6A78;
@@ -50,7 +50,7 @@ u8 *__ct__15TObjBoss8PillerFv(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) lbl_805DF158;
     M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805DF158;
     M2C_FIELD(arg0, s16 *, 0x30) = arg3;
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) (lbl_805DF15C * (lbl_805DF160 * (f32) rand__11TOBoss4RockFv()));
+    M2C_FIELD(arg0, f32 *, 0x28) = (f32) (lbl_805DF15C * (lbl_805DF160 * (f32) rand()));
     M2C_FIELD(arg0, s32 *, 0x2C) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjBoss8Piller__data_805D6A78), u8 **, 0x430), s32 *, 4);
     return arg0;
 }

@@ -87,7 +87,7 @@ extern "C" {
 void append_card_window_text__6TLobbyFv(void);
 void capture_chat_sensor__6TLobbyFi(s32 arg0);
 s32 parse_f_index(s32 a0);
-int TAdEnterSerialAccessGC__sub_8039C8A0(M2C_UNK, M2C_UNK *, ...);
+int sscanf(M2C_UNK, M2C_UNK *, ...);
 M2C_UNK TOChatSensorCapture__sub_8015A99C(u16, s32);
 M2C_UNK TOChatSensor__sub_8015B108();
 M2C_UNK append_string(void *);
@@ -199,7 +199,7 @@ s32 parse_f_index(s32 a0) {
     s32 sp8;
 
     sp8 = -1;
-    TAdEnterSerialAccessGC__sub_8039C8A0(a0, &lbl_805DC4A4, &sp8);
+    sscanf(a0, &lbl_805DC4A4, &sp8);
     if ((sp8 < 0x100) && (sp8 >= 0)) {
         return sp8;
     }

@@ -164,7 +164,7 @@ s32 obj_getField1c(s32);
 s32 obj_isState2_324(void *);
 s32 obj_isState3_324(s32);
 s32 obj_testFlags30(void *, M2C_UNK);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 s32 test_flag_2000000__10TObjPlayerFPv(s32);
 
 extern M2C_UNK __vt__10TItemTimer[];
@@ -205,7 +205,7 @@ extern const f32 lbl_805DAC7C;
 void TItemTimer__sub_8011D5B4(Timer_8011D5B4 *arg0) {
     Rec_8011D5B4 a;
     get_field_3e0__12TBoss3VoloptFPv(arg0->obj);
-    if (TObjPlayer__sub_802034B0() == 1 && lbl_805DAC78 * (f32)rand__11TOBoss4RockFv() < arg0->f2c) {
+    if (TObjPlayer__sub_802034B0() == 1 && lbl_805DAC78 * (f32)rand() < arg0->f2c) {
         a.k1 = 0x10;
         a.v2 = lbl_805DAC7C;
         a.k2 = 0x10;
@@ -217,7 +217,7 @@ void TItemTimer__sub_8011D5B4(Timer_8011D5B4 *arg0) {
 void TItemTimer__sub_8011D66C(Timer_8011D5B4 *arg0) {
     Rec_8011D5B4 a;
     get_field_3e0__12TBoss3VoloptFPv(arg0->obj);
-    if (TObjPlayer__sub_802034B0() == 1 && lbl_805DAC78 * (f32)rand__11TOBoss4RockFv() < arg0->f2c) {
+    if (TObjPlayer__sub_802034B0() == 1 && lbl_805DAC78 * (f32)rand() < arg0->f2c) {
         a.k1 = 0x12;
         a.v2 = lbl_805DAC7C;
         a.k2 = 0x12;
@@ -229,7 +229,7 @@ void TItemTimer__sub_8011D66C(Timer_8011D5B4 *arg0) {
 void TItemTimer__sub_8011D724(Timer_8011D5B4 *arg0) {
     Rec_8011D5B4 a;
     get_field_3e0__12TBoss3VoloptFPv(arg0->obj);
-    if (TObjPlayer__sub_802034B0() == 1 && lbl_805DAC78 * (f32)rand__11TOBoss4RockFv() < arg0->f2c) {
+    if (TObjPlayer__sub_802034B0() == 1 && lbl_805DAC78 * (f32)rand() < arg0->f2c) {
         a.k1 = 0x11;
         a.v2 = lbl_805DAC7C;
         a.k2 = 0x11;
@@ -260,7 +260,7 @@ void update__10TItemTimerFPv(void *arg0) {
     if (obj_isState2_324(M2C_FIELD(arg0, void **, 0x28)) == 0) {
         if (((VObj18_8011d87c_8011D414 *) M2C_FIELD(arg0, void **, 0x28))->vf84() == 0) {
             get_field_3e0__12TBoss3VoloptFPv((void *)((void *)(M2C_FIELD(arg0, void **, 0x28))));
-            if ((TObjPlayer__sub_802034B0() == 1) && ((lbl_805DAC78 * (f32) rand__11TOBoss4RockFv()) < M2C_FIELD(arg0, f32 *, 0x2C))) {
+            if ((TObjPlayer__sub_802034B0() == 1) && ((lbl_805DAC78 * (f32) rand()) < M2C_FIELD(arg0, f32 *, 0x2C))) {
                 ((VObj18_8011d87c_8011D414 *) M2C_FIELD(arg0, void **, 0x28))->vfC0(0);
                 ((VObj18_8011d87c_8011D414 *) M2C_FIELD(arg0, void **, 0x28))->vf128(0);
             }

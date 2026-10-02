@@ -8,7 +8,7 @@ extern "C" {
 u8 *get_player_data__10TObjPlayerFi(s32);
 s16 obj_getField1c(void *);
 s32 TBoss4Type3__sub_8005254C(s16);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 extern s32 lbl_805D586C;
 extern const f32 lbl_805D890C;
 extern const f32 lbl_805D8918;
@@ -92,7 +92,7 @@ u16 TBoss4Type3__sub_8004AE60(void) {
     if (n == 0) {
         return 0xFFFF;
     }
-    return buf[(s32)(((f32)n - lbl_805D890C) * (lbl_805D8918 * (f32)rand__11TOBoss4RockFv()))];
+    return buf[(s32)(((f32)n - lbl_805D890C) * (lbl_805D8918 * (f32)rand()))];
 }
 
 }

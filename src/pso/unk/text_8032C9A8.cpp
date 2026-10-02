@@ -13,7 +13,7 @@ s32 get_global_state__23TAdSinglePlyChrSelectGCFv();
 void DateToSeconds__FP9DateStampPi(DateStamp_8032C9A8 *, u32 *);
 void getDateStamp__FP9DateStamp(DateStamp_8032C9A8 *);
 void *memmove(void *, const void *, u32);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 void *memset(void *, int, u32);
 extern s32 lbl_805D5544;
 extern u8 *TLobby__data_805D6CD4;
@@ -48,7 +48,7 @@ void TLobby__sub_8032C9A8(s32 arg0, s32 arg1) {
         if (arg1 != 0) {
             getDateStamp__FP9DateStamp(&ds);
             DateToSeconds__FP9DateStampPi(&ds, &secs);
-            secs = lbl_805DF7A8 * (lbl_805DF7AC * rand__11TOBoss4RockFv()) + secs;
+            secs = lbl_805DF7A8 * (lbl_805DF7AC * rand()) + secs;
             memmove(&rec.a, (void *) (st + 0x118), 4);
             memmove(&rec.b, &secs, 4);
             memmove(obj + 0x2C0, &rec, 8);

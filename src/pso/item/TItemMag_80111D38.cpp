@@ -84,7 +84,7 @@ s16 get_mag_item_percent(void *, void *);
 s16 get_mag_item_stat_percent(void *);
 s16 get_mag_level(void *);
 s32 get_max_stat_flags__8TItemMagFi();
-M2C_UNK rand__11TOBoss4RockFv();
+M2C_UNK rand();
 M2C_UNK try_add_action__8TItemMagFii(void *, M2C_UNK);
 
 void update_feed_anim__8TItemMagFPv(void *arg0) {
@@ -351,7 +351,7 @@ void TItemMag__sub_801123F8(u8 *arg0) {
 }
 
 void feed_by_item_flags__8TItemMagFPvc(void *arg0, s8 arg1) {
-    rand__11TOBoss4RockFv();
+    rand();
     if (arg1 & 0x40) {
         if (check_action_probability__8TItemMagFPvi(arg0, 0) != 0) {
             TItemMag__sub_80112E20(arg0, M2C_FIELD(arg0, u8 *, 0x1BD));

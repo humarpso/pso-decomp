@@ -21,7 +21,7 @@ extern u8 lbl_80477178[];
 extern u8 lbl_80477180[];
 s32 TAdEnterSerialAccessGC__sub_8032AE54(void *arg0, void *arg1);
 int sprintf(char *, const char *, ...);
-void TAdEnterSerialAccessGC__sub_8039C8A0(int, const char *, ...);
+void sscanf(int, const char *, ...);
 M2C_UNK memset(s32, M2C_UNK, M2C_UNK);
 extern char lbl_80477260[];
 extern char lbl_80477268[];
@@ -167,7 +167,7 @@ void store_serial_access_key__22TAdEnterSerialAccessGCFiii(s32 arg0, s32 arg1, s
 
 char *TAdEnterSerialAccessGC__sub_8032B12C(int arg0) {
     u32 v = 0;
-    TAdEnterSerialAccessGC__sub_8039C8A0(arg0, lbl_80477260, &v);
+    sscanf(arg0, lbl_80477260, &v);
     memset((s32)((s32)lbl_80543468), (M2C_UNK)(0), (M2C_UNK)(0x40));
     if (v != 0) {
         sprintf(lbl_80543468, lbl_80477268, v);

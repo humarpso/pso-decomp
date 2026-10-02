@@ -17,7 +17,7 @@ void set_flags__10TObjPlayerFPvUi(void *, u32);
 void clear_flags__11TAdRicoRingFPvUi(void *, u32);
 s32 TObjPlayer__sub_8001BEF8(void *, s32);
 void fn_8010EFE8(O_8010EFE8 *self);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 extern const f32 lbl_805DAB90;
 void fn_8010EF14(O_8010EF14 *self);
 }
@@ -31,7 +31,7 @@ void fn_8010EF14(O_8010EF14 *self) {
     fn_8010EFE8((O_8010EFE8 *)(self));
     if (self->buf != NULL) {
         for (i = 0; i != self->count; i++) {
-            j = (u32)((f32)self->count * (lbl_805DAB90 * (f32)rand__11TOBoss4RockFv()));
+            j = (u32)((f32)self->count * (lbl_805DAB90 * (f32)rand()));
             t = self->buf[i];
             self->buf[i] = self->buf[j];
             self->buf[j] = t;

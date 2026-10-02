@@ -89,7 +89,7 @@ M2C_UNK TObjEneDellBiter__sub_80087350(void *, s32);
 M2C_UNK init_all_slots__10TObjPlayerFv();
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 M2C_UNK TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 extern Dmg_80049A1C lbl_80436710[];
 extern const f32 lbl_805D8898;
 extern const f32 lbl_805D889C;
@@ -263,7 +263,7 @@ void TBoss3Volopt__sub_80049A1C(u8 *arg0) {
     s32 i;
     VObj_80049A1C *p;
     d.val = TObjVoloptPillar__sub_80048118(0);
-    if (TBoss3Volopt__sub_8003F398() != 0 && lbl_805D8898 * (f32)rand__11TOBoss4RockFv() < lbl_805D889C) {
+    if (TBoss3Volopt__sub_8003F398() != 0 && lbl_805D8898 * (f32)rand() < lbl_805D889C) {
         d.type = 0x11;
     }
     TBoss3Volopt__sub_8022675C(0x4003AD15, arg0 + 0x38, 0, 0);

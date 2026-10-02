@@ -29,7 +29,7 @@ extern const f32 lbl_805D8848;
 u8 *TBoss3Volopt__sub_8004885C(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4, f32 farg0, f32 farg1);
 void queue_destruction__7TObjectFv(void *);
 void fn_80086D50(void *, void *, s32);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 extern const f32 lbl_805D8838;
@@ -85,9 +85,9 @@ void TBoss3Volopt__sub_80048674(u8 *arg0) {
     f32 d;
     M2C_FIELD(arg0, f32 *, 0x28) += M2C_FIELD(arg0, f32 *, 0x24);
     while (M2C_FIELD(arg0, f32 *, 0x28) >= lbl_805D8844) {
-        ang = lbl_805D8838 * (lbl_805D883C * (lbl_805D8840 * (f32)rand__11TOBoss4RockFv()));
+        ang = lbl_805D8838 * (lbl_805D883C * (lbl_805D8840 * (f32)rand()));
         v = *(Raw_80048674 *)(arg0 + 0x2C);
-        d = M2C_FIELD(arg0, f32 *, 0x44) * (lbl_805D8840 * (f32)rand__11TOBoss4RockFv());
+        d = M2C_FIELD(arg0, f32 *, 0x44) * (lbl_805D8840 * (f32)rand());
         M2C_FIELD(&v, f32 *, 0) += d * TBoss8Dragon__sub_803D64DC(ang);
         M2C_FIELD(&v, f32 *, 8) += d * TBoss8Dragon__sub_803D64C0(ang);
         fn_80086D50(&v, arg0 + 0x38, M2C_FIELD(arg0, s32 *, 0x1C));

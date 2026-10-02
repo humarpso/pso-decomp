@@ -103,7 +103,7 @@ s32 fn_8010F210(void *);
 s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 __cvt_fp2unsigned(f32);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 extern M2C_UNK __vt__9TItemDrop[];
 extern RecoveredGlobal_80107840_lbl_8049EF88 lbl_8049EF88;
 extern s32 lbl_805D2B7C;
@@ -525,8 +525,8 @@ TItemDrop_80107900 *TItemDrop__ct(TItemDrop_80107900 *self, void *parent, s8 arg
     TItemDrop__data_805D5474 = arg2;
     self->list = (s32 *)alloc_buffer__11TOBoss4RockFPv(0x44);
     for (i = 0; i != 0x11; i++) {
-        a = __cvt_fp2unsigned(lbl_805DAAD8 * (lbl_805DAAE4 * (f32)rand__11TOBoss4RockFv()));
-        b = __cvt_fp2unsigned(lbl_805DAAD4 * (lbl_805DAAE4 * (f32)rand__11TOBoss4RockFv()));
+        a = __cvt_fp2unsigned(lbl_805DAAD8 * (lbl_805DAAE4 * (f32)rand()));
+        b = __cvt_fp2unsigned(lbl_805DAAD4 * (lbl_805DAAE4 * (f32)rand()));
         obj = alloc__23TAdSinglePlyChrSelectGCFPv(0xE8);
         if (obj != 0) {
             obj = run_step__9TItemDropFi(obj, a | b);

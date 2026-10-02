@@ -11,7 +11,7 @@ void cast_tech_gibarta__10TObjPlayerFPv(void *arg0);
 void notify_container_if_mode1__10TObjPlayerFPv(void* p);
 void update_state_1fc__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80122748(void *arg0);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 int rotate_matrix_x(void*, void*);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_8011E618(void *);
@@ -46,7 +46,7 @@ void update_state_1fc__10TObjPlayerFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1FC) == 3) {
         M2C_FIELD(arg0, s32 *, 0x1FC) = 1;
     }
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x1FC) == 0) && ((lbl_805DACF0 * (f32) rand__11TOBoss4RockFv()) < lbl_805DACF4)) {
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x1FC) == 0) && ((lbl_805DACF0 * (f32) rand()) < lbl_805DACF4)) {
         M2C_FIELD(arg0, s32 *, 0x1FC) = 2;
     }
 }

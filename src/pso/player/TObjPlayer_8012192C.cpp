@@ -11,7 +11,7 @@ void cast_foie_effect__10TObjPlayerFPv(void *arg0);
 void release_container_if_active__10TObjPlayerFPv(void* p);
 void update_freeze_state__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80121ACC(void *arg0);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 int rotate_matrix_x(void*, void*);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_8011E618(void *);
@@ -61,7 +61,7 @@ void update_freeze_state__10TObjPlayerFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1FC) == 3) {
         M2C_FIELD(arg0, s32 *, 0x1FC) = 1;
     }
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x1FC) == 0) && ((lbl_805DACC8 * (f32) rand__11TOBoss4RockFv()) < lbl_805DACCC)) {
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x1FC) == 0) && ((lbl_805DACC8 * (f32) rand()) < lbl_805DACCC)) {
         M2C_FIELD(arg0, s32 *, 0x1FC) = 2;
     }
 }

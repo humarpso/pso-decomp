@@ -49,7 +49,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *TObjBoss5Ctrl__ct(void *arg0);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 M2C_UNK __ct__7TObjectFP7TObject(void *);
 s32 TObjPlayer__sub_800196EC(f32, f32, f32);
 s32 TLobby__sub_8020C1F0(M2C_UNK, s32);
@@ -78,7 +78,7 @@ void *TObjBoss5Ctrl__ct(void *arg0) {
     M2C_FIELD(arg0, u32 *, 0x20) = 0U;
     M2C_FIELD(arg0, u32 *, 0x24) = 0U;
     M2C_FIELD(arg0, u32 *, 0x28) = 0U;
-    temp_f3 = (f32) rand__11TOBoss4RockFv();
+    temp_f3 = (f32) rand();
     temp_f2 = lbl_805D8F18 * temp_f3;
     M2C_FIELD(arg0, s16 *, 0x2C) = (s16) (lbl_805D8F14 * temp_f2 + lbl_805D8F10);
     temp_r3 = TObjPlayer__sub_800196EC(lbl_805D8F14, temp_f2, temp_f3);

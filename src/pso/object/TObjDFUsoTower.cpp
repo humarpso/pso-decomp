@@ -25,7 +25,7 @@ extern s32 lbl_805D27B0;
 extern u8 *lbl_805D58A8;
 extern const f32 lbl_805D8A30;
 u8 *TObjDFUsoTower__ct(u8 *arg0, s32 _w1);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 extern const f32 lbl_805D8AD8;
 s32 TBoss4Type2__sub_800522CC(s32 n, f32 *w, s32 *t);
 }
@@ -76,7 +76,7 @@ s32 TBoss4Type2__sub_800522CC(s32 n, f32 *w, s32 *t) {
     s32 i;
     f32 acc;
     f32 r;
-    r = lbl_805D8AD8 * (f32)rand__11TOBoss4RockFv();
+    r = lbl_805D8AD8 * (f32)rand();
     acc = w[0];
     for (i = 0; i < n - 1; i++) {
         if (r < acc) {

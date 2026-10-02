@@ -24,7 +24,7 @@ struct RecoveredGlobal_8036D4E0___vt__15TBoss6RockChase {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 __nw__7TObjectFUl(int);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 extern const f32 lbl_805E03D0;
 extern const f32 lbl_805E03D8;
 extern const f32 lbl_805E03E4;
@@ -34,7 +34,7 @@ s32 TObjFish__sub_8001EDC4(int, int);
 s32 TObjPlayer__sub_801569F4(void *);
 s32 TBoss6Rock__sub_80353A04();
 s32 TBoss6Rock__sub_80353A0C();
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 extern RecoveredGlobal_8036D4E0_lbl_8047ACE8 lbl_8047ACE8;
 extern M2C_UNK __vt__15TBoss6RockChase[];
 extern s32 lbl_805D44F0;
@@ -132,11 +132,11 @@ u8 *TBoss6RockChase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D44F0;
     M2C_FIELD(arg0, s32 *, 0xAC) = arg1;
     M2C_FIELD(arg0, s32 *, 0xB0) = arg3;
-    M2C_FIELD(arg0, s32 *, 0xB4) = (s32) (lbl_805E03CC * (lbl_805E03D0 * (f32) rand__11TOBoss4RockFv()));
-    M2C_FIELD(arg0, s32 *, 0x5C) = (s32) (lbl_805E03D4 * ((lbl_805E03D0 * (f32) rand__11TOBoss4RockFv()) - lbl_805E03D8));
-    M2C_FIELD(arg0, s32 *, 0x60) = (s32) (lbl_805E03DC * (lbl_805E03D0 * (f32) rand__11TOBoss4RockFv()));
-    M2C_FIELD(arg0, s32 *, 0x64) = (s32) (lbl_805E03D4 * ((lbl_805E03D0 * (f32) rand__11TOBoss4RockFv()) - lbl_805E03D8));
-    M2C_FIELD(arg0, s32 *, 0xBC) = (s32) (lbl_805E03E0 * ((lbl_805E03D0 * (f32) rand__11TOBoss4RockFv()) - lbl_805E03D8));
+    M2C_FIELD(arg0, s32 *, 0xB4) = (s32) (lbl_805E03CC * (lbl_805E03D0 * (f32) rand()));
+    M2C_FIELD(arg0, s32 *, 0x5C) = (s32) (lbl_805E03D4 * ((lbl_805E03D0 * (f32) rand()) - lbl_805E03D8));
+    M2C_FIELD(arg0, s32 *, 0x60) = (s32) (lbl_805E03DC * (lbl_805E03D0 * (f32) rand()));
+    M2C_FIELD(arg0, s32 *, 0x64) = (s32) (lbl_805E03D4 * ((lbl_805E03D0 * (f32) rand()) - lbl_805E03D8));
+    M2C_FIELD(arg0, s32 *, 0xBC) = (s32) (lbl_805E03E0 * ((lbl_805E03D0 * (f32) rand()) - lbl_805E03D8));
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) TBoss6RockChase__data_805E03B8;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2));
     M2C_FIELD(arg0, s32 *, 0xC0) = TObjFish__sub_8001EDC4((int) (TBoss6Rock__sub_80353A0C()), (int) (M2C_FIELD(&lbl_8047ACE8.value, M2C_UNK *, (arg3 * 8))));
@@ -155,7 +155,7 @@ s32 TBoss6RockChase__sub_8036D6D4(s32 arg0, s32 arg1) {
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg1));
     var_r31 = 0;
     stack.spC = lbl_805E03E4;
-    if ((lbl_805E03D0 * (f32) rand__11TOBoss4RockFv()) < lbl_805E03D8) {
+    if ((lbl_805E03D0 * (f32) rand()) < lbl_805E03D8) {
         var_r31 = 1;
     }
     temp_r3 = __nw__7TObjectFUl((int) (0xC8));

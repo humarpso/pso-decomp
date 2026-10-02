@@ -600,3 +600,22 @@ int __StringRead(void* pPtr, int ch, int act) {
 
     return 0;
 }
+
+int vsscanf(const char* s, const char* format, va_list arg) {
+    __InStrCtrl isc;
+    isc.NextChar = (char*)s;
+
+    if ((s == NULL) || (*isc.NextChar == '\0')) {
+        return -1;
+    }
+
+    isc.NullCharDetected = 0;
+
+    return __sformatter(&__StringRead, (void*)&isc, format, arg);
+}
+
+int sscanf(const char* s, const char* pFormat, ...) {
+    va_list args;
+    va_start(args, pFormat);
+    return vsscanf(s, pFormat, args);
+}

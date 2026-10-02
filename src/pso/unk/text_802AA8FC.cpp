@@ -30,7 +30,7 @@ s32 TObjFish__sub_8001ED9C(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 TObjFish__sub_8001EDC4(void *, s32);
 u8 * TODragonfly__ct(void *);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 extern M2C_UNK __vt__12TOMekaFish00[];
 extern s32 lbl_805D3E40;
@@ -108,7 +108,7 @@ u8 *TOMekaFish00__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0xAC) = 0;
     M2C_FIELD(arg0, f32 *, 0xF4) = (f32) ((lbl_805DE074 * (f32) M2C_FIELD(arg0, s32 *, 0x84)) + lbl_805DE068);
     M2C_FIELD(arg0, s32 *, 0xF8) = (s32) (lbl_805DE078 * (lbl_805DE07C / (lbl_805DE080 / M2C_FIELD(arg0, f32 *, 0xF4))));
-    M2C_FIELD(arg0, s32 *, 0xFC) = (s32) (lbl_805DE078 * (lbl_805DE07C * (lbl_805DE084 * (f32) rand__11TOBoss4RockFv())));
+    M2C_FIELD(arg0, s32 *, 0xFC) = (s32) (lbl_805DE078 * (lbl_805DE07C * (lbl_805DE084 * (f32) rand())));
     M2C_FIELD(arg0, f32 *, 0xEC) = (f32) ((lbl_805DE074 * (f32) M2C_FIELD(arg0, s32 *, 0x88)) + lbl_805DE068);
     M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (M2C_FIELD(arg0, f32 *, 0xEC) * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0xFC)));
     return arg0;

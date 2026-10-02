@@ -214,7 +214,7 @@ extern const f32 lbl_805DE358;
 s32 TBoss6Type1__sub_802B5FF4(u8 *arg0);
 extern const f32 TBoss6Type1__data_805DE318;
 s32 TBoss6Type1__sub_802B6060(u8 *arg0);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 extern const f32 lbl_805DE300;
 extern const f32 TBoss6Type1__data_805DE304;
 s32 TBoss6Type1__sub_802B52E0(M2C_UNK arg0, s32 arg1, s32 arg2);
@@ -224,7 +224,7 @@ void TBoss6Type1__sub_802B570C(u8 *arg0, u8 *arg1);
 s32 calc_field4b0_delta__11TBoss6Type1FPv(void *arg0);
 extern const f32 lbl_805DE34C;
 s32 TBoss6Type1__sub_802B5ED8(u8 *arg0);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 extern const f32 TBoss6Type1__data_805DE304;
 extern const f32 lbl_805DE308;
 int TBoss6Type1__sub_802B5378(M2C_UNK arg0, int arg1, int arg2);
@@ -301,7 +301,7 @@ M2C_UNK TBoss6Type1__sub_802B909C(void *, M2C_UNK *);
 M2C_UNK TBoss6Type1__sub_802B9178(void *, M2C_UNK, M2C_UNK *);
 extern const f32 lbl_805DE3DC;
 void TBoss6Type1__sub_802B8E1C(T1_802B8E1C *arg0);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 extern const f32 TBoss6Type1__data_805DE304;
 extern const f32 TBoss6Type1__data_805DE30C;
 s32 TBoss6Type1__sub_802B5434(Boss_802B5434 *o, s32 a, s32 b, s32 n);
@@ -370,7 +370,7 @@ f32 TBoss6Kakusan__sub_803D8BD8(void *, f32);
 extern const f64 TBoss6Type1__data_80471038;
 extern const f32 TBoss6Type1__data_805DE2D0;
 void TBoss6Type1__sub_802B4D5C(u8 *self, s32 num, s32 den);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 f32 TObjPlayer__sub_803E1A58(void *, void *);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
 void TCameraCtrl__sub_8006D2B0(void *, void *, int);
@@ -573,7 +573,7 @@ s32 TBoss6Type1__sub_802B529C(T1_802B529C *arg0, s32 arg1, s32 arg2) {
 
 s32 TBoss6Type1__sub_802B52E0(M2C_UNK arg0, s32 arg1, s32 arg2) {
     s32 var_r0;
-    var_r0 = (s32) (((f32) arg2 - lbl_805DE300) * ((*(const f32 *)&TBoss6Type1__data_805DE304) * (f32) rand__11TOBoss4RockFv()));
+    var_r0 = (s32) (((f32) arg2 - lbl_805DE300) * ((*(const f32 *)&TBoss6Type1__data_805DE304) * (f32) rand()));
     if (var_r0 >= arg2) {
         var_r0 = 0;
     }
@@ -586,7 +586,7 @@ int TBoss6Type1__sub_802B5378(M2C_UNK arg0, int arg1, int arg2) {
     if (arg1 >= arg2) {
         return arg1;
     }
-    return (int) (((lbl_805DE308 + ((f32) arg2 - (f32) arg1)) * ((*(const f32 *)&TBoss6Type1__data_805DE304) * (f32) rand__11TOBoss4RockFv())) + (f32) arg1);
+    return (int) (((lbl_805DE308 + ((f32) arg2 - (f32) arg1)) * ((*(const f32 *)&TBoss6Type1__data_805DE304) * (f32) rand())) + (f32) arg1);
 }
 #pragma pop
 
@@ -604,7 +604,7 @@ s32 TBoss6Type1__sub_802B5434(Boss_802B5434 *o, s32 a, s32 b, s32 n) {
             return a;
         }
     }
-    if (TBoss6Type1__data_805DE304 * (f32)rand__11TOBoss4RockFv() < TBoss6Type1__data_805DE30C) {
+    if (TBoss6Type1__data_805DE304 * (f32)rand() < TBoss6Type1__data_805DE30C) {
         return a;
     }
     return b;
@@ -711,9 +711,9 @@ s32 TBoss6Type1__sub_802B57D4(void *arg0, void *arg1, void *arg2, int arg3) {
     if (dist < 4.0f) {
         dist = 4.0f;
     }
-    off.x = dist * (TBoss6Type1__data_805DE304 * (f32)rand__11TOBoss4RockFv() - TBoss6Type1__data_805DE30C);
-    off.y = dist * (TBoss6Type1__data_805DE304 * (f32)rand__11TOBoss4RockFv() - TBoss6Type1__data_805DE30C);
-    off.z = dist * (TBoss6Type1__data_805DE304 * (f32)rand__11TOBoss4RockFv() - TBoss6Type1__data_805DE30C);
+    off.x = dist * (TBoss6Type1__data_805DE304 * (f32)rand() - TBoss6Type1__data_805DE30C);
+    off.y = dist * (TBoss6Type1__data_805DE304 * (f32)rand() - TBoss6Type1__data_805DE30C);
+    off.z = dist * (TBoss6Type1__data_805DE304 * (f32)rand() - TBoss6Type1__data_805DE30C);
     {
         Vec_802B57D4 p = *(Vec_802B57D4 *)arg1;
         TBoss4Zako__sub_803D8910(&p, &off);
@@ -964,7 +964,7 @@ int TLobby__send_and_handle_60(void*);
 s32 TObjControl__ct(s32, s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 __nw__7TObjectFUl(M2C_UNK);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 int read_be16_field2__10TObjPlayerFPv(void*);
 
 extern const f32 TBoss6Type1__data_805DE2D0;
@@ -1460,7 +1460,7 @@ void set_sync_data__11TBoss6Type1FPvPv(void *arg0, void *arg1) {
     M2C_FIELD(arg1, u16 *, 2) = (u16) M2C_FIELD(arg0, u16 *, 0x1C);
     M2C_FIELD(arg1, s8 *, 8) = (s8) M2C_FIELD(arg0, s32 *, 0x438);
     M2C_FIELD(arg1, s8 *, 9) = (s8) M2C_FIELD(arg0, s32 *, 0x414);
-    M2C_FIELD(arg1, s8 *, 0xA) = (s8) (lbl_805DE3EC * (TBoss6Type1__data_805DE304 * (f32) rand__11TOBoss4RockFv()));
+    M2C_FIELD(arg1, s8 *, 0xA) = (s8) (lbl_805DE3EC * (TBoss6Type1__data_805DE304 * (f32) rand()));
 }
 
 extern s32 tl_04;

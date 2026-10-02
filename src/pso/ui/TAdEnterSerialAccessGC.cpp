@@ -192,7 +192,7 @@ extern T_80321738 lbl_80476530;
 extern u8 lbl_805430BC[];
 u8 *TAdEnterSerialAccessGC__sub_80321738(void);
 int sprintf(char *, const char *, ...);
-void TAdEnterSerialAccessGC__sub_8039C8A0(int, const char *, ...);
+void sscanf(int, const char *, ...);
 M2C_UNK memset(void *, int, int);
 extern char lbl_804765E0[];
 extern char lbl_804765E8[];
@@ -364,7 +364,7 @@ typedef char RecoveredGlobal_80321B28_lbl_8050E3B8_size[((sizeof(RecoveredGlobal
 
 char *TAdEnterSerialAccessGC__sub_803219AC(int arg0) {
     u32 v = 0;
-    TAdEnterSerialAccessGC__sub_8039C8A0(arg0, lbl_804765E0, &v);
+    sscanf(arg0, lbl_804765E0, &v);
     memset(lbl_80543050, 0, 0x40);
     if (v != 0) {
         sprintf(lbl_80543050, lbl_804765E8, v);
@@ -374,7 +374,7 @@ char *TAdEnterSerialAccessGC__sub_803219AC(int arg0) {
 
 char *TAdEnterSerialAccessGC__sub_80321A24(int arg0) {
     s32 v = 0;
-    TAdEnterSerialAccessGC__sub_8039C8A0(arg0, (const char *)&lbl_805DF508, &v);
+    sscanf(arg0, (const char *)&lbl_805DF508, &v);
     memset(lbl_80543010, 0, 0x40);
     sprintf(lbl_80543010, lbl_804765E0, v);
     return lbl_80543010;

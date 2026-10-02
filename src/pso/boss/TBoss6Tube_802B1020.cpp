@@ -9,7 +9,7 @@ extern const f32 lbl_805DE258;
 extern const f32 lbl_805DE25C;
 f32 TBoss6Tube__sub_802B11D8(s32 arg0);
 f32 get_random_float__8TObjFishFv(f32);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 extern const f32 lbl_805DE260;
 extern const f32 lbl_805DE264;
 extern const f32 lbl_805DE268;
@@ -21,7 +21,7 @@ extern s32 TBoss6Tube__data_805D6720;
 extern f32 TBoss6Tube__data_805D6724;
 extern const f32 TBoss6Tube__data_805DE250;
 void TBoss6Tube__sub_802B1218(u8 *arg0);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 extern s32 TBoss6Tube__data_805D6720;
 extern f32 TBoss6Tube__data_805D6724;
 extern const f32 TBoss6Tube__data_805DE250;
@@ -80,17 +80,17 @@ void TBoss6Tube__sub_802B129C(u8 *arg0) {
     *((s32 *) (((s8 *) arg0) + 0x24)) = 0x3333;
   }
   ;
-  *((s32 *) (((s8 *) arg0) + 0x24)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x24))) + ((s32) ((lbl_805DE260 * (lbl_805DE264 * ((lbl_805DE268 * ((f32) rand__11TOBoss4RockFv())) - lbl_805DE26C))) * get_random_float__8TObjFishFv((f32) (*((s32 *) (((s8 *) arg0) + 0x24)))))));
+  *((s32 *) (((s8 *) arg0) + 0x24)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x24))) + ((s32) ((lbl_805DE260 * (lbl_805DE264 * ((lbl_805DE268 * ((f32) rand())) - lbl_805DE26C))) * get_random_float__8TObjFishFv((f32) (*((s32 *) (((s8 *) arg0) + 0x24)))))));
   *((s32 *) (((s8 *) arg0) + 0x28)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x28))) + (*((s32 *) (((s8 *) arg0) + 0x24))));
 }
 
 #pragma push
 #pragma fp_contract on
 void TBoss6Tube__sub_802B138C(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) (M2C_FIELD(arg0, s32 *, 0x24) + (s32) ((lbl_805DE274 * (lbl_805DE268 * (f32) rand__11TOBoss4RockFv())) + lbl_805DE270));
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) (M2C_FIELD(arg0, s32 *, 0x24) + (s32) ((lbl_805DE274 * (lbl_805DE268 * (f32) rand())) + lbl_805DE270));
     if ((f32) M2C_FIELD(arg0, s32 *, 0x24) <= TBoss6Tube__data_805DE250) {
         M2C_FIELD(arg0, s32 *, 0x24) = 0;
-        M2C_FIELD(arg0, s32 *, 0x28) = (s32) ((f32) M2C_FIELD(arg0, s32 *, 0x28) + ((lbl_805DE278 * (lbl_805DE268 * (f32) rand__11TOBoss4RockFv())) - lbl_805DE27C));
+        M2C_FIELD(arg0, s32 *, 0x28) = (s32) ((f32) M2C_FIELD(arg0, s32 *, 0x28) + ((lbl_805DE278 * (lbl_805DE268 * (f32) rand())) - lbl_805DE27C));
     }
     M2C_FIELD(arg0, s32 *, 0x28) = (s32) (M2C_FIELD(arg0, s32 *, 0x28) + M2C_FIELD(arg0, s32 *, 0x24));
     TBoss6Tube__data_805D6724 = TBoss6Tube__data_805DE250;

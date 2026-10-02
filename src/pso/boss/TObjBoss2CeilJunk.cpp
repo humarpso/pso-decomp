@@ -42,7 +42,7 @@ f32 TTecZondeEff__sub_8002DF28();
 s32 calc_random_scaled__10TObjPlayerFv();
 s32 spawn_effect__15TObjBoss2TunnelFiPvPv(void *, void *, void *, f32, f32);
 M2C_UNK TPhotonMagicSquare__sub_801A2640();
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 extern RecoveredGlobal_8003A6F4_lbl_80435BD8 lbl_80435BD8;
 extern M2C_UNK __vt__17TObjBoss2CeilJunk[];
 extern s32 lbl_805D26E8;
@@ -83,7 +83,7 @@ u8 *TObjBoss2CeilJunk__ct(struct RecoveredFields_8003A6F4_arg0 *arg0, s32 arg1, 
     arg0->unk18 = &(*(RecoveredGlobal_8003A6F4___vt__17TObjBoss2CeilJunk *)&__vt__17TObjBoss2CeilJunk).value;
     arg0->field_0 = lbl_805D26E8;
     VecCopy__FP3VecPC3Vec(&arg0->unknown_1C[0x1C], (void *) arg2);
-    temp_f2 = (f32) rand__11TOBoss4RockFv();
+    temp_f2 = (f32) rand();
     temp_f1 = lbl_805D85A4 * temp_f2;
     arg0->field_AC = (s32) (lbl_805D85A0 * temp_f1);
     if (spawn_effect__15TObjBoss2TunnelFiPvPv(&arg0->unknown_1C[0x1C], &arg0->unknown_1C[0x28], arg0->unknown_9C, temp_f1, temp_f2) == 0) {

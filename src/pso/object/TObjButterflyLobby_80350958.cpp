@@ -24,7 +24,7 @@ M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
 extern s32 lbl_805D6EB8;
@@ -54,7 +54,7 @@ void init_params__18TObjButterflyLobbyFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0xA4) = (f32) TObjButterflyLobby__data_805DFE40;
     M2C_FIELD(arg0, f32 *, 0xA8) = (f32) TObjButterflyLobby__data_805DFE40;
     M2C_FIELD(arg0, f32 *, 0xAC) = (f32) TObjButterflyLobby__data_805DFE40;
-    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (lbl_805DFE44 * (lbl_805DFE48 * (f32) rand__11TOBoss4RockFv()));
+    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (lbl_805DFE44 * (lbl_805DFE48 * (f32) rand()));
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) TObjButterflyLobby__data_805DFE40;
     M2C_FIELD(arg0, s8 *, 0xC0) = 0;
     M2C_FIELD(arg0, s8 *, 0xC1) = 0;

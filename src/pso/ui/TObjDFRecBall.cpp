@@ -12,7 +12,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TBoss4Type2__sub_800874F4(s32, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 rand__11TOBoss4RockFv(void);
+s32 rand(void);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 extern RecoveredGlobal_80051430___vt__13TObjDFRecBall __vt__13TObjDFRecBall;
@@ -51,7 +51,7 @@ u8 *TObjDFRecBall__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D27BC;
     VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
     VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg3);
-    temp_r31 = (s32) (lbl_805D8ABC * (lbl_805D8A6C * (f32) rand__11TOBoss4RockFv()));
+    temp_r31 = (s32) (lbl_805D8ABC * (lbl_805D8A6C * (f32) rand()));
     M2C_FIELD(arg0, f32 *, 0x34) = TBoss8Dragon__sub_803D64C0(temp_r31);
     M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805D8A30;
     M2C_FIELD(arg0, f32 *, 0x3C) = TBoss8Dragon__sub_803D64DC(temp_r31);

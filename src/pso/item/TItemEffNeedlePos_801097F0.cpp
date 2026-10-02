@@ -22,7 +22,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 TObjPlayer__sub_8001978C(f32);
 void __ct__18TItemEffNeedleBaseFv(void *, void *, void *);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 extern const f64 lbl_8043E260[];
 extern void *__vt__17TItemEffNeedlePos[];
 extern s32 lbl_805D2BD0;
@@ -40,9 +40,9 @@ TItemEffNeedlePos_801097F0 *__ct__17TItemEffNeedlePosFv(TItemEffNeedlePos_801097
     self->vt = __vt__17TItemEffNeedlePos;
     self->name = lbl_805D2BD0;
     VecCopy__FP3VecPC3Vec(&self->pos, pos);
-    self->pos.x += lbl_805DAB48 * (f32)rand__11TOBoss4RockFv();
-    self->pos.y += lbl_805DAB48 * (f32)rand__11TOBoss4RockFv();
-    self->pos.z += lbl_805DAB48 * (f32)rand__11TOBoss4RockFv();
+    self->pos.x += lbl_805DAB48 * (f32)rand();
+    self->pos.y += lbl_805DAB48 * (f32)rand();
+    self->pos.z += lbl_805DAB48 * (f32)rand();
     self->yaw = lbl_8043E260[0] * get_ad_end_text_start__10TObjPlayerFv(dir->x, dir->z);
     if (lbl_805DAB4C != dir->y) {
         self->pitch = lbl_8043E260[0] * get_ad_end_text_start__10TObjPlayerFv(dir->y, TObjPlayer__sub_8001978C(dir->x * dir->x + dir->z * dir->z));

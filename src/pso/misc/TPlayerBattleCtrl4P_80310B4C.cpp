@@ -69,7 +69,7 @@ void TPlayerBattleCtrl4P__sub_80311618(O_80311618 *o);
 M2C_UNK TWindow__close(void *);
 M2C_UNK TPlayerBattleCtrl4P__sub_803101D4(void *);
 void TPlayerBattleCtrl4P__sub_803112AC(u8 *arg0, s32 arg1);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 extern const f32 lbl_805DF240;
 extern const f32 lbl_805DF244;
 void TPlayerBattleCtrl4P__sub_80311400(O_80311400 *o);
@@ -218,8 +218,8 @@ void TPlayerBattleCtrl4P__sub_80311400(O_80311400 *o) {
         order[i] = i;
     }
     for (i = 0; i < 30; i++) {
-        a = (s32)(lbl_805DF240 * (lbl_805DF244 * (f32)rand__11TOBoss4RockFv()));
-        b = (s32)(lbl_805DF240 * (lbl_805DF244 * (f32)rand__11TOBoss4RockFv()));
+        a = (s32)(lbl_805DF240 * (lbl_805DF244 * (f32)rand()));
+        b = (s32)(lbl_805DF240 * (lbl_805DF244 * (f32)rand()));
         if (a != b) {
             t = order[a];
             order[a] = order[b];

@@ -72,7 +72,7 @@ M2C_UNK TBoss4Type3__sub_8005A398(void *, M2C_UNK);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK create__9TTecMegidFiiii(void *, Vec_80058848 *, u8 *, s32);
 M2C_UNK queue_event_1D__12TBoss3VoloptFss(s32, s32);
-s32 rand__11TOBoss4RockFv();
+s32 rand();
 M2C_UNK TBoss4Zako__sub_803D8910(Vec_80058848 *, u8 *);
 f32 TBoss6Kakusan__sub_803D8BD8(Vec_80058848 *);
 M2C_UNK TBoss6Type1__sub_803D9370(Vec_80058848 *, u8 *);
@@ -149,7 +149,7 @@ void TBoss4Type3__vt36(O_80058848 *o) {
                 } else {
                     TNpcPlayer__sub_803D97B4(&v);
                 }
-                s = lbl_805D8C48 * (lbl_805D8C4C * (f32)rand__11TOBoss4RockFv()) + lbl_805D8C44;
+                s = lbl_805D8C48 * (lbl_805D8C4C * (f32)rand()) + lbl_805D8C44;
                 v.x *= s;
                 v.y *= s;
                 v.z *= s;
