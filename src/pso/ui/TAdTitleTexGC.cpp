@@ -1,7 +1,5 @@
 #include "pso/TAdTitleTexGC.h"
 
-TAdTitleTexGC::~TAdTitleTexGC() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -96,6 +94,7 @@ extern const f32 lbl_805DDFB8;
 extern const f32 lbl_805DDFBC;
 extern const f32 lbl_805DDFC0;
 
+TAdTitleTexGC::~TAdTitleTexGC() {}
 void *__ct__13TAdTitleTexGCFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TAdTitleTexGC;

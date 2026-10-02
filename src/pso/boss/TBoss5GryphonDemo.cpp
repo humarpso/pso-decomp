@@ -1,7 +1,5 @@
 #include "pso/TBoss5GryphonDemo.h"
 
-TBoss5GryphonDemo::~TBoss5GryphonDemo() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -172,6 +170,7 @@ void run_task__17TBoss5GryphonDemoFv(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }
+TBoss5GryphonDemo::~TBoss5GryphonDemo() {}
 Obj_800665FC *__ct__17TBoss5GryphonDemoFv(Obj_800665FC *self, void *parent, s32 arg2, f32 farg0) {
     Cam_800665FC c;
     __ct__7TObjectFP7TObject(self, parent);

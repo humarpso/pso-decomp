@@ -40,8 +40,6 @@ void TAdGameStartSubGC__sub_802E6864(u8 *arg0) {
 
 #include "pso/TAdGameStartSubGC.h"
 
-TAdGameStartSubGC::~TAdGameStartSubGC() {}
-
 extern "C" {
 extern const f32 lbl_805DE9A0;
 extern const f32 lbl_805DE9A4;
@@ -113,6 +111,7 @@ void run_task__17TAdGameStartSubGCFv(u8 *arg0) {
 #pragma fp_contract on
 #define F(o) M2C_FIELD(arg0, f32 *, o)
 #define I(o) M2C_FIELD(arg0, s32 *, o)
+TAdGameStartSubGC::~TAdGameStartSubGC() {}
 u8 *__ct__17TAdGameStartSubGCFv(u8 *arg0, void *arg1, u8 *arg2) {
     s32 t;
     __ct__7TObjectFP7TObject(arg0, arg1);

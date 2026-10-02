@@ -41,7 +41,7 @@ extern "C" {
 s32 TObjEneDD__sub_800B9D94(void *, void *, int, void *);
 extern RecoveredGlobal_80038DCC_lbl_80435B6C lbl_80435B6C;
 void render__18TBoss2PhotonBulletFv(u8 *arg0);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *);
 f32 TBoss2DeRolLe__sub_80034CF8(void);
 u32 TBoss8Dragon__sub_8008741C(void *, int, int);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
@@ -51,6 +51,15 @@ extern const f32 lbl_805D8268;
 extern const f32 lbl_805D826C;
 extern Pair_80038E2C lbl_80435B38[];
 void run_task__18TBoss2PhotonBulletFv(u8 *arg0);
+void *__dt__18TBoss2PhotonBulletFv(void *arg0, s16 arg1);
+void __dl__7TObjectFPv(void *);
+void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
+extern M2C_UNK __vt__18TBoss2PhotonBullet[];
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 fn_800BC4C8(void *, void *, void *);
+extern s32 lbl_805D26DC;
+extern const f32 lbl_805D8520;
+u8 *TBoss2PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, u8 *arg4, f32 farg0);
 }
 
 extern "C" {
@@ -112,5 +121,35 @@ void run_task__18TBoss2PhotonBulletFv(u8 *arg0) {
     }
 }
 #pragma pop
+
+void *__dt__18TBoss2PhotonBulletFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TBoss2PhotonBullet;
+        if (M2C_FIELD(arg0, void **, 0xE4) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xE4)); M2C_FIELD(arg0, M2C_UNK *, 0xE4) = 0; }
+        destroy_enemy_object__10TObjPlayerFPvs(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+u8 *TBoss2PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, u8 *arg4, f32 farg0) {
+    fn_800BC4C8((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TBoss2PhotonBullet;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D26DC;
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xC0), (void *) (arg3));
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg0 + 0xC0));
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB4), (void *) (arg4));
+    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC) = 3.0f;
+    M2C_FIELD(arg0, f32 *, 0xCC) = lbl_805D8520;
+    M2C_FIELD(arg0, f32 *, 0xD0) = lbl_805D8520;
+    M2C_FIELD(arg0, f32 *, 0xD4) = lbl_805D8520;
+    M2C_FIELD(arg0, f32 *, 0xB0) = farg0;
+    M2C_FIELD(arg0, s32 *, 0xD8) = 0;
+    M2C_FIELD(arg0, s32 *, 0xDC) = 0;
+    M2C_FIELD(arg0, f32 *, 0xE0) = lbl_805D8520;
+    M2C_FIELD(arg0, s32 *, 0xE4) = 0;
+    return arg0;
+}
 
 }

@@ -153,6 +153,7 @@ force_active:
   - __dt__12TLevelSelectFv
   - __dt__12TMemberCheckFv
   - __dt__12TObjRainCtrlFv
+  - __dt__13TAdTitleTexGCFv
   - __dt__13TItemAttackerFv
   - __dt__13TItemMenuCtrlFv
   - __dt__13TObjBoss2DustFv
@@ -176,6 +177,7 @@ force_active:
   - __dt__15TBoss6CrushRockFv
   - __dt__15TBoss6SwordShotFv
   - __dt__15TChCrCharSelectFv
+  - __dt__15TItemEffBringerFv
   - __dt__15TItemEffLandHitFv
   - __dt__15TItemMagGrowEffFv
   - __dt__15TObjBoss8PillerFv
@@ -190,6 +192,7 @@ force_active:
   - __dt__16TItemReverseTechFv
   - __dt__16TObjBagWarnWin4PFv
   - __dt__16TObjItemOKWindowFv
+  - __dt__17TBoss5GryphonDemoFv
   - __dt__17TOSwitchAttackSubFv
   - __dt__17TObjBoss8DemoRoomFv
   - __dt__17TObjItemNameEntryFv
@@ -275,6 +278,7 @@ force_active:
   - free_item_pmt
   - gTRKMsgBufs
   - has_serial_input__22TAdEnterSerialAccessGCFv
+  - hook__15TItemEffBringerFv
   - init__18TObjAreaWarpForestFPvPvPv
   - init_default_fields__6TLobbyFPv
   - init_object__23TAdSinglePlyChrSelectGCFPvPv
@@ -293,6 +297,7 @@ force_active:
   - render__12TAdSoniclogoFv
   - render__12TChCrEffFadeFv
   - render__12TLevelSelectFv
+  - render__13TAdTitleTexGCFv
   - render__13TObjBoss7DustFv
   - render__14TAdFloorLoadGCFv
   - render__14TAdLoadQuestGCFv
@@ -302,6 +307,7 @@ force_active:
   - render__15TAdDrawLineCtrlFv
   - render__16TBoss1DragonDemoFv
   - render__16TBoss4CheckEmptyFv
+  - render__17TBoss5GryphonDemoFv
   - render__17TObjBoss8DemoRoomFv
   - render__17TObjVoloptShutterFv
   - render__17TWindowSetLevelUpFv
@@ -335,6 +341,7 @@ force_active:
   - run_task__12TLevelSelectFv
   - run_task__12TMemberCheckFv
   - run_task__12TObjRainCtrlFv
+  - run_task__13TAdTitleTexGCFv
   - run_task__13TItemAttackerFv
   - run_task__13TObjBoss2DustFv
   - run_task__13TObjBoss7DustFv
@@ -362,6 +369,7 @@ force_active:
   - run_task__16TChCrLoadGmNjReqFv
   - run_task__16TItemReverseTechFv
   - run_task__16TObjBagWarnWin4PFv
+  - run_task__17TBoss5GryphonDemoFv
   - run_task__17TOSwitchAttackSubFv
   - run_task__17TObjBoss8DemoRoomFv
   - run_task__17TObjVoloptShutterFv

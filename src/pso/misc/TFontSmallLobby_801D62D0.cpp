@@ -9,8 +9,15 @@ struct Pkt_801D698C { u8 cmd; u8 size; u8 pad[2]; u16 a; u16 b; };
 
 struct Obj_801D6A18 { s32 a[4]; s32 x10; s32 x14; };
 
+typedef struct Rec_801D6AB4 {
+    u8 pad0[8];
+    f32 a;
+    f32 b;
+} Rec_801D6AB4;
+
 extern "C" {
 extern const f32 lbl_805DC3DC;
+s32 obj_testFlags30(void *, s32);
 s32 TFontSmallLobby__sub_801D67AC(u8 *arg0);
 f32 fn_801D6AB4(void *, s32, s32);
 s32 TOMineTrap__sub_801D6A44(u8 *arg0, s32 arg1, s32 arg2);
@@ -149,5 +156,18 @@ s32 TOMineTrap__sub_801D6A44(u8 *arg0, s32 arg1, s32 arg2) {
   *((f32 *) (((s8 *) arg0) + 0)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0))) + temp_f1);
   return (s32) temp_f1;
 }
+
+#define arg0 ((Rec_801D6AB4 *)arg0v)
+f32 fn_801D6AB4(void *arg0v, s32 arg1, s32 arg2) {
+    f32 v;
+    f32 k = (f32)arg2;
+
+    v = arg0->a;
+    if (obj_testFlags30((void *)arg1, 0x10000000) != 0) {
+        v = arg0->b;
+    }
+    return k * v;
+}
+#undef arg0
 
 }

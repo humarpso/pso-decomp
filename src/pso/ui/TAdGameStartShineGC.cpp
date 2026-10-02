@@ -1,7 +1,5 @@
 #include "pso/TAdGameStartShineGC.h"
 
-TAdGameStartShineGC::~TAdGameStartShineGC() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -105,6 +103,7 @@ void run_task__19TAdGameStartShineGCFv(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
+TAdGameStartShineGC::~TAdGameStartShineGC() {}
 Shine_8034AB4C *__ct__19TAdGameStartShineGCFv(Shine_8034AB4C *self) {
     __ct__7TObjectFP7TObject(self);
     self->vt = __vt__19TAdGameStartShineGC;
