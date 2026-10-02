@@ -27,6 +27,7 @@ PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/w_log.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/w_pow.c
 PowerPC_EABI_Support/MSL/MSL_C/PPC_EABI/Src/math_ppc.c
 PowerPC_EABI_Support/Runtime/Src/CPlusLibPPC.cp
+PowerPC_EABI_Support/Runtime/Src/NMWException.cp
 PowerPC_EABI_Support/Runtime/Src/ptmf.c
 ai/ai.c
 ar/arq.c
@@ -66,9 +67,11 @@ gx/GXPerf.c
 gx/GXPixel.c
 gx/GXTransform.c
 mtx/mtx44.c
+mtx/mtxvec.c
 mtx/vec.c
 os/OSCache.c
 os/OSError.c
+os/OSMemory.c
 pad/Pad.c
 pso/boss/TBoss1DragonDemo.cpp
 pso/boss/TBoss1DragonEffBreath.cpp
@@ -293,6 +296,7 @@ pso/boss/TObjBoss5FloorGrass_8028AAFC.cpp
 pso/boss/TObjBoss5FloorStone.cpp
 pso/boss/TObjBoss5FloorStone_80289868.cpp
 pso/boss/TObjBoss5FloorStone_802898AC.cpp
+pso/boss/TObjBoss5Pillar.cpp
 pso/boss/TObjBoss5PillarCtrl.cpp
 pso/boss/TObjBoss5PillarDemo.cpp
 pso/boss/TObjBoss5PillarSmoke.cpp
@@ -596,6 +600,7 @@ pso/enemy/TObjEneRecon_8031F600.cpp
 pso/enemy/TObjEneRecon_8031F6C0.cpp
 pso/enemy/TObjEneRecon_8031F800.cpp
 pso/enemy/TObjEneRecon_8031FA64.cpp
+pso/enemy/TObjEneRecon_8031FACC.cpp
 pso/enemy/TObjEneRecon_8031FC2C.cpp
 pso/enemy/TObjEneRecon_80320350.cpp
 pso/enemy/TObjEneSaver.cpp
@@ -876,6 +881,7 @@ pso/misc/TCameraCtrl_8003F3EC.cpp
 pso/misc/TCameraCtrl_80044420.cpp
 pso/misc/TCameraCtrl_80067654.cpp
 pso/misc/TCameraCtrl_80067C88.cpp
+pso/misc/TCameraCtrl_80067CE8.cpp
 pso/misc/TCameraCtrl_80067F44.cpp
 pso/misc/TCameraCtrl_80067F8C.cpp
 pso/misc/TCameraCtrl_8006A9F0.cpp
@@ -1469,6 +1475,7 @@ pso/misc/TODoorAncient07_8015F930.cpp
 pso/misc/TODoorAncient08.cpp
 pso/misc/TODoorAncient09.cpp
 pso/misc/TODoorCave01.cpp
+pso/misc/TODoorCave01_80161A30.cpp
 pso/misc/TODoorCave02.cpp
 pso/misc/TODoorCave02_8016206C.cpp
 pso/misc/TODoorCave03.cpp
@@ -1931,6 +1938,7 @@ pso/misc/TWindowMessageLog_8026A5A0.cpp
 pso/misc/TWindowMessageLog_8026AA38.cpp
 pso/misc/TWindowMessagePage.cpp
 pso/misc/TWindowMessageQuest.cpp
+pso/misc/TWindowMessageQuest_8026B118.cpp
 pso/misc/TWindowMessageScroll.cpp
 pso/misc/TWindowMessageYesNo.cpp
 pso/misc/TWindowOptionCtrl.cpp
@@ -3336,6 +3344,7 @@ pso/ui/TAdSEGAlogo.cpp
 pso/ui/TAdScrollWinGC.cpp
 pso/ui/TAdScrollWinGC_8026A5F8.cpp
 pso/ui/TAdScrollWinGC_803274D0.cpp
+pso/ui/TAdScrollWinGC_80327504.cpp
 pso/ui/TAdSelectCurGC.cpp
 pso/ui/TAdSelectCurGC_802AEA38.cpp
 pso/ui/TAdSelectGameModeGC.cpp
@@ -4030,6 +4039,8 @@ pso/unk/text_8023F1B8.cpp
 pso/unk/text_80242F94.cpp
 pso/unk/text_802432F0.cpp
 pso/unk/text_802437C4.cpp
+pso/unk/text_80244238.cpp
+pso/unk/text_8024450C.cpp
 pso/unk/text_80244D70.cpp
 pso/unk/text_80244DFC.cpp
 pso/unk/text_80246CE8.cpp
@@ -4274,6 +4285,7 @@ pso/unk/text_803D43A8.cpp
 pso/unk/text_803D4418.cpp
 pso/unk/text_803D60C8.cpp
 pso/unk/text_803D64F8.cpp
+pso/unk/text_803D8030.cpp
 pso/unk/text_803D9FF0.cpp
 pso/unk/text_803DA038.cpp
 pso/unk/text_803DA12C.cpp
@@ -4281,6 +4293,7 @@ pso/unk/text_803DA754.cpp
 pso/unk/text_803DA798.cpp
 pso/unk/text_803DAF30.cpp
 pso/unk/text_803DAFA8.cpp
+pso/unk/text_803DB23C.cpp
 pso/unk/text_803DB390.cpp
 pso/unk/text_803DC86C.cpp
 pso/unk/text_803DC88C.cpp
@@ -4288,6 +4301,7 @@ pso/unk/text_803DCDB0.cpp
 pso/unk/text_803DCEC8.cpp
 pso/unk/text_803DCF0C.cpp
 pso/unk/text_803DD3C8.cpp
+pso/unk/text_803DD430.cpp
 pso/unk/text_803DE7E0.cpp
 pso/unk/text_803DE838.cpp
 pso/unk/text_803DE864.cpp

@@ -51,6 +51,29 @@ asm void PSMTXConcat(const register GC_Mtx mA, const register GC_Mtx mB, registe
 #include "orig_asm/mtx/mtx/PSMTXConcat.inc"
 }
 
+void PSMTXTranspose(const register GC_Mtx src, register GC_Mtx xPose) {
+    register f32 c_zero = 0;
+    register f32 row0a;
+    register f32 row1a;
+    register f32 row0b;
+    register f32 row1b;
+    register f32 trns0;
+    register f32 trns1;
+    register f32 trns2;
+
+
+    asm {
+}
+    xPose[2][3] = c_zero;
+    asm {
+}
+    row0b = src[2][2];
+    asm {
+}
+    xPose[2][2] = row0b;
+
+}
+
 asm u32 PSMTXInverse(const register GC_Mtx src, register GC_Mtx inv) {
 #include "orig_asm/mtx/mtx/PSMTXInverse.inc"
 }

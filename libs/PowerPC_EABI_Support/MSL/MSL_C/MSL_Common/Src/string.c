@@ -109,6 +109,28 @@ char* strcat(char* dst, const char* src) {
     return dst;
 }
 
+char* strncat(char* dst, const char* src, size_t n) {
+    const unsigned char* p = (const unsigned char*)src - 1;
+    unsigned char* q = (unsigned char*)dst - 1;
+
+    while (*++q) {
+    }
+
+    q--;
+    n++;
+
+    while (--n) {
+        if (!(*++q = *++p)) {
+            q--;
+            break;
+        }
+    }
+
+    *++q = 0;
+
+    return dst;
+}
+
 int strcmp(const char* str1, const char* str2) {
     register unsigned char* left = (unsigned char*)str1;
     register unsigned char* right = (unsigned char*)str2;
@@ -215,6 +237,59 @@ char* strchr(const char* str, int c) {
     }
 
     return chr ? NULL : (char*)p;
+}
+
+typedef unsigned char char_map[32];
+
+#define set_char_map(map, ch) map[(unsigned char)ch >> 3] |= (1 << (ch & 7))
+#define tst_char_map(map, ch) (map[(unsigned char)ch >> 3] & (1 << (ch & 7)))
+
+char* strtok(char* str, const char* set) {
+    unsigned char *p, *q;
+    int c;
+    char_map map = {0};
+    static unsigned char* empty = (unsigned char*)"";
+    static unsigned char* s = (unsigned char*)"";
+
+    if (str) {
+        s = (unsigned char*)str;
+    }
+
+    p = (unsigned char*)set - 1;
+
+    while (c = *++p) {
+        set_char_map(map, c);
+    }
+
+    p = s - 1;
+
+    while (c = *++p) {
+        if (!tst_char_map(map, c)) {
+            break;
+        }
+    }
+
+    if (!c) {
+        s = empty;
+        return NULL;
+    }
+
+    q = p;
+
+    while (c = *++p) {
+        if (tst_char_map(map, c)) {
+            break;
+        }
+    }
+
+    if (!c) {
+        s = empty;
+    } else {
+        s = p + 1;
+        *p = 0;
+    }
+
+    return (char*)q;
 }
 
 char* strstr(const char* str, const char* pat) {

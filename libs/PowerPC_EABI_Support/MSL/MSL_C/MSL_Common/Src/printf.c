@@ -1,3 +1,4 @@
+#define __pformatter __pformatter_8039ABBC
 #define __FileWrite printf___FileWrite
 #define __StringWrite printf___StringWrite
 #define __ctype_map lbl_804F5800

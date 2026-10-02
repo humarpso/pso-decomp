@@ -17962,7 +17962,9 @@ PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_files.c:
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_fp.c:
 	.text       start:0x80397B90 end:0x8039980C
-	.sdata2     start:0x805E0598 end:0x805E05A0
+	.rodata     start:0x8047BAB0 end:0x8047BB90
+	.data       start:0x804F5698 end:0x804F5800
+	.sdata2     start:0x805E0598 end:0x805E05C8
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/buffer_io.c:
 	.text       start:0x8039980C end:0x80399904
@@ -18000,19 +18002,27 @@ pso/unk/text_8039A924.cpp:
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/printf.c:
 	.text       start:0x8039AA7C end:0x8039C880
+	.rodata     start:0x8047BB98 end:0x8047BBC0
+	.data       start:0x804F5B38 end:0x804F5D68
+	.sdata2     start:0x805E05D0 end:0x805E05D8
 
 pso/misc/TOBoss4Rock_8039C880.cpp:
 	.text       start:0x8039C880 end:0x8039C964
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/scanf.c:
 	.text       start:0x8039C964 end:0x8039D8E8
+	.rodata     start:0x8047BBC0 end:0x8047BBE8
+	.data       start:0x804F5D68 end:0x804F5E38
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/string.c:
 	.text       start:0x8039D8E8 end:0x8039DDB4
+	.sdata      start:0x805D45F8 end:0x805D4600
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/strtoul.c:
 	.text       start:0x8039DDB4 end:0x8039F6B0
-	.data       start:0x804F5E7C end:0x804F5EC0
+	.rodata     start:0x8047BF78 end:0x8047BFB0
+	.data       start:0x804F5E38 end:0x804F5EC0
+	.sdata2     start:0x805E05D8 end:0x805E05F0
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/uart_console_io.c:
 	.text       start:0x8039F6B0 end:0x8039F774

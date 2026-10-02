@@ -200,6 +200,7 @@ force_active:
   - __dt__21TODummyKeyCave01SoundFv
   - __dt__22TChallenge4PItemSelectFv
   - __dt__26TBoss5GryphonLightningHornFv
+  - __dt__26__partial_array_destructorFv
   - __dt__7TEffHitFv
   - __dt__7TEndingFv
   - __dt__7TSwitchFv
