@@ -57,7 +57,7 @@ void TObjPlayer__sub_800F09E8(s32);
 void TBoss1Dragon__sub_8014220C(void *, void *, void *);
 void TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
 void rotate_matrix_y(int, s32);
-void TObjBoss2Tunnel__sub_803D929C(int, s32);
+void rotate_matrix_z(int, s32);
 void TObjPlayer__sub_803D9624(int, f32, f32, f32);
 void rotate_matrix_x(int, s32);
 void TObjPlayer__sub_803D9B2C(void);
@@ -105,7 +105,7 @@ void TObjPlayer__sub_801BAB78(VObj_801BAB78 *self, f32 *pos, s32 arg2) {
     TObjPlayer__sub_803D9B2C();
     TBoss1Dragon__sub_8014220C(self->f248, &a, &b);
     TObjPlayer__sub_803D9624(0, v.x, lbl_805DC2C8 + self->f3c, v.z);
-    TObjBoss2Tunnel__sub_803D929C(0, b);
+    rotate_matrix_z(0, b);
     rotate_matrix_x(0, a);
     rotate_matrix_y(0, self->f60);
     rotate_matrix_x(0, -0x4000);

@@ -61,7 +61,7 @@ M2C_UNK TObjPlayer__sub_800F09E8(int);
 M2C_UNK TBoss1Dragon__sub_8014220C(Rot_800E81B4 *, s32 *, s32 *);
 s32 TObjPlayer__sub_80156844(void *, Vec_800E81B4 *, Rot_800E81B4 *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
+M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -168,7 +168,7 @@ void TObjPlayer__sub_800E81B4(Obj_800E81B4 *arg0) {
             TObjPlayer__sub_803D9B2C();
             TObjPlayer__sub_803D9624(0, v.x, lbl_805DA670 + v.y, v.z);
             TBoss1Dragon__sub_8014220C(&rot, &spC, &sp8);
-            TObjBoss2Tunnel__sub_803D929C(0, sp8);
+            rotate_matrix_z(0, sp8);
             rotate_matrix_x(0, spC + 0x4000);
             TOMonitorMachine01__sub_803D8B5C(0, lbl_805DA674, lbl_805DA674, lbl_805DA674);
             TObjPlayer__sub_800F09E8(0);

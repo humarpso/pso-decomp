@@ -20,7 +20,7 @@ extern "C" {
 
 void render__15TBoss6CrushRockFv(void* p);
 int TOHangerMachine01__sub_803D9C00(void*);
-int TObjBoss2Tunnel__sub_803D929C(void*, void*);
+int rotate_matrix_z(void*, void*);
 int TObjBoss2Tunnel__sub_803DB470(void*);
 int rotate_matrix_x(void*, void*);
 int rotate_matrix_y(void*, void*);
@@ -28,7 +28,7 @@ int TObjPlayer__sub_803D9B2C(void);
 int TObjPlayer__sub_803D9B78(void);
 int set_global_param__8TObjFishFi(void*);
 
-void render__15TBoss6CrushRockFv(void* p) { if (is_falz_alive__15TBoss6CrushRockFv(p) != 0) { TObjPlayer__sub_803D9B2C(); TOHangerMachine01__sub_803D9C00((char*)p + 0x24); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x40)); rotate_matrix_x((void*)0, *(void**)((char*)p + 0x3c)); TObjBoss2Tunnel__sub_803D929C((void*)0, *(void**)((char*)p + 0x44)); set_global_param__8TObjFishFi(*(void**)((char*)p + 0x20)); TObjBoss2Tunnel__sub_803DB470(*(void**)((char*)p + 0x1c)); TObjPlayer__sub_803D9B78(); } }
+void render__15TBoss6CrushRockFv(void* p) { if (is_falz_alive__15TBoss6CrushRockFv(p) != 0) { TObjPlayer__sub_803D9B2C(); TOHangerMachine01__sub_803D9C00((char*)p + 0x24); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x40)); rotate_matrix_x((void*)0, *(void**)((char*)p + 0x3c)); rotate_matrix_z((void*)0, *(void**)((char*)p + 0x44)); set_global_param__8TObjFishFi(*(void**)((char*)p + 0x20)); TObjBoss2Tunnel__sub_803DB470(*(void**)((char*)p + 0x1c)); TObjPlayer__sub_803D9B78(); } }
 #pragma push
 #pragma opt_common_subs off
 void run_task__15TBoss6CrushRockFv(u8 *arg0) {

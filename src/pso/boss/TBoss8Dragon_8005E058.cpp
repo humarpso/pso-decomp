@@ -59,7 +59,7 @@ void get_speed_or_default__10TObjPlayerFPv(void *);
 void render_model_tree__12TBoss8DragonFPvPv(void* p, void* a1);
 void TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
 void rotate_matrix_y(int, int);
-void TObjBoss2Tunnel__sub_803D929C(int, int);
+void rotate_matrix_z(int, int);
 void rotate_matrix_x(int, int);
 void TObjPlayer__sub_803D9B2C(void);
 void TObjPlayer__sub_803D9B78(void);
@@ -100,7 +100,7 @@ void TBoss8Dragon__sub_8005E0C0(Obj_8005E0C0 *self) {
     TOHangerMachine01__sub_803D9C00((u8 *)self + 0x38);
     rotate_matrix_y(0, self->f60);
     rotate_matrix_x(0, self->f5c);
-    TObjBoss2Tunnel__sub_803D929C(0, self->f64);
+    rotate_matrix_z(0, self->f64);
     TOMonitorMachine01__sub_803D8B5C(0, lbl_805D8D58, lbl_805D8D58, lbl_805D8D58);
     get_speed_or_default__10TObjPlayerFPv(self);
     render_model_tree__12TBoss8DragonFPvPv((void *)self->f34, (void *)self->ff8);

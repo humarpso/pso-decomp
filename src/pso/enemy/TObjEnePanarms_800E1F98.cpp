@@ -10,7 +10,7 @@ void update_linked_effect__14TObjEnePanarmsFPv(u8 *arg0);
 M2C_UNK TBoss1Dragon__sub_8014220C(void *, void *, void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *, f32);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
+M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, void *);
 M2C_UNK TObjPlayer__sub_800F09E8(int);
 s32 TObjPlayer__sub_80156844(void *, void *, void *);
@@ -37,7 +37,7 @@ void update_linked_effect__14TObjEnePanarmsFPv(u8 *arg0) {
         M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) (temp_f1 + lbl_805DA58C);
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x3A4), (f32) (temp_f1));
         TBoss1Dragon__sub_8014220C((void *) (&sp10), (void *) (&spC), (void *) (&sp8));
-        TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (sp8));
+        rotate_matrix_z((int) (0), (int) (sp8));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         rotate_matrix_x((int) (0), (void *) (spC + 0x4000));
         TOMonitorMachine01__sub_803D8B5C((int) (0), (f32) (lbl_805DA590), (f32) (lbl_805DA590), (f32) (TObjEnePanarms__data_805DA530));

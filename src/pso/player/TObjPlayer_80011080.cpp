@@ -9,7 +9,7 @@ extern "C" {
 void render_with_position_override__10TObjPlayerFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 M2C_UNK TBoss1Dragon__sub_8014220C(void *, void *, void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
+M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_800F09E8(void *);
 M2C_UNK rotate_matrix_y(int, int);
@@ -27,7 +27,7 @@ void render_with_position_override__10TObjPlayerFPvPvi(u8 *arg0, u8 *arg1, s32 a
     TObjPlayer__sub_803D9B2C();
     TBoss1Dragon__sub_8014220C((void *) (arg0 + 0x248), (void *) (&spC), (void *) (&sp8));
     TObjPlayer__sub_803D9624((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) (lbl_805D7D40 + M2C_FIELD(arg0, f32 *, 0x3C)), (f32) (M2C_FIELD(arg0, f32 *, 0x40)));
-    TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (sp8));
+    rotate_matrix_z((int) (0), (int) (sp8));
     rotate_matrix_x((int) (0), (int) (spC));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     rotate_matrix_x((int) (0), (int) (-0x4000));

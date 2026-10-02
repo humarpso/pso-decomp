@@ -9,7 +9,7 @@ extern "C" {
 void sync_hp_damage__10TObjPlayerFPv(void *arg0);
 void update_cane_cast__10TObjPlayerFi(s32 arg0);
 void play_action_sound__10TObjPlayerFPv(void *arg0);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
+M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_800112A4(s32, s16);
 M2C_UNK play_particle_effect_once__10TObjPlayerFv();
 M2C_UNK spawn_cane_effect__10TObjPlayerFiUii(s32, s32, M2C_UNK);
@@ -62,10 +62,10 @@ void play_action_sound__10TObjPlayerFPv(void *arg0) {
     temp_r3 = get_player_list__10TObjPlayerFv();
     switch (temp_r3) {
     case 2:
-        TObjBoss2Tunnel__sub_803D929C(0, M2C_FIELD(arg0, s32 *, 0x278));
+        rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x278));
         return;
     case 5:
-        TObjBoss2Tunnel__sub_803D929C(0, -M2C_FIELD(arg0, s32 *, 0x278));
+        rotate_matrix_z(0, -M2C_FIELD(arg0, s32 *, 0x278));
         return;
     case 1:
         TObjPlayer__sub_803D9624(0, lbl_805DAEC8, lbl_805DAECC * M2C_FIELD(arg0, f32 *, 0x274), lbl_805DAEC8);

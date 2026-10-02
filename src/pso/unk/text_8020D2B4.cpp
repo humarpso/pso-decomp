@@ -62,7 +62,7 @@ s32 TObjPlayer__sub_803D97F0(u32);
 s32 TObjPlayer__sub_803D9B78(void);
 M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
+M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
 M2C_UNK rotate_matrix_x(int, int);
 extern RecoveredGlobal_8020D2B4_lbl_8058D490 lbl_8058D490;
@@ -109,7 +109,7 @@ void TLobby__sub_8020D6D0(void* p);
 void TLobby__sub_8020D2B4(s32 arg0, u8 *arg1, u8 *arg2) {
     TObjPlayer__sub_803D97F0((u32) &lbl_8058D490.value);
     TObjPlayer__sub_803D9624((int) (0), (f32) (M2C_FIELD(arg2, f32 *, 4)), (f32) (M2C_FIELD(arg2, f32 *, 8)), (f32) (M2C_FIELD(arg2, f32 *, 0xC)));
-    TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (M2C_FIELD(arg2, s32 *, 0x18)));
+    rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg2, s32 *, 0x18)));
     rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg2, s32 *, 0x10)));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg2, s32 *, 0x14)));
     TCameraCtrl__sub_803D8934((int) (0), (void *) (arg0), (void *) (arg0));

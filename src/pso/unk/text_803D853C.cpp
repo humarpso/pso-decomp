@@ -14,7 +14,7 @@ void TObjPlayer__sub_803D89E8(u32 arg0);
 M2C_UNK PSMTXMultVec(int);
 extern s32 lbl_805D7774;
 void TCameraCtrl__sub_803D8934(u32 arg0);
-void TObjBoss2Tunnel__sub_803D929C(void *, s32);
+void rotate_matrix_z(void *, s32);
 void rotate_matrix_x(void *, s32);
 void rotate_matrix_y(void *, s32);
 void TBoss7Tentacle__sub_803D8A6C(void *m, s32 x, s32 y, s32 z);
@@ -22,7 +22,7 @@ extern s32 lbl_805D7774;
 void PSMTXCopy(void *src, void *dst);
 void TObjPlayer__sub_803D898C(void *m);
 void rotate_matrix_y(void *, s32);
-void TObjBoss2Tunnel__sub_803D929C(void *, s32);
+void rotate_matrix_z(void *, s32);
 void rotate_matrix_x(void *, s32);
 void TObjChip__sub_803D8AE4(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 extern s32 lbl_805D7774;
@@ -90,7 +90,7 @@ void TObjPlayer__sub_803D89E8(u32 arg0) {
 #pragma optimize_for_size off
 void TBoss7Tentacle__sub_803D8A6C(void *m, s32 x, s32 y, s32 z) {
     if (z != 0) {
-        TObjBoss2Tunnel__sub_803D929C(m, z);
+        rotate_matrix_z(m, z);
     }
     if (y != 0) {
         rotate_matrix_y(m, y);
@@ -109,7 +109,7 @@ void TObjChip__sub_803D8AE4(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
         rotate_matrix_x((void *)((void *) (arg0)), (s32)((void *) (arg1)));
     }
     if (arg3 != 0) {
-        TObjBoss2Tunnel__sub_803D929C((void *)((void *) (arg0)), (s32)((void *) (arg3)));
+        rotate_matrix_z((void *)((void *) (arg0)), (s32)((void *) (arg3)));
     }
 }
 typedef f32 Mtx_803D8B5C[3][4];

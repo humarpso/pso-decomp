@@ -154,7 +154,7 @@ void TObjPlayer__sub_8034F590(void *a, O_8034F590 *o);
 u32 TLobby__sub_80101AB0(void);
 void TObjPlayer__sub_8034F4AC(s32 arg0, s32 arg1);
 s32 get_player_list__10TObjPlayerFv();
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
+M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 void TObjPlayer__sub_8034F020(P_8034F020 *arg0);
 void TObjPlayer__sub_801295FC(SlicerLaunchData_8012D9C8 *);
 u16 obj_getField1c(void *);
@@ -200,7 +200,7 @@ void reset_animation_flags__10TObjPlayerFPv(void* p);
 void reset_shoot_models__10TObjPlayerFPv(void* p);
 int shrink_field1f8__10TObjPlayerFPv(void* p);
 void spawn_effect__10TObjPlayerFPv(void *arg0);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
+M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
 int TObjPlayer__sub_80115BC0(void*, void*, void*);
@@ -224,7 +224,7 @@ void spawn_effect__10TObjPlayerFPv(void *arg0) {
 void TObjPlayer__sub_8034F020(P_8034F020 *arg0) {
     switch (get_player_list__10TObjPlayerFv()) {
     case 1:
-        ((s32)TObjBoss2Tunnel__sub_803D929C((M2C_UNK)(0), (s32)(arg0->f1F8)));
+        ((s32)rotate_matrix_z((M2C_UNK)(0), (s32)(arg0->f1F8)));
         break;
     }
 }
@@ -396,10 +396,10 @@ void handle_turn_input__10TObjPlayerFPv(void *arg0) {
         rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x1FC));
         return;
     case 5:
-        TObjBoss2Tunnel__sub_803D929C(0, M2C_FIELD(arg0, s32 *, 0x200));
+        rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x200));
         return;
     case 4:
-        TObjBoss2Tunnel__sub_803D929C(0, -M2C_FIELD(arg0, s32 *, 0x200));
+        rotate_matrix_z(0, -M2C_FIELD(arg0, s32 *, 0x200));
         return;
     }
 }
@@ -458,10 +458,10 @@ void dispatch_by_state__10TObjPlayerFPv(void *arg0) {
     temp_r3 = get_player_list__10TObjPlayerFv();
     switch (temp_r3) {
     case 2:
-        TObjBoss2Tunnel__sub_803D929C(0, M2C_FIELD(arg0, s32 *, 0x1F8));
+        rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x1F8));
         return;
     case 8:
-        TObjBoss2Tunnel__sub_803D929C(0, M2C_FIELD(arg0, s32 *, 0x1FC));
+        rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x1FC));
         return;
     }
 }

@@ -74,7 +74,7 @@ f32 TObjPlayer__sub_803D89C0(void *, void *);
 void TParticleCtrl__sub_803D8D1C(s32, void *, void *);
 void TScene__sub_803D8DB4(s32, void *, void *);
 void rotate_matrix_y(s32, s32);
-void TObjBoss2Tunnel__sub_803D929C(s32, s32);
+void rotate_matrix_z(s32, s32);
 void TBoss6Type1__sub_803D9370(void *, void *);
 void rotate_matrix_x(s32, s32);
 void TObjPlayer__sub_803D97F0(void *);
@@ -164,7 +164,7 @@ s32 TObjTombstone__sub_800751BC(void *arg0, f32 *arg1, void *arg2) {
     TObjPlayer__sub_803D97F0(lbl_8058D490);
     rotate_matrix_y(0, lbl_805D4DF0->f194);
     rotate_matrix_x(0, lbl_805D4DF0->f190);
-    TObjBoss2Tunnel__sub_803D929C(0, lbl_805D4DF0->f198);
+    rotate_matrix_z(0, lbl_805D4DF0->f198);
     TScene__sub_803D8DB4(0, &v, &v);
     TObjPlayer__sub_803D9B78();
     VecCopy__FP3VecPC3Vec(&d, arg2);

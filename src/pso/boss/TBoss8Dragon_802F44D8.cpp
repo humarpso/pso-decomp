@@ -77,7 +77,7 @@ s32 TBoss8Dragon__sub_802F4760(f32 farg0);
 s32 get_speed_or_default__10TObjPlayerFPv(void *);
 s32 render_model_tree__12TBoss8DragonFPvPv(s32, s32);
 s32 rotate_matrix_y(s32, s32);
-s32 TObjBoss2Tunnel__sub_803D929C(s32, s32);
+s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -116,7 +116,7 @@ void TBoss8Dragon__sub_802F44D8(Obj_802F44D8 *o) {
     TOHangerMachine01__sub_803D9C00(o->v38);
     rotate_matrix_y(0, o->f60);
     rotate_matrix_x(0, o->f5C);
-    TObjBoss2Tunnel__sub_803D929C(0, o->f64);
+    rotate_matrix_z(0, o->f64);
     TBoss7Tentacle__sub_803D9BA0(o->v68);
     get_speed_or_default__10TObjPlayerFPv(o);
     render_model_tree__12TBoss8DragonFPvPv(o->f34, o->fF8);

@@ -10,7 +10,7 @@ void update_area_effect_objects__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 u8 get_slot_count__14TItemProShieldFPv();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
+M2C_UNK rotate_matrix_z(int, int);
 s32 get_player_list__10TObjPlayerFv();
 
 void update_area_effect_objects__10TObjPlayerFPv(u8 *arg0) {
@@ -21,7 +21,7 @@ void update_area_effect_objects__10TObjPlayerFPv(u8 *arg0) {
     switch ((s32) temp_r3) {
     case 6:
         if (get_player_list__10TObjPlayerFv() == 4) {
-            TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x1F8)));
+            rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x1F8)));
         }
         break;
     case 5:

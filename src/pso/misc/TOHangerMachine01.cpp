@@ -41,7 +41,7 @@ void run_task__17TOHangerMachine01Fv(u8 *arg0);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
+M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -116,7 +116,7 @@ void render__17TOHangerMachine01Fv(u8 *arg0) {
         p = (u8 *)(M2C_FIELD(p, u8 **, 0x2C));
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (p + 8));
-        TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (M2C_FIELD(p, s32 *, 0x1C)));
+        rotate_matrix_z((int) (0), (int) (M2C_FIELD(p, s32 *, 0x1C)));
         rotate_matrix_x((int) (0), (int) (M2C_FIELD(p, s32 *, 0x14)));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(p, s32 *, 0x18) + M2C_FIELD(arg0, s32 *, 0xC8)));
         begin_effect_render__13TParticleCtrlFv();
@@ -129,7 +129,7 @@ void render__17TOHangerMachine01Fv(u8 *arg0) {
         p = (u8 *)(M2C_FIELD(p, u8 **, 0x2C));
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (p + 8));
-        TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (M2C_FIELD(p, s32 *, 0x1C)));
+        rotate_matrix_z((int) (0), (int) (M2C_FIELD(p, s32 *, 0x1C)));
         rotate_matrix_x((int) (0), (int) (M2C_FIELD(p, s32 *, 0x14)));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(p, s32 *, 0x18) + M2C_FIELD(arg0, s32 *, 0xC8)));
         begin_effect_render__13TParticleCtrlFv();

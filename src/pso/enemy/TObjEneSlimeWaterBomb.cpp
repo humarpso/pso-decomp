@@ -53,7 +53,7 @@ extern const f32 lbl_805DA6DC;
 void run_task__21TObjEneSlimeWaterBombFv(Bomb_800E8D4C *arg0);
 M2C_UNK TObjPlayer__sub_800F09E8(int);
 M2C_UNK TBoss1Dragon__sub_8014220C(void *, s32 *, s32 *);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
+M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
 M2C_UNK rotate_matrix_x(int, int);
 int TObjPlayer__sub_803D9B2C(void*);
@@ -88,7 +88,7 @@ void render__21TObjEneSlimeWaterBombFv(u8 *arg0) {
     TObjPlayer__sub_803D9B2C(arg0);
     TObjPlayer__sub_803D9624(0, M2C_FIELD(arg0, f32 *, 0x38), lbl_805DA670 + M2C_FIELD(arg0, f32 *, 0x380), M2C_FIELD(arg0, f32 *, 0x40));
     TBoss1Dragon__sub_8014220C(arg0 + 0x248, &spC, &sp8);
-    TObjBoss2Tunnel__sub_803D929C(0, sp8);
+    rotate_matrix_z(0, sp8);
     rotate_matrix_x(0, spC + 0x4000);
     d = M2C_FIELD(arg0, f32 *, 0x3C) - M2C_FIELD(arg0, f32 *, 0x380);
     if (d > lbl_805DA6C8) {

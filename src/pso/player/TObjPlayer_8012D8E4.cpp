@@ -11,7 +11,7 @@ void setup_item_render__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 u8 get_slot_count__14TItemProShieldFPv();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
+M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 s32 get_player_list__10TObjPlayerFv();
 
@@ -50,7 +50,7 @@ void setup_item_render__10TObjPlayerFPv(u8 *arg0) {
             TOHangerMachine01__sub_803D9C00(arg0 + 0x1FC);
             return;
         case 2:
-            TObjBoss2Tunnel__sub_803D929C(0, M2C_FIELD(arg0, s32 *, 0x1F8));
+            rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x1F8));
             break;
         }
         break;

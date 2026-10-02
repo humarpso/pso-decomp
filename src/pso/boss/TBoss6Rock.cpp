@@ -135,7 +135,7 @@ void set_target__10TBoss6RockFPviiiiif(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s
 s32 TBoss6PlotFalz__sub_802AB6CC(void *, f32);
 M2C_UNK TBoss6PlotFalz__sub_802ABF44(f32);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
+M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK rotate_matrix_y(int, int);
@@ -171,7 +171,7 @@ void render_if_active__10TBoss6RockFPv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x20));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x34)));
         rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x30)));
-        TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x38)));
+        rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x38)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x3C)));
         TBoss6PlotFalz__sub_802ABF44((f32) (TBoss6Rock__data_805DFF4C));
         TObjBoss2Tunnel__sub_803DB470((int) (M2C_FIELD(arg0, s32 *, 0x40)));

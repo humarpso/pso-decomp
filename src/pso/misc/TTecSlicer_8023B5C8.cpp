@@ -205,7 +205,7 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(u32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
+M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 s32 TObjPlayer__sub_803D9B2C(void);
 s32 TObjPlayer__sub_803D9B78(void);
@@ -384,7 +384,7 @@ void render__10TTecSlicerFv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjBoss2Tunnel__sub_803D929C(0, M2C_FIELD(arg0, s32 *, 0x64));
+        rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x64));
         rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
         TBoss7Tentacle__sub_803D9BA0(arg0 + 0x68);
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, u32 *, 0x110));

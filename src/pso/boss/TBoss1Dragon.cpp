@@ -1108,7 +1108,7 @@ f32 TBoss8Dragon__sub_803D64DC(s32);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(M2C_UNK, f32, f32, f32);
 M2C_UNK TOSwitchAttack__sub_80087278(void *, s32, M2C_UNK);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
+M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, s16);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -1206,7 +1206,7 @@ void draw__12TBoss1DragonFPv(u8 *arg0) {
     TObjPlayer__sub_803D9624(0, TBoss1Dragon__data_805D7F28, M2C_FIELD(arg0, f32 *, 0x5DC), TBoss1Dragon__data_805D7F28);
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
     rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
-    TObjBoss2Tunnel__sub_803D929C(0, M2C_FIELD(arg0, s32 *, 0x64));
+    rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x64));
     TOMonitorMachine01__sub_803D8B5C(0, TBoss1Dragon__data_805D7F24, TBoss1Dragon__data_805D7F24, TBoss1Dragon__data_805D7F24);
     draw__16TObjEneRe7BeruraFPv(arg0);
     TObjPlayer__sub_803D9B78();

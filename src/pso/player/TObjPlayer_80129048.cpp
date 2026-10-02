@@ -12,7 +12,7 @@ void TObjPlayer__sub_80129118(u8 *arg0, s32 arg1, s32 arg2);
 void TObjPlayer__sub_80129124(void* p);
 void clear_rico_ring_flag__10TObjPlayerFUi(u32 arg0);
 void handle_tunnel_state_0__10TObjPlayerFPv(void* p);
-int TObjBoss2Tunnel__sub_803D929C(void*, void*);
+int rotate_matrix_z(void*, void*);
 s32 TObjPlayer__sub_8001BEF8(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__15TItemShootModelFv(void *, int);
@@ -72,6 +72,6 @@ void TObjPlayer__sub_80129118(u8 *arg0, s32 arg1, s32 arg2) {
 }
 
 void TObjPlayer__sub_80129124(void* p) { *(s32*)((char*)p + 0x1fc) = 0; }
-void handle_tunnel_state_0__10TObjPlayerFPv(void* p) { if (get_player_list__10TObjPlayerFv(p) == 0) { TObjBoss2Tunnel__sub_803D929C((void*)0, *(void**)((char*)p + 0x1fc)); } }
+void handle_tunnel_state_0__10TObjPlayerFPv(void* p) { if (get_player_list__10TObjPlayerFv(p) == 0) { rotate_matrix_z((void*)0, *(void**)((char*)p + 0x1fc)); } }
 
 }

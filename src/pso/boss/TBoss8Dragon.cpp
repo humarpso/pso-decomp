@@ -332,7 +332,7 @@ extern "C" {
 void render_model__12TBoss8DragonFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
+M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -350,7 +350,7 @@ void render_model__12TBoss8DragonFPv(u8 *arg0) {
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)));
-    TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
+    rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
     TOMonitorMachine01__sub_803D8B5C((int) (0), (f32) (lbl_805D8D58), (f32) (lbl_805D8D58), (f32) (lbl_805D8D58));
     temp_r31 = M2C_FIELD(arg0, s32 *, 0x34);
     temp_r4 = (unsigned char *) (M2C_FIELD(lbl_805D4DA0, void **, 0x42C));
@@ -1451,7 +1451,7 @@ extern "C" {
 void draw__12TBoss8DragonFPv(u8 *arg0);
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
+M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -1468,7 +1468,7 @@ void draw__12TBoss8DragonFPv(u8 *arg0) {
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)));
-    TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
+    rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
     TBoss7Tentacle__sub_803D9BA0((void *) (arg0 + 0x68));
     temp_r31 = M2C_FIELD(arg0, s32 *, 0x34);
     temp_r4 = (unsigned char *) (M2C_FIELD(TBoss8Dragon__data_805D6988, void **, 0x42C));

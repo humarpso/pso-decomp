@@ -14,7 +14,7 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(u32);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
+M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -52,7 +52,7 @@ void render__14TSlicerHistoryFv(u8 *arg0) {
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x28));
             rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x20)));
-            TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x24)));
+            rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x24)));
             rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x1C)));
             TBoss7Tentacle__sub_803D9BA0((void *) ((u8 *)(arg0) + 0x4C));
             set_chunk_material_color((void *) (&col));

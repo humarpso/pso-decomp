@@ -127,7 +127,7 @@ s32 TObjPlayer__sub_8002EDCC(void *);
 M2C_UNK create_particle__17TObjBoss2CeilJunkFv(void *, M2C_UNK);
 void TObjPlayer__sub_8002E53C(u8 *arg0);
 M2C_UNK TObjLight__sub_801337F8(s32);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
+M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_803D9730(int, int);
@@ -225,7 +225,7 @@ void TObjPlayer__sub_8002E3D4(Obj_8002E3D4 *self) {
         for (i = 0; i < 0x1C; i++, n = n->next, p++) {
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(p);
-            TObjBoss2Tunnel__sub_803D929C(0, p->f20);
+            rotate_matrix_z(0, p->f20);
             rotate_matrix_x(0, p->f18);
             TObjPlayer__sub_803D9624(0, -self->f4F4.x, -self->f4F4.y, -self->f4F4.z);
             TObjPlayer__sub_803D9730(0, self->f4F0);

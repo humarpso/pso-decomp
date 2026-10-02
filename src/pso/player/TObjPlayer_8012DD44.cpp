@@ -8,7 +8,7 @@ extern "C" {
 
 void apply_frame_camera_shake__10TObjPlayerFPv(void *arg0);
 u8 get_slot_count__14TItemProShieldFPv(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
+M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 s32 get_player_list__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
@@ -32,10 +32,10 @@ void apply_frame_camera_shake__10TObjPlayerFPv(void *arg0) {
         var_r30 = (s32) (M2C_FIELD(arg0, s32 *, 0x220) * 2) / 3;
     }
     if ((temp_r31 == (s32) M2C_FIELD(arg0, s32 *, 0x20C)) || (temp_r31 == (s32) M2C_FIELD(arg0, s32 *, 0x214))) {
-        TObjBoss2Tunnel__sub_803D929C(0, var_r30);
+        rotate_matrix_z(0, var_r30);
     }
     if ((temp_r31 == (s32) M2C_FIELD(arg0, s32 *, 0x210)) || (temp_r31 == (s32) M2C_FIELD(arg0, s32 *, 0x218))) {
-        TObjBoss2Tunnel__sub_803D929C(0, -var_r30);
+        rotate_matrix_z(0, -var_r30);
     }
 }
 

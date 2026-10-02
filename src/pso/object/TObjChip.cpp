@@ -115,7 +115,7 @@ M2C_UNK TLobby__sub_801819E4(int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
+M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -286,7 +286,7 @@ void TObjPlayer__sub_80180D18(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0x9C) != 0) {
-            TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
+            rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
         }
         set_global_param__8TObjFishFi((int) (lbl_805D5B2C));
         TLobby__sub_801819E4((int) (M2C_FIELD(((u8 *)(lbl_80443B2C) + (M2C_FIELD(arg0, s32 *, 0x9C) * 4)), s32 *, 0)));

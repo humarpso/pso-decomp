@@ -38,7 +38,7 @@ struct Rock_80158DCC : VObj_80158DCC {
 
 extern "C" {
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
+M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -67,7 +67,7 @@ void render__11TOBoss4RockFv(Rock_80158DCC *self) {
             set_global_param__8TObjFishFi(self->params[i]);
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(&self->positions[i]);
-            TObjBoss2Tunnel__sub_803D929C(0, self->rots[i].z);
+            rotate_matrix_z(0, self->rots[i].z);
             rotate_matrix_x(0, self->rots[i].x);
             rotate_matrix_y(0, self->rots[i].y);
             TObjBoss2Tunnel__sub_803DB470(self->models[i]);

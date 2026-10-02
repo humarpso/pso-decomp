@@ -103,7 +103,7 @@ void TObjFish__sub_802E7888(Obj_802E7888 *o);
 M2C_UNK TObjLight__sub_801337F8(s32);
 u8 *queue_boss_effect__10TObjPlayerFPv(s32);
 M2C_UNK draw_effect__10TObjPlayerFv();
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, s32);
+M2C_UNK rotate_matrix_z(int, s32);
 M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
 M2C_UNK rotate_matrix_x(int, s32);
 M2C_UNK TObjPlayer__sub_803D9730(int, s32);
@@ -217,7 +217,7 @@ void TObjPlayer__sub_802E6CB0(u8 *arg0) {
     for (i = 0; i < M2C_FIELD(arg0, s32 *, 0x24); i++) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(part);
-        TObjBoss2Tunnel__sub_803D929C(0, part->f20);
+        rotate_matrix_z(0, part->f20);
         rotate_matrix_x(0, part->f18);
         TObjPlayer__sub_803D9624(0, -M2C_FIELD(arg0, f32 *, 0x30), -M2C_FIELD(arg0, f32 *, 0x34), -M2C_FIELD(arg0, f32 *, 0x38));
         TObjPlayer__sub_803D9730(0, M2C_FIELD(arg0, s32 *, 0x2C));

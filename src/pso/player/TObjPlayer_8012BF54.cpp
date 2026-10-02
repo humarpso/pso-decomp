@@ -10,7 +10,7 @@ void init_positions__10TObjPlayerFPv(void* p);
 void init_pair_1f8__10TObjPlayerFPv(void* p);
 void apply_conveyor_move__10TObjPlayerFPv(void *arg0);
 void *init_vtable_and_handlers__10TObjPlayerFPv(void *arg0);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
+M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 int TObjPlayer__sub_80115BC0(void*, void*, void*);
 void TObjPlayer__sub_80120D50(void *);
@@ -26,10 +26,10 @@ void apply_conveyor_move__10TObjPlayerFPv(void *arg0) {
     temp_r3 = get_player_list__10TObjPlayerFv();
     switch (temp_r3) {
     case 1:
-        TObjBoss2Tunnel__sub_803D929C(0, -M2C_FIELD(arg0, s32 *, 0x1FC));
+        rotate_matrix_z(0, -M2C_FIELD(arg0, s32 *, 0x1FC));
         return;
     case 2:
-        TObjBoss2Tunnel__sub_803D929C(0, M2C_FIELD(arg0, s32 *, 0x1FC));
+        rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x1FC));
         return;
     case 3:
         rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x1F8));

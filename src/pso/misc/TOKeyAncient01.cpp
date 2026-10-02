@@ -77,7 +77,7 @@ extern "C" {
 M2C_UNK update_anim_phase__17TOBarrierEnergy01FPv();
 void TOKeyAncient01__vt15(u8 *arg0);
 M2C_UNK rotate_matrix_y(int, void *);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, void *);
+M2C_UNK rotate_matrix_z(int, void *);
 M2C_UNK rotate_matrix_x(int, void *);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -157,7 +157,7 @@ void render__14TOKeyAncient01Fv(u8 *arg0) {
         } else {
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00((void *) (M2C_FIELD(arg0, u8 **, 0x34) + 8));
-            TObjBoss2Tunnel__sub_803D929C((int) (0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 0x1C)));
+            rotate_matrix_z((int) (0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 0x1C)));
             rotate_matrix_x((int) (0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 0x14)));
             rotate_matrix_y((int) (0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 0x18)));
             TOSignCave03__sub_803DB510((void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 4)));

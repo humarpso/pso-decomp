@@ -9,7 +9,7 @@ extern "C" {
 void update_motion_state__10TObjPlayerFi(s32 arg0);
 void update_photon_chair_sit__10TObjPlayerFPv(u8 *arg0);
 void* init_state_object__10TObjPlayerFPv(void* a0);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
+M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_80115BFC(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8011E2FC(s32, f32);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
@@ -33,7 +33,7 @@ void update_motion_state__10TObjPlayerFi(s32 arg0) {
 
 void update_photon_chair_sit__10TObjPlayerFPv(u8 *arg0) {
     if (get_player_list__10TObjPlayerFv() == 2) {
-        TObjBoss2Tunnel__sub_803D929C(0, M2C_FIELD(arg0, s32 *, 0x1F8));
+        rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x1F8));
         TObjPlayer__sub_80115BFC(arg0 + 0x1F8, 0x1999);
     }
 }

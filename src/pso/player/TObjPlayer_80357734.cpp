@@ -164,7 +164,7 @@ f32 TBoss8Dragon__sub_803D64DC(void *);
 void TObjPlayer__sub_80357EFC(u8 *arg0);
 M2C_UNK play_particle_effect_once__10TObjPlayerFv();
 u32 get_player_list__10TObjPlayerFv();
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
+M2C_UNK rotate_matrix_z(int, int);
 void TObjPlayer__sub_80357954(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TObjEneDellBiter__sub_80087350(M2C_UNK *, M2C_UNK);
@@ -270,10 +270,10 @@ void TObjPlayer__sub_80357954(u8 *arg0) {
         play_particle_effect_once__10TObjPlayerFv();
         return;
     case 1:
-        TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x1F8)));
+        rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x1F8)));
         return;
     case 7:
-        TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (-M2C_FIELD(arg0, s32 *, 0x1F8)));
+        rotate_matrix_z((int) (0), (int) (-M2C_FIELD(arg0, s32 *, 0x1F8)));
     default:
         return;
     }

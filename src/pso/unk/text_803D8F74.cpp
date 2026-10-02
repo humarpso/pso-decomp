@@ -118,6 +118,18 @@ void rotate_matrix_y(Matrix34* matrix, s32 angle) {
     }
 }
 
+__declspec(section ".sdata2") extern const f64 lbl_805E0F38;
+void rotate_matrix_z(Matrix34* matrix, s32 angle) {
+    Matrix34 rotation;
+    Matrix34* selected;
+    if (angle != 0) {
+        if (matrix == NULL) selected = (Matrix34*)lbl_805D7774;
+        else selected = matrix;
+        PSMTXRotRad(&rotation, 'z', (f32)(lbl_805E0F38 * (f64)angle));
+        PSMTXConcat((int)selected, (int)&rotation, (int)selected);
+    }
+}
+
 #pragma push
 #pragma peephole off
 void TObjPlayer__sub_803D9324(u32 arg0, u32 arg1) {

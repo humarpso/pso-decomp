@@ -57,7 +57,7 @@ M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
+M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -132,7 +132,7 @@ void TBoss8Dragon__sub_8005DD68(u8 *arg0, s32 arg1) {
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)));
-    TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
+    rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
     TOMonitorMachine01__sub_803D8B5C((int) (0), (f32) (lbl_805D8D58), (f32) (lbl_805D8D58), (f32) (lbl_805D8D58));
     toggle_particle_effect__10TObjPlayerFv();
     draw__16TObjEneRe7BeruraFPv((void *) (arg0));
