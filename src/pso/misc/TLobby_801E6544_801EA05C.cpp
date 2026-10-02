@@ -297,7 +297,7 @@ extern s32 lbl_805D53A0;
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801EBF30(u8 arg0, u8 arg1);
 s32 get_field_3e4__10TObjPlayerFPv(void *);
-f32 fn_801315A0(void *, void *);
+f32 xyz_distance_squared(void *, void *);
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801EC15C(u8 arg0, u8 arg1);
 Vec_801ECFDC *TObjPlayer__sub_801C6FDC(void *);
@@ -1470,7 +1470,7 @@ void TLobby__sub_801EC15C(u8 arg0, u8 arg1) {
             if (i != idx) {
                 other = (u8 *)((s32 (*)(int))get_player_by_client_id)(i);
                 if (other != NULL && field == get_field_3e4__10TObjPlayerFPv(other) &&
-                    fn_801315A0(self + 0x38, other + 0x38) < range * range) {
+                    xyz_distance_squared(self + 0x38, other + 0x38) < range * range) {
                     (*(int * *)&TLobby__data_805D5E78)[arg1]++;
                 }
             }

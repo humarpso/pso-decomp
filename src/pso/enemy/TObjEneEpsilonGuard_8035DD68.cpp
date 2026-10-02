@@ -486,10 +486,10 @@ s32 calc_angle_to_target__19TObjEneEpsilonGuardFPv(void *);
 extern void *TObjEneEpsilonGuard__data_805D6F74;
 void TObjEneEpsilonGuard__sub_8035E8C0(void *arg0, s32 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *);
-s32 TObjPlayer__sub_80019570();
+s32 obj_is_hit_receivable();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 VObj_8035EA90 *get_battle_param__10TObjPlayerFi(s32);
-void *TBoss4Type2__sub_800874F4(void *, int, int);
+void *create_particle_emitter(void *, int, int);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 u32 find_entity_by_id(u16);
 M2C_UNK init_all_slots__10TObjPlayerFv();
@@ -1001,7 +1001,7 @@ void TObjEneEpsilonGuard__sub_8035EA90(u8 *arg0) {
             M2C_FIELD(arg0, s32 *, 0x450) = 0;
             M2C_FIELD(arg0, f32 *, 0x454) = TObjEneEpsilonGuard__data_805E01D8;
             M2C_FIELD(arg0, s32 *, 0x44C) = 1;
-            M2C_FIELD(arg0, void **, 0x440) = ((void *(*)(void *, int))TBoss4Type2__sub_800874F4)(arg0 + 0x2FC, 0x221);
+            M2C_FIELD(arg0, void **, 0x440) = ((void *(*)(void *, int))create_particle_emitter)(arg0 + 0x2FC, 0x221);
             break;
         case 1:
             M2C_FIELD(arg0, f32 *, 0x458) += lbl_805E01F4;
@@ -1060,7 +1060,7 @@ void TObjEneEpsilonGuard__sub_8035EA90(u8 *arg0) {
                 if (p == NULL) {
                     break;
                 }
-                if (TObjPlayer__sub_80019570() != 0) {
+                if (obj_is_hit_receivable() != 0) {
                     t = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x470));
                     if (t != 0 && p->m31() == 0) {
                         Pair_8035EA90 pr;

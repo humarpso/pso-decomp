@@ -104,7 +104,7 @@ void TWindowCtrlMain__sub_8024D85C(void* p);
 void TWindowCtrlMain__sub_8024D8A8(void* p);
 s32 TWindowMainMenu__sub_8024E3D4(void *);
 s32 TWindowMainMenu__sub_8024E3E0(void *);
-s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+s32 get_window_layout_position(M2C_UNK);
 M2C_UNK TWindowSubTradeMain__sub_80244A4C(u32);
 int fn_802437C4(void*);
 void free_member__15TWindowCtrlMainFPv(void* p);
@@ -214,10 +214,10 @@ void show_active_window__11TWindowCtrlFPv(void *arg0) {
         }
         window_request_show(M2C_FIELD(arg0, u32 *, 0x2C));
         if (get_active_menu__11TWindowCtrlFPv((void *)(arg0)) != 0) {
-            set_position__11TWindowCtrlFPvPv(M2C_FIELD(arg0, u32 *, 0x2C), TWindowSubComCard__sub_8026CBB8(0x21));
+            set_position__11TWindowCtrlFPvPv(M2C_FIELD(arg0, u32 *, 0x2C), get_window_layout_position(0x21));
             return;
         }
-        set_position__11TWindowCtrlFPvPv(M2C_FIELD(arg0, u32 *, 0x2C), TWindowSubComCard__sub_8026CBB8(0x20));
+        set_position__11TWindowCtrlFPvPv(M2C_FIELD(arg0, u32 *, 0x2C), get_window_layout_position(0x20));
     }
 }
 

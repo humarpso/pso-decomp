@@ -342,7 +342,7 @@ void TBoss2Joint__sub_80036A90(u8 *arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 extern const f32 lbl_805D8498;
 void TBoss2DeRolLe__sub_80037178(Obj_80037178 *self, V3_80037178 *src);
-void *TBoss8Dragon__sub_8008741C(Vec_80037074 *, s32, s32);
+void *spawn_continuous_particle_effect_with_flags(Vec_80037074 *, s32, s32);
 void copy_pos__11TNowLoadingFPvPv(void *, Vec_80037074 *);
 void enable__13TParticleCtrlFPv(void *);
 void TBoss2LaserLight__sub_80037074(Laser_80037074 *self);
@@ -382,7 +382,7 @@ void call_36A90_with_1__11TBoss2JointFPv(void* p);
 void update_position_history__11TBoss2JointFi(s32 arg0);
 M2C_UNK TBoss2DeRolLe__sub_800339BC(void *, f32, f32);
 M2C_UNK TBoss2DeRolLe__sub_80034134(s32, s32, u16);
-M2C_UNK TBoss8Dragon__sub_800BB780(void *);
+M2C_UNK clear_attack_receipts(void *);
 void TObjEneDD__vt0(void *, int);
 void TObjEneGibbles__sub_80156720(void *);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
@@ -476,7 +476,7 @@ void TBoss2Joint__vt60(u8 *arg0) {
         TBoss2DeRolLe__sub_80034134(M2C_FIELD(self, s32 *, 0x10), temp_r31, M2C_FIELD(self, u16 *, 0x2D4));
     }
     M2C_FIELD(self, s16 *, 0x32C) = (s16) M2C_FIELD(self, s16 *, 0x2B8);
-    TBoss8Dragon__sub_800BB780(arg0);
+    clear_attack_receipts(arg0);
 }
 
 void TBoss2Joint__vt61(void* p) { *(u32*)((char*)p + 0x30) &= 0xfffff7ff; }
@@ -571,7 +571,7 @@ void TBoss2Joint__vt48(void) {  }
 
 void TBoss2LaserLight__sub_80037074(Laser_80037074 *self) {
     if (self->ptcl == NULL) {
-        self->ptcl = TBoss8Dragon__sub_8008741C(self->pts, self->unk118, 0x40);
+        self->ptcl = spawn_continuous_particle_effect_with_flags(self->pts, self->unk118, 0x40);
         if (self->ptcl != NULL) {
             enable__13TParticleCtrlFPv(self->ptcl);
         }

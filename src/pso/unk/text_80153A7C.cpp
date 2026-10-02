@@ -51,7 +51,7 @@ M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_chunk_material_override_pair(int, int);
 void set_chunk_material_color(void *);
-M2C_UNK TObjFish__sub_803E46BC(s32);
+M2C_UNK draw_chunk_object(s32);
 extern Color_80153B64 lbl_8044002C;
 extern Color_80153B64 lbl_8044003C;
 extern Color_80153B64 lbl_8044004C;
@@ -134,7 +134,7 @@ void TObjFogCollision__sub_80153B64(u8 *arg0) {
         s = lbl_805DB264 * M2C_FIELD(arg0, f32 *, 0x68);
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         scale_matrix(0, s, lbl_805DB258, s);
-        TObjFish__sub_803E46BC(lbl_805D28BC);
+        draw_chunk_object(lbl_805D28BC);
         pop_matrix();
         lbl_805D7784 = lbl_805D5664;
         lbl_805D7780 = lbl_805D5668;

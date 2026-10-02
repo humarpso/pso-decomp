@@ -59,7 +59,7 @@ void *create__15TObjDeadListWinFPv(void *arg0);
 void update_countdown__15TObjDeadListWinFPv(void *arg0);
 M2C_UNK strcat(void *, void *);
 s32 get_player_by_client_id(s32);
-M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK get_window_layout_position(M2C_UNK);
 M2C_UNK TWindow__close(void *);
 void *__nw__7TObjectFUl(int);
 s32 check_player_flag1__6TLobbyFPv(s32);
@@ -78,7 +78,7 @@ void build_dead_list_window__15TObjDeadListWinFPv(u8 *arg0) {
     s32 var_r30;
     u8 *temp_r4;
 
-    M2C_FIELD(arg0, u32 *, 0x20) = set_window_mode_4__6TLobbyFPvii((void *) TWindowSubComCard__sub_8026CBB8(0x3C), lbl_8048D168, 1);
+    M2C_FIELD(arg0, u32 *, 0x20) = set_window_mode_4__6TLobbyFPvii((void *) get_window_layout_position(0x3C), lbl_8048D168, 1);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {
         sp8[0] = 0;
         strcat(sp8, &lbl_805D9140);

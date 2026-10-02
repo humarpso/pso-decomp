@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_80019248(s32);
+s32 is_locally_controlled__10TObjPlayerFPv(s32);
 s32 obj_testFlags30(s32, u32);
 s32 obj_getField1c(s32);
 M2C_UNK create_font_small_task(u32, M2C_UNK, M2C_UNK, s32, M2C_UNK *, s16, s32);
 extern M2C_UNK lbl_805D7DA8;
 
 void display_exp_gain(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
-    if ((obj_testFlags30(arg0, 0x02000000) == 0) && (TObjPlayer__sub_80019248(arg0) == 0) && (arg1 != 0U)) {
+    if ((obj_testFlags30(arg0, 0x02000000) == 0) && (is_locally_controlled__10TObjPlayerFPv(arg0) == 0) && (arg1 != 0U)) {
         create_font_small_task(arg1, 0xFFFF00FF, 0x14, arg2, &lbl_805D7DA8, arg3, obj_getField1c(arg0));
     }
 }

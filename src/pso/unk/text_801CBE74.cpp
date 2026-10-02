@@ -47,7 +47,7 @@ extern "C" {
 M2C_UNK TObjPlayer__sub_801B1A84(M2C_UNK *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 TObjPlayer__sub_801D0F40;
 void TObjPlayer__sub_801CBF7C(void);
-s32 TObjPlayer__sub_80019248();
+s32 is_locally_controlled__10TObjPlayerFPv();
 s32 obj_testFlags30(s32, s32);
 u32 activate_d04_slot__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_801D2B08(s32, s32);
@@ -74,7 +74,7 @@ typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeo
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
 
 void TObjPlayer__vt73(s32 arg0, f32 farg0) {
-    if (TObjPlayer__sub_80019248() == 0 || obj_testFlags30(arg0, 0x800) != 0 ||
+    if (is_locally_controlled__10TObjPlayerFPv() == 0 || obj_testFlags30(arg0, 0x800) != 0 ||
         activate_d04_slot__10TObjPlayerFPv(arg0) == 0 || TObjPlayer__sub_801D2B08(arg0 + 0x500, 1) != 0 ||
         reset_key_machine_state__10TObjPlayerFv() == 0) {
         return;

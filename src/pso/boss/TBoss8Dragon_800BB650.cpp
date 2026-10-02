@@ -20,7 +20,7 @@ u32 csnLookAt(void *, void *);
 s32 is_alive__9TObjEneDDFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
 void TBoss8Dragon__sub_800BB664(f32 farg0);
-void TBoss8Dragon__sub_800BB780(Obj_800BB780 *self);
+void clear_attack_receipts(Obj_800BB780 *self);
 }
 
 extern "C" {
@@ -70,7 +70,7 @@ void refresh_and_send_entity_flags__12TBoss8DragonFPv(void* p) { refresh_lobby_s
 
 int TObjEneBm3Fly__sub_800BB774(void* p) { return (*(u32*)((char*)p + 0x2dc) >> 1) & 0x1; }
 
-void TBoss8Dragon__sub_800BB780(Obj_800BB780 *self) {
+void clear_attack_receipts(Obj_800BB780 *self) {
     s32 i;
     self->f33e = self->f32c;
     self->flags &= ~0x200;

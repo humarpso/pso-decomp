@@ -5,10 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-M2C_UNK fn_800B98C0(void *);
+M2C_UNK enemy_clear_target(void *);
 s32 is_valid_target__9TObjEneDDFPv(s32);
 s32 fn_800B91F4(void *arg0);
-M2C_UNK fn_800B98C0(void *);
+M2C_UNK enemy_clear_target(void *);
 s32 is_alive__9TObjEneDDFPv(s32);
 u32 find_entity_by_id(u32);
 s32 fn_800B9194(void *arg0);
@@ -24,7 +24,7 @@ s32 fn_800B9194(void *arg0) {
         return 0;
     }
     if (find_entity_by_id(id) == 0U) {
-        fn_800B98C0(arg0);
+        enemy_clear_target(arg0);
         return 0;
     }
     return is_alive__9TObjEneDDFPv(M2C_FIELD(arg0, s32 *, 0x390));
@@ -37,7 +37,7 @@ s32 fn_800B91F4(void *arg0) {
         return 0;
     }
     if (find_entity_by_id(id) == 0U) {
-        fn_800B98C0(arg0);
+        enemy_clear_target(arg0);
         return 0;
     }
     return is_valid_target__9TObjEneDDFPv(M2C_FIELD(arg0, s32 *, 0x390));

@@ -60,13 +60,13 @@ struct RecoveredFields_8023A510_temp_r6 {
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK fn_8023A434(void *, f32, f32);
-void fn_8023A694(u8 *arg0);
+void move_technique_projectile(u8 *arg0);
 f32 get_random_float__8TObjFishFv(f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 u8 *csnVecterUnder(M2C_UNK *, s32);
 u8 *csnVector(f32 *, f32 *, s32);
-s32 TObjPlayer__sub_80141F84(int, int);
+s32 angle_difference_abs(int, int);
 s32 TObjPlayer__sub_801422A8(void *, void *, void *);
 extern const f32 lbl_805DC918;
 extern const f32 lbl_805DC91C;
@@ -157,7 +157,7 @@ void TObjPlayer__sub_8023A510(RecoveredFields_8023A510_arg0 *arg0) {
         stack.sp14 = ((RecoveredFields_8023A510_temp_r6 *)temp_r6)->field_10;
         stack.sp18 = ((RecoveredFields_8023A510_temp_r6 *)temp_r6)->field_14;
         TObjPlayer__sub_801422A8((void *) (&stack.sp10), (void *) (&stack.spC), (void *) (&stack.sp8));
-        if (TObjPlayer__sub_80141F84((int) (0), (int) (stack.spC)) >= 0x1555) {
+        if (angle_difference_abs((int) (0), (int) (stack.spC)) >= 0x1555) {
             queue_destruction__7TObjectFv((void *)((void *) (((u8 *)arg0))));
         }
     }
@@ -168,7 +168,7 @@ void TTecBarta__sub_8023A674(void* p) { TObjPlayer__sub_8023A510((RecoveredField
 
 #pragma push
 #pragma fp_contract on
-void fn_8023A694(u8 *arg0) {
+void move_technique_projectile(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f2;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x78), (void *) (arg0 + 0x20));
@@ -181,6 +181,6 @@ void fn_8023A694(u8 *arg0) {
 }
 #pragma pop
 
-void TObjPlayer__sub_8023A70C(void* p) { fn_8023A694((u8 *)((void*)(p))); advance_lifetime_or_destroy((void *)(p)); }
+void TObjPlayer__sub_8023A70C(void* p) { move_technique_projectile((u8 *)((void*)(p))); advance_lifetime_or_destroy((void *)(p)); }
 
 }

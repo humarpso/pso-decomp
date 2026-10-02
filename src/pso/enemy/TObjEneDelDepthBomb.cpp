@@ -264,7 +264,7 @@ M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 M2C_UNK TObjEneDelDepth__sub_803154A8(void *, int);
 int TObjEneDelDepth__sub_80316488(void*, void*);
-u16 TObjPlayer__sub_800115C4(void *, void *, f32);
+u16 find_nearest_visible_player(void *, void *, f32);
 s32 get_type__15TObjEneDelDepthFPv(int);
 M2C_UNK refresh_lobby_state__10TObjPlayerFPv();
 int set_draw_mode__15TObjEneDelDepthFPvi(void*, void*);
@@ -438,7 +438,7 @@ void update_ai_state__15TObjEneDelDepthFPv(u8 *arg0) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x384) - 1;
         M2C_FIELD(arg0, s32 *, 0x384) = temp_r0;
         if (temp_r0 <= 0) {
-            temp_r3 = TObjPlayer__sub_800115C4((void *) (arg0), (void *) (&sp8), (f32) (TObjEneDelDepth__data_805DF280));
+            temp_r3 = find_nearest_visible_player((void *) (arg0), (void *) (&sp8), (f32) (TObjEneDelDepth__data_805DF280));
             if ((temp_r3 != 0xFFFF) && (TBoss6Kakusan__sub_803D8BD8((void *) (&sp8)) > TObjEneDelDepth__data_805DF270)) {
                 TObjEneDelDepth__sub_803154A8((void *) (arg0), (int) (4));
                 return;

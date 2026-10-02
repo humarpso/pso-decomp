@@ -71,7 +71,7 @@ void disallow_rendering__7TObjectFv(void *w);
 void TObjLuker__sub_801A0DB4(Obj_801A0DB4 *self);
 Ctrl_801A0E38 *get_player_by_client_id(u16 id);
 s32 is_split_screen(void);
-void *TWindowSubComCard__sub_8026CBB8(s32 a);
+void *get_window_layout_position(s32 a);
 void *TCheckRoomSequence__sub_802664A8(void *p, s32 a, s32 b);
 void *check_room_seq_4__16TAdChrSelASlotGCFii(void *p, s32 a);
 s32 get_player_floor__6TLobbyFi(s32 p);
@@ -131,7 +131,7 @@ s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
 void *__nw__7TObjectFUl(int);
 s32 TTecLuker__sub_8023401C(void *);
 void *TTecLuker__sub_8023453C(void *, void *, int, int);
-M2C_UNK fn_8023601C(void *, void *, f32);
+M2C_UNK offset_point_toward_camera(void *, void *, f32);
 M2C_UNK init_all_slots__11TWindowCtrlFv();
 M2C_UNK init_all_slots2__11TWindowCtrlFv();
 extern Pad_801A0F34 lbl_8050E208[];
@@ -209,9 +209,9 @@ void TObjLuker__sub_801A0E38(Obj_801A0E38 *self) {
     for (i = 0; i < 4; i++) {
         if (self->wins[i] == 0 && target > 0) {
             if (is_split_screen() != 0) {
-                self->wins[i] = TCheckRoomSequence__sub_802664A8(TWindowSubComCard__sub_8026CBB8(0x33), 1, i);
+                self->wins[i] = TCheckRoomSequence__sub_802664A8(get_window_layout_position(0x33), 1, i);
             } else {
-                self->wins[i] = check_room_seq_4__16TAdChrSelASlotGCFii(TWindowSubComCard__sub_8026CBB8(0x33), 1);
+                self->wins[i] = check_room_seq_4__16TAdChrSelASlotGCFii(get_window_layout_position(0x33), 1);
             }
             if (self->wins[i] != 0) {
                 self->cur = target;
@@ -339,7 +339,7 @@ void run_task__9TObjLukerFv(u8 *arg0) {
                     }
                     if (flag != 0) {
                         M2C_FIELD(arg0, s16 *, 0xB0) = 1;
-                        fn_8023601C(arg0 + 0x38, spC, lbl_805DC080);
+                        offset_point_toward_camera(arg0 + 0x38, spC, lbl_805DC080);
                         spawn_particle_effect(spC, 0xB3);
                         p = PBC_801A1418(lbl_805D53A0);
                         if (p != NULL) {

@@ -84,7 +84,7 @@ M2C_UNK set_global_count__12TObjNpcEnemyFi(u32);
 M2C_UNK TObjEneBm5GibonU__sub_803D853C(s32, const char *, ...);
 M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D97F0(void *);
+M2C_UNK push_matrix_from(void *);
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 extern Vec_8019D0A8 lbl_804462FC;
@@ -108,7 +108,7 @@ void render__17TObjMapWarpForestFv(u8 *arg0);
 u32 TCheckRoomSequence__sub_802664A8(M2C_UNK, s32, u16);
 s32 TLobby__sub_8030A7B0();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
+M2C_UNK draw_ginja_object(s32);
 s32 TObjCityMainWarp__sub_80186AF4();
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 s32 TObjLuker__sub_801329B0();
@@ -121,7 +121,7 @@ s32 TObjWarpBase__vt13(s32);
 u32 get_player_by_client_id(s32);
 M2C_UNK TWindowSubComCard__sub_80265C30(u32);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
-M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK get_window_layout_position(M2C_UNK);
 M2C_UNK TWindowSubTradeMain__sub_80266200(u32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 s32 check_flag_100__10TObjPlayerFPv();
@@ -166,7 +166,7 @@ void open_confirm_window__12TObjAreaWarpFPvUs(void *arg0, u16 arg1) {
     u32 temp_r3;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) == 0U) {
-        M2C_FIELD(arg0, u32 *, 0xB0) = TCheckRoomSequence__sub_802664A8(TWindowSubComCard__sub_8026CBB8(0x33), 1, arg1);
+        M2C_FIELD(arg0, u32 *, 0xB0) = TCheckRoomSequence__sub_802664A8(get_window_layout_position(0x33), 1, arg1);
         if (TLobby__sub_8030A7B0() == 1) {
             TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), TObjCityMainWarp__sub_80186AF4(), 2, 0, -1);
         } else {
@@ -229,7 +229,7 @@ void render__17TObjMapWarpForestFv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x100));
+        draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x100));
         begin_effect_render__13TParticleCtrlFv();
         draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0x104), M2C_FIELD(arg0, s32 *, 0x108), M2C_FIELD(arg0, f32 *, 0xFC));
         end_effect_render__13TParticleCtrlFv();
@@ -260,13 +260,13 @@ void TObjMapWarp__sub_8019D0A8(u8 *arg0) {
     for (i = 0; i < 4; i++) {
         Vec_8019D0A8 b;
         Vec_8019D0A8 a = lbl_804462FC;
-        TObjPlayer__sub_803D97F0(lbl_8058D490);
+        push_matrix_from(lbl_8058D490);
         TOHangerMachine01__sub_803D9C00(&self->pos);
         rotate_matrix_y((M2C_UNK)(0), (s32)(self->yaw));
         end = &self->ends[i];
         TCameraCtrl__sub_803D8934(0, &lbl_804B910C[i], end);
         pop_matrix();
-        TObjPlayer__sub_803D97F0(lbl_8058D490);
+        push_matrix_from(lbl_8058D490);
         TOHangerMachine01__sub_803D9C00(end);
         rotate_matrix_y((M2C_UNK)(0), (s32)(self->yaw2));
         TCameraCtrl__sub_803D8934(0, &a, &a);

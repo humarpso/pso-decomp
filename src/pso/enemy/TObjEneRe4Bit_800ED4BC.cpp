@@ -220,7 +220,7 @@ struct Vec_800ED4BC { f32 x, y, z; };
 struct Obj_800ED4BC { u8 pad0[0x38]; f32 f38; u8 pad3C[4]; f32 f40; u8 pad44[0x2FC - 0x44]; Vec_800ED4BC v2FC; u8 pad308[0x3C0 - 0x308]; Vec_800ED4BC *f3C0; u8 pad3C4[0x3D8 - 0x3C4]; f32 f3D8; u8 pad3DC[0x3F8 - 0x3DC]; Vec_800ED4BC v3F8; };
 
 extern "C" {
-M2C_UNK TBoss8Dragon__sub_800BB780();
+M2C_UNK clear_attack_receipts();
 M2C_UNK transition_enemy_state(void *, int);
 void TObjEneRe4Bit__vt60(u8 *arg0);
 M2C_UNK transition_enemy_state(void *, int);
@@ -297,7 +297,7 @@ void TObjEneRe4Bit__vt59(void) {  }
 void TObjEneRe4Bit__vt60(u8 *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 5) {
         if (M2C_FIELD(arg0, s32 *, 0x3CC) & 0x1000) {
-            TBoss8Dragon__sub_800BB780();
+            clear_attack_receipts();
             return;
         }
         transition_enemy_state((void *)(arg0), (int) (5));

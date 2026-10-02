@@ -10,7 +10,7 @@ struct TItemMag_80111758 { u8 pad[0x1a8]; void *subs[2]; };
 
 extern "C" {
 M2C_UNK try_add_action__8TItemMagFii(void *, int);
-M2C_UNK TItemMag__sub_801123F8(void *);
+M2C_UNK apply_form_change__8TItemMagFPv(void *);
 void TItemMag__sub_80111188(u8 *arg0, u8 arg1);
 u8 get_field_ed__10TObjPlayerFPv(void *);
 u8 *get_type__8TItemMagFPv(s32);
@@ -130,7 +130,7 @@ void TItemMag__sub_80111188(u8 *arg0, u8 arg1) {
         break;
     }
     if (temp_r31 != get_field_ed__10TObjPlayerFPv((void *) (arg0))) {
-        TItemMag__sub_801123F8((void *) (arg0));
+        apply_form_change__8TItemMagFPv((void *) (arg0));
     }
 }
 

@@ -400,7 +400,7 @@ void TObjEneBm9Mericarol__sub_802CF1B4(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
-M2C_UNK TBoss8Dragon__sub_800BB780();
+M2C_UNK clear_attack_receipts();
 s32 TBoss8Dragon__sub_800BB7D4(void *, int);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
@@ -637,7 +637,7 @@ void TObjEneBm9Mericarol__sub_802CF368(u8 *arg0, s32 arg1) {
     case 5:
       *((s32 *) (((s8 *) arg0) + 0x30)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x30))) & 0xFFFFFDFF);
       *((s32 *) (((s8 *) arg0) + 0x438)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x438))) & 0xFFFFFFFD);
-      TBoss8Dragon__sub_800BB780();
+      clear_attack_receipts();
       break;
   }
 }

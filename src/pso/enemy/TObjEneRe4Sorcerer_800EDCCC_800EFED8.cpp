@@ -169,7 +169,7 @@ extern Map_800F06B4 lbl_804971C0[];
 extern Map_800F06B4 lbl_80497438[];
 s32 TObjPlayer__sub_800F06B4(s32 arg0, s32 arg1);
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK fn_800B98C0(void *);
+M2C_UNK enemy_clear_target(void *);
 s32 TObjEneDD__sub_800BA804(int);
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 M2C_UNK set_flag3cc_bit2000__18TObjEneRe4SorcererFPv(void *);
@@ -218,7 +218,7 @@ void run_task__18TObjEneRe4SorcererFv(u8 *arg0) {
     }
     if (((VObj_18_6eb1ad *)(arg0))->m81() != 4) {
         if (TObjEneDD__sub_800BA804(M2C_FIELD(arg0, u16 *, 0x38C)) != 0 && find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x38C)) == NULL) {
-            fn_800B98C0(arg0);
+            enemy_clear_target(arg0);
         }
         ((VObj_18_6eb1ad *)(arg0))->m83();
         calc_orb_positions__18TObjEneRe4SorcererFPv(arg0);

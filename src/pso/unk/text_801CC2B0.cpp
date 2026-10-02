@@ -95,7 +95,7 @@ void *get_field4_ptr__10TObjPlayerFPv(void *);
 M2C_UNK copy_position__10TObjPlayerFPv(void *, void *);
 u32 *TObjPlayer__sub_801D2AB0(void *, s32);
 s16 get_valid_index__15TFontSmallLobbyFPv(void *);
-void TObjPlayer__sub_801CC558(u8 *arg0);
+void enter_photon_blast_action__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -184,7 +184,7 @@ void TObjPlayer__sub_801CC34C(u8 *arg0) {
   }
 }
 
-void TObjPlayer__sub_801CC558(u8 *arg0) {
+void enter_photon_blast_action__10TObjPlayerFPv(u8 *arg0) {
     Slot_801CC558 *slot;
     u16 id;
     Mylla_801CC558 *m;

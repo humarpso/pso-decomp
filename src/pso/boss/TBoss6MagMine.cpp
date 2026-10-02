@@ -18,7 +18,7 @@ void TBoss6MagMine__vt2(u8 *arg0);
 extern const f32 TBoss6MagMine__data_805E0310;
 extern const f32 TBoss6MagMine__data_805E0328;
 void TBoss6MagMine__vt1(u8 *arg0);
-s32 TObjPlayer__sub_80019248(void *);
+s32 is_locally_controlled__10TObjPlayerFPv(void *);
 void *get_player_data__10TObjPlayerFi(int);
 s32 get_game_mode__6TLobbyFv(void);
 void TBoss3Volopt__sub_8022675C(int, Vec_80368C14 *, int, int);
@@ -54,7 +54,7 @@ void TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
 s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
-s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
+s32 get_bml_model(s32, M2C_UNK);
 int rotate_matrix_y(void*, void*);
 int TObjPlayer__sub_803D9B2C(void*);
 int pop_matrix(void);
@@ -93,7 +93,7 @@ void update_linked_state__13TBoss6MagMineFPv(void *arg0) {
 
     set_global_flag__10TObjPlayerFv();
     temp_r31 = TObjFish__sub_8001EDB0(M2C_FIELD(arg0, s32 *, 0x374), 2);
-    temp_r30 = TObjFish__sub_8001EDC4(M2C_FIELD(arg0, s32 *, 0x374), 2);
+    temp_r30 = get_bml_model(M2C_FIELD(arg0, s32 *, 0x374), 2);
     temp_r31_2 = TObjFish__sub_8001ED9C(M2C_FIELD(arg0, s32 *, 0x374), 0);
     set_global_param__8TObjFishFi(temp_r31);
     TBoss6PlotFalz__sub_802AC008(M2C_FIELD(arg0, f32 *, 0x3A8), TBoss6MagMine__data_805E0314);
@@ -109,7 +109,7 @@ void TBoss6MagMine__sub_80368C14(Mine_80368C14 *o) {
     s32 i;
     for (i = 0; i < n; i++) {
         u8 *pl = (u8 *)get_player_data__10TObjPlayerFi(i);
-        if (is_active__14TBoss6PlotFalzFPv(pl) != 0 && TObjPlayer__sub_80019248(pl) != 0) {
+        if (is_active__14TBoss6PlotFalzFPv(pl) != 0 && is_locally_controlled__10TObjPlayerFPv(pl) != 0) {
             Vec_80368C14 v = o->pos;
             TBoss6Type1__sub_803D9370(&v, pl + 0x38);
             v.y = TBoss6MagMine__data_805E0314;

@@ -18,7 +18,7 @@ s32 apply_resta_heal__11TBoss4Type2FPv(void *);
 s32 TBoss4Type2__sub_80057048(void *, int);
 s32 request_destroy__11TBoss4Type2FUi(int);
 u32 spawn_particle_effect(void *, int);
-u32 TBoss4Type2__sub_800874F4(void *, int);
+u32 create_particle_emitter(void *, int);
 s32 set_flags__11TBoss4Type2FPvUi(int, int);
 u32 get_player_by_client_id(int);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
@@ -69,7 +69,7 @@ void TBoss4Type2__vt36(u8 *arg0) {
   else
     if ((*((unsigned int *) (((s8 *) arg0) + 0x448))) == 0)
   {
-    temp_r3_2 = TBoss4Type2__sub_800874F4((void *) (arg0 + 0x468), (int) 0x143);
+    temp_r3_2 = create_particle_emitter((void *) (arg0 + 0x468), (int) 0x143);
     new_var = (unsigned int *) (((s8 *) arg0) + 0x448);
     *new_var = temp_r3_2;
     if (temp_r3_2 != 0)

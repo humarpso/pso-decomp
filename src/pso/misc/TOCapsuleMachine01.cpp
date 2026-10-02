@@ -84,9 +84,9 @@ void *create__18TOCapsuleMachine01FPv(void *arg0);
 void render__18TOCapsuleMachine01Fv(u8 *arg0);
 void run_task__18TOCapsuleMachine01Fv(void);
 M2C_UNK PPCSync();
-M2C_UNK TOComputerMachine01__sub_8023DDC8(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK scroll_ginja_mesh_uvs(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
+M2C_UNK draw_ginja_object(s32);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -104,7 +104,7 @@ extern s32 lbl_805D58CC;
 void run_task__18TOCapsuleMachine01Fv(void) {
     if ((s32) TOCapsuleMachine01__data_805D58C8 != (s32) lbl_805D53A4) {
         TOCapsuleMachine01__data_805D58C8 = lbl_805D53A4;
-        TOComputerMachine01__sub_8023DDC8(lbl_805D58CC, 0, 5, 4, 1);
+        scroll_ginja_mesh_uvs(lbl_805D58CC, 0, 5, 4, 1);
         PPCSync();
     }
 }
@@ -115,7 +115,7 @@ void render__18TOCapsuleMachine01Fv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-        TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x34));
+        draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
         pop_matrix();
     }
 }

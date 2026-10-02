@@ -12,7 +12,7 @@ extern "C" void  TBoss6Type1__sub_803D9370(Vec*, const Vec*);
 extern "C" f32   TBoss6Kakusan__sub_803D8BD8(Vec*);
 extern "C" void  TNpcPlayer__sub_803D97B4(Vec*);
 extern "C" f64   get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-extern "C" void  TBoss1Dragon__sub_8014220C(Vec*, s32*, s32*);
+extern "C" void  direction_to_rotation_xz(Vec*, s32*, s32*);
 extern "C" void* get_field_d8__10TObjPlayerFPv(void*);
 extern "C" TObject*    tl_05;
 extern "C" const char* lbl_805D2C60;
@@ -32,7 +32,7 @@ TItemShoot::TItemShoot(void* owner, const Vec* pos, const Vec* dir, f32 life)
     this->m_dir.y *= scale;
     this->m_dir.z *= scale;
     this->m_count = (s32)(lbl_8043E7A0[0] * get_ad_end_text_start__10TObjPlayerFv(this->m_dir.x, this->m_dir.z));
-    TBoss1Dragon__sub_8014220C(&this->m_dir, &this->m_28, &this->m_30);
+    direction_to_rotation_xz(&this->m_dir, &this->m_28, &this->m_30);
     this->m_50 = NULL;
     this->m_54 = get_field_d8__10TObjPlayerFPv(owner);
     disallow_rendering__7TObjectFv(this);

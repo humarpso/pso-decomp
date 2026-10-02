@@ -3,7 +3,7 @@ extern "C" {
 s32 TObjPlayer__sub_801CA440(void *);
 s32 TObjPlayer__sub_801CA48C(void *);
 s32 TOMineTrap__sub_801CA508(void *);
-s32 TObjPlayer__sub_801CA7BC(void *);
+s32 prepare_death__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CA8F0(void *);
 s32 TObjPlayer__sub_801CA940(void *);
 s32 TObjPlayer__sub_801CA988(void *);
@@ -30,7 +30,7 @@ void TObjPlayer__sub_801CAA5C(s32 arg0, s16 arg1) {
         TObjPlayer__sub_801CA8F0((void *) arg0);
         return;
       case 5:
-        TObjPlayer__sub_801CA7BC((void *) arg0);
+        prepare_death__10TObjPlayerFPv((void *) arg0);
         return;
       case 0:
         TOMineTrap__sub_801CA508((void *) arg0);

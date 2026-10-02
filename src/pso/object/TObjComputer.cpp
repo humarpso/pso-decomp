@@ -161,7 +161,7 @@ extern u8 lbl_804A7448[];
 extern const f32 lbl_805DBCF8;
 void TObjContainerAbeEnemy__vt80(Obj_80188814 *self);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 get_bml_model(void *, s32);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 u32 TObjEneGibbles__sub_80156780(void *, void *, s32);
 void set_type__14TOKeyAncient01FPv(void *);
@@ -187,7 +187,7 @@ extern s16 lbl_805D5B70;
 void TObjComputer__sub_80188358(void);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TOComputerMachine01__sub_8023DDC8(void *, s32, s32, u16, s32);
+M2C_UNK scroll_ginja_mesh_uvs(void *, s32, s32, u16, s32);
 M2C_UNK PPCSync();
 s32 rotate_matrix_y(s32, s32);
 M2C_UNK TObjPlayer__sub_803D99F8(void *, u32);
@@ -195,7 +195,7 @@ s32 TObjPlayer__sub_803D9B2C();
 s32 pop_matrix();
 s32 TOHangerMachine01__sub_803D9C00(void *);
 s32 set_global_param__8TObjFishFi(s32);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(void *);
+M2C_UNK draw_ginja_object(void *);
 extern u32 lbl_805D53A4;
 extern u32 lbl_805D5B6C;
 extern s16 lbl_805D5B70;
@@ -248,21 +248,21 @@ M2C_UNK TObjComputer__sub_8018807C(void *arg0) {
         u32 tick = lbl_805D53A4;
         if (tick != self->tick_c4 && self->time_c0 >= lbl_805DBCE4) {
             self->tick_c4 = tick;
-            TOComputerMachine01__sub_8023DDC8(M2C_FIELD(self->model->sub2c, void **, 4), 0, (s32)self->time_c0, (*(u16 *)&lbl_805D5B70), 1);
+            scroll_ginja_mesh_uvs(M2C_FIELD(self->model->sub2c, void **, 4), 0, (s32)self->time_c0, (*(u16 *)&lbl_805D5B70), 1);
             PPCSync();
             f32 time = self->time_c0;
             self->time_c0 = time - (f32)(s32)time;
         }
         TOHangerMachine01__sub_803D9C00(self->model->pos8);
         TObjPlayer__sub_803D99F8(self->model->angles14, self->model->flags0 & 0x20);
-        TObjBoss2Tunnel__sub_803DB470(self->model);
+        draw_ginja_object(self->model);
         if (self->model->sub2c != NULL) {
             begin_effect_render__13TParticleCtrlFv();
-            TObjBoss2Tunnel__sub_803DB470(self->model->sub2c);
+            draw_ginja_object(self->model->sub2c);
             end_effect_render__13TParticleCtrlFv();
         }
     } else {
-        TObjBoss2Tunnel__sub_803DB470(self->model);
+        draw_ginja_object(self->model);
     }
     pop_matrix();
 }
@@ -367,7 +367,7 @@ void *TObjComputer__ct(void *arg0, void *parent, void *row) {
         self->selector = 1;
     }
     if (TObjComputer__data_805D5B68 != 0U) {
-        self->model = (void *)TObjFish__sub_8001EDC4((void *)TObjComputer__data_805D5B68, TObjComputer__data_805DBCD8[self->selector]);
+        self->model = (void *)get_bml_model((void *)TObjComputer__data_805D5B68, TObjComputer__data_805DBCD8[self->selector]);
     } else {
         queue_destruction__7TObjectFv(self);
         return self;

@@ -724,7 +724,7 @@ extern "C" {
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
 M2C_UNK clear_field_388__9TObjEneDDFPv(void *);
 M2C_UNK set_active__9TObjEneDDFPv(void *);
-M2C_UNK TBoss8Dragon__sub_800BB780();
+M2C_UNK clear_attack_receipts();
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK advance_animation_playback(void *);
 s32 TObjEneMorfos__sub_80334884(void *);
@@ -1006,7 +1006,7 @@ void TObjEneMorfos__sub_80332DBC(u8 *arg0, s32 arg1) {
         advance_animation_playback((void *)((void *) (arg0)));
         return;
     case 5:
-        TBoss8Dragon__sub_800BB780();
+        clear_attack_receipts();
         clear_field_388__9TObjEneDDFPv((void *) (arg0));
         break;
     }

@@ -39,7 +39,7 @@ void TLobby__sub_80241FD8(void *voice, s32 step);
 void TLobby__sub_8023F8B0(s32 slot, s32 step);
 extern RecoveredGlobal_8023F880_lbl_805162EC lbl_805162EC;
 s32 TLobby__sub_80240B40(u8 *arg0, s32 arg1, s32 arg2);
-void TLobby__sub_8023F8F4(s32 slot, s32 pitch, s32 duration);
+void set_sound_slot_pitch(s32 slot, s32 pitch, s32 duration);
 extern Tables_8023FBBC lbl_804CCFB8;
 s32 TLobby__sub_8023FBBC(Owner_8023FBBC *owner, s32 kind, s32 bank, s32 index);
 }
@@ -129,7 +129,7 @@ void TLobby__sub_8023F8B0(s32 slot, s32 step) {
     if (slot < 0 || slot >= 32) return;
     TLobby__sub_80241FD8((u8 *)&lbl_805162EC.value + slot * 0xA0, step);
 }
-void TLobby__sub_8023F8F4(s32 slot, s32 pitch, s32 duration) {
+void set_sound_slot_pitch(s32 slot, s32 pitch, s32 duration) {
     if (slot < 0 || slot >= 0x20) {
         return;
     }

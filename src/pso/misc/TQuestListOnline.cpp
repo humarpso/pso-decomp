@@ -36,7 +36,7 @@ s32 set_position_xy(int, f32, f32);
 s32 set_field_1c__6TLobbyFPvf(int, f32);
 s32 send_and_handle__6TLobbyFPvii(int, void *, int);
 u32 TLobby__sub_80269CC0(int, void *, int, int);
-s32 TWindowSubComCard__sub_8026CBB8(int);
+s32 get_window_layout_position(int);
 extern RecoveredGlobal_80217EC4_lbl_8044BEDC lbl_8044BEDC;
 extern u32 TQuestListOnline__data_805D6194;
 extern const f32 lbl_805DC6A4;
@@ -49,7 +49,7 @@ M2C_UNK TShopArmorListWindow__sub_80266DB0(u32);
 M2C_UNK TLobby__sub_80266E34(u32);
 s32 send_and_handle__6TLobbyFPvii(int, void *, int);
 u32 set_window_mode_4__6TLobbyFPvii(s32, void *, int);
-s32 TWindowSubComCard__sub_8026CBB8(int);
+s32 get_window_layout_position(int);
 void add_list_entry__6TLobbyFPviii(u32, int, void *, int);
 u32 TShopJudgmentItemWindow__sub_8026DF00(s32, int, u16);
 extern Stack_80217EC4 lbl_8044BED4[];
@@ -97,7 +97,7 @@ void TQuestListOnline__sub_80217EC4(u8 *arg0) {
         stack.sp8 = M2C_FIELD(&lbl_8044BEDC.value, s32 *, 0);
         stack.spC = M2C_FIELD(&lbl_8044BEDC.value, s32 *, 4);
         temp_r31 = obj_getField1c((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-        M2C_FIELD(arg0, u32 *, 0x40) = TLobby__sub_80269CC0((int) (TWindowSubComCard__sub_8026CBB8((int) (0x2E))), (void *) (&stack.sp8), (int) (1), (int) ((s32) temp_r31));
+        M2C_FIELD(arg0, u32 *, 0x40) = TLobby__sub_80269CC0((int) (get_window_layout_position((int) (0x2E))), (void *) (&stack.sp8), (int) (1), (int) ((s32) temp_r31));
         set_field_1c__6TLobbyFPvf((int) (M2C_FIELD(arg0, u32 *, 0x40)), (f32) (lbl_805DC6A4));
         if (get_camera_id__11TCameraCtrlFv() >= 2) {
             set_position_xy((int) (M2C_FIELD(arg0, u32 *, 0x40)), (f32) (lbl_805DC6A8), (f32) (lbl_805DC6A8));
@@ -146,7 +146,7 @@ void TQuestListOnline__sub_80217F88(u8 *arg0) {
         }
         if (M2C_FIELD(arg0, u32 *, 0x3C) == 0U) {
             Stack_80217EC4 sp8 = lbl_8044BED4[0];
-            M2C_FIELD(arg0, u32 *, 0x3C) = set_window_mode_4__6TLobbyFPvii(TWindowSubComCard__sub_8026CBB8(0x2D), &sp8, 1);
+            M2C_FIELD(arg0, u32 *, 0x3C) = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x2D), &sp8, 1);
             send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, u32 *, 0x3C), TQuestListOnline__data_805D6190 + 0x2C, 0x80);
         } else {
             send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, u32 *, 0x3C), TQuestListOnline__data_805D6190 + 0x2C, 0x80);

@@ -50,7 +50,7 @@ void __dl__7TObjectFPv(void *);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
-f32 fn_801315A0(const Vec *, const Vec *);
+f32 xyz_distance_squared(const Vec *, const Vec *);
 int read_be16_field2__10TObjPlayerFPv(void*);
 
 void bswap_6x78__11TObjInfoColFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
@@ -62,7 +62,7 @@ extern s32 lbl_805D53A0;
 s32 TObjInfoCol::is_target_in_range(f32 radius_squared) {
     u32 player = get_player_by_client_id(lbl_805D53A0);
     if (player != 0 &&
-        fn_801315A0((const Vec *) (player + 0x38), &position) < radius_squared) {
+        xyz_distance_squared((const Vec *) (player + 0x38), &position) < radius_squared) {
         return 1;
     }
     return 0;

@@ -146,7 +146,7 @@ void *init_object__9TObjLightFPv(void *arg0);
 void TObjLight__sub_801338EC(void *);
 void TObjLight__sub_80133924(void *);
 void TObjLight__sub_8013397C(void *);
-M2C_UNK TScene__sub_803D8DB4(int, void *, void *);
+M2C_UNK rotate_vector_by_matrix(int, void *, void *);
 extern M2C_UNK lbl_804A6F90[];
 extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
 extern u8 *lbl_805D5558;
@@ -229,7 +229,7 @@ void TObjLight__sub_8013397C(void * _w0);
 void GXInitLightSpot(void *, s32, f32);
 void GXInitLightDistAttn(void *, s32, f32, f32);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
-M2C_UNK TScene__sub_803D8DB4(int, void *, void *);
+M2C_UNK rotate_vector_by_matrix(int, void *, void *);
 f32 TNpcPlayer__sub_803D97B4(void *);
 void TObjLight__sub_803DF31C(s32, s32);
 M2C_UNK TObjLight__sub_803DF528(M2C_UNK);
@@ -239,7 +239,7 @@ extern const float TObjLight__data_805DB088;
 extern const f32 lbl_805DB098;
 extern const f32 lbl_805DB09C;
 extern const f32 lbl_805DB0A0;
-void TObjLight__sub_80133800(s32 arg0);
+void apply_environment_light(s32 arg0);
 extern RecoveredGlobal_80134724_TObjLight__data_8050637C TObjLight__data_8050637C;
 extern Light_801347A4 TObjLight__data_805068FC[];
 extern s32 TObjLight__data_805D556C;
@@ -348,9 +348,9 @@ void TObjLight__sub_801337FC(void) {  }
 typedef char RecoveredGlobal_801338EC_TObjLight__data_80506320_size[sizeof(RecoveredGlobal_801338EC_TObjLight__data_80506320) == 0x50 ? 1 : -1];
 
 #define G_80133800 (*(Light_80133800 *)&TObjLight__data_80506320)
-void TObjLight__sub_80133800(s32 arg0) {
+void apply_environment_light(s32 arg0) {
     Vec_80133800 v;
-    TScene__sub_803D8DB4(0, &G_80133800, &G_80133800.dir);
+    rotate_vector_by_matrix(0, &G_80133800, &G_80133800.dir);
     v.x = G_80133800.dir.x;
     v.y = G_80133800.dir.y;
     v.z = G_80133800.dir.z;
@@ -390,7 +390,7 @@ typedef char RecoveredGlobal_80133980_TObjLight__data_80506320_size[sizeof(Recov
 u8 *TObjLight__sub_80133980(u8 *arg0, int _w1) {
     init_object__9TObjLightFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80133980_lbl_804A6F90 *)&lbl_804A6F90).value;
-    TScene__sub_803D8DB4((int) (0), (void *) (&(*(RecoveredGlobal_80133980_TObjLight__data_80506320 *)&TObjLight__data_80506320).value), (void *) ((u8 *)&(*(RecoveredGlobal_80133980_TObjLight__data_80506320 *)&TObjLight__data_80506320).value + 0xC));
+    rotate_vector_by_matrix((int) (0), (void *) (&(*(RecoveredGlobal_80133980_TObjLight__data_80506320 *)&TObjLight__data_80506320).value), (void *) ((u8 *)&(*(RecoveredGlobal_80133980_TObjLight__data_80506320 *)&TObjLight__data_80506320).value + 0xC));
     TObjLight__sub_8013397C((void *)((void *) (arg0)));
     TObjLight__sub_80133924((void *)((void *) (arg0)));
     TObjLight__sub_801338EC((void *)((void *) (arg0)));

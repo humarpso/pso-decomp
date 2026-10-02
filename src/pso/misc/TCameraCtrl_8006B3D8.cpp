@@ -96,7 +96,7 @@ void TCameraCtrl__sub_8006CD78(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 void TNpcPlayer__sub_803D97B4(void *);
-f32 TObjPlayer__sub_803E1A58(void *, void *);
+f32 xyz_distance(void *, void *);
 extern M2C_UNK lbl_80488AF0[];
 extern const f32 lbl_805D8FFC;
 M2C_UNK TCameraCtrl__sub_8006B798(void *p, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
@@ -252,7 +252,7 @@ M2C_UNK TCameraCtrl__sub_8006B798(void *p, s32 arg1, s32 arg2, s32 arg3, s32 arg
     f32 dist;
     __ct__7TObjectFP7TObject(arg0, (void *)arg4);
     arg0->vt = lbl_80488AF0;
-    dist = TObjPlayer__sub_803E1A58(&VIEW_8006B798->pos, &VIEW_8006B798->tgt);
+    dist = xyz_distance(&VIEW_8006B798->pos, &VIEW_8006B798->tgt);
     VecCopy__FP3VecPC3Vec(&arg0->pos, (void *)arg1);
     VecCopy__FP3VecPC3Vec(&arg0->tgt, &VIEW_8006B798->tgt);
     if (arg2 == 0) {
@@ -270,7 +270,7 @@ M2C_UNK TCameraCtrl__sub_8006B798(void *p, s32 arg1, s32 arg2, s32 arg3, s32 arg
     arg0->pos.x = d.x * dist + VIEW_8006B798->pos.x;
     arg0->pos.y = d.y * dist + VIEW_8006B798->pos.y;
     arg0->pos.z = d.z * dist + VIEW_8006B798->pos.z;
-    arg0->f1c = TObjPlayer__sub_803E1A58(&arg0->pos, &VIEW_8006B798->tgt) / (f32)arg0->f22;
+    arg0->f1c = xyz_distance(&arg0->pos, &VIEW_8006B798->tgt) / (f32)arg0->f22;
     arg0->f20 = 0;
     TCameraCtrl__sub_8006CD78(&VIEW_8006B798->pos, &VIEW_8006B798->tgt);
     return (M2C_UNK)arg0;

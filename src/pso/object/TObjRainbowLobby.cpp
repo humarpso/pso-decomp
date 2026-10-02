@@ -28,7 +28,7 @@ void *create__16TObjRainbowLobbyFPv(void *arg0);
 void render__16TObjRainbowLobbyFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
+M2C_UNK draw_ginja_object(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -65,7 +65,7 @@ void render__16TObjRainbowLobbyFv(u8 *arg0) {
             temp_f1 = M2C_FIELD(arg0, f32 *, 0xCC);
             scale_matrix((int) (0), (f32) (temp_f1), (f32) (1.0f), (f32) (temp_f1));
         }
-        TObjBoss2Tunnel__sub_803DB470((int) (M2C_FIELD(arg0, s32 *, 0x34)));
+        draw_ginja_object((int) (M2C_FIELD(arg0, s32 *, 0x34)));
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
     }

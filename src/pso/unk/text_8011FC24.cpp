@@ -143,17 +143,17 @@ extern const f32 lbl_805DAC9C;
 u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
 void TObjPlayer__sub_8011FCC4(u8 *arg0);
 u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
-M2C_UNK TObjPlayer__sub_8011E87C(void *, int);
+M2C_UNK update_trail_slot__11TItemWeaponFPvi(void *, int);
 M2C_UNK TObjPlayer__sub_80120908(void *);
 M2C_UNK TObjPlayer__sub_80120BBC(void *, int);
-void TObjPlayer__sub_8011FC24(u8 *arg0);
+void update_trails__11TItemWeaponFPv(u8 *arg0);
 u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
 M2C_UNK TObjPlayer__sub_80120908(void *);
 M2C_UNK TObjPlayer__sub_80120BBC(void *, int);
 void TObjPlayer__sub_8011FD38(u8 *arg0);
 M2C_UNK get_field_d8__10TObjPlayerFPv(void *);
 u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
-void TObjPlayer__sub_8011FC24(u8 *arg0);
+void update_trails__11TItemWeaponFPv(u8 *arg0);
 void render_trail__17TItemEffectWeaponFv(void *);
 void push_id_to_list__10TObjPlayerFi(M2C_UNK);
 void TObjPlayer__sub_8011FE04(u8 *arg0);
@@ -161,25 +161,25 @@ void TObjPlayer__sub_8011FE04(u8 *arg0);
 
 extern "C" {
 
-void TObjPlayer__sub_8011FC24(u8 *arg0) {
+void update_trails__11TItemWeaponFPv(u8 *arg0) {
     if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x400U) != 0U) {
         TObjPlayer__sub_80120BBC((void *) (arg0), (int) (0x30));
-        TObjPlayer__sub_8011E87C((void *) (arg0), (int) (0));
+        update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (0));
         TObjPlayer__sub_80120BBC((void *) (arg0), (int) (0x23));
-        TObjPlayer__sub_8011E87C((void *) (arg0), (int) (1));
+        update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (1));
         return;
     }
     if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 1U) == 0U) {
         TObjPlayer__sub_80120908((void *) (arg0));
-        TObjPlayer__sub_8011E87C((void *) (arg0), (int) (0));
-        TObjPlayer__sub_8011E87C((void *) (arg0), (int) (1));
+        update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (0));
+        update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (1));
     }
 }
 
 void TObjPlayer__sub_8011FCC4(u8 *arg0) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x80U) == 0U)) {
         ((VObj_18_4841bb *)(arg0))->m53();
-        TObjPlayer__sub_8011FC24((u8 *)((void *) (arg0)));
+        update_trails__11TItemWeaponFPv((u8 *)((void *) (arg0)));
     }
 }
 void TObjPlayer__sub_8011FD38(u8 *arg0) {
@@ -203,7 +203,7 @@ void TObjPlayer__sub_8011FE04(u8 *arg0) {
             return;
         }
         ((VObj_18_8011FE04 *)(arg0))->m53();
-        TObjPlayer__sub_8011FC24(arg0);
+        update_trails__11TItemWeaponFPv(arg0);
         count = 0;
         do {
             void *trail = ((Trails_8011FE04 *)arg0)->trails[count];

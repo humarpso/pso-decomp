@@ -8,7 +8,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 s32 TObjFish__sub_8001ED9C(void *, s32);
-s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 get_bml_model(void *, s32);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 M2C_UNK pop_matrix();
 extern void *lbl_805D5B10;
@@ -22,7 +22,7 @@ void fn_8017E900(Self_8017E900 *self) {
     TOHangerMachine01__sub_803D9C00(self->pos);
     rotate_matrix_y(0, self->f60);
     rotate_matrix_x(0, -0x2000);
-    draw_ginja_model_with_motion(TObjFish__sub_8001EDC4(lbl_805D5B10, 0), TObjFish__sub_8001ED9C(lbl_805D5B10, 0), self->fa8);
+    draw_ginja_model_with_motion(get_bml_model(lbl_805D5B10, 0), TObjFish__sub_8001ED9C(lbl_805D5B10, 0), self->fa8);
     pop_matrix();
 }
 

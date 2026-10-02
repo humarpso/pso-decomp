@@ -47,7 +47,7 @@ extern const f32 lbl_805DF2C8;
 extern const f32 lbl_805DF2CC;
 void TObjEneDelDepth__sub_80314D1C(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-u16 TObjPlayer__sub_800115C4(void *, int, f32);
+u16 find_nearest_visible_player(void *, int, f32);
 int set_draw_mode__15TObjEneDelDepthFPvi(void*, void*);
 M2C_UNK TObjEneDelDepth__sub_803154A8(void *, int);
 int TObjEneDelDepth__sub_80316488(void*, void*);
@@ -64,7 +64,7 @@ extern const f32 lbl_805DF2B0;
 extern const f32 lbl_805DF2B4;
 extern const f32 lbl_805DF2B8;
 void TObjEneDelDepth__sub_80314C10(u8 *arg0);
-u16 TObjPlayer__sub_800115C4(void *, int, f32);
+u16 find_nearest_visible_player(void *, int, f32);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 M2C_UNK TObjEneDelDepth__sub_803154A8(void *, int);
 f32 TBoss8Dragon__sub_803D64C0(s32);
@@ -96,7 +96,7 @@ M2C_UNK TBoss3Volopt__sub_800D8C48(void *);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 M2C_UNK TObjEneDelDepth__sub_803154A8(void *, int);
 int TObjEneDelDepth__sub_80316488(void*, void*);
-u16 TObjPlayer__sub_800115C4(void *, int, f32);
+u16 find_nearest_visible_player(void *, int, f32);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 get_flag_bit4__15TObjEneDelDepthFPv(void *);
 s32 is_state_complete__15TObjEneDelDepthFPv(int);
@@ -181,7 +181,7 @@ void TObjEneDelDepth__sub_80314C10(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r31;
     M2C_FIELD(arg0, f32 *, 0x3AC) = (*(const f32 *)&TObjEneDelDepth__data_805DF258);
-    if (TObjPlayer__sub_800115C4(arg0, (int)(arg0 + 0x3B0), TObjEneDelDepth__data_805DF26C) == 0xFFFF) {
+    if (find_nearest_visible_player(arg0, (int)(arg0 + 0x3B0), TObjEneDelDepth__data_805DF26C) == 0xFFFF) {
         TObjEneDelDepth__sub_803154A8(arg0, 2);
         return;
     }
@@ -266,7 +266,7 @@ void TObjEneDelDepth__sub_80314EC4(u8 *arg0) {
     temp_f1_4 = M2C_FIELD(arg0, f32 *, 0x38C) + lbl_805DF2D0;
     M2C_FIELD(arg0, f32 *, 0x38C) = temp_f1_4;
     if (temp_f1_4 > (*(const f32 *)&TObjEneDelDepth__data_805DF260)) {
-        if (TObjPlayer__sub_800115C4((void *) (arg0), (int) (0), (f32) (TObjEneDelDepth__data_805DF26C)) != 0xFFFF) {
+        if (find_nearest_visible_player((void *) (arg0), (int) (0), (f32) (TObjEneDelDepth__data_805DF26C)) != 0xFFFF) {
             TObjEneDelDepth__sub_803154A8((void *) (arg0), (int) (3));
             TBoss3Volopt__sub_8022675C((int) (0x4003A822), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         } else {
@@ -290,7 +290,7 @@ void try_relocate_on_timer__15TObjEneDelDepthFPv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x384) - 1;
     M2C_FIELD(arg0, s32 *, 0x384) = temp_r0;
     if (temp_r0 <= 0) {
-        if (TObjPlayer__sub_800115C4((void *) (arg0), (int) (0), (f32) (TObjEneDelDepth__data_805DF26C)) == 0xFFFF) {
+        if (find_nearest_visible_player((void *) (arg0), (int) (0), (f32) (TObjEneDelDepth__data_805DF26C)) == 0xFFFF) {
             temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x3C0) + 1;
             M2C_FIELD(arg0, s32 *, 0x3C0) = temp_r0_2;
             if (temp_r0_2 >= 5) {

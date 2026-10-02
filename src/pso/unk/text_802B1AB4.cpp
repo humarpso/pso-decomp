@@ -41,7 +41,7 @@ s32 get_message_10__20TWindowSubStatusDispFPv(int);
 u8 *get_player_by_client_id(s32);
 M2C_UNK TWindowSubStatusDisp__sub_80229080();
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
-s32 TWindowSubComCard__sub_8026CBB8(int);
+s32 get_window_layout_position(int);
 M2C_UNK notify_warp_flag70__19TWindowSubShortMailFPv(int);
 M2C_UNK free_member__17TWindowSubComCardFPv(int, int);
 M2C_UNK TWindowSubShortMail__sub_802A58AC(int, int, int, int, f32);
@@ -54,7 +54,7 @@ M2C_UNK TWindowSubStatusDisp__sub_80229080();
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 M2C_UNK send_and_handle__6TLobbyFPvii(int, int, int);
 s32 TLobby__sub_80269CC0(s32, void *, int, int);
-s32 TWindowSubComCard__sub_8026CBB8(int);
+s32 get_window_layout_position(int);
 extern u8 lbl_80470AA8[];
 s32 fn_802B1B80(u8 *arg0, s32 arg1, s32 arg2);
 }
@@ -73,7 +73,7 @@ s32 fn_802B1AB4(u8 *arg0, s32 arg1) {
     get_message_10__20TWindowSubStatusDispFPv((int) (0xD6));
     TWindowSubStatusDisp__sub_80229080();
     temp_r29 = TWindowMessageYesNo__sub_802A59D8((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x20)), (int) (0), (int) (0));
-    TWindowSubShortMail__sub_802A58AC((int) (temp_r29), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x20))), (int) (TLobby__sub_8001DC24()), (int) (TWindowSubComCard__sub_8026CBB8((int) (0x5B))), (f32) (lbl_805DE298));
+    TWindowSubShortMail__sub_802A58AC((int) (temp_r29), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x20))), (int) (TLobby__sub_8001DC24()), (int) (get_window_layout_position((int) (0x5B))), (f32) (lbl_805DE298));
     free_member__17TWindowSubComCardFPv((int) (temp_r29), (int) (1));
     notify_warp_flag70__19TWindowSubShortMailFPv((int) (temp_r29));
     return temp_r29;
@@ -87,7 +87,7 @@ s32 fn_802B1B80(u8 *arg0, s32 arg1, s32 arg2) {
         ((M2C_UNK (*)(M2C_UNK))TWindowSubStatusDisp__sub_80229080)(p->m10());
     }
     ((M2C_UNK (*)(s32))TWindowSubStatusDisp__sub_80229080)(arg2);
-    r = TLobby__sub_80269CC0(TWindowSubComCard__sub_8026CBB8(0x5B), lbl_80470AA8, 1, M2C_FIELD(arg0, s32 *, 0x20));
+    r = TLobby__sub_80269CC0(get_window_layout_position(0x5B), lbl_80470AA8, 1, M2C_FIELD(arg0, s32 *, 0x20));
     send_and_handle__6TLobbyFPvii(r, TLobby__sub_8001DC24(), 0x82);
     return r;
 }

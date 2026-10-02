@@ -31,7 +31,7 @@ void start_boss4_pose__10TObjPlayerFPv(void *arg0);
 void update_entry_motion__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK advance_animation_playback();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
+M2C_UNK apply_actor_gravity(void *, int, f32);
 M2C_UNK check_enemy_body_collisions(void *);
 M2C_UNK submit_cursor_candidate(void *, int);
 M2C_UNK TObjPlayer__sub_803D8960(int, int, void *, int);
@@ -138,19 +138,19 @@ void update_entry_motion__10TObjPlayerFPv(u8 *arg0) {
     switch (temp_r0) {
     case 0:
         M2C_FIELD(arg0, s16 *, 0x328) = 1;
-        TObjPlayer__sub_80011734((void *) (arg0), (int) (0), (f32) (lbl_805D9A14));
+        apply_actor_gravity((void *) (arg0), (int) (0), (f32) (lbl_805D9A14));
         break;
     case 1:
         M2C_FIELD(arg0, f32 *, 0x310) = (f32) lbl_805D9A14;
         M2C_FIELD(arg0, f32 *, 0x308) = (f32) lbl_805D9A14;
-        TObjPlayer__sub_80011734((void *) (arg0), (int) (0), (f32) (lbl_805D9A14));
+        apply_actor_gravity((void *) (arg0), (int) (0), (f32) (lbl_805D9A14));
         if ((u32) M2C_FIELD(arg0, u32 *, 0xB4) != 8U) {
             M2C_FIELD(arg0, s16 *, 0x328) = 2;
         }
         break;
     case 2:
         if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800000)) {
-            TObjPlayer__sub_80011734((void *) (arg0), (int) (0), (f32) (lbl_805D9A14));
+            apply_actor_gravity((void *) (arg0), (int) (0), (f32) (lbl_805D9A14));
         }
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFF9FF);
         temp_r3 = (unsigned char *) (M2C_FIELD(arg0, void **, 0xA4));

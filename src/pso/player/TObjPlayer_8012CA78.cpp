@@ -8,7 +8,7 @@ extern "C" {
 
 void *construct_weapon_variant__10TObjPlayerFPviPv(void *arg0, M2C_UNK arg1, void *arg2);
 M2C_UNK TObjPlayer__sub_80120D50();
-M2C_UNK TObjPlayer__sub_801210B0(void *, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK set_weapon_trail_joints(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK set_atp__10TObjPlayerFPvs(void *, M2C_UNK);
 
 extern M2C_UNK lbl_804A5458[];
@@ -22,13 +22,13 @@ void *construct_weapon_variant__10TObjPlayerFPviPv(void *arg0, M2C_UNK arg1, voi
     switch ((s32) temp_r0) {
     case 5:
     case 6:
-        TObjPlayer__sub_801210B0(arg0, 0, 3, 2);
+        set_weapon_trail_joints(arg0, 0, 3, 2);
         break;
     case 4:
-        TObjPlayer__sub_801210B0(arg0, 0, 2, 1);
+        set_weapon_trail_joints(arg0, 0, 2, 1);
         break;
     default:
-        TObjPlayer__sub_801210B0(arg0, 0, 2, 3);
+        set_weapon_trail_joints(arg0, 0, 2, 3);
         break;
     }
     if ((u8) M2C_FIELD(arg2, u8 *, 2) >= 4U) {

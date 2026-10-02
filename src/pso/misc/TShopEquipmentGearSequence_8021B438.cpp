@@ -116,7 +116,7 @@ u32 TShopSequence__sub_80223600(void *, s32, s32);
 unsigned short get_child_field1c__15TShopWindowBaseFPv(void *);
 s32 fn_8026934C(s32);
 s32 THunterGuildSeqOffline__sub_8022350C(void *, int);
-s32 TWindowSubComCard__sub_8026CBB8(int, f32);
+s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC6C8;
 extern const f32 lbl_805DC6CC;
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -177,7 +177,7 @@ M2C_UNK TWindowSubComCard__sub_80265C30(void *);
 M2C_UNK TWindowSubComCard__sub_80265F60(void *);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, s32, s32);
 void *TCheckRoomSequence__sub_802664A8(s32, s32, u16);
-s32 TWindowSubComCard__sub_8026CBB8(int, f32);
+s32 get_window_layout_position(int, f32);
 void TShopEquipmentGearSequence__sub_8021B518(void *self);
 }
 
@@ -215,7 +215,7 @@ void TShopEquipmentGearSequence__sub_8021B518(void *self) {
     s32 r;
     if (arg0->win == NULL) {
         id = obj_getField1c(arg0->f24);
-        arg0->win = TCheckRoomSequence__sub_802664A8(((s32 (*)(int)) TWindowSubComCard__sub_8026CBB8)(0x2B), 2, id);
+        arg0->win = TCheckRoomSequence__sub_802664A8(((s32 (*)(int)) get_window_layout_position)(0x2B), 2, id);
         forward_trade_action_default__16TObjCityMainWarpFPviii(arg0->win, TLobby__sub_80222CFC(4), 6, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(arg0->win, TLobby__sub_80222CFC(6), 6, 1);
         TWindowSubComCard__sub_80265F60(arg0->win);
@@ -251,7 +251,7 @@ s32 TShopEquipmentGearSequence__sub_8021B6A8(u8 *arg0) {
   Stack_8021D948 stack;
   stack.sp8 = lbl_805DC6C8;
   stack.spC = lbl_805DC6CC;
-  TShopSequence__sub_80223600(arg0, TWindowSubComCard__sub_8026CBB8((int) 0x2C, (f32) lbl_805DC6C8), (s32) (&stack.sp8));
+  TShopSequence__sub_80223600(arg0, get_window_layout_position((int) 0x2C, (f32) lbl_805DC6C8), (s32) (&stack.sp8));
   PSO_VCALL_VObj_18_a93f07_m4(arg0, 0x2b, 1);
   *((s32 *) (((s8 *) arg0) + 0x30)) = fn_8026934C((s32) get_child_field1c__15TShopWindowBaseFPv(arg0));
   set_field_20__12TQuestListVMFPvi(arg0, 2);

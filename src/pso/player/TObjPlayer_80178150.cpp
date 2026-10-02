@@ -22,11 +22,11 @@ struct Pkt_80178178 { u8 pad[4]; s16 area; u16 id; u8 mode; };
 extern "C" {
 s32 send_state__12TOChatSensorFPv(void *);
 s32 init_packet_type__12TOChatSensorFPv(void *);
-s32 TSwitch__sub_80229258(int, int);
+s32 clear_floor_switch_flag(int, int);
 void TOChatSensor__sub_801781D8(u8 *arg0);
 void TOChatSensor__sub_8015B274(void *);
-s32 TSwitch__sub_80229258(int, int);
-s32 TSwitch__sub_80229318(int, int);
+s32 clear_floor_switch_flag(int, int);
+s32 set_floor_switch_flag(int, int);
 s32 get_current_floor();
 void handle_6x93_set_switch_flag_from_timer(Pkt_80178178 *p);
 }
@@ -48,9 +48,9 @@ u8 is_state_ec1_ed3__10TObjPlayerFPv(void *arg0) {
 void handle_6x93_set_switch_flag_from_timer(Pkt_80178178 *p) {
     TOChatSensor__sub_8015B274(p);
     if (p->mode == 1) {
-        TSwitch__sub_80229318(p->id, p->area);
+        set_floor_switch_flag(p->id, p->area);
     } else if (p->area != get_current_floor()) {
-        TSwitch__sub_80229258(p->id, p->area);
+        clear_floor_switch_flag(p->id, p->area);
     }
 }
 
@@ -76,7 +76,7 @@ void TOChatSensor__sub_801781D8(u8 *arg0) {
             stack.sp1A = M2C_FIELD(arg0, u16 *, 0xA8);
             stack.sp1C = 0;
             send_state__12TOChatSensorFPv((void *) (&stack.sp14));
-            TSwitch__sub_80229258((int) (M2C_FIELD(arg0, u16 *, 0xA8)), (int) ((s16) M2C_FIELD(arg0, s32 *, 0xB4)));
+            clear_floor_switch_flag((int) (M2C_FIELD(arg0, u16 *, 0xA8)), (int) ((s16) M2C_FIELD(arg0, s32 *, 0xB4)));
         }
     } else {
         var_r30 = (u16 *)((u8 *)(arg0 + 0xAA));

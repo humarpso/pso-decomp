@@ -68,7 +68,7 @@ typedef struct Hira_800411F0 {
 
 extern "C" {
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
-s32 TObjFish__sub_8001EDC4(int, int);
+s32 get_bml_model(int, int);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 toggle_particle_effect__10TObjPlayerFv();
 s32 TObjLight__sub_80134098();
@@ -83,7 +83,7 @@ s32 TObjPlayer__sub_803D9B2C();
 s32 pop_matrix();
 f32 TOHangerMachine01__sub_803D9C00(void *);
 s32 set_global_param__8TObjFishFi(int);
-s32 TObjFish__sub_803E46BC(int);
+s32 draw_chunk_object(int);
 extern s32 TBoss3VoloptHiraisin__data_805D4C80;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
@@ -238,7 +238,7 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
         translate_matrix((int) (0), (f32) (lbl_805D8720), (f32) (TBoss8Dragon__sub_803D64C0((int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38C))), (f32) (lbl_805D8720));
         rotate_matrix_y((int) (0), (int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_60));
         if (check_demo_mode__10TObjPlayerFv() == 1) {
-            TObjFish__sub_803E46BC((int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_34));
+            draw_chunk_object((int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_34));
         } else {
             draw__16TObjEneRe7BeruraFPv((void *) (arg0));
         }
@@ -252,7 +252,7 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
             translate_matrix((int) (0), (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38), (f32) (lbl_805D8730), (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_40));
             scale_matrix((int) (0), (f32) (temp_f31), (f32) (temp_f31), (f32) (temp_f31));
             set_global_param__8TObjFishFi((int) (TObjFish__sub_8001EDB0((s32)((int) (TBoss3VoloptHiraisin__data_805D4C80)), (M2C_UNK)((int) (0)))));
-            TObjFish__sub_803E46BC((int) (TObjFish__sub_8001EDC4((int) (TBoss3VoloptHiraisin__data_805D4C80), (int) (0))));
+            draw_chunk_object((int) (get_bml_model((int) (TBoss3VoloptHiraisin__data_805D4C80), (int) (0))));
             pop_matrix();
         }
     }

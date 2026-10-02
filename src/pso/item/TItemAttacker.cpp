@@ -40,7 +40,7 @@ void spawn_item_timer__13TItemAttackerFiii(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK TItemTimer__ct(void *, s32, s32, s32);
 s32 TLobby__sub_8001EEF4();
 s32 TLobby__sub_8001EEFC(M2C_UNK *);
-M2C_UNK TObjPlayer__sub_801031CC();
+M2C_UNK deliver_delayed_weapon_hit();
 u32 __nw__7TObjectFUl(M2C_UNK);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
 int queue_destruction__7TObjectFv(void*);
@@ -85,7 +85,7 @@ void spawn_item_timer__13TItemAttackerFiii(s32 arg0, s32 arg1, s32 arg2) {
 
 void TItemAttacker__sub_8010349C(u32 arg0) {
     if (arg0 != 0U) {
-        TObjPlayer__sub_801031CC();
+        deliver_delayed_weapon_hit();
     }
 }
 

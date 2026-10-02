@@ -99,7 +99,7 @@ struct O_803594B4 { u8 pad[0x1c]; s32 idx; E_803594B4 e[2]; };
 
 extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, int);
-s32 TObjFish__sub_8001EDC4(void *, int);
+s32 get_bml_model(void *, int);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 fn_80148274(void *);
 s32 fn_8014B8A4(void *);
@@ -118,7 +118,7 @@ u8 *TObjNpcNgcBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D43F0;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((void *) (arg3), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) (arg3), (int) (0));
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *) (arg3), (int) (0));
     fn_80148274((void *) (arg0));
     return arg0;

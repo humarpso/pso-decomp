@@ -148,7 +148,7 @@ M2C_UNK submit_cursor_candidate(void *, int);
 extern const f32 lbl_805DE640;
 extern const f32 lbl_805DE64C;
 void TOTrapSeabed01__vt80(u8 *arg0);
-u16 TObjPlayer__sub_800115C4(void *, int, f32);
+u16 find_nearest_visible_player(void *, int, f32);
 f32 horizontal_distance_squared(void *, void *);
 f32 TObjPlayer__sub_8017A1A4(int, int);
 M2C_UNK TObjPlayer__sub_801B5328(int, void *, int, int, f32);
@@ -164,7 +164,7 @@ void set_indexed_flags(void *, s32, s32);
 void TOTrapSeabed01__sub_802CA038(u8 *arg0);
 void TOTrapSeabed01__vt79(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TObjFish__sub_8001EDC4(int, int);
+s32 get_bml_model(int, int);
 M2C_UNK set_position_xy__10TObjPlayerFPvff(f32, f32);
 u32 spawn_particle_effect(void *, int);
 M2C_UNK copy_transform__8TObjChipFPvPv(void *, void *);
@@ -219,7 +219,7 @@ void TOTrapSeabed01__vt83(Trap_802C9E3C *self) {
     for (i = 0; i < 6; i++) {
         e = &lbl_804E0FE4[i];
         VecCopy__FP3VecPC3Vec(&p.pos, &e->pos);
-        p.model = TObjFish__sub_8001EDC4(TOTrapSeabed01__data_805D6810, e->id);
+        p.model = get_bml_model(TOTrapSeabed01__data_805D6810, e->id);
         p.arg = e->arg;
         o = __nw__7TObjectFUl(0x24C);
         if (o != NULL) {
@@ -263,7 +263,7 @@ void TOTrapSeabed01__sub_802CA038(u8 *arg0) {
     u32 temp_r3_2;
     u32 id;
     M2C_FIELD(arg0, u32 *, 0x2A8) = 0U;
-    M2C_FIELD(arg0, u16 *, 0x33C) = TObjPlayer__sub_800115C4((void *) (arg0), (int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x334)));
+    M2C_FIELD(arg0, u16 *, 0x33C) = find_nearest_visible_player((void *) (arg0), (int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x334)));
     id = M2C_FIELD(arg0, u16 *, 0x33C);
     if ((id != 0xFFFF) && (temp_r3 = get_player_by_client_id(id), M2C_FIELD(arg0, u32 *, 0x2A8) = temp_r3, temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x2A8), ((temp_r3_2 == 0U) == 0))) {
         temp_f31 = horizontal_distance_squared((void *) (temp_r3_2 + 0x38), (void *) (arg0 + 0x38));

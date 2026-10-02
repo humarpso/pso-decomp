@@ -41,7 +41,7 @@ struct RecoveredGlobal_8018E064___vt__11TObjDoaEx01 {
 };
 
 extern "C" {
-s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 get_bml_model(void *, s32);
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8018E1E0_lbl_804B7588 lbl_804B7588;
@@ -141,7 +141,7 @@ void TObjDoaEx01__sub_8018E1E0(void) {
         var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B7588.value, 0, 0, 0));
     }
     (*(u8 * *)&TObjDoaEx01__data_805D5BB0) = (unsigned char *) ((void *) var_r0);
-    temp_r3_2 = (u8 *)(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(TObjFish__sub_8001EDC4((void *) var_r0, 0), void **, 0x2C), void **, 0x30), void **, 0x2C), void **, 0x2C));
+    temp_r3_2 = (u8 *)(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(get_bml_model((void *) var_r0, 0), void **, 0x2C), void **, 0x30), void **, 0x2C), void **, 0x2C));
     TObjDoaEx01__data_805D5BB4 = temp_r3_2;
     TObjDoaEx01__data_805D5BB8 = M2C_FIELD(temp_r3_2, s32 *, 0x30);
 }

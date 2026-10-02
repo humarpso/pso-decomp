@@ -40,7 +40,7 @@ struct Gun_800A0B20 : VBase_800A0B20 {
 };
 
 extern "C" {
-u16 TObjPlayer__sub_800115C4(void *, s32, f32);
+u16 find_nearest_visible_player(void *, s32, f32);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 void queue_destruction__7TObjectFv(void *);
 s32 check_demo_mode__10TObjPlayerFv(void);
@@ -94,7 +94,7 @@ void run_task__20TObjEneDarkGunCenterFv(Gun_800A0B20 *self) {
     switch (self->state) {
     case 0:
         if (self->m17(0x1e) != 0) {
-            id = TObjPlayer__sub_800115C4(self, 0, lbl_805D9970);
+            id = find_nearest_visible_player(self, 0, lbl_805D9970);
             if (id != 0xFFFF) {
                 self->target = get_player_by_client_id(id);
                 ang = (s32)(lbl_8043A488[0] * get_ad_end_text_start__10TObjPlayerFv(*(f32 *)(self->target + 0x40) - self->f40, *(f32 *)(self->target + 0x38) - self->f38)) + 0x4000;
@@ -127,7 +127,7 @@ void run_task__20TObjEneDarkGunCenterFv(Gun_800A0B20 *self) {
         }
         break;
     case 3:
-        if (TObjPlayer__sub_800115C4(self, 0, lbl_805D9970) != 0xFFFF) {
+        if (find_nearest_visible_player(self, 0, lbl_805D9970) != 0xFFFF) {
             TObjEneDarkGunCenter__sub_800A0814(self);
             fn_800A0884(self);
         } else {

@@ -209,7 +209,7 @@ extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
 s32 is_any_teammate_in_state__10TObjPlayerFv();
 void TOTrap__sub_80179028(u8 *arg0);
-s32 TObjPlayer__sub_80019248(int);
+s32 is_locally_controlled__10TObjPlayerFPv(int);
 s32 obj_getField1c(u32);
 s32 check_player_flag1__6TLobbyFPv(s32);
 s32 TObjPlayer__sub_80154954(void *, void *);
@@ -227,15 +227,15 @@ s32 fn_80171314(void *);
 s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
 s32 get_player_by_client_id(u32);
 s32 TOTrap__sub_80178BC4(void *arg0);
-u16 TObjPlayer__sub_800115C4(void *, int, f32);
+u16 find_nearest_visible_player(void *, int, f32);
 M2C_UNK calc_attach_pos__10TObjPlayerFPv();
-s32 TObjPlayer__sub_80019248(int);
+s32 is_locally_controlled__10TObjPlayerFPv(int);
 f32 horizontal_distance_squared(void *, void *);
 void TObjPlayer__sub_801B5328(void *, void *, s32, int, f32);
 s32 get_player_by_client_id(u32);
 void TOTrap__vt79(Obj_80178CF8 *self);
 M2C_UNK calc_attach_pos__10TObjPlayerFPv();
-u16 TObjPlayer__sub_800115C4(void *, int, f32);
+u16 find_nearest_visible_player(void *, int, f32);
 f32 horizontal_distance_squared(void *, void *);
 s32 get_player_by_client_id(u32);
 void TOTrap__sub_80178E10(Obj_80178E10 *arg0);
@@ -314,7 +314,7 @@ void TOTrap__vt80(void *arg0) {
             u32 v = (u16) obj_getField1c(p);
             if (v < 0x1000U) {
                 temp_r31 = get_player_by_client_id(v);
-                if ((TObjPlayer__sub_80019248(temp_r31) != 0) && (check_player_flag1__6TLobbyFPv(temp_r31) != 0)) {
+                if ((is_locally_controlled__10TObjPlayerFPv(temp_r31) != 0) && (check_player_flag1__6TLobbyFPv(temp_r31) != 0)) {
                     send_code_45_1__10TObjPlayerFi(temp_r31);
                 }
             }
@@ -326,14 +326,14 @@ void TOTrap__vt80(void *arg0) {
 void TOTrap__vt79(Obj_80178CF8 *self) {
     u8 *pl;
     calc_attach_pos__10TObjPlayerFPv();
-    self->idx = TObjPlayer__sub_800115C4(self, 0, self->x334);
+    self->idx = find_nearest_visible_player(self, 0, self->x334);
     if (self->idx != 0xFFFF) {
         pl = (u8 *)get_player_by_client_id(self->idx);
         self->target = pl;
         if (self->target != 0) {
             if (horizontal_distance_squared(self->target + 0x38, self->pos) < self->range * self->range) {
                 self->state = 3;
-                if (TObjPlayer__sub_80019248((int)pl) != 0) {
+                if (is_locally_controlled__10TObjPlayerFPv((int)pl) != 0) {
                     ((void (*)(f32, void *, void *, s32, int))TObjPlayer__sub_801B5328)(self->range, pl, self->pos, self->x84, 0);
                 }
             } else {
@@ -353,7 +353,7 @@ void TOTrap__sub_80178DCC(u8 *arg0) {
 
 void TOTrap__sub_80178E10(Obj_80178E10 *arg0) {
     calc_attach_pos__10TObjPlayerFPv();
-    arg0->idx = TObjPlayer__sub_800115C4(arg0, 0, arg0->range);
+    arg0->idx = find_nearest_visible_player(arg0, 0, arg0->range);
     if (arg0->idx != (u16)0xFFFF) {
         arg0->target = (u8 *)get_player_by_client_id(arg0->idx);
         if (arg0->target != 0) {
@@ -400,7 +400,7 @@ f32 TOTrap__sub_80178F54(u8 *arg0, u32 arg1) {
       if (temp_r3 < 0x1000U)
       {
         temp_r3_2 = get_player_by_client_id((u32)((int) ((s32) temp_r3)));
-        if (((temp_r3_2 != 0) && (TObjPlayer__sub_80019248((int)((int) temp_r3_2)) != 0)) && (check_player_flag1__6TLobbyFPv((s32)((int) ((long long) temp_r3_2))) != 0))
+        if (((temp_r3_2 != 0) && (is_locally_controlled__10TObjPlayerFPv((int)((int) temp_r3_2)) != 0)) && (check_player_flag1__6TLobbyFPv((s32)((int) ((long long) temp_r3_2))) != 0))
         {
           send_code_45_1__10TObjPlayerFi((s32)((int) temp_r3_2));
         }

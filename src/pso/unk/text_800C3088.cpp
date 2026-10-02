@@ -246,7 +246,7 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(int);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
-u32 TBoss4Type2__sub_800874F4(void *, int);
+u32 create_particle_emitter(void *, int);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 s32 enable__13TParticleCtrlFPv(int);
 s32 clamp_frame_index__9TObjEneDDFi(int);
@@ -269,7 +269,7 @@ extern const f32 lbl_805D9FD8;
 extern const f32 lbl_805D9FDC;
 void fn_800C32DC(u8 *arg0, s32 arg1);
 s32 fn_800B91F4(void *);
-s32 TObjEneEpsilon__sub_800B95E0(void *);
+s32 enemy_validate_retained_target(void *);
 s32 set_field_378__9TObjEneDDFPvi(void *, int);
 s32 transition_enemy_state(void *, int);
 s32 noop__9TObjEneDDFv(void *);
@@ -324,7 +324,7 @@ void fn_800C3088(u8 *arg0, int arg1) {
     return;
     case 0:
       advance_animation_playback((void *) arg0);
-      TObjEneEpsilon__sub_800B95E0((void *) arg0);
+      enemy_validate_retained_target((void *) arg0);
       temp_r0 = ((RecoveredFields_800C3088_arg0 *) arg0)->field_414;
       switch (temp_r0)
     {
@@ -397,7 +397,7 @@ void fn_800C32DC(u8 *arg0, s32 arg1) {
     case 0:
         advance_animation_playback((void *) (arg0));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x428) == 0U) {
-            M2C_FIELD(arg0, u32 *, 0x428) = TBoss4Type2__sub_800874F4((void *) (arg0 + 0x3E8), (int) (0xD1));
+            M2C_FIELD(arg0, u32 *, 0x428) = create_particle_emitter((void *) (arg0 + 0x3E8), (int) (0xD1));
             temp_r3 = M2C_FIELD(arg0, u32 *, 0x428);
             if (temp_r3 != 0U) {
                 enable__13TParticleCtrlFPv((int) (temp_r3));
@@ -601,7 +601,7 @@ struct VObj_18 : VBase_18 {
 extern "C" {
 
 s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
-M2C_UNK fn_800B98C0(void *);
+M2C_UNK enemy_clear_target(void *);
 M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
 extern const f32 lbl_805D9FF0;
 
@@ -619,7 +619,7 @@ s32 TObjEneEpsilon__sub_800BBE64(void *, void *, int);
 M2C_UNK noop__9TObjEneDDFv(void *);
 s32 get_flag_11__16TObjEneRe2FlowerFPv(void *);
 M2C_UNK set_child_flags__16TObjEneRe2FlowerFPv(void *);
-s32 TObjPlayer__sub_80141F84(int, int);
+s32 angle_difference_abs(int, int);
 s32 TObjPlayer__sub_801423A4(int, int, void *);
 extern const f64 lbl_8043BBD8;
 extern const f32 lbl_805D9FE0;
@@ -657,7 +657,7 @@ void TObjEneDD__sub_800C34FC(u8 *arg0, s32 arg1) {
             if (d > lbl_805D9FE0 || M2C_FIELD(arg0, void **, 0x390) == NULL) {
                 transition_enemy_state(arg0, 2);
             } else if (d < lbl_805D9FE4) {
-                t = TObjPlayer__sub_80141F84(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x420));
+                t = angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x420));
                 if (t < get_field_0c__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0x318))) {
                     transition_enemy_state(arg0, 5);
                 }
@@ -705,7 +705,7 @@ void handle_flower_state_change(void *arg0, s32 arg1) {
         clear_child_flags__16TObjEneRe2FlowerFPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) & 0xFFFFFFF7);
         set_field_378__9TObjEneDDFPvi(arg0, 2);
-        fn_800B98C0(arg0);
+        enemy_clear_target(arg0);
         return;
     case 3:
         if ((((s32 (*)())check_hit_flag__16TObjEneRe2FlowerFPv)() == 0) && (update_linked_position__14TObjEneEpsilonFPv(arg0, lbl_805D9FF0) != 0)) {

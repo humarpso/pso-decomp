@@ -46,7 +46,7 @@ extern s32 lbl_805D4A90;
 s32 TLobby__sub_8001D568(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TLoadingCur__ct(void *, void *, void *);
-M2C_UNK TBoss1Dragon__sub_8014220C(void *, void *, void *);
+M2C_UNK direction_to_rotation_xz(void *, void *, void *);
 void *__nw__7TObjectFUl(u32);
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 M2C_UNK TAdLoadNetworkGC__ct(void *, void *, void *);
@@ -175,7 +175,7 @@ TNowLoading_8001D3A8 *TNowLoading__ct(TNowLoading_8001D3A8 *arg0, void *arg1, Ve
     dir.x = -cam->dir.x;
     dir.y = -cam->dir.y;
     dir.z = -cam->dir.z;
-    TBoss1Dragon__sub_8014220C(&dir, &out[0], &out[2]);
+    direction_to_rotation_xz(&dir, &out[0], &out[2]);
     arg0->pos.x = lbl_805D7EC0 * cam->dir.x + M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0);
     arg0->pos.y = lbl_805D7EC0 * cam->dir.y + M2C_FIELD(&lbl_804FF5E8.value, f32 *, 4);
     arg0->pos.z = lbl_805D7EC0 * cam->dir.z + M2C_FIELD(&lbl_804FF5E8.value, f32 *, 8);

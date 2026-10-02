@@ -19,7 +19,7 @@ struct RecoveredGlobal_8008683C_lbl_804393F0 {
 struct Ent_800868C4 { u8 data[0x98]; };
 
 extern "C" {
-s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 get_bml_model(void *, s32);
 extern u8 *TParticleCtrl__data_805D4F00;
 s32 TParticleCtrl__sub_80086884(s32 arg0);
 s32 TParticleCtrl__sub_80089FEC(void *, void *, void *, void *);
@@ -36,7 +36,7 @@ void *initialize__13TParticleCtrlFPvPviiiii(void *self, void *owner, Ent_800868C
 extern s32 lbl_805D2948;
 extern Ent_800868C4 *lbl_805D4EF8;
 extern Ent_800868C4 *lbl_805D4EFC;
-void *TLobby__sub_800869A4(void *owner, s32 id, s32 b, s32 c);
+void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 void *__ct__13TParticleCtrlFv(void *self, void *pos, void *dir, void *ent, int a, int b, int c, int d, int e);
 void *__nw__7TObjectFUl(int);
 extern s32 lbl_805D2948;
@@ -81,7 +81,7 @@ void TParticleCtrl__sub_8008683C(s32 arg0, s32 arg1, s32 arg2) {
 
 s32 TParticleCtrl__sub_80086884(s32 arg0) {
     if (arg0 < 3) {
-        return TObjFish__sub_8001EDC4(TParticleCtrl__data_805D4F00, arg0);
+        return get_bml_model(TParticleCtrl__data_805D4F00, arg0);
     }
     return 0;
 }
@@ -113,7 +113,7 @@ void *TObjPlayer__sub_800868C4(void *pos, s32 id, s32 a, s32 b, s32 c) {
 
 #pragma push
 #pragma opt_propagation off
-void *TLobby__sub_800869A4(void *owner, s32 id, s32 b, s32 c) {
+void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c) {
     void *p;
     s32 idx = id;
     if (lbl_805D2948 > idx) {

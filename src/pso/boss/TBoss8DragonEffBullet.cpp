@@ -59,7 +59,7 @@ extern const f32 lbl_805DEF04;
 u8 *TBoss8DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5);
 void queue_destruction__7TObjectFv(void *);
 s32 spawn_particle_effect_with_flags(void *, void *, int);
-u8 * TBoss8Dragon__sub_8008741C(void *, s32, s32);
+u8 * spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 s32 get_enemy_entity(int);
 s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
@@ -107,10 +107,10 @@ void run_task__21TBoss8DragonEffBulletFv(struct RecoveredFields_802FE0E4_arg0 *a
         arg0->field_20 += arg0->field_2C * var_f2;
         arg0->field_24 += arg0->field_30 * var_f2;
         if ((u8 *) arg0->field_4C == NULL) {
-            arg0->field_4C = TBoss8Dragon__sub_8008741C(&arg0->field_1C, M2C_FIELD(arg0->field_54, s32 *, 0), 0x40);
+            arg0->field_4C = spawn_continuous_particle_effect_with_flags(&arg0->field_1C, M2C_FIELD(arg0->field_54, s32 *, 0), 0x40);
         }
         if (((s32) arg0->field_44 == 3) && ((u8 *) arg0->field_50 == NULL)) {
-            arg0->field_50 = TBoss8Dragon__sub_8008741C(&arg0->field_1C, 0x204, 0x40);
+            arg0->field_50 = spawn_continuous_particle_effect_with_flags(&arg0->field_1C, 0x204, 0x40);
         }
         temp_r3 = (u8 *)(arg0->field_4C);
         if (temp_r3 != NULL) {

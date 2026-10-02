@@ -11,7 +11,7 @@ void set_state__15TObjEneMe1GiGueFPvi(void *, s32);
 void TObjEnemyCustom__sub_800C789C(u8 *arg0);
 void set_state__15TObjEneMe1GiGueFPvi(void *, s32);
 void TObjEnemyCustom__sub_800C79C8(u8 *arg0);
-M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32, f32);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32, f32);
 M2C_UNK move_with_wall_slide(void *);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
@@ -40,8 +40,8 @@ void draw__15TObjEnemyCustomFPv(u8 *arg0);
 void update_knockback_state__15TObjEnemyCustomFPv(void *arg0);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjFish__sub_803E46BC(s32);
-M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32, f32);
+M2C_UNK draw_chunk_object(s32);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32, f32);
 M2C_UNK move_with_wall_slide(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -63,7 +63,7 @@ void draw__15TObjEnemyCustomFPv(u8 *arg0) {
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         some_id_805c6f74 &= 0xFFFFFBFF;
         if (check_demo_mode__10TObjPlayerFv() == 1) {
-            TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
+            draw_chunk_object(M2C_FIELD(arg0, s32 *, 0x34));
         } else {
             draw__16TObjEneRe7BeruraFPv(arg0);
         }
@@ -89,7 +89,7 @@ void TObjEnemyCustom__sub_800C77A4(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
         advance_animation_playback((void *) (arg0));
-        ((M2C_UNK (*)(void *, M2C_UNK, f32))TObjPlayer__sub_80011734)(arg0, 0, lbl_805DA070);
+        ((M2C_UNK (*)(void *, M2C_UNK, f32))apply_actor_gravity)(arg0, 0, lbl_805DA070);
         update_collisions__10TObjPlayerFPv((void *) (arg0));
         if (M2C_FIELD(arg0, f32 *, 0xC0) < (K_800C77A4 * (lbl_805DA08C * M2C_FIELD(arg0, f32 *, 0xC8)))) {
             move_with_wall_slide((void *) (arg0));
@@ -130,7 +130,7 @@ void update_knockback_state__15TObjEnemyCustomFPv(void *arg0) {
             f32 k = lbl_805DA07C;
             M2C_FIELD(arg0, f32 *, 0x308) = t * k;
             M2C_FIELD(arg0, f32 *, 0x310) *= k;
-            TObjPlayer__sub_80011734(arg0, 0, lbl_805DA070, k);
+            apply_actor_gravity(arg0, 0, lbl_805DA070, k);
         }
         update_collisions__10TObjPlayerFPv(arg0);
         if ((u32) M2C_FIELD(arg0, u32 *, 0xB4) != 8U) {

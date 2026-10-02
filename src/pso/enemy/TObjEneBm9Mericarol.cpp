@@ -174,7 +174,7 @@ s32 get_phase__19TObjEneBm9MericarolFPv(void* p);
 void set_state_a__19TObjEneBm9MericarolFPv(void *arg0);
 s32 try_set_mode8_if_flag2__19TObjEneBm9MericarolFPv(void *arg0);
 void update_shadow_height__19TObjEneBm9MericarolFPv(void *arg0);
-s32 TBoss8Dragon__sub_800BB780(void);
+s32 clear_attack_receipts(void);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjEneBm9Mericarol__ct(void *, void *, void *);
 M2C_UNK TObjEneDD__sub_800B9D94(void *, void *, M2C_UNK, M2C_UNK);
@@ -256,7 +256,7 @@ void TObjEneBm9Mericarol__sub_802D09AC(void) {  }
 void set_state_a__19TObjEneBm9MericarolFPv(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 0xA) {
         if (M2C_FIELD(arg0, s32 *, 0x438) & 0x20) {
-            TBoss8Dragon__sub_800BB780();
+            clear_attack_receipts();
             return;
         }
         transition_enemy_state(arg0, 0xA);

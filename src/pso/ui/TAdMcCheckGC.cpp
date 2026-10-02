@@ -29,7 +29,7 @@ void set_tex_coord_gen2(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 GXSetTexCoordGen2(s32, s32, s32, s32, s32, s32);
 s32 TAdPlayerLoadGC__sub_801E0D8C(int);
 s32 TAdPlayerLoadGC__sub_801E1E38(int);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, s32);
+s32 get_localized_text_entry(M2C_UNK, s32);
 M2C_UNK TWindowSubComCard__sub_80265CFC(s32, f32);
 void __ct__7TObjectFP7TObject(void *);
 s32 check_memcard_status__15TAdPlayerLoadGCFi(int);
@@ -55,7 +55,7 @@ s32 create__12TAdMcCheckGCFPvi(void *arg0, s32 arg1) {
 
     temp_r5 = M2C_FIELD(arg0, s32 *, 0x28) * 8;
     temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFii(lbl_804783B8 + temp_r5, 1, temp_r5);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0x16, arg1), 0x20, 0);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_localized_text_entry(0x16, arg1), 0x20, 0);
     set_flag_40__16TAdChrSelASlotGCFPv(temp_r31);
     set_status_flag_80__12TQuestThreadFPv(temp_r31);
     TWindowSubComCard__sub_80265CFC(temp_r31, lbl_805DFAD8);

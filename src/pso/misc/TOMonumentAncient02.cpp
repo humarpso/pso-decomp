@@ -66,7 +66,7 @@ struct Mon_80172AE0 : VObj_80172AE0 {
 };
 
 extern "C" {
-s32 TBoss4Type2__sub_800874F4(s32, s32);
+s32 create_particle_emitter(s32, s32);
 u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
 u8 * init_map_object_base(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
@@ -308,7 +308,7 @@ u8 *TOMonumentAncient02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, f32 *, 0xDC) = (f32) lbl_805DB92C;
     M2C_FIELD(arg0, f32 *, 0xE0) = (f32) lbl_805DB92C;
     M2C_FIELD(arg0, f32 *, 0xE4) = (f32) lbl_805DB92C;
-    M2C_FIELD(arg0, s32 *, 0xE8) = TBoss4Type2__sub_800874F4((s32) (arg0 + 0x38), 0x7F);
+    M2C_FIELD(arg0, s32 *, 0xE8) = create_particle_emitter((s32) (arg0 + 0x38), 0x7F);
     M2C_FIELD(arg0, s32 *, 0xEC) = 1;
     if ((s32) enable_v2_features == 1) {
         if (TLobby__sub_8030A7B0() == 1) {

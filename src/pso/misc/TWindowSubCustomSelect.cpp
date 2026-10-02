@@ -69,7 +69,7 @@ s32 get_message_10__20TWindowSubStatusDispFPv(int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 Big_80277AEC *get_player_by_client_id(int);
 s32 construct_with_parent__15TWindowAdditionFPvPv(void *, void *, s16, s32);
-s32 TWindowSubComCard__sub_8026CBB8(int);
+s32 get_window_layout_position(int);
 void *reset_selection__20TWindowSubStatusDispFPv(void *, Pos_80277AEC *);
 void *TWindowSubStatusDisp__sub_802880BC(void *, s32, s32);
 extern u8 lbl_8044F818[];
@@ -251,7 +251,7 @@ u8 *TWindowSubCustomSelect__ct(u8 *arg0, s32 arg1) {
     Sub_80277AEC *q;
     Ent_80277AEC *e;
     void *o;
-    construct_with_parent__15TWindowAdditionFPvPv(arg0, lbl_804D153C, arg1, TWindowSubComCard__sub_8026CBB8(0x10));
+    construct_with_parent__15TWindowAdditionFPvPv(arg0, lbl_804D153C, arg1, get_window_layout_position(0x10));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TWindowSubCustomSelect;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D3A28;
     M2C_FIELD(arg0, s16 *, 0x20) = arg1;

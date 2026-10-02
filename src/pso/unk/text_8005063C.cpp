@@ -32,7 +32,7 @@ void queue_destruction__7TObjectFv(void *);
 f32 TBoss6Kakusan__sub_803D8BD8(Vec_8005063C *);
 void TBoss6Type1__sub_803D9370(Vec_8005063C *, Vec_8005063C *);
 void TNpcPlayer__sub_803D97B4(Vec_8005063C *);
-f32 TObjPlayer__sub_803E1A58(Vec_8005063C *, Vec_8005063C *);
+f32 xyz_distance(Vec_8005063C *, Vec_8005063C *);
 extern const f32 lbl_805D8A34;
 extern const f32 lbl_805D8A48;
 extern const f32 lbl_805D8A4C;
@@ -63,7 +63,7 @@ void fn_8005063C(Obj_8005063C *arg0) {
     arg0->dir.x = k * arg0->dir.x + inv * d.x;
     arg0->dir.y = k * arg0->dir.y + inv * d.y;
     arg0->dir.z = k * arg0->dir.z + inv * d.z;
-    if (arg0->f37c <= arg0->f378 && TObjPlayer__sub_803E1A58(&arg0->dir, &prev) <= lbl_805D8A54) {
+    if (arg0->f37c <= arg0->f378 && xyz_distance(&arg0->dir, &prev) <= lbl_805D8A54) {
         arg0->state = 2;
     }
 }

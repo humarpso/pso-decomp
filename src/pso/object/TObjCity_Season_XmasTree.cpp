@@ -15,7 +15,7 @@ typedef char RecoveredGlobal_801844C8_lbl_804B5DA0_size[sizeof(RecoveredGlobal_8
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TBoss4Type2__sub_800874F4(void *, int);
+s32 create_particle_emitter(void *, int);
 u8 * get_anim_frame__25TObjCity_Season_EasterEggFPv(void *);
 s32 fn_80184B44(void *, void *, void *, int, f32);
 extern M2C_UNK lbl_804B5DA0[];
@@ -88,7 +88,7 @@ u8 *TObjCity_Season_XmasTree__ct(u8 *arg0, s32 arg1, s32 arg2) {
     if (((u32)get_anim_frame__25TObjCity_Season_EasterEggFPv((void *)((void *) (arg0)))) != 0U) {
         VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));
         stack.spC += lbl_805DBC18;
-        M2C_FIELD(arg0, s32 *, 0xB4) = TBoss4Type2__sub_800874F4((void *) (&stack.sp8), (int) (0x90));
+        M2C_FIELD(arg0, s32 *, 0xB4) = create_particle_emitter((void *) (&stack.sp8), (int) (0x90));
     } else {
         M2C_FIELD(arg0, s32 *, 0xB4) = 0;
     }

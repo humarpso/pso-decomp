@@ -489,7 +489,7 @@ void check_and_notify__12TBoss3VoloptFv(s32 _w0);
 s32 obj_testFlags30(void*, M2C_UNK);
 void set_action__12TBoss3VoloptFPvs(void *arg0, s16 arg1);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjFish__sub_803E46BC(s32);
+M2C_UNK draw_chunk_object(s32);
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -636,7 +636,7 @@ void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 TBoss3Volopt__sub_8003F398(void);
-s32 TObjPlayer__sub_80141F84(s32, s32);
+s32 angle_difference_abs(s32, s32);
 void TBoss6Type1__sub_803D9370(void *, void *);
 extern const f64 TBoss3Volopt__data_804366B0;
 extern s32 lbl_805D586C;
@@ -659,7 +659,7 @@ void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 get_field_3e0__12TBoss3VoloptFPv(void *p);
-s32 TObjPlayer__sub_80141F84(s32, s32);
+s32 angle_difference_abs(s32, s32);
 void TBoss6Type1__sub_803D9370(void *, void *);
 extern const f64 TBoss3Volopt__data_804366B0;
 extern s32 lbl_805D586C;
@@ -668,7 +668,7 @@ void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 get_field_3e0__12TBoss3VoloptFPv(void *p);
-s32 TObjPlayer__sub_80141F84(s32, s32);
+s32 angle_difference_abs(s32, s32);
 void TBoss6Type1__sub_803D9370(void *, void *);
 extern const f64 TBoss3Volopt__data_804366B0;
 extern s32 lbl_805D586C;
@@ -831,7 +831,7 @@ void TBoss3Volopt__sub_80044EDC(Volopt_80044EDC *self) {
         {
             Vec_80044EDC v = pl->pos2;
             TBoss6Type1__sub_803D9370(&v, &self->pos2);
-            if (TObjPlayer__sub_80141F84(self->angle + 0x4000, (s32)(TBoss3Volopt__data_804366B0 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))) > limit) {
+            if (angle_difference_abs(self->angle + 0x4000, (s32)(TBoss3Volopt__data_804366B0 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))) > limit) {
                 continue;
             }
         }
@@ -943,7 +943,7 @@ u16 TBoss3Volopt__sub_80045390(Volopt_80045390 *self) {
         {
             Vec_80045390 v = pl->pos2;
             TBoss6Type1__sub_803D9370(&v, &self->pos2);
-            d = ABS_80045390(TObjPlayer__sub_80141F84(self->angle + 0x8000, (s32)(TBoss3Volopt__data_804366B0 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))));
+            d = ABS_80045390(angle_difference_abs(self->angle + 0x8000, (s32)(TBoss3Volopt__data_804366B0 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))));
             if (d <= best) {
                 best = d;
                 id = obj_getField1c(pl);
@@ -971,7 +971,7 @@ s16 TBoss3Volopt__sub_8004550C(Volopt_8004550C *self) {
         {
             Vec_8004550C v = pl->pos2;
             TBoss6Type1__sub_803D9370(&v, &self->pos2);
-            if (TObjPlayer__sub_80141F84(self->angle + 0x8000, (s32)(TBoss3Volopt__data_804366B0 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))) > 0x1C71) {
+            if (angle_difference_abs(self->angle + 0x8000, (s32)(TBoss3Volopt__data_804366B0 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))) > 0x1C71) {
                 continue;
             }
         }
@@ -1249,7 +1249,7 @@ void render__12TBoss3VoloptFPv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         if (check_demo_mode__10TObjPlayerFv() == 1) {
-            TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
+            draw_chunk_object(M2C_FIELD(arg0, s32 *, 0x34));
         } else {
             draw__16TObjEneRe7BeruraFPv(arg0);
         }

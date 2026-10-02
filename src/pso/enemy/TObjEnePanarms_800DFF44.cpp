@@ -61,7 +61,7 @@ M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern s32 lbl_80495924[];
 extern s8 lbl_805D5288;
 void TObjEnePanarms__sub_800E0B9C(Obj_800E0B9C *arg0);
-u16 TObjPlayer__sub_800115C4(void *, Vec_800E0A44 *, f32);
+u16 find_nearest_visible_player(void *, Vec_800E0A44 *, f32);
 int set_field_b8__14TObjEnePanarmsFPvs(void*, int);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 void refresh_lobby_state__10TObjPlayerFPv();
@@ -324,7 +324,7 @@ void TObjEnePanarms__sub_800E0A44(u8 *arg0) {
     refresh_lobby_state__10TObjPlayerFPv();
     var_r30 = 7;
     M2C_FIELD(arg0, s32 *, 0xB0) &= ~1;
-    if (TObjPlayer__sub_800115C4(arg0, &v, TObjEnePanarms__data_805DA560) != 0xFFFF) {
+    if (find_nearest_visible_player(arg0, &v, TObjEnePanarms__data_805DA560) != 0xFFFF) {
         if (v.x * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60)) + v.z * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60)) < TObjEnePanarms__data_805DA524) {
             var_r30 = 6;
         }

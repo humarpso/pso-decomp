@@ -57,7 +57,7 @@ extern s32 lbl_805D2CD8;
 void TLobby__sub_802075F8(void);
 s32 TObjFish__sub_8001ED9C(int, int);
 s32 TObjFish__sub_8001EDB0(int, int);
-s32 TObjFish__sub_8001EDC4(int, int);
+s32 get_bml_model(int, int);
 s32 TPhotonMagicSquare__sub_801A2640(void *);
 extern RecoveredGlobal_802072E0___vt__10TSceneSora __vt__10TSceneSora;
 extern s32 lbl_805D3624;
@@ -66,7 +66,7 @@ extern s32 lbl_805D6058;
 extern const f32 lbl_805DC608;
 extern const f32 lbl_805DC60C;
 u8 *TSceneSora__ct(u8 *arg0, s32 _w1);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
+M2C_UNK draw_ginja_object(int);
 M2C_UNK draw_ginja_model_with_motion(int, int, f32);
 s32 TObjFish__sub_8001EDB0(int, int);
 M2C_UNK rotate_matrix_y(int, int);
@@ -123,7 +123,7 @@ void render__10TSceneSoraFv(u8 *arg0) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x94) != 0U) {
             draw_ginja_model_with_motion((int) (M2C_FIELD(arg0, s32 *, 0x90)), (int) (M2C_FIELD(arg0, s32 *, 0x94)), (f32) (M2C_FIELD(arg0, f32 *, 0xA0)));
         } else {
-            TObjBoss2Tunnel__sub_803DB470((int) (M2C_FIELD(arg0, s32 *, 0x90)));
+            draw_ginja_object((int) (M2C_FIELD(arg0, s32 *, 0x90)));
         }
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
@@ -163,7 +163,7 @@ u8 *TSceneSora__ct(u8 *arg0, s32 _w1) {
     TPhotonMagicSquare__sub_801A2640((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80207340___vt__10TSceneSora *)&__vt__10TSceneSora).value;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D3624;
-    M2C_FIELD(arg0, s32 *, 0x90) = TObjFish__sub_8001EDC4((int) ((*(s32 *)&TSceneSora__data_805D6054)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x90) = get_bml_model((int) ((*(s32 *)&TSceneSora__data_805D6054)), (int) (0));
     if (lbl_805D6058 != 0) {
         M2C_FIELD(arg0, s32 *, 0x94) = TObjFish__sub_8001ED9C((int) ((*(s32 *)&TSceneSora__data_805D6054)), (int) (0));
     } else {

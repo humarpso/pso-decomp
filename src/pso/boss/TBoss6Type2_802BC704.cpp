@@ -149,7 +149,7 @@ f32 TBoss4Zako__sub_803D8910(void *, void *);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 f32 TBoss6Type1__sub_803D9370(void *, void *);
 f32 TNpcPlayer__sub_803D97B4(void *);
-f32 TObjPlayer__sub_803E1A58(void *, void *);
+f32 xyz_distance(void *, void *);
 extern RecoveredGlobal_802BD938_TBoss6Type2__data_8047105C TBoss6Type2__data_8047105C;
 extern const f32 TBoss6Type2__data_805DE40C;
 extern const f32 TBoss6Type2__data_805DE410;
@@ -550,7 +550,7 @@ void TBoss6Type2__sub_802BD938(u8 *arg0, u8 *arg1) {
         VecCopy__FP3VecPC3Vec((s32)((void *) (&stack.sp18)), (s32)((void *) (arg0 + 0x38)));
         stack.sp18 += TBoss6Type2__data_805DE45C * TBoss8Dragon__sub_803D64C0((int) (temp_r29));
         stack.sp20 += TBoss6Type2__data_805DE45C * TBoss8Dragon__sub_803D64DC((int) (temp_r29));
-        if (TObjPlayer__sub_803E1A58((void *) (arg0 + 0x38), (void *) (&TBoss6Type2__data_8047105C.value)) > lbl_805DE4CC) {
+        if (xyz_distance((void *) (arg0 + 0x38), (void *) (&TBoss6Type2__data_8047105C.value)) > lbl_805DE4CC) {
             temp_r29_2 = (s32) (lbl_805DE46C * (TBoss6Type2__data_805DE468 * (f32) rand()));
             VecCopy__FP3VecPC3Vec((s32)((void *) (&stack.sp18)), (s32)((void *) (&TBoss6Type2__data_8047105C.value)));
             stack.sp18 += TBoss6Type2__data_805DE45C * TBoss8Dragon__sub_803D64C0((int) (temp_r29_2));

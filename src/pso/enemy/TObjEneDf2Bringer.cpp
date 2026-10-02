@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 M2C_UNK TObjEneDf2Bringer__sub_80098DEC();
-M2C_UNK TBoss8Dragon__sub_800BB780(void *);
+M2C_UNK clear_attack_receipts(void *);
 int transition_enemy_state(void*, void*);
 void TObjEneDf2Bringer__vt60(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -42,7 +42,7 @@ void TObjEneDf2Bringer__vt60(u8 *arg0) {
         TObjEneDf2Bringer__sub_80098DEC();
     }
     if (M2C_FIELD(arg0, s32 *, 0x3C0) & 4) {
-        TBoss8Dragon__sub_800BB780((void *) (arg0));
+        clear_attack_receipts((void *) (arg0));
         return;
     }
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 9) {

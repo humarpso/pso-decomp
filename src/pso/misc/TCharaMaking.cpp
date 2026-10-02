@@ -64,7 +64,7 @@ extern "C" {
 extern RecoveredGlobal_8028DE78_lbl_804D9164 lbl_804D9164;
 u8 *TCharaMaking__sub_8028DE78(s32 arg0);
 M2C_UNK TObjPlayer__sub_801415BC();
-M2C_UNK TObjFish__sub_803E46BC(void *);
+M2C_UNK draw_chunk_object(void *);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -158,7 +158,7 @@ void TCharaMaking__draw_colored_hair(f32 farg0, s32 arg0, CharacterAppearanceFie
         color.b = lbl_805DD934 * (f32) arg1->blue;
         set_chunk_material_color(&color.a);
     }
-    TObjFish__sub_803E46BC((void *) (arg0));
+    draw_chunk_object((void *) (arg0));
     lbl_805D7784 = lbl_805D5664;
     lbl_805D7780 = lbl_805D5668;
     some_id_805c6f74 = lbl_805D5660;

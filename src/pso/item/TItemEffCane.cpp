@@ -10,7 +10,7 @@ u32 test_flags_1b8__10TObjPlayerFPvUi(TItem* item, u32 flags);
 s32 draw_icon__10TObjPlayerFPvii(TItem* item, s32 attachment, f32* position);
 void copy_pos__11TNowLoadingFPvPv(void* effect, const f32* position);
 s32 get_field_d8__10TObjPlayerFPv(TItem* item);
-void* TBoss4Type2__sub_800874F4(const f32* position, s32 effect_id);
+void* create_particle_emitter(const f32* position, s32 effect_id);
 extern const char* lbl_805D2B98;
 }
 
@@ -42,7 +42,7 @@ TItemEffCane::TItemEffCane(TObject* parent, TItem* item, s32 attachment, s32 eff
     attachment_index = attachment;
     draw_icon__10TObjPlayerFPvii(item, attachment_index, position);
     if (effect_id != -1) {
-        effect = TBoss4Type2__sub_800874F4(position, effect_id);
+        effect = create_particle_emitter(position, effect_id);
     } else {
         effect = NULL;
     }

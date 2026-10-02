@@ -29,7 +29,7 @@ struct RecoveredGlobal_80352940___vt__13TObjLobbyMain {
 };
 
 extern "C" {
-s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 get_bml_model(void *, s32);
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 int get_lobby_type__6TLobbyFv(void);
@@ -42,7 +42,7 @@ extern s32 lbl_805D6ED8;
 void TObjLobbyMain__sub_803527F0(void);
 M2C_UNK TObjLobbyMain__sub_803520DC(void *);
 M2C_UNK TObjLobbyMain__sub_803521A4(void *);
-u32 TBoss4Type2__sub_800874F4(void *, int);
+u32 create_particle_emitter(void *, int);
 s32 set_flags__11TBoss4Type2FPvUi(int, int);
 s32 enable__13TParticleCtrlFPv(int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
@@ -136,8 +136,8 @@ void TObjLobbyMain__sub_803527F0(void) {
     }
     (*(u8 * *)&TObjLobbyMain__data_805D6EC8) = (unsigned char *) ((void *) var_r0);
     lbl_805D6ECC = get_lobby_type__6TLobbyFv();
-    lbl_805D6ED0 = M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(TObjFish__sub_8001EDC4((*(u8 * *)&TObjLobbyMain__data_805D6EC8), 6), void **, 0x2C), void **, 0x30), void **, 0x30), void **, 0x30), void **, 0x30), void **, 0x30), void **, 0x30), s32 *, 4);
-    lbl_805D6ED4 = M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(TObjFish__sub_8001EDC4((*(u8 * *)&TObjLobbyMain__data_805D6EC8), 2), void **, 0x2C), void **, 0x30), void **, 0x30), void **, 0x30), s32 *, 4);
+    lbl_805D6ED0 = M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(get_bml_model((*(u8 * *)&TObjLobbyMain__data_805D6EC8), 6), void **, 0x2C), void **, 0x30), void **, 0x30), void **, 0x30), void **, 0x30), void **, 0x30), void **, 0x30), s32 *, 4);
+    lbl_805D6ED4 = M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(get_bml_model((*(u8 * *)&TObjLobbyMain__data_805D6EC8), 2), void **, 0x2C), void **, 0x30), void **, 0x30), void **, 0x30), s32 *, 4);
     lbl_805D6ED8 = 0;
 }
 
@@ -164,13 +164,13 @@ u8 *TObjLobbyMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80352940___vt__13TObjLobbyMain *)&__vt__13TObjLobbyMain).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4370;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, u32 *, 0xD8) = TBoss4Type2__sub_800874F4((void *) (arg0 + 0x38), (int) (0x222));
+    M2C_FIELD(arg0, u32 *, 0xD8) = create_particle_emitter((void *) (arg0 + 0x38), (int) (0x222));
     temp_r3 = M2C_FIELD(arg0, u32 *, 0xD8);
     if (temp_r3 != 0U) {
         set_flags__11TBoss4Type2FPvUi((int) (temp_r3), (int) (0x40));
         enable__13TParticleCtrlFPv((int) (M2C_FIELD(arg0, u32 *, 0xD8)));
     }
-    M2C_FIELD(arg0, u32 *, 0xDC) = TBoss4Type2__sub_800874F4((void *) (arg0 + 0x38), (int) (0x222));
+    M2C_FIELD(arg0, u32 *, 0xDC) = create_particle_emitter((void *) (arg0 + 0x38), (int) (0x222));
     temp_r3_2 = M2C_FIELD(arg0, u32 *, 0xDC);
     if (temp_r3_2 != 0U) {
         set_flags__11TBoss4Type2FPvUi((int) (temp_r3_2), (int) (0x40));

@@ -277,22 +277,22 @@ void TTecMegid__vt6(Obj_80235490 *self, VObj_80235490 *target);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 extern TTecGiBartaData_80230B48 TTecMegid__data_8044D874[];
 void *find_entity_by_id(u16);
-void TObjPlayer__sub_803D97F0(void *);
+void push_matrix_from(void *);
 void rotate_matrix_y(s32, s32);
 void TCameraCtrl__sub_803D8934(s32, Vec_80235740 *, Vec_80235740 *);
 void TCameraCtrl__sub_803D9858(s32);
 void copy_pos__11TNowLoadingFPvPv(void *, Vec_80235740 *);
-void fn_8023A694(Obj_80235740 *);
+void move_technique_projectile(Obj_80235740 *);
 void advance_lifetime_or_destroy(Obj_80235740 *);
 void dispatch_technique_contact(Obj_80235740 *, s32);
 extern Vec_80235740 lbl_8044D8B0;
 extern u8 lbl_8058D490[];
 void run_task__9TTecMegidFv(Obj_80235740 *self);
-void *TObjFish__sub_8001EDC4(s32, u32);
-M2C_UNK TObjFish__sub_800660D4(void *, void *, s32, int, int, f32);
+void *get_bml_model(s32, u32);
+M2C_UNK attach_particle_model(void *, void *, s32, int, int, f32);
 M2C_UNK set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
 void *TObjParticle__sub_800870BC(void *, void *, u32, u16);
-void *TBoss8Dragon__sub_8008741C(void *, u32, u16);
+void *spawn_continuous_particle_effect_with_flags(void *, u32, u16);
 void **alloc_buffer__11TOBoss4RockFPv(u32, s32);
 extern TTecGiBartaData_80230B48 TTecMegid__data_8044D874[];
 extern s32 lbl_805D63AC;
@@ -389,7 +389,7 @@ void TTecMegid__sub_802351B4(void *arg0) {
     }
     else
     {
-      self->emitters[i] = TBoss8Dragon__sub_8008741C(&self->pos, row->entry, mode | 0x1000);
+      self->emitters[i] = spawn_continuous_particle_effect_with_flags(&self->pos, row->entry, mode | 0x1000);
     }
     if (self->emitters[i] != 0)
     {
@@ -401,7 +401,7 @@ void TTecMegid__sub_802351B4(void *arg0) {
       if (((Data_802351B4 *) TTecMegid__data_8044D874)[self->band].rows[i].flags & 0x20)
       {
         new_var = ((Data_802351B4 *) TTecMegid__data_8044D874)[self->band].rows[i].flags >> 16;
-        TObjFish__sub_800660D4(self->emitters[i], TObjFish__sub_8001EDC4(lbl_805D63AC, new_var), lbl_805D63B0, 0, 1, lbl_805DC880);
+        attach_particle_model(self->emitters[i], get_bml_model(lbl_805D63AC, new_var), lbl_805D63B0, 0, 1, lbl_805DC880);
       }
     }
   }
@@ -506,7 +506,7 @@ void run_task__9TTecMegidFv(Obj_80235740 *self) {
         if (((Data_80235740 *)TTecMegid__data_8044D874)[self->band].rows[i].flags & 4) {
             Vec_80235740 off = lbl_8044D8B0;
             Vec_80235740 p;
-            TObjPlayer__sub_803D97F0(lbl_8058D490);
+            push_matrix_from(lbl_8058D490);
             rotate_matrix_y(0, self->f58);
             TCameraCtrl__sub_803D8934(0, &off, &off);
             TCameraCtrl__sub_803D9858(1);
@@ -518,7 +518,7 @@ void run_task__9TTecMegidFv(Obj_80235740 *self) {
             copy_pos__11TNowLoadingFPvPv(self->emitters[i], &self->pos);
         }
     }
-    fn_8023A694(self);
+    move_technique_projectile(self);
     advance_lifetime_or_destroy(self);
     dispatch_technique_contact(self, 1);
 }

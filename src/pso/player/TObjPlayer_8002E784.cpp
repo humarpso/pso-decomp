@@ -79,7 +79,7 @@ extern const f32 lbl_805D8274;
 s32 TObjPlayer__sub_8002EDCC(u8 *arg0);
 void scale_matrix(int, f32, f32, f32);
 void TObjPlayer__sub_803D8CD4(int);
-void TScene__sub_803D8DB4(int, void *, void *);
+void rotate_vector_by_matrix(int, void *, void *);
 void TObjPlayer__sub_803D9B2C(void);
 void pop_matrix(void);
 extern const f32 lbl_805D822C;
@@ -87,7 +87,7 @@ extern const f32 lbl_805D824C;
 void TObjPlayer__sub_8002ECC4(Obj_8002ECC4 *self, s32 n);
 void scale_matrix(int, f32, f32, f32);
 void TObjPlayer__sub_803D8CD4(int);
-void TScene__sub_803D8DB4(int, void *, void *);
+void rotate_vector_by_matrix(int, void *, void *);
 void TObjPlayer__sub_803D9B2C(void);
 void pop_matrix(void);
 extern const f32 lbl_805D8260;
@@ -264,7 +264,7 @@ void TObjPlayer__sub_8002ECC4(Obj_8002ECC4 *self, s32 n) {
     TObjPlayer__sub_803D8CD4(0);
     scale_matrix(0, lbl_805D824C, lbl_805D822C, lbl_805D824C);
     for (i = 0; i < n; i++) {
-        TScene__sub_803D8DB4(0, self->recs[i].f10, self->recs[i].f10);
+        rotate_vector_by_matrix(0, self->recs[i].f10, self->recs[i].f10);
     }
     pop_matrix();
 }
@@ -275,7 +275,7 @@ void TObjPlayer__sub_8002ED48(Obj_8002ED48 *self, s32 n) {
     TObjPlayer__sub_803D8CD4(0);
     scale_matrix(0, lbl_805D8260, lbl_805D8260, lbl_805D8260);
     for (i = 0; i < n; i++) {
-        TScene__sub_803D8DB4(0, self->recs[i].f4, self->recs[i].f4);
+        rotate_vector_by_matrix(0, self->recs[i].f4, self->recs[i].f4);
     }
     pop_matrix();
 }

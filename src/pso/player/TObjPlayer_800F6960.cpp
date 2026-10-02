@@ -129,7 +129,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void copy_xyz__10TObjPlayerFPvPv(void *, void *);
 void TAdSinglePlyChrSelectGC__sub_8007C48C(void *, s32);
 extern s32 lbl_805D5328;
-void TObjPlayer__sub_800F698C(A_800F698C *arg0, B_800F698C *arg1);
+void apply_set_data__9TObjEnemyFPvPv(A_800F698C *arg0, B_800F698C *arg1);
 void TObjPlayer__sub_800F6E2C(void *arg0, Node_800F6E2C *arg1, Node_800F6E2C *arg2);
 }
 
@@ -138,14 +138,14 @@ extern "C" {
 void call_vt78__10TObjPlayerFPv(void *arg0);
 int query_lobby_state__10TObjPlayerFPv(void* p);
 void refresh_lobby_state__10TObjPlayerFPv(void* p);
-int TLobby__sub_80105538(void*);
+int send_6x60_standard_drop_item_request(void*);
 
 void call_vt78__10TObjPlayerFPv(void *arg0) {
     struct VObj_800F6960 *o = (struct VObj_800F6960 *)arg0;
     o->m78();
 }
 
-void TObjPlayer__sub_800F698C(A_800F698C *arg0, B_800F698C *arg1) {
+void apply_set_data__9TObjEnemyFPvPv(A_800F698C *arg0, B_800F698C *arg1) {
     s32 i;
     arg0->f1C = arg1->f6;
     VecCopy__FP3VecPC3Vec(&arg0->v50, &arg1->v10);
@@ -163,7 +163,7 @@ void TObjPlayer__sub_800F698C(A_800F698C *arg0, B_800F698C *arg1) {
 }
 
 void refresh_lobby_state__10TObjPlayerFPv(void* p) { distribute_experience((TObjPlayer_800F6B68 *)((void*)(p))); query_lobby_state__10TObjPlayerFPv((void*)(p)); }
-int query_lobby_state__10TObjPlayerFPv(void* p) { return TLobby__sub_80105538(p); }
+int query_lobby_state__10TObjPlayerFPv(void* p) { return send_6x60_standard_drop_item_request(p); }
 
 void distribute_experience(TObjPlayer_800F6B68 *self) {
     s32 count;

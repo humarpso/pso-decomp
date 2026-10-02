@@ -75,7 +75,7 @@ void TObjPlayer__sub_801B0FF4(void *p);
 void TBoss6PlotFalz__sub_802AC4D8(void *self);
 void TObjPlayer__sub_800F5BC0(u32, s16, s16);
 void TBoss6PlotFalz__sub_802AC1D8(Obj_802AC1D8 *o, s32 dx, s32 dy);
-s32 TObjFish__sub_8001EDC4(s32, s32);
+s32 get_bml_model(s32, s32);
 int get_fish_count__8TObjFishFv(void);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 alloc_tables__6TLobbyFPvii(s32, s32, s32);
@@ -87,7 +87,7 @@ void *get_player_data__10TObjPlayerFi(s32 i);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
 M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
-f32 TObjPlayer__sub_803E1A58(void *, void *);
+f32 xyz_distance(void *, void *);
 extern u8 lbl_8047059C[];
 extern u8 lbl_804705B4[];
 extern s32 lbl_805D5868;
@@ -166,7 +166,7 @@ void TBoss6PlotFalz__sub_802AC2D8(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 ar
     }
     for (i = 0; i < arg0->count; i++) {
         r = &arg1[i];
-        t = collect_and_count__12TBoss3VoloptFUii(TObjFish__sub_8001EDC4(h, r->a), r->b);
+        t = collect_and_count__12TBoss3VoloptFUii(get_bml_model(h, r->a), r->b);
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x14);
         if (p != 0) {
             p = alloc_tables__6TLobbyFPvii(p, t, r->c);
@@ -182,8 +182,8 @@ void TBoss6PlotFalz__sub_802AC3E8(void) {
     for (i = lbl_805D586C + lbl_805D5870; i < lbl_805D5868; i++) {
         p = (Obj_802AC3E8 *)get_player_data__10TObjPlayerFi(i);
         if (p != NULL && p->sub != NULL && (p->sub->flags & 0x20000)
-            && !(TObjPlayer__sub_803E1A58(lbl_804705B4, &p->pos) > lbl_805DE0CC)
-            && !(TObjPlayer__sub_803E1A58(lbl_8047059C, &p->pos) <= lbl_805DE0D0)) {
+            && !(xyz_distance(lbl_804705B4, &p->pos) > lbl_805DE0CC)
+            && !(xyz_distance(lbl_8047059C, &p->pos) <= lbl_805DE0D0)) {
             VecCopy__FP3VecPC3Vec(&v, &p->pos);
             TBoss6Type1__sub_803D9370(&v, lbl_804705B4);
             TBoss4Zako__sub_803D8910(&v, lbl_8047059C);

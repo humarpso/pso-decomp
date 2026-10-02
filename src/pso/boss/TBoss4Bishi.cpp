@@ -73,7 +73,7 @@ extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC0;
 void TBoss4Zako__vt5(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-u16 TObjPlayer__sub_800115C4(void *, M2C_UNK, f32);
+u16 find_nearest_visible_player(void *, M2C_UNK, f32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_instance__14TBoss4DarkFalzFv();
 s32 get_position_ptr__10TObjPlayerFPv(s32);
@@ -91,7 +91,7 @@ f32 TBoss6Kakusan__sub_803D8BD8(void *);
 extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC4;
 void TBoss4Bishi__vt1(Obj_8005BB5C *self);
-u16 TObjPlayer__sub_800115C4(void *, M2C_UNK, f32);
+u16 find_nearest_visible_player(void *, M2C_UNK, f32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TBoss4Zako__ct(s32, s32, s32);
 s32 get_player_by_client_id(u32);
@@ -223,7 +223,7 @@ s32 TBoss4Bishi__ct(s32 arg0, s32 arg1, s32 arg2) {
     TBoss4Zako__ct(arg0, arg1, arg2);
     o->vt = lbl_80487460;
     o->f0 = lbl_805D27F0;
-    if ((id = TObjPlayer__sub_800115C4(o, 0, lbl_805D8CDC)) == 0xFFFF ||
+    if ((id = find_nearest_visible_player(o, 0, lbl_805D8CDC)) == 0xFFFF ||
         (pl = get_player_by_client_id(id)) == 0) {
         o->vel.x = o->vel.z = lbl_805D8CBC;
     } else {
@@ -341,7 +341,7 @@ void TBoss4Zako__sub_8005C368(u8 *arg0) {
     s32 temp_r3;
     if (!(M2C_FIELD(arg0, s32 *, 0x3B8) & 0x7F)) {
         if (M2C_FIELD(arg0, s32 *, 0x388) == 0xFFFF) {
-            M2C_FIELD(arg0, u32 *, 0x388) = (u32) TObjPlayer__sub_800115C4(arg0, 0, lbl_805D8CF4);
+            M2C_FIELD(arg0, u32 *, 0x388) = (u32) find_nearest_visible_player(arg0, 0, lbl_805D8CF4);
             return;
         }
         M2C_FIELD(arg0, u32 *, 0x388) = 0xFFFFU;

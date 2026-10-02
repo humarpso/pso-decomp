@@ -70,7 +70,7 @@ void TObjPlayer__sub_80354DAC(s32 arg0);
 M2C_UNK set_flag1__10TObjPlayerFPv(void *, int);
 extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
 void TObjPlayer__sub_80354DF4(s32 arg0);
-s32 TObjPlayer__sub_80019248();
+s32 is_locally_controlled__10TObjPlayerFPv();
 u32 get_player_by_client_id(u16);
 s32 TObjPlayer__sub_80354E3C(s32 arg0);
 M2C_UNK reset_field4__10TObjPlayerFPv(void *);
@@ -150,7 +150,7 @@ s32 TObjPlayer__sub_80354E3C(s32 arg0) {
     if (get_player_by_client_id((u16)arg0) == 0U) {
         return 0;
     }
-    if (TObjPlayer__sub_80019248() != 0) {
+    if (is_locally_controlled__10TObjPlayerFPv() != 0) {
         return 1;
     }
     return 0;

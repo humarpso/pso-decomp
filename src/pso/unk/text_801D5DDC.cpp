@@ -28,7 +28,7 @@ s32 get_player_by_client_id(int);
 void init_6x3A_packet__15TFontSmallLobbyFPv(void *);
 void draw_and_send__15TFontSmallLobbyFPv(void *);
 void TFontSmallLobby__sub_801D5FC0(u16 *arg0);
-s32 TObjPlayer__sub_80019248(int);
+s32 is_locally_controlled__10TObjPlayerFPv(int);
 s32 get_player_by_client_id(int);
 M2C_UNK TFontSmallLobby__sub_801C01BC(void *);
 M2C_UNK update_photon_blast_state__10TObjPlayerFv();
@@ -75,7 +75,7 @@ void handle_6x3B_clear_temporary_photon_blast_state_flags(s32 arg0) {
         temp_r3 = get_player_by_client_id((int) (sp8.b));
         if (temp_r3 != 0) {
             clear_photon_blast_state__10TObjPlayerFPv((void *) (temp_r3 + 0x4AC));
-            if (TObjPlayer__sub_80019248((int) (temp_r3)) != 0) {
+            if (is_locally_controlled__10TObjPlayerFPv((int) (temp_r3)) != 0) {
                 update_photon_blast_state__10TObjPlayerFv();
             }
         }

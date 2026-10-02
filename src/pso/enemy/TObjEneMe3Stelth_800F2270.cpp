@@ -105,7 +105,7 @@ f32 clamp_velocity__15TObjBoss2TunnelFPv(Vec_800F290C *);
 M2C_UNK clear_field_388__9TObjEneDDFPv(void *);
 M2C_UNK set_active__9TObjEneDDFPv(void *);
 M2C_UNK TObjEneDD__sub_800BACA4(void *, f32, f32, f32);
-M2C_UNK TBoss8Dragon__sub_800BB780(void *);
+M2C_UNK clear_attack_receipts(void *);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK advance_animation_playback(void *, s32);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
@@ -144,7 +144,7 @@ void TObjEneMe3Stelth__sub_800F290C(u8 *arg0, s32 arg1) {
         ((VObj_18_fd6cbb *) arg0)->m87();
         break;
     case 5:
-        TBoss8Dragon__sub_800BB780(arg0);
+        clear_attack_receipts(arg0);
         clear_field_388__9TObjEneDDFPv(arg0);
         break;
     }

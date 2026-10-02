@@ -21,7 +21,7 @@ struct Craw_80308F8C {
 };
 
 extern "C" {
-s32 TBoss4Type2__sub_800874F4(void *, s32);
+s32 create_particle_emitter(void *, s32);
 M2C_UNK spawn_effect__14TBoss7CrawfishFii(void *, M2C_UNK);
 void free_child__14TBoss7CrawfishFPv(void *);
 void set_anim_timer__14TBoss7CrawfishFPvs(void *, s16);
@@ -82,7 +82,7 @@ void TBoss7Crawfish__sub_80308F8C(Craw_80308F8C *o, s32 state) {
         }
         o->f3A4 = 0;
         free_child__14TBoss7CrawfishFPv(o);
-        o->f3CC = TBoss4Type2__sub_800874F4(o->f38, 0x20B);
+        o->f3CC = create_particle_emitter(o->f38, 0x20B);
         break;
     case 3:
         set_anim_timer__14TBoss7CrawfishFPvs(o, 4);

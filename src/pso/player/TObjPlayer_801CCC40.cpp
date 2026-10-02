@@ -9,7 +9,7 @@ extern "C" {
 void update_cursor__10TObjPlayerFPvi(void *arg0, s32 arg1);
 s32 try_equip_item__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 can_equip_item__10TObjPlayerFii(s32, s16);
-M2C_UNK TObjPlayer__sub_801CD72C(s32);
+M2C_UNK request_technique_cast__10TObjPlayerFPv(s32);
 s32 TLobby__sub_800822E8(s32, M2C_UNK);
 s32 canSetMenuCursorAction(s32, void *, M2C_UNK, u8);
 M2C_UNK set_slot__20TWindowActionPaletteFPvUc(s32, u8);
@@ -34,7 +34,7 @@ s32 try_equip_item__10TObjPlayerFii(s32 arg0, s32 arg1) {
             return 0;
         }
         set_technique_id__10TObjPlayerFPvs(arg0 + 0x428, arg1);
-        TObjPlayer__sub_801CD72C(arg0);
+        request_technique_cast__10TObjPlayerFPv(arg0);
         return 1;
     }
     return 0;

@@ -25,7 +25,7 @@ int set_flag_2__10TObjPlayerFPv(void*);
 int reset_ring__10TObjPlayerFPv(void*);
 int clear_target_lock__10TObjPlayerFPv(void*);
 
-void TObjPlayer__sub_801B4264(s32 arg0) {
+void play_footstep_sound__10TObjPlayerFi(s32 arg0) {
     if (TObjPlayer__sub_801B4118() != 0) {
         send_field_state_if_active__10TObjPlayerFii(arg0, TObjPlayer__sub_801D8E90(arg0));
     }

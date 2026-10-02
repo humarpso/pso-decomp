@@ -11,7 +11,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TCameraCtrl__sub_8006B368();
 M2C_UNK clear_counter__6TLobbyFv();
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TLobby__sub_8022727C(M2C_UNK *);
+M2C_UNK play_cue_stream_file(M2C_UNK *);
 s32 TLobby__sub_80291F9C();
 M2C_UNK close_window_field30__6TLobbyFPv(void *);
 M2C_UNK close_window__6TLobbyFPv(void *);
@@ -30,7 +30,7 @@ void giveup_window_handle_select(void *arg0) {
     temp_r3 = TLobby__sub_80291F9C();
     switch (temp_r3) {
     case 0:
-        TLobby__sub_8022727C(lbl_804651E8);
+        play_cue_stream_file(lbl_804651E8);
         send_giveup_to_all_players__6TLobbyFv(arg0);
         close_window__6TLobbyFPv(arg0);
         close_window_field30__6TLobbyFPv(arg0);

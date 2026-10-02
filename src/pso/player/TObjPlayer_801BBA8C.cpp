@@ -10,7 +10,7 @@ void TObjPlayer__sub_801BBA8C(u8 *arg0, u8 *arg1);
 s32 TFontSmallLobby__sub_801AFEE0();
 u32 TLockOnCursor__ct(u32, void *, s32);
 int TLockOnCursor__sub_8013DAB0(void*);
-s32 TObjPlayer__sub_80019248(void *);
+s32 is_locally_controlled__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801AF7E0(void *);
 M2C_UNK TObjPlayer__sub_801B130C(void *);
 int TObjPlayer__sub_801B35AC(void*);

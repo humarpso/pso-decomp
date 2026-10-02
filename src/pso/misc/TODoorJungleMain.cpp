@@ -239,13 +239,13 @@ extern const f32 lbl_805DDCE8;
 extern const f32 lbl_805DDCEC;
 extern const f32 lbl_805DDCF0;
 u8 *TODoorJungleMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
-void *TObjFish__sub_8001EDC4(u32, int);
+void *get_bml_model(u32, int);
 M2C_UNK rotate_matrix_y(int, int);
 int TObjPlayer__sub_803D9B2C(void *);
 int pop_matrix(void);
 int TOHangerMachine01__sub_803D9C00(void *);
 void *set_global_param__8TObjFishFi(void *);
-int TObjBoss2Tunnel__sub_803DB470(void *);
+int draw_ginja_object(void *);
 M2C_UNK draw_ginja_model_with_motion(void *, int, f32);
 extern Ids_8029B428 lbl_80465400;
 extern u32 TODoorJungleMain__data_805D65B8;
@@ -358,11 +358,11 @@ void render__16TODoorJungleMainFv(Door_8029B428 *self) {
         TOHangerMachine01__sub_803D9C00(self->xf);
         rotate_matrix_y(0, self->f60);
         if (self->flags & 1) {
-            draw_ginja_model_with_motion(TObjFish__sub_8001EDC4(TODoorJungleMain__data_805D65B8, 3), self->fbc, self->fb4);
+            draw_ginja_model_with_motion(get_bml_model(TODoorJungleMain__data_805D65B8, 3), self->fbc, self->fb4);
         } else {
-            TObjBoss2Tunnel__sub_803DB470(TObjFish__sub_8001EDC4(TODoorJungleMain__data_805D65B8, 3));
+            draw_ginja_object(get_bml_model(TODoorJungleMain__data_805D65B8, 3));
             for (i = 0; i < 3 - self->count; i++) {
-                TObjBoss2Tunnel__sub_803DB470(TObjFish__sub_8001EDC4(TODoorJungleMain__data_805D65B8, ids.v[i]));
+                draw_ginja_object(get_bml_model(TODoorJungleMain__data_805D65B8, ids.v[i]));
             }
         }
         pop_matrix();

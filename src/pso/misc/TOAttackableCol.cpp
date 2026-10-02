@@ -80,7 +80,7 @@ void TOAttackableCol__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 u8 TODoorAncient08__sub_80229220(int);
 void *__nw__7TObjectFUl(int);
 M2C_UNK set_parent__7TObjectFP7TObject(int, int);
-volatile int TObjPlayer__sub_80019248(void *);
+volatile int is_locally_controlled__10TObjPlayerFPv(void *);
 u16 obj_getField1c(void *);
 s32 spawn_particle_effect(void *, int);
 u32 __ct__12TQuestThreadFv(int, void *, int);
@@ -243,7 +243,7 @@ f32 TOAttackableCol__sub_80157728(u8 *arg0, s32 arg1) {
   u32 var_r0;
   u32 var_r0_2;
   var_r30 = 0;
-  if (((arg1 != 0) && (obj_getField1c((void *) arg1) < 4U)) && (TObjPlayer__sub_80019248((void *) arg1) != 0))
+  if (((arg1 != 0) && (obj_getField1c((void *) arg1) < 4U)) && (is_locally_controlled__10TObjPlayerFPv((void *) arg1) != 0))
   {
     var_r30 = 1;
   }

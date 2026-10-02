@@ -19,7 +19,7 @@ f32 TObjPlayer__sub_8013153C(void *, s32);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
 M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D97F0(void *);
+M2C_UNK push_matrix_from(void *);
 M2C_UNK pop_matrix();
 extern Vec_800C6A48 lbl_8043BCAC;
 extern Vec_800C6A48 lbl_8043BCB8;
@@ -73,7 +73,7 @@ void TObjPlayer__sub_800C6A48(u8 *self, f32 *dir, f32 a, f32 b) {
     bestAng = ang;
     VecCopy__FP3VecPC3Vec(&sp20, self + 0x38);
     sp20.y += lbl_805DA06C;
-    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    push_matrix_from(lbl_8058D490);
     {
         Vec_800C6A48 sp14 = lbl_8043BCAC;
         sp14.x = a + b;
@@ -96,7 +96,7 @@ void TObjPlayer__sub_800C6A48(u8 *self, f32 *dir, f32 a, f32 b) {
         }
     }
     pop_matrix();
-    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    push_matrix_from(lbl_8058D490);
     {
         Vec_800C6A48 sp8 = lbl_8043BCB8;
         sp8.x = best;

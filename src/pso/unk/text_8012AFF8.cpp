@@ -8,7 +8,7 @@ struct Obj_8012AFF8 {
 
 extern "C" {
 void set_flags__10TObjPlayerFPvUi(void *, u32);
-void TObjPlayer__sub_8011E87C(void *, s32);
+void update_trail_slot__11TItemWeaponFPvi(void *, s32);
 void TObjPlayer__sub_80120908(void *);
 void TObjPlayer__sub_80120BBC(void *, s32);
 s32 is_rand_below_threshold__10TObjPlayerFv(void *);
@@ -31,7 +31,7 @@ void TObjPlayer__sub_8012AFF8(Obj_8012AFF8 *arg0) {
     }
     TObjPlayer__sub_80120908(arg0);
     if (TObjPlayer__sub_8012B1F8(arg0) != 8) {
-        TObjPlayer__sub_8011E87C(arg0, 0);
+        update_trail_slot__11TItemWeaponFPvi(arg0, 0);
     }
     arg0->unkF4 = arg0->unk188;
     if (is_rand_below_threshold__10TObjPlayerFv(arg0) == 0) {
@@ -42,7 +42,7 @@ void TObjPlayer__sub_8012AFF8(Obj_8012AFF8 *arg0) {
     }
     TObjPlayer__sub_80120BBC(arg0, 0x23);
     if (TObjPlayer__sub_8012B1F8(arg0) != 8) {
-        TObjPlayer__sub_8011E87C(arg0, 1);
+        update_trail_slot__11TItemWeaponFPvi(arg0, 1);
     }
     arg0->unkF4 = savedF4;
     TObjPlayer__sub_8012B1F0(arg0, saved);

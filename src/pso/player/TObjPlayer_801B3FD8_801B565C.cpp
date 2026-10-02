@@ -92,10 +92,10 @@ void copy_pair_fields__10TObjPlayerFPvPv(void *, void *);
 void TObjPlayer__sub_801C0C04(void *);
 s32 validate_6x2E_set_or_clear_player_flags(void *);
 void handle_6x2E_set_or_clear_player_flags(void *arg0);
-s32 TObjPlayer__sub_801559D0(Obj_801B5DDC *, Obj_801B5DDC *, Vec_801B5DDC *, Hit_801B5DDC *);
+s32 test_player_overlap_with_players(Obj_801B5DDC *, Obj_801B5DDC *, Vec_801B5DDC *, Hit_801B5DDC *);
 f32 TObjPlayer__sub_803D89C0(Vec_801B5DDC *, Vec_801B5DDC *);
 extern const f32 TObjPlayer__data_805DC278;
-s32 TObjPlayer__sub_801B5DDC(Obj_801B5DDC *self);
+s32 check_actor_blocking_move__10TObjPlayerFPv(Obj_801B5DDC *self);
 M2C_UNK TObjPlayer__sub_8001053C(void *);
 s32 TObjPlayer__sub_801B50C0(void *, f32 *);
 u32 TObjPlayer__sub_801B7298(void *);
@@ -116,7 +116,7 @@ s32 refresh_effect__10TObjPlayerFi(s32 arg0);
 void release_attached_resource__10TObjPlayerFPv(void* p);
 void reset_equip_slots__10TObjPlayerFPv(void* p);
 void update_ground_contact__10TObjPlayerFi(s32 arg0);
-s32 TObjPlayer__sub_80019248();
+s32 is_locally_controlled__10TObjPlayerFPv();
 int TObjPlayer__sub_8011E204(void*, void*);
 int TObjPlayer__sub_801C1B38(void*);
 int TObjPlayer__sub_801C1B60(void*);
@@ -265,7 +265,7 @@ s32 refresh_effect__10TObjPlayerFi(s32 arg0) {
 }
 
 void update_ground_contact__10TObjPlayerFi(s32 arg0) {
-    if (TObjPlayer__sub_80019248() != 0) {
+    if (is_locally_controlled__10TObjPlayerFPv() != 0) {
         if (try_ground_action__10TObjPlayerFPvi(arg0 + 0x550, fn_8002AE08(obj_getField1c(arg0))) != 0) {
             fn_801C1EF4(arg0 + 0x500);
             if (TObjPlayer__sub_801C1F50(arg0 + 0x4AC) != 0) {
@@ -281,14 +281,14 @@ void update_ground_contact__10TObjPlayerFi(s32 arg0) {
     }
 }
 
-s32 TObjPlayer__sub_801B5DDC(Obj_801B5DDC *self) {
+s32 check_actor_blocking_move__10TObjPlayerFPv(Obj_801B5DDC *self) {
     Vec_801B5DDC pos;
     Vec_801B5DDC diff;
     Hit_801B5DDC hit;
     pos.x = self->pos.x + self->f308.x;
     pos.y = TObjPlayer__data_805DC278;
     pos.z = self->pos.z + self->f308.z;
-    if (TObjPlayer__sub_801559D0(self, self, &pos, &hit) != 0) {
+    if (test_player_overlap_with_players(self, self, &pos, &hit) != 0) {
         if (hit.flags & 0x100) {
             return 0;
         }

@@ -8,7 +8,7 @@ s32 TWindowSubComCard__sub_80265E60(int, f32);
 s32 draw_text_gray__17TWindowSubComCardFiiii(int, int, int, int);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 draw_card_icon__17TWindowSubComCardFiii(int, int, int);
-s32 TWindowSubComCard__sub_8026CBB8(int);
+s32 get_window_layout_position(int);
 extern const f32 lbl_805DFDE0;
 s32 fn_8034CEDC(void);
 }
@@ -19,7 +19,7 @@ s32 fn_8034CEDC(void) {
   s32 temp_r31;
   s32 temp_r31_2;
   temp_r31_2 = (0, get_message_10__20TWindowSubStatusDispFPv((int) 0x1D));
-  temp_r31 = draw_card_icon__17TWindowSubComCardFiii((int) TWindowSubComCard__sub_8026CBB8((int) 0xA4), (int) 2, (int) temp_r31_2);
+  temp_r31 = draw_card_icon__17TWindowSubComCardFiii((int) get_window_layout_position((int) 0xA4), (int) 2, (int) temp_r31_2);
   if (get_main_phase() == 0xF)
   {
     forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFPv((int) 0x117), (int) 6, (int) 3);

@@ -31,7 +31,7 @@ extern void *lbl_805D6490;
 u8 *__dt__20TWindowSubSymbolChatFv(u8 *arg0, s16 arg1);
 s32 __nw__7TObjectFUl(int);
 s32 TWindowChatSymbol__ct(int, void *, void *);
-M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK get_window_layout_position(M2C_UNK);
 extern M2C_UNK lbl_8044FB20[];
 s32 TWindowSubSymbolChat__sub_802826E4(M2C_UNK arg0, s32 arg1);
 s32 get_symbol_chat_data__20TWindowSubSymbolChatFPv(s32);
@@ -44,7 +44,7 @@ M2C_UNK TWindowSubComCard__sub_80265C30(s32);
 M2C_UNK set_scroll_target__17TWindowSubComCardFPvff(s32, f32, f32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
 s32 draw_card_icon__17TWindowSubComCardFiii(s32, M2C_UNK, s32);
-M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK get_window_layout_position(M2C_UNK);
 extern const f32 lbl_805DD748;
 extern const f32 lbl_805DD74C;
 s32 TWindowSubSymbolChat__sub_80282600(Win_80282600 *arg0);
@@ -60,7 +60,7 @@ void render__20TWindowSubSymbolChatFv(void);
 M2C_UNK TWindowSubComCard__sub_80265680(s32, s16);
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
 M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
-M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK get_window_layout_position(M2C_UNK);
 M2C_UNK __ct__7TObjectFP7TObject();
 s32 draw_card_icon__17TWindowSubComCardFiii(s32, M2C_UNK, s32);
 M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(s32, s32, M2C_UNK, M2C_UNK);
@@ -78,7 +78,7 @@ extern const f32 lbl_805DD740;
 s32 open_edit_menu__20TWindowSubSymbolChatFPv(void *arg0) {
     s32 temp_r31;
 
-    temp_r31 = draw_card_icon__17TWindowSubComCardFiii(TWindowSubComCard__sub_8026CBB8(0x79), 3, get_message_10__20TWindowSubStatusDispFPv(0xA8));
+    temp_r31 = draw_card_icon__17TWindowSubComCardFiii(get_window_layout_position(0x79), 3, get_message_10__20TWindowSubStatusDispFPv(0xA8));
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0xB3), 6, 8);
     if (is_initialized__20TWindowSubSymbolChatFPv(M2C_FIELD(arg0, s32 *, 0x28)) != 0) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0xB4), 6, 0x1E);
@@ -101,7 +101,7 @@ extern const f32 lbl_805DD73C;
 s32 open_main_menu__20TWindowSubSymbolChatFv(void) {
     s32 temp_r31;
 
-    temp_r31 = draw_card_icon__17TWindowSubComCardFiii(TWindowSubComCard__sub_8026CBB8(0x78), 6, get_message_10__20TWindowSubStatusDispFPv(0x1D));
+    temp_r31 = draw_card_icon__17TWindowSubComCardFiii(get_window_layout_position(0x78), 6, get_message_10__20TWindowSubStatusDispFPv(0x1D));
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0xA8), 6, 6);
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0xA9), 6, 0xA);
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0xAA), 6, 0x14);
@@ -123,7 +123,7 @@ s32 TWindowSubSymbolChat__sub_80282600(Win_80282600 *arg0) {
     s32 sym;
     s32 card;
     s32 data;
-    card = draw_card_icon__17TWindowSubComCardFiii(TWindowSubComCard__sub_8026CBB8(0x77), 0xC, get_message_10__20TWindowSubStatusDispFPv(0x31));
+    card = draw_card_icon__17TWindowSubComCardFiii(get_window_layout_position(0x77), 0xC, get_message_10__20TWindowSubStatusDispFPv(0x31));
     for (i = 0; i < 0xC; i++) {
         sym = TWindowSubSymbolChat__sub_80077480(i);
         data = get_symbol_chat_data__20TWindowSubSymbolChatFPv(sym);
@@ -144,7 +144,7 @@ s32 TWindowSubSymbolChat__sub_802826E4(M2C_UNK arg0, s32 arg1) {
     s32 var_r31;
     var_r31 = __nw__7TObjectFUl((int) (0x68));
     if (var_r31 != 0) {
-        var_r31 = TWindowChatSymbol__ct((int) (var_r31), (void *) (((s32)TWindowSubComCard__sub_8026CBB8((M2C_UNK)((void *) (arg1 + 0x7B))))), (void *) (lbl_8044FB20));
+        var_r31 = TWindowChatSymbol__ct((int) (var_r31), (void *) (((s32)get_window_layout_position((M2C_UNK)((void *) (arg1 + 0x7B))))), (void *) (lbl_8044FB20));
     }
     return var_r31;
 }

@@ -27,7 +27,7 @@ struct VO_801C6408 : VB_801C6408 {
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 TBoss4Type2__sub_800874F4(void *, int);
+s32 create_particle_emitter(void *, int);
 u32 update_battle_ctrl_field1c__10TObjPlayerFPv(void *);
 s32 fn_801C670C(void *);
 s32 TObjPlayer__sub_801C6FB4(void *, int);
@@ -102,7 +102,7 @@ u8 *TObjPlayer__sub_801C6518(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     TObjPlayer__sub_801C6FBC((void *) (arg0), (void *) (arg2));
     temp_r3 = update_battle_ctrl_field1c__10TObjPlayerFPv((void *) (arg0));
     if (temp_r3 != 0U) {
-        temp_r3_2 = TBoss4Type2__sub_800874F4((void *) (temp_r3 + 0x2FC), (int) (0xAF));
+        temp_r3_2 = create_particle_emitter((void *) (temp_r3 + 0x2FC), (int) (0xAF));
         if (temp_r3_2 != 0) {
             TObjPlayer__sub_801C6FB4((void *) (arg0), (int) (temp_r3_2));
             goto block_4;

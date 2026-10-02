@@ -8,12 +8,12 @@ extern "C" {
 
 void spawn_effect__10TObjPlayerFi(s32 arg0);
 M2C_UNK spawn_effect__11TBoss4Type3Fsss(M2C_UNK, M2C_UNK, s16);
-s32 TObjPlayer__sub_80019248();
+s32 is_locally_controlled__10TObjPlayerFPv();
 
 s32 obj_getField1c(s32);
 
 void spawn_effect__10TObjPlayerFi(s32 arg0) {
-    if (TObjPlayer__sub_80019248() != 0) {
+    if (is_locally_controlled__10TObjPlayerFPv() != 0) {
         spawn_effect__11TBoss4Type3Fsss(0xC0, 0xF, obj_getField1c(arg0));
     }
 }

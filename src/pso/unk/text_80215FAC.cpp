@@ -80,7 +80,7 @@ void close__17TMedicalCenterMesFPv(void *);
 void create_message_window__17TMedicalCenterMesFPviii(void *, s32, void *, s32);
 void TWindowCtrl__sub_8024AEAC(u16);
 void TWindowCtrl__sub_8024AEF0(u16);
-s32 TWindowSubComCard__sub_8026CBB8(s32);
+s32 get_window_layout_position(s32);
 extern Pair_802160B4 lbl_8044BD94[];
 extern Map_802160B4 lbl_8050E208[];
 extern s32 lbl_805D53A0;
@@ -136,7 +136,7 @@ void TMedicalCenterMes__vt1(Med_802160B4 *self) {
         TWindowCtrl__sub_8024AEAC((u16)(s32)obj_getField1c(self->f22c));
         Pair_802160B4 p = lbl_8044BD94[0];
         u16 id = (u16)(s32)obj_getField1c(self->f22c);
-        create_message_window__17TMedicalCenterMesFPviii(self->sub, TWindowSubComCard__sub_8026CBB8(0x2C), &p, id);
+        create_message_window__17TMedicalCenterMesFPviii(self->sub, get_window_layout_position(0x2C), &p, id);
         show_message__17TMedicalCenterMesFPvii(self->sub, 0x25, 1);
         if (self->f22c != NULL) {
             init_effect_5f0__10TObjPlayerFPv(self->f22c);

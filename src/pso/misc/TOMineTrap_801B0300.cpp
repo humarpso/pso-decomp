@@ -11,7 +11,7 @@ typedef struct Pkt_801B0300
 } Pkt_801B0300;
 
 extern "C" {
-s32 TObjPlayer__sub_80019248(u32);
+s32 is_locally_controlled__10TObjPlayerFPv(u32);
 s32 obj_isState2_324(u32);
 s32 obj_testFlags30(u32, M2C_UNK);
 u16 obj_getField1c(u32);
@@ -47,13 +47,13 @@ void TOMineTrap__sub_801B0300(u32 arg0, u32 arg1, s16 arg2) {
     }
     if (obj_testFlags30(obj, 0x10000000) == 0)
     {
-      if (TObjPlayer__sub_80019248(arg0) != 0)
+      if (is_locally_controlled__10TObjPlayerFPv(arg0) != 0)
       {
         ((int (*)(u32, u32, s16)) TOMineTrap__sub_801D6A44)(arg0 + 0x77C, obj, arg2);
       }
     }
     else
-      if ((TObjPlayer__sub_80019248(arg0) != 0) && ((arg0 == 0U) || (obj_isState2_324(arg0) == 0)))
+      if ((is_locally_controlled__10TObjPlayerFPv(arg0) != 0) && ((arg0 == 0U) || (obj_isState2_324(arg0) == 0)))
     {
       ((int (*)(u32, u32, s16)) TOMineTrap__sub_801D6A44)(arg0 + 0x77C, obj, arg2);
       if (obj_getField1c(obj) != obj_getField1c(arg0))

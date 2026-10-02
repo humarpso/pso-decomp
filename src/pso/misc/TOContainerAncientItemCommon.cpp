@@ -132,7 +132,7 @@ s32 TOContainerAncientItemCommon__sub_8015C108(s32 arg0);
 void submit_cursor_candidate(Obj_8015C48C *self, s32 x);
 void TObjPlayer__sub_8015C48C(Obj_8015C48C *self);
 s32 TObjFish__sub_8001EDB0(void *, s32);
-s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 get_bml_model(void *, s32);
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
 s32 spawn_particle_effect(void *, int);
 u8 *TObjChip__sub_80180BD4(u8 *arg0, u8 *arg1, u8 *arg2);
@@ -245,14 +245,14 @@ void TObjFish__sub_8015C234(Obj_8015C234 *self) {
     a.y = self->y;
     a.z = self->z;
     a.y2 = a.y;
-    a.a = TObjFish__sub_8001EDC4((void *)lbl_805D58E8, 1);
+    a.a = get_bml_model((void *)lbl_805D58E8, 1);
     a.b = TObjFish__sub_8001EDB0((void *)lbl_805D58E8, 1);
     Desc_8015C234 b = lbl_8044074C;
     b.x = self->x;
     b.y = self->y;
     b.z = self->z;
     b.y2 = b.y;
-    b.a = TObjFish__sub_8001EDC4((void *)lbl_805D58E8, 2);
+    b.a = get_bml_model((void *)lbl_805D58E8, 2);
     b.b = TObjFish__sub_8001EDB0((void *)lbl_805D58E8, 2);
     if (check_value_equals__13TQuestColCtrlFPvi(self, lbl_805D2F00) != 0) {
         a.b = lbl_805D58EC->a;

@@ -111,7 +111,7 @@ s16 get_or_init_field_4__10TObjPlayerFPv(void *);
 void split_capped_value__10TObjPlayerFUcPvPv(u8, u8 *, u8 *);
 u8 fn_801D9870(void *techs, s16 tech);
 void TObjPlayer__sub_8022CDE8(s32, void *);
-void TObjPlayer__sub_801CD72C(Player_801CD72C *self);
+void request_technique_cast__10TObjPlayerFPv(Player_801CD72C *self);
 M2C_UNK apply_velocity__10TObjPlayerFPv(void *);
 s32 obj_isState2_324(void *obj);
 s32 obj_getField1c(void *obj);
@@ -139,7 +139,7 @@ extern const f32 TObjPlayer__data_805DC36C;
 extern const f32 TObjPlayer__data_805DC39C;
 extern const f32 lbl_805DC3A0;
 extern const f32 lbl_805DC3A4;
-void TObjPlayer__sub_801CD1F0(u8 *arg0);
+void update_technique_cast__10TObjPlayerFPv(u8 *arg0);
 u8 *get_player_by_client_id(u16);
 void swap_field6__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801D2260(void *, void *);
@@ -175,7 +175,7 @@ void TObjPlayer__sub_801CD188(Player_801CD188 *self) {
     }
 }
 
-void TObjPlayer__sub_801CD1F0(u8 *arg0) {
+void update_technique_cast__10TObjPlayerFPv(u8 *arg0) {
     s16 temp_r0;
     s32 temp_r30;
     u8 temp_r31;
@@ -280,7 +280,7 @@ void handle_6x8D_set_technique_level_override(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_801CD72C(Player_801CD72C *self) {
+void request_technique_cast__10TObjPlayerFPv(Player_801CD72C *self) {
     u8 hi;
     u8 lo;
     Msg1_801CD72C m1;

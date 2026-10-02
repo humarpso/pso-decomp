@@ -11,7 +11,7 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, M2C_UNK, M2C_UNK);
 M2C_UNK set_position_vec3__10TObjPlayerFPvPv(M2C_UNK, void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D97F0(M2C_UNK);
+M2C_UNK push_matrix_from(M2C_UNK);
 M2C_UNK pop_matrix();
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 
@@ -34,7 +34,7 @@ void draw_if_visible__10TObjPlayerFPv(u8 *arg0) {
     if ((((VObj_8014C610 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0x398), M2C_FIELD(arg0, f32 *, 0x39C)) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x390) == 1)) {
         some_id_805c6f74 |= 1;
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-        TObjPlayer__sub_803D97F0(0);
+        push_matrix_from(0);
         set_position_vec3__10TObjPlayerFPvPv(0, arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         draw__16TObjEneRe7BeruraFPv(arg0);

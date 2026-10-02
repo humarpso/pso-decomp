@@ -23,7 +23,7 @@ void init_break_model__14TObjVoloptCageFv(void);
 void render__14TObjVoloptCageFv(u8 *arg0);
 s32 TBreakUpMdl__sub_8009705C(s32, s32);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjFish__sub_803E46BC(s32);
+M2C_UNK draw_chunk_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -66,7 +66,7 @@ void render__14TObjVoloptCageFv(u8 *arg0) {
         some_id_805c6f74 &= 0xFFFFFBFF;
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjFish__sub_803E46BC(lbl_805D4D24);
+        draw_chunk_object(lbl_805D4D24);
         pop_matrix();
     }
 }

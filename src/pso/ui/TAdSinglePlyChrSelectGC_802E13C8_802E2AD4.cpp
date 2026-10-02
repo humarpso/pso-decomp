@@ -45,7 +45,7 @@ void update_load_state__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void update_load_state__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 void update_timer__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 s32 TAdPlayerLoadGC__sub_801E0CE0(s32);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+s32 get_localized_text_entry(s32, s32);
 s32 TAdSinglePlyChrSelectGC__sub_802E1868(void *);
 s32 TAdSinglePlyChrSelectGC__sub_802E1DF8(void *, s32);
 s32 strcpy(s32, s32);
@@ -60,7 +60,7 @@ s32 load_system_file(s32);
 
 void create_backgrounds__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     create_backgrounds__23TAdSinglePlyChrSelectGCFPv();
-    close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(arg0, TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 0xA), -1, 0, 0);
+    close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(arg0, get_localized_text_entry(0x1C, 0xA), -1, 0, 0);
 }
 void update_timer__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x64) = (s32) (M2C_FIELD(arg0, s32 *, 0x64) - 1);
@@ -90,7 +90,7 @@ void TAdSinglePlyChrSelectGC__sub_802E2BD4(s32 arg0) {
 
 void close_scene__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     create_backgrounds__23TAdSinglePlyChrSelectGCFPv();
-    close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(arg0, TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 9), -1, 0, 0);
+    close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(arg0, get_localized_text_entry(0x1C, 9), -1, 0, 0);
 }
 void update_load_countdown__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if (TAdPlayerLoadGC__sub_801E0CE0(0) == 0) {
@@ -150,8 +150,8 @@ void TAdSinglePlyChrSelectGC__sub_802E2DD8(u8 *arg0) {
 
 void open_char_select__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     create_backgrounds__23TAdSinglePlyChrSelectGCFPv();
-    strcpy(arg0 + 0x68, TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 8));
-    close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(arg0, arg0 + 0x68, 1, TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 0x29), TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 0x16));
+    strcpy(arg0 + 0x68, get_localized_text_entry(0x1C, 8));
+    close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(arg0, arg0 + 0x68, 1, get_localized_text_entry(0x1C, 0x29), get_localized_text_entry(0x1C, 0x16));
 }
 void reset_on_load_complete__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if (get_instance__15TAdPlayerLoadGCFv() == 0) {

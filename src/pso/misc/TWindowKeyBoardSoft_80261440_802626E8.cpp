@@ -17,7 +17,7 @@ struct RecoveredGlobal_80262740_lbl_804D0004 {
 extern "C" {
 s32 TWindowDD__sub_802466E0(void *, void *, void *, int);
 s32 close__19TWindowKeyBoardSoftFPv(void *);
-s32 TWindowSubComCard__sub_8026CBB8(int);
+s32 get_window_layout_position(int);
 extern RecoveredGlobal_80262740___vt__19TWindowKeyBoardSoft __vt__19TWindowKeyBoardSoft;
 extern M2C_UNK lbl_804D0004[];
 extern s32 lbl_805D3938;
@@ -46,7 +46,7 @@ void *destroy__19TWindowKeyBoardSoftFPvs(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80262740___vt__19TWindowKeyBoardSoft_size[sizeof(RecoveredGlobal_80262740___vt__19TWindowKeyBoardSoft) == 0x224 ? 1 : -1];
 typedef char RecoveredGlobal_80262740_lbl_804D0004_size[sizeof(RecoveredGlobal_80262740_lbl_804D0004) == 0x1C ? 1 : -1];
 u8 *TWindowKeyBoardSoft__ct(u8 *arg0, s32 arg1, s16 arg2) {
-    TWindowDD__sub_802466E0((void *) (arg0), (void *) (&__vt__19TWindowKeyBoardSoft.value), (void *) (arg2), (int) (TWindowSubComCard__sub_8026CBB8((int) (0xBA))));
+    TWindowDD__sub_802466E0((void *) (arg0), (void *) (&__vt__19TWindowKeyBoardSoft.value), (void *) (arg2), (int) (get_window_layout_position((int) (0xBA))));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80262740_lbl_804D0004 *)&lbl_804D0004).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3938;
     M2C_FIELD(arg0, s32 *, 0x60) = 0;

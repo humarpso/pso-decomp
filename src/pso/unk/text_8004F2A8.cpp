@@ -56,7 +56,7 @@ void queue_destruction__7TObjectFv(void *);
 void TBoss4Type2__sub_8004A98C(void *);
 void set_scripted_camera_pose(void *, void *, void *);
 u32 spawn_particle_effect(void *, s32);
-u32 TBoss4Type2__sub_800874F4(void *, s32);
+u32 create_particle_emitter(void *, s32);
 void set_flags__11TBoss4Type2FPvUi(u32, u32);
 void copy_pos__11TNowLoadingFPvPv(u32, void *);
 void TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
@@ -149,7 +149,7 @@ void TBoss4Type2__sub_8004F3D4(Self_8004F3D4 *self) {
       Vec_8004F3D4 *v = &self->vecs[i];
       if ((*p) == 0)
       {
-        *p = TBoss4Type2__sub_800874F4(v, 0x147);
+        *p = create_particle_emitter(v, 0x147);
         if ((*p) != 0)
         {
           set_flags__11TBoss4Type2FPvUi(*p, 0x40);

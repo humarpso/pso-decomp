@@ -16,12 +16,12 @@ extern "C" {
 
 void render_warp__12TObjWarpJungFPv(void* a0);
 s32 update_warp_display__12TObjWarpJungFv(void);
-M2C_UNK TOComputerMachine01__sub_8023DDC8(s32, M2C_UNK, M2C_UNK, u16, M2C_UNK);
-int TObjBoss2Tunnel__sub_803DB470(void);
-int TObjFish__sub_8001EDC4(void*, void*);
+M2C_UNK scroll_ginja_mesh_uvs(s32, M2C_UNK, M2C_UNK, u16, M2C_UNK);
+int draw_ginja_object(void);
+int get_bml_model(void*, void*);
 
     extern int lbl_805D5CA8;
-void render_warp__12TObjWarpJungFPv(void* a0) { TObjFish__sub_8001EDC4((void*)(lbl_805D5CA8), a0); TObjBoss2Tunnel__sub_803DB470(); }
+void render_warp__12TObjWarpJungFPv(void* a0) { get_bml_model((void*)(lbl_805D5CA8), a0); draw_ginja_object(); }
 
 extern s32 lbl_805D53A4;
 extern s32 lbl_805D5CB4;
@@ -53,7 +53,7 @@ s32 update_warp_display__12TObjWarpJungFv(void) {
     if ((s32) lbl_805D53A4 != (s32) lbl_805D5CB4) {
         lbl_805D5CB4 = lbl_805D53A4;
         if ((s32) lbl_805D5CC4 >= 0) {
-            TOComputerMachine01__sub_8023DDC8(lbl_805D5CB8, 0, 5, (u16) lbl_805D5CC4, 1);
+            scroll_ginja_mesh_uvs(lbl_805D5CB8, 0, 5, (u16) lbl_805D5CC4, 1);
             return 1;
         }
     }

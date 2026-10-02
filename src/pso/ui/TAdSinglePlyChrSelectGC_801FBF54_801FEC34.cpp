@@ -30,7 +30,7 @@ extern s32 lbl_805D5F78;
 s32 TAdSinglePlyChrSelectGC__sub_801FF200(void);
 s32 get_instance__15TAdPlayerLoadGCFv();
 void wait_ready_loop__6TLobbyFv(void);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+s32 get_localized_text_entry(s32, s32);
 s8 func_801A5E54__Fv(void);
 void controller_stuff__Fv(void);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
@@ -201,7 +201,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FEE14(void) {
     if (TAdSinglePlyChrSelectGC__sub_801FC6A4() == 0) {
         w = TLobby__sub_80269CC0(lbl_8044A7D0, lbl_8044A7D8, 1, 4);
         if (w != NULL) {
-            send_and_handle__6TLobbyFPvii(w, TAdSinglePlyChrSelectGC__sub_80132F2C(0x20, 4), 3);
+            send_and_handle__6TLobbyFPvii(w, get_localized_text_entry(0x20, 4), 3);
             TWindowSubComCard__sub_80244888(w);
         }
         TLobby__sub_80269454(w);
@@ -251,9 +251,9 @@ s32 TAdSinglePlyChrSelectGC__sub_801FEE14(void) {
     TLobby__sub_80269C90();
     if (w != NULL) {
         if (get_load_result__15TAdPlayerLoadGCFv(0) == 0xFFFFFF81 || get_load_result__15TAdPlayerLoadGCFv(0) == 0xFFFFFF83) {
-            send_and_handle__6TLobbyFPvii(w, TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 1), 3);
+            send_and_handle__6TLobbyFPvii(w, get_localized_text_entry(0x1C, 1), 3);
         } else {
-            send_and_handle__6TLobbyFPvii(w, TAdSinglePlyChrSelectGC__sub_80132F2C(0x20, 5), 3);
+            send_and_handle__6TLobbyFPvii(w, get_localized_text_entry(0x20, 5), 3);
         }
         TWindowSubComCard__sub_80244888(w);
     }

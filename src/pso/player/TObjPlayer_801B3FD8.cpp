@@ -204,7 +204,7 @@ u8 get_char_class__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_801C214C();
 s32 TObjPlayer__sub_801D9250(s32, s32);
 s32 TObjPlayer__sub_801B6CE0(Obj_801B6CE0 *self);
-s32 TObjPlayer__sub_80019248();
+s32 is_locally_controlled__10TObjPlayerFPv();
 u16 obj_getField1c(void *);
 s32 get_max_level__10TObjPlayerFv();
 s8 TObjPlayer__sub_801AFDB0();
@@ -329,7 +329,7 @@ void TObjPlayer__sub_801B6DF0(u8 *arg0) {
     s32 var_r30;
     s32 temp_r30;
     u8 *temp_r30_2;
-    if ((TObjPlayer__sub_80019248() != 0) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
+    if ((is_locally_controlled__10TObjPlayerFPv() != 0) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
         temp_r30 = ((s32 (*)(void *))clamp_nested_index__10TObjPlayerFPv)((void *) (arg0)) + 1;
         if (temp_r30 <= get_max_level__10TObjPlayerFv()) {
             if (get_current_state_field__10TObjPlayerFv((void *) (((s32 (*)(void *))TObjPlayer__sub_801AFDB0)((void *) (arg0))), (int) (temp_r30)) <= (s32) M2C_FIELD(M2C_FIELD(arg0, void **, 0x2B0), s32 *, 0x1C)) {

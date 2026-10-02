@@ -74,7 +74,7 @@ extern s32 lbl_805D631C;
 void set_target_id__6TLobbyFi(s32 arg0);
 void TLobby__sub_803CA824(void *, s32);
 extern M2C_UNK lbl_804CB850[];
-void TLobby__sub_8022727C(s32 arg0);
+void play_cue_stream_file(s32 arg0);
 s32 TLobby__sub_803C94DC(int, int);
 s32 TLobby__sub_803C9CB0(int);
 extern M2C_UNK lbl_804CB850[];
@@ -241,7 +241,7 @@ void TLobby__sub_80227248(void) {
     }
 }
 
-void TLobby__sub_8022727C(s32 arg0) {
+void play_cue_stream_file(s32 arg0) {
     if ((void *) M2C_FIELD(&(*(RecoveredGlobal_8022727C_lbl_804CB850 *)&lbl_804CB850).value, u8 **, 8) != NULL) {
         TLobby__sub_803CA824(M2C_FIELD(&(*(RecoveredGlobal_8022727C_lbl_804CB850 *)&lbl_804CB850).value, u8 **, 8), arg0);
     }

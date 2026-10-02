@@ -69,7 +69,7 @@ s32 spawn_particle_effect(s32, s32);
 void refresh_lobby_state__10TObjPlayerFPv(void *);
 s32 send_entity_set_flags__6TLobbyFPv(void *);
 void TObjGrass__vt61(u8 *arg0);
-M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void obj_clearFlags30(void *, u32);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
@@ -92,7 +92,7 @@ s32 TObjEneGibbles__sub_80156720(void *);
 s32 __dl__7TObjectFPv(void *);
 extern u8 __vt__9TObjGrass[];
 Obj_800BF880 *__dt__9TObjGrassFv(Obj_800BF880 *arg0, s16 arg1);
-M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 f32 TObjPlayer__sub_80017804(void *, Vec_800BE75C, f32);
 M2C_UNK obj_setFlags30(void *, u32);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
@@ -101,14 +101,14 @@ M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
-s32 TScene__sub_803D8DB4(int, void *, void *);
+s32 rotate_vector_by_matrix(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, s32);
-s32 TObjPlayer__sub_803D97F0(void *);
+s32 push_matrix_from(void *);
 M2C_UNK TCameraCtrl__sub_803D9858(int);
 extern u8 lbl_8058D490[];
 extern const f32 TObjGrass__data_805D9EB8;
 extern const f32 TObjGrass__data_805D9ED8;
-u16 TObjPlayer__sub_800115C4(void *, int, f32);
+u16 find_nearest_visible_player(void *, int, f32);
 s32 check_path_obstructed(void *, void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
@@ -191,7 +191,7 @@ void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 void *TObjControl__ct(void *, void *);
 void *TObjGrass__ct(void *, void *, void *);
-M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 s32 TObjPlayer__sub_80016D78();
 s32 TObjPlayer__sub_80016FF8();
 void __dt__11TBoss4Type3FPvs(void*, int);
@@ -226,7 +226,7 @@ M2C_UNK TObjGrass__sub_800BCE44(u8 *arg0) {
   advance_animation_playback((void *) arg0);
   *((f32 *) (((s8 *) arg0) + 0x310)) = (f32) TObjGrass__data_805D9EB8;
   *((f32 *) (((s8 *) arg0) + 0x308)) = (f32) TObjGrass__data_805D9EB8;
-  TObjPlayer__sub_80011734((void *)((void *) arg0), (M2C_UNK)((int) 0), (f32) TObjGrass__data_805D9EB8);
+  apply_actor_gravity((void *)((void *) arg0), (M2C_UNK)((int) 0), (f32) TObjGrass__data_805D9EB8);
   update_collisions__10TObjPlayerFPv((void *) arg0);
   if (objInBand__FP7GameObjf((void *) arg0, (f32) TObjGrass__data_805D9EB8) != 0)
   {
@@ -271,7 +271,7 @@ M2C_UNK update__9TObjGrassFPv(u8 *arg0) {
     obj_clearFlags30((void *)(arg0), (u32)(0x04040000));
     advance_animation_playback(arg0);
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800000)) {
-        TObjPlayer__sub_80011734(arg0, 0, TObjGrass__data_805D9EB8);
+        apply_actor_gravity(arg0, 0, TObjGrass__data_805D9EB8);
     }
     update_collisions__10TObjPlayerFPv(arg0);
     TOTrapAncient01__sub_80226578(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003A801), arg0, arg0 + 0x38, 0, 0);
@@ -331,9 +331,9 @@ M2C_UNK TObjGrass__sub_800BE75C(Grass_800BE75C *o) {
     v.y = TObjGrass__data_805D9EB8;
     v.x = TObjGrass__data_805D9EB8;
     v.z = o->f358;
-    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    push_matrix_from(lbl_8058D490);
     rotate_matrix_y(0, o->f60);
-    TScene__sub_803D8DB4(0, &v, &v);
+    rotate_vector_by_matrix(0, &v, &v);
     TCameraCtrl__sub_803D9858(1);
     TBoss4Zako__sub_803D8910(&v, o->mtx50);
     d = TObjPlayer__sub_80017804(o, v, TObjGrass__data_805D9ED8 * o->range->hi);
@@ -343,7 +343,7 @@ M2C_UNK TObjGrass__sub_800BE75C(Grass_800BE75C *o) {
         o->f2A8 = 0;
         o->f39C = 0;
     }
-    TObjPlayer__sub_80011734(o, 0, TObjGrass__data_805D9EB8);
+    apply_actor_gravity(o, 0, TObjGrass__data_805D9EB8);
     TOTrapAncient01__sub_80226578(copy_target_state__14TObjEnePanarmsFPvPv(o, 0x4003A801), o, &o->pos, 0, 0);
     play_effect_if_v2__10TObjPlayerFi(-0x200);
     minimap_render_dot(&o->pos, -0x5DB4, 1, 0);
@@ -465,7 +465,7 @@ void TObjGrass__vt26(u8 *arg0) {
             }
             M2C_FIELD(arg0, u16 *, 0x338) = best_id;
         } else {
-            M2C_FIELD(arg0, u16 *, 0x338) = TObjPlayer__sub_800115C4((void *) (arg0), 0, M2C_FIELD(M2C_FIELD(arg0, f32 **, 0x350), f32 *, 0));
+            M2C_FIELD(arg0, u16 *, 0x338) = find_nearest_visible_player((void *) (arg0), 0, M2C_FIELD(M2C_FIELD(arg0, f32 **, 0x350), f32 *, 0));
         }
         tid = M2C_FIELD(arg0, u16 *, 0x338);
         if (tid < 0x1000U) {

@@ -47,7 +47,7 @@ extern s32 some_id_805c6f74;
 M2C_UNK TObjDoaEx01__sub_8018DD0C(void *arg0, s32 arg1);
 s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
-s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
+s32 get_bml_model(s32, M2C_UNK);
 M2C_UNK TObjDoaEx01__sub_8018DD0C(void *arg0, s32 arg1);
 M2C_UNK free_children__12TObjDoorJungFPvPv(s32, M2C_UNK);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -71,7 +71,7 @@ void try_open__11TObjDoaEx01FPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK free_children__12TObjDoorJungFPvPv(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
-s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
+s32 get_bml_model(s32, M2C_UNK);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -134,7 +134,7 @@ M2C_UNK TObjDoaEx01__sub_8018DD0C(void *arg0, s32 arg1) {
 void try_open__11TObjDoaEx01FPv(u8 *arg0) {
     s32 temp_r31;
 
-    temp_r31 = TObjFish__sub_8001EDC4(TObjDoaEx01__data_805D5BB0, 0);
+    temp_r31 = get_bml_model(TObjDoaEx01__data_805D5BB0, 0);
     if (((TObjDoaEx01_VObj*)arg0)->m8(lbl_805DBDB4, lbl_805DBDB8) != 0) {
         free_children__12TObjDoorJungFPvPv(M2C_FIELD(TObjDoaEx01__data_805D5BB4, s32 *, 4), 1);
         free_children__12TObjDoorJungFPvPv(M2C_FIELD(TObjDoaEx01__data_805D5BB8, s32 *, 4), 1);
@@ -154,7 +154,7 @@ void TObjDoaEx01__sub_8018DEC8(u8 *arg0) {
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBDB4, lbl_805DBDB8) != 0) {
         free_children__12TObjDoorJungFPvPv((M2C_FIELD(TObjDoaEx01__data_805D5BB4, s32 *, 4)), (0));
         free_children__12TObjDoorJungFPvPv((M2C_FIELD(TObjDoaEx01__data_805D5BB8, s32 *, 4)), (0));
-        temp_r31 = TObjFish__sub_8001EDC4((TObjDoaEx01__data_805D5BB0), (0));
+        temp_r31 = get_bml_model((TObjDoaEx01__data_805D5BB0), (0));
         TObjFish__sub_8001EDB0((TObjDoaEx01__data_805D5BB0), (0));
         set_global_param__8TObjFishFi();
         TObjPlayer__sub_803D9B2C();
@@ -163,7 +163,7 @@ void TObjDoaEx01__sub_8018DEC8(u8 *arg0) {
         temp_f31 = M2C_FIELD(arg0, f32 *, 0xB0);
         if (temp_f31 > TObjDoaEx01__data_805DBDA0) {
             temp_r31 = TObjFish__sub_8001ED9C((TObjDoaEx01__data_805D5BB0), (0));
-            draw_ginja_model_with_motion(TObjFish__sub_8001EDC4((TObjDoaEx01__data_805D5BB0), (0)), temp_r31, temp_f31);
+            draw_ginja_model_with_motion(get_bml_model((TObjDoaEx01__data_805D5BB0), (0)), temp_r31, temp_f31);
         } else {
             TObjDoaEx01__sub_8018DD0C(arg0, (temp_r31));
         }

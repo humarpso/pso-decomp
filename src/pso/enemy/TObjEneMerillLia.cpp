@@ -272,9 +272,9 @@ void TObjEneMerillLia__sub_800D501C(s32 arg0);
 s32 spawn_ground_effect__10TObjPlayerFPvi(void *, int);
 s32 TObjPlayer__sub_800D92BC(void *, int);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
-s32 TScene__sub_803D8DB4(int, void *, void *);
+s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
-s32 TObjPlayer__sub_803D97F0(void *);
+s32 push_matrix_from(void *);
 s32 pop_matrix();
 extern RecoveredGlobal_800D5060_lbl_8058D490 lbl_8058D490;
 extern const f32 TObjEneMerillLia__data_805DA300;
@@ -309,7 +309,7 @@ s32 TObjPlayer__sub_803D9B2C();
 s32 pop_matrix();
 f32 TOHangerMachine01__sub_803D9C00(void *);
 s32 set_global_param__8TObjFishFi(int);
-s32 TObjFish__sub_803E46BC(int);
+s32 draw_chunk_object(int);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
 extern s32 lbl_805D5660;
@@ -337,7 +337,7 @@ s32 obj_testFlags30(void *, int);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
 void TObjEneMerillLia__sub_800D51C8(Ene_800D51C8 *arg0);
-s16 TObjPlayer__sub_800115C4(void *, s32, f32);
+s16 find_nearest_visible_player(void *, s32, f32);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 M2C_UNK obj_setFlags30(void *, M2C_UNK);
 s32 TObjEneMerillLia__sub_800D4D74(void *);
@@ -371,7 +371,7 @@ M2C_UNK minimap_render_dot(void *, int, int, int);
 M2C_UNK create__9TTecKafunFiiiiiff(void *, void *, int, int, int, f32, f32);
 M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
 s32 rotate_matrix_y(int, int);
-s32 TObjPlayer__sub_803D97F0(void *);
+s32 push_matrix_from(void *);
 s32 pop_matrix();
 f32 TOHangerMachine01__sub_803D9C00(void *);
 extern Vec_800D57C8 lbl_8043C6D0;
@@ -381,7 +381,7 @@ extern s32 lbl_805D5678;
 extern const f32 lbl_805DA30C;
 extern const f32 lbl_805DA310;
 M2C_UNK TObjEneMerillLia__sub_800D57C8(void *p);
-M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
+M2C_UNK apply_actor_gravity(void *, int, f32);
 M2C_UNK TObjPlayer__sub_80017700(void *, s32, void *, int, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
@@ -459,9 +459,9 @@ void TObjEneMerillLia__sub_800D5060(u8 *arg0) {
     stack.sp8 = TObjEneMerillLia__data_805DA300;
     stack.spC = lbl_805DA304;
     stack.sp10 = TObjEneMerillLia__data_805DA308 * M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2B0), f32 *, 0x10);
-    TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
+    push_matrix_from((void *) (&lbl_8058D490.value));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-    TScene__sub_803D8DB4((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
+    rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
     pop_matrix();
     TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x38));
     spawn_ground_effect__10TObjPlayerFPvi((void *) (&stack.sp8), (int) (0x23));
@@ -689,12 +689,12 @@ M2C_UNK TObjEneMerillLia__sub_800D57C8(void *p) {
     case 1:
         if (objInBand__FP7GameObjf((void *) (arg0), lbl_805DA30C) != 0) {
             advance_animation_playback((void *) (arg0));
-            TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490));
+            push_matrix_from((void *) (&lbl_8058D490));
             TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x38));
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
             render_anim_model__10TObjPlayerFPvf((void *) (arg0), lbl_805DA30C);
             pop_matrix();
-            TObjPlayer__sub_803D97F0((void *) (lbl_805D5678 + 0x450));
+            push_matrix_from((void *) (lbl_805D5678 + 0x450));
             {
                 Vec_800D57C8 sp8 = lbl_8043C6D0;
                 TCameraCtrl__sub_803D8934(0, &sp8, &sp14);
@@ -759,7 +759,7 @@ void TObjEneMerillLia__sub_800D64F0(Ene_800D64F0 *arg0) {
         }
         break;
     case 2:
-        arg0->target = TObjPlayer__sub_800115C4(arg0, 0, *arg0->param);
+        arg0->target = find_nearest_visible_player(arg0, 0, *arg0->param);
         arg0->state = 1;
         break;
     }
@@ -771,7 +771,7 @@ void TObjEneMerillLia__sub_800D6618(u8 *arg0) {
     f32 r;
     switch (M2C_FIELD(arg0, s16 *, 0x328)) {
     case 0:
-        TObjPlayer__sub_80011734(arg0, 0, TObjEneMerillLia__data_805DA300);
+        apply_actor_gravity(arg0, 0, TObjEneMerillLia__data_805DA300);
         advance_animation_playback(arg0);
         if (M2C_FIELD(arg0, u32 *, 0xB4) != 0x20U) {
             M2C_FIELD(arg0, s16 *, 0x328) = 1;
@@ -832,7 +832,7 @@ void TObjEneMerillLia__sub_800D6810(u8 *arg0) {
     rotate_matrix_y((int) 0, (int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_60);
     if (check_demo_mode__10TObjPlayerFv() == 1)
     {
-      TObjFish__sub_803E46BC((int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_34);
+      draw_chunk_object((int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_34);
     }
     else
     {

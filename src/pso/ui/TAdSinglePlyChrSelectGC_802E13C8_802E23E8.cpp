@@ -14,24 +14,24 @@ typedef struct S_802E24B8 { u8 pad0[0x54]; void *f54; } S_802E24B8;
 typedef struct S_802E2588 { u8 pad0[0x54]; void *f54; u8 pad58[4]; s32 f5C; } S_802E2588;
 
 extern "C" {
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+s32 get_localized_text_entry(s32, s32);
 s32 TAdPlyStatusGC__sub_802E11C8(void *);
 s32 close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(s32, s32, s32, s32, s32);
 int create_backgrounds__23TAdSinglePlyChrSelectGCFPv(void*);
 void TAdSinglePlyChrSelectGC__sub_802E2610(u8 *arg0);
 s32 close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(s32, s32, s32, s32, s32);
 int create_backgrounds__23TAdSinglePlyChrSelectGCFPv(void*);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+s32 get_localized_text_entry(s32, s32);
 s32 strcpy(s32, s32);
 void TAdSinglePlyChrSelectGC__sub_802E23E8(u8 *arg0);
 s32 close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(s32, s32, s32, s32, s32);
 int create_backgrounds__23TAdSinglePlyChrSelectGCFPv(void*);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+s32 get_localized_text_entry(s32, s32);
 s32 strcpy(s32, s32);
 void TAdSinglePlyChrSelectGC__sub_802E2450(u8 *arg0);
 s32 close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(s32, s32, s32, s32, s32);
 int create_backgrounds__23TAdSinglePlyChrSelectGCFPv(void*);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+s32 get_localized_text_entry(s32, s32);
 s32 strcpy(s32, s32);
 void TAdSinglePlyChrSelectGC__sub_802E2520(u8 *arg0);
 s32 poll_load_status__15TAdPlayerLoadGCFi(int, void *);
@@ -62,7 +62,7 @@ void update_close_on_load__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void update_close_timer__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void update_state__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 TAdPlyStatusGC__sub_802E11C8(void *);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+s32 get_localized_text_entry(s32, s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FD990(s32);
 s32 TAdSinglePlyChrSelectGC__sub_802012AC();
 s32 TAdSinglePlyChrSelectGC__sub_802E1868(void *);
@@ -82,14 +82,14 @@ s32 try_confirm_selection__23TAdSinglePlyChrSelectGCFv();
 
 void TAdSinglePlyChrSelectGC__sub_802E23E8(u8 *arg0) {
     create_backgrounds__23TAdSinglePlyChrSelectGCFPv((void*)(arg0));
-    strcpy((s32)((void *) (arg0 + 0x68)), (s32)((int) (((u8 *)TAdSinglePlyChrSelectGC__sub_80132F2C((s32)(0x1C), (s32)(0x26))))));
-    close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv((s32)(arg0), (s32)(arg0 + 0x68), (s32)((void *)-2), (s32)(((u8 *)TAdSinglePlyChrSelectGC__sub_80132F2C((s32)(0x1C), (s32)(0x16)))), (s32)(NULL));
+    strcpy((s32)((void *) (arg0 + 0x68)), (s32)((int) (((u8 *)get_localized_text_entry((s32)(0x1C), (s32)(0x26))))));
+    close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv((s32)(arg0), (s32)(arg0 + 0x68), (s32)((void *)-2), (s32)(((u8 *)get_localized_text_entry((s32)(0x1C), (s32)(0x16)))), (s32)(NULL));
 }
 
 void TAdSinglePlyChrSelectGC__sub_802E2450(u8 *arg0) {
     create_backgrounds__23TAdSinglePlyChrSelectGCFPv((void*)(arg0));
-    strcpy((s32)((void *) (arg0 + 0x68)), (s32)((int) (((u8 *)TAdSinglePlyChrSelectGC__sub_80132F2C((s32)(0x1C), (s32)(0x27))))));
-    close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv((s32)(arg0), (s32)(arg0 + 0x68), (s32)((void *)-2), (s32)(((u8 *)TAdSinglePlyChrSelectGC__sub_80132F2C((s32)(0x1C), (s32)(0x16)))), (s32)(NULL));
+    strcpy((s32)((void *) (arg0 + 0x68)), (s32)((int) (((u8 *)get_localized_text_entry((s32)(0x1C), (s32)(0x27))))));
+    close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv((s32)(arg0), (s32)(arg0 + 0x68), (s32)((void *)-2), (s32)(((u8 *)get_localized_text_entry((s32)(0x1C), (s32)(0x16)))), (s32)(NULL));
 }
 
 void TAdSinglePlyChrSelectGC__sub_802E24B8(S_802E24B8 *arg0) {
@@ -104,8 +104,8 @@ void TAdSinglePlyChrSelectGC__sub_802E24B8(S_802E24B8 *arg0) {
 
 void TAdSinglePlyChrSelectGC__sub_802E2520(u8 *arg0) {
     create_backgrounds__23TAdSinglePlyChrSelectGCFPv((void*)(arg0));
-    strcpy((s32)((void *) (arg0 + 0x68)), (s32)((int) (((u8 *)TAdSinglePlyChrSelectGC__sub_80132F2C((s32)(0x1C), (s32)(0x25))))));
-    close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv((s32)(arg0), (s32)(arg0 + 0x68), (s32)((void *)-2), (s32)(((u8 *)TAdSinglePlyChrSelectGC__sub_80132F2C((s32)(0x1C), (s32)(0x16)))), (s32)(NULL));
+    strcpy((s32)((void *) (arg0 + 0x68)), (s32)((int) (((u8 *)get_localized_text_entry((s32)(0x1C), (s32)(0x25))))));
+    close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv((s32)(arg0), (s32)(arg0 + 0x68), (s32)((void *)-2), (s32)(((u8 *)get_localized_text_entry((s32)(0x1C), (s32)(0x16)))), (s32)(NULL));
 }
 
 void TAdSinglePlyChrSelectGC__sub_802E2588(S_802E2588 *arg0) {
@@ -125,7 +125,7 @@ void TAdSinglePlyChrSelectGC__sub_802E2588(S_802E2588 *arg0) {
 
 void TAdSinglePlyChrSelectGC__sub_802E2610(u8 *arg0) {
     ((M2C_UNK)create_backgrounds__23TAdSinglePlyChrSelectGCFPv((void*)(arg0)));
-    ((M2C_UNK)close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv((s32)((void *) (arg0)), (s32)((int) (TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x1C), (int) (0xB)))), (s32)((int) (1)), (s32)((int) (0)), (s32)((int) (0))));
+    ((M2C_UNK)close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv((s32)((void *) (arg0)), (s32)((int) (get_localized_text_entry((int) (0x1C), (int) (0xB)))), (s32)((int) (1)), (s32)((int) (0)), (s32)((int) (0))));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x58) != 0U) {
         ((M2C_UNK)TAdPlyStatusGC__sub_802E11C8(M2C_FIELD(arg0, void **, 0x58)));
     }

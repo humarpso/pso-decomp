@@ -44,7 +44,7 @@ int get_card_id__17TWindowSubComCardFPv(void);
 int TLobby__sub_802421C4(void);
 int TWindowSubComCard__sub_80265BF8(void*);
 void send_cmd_133__17TWindowSubComCardFv(void);
-s32 TWindowSubComCard__sub_8026CBB8(s32 a0 = 0);
+s32 get_window_layout_position(s32 a0 = 0);
 int fn_802754EC(void);
 
 void set_card_index__17TWindowSubComCardFPvi(void *arg0, s32 arg1) {

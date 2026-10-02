@@ -29,7 +29,7 @@ s32 TLevelSelect__sub_801F441C(int, int);
 int TLevelSelect__sub_80132F9C(void);
 void TKeyBoardControl__sub_8000F9CC(s32);
 void queue_destruction__7TObjectFv(void *);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+s32 get_localized_text_entry(s32, s32);
 s32 get_selected_slot__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801334DC(s32);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, s32);
@@ -56,7 +56,7 @@ void __ct__14TAdSelectTxtGCFv(void *, void *, void *, int);
 void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
 void TLevelSelect__sub_802AEBE4(void *, void *);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+s32 get_localized_text_entry(s32, s32);
 void set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(s32, s32, u32);
 void TAdMcSelectGC__sub_80019DA8(void *, s32, f32);
 extern Ents_8013319C lbl_8043ED28;
@@ -98,7 +98,7 @@ int TLevelSelect__sub_80132F9C(void) {
 void run_task__12TLevelSelectFv(Self_80133068 *self) {
     TAdMultiChgGameModeGC__sub_8023E834();
     if (lbl_805D5550 != TAdSinglePlyChrSelectGC__sub_801334DC(self->f20)) {
-        set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(self->f24, 1, TAdSinglePlyChrSelectGC__sub_80132F2C(0xD, TAdSinglePlyChrSelectGC__sub_801334DC(self->f20) + 1));
+        set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(self->f24, 1, get_localized_text_entry(0xD, TAdSinglePlyChrSelectGC__sub_801334DC(self->f20) + 1));
     }
     lbl_805D5550 = TAdSinglePlyChrSelectGC__sub_801334DC(self->f20);
     switch (get_selected_slot__23TAdSinglePlyChrSelectGCFPv(self->f20)) {
@@ -176,8 +176,8 @@ Self_8013319C *__ct__12TLevelSelectFv(Self_8013319C *self) {
                 p = __ct__13TAdGuideTxtGCFv(p, self);
             }
             self->guide = p;
-            ((void (*)(void *, s32, u32))set_entry_value__22TAdMultiPlyChrSelectGCFiiUi)(self->guide, 0, TAdSinglePlyChrSelectGC__sub_80132F2C(0xD, 0));
-            ((void (*)(void *, s32, u32))set_entry_value__22TAdMultiPlyChrSelectGCFiiUi)(self->guide, 1, TAdSinglePlyChrSelectGC__sub_80132F2C(0xD, 1));
+            ((void (*)(void *, s32, u32))set_entry_value__22TAdMultiPlyChrSelectGCFiiUi)(self->guide, 0, get_localized_text_entry(0xD, 0));
+            ((void (*)(void *, s32, u32))set_entry_value__22TAdMultiPlyChrSelectGCFiiUi)(self->guide, 1, get_localized_text_entry(0xD, 1));
             switch (self->count) {
             case 1:
                 TLevelSelect__sub_802AEBE4(self->cur, &poss.p[1]);

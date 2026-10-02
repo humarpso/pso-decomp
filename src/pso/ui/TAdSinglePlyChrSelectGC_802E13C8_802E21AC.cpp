@@ -19,7 +19,7 @@ void TAdSinglePlyChrSelectGC__sub_802E22A4(u8 *arg0);
 extern "C" {
 
 void build_selection_summary__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
-M2C_UNK *TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
+M2C_UNK *get_localized_text_entry(M2C_UNK, M2C_UNK);
 M2C_UNK strcat(void *, void *);
 M2C_UNK close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void *, void *, int, int, int);
 M2C_UNK create_backgrounds__23TAdSinglePlyChrSelectGCFPv();
@@ -30,18 +30,18 @@ void build_selection_summary__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     create_backgrounds__23TAdSinglePlyChrSelectGCFPv();
     M2C_FIELD(arg0, s8 *, 0x68) = 0;
     if (M2C_FIELD(arg0, s32 *, 0x44) & 0x80) {
-        strcat((void *) (arg0 + 0x68), (void *) (TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 0x1D)));
+        strcat((void *) (arg0 + 0x68), (void *) (get_localized_text_entry(0x1C, 0x1D)));
         strcat((void *) (arg0 + 0x68), (void *) (&lbl_805DE8F8));
     }
     if (M2C_FIELD(arg0, s32 *, 0x44) & 0x100) {
-        strcat((void *) (arg0 + 0x68), (void *) (TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 0x1E)));
+        strcat((void *) (arg0 + 0x68), (void *) (get_localized_text_entry(0x1C, 0x1E)));
         strcat((void *) (arg0 + 0x68), (void *) (&lbl_805DE8F8));
     }
     if (M2C_FIELD(arg0, s32 *, 0x44) & 0x200) {
-        strcat((void *) (arg0 + 0x68), (void *) (TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 0x1F)));
+        strcat((void *) (arg0 + 0x68), (void *) (get_localized_text_entry(0x1C, 0x1F)));
         strcat((void *) (arg0 + 0x68), (void *) (&lbl_805DE8F8));
     }
-    close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv((void *) (arg0), (void *) (arg0 + 0x68), (int) (1), (int) (TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 0x2A)), (int) (TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 0x2B)));
+    close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv((void *) (arg0), (void *) (arg0 + 0x68), (int) (1), (int) (get_localized_text_entry(0x1C, 0x2A)), (int) (get_localized_text_entry(0x1C, 0x2B)));
 }
 void TAdSinglePlyChrSelectGC__sub_802E22A4(u8 *arg0) {
     s32 temp_r3;

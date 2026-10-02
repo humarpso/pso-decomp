@@ -10,7 +10,7 @@ struct Res_8018BB64 { u8 pad[0x430]; s32 x430; };
 
 extern "C" {
 s32 TObjFish__sub_8001EDB0(u32, int);
-s32 TObjFish__sub_8001EDC4(u32, int);
+s32 get_bml_model(u32, int);
 void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 TContainerAncient01__sub_8020335C();
@@ -73,7 +73,7 @@ void TContainerAncient01__sub_8018BB64(void) {
     }
     Param_8018BB64 prm = lbl_80445084[0];
     prm.a = ((Res_8018BB64 *)TContainerAncient01__data_805D5B90)->x430;
-    spawn_attack__16TObjEneMe3StelthFsiiiff(0x3B, TObjFish__sub_8001EDC4(TContainerAncient01__data_805D5B90, 0),
+    spawn_attack__16TObjEneMe3StelthFsiiiff(0x3B, get_bml_model(TContainerAncient01__data_805D5B90, 0),
                                             TObjFish__sub_8001EDB0(TContainerAncient01__data_805D5B90, 0), &prm,
                                             TContainerAncient01__data_805DBD20, TContainerAncient01__data_805DBD14);
 }

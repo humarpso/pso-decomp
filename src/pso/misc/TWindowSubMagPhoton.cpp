@@ -74,7 +74,7 @@ s32 TWindowSubStatusDisp__sub_80248BE8(M2C_UNK, void *, int);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
 s32 test_keyboard_card_flag4(int);
 M2C_UNK ensure_status_display__20TWindowSubStatusDispFPvi(int, int);
-M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK get_window_layout_position(M2C_UNK);
 extern u8 lbl_8044FA28[];
 s32 TWindowSubStatusDisp__sub_8027C884(u8 *arg0, s32 arg1);
 }
@@ -91,7 +91,7 @@ M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 TWindowSubComCard__sub_80265BF8(s32);
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
 M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
-M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK get_window_layout_position(M2C_UNK);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
 M2C_UNK TWindowSubQuestBoard__sub_8027CF50(s32, s32);
 void __dl__7TObjectFPv(void *);
@@ -267,7 +267,7 @@ s32 TWindowSubStatusDisp__sub_8027C884(u8 *arg0, s32 arg1) {
     s16 var_r29;
     s32 temp_r31;
     s32 temp_r3;
-    temp_r31 = TWindowSubStatusDisp__sub_80248BE8(TWindowSubComCard__sub_8026CBB8(0x16), lbl_8044FA28, M2C_FIELD(arg0, s32 *, 0x20));
+    temp_r31 = TWindowSubStatusDisp__sub_80248BE8(get_window_layout_position(0x16), lbl_8044FA28, M2C_FIELD(arg0, s32 *, 0x20));
     switch (arg1) {
     case 0:
         ensure_status_display__20TWindowSubStatusDispFPvi((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x66))));
@@ -322,7 +322,7 @@ s32 TWindowSubStatusDisp__sub_8027C884(u8 *arg0, s32 arg1) {
 s32 create_option_menu_window(void *arg0) {
     s32 temp_r31;
 
-    temp_r31 = fn_8026652C(TWindowSubComCard__sub_8026CBB8(0x15), 6, get_message_10__20TWindowSubStatusDispFPv(0x2A), M2C_FIELD(arg0, s32 *, 0x20));
+    temp_r31 = fn_8026652C(get_window_layout_position(0x15), 6, get_message_10__20TWindowSubStatusDispFPv(0x2A), M2C_FIELD(arg0, s32 *, 0x20));
     if (is_split_screen() == 0) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x66), 6, 0);
     }

@@ -44,10 +44,10 @@ M2C_UNK warn_if_gauge_low__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_80364028();
 M2C_UNK TObjPlayer__sub_8036414C();
 M2C_UNK TObjPlayer__sub_80364198();
-M2C_UNK TObjPlayer__sub_803D97F0();
+M2C_UNK push_matrix_from();
 M2C_UNK pop_matrix();
 M2C_UNK fn_803DC86C(int, int, int, int);
-M2C_UNK TObjFish__sub_803E46BC(int);
+M2C_UNK draw_chunk_object(int);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
@@ -80,7 +80,7 @@ s32 TObjPlayer__sub_80120908(void *arg0) {
         }
         notify_fish_if_valid__10TObjPlayerFUi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         get_item_ptr__10TObjPlayerFPvi((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (void *) ((s8)TObjPlayer__sub_8010A770((void *) (arg0))));
-        TObjPlayer__sub_803D97F0();
+        push_matrix_from();
         if ((var_r30 != 0) && (get_flag_40__8TItemMagFPv((void *) (arg0)) == 0)) {
             lbl_805D5514 = (u8 *)arg0;
             lbl_805D5510 = M2C_FIELD(arg0, s16 *, 0x1CC);
@@ -103,7 +103,7 @@ s32 TObjPlayer__sub_80120908(void *arg0) {
                 TObjPlayer__sub_801415BC();
                 if ((u32) M2C_FIELD(arg0, u32 *, 0x17C) == 0U) {
                     if (test_flags_1b8__10TObjPlayerFPvUi((void *) (arg0), (int) (0x800000)) != 0U) {
-                        TObjFish__sub_803E46BC((int) (M2C_FIELD(arg0, u32 *, 0xF4)));
+                        draw_chunk_object((int) (M2C_FIELD(arg0, u32 *, 0xF4)));
                     } else {
                         run_with_callback__10TObjPlayerFPvi((void *) (arg0), (void *) (0));
                     }
@@ -117,7 +117,7 @@ s32 TObjPlayer__sub_80120908(void *arg0) {
                 if (test_flags_1b8__10TObjPlayerFPvUi((void *) (arg0), (int) (0x40)) != 0U) {
                     apply_sign_effect__10TObjPlayerFPvi((void *) (arg0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s32 *, 0xDB4)));
                 } else if (test_flags_1b8__10TObjPlayerFPvUi((void *) (arg0), (int) (0x800000)) != 0U) {
-                    TObjFish__sub_803E46BC((int) (M2C_FIELD(arg0, u32 *, 0xF4)));
+                    draw_chunk_object((int) (M2C_FIELD(arg0, u32 *, 0xF4)));
                 } else {
                     run_with_callback__10TObjPlayerFPvi((void *) (arg0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s32 *, 0xDB4)));
                 }

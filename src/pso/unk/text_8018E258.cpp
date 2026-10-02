@@ -10,7 +10,7 @@ extern "C" {
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(int);
 s32 get_player_by_client_id(int);
-f32 TObjPlayer__sub_803E1A58(void *, void *);
+f32 xyz_distance(void *, void *);
 
 s32 fn_8018E258(TObjDoor* arg0, s32 arg1, f32 farg0) {
     s32 temp_r31;
@@ -27,7 +27,7 @@ loop_2:
         temp_r3 = get_player_by_client_id((int) (var_r29));
         if (temp_r3 != 0) {
             temp_r31 = get_current_floor();
-            if ((get_field_3e4__10TObjPlayerFPv((int) (temp_r3)) == temp_r31) && (TObjPlayer__sub_803E1A58(arg0->position, (void *) (temp_r3 + 0x38)) < farg0)) {
+            if ((get_field_3e4__10TObjPlayerFPv((int) (temp_r3)) == temp_r31) && (xyz_distance(arg0->position, (void *) (temp_r3 + 0x38)) < farg0)) {
                 return 0;
             }
         }
@@ -42,7 +42,7 @@ loop_10:
         temp_r3_2 = get_player_by_client_id((int) (var_r29_2));
         if (temp_r3_2 != 0) {
             temp_r31_2 = get_current_floor();
-            if ((get_field_3e4__10TObjPlayerFPv((int) (temp_r3_2)) == temp_r31_2) && (TObjPlayer__sub_803E1A58(arg0->position, (void *) (temp_r3_2 + 0x38)) < farg0)) {
+            if ((get_field_3e4__10TObjPlayerFPv((int) (temp_r3_2)) == temp_r31_2) && (xyz_distance(arg0->position, (void *) (temp_r3_2 + 0x38)) < farg0)) {
                 return 1;
             }
         }

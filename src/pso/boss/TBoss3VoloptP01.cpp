@@ -227,7 +227,7 @@ void set_flags__11TBoss4Type2FPvUi(void *, u32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK TObjPlayer__sub_80042DE8(void *);
 s32 TBoss3VoloptP01__sub_8004301C(void *);
-u8 *TBoss4Type2__sub_800874F4(void *, M2C_UNK);
+u8 *create_particle_emitter(void *, M2C_UNK);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -269,7 +269,7 @@ s32 TBoss3Volopt__sub_8003F398();
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TBoss8Dragon__sub_803D64C0(s32);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjFish__sub_803E46BC(void *);
+M2C_UNK draw_chunk_object(void *);
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
@@ -359,7 +359,7 @@ void TBoss3VoloptP01__sub_8004354C(u8 *arg0) {
         break;
     case 2:
         if ((void *) M2C_FIELD(arg0, u8 **, 0x3B0) == NULL) {
-            M2C_FIELD(arg0, u8 **, 0x3B0) = TBoss4Type2__sub_800874F4(arg0 + 0x2FC, 0x21);
+            M2C_FIELD(arg0, u8 **, 0x3B0) = create_particle_emitter(arg0 + 0x2FC, 0x21);
             set_flags__11TBoss4Type2FPvUi(M2C_FIELD(arg0, u8 **, 0x3B0), 0x40U);
         }
         M2C_FIELD(arg0, s32 *, 0x37C) = 3;
@@ -517,7 +517,7 @@ void render__15TBoss3VoloptP01Fv(u8 *arg0) {
         if (check_demo_mode__10TObjPlayerFv() == 1) {
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-            TObjFish__sub_803E46BC(M2C_FIELD(arg0, void **, 0x34));
+            draw_chunk_object(M2C_FIELD(arg0, void **, 0x34));
         } else {
             translate_matrix(0, M2C_FIELD(arg0, f32 *, 0x38), M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x38C), M2C_FIELD(arg0, f32 *, 0x40));
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));

@@ -75,7 +75,7 @@ void TObjEneMe3ShinowaMirage__sub_800E7378(u8 *arg0);
 s32 update_player_state__9TObjEneDDFPv(void *, void *, int);
 extern RecoveredGlobal_800E7324_lbl_8043CF94 lbl_8043CF94;
 void TObjEneMe3ShinowaMirage__sub_800E7324(u8 *arg0);
-s32 TObjPlayer__sub_803D97F0(void *);
+s32 push_matrix_from(void *);
 void TObjPlayer__sub_803D7B68(s32, f32);
 s32 TObjPlayer__sub_803D7CA4(void *);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
@@ -202,7 +202,7 @@ f32 TObjEneMe3ShinowaMirage__sub_800E75AC(Obj_800E75AC *self) {
     v.x = TObjEneMe3ShinowaMirage__data_805DA5B8;
     v.y = TObjEneMe3ShinowaMirage__data_805DA5B8;
     v.z = TObjEneMe3ShinowaMirage__data_805DA5B8;
-    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    push_matrix_from(lbl_8058D490);
     TObjPlayer__sub_803D7B68(self->ff8, self->fc0);
     node = self->node;
     TObjPlayer__sub_803D7CA4(node);

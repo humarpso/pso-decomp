@@ -56,7 +56,7 @@ void copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK TBoss4Type2__sub_800542B0(void *, int);
 M2C_UNK TBoss4Type2__sub_80054DA8();
 M2C_UNK TBoss4Type2__sub_80054F6C();
-u32 TBoss4Type2__sub_800874F4(int, int);
+u32 create_particle_emitter(int, int);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 extern const f32 lbl_805D8AF8;
 extern const f32 lbl_805D8AFC;
@@ -101,7 +101,7 @@ u8 *dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 M2C_UNK TBoss4Type2__sub_800542B0(void *, int);
 void request_destroy__11TBoss4Type2FUi(u32);
 void spawn_particle_effect(void *, s32);
-u32 TBoss4Type2__sub_800874F4(int, int);
+u32 create_particle_emitter(int, int);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
@@ -178,14 +178,14 @@ void TBoss4Type2__sub_800525AC(u8 *arg0) {
             }
         } else if (temp_f1 >= lbl_805D8AFC) {
             if ((u32) M2C_FIELD(arg0, u32 *, 0x41C) == 0) {
-                temp_r3_3 = TBoss4Type2__sub_800874F4((int) (temp_r31), (int) (0x142));
+                temp_r3_3 = create_particle_emitter((int) (temp_r31), (int) (0x142));
                 M2C_FIELD(arg0, u32 *, 0x41C) = temp_r3_3;
                 if (temp_r3_3 != 0) {
                     set_flags__11TBoss4Type2FPvUi((void *) M2C_FIELD(arg0, u32 *, 0x41C), 0x40U);
                 }
             }
             if ((u32) M2C_FIELD(arg0, u32 *, 0x424) == 0) {
-                temp_r3_4 = TBoss4Type2__sub_800874F4((int) (temp_r30), (int) (0x142));
+                temp_r3_4 = create_particle_emitter((int) (temp_r30), (int) (0x142));
                 M2C_FIELD(arg0, u32 *, 0x424) = temp_r3_4;
                 if (temp_r3_4 != 0) {
                     set_flags__11TBoss4Type2FPvUi((void *) M2C_FIELD(arg0, u32 *, 0x424), 0x40U);
@@ -226,7 +226,7 @@ void TBoss4Type2__sub_800525AC(u8 *arg0) {
             }
         } else if (temp_f1_2 >= lbl_805D8B04) {
             if ((u32) M2C_FIELD(arg0, u32 *, 0x41C) == 0) {
-                temp_r3_11 = TBoss4Type2__sub_800874F4((int) (temp_r31), (int) (0x13A));
+                temp_r3_11 = create_particle_emitter((int) (temp_r31), (int) (0x13A));
                 M2C_FIELD(arg0, u32 *, 0x41C) = temp_r3_11;
                 if (temp_r3_11 != 0) {
                     set_flags__11TBoss4Type2FPvUi((void *) M2C_FIELD(arg0, u32 *, 0x41C), 0x40U);
@@ -234,21 +234,21 @@ void TBoss4Type2__sub_800525AC(u8 *arg0) {
                 TBoss3Volopt__sub_8022675C((int) (0x40039717), (void *) (arg0 + 0x38), (int) (0), (int) (1));
             }
             if ((u32) M2C_FIELD(arg0, u32 *, 0x420) == 0) {
-                temp_r3_12 = TBoss4Type2__sub_800874F4((int) (temp_r31), (int) (0x13B));
+                temp_r3_12 = create_particle_emitter((int) (temp_r31), (int) (0x13B));
                 M2C_FIELD(arg0, u32 *, 0x420) = temp_r3_12;
                 if (temp_r3_12 != 0) {
                     set_flags__11TBoss4Type2FPvUi((void *) M2C_FIELD(arg0, u32 *, 0x420), 0x40U);
                 }
             }
             if ((u32) M2C_FIELD(arg0, u32 *, 0x424) == 0) {
-                temp_r3_13 = TBoss4Type2__sub_800874F4((int) (temp_r30), (int) (0x13A));
+                temp_r3_13 = create_particle_emitter((int) (temp_r30), (int) (0x13A));
                 M2C_FIELD(arg0, u32 *, 0x424) = temp_r3_13;
                 if (temp_r3_13 != 0) {
                     set_flags__11TBoss4Type2FPvUi((void *) M2C_FIELD(arg0, u32 *, 0x424), 0x40U);
                 }
             }
             if ((u32) M2C_FIELD(arg0, u32 *, 0x428) == 0) {
-                temp_r3_14 = TBoss4Type2__sub_800874F4((int) (temp_r30), (int) (0x13B));
+                temp_r3_14 = create_particle_emitter((int) (temp_r30), (int) (0x13B));
                 M2C_FIELD(arg0, u32 *, 0x428) = temp_r3_14;
                 if (temp_r3_14 != 0) {
                     set_flags__11TBoss4Type2FPvUi((void *) M2C_FIELD(arg0, u32 *, 0x428), 0x40U);
@@ -311,7 +311,7 @@ void TBoss4Type2__sub_8005294C(u8 *arg0) {
             M2C_FIELD(arg0, u32 *, 0x418) = 0;
         }
     } else if (M2C_FIELD(arg0, f32 *, 0x3E8) >= lbl_805D8B14 && M2C_FIELD(arg0, u32 *, 0x418) == 0) {
-        if ((M2C_FIELD(arg0, u32 *, 0x418) = TBoss4Type2__sub_800874F4((int)ent, 0xF7)) != 0) {
+        if ((M2C_FIELD(arg0, u32 *, 0x418) = create_particle_emitter((int)ent, 0xF7)) != 0) {
             set_flags__11TBoss4Type2FPvUi((void *)M2C_FIELD(arg0, u32 *, 0x418), 0x40);
         }
     }

@@ -185,7 +185,7 @@ struct Mine_80038200 : Base_80038200 {
 
 extern "C" {
 f32 TBoss2DeRolLe__sub_80034CEC(void);
-s32 TLobby__sub_800869A4(s32, s32, s32, s32);
+s32 create_timed_particle_emitter(s32, s32, s32, s32);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
 void TObjEneDD__sub_800BA5A4(s32, s32);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
@@ -207,7 +207,7 @@ void pop_matrix(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(void *);
 void set_chunk_material_color(void *);
-void TObjFish__sub_803E46BC(void *);
+void draw_chunk_object(void *);
 extern Vec_80038200 lbl_80435AD0;
 extern Col_80038200 lbl_80435ADC;
 extern void *lbl_805D28BC;
@@ -303,9 +303,9 @@ void render__10TBoss2MineFv(Mine_80038200 *self) {
         c.g = f;
         c.r = -f;
         set_chunk_material_color(&c);
-        TObjFish__sub_803E46BC(self->model);
+        draw_chunk_object(self->model);
     } else {
-        TObjFish__sub_803E46BC(self->model);
+        draw_chunk_object(self->model);
     }
     pop_matrix();
     if (self->f326 == 3) {
@@ -313,7 +313,7 @@ void render__10TBoss2MineFv(Mine_80038200 *self) {
         f32 s = lbl_805D850C * self->f3AC;
         TOHangerMachine01__sub_803D9C00(&self->pos);
         scale_matrix(0, s, TBoss2Mine__data_805D84D8, s);
-        TObjFish__sub_803E46BC(lbl_805D28BC);
+        draw_chunk_object(lbl_805D28BC);
         pop_matrix();
     }
     some_id_805c6f74 = lbl_805D5660;
@@ -363,7 +363,7 @@ void TBoss2Mine__vt105(u8 *arg0, s32 arg1) {
       *((s32 *) (((s8 *) arg0) + 0x3B0)) = 0;
       *((s32 *) (((s8 *) arg0) + 0x3C8)) = 0;
       *((s32 *) (((s8 *) arg0) + 0x3CC)) = 0;
-      TLobby__sub_800869A4((*((s32 *) (((s8 *) arg0) + 0xA4))) + 0x1C, 0x16A, 0, 6);
+      create_timed_particle_emitter((*((s32 *) (((s8 *) arg0) + 0xA4))) + 0x1C, 0x16A, 0, 6);
       return;
     case 3:
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x3CC)))) == 2)

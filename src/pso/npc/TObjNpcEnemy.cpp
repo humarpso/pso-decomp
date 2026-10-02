@@ -177,14 +177,14 @@ void *__dt__12TObjNpcEnemyFv(void *arg0, s16 arg1);
 void render__12TObjNpcEnemyFv(u8 *arg0);
 void set_npc_data__12TObjNpcEnemyFPvPv(void *arg0, void *arg1);
 void update_state__12TObjNpcEnemyFPv(void *arg0);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
+M2C_UNK draw_ginja_object(s32);
 void *TObjControl__ct(void *, void *);
-M2C_UNK TObjFish__sub_803E46BC(s32);
+M2C_UNK draw_chunk_object(s32);
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, int, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D97F0(int);
+M2C_UNK push_matrix_from(int);
 M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void __dt__11TObjNpcBaseFv(void *, int);
@@ -346,7 +346,7 @@ void update_state__12TObjNpcEnemyFPv(void *arg0) {
     switch ((s32) temp_r0) {
     case 0:
         set_global_flag__10TObjPlayerFv(arg0);
-        TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
+        draw_chunk_object(M2C_FIELD(arg0, s32 *, 0x34));
         reset_transform_state__10TObjPlayerFv();
         clear_global_state__10TObjPlayerFv();
         return;
@@ -355,7 +355,7 @@ void update_state__12TObjNpcEnemyFPv(void *arg0) {
         return;
     case 2:
         set_global_flag__10TObjPlayerFv(arg0);
-        TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x34));
+        draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
         reset_transform_state__10TObjPlayerFv();
         clear_global_state__10TObjPlayerFv();
         return;
@@ -378,7 +378,7 @@ void render__12TObjNpcEnemyFv(u8 *arg0) {
             some_id_805c6f74 |= 1;
         }
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-        TObjPlayer__sub_803D97F0((int) (0));
+        push_matrix_from((int) (0));
         set_position_vec3__10TObjPlayerFPvPv((int) (0), (void *) (arg0 + 0x38));
         temp_r4 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x3B8));
         translate_matrix((int) (0), (int) (temp_r4), (f32) (lbl_805DE7D8), (f32) (M2C_FIELD(temp_r4, f32 *, 4)), (f32) (lbl_805DE7D8));

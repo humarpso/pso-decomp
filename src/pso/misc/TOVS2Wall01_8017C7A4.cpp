@@ -43,7 +43,7 @@ int take_hit__11TOVS2Wall01FPvUi(void*);
 int TOVS2Wall01__vt22(void* p);
 int take_hit__11TOVS2Wall01FPvUi(void*);
 s32 TObjFish__sub_8001EDB0(int, void *);
-u8 *TObjFish__sub_8001EDC4(s32, s32);
+u8 *get_bml_model(s32, s32);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
 s32 init_map_object_base(void *, int);
@@ -57,7 +57,7 @@ extern const f32 lbl_805DBAB0;
 u8 *TOVS2Wall01__sub_8017C8EC(u8 *arg0, s32 arg1, s32 arg2);
 M2C_UNK add_entry__11TMotorcycleFsiiff(int, int, int, f32, f32);
 s32 TObjFish__sub_8001EDB0(int, void *);
-u8 *TObjFish__sub_8001EDC4(s32, s32);
+u8 *get_bml_model(s32, s32);
 s32 TLobby__sub_80020004(int, int, void *, int, int, int);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 extern RecoveredGlobal_8017C7DC_lbl_804B4EBC lbl_804B4EBC;
@@ -115,7 +115,7 @@ void TOVS2Wall01__sub_8017C7DC(void) {
   }
   (*(s32 *)&TOVS2Wall01__data_805D5AE8) = var_r0;
   ;
-  add_entry__11TMotorcycleFsiiff((int) 0x3A, (int) ((s32)TObjFish__sub_8001EDC4((s32)((int) (*(s32 *)&TOVS2Wall01__data_805D5AE8)), (s32)((int) 5))), (int) TObjFish__sub_8001EDB0((int)((int) var_r0), (void *)((int) 5)), (f32) lbl_805DBAB4, (f32) lbl_805DBAA8);
+  add_entry__11TMotorcycleFsiiff((int) 0x3A, (int) ((s32)get_bml_model((s32)((int) (*(s32 *)&TOVS2Wall01__data_805D5AE8)), (s32)((int) 5))), (int) TObjFish__sub_8001EDB0((int)((int) var_r0), (void *)((int) 5)), (f32) lbl_805DBAB4, (f32) lbl_805DBAA8);
 }
 
 void *destroy__11TOVS2Wall01FPvs(void *arg0, s16 arg1) {
@@ -139,7 +139,7 @@ u8 *TOVS2Wall01__sub_8017C8EC(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8017C8EC_lbl_804B528C *)&lbl_804B528C).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D31C4;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    M2C_FIELD(arg0, u8 **, 0x34) = TObjFish__sub_8001EDC4((*(s32 *)&TOVS2Wall01__data_805D5AE8), arg2);
+    M2C_FIELD(arg0, u8 **, 0x34) = get_bml_model((*(s32 *)&TOVS2Wall01__data_805D5AE8), arg2);
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (lbl_805DBAB0 + M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14));
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOVS2Wall01__data_805D5AE8)), (void *) (arg2));
     TObjEneGibbles__sub_80156780((void *) (arg0), (void *) ((u8 *)&lbl_804B4ECC.value + (arg2 * 0x2C)), (int) (1));

@@ -14,7 +14,7 @@ extern "C" {
 s32 obj_getField1c(s32);
 s32 TBoss7LaserPtcl__sub_80086C6C(void *, void *, int, int);
 s32 set_owner_id__13TParticleCtrlFPvUs(s32, s32);
-void TObjPlayer__sub_80010A84(s32 arg0);
+void enemy_spawn_zalure_effect(s32 arg0);
 }
 
 extern "C" {
@@ -29,7 +29,7 @@ void clear_s16_arrays__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_80010A78(void);
 void TObjPlayer__sub_80010A80(void);
 
-void TObjPlayer__sub_80010A84(s32 arg0) {
+void enemy_spawn_zalure_effect(s32 arg0) {
     Stack_80010A84 stack;
     s32 temp_r3;
     stack.spC = 0;

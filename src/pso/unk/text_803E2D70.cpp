@@ -117,7 +117,7 @@ void TObjPlayer__sub_803E4354(void *);
 void TObjPlayer__sub_803E44D4(void *);
 void TObjPlayer__sub_803E2F78(void *, void (*)(void *));
 void TObjPlayer__sub_803E4468(void);
-void TObjFish__sub_803E46BC(void *arg0);
+void draw_chunk_object(void *arg0);
 extern s32 lbl_805D7774;
 void TObjPlayer__sub_803E2F28(struct Mtx_803DC994 *src);
 s32 __cvt_fp2unsigned(f32);
@@ -410,7 +410,7 @@ void TObjPlayer__sub_803E4684(void *arg0) {
 
 #pragma push
 #pragma scheduling off
-void TObjFish__sub_803E46BC(void *arg0) {
+void draw_chunk_object(void *arg0) {
     TObjPlayer__sub_803E4354(arg0);
     TObjPlayer__sub_803E2F78(arg0, TObjPlayer__sub_803E44D4);
     TObjPlayer__sub_803E4468();

@@ -97,7 +97,7 @@ extern u8 lbl_804783D8[];
 extern const f32 lbl_805DFAEC;
 s32 TAdPlyStatusGC__sub_8033F8B0(void *arg0, void *arg1);
 M2C_UNK disallow_rendering__7TObjectFv();
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+s32 get_localized_text_entry(int, int);
 void __ct__7TObjectFP7TObject(void *, void *);
 void fn_8032D9BC(void *, void *);
 u32 get_player_index__14TAdPlyStatusGCFv();
@@ -112,7 +112,7 @@ extern const f32 lbl_805DFAF0;
 extern const f32 lbl_805DFAF4;
 TAdPlyStatusGC_8033FC14 *TAdPlyStatusGC__ct(TAdPlyStatusGC_8033FC14 *self, void *parent, s32 arg2);
 u32 get_stat_table_entry__9TObjLukerFi(int);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+s32 get_localized_text_entry(int, int);
 Save_8033F6A8 *TAdSinglePlyChrSelectGC__sub_801FE3E4(u32);
 u8 *get_entry__23TAdSinglePlyChrSelectGCFi(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FE800(s32);
@@ -196,12 +196,12 @@ void TAdPlyStatusGC__sub_8033F6A8(char *buf) {
         }
         flags = card.f32;
         if (flags & 2) {
-            sprintf(buf, lbl_805DFAE8, TAdSinglePlyChrSelectGC__sub_80132F2C(0x26, 0));
+            sprintf(buf, lbl_805DFAE8, get_localized_text_entry(0x26, 0));
         } else {
             sprintf(buf, lbl_805DFAE8, TWindowComCard__sub_80249C28(card.f31));
         }
         if (flags & 1) {
-            sprintf(buf + 0x10, lbl_805DFAE8, TAdSinglePlyChrSelectGC__sub_80132F2C(0x26, 0));
+            sprintf(buf + 0x10, lbl_805DFAE8, get_localized_text_entry(0x26, 0));
         } else {
             sprintf(buf + 0x10, lbl_805DFAE8, get_stat_table_entry__9TObjLukerFi(card.f30));
         }
@@ -318,7 +318,7 @@ TAdPlyStatusGC_8033FC14 *TAdPlyStatusGC__ct(TAdPlyStatusGC_8033FC14 *self, void 
     self->elems[0].b = lbl_805DFAF4;
     self->elems[0].c = lbl_805DFAF0;
     self->elems[0].d = lbl_805DFAF4;
-    self->elems[0].handle = TAdSinglePlyChrSelectGC__sub_80132F2C(0x26, 4);
+    self->elems[0].handle = get_localized_text_entry(0x26, 4);
     self->elems[0].f14 = 0;
     self->elems[0].f18 = 8;
     self->elems[0].f1C = 0x1E;
@@ -327,7 +327,7 @@ TAdPlyStatusGC_8033FC14 *TAdPlyStatusGC__ct(TAdPlyStatusGC_8033FC14 *self, void 
     self->elems[1].b = lbl_805DFAF4;
     self->elems[1].c = lbl_805DFAF0;
     self->elems[1].d = lbl_805DFAF4;
-    self->elems[1].handle = TAdSinglePlyChrSelectGC__sub_80132F2C(0x26, 5);
+    self->elems[1].handle = get_localized_text_entry(0x26, 5);
     self->elems[1].f14 = 0;
     self->elems[1].f18 = 8;
     self->elems[1].f1C = 0x1E;

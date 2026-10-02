@@ -14,7 +14,7 @@ struct Date_802E11D4 { u16 year; u8 month; u8 day; u8 hour; u8 min; u8 sec; u8 w
 struct Clock_802E11D4 { u8 pad0[0x1C]; s32 visible; Pt_802E11D4 pos; };
 
 extern "C" {
-char *TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+char *get_localized_text_entry(s32, s32);
 u32 TWindowSubStatusDisp__sub_80144D68(void *);
 u32 TWindowSubStatusDisp__sub_80144E9C(void *);
 void render_status_disp__23TAdSinglePlyChrSelectGCFPvff(void *, f32, f32);
@@ -87,19 +87,19 @@ void TAdSinglePlyChrSelectGC__sub_802E11D4(Clock_802E11D4 *self) {
     s32 wd;
     if (self->visible != 0) {
         Pt_802E11D4 pos = self->pos;
-        s = TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 0xC);
+        s = get_localized_text_entry(0x1C, 0xC);
         render_status_disp__23TAdSinglePlyChrSelectGCFPvff(s, -(lbl_805DE8E8 * (f32)TWindowSubStatusDisp__sub_80144D68(s) - pos.x), pos.y);
         pos.y += lbl_805DE8EC;
         getDateStamp__FP9DateStamp(&date);
         wd = date.wday + 13;
         switch (lbl_805D5544) {
         case 0:
-            sprintf(buf, lbl_8047294C, date.year, date.month, date.day, TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, wd));
+            sprintf(buf, lbl_8047294C, date.year, date.month, date.day, get_localized_text_entry(0x1C, wd));
             s = buf;
             w = lbl_805DE8F0 * (f32)TWindowSubStatusDisp__sub_80144D68(s);
             break;
         default:
-            sprintf(buf, lbl_8047295C, date.month, date.day, date.year, TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, wd));
+            sprintf(buf, lbl_8047295C, date.month, date.day, date.year, get_localized_text_entry(0x1C, wd));
             s = buf;
             w = lbl_805DE8F0 * (f32)TWindowSubStatusDisp__sub_80144E9C(s);
             break;

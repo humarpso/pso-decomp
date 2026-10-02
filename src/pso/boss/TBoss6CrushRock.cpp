@@ -17,7 +17,7 @@ struct Vec_8035A460 { f32 x, y, z; };
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TObjFish__sub_8001EDC4(int, void *);
+s32 get_bml_model(int, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 TBoss6Rock__sub_80353A04();
 s32 TBoss6Rock__sub_80353A0C();
@@ -54,7 +54,7 @@ u8 *__ct__15TBoss6CrushRockFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__15TBoss6CrushRock.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4408;
-    M2C_FIELD(arg0, s32 *, 0x1C) = TObjFish__sub_8001EDC4((int) (TBoss6Rock__sub_80353A0C()), (void *) (arg3));
+    M2C_FIELD(arg0, s32 *, 0x1C) = get_bml_model((int) (TBoss6Rock__sub_80353A0C()), (void *) (arg3));
     M2C_FIELD(arg0, s32 *, 0x20) = TBoss6Rock__sub_80353A04();
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x24), (void *) (arg2));
     M2C_FIELD(arg0, f32 *, 0x30) = (f32) (lbl_805E00C8 * ((lbl_805E00CC * (f32) rand()) - lbl_805E00C8));

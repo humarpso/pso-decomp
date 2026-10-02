@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-f32 fn_801315A0(void *, void *, void *);
+f32 xyz_distance_squared(void *, void *, void *);
 extern s32 lbl_805D4DF0;
 s32 fn_801908F8(s32 arg0, f32 farg0);
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -27,7 +27,7 @@ s32 fn_80190884(void *self, s32 cue) {
 }
 
 s32 fn_801908F8(s32 arg0, f32 farg0) {
-    return fn_801315A0((void *) (lbl_805D4DF0 + 0x178), (void *) (arg0 + 0x38), (void *) (arg0)) < farg0;
+    return xyz_distance_squared((void *) (lbl_805D4DF0 + 0x178), (void *) (arg0 + 0x38), (void *) (arg0)) < farg0;
 }
 
 }

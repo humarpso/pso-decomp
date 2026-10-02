@@ -58,7 +58,7 @@ struct Win_802649C0 {
 
 extern "C" {
 void update_submenu__15TWindowMainMenuFPv(void *arg0);
-M2C_UNK TWindowSubComCard__sub_8026CBB8(int);
+M2C_UNK get_window_layout_position(int);
 M2C_UNK TWindowMainMenu__sub_802ADADC(int, int);
 M2C_UNK TWindowMainMenu__sub_802ADD38(int, void *);
 u32 create_menu__15TWindowMainMenuFPvPv(void *, int);
@@ -89,7 +89,7 @@ s32 get_menu_flag__15TWindowMainMenuFPv(u32);
 void TWindowMainMenu__sub_802647CC(Menu_802647CC *arg0);
 s32 TWindowMainMenu__sub_80263E40(void *, s16 *, s32 *);
 void update_description_text__15TWindowMainMenuFPvi(void *, int);
-M2C_UNK TWindowSubComCard__sub_8026CBB8(int);
+M2C_UNK get_window_layout_position(int);
 s32 TWindowMainMenu__sub_802ADAAC(u32);
 M2C_UNK TWindowMainMenu__sub_802ADADC(int, int);
 void update_if_active__15TWindowMainMenuFv(int, int);
@@ -148,7 +148,7 @@ void close__15TWindowMainMenuFPv(void* p) { if (*(unsigned int*)((char*)p + 0x1c
 void TWindowMainMenu__sub_80264674(u8 *arg0, s16 arg1) {
     u32 temp_r31;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
-        M2C_FIELD(arg0, u32 *, 0x1C) = create_menu__15TWindowMainMenuFPvPv((void *)(TWindowSubComCard__sub_8026CBB8((int) (0x1A))), (int) (M2C_FIELD(arg0, s32 *, 0x54)));
+        M2C_FIELD(arg0, u32 *, 0x1C) = create_menu__15TWindowMainMenuFPvPv((void *)(get_window_layout_position((int) (0x1A))), (int) (M2C_FIELD(arg0, s32 *, 0x54)));
     }
     temp_r31 = M2C_FIELD(arg0, u32 *, 0x1C);
     TWindowMainMenu__sub_802ADD38((int) (temp_r31), (void *) (arg1));
@@ -163,7 +163,7 @@ void TWindowMainMenu__sub_802646E4(u8 *arg0, Ent_802646E4 *arg1) {
     int w;
     s32 d;
     if (*(u32 *)(arg0 + 0x1C) == 0) {
-        *(u32 *)(arg0 + 0x1C) = create_menu__15TWindowMainMenuFPvPv((void *)TWindowSubComCard__sub_8026CBB8(0x1A), *(s32 *)(arg0 + 0x54));
+        *(u32 *)(arg0 + 0x1C) = create_menu__15TWindowMainMenuFPvPv((void *)get_window_layout_position(0x1A), *(s32 *)(arg0 + 0x54));
         *(s32 *)(arg0 + 0x48) = 0x1F;
     }
     w = *(int *)(arg0 + 0x1C);

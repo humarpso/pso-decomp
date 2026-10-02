@@ -72,7 +72,7 @@ bool TAdChrSelBSlotGC__sub_8030E378(M2C_UNK arg0, u32 arg1);
 s32 get_state_flag__9TMainTaskFv();
 void render__16TAdChrSelBSlotGCFv(void *self);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+s32 get_localized_text_entry(int, int);
 u8 * TAdSinglePlyChrSelectGC__sub_801FE3E4(u32);
 extern G_8030E3BC lbl_80542E78;
 G_8030E3BC *TAdChrSelBSlotGC__sub_8030E3BC(s32 arg0, s32 arg1, s32 arg2, void *arg3);
@@ -113,7 +113,7 @@ bool TAdChrSelBSlotGC__sub_8030E378(M2C_UNK arg0, u32 arg1) {
 G_8030E3BC *TAdChrSelBSlotGC__sub_8030E3BC(s32 arg0, s32 arg1, s32 arg2, void *arg3) {
     S_8030E3BC *e = (S_8030E3BC *)TAdSinglePlyChrSelectGC__sub_801FE3E4(arg2);
     lbl_80542E78.a = arg1;
-    lbl_80542E78.b = e != NULL ? e->x : TAdSinglePlyChrSelectGC__sub_80132F2C(0x16, 0x1C);
+    lbl_80542E78.b = e != NULL ? e->x : get_localized_text_entry(0x16, 0x1C);
     lbl_80542E78.c = e != NULL ? e->y + 1 : 0;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(lbl_80542E78.v, arg3);
     return &lbl_80542E78;

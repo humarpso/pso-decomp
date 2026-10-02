@@ -282,7 +282,7 @@ extern const f32 TObjEneRe4Bit__data_805DA770;
 void TObjEneRe4Bit__sub_800ECC14(u8 *arg0, s32 arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
-s32 TBoss8Dragon__sub_800BB780(void *);
+s32 clear_attack_receipts(void *);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1);
 void TObjEneRe4Bit__sub_800ED150(u8 *arg0);
@@ -323,7 +323,7 @@ int TObjPlayer__sub_803D9B2C();
 int pop_matrix();
 int TOHangerMachine01__sub_803D9C00(void *);
 int set_global_param__8TObjFishFi(void *);
-int TObjFish__sub_803E46BC(void *);
+int draw_chunk_object(void *);
 extern Vec_800ECA40 lbl_8043D2E0;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
@@ -389,7 +389,7 @@ void render__13TObjEneRe4BitFv(Bit_800ECA40 *self) {
         translate_matrix(0, TObjEneRe4Bit__data_805DA770, self->x300 - self->pos.y, TObjEneRe4Bit__data_805DA770);
         rotate_matrix_y(0, self->x60);
         scale_matrix(0, lbl_805DA774, lbl_805DA774, lbl_805DA774);
-        TObjFish__sub_803E46BC(self->x34);
+        draw_chunk_object(self->x34);
         pop_matrix();
     }
     self->light.l7();
@@ -461,7 +461,7 @@ void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1) {
       PSO_VCALL_VObj_18_f9c8ca_m100(arg0);
       return;
     case 5:
-      TBoss8Dragon__sub_800BB780((void *) arg0);
+      clear_attack_receipts((void *) arg0);
       return;
       break;
   }

@@ -35,7 +35,7 @@ typedef struct Obj_800A48C4 {
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-s32 TObjPlayer__sub_80141F84(s32, s32);
+s32 angle_difference_abs(s32, s32);
 u8 *get_player_by_client_id(s32);
 M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
 extern const f64 lbl_8043A8D0[];
@@ -46,7 +46,7 @@ extern "C" {
 
 void update_knockback_state__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK advance_animation_playback();
-M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK move_with_wall_slide(void *);
 M2C_UNK step_angle_clamped__10TObjPlayerFPvi(void *, M2C_UNK);
 M2C_UNK check_enemy_body_collisions(void *);
@@ -66,7 +66,7 @@ void update_knockback_state__10TObjPlayerFPv(u8 *arg0) {
     switch (temp_r0) {
     case 0:
         M2C_FIELD(arg0, s16 *, 0x328) = 1;
-        TObjPlayer__sub_80011734(arg0, 0, lbl_805D9A14);
+        apply_actor_gravity(arg0, 0, lbl_805D9A14);
         break;
     case 1:
         move_with_wall_slide(arg0);
@@ -79,7 +79,7 @@ void update_knockback_state__10TObjPlayerFPv(u8 *arg0) {
         break;
     case 2:
         if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800000)) {
-            TObjPlayer__sub_80011734(arg0, 0, lbl_805D9A14);
+            apply_actor_gravity(arg0, 0, lbl_805D9A14);
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0xB4) != 0x20U) {
             if ((s32) M2C_FIELD(arg0, s16 *, 0x388) <= 0) {
@@ -105,7 +105,7 @@ void TObjPlayer__sub_800A48C4(Obj_800A48C4 *o) {
         if (e != NULL) {
             VecCopy__FP3VecPC3Vec(&v, e + 0x2FC);
             TBoss6Type1__sub_803D9370(&v, &o->pos);
-            d = TObjPlayer__sub_80141F84(o->f60, (s32)(lbl_8043A8D0[0] * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)));
+            d = angle_difference_abs(o->f60, (s32)(lbl_8043A8D0[0] * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)));
         } else {
             d = 0;
         }

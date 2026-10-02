@@ -22,7 +22,7 @@ int TKeyBoardControl__sub_8000F828(void);
 void set_flags__10TObjPlayerFPvUi(void *, s32);
 u8 * init_forward__10TObjPlayerFPv(void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
-s32 TObjFish__sub_8001EDC4(void *, int);
+s32 get_bml_model(void *, int);
 M2C_UNK __ct__7TObjectFP7TObject();
 extern RecoveredGlobal_8001BD0C___vt__11TAdRicoRing __vt__11TAdRicoRing;
 extern s32 lbl_805D2618;
@@ -38,14 +38,14 @@ void set_scale4__15TAdRicoRingCtrlFPvf(void *arg0, f32 farg0);
 void update_position__11TAdRicoRingFPv(void *arg0);
 int TBoss7Tentacle__sub_803D8A6C(void*, void*, void*, void*);
 int TOHangerMachine01__sub_803D9C00(void*);
-int TObjFish__sub_803E46BC(void*);
+int draw_chunk_object(void*);
 int TObjPlayer__sub_803D9B2C(void*);
 int pop_matrix(void);
 int func_803e11e8__FUl(void*);
 int func_803e11f0__Fv(void);
 int set_global_param__8TObjFishFi(void*);
 
-void render__11TAdRicoRingFv(void* p) { TObjPlayer__sub_803D9B2C(p); set_global_param__8TObjFishFi(*(void**)((char*)p + 0x50)); TOHangerMachine01__sub_803D9C00((char*)p + 0x58); TBoss7Tentacle__sub_803D8A6C((void*)0, *(void**)((char*)p + 0x64), *(void**)((char*)p + 0x68), *(void**)((char*)p + 0x6c)); func_803e11e8__FUl((void*)1); TObjFish__sub_803E46BC(*(void**)((char*)p + 0x4c)); func_803e11e8__FUl((void*)2); TObjFish__sub_803E46BC(*(void**)((char*)p + 0x4c)); func_803e11f0__Fv(); pop_matrix(); }
+void render__11TAdRicoRingFv(void* p) { TObjPlayer__sub_803D9B2C(p); set_global_param__8TObjFishFi(*(void**)((char*)p + 0x50)); TOHangerMachine01__sub_803D9C00((char*)p + 0x58); TBoss7Tentacle__sub_803D8A6C((void*)0, *(void**)((char*)p + 0x64), *(void**)((char*)p + 0x68), *(void**)((char*)p + 0x6c)); func_803e11e8__FUl((void*)1); draw_chunk_object(*(void**)((char*)p + 0x4c)); func_803e11e8__FUl((void*)2); draw_chunk_object(*(void**)((char*)p + 0x4c)); func_803e11f0__Fv(); pop_matrix(); }
 
 void set_scale4__15TAdRicoRingCtrlFPvf(void *arg0, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 0x1C) = farg0;
@@ -109,7 +109,7 @@ u8 *__ct__11TAdRicoRingFv(u8 *arg0) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__11TAdRicoRing.value;
     init_forward__10TObjPlayerFPv(arg0 + 0x2C);
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2618;
-    M2C_FIELD(arg0, s32 *, 0x4C) = TObjFish__sub_8001EDC4((void *) (lbl_805D4A00), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x4C) = get_bml_model((void *) (lbl_805D4A00), (int) (0));
     M2C_FIELD(arg0, s32 *, 0x50) = TObjFish__sub_8001EDB0((void *) (lbl_805D4A00), (int) (0));
     M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805D7E4C;
     M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805D7E4C;

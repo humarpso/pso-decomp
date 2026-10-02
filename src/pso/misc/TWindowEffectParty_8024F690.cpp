@@ -23,7 +23,7 @@ extern "C" {
 void calc_effect_position__18TWindowEffectPartyFPvPv(void *arg0, void *arg1);
 void set_slot_position__18TWindowEffectPartyFiiPv(s32 arg0, s32 arg1, void *arg2);
 void *TWindowCtrl__sub_8024FB80(s8);
-s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+s32 get_window_layout_position(M2C_UNK);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, s32);
 f32 get_scale__15TWindowCtrlMainFv(s32);
 
@@ -65,7 +65,7 @@ void set_slot_position__18TWindowEffectPartyFiiPv(s32 arg0, s32 arg1, void *arg2
     (void)arg0;
 
     if (arg1 <= 0) {
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(arg2, TWindowSubComCard__sub_8026CBB8(0x1C));
+        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(arg2, get_window_layout_position(0x1C));
         M2C_FIELD(arg2, f32 *, 0) = (f32) (M2C_FIELD(arg2, f32 *, 0) + lbl_805DCCC4);
         M2C_FIELD(arg2, f32 *, 4) = (f32) (M2C_FIELD(arg2, f32 *, 4) + lbl_805DCCC8);
         return;

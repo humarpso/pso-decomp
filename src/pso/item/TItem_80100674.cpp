@@ -181,7 +181,7 @@ s16 obj_getS16_32E(void *);
 s16 obj_getS16_32C(void *);
 void set_facing__10TObjPlayerFPvs(void *, s16);
 void refresh_owner_stats__5TItemFPv(u8 *arg0);
-int TObjPlayer__sub_80019248(void *);
+int is_locally_controlled__10TObjPlayerFPv(void *);
 s32 get_field_d8__10TObjPlayerFPv(void *);
 u8 *TLobby__sub_80101AB0(s32);
 void dispatch_action__10TObjPlayerFPvii(void *, s32, s32);
@@ -190,7 +190,7 @@ s32 get_player_by_client_id(void *);
 u8 get_field_ed__10TObjPlayerFPv(u32);
 s32 get_field_d8__10TObjPlayerFPv(void *);
 void TItem__sub_801007B4(s32 arg0, s32 arg1);
-s32 TItem__sub_80100824(s32 arg0);
+s32 consume_item_by_id(s32 arg0);
 s32 get_id__13TItemProArmorFPv(void *);
 u8 get_field_ec__12TOSwitchItemFPv(u32);
 M2C_UNK init__9TItemDataFv(void *);
@@ -221,7 +221,7 @@ void TItem__sub_801007AC(void);
 void TItem__sub_801007B0(void);
 int TItem__sub_80100B8C(void* p);
 void update_pickup_flag__5TItemFi(s32 arg0);
-s32 TItem__sub_800FFE70(s32);
+s32 use_combination_recipe__5TItemFPv(s32);
 int TItem__sub_80100A40(void*);
 s32 check_flag_400__20TWindowSubStatusDispFv();
 s32 set_flag_1024__11TItemObjectFPv(s32);
@@ -269,7 +269,7 @@ void update_pickup_flag__5TItemFi(s32 arg0) {
         set_flag_1024__11TItemObjectFPv(arg0);
         return;
     }
-    TItem__sub_800FFE70(arg0);
+    use_combination_recipe__5TItemFPv(arg0);
 }
 void TItem__sub_801007A8(void) {  }
 void TItem__sub_801007AC(void) {  }
@@ -290,7 +290,7 @@ void TItem__sub_801007B4(s32 arg0, s32 arg1) {
 typedef struct VBase_18_8a175d VBase_18_8a175d;
 typedef struct VObj_18_8a175d VObj_18_8a175d;
 #define PSO_VCALL_VObj_18_8a175d_m34(_self) (((VObj_18_8a175d *)(_self))->m34())
-s32 TItem__sub_80100824(s32 arg0) {
+s32 consume_item_by_id(s32 arg0) {
   s32 temp_r30;
   s32 temp_r31;
   s32 temp_r3_2;
@@ -308,7 +308,7 @@ s32 TItem__sub_80100824(s32 arg0) {
   temp_r31 = PSO_VCALL_VObj_18_8a175d_m34(temp_r3);
   temp_r30 = get_field_d8__10TObjPlayerFPv(temp_r3);
   dispatch_action__10TObjPlayerFPvii((void *) temp_r3_2, arg0, 1);
-  if (TObjPlayer__sub_80019248((void *) temp_r3_2) != 0)
+  if (is_locally_controlled__10TObjPlayerFPv((void *) temp_r3_2) != 0)
   {
     TObjPlayer__sub_801B9634((u32) temp_r3_2);
   }
@@ -368,7 +368,7 @@ void TItem__sub_801008F0(void *arg0, u32 arg1) {
     }
     temp_r31 = get_id__13TItemProArmorFPv((void *)(arg1));
     sp8.value = get_field_d8__10TObjPlayerFPv((void *)(arg1));
-    if (TItem__sub_80100824(get_field_d8__10TObjPlayerFPv((void *)(arg1))) != 0)
+    if (consume_item_by_id(get_field_d8__10TObjPlayerFPv((void *)(arg1))) != 0)
     {
       TItem__sub_801007B4(temp_r31, (s32)(&sp8));
     }

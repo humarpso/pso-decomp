@@ -102,12 +102,12 @@ void set_params__14TItemProShieldFiPv(s32 arg0, void *arg1);
 M2C_UNK TItemEquipBase__sub_8010A78C(void *);
 int TItemEquipBase__sub_8010A82C(void*);
 M2C_UNK TItemEquipBase__sub_8010A89C(void *, s32);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
+M2C_UNK draw_ginja_object(u32);
 M2C_UNK refresh_owner_stats__5TItemFPv(void *);
 M2C_UNK TObjPlayer__sub_80364028();
 M2C_UNK TObjPlayer__sub_8036414C();
 M2C_UNK TObjPlayer__sub_80364198();
-M2C_UNK TObjPlayer__sub_803D97F0();
+M2C_UNK push_matrix_from();
 M2C_UNK pop_matrix();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -123,7 +123,7 @@ extern s32 some_id_805c6f74;
 void deactivate_shield_effect__14TItemProShieldFPvi(void *arg0, s32 arg1) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0xF4) != 0U) && ((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (obj_testFlags30(arg0, 0x08000000) == 0) && (get_flag_40__8TItemMagFPv((void *)(arg0)) == 0)) {
         get_item_ptr__10TObjPlayerFPvi(M2C_FIELD(arg0, u32 *, 0xF0), arg1);
-        TObjPlayer__sub_803D97F0();
+        push_matrix_from();
         TObjPlayer__sub_80364198();
         some_id_805c6f74 &= 0xFFFFFFEF;
         get_mag_scale__10TObjPlayerFPv(arg0);
@@ -132,7 +132,7 @@ void deactivate_shield_effect__14TItemProShieldFPvi(void *arg0, s32 arg1) {
             begin_effect_render__13TParticleCtrlFv();
         }
         notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, s32 *, 0x24));
-        TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, u32 *, 0xF4));
+        draw_ginja_object(M2C_FIELD(arg0, u32 *, 0xF4));
         if (M2C_FIELD(arg0, s32 *, 0x19C) & 2) {
             end_effect_render__13TParticleCtrlFv();
         }

@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-M2C_UNK TBoss8Dragon__sub_800BB780();
+M2C_UNK clear_attack_receipts();
 int transition_enemy_state(void*, void*);
 void TObjEneRe4Sorcerer__vt60(u8 *arg0);
 }
@@ -35,7 +35,7 @@ void TObjEneRe4Sorcerer__vt60(u8 *arg0) {
             transition_enemy_state((void*)((void *)(arg0)), (void*)((int) (8)));
             return;
         }
-        TBoss8Dragon__sub_800BB780();
+        clear_attack_receipts();
     }
 }
 

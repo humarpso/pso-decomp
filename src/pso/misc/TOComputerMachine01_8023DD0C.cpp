@@ -25,7 +25,7 @@ void TOComputerMachine01__sub_8023DD60(Tbl_8023DD60 *t);
 s32 TOComputerMachine01__sub_8023DD0C(Tbl_8023DD0C *t, u16 id);
 void TOComputerMachine01__sub_8023DD60(Tbl_8023DD60 *t);
 void DCFlushRangeNoSync(void *, u32);
-void TOComputerMachine01__sub_8023DDC8(Model_8023DDC8 *self, s16 du, s16 dv, u16 cmd, s32 rewrite);
+void scroll_ginja_mesh_uvs(Model_8023DDC8 *self, s16 du, s16 dv, u16 cmd, s32 rewrite);
 void TObjPlayer__sub_8023E034(void **arg0);
 void TObjPlayer__sub_8023DEE0(s16 *p, s16 a, s16 b, u16 id);
 }
@@ -62,7 +62,7 @@ void TOComputerMachine01__sub_8023DD60(Tbl_8023DD60 *t) {
     }
 }
 
-void TOComputerMachine01__sub_8023DDC8(Model_8023DDC8 *self, s16 du, s16 dv, u16 cmd, s32 rewrite) {
+void scroll_ginja_mesh_uvs(Model_8023DDC8 *self, s16 du, s16 dv, u16 cmd, s32 rewrite) {
     s32 found = 0;
     Arr_8023DDC8 *a;
     if (self->s0 != 0 && TOComputerMachine01__sub_8023DD0C((Tbl_8023DD0C *)(self->s0), cmd) == 1) {

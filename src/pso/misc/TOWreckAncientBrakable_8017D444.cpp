@@ -23,13 +23,13 @@ struct Param_8017D448 {
 extern "C" {
 void VecCopy__FP3VecPC3Vec(Vec_8017D448 *, Vec_8017D448 *);
 s32 TObjFish__sub_8001EDB0(void *, int);
-s32 TObjFish__sub_8001EDC4(void *, int);
+s32 get_bml_model(void *, int);
 void TObjChip__sub_80180BD4(void *, s32, Param_8017D448 *);
 void *__nw__7TObjectFUl(u32);
 void TBoss4Zako__sub_803D8910(Vec_8017D448 *, Vec_8017D448 *);
-void TScene__sub_803D8DB4(int, Vec_8017D448 *, Vec_8017D448 *);
+void rotate_vector_by_matrix(int, Vec_8017D448 *, Vec_8017D448 *);
 void rotate_matrix_y(int, int);
-void TObjPlayer__sub_803D97F0(void *);
+void push_matrix_from(void *);
 void pop_matrix(void);
 extern Arr_8017D448 lbl_8044355C;
 extern Param_8017D448 lbl_804435C8;
@@ -56,13 +56,13 @@ void TOWreckAncientBrakable__sub_8017D448(u8 *arg0) {
     p.f38 = p.pos.y;
     for (i = 0; i < 9; i++) {
         VecCopy__FP3VecPC3Vec(&tmp, &arr.v[i]);
-        TObjPlayer__sub_803D97F0(lbl_8058D490);
+        push_matrix_from(lbl_8058D490);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
-        TScene__sub_803D8DB4(0, &tmp, &tmp);
+        rotate_vector_by_matrix(0, &tmp, &tmp);
         pop_matrix();
         VecCopy__FP3VecPC3Vec(&p.pos, (Vec_8017D448 *)(arg0 + 0x38));
         TBoss4Zako__sub_803D8910(&p.pos, &tmp);
-        p.f40 = TObjFish__sub_8001EDC4(lbl_805D5AFC, i);
+        p.f40 = get_bml_model(lbl_805D5AFC, i);
         p.f44 = TObjFish__sub_8001EDB0(lbl_805D5AFC, i);
         obj = __nw__7TObjectFUl(0x234);
         if (obj != 0) {

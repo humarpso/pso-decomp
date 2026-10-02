@@ -22,7 +22,7 @@ struct RecoveredGlobal_80159514___vt__12TOBoss4Tower {
 
 extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, int);
-s32 TObjFish__sub_8001EDC4(void *, int);
+s32 get_bml_model(void *, int);
 M2C_UNK TOBoss4__ct();
 extern M2C_UNK __vt__12TOBoss4Tower[];
 extern s32 lbl_805D2EB8;
@@ -50,7 +50,7 @@ void *TOBoss4Tower__create(void *arg0);
 void *__dt__12TOBoss4TowerFv(void *arg0, s16 arg1);
 void render__12TOBoss4TowerFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
+M2C_UNK draw_ginja_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -73,7 +73,7 @@ void render__12TOBoss4TowerFv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-        TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x34));
+        draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
         pop_matrix();
     }
 }
@@ -96,7 +96,7 @@ u8 *TOBoss4Tower__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80159514___vt__12TOBoss4Tower *)&__vt__12TOBoss4Tower).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2EB8;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((void *) (lbl_805D58A8), (int) (5));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) (lbl_805D58A8), (int) (5));
     M2C_FIELD(arg0, f32 *, 0x94) = (f32) lbl_805DB334;
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *) (lbl_805D58A8), (int) (5));
     return arg0;

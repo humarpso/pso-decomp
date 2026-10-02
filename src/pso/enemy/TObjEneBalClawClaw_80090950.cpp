@@ -96,9 +96,9 @@ void TObjEneBalClawClaw__sub_80090A10(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3);
 s32 update_if_active__15TObjEneMe1GiGueFPv(void *, int);
 extern const f32 lbl_805D9694;
 void TObjEneBalClawClaw__sub_8009097C(u8 *arg0, s16 arg1);
-void TObjPlayer__sub_80011734(void *, s32, f32);
+void apply_actor_gravity(void *, s32, f32);
 f32 TObjPlayer__sub_80017D68(void *, Vec_80090A70 *, s32, Sub_80090A70 *, f32);
-void TObjPlayer__sub_800182A0(void *, Vec_80090A70 *, s32);
+void select_enemy_destination(void *, Vec_80090A70 *, s32);
 void TObjPlayer__sub_80018570(void *);
 void clear_attack_flag__18TObjEneBalClawClawFPv(void *);
 void clear_flag__18TObjEneBalClawClawFPv(void *arg0);
@@ -117,7 +117,7 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 M2C_UNK TObjEneBalClaw__sub_8008D700(void *, M2C_UNK);
-M2C_UNK TObjFish__sub_803E46BC(s32);
+M2C_UNK draw_chunk_object(s32);
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -185,12 +185,12 @@ void TObjEneBalClawClaw__sub_80090A70(Obj_80090A70 *arg0) {
         arg0->state = 1;
     case 1: {
         Vec_80090A70 a = e->pos;
-        TObjPlayer__sub_800182A0(arg0, &a, 1);
+        select_enemy_destination(arg0, &a, 1);
         Vec_80090A70 b = e->pos;
         arg0->f3C0 = TObjPlayer__sub_80017D68(arg0, &b, 1, arg0->f350, arg0->f350->f4);
         TObjPlayer__sub_80018570(arg0);
         advance_animation_playback(arg0);
-        TObjPlayer__sub_80011734(arg0, 0, TObjEneBalClawClaw__data_805D968C);
+        apply_actor_gravity(arg0, 0, TObjEneBalClawClaw__data_805D968C);
         check_object_collisions__10TObjPlayerFPv(arg0);
         break;
     }
@@ -215,7 +215,7 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0) {
                 TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
                 rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
                 rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-                TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
+                draw_chunk_object(M2C_FIELD(arg0, s32 *, 0x34));
             } else {
                 translate_matrix(0, TObjEneBalClawClaw__data_805D968C, M2C_FIELD(arg0, f32 *, 0x3B4) + M2C_FIELD(arg0, f32 *, 0x3BC), TObjEneBalClawClaw__data_805D968C);
                 TOHangerMachine01__sub_803D9C00(arg0 + 0x38);

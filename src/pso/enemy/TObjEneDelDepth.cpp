@@ -272,7 +272,7 @@ s32 register_object__6TLobbyFPv(int);
 s32 dispatch_shared_handler_b__6TLobbyFPv(int);
 s32 register_boss__6TLobbyFPv(int);
 s32 TObjFish__sub_8001EDB0(u8 *, int);
-s32 TObjFish__sub_8001EDC4(int, int);
+s32 get_bml_model(int, int);
 M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 M2C_UNK set_field_dc__10TObjPlayerFPvi(void *, int);
 M2C_UNK set_field_d8__10TObjPlayerFPvi(void *, void *);
@@ -418,7 +418,7 @@ void TObjEneDelDepth__sub_803158B0(u8 *arg0) {
     s32 temp_r30;
     s32 var_r0;
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(TObjEneDelDepth__data_805D6AC4 = get_data__15TObjEneDelDepthFv(), 0);
-    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((int) (TObjEneDelDepth__data_805D6AC4), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TObjEneDelDepth__data_805D6AC4), (int) (0));
     VecCopy__FP3VecPC3Vec(arg0 + 0x44, VecCopy__FP3VecPC3Vec(arg0 + 0x50, VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38)));
     M2C_FIELD(arg0, s32 *, 0x380) = TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (lbl_804E8168), (int) (1));
     set_field_d8__10TObjPlayerFPvi((void *) (arg0), (void *) (lbl_804E8194));

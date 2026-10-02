@@ -34,7 +34,7 @@ struct Obj2A8_800c7ae4 : ObjPad18_800c7ae4 {
 struct Vec_800C7C30 { s32 x, y, z; };
 
 extern "C" {
-M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 f32 TObjPlayer__sub_80017D68(void *, void *, int, int, f32);
 M2C_UNK update_angle__10TObjPlayerFPviPv(void *, void *, void *);
 M2C_UNK advance_animation_playback(void *);
@@ -51,7 +51,7 @@ void update__15TObjEnemyCustomFPv(void *arg0);
 int update_gigue__15TObjEnemyCustomFPv(void* p);
 M2C_UNK advance_animation_playback(void *);
 int update_if_active__15TObjEneMe1GiGueFPv(void*, int);
-M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK TObjPlayer__sub_80018660(void *, s32);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -71,7 +71,7 @@ void update_state_machine__15TObjEnemyCustomFPv(void *arg0) {
     case 1:
         advance_animation_playback(arg0);
         if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800000)) {
-            TObjPlayer__sub_80011734(arg0, 0, lbl_805DA070);
+            apply_actor_gravity(arg0, 0, lbl_805DA070);
         }
         update_collisions__10TObjPlayerFPv(arg0);
         temp_r4 = M2C_FIELD(arg0, s16 *, 0x33C);
@@ -158,7 +158,7 @@ void TObjEnemyCustom__sub_800C7C30(u8 *arg0) {
             }
             update_angle__10TObjPlayerFPviPv((void *) (arg0), (void *) (M2C_FIELD(M2C_FIELD(arg0, void **, 0x350), s32 *, 8)), (void *) (arg0 + 0x308));
         }
-        TObjPlayer__sub_80011734((void *)((void *) (arg0)), (M2C_UNK)((int) (0)), (f32) (lbl_805DA070));
+        apply_actor_gravity((void *)((void *) (arg0)), (M2C_UNK)((int) (0)), (f32) (lbl_805DA070));
         update_collisions__10TObjPlayerFPv((void *) (arg0));
         return;
     }

@@ -9,7 +9,7 @@ extern "C" {
 void render_warp_effect__12TObjWarpJungFii(s32 arg0, s32 arg1);
 void set_global_render_param__12TObjWarpJungFv(void);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
-s32 TObjFish__sub_8001EDC4(s32, s32);
+s32 get_bml_model(s32, s32);
 int set_global_param__8TObjFishFi(void*);
 
     extern int lbl_805D5CB0;
@@ -21,7 +21,7 @@ extern s32 lbl_805D5CAC;
 void render_warp_effect__12TObjWarpJungFii(s32 arg0, s32 arg1) {
     s32 temp_r3;
 
-    temp_r3 = TObjFish__sub_8001EDC4(lbl_805D5CA8, arg0);
+    temp_r3 = get_bml_model(lbl_805D5CA8, arg0);
     draw_ginja_model_with_motion(temp_r3, lbl_805D5CAC, (f32) arg1);
 }
 

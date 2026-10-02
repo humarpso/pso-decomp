@@ -7,15 +7,15 @@ extern "C" {
 void *construct_state_variant__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80120D50(void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
-void TObjPlayer__sub_801210B0(void *, int, int, int);
+void set_weapon_trail_joints(void *, int, int, int);
 
 extern M2C_UNK lbl_804A3830[];
 
 void *construct_state_variant__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_80120D50(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A3830;
-    TObjPlayer__sub_801210B0(arg0, 2, 1, 2);
-    TObjPlayer__sub_801210B0(arg0, 3, 3, 4);
+    set_weapon_trail_joints(arg0, 2, 1, 2);
+    set_weapon_trail_joints(arg0, 3, 3, 4);
     set_status_flags__10TObjPlayerFPvUi(arg0, 513);
     return arg0;
 }

@@ -26,7 +26,7 @@ void handle_6x16_vol_opt_boss_actions(void *arg0);
 void handle_6x17_set_entity_position_and_angle(u8 *arg0);
 void update_phase__12TBoss3VoloptFv(void);
 void TCameraCtrl__sub_8003CFFC(int);
-M2C_UNK TCameraCtrl__sub_8006A410(void *, M2C_UNK);
+M2C_UNK reset_cameras_to_actor(void *, M2C_UNK);
 s32 TODoorVoShip__sub_801F44BC(s32);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
 u8 *find_entity_by_id(u16);
@@ -76,7 +76,7 @@ void handle_6x17_set_entity_position_and_angle(u8 *arg0) {
         M2C_FIELD(temp_r3, s32 *, 0x60) = (s32) M2C_FIELD(arg0, s32 *, 0x10);
         TObjPlayer__sub_80154E3C(temp_r3);
         if ((s32) M2C_FIELD(arg0, u16 *, 2) == (s32) lbl_805D53A0) {
-            TCameraCtrl__sub_8006A410(temp_r3, 0);
+            reset_cameras_to_actor(temp_r3, 0);
         }
     }
 }

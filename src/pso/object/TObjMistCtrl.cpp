@@ -37,7 +37,7 @@ struct TPlayerFootStamp_802AF8BC {
 };
 
 extern "C" {
-s32 TBoss8Dragon__sub_8008741C(void *, int, int);
+s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
 extern M2C_UNK __vt__12TObjMistCtrl[];
 extern s32 lbl_805D3E80;
@@ -93,7 +93,7 @@ u8 *TObjMistCtrl__ct(u8 *arg0, s32 arg1, u32 arg2) {
     if (arg2 != 0U) {
         ((VObj_18_023f9f *)(arg0))->m5(arg2);
     }
-    M2C_FIELD(arg0, s32 *, 0x90) = TBoss8Dragon__sub_8008741C((void *) (arg0 + 0x38), (int) (0x200), (int) (0x800));
+    M2C_FIELD(arg0, s32 *, 0x90) = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0x38), (int) (0x200), (int) (0x800));
     return arg0;
 }
 

@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-int TNpcPlayer__sub_801528F4(s32 arg0, s32 arg1);
+int get_partner_counter(s32 arg0, s32 arg1);
 void TNpcPlayer__sub_8015296C(s32 arg0, s32 arg1, s16 arg2);
-s32 TNpcPlayer__sub_80152900(s32 arg0, s32 arg1);
+s32 npc_counter_reset_if_reached(s32 arg0, s32 arg1);
 int TNpcPlayer__sub_80152950(s16 *table, s32 idx, s32 value);
 }
 
@@ -38,11 +38,11 @@ void update_lobby__10TNpcPlayerFPv(void* p);
 void update_players__10TNpcPlayerFPv(void* p);
 int update_players__6TLobbyFi(void*);
 
-int TNpcPlayer__sub_801528F4(s32 arg0, s32 arg1) {
+int get_partner_counter(s32 arg0, s32 arg1) {
     return M2C_FIELD((arg0 + (arg1 * 2)), s16 *, 0);
 }
 
-s32 TNpcPlayer__sub_80152900(s32 arg0, s32 arg1) {
+s32 npc_counter_reset_if_reached(s32 arg0, s32 arg1) {
     if (((s32 (*)(void))TNpcPlayer__sub_80152950)() != 0) {
         M2C_FIELD((arg0 + (arg1 * 2)), s16 *, 0) = 0;
         return 1;

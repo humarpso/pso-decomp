@@ -92,11 +92,11 @@ void TWindowFukidasi__sub_80252C68(Fuki_802504C0 *);
 s32 is_flag_set__15TWindowFukidasiFPv(Fuki_802504C0 *);
 void TWindowFukidasi__sub_80252C84();
 f32 TObjPlayer__sub_803D89C0(void *, void *);
-void TScene__sub_803D8DB4(s32, void *, void *);
+void rotate_vector_by_matrix(s32, void *, void *);
 void rotate_matrix_y(s32, s32);
 void rotate_matrix_x(s32, s32);
 void rotate_matrix_z(s32, s32);
-void TObjPlayer__sub_803D97F0(void *);
+void push_matrix_from(void *);
 void pop_matrix();
 extern Vec_80251380 lbl_8044ED58;
 extern u8 lbl_8058D490[];
@@ -240,11 +240,11 @@ s32 TWindowFukidasi__sub_80251380(Fuki_802504C0 *arg0) {
     }
     Vec_80251380 v = lbl_8044ED58;
     f32 d[3];
-    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    push_matrix_from(lbl_8058D490);
     rotate_matrix_y(0, lbl_805D4DF0->ry);
     rotate_matrix_x(0, lbl_805D4DF0->rx);
     rotate_matrix_z(0, lbl_805D4DF0->rz);
-    TScene__sub_803D8DB4(0, &v, &v);
+    rotate_vector_by_matrix(0, &v, &v);
     pop_matrix();
     d[0] = pos[0] - lbl_805D4DF0->pos[0];
     d[1] = pos[1] - lbl_805D4DF0->pos[1];

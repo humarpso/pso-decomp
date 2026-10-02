@@ -36,7 +36,7 @@ M2C_UNK TLobby__sub_8010567C(void *, void *, int);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
 void TObjContainerJung__vt4(u8 *arg0, s16 *arg1, s32 arg2);
-u8 * TObjFish__sub_8001EDC4(void *, int);
+u8 * get_bml_model(void *, int);
 extern s32 TObjContainerJung__data_805D5BA0;
 u8 *TObjContainerJung__sub_8018D3C0(s32 arg0);
 s32 TObjFish__sub_8001EDB0(void *, s32);
@@ -54,7 +54,7 @@ extern RecoveredGlobal_8018D85C_lbl_804B7168 lbl_804B7168;
 extern M2C_UNK __vt__17TObjContainerJung[];
 extern s32 lbl_805D3318;
 u8 *TObjContainerJung__ct(u8 *arg0, s32 arg1, s32 _w2);
-u8 * TObjFish__sub_8001EDC4(void *, int);
+u8 * get_bml_model(void *, int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
@@ -63,7 +63,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470();
+M2C_UNK draw_ginja_object();
 extern s32 TObjContainerJung__data_805D5BA0;
 extern s32 TObjContainerJung__data_805D5BA4;
 extern const f32 lbl_805DBD9C;
@@ -95,7 +95,7 @@ extern void *tl_05;
 
 u8 *TObjContainerJung__sub_8018D3C0(s32 arg0) {
     if ((void *) (*(u8 * *)&TObjContainerJung__data_805D5BA0) != NULL) {
-        return TObjFish__sub_8001EDC4((*(u8 * *)&TObjContainerJung__data_805D5BA0), arg0);
+        return get_bml_model((*(u8 * *)&TObjContainerJung__data_805D5BA0), arg0);
     }
     return NULL;
 }
@@ -156,11 +156,11 @@ void TObjContainerJung__vt79(u8 *arg0) {
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
             scale_matrix(0, lbl_805DBD9C, lbl_805DBD9C, lbl_805DBD9C);
-            TObjFish__sub_8001EDC4(*(u8 **)&TObjContainerJung__data_805D5BA0, 0);
-            TObjBoss2Tunnel__sub_803DB470();
+            get_bml_model(*(u8 **)&TObjContainerJung__data_805D5BA0, 0);
+            draw_ginja_object();
             begin_effect_render__13TParticleCtrlFv();
-            TObjFish__sub_8001EDC4(*(u8 **)&TObjContainerJung__data_805D5BA0, 3);
-            TObjBoss2Tunnel__sub_803DB470();
+            get_bml_model(*(u8 **)&TObjContainerJung__data_805D5BA0, 3);
+            draw_ginja_object();
             end_effect_render__13TParticleCtrlFv();
             pop_matrix();
             break;

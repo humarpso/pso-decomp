@@ -19,7 +19,7 @@ typedef struct TObjPlayer_8023B454 {
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(Vec_8023B454 *, const Vec_8023B454 *);
-TObjPlayer_8023B454 *TObjPlayer__sub_80154804(int, int);
+TObjPlayer_8023B454 *resolve_hittable_target(int, int);
 s32 fn_8023B454(TTecSlicerTargets_8023B454 *self, Vec_8023B454 *out_pos, u16 *out_id, s8 *out_part, f32 *out_f);
 }
 
@@ -33,7 +33,7 @@ s32 fn_8023B454(TTecSlicerTargets_8023B454 *self, Vec_8023B454 *out_pos, u16 *ou
     }
     while (self->idx < self->count && self->idx < 10) {
         found = 0;
-        hit = TObjPlayer__sub_80154804(self->ids[self->idx], self->parts[self->idx]);
+        hit = resolve_hittable_target(self->ids[self->idx], self->parts[self->idx]);
         if (hit != NULL) {
             *out_id = self->ids[self->idx];
             *out_part = self->parts[self->idx];

@@ -48,7 +48,7 @@ struct V_A : Base_A {
 extern "C" {
 
 s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
-M2C_UNK fn_800B98C0(void *);
+M2C_UNK enemy_clear_target(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK, s32);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK advance_animation_playback();
@@ -67,7 +67,7 @@ void handle_event__19TObjEneBm9MericarolFPvi(void *arg0, s32 arg1) {
         temp_r5 = M2C_FIELD(arg0, s32 *, 0x438);
         M2C_FIELD(arg0, s32 *, 0x438) = (s32) (temp_r5 & ~0x28);
         set_field_378__9TObjEneDDFPvi(arg0, 2, temp_r5);
-        fn_800B98C0(arg0);
+        enemy_clear_target(arg0);
         return;
     case 3:
         if ((try_set_mode8_if_flag2__19TObjEneBm9MericarolFPv() == 0) && (update_linked_position__14TObjEneEpsilonFPv(arg0, lbl_805DE73C) != 0)) {

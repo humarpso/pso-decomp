@@ -34,7 +34,7 @@ void TLobby__sub_8020A48C(void *p);
 void TLobby__sub_8020A568(void *p);
 extern u8 *lbl_805D60B0;
 void TLobby__sub_802099FC(Out_802099FC *arg0, s32 arg1);
-u32 TItemDrop__sub_80107B0C(s32, u32);
+u32 item_drop_rng_below(s32, u32);
 void TLobby__sub_8020A568(void *p);
 extern s32 lbl_805D60A0;
 extern u8 *lbl_805D60B0;
@@ -118,7 +118,7 @@ void TLobby__sub_80209AEC(s32 *arg0, s32 *arg1) {
     for (i = 0; i < n; i++) {
         total += tbl[i].weight;
     }
-    r = TItemDrop__sub_80107B0C(lbl_805D60A0, total);
+    r = item_drop_rng_below(lbl_805D60A0, total);
     for (i = 0; i < n; i++) {
         if (tbl[i].weight != 0) {
             if (r < tbl[i].weight) {

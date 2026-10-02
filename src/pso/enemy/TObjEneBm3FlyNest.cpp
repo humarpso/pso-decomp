@@ -152,7 +152,7 @@ void init_nest_sub__17TObjEneBm3FlyNestFPv(void* p);
 void init_params__17TObjEneBm3FlyNestFPv(void *arg0);
 void update_state__17TObjEneBm3FlyNestFPv(void *arg0);
 void update_state_action__17TObjEneBm3FlyNestFPv(void *arg0);
-s32 TBoss8Dragon__sub_800BB780(void *);
+s32 clear_attack_receipts(void *);
 int TObjEneDD__sub_800BAAE4(void*, void*, void*);
 s32 transition_enemy_state(void * a0 = 0, s32 a1 = 0);
 int VecCopy__FP3VecPC3Vec(void*, void*);
@@ -227,12 +227,12 @@ void update_state__17TObjEneBm3FlyNestFPv(void *arg0) {
     s16 temp_r0;
 
     if (((s16) M2C_FIELD(arg0, s16 *, 0x326) == 3) && (check_v2_mode__9TObjEneDDFv() != 0)) {
-        TBoss8Dragon__sub_800BB780(arg0);
+        clear_attack_receipts(arg0);
         return;
     }
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
     if (temp_r0 == 4) {
-        TBoss8Dragon__sub_800BB780(arg0);
+        clear_attack_receipts(arg0);
         return;
     }
     if (temp_r0 != 7) {

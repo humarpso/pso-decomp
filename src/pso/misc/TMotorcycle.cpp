@@ -29,20 +29,20 @@ struct Moto_801951C8 { s32 x0; u8 pad4[0x30 - 4]; u32 flags; u8 pad34[0x68 - 0x3
 extern "C" {
 s32 get_state_flag__9TMainTaskFv(void);
 s32 set_global_param__8TObjFishFi(s32);
-M2C_UNK TObjFish__sub_8001EDC4(void *, int);
+M2C_UNK get_bml_model(void *, int);
 M2C_UNK func_80141618__Fv();
 M2C_UNK set_depth_buffer_settings_id__FUl(int);
-M2C_UNK TObjChip__sub_803D8AE4(int, int, int, int);
+M2C_UNK rotate_matrix_yxz(int, int, int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470();
+M2C_UNK draw_ginja_object();
 extern u32 lbl_805D5C40;
 extern u32 lbl_805D5C44;
 extern const f32 lbl_805DBED0;
 extern const f32 lbl_805DBED4;
 void render__11TMotorcycleFv(u8 *arg0);
-M2C_UNK TObjFish__sub_8001EDC4(void *, int);
+M2C_UNK get_bml_model(void *, int);
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * TLanguage__sub_801E4874(s32);
@@ -87,9 +87,9 @@ void render__11TMotorcycleFv(u8 *arg0) {
             set_global_param__8TObjFishFi((s32) lbl_805D5C44);
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
-            TObjChip__sub_803D8AE4((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)), (int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
-            TObjFish__sub_8001EDC4((void *) ((*(s32 *)&lbl_805D5C40)), (int) (M2C_FIELD(arg0, s32 *, 0xBC)));
-            TObjBoss2Tunnel__sub_803DB470();
+            rotate_matrix_yxz((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)), (int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
+            get_bml_model((void *) ((*(s32 *)&lbl_805D5C40)), (int) (M2C_FIELD(arg0, s32 *, 0xBC)));
+            draw_ginja_object();
             pop_matrix();
         }
         func_80141618__Fv();
@@ -135,8 +135,8 @@ void TMotorcycle__sub_801950B8(void) {
     }
     (*(u8 * *)&lbl_805D5C40) = (unsigned char *) ((void *) var_r0);
     (*(u8 * *)&lbl_805D5C44) = TLanguage__sub_801E4874((s32) &lbl_80445E18.value);
-    add_entry__11TMotorcycleFsiiff((int) (0x3C), (void *) (((s32)TObjFish__sub_8001EDC4((void *)((*(u8 * *)&lbl_805D5C40)), (int)(0)))), (void *) ((*(u8 * *)&lbl_805D5C44)), (f32) (lbl_805DBED8), (f32) (lbl_805DBEDC));
-    add_entry__11TMotorcycleFsiiff((int) (0x3D), (void *) (((s32)TObjFish__sub_8001EDC4((void *)((*(u8 * *)&lbl_805D5C40)), (int)(1)))), (void *) ((*(u8 * *)&lbl_805D5C44)), (f32) (lbl_805DBED8), (f32) (lbl_805DBEDC));
+    add_entry__11TMotorcycleFsiiff((int) (0x3C), (void *) (((s32)get_bml_model((void *)((*(u8 * *)&lbl_805D5C40)), (int)(0)))), (void *) ((*(u8 * *)&lbl_805D5C44)), (f32) (lbl_805DBED8), (f32) (lbl_805DBEDC));
+    add_entry__11TMotorcycleFsiiff((int) (0x3D), (void *) (((s32)get_bml_model((void *)((*(u8 * *)&lbl_805D5C40)), (int)(1)))), (void *) ((*(u8 * *)&lbl_805D5C44)), (f32) (lbl_805DBED8), (f32) (lbl_805DBEDC));
 }
 
 void *__dt__11TMotorcycleFv(void *arg0, s16 arg1) {

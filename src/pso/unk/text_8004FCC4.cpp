@@ -19,7 +19,7 @@ typedef struct Obj_8004FD50 {
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void TBoss4Type2__sub_8004F904(void *);
-void TLobby__sub_8022727C(s32);
+void play_cue_stream_file(s32);
 void queue_event_1D__12TBoss3VoloptFss(s16, s16);
 extern RecoveredGlobal_8004FCC4_lbl_80437448 lbl_80437448;
 extern const f32 lbl_805D8A14;
@@ -44,7 +44,7 @@ void fn_8004FCC4(u8 *arg0) {
     s32 temp_r0;
     TBoss4Type2__sub_8004F904(arg0);
     if ((s32) M2C_FIELD(arg0, s32 *, 0xE4) == 0x8C) {
-        TLobby__sub_8022727C((s32) &lbl_80437448.value);
+        play_cue_stream_file((s32) &lbl_80437448.value);
         queue_event_1D__12TBoss3VoloptFss(0xC0, 0xF);
     }
     temp_f1 = M2C_FIELD(arg0, f32 *, 0xE8) + lbl_805D8A14;

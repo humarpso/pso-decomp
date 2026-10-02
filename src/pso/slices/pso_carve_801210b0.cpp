@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-void TObjPlayer__sub_801210B0(s32 arg0, s32 arg1, s8 arg2, s8 arg3);
+void set_weapon_trail_joints(s32 arg0, s32 arg1, s8 arg2, s8 arg3);
 }
 
 extern "C" {
@@ -27,7 +27,7 @@ void* get_state_ptr__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_80121180(void*);
 int TObjPlayer__sub_801D2F4C(void*);
 
-void TObjPlayer__sub_801210B0(s32 arg0, s32 arg1, s8 arg2, s8 arg3) {
+void set_weapon_trail_joints(s32 arg0, s32 arg1, s8 arg2, s8 arg3) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(arg0 + arg1);
     M2C_FIELD(temp_r3, s8 *, 0x19C) = arg2;

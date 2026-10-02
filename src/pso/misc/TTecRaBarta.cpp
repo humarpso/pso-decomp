@@ -105,8 +105,8 @@ extern M2C_UNK __vt__11TTecRaBarta[];
 extern u32 lbl_805D37F8;
 void *TTecRaBarta__sub_80237CCC(void *self, void *source, void *origin, void *level);
 s32 is_split_screen();
-void *TObjFish__sub_8001EDC4(void *, int);
-void TObjFish__sub_800660D4(void *, void *, void *, int, int, f32);
+void *get_bml_model(void *, int);
+void attach_particle_model(void *, void *, void *, int, int, f32);
 void *spawn_particle_effect(Vec_80237FB8 *, int);
 u32 find_entity_by_id(int);
 s32 is_parents_unqueued__9TTecLukerFUi();
@@ -331,7 +331,7 @@ void TTecRaFoie__vt6(TTecRaFoie_80237FB8 *self) {
         } else {
             emitter = spawn_particle_effect(&self->target, 0x1A);
             if (emitter != NULL) {
-                TObjFish__sub_800660D4(emitter, TObjFish__sub_8001EDC4(lbl_805D63AC, 9), lbl_805D63B0, 0, 1, TTecRaFoie__data_805DC8CC);
+                attach_particle_model(emitter, get_bml_model(lbl_805D63AC, 9), lbl_805D63B0, 0, 1, TTecRaFoie__data_805DC8CC);
             }
         }
         spawn_particle_effect(&self->target, 0x3A);
@@ -345,7 +345,7 @@ void TTecRaFoie__vt6(TTecRaFoie_80237FB8 *self) {
             spawn_particle_effect(&point, 0x39);
             emitter = spawn_particle_effect(&point, 0x1A);
             if (emitter != NULL) {
-                TObjFish__sub_800660D4(emitter, TObjFish__sub_8001EDC4(lbl_805D63AC, 9), lbl_805D63B0, 0, 1, TTecRaFoie__data_805DC8CC);
+                attach_particle_model(emitter, get_bml_model(lbl_805D63AC, 9), lbl_805D63B0, 0, 1, TTecRaFoie__data_805DC8CC);
             }
         }
     }

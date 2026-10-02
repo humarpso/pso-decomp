@@ -254,7 +254,7 @@ typedef struct Laser_80037074 {
 } Laser_80037074;
 
 extern "C" {
-void *TBoss8Dragon__sub_8008741C(Vec_80037074 *, s32, s32);
+void *spawn_continuous_particle_effect_with_flags(Vec_80037074 *, s32, s32);
 void copy_pos__11TNowLoadingFPvPv(void *, Vec_80037074 *);
 void enable__13TParticleCtrlFPv(void *);
 void fn_802EED20(Laser_80037074 *self);
@@ -266,7 +266,7 @@ typedef char RecoveredGlobal_80036A90_lbl_80435A68_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80036FC8___vt__11TBoss2Joint_size[sizeof(RecoveredGlobal_80036FC8___vt__11TBoss2Joint) == 0x1A8 ? 1 : -1];
 void fn_802EED20(Laser_80037074 *self) {
     if (self->ptcl == NULL) {
-        self->ptcl = TBoss8Dragon__sub_8008741C(self->pts, self->unk118, 0x40);
+        self->ptcl = spawn_continuous_particle_effect_with_flags(self->pts, self->unk118, 0x40);
         if (self->ptcl != NULL) {
             enable__13TParticleCtrlFPv(self->ptcl);
         }

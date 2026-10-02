@@ -19,7 +19,7 @@ extern "C" {
 f32 get_random_float__8TObjFishFv(f32);
 s32 csnVector(void *, void *, int);
 extern const f32 lbl_805D9EA4;
-s32 TObjEneDD__sub_800BB218(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
+s32 enemy_probe_wall_ahead(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 u8 *csnVectorUnder(f32 *, void *, s32);
 u8 *TObjEneDD__vt100(u8 *arg0, u8 *arg1);
 }
@@ -33,7 +33,7 @@ void calc_shot_position__9TObjEneDDFPvPvfff(u8 *arg0, u8 *arg1, f32 farg0, f32 f
     s32 temp_r5;
 
     f32 temp_f3 = farg2 + M2C_FIELD(arg0, f32 *, 0x37C);
-    if (TObjEneDD__sub_800BB218((u8 *)(arg0), farg0, farg1, temp_f3) == 0U) {
+    if (enemy_probe_wall_ahead((u8 *)(arg0), farg0, farg1, temp_f3) == 0U) {
         M2C_FIELD(arg1, f32 *, 0) = (f32) ((farg0 * farg2) + M2C_FIELD(arg0, f32 *, 0x38));
         M2C_FIELD(arg1, f32 *, 4) = (f32) M2C_FIELD(arg0, f32 *, 0x3C);
         M2C_FIELD(arg1, f32 *, 8) = (f32) ((farg1 * farg2) + M2C_FIELD(arg0, f32 *, 0x40));
@@ -45,7 +45,7 @@ void calc_shot_position__9TObjEneDDFPvPvfff(u8 *arg0, u8 *arg1, f32 farg0, f32 f
     VecCopy__FP3VecPC3Vec(arg1, arg0 + 0x38, temp_r5);
 }
 typedef struct Stack_800BB218 Stack_800BB218;
-s32 TObjEneDD__sub_800BB218(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
+s32 enemy_probe_wall_ahead(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
   f32 temp_f31;
   Stack_800BB218 stack;
   f32 temp_f30;

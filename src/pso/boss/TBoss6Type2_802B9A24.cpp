@@ -81,7 +81,7 @@ extern const f32 lbl_805DE42C;
 void TBoss6Type2__sub_802B9D90(u8 *arg0);
 void TBoss6Type2__sub_802B9D6C(Obj_802B9D6C *self);
 void TBoss6Type2__sub_802BA158(Obj_802BA158 *self);
-u32 TBoss4Type2__sub_800874F4(void *, int);
+u32 create_particle_emitter(void *, int);
 void set_flags__11TBoss4Type2FPvUi(u32, int);
 extern Tbl_802B9C00 lbl_804710CC[];
 void TBoss6Type2__sub_802B9C00(u8 *arg0, s32 arg1);
@@ -208,7 +208,7 @@ void TBoss6Type2__sub_802B9C00(u8 *arg0, s32 arg1) {
     u8 *p = arg0 + arg1 * 4;
     if (*(u32 *)(p + 0x77C) == 0U) {
         V3_802B9C00 v = ((T1_802B9C00 *)arg0)->pos;
-        *(u32 *)(p + 0x77C) = TBoss4Type2__sub_800874F4(&v, lbl_804710CC[arg1].a);
+        *(u32 *)(p + 0x77C) = create_particle_emitter(&v, lbl_804710CC[arg1].a);
         if (*(u32 *)(p + 0x77C) != 0U) {
             set_flags__11TBoss4Type2FPvUi(*(u32 *)(p + 0x77C), 0x40);
         }

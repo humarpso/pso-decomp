@@ -11,10 +11,10 @@ struct RecoveredGlobal_80185428_lbl_80444878 {
 
 extern "C" {
 void TObjLaboMapWarp__sub_80185400(u8 *arg0);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+s32 get_localized_text_entry(s32, s32);
 s32 TWindowSubTradeMain__sub_80266200(s32, s32, s32, s32, s32);
 s32 TCheckRoomSequence__sub_802664A8(s32, s32, s32);
-s32 TWindowSubComCard__sub_8026CBB8(s32);
+s32 get_window_layout_position(s32);
 M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(int);
 void TObjLaboMapWarp__sub_80185400(u8 *arg0);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
@@ -49,11 +49,11 @@ struct VObj_80185248 : Base_80185248 {
 int is_field88_zero__15TObjLaboMapWarpFPv(void* p);
 void render__15TObjLaboMapWarpFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470();
+M2C_UNK draw_ginja_object();
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
-M2C_UNK TObjFish__sub_8001EDC4(s32, M2C_UNK);
+M2C_UNK get_bml_model(s32, M2C_UNK);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -75,14 +75,14 @@ void render__15TObjLaboMapWarpFv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         if (is_field88_zero__15TObjLaboMapWarpFPv((void*)(arg0)) != 0) {
-            TObjFish__sub_8001EDC4(TObjLaboMapWarp__data_805D5B58, 1);
-            TObjBoss2Tunnel__sub_803DB470();
+            get_bml_model(TObjLaboMapWarp__data_805D5B58, 1);
+            draw_ginja_object();
             begin_effect_render__13TParticleCtrlFv();
-            draw_ginja_model_with_motion(TObjFish__sub_8001EDC4(TObjLaboMapWarp__data_805D5B58, 0), TObjFish__sub_8001ED9C(TObjLaboMapWarp__data_805D5B58, 0), M2C_FIELD(arg0, f32 *, 0xFC));
+            draw_ginja_model_with_motion(get_bml_model(TObjLaboMapWarp__data_805D5B58, 0), TObjFish__sub_8001ED9C(TObjLaboMapWarp__data_805D5B58, 0), M2C_FIELD(arg0, f32 *, 0xFC));
             end_effect_render__13TParticleCtrlFv();
         } else {
             begin_effect_render__13TParticleCtrlFv();
-            draw_ginja_model_with_motion(TObjFish__sub_8001EDC4(TObjLaboMapWarp__data_805D5B58, 0), TObjFish__sub_8001ED9C(TObjLaboMapWarp__data_805D5B58, 0), M2C_FIELD(arg0, f32 *, 0xFC));
+            draw_ginja_model_with_motion(get_bml_model(TObjLaboMapWarp__data_805D5B58, 0), TObjFish__sub_8001ED9C(TObjLaboMapWarp__data_805D5B58, 0), M2C_FIELD(arg0, f32 *, 0xFC));
             end_effect_render__13TParticleCtrlFv();
         }
         pop_matrix();
@@ -121,9 +121,9 @@ void TObjLaboMapWarp__vt13(u8 *arg0, s32 arg1) {
     u8 *temp_r31;
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
     if ((u32) M2C_FIELD(temp_r31, u32 *, 0xEC) == 0U) {
-        M2C_FIELD(temp_r31, u32 *, 0xEC) = TCheckRoomSequence__sub_802664A8(TWindowSubComCard__sub_8026CBB8(0x33), 1, arg1);
+        M2C_FIELD(temp_r31, u32 *, 0xEC) = TCheckRoomSequence__sub_802664A8(get_window_layout_position(0x33), 1, arg1);
         TObjLaboMapWarp__sub_80185400((u8 *)((void *) (arg0)));
-        TWindowSubTradeMain__sub_80266200(M2C_FIELD(temp_r31, u32 *, 0xEC), TAdSinglePlyChrSelectGC__sub_80132F2C(9, M2C_FIELD(&lbl_80444878.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x8C) * 4))), 0xA, 0, -1);
+        TWindowSubTradeMain__sub_80266200(M2C_FIELD(temp_r31, u32 *, 0xEC), get_localized_text_entry(9, M2C_FIELD(&lbl_80444878.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x8C) * 4))), 0xA, 0, -1);
         set_flag70_bit10__16TObjCityMainWarpFPv((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
         set_flag_40__16TAdChrSelASlotGCFPv((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
         TWindowSubComCard__sub_80265F60((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));

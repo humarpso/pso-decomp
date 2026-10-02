@@ -36,7 +36,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(int);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
+M2C_UNK draw_ginja_object(int);
 M2C_UNK set_chunk_material_color(int);
 extern RecoveredGlobal_8032DC94_lbl_8050BEC0 lbl_8050BEC0;
 extern RecoveredGlobal_8032DC94_lbl_8058D4C0 lbl_8058D4C0;
@@ -178,7 +178,7 @@ void TObjPlayer__sub_8032DC94(u8 *arg0) {
         var_r3 = (M2C_UNK *) (var_r29 + 0x74);
         TBoss7Tentacle__sub_803D9BA0((int) var_r3);
         var_r3 = (M2C_UNK *) var_r30;
-        TObjBoss2Tunnel__sub_803DB470((int) var_r3);
+        draw_ginja_object((int) var_r3);
         pop_matrix();
         var_r3 = (M2C_UNK *) (&lbl_8058D4C0.value);
         var_r4 = (M2C_UNK *) (&lbl_8050BEC0.value);

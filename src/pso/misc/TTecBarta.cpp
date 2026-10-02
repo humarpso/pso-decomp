@@ -137,9 +137,9 @@ extern const f32 lbl_805DC7A8;
 u8 *TTecBarta__sub_8022BCB8(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4);
 void queue_destruction__7TObjectFv(TechniqueParticleEmitter*);
 extern TechniqueEmitterSourceTable TTecBarta__data_8044CD98[];
-s32 TObjFish__sub_8001EDC4(s32, s32);
-void TObjFish__sub_800660D4(TechniqueParticleEmitter *, s32, s32, s32, s32, f32);
-TechniqueParticleEmitter *TLobby__sub_800869A4(f32 *, s32, s32, s32);
+s32 get_bml_model(s32, s32);
+void attach_particle_model(TechniqueParticleEmitter *, s32, s32, s32, s32, f32);
+TechniqueParticleEmitter *create_timed_particle_emitter(f32 *, s32, s32, s32);
 void copy_pos__11TNowLoadingFPvPv(TechniqueParticleEmitter *, Vec_8022BA98 *);
 TechniqueHitRecipient *find_entity_by_id(u16);
 void TObjPlayer__sub_8023A244(TTecBarta *);
@@ -151,11 +151,11 @@ extern const f32 lbl_805DC7A0;
 extern const f32 lbl_805DC7A4;
 void run_task__9TTecBartaFv(TTecBarta *self);
 s32 TObjFish__sub_8001ED9C(s32, s32);
-s32 TObjFish__sub_8001EDC4(s32, s32);
-void TObjFish__sub_800660D4(TechniqueParticleEmitter *, s32, s32, s32, s32, f32);
+s32 get_bml_model(s32, s32);
+void attach_particle_model(TechniqueParticleEmitter *, s32, s32, s32, s32, f32);
 void set_position_xy__10TObjPlayerFPvff(TechniqueParticleEmitter *, f32, f32);
 TechniqueParticleEmitter *fn_800871A0(f32 *, s32 *, u32);
-TechniqueParticleEmitter *TBoss4Type2__sub_800874F4(f32 *, u32);
+TechniqueParticleEmitter *create_particle_emitter(f32 *, u32);
 TechniqueParticleEmitter **alloc_buffer__11TOBoss4RockFPv(u32);
 extern TechniqueEmitterSourceTable TTecBarta__data_8044CD98[];
 extern s32 lbl_805D63AC;
@@ -247,12 +247,12 @@ void TTecBarta__sub_8022B540(void *arg) {
             reverse[2] = self->angles[2];
             self->emitters[i] = fn_800871A0((f32 *)(base + 0x20), reverse, TTecBarta__data_8044CD98[self->band].rows[i].entry);
         } else {
-            self->emitters[i] = TBoss4Type2__sub_800874F4((f32 *)(base + 0x20), row->entry);
+            self->emitters[i] = create_particle_emitter((f32 *)(base + 0x20), row->entry);
         }
         if (self->emitters[i] != NULL) {
             row = &TTecBarta__data_8044CD98[self->band].rows[i];
             if (row->flags & 0x20) {
-                TObjFish__sub_800660D4(self->emitters[i], TObjFish__sub_8001EDC4(lbl_805D63AC, 0), lbl_805D63B0, TObjFish__sub_8001ED9C(lbl_805D63AC, 0), 0, lbl_805DC7A0);
+                attach_particle_model(self->emitters[i], get_bml_model(lbl_805D63AC, 0), lbl_805D63B0, TObjFish__sub_8001ED9C(lbl_805D63AC, 0), 0, lbl_805DC7A0);
             } else {
                 set_position_xy__10TObjPlayerFPvff(self->emitters[i], row->scale, row->scale);
             }
@@ -355,9 +355,9 @@ void run_task__9TTecBartaFv(TTecBarta *self) {
         }
     }
     if (self->band == 5) {
-        TechniqueParticleEmitter *e = TLobby__sub_800869A4(self->position, 0x18A, 0x14, 1);
+        TechniqueParticleEmitter *e = create_timed_particle_emitter(self->position, 0x18A, 0x14, 1);
         if (e != NULL) {
-            TObjFish__sub_800660D4(e, TObjFish__sub_8001EDC4(lbl_805D63AC, 5), lbl_805D63B0, 0, 0, lbl_805DC7A0);
+            attach_particle_model(e, get_bml_model(lbl_805D63AC, 5), lbl_805D63B0, 0, 0, lbl_805DC7A0);
         }
     }
     TTecBarta__sub_8023A674(self);

@@ -141,7 +141,7 @@ struct Vec_8009C510 { f32 x, y, z; };
 
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TLobby__sub_800869A4(void *, int, int, int);
+M2C_UNK create_timed_particle_emitter(void *, int, int, int);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, s32);
 u8 *find_entity_by_id(u16);
 M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
@@ -167,7 +167,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 void fn_8009E378(void *);
 void TObjEneDD__sub_800BACE0(void *, f32, f32, f32);
-void TBoss8Dragon__sub_800BB780();
+void clear_attack_receipts();
 void transition_enemy_state(void *, s16);
 M2C_UNK advance_animation_playback();
 extern const f32 lbl_805D9898;
@@ -275,8 +275,8 @@ void TObjEneMe1Canadin__sub_8009C178(u8 *arg0, s32 arg1) {
         } else {
             send_entity_set_flags__6TLobbyFPv((void *) (arg0));
         }
-        TLobby__sub_800869A4((void *) (arg0 + 0x2FC), (int) (0x117), (int) (0), (int) (0x19));
-        TLobby__sub_800869A4((void *) (arg0 + 0x2FC), (int) (0x118), (int) (0x19), (int) (0xF));
+        create_timed_particle_emitter((void *) (arg0 + 0x2FC), (int) (0x117), (int) (0), (int) (0x19));
+        create_timed_particle_emitter((void *) (arg0 + 0x2FC), (int) (0x118), (int) (0x19), (int) (0xF));
         ((Sub_8009C178 *)(arg0 + 0x3CC))->s1(0x19);
         ((Sub_8009C178 *)(arg0 + 0x3CC))->s2();
         TBoss3Volopt__sub_8022675C((int) (0x4003AD18), (void *) (arg0 + 0x2FC), (int) (0), (int) (0));
@@ -413,7 +413,7 @@ void TObjEneMe1Canadin__sub_8009C510(u8 *arg0, s32 arg1) {
         ((VObj_18 *)arg0)->m87();
         break;
     case 5:
-        TBoss8Dragon__sub_800BB780();
+        clear_attack_receipts();
         if (I_8009C510(0x3FC) == 5) {
             M2C_FIELD(arg0, s16 *, 0xB8) = 1;
         } else {

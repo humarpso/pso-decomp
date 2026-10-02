@@ -9,7 +9,7 @@ typedef char RecoveredGlobal_802EF514___vt__18TBoss7PhotonBullet_size[sizeof(Rec
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TBoss8Dragon__sub_8008741C(void *, int, int);
+s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 s32 fn_800BC4C8(void *, void *, void *);
 extern M2C_UNK __vt__18TBoss7PhotonBullet[];
 extern s32 lbl_805D3FD4;
@@ -65,8 +65,8 @@ u8 *TBoss7PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32
     M2C_FIELD(arg0, s32 *, 0xE4) = 0;
     M2C_FIELD(arg0, s32 *, 0xE8) = 0;
     M2C_FIELD(arg0, f32 *, 0xEC) = (f32) lbl_805DEBF0;
-    M2C_FIELD(arg0, s32 *, 0xF0) = TBoss8Dragon__sub_8008741C((void *) (arg0 + 0xC0), (int) (0x202), (int) (0x40));
-    M2C_FIELD(arg0, s32 *, 0xF4) = TBoss8Dragon__sub_8008741C((void *) (arg0 + 0xC0), (int) (0x203), (int) (0x40));
+    M2C_FIELD(arg0, s32 *, 0xF0) = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0xC0), (int) (0x202), (int) (0x40));
+    M2C_FIELD(arg0, s32 *, 0xF4) = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0xC0), (int) (0x203), (int) (0x40));
     return arg0;
 }
 

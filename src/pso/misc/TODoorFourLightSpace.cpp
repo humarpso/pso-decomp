@@ -91,7 +91,7 @@ void fn_802898E8(void);
 void fn_802898EC(void);
 void render__20TODoorFourLightSpaceFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
+M2C_UNK draw_ginja_object(s32);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 void TObjEneGibbles__sub_80156720(void *);
 void TObjPlayer__sub_80154A00(void *);
@@ -291,7 +291,7 @@ void render__20TODoorFourLightSpaceFv(u8 *arg0) {
             set_global_param__8TObjFishFi();
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-            TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0xD4));
+            draw_ginja_object(M2C_FIELD(arg0, s32 *, 0xD4));
             pop_matrix();
             break;
         }
@@ -364,7 +364,7 @@ void *__dt__20TODoorFourLightRuinsFv(void *arg0, s16 arg1);
 void render__20TODoorFourLightRuinsFv(u8 *arg0);
 M2C_UNK TODoorFourLightRuins__sub_8028A28C(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
+M2C_UNK draw_ginja_object(s32);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 void TObjEneGibbles__sub_80156720(void *);
 void TObjPlayer__sub_80154A00(void *);
@@ -498,7 +498,7 @@ void render__20TODoorFourLightRuinsFv(u8 *arg0) {
             set_global_param__8TObjFishFi();
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-            TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0xD4));
+            draw_ginja_object(M2C_FIELD(arg0, s32 *, 0xD4));
             pop_matrix();
             break;
         }

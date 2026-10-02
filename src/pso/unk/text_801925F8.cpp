@@ -29,7 +29,7 @@ void reset_by_door__19TObjLazerFenceExtraFPv(void *arg0);
 void TObjLazerFenceExtra__sub_801926D0(TObjLazerFenceExtra_801926D0 *self);
 u8 TODoorAncient08__sub_80229220(u16);
 void TOHangerMachine01__sub_803D9C00(void *);
-void TObjBoss2Tunnel__sub_803DB470(void *);
+void draw_ginja_object(void *);
 void rotate_matrix_y(int, void *);
 void TObjPlayer__sub_803D9B2C(void);
 void pop_matrix(void);
@@ -44,7 +44,7 @@ void render_lazer_fence_model(void *arg0) {
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 56));
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
-    TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, void **, 0xBC));
+    draw_ginja_object(M2C_FIELD(arg0, void **, 0xBC));
     pop_matrix();
 }
 
@@ -123,7 +123,7 @@ struct Ent_80192874 { u8 b[0x84]; };
 
 extern "C" {
 s32 TObjFish__sub_8001ED9C(s32, s32);
-Node_80192A3C *TObjFish__sub_8001EDC4(s32, s32);
+Node_80192A3C *get_bml_model(s32, s32);
 extern s32 lbl_805D5C2C;
 void TObjFish__sub_80192A3C(Fish_80192A3C *arg0);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
@@ -232,12 +232,12 @@ void TObjFish__sub_80192A3C(Fish_80192A3C *arg0) {
     Node_80192A3C *node;
     s32 j;
     if (arg0->f8C % 2 == 0) {
-        arg0->fBC = TObjFish__sub_8001EDC4(lbl_805D5C2C, 1);
-        arg0->fC0 = TObjFish__sub_8001EDC4(lbl_805D5C2C, 0);
+        arg0->fBC = get_bml_model(lbl_805D5C2C, 1);
+        arg0->fC0 = get_bml_model(lbl_805D5C2C, 0);
         arg0->fC4 = TObjFish__sub_8001ED9C(lbl_805D5C2C, 0);
     } else {
-        arg0->fBC = TObjFish__sub_8001EDC4(lbl_805D5C2C, 3);
-        arg0->fC0 = TObjFish__sub_8001EDC4(lbl_805D5C2C, 2);
+        arg0->fBC = get_bml_model(lbl_805D5C2C, 3);
+        arg0->fC0 = get_bml_model(lbl_805D5C2C, 2);
         arg0->fC4 = TObjFish__sub_8001ED9C(lbl_805D5C2C, 1);
     }
     for (j = 0; j < 4; j++) {
@@ -281,7 +281,7 @@ void fn_80192B5C(Obj_80192B5C *arg0) {
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(arg0->f38);
     rotate_matrix_y(0, (void *)arg0->f60);
-    TObjBoss2Tunnel__sub_803DB470((void *)arg0->fBC);
+    draw_ginja_object((void *)arg0->fBC);
     begin_effect_render__13TParticleCtrlFv();
     draw_ginja_model_with_motion(arg0->fC0, arg0->fC4, arg0->fB8);
     end_effect_render__13TParticleCtrlFv();
@@ -329,7 +329,7 @@ void render__18TObjLazerFenceNormFv(void *arg0);
 void reset_by_door__18TObjLazerFenceNormFPv(void *arg0);
 u8 TODoorAncient08__sub_80229220(u16);
 void TOHangerMachine01__sub_803D9C00(void *);
-void TObjBoss2Tunnel__sub_803DB470(void *);
+void draw_ginja_object(void *);
 void rotate_matrix_y(int, void *);
 void TObjPlayer__sub_803D9B2C(void);
 void pop_matrix(void);
@@ -343,7 +343,7 @@ void draw_model__18TObjLazerFenceNormFPv(void *arg0) {
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 56));
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
-    TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, void **, 0xBC));
+    draw_ginja_object(M2C_FIELD(arg0, void **, 0xBC));
     pop_matrix();
 }
 

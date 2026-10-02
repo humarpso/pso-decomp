@@ -9,7 +9,7 @@ extern "C" {
 void TObjPlayer__sub_801BC858(void *arg0);
 void destroy_owned_object__10TObjPlayerFPv(void* p);
 void init_battle__10TObjPlayerFi(s32 arg0);
-s32 TObjPlayer__sub_80019248(void *);
+s32 is_locally_controlled__10TObjPlayerFPv(void *);
 int TObjPlayer__sub_801AFF50(void*);
 int TObjPlayer__sub_801AFF80(void*);
 void TObjPlayer__sub_801B1A84(void *);
@@ -19,7 +19,7 @@ void TObjPlayer__sub_801BCA10(void);
 void TObjPlayer__sub_801BCAB0(void);
 void TObjPlayer__sub_801BCB28(void);
 void TObjPlayer__sub_801BCC50(void);
-int TWindowSubComCard__sub_801058F8(void*);
+int is_script_controlled__10TObjPlayerFPv(void*);
 s32 apply_state_transform__10TObjPlayerFUi(s32);
 int can_cast_technique__10TObjPlayerFPv(void* p);
 int check_technique_castable__10TObjPlayerFi(void*);
@@ -65,7 +65,7 @@ void TObjPlayer__sub_801BC858(void *arg0) {
     s32 x;
     update_child__10TObjPlayerFPvPv((void *)((char *)arg0 + 900), arg0);
     enter_battle_state__10TObjPlayerFPv((void *)((char *)arg0 + 1588));
-    x = TObjPlayer__sub_80019248(arg0);
+    x = is_locally_controlled__10TObjPlayerFPv(arg0);
     if (x != 0) {
         TObjPlayer__sub_801B1A84(update_photon_chair__10TObjPlayerFi);
     }

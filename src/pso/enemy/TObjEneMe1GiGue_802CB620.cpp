@@ -67,13 +67,13 @@ extern const f32 lbl_805DE688;
 extern const f32 lbl_805DE68C;
 void TObjEneMe1GiGue__sub_802CB8F0(Obj_802CB8F0 *o, Vec_802CB8F0 *c, f32 r);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-u16 TObjPlayer__sub_800115C4(void *, int, f32);
+u16 find_nearest_visible_player(void *, int, f32);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, int);
 M2C_UNK find_target_in_range__10TObjPlayerFPvf(void *, f32);
 void init_move__15TObjEneMe1GiGueFPv(u8 *arg0);
 extern const f32 TObjEneMe1GiGue__data_805DE67C;
 void TObjEneMe1GiGue__sub_802CB6D4(u8 *arg0);
-M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, int);
 M2C_UNK TBoss3VoloptMonitor__sub_8004292C();
 s32 spawn_particle_effect(void *, int);
@@ -100,7 +100,7 @@ void init_move__15TObjEneMe1GiGueFPv(u8 *arg0);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK TBoss3VoloptMonitor__sub_8004292C();
 M2C_UNK TObjEneMe1GiGueBarrier__sub_80325CC4(void *, void *);
-M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK enemy_wander_home(void *, s32, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
 u32 get_player_by_client_id(M2C_UNK);
@@ -133,7 +133,7 @@ void TObjEneMe1GiGue__sub_802CB6D4(u8 *arg0) {
     switch (M2C_FIELD(arg0, s16 *, 0x326)) {
     case 0:
         if (((VObj_802CB6D4 *) arg0)->m17(0x1E) != 0) {
-            if (TObjPlayer__sub_800115C4(arg0, 0, *M2C_FIELD(arg0, f32 **, 0x350)) != 0xFFFF) {
+            if (find_nearest_visible_player(arg0, 0, *M2C_FIELD(arg0, f32 **, 0x350)) != 0xFFFF) {
                 find_target_in_range__10TObjPlayerFPvf(arg0, *M2C_FIELD(arg0, f32 **, 0x350));
                 if (M2C_FIELD(arg0, s32 *, 0x388) & 0x40000) {
                     init_move__15TObjEneMe1GiGueFPv(arg0);
@@ -144,14 +144,14 @@ void TObjEneMe1GiGue__sub_802CB6D4(u8 *arg0) {
         }
         break;
     case 1:
-        if (TObjPlayer__sub_800115C4(arg0, 0, TObjEneMe1GiGue__data_805DE67C) != 0xFFFF) {
+        if (find_nearest_visible_player(arg0, 0, TObjEneMe1GiGue__data_805DE67C) != 0xFFFF) {
             if (calc_boss4_scale__10TObjPlayerFi(arg0) <= M2C_FIELD(arg0, f32 *, 0x444)) {
                 update_if_active__15TObjEneMe1GiGueFPv(arg0, 0xB);
             } else {
                 update_if_active__15TObjEneMe1GiGueFPv(arg0, 0xD);
                 M2C_FIELD(arg0, s32 *, 0x378) = 1;
             }
-        } else if (TObjPlayer__sub_800115C4(arg0, 0, TObjEneMe1GiGue__data_805DE67C + *M2C_FIELD(arg0, f32 **, 0x350)) == 0xFFFF) {
+        } else if (find_nearest_visible_player(arg0, 0, TObjEneMe1GiGue__data_805DE67C + *M2C_FIELD(arg0, f32 **, 0x350)) == 0xFFFF) {
             update_if_active__15TObjEneMe1GiGueFPv(arg0, 0);
         }
         break;
@@ -203,13 +203,13 @@ void action__15TObjEneMe1GiGueFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x37C) = 2;
         M2C_FIELD(arg0, s32 *, 0x384) = 0x2D;
         advance_animation_playback(arg0);
-        TObjPlayer__sub_80011734(arg0, 0, TObjEneMe1GiGue__data_805DE660);
+        apply_actor_gravity(arg0, 0, TObjEneMe1GiGue__data_805DE660);
         update_collisions__10TObjPlayerFPv(arg0);
         return;
     case 2:
         enemy_wander_home(arg0, M2C_FIELD(M2C_FIELD(arg0, void **, 0x350), s32 *, 8), M2C_FIELD(arg0, f32 *, 0x3E4), TObjEneMe1GiGue__data_805DE694, TObjEneMe1GiGue__data_805DE694);
         advance_animation_playback(arg0);
-        TObjPlayer__sub_80011734(arg0, 0, TObjEneMe1GiGue__data_805DE660);
+        apply_actor_gravity(arg0, 0, TObjEneMe1GiGue__data_805DE660);
         update_collisions__10TObjPlayerFPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x384) = (s32) (M2C_FIELD(arg0, s32 *, 0x384) - 1);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x384) <= 0) {
@@ -263,7 +263,7 @@ void TObjEneMe1GiGue__sub_802CC45C(u8 *arg0) {
             break;
     }
         advance_animation_playback(arg0);
-        TObjPlayer__sub_80011734(arg0, 0, TObjEneMe1GiGue__data_805DE660);
+        apply_actor_gravity(arg0, 0, TObjEneMe1GiGue__data_805DE660);
         update_collisions__10TObjPlayerFPv(arg0);
         if (M2C_FIELD(arg0, s16 *, 0xB8) != 3) {
             update_if_active__15TObjEneMe1GiGueFPv(arg0, 0xD);

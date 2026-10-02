@@ -363,7 +363,7 @@ extern const f32 lbl_805DEDCC;
 void TBoss8Dragon__sub_802F51DC(u8 *arg0, u32 arg1);
 M2C_UNK set_speed__12TBoss8DragonFPvf(void *, f32);
 f32 calc_scaled_value__15TObjBoss2TunnelFif(int, f32);
-s32 TObjEneEpsilon__sub_800B95E0(void *);
+s32 enemy_validate_retained_target(void *);
 M2C_UNK copy_position__14TObjEneEpsilonFPv(void *, void *);
 M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
 s32 TBoss8Dragon__sub_802F46F4();
@@ -572,7 +572,7 @@ void TBoss8Dragon__sub_802F5434(u8 *arg0, u32 arg1) {
         update_linked_position__12TBoss8DragonFv();
         M2C_FIELD(arg0, s32 *, 0x84C) = (s32) (M2C_FIELD(arg0, s32 *, 0x84C) + 1);
         if ((s32) (M2C_FIELD(arg0, s32 *, 0x84C) % 20) == 0x13) {
-            if (TObjEneEpsilon__sub_800B95E0((void *) (arg0)) != 0) {
+            if (enemy_validate_retained_target((void *) (arg0)) != 0) {
                 TObjEneEpsilon__sub_800B96A4((void *) (arg0));
             } else {
                 copy_position__14TObjEneEpsilonFPv((void *) (arg0), (void *) (TBoss8Dragon__data_804744A8));

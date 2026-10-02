@@ -45,7 +45,7 @@ void *__dt__25TObjCityMainWarpChallengeFv(void *arg0, s16 arg1);
 void render__25TObjCityMainWarpChallengeFv(u8 *arg0);
 void update_state__25TObjCityMainWarpChallengeFPv(void *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
+M2C_UNK draw_ginja_object(s32);
 M2C_UNK TObjCityMainWarp__sub_80186DA0();
 M2C_UNK TObjCityMainWarp__sub_8018709C();
 M2C_UNK TObjCityMainWarp__sub_801871D0();
@@ -121,7 +121,7 @@ block_4:
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 0xC8));
+        draw_ginja_object(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 0xC8));
         begin_effect_render__13TParticleCtrlFv();
         draw_ginja_model_with_motion(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 8), M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), s32 *, 0x2C), M2C_FIELD(arg0, f32 *, 0xC4));
         end_effect_render__13TParticleCtrlFv();

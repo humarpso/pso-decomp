@@ -40,7 +40,7 @@ M2C_UNK set_position_xy(u32, f32, f32);
 M2C_UNK set_field_1c__6TLobbyFPvf(u32, f32);
 M2C_UNK send_and_handle__6TLobbyFPvii(u32, void *, M2C_UNK);
 u32 set_window_mode_4__6TLobbyFPvii(M2C_UNK, void *, M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK get_window_layout_position(M2C_UNK);
 M2C_UNK strncpy(void *, s32, M2C_UNK);
 extern u8 lbl_80488E40[];
 extern const f32 lbl_805D90C8;
@@ -105,7 +105,7 @@ void run_task__14TObjBagWarnWinFv(u8 *arg0) {
     }
 }
 void TObjBagWarnWin__sub_8006EDD8(u8 *arg0) {
-    M2C_FIELD(arg0, u32 *, 0x1C) = set_window_mode_4__6TLobbyFPvii(TWindowSubComCard__sub_8026CBB8(0x38), lbl_80488E40, 1);
+    M2C_FIELD(arg0, u32 *, 0x1C) = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x38), lbl_80488E40, 1);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
         set_field_1c__6TLobbyFPvf(M2C_FIELD(arg0, u32 *, 0x1C), lbl_805D90C8);
         if (get_camera_id__11TCameraCtrlFv() == 4) {

@@ -10,7 +10,7 @@ s32 get_type__10TObjPlayerFPv(s32);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 M2C_UNK register_object__10TObjPlayerFi(void *);
 void *__ct__7TEffectFv(void *);
-M2C_UNK TBoss1Dragon__sub_8014220C(void *, void *, void *);
+M2C_UNK direction_to_rotation_xz(void *, void *, void *);
 M2C_UNK TObjEneGibbles__sub_80156780(u32, void *, int);
 u32 TObjPlayer__sub_801569F4(u32, void *);
 u32 __nw__7TObjectFUl(int);
@@ -101,7 +101,7 @@ u8 *TObjPlayer__sub_8023A7B4(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s32 arg4) {
     if (lbl_805DC92C != TBoss6Kakusan__sub_803D8BD8(arg0 + 0x48)) {
         TNpcPlayer__sub_803D97B4(arg0 + 0x48);
     }
-    TBoss1Dragon__sub_8014220C(arg0 + 0x48, arg0 + 0x54, arg0 + 0x5C);
+    direction_to_rotation_xz(arg0 + 0x48, arg0 + 0x54, arg0 + 0x5C);
     M2C_FIELD(arg0, f32 *, 0xFC) = lbl_805DC92C;
     M2C_FIELD(arg0, f32 *, 0x100) = lbl_805DC92C;
     M2C_FIELD(arg0, f32 *, 0x104) = lbl_805DC92C;

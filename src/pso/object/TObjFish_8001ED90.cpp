@@ -32,7 +32,7 @@ extern s32 lbl_805D4AD4;
 void TLobby__sub_8001EDF4(u8 *arg0);
 s32 TObjFish__sub_8001ED9C(Fish_8001ED9C *self, s32 i);
 s32 TObjFish__sub_8001EDB0(Fish_8001EDB0 *self, s32 i);
-s32 TObjFish__sub_8001EDC4(Fish_8001EDC4 *self, s32 i);
+s32 get_bml_model(Fish_8001EDC4 *self, s32 i);
 void TLobby__sub_8001EDD8(List_8001EDD8 *self, s32 item);
 char *strncpy(char *d, const char *s, u32 n);
 void debug_print__6TLobbyFii(s32 arg0, ...);
@@ -66,7 +66,7 @@ s32 TObjFish__sub_8001EDB0(Fish_8001EDB0 *self, s32 i) {
     return self->entries[i].d;
 }
 
-s32 TObjFish__sub_8001EDC4(Fish_8001EDC4 *self, s32 i) {
+s32 get_bml_model(Fish_8001EDC4 *self, s32 i) {
     return self->entries[i].c;
 }
 

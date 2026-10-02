@@ -13,7 +13,7 @@ void update_recovery_meter__10TObjPlayerFPv(void *arg0);
 void update_field1fc__10TObjPlayerFPv(u8 *arg0);
 int rotate_matrix_x(void*, void*);
 M2C_UNK TObjPlayer__sub_80115BFC(void *, s32);
-M2C_UNK TObjPlayer__sub_8011E87C(void *, M2C_UNK);
+M2C_UNK update_trail_slot__11TItemWeaponFPvi(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80120908(void *);
 int get_player_list__10TObjPlayerFv(void*);
 
@@ -28,7 +28,7 @@ void update_guarded_by_flag__10TObjPlayerFPv(void *arg0) {
             *temp_r31 |= 0x10;
         }
         TObjPlayer__sub_80120908(arg0);
-        TObjPlayer__sub_8011E87C(arg0, 0);
+        update_trail_slot__11TItemWeaponFPvi(arg0, 0);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x208) == 0) {
             *temp_r31 &= 0xFFFFFFEF;
         }

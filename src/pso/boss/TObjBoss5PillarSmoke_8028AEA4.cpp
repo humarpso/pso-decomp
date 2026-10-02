@@ -26,7 +26,7 @@ void __dl__7TObjectFPv(void *);
 extern s32 __vt__20TObjBoss5PillarSmoke[];
 Smoke_8028AEA4 *__dt__20TObjBoss5PillarSmokeFv(Smoke_8028AEA4 *arg0, s16 arg1);
 void queue_destruction__7TObjectFv(void *);
-void *TBoss8Dragon__sub_8008741C(void *, s32, s32);
+void *spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 void **alloc_buffer__11TOBoss4RockFPv(s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 lbl_80450CD0[];
@@ -82,8 +82,8 @@ Smoke_8028AF6C *TObjBoss5PillarSmoke__ct(Smoke_8028AF6C *arg0, void *arg1, Node_
     arg0->a = alloc_buffer__11TOBoss4RockFPv(arg0->count * 4);
     arg0->b = alloc_buffer__11TOBoss4RockFPv(arg0->count * 4);
     for (i = 0; i < arg0->count; i++) {
-        arg0->a[i] = TBoss8Dragon__sub_8008741C(lbl_80450CD0, 0x213, 0x40);
-        arg0->b[i] = TBoss8Dragon__sub_8008741C(lbl_80450CD0, 0x214, 0x40);
+        arg0->a[i] = spawn_continuous_particle_effect_with_flags(lbl_80450CD0, 0x213, 0x40);
+        arg0->b[i] = spawn_continuous_particle_effect_with_flags(lbl_80450CD0, 0x214, 0x40);
     }
     return arg0;
 }

@@ -14,9 +14,9 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
 M2C_UNK TBoss7Tentacle__sub_803D8A6C(s32, s32, s32, s32);
-M2C_UNK TScene__sub_803D8DB4(s32, void *, void *);
+M2C_UNK rotate_vector_by_matrix(s32, void *, void *);
 M2C_UNK TNpcPlayer__sub_803D97B4(void *);
-M2C_UNK TObjPlayer__sub_803D97F0(void *);
+M2C_UNK push_matrix_from(void *);
 M2C_UNK pop_matrix();
 extern Vec_802AF64C lbl_804707E8;
 extern u8 lbl_8058D490[];
@@ -29,9 +29,9 @@ extern "C" {
 
 void fn_802AF64C(Obj_802AF64C *arg0) {
     Vec_802AF64C v = lbl_804707E8;
-    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    push_matrix_from(lbl_8058D490);
     TBoss7Tentacle__sub_803D8A6C(0, lbl_805D4DF0->a, lbl_805D4DF0->b, lbl_805D4DF0->c);
-    TScene__sub_803D8DB4(0, &v, &v);
+    rotate_vector_by_matrix(0, &v, &v);
     pop_matrix();
     TNpcPlayer__sub_803D97B4(&v);
     v.x *= lbl_805DE1F0;

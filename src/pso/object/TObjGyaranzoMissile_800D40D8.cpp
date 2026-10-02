@@ -75,7 +75,7 @@ extern s32 lbl_805D51EC;
 f32 TObjGyaranzoMissile__sub_800D40EC(s32 arg0);
 extern s32 lbl_805D51EC;
 s32 TObjGyaranzoMissile__sub_800D40FC(s32 i);
-s32 TObjPlayer__sub_80019570();
+s32 obj_is_hit_receivable();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u8 *get_battle_param__10TObjPlayerFi(s32);
 M2C_UNK spawn_particle_effect(void *, int);
@@ -95,8 +95,8 @@ void TObjGyaranzoMissile__sub_800D4200(u8 *arg0);
 M2C_UNK spawn_particle_effect(void *, int);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK pop_matrix();
-void TObjPlayer__sub_803D97F0(void *);
-void TScene__sub_803D8DB4(int, void *, void *);
+void push_matrix_from(void *);
+void rotate_vector_by_matrix(int, void *, void *);
 u32 csnVector(void *, void *, int);
 void update_collisions__10TObjPlayerFPv(void *);
 extern u8 lbl_8058D490[];
@@ -116,7 +116,7 @@ void TObjGyaranzoMissile__sub_800D40E8(void);
 void draw__19TObjGyaranzoMissileFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
-M2C_UNK TObjFish__sub_803E46BC(s32);
+M2C_UNK draw_chunk_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -178,7 +178,7 @@ void TObjGyaranzoMissile__sub_800D4200(u8 *arg0) {
             if (t == NULL) {
                 break;
             }
-            if (TObjPlayer__sub_80019570() != 0 && t != self) {
+            if (obj_is_hit_receivable() != 0 && t != self) {
                 Hit_800D4200 tmp = lbl_8043C440[0];
                 tmp.b = TObjGyaranzoMissile__sub_800D40FC(3);
                 {
@@ -200,7 +200,7 @@ void draw__19TObjGyaranzoMissileFPv(u8 *arg0) {
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0xBC));
     rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0xC0));
     some_id_805c6f74 &= 0xFFFFFBFF;
-    TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0xC4));
+    draw_chunk_object(M2C_FIELD(arg0, s32 *, 0xC4));
     pop_matrix();
 }
 void TObjGyaranzoMissile__sub_800D43B4(Missile_800D43B4 *self) {
@@ -215,13 +215,13 @@ void TObjGyaranzoMissile__sub_800D43B4(Missile_800D43B4 *self) {
         self->pos.z += self->vel.z;
         TObjGyaranzoMissile__sub_800D4110((u8 *)self, NULL, lbl_805DA2A4);
         if (self->flags & 0x800000) {
-            TObjPlayer__sub_803D97F0(lbl_8058D490);
+            push_matrix_from(lbl_8058D490);
             self->vel.x = lbl_805DA2A4;
             self->vel.y = lbl_805DA2A4;
             self->vel.z = lbl_805DA2AC;
             self->angle += self->spin;
             rotate_matrix_y(0, self->angle);
-            TScene__sub_803D8DB4(0, &self->vel, &self->vel);
+            rotate_vector_by_matrix(0, &self->vel, &self->vel);
             pop_matrix();
             self->fC0 = 0;
             spawn_particle_effect(&self->pos, 0xF3);

@@ -23,7 +23,7 @@ M2C_UNK clear_status_bit6__10TObjPlayerFPv();
 s32 TObjPlayer__sub_8001BEF8(s32, M2C_UNK);
 M2C_UNK set_type__10TObjPlayerFPvi(void *, s32);
 M2C_UNK TObjPlayer__sub_801B4430(u32);
-s32 TObjPlayer__sub_801D8ADC(void *);
+s32 get_getup_protection_ticks__10TObjPlayerFPv(void *);
 s32 is_alive_and_ready__10TObjPlayerFi(u32);
 M2C_UNK send_code_49_1__10TObjPlayerFi(u32);
 M2C_UNK update_if_ready__15TFontSmallLobbyFPv(s32);
@@ -118,7 +118,7 @@ void update_timer_action__10TObjPlayerFPv(u8 *arg0) {
         M2C_FIELD(arg0, f32 *, 0x2B4) = temp_f1_2;
         if (temp_f1_2 < TObjPlayer__data_805DC36C) {
             clear_status_bit6__10TObjPlayerFPv();
-            set_type__10TObjPlayerFPvi(arg0 + 0x644, TObjPlayer__sub_801D8ADC(arg0));
+            set_type__10TObjPlayerFPvi(arg0 + 0x644, get_getup_protection_ticks__10TObjPlayerFPv(arg0));
             update_position_from_target__10TObjPlayerFPv(arg0);
         }
         break;

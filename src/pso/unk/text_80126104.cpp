@@ -145,7 +145,7 @@ struct Pl_801261BC : PlB_801261BC {
 };
 
 extern "C" {
-s32 TObjPlayer__sub_80019570(void *);
+s32 obj_is_hit_receivable(void *);
 void TObjPlayer__sub_80126104(int arg0, u8 *arg1);
 extern const f32 lbl_805DAD70;
 void TObjPlayer__sub_80126180(Obj_80126180 *self, Out_80126180 *o);
@@ -162,7 +162,7 @@ extern "C" {
 #pragma fp_contract on
 void TObjPlayer__sub_80126104(int arg0, u8 *arg1) {
     u8 *temp_r31;
-    if ((arg1 != NULL) && (TObjPlayer__sub_80019570((void *) (M2C_FIELD(arg1, u8 **, 0))) != 0)) {
+    if ((arg1 != NULL) && (obj_is_hit_receivable((void *) (M2C_FIELD(arg1, u8 **, 0))) != 0)) {
         temp_r31 = (u8 *)(M2C_FIELD(arg1, u8 **, 0));
         ((VObj_18_f15a7b *)(temp_r31))->m46(M2C_FIELD(temp_r31, s32 *, 0xA4) + (M2C_FIELD(arg1, s32 *, 4) * 0x2C));
         ((VObj_18_f15a7b *)(temp_r31))->m72(0);

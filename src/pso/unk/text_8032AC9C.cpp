@@ -3,7 +3,7 @@ struct P2_8032AC9C { f32 x, y; };
 
 extern "C" {
 void TWindowSubComCard__sub_80245F98();
-void *TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+void *get_localized_text_entry(int, int);
 void render_status_line__15TAdSubPlyItemGCFPvi(void *, int, f32, f32, f32);
 void fn_8032AACC(void *);
 void fn_8032AC24();
@@ -18,7 +18,7 @@ extern "C" {
 
 void fn_8032AC9C(void *arg0, void *arg1) {
     TWindowSubComCard__sub_80245F98();
-    render_status_line__15TAdSubPlyItemGCFPvi(TAdSinglePlyChrSelectGC__sub_80132F2C(0x17, 4), -1, lbl_804ED9F0[0].x, lbl_804ED9F0[0].y, lbl_805DF778);
+    render_status_line__15TAdSubPlyItemGCFPvi(get_localized_text_entry(0x17, 4), -1, lbl_804ED9F0[0].x, lbl_804ED9F0[0].y, lbl_805DF778);
     switch (lbl_805D6CA8) {
     case 0:
     case 1:

@@ -35,7 +35,7 @@ M2C_UNK TObjPlayer__sub_801569F4(void *, s32);
 M2C_UNK TCameraCtrl__sub_803D8934(void *, Vec_802CDEB4 *, void *);
 M2C_UNK rotate_matrix_y(void *, s32);
 M2C_UNK rotate_matrix_x(void *, s32);
-M2C_UNK TObjPlayer__sub_803D97F0(void *);
+M2C_UNK push_matrix_from(void *);
 M2C_UNK pop_matrix();
 extern Vec_802CDEB4 lbl_804722A8;
 extern const f64 lbl_804722C8[];
@@ -126,7 +126,7 @@ u8 *TObjPlayer__sub_802CDEB4(u8 *arg0, Vec_802CDEB4 *arg1, s16 arg2, Rot_802CDEB
     M2C_FIELD(arg0, s32 *, 0x104) = arg5;
     M2C_FIELD(arg0, Vec_802CDEB4 **, 0xF0) = arg1;
     M2C_FIELD(arg0, f32 *, 0xE8) = lbl_805DE6C0;
-    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    push_matrix_from(lbl_8058D490);
     {
         Vec_802CDEB4 v = lbl_804722A8;
         v.z = lbl_805D6844;

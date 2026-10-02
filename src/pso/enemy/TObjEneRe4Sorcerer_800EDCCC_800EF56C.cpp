@@ -211,7 +211,7 @@ void TObjEneRe4Sorcerer__sub_800EFE30(void);
 u32 find_entity_by_id(u16);
 s32 check_v2_mode__9TObjEneDDFv();
 s32 fn_800B9194(s32);
-M2C_UNK fn_800B98C0(s32);
+M2C_UNK enemy_clear_target(s32);
 s16 get_field_2b8__14TItemProShieldFPv(void *);
 
 extern const f32 TObjEneRe4Sorcerer__data_805DA78C;
@@ -365,7 +365,7 @@ s32 try_attack__18TObjEneRe4SorcererFiff(s32 arg0, f32 farg0, f32 farg1) {
     if (fn_800B9194(arg0) != 0) {
         return 1;
     }
-    fn_800B98C0(arg0);
+    enemy_clear_target(arg0);
     return 0;
 }
 

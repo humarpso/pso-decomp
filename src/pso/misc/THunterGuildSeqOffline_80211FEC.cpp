@@ -40,7 +40,7 @@ s32 get_player_by_client_id(int);
 void TWindow__close(void *);
 void dispatch_without_flags__20TWindowSubStatusDispFiii(void *, char *, s32);
 void *refresh_with_default_list__20TWindowSubStatusDispFii(void *, void *);
-void *TWindowSubComCard__sub_8026CBB8(s32);
+void *get_window_layout_position(s32);
 char *strcpy(char *, const char *);
 extern u8 lbl_804C96B8[];
 void THunterGuildSeqOffline__sub_80212304(Seq_80212304 *self);
@@ -167,7 +167,7 @@ void THunterGuildSeqOffline__sub_80212304(Seq_80212304 *self) {
         TWindow__close(self->win);
         self->win = 0;
     }
-    self->win = refresh_with_default_list__20TWindowSubStatusDispFii(TWindowSubComCard__sub_8026CBB8(0xBD), lbl_804C96B8);
+    self->win = refresh_with_default_list__20TWindowSubStatusDispFii(get_window_layout_position(0xBD), lbl_804C96B8);
     if (self->win != 0) {
         set_visible__19TWindowSubTradeMainFPv(self->win);
         set_close_flag__19TWindowSubTradeMainFPv(self->win);

@@ -40,7 +40,7 @@ struct RecoveredFields_80051AD0_var_r31 {
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TBoss4Type2__sub_800874F4(s32, s32);
+s32 create_particle_emitter(s32, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_80051938___vt__16TObjDFTenchuFuru __vt__16TObjDFTenchuFuru;
@@ -120,7 +120,7 @@ u8 *TObjDFTenchuFuru__ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     M2C_FIELD(arg0, s32 *, 0x28) = 5;
     VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) + lbl_805D8AA0);
-    temp_r3 = (u8 *)(TBoss4Type2__sub_800874F4((s32) (arg0 + 0x1C), 0x134));
+    temp_r3 = (u8 *)(create_particle_emitter((s32) (arg0 + 0x1C), 0x134));
     M2C_FIELD(arg0, u8 **, 0x2C) = temp_r3;
     if (temp_r3 != NULL) {
         set_flags__11TBoss4Type2FPvUi(M2C_FIELD(arg0, u8 **, 0x2C), 0x40);

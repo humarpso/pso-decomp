@@ -136,7 +136,7 @@ extern s8 TCameraCtrl__data_804FF628[];
 extern const f32 TCameraCtrl__data_805D8FAC;
 extern const f32 TCameraCtrl__data_805D8FDC;
 extern const f32 TCameraCtrl__data_805D8FE0;
-void TCameraCtrl__sub_8006A7D8(u8 *arg0);
+void update_active_controller__11TCameraCtrlFPv(u8 *arg0);
 extern RecoveredGlobal_8006A788_camera_controller_registry camera_controller_registry;
 extern s8 TCameraCtrl__data_804FF628[];
 extern u8 *lbl_805D4DF0;
@@ -150,7 +150,7 @@ s32 TObjPlayer__sub_80203418(void);
 extern RecoveredGlobal_8006A788_camera_controller_registry camera_controller_registry;
 extern s8 TCameraCtrl__data_804FF628[];
 extern u8 *lbl_805D4DF0;
-void TCameraCtrl__sub_8006A410(void *actor);
+void reset_cameras_to_actor(void *actor);
 }
 
 extern "C" {
@@ -176,7 +176,7 @@ typedef struct Master_8006A410 Master_8006A410;
 typedef struct VBase_8006A410 VBase_8006A410;
 typedef struct Vec_8006A410 Vec_8006A410;
 typedef struct Views_8006A410 Views_8006A410;
-void TCameraCtrl__sub_8006A410(void *actor) {
+void reset_cameras_to_actor(void *actor) {
   s32 view = 0;
   u16 new_var;
   s32 count = 0;
@@ -319,7 +319,7 @@ typedef char RecoveredGlobal_8006A7D8_TCameraCtrl__data_804FF628_size[((sizeof(R
 #define PSO_VCALL_VObj_18_9639c7_m1(_self) (((VObj_18_9639c7 *)(_self))->m1())
 #define PSO_VCALL_VObj_18_9639c7_m4(_self, _arg0) (((VObj_18_9639c7 *)(_self))->m4((_arg0)))
 #define PSO_VCALL_VObj_18_9639c7_m9(_self) (((VObj_18_9639c7 *)(_self))->m9())
-void TCameraCtrl__sub_8006A7D8(u8 *arg0) {
+void update_active_controller__11TCameraCtrlFPv(u8 *arg0) {
   s32 temp_r3;
   s32 var_r27;
   s32 var_r29;

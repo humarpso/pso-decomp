@@ -66,17 +66,17 @@ s32 fn_8019DD24(void *, int);
 void *get_player_by_client_id(u32);
 s32 TWindow__close(int);
 void TObjMapWarp__sub_8019D644(s32 arg0, u16 arg1);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+s32 get_localized_text_entry(s32, s32);
 s32 TWindowSubTradeMain__sub_80266200(s32, s32, s32, s32, s32);
 s32 TCheckRoomSequence__sub_802664A8(s32, s32, s32);
-s32 TWindowSubComCard__sub_8026CBB8(s32);
+s32 get_window_layout_position(s32);
 M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(int);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
 M2C_UNK TWindowSubComCard__sub_80265C30(int);
 M2C_UNK TWindowSubComCard__sub_80265F60(int);
 void TObjMapWarp__sub_8019D5AC(s32 arg0, s32 arg1);
 void *TObjWarpBase__ct(void *, void *, void *);
-int TObjPlayer__sub_803D97F0(void *);
+int push_matrix_from(void *);
 void TOHangerMachine01__sub_803D9C00(void *);
 void rotate_matrix_y(void *, s32);
 void TCameraCtrl__sub_803D8934(void *, void *, void *);
@@ -143,8 +143,8 @@ void TObjMapWarp__sub_8019D5AC(s32 arg0, s32 arg1) {
     u8 *temp_r31;
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
     if ((u32) M2C_FIELD(temp_r31, u32 *, 0xEC) == 0U) {
-        M2C_FIELD(temp_r31, u32 *, 0xEC) = TCheckRoomSequence__sub_802664A8(TWindowSubComCard__sub_8026CBB8(0x33), 1, arg1);
-        TWindowSubTradeMain__sub_80266200(M2C_FIELD(temp_r31, u32 *, 0xEC), TAdSinglePlyChrSelectGC__sub_80132F2C(9, 0x25), 2, 0, -1);
+        M2C_FIELD(temp_r31, u32 *, 0xEC) = TCheckRoomSequence__sub_802664A8(get_window_layout_position(0x33), 1, arg1);
+        TWindowSubTradeMain__sub_80266200(M2C_FIELD(temp_r31, u32 *, 0xEC), get_localized_text_entry(9, 0x25), 2, 0, -1);
         TWindowSubComCard__sub_80265F60((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
         TWindowSubComCard__sub_80265C30((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
         set_flag70_bit10__16TObjCityMainWarpFPv((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
@@ -202,7 +202,7 @@ void *TObjMapWarp__ct(W_8019D764 *self, void *parent, void *set) {
     self->vt = __vt__11TObjMapWarp;
     self->type = lbl_805D3460;
     for (i = 0; i < 4; i++) {
-        TObjPlayer__sub_803D97F0(lbl_8058D490);
+        push_matrix_from(lbl_8058D490);
         TOHangerMachine01__sub_803D9C00(self->destination);
         rotate_matrix_y(0, self->sourceYaw);
         TCameraCtrl__sub_803D8934(0, &lbl_804B910C[i], &self->destinations[i]);

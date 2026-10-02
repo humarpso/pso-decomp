@@ -126,7 +126,7 @@ struct VObj_18 : VBase_18 {
 extern "C" {
 void TObjEneMe3Shinowa__sub_800E7630(u8 *arg0);
 s32 check_v2_mode__9TObjEneDDFv();
-M2C_UNK TBoss8Dragon__sub_800BB780(void *);
+M2C_UNK clear_attack_receipts(void *);
 int transition_enemy_state(void*, void*);
 void TObjEneMe3Shinowa__vt60(u8 *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -165,11 +165,11 @@ void TObjEneMe3Shinowa__sub_800E767C(void) {  }
 
 void TObjEneMe3Shinowa__vt60(u8 *arg0) {
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        TBoss8Dragon__sub_800BB780((void *) (arg0));
+        clear_attack_receipts((void *) (arg0));
         return;
     }
     if (M2C_FIELD(arg0, s32 *, 0x3C4) & 1) {
-        TBoss8Dragon__sub_800BB780((void *) (arg0));
+        clear_attack_receipts((void *) (arg0));
         return;
     }
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 0xC) {

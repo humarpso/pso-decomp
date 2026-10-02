@@ -29,7 +29,7 @@ int TWindowCtrl__sub_8024AEAC(void*);
 M2C_UNK TWindowCtrl__sub_8024AEF0(int);
 M2C_UNK set_selected_index__17TWindowSubComCardFPvs(u32, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
-M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK get_window_layout_position(M2C_UNK);
 int TWindow__close(void*);
 M2C_UNK set_loss_flag__6TLobbyFPv(u32);
 int TObjPlayer__sub_8024ABDC(void*);
@@ -52,7 +52,7 @@ void open_message_window__6TLobbyFPv(void *arg0) {
         TWindow__close((void*)(M2C_FIELD(arg0, void **, 0x30)));
         M2C_FIELD(arg0, u32 *, 0x30) = 0U;
     }
-    M2C_FIELD(arg0, u32 *, 0x30) = set_window_mode_4__6TLobbyFPvii(TWindowSubComCard__sub_8026CBB8(0x39), lbl_804DBE9C, 1);
+    M2C_FIELD(arg0, u32 *, 0x30) = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x39), lbl_804DBE9C, 1);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
         send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, u32 *, 0x30), TQuestVmDownLoadServer__sub_8006EF6C(0x5E), 1);
     }
@@ -68,7 +68,7 @@ void open_giveup_window__6TLobbyFPv(void *arg0) {
         TWindow__close((void*)(temp));
         M2C_FIELD(arg0, u32 *, 0x2C) = 0U;
     }
-    M2C_FIELD(arg0, u32 *, 0x2C) = check_room_seq_4__16TAdChrSelASlotGCFii(TWindowSubComCard__sub_8026CBB8(0x3A), 3);
+    M2C_FIELD(arg0, u32 *, 0x2C) = check_room_seq_4__16TAdChrSelASlotGCFii(get_window_layout_position(0x3A), 3);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), TQuestVmDownLoadServer__sub_8006EF6C(0x5B), 5, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), TQuestVmDownLoadServer__sub_8006EF6C(0x5C), 5, 1);

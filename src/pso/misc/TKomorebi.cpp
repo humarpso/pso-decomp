@@ -28,7 +28,7 @@ struct Fish_80192434 { u8 pad0[0x8C]; s32 f8C; u8 pad90[0x2C]; Node_80192434 *fB
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
-s32 TObjFish__sub_8001EDC4(void *, int);
+s32 get_bml_model(void *, int);
 s32 copy_xyz__10TObjPlayerFPvPv(void *, void *);
 s32 TPhotonMagicSquare__sub_801A2640(void *);
 extern M2C_UNK __vt__9TKomorebi[];
@@ -42,7 +42,7 @@ extern u32 lbl_805D5C20;
 extern s32 lbl_805D5C24;
 void TKomorebi__sub_801923DC(void);
 s32 TObjFish__sub_8001ED9C(s32, s32);
-s32 TObjFish__sub_8001EDC4(void *, int);
+s32 get_bml_model(void *, int);
 extern s32 lbl_805D5C2C;
 void TObjFish__sub_80192434(Fish_80192434 *arg0);
 }
@@ -55,11 +55,11 @@ void free_static__9TKomorebiFv(void);
 void render__9TKomorebiFv(u8 *arg0);
 void run_task__9TKomorebiFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TOComputerMachine01__sub_8023DDC8(s32, M2C_UNK, s32, M2C_UNK, M2C_UNK);
+M2C_UNK scroll_ginja_mesh_uvs(s32, M2C_UNK, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(void *);
-M2C_UNK TObjChip__sub_803D8AE4(M2C_UNK, s32, s32, s32);
+M2C_UNK draw_ginja_object(void *);
+M2C_UNK rotate_matrix_yxz(M2C_UNK, s32, s32, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
@@ -83,16 +83,16 @@ void render__9TKomorebiFv(u8 *arg0) {
     if ((((VObj_80192174*)arg0)->m8(lbl_805DBE48, lbl_805DBE4C) != 0) && !(xz_distance_squared(arg0 + 0x38, lbl_805D4DF0 + 0x178) < lbl_805DBE50)) {
         begin_effect_render__13TParticleCtrlFv();
         if ((s32) lbl_805D53A4 != (s32) lbl_805D5C24) {
-            TOComputerMachine01__sub_8023DDC8(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), s32 *, 4), 0, (s32) M2C_FIELD(arg0, f32 *, 0x68), 0, 1);
+            scroll_ginja_mesh_uvs(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), s32 *, 4), 0, (s32) M2C_FIELD(arg0, f32 *, 0x68), 0, 1);
             lbl_805D5C24 = lbl_805D53A4;
         }
         TObjPlayer__sub_803D9B2C();
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        TObjChip__sub_803D8AE4(0, M2C_FIELD(arg0, s32 *, 0x5C), M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x64));
+        rotate_matrix_yxz(0, M2C_FIELD(arg0, s32 *, 0x5C), M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x64));
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x70);
         scale_matrix(0, temp_f1, M2C_FIELD(arg0, f32 *, 0x6C), temp_f1);
-        TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, void **, 0x34));
+        draw_ginja_object(M2C_FIELD(arg0, void **, 0x34));
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
     }
@@ -123,7 +123,7 @@ u8 *TKomorebi__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0xC));
     copy_xyz__10TObjPlayerFPvPv((void *) (arg0 + 0x5C), (void *) (arg2 + 0x18));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x68), (void *) (arg2 + 0x24));
-    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((void *) ((*(s32 *)&lbl_805D5C20)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) ((*(s32 *)&lbl_805D5C20)), (int) (0));
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&lbl_805D5C20)), (int) (0));
     return arg0;
 }
@@ -159,12 +159,12 @@ void TObjFish__sub_80192434(Fish_80192434 *arg0) {
     Node_80192434 *node;
     s32 j;
     if (arg0->f8C % 2 == 0) {
-        arg0->fBC = (Node_80192434 *)TObjFish__sub_8001EDC4((void *)lbl_805D5C2C, 1);
-        arg0->fC0 = (Node_80192434 *)TObjFish__sub_8001EDC4((void *)lbl_805D5C2C, 0);
+        arg0->fBC = (Node_80192434 *)get_bml_model((void *)lbl_805D5C2C, 1);
+        arg0->fC0 = (Node_80192434 *)get_bml_model((void *)lbl_805D5C2C, 0);
         arg0->fC4 = TObjFish__sub_8001ED9C(lbl_805D5C2C, 0);
     } else {
-        arg0->fBC = (Node_80192434 *)TObjFish__sub_8001EDC4((void *)lbl_805D5C2C, 3);
-        arg0->fC0 = (Node_80192434 *)TObjFish__sub_8001EDC4((void *)lbl_805D5C2C, 2);
+        arg0->fBC = (Node_80192434 *)get_bml_model((void *)lbl_805D5C2C, 3);
+        arg0->fC0 = (Node_80192434 *)get_bml_model((void *)lbl_805D5C2C, 2);
         arg0->fC4 = TObjFish__sub_8001ED9C(lbl_805D5C2C, 1);
     }
     for (j = 0; j < 4; j++) {

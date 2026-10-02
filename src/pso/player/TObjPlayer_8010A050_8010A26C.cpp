@@ -74,7 +74,7 @@ struct VObj_8010A26C : Base_8010A26C {
 extern "C" {
 
 void update_indicator_particle__10TObjPlayerFPv(void *arg0);
-u32 TBoss4Type2__sub_800874F4(M2C_UNK *, M2C_UNK);
+u32 create_particle_emitter(M2C_UNK *, M2C_UNK);
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 u32 get_item_field_6__10TObjPlayerFPv(void *);
@@ -104,7 +104,7 @@ void update_indicator_particle__10TObjPlayerFPv(void *arg0) {
         if (temp_r3_2 != (s32) M2C_FIELD(arg0, s32 *, 0x20)) {
             M2C_FIELD(arg0, s32 *, 0x20) = temp_r3_2;
             if ((reset_key_machine_state__10TObjPlayerFv() != 0) && (temp_r3_2 == get_field_3e4__10TObjPlayerFPv(temp_r3))) {
-                M2C_FIELD(arg0, u32 *, 0x1C) = TBoss4Type2__sub_800874F4(sp8, 0x101);
+                M2C_FIELD(arg0, u32 *, 0x1C) = create_particle_emitter(sp8, 0x101);
             } else {
                 M2C_FIELD(arg0, u32 *, 0x1C) = 0U;
             }

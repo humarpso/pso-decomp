@@ -26,9 +26,9 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 project_actor_to_ground(void *, void *, void *);
 extern const f32 TObjPlayer__data_805D7D24;
 extern const f32 lbl_805D7D48;
-void TObjPlayer__sub_80011734(u8 *arg0, M2C_UNK *arg1, f32 farg0);
+void apply_actor_gravity(u8 *arg0, M2C_UNK *arg1, f32 farg0);
 extern s32 lbl_805D53A4;
-s32 TObjPlayer__sub_80011704(O_80011704 *self, s32 x);
+s32 is_actor_cadence_frame(O_80011704 *self, s32 x);
 s32 check_path_obstructed(void *, void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 Player_800115C4 *get_player_data__10TObjPlayerFi(s32);
@@ -37,7 +37,7 @@ s32 get_field_3e4__10TObjPlayerFPv(Player_800115C4 *);
 M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
 extern Vec_800115C4 lbl_80434074;
 extern s32 lbl_805D586C;
-u16 TObjPlayer__sub_800115C4(u8 *arg0, Vec_800115C4 *arg1, f32 farg0);
+u16 find_nearest_visible_player(u8 *arg0, Vec_800115C4 *arg1, f32 farg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_isState2_324();
 s32 obj_testFlags30(void *, int);
@@ -50,7 +50,7 @@ void TObjPlayer__sub_8001401C(u8 *arg0, u8 *arg1);
 
 extern "C" {
 
-u16 TObjPlayer__sub_800115C4(u8 *arg0, Vec_800115C4 *arg1, f32 farg0) {
+u16 find_nearest_visible_player(u8 *arg0, Vec_800115C4 *arg1, f32 farg0) {
     f32 best = farg0 * farg0;
     u16 result = 0xFFFF;
     Vec_800115C4 diff = lbl_80434074;
@@ -77,7 +77,7 @@ u16 TObjPlayer__sub_800115C4(u8 *arg0, Vec_800115C4 *arg1, f32 farg0) {
     return result;
 }
 
-s32 TObjPlayer__sub_80011704(O_80011704 *self, s32 x) {
+s32 is_actor_cadence_frame(O_80011704 *self, s32 x) {
     s32 g = lbl_805D53A4 % x;
     if ((self->f1c % x) == g) {
         return 1;
@@ -85,7 +85,7 @@ s32 TObjPlayer__sub_80011704(O_80011704 *self, s32 x) {
     return 0;
 }
 
-void TObjPlayer__sub_80011734(u8 *arg0, M2C_UNK *arg1, f32 farg0) {
+void apply_actor_gravity(u8 *arg0, M2C_UNK *arg1, f32 farg0) {
     Vec position;
     f32 temp_f1;
     s32 temp_r31;

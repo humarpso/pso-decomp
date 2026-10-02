@@ -77,7 +77,7 @@ void TObjPlayer__sub_801D2DB4(u16 *arg0);
 int clear_flags__11TAdRicoRingFPvUi(void*, int);
 void TObjPlayer__sub_801D3424(void* p, s16 v);
 extern const f32 lbl_805DC3B8;
-void TObjPlayer__sub_801D31A8(u8 *arg0, M2C_UNK arg1, s16 arg2, s32 arg3);
+void begin_player_attack(u8 *arg0, M2C_UNK arg1, s16 arg2, s32 arg3);
 int TFontSmallLobby__sub_801C0228(void*);
 s32 TObjPlayer__sub_801D2BB8(s32 arg0, s32 arg1);
 s16 TObjPlayer__sub_801D2EA8(u8 *arg0);
@@ -441,7 +441,7 @@ extern const f32 lbl_805DC3BC;
 extern const f32 lbl_805DC3C0;
 extern const f32 lbl_805DC3C4;
 
-void TObjPlayer__sub_801D31A8(u8 *arg0, M2C_UNK arg1, s16 arg2, s32 arg3) {
+void begin_player_attack(u8 *arg0, M2C_UNK arg1, s16 arg2, s32 arg3) {
   s8 *new_var;
   TObjPlayer__sub_801D3424((void*)((void *) arg0), (s16)((void *) arg2));
   *((s32 *) (((s8 *) arg0) + 0x14)) = arg3;

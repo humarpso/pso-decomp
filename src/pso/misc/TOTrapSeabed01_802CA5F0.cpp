@@ -36,7 +36,7 @@ struct RecoveredGlobal_802CA9AC___vt__14TOTrapSeabed01 { M2C_UNK value; u8 remai
 
 extern "C" {
 s32 TObjFish__sub_8001ED9C(int, int);
-s32 TObjFish__sub_8001EDC4(int, int);
+s32 get_bml_model(int, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_80154E3C(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
@@ -49,7 +49,7 @@ extern u32 TOTrapSeabed01__data_805D6810;
 extern const f32 lbl_805DE640;
 extern const f32 TOTrapSeabed01__data_805DE644;
 u8 *TOTrapSeabed01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
-s32 TObjFish__sub_8001EDC4(int, int);
+s32 get_bml_model(int, int);
 void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32, s32);
@@ -120,7 +120,7 @@ void TOTrapSeabed01__sub_802CA820(void) {
     }
     TOTrapSeabed01__data_805D6810 = (u32)p;
     TOTrapSeabed01__data_805D6814 = TLanguage__sub_801E4874(lbl_804720E8);
-    s32 n = count_linked_switches__23TObjSeabedSuisoBrakableFUii(TObjFish__sub_8001EDC4(TOTrapSeabed01__data_805D6810, 0), 5);
+    s32 n = count_linked_switches__23TObjSeabedSuisoBrakableFUii(get_bml_model(TOTrapSeabed01__data_805D6810, 0), 5);
     u32 t = TOTrapSeabed01__data_805D6814;
     lbl_805D6818 = n;
     lbl_805D681C = 0;
@@ -166,7 +166,7 @@ u8 *TOTrapSeabed01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802CA9AC___vt__14TOTrapSeabed01 *)&__vt__14TOTrapSeabed01).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3F10;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((int) ((*(s32 *)&TOTrapSeabed01__data_805D6810)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TOTrapSeabed01__data_805D6810)), (int) (0));
     M2C_FIELD(arg0, s32 *, 0xF8) = TObjFish__sub_8001ED9C((int) ((*(s32 *)&TOTrapSeabed01__data_805D6810)), (int) (0));
     M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DE640;
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) TOTrapSeabed01__data_805DE644;

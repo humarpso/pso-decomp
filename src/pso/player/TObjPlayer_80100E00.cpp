@@ -47,7 +47,7 @@ M2C_UNK TObjPlayer__sub_80102C68(void *);
 s32 is_flag_20000_set__10TObjPlayerFv(int);
 s32 test_flag_2000000__10TObjPlayerFPv(int);
 s32 reset_key_machine_state__10TObjPlayerFv();
-void TObjPlayer__sub_80100E38(u8 *arg0);
+void update_owner_visibility__5TItemFPv(u8 *arg0);
 M2C_UNK TOTrapAncient02__sub_800837D4(void *);
 void TObjPlayer__sub_80100EB4(M2C_UNK arg0, s32 arg1);
 s32 TObjPlayer__sub_8001BEF8(M2C_UNK *, M2C_UNK);
@@ -134,7 +134,7 @@ f32 get_mag_scale__10TObjPlayerFPv(void *arg0) {
 
 extern M2C_UNK lbl_805D53EC;
 
-void TObjPlayer__sub_80100E38(u8 *arg0) {
+void update_owner_visibility__5TItemFPv(u8 *arg0) {
     u32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, u32 *, 0xF0);
     if (temp_r0 != 0U) {

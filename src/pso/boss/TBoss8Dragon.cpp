@@ -620,7 +620,7 @@ M2C_UNK TBoss8Dragon__sub_80064AB0(void *);
 struct Obj_8005F968 { u8 pad[0x60]; s32 f60; u8 pad64[0x480 - 0x64]; s32 f480; };
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
 extern const f32 lbl_805D8DA0;
-s32 TObjEneEpsilon__sub_800B95E0(void *);
+s32 enemy_validate_retained_target(void *);
 M2C_UNK copy_position__14TObjEneEpsilonFPv(void *, M2C_UNK *);
 M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
@@ -632,7 +632,7 @@ extern M2C_UNK lbl_80437938[];
 void update_periodic_effect__12TBoss8DragonFPv(void *arg0) {
     update_epsilon_position__12TBoss8DragonFv();
     if (!(M2C_FIELD(arg0, s32 *, 0x490) & 0x1F)) {
-        if (TObjEneEpsilon__sub_800B95E0(arg0) != 0) {
+        if (enemy_validate_retained_target(arg0) != 0) {
             TObjEneEpsilon__sub_800B96A4(arg0);
         } else {
             copy_position__14TObjEneEpsilonFPv(arg0, lbl_80437938);
@@ -767,8 +767,8 @@ extern "C" {
 void spawn_switch_attack__12TBoss8DragonFPv(void *arg0);
 void spawn_attack_effect__12TBoss8DragonFPv(void *arg0);
 s32 spawn_particle_effect_with_flags(void *, M2C_UNK, M2C_UNK);
-s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
-M2C_UNK TObjFish__sub_800660D4(s32, s32, s32, M2C_UNK, M2C_UNK, f32);
+s32 get_bml_model(s32, M2C_UNK);
+M2C_UNK attach_particle_model(s32, s32, s32, M2C_UNK, M2C_UNK, f32);
 
 extern s32 lbl_805D4DA4;
 extern s32 lbl_805D4DA8;
@@ -779,7 +779,7 @@ void spawn_switch_attack__12TBoss8DragonFPv(void *arg0) {
 
     temp_r3 = spawn_particle_effect_with_flags(arg0, 0x211, 0x40);
     if (temp_r3 != 0) {
-        TObjFish__sub_800660D4(temp_r3, TObjFish__sub_8001EDC4(lbl_805D4DA4, 2), lbl_805D4DA8, 0, 0, lbl_805D8D88);
+        attach_particle_model(temp_r3, get_bml_model(lbl_805D4DA4, 2), lbl_805D4DA8, 0, 0, lbl_805D8D88);
     }
 }
 
@@ -792,7 +792,7 @@ void spawn_attack_effect__12TBoss8DragonFPv(void *arg0) {
 
     temp_r3 = spawn_particle_effect_with_flags(arg0, 0x210, 0x40);
     if (temp_r3 != 0) {
-        TObjFish__sub_800660D4(temp_r3, TObjFish__sub_8001EDC4(lbl_805D4DA4, 1), lbl_805D4DA8, 0, 0, lbl_805D8D88);
+        attach_particle_model(temp_r3, get_bml_model(lbl_805D4DA4, 1), lbl_805D4DA8, 0, 0, lbl_805D8D88);
     }
 }
 

@@ -43,7 +43,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK TObjFish__sub_803E46BC(void *);
+M2C_UNK draw_chunk_object(void *);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(void *, int, f32);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
@@ -108,7 +108,7 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
         TObjPlayer__sub_803D9730((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x110)));
         rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x120)));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x11C)));
-        TObjFish__sub_803E46BC((void *) (lbl_805D4BD0));
+        draw_chunk_object((void *) (lbl_805D4BD0));
         break;
     case 3:
         TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x140));
@@ -121,7 +121,7 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
             lbl_804FE5D8[i].z = ((Ten_8003933C *)arg0)->pos[i].z;
             lbl_804FE5D8[i].v = ((Ten_8003933C *)arg0)->vals[i];
         }
-        TObjFish__sub_803E46BC((void *) (lbl_804FE5D8));
+        draw_chunk_object((void *) (lbl_804FE5D8));
         break;
     }
     pop_matrix();

@@ -199,7 +199,7 @@ void TBoss4Type3__vt44(S_800582B4 *o);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001ED9C(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
-s32 TObjFish__sub_8001EDC4(s32, s32);
+s32 get_bml_model(s32, s32);
 void create_zanzo__11TBoss4Type2FPvPv(void *, void *);
 extern s32 lbl_804867C0[];
 extern RecoveredGlobal_80054530_lbl_80485EC8 TBoss4Type2__data_804867C8;
@@ -226,7 +226,7 @@ extern u8 __vt__11TBoss4Type2[];
 void TBoss4Type2__sub_80056A54(Obj_80056A54 *arg0);
 s32 TObjFish__sub_8001ED9C(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
-s32 TObjFish__sub_8001EDC4(s32, s32);
+s32 get_bml_model(s32, s32);
 M2C_UNK clear_render_callback__8TObjFishFv(s32);
 M2C_UNK TObjFish__sub_800E3074(s32);
 M2C_UNK TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
@@ -249,7 +249,7 @@ f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 TBoss4Type3__sub_8005254C(u16);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
-f32 TObjPlayer__sub_803E1A58(Vec_80056C30 *, Vec_80056C30 *);
+f32 xyz_distance(Vec_80056C30 *, Vec_80056C30 *);
 extern const f64 TBoss4Type2__data_80437750;
 extern s32 lbl_805D586C;
 extern const f32 TBoss4Type2__data_805D8BAC;
@@ -344,7 +344,7 @@ void TBoss4Type2__sub_8005676C(Obj_8005676C *arg0) {
     z.f28 = 10;
     for (i = 0; i < 2; i++) {
         z.f10 = TObjFish__sub_8001EDB0(arg0->f390, lbl_804867C0[i]);
-        z.f14 = TObjFish__sub_8001EDC4(arg0->f390, lbl_804867C0[i]);
+        z.f14 = get_bml_model(arg0->f390, lbl_804867C0[i]);
         z.f18 = TObjFish__sub_8001ED9C(arg0->f390, ((Row_8005676C *)&TBoss4Type2__data_804867C8)[arg0->f3c8].c[i]);
         create_zanzo__11TBoss4Type2FPvPv(arg0, &z);
     }
@@ -466,7 +466,7 @@ void TBoss4Type2__sub_80056C30(O_80056C30 *self, Vec_80056C30 *out) {
         {
             Vec_80056C30 v = p->pos;
             v.y = TBoss4Type2__data_805D8BAC;
-            d = TObjPlayer__sub_803E1A58(&v, &self->pos);
+            d = xyz_distance(&v, &self->pos);
             if (d <= lbl_805D8BE8 && d > best) {
                 best = d;
                 found = p;
@@ -536,7 +536,7 @@ void TBoss4Type2__sub_80057270(Obj_80057270 *arg0) {
             some_id_805c6f74 |= 0x20000;
             TObjEneRe4Sorcerer__sub_801E3F1C(TBoss4Type2__data_805D8BAC, arg0->f3c0);
             TObjFish__sub_800E3074(arg0->f44c);
-            TObjEneSlimeOne__sub_803E4AF4(TObjFish__sub_8001EDC4(arg0->f390, lbl_804867C0[i]),
+            TObjEneSlimeOne__sub_803E4AF4(get_bml_model(arg0->f390, lbl_804867C0[i]),
                 TObjFish__sub_8001ED9C((s32)(arg0->f390), (s32)(((Row_80057270 *)&TBoss4Type2__data_804867C8)[arg0->f3c8].c[i])),
                 arg0->f3d0);
             clear_render_callback__8TObjFishFv(arg0->f44c);
@@ -544,7 +544,7 @@ void TBoss4Type2__sub_80057270(Obj_80057270 *arg0) {
             break;
         default:
             TBoss6PlotFalz__sub_802AC008(arg0->f3f0, arg0->f3f4);
-            TObjEneSlimeOne__sub_803E4AF4(TObjFish__sub_8001EDC4(arg0->f390, lbl_804867C0[i]),
+            TObjEneSlimeOne__sub_803E4AF4(get_bml_model(arg0->f390, lbl_804867C0[i]),
                 TObjFish__sub_8001ED9C((s32)(arg0->f390), (s32)(((Row_80057270 *)&TBoss4Type2__data_804867C8)[arg0->f3c8].c[i])),
                 arg0->f3d0);
             update_camera_target__14TBoss6PlotFalzFv();

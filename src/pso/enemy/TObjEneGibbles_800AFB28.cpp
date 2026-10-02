@@ -326,7 +326,7 @@ M2C_UNK TBoss8Dragon__sub_800BB7DC(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjEneBm3FlyNest__sub_800B2A5C(u32, void *);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
-M2C_UNK TObjFish__sub_803E46BC(s32);
+M2C_UNK draw_chunk_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -360,7 +360,7 @@ void TObjEneBm3Fly__vt104(u8 *arg0) {
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         clear_global_flag_400__9TObjEneDDFv();
         toggle_particle_effect__10TObjPlayerFv();
-        TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
+        draw_chunk_object(M2C_FIELD(arg0, s32 *, 0x34));
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
     }

@@ -36,7 +36,7 @@ void *__dt__12TObjGrassWebFv(void *arg0, s16 arg1);
 void apply_to_player__12TObjGrassWebFPv(void *arg0);
 int queue_destruction__12TObjGrassWebFPv(void* p);
 void render__12TObjGrassWebFv(void);
-s32 TObjPlayer__sub_80019248();
+s32 is_locally_controlled__10TObjPlayerFPv();
 s32 get_player_by_client_id(u16);
 void __dl__7TObjectFPv(void *);
 s32 __dl__FPv(u32 *);
@@ -81,7 +81,7 @@ void apply_to_player__12TObjGrassWebFPv(void *arg0) {
 
     M2C_FIELD(arg0, s32 *, 0x90) = 1;
     temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0xA4));
-    if ((temp_r3 != 0) && (TObjPlayer__sub_80019248() != 0) && (all_parents_unqueued_for_destruction__7TObjectFv(temp_r3) != 0) && (obj_testFlags30(temp_r3, 0x800) == 0)) {
+    if ((temp_r3 != 0) && (is_locally_controlled__10TObjPlayerFPv() != 0) && (all_parents_unqueued_for_destruction__7TObjectFv(temp_r3) != 0) && (obj_testFlags30(temp_r3, 0x800) == 0)) {
         play_effect__10TObjPlayerFiii(temp_r3, M2C_FIELD(arg0, s32 *, 0x84), 1);
     }
 }

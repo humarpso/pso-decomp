@@ -12,8 +12,8 @@ struct VObj1_8017262C : Base1_8017262C { virtual void m0(); virtual void m1(); v
 void TOMonumentAncient01__vt14(void);
 void render__19TOMonumentAncient01Fv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470();
-M2C_UNK TObjFish__sub_8001EDC4(s32, M2C_UNK);
+M2C_UNK draw_ginja_object();
+M2C_UNK get_bml_model(s32, M2C_UNK);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -31,13 +31,13 @@ void render__19TOMonumentAncient01Fv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjFish__sub_8001EDC4(TOMonumentAncient01__data_805D5A60, 2);
-        TObjBoss2Tunnel__sub_803DB470();
+        get_bml_model(TOMonumentAncient01__data_805D5A60, 2);
+        draw_ginja_object();
         begin_effect_render__13TParticleCtrlFv();
-        TObjFish__sub_8001EDC4(TOMonumentAncient01__data_805D5A60, 1);
-        TObjBoss2Tunnel__sub_803DB470();
-        TObjFish__sub_8001EDC4(TOMonumentAncient01__data_805D5A60, 0);
-        TObjBoss2Tunnel__sub_803DB470();
+        get_bml_model(TOMonumentAncient01__data_805D5A60, 1);
+        draw_ginja_object();
+        get_bml_model(TOMonumentAncient01__data_805D5A60, 0);
+        draw_ginja_object();
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
     }

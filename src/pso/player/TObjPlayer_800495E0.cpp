@@ -71,16 +71,16 @@ f32 TObjPlayer__sub_800499FC(s32 arg0);
 s32 TObjParticle__sub_800870BC(void *, void *, int, int);
 void TObjEneGibbles__sub_80156780(void *, void *, int);
 void TObjPlayer__sub_801569F4();
-void TScene__sub_803D8DB4(int, void *, void *);
+void rotate_vector_by_matrix(int, void *, void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-void TObjPlayer__sub_803D97F0(void *);
+void push_matrix_from(void *);
 M2C_UNK pop_matrix();
 extern Vec_800498E8 lbl_804366F8;
 extern u8 lbl_80484A68[];
 extern M2C_UNK lbl_80484A94[];
 extern u8 lbl_8058D490[];
 Obj_800498E8 *TObjPlayer__sub_800498E8(Obj_800498E8 *arg0, Obj_800498E8 *arg1, void *arg2, s32 arg3);
-s32 TObjPlayer__sub_80019570(void *);
+s32 obj_is_hit_receivable(void *);
 void queue_destruction__7TObjectFv(void *);
 s32 TBoss3Volopt__sub_8003F398();
 VObj_80049A1C *get_battle_param__10TObjPlayerFi(s32);
@@ -95,7 +95,7 @@ extern const f32 lbl_805D8898;
 extern const f32 lbl_805D889C;
 extern const f32 lbl_805D88A0;
 void TBoss3Volopt__sub_80049A1C(u8 *arg0);
-s32 TObjPlayer__sub_80019570(void *);
+s32 obj_is_hit_receivable(void *);
 s16 obj_getField1c(void *);
 VObj_80049A1C *get_battle_param__10TObjPlayerFi(s32);
 void create_cage__12TBoss3VoloptFPvUs(void *, u16);
@@ -115,7 +115,7 @@ void draw_obj_model(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 void TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjFish__sub_803E46BC(s32);
+M2C_UNK draw_chunk_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -140,7 +140,7 @@ s32 TObjPlayer__sub_800495F8(void *arg0) {
             if (p == NULL) {
                 break;
             }
-            if (TObjPlayer__sub_80019570(p) != 0) {
+            if (obj_is_hit_receivable(p) != 0) {
                 Dmg_80049A1C t = lbl_80436704[0];
                 p->m21(M2C_FIELD(arg0, s32 *, 0x10), &t, 0, -1, -1);
                 cage = M2C_FIELD(arg0, void **, 0x10);
@@ -240,11 +240,11 @@ Obj_800498E8 *TObjPlayer__sub_800498E8(Obj_800498E8 *arg0, Obj_800498E8 *arg1, v
     arg0->f5c = 0;
     arg0->fd4 = TObjParticle__sub_800870BC(&arg0->pos, &arg0->f5c, 0x11C, 2);
     arg0->fd8 = TObjParticle__sub_800870BC(&arg0->pos, &arg0->f5c, 0x11D, 2);
-    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    push_matrix_from(lbl_8058D490);
     Vec_800498E8 v = lbl_804366F8;
     v.z = TObjPlayer__sub_800499FC(0);
     rotate_matrix_y(0, arg1->f60);
-    TScene__sub_803D8DB4(0, &v, &arg0->fb4);
+    rotate_vector_by_matrix(0, &v, &arg0->fb4);
     pop_matrix();
     arg0->fd0 = TBoss3Volopt__sub_8004816C(0);
     return arg0;
@@ -277,7 +277,7 @@ void TBoss3Volopt__sub_80049A1C(u8 *arg0) {
             if (p == NULL) {
                 break;
             }
-            if (TObjPlayer__sub_80019570(p) != 0) {
+            if (obj_is_hit_receivable(p) != 0) {
                 Dmg_80049A1C t = d;
                 p->m21(M2C_FIELD(arg0, s32 *, 0x10), &t, 0, -1, -1);
             }
@@ -294,7 +294,7 @@ void draw_obj_model(u8 *arg0) {
     rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
     some_id_805c6f74 &= 0xFFFFFBFF;
-    TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0xAC));
+    draw_chunk_object(M2C_FIELD(arg0, s32 *, 0xAC));
     pop_matrix();
 }
 

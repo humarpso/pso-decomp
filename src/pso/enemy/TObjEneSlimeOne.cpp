@@ -170,7 +170,7 @@ s32 TObjControl__ct(s32, s32);
 void TObjEneGibbles__sub_80156720(void *);
 int TObjEneSlimeOne__sub_800EAD84(void);
 int TObjEneSlimeOne__sub_800EC7F4(void*, void*);
-u16 TObjPlayer__sub_800115C4(void *, M2C_UNK, f32);
+u16 find_nearest_visible_player(void *, M2C_UNK, f32);
 void __dl__7TObjectFPv(void *);
 void __dt__15TObjEneSlimeOneFis(void *, int);
 void __dt__9TObjEnemyFv(void *, int);
@@ -191,7 +191,7 @@ void update_wait_search__15TObjEneSlimeOneFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x390) - 1;
     M2C_FIELD(arg0, s32 *, 0x390) = temp_r0;
     if (temp_r0 <= 0) {
-        if (TObjPlayer__sub_800115C4(arg0, 0, lbl_805DA6DC) == 0xFFFF) {
+        if (find_nearest_visible_player(arg0, 0, lbl_805DA6DC) == 0xFFFF) {
             temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x3C8) + 1;
             M2C_FIELD(arg0, s32 *, 0x3C8) = temp_r0_2;
             if (temp_r0_2 >= 5) {

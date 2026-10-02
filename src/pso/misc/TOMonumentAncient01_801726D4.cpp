@@ -41,7 +41,7 @@ extern RecoveredGlobal_80172758_lbl_804B38E0 lbl_804B38E0;
 extern u32 TOMonumentAncient01__data_805D5A60;
 void TOMonumentAncient01__sub_80172758(void);
 s32 TObjFish__sub_8001EDB0(int, int);
-s32 TObjFish__sub_8001EDC4(int, int);
+s32 get_bml_model(int, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_80154E3C(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
@@ -124,7 +124,7 @@ u8 *TOMonumentAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80172810___vt__19TOMonumentAncient01 *)&__vt__19TOMonumentAncient01).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D30BC;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((int) ((*(s32 *)&TOMonumentAncient01__data_805D5A60)), (int) (2));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TOMonumentAncient01__data_805D5A60)), (int) (2));
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOMonumentAncient01__data_805D5A60)), (int) (2));
     TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B38F0.value), (int) (1));
     TObjPlayer__sub_80154E3C((void *) (arg0));

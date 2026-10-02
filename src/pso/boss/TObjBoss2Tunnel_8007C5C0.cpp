@@ -99,7 +99,7 @@ void set_graph_param__8TDLGraphFPvi(void *, s32);
 void TDLGraph__sub_8007F6F8(s32, s32);
 VObj_8007C5C0 *create__8TDLGraphFv(void);
 void wait_ready_loop__6TLobbyFv(void);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+s32 get_localized_text_entry(s32, s32);
 void TLobby__sub_80137928(void);
 void reset_state_flags__6TLobbyFv(void);
 s8 func_801A5E54__Fv(void);
@@ -131,7 +131,7 @@ s32 TObjBoss2Tunnel__sub_8007C5C0(void);
 s32 get_main_phase(void);
 void TCameraCtrl__sub_8006AF9C(u32, s32);
 void wait_ready_loop__6TLobbyFv(void);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+s32 get_localized_text_entry(s32, s32);
 void TLobby__sub_80137928(void);
 void reset_state_flags__6TLobbyFv(void);
 s8 func_801A5E54__Fv(void);
@@ -185,7 +185,7 @@ s32 TObjBoss2Tunnel__sub_8007C5C0(void) {
     }
     win = (VObj_8007C5C0 *)TLobby__sub_80269CC0(lbl_80438A78, lbl_80438A80, 1, 4);
     if (win != NULL) {
-        send_and_handle__6TLobbyFPvii(win, TAdSinglePlyChrSelectGC__sub_80132F2C(0x24, 0xB), 3);
+        send_and_handle__6TLobbyFPvii(win, get_localized_text_entry(0x24, 0xB), 3);
         set_field_1c__6TLobbyFPvf(win, lbl_805D921C);
     }
     TLobby__sub_80269454(win);
@@ -264,13 +264,13 @@ void TObjBoss2Tunnel__sub_8007C8AC(s32 arg0) {
         switch (arg0) {
         case -2:
         case -9:
-            send_and_handle__6TLobbyFPvii(win, TAdSinglePlyChrSelectGC__sub_80132F2C(0x24, 3), 3);
+            send_and_handle__6TLobbyFPvii(win, get_localized_text_entry(0x24, 3), 3);
             break;
         case -4:
-            send_and_handle__6TLobbyFPvii(win, TAdSinglePlyChrSelectGC__sub_80132F2C(0x24, 0xD), 3);
+            send_and_handle__6TLobbyFPvii(win, get_localized_text_entry(0x24, 0xD), 3);
             break;
         default:
-            send_and_handle__6TLobbyFPvii(win, TAdSinglePlyChrSelectGC__sub_80132F2C(0x24, 0xC), 3);
+            send_and_handle__6TLobbyFPvii(win, get_localized_text_entry(0x24, 0xC), 3);
             break;
         }
         set_field_1c__6TLobbyFPvf(win, lbl_805D921C);

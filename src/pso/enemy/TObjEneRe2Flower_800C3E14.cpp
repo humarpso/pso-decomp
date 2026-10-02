@@ -195,7 +195,7 @@ void *destroy__16TObjEneRe2FlowerFPvs(void *arg0, s16 arg1);
 void destroy_instance__16TObjEneRe2FlowerFv(void);
 void set_mode0xA_unless_0xAor0xB__16TObjEneRe2FlowerFPv(void *arg0);
 void update_state__16TObjEneRe2FlowerFPv(void *arg0);
-s32 TBoss8Dragon__sub_800BB780(void * a0 = 0);
+s32 clear_attack_receipts(void * a0 = 0);
 void TLobby__sub_8001FE7C(void*, int);
 s32 transition_enemy_state(void * a0 = 0, s32 a1 = 0);
 void TObjEneGibbles__sub_80156720(void *);
@@ -216,7 +216,7 @@ void update_state__16TObjEneRe2FlowerFPv(void *arg0) {
     if (temp_r0 != 9) {
         if (temp_r0 == 8) {
             begin_state_242__16TObjEneRe2FlowerFPv();
-            TBoss8Dragon__sub_800BB780(arg0);
+            clear_attack_receipts(arg0);
             return;
         }
         transition_enemy_state(arg0, 9);

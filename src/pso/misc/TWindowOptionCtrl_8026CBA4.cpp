@@ -26,7 +26,7 @@ s32 get_camera_id__11TCameraCtrlFv(void);
 extern V2_8026CBB8 lbl_80450490[];
 extern V2_8026CBB8 lbl_80477890[];
 extern unsigned char lbl_8044FE00[];
-V2_8026CBB8 *TWindowSubComCard__sub_8026CBB8(s32 idx);
+V2_8026CBB8 *get_window_layout_position(s32 idx);
 s32 TWindowCtrlMain__sub_8024CE58(void);
 void get_scale__20TWindowSubStatusDispFPv(void *);
 extern f32 lbl_805D6418;
@@ -40,7 +40,7 @@ void* get_option_entry__17TWindowOptionCtrlFi(int a0);
 
     extern unsigned char lbl_8044FE00[];
 void* get_option_entry__17TWindowOptionCtrlFi(int a0) {  return (char*)lbl_8044FE00 + a0 * 8; }
-V2_8026CBB8 *TWindowSubComCard__sub_8026CBB8(s32 idx) {
+V2_8026CBB8 *get_window_layout_position(s32 idx) {
     if (is_split_screen() != 0) {
         return (get_camera_id__11TCameraCtrlFv() == 2) ? &lbl_80477890[idx] : &lbl_80450490[idx];
     }

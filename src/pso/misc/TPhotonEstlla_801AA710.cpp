@@ -67,9 +67,9 @@ void run_task__13TPhotonEstllaFv(u8 *arg0);
 u8 *find_entity_by_id(u16);
 s32 TPhotonLine__ct(void *, void *, void *, u16);
 u32 __nw__7TObjectFUl(int);
-s32 TScene__sub_803D8DB4(int, void *, void *);
+s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
-s32 TObjPlayer__sub_803D97F0(void *);
+s32 push_matrix_from(void *);
 s32 TCameraCtrl__sub_803D9858(int);
 extern const Packet_801AA710 lbl_80446CE8;
 extern u8 lbl_8058D490[];
@@ -115,11 +115,11 @@ void fn_801AA710(Self_801AA710 *self) {
     forward.x = lbl_805DC138;
     forward.y = lbl_805DC138;
     forward.z = lbl_805DC13C;
-    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    push_matrix_from(lbl_8058D490);
     if (owner) {
         rotate_matrix_y(0, owner->f60);
     }
-    TScene__sub_803D8DB4(0, &forward, &direction);
+    rotate_vector_by_matrix(0, &forward, &direction);
     TCameraCtrl__sub_803D9858(1);
     {
         Packet_801AA710 packet = lbl_80446CE8;

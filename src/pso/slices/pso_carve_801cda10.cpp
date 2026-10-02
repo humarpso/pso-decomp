@@ -16,7 +16,7 @@ f32 TObjPlayer__sub_801D2640(void *);
 f32 TObjPlayer__sub_801D2CDC(void *);
 s32 TObjPlayer__sub_801D2F0C(void *);
 u8 TObjPlayer__sub_801D2F4C(void *);
-M2C_UNK TObjPlayer__sub_801D31A8(void *, void *, int, int);
+M2C_UNK begin_player_attack(void *, void *, int, int);
 void TObjPlayer__sub_801CDA10(u8 *arg0);
 }
 
@@ -33,7 +33,7 @@ void TObjPlayer__sub_801CDA10(u8 *arg0) {
     run_action_state_phase__10TObjPlayerFisi(arg0, (int) (M2C_FIELD(arg0, s16 *, 0x326)), (int) (6));
     set_action_type__10TObjPlayerFPvs((void *) (arg0 + 0x7CC), (void *) (TObjPlayer__sub_801D2F0C((void *) (arg0 + 0x7CC))));
     query_field_340__10TObjPlayerFPv((void *) (arg0), (void *) (TObjPlayer__sub_801D2F4C((void *) (arg0 + 0x7CC))));
-    TObjPlayer__sub_801D31A8((void *) (arg0 + 0x7CC), (void *) (arg0), (int) (2), (int) (2));
+    begin_player_attack((void *) (arg0 + 0x7CC), (void *) (arg0), (int) (2), (int) (2));
     TObjPlayer__sub_801CE3EC((void *) (arg0));
     set_action_state__10TObjPlayerFPvss((void *) (arg0), (int) (7), (void *) (get_model_state__10TObjPlayerFPv((void *) (arg0))));
     apply_speed_scale__10TObjPlayerFif((void *) (arg0), (f32) (TObjPlayer__sub_801D2640((void *) (arg0)) * TObjPlayer__sub_801D2CDC((void *) (arg0 + 0x7CC))));

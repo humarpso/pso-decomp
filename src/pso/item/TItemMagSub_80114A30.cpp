@@ -148,7 +148,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 void TItemMagSub__sub_80114E4C(u8 *arg0);
 s32 is_mag_active__11TItemMagSubFPv(int);
 void TItemMagSub__sub_80114E4C(u8 *arg0);
-s32 TObjPlayer__sub_803D97F0(void *);
+s32 push_matrix_from(void *);
 f32 TObjPlayer__sub_803D9884(void *, void *);
 s32 pop_matrix();
 extern RecoveredGlobal_80114DB8_lbl_8043E5A8 lbl_8043E5A8;
@@ -202,7 +202,7 @@ void render_mag_child(TItemMagSub *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
 s32 calc_feed_level__11TItemMagSubFPv(void *arg0);
 M2C_UNK rotate_matrix_y(int, void *);
-s32 TObjPlayer__sub_803D97F0(void *);
+s32 push_matrix_from(void *);
 f32 TObjPlayer__sub_803D9884(void *, void *);
 s32 pop_matrix();
 void TBoss4Zako__sub_803D8910(void *, void *);
@@ -219,7 +219,7 @@ void end_effect_render__13TParticleCtrlFv();
 void notify_fish_if_valid__10TObjPlayerFUi(u32);
 void TObjPlayer__sub_803D9B2C();
 s32 pop_matrix();
-s32 TObjBoss2Tunnel__sub_803DB470(void *);
+s32 draw_ginja_object(void *);
 void fn_803DC86C(s32, s32, s32, s32);
 void TObjEneSlimeOne__sub_803E4AF4(void *, void *, f32);
 void set_global_flag__10TObjPlayerFv();
@@ -299,7 +299,7 @@ s32 TItemMagSub__sub_80114DB8(u8 *arg0, u32 arg1) {
     typedef char sp10_offset[(offsetof(Stack_80114DB8, sp10) == 0x8) ? 1 : -1];
     Stack_80114DB8 stack;
     if ((is_mag_active__11TItemMagSubFPv((int) (M2C_FIELD(arg0, s32 *, 0x1C))) == 0) && (arg1 != 0U)) {
-        TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
+        push_matrix_from((void *) (&lbl_8058D490.value));
         TItemMagSub__sub_80114E4C((u8 *)((void *) (arg0)));
         stack.sp8 = M2C_FIELD(&lbl_8043E5A8.value, s32 *, 0);
         stack.spC = M2C_FIELD(&lbl_8043E5A8.value, s32 *, 4);
@@ -366,7 +366,7 @@ void TItemMagSub__vt3(TItemMagSub_80114F0C *self) {
             some_id_805c6f74 |= 0x8011;
             fn_803DC86C(1, 4, 5, 0);
             TObjPlayer__sub_801415BC();
-            TObjBoss2Tunnel__sub_803DB470(self->model);
+            draw_ginja_object(self->model);
             some_id_805c6f74 &= ~0x8011;
         }
         TItemMagSub__data_805D54BC = 0;
@@ -447,7 +447,7 @@ void TItemMagSub__sub_801151E0(MagSub_801151E0 *self) {
             self->player->get_joint_pos(self->joint->id, &self->posA0);
         }
     }
-    TObjPlayer__sub_803D97F0((void *) (&(*(RecoveredGlobal_801151E0_lbl_8058D490 *)&lbl_8058D490).value));
+    push_matrix_from((void *) (&(*(RecoveredGlobal_801151E0_lbl_8058D490 *)&lbl_8058D490).value));
     rotate_matrix_y(0, (void *)(calc_feed_level__11TItemMagSubFPv(self) + 0x8000));
     Vec_801151E0 in = lbl_8043E59C[0];
     Vec_801151E0 out;

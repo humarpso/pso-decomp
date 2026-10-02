@@ -20,7 +20,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
+M2C_UNK draw_ginja_object(int);
 M2C_UNK set_chunk_material_color(void *);
 typedef struct { f32 r, g, b, a; } Col_8023B220;
 extern Col_8023B220 lbl_804A7418;
@@ -56,7 +56,7 @@ void render__14TSlicerHistoryFv(u8 *arg0) {
             rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x1C)));
             TBoss7Tentacle__sub_803D9BA0((void *) ((u8 *)(arg0) + 0x4C));
             set_chunk_material_color((void *) (&col));
-            TObjBoss2Tunnel__sub_803DB470((int) (M2C_FIELD(arg0, u32 *, 0x34)));
+            draw_ginja_object((int) (M2C_FIELD(arg0, u32 *, 0x34)));
             set_chunk_material_color((void *) (&lbl_804A7418));
             end_effect_render__13TParticleCtrlFv();
         }

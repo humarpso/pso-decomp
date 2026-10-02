@@ -28,7 +28,7 @@ struct RecoveredGlobal_80168C6C_lbl_804B2578 {
 extern "C" {
 s32 TObjPlayer__sub_80019038(void *);
 s32 TObjFish__sub_8001ED9C(void *, void *);
-s32 TObjFish__sub_8001EDC4(void *, void *);
+s32 get_bml_model(void *, void *);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_80154E3C(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
@@ -75,7 +75,7 @@ u8 *TOHangceilingCave01KeyQuick__sub_80168C6C(u8 *arg0, M2C_UNK arg1, s32 arg2) 
     TObjPlayer__sub_80019038((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80168C6C_lbl_804B2578 *)&lbl_804B2578).value;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((void *) (lbl_805D59D0), (void *) (lbl_805D59E0));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) (lbl_805D59D0), (void *) (lbl_805D59E0));
     M2C_FIELD(arg0, s32 *, 0xF8) = TObjFish__sub_8001ED9C((void *) (lbl_805D59D0), (void *) (lbl_805D59E4));
     TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B2174.value), (int) (1));
     TObjPlayer__sub_80154E3C((void *) (arg0));

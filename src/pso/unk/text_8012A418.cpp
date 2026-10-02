@@ -153,7 +153,7 @@ u16 get_uid__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_80121248(s32, s32);
 s32 TObjPlayer__sub_8012125C(s32);
 s32 TObjPlayer__sub_8012A508(void *arg0, u32 arg1, s32 arg2);
-s32 TObjPlayer__sub_80154804(s32, s32);
+s32 resolve_hittable_target(s32, s32);
 void TObjPlayer__sub_8012A470(Pl_8012A470 *arg0);
 }
 
@@ -194,7 +194,7 @@ void TObjPlayer__sub_8012A470(Pl_8012A470 *arg0) {
     {
       e = TObjPlayer__sub_80121248(st, i);
       uid = get_uid__10TObjPlayerFPv(e);
-      r = TObjPlayer__sub_80154804(uid, v = (s16) ((unsigned long long) TObjPlayer__sub_80121238(e)));
+      r = resolve_hittable_target(uid, v = (s16) ((unsigned long long) TObjPlayer__sub_80121238(e)));
       if (r != 0)
       {
         TObjPlayer__sub_8012A508(arg0, r, v);

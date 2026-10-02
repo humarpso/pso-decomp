@@ -26,7 +26,7 @@ struct RecoveredGlobal_80174954___vt__13TORockCaveL01 {
 
 extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, s32);
-s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 get_bml_model(void *, s32);
 void reset_photon_effect__10TObjPlayerFPv(s32);
 void TObjPlayer__sub_80154E3C(void *);
 u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
@@ -48,7 +48,7 @@ u8 *TORockCaveL01__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__13TORockCaveL01.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3124;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4(lbl_805D5A80, 0);
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model(lbl_805D5A80, 0);
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(lbl_805D5A80, 0);
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) lbl_805DB970;
     TObjEneGibbles__sub_80156780(arg0, (s32) ((u8 *)&lbl_804B3BA8.value + 0x58), 1);

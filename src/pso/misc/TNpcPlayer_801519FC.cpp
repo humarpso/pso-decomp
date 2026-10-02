@@ -99,8 +99,8 @@ Npc_80152330 *TNpcPlayer__sub_80152330(Npc_80152330 *self, s32 a, s32 b, s16 kin
 struct Obj_801528A8 { u8 pad[0x5c]; u8 arr[1]; };
 
 extern "C" {
-void TNpcPlayer__sub_801528C8(s32 arg0, s32 arg1);
-void TNpcPlayer__sub_801528B8(s32 arg0, s32 arg1);
+void increment_partner_counter(s32 arg0, s32 arg1);
+void reset_partner_counter(s32 arg0, s32 arg1);
 u8 * dt__10TNpcPlayerFPvs(void *, s16);
 u16 get_npc_type__10TNpcPlayerFPv(void* p);
 void send_item_pickup_request__10TObjPlayerFi(s32);
@@ -316,11 +316,11 @@ void TNpcPlayer__sub_801528A8(Obj_801528A8 *self, s16 i, u8 v) {
     self->arr[i] = v;
 }
 
-void TNpcPlayer__sub_801528B8(s32 arg0, s32 arg1) {
+void reset_partner_counter(s32 arg0, s32 arg1) {
     M2C_FIELD((arg0 + (arg1 * 2)), s16 *, 0) = 0;
 }
 
-void TNpcPlayer__sub_801528C8(s32 arg0, s32 arg1) {
+void increment_partner_counter(s32 arg0, s32 arg1) {
     s32 temp_r5;
     temp_r5 = arg1 * 2;
     M2C_FIELD((arg0 + temp_r5), s16 *, 0) = M2C_FIELD((arg0 + temp_r5), s16 *, 0) + 1;

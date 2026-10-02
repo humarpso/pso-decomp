@@ -31,7 +31,7 @@ void TObjPlayer__sub_801569F4(void *, void *);
 void TCameraCtrl__sub_803D8934(s32, Vec_800DCD04 *, Vec_800DCD04 *);
 void rotate_matrix_y(s32, s32);
 void rotate_matrix_x(s32, s32);
-void TObjPlayer__sub_803D97F0(void *);
+void push_matrix_from(void *);
 void pop_matrix(void);
 extern Vec_800DCD04 lbl_8043C920;
 extern const f64 lbl_8043C940[];
@@ -74,7 +74,7 @@ Obj_800DCD04 *TObjPlayer__sub_800DCD04(Obj_800DCD04 *self, Vec_800DCD04 *pos, s1
     self->f102 = arg5;
     self->pos = pos;
     self->fe8 = lbl_805DA480;
-    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    push_matrix_from(lbl_8058D490);
     {
         Vec_800DCD04 v = lbl_8043C920;
         s32 ang[3];

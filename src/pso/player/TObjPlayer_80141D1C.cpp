@@ -14,7 +14,7 @@ void TObjPlayer__sub_80142170(u8 *arg0, s32 *arg1, s32 *arg2);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 newton_sqrtf(f32);
 extern const f64 lbl_8043F2C0;
-void TBoss1Dragon__sub_8014220C(u8 *arg0, s32 *arg1, s32 *arg2);
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 newton_sqrtf(f32);
 extern const f64 lbl_8043F2C0;
@@ -26,7 +26,7 @@ f32 TObjPlayer__sub_8014241C(u8 *arg0, u8 *arg1);
 u16 TObjPlayer__sub_80142344(s32 a0, s32 b0);
 f32 TAdSinglePlyChrSelectGC__sub_80141EA0(s32 v);
 s32 TAdSinglePlyChrSelectGC__sub_80141E8C(f32 v);
-u16 TObjPlayer__sub_80141F84(s32 a, s32 b);
+u16 angle_difference_abs(s32 a, s32 b);
 s16 TBoss4Type2__sub_80141FA8(s32 a, s32 b);
 void getDateStamp__FP9DateStamp(DS_80142108 *);
 void TAdSinglePlyChrSelectGC__sub_80142108(DS_80142108 *arg0);
@@ -106,7 +106,7 @@ void reset_transform_state__10TObjPlayerFv(void) { abs__4cXyzCFv(0, 8); abs__4cX
 
 void init_xyz_limits__10TObjPlayerFv(void) { abs__4cXyzCFv(0, 8); abs__4cXyzCFv(1, 10); }
 
-u16 TObjPlayer__sub_80141F84(s32 a, s32 b) {
+u16 angle_difference_abs(s32 a, s32 b) {
     s16 d = (u16)b - (u16)a;
     if (d < 0) {
         d = -d;
@@ -157,7 +157,7 @@ void TObjPlayer__sub_80142170(u8 *arg0, s32 *arg1, s32 *arg2) {
 
 #pragma push
 #pragma scheduling on
-void TBoss1Dragon__sub_8014220C(u8 *arg0, s32 *arg1, s32 *arg2) {
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2) {
     f32 temp_f0;
     f32 temp_f1;
     *arg2 = -(s32) (lbl_8043F2C0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0)), (f32) (M2C_FIELD(arg0, f32 *, 4))));

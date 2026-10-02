@@ -44,7 +44,7 @@ s32 fn_80248840(int, void *);
 s32 TWindowChat__sub_8025CB70(void *);
 M2C_UNK TKeyBoardControl__sub_8025EC04(s32);
 s32 TWindowKeyBoardSoft__ct(int, void *, void *);
-s32 TWindowSubComCard__sub_8026CBB8(int);
+s32 get_window_layout_position(int);
 s32 TWindowDD__ct(int, void *, void *);
 extern s32 lbl_805D53A0;
 void TWindowChat__sub_8024792C(u8 *arg0);
@@ -234,7 +234,7 @@ void TWindowChat__sub_8024792C(u8 *arg0) {
     u8 temp_r0;
     if (((RecoveredFields_8024792C_arg0 *)arg0)->field_1E & 2) {
         *((RecoveredFields_8024792C_arg0 *)arg0)->field_38 = 1;
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (((RecoveredFields_8024792C_arg0 *)arg0)->field_20 + 0x30), (int) (TWindowSubComCard__sub_8026CBB8((int) (0xB7))));
+        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (((RecoveredFields_8024792C_arg0 *)arg0)->field_20 + 0x30), (int) (get_window_layout_position((int) (0xB7))));
         M2C_FIELD(((RecoveredFields_8024792C_arg0 *)arg0)->field_20, s32 *, 0x50) = 3;
         return;
     }
@@ -249,7 +249,7 @@ void TWindowChat__sub_8024792C(u8 *arg0) {
         }
         ((RecoveredFields_8024792C_arg0 *)arg0)->field_24 = var_r0;
         fn_80247ED8((int) (((RecoveredFields_8024792C_arg0 *)arg0)->field_24));
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (((RecoveredFields_8024792C_arg0 *)arg0)->field_20 + 0x30), (int) (TWindowSubComCard__sub_8026CBB8((int) (0xB8))));
+        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (((RecoveredFields_8024792C_arg0 *)arg0)->field_20 + 0x30), (int) (get_window_layout_position((int) (0xB8))));
         M2C_FIELD(((RecoveredFields_8024792C_arg0 *)arg0)->field_20, s32 *, 0x50) = 3;
         TKeyBoardControl__sub_8025EC04((s32)((int) (((RecoveredFields_8024792C_arg0 *)arg0)->field_28)));
         return;

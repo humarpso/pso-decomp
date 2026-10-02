@@ -21,7 +21,7 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TItemEffPG__sub_8034F9F8(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TBoss4Type2__sub_800874F4(s32, s32);
+s32 create_particle_emitter(s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_804F0BF0[];
 extern const f32 lbl_805DFE10;
@@ -195,7 +195,7 @@ u8 *TItemEffPG__sub_8034FCF0(u8 *arg0, u8 *arg1, u8 *arg2) {
     M2C_FIELD(arg0, f32 *, 0x2C) = (f32) lbl_805DFE10;
     M2C_FIELD(arg0, f32 *, 0x30) = (f32) lbl_805DFE10;
     M2C_FIELD(arg0, f32 *, 0x34) = (f32) lbl_805DFE10;
-    M2C_FIELD(arg0, s32 *, 0x38) = TBoss4Type2__sub_800874F4((s32) (arg0 + 0x5C), 0x83);
+    M2C_FIELD(arg0, s32 *, 0x38) = create_particle_emitter((s32) (arg0 + 0x5C), 0x83);
     M2C_FIELD(arg0, s32 *, 0x58) = 0;
     return arg0;
 }

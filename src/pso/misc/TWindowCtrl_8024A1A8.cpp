@@ -114,9 +114,9 @@ s32 TWindowCtrl__sub_8024A7CC(Obj_8024A7CC *self);
 u16 get_flags__11TWindowCtrlFPv(void *);
 void *TWindowFukidasi__sub_80252B74(void *, s32, s32, void *, f32);
 void *TWindowCtrl__sub_8024A800(Ctrl_8024A928 *self, s32 player, s32 flags, void *local);
-s32 TObjPlayer__sub_80019248(u8 *);
+s32 is_locally_controlled__10TObjPlayerFPv(u8 *);
 s32 obj_isState2_324(u8 *);
-s32 TObjPlayer__sub_80019570();
+s32 obj_is_hit_receivable();
 void *get_quest_id__12TQuestListVMFPv(u8 *);
 u8 *find_entity_by_id(u16);
 extern const f32 lbl_805DCBD8;
@@ -312,7 +312,7 @@ char *TWindowCtrl__sub_8024A570(void *self, char *s) {
 #pragma inline_depth(4)
 inline u8 *get_obj_8024A5AC(s32 id) {
     u8 *o = ((u8 *(*)(s32))find_entity_by_id)(id);
-    if (o != NULL && TObjPlayer__sub_80019570() == 1) {
+    if (o != NULL && obj_is_hit_receivable() == 1) {
         return o;
     }
     return NULL;
@@ -332,7 +332,7 @@ void TWindowCtrl__sub_8024A5AC(Ctrl_8024A928 *arg0, s32 arg1, f32 *arg2, s32 *ar
     } else {
         *arg2 = lbl_805DCBDC * *(f32 *)((u8 *)q + 0x10);
     }
-    if (obj_isState2_324(obj) != 0 || TObjPlayer__sub_80019248(obj) != 0) {
+    if (obj_isState2_324(obj) != 0 || is_locally_controlled__10TObjPlayerFPv(obj) != 0) {
         u8 *p = obj + 0x85C;
         if (p == NULL) {
             *arg3 = 0;

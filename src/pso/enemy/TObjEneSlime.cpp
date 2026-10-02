@@ -104,7 +104,7 @@ void fn_800EB7BC(void *, s32, s32, s32);
 extern const Slot_800EB984 lbl_8043D218;
 void TObjEneSlime__sub_800EB984(Obj_800EB984 *self);
 M2C_UNK TObjFish__sub_8001EDB0(void *, int);
-M2C_UNK TObjFish__sub_8001EDC4(void *, int);
+M2C_UNK get_bml_model(void *, int);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK set_cull_none__8TObjFishFv();
@@ -117,7 +117,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *, void *);
 M2C_UNK set_global_param__8TObjFishFi();
-M2C_UNK TObjFish__sub_803E46BC();
+M2C_UNK draw_chunk_object();
 M2C_UNK func_803e11e8__FUl(int);
 M2C_UNK func_803e11f0__Fv();
 extern char lbl_8043D298[];
@@ -181,18 +181,18 @@ void render__12TObjEneSlimeFv(u8 *arg0) {
         if (temp_r31 != 0) {
             some_id_805c6f74 |= 0x400000;
             func_803e11e8__FUl((int) (1));
-            TObjFish__sub_8001EDC4((void *) (lbl_805D52B0), (int) (temp_r30_2));
-            TObjFish__sub_803E46BC();
+            get_bml_model((void *) (lbl_805D52B0), (int) (temp_r30_2));
+            draw_chunk_object();
             func_803e11f0__Fv();
             some_id_805c6f74 &= 0xFFBFFFFF;
         } else {
             func_803e11e8__FUl((int) (2));
             set_cull_back__8TObjFishFv();
-            TObjFish__sub_8001EDC4((void *) (lbl_805D52B0), (int) (temp_r30_2));
-            TObjFish__sub_803E46BC();
+            get_bml_model((void *) (lbl_805D52B0), (int) (temp_r30_2));
+            draw_chunk_object();
             set_cull_mode_front__8TObjFishFv();
-            TObjFish__sub_8001EDC4((void *) (lbl_805D52B0), (int) (temp_r30_2));
-            TObjFish__sub_803E46BC();
+            get_bml_model((void *) (lbl_805D52B0), (int) (temp_r30_2));
+            draw_chunk_object();
             set_cull_none__8TObjFishFv();
             func_803e11f0__Fv();
         }

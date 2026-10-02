@@ -43,7 +43,7 @@ extern RecoveredGlobal_80038DCC_lbl_80435B6C lbl_80435B6C;
 void render__18TBoss2PhotonBulletFv(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 f32 TBoss2DeRolLe__sub_80034CF8(void);
-u32 TBoss8Dragon__sub_8008741C(void *, int, int);
+u32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 s32 project_actor_to_ground(void *, void *, void *);
 extern M2C_UNK lbl_80435B40[];
@@ -96,7 +96,7 @@ void run_task__18TBoss2PhotonBulletFv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x38) = M2C_FIELD(arg0, f32 *, 0xC0);
     M2C_FIELD(arg0, f32 *, 0x40) = M2C_FIELD(arg0, f32 *, 0xC8);
     if (M2C_FIELD(arg0, u32 *, 0xE4) == 0) {
-        M2C_FIELD(arg0, u32 *, 0xE4) = TBoss8Dragon__sub_8008741C(arg0 + 0xC0, 0xDF, 0x40);
+        M2C_FIELD(arg0, u32 *, 0xE4) = spawn_continuous_particle_effect_with_flags(arg0 + 0xC0, 0xDF, 0x40);
     } else {
         copy_pos__11TNowLoadingFPvPv((void *)M2C_FIELD(arg0, u32 *, 0xE4), arg0 + 0xC0);
     }

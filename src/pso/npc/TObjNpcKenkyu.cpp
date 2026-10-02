@@ -104,7 +104,7 @@ extern RecoveredGlobal_80289400_lbl_804D3190 lbl_804D3190;
 extern u32 TObjNpcKenkyu__data_805D64B8;
 void TObjNpcKenkyu__sub_80289400(void);
 s32 TObjFish__sub_8001EDB0(int, int);
-s32 TObjFish__sub_8001EDC4(int, int);
+s32 get_bml_model(int, int);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 fn_80148274(void *);
 s32 fn_8014B8A4(void *);
@@ -168,7 +168,7 @@ u8 *TObjNpcKenkyu__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3B04;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((int) ((*(s32 *)&TObjNpcKenkyu__data_805D64B8)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcKenkyu__data_805D64B8)), (int) (0));
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcKenkyu__data_805D64B8)), (int) (0));
     fn_80148274((void *) (arg0));
     return arg0;

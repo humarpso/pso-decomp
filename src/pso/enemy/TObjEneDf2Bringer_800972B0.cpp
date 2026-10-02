@@ -248,7 +248,7 @@ s32 check_stage_advance__17TObjEneDf2BringerFPv(void *);
 void clear_field_388__9TObjEneDDFPv(void *p);
 void set_active__9TObjEneDDFPv(void *p);
 void TObjEneDD__sub_800BACA4(void *arg0, f32 farg0, f32 farg1, f32 farg2);
-void TBoss8Dragon__sub_800BB780(void *);
+void clear_attack_receipts(void *);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK advance_animation_playback(void *);
 extern const f32 lbl_805D97E4;
@@ -258,7 +258,7 @@ void TObjEneDf2Bringer__sub_80097714(Bringer_80097714 *obj, s32 mode);
 extern "C" {
 
 void action__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1);
-u32 TBoss4Type2__sub_800874F4(void *, M2C_UNK);
+u32 create_particle_emitter(void *, M2C_UNK);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
@@ -443,7 +443,7 @@ void TObjEneDf2Bringer__sub_80097714(Bringer_80097714 *obj, s32 mode) {
         obj->m87();
         break;
     case 5:
-        TBoss8Dragon__sub_800BB780(self);
+        clear_attack_receipts(self);
         clear_field_388__9TObjEneDDFPv(self);
         break;
     }
@@ -465,7 +465,7 @@ void action__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1) {
         advance_animation_playback((void *)(arg0));
         M2C_FIELD(arg0, s32 *, 0x484) = (s32) (M2C_FIELD(arg0, s32 *, 0x484) - 1);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x4C4) == 0U) {
-            M2C_FIELD(arg0, u32 *, 0x4C4) = TBoss4Type2__sub_800874F4(arg0 + 0x450, 0x100);
+            M2C_FIELD(arg0, u32 *, 0x4C4) = create_particle_emitter(arg0 + 0x450, 0x100);
             if ((u32) M2C_FIELD(arg0, u32 *, 0x4C4) != 0U) {
                 enable__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0x4C4));
             }

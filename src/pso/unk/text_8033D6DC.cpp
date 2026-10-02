@@ -30,7 +30,7 @@ O_8033D9E4 *fn_8033D9E4(O_8033D9E4 *arg0, s16 arg1);
 void queue_destruction__7TObjectFv(void *);
 s32 request_destroy__11TBoss4Type2FUi(void *);
 void spawn_particle_effect_with_flags(void *, int, int);
-void *TBoss4Type2__sub_800874F4(void *, s32);
+void *create_particle_emitter(void *, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void TOTrapAncient01__sub_80226578(int, void *, int, int, int);
@@ -89,7 +89,7 @@ void fn_8033D6DC(O_8033D6DC *self) {
                 p = &self->pos[e->src];
             }
             if (self->h[i] == NULL) {
-                self->h[i] = TBoss4Type2__sub_800874F4(p, e->id);
+                self->h[i] = create_particle_emitter(p, e->id);
                 if (self->h[i] != NULL) {
                     set_flags__11TBoss4Type2FPvUi(self->h[i], 0x40);
                 }

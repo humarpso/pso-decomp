@@ -76,7 +76,7 @@ extern "C" {
 
 void render__10TAdTitleGCFv(u8 *arg0);
 void run_task__10TAdTitleGCFv(u8 *arg0);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, s32);
+s32 get_localized_text_entry(M2C_UNK, s32);
 M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
 M2C_UNK fn_80141A30();
 M2C_UNK fn_802A0A30(void *, void *, s32, s32, s32);
@@ -110,7 +110,7 @@ block_5:
         TAdTitleGC__sub_802A0A60((void *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x1C)), (M2C_UNK)(0x1FFFFFFF));
         abs__4cXyzCFv(0, 8);
         abs__4cXyzCFv(1, 6);
-        fn_802A0A30(arg0, arg0 + 0x120, M2C_FIELD(arg0, s32 *, 0x1C), (M2C_FIELD(arg0, s32 *, 0x12C) << 0x18) | 0xFF0000 | 0xFFFF, TAdSinglePlyChrSelectGC__sub_80132F2C(0x13, M2C_FIELD(arg0, s32 *, 0x1C)));
+        fn_802A0A30(arg0, arg0 + 0x120, M2C_FIELD(arg0, s32 *, 0x1C), (M2C_FIELD(arg0, s32 *, 0x12C) << 0x18) | 0xFF0000 | 0xFFFF, get_localized_text_entry(0x13, M2C_FIELD(arg0, s32 *, 0x1C)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0x134) == 0) {
             fn_80141A30();
         }
@@ -149,7 +149,7 @@ void run_task__10TAdTitleGCFv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x12C) = 0xFF;
     }
     TAdTitleGC__sub_802A0C84((void *)(arg0));
-    TAdTitleGC__sub_802A0C24((M2C_UNK)(arg0), (u8 *)(arg0 + 0x120), (s32)(TAdSinglePlyChrSelectGC__sub_80132F2C(0x13, M2C_FIELD(arg0, s32 *, 0x1C))));
+    TAdTitleGC__sub_802A0C24((M2C_UNK)(arg0), (u8 *)(arg0 + 0x120), (s32)(get_localized_text_entry(0x13, M2C_FIELD(arg0, s32 *, 0x1C))));
 }
 #pragma push
 #pragma opt_common_subs off

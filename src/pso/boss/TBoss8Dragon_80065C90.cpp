@@ -45,7 +45,7 @@ void TBoss8Dragon__sub_80065F80(void *arg0);
 void TBoss8Dragon__sub_8006602C(void* p);
 void TBoss8Dragon__sub_800660A4(void* p);
 void TBoss8Dragon__sub_80066108(void);
-void TObjFish__sub_800660D4(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
+void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 void bswap_boss_actions__12TBoss8DragonFi(s32 arg0);
 void fn_800660B8(u8 *arg0);
 int get_instance_count__12TBoss8DragonFv(void);
@@ -162,7 +162,7 @@ void fn_800660B8(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) | 1);
 }
 
-void TObjFish__sub_800660D4(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0) {
+void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0) {
     M2C_FIELD(arg0, s32 *, 0x4C) = arg1;
     M2C_FIELD(arg0, s32 *, 0x50) = arg2;
     M2C_FIELD(arg0, s32 *, 0x54) = arg3;

@@ -240,7 +240,7 @@ M2C_UNK TOSignCave03__sub_803DB510(int);
 void TOContainerAncientEnemy__sub_8015BBFC(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
-s32 TObjFish__sub_8001EDC4(void *, int);
+s32 get_bml_model(void *, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
 s32 fn_8018A150(void *, int, void *);
@@ -310,14 +310,14 @@ void TOContainerAncientEnemy__sub_8015B94C(Obj_8015B94C *self) {
         a.y = self->y;
         a.z = self->z;
         a.f38 = self->y;
-        a.f40 = TObjFish__sub_8001EDC4((void *)lbl_805D58E8, 1);
+        a.f40 = get_bml_model((void *)lbl_805D58E8, 1);
         a.f44 = TObjFish__sub_8001EDB0((void *)lbl_805D58E8, 1);
         Spawn_8015B94C b = lbl_804407E4;
         b.x = self->x;
         b.y = self->y;
         b.z = self->z;
         b.f38 = self->y;
-        b.f40 = TObjFish__sub_8001EDC4((void *)lbl_805D58E8, 2);
+        b.f40 = get_bml_model((void *)lbl_805D58E8, 2);
         b.f44 = TObjFish__sub_8001EDB0((void *)lbl_805D58E8, 2);
         if (check_value_equals__13TQuestColCtrlFPvi(self, lbl_805D2F10) != 0) {
             a.f44 = lbl_805D58EC->a;
@@ -434,7 +434,7 @@ u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x38));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
     M2C_FIELD(arg0, f32 *, 0x78) = (f32) (M2C_FIELD(arg0, f32 *, 0x78) + M2C_FIELD(&lbl_804B00C8.value, f32 *, 4));
-    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((void *) ((*(s32 *)&lbl_805D58E8)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) ((*(s32 *)&lbl_805D58E8)), (int) (0));
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&lbl_805D58E8)), (int) (0));
     return arg0;
 }

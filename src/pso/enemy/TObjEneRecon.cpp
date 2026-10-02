@@ -220,7 +220,7 @@ extern "C" {
 void TObjEneRecon__vt104(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK TObjFish__sub_803E46BC(s32);
+M2C_UNK draw_chunk_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -241,7 +241,7 @@ void TObjEneRecon__vt104(u8 *arg0) {
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         clear_global_flag_400__9TObjEneDDFv();
         toggle_particle_effect__10TObjPlayerFv();
-        TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
+        draw_chunk_object(M2C_FIELD(arg0, s32 *, 0x34));
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
     }
@@ -418,7 +418,7 @@ extern "C" {
 
 void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1);
 M2C_UNK advance_animation_playback();
-M2C_UNK TLobby__sub_800869A4(void *, int, int, int);
+M2C_UNK create_timed_particle_emitter(void *, int, int, int);
 M2C_UNK TObjEneDD__sub_800BA934(void *);
 M2C_UNK transition_enemy_state(void *, int);
 M2C_UNK TObjEneRecon__sub_8031DD14(void *);
@@ -440,7 +440,7 @@ void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x444) = (s32) (M2C_FIELD(arg0, s32 *, 0x444) | 2);
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x01000000);
         ((WObj_8031c7bc *) (arg0 + 0x480))->w2();
-        TLobby__sub_800869A4((void *) (arg0 + 0x38), (int) (0x79), (int) (0), (int) (0xF));
+        create_timed_particle_emitter((void *) (arg0 + 0x38), (int) (0x79), (int) (0), (int) (0xF));
         return;
     case 3:
         temp_r3 = find_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0x434)));
@@ -1595,13 +1595,13 @@ void TObjEneRecon__sub_8031FC58(void);
 int TObjEneRecon__sub_8031FC5C(void* p);
 void set_state_6__12TObjEneReconFPv(void* p);
 void TObjEneRecon__sub_8031FCAC(void);
-int TBoss8Dragon__sub_800BB780(void*);
+int clear_attack_receipts(void*);
 int transition_enemy_state(void*, void*);
 int VecCopy__FP3VecPC3Vec(void*, void*);
 
 void restore_position__12TObjEneReconFPv(void* p) { VecCopy__FP3VecPC3Vec((char*)p + 0x74, (char*)p + 0x2fc); }
 void TObjEneRecon__sub_8031FC58(void) {  }
-int TObjEneRecon__sub_8031FC5C(void* p) { return TBoss8Dragon__sub_800BB780(p); }
+int TObjEneRecon__sub_8031FC5C(void* p) { return clear_attack_receipts(p); }
 void set_state_6__12TObjEneReconFPv(void* p) { if (*(short*)((char*)p + 0x326) != 6) { transition_enemy_state(p, (void*)6); } }
 void TObjEneRecon__sub_8031FCAC(void) {  }
 

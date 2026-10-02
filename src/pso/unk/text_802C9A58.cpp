@@ -1,7 +1,7 @@
 #include "types.h"
 
 extern "C" {
-s32 TObjFish__sub_8001EDC4(void *, int);
+s32 get_bml_model(void *, int);
 void *TLobby__sub_80020004(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(s32, int);
@@ -40,14 +40,14 @@ void TObjSeabedSuisoBrakable__sub_802C9A58(void) {
         lbl_80540B44[i] = 0;
     }
     if (p != NULL) {
-        h = TObjFish__sub_8001EDC4(p, 3);
+        h = get_bml_model(p, 3);
         if (h != 0) {
             lbl_80540B30[1] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 3);
             lbl_80540B30[2] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 4);
             lbl_80540B30[3] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 5);
             lbl_80540B30[4] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 6);
         }
-        h = TObjFish__sub_8001EDC4(lbl_805D6808, 4);
+        h = get_bml_model(lbl_805D6808, 4);
         if (h != 0) {
             lbl_80540B44[1] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 3);
             lbl_80540B44[2] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(h, 4);

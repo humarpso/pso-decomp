@@ -32,7 +32,7 @@ struct Flag_80139690 { u8 pad[0x2A]; s8 flag; };
 extern "C" {
 extern u32 TLobby__data_805D55DC;
 extern const Pair_801397E8 lbl_8043EDF8[];
-s32 TWindowSubComCard__sub_8026CBB8(s32);
+s32 get_window_layout_position(s32);
 u32 update_window_mode_from_progress__6TLobbyFiPv(s32 arg0, void *arg1);
 int send_and_handle__6TLobbyFPvii(u32 p, int a1, int a2);
 s32 get_seq_phase__6TLobbyFPv(s32);
@@ -40,7 +40,7 @@ void TLobby__sub_801397E8(s32 arg0);
 extern u32 TLobby__data_805D55D8;
 extern const Pair_80139894 lbl_8043EDF0[];
 extern const f32 lbl_805DB0B8;
-s32 TWindowSubComCard__sub_8026CBB8(s32);
+s32 get_window_layout_position(s32);
 u32 update_window_mode_from_progress__6TLobbyFiPv(s32 arg0, void *arg1);
 int send_and_handle__6TLobbyFPvii(u32 p, int a1, int a2);
 void set_field_1c__6TLobbyFPvf(u32 p, f32 f);
@@ -48,7 +48,7 @@ void TLobby__sub_80139894(s32 arg0);
 extern u32 TLobby__data_805D55D8;
 extern const Pair_8013990C lbl_8043EDE8[];
 extern const f32 lbl_805DB0B8;
-s32 TWindowSubComCard__sub_8026CBB8(s32);
+s32 get_window_layout_position(s32);
 u32 update_window_mode_from_progress__6TLobbyFiPv(s32 arg0, void *arg1);
 int send_and_handle__6TLobbyFPvii(u32 p, int a1, int a2);
 s32 get_seq_phase__6TLobbyFPv(s32);
@@ -309,7 +309,7 @@ void run_task__6TLobbyFv(void *self) {
 void TLobby__sub_801397E8(s32 arg0) {
     if (TLobby__data_805D55DC == 0) {
         Pair_801397E8 tmp = lbl_8043EDF8[0];
-        TLobby__data_805D55DC = update_window_mode_from_progress__6TLobbyFiPv(TWindowSubComCard__sub_8026CBB8(0xc2), &tmp);
+        TLobby__data_805D55DC = update_window_mode_from_progress__6TLobbyFiPv(get_window_layout_position(0xc2), &tmp);
     }
     send_and_handle__6TLobbyFPvii(TLobby__data_805D55DC, get_seq_phase__6TLobbyFPv(arg0), 1);
 }
@@ -323,7 +323,7 @@ void close_com_card_window__6TLobbyFv(void) {
 void TLobby__sub_80139894(s32 arg0) {
     if (TLobby__data_805D55D8 == 0) {
         Pair_80139894 tmp = lbl_8043EDF0[0];
-        TLobby__data_805D55D8 = update_window_mode_from_progress__6TLobbyFiPv(TWindowSubComCard__sub_8026CBB8(0xc1), &tmp);
+        TLobby__data_805D55D8 = update_window_mode_from_progress__6TLobbyFiPv(get_window_layout_position(0xc1), &tmp);
         set_field_1c__6TLobbyFPvf(TLobby__data_805D55D8, lbl_805DB0B8);
     }
     send_and_handle__6TLobbyFPvii(TLobby__data_805D55D8, arg0, 1);
@@ -331,7 +331,7 @@ void TLobby__sub_80139894(s32 arg0) {
 void TLobby__sub_8013990C(s32 arg0) {
     if (TLobby__data_805D55D8 == 0) {
         Pair_8013990C tmp = lbl_8043EDE8[0];
-        TLobby__data_805D55D8 = update_window_mode_from_progress__6TLobbyFiPv(TWindowSubComCard__sub_8026CBB8(0xc1), &tmp);
+        TLobby__data_805D55D8 = update_window_mode_from_progress__6TLobbyFiPv(get_window_layout_position(0xc1), &tmp);
         set_field_1c__6TLobbyFPvf(TLobby__data_805D55D8, lbl_805DB0B8);
     }
     send_and_handle__6TLobbyFPvii(TLobby__data_805D55D8, get_seq_phase__6TLobbyFPv(arg0), 1);

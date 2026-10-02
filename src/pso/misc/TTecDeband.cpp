@@ -90,7 +90,7 @@ M2C_UNK fn_802370D8(void *);
 void run_task__10TTecDebandFv(Deband_8022F73C *self);
 s32 obj_getField1c(int);
 s32 is_split_screen();
-s32 TWindowSubComCard__sub_801058F8(void *);
+s32 is_script_controlled__10TObjPlayerFPv(void *);
 void show_party_effect__11TWindowCtrlFPvPvPv(s32, s32, s32);
 void TTecDeband__vt5(Obj_8022F588 *arg0, VObj_18_b27ba1 *arg1);
 s32 obj_getField1c(int);
@@ -136,7 +136,7 @@ void TTecDeband__vt5(Obj_8022F588 *arg0, VObj_18_b27ba1 *arg1) {
     HitInfo_8022F588 h;
     h.type = 0xA;
     h.power = arg0->power;
-    if (TWindowSubComCard__sub_801058F8(arg1) == 0) {
+    if (is_script_controlled__10TObjPlayerFPv(arg1) == 0) {
         HitInfo_8022F588 c = h;
         arg1->m21(arg0->source, &c, 0, 0xA, -1);
         if (is_split_screen() == 0) {

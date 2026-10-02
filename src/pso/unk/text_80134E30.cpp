@@ -312,7 +312,7 @@ s32 TWindowCtrlMain__sub_8024CE58();
 void TLobby__sub_80269454(void *);
 void send_and_handle__6TLobbyFPvii(void *, char *, int);
 void *set_window_mode_4__6TLobbyFPvii(void *, void *, int);
-void *TWindowSubComCard__sub_8026CBB8(int);
+void *get_window_layout_position(int);
 int sprintf(char *, const char *, ...);
 extern Pair_80134F9C lbl_8043EE28[];
 extern u8 TKeyBoardControl__data_80506270[];
@@ -401,7 +401,7 @@ void TLobby__sub_80134F9C(u8 *arg0) {
             t->state = 1;
             if ((*(Obj_80134F9C * *)&TLobby__data_805D5608) == 0 && TWindowCtrlMain__sub_8024CE58() != 0) {
                 sprintf(lbl_8050ADB8, get_seq_phase__6TLobbyFPv(0x1F), t->limit - elapsed);
-                (*(Obj_80134F9C * *)&TLobby__data_805D5608) = (Obj_80134F9C *)set_window_mode_4__6TLobbyFPvii(TWindowSubComCard__sub_8026CBB8(0xCA), &tmp, 1);
+                (*(Obj_80134F9C * *)&TLobby__data_805D5608) = (Obj_80134F9C *)set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0xCA), &tmp, 1);
                 send_and_handle__6TLobbyFPvii((void *)(*(Obj_80134F9C * *)&TLobby__data_805D5608), lbl_8050ADB8, 0x80);
                 set_field_1c__6TLobbyFPvf((void *)(*(Obj_80134F9C * *)&TLobby__data_805D5608), lbl_805DB0A8);
                 TLobby__sub_80269454((void *)(*(Obj_80134F9C * *)&TLobby__data_805D5608));

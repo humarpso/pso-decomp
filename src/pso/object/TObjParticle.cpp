@@ -58,7 +58,7 @@ void __dl__7TObjectFPv(void *);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(u32, void *);
 M2C_UNK copy_vec3__11TBoss4Type2FPvPv(u32, void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
-f32 fn_801315A0(void *, s32);
+f32 xyz_distance_squared(void *, s32);
 void fn_8020C430(void *, int);
 s32 get_global_state__14TOKeyMachine01Fv();
 void queue_destruction__7TObjectFv(void *);
@@ -87,7 +87,7 @@ void run_task__12TObjParticleFv(u8 *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x8C) == 1) && ((s32) M2C_FIELD(arg0, s32 *, 0x84) == 1)) {
         var_f31 = lbl_805DBEE8;
     }
-    if (fn_801315A0(arg0 + 0x38, lbl_805D4DF0 + 0x178) > var_f31) {
+    if (xyz_distance_squared(arg0 + 0x38, lbl_805D4DF0 + 0x178) > var_f31) {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }

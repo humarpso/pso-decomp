@@ -24,7 +24,7 @@ void handle_state_transition__15TObjEnemyCustomFPv(u8 *arg0);
 int update_if_active__15TObjEnemyCustomFPv(void* p);
 void update_state__15TObjEnemyCustomFPv(void *arg0);
 M2C_UNK advance_animation_playback(void *);
-M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK TObjVoloptCage__sub_800C76F0(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -46,7 +46,7 @@ void update_state__15TObjEnemyCustomFPv(void *arg0) {
     case 1:
         advance_animation_playback(arg0);
         if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800000)) {
-            TObjPlayer__sub_80011734(arg0, 0, lbl_805DA070);
+            apply_actor_gravity(arg0, 0, lbl_805DA070);
         }
         break;
     case -1:

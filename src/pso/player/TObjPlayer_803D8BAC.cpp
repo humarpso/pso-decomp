@@ -13,7 +13,7 @@ extern u8 *lbl_805D7774;
 void TObjPlayer__sub_803D8CD4(u8 *arg0);
 M2C_UNK PSMTXMultVecSR(int);
 extern u8 *lbl_805D7774;
-void TScene__sub_803D8DB4(u32 arg0);
+void rotate_vector_by_matrix(u32 arg0);
 extern u8 *lbl_805D7774;
 void GXGetProjectionv(f32 *p);
 void GXGetViewportv(f32 *vp);
@@ -85,7 +85,7 @@ void TParticleCtrl__sub_803D8D1C(u8 *mtx, Vec_803D8D1C *pos, f32 *out) {
 
 #pragma push
 #pragma scheduling off
-void TScene__sub_803D8DB4(u32 arg0) {
+void rotate_vector_by_matrix(u32 arg0) {
     u32 var_r3;
     var_r3 = arg0;
     if (var_r3 == 0U) {

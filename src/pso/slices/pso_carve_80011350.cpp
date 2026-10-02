@@ -11,7 +11,7 @@ extern "C" {
 s32 TObjPlayer__sub_800113A8(u8 *arg0, s16 *arg1);
 s32 TObjPlayer__sub_800113A8(u8 *arg0, s16 *arg1);
 void TObjPlayer__sub_800113E4(u8 *arg0, s16 arg1);
-s32 TItemProShield__sub_8001140C(u8 *arg0, s16 arg1);
+s32 add_actor_hp(u8 *arg0, s16 arg1);
 int TObjPlayer__sub_80011350(u8 *arg0);
 s32 TObjectV8047c128_subtract_hp(u8 *arg0, s16 arg1);
 s32 TObjPlayer__sub_80011378(O_80011378 *self, s32 x);
@@ -70,7 +70,7 @@ void TObjPlayer__sub_800113E4(u8 *arg0, s16 arg1) {
 
 #pragma push
 #pragma scheduling off
-s32 TItemProShield__sub_8001140C(u8 *arg0, s16 arg1) {
+s32 add_actor_hp(u8 *arg0, s16 arg1) {
     s16 temp_r4;
     s16 temp_r0;
     if (arg1 < 0) {

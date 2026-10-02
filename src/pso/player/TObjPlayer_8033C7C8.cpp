@@ -29,7 +29,7 @@ struct Fish_8033CB4C
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK request_destroy__11TBoss4Type2FUi(void *);
-u32 TBoss4Type2__sub_800874F4(int, int);
+u32 create_particle_emitter(int, int);
 M2C_UNK set_flags__11TBoss4Type2FPvUi(int, int);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(int, int);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
@@ -41,7 +41,7 @@ extern const f32 lbl_805DFA4C;
 void TBoss4Type2__sub_8033C86C(u8 *arg0);
 s32 TObjFish__sub_8001ED9C(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
-s32 TObjFish__sub_8001EDC4(s32, s32);
+s32 get_bml_model(s32, s32);
 int TCameraCtrl__sub_80069E7C(int);
 int set_scripted_camera_pose(void *, void *, void *);
 int cache_target_and_forward__11TCameraCtrlFii(void *, int);
@@ -147,7 +147,7 @@ void TBoss4Type2__sub_8033C86C(u8 *arg0) {
     temp_r30 = arg0 + 0x54;
     switch (temp_r0_3) {
     case 0x1:
-        M2C_FIELD(arg0, u32 *, 0x64) = TBoss4Type2__sub_800874F4((int) (temp_r30), (int) (0x210));
+        M2C_FIELD(arg0, u32 *, 0x64) = create_particle_emitter((int) (temp_r30), (int) (0x210));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x64) != 0U) {
             set_flags__11TBoss4Type2FPvUi((int) (M2C_FIELD(arg0, u32 *, 0x64)), (int) (0x40));
         }
@@ -158,7 +158,7 @@ void TBoss4Type2__sub_8033C86C(u8 *arg0) {
             request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x64));
             M2C_FIELD(arg0, u32 *, 0x64) = 0U;
         }
-        M2C_FIELD(arg0, u32 *, 0x64) = TBoss4Type2__sub_800874F4((int) (temp_r30), (int) (0x211));
+        M2C_FIELD(arg0, u32 *, 0x64) = create_particle_emitter((int) (temp_r30), (int) (0x211));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x64) != 0U) {
             set_flags__11TBoss4Type2FPvUi((int) (M2C_FIELD(arg0, u32 *, 0x64)), (int) (0x40));
         }
@@ -168,7 +168,7 @@ void TBoss4Type2__sub_8033C86C(u8 *arg0) {
             request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x64));
             M2C_FIELD(arg0, u32 *, 0x64) = 0U;
         }
-        M2C_FIELD(arg0, u32 *, 0x64) = TBoss4Type2__sub_800874F4((int) (temp_r30), (int) (0x210));
+        M2C_FIELD(arg0, u32 *, 0x64) = create_particle_emitter((int) (temp_r30), (int) (0x210));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x64) != 0U) {
             set_flags__11TBoss4Type2FPvUi((int) (M2C_FIELD(arg0, u32 *, 0x64)), (int) (0x40));
         }
@@ -223,7 +223,7 @@ Fish_8033CB4C *TObjFish__sub_8033CB4C(Fish_8033CB4C *self, void *parent) {
   {
     k = lbl_804DF614[i];
     k = k & 0xFFFFFFFFu;
-    self->tbl[i].a = TObjFish__sub_8001EDC4(n, k);
+    self->tbl[i].a = get_bml_model(n, k);
     self->tbl[i].b = TObjFish__sub_8001EDB0(n, k);
     self->tbl[i].c = TObjFish__sub_8001ED9C(n, lbl_804EF9B8[i]);
   }

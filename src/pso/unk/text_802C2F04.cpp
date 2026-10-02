@@ -15,7 +15,7 @@ struct RecoveredGlobal_802C2F04_lbl_804E0988
 
 extern "C" {
 s32 TObjFish__sub_8001ED9C(void *, s32);
-s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 get_bml_model(void *, s32);
 s32 TObjPlayer__sub_802C2C48(void *);
 u8 *TObjPathObj__ct(void *, s32);
 extern RecoveredGlobal_802C2F04_lbl_804717D4 lbl_804717D4;
@@ -34,7 +34,7 @@ u8 *TObjPlayer__sub_802C2F04(u8 *arg0, s32 arg1) {
   s32 temp_r3;
   TObjPathObj__ct(arg0, arg1);
   *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = &lbl_804E0988.value;
-  *((s32 *) (((s8 *) arg0) + 0x98)) = TObjFish__sub_8001EDC4(lbl_805D6798, 0);
+  *((s32 *) (((s8 *) arg0) + 0x98)) = get_bml_model(lbl_805D6798, 0);
   *((s32 *) (((s8 *) arg0) + 0x9C)) = TObjFish__sub_8001ED9C(lbl_805D6798, 5);
   temp_r3 = *((s32 *) (((s8 *) arg0) + 0x84));
   if (temp_r3 < 0)

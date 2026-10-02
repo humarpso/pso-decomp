@@ -19,7 +19,7 @@ void TWindowSubStatusDisp__sub_80281644(u8 *arg0);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 void TWindowDD__sub_802466E0(void *, void *, s16, s32);
 void *init__21TWindowSubComCardListFPviii(void *, int, int, s32);
-s32 TWindowSubComCard__sub_8026CBB8(int);
+s32 get_window_layout_position(int);
 M2C_UNK TWindowSubStatusDisp__sub_802813B4(void *);
 extern u8 __vt__20TWindowSubStatusDisp[];
 extern M2C_UNK lbl_804D2B30[];
@@ -89,7 +89,7 @@ void *dt__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {
 }
 SD_80281760 *TWindowSubStatusDisp__ct(SD_80281760 *arg0, s32 arg1) {
     void *w;
-    TWindowDD__sub_802466E0(arg0, __vt__20TWindowSubStatusDisp, arg1, TWindowSubComCard__sub_8026CBB8(0x19));
+    TWindowDD__sub_802466E0(arg0, __vt__20TWindowSubStatusDisp, arg1, get_window_layout_position(0x19));
     arg0->vt = ((u8 *)&lbl_804D2B30);
     arg0->f0 = lbl_805D3AA0;
     arg0->f20 = arg1;

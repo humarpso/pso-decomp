@@ -129,7 +129,7 @@ M2C_UNK save_cursor_selection__20TShopArmorListWindowFPv(void *);
 M2C_UNK TShopArmorListWindow__sub_80266DB0(void *);
 M2C_UNK TLobby__sub_80266E34(void *);
 M2C_UNK add_ground_item__20TWindowSubStatusDispFPvii(void *, void *, s32);
-s32 TWindowSubComCard__sub_8026CBB8(s32);
+s32 get_window_layout_position(s32);
 void *TShopJudgmentItemWindow__sub_8026DF00(s32, s32, u16);
 M2C_UNK get_item_count__24TShopEquipmentSellWindowFPv(void *a, s32 b);
 void *create_cost_window(u16);
@@ -151,7 +151,7 @@ s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 s32 TWindowSubComCard__sub_80265C30(u32);
 s32 TWindowSubComCard__sub_80265F60(u32);
-s32 TWindowSubComCard__sub_8026CBB8(s32);
+s32 get_window_layout_position(s32);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__15TShopWindowBaseFv(void *, int);
@@ -194,7 +194,7 @@ s32 open_menu_window__24TShopEquipmentListWindowFPv(void *arg0) {
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) == 0U) {
         temp_r31 = obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
-        M2C_FIELD(arg0, u32 *, 0x2C) = TCheckRoomSequence__sub_802664A8(TWindowSubComCard__sub_8026CBB8(0x2B), 2, temp_r31);
+        M2C_FIELD(arg0, u32 *, 0x2C) = TCheckRoomSequence__sub_802664A8(get_window_layout_position(0x2B), 2, temp_r31);
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), TLobby__sub_80222CFC(4), 6, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), TLobby__sub_80222CFC(5), 6, 1);
         TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0x2C));
@@ -295,7 +295,7 @@ void TShopEquipmentListWindow__sub_8021C408(void *p) {
         o = __nw__7TObjectFUl(0xBC);
         if (o != NULL) {
             id = obj_getField1c(W->player);
-            o = TWindowHelpItem__ct(o, TWindowSubComCard__sub_8026CBB8(0x27), id);
+            o = TWindowHelpItem__ct(o, get_window_layout_position(0x27), id);
         }
         W->help = o;
         if (W->help != NULL && is_camera_ctrl_active__6TLobbyFv() > 2) {

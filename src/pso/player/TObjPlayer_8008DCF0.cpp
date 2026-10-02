@@ -23,7 +23,7 @@ struct P_8008F730 { u8 pad[0x3C4]; s32 ids[5]; s16 n; };
 extern "C" {
 extern Row_8008ED48 lbl_805006F8[];
 void TObjPlayer__sub_8008ED48(void *arg0, s32 arg1);
-M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK move_with_wall_slide(void *);
 s32 check_path_obstructed(void *, Vec_8008F910 *);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, int);
@@ -54,7 +54,7 @@ extern "C" {
 
 void update_dragon_boss_state__10TObjPlayerFPv(void *arg0);
 M2C_UNK advance_animation_playback(void *);
-M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 
 extern const f32 lbl_805D9620;
 
@@ -69,7 +69,7 @@ void update_dragon_boss_state__10TObjPlayerFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
         advance_animation_playback(arg0);
-        TObjPlayer__sub_80011734(arg0, 0, lbl_805D9620);
+        apply_actor_gravity(arg0, 0, lbl_805D9620);
         return;
     case -1:
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFBFFFF);
@@ -171,7 +171,7 @@ void TObjPlayer__sub_8008F910(u8 *arg0) {
         }
         M2C_FIELD(arg0, f32 *, 0x308) *= lbl_805D966C;
         M2C_FIELD(arg0, f32 *, 0x310) *= lbl_805D966C;
-        TObjPlayer__sub_80011734(arg0, 0, lbl_805D9620);
+        apply_actor_gravity(arg0, 0, lbl_805D9620);
         update_collisions__10TObjPlayerFPv(arg0);
         if (M2C_FIELD(arg0, u32 *, 0xB4) != 8U) {
             var_r30 = 0;

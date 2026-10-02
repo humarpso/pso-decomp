@@ -113,7 +113,7 @@ extern "C" {
 void TObjQuestColBase__sub_80196CC4(void);
 s32 is_within_range__16TObjQuestColBaseFif(s32 arg0, f32 farg0);
 u32 get_player_by_client_id(s32);
-f32 fn_801315A0(s32, s32);
+f32 xyz_distance_squared(s32, s32);
 
 extern s32 lbl_805D53A0;
 
@@ -121,7 +121,7 @@ s32 is_within_range__16TObjQuestColBaseFif(s32 arg0, f32 farg0) {
     u32 temp_r3;
 
     temp_r3 = get_player_by_client_id(lbl_805D53A0);
-    if ((temp_r3 != 0U) && (fn_801315A0(temp_r3 + 0x38, arg0 + 0x38) < farg0)) {
+    if ((temp_r3 != 0U) && (xyz_distance_squared(temp_r3 + 0x38, arg0 + 0x38) < farg0)) {
         return 1;
     }
     return 0;

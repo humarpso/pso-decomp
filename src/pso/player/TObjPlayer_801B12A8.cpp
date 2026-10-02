@@ -215,7 +215,7 @@ void *update_battle_controller__10TObjPlayerFv();
 M2C_UNK fn_801C0630(Ctx_801B1C8C *);
 M2C_UNK fn_801C0644(Ctx_801B1C8C *);
 void TObjPlayer__sub_801B1C8C(void);
-s32 TObjPlayer__sub_80019248();
+s32 is_locally_controlled__10TObjPlayerFPv();
 void TObjPlayer__sub_801C0708(void *);
 void TObjPlayer__sub_801C0734(void *);
 void TObjPlayer__sub_801B1E54(s32 arg0, s32 arg1, s32 arg2);
@@ -227,7 +227,7 @@ void set_code_13_3__10TObjPlayerFPv(void *);
 s32 fn_8036B748(void *);
 void handle_6x0D_add_or_remove_status_effect(void *arg0);
 void TObjPlayer__sub_800113E4(u32, s32);
-void TItemProShield__sub_8001140C(u32, s32);
+void add_actor_hp(u32, s32);
 s32 obj_testFlags30(s32, M2C_UNK);
 u32 get_player_by_client_id(s32);
 void TObjPlayer__sub_801C0678(Pkt_801B1D8C *);
@@ -236,10 +236,10 @@ void TObjPlayer__sub_801C0708(void *);
 s32 validate_6x2F_change_player_hp(Pkt_801B1D8C *);
 void handle_6x2F_change_player_hp(s32 arg0);
 void calc_attach_pos__10TObjPlayerFPv(u32);
-s32 TObjPlayer__sub_80019248();
+s32 is_locally_controlled__10TObjPlayerFPv();
 s16 obj_getField1c(void *);
 void TBoss4DarkFalz__sub_8004C220(u32, f32 *);
-void TCameraCtrl__sub_8006A410(u32, s32);
+void reset_cameras_to_actor(u32, s32);
 void TObjPlayer__sub_801B0FF4(u32);
 u32 get_player_by_client_id(s32);
 void clear_flag_4000__10TObjPlayerFPv(u32);
@@ -365,10 +365,10 @@ void handle_6x2F_change_player_hp(s32 arg0) {
         TObjPlayer__sub_800113E4(player, pkt.amount);
         break;
     case 1:
-        TItemProShield__sub_8001140C(player, pkt.amount);
+        add_actor_hp(player, pkt.amount);
         break;
     case 2:
-        TItemProShield__sub_8001140C(player, *(s16 *)(player + 0x2B8));
+        add_actor_hp(player, *(s16 *)(player + 0x2B8));
         break;
     }
 }
@@ -376,7 +376,7 @@ void handle_6x2F_change_player_hp(s32 arg0) {
 void TObjPlayer__sub_801B1E54(s32 arg0, s32 arg1, s32 arg2) {
     Msg_801B1E54 m;
 
-    if (((((u32 (*)(u16))get_player_by_client_id)((u16)arg0) == 0U) || (obj_isState2_324() == 0)) && ((((u32 (*)(u16))get_player_by_client_id)((u16)arg1) == 0U) || (TObjPlayer__sub_80019248() != 0))) {
+    if (((((u32 (*)(u16))get_player_by_client_id)((u16)arg0) == 0U) || (obj_isState2_324() == 0)) && ((((u32 (*)(u16))get_player_by_client_id)((u16)arg1) == 0U) || (is_locally_controlled__10TObjPlayerFPv() != 0))) {
         TObjPlayer__sub_801C0708(&m);
         m.a = arg0;
         m.b = 0;
@@ -405,8 +405,8 @@ void handle_6x24_teleport_player(s32 arg0) {
     clear_flag_4000__10TObjPlayerFPv(player);
     TObjPlayer__sub_801B0FF4(player);
     create__15TPlyOnCountOverFPvPvPv(obj_getField1c((void *)player), 2, TObjPlayer__sub_801BE6E4);
-    if (((s32 (*)(u32))TObjPlayer__sub_80019248)(player) != 0) {
-        TCameraCtrl__sub_8006A410(player, 0);
+    if (((s32 (*)(u32))is_locally_controlled__10TObjPlayerFPv)(player) != 0) {
+        reset_cameras_to_actor(player, 0);
     }
 }
 

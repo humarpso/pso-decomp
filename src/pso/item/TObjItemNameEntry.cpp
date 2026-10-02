@@ -20,7 +20,7 @@ void *TObjItemNameEntry__ct(void *arg0);
 u32 TKeyBoardControl__ct(void *, void *, M2C_UNK, M2C_UNK, M2C_UNK, s32);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80265C30(u32);
-s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+s32 get_window_layout_position(M2C_UNK);
 M2C_UNK __ct__7TObjectFP7TObject();
 u32 __nw__7TObjectFUl(M2C_UNK);
 u32 check_room_seq_4__16TAdChrSelASlotGCFii(s32, s32);
@@ -49,11 +49,11 @@ void *TObjItemNameEntry__ct(void *arg0) {
     }
     M2C_FIELD(arg0, u32 *, 0x1C) = var_r0;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
-        set_sub_position__15TWindowMakeTeamFPvPv(M2C_FIELD(arg0, u32 *, 0x1C), TWindowSubComCard__sub_8026CBB8(0xBF));
-        fn_80131ADC(M2C_FIELD(arg0, u32 *, 0x1C), TWindowSubComCard__sub_8026CBB8(0xC0));
+        set_sub_position__15TWindowMakeTeamFPvPv(M2C_FIELD(arg0, u32 *, 0x1C), get_window_layout_position(0xBF));
+        fn_80131ADC(M2C_FIELD(arg0, u32 *, 0x1C), get_window_layout_position(0xC0));
         fn_80131B18(M2C_FIELD(arg0, u32 *, 0x1C), fn_8026CB5C());
     }
-    M2C_FIELD(arg0, u32 *, 0x20) = check_room_seq_4__16TAdChrSelASlotGCFii(TWindowSubComCard__sub_8026CBB8(0x56), 1);
+    M2C_FIELD(arg0, u32 *, 0x20) = check_room_seq_4__16TAdChrSelASlotGCFii(get_window_layout_position(0x56), 1);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x20), TQuestVmDownLoadServer__sub_8006EF6C(0x47), 0x81, 0);
     }

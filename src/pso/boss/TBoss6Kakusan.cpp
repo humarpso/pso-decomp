@@ -18,7 +18,7 @@ u8 *__nw__7TObjectFUl(M2C_UNK);
 u8 *TBoss6Type1__sub_80322AE0(s32 arg0, u8 *arg1, u8 *arg2, s16 arg3, f32 farg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *dispatch_shared_handler_a__6TLobbyFPv(s32);
-u32 TBoss4Type2__sub_800874F4(void *, int);
+u32 create_particle_emitter(void *, int);
 s32 set_flags__11TBoss4Type2FPvUi(int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
@@ -40,7 +40,7 @@ s32 check_demo_mode__10TObjPlayerFv();
 void copy_vec3__11TBoss4Type2FPvPv(void *, void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 s32 query_teammate_state__9TObjEneDDFPv();
-void TBoss1Dragon__sub_8014220C(void *, void *, void *);
+void direction_to_rotation_xz(void *, void *, void *);
 u32 get_player_by_client_id(s32);
 s32 is_active__14TBoss6PlotFalzFPv();
 void TBoss6Kakusan__sub_80322438(u8 *arg0);
@@ -134,7 +134,7 @@ void run_task__13TBoss6KakusanFv(u8 *arg0) {
         copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0x54), arg0 + 0x30);
         VecCopy__FP3VecPC3Vec(&a, arg0 + 0x30);
         TBoss6Type1__sub_803D9370(&a, arg0 + 0x48);
-        TBoss1Dragon__sub_8014220C(&a, &b.x, &b.z);
+        direction_to_rotation_xz(&a, &b.x, &b.z);
         *(s32 *)&b.y = 0;
         copy_vec3__11TBoss4Type2FPvPv(M2C_FIELD(arg0, void **, 0x54), &b);
     }
@@ -186,7 +186,7 @@ u8 *TBoss6Kakusan__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4, f32 farg
     if (M2C_FIELD(arg0, f32 *, 0x28) < TBoss6Kakusan__data_805DF518) {
         M2C_FIELD(arg0, f32 *, 0x28) = (f32) TBoss6Kakusan__data_805DF518;
     }
-    M2C_FIELD(arg0, u32 *, 0x54) = TBoss4Type2__sub_800874F4((void *) (arg0 + 0x30), (int) (0x214));
+    M2C_FIELD(arg0, u32 *, 0x54) = create_particle_emitter((void *) (arg0 + 0x30), (int) (0x214));
     temp_r3 = M2C_FIELD(arg0, u32 *, 0x54);
     if (temp_r3 != 0U) {
         set_flags__11TBoss4Type2FPvUi((int) (temp_r3), (int) (0x40));

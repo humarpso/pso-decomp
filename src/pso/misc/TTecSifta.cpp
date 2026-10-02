@@ -84,7 +84,7 @@ s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
 void TTecSifta__sub_8023ACA8(Obj_8023ACA8 *arg0);
 s32 obj_getField1c(int);
 s32 is_split_screen();
-s32 TWindowSubComCard__sub_801058F8(void *);
+s32 is_script_controlled__10TObjPlayerFPv(void *);
 void show_party_effect__11TWindowCtrlFPvPvPv(s32, s32, s32);
 void TTecSifta__vt5(Obj_8023AE8C *arg0, VObj_18_b27ba1 *arg1);
 s32 queue_destruction__7TObjectFv();
@@ -176,7 +176,7 @@ extern M2C_UNK __vt__9TTecSifta[];
 
 void TTecSifta__vt5(Obj_8023AE8C *arg0, VObj_18_b27ba1 *arg1) {
     HitInfo_8023AE8C h;
-    if (TWindowSubComCard__sub_801058F8(arg1) == 0) {
+    if (is_script_controlled__10TObjPlayerFPv(arg1) == 0) {
         h.type = 9;
         h.power = arg0->power;
         if (is_split_screen() == 0) {

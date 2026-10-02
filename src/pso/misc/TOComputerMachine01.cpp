@@ -56,7 +56,7 @@ struct Obj_8015B544 { u8 pad[0x42C]; Mdl_8015B544 *model; };
 extern "C" {
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TOComputerMachine01__sub_8023DDC8(int, int, int, int, int);
+M2C_UNK scroll_ginja_mesh_uvs(int, int, int, int, int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -114,10 +114,10 @@ void render__19TOComputerMachine01Fv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xE0) == 1) {
         if ((s32) TOComputerMachine01__data_805D58E4 != (s32) lbl_805D53A4) {
             TOComputerMachine01__data_805D58E4 = lbl_805D53A4;
-            TOComputerMachine01__sub_8023DDC8((int) (M2C_FIELD(&TOComputerMachine01__data_8050DB50.value, s32 *, 0)), (int) (0), (int) (2), (int) (7), (int) (1));
-            TOComputerMachine01__sub_8023DDC8((int) (M2C_FIELD(&TOComputerMachine01__data_8050DB50.value, s32 *, 4)), (int) (0), (int) (-2), (int) (7), (int) (1));
-            TOComputerMachine01__sub_8023DDC8((int) (M2C_FIELD(&TOComputerMachine01__data_8050DB50.value, s32 *, 8)), (int) (0), (int) (1), (int) (7), (int) (1));
-            TOComputerMachine01__sub_8023DDC8((int) (M2C_FIELD(&TOComputerMachine01__data_8050DB50.value, s32 *, 0xC)), (int) (0), (int) (-1), (int) (7), (int) (1));
+            scroll_ginja_mesh_uvs((int) (M2C_FIELD(&TOComputerMachine01__data_8050DB50.value, s32 *, 0)), (int) (0), (int) (2), (int) (7), (int) (1));
+            scroll_ginja_mesh_uvs((int) (M2C_FIELD(&TOComputerMachine01__data_8050DB50.value, s32 *, 4)), (int) (0), (int) (-2), (int) (7), (int) (1));
+            scroll_ginja_mesh_uvs((int) (M2C_FIELD(&TOComputerMachine01__data_8050DB50.value, s32 *, 8)), (int) (0), (int) (1), (int) (7), (int) (1));
+            scroll_ginja_mesh_uvs((int) (M2C_FIELD(&TOComputerMachine01__data_8050DB50.value, s32 *, 0xC)), (int) (0), (int) (-1), (int) (7), (int) (1));
         }
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));

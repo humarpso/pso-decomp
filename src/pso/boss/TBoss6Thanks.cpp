@@ -23,7 +23,7 @@ typedef s32 M2C_UNK;
 extern "C" {
 s32 TObjFish__sub_8001ED9C(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
-s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 get_bml_model(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 int get_fish_count__8TObjFishFv(void);
 extern RecoveredGlobal_8035D10C___vt__12TBoss6Thanks __vt__12TBoss6Thanks;
@@ -40,7 +40,7 @@ void TBoss6Thanks__sub_8035CCAC(s32 arg0);
 void request_destroy__11TBoss4Type2FUi(void *);
 void TBoss6Thanks__sub_8035CC50(W_8035CC50 *arg0);
 void request_destroy__11TBoss4Type2FUi(void *);
-void *TBoss4Type2__sub_800874F4(void *, int);
+void *create_particle_emitter(void *, int);
 void set_flags__11TBoss4Type2FPvUi(void *, int);
 extern u8 TBoss6Thanks__data_80479BA8[];
 extern Ent_8035CB88 lbl_80479BD4[];
@@ -48,7 +48,7 @@ void TBoss6Thanks__sub_8035CB88(void *arg0);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 get_game_mode__6TLobbyFv();
 s32 is_active__14TBoss6PlotFalzFPv(void *);
-f32 TObjPlayer__sub_803E1A58(void *, void *);
+f32 xyz_distance(void *, void *);
 extern u8 TBoss6Thanks__data_80479BA8[];
 extern const f32 lbl_805E0198;
 int TBoss6Thanks__sub_8035CCD0(void *arg0);
@@ -89,7 +89,7 @@ void TBoss6Thanks__sub_8035CB88(void *arg0) {
         Ent_8035CB88 *e = &lbl_80479BD4[i];
         if (o->x30 >= e->lo && o->x30 <= e->hi) {
             if (o->p[i] == NULL) {
-                o->p[i] = TBoss4Type2__sub_800874F4(TBoss6Thanks__data_80479BA8, e->id);
+                o->p[i] = create_particle_emitter(TBoss6Thanks__data_80479BA8, e->id);
                 if (o->p[i] != NULL) {
                     set_flags__11TBoss4Type2FPvUi(o->p[i], 0x40);
                 }
@@ -131,7 +131,7 @@ int TBoss6Thanks__sub_8035CCD0(void *arg0) {
     for (i = 0; i < n; i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != NULL && is_active__14TBoss6PlotFalzFPv(p) != 0 &&
-            TObjPlayer__sub_803E1A58(p + 0x38, TBoss6Thanks__data_80479BA8) <= r) {
+            xyz_distance(p + 0x38, TBoss6Thanks__data_80479BA8) <= r) {
             return 1;
         }
     }
@@ -185,11 +185,11 @@ u8 *TBoss6Thanks__ct(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__12TBoss6Thanks.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4440;
     temp_r3 = (u8 *)(get_fish_count__8TObjFishFv());
-    M2C_FIELD(arg0, s32 *, 0x38) = TObjFish__sub_8001EDC4(temp_r3, 7);
+    M2C_FIELD(arg0, s32 *, 0x38) = get_bml_model(temp_r3, 7);
     M2C_FIELD(arg0, s32 *, 0x40) = TObjFish__sub_8001EDB0(temp_r3, 7);
     M2C_FIELD(arg0, s32 *, 0x48) = TObjFish__sub_8001ED9C(temp_r3, 9);
     M2C_FIELD(arg0, s32 *, 0x4C) = TObjFish__sub_8001ED9C(temp_r3, 0xB);
-    M2C_FIELD(arg0, s32 *, 0x3C) = TObjFish__sub_8001EDC4(temp_r3, 9);
+    M2C_FIELD(arg0, s32 *, 0x3C) = get_bml_model(temp_r3, 9);
     M2C_FIELD(arg0, s32 *, 0x44) = TObjFish__sub_8001EDB0(temp_r3, 9);
     M2C_FIELD(arg0, s32 *, 0x50) = TObjFish__sub_8001ED9C(temp_r3, 0xA);
     TBoss6Thanks__sub_8035CCAC((s32)((s32) arg0));

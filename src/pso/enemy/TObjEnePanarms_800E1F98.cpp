@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_linked_effect__14TObjEnePanarmsFPv(u8 *arg0);
-M2C_UNK TBoss1Dragon__sub_8014220C(void *, void *, void *);
+M2C_UNK direction_to_rotation_xz(void *, void *, void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *, f32);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_z(int, int);
@@ -36,7 +36,7 @@ void update_linked_effect__14TObjEnePanarmsFPv(u8 *arg0) {
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x3A8);
         M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) (temp_f1 + lbl_805DA58C);
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x3A4), (f32) (temp_f1));
-        TBoss1Dragon__sub_8014220C((void *) (&sp10), (void *) (&spC), (void *) (&sp8));
+        direction_to_rotation_xz((void *) (&sp10), (void *) (&spC), (void *) (&sp8));
         rotate_matrix_z((int) (0), (int) (sp8));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         rotate_matrix_x((int) (0), (void *) (spC + 0x4000));

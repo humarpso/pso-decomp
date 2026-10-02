@@ -9,7 +9,7 @@ extern "C" {
 void notify_joined_game_entity__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
+M2C_UNK draw_ginja_object(u32);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 u8 *query_game_join_id__10TObjPlayerFv(s32);
 M2C_UNK get_entity_id__10TObjPlayerFPv();
@@ -33,7 +33,7 @@ void notify_joined_game_entity__10TObjPlayerFPv(u8 *arg0) {
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x3C));
             rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x38));
             rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x40));
-            TObjBoss2Tunnel__sub_803DB470(temp_r31);
+            draw_ginja_object(temp_r31);
             pop_matrix();
         }
     }

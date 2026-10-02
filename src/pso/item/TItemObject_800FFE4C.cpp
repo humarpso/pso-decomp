@@ -8,7 +8,7 @@ extern "C" {
 s32 get_field_d8__10TObjPlayerFPv(void *);
 M2C_UNK notify_owner__5TItemFPvi(void *, M2C_UNK);
 M2C_UNK apply_switch_attack__5TItemFPvi(void *, M2C_UNK);
-M2C_UNK TItem__sub_80100824();
+M2C_UNK consume_item_by_id();
 M2C_UNK TItem__sub_801008F0(u8 *, void *);
 u32 TLobby__sub_80101AB0(s32);
 M2C_UNK copy_to_item_data__5TItemFPvPv(void *, void *);
@@ -17,7 +17,7 @@ s32 has_flag_128__10TObjPlayerFPv(void *);
 void *TItemData__sub_80104DAC(u32, void *);
 void *fn_80104F4C(u32, void *);
 M2C_UNK init__9TItemDataFv(u8 *);
-void TItem__sub_800FFE70(void *arg0);
+void use_combination_recipe__5TItemFPv(void *arg0);
 }
 
 extern "C" {
@@ -31,7 +31,7 @@ int clear_item_flags__10TObjPlayerFPvUi(void*, int);
 s32 test_item_flags__10TObjPlayerFPvUi(s32, s32);
 
 int set_flag_1024__11TItemObjectFPv(void* p) { return clear_item_flags__10TObjPlayerFPvUi(p, 1024); }
-void TItem__sub_800FFE70(void *arg0) {
+void use_combination_recipe__5TItemFPv(void *arg0) {
     u8 sp1C[0x14];
     u8 sp8[0x14];
     s32 temp_r30_2;
@@ -59,7 +59,7 @@ void TItem__sub_800FFE70(void *arg0) {
         apply_switch_attack__5TItemFPvi(arg0, 0x8D);
         notify_owner__5TItemFPvi(arg0, 0x40001421);
         get_field_d8__10TObjPlayerFPv(arg0);
-        TItem__sub_80100824();
+        consume_item_by_id();
     }
 }
 

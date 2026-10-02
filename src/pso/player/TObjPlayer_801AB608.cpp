@@ -154,10 +154,10 @@ void TPhotonConcentrate__ct(void *, void *, void *, int);
 u32 __cvt_fp2unsigned(f32);
 int rand(void);
 void TBoss4Zako__sub_803D8910(void *, void *);
-void TScene__sub_803D8DB4(int, void *, void *);
+void rotate_vector_by_matrix(int, void *, void *);
 void TBoss6Type1__sub_803D9370(void *, void *);
 void TNpcPlayer__sub_803D97B4(void *);
-void TObjPlayer__sub_803D97F0(void *);
+void push_matrix_from(void *);
 void TCameraCtrl__sub_803D9858(int);
 extern const Packet_801AB6A0 lbl_80446D68;
 extern u8 lbl_8058D490[];
@@ -175,8 +175,8 @@ Target_801AB868 *get_battle_param__10TObjPlayerFi(s32);
 void TBoss6Type1__sub_803D9370(void *, void *);
 f32 TCameraCtrl__sub_803D8D00(void *);
 void TNpcPlayer__sub_803D97B4(void *);
-void TObjPlayer__sub_803D97F0(void *);
-void TScene__sub_803D8DB4(int, void *, void *);
+void push_matrix_from(void *);
+void rotate_vector_by_matrix(int, void *, void *);
 void TCameraCtrl__sub_803D9858(int);
 f32 TObjPlayer__sub_803D89C0(void *, void *);
 u16 obj_getField1c(void *);
@@ -237,11 +237,11 @@ s32 TObjPlayer__sub_801AB6A0(void *arg0) {
             local.y = owner->y;
         }
         local.z = lbl_805DC18C;
-        TObjPlayer__sub_803D97F0(lbl_8058D490);
+        push_matrix_from(lbl_8058D490);
         if (owner != NULL) {
             rotate_matrix_y(0, owner->rot);
         }
-        TScene__sub_803D8DB4(0, &local, &rotated);
+        rotate_vector_by_matrix(0, &local, &rotated);
         TCameraCtrl__sub_803D9858(1);
         VecCopy__FP3VecPC3Vec(&target, &self->pos);
         TBoss4Zako__sub_803D8910(&target, &rotated);
@@ -308,17 +308,17 @@ void TObjPlayer__sub_801AB868(void *arg0) {
                     TNpcPlayer__sub_803D97B4(&direction);
                     forward.y = forward.x = lbl_805DC188;
                     forward.z = lbl_805DC190;
-                    TObjPlayer__sub_803D97F0(lbl_8058D490);
+                    push_matrix_from(lbl_8058D490);
                     if (owner != NULL) {
                         rotate_matrix_y(0, owner->rot + 0x1555);
                     }
-                    TScene__sub_803D8DB4(0, &forward, &left);
+                    rotate_vector_by_matrix(0, &forward, &left);
                     TCameraCtrl__sub_803D9858(1);
-                    TObjPlayer__sub_803D97F0(lbl_8058D490);
+                    push_matrix_from(lbl_8058D490);
                     if (owner != NULL) {
                         rotate_matrix_y(0, owner->rot - 0x1555);
                     }
-                    TScene__sub_803D8DB4(0, &forward, &right);
+                    rotate_vector_by_matrix(0, &forward, &right);
                     TCameraCtrl__sub_803D9858(1);
                     TObjPlayer__sub_803D89C0(&direction, &left);
                     TObjPlayer__sub_803D89C0(&direction, &right);

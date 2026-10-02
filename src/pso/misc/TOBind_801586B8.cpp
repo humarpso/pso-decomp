@@ -36,7 +36,7 @@ extern u32 TOBind__data_805D58A0;
 void TOBind__sub_801587D8(void);
 u8 *TObjFish__sub_8001ED9C(s32, s32);
 s32 TObjFish__sub_8001EDB0(int, int);
-s32 TObjFish__sub_8001EDC4(int, int);
+s32 get_bml_model(int, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_80154E3C(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
@@ -74,7 +74,7 @@ void free_static_model__6TOBindFv(void);
 void render__6TOBindFv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
+M2C_UNK draw_ginja_object(s32);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
@@ -94,7 +94,7 @@ void render__6TOBindFv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-        TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x34));
+        draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xB0) != 1) {
             set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xC8));
             begin_effect_render__13TParticleCtrlFv();
@@ -155,9 +155,9 @@ u8 *TOBind__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2EA8;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
     M2C_FIELD(arg0, s32 *, 0xB0) = 0;
-    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((int) ((*(s32 *)&TOBind__data_805D58A0)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TOBind__data_805D58A0)), (int) (0));
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__data_805D58A0)), (int) (0));
-    M2C_FIELD(arg0, s32 *, 0xC4) = TObjFish__sub_8001EDC4((int) ((*(s32 *)&TOBind__data_805D58A0)), (int) (1));
+    M2C_FIELD(arg0, s32 *, 0xC4) = get_bml_model((int) ((*(s32 *)&TOBind__data_805D58A0)), (int) (1));
     M2C_FIELD(arg0, s32 *, 0xC8) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__data_805D58A0)), (int) (1));
     M2C_FIELD(arg0, u8 **, 0xCC) = TObjFish__sub_8001ED9C((*(s32 *)&TOBind__data_805D58A0), 0);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB300;

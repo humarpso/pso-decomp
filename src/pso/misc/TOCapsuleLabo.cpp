@@ -41,7 +41,7 @@ struct RecoveredGlobal_802AF4F4___vt__13TOCapsuleLabo {
 };
 
 extern "C" {
-s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 get_bml_model(void *, s32);
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32, s32);
@@ -52,7 +52,7 @@ void TOCapsuleLabo__sub_802AF300(void);
 s32 is_split_screen();
 s32 queue_destruction__7TObjectFv(void *);
 s32 TObjFish__sub_8001EDB0(int, int);
-s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 get_bml_model(void *, s32);
 s32 set_indexed_flags(void *, int, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_80154E3C(void *);
@@ -79,7 +79,7 @@ void unload_static_data__13TOCapsuleLaboFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOSignCave03__sub_803DB510(int);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
+M2C_UNK draw_ginja_object(int);
 void TObjEneGibbles__sub_80156720(void *);
 void TObjPlayer__sub_80154A00(void *);
 M2C_UNK rotate_matrix_y(int, int);
@@ -112,7 +112,7 @@ void TOCapsuleLabo__sub_802AF300(void) {
         var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804DE440.value, 0, 0, 0));
     }
     (*(u8 * *)&TOCapsuleLabo__data_805D6708) = (unsigned char *) ((void *) var_r0);
-    temp_r3_2 = TObjFish__sub_8001EDC4((void *) var_r0, 0);
+    temp_r3_2 = get_bml_model((void *) var_r0, 0);
     if (temp_r3_2 != 0) {
         (*(s32 *)&lbl_805D670C) = count_linked_switches__23TObjSeabedSuisoBrakableFUii(temp_r3_2, 3);
     }
@@ -147,7 +147,7 @@ void render__13TOCapsuleLaboFv(u8 *arg0) {
         temp_r31_3 = M2C_FIELD(temp_r31_2, s32 *, 0x2C);
         begin_effect_render__13TParticleCtrlFv();
         TOHangerMachine01__sub_803D9C00((void *) (temp_r31_3 + 8));
-        TObjBoss2Tunnel__sub_803DB470((int) (temp_r31_3));
+        draw_ginja_object((int) (temp_r31_3));
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
         pop_matrix();
@@ -179,7 +179,7 @@ u8 *TOCapsuleLabo__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802AF4F4___vt__13TOCapsuleLabo *)&__vt__13TOCapsuleLabo).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E7C;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((void *)((int) ((*(s32 *)&TOCapsuleLabo__data_805D6708))), (s32)((int) (0)));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *)((int) ((*(s32 *)&TOCapsuleLabo__data_805D6708))), (s32)((int) (0)));
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOCapsuleLabo__data_805D6708)), (int) (0));
     TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804DE450.value), (int) (1));
     set_indexed_flags((void *) (arg0), (int) (0), (int) (0x1288));

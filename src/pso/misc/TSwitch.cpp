@@ -32,9 +32,9 @@ u32 copy_switch_table(void* destination);
 extern u8 TSwitch__data_80515CC8[18][32];
 s32 TSwitch__sub_80229164(u32 id, s16 floor);
 extern u8 TSwitch__data_80515CC8[18][32];
-void TSwitch__sub_80229258(u32 id, s16 floor);
+void clear_floor_switch_flag(u32 id, s16 floor);
 extern u8 TSwitch__data_80515CC8[18][32];
-void TSwitch__sub_80229318(u32 id, s16 floor);
+void set_floor_switch_flag(u32 id, s16 floor);
 }
 
 extern "C" {
@@ -92,7 +92,7 @@ void TODoorAncient08__sub_80229220(s32 arg0) {
     TSwitch__sub_802291F4((u32)arg0, (s16)((s16)((int) (get_current_floor()))));
 }
 
-void TSwitch__sub_80229258(u32 id, s16 floor) {
+void clear_floor_switch_flag(u32 id, s16 floor) {
     u8 *row;
     s32 idx;
     s32 bit;
@@ -114,13 +114,13 @@ void TSwitch__sub_80229258(u32 id, s16 floor) {
 }
 
 void TSwitch__sub_802292E0(s32 arg0) {
-    TSwitch__sub_80229258((u32)((u32)arg0), (s16)((s16)((int) (get_current_floor()))));
+    clear_floor_switch_flag((u32)((u32)arg0), (s16)((s16)((int) (get_current_floor()))));
 }
 }
 
 extern "C" {
 
-void TSwitch__sub_80229318(u32 id, s16 floor) {
+void set_floor_switch_flag(u32 id, s16 floor) {
     u8 *row;
     s32 idx;
     s32 bit;
@@ -142,7 +142,7 @@ void TSwitch__sub_80229318(u32 id, s16 floor) {
 }
 
 void TSwitch__sub_802293A0(s32 arg0) {
-    TSwitch__sub_80229318((u32)((u32)arg0), (s16)((s16)((int) (get_current_floor()))));
+    set_floor_switch_flag((u32)((u32)arg0), (s16)((s16)((int) (get_current_floor()))));
 }
 }
 

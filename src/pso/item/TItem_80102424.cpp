@@ -121,7 +121,7 @@ struct TItem_80102424 : VObj_18_441505 {
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK get_field_d8__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_80100E38(void *);
+M2C_UNK update_owner_visibility__5TItemFPv(void *);
 M2C_UNK update_timer__5TItemFPv(void *);
 u16 get_id__13TItemProArmorFPv(void *);
 u32 get_player_by_client_id(void *);
@@ -228,7 +228,7 @@ void TItem__sub_80102748(u8 *arg0) {
     case 1:
         M2C_FIELD(arg0, u32 *, 0xF0) = get_player_by_client_id((void *) (get_id__13TItemProArmorFPv((void *) (arg0))));
         if ((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) {
-            TObjPlayer__sub_80100E38((void *) (arg0));
+            update_owner_visibility__5TItemFPv((void *) (arg0));
             ((VObj_18 *)(arg0))->m12();
             ((VObj_18 *)(arg0))->m13();
         }
@@ -238,7 +238,7 @@ void TItem__sub_80102748(u8 *arg0) {
         temp_r4 = M2C_FIELD(arg0, u32 *, 0xF0);
         if (temp_r4 != 0U) {
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (temp_r4 + 0x38));
-            TObjPlayer__sub_80100E38((void *) (arg0));
+            update_owner_visibility__5TItemFPv((void *) (arg0));
             ((VObj_18 *)(arg0))->m12();
             ((VObj_18 *)(arg0))->m14();
             get_field_d8__10TObjPlayerFPv((void *) (arg0));

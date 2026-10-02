@@ -17,7 +17,7 @@ int check_boss2tunnel_field_f4__10TObjPlayerFPv(void* p);
 void get_item_info__10TObjPlayerFiiPv(s32 arg0, s32 arg1, s16 *arg2);
 void run_with_callback__10TObjPlayerFPvi(void* a0, int a1);
 void run_with_transform_context__10TObjPlayerFiii(int a0, int a1, int a2);
-int TObjBoss2Tunnel__sub_803DB470(void*);
+int draw_ginja_object(void*);
 int TObjPlayer__sub_801016D0(void*);
 M2C_UNK TWindowHelpItem__sub_80104FCC(s32, void *, s32 *);
 M2C_UNK copy_to_item_data__5TItemFPvPv(s32, void *);
@@ -30,7 +30,7 @@ int reset_transform_state__10TObjPlayerFv(void);
     extern int lbl_805D5404;
 void run_with_transform_context__10TObjPlayerFiii(int a0, int a1, int a2) { lbl_805D53FC = a1; lbl_805D5404 = 0; lbl_805D53F8 = (int)TOSignCave03__sub_803DB510; TObjPlayer__sub_801016D0((void*)(a0)); lbl_805D53F8 = 0; lbl_805D5404 = 0; lbl_805D53FC = 0; reset_transform_state__10TObjPlayerFv(); }
 
-int check_boss2tunnel_field_f4__10TObjPlayerFPv(void* p) { return TObjBoss2Tunnel__sub_803DB470(*(void**)((char*)p + 0xf4)); }
+int check_boss2tunnel_field_f4__10TObjPlayerFPv(void* p) { return draw_ginja_object(*(void**)((char*)p + 0xf4)); }
 
     extern unsigned char TOSignCave03__sub_803DB510[];
     extern int lbl_805D53F8;

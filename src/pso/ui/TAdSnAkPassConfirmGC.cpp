@@ -59,7 +59,7 @@ void *__dt__20TAdSnAkPassConfirmGCFv(void *arg0, s16 arg1);
 s32 get_confirm_state__20TAdSnAkPassConfirmGCFPv(void* p);
 void render__20TAdSnAkPassConfirmGCFv(void *arg0);
 void run_task__20TAdSnAkPassConfirmGCFv(void *arg0);
-int TAdSinglePlyChrSelectGC__sub_80132F2C(void*, void*);
+int get_localized_text_entry(void*, void*);
 void TAdYesNoBaseGC__vt0(void *, int);
 int TWindow__close(void*);
 void __dl__7TObjectFPv(void *);
@@ -74,7 +74,7 @@ void render__20TAdSnAkPassConfirmGCFv(void *arg0) {
     o->m10();
 }
 
-void TAdSnAkPassConfirmGC__vt8(void) { TAdSinglePlyChrSelectGC__sub_80132F2C((void*)39, (void*)0); }
+void TAdSnAkPassConfirmGC__vt8(void) { get_localized_text_entry((void*)39, (void*)0); }
 void TAdSnAkPassConfirmGC__vt7(void* p) { if (*(unsigned int*)((char*)p + 0x48) != 0) { TWindow__close(*(void**)((char*)p + 0x48)); *(int*)((char*)p + 0x48) = 0; } }
 void TAdSnAkPassConfirmGC__vt6(void* p) { if (*(unsigned int*)((char*)p + 0x48) != 0) { TWindow__close(*(void**)((char*)p + 0x48)); *(int*)((char*)p + 0x48) = 0; } }
 int TAdSnAkPassConfirmGC__vt5(void* p) { return request_transition__21TAdMultiChgGameModeGCFv(p); }

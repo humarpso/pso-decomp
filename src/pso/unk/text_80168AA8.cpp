@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 struct Buf_80168AA8 { s32 a; s32 b; s32 c; };
 s32 TObjFish__sub_8001EDB0(void *, int);
-s32 TObjFish__sub_8001EDC4(void *, int);
+s32 get_bml_model(void *, int);
 void *TLobby__sub_80020004(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 Buf_80168AA8 *alloc_buffer__11TOBoss4RockFPv(u32);
@@ -56,7 +56,7 @@ void fn_80168AA8(void) {
         lbl_805D59D4->a = TLanguage__sub_801E4874(lbl_80441858);
         lbl_805D59D4->b = TLanguage__sub_801E4874(lbl_80441874);
         lbl_805D59D4->c = TObjFish__sub_8001EDB0(lbl_805D59D0, 1);
-        lbl_805D59DC = TObjFish__sub_8001EDC4(lbl_805D59D0, 2);
+        lbl_805D59DC = get_bml_model(lbl_805D59D0, 2);
         lbl_805D59E0 = 1;
         lbl_805D59E4 = 0;
         break;

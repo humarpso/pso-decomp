@@ -9,7 +9,7 @@ s32 apply_state_transform__10TObjPlayerFUi(s32);
 s32 set_flag_400000__10TObjPlayerFPv(s32);
 int queue_destruction__7TObjectFv(void*);
 void destroy_owned_object__10TObjPlayerFPv(void* p);
-int TWindowSubComCard__sub_801058F8(void*);
+int is_script_controlled__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801AFF50(void*);
 int TObjPlayer__sub_801AFF80(void*);
 void update_if_active__10TObjPlayerFPv(void* p);

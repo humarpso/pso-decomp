@@ -67,7 +67,7 @@ void set_field_1c__6TLobbyFPvf(void *, f32);
 void TLobby__sub_80269454(void *);
 void send_and_handle__6TLobbyFPvii(void *, void *, s32);
 void *update_window_mode_from_progress__6TLobbyFiPv(void *, Pos_80214F80 *);
-void *TWindowSubComCard__sub_8026CBB8(s32);
+void *get_window_layout_position(s32);
 int strncmp(const char *, const char *, u32);
 void *memcpy(void *, const void *, u32);
 extern Pos_80214F80 lbl_8044BCC8[];
@@ -263,7 +263,7 @@ void TLobby__sub_80214F80(Pkt_80214F80 *p) {
     if (TQuestListOnline__data_805D6198 != 0 && TQuestListOnline__data_805D619C != 0) {
         if (TQuestListOnline__data_805D61A8 == NULL) {
             Pos_80214F80 pos = lbl_8044BCC8[0];
-            TQuestListOnline__data_805D61A8 = update_window_mode_from_progress__6TLobbyFiPv(TWindowSubComCard__sub_8026CBB8(0xBE), &pos);
+            TQuestListOnline__data_805D61A8 = update_window_mode_from_progress__6TLobbyFiPv(get_window_layout_position(0xBE), &pos);
             send_and_handle__6TLobbyFPvii(TQuestListOnline__data_805D61A8, TQuestVmDownLoadServer__sub_8006EF6C(0x61), 1);
             set_field_1c__6TLobbyFPvf(TQuestListOnline__data_805D61A8, lbl_805DC660);
             TLobby__sub_80269454(TQuestListOnline__data_805D61A8);

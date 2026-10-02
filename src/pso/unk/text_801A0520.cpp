@@ -17,7 +17,7 @@ extern s32 lbl_8050DDC8[6];
 void fn_801A0520(void);
 s32 TObjFish__sub_8001ED9C(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
-Node_801A0578 *TObjFish__sub_8001EDC4(void *, s32);
+Node_801A0578 *get_bml_model(void *, s32);
 void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 TObjDoorJung__sub_8023DBEC(s32, void *);
@@ -59,7 +59,7 @@ void fn_801A0578(void) {
     lbl_805D5CA8 = p;
     lbl_805D5CAC = TObjFish__sub_8001ED9C(p, 0);
     lbl_805D5CB0 = TObjFish__sub_8001EDB0(lbl_805D5CA8, 0);
-    root = TObjFish__sub_8001EDC4(lbl_805D5CA8, 1)->child;
+    root = get_bml_model(lbl_805D5CA8, 1)->child;
     lbl_8050DDC8[0] = root->child->f4;
     lbl_8050DDC8[1] = root->child->sibling->f4;
     lbl_8050DDC8[2] = root->child->sibling->sibling->f4;

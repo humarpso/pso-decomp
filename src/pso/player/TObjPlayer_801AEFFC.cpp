@@ -19,7 +19,7 @@ s32 check_flag_800000__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_801BF19C(s32);
 s32 TObjPlayer__sub_801BF1DC(s32);
 s32 TObjPlayer__sub_801BF3E8(s32);
-int TObjPlayer__sub_80019248(void*);
+int is_locally_controlled__10TObjPlayerFPv(void*);
 int test_flag_2000000__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BEF60(void*, void*);
 int TObjPlayer__sub_801BEF68(void*);
@@ -28,7 +28,7 @@ void update_battle_control_if_unlocked__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801AEB80(void);
 int get_max_level__10TObjPlayerFv(void);
 
-void stop_force_if_alive__10TObjPlayerFPv(void* p) { if (TObjPlayer__sub_80019248(p) != 0) { TObjPlayer__sub_801BEF60((char*)p + 0x550, (void*)0); } }
+void stop_force_if_alive__10TObjPlayerFPv(void* p) { if (is_locally_controlled__10TObjPlayerFPv(p) != 0) { TObjPlayer__sub_801BEF60((char*)p + 0x550, (void*)0); } }
 void update_battle_control_if_unlocked__10TObjPlayerFPv(void* p) { if (test_flag_2000000__10TObjPlayerFPv(p) == 0) { TObjPlayer__sub_801BEF68((char*)p + 0x384); } }
 
 }

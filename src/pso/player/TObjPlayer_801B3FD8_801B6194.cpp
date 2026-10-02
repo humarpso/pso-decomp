@@ -73,7 +73,7 @@ void notify_volopt_if_ready__10TObjPlayerFPv(void* p);
 void update_aim_angle__10TObjPlayerFPvi(void *arg0, s32 arg1);
 int TBoss3Volopt__sub_8022675C(void*, void*, void*, void*);
 M2C_UNK TObjPlayer__sub_80018990(s32, M2C_UNK, M2C_UNK, M2C_UNK, f32, f32);
-int TObjPlayer__sub_80019248(void*);
+int is_locally_controlled__10TObjPlayerFPv(void*);
 s32 TObjPlayer__sub_801D921C(void *, s32);
 s16 *TObjPlayer__sub_801D93C4();
 f32 TObjPlayer__sub_801D93F8();
@@ -160,7 +160,7 @@ void copy_stats__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     M2C_FIELD(arg0, s16 *, 0xC) = (s16) M2C_FIELD(arg1, s16 *, 0xC);
 }
 
-void notify_volopt_if_ready__10TObjPlayerFPv(void* p) { if (TObjPlayer__sub_80019248(p) != 0) { TBoss3Volopt__sub_8022675C((void*)335646, (void*)0, (void*)0, (void*)0); } }
+void notify_volopt_if_ready__10TObjPlayerFPv(void* p) { if (is_locally_controlled__10TObjPlayerFPv(p) != 0) { TBoss3Volopt__sub_8022675C((void*)335646, (void*)0, (void*)0, (void*)0); } }
 void handle_6x30_change_player_level(void *arg0) {
     Pkt_801B6A5C pkt;
     Plr_801B6A5C *p;

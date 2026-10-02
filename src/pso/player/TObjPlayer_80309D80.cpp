@@ -63,7 +63,7 @@ void TObjPlayer__sub_80309F30(s32 arg0, s32 arg1);
 s32 TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2);
 s32 get_instance__13TParticleCtrlFv();
 s32 TParticleCtrl__sub_80086884(s32);
-void TObjFish__sub_800660D4(s32, s32, s32, s32, s32, f32);
+void attach_particle_model(s32, s32, s32, s32, s32, f32);
 extern f32 lbl_805DF134;
 s32 emit_player_model_particle(s32 owner, s32 position, s32 entry, s32 model);
 void* init_follow_particle_ctrl__10TObjPlayerFPv(void* p);
@@ -195,7 +195,7 @@ s32 emit_player_model_particle(s32 owner, s32 position, s32 entry, s32 model) {
   s32 emitter = TObjPlayer__sub_8030A2CC((void*)(owner), (void*)(position), (void*)(entry));
   if (emitter)
   {
-    TObjFish__sub_800660D4(emitter, TParticleCtrl__sub_80086884(model), get_instance__13TParticleCtrlFv(), 0, 1, lbl_805DF134);
+    attach_particle_model(emitter, TParticleCtrl__sub_80086884(model), get_instance__13TParticleCtrlFv(), 0, 1, lbl_805DF134);
   }
   return emitter;
 }

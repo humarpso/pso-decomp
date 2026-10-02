@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 u8 get_field_ed__10TObjPlayerFPv(void *);
-s32 TItemMag__sub_80105348(void *, int);
+s32 check_class_equip_permission(void *, int);
 void try_add_action__8TItemMagFii(void *, int);
 s16 get_mag_item_data(s32);
 s16 get_mag_level(s32);
@@ -92,16 +92,16 @@ u8 TItemMag__sub_80111978(u8 *arg0) {
         level = get_mag_level((s32)arg0);
         data = get_mag_item_data((s32)arg0);
         stat = ((s16 (*)(s32))get_mag_item_stat_percent)((s32)arg0);
-        idx = (u32)__cntlzw(TItemMag__sub_80105348(M2C_FIELD(arg0, u8 **, 0xF0), 0x7F)) >> 5;
+        idx = (u32)__cntlzw(check_class_equip_permission(M2C_FIELD(arg0, u8 **, 0xF0), 0x7F)) >> 5;
         idx += group * 2;
-        if (TItemMag__sub_80105348(M2C_FIELD(arg0, u8 **, 0xF0), 0xF9) == 0) {
-            if (TItemMag__sub_80105348(M2C_FIELD(arg0, u8 **, 0xF0), 0xFA) != 0) {
+        if (check_class_equip_permission(M2C_FIELD(arg0, u8 **, 0xF0), 0xF9) == 0) {
+            if (check_class_equip_permission(M2C_FIELD(arg0, u8 **, 0xF0), 0xFA) != 0) {
                 idx += 6;
-            } else if (TItemMag__sub_80105348(M2C_FIELD(arg0, u8 **, 0xF0), 0xFC) != 0) {
+            } else if (check_class_equip_permission(M2C_FIELD(arg0, u8 **, 0xF0), 0xFC) != 0) {
                 idx += 12;
             }
         }
-        if (TItemMag__sub_80105348(M2C_FIELD(arg0, u8 **, 0xF0), 0xF9) != 0) {
+        if (check_class_equip_permission(M2C_FIELD(arg0, u8 **, 0xF0), 0xF9) != 0) {
             switch (group) {
             case 0:
                 if (pct + data == stat + level) {
@@ -119,7 +119,7 @@ u8 TItemMag__sub_80111978(u8 *arg0) {
                 }
                 break;
             }
-        } else if (TItemMag__sub_80105348(M2C_FIELD(arg0, u8 **, 0xF0), 0xFA) != 0) {
+        } else if (check_class_equip_permission(M2C_FIELD(arg0, u8 **, 0xF0), 0xFA) != 0) {
             switch (group) {
             case 0:
                 if (pct + data == stat + level) {
@@ -137,7 +137,7 @@ u8 TItemMag__sub_80111978(u8 *arg0) {
                 }
                 break;
             }
-        } else if (TItemMag__sub_80105348(M2C_FIELD(arg0, u8 **, 0xF0), 0xFC) != 0) {
+        } else if (check_class_equip_permission(M2C_FIELD(arg0, u8 **, 0xF0), 0xFC) != 0) {
             switch (group) {
             case 0:
                 if (pct + data == stat + level) {

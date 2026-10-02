@@ -47,7 +47,7 @@ M2C_UNK TObjEneGibbles__sub_802D7ACC(void *, void *, f32);
 extern const f32 TObjEneGibbles__data_805DE7E8;
 extern const f32 TObjEneGibbles__data_805DE7F4;
 s32 TObjEneGibbles__sub_802D7BE0(s32 arg0);
-M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
+M2C_UNK apply_actor_gravity(void *, int, f32);
 M2C_UNK queue_destruction__7TObjectFv();
 M2C_UNK TObjBoss2Tunnel__sub_8007E7D8(f32 *, f32 *, s32, f32);
 M2C_UNK spawn_effect_at_ground__10TObjPlayerFPvi(f32 *, M2C_UNK);
@@ -84,7 +84,7 @@ s32 render_anim_model__10TObjPlayerFPvf(void *, f32);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
 s32 set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
 s32 rotate_matrix_y(int, int);
-s32 TObjPlayer__sub_803D97F0(void *);
+s32 push_matrix_from(void *);
 s32 pop_matrix();
 f32 TOHangerMachine01__sub_803D9C00(void *);
 s32 set_global_flag__10TObjPlayerFv();
@@ -119,7 +119,7 @@ void update_position__14TObjEneGibblesFPv(u8 *arg0);
 void update_shadow_height__14TObjEneGibblesFPv(void *arg0);
 M2C_UNK advance_animation_playback();
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
-M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
+M2C_UNK apply_actor_gravity(void *, int, f32);
 M2C_UNK check_enemy_body_collisions(void *);
 M2C_UNK submit_cursor_candidate(void *, int);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -244,7 +244,7 @@ void TObjEneGibbles__sub_802D7ED4(u8 *arg0, s32 arg1, s32 arg2) {
     typedef char sp10_offset[(offsetof(Stack_802D7ED4, sp10) == 0x8) ? 1 : -1];
     Stack_802D7ED4 stack;
     set_global_flag__10TObjPlayerFv();
-    TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
+    push_matrix_from((void *) (&lbl_8058D490.value));
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     set_monitor_position_vec3__10TObjPlayerFPvPv((int) (0), (void *) (arg0 + 0x68));
@@ -252,7 +252,7 @@ void TObjEneGibbles__sub_802D7ED4(u8 *arg0, s32 arg1, s32 arg2) {
     render_anim_model__10TObjPlayerFPvf((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));
     clear_global_state__10TObjPlayerFv();
     pop_matrix();
-    TObjPlayer__sub_803D97F0((void *) (lbl_805D5678 + (arg2 * 0x30)));
+    push_matrix_from((void *) (lbl_805D5678 + (arg2 * 0x30)));
     stack.sp8 = M2C_FIELD(&lbl_80472780.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_80472780.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_80472780.value, s32 *, 8);
@@ -319,7 +319,7 @@ void TObjEneGibbles__sub_802D8140(u8 *arg0) {
     case 0:
       *((s16 *) (((s8 *) arg0) + 0x328)) = 1;
       *((f32 *) (((s8 *) arg0) + 0x3A0)) = (f32) TObjEneGibbles__data_805DE7E4;
-      TObjPlayer__sub_80011734((void *)((void *) arg0), (int)(0), TObjEneGibbles__data_805DE7E4);
+      apply_actor_gravity((void *)((void *) arg0), (int)(0), TObjEneGibbles__data_805DE7E4);
       TBoss3Volopt__sub_8022675C((int)((void *) ((M2C_UNK)TObjEneGibbles__sub_802D7F94((void *)(arg0), (int)(0x3A333)))), (void *)(arg0 + 0x38), (int)(0), (int)(0));
       return;
     case 1:
@@ -381,20 +381,20 @@ void update_action_state__14TObjEneGibblesFPv(u8 *arg0) {
         break;
     case 0:
         M2C_FIELD(arg0, s16 *, 0x328) = 1;
-        TObjPlayer__sub_80011734((void *) (arg0), (int) (0), (f32) (TObjEneGibbles__data_805DE7E4));
+        apply_actor_gravity((void *) (arg0), (int) (0), (f32) (TObjEneGibbles__data_805DE7E4));
         TBoss3Volopt__sub_8022675C(TObjEneGibbles__sub_802D7F94((void *)((void *) (arg0)), (int)((int) (0x3AD34))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         break;
     case 1:
         M2C_FIELD(arg0, f32 *, 0x310) = (f32) TObjEneGibbles__data_805DE7E4;
         M2C_FIELD(arg0, f32 *, 0x308) = (f32) TObjEneGibbles__data_805DE7E4;
-        TObjPlayer__sub_80011734((void *) (arg0), (int) (0), (f32) (TObjEneGibbles__data_805DE7E4));
+        apply_actor_gravity((void *) (arg0), (int) (0), (f32) (TObjEneGibbles__data_805DE7E4));
         if ((u32) M2C_FIELD(arg0, u32 *, 0xB4) != 8U) {
             M2C_FIELD(arg0, s16 *, 0x328) = 3;
         }
         break;
     case 3:
         if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800000)) {
-            TObjPlayer__sub_80011734((void *) (arg0), (int) (0), (f32) (TObjEneGibbles__data_805DE7E4));
+            apply_actor_gravity((void *) (arg0), (int) (0), (f32) (TObjEneGibbles__data_805DE7E4));
         }
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFF9FF);
         temp_r4 = (unsigned char *) (M2C_FIELD(arg0, void **, 0xA4));

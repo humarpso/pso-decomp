@@ -76,7 +76,7 @@ extern const f32 lbl_805DCC98;
 extern const f32 lbl_805DCC9C;
 extern const f32 lbl_805DCCA0;
 extern const f32 lbl_805DCCA4;
-u32 TWindowKeyBoardSoft__sub_8024EA50(Win_8024EA50 *win, f32 *pos, f32 *size, f32 *scale, u32 flags, f32 depth);
+u32 init_text_window_layout(Win_8024EA50 *win, f32 *pos, f32 *size, f32 *scale, u32 flags, f32 depth);
 }
 
 extern "C" {
@@ -215,7 +215,7 @@ extern u32 lbl_805D6420;
 
 #pragma push
 #pragma fp_contract on
-u32 TWindowKeyBoardSoft__sub_8024EA50(Win_8024EA50 *win, f32 *pos, f32 *size, f32 *scale, u32 flags, f32 depth) {
+u32 init_text_window_layout(Win_8024EA50 *win, f32 *pos, f32 *size, f32 *scale, u32 flags, f32 depth) {
     f32 mx;
     f32 my;
     s32 cam;
@@ -304,7 +304,7 @@ u32 open_singleton__19TWindowKeyBoardSoftFiiii(s32 arg0, s32 arg1, s32 arg2, s32
     if ((u32) lbl_805D6420 == 0U) {
         return 0U;
     }
-    TWindowKeyBoardSoft__sub_8024EA50((Win_8024EA50 *)(lbl_805D6420), (f32 *)(arg0), (f32 *)(arg1), (f32 *)(arg2), (u32)(arg3), _w5);
+    init_text_window_layout((Win_8024EA50 *)(lbl_805D6420), (f32 *)(arg0), (f32 *)(arg1), (f32 *)(arg2), (u32)(arg3), _w5);
     return lbl_805D6420;
 }
 

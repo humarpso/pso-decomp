@@ -106,7 +106,7 @@ s32 register_object__6TLobbyFPv(int);
 s32 dispatch_shared_handler_b__6TLobbyFPv(int);
 s32 register_boss__6TLobbyFPv(int);
 s32 TObjFish__sub_8001EDB0(int, int);
-s32 TObjFish__sub_8001EDC4(int, int);
+s32 get_bml_model(int, int);
 M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 M2C_UNK set_field_dc__10TObjPlayerFPvi(void *, int);
 M2C_UNK set_field_d8__10TObjPlayerFPvi(void *, void *);
@@ -245,12 +245,12 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
         set_param__12TObjEneLappyFPvi((void *) (arg0), (int) (0x4A));
         TObjPlayer__sub_800F7478((void *) (arg0), register_boss__6TLobbyFPv(8), dispatch_shared_handler_b__6TLobbyFPv(8), register_object__6TLobbyFPv(8));
         M2C_FIELD(arg0, s32 *, 0x3A0) = dispatch_shared_handler_a__6TLobbyFPv((int) (8));
-        M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((int) (TBoss7Crawfish__data_805D6A60), (int) (0));
+        M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TBoss7Crawfish__data_805D6A60), (int) (0));
     } else {
         set_param__12TObjEneLappyFPvi((void *) (arg0), (int) (0x4B));
         TObjPlayer__sub_800F7478((void *) (arg0), register_boss__6TLobbyFPv(9), dispatch_shared_handler_b__6TLobbyFPv(9), register_object__6TLobbyFPv(9));
         M2C_FIELD(arg0, s32 *, 0x3A0) = dispatch_shared_handler_a__6TLobbyFPv((int) (9));
-        M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((int) (TBoss7Crawfish__data_805D6A60), (int) (1));
+        M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TBoss7Crawfish__data_805D6A60), (int) (1));
     }
     TLobby__sub_801A1FDC((void *) (arg0), (int) (0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));

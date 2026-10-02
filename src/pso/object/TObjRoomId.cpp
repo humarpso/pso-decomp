@@ -73,7 +73,7 @@ extern u8 lbl_804468DC[];
 extern const f32 lbl_805DC088;
 extern const f32 lbl_805DC08C;
 void render__10TObjRoomIdFv(RoomId_801A18EC *self);
-s32 TObjPlayer__sub_803D97F0(void *);
+s32 push_matrix_from(void *);
 void rotate_matrix_y(int, s32);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
 M2C_UNK TCameraCtrl__sub_803D9858(int);
@@ -164,7 +164,7 @@ void TObjRoomId::run_task() {
     if (check_demo_mode__10TObjPlayerFv() == 0 && absent != 0) {
         return;
     }
-    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    push_matrix_from(lbl_8058D490);
     rotate_matrix_y(0, o->yaw);
     TCameraCtrl__sub_803D8934(0, &v, &o->normal);
     TCameraCtrl__sub_803D9858(1);

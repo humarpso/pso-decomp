@@ -113,7 +113,7 @@ s32 TAdSinglePlyChrSelectGC__sub_8028FCA8(void *);
 void draw_player_model__23TAdSinglePlyChrSelectGCFPv(void* p);
 void set_position_vec3__10TObjPlayerFPvPv(int, void *);
 void rotate_matrix_y(int, u32);
-void TObjPlayer__sub_803D97F0();
+void push_matrix_from();
 void TObjPlayer__sub_803D9B2C();
 void pop_matrix();
 void set_global_param__8TObjFishFi(void *);
@@ -296,7 +296,7 @@ void TAdSinglePlyChrSelectGC__sub_8028FD90(u8 *arg0) {
         set_global_param__8TObjFishFi((u8 *)lbl_805D6540 + 0x460);
         draw_player_model__23TAdSinglePlyChrSelectGCFPv((void*)(arg0));
         get_item_ptr__10TObjPlayerFPvi(arg0, 0x3A);
-        TObjPlayer__sub_803D97F0();
+        push_matrix_from();
         set_global_param__8TObjFishFi((u8 *)lbl_805D6540 + 0x2EC);
         play_phase_transition_sound__10TObjPlayerFi(lbl_80540928[M2C_FIELD(lbl_805D6540, s16 *, 0xA)].b);
         pop_matrix();
@@ -304,7 +304,7 @@ void TAdSinglePlyChrSelectGC__sub_8028FD90(u8 *arg0) {
         if (v != 0) {
             enable_making__12TCharaMakingFv();
             get_item_ptr__10TObjPlayerFPvi(arg0, 0x3B);
-            TObjPlayer__sub_803D97F0();
+            push_matrix_from();
             set_global_param__8TObjFishFi((u8 *)lbl_805D6540 + 0x178);
             play_phase_transition_sound__10TObjPlayerFi(v);
             pop_matrix();
@@ -314,7 +314,7 @@ void TAdSinglePlyChrSelectGC__sub_8028FD90(u8 *arg0) {
         if (v != 0) {
             enable_making__12TCharaMakingFv();
             get_item_ptr__10TObjPlayerFPvi(arg0, 0x3B);
-            TObjPlayer__sub_803D97F0();
+            push_matrix_from();
             set_global_param__8TObjFishFi((u8 *)lbl_805D6540 + 0x178);
             setup_from_data__12TCharaMakingFii(v, lbl_805D6520);
             pop_matrix();

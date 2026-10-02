@@ -48,7 +48,7 @@ extern s32 lbl_805D53A0;
 u8 *__dt__19TWindowTradeRequestFv(u8 *arg0, s16 arg1);
 u8 *TLobby__sub_8001DC24(void);
 u32 get_player_by_client_id(void *);
-u8 *TWindowSubComCard__sub_8026CBB8(s32);
+u8 *get_window_layout_position(s32);
 s32 TWindowMessageYesNo__sub_802A59D8(s32, s32, s32, s32);
 char get_trade_mode__6TLobbyFv(void);
 M2C_UNK get_message_10__20TWindowSubStatusDispFPv(int);
@@ -122,7 +122,7 @@ u8 *TWindowTradeRequest__ct(u8 *arg0) {
   get_message_10__20TWindowSubStatusDispFPv((int) 0xD9);
   TWindowSubStatusDisp__sub_80229080();
   *((s32 *) (((s8 *) arg0) + 0x20)) = TWindowMessageYesNo__sub_802A59D8((s32) arg0, lbl_805D53A0, 0, 0);
-  temp_r31_2 = (u8 *) TWindowSubComCard__sub_8026CBB8(0xB2);
+  temp_r31_2 = (u8 *) get_window_layout_position(0xB2);
   forward_slot_selection__16TAdChrSelASlotGCFPvPvPv((int) (*((s32 *) (((s8 *) arg0) + 0x20))), (int) TLobby__sub_8001DC24(), (int) temp_r31_2, (f32) lbl_805DE8A0);
   new_var2 = ((s8 *) arg0) + 0x1C;
   notify_warp_flag70__19TWindowSubShortMailFPv((int) (*((s32 *) (((s8 *) arg0) + 0x20))));

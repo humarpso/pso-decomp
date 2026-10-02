@@ -12,7 +12,7 @@ void create_instance__14TObjBoss1FloorFv(void);
 void render_boss_effect_object(u8 *arg0);
 M2C_UNK TBoss8Dragon__sub_8002D4C0(void *);
 M2C_UNK TObjBoss1Floor__ct(void*, s32);
-M2C_UNK TObjFish__sub_803E46BC(void *);
+M2C_UNK draw_chunk_object(void *);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -53,12 +53,12 @@ void render_boss_effect_object(u8 *arg0) {
         lbl_805D5668 = lbl_805D7780;
         some_id_805c6f74 |= 0x800;
         set_chunk_material_override_pair((int) (0xFF00), (int) (0x100), (void *) (lbl_805D7780), (void *) (lbl_805D7784));
-        TObjFish__sub_803E46BC((void *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), s32 *, 0x38)));
+        draw_chunk_object((void *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), s32 *, 0x38)));
         lbl_805D7784 = lbl_805D5664;
         lbl_805D7780 = lbl_805D5668;
         some_id_805c6f74 = lbl_805D5660;
     } else {
-        TObjFish__sub_803E46BC((void *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), s32 *, 0x38)));
+        draw_chunk_object((void *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), s32 *, 0x38)));
     }
     pop_matrix();
 }

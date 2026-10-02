@@ -154,7 +154,7 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 u32 TObjFish__sub_8001ED9C(int, int);
-s32 TObjFish__sub_8001EDC4(int, int);
+s32 get_bml_model(int, int);
 M2C_UNK TContainerAncient01__sub_8018A688(void *);
 void TContainerAncient01__sub_8018A914(void *);
 M2C_UNK submit_cursor_candidate(void *, int, f32);
@@ -166,7 +166,7 @@ extern const f32 lbl_805DBD50;
 extern const f32 lbl_805DBD54;
 extern const f32 lbl_805DBD58;
 void TContainerAncient01__sub_8018ADAC(u8 *arg0);
-f32 fn_801315A0(void *, void *, void *);
+f32 xyz_distance_squared(void *, void *, void *);
 extern const f32 TContainerAncient01__data_805DBD44;
 s32 TContainerAncient01__sub_8018ACC8(s32 arg0, s32 arg1);
 void advance_animation_playback(void *);
@@ -276,7 +276,7 @@ void reset_hp__19TContainerAncient01FPv(void* a0);
 void set_target_value__19TContainerAncient01FPvPvi(void *arg0, s16 *arg1, s32 arg2);
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
+M2C_UNK draw_ginja_object(s32);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -490,7 +490,7 @@ extern const f32 TContainerAncient01__data_805DBD3C;
 extern const f32 lbl_805DBD4C;
 
 s32 TContainerAncient01__sub_8018ACC8(s32 arg0, s32 arg1) {
-    return fn_801315A0((void *) (arg1 + 0x38), (void *) (arg0 + 0x38), (void *) (arg0)) < TContainerAncient01__data_805DBD44;
+    return xyz_distance_squared((void *) (arg1 + 0x38), (void *) (arg0 + 0x38), (void *) (arg0)) < TContainerAncient01__data_805DBD44;
 }
 
 void draw__19TContainerAncient01FPv(u8 *arg0) {
@@ -503,7 +503,7 @@ void draw__19TContainerAncient01FPv(u8 *arg0) {
             TBoss7Tentacle__sub_803D9BA0(arg0 + 0x364);
         }
         if (check_demo_mode__10TObjPlayerFv() == 1) {
-            TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x34));
+            draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
         } else {
             draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
         }
@@ -550,10 +550,10 @@ void TContainerAncient01__sub_8018ADAC(u8 *arg0) {
         }
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) == TObjFish__sub_8001ED9C((int) (TContainerAncient01R__data_805D5B94), (int) (0))) {
-        M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((int) (TContainerAncient01R__data_805D5B94), (int) (0));
+        M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TContainerAncient01R__data_805D5B94), (int) (0));
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) == TObjFish__sub_8001ED9C((int) (TContainerAncient01R__data_805D5B94), (int) (1))) {
-        M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((int) (TContainerAncient01R__data_805D5B94), (int) (1));
+        M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TContainerAncient01R__data_805D5B94), (int) (1));
     }
     run_task__7TObjectFv((void *) (arg0));
 }

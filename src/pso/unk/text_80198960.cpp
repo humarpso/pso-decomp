@@ -14,14 +14,14 @@ struct RecoveredGlobal_80198960_lbl_8050DD58 {
 };
 
 extern "C" {
-M2C_UNK TObjFish__sub_8001EDC4(void *, int);
+M2C_UNK get_bml_model(void *, int);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TObjFish__sub_803E46BC();
+M2C_UNK draw_chunk_object();
 extern RecoveredGlobal_80198960_lbl_804B8DAC lbl_804B8DAC;
 extern RecoveredGlobal_80198960_lbl_8050DD58 lbl_8050DD58;
 extern u32 lbl_805D5C60;
@@ -44,8 +44,8 @@ void fn_80198960(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x1C));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x34)));
         scale_matrix((int) (0), (f32) (lbl_805DBF44), (f32) (lbl_805DBF44), (f32) (lbl_805DBF44));
-        TObjFish__sub_8001EDC4((void *) (lbl_805D5C60), (int) (4));
-        TObjFish__sub_803E46BC();
+        get_bml_model((void *) (lbl_805D5C60), (int) (4));
+        draw_chunk_object();
         pop_matrix();
     }
 }

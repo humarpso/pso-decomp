@@ -113,7 +113,7 @@ struct VObj_18_414afc : VBase_18_414afc {
 
 extern "C" {
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *, s32);
-void TBoss8Dragon__sub_800BB780(void);
+void clear_attack_receipts(void);
 void noop__12TBoss8DragonFv(void *);
 void set_field_378__9TObjEneDDFPvi(void *, s32);
 void transition_enemy_state(void *, s32);
@@ -174,7 +174,7 @@ void TObjEneRecon__sub_8031C624(u8 *arg0, s32 arg1) {
         ((VObj_18_414afc *)(arg0))->m87();
         break;
     case 5:
-        TBoss8Dragon__sub_800BB780();
+        clear_attack_receipts();
         break;
     }
 }

@@ -4,7 +4,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-s32 TObjPlayer__sub_80019248(void *);
+s32 is_locally_controlled__10TObjPlayerFPv(void *);
 s32 obj_testFlags30(void *, int);
 s32 check_flag__10TObjPlayerFPvi(void *, int);
 s32 TLobby__sub_800822E8(void *, int);
@@ -17,7 +17,7 @@ s32 TObjPlayer__sub_801CEC1C(s32 arg0);
 extern "C" {
 
 s32 TObjPlayer__sub_801CEC1C(s32 arg0) {
-    if ((obj_testFlags30((void *) (arg0), (int) (0x20006)) != 0) || (obj_testFlags30((void *) (arg0), (int) (0x02000000)) != 0) || (check_flag__10TObjPlayerFPvi((void *) (arg0), (int) (2)) != 0) || (TLobby__sub_800822E8((void *) (arg0), (int) (0x548000)) != 0) || ((TObjPlayer__sub_80019248((void *) (arg0)) != 0) && ((check_flag_100__10TObjPlayerFPv((void *) (arg0)) != 0) || (get_camera_field__10TObjPlayerFPv((void *) (arg0)) == 0))) || (reset_volopt_state__10TObjPlayerFv((void *) (arg0)) == 0)) {
+    if ((obj_testFlags30((void *) (arg0), (int) (0x20006)) != 0) || (obj_testFlags30((void *) (arg0), (int) (0x02000000)) != 0) || (check_flag__10TObjPlayerFPvi((void *) (arg0), (int) (2)) != 0) || (TLobby__sub_800822E8((void *) (arg0), (int) (0x548000)) != 0) || ((is_locally_controlled__10TObjPlayerFPv((void *) (arg0)) != 0) && ((check_flag_100__10TObjPlayerFPv((void *) (arg0)) != 0) || (get_camera_field__10TObjPlayerFPv((void *) (arg0)) == 0))) || (reset_volopt_state__10TObjPlayerFv((void *) (arg0)) == 0)) {
         return 0;
     }
     return 1;

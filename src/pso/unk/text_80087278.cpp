@@ -11,7 +11,7 @@ extern Data_8008741C *lbl_805D4EF8;
 extern Data_8008741C *lbl_805D4EFC;
 void *__nw__7TObjectFUl(u32);
 void *initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(void *, void *, void *, s32, s32, s32, s32, s32);
-void *TBoss8Dragon__sub_8008741C(void *parent, s32 idx, s32 flags);
+void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 extern s32 lbl_805D2948;
 extern Data_8008741C *lbl_805D4EF8;
 extern Data_8008741C *lbl_805D4EFC;
@@ -72,7 +72,7 @@ void *spawn_particle_effect(void *pos, s32 id) {
     return 0;
 }
 
-void *TBoss8Dragon__sub_8008741C(void *parent, s32 idx, s32 flags) {
+void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags) {
     void *p;
     if (lbl_805D2948 > idx) {
         p = __nw__7TObjectFUl(0x78);

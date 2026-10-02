@@ -15,7 +15,7 @@ s32 get_item_ptr__10TObjPlayerFPvi(void *, void *);
 M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
 M2C_UNK TObjPlayer__sub_803D9324(int, void *);
 M2C_UNK TCameraCtrl__sub_803D976C(int, int);
-M2C_UNK TObjPlayer__sub_803D97F0(int);
+M2C_UNK push_matrix_from(int);
 M2C_UNK pop_matrix();
 extern const f32 TObjPlayer__data_805DC278;
 void TObjPlayer__vt63(s32 arg0, s32 arg1, s32 arg2);
@@ -28,7 +28,7 @@ void TObjPlayer__vt63(s32 arg0, s32 arg1, s32 arg2) {
     stack.sp10 = TObjPlayer__data_805DC278;
     stack.spC = TObjPlayer__data_805DC278;
     stack.sp8 = TObjPlayer__data_805DC278;
-    TObjPlayer__sub_803D97F0((int) (0));
+    push_matrix_from((int) (0));
     TObjPlayer__sub_803D9324((int) (0), (void *) (get_item_ptr__10TObjPlayerFPvi((void *) (arg0), (void *) (arg1))));
     TCameraCtrl__sub_803D976C((int) (0), (int) (TCameraCtrl__sub_80069258()));
     TCameraCtrl__sub_803D8934((int) (0), (void *) (&stack.sp8), (void *) (arg2));

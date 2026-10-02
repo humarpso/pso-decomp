@@ -34,7 +34,7 @@ s32 TObjPlayer__sub_803D9E04(void);
 void move_data__6TLobbyFv(void *, void *, int);
 extern u32 lbl_805D7774;
 extern u32 lbl_805D776C;
-s32 TObjPlayer__sub_803D97F0(void *src);
+s32 push_matrix_from(void *src);
 void TObjPlayer__sub_803D9C60(u32 *p);
 f32 PSMTXConcat(int, int, int);
 void PSMTXQuat(void *, void *);
@@ -105,7 +105,7 @@ void TCameraCtrl__sub_803D976C(u32 arg0, u32 arg1) {
 
 #pragma push
 #pragma scheduling off
-s32 TObjPlayer__sub_803D97F0(void *src) {
+s32 push_matrix_from(void *src) {
     u32 next = lbl_805D7774 + 0x30;
     if (next > lbl_805D776C) {
         return 0;

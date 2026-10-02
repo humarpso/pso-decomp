@@ -8,7 +8,7 @@ struct RecoveredFields_8013157C_arg0
 };
 
 extern "C" {
-f32 fn_801315A0(u8 *arg0, u8 *arg1);
+f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
 f32 xz_distance_squared(struct RecoveredFields_8013157C_arg0 *arg0, u8 *arg1);
 }
 
@@ -26,7 +26,7 @@ f32 xz_distance_squared(struct RecoveredFields_8013157C_arg0 *arg0, u8 *arg1) {
   return (temp_f1 * temp_f1) + (temp_f3 * temp_f3);
 }
 
-f32 fn_801315A0(u8 *arg0, u8 *arg1) {
+f32 xyz_distance_squared(u8 *arg0, u8 *arg1) {
   f32 temp_f1;
   f32 temp_f3;
   f32 temp_f4;

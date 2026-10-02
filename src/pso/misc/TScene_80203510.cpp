@@ -58,11 +58,11 @@ struct Root_80203F0C { u8 pad[8]; s16 count; u8 pad2[6]; Group_80203F0C *groups;
 
 extern "C" {
 extern SceneMaterialRoot* TScene__data_805D5FCC;
-SceneMaterialSection *TScene__sub_80203600(s32 id);
+SceneMaterialSection *find_scene_room_by_id(s32 id);
 void TCameraCtrl__sub_803D8934(int, void *, void *);
 extern const f32 TScene__data_805DC5D8;
 bool TScene__sub_80204188(f32 farg0);
-f32 fn_801315A0(void *, void *);
+f32 xyz_distance_squared(void *, void *);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern const f32 lbl_805DC5D0;
 s32 TScene__sub_80203510(void *arg0);
@@ -93,9 +93,9 @@ extern u8 lbl_8058D490[];
 f32 TObjPlayer__sub_803D89C0(void *, void *);
 s32 TScene__sub_80204024(f32 thr, s32 unused, void *a, void *b, Vec_80204024 *c);
 void TNpcPlayer__sub_803D97B4(Vec_80204024 *);
-void TObjPlayer__sub_803D97F0(void *);
+void push_matrix_from(void *);
 void rotate_matrix_y(s32, s32);
-void TScene__sub_803D8DB4(s32, void *, Vec_80204024 *);
+void rotate_vector_by_matrix(s32, void *, Vec_80204024 *);
 void pop_matrix(void);
 s32 TScene__sub_80204B78(s32 arg0, Obj_80204B78 *obj, Vec_80204024 *pos, void *arg3, s32 arg4);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
@@ -113,10 +113,10 @@ void TScene__sub_8020533C(void *, SceneMaterialSection *, s32);
 void TScene__sub_80205078(void *, SceneMaterialSection *, s32);
 void TOHangerMachine01__sub_803D9C00(f32 *);
 void TObjPlayer__sub_803D99F8(s32 *, s32);
-void TScene__sub_802056C4(void *scene);
+void render_map_sections__6TSceneFPv(void *scene);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern const f32 TScene__data_805DC5D8;
-void TScene__sub_80203F0C(void);
+void advance_scene_object_animations(void);
 }
 
 extern "C" {
@@ -136,7 +136,7 @@ s32 TScene__sub_80203510(void *arg0) {
     r = (*(Root_80203510 * *)&TScene__data_805D5FCC)->recs;
     for (i = 0; i < (*(Root_80203510 * *)&TScene__data_805D5FCC)->count; i++, r++) {
         if (r->id >= 0) {
-            f32 d = fn_801315A0(arg0, r->pos);
+            f32 d = xyz_distance_squared(arg0, r->pos);
             if (!(d > r->radius * r->radius) && d < bestd) {
                 bestd = d;
                 best = r->id;
@@ -172,7 +172,7 @@ void free_children__12TObjDoorJungFPvPv(void*,u16);
 void PPCSync();
 extern const f32 lbl_805DC5D4;
 
-SceneMaterialSection *TScene__sub_80203600(s32 id) {
+SceneMaterialSection *find_scene_room_by_id(s32 id) {
     s32 i;
     s16 count = TScene__data_805D5FCC->count;
     for (i = 0; i < count; i++) {
@@ -236,7 +236,7 @@ void TScene__sub_80203640(void* task) {
     PPCSync();
 }
 
-void TScene__sub_80203F0C(void) {
+void advance_scene_object_animations(void) {
     Group_80203F0C *g;
     s32 i;
     Anim_80203F0C *a;
@@ -385,18 +385,18 @@ s32 TScene__sub_80204B78(s32 arg0, Obj_80204B78 *obj, Vec_80204024 *pos, void *a
         return 0;
     }
     if (d >= TScene__data_805DC5D8 && d < TScene__data_805DC600) {
-        TObjPlayer__sub_803D97F0(lbl_8058D490);
+        push_matrix_from(lbl_8058D490);
         rotate_matrix_y(0, arg4);
-        TScene__sub_803D8DB4(0, arg3, &c);
+        rotate_vector_by_matrix(0, arg3, &c);
         TNpcPlayer__sub_803D97B4(&c);
         pop_matrix();
         if (TScene__sub_80204024(obj->radius, arg0, &a, &b, &c) != 0) {
             obj->flags |= 0x10000;
             return 1;
         }
-        TObjPlayer__sub_803D97F0(lbl_8058D490);
+        push_matrix_from(lbl_8058D490);
         rotate_matrix_y(0, -arg4);
-        TScene__sub_803D8DB4(0, arg3, &c);
+        rotate_vector_by_matrix(0, arg3, &c);
         TNpcPlayer__sub_803D97B4(&c);
         pop_matrix();
         if (TScene__sub_80204024(obj->radius, arg0, &a, &b, &c) != 0) {
@@ -410,7 +410,7 @@ s32 TScene__sub_80204B78(s32 arg0, Obj_80204B78 *obj, Vec_80204024 *pos, void *a
     obj->flags &= ~0x10000;
     return 0;
 }
-void TScene__sub_802056C4(void *scene) {
+void render_map_sections__6TSceneFPv(void *scene) {
     SceneMaterialSection *sec;
     s32 i;
     if (TScene__data_805D5FCC != NULL) {

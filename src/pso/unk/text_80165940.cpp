@@ -24,7 +24,7 @@ typedef struct Key_80165940 {
 extern "C" {
 u8 TODoorAncient08__sub_80229220(u16);
 u32 get_global_state__14TOKeyMachine01Fv(void);
-void *TObjFish__sub_8001EDC4(void *, s32);
+void *get_bml_model(void *, s32);
 extern void *lbl_805D5A10;
 extern Pair_80165940 *TOKeyAncient03__data_805D5A14;
 extern void *lbl_805D5A18;
@@ -59,7 +59,7 @@ void fn_80165940(Key_80165940 *self) {
     case 3:
     case 4:
     case 5:
-        self->f34 = TObjFish__sub_8001EDC4(lbl_805D5A18, 0);
+        self->f34 = get_bml_model(lbl_805D5A18, 0);
         self->f90 = TOKeyCave01__data_805D5A1C->a;
         self->f94 = TOKeyCave01__data_805D5A1C->b;
         break;
@@ -67,14 +67,14 @@ void fn_80165940(Key_80165940 *self) {
     case 2:
     case 6:
     case 7:
-        self->f34 = TObjFish__sub_8001EDC4(lbl_805D5A30, 0);
+        self->f34 = get_bml_model(lbl_805D5A30, 0);
         self->f90 = TOKeyMachine01__data_805D5A34->a;
         self->f94 = TOKeyMachine01__data_805D5A34->b;
         break;
     case 8:
     case 9:
     case 10:
-        self->f34 = TObjFish__sub_8001EDC4(lbl_805D5A10, 0);
+        self->f34 = get_bml_model(lbl_805D5A10, 0);
         self->f90 = TOKeyAncient03__data_805D5A14->a;
         self->f94 = TOKeyAncient03__data_805D5A14->b;
         break;
@@ -85,11 +85,11 @@ void fn_80165940(Key_80165940 *self) {
     case 21:
     case 22:
         if (self->fBC == 0) {
-            self->f34 = TObjFish__sub_8001EDC4(lbl_805D5A18, 0);
+            self->f34 = get_bml_model(lbl_805D5A18, 0);
             self->f90 = TOKeyCave01__data_805D5A1C->a;
             self->f94 = TOKeyCave01__data_805D5A1C->b;
         } else {
-            self->f34 = TObjFish__sub_8001EDC4(lbl_805D5A30, 0);
+            self->f34 = get_bml_model(lbl_805D5A30, 0);
             self->f90 = TOKeyMachine01__data_805D5A34->a;
             self->f94 = TOKeyMachine01__data_805D5A34->b;
         }
@@ -103,7 +103,7 @@ void fn_80165940(Key_80165940 *self) {
     case 29:
     case 34:
     case 35:
-        self->f34 = TObjFish__sub_8001EDC4(lbl_805D5A18, 0);
+        self->f34 = get_bml_model(lbl_805D5A18, 0);
         self->f90 = TOKeyCave01__data_805D5A1C->a;
         self->f94 = TOKeyCave01__data_805D5A1C->b;
         self->fD0 = 1;

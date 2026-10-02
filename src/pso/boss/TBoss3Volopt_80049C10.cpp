@@ -55,7 +55,7 @@ s32 TObjPlayer__sub_801569F4(void *, void *);
 s32 TCameraCtrl__sub_803D8934(int, int, int);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_x(int, int);
-s32 TObjPlayer__sub_803D97F0(void *);
+s32 push_matrix_from(void *);
 s32 pop_matrix();
 extern RecoveredGlobal_80049E9C_lbl_80484AD0 lbl_80484AD0;
 extern M2C_UNK lbl_80484AFC[];
@@ -175,7 +175,7 @@ u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) lbl_805D88B0;
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805D88B0;
     M2C_FIELD(arg0, f32 *, 0xBC) = TBoss3Volopt__sub_8004812C((int) (0));
-    TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
+    push_matrix_from((void *) (&lbl_8058D490.value));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)));
     temp_r4 = (u8 *)(arg0 + 0xB4);

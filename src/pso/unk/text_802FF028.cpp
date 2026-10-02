@@ -8,7 +8,7 @@ extern "C" {
 u8 * TObjFish__sub_8001EDB0(void *, int);
 extern u8 *lbl_805D69E0;
 u8 *fn_802FF028(s32 arg0);
-u8 * TObjFish__sub_8001EDC4(void *, int);
+u8 * get_bml_model(void *, int);
 extern u8 *lbl_805D69E0;
 u8 *fn_802FF064(s32 arg0);
 }
@@ -23,7 +23,7 @@ u8 *fn_802FF028(s32 arg0) {
 }
 u8 *fn_802FF064(s32 arg0) {
     if ((void *) lbl_805D69E0 != NULL) {
-        return TObjFish__sub_8001EDC4(lbl_805D69E0, arg0);
+        return get_bml_model(lbl_805D69E0, arg0);
     }
     return NULL;
 }

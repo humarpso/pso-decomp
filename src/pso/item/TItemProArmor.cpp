@@ -195,7 +195,7 @@ s32 TItemObject__sub_80115D84(void *);
 void TItemTimerEvent__ct(void *);
 M2C_UNK refresh_owner_stats__5TItemFPv();
 int TObjPlayer__sub_80108164(void);
-M2C_UNK TObjPlayer__sub_8011F710(s32, s32);
+M2C_UNK add_weapon_grind(s32, s32);
 void __dt__11TItemObjectFv(void *, int);
 void __dt__14TItemEquipBaseFv(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
@@ -230,7 +230,7 @@ void apply_to_player__13TItemProArmorFPv(void *arg0) {
 
     temp_r3 = get_item_field_6__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0xF0));
     if (temp_r3 != 0) {
-        TObjPlayer__sub_8011F710(temp_r3, TItemObject__sub_80115D84(arg0));
+        add_weapon_grind(temp_r3, TItemObject__sub_80115D84(arg0));
     }
 }
 

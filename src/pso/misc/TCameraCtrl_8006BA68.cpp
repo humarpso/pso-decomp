@@ -252,7 +252,7 @@ void cache_target_and_forward__11TCameraCtrlFii(s32 arg0, s32 arg1);
 s32 clamp_distance__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
 void* init_defaults__11TCameraCtrlFPv(void* a0);
 int TCameraCtrl__sub_80068714(void);
-s32 TObjPlayer__sub_80141F84(s32, s32);
+s32 angle_difference_abs(s32, s32);
 s32 TObjPlayer__sub_801423A4(s32, s32, s32);
 void *__nw__7TObjectFUl(int);
 void *reset__11TCameraCtrlFPv(void *);
@@ -322,7 +322,7 @@ BOOL approach_camera_vector(Vec *current, Vec *target, f32 rate) {
 }
 
 s32 clamp_distance__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
-    if (TObjPlayer__sub_80141F84(arg1, arg0) < (s32) (arg2 * 0x7F)) {
+    if (angle_difference_abs(arg1, arg0) < (s32) (arg2 * 0x7F)) {
         return arg1;
     }
     return TObjPlayer__sub_801423A4(arg0, arg1, arg2 * 0x7F);
@@ -472,7 +472,7 @@ void TObjPlayer__sub_803D6960(void *, Motion_8006C28C *, void **, f32);
 void set_active_player__10TObjPlayerFi(int);
 f32 TCameraCtrl__sub_803D8D00(Vec_8006C28C *);
 void TNpcPlayer__sub_803D97B4(Vec_8006C28C *);
-void TObjPlayer__sub_803D97F0(void *);
+void push_matrix_from(void *);
 void rotate_matrix_y(int, s32);
 void TCameraCtrl__sub_803D8934(int, Vec_8006C28C *, Vec_8006C28C *);
 void TCameraCtrl__sub_803D9858(int);
@@ -527,7 +527,7 @@ void TCameraCtrl__sub_8006C28C(Cam_8006C28C *s) {
         if (TCameraCtrl__sub_803D8D00(&v2) != lbl_805D9028) {
             TNpcPlayer__sub_803D97B4(&v2);
         }
-        TObjPlayer__sub_803D97F0(lbl_8058D490);
+        push_matrix_from(lbl_8058D490);
         rotate_matrix_y(0, s->yaw);
         TCameraCtrl__sub_803D8934(0, &p2, &p2);
         TCameraCtrl__sub_803D8934(0, &v2, &v2);

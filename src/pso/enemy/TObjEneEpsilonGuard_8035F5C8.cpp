@@ -647,7 +647,7 @@ extern "C" {
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 M2C_UNK render_anim_model__10TObjPlayerFPvf(void *, f32);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
-M2C_UNK TObjPlayer__sub_803D97F0(void *);
+M2C_UNK push_matrix_from(void *);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 extern Tbl_803606A0 lbl_80479D00;
@@ -659,15 +659,15 @@ f32 TObjPlayer__sub_80014108(void *, void *, f32);
 void try_apply_damage__19TObjEneEpsilonGuardFPvUii(void *, u32, s32);
 extern const f32 lbl_805E0208;
 f32 TObjEneEpsilonGuard__sub_8035F720(u8 *arg0, u8 *arg1, f32 farg0);
-s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
+s32 get_bml_model(s32, M2C_UNK);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 extern s32 lbl_805D6FA0;
 void TObjEneEpsilonGuard__sub_803601D0(void);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
-s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
-M2C_UNK TObjFish__sub_803E46BC();
+s32 get_bml_model(s32, M2C_UNK);
+M2C_UNK draw_chunk_object();
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -685,7 +685,7 @@ void render_body_effect__19TObjEneEpsilonGuardFPv(u8 *arg0);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void set_guard_state__19TObjEneEpsilonGuardFPv(void *, s32);
-M2C_UNK TBoss8Dragon__sub_800BB780();
+M2C_UNK clear_attack_receipts();
 void update_fade__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
@@ -1005,13 +1005,13 @@ void tick_timer_set_flag__19TObjEneEpsilonGuardFPv(void *arg0) {
 void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0, s32 _w1) {
     if (M2C_FIELD(arg0, s32 *, 0x438) & 2) {
         M2C_FIELD(arg0, s16 *, 0x43C) = 1;
-        M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4(lbl_805D6FA0, 0);
+        M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model(lbl_805D6FA0, 0);
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         set_indexed_flags(arg0, 1, 1);
         clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1);
     } else {
         M2C_FIELD(arg0, s16 *, 0x43C) = 0;
-        M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4(lbl_805D6FA0, 1);
+        M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model(lbl_805D6FA0, 1);
         M2C_FIELD(arg0, s16 *, 0xB8) = 1;
         set_indexed_flags(arg0, 0, 1);
         clear_player_status_flag__10TObjPlayerFPviUi(arg0, 1, 1);
@@ -1030,8 +1030,8 @@ void render_body_effect__19TObjEneEpsilonGuardFPv(u8 *arg0) {
         scale_matrix((int) (0), (f32) (temp_f1), (f32) (lbl_805E0218), (f32) (temp_f1));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         toggle_particle_effect__10TObjPlayerFv();
-        TObjFish__sub_8001EDC4((s32)((void *) (lbl_805D6FA0)), (M2C_UNK)((int) (4)));
-        TObjFish__sub_803E46BC();
+        get_bml_model((s32)((void *) (lbl_805D6FA0)), (M2C_UNK)((int) (4)));
+        draw_chunk_object();
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
     }
@@ -1055,14 +1055,14 @@ void TObjEneEpsilonGuard__sub_803606A0(Obj_803606A0 *g6, s32 i) {
     } else if (i > 3) {
         i = 3;
     }
-    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    push_matrix_from(lbl_8058D490);
     TOHangerMachine01__sub_803D9C00(&g6->pos);
     rotate_matrix_y(0, g6->x60);
     set_global_flag__10TObjPlayerFv();
     render_anim_model__10TObjPlayerFPvf(g6, g6->xC0);
     clear_global_state__10TObjPlayerFv();
     pop_matrix();
-    TObjPlayer__sub_803D97F0(lbl_805D5678 + t.v[i] * 0x30);
+    push_matrix_from(lbl_805D5678 + t.v[i] * 0x30);
     {
         Vec_803606A0 v = lbl_80479D10;
         TCameraCtrl__sub_803D8934(0, &v, &g6->pts[i]);
@@ -1164,7 +1164,7 @@ void update_fade__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
         ((F_V_8035F5C8 *) arg0)->m87();
         return;
     case 5:
-        TBoss8Dragon__sub_800BB780();
+        clear_attack_receipts();
         break;
     }
 }

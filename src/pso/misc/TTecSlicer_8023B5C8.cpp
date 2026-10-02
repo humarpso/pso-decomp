@@ -197,7 +197,7 @@ void destroy_if_set__10TTecSlicerFUi(u32);
 extern const f32 lbl_805DC954;
 void TTecSlicer__sub_8023B72C(Obj_8023B72C *self, void *unused, Vec_8023B72C *a, Vec_8023B72C *b);
 f32 horizontal_distance_squared(s32, s32);
-s32 TObjPlayer__sub_80154804(int, int);
+s32 resolve_hittable_target(int, int);
 void TTecSlicer__sub_8023B5D8(u8 *arg0);
 u32 query_game_join_id__10TObjPlayerFv(s32);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -211,7 +211,7 @@ s32 TObjPlayer__sub_803D9B2C(void);
 s32 pop_matrix(void);
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
+M2C_UNK draw_ginja_object(u32);
 M2C_UNK set_chunk_material_color(void *);
 extern u8 lbl_804A7418[];
 extern s32 lbl_805D5660;
@@ -227,7 +227,7 @@ void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 TLobby__sub_80101AB0(s32);
 void set_item_count__6TLobbyFPvs(void *, s32);
 s32 TLobby__sub_80103AD4(void);
-f32 *TObjPlayer__sub_8011CB18(s32, s32);
+f32 *get_weapon_range_record(s32, s32);
 s32 get_extended_state__10TObjPlayerFPv(s32);
 s8 TObjPlayer__sub_80121238(s32);
 s32 get_uid__10TObjPlayerFPv(s32);
@@ -267,7 +267,7 @@ void TTecSlicer__sub_8023B5D8(u8 *arg0) {
         dist = horizontal_distance_squared((s32) (arg0 + 0x9C), (s32) (arg0 + 0x38));
         range = M2C_FIELD(arg0, f32 *, 0xB8) + M2C_FIELD(arg0, f32 *, 0xBC);
         if (dist < range * range) {
-            temp_r3 = TObjPlayer__sub_80154804(M2C_FIELD(arg0, u16 *, 0xC4), M2C_FIELD(arg0, s8 *, 0xC6));
+            temp_r3 = resolve_hittable_target(M2C_FIELD(arg0, u16 *, 0xC4), M2C_FIELD(arg0, s8 *, 0xC6));
             if (temp_r3 != 0) {
                 temp_r3_2 = M2C_FIELD(arg0, u8 **, 0x108);
                 ((VObj_18_ed5691 *)(temp_r3_2))->m59(M2C_FIELD(arg0, s32 *, 0x10C), temp_r3, M2C_FIELD(arg0, s16 *, 0x11C), M2C_FIELD(arg0, s8 *, 0xC6), M2C_FIELD(arg0, f32 *, 0x120));
@@ -387,7 +387,7 @@ void render__10TTecSlicerFv(u8 *arg0) {
         rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x64));
         rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
         TBoss7Tentacle__sub_803D9BA0(arg0 + 0x68);
-        TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, u32 *, 0x110));
+        draw_ginja_object(M2C_FIELD(arg0, u32 *, 0x110));
         set_chunk_material_color(lbl_804A7418);
         end_effect_render__13TParticleCtrlFv();
     }
@@ -483,7 +483,7 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
     self->f108 = TLobby__sub_80101AB0(self->f118);
     TTecSlicer__sub_8023B770((M2C_UNK *)self, (M2C_UNK *)self->f10c, init->f28);
     TTecSlicer__sub_8023B72C((Obj_8023B72C *)self, (void *)self->f10c, &init->a, &init->b);
-    self->fb8 = *TObjPlayer__sub_8011CB18(self->f108, 0);
+    self->fb8 = *get_weapon_range_record(self->f108, 0);
     self->fb4 = lbl_805DC964;
     VecCopy__FP3VecPC3Vec((s32)self + 0x9C, (s32)self + 0x38);
     VecCopy__FP3VecPC3Vec((s32)self + 0xA8, (s32)self + 0x38);

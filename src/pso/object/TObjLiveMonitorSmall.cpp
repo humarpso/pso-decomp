@@ -26,7 +26,7 @@ void *__ct__20TObjLiveMonitorSmallFv(void *arg0, void *arg1, void *arg2);
 int render__20TObjLiveMonitorSmallFv(void* p);
 int run_task__20TObjLiveMonitorSmallFv(void* p);
 s32 spawn_for_each_fish__20TObjLiveMonitorSmallFi(s32 arg0);
-void *TObjFish__sub_8001EDC4(s32, M2C_UNK);
+void *get_bml_model(s32, M2C_UNK);
 void __ct__15TObjLiveMonitorFv(void *);
 void *__nw__7TObjectFUl(M2C_UNK);
 int fn_8030B370(void*);
@@ -58,7 +58,7 @@ s32 spawn_for_each_fish__20TObjLiveMonitorSmallFi(s32 arg0) {
         lbl_805D6A8C = 1;
         lbl_805D6A90 = 1;
     }
-    var_r31 = M2C_FIELD(TObjFish__sub_8001EDC4(lbl_805D6A80, 0), void **, 0x2C);
+    var_r31 = M2C_FIELD(get_bml_model(lbl_805D6A80, 0), void **, 0x2C);
     while (var_r31 != NULL) {
         if (lbl_805D6A8C != 0) {
             obj = __nw__7TObjectFUl(0x2C);

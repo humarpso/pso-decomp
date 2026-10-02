@@ -54,7 +54,7 @@ extern s32 TOMonitorMachine01__data_8050DB68[];
 extern s32 TOMonitorMachine01__data_805D5A5C;
 extern void *TOMonitorMachine01__data_805D5A58;
 void TOMonitorMachine01__sub_8017240C(void);
-void TOComputerMachine01__sub_8023DDC8(s32, s32, s32, s32, s32);
+void scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 extern s32 TOMonitorMachine01__data_8050DB68[];
 extern s32 TOMonitorMachine01__data_805D5A5C;
 extern s32 lbl_805D53A4;
@@ -93,8 +93,8 @@ void destroy_key_base__5TOKeyFPvs(void *, int);
 void run_task__18TOMonitorMachine01Fv(Mon_8017205C *self) {
     if (TOMonitorMachine01__data_805D5A5C != lbl_805D53A4) {
         TOMonitorMachine01__data_805D5A5C = lbl_805D53A4;
-        TOComputerMachine01__sub_8023DDC8(TOMonitorMachine01__data_8050DB68[0], 1, 0, 1, 1);
-        TOComputerMachine01__sub_8023DDC8(TOMonitorMachine01__data_8050DB68[1], 1, 0, 1, 1);
+        scroll_ginja_mesh_uvs(TOMonitorMachine01__data_8050DB68[0], 1, 0, 1, 1);
+        scroll_ginja_mesh_uvs(TOMonitorMachine01__data_8050DB68[1], 1, 0, 1, 1);
     }
     switch (self->fAC) {
     default:

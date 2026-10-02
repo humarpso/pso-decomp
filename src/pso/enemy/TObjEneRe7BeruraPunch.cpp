@@ -39,7 +39,7 @@ extern M2C_UNK __vt__21TObjEneRe7BeruraPunch[];
 extern s32 lbl_805D2990;
 u8 *TObjEneRe7BeruraPunch__ct(u8 *arg0, s32 arg1, s32 arg2);
 void queue_destruction__7TObjectFv(void *);
-void *TBoss4Type2__sub_800874F4(void *, int);
+void *create_particle_emitter(void *, int);
 void copy_vec3__11TBoss4Type2FPvPv(void *, void *);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
@@ -156,7 +156,7 @@ void run_task__21TObjEneRe7BeruraPunchFv(u8 *arg0) {
         s = -TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
         c = -TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
         if (M2C_FIELD(arg0, void **, 0xD0) == NULL) {
-            M2C_FIELD(arg0, void **, 0xD0) = TBoss4Type2__sub_800874F4(arg0 + 0x38, 0xDD);
+            M2C_FIELD(arg0, void **, 0xD0) = create_particle_emitter(arg0 + 0x38, 0xDD);
             if (M2C_FIELD(arg0, void **, 0xD0) != NULL) {
                 set_flags__11TBoss4Type2FPvUi(M2C_FIELD(arg0, void **, 0xD0), 2);
                 enable__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0xD0));
@@ -170,7 +170,7 @@ void run_task__21TObjEneRe7BeruraPunchFv(u8 *arg0) {
             copy_vec3__11TBoss4Type2FPvPv(M2C_FIELD(arg0, void **, 0xD0), &ang);
         }
         if (M2C_FIELD(arg0, void **, 0xD4) == NULL) {
-            M2C_FIELD(arg0, void **, 0xD4) = TBoss4Type2__sub_800874F4(arg0 + 0x38, 0x150);
+            M2C_FIELD(arg0, void **, 0xD4) = create_particle_emitter(arg0 + 0x38, 0x150);
             if (M2C_FIELD(arg0, void **, 0xD4) != NULL) {
                 set_flags__11TBoss4Type2FPvUi(M2C_FIELD(arg0, void **, 0xD4), 2);
                 enable__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0xD4));

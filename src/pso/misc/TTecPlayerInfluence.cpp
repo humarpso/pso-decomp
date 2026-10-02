@@ -166,11 +166,11 @@ extern const f32 lbl_805DC8B8;
 Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner, void *pos, s32 level);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void *TObjFish__sub_8001ED9C(void *, int);
-void *TObjFish__sub_8001EDC4(void *, int);
-void TObjFish__sub_800660D4(void *, void *, void *, void *, int, f32);
+void *get_bml_model(void *, int);
+void attach_particle_model(void *, void *, void *, void *, int, f32);
 void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
 void *spawn_particle_effect(void *, int);
-void *TBoss4Type2__sub_800874F4(void *, int);
+void *create_particle_emitter(void *, int);
 void **alloc_buffer__11TOBoss4RockFPv(int);
 extern Profile_80237494 lbl_8044D9F8[];
 extern Emitter_80237494 lbl_8044DA28;
@@ -310,7 +310,7 @@ void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos) {
     {
       VecCopy__FP3VecPC3Vec(&point, pos);
     }
-    self->emitters[i] = TBoss4Type2__sub_800874F4(&point, lbl_8044D9F8[self->band].emitters[i].entry);
+    self->emitters[i] = create_particle_emitter(&point, lbl_8044D9F8[self->band].emitters[i].entry);
     binding = &lbl_8044D9F8[self->band].emitters[i];
     if ((binding->flags & 0x40) && (self->emitters[i] != 0))
     {
@@ -322,7 +322,7 @@ void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos) {
       if (self && self)
       {
       }
-      TObjFish__sub_800660D4(self->emitters[i], TObjFish__sub_8001EDC4(lbl_805D63AC, mid), lbl_805D63B0, 0, 0, lbl_805DC8C0);
+      attach_particle_model(self->emitters[i], get_bml_model(lbl_805D63AC, mid), lbl_805D63B0, 0, 0, lbl_805DC8C0);
     }
   }
   if (self->band == 5)
@@ -345,7 +345,7 @@ void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos) {
     id = b2->flags >> 16;
     if (emitter != 0)
     {
-      TObjFish__sub_800660D4(emitter, TObjFish__sub_8001EDC4(lbl_805D63AC, id), lbl_805D63B0, TObjFish__sub_8001ED9C(lbl_805D63AC, 1), 0, lbl_805DC8C0);
+      attach_particle_model(emitter, get_bml_model(lbl_805D63AC, id), lbl_805D63B0, TObjFish__sub_8001ED9C(lbl_805D63AC, 1), 0, lbl_805DC8C0);
     }
   }
 }

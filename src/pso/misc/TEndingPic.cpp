@@ -89,9 +89,9 @@ void set_phase_18__10TEndingPicFPv(void* p);
 void update_player_object__10TEndingPicFPv(void *arg0);
 void update_shield__10TEndingPicFPv(void *arg0);
 int TItemObject__sub_80116004(void*, f32);
-s32 TItemProShield__sub_8001140C(s32, s32);
+s32 add_actor_hp(s32, s32);
 s32 TObjPlayer__sub_800112A4(s32, s32);
-s32 TObjPlayer__sub_80019248(void *);
+s32 is_locally_controlled__10TObjPlayerFPv(void *);
 M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
@@ -262,7 +262,7 @@ void TEndingPic__sub_803530A0(void* p) { TEndingPic__sub_80353018((T_80353018 *)
 
 void update_player_object__10TEndingPicFPv(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0xF0);
-    if (TObjPlayer__sub_80019248(temp_r3) != 0) {
+    if (is_locally_controlled__10TObjPlayerFPv(temp_r3) != 0) {
         struct VObj_803530C4_80352BB8 *o = (struct VObj_803530C4_80352BB8 *)M2C_FIELD(arg0, void **, 0xF0);
         o->m47();
     }
@@ -271,7 +271,7 @@ void update_player_object__10TEndingPicFPv(void *arg0) {
 void TEndingPic__sub_80353110(void* p) { TEndingPic__sub_80353018((T_80353018 *)(p), (s32)(16)); }
 void TEndingPic__sub_80353134(void* p) { TEndingPic__sub_80353018((T_80353018 *)(p), (s32)(15)); }
 void update_shield__10TEndingPicFPv(void *arg0) {
-    TItemProShield__sub_8001140C(M2C_FIELD(arg0, s32 *, 0xF0), get_field_2b8__14TItemProShieldFPv(M2C_FIELD(arg0, s32 *, 0xF0)));
+    add_actor_hp(M2C_FIELD(arg0, s32 *, 0xF0), get_field_2b8__14TItemProShieldFPv(M2C_FIELD(arg0, s32 *, 0xF0)));
 }
 void TEndingPic__sub_80353194(void *arg0) {
     TObjPlayer__sub_800112A4(M2C_FIELD(arg0, s32 *, 0xF0), obj_getS16_2BA(M2C_FIELD(arg0, s32 *, 0xF0)));

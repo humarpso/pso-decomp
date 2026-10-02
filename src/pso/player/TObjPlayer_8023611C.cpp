@@ -173,20 +173,20 @@ void* get_pos_ptr__10TObjPlayerFPv(void* p);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 void copy_xyz__10TObjPlayerFPvPv(void *, void *);
 PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
-u8 *TObjPlayer__sub_80236A20(void *self, s32 arg);
+u8 *query_technique_player_contacts(void *self, s32 arg);
 }
 
 extern "C" {
 
 void* get_pos_ptr__10TObjPlayerFPv(void* p);
 s32 is_valid_and_active__10TObjPlayerFUi(u32 arg0);
-s32 TObjPlayer__sub_80019570();
+s32 obj_is_hit_receivable();
 
 s32 is_valid_and_active__10TObjPlayerFUi(u32 arg0) {
     if (arg0 == 0U) {
         return 0;
     }
-    if (TObjPlayer__sub_80019570()) {
+    if (obj_is_hit_receivable()) {
         return 1;
     }
     return 0;
@@ -421,7 +421,7 @@ u8 *TObjPlayer__sub_802367D8(void *self, s32 arg) {
     return (u8 *)&lbl_80516150;
 }
 
-u8 *TObjPlayer__sub_80236A20(void *self, s32 arg) {
+u8 *query_technique_player_contacts(void *self, s32 arg) {
     Vec_80236A20 pos;
     Vec_80236A20 d;
     f32 range;

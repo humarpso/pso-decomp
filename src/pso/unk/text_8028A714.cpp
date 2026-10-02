@@ -11,7 +11,7 @@ u8 *fn_8028A714(s32 arg0);
 u8 * TObjFish__sub_8001EDB0(void *, int);
 extern u8 *lbl_805D64C8;
 u8 *fn_8028A750(s32 arg0);
-u8 * TObjFish__sub_8001EDC4(void *, int);
+u8 * get_bml_model(void *, int);
 extern u8 *lbl_805D64C8;
 u8 *fn_8028A78C(s32 arg0);
 }
@@ -32,7 +32,7 @@ u8 *fn_8028A750(s32 arg0) {
 }
 u8 *fn_8028A78C(s32 arg0) {
     if ((void *) lbl_805D64C8 != NULL) {
-        return TObjFish__sub_8001EDC4(lbl_805D64C8, arg0);
+        return get_bml_model(lbl_805D64C8, arg0);
     }
     return NULL;
 }

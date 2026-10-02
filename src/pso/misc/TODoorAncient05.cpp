@@ -21,7 +21,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
+M2C_UNK draw_ginja_object(s32);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 extern s32 lbl_805D5920;
 extern const f32 lbl_805DB410;
@@ -60,10 +60,10 @@ void render__15TODoorAncient05Fv(u8 *arg0) {
         if (((u32) M2C_FIELD(arg0, u32 *, 0xBC) != 0U) && (lbl_805DB41C != M2C_FIELD(arg0, f32 *, 0xB0))) {
             draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB0));
         } else {
-            TObjBoss2Tunnel__sub_803DB470(lbl_805D5920);
-            TObjBoss2Tunnel__sub_803DB470(lbl_805D5920 + 0x38);
+            draw_ginja_object(lbl_805D5920);
+            draw_ginja_object(lbl_805D5920 + 0x38);
             begin_effect_render__13TParticleCtrlFv();
-            TObjBoss2Tunnel__sub_803DB470(lbl_805D5920 + 0x70);
+            draw_ginja_object(lbl_805D5920 + 0x70);
             end_effect_render__13TParticleCtrlFv();
         }
         pop_matrix();

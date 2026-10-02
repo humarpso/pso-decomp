@@ -65,7 +65,7 @@ u8 *get_player_by_client_id(s32);
 s32 TWindow__close(u32);
 void dispatch_without_flags__20TWindowSubStatusDispFiii(u32, char *, s32);
 u32 draw_with_layer__13TAdVIConfigGCFiii(s32, void *, s32);
-s32 TWindowSubComCard__sub_8026CBB8(s32);
+s32 get_window_layout_position(s32);
 char *strncpy(char *, const char *, u32);
 extern u8 lbl_804E71B8[];
 extern s32 lbl_805D53A0;
@@ -84,7 +84,7 @@ void render__13TAdVIConfigGCFv(void *arg0);
 void run_task__13TAdVIConfigGCFv(void *arg0);
 void set_field48_clear_global__13TAdVIConfigGCFPv(void *arg0);
 int OSSetProgressiveMode(void*);
-int TAdSinglePlyChrSelectGC__sub_80132F2C(void*, void*);
+int get_localized_text_entry(void*, void*);
 void TAdYesNoBaseGC__ct(void *);
 void TAdYesNoBaseGC__vt0(void *, int);
 s32 TLobby__sub_801B0974();
@@ -107,7 +107,7 @@ void TAdVIConfigGC__sub_80307D00(Cfg_80307D00 *arg0) {
         TWindow__close(arg0->win);
         arg0->win = 0;
     }
-    arg0->win = draw_with_layer__13TAdVIConfigGCFiii(TWindowSubComCard__sub_8026CBB8(0x5A), lbl_804E71B8, lbl_805D53A0);
+    arg0->win = draw_with_layer__13TAdVIConfigGCFiii(get_window_layout_position(0x5A), lbl_804E71B8, lbl_805D53A0);
     if (arg0->win != 0) {
         set_visible__19TWindowSubTradeMainFPv(arg0->win);
         set_close_flag__19TWindowSubTradeMainFPv(arg0->win);
@@ -198,7 +198,7 @@ void set_field48_clear_global__13TAdVIConfigGCFPv(void *arg0) {
 void enable_progressive_mode__13TAdVIConfigGCFv(void * _w0) { OSSetProgressiveMode((void*)1); lbl_805D7734 = (int)GXNtsc480Prog; VIConfigure(GXNtsc480Prog); VIFlush(); VIWaitForRetrace(); VIWaitForRetrace(); }
 
 int disable_progressive_mode__13TAdVIConfigGCFv(void* _w0) { return OSSetProgressiveMode((void*)(0)); }
-void TAdVIConfigGC__vt8(void) { TAdSinglePlyChrSelectGC__sub_80132F2C((void*)29, (void*)0); }
+void TAdVIConfigGC__vt8(void) { get_localized_text_entry((void*)29, (void*)0); }
 
 void TAdVIConfigGC__vt5(void* p) { disable_progressive_mode__13TAdVIConfigGCFv((void*)((void*)(p))); set_field48_clear_global__13TAdVIConfigGCFPv((void *)(p)); }
 

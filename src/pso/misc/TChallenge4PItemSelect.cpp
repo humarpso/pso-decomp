@@ -51,7 +51,7 @@ void queue_destruction_with_callback__22TChallenge4PItemSelectFPv(void *arg0);
 u32 TCheckRoomSequence__sub_802664A8(M2C_UNK, s32, s32);
 s32 TItemData__sub_8010EEDC(s32);
 M2C_UNK TWindowSubComCard__sub_80265500(u32);
-M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK get_window_layout_position(M2C_UNK);
 void __ct__7TObjectFP7TObject(void *);
 s32 fn_8034BE30(s32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, M2C_UNK, s32);
@@ -110,7 +110,7 @@ void challenge4p_item_select_open_menu(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x24) = temp_r0;
     if (temp_r0 <= 0) {
         temp_r30 = fn_8034BE30(M2C_FIELD(arg0, s32 *, 0x28));
-        M2C_FIELD(arg0, u32 *, 0x2C) = TCheckRoomSequence__sub_802664A8(TWindowSubComCard__sub_8026CBB8(0x42), 8, temp_r30);
+        M2C_FIELD(arg0, u32 *, 0x2C) = TCheckRoomSequence__sub_802664A8(get_window_layout_position(0x42), 8, temp_r30);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
             var_r29 = 0;
             do {

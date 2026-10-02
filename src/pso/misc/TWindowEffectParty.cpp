@@ -14,7 +14,7 @@ void *TWindowCtrl__sub_8024FB80(s8 i);
 void *__ct__7TObjectFP7TObject(void *);
 void set_slot_position__18TWindowEffectPartyFiiPv(void *, s32, void *);
 M2C_UNK calc_effect_position__18TWindowEffectPartyFPvPv(void *, M2C_UNK *);
-s32 TBoss8Dragon__sub_8008741C(void *, void *, s32);
+s32 spawn_continuous_particle_effect_with_flags(void *, void *, s32);
 extern M2C_UNK __vt__18TWindowEffectParty[];
 extern s32 lbl_805D38F8;
 u8 *TWindowEffectParty__ct(u8 *arg0, void *arg1, s8 arg2, s8 arg3, void *arg4);
@@ -101,7 +101,7 @@ u8 *TWindowEffectParty__ct(u8 *arg0, void *arg1, s8 arg2, s8 arg3, void *arg4) {
     *(s8 *)(arg0 + 0x1E) = arg3;
     set_slot_position__18TWindowEffectPartyFiiPv(arg0, *(s8 *)(arg0 + 0x1E), arg0 + 0x28);
     calc_effect_position__18TWindowEffectPartyFPvPv((void *)(arg0), (M2C_UNK *)(&p));
-    *(s32 *)(arg0 + 0x30) = TBoss8Dragon__sub_8008741C(&p, arg4, 0xC0);
+    *(s32 *)(arg0 + 0x30) = spawn_continuous_particle_effect_with_flags(&p, arg4, 0xC0);
     *(s8 *)(arg0 + 0x1C) = 0;
     return arg0;
 }

@@ -16,7 +16,7 @@ void *TOExplosiveMachine02__ct(void *arg0, s32 arg1);
 void *__dt__20TOExplosiveMachine02Fv(void *arg0, s16 arg1);
 M2C_UNK TOExplosiveMachine__ct();
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
-void *TObjFish__sub_8001EDC4(s32, M2C_UNK);
+void *get_bml_model(s32, M2C_UNK);
 void __dl__7TObjectFPv(void *);
 void __dt__18TOExplosiveMachineFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -51,12 +51,12 @@ void *TOExplosiveMachine02__ct(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TOExplosiveMachine02;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2FBC;
     ((VObj_80166194_801660F4 *)arg0)->m5(arg1);
-    M2C_FIELD(arg0, void **, 0x34) = TObjFish__sub_8001EDC4(lbl_805D59A8, 3);
+    M2C_FIELD(arg0, void **, 0x34) = get_bml_model(lbl_805D59A8, 3);
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(lbl_805D59A8, 3);
     M2C_FIELD(arg0, f32 *, 0x94) = (f32) M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 4), f32 *, 0x14);
-    M2C_FIELD(arg0, void **, 0x9C) = TObjFish__sub_8001EDC4(lbl_805D59A8, 4);
+    M2C_FIELD(arg0, void **, 0x9C) = get_bml_model(lbl_805D59A8, 4);
     M2C_FIELD(arg0, s32 *, 0xA4) = TObjFish__sub_8001EDB0(lbl_805D59A8, 4);
-    M2C_FIELD(arg0, void **, 0xA0) = TObjFish__sub_8001EDC4(lbl_805D59A8, 5);
+    M2C_FIELD(arg0, void **, 0xA0) = get_bml_model(lbl_805D59A8, 5);
     M2C_FIELD(arg0, s32 *, 0xA8) = TObjFish__sub_8001EDB0(lbl_805D59A8, 5);
     return arg0;
 }

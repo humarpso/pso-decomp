@@ -12,7 +12,7 @@ extern "C" {
 M2C_UNK get_camera_ctrl__9TObjEneDDFPv(void *, int);
 M2C_UNK update_camera_sequence__9TObjEneDDFPv();
 M2C_UNK TCameraCtrl__sub_803D8934(int, void *, int);
-M2C_UNK TScene__sub_803D8DB4(int, int, int);
+M2C_UNK rotate_vector_by_matrix(int, int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 extern RecoveredGlobal_8009BD00_lbl_80500960 lbl_80500960;
@@ -40,7 +40,7 @@ void fn_8009BD00(void) {
         temp_r4 = lbl_805D4FD8;
         temp_r5_2 = temp_r4;
         lbl_805D4FD8 = temp_r4 + 0xC;
-        TScene__sub_803D8DB4((int) (0), (int) (temp_r4), (int) (temp_r5_2));
+        rotate_vector_by_matrix((int) (0), (int) (temp_r4), (int) (temp_r5_2));
         pop_matrix();
         break;
     case 6:

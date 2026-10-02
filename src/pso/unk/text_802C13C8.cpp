@@ -81,7 +81,7 @@ extern RecoveredGlobal_8019A9B8_lbl_804B8F60 lbl_804E0848;
 void TObjPlayer__sub_802C13C8(void);
 void VecCopy__FP3VecPC3Vec(Vec_802C1660 *, Vec_802C1660 *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-void TBoss1Dragon__sub_8014220C(Vec_802C1660 *, s32 *, s32 *);
+void direction_to_rotation_xz(Vec_802C1660 *, s32 *, s32 *);
 s32 clamp_value_to_max__10TObjPlayerFPviPvif(void *, s32, s32, Vec_802C1660 *, f32);
 f32 TBoss6Type1__sub_803D9370(Vec_802C1660 *, Vec_802C1660 *);
 extern Entry_802C1660 lbl_804718CC[];
@@ -90,7 +90,7 @@ extern const f32 lbl_805DE4F8;
 s32 TObjPlayer__sub_802C1660(Obj_802C1660 *self);
 void VecCopy__FP3VecPC3Vec(Vec_802C1660 *, Vec_802C1660 *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-void TBoss1Dragon__sub_8014220C(Vec_802C1660 *, s32 *, s32 *);
+void direction_to_rotation_xz(Vec_802C1660 *, s32 *, s32 *);
 s32 clamp_value_to_max__10TObjPlayerFPviPvif(void *, s32, s32, Vec_802C1660 *, f32);
 f32 TBoss6Type1__sub_803D9370(Vec_802C1660 *, Vec_802C1660 *);
 s32 TObjPlayer__sub_801423A4(s32, s32, s32);
@@ -132,7 +132,7 @@ s32 TObjPlayer__sub_802C1428(Obj_802C1428 *self) {
     r = clamp_value_to_max__10TObjPlayerFPviPvif(self, self->f98, self->fA0, &b, self->fA4 + lbl_804718CC[self->fC8].d);
     VecCopy__FP3VecPC3Vec(&d, &b);
     TBoss6Type1__sub_803D9370(&d, &a);
-    TBoss1Dragon__sub_8014220C(&d, &tmp, &tmp2);
+    direction_to_rotation_xz(&d, &tmp, &tmp2);
     self->fBC = TObjPlayer__sub_801423A4(self->fBC, tmp, lbl_804718CC[self->fC8].e);
     old = self->fB8;
     tmp = (s32)(lbl_80471960[0] * get_ad_end_text_start__10TObjPlayerFv(b.x - a.x, b.z - a.z));
@@ -190,7 +190,7 @@ s32 TObjPlayer__sub_802C1660(Obj_802C1660 *self) {
     r = clamp_value_to_max__10TObjPlayerFPviPvif(self, self->f98, self->fA0, &b, lbl_804718CC[self->fC8].d);
     VecCopy__FP3VecPC3Vec(&d, &b);
     TBoss6Type1__sub_803D9370(&d, &a);
-    TBoss1Dragon__sub_8014220C(&d, &self->fBC, &tmp);
+    direction_to_rotation_xz(&d, &self->fBC, &tmp);
     self->fB8 = (s32)(lbl_80471960[0] * get_ad_end_text_start__10TObjPlayerFv(b.x - a.x, b.z - a.z));
     return r;
 }

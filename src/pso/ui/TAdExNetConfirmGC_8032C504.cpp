@@ -30,7 +30,7 @@ struct RecoveredGlobal_8032C618___vt__17TAdExNetConfirmGC { M2C_UNK value; u8 re
 typedef char RecoveredGlobal_8032C618___vt__17TAdExNetConfirmGC_size[sizeof(RecoveredGlobal_8032C618___vt__17TAdExNetConfirmGC) == 0x28 ? 1 : -1];
 
 extern "C" {
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+M2C_UNK get_localized_text_entry(int, int);
 s32 is_confirmed__17TAdExNetConfirmGCFv();
 void TKeyBoardControl__sub_8000F9CC(s32);
 void queue_destruction__7TObjectFv(void *);
@@ -61,10 +61,10 @@ void render__17TAdExNetConfirmGCFv(void *arg0) {
 
 void TAdExNetConfirmGC__vt5(void) {
     if (is_confirmed__17TAdExNetConfirmGCFv() != 0) {
-        TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x22), (int) (1));
+        get_localized_text_entry((int) (0x22), (int) (1));
         return;
     }
-    TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x22), (int) (0));
+    get_localized_text_entry((int) (0x22), (int) (0));
 }
 
 int TAdExNetConfirmGC__vt4(void* p) { return request_scene_change__21TAdMultiChgGameModeGCFv(p); }

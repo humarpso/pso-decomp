@@ -103,7 +103,7 @@ s32 TItemObject__vt36(void *arg0, s32 arg1);
 void TItemObject__vt42(void *arg0);
 void *lookup_item_pmt_record(void *);
 M2C_UNK TItem__ct();
-M2C_UNK TItem__sub_80100824();
+M2C_UNK consume_item_by_id();
 M2C_UNK TObjPlayer__sub_8010043C(void *, u8);
 M2C_UNK add_item_flags__10TObjPlayerFPvUi(void *, M2C_UNK);
 M2C_UNK apply_switch_attack__5TItemFPvi(void *, M2C_UNK);
@@ -154,7 +154,7 @@ void TItemObject__vt29(void *arg0) {
         }
         if (get_item_flags__10TObjPlayerFPv(arg0) & 0x10) {
             get_field_d8__10TObjPlayerFPv(arg0);
-            TItem__sub_80100824();
+            consume_item_by_id();
         }
     }
 }

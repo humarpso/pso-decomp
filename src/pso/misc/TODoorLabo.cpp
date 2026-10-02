@@ -72,7 +72,7 @@ extern u32 lbl_805D6624;
 extern u32 lbl_805D6628;
 extern u32 lbl_805D662C;
 void TODoorLabo__sub_8029F97C(void);
-s32 TObjFish__sub_8001EDC4(s32, s32);
+s32 get_bml_model(s32, s32);
 extern s32 lbl_80465FF8[];
 extern s32 lbl_805D6618;
 void TODoorLabo__sub_8029F9EC(void *arg0);
@@ -96,7 +96,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__19TODoorFourLightBaseFv(void *, int);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
-void init_field_d4__16TODoorLaboNormalFPv(void* a0) { *(int*)((char*)a0 + 0xd4) = TObjFish__sub_8001EDC4((s32)(lbl_805D6624), 0); }
+void init_field_d4__16TODoorLaboNormalFPv(void* a0) { *(int*)((char*)a0 + 0xd4) = get_bml_model((s32)(lbl_805D6624), 0); }
 
 s32 TODoorLaboNormal__vt20(void) {
     return lbl_805D6628;
@@ -182,7 +182,7 @@ void TODoorLabo__sub_8029F9EC(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x88) > 1) {
         M2C_FIELD(arg0, s32 *, 0x88) = 1;
     }
-    M2C_FIELD(arg0, s32 *, 0xD4) = TObjFish__sub_8001EDC4(lbl_805D6618, tbl[M2C_FIELD(arg0, s32 *, 0x88)]);
+    M2C_FIELD(arg0, s32 *, 0xD4) = get_bml_model(lbl_805D6618, tbl[M2C_FIELD(arg0, s32 *, 0x88)]);
 }
 
 s32 TODoorLabo__vt20(void) {
@@ -383,7 +383,7 @@ u8 *TODoorFourLightSeabedU__ct(u8 *arg0) {
     TObjEneGibbles__sub_80156780(arg0, lbl_804DC864, 1);
     TObjPlayer__sub_80154E3C(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
-    self->fD4 = TObjFish__sub_8001EDC4((s32)lbl_805D660C, 0);
+    self->fD4 = get_bml_model((s32)lbl_805D660C, 0);
     self->infoBC = (Info_8029FD70 *)TObjFish__sub_8001ED9C((s32)lbl_805D660C, 0);
     self->fB4 = (f32)self->infoBC->v4 - lbl_805DDDB8;
     self->fB8 = lbl_805DDDBC;
@@ -562,7 +562,7 @@ u8 *TODoorFourLightSeabed__ct(u8 *arg0) {
     TObjEneGibbles__sub_80156780(arg0, lbl_804DC864, 1);
     TObjPlayer__sub_80154E3C(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
-    self->fD4 = TObjFish__sub_8001EDC4(lbl_805D6600, 0);
+    self->fD4 = get_bml_model(lbl_805D6600, 0);
     self->infoBC = (Info_802A0068 *)TObjFish__sub_8001ED9C(lbl_805D6600, 0);
     self->fB4 = (f32)self->infoBC->v4 - lbl_805DDDB8;
     self->fB8 = lbl_805DDDBC;

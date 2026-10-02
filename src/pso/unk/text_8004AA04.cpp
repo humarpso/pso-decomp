@@ -19,7 +19,7 @@ extern "C" {
 void destroy_buffer_pair(void *p, s32 flag);
 int free__11TOBoss4RockFUi(void *p);
 void fn_8004AA04(Obj_8004AA04 *self);
-s32 TObjFish__sub_8001EDC4(s32, s32);
+s32 get_bml_model(s32, s32);
 int get_instance_count__9TBoss4UroFv(void);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 alloc_tables__6TLobbyFPvii(s32, s32, s32);
@@ -62,7 +62,7 @@ void fn_8004AA80(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2) {
     }
     for (i = 0; i < arg0->count; i++) {
         r = &arg1[i];
-        t = collect_and_count__12TBoss3VoloptFUii(TObjFish__sub_8001EDC4(h, r->a), r->b);
+        t = collect_and_count__12TBoss3VoloptFUii(get_bml_model(h, r->a), r->b);
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x14);
         if (p != 0) {
             p = alloc_tables__6TLobbyFPvii(p, t, r->c);

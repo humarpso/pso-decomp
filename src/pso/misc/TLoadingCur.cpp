@@ -53,7 +53,7 @@ extern const f32 lbl_805D7EA0;
 extern const f32 lbl_805D7EA4;
 s32 TLoadingCur__sub_8001CC28(M2C_UNK arg0, u8 *arg1, u8 *arg2);
 s32 fn_80086FE0(void *, void *, int, int);
-s32 TBoss1Dragon__sub_8014220C(void *, void *, void *);
+s32 direction_to_rotation_xz(void *, void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK __vt__11TLoadingCur[];
 extern RecoveredGlobal_8001D0A0_lbl_804FF5E8 lbl_804FF5E8;
@@ -217,7 +217,7 @@ u8 *TLoadingCur__ct(u8 *arg0, s32 arg1) {
     stack.sp8 = 0;
     stack.spC = 0;
     stack.sp10 = 0;
-    TBoss1Dragon__sub_8014220C((void *) (arg0 + 0x50), (void *) (&stack.sp8), (void *) (&stack.sp10));
+    direction_to_rotation_xz((void *) (arg0 + 0x50), (void *) (&stack.sp8), (void *) (&stack.sp10));
     M2C_FIELD(arg0, s32 *, 0x1C) = fn_80086FE0((void *) (arg0 + 0x20), (void *) (&stack.sp8), (int) (0x16), (int) (1));
     return arg0;
 }

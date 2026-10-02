@@ -23,7 +23,7 @@ extern void *tl_05;
 void fn_80108F8C(void *self, void *target);
 s16 obj_getField1c(void *);
 void disallow_rendering__7TObjectFv(void *);
-void *TBoss4Type2__sub_800874F4(void *, s32);
+void *create_particle_emitter(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern void *__vt__13TItemEffFlame[];
 extern s32 lbl_805D2BA8;
@@ -42,7 +42,7 @@ void *TItemEffFlame__ct(void *arg0, void *parent, void *target) {
     self->idx = arg2->idx;
     {
         Src_80108F04 *src = arg2->src;
-        self->x1c = ((void *(*)(void *, s32, void *))TBoss4Type2__sub_800874F4)(src->ents[self->idx].sub, 0x1BB, src);
+        self->x1c = ((void *(*)(void *, s32, void *))create_particle_emitter)(src->ents[self->idx].sub, 0x1BB, src);
     }
     disallow_rendering__7TObjectFv(arg0);
     return arg0;

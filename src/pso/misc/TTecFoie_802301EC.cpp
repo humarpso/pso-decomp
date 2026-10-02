@@ -33,7 +33,7 @@ extern Band_802301EC TTecFoie__data_8044D13C[];
 u32 find_entity_by_id(u16);
 void queue_destruction__7TObjectFv(void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
-void fn_8023A694(u8 *arg0);
+void move_technique_projectile(u8 *arg0);
 void advance_lifetime_or_destroy(void *arg0);
 void dispatch_technique_contact(void *, s32);
 void run_task__8TTecFoieFv(Foie_802301EC *self);
@@ -53,7 +53,7 @@ void run_task__8TTecFoieFv(Foie_802301EC *self) {
             copy_pos__11TNowLoadingFPvPv(self->emitters[i], self->pos);
         }
     }
-    fn_8023A694((u8 *)self);
+    move_technique_projectile((u8 *)self);
     advance_lifetime_or_destroy(self);
     dispatch_technique_contact(self, 1);
 }

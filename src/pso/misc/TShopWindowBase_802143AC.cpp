@@ -60,7 +60,7 @@ s32 set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 __ct__12TMemberCheckFP7TObject(int, void *);
 s32 TShopSequence__sub_80223600(void *, int, void *);
 u32 __nw__7TObjectFUl(int);
-s32 TWindowSubComCard__sub_8026CBB8(s32);
+s32 get_window_layout_position(s32);
 extern const f32 lbl_805DC658;
 extern const f32 lbl_805DC65C;
 void THunterGuildSeqOffline__sub_8021488C(u8 *arg0);
@@ -76,7 +76,7 @@ s32 THunterGuildSeqOffline__sub_8022350C(void *, M2C_UNK);
 s32 TShopJudgmentItemWindow__sub_80266388(s32, u16, s32, s32);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
-s32 TWindowSubComCard__sub_8026CBB8(s32);
+s32 get_window_layout_position(s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 f32 get_scale__15TShopWindowBaseFv(void *);
 u16 obj_getField1c(s32);
@@ -92,7 +92,7 @@ void create_judgment_item_window__15TShopWindowBaseFPv(void *arg0) {
 
     if ((vobj->m8r() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         temp_r31 = (u16)obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
-        M2C_FIELD(arg0, s32 *, 0x38) = TShopJudgmentItemWindow__sub_80266388(TWindowSubComCard__sub_8026CBB8(0x2B), temp_r31, 0, 0);
+        M2C_FIELD(arg0, s32 *, 0x38) = TShopJudgmentItemWindow__sub_80266388(get_window_layout_position(0x2B), temp_r31, 0, 0);
         set_selected_index__17TWindowSubComCardFPvs(M2C_FIELD(arg0, s32 *, 0x38), 1);
         temp_f31 = get_scale__15TShopWindowBaseFv(arg0);
         set_position_xy(M2C_FIELD(arg0, s32 *, 0x38), get_scale__15TShopWindowBaseFv(arg0), temp_f31);
@@ -142,7 +142,7 @@ void THunterGuildSeqOffline__sub_8021488C(u8 *arg0) {
     u32 temp_r3;
     stack.sp8 = lbl_805DC658;
     stack.spC = lbl_805DC65C;
-    TShopSequence__sub_80223600((void *) (arg0), (int) (TWindowSubComCard__sub_8026CBB8((s32)((int) (0x2C)))), (void *) (&stack.sp8));
+    TShopSequence__sub_80223600((void *) (arg0), (int) (get_window_layout_position((s32)((int) (0x2C)))), (void *) (&stack.sp8));
     if (TCameraCtrl__sub_8006B368() == 0) {
         temp_r3 = __nw__7TObjectFUl((int) (0x80));
         if (temp_r3 != 0U) {

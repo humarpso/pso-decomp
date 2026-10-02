@@ -11,7 +11,7 @@ struct RecoveredGlobal_801058AC_lbl_8049EE60 {
 };
 
 extern "C" {
-u8 TWindowSubComCard__sub_801058F8(u8 *arg0);
+u8 is_script_controlled__10TObjPlayerFPv(u8 *arg0);
 void clear_id__10TObjPlayerFPv(void *);
 void fn_80103674(void);
 s32 fn_8010F210(s32);
@@ -49,7 +49,7 @@ void TObjPlayer__sub_801058AC(void) {
 
 void fn_801058E8(void* p) { *(u8*)((char*)p + 0x7) |= 0x1; }
 
-u8 TWindowSubComCard__sub_801058F8(u8 *arg0) {
+u8 is_script_controlled__10TObjPlayerFPv(u8 *arg0) {
     return (u8) (M2C_FIELD(arg0, s16 *, 0x324) == 6);
 }
 

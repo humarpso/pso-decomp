@@ -53,7 +53,7 @@ void TObjEneDf2Bringer__sub_8009A2A4(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, const void *);
 void *csnVector(void *, void *, s32);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
-void TLobby__sub_800869A4(void *, s32, s32, s32);
+void create_timed_particle_emitter(void *, s32, s32, s32);
 void TObjEneDf2Bringer__sub_8009A11C(void* p);
 void update_enemy_collision_flags__10TObjPlayerFPv(void *);
 void TBoss6Type1__sub_803D9370(void *, void *);
@@ -109,7 +109,7 @@ void TObjEneDf2Bringer__sub_80099F0C(Bringer_80099F0C *self) {
         VecCopy__FP3VecPC3Vec(&e, &self->pos);
         e.x = self->next * self->dirx + e.x;
         e.z = self->next * self->dirz + e.z;
-        TLobby__sub_800869A4(&e, 0xEE, 0, 1);
+        create_timed_particle_emitter(&e, 0xEE, 0, 1);
         self->next += inc;
     }
     self->next -= step;

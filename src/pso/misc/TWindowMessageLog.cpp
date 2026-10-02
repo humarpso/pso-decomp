@@ -30,7 +30,7 @@ void TWindowMessageLog__sub_8026A494(u8 *arg0);
 extern "C" {
 
 s32 get_active_photon_object__17TWindowMessageLogFv(void);
-s32 TObjPlayer__sub_80019248(s32);
+s32 is_locally_controlled__10TObjPlayerFPv(s32);
 s32 find_entity_by_id();
 s32 obj_isState2_324();
 
@@ -42,7 +42,7 @@ s32 get_active_photon_object__17TWindowMessageLogFv(void) {
     if (temp_r3 == 0) {
         return 0;
     }
-    if ((obj_isState2_324() == 0) && (TObjPlayer__sub_80019248(temp_r3) == 0)) {
+    if ((obj_isState2_324() == 0) && (is_locally_controlled__10TObjPlayerFPv(temp_r3) == 0)) {
         return 0;
     }
     var_r3 = temp_r3 + 0x85C;

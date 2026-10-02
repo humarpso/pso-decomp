@@ -177,7 +177,7 @@ void* init_state_445__10TObjPlayerFPv(void* a0);
 void set_radar_marker_params__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 void update_swim_flag__10TObjPlayerFPv(void *arg0);
 s32 TObjPlayer__sub_8011F63C();
-M2C_UNK TObjPlayer__sub_80120304(M2C_UNK *, void *);
+M2C_UNK get_weapon_color__11TItemWeaponFPv(M2C_UNK *, void *);
 int TObjPlayer__sub_80120D50(void);
 M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, M2C_UNK *);
 M2C_UNK create_item_eff_cane__10TObjPlayerFiUiii(s32, void *, M2C_UNK, s32);
@@ -189,7 +189,7 @@ void set_radar_marker_params__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg1, f32 *, 0x4C) = (f32) M2C_FIELD(arg0, f32 *, 0x200);
     M2C_FIELD(arg1, s32 *, 0x58) = 0xC000;
     M2C_FIELD(arg1, s32 *, 0x40) = (s32) (M2C_FIELD(arg1, s32 *, 0x40) | 2);
-    TObjPlayer__sub_80120304(&sp8, arg0);
+    get_weapon_color__11TItemWeaponFPv(&sp8, arg0);
     copy_vec4__13TRaderMapCoreFPvPv(arg1 + 0x60, &sp8);
     M2C_FIELD(arg1, s32 *, 0x74) = (s32) M2C_FIELD(arg0, s32 *, 0x208);
     M2C_FIELD(arg1, s32 *, 0x70) = (s32) M2C_FIELD(arg0, s32 *, 0x204);

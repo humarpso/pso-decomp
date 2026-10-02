@@ -136,7 +136,7 @@ s32 obj_getField1c(int);
 s32 is_split_screen();
 void *spawn_particle_effect_with_flags(void *, int, int);
 void set_owner_id__13TParticleCtrlFPvUs(void *, s32);
-s32 TWindowSubComCard__sub_801058F8(void *);
+s32 is_script_controlled__10TObjPlayerFPv(void *);
 void *__nw__7TObjectFUl(int);
 Obj_8022AE10 *TTecAnti__sub_8022AE10(Obj_8022AE10 *self, const Vec_8022AE10 *body, const Vec_8022AE10 *ground, s32 actor, void *parent);
 int fn_80235BDC(void *, void *, int, int, void *);
@@ -206,7 +206,7 @@ void TTecAnti__vt5(Anti_8022AEF8 *self, Player_8022AEF8 *pl) {
     void *o;
     hit.type = 7;
     hit.power = self->power;
-    if (TWindowSubComCard__sub_801058F8(pl) != 0) {
+    if (is_script_controlled__10TObjPlayerFPv(pl) != 0) {
         return;
     }
     pl->m21(self->caster, hit, 0, 0x10, self->level);

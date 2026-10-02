@@ -37,13 +37,13 @@ void send_switch_on__5TOKeyFv(void* key);
 s32 get_player_by_client_id(u32);
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
-f32 fn_801315A0(void *, void *);
+f32 xyz_distance_squared(void *, void *);
 extern s32 lbl_805D53A0;
 s32 TOKey__sub_8016A310(Self_8016A310 *self);
 s32 get_player_data__10TObjPlayerFi(int);
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
-f32 fn_801315A0(void *, void *);
+f32 xyz_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
 s32 TOKey__sub_8016A280(Obj_8016A280 *arg0);
 }
@@ -61,9 +61,9 @@ void trigger_camera_pan__5TOKeyFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 get_current_floor();
 void *find_entity_by_id(u16);
-M2C_UNK TSwitch__sub_80229258(u16, s32);
+M2C_UNK clear_floor_switch_flag(u16, s32);
 M2C_UNK TSwitch__sub_802292E0(u16);
-M2C_UNK TSwitch__sub_80229318(u16, s32);
+M2C_UNK set_floor_switch_flag(u16, s32);
 M2C_UNK TSwitch__sub_802293A0(u16);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 void __dl__7TObjectFPv(void *);
@@ -150,10 +150,10 @@ void handle_6x05_write_switch_flag(void *arg0) {
         TBoss3Volopt__sub_8022675C(0x4005281F, 0, 0, 0);
     }
     if (M2C_FIELD(arg0, u8 *, 0xB) & 1) {
-        TSwitch__sub_80229318(M2C_FIELD(arg0, u16 *, 8), M2C_FIELD(arg0, s8 *, 0xA));
+        set_floor_switch_flag(M2C_FIELD(arg0, u16 *, 8), M2C_FIELD(arg0, s8 *, 0xA));
         return;
     }
-    TSwitch__sub_80229258(M2C_FIELD(arg0, u16 *, 8), M2C_FIELD(arg0, s8 *, 0xA));
+    clear_floor_switch_flag(M2C_FIELD(arg0, u16 *, 8), M2C_FIELD(arg0, s8 *, 0xA));
 }
 
 void trigger_camera_pan__5TOKeyFPvi(u8 *arg0, s32 arg1) {
@@ -191,7 +191,7 @@ s32 TOKey__sub_8016A280(Obj_8016A280 *arg0) {
         p = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (p != 0) {
             if (get_field_3e4__10TObjPlayerFPv(p) == get_current_floor()) {
-                if (fn_801315A0(p + 0x38, arg0->pos) < arg0->radius * arg0->radius) {
+                if (xyz_distance_squared(p + 0x38, arg0->pos) < arg0->radius * arg0->radius) {
                     return 1;
                 }
             }
@@ -204,7 +204,7 @@ s32 TOKey__sub_8016A310(Self_8016A310 *self) {
     u8 *p = (u8 *)((void *)get_player_by_client_id(lbl_805D53A0));
     if (p != 0) {
         if (get_field_3e4__10TObjPlayerFPv(p) == get_current_floor()) {
-            if (fn_801315A0(p + 0x38, self->pos) < self->range * self->range) {
+            if (xyz_distance_squared(p + 0x38, self->pos) < self->range * self->range) {
                 return 1;
             }
         }

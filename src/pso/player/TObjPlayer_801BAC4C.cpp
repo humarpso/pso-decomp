@@ -18,10 +18,10 @@ M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK play_phase_transition_sound__10TObjPlayerFi(int);
 M2C_UNK clear_flag_bit0__12TCharaMakingFv();
 M2C_UNK enable_making__12TCharaMakingFv();
-M2C_UNK TObjPlayer__sub_803D97F0();
+M2C_UNK push_matrix_from();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK TObjFish__sub_803E46BC(int);
+M2C_UNK draw_chunk_object(int);
 void draw_head_attachments__10TObjPlayerFPv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_state_flag_1__8TItemMagFPv(void *);
@@ -70,7 +70,7 @@ void draw_head_attachments__10TObjPlayerFPv(u8 *arg0) {
     M2C_UNK var_r31;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x8B4) != 0U) {
         get_item_ptr__10TObjPlayerFPvi((void *) (arg0), (int) (0x3A));
-        TObjPlayer__sub_803D97F0();
+        push_matrix_from();
         set_global_param__8TObjFishFi((void *) (arg0 + 0xB88));
         if (M2C_FIELD(arg0, u16 *, 4) & 0x400) {
             TObjPlayer__sub_801415BC();
@@ -81,20 +81,20 @@ void draw_head_attachments__10TObjPlayerFPv(u8 *arg0) {
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x8B0) != 0U) {
         get_item_ptr__10TObjPlayerFPvi((void *) (arg0), (int) (0x3B));
-        TObjPlayer__sub_803D97F0();
+        push_matrix_from();
         set_global_param__8TObjFishFi((void *) (arg0 + 0xA1C));
         if (M2C_FIELD(arg0, u16 *, 4) & 0x400) {
             TObjPlayer__sub_801415BC();
         }
         enable_making__12TCharaMakingFv();
-        TObjFish__sub_803E46BC((int) (M2C_FIELD(arg0, u32 *, 0x8B0)));
+        draw_chunk_object((int) (M2C_FIELD(arg0, u32 *, 0x8B0)));
         clear_flag_bit0__12TCharaMakingFv();
         reset_transform_state__10TObjPlayerFv();
         pop_matrix();
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x8AC) != 0U) {
         get_item_ptr__10TObjPlayerFPvi((void *) (arg0), (int) (0x3B));
-        TObjPlayer__sub_803D97F0();
+        push_matrix_from();
         set_global_param__8TObjFishFi((void *) (arg0 + 0xA1C));
         var_r31 = 0;
         if (M2C_FIELD(arg0, u16 *, 4) & 0x400) {

@@ -40,7 +40,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470();
+M2C_UNK draw_ginja_object();
 extern s32 lbl_805D5B2C;
 extern const f32 lbl_805DBC00;
 extern const f32 lbl_805DBC04;
@@ -73,7 +73,7 @@ void fn_80182E90(u8 *arg0) {
     new_var2 = arg0;
     rotate_matrix_y((int) 0, (int) ((RecoveredFields_80182E90_arg0 *) new_var2)->field_60);
     TLobby__sub_801819E4((int) 8);
-    TObjBoss2Tunnel__sub_803DB470();
+    draw_ginja_object();
     pop_matrix();
   }
 }

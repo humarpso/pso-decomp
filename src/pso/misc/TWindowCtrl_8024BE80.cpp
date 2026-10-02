@@ -13,7 +13,7 @@ typedef struct Ctrl_8024BE80 {
 
 extern "C" {
 s32 obj_isState3_324(void *);
-s32 TWindowSubComCard__sub_801058F8(void *);
+s32 is_script_controlled__10TObjPlayerFPv(void *);
 u16 get_action_flags__10TNpcPlayerFPv(void *);
 s32 get_field_828__10TObjPlayerFPv(void *);
 void *get_player_by_client_id(s32);
@@ -44,7 +44,7 @@ void TWindowCtrl__sub_8024BE80(Ctrl_8024BE80 *self) {
             pl = get_player_by_client_id(get_width__11TWindowCtrlFPv(w));
             if (pl == NULL || TWindowCtrl__sub_8024AF74(lbl_805D53A0) != 0 ||
                 TWindowCtrl__sub_8024B054(lbl_805D53A0) != 0 || TWindowCtrl__sub_8024B048(self) != 0 ||
-                TWindowSubComCard__sub_801058F8(pl) != 0 ||
+                is_script_controlled__10TObjPlayerFPv(pl) != 0 ||
                 (obj_isState3_324(pl) != 0 &&
                  (get_field_828__10TObjPlayerFPv(pl) != 0 || get_action_flags__10TNpcPlayerFPv(pl) == 0xFFFF))) {
                 TWindowSubTradeMain__sub_80244A4C(w);

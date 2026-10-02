@@ -75,7 +75,7 @@ extern s32 lbl_805D5A04;
 extern void *lbl_805D5A08;
 void render__14TOKeyAncient02Fv(u8 *arg0);
 s32 TObjFish__sub_8001EDB0(void *, s32);
-s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 get_bml_model(void *, s32);
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 int alloc_buffer__11TOBoss4RockFPv(void *);
@@ -87,7 +87,7 @@ extern s32 lbl_805D5A04;
 extern void *lbl_805D5A08;
 void TOKeyAncient02__sub_8016B5A4(void);
 s32 TObjFish__sub_8001EDB0(void *, s32);
-s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 get_bml_model(void *, s32);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_80154E3C(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
@@ -268,7 +268,7 @@ void TOKeyAncient02__sub_8016B5A4(void) {
     (*(s32 *)&lbl_805D5A08) = alloc_buffer__11TOBoss4RockFPv((void *)8);
     M2C_FIELD((*(s32 *)&lbl_805D5A08), s32 *, 0) = TObjFish__sub_8001EDB0((*(u8 * *)&lbl_805D5A00), 0);
     M2C_FIELD((*(s32 *)&lbl_805D5A08), u8 **, 4) = TLanguage__sub_801E4874((s32) &lbl_80441A74.value);
-    lbl_805D5A04 = TObjFish__sub_8001EDC4((*(u8 * *)&lbl_805D5A00), 0);
+    lbl_805D5A04 = get_bml_model((*(u8 * *)&lbl_805D5A00), 0);
 }
 
 void *__dt__14TOKeyAncient02Fv(void *arg0, s16 arg1) {
@@ -290,7 +290,7 @@ u8 *TOKeyAncient02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3024;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     init_switch_id__5TOKeyFPv((void *) (arg0));
-    M2C_FIELD(arg0, u8 **, 0x34) = ((u8 *)TObjFish__sub_8001EDC4((void *)((*(s32 *)&lbl_805D5A00)), (s32)(1)));
+    M2C_FIELD(arg0, u8 **, 0x34) = ((u8 *)get_bml_model((void *)((*(s32 *)&lbl_805D5A00)), (s32)(1)));
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *)((void *) ((*(s32 *)&lbl_805D5A00))), (s32)((int) (1)));
     TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B2A8C.value), (int) (1));
     TObjPlayer__sub_80154E3C((void *) (arg0));

@@ -36,8 +36,8 @@ void reset_volopt_state__10TObjPlayerFv(void);
 void unequip_by_field326__10TObjPlayerFPv(void *arg0);
 s32 TFontSmallLobby__sub_801AFEE0();
 int TFontSmallLobby__sub_801C0228(void*);
-s32 TObjFish__sub_803E46BC(s32);
-s32 TObjPlayer__sub_80019248(u32);
+s32 draw_chunk_object(s32);
+s32 is_locally_controlled__10TObjPlayerFPv(u32);
 int is_item_area_enabled(void);
 M2C_UNK fn_801C05A0(M2C_UNK *);
 M2C_UNK fn_801C05B4(M2C_UNK *);
@@ -112,10 +112,10 @@ void unequip_by_field326__10TObjPlayerFPv(void *arg0) {
 }
 void play_phase_transition_sound__10TObjPlayerFi(s32 arg0) {
     if (((get_main_phase() == 0xE) || (get_main_phase() == 0xF)) && (TFontSmallLobby__sub_801AFEE0() != 0)) {
-        TObjFish__sub_803E46BC(arg0);
+        draw_chunk_object(arg0);
         return;
     }
-    TObjFish__sub_803E46BC(arg0);
+    draw_chunk_object(arg0);
 }
 void reset_volopt_state__10TObjPlayerFv(void) { get_field_3e0__12TBoss3VoloptFPv(); is_item_area_enabled(); }
 
@@ -134,7 +134,7 @@ void foreach_player__10TObjPlayerFv(M2C_UNK (*arg0)(u32)) {
     var_r31 = 0;
     do {
         temp_r28 = var_r30[var_r31];
-        if ((temp_r28 != 0U) && (TObjPlayer__sub_80019248(temp_r28) != 0)) {
+        if ((temp_r28 != 0U) && (is_locally_controlled__10TObjPlayerFPv(temp_r28) != 0)) {
             var_r27(temp_r28);
         }
         var_r29 += 1;

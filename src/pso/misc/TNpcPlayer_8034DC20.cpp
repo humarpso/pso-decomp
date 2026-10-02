@@ -58,7 +58,7 @@ extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_80478C68;
 s32 TNpcPlayer__sub_8034DE40(void);
 M2C_UNK __dt__7TObjectFv(void *, int);
 s32 obj_isState3_324(int);
-s32 TWindowSubComCard__sub_801058F8();
+s32 is_script_controlled__10TObjPlayerFPv();
 u16 get_action_flags__10TNpcPlayerFPv(int);
 u8 *get_player_by_client_id(s32);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -103,7 +103,7 @@ u8 *TNpcPlayer__sub_8034DC24(u8 *arg0, s16 arg1) {
       temp_r3 = (u8 *) get_player_by_client_id(var_r31);
       if (temp_r3 != 0)
       {
-        if (TWindowSubComCard__sub_801058F8() != 0)
+        if (is_script_controlled__10TObjPlayerFPv() != 0)
         {
           if (temp_r3 != 0)
           {

@@ -30,7 +30,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TObjFish__sub_803E46BC(void *);
+M2C_UNK draw_chunk_object(void *);
 extern char lbl_804763D4[];
 extern char lbl_804763E4[];
 extern char lbl_804763F4[];
@@ -83,14 +83,14 @@ void TObjEneRecon__sub_8031E88C(u8 *arg0) {
         }
         clear_global_flag_400__9TObjEneDDFv();
         toggle_particle_effect__10TObjPlayerFv();
-        TObjFish__sub_803E46BC((void *) (M2C_FIELD(arg0, s32 *, 0x34)));
+        draw_chunk_object((void *) (M2C_FIELD(arg0, s32 *, 0x34)));
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
     }
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-    TObjFish__sub_803E46BC((void *) (lbl_805D28B8));
+    draw_chunk_object((void *) (lbl_805D28B8));
     pop_matrix();
 }
 

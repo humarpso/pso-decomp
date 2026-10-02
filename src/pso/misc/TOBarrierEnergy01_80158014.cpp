@@ -45,7 +45,7 @@ struct RecoveredGlobal_80158188___vt__17TOBarrierEnergy01 {
 
 extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, s32);
-s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 get_bml_model(void *, s32);
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 int alloc_buffer__11TOBoss4RockFPv(void *);
@@ -57,7 +57,7 @@ extern s32 *TOBarrierEnergy01__data_805D5894;
 extern s32 lbl_805D5898;
 void TOBarrierEnergy01__sub_80158078(void);
 u8 *TObjFish__sub_8001ED9C(s32, s32);
-s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 get_bml_model(void *, s32);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_80154E3C(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
@@ -115,7 +115,7 @@ void TOBarrierEnergy01__sub_80158078(void) {
         var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804AFB24.value, 0, 0, 0));
     }
     (*(u8 * *)&lbl_805D5890) = (unsigned char *) ((void *) var_r0);
-    lbl_805D5898 = TObjFish__sub_8001EDC4((void *) var_r0, 0);
+    lbl_805D5898 = get_bml_model((void *) var_r0, 0);
     (*(s32 *)&TOBarrierEnergy01__data_805D5894) = alloc_buffer__11TOBoss4RockFPv((void *)0xC);
     M2C_FIELD((*(s32 *)&TOBarrierEnergy01__data_805D5894), u8 **, 0) = TLanguage__sub_801E4874((s32) &lbl_80440200.value);
     M2C_FIELD((*(s32 *)&TOBarrierEnergy01__data_805D5894), s32 *, 4) = TObjFish__sub_8001EDB0((*(u8 * *)&lbl_805D5890), 1);
@@ -142,7 +142,7 @@ u8 *TOBarrierEnergy01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80158188___vt__17TOBarrierEnergy01 *)&__vt__17TOBarrierEnergy01).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2EA0;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((void *)((void *) ((*(s32 *)&lbl_805D5890))), (s32)((int) (1)));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *)((void *) ((*(s32 *)&lbl_805D5890))), (s32)((int) (1)));
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) *TOBarrierEnergy01__data_805D5894;
     M2C_FIELD(arg0, u8 **, 0xBC) = TObjFish__sub_8001ED9C((*(s32 *)&lbl_805D5890), 0);
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB2D8);

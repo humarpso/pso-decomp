@@ -128,7 +128,7 @@ extern s32 lbl_805D6854;
 extern const f32 lbl_805DE668;
 void TObjEneMe1GiGue__sub_802CAF24(s32 arg0);
 s32 render_anim_model__10TObjPlayerFPvf(void *, f32);
-s32 TObjPlayer__sub_803D97F0(u32);
+s32 push_matrix_from(u32);
 s32 pop_matrix(void);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
@@ -145,7 +145,7 @@ f32 TObjPlayer__sub_8013153C(void *, s32);
 void TBoss4Zako__sub_803D8910(void *, void *);
 void TCameraCtrl__sub_803D8934(int, Vec_802CAD98 *, void *);
 M2C_UNK rotate_matrix_y(int, int);
-s32 TObjPlayer__sub_803D97F0(u32);
+s32 push_matrix_from(u32);
 s32 pop_matrix(void);
 extern Vec_802CAD98 lbl_80472280;
 extern Vec_802CAD98 lbl_8047228C;
@@ -156,7 +156,7 @@ extern const f32 TObjEneMe1GiGue__data_805DE664;
 void TObjEneMe1GiGue__sub_802CAD98(u8 *arg0, Vec_802CAD98 *arg1);
 s16 obj_getField1c(void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-s32 TObjPlayer__sub_80141F84(s32, s32);
+s32 angle_difference_abs(s32, s32);
 void TBoss6Type1__sub_803D9370(Vec_802CB170 *, Vec_802CB170 *);
 extern const f64 TObjEneMe1GiGue__data_80472298;
 void TObjEneMe1GiGue__sub_802CB170(Gi_802CB170 *self, Tgt_802CB170 *t);
@@ -224,7 +224,7 @@ void TObjEneMe1GiGue__sub_802CAD98(u8 *arg0, Vec_802CAD98 *arg1) {
     ang = (s32) (TObjEneMe1GiGue__data_80472298 * get_ad_end_text_start__10TObjPlayerFv(arg1->x, arg1->z));
     best = TObjEneMe1GiGue__data_805DE660;
     bestAng = ang;
-    TObjPlayer__sub_803D97F0((u32) &lbl_8058D490);
+    push_matrix_from((u32) &lbl_8058D490);
     Vec_802CAD98 v = lbl_80472280;
     rotate_matrix_y(0, ang);
     for (i = 0; i < 3; i++) {
@@ -244,7 +244,7 @@ void TObjEneMe1GiGue__sub_802CAD98(u8 *arg0, Vec_802CAD98 *arg1) {
         ang += 0x5555;
     }
     pop_matrix();
-    TObjPlayer__sub_803D97F0((u32) &lbl_8058D490);
+    push_matrix_from((u32) &lbl_8058D490);
     Vec_802CAD98 w = lbl_8047228C;
     w.x = best;
     rotate_matrix_y(0, bestAng);
@@ -274,7 +274,7 @@ void update_direction__15TObjEneMe1GiGueFPv(void *arg0) {
 }
 typedef char RecoveredGlobal_802CB03C_lbl_8058D490_size[sizeof(RecoveredGlobal_802CB03C_lbl_8058D490) == 0x30 ? 1 : -1];
 void TObjEneMe1GiGue__sub_802CB03C(u8 *arg0) {
-    TObjPlayer__sub_803D97F0((u32) &lbl_8058D490.value);
+    push_matrix_from((u32) &lbl_8058D490.value);
     translate_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) (M2C_FIELD(arg0, f32 *, 0x3EC) + (M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x3E8))), (f32) (M2C_FIELD(arg0, f32 *, 0x40)));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     set_global_flag__10TObjPlayerFv();
@@ -306,7 +306,7 @@ void TObjEneMe1GiGue__sub_802CB170(Gi_802CB170 *self, Tgt_802CB170 *t) {
     if (!(((v.x * v.x) + (v.z * v.z)) > (self->range * self->range)))
     {
       new_var = (-((s32) (((const f64 *)&TObjEneMe1GiGue__data_80472298)[0] * get_ad_end_text_start__10TObjPlayerFv(v.z, v.x)))) + 0x4000;
-      if (TObjPlayer__sub_80141F84(new_var, self->angle) <= (self->fov / 2))
+      if (angle_difference_abs(new_var, self->angle) <= (self->fov / 2))
       {
         self->list[self->count++] = obj_getField1c(t);
       }

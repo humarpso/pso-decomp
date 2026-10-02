@@ -187,7 +187,7 @@ void queue_destruction__7TObjectFv(void *);
 void TBoss8Dragon__sub_8005FCE4(O_8005FCE4 *self, s32 msg);
 void scale_size__12TBoss8DragonFPvfff(void *arg0, f32 farg0, f32 farg1, f32 farg2);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
-u8 *TObjEneDD__sub_800BAE74(u8 *arg0, u8 *arg1);
+u8 *try_move_actor_xz_on_ground(u8 *arg0, u8 *arg1);
 void calc_shot_position__9TObjEneDDFPvPvfff(void *, void *, f32, f32, f32);
 extern f32 lbl_80437DF4[];
 extern f32 lbl_80437E04[];
@@ -251,7 +251,7 @@ void TBoss8Dragon__sub_8005FBC4(Obj_8005FBC4 *arg0) {
         v.z = arg0->vel.z;
         len = clamp_velocity__15TObjBoss2TunnelFPv(&v);
         calc_shot_position__9TObjEneDDFPvPvfff(arg0, &shot, v.x, v.z, len);
-        TObjEneDD__sub_800BAE74((u8 *)arg0, (u8 *)&shot);
+        try_move_actor_xz_on_ground((u8 *)arg0, (u8 *)&shot);
     } else {
         arg0->pos.x += arg0->vel.x;
         arg0->pos.y += arg0->vel.y;

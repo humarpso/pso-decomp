@@ -79,7 +79,7 @@ s32 obj_getPtr2B0_20(TObjPlayer*);
 s32 obj_isState3_324(TObjPlayer*);
 void* get_item_field_6__10TObjPlayerFPv(TObjPlayer*);
 s32 get_field_d8__10TObjPlayerFPv(void*);
-s32 TWindowSubComCard__sub_801058F8(TObjPlayer*);
+s32 is_script_controlled__10TObjPlayerFPv(TObjPlayer*);
 s32 check_flag_01000000__10TObjPlayerFPv(TObjPlayer*);
 s32 is_technique_ready__8TTecCtrlFv();
 void TObjPlayer__sub_801B9EDC(TObjPlayer*,s32);
@@ -148,7 +148,7 @@ void drop_items_on_death__10TObjPlayerFPv(TObjPlayer* player) {
     TItemData* item;
     void* equipped;
     PlayerDeathItemFields* fields=(PlayerDeathItemFields*)player;
-    if (fields->inventory_owner==NULL || obj_isState3_324(player)!=0 || TWindowSubComCard__sub_801058F8(player)!=0) {
+    if (fields->inventory_owner==NULL || obj_isState3_324(player)!=0 || is_script_controlled__10TObjPlayerFPv(player)!=0) {
         return;
     }
     __construct_array(records,init_c2098_return_self__10TObjPlayerFPv,NULL,sizeof(DeathDropRecord),9);

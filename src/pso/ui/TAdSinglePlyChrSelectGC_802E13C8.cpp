@@ -41,7 +41,7 @@ struct Self_802E1A8C {
 };
 
 extern "C" {
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+s32 get_localized_text_entry(s32, s32);
 void TAdSinglePlyChrSelectGC__sub_802E1A04(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 TAdPlayerLoadGC__sub_801E2048(s32, s32);
 extern RecoveredGlobal_802E14B8_lbl_804C89BC lbl_804C89BC;
@@ -320,13 +320,13 @@ void close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void* p, void* a1,
 void TAdSinglePlyChrSelectGC__sub_802E1A04(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     s32 temp_r31;
     s32 var_r6;
-    temp_r31 = TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, arg1);
+    temp_r31 = get_localized_text_entry(0x1C, arg1);
     var_r6 = 0;
     if (arg3 >= 0) {
-        var_r6 = TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, arg3);
+        var_r6 = get_localized_text_entry(0x1C, arg3);
     }
     if (arg4 >= 0) {
-        var_r6 = TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, arg4);
+        var_r6 = get_localized_text_entry(0x1C, arg4);
     }
     TAdSinglePlyChrSelectGC__sub_802E1A8C((Self_802E1A8C *)((void*)((void *) (arg0))), (void *)((void*)((int) (temp_r31))), (s32)((void*)((void *) (arg2))), (void *)((void*)((int) (var_r6))), (void *)((void*)((int) (0))));
 }

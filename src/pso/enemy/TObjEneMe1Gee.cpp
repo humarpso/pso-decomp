@@ -1947,10 +1947,10 @@ extern "C" {
 
 void draw_model__13TObjEneMe1GeeFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470();
+M2C_UNK draw_ginja_object();
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjFish__sub_8001EDB0(void *, int);
-M2C_UNK TObjFish__sub_8001EDC4(void *, int);
+M2C_UNK get_bml_model(void *, int);
 M2C_UNK set_global_param__8TObjFishFi();
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -1973,8 +1973,8 @@ void draw_model__13TObjEneMe1GeeFPv(u8 *arg0) {
     rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xA0)));
     TObjFish__sub_8001EDB0((void *) (lbl_805D6660), (int) (1));
     set_global_param__8TObjFishFi();
-    TObjFish__sub_8001EDC4((void *) (lbl_805D6660), (int) (1));
-    TObjBoss2Tunnel__sub_803DB470();
+    get_bml_model((void *) (lbl_805D6660), (int) (1));
+    draw_ginja_object();
     end_effect_render__13TParticleCtrlFv();
     pop_matrix();
 }

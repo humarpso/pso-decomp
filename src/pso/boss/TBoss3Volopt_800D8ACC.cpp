@@ -15,7 +15,7 @@ typedef struct Vec_800D8C48 {
 
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK TLobby__sub_800869A4(void *, int, int, int);
+M2C_UNK create_timed_particle_emitter(void *, int, int, int);
 M2C_UNK spawn_particle_effect(void *, int, f32);
 extern const f32 lbl_805DA3C0;
 void TBoss3Volopt__sub_800D8F78(s32 arg0);
@@ -187,7 +187,7 @@ void TBoss3Volopt__sub_800D8F78(s32 arg0) {
     Stack_800D8F78 stack;
     f32 temp_f1;
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0));
-    TLobby__sub_800869A4((void *) (arg0), (int) (0xEA), (int) (0xA), (int) (0x1E));
+    create_timed_particle_emitter((void *) (arg0), (int) (0xEA), (int) (0xA), (int) (0x1E));
     temp_f1 = stack.spC;
     stack.spC = temp_f1 + lbl_805DA3C0;
     spawn_particle_effect((void *) (&stack.sp8), (int) (0xE9), (f32) (temp_f1));

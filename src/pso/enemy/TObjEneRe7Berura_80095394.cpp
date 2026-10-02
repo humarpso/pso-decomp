@@ -132,7 +132,7 @@ struct Berura_800954E8 {
 extern "C" {
 void fn_80095DD0(u8 *arg0);
 void fn_80095DF4(u8 *arg0);
-M2C_UNK TBoss8Dragon__sub_800BB780();
+M2C_UNK clear_attack_receipts();
 int transition_enemy_state(void*, void*);
 void TObjEneRe7Berura__vt60(u8 *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -175,7 +175,7 @@ int is_patrol_active__21TObjEneRe7BeruraPunchFPv(void* p);
 
 void TObjEneRe7Berura__vt60(u8 *arg0) {
     if ((M2C_FIELD(arg0, s32 *, 0x3C0) & 4) || ((s32) (M2C_FIELD(arg0, s16 *, 0x33E) - M2C_FIELD(arg0, s16 *, 0x32C)) < (s32) ((s16) M2C_FIELD(arg0, s16 *, 0x2B8) / 5))) {
-        TBoss8Dragon__sub_800BB780();
+        clear_attack_receipts();
         return;
     }
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 0xA) {

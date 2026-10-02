@@ -156,7 +156,7 @@ void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_805D2A98;
 void TPlayerBattleCtrl4P__sub_80311304(void *self, Par_80311304 *p);
 s32 obj_getField1c(void);
-void TCameraCtrl__sub_8006A410(void *, int);
+void reset_cameras_to_actor(void *, int);
 void TObjPlayer__sub_801BC068(void *, int);
 void destroy__23TAdSinglePlyChrSelectGCFv(void);
 void init_scene_objects__6TLobbyFv(void);
@@ -205,7 +205,7 @@ void reset_score_counters__19TPlayerBattleCtrl4PFPv(void* p);
 s32 set_state__19TPlayerBattleCtrl4PFPv(void *arg0);
 void update_players__19TPlayerBattleCtrl4PFv(void);
 M2C_UNK TLobby__sub_801B09A4();
-int TLobby__sub_8022727C(void*);
+int play_cue_stream_file(void*);
 void *get_player_by_client_id(s32);
 int fn_801C23A8(void*, void*);
 M2C_UNK inc_player_count__10TObjPlayerFv();
@@ -369,7 +369,7 @@ void init__19TPlayerBattleCtrl4PFv(void) {
 }
 
 int init_ctrl_default__19TPlayerBattleCtrl4PFPv(void* p) { return ((int (*)(void*, int))TPlayerBattleCtrl4P__sub_803112AC)(p, 0); }
-void notify_lobby__19TPlayerBattleCtrl4PFPvPvPv(void* p, void* a1, void* a2) { TLobby__sub_8022727C(a1); fn_801C23A8((void*)-50, a2); }
+void notify_lobby__19TPlayerBattleCtrl4PFPvPvPv(void* p, void* a1, void* a2) { play_cue_stream_file(a1); fn_801C23A8((void*)-50, a2); }
 void reset_score_counters__19TPlayerBattleCtrl4PFPv(void* p) { *(s32*)((char*)p + 0x260) = 0; *(s32*)((char*)p + 0x290) = 0; }
 
 void TPlayerBattleCtrl4P__sub_80310674(void) {
@@ -631,7 +631,7 @@ void TPlayerBattleCtrl4P__sub_80311380(Ctl_80311380 *o) {
         p = (void *)get_player_by_client_id(i);
         if (p != 0) {
             TObjPlayer__sub_801BC068(p, o->tbl[(u16)obj_getField1c()]);
-            TCameraCtrl__sub_8006A410(p, 0);
+            reset_cameras_to_actor(p, 0);
         }
     }
     TPlayerBattleCtrl4P__sub_80311304((void *)(o), (Par_80311304 *)(tl_05));

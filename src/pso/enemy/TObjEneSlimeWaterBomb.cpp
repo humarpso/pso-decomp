@@ -40,7 +40,7 @@ struct Bomb_800E9090 {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 *dispatch_shared_handler_a__6TLobbyFPv(s32);
-s32 TBoss4Type2__sub_800874F4(void *, int);
+s32 create_particle_emitter(void *, int);
 s32 get_attack_target__15TObjEneSlimeOneFPv(s32);
 s32 initialize__9TObjEnemyFPv(void *, void *);
 f32 TBoss8Dragon__sub_803D64C0(s32);
@@ -67,7 +67,7 @@ extern const f32 lbl_805DA6D8;
 extern const f32 lbl_805DA6DC;
 void run_task__21TObjEneSlimeWaterBombFv(Bomb_800E8D4C *arg0);
 M2C_UNK TObjPlayer__sub_800F09E8(int);
-M2C_UNK TBoss1Dragon__sub_8014220C(void *, s32 *, s32 *);
+M2C_UNK direction_to_rotation_xz(void *, s32 *, s32 *);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_x(int, int);
@@ -85,7 +85,7 @@ M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
 void TBoss6Type1__sub_803D9370(void *, void *);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
-s32 TObjFish__sub_8001EDC4(s32, s32);
+s32 get_bml_model(s32, s32);
 void init_render_globals__10TObjPlayerFv(void);
 void TObjPlayer__sub_800EBE74(f32, f32, f32, f32);
 void set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
@@ -95,7 +95,7 @@ int TObjPlayer__sub_803D9B2C(void*);
 int pop_matrix(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-void TObjFish__sub_803E46BC(s32);
+void draw_chunk_object(s32);
 extern const f64 lbl_8043D280;
 extern s32 lbl_804966E4[];
 extern const f32 lbl_805DA678;
@@ -130,7 +130,7 @@ void render__21TObjEneSlimeWaterBombFv(u8 *arg0) {
     f32 k;
     TObjPlayer__sub_803D9B2C(arg0);
     translate_matrix(0, M2C_FIELD(arg0, f32 *, 0x38), lbl_805DA670 + M2C_FIELD(arg0, f32 *, 0x380), M2C_FIELD(arg0, f32 *, 0x40));
-    TBoss1Dragon__sub_8014220C(arg0 + 0x248, &spC, &sp8);
+    direction_to_rotation_xz(arg0 + 0x248, &spC, &sp8);
     rotate_matrix_z(0, sp8);
     rotate_matrix_x(0, spC + 0x4000);
     d = M2C_FIELD(arg0, f32 *, 0x3C) - M2C_FIELD(arg0, f32 *, 0x380);
@@ -228,7 +228,7 @@ void *TObjEneSlimeWaterBomb__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, f32 *, 0x378) = lbl_805DA6B4;
     M2C_FIELD(arg0, f32 *, 0x37C) = lbl_805DA6D8 * c;
     M2C_FIELD(arg0, f32 *, 0x384) = lbl_805DA6B4;
-    M2C_FIELD(arg0, s32 *, 0x388) = TBoss4Type2__sub_800874F4((u8 *) arg0 + 0x38, 0xCF);
+    M2C_FIELD(arg0, s32 *, 0x388) = create_particle_emitter((u8 *) arg0 + 0x38, 0xCF);
     M2C_FIELD(arg0, f32 *, 0x390) = *dispatch_shared_handler_a__6TLobbyFPv(lbl_804966EC[get_attack_target__15TObjEneSlimeOneFPv(M2C_FIELD(arg0, s32 *, 0x38C))]);
     if (M2C_FIELD(arg0, f32 *, 0x390) < lbl_805DA6B4) {
         M2C_FIELD(arg0, f32 *, 0x390) = lbl_805DA6B4;
@@ -272,7 +272,7 @@ void TObjPlayer__sub_800E9090(Bomb_800E9090 *self) {
     set_monitor_position_vec3__10TObjPlayerFPvPv(0, &b);
     t = lbl_804966E4[self->f3F4];
     set_global_param__8TObjFishFi(TObjFish__sub_8001EDB0(self->f380, t));
-    TObjFish__sub_803E46BC(TObjFish__sub_8001EDC4(self->f380, t));
+    draw_chunk_object(get_bml_model(self->f380, t));
     pop_matrix();
     init_render_globals__10TObjPlayerFv();
 }

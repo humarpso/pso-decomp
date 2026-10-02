@@ -8,7 +8,7 @@ struct RecoveredGlobal_80010E44_lbl_8050EA40
 };
 
 extern "C" {
-int TObjPlayer__sub_80019248(void *);
+int is_locally_controlled__10TObjPlayerFPv(void *);
 u8 TOMineTrap__sub_801D7238(void *);
 M2C_UNK TOMineTrap__sub_801B0300(void *, void *, void *);
 extern RecoveredGlobal_80010E44_lbl_8050EA40 lbl_8050EA40;
@@ -21,7 +21,7 @@ typedef struct RecoveredGlobal_80010E44_lbl_8050EA40 RecoveredGlobal_80010E44_lb
 #pragma opt_pointer_analysis on
 typedef char RecoveredGlobal_80010E44_lbl_8050EA40_size[((sizeof(RecoveredGlobal_80010E44_lbl_8050EA40)) == 0x30) ? (1) : (-1)];
 void TObjPlayer__sub_80010E44(u8 *arg0, u32 arg1, s32 arg2) {
-  if ((((TOMineTrap__sub_801D7238(&lbl_8050EA40.value) == 1) && (TObjPlayer__sub_80019248(arg0) != 0)) && (arg2 > 0)) && (arg1 != 0U))
+  if ((((TOMineTrap__sub_801D7238(&lbl_8050EA40.value) == 1) && (is_locally_controlled__10TObjPlayerFPv(arg0) != 0)) && (arg2 > 0)) && (arg1 != 0U))
   {
     TOMineTrap__sub_801B0300((void *) arg0, (void *) arg1, (void *) arg2);
   }

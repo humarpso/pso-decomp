@@ -202,11 +202,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void warn_if_empty__17TWindowOptionCtrlFPv(u8 *arg0);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
+M2C_UNK get_localized_text_entry(M2C_UNK, M2C_UNK);
 
 void warn_if_empty__17TWindowOptionCtrlFPv(u8 *arg0) {
     if ((arg0 == NULL) || ((s8) *arg0 == 0)) {
-        TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 0x19);
+        get_localized_text_entry(0xF, 0x19);
     }
 }
 
@@ -223,7 +223,7 @@ extern "C" {
 
 s32 create_option_menu__17TWindowOptionCtrlFv(void);
 s32 get_option_field_C__17TWindowOptionCtrlFv();
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
+s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 M2C_UNK set_selected_index__20TWindowSubStatusDispFPvs(s32, s32);
 M2C_UNK add_menu_item__17TWindowOptionCtrlFiii(s32, s32, M2C_UNK);
 s32 refresh_with_default_list__20TWindowSubStatusDispFii(M2C_UNK, M2C_UNK *);
@@ -237,9 +237,9 @@ s32 create_option_menu__17TWindowOptionCtrlFv(void) {
 
     temp_r3 = get_option_entry__17TWindowOptionCtrlFi(0xD0);
     temp_r31 = refresh_with_default_list__20TWindowSubStatusDispFii(temp_r3, lbl_8044F49C);
-    add_menu_item__17TWindowOptionCtrlFiii(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 0x10), 0);
-    add_menu_item__17TWindowOptionCtrlFiii(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 0x11), 1);
-    add_menu_item__17TWindowOptionCtrlFiii(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 0x12), 2);
+    add_menu_item__17TWindowOptionCtrlFiii(temp_r31, get_localized_text_entry(0xF, 0x10), 0);
+    add_menu_item__17TWindowOptionCtrlFiii(temp_r31, get_localized_text_entry(0xF, 0x11), 1);
+    add_menu_item__17TWindowOptionCtrlFiii(temp_r31, get_localized_text_entry(0xF, 0x12), 2);
     set_selected_index__20TWindowSubStatusDispFPvs(temp_r31, (s16) get_option_field_C__17TWindowOptionCtrlFv());
     return temp_r31;
 }
@@ -294,7 +294,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 create_sound_mode_menu__17TWindowOptionCtrlFPv(void *arg0);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
+s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 M2C_UNK set_selected_index__20TWindowSubStatusDispFPvs(s32, M2C_UNK);
 M2C_UNK add_menu_item__17TWindowOptionCtrlFiii(s32, s32, M2C_UNK);
 s32 refresh_with_default_list__20TWindowSubStatusDispFii(s32, M2C_UNK *);
@@ -308,9 +308,9 @@ s32 create_sound_mode_menu__17TWindowOptionCtrlFPv(void *arg0) {
 
     s32 temp_r3_after_cba4 = get_option_entry__17TWindowOptionCtrlFi(0xCF);
     temp_r31 = refresh_with_default_list__20TWindowSubStatusDispFii(temp_r3_after_cba4, lbl_8044F494);
-    add_menu_item__17TWindowOptionCtrlFiii(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 0xE), 0);
-    add_menu_item__17TWindowOptionCtrlFiii(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 0xD), 1);
-    add_menu_item__17TWindowOptionCtrlFiii(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 0xF), 2);
+    add_menu_item__17TWindowOptionCtrlFiii(temp_r31, get_localized_text_entry(0xF, 0xE), 0);
+    add_menu_item__17TWindowOptionCtrlFiii(temp_r31, get_localized_text_entry(0xF, 0xD), 1);
+    add_menu_item__17TWindowOptionCtrlFiii(temp_r31, get_localized_text_entry(0xF, 0xF), 2);
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x20);
     switch (temp_r0) {
     case 0:
@@ -392,7 +392,7 @@ extern "C" {
 
 s32 create_menu__17TWindowOptionCtrlFv(void);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
+s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
 M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
@@ -406,14 +406,14 @@ s32 create_menu__17TWindowOptionCtrlFv(void) {
 
     temp_r3 = get_option_entry__17TWindowOptionCtrlFi(0xCE);
     temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFii(temp_r3, 9);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 0), 6, 3);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 1), 6, 7);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 2), 6, 5);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 3), 6, 9);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 4), 6, 0xB);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 5), 6, 0x10);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 6), 6, 0x19);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 7), 6, 0x1B);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_localized_text_entry(0xF, 0), 6, 3);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_localized_text_entry(0xF, 1), 6, 7);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_localized_text_entry(0xF, 2), 6, 5);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_localized_text_entry(0xF, 3), 6, 9);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_localized_text_entry(0xF, 4), 6, 0xB);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_localized_text_entry(0xF, 5), 6, 0x10);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_localized_text_entry(0xF, 6), 6, 0x19);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_localized_text_entry(0xF, 7), 6, 0x1B);
     TWindowSubComCard__sub_80265E60(temp_r31, lbl_805DD268);
     TWindowSubComCard__sub_80265C30(temp_r31);
     return temp_r31;
@@ -628,7 +628,7 @@ extern "C" {
 
 void set_option_and_confirm__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 arg2);
 void TWindowOptionCtrl__sub_8034C4C4(void* p);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK);
+s32 get_localized_text_entry(M2C_UNK);
 int TLobby__sub_80338534(void);
 int TLobby__sub_80338608(void*);
 M2C_UNK open_confirm_dialog__17TWindowOptionCtrlFPvii(void *, s32, s32);
@@ -636,7 +636,7 @@ M2C_UNK open_confirm_dialog__17TWindowOptionCtrlFPvii(void *, s32, s32);
 void set_option_and_confirm__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 arg2) {
     if (arg1 != (s32) M2C_FIELD(arg0, s32 *, 0x28)) {
         M2C_FIELD(arg0, s32 *, 0x28) = arg1;
-        open_confirm_dialog__17TWindowOptionCtrlFPvii(arg0, TAdSinglePlyChrSelectGC__sub_80132F2C(0x24), arg2);
+        open_confirm_dialog__17TWindowOptionCtrlFPvii(arg0, get_localized_text_entry(0x24), arg2);
     }
 }
 

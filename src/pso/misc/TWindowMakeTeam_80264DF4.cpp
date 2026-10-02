@@ -26,7 +26,7 @@ void set_state__15TWindowMakeTeamFPvi(void *, s32);
 void *__nw__7TObjectFUl(u32);
 void *TKeyBoardControl__ct(void *, void *, s32, s32, s32, s32);
 extern s32 lbl_805D53A0;
-void *TWindowSubComCard__sub_8026CBB8(s32);
+void *get_window_layout_position(s32);
 void set_sub_position__15TWindowMakeTeamFPvPv(void *, void *);
 extern const f32 lbl_805DD144;
 void get_lobby_field_20__15TWindowMakeTeamFPv(void *, f32);
@@ -102,7 +102,7 @@ void run_task__15TWindowMakeTeamFv(Self_80264EB8 *self) {
             kb = TKeyBoardControl__ct(kb, self, 0xE, 0, 4, lbl_805D53A0);
         }
         self->keyboard = kb;
-        set_sub_position__15TWindowMakeTeamFPvPv(self->keyboard, TWindowSubComCard__sub_8026CBB8(0xCB));
+        set_sub_position__15TWindowMakeTeamFPvPv(self->keyboard, get_window_layout_position(0xCB));
         get_lobby_field_20__15TWindowMakeTeamFPv(self->keyboard, lbl_805DD144);
         update_chat_window(self->keyboard);
         get_keyboard_field_6c__15TWindowMakeTeamFPv(self->keyboard, self->name);
@@ -131,7 +131,7 @@ void run_task__15TWindowMakeTeamFv(Self_80264EB8 *self) {
             kb = TKeyBoardControl__ct(kb, self, 0x10, 0, 0, lbl_805D53A0);
         }
         self->keyboard = kb;
-        set_sub_position__15TWindowMakeTeamFPvPv(self->keyboard, TWindowSubComCard__sub_8026CBB8(0xCC));
+        set_sub_position__15TWindowMakeTeamFPvPv(self->keyboard, get_window_layout_position(0xCC));
         get_lobby_field_20__15TWindowMakeTeamFPv(self->keyboard, lbl_805DD144);
         get_keyboard_field_6c__15TWindowMakeTeamFPv(self->keyboard, self->comment);
         TWindowMakeTeam__sub_80268650(self->menu, NULL, 1);

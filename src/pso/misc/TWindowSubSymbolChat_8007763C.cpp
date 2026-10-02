@@ -10,7 +10,7 @@ void* get_data_ptr__20TWindowSubSymbolChatFPv(void* p);
 int get_instance__20TWindowSubSymbolChatFv(void);
 int is_initialized__20TWindowSubSymbolChatFPv(void* p);
 void send_symbol_chat__20TWindowSubSymbolChatFPv(void* p);
-int TAdSinglePlyChrSelectGC__sub_80132F2C(void*, void*);
+int get_localized_text_entry(void*, void*);
 int bswap_16__FPUs(void* a0 = 0);
 int bswap_32__FPUl(void*);
 int fn_80077788(void);

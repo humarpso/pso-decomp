@@ -295,15 +295,15 @@ int TOMineTrap__sub_80170340(void);
 int TOMineTrap__sub_80170348(void);
 void TOMineTrap__sub_80170350(void);
 void TOMineTrap__sub_80170354(void);
-s32 TObjPlayer__sub_80019248(u32 a0);
+s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
 s32 check_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1);
-s32 TObjPlayer__sub_80019248(u32 a0);
+s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
 s32 can_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK fn_801A1F48();
 void TOMineTrap__sub_80170524(u8 *arg0);
 void TOMineTrap__sub_80170570(void);
-int TAdSinglePlyChrSelectGC__sub_80132F2C(void*, void*);
+int get_localized_text_entry(void*, void*);
 void init_trap__10TOMineTrapFv(void);
 s32 get_main_phase();
 void update_state__10TOMineTrapFPv(void *arg0);
@@ -325,7 +325,7 @@ s32 TLobby__sub_80156A80(void*, s16 *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80154954(void *, s16 *);
 extern f32 lbl_805DB85C;
 f32 trigger_explosion__10TOMineTrapFPv(void *arg0);
-s32 TObjPlayer__sub_80019248(u32 a0);
+s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
 s16 obj_getS16_116(s32);
 extern f32 lbl_805DB85C;
 extern const f32 TOMineTrap__data_805DB868;
@@ -341,7 +341,7 @@ void TOMineTrap__sub_80170CD4(void* p);
 int TObjPlayer__sub_80154E3C(void*);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void sync_position__10TOMineTrapFPv(void* p);
-s32 TObjPlayer__sub_80019248(u32 a0);
+s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
 u16 obj_getField1c(void *);
 extern f32 lbl_805DB85C;
 extern const f32 TOMineTrap__data_805DB868;
@@ -414,7 +414,7 @@ void *__dt__10TOMineTrapFv(void *arg0, s16 arg1);
 void* get_mine_data_ptr__10TOMineTrapFPv(void* p);
 void set_state__10TOMineTrapFPv(void* p);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
-s32 TObjPlayer__sub_80019248(u32 a0 = 0);
+s32 is_locally_controlled__10TObjPlayerFPv(u32 a0 = 0);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__6TOMineFv(void *, M2C_UNK);
@@ -531,7 +531,7 @@ s32 check_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x344) == 2) && (arg1 == (u32) M2C_FIELD(arg0, u32 *, 0x2A8))) {
         return 0;
     }
-    if (TObjPlayer__sub_80019248(arg1) != 0) {
+    if (is_locally_controlled__10TObjPlayerFPv(arg1) != 0) {
         return 1;
     }
     return 0;
@@ -543,7 +543,7 @@ s32 can_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x344) == 2) && (arg1 == (u32) M2C_FIELD(arg0, u32 *, 0x2A8))) {
         return 0;
     }
-    if (TObjPlayer__sub_80019248(arg1) != 0) {
+    if (is_locally_controlled__10TObjPlayerFPv(arg1) != 0) {
         return 1;
     }
     return 0;
@@ -554,7 +554,7 @@ void TOMineTrap__sub_80170524(u8 *arg0) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x334), (void *) (arg0 + 0x38));
 }
 void TOMineTrap__sub_80170570(void) {  }
-void init_trap__10TOMineTrapFv(void) { TAdSinglePlyChrSelectGC__sub_80132F2C((void*)16, (void*)16); }
+void init_trap__10TOMineTrapFv(void) { get_localized_text_entry((void*)16, (void*)16); }
 void update_state__10TOMineTrapFPv(void *arg0) {
     s32 temp_r0;
     M2C_FIELD(arg0, s32 *, 0x348) = (s32) M2C_FIELD(arg0, f32 *, 0x70);
@@ -636,7 +636,7 @@ f32 calc_trigger_range__10TOMineTrapFPvi(void *arg0, s32 arg1) {
     if (TOMineTrap__sub_801702C8((Self_801702C8 *)(arg0), (void *)(arg1)) == 1) {
         return lbl_805DB85C;
     }
-    if ((TObjPlayer__sub_80019248((u32)(arg1)) != 0) && (obj_getS16_116(arg1) != 0)) {
+    if ((is_locally_controlled__10TObjPlayerFPv((u32)(arg1)) != 0) && (obj_getS16_116(arg1) != 0)) {
         ((VObj_801708A4_8016F6F8 *)arg0)->v20(0, TOMineTrap__data_805DB868);
     }
     return lbl_805DB85C;
@@ -657,7 +657,7 @@ f32 TOMineTrap__sub_80170924(u8 *arg0, s32 arg1, s32 *arg2) {
     return (*(const f32 *)&lbl_805DB85C);
   }
   var_r31 = 0;
-  if ((obj_getField1c((void *) arg1) < 4U) && (TObjPlayer__sub_80019248((u32)((void *) arg1)) != 0))
+  if ((obj_getField1c((void *) arg1) < 4U) && (is_locally_controlled__10TObjPlayerFPv((u32)((void *) arg1)) != 0))
   {
     var_r31 = 1;
   }

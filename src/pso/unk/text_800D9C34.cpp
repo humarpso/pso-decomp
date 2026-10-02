@@ -115,7 +115,7 @@ extern s32 lbl_805D526C;
 extern s32 lbl_805D5270;
 void TObjPlayer__sub_800D9E08(s32 arg0);
 s32 render_anim_model__10TObjPlayerFPvf(void *, f32);
-s32 TObjPlayer__sub_803D97F0(u32);
+s32 push_matrix_from(u32);
 s32 pop_matrix(void);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
@@ -133,7 +133,7 @@ f32 TObjPlayer__sub_8013153C(void *, s32);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
 M2C_UNK TCameraCtrl__sub_803D8934(int, Vec_800D9C7C *, void *);
 M2C_UNK rotate_matrix_y(int, int);
-s32 TObjPlayer__sub_803D97F0(u32);
+s32 push_matrix_from(u32);
 s32 pop_matrix(void);
 extern Vec_800D9C7C lbl_8043C8E4;
 extern Vec_800D9C7C lbl_8043C8F0;
@@ -144,7 +144,7 @@ extern const f32 lbl_805DA3FC;
 void TObjPlayer__sub_800D9C7C(u8 *arg0, f32 *arg1);
 s16 obj_getField1c(void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-s32 TObjPlayer__sub_80141F84(s32, s32);
+s32 angle_difference_abs(s32, s32);
 void TBoss6Type1__sub_803D9370(Vec_800D9FC4 *, Vec_800D9FC4 *);
 extern const f64 lbl_8043C900[];
 extern const f32 lbl_805DA400;
@@ -178,7 +178,7 @@ void TObjPlayer__sub_800D9C7C(u8 *arg0, f32 *arg1) {
     ang = (s32)(lbl_8043C900[0] * get_ad_end_text_start__10TObjPlayerFv(arg1[0], arg1[2]));
     bestv = lbl_805DA3F8;
     best = ang;
-    TObjPlayer__sub_803D97F0((u32) &lbl_8058D490.value);
+    push_matrix_from((u32) &lbl_8058D490.value);
     {
         Vec_800D9C7C v = lbl_8043C8E4;
         rotate_matrix_y(0, ang);
@@ -202,7 +202,7 @@ void TObjPlayer__sub_800D9C7C(u8 *arg0, f32 *arg1) {
         }
     }
     pop_matrix();
-    TObjPlayer__sub_803D97F0((u32) &lbl_8058D490.value);
+    push_matrix_from((u32) &lbl_8058D490.value);
     {
         Vec_800D9C7C v2 = lbl_8043C8F0;
         v2.x = bestv;
@@ -225,7 +225,7 @@ void TObjPlayer__sub_800D9E08(s32 arg0) {
 typedef char RecoveredGlobal_800D9E8C_lbl_8058D490_size[sizeof(RecoveredGlobal_800D9E8C_lbl_8058D490) == 0x30 ? 1 : -1];
 void TObjPlayer__sub_800D9E8C(u8 *arg0) {
     f32 temp_f1;
-    TObjPlayer__sub_803D97F0((u32) &lbl_8058D490.value);
+    push_matrix_from((u32) &lbl_8058D490.value);
     translate_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) (M2C_FIELD(arg0, f32 *, 0x404) + (M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x3E4))), (f32) (M2C_FIELD(arg0, f32 *, 0x40)));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x68);
@@ -260,7 +260,7 @@ void TObjPlayer__sub_800D9FC4(void *self, void *p) {
     {
       new_var = v.x;
       new_var2 = (-((s32) (lbl_8043C900[0] * get_ad_end_text_start__10TObjPlayerFv(v.z, new_var)))) + 0x4000;
-      if (TObjPlayer__sub_80141F84(new_var2, ((Obj_800D9FC4 *) self)->angle) <= 0xAAA)
+      if (angle_difference_abs(new_var2, ((Obj_800D9FC4 *) self)->angle) <= 0xAAA)
       {
         s16 id = obj_getField1c(p);
         s16 *ids = ((Obj_800D9FC4 *) self)->ids;

@@ -162,7 +162,7 @@ void VecCopy__FP3VecPC3Vec(Vec_800C2628 *, void *);
 void spawn_particle_effect_with_flags(Vec_800C2628 *, s32, s32);
 s32 check_v2_mode__9TObjEneDDFv();
 void TObjEneDD__sub_800BA5A4(void *, Prm_800C2628 *);
-void TBoss8Dragon__sub_800BB780(void *);
+void clear_attack_receipts(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK noop__9TObjEneDDFv(void *, s32);
@@ -245,7 +245,7 @@ void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1) {
         if (F(s32, 0x3D4) > 0) {
             F(s32, 0x3D4)--;
             if (F(s32, 0x3D4) == 0) {
-                TBoss8Dragon__sub_800BB780(arg0);
+                clear_attack_receipts(arg0);
             }
         }
         if (check_v2_mode__9TObjEneDDFv() != 0) {

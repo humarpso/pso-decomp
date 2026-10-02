@@ -19,7 +19,7 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 void queue_destruction__7TObjectFv(void *);
-void *TBoss4Type2__sub_800874F4(void *, int);
+void *create_particle_emitter(void *, int);
 void TPhotonMagicSquare__sub_801A2640(void *, s32);
 extern void *__vt__17TObjEneHoldEffect[];
 extern s32 lbl_805D44E8;
@@ -52,7 +52,7 @@ Hold_8036D0C0 *TObjEneHoldEffect__ct(Hold_8036D0C0 *o, u8 *parent, s32 type, s32
             queue_destruction__7TObjectFv(o);
             return o;
         }
-        o->x90 = TBoss4Type2__sub_800874F4(&o->pos, o->x98);
+        o->x90 = create_particle_emitter(&o->pos, o->x98);
     } else {
         queue_destruction__7TObjectFv(o);
     }

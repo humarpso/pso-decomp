@@ -14,7 +14,7 @@ void fn_8032AC9C();
 extern char lbl_80477188[];
 extern char lbl_80477190[];
 void TAdEnterSerialAccessGC__sub_8032AE1C(void);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, void *);
+s32 get_localized_text_entry(int, void *);
 void send_and_handle__6TLobbyFPvii(s32, s32, int);
 s32 update_window_mode_from_progress__6TLobbyFiPv(void *, void *);
 extern u8 lbl_80477178[];
@@ -95,7 +95,7 @@ void TAdEnterSerialAccessGC__sub_8032AE1C(void) {
 
 s32 TAdEnterSerialAccessGC__sub_8032AE54(void *arg0, void *arg1) {
     s32 r = update_window_mode_from_progress__6TLobbyFiPv(lbl_80477178, lbl_80477180);
-    send_and_handle__6TLobbyFPvii(r, TAdSinglePlyChrSelectGC__sub_80132F2C(0x17, arg1), 1);
+    send_and_handle__6TLobbyFPvii(r, get_localized_text_entry(0x17, arg1), 1);
     return r;
 }
 

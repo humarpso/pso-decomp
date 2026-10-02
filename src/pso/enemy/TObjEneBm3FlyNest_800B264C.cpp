@@ -348,7 +348,7 @@ s32 get_random_scaled__9TObjEneDDFv(void *);
 f32 rand_range__9TObjEneDDFff(void *, f32, f32);
 M2C_UNK transition_enemy_state(void *, int);
 M2C_UNK set_field_e4__10TObjPlayerFii(void *, int, f32);
-M2C_UNK TObjPlayer__sub_800D9398(void *, int);
+M2C_UNK spawn_dead_spot_scale15(void *, int);
 int copy_target_state__14TObjEnePanarmsFPvPv(void*);
 M2C_UNK refresh_lobby_state__10TObjPlayerFPv(void *);
 M2C_UNK advance_animation_playback();
@@ -599,7 +599,7 @@ void TObjEneBm3FlyNest__sub_800B2C24(u8 *arg0, s32 arg1) {
                 v.z = lbl_805D9D28;
                 TObjBoss2Tunnel__sub_8007E7D8(&v, &v.z, M2C_FIELD(arg0, s32 *, 0x60));
                 TBoss4Zako__sub_803D8910(&v, arg0 + 0x38);
-                TObjPlayer__sub_800D9398(&v, 0x32);
+                spawn_dead_spot_scale15(&v, 0x32);
                 set_field_e4__10TObjPlayerFii(&v, 0x46, lbl_805D9D10);
             }
             if (M2C_FIELD(arg0, f32 *, 0xC0) < lbl_805D9D08) {

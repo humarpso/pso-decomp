@@ -147,7 +147,7 @@ M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 int transition_enemy_state(void*, void*);
 u32 find_entity_by_id(int);
 M2C_UNK all_parents_unqueued_for_destruction__7TObjectFv();
-void TObjEneBm5Wolf__sub_800B8024(u8 *arg0);
+void run_task__14TObjEneBm5WolfFPv(u8 *arg0);
 void update__14TObjEneBm5WolfFPvPv(s32, s32);
 extern RecoveredGlobal_800B8570_TObjEneBm5Wolf__data_80500B8C TObjEneBm5Wolf__data_80500B8C;
 void TObjEneBm5Wolf__sub_800B8570(s32 arg0);
@@ -207,7 +207,7 @@ void TObjEneBm5Wolf__sub_800B8020(void) {  }
 
 extern u32 TObjEneBm5Wolf__data_805D5120;
 
-void TObjEneBm5Wolf__sub_800B8024(u8 *arg0) {
+void run_task__14TObjEneBm5WolfFPv(u8 *arg0) {
     s16 temp_r0;
     s16 temp_r3_2;
     s32 temp_r3;

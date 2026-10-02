@@ -45,7 +45,7 @@ u8 *__dt__6TLobbyFv(u8 *arg0, s16 arg1);
 extern u32 TLobby__data_805D55CC;
 extern s32 TLobby__data_805D5594;
 extern const Pair_80137C10 lbl_8043EE00[];
-s32 TWindowSubComCard__sub_8026CBB8(s32);
+s32 get_window_layout_position(s32);
 void TQuestListOnline__sub_8013ACF4(s32);
 u32 update_window_mode_from_progress__6TLobbyFiPv(s32 arg0, void *arg1);
 int send_and_handle__6TLobbyFPvii(u32 p, int a1, int a2);
@@ -174,7 +174,7 @@ u8 *__dt__6TLobbyFv(u8 *arg0, s16 arg1) {
 void TLobby__sub_80137C10(s32 arg0) {
     if (TLobby__data_805D55CC == 0) {
         Pair_80137C10 tmp = lbl_8043EE00[0];
-        TLobby__data_805D55CC = update_window_mode_from_progress__6TLobbyFiPv(TWindowSubComCard__sub_8026CBB8(0xc6), &tmp);
+        TLobby__data_805D55CC = update_window_mode_from_progress__6TLobbyFiPv(get_window_layout_position(0xc6), &tmp);
     }
     send_and_handle__6TLobbyFPvii(TLobby__data_805D55CC, arg0, 3);
     TLobby__data_805D5594 = 0x14;

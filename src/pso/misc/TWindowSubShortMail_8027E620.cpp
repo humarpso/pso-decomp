@@ -14,7 +14,7 @@ s32 TWindowSubComCard__sub_80265E60(int, f32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 TCheckRoomSequence__sub_802664A8(int, int, int);
 s32 fn_8026652C(int, int, int, int);
-s32 TWindowSubComCard__sub_8026CBB8(int);
+s32 get_window_layout_position(int);
 extern const f32 lbl_805DD6D8;
 s32 TWindowSubShortMail__sub_8027FB00(u8 *arg0);
 }
@@ -154,13 +154,13 @@ s32 TWindowSubShortMail__sub_8027FB00(u8 *arg0) {
   s32 var_r31;
   if (get_camera_id__11TCameraCtrlFv() > 2)
   {
-    temp_r31 = TWindowSubComCard__sub_8026CBB8((int) 0x18);
+    temp_r31 = get_window_layout_position((int) 0x18);
     var_r31 = TCheckRoomSequence__sub_802664A8((int) temp_r31, (int) 3, (int) (*((s32 *) (((s8 *) arg0) + 0x1C))));
   }
   else
   {
     temp_r31 = get_message_10__20TWindowSubStatusDispFPv((int) 0x1D);
-    var_r31 = fn_8026652C((int) TWindowSubComCard__sub_8026CBB8((int) 0x18), (int) 3, (int) temp_r31, (int) (*((s32 *) (((s8 *) arg0) + 0x1C))));
+    var_r31 = fn_8026652C((int) get_window_layout_position((int) 0x18), (int) 3, (int) temp_r31, (int) (*((s32 *) (((s8 *) arg0) + 0x1C))));
   }
   forward_trade_action_default__16TObjCityMainWarpFPviii((int) var_r31, (int) get_message_10__20TWindowSubStatusDispFPv((int) 0x10A), (int) 0x36, (int) 0);
   forward_trade_action_default__16TObjCityMainWarpFPviii((int) var_r31, (int) get_message_10__20TWindowSubStatusDispFPv((int) 0x10B), (int) 0x36, (int) 1);

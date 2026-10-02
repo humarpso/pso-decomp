@@ -22,7 +22,7 @@ Ctl_8006AA90 *TCameraCtrl__sub_8006AA90(Ctl_8006AA90 *self, s16 arg1);
 extern "C" {
 
 void update_target_from_state__11TCameraCtrlFPv(void *arg0);
-M2C_UNK TCameraCtrl__sub_8006A410(M2C_UNK, M2C_UNK);
+M2C_UNK reset_cameras_to_actor(M2C_UNK, M2C_UNK);
 M2C_UNK select_camera_controller(int);
 u32 get_player_by_client_id(s32);
 
@@ -39,7 +39,7 @@ void update_target_from_state__11TCameraCtrlFPv(void *arg0) {
             select_camera_controller(M2C_FIELD(TCameraCtrl__data_804FF628, u8 *, 1));
             u32 temp = get_player_by_client_id(lbl_805D53A0);
             if (temp != 0U) {
-                TCameraCtrl__sub_8006A410(temp, 0);
+                reset_cameras_to_actor(temp, 0);
             }
         }
     }

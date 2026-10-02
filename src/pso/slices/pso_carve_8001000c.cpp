@@ -39,7 +39,7 @@ void TObjPlayer__sub_800102C0(s32 arg0, s32 arg1);
 int obj_testFlags30(void*, int);
 void create__10TObjPlayerFUiii(u32, s32, s32);
 s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
-void TObjPlayer__sub_8001000C(u8 *arg0, u32 arg1, s32 arg2);
+void spawn_freeze_shell_effect(u8 *arg0, u32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -48,7 +48,7 @@ s32 set_owner_id__13TParticleCtrlFPvUs(s32, s32);
 s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
 s32 trigger_switch_attack__10TObjPlayerFPvi(s32, s32);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
-s32 TObjPlayer__sub_80019248(s32);
+s32 is_locally_controlled__10TObjPlayerFPv(s32);
 int test_flag_1000__10TObjPlayerFPv(void* p);
 int has_flag_0x800__10TObjPlayerFPv(void* p);
 int test_flag30_512__10TObjPlayerFPv(void* p);
@@ -57,7 +57,7 @@ void TObjPlayer__sub_8000FF4C(void* p, s16 v);
 u16 get_field_2d4__10TObjPlayerFPv(void* p);
 int obj_testFlags30(void*, int);
 
-void TObjPlayer__sub_8001000C(u8 *arg0, u32 arg1, s32 arg2) {
+void spawn_freeze_shell_effect(u8 *arg0, u32 arg1, s32 arg2) {
     u32 temp_r4;
     if (((s32)obj_testFlags30((void*)(arg0), (int)(0x02000000))) == 0) {
         if (arg1 != 0U) {

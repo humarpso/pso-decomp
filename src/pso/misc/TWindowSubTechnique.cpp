@@ -66,7 +66,7 @@ s16 TWindowSubComCard__sub_80265BF8(void *);
 void set_selected_index__17TWindowSubComCardFPvs(void *, s16);
 void *TLobby__sub_80269CC0(s32, void *, s32, s32);
 void clear_flag70_bit4__17TWindowOptionCtrlFPv(void *);
-M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK get_window_layout_position(M2C_UNK);
 s32 fn_80286AA8(void *);
 s32 update_selection__19TWindowSubTechniqueFPvPv(void *, void *, s32);
 void TWindowSubTechnique__sub_80286BD4(void *, void *, s32);
@@ -91,7 +91,7 @@ s32 open_menu__19TWindowSubTechniqueFPv(void *arg0);
 void render__19TWindowSubTechniqueFv(void);
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
 M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
-M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK get_window_layout_position(M2C_UNK);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
 void TWindow__close(void *);
 M2C_UNK __ct__7TObjectFP7TObject();
@@ -109,7 +109,7 @@ extern const f32 lbl_805DD838;
 s32 open_menu__19TWindowSubTechniqueFPv(void *arg0) {
     s32 temp_r31;
 
-    temp_r31 = fn_8026652C(TWindowSubComCard__sub_8026CBB8(0x12), 5, get_message_10__20TWindowSubStatusDispFPv(0x2F), M2C_FIELD(arg0, s32 *, 0x28));
+    temp_r31 = fn_8026652C(get_window_layout_position(0x12), 5, get_message_10__20TWindowSubStatusDispFPv(0x2F), M2C_FIELD(arg0, s32 *, 0x28));
     TWindowSubEquip__sub_80263AF8(M2C_FIELD(arg0, s32 *, 0x30), 0);
     set_field_1c__6TLobbyFPvf(temp_r31);
     set_flag70_bit100__17TWindowOptionCtrlFPv(temp_r31);
@@ -202,7 +202,7 @@ void run_task__19TWindowSubTechniqueFv(Tech_802870C4 *self) {
         break;
     }
     case 3:
-        self->help = TLobby__sub_80269CC0(TWindowSubComCard__sub_8026CBB8(0x14), lbl_8044FC54, 1, self->player);
+        self->help = TLobby__sub_80269CC0(get_window_layout_position(0x14), lbl_8044FC54, 1, self->player);
         TWindowSubEquip__sub_80263AF8((s32)self->f30, 2);
         set_field_1c__6TLobbyFPvf((s32)self->help);
         call_if_split_screen(self->help, self->player);

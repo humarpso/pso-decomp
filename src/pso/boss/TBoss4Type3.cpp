@@ -153,7 +153,7 @@ void TBoss4Type3__vt33(u8 *arg0);
 M2C_UNK TBoss4Type3__sub_8005A398(void *, M2C_UNK);
 void TBoss4Type3__sub_80059ABC(void *, u16);
 M2C_UNK TBoss4Type3__sub_8005A678(void *, int);
-void *TBoss4Type2__sub_800874F4(void *, int);
+void *create_particle_emitter(void *, int);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 void request_destroy__11TBoss4Type2FUi(void *);
 u8 *dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
@@ -333,10 +333,10 @@ void TBoss4Type3__vt30(O_80058BA0 *o) {
     if (o->f398 > 0x93) {
         TBoss4Type3__sub_80059ABC(o, id);
     } else if (o->f398 == 0x93) {
-        if ((o->f424 = TBoss4Type2__sub_800874F4(a, 0xF7)) != 0) {
+        if ((o->f424 = create_particle_emitter(a, 0xF7)) != 0) {
             set_flags__11TBoss4Type2FPvUi(o->f424, 0x40);
         }
-        if ((o->f428 = TBoss4Type2__sub_800874F4(b, 0xF7)) != 0) {
+        if ((o->f428 = create_particle_emitter(b, 0xF7)) != 0) {
             set_flags__11TBoss4Type2FPvUi(o->f428, 0x40);
         }
         TBoss4Type3__sub_8005A678(o, 6);

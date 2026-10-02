@@ -39,7 +39,7 @@ struct RecoveredGlobal_8029C9C8___vt__15TORockJungleS01 {
 
 typedef s32 M2C_UNK;
 extern "C" {
-u8 * TObjFish__sub_8001EDC4(void *, int);
+u8 * get_bml_model(void *, int);
 extern u32 lbl_805D65D0;
 u8 *TORockJungleS01__sub_8029CAFC(s32 arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -160,7 +160,7 @@ s32 TORockJungleS01__sub_8029CAE8(s32 a) {
 
 u8 *TORockJungleS01__sub_8029CAFC(s32 arg0) {
     if ((void *) (*(u8 * *)&lbl_805D65D0) != NULL) {
-        return TObjFish__sub_8001EDC4((*(u8 * *)&lbl_805D65D0), arg0);
+        return get_bml_model((*(u8 * *)&lbl_805D65D0), arg0);
     }
     return NULL;
 }

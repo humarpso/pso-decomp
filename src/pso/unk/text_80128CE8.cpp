@@ -63,7 +63,7 @@ struct VObj_18 : VBase_18 {
 extern "C" {
 s32 get_player_list__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_8001BEF8(void *p, s32 n);
-void TObjBoss2Tunnel__sub_803DB470(void *p);
+void draw_ginja_object(void *p);
 void TObjPlayer__sub_80128E08(Obj_80128E08 *self);
 M2C_UNK set_flags__10TObjPlayerFPvUi(void *, int);
 M2C_UNK clear_flags__11TAdRicoRingFPvUi(void *, int);
@@ -115,7 +115,7 @@ void TObjPlayer__sub_80128E08(Obj_80128E08 *self) {
                 p = self->f184;
             }
             if (p) {
-                TObjBoss2Tunnel__sub_803DB470(p);
+                draw_ginja_object(p);
             }
         }
         break;

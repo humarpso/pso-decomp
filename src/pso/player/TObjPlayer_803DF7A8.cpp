@@ -53,7 +53,7 @@ extern s32 lbl_805D7774;
 void TObjPlayer__sub_803E1D1C(s32 arg0);
 extern const f32 lbl_805E1038;
 extern const f32 lbl_805E103C;
-f32 TObjPlayer__sub_803E1A58(Vec_803E1A58 *a, Vec_803E1A58 *b);
+f32 xyz_distance(Vec_803E1A58 *a, Vec_803E1A58 *b);
 extern s32 lbl_805D7774;
 extern s32 lbl_804FC7A8[];
 void GXLoadTexMtxImm(void *mtx, u32 id, s32 type);
@@ -201,7 +201,7 @@ s32 TObjPlayer__sub_803E1864(u8 *arg0, u8 *arg1) {
 
 #pragma push
 #pragma scheduling off
-f32 TObjPlayer__sub_803E1A58(Vec_803E1A58 *a, Vec_803E1A58 *b) {
+f32 xyz_distance(Vec_803E1A58 *a, Vec_803E1A58 *b) {
     f32 x = (a->z - b->z) * (a->z - b->z) + ((a->x - b->x) * (a->x - b->x) + (a->y - b->y) * (a->y - b->y));
     f32 r;
     if (x < lbl_805E1038) {

@@ -147,7 +147,7 @@ s32 obj_getField1c(int);
 s32 is_split_screen(void);
 void *spawn_particle_effect_with_flags(void *, s32, s32);
 void set_owner_id__13TParticleCtrlFPvUs(void *, s32);
-s32 TWindowSubComCard__sub_801058F8(void *);
+s32 is_script_controlled__10TObjPlayerFPv(void *);
 void *__nw__7TObjectFUl(int);
 void fn_80235BDC(void *, void *, s32, s32, s32);
 Resta_8023967C *TTecResta__sub_8023967C(Resta_8023967C *self, Vec_8023967C *pos, s32 owner, void *parent);
@@ -290,7 +290,7 @@ void create__9TTecRestaFPvPvPv(void *arg0, void *arg1, void *arg2) {
 #pragma opt_common_subs off
 void TTecResta__vt5(Obj_8023985C *arg0, VObj_8023985C *arg1) {
     HitInfo_8023985C h;
-    if (TWindowSubComCard__sub_801058F8(arg1) != 0) {
+    if (is_script_controlled__10TObjPlayerFPv(arg1) != 0) {
         return;
     }
     h.type = 6;

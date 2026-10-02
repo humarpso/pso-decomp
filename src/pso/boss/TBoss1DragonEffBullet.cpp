@@ -54,7 +54,7 @@ void queue_destruction__7TObjectFv(void *);
 s32 TBoss1Dragon__sub_80027650(int, void *);
 s32 get_instance__12TBoss1DragonFv();
 s32 spawn_particle_effect_with_flags(void *, int, int);
-u8 * TBoss8Dragon__sub_8008741C(void *, s32, s32);
+u8 * spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
 extern M2C_UNK *lbl_805D4B48;
@@ -101,7 +101,7 @@ void run_task__21TBoss1DragonEffBulletFv(struct RecoveredFields_8002B9D0_arg0 *a
         arg0->field_20 += arg0->field_2C * var_f2;
         arg0->field_24 += arg0->field_30 * var_f2;
         if ((u8 *) arg0->field_44 == NULL) {
-            arg0->field_44 = TBoss8Dragon__sub_8008741C(&arg0->field_1C, M2C_FIELD((*(u8 * *)&lbl_805D4B48), s32 *, 0), 0x40);
+            arg0->field_44 = spawn_continuous_particle_effect_with_flags(&arg0->field_1C, M2C_FIELD((*(u8 * *)&lbl_805D4B48), s32 *, 0), 0x40);
         }
         temp_r3 = (u8 *)(arg0->field_44);
         if (temp_r3 != NULL) {

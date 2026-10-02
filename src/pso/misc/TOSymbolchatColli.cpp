@@ -39,7 +39,7 @@ extern u8 lbl_804B4550[];
 extern M2C_UNK __vt__17TOSymbolchatColli[];
 extern s32 lbl_805D3194;
 Obj_80178AD4 *TOSymbolchatColli__ct(Obj_80178AD4 *arg0, void *arg1, s32 arg2);
-s32 TObjPlayer__sub_80019248();
+s32 is_locally_controlled__10TObjPlayerFPv();
 f32 horizontal_distance_squared(void *, void *);
 Player_80178890 *find_entity_by_id(u16);
 void fn_8017866C(void *, s32, u16);
@@ -99,7 +99,7 @@ void run_task__17TOSymbolchatColliFv(Obj_80178890 *self) {
     Player_80178890 *pl;
     for (i = 0; i != 4; i++) {
         pl = find_entity_by_id(i);
-        if (pl != NULL && TObjPlayer__sub_80019248() != 0) {
+        if (pl != NULL && is_locally_controlled__10TObjPlayerFPv() != 0) {
             if (horizontal_distance_squared(pl->pos, self->pos) < self->radiusSq) {
                 if (self->inside[i] == 0) {
                     self->inside[i] = 1;

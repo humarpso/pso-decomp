@@ -86,7 +86,7 @@ extern s32 TObjCamera__data_805D5B1C;
 void TObjCamera__sub_8017FC78(void);
 s32 TObjFish__sub_8001ED9C(u32, int);
 void TObjFish__sub_8001EDB0(u32, int);
-s32 TObjFish__sub_8001EDC4(u32, int);
+s32 get_bml_model(u32, int);
 void copy_position__15TEffStarLight2DFPv(void *, Vec_8017F80C *);
 void rotate_matrix_y(int, s32);
 void TObjPlayer__sub_803D9B2C();
@@ -114,12 +114,12 @@ extern const f32 TObjCamera__data_805DBB58;
 extern const f32 lbl_805DBB68;
 extern const f32 lbl_805DBB6C;
 void run_task__10TObjCameraFv(Obj_8017F910 *self);
-void TObjChip__sub_803D8AE4(int, int, int, int);
+void rotate_matrix_yxz(int, int, int, int);
 void scale_matrix(int, f32, f32, f32);
 void TObjPlayer__sub_803D9B2C();
 void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
-void TObjBoss2Tunnel__sub_803DB470(int);
+void draw_ginja_object(int);
 void fn_803DC86C(int, int, int, int, s32, s32);
 void set_chunk_material_color(void *);
 extern Color_8017FCD0 lbl_80443AFC;
@@ -168,7 +168,7 @@ void render__10TObjCameraFv(Obj_8017F80C *self) {
         rotate_matrix_y(0, self->x60);
         TObjCamera__data_805D5B1C = 0;
         set_npc_enemy_param((void *)TObjCamera__sub_8017F624);
-        draw_ginja_model_with_motion(TObjFish__sub_8001EDC4(TObjCamera__data_805D5B18, 0),
+        draw_ginja_model_with_motion(get_bml_model(TObjCamera__data_805D5B18, 0),
                                TObjFish__sub_8001ED9C(TObjCamera__data_805D5B18, 0), self->xb0);
         set_npc_enemy_param(NULL);
         pop_matrix();
@@ -304,9 +304,9 @@ void TObjChip__vt10(u8 *arg0) {
             set_chunk_material_color(&c);
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(p);
-            TObjChip__sub_803D8AE4(0, p->x18, p->x1c, p->x20);
+            rotate_matrix_yxz(0, p->x18, p->x1c, p->x20);
             scale_matrix(0, *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60));
-            TObjBoss2Tunnel__sub_803DB470(*(s32 *)(arg0 + 0x64));
+            draw_ginja_object(*(s32 *)(arg0 + 0x64));
             pop_matrix();
             set_chunk_material_color(lbl_804A7418);
         }
@@ -317,9 +317,9 @@ void TObjChip__vt10(u8 *arg0) {
         for (j = 0; j < *(s32 *)(arg0 + 0x54); j++, p++) {
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(p);
-            TObjChip__sub_803D8AE4(0, p->x18, p->x1c, p->x20);
+            rotate_matrix_yxz(0, p->x18, p->x1c, p->x20);
             scale_matrix(0, *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60));
-            TObjBoss2Tunnel__sub_803DB470(*(s32 *)(arg0 + 0x64));
+            draw_ginja_object(*(s32 *)(arg0 + 0x64));
             pop_matrix();
         }
     }

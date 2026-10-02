@@ -6,7 +6,7 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 is_state_ready__14TBoss4DarkFalzFv();
 s32 create__13TObjDFRecBallFPvPvPv(int, void *, void *);
 void request_destroy__11TBoss4Type2FUi(void *);
-u32 TBoss4Type2__sub_800874F4(void *, int);
+u32 create_particle_emitter(void *, int);
 s32 set_flags__11TBoss4Type2FPvUi(int, int);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 s32 get_player_by_client_id(u16);
@@ -37,7 +37,7 @@ void TObjDFRecover::run_task() {
     switch (current_phase) {
     case 0:
         if (countdown <= 0) {
-            effect_address = TBoss4Type2__sub_800874F4(position, 0xEB);
+            effect_address = create_particle_emitter(position, 0xEB);
             effect = (void*)effect_address;
             if (effect_address == 0U) {
                 queue_destruction__7TObjectFv(this);

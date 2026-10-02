@@ -15,7 +15,7 @@ extern const f32 TObjEneMe3SinowZoa__data_805DF2FC;
 extern const f32 lbl_805DF300;
 void TObjEneMe3SinowZoa__sub_80316840(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void TObjFish__sub_800660D4(void *, s32, s32, s32, s32, f32);
+void attach_particle_model(void *, s32, s32, s32, s32, f32);
 Hit_80316690 *csnVectorUnder(void *, void *, s32);
 s32 TParticleCtrl__sub_80086884(s32);
 int get_instance__13TParticleCtrlFv(void);
@@ -54,7 +54,7 @@ s32 TObjEneMe3SinowZoa__sub_80316690(void *a0, void *arg1) {
             TObjEneGibbles__sub_800D8988(arg0 + 0x38);
             p = DELL(hit->obj + 0x38, 0x49);
             if (p != 0) {
-                TObjFish__sub_800660D4(p, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneMe3SinowZoa__data_805DF2F4);
+                attach_particle_model(p, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneMe3SinowZoa__data_805DF2F4);
             }
             spawn_particle_effect(hit->obj + 0x38, 0xA4);
             return 1;
@@ -63,7 +63,7 @@ s32 TObjEneMe3SinowZoa__sub_80316690(void *a0, void *arg1) {
             TObjEneGibbles__sub_800D8988(arg0 + 0x38);
             p = DELL(hit->obj + 0x54, 0x49);
             if (p != 0) {
-                TObjFish__sub_800660D4(p, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneMe3SinowZoa__data_805DF2F4);
+                attach_particle_model(p, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneMe3SinowZoa__data_805DF2F4);
             }
             spawn_particle_effect(hit->obj + 0x54, 0xA4);
             return 1;

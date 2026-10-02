@@ -10,7 +10,7 @@ int close_all_windows__6TLobbyFPv(void* p);
 void open_warp_menu__6TLobbyFv(void);
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
 M2C_UNK TWindowSubComCard__sub_80265F60(s32);
-M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK get_window_layout_position(M2C_UNK);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
 int close_all_windows__6TLobbyFv(void*);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
@@ -25,7 +25,7 @@ extern s32 lbl_805D55E4;
 void open_warp_menu__6TLobbyFv(void) {
     s32 temp_r3;
     open__17TWindowOptionCtrlFPv(lbl_805D55E0);
-    temp_r3 = TWindowSubComCard__sub_8026CBB8(0xB5);
+    temp_r3 = get_window_layout_position(0xB5);
     lbl_805D55E4 = check_room_seq_4__16TAdChrSelASlotGCFii(temp_r3, 2);
     forward_trade_action_default__16TObjCityMainWarpFPviii(lbl_805D55E4, get_seq_phase__6TLobbyFPv(0x3E), 6, 0);
     forward_trade_action_default__16TObjCityMainWarpFPviii(lbl_805D55E4, get_seq_phase__6TLobbyFPv(0x3F), 6, 1);

@@ -61,7 +61,7 @@ s32 get_game_mode__6TLobbyFv();
 s32 is_state_ready__14TBoss4DarkFalzFv();
 s32 TBoss4DarkFalz__sub_8004C1B4();
 s32 TBoss4Type3__sub_8005254C(s16);
-f32 TObjPlayer__sub_803E1A58(Vec_80050D74 *, Vec_80050D74 *);
+f32 xyz_distance(Vec_80050D74 *, Vec_80050D74 *);
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A8C;
 void fn_80050D74(M2C_UNK arg0, Vec_80050D74 *arg1);
@@ -83,7 +83,7 @@ void fn_80050D74(M2C_UNK arg0, Vec_80050D74 *arg1) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != NULL && TBoss4Type3__sub_8005254C(obj_getField1c(p)) != 0 &&
             !(p->flags890 & 0x10) &&
-            !(TObjPlayer__sub_803E1A58(&pos, &p->pos) > lbl_805D8A8C)) {
+            !(xyz_distance(&pos, &p->pos) > lbl_805D8A8C)) {
             Hit_80050D74 h = hit;
             p->m21(TBoss4DarkFalz__sub_8004C1B4(), &h, 0, -1, -1);
         }

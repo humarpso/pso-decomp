@@ -131,7 +131,7 @@ void TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
 s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
-s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
+s32 get_bml_model(s32, M2C_UNK);
 int rotate_matrix_y(void*, void*);
 int TObjPlayer__sub_803D9B2C(void*);
 int pop_matrix(void);
@@ -174,7 +174,7 @@ void draw__10TBoss6MineFPv(void *arg0) {
 
     set_global_flag__10TObjPlayerFv();
     temp_r31 = TObjFish__sub_8001EDB0(M2C_FIELD(arg0, s32 *, 0x374), 2);
-    temp_r30 = TObjFish__sub_8001EDC4(M2C_FIELD(arg0, s32 *, 0x374), 2);
+    temp_r30 = get_bml_model(M2C_FIELD(arg0, s32 *, 0x374), 2);
     temp_r31_2 = TObjFish__sub_8001ED9C(M2C_FIELD(arg0, s32 *, 0x374), 0);
     set_global_param__8TObjFishFi(temp_r31);
     TBoss6PlotFalz__sub_802AC008(M2C_FIELD(arg0, f32 *, 0x3C8), TBoss6Mine__data_805DF580);

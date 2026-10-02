@@ -54,7 +54,7 @@ struct M2CCopy_3C { u8 bytes[0x3c]; };
 
 extern "C" {
 M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
-s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
+s32 get_bml_model(s32, M2C_UNK);
 s32 isFading__15RenderFadeStateCFv(void *);
 void restore__15RenderFadeStateFv(void *);
 void fadeOut__15RenderFadeStateFv(void *);
@@ -67,7 +67,7 @@ void TObjPlayer__sub_803D9B2C(void);
 void pop_matrix(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(void);
-void TObjBoss2Tunnel__sub_803DB470(void);
+void draw_ginja_object(void);
 extern u32 lbl_805D5C74;
 extern const f32 lbl_805DBFA8;
 extern const f32 lbl_805DBFAC;
@@ -132,8 +132,8 @@ void render__14TObjBigTuitateFv(Obj_8019AA18 *self) {
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
     rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
-    TObjFish__sub_8001EDC4((*(s32 *)&lbl_805D5C74), 0);
-    TObjBoss2Tunnel__sub_803DB470();
+    get_bml_model((*(s32 *)&lbl_805D5C74), 0);
+    draw_ginja_object();
     pop_matrix();
     if (fading != 0) {
         ((Fade_8019AA18 *)(arg0 + 0xAC))->end();

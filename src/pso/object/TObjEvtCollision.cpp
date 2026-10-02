@@ -50,7 +50,7 @@ u32 get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
-f32 fn_801315A0(s32, s32);
+f32 xyz_distance_squared(s32, s32);
 s32 is_split_screen();
 
 extern s32 lbl_805D53A0;
@@ -63,14 +63,14 @@ s32 is_any_player_in_range__16TObjEvtCollisionFif(s32 arg0, f32 farg0) {
     if (is_split_screen() != 0) {
         for (var_r31 = 0; var_r31 < 4; var_r31 += 1) {
             temp_r3 = get_player_by_client_id(var_r31);
-            if ((temp_r3 != 0U) && (fn_801315A0(temp_r3 + 0x38, arg0 + 0x38) < farg0)) {
+            if ((temp_r3 != 0U) && (xyz_distance_squared(temp_r3 + 0x38, arg0 + 0x38) < farg0)) {
                 return 1;
             }
         }
         goto block_10;
     }
     temp_r3_2 = get_player_by_client_id(lbl_805D53A0);
-    if ((temp_r3_2 != 0U) && (fn_801315A0(temp_r3_2 + 0x38, arg0 + 0x38) < farg0)) {
+    if ((temp_r3_2 != 0U) && (xyz_distance_squared(temp_r3_2 + 0x38, arg0 + 0x38) < farg0)) {
         return 1;
     }
 block_10:

@@ -10,7 +10,7 @@ void revive_or_spawn_marker__10TObjPlayerFi(s32 arg0);
 void update_battle_ctrl_field1c__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_801C6518(s32, s32, s32);
 M2C_UNK get_player_by_client_id(u16);
-s32 TWindowSubComCard__sub_801058F8(s32);
+s32 is_script_controlled__10TObjPlayerFPv(s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 s32 check_flag_0x8000__10TObjPlayerFPv();
 s32 obj_getField1c(s32);
@@ -22,7 +22,7 @@ extern s32 tl_06;
 void revive_or_spawn_marker__10TObjPlayerFi(s32 arg0) {
     s32 temp_r3;
 
-    if ((check_flag_0x8000__10TObjPlayerFPv() != 0) || (obj_isState3_324(arg0) != 0) || (TWindowSubComCard__sub_801058F8(arg0) != 0)) {
+    if ((check_flag_0x8000__10TObjPlayerFPv() != 0) || (obj_isState3_324(arg0) != 0) || (is_script_controlled__10TObjPlayerFPv(arg0) != 0)) {
         set_flag_0x8000__10TObjPlayerFPv(arg0);
         return;
     }

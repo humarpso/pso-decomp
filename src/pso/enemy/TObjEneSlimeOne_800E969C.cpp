@@ -9,7 +9,7 @@ struct Obj_800E9DC8 { u8 pad0[0x60]; s32 f60; u8 pad1[0x390 - 0x64]; s32 f390; u
 extern "C" {
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 TObjEneSlimeOne__sub_800EC428(void *, f32 *, f32);
-s32 TObjPlayer__sub_80141F84(s32, s32);
+s32 angle_difference_abs(s32, s32);
 M2C_UNK TObjEneSlimeOne__sub_800EAE78(void *, M2C_UNK);
 extern const f64 lbl_8043D280[];
 extern const f32 lbl_805DA728;
@@ -64,7 +64,7 @@ void TObjPlayer__sub_800E9DC8(Obj_800E9DC8 *arg0) {
     arg0->f60 = arg0->f60 + arg0->f3C4;
     if (TObjEneSlimeOne__sub_800EC428(arg0, sp, lbl_805DA728) != 0xFFFF) {
         t = (s32) (lbl_8043D280[0] * get_ad_end_text_start__10TObjPlayerFv(sp[0], sp[2]));
-        if (TObjPlayer__sub_80141F84(arg0->f60, t) < 0x444) {
+        if (angle_difference_abs(arg0->f60, t) < 0x444) {
             arg0->f60 = t;
             r = 1;
         }

@@ -35,7 +35,7 @@ void *__dt__18TAdTrialModemChkGCFv(void *arg0, s16 arg1);
 void check_modem_result__18TAdTrialModemChkGCFv(void);
 void render__18TAdTrialModemChkGCFv(void *arg0);
 void run_task__18TAdTrialModemChkGCFv(void *arg0);
-int TAdSinglePlyChrSelectGC__sub_80132F2C(void*, void*);
+int get_localized_text_entry(void*, void*);
 s32 TAdTrialModemChkGC__sub_8007FA24(s32);
 void TAdWarningBaseGC__ct(void *);
 void TAdWarningBaseGC__vt0(void *, int);
@@ -61,7 +61,7 @@ void render__18TAdTrialModemChkGCFv(void *arg0) {
     o->m7();
 }
 
-void TAdTrialModemChkGC__vt5(void) { TAdSinglePlyChrSelectGC__sub_80132F2C((void*)35, (void*)0); }
+void TAdTrialModemChkGC__vt5(void) { get_localized_text_entry((void*)35, (void*)0); }
 int TAdTrialModemChkGC__vt4(void) { return TKeyBoardControl__sub_8000F9CC((void*)(0)); }
 
 void run_task__18TAdTrialModemChkGCFv(void *arg0) {

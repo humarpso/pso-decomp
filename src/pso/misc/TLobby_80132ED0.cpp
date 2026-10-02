@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 extern s32 lbl_805D553C;
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32 arg0, s32 arg1);
+s32 get_localized_text_entry(s32 arg0, s32 arg1);
 int free_instance__19TWindowKeyBoardSoftFv(void);
 int free_resources__19TWindowKeyBoardSoftFv(void);
 void free_keyboard_soft_resources__6TLobbyFv(void);
@@ -38,7 +38,7 @@ void update_menu_cursor__6TLobbyFv(void) {
     }
     lbl_805D5544 = (s32) (s8) M2C_FIELD(temp_r3, u8 *, 7);
 }
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32 arg0, s32 arg1) {
+s32 get_localized_text_entry(s32 arg0, s32 arg1) {
     return M2C_FIELD((M2C_FIELD((lbl_805D553C + (arg0 * 4)), s32 *, 0) + (arg1 * 4)), s32 *, 0);
 }
 void free_keyboard_soft_resources__6TLobbyFv(void) { free_instance__19TWindowKeyBoardSoftFv(); free_resources__19TWindowKeyBoardSoftFv(); }

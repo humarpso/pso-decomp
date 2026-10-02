@@ -96,7 +96,7 @@ extern s32 TBoss8Dragon__data_805D699C;
 extern s32 TBoss8Dragon__data_805D69A0;
 extern s32 TBoss8Dragon__data_805D69A8;
 void TBoss8Dragon__sub_802F44D8(Obj_802F44D8 *o);
-M2C_UNK TObjEneDD__sub_800BAE74(void *, void *);
+M2C_UNK try_move_actor_xz_on_ground(void *, void *);
 M2C_UNK calc_shot_position__9TObjEneDDFPvPvfff(void *, void *, f32, f32, f32);
 s32 TBoss8Dragon__sub_802F3878(void *);
 s32 TBoss8Dragon__sub_802F3974(void *);
@@ -215,7 +215,7 @@ void TBoss8Dragon__sub_802F481C(u8 *arg0, f32 *arg1) {
     VecCopy2_802F481C(&c, arg1);
     t = clamp_velocity__15TObjBoss2TunnelFPv(&c);
     calc_shot_position__9TObjEneDDFPvPvfff(arg0, &b, c.x, c.z, t);
-    TObjEneDD__sub_800BAE74(arg0, &b);
+    try_move_actor_xz_on_ground(arg0, &b);
     M2C_FIELD(arg0, f32 *, 0x3C) = a.y;
     if ((TBoss8Dragon__sub_802F3878(arg0) != 0) && (TBoss8Dragon__sub_802F3974(arg0) != 0)) {
         VecCopy2_802F481C(arg0 + 0x38, &a);

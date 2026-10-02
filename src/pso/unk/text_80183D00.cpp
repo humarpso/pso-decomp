@@ -37,7 +37,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TObjFish__sub_803E46BC(void *);
+M2C_UNK draw_chunk_object(void *);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(void *, void *, f32);
 extern RecoveredGlobal_80183D4C_lbl_8050DC50 lbl_8050DC50;
 extern s32 lbl_805D5B34;
@@ -71,7 +71,7 @@ void fn_80183D4C(u8 *arg0) {
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
             rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-            TObjFish__sub_803E46BC((void *) (M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0x42C), s32 *, 0x18)));
+            draw_chunk_object((void *) (M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0x42C), s32 *, 0x18)));
             TObjEneSlimeOne__sub_803E4AF4((void *) (M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0x42C), s32 *, 8)), (void *) (M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0x430), s32 *, 4)), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
             pop_matrix();
         }

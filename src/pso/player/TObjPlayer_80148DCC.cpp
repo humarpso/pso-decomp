@@ -144,14 +144,14 @@ extern "C" {
 void update_battle_target__10TObjPlayerFPv(void *arg0);
 void draw_model__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK TObjFish__sub_803E46BC(s32);
+M2C_UNK draw_chunk_object(s32);
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, M2C_UNK, M2C_UNK);
-u16 TObjPlayer__sub_800115C4(void *, M2C_UNK, f32 *, f32);
+u16 find_nearest_visible_player(void *, M2C_UNK, f32 *, f32);
 M2C_UNK set_position_vec3__10TObjPlayerFPvPv(M2C_UNK, void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D97F0(M2C_UNK);
+M2C_UNK push_matrix_from(M2C_UNK);
 M2C_UNK pop_matrix();
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
@@ -164,7 +164,7 @@ void update_battle_target__10TObjPlayerFPv(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 3) {
         if (((VObj_80148DCC *)arg0)->m17(30) != 0) {
             temp_r5 = M2C_FIELD(arg0, f32 **, 0x350);
-            M2C_FIELD(arg0, u16 *, 0x338) = TObjPlayer__sub_800115C4(arg0, 0, temp_r5, *temp_r5);
+            M2C_FIELD(arg0, u16 *, 0x338) = find_nearest_visible_player(arg0, 0, temp_r5, *temp_r5);
             {
                 u32 tmp338 = (u32) M2C_FIELD(arg0, u16 *, 0x338);
                 if (tmp338 != 0xFFFF) {
@@ -185,12 +185,12 @@ void draw_model__10TObjPlayerFPv(u8 *arg0) {
         TObjLight__sub_80134194(arg0);
         some_id_805c6f74 |= 1;
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-        TObjPlayer__sub_803D97F0(0);
+        push_matrix_from(0);
         set_position_vec3__10TObjPlayerFPvPv(0, arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_flag__10TObjPlayerFv();
         if ((s32) M2C_FIELD(arg0, s32 *, 0x394) != 0) {
-            TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
+            draw_chunk_object(M2C_FIELD(arg0, s32 *, 0x34));
         } else {
             draw__16TObjEneRe7BeruraFPv(arg0);
         }

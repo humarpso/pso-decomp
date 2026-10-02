@@ -2,7 +2,7 @@
 
 extern "C" {
 void *find_entity_by_id(s32 id);
-s32 TObjPlayer__sub_80019248(void *p);
+s32 is_locally_controlled__10TObjPlayerFPv(void *p);
 s32 TObjPlayer__sub_80010C04(s32 id);
 }
 
@@ -27,7 +27,7 @@ s32 TObjPlayer__sub_80010C04(s32 id) {
     if (p == 0) {
         return 0;
     }
-    return TObjPlayer__sub_80019248(p);
+    return is_locally_controlled__10TObjPlayerFPv(p);
 }
 
 }

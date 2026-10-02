@@ -9,7 +9,7 @@ M2C_UNK apply_velocity__10TObjPlayerFPv(void *);
 s32 objInBand__FP7GameObjf(f32);
 M2C_UNK send_field_state_if_active__10TObjPlayerFii(void *, M2C_UNK);
 s32 classify_action_state__10TObjPlayerFv(void *);
-s32 TObjPlayer__sub_801B5DDC(void *);
+s32 check_actor_blocking_move__10TObjPlayerFPv(void *);
 u32 TObjPlayer__sub_801B5EA4(void *);
 M2C_UNK TObjPlayer__sub_801B5FB0(void *);
 s16 query_child_state2__10TObjPlayerFPv();
@@ -52,7 +52,7 @@ void TObjPlayer__sub_801CAAF8(void *arg0) {
         break;
     }
     TObjPlayer__sub_801B5FB0(arg0);
-    if (TObjPlayer__sub_801B5DDC(arg0) != 0) {
+    if (check_actor_blocking_move__10TObjPlayerFPv(arg0) != 0) {
         TObjPlayer__sub_8001053C(arg0);
     }
     if (TObjPlayer__sub_801B5EA4(arg0) == 0U) {

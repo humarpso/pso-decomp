@@ -28,7 +28,7 @@ struct V_A : public Base_A {
 extern "C" {
 
 void start_action_21__10TObjPlayerFPv(void *arg0);
-s32 TObjPlayer__sub_80019248(void *);
+s32 is_locally_controlled__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801B0FF4(void *);
 s32 get_idle_animation__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801D04B4(void *);
@@ -47,7 +47,7 @@ void start_action_21__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x624) = (f32) TObjPlayer__data_805DC36C;
     TObjPlayer__sub_801B0FF4(arg0);
     ((V_A *) arg0)->m15();
-    if (TObjPlayer__sub_80019248(arg0) != 0) {
+    if (is_locally_controlled__10TObjPlayerFPv(arg0) != 0) {
         send_field_state_if_active__10TObjPlayerFii(arg0, 0x40003206);
     }
     M2C_FIELD(arg0, s16 *, 0x328) = 1;

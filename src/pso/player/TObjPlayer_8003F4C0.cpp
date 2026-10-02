@@ -315,7 +315,7 @@ s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
-M2C_UNK TObjFish__sub_803E46BC(s32);
+M2C_UNK draw_chunk_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -374,8 +374,8 @@ extern const f32 lbl_805D86BC;
 s32 TObjPlayer__sub_8003FBC8(Obj_8003FBC8 *self);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TBoss3Volopt__sub_8003F398();
-u32 TBoss4Type2__sub_800874F4(void *, int);
-s32 TObjPlayer__sub_80141F84(s32, s32);
+u32 create_particle_emitter(void *, int);
+s32 angle_difference_abs(s32, s32);
 s32 TObjPlayer__sub_801423A4(s32, s32, s32);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -399,7 +399,7 @@ M2C_UNK advance_animation_playback(void *);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8003FCD0(void *);
 s32 TObjPlayer__sub_80040AE4(M2C_UNK);
-s32 TObjPlayer__sub_80141F84(s32, s32);
+s32 angle_difference_abs(s32, s32);
 s32 TObjPlayer__sub_801423A4(s32, s32, s32);
 void *find_entity_by_id(u16);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -432,7 +432,7 @@ void update_topple_state__10TObjPlayerFPv(u8 *arg0) {
     case 0:
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 0x10000);
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
-        if (TObjPlayer__sub_80141F84(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000) <= (s32) lbl_805D4C68) {
+        if (angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000) <= (s32) lbl_805D4C68) {
             M2C_FIELD(arg0, s32 *, 0x37C) = 3;
         } else {
             M2C_FIELD(arg0, s32 *, 0x37C) = 1;
@@ -447,7 +447,7 @@ void update_topple_state__10TObjPlayerFPv(u8 *arg0) {
         break;
     case 2:
         M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000, lbl_805D4C68);
-        if (TObjPlayer__sub_80141F84(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000) <= (s32) lbl_805D4C68) {
+        if (angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000) <= (s32) lbl_805D4C68) {
             M2C_FIELD(arg0, s32 *, 0x37C) = 3;
         }
         break;
@@ -530,7 +530,7 @@ void TObjPlayer__sub_8003F81C(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
         M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801423A4((int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x398) - 0x8000), lbl_805D4C68);
-        if (TObjPlayer__sub_80141F84((int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x398) - 0x8000)) <= (s32) lbl_805D4C68) {
+        if (angle_difference_abs((int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x398) - 0x8000)) <= (s32) lbl_805D4C68) {
             M2C_FIELD(arg0, s16 *, 0x33C) = (TBoss3Volopt__sub_8003F398() != 0) ? 5 : 0x1E;
             M2C_FIELD(arg0, s32 *, 0x37C) = 2;
         }
@@ -539,7 +539,7 @@ void TObjPlayer__sub_8003F81C(u8 *arg0) {
         if (--M2C_FIELD(arg0, s16 *, 0x33C) <= 0) {
             Vec_8003F81C v = *(Vec_8003F81C *)(arg0 + 0x38);
             v.y -= lbl_805D86B8;
-            M2C_FIELD(arg0, u32 *, 0x3CC) = TBoss4Type2__sub_800874F4(&v, 0x31);
+            M2C_FIELD(arg0, u32 *, 0x3CC) = create_particle_emitter(&v, 0x31);
             TBoss3Volopt__sub_8022675C((int) (0x4003AD1E), (s32) (arg0 + 0x38), 0, 0);
             M2C_FIELD(arg0, s32 *, 0x37C) = 3;
         }
@@ -734,7 +734,7 @@ void teardown_render_state__10TObjPlayerFPv(u8 *arg0) {
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         }
         if (check_demo_mode__10TObjPlayerFv() == 1) {
-            TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
+            draw_chunk_object(M2C_FIELD(arg0, s32 *, 0x34));
         } else {
             draw__16TObjEneRe7BeruraFPv(arg0);
         }

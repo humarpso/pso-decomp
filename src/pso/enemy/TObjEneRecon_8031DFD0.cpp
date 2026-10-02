@@ -120,7 +120,7 @@ void enable__13TParticleCtrlFPv(void *);
 s32 check_v2_mode__9TObjEneDDFv(void);
 int set_player_state_default__12TBoss8DragonFPv(void *);
 M2C_UNK TObjPlayer__sub_800113E4(void *, int);
-u8 *TBoss4Type2__sub_800874F4(void *, M2C_UNK);
+u8 *create_particle_emitter(void *, M2C_UNK);
 s32 find_entity_by_id(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 M2C_UNK TObjEneRecon__sub_8031C190(void *);
@@ -209,7 +209,7 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
         ((VObj_18_825e13 *)(arg0))->m83();
         temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x478));
         if (temp_r3_2 == NULL) {
-            M2C_FIELD(arg0, u8 **, 0x478) = TBoss4Type2__sub_800874F4(arg0 + 0x2FC, 0x217);
+            M2C_FIELD(arg0, u8 **, 0x478) = create_particle_emitter(arg0 + 0x2FC, 0x217);
             temp_r3_3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x478));
             if (temp_r3_3 != NULL) {
                 enable__13TParticleCtrlFPv(temp_r3_3);

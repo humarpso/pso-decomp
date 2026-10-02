@@ -35,7 +35,7 @@ extern "C" {
 
 void render__14TObjDFUsoTowerFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
+M2C_UNK draw_ginja_object(s32);
 M2C_UNK sync_player_globals__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_80052390();
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -58,7 +58,7 @@ void render__14TObjDFUsoTowerFv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-        TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x34));
+        draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
         pop_matrix();
         if (M2C_FIELD(arg0, f32 *, 0x94) < lbl_805D8A34) {
             sync_player_globals__10TObjPlayerFv();

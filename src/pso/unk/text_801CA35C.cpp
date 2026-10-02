@@ -67,7 +67,7 @@ void obj_setFlags30(void *, u32);
 void reset_lobby_model__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801BF964(void *);
 void TObjPlayer__sub_801CA3E4(u8 *arg0);
-s32 TObjPlayer__sub_80019248(void *);
+s32 is_locally_controlled__10TObjPlayerFPv(void *);
 u16 obj_getField1c(void *);
 s32 init_entry_fields__6TLobbyFPviii(int, int, void *, void *);
 void TObjPlayer__sub_801BF964(void *);
@@ -86,7 +86,7 @@ void TObjPlayer__sub_801CA35C(u8 *arg0) {
     update_action_render__10TObjPlayerFPv(arg0);
     TObjPlayer__sub_801BF964((void *) (arg0 + 0x5FC));
     TObjPlayer__sub_801C58CC((void *) (arg0 + 0x5FC), (void *) (arg0));
-    if (TObjPlayer__sub_80019248((void *) (arg0)) != 0) {
+    if (is_locally_controlled__10TObjPlayerFPv((void *) (arg0)) != 0) {
         var_r31 = __nw__7TObjectFUl((int) (0x2C));
         if (var_r31 != 0) {
             var_r31 = init_entry_fields__6TLobbyFPviii((int) (var_r31), (int) (tl_particlemodel), (void *) (&TObjPlayer__sub_801B3274), (void *) (obj_getField1c((void *) (arg0))));

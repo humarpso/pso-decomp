@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 f32 get_target_distance__13TWindowLockOnFv(void);
-void *TWindowSubComCard__sub_8026CBB8();
+void *get_window_layout_position();
 
 f32 get_target_distance__13TWindowLockOnFv(void) {
-    return M2C_FIELD(TWindowSubComCard__sub_8026CBB8(), f32 *, 4);
+    return M2C_FIELD(get_window_layout_position(), f32 *, 4);
 }
 
 }

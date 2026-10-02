@@ -62,7 +62,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_801711D0_lbl_804B2F2C lbl_804B2F2C;
 extern u32 lbl_805D5A50;
 void TOMine__sub_801711D0(void);
-u16 TObjPlayer__sub_800115C4(void *, int, f32);
+u16 find_nearest_visible_player(void *, int, f32);
 s32 update_trigger__10TOMineTrapFPv(void *);
 s32 get_player_by_client_id(int);
 int TOMine__sub_80170F0C(u8 *arg0);
@@ -103,7 +103,7 @@ M2C_UNK TOMineTrap__sub_80170BEC(void *);
 M2C_UNK TOMineTrap__sub_80170CD4(void *);
 M2C_UNK TOMineTrap__sub_80170CF4(void *);
 M2C_UNK TOMineTrap__sub_80170DD8(void *);
-int TObjBoss2Tunnel__sub_803DB470(void*);
+int draw_ginja_object(void*);
 M2C_UNK submit_cursor_candidate(void *, int);
 int TObjPlayer__sub_801B4AC8(void*);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -118,7 +118,7 @@ typedef struct RecoveredFields_80170F0C_arg0 RecoveredFields_80170F0C_arg0;
 int TOMine__sub_80170F0C(u8 *arg0) {
   u16 temp_r3;
   unsigned short new_var;
-  ((RecoveredFields_80170F0C_arg0 *) arg0)->field_35C = TObjPlayer__sub_800115C4((void *) arg0, (int) 0, (f32) ((RecoveredFields_80170F0C_arg0 *) arg0)->field_34C);
+  ((RecoveredFields_80170F0C_arg0 *) arg0)->field_35C = find_nearest_visible_player((void *) arg0, (int) 0, (f32) ((RecoveredFields_80170F0C_arg0 *) arg0)->field_34C);
   temp_r3 = ((RecoveredFields_80170F0C_arg0 *) arg0)->field_35C;
   new_var = -1;
   if (temp_r3 != new_var)
@@ -172,9 +172,9 @@ void run_task__6TOMineFPv(u8 *arg0) {
     }
 }
 
-void free_sub_objects__6TOMineFPv(void* p) { set_global_param__8TObjFishFi(*(void**)((char*)p + 0x378)); TObjBoss2Tunnel__sub_803DB470(*(void**)((char*)p + 0x374)); }
+void free_sub_objects__6TOMineFPv(void* p) { set_global_param__8TObjFishFi(*(void**)((char*)p + 0x378)); draw_ginja_object(*(void**)((char*)p + 0x374)); }
 
-void free_parts__6TOMineFPv(void* p) { set_global_param__8TObjFishFi(*(void**)((char*)p + 0x24)); TObjBoss2Tunnel__sub_803DB470(*(void**)((char*)p + 0x34)); }
+void free_parts__6TOMineFPv(void* p) { set_global_param__8TObjFishFi(*(void**)((char*)p + 0x24)); draw_ginja_object(*(void**)((char*)p + 0x34)); }
 
 extern u32 lbl_805D5A50;
 

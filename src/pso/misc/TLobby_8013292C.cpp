@@ -8,7 +8,7 @@ extern "C" {
 
 s32 select_download_type__6TLobbyFi(s32 arg0);
 void select_main_menu_item_10(s32 arg0);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, s32);
+M2C_UNK get_localized_text_entry(M2C_UNK, s32);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 
 s32 select_download_type__6TLobbyFi(s32 arg0) {
@@ -25,7 +25,7 @@ s32 select_download_type__6TLobbyFi(s32 arg0) {
 }
 
 void select_main_menu_item_10(s32 arg0) {
-    TAdSinglePlyChrSelectGC__sub_80132F2C(0xA, arg0);
+    get_localized_text_entry(0xA, arg0);
 }
 
 }

@@ -10,7 +10,7 @@ void draw_textured_model__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_80130314(void *arg0);
 void *init_shoot_model__10TObjPlayerFPv(void *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
+M2C_UNK draw_ginja_object(u32);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 s32 is_owner_alive__10TObjPlayerFPv();
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(u32);
@@ -26,7 +26,7 @@ void draw_textured_model__10TObjPlayerFPv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00(arg0 + 0x1C);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x2C));
         rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x28));
-        TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, u32 *, 0x58));
+        draw_ginja_object(M2C_FIELD(arg0, u32 *, 0x58));
         pop_matrix();
     }
 }

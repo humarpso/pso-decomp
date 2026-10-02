@@ -154,7 +154,7 @@ void clamp_velocity__15TObjBoss2TunnelFPv(void *p);
 void TObjPlayer__sub_800BBFD0(Obj_800BBFD0 *a, Obj_800BBFD0 *b, f32 s);
 s32 obj_isState2_324(void *);
 void TObjPlayer__sub_800BBF08(Actor_800BBF08 *src, Actor_800BBF08 *dst, f32 *recoil, Desc_800BBF08 *desc);
-s32 TObjPlayer__sub_80019570();
+s32 obj_is_hit_receivable();
 Tgt_800BC080 *get_battle_param__10TObjPlayerFi(s32);
 s32 TObjPlayer__sub_800BC3FC(void *, int);
 s32 TObjPlayer__sub_800BC53C(void *, void *);
@@ -162,7 +162,7 @@ M2C_UNK init_all_slots__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_8015610C(void *);
 M2C_UNK TObjPlayer__sub_801561C4(void *, f32);
 s32 TObjPlayer__sub_800BC080(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg2, f32 farg0);
-s32 TObjPlayer__sub_80019570();
+s32 obj_is_hit_receivable();
 Tgt_800BC080 *get_battle_param__10TObjPlayerFi(s32);
 s32 TObjPlayer__sub_800BC3FC(void *, int);
 s32 TObjPlayer__sub_800BC53C(void *, void *);
@@ -270,7 +270,7 @@ s32 TObjPlayer__sub_800BC080(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg2, f
             if (t == NULL) {
                 break;
             }
-            if (TObjPlayer__sub_80019570() != 0 && t != arg0->self_tgt && TObjPlayer__sub_800BC3FC(arg0, t->x30) != 0) {
+            if (obj_is_hit_receivable() != 0 && t != arg0->self_tgt && TObjPlayer__sub_800BC3FC(arg0, t->x30) != 0) {
                 ok = 1;
                 if (arg2 != NULL && TObjPlayer__sub_800BC53C(arg2, t) == 0) {
                     ok = 0;
@@ -325,7 +325,7 @@ s32 TObjPlayer__sub_800BC250(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, voi
             if (t == NULL) {
                 break;
             }
-            if (TObjPlayer__sub_80019570() != 0 && t != arg0->self_tgt && TObjPlayer__sub_800BC3FC(arg0, t->x30) != 0) {
+            if (obj_is_hit_receivable() != 0 && t != arg0->self_tgt && TObjPlayer__sub_800BC3FC(arg0, t->x30) != 0) {
                 ok = 1;
                 if (arg3 != NULL && TObjPlayer__sub_800BC53C(arg3, t) == 0) {
                     ok = 0;

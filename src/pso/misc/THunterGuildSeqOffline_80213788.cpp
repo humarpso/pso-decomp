@@ -96,7 +96,7 @@ struct Seq_80213BE0 : VObj_80213BE0 {
 extern "C" {
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 u32 TShopSequence__sub_80223600(void *, s32, s32);
-s32 TWindowSubComCard__sub_8026CBB8(int, f32);
+s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC658;
 extern const f32 lbl_805DC65C;
 void THunterGuildSeqOffline__sub_80213B18(u8 *arg0);
@@ -195,7 +195,7 @@ void THunterGuildSeqOffline__sub_80213B18(u8 *arg0) {
     Stack_80213B18 stack;
     stack.sp8 = lbl_805DC658;
     stack.spC = lbl_805DC65C;
-    TShopSequence__sub_80223600(arg0, TWindowSubComCard__sub_8026CBB8((int) (0x2C), (f32) (lbl_805DC658)), (s32) &stack.sp8);
+    TShopSequence__sub_80223600(arg0, get_window_layout_position((int) (0x2C), (f32) (lbl_805DC658)), (s32) &stack.sp8);
     ((VObj_18_97738d *)(arg0))->m7(1, 1);
     M2C_FIELD(arg0, s32 *, 0x30) = 0;
     set_field_20__12TQuestListVMFPvi((void *)(arg0), (M2C_UNK)(2));

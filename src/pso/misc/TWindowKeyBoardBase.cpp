@@ -13,7 +13,7 @@ typedef char RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase_size[sizeof(Re
 extern "C" {
 u8 * TWindowKeyBoardBase__sub_8008116C(void *);
 int alloc_buffer__11TOBoss4RockFPv(void *);
-u8 * TWindowSubComCard__sub_8026CBB8(s32);
+u8 * get_window_layout_position(s32);
 M2C_UNK TWindowKeyBoardBase__sub_8008102C(void *, int, int);
 M2C_UNK TWindowDD__sub_802466E0(void *, void *, int, int);
 M2C_UNK TWindowSubStatusDisp__sub_8025CD44(void *, int, int);
@@ -81,7 +81,7 @@ void *__dt__19TWindowKeyBoardBaseFv(void *arg0, s16 arg1) {
 }
 u8 *TWindowKeyBoardBase__ct(u8 *arg0) {
     s32 temp_r31;
-    TWindowDD__sub_802466E0((void *) (arg0), (void *) (&lbl_804CFA70.value), (int) (4), (int) (TWindowSubComCard__sub_8026CBB8(0xB7)));
+    TWindowDD__sub_802466E0((void *) (arg0), (void *) (&lbl_804CFA70.value), (int) (4), (int) (get_window_layout_position(0xB7)));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase *)&__vt__19TWindowKeyBoardBase).value;
     TWindowKeyBoardBase__sub_8008116C(arg0 + 0x6C);
     TWindowKeyBoardBase__sub_8008116C(arg0 + 0x84);

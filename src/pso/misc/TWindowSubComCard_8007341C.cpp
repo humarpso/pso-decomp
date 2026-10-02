@@ -31,7 +31,7 @@ void set_position_xy(void *, f32, f32);
 void set_field_1c__6TLobbyFPvf(void *, f32);
 void send_and_handle__6TLobbyFPvii(void *, char *, s32);
 void *set_window_mode_4__6TLobbyFPvii(void *, void *, s32);
-void *TWindowSubComCard__sub_8026CBB8(s32);
+void *get_window_layout_position(s32);
 int sprintf(char *, const char *, ...);
 char *strcat(char *, const char *);
 extern char lbl_80438628[];
@@ -61,7 +61,7 @@ void TLobby__sub_80073738(void *arg0, void *arg1) {
     Rec_80073738 *rec;
     s32 i;
     void *win;
-    win = set_window_mode_4__6TLobbyFPvii(TWindowSubComCard__sub_8026CBB8(0x3B), lbl_8048D150, 1);
+    win = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x3B), lbl_8048D150, 1);
     CHAL->window = win;
     if (win == NULL) {
         return;

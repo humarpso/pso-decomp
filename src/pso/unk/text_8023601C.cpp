@@ -14,14 +14,14 @@ f32 TCameraCtrl__sub_803D8D00(void *, f32);
 M2C_UNK TNpcPlayer__sub_803D97B4(void *);
 extern u8 *lbl_805D4DF0;
 extern const f32 lbl_805DC88C;
-void fn_8023601C(u8 *arg0, u8 *arg1, f32 farg0);
+void offset_point_toward_camera(u8 *arg0, u8 *arg1, f32 farg0);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void fn_8023601C(u8 *arg0, u8 *arg1, f32 farg0) {
+void offset_point_toward_camera(u8 *arg0, u8 *arg1, f32 farg0) {
     Stack_8023601C stack;
     f32 temp_f1;
     if ((void *) lbl_805D4DF0 != NULL) {

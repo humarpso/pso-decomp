@@ -523,8 +523,8 @@ void TBoss8Dragon__sub_80065F80(void *);
 M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
 s32 spawn_particle_effect_with_flags(void *, M2C_UNK, M2C_UNK);
 M2C_UNK TOTrapAncient01__sub_80226578(s32, s32, s32, M2C_UNK, M2C_UNK);
-s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
-M2C_UNK TObjFish__sub_800660D4(s32, s32, s32, M2C_UNK, M2C_UNK, f32);
+s32 get_bml_model(s32, M2C_UNK);
+M2C_UNK attach_particle_model(s32, s32, s32, M2C_UNK, M2C_UNK, f32);
 int VecCopy__FP3VecPC3Vec(void*, void*);
 void bswap_boss_actions__12TBoss8DragonFi(void *);
 void *get_enemy_entity(int);
@@ -610,7 +610,7 @@ void spawn_switch_attack__12TBoss8DragonFPv(void *arg0) {
 
     temp_r3 = spawn_particle_effect_with_flags(arg0, 0x211, 0x40);
     if (temp_r3 != 0) {
-        TObjFish__sub_800660D4(temp_r3, TObjFish__sub_8001EDC4(lbl_805D4DA4, 2), lbl_805D4DA8, 0, 0, lbl_805D8D88);
+        attach_particle_model(temp_r3, get_bml_model(lbl_805D4DA4, 2), lbl_805D4DA8, 0, 0, lbl_805D8D88);
     }
 }
 
@@ -623,7 +623,7 @@ void spawn_attack_effect__12TBoss8DragonFPv(void *arg0) {
 
     temp_r3 = spawn_particle_effect_with_flags(arg0, 0x210, 0x40);
     if (temp_r3 != 0) {
-        TObjFish__sub_800660D4(temp_r3, TObjFish__sub_8001EDC4(lbl_805D4DA4, 1), lbl_805D4DA8, 0, 0, lbl_805D8D88);
+        attach_particle_model(temp_r3, get_bml_model(lbl_805D4DA4, 1), lbl_805D4DA8, 0, 0, lbl_805D8D88);
     }
 }
 

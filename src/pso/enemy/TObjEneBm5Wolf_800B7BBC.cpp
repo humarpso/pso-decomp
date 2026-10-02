@@ -23,7 +23,7 @@ extern "C" {
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 extern u8 *TObjEneBm5Wolf__data_805D5120;
 extern const f32 TObjEneBm5Wolf__data_805D9D8C;
-void TObjEneBm5Wolf__sub_800B7EA0(u8 *arg0);
+void select_subtype__14TObjEneBm5WolfFPv(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *actor);
 f32 rand_range__9TObjEneDDFff(void *actor, f32 low, f32 high);
 void *csnVector(void *from, void *to, u32 flags);
@@ -123,7 +123,7 @@ void TObjEneBm5Wolf__sub_800B7DDC(Wolf_800B7DDC *s, s32 target) {
     s->turn = (s16)s->turn;
 }
 
-void TObjEneBm5Wolf__sub_800B7EA0(u8 *arg0) {
+void select_subtype__14TObjEneBm5WolfFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3DC) = (s32) get_random_float__21TObjEneMe3ShinowaRealFv((f32) (M2C_FIELD(arg0, f32 *, 0x354)));
     if (M2C_FIELD(arg0, f32 *, 0x358) >= TObjEneBm5Wolf__data_805D9D8C) {
         M2C_FIELD(arg0, s32 *, 0x3D8) = 1;

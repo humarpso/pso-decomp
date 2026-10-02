@@ -16,7 +16,7 @@ extern s32 lbl_805D4EF8;
 extern s32 lbl_805D4EFC;
 void *__nw__7TObjectFUl(int);
 void *initialize__13TParticleCtrlFPvPviiiii(void *self, void *owner, void *entry, s32 a, s32 b, s32 c, s32 d);
-void *TBoss4Type2__sub_800874F4(void *pos, s32 id);
+void *create_particle_emitter(void *pos, s32 id);
 }
 
 extern "C" {
@@ -31,7 +31,7 @@ extern s32 lbl_805D4EFC;
 extern const f32 TParticleCtrl__data_805D94E0;
 extern const f32 TParticleCtrl__data_805D94E4;
 
-void *TBoss4Type2__sub_800874F4(void *pos, s32 id) {
+void *create_particle_emitter(void *pos, s32 id) {
     void *p;
     if (lbl_805D2948 > id) {
         p = __nw__7TObjectFUl(0x78);

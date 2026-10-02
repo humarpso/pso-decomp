@@ -83,11 +83,11 @@ extern "C" {
 int TLobby__sub_802A7260(void* a0);
 int TLobby__sub_802A7278(void* a0);
 extern RecoveredGlobal_802A7444_lbl_804DDBD8 lbl_804DDBD8;
-s32 TLobby__sub_802A7444(M2C_UNK arg0, s32 arg1, s32 arg2);
+s32 player_motion_provider1_get_clip_indices(M2C_UNK arg0, s32 arg1, s32 arg2);
 int TLobby__sub_802A7260(void* a0);
 int TLobby__sub_802A7278(void* a0);
 extern RecoveredGlobal_802A74B8_lbl_804DD9F8 lbl_804DD9F8;
-s32 TLobby__sub_802A74B8(M2C_UNK arg0, s32 arg1, s32 arg2);
+s32 player_motion_provider1_get_actions(M2C_UNK arg0, s32 arg1, s32 arg2);
 M2C_UNK TLobby__sub_802A7848(void *, s32);
 s32 TLobby__sub_802A7868(void *, s32, s32);
 s32 TLobby__sub_802A7994(void *, s32, s32, s32);
@@ -168,7 +168,7 @@ s32 TLobby__sub_802A7420(void *self, s32 a, s32 b, s32 c) {
     return ((s32 ** *)&lbl_804DDBD8)[a][b][c];
 }
 
-s32 TLobby__sub_802A7444(M2C_UNK arg0, s32 arg1, s32 arg2) {
+s32 player_motion_provider1_get_clip_indices(M2C_UNK arg0, s32 arg1, s32 arg2) {
     if (((s32)TLobby__sub_802A7278((void*)((void *) (arg1)))) == 0) {
         return 0;
     }
@@ -178,7 +178,7 @@ s32 TLobby__sub_802A7444(M2C_UNK arg0, s32 arg1, s32 arg2) {
     return 0;
 }
 typedef char RecoveredGlobal_802A74B8_lbl_804DD9F8_size[sizeof(RecoveredGlobal_802A74B8_lbl_804DD9F8) == 0x18 ? 1 : -1];
-s32 TLobby__sub_802A74B8(M2C_UNK arg0, s32 arg1, s32 arg2) {
+s32 player_motion_provider1_get_actions(M2C_UNK arg0, s32 arg1, s32 arg2) {
     if (((s32)TLobby__sub_802A7278((void*)((void *) (arg1)))) == 0) {
         return 0;
     }

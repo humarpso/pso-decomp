@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
-s32 TObjFish__sub_8001EDC4(void *, int);
+s32 get_bml_model(void *, int);
 M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK TPhotonMagicSquare__sub_801A2640();
 M2C_UNK init_params__18TObjButterflyLobbyFPv(void *);
@@ -58,10 +58,10 @@ u8 *TObjButterflyLobby__ct(u8 *arg0, int arg1, u8 *arg2) {
     }
     M2C_FIELD(arg0, f32 *, 0x94) = (f32) TObjButterflyLobby__data_805DFE58;
     if ((s32) M2C_FIELD(arg2, s32 *, 0x30) < 1) {
-        M2C_FIELD(arg0, s32 *, 0xC4) = TObjFish__sub_8001EDC4((void *) ((*(s32 *)&lbl_805D6EB8)), (int) (0));
+        M2C_FIELD(arg0, s32 *, 0xC4) = get_bml_model((void *) ((*(s32 *)&lbl_805D6EB8)), (int) (0));
         M2C_FIELD(arg0, s32 *, 0xC8) = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&lbl_805D6EB8)), (int) (0));
     } else {
-        M2C_FIELD(arg0, s32 *, 0xC4) = TObjFish__sub_8001EDC4((void *) ((*(s32 *)&lbl_805D6EB8)), (int) (1));
+        M2C_FIELD(arg0, s32 *, 0xC4) = get_bml_model((void *) ((*(s32 *)&lbl_805D6EB8)), (int) (1));
         M2C_FIELD(arg0, s32 *, 0xC8) = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&lbl_805D6EB8)), (int) (1));
     }
     init_params__18TObjButterflyLobbyFPv((void *) (arg0));

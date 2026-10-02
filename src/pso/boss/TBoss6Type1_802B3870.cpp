@@ -55,7 +55,7 @@ void TBoss6Type1__sub_802B4898(Boss_802B4898 *o);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 create__10TObjMapCsnFi(void *);
 M2C_UNK TObjPlayer__sub_803D8CD4(s32);
-M2C_UNK TScene__sub_803D8DB4(s32, void *, void *);
+M2C_UNK rotate_vector_by_matrix(s32, void *, void *);
 void rotate_matrix_y(int, int);
 void TObjPlayer__sub_803D9B2C();
 void pop_matrix();
@@ -192,7 +192,7 @@ void TBoss6Type1__sub_802B49A4(u8 *arg0) {
     TObjPlayer__sub_803D9B2C();
     TObjPlayer__sub_803D8CD4(0);
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-    TScene__sub_803D8DB4(0, lbl_80471020, &tmp);
+    rotate_vector_by_matrix(0, lbl_80471020, &tmp);
     prm.pos.x += tmp.x;
     prm.pos.y = TBoss6Type1__data_805DE2D0;
     prm.pos.z += tmp.z;

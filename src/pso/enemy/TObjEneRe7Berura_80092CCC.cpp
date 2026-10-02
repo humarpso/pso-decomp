@@ -137,7 +137,7 @@ f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 void clear_field_388__9TObjEneDDFPv(void *p);
 void set_active__9TObjEneDDFPv(void *p);
 void TObjEneDD__sub_800BACA4(void *arg0, f32 farg0, f32 farg1, f32 farg2);
-void TBoss8Dragon__sub_800BB780(void *);
+void clear_attack_receipts(void *);
 s32 transition_enemy_state(void *, s32);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
@@ -241,7 +241,7 @@ void TObjEneRe7Berura__sub_80093470(Berura_80093470 *obj, s32 mode) {
         self->vel.z *= TObjEneRe7Berura__data_805D9738;
         break;
     case 5:
-        TBoss8Dragon__sub_800BB780(self);
+        clear_attack_receipts(self);
         clear_field_388__9TObjEneDDFPv(self);
         break;
     }

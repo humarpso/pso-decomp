@@ -75,7 +75,7 @@ void pop_matrix(void);
 void TBoss7Tentacle__sub_803D9BA0(void *);
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(s32);
-void TObjBoss2Tunnel__sub_803DB470(s32);
+void draw_ginja_object(s32);
 void set_chunk_material_color(void *);
 extern Color_8017310C lbl_804A7418[];
 extern s32 lbl_805D5660;
@@ -142,7 +142,7 @@ void render__15TORainbowCave01Fv(Cave_8017310C *self) {
         TOHangerMachine01__sub_803D9C00(self->pos38);
         rotate_matrix_y(0, self->f60);
         TBoss7Tentacle__sub_803D9BA0(self->fD4);
-        TObjBoss2Tunnel__sub_803DB470(self->f34);
+        draw_ginja_object(self->f34);
         pop_matrix();
         set_chunk_material_color(lbl_804A7418);
         some_id_805c6f74 = lbl_805D5660;

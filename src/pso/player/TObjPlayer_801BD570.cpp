@@ -10,7 +10,7 @@ void TFontSmallLobby__sub_801C0164(void *);
 void TFontSmallLobby__sub_801D65B4(void *);
 void init_forward__10TObjPlayerFPv(void *);
 void reset_fields__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_801BB524(void *, int);
+void setup_control_role__10TObjPlayerFPvi(void *, int);
 void TObjPlayer__sub_801BB85C(void *, void *);
 void TObjPlayer__sub_801BBC2C(void *, void *);
 void update_position__10TObjPlayerFPvi(void *, void *);
@@ -105,7 +105,7 @@ void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3530;
     TObjPlayer__sub_801BC6C4(arg0);
     M2C_FIELD(arg0, u16 *, 0x1C) = 0;
-    TObjPlayer__sub_801BB524(arg0, 7);
+    setup_control_role__10TObjPlayerFPvi(arg0, 7);
     update_body_parts__10TObjPlayerFPv(arg0, arg2);
     init_player_data__10TObjPlayerFPv(arg0, (void *)((char *)arg2 + 136));
     init_data_table_ptr__10TObjPlayerFPv(arg0);
@@ -155,7 +155,7 @@ void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     clear_header_struct__10TObjPlayerFPv((void *)((char *)arg0 + 3500));
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3530;
     init_from_data__10TObjPlayerFPvPv(arg0, arg2);
-    TObjPlayer__sub_801BB524(arg0, 4);
+    setup_control_role__10TObjPlayerFPvi(arg0, 4);
     TObjPlayer__sub_801BD384(arg0, (void *)((char *)arg2 + 200));
     TObjPlayer__sub_801BCB70(arg0, arg2);
     update_position__10TObjPlayerFPvi(arg0, arg2);

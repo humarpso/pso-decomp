@@ -20,9 +20,9 @@ extern "C" {
 
 void render__13TObjGbAdvanceFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470();
+M2C_UNK draw_ginja_object();
 M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
-M2C_UNK TObjFish__sub_8001EDC4(s32, M2C_UNK);
+M2C_UNK get_bml_model(s32, M2C_UNK);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -39,14 +39,14 @@ void render__13TObjGbAdvanceFv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjFish__sub_8001EDC4(TObjGbAdvance__data_805D5B74, 0);
-        TObjBoss2Tunnel__sub_803DB470();
-        TObjFish__sub_8001EDC4(TObjGbAdvance__data_805D5B74, 1);
-        TObjBoss2Tunnel__sub_803DB470();
-        TObjFish__sub_8001EDC4(TObjGbAdvance__data_805D5B74, 2);
-        TObjBoss2Tunnel__sub_803DB470();
-        TObjFish__sub_8001EDC4(TObjGbAdvance__data_805D5B74, 3);
-        TObjBoss2Tunnel__sub_803DB470();
+        get_bml_model(TObjGbAdvance__data_805D5B74, 0);
+        draw_ginja_object();
+        get_bml_model(TObjGbAdvance__data_805D5B74, 1);
+        draw_ginja_object();
+        get_bml_model(TObjGbAdvance__data_805D5B74, 2);
+        draw_ginja_object();
+        get_bml_model(TObjGbAdvance__data_805D5B74, 3);
+        draw_ginja_object();
         pop_matrix();
     }
 }

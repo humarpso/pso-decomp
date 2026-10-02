@@ -60,7 +60,7 @@ u8 *TItemDrop__sub_80107A68(s32 arg0);
 u32 TAdSinglePlyChrSelectGC__sub_8007C3E0(void *);
 s32 __cvt_fp2unsigned(f32);
 extern const f32 lbl_805DAAD8;
-M2C_UNK TItemDrop__sub_80107B0C(s32 arg0, u32 arg1);
+M2C_UNK item_drop_rng_below(s32 arg0, u32 arg1);
 u32 TItemDrop__sub_801065F8(u8 *arg0, M2C_UNK arg1, u32 arg2);
 M2C_UNK calc_random_ratio__10TObjPlayerFv(void *);
 void TItemDrop__sub_801065B4(u8 *arg0, u32 arg1);
@@ -99,7 +99,7 @@ u16 TItemDrop__sub_801075B4(void *, s32, s32, s32, s32);
 M2C_UNK init__9TItemDataFv(void *);
 extern void *TItemDrop__data_805D5460;
 extern const f32 lbl_805DAADC;
-void TItemDrop__sub_80106930(u8 *self, s32 idx, u8 *item);
+void generate_drop_item__9TItemDropFPviPv(u8 *self, s32 idx, u8 *item);
 s32 run_step__9TItemDropFi(s32, u32);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 alloc__22TQuestVmDownLoadServerFPv(s32);
@@ -120,7 +120,7 @@ extern const f32 lbl_805DAAE4;
 TItemDrop_80107900 *TItemDrop__ct(TItemDrop_80107900 *self, void *parent, s8 arg2);
 s32 is_not_special__9TItemDropFv(u8 *);
 u32 TItemDrop__sub_801065F8(u8 *arg0, M2C_UNK arg1, u32 arg2);
-void TItemDrop__sub_80106930(u8 *self, s32 idx, u8 *item);
+void generate_drop_item__9TItemDropFPviPv(u8 *self, s32 idx, u8 *item);
 s32 drop_item__9TItemDropFiii(s32 arg0, s32 arg1, s32 arg2);
 u16 TItemDrop__sub_801075B4(void *, s32, s32, s32, s32);
 M2C_UNK init__9TItemDataFv(void *);
@@ -192,11 +192,11 @@ u32 TItemDrop__sub_801065F8(u8 *arg0, M2C_UNK arg1, u32 arg2) {
     if (arg2 < 0x10U) {
         var_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x20));
         var_r3 = (u8 *)(M2C_FIELD(var_r3, M2C_UNK *, (arg2 * 4)));
-        return (u32)TItemDrop__sub_80107B0C((s32)((int) (var_r3)), (u32)(arg1));
+        return (u32)item_drop_rng_below((s32)((int) (var_r3)), (u32)(arg1));
     }
     var_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x20));
     var_r3 = (u8 *)(M2C_FIELD(var_r3, u8 **, 0x40));
-    return (u32)TItemDrop__sub_80107B0C((s32)((int) (var_r3)), (u32)(arg1));
+    return (u32)item_drop_rng_below((s32)((int) (var_r3)), (u32)(arg1));
 }
 
 void TItemDrop__sub_8010663C(u8 *self, s32 area, s32 idx, Item_8010663C *item) {
@@ -259,11 +259,11 @@ void TItemDrop__sub_8010663C(u8 *self, s32 area, s32 idx, Item_8010663C *item) {
         return;
     }
     if (item->type != 4) {
-        TItemDrop__sub_80106930(self, idx, (u8 *)item);
+        generate_drop_item__9TItemDropFPviPv(self, idx, (u8 *)item);
     }
 }
 
-void TItemDrop__sub_80106930(u8 *self, s32 idx, u8 *item) {
+void generate_drop_item__9TItemDropFPviPv(u8 *self, s32 idx, u8 *item) {
     f32 f;
     if (item == NULL) {
         return;
@@ -637,7 +637,7 @@ u8 *TItemDrop__sub_80107A68(s32 arg0) {
 
 s8 get_bool_from_1d6ddc__9TItemDropFPv(void* p) { return (s8)(TLobby__sub_801D6DDC(p)); }
 int TItemDrop__sub_80107B04(void) { return 0; }
-M2C_UNK TItemDrop__sub_80107B0C(s32 arg0, u32 arg1) {
+M2C_UNK item_drop_rng_below(s32 arg0, u32 arg1) {
     __cvt_fp2unsigned((f32) (((f32) arg1 * (f32) TAdSinglePlyChrSelectGC__sub_8007C3E0((void *) (arg0))) / lbl_805DAAD8));
 }
 

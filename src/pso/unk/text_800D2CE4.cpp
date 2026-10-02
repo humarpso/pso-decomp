@@ -118,7 +118,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TObjFish__sub_803E46BC(int);
+M2C_UNK draw_chunk_object(int);
 extern Vec_800D35D8 lbl_8043C26C;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
@@ -251,7 +251,7 @@ void TObjPlayer__sub_800D35D8(u8 *arg0) {
             TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
             rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
             if (check_demo_mode__10TObjPlayerFv() == 1) {
-                TObjFish__sub_803E46BC((int) (M2C_FIELD(arg0, s32 *, 0x34)));
+                draw_chunk_object((int) (M2C_FIELD(arg0, s32 *, 0x34)));
             } else if (M2C_FIELD(arg0, s32 *, 0x388) & 4) {
                 if (((Obj_800D35D8 *)arg0)->light.m8() != 0) {
                     ((Obj_800D35D8 *)arg0)->light.m6();

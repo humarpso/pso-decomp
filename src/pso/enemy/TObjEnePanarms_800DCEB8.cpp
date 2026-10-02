@@ -169,7 +169,7 @@ extern const f32 TObjEnePanarms__data_805DA4A4;
 void TObjEnePanarms__sub_800DECC4(Obj_800DECC4 *self);
 void request_destroy__11TBoss4Type2FUi(u32);
 void TObjEnePanarms__sub_800DF1B8(Obj_800DF1B8 *self);
-u16 TObjPlayer__sub_800115C4(void *, f32 *, f32);
+u16 find_nearest_visible_player(void *, f32 *, f32);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 extern const f64 TObjEnePanarms__data_8043CD20;
 void TObjEnePanarms__sub_800DE124(Obj_800DE124 *arg0);
@@ -184,7 +184,7 @@ s32 TObjPlayer__sub_801423A4(s32, s32, s32);
 extern const f64 TObjEnePanarms__data_8043CD20;
 extern const f32 lbl_805DA4F0;
 void TObjEnePanarms__sub_800DE9F0(Obj_800DE9F0 *arg0, s32 arg1);
-u16 TObjPlayer__sub_800115C4(void *, f32 *, f32);
+u16 find_nearest_visible_player(void *, f32 *, f32);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 TObjPlayer__sub_801423A4(s32, s32, s32);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
@@ -211,7 +211,7 @@ void set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 extern const f32 lbl_805DA4BC;
 extern const f32 lbl_805DA4D4;
 void TObjEnePanarms__sub_800DDED8(u8 *arg0);
-u16 TObjPlayer__sub_800115C4(void *, f32 *, f32);
+u16 find_nearest_visible_player(void *, f32 *, f32);
 void set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 s32 TObjEnePanarms__sub_800DFB44(s32);
 M2C_UNK TObjEnePanarms__sub_800E1D38(s32);
@@ -618,7 +618,7 @@ void TObjEnePanarms__sub_800DDAD8(u8 *arg0) {
     refresh_lobby_state__10TObjPlayerFPv();
     send_entity_set_flags__6TLobbyFPv(arg0);
     st = 5;
-    if (TObjPlayer__sub_800115C4(arg0, &v.x, lbl_805DA4B4) != 0xFFFF) {
+    if (find_nearest_visible_player(arg0, &v.x, lbl_805DA4B4) != 0xFFFF) {
         if (v.x * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60)) + v.z * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60)) < TObjEnePanarms__data_805DA4A0) {
             st = 4;
         }
@@ -710,7 +710,7 @@ void TObjEnePanarms__sub_800DE124(Obj_800DE124 *arg0) {
     s32 t;
     if (--arg0->f388 < 0) {
         r = 1;
-    } else if ((t = TObjPlayer__sub_800115C4(arg0, sp, (f32) arg0->f474)) != 0xFFFF) {
+    } else if ((t = find_nearest_visible_player(arg0, sp, (f32) arg0->f474)) != 0xFFFF) {
         arg0->f60 = (s32) (TObjEnePanarms__data_8043CD20 * get_ad_end_text_start__10TObjPlayerFv(sp[0], sp[2]));
         r = 1;
     }
@@ -898,7 +898,7 @@ u16 TObjEnePanarms__sub_800DEA88(Obj_800DEA88 *arg0, s32 arg1, s32 arg2) {
     f32 sp[3];
     s32 t;
     s32 var;
-    if ((t = TObjPlayer__sub_800115C4(arg0, sp, lbl_805DA4B4)) != 0xFFFF) {
+    if ((t = find_nearest_visible_player(arg0, sp, lbl_805DA4B4)) != 0xFFFF) {
         if (arg2 == 0 || TBoss6Kakusan__sub_803D8BD8(sp) < lbl_805DA4F4) {
             var = 0;
         } else {

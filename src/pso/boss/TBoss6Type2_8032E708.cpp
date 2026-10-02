@@ -142,7 +142,7 @@ M2C_UNK apply_damage__11TBoss6Type2FPvi(s32, s32);
 void sync_hp_apply_damage__11TBoss6Type2FPv(void *arg0);
 void sync_hp__11TBoss6Type2FPv(void *arg0);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
-s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
+s32 get_bml_model(s32, M2C_UNK);
 M2C_UNK clear_render_callback__8TObjFishFv(s32);
 M2C_UNK TObjFish__sub_800E3074(s32);
 M2C_UNK set_global_param__8TObjFishFi(s32);
@@ -182,7 +182,7 @@ void TBoss6Type2__sub_8032F3E0(s32 i, void *pts, s32 n);
 void TBoss6Type2__sub_8032F2F0(void* p, void* q);
 extern char lbl_80477450[];
 void TBoss6Type2__sub_8032F2C4(T_8032F2C4 *self);
-u32 TBoss4Type2__sub_800874F4(void *, s32);
+u32 create_particle_emitter(void *, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 extern E_8032E7B4 lbl_804773BC[];
 void TBoss6Type2__sub_8032E7B4(O_8032E7B4 *arg0, s32 arg1);
@@ -199,7 +199,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 extern E_8032E7B4 lbl_804773BC[];
 void TBoss6Type2__sub_8032E834(O_8032E834 *arg0);
-s32 TObjPlayer__sub_80141F84(s32, s32);
+s32 angle_difference_abs(s32, s32);
 s32 TBoss6Type2__sub_8032EAB8(void *arg0, s32 arg1);
 s32 TBoss6Type2__sub_8032EA34(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 get_state__11TBoss6Type2FPv(int);
@@ -235,11 +235,11 @@ f32 TNpcPlayer__sub_803D97B4(void *);
 void TBoss6Type2__sub_8032EBB4(O_8032EBB4 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-s32 TObjPlayer__sub_80141F84(s32, s32);
+s32 angle_difference_abs(s32, s32);
 u8 *get_player_by_client_id(s32);
 f32 TBoss8Dragon__sub_803D64C0(void *);
 f32 TBoss8Dragon__sub_803D64DC(void *);
-f32 TObjPlayer__sub_803E1A58(void *, void *);
+f32 xyz_distance(void *, void *);
 extern const f64 lbl_80477458[];
 s32 TBoss6Type2__sub_8032F034(O_8032F034 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -319,7 +319,7 @@ void TBoss6Type2__sub_8032E770(s32 arg0, s32 arg1) {
 void TBoss6Type2__sub_8032E7B4(O_8032E7B4 *arg0, s32 arg1) {
     if (arg0->arr[arg1] == 0) {
         V3_8032E7B4 v = arg0->pos;
-        arg0->arr[arg1] = TBoss4Type2__sub_800874F4(&v, lbl_804773BC[arg1].a);
+        arg0->arr[arg1] = create_particle_emitter(&v, lbl_804773BC[arg1].a);
         if (arg0->arr[arg1] != 0) {
             set_flags__11TBoss4Type2FPvUi((void *)arg0->arr[arg1], 0x40);
         }
@@ -390,11 +390,11 @@ void TBoss6Type2__sub_8032EA10(T_8032EA10 *self) {
 s32 TBoss6Type2__sub_8032EA34(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 t;
     TBoss6Type2__sub_8032EAB8(arg0, arg3);
-    if (TObjPlayer__sub_80141F84(arg2, arg1) <= arg3) {
+    if (angle_difference_abs(arg2, arg1) <= arg3) {
         return arg2;
     }
     t = arg1 + TBoss6Type2__sub_8032EAB8(arg0, arg3);
-    if (TObjPlayer__sub_80141F84(arg2, t) <= arg3) {
+    if (angle_difference_abs(arg2, t) <= arg3) {
         return arg2;
     }
     return t;
@@ -581,7 +581,7 @@ s32 TBoss6Type2__sub_8032F034(O_8032F034 *arg0) {
     a.y = 0.0f;
     V3_8032F034 b = arg0->home;
     if (0.0f == arg0->f3b8) {
-        if (TObjPlayer__sub_80141F84(arg0->f60, (s32)(lbl_80477458[0] * get_ad_end_text_start__10TObjPlayerFv(a.x - b.x, a.z - b.z))) > 0x2000) {
+        if (angle_difference_abs(arg0->f60, (s32)(lbl_80477458[0] * get_ad_end_text_start__10TObjPlayerFv(a.x - b.x, a.z - b.z))) > 0x2000) {
             return 0;
         }
     }
@@ -590,7 +590,7 @@ s32 TBoss6Type2__sub_8032F034(O_8032F034 *arg0) {
     c.x += 90.0f * TBoss8Dragon__sub_803D64C0((void *)arg0->f60);
     c.y = 0.0f;
     c.z += 90.0f * TBoss8Dragon__sub_803D64DC((void *)arg0->f60);
-    if (TObjPlayer__sub_803E1A58(&c, &a) <= 100.0f) {
+    if (xyz_distance(&c, &a) <= 100.0f) {
         return 1;
     }
     return 0;
@@ -855,7 +855,7 @@ void TObjFish__sub_8032FE50(void *arg0) {
     s32 temp_r31_2;
     set_global_flag__10TObjPlayerFv();
     temp_r31 = TObjFish__sub_8001EDB0(M2C_FIELD(arg0, s32 *, 0x374), 1);
-    temp_r31_2 = TObjFish__sub_8001EDC4(M2C_FIELD(arg0, s32 *, 0x374), 1);
+    temp_r31_2 = get_bml_model(M2C_FIELD(arg0, s32 *, 0x374), 1);
     set_global_param__8TObjFishFi(temp_r31);
     if (lbl_805DF7FC == M2C_FIELD(arg0, f32 *, 0x3E8)) {
         TObjFish__sub_800E3074(M2C_FIELD(arg0, s32 *, 0x458));

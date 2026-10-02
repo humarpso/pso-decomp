@@ -85,7 +85,7 @@ extern "C" {
 M2C_UNK obj_getField1c(void *);
 s16 calc_stat_bonus_sum__10TObjPlayerFUs();
 s16 calc_equip_bonus__10TObjPlayerFUs();
-s32 TItemMag__sub_80105348(void *, int);
+s32 check_class_equip_permission(void *, int);
 u8 get_slot_count__14TItemProShieldFPv();
 M2C_UNK apply_luck_reward__10TObjPlayerFiUc(void *, int);
 M2C_UNK add_dfp_material__10TObjPlayerFiUc(void *, int);
@@ -112,7 +112,7 @@ void TObjPlayer__sub_80116DE8(u8 *arg0) {
         add_stat_and_item__10TObjPlayerFiUc((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (int) (2));
         break;
     case 1:
-        if (TItemMag__sub_80105348((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (int) (0xD7)) == 0) {
+        if (check_class_equip_permission((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (int) (0xD7)) == 0) {
             add_mst_and_item__10TObjPlayerFiUc((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (int) (2));
         }
         break;
@@ -127,7 +127,7 @@ void TObjPlayer__sub_80116DE8(u8 *arg0) {
         break;
     case 4:
         obj_getField1c((void *) (M2C_FIELD(arg0, u8 **, 0xF0)));
-        if ((calc_stat_bonus_sum__10TObjPlayerFUs() < 0xFA) && (TItemMag__sub_80105348((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (int) (0xD7)) == 0)) {
+        if ((calc_stat_bonus_sum__10TObjPlayerFUs() < 0xFA) && (check_class_equip_permission((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (int) (0xD7)) == 0)) {
             set_speed_scaled_by_camera__10TObjPlayerFiUc((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (int) (2));
         }
         break;

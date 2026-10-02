@@ -8,7 +8,7 @@ struct RecoveredGlobal_8024470C___vt__11TWindowArea { M2C_UNK value; u8 remainin
 typedef char RecoveredGlobal_8024470C___vt__11TWindowArea_size[sizeof(RecoveredGlobal_8024470C___vt__11TWindowArea) == 0x18 ? 1 : -1];
 
 extern "C" {
-u8 * TWindowSubComCard__sub_8026CBB8(s32);
+u8 * get_window_layout_position(s32);
 u8 * TWindowRoom__ct(void *, s32);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(int, int);
 extern M2C_UNK __vt__11TWindowArea[];
@@ -53,7 +53,7 @@ u8 *TWindowArea__ct(u8 *arg0) {
     M2C_FIELD(var_r31, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8024470C___vt__11TWindowArea *)&__vt__11TWindowArea).value;
     M2C_FIELD(var_r31, s32 *, 0) = (s32) lbl_805D3880;
     var_r3 = (u8 *)(var_r31 + 0x40);
-    var_r4 = (M2C_UNK *)(TWindowSubComCard__sub_8026CBB8(0x25));
+    var_r4 = (M2C_UNK *)(get_window_layout_position(0x25));
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((int) (var_r3), (int) (var_r4));
     var_f0 = lbl_805DCAC4;
     var_r3 = (u8 *)(var_r31);

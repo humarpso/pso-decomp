@@ -43,7 +43,7 @@ void TWindowLockOn__sub_80262FDC(u8 *arg0);
 s32 obj_isState3_324(void *);
 s32 obj_testFlags30(s32, M2C_UNK);
 s32 get_target_id__13TWindowLockOnFPv(void *);
-s32 TWindowSubComCard__sub_801058F8(void *);
+s32 is_script_controlled__10TObjPlayerFPv(void *);
 bool TWindowLockOn__sub_80262DC4(s32 arg0);
 void TWindow__close(void *);
 void update_fade__17TWindowSubComCardFPv(void *);
@@ -90,7 +90,7 @@ bool TWindowLockOn__sub_80262DC4(s32 arg0) {
         return 0;
     }
     if (obj_testFlags30((s32)((void *) (arg0)), (M2C_UNK)((int) (0x10000000))) != 0) {
-        if ((obj_isState3_324((void *) (arg0)) != 0) || (TWindowSubComCard__sub_801058F8((void *) (arg0)) != 0)) {
+        if ((obj_isState3_324((void *) (arg0)) != 0) || (is_script_controlled__10TObjPlayerFPv((void *) (arg0)) != 0)) {
             return 0;
         }
         return 1;

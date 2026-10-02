@@ -75,7 +75,7 @@ extern "C" {
 void *__dt__19TObjGoalWarpAncientFv(void *arg0, s16 arg1);
 void render__19TObjGoalWarpAncientFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
+M2C_UNK draw_ginja_object(s32);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -101,7 +101,7 @@ void render__19TObjGoalWarpAncientFv(u8 *arg0) {
         draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0xD4), M2C_FIELD(arg0, s32 *, 0xE8), M2C_FIELD(arg0, f32 *, 0xC8));
         end_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xDC));
-        TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0xD0));
+        draw_ginja_object(M2C_FIELD(arg0, s32 *, 0xD0));
         pop_matrix();
     }
 }
@@ -185,7 +185,7 @@ extern "C" {
 void *TObjMapWarpAncient__create(void *arg0);
 void render__18TObjMapWarpAncientFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
+M2C_UNK draw_ginja_object(s32);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 void *TObjMapWarpAncient__ct(void *, void *, void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -257,10 +257,10 @@ void render__18TObjMapWarpAncientFv(u8 *arg0) {
             draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0x100), M2C_FIELD(arg0, s32 *, 0x118), M2C_FIELD(arg0, f32 *, 0xFC));
         }
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x110));
-        TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x104));
+        draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x104));
         end_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x114));
-        TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x108));
+        draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x108));
         pop_matrix();
     }
 }

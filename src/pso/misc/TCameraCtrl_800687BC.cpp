@@ -469,7 +469,7 @@ s32 is_split_screen();
 Cam_80068958 *TCameraCtrl__sub_8006B324(void);
 s32 TCameraCtrl__sub_800688D0(u16 id);
 s32 is_split_screen();
-void TCameraCtrl__sub_8006A410(u8 *, int);
+void reset_cameras_to_actor(u8 *, int);
 u16 TCameraCtrl__sub_8006A5DC();
 u8 *get_player_by_client_id(s32);
 extern RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
@@ -1154,13 +1154,13 @@ s32 TCameraCtrl__sub_80069DA8(void) {
         for (identity = 0; identity < 4; identity++) {
             player = get_player_by_client_id(identity);
             if (player != NULL) {
-                TCameraCtrl__sub_8006A410(player, 0);
+                reset_cameras_to_actor(player, 0);
             }
         }
     } else {
         player = get_player_by_client_id(lbl_805D53A0);
         if (player != NULL) {
-            TCameraCtrl__sub_8006A410(player, 0);
+            reset_cameras_to_actor(player, 0);
         }
     }
     return 0;

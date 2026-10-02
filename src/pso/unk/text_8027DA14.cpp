@@ -18,7 +18,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * TQuestThread__sub_801F5E58(void);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 s32 get_field_20__17TWindowSubComCardFPv(void *);
-u8 * TWindowSubComCard__sub_8026CBB8(s32);
+u8 * get_window_layout_position(s32);
 s32 TWindowSubStatusDisp__sub_802880BC(s32, s32, s32);
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 u32 TWindowSubStatusDisp__sub_80144D68();
@@ -44,7 +44,7 @@ u8 *TWindowSubQuestBoardSelect__ct(u8 *arg0) {
     f32 temp_f2;
     s32 temp_r30;
     s32 var_r30;
-    TWindowDD__sub_802466E0((void *) (arg0), (void *) (&lbl_804D19A8.value), (int) (4), (int) (TWindowSubComCard__sub_8026CBB8(0x70)));
+    TWindowDD__sub_802466E0((void *) (arg0), (void *) (&lbl_804D19A8.value), (int) (4), (int) (get_window_layout_position(0x70)));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__26TWindowSubQuestBoardSelect.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3A80;
     var_r30 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x24);

@@ -30,7 +30,7 @@ s32 get_minutes__6TLobbyFv(void);
 extern M2C_UNK lbl_8043E348;
 extern const f32 lbl_805DAB6C;
 f32 TItemData__sub_8010C5DC(u8 *arg0);
-f32 TItemData__sub_8010DD6C(void *, s32);
+f32 get_set_bonus_multiplier__9TItemDataFPvi(void *, s32);
 f32 TItemData__sub_8010C5DC(u8 *arg0);
 Parm_8010C1E0 *lookup_item_pmt_record(void *);
 s32 getS16_06__9TItemDataFPv(void *);
@@ -42,13 +42,13 @@ void TItemData__sub_8010EDD8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDC8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
 void add_quantity__9TItemDataFPvi(void *arg0, s32 arg1);
-void TItemData__sub_8010C1E0(u8 *self, s32 player, s32 unused, s16 *out);
+void add_armor_stat_contribution__9TItemDataFPviiPv(u8 *self, s32 player, s32 unused, s16 *out);
 extern u8 lbl_805DAB68;
 void TItemData__sub_8010C498(struct Item_8010C498 *self);
 s32 lookup_item_def__9TItemDataFPv(void *);
 u8 TItemData__sub_8010C52C(Item_8010C52C *it);
 f32 TItemData__sub_8010C5DC(u8 *arg0);
-f32 TItemData__sub_8010DD6C(void *, s32);
+f32 get_set_bonus_multiplier__9TItemDataFPvi(void *, s32);
 Parm_8010C1E0 *lookup_item_pmt_record(void *);
 s32 getS16_06__9TItemDataFPv(void *);
 s16 get_bswap16_field8__9TItemDataFPv(void *);
@@ -212,7 +212,7 @@ void TItemData__sub_8010BEC4(void *self, s32 arg1, s32 arg2, void *res, Stats_80
 void TItemData__sub_8010C0A4(u8 *self, s32 player, s32 unused, s16 *out) {
     s32 b06;
     Parm_8010C0A4 *parm;
-    f32 mult = TItemData__sub_8010DD6C(self, player);
+    f32 mult = get_set_bonus_multiplier__9TItemDataFPvi(self, player);
     f32 add = ((f32 (*)(u8 *, s32))TItemData__sub_8010C5DC)(self, player);
     parm = ((Parm_8010C0A4 *)lookup_item_pmt_record(self));
     if (parm != 0) {
@@ -234,10 +234,10 @@ void TItemData__sub_8010C0A4(u8 *self, s32 player, s32 unused, s16 *out) {
 
 #pragma push
 #pragma fp_contract on
-void TItemData__sub_8010C1E0(u8 *self, s32 player, s32 unused, s16 *out) {
+void add_armor_stat_contribution__9TItemDataFPviiPv(u8 *self, s32 player, s32 unused, s16 *out) {
     s32 dfpBonus;
     Parm_8010C1E0 *parm;
-    f32 mult = TItemData__sub_8010DD6C(self, player);
+    f32 mult = get_set_bonus_multiplier__9TItemDataFPvi(self, player);
     f32 add = ((f32 (*)(u8 *, s32))TItemData__sub_8010C5DC)(self, player);
     parm = lookup_item_pmt_record(self);
     if (parm != 0) {

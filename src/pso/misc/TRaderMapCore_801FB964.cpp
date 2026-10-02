@@ -9,7 +9,7 @@ extern "C" {
 void *TRaderMapCore__sub_801FB9C8(void *arg0, s16 arg1);
 void init_map_ptr__13TRaderMapCoreFv(void);
 void reset__13TRaderMapCoreFPv(void* a0);
-M2C_UNK TObjFish__sub_8001EDC4(s32);
+M2C_UNK get_bml_model(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -20,7 +20,7 @@ void reset__13TRaderMapCoreFPv(void* a0) { *(float*)((char*)a0 + 0x8) = TRaderMa
 extern s32 lbl_805D5F48;
 
 void init_map_ptr__13TRaderMapCoreFv(void) {
-    TObjFish__sub_8001EDC4(lbl_805D5F48);
+    get_bml_model(lbl_805D5F48);
 }
 
 extern M2C_UNK lbl_804C88A8[];

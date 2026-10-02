@@ -70,7 +70,7 @@ u8 TBoss6SwordWave__sub_80356C80(s32 arg0, u8 arg1);
 u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
 f32 TBoss8Dragon__sub_803D64C0(int);
 f32 TBoss8Dragon__sub_803D64DC(int);
-f32 TObjPlayer__sub_803E1A58(void *, void *);
+f32 xyz_distance(void *, void *);
 extern u8 lbl_80479388[];
 extern const f32 lbl_805DFFF0;
 extern const f32 lbl_805DFFF8;
@@ -310,7 +310,7 @@ s32 TBoss6SwordWave__sub_803564F4(void *arg0) {
             Vec_803564F4 v = o->pos;
             v.x += o->radius * TBoss8Dragon__sub_803D64C0(ang);
             v.z += o->radius * TBoss8Dragon__sub_803D64DC(ang);
-            if (!(TObjPlayer__sub_803E1A58(&v, lbl_80479388) > lbl_805E0008)) {
+            if (!(xyz_distance(&v, lbl_80479388) > lbl_805E0008)) {
                 spawn_particle_effect_with_flags(&v, 0x212, 0x40);
                 if (get_rotation_timer__11TBoss6Type2FPv(o->owner) == 0) {
                     spawn_particle_effect(&v, 0x213);

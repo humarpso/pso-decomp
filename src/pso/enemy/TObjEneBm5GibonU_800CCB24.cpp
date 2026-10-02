@@ -722,7 +722,7 @@ struct Vec_800CE370 { f32 x, y, z; };
 
 extern "C" {
 void TObjEneEpsilon__sub_800B96A4(void *);
-void fn_800B98C0(void *);
+void enemy_clear_target(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void play_sound_variant__16TObjEneBm5GibonUFPv(void *);
@@ -751,7 +751,7 @@ int get_attack_state__16TObjEneBm5GibonUFPv(void* p, void * _w1);
 extern const f32 TObjEneBm5GibonU__data_805DA174;
 extern const f32 lbl_805DA17C;
 void TObjEneBm5GibonU__sub_800CCE28(u8 *arg0);
-s32 TObjEneEpsilon__sub_800B95E0(void *);
+s32 enemy_validate_retained_target(void *);
 void TObjEneEpsilon__sub_800B96A4(void *);
 s32 update_velocity__9TObjEneDDFPv(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
@@ -804,7 +804,7 @@ extern const f32 TObjEneBm5GibonU__data_805DA15C;
 extern const f32 TObjEneBm5GibonU__data_805DA160;
 u8 TObjEneBm5GibonU__sub_800CCB74(Ene_800CCB74 *arg0, s32 arg1, f32 scale);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TObjFish__sub_800660D4(void *, s32, s32, s32, s32, f32);
+s32 attach_particle_model(void *, s32, s32, s32, s32, f32);
 Hit_800CCC6C *csnVectorUnder(Vec_800CCC6C *, void *, s32);
 s32 set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
 s32 TParticleCtrl__sub_80086884(int);
@@ -818,7 +818,7 @@ extern const f32 TObjEneBm5GibonU__data_805DA168;
 extern const f32 TObjEneBm5GibonU__data_805DA16C;
 int TObjEneBm5GibonU__sub_800CCC6C(Ene_800CCC6C *arg0, void *arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void fn_800B98C0(void *);
+void enemy_clear_target(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 s32 update_target__16TObjEneBm5GibonUFPv(void *);
@@ -846,7 +846,7 @@ void TObjEneBm5GibonU__sub_800CDB98(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CD5F4(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800D0738(u8 *arg0, u32 arg1, s32 arg2);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
-s32 TObjEneEpsilon__sub_800B95E0(void *);
+s32 enemy_validate_retained_target(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void play_sound_variant__16TObjEneBm5GibonUFPv(void *);
@@ -866,7 +866,7 @@ f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 M2C_UNK clear_field_388__9TObjEneDDFPv(void *);
 M2C_UNK set_active__9TObjEneDDFPv(void *);
 M2C_UNK TObjEneDD__sub_800BACE0(void *, f32, f32, f32);
-M2C_UNK TBoss8Dragon__sub_800BB780(void *);
+M2C_UNK clear_attack_receipts(void *);
 M2C_UNK TBoss8Dragon__sub_800BB7D4(void *, int);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK TObjEneBm5GibonU__sub_800D0AE8(void *, void *);
@@ -882,7 +882,7 @@ extern const f32 TObjEneBm5GibonU__data_805DA1BC;
 void TObjEneBm5GibonU__sub_800CE370(u8 *arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
-void fn_800B98C0(void *);
+void enemy_clear_target(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void TObjEneBm5GibonU__sub_800CCD8C(u8 *arg0);
@@ -986,7 +986,7 @@ int TObjEneBm5GibonU__sub_800CCC6C(Ene_800CCC6C *arg0, void *arg1) {
     if (hit != NULL && (hit->flags & 4)) {
         p = spawn_particle_effect(hit->obj + 0x38, 0x49);
         if (p != NULL) {
-            TObjFish__sub_800660D4(p, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneBm5GibonU__data_805DA168);
+            attach_particle_model(p, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneBm5GibonU__data_805DA168);
             if (arg0->f464 == 1) {
                 set_position_xy__10TObjPlayerFPvff(p, TObjEneBm5GibonU__data_805DA16C, TObjEneBm5GibonU__data_805DA168);
             }
@@ -1113,7 +1113,7 @@ void TObjEneBm5GibonU__sub_800CE370(u8 *arg0, s32 arg1) {
         update_enemy_collision_flags__10TObjPlayerFPv(arg0);
         break;
     case 5:
-        TBoss8Dragon__sub_800BB780(arg0);
+        clear_attack_receipts(arg0);
         clear_field_388__9TObjEneDDFPv(arg0);
         break;
     }
@@ -1203,7 +1203,7 @@ void TObjEneBm5GibonU__sub_800CFE34(u8 *arg0, s32 arg1) {
                 }
             }
         }
-        if (TObjEneEpsilon__sub_800B95E0(arg0) != 0) {
+        if (enemy_validate_retained_target(arg0) != 0) {
             if (M2C_FIELD(arg0, s16 *, 0xB8) == 0xE) {
                 TObjEneBm5GibonU__sub_800D0F44(arg0);
             } else {
@@ -1242,7 +1242,7 @@ void TObjEneBm5GibonU__sub_800CFFBC(u8 *arg0, s32 arg1) {
     {
       TBoss3Volopt__sub_8022675C((void *)((void *) ((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) arg0), (M2C_UNK)((int) 0x3A523)))), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) 0), (M2C_UNK)((int) 0));
     }
-      if (TObjEneEpsilon__sub_800B95E0((void *) arg0) != 0)
+      if (enemy_validate_retained_target((void *) arg0) != 0)
     {
       TObjEneEpsilon__sub_800B96A4((void *) arg0);
       update_velocity__9TObjEneDDFPv((void *) arg0);
@@ -1294,7 +1294,7 @@ void TObjEneBm5GibonU__sub_800D01DC(u8 *arg0, s32 arg1) {
       *((s16 *) (((s8 *) arg0) + 0xB8)) = 4;
       set_field_378__9TObjEneDDFPvi((void *)(arg0), (M2C_UNK)(3));
       PSO_VCALL_VObj_18_9e83f9_m94(arg0);
-      fn_800B98C0(arg0);
+      enemy_clear_target(arg0);
       *((s32 *) (((s8 *) arg0) + 0x478)) = 0;
       *((s32 *) (((s8 *) arg0) + 0x4AC)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x4AC))) & 0xFFFFFFFE);
       return;
@@ -1340,7 +1340,7 @@ void TObjEneBm5GibonU__sub_800D02F8(Gibon_800D02F8 *g, s32 arg1) {
         set_field_378__9TObjEneDDFPvi((void *)(g), (M2C_UNK)(8));
         ((Ene_800D02F8 *)g)->m93();
         g->f4AC &= ~3;
-        fn_800B98C0(g);
+        enemy_clear_target(g);
         g->f478 = 0;
         VecCopy__FP3VecPC3Vec(home, g->pos);
         TObjEneMe3SinowZoa__sub_800D758C(&g->sub);
@@ -1375,7 +1375,7 @@ void TObjEneBm5GibonU__sub_800D0420(u8 *arg0, s32 arg1) {
         set_field_378__9TObjEneDDFPvi(arg0, 8);
         ((VObj_18_7b3d65 *)(arg0))->m93();
         M2C_FIELD(arg0, s32 *, 0x4AC) = (s32) (M2C_FIELD(arg0, s32 *, 0x4AC) & 0xFFFFFFFC);
-        fn_800B98C0((void *) (arg0));
+        enemy_clear_target((void *) (arg0));
         M2C_FIELD(arg0, s32 *, 0x478) = 0;
         VecCopy__FP3VecPC3Vec(home, (void *) (arg0 + 0x38));
         M2C_FIELD(arg0, f32 *, 0x38) -= lbl_805DA230 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));

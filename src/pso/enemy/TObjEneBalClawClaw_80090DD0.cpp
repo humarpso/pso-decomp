@@ -125,7 +125,7 @@ M2C_UNK advance_animation_playback(void *);
 void send_entity_set_flags__6TLobbyFPv(void *);
 void TBoss3Volopt__sub_8022675C(int, void *, int, int);
 void TObjEneBalClawClaw__sub_80091134(Claw_80091134 *self);
-M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK move_with_wall_slide(void *);
 s32 check_path_obstructed(void *, void *);
 M2C_UNK reset_active_state__18TObjEneBalClawClawFPv(void *, s32, s32);
@@ -135,7 +135,7 @@ M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
 extern const f32 TObjEneBalClawClaw__data_805D968C;
 extern const f32 lbl_805D96B4;
 void TObjEneBalClawClaw__sub_80091200(Claw_80091200 *self);
-M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK TObjPlayer__sub_80017D68(void *, void *, int, void *, f32);
 M2C_UNK update_angle__10TObjPlayerFPviPv(void *, s32, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -149,7 +149,7 @@ M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
 extern const f32 TObjEneBalClawClaw__data_805D968C;
 extern const f32 lbl_805D96B8;
 void TObjEneBalClawClaw__sub_80091354(Claw_80091354 *self);
-M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK TObjPlayer__sub_80017D68(void *, void *, int, void *, f32);
 M2C_UNK update_angle__10TObjPlayerFPviPv(void *, s32, void *);
 f32 get_pos_x__10TObjPlayerFPv(s32);
@@ -184,7 +184,7 @@ void TObjEneBalClawClaw__sub_800914A4(void);
 void action__18TObjEneBalClawClawFPv(u8 *arg0);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK TBoss3Volopt__sub_800D8C48(void *, s32);
-M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK TObjPlayer__sub_800A0554(void *);
 M2C_UNK reset_active_state__18TObjEneBalClawClawFPv(void *, s32, s32);
 
@@ -208,7 +208,7 @@ void action__18TObjEneBalClawClawFPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
         advance_animation_playback(arg0);
-        TObjPlayer__sub_80011734(arg0, 0, TObjEneBalClawClaw__data_805D968C);
+        apply_actor_gravity(arg0, 0, TObjEneBalClawClaw__data_805D968C);
         if (((En0VObj_80090DD0*)(arg0 + 0x390))->m5() == 1) {
             temp_r5 = M2C_FIELD(arg0, s32 *, 0x388);
             temp_r4_2 = temp_r5 & ~5;
@@ -282,7 +282,7 @@ void TObjEneBalClawClaw__sub_80090ECC(Claw_80090ECC *self) {
         break;
     }
     advance_animation_playback(self);
-    TObjPlayer__sub_80011734(self, 0, TObjEneBalClawClaw__data_805D968C);
+    apply_actor_gravity(self, 0, TObjEneBalClawClaw__data_805D968C);
     update_collisions__10TObjPlayerFPv(self);
 }
 
@@ -326,7 +326,7 @@ void TObjEneBalClawClaw__sub_80091200(Claw_80091200 *self) {
         }
         self->vel.x *= lbl_805D96B4;
         self->vel.z *= lbl_805D96B4;
-        TObjPlayer__sub_80011734(self, 0, TObjEneBalClawClaw__data_805D968C);
+        apply_actor_gravity(self, 0, TObjEneBalClawClaw__data_805D968C);
         update_collisions__10TObjPlayerFPv(self);
         TOTrapAncient01__sub_80226578(0x4003B235, self, (u8 *)self + 0x38, 0, 0);
         if (self->fB4 != 8) {
@@ -369,7 +369,7 @@ void TObjEneBalClawClaw__sub_80091354(Claw_80091354 *self) {
         TObjPlayer__sub_80017D68(self, &v, 1, self->info, self->info->f4);
         update_angle__10TObjPlayerFPviPv(self, self->info->f8, (u8 *)self + 0x308);
         advance_animation_playback(self);
-        TObjPlayer__sub_80011734(self, 0, TObjEneBalClawClaw__data_805D968C);
+        apply_actor_gravity(self, 0, TObjEneBalClawClaw__data_805D968C);
         update_collisions__10TObjPlayerFPv(self);
         break;
     }

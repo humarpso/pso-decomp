@@ -158,9 +158,9 @@ extern M2C_UNK __vt__13TObjEneMorfos[];
 u8 *__dt__13TObjEneMorfosFv(u8 *arg0, s16 arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-void TBoss8Dragon__sub_800BB780(void *);
+void clear_attack_receipts(void *);
 int transition_enemy_state(void*, void*);
-s32 TObjPlayer__sub_80141F84(s32, s32);
+s32 angle_difference_abs(s32, s32);
 Pl_8033496C *get_player_by_client_id(s32);
 s32 TObjEneMorfos__sub_80334884(u8 *arg0);
 s32 TObjEneMorfos__sub_803348F0(u8 *arg0);
@@ -171,7 +171,7 @@ f32 TObjPlayer__sub_80014108(void *, void *, f32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 void spawn_particle_effect(void *, int);
-s32 TObjPlayer__sub_80141F84(s32, s32);
+s32 angle_difference_abs(s32, s32);
 void TBoss6Type1__sub_803D9370(void *, void *);
 extern const f64 TObjEneMorfos__data_80477610;
 extern const f32 TObjEneMorfos__data_805DF874;
@@ -246,17 +246,17 @@ void TObjEneMorfos__vt60(Obj_8033496C *arg0) {
     if (pl != 0) {
         VecCopy__FP3VecPC3Vec(&v, &pl->pos);
         TBoss6Type1__sub_803D9370(&v, &arg0->pos);
-        d = TObjPlayer__sub_80141F84(arg0->f60, (s32)(TObjEneMorfos__data_80477610 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)));
+        d = angle_difference_abs(arg0->f60, (s32)(TObjEneMorfos__data_80477610 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)));
     } else {
         d = 0;
     }
     if (d < 0x4000) {
-        TBoss8Dragon__sub_800BB780(arg0);
+        clear_attack_receipts(arg0);
         if (TObjEneMorfos__sub_803348F0((u8 *)arg0) == 0) {
             TObjEneMorfos__sub_80334884((u8 *)arg0);
         }
     } else if (arg0->f3C0 & 4) {
-        TBoss8Dragon__sub_800BB780(arg0);
+        clear_attack_receipts(arg0);
     } else {
         transition_enemy_state(arg0, (void *)0xA);
     }
@@ -269,7 +269,7 @@ f32 TObjEneMorfos__vt20(Obj_80334A4C *arg0, Obj_80334A4C *arg1, f32 farg0) {
     if (arg1 != 0) {
         VecCopy__FP3VecPC3Vec(&v, &arg1->pos);
         TBoss6Type1__sub_803D9370(&v, &arg0->pos);
-        d = TObjPlayer__sub_80141F84(arg0->f60, (s32)(TObjEneMorfos__data_80477610 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)));
+        d = angle_difference_abs(arg0->f60, (s32)(TObjEneMorfos__data_80477610 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)));
     } else {
         d = 0;
     }

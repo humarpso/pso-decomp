@@ -18,7 +18,7 @@ extern "C" {
 extern s32 TAdMultiSelGameModeGC__data_805D69F0;
 s32 TAdMultiSelGameModeGC__sub_80300850(void);
 s32 TAdMultiSelGameModeGC__sub_80300124(void *self, s32 mode, u32 idx);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+s32 get_localized_text_entry(s32, s32);
 void set_selected_index__17TWindowSubComCardFPvs(s32, s16);
 void TWindowSubComCard__sub_80265C30(s32);
 void TWindowSubComCard__sub_80265E60(s32, f32);
@@ -78,9 +78,9 @@ s32 TAdMultiSelGameModeGC__sub_803001B4(void *arg0, s32 arg1) {
     r = check_room_seq_4__16TAdChrSelASlotGCFii(&pos.p[arg1], n);
     for (i = 0; i < n; i++) {
         if (TAdMultiSelGameModeGC__sub_80300124(arg0, arg1, i) != 0) {
-            forward_trade_action_default__16TObjCityMainWarpFPviii(r, TAdSinglePlyChrSelectGC__sub_80132F2C(0x18, i + b.v[arg1]), 6, i + a.v[arg1]);
+            forward_trade_action_default__16TObjCityMainWarpFPviii(r, get_localized_text_entry(0x18, i + b.v[arg1]), 6, i + a.v[arg1]);
         } else {
-            draw_text_gray__17TWindowSubComCardFiiii(r, TAdSinglePlyChrSelectGC__sub_80132F2C(0x18, i + b.v[arg1]), 6, i + a.v[arg1]);
+            draw_text_gray__17TWindowSubComCardFiiii(r, get_localized_text_entry(0x18, i + b.v[arg1]), 6, i + a.v[arg1]);
         }
         TWindowSubComCard__sub_80265E60(r, lbl_805DEF40);
         set_selected_index__17TWindowSubComCardFPvs(r, a.v[arg1]);

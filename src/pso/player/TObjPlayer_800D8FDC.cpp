@@ -14,7 +14,7 @@ void apply_effect_variant_b__10TObjPlayerFii(s32 arg0, s32 arg1);
 void spawn_dead_spot_default__10TObjPlayerFii(s32 arg0, s32 arg1);
 void spawn_dead_spot_here__10TObjPlayerFii(s32 arg0, s32 arg1);
 void spawn_effect_at_ground__10TObjPlayerFPvi(void *arg0, s32 arg1);
-M2C_UNK TLobby__sub_800869A4(M2C_UNK *, M2C_UNK, M2C_UNK, s32);
+M2C_UNK create_timed_particle_emitter(M2C_UNK *, M2C_UNK, M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_800D93F0(M2C_UNK, s32, s32, f32);
 M2C_UNK adjust_to_ground__15TObjBoss2TunnelFiPv(void *, M2C_UNK *);
 M2C_UNK spawn_dead_spot__10TObjPlayerFiiif(M2C_UNK, s32, s32, f32);
@@ -23,7 +23,7 @@ void spawn_effect_at_ground__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     M2C_UNK sp8;
 
     adjust_to_ground__15TObjBoss2TunnelFiPv(arg0, &sp8);
-    TLobby__sub_800869A4(&sp8, 0xE4, 0, arg1);
+    create_timed_particle_emitter(&sp8, 0xE4, 0, arg1);
 }
 
 extern const f32 lbl_805DA3C8;

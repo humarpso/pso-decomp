@@ -38,7 +38,7 @@ s32 check_flag_800000__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_801BF19C(s32);
 s32 TObjPlayer__sub_801BF1DC(s32);
 s32 TObjPlayer__sub_801BF3E8(s32);
-int TObjPlayer__sub_80019248(void*);
+int is_locally_controlled__10TObjPlayerFPv(void*);
 int test_flag_2000000__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BEF60(void*, void*);
 int TObjPlayer__sub_801BEF68(void*);

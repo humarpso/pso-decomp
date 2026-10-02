@@ -464,11 +464,11 @@ s32 TObjPlayer__sub_8001BEF8(void *, void *);
 s32 TItemEquipBase__sub_8010AC60(s32 arg0, M2C_UNK arg1, s32 arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_particle_effect(void *, int);
-u8 *TObjPlayer__sub_80154804(s32, s32);
+u8 *resolve_hittable_target(s32, s32);
 void fn_8010A710(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s16 arg3);
 M2C_UNK set_flags__10TObjPlayerFPvUi(void *, void *);
 s32 TObjPlayer__sub_8001BEF8(void *, void *);
-s32 TObjPlayer__sub_80100E38(void *);
+s32 update_owner_visibility__5TItemFPv(void *);
 M2C_UNK set_mode__5TItemFPvc(void *, int);
 s32 add_item_flags__10TObjPlayerFPvUi(void *, int);
 void TItemEquipBase__sub_8010A948(u8 *arg0);
@@ -483,7 +483,7 @@ void TItemEquipBase__sub_8010AAD0(u8 *arg0);
 u8 get_field_ec__12TOSwitchItemFPv(void *);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 s32 init__9TItemDataFv(void *);
-s32 TItemLoad__sub_8011029C(void *);
+s32 request_item_model_load(void *);
 void TItemEquipBase__sub_8010B58C(u8 *arg0, s32 arg1);
 s16 clamp_field_32E__10TObjPlayerFPv(void *);
 s16 clamp_value__10TObjPlayerFPv(void *);
@@ -585,7 +585,7 @@ void fn_8010A710(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s16 arg3) {
     typedef char spC_offset[(offsetof(Stack_8010A710, spC) == 0x4) ? 1 : -1];
     Stack_8010A710 stack;
     u8 *temp_r3;
-    temp_r3 = (u8 *)(TObjPlayer__sub_80154804(arg2, (s32) arg3));
+    temp_r3 = (u8 *)(resolve_hittable_target(arg2, (s32) arg3));
     if (temp_r3 != NULL) {
         VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (temp_r3 + 0x38));
         stack.spC = M2C_FIELD(temp_r3, f32 *, 0x300);
@@ -915,7 +915,7 @@ void TItemEquipBase__sub_8010B224(VObj_8010B224 *self, s32 arg1) {
 
 void TItemEquipBase__sub_8010B46C(u8 *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) {
-        TObjPlayer__sub_80100E38((void *) (arg0));
+        update_owner_visibility__5TItemFPv((void *) (arg0));
         set_mode__5TItemFPvc((void *) (arg0), (int) (2));
         add_item_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (8));
         ((VObj_18_df954d *)(arg0))->m20(1);
@@ -948,7 +948,7 @@ void TItemEquipBase__sub_8010B58C(u8 *arg0, s32 arg1) {
     item_data.data1.data_u8[0] = get_field_ec__12TOSwitchItemFPv((void *)((void *) (arg0)));
     item_data.data1.data_u8[1] = arg1;
     item_data.data1.data_u8[2] = get_slot_count__14TItemProShieldFPv((void *) (arg0));
-    M2C_FIELD(arg0, s16 *, 0x172) = TItemLoad__sub_8011029C((void *) (&item_data.data1.data_u8[0]));
+    M2C_FIELD(arg0, s16 *, 0x172) = request_item_model_load((void *) (&item_data.data1.data_u8[0]));
 }
 
 void update_with_player__14TItemEquipBaseFi(s32 object) {

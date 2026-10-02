@@ -133,14 +133,14 @@ extern const f32 lbl_805D891C;
 extern const f32 lbl_805D8920;
 extern const f32 lbl_805D8924;
 void TBoss4DarkFalz__sub_8004B3BC(u8 *arg0);
-s32 TObjPlayer__sub_80019248(void *);
+s32 is_locally_controlled__10TObjPlayerFPv(void *);
 void *get_player_data__10TObjPlayerFi(s32 i);
 s32 get_field_3e0__12TBoss3VoloptFPv(void *p);
 s32 calc_rate_from_field__14TBoss4DarkFalzFPv(void *arg0);
 Hit_8004B7DC *get_hit_data__14TBoss4DarkFalzFPv(void *);
 void save_position__14TBoss4DarkFalzFi(void *);
 void TBoss4DarkFalz__sub_8004C220(void *, Vec_8004B7DC *);
-void TCameraCtrl__sub_8006A410(void *, s32);
+void reset_cameras_to_actor(void *, s32);
 void TObjPlayer__sub_801B0FF4(void *p);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
@@ -148,14 +148,14 @@ extern Vec_8004B7DC lbl_804371C8;
 extern s32 lbl_805D586C;
 extern const f32 lbl_805D892C;
 void TBoss4DarkFalz__sub_8004B7DC(void *arg0);
-s32 TObjPlayer__sub_80019248(void *);
+s32 is_locally_controlled__10TObjPlayerFPv(void *);
 void *get_player_data__10TObjPlayerFi(s32 i);
 s32 get_field_3e0__12TBoss3VoloptFPv(void *p);
 s32 calc_rate_from_field__14TBoss4DarkFalzFPv(void *arg0);
 Hit_8004B7DC *get_hit_data__14TBoss4DarkFalzFPv(void *);
 void save_position__14TBoss4DarkFalzFi(void *);
 void TBoss4DarkFalz__sub_8004C220(void *, Vec_8004B7DC *);
-void TCameraCtrl__sub_8006A410(void *, s32);
+void reset_cameras_to_actor(void *, s32);
 void TObjPlayer__sub_801B0FF4(void *p);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
@@ -403,8 +403,8 @@ void TBoss4DarkFalz__sub_8004B7DC(void *arg0) {
             save_position__14TBoss4DarkFalzFi(p);
             get_hit_data__14TBoss4DarkFalzFPv(p)->f4 = ang + 0x8000;
             TObjPlayer__sub_801B0FF4(p);
-            if (TObjPlayer__sub_80019248(p) != 0) {
-                TCameraCtrl__sub_8006A410(p, 0);
+            if (is_locally_controlled__10TObjPlayerFPv(p) != 0) {
+                reset_cameras_to_actor(p, 0);
             }
             ang += rate;
         }
@@ -430,8 +430,8 @@ void TBoss4DarkFalz__sub_8004B8F8(void *arg0) {
             save_position__14TBoss4DarkFalzFi(p);
             ((Hit_8004B8F8 *)get_hit_data__14TBoss4DarkFalzFPv(p))->f4 = 0x8000;
             TObjPlayer__sub_801B0FF4(p);
-            if (TObjPlayer__sub_80019248(p) != 0) {
-                TCameraCtrl__sub_8006A410(p, 0);
+            if (is_locally_controlled__10TObjPlayerFPv(p) != 0) {
+                reset_cameras_to_actor(p, 0);
             }
             ang += rate;
         }

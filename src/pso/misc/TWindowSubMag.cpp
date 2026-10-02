@@ -48,7 +48,7 @@ M2C_UNK set_field_1c__6TLobbyFPvf(void *);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
 M2C_UNK send_and_handle__6TLobbyFPvii(s32, M2C_UNK *, M2C_UNK);
 void *TLobby__sub_80269CC0(M2C_UNK, M2C_UNK *, s32, M2C_UNK);
-s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+s32 get_window_layout_position(M2C_UNK);
 s32 TWindowSubMag__sub_8027C0B0(s32 arg0);
 void *TWindowSubMag__sub_8027B424(u8 *arg0);
 }
@@ -76,7 +76,7 @@ void *TLobby__sub_80269CC0(M2C_UNK, M2C_UNK *, s32, M2C_UNK);
 M2C_UNK TWindowHelpItem__set_displayed_item_by_id(s32, s32);
 M2C_UNK *TWindowHelpItem__sub_80255DC8(s32);
 s32 TWindowShortListCtrl__sub_80278E48(s32, M2C_UNK *, s32);
-s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+s32 get_window_layout_position(M2C_UNK);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
 M2C_UNK TWindow__close(void *);
 M2C_UNK __ct__7TObjectFP7TObject();
@@ -183,7 +183,7 @@ void *TWindowSubMag__sub_8027B424(u8 *arg0) {
     } else {
         scale = 1.0f;
     }
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, TWindowSubComCard__sub_8026CBB8(0xE));
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, get_window_layout_position(0xE));
     pos.x -= (0.5f * n + 4.0f) * scale;
     size.x = 8.0f + n;
     size.y = 40.0f;
@@ -200,7 +200,7 @@ void *create__13TWindowSubMagFPv(void *arg0) {
     void *temp_r31;
     M2C_UNK temp_r3;
 
-    temp_r3 = TWindowSubComCard__sub_8026CBB8((M2C_UNK)(0xB));
+    temp_r3 = get_window_layout_position((M2C_UNK)(0xB));
     temp_r31 = TLobby__sub_80269CC0(temp_r3, lbl_8044FA00, 1, M2C_FIELD(arg0, s32 *, 0x28));
     TWindowSubEquip__sub_80263AF8(M2C_FIELD(arg0, s32 *, 0x30), 4);
     set_field_1c__6TLobbyFPvf((void *)(temp_r31));
@@ -217,7 +217,7 @@ void *TWindowSubMag__sub_8027B62C(TWindowSubMag_8027B62C *menu, s32 id) {
     u8 *item;
     initialize_mag_data__9TItemDataFPv(mag);
     item = TLobby__sub_80101AB0(id);
-    window = fn_8026652C(TWindowSubComCard__sub_8026CBB8(8), 2, get_message_10__20TWindowSubStatusDispFPv(0x1D), menu->field_0x28);
+    window = fn_8026652C(get_window_layout_position(8), 2, get_message_10__20TWindowSubStatusDispFPv(0x1D), menu->field_0x28);
     TWindowSubEquip__sub_80263AF8(menu->field_0x30, 1);
     set_field_1c__6TLobbyFPvf(window);
     if (((s32 (*)(u8 *))TWindowSubMag__sub_8027C0F4)(item) != 0) {
@@ -240,7 +240,7 @@ void *TWindowSubMag__sub_8027B62C(TWindowSubMag_8027B62C *menu, s32 id) {
 s32 create_list__13TWindowSubMagFPv(void *arg0) {
     s32 temp_r31;
 
-    s32 temp_r3 = TWindowSubComCard__sub_8026CBB8((M2C_UNK)((M2C_UNK)(0xD)));
+    s32 temp_r3 = get_window_layout_position((M2C_UNK)((M2C_UNK)(0xD)));
     temp_r31 = TWindowShortListCtrl__sub_80278E48((s32)(temp_r3), (M2C_UNK *)(lbl_8044F9F8), (s32)(M2C_FIELD(arg0, s32 *, 0x28)));
     ensure_status_display__20TWindowSubStatusDispFPvi(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x24));
     TWindowSubEquip__sub_80263AF8(M2C_FIELD(arg0, s32 *, 0x30), 2);
@@ -256,7 +256,7 @@ s32 setup_list__13TWindowSubMagFPv(void *arg0) {
     s32 temp_r31;
     M2C_UNK temp_r3;
 
-    temp_r3 = TWindowSubComCard__sub_8026CBB8((M2C_UNK)((M2C_UNK)(7)));
+    temp_r3 = get_window_layout_position((M2C_UNK)((M2C_UNK)(7)));
     temp_r31 = TWindowShortListCtrl__sub_80278E48((s32)(temp_r3), (M2C_UNK *)(lbl_8044F9F0), (s32)(M2C_FIELD(arg0, s32 *, 0x28)));
     ensure_status_display__20TWindowSubStatusDispFPvi(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x29));
     TWindowSubEquip__sub_80263AF8(M2C_FIELD(arg0, s32 *, 0x30), 0);

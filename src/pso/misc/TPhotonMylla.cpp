@@ -161,7 +161,7 @@ void TPhotonMylla__sub_801AD4A8(void* a0);
 void TPhotonRainbow__ct(void *, void *, void *, s32);
 void TPhotonYoulla__ct(void *, void *);
 s32 get_global_state__14TOKeyMachine01Fv();
-void TLobby__sub_8022727C(void *);
+void play_cue_stream_file(void *);
 extern YPkt_801AD970 lbl_80446E50;
 extern u8 lbl_80446E80[];
 extern u8 lbl_80446E8C[];
@@ -415,10 +415,10 @@ void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt) {
             TPhotonMagicSquare__ct(o, (M2C_UNK)self, 5, (s32)&v, 0xAA, lbl_805DC200);
         }
         TObjPlayer__sub_801A7748(self, 5);
-        TLobby__sub_8022727C(lbl_80446E80);
+        play_cue_stream_file(lbl_80446E80);
     } else {
         fn_801A7428(5, F_801AD970(self, u16, 0x17C));
-        TLobby__sub_8022727C(lbl_80446E8C);
+        play_cue_stream_file(lbl_80446E8C);
     }
     return self;
 }

@@ -56,7 +56,7 @@ void queue_destruction__7TObjectFv(void *);
 s32 calc_random_scaled__10TObjPlayerFv(void);
 void TBoss7LaserPtcl__sub_80086C6C(void *, void *, s32, s32);
 void spawn_particle_effect_with_flags(void *, s32, s32);
-void *TBoss8Dragon__sub_8008741C(void *, s32, s32);
+void *spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 s32 rand(void);
 extern const f32 lbl_805DBC18;
@@ -70,7 +70,7 @@ void fn_80183134(Self_80183134 *self) {
     switch (self->state) {
     case 0:
         if (self->handle == NULL) {
-            self->handle = TBoss8Dragon__sub_8008741C(self->pos, 0x84, 0x40);
+            self->handle = spawn_continuous_particle_effect_with_flags(self->pos, 0x84, 0x40);
         }
         if (self->handle != NULL) {
             self->time += lbl_805DBC18;

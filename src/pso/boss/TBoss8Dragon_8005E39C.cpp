@@ -27,7 +27,7 @@ void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void enable__13TParticleCtrlFPv(void *);
 extern u8 lbl_804882B0[];
 void TBoss8Dragon__sub_8005E52C(Obj_8005E52C *self);
-void *TBoss8Dragon__sub_8008741C(void *, s32, s32);
+void *spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 void copy_vec3__11TBoss4Type2FPvPv(void *, void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 f32 TBoss8Dragon__sub_803D64C0(s32);
@@ -50,19 +50,19 @@ void TBoss8Dragon__sub_8005E39C(Obj_8005E39C *self) {
     rot.y = self->ang;
     rot.x = 0x4000;
     if (self->eff[0] == NULL) {
-        self->eff[0] = TBoss8Dragon__sub_8008741C(&pos, self->res->f18, 0x2040);
+        self->eff[0] = spawn_continuous_particle_effect_with_flags(&pos, self->res->f18, 0x2040);
         copy_vec3__11TBoss4Type2FPvPv(self->eff[0], &rot);
     } else {
         copy_pos__11TNowLoadingFPvPv(self->eff[0], &pos);
         copy_vec3__11TBoss4Type2FPvPv(self->eff[0], &rot);
     }
     if (self->eff[1] == NULL) {
-        self->eff[1] = TBoss8Dragon__sub_8008741C(&pos, self->res->f1C, 0x40);
+        self->eff[1] = spawn_continuous_particle_effect_with_flags(&pos, self->res->f1C, 0x40);
     } else {
         copy_pos__11TNowLoadingFPvPv(self->eff[1], &pos);
     }
     if (self->eff[2] == NULL) {
-        self->eff[2] = TBoss8Dragon__sub_8008741C(&pos, self->res->f20, 0x40);
+        self->eff[2] = spawn_continuous_particle_effect_with_flags(&pos, self->res->f20, 0x40);
         copy_vec3__11TBoss4Type2FPvPv(self->eff[2], &rot);
     } else {
         copy_pos__11TNowLoadingFPvPv(self->eff[2], &pos);

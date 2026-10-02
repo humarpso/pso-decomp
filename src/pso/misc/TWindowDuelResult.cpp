@@ -40,14 +40,14 @@ u8 *alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 TWindowDD__sub_802466E0(void *, void *, void *, int);
 M2C_UNK TWindowDuelResult__sub_8024F3CC(void *);
 u8 *init__21TWindowSubComCardListFPviii(void *, s32, s32, s32);
-s32 TWindowSubComCard__sub_8026CBB8(int);
+s32 get_window_layout_position(int);
 extern RecoveredGlobal_8024F5B0___vt__17TWindowDuelResult __vt__17TWindowDuelResult;
 extern M2C_UNK lbl_804CF020[];
 extern s32 lbl_805D38F0;
 extern const f32 lbl_805DCCB0;
 extern const f32 lbl_805DCCB4;
 u8 *TWindowDuelResult__ct(u8 *arg0, s16 arg1);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+s32 get_localized_text_entry(int, int);
 u8 *get_player_by_client_id(int);
 s32 TWindowDuelResult__sub_801C19AC(void *);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
@@ -57,7 +57,7 @@ void set_default_status__17TWindowDuelResultFPvi(void *, int);
 extern u8 lbl_804CEDD0[];
 void TWindowDuelResult__vt1(Win_8024EF40 *arg0);
 s32 TLobby__sub_8001DC24(s32);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+s32 get_localized_text_entry(int, int);
 u8 *get_player_by_client_id(int);
 Entry_8024F094 *TWindowDuelResult__sub_801C257C(void);
 u8 TLobby__sub_801D7064(void *);
@@ -101,9 +101,9 @@ void TWindowDuelResult__vt1(Win_8024EF40 *arg0) {
     u8 *c;
     TWindowSubStatusDisp__sub_80257D44(arg0->sub, lbl_804CEDD0, arg0->player);
     a = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
-    set_default_status__17TWindowDuelResultFPvi(a, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 0));
+    set_default_status__17TWindowDuelResultFPvi(a, get_localized_text_entry(0x10, 0));
     c = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xF);
-    set_default_status__17TWindowDuelResultFPvi(c, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 5));
+    set_default_status__17TWindowDuelResultFPvi(c, get_localized_text_entry(0x10, 5));
     pl = get_player_by_client_id(arg0->player);
     if (pl != 0) {
         TWindowSubStatusDisp__sub_8025AC50(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1), pl + 0x85C, 0x20);
@@ -114,7 +114,7 @@ void TWindowDuelResult__vt1(Win_8024EF40 *arg0) {
         for (i = 0; i < 4; i++) {
             a = get_array_entry__20TWindowSubStatusDispFPvi(arg0, i * 3 + 2);
             b = get_array_entry__20TWindowSubStatusDispFPvi(arg0, i * 3 + 4);
-            set_default_status__17TWindowDuelResultFPvi(a, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, i + 1));
+            set_default_status__17TWindowDuelResultFPvi(a, get_localized_text_entry(0x10, i + 1));
             *(s32 *)(b + 0x20) = vals[i];
         }
     }
@@ -133,9 +133,9 @@ void TWindowDuelResult__vt0(Win_8024F094 *self) {
     u8 *d;
     TWindowSubStatusDisp__sub_80257D44(self->sub, TWindowDuelResult__data_804CEBA0, self->player);
     a = get_array_entry__20TWindowSubStatusDispFPvi(self, 0);
-    set_default_status__17TWindowDuelResultFPvi(a, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 0));
+    set_default_status__17TWindowDuelResultFPvi(a, get_localized_text_entry(0x10, 0));
     b = get_array_entry__20TWindowSubStatusDispFPvi(self, 0x12);
-    set_default_status__17TWindowDuelResultFPvi(b, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 5));
+    set_default_status__17TWindowDuelResultFPvi(b, get_localized_text_entry(0x10, 5));
     none = 1;
     e = TWindowDuelResult__sub_801C257C();
     for (i = 0; i < 4; i++, e++) {
@@ -158,20 +158,20 @@ void TWindowDuelResult__vt0(Win_8024F094 *self) {
             *(u16 *)d |= 2;
         } else {
             if (none) {
-                set_default_status__17TWindowDuelResultFPvi(a, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 0xA));
+                set_default_status__17TWindowDuelResultFPvi(a, get_localized_text_entry(0x10, 0xA));
             } else if (TLobby__sub_801D7064(lbl_8050EA40) == 1) {
                 if (e->rank == 0) {
-                    set_default_status__17TWindowDuelResultFPvi(a, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 0xB));
+                    set_default_status__17TWindowDuelResultFPvi(a, get_localized_text_entry(0x10, 0xB));
                 } else {
-                    set_default_status__17TWindowDuelResultFPvi(a, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 0xC));
+                    set_default_status__17TWindowDuelResultFPvi(a, get_localized_text_entry(0x10, 0xC));
                 }
             } else {
-                set_default_status__17TWindowDuelResultFPvi(a, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, e->rank + 6));
+                set_default_status__17TWindowDuelResultFPvi(a, get_localized_text_entry(0x10, e->rank + 6));
             }
             TWindowSubStatusDisp__sub_8025AC50(c, p + 0x85C, 0x20);
             TWindowSubStatusDisp__sub_802290E0();
             TWindowSubStatusDisp__sub_80228F5C(e->value);
-            TWindowSubStatusDisp__sub_8025AC50(d, (void *)TLobby__sub_8001DC24(TWindowSubStatusDisp__sub_80229080(TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 0xD))), 0x20);
+            TWindowSubStatusDisp__sub_8025AC50(d, (void *)TLobby__sub_8001DC24(TWindowSubStatusDisp__sub_80229080(get_localized_text_entry(0x10, 0xD))), 0x20);
             refresh_status_display__9TWindowDDFv(d);
             *(f32 *)(d + 8) = lbl_805DCCAC - *(f32 *)(d + 0x10);
         }
@@ -216,7 +216,7 @@ typedef char RecoveredGlobal_8024F5B0_lbl_804CF020_size[sizeof(RecoveredGlobal_8
 u8 *TWindowDuelResult__ct(u8 *arg0, s16 arg1) {
     u8 *temp_r3;
     u8 *var_r0;
-    TWindowDD__sub_802466E0((void *) (arg0), (void *) (&__vt__17TWindowDuelResult.value), (void *) (arg1), (int) (TWindowSubComCard__sub_8026CBB8((int) (0x24))));
+    TWindowDD__sub_802466E0((void *) (arg0), (void *) (&__vt__17TWindowDuelResult.value), (void *) (arg1), (int) (get_window_layout_position((int) (0x24))));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8024F5B0_lbl_804CF020 *)&lbl_804CF020).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D38F0;
     temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv((void *)0xC));

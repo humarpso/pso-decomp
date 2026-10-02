@@ -17,7 +17,7 @@ struct Sel_802DC118 { u8 pad[0x64]; u32 win; };
 
 extern "C" {
 M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(int);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+s32 get_localized_text_entry(int, int);
 M2C_UNK set_status_flag_80__12TQuestThreadFPv(int);
 M2C_UNK TWindowSubComCard__sub_80265CFC(int, f32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
@@ -25,7 +25,7 @@ s32 check_room_seq_4__16TAdChrSelASlotGCFii(void *, int);
 extern const f32 lbl_805DE890;
 s32 TAdMultiPlyChrSelectGC__sub_802DBE4C(long long arg1);
 M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(int);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+s32 get_localized_text_entry(int, int);
 M2C_UNK set_status_flag_80__12TQuestThreadFPv(int);
 M2C_UNK TWindowSubComCard__sub_80265CFC(int, f32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
@@ -34,7 +34,7 @@ extern const f32 lbl_805DE890;
 s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(unsigned long long arg1);
 s32 get_state_flag__9TMainTaskFv(void);
 void render__22TAdMultiPlyChrSelectGCFv(void *self);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+s32 get_localized_text_entry(int, int);
 M2C_UNK free_member__17TWindowSubComCardFPv(int, int);
 M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(int, int, void *, f32);
 s32 TWindowMessageYesNo__sub_802A59D8(void *, int, int, int);
@@ -42,7 +42,7 @@ s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
 extern M2C_UNK lbl_804728A8[];
 extern const f32 lbl_805DE888;
 s32 TAdMultiPlyChrSelectGC__sub_802DBCE8(s32 arg0);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+s32 get_localized_text_entry(int, int);
 M2C_UNK free_member__17TWindowSubComCardFPv(int, int);
 M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(int, int, void *, f32);
 s32 TWindowMessageYesNo__sub_802A59D8(void *, int, int, int);
@@ -50,7 +50,7 @@ s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
 extern M2C_UNK lbl_804728A0[];
 extern const f32 lbl_805DE88C;
 s32 TAdMultiPlyChrSelectGC__sub_802DBD64(s32 arg0);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+s32 get_localized_text_entry(int, int);
 M2C_UNK set_selected_index__17TWindowSubComCardFPvs(int, int);
 M2C_UNK TWindowSubComCard__sub_80265C30(int);
 M2C_UNK TWindowSubComCard__sub_80265E60(int, f32);
@@ -60,7 +60,7 @@ s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
 extern M2C_UNK lbl_80472890[];
 extern const f32 lbl_805DE894;
 s32 TAdMultiPlyChrSelectGC__sub_802DBF3C(void);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+s32 get_localized_text_entry(int, int);
 M2C_UNK free_member__17TWindowSubComCardFPv(int, int);
 M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(int, int, void *, f32);
 s32 TWindowMessageYesNo__sub_802A59D8(void *, int, int, int);
@@ -68,7 +68,7 @@ extern u8 lbl_80472898[];
 extern const f32 lbl_805DE88C;
 s32 TAdMultiPlyChrSelectGC__sub_802DBDE0(void);
 extern u8 lbl_80541230[];
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+s32 get_localized_text_entry(int, int);
 void *memset(void *, int, u32);
 s32 sprintf(void *, const void *, ...);
 u8 *TAdMultiPlyChrSelectGC__sub_802DC22C(s32 arg0, s32 arg1);
@@ -110,7 +110,7 @@ void render__22TAdMultiPlyChrSelectGCFv(void *self) {
 s32 TAdMultiPlyChrSelectGC__sub_802DBCE8(s32 arg0) {
     s32 temp_r31;
     temp_r31 = TWindowMessageYesNo__sub_802A59D8((void *) (arg0), (int) (get_clamped_cursor__22TAdMultiPlyChrSelectGCFv()), (int) (0), (int) (0));
-    forward_slot_selection__16TAdChrSelASlotGCFPvPvPv((int) (temp_r31), (int) (TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x1F), (int) (0xA))), (void *) (lbl_804728A8), (f32) (lbl_805DE888));
+    forward_slot_selection__16TAdChrSelASlotGCFPvPvPv((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (0xA))), (void *) (lbl_804728A8), (f32) (lbl_805DE888));
     free_member__17TWindowSubComCardFPv((int) (temp_r31), (int) (1));
     return temp_r31;
 }
@@ -118,7 +118,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802DBCE8(s32 arg0) {
 s32 TAdMultiPlyChrSelectGC__sub_802DBD64(s32 arg0) {
     s32 temp_r31;
     temp_r31 = TWindowMessageYesNo__sub_802A59D8((void *) (arg0), (int) (get_clamped_cursor__22TAdMultiPlyChrSelectGCFv()), (int) (0), (int) (0));
-    forward_slot_selection__16TAdChrSelASlotGCFPvPvPv((int) (temp_r31), (int) (TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x1F), (int) (9))), (void *) (lbl_804728A0), (f32) (lbl_805DE88C));
+    forward_slot_selection__16TAdChrSelASlotGCFPvPvPv((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (9))), (void *) (lbl_804728A0), (f32) (lbl_805DE88C));
     free_member__17TWindowSubComCardFPv((int) (temp_r31), (int) (1));
     return temp_r31;
 }
@@ -127,7 +127,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802DBDE0(void) {
     void *u1;
     int u2;
     s32 r = TWindowMessageYesNo__sub_802A59D8(u1, u2, 0, 0);
-    forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(r, TAdSinglePlyChrSelectGC__sub_80132F2C(0x1F, 8), lbl_80472898, lbl_805DE88C);
+    forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(r, get_localized_text_entry(0x1F, 8), lbl_80472898, lbl_805DE88C);
     free_member__17TWindowSubComCardFPv(r, 1);
     return r;
 }
@@ -135,7 +135,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802DBDE0(void) {
 s32 TAdMultiPlyChrSelectGC__sub_802DBE4C(long long arg1) {
   s32 temp_r31;
   temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFii((void *) arg1, (int) 1);
-  forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) TAdSinglePlyChrSelectGC__sub_80132F2C((int) 0x1F, (int) 7), (int) 0x21, (int) 0);
+  forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) get_localized_text_entry((int) 0x1F, (int) 7), (int) 0x21, (int) 0);
   set_flag_40__16TAdChrSelASlotGCFPv((int) temp_r31);
   set_status_flag_80__12TQuestThreadFPv((int) temp_r31);
   TWindowSubComCard__sub_80265CFC((int) temp_r31, (f32) lbl_805DE890);
@@ -145,7 +145,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802DBE4C(long long arg1) {
 s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(unsigned long long arg1) {
   s32 temp_r31;
   temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFii((void *) arg1, (int) 1);
-  forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) TAdSinglePlyChrSelectGC__sub_80132F2C((int) 0x1F, (int) 6), (int) 0x21, (int) 0);
+  forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) get_localized_text_entry((int) 0x1F, (int) 6), (int) 0x21, (int) 0);
   set_flag_40__16TAdChrSelASlotGCFPv((int) temp_r31);
   set_status_flag_80__12TQuestThreadFPv((int) temp_r31);
   TWindowSubComCard__sub_80265CFC((int) temp_r31, (f32) lbl_805DE890);
@@ -155,10 +155,10 @@ s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(unsigned long long arg1) {
 s32 TAdMultiPlyChrSelectGC__sub_802DBF3C(void) {
     s32 temp_r31;
     temp_r31 = TCheckRoomSequence__sub_802664A8((void *) (lbl_80472890), (int) (4), (int) (get_clamped_cursor__22TAdMultiPlyChrSelectGCFv()));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x1F), (int) (2))), (int) (6), (int) (0));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x1F), (int) (3))), (int) (6), (int) (1));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x1F), (int) (4))), (int) (6), (int) (2));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x1F), (int) (5))), (int) (6), (int) (3));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (2))), (int) (6), (int) (0));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (3))), (int) (6), (int) (1));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (4))), (int) (6), (int) (2));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (5))), (int) (6), (int) (3));
     TWindowSubComCard__sub_80265E60((int) (temp_r31), (f32) (lbl_805DE894));
     set_selected_index__17TWindowSubComCardFPvs((int) (temp_r31), (int) (0));
     TWindowSubComCard__sub_80265C30((int) (temp_r31));
@@ -229,7 +229,7 @@ void TAdMultiPlyChrSelectGC__sub_802DC118(u8 *arg0, s32 arg1) {
 
 u8 *TAdMultiPlyChrSelectGC__sub_802DC22C(s32 arg0, s32 arg1) {
     memset(lbl_80541230, 0, 0x80);
-    sprintf(lbl_80541230, (const void *)TAdSinglePlyChrSelectGC__sub_80132F2C(0x1F, 0), arg1 + 1);
+    sprintf(lbl_80541230, (const void *)get_localized_text_entry(0x1F, 0), arg1 + 1);
     return lbl_80541230;
 }
 

@@ -215,7 +215,7 @@ s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
 M2C_UNK fn_8022C2A8(void *, void *, void *);
 M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, s32);
-M2C_UNK TObjPlayer__sub_803D97F0(void *);
+M2C_UNK push_matrix_from(void *);
 M2C_UNK TCameraCtrl__sub_803D9858(int);
 extern Vec_80234D50 lbl_8044D72C;
 extern void* __vt__9TTecLuker[];
@@ -630,7 +630,7 @@ void *TTecLuker__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) 
             L->fx = p;
             if (L->fx != NULL) {
                 Vec_80234D50 v = lbl_8044D72C;
-                TObjPlayer__sub_803D97F0(lbl_8058D490);
+                push_matrix_from(lbl_8058D490);
                 rotate_matrix_y(0, L->owner->f60);
                 TCameraCtrl__sub_803D8934(0, &v, &v);
                 TCameraCtrl__sub_803D9858(1);

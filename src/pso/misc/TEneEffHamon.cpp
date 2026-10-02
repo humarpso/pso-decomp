@@ -78,7 +78,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK set_chunk_material_override_pair(u32, u32);
 M2C_UNK set_chunk_material_color(void *);
-M2C_UNK TObjFish__sub_803E46BC(s32);
+M2C_UNK draw_chunk_object(s32);
 extern u8 lbl_804A7418[];
 extern u8 lbl_8050BEC0[];
 extern u8 lbl_8058D4C0[];
@@ -107,7 +107,7 @@ void TEneEffHamon__sub_800A380C(void);
 void *TObjPlayer__sub_800A41AC(void *arg0, s16 arg1);
 void init_fish_effects__12TEneEffHamonFv(void);
 int TObjFish__sub_8001EDB0(void*, void*);
-int TObjFish__sub_8001EDC4(void*, void*);
+int get_bml_model(void*, void*);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -128,7 +128,7 @@ void render__12TEneEffHamonFv(Hamon_800A36A8 *o) {
     TOHangerMachine01__sub_803D9C00(o->mtx1C);
     s = o->f40 * o->scale;
     scale_matrix(0, s, s, s);
-    TObjFish__sub_803E46BC(lbl_805D5030);
+    draw_chunk_object(lbl_805D5030);
     pop_matrix();
     set_chunk_material_color(lbl_804A7418);
     lbl_805D7784 = lbl_805D5664;
@@ -156,7 +156,7 @@ void TEneEffHamon__sub_800A380C(void) {  }
     extern int lbl_805D500C;
     extern int lbl_805D5030;
     extern int lbl_805D5034;
-void init_fish_effects__12TEneEffHamonFv(void) { lbl_805D5030 = TObjFish__sub_8001EDC4((void*)(lbl_805D500C), (void*)3); lbl_805D5034 = TObjFish__sub_8001EDB0((void*)(lbl_805D500C), (void*)3); }
+void init_fish_effects__12TEneEffHamonFv(void) { lbl_805D5030 = get_bml_model((void*)(lbl_805D500C), (void*)3); lbl_805D5034 = TObjFish__sub_8001EDB0((void*)(lbl_805D500C), (void*)3); }
 
 extern M2C_UNK lbl_80490A18[];
 

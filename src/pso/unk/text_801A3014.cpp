@@ -129,7 +129,7 @@ extern RecoveredGlobal_801A3540_main_task main_task;
 extern s32 TLobby__data_805D53AC;
 extern u32 lbl_805D5EEC;
 extern void *tl_03;
-void TLobby__sub_801A33DC(void);
+void run_offline_area_transfer(void);
 void __dt__7TObjectFv(void *, int);
 M2C_UNK update__16TKeyBoardControlFv();
 void *get_player_data__10TObjPlayerFi(s32);
@@ -235,7 +235,7 @@ s32 is_ready__22TQuestVmDownLoadServerFv();
 M2C_UNK TLobby__sub_800FA464();
 M2C_UNK shutdown_keyboard_control__6TLobbyFv();
 void TLobby__sub_801A3014(void);
-void TLobby__sub_801A33DC(void);
+void run_offline_area_transfer(void);
 void TLobby__sub_801A3770(void);
 M2C_UNK TLobby__sub_801A37D0();
 s8 func_801A5E54__Fv();
@@ -408,7 +408,7 @@ void TLobby__sub_801A31D8(void) {
     __dt__7TObjectFv(&holder, -1);
 }
 
-void TLobby__sub_801A33DC(void) {
+void run_offline_area_transfer(void) {
     Obj_801A33DC holder;
     s32 i;
     void *p;
@@ -497,7 +497,7 @@ void TLobby__sub_801A35C8(void) {
         TKeyBoardControl__sub_8000F9CC(0);
     }
     if (get_key_state__16TKeyBoardControlFv() != 0) {
-        TLobby__sub_801A33DC();
+        run_offline_area_transfer();
         TKeyBoardControl__sub_8000F9A4();
     }
     if (get_input__16TKeyBoardControlFv() != 0) {

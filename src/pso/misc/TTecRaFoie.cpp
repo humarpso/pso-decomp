@@ -69,7 +69,7 @@ s32 TTecAnti__sub_8022B35C(void *, int);
 extern RecoveredGlobal_80230D9C_lbl_804CC510 lbl_804CC510;
 extern RecoveredGlobal_80230D9C_lbl_804CC55C lbl_804CC55C;
 void TTecRaFoie__sub_802380F4(u8 *arg0);
-void TObjFish__sub_8001EDC4(void *, s32);
+void get_bml_model(void *, s32);
 void set_cull_none__8TObjFishFv(void);
 void set_cull_back__8TObjFishFv(void);
 void func_80141618__Fv(void);
@@ -85,7 +85,7 @@ void TObjPlayer__sub_803D9B2C(void);
 void pop_matrix(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(void *);
-void TObjBoss2Tunnel__sub_803DB470(void);
+void draw_ginja_object(void);
 void set_chunk_material_color(void *, s32);
 extern u8 *lbl_805D4DF0;
 extern s32 lbl_805D5660;
@@ -156,8 +156,8 @@ void TTecRaFoie__sub_802381F8(RaFoie_802381F8 *o) {
     set_global_param__8TObjFishFi(lbl_805D63B0);
     set_cull_back__8TObjFishFv();
     set_depth_buffer_settings_id__FUl(3);
-    TObjFish__sub_8001EDC4(lbl_805D63AC, 0xB);
-    TObjBoss2Tunnel__sub_803DB470();
+    get_bml_model(lbl_805D63AC, 0xB);
+    draw_ginja_object();
     func_80141618__Fv();
     set_cull_none__8TObjFishFv();
     pop_matrix();
@@ -431,7 +431,7 @@ void TTecAnti__sub_8022B3E8(void *, void *);
 extern M2C_UNK __vt__10TTecRaFoie[];
 extern u32 lbl_805D3800;
 u8 *TTecRaFoie__sub_80238BA4(u8 *self, void *source, void *origin, void *targets, int level);
-s32 TBoss4Type2__sub_800874F4(void *, int);
+s32 create_particle_emitter(void *, int);
 s32 alloc_buffer__11TOBoss4RockFPv(int);
 extern struct Profile_80238C6C TTecRaZonde__data_8044DB44[];
 void TTecRaZonde__vt6(struct Self_80238C6C *self);
@@ -692,7 +692,7 @@ void TTecRaZonde__vt6(struct Self_80238C6C *self) {
     u32 i;
     self->emitters = (s32 *)alloc_buffer__11TOBoss4RockFPv(TTecRaZonde__data_8044DB44[self->band].count * 4);
     for (i = 0; i < TTecRaZonde__data_8044DB44[self->band].count; i++) {
-        self->emitters[i] = TBoss4Type2__sub_800874F4(&self->points[i], TTecRaZonde__data_8044DB44[self->band].entries[i].entry);
+        self->emitters[i] = create_particle_emitter(&self->points[i], TTecRaZonde__data_8044DB44[self->band].entries[i].entry);
     }
 }
 
@@ -741,7 +741,7 @@ extern "C" {
 s32 TBoss3Volopt__sub_8022675C(s32 id, void *pos, s32 a, s32 b);
 void update_technique_slot__10TTecRaFoieFi(s32 handle, s32 pitch, s32 c);
 void fn_802393D0(Tec_802393D0 *self);
-void TLobby__sub_800869A4(void *, s32, s32, s32, void *);
+void create_timed_particle_emitter(void *, s32, s32, s32, void *);
 void spawn_particle_effect(void *, s32, void *);
 void TObjPlayer__sub_8022BD74(void *);
 void run_task__11TTecRaZondeFv(Obj_80238F84 *self);
@@ -812,7 +812,7 @@ void run_task__11TTecRaZondeFv(Obj_80238F84 *self) {
     for (i = 0; i < ((RProfile_80238F84 *)TTecRaZonde__data_8044DB44)[self->band].count; i++) {
         if (self->sourceId < 12) {
             if (i == 1) {
-                TLobby__sub_800869A4((u8 *)self->source + 0x2FC, ((RProfile_80238F84 *)TTecRaZonde__data_8044DB44)[self->band].entries[i].entry, 0, 60, self->source);
+                create_timed_particle_emitter((u8 *)self->source + 0x2FC, ((RProfile_80238F84 *)TTecRaZonde__data_8044DB44)[self->band].entries[i].entry, 0, 60, self->source);
             } else {
                 spawn_particle_effect((u8 *)self->source + 0x2FC, ((RProfile_80238F84 *)TTecRaZonde__data_8044DB44)[self->band].entries[i].entry, self->source);
             }

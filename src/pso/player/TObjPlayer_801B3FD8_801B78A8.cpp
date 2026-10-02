@@ -46,7 +46,7 @@ M2C_UNK check_flag_2__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801BF8AC(void *);
 s32 player_auxiliary_surfaces_enabled();
 u8 *TObjPlayer__vt16(u8 *arg0, u8 *arg1);
-s32 TObjPlayer__sub_80019248(void * a0);
+s32 is_locally_controlled__10TObjPlayerFPv(void * a0);
 void TObjPlayer__sub_801D47EC(void *, s32, s32);
 void TObjPlayer__sub_801B7B58(P_801B7B58 *arg0, s32 arg1, s32 arg2);
 }
@@ -144,7 +144,7 @@ void handle_6x99(void) {  }
 
 void close_sub_window__10TObjPlayerFPv(void *arg0) {
     void *p;
-    if (TObjPlayer__sub_80019248(arg0) != 0) {
+    if (is_locally_controlled__10TObjPlayerFPv(arg0) != 0) {
         p = M2C_FIELD(arg0, void **, 0xD00);
         if (p != 0) {
             TObjPlayer__sub_801D4368(p);
@@ -155,7 +155,7 @@ void close_sub_window__10TObjPlayerFPv(void *arg0) {
 void handle_6x98(void) {  }
 
 void TObjPlayer__sub_801B7B58(P_801B7B58 *arg0, s32 arg1, s32 arg2) {
-    if (TObjPlayer__sub_80019248((void *)(arg0)) == 0) {
+    if (is_locally_controlled__10TObjPlayerFPv((void *)(arg0)) == 0) {
         return;
     }
     if (arg1 == -1 || arg2 == -1) {

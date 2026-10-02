@@ -19,7 +19,7 @@ struct VObj_18_909b87 : VBase_18_909b87 {
 };
 
 extern "C" {
-s32 TObjPlayer__sub_80019570(void *);
+s32 obj_is_hit_receivable(void *);
 s32 obj_testFlags30(void *, u32);
 u16 obj_getField1c(void *);
 s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
@@ -73,7 +73,7 @@ s32 TItemAttackCol__sub_802E4798(u8 *arg0, Hit_802E4798 *arg1) {
             }
             e++;
         }
-        if (TObjPlayer__sub_80019570(arg1->obj) != 0) {
+        if (obj_is_hit_receivable(arg1->obj) != 0) {
             copy_pos__14TItemAttackColFPvPv(e, arg1);
             M2C_FIELD(arg0, s32 *, 0xA0) += 1;
             return 1;

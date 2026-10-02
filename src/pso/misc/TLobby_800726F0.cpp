@@ -51,7 +51,7 @@ int TWindow__close(void*);
 void close_window_2c__6TLobbyFPv(void* p);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
-M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK get_window_layout_position(M2C_UNK);
 int TWindow__close(void*);
 u32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, M2C_UNK, M2C_UNK);
@@ -89,7 +89,7 @@ void open_loss_menu__6TLobbyFPv(void *arg0);
 void send_45_and_close_windows__6TLobbyFv(void * _w0);
 void play_player_default_effect__6TLobbyFv(s32 _w0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TLobby__sub_8022727C(M2C_UNK *);
+M2C_UNK play_cue_stream_file(M2C_UNK *);
 extern M2C_UNK lbl_804385D4[];
 void handle_loss_sequence(void *arg0);
 M2C_UNK TLobby__sub_80072308(s32);
@@ -124,7 +124,7 @@ int TWindow__close(void*);
 void set_field_1c__6TLobbyFPvf(u32, f32);
 void send_and_handle__6TLobbyFPvii(u32, s32, s32);
 u32 set_window_mode_4__6TLobbyFPvii(s32, void *, s32);
-M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK get_window_layout_position(M2C_UNK);
 extern u8 lbl_8048D12C[];
 extern const f32 lbl_805D9110;
 void TLobby__sub_80072BB0(Obj_80072BB0 *self);
@@ -273,7 +273,7 @@ void TLobby__sub_80072BB0(Obj_80072BB0 *self) {
         TWindow__close((void *)self->f30);
         self->f30 = 0;
     }
-    self->f30 = set_window_mode_4__6TLobbyFPvii(TWindowSubComCard__sub_8026CBB8(0x39), lbl_8048D12C, 1);
+    self->f30 = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x39), lbl_8048D12C, 1);
     if (self->f30 != 0) {
         set_field_1c__6TLobbyFPvf(self->f30, lbl_805D9110);
         send_and_handle__6TLobbyFPvii(self->f30, TQuestVmDownLoadServer__sub_8006EF6C(0x5E), 1);
@@ -286,7 +286,7 @@ void open_loss_menu__6TLobbyFPv(void *arg0) {
         TWindow__close((void*)(M2C_FIELD(arg0, u32 *, 0x2C)));
         M2C_FIELD(arg0, u32 *, 0x2C) = 0U;
     }
-    M2C_FIELD(arg0, u32 *, 0x2C) = check_room_seq_4__16TAdChrSelASlotGCFii(TWindowSubComCard__sub_8026CBB8(0x3A), 3);
+    M2C_FIELD(arg0, u32 *, 0x2C) = check_room_seq_4__16TAdChrSelASlotGCFii(get_window_layout_position(0x3A), 3);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), TQuestVmDownLoadServer__sub_8006EF6C(0x5B), 5, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), TQuestVmDownLoadServer__sub_8006EF6C(0x5C), 5, 1);
@@ -336,7 +336,7 @@ void handle_loss_sequence(void *arg0) {
     temp_r3 = TLobby__sub_80070DA8();
     switch (temp_r3) {
     case 0:
-        TLobby__sub_8022727C(lbl_804385D4);
+        play_cue_stream_file(lbl_804385D4);
         send_45_and_close_windows__6TLobbyFv(arg0);
         close_window_2c__6TLobbyFPv((void*)(arg0));
         TLobby__sub_80072B70((u8 *)(arg0));

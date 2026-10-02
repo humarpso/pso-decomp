@@ -117,7 +117,7 @@ struct VObj_18 : VBase_18 {
 };
 extern "C" {
 int TBoss2Mine__vt60(void* p);
-int TBoss8Dragon__sub_800BB780(void*);
+int clear_attack_receipts(void*);
 M2C_UNK save_position__10TBoss2MineFPv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
@@ -134,7 +134,7 @@ void TBoss2Mine__vt59(void);
 int transition_enemy_state(void*, void*);
 int VecCopy__FP3VecPC3Vec(void*, void*);
 
-int TBoss2Mine__vt60(void* p) { return TBoss8Dragon__sub_800BB780(p); }
+int TBoss2Mine__vt60(void* p) { return clear_attack_receipts(p); }
 
 void TBoss2Mine__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 4) { transition_enemy_state(p, (void*)4); } }
 void TBoss2Mine__vt26(void) {  }

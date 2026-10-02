@@ -32,7 +32,7 @@ void handle_active_battle__6TLobbyFv(void);
 void reset_battle_camera__6TLobbyFv(void);
 void sync_battle_ctrl_4p__6TLobbyFv(void);
 void update_local_player__6TLobbyFv(void);
-M2C_UNK TCameraCtrl__sub_8006A410(M2C_UNK, M2C_UNK);
+M2C_UNK reset_cameras_to_actor(M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801B3FD8();
 s32 get_player_by_client_id(s32);
 M2C_UNK forward_1BF500_at_63c__10TObjPlayerFPv(s32);
@@ -63,7 +63,7 @@ void reset_battle_camera__6TLobbyFv(void) {
     reset_battle_camera__11TCameraCtrlFPv();
     temp_r3 = get_player_by_client_id((s32)(lbl_805D53A0));
     if (temp_r3 != 0U) {
-        TCameraCtrl__sub_8006A410(temp_r3, 0);
+        reset_cameras_to_actor(temp_r3, 0);
     }
 }
 

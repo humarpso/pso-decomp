@@ -35,7 +35,7 @@ void *__ct__13TObjResultWinFv(void *arg0, void *arg1, void *arg2);
 void *create__13TObjResultWinFPv(void *arg0);
 void create_window__13TObjResultWinFPv(u8 *arg0);
 void TQuestVmDownLoadServer__sub_80074114(void *);
-M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK get_window_layout_position(M2C_UNK);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 s32 get_camera_id__11TCameraCtrlFv();
@@ -72,7 +72,7 @@ void run_task__13TObjResultWinFv(u8 *arg0) {
 }
 
 void create_window__13TObjResultWinFPv(u8 *arg0) {
-    M2C_FIELD(arg0, u32 *, 0x1C) = set_window_mode_4__6TLobbyFPvii(TWindowSubComCard__sub_8026CBB8(0x41), lbl_8048D1A0, 1);
+    M2C_FIELD(arg0, u32 *, 0x1C) = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x41), lbl_8048D1A0, 1);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
         if (get_camera_id__11TCameraCtrlFv() == 4) {
             set_position_xy(M2C_FIELD(arg0, u32 *, 0x1C), lbl_805D915C, lbl_805D915C);

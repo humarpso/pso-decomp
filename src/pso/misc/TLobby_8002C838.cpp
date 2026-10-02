@@ -29,7 +29,7 @@ extern s32 lbl_805D2690;
 extern const f32 lbl_805D8174;
 Obj_8002CACC *TObjBoss1Floor__ct(Obj_8002CACC *self, void *parent);
 void queue_destruction__7TObjectFv(void *);
-void *TBoss4Type2__sub_800874F4(Vec_8002C968 *, s32);
+void *create_particle_emitter(Vec_8002C968 *, s32);
 void copy_pos__11TNowLoadingFPvPv(void *, Vec_8002C968 *);
 s32 check_v2_mode__9TObjEneDDFv();
 Player_8002C968 *get_player_by_client_id(s32);
@@ -117,7 +117,7 @@ void run_task__14TObjBoss1FloorFv(Floor_8002C968 *self) {
                 Vec_8002C968 pos = pl->pos;
                 pos.y -= lbl_805D8170;
                 if (self->objs[i] == NULL) {
-                    self->objs[i] = TBoss4Type2__sub_800874F4(&pos, 0x144);
+                    self->objs[i] = create_particle_emitter(&pos, 0x144);
                 } else {
                     copy_pos__11TNowLoadingFPvPv(self->objs[i], &pos);
                 }

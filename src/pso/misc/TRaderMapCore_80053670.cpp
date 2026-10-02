@@ -21,7 +21,7 @@ f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 TBoss4Type3__sub_8005254C(u16);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
-f32 TObjPlayer__sub_803E1A58(Vec_80053914 *, Vec_80053914 *);
+f32 xyz_distance(Vec_80053914 *, Vec_80053914 *);
 extern const f64 lbl_80437630;
 extern s32 lbl_805D586C;
 extern const f32 lbl_805D8B20;
@@ -64,7 +64,7 @@ void TRaderMapCore__sub_80053914(O_80053914 *self, Vec_80053914 *out) {
         {
             Vec_80053914 v = p->pos;
             v.y = lbl_805D8B20;
-            d = TObjPlayer__sub_803E1A58(&v, &self->pos);
+            d = xyz_distance(&v, &self->pos);
             if (d <= lbl_805D8B4C && d > best) {
                 best = d;
                 found = p;

@@ -186,7 +186,7 @@ void qst_op_call(u16 arg0);
 extern int* TLobby__data_805D5E78;
 void qst_op_switch_call(s32 arg0, u8 arg1, s32 arg2);
 s32 obj_isState3_324(int);
-s32 TWindowSubComCard__sub_801058F8();
+s32 is_script_controlled__10TObjPlayerFPv();
 s32 check_player_state_flag_2__6TLobbyFPv(int);
 s32 get_player_by_client_id(s32);
 extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
@@ -254,7 +254,7 @@ extern int* TLobby__data_805D5E74;
 extern int* TLobby__data_805D5E78;
 extern int TLobby__data_805D5E90;
 void qst_op_jmp_off(s32 arg0, u8 arg1, u8 *arg2);
-M2C_UNK TLobby__sub_8022727C(int);
+M2C_UNK play_cue_stream_file(int);
 extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
 extern s32 lbl_804C69D0[];
 void qst_op_bgm(void);
@@ -270,7 +270,7 @@ void *construct__6TLobbyFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3
 char *strncpy(char *dst, const char *src, u32 n);
 void TLobby__sub_80228B54(char *s);
 void TLobby__sub_802288B8(void *self, char *s);
-s32 TWindowSubComCard__sub_8026CBB8(s32 id);
+s32 get_window_layout_position(s32 id);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(s32 a, s32 b);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(s32 win, char *name, s32 kind, s32 i);
 void TWindowSubComCard__sub_80265F60(s32 win);
@@ -284,7 +284,7 @@ void qst_op_list(void);
 s32 TLobby__sub_8020C73C(s32, s32, s32, s32);
 extern int* TLobby__data_805D5E78;
 void qst_op_unhide_ene(s32 arg0);
-u32 TLobby__sub_800869A4(void* v, s32 a, s32 b, s32 c);
+u32 create_timed_particle_emitter(void* v, s32 a, s32 b, s32 c);
 void set_flags__11TBoss4Type2FPvUi(void*, s32);
 extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
 extern int* TLobby__data_805D5E78;
@@ -438,7 +438,7 @@ void qst_op_p_dead(void) {
     u8 *temp_r3;
     temp_r31 = M2C_FIELD(&TLobby__data_80512220.value, s32 *, 0);
     temp_r3 = (u8 *)(((u8 *)get_player_by_client_id(M2C_FIELD(&TLobby__data_80512220.value, s32 *, 4))));
-    if ((temp_r3 != NULL) && (TWindowSubComCard__sub_801058F8() == 0)) {
+    if ((temp_r3 != NULL) && (is_script_controlled__10TObjPlayerFPv() == 0)) {
         if (obj_isState3_324((int) (temp_r3)) != 0) {
             if (M2C_FIELD(temp_r3, s32 *, 0x30) & 0x800) {
                 M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, (temp_r31 * 4)) = 1;
@@ -469,7 +469,7 @@ void TLobby__sub_801F0970(void) {
     v.x = p[0];
     v.y = p[1];
     v.z = p[2];
-    u32 r = TLobby__sub_800869A4(&v, (*(Cfg_801F0970 *)&TLobby__data_80512220).b, 0, (s32)(*(Cfg_801F0970 *)&TLobby__data_80512220).c);
+    u32 r = create_timed_particle_emitter(&v, (*(Cfg_801F0970 *)&TLobby__data_80512220).b, 0, (s32)(*(Cfg_801F0970 *)&TLobby__data_80512220).c);
     if (r != 0) {
         set_flags__11TBoss4Type2FPvUi((void*)r, 0x40);
     }
@@ -599,7 +599,7 @@ typedef char RecoveredGlobal_801F196C_lbl_804499A8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_801F196C_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801F196C_TLobby__data_80512220) == 0x20 ? 1 : -1];
 
 void qst_op_bgm(void) {
-    TLobby__sub_8022727C(lbl_804C69D0[(*(RecoveredGlobal_801F027C_TLobby__data_80512220 *)&TLobby__data_80512220).value]);
+    play_cue_stream_file(lbl_804C69D0[(*(RecoveredGlobal_801F027C_TLobby__data_80512220 *)&TLobby__data_80512220).value]);
 }
 
 void qst_op_se(void) {
@@ -628,7 +628,7 @@ void qst_op_list(void) {
     strncpy(buf, text, 0x1FF);
     TLobby__sub_80228B54(buf);
     TLobby__sub_802288B8(list, buf);
-    TLobby__data_805D5E84 = check_room_seq_4__16TAdChrSelASlotGCFii(TWindowSubComCard__sub_8026CBB8(0x37), list->count);
+    TLobby__data_805D5E84 = check_room_seq_4__16TAdChrSelASlotGCFii(get_window_layout_position(0x37), list->count);
     for (i = 0; i < list->count; i++) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(TLobby__data_805D5E84, list->names[i], 7, i);
     }

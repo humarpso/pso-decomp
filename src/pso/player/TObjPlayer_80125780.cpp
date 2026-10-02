@@ -11,7 +11,7 @@ void TObjPlayer__sub_80125818(void* p);
 void TObjPlayer__sub_80125824(u8 *arg0);
 void TObjPlayer__sub_8012583C(void* p);
 void reset_child_transform__10TObjPlayerFPv(void *arg0);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(void *);
+M2C_UNK draw_ginja_object(void *);
 void free_obj_heap__10TObjPlayerFPv(void *);
 s32 get_player_list__10TObjPlayerFv();
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
@@ -33,7 +33,7 @@ void reset_child_transform__10TObjPlayerFPv(void *arg0) {
                 M2C_FIELD(temp_r31, f32 *, 0x24) = (f32) lbl_805DAD58;
                 M2C_FIELD(temp_r31, f32 *, 0x28) = (f32) lbl_805DAD58;
                 M2C_FIELD(temp_r31, s32 *, 0) = (s32) (M2C_FIELD(temp_r31, s32 *, 0) & 0xFFFFFFFB);
-                TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, void **, 0x188));
+                draw_ginja_object(M2C_FIELD(arg0, void **, 0x188));
                 M2C_FIELD(temp_r31, s32 *, 0) = (s32) (M2C_FIELD(temp_r31, s32 *, 0) | 4);
                 M2C_FIELD(temp_r31, f32 *, 0x20) = (f32) lbl_805DAD5C;
                 M2C_FIELD(temp_r31, f32 *, 0x24) = (f32) lbl_805DAD5C;

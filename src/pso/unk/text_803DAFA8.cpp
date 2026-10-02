@@ -40,7 +40,7 @@ void fn_803DAF30(u32 *p);
 void move_data__6TLobbyFv(void *, void *, int);
 s32 fn_803DAFA8(struct Hdr_803DAFA8 *arg0, struct Out_803DAFA8 *arg1);
 void fn_803DB15C(Tex_803DB15C *arg0);
-s32 fn_803DB0AC(Tex_803DB15C *arg0, u32 arg1, u32 arg2, u32 arg3);
+s32 init_ginja_texture_header(Tex_803DB15C *arg0, u32 arg1, u32 arg2, u32 arg3);
 }
 
 extern "C" {
@@ -72,7 +72,7 @@ void fn_803DB05C(s32 arg0, s32 arg1, u16 arg2, void *arg3) {
     GXLoadTlut(sp8, arg0);
 }
 
-s32 fn_803DB0AC(Tex_803DB15C *arg0, u32 arg1, u32 arg2, u32 arg3) {
+s32 init_ginja_texture_header(Tex_803DB15C *arg0, u32 arg1, u32 arg2, u32 arg3) {
     s32 ret = 0;
     u32 flags = 0;
     arg0->fmt = (u8)arg3;

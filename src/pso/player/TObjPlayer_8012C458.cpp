@@ -9,7 +9,7 @@ extern "C" {
 void notify_and_cleanup_fishing__10TObjPlayerFPv(u8 *arg0);
 s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
+M2C_UNK draw_ginja_object(int);
 M2C_UNK rotate_matrix_x(int, int);
 s32 spawn_particle_effect(u32, s32);
 void TObjPlayer__sub_8012C4E0(void);
@@ -34,7 +34,7 @@ void notify_and_cleanup_fishing__10TObjPlayerFPv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x1C));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x2C)));
         rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x28) - 0x4000));
-        TObjBoss2Tunnel__sub_803DB470((int) (M2C_FIELD(arg0, u32 *, 0x58)));
+        draw_ginja_object((int) (M2C_FIELD(arg0, u32 *, 0x58)));
         pop_matrix();
     }
 }

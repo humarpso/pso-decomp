@@ -56,7 +56,7 @@ extern u32 TOKurage__data_805D5A38;
 void TOKurage__sub_8016E800(void);
 u8 *TObjFish__sub_8001ED9C(s32, s32);
 s32 TObjFish__sub_8001EDB0(int, int);
-s32 TObjFish__sub_8001EDC4(int, int);
+s32 get_bml_model(int, int);
 s32 init_map_object_base(void *);
 void init__8TOKurageFPv(u8 *arg0);
 extern M2C_UNK __vt__8TOKurage[];
@@ -85,14 +85,14 @@ void init__8TOKurageFPv(u8 *arg0);
 void update_state__8TOKurageFPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TODragonfly__sub_80158360(f32);
-f32 TObjPlayer__sub_803E1A58(void *, void *);
+f32 xyz_distance(void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_key_base__5TOKeyFPvs(void *, int);
 
 void check_player_distance__8TOKurageFPv(u8 *arg0) {
-    if ((TObjPlayer__sub_803E1A58(arg0 + 0xE4, arg0 + 0x38) > M2C_FIELD(arg0, f32 *, 0x6C)) && ((u8) M2C_FIELD(arg0, u8 *, 0x100) != 4)) {
+    if ((xyz_distance(arg0 + 0xE4, arg0 + 0x38) > M2C_FIELD(arg0, f32 *, 0x6C)) && ((u8) M2C_FIELD(arg0, u8 *, 0x100) != 4)) {
         M2C_FIELD(arg0, u8 *, 0x100) = 3U;
     }
 }
@@ -214,7 +214,7 @@ u8 *TOKurage__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8016E8A8___vt__8TOKurage *)&__vt__8TOKurage).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3060;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((int) ((*(s32 *)&TOKurage__data_805D5A38)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TOKurage__data_805D5A38)), (int) (0));
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOKurage__data_805D5A38)), (int) (0));
     M2C_FIELD(arg0, u8 **, 0xBC) = TObjFish__sub_8001ED9C((*(s32 *)&TOKurage__data_805D5A38), 0);
     M2C_FIELD(arg0, u8 **, 0xC8) = TObjFish__sub_8001ED9C((*(s32 *)&TOKurage__data_805D5A38), 1);

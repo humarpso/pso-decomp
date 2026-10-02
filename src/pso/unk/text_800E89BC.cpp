@@ -35,7 +35,7 @@ struct Ent_800E8AD0 : Base_800E8AD0 {
 };
 
 extern "C" {
-u16 TObjPlayer__sub_800115C4(void *, s32, f32);
+u16 find_nearest_visible_player(void *, s32, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjEneSlimeOne__sub_800EC3D0(void *, f32);
 Ent_800E8AD0 *get_enemy_entity(u16);
@@ -59,7 +59,7 @@ s32 fn_800E8AD0(u8 *arg0) {
     hit = 0;
     h.dmg = M2C_FIELD(arg0, f32 *, 0x390);
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
-    id = TObjPlayer__sub_800115C4(arg0, 0, lbl_805DA6A8);
+    id = find_nearest_visible_player(arg0, 0, lbl_805DA6A8);
     if (id != 0xFFFF) {
         e = ((Ent_800E8AD0 *(*)(s32))get_player_by_client_id)(id);
         if (e != NULL && !(horizontal_distance_squared(arg0 + 0x2FC, (u8 *)e + 0x2FC) > lbl_805DA6A8)) {

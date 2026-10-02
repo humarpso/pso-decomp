@@ -108,7 +108,7 @@ s8 TObjPlayer__sub_80102C30();
 s8 get_slot_count__14TItemProShieldFPv(void *);
 M2C_UNK TObjPlayer__sub_8011C620(void *);
 M2C_UNK reset_status_block__10TObjPlayerFPv(void *);
-f32 TObjPlayer__sub_80121198(void *);
+f32 get_attack_accuracy_scale(void *);
 M2C_UNK apply_camera_shake__10TObjPlayerFiii(void *, void *, int);
 M2C_UNK TObjPlayer__sub_801CBF08(void *, int);
 extern s32 tl_05;
@@ -116,7 +116,7 @@ extern const f32 lbl_805DAC94;
 extern const f32 lbl_805DAC98;
 void deliver_hit__11TItemWeaponFPviPviif(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0);
 s32 lookup_item_data__20TWindowSubStatusDispFPv(void *);
-Item_8011F760 *TObjPlayer__sub_8011CB18(void *, s32);
+Item_8011F760 *get_weapon_range_record(void *, s32);
 u32 TObjPlayer__sub_8011F760(void *self);
 s32 is_active_in_game__10TObjPlayerFPv(void*);
 s32 get_flag_40__8TItemMagFPv(void*);
@@ -136,12 +136,12 @@ void TObjPlayer__sub_8011EB84(void*,WeaponVector*,s32,s32);
 void update_active_game_effect__10TObjPlayerFPv(void*);
 
 s32 refresh_owner_stats__5TItemFPv(Obj_8011F710 *arg0);
-s32 TObjPlayer__sub_8011F710(Obj_8011F710 *arg0, s32 arg1);
+s32 add_weapon_grind(Obj_8011F710 *arg0, s32 arg1);
 }
 
 extern "C" {
 
-s32 TObjPlayer__sub_8011F710(Obj_8011F710 *arg0, s32 arg1) {
+s32 add_weapon_grind(Obj_8011F710 *arg0, s32 arg1) {
     if ((s32)(arg0->stats->max - (u8)arg1) < arg0->cur) {
         arg0->cur = arg0->stats->max;
     } else {
@@ -159,7 +159,7 @@ u32 TObjPlayer__sub_8011F760(void *self) {
     } else {
         flags |= 1;
     }
-    it = TObjPlayer__sub_8011CB18(self, 0);
+    it = get_weapon_range_record(self, 0);
     if (it != 0 && it->count > 1) {
         flags |= 4;
     }
@@ -182,7 +182,7 @@ void deliver_hit__11TItemWeaponFPviPviif(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 a
     if (TObjPlayer__sub_80102C30() == 2) {
         temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xF0));
         if ((temp_r3 != NULL) && (arg2 != NULL)) {
-            var_f31 = TObjPlayer__sub_80121198((void *) (temp_r3 + 0x7CC));
+            var_f31 = get_attack_accuracy_scale((void *) (temp_r3 + 0x7CC));
             if ((arg3 == 2) && (((VObj_18_f8c4e0 *)(arg0))->m33() == 0)) {
                 var_f31 *= lbl_805DAC94;
             }

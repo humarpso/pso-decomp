@@ -58,7 +58,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
+M2C_UNK draw_ginja_object(int);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -70,7 +70,7 @@ void calc_attach_pos__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_80019038(void *, void *);
 void obj_setFlags30(void *, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
-s32 TObjFish__sub_8001EDC4(s32, s32);
+s32 get_bml_model(s32, s32);
 void activate_and_dispatch__10TObjPlayerFPv(void *, s32, f32);
 void init_and_activate__10TObjPlayerFPv(void *);
 void set_indexed_flags(void *, s32, s32);
@@ -144,7 +144,7 @@ void render__11TOVS2Wall01Fv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-        TObjBoss2Tunnel__sub_803DB470((int) (M2C_FIELD(arg0, s32 *, 0x34)));
+        draw_ginja_object((int) (M2C_FIELD(arg0, s32 *, 0x34)));
         pop_matrix();
         if (var_r31 != 0) {
             ((VObj_14_1eb8da *)((u8 *)(arg0) + (832)))->m7();
@@ -189,7 +189,7 @@ void *TOVS2Wall01__ct(void *arg0, void *arg1) {
     ((VObj_8017C0A4 *)arg0)->m5(arg1);
     calc_attach_pos__10TObjPlayerFPv(arg0);
     obj_setFlags30(arg0, 0x60000000);
-    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4(TOVS2Wall01__data_805D5AE8, 6);
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model(TOVS2Wall01__data_805D5AE8, 6);
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(TOVS2Wall01__data_805D5AE8, 6);
     TObjEneGibbles__sub_80156780(arg0, lbl_804B4ECC + 0x108, 1);
     set_indexed_flags(arg0, 0, 0x08000000);

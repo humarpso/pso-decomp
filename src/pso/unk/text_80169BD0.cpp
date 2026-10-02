@@ -44,7 +44,7 @@ M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjPlayer__sub_803E4684(s32);
-M2C_UNK TObjFish__sub_803E46BC(void *);
+M2C_UNK draw_chunk_object(void *);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(void *, void *, f32);
 void fn_80169E30(u8 *arg0);
 s32 submit_cursor_candidate(void *, int);
@@ -168,7 +168,7 @@ void fn_80169E30(u8 *arg0) {
             if (p != NULL) {
                 TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, void **, 0x34), p, M2C_FIELD(arg0, f32 *, 0xB0));
             } else {
-                TObjFish__sub_803E46BC(M2C_FIELD(arg0, void **, 0x34));
+                draw_chunk_object(M2C_FIELD(arg0, void **, 0x34));
             }
         } else {
             TObjPlayer__sub_803E4684(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), s32 *, 4));

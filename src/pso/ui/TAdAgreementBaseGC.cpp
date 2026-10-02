@@ -62,7 +62,7 @@ extern M2C_UNK __vt__18TAdAgreementBaseGC[];
 extern s32 lbl_805D41B8;
 extern s32 tl_clipout;
 Obj_80329AA8 *TAdAgreementBaseGC__ct(Obj_80329AA8 *arg0, void *arg1);
-void *TAdSinglePlyChrSelectGC__sub_80132F2C(int, u32);
+void *get_localized_text_entry(int, u32);
 u32 TWindowSubStatusDisp__sub_80144D68(void *);
 M2C_UNK render_status_line__15TAdSubPlyItemGCFPvi(void *, int, f32, f32, f32);
 void TWindowSubComCard__sub_80245F98();
@@ -97,9 +97,9 @@ void TAdAgreementBaseGC__sub_803296E8(void) {
     u32 i;
     TWindowSubComCard__sub_80245F98();
     for (i = 0; i < 2; i++) {
-        pos[i].x = lbl_805DF700 - (f32) (TWindowSubStatusDisp__sub_80144D68(TAdSinglePlyChrSelectGC__sub_80132F2C(0x1B, i)) >> 1);
+        pos[i].x = lbl_805DF700 - (f32) (TWindowSubStatusDisp__sub_80144D68(get_localized_text_entry(0x1B, i)) >> 1);
         pos[i].y = lbl_805DF708 * (f32) i + lbl_805DF704;
-        render_status_line__15TAdSubPlyItemGCFPvi(TAdSinglePlyChrSelectGC__sub_80132F2C(0x1B, i), -1, pos[i].x, pos[i].y, lbl_805DF70C);
+        render_status_line__15TAdSubPlyItemGCFPvi(get_localized_text_entry(0x1B, i), -1, pos[i].x, pos[i].y, lbl_805DF70C);
     }
 }
 #pragma pop

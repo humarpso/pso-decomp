@@ -159,7 +159,7 @@ void TBoss2DeRolLe__sub_80034F40(s32 arg0);
 int play_sound(void *, int);
 void TBoss2DeRolLe__sub_800339BC(s32, f32, f32);
 void set_flags_play_sound__13TBoss2DeRolLeFPv(void *);
-void TBoss8Dragon__sub_800BB780(void *);
+void clear_attack_receipts(void *);
 extern const f32 TBoss2DeRolLe__data_805D82A0;
 extern const f32 lbl_805D8448;
 void TBoss2DeRolLe__sub_80034FDC(u8 *arg0);
@@ -186,7 +186,7 @@ s32 TObjPlayer__sub_803D7B68(int, f32);
 s32 TObjPlayer__sub_803D7CA4(int);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
 s32 scale_matrix(int, f32, f32, f32);
-s32 TObjPlayer__sub_803D97F0(void *);
+s32 push_matrix_from(void *);
 s32 pop_matrix();
 extern u8 lbl_8058D490[];
 extern const f32 TBoss2DeRolLe__data_805D827C;
@@ -279,7 +279,7 @@ f32 TBoss2DeRolLe__sub_80034B60(Obj_80034B60 *self) {
     v.x = TBoss2DeRolLe__data_805D827C;
     v.y = TBoss2DeRolLe__data_805D827C;
     v.z = TBoss2DeRolLe__data_805D827C;
-    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    push_matrix_from(lbl_8058D490);
     scale_matrix(0, TBoss2DeRolLe__data_805D82A0, TBoss2DeRolLe__data_805D82A0, TBoss2DeRolLe__data_805D82A0);
     TObjPlayer__sub_803D7B68(self->fF8, self->fC0);
     TObjPlayer__sub_803D7CA4(self->f34);
@@ -438,7 +438,7 @@ void TBoss2DeRolLe__sub_80034FDC(u8 *arg0) {
         }
     }
     M2C_FIELD(arg0, s16 *, 0x32C) = (s16) M2C_FIELD(arg0, s16 *, 0x2B8);
-    TBoss8Dragon__sub_800BB780(arg0);
+    clear_attack_receipts(arg0);
 }
 
 }

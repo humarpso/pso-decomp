@@ -58,7 +58,7 @@ struct Rec_8020D5AC {
 };
 
 extern "C" {
-s32 TObjPlayer__sub_803D97F0(u32);
+s32 push_matrix_from(u32);
 s32 pop_matrix(void);
 M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
@@ -77,16 +77,16 @@ extern s32 TLobby__data_805D6114;
 extern s32 TLobby__data_805D611C;
 extern s32 TLobby__data_805D6120;
 void TLobby__sub_8020D6F0(u8 *arg0);
-void *TScene__sub_80203600(s32 room);
+void *find_scene_room_by_id(s32 room);
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2);
 void TLobby__sub_8020D36C(SpawnRecord_8020D36C *rows, s32 count);
-void *TScene__sub_80203600(s32 room);
+void *find_scene_room_by_id(s32 room);
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2);
-void TLobby__sub_8020D3F0(Rec_8020D3F0 *arr, s32 n);
+void apply_room_transform_to_object_rows(Rec_8020D3F0 *arr, s32 n);
 s32 TLobby__sub_8020CF40(void *, void *);
 s32 TLobby__sub_8020D474(void *arg0, int arg1, int arg2);
 s32 get_instance__11TCameraCtrlFv();
-f32 fn_801315A0(void *, void *);
+f32 xyz_distance_squared(void *, void *);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern Obj_8020D4E8 *lbl_805D4DF0;
 s32 TLobby__sub_8020D4E8(void *arg0, void *arg1, f32 farg0);
@@ -107,7 +107,7 @@ extern "C" {
 void TLobby__sub_8020D6D0(void* p);
 
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2) {
-    TObjPlayer__sub_803D97F0((u32) &lbl_8058D490.value);
+    push_matrix_from((u32) &lbl_8058D490.value);
     translate_matrix((int) (0), (f32) (M2C_FIELD(arg2, f32 *, 4)), (f32) (M2C_FIELD(arg2, f32 *, 8)), (f32) (M2C_FIELD(arg2, f32 *, 0xC)));
     rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg2, s32 *, 0x18)));
     rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg2, s32 *, 0x10)));
@@ -127,7 +127,7 @@ void TLobby__sub_8020D36C(SpawnRecord_8020D36C *rows, s32 count) {
     for (i = 0; i < count; i++) {
         row = &rows[i];
         if (cached_id != row->room) {
-            cached_room = TScene__sub_80203600(row->room);
+            cached_room = find_scene_room_by_id(row->room);
             cached_id = row->room;
         }
         if (cached_room) {
@@ -136,7 +136,7 @@ void TLobby__sub_8020D36C(SpawnRecord_8020D36C *rows, s32 count) {
     }
 }
 
-void TLobby__sub_8020D3F0(Rec_8020D3F0 *arr, s32 n) {
+void apply_room_transform_to_object_rows(Rec_8020D3F0 *arr, s32 n) {
     Rec_8020D3F0 *p;
     void *sec;
     s16 key;
@@ -146,7 +146,7 @@ void TLobby__sub_8020D3F0(Rec_8020D3F0 *arr, s32 n) {
     for (; i < n; i++) {
         p = &arr[i];
         if (key != p->key) {
-            sec = TScene__sub_80203600(p->key);
+            sec = find_scene_room_by_id(p->key);
             key = p->key;
         }
         if (sec != NULL) {
@@ -180,12 +180,12 @@ s32 TLobby__sub_8020D4E8(void *arg0, void *arg1, f32 farg0) {
         if (lbl_805D4DF0 != NULL) {
             n = get_instance__11TCameraCtrlFv();
             for (i = 0; i < n; i++) {
-                if (fn_801315A0(arg1, &lbl_805D4DF0->ents[i]) < farg0) {
+                if (xyz_distance_squared(arg1, &lbl_805D4DF0->ents[i]) < farg0) {
                     return 1;
                 }
             }
         }
-    } else if (lbl_805D4DF0 != NULL && fn_801315A0(arg1, &lbl_805D4DF0->single) < farg0) {
+    } else if (lbl_805D4DF0 != NULL && xyz_distance_squared(arg1, &lbl_805D4DF0->single) < farg0) {
         return 1;
     }
     return 0;
@@ -235,7 +235,7 @@ void TLobby__sub_8020D6F0(u8 *arg0) {
     TLobby__data_805D60FC = temp_r3;
     temp_r30 = (u8 *)&TLobby__data_80513AD0.value + (temp_r3 * 0x18);
     if (!(M2C_FIELD(temp_r30, s32 *, 8) & 2)) {
-        TLobby__sub_8020D3F0((Rec_8020D3F0 *)((int) (TLobby__data_805D610C)), (s32)((int) (M2C_FIELD(temp_r30, s32 *, 0))));
+        apply_room_transform_to_object_rows((Rec_8020D3F0 *)((int) (TLobby__data_805D610C)), (s32)((int) (M2C_FIELD(temp_r30, s32 *, 0))));
         M2C_FIELD(temp_r30, s32 *, 8) = (s32) (M2C_FIELD(temp_r30, s32 *, 8) | 2);
     }
     if (!(M2C_FIELD(temp_r30, s32 *, 0xC) & 4)) {
@@ -249,7 +249,7 @@ void TLobby__sub_8020D6F0(u8 *arg0) {
         assign_display_objects__6TLobbyFPvi((int) (TLobby__data_805D6114), (int) (M2C_FIELD(temp_r30, s32 *, 4)));
     }
     if ((s32) TLobby__data_805D6120 > 0) {
-        TLobby__sub_8020D3F0((Rec_8020D3F0 *)((int) (TLobby__data_805D611C)), (s32)((int) (TLobby__data_805D6120)));
+        apply_room_transform_to_object_rows((Rec_8020D3F0 *)((int) (TLobby__data_805D611C)), (s32)((int) (TLobby__data_805D6120)));
         TLobby__sub_8020D474((void *)((void *) (arg0)), (int)((int) (TLobby__data_805D611C)), (int)((int) (TLobby__data_805D6120)));
     }
     M2C_FIELD(arg0, s32 *, 0x1C) = 1;

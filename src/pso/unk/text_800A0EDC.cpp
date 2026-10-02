@@ -156,7 +156,7 @@ s32 initialize__9TObjEnemyFPv(void *);
 extern M2C_UNK __vt__20TObjEneDarkGunCenter[];
 extern s32 lbl_805D29C8;
 u8 *TObjEneDarkGunCenter__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
-M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
+M2C_UNK apply_actor_gravity(void *, int, f32);
 M2C_UNK move_with_wall_slide(void *);
 void TObjPlayer__sub_800180E8(void *, Vec_800A12C0, Vec_800A12C0, f32);
 void apply_fall_damage_flag__10TObjPlayerFi(void *);
@@ -233,7 +233,7 @@ void TObjPlayer__sub_800A12C0(Obj_800A12C0 *o) {
     case 1: {
         advance_animation_playback(o);
         if (!(o->flags30 & 0x800000)) {
-            TObjPlayer__sub_80011734(o, 0, lbl_805D9984);
+            apply_actor_gravity(o, 0, lbl_805D9984);
         }
         TObjPlayer__sub_800180E8(o, o->pos, o->dest, TObjPlayer__sub_800A3200(0));
         move_with_wall_slide(o);

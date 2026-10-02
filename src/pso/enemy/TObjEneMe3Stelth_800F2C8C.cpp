@@ -388,7 +388,7 @@ M2C_UNK TBoss3Volopt__sub_800D8D88(void *, f32);
 extern const f32 TObjEneMe3Stelth__data_805DA824;
 void TObjEneMe3Stelth__sub_800F3FE4(u8 *arg0, s32 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-void TLobby__sub_800869A4(void *, s32, s32, s32);
+void create_timed_particle_emitter(void *, s32, s32, s32);
 s32 set_field_378__9TObjEneDDFPvi(void *, int);
 s32 transition_enemy_state(void *, int);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
@@ -574,7 +574,7 @@ void TObjEneMe3Stelth__sub_800F42B8(u8 *arg0, s32 arg1) {
         if (M2C_FIELD(arg0, s32 *, 0x3C0) == 0) {
             TBoss3Volopt__sub_800D8D88(&v, t);
         } else {
-            TLobby__sub_800869A4(arg0 + 0x38, 0x79, 0, 0xF);
+            create_timed_particle_emitter(arg0 + 0x38, 0x79, 0, 0xF);
         }
         break;
     case 3:

@@ -163,7 +163,7 @@ M2C_UNK TBoss3Volopt__sub_800D8E80(void *);
 M2C_UNK transition_enemy_state(void *, s32);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
-M2C_UNK fn_800B98C0(void *);
+M2C_UNK enemy_clear_target(void *);
 s32 get_flag_11__16TObjEneRe2FlowerFPv(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 
@@ -175,7 +175,7 @@ void handle_state__9TObjEneDDFPvi(u8 *arg0, s32 arg1) {
         clear_child_flags__16TObjEneRe2FlowerFPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) | 8);
         set_field_378__9TObjEneDDFPvi(arg0, 2);
-        fn_800B98C0(arg0);
+        enemy_clear_target(arg0);
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3F4);
         if (get_flag_11__16TObjEneRe2FlowerFPv(arg0) != 0) {
             TBoss3Volopt__sub_800D8C48(arg0 + 0x38);

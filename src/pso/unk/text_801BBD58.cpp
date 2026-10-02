@@ -57,7 +57,7 @@ extern const f32 TObjPlayer__data_805DC278;
 extern const f32 lbl_805DC2B0;
 s32 get_type__10TObjPlayerFPv(void *p);
 void initialize_linked_object_reference(void *self, void *body);
-void TObjPlayer__sub_801BBD58(Player_801BBD58 *self);
+void init_collision_body__10TObjPlayerFPv(Player_801BBD58 *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_isState2_324(void *);
 s32 obj_getField1c(void *);
@@ -71,7 +71,7 @@ void TObjPlayer__sub_801BC068(void *self, u16 id);
 
 extern "C" {
 
-void TObjPlayer__sub_801BBD58(Player_801BBD58 *self) {
+void init_collision_body__10TObjPlayerFPv(Player_801BBD58 *self) {
     self->body.offset.x = TObjPlayer__data_805DC278;
     self->body.offset.y = TObjPlayer__data_805DC278;
     self->body.offset.z = TObjPlayer__data_805DC278;

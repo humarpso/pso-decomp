@@ -8,7 +8,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void TAdEp3Exist__sub_8036F574(u8 *arg0);
 u8 TAdEp3Exist__sub_8036F590(u8 *arg0);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+s32 get_localized_text_entry(int, int);
 u32 TWindowSubStatusDisp__sub_80144D68(int);
 s32 render_status_line__15TAdSubPlyItemGCFPvi(int, int, f32, f32, f32);
 s32 TWindowSubComCard__sub_80245F98(void *, void *);
@@ -42,8 +42,8 @@ int reset_and_set_mode__21TAdMultiChgGameModeGCFv(void*);
 void TAdEp3Exist__sub_8036EFBC(s32 arg0, s32 arg1) {
     f32 temp_f31;
     TWindowSubComCard__sub_80245F98((void *) (arg0), (void *) (arg1));
-    temp_f31 = lbl_805E0440 - (f32) (TWindowSubStatusDisp__sub_80144D68((int) (TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x2C), (int) (0xA)))) >> 1U);
-    render_status_line__15TAdSubPlyItemGCFPvi((int) (TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x2C), (int) (0xA))), (int) (-1), (f32) (temp_f31), (f32) (lbl_805E0444), (f32) (lbl_805E0448));
+    temp_f31 = lbl_805E0440 - (f32) (TWindowSubStatusDisp__sub_80144D68((int) (get_localized_text_entry((int) (0x2C), (int) (0xA)))) >> 1U);
+    render_status_line__15TAdSubPlyItemGCFPvi((int) (get_localized_text_entry((int) (0x2C), (int) (0xA))), (int) (-1), (f32) (temp_f31), (f32) (lbl_805E0444), (f32) (lbl_805E0448));
 }
 
 void render__11TAdEp3ExistFv(void) {

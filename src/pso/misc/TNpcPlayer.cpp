@@ -46,10 +46,10 @@ s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 s32 TNpcPlayer__sub_8014F7F0(void *arg0);
 f32 horizontal_distance_squared(void *, void *);
 M2C_UNK request_chatter__10TNpcPlayerFPvUi(void *, int);
-M2C_UNK TNpcPlayer__sub_801528B8(void *, int);
-M2C_UNK TNpcPlayer__sub_801528C8(void *, int);
-s16 TNpcPlayer__sub_801528F4(void *, int);
-M2C_UNK TNpcPlayer__sub_80152900(void *, int, int);
+M2C_UNK reset_partner_counter(void *, int);
+M2C_UNK increment_partner_counter(void *, int);
+s16 get_partner_counter(void *, int);
+M2C_UNK npc_counter_reset_if_reached(void *, int, int);
 extern const f32 lbl_805DB234;
 s32 TNpcPlayer__sub_8014FF5C(u8 *arg0);
 u8 *get_position_ptr__10TObjPlayerFPv(s32);
@@ -322,15 +322,15 @@ s32 TNpcPlayer__sub_8014FF5C(u8 *arg0) {
     if (temp_r3 > 0x1E) {
         M2C_FIELD(arg0, u8 *, 0x8C) = 0x1EU;
         M2C_FIELD(arg0, s32 *, 0x80) = (s32) (M2C_FIELD(arg0, s32 *, 0x80) | 0x4000);
-        if (TNpcPlayer__sub_801528F4((void *) (arg0 + 0x5C), (int) (7)) == 0) {
+        if (get_partner_counter((void *) (arg0 + 0x5C), (int) (7)) == 0) {
             request_chatter__10TNpcPlayerFPvUi((void *) (arg0), (int) (7));
         }
-        TNpcPlayer__sub_801528C8((void *) (arg0 + 0x5C), (int) (7));
-        TNpcPlayer__sub_80152900((void *) (arg0 + 0x5C), (int) (7), (int) (0x12C));
+        increment_partner_counter((void *) (arg0 + 0x5C), (int) (7));
+        npc_counter_reset_if_reached((void *) (arg0 + 0x5C), (int) (7), (int) (0x12C));
         return 0;
     }
     if ((temp_r3 == 0) && (M2C_FIELD(arg0, s32 *, 0x80) & 0x4000)) {
-        TNpcPlayer__sub_801528B8((void *) (arg0 + 0x5C), (int) (7));
+        reset_partner_counter((void *) (arg0 + 0x5C), (int) (7));
         request_chatter__10TNpcPlayerFPvUi((void *) (arg0), (int) (0x18));
         M2C_FIELD(arg0, s32 *, 0x80) = (s32) (M2C_FIELD(arg0, s32 *, 0x80) & 0xFFFFBFFF);
     }

@@ -93,8 +93,8 @@ u8 *find_active_entity_by_id(int);
 Tgt_801518A4 *TNpcPlayer__sub_80152A30(void *);
 s32 TNpcPlayer__sub_801518A4(Npc_801518A4 *arg0);
 Tgt_801518A4 *TNpcPlayer__sub_80152A30(void *);
-M2C_UNK TNpcPlayer__sub_801528C8(void *, M2C_UNK);
-M2C_UNK TNpcPlayer__sub_80152900(void *, M2C_UNK, M2C_UNK);
+M2C_UNK increment_partner_counter(void *, M2C_UNK);
+M2C_UNK npc_counter_reset_if_reached(void *, M2C_UNK, M2C_UNK);
 s32 get_condition__10TNpcPlayerFPv(s32);
 M2C_UNK request_chatter__10TNpcPlayerFPvUi(void *, M2C_UNK);
 s32 TNpcPlayer__sub_8014F728(void *, u32);
@@ -150,10 +150,10 @@ void update_condition_flags__10TNpcPlayerFPv(u8 *arg0);
 M2C_UNK request_chatter__10TNpcPlayerFPvUi(void *, M2C_UNK);
 M2C_UNK TNpcPlayer__sub_8014FAB0(s32);
 M2C_UNK TNpcPlayer__sub_8014FEAC(s32);
-M2C_UNK TNpcPlayer__sub_801528B8(void *, M2C_UNK);
-M2C_UNK TNpcPlayer__sub_801528C8(void *, M2C_UNK);
-s16 TNpcPlayer__sub_801528F4(void *, M2C_UNK);
-M2C_UNK TNpcPlayer__sub_80152900(void *, M2C_UNK, M2C_UNK);
+M2C_UNK reset_partner_counter(void *, M2C_UNK);
+M2C_UNK increment_partner_counter(void *, M2C_UNK);
+s16 get_partner_counter(void *, M2C_UNK);
+M2C_UNK npc_counter_reset_if_reached(void *, M2C_UNK, M2C_UNK);
 s32 check_and_set_reached__10TNpcPlayerFPv(s32, f32);
 s32 get_condition__10TNpcPlayerFPv(s32);
 M2C_UNK reset_fields_8c__10TNpcPlayerFPv(s32);
@@ -260,23 +260,23 @@ void update_condition_flags__10TNpcPlayerFPv(u8 *arg0) {
     TNpcPlayer__sub_8014FEAC(M2C_FIELD(arg0, s32 *, 0x74));
     TNpcPlayer__sub_8014FAB0(M2C_FIELD(arg0, s32 *, 0x74));
     if (get_condition__10TNpcPlayerFPv(M2C_FIELD(arg0, s32 *, 0x74)) & 2) {
-        if (TNpcPlayer__sub_801528F4(arg0 + 0x5C, 0xA) == 0) {
+        if (get_partner_counter(arg0 + 0x5C, 0xA) == 0) {
             request_chatter__10TNpcPlayerFPvUi(arg0, 9);
         }
-        TNpcPlayer__sub_801528C8(arg0 + 0x5C, 0xA);
+        increment_partner_counter(arg0 + 0x5C, 0xA);
     } else {
-        TNpcPlayer__sub_801528B8(arg0 + 0x5C, 0xA);
+        reset_partner_counter(arg0 + 0x5C, 0xA);
     }
     if (check_and_set_reached__10TNpcPlayerFPv(M2C_FIELD(arg0, s32 *, 0x74), lbl_805DB240) != 0) {
         if (get_condition__10TNpcPlayerFPv(M2C_FIELD(arg0, s32 *, 0x74)) & 8) {
-            if (TNpcPlayer__sub_801528F4(arg0 + 0x5C, 9) == 0) {
+            if (get_partner_counter(arg0 + 0x5C, 9) == 0) {
                 request_chatter__10TNpcPlayerFPvUi(arg0, 0xC);
             }
-            TNpcPlayer__sub_801528C8(arg0 + 0x5C, 8);
-            TNpcPlayer__sub_80152900(arg0 + 0x5C, 9, 0x2BC);
+            increment_partner_counter(arg0 + 0x5C, 8);
+            npc_counter_reset_if_reached(arg0 + 0x5C, 9, 0x2BC);
             return;
         }
-        TNpcPlayer__sub_801528B8(arg0 + 0x5C, 9);
+        reset_partner_counter(arg0 + 0x5C, 9);
     }
 }
 
@@ -397,8 +397,8 @@ s32 TNpcPlayer__sub_80151708(Npc_80151708 *self) {
     view = (View_80151708 *)TNpcPlayer__sub_80152A30(self->f78);
     if (view->count >= 3) {
         self->f80 |= 0x2000;
-        TNpcPlayer__sub_801528C8(self->f5C, 6);
-        if (TNpcPlayer__sub_80152900(self->f5C, 6, 100) != 0) {
+        increment_partner_counter(self->f5C, 6);
+        if (npc_counter_reset_if_reached(self->f5C, 6, 100) != 0) {
             if (get_condition__10TNpcPlayerFPv((s32)self->f78) & 8) {
                 request_chatter__10TNpcPlayerFPvUi(self, 1);
             } else {
@@ -447,8 +447,8 @@ s32 TNpcPlayer__sub_801518A4(Npc_801518A4 *arg0) {
     if (arg0->f58 >= r2) {
         arg0->flags |= 0x100;
         if (t->a != 0) {
-            TNpcPlayer__sub_801528C8(arg0->a5C, 5);
-            if (TNpcPlayer__sub_80152900(arg0->a5C, 5, 3) != 0) {
+            increment_partner_counter(arg0->a5C, 5);
+            if (npc_counter_reset_if_reached(arg0->a5C, 5, 3) != 0) {
                 o = find_active_entity_by_id((u16)t->b);
                 arg0->flags &= ~0x8000;
                 if (o != 0) {

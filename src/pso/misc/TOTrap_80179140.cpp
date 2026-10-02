@@ -14,7 +14,7 @@ M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK TObjFish__sub_803E46BC(s32);
+M2C_UNK draw_chunk_object(s32);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
 
 extern const f32 lbl_805DBA40;
@@ -42,7 +42,7 @@ void render__6TOTrapFv(u8 *arg0) {
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
             set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
             if (check_demo_mode__10TObjPlayerFv() == 1) {
-                TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
+                draw_chunk_object(M2C_FIELD(arg0, s32 *, 0x34));
             } else {
                 TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
             }

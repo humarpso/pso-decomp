@@ -20,11 +20,11 @@ struct Obj_80323134 { u8 pad[0xC8]; Vec_80323134 pos; void *items[9]; };
 struct T_80323320 { u8 pad[0xD4]; s32 arr[9]; };
 
 extern "C" {
-s32 TBoss4Type2__sub_800874F4(s32, s32);
+s32 create_particle_emitter(s32, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, s32);
 extern RecoveredGlobal_80323214_lbl_80476658 lbl_80476658;
 void TBoss6GravBall__sub_80323214(s32 arg0, s32 arg1);
-s32 TBoss4Type2__sub_800874F4(s32, s32);
+s32 create_particle_emitter(s32, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, s32);
 extern RecoveredGlobal_80323214_lbl_80476658 lbl_80476658;
 void TBoss6GravBall__sub_80323278(s32 arg0, s32 arg1);
@@ -92,7 +92,7 @@ void TBoss6GravBall__sub_80323214(s32 arg0, s32 arg1) {
     temp_r5 = arg1 * 4;
     temp_r31 = (u8 *)(arg0 + temp_r5);
     if ((void *) M2C_FIELD(temp_r31, u8 **, 0xD4) == NULL) {
-        M2C_FIELD(temp_r31, u8 **, 0xD4) = (unsigned char *) (TBoss4Type2__sub_800874F4(arg0 + 0xC8, M2C_FIELD(&lbl_80476658.value, M2C_UNK *, temp_r5)));
+        M2C_FIELD(temp_r31, u8 **, 0xD4) = (unsigned char *) (create_particle_emitter(arg0 + 0xC8, M2C_FIELD(&lbl_80476658.value, M2C_UNK *, temp_r5)));
         temp_r3 = (u8 *)(M2C_FIELD(temp_r31, u8 **, 0xD4));
         if (temp_r3 != NULL) {
             set_flags__11TBoss4Type2FPvUi(temp_r3, 0x2040);
@@ -111,7 +111,7 @@ void TBoss6GravBall__sub_80323278(s32 arg0, s32 arg1) {
     temp_r5 = arg1 * 4;
     temp_r31 = (u8 *)(arg0 + temp_r5);
     if ((void *) M2C_FIELD(temp_r31, u8 **, 0xD4) == NULL) {
-        M2C_FIELD(temp_r31, u8 **, 0xD4) = (unsigned char *) (TBoss4Type2__sub_800874F4(arg0 + 0xC8, M2C_FIELD(&(*(RecoveredGlobal_80323278_lbl_80476658 *)&lbl_80476658).value, M2C_UNK *, temp_r5)));
+        M2C_FIELD(temp_r31, u8 **, 0xD4) = (unsigned char *) (create_particle_emitter(arg0 + 0xC8, M2C_FIELD(&(*(RecoveredGlobal_80323278_lbl_80476658 *)&lbl_80476658).value, M2C_UNK *, temp_r5)));
         temp_r3 = (u8 *)(M2C_FIELD(temp_r31, u8 **, 0xD4));
         if (temp_r3 != NULL) {
             set_flags__11TBoss4Type2FPvUi(temp_r3, 0x40);

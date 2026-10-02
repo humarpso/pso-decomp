@@ -45,7 +45,7 @@ u32 get_field_d8__10TObjPlayerFPv(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
 s16 TObjPlayer__sub_801D2EA8(void *);
 f32 query_extended_state__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_80120304(f32 *, void *);
+void get_weapon_color__11TItemWeaponFPv(f32 *, void *);
 void copy_vec4__13TRaderMapCoreFPvPv(f32 *, f32 *);
 void draw_icon__10TObjPlayerFPvii(void *, int, f32 *);
 void create__10TTecSlicerFPUs(SlicerLaunchData_8012D9C8 *);
@@ -121,7 +121,7 @@ void TObjPlayer__sub_80326450(u8 *weapon) {
     launch.kind = TObjPlayer__sub_801D2F4C(M2C_FIELD(weapon, u8 **, 0xF0) + 0x7CC);
     launch.stage = TObjPlayer__sub_801D2EA8(M2C_FIELD(weapon, u8 **, 0xF0) + 0x7CC);
     launch.multiplier = query_extended_state__10TObjPlayerFPv(M2C_FIELD(weapon, u8 **, 0xF0));
-    TObjPlayer__sub_80120304(tmp, weapon);
+    get_weapon_color__11TItemWeaponFPv(tmp, weapon);
     copy_vec4__13TRaderMapCoreFPvPv(launch.color, tmp);
     launch.facing = M2C_FIELD(M2C_FIELD(weapon, u8 **, 0xF0), s32 *, 0x60);
     draw_icon__10TObjPlayerFPvii(weapon, 0x2, launch.first);

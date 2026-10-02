@@ -122,7 +122,7 @@ extern const C_803DB9A0 lbl_805E0F68;
 extern S_803DB560 lbl_8058CD80;
 extern s32 lbl_805D7788;
 extern s32 some_id_805c6f74;
-void TObjPlayer__sub_803DB9A0(u32 v);
+void set_ginja_material_color(u32 v);
 void TObjPlayer__sub_803DB24C(void *);
 void fn_803DB390(void);
 void prepare_ginja_model(void);
@@ -133,19 +133,19 @@ s32 TObjPlayer__sub_803DB4E8(s32 arg0);
 s32 draw_ginja_model_lists(GinjaModel *model);
 extern RecoveredCallback_d26337a2813d lbl_805D76E4;
 extern s32 lbl_805D7788;
-void TObjBoss2Tunnel__sub_803DB470(void *arg0);
+void draw_ginja_object(void *arg0);
 void GXSetChanCtrl(s32,s32,s32,s32,s32,s32,s32);
 extern s32 lbl_805D7788;
 extern s32 some_id_805c6f74;
 extern s32 lbl_805D7794;
-void TObjPlayer__sub_803DB628(s32 channel,s32 flags);
+void set_ginja_channel_ctrl(s32 channel,s32 flags);
 }
 
 extern "C" {
 
 s32 TObjPlayer__sub_803DB550(u32 arg0, s32 arg1);
 
-void TObjBoss2Tunnel__sub_803DB470(void *arg0) {
+void draw_ginja_object(void *arg0) {
     prepare_ginja_model();
     TObjPlayer__sub_803DB24C((void *) draw_ginja_model_lists);
     TObjPlayer__sub_803DC9E4(arg0, (void *) TObjPlayer__sub_803DB4E8);
@@ -198,7 +198,7 @@ void TObjPlayer__sub_803DB59C(s32 arg0) {
     Dolphin_GXSetVtxDesc((int) (0xD), (void *) (TObjPlayer__sub_803DB550((u32)((void *) (arg0)), (s32)((int) (5)))));
 }
 
-void TObjPlayer__sub_803DB628(s32 channel,s32 flags) {
+void set_ginja_channel_ctrl(s32 channel,s32 flags) {
     s32 ambientSource,materialSource,enabled;
     if((u32)(flags&0x100)!=0)enabled=0;else enabled=1;
     if((u32)(flags&0x1000)!=0)ambientSource=1;else ambientSource=0;
@@ -215,7 +215,7 @@ void TObjPlayer__sub_803DB628(s32 channel,s32 flags) {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-void TObjPlayer__sub_803DB9A0(u32 v) {
+void set_ginja_material_color(u32 v) {
     C_803DB9A0 fallback = lbl_805E0F68;
     C_803DB9A0 *mat;
     F_803DB9A0 add;

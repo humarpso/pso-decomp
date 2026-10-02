@@ -36,7 +36,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK set_chunk_material_color(void *);
-M2C_UNK TObjFish__sub_803E46BC();
+M2C_UNK draw_chunk_object();
 extern u8 lbl_80447020[];
 extern u8 lbl_8048E5A0[];
 extern u8 lbl_8050BEC0[];
@@ -103,7 +103,7 @@ void TObjPlayer__sub_801C6C08(void *arg0) {
         scale_matrix(0, lbl_805DC358, lbl_805DC358, lbl_805DC358);
         set_chunk_material_color(lbl_80447020 + TObjPlayer__sub_801C6BEC(arg0) * 0x10);
         get_cursor_state__11TMainCursorFv();
-        TObjFish__sub_803E46BC();
+        draw_chunk_object();
         copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);
         some_id_805c6f74 = lbl_805D5660;
         end_effect_render__13TParticleCtrlFv();

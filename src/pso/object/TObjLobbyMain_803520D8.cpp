@@ -46,14 +46,14 @@ extern Vec3_80352240 lbl_804790D0[];
 extern Vec3_80352240 lbl_804790DC[];
 void TObjLobbyMain__sub_80352240(u8 *arg0);
 s32 TObjFish__sub_8001ED9C(void *, s32);
-s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 get_bml_model(void *, s32);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 void rotate_matrix_y(int, s32);
 void TObjPlayer__sub_803D9B2C();
 void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470();
+M2C_UNK draw_ginja_object();
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 extern s32 lbl_80479078[];
 extern void *TObjLobbyMain__data_805D6EC8;
@@ -69,7 +69,7 @@ void reset_state__13TObjLobbyMainFPv(void *arg0);
 void update_computer_machines__13TObjLobbyMainFv(void);
 void update_particles__13TObjLobbyMainFPv(void *arg0);
 M2C_UNK PPCSync();
-M2C_UNK TOComputerMachine01__sub_8023DDC8(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK scroll_ginja_mesh_uvs(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK clear_active_flag__13TParticleCtrlFPv(void *);
 M2C_UNK enable__13TParticleCtrlFPv(void *);
 s32 fn_80352094();
@@ -230,10 +230,10 @@ void render__13TObjLobbyMainFv(u8 *arg0) {
         r = lbl_80479078[idx];
         if (r != 5) {
             r = TObjFish__sub_8001ED9C(TObjLobbyMain__data_805D6EC8, r);
-            draw_ginja_model_with_motion(TObjFish__sub_8001EDC4(TObjLobbyMain__data_805D6EC8, M2C_FIELD(arg0, s16 *, 0xD0)), r, M2C_FIELD(arg0, f32 *, 0xB0));
+            draw_ginja_model_with_motion(get_bml_model(TObjLobbyMain__data_805D6EC8, M2C_FIELD(arg0, s16 *, 0xD0)), r, M2C_FIELD(arg0, f32 *, 0xB0));
         } else {
-            TObjFish__sub_8001EDC4(TObjLobbyMain__data_805D6EC8, idx);
-            TObjBoss2Tunnel__sub_803DB470();
+            get_bml_model(TObjLobbyMain__data_805D6EC8, idx);
+            draw_ginja_object();
         }
         pop_matrix();
     }
@@ -242,8 +242,8 @@ void render__13TObjLobbyMainFv(u8 *arg0) {
 void update_computer_machines__13TObjLobbyMainFv(void) {
     if ((s32) lbl_805D6ED8 != (s32) lbl_805D53A4) {
         lbl_805D6ED8 = lbl_805D53A4;
-        TOComputerMachine01__sub_8023DDC8(lbl_805D6ED0, 1, 1, 0xA, 1);
-        TOComputerMachine01__sub_8023DDC8(lbl_805D6ED4, 0, -0x14, 0x1A, 1);
+        scroll_ginja_mesh_uvs(lbl_805D6ED0, 1, 1, 0xA, 1);
+        scroll_ginja_mesh_uvs(lbl_805D6ED4, 0, -0x14, 0x1A, 1);
         PPCSync();
     }
 }

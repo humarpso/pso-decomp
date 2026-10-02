@@ -39,7 +39,7 @@ extern const f32 lbl_805DBA20;
 extern const f32 lbl_805DBA24;
 void render__13TOSwitchTimerFv(s32 arg0);
 u8 * destroy_particle__13TParticleCtrlFPvs(void *, s16);
-void TSwitch__sub_80229258(u16, s16);
+void clear_floor_switch_flag(u16, s16);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8017858C___vt__13TOSwitchTimer __vt__13TOSwitchTimer;
 u8 *__dt__13TOSwitchTimerFv(u8 *arg0, s16 arg1);
@@ -129,7 +129,7 @@ u8 *__dt__13TOSwitchTimerFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__13TOSwitchTimer.value;
         if ((u32) M2C_FIELD(arg0, u32 *, 0x98) == 0U) {
-            TSwitch__sub_80229258(M2C_FIELD(arg0, u16 *, 0xA8), (s16) M2C_FIELD(arg0, s32 *, 0xB4));
+            clear_floor_switch_flag(M2C_FIELD(arg0, u16 *, 0xA8), (s16) M2C_FIELD(arg0, s32 *, 0xB4));
         }
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {

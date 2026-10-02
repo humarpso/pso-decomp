@@ -25,7 +25,7 @@ void *__dt__12TOVS2Wreck01Fv(void *arg0, s16 arg1);
 void check_collision_effect(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 void TOVS2Wall01__sub_8017C8EC(void *, void *, int);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
+M2C_UNK draw_ginja_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -72,7 +72,7 @@ void check_collision_effect(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-        TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x34));
+        draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
         pop_matrix();
     }
 }

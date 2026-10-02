@@ -40,7 +40,7 @@ void TAdPsoPassSaveGC__vt8(void);
 void *__dt__16TAdPsoPassSaveGCFv(void *arg0, s16 arg1);
 void render__16TAdPsoPassSaveGCFv(void *arg0);
 void run_task__16TAdPsoPassSaveGCFv(void *arg0);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
+M2C_UNK get_localized_text_entry(M2C_UNK, M2C_UNK);
 void TAdYesNoBaseGC__ct(void *);
 void TAdYesNoBaseGC__vt0(void *, int);
 M2C_UNK TKeyBoardControl__sub_8000F9CC(M2C_UNK);
@@ -54,7 +54,7 @@ void render__16TAdPsoPassSaveGCFv(void *arg0) {
 }
 
 void TAdPsoPassSaveGC__vt8(void) {
-    TAdSinglePlyChrSelectGC__sub_80132F2C(0x2A, 0);
+    get_localized_text_entry(0x2A, 0);
 }
 
 extern s32 TAdPsoPassSaveGC__data_805D6E80;

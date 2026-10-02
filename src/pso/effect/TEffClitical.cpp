@@ -64,7 +64,7 @@ M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK set_chunk_material_color(void *);
-M2C_UNK TObjFish__sub_803E46BC(int);
+M2C_UNK draw_chunk_object(int);
 extern M2C_UNK lbl_8048E2E0[];
 extern M2C_UNK lbl_804CC934[];
 extern u8 *lbl_805D4DF0;
@@ -109,7 +109,7 @@ void render__12TEffCliticalFv(u8 *arg0) {
     TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x20));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(lbl_805D4DF0, s32 *, 0x194)));
     scale_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x3C)), (f32) (M2C_FIELD(arg0, f32 *, 0x40)), (f32) (M2C_FIELD(arg0, f32 *, 0x44)));
-    TObjFish__sub_803E46BC((int) (M2C_FIELD(lbl_805D4ED8, s32 *, 0)));
+    draw_chunk_object((int) (M2C_FIELD(lbl_805D4ED8, s32 *, 0)));
     pop_matrix();
     fn_80082954((void *) (&sp8));
     some_id_805c6f74 = lbl_805D5660;

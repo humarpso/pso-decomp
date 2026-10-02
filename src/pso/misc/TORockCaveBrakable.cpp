@@ -33,13 +33,13 @@ struct Stack_80174CFC {
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
-s32 TObjFish__sub_8001EDC4(void *, int);
+s32 get_bml_model(void *, int);
 void TObjChip__sub_80180BD4(void *, s32, void *);
 void *__nw__7TObjectFUl(u32);
 void TBoss4Zako__sub_803D8910(void *, void *);
-void TScene__sub_803D8DB4(int, void *, void *);
+void rotate_vector_by_matrix(int, void *, void *);
 void rotate_matrix_y(int, s32);
-void TObjPlayer__sub_803D97F0(void *);
+void push_matrix_from(void *);
 void pop_matrix();
 extern Offs_80174CFC lbl_804428DC;
 extern Init_80174CFC lbl_80442924;
@@ -105,13 +105,13 @@ void TORockCaveBrakable__sub_80174CFC(u8 *arg0) {
     M2C_FIELD(&init, f32 *, 0x38) = M2C_FIELD(&init, f32 *, 0x10);
     for (i = 0; i < 6; i++) {
         VecCopy__FP3VecPC3Vec(&v, &offs.v[i]);
-        TObjPlayer__sub_803D97F0(lbl_8058D490);
+        push_matrix_from(lbl_8058D490);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
-        TScene__sub_803D8DB4(0, &v, &v);
+        rotate_vector_by_matrix(0, &v, &v);
         pop_matrix();
         VecCopy__FP3VecPC3Vec(&init.b[0xC], arg0 + 0x38);
         TBoss4Zako__sub_803D8910(&init.b[0xC], &v);
-        M2C_FIELD(&init, s32 *, 0x40) = TObjFish__sub_8001EDC4(lbl_805D5A84, i);
+        M2C_FIELD(&init, s32 *, 0x40) = get_bml_model(lbl_805D5A84, i);
         M2C_FIELD(&init, s32 *, 0x44) = TObjFish__sub_8001EDB0(lbl_805D5A84, i);
         p = __nw__7TObjectFUl(0x234);
         if (p != NULL) {

@@ -85,7 +85,7 @@ void VecCopy__FP3VecPC3Vec(Vec_800A6B14 *dst, const Vec_800A6B14 *src);
 u8 *get_player_data__10TObjPlayerFi(s32);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 TLobby__sub_800822E8(void *, int);
-s32 TObjPlayer__sub_80141F84(s32, s32);
+s32 angle_difference_abs(s32, s32);
 f32 TBoss6Type1__sub_803D9370(void *, void *);
 extern const f64 TObjEneGibbles__data_80472798;
 extern s32 lbl_805D586C;
@@ -144,7 +144,7 @@ M2C_UNK TObjEneGibbles__sub_802D7A54(void *);
 M2C_UNK TObjEneGibbles__sub_802D7F94(void *, int);
 s32 TObjEneGibbles__sub_802D9A04(void *);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
-M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
+M2C_UNK apply_actor_gravity(void *, int, f32);
 f32 horizontal_distance_squared(int, void *);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
 void *__nw__7TObjectFUl(int);
@@ -190,11 +190,11 @@ s32 TObjEneGibbles__sub_802D8828(u8 *arg0) {
             pl = get_player_data__10TObjPlayerFi(i);
             if (pl != NULL && !(M2C_FIELD(pl, s32 *, 0x30) & 0x800)
                 && TObjPlayer__sub_80018780(arg0, i, &v) < lbl_805DE824
-                && TObjPlayer__sub_80141F84(M2C_FIELD(arg0, s32 *, 0x60), (s32) (TObjEneGibbles__data_80472798 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))) < 0x2AAA
+                && angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), (s32) (TObjEneGibbles__data_80472798 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))) < 0x2AAA
                 && TLobby__sub_800822E8(pl, 0xE0) != 0) {
                 VecCopy__FP3VecPC3Vec((Vec_800A6B14 *) &v, (Vec_800A6B14 *) (arg0 + 0x2FC));
                 TBoss6Type1__sub_803D9370(&v, pl + 0x2FC);
-                if (TObjPlayer__sub_80141F84(M2C_FIELD(pl, s32 *, 0x60), (s32) (TObjEneGibbles__data_80472798 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))) < 0x2AAA) {
+                if (angle_difference_abs(M2C_FIELD(pl, s32 *, 0x60), (s32) (TObjEneGibbles__data_80472798 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))) < 0x2AAA) {
                     M2C_FIELD(arg0, u8 **, 0x3B0) = pl;
                     M2C_FIELD(arg0, s32 *, 0x374) |= 0x20;
                     return 1;
@@ -263,7 +263,7 @@ void update_death_sequence__14TObjEneGibblesFPv(u8 *arg0) {
         TObjEneMe3SinowZoa__sub_800D758C((void *) (arg0 + 0x3C0));
         M2C_FIELD(arg0, f32 *, 0x38C) = (f32) lbl_805DE868;
         M2C_FIELD(arg0, f32 *, 0x390) = (f32) TObjEneGibbles__data_805DE830;
-        TObjPlayer__sub_80011734((void *) (arg0), (int) (0), (f32) (TObjEneGibbles__data_805DE7E4));
+        apply_actor_gravity((void *) (arg0), (int) (0), (f32) (TObjEneGibbles__data_805DE7E4));
         break;
     case 1:
         if (((struct GibVObj_802da394_802D87D8 *) (arg0 + 0x3C0))->m5() != 0) {
@@ -314,7 +314,7 @@ void update_spawn_state__14TObjEneGibblesFPv(u8 *arg0) {
     switch (temp_r0) {
     case 0:
         M2C_FIELD(arg0, s16 *, 0x328) = 1;
-        TObjPlayer__sub_80011734((void *) arg0, (int) (0), (f32) (TObjEneGibbles__data_805DE7E4));
+        apply_actor_gravity((void *) arg0, (int) (0), (f32) (TObjEneGibbles__data_805DE7E4));
         return;
     case 1:
         if (horizontal_distance_squared((int) (M2C_FIELD(arg0, s32 *, 0x2A8) + 0x2FC), (void *) (arg0 + 0x2FC)) < lbl_805DE870) {

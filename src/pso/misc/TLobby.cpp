@@ -643,14 +643,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u32 clamp_min_drop__6TLobbyFUi(u32 arg0);
-u32 TItemDrop__sub_80107B0C(s32);
+u32 item_drop_rng_below(s32);
 
 extern s32 lbl_805D60A0;
 
 u32 clamp_min_drop__6TLobbyFUi(u32 arg0) {
     u32 var_r3;
 
-    var_r3 = TItemDrop__sub_80107B0C(lbl_805D60A0);
+    var_r3 = item_drop_rng_below(lbl_805D60A0);
     if (var_r3 < arg0) {
         var_r3 = arg0;
     }

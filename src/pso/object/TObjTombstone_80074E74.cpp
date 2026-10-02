@@ -44,7 +44,7 @@ u16 TCameraCtrl__sub_80068958();
 M2C_UNK TObjTombstone__sub_800753DC(void *);
 M2C_UNK get_camera_no__11TCameraCtrlFv();
 u32 get_player_by_client_id(int);
-f32 TObjPlayer__sub_803E1A58(void *, void *);
+f32 xyz_distance(void *, void *);
 extern f32 TObjTombstone__data_805D9174;
 extern f32 TObjTombstone__data_805D9178;
 extern f32 TObjTombstone__data_805D917C;
@@ -72,12 +72,12 @@ s32 get_screen_width__11TCameraCtrlFv();
 s32 get_screen_height__11TCameraCtrlFv();
 f32 TObjPlayer__sub_803D89C0(void *, void *);
 void TParticleCtrl__sub_803D8D1C(s32, void *, void *);
-void TScene__sub_803D8DB4(s32, void *, void *);
+void rotate_vector_by_matrix(s32, void *, void *);
 void rotate_matrix_y(s32, s32);
 void rotate_matrix_z(s32, s32);
 void TBoss6Type1__sub_803D9370(void *, void *);
 void rotate_matrix_x(s32, s32);
-void TObjPlayer__sub_803D97F0(void *);
+void push_matrix_from(void *);
 void TObjPlayer__sub_803D9B2C();
 void pop_matrix();
 extern V_800751BC lbl_80438780;
@@ -161,11 +161,11 @@ s32 TObjTombstone__sub_80075070(Obj_80075070 *arg0) {
 s32 TObjTombstone__sub_800751BC(void *arg0, f32 *arg1, void *arg2) {
     V_800751BC d;
     V_800751BC v = lbl_80438780;
-    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    push_matrix_from(lbl_8058D490);
     rotate_matrix_y(0, lbl_805D4DF0->f194);
     rotate_matrix_x(0, lbl_805D4DF0->f190);
     rotate_matrix_z(0, lbl_805D4DF0->f198);
-    TScene__sub_803D8DB4(0, &v, &v);
+    rotate_vector_by_matrix(0, &v, &v);
     pop_matrix();
     VecCopy__FP3VecPC3Vec(&d, arg2);
     TBoss6Type1__sub_803D9370(&d, &lbl_805D4DF0->pos);
@@ -190,7 +190,7 @@ void TObjTombstone__sub_80075340(u8 *arg0) {
     get_camera_no__11TCameraCtrlFv();
     temp_r3 = get_player_by_client_id((int) (TCameraCtrl__sub_80068958()));
     if (temp_r3 != 0U) {
-        temp_f1 = TObjPlayer__sub_803E1A58((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38));
+        temp_f1 = xyz_distance((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38));
         if (temp_f1 <= lbl_805D9180) {
             M2C_FIELD(arg0, f32 *, 0xB4) = (f32) TObjTombstone__data_805D9178;
         } else if (temp_f1 >= TObjTombstone__data_805D917C) {

@@ -148,7 +148,7 @@ M2C_UNK TObjPlayer__sub_8023A244(void *);
 u32 find_entity_by_id(u16);
 void *__nw__7TObjectFUl(int);
 M2C_UNK advance_lifetime_or_destroy(void *);
-M2C_UNK fn_8023A694(void *);
+M2C_UNK move_technique_projectile(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
 
@@ -272,7 +272,7 @@ void run_task__11TTecGiBartaFv(void *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    fn_8023A694(arg0);
+    move_technique_projectile(arg0);
     advance_lifetime_or_destroy(arg0);
     TObjPlayer__sub_8023A244(arg0);
 }

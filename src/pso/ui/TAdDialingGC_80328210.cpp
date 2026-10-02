@@ -22,7 +22,7 @@ struct RecoveredGlobal_803284F8_lbl_8050E208 {
 struct Obj_803285C0 { u8 pad[0x20]; s32 mode; u8 pad2[0xC]; s16 state; };
 
 extern "C" {
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+s32 get_localized_text_entry(int, int);
 M2C_UNK fn_8032D9BC(void *, void *, f32);
 M2C_UNK fn_8032DA28(void *);
 extern const f32 lbl_805DF6E4;
@@ -258,7 +258,7 @@ void TAdDialingGC__sub_803286AC(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0xA4) & 2)) {
         fn_8032DA28((void *) (&stack.sp8));
         stack.sp8 = 1;
-        stack.sp28 = TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0xF), (int) (0x13));
+        stack.sp28 = get_localized_text_entry((int) (0xF), (int) (0x13));
         stack.spC = lbl_805DF6E4;
         stack.sp14 = lbl_805DF6E4;
         stack.sp10 = lbl_805DF6E8;

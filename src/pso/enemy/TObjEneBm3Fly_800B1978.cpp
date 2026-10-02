@@ -192,7 +192,7 @@ extern const f32 lbl_805D9CEC;
 void TObjEneBm3Fly__sub_800B1AEC(void *arg0, s32 arg1);
 void queue_destruction__7TObjectFv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
-u8 *TBoss4Type2__sub_800874F4(void *, s32);
+u8 *create_particle_emitter(void *, s32);
 s32 enable__13TParticleCtrlFPv(int);
 void store_position__13TObjEneBm3FlyFPv(u8 *arg0);
 s32 check_v2_mode__9TObjEneDDFv();
@@ -256,7 +256,7 @@ void TObjPlayer__sub_803D9B2C(void);
 void pop_matrix(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(s32);
-void TObjFish__sub_803E46BC(s32);
+void draw_chunk_object(s32);
 void TObjEneSlimeOne__sub_803E4AF4(s32, Ent_800B23A0 *, f32);
 void set_global_flag__10TObjPlayerFv(void);
 void clear_global_state__10TObjPlayerFv(void);
@@ -414,7 +414,7 @@ void TObjEneBm3Fly::run_task() {
     temp_r3_2 = (u8 *) (particle_effect);
     if (temp_r3_2 == 0)
     {
-      particle_effect = TBoss4Type2__sub_800874F4(arg0 + 0x2FC, 0xC7);
+      particle_effect = create_particle_emitter(arg0 + 0x2FC, 0xC7);
       temp_r3_3 = (u8 *) (particle_effect);
       if (temp_r3_3 != 0)
       {
@@ -639,7 +639,7 @@ void TObjPlayer__sub_800B23A0(u8 *arg0) {
     TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
     translate_matrix(0, M2C_FIELD(arg0, f32 *, 0x35C), M2C_FIELD(arg0, f32 *, 0x360), M2C_FIELD(arg0, f32 *, 0x364));
-    TObjFish__sub_803E46BC(lbl_805D28B8);
+    draw_chunk_object(lbl_805D28B8);
     pop_matrix();
 }
 

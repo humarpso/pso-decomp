@@ -55,7 +55,7 @@ f32 xz_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 u16 TObjPlayer__sub_800C6D24(u8 *arg0, f32 radius);
-s32 TObjPlayer__sub_800115C4(void *, void *, f32);
+s32 find_nearest_visible_player(void *, void *, f32);
 u16 TObjPlayer__sub_800C6EF8(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius);
 u8 *find_active_entity_by_id(int);
 f32 xz_distance_squared(void *, void *);
@@ -180,7 +180,7 @@ BOOL TObjPlayer__sub_800C6FFC(Obj_800C6FFC *arg0, f32 radius) {
     s32 a;
     s32 b;
     f32 da;
-    a = TObjPlayer__sub_800115C4(arg0, NULL, radius);
+    a = find_nearest_visible_player(arg0, NULL, radius);
     b = ((s32 (*)(void *, void *, f32))TObjPlayer__sub_800C6EF8)(arg0, NULL, radius);
     if ((u16)a == 0xFFFF) {
         arg0->targetIdx = 0xFFFF;
@@ -281,7 +281,7 @@ u8 find_target_in_range__10TObjPlayerFPvf(void *arg0, f32 farg0) {
     if (obj_testFlags30(arg0, 0x10) != 0) {
         return ((u8 (*)(void *, f32))TObjPlayer__sub_800C6FFC)(arg0, farg0);
     }
-    M2C_FIELD(arg0, u16 *, 0x338) = ((u16 (*)(void *, M2C_UNK, f32))TObjPlayer__sub_800115C4)(arg0, 0, farg0);
+    M2C_FIELD(arg0, u16 *, 0x338) = ((u16 (*)(void *, M2C_UNK, f32))find_nearest_visible_player)(arg0, 0, farg0);
     M2C_FIELD(arg0, s32 *, 0x2A8) = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x338));
     return (u8) (M2C_FIELD(arg0, s32 *, 0x2A8) != 0);
 }

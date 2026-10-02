@@ -106,12 +106,12 @@ void destroy_technique_effect_resources__10TObjPlayerFPvs(void *, s16);
 extern TTecFoieData_80230144 TTecFoie__data_8044D13C[];
 extern void *__vt__8TTecFoie[];
 TTecFoie_80230144 *__dt__8TTecFoieFv(TTecFoie_80230144 *self, s16 deleting);
-s32 TObjFish__sub_800660D4(int, int, int, int, int, f32);
+s32 attach_particle_model(int, int, int, int, int, f32);
 void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
 s32 TParticleCtrl__sub_80086884(int);
 void *fn_80086D50(void *pos, void *dir, s32 id);
 void *TObjParticle__sub_800870BC(void *pos, void *dir, s32 id, u16 e);
-void *TBoss8Dragon__sub_8008741C(void *, s32, u16);
+void *spawn_continuous_particle_effect_with_flags(void *, s32, u16);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
 extern TTecFoieData_80230144 TTecFoie__data_8044D13C[];
 extern s32 lbl_805D63B0;
@@ -167,13 +167,13 @@ void TTecFoie__sub_8022FC94(Foie_8022FC94 *self) {
     }
     else
     {
-      self->emitters[i] = TBoss8Dragon__sub_8008741C(self->pos, b->entry, f);
+      self->emitters[i] = spawn_continuous_particle_effect_with_flags(self->pos, b->entry, f);
     }
     if (self->emitters[i] != 0)
     {
       if ((*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i].flags & 0x20)
       {
-        TObjFish__sub_800660D4((int) self->emitters[i], TParticleCtrl__sub_80086884(0), lbl_805D63B0, 0, 1, lbl_805DC7F8);
+        attach_particle_model((int) self->emitters[i], TParticleCtrl__sub_80086884(0), lbl_805D63B0, 0, 1, lbl_805DC7F8);
       }
       set_position_xy__10TObjPlayerFPvff(self->emitters[i], (*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i].scale, (*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i].scale);
     }

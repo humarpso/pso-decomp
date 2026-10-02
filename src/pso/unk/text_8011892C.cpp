@@ -71,7 +71,7 @@ void TItemProUnit__vt16(Self_80118958 *self, Out_80118958 *out);
 f32 TItemProUnit__sub_8011901C(void *);
 void set_evp__12TItemProUnitFPvf(void *, f32);
 void TItemProUnit__vt14(Self_80118A78 *self);
-u8 TObjPlayer__sub_8011C1C8(u8, u8);
+u8 get_technique_learn_limit(u8, u8);
 u8 fn_801D9870(void *, s16);
 void TItemProUnit__sub_801D98F8(void *, s16, u8);
 void TItemProUnit__vt46(Unit_80118AD4 *self);
@@ -177,7 +177,7 @@ void TItemProUnit__vt46(Unit_80118AD4 *self) {
             }
             v = fn_801D9870(self->owner->f428, i);
             if (v != 0xFF) {
-                cap = TObjPlayer__sub_8011C1C8(self->owner->f88d, (u8)i);
+                cap = get_technique_learn_limit(self->owner->f88d, (u8)i);
                 base = self->f190;
                 tot = v + base;
                 if (cap < tot) {

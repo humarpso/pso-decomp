@@ -10,7 +10,7 @@ void TObjPlayer__sub_803D9B2C();
 void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(s32);
-void TObjBoss2Tunnel__sub_803DB470(s32);
+void draw_ginja_object(s32);
 void draw_ginja_model_with_motion(s32, s32, f32);
 extern u16 lbl_80445B7C[];
 extern s32 lbl_805D5C28;
@@ -28,7 +28,7 @@ void fn_80192554(Obj_80192554 *arg0) {
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(arg0->f38);
     rotate_matrix_y(0, arg0->f60);
-    TObjBoss2Tunnel__sub_803DB470(arg0->fBC);
+    draw_ginja_object(arg0->fBC);
     begin_effect_render__13TParticleCtrlFv();
     draw_ginja_model_with_motion(arg0->fC0, arg0->fC4, arg0->fB8);
     end_effect_render__13TParticleCtrlFv();

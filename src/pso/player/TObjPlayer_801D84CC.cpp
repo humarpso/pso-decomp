@@ -154,7 +154,7 @@ extern RecoveredGlobal_801D8ADC_lbl_804492AC lbl_804492AC;
 extern RecoveredGlobal_801D8ADC_lbl_804492BC lbl_804492BC;
 extern RecoveredGlobal_801D8ADC_lbl_804492CC lbl_804492CC;
 extern s32 lbl_805D5550;
-M2C_UNK *TObjPlayer__sub_801D8ADC(M2C_UNK *arg0);
+M2C_UNK *get_getup_protection_ticks__10TObjPlayerFPv(M2C_UNK *arg0);
 s32 get_main_phase();
 s32 obj_isState3_324(int);
 extern RecoveredGlobal_801D8B8C_lbl_8044925C lbl_8044925C;
@@ -291,7 +291,7 @@ typedef char RecoveredGlobal_801D8ADC_lbl_8044929C_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_801D8ADC_lbl_804492AC_size[sizeof(RecoveredGlobal_801D8ADC_lbl_804492AC) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_801D8ADC_lbl_804492BC_size[sizeof(RecoveredGlobal_801D8ADC_lbl_804492BC) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_801D8ADC_lbl_804492CC_size[sizeof(RecoveredGlobal_801D8ADC_lbl_804492CC) == 0x14 ? 1 : -1];
-M2C_UNK *TObjPlayer__sub_801D8ADC(M2C_UNK *arg0) {
+M2C_UNK *get_getup_protection_ticks__10TObjPlayerFPv(M2C_UNK *arg0) {
     M2C_UNK *var_r31;
     M2C_UNK *var_r3;
     var_r31 = (M2C_UNK *)(arg0);

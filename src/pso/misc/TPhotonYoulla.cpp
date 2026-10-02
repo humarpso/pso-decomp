@@ -73,7 +73,7 @@ void run_task__13TPhotonYoullaFv(void *arg0);
 M2C_UNK advance_animation_playback(void *);
 s32 TLobby__sub_800822E8(s32, s32);
 s32 TLobby__sub_8030A7B0();
-int TObjPlayer__sub_80019248(void*);
+int is_locally_controlled__10TObjPlayerFPv(void*);
 M2C_UNK TObjPlayer__sub_801A7680(void *);
 M2C_UNK TObjPlayer__sub_801A7748(void *, M2C_UNK);
 s32 TObjPlayer__sub_801AF868(s32);

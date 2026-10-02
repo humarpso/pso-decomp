@@ -16,7 +16,7 @@ struct RecoveredFields_802CE510_temp_r3
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TObjFish__sub_800660D4(int, int, int, int, int, f32);
+s32 attach_particle_model(int, int, int, int, int, f32);
 u8 *csnVectorUnder(M2C_UNK *, s32, s32);
 s32 set_position_xy__10TObjPlayerFPvff(int, f32, f32);
 s32 TParticleCtrl__sub_80086884(int);
@@ -70,7 +70,7 @@ void fn_802CE510(int arg0) {
         if (temp_r3_2 != 0U)
         {
           ;
-          TObjFish__sub_800660D4((int) temp_r3_2, (int) TParticleCtrl__sub_80086884((int) 2), (int) get_instance__13TParticleCtrlFv(), (int) 0, (int) 1, (f32) lbl_805DE6F4);
+          attach_particle_model((int) temp_r3_2, (int) TParticleCtrl__sub_80086884((int) 2), (int) get_instance__13TParticleCtrlFv(), (int) 0, (int) 1, (f32) lbl_805DE6F4);
           temp_r3 = temp_r3;
           new_var = (int) temp_r3_2;
           set_position_xy__10TObjPlayerFPvff(new_var, (f32) lbl_805DE6EC, (f32) lbl_805DE6F4);

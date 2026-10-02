@@ -56,7 +56,7 @@ s32 TWindowSubComCard__sub_8007A860(s32);
 int TWindowSubComCard__sub_8007A8F8(void);
 s32 TWindowSubComCard__sub_8007BC04(s32 a0 = 0);
 int TWindowSubComCard__sub_80265BF8(void*);
-s32 TWindowSubComCard__sub_8026CBB8(s32 a0 = 0);
+s32 get_window_layout_position(s32 a0 = 0);
 s32 create__14TWindowComCardFPvPv(s32 a0 = 0, s32 a1 = 0);
 s32 create_card_list__17TWindowSubComCardFiiii(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 int fn_802754EC(void);
@@ -127,18 +127,18 @@ void apply_selection__17TWindowSubComCardFi(s32 arg0) {
     s32 temp_r31;
 
     temp_r31 = TWindowSubComCard__sub_8007BC04(0);
-    TWindowComCard__sub_80249980(TWindowSubComCard__sub_8026CBB8(0x92), arg0, temp_r31);
+    TWindowComCard__sub_80249980(get_window_layout_position(0x92), arg0, temp_r31);
 }
 void send_command__17TWindowSubComCardFi(s32 arg0) {
-    create__14TWindowComCardFPvPv(TWindowSubComCard__sub_8026CBB8(0x86), arg0);
+    create__14TWindowComCardFPvPv(get_window_layout_position(0x86), arg0);
 }
 void init_layout__17TWindowSubComCardFv(void) {
     s32 temp_r31;
 
     temp_r31 = TWindowSubComCard__sub_8007BC04(0);
-    create_card_list__17TWindowSubComCardFiiii(TWindowSubComCard__sub_8026CBB8(0x91), temp_r31, 0x1C, 1);
+    create_card_list__17TWindowSubComCardFiiii(get_window_layout_position(0x91), temp_r31, 0x1C, 1);
 }
-void send_cmd_133__17TWindowSubComCardFv(void) { TWindowSubComCard__sub_8026CBB8(133); fn_802754EC(); }
+void send_cmd_133__17TWindowSubComCardFv(void) { get_window_layout_position(133); fn_802754EC(); }
 void cleanup__17TWindowSubComCardFPv(void* p) { TWindowSubComCard__sub_80265BF8(*(void**)((char*)p + 0x84)); TWindowSubComCard__sub_8007A8F8(); get_card_id__17TWindowSubComCardFPv(); TLobby__sub_802421C4(); }
 #pragma scheduling off
 void TWindowSubComCard__sub_802721D8(u8 *arg0) {

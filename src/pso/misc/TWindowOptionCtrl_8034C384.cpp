@@ -14,7 +14,7 @@ void *destroy__17TWindowOptionCtrlFPvs(void *arg0, s16 arg1);
 s32 get_field_24__17TWindowOptionCtrlFPv(void* p);
 void open_confirm_dialog__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 arg2);
 void set_option_and_confirm__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 arg2);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK);
+s32 get_localized_text_entry(M2C_UNK);
 int TLobby__sub_80338534(void);
 int TLobby__sub_80338608(void*);
 u32 TWindowMessageYesNo__sub_802A59D8(s32, s32, M2C_UNK, M2C_UNK);
@@ -51,7 +51,7 @@ void open_confirm_dialog__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 arg
 void set_option_and_confirm__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 arg2) {
     if (arg1 != (s32) M2C_FIELD(arg0, s32 *, 0x28)) {
         M2C_FIELD(arg0, s32 *, 0x28) = arg1;
-        open_confirm_dialog__17TWindowOptionCtrlFPvii((void *)(arg0), (s32)(TAdSinglePlyChrSelectGC__sub_80132F2C(0x24)), (s32)(arg2));
+        open_confirm_dialog__17TWindowOptionCtrlFPvii((void *)(arg0), (s32)(get_localized_text_entry(0x24)), (s32)(arg2));
     }
 }
 

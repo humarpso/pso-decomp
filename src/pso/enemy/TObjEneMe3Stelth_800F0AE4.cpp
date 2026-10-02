@@ -17,7 +17,7 @@ int TLanguage__sub_801E4874(void*);
 extern u32 lbl_805D52F8;
 void load_ha_u032_kage(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TObjFish__sub_800660D4(int, int, int, int, int, f32);
+s32 attach_particle_model(int, int, int, int, int, f32);
 u8 *csnVectorUnder(M2C_UNK *, s32, s32);
 s32 TParticleCtrl__sub_80086884(int);
 s32 get_instance__13TParticleCtrlFv();
@@ -67,7 +67,7 @@ s32 TObjEneMe3Stelth__sub_800F0B4C(s32 arg0, s32 arg1) {
     if (temp_r3_2 != 0)
     {
       ;
-      TObjFish__sub_800660D4((int) temp_r3_2, (int) TParticleCtrl__sub_80086884((int) 2), (int) get_instance__13TParticleCtrlFv(), (int) 0, (int) 1, (f32) TObjEneMe3Stelth__data_805DA80C);
+      attach_particle_model((int) temp_r3_2, (int) TParticleCtrl__sub_80086884((int) 2), (int) get_instance__13TParticleCtrlFv(), (int) 0, (int) 1, (f32) TObjEneMe3Stelth__data_805DA80C);
     }
     spawn_particle_effect((s32)((int) ((*((s32 *) (((s8 *) temp_r3) + 4))) + 0x38)), (M2C_UNK)((int) 0xA4));
     TObjEneGibbles__sub_800D8988((void *) (arg0 + 0x38));

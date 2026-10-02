@@ -17,7 +17,7 @@ s32 TLobby__sub_800822E8(s32, s32);
 s32 TLobby__sub_8030A7B0();
 M2C_UNK TObjPlayer__sub_80011274(void *, int);
 M2C_UNK TObjPlayer__sub_80011378(void *, int);
-int TObjPlayer__sub_80019248(void*);
+int is_locally_controlled__10TObjPlayerFPv(void*);
 void TObjPlayer__sub_801AEB80(void);
 void stop_force_if_alive__10TObjPlayerFPv(void* p);
 int get_max_level__10TObjPlayerFv(void);

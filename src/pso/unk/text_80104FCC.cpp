@@ -89,7 +89,7 @@ extern s32 TLobby__data_805D53AC;
 extern Entry_8010567C *TLobby__data_805D6140;
 extern s32 lbl_805D53A0;
 void TLobby__sub_8010567C(Obj_8010567C *self, void *unused, s16 arg2);
-int TItemMag__sub_80105348(Player_80105348 *player, s32 perm);
+int check_class_equip_permission(Player_80105348 *player, s32 perm);
 void *get_player_by_client_id(s32);
 s8 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
@@ -102,7 +102,7 @@ extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D53AC;
 extern Rec_80105538 *TLobby__data_805D6144;
 extern const f32 lbl_805DAAB4;
-void TLobby__sub_80105538(Obj_80105538 *self);
+void send_6x60_standard_drop_item_request(Obj_80105538 *self);
 }
 
 extern "C" {
@@ -110,7 +110,7 @@ extern "C" {
 int TLobby__sub_8010540C(void* p);
 int TObjPlayer__sub_8011C974(void*);
 
-int TItemMag__sub_80105348(Player_80105348 *player, s32 perm) {
+int check_class_equip_permission(Player_80105348 *player, s32 perm) {
     s32 t = player->traits;
     if (t & 0x20) {
         if (!(perm & 1)) return 0;
@@ -153,7 +153,7 @@ s32 TLobby__sub_8010542C(Item_8010542C *src) {
     return 0;
 }
 
-void TLobby__sub_80105538(Obj_80105538 *self) {
+void send_6x60_standard_drop_item_request(Obj_80105538 *self) {
     void *p1;
     void *p2;
     if (self != 0) {

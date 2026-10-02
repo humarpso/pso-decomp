@@ -108,10 +108,10 @@ void init_particle_buffer__13TParticleCtrlFv(void);
 extern s32 lbl_805D4EFC;
 extern int lbl_805D4EF8;
 s32 get_particle_by_index__13TParticleCtrlFi(s32 arg0);
-void *TParticleCtrl__sub_8008673C(int);
+void *alloc_particle_memory(int);
 u8 * TParticleCtrl__sub_800896E4(void *, void *, void *, void *, s32, u16, s16);
 u8 *TParticleCtrl__sub_8008877C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
-void *TParticleCtrl__sub_8008673C(int);
+void *alloc_particle_memory(int);
 void *TParticleCtrl__sub_80089B50(void *, void *, void *, void *);
 void * TParticleCtrl__sub_800887EC(void *arg0, void *arg1, void *arg2);
 int queue_destruction__7TObjectFv(void *);
@@ -123,10 +123,10 @@ void TParticleCtrl__sub_8008655C(void *, int);
 void free_from_heap__13TParticleCtrlFPv(void *);
 extern M2C_UNK TParticleCtrl__data_8048E778[];
 void *TParticleCtrl__sub_8008968C(void *arg0, s16 arg1);
-void *TParticleCtrl__sub_8008673C(int);
+void *alloc_particle_memory(int);
 u8 * TParticleCtrl__sub_8008AC24(void *, void *, void *, void *, s32, u16, s16);
 u8 *TParticleCtrl__sub_80089F7C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
-void *TParticleCtrl__sub_8008673C(int);
+void *alloc_particle_memory(int);
 void *TParticleCtrl__sub_8008B060(void *, void *, void *, void *, void *);
 void *TParticleCtrl__sub_8008B060(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void * TParticleCtrl__sub_80089FEC(void *arg0, void *arg1, void *arg2, void *arg3);
@@ -137,9 +137,9 @@ void TParticleCtrl__sub_8008655C(void *, int);
 void free_from_heap__13TParticleCtrlFPv(void *);
 extern M2C_UNK TParticleCtrl__data_8048E790[];
 void *TParticleCtrl__sub_8008ABCC(void *arg0, s16 arg1);
-void *TParticleCtrl__sub_8008673C(int);
+void *alloc_particle_memory(int);
 u8 *TParticleCtrl__sub_8008B478(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4);
-void *TParticleCtrl__sub_8008673C(int);
+void *alloc_particle_memory(int);
 void * TParticleCtrl__sub_8008B4E0(void *arg0, void *arg1, void *arg2);
 int queue_destruction__7TObjectFv(void *);
 extern const f32 TParticleCtrl__data_805D9558;
@@ -200,7 +200,7 @@ M2C_UNK setup_particle_tev(M2C_UNK);
 M2C_UNK TParticleCtrl__sub_800836E8(f32);
 s32 TParticleCtrl__sub_800861F4(void *, s32);
 M2C_UNK TParticleCtrl__sub_80086248(void *);
-M2C_UNK TParticleCtrl__sub_80086418(void *, M2C_UNK);
+M2C_UNK apply_particle_model_fade_color(void *, M2C_UNK);
 M2C_UNK set_depth_buffer_settings_id__FUl(M2C_UNK);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -215,7 +215,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C(f32);
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(u32);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
+M2C_UNK draw_ginja_object(u32);
 M2C_UNK draw_ginja_model_with_motion(u32, u32, f32);
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 extern u8 *lbl_805D4DF0;
@@ -554,7 +554,7 @@ void TParticleCtrl__sub_8008869C(void) {
 u8 *TParticleCtrl__sub_8008877C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5) {
     u8 *temp_r3;
     u8 *var_r0;
-    temp_r3 = (u8 *)(((u8 *)TParticleCtrl__sub_8008673C((int)(0xD0))));
+    temp_r3 = (u8 *)(((u8 *)alloc_particle_memory((int)(0xD0))));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(TParticleCtrl__sub_800896E4(temp_r3, arg0, arg1, arg2, arg3, arg4, arg5));
@@ -563,7 +563,7 @@ u8 *TParticleCtrl__sub_8008877C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4
 }
 void * TParticleCtrl__sub_800887EC(void *arg0, void *arg1, void *arg2) {
     void *o;
-    o = TParticleCtrl__sub_8008673C(0xd0);
+    o = alloc_particle_memory(0xd0);
     if (o != NULL) {
         o = TParticleCtrl__sub_80089B50(o, arg0, arg1, arg2);
     }
@@ -599,7 +599,7 @@ void *TParticleCtrl__sub_8008968C(void *arg0, s16 arg1) {
 u8 *TParticleCtrl__sub_80089F7C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5) {
     u8 *temp_r3;
     u8 *var_r0;
-    temp_r3 = (u8 *)(((u8 *)TParticleCtrl__sub_8008673C((int)(0xE0))));
+    temp_r3 = (u8 *)(((u8 *)alloc_particle_memory((int)(0xE0))));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(TParticleCtrl__sub_8008AC24(temp_r3, arg0, arg1, arg2, arg3, arg4, arg5));
@@ -608,7 +608,7 @@ u8 *TParticleCtrl__sub_80089F7C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4
 }
 void * TParticleCtrl__sub_80089FEC(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;
-    o = TParticleCtrl__sub_8008673C(0xe0);
+    o = alloc_particle_memory(0xe0);
     if (o != NULL) {
         o = TParticleCtrl__sub_8008B060(o, arg0, arg1, arg2, arg3);
     }
@@ -663,9 +663,9 @@ void TParticleCtrl__sub_8008A92C(u8 *arg0) {
                     lbl_805D5660 = temp_r4;
                     some_id_805c6f74 = temp_r4 | 0x8021;
                     if (TParticleCtrl__sub_800861F4(arg0, temp_r4) != 0) {
-                        TParticleCtrl__sub_80086418(arg0, 1);
+                        apply_particle_model_fade_color(arg0, 1);
                     } else {
-                        TParticleCtrl__sub_80086418(arg0, 0);
+                        apply_particle_model_fade_color(arg0, 0);
                     }
                 }
                 set_global_param__8TObjFishFi(M2C_FIELD(arg0, u32 *, 0xB4));
@@ -673,7 +673,7 @@ void TParticleCtrl__sub_8008A92C(u8 *arg0) {
                 if ((u32) M2C_FIELD(arg0, u32 *, 0xB8) != 0U) {
                     draw_ginja_model_with_motion(M2C_FIELD(arg0, u32 *, 0xB0), M2C_FIELD(arg0, u32 *, 0xB8), M2C_FIELD(arg0, f32 *, 0xBC));
                 } else {
-                    TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, u32 *, 0xB0));
+                    draw_ginja_object(M2C_FIELD(arg0, u32 *, 0xB0));
                 }
                 if (M2C_FIELD(arg0, u16 *, 0x24) & 0x400) {
                     disable_if_single_screen__13TParticleCtrlFv();
@@ -709,7 +709,7 @@ void *TParticleCtrl__sub_8008ABCC(void *arg0, s16 arg1) {
 u8 *TParticleCtrl__sub_8008B478(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4) {
     u8 *temp_r3;
     u8 *var_r0;
-    temp_r3 = (u8 *)(((u8 *)TParticleCtrl__sub_8008673C((int)(0xC4))));
+    temp_r3 = (u8 *)(((u8 *)alloc_particle_memory((int)(0xC4))));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(TParticleCtrl__sub_8008BF58((u8 *)(temp_r3), (u8 *)(arg0), (u8 *)(arg1), (s32)(arg2), arg3, arg4));
@@ -718,7 +718,7 @@ u8 *TParticleCtrl__sub_8008B478(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4
 }
 void * TParticleCtrl__sub_8008B4E0(void *arg0, void *arg1, void *arg2) {
     void *o;
-    o = TParticleCtrl__sub_8008673C(0xc4);
+    o = alloc_particle_memory(0xc4);
     if (o != NULL) {
         o = TParticleCtrl__sub_8008C21C((u8 *)(o), (u8 *)(arg0), (u8 *)(arg1), (s32)(arg2));
     }

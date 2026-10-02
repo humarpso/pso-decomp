@@ -73,7 +73,7 @@ extern s32 lbl_805D3818;
 u8 *TTecReverser__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void __ct__7TObjectFP7TObject(void *self, void *parent);
 void VecCopy__FP3VecPC3Vec(Vec_80239E44 *, Vec_80239E44 *);
-void *TLobby__sub_800869A4(void *owner, s32 idx, s32 b, s32 c);
+void *create_timed_particle_emitter(void *owner, s32 idx, s32 b, s32 c);
 extern M2C_UNK lbl_804CCC28[];
 extern Entry_80239E44 lbl_804CCBF8[];
 extern const f32 lbl_805DC910;
@@ -91,14 +91,14 @@ s32 get_type__10TObjPlayerFPv(int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 is_valid_and_active__10TObjPlayerFUi(int);
 u8 *TObjPlayer__sub_802367D8(void *, s32);
-u8 *TObjPlayer__sub_80236A20(void *, s32);
+u8 *query_technique_player_contacts(void *, s32);
 void dispatch_technique_contact(u8 *arg0);
 s32 obj_getField1c(int);
 s32 get_type__10TObjPlayerFPv(int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 is_valid_and_active__10TObjPlayerFUi(int);
 u8 *TObjPlayer__sub_802367D8(void *, s32);
-u8 *TObjPlayer__sub_80236A20(void *, s32);
+u8 *query_technique_player_contacts(void *, s32);
 void TObjPlayer__sub_8023A244(u8 *arg0);
 }
 
@@ -151,9 +151,9 @@ Obj_80239E44 *TTecReverser__sub_80239E44(Obj_80239E44 *self, Player_80239E44 *pl
             Vec_80239E44 v;
             VecCopy__FP3VecPC3Vec(&v, &self->pos);
             v.y += lbl_805DC910;
-            self->parts[i] = TLobby__sub_800869A4(&v, lbl_804CCBF8[i].c, lbl_804CCBF8[i].a, lbl_804CCBF8[i].b);
+            self->parts[i] = create_timed_particle_emitter(&v, lbl_804CCBF8[i].c, lbl_804CCBF8[i].a, lbl_804CCBF8[i].b);
         } else {
-            self->parts[i] = TLobby__sub_800869A4(&self->pos, lbl_804CCBF8[i].c, lbl_804CCBF8[i].a, lbl_804CCBF8[i].b);
+            self->parts[i] = create_timed_particle_emitter(&self->pos, lbl_804CCBF8[i].c, lbl_804CCBF8[i].a, lbl_804CCBF8[i].b);
         }
     }
     return self;
@@ -224,12 +224,12 @@ void dispatch_technique_contact(u8 *arg0) {
     }
     if ((u16) obj_getField1c((int) (M2C_FIELD(arg0, s32 *, 0x1C))) < 4U) {
         if (get_type__10TObjPlayerFPv((int) (M2C_FIELD(arg0, s32 *, 0x1C) + 0x828)) != 0) {
-            var_r31 = TObjPlayer__sub_80236A20(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
+            var_r31 = query_technique_player_contacts(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
         } else {
             var_r31 = TObjPlayer__sub_802367D8(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
         }
     } else {
-        var_r31 = TObjPlayer__sub_80236A20(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
+        var_r31 = query_technique_player_contacts(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
     }
     if (var_r31 == NULL) {
         ((VObj_8023A148*)arg0)->m4();
@@ -254,12 +254,12 @@ void TObjPlayer__sub_8023A244(u8 *arg0) {
     }
     if ((u16) obj_getField1c((int) (M2C_FIELD(arg0, s32 *, 0x1C))) < 4U) {
         if (get_type__10TObjPlayerFPv((int) (M2C_FIELD(arg0, s32 *, 0x1C) + 0x828)) != 0) {
-            list = (List_8023A244 *) TObjPlayer__sub_80236A20(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
+            list = (List_8023A244 *) query_technique_player_contacts(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
         } else {
             list = (List_8023A244 *) TObjPlayer__sub_802367D8(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
         }
     } else {
-        list = (List_8023A244 *) TObjPlayer__sub_80236A20(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
+        list = (List_8023A244 *) query_technique_player_contacts(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
     }
     if (list == NULL) {
         ((VObj_8023A244 *) arg0)->m4();

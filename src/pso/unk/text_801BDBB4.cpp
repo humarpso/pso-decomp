@@ -19,7 +19,7 @@ struct RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70
 struct E_801BDC98 { u8 b[0x42C]; };
 
 extern "C" {
-s32 TObjPlayer__sub_80019248();
+s32 is_locally_controlled__10TObjPlayerFPv();
 u8 *get_player_by_client_id(s32);
 M2C_UNK init_select_txt__10TObjPlayerFPv(int);
 M2C_UNK copy_lobby_header__10TObjPlayerFPvi(int, int);
@@ -66,7 +66,7 @@ void TObjPlayer__sub_801BDCF8(void) {
     temp_r3 = (u8 *) get_player_by_client_id(var_r31);
     if (temp_r3 != 0)
     {
-      if (TObjPlayer__sub_80019248() != 0)
+      if (is_locally_controlled__10TObjPlayerFPv() != 0)
       {
         copy_lobby_header__10TObjPlayerFPvi((int) var_r29, (int) temp_r3);
       }

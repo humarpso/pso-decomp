@@ -14,7 +14,7 @@ s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 extern const f32 lbl_805DA67C;
 void fn_800E95F4(u8 *arg0);
-s32 TBoss4Type2__sub_800874F4(void *, int);
+s32 create_particle_emitter(void *, int);
 void set_display_mode__15TObjEneSlimeOneFPvi(void *, s32);
 void TObjEneSlimeOne__sub_800EC7F4(void *, s32);
 extern const f32 lbl_805DA6B4;
@@ -29,7 +29,7 @@ void fn_800E95A4(u8 *arg0);
 extern "C" {
 
 void fn_800E9538(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x3E8) = TBoss4Type2__sub_800874F4((void *) (arg0 + 0x38), (int) (0xE1));
+    M2C_FIELD(arg0, s32 *, 0x3E8) = create_particle_emitter((void *) (arg0 + 0x38), (int) (0xE1));
     M2C_FIELD(arg0, f32 *, 0x3A4) = (f32) lbl_805DA708;
     M2C_FIELD(arg0, f32 *, 0x3B0) = (f32) lbl_805DA6B4;
     M2C_FIELD(arg0, f32 *, 0x3AC) = (f32) lbl_805DA6B4;

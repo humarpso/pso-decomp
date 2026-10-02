@@ -17,7 +17,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(M2C_UNK *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK TObjFish__sub_803E46BC(u32);
+M2C_UNK draw_chunk_object(u32);
 extern M2C_UNK lbl_804FF228[];
 extern M2C_UNK lbl_804FF234[];
 extern const f32 lbl_805D8A30;
@@ -30,12 +30,12 @@ void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u3
             TObjPlayer__sub_80052390(farg0);
         }
         set_global_param__8TObjFishFi(arg0);
-        TObjFish__sub_803E46BC(arg3);
+        draw_chunk_object(arg3);
         if (arg6 != 0U) {
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(lbl_804FF234);
             set_global_param__8TObjFishFi(arg2);
-            TObjFish__sub_803E46BC(arg6);
+            draw_chunk_object(arg6);
             pop_matrix();
         }
         if (arg4 != 0U) {
@@ -43,7 +43,7 @@ void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u3
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(lbl_804FF228);
             set_global_param__8TObjFishFi(arg1);
-            TObjFish__sub_803E46BC(arg4);
+            draw_chunk_object(arg4);
             pop_matrix();
             clear_flag_bit0__12TCharaMakingFv();
         }
@@ -94,12 +94,12 @@ void TObjPlayer__sub_80051E9C(s32 arg0, f32 farg0) {
         TObjPlayer__sub_80052390(farg0);
     }
     set_global_param__8TObjFishFi(cf4);
-    TObjFish__sub_803E46BC(m34);
+    draw_chunk_object(m34);
     if (m8b4 != 0U) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(lbl_804FF234);
         set_global_param__8TObjFishFi(b88);
-        TObjFish__sub_803E46BC(m8b4);
+        draw_chunk_object(m8b4);
         pop_matrix();
     }
     if (m8b0 != 0U) {
@@ -107,7 +107,7 @@ void TObjPlayer__sub_80051E9C(s32 arg0, f32 farg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(lbl_804FF228);
         set_global_param__8TObjFishFi(a1c);
-        TObjFish__sub_803E46BC(m8b0);
+        draw_chunk_object(m8b0);
         pop_matrix();
         clear_flag_bit0__12TCharaMakingFv();
     }

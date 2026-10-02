@@ -35,7 +35,7 @@ extern "C" {
 s32 reset_transform_state__10TObjPlayerFv();
 s32 set_position_vec3__10TObjPlayerFPvPv(int, void *);
 s32 rotate_matrix_y(int, int);
-s32 TObjPlayer__sub_803D97F0(int);
+s32 push_matrix_from(int);
 s32 TCameraCtrl__sub_803D9858(int);
 s32 set_global_param__8TObjFishFi(int);
 s32 TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
@@ -103,7 +103,7 @@ void render__10TObjCGrassFv(Obj_800B8B08 *arg0) {
     set_global_param__8TObjFishFi(arg0->f24);
     for (i = 0; i < arg0->count; i++) {
         if (!(arg0->recs[i].flags & 1)) {
-            TObjPlayer__sub_803D97F0(0);
+            push_matrix_from(0);
             set_position_vec3__10TObjPlayerFPvPv(0, &arg0->recs[i]);
             rotate_matrix_y(0, arg0->recs[i].f18);
             TObjEneSlimeOne__sub_803E4AF4(arg0->f34, arg0->ff8, arg0->fc0);

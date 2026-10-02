@@ -11,7 +11,7 @@ M2C_UNK TFontSmallLobby__sub_801C0164(void *);
 M2C_UNK TFontSmallLobby__sub_801D65B4(void *);
 M2C_UNK TObjPlayer__sub_80019038();
 M2C_UNK clear_header_struct__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801BB524(void *, void *);
+M2C_UNK setup_control_role__10TObjPlayerFPvi(void *, void *);
 M2C_UNK TObjPlayer__sub_801BB8B0(void *, void *);
 M2C_UNK TObjPlayer__sub_801BBA8C(void *, void *);
 M2C_UNK TObjPlayer__sub_801BBB98(void *, void *);
@@ -115,7 +115,7 @@ u8 *construct_player_instance__10TObjPlayerFPvisiPv(u8 *arg0, s32 arg1, s16 arg2
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3530;
     TObjPlayer__sub_801BC6C4((void *) (arg0));
     M2C_FIELD(arg0, s16 *, 0x1C) = arg2;
-    TObjPlayer__sub_801BB524((void *) (arg0), (void *) (arg3));
+    setup_control_role__10TObjPlayerFPvi((void *) (arg0), (void *) (arg3));
     update_body_parts__10TObjPlayerFPv((void *) (arg0), (void *) (arg4 + 0x370));
     TObjPlayer__sub_801BEE2C((void *) (arg0), (int) (M2C_FIELD(arg4, u8 *, 1)));
     TObjPlayer__sub_801BEE24((void *) (arg0), (int) (M2C_FIELD(arg4, u8 *, 2)));

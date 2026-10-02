@@ -108,7 +108,7 @@ M2C_UNK TObjVoloptCage__sub_800C76F0(void *);
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
 M2C_UNK submit_cursor_candidate(void *, int);
 void run_task__14TObjVoloptCageFv(u8 *arg0);
-s32 TObjPlayer__sub_80019248();
+s32 is_locally_controlled__10TObjPlayerFPv();
 M2C_UNK fn_8003F3BC();
 void obj_clear_flag30_20000(void *arg0);
 s32 check_player_flag1__6TLobbyFPv(int);
@@ -204,7 +204,7 @@ u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__14TObjVoloptCage.value;
         temp_r3 = get_player_by_client_id((int) (M2C_FIELD(arg0, u16 *, 0x338)));
-        if ((temp_r3 != 0) && (TObjPlayer__sub_80019248() != 0)) {
+        if ((temp_r3 != 0) && (is_locally_controlled__10TObjPlayerFPv() != 0)) {
             if (check_player_flag1__6TLobbyFPv((int) (temp_r3)) != 0) {
                 send_code_45_1__10TObjPlayerFi((int) (temp_r3));
             }

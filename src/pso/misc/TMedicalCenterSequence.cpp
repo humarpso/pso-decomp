@@ -107,7 +107,7 @@ u32 TShopSequence__sub_80223600(void *, s32, s32);
 s32 get_child_field1c__15TShopWindowBaseFPv(void *);
 s32 fn_8026934C(unsigned short);
 s32 THunterGuildSeqOffline__sub_8022350C(void *, int);
-s32 TWindowSubComCard__sub_8026CBB8(int, f32);
+s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC688;
 extern const f32 lbl_805DC68C;
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -244,7 +244,7 @@ M2C_UNK TMedicalCenterSequence__sub_80216830(u8 *arg0) {
   Stack_80216830 stack;
   stack.sp8 = lbl_805DC688;
   stack.spC = lbl_805DC68C;
-  TShopSequence__sub_80223600(arg0, TWindowSubComCard__sub_8026CBB8((int) 0x2C, (f32) lbl_805DC688), (s32) (&stack.sp8));
+  TShopSequence__sub_80223600(arg0, get_window_layout_position((int) 0x2C, (f32) lbl_805DC688), (s32) (&stack.sp8));
   PSO_VCALL_VObj_18_a93f07_m4(arg0, 0x1F, 1);
   *((s32 *) (((s8 *) arg0) + 0x2C)) = fn_8026934C((s32) get_child_field1c__15TShopWindowBaseFPv(arg0));
   set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(2));

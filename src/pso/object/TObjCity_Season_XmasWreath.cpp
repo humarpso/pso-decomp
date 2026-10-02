@@ -38,7 +38,7 @@ void render_debug__26TObjCity_Season_XmasWreathFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjCity_Season_EasterEgg__sub_80184A08(M2C_UNK, M2C_UNK, f32);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
-M2C_UNK TObjFish__sub_803E46BC(s32);
+M2C_UNK draw_chunk_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -95,8 +95,8 @@ void render_debug__26TObjCity_Season_XmasWreathFPv(u8 *arg0) {
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(M2C_FIELD(temp_r3, void **, 0x42C), s32 *, 0x78), M2C_FIELD(M2C_FIELD(temp_r3, void **, 0x430), s32 *, 0xC), M2C_FIELD(arg0, f32 *, 0xB0));
         TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(M2C_FIELD(temp_r3, void **, 0x42C), s32 *, 0x68), M2C_FIELD(M2C_FIELD(temp_r3, void **, 0x430), s32 *, 4), M2C_FIELD(arg0, f32 *, 0xB0));
-        TObjFish__sub_803E46BC(M2C_FIELD(M2C_FIELD(temp_r3, void **, 0x42C), s32 *, 0x88));
-        TObjFish__sub_803E46BC(M2C_FIELD(M2C_FIELD(temp_r3, void **, 0x42C), s32 *, 0x98));
+        draw_chunk_object(M2C_FIELD(M2C_FIELD(temp_r3, void **, 0x42C), s32 *, 0x88));
+        draw_chunk_object(M2C_FIELD(M2C_FIELD(temp_r3, void **, 0x42C), s32 *, 0x98));
         pop_matrix();
     }
 }

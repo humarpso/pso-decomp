@@ -13,10 +13,10 @@ u8 *get_player_by_client_id(s32);
 M2C_UNK TCharaMaking__draw_colored_hair(int, void *, int, f32);
 M2C_UNK clear_flag_bit0__12TCharaMakingFv();
 M2C_UNK enable_making__12TCharaMakingFv();
-M2C_UNK TObjPlayer__sub_803D97F0(void *);
+M2C_UNK push_matrix_from(void *);
 int pop_matrix(void);
 M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK TObjFish__sub_803E46BC(int);
+M2C_UNK draw_chunk_object(int);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(int, void *, f32);
 extern M2C_UNK lbl_804FF240[];
 extern const f32 lbl_805D8A30;
@@ -68,16 +68,16 @@ void TObjPlayer__sub_80051BE0(u16 arg0, s32 arg1, f32 farg0, f32 farg1) {
     TObjEneSlimeOne__sub_803E4AF4(f, (void *)arg1, farg0);
     TObjDFTenchuFuru__sub_80051A7C();
     if (d != 0) {
-        TObjPlayer__sub_803D97F0((u8 *)lbl_804FF240 + 0x30);
+        push_matrix_from((u8 *)lbl_804FF240 + 0x30);
         set_global_param__8TObjFishFi(e);
-        TObjFish__sub_803E46BC(d);
+        draw_chunk_object(d);
         pop_matrix();
     }
     if (a != 0) {
         enable_making__12TCharaMakingFv();
-        TObjPlayer__sub_803D97F0(lbl_804FF240);
+        push_matrix_from(lbl_804FF240);
         set_global_param__8TObjFishFi(c);
-        TObjFish__sub_803E46BC(a);
+        draw_chunk_object(a);
         pop_matrix();
         clear_flag_bit0__12TCharaMakingFv();
     }
@@ -86,7 +86,7 @@ void TObjPlayer__sub_80051BE0(u16 arg0, s32 arg1, f32 farg0, f32 farg1) {
     }
     if (b != 0) {
         enable_making__12TCharaMakingFv();
-        TObjPlayer__sub_803D97F0(lbl_804FF240);
+        push_matrix_from(lbl_804FF240);
         set_global_param__8TObjFishFi(c);
         TCharaMaking__draw_colored_hair(b, p + 0x85C, 0, farg1);
         pop_matrix();

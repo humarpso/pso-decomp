@@ -53,7 +53,7 @@ M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, int,
 void *check_room_seq_4__16TAdChrSelASlotGCFii(void *, int);
 M2C_UNK send_and_handle__6TLobbyFPvii(void *, s32, int);
 void *set_window_mode_4__6TLobbyFPvii(void *, void *, int);
-void *TWindowSubComCard__sub_8026CBB8(int);
+void *get_window_layout_position(int);
 M2C_UNK TPlayerBattleCtrl4P__sub_803112AC(void *, int);
 M2C_UNK TPlayerBattleCtrl4P__sub_80311400(void *);
 extern u8 lbl_80475B70[];
@@ -245,13 +245,13 @@ void TPlayerBattleCtrl4P__vt23(u8 *arg0) {
 void TPlayerBattleCtrl4P__vt22(O_80311C2C *o) {
     if (TWindowCtrl__sub_8024AF74(lbl_805D53A0) == 0) {
         if (o->w0 == NULL) {
-            o->w0 = set_window_mode_4__6TLobbyFPvii(TWindowSubComCard__sub_8026CBB8(0x53), lbl_80475B70, 1);
+            o->w0 = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x53), lbl_80475B70, 1);
             if (o->w0 != NULL) {
                 send_and_handle__6TLobbyFPvii(o->w0, o->ids->a, 0x80);
             }
         }
         if (o->w1 == NULL) {
-            o->w1 = check_room_seq_4__16TAdChrSelASlotGCFii(TWindowSubComCard__sub_8026CBB8(0x54), 2);
+            o->w1 = check_room_seq_4__16TAdChrSelASlotGCFii(get_window_layout_position(0x54), 2);
             forward_trade_action_default__16TObjCityMainWarpFPviii(o->w1, o->ids->b, 6, 1);
             forward_trade_action_default__16TObjCityMainWarpFPviii(o->w1, o->ids->d, 6, 3);
             TWindowSubComCard__sub_80265F60(o->w1);

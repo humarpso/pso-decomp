@@ -54,7 +54,7 @@ void handle_6x21_inter_level_warp(void *arg0);
 void TObjPlayer__sub_801C18AC(Msg_801BAB1C *m);
 void TTecLuker__sub_801BAB1C(void *obj, s32 value);
 void TObjPlayer__sub_800F09E8(s32);
-void TBoss1Dragon__sub_8014220C(void *, void *, void *);
+void direction_to_rotation_xz(void *, void *, void *);
 void scale_matrix(int, f32, f32, f32);
 void rotate_matrix_y(int, s32);
 void rotate_matrix_z(int, s32);
@@ -103,7 +103,7 @@ void TObjPlayer__sub_801BAB78(VObj_801BAB78 *self, f32 *pos, s32 arg2) {
     s32 b;
     self->m63(1, &v);
     TObjPlayer__sub_803D9B2C();
-    TBoss1Dragon__sub_8014220C(self->f248, &a, &b);
+    direction_to_rotation_xz(self->f248, &a, &b);
     translate_matrix(0, v.x, lbl_805DC2C8 + self->f3c, v.z);
     rotate_matrix_z(0, b);
     rotate_matrix_x(0, a);

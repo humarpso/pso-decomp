@@ -9,7 +9,7 @@ struct RecoveredGlobal_80051430___vt__13TObjDFRecBall { M2C_UNK value; u8 remain
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TBoss4Type2__sub_800874F4(s32, s32);
+s32 create_particle_emitter(s32, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
@@ -51,7 +51,7 @@ void TBoss4Zako__sub_803D8910(void *, void *);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 void TBoss6Type1__sub_803D9370(void *, void *);
 void TNpcPlayer__sub_803D97B4(void *);
-f32 TObjPlayer__sub_803E1A58(void *, void *);
+f32 xyz_distance(void *, void *);
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
 extern const f32 lbl_805D8A48;
@@ -95,7 +95,7 @@ void TObjDFRecBall::run_task() {
     o->vel.z = o->speed * (lbl_805D8AB4 * o->vel.z + lbl_805D8AB8 * d.z);
     TBoss4Zako__sub_803D8910(&o->pos, &o->vel);
     copy_pos__11TNowLoadingFPvPv(o->model, &o->pos);
-    if (TObjPlayer__sub_803E1A58(&o->pos, &o->target) <= o->speed) {
+    if (xyz_distance(&o->pos, &o->target) <= o->speed) {
         queue_destruction__7TObjectFv(o);
     }
 }
@@ -130,7 +130,7 @@ u8 *TObjDFRecBall__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     M2C_FIELD(arg0, f32 *, 0x3C) = TBoss8Dragon__sub_803D64DC(temp_r31);
     M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805D8A34;
     M2C_FIELD(arg0, s32 *, 0x48) = 0x96;
-    temp_r3 = (u8 *)(TBoss4Type2__sub_800874F4((s32) (arg0 + 0x1C), 0xAF));
+    temp_r3 = (u8 *)(create_particle_emitter((s32) (arg0 + 0x1C), 0xAF));
     M2C_FIELD(arg0, u8 **, 0x44) = temp_r3;
     if (temp_r3 != NULL) {
         set_flags__11TBoss4Type2FPvUi(M2C_FIELD(arg0, u8 **, 0x44), 0x40);

@@ -37,7 +37,7 @@ void update_target__10TObjPlayerFi(s32 arg0);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 s32 TLobby__sub_800822E8(void *, M2C_UNK);
-s32 TObjPlayer__sub_80019248();
+s32 is_locally_controlled__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_801B21AC(s32);
 M2C_UNK TObjPlayer__sub_801B6DF0(s32);
 s32 TObjPlayer__sub_801BF560(s32);
@@ -88,7 +88,7 @@ s32 is_target_valid__10TObjPlayerFPv(void *arg0) {
 }
 
 void update_subsystems__10TObjPlayerFi(s32 arg0) {
-    if (TObjPlayer__sub_80019248() != 0) {
+    if (is_locally_controlled__10TObjPlayerFPv() != 0) {
         TObjPlayer__sub_801B6DF0(arg0);
         TObjPlayer__sub_801B21AC(arg0);
         clear_action_flag__10TObjPlayerFPv(arg0);

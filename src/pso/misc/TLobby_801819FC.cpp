@@ -63,7 +63,7 @@ int is_phase_e__9TObjEneDDFPv(void*);
 void run_action_14_if_ready__6TLobbyFPv(void* p);
 M2C_UNK TLobby__sub_801819E4(M2C_UNK);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470();
+M2C_UNK draw_ginja_object();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -116,7 +116,7 @@ void process_lobby_action_14__6TLobbyFPv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         TLobby__sub_801819E4(0xE);
-        TObjBoss2Tunnel__sub_803DB470();
+        draw_ginja_object();
         pop_matrix();
     }
 }

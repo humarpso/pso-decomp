@@ -229,7 +229,7 @@ s32 dispatch_shared_handler_a__6TLobbyFPv(s32);
 s32 register_object__6TLobbyFPv(s32);
 s32 dispatch_shared_handler_b__6TLobbyFPv(s32);
 s32 register_boss__6TLobbyFPv(s32);
-Fish_80042408 *TObjFish__sub_8001EDC4(s32, s32);
+Fish_80042408 *get_bml_model(s32, s32);
 void TObjGyaranzoMissile__sub_80131488(void *);
 void TLobby__sub_801E468C(void *, void *);
 extern u8 lbl_80436608[];
@@ -269,7 +269,7 @@ M2C_UNK rotate_matrix_y(s32, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
+M2C_UNK draw_ginja_object(s32);
 extern s32 lbl_80483EB4[];
 extern s32 lbl_80483EE4[];
 extern s32 lbl_805D4C14;
@@ -288,7 +288,7 @@ s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
 M2C_UNK submit_cursor_candidate(void *, int);
 M2C_UNK minimap_render_dot(void *, int, int, int);
-M2C_UNK TOComputerMachine01__sub_8023DDC8(int, int, int, int, int);
+M2C_UNK scroll_ginja_mesh_uvs(int, int, int, int, int);
 M2C_UNK PPCSync();
 s32 rand();
 extern s32 lbl_804FEEC0[];
@@ -347,7 +347,7 @@ void render__19TBoss3VoloptMonitorFv(void *arg0) {
         TObjPlayer__sub_803D9B2C();
         some_id_805c6f74 &= 0xFFFFFBFF;
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x34));
+        draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
         pop_matrix();
         func_80141618__Fv();
     }
@@ -426,7 +426,7 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
     if ((s32) lbl_805D4CA8 != (s32) lbl_805D53A4) {
         lbl_805D4CA8 = lbl_805D53A4;
         for (var_r28 = 0; var_r28 < 4; var_r28++) {
-            TOComputerMachine01__sub_8023DDC8(lbl_804FEEC0[var_r28], 0, 0x20, 0, 1);
+            scroll_ginja_mesh_uvs(lbl_804FEEC0[var_r28], 0, 0x20, 0, 1);
             PPCSync();
         }
     }
@@ -462,7 +462,7 @@ void TBoss3VoloptMonitor__sub_80042408(void) {
     TObjGyaranzoMissile__sub_80131488(lbl_80484018);
     TLobby__sub_801E468C(lbl_80436608, (*(u8 * *)&lbl_805D4CA4));
     for (i = 0; i < 4; i++) {
-        lbl_804FEEC0[i] = TObjFish__sub_8001EDC4((*(s32 *)&lbl_805D4CA0), lbl_80483EB4[8 + i])->f4;
+        lbl_804FEEC0[i] = get_bml_model((*(s32 *)&lbl_805D4CA0), lbl_80483EB4[8 + i])->f4;
     }
     lbl_805D4C90 = register_boss__6TLobbyFPv(0x23);
     lbl_805D4C94 = dispatch_shared_handler_b__6TLobbyFPv(0x23);

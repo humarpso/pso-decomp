@@ -50,7 +50,7 @@ struct VObj_18_9c7036 : VBase_18_9c7036 {
 };
 
 extern "C" {
-s32 TObjPlayer__sub_80019248(void *);
+s32 is_locally_controlled__10TObjPlayerFPv(void *);
 s32 obj_getField1c(void *);
 u8 *get_item_field_6__10TObjPlayerFPv(void *);
 s32 queue_destruction__7TObjectFv(int);
@@ -90,7 +90,7 @@ void TFontSmallLobby__ct(u8 *arg0) {
       TKeyBoardControl__sub_801AFCF4((void *) arg0, (void *) ((s16) PSO_VCALL_VObj_18_9c7036_m41(temp_r3)));
     }
   }
-  if ((TObjPlayer__sub_80019248((void *) arg0) != 0) && (TFontSmallLobby__sub_801AFEE0() == 0))
+  if ((is_locally_controlled__10TObjPlayerFPv((void *) arg0) != 0) && (TFontSmallLobby__sub_801AFEE0() == 0))
   {
     if (reset_key_machine_state__10TObjPlayerFv() == 0)
     {
@@ -110,7 +110,7 @@ void TFontSmallLobby__ct(u8 *arg0) {
     *((u32 *) (((s8 *) arg0) + 0x54C)) = create__15TFontSmallLobbyFPv((void *) ((s32) (obj_getField1c((void *) arg0) & 0xFFFFu)));
   }
   obj_clear_flag30_20000((void *) arg0);
-  if (TObjPlayer__sub_80019248((void *) arg0) != 0)
+  if (is_locally_controlled__10TObjPlayerFPv((void *) arg0) != 0)
   {
     if (check_flag_800000__10TObjPlayerFPv((void *) arg0) != 0)
     {

@@ -9,7 +9,7 @@ extern "C" {
 void reset_lobby_state__10TObjPlayerFPv(u8 *arg0);
 void try_use_mag__10TObjPlayerFPv(u8 *arg0);
 s32 is_active__8TItemMagFPv();
-s32 TObjPlayer__sub_80019248(void *);
+s32 is_locally_controlled__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_800194AC(void *, M2C_UNK, s32);
 M2C_UNK clear_status_bit6__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_8001053C(void *);
@@ -22,13 +22,13 @@ void reset_lobby_state__10TObjPlayerFPv(u8 *arg0) {
     clear_status_bit6__10TObjPlayerFPv();
     TObjPlayer__sub_8001053C(arg0);
     obj_clearFlags30(arg0, 0x20);
-    if (((s16) M2C_FIELD(arg0, s16 *, 0x328) == 1) && (TObjPlayer__sub_80019248(arg0) != 0)) {
+    if (((s16) M2C_FIELD(arg0, s16 *, 0x328) == 1) && (is_locally_controlled__10TObjPlayerFPv(arg0) != 0)) {
         reset_lobby_model__10TObjPlayerFPv(arg0 + 0x644);
     }
 }
 
 void try_use_mag__10TObjPlayerFPv(u8 *arg0) {
-    if ((is_active__8TItemMagFPv() == 0) && (TObjPlayer__sub_80019248(arg0) != 0) && (check_input_angle__16TKeyBoardControlFPv(arg0 + 0x64C) != 0)) {
+    if ((is_active__8TItemMagFPv() == 0) && (is_locally_controlled__10TObjPlayerFPv(arg0) != 0) && (check_input_angle__16TKeyBoardControlFPv(arg0 + 0x64C) != 0)) {
         TObjPlayer__sub_800194AC(arg0, 1, M2C_FIELD(arg0, s32 *, 0x3D4));
     }
 }

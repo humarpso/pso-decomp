@@ -107,7 +107,7 @@ void TObjPlayer__sub_803D9B2C();
 void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(s32);
-void TObjFish__sub_803E46BC(s32);
+void draw_chunk_object(s32);
 extern s32 lbl_805D4D38;
 extern s32 lbl_805D4D3C;
 extern s32 lbl_805D4D40;
@@ -119,7 +119,7 @@ extern const f32 lbl_805D88C4;
 extern const f32 TObjVoloptPillar__data_805D88C8;
 extern const f32 lbl_805D88CC;
 void render__16TObjVoloptPillarFv(Obj_8004A0AC *arg0);
-s32 TObjPlayer__sub_80019570(void *);
+s32 obj_is_hit_receivable(void *);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 void queue_destruction__7TObjectFv();
 BP_8004A1CC *get_battle_param__10TObjPlayerFi(s32);
@@ -135,7 +135,7 @@ void *__nw__7TObjectFUl(u32);
 void TCameraCtrl__sub_803D8934(s32, void *, void *);
 void rotate_matrix_y(s32, s32);
 void TBoss6Type1__sub_803D9370(void *, void *);
-void TObjPlayer__sub_803D97F0(void *);
+void push_matrix_from(void *);
 void pop_matrix();
 extern Pair_8004A1CC lbl_80436734[];
 extern Vec_8004A1CC lbl_8043673C[];
@@ -175,12 +175,12 @@ void render__16TObjVoloptPillarFv(Obj_8004A0AC *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(&arg0->f38);
         set_global_param__8TObjFishFi(lbl_805D4D40);
-        TObjFish__sub_803E46BC(lbl_805D4D38);
+        draw_chunk_object(lbl_805D4D38);
         pop_matrix();
         TObjPlayer__sub_803D9B2C();
         translate_matrix(0, arg0->f38, arg0->fb8, arg0->f40);
         set_global_param__8TObjFishFi(lbl_805D4D44);
-        TObjFish__sub_803E46BC(lbl_805D4D3C);
+        draw_chunk_object(lbl_805D4D3C);
         pop_matrix();
         TObjLight__sub_80134098();
         end_effect_render__13TParticleCtrlFv();
@@ -227,7 +227,7 @@ void run_task__16TObjVoloptPillarFv(Self_8004A1CC *self) {
                     if (bp == NULL) {
                         break;
                     }
-                    if (TObjPlayer__sub_80019570(bp) != 0) {
+                    if (obj_is_hit_receivable(bp) != 0) {
                         Pair_8004A1CC tmp = lbl_80436734[0];
                         tmp.b = TObjVoloptPillar__sub_80048118(1);
                         {
@@ -235,7 +235,7 @@ void run_task__16TObjVoloptPillarFv(Self_8004A1CC *self) {
                             bp->m21(self->fbc, &arg, 0, -1, -1);
                         }
                         if (!(bp->f30 & 0x04000000)) {
-                            TObjPlayer__sub_803D97F0(lbl_8058D490);
+                            push_matrix_from(lbl_8058D490);
                             {
                                 Vec_8004A1CC v = bp->pos;
                                 TBoss6Type1__sub_803D9370(&v, lbl_804FEE68);

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Obj_8007483C { u8 pad[0x20]; void *win; };
 
 extern "C" {
-void *TWindowSubComCard__sub_8026CBB8(s32);
+void *get_window_layout_position(s32);
 void *set_window_mode_4__6TLobbyFPvii(void *, void *, s32);
 s32 set_field_1c__6TLobbyFPvf(void *, f32);
 void *TQuestVmDownLoadServer__sub_8006EF6C(s32);
@@ -42,7 +42,7 @@ s32 can_start_win_timer__15TObjSoloPlayWinFi(s32 arg0) {
 }
 
 void TObjSoloPlayWin__sub_8007483C(Obj_8007483C *self) {
-    self->win = set_window_mode_4__6TLobbyFPvii(TWindowSubComCard__sub_8026CBB8(0x3E), lbl_8048D1D0, 1);
+    self->win = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x3E), lbl_8048D1D0, 1);
     if (self->win != 0) {
         set_field_1c__6TLobbyFPvf(self->win, lbl_805D9168);
         send_and_handle__6TLobbyFPvii(self->win, TQuestVmDownLoadServer__sub_8006EF6C(0x5F), 2);

@@ -33,7 +33,7 @@ extern "C" {
 u8 * TObjFish__sub_8001EDB0(void *, int);
 extern u32 TObjContainerJungEx__data_805D5BA8;
 u8 *TObjContainerJungEx__sub_8018D900(s32 arg0);
-u8 * TObjFish__sub_8001EDC4(void *, int);
+u8 * get_bml_model(void *, int);
 extern u32 TObjContainerJungEx__data_805D5BA8;
 u8 *TObjContainerJungEx__sub_8018D93C(s32 arg0);
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
@@ -78,7 +78,7 @@ u8 *TObjContainerJungEx__sub_8018D900(s32 arg0) {
 
 u8 *TObjContainerJungEx__sub_8018D93C(s32 arg0) {
     if ((void *) (*(u8 * *)&TObjContainerJungEx__data_805D5BA8) != NULL) {
-        return TObjFish__sub_8001EDC4((*(u8 * *)&TObjContainerJungEx__data_805D5BA8), arg0);
+        return get_bml_model((*(u8 * *)&TObjContainerJungEx__data_805D5BA8), arg0);
     }
     return NULL;
 }

@@ -38,7 +38,7 @@ s32 fn_802E0454(void *);
 s32 TAdMultiConfirmGC__sub_80306ABC(s32);
 s32 fn_80306AC8(s32);
 void run_task__17TAdMultiConfirmGCFv(Obj_802FF87C *arg0);
-void *TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+void *get_localized_text_entry(s32, s32);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
 void __ct__9TAdBackGCFv(void *, void *);
@@ -181,7 +181,7 @@ TAdMultiConfirmGC_802FFA3C *TAdMultiConfirmGC__ct(TAdMultiConfirmGC_802FFA3C *se
         p = __ct__13TAdGuideTxtGCFv(p, self);
     }
     self->guide = p;
-    set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(self->guide, 0, TAdSinglePlyChrSelectGC__sub_80132F2C(0x25, 0));
+    set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(self->guide, 0, get_localized_text_entry(0x25, 0));
     set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(self->guide, 1, &lbl_805DEF30);
     fn_802FF7EC(self);
     return self;

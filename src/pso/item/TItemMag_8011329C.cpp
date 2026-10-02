@@ -112,7 +112,7 @@ s16 obj_getS16_32E(void *);
 s16 obj_getS16_32C(void *);
 s32 TObjPlayer__sub_8001BEF8(void *, int);
 s32 get_flag_40__8TItemMagFPv(void *);
-M2C_UNK TItemMag__sub_80110E7C(void *);
+M2C_UNK register_photon_blasts__8TItemMagFPv(void *);
 M2C_UNK TItemMag__sub_80112E20(void *, int);
 s32 TItemMag__sub_80113EC8(void *);
 s16 get_global_state__14TOKeyMachine01Fv();
@@ -406,7 +406,7 @@ void TItemMag__vt42(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x18C) = 0;
     if (obj_isState2_324((void *) (M2C_FIELD(arg0, u8 **, 0xF0))) == 0) {
         M2C_FIELD(arg0, s32 *, 0x18C) = 0x10;
-        TItemMag__sub_80110E7C((void *) (arg0));
+        register_photon_blasts__8TItemMagFPv((void *) (arg0));
     }
     TItemMag__sub_80112E20((void *) (arg0), (int) (1));
     temp_r3 = M2C_FIELD(arg0, u8 **, 0xF0);

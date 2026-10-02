@@ -39,7 +39,7 @@ extern "C" {
 void draw__14TOTrapSeabed01FPv(u8 *arg0);
 void render_effect_layers__14TOTrapSeabed01FPv(u8 *arg0);
 M2C_UNK PPCSync();
-M2C_UNK TOComputerMachine01__sub_8023DDC8(int, int, int, void *, int);
+M2C_UNK scroll_ginja_mesh_uvs(int, int, int, void *, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 void TOTrapSeabed01__vt82(void);
 M2C_UNK draw_ginja_model_with_motion(int, int, f32);
@@ -68,7 +68,7 @@ void render_effect_layers__14TOTrapSeabed01FPv(u8 *arg0) {
     set_global_param__8TObjFishFi((void *)((void *) (TOTrapSeabed01__data_805D6814)));
     if ((s32) lbl_805D53A4 != (s32) lbl_805D681C) {
         if (((void *) lbl_805D6818 != NULL) && ((s32) lbl_805D6820 != -1)) {
-            TOComputerMachine01__sub_8023DDC8((int) (M2C_FIELD(lbl_805D6818, s32 *, 4)), (int) (0), (int) (-0x14), (void *) ((u16) lbl_805D6820), (int) (1));
+            scroll_ginja_mesh_uvs((int) (M2C_FIELD(lbl_805D6818, s32 *, 4)), (int) (0), (int) (-0x14), (void *) ((u16) lbl_805D6820), (int) (1));
             PPCSync();
         }
         lbl_805D681C = lbl_805D53A4;

@@ -71,7 +71,7 @@ Actor_8014F424 *find_entity_by_id(s32);
 s32 TNpcPlayer__sub_8014F424(View_8014F424 *view, void *pos, s32 id, f32 range);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 void rotate_matrix_y(s32, s32);
-void TObjPlayer__sub_803D97F0(void *);
+void push_matrix_from(void *);
 void TCameraCtrl__sub_803D9858(s32);
 extern u8 lbl_8058D490[];
 extern const f32 TNpcPlayer__data_805DB1F0;
@@ -98,7 +98,7 @@ extern const f32 TNpcPlayer__data_805DB20C;
 typedef struct Vec_8014E3B0 { f32 x, y, z; } Vec_8014E3B0;
 
 extern "C" {
-void TNpcPlayer__sub_801528B8(s32, s32);
+void reset_partner_counter(s32, s32);
 void request_chatter__10TNpcPlayerFPvUi(u8 *arg0, u32 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u8 *csnVector(s32, s32, M2C_UNK);
@@ -113,7 +113,7 @@ s32 is_any_teammate_in_state__10TObjPlayerFv(void *self);
 s32 obj_getField1c(void *obj);
 char *fn_8034D9E0(s32 state, u16 id);
 void open__11TWindowCtrlFiii(u16 id, char *text, s32 kind);
-s32 TNpcPlayer__sub_80152900(void *timer, s32 a, s32 b);
+s32 npc_counter_reset_if_reached(void *timer, s32 a, s32 b);
 extern Text_8014E250 lbl_804F0280[];
 void TNpcPlayer__sub_8014E250(Npc_8014E250 *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
@@ -298,7 +298,7 @@ void TNpcPlayer__sub_8014E250(Npc_8014E250 *self) {
         }
     }
     self->flags &= ~4;
-    if (TNpcPlayer__sub_80152900(self->timer, 0, 0x190) != 0) {
+    if (npc_counter_reset_if_reached(self->timer, 0, 0x190) != 0) {
         self->state = 0x19;
     }
 }
@@ -322,7 +322,7 @@ void request_chatter__10TNpcPlayerFPvUi(u8 *arg0, u32 arg1) {
   {
     new_var2 = 0x24;
     block_4:
-    TNpcPlayer__sub_801528B8((s32) (arg0 + 0x5C), 0);
+    reset_partner_counter((s32) (arg0 + 0x5C), 0);
     if (arg1 != ((u32) (*((u32 *) (((s8 *) arg0) + new_var2)))))
     {
       *new_var = arg1;
@@ -369,11 +369,11 @@ void TNpcPlayer__sub_8014ECD8(u8 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Ve
         TNpcPlayer__sub_803D97B4(&dir);
     }
     VecCopy__FP3VecPC3Vec(&save, (int)&dir);
-    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    push_matrix_from(lbl_8058D490);
     rotate_matrix_y(0, 0x4000);
     TCameraCtrl__sub_803D8934(0, &dir, &a);
     TCameraCtrl__sub_803D9858(1);
-    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    push_matrix_from(lbl_8058D490);
     rotate_matrix_y(0, -0x4000);
     TCameraCtrl__sub_803D8934(0, &dir, &b);
     TCameraCtrl__sub_803D9858(1);

@@ -226,7 +226,7 @@ f32 calc_boss4_scale__10TObjPlayerFi(void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 get_game_mode__6TLobbyFv();
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
-M2C_UNK fn_800B98C0(void *);
+M2C_UNK enemy_clear_target(void *);
 M2C_UNK TBoss2DeRolLe__sub_800B98D8(void *, void *);
 s32 is_alive__9TObjEneDDFPv();
 void TObjFish__sub_802ECCAC(u8 *self);
@@ -263,7 +263,7 @@ void TObjFish__sub_802ECCAC(u8 *self) {
     s32 i;
     n = get_game_mode__6TLobbyFv();
     if (n == 0) {
-        fn_800B98C0(self);
+        enemy_clear_target(self);
         return;
     }
     if (n == 1) {
@@ -272,7 +272,7 @@ void TObjFish__sub_802ECCAC(u8 *self) {
         return;
     }
     idx = (s32)get_random_float__21TObjEneMe3ShinowaRealFv((f32)n * calc_boss4_scale__10TObjPlayerFi(self));
-    fn_800B98C0(self);
+    enemy_clear_target(self);
     for (i = 0; i < n; i++) {
         p = get_player_data__10TObjPlayerFi(idx);
         if (is_alive__9TObjEneDDFPv() != 0) {

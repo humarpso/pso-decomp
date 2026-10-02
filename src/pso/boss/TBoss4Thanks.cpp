@@ -22,7 +22,7 @@ struct Obj_8035C35C { u8 pad[0x30]; s32 x30; u8 pad34[0x10]; void *p[4]; };
 extern "C" {
 s32 TObjFish__sub_8001ED9C(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
-s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 get_bml_model(void *, s32);
 int get_instance_count__9TBoss4UroFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8035C83C___vt__12TBoss4Thanks __vt__12TBoss4Thanks;
@@ -39,7 +39,7 @@ void TBoss4Thanks__sub_8035C480(s32 arg0);
 void request_destroy__11TBoss4Type2FUi(void *);
 void TBoss4Thanks__sub_8035C424(W_8035C424 *arg0);
 void request_destroy__11TBoss4Type2FUi(void *);
-void *TBoss4Type2__sub_800874F4(void *, int);
+void *create_particle_emitter(void *, int);
 void set_flags__11TBoss4Type2FPvUi(void *, int);
 extern u8 TBoss4Thanks__data_80479B40[];
 extern Ent_8035C35C lbl_80479B58[];
@@ -48,7 +48,7 @@ void *get_player_data__10TObjPlayerFi(s32);
 s32 obj_getField1c(void *);
 s32 get_game_mode__6TLobbyFv(void);
 s32 TBoss4Type3__sub_8005254C(s32);
-f32 TObjPlayer__sub_803E1A58(void *, void *);
+f32 xyz_distance(void *, void *);
 extern u8 TBoss4Thanks__data_80479B40[];
 extern const f32 lbl_805E0180;
 int TBoss4Thanks__sub_8035C4A4(void *arg0);
@@ -89,7 +89,7 @@ void TBoss4Thanks__sub_8035C35C(void *arg0) {
         Ent_8035C35C *e = &lbl_80479B58[i];
         if (o->x30 >= e->lo && o->x30 <= e->hi) {
             if (o->p[i] == NULL) {
-                o->p[i] = TBoss4Type2__sub_800874F4(TBoss4Thanks__data_80479B40, e->id);
+                o->p[i] = create_particle_emitter(TBoss4Thanks__data_80479B40, e->id);
                 if (o->p[i] != NULL) {
                     set_flags__11TBoss4Type2FPvUi(o->p[i], 0x40);
                 }
@@ -131,7 +131,7 @@ int TBoss4Thanks__sub_8035C4A4(void *arg0) {
     for (i = 0; i < n; i++) {
         p = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (p != NULL && TBoss4Type3__sub_8005254C(obj_getField1c(p)) != 0 &&
-            TObjPlayer__sub_803E1A58(p + 0x38, TBoss4Thanks__data_80479B40) <= lim) {
+            xyz_distance(p + 0x38, TBoss4Thanks__data_80479B40) <= lim) {
             return 1;
         }
     }
@@ -185,7 +185,7 @@ u8 *TBoss4Thanks__ct(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__12TBoss4Thanks.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4438;
     temp_r3 = (u8 *)(get_instance_count__9TBoss4UroFv());
-    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4(temp_r3, 1);
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model(temp_r3, 1);
     M2C_FIELD(arg0, s32 *, 0x38) = TObjFish__sub_8001EDB0(temp_r3, 1);
     M2C_FIELD(arg0, s32 *, 0x3C) = TObjFish__sub_8001ED9C(temp_r3, 0x46);
     M2C_FIELD(arg0, s32 *, 0x40) = TObjFish__sub_8001ED9C(temp_r3, 0x47);

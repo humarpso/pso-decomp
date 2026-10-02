@@ -19,7 +19,7 @@ void *__ct__14TItemEffNeedleFv(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg
 extern "C" {
 
 s32 obj_getField1c(void *);
-M2C_UNK TLobby__sub_800869A4(void *, M2C_UNK, M2C_UNK, M2C_UNK, void *);
+M2C_UNK create_timed_particle_emitter(void *, M2C_UNK, M2C_UNK, M2C_UNK, void *);
 s32 TLobby__sub_80101AB0();
 s32 get_entity_id__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_8010A058(s32);
@@ -66,7 +66,7 @@ void create_needle_effect(s32 arg0, void *arg1) {
         M2C_FIELD(var_r31, s32 *, 0x44) = (s32) (M2C_FIELD(var_r31, s32 *, 0x44) + 0x8000);
     }
     temp_r7 = M2C_FIELD(arg1, void **, 0);
-    TLobby__sub_800869A4(((E80109 *)M2C_FIELD(temp_r7, void **, 0xA4))[M2C_FIELD(arg1, s32 *, 4)].f, 0x180, 0, 0x3C, temp_r7);
+    create_timed_particle_emitter(((E80109 *)M2C_FIELD(temp_r7, void **, 0xA4))[M2C_FIELD(arg1, s32 *, 4)].f, 0x180, 0, 0x3C, temp_r7);
 }
 
 }

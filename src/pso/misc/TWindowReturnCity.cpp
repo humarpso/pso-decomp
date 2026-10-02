@@ -43,7 +43,7 @@ s32 get_message_10__20TWindowSubStatusDispFPv(int);
 s32 set_close_flag__11TWindowCtrlFv();
 s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 fn_8024AC64(int);
-s32 TWindowSubComCard__sub_8026CBB8(int);
+s32 get_window_layout_position(int);
 void TWindowCtrl__sub_8026D4E8(void);
 s32 free_member__17TWindowSubComCardFPv(int, int);
 s32 forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(int, int, int, f32);
@@ -198,7 +198,7 @@ u8 *TWindowReturnCity__ct(u8 *arg0, s32 arg1, s32 arg2) {
   if (arg0)
   {
   }
-  temp_r31 = TWindowSubComCard__sub_8026CBB8((int) 0x23);
+  temp_r31 = get_window_layout_position((int) 0x23);
   forward_slot_selection__16TAdChrSelASlotGCFPvPvPv((int) (*((s32 *) (((s8 *) arg0) + 0x1C))), (int) get_message_10__20TWindowSubStatusDispFPv((int) 0x43), (int) temp_r31, (f32) lbl_805DD2E8);
   free_member__17TWindowSubComCardFPv((int) (*((s32 *) (((s8 *) arg0) + 0x1C))), (int) 1);
   fn_8024AC64((int) (*((s32 *) (((s8 *) arg0) + 0x24))));

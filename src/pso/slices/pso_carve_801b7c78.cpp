@@ -33,7 +33,7 @@ s32 fn_801B7CEC(u8 *arg0, s8 arg1, s8 arg2, s8 arg3);
 extern "C" {
 
 s32 TObjPlayer__sub_801D4368(void * a0 = 0);
-s32 TObjPlayer__sub_80019248(void * a0 = 0);
+s32 is_locally_controlled__10TObjPlayerFPv(void * a0 = 0);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 obj_testFlags30(s32, s32);
 s32 check_player_flag1__6TLobbyFPv(s32);

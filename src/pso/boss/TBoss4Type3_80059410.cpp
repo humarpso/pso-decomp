@@ -111,7 +111,7 @@ Ply_80059ABC *get_player_by_client_id(u16);
 extern const f64 lbl_80437890[];
 extern const f32 lbl_805D8C7C;
 void TBoss4Type3__sub_80059ABC(Obj_80059ABC *self, s32 arg1);
-u32 TBoss4Type2__sub_800874F4(void *, s32);
+u32 create_particle_emitter(void *, s32);
 void set_flags__11TBoss4Type2FPvUi(u32, u32);
 extern s32 lbl_80437814[];
 void TBoss4Type3__sub_8005A300(Obj_8005A300 *self);
@@ -136,7 +136,7 @@ M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
 M2C_UNK TNpcPlayer__sub_803D97B4(void *);
-f32 TObjPlayer__sub_803E1A58(void *, void *);
+f32 xyz_distance(void *, void *);
 extern const f32 lbl_805D8C64;
 extern const f32 lbl_805D8C68;
 extern const f32 lbl_805D8C6C;
@@ -267,7 +267,7 @@ void TBoss4Type3__sub_80059618(O_80059618 *o) {
             set_flags__11TBoss4Type2FPvUi(e, 0x40);
         }
         TBoss4Zako__sub_803D8910(&pos, &dir);
-        if (TObjPlayer__sub_803E1A58(&pos, &tgt) <= lbl_805D8C6C) {
+        if (xyz_distance(&pos, &tgt) <= lbl_805D8C6C) {
             break;
         }
     }
@@ -401,7 +401,7 @@ void TBoss4Type3__sub_8005A2A4(Obj_8005A2A4 *self) {
 void TBoss4Type3__sub_8005A300(Obj_8005A300 *self) {
     s32 i;
     for (i = 0; i < 8; i++) {
-        self->f404[i] = TBoss4Type2__sub_800874F4(self->f38, lbl_80437814[i]);
+        self->f404[i] = create_particle_emitter(self->f38, lbl_80437814[i]);
         if (self->f404[i] != 0) {
             set_flags__11TBoss4Type2FPvUi(self->f404[i], 0x40);
         }

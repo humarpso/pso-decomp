@@ -116,7 +116,7 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 extern s32 lbl_805D53A0;
 void TOTrapAncient01__sub_8017940C(u8 *arg0);
 s32 TObjFish__sub_8001EDB0(void *, s32);
-s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 get_bml_model(void *, s32);
 u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 M2C_UNK add_entry__11TMotorcycleFsiiff(int, int, int, f32, f32);
@@ -239,7 +239,7 @@ void TOTrapAncient01__sub_80179E34(void) {
   }
   (*(u8 * *)&TOTrapAncient01__data_805D5AD0) = (unsigned char *) ((void *) var_r0);
   temp_r31 = TObjFish__sub_8001EDB0((void *) var_r0, 3);
-  add_entry__11TMotorcycleFsiiff((int) 0x39, (int) TObjFish__sub_8001EDC4((*(u8 * *)&TOTrapAncient01__data_805D5AD0), 3), (int) temp_r31, (f32) lbl_805DBA5C, (f32) TOTrapAncient01__data_805DBA4C);
+  add_entry__11TMotorcycleFsiiff((int) 0x39, (int) get_bml_model((*(u8 * *)&TOTrapAncient01__data_805D5AD0), 3), (int) temp_r31, (f32) lbl_805DBA5C, (f32) TOTrapAncient01__data_805DBA4C);
 }
 
 Self_80179EC0 *__dt__15TOTrapAncient01Fv(Self_80179EC0 *self, s16 flag) {

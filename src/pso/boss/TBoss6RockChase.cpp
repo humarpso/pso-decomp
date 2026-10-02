@@ -30,7 +30,7 @@ extern const f32 lbl_805E03D8;
 extern const f32 lbl_805E03E4;
 s32 TBoss6RockChase__sub_8036D6D4(s32 arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TObjFish__sub_8001EDC4(int, int);
+s32 get_bml_model(int, int);
 s32 TObjPlayer__sub_801569F4(void *);
 s32 TBoss6Rock__sub_80353A04();
 s32 TBoss6Rock__sub_80353A0C();
@@ -66,7 +66,7 @@ void *__dt__15TBoss6RockChaseFv(void *arg0, s16 arg1);
 void render__15TBoss6RockChaseFv(void* p);
 int TOHangerMachine01__sub_803D9C00(void*);
 int rotate_matrix_z(void*, void*);
-int TObjBoss2Tunnel__sub_803DB470(void*);
+int draw_ginja_object(void*);
 int rotate_matrix_x(void*, void*);
 int rotate_matrix_y(void*, void*);
 int TObjPlayer__sub_803D9B2C(void*);
@@ -75,7 +75,7 @@ void __dl__7TObjectFPv(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 int set_global_param__8TObjFishFi(void*);
 
-void render__15TBoss6RockChaseFv(void* p) { TObjPlayer__sub_803D9B2C(p); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x60)); rotate_matrix_x((void*)0, *(void**)((char*)p + 0x5c)); rotate_matrix_z((void*)0, *(void**)((char*)p + 0x64)); set_global_param__8TObjFishFi(*(void**)((char*)p + 0xc4)); TObjBoss2Tunnel__sub_803DB470(*(void**)((char*)p + 0xc0)); pop_matrix(); }
+void render__15TBoss6RockChaseFv(void* p) { TObjPlayer__sub_803D9B2C(p); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x60)); rotate_matrix_x((void*)0, *(void**)((char*)p + 0x5c)); rotate_matrix_z((void*)0, *(void**)((char*)p + 0x64)); set_global_param__8TObjFishFi(*(void**)((char*)p + 0xc4)); draw_ginja_object(*(void**)((char*)p + 0xc0)); pop_matrix(); }
 
 extern M2C_UNK __vt__15TBoss6RockChase[];
 
@@ -139,7 +139,7 @@ u8 *TBoss6RockChase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     M2C_FIELD(arg0, s32 *, 0xBC) = (s32) (lbl_805E03E0 * ((lbl_805E03D0 * (f32) rand()) - lbl_805E03D8));
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) TBoss6RockChase__data_805E03B8;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2));
-    M2C_FIELD(arg0, s32 *, 0xC0) = TObjFish__sub_8001EDC4((int) (TBoss6Rock__sub_80353A0C()), (int) (M2C_FIELD(&lbl_8047ACE8.value, M2C_UNK *, (arg3 * 8))));
+    M2C_FIELD(arg0, s32 *, 0xC0) = get_bml_model((int) (TBoss6Rock__sub_80353A0C()), (int) (M2C_FIELD(&lbl_8047ACE8.value, M2C_UNK *, (arg3 * 8))));
     M2C_FIELD(arg0, s32 *, 0xC4) = TBoss6Rock__sub_80353A04();
     return arg0;
 }

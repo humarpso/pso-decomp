@@ -59,7 +59,7 @@ void draw__12TWindowTimerFPvii(void *arg0, s32 arg1, s32 arg2);
 void update_chat_parts__12TWindowTimerFPv(u8 *arg0);
 s32 TLobby__sub_8001DC24();
 M2C_UNK TWindowChallengeResult__sub_80228DB4(s32, M2C_UNK);
-s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+s32 get_window_layout_position(M2C_UNK);
 M2C_UNK TWindowSubStatusDisp__sub_80229080(M2C_UNK *);
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 M2C_UNK TWindowSubStatusDisp__sub_8025AC50(s32, s32, M2C_UNK);
@@ -79,11 +79,11 @@ void update_chat_parts__12TWindowTimerFPv(u8 *arg0) {
     s32 var_r3;
 
     if (M2C_FIELD(arg0, s32 *, 0x60) & 1) {
-        var_r3 = TWindowSubComCard__sub_8026CBB8(0xA9);
+        var_r3 = get_window_layout_position(0xA9);
     } else if ((is_active__19TWindowSubShortMailFv() != 0) || (fn_80246CD0() != 0) || (fn_80246CDC() != 0)) {
-        var_r3 = TWindowSubComCard__sub_8026CBB8(0xA8);
+        var_r3 = get_window_layout_position(0xA8);
     } else {
-        var_r3 = TWindowSubComCard__sub_8026CBB8(0x22);
+        var_r3 = get_window_layout_position(0x22);
     }
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(arg0 + 0x30, var_r3);
 }

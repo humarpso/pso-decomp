@@ -8,7 +8,7 @@ extern "C" {
 u8 * TObjFish__sub_8001ED9C(void *, int);
 extern u8 *lbl_805D6808;
 u8 *TOTrapChainSawKey__sub_802C9960(s32 arg0);
-u8 * TObjFish__sub_8001EDC4(void *, int);
+u8 * get_bml_model(void *, int);
 extern u8 *lbl_805D6808;
 u8 *TOTrapChainSawKey__sub_802C999C(s32 arg0);
 }
@@ -23,7 +23,7 @@ u8 *TOTrapChainSawKey__sub_802C9960(s32 arg0) {
 }
 u8 *TOTrapChainSawKey__sub_802C999C(s32 arg0) {
     if ((void *) lbl_805D6808 != NULL) {
-        return TObjFish__sub_8001EDC4(lbl_805D6808, arg0);
+        return get_bml_model(lbl_805D6808, arg0);
     }
     return NULL;
 }

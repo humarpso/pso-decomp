@@ -19,7 +19,7 @@ M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK TObjFish__sub_803E46BC(s32);
+M2C_UNK draw_chunk_object(s32);
 
 extern s32 TObjEneRe4Sorcerer__data_805D52F4;
 extern s32 some_id_805c6f74;
@@ -57,7 +57,7 @@ void TObjEneRe4Sorcerer__vt104(u8 *arg0) {
         some_id_805c6f74 |= 0x20000;
         TObjEneRe4Sorcerer__sub_801E3F1C(TObjEneRe4Sorcerer__data_805DA790, M2C_FIELD(arg0, f32 *, 0x3C4));
         toggle_particle_effect__10TObjPlayerFv();
-        TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
+        draw_chunk_object(M2C_FIELD(arg0, s32 *, 0x34));
         end_effect_render__13TParticleCtrlFv();
         some_id_805c6f74 &= 0xFFFDFFFF;
         pop_matrix();

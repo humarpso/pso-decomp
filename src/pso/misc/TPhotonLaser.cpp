@@ -53,7 +53,7 @@ struct Laser_801AC17C {
 extern "C" {
 void TObjPlayer__sub_80019038(void *, void *);
 Vec_801AC36C *VecCopy__FP3VecPC3Vec(Vec_801AC36C *, const Vec_801AC36C *);
-s32 TBoss4Type2__sub_800874F4(Vec_801AC36C *, s32);
+s32 create_particle_emitter(Vec_801AC36C *, s32);
 extern M2C_UNK __vt__12TPhotonLaser[];
 extern s32 lbl_805D34F0;
 Laser_801AC36C *TPhotonLaser__ct(Laser_801AC36C *self, Params_801AC36C *p, void *parent, s16 arg3);
@@ -62,9 +62,9 @@ void spawn_particle_effect(void *, s32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void *find_entity_by_id(u16);
 void TBoss4Zako__sub_803D8910(void *, void *);
-void TScene__sub_803D8DB4(int, void *, void *);
+void rotate_vector_by_matrix(int, void *, void *);
 void rotate_matrix_y(int, int);
-s32 TObjPlayer__sub_803D97F0(void *);
+s32 push_matrix_from(void *);
 void TCameraCtrl__sub_803D9858(int);
 extern u8 lbl_8058D490[];
 extern const f32 lbl_805DC1B0;
@@ -100,9 +100,9 @@ void run_task__12TPhotonLaserFv(Laser_801AC17C *o) {
     o->f368 += lbl_805DC1B0;
     in.y = in.x = lbl_805DC1B4;
     in.z = lbl_805DC1B8;
-    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    push_matrix_from(lbl_8058D490);
     rotate_matrix_y(0, (s32)(lbl_805DC1BC * (f32)o->f36C));
-    TScene__sub_803D8DB4(0, &in, &out);
+    rotate_vector_by_matrix(0, &in, &out);
     TCameraCtrl__sub_803D9858(1);
     TBoss4Zako__sub_803D8910(&o->f340, &out);
     o->f36C += 0x24;
@@ -161,7 +161,7 @@ Laser_801AC36C *TPhotonLaser__ct(Laser_801AC36C *self, Params_801AC36C *p, void 
     self->f34C.z *= p->scale;
     self->f358 = p->f24;
     self->f35C = p->f2C;
-    self->f364 = TBoss4Type2__sub_800874F4(&self->f340, 0x134);
+    self->f364 = create_particle_emitter(&self->f340, 0x134);
     self->f36C = 0;
     return self;
 }

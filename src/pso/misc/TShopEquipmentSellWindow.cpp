@@ -57,7 +57,7 @@ int TShopWindowBase__sub_802239EC(void *);
 int TShopWindowBase__sub_80223A48(void *);
 M2C_UNK TWindowSubComCard__sub_80265C30(u32);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
-M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK get_window_layout_position(M2C_UNK);
 void TWindow__close(void *);
 void __ct__15TShopWindowBaseFv(void *);
 void __dl__7TObjectFPv(void *);
@@ -103,7 +103,7 @@ void handle_input_window_result__24TShopEquipmentSellWindowFPv(void *arg0) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0x394) != 0U) && (is_confirmed__18TWindowInputNumberFPv(M2C_FIELD(arg0, u32 *, 0x394)) != 0)) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x390) == 0U) {
             temp_r31 = (u16) obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
-            M2C_FIELD(arg0, u32 *, 0x390) = TCheckRoomSequence__sub_802664A8(TWindowSubComCard__sub_8026CBB8(0x2B), 2, temp_r31);
+            M2C_FIELD(arg0, u32 *, 0x390) = TCheckRoomSequence__sub_802664A8(get_window_layout_position(0x2B), 2, temp_r31);
             forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x390), TLobby__sub_80222CFC(6), 6, 0);
             forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x390), TLobby__sub_80222CFC(7), 6, 1);
             TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0x390));

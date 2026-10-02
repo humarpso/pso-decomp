@@ -105,7 +105,7 @@ f32 get_mag_scale__10TObjPlayerFPv(void *weapon);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, const void *);
 extern const f32 lbl_805DAC98;
 extern const f32 lbl_805DAC9C;
-WeaponArgb TObjPlayer__sub_80120304(void *weapon);
+WeaponArgb get_weapon_color__11TItemWeaponFPv(void *weapon);
 void copy_entry_bytes__10TObjPlayerFPvPv(void *, void *);
 extern u8 lbl_805DACA4;
 void TObjPlayer__sub_80120454(Src_80120454 *arg0, Dst_80120454 *arg1);
@@ -121,13 +121,13 @@ void apply_weapon_node_material() {
     update_screen_particle_effect__10TObjPlayerFPv(lbl_805D5514);
     ((WeaponCallbackObject*)lbl_805D5514)->materialCallback();
     if(node == lbl_805D5510) {
-        WeaponArgb color = TObjPlayer__sub_80120304((void *)(lbl_805D5514));
+        WeaponArgb color = get_weapon_color__11TItemWeaponFPv((void *)(lbl_805D5514));
         enable_first_time_flag__10TObjPlayerFi(&color);
     }
     if(node == lbl_80506248[0] || node == lbl_80506248[1] || node == lbl_80506248[2]) {
         play_particle_effect_once__10TObjPlayerFv();
         if(TObjPlayer__sub_8001BEF8(&lbl_805D53EC,4)) {
-            WeaponArgb color = TObjPlayer__sub_80120304((void *)(lbl_805D5514));
+            WeaponArgb color = get_weapon_color__11TItemWeaponFPv((void *)(lbl_805D5514));
             enable_first_time_flag__10TObjPlayerFi(&color);
         }
     }
@@ -155,7 +155,7 @@ void advance_weapon_photon_phase(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-WeaponArgb TObjPlayer__sub_80120304(void *weapon) {
+WeaponArgb get_weapon_color__11TItemWeaponFPv(void *weapon) {
     WeaponArgb first, second;
     WeaponColorDescriptor_80120304 *descriptor;
     f32 override_alpha;

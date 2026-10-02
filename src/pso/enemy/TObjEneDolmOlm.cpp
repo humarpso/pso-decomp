@@ -296,9 +296,9 @@ void TObjEneDolmOlm__sub_80300F7C(s32 arg0);
 s32 spawn_ground_effect__10TObjPlayerFPvi(void *, int);
 s32 TObjPlayer__sub_800D92BC(void *, int);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
-s32 TScene__sub_803D8DB4(int, void *, void *);
+s32 rotate_vector_by_matrix(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
-s32 TObjPlayer__sub_803D97F0(void *);
+s32 push_matrix_from(void *);
 M2C_UNK pop_matrix();
 extern RecoveredGlobal_80300FC0_lbl_8058D490 lbl_8058D490;
 extern const f32 TObjEneDolmOlm__data_805DEF54;
@@ -307,9 +307,9 @@ extern const f32 TObjEneDolmOlm__data_805DEF5C;
 void TObjEneDolmOlm__sub_80300FC0(u8 *arg0);
 s32 check_path_obstructed(void *, void *);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
-s32 TScene__sub_803D8DB4(int, void *, void *);
+s32 rotate_vector_by_matrix(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
-s32 TObjPlayer__sub_803D97F0(void *);
+s32 push_matrix_from(void *);
 s32 TCameraCtrl__sub_803D9858(int);
 extern RecoveredGlobal_80300FC0_lbl_8058D490 lbl_8058D490;
 extern const f32 TObjEneDolmOlm__data_805DEF54;
@@ -351,7 +351,7 @@ extern u32 TObjEneDolmOlm__data_805D6A18;
 extern const f32 lbl_805DEF60;
 void TObjEneDolmOlm__sub_8030105C(Obj_800A7A14 *o);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-void TObjFish__sub_800660D4(s32, s32, s32, s32, s32, f32);
+void attach_particle_model(s32, s32, s32, s32, s32, f32);
 Hit_80300D00 *csnVectorUnder(void *, void *, s32, f32);
 s32 TParticleCtrl__sub_80086884(s32);
 s32 get_instance__13TParticleCtrlFv(void);
@@ -431,7 +431,7 @@ void TObjEneDolmOlm__sub_80300D00(u8 *arg0, Vec_80300D00 *arg1) {
             }
             e = spawn_particle_effect(hit->obj + 0x38, 0x49);
             if (e != 0) {
-                TObjFish__sub_800660D4(e, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneDolmOlm__data_805DEF50);
+                attach_particle_model(e, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneDolmOlm__data_805DEF50);
             }
             spawn_particle_effect(hit->obj + 0x38, 0xA4);
         } else if (hit->flags & 2) {
@@ -440,7 +440,7 @@ void TObjEneDolmOlm__sub_80300D00(u8 *arg0, Vec_80300D00 *arg1) {
             }
             e = spawn_particle_effect(hit->obj + 0x54, 0x49);
             if (e != 0) {
-                TObjFish__sub_800660D4(e, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneDolmOlm__data_805DEF50);
+                attach_particle_model(e, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneDolmOlm__data_805DEF50);
             }
             spawn_particle_effect(hit->obj + 0x54, 0xA4);
         }
@@ -481,9 +481,9 @@ void TObjEneDolmOlm__sub_80300FC0(u8 *arg0) {
     stack.sp8 = TObjEneDolmOlm__data_805DEF54;
     stack.spC = lbl_805DEF58;
     stack.sp10 = TObjEneDolmOlm__data_805DEF5C * M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2B0), f32 *, 0x10);
-    TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
+    push_matrix_from((void *) (&lbl_8058D490.value));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-    TScene__sub_803D8DB4((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
+    rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
     pop_matrix();
     TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x38));
     spawn_ground_effect__10TObjPlayerFPvi((void *) (&stack.sp8), (int) (0x23));
@@ -560,9 +560,9 @@ void TObjEneDolmOlm__sub_80301264(u8 *arg0, s32 arg1, f32 farg0) {
     stack.spC = TObjEneDolmOlm__data_805DEF54;
     stack.sp8 = TObjEneDolmOlm__data_805DEF54;
     stack.sp10 = (TObjEneDolmOlm__data_805DEF68 * farg0) + M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC);
-    TObjPlayer__sub_803D97F0((void *) (&(*(RecoveredGlobal_80301264_lbl_8058D490 *)&lbl_8058D490).value));
+    push_matrix_from((void *) (&(*(RecoveredGlobal_80301264_lbl_8058D490 *)&lbl_8058D490).value));
     rotate_matrix_y((int)((int) (0)), (int)((void *) (arg1)));
-    TScene__sub_803D8DB4((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
+    rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
     TCameraCtrl__sub_803D9858((int) (1));
     TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x2FC));
     check_path_obstructed((void *) (arg0), (void *) (&stack.sp8));

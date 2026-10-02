@@ -174,7 +174,7 @@ extern Trip_8035862C lbl_804793D8;
 extern s32 tl_07;
 extern const f32 lbl_805E0048;
 extern const f32 lbl_805E0080;
-void TObjPlayer__sub_8035862C(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+void weapon_special_lightning_bolt_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -227,12 +227,12 @@ void spawn_hit_effect__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3)
 void spawn_mirror_pair__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s32 arg3);
 void trigger_biter_effect__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void update_battle_control_on_unlock__10TObjPlayerFPvPvPvi(void *arg0, void *arg1, void *arg2, s32 arg3);
-s32 TLobby__sub_800869A4(s32, M2C_UNK, M2C_UNK, M2C_UNK);
+s32 create_timed_particle_emitter(s32, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK spawn_particle_effect_with_flags(s32, M2C_UNK, M2C_UNK);
 M2C_UNK spawn_particle_effect(M2C_UNK *, M2C_UNK);
 s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
-s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
-M2C_UNK TObjFish__sub_800660D4(s32, s32, s32, s32, M2C_UNK, f32);
+s32 get_bml_model(s32, M2C_UNK);
+M2C_UNK attach_particle_model(s32, s32, s32, s32, M2C_UNK, f32);
 M2C_UNK TObjPlayer__sub_800868C4(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 int TObjPlayer__sub_80115BC0(void*, int, int);
 void TObjPlayer__sub_80120D50(void *);
@@ -550,7 +550,7 @@ extern s32 lbl_805D63AC;
 extern s32 lbl_805D63B0;
 extern f32 lbl_805E0084;
 
-void TObjPlayer__sub_8035862C(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void weapon_special_lightning_bolt_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 sp20[0x18];
     Vec_8035862C v;
     u32 obj;
@@ -578,9 +578,9 @@ void spawn_effect_by_type__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 a
         spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xBD));
     }
     if (arg3 == 1) {
-        temp_a = TLobby__sub_800869A4(arg2, 0xBF, 0, 0xF);
+        temp_a = create_timed_particle_emitter(arg2, 0xBF, 0, 0xF);
         if (temp_a != 0) {
-            TObjFish__sub_800660D4(temp_a, TObjFish__sub_8001EDC4(lbl_805D63AC, 0), lbl_805D63B0, TObjFish__sub_8001ED9C(lbl_805D63AC, 0), 0, lbl_805E0084);
+            attach_particle_model(temp_a, get_bml_model(lbl_805D63AC, 0), lbl_805D63B0, TObjFish__sub_8001ED9C(lbl_805D63AC, 0), 0, lbl_805E0084);
         }
     }
 }
@@ -596,9 +596,9 @@ void spawn_hit_effect__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3)
         spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xBD));
     }
     if (arg3 == 1) {
-        temp_r30 = TLobby__sub_800869A4(arg2, 0x9A, 0, 0xF);
+        temp_r30 = create_timed_particle_emitter(arg2, 0x9A, 0, 0xF);
         if (temp_r30 != 0) {
-            TObjFish__sub_800660D4(temp_r30, TObjFish__sub_8001EDC4(lbl_805D63AC, 0), lbl_805D63B0, TObjFish__sub_8001ED9C(lbl_805D63AC, 0), 0, lbl_805E0084);
+            attach_particle_model(temp_r30, get_bml_model(lbl_805D63AC, 0), lbl_805D63B0, TObjFish__sub_8001ED9C(lbl_805D63AC, 0), 0, lbl_805E0084);
         }
     }
 }

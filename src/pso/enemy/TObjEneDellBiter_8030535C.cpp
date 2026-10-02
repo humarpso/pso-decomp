@@ -438,14 +438,14 @@ Obj_80098FF4 *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 s32 get_game_mode__6TLobbyFv(void);
 u32 csnLookAt(void *, void *);
-void fn_800B98C0(void *);
+void enemy_clear_target(void *);
 void TBoss8Dragon__sub_800B9958(void *, u16);
 s32 is_alive__9TObjEneDDFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
 extern const f32 lbl_805DF018;
 s32 TObjEneDellBiter__sub_80305788(Obj_80098FF4 *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void TObjFish__sub_800660D4(void *, s32, s32, s32, s32, f32);
+void attach_particle_model(void *, s32, s32, s32, s32, f32);
 Hit_803059BC *csnVectorUnder(Vec_803059BC *, void *, s32);
 void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
 s32 TParticleCtrl__sub_80086884(s32);
@@ -464,7 +464,7 @@ void clear_active_flag__16TObjEneDellBiterFPv(void *arg0);
 void noop__16TObjEneDellBiterFv(void);
 void update_state__16TObjEneDellBiterFPvi(void *arg0, s32 arg1);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
-s32 TObjEneEpsilon__sub_800B95E0();
+s32 enemy_validate_retained_target();
 M2C_UNK select_and_apply_target__14TObjEneEpsilonFPvf(void *, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK spawn_part__14TObjEneEpsilonFi(void *, f32);
@@ -605,7 +605,7 @@ s32 TObjEneDellBiter__sub_80305788(Obj_80098FF4 *self) {
         TBoss8Dragon__sub_800B9958(self, id);
         return 1;
     }
-    fn_800B98C0(self);
+    enemy_clear_target(self);
     return 0;
 }
 
@@ -614,7 +614,7 @@ void clear_active_flag__16TObjEneDellBiterFPv(void *arg0) {
         update_linked_position__14TObjEneEpsilonFPv(TObjEneDellBiter__data_805DF00C);
         return;
     }
-    if (TObjEneEpsilon__sub_800B95E0() == 0) {
+    if (enemy_validate_retained_target() == 0) {
         M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) & 0xFFFFFFF7);
     }
 }
@@ -653,7 +653,7 @@ s32 TObjEneDellBiter__sub_803059BC(void *arg0, void *arg1) {
         if (hit->flags & 4) {
             e = (void *)spawn_particle_effect(hit->obj + 0x38, 0x49);
             if (e != NULL) {
-                TObjFish__sub_800660D4(e, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneDellBiter__data_805DEFD8);
+                attach_particle_model(e, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneDellBiter__data_805DEFD8);
                 set_position_xy__10TObjPlayerFPvff(e, lbl_805DF020, lbl_805DF020);
             }
             e = (void *)spawn_particle_effect(hit->obj + 0x38, 0xA4);
@@ -665,7 +665,7 @@ s32 TObjEneDellBiter__sub_803059BC(void *arg0, void *arg1) {
         if (hit->flags & 2) {
             e = (void *)spawn_particle_effect(hit->obj + 0x54, 0x49);
             if (e != NULL) {
-                TObjFish__sub_800660D4(e, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneDellBiter__data_805DEFD8);
+                attach_particle_model(e, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneDellBiter__data_805DEFD8);
                 set_position_xy__10TObjPlayerFPvff(e, lbl_805DF020, lbl_805DF020);
             }
             e = (void *)spawn_particle_effect(hit->obj + 0x54, 0xA4);

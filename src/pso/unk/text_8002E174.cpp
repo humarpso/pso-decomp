@@ -150,7 +150,7 @@ f32 TTecZondeEff__sub_8002DF28();
 M2C_UNK init_base__10TObjPlayerFPv(void *);
 M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
 M2C_UNK TObjPlayer__sub_803D8CD4(int);
-M2C_UNK TScene__sub_803D8DB4(int, void *, void *);
+M2C_UNK rotate_vector_by_matrix(int, void *, void *);
 M2C_UNK TObjPlayer__sub_803D9730(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -306,7 +306,7 @@ Obj_8002E62C *TObjPlayer__sub_8002E62C(Obj_8002E62C *self, M2C_UNK arg1, s32 arg
     TCameraCtrl__sub_803D8934(0, v, v);
     for (i = 0; i < 0x1C; i++, p++) {
         TCameraCtrl__sub_803D8934(0, &lbl_805D4B8C->ents[i].a, &p->pos);
-        TScene__sub_803D8DB4(0, &lbl_805D4B8C->ents[i].b, &p->fC);
+        rotate_vector_by_matrix(0, &lbl_805D4B8C->ents[i].b, &p->fC);
         p->f10 = lerp__9TDeadSpotFff(lbl_805D8234, lbl_805D8238);
         p->f14 -= lerp__9TDeadSpotFff(lbl_805D8228, lbl_805D823C);
         p->f18 = 0;

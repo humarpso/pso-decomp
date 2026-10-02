@@ -15,7 +15,7 @@ typedef char RecoveredGlobal_801846E0_lbl_804B5DD8_size[sizeof(RecoveredGlobal_8
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TBoss4Type2__sub_800874F4(void *, int);
+s32 create_particle_emitter(void *, int);
 u8 * get_anim_frame__25TObjCity_Season_EasterEggFPv(void *);
 s32 fn_80184B44(void *, void *, void *, int, f32);
 extern M2C_UNK lbl_804B5DD8[];
@@ -38,7 +38,7 @@ void *TObjCity_Season_ValentineHeart__create(void *arg0);
 void *destroy__30TObjCity_Season_ValentineHeartFPvs(void *arg0, s16 arg1);
 void notify_fish_on_easter_egg(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjFish__sub_803E46BC(s32);
+M2C_UNK draw_chunk_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -86,7 +86,7 @@ u8 *TObjCity_Season_ValentineHeart__ct(u8 *arg0, s32 arg1, s32 arg2) {
     if (((u32)get_anim_frame__25TObjCity_Season_EasterEggFPv((void *)((void *) (arg0)))) != 0U) {
         VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));
         stack.spC += lbl_805DBC18;
-        M2C_FIELD(arg0, s32 *, 0xB4) = TBoss4Type2__sub_800874F4((void *) (&stack.sp8), (int) (0x90));
+        M2C_FIELD(arg0, s32 *, 0xB4) = create_particle_emitter((void *) (&stack.sp8), (int) (0x90));
     } else {
         M2C_FIELD(arg0, s32 *, 0xB4) = 0;
     }
@@ -102,8 +102,8 @@ void notify_fish_on_easter_egg(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjFish__sub_803E46BC(M2C_FIELD(M2C_FIELD(temp_r3, void **, 0x42C), s32 *, 0x18));
-        TObjFish__sub_803E46BC(M2C_FIELD(M2C_FIELD(temp_r3, void **, 0x42C), s32 *, 0x8));
+        draw_chunk_object(M2C_FIELD(M2C_FIELD(temp_r3, void **, 0x42C), s32 *, 0x18));
+        draw_chunk_object(M2C_FIELD(M2C_FIELD(temp_r3, void **, 0x42C), s32 *, 0x8));
         pop_matrix();
     }
 }

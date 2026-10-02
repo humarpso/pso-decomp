@@ -46,9 +46,9 @@ struct Self_8010900C {
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 int queue_destruction__7TObjectFv(void*);
-void *TBoss8Dragon__sub_8008741C(void *, s32, s32);
+void *spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
-VObj_8010900C *TObjPlayer__sub_80154804(u16, s16);
+VObj_8010900C *resolve_hittable_target(u16, s16);
 void TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
 extern const f32 lbl_805DAB28;
 extern const f32 lbl_805DAB2C;
@@ -72,17 +72,17 @@ void TItemEffHeaven::run_task() {
     s32 j;
 
     if (self->f20 == NULL) {
-        self->f20 = TObjPlayer__sub_80154804(self->f1C, self->f24);
+        self->f20 = resolve_hittable_target(self->f1C, self->f24);
         if (self->f20 != NULL) {
             VecCopy__FP3VecPC3Vec(&self->pos, &((Src_8010900C *)self->f20)->recs[self->f24].pos);
         }
     }
     if (self->f28 == 0) {
-        self->arr[0] = TBoss8Dragon__sub_8008741C(&self->pos, 0x13B, 0x40);
+        self->arr[0] = spawn_continuous_particle_effect_with_flags(&self->pos, 0x13B, 0x40);
     }
     if (self->f28 == 0xF) {
         TBoss3Volopt__sub_8022675C(0x4002A408, &self->pos, 0, 0);
-        self->arr[1] = TBoss8Dragon__sub_8008741C(&self->pos, 0x134, 0x40);
+        self->arr[1] = spawn_continuous_particle_effect_with_flags(&self->pos, 0x134, 0x40);
         self->f38 = lbl_805DAB28;
     }
     if (self->f28 >= 0xF && self->f28 < 0x19) {
@@ -107,7 +107,7 @@ void TItemEffHeaven::run_task() {
         }
     }
     if (self->f28 == 0x14) {
-        self->arr[2] = TBoss8Dragon__sub_8008741C(&self->pos, 0x139, 0x40);
+        self->arr[2] = spawn_continuous_particle_effect_with_flags(&self->pos, 0x139, 0x40);
     }
     if (self->f28 == 0x28) {
         request_destroy__11TBoss4Type2FUi(self->arr[2]);

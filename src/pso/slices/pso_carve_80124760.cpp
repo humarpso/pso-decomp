@@ -13,7 +13,7 @@ M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C(int);
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(void *);
+M2C_UNK draw_ginja_object(void *);
 extern const f32 lbl_805DAD28;
 extern const f32 lbl_805DAD2C;
 
@@ -34,7 +34,7 @@ void reset_owner_target__10TObjPlayerFPv(u8 *arg0) {
             TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x1C));
             rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x2C)));
             rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x28) - 0x4000));
-            TObjBoss2Tunnel__sub_803DB470((void *) (M2C_FIELD(arg0, void **, 0x58)));
+            draw_ginja_object((void *) (M2C_FIELD(arg0, void **, 0x58)));
             pop_matrix();
             M2C_FIELD(temp_r31, f32 *, 0x20) = (f32) lbl_805DAD2C;
         }

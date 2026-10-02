@@ -19,12 +19,12 @@ void draw_icon__10TObjPlayerFPvii(void *, s32, Vec_8011E87C *);
 s32 is_flag_b0_4__10TObjPlayerFPv(void *);
 void TItemEffectWeapon__sub_803634A4(void *, Vec_8011E87C *, Vec_8011E87C *);
 extern u8 main_task[];
-void TObjPlayer__sub_8011E87C(Pl_8011E87C *self, s32 slot);
+void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_8011E87C(Pl_8011E87C *self, s32 slot) {
+void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot) {
     Vec_8011E87C a;
     Vec_8011E87C b;
     if (fn_80100CC8(self) != 0 && is_flag_400__10TObjPlayerFPv(self) == 0 &&

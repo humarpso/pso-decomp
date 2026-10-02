@@ -115,7 +115,7 @@ void *TShopJudgmentItemWindow__sub_80266388(void *, s32, s32, s32);
 s32 select_cursor_entry__6TLobbyFPv(s32);
 M2C_UNK send_and_handle__6TLobbyFPvii(void *, s32, s32);
 void *TLobby__sub_80269CC0(void *, void *, s32, s32);
-void *TWindowSubComCard__sub_8026CBB8(s32);
+void *get_window_layout_position(s32);
 extern Pos_80216CF8 lbl_8044BEA4[];
 extern const f32 lbl_805DC694;
 extern const f32 lbl_805DC698;
@@ -130,7 +130,7 @@ void *TLobby__sub_80222C54(s32);
 M2C_UNK TLobby__sub_80266E34(void *);
 M2C_UNK send_and_handle__6TLobbyFPvii(void *, s32, s32);
 void *set_window_mode_4__6TLobbyFPvii(void *, void *, s32);
-void *TWindowSubComCard__sub_8026CBB8(s32);
+void *get_window_layout_position(s32);
 M2C_UNK add_list_entry__6TLobbyFPviii(void *, s32, s32, s32);
 void *TShopJudgmentItemWindow__sub_8026DF00(void *, s32, s32);
 extern Pos_80216F50 lbl_8044BE9C[];
@@ -241,7 +241,7 @@ void TLobby__sub_80216CF8(Win_80216CF8 *self) {
         if (self->f44 == NULL) {
             pos.a = lbl_8044BEA4[0].a;
             pos.b = lbl_8044BEA4[0].b;
-            self->f44 = TLobby__sub_80269CC0(TWindowSubComCard__sub_8026CBB8(0x2E), &pos, 1, obj_getField1c(self->f24));
+            self->f44 = TLobby__sub_80269CC0(get_window_layout_position(0x2E), &pos, 1, obj_getField1c(self->f24));
             msg2 = TLobby__sub_80222C28(0xE, self->f54[sel].fC);
             send_and_handle__6TLobbyFPvii(self->f44, msg2, 0x80);
             set_field_1c__6TLobbyFPvf(self->f44, lbl_805DC694);
@@ -250,7 +250,7 @@ void TLobby__sub_80216CF8(Win_80216CF8 *self) {
             }
         }
         if (self->f38 == NULL) {
-            self->f38 = TShopJudgmentItemWindow__sub_80266388(TWindowSubComCard__sub_8026CBB8(0x2B), obj_getField1c(self->f24), 0, 0);
+            self->f38 = TShopJudgmentItemWindow__sub_80266388(get_window_layout_position(0x2B), obj_getField1c(self->f24), 0, 0);
             set_position_xy(self->f38, get_scale__15TShopWindowBaseFv(self), get_scale__15TShopWindowBaseFv(self));
             if (self->f34 != NULL) {
                 self->f34->m7(5, 1);
@@ -306,7 +306,7 @@ void TLobby__sub_80216F50(Win_80216F50 *self) {
         if (self->f40 == NULL) {
             pos.a = lbl_8044BE9C[0].a;
             pos.b = lbl_8044BE9C[0].b;
-            self->f40 = set_window_mode_4__6TLobbyFPvii(TWindowSubComCard__sub_8026CBB8(0x2D), &pos, 1);
+            self->f40 = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x2D), &pos, 1);
             send_and_handle__6TLobbyFPvii(self->f40, TLobby__sub_80222C28(0xE, self->f54->f8), 0x80);
             self->f50 = 0;
         } else {

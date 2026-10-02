@@ -386,7 +386,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(Vec_800EE0F8 *);
 M2C_UNK TObjEneDD__sub_800BABCC(void *, f32, f32, f32);
-M2C_UNK TBoss8Dragon__sub_800BB780(void *);
+M2C_UNK clear_attack_receipts(void *);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void TObjEneRe4Sorcerer__sub_800EF214(s32 arg0);
 s32 advance_animation_playback(void *);
@@ -445,7 +445,7 @@ u32 find_entity_by_id(u16);
 s32 clamp_frame_index__9TObjEneDDFi(s32);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 M2C_UNK create__9TTecRestaFPvPvPv(void *, void *, s32);
-M2C_UNK fn_800B98C0(void *);
+M2C_UNK enemy_clear_target(void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 u8 *get_spell_data__18TObjEneRe4SorcererFPv();
 s32 is_alive__9TObjEneDDFPv(s32);
@@ -503,7 +503,7 @@ void TObjEneRe4Sorcerer__sub_800EE0F8(u8 *arg0, s32 arg1) {
         TObjEneRe4Sorcerer__sub_800EF214((s32) arg0);
         break;
     case 5:
-        TBoss8Dragon__sub_800BB780(arg0);
+        clear_attack_receipts(arg0);
         break;
     }
 }
@@ -515,7 +515,7 @@ void state_wait__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1) {
         set_field_378__9TObjEneDDFPvi(arg0, 4);
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) & 0xFFFFFFFD);
         ((V_A_800EDCCC *) arg0)->m93();
-        fn_800B98C0(arg0);
+        enemy_clear_target(arg0);
         return;
     case 3:
         if (try_attack__18TObjEneRe4SorcererFiff(arg0, lbl_805DA7C0, lbl_805DA7C0) != 0) {

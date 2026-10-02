@@ -71,10 +71,10 @@ void TItem__sub_801005DC(void);
 void TItem__sub_801005E0(void);
 int TItem__sub_801005E4(void);
 s32 TLobby__sub_80101AB0();
-s32 TOComputerMachine01__sub_8023DDC8(s32, s32, s32, s32, s32);
+s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
+M2C_UNK draw_ginja_object(u32);
 s32 set_owner_id__13TParticleCtrlFPvUs(s32, s32);
 s8 TObjPlayer__sub_80102C30();
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -150,7 +150,7 @@ void draw_item_model__10TObjPlayerFPv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjBoss2Tunnel__sub_803DB470(spC);
+        draw_ginja_object(spC);
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
         reset_transform_state__10TObjPlayerFv();
@@ -191,7 +191,7 @@ s32 query_game_join_id__10TObjPlayerFv(void) {
 }
 void submit_computer_command__10TObjPlayerFPv(void *arg0) {
     s32 a, b, c;
-    TOComputerMachine01__sub_8023DDC8(M2C_FIELD(arg0, s32 *, 4), a, b, c, 1);
+    scroll_ginja_mesh_uvs(M2C_FIELD(arg0, s32 *, 4), a, b, c, 1);
     PPCSync();
 }
 

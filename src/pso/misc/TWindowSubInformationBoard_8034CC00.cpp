@@ -23,7 +23,7 @@ void set_page__26TWindowSubInformationBoardFPvi(void *arg0, s32 arg1);
 void show_card_a7__26TWindowSubInformationBoardFPv(void *arg0);
 s32 TKeyBoardControl__ct(s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, s32);
 s32 TLobby__sub_8034C1FC();
-s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+s32 get_window_layout_position(M2C_UNK);
 s32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK destroy_keyboard__17TWindowSubComCardFPv(s32);
 s32 get_card_window_field__6TLobbyFv();
@@ -63,7 +63,7 @@ s32 open_keyboard__26TWindowSubInformationBoardFi(s32 arg0) {
         var_r31 = TKeyBoardControl__ct(var_r31, arg0, 0xC6, 5, 4, lbl_805D53A0);
     }
     get_keyboard_field_6c__15TWindowMakeTeamFPv(var_r31, get_card_window_field__6TLobbyFv());
-    set_sub_position__15TWindowMakeTeamFPvPv(var_r31, TWindowSubComCard__sub_8026CBB8((M2C_UNK)(0xBB)));
+    set_sub_position__15TWindowMakeTeamFPvPv(var_r31, get_window_layout_position((M2C_UNK)(0xBB)));
     set_keyboard_flag62_bit2__15TWindowMakeTeamFPv(var_r31);
     destroy_keyboard__17TWindowSubComCardFPv(var_r31);
     return var_r31;
@@ -73,7 +73,7 @@ extern M2C_UNK lbl_80478C34[];
 
 void show_card_a7__26TWindowSubInformationBoardFPv(void *arg0) {
     M2C_UNK temp_r3;
-    temp_r3 = TWindowSubComCard__sub_8026CBB8((M2C_UNK)(0xA7));
+    temp_r3 = get_window_layout_position((M2C_UNK)(0xA7));
     set_window_mode_4__6TLobbyFPvii(temp_r3, lbl_80478C34, 1);
     M2C_FIELD(arg0, s32 *, 0x24) = -1;
 }

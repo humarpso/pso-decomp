@@ -86,8 +86,8 @@ void __dl__7TObjectFPv(void *);
 extern void *__vt__13TOHealGeneral[];
 TOHealGeneral_801697C0 *__dt__13TOHealGeneralFv(TOHealGeneral_801697C0 *self, s16 flag);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-u32 TBoss8Dragon__sub_8008741C(void *, s32, s32);
-u32 TBoss4Type2__sub_800874F4(void *, s32);
+u32 spawn_continuous_particle_effect_with_flags(void *, s32, s32);
+u32 create_particle_emitter(void *, s32);
 void set_owner_id__13TParticleCtrlFPvUs(u32, u16);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
 void reset_photon_effect__10TObjPlayerFPv(void *);
@@ -295,11 +295,11 @@ void *TOHealGeneral__ct(void *arg0, void *arg1) {
     }
     self->pts[0].y += lbl_805DB6D0;
     self->pts[1].y += lbl_805DB6BC;
-    self->handles[0] = TBoss4Type2__sub_800874F4(&self->pts[0], 0x63);
+    self->handles[0] = create_particle_emitter(&self->pts[0], 0x63);
     if (self->handles[0] != 0 && all_parents_unqueued_for_destruction__7TObjectFv(self->handles[0]) == 0) {
         self->handles[0] = 0;
     }
-    self->handles[1] = TBoss8Dragon__sub_8008741C(&self->pts[1], 0x63, 0x10);
+    self->handles[1] = spawn_continuous_particle_effect_with_flags(&self->pts[1], 0x63, 0x10);
     if (self->handles[1] != 0 && all_parents_unqueued_for_destruction__7TObjectFv(self->handles[1]) != 0) {
         set_owner_id__13TParticleCtrlFPvUs(self->handles[1], self->f1c);
     } else {

@@ -99,7 +99,7 @@ struct Self_80108020 {
 
 extern "C" {
 void TBoss3Volopt__sub_8022675C(u32, void *, s32, s32);
-f32 TObjPlayer__sub_803E1A58(Vec_80108164 *, Vec_80108164 *);
+f32 xyz_distance(Vec_80108164 *, Vec_80108164 *);
 Player_80108164 *get_player_by_client_id(u16);
 void *__nw__7TObjectFUl(u32);
 Quest_80108164 *get_quest_id__12TQuestListVMFPv(Player_80108164 *);
@@ -107,7 +107,7 @@ extern const f32 lbl_805DAB04;
 extern const f32 lbl_805DAB08;
 void TObjPlayer__sub_80108164(s32 idx);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 TBoss4Type2__sub_800874F4(void *, s32);
+s32 create_particle_emitter(void *, s32);
 void get_item_params__9TItemLoadFPvPvPv(void *, void *, void *);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, s32);
@@ -141,7 +141,7 @@ Self_80108020 *TItemEffArmor__ct(Self_80108020 *self, u8 *obj, f32 a, f32 b) {
     self->f5C = lbl_804A6F34.f20;
     self->f60 = lbl_804A6F34.f1C;
     self->f64 = (TItemEffArmor__data_805DAAEC - self->f5C) / lbl_805DAAFC;
-    self->f1C = TBoss4Type2__sub_800874F4(self->f6C + 0x38, 0x1BA);
+    self->f1C = create_particle_emitter(self->f6C + 0x38, 0x1BA);
     copy_vec4__13TRaderMapCoreFPvPv(self->v38, lbl_8043E140);
     {
         Vec_80108020 v = lbl_8043E160[0];
@@ -165,7 +165,7 @@ void TObjPlayer__sub_80108164(s32 idx) {
             void *o;
             p->get_pos(0x28, &a);
             p->get_pos(0x1B, &b);
-            s = lbl_805DAB04 * (TObjPlayer__sub_803E1A58(&a, &b) / lbl_805DAB08);
+            s = lbl_805DAB04 * (xyz_distance(&a, &b) / lbl_805DAB08);
             o = __nw__7TObjectFUl(0x7C);
             if (o != 0) {
                 TItemEffArmor__ct((Self_80108020 *)(o), (u8 *)(p), s, v);

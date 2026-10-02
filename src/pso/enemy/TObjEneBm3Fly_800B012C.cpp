@@ -205,7 +205,7 @@ f32 approach_value__13TObjEneBm3FlyFff(void *, f32, f32);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 check_v2_mode__9TObjEneDDFv();
 void *copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
-M2C_UNK fn_800B98C0(void *);
+M2C_UNK enemy_clear_target(void *);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(int);
@@ -306,7 +306,7 @@ void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
     case 0:
         advance_animation_playback();
         if (update_death_check__14TObjEneEpsilonFPv((void *) (arg0)) == 0) {
-            fn_800B98C0((void *) (arg0));
+            enemy_clear_target((void *) (arg0));
         }
         temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x3C0);
         switch (temp_r0_2) {

@@ -8,7 +8,7 @@ extern "C" {
 void set_flag_800__11TBoss7JointFPv(void *);
 void set_effect_target_position__8TObjFishFPvPvPv(void *, void *, void *);
 void TObjFish__sub_802ECB38(void *);
-M2C_UNK TBoss8Dragon__sub_800BB780(void *);
+M2C_UNK clear_attack_receipts(void *);
 M2C_UNK TObjFish__sub_802EC468(int, f32, f32);
 extern const f32 lbl_805DEA44;
 extern const f32 lbl_805DEA48;
@@ -45,7 +45,7 @@ void TObjFish__sub_802ED86C(u8 *arg0) {
     }
     M2C_FIELD(arg0, s16 *, 0x32C) = (s16) M2C_FIELD(arg0, s16 *, 0x2B8);
     set_flag_800__11TBoss7JointFPv(arg0);
-    TBoss8Dragon__sub_800BB780((void *) (arg0));
+    clear_attack_receipts((void *) (arg0));
 }
 
 void TObjFish__sub_802ED920(void) {  }

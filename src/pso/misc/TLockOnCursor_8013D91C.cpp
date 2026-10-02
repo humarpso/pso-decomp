@@ -25,7 +25,7 @@ extern u8 *lbl_805D5640;
 extern s32 lbl_805D5644;
 extern s32 TLockOnCursor__data_805D5648;
 void TLockOnCursor__sub_8013DBF4(void);
-s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 get_bml_model(void *, s32);
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8013DC38_lbl_804A7140 lbl_804A7140;
@@ -158,9 +158,9 @@ void TLockOnCursor__sub_8013DC38(void) {
         }
         lbl_805D5640 = (unsigned char *) ((void *) var_r0);
         if ((u32) var_r0 != 0U) {
-            lbl_805D5644 = TObjFish__sub_8001EDC4((void *) var_r0, 0);
-            TLockOnCursor__data_805D5648 = TObjFish__sub_8001EDC4(lbl_805D5640, 0);
-            lbl_805D564C = TObjFish__sub_8001EDC4(lbl_805D5640, 2);
+            lbl_805D5644 = get_bml_model((void *) var_r0, 0);
+            TLockOnCursor__data_805D5648 = get_bml_model(lbl_805D5640, 0);
+            lbl_805D564C = get_bml_model(lbl_805D5640, 2);
         }
     }
 }

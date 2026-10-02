@@ -102,7 +102,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
+M2C_UNK draw_ginja_object(s32);
 M2C_UNK set_chunk_material_override_pair(int, int);
 M2C_UNK set_chunk_material_color(void *);
 M2C_UNK TObjPlayer__sub_803E38FC(int);
@@ -160,7 +160,7 @@ void render__17TObjBoss2CeilJunkFv(Obj_8003A1B4 *self) {
   TOHangerMachine01__sub_803D9C00(self->pos);
   rotate_matrix_y(0, self->f60);
   rotate_matrix_x(0, self->f5C);
-  TObjBoss2Tunnel__sub_803DB470(lbl_805D4BE8->mdls[lbl_80435BC0[self->fAC]].f8);
+  draw_ginja_object(lbl_805D4BE8->mdls[lbl_80435BC0[self->fAC]].f8);
   pop_matrix();
   some_id_805c6f74 = lbl_805D5660;
   set_chunk_material_override_pair(0xFF00, 0);

@@ -66,7 +66,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 int set_global_param__8TObjFishFi(void);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
+M2C_UNK draw_ginja_object(int);
 M2C_UNK set_current_scene__6TSceneFi(int);
 void TObjPlayer__sub_8033EB4C(O_8033EB4C *self);
 }
@@ -148,7 +148,7 @@ void TObjPlayer__sub_8033EB4C(O_8033EB4C *self) {
         ((void (*)(void *))init_particle_effect__10TObjPlayerFv)(self);
         ((void (*)(void *))TObjPlayer__sub_8033E988)(self);
         ((void (*)(s32))set_global_param__8TObjFishFi)(self->items[i].p18);
-        TObjBoss2Tunnel__sub_803DB470(self->items[i].p1C);
+        draw_ginja_object(self->items[i].p1C);
         pop_matrix();
         set_tev_direct__13TParticleCtrlFi(1);
         ((void (*)(void *))reset_effects__10TObjPlayerFv)(self);

@@ -25,7 +25,7 @@ void TTecRaFoie__sub_80226254(void);
 int get_lobby_data__6TLobbyFv(void);
 void update_technique_slot__10TTecRaFoieFi(s32 arg0);
 int TLobby__sub_80226328(void*);
-M2C_UNK TLobby__sub_8023F8F4();
+M2C_UNK set_sound_slot_pitch();
 
     extern int lbl_805D6280;
 int get_lobby_data__6TLobbyFv(void) {  return lbl_805D6280; }
@@ -36,7 +36,7 @@ extern s32 lbl_805D62B0;
 
 void update_technique_slot__10TTecRaFoieFi(s32 arg0) {
     if (((s32) lbl_805D62B0 != 0) && (arg0 >= 0) && (arg0 < 0x28)) {
-        TLobby__sub_8023F8F4();
+        set_sound_slot_pitch();
     }
 }
 

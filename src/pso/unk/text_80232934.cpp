@@ -15,7 +15,7 @@ struct Obj_80232934 {
 };
 
 extern "C" {
-void TObjFish__sub_8001EDC4(s32, s32);
+void get_bml_model(s32, s32);
 void TEffClitical__sub_80082674(Ctx_80232934 *, void *, void *, s32, s32);
 void TTecRaFoie__sub_80082688(Vec_80232934 *, Vec_80232934 *, f32);
 void fn_80082764(void *, Quad_80232934 *, f32);
@@ -31,7 +31,7 @@ void TObjPlayer__sub_803D9B2C(void);
 void pop_matrix(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(void *);
-void TObjBoss2Tunnel__sub_803DB470(void);
+void draw_ginja_object(void);
 void set_chunk_material_color(void *, s32);
 extern Vec_80232934 lbl_8044D5A8;
 extern Quad_80232934 lbl_8044D5B4;
@@ -43,12 +43,12 @@ extern s32 some_id_805c6f74;
 extern const f32 lbl_805DC840;
 extern const f32 lbl_805DC844;
 extern const f32 lbl_805DC848;
-void TObjPlayer__sub_80232934(Obj_80232934 *arg0);
+void grants_flash_render(Obj_80232934 *arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_80232934(Obj_80232934 *arg0) {
+void grants_flash_render(Obj_80232934 *arg0) {
     Ctx_80232934 ctx;
     s32 id;
     if (get_global_state__14TOKeyMachine01Fv() == 0 || get_global_state__14TOKeyMachine01Fv() == 0x12 ||
@@ -72,8 +72,8 @@ void TObjPlayer__sub_80232934(Obj_80232934 *arg0) {
     scale_matrix(0, arg0->pos.x, arg0->pos.y, arg0->pos.z);
     translate_matrix(0, lbl_805DC844, lbl_805DC848, lbl_805DC844);
     set_global_param__8TObjFishFi(lbl_804CC868);
-    TObjFish__sub_8001EDC4(lbl_805D63AC, 10);
-    TObjBoss2Tunnel__sub_803DB470();
+    get_bml_model(lbl_805D63AC, 10);
+    draw_ginja_object();
     pop_matrix();
     fn_80082954(&ctx);
     func_80141618__Fv();

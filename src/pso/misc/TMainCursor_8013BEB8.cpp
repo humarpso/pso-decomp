@@ -27,7 +27,7 @@ extern const f32 TMainCursor__data_805DB0C0;
 extern const f32 TMainCursor__data_805DB0CC;
 extern const f32 lbl_805DB0E0;
 extern Vec_8013C0A0 lbl_8050BEE0;
-s32 TMainCursor__sub_8013C0A0(Vec_8013C0A0 *p, Vec_8013C0A0 *q, Vec_8013C0A0 *r, s32 yaw, f32 range, f32 dist);
+s32 target_in_xz_cone(Vec_8013C0A0 *p, Vec_8013C0A0 *q, Vec_8013C0A0 *r, s32 yaw, f32 range, f32 dist);
 }
 
 extern "C" {
@@ -109,7 +109,7 @@ s32 TMainCursor__sub_8013BF0C(Vec_8013BF0C *p, Vec_8013BF0C *q, s32 yaw, f32 ran
 
 #pragma push
 #pragma fp_contract on
-s32 TMainCursor__sub_8013C0A0(Vec_8013C0A0 *p, Vec_8013C0A0 *q, Vec_8013C0A0 *r, s32 yaw, f32 range, f32 dist) {
+s32 target_in_xz_cone(Vec_8013C0A0 *p, Vec_8013C0A0 *q, Vec_8013C0A0 *r, s32 yaw, f32 range, f32 dist) {
     Vec_8013C0A0 a;
     Vec_8013C0A0 b;
     f32 x;

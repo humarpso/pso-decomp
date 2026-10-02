@@ -319,7 +319,7 @@ extern "C" {
 void *construct__19TObjEneBm9MericarolFPvii(void *arg0, s32 arg1, s32 arg2);
 void *destroy__19TObjEneBm9MericarolFPvs(void *arg0, s16 arg1);
 void *dt__19TObjEneBm9MericarolFPvs(void *arg0, s16 arg1);
-s32 TBoss8Dragon__sub_8008741C(s32, M2C_UNK, M2C_UNK);
+s32 spawn_continuous_particle_effect_with_flags(s32, M2C_UNK, M2C_UNK);
 M2C_UNK __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -482,7 +482,7 @@ void *construct__19TObjEneBm9MericarolFPvii(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x1C) = 0;
     M2C_FIELD(arg0, s32 *, 0x20) = arg2;
     if (is_alive__9TObjEneDDFPv(M2C_FIELD(arg0, s32 *, 0x20)) != 0) {
-        M2C_FIELD(arg0, s32 *, 0x24) = TBoss8Dragon__sub_8008741C(M2C_FIELD(arg0, s32 *, 0x20) + 0x38, 0x20D, 0x40);
+        M2C_FIELD(arg0, s32 *, 0x24) = spawn_continuous_particle_effect_with_flags(M2C_FIELD(arg0, s32 *, 0x20) + 0x38, 0x20D, 0x40);
     }
     return arg0;
 }

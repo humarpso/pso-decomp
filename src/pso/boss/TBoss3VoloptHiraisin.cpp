@@ -321,7 +321,7 @@ void init_models__20TBoss3VoloptHiraisinFv(void);
 void update_state__20TBoss3VoloptHiraisinFPv(void *arg0);
 s32 TBreakUpMdl__sub_8009705C(s32, s32);
 void TObjEneGibbles__sub_80156720(void *);
-s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
+s32 get_bml_model(s32, M2C_UNK);
 int VecCopy__FP3VecPC3Vec(s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
@@ -348,12 +348,12 @@ void init_models__20TBoss3VoloptHiraisinFv(void) {
     s32 var_r31;
 
     TBoss3VoloptHiraisin__data_805D4C80 = lbl_805D4C10;
-    temp_r3 = collect_and_count__12TBoss3VoloptFUii(TObjFish__sub_8001EDC4(lbl_805D4C10, 0x10), 0xB);
+    temp_r3 = collect_and_count__12TBoss3VoloptFUii(get_bml_model(lbl_805D4C10, 0x10), 0xB);
     lbl_805D4C84 = temp_r3;
     *temp_r3 &= 0xFFFFFFFD;
     var_r31 = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
     if (var_r31 != 0) {
-        var_r31 = TBreakUpMdl__sub_8009705C(var_r31, TObjFish__sub_8001EDC4(TBoss3VoloptHiraisin__data_805D4C80, 0x10));
+        var_r31 = TBreakUpMdl__sub_8009705C(var_r31, get_bml_model(TBoss3VoloptHiraisin__data_805D4C80, 0x10));
     }
     lbl_805D4C88 = var_r31;
     lbl_805D4C70 = register_boss__6TLobbyFPv(0x24);

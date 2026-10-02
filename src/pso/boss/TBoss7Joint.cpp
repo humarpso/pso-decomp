@@ -251,7 +251,7 @@ void TBoss7Joint__vt85(void);
 void *__dt__11TBoss7JointFv(void *arg0, s16 arg1);
 void store_position__11TBoss7JointFPv(void *arg0);
 M2C_UNK TBoss7Joint__sub_802EE820(void *);
-M2C_UNK TBoss8Dragon__sub_800BB780(void *);
+M2C_UNK clear_attack_receipts(void *);
 void TObjEneDD__vt0(void *, int);
 M2C_UNK TObjFish__sub_802EC468(void *, f32, f32);
 M2C_UNK TObjFish__sub_802ECB70(int, int, int);
@@ -288,7 +288,7 @@ void TBoss7Joint__vt60(u8 *arg0) {
     }
     M2C_FIELD(arg0, s16 *, 0x32C) = (s16) M2C_FIELD(arg0, s16 *, 0x2B8);
     set_flag_800__11TBoss7JointFPv((int) (M2C_FIELD(arg0, s32 *, 0x10)));
-    TBoss8Dragon__sub_800BB780((void *) (arg0));
+    clear_attack_receipts((void *) (arg0));
 }
 
 extern M2C_UNK __vt__11TBoss7Joint[];

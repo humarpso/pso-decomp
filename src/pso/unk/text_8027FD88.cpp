@@ -34,7 +34,7 @@ struct Wn_80280F14 { u8 pad[0x20]; s16 f20; };
 
 extern "C" {
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
+s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 s32 TLobby__sub_801C2614();
 u16 get_card_flag__23TAdSinglePlyChrSelectGCFi(u16);
 u16 get_card_field__23TAdSinglePlyChrSelectGCFi(u16);
@@ -112,15 +112,15 @@ void TWindowSubStatusDisp__vt3(u8 *arg0) {
     temp_r30 = ((u8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0));
     TWindowSubStatusDisp__sub_8025AC50(temp_r30, get_message_10__20TWindowSubStatusDispFPv(0x8E), 0);
     temp_r30 = ((u8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1));
-    TWindowSubStatusDisp__sub_8025AC50(temp_r30, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 6), 0);
+    TWindowSubStatusDisp__sub_8025AC50(temp_r30, get_localized_text_entry(0x10, 6), 0);
     temp_r30 = ((u8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 4));
-    TWindowSubStatusDisp__sub_8025AC50(temp_r30, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 7), 0);
+    TWindowSubStatusDisp__sub_8025AC50(temp_r30, get_localized_text_entry(0x10, 7), 0);
     temp_r30 = ((u8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 7));
-    TWindowSubStatusDisp__sub_8025AC50(temp_r30, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 8), 0);
+    TWindowSubStatusDisp__sub_8025AC50(temp_r30, get_localized_text_entry(0x10, 8), 0);
     temp_r30 = ((u8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xA));
-    TWindowSubStatusDisp__sub_8025AC50(temp_r30, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 9), 0);
+    TWindowSubStatusDisp__sub_8025AC50(temp_r30, get_localized_text_entry(0x10, 9), 0);
     temp_r30 = ((u8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xD));
-    TWindowSubStatusDisp__sub_8025AC50(temp_r30, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 0xE), 0);
+    TWindowSubStatusDisp__sub_8025AC50(temp_r30, get_localized_text_entry(0x10, 0xE), 0);
     temp_r30 = ((u8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 3));
     M2C_FIELD(temp_r30, s32 *, 0x20) = (s32) get_card_field_21a8__23TAdSinglePlyChrSelectGCFi((u16) M2C_FIELD(arg0, s16 *, 0x20));
     temp_r30 = ((u8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 6));

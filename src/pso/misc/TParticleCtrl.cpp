@@ -79,7 +79,7 @@ void TObjRoomId__sub_80141CF4(void *dst, Col_80085798 *src, f32 t);
 void TParticleCtrl__sub_80085798(Obj_80085798 *self);
 M2C_UNK fn_803DC86C(int, int, int, int);
 M2C_UNK set_chunk_material_color(void *);
-void TParticleCtrl__sub_80086418(Ctrl_80086418 *self, s32 mode);
+void apply_particle_model_fade_color(Ctrl_80086418 *self, s32 mode);
 }
 
 extern "C" {
@@ -203,7 +203,7 @@ void mark_active__13TParticleCtrlFPv(void *arg0) {
 }
 typedef char RecoveredGlobal_8008655C_lbl_8048E728_size[sizeof(RecoveredGlobal_8008655C_lbl_8048E728) == 0x18 ? 1 : -1];
 
-void TParticleCtrl__sub_80086418(Ctrl_80086418 *self, s32 mode) {
+void apply_particle_model_fade_color(Ctrl_80086418 *self, s32 mode) {
     FCol_80086418 f;
     if (mode != 0) {
         fn_803DC86C(1, 4, 1, 0);

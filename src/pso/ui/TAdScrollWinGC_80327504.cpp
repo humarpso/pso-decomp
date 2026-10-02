@@ -24,7 +24,7 @@ extern const f32 lbl_805DF6A8;
 extern const f32 lbl_805DF6AC;
 extern const f32 lbl_805DF6B0;
 void run_task__14TAdScrollWinGCFv(u8 *arg0);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, s32);
+s32 get_localized_text_entry(M2C_UNK, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 void TLobby__sub_80269454(s32);
 void send_and_handle__6TLobbyFPvii(s32, s32, M2C_UNK);
@@ -119,7 +119,7 @@ void *TAdScrollWinGC__ct(void *arg0, void *arg1, s32 arg2, s32 arg3) {
     case 0:
     case 1:
         for (i = 0; i < 10; i++) {
-            send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, s32 *, 0x40), TAdSinglePlyChrSelectGC__sub_80132F2C(0x1A, base + i), 1);
+            send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, s32 *, 0x40), get_localized_text_entry(0x1A, base + i), 1);
         }
         break;
     case 2:

@@ -136,7 +136,7 @@ s32 TBoss6PlotFalz__sub_802AB6CC(void *, f32);
 M2C_UNK TBoss6PlotFalz__sub_802ABF44(f32);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
+M2C_UNK draw_ginja_object(int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -174,7 +174,7 @@ void render_if_active__10TBoss6RockFPv(u8 *arg0) {
         rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x38)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x3C)));
         TBoss6PlotFalz__sub_802ABF44((f32) (TBoss6Rock__data_805DFF4C));
-        TObjBoss2Tunnel__sub_803DB470((int) (M2C_FIELD(arg0, s32 *, 0x40)));
+        draw_ginja_object((int) (M2C_FIELD(arg0, s32 *, 0x40)));
         reset_fish_globals__8TObjFishFv();
         pop_matrix();
     }

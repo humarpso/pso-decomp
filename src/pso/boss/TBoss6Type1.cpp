@@ -313,7 +313,7 @@ extern const f32 lbl_805DE2EC;
 void TBoss6Type1__sub_802B5100(Obj_802B5100 *self, s32 a, s32 b);
 Blk_802B8624 *TBoss6Type1__sub_802B8624(Blk_802B8624 *d, Blk_802B8624 *s);
 void TBoss6Type1__sub_802B5DD4(Obj_802B5DD4 *self);
-u32 TBoss4Type2__sub_800874F4(void *, int);
+u32 create_particle_emitter(void *, int);
 void set_flags__11TBoss4Type2FPvUi(u32, int);
 extern Tbl_802B4BA8 lbl_80470D28[];
 s32 copy_vec3__11TBoss4Type2FPvPv(int, void *);
@@ -402,7 +402,7 @@ extern const f64 TBoss6Type1__data_80471038;
 extern const f32 TBoss6Type1__data_805DE2D0;
 void TBoss6Type1__sub_802B4D5C(u8 *self, s32 num, s32 den);
 s32 rand();
-f32 TObjPlayer__sub_803E1A58(void *, void *);
+f32 xyz_distance(void *, void *);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
 void TCameraCtrl__sub_8006D2B0(void *, void *, int);
 extern Vec_802B57D4 TBoss6Type1__data_80470FB4;
@@ -514,7 +514,7 @@ void TBoss6Type1__sub_802B4BA8(u8 *arg0, s32 arg1) {
     u8 *p = arg0 + arg1 * 4;
     if (*(u32 *)(p + 0x4F8) == 0U) {
         V3_802B4BA8 v = ((T1_802B4BA8 *)arg0)->pos;
-        *(u32 *)(p + 0x4F8) = TBoss4Type2__sub_800874F4(&v, lbl_80470D28[arg1].a);
+        *(u32 *)(p + 0x4F8) = create_particle_emitter(&v, lbl_80470D28[arg1].a);
         if (*(u32 *)(p + 0x4F8) != 0U) {
             set_flags__11TBoss4Type2FPvUi(*(u32 *)(p + 0x4F8), 0x40);
         }
@@ -816,7 +816,7 @@ s32 TBoss6Type1__sub_802B57D4(void *arg0, void *arg1, void *arg2, int arg3) {
     if (arg2 == NULL) {
         arg2 = &lbl_80470FC0;
     }
-    dist = TBoss6Type1__data_805DE2E0 * TObjPlayer__sub_803E1A58(arg1, arg2);
+    dist = TBoss6Type1__data_805DE2E0 * xyz_distance(arg1, arg2);
     if (dist < 4.0f) {
         dist = 4.0f;
     }
@@ -1023,7 +1023,7 @@ M2C_UNK TObjPlayer__sub_800F5E08();
 extern const f32 lbl_805DE3D0;
 void render_shadows__11TBoss6Type1Fv(u8 *arg0);
 f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
-s32 TObjPlayer__sub_80141F84(int, int);
+s32 angle_difference_abs(int, int);
 s32 TObjPlayer__sub_801423A4(int, int, int);
 extern const f64 TBoss6Type1__data_80471038;
 extern const f32 TBoss6Type1__data_805DE2D0;
@@ -1368,7 +1368,7 @@ void TBoss6Type1__sub_802B7D74(u8 *arg0) {
   {
     var_r31 = 0x8000;
   }
-  if (TObjPlayer__sub_80141F84((int) (*((s32 *) (((s8 *) arg0) + 0x5C))), (int) var_r31) < 0x666)
+  if (angle_difference_abs((int) (*((s32 *) (((s8 *) arg0) + 0x5C))), (int) var_r31) < 0x666)
   {
     *((s32 *) (((s8 *) arg0) + 0x5C)) = var_r31;
   }

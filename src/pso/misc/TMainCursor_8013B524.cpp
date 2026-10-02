@@ -12,14 +12,14 @@ void render__11TMainCursorFPv(u8 *arg0);
 void update_chair__11TMainCursorFPv(void *arg0);
 void TMainCursor__sub_8013E2DC(void);
 M2C_UNK rotate_matrix_z(M2C_UNK, M2C_UNK);
-void TObjFish__sub_803E46BC(void);
+void draw_chunk_object(void);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK fn_8023601C(void *, M2C_UNK *, f32);
+M2C_UNK offset_point_toward_camera(void *, M2C_UNK *, f32);
 void play_sound__15TPlyPhotonChairFPv(void *);
 M2C_UNK set_position_vec3__10TObjPlayerFPvPv(M2C_UNK, M2C_UNK *);
 void update_parts2__15TPlyPhotonChairFPv(void *);
@@ -31,7 +31,7 @@ void update_chair__11TMainCursorFPv(void *arg0) {
     update_parts2__15TPlyPhotonChairFPv(self->f_4C);
     play_sound__15TPlyPhotonChairFPv(self->f_4C);
     TMainCursor__sub_8013E2DC();
-    TObjFish__sub_803E46BC();
+    draw_chunk_object();
     update_parts__15TPlyPhotonChairFPv(self->f_4C);
 }
 
@@ -45,7 +45,7 @@ void render__11TMainCursorFPv(u8 *arg0) {
     begin_effect_render__13TParticleCtrlFv();
     temp_f31 = M2C_FIELD(arg0, f32 *, 0x30);
     TObjPlayer__sub_803D9B2C();
-    fn_8023601C(arg0 + 0x40, &sp8, M2C_FIELD(arg0, f32 *, 0x2C));
+    offset_point_toward_camera(arg0 + 0x40, &sp8, M2C_FIELD(arg0, f32 *, 0x2C));
     set_position_vec3__10TObjPlayerFPvPv(0, &sp8);
     rotate_matrix_y(0, M2C_FIELD(lbl_805D4DF0, s32 *, 0x194));
     TObjPlayer__sub_803D9B2C();

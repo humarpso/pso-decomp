@@ -246,7 +246,7 @@ void __destroy_arr(void *, void *, u32, u32);
 void TObjPlayer__sub_800D7C58(void);
 extern u8 lbl_80493F04[];
 Gibon_800D13B8 *TObjEneBm5GibonU__sub_800D13B8(Gibon_800D13B8 *arg0, s16 arg1);
-void TObjPlayer__sub_80011734(void *, s32, f32);
+void apply_actor_gravity(void *, s32, f32);
 void move_with_wall_slide(void *);
 void TObjPlayer__sub_800180E8(void *, Vec_800D1E4C, Vec_800D1E4C, f32);
 void update_angle__10TObjPlayerFPviPv(void *, s32, void *);
@@ -540,7 +540,7 @@ void TObjPlayer__sub_800D1E4C(Ene_800D1E4C *arg0) {
         arg0->state = 1;
     case 1:
         advance_animation_playback(arg0);
-        TObjPlayer__sub_80011734(arg0, 0, lbl_805DA258);
+        apply_actor_gravity(arg0, 0, lbl_805DA258);
         VecCopy__FP3VecPC3Vec(&arg0->v290, &arg0->v2FC);
         TObjPlayer__sub_800180E8(arg0, arg0->v290, arg0->v29C, arg0->param->speed);
         update_angle__10TObjPlayerFPviPv(arg0, arg0->param->turn, arg0->v308);

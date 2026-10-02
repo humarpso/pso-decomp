@@ -221,7 +221,7 @@ struct Obj_80189F24 : VBase_80189F24 {
 extern "C" {
 M2C_UNK fn_80156CA0(void *);
 void TObjPlayer__sub_80189FEC(u8 *arg0);
-f32 fn_801315A0(void *, void *);
+f32 xyz_distance_squared(void *, void *);
 s32 TObjPlayer__sub_8018A10C(u8 *arg0, s32 arg1);
 M2C_UNK TObjPlayer__sub_80154954(void *, void *);
 s32 TLobby__sub_80156A80(void *, void *, int);
@@ -283,7 +283,7 @@ f32 TObjPlayer__sub_8018A0B4(void *arg0, s32 arg1, s32 *arg2) {
     return lbl_805DBCF4;
 }
 s32 TObjPlayer__sub_8018A10C(u8 *arg0, s32 arg1) {
-    return fn_801315A0((void *) (arg1 + 0x38), (void *) (arg0 + 0x38)) < M2C_FIELD(arg0, f32 *, 0x33C);
+    return xyz_distance_squared((void *) (arg1 + 0x38), (void *) (arg0 + 0x38)) < M2C_FIELD(arg0, f32 *, 0x33C);
 }
 
 }

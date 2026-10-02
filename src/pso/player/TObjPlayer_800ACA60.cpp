@@ -60,9 +60,9 @@ s32 TObjPlayer__sub_800AED14(void *arg0);
 s32 TObjPlayer__sub_80016FF8();
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 s32 TObjPlayer__sub_800AEDB4(void *arg0);
-M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 f32 TObjPlayer__sub_800178C8(void *, s32, Vec_800AE18C *, void *, f32, f32);
-s32 TObjPlayer__sub_800182A0(void *, Vec_800AE18C *, int);
+s32 select_enemy_destination(void *, Vec_800AE18C *, int);
 M2C_UNK copy_position_if_valid__10TObjPlayerFii(void *, Vec_800AE18C *);
 M2C_UNK TObjPlayer__sub_800A7798(void *, f32);
 void *copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
@@ -77,7 +77,7 @@ extern const f32 lbl_805D9BD8;
 extern const f32 lbl_805D9BF0;
 extern const f32 lbl_805D9C34;
 extern const f32 lbl_805D9C38;
-u16 TObjPlayer__sub_800115C4(void *, int, f32);
+u16 find_nearest_visible_player(void *, int, f32);
 s32 check_path_obstructed(void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
@@ -125,7 +125,7 @@ void update_invincibility__10TObjPlayerFPv(void *arg0);
 void update_meseta_anim_state__10TObjPlayerFPv(void *arg0);
 void update_state_flags__10TObjPlayerFPv(void *arg0);
 M2C_UNK advance_animation_playback();
-M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 
 void update_state_flags__10TObjPlayerFPv(void *arg0) {
@@ -160,7 +160,7 @@ void update_invincibility__10TObjPlayerFPv(void *arg0) {
 
     advance_animation_playback();
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800000)) {
-        TObjPlayer__sub_80011734(arg0, 0, lbl_805D9BD8);
+        apply_actor_gravity(arg0, 0, lbl_805D9BD8);
     }
     update_collisions__10TObjPlayerFPv(arg0);
     temp_r4 = M2C_FIELD(arg0, s16 *, 0x33C);
@@ -230,7 +230,7 @@ M2C_UNK TObjPlayer__sub_800AE18C(u8 *arg0) {
     u8 *temp_r7;
     switch (M2C_FIELD(arg0, s16 *, 0x328)) {
     case 0:
-        TObjPlayer__sub_80011734((void *) arg0, 0, lbl_805D9BD8);
+        apply_actor_gravity((void *) arg0, 0, lbl_805D9BD8);
         if (objInBand__FP7GameObjf((void *) (arg0), lbl_805D9BD8) != 0) {
             TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), 0x3AD0A), arg0 + 0x38, 0, 0);
             play_effect_if_v2__10TObjPlayerFi(-0x200);
@@ -240,7 +240,7 @@ M2C_UNK TObjPlayer__sub_800AE18C(u8 *arg0) {
             M2C_FIELD(arg0, s16 *, 0xB8) = 2;
             {
             Vec_800AE18C v = *(Vec_800AE18C *)(M2C_FIELD(arg0, u8 **, 0x2A8) + 0x2FC);
-            if (TObjPlayer__sub_800182A0((void *) (arg0), &v, 1) != 0) {
+            if (select_enemy_destination((void *) (arg0), &v, 1) != 0) {
                 Vec_800AE18C v2 = *(Vec_800AE18C *)(arg0 + 0x2FC);
                 copy_position_if_valid__10TObjPlayerFii((void *) (arg0), &v2);
             }
@@ -404,7 +404,7 @@ void TObjPlayer__sub_800AEE54(u8 *arg0) {
             }
             M2C_FIELD(arg0, u16 *, 0x338) = best_id;
         } else {
-            M2C_FIELD(arg0, u16 *, 0x338) = TObjPlayer__sub_800115C4((void *) (arg0), 0, M2C_FIELD(M2C_FIELD(arg0, f32 **, 0x350), f32 *, 0));
+            M2C_FIELD(arg0, u16 *, 0x338) = find_nearest_visible_player((void *) (arg0), 0, M2C_FIELD(M2C_FIELD(arg0, f32 **, 0x350), f32 *, 0));
         }
         tid = M2C_FIELD(arg0, u16 *, 0x338);
         if (tid < 0x1000U) {

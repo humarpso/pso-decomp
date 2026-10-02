@@ -45,7 +45,7 @@ extern const f32 lbl_805DF1FC;
 extern const f32 lbl_805DF200;
 extern const f32 lbl_805DF204;
 void TWindowPartyStatus__sub_8030C0C4(u8 *arg0, u8 *arg1);
-s32 TWindowSubComCard__sub_8026CBB8(int);
+s32 get_window_layout_position(int);
 M2C_UNK TWindowSimpleStatus__ct(void *, int, void *, void *);
 extern M2C_UNK __vt__18TWindowPartyStatus[];
 extern s32 lbl_805D40F8;
@@ -59,7 +59,7 @@ void *__dt__18TWindowPartyStatusFv(void *arg0, s16 arg1);
 void draw__18TWindowPartyStatusFPv(void* p);
 void run_task__18TWindowPartyStatusFv(s32 arg0);
 M2C_UNK TWindowComCard__sub_8026F9F4(void *, int);
-s32 TWindowSubComCard__sub_8026CBB8(int);
+s32 get_window_layout_position(int);
 M2C_UNK TWindowSubStatusDisp__sub_80257C28(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__19TWindowSimpleStatusFv(void *, int);
@@ -124,7 +124,7 @@ void run_task__18TWindowPartyStatusFv(s32 arg0) {
     fn_80270014();
     draw__18TWindowPartyStatusFPv((void*)((void *) (arg0)));
     update_status_help_item((void *) (arg0));
-    TWindowComCard__sub_8026F9F4((void *) (arg0), (int) (TWindowSubComCard__sub_8026CBB8((int) (0xAC))));
+    TWindowComCard__sub_8026F9F4((void *) (arg0), (int) (get_window_layout_position((int) (0xAC))));
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));
     update_fade__17TWindowSubComCardFPv((void *) (arg0));
     TWindowSubStatusDisp__sub_80257C28((void *) (arg0), (void *) (arg0 + 0x24));
@@ -145,7 +145,7 @@ void *__dt__18TWindowPartyStatusFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_8030C2D8___vt__18TWindowPartyStatus_size[sizeof(RecoveredGlobal_8030C2D8___vt__18TWindowPartyStatus) == 0x1C ? 1 : -1];
 u8 *TWindowPartyStatus__ct(u8 *arg0, s16 arg1, s32 arg2) {
-    TWindowSimpleStatus__ct((void *) (arg0), (int) (TWindowSubComCard__sub_8026CBB8((int) (0xAB))), (void *) (lbl_805D53A0), (void *) (arg2));
+    TWindowSimpleStatus__ct((void *) (arg0), (int) (get_window_layout_position((int) (0xAB))), (void *) (lbl_805D53A0), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8030C2D8___vt__18TWindowPartyStatus *)&__vt__18TWindowPartyStatus).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D40F8;
     M2C_FIELD(arg0, s16 *, 0x20) = arg1;

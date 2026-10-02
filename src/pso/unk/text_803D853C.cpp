@@ -24,7 +24,7 @@ void TObjPlayer__sub_803D898C(void *m);
 void rotate_matrix_y(void *, s32);
 void rotate_matrix_z(void *, s32);
 void rotate_matrix_x(void *, s32);
-void TObjChip__sub_803D8AE4(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void rotate_matrix_yxz(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 extern s32 lbl_805D7774;
 void PSMTXScale(f32 (*m)[4], f32 sx, f32 sy, f32 sz);
 void PSMTXConcat(f32 (*a)[4], f32 (*b)[4], f32 (*ab)[4]);
@@ -101,7 +101,7 @@ void TBoss7Tentacle__sub_803D8A6C(void *m, s32 x, s32 y, s32 z) {
 }
 #pragma pop
 
-void TObjChip__sub_803D8AE4(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void rotate_matrix_yxz(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg2 != 0) {
         rotate_matrix_y((void *)((void *) (arg0)), (s32)((void *) (arg2)));
     }

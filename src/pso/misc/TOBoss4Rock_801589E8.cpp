@@ -44,7 +44,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
+M2C_UNK draw_ginja_object(int);
 void render__11TOBoss4RockFv(Rock_80158DCC *self);
 }
 
@@ -70,7 +70,7 @@ void render__11TOBoss4RockFv(Rock_80158DCC *self) {
             rotate_matrix_z(0, self->rots[i].z);
             rotate_matrix_x(0, self->rots[i].x);
             rotate_matrix_y(0, self->rots[i].y);
-            TObjBoss2Tunnel__sub_803DB470(self->models[i]);
+            draw_ginja_object(self->models[i]);
             pop_matrix();
         }
         pop_matrix();

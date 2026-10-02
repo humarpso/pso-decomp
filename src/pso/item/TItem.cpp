@@ -30,7 +30,7 @@ void TItem__sub_801005DC(void);
 void TItem__sub_801005E0(void);
 int TItem__sub_801005E4(void);
 s32 TLobby__sub_80101AB0();
-s32 TOComputerMachine01__sub_8023DDC8(s32, s32, s32, s32, s32);
+s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
 s32 set_owner_id__13TParticleCtrlFPvUs(s32, s32);
 u16 TObjPlayer__sub_80100474(void* p);
@@ -65,7 +65,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TOComputerMachine01__sub_8023DDC8(s32, s32, s32, s32, s32);
+s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 s32 PPCSync();
 s32 test_flag_2000000__10TObjPlayerFPv(u32);
 s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
@@ -137,7 +137,7 @@ void TItem__sub_801007AC(void);
 void TItem__sub_801007B0(void);
 s32 set_flag_1024__11TItemObjectFPv(s32);
 s32 check_flag_400__20TWindowSubStatusDispFv();
-s32 TItem__sub_800FFE70(s32);
+s32 use_combination_recipe__5TItemFPv(s32);
 
 void TItem__sub_80100758(void) {  }
 void TItem__sub_8010075C(void) {  }
@@ -146,7 +146,7 @@ void update_pickup_flag__5TItemFi(s32 arg0) {
         set_flag_1024__11TItemObjectFPv(arg0);
         return;
     }
-    TItem__sub_800FFE70(arg0);
+    use_combination_recipe__5TItemFPv(arg0);
 }
 void TItem__sub_801007A8(void) {  }
 void TItem__sub_801007AC(void) {  }
@@ -400,12 +400,12 @@ extern "C" {
 void init_owner__5TItemFPvUs(void *arg0, u16 arg1);
 M2C_UNK TItem__sub_80101E7C(void *, u16);
 M2C_UNK get_player_by_client_id(int);
-s32 TObjPlayer__sub_80019248();
+s32 is_locally_controlled__10TObjPlayerFPv();
 s32 TLobby__sub_8011AF58(u16);
 
 void init_owner__5TItemFPvUs(void *arg0, u16 arg1) {
     get_player_by_client_id(arg1);
-    if (TObjPlayer__sub_80019248() != 0) {
+    if (is_locally_controlled__10TObjPlayerFPv() != 0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0xC) == -1) {
             M2C_FIELD(arg0, s32 *, 0xC) = TLobby__sub_8011AF58(arg1);
         }

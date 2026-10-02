@@ -24,7 +24,7 @@ extern RecoveredGlobal_8019153C_lbl_804B7C78 lbl_804B7C78;
 extern u32 TObjHashiVersus1__data_805D5C14;
 void TObjHashiVersus1__sub_8019153C(void);
 s32 TObjFish__sub_8001EDB0(void *, s32);
-s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 get_bml_model(void *, s32);
 u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
 u8 * TObjHashiBase__ct(void *, s32);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
@@ -102,7 +102,7 @@ u8 *TObjHashiVersus1__ct(u8 *arg0, s32 arg1, s32 _w2) {
         M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) - M2C_FIELD(arg0, f32 *, 0x68));
     }
     M2C_FIELD(arg0, f32 *, 0xD0) = (f32) M2C_FIELD(arg0, f32 *, 0x6C);
-    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((*(u8 * *)&TObjHashiVersus1__data_805D5C14), 0);
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((*(u8 * *)&TObjHashiVersus1__data_805D5C14), 0);
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TObjHashiVersus1__data_805D5C14), 0);
     TObjEneGibbles__sub_80156780(arg0, (s32) &lbl_804B7CCC.value, 2);
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);

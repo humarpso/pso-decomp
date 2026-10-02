@@ -334,7 +334,7 @@ struct Stack_800E3F8C {
 
 extern "C" {
 int transition_enemy_state(void*, int);
-void TBoss8Dragon__sub_800BB780(void *);
+void clear_attack_receipts(void *);
 void TObjEneMe3ShinowaMirage__vt60(void *arg0);
 M2C_UNK TObjEneMe3ShinowaMirage__sub_800E4B40();
 void render__23TObjEneMe3ShinowaMirageFv(u8 *arg0);
@@ -348,7 +348,7 @@ void TObjEneMe3ShinowaMirage__vt61(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 int get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
-s32 TBoss4Type2__sub_800874F4(s32, s32);
+s32 create_particle_emitter(s32, s32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void enable__13TParticleCtrlFPv(void *);
 void set_field_378__9TObjEneDDFPvi(void *, s32);
@@ -468,7 +468,7 @@ void TObjEneMe3ShinowaMirage__vt60(void *arg0) {
     if (M2C_FIELD(arg0, s16 *, 0x326) != 15) {
         transition_enemy_state((void*)(arg0), (int)(15));
     }
-    TBoss8Dragon__sub_800BB780(arg0);
+    clear_attack_receipts(arg0);
 }
 
 extern M2C_UNK __vt__23TObjEneMe3ShinowaMirage[];
@@ -555,7 +555,7 @@ void TObjEneMe3ShinowaReal__vt114(u8 *arg0, s32 arg1) {
             }
             if (M2C_FIELD(arg0, f32 *, 0xC0) >= lbl_805DA5C8) {
                 if ((void *) M2C_FIELD(arg0, u8 **, 0x424) == NULL) {
-                    M2C_FIELD(arg0, u8 **, 0x424) = (unsigned char *) (TBoss4Type2__sub_800874F4((s32) ((u8 *)(arg0) + 0x38), 0x114));
+                    M2C_FIELD(arg0, u8 **, 0x424) = (unsigned char *) (create_particle_emitter((s32) ((u8 *)(arg0) + 0x38), 0x114));
                     temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x424));
                     if (temp_r3_2 != NULL) {
                         enable__13TParticleCtrlFPv(temp_r3_2);

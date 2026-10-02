@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_80019248(void *);
+s32 is_locally_controlled__10TObjPlayerFPv(void *);
 s32 obj_isState3_324(void *);
 s32 obj_getField1c(void *);
 u32 TLockOnCursor__ct(u32, void *, s32);
@@ -38,7 +38,7 @@ void create_lockon_cursor__10TObjPlayerFPv(void *arg0) {
             }
             M2C_FIELD(arg0, u32 *, 0x424) = var_r31;
         }
-    } else if (((TObjPlayer__sub_80019248(arg0) != 0) || (obj_isState3_324(arg0) != 0)) && ((u32) M2C_FIELD(arg0, u32 *, 0x424) == 0U)) {
+    } else if (((is_locally_controlled__10TObjPlayerFPv(arg0) != 0) || (obj_isState3_324(arg0) != 0)) && ((u32) M2C_FIELD(arg0, u32 *, 0x424) == 0U)) {
         var_r31_2 = __nw__7TObjectFUl(0x52C);
         if (var_r31_2 != 0U) {
             var_r31_2 = TLockOnCursor__ct(var_r31_2, arg0, obj_getField1c(arg0));

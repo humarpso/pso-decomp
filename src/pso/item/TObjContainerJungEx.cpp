@@ -119,7 +119,7 @@ void *__dt__19TObjContainerJungExFv(void *arg0, s16 arg1);
 void *create__19TObjContainerJungExFPv(void *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470();
+M2C_UNK draw_ginja_object();
 M2C_UNK TObjContainerJungEx__sub_8018D900(M2C_UNK);
 M2C_UNK TObjContainerJungEx__sub_8018D93C(M2C_UNK);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
@@ -176,10 +176,10 @@ void TObjContainerJungEx__vt79(u8 *arg0) {
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         scale_matrix(0, lbl_805DBD9C, lbl_805DBD9C, lbl_805DBD9C);
         TObjContainerJungEx__sub_8018D93C(0);
-        TObjBoss2Tunnel__sub_803DB470();
+        draw_ginja_object();
         begin_effect_render__13TParticleCtrlFv();
         TObjContainerJungEx__sub_8018D93C(3);
-        TObjBoss2Tunnel__sub_803DB470();
+        draw_ginja_object();
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
     case 1:

@@ -28,7 +28,7 @@ extern RecoveredGlobal_8016EF68___vt__14TOMineTrapDisp __vt__14TOMineTrapDisp;
 extern s32 lbl_805D3088;
 u8 *TOMineTrapDisp__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TObjPlayer__sub_80019248(void);
+s32 is_locally_controlled__10TObjPlayerFPv(void);
 f32 horizontal_distance_squared(void *, void *);
 void *get_mine_data_ptr__10TOMineTrapFPv(void *);
 void get_player_state__6TOMineFPv(void *, u16);
@@ -103,7 +103,7 @@ void run_task__10TOMineDispFv(u8 *arg0) {
     switch (*(s32 *)(arg0 + 0xA4)) {
     case 0:
         p = get_player_by_client_id(*(u16 *)(arg0 + 0xA8));
-        if (p != NULL && TObjPlayer__sub_80019248() != 0 && fn_80171314(p) != 0) {
+        if (p != NULL && is_locally_controlled__10TObjPlayerFPv() != 0 && fn_80171314(p) != 0) {
             if (horizontal_distance_squared(arg0 + 0x38, p + 0x38) <= lbl_805DB850 ||
                 get_stat_by_key_state__10TObjPlayerFPv(p) == get_stat_by_key_state__10TObjPlayerFPv(arg0)) {
                 *(s32 *)(arg0 + 0xA4) = 2;

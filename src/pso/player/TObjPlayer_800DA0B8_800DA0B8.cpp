@@ -36,7 +36,7 @@ struct Ene_800DA2A0 : Base_800DA2A0 {
 };
 
 extern "C" {
-u16 TObjPlayer__sub_800115C4(void *, s32, f32);
+u16 find_nearest_visible_player(void *, s32, f32);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK, s32);
 s32 TObjPlayer__sub_800C6FFC(void *, f32);
 void TObjPlayer__sub_800DA1F4(Obj_800DA1F4 *arg0);
@@ -47,9 +47,9 @@ void TObjPlayer__sub_800DA2A0(Ene_800DA2A0 *arg0);
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TBoss4Zako__sub_803D8910(void *, void *);
-void TScene__sub_803D8DB4(int, void *, void *);
+void rotate_vector_by_matrix(int, void *, void *);
 void rotate_matrix_y(int, int);
-void TObjPlayer__sub_803D97F0(void *, f32);
+void push_matrix_from(void *, f32);
 void pop_matrix();
 extern u8 lbl_8058D490[];
 extern const f32 lbl_805DA3F8;
@@ -109,9 +109,9 @@ void TObjPlayer__sub_800DA1F4(Obj_800DA1F4 *arg0) {
     v.y = lbl_805DA3F8;
     v.x = lbl_805DA3F8;
     v.z = lbl_805DA404;
-    TObjPlayer__sub_803D97F0(lbl_8058D490, lbl_805DA3F8);
+    push_matrix_from(lbl_8058D490, lbl_805DA3F8);
     rotate_matrix_y(0, arg0->h);
-    TScene__sub_803D8DB4(0, &v, &v);
+    rotate_vector_by_matrix(0, &v, &v);
     pop_matrix();
     TBoss4Zako__sub_803D8910(&arg0->pos, &v);
     VecCopy__FP3VecPC3Vec(&arg0->pos2, &arg0->pos);
@@ -124,7 +124,7 @@ void TObjPlayer__sub_800DA2A0(Ene_800DA2A0 *arg0) {
     switch (arg0->state) {
     case 0:
         if (arg0->v17(0x1E) != 0) {
-            if (TObjPlayer__sub_800115C4(arg0, 0, *arg0->param) != 0xFFFF) {
+            if (find_nearest_visible_player(arg0, 0, *arg0->param) != 0xFFFF) {
                 TObjPlayer__sub_800C6FFC(arg0, *arg0->param);
                 if (arg0->f388 & 0x40000) {
                     TObjPlayer__sub_800DA1F4((Obj_800DA1F4 *)((struct Obj_800DA1F4 *)arg0));
@@ -137,10 +137,10 @@ void TObjPlayer__sub_800DA2A0(Ene_800DA2A0 *arg0) {
     case 11:
         break;
     case 1:
-        if (TObjPlayer__sub_800115C4(arg0, 0, lbl_805DA408) != 0xFFFF) {
+        if (find_nearest_visible_player(arg0, 0, lbl_805DA408) != 0xFFFF) {
             ((void (*)(void *, int))update_if_active__15TObjEneMe1GiGueFPv)(arg0, 0xB);
             arg0->f378 = 1;
-        } else if (TObjPlayer__sub_800115C4(arg0, 0, lbl_805DA408 + *arg0->param) == 0xFFFF) {
+        } else if (find_nearest_visible_player(arg0, 0, lbl_805DA408 + *arg0->param) == 0xFFFF) {
             ((void (*)(void *, int))update_if_active__15TObjEneMe1GiGueFPv)(arg0, 0);
         }
         break;

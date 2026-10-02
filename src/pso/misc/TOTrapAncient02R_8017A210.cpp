@@ -45,7 +45,7 @@ struct Obj_8017A988 : VBase_8017A988 {
 };
 
 extern "C" {
-u16 TObjPlayer__sub_800115C4(void *, int, f32);
+u16 find_nearest_visible_player(void *, int, f32);
 void calc_attach_pos__10TObjPlayerFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, int, u32);
@@ -89,7 +89,7 @@ void TOTrapAncient02R__vt77(Obj_8017A8B0 *self) {
     clear_player_status_flag__10TObjPlayerFPviUi(self, 0, 1);
     calc_attach_pos__10TObjPlayerFPv(self);
     if (self->switchId == -1 || TODoorAncient08__sub_80229220(self->switchId) == 1) {
-        self->idx = TObjPlayer__sub_800115C4(self, 0, self->range);
+        self->idx = find_nearest_visible_player(self, 0, self->range);
         if (self->idx != 0xFFFF) {
             self->target = (u8 *)get_player_by_client_id(self->idx);
             if (self->target != NULL) {

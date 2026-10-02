@@ -9,7 +9,7 @@ extern "C" {
 void handle_motion_event__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1);
 M2C_UNK advance_animation_playback();
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
-M2C_UNK TBoss8Dragon__sub_800BB780();
+M2C_UNK clear_attack_receipts();
 M2C_UNK noop__12TBoss8DragonFv(void *);
 M2C_UNK TBoss8Dragon__sub_800BB7D4(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, s32);
@@ -84,7 +84,7 @@ void handle_motion_event__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1) {
         ((VObj_800b2e8c*)arg0)->m198();
         return;
     case 5:
-        TBoss8Dragon__sub_800BB780();
+        clear_attack_receipts();
         break;
     }
 }

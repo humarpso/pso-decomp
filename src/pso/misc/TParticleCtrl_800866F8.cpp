@@ -10,7 +10,7 @@ extern "C" {
 extern s32 TParticleCtrl__data_805D4EF0;
 extern s32 alt_heap;
 void *heap_alloc__5THeapFUl(void *heap, u32 size);
-Part_8008673C *TParticleCtrl__sub_8008673C(u32 size);
+Part_8008673C *alloc_particle_memory(u32 size);
 }
 
 extern "C" {
@@ -30,7 +30,7 @@ void free_from_heap__13TParticleCtrlFPv(u8 *arg0) {
         heap_free__5THeapFPv((void *)alt_heap, arg0);
     }
 }
-Part_8008673C *TParticleCtrl__sub_8008673C(u32 size) {
+Part_8008673C *alloc_particle_memory(u32 size) {
     Part_8008673C *p = (Part_8008673C *)heap_alloc__5THeapFUl((void *)alt_heap, size);
     if (p == NULL) {
         if ((void *)TParticleCtrl__data_805D4EF0 != NULL) {

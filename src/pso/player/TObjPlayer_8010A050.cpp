@@ -33,7 +33,7 @@ s32 TObjPlayer__sub_8010A058(void* p);
 void update_dropped_item__10TObjPlayerFPv(void *arg0);
 void *TObjPlayer__sub_8010A178(void *arg0, s16 arg1);
 M2C_UNK get_field_3e0__12TBoss3VoloptFPv();
-M2C_UNK TLobby__sub_800869A4(s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK create_timed_particle_emitter(s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK spawn_particle_effect(s32, s32);
 u32 get_item_ctrl__10TObjPlayerFv();
 s32 is_item_area_enabled();
@@ -71,7 +71,7 @@ void update_dropped_item__10TObjPlayerFPv(void *arg0) {
                 get_field_3e0__12TBoss3VoloptFPv();
                 if (is_item_area_enabled() == 1) {
                     if ((s32) M2C_FIELD(arg0, s32 *, 0x24) == 0) {
-                        TLobby__sub_800869A4(temp_r3 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x20), 0, 0xA);
+                        create_timed_particle_emitter(temp_r3 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x20), 0, 0xA);
                     } else {
                         spawn_particle_effect(temp_r3 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x20));
                     }

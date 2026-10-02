@@ -300,12 +300,12 @@ extern "C" {
 void *__dt__18TObjAreaWarpEndingFv(void *arg0, s16 arg1);
 void create_and_init__18TObjAreaWarpEndingFv(void);
 void open_confirm_window__18TObjAreaWarpEndingFPvs(void *arg0, s16 arg1);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
+s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 u32 TCheckRoomSequence__sub_802664A8(M2C_UNK, s32, s16);
 M2C_UNK TWindowSubComCard__sub_80265C30(u32);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
-M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK get_window_layout_position(M2C_UNK);
 M2C_UNK TWindowSubTradeMain__sub_80266200(u32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
 void __dl__7TObjectFPv(void *);
 void __dt__12TObjAreaWarpFv(void *, int);
@@ -328,11 +328,11 @@ void create_and_init__18TObjAreaWarpEndingFv(void) {
 
 void open_confirm_window__18TObjAreaWarpEndingFPvs(void *arg0, s16 arg1) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) == 0U) {
-        M2C_FIELD(arg0, u32 *, 0xB0) = TCheckRoomSequence__sub_802664A8(TWindowSubComCard__sub_8026CBB8(0x33), 1, arg1);
+        M2C_FIELD(arg0, u32 *, 0xB0) = TCheckRoomSequence__sub_802664A8(get_window_layout_position(0x33), 1, arg1);
         if (get_main_phase() == 0xE) {
-            TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), TAdSinglePlyChrSelectGC__sub_80132F2C(9, 0x26), 3, 0, -1);
+            TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), get_localized_text_entry(9, 0x26), 3, 0, -1);
         } else {
-            TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), TAdSinglePlyChrSelectGC__sub_80132F2C(9, 0x23), 2, 0, -1);
+            TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), get_localized_text_entry(9, 0x23), 2, 0, -1);
         }
         TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0xB0));
         TWindowSubComCard__sub_80265C30(M2C_FIELD(arg0, u32 *, 0xB0));

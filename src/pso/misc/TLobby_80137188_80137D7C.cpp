@@ -14,7 +14,7 @@ M2C_UNK set_ready_flag__18TCheckRoomSequenceFPv(s32);
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
 M2C_UNK TWindowSubComCard__sub_80265F60(s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK get_window_layout_position(M2C_UNK);
 
 extern s32 TLobby__data_805D5594;
 extern s32 lbl_805D55E0;
@@ -23,7 +23,7 @@ extern s32 lbl_805D55E4;
 void open_city_warp_menu__6TLobbyFv(void) {
     s32 temp_r3;
     open__17TWindowOptionCtrlFPv(lbl_805D55E0);
-    temp_r3 = TWindowSubComCard__sub_8026CBB8(0xB5);
+    temp_r3 = get_window_layout_position(0xB5);
     lbl_805D55E4 = check_room_seq_4__16TAdChrSelASlotGCFii(temp_r3, 5);
     forward_trade_action_default__16TObjCityMainWarpFPviii(lbl_805D55E4, get_seq_phase__6TLobbyFPv(0x4C), 6, 0);
     forward_trade_action_default__16TObjCityMainWarpFPviii(lbl_805D55E4, get_seq_phase__6TLobbyFPv(0x48), 6, 1);

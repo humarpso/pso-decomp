@@ -47,7 +47,7 @@ M2C_UNK set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(s32, M2C_UNK, M2C_UNK *);
 s32 TAdMultiPlyChrSelectGC__sub_802C6848(M2C_UNK);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802DC118(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
-M2C_UNK *TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
+M2C_UNK *get_localized_text_entry(M2C_UNK, M2C_UNK);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 count_ready__22TAdMultiPlyChrSelectGCFv();
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
@@ -73,13 +73,13 @@ void update_button_input__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     if (TAdMultiPlyChrSelectGC__sub_802C6848(0) == 0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x44) != 0) {
             M2C_FIELD(arg0, s32 *, 0x44) = 0;
-            set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(M2C_FIELD(arg0, s32 *, 0x64), 0, TAdSinglePlyChrSelectGC__sub_80132F2C(0x1F, 0xB));
+            set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(M2C_FIELD(arg0, s32 *, 0x64), 0, get_localized_text_entry(0x1F, 0xB));
             set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(M2C_FIELD(arg0, s32 *, 0x64), 1, &TAdMultiPlyChrSelectGC__data_805DE898);
         }
     } else if (count_ready__22TAdMultiPlyChrSelectGCFv() < 2) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x44) != 1) {
             M2C_FIELD(arg0, s32 *, 0x44) = 1;
-            set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(M2C_FIELD(arg0, s32 *, 0x64), 0, TAdSinglePlyChrSelectGC__sub_80132F2C(0x1F, 0xC));
+            set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(M2C_FIELD(arg0, s32 *, 0x64), 0, get_localized_text_entry(0x1F, 0xC));
             set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(M2C_FIELD(arg0, s32 *, 0x64), 1, &TAdMultiPlyChrSelectGC__data_805DE898);
         }
     } else {

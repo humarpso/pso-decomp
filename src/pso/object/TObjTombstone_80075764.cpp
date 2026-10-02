@@ -8,9 +8,9 @@ extern "C" {
 
 void update_render_flags__13TObjTombstoneFPv(u8 *arg0);
 M2C_UNK PPCSync();
-M2C_UNK TOComputerMachine01__sub_8023DDC8(void *, int, int, int, int);
+M2C_UNK scroll_ginja_mesh_uvs(void *, int, int, int, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(void *);
+M2C_UNK draw_ginja_object(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -25,7 +25,7 @@ void update_render_flags__13TObjTombstoneFPv(u8 *arg0) {
 
     if ((u32) TObjTombstone__data_805D4E48 != 0U) {
         if ((s32) lbl_805D4E4C == 0) {
-            TOComputerMachine01__sub_8023DDC8((void *) (M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C), void **, 0x30), s32 *, 4)), (int) (-8), (int) (0), (int) (0), (int) (1));
+            scroll_ginja_mesh_uvs((void *) (M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C), void **, 0x30), s32 *, 4)), (int) (-8), (int) (0), (int) (0), (int) (1));
             lbl_805D4E4C = 1;
             PPCSync();
         }
@@ -42,7 +42,7 @@ void update_render_flags__13TObjTombstoneFPv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-        TObjBoss2Tunnel__sub_803DB470((void *) (M2C_FIELD(arg0, void **, 0x34)));
+        draw_ginja_object((void *) (M2C_FIELD(arg0, void **, 0x34)));
         pop_matrix();
     }
 }

@@ -103,10 +103,10 @@ void * init__13TItemProArmorFPv(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TItemProArmor__sub_801171F4(u8 *arg0);
-s32 fn_80100BB0(void *, void *, int);
+s32 set_item_owner_technique_level(void *, void *, int);
 s32 get_slot_count__14TItemProShieldFPv(void *);
 s32 TItemObject__sub_80115D7C(void *);
-void TItemProArmor__sub_80116FFC(s32 arg0);
+void technique_disk_apply_use(s32 arg0);
 }
 
 extern "C" {
@@ -149,10 +149,10 @@ u8 *TItemProArmor__sub_80116FA4(u8 *arg0) {
     return NULL;
 }
 
-void TItemProArmor__sub_80116FFC(s32 arg0) {
+void technique_disk_apply_use(s32 arg0) {
   u8 temp_r31;
   temp_r31 = get_slot_count__14TItemProShieldFPv((void *) arg0);
-  fn_80100BB0((void *) arg0, (void *) ((s16) (TItemObject__sub_80115D7C((void *) arg0) & 0xFF)), (int) ((s16) (temp_r31 & 0xFFFFFFFFu)));
+  set_item_owner_technique_level((void *) arg0, (void *) ((s16) (TItemObject__sub_80115D7C((void *) arg0) & 0xFF)), (int) ((s16) (temp_r31 & 0xFFFFFFFFu)));
 }
 
 void *item_object_variant_deleting_dtor_80117044(void *arg0, s16 arg1) {

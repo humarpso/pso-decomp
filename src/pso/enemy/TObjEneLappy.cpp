@@ -64,7 +64,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK TObjFish__sub_803E46BC(int);
+M2C_UNK draw_chunk_object(int);
 extern Vec_800C20D0 lbl_8043BBC0[];
 extern const f32 lbl_805D9FA0;
 extern const f32 lbl_805D9FA4;
@@ -152,7 +152,7 @@ void TObjPlayer__sub_800C20D0(Obj_800C20D0 *o) {
     clear_global_flag_400__9TObjEneDDFv();
     toggle_particle_effect__10TObjPlayerFv();
     TObjPlayer__sub_80141820(0);
-    TObjFish__sub_803E46BC(o->f34);
+    draw_chunk_object(o->f34);
     TObjPlayer__sub_801417E8();
     end_effect_render__13TParticleCtrlFv();
     pop_matrix();

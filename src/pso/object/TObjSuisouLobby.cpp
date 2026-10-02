@@ -45,7 +45,7 @@ s32 is_lobby_obj_active__6TLobbyFv();
 void TObjSuisouLobby__sub_80369B5C(void);
 void update_particle__15TObjSuisouLobbyFPv(void *arg0);
 void run_task__15TObjSuisouLobbyFv(Suisou_80369BF4 *self);
-u32 TBoss4Type2__sub_800874F4(void *, int);
+u32 create_particle_emitter(void *, int);
 s32 enable__13TParticleCtrlFPv(void *);
 s32 init_map_object_base(void *, void *);
 s32 is_lobby_event_active(void);
@@ -78,7 +78,7 @@ void update_particle__15TObjSuisouLobbyFPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
+M2C_UNK draw_ginja_object(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -109,7 +109,7 @@ void render__15TObjSuisouLobbyFv(u8 *arg0) {
             temp_f1 = M2C_FIELD(arg0, f32 *, 0xCC);
             scale_matrix((int) (0), (f32) (temp_f1), (f32) (TObjSuisouLobby__data_805E0350), (f32) (temp_f1));
         }
-        TObjBoss2Tunnel__sub_803DB470((int) (M2C_FIELD(arg0, s32 *, 0x34)));
+        draw_ginja_object((int) (M2C_FIELD(arg0, s32 *, 0x34)));
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
     }
@@ -228,7 +228,7 @@ void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2) {
         TOHangerMachine01__sub_803D9C00(self->x38);
         rotate_matrix_y(0, self->x60);
         TCameraCtrl__sub_803D8934(0, &v, &v);
-        self->p1 = (void *)TBoss4Type2__sub_800874F4(&v, 0x222);
+        self->p1 = (void *)create_particle_emitter(&v, 0x222);
         pop_matrix();
         if (self->p1 != NULL) {
             enable__13TParticleCtrlFPv(self->p1);
@@ -241,7 +241,7 @@ void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2) {
         TOHangerMachine01__sub_803D9C00(self->x38);
         rotate_matrix_y(0, self->x60);
         TCameraCtrl__sub_803D8934(0, &v, &v);
-        self->p2 = (void *)TBoss4Type2__sub_800874F4(&v, 0x222);
+        self->p2 = (void *)create_particle_emitter(&v, 0x222);
         pop_matrix();
         if (self->p2 != NULL) {
             enable__13TParticleCtrlFPv(self->p2);

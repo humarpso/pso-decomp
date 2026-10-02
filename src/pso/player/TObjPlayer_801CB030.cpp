@@ -11,7 +11,7 @@ void end_freeze_action__10TObjPlayerFPv(u8 *arg0);
 void update_move_state__10TObjPlayerFi(s32 arg0);
 int TObjPlayer__sub_8001053C(void*);
 M2C_UNK set_type__10TObjPlayerFPvi(void *, s32);
-s32 TObjPlayer__sub_801B5DDC(s32);
+s32 check_actor_blocking_move__10TObjPlayerFPv(s32);
 u32 TObjPlayer__sub_801B5EA4(s32);
 M2C_UNK TObjPlayer__sub_801B5FB0();
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, s16, M2C_UNK);
@@ -31,7 +31,7 @@ void set_flag_100000__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8001053C((void*
 
 void update_move_state__10TObjPlayerFi(s32 arg0) {
     TObjPlayer__sub_801B5FB0();
-    if (TObjPlayer__sub_801B5DDC(arg0) != 0) {
+    if (check_actor_blocking_move__10TObjPlayerFPv(arg0) != 0) {
         TObjPlayer__sub_8001053C((void*)(arg0));
     }
     if (TObjPlayer__sub_801B5EA4(arg0) == 0U) {

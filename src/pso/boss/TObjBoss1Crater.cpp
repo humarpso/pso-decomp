@@ -69,7 +69,7 @@ void TObjBoss1Crater__vt19(Src_8002C3FC *arg0, VObj_18_5c1903 *self, M2C_UNK arg
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 isV2Mode__12TBoss1DragonFv();
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
-s32 TBoss4Type2__sub_800874F4(void *, int, f32);
+s32 create_particle_emitter(void *, int, f32);
 void fn_800BC4C8(void *);
 void *TBoss8Dragon__sub_800BC5EC(void *, int);
 s32 rand();
@@ -90,7 +90,7 @@ s32 is_count_below_limit__15TObjBoss1CraterFv(void);
 void render__15TObjBoss1CraterFv(u8 *arg0);
 void TBoss8Dragon__sub_800BC5A0(void *, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjFish__sub_803E46BC(void *);
+M2C_UNK draw_chunk_object(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -109,7 +109,7 @@ void render__15TObjBoss1CraterFv(u8 *arg0) {
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     some_id_805c6f74 |= 0x01000000;
-    TObjFish__sub_803E46BC((void *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), s32 *, 8)));
+    draw_chunk_object((void *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), s32 *, 8)));
     some_id_805c6f74 &= 0xFEFFFFFF;
     pop_matrix();
 }
@@ -162,7 +162,7 @@ Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *ar
     VecCopy__FP3VecPC3Vec(self->pos, arg3);
     r = lbl_805D8164 * (f32)rand();
     self->f60 = (s32)(lbl_805D8160 * r);
-    self->fB0 = TBoss4Type2__sub_800874F4(self->pos, 0x40, r);
+    self->fB0 = create_particle_emitter(self->pos, 0x40, r);
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
     if (p != NULL) {
         p = TBoss8Dragon__sub_800BC5EC(p, 4);

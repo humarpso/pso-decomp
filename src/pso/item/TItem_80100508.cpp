@@ -67,7 +67,7 @@ void notify_owner__5TItemFPvi(void *arg0, s32 arg1);
 s32 PPCSync();
 s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
 s32 TLobby__sub_80101AB0();
-s32 TOComputerMachine01__sub_8023DDC8(s32, s32, s32, s32, s32);
+s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
 s32 set_owner_id__13TParticleCtrlFPvUs(s32, s32);
 u16 TObjPlayer__sub_80100474(void* p);

@@ -9,7 +9,7 @@ struct Light_80191F90 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x18]; f32 rot[3]; u
 struct Ply_80191F90 { u8 pad0[0x38]; f32 pos[3]; };
 
 extern "C" {
-s32 TObjPlayer__sub_80019248(void *);
+s32 is_locally_controlled__10TObjPlayerFPv(void *);
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 void queue_destruction__7TObjectFv(void *);
@@ -57,7 +57,7 @@ void run_task__13TObjItemLightFv(Light_80191F90 *arg0) {
     for (i = 0; i < 4; i++) {
         p = get_player_by_client_id(i);
         if (p != 0 && get_field_3e4__10TObjPlayerFPv(p) == get_current_floor()
-            && TObjPlayer__sub_80019248(p) != 0
+            && is_locally_controlled__10TObjPlayerFPv(p) != 0
             && xz_distance_squared(p->pos, arg0->pos) < arg0->f90 * arg0->f90) {
             fn_8020C408(arg0, 8);
             queue_destruction__7TObjectFv(arg0);

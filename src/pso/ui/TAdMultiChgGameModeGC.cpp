@@ -37,7 +37,7 @@ struct Obj_802FFE58 {
 };
 
 extern "C" {
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+s32 get_localized_text_entry(int, int);
 s32 get_selected_slot__23TAdSinglePlyChrSelectGCFPv(int);
 s32 TAdSinglePlyChrSelectGC__sub_801334DC(int);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
@@ -112,7 +112,7 @@ void run_task__21TAdMultiChgGameModeGCFv(RecoveredFields_802FFCE4_arg0 *arg0) {
   new_var = &arg0->field_2C;
   if (((s32) arg0->field_24) != temp_r4)
   {
-    set_entry_value__22TAdMultiPlyChrSelectGCFiiUi((int) arg0->field_28, (int) 0, (int) TAdSinglePlyChrSelectGC__sub_80132F2C((int) 0x21, (int) arg0->field_20));
+    set_entry_value__22TAdMultiPlyChrSelectGCFiiUi((int) arg0->field_28, (int) 0, (int) get_localized_text_entry((int) 0x21, (int) arg0->field_20));
   }
   if ((TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&lbl_8050E208.value)) + 0x20), (int) 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) (((u8 *) (&lbl_8050E208.value)) + 0x160), (int) 2) != 0))
   {

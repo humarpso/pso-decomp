@@ -29,7 +29,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
+M2C_UNK draw_ginja_object(int);
 void TORockCave__sub_80175134(u8 *arg0);
 u32 TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
@@ -63,7 +63,7 @@ void TORockCave__sub_80175134(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-        TObjBoss2Tunnel__sub_803DB470((int) (M2C_FIELD(arg0, s32 *, 0x34)));
+        draw_ginja_object((int) (M2C_FIELD(arg0, s32 *, 0x34)));
         pop_matrix();
         ((VObj_18 *)(arg0))->m13();
     }

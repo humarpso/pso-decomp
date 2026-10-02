@@ -126,13 +126,13 @@ struct Trap_8017ADC4 {
 extern "C" {
 u32 get_global_state__14TOKeyMachine01Fv();
 void TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
-void TOComputerMachine01__sub_8023DDC8(u32, s32, s32, u16, s32);
+void scroll_ginja_mesh_uvs(u32, s32, s32, u16, s32);
 extern s32 lbl_805D53A4;
 extern s32 lbl_805D5ADC;
 extern u32 lbl_805D5AE0;
 extern s32 lbl_805D5AE4;
 void TOTrapAncient02__sub_8017ACA0(Obj_8017ACA0 *self);
-void *TObjFish__sub_8001EDC4(void *, int);
+void *get_bml_model(void *, int);
 void *TLobby__sub_80020004(void *, int, char *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 u8 *count_linked_switches__23TObjSeabedSuisoBrakableFUii(void *, int);
@@ -199,7 +199,7 @@ void TOTrapAncient02__vt86(void) {  }
 void TOTrapAncient02__sub_8017ACA0(Obj_8017ACA0 *self) {
     if (lbl_805D5ADC != lbl_805D53A4 && lbl_805D5AE0 != 0) {
         lbl_805D5ADC = lbl_805D53A4;
-        TOComputerMachine01__sub_8023DDC8(lbl_805D5AE0, 0, 0xE, lbl_805D5AE4, 1);
+        scroll_ginja_mesh_uvs(lbl_805D5AE0, 0, 0xE, lbl_805D5AE4, 1);
     }
     self->angle += 0x888;
     switch (self->state) {
@@ -438,7 +438,7 @@ void TOTrapAncient02__sub_8017B4EC(void) {
             obj = TLobby__sub_80020004(obj, 1, base + 0x20, 0, 0, 0);
         }
         TOTrapAncient02__data_805D5AD8 = (u32) obj;
-        lbl_805D5AE0 = *(u32 *)(count_linked_switches__23TObjSeabedSuisoBrakableFUii(TObjFish__sub_8001EDC4(obj, 0), 2) + 4);
+        lbl_805D5AE0 = *(u32 *)(count_linked_switches__23TObjSeabedSuisoBrakableFUii(get_bml_model(obj, 0), 2) + 4);
         lbl_805D5AE4 = 2;
         lbl_805D5ADC = 0;
         break;
@@ -456,7 +456,7 @@ void TOTrapAncient02__sub_8017B4EC(void) {
             obj = TLobby__sub_80020004(obj, 1, base + 0x38, 0, 0, 0);
         }
         TOTrapAncient02__data_805D5AD8 = (u32) obj;
-        lbl_805D5AE0 = *(u32 *)(count_linked_switches__23TObjSeabedSuisoBrakableFUii(TObjFish__sub_8001EDC4(obj, 0), 2) + 4);
+        lbl_805D5AE0 = *(u32 *)(count_linked_switches__23TObjSeabedSuisoBrakableFUii(get_bml_model(obj, 0), 2) + 4);
         lbl_805D5AE4 = 1;
         lbl_805D5ADC = 0;
         break;

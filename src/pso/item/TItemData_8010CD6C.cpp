@@ -54,7 +54,7 @@ extern f32 TItemData__data_805DAB70;
 f32 TItemData__sub_8010DB9C(u8 *arg0, u8 *arg1);
 f32 TItemData__sub_8010D8AC(u8 *arg0, u8 *arg1);
 f32 TItemData__sub_8010D6CC(u8 *arg0, u8 *arg1);
-f32 TItemData__sub_8010DD6C(void *self, s32 player);
+f32 get_set_bonus_multiplier__9TItemDataFPvi(void *self, s32 player);
 void *get_item_pmt_record__10TObjPlayerFii(int type, int id);
 void *TObjPlayer__sub_8011CD48(int type, int id);
 void *get_pmt_record_by_index__10TObjPlayerFi(int i);
@@ -67,8 +67,8 @@ u8 TItemMagSub__sub_8011455C(const void *);
 void TItemData__sub_8010D510(Item_8010D510 *item, const Mag_8010D510 *mag);
 void *lookup_item_pmt_record(u8 *item);
 s32 TObjPlayer__sub_8011C914(s32);
-s32 TItemData__sub_8010EBD8(u8 *item);
-s32 TItemData__sub_8010EBD8(u8 *item);
+s32 get_base_rarity__9TItemDataFPv(u8 *item);
+s32 get_base_rarity__9TItemDataFPv(u8 *item);
 s32 TItemData__sub_8010DF68(u8 *item);
 char *TItemAttacker__sub_80103548(s32);
 s32 TItemData__sub_8010C52C();
@@ -100,7 +100,7 @@ M2C_UNK TItemData__sub_8010B908(void *, s32, s32, s32, s32, s32);
 M2C_UNK TItemData__sub_8010BD24(void *, s32, s32, s32, s32, s32);
 M2C_UNK TItemData__sub_8010BEC4(void *, s32, s32, s32, s32, s32);
 M2C_UNK TItemData__sub_8010C0A4(void *, s32, s32, s32, s32, s32);
-M2C_UNK TItemData__sub_8010C1E0(void *, s32, s32, s32, s32, s32);
+M2C_UNK add_armor_stat_contribution__9TItemDataFPviiPv(void *, s32, s32, s32, s32, s32);
 M2C_UNK TItemData__sub_8010C320(void *, s32, s32, s32, s32, s32);
 s32 TItemData__sub_8010C52C();
 M2C_UNK TItemData__sub_8010C5DC(void *, s32);
@@ -316,7 +316,7 @@ f32 TItemData__sub_8010DB9C(u8 *arg0, u8 *arg1) {
   return var_f31;
 }
 
-f32 TItemData__sub_8010DD6C(void *self, s32 player) {
+f32 get_set_bonus_multiplier__9TItemDataFPvi(void *self, s32 player) {
     u8 *item = (u8 *)self;
     switch (item[0]) {
     case 0:
@@ -338,7 +338,7 @@ void apply_equip_effects__9TItemDataFPviiiii(void *arg0, s32 arg1, s32 arg2, s32
     u8 temp_r0_2;
 
     if ((arg1 != 0) || (arg1 = get_player_by_client_id(lbl_805D53A0), ((arg1 == 0) == 0))) {
-        TItemData__sub_8010DD6C((void *)(arg0), (s32)(arg1));
+        get_set_bonus_multiplier__9TItemDataFPvi((void *)(arg0), (s32)(arg1));
         TItemData__sub_8010C5DC(arg0, arg1);
         temp_r0 = M2C_FIELD(arg0, u8 *, 0);
         switch ((s32) temp_r0) {
@@ -349,7 +349,7 @@ void apply_equip_effects__9TItemDataFPviiiii(void *arg0, s32 arg1, s32 arg2, s32
             temp_r0_2 = M2C_FIELD(arg0, u8 *, 1);
             switch ((s32) temp_r0_2) {
             case 1:
-                TItemData__sub_8010C1E0(arg0, arg1, arg2, arg3, arg4, arg5);
+                add_armor_stat_contribution__9TItemDataFPviiPv(arg0, arg1, arg2, arg3, arg4, arg5);
                 break;
             case 2:
                 TItemData__sub_8010C0A4(arg0, arg1, arg2, arg3, arg4, arg5);
@@ -371,7 +371,7 @@ void apply_equip_effects__9TItemDataFPviiiii(void *arg0, s32 arg1, s32 arg2, s32
 extern s32 lbl_805D2B10;
 
 s32 TItemData__sub_8010DF68(u8 *item) {
-    return (u8) TItemData__sub_8010EBD8(item) >= 9 ? 1 : 0;
+    return (u8) get_base_rarity__9TItemDataFPv(item) >= 9 ? 1 : 0;
 }
 
 void init__9TItemDataFv(TItemData_8010E344 *self) {
@@ -486,7 +486,7 @@ int calc_display_grade__9TItemDataFPv(void *arg0) {
     u8 temp_b;
     int var_r31;
 
-    var_r31 = TItemData__sub_8010EBD8((u8 *)(arg0));
+    var_r31 = get_base_rarity__9TItemDataFPv((u8 *)(arg0));
     switch ((s32) (u8) M2C_FIELD(arg0, u8 *, 0)) {
     case 0:
         if ((u8) var_r31 < 9U) {
@@ -515,7 +515,7 @@ int calc_display_grade__9TItemDataFPv(void *arg0) {
     return var_r31;
 }
 
-s32 TItemData__sub_8010EBD8(u8 *item) {
+s32 get_base_rarity__9TItemDataFPv(u8 *item) {
     struct Parm_8010EBD8 *p;
     switch (item[0]) {
     case 0:

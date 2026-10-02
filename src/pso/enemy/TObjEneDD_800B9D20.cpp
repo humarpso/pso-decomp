@@ -20,7 +20,7 @@ extern "C" {
 M2C_UNK minimap_render_dot(void *, int, int, int);
 void TObjEneDD__vt97(u8 *arg0);
 M2C_UNK TObjPlayer__sub_800F09E8(int);
-M2C_UNK TBoss1Dragon__sub_8014220C(void *, void *, void *);
+M2C_UNK direction_to_rotation_xz(void *, void *, void *);
 M2C_UNK rotate_matrix_y(int, void *);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
@@ -73,7 +73,7 @@ int update_player_state__9TObjEneDDFPv(void* p) { return render_with_position_ov
 
 void TObjEneDD__sub_800B9D94(s32 arg0, s32 arg1, s32 arg2, u32 arg3) {
     Stack_800B9D94 stack;
-    TBoss1Dragon__sub_8014220C((void *) (arg1), (void *) (&stack.sp8), (void *) (&stack.sp10));
+    direction_to_rotation_xz((void *) (arg1), (void *) (&stack.sp8), (void *) (&stack.sp10));
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *) (arg0));
     translate_matrix((int) (0), (f32) (TObjEneDD__data_805D9E8C), (f32) (lbl_805D9E90), (f32) (TObjEneDD__data_805D9E8C));

@@ -21,7 +21,7 @@ void TItemMag__sub_80113EDC(s32, s16, s8);
 s32 TItemMag__sub_801143E8(void *, s32);
 void TItemMag__sub_801D7964(s32);
 void fn_801D79DC(u8 *arg0, s32 arg1);
-void TItemMag__sub_80110E7C(u8 *arg0);
+void register_photon_blasts__8TItemMagFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -153,7 +153,7 @@ void copy_owner_data__8TItemMagFPv(u8 *arg0) {
     }
 }
 
-void TItemMag__sub_80110E7C(u8 *arg0) {
+void register_photon_blasts__8TItemMagFPv(u8 *arg0) {
     s32 temp_r3;
     s32 var_r30;
     TItemMag__sub_801D7964(M2C_FIELD(arg0, s32 *, 0xF0) + 0x500);

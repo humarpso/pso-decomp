@@ -49,13 +49,13 @@ extern RecoveredGlobal_802ABC14_lbl_804705C0 lbl_804705C0;
 extern u32 TBoss6PlotFalz__data_805D66F0;
 s32 TBoss6PlotFalz__sub_802ABC14(M2C_UNK arg0, s32 arg1);
 s32 TBoss6Type1__sub_802ABDEC(s32 seed);
-s32 TObjPlayer__sub_80019248(s32);
+s32 is_locally_controlled__10TObjPlayerFPv(s32);
 s32 get_player_data__10TObjPlayerFi(s32);
 s16 obj_getField1c(s32);
 s32 get_game_mode__6TLobbyFv(void);
 void spawn_effect__11TBoss4Type3Fsss(s16, s16, s16);
 s32 is_state_1f__14TBoss6PlotFalzFUi(u32);
-f32 TObjPlayer__sub_803E1A58(void *, void *);
+f32 xyz_distance(void *, void *);
 extern const f32 TBoss6PlotFalz__data_805DE09C;
 void TBoss6PlotFalz__sub_802ABE3C(void *pos, s16 amount, s16 kind, f32 range);
 void set_chunk_material_override_pair(int, int, s32, s32);
@@ -163,8 +163,8 @@ void TBoss6PlotFalz__sub_802ABE3C(void *pos, s16 amount, s16 kind, f32 range) {
     n = get_game_mode__6TLobbyFv();
     for (i = 0; i < n; i++) {
         p = get_player_data__10TObjPlayerFi(i);
-        if (is_state_1f__14TBoss6PlotFalzFUi(p) != 0 && TObjPlayer__sub_80019248(p) != 0) {
-            d = TObjPlayer__sub_803E1A58((void *)(p + 0x38), pos);
+        if (is_state_1f__14TBoss6PlotFalzFUi(p) != 0 && is_locally_controlled__10TObjPlayerFPv(p) != 0) {
+            d = xyz_distance((void *)(p + 0x38), pos);
             if (!(d >= range)) {
                 spawn_effect__11TBoss4Type3Fsss((s16)((f32)amount * (TBoss6PlotFalz__data_805DE09C - d / range)), kind, (s16)((s32 (*)(s32))obj_getField1c)(p));
             }

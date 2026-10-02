@@ -34,7 +34,7 @@ struct Uv_8019806C { u32 w[4]; };
 struct Desc_8019806C { Pos_8019806C *pos; Uv_8019806C *uv; s16 *col; s32 count; };
 
 extern "C" {
-u8 *TObjFish__sub_8001EDC4(s32, M2C_UNK);
+u8 *get_bml_model(s32, M2C_UNK);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -165,7 +165,7 @@ void TObjPlayer__sub_801982D4(u8 *arg0) {
             M2C_FIELD(arg0, s32 *, 0x38) = 0;
         }
     }
-    temp_r3 = (u8 *)(TObjFish__sub_8001EDC4(lbl_805D5C60, 1));
+    temp_r3 = (u8 *)(get_bml_model(lbl_805D5C60, 1));
     if (temp_r3 != NULL) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x28) != 0) {
             set_global_param__8TObjFishFi((int) (M2C_FIELD(&lbl_804B8DAC.value, s32 *, 0x1C)));

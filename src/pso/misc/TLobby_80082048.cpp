@@ -59,9 +59,9 @@ M2C_UNK TObjPlayer__sub_80019038(void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-s32 TObjFish__sub_8001EDC4(void *, int);
+s32 get_bml_model(void *, int);
 u8 *get_quest_id__12TQuestListVMFPv(void *);
-s32 TBoss4Type2__sub_800874F4(void *, int);
+s32 create_particle_emitter(void *, int);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
 extern M2C_UNK lbl_8048E1A4[];
 extern u32 lbl_805D4ED0;
@@ -146,7 +146,7 @@ u8 *TObjPlayer__sub_8008213C(u8 *arg0, u8 *arg1, u8 *arg2) {
     u8 *temp_r3;
     TObjPlayer__sub_80019038((void *) (arg0), (void *) (tl_05));
     ((RecoveredFields_8008213C_arg0 *)arg0)->field_18 = lbl_8048E1A4;
-    ((RecoveredFields_8008213C_arg0 *)arg0)->field_34 = TObjFish__sub_8001EDC4((void *) ((*(s32 *)&lbl_805D4ED0)), (int) (1));
+    ((RecoveredFields_8008213C_arg0 *)arg0)->field_34 = get_bml_model((void *) ((*(s32 *)&lbl_805D4ED0)), (int) (1));
     if (arg1 != NULL) {
         ((RecoveredFields_8008213C_arg0 *)arg0)->field_358 = obj_getField1c((void *) (arg1));
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x35C), (void *) (arg1 + 0x38));
@@ -176,7 +176,7 @@ u8 *TObjPlayer__sub_8008213C(u8 *arg0, u8 *arg1, u8 *arg2) {
         ((RecoveredFields_8008213C_arg0 *)arg0)->field_344 = (f32) (*(const f32 *)&lbl_805D9378);
         ((RecoveredFields_8008213C_arg0 *)arg0)->field_348 = (f32) (*(const f32 *)&lbl_805D9378);
         ((RecoveredFields_8008213C_arg0 *)arg0)->field_34C = (f32) (*(const f32 *)&lbl_805D9378);
-        ((RecoveredFields_8008213C_arg0 *)arg0)->field_350 = TBoss4Type2__sub_800874F4((void *) (arg0 + 0x38), (int) (0x12E));
+        ((RecoveredFields_8008213C_arg0 *)arg0)->field_350 = create_particle_emitter((void *) (arg0 + 0x38), (int) (0x12E));
         ((RecoveredFields_8008213C_arg0 *)arg0)->field_354 = 0;
     } else {
         ((RecoveredFields_8008213C_arg0 *)arg0)->field_350 = 0;

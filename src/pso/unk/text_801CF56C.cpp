@@ -28,8 +28,8 @@ void *get_position_ptr__10TObjPlayerFPv(void *);
 s32 calc_angle_to__10TObjPlayerFPvPv(void *, void *);
 s32 TObjPlayer__sub_80142344(s32, s32);
 s32 lerp_angle_half__10TObjPlayerFUsUs(s32, s32);
-void TObjPlayer__sub_801B417C(void *, f32, f32);
-void TObjPlayer__sub_801B4264(void *, f32, f32);
+void emit_footstep_effect__10TObjPlayerFiff(void *, f32, f32);
+void play_footstep_sound__10TObjPlayerFi(void *, f32, f32);
 void *TObjPlayer__sub_801B5EA4(void *);
 f32 TObjPlayer__sub_801BF814(void *p);
 f32 TBoss8Dragon__sub_803D64C0(s32);
@@ -61,8 +61,8 @@ void TObjPlayer__sub_801CF56C(Plr_801CF56C *self) {
     } else {
         set_flags__10TObjPlayerFPvUi(self->flags, 4);
     }
-    TObjPlayer__sub_801B4264(self, TObjPlayer__data_805DC360, lbl_805DC370);
-    TObjPlayer__sub_801B417C(self, TObjPlayer__data_805DC360, lbl_805DC370);
+    play_footstep_sound__10TObjPlayerFi(self, TObjPlayer__data_805DC360, lbl_805DC370);
+    emit_footstep_effect__10TObjPlayerFiff(self, TObjPlayer__data_805DC360, lbl_805DC370);
 }
 
 }

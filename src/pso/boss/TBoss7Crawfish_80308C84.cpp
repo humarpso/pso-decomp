@@ -14,7 +14,7 @@ struct Craw_80308D1C {
 };
 
 extern "C" {
-u16 TObjPlayer__sub_800115C4(void *, void *, f32);
+u16 find_nearest_visible_player(void *, void *, f32);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 M2C_UNK TBoss7Crawfish__sub_80308F8C(void *, int);
 f32 TBoss8Dragon__sub_803D64C0(s32);
@@ -60,7 +60,7 @@ void update_motion_and_release__14TBoss7CrawfishFPv(u8 *arg0) {
     TBoss7Crawfish__sub_803087D4((void *) (arg0), (int) (0x3A80C));
 }
 void TBoss7Crawfish__sub_80308D1C(Craw_80308D1C *o) {
-    u16 r = TObjPlayer__sub_800115C4(o, &o->vx, lbl_805DF0D0);
+    u16 r = find_nearest_visible_player(o, &o->vx, lbl_805DF0D0);
     f32 s = TBoss7Crawfish__data_805DF0DC + *o->speed;
     if (r != 0xFFFF) {
         TNpcPlayer__sub_803D97B4(&o->vx);

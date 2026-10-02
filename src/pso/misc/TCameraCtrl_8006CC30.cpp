@@ -292,7 +292,7 @@ u8 * csnVector(void *, void *, u32);
 extern const f32 TCameraCtrl__data_805D9050;
 void TCameraCtrl__sub_8006DCD4(struct RecoveredFields_8006DCD4_arg0 *arg0, u8 *arg1, u8 *arg2);
 M2C_UNK set_field_100__11TCameraCtrlFPvi(void* p, s32 v);
-s32 TObjPlayer__sub_80141F84(int, void *);
+s32 angle_difference_abs(int, void *);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
 extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
 void TCameraCtrl__sub_8006D610(void);
@@ -300,7 +300,7 @@ extern u8 TCameraCtrl__data_805D4E20;
 extern u16 TCameraCtrl__data_805D2840;
 extern void *lbl_805D53A0;
 s32 get_player_by_client_id(u32);
-void TCameraCtrl__sub_8006A410(void *p, s32 x);
+void reset_cameras_to_actor(void *p, s32 x);
 void TCameraCtrl__sub_8006CCEC(void);
 extern O_8006CC7C *lbl_805005D0[];
 extern const V_8006CC7C lbl_804384E8;
@@ -310,7 +310,7 @@ s32 is_split_screen();
 s32 get_player_by_client_id(u32);
 extern void *lbl_805D53A0;
 void TCameraCtrl__sub_8006D2B0(void *arg0, void *arg1, u16 arg2);
-void TObjPlayer__sub_803D97F0(void *);
+void push_matrix_from(void *);
 void rotate_matrix_y(s32, s32);
 void TCameraCtrl__sub_803D8934(s32, void *, void *);
 void TCameraCtrl__sub_803D9858(s32);
@@ -359,7 +359,7 @@ void TCameraCtrl__sub_803D8934(s32, void *, void *);
 f32 TCameraCtrl__sub_803D8D00(FollowVector *);
 void rotate_matrix_y(s32, s32);
 void TNpcPlayer__sub_803D97B4(FollowVector *);
-void TObjPlayer__sub_803D97F0(void *);
+void push_matrix_from(void *);
 void TCameraCtrl__sub_803D9858(s32);
 extern FollowVector lbl_80438534;
 extern u8 lbl_8058D490[];
@@ -369,7 +369,7 @@ void TCameraCtrl__sub_8006DD78(Cam_8006DD78 *arg0, Tgt_8006DD78 *arg1);
 s32 get_global_state__14TOKeyMachine01Fv();
 void TCameraCtrl__sub_803D8934(s32, void *, void *);
 void rotate_matrix_y(s32, s32);
-void TObjPlayer__sub_803D97F0(void *);
+void push_matrix_from(void *);
 void TCameraCtrl__sub_803D9858(s32);
 s32 get_player_by_client_id(u32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -383,7 +383,7 @@ extern Preset_8006DEF8 *lbl_80488A18[];
 extern u8 lbl_804FF5E8[];
 extern const f32 TCameraCtrl__data_805D9050;
 extern const f32 lbl_805D90A8;
-void TCameraCtrl__sub_8006DEF8(Cam_8006DEF8 *self);
+void follow_camera_init_pose(Cam_8006DEF8 *self);
 s32 is_split_screen();
 int get_camera_mode__11TCameraCtrlFv();
 FollowVector *get_position_ptr__10TObjPlayerFPv(void *);
@@ -393,7 +393,7 @@ s32 get_global_state__14TOKeyMachine01Fv();
 void TCameraCtrl__sub_803D8934(s32, void *, void *);
 f32 TCameraCtrl__sub_803D8D00(FollowVector *);
 void rotate_matrix_y(s32, s32);
-void TObjPlayer__sub_803D97F0(void *);
+void push_matrix_from(void *);
 void TCameraCtrl__sub_803D9858(s32);
 extern u8 lbl_8058D490[];
 extern const float TCameraCtrl__data_805D905C;
@@ -456,7 +456,7 @@ V_8006CC7C TCameraCtrl__sub_8006CC7C(void) {
 void TCameraCtrl__sub_8006CCEC(void) {
     TCameraCtrl__data_805D4E20 = 0;
     TCameraCtrl__data_805D2840 = 0xFFFF;
-    TCameraCtrl__sub_8006A410(((void *)get_player_by_client_id((u32)(lbl_805D53A0))), 0);
+    reset_cameras_to_actor(((void *)get_player_by_client_id((u32)(lbl_805D53A0))), 0);
 }
 
 void TCameraCtrl__sub_8006CD2C(u8 *arg0, s16 arg1) {
@@ -626,7 +626,7 @@ s32 conversation_camera_obstructed(FollowController *self,s32 heading) {
     VecCopy__FP3VecPC3Vec((void *)(&eye), (void *)(source));
     VecCopy__FP3VecPC3Vec((void *)(&offset), (void *)(&self->position_offset));
     offset.z += lbl_805D9078;
-    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    push_matrix_from(lbl_8058D490);
     rotate_matrix_y(0,heading);
     TCameraCtrl__sub_803D8934(0,&offset,&offset);
     TCameraCtrl__sub_803D9858(1);
@@ -647,8 +647,8 @@ void TCameraCtrl__sub_8006D610(void) {
     u8 *temp_r3;
     if (((u8) (*(RecoveredGlobal_8006D610_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value == 0) && (temp_r29 = M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_8006D610_camera_controller_registry *)&camera_controller_registry).value) + (((*(RecoveredGlobal_8006D610_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value * 4) & 0x3FC)), u8 **, 0), set_field_100__11TCameraCtrlFPvi((void*)((int) (temp_r29)), (s32)((int) (1))), temp_r3 = M2C_FIELD(temp_r29, u8 **, 0x1C), ((temp_r3 == NULL) == 0))) {
         temp_r30 = M2C_FIELD(temp_r3, s32 *, 0x60);
-        temp_r31 = TObjPlayer__sub_80141F84((int) (M2C_FIELD(temp_r29, s32 *, 0x30)), (void *) (temp_r30 + 0x6000));
-        if (temp_r31 > TObjPlayer__sub_80141F84((int) (M2C_FIELD(temp_r29, s32 *, 0x30)), (void *) (temp_r30 - 0x6000))) {
+        temp_r31 = angle_difference_abs((int) (M2C_FIELD(temp_r29, s32 *, 0x30)), (void *) (temp_r30 + 0x6000));
+        if (temp_r31 > angle_difference_abs((int) (M2C_FIELD(temp_r29, s32 *, 0x30)), (void *) (temp_r30 - 0x6000))) {
             var_r31 = temp_r30 - 0x6000;
             var_r30 = temp_r30 + 0x6000;
         } else {
@@ -668,7 +668,7 @@ void TCameraCtrl__sub_8006D610(void) {
 
 void TCameraCtrl__sub_8006D95C(Cam_8006D95C *self) {
     Vec_8006D95C v;
-    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    push_matrix_from(lbl_8058D490);
     rotate_matrix_y(0, self->f30);
     TCameraCtrl__sub_803D8934(0, self->fdc, &v);
     TCameraCtrl__sub_803D9858(1);
@@ -779,7 +779,7 @@ void TCameraCtrl__sub_8006DD78(Cam_8006DD78 *arg0, Tgt_8006DD78 *arg1) {
     Hit_8006DD78 *hit;
     if (arg1 != NULL) {
         arg0->angle = arg1->angle + 0x8000;
-        TObjPlayer__sub_803D97F0(lbl_8058D490);
+        push_matrix_from(lbl_8058D490);
         rotate_matrix_y(0, arg0->angle);
         TCameraCtrl__sub_803D8934(0, &v, &v);
         TCameraCtrl__sub_803D9858(1);
@@ -806,7 +806,7 @@ void TCameraCtrl__sub_8006DD78(Cam_8006DD78 *arg0, Tgt_8006DD78 *arg1) {
 
 void TCameraCtrl__sub_8006DEF4(void) {  }
 
-void TCameraCtrl__sub_8006DEF8(Cam_8006DEF8 *self) {
+void follow_camera_init_pose(Cam_8006DEF8 *self) {
     FollowVector v = lbl_80438528;
     Tgt_8006DEF8 *p;
     s32 state;
@@ -814,7 +814,7 @@ void TCameraCtrl__sub_8006DEF8(Cam_8006DEF8 *self) {
     state = get_global_state__14TOKeyMachine01Fv();
     if (p != NULL) {
         self->angle = p->angle + 0x8000;
-        TObjPlayer__sub_803D97F0(lbl_8058D490);
+        push_matrix_from(lbl_8058D490);
         rotate_matrix_y(0, self->angle);
         TCameraCtrl__sub_803D8934(0, &v, &v);
         TCameraCtrl__sub_803D9858(1);
@@ -877,7 +877,7 @@ void TCameraCtrl__sub_8006E170(Cam_8006E170 *self) {
     d.y = p->y - t->y;
     d.z = p->z - t->z;
     TCameraCtrl__sub_803D8D00(&d);
-    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    push_matrix_from(lbl_8058D490);
     rotate_matrix_y(0, self->actor->angle + 0x8000);
     TCameraCtrl__sub_803D8934(0, &self->fE8, &o);
     TCameraCtrl__sub_803D9858(1);

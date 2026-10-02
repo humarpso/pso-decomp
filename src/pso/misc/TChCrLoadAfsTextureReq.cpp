@@ -34,7 +34,7 @@ extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *, int, int);
 s32 TLobby__sub_8001ED88(int);
 s32 fn_8001ED90(int);
-u32 TObjFish__sub_8001EDC4(int, int);
+u32 get_bml_model(int, int);
 M2C_UNK TLobby__sub_8001FE7C(int, int);
 u32 TLobby__sub_8002058C(int, int, void *, void *, int, int, int);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
@@ -227,7 +227,7 @@ void TLobby__sub_8028C530(u8 *arg0) {
             M2C_FIELD(arg0, s32 *, 0x74) = 0x12C;
         }
     } else if (fn_8001ED90((int) (M2C_FIELD(arg0, u32 *, 0x68))) != 0) {
-        temp_r3 = TObjFish__sub_8001EDC4((int) (M2C_FIELD(arg0, u32 *, 0x68)), (int) (0));
+        temp_r3 = get_bml_model((int) (M2C_FIELD(arg0, u32 *, 0x68)), (int) (0));
         *M2C_FIELD(arg0, u32 **, 0x1C) = temp_r3;
         if (temp_r3 != 0U) {
             TLobby__sub_8028D628((int) (M2C_FIELD(arg0, s32 *, 0x24)), (int) (TLobby__sub_8001ED88((int) (M2C_FIELD(arg0, u32 *, 0x68)))));

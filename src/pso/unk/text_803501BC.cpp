@@ -8,7 +8,7 @@ struct T_803501BC { s32 n; E_803501BC *e; };
 
 extern "C" {
 s32 get_field_d8__10TObjPlayerFPv(void *);
-void TItem__sub_80100824(s32);
+void consume_item_by_id(s32);
 s32 TItem__sub_801008F0(void *, void *);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 T_803501BC *get_item_pmt_entry__10TObjPlayerFUc(u8);
@@ -40,7 +40,7 @@ void fn_803501BC(void *arg0) {
             e++;
         }
     }
-    TItem__sub_80100824(get_field_d8__10TObjPlayerFPv(arg0));
+    consume_item_by_id(get_field_d8__10TObjPlayerFPv(arg0));
 }
 
 }

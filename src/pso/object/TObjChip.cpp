@@ -169,8 +169,8 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470();
-M2C_UNK TObjFish__sub_803E46BC(int, void *);
+M2C_UNK draw_ginja_object();
+M2C_UNK draw_chunk_object(int, void *);
 extern M2C_UNK lbl_80443B2C[];
 extern M2C_UNK lbl_80443B40[];
 extern M2C_UNK lbl_80443B54[];
@@ -412,10 +412,10 @@ void TObjPlayer__sub_80180D18(u8 *arg0) {
         }
         set_global_param__8TObjFishFi((int) (lbl_805D5B2C));
         TLobby__sub_801819E4((int) (M2C_FIELD(((u8 *)(lbl_80443B2C) + (M2C_FIELD(arg0, s32 *, 0x9C) * 4)), s32 *, 0)));
-        ((void (*)()) TObjFish__sub_803E46BC)();
+        ((void (*)()) draw_chunk_object)();
         begin_effect_render__13TParticleCtrlFv();
         TLobby__sub_801819E4((int) (M2C_FIELD(((u8 *)(lbl_80443B40) + (M2C_FIELD(arg0, s32 *, 0x9C) * 4)), s32 *, 0)));
-        TObjBoss2Tunnel__sub_803DB470();
+        draw_ginja_object();
         if ((void *) lbl_805D5B20 != NULL) {
             temp_r3 = (u8 *)(M2C_FIELD(lbl_805D5B24, u8 **, 0));
             temp_r31 = M2C_FIELD(temp_r3, s32 *, 0x20);
@@ -424,7 +424,7 @@ void TObjPlayer__sub_80180D18(u8 *arg0) {
             }
             set_global_param__8TObjFishFi((int) (lbl_805D5B24));
             TObjPlayer__sub_800F5BC0(lbl_8050DC08[M2C_FIELD(arg0, s32 *, 0x9C)], M2C_FIELD(arg0, s32 *, 0xA0), 0);
-            TObjFish__sub_803E46BC(M2C_FIELD(lbl_805D5B20, Rec16_80180D18 **, 0x42C)[((s32 *)lbl_80443B54)[M2C_FIELD(arg0, s32 *, 0x9C)]].f8, (void *) (lbl_805D5B20));
+            draw_chunk_object(M2C_FIELD(lbl_805D5B20, Rec16_80180D18 **, 0x42C)[((s32 *)lbl_80443B54)[M2C_FIELD(arg0, s32 *, 0x9C)]].f8, (void *) (lbl_805D5B20));
             M2C_FIELD(M2C_FIELD(lbl_805D5B24, u8 **, 0), s32 *, 0x20) = temp_r31;
         }
         pop_matrix();

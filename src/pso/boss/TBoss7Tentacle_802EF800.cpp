@@ -51,7 +51,7 @@ struct Ten_802EF898 { u8 pad[0x74]; f32 t; Cnt_802EF898 *c; };
 
 extern "C" {
 int queue_destruction__7TObjectFv(void*);
-M2C_UNK TObjFish__sub_800660D4(int, int, int, int, int, f32);
+M2C_UNK attach_particle_model(int, int, int, int, int, f32);
 s32 spawn_particle_effect(void *, int);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 s32 queue_boss_effect__10TObjPlayerFPv(int);
@@ -104,7 +104,7 @@ void TBoss7Tentacle__sub_802EF800(u8 *arg0) {
   if (temp_r3 != 0)
   {
     temp_r31 = TObjPlayer__sub_802E80A0();
-    TObjFish__sub_800660D4((int) temp_r3, (int) queue_boss_effect__10TObjPlayerFPv((int) 4), (int) temp_r31, (int) 0, (int) 0, (f32) (*(f32 *)&TBoss7Tentacle__data_805DEC00));
+    attach_particle_model((int) temp_r3, (int) queue_boss_effect__10TObjPlayerFPv((int) 4), (int) temp_r31, (int) 0, (int) 0, (f32) (*(f32 *)&TBoss7Tentacle__data_805DEC00));
   }
   TBoss3Volopt__sub_8022675C((int) 0x3A809, (void *) (arg0 + 0x1C), (int) 0, (int) 0);
 }

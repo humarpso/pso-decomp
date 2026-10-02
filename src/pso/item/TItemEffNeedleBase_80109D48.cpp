@@ -42,7 +42,7 @@ void TObjPlayer__sub_803D99F8(void *, s32);
 void TObjPlayer__sub_803D9B2C();
 void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
-void TObjBoss2Tunnel__sub_803DB470(void *);
+void draw_ginja_object(void *);
 void set_chunk_material_color(void *);
 extern u8 lbl_8050BEC0[];
 extern u8 lbl_8058D4C0[];
@@ -76,7 +76,7 @@ void TItemEffNeedleBase__sub_80109D48(Needle_80109D48 *self) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(self->m_30);
         TObjPlayer__sub_803D99F8(self->m_44, 1);
-        TObjBoss2Tunnel__sub_803DB470(self->m_3c);
+        draw_ginja_object(self->m_3c);
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
         copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);

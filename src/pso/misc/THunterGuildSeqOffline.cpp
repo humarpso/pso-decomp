@@ -135,7 +135,7 @@ struct V_A_80213474 : Base_A_80213474 {
 };
 
 extern "C" {
-s32 TWindowSubComCard__sub_8026CBB8(s32);
+s32 get_window_layout_position(s32);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 s32 THunterGuildSeqOffline__sub_8022350C(void *, int);
 M2C_UNK TShopSequence__sub_80223600(void *, int, void *);
@@ -217,7 +217,7 @@ void open_judgment_window__22THunterGuildSeqOfflineFPv(void *arg0);
 s32 TShopJudgmentItemWindow__sub_80266388(s32, u16, s32, s32);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
-s32 TWindowSubComCard__sub_8026CBB8(s32);
+s32 get_window_layout_position(s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void *create__12TQuestThreadFi(s32);
 int create_instance__19THunterGuildWarningFi(void*);
@@ -253,7 +253,7 @@ void open_judgment_window__22THunterGuildSeqOfflineFPv(void *arg0) {
     if ((((VObj_802136A4_80212e50_80212D9C *)arg0)->m10() != 0)
         && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         temp_r31 = (u16)obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
-        M2C_FIELD(arg0, s32 *, 0x2C) = TShopJudgmentItemWindow__sub_80266388(TWindowSubComCard__sub_8026CBB8(0x2B), temp_r31, 0, 0);
+        M2C_FIELD(arg0, s32 *, 0x2C) = TShopJudgmentItemWindow__sub_80266388(get_window_layout_position(0x2B), temp_r31, 0, 0);
         set_selected_index__17TWindowSubComCardFPvs(M2C_FIELD(arg0, s32 *, 0x2C), 1);
         temp_f31 = get_scale__15TShopWindowBaseFv(arg0);
         set_position_xy(M2C_FIELD(arg0, s32 *, 0x2C), get_scale__15TShopWindowBaseFv(arg0), temp_f31);
@@ -296,7 +296,7 @@ void THunterGuildSeqOffline__sub_802130AC(u8 *arg0) {
     Stack_802130AC stack;
     stack.sp8 = lbl_805DC650;
     stack.spC = lbl_805DC654;
-    TShopSequence__sub_80223600((void *) (arg0), (int) (((u8 *)TWindowSubComCard__sub_8026CBB8(0x2C))), (void *) (&stack.sp8));
+    TShopSequence__sub_80223600((void *) (arg0), (int) (((u8 *)get_window_layout_position(0x2C))), (void *) (&stack.sp8));
     ((VObj_18_97738d *)(arg0))->m7(1, 1);
     M2C_FIELD(arg0, s32 *, 0x30) = THunterGuildSeqOffline__sub_8022350C((void *) (arg0), (int) (1));
     set_field_20__12TQuestListVMFPvi((void*)((void *) (arg0)), (void*)((int) (2)));
@@ -482,7 +482,7 @@ void open_judgment_item_window__22THunterGuildSeqOfflineFPv(void *arg0) {
     if ((((VObj_802136A4_80212D9C *)arg0)->m10() != 0)
         && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         temp_r31 = (u16)obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
-        M2C_FIELD(arg0, s32 *, 0x3C) = TShopJudgmentItemWindow__sub_80266388(TWindowSubComCard__sub_8026CBB8(0x2B), temp_r31, 0, 0);
+        M2C_FIELD(arg0, s32 *, 0x3C) = TShopJudgmentItemWindow__sub_80266388(get_window_layout_position(0x2B), temp_r31, 0, 0);
         set_selected_index__17TWindowSubComCardFPvs(M2C_FIELD(arg0, s32 *, 0x3C), 1);
         temp_f31 = get_scale__15TShopWindowBaseFv(arg0);
         set_position_xy(M2C_FIELD(arg0, s32 *, 0x3C), get_scale__15TShopWindowBaseFv(arg0), temp_f31);

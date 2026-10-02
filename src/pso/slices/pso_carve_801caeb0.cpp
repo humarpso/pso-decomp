@@ -11,7 +11,7 @@ M2C_UNK set_type__10TObjPlayerFPvi(void *, int);
 s16 get_action_animation__10TObjPlayerFPv();
 M2C_UNK update_position_from_target__10TObjPlayerFPv(void *);
 int run_action_state_phase__10TObjPlayerFisi(void*, void*, void*);
-s32 TObjPlayer__sub_801D8ADC();
+s32 get_getup_protection_ticks__10TObjPlayerFPv();
 void TObjPlayer__sub_801CAEB0(u8 *arg0);
 }
 
@@ -35,7 +35,7 @@ void TObjPlayer__sub_801CAEB0(u8 *arg0) {
         break;
     case 2:
         if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
-            set_type__10TObjPlayerFPvi((void *) (arg0 + 0x644), (int) (TObjPlayer__sub_801D8ADC()));
+            set_type__10TObjPlayerFPvi((void *) (arg0 + 0x644), (int) (get_getup_protection_ticks__10TObjPlayerFPv()));
             update_position_from_target__10TObjPlayerFPv((void *) (arg0));
         }
         break;

@@ -41,7 +41,7 @@ struct Icon_80171A98 {
 extern "C" {
 void calc_attach_pos__10TObjPlayerFPv(void *);
 s32 TObjFish__sub_8001EDB0(void *, s32);
-s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 get_bml_model(void *, s32);
 void init_position_vectors__10TObjPlayerFi(void *);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_80154E3C(void *);
@@ -73,9 +73,9 @@ void *TOMineIcon03__ct(void *arg0, void *arg1, void *arg2) {
     ((VIcon_80171A98 *)self)->m5(arg2);
     init_position_vectors__10TObjPlayerFi(self);
     calc_attach_pos__10TObjPlayerFPv(self);
-    self->f34 = TObjFish__sub_8001EDC4(lbl_805D5A50, 6);
+    self->f34 = get_bml_model(lbl_805D5A50, 6);
     self->f24 = TObjFish__sub_8001EDB0(lbl_805D5A50, 6);
-    self->f374 = TObjFish__sub_8001EDC4(lbl_805D5A50, 2);
+    self->f374 = get_bml_model(lbl_805D5A50, 2);
     self->f378 = TObjFish__sub_8001EDB0(lbl_805D5A50, 2);
     self->f326 = 0;
     if (self->f84 < 0) {

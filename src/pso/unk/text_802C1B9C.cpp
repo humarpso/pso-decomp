@@ -57,7 +57,7 @@ extern u8 *lbl_805D67AC;
 void TObjPlayer__sub_802C1B9C(void);
 void VecCopy__FP3VecPC3Vec(Vec_802C1E34 *, Vec_802C1E34 *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-void TBoss1Dragon__sub_8014220C(Vec_802C1E34 *, s32 *, s32 *);
+void direction_to_rotation_xz(Vec_802C1E34 *, s32 *, s32 *);
 s32 clamp_value_to_max__10TObjPlayerFPviPvif(void *, s32, s32, Vec_802C1E34 *, f32);
 f32 TBoss6Type1__sub_803D9370(Vec_802C1E34 *, Vec_802C1E34 *);
 extern Entry_802C1E34 lbl_80471890[];
@@ -66,7 +66,7 @@ extern const f32 lbl_805DE4F8;
 s32 TObjPlayer__sub_802C1E34(Obj_802C1E34 *self);
 void VecCopy__FP3VecPC3Vec(Vec_802C1E34 *, Vec_802C1E34 *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-void TBoss1Dragon__sub_8014220C(Vec_802C1E34 *, s32 *, s32 *);
+void direction_to_rotation_xz(Vec_802C1E34 *, s32 *, s32 *);
 s32 clamp_value_to_max__10TObjPlayerFPviPvif(void *, s32, s32, Vec_802C1E34 *, f32);
 f32 TBoss6Type1__sub_803D9370(Vec_802C1E34 *, Vec_802C1E34 *);
 s32 TObjPlayer__sub_801423A4(s32, s32, s32);
@@ -106,7 +106,7 @@ s32 TObjPlayer__sub_802C1BFC(Obj_802C1BFC *self) {
     r = clamp_value_to_max__10TObjPlayerFPviPvif(self, self->f98, self->fA0, &b, self->fA4 + lbl_80471890[self->fC8].d);
     VecCopy__FP3VecPC3Vec(&d, &b);
     TBoss6Type1__sub_803D9370(&d, &a);
-    TBoss1Dragon__sub_8014220C(&d, &tmp, &tmp2);
+    direction_to_rotation_xz(&d, &tmp, &tmp2);
     self->fBC = TObjPlayer__sub_801423A4(self->fBC, tmp, lbl_80471890[self->fC8].e);
     old = self->fB8;
     tmp = (s32)(lbl_80471960[0] * get_ad_end_text_start__10TObjPlayerFv(b.x - a.x, b.z - a.z));
@@ -164,7 +164,7 @@ s32 TObjPlayer__sub_802C1E34(Obj_802C1E34 *self) {
     r = clamp_value_to_max__10TObjPlayerFPviPvif(self, self->f98, self->fA0, &b, lbl_80471890[self->fC8].d);
     VecCopy__FP3VecPC3Vec(&d, &b);
     TBoss6Type1__sub_803D9370(&d, &a);
-    TBoss1Dragon__sub_8014220C(&d, &self->fBC, &tmp);
+    direction_to_rotation_xz(&d, &self->fBC, &tmp);
     self->fB8 = (s32)(lbl_80471960[0] * get_ad_end_text_start__10TObjPlayerFv(b.x - a.x, b.z - a.z));
     return r;
 }

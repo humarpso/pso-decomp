@@ -8,7 +8,7 @@ struct Obj_802C3288 { u8 pad[0x1C]; s32 f1C; s32 f20; };
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+s32 get_localized_text_entry(s32, s32);
 s32 get_selected_slot__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801334DC(s32);
 s32 TAdStorySelectGC__sub_8019DC14(void);
@@ -35,7 +35,7 @@ void render__16TAdStorySelectGCFv(void) {  }
 void run_task__16TAdStorySelectGCFv(Obj_802C3288 *self) {
     TAdMultiChgGameModeGC__sub_8023E834();
     if (lbl_805D67C0 != TAdSinglePlyChrSelectGC__sub_801334DC(self->f1C)) {
-        set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(self->f20, 1, TAdSinglePlyChrSelectGC__sub_80132F2C(0x14, TAdSinglePlyChrSelectGC__sub_801334DC(self->f1C) + 1));
+        set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(self->f20, 1, get_localized_text_entry(0x14, TAdSinglePlyChrSelectGC__sub_801334DC(self->f1C) + 1));
     }
     lbl_805D67C0 = TAdSinglePlyChrSelectGC__sub_801334DC(self->f1C);
     switch (get_selected_slot__23TAdSinglePlyChrSelectGCFPv(self->f1C)) {

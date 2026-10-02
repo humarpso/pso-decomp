@@ -79,11 +79,11 @@ struct Quad_800FCD40 { f32 x, y, right, bottom, u, v, u2, v2; };
 
 s32 get_camera_no__11TCameraCtrlFv(void);
 s32 TCameraCtrl__sub_80068958(s32);
-void TObjPlayer__sub_803D97F0(void *);
+void push_matrix_from(void *);
 void rotate_matrix_y(int, s32);
 void rotate_matrix_x(int, s32);
 void rotate_matrix_z(int, s32);
-void TScene__sub_803D8DB4(int, Vec_800FCD40 *, Vec_800FCD40 *);
+void rotate_vector_by_matrix(int, Vec_800FCD40 *, Vec_800FCD40 *);
 void pop_matrix(void);
 s32 TObjPlayer__sub_80203418(void);
 f32 TObjPlayer__sub_803D89C0(Vec_800FCD40 *, Vec_800FCD40 *);
@@ -141,11 +141,11 @@ void TFontSmallTask::render() {
             return;
         }
     }
-    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    push_matrix_from(lbl_8058D490);
     rotate_matrix_y(0, *(s32 *)(lbl_805D4DF0 + 0x194));
     rotate_matrix_x(0, *(s32 *)(lbl_805D4DF0 + 0x190));
     rotate_matrix_z(0, *(s32 *)(lbl_805D4DF0 + 0x198));
-    TScene__sub_803D8DB4(0, &forward, &forward);
+    rotate_vector_by_matrix(0, &forward, &forward);
     pop_matrix();
     diff.x = position[0] - *(f32 *)(lbl_805D4DF0 + 0x178);
     diff.y = position[1] - *(f32 *)(lbl_805D4DF0 + 0x17C);

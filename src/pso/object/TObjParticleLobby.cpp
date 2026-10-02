@@ -24,7 +24,7 @@ struct Self_803696A0 { u8 pad0[0xC8]; s32 state; f32 t; s32 target; void *ctrl; 
 
 typedef s32 M2C_UNK;
 extern "C" {
-s32 TBoss4Type2__sub_800874F4(void *, int);
+s32 create_particle_emitter(void *, int);
 s32 init_map_object_base(void *, void *);
 extern M2C_UNK __vt__17TObjParticleLobby[];
 extern s32 lbl_805D44B8;
@@ -246,7 +246,7 @@ u8 *TObjParticleLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80369ADC___vt__17TObjParticleLobby *)&__vt__17TObjParticleLobby).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D44B8;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0xD4) = TBoss4Type2__sub_800874F4((void *) (arg0 + 0x38), (int) (1));
+    M2C_FIELD(arg0, s32 *, 0xD4) = create_particle_emitter((void *) (arg0 + 0x38), (int) (1));
     TObjParticleLobby__sub_803697E8((void *)((void *) (arg0)));
     M2C_FIELD(arg0, f32 *, 0xCC) = (f32) lbl_805E0344;
     return arg0;

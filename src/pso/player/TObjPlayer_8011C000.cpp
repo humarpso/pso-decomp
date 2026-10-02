@@ -67,7 +67,7 @@ M2C_UNK TItemDrop__sub_80106818(u32, s32, s32);
 M2C_UNK TLobby__sub_801044B8(s32 *);
 extern void *item_mgr;
 void drop_item__10TObjPlayerFii(s32 arg0, s32 arg1);
-M2C_UNK TItemDrop__sub_80106930(u32, s32, s32);
+M2C_UNK generate_drop_item__9TItemDropFPviPv(u32, s32, s32);
 M2C_UNK TLobby__sub_801044B8(s32 *);
 extern void *item_mgr;
 void drop_meseta_from_slot__10TObjPlayerFii(s32 arg0, s32 arg1);
@@ -83,15 +83,15 @@ s32 __cvt_fp2unsigned(f32);
 extern void *item_mgr;
 void TObjPlayer__sub_8011C328(u32 arg0, s32 arg1);
 extern void *item_pmt_tbl;
-u8 TObjPlayer__sub_8011CA98(u8 arg0);
+u8 get_weapon_class_motion_type(u8 arg0);
 extern void *item_pmt_tbl;
-u8 TObjPlayer__sub_8011C1C8(s8 arg0, u8 arg1);
+u8 get_technique_learn_limit(s8 arg0, u8 arg1);
 extern void *item_pmt_tbl;
 s32 TObjPlayer__sub_8011C914(s32 id);
 u8 get_field_ed__10TObjPlayerFPv(void *p);
 u8 get_slot_count__14TItemProShieldFPv(void *p);
 extern void *item_pmt_tbl;
-Entry_8011CB18 *TObjPlayer__sub_8011CB18(Item_8011CB18 *item, s16 mode);
+Entry_8011CB18 *get_weapon_range_record(Item_8011CB18 *item, s16 mode);
 extern void *item_pmt_tbl;
 s32 TObjPlayer__sub_8011C030(u8 *id);
 extern void *item_pmt_tbl;
@@ -182,7 +182,7 @@ Rule_8011C0B8 *TObjPlayer__sub_8011C0B8(u8 *id, void *item) {
     return NULL;
 }
 
-u8 TObjPlayer__sub_8011C1C8(s8 arg0, u8 arg1) {
+u8 get_technique_learn_limit(s8 arg0, u8 arg1) {
     return (*(u8 (**)[12])((s8 *)(*(u8 * *)&item_pmt_tbl) + 0x40))[arg1][arg0];
 }
 
@@ -232,7 +232,7 @@ void drop_meseta_from_slot__10TObjPlayerFii(s32 arg0, s32 arg1) {
         TLobby__sub_801044B8(&sp8);
         temp_r4 = sp8 - 1;
         sp8 = temp_r4;
-        TItemDrop__sub_80106930((*(u32 *)&item_mgr), temp_r4, arg1);
+        generate_drop_item__9TItemDropFPviPv((*(u32 *)&item_mgr), temp_r4, arg1);
     }
 }
 s32 get_unit_attribute_index__10TObjPlayerFUc(u8 arg0) {
@@ -342,7 +342,7 @@ f32 TObjPlayer__sub_8011CA10(u8 arg0, u8 arg1) {
     return lbl_805DAC74;
 }
 
-u8 TObjPlayer__sub_8011CA98(u8 arg0) {
+u8 get_weapon_class_motion_type(u8 arg0) {
     if (arg0 < 0xAAU) {
         return M2C_FIELD((M2C_FIELD((*(u8 * *)&item_pmt_tbl), s32 *, 0x14) + arg0), u8 *, 0);
     }
@@ -362,7 +362,7 @@ s32 get_item_by_slot_flag__10TObjPlayerFUc(u8 arg0) {
 block_6:
     return lbl_805D2B10;
 }
-Entry_8011CB18 *TObjPlayer__sub_8011CB18(Item_8011CB18 *item, s16 mode) {
+Entry_8011CB18 *get_weapon_range_record(Item_8011CB18 *item, s16 mode) {
     if (item != 0) {
         u8 id = get_field_ed__10TObjPlayerFPv(item);
         if (id < 0xAA) {

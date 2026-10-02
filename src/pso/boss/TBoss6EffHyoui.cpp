@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
-void *TBoss4Type2__sub_800874F4(void *, s32);
+void *create_particle_emitter(void *, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 s32 get_player_by_client_id(int);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -77,7 +77,7 @@ void *TBoss6EffHyoui__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *a
             lbl_805D6FFC = 1;
             lbl_805D6FF8 = lbl_805E0380;
         }
-        if ((M2C_FIELD(self, void **, 0x1C) = TBoss4Type2__sub_800874F4(p + 0x38, lbl_8047AC70[(s32)arg3])) != NULL) {
+        if ((M2C_FIELD(self, void **, 0x1C) = create_particle_emitter(p + 0x38, lbl_8047AC70[(s32)arg3])) != NULL) {
             set_flags__11TBoss4Type2FPvUi(M2C_FIELD(self, void **, 0x1C), 0x40);
             set_position_xy__10TObjPlayerFPvff(M2C_FIELD(self, void **, 0x1C), lbl_805D6FF8, lbl_805D6FF8);
         }

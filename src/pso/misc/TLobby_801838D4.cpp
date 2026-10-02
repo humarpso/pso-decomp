@@ -15,7 +15,7 @@ extern "C" {
 void TObjCity_Season_Board__sub_80183970(void *arg0);
 void draw_model__6TLobbyFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjFish__sub_803E46BC(s32);
+M2C_UNK draw_chunk_object(s32);
 M2C_UNK TObjPlayer__sub_800F5BC0(s32, s16, M2C_UNK);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -37,8 +37,8 @@ void draw_model__6TLobbyFPv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjFish__sub_803E46BC(lbl_805D5B3C);
-        TObjFish__sub_803E46BC(lbl_805D5B40);
+        draw_chunk_object(lbl_805D5B3C);
+        draw_chunk_object(lbl_805D5B40);
         pop_matrix();
     }
 }

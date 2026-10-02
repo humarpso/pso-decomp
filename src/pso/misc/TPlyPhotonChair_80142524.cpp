@@ -53,7 +53,7 @@ void TPlyPhotonChair__sub_801427D0(u8 *arg0);
 M2C_UNK activate__15TPlyPhotonChairFPv();
 extern const f32 lbl_805DB16C;
 void TPlyPhotonChair__sub_80142874(u8 *arg0);
-int TObjFish__sub_803E46BC(void);
+int draw_chunk_object(void);
 void TLobby__sub_80142920(void * _w0);
 int TLobby__sub_80142944(void* p);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
@@ -195,7 +195,7 @@ void TPlyPhotonChair__sub_80142874(u8 *arg0) {
         return;
     }
 }
-void TLobby__sub_80142920(void * _w0) { get_id__15TPlyPhotonChairFPv((void *)(_w0)); TObjFish__sub_803E46BC(); }
+void TLobby__sub_80142920(void * _w0) { get_id__15TPlyPhotonChairFPv((void *)(_w0)); draw_chunk_object(); }
 int TLobby__sub_80142944(void* p) { return (*(u32*)((char*)p + 0xb0) >> 4) & 0x1; }
 
 }

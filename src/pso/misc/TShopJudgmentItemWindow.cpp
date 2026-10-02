@@ -63,7 +63,7 @@ s32 has_flag_128__10TObjPlayerFPv(int);
 M2C_UNK copy_item_data__6TLobbyFPvPv(void *, void *);
 M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(int);
 M2C_UNK update_all__6TLobbyFi(void *);
-M2C_UNK TLobby__sub_8022727C(void *);
+M2C_UNK play_cue_stream_file(void *);
 void TWindow__close(void *);
 s32 TWindowSubComCard__sub_80265BF8(int);
 s32 select_cursor_entry__6TLobbyFPv(int);
@@ -100,7 +100,7 @@ M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 TShopJudgmentItemWindow__sub_80266388(M2C_UNK, u16, M2C_UNK, M2C_UNK);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
-s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+s32 get_window_layout_position(M2C_UNK);
 void TWindow__close(void *);
 void __ct__15TShopWindowBaseFv(void *);
 void __dl__7TObjectFPv(void *);
@@ -195,7 +195,7 @@ void TShopJudgmentItemWindow__sub_80221134(u8 *arg0) {
                         TWindow__close(M2C_FIELD(arg0, void **, 0x154));
                         M2C_FIELD(arg0, u32 *, 0x154) = 0U;
                     }
-                    TLobby__sub_8022727C((void *) (lbl_8044C1D4));
+                    play_cue_stream_file((void *) (lbl_8044C1D4));
                 }
                 TWindow__close(M2C_FIELD(arg0, void **, 0x158));
                 M2C_FIELD(arg0, u32 *, 0x158) = 0U;
@@ -236,7 +236,7 @@ void handle_input__23TShopJudgmentItemWindowFPv(void *arg0) {
     }
     if (TShopWindowBase__sub_80223A48(arg0) != 0) {
         temp_r31 = (u16)obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
-        M2C_FIELD(arg0, s32 *, 0x158) = TShopJudgmentItemWindow__sub_80266388(TWindowSubComCard__sub_8026CBB8(0x2B), temp_r31, 0, 0);
+        M2C_FIELD(arg0, s32 *, 0x158) = TShopJudgmentItemWindow__sub_80266388(get_window_layout_position(0x2B), temp_r31, 0, 0);
         temp_f31 = get_scale__15TShopWindowBaseFv(arg0);
         set_position_xy(M2C_FIELD(arg0, s32 *, 0x158), get_scale__15TShopWindowBaseFv(arg0), temp_f31);
         ((VObj_80221344_802205E4 *)arg0)->m6(3, 1);

@@ -12,7 +12,7 @@ struct Src_803631E8 { u8 pad[0x188]; s32 i188; };
 
 extern "C" {
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-void TObjPlayer__sub_80120304(void *, void *);
+void get_weapon_color__11TItemWeaponFPv(void *, void *);
 void TObjPlayer__sub_8010941C();
 extern const f32 lbl_805E026C;
 void TItemEffectWeapon__sub_803631E8(Src_803631E8 *arg0, Obj_803631E8 *arg1);
@@ -40,7 +40,7 @@ void play_effect_sound__17TItemEffectWeaponFPv(void *arg0) {
 void TItemEffectWeapon__sub_803631E8(Src_803631E8 *arg0, Obj_803631E8 *arg1) {
     u8 sp8[16];
     arg1->flags |= 0x39C;
-    TObjPlayer__sub_80120304(sp8, arg0);
+    get_weapon_color__11TItemWeaponFPv(sp8, arg0);
     copy_vec4__13TRaderMapCoreFPvPv(arg1->v60, sp8);
     arg1->i44 = arg0->i188;
     arg1->i10 = 4;

@@ -11,12 +11,12 @@ s32 TObjPlayer__sub_8011F63C(void *);
 extern s32 tl_05;
 extern const f32 lbl_805DAFF8;
 extern const f32 lbl_805DAFFC;
-void TObjPlayer__sub_801300A0(u8 *arg0);
+void mace_of_adaman_update_active(u8 *arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_801300A0(u8 *arg0) {
+void mace_of_adaman_update_active(u8 *arg0) {
     u8 temp_r3;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1FC) == 0) {
         temp_r3 = get_slot_count__14TItemProShieldFPv((void *) (arg0));
