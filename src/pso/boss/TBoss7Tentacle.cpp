@@ -12,6 +12,12 @@ struct V_802F0A5C { f32 x, y, z; };
 
 struct Ten_802F0A5C { u8 pad0[0x50]; V_802F0A5C v[14]; u32 w[14]; };
 
+struct V_802EFF24 { f32 x, y, z; };
+
+struct Node_802EFF24 { u8 pad0[8]; V_802EFF24 pos; u8 pad14[8]; s32 ang; u8 pad20[0x18]; };
+
+struct Tent_802EFF24 { u8 pad0[0x50]; V_802EFF24 pos[14]; s32 ang[14]; };
+
 extern "C" {
 u8 TBoss7Tentacle__sub_802F0904(u8 *arg0);
 void TBoss7Tentacle__sub_802F09FC(u8 *arg0);
@@ -32,6 +38,21 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 extern V_802F0A5C TBoss7Tentacle__data_80541838[];
 extern u32 lbl_805418E0[];
 void TBoss7Tentacle__sub_802F0A5C(Ten_802F0A5C *o);
+M2C_UNK draw_effect__10TObjPlayerFv();
+M2C_UNK TBoss7Tentacle__sub_803D8A6C(int, int, int, int);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK TObjPlayer__sub_803D9730(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK TObjFish__sub_803E46BC(void *);
+M2C_UNK TObjEneSlimeOne__sub_803E4AF4(void *, int, f32);
+M2C_UNK set_global_flag__10TObjPlayerFv();
+M2C_UNK clear_global_state__10TObjPlayerFv();
+extern M2C_UNK lbl_80474070[];
+extern Node_802EFF24 lbl_80541528[];
+void render__14TBoss7TentacleFv(u8 *arg0);
 }
 
 extern "C" {
@@ -47,6 +68,60 @@ void TObjPlayer__sub_802F0D2C(void);
 void reset_state__14TBoss7TentacleFPv(void* a0);
 void setup_state__14TBoss7TentacleFPv(void* a0);
 void switch_state__14TBoss7TentacleFPv(void *arg0);
+
+void render__14TBoss7TentacleFv(u8 *arg0) {
+    s32 temp_r0;
+    s32 temp_r0_2;
+    s32 var_ctr;
+    s32 var_r3;
+    s32 var_r4;
+    s32 var_r5;
+    u8 *temp_r7;
+    u8 *temp_r8;
+    draw_effect__10TObjPlayerFv();
+    TObjPlayer__sub_803D9B2C();
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x30);
+    switch (temp_r0) {
+    case 0:
+        set_global_flag__10TObjPlayerFv();
+        TObjPlayer__sub_803D9730((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x130)));
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x13C)));
+        TBoss7Tentacle__sub_803D9BA0((void *) ((u8 *)(arg0) + 0x24));
+        TObjEneSlimeOne__sub_803E4AF4((void *) (M2C_FIELD(arg0, M2C_UNK **, 0x1C)), (int) (M2C_FIELD(arg0, s32 *, 0x20)), (f32) (M2C_FIELD(arg0, f32 *, 0x134)));
+        clear_global_state__10TObjPlayerFv();
+        break;
+    case 1:
+    case 4:
+    case 5:
+        set_global_flag__10TObjPlayerFv();
+        TObjPlayer__sub_803D9730((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x130)));
+        TBoss7Tentacle__sub_803D8A6C((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x140)), (int) (M2C_FIELD(arg0, s32 *, 0x13C)), (int) (0));
+        TBoss7Tentacle__sub_803D9BA0((void *) ((u8 *)(arg0) + 0x24));
+        TObjEneSlimeOne__sub_803E4AF4((void *) (M2C_FIELD(arg0, M2C_UNK **, 0x1C)), (int) (M2C_FIELD(arg0, s32 *, 0x20)), (f32) (M2C_FIELD(arg0, f32 *, 0x134)));
+        clear_global_state__10TObjPlayerFv();
+        break;
+    case 2:
+        TObjPlayer__sub_803D9730((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x130)));
+        TBoss7Tentacle__sub_803D8A6C((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x140)), (int) (M2C_FIELD(arg0, s32 *, 0x13C)), (int) (0));
+        TBoss7Tentacle__sub_803D9BA0((void *) ((u8 *)(arg0) + 0x24));
+        TObjFish__sub_803E46BC((void *) (M2C_FIELD(arg0, M2C_UNK **, 0x1C)));
+        break;
+    case 3:
+        TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x40));
+        TBoss7Tentacle__sub_803D9BA0((void *) (lbl_80474070));
+        TBoss7Tentacle__sub_803D8A6C((int) (0), (int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x13C)), (int) (M2C_FIELD(arg0, s32 *, 0x140)));
+        for (var_ctr = 0; var_ctr < 14; var_ctr++) {
+            lbl_80541528[var_ctr].pos.x = ((Tent_802EFF24 *)arg0)->pos[var_ctr].x;
+            lbl_80541528[var_ctr].pos.y = ((Tent_802EFF24 *)arg0)->pos[var_ctr].y;
+            lbl_80541528[var_ctr].pos.z = ((Tent_802EFF24 *)arg0)->pos[var_ctr].z;
+            lbl_80541528[var_ctr].ang = ((Tent_802EFF24 *)arg0)->ang[var_ctr];
+        }
+        TBoss7Tentacle__sub_803D9BA0((void *) ((u8 *)(arg0) + 0x24));
+        TObjFish__sub_803E46BC((void *) (lbl_80541528));
+        break;
+    }
+    TObjPlayer__sub_803D9B78();
+}
 
 #pragma push
 #pragma opt_common_subs off

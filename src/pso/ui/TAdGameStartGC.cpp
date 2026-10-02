@@ -27,6 +27,11 @@ struct Obj_802E6380 {
     void *fD0;
 };
 
+struct Obj_802E6380;
+struct Slot_802E655C { u8 pad[0x10]; };
+
+struct GS_802E655C { u8 pad0[0x1C]; Slot_802E655C slots[8]; s32 count; s32 active; s32 subs[8]; };
+
 extern "C" {
 s32 queue_destruction__7TObjectFv(int);
 u32 __nw__7TObjectFUl(int);
@@ -43,6 +48,14 @@ extern const f32 lbl_805DE994;
 Obj_802E6750 *__ct__14TAdGameStartGCFv(Obj_802E6750 *arg0);
 s32 queue_destruction__7TObjectFv(int);
 void TAdGameStartGC__sub_802E6380(Obj_802E6380 *o);
+s32 TWindowShortListCtrl__check_controller_button(void *, int);
+s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(void *, int, int, int);
+u32 __nw__7TObjectFUl(int);
+s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
+void TAdGameStartGC__sub_802E6380(Obj_802E6380 *o);
+s32 __ct__17TAdGameStartSubGCFv(void *, void *, void *);
+extern u8 lbl_8050E3B8[];
+void run_task__14TAdGameStartGCFv(u8 *arg0);
 }
 
 extern "C" {
@@ -148,6 +161,49 @@ void TAdGameStartGC__sub_802E644C(u8 *arg0) {
     }
     M2C_FIELD(arg0, u32 *, 0xD0) = var_r0_4;
 }
+
+void run_task__14TAdGameStartGCFv(u8 *arg0) {
+    GS_802E655C *gs = (GS_802E655C *) arg0;
+    s32 sub;
+    u8 *pad;
+    if (gs->active != 0) {
+        gs->count++;
+        if (gs->count < 8) {
+            sub = __nw__7TObjectFUl(0x88);
+            if (sub != 0) {
+                sub = __ct__17TAdGameStartSubGCFv((void *) sub, arg0, &gs->slots[gs->count]);
+            }
+            gs->subs[gs->count] = sub;
+        }
+        if (gs->count > 0x3C) {
+            TAdGameStartGC__sub_802E6380((Obj_802E6380 *) arg0);
+            return;
+        }
+        pad = lbl_8050E3B8 + get_clamped_cursor__22TAdMultiPlyChrSelectGCFv() * 0x50 + 0x20;
+        if (TWindowShortListCtrl__check_controller_button(pad, 4) != 0) {
+            TAdGameStartGC__sub_802E6380((Obj_802E6380 *) arg0);
+        }
+        if (TWindowShortListCtrl__check_controller_button(pad, 2) != 0) {
+            TAdGameStartGC__sub_802E6380((Obj_802E6380 *) arg0);
+        }
+        if (TWindowShortListCtrl__check_controller_button(pad, 8) != 0) {
+            TAdGameStartGC__sub_802E6380((Obj_802E6380 *) arg0);
+        }
+        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(pad, 0x10, 6, 1) != 0) {
+            TAdGameStartGC__sub_802E6380((Obj_802E6380 *) arg0);
+        }
+        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(pad, 0x20, 6, 1) != 0) {
+            TAdGameStartGC__sub_802E6380((Obj_802E6380 *) arg0);
+        }
+        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(pad, 0x40, 6, 1) != 0) {
+            TAdGameStartGC__sub_802E6380((Obj_802E6380 *) arg0);
+        }
+        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(pad, 0x80, 6, 1) != 0) {
+            TAdGameStartGC__sub_802E6380((Obj_802E6380 *) arg0);
+        }
+    }
+}
+
 Obj_802E6750 *__ct__14TAdGameStartGCFv(Obj_802E6750 *arg0) {
     s32 i;
     __ct__7TObjectFP7TObject(arg0);
