@@ -104,6 +104,12 @@ struct VObj_18_b27ba1 : VBase_18_b27ba1 {
 
 struct Prm_800E1608 { u8 pad[0x1c]; s32 x1c; s32 x20; };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+typedef struct { f32 x, y, z; } Vec_800E18B0;
+struct M2CCopy_800E18B0 { u8 bytes[0xc]; };
+
 extern "C" {
 void TObjEnePanarms__sub_800E1B78(u8 *, u8 *, s32 *);
 extern Vec_800E1A44 lbl_8043CD40[];
@@ -127,6 +133,19 @@ M2C_UNK create_instance__9TTecZaruaFiiii(void *, void *, void *, s32);
 extern Hit_800E1608 lbl_8043CD88[];
 extern Hit_800E1608 lbl_8043CD90[];
 void TObjEnePanarms__sub_800E1608(u8 *arg0, s32 arg1);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+u32 TObjPlayer__sub_8007A3AC(void *, void *);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
+s32 update_collisions__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_80156844(void *, void *, int);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+s32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+extern const float TObjEnePanarms__data_805DA524;
+extern const f32 lbl_805DA584;
+extern const f32 lbl_805DA588;
+s32 TObjEnePanarms__sub_800E18B0(u8 *arg0, Vec_800E18B0 *arg1);
 }
 
 extern "C" {
@@ -191,6 +210,51 @@ void TObjEnePanarms__sub_800E1608(u8 *arg0, s32 arg1) {
         }
     }
 }
+
+#pragma push
+#pragma fp_contract on
+s32 TObjEnePanarms__sub_800E18B0(u8 *arg0, Vec_800E18B0 *arg1) {
+    Vec_800E18B0 dir;
+    Vec_800E18B0 t;
+    Vec_800E18B0 p;
+    s32 i;
+    s32 ang;
+    f32 s;
+    f32 c;
+    f32 nx;
+    *(M2CCopy_800E18B0 *)&dir = *(M2CCopy_800E18B0 *)arg1;
+    dir.y = (*(const f32 *)&TObjEnePanarms__data_805DA524);
+    if ((*(const f32 *)&TObjEnePanarms__data_805DA524) == TBoss6Kakusan__sub_803D8BD8(&dir)) {
+        return 0;
+    }
+    VecCopy__FP3VecPC3Vec(&t, arg0 + 0x38);
+    TBoss4Zako__sub_803D8910(&t, arg1);
+    if (TObjPlayer__sub_80141CF8(&t, arg0 + 0x50) > lbl_805DA584) {
+        return 0;
+    }
+    for (i = 1; i < 16; i++) {
+        VecCopy__FP3VecPC3Vec(&p, arg0 + 0x38);
+        TBoss4Zako__sub_803D8910(&p, &dir);
+        p.y += lbl_805DA588;
+        if (TObjPlayer__sub_80156844(arg0, &p, 0) != 0 && TObjPlayer__sub_8007A3AC(arg0 + 0x38, &p) == 0) {
+            VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
+            VecCopy__FP3VecPC3Vec(arg0 + 0x38, &p);
+            update_collisions__10TObjPlayerFPv(arg0);
+            return 1;
+        }
+        ang = i << 12;
+        if (i & 1) {
+            ang *= -1;
+        }
+        s = TBoss8Dragon__sub_803D64C0(ang);
+        c = TBoss8Dragon__sub_803D64DC(ang);
+        nx = c * dir.x - s * dir.z;
+        dir.x = nx;
+        dir.z = s * nx + c * dir.z;
+    }
+    return 0;
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on

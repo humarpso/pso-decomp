@@ -61,6 +61,24 @@ s32 TObjDoor__sub_803DC894(s32, s32, f32);
 extern s32 *TOKeyGenericSw__data_805D5A28;
 extern Map_8016CA64 *TOKeyGenericSw__data_8050DB60[];
 void render__14TOKeyGenericSwFv(Obj_8016CA64 *self);
+void TLobby__sub_8001FE7C(void *, s32);
+void free__11TOBoss4RockFUi(void *);
+void free_if_valid__10TObjPlayerFi(s32);
+extern s32 *TOKeyGenericSw__data_805D5A28;
+extern Map_8016CA64 *TOKeyGenericSw__data_8050DB60[];
+void TOKeyGenericSw__sub_8016CC8C(void);
+void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+void *alloc_buffer__11TOBoss4RockFPv(u32);
+s32 TLanguage__sub_801E4874(void *);
+s32 TContainerAncient01__sub_8020335C(void);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+extern char lbl_80441D04[];
+extern char lbl_80441D24[];
+extern u8 lbl_804B2CC0[];
+extern Map_8016CA64 *TOKeyGenericSw__data_8050DB60[];
+extern s32 *TOKeyGenericSw__data_805D5A28;
+void TOKeyGenericSw__sub_8016CD28(void);
 }
 
 extern "C" {
@@ -138,6 +156,61 @@ void *create__14TOKeyGenericSwFPv(void *arg0) {
 }
 
 extern M2C_UNK __vt__14TOKeyGenericSw[];
+
+void TOKeyGenericSw__sub_8016CC8C(void) {
+    if (TOKeyGenericSw__data_805D5A28 != NULL) {
+        free_if_valid__10TObjPlayerFi(TOKeyGenericSw__data_805D5A28[2]);
+        if (TOKeyGenericSw__data_805D5A28 != NULL) {
+            free__11TOBoss4RockFUi(TOKeyGenericSw__data_805D5A28);
+            TOKeyGenericSw__data_805D5A28 = NULL;
+        }
+    }
+    if (TOKeyGenericSw__data_8050DB60[1] != NULL) {
+        TLobby__sub_8001FE7C(TOKeyGenericSw__data_8050DB60[1], 1);
+        TOKeyGenericSw__data_8050DB60[1] = NULL;
+    }
+    if (TOKeyGenericSw__data_8050DB60[0] != NULL) {
+        TLobby__sub_8001FE7C(TOKeyGenericSw__data_8050DB60[0], 1);
+        TOKeyGenericSw__data_8050DB60[0] = NULL;
+    }
+}
+
+void TOKeyGenericSw__sub_8016CD28(void) {
+    u8 *base = lbl_804B2CC0;
+    s32 st = get_global_state__14TOKeyMachine01Fv();
+    void *p;
+    if (TContainerAncient01__sub_8020335C() == 1 || st == 0x1C || st == 0x1D) {
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = TLobby__sub_80020004(p, 1, base + 0x40, 0, 0, 0);
+        }
+        TOKeyGenericSw__data_8050DB60[0] = (Map_8016CA64 *)p;
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = TLobby__sub_80020004(p, 1, base + 0x60, 0, 0, 0);
+        }
+        TOKeyGenericSw__data_8050DB60[1] = (Map_8016CA64 *)p;
+        TOKeyGenericSw__data_805D5A28 = (s32 *)alloc_buffer__11TOBoss4RockFPv(0xC);
+        TOKeyGenericSw__data_805D5A28[0] = M2C_FIELD(TOKeyGenericSw__data_8050DB60[0]->area, s32 *, 0xC);
+        TOKeyGenericSw__data_805D5A28[1] = M2C_FIELD(TOKeyGenericSw__data_8050DB60[1]->area, s32 *, 0xC);
+        TOKeyGenericSw__data_805D5A28[2] = TLanguage__sub_801E4874(lbl_80441D04);
+    } else {
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = TLobby__sub_80020004(p, 1, base + 0x8, 0, 0, 0);
+        }
+        TOKeyGenericSw__data_8050DB60[0] = (Map_8016CA64 *)p;
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = TLobby__sub_80020004(p, 1, base + 0x28, 0, 0, 0);
+        }
+        TOKeyGenericSw__data_8050DB60[1] = (Map_8016CA64 *)p;
+        TOKeyGenericSw__data_805D5A28 = (s32 *)alloc_buffer__11TOBoss4RockFPv(0xC);
+        TOKeyGenericSw__data_805D5A28[0] = M2C_FIELD(TOKeyGenericSw__data_8050DB60[0]->area, s32 *, 0xC);
+        TOKeyGenericSw__data_805D5A28[1] = M2C_FIELD(TOKeyGenericSw__data_8050DB60[1]->area, s32 *, 0xC);
+        TOKeyGenericSw__data_805D5A28[2] = TLanguage__sub_801E4874(lbl_80441D24);
+    }
+}
 
 void *__dt__14TOKeyGenericSwFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

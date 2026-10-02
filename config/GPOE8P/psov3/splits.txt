@@ -8799,7 +8799,7 @@ pso/object/TObjWarpBossMulti_801B3514.cpp:
 
 pso/player/TObjPlayer_801B3540.cpp:
 	.text       start:0x801B3540 end:0x801B3B90
-	.data       start:0x804C3DA8 end:0x804C3DEC
+	.data       start:0x804C3D88 end:0x804C3DEC
 
 pso/misc/TChallenge4PResult_801B3B90.cpp:
 	.text       start:0x801B3B90 end:0x801B3FD8
@@ -14621,6 +14621,7 @@ pso/misc/TOTrapChainSawEdge.cpp:
 
 pso/unk/text_802C83EC.cpp:
 	.text       start:0x802C83EC end:0x802C883C
+	.rodata     start:0x80471FA0 end:0x80471FA8
 
 pso/misc/TOTrapChainSawKey.cpp:
 	.text       start:0x802C883C end:0x802C8B74
@@ -17016,6 +17017,7 @@ pso/unk/text_80356374.cpp:
 
 pso/boss/TBoss6SwordWave.cpp:
 	.text       start:0x803564F4 end:0x80356E30
+	.rodata     start:0x804793A8 end:0x804793B0
 
 pso/unk/text_80356E30.cpp:
 	.text       start:0x80356E30 end:0x80356E50

@@ -113,6 +113,18 @@ typedef struct S_802C9124 { u8 pad0[0xD8]; s32 f[4]; } S_802C9124;
 
 typedef struct S_802C9174 { u8 pad0[0xD8]; s32 f[4]; } S_802C9174;
 
+struct Base_802C91DC { char pad[0x18]; };
+
+struct VObj_802C91DC : Base_802C91DC {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(s32);
+    virtual s32 m17(s32);
+    virtual void m18(s32);
+};
+
 extern "C" {
 void update_demo__14TOTrapChainSawFPv(void *arg0);
 extern const f32 lbl_805DE62C;
@@ -129,6 +141,14 @@ u16 obj_getField1c(void *);
 void TOTrapChainSaw__sub_802C9124(S_802C9124 *arg0, void *arg1);
 u16 obj_getField1c(void *);
 s32 TOTrapChainSaw__sub_802C9174(S_802C9174 *arg0, void *arg1);
+s32 TObjPlayer__sub_800196EC();
+s32 get_field_3e4__10TObjPlayerFPv(s32);
+u32 TObjPlayer__sub_80156268(void *, s32, f32);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 is_not_split_screen__13TRaderMapCoreFv();
+extern s32 lbl_805D53A0;
+extern const f32 lbl_805DE634;
+int TOTrapChainSaw__sub_802C91DC(void *arg0);
 }
 
 extern "C" {
@@ -189,6 +209,45 @@ s32 TOTrapChainSaw__sub_802C9174(S_802C9174 *arg0, void *arg1) {
         }
     }
     return 0;
+}
+
+int TOTrapChainSaw__sub_802C91DC(void *arg0) {
+    s32 i;
+    s32 p;
+    s32 t;
+#define self ((VObj_802C91DC *)arg0)
+    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+        for (i = 0; i < 4; i++) {
+            p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+            if (p != 0 && self->m17(p) == 0) {
+                if (get_field_3e4__10TObjPlayerFPv(p) == TObjPlayer__sub_800196EC()) {
+                    t = M2C_FIELD(self, s32 *, 0x60);
+                    M2C_FIELD(self, s32 *, 0x60) = t + M2C_FIELD(self, s32 *, 0xD4);
+                    if (TObjPlayer__sub_80156268(self, p, lbl_805DE634) != 0) {
+                        self->m16(p);
+                        self->m18(p);
+                    }
+                    M2C_FIELD(self, s32 *, 0x60) = t;
+                }
+            }
+        }
+    } else {
+        s32 q;
+        s32 t2;
+        q = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+        if (q != 0 && self->m17(q) == 0) {
+            if (get_field_3e4__10TObjPlayerFPv(q) == TObjPlayer__sub_800196EC()) {
+                t2 = M2C_FIELD(self, s32 *, 0x60);
+                M2C_FIELD(self, s32 *, 0x60) = t2 + M2C_FIELD(self, s32 *, 0xD4);
+                if (TObjPlayer__sub_80156268(self, q, lbl_805DE634) != 0) {
+                    self->m16(q);
+                    self->m18(q);
+                }
+                M2C_FIELD(self, s32 *, 0x60) = t2;
+            }
+        }
+    }
+#undef self
 }
 
 void update_sweep__14TOTrapChainSawFPv(void *arg0) {

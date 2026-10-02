@@ -1532,6 +1532,7 @@ pso/misc/TODoorCave01_80161A30.cpp
 pso/misc/TODoorCave02.cpp
 pso/misc/TODoorCave02_8016206C.cpp
 pso/misc/TODoorCave03.cpp
+pso/misc/TODoorFourLightBase.cpp
 pso/misc/TODoorMachine02.cpp
 pso/misc/TODoorVoShip.cpp
 pso/misc/TODoorVoShip_8021A05C.cpp
@@ -1557,6 +1558,7 @@ pso/misc/TOKeyAncient02.cpp
 pso/misc/TOKeyAncient03.cpp
 pso/misc/TOKeyCave01.cpp
 pso/misc/TOKeyCol.cpp
+pso/misc/TOKeyGenericSw.cpp
 pso/misc/TOKeyJungleMain.cpp
 pso/misc/TOKeyMachine01.cpp
 pso/misc/TOKeyMachine01_8016D448.cpp
@@ -1794,6 +1796,7 @@ pso/misc/TShopEquipmentSellWindow_8026CE78.cpp
 pso/misc/TShopEquipmentSellWindow_803094E8.cpp
 pso/misc/TShopEquipmentSequence.cpp
 pso/misc/TShopEquipmentSequence_8021E2E4.cpp
+pso/misc/TShopGenerator.cpp
 pso/misc/TShopGetItemWindow_8021EEE4.cpp
 pso/misc/TShopGetItemWindow_8021F074.cpp
 pso/misc/TShopGetItemWindow_8021F0A4.cpp
@@ -2859,6 +2862,7 @@ pso/player/TObjPlayer_801B12A8_801B1438.cpp
 pso/player/TObjPlayer_801B12A8_801B14A8.cpp
 pso/player/TObjPlayer_801B12A8_801B1624.cpp
 pso/player/TObjPlayer_801B3468.cpp
+pso/player/TObjPlayer_801B3540.cpp
 pso/player/TObjPlayer_801B3FD8_801B3FD8.cpp
 pso/player/TObjPlayer_801B3FD8_801B4264.cpp
 pso/player/TObjPlayer_801B3FD8_801B4340.cpp
@@ -4024,6 +4028,7 @@ pso/unk/text_801D0000.cpp
 pso/unk/text_801D0634.cpp
 pso/unk/text_801D0B44.cpp
 pso/unk/text_801D1AC8.cpp
+pso/unk/text_801D5DDC.cpp
 pso/unk/text_801D5DDC_801D5DDC.cpp
 pso/unk/text_801D5DDC_801D60F4.cpp
 pso/unk/text_801D5DDC_801D6230.cpp

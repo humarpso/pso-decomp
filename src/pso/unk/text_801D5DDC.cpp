@@ -28,6 +28,27 @@ s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
 void init_6x3A_packet__15TFontSmallLobbyFPv(void *);
 void draw_and_send__15TFontSmallLobbyFPv(void *);
 void TFontSmallLobby__sub_801D5FC0(u16 *arg0);
+s32 TObjPlayer__sub_80019248(int);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+M2C_UNK TFontSmallLobby__sub_801C01BC(void *);
+M2C_UNK update_photon_blast_state__10TObjPlayerFv();
+M2C_UNK clear_photon_blast_state__10TObjPlayerFPv(void *);
+M2C_UNK TFontSmallLobby__sub_801D6804(void *, void *);
+M2C_UNK init_pkt_cmd_3B__15TFontSmallLobbyFPv(void *);
+s32 validate_6x3B_clear_temporary_photon_blast_state_flags(void *);
+void handle_6x3B_clear_temporary_photon_blast_state_flags(s32 arg0);
+M2C_UNK clear_photon_blast_state__10TObjPlayerFPv(void *);
+M2C_UNK reset_fields__15TFontSmallLobbyFPv(void *);
+M2C_UNK init_pkt_cmd_3B__15TFontSmallLobbyFPv(void *);
+M2C_UNK update_and_send__15TFontSmallLobbyFPv(void *);
+void TFontSmallLobby__sub_801D5F08(u16 *arg0);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+M2C_UNK TFontSmallLobby__sub_801C01BC(void *);
+M2C_UNK set_bit1_at_40__15TFontSmallLobbyFPv(void *);
+M2C_UNK clear_photon_blast_ready_flag__15TFontSmallLobbyFPv(void *, void *);
+void init_6x3A_packet__15TFontSmallLobbyFPv(void *);
+s32 validate_6x3A_clear_photon_blast_ready_flag(void *);
+void handle_6x3A_clear_photon_blast_ready_flag(s32 arg0);
 }
 
 extern "C" {
@@ -42,6 +63,46 @@ void set_section_index__15TFontSmallLobbyFPvs(void *arg0, s16 arg1) {
         var_r4 = 0;
     }
     M2C_FIELD(arg0, s16 *, 4) = var_r4;
+}
+
+void handle_6x3B_clear_temporary_photon_blast_state_flags(s32 arg0) {
+    struct { s16 a; u16 b; } sp8;
+    s32 temp_r3;
+    init_pkt_cmd_3B__15TFontSmallLobbyFPv((void *) (&sp8));
+    TFontSmallLobby__sub_801D6804((void *) (&sp8), (void *) (arg0));
+    TFontSmallLobby__sub_801C01BC((void *) (&sp8));
+    if (validate_6x3B_clear_temporary_photon_blast_state_flags((void *) (&sp8)) != 0) {
+        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int) (sp8.b));
+        if (temp_r3 != 0) {
+            clear_photon_blast_state__10TObjPlayerFPv((void *) (temp_r3 + 0x4AC));
+            if (TObjPlayer__sub_80019248((int) (temp_r3)) != 0) {
+                update_photon_blast_state__10TObjPlayerFv();
+            }
+        }
+    }
+}
+
+void TFontSmallLobby__sub_801D5F08(u16 *arg0) {
+    struct { s16 a; u16 b; } sp8;
+    clear_photon_blast_state__10TObjPlayerFPv(arg0);
+    reset_fields__15TFontSmallLobbyFPv((u8 *)arg0 + 0x4C);
+    init_pkt_cmd_3B__15TFontSmallLobbyFPv(&sp8);
+    sp8.b = *arg0;
+    update_and_send__15TFontSmallLobbyFPv(&sp8);
+}
+
+void handle_6x3A_clear_photon_blast_ready_flag(s32 arg0) {
+    struct { s16 a; u16 b; } sp8;
+    u8 *temp_r3;
+    init_6x3A_packet__15TFontSmallLobbyFPv((void *) (&sp8));
+    clear_photon_blast_ready_flag__15TFontSmallLobbyFPv((void *) (&sp8), (void *) (arg0));
+    TFontSmallLobby__sub_801C01BC((void *) (&sp8));
+    if (validate_6x3A_clear_photon_blast_ready_flag((void *) (&sp8)) != 0) {
+        temp_r3 = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C((int) (sp8.b));
+        if (temp_r3 != 0) {
+            set_bit1_at_40__15TFontSmallLobbyFPv((void *) (temp_r3 + 0x4AC));
+        }
+    }
 }
 
 void TFontSmallLobby__sub_801D5FC0(u16 *arg0) {

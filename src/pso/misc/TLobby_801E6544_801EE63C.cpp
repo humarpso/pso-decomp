@@ -27,6 +27,7 @@ struct Item_801EEE68 {
 };
 
 struct Item_801EE77C;
+
 extern "C" {
 M2C_UNK TWindowCtrl__sub_8024A4B0(int, void *);
 void TLobby__sub_801EE674(s32 arg0);
@@ -63,6 +64,31 @@ void fn_801B849C(void *, Item_801EEE68 *);
 extern s32 lbl_805D53A0;
 extern int* TLobby__data_805D5E78;
 void qst_op_item_create2(u8 arg0, u8 arg1);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void init__9TItemDataFv(Item_801EE77C *);
+void *set_mode_and_refresh_object__10TObjPlayerFPvi(void *, Item_801EE77C *);
+void *get_owner_if_alive__10TObjPlayerFPv(void *);
+s32 get_field_d8__10TObjPlayerFPv(void *);
+extern s32 lbl_805D53A0;
+extern int* TLobby__data_805D5E78;
+void qst_op_item_check(u32 first, u32 destination);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void init__9TItemDataFv(Item_801EE77C *);
+void *set_mode_and_refresh_object__10TObjPlayerFPvi(void *, Item_801EE77C *);
+void *get_owner_if_alive__10TObjPlayerFPv(void *);
+void copy_to_item_data__5TItemFPvPv(void *, Item_801EE77C *);
+void get_item_record__23TShopJudgmentItemWindowFPv(void *, s32, s32);
+extern s32 lbl_805D53A0;
+extern int* TLobby__data_805D5E78;
+void qst_op_item_delete2(u32 src, u32 dst);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *start_inventory_update__10TObjPlayerFPvi(void *, s32);
+void *get_owner_if_alive__10TObjPlayerFPv(void *);
+void copy_to_item_data__5TItemFPvPv(void *, Item_801EE77C *);
+void get_item_record__23TShopJudgmentItemWindowFPv(void *, s32, s32);
+extern s32 lbl_805D53A0;
+extern int* TLobby__data_805D5E78;
+void qst_op_item_delete(u32 src, u32 dst);
 }
 
 extern "C" {
@@ -132,6 +158,115 @@ void TLobby__sub_801EE77C(u8 arg0, u8 arg1) {
     } else {
         (*(int * *)&TLobby__data_805D5E78)[arg1] = -1;
     }
+}
+
+void qst_op_item_check(u32 first, u32 destination) {
+    Item_801EE77C item;
+    u32 player;
+    void *slot;
+    void *owner;
+    player = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    if (player != 0) {
+        init__9TItemDataFv(&item);
+        item.data[0] = TLobby__data_805D5E78[(u8)first++];
+        item.data[1] = TLobby__data_805D5E78[(u8)first++];
+        item.data[2] = TLobby__data_805D5E78[(u8)first];
+        slot = set_mode_and_refresh_object__10TObjPlayerFPvi(M2C_FIELD(player, void **, 0xD00), &item);
+        if (slot != 0) {
+            owner = get_owner_if_alive__10TObjPlayerFPv(slot);
+            if (owner != 0) {
+                TLobby__data_805D5E78[(u8) destination] = get_field_d8__10TObjPlayerFPv(owner);
+                return;
+            }
+            TLobby__data_805D5E78[(u8) destination] = -1;
+            return;
+        }
+        TLobby__data_805D5E78[(u8) destination] = -1;
+        return;
+    }
+    TLobby__data_805D5E78[(u8) destination] = -1;
+}
+
+void qst_op_item_delete2(u32 src, u32 dst) {
+    Item_801EE77C item;
+    u32 player;
+    void *slot;
+    void *owner;
+    if ((u8)dst > 0xF4) {
+        return;
+    }
+    player = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    if (player != 0) {
+        init__9TItemDataFv(&item);
+        item.data[0] = TLobby__data_805D5E78[(u8)src++];
+        item.data[1] = TLobby__data_805D5E78[(u8)src++];
+        item.data[2] = TLobby__data_805D5E78[(u8)src];
+        slot = set_mode_and_refresh_object__10TObjPlayerFPvi(M2C_FIELD(player, void **, 0xD00), &item);
+        if (slot != 0) {
+            owner = get_owner_if_alive__10TObjPlayerFPv(slot);
+            if (owner != 0) {
+                copy_to_item_data__5TItemFPvPv(owner, &item);
+                TLobby__data_805D5E78[(u8)dst++] = item.data[0];
+                TLobby__data_805D5E78[(u8)dst++] = item.data[1];
+                TLobby__data_805D5E78[(u8)dst++] = item.data[2];
+                TLobby__data_805D5E78[(u8)dst++] = item.data[3];
+                TLobby__data_805D5E78[(u8)dst++] = item.data[4];
+                TLobby__data_805D5E78[(u8)dst++] = item.data[5];
+                TLobby__data_805D5E78[(u8)dst++] = item.data[6];
+                TLobby__data_805D5E78[(u8)dst++] = (s8)item.data[7];
+                TLobby__data_805D5E78[(u8)dst++] = item.data[8];
+                TLobby__data_805D5E78[(u8)dst++] = (s8)item.data[9];
+                TLobby__data_805D5E78[(u8)dst++] = item.data[10];
+                TLobby__data_805D5E78[(u8)dst] = (s8)item.data[11];
+                get_item_record__23TShopJudgmentItemWindowFPv((void *)player, item.id, 1);
+                return;
+            }
+            TLobby__data_805D5E78[(u8)dst] = -1;
+            return;
+        }
+        TLobby__data_805D5E78[(u8)dst] = -1;
+        return;
+    }
+    TLobby__data_805D5E78[(u8)dst] = -1;
+}
+
+void qst_op_item_delete(u32 src, u32 dst) {
+    Item_801EE77C item;
+    u32 player;
+    void *slot;
+    void *owner;
+    if ((u8)dst > 0xF4) {
+        return;
+    }
+    player = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    if (player != 0) {
+        slot = start_inventory_update__10TObjPlayerFPvi(M2C_FIELD(player, void **, 0xD00), TLobby__data_805D5E78[(u8)src]);
+        if (slot != 0) {
+            owner = get_owner_if_alive__10TObjPlayerFPv(slot);
+            if (owner != 0) {
+                copy_to_item_data__5TItemFPvPv(owner, &item);
+                TLobby__data_805D5E78[(u8)dst++] = item.data[0];
+                TLobby__data_805D5E78[(u8)dst++] = item.data[1];
+                TLobby__data_805D5E78[(u8)dst++] = item.data[2];
+                TLobby__data_805D5E78[(u8)dst++] = item.data[3];
+                TLobby__data_805D5E78[(u8)dst++] = item.data[4];
+                TLobby__data_805D5E78[(u8)dst++] = item.data[5];
+                TLobby__data_805D5E78[(u8)dst++] = item.data[6];
+                TLobby__data_805D5E78[(u8)dst++] = (s8)item.data[7];
+                TLobby__data_805D5E78[(u8)dst++] = item.data[8];
+                TLobby__data_805D5E78[(u8)dst++] = (s8)item.data[9];
+                TLobby__data_805D5E78[(u8)dst++] = item.data[10];
+                TLobby__data_805D5E78[(u8)dst] = (s8)item.data[11];
+                get_item_record__23TShopJudgmentItemWindowFPv((void *)player, TLobby__data_805D5E78[(u8)src], 1);
+                return;
+            }
+            TLobby__data_805D5E78[(u8)dst] = -1;
+            return;
+        }
+        TLobby__data_805D5E78[(u8)dst] = -1;
+        return;
+    }
+    TLobby__data_805D5E78[(u8)dst] = -1;
 }
 
 void qst_op_item_create2(u8 arg0, u8 arg1) {

@@ -23,6 +23,25 @@ struct Vec_803564F4 { f32 x, y, z; };
 
 struct Wave_803564F4 { u8 pad0[0x1C]; s32 owner; Vec_803564F4 pos; u8 x2C[4]; u8 x30[0x24]; f32 radius; };
 
+typedef s32 M2C_UNK;
+struct Vec_803567D0 { f32 x, y, z; };
+
+struct Pair_8035663C { s32 a; f32 b; };
+
+struct Vec_8035663C { f32 x, y, z; };
+
+struct VBase_8035663C { char pad[0x18]; };
+
+struct VObj_8035663C : VBase_8035663C {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20();
+    virtual void m21(s32, Pair_8035663C, int, int, int);
+};
+
 extern "C" {
 u8 *__nw__7TObjectFUl(M2C_UNK);
 u8 *TBoss6SwordWave__sub_80356C10(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
@@ -40,8 +59,6 @@ extern const f32 lbl_805DFFF0;
 u8 *__ct__15TBoss6SwordWaveFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 query_teammate_state__9TObjEneDDFPv();
-M2C_UNK TBoss6SwordWave__sub_8035663C(void *);
-M2C_UNK TBoss6SwordWave__sub_803567D0(void *);
 extern const f32 lbl_805E0010;
 extern const f32 lbl_805E0014;
 void run_task__15TBoss6SwordWaveFv(u8 *arg0);
@@ -64,6 +81,37 @@ extern const f32 lbl_805E0000;
 extern const f32 lbl_805E0004;
 extern const f32 lbl_805E0008;
 s32 TBoss6SwordWave__sub_803564F4(void *arg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 get_point__10TBoss6RockFiPvPv(s32, void *, void *);
+M2C_UNK TBoss6Rock__sub_80353E5C(s32);
+u8 TBoss6SwordWave__sub_80356C80(s32 arg0, u8 arg1);
+u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
+void TBoss6SwordWave__sub_80356D10(W_80356D10 *arg0, u8 arg1);
+M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK TNpcPlayer__sub_803D97B4(void *);
+extern const f64 lbl_804793B0;
+extern const f32 lbl_805DFFE8;
+extern const f32 lbl_805E0004;
+extern s32 lbl_805E000C;
+M2C_UNK TBoss6SwordWave__sub_803567D0(void *a);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+VObj_8035663C *get_player_data__10TObjPlayerFi(s32);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 get_game_mode__6TLobbyFv();
+s32 is_active__14TBoss6PlotFalzFPv();
+s32 TBoss6PlotFalz__sub_802AB5B4(s32, f32);
+s32 get_rotation_timer__11TBoss6Type2FPv(int);
+u8 TBoss6SwordWave__sub_80356C80(s32 arg0, u8 arg1);
+u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+extern const f64 lbl_804793B0;
+extern const f32 lbl_805DFFE8;
+extern const f32 lbl_805DFFEC;
+M2C_UNK TBoss6SwordWave__sub_8035663C(void *a);
 }
 
 extern "C" {
@@ -105,6 +153,105 @@ s32 TBoss6SwordWave__sub_803564F4(void *arg0) {
 }
 #pragma pop
 
+struct W_80356D10;
+
+M2C_UNK TBoss6SwordWave__sub_8035663C(void *a) {
+    s32 n;
+    s32 i;
+    VObj_8035663C *pl;
+    u8 *arg0 = (u8 *)a;
+    u8 t;
+    s32 v;
+    f32 d;
+    Vec_8035663C dir;
+    n = get_game_mode__6TLobbyFv();
+    for (i = 0; i < n; i++) {
+        pl = get_player_data__10TObjPlayerFi(i);
+        if (is_active__14TBoss6PlotFalzFPv() != 0) {
+            VecCopy__FP3VecPC3Vec(&dir, (u8 *)pl + 0x38);
+            TBoss6Type1__sub_803D9370(&dir, arg0 + 0x20);
+            dir.y = lbl_805DFFE8;
+            d = TBoss6Kakusan__sub_803D8BD8(&dir);
+            if (d < M2C_FIELD(arg0, f32 *, 0x50) || d > M2C_FIELD(arg0, f32 *, 0x54)) {
+                continue;
+            }
+            t = ((u8 (*)(void *, s32))TBoss6SwordWave__sub_80356D08)(arg0 + 0x30,
+                        (s32)(lbl_804793B0 * get_ad_end_text_start__10TObjPlayerFv(dir.x, dir.z)));
+            if (((s32 (*)(void *, u8))TBoss6SwordWave__sub_80356C80)(arg0 + 0x30, t) == 0) {
+                continue;
+            }
+            v = M2C_FIELD(arg0, s32 *, 0x5C);
+            if (get_rotation_timer__11TBoss6Type2FPv(M2C_FIELD(arg0, s32 *, 0x1C)) != 0) {
+                v = (s32)((f32)v * M2C_FIELD(arg0, f32 *, 0x60));
+            }
+            Pair_8035663C pr;
+            s32 r = TBoss6PlotFalz__sub_802AB5B4(v, lbl_805DFFEC);
+            pr.a = 0;
+            pr.b = (f32)r;
+            pl->m21(M2C_FIELD(arg0, s32 *, 0x1C), pr, 0, -1, -1);
+        }
+    }
+}
+
+M2C_UNK TBoss6SwordWave__sub_803567D0(void *a) {
+    Vec_803567D0 pt;
+    Vec_803567D0 d;
+    Vec_803567D0 va;
+    Vec_803567D0 vb;
+    Vec_803567D0 n;
+    f32 scale;
+    u8 *arg0 = (u8 *)a;
+    s32 i;
+    u8 t;
+    s32 a1;
+    s32 a2;
+    s32 lo;
+    s32 hi;
+    f32 dist;
+    for (i = 0; i < 32; i++) {
+        if (get_point__10TBoss6RockFiPvPv(i, &pt, &scale) == 0) {
+            continue;
+        }
+        VecCopy__FP3VecPC3Vec(&d, &pt);
+        TBoss6Type1__sub_803D9370(&d, arg0 + 0x20);
+        d.y = lbl_805DFFE8;
+        dist = TBoss6Kakusan__sub_803D8BD8(&d);
+        if (dist < M2C_FIELD(arg0, f32 *, 0x50) || dist > M2C_FIELD(arg0, f32 *, 0x54)) {
+            continue;
+        }
+        t = ((u8 (*)(void *, s32))TBoss6SwordWave__sub_80356D08)(arg0 + 0x30,
+                (s32)(lbl_804793B0 * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z)));
+        if (((s32 (*)(void *, u8))TBoss6SwordWave__sub_80356C80)(arg0 + 0x30, t) == 0) {
+            continue;
+        }
+        ((void (*)(void *, u8))TBoss6SwordWave__sub_80356D10)(arg0 + 0x30, t);
+        TBoss6Rock__sub_80353E5C(i);
+        if (dist <= lbl_805E0004) {
+            continue;
+        }
+        n.x = -d.z;
+        n.y = lbl_805DFFE8;
+        n.z = d.x;
+        TNpcPlayer__sub_803D97B4(&n);
+        n.x *= scale;
+        n.z *= scale;
+        VecCopy__FP3VecPC3Vec(&va, &pt);
+        TBoss4Zako__sub_803D8910(&va, &n);
+        VecCopy__FP3VecPC3Vec(&vb, &pt);
+        TBoss6Type1__sub_803D9370(&vb, &n);
+        a1 = (s32)(lbl_804793B0 * get_ad_end_text_start__10TObjPlayerFv(va.x - M2C_FIELD(arg0, f32 *, 0x20), va.z - M2C_FIELD(arg0, f32 *, 0x28)));
+        a2 = (s32)(lbl_804793B0 * get_ad_end_text_start__10TObjPlayerFv(vb.x - M2C_FIELD(arg0, f32 *, 0x20), vb.z - M2C_FIELD(arg0, f32 *, 0x28)));
+        lo = ((s32 (*)(void *, s32))TBoss6SwordWave__sub_80356D08)(arg0 + 0x30, a1);
+        hi = ((s32 (*)(void *, s32))TBoss6SwordWave__sub_80356D08)(arg0 + 0x30, a2);
+        if (hi < lo) {
+            hi += lbl_805E000C;
+        }
+        for (; lo <= hi; lo++) {
+            ((void (*)(void *, s32))TBoss6SwordWave__sub_80356D10)(arg0 + 0x30, lo);
+        }
+    }
+}
+
 void render__15TBoss6SwordWaveFv(void) {  }
 
 #pragma push
@@ -112,8 +259,8 @@ void render__15TBoss6SwordWaveFv(void) {  }
 void run_task__15TBoss6SwordWaveFv(u8 *arg0) {
     f32 temp_f1;
     if (query_teammate_state__9TObjEneDDFPv() == 0) {
-        TBoss6SwordWave__sub_803567D0((void *) (arg0));
-        TBoss6SwordWave__sub_8035663C((void *) (arg0));
+        TBoss6SwordWave__sub_803567D0((void *)((void *) (arg0)));
+        TBoss6SwordWave__sub_8035663C((void *)((void *) (arg0)));
         if (M2C_FIELD(arg0, f32 *, 0x58) < lbl_805E0010) {
             TBoss6SwordWave__sub_803564F4((void *)((void *) (arg0)));
         }

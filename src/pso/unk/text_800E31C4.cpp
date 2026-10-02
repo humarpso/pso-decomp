@@ -77,6 +77,10 @@ struct Obj_800E35C8 { u8 pad0[0x38]; Vec_800E35C8 pos; u8 pad1[0x378 - 0x44]; f3
 
 struct Player_800E35C8 { u8 pad0[0x30]; u32 f30; };
 
+struct Vec_800E322C { f32 x, y, z; };
+
+struct Obj_800E322C { u8 pad0[0x10]; u32 f10; u8 pad1[0x38 - 0x14]; Vec_800E322C pos; u8 pad2[0x378 - 0x44]; f32 f378; };
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern Vec_800E31C4 lbl_80495A88;
@@ -88,11 +92,15 @@ extern Pair_800E3374 lbl_8043CDF0[];
 extern const f32 lbl_805DA5A0;
 void fn_800E3374(Obj_800E3374 *arg0, V_800E3374 *arg1);
 Player_800E35C8 *get_player_data__10TObjPlayerFi(s32);
-void fn_800E322C(void *, void *);
 void fn_800E3374(Obj_800E3374 *arg0, V_800E3374 *arg1);
 f32 TObjPlayer__sub_80141CF8(void *, void *);
 extern s32 lbl_805D586C;
 void fn_800E35C8(Obj_800E35C8 *arg0);
+u16 TObjPlayer__sub_800114D8(void *, s32, f32);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void fn_800E32C0(Obj_800E32C0 *arg0, V_800E32C0 *arg1);
+u32 get_enemy_entity(u16);
+void fn_800E322C(void *p, void *t);
 }
 
 extern "C" {
@@ -111,6 +119,21 @@ Obj_800E31C4 *fn_800E31C4(Obj_800E31C4 *self, Entry_800E31C4 *list, Vec_800E31C4
     }
     return self;
 }
+
+void fn_800E322C(void *p, void *t) {
+    Obj_800E322C *arg0 = (Obj_800E322C *)p;
+    Vec_800E322C sp = arg0->pos;
+    s32 r;
+    u32 ent;
+    VecCopy__FP3VecPC3Vec(&arg0->pos, t);
+    if ((r = TObjPlayer__sub_800114D8(arg0, 0, arg0->f378)) != 0xFFFF) {
+        if ((ent = get_enemy_entity(r)) != 0 && ent != arg0->f10) {
+            fn_800E32C0((Obj_800E32C0 *)arg0, (V_800E32C0 *)ent);
+        }
+    }
+    VecCopy__FP3VecPC3Vec(&arg0->pos, &sp);
+}
+
 void fn_800E32C0(Obj_800E32C0 *arg0, V_800E32C0 *arg1) {
     Pair_800E32C0 sp10 = lbl_8043CDF8[0];
     Pair_800E32C0 sp8;
@@ -145,7 +168,7 @@ void fn_800E35C8(Obj_800E35C8 *arg0) {
             fn_800E3374((Obj_800E3374 *)(arg0), (V_800E3374 *)(p));
         }
     }
-    fn_800E322C(arg0, &arg0->pos);
+    fn_800E322C((void *)(arg0), (void *)(&arg0->pos));
 }
 
 }

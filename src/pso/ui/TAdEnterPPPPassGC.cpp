@@ -61,6 +61,28 @@ extern M2C_UNK __vt__17TAdEnterPPPPassGC[];
 extern s32 lbl_805D4268;
 extern s32 lbl_805D6CA4;
 T_8033954C *TAdEnterPPPPassGC__ct(T_8033954C *arg0);
+char *realloc_buffer__17TWindowSubComCardFPv(u8 *);
+s32 update_keyboard__17TWindowSubComCardFPv(void *);
+s32 get_selected_slot__23TAdSinglePlyChrSelectGCFPv(int);
+void free__11TOBoss4RockFUi(void *);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
+s32 TWindowShortListCtrl__check_controller_button(void *, int);
+void free_menu_object(void *);
+void TBoss3Volopt__sub_8022675C(int, int, int, int);
+s32 TAdEnterSerialAccessGC__sub_802AEBA8(int);
+s32 TLevelSelect__sub_802AEBE4(int, void *);
+s32 set_active__22TAdEnterSerialAccessGCFPv(int);
+void set_state_3__22TAdEnterSerialAccessGCFPv(int);
+s32 forward_input__22TAdEnterSerialAccessGCFPv(void *, int, char *);
+void TAdEnterPPPPassGC__sub_80339480(s32 arg0);
+s32 strlen(const char *);
+extern RecoveredGlobal_803392F4_lbl_80477C20 lbl_80477C20;
+extern u8 lbl_8050E208[];
+extern u8 lbl_8050E3B8[];
+extern u8 *lbl_805D6CA0;
+extern s32 lbl_805D6CA4;
+extern s32 lbl_805DF9EC;
+void TAdEnterPPPPassGC__sub_803390B0(u8 *arg0);
 }
 
 extern "C" {
@@ -111,6 +133,66 @@ extern M2C_UNK __vt__17TAdEnterPPPPassGC[];
 typedef char RecoveredGlobal_80339480_lbl_804EF500_size[sizeof(RecoveredGlobal_80339480_lbl_804EF500) == 0x98 ? 1 : -1];
 
 typedef char RecoveredGlobal_803392F4_lbl_80477C20_size[sizeof(RecoveredGlobal_803392F4_lbl_80477C20) == 0x20 ? 1 : -1];
+
+void TAdEnterPPPPassGC__sub_803390B0(u8 *arg0) {
+    char *buf;
+    s32 cur;
+    buf = realloc_buffer__17TWindowSubComCardFPv(lbl_805D6CA0);
+    if ((M2C_FIELD(arg0, s32 *, 0x40) == 0 && TWindowShortListCtrl__check_controller_button(lbl_8050E3B8 + 0x20, 2) != 0) ||
+        (M2C_FIELD(arg0, s32 *, 0x40) == 0 && test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208 + 0x160, 2) != 0)) {
+        free__11TOBoss4RockFUi(buf);
+        TAdEnterPPPPassGC__sub_80339480((s32)&lbl_805DF9EC);
+        M2C_FIELD(arg0, s32 *, 0x20) = 2;
+        lbl_805D6CA4 = 4;
+        return;
+    }
+    M2C_FIELD(arg0, s32 *, 0x3C) = M2C_FIELD(arg0, s32 *, 0x38);
+    if (lbl_805D6CA0 != NULL) {
+        if (update_keyboard__17TWindowSubComCardFPv(lbl_805D6CA0) != 0) {
+            if (TWindowShortListCtrl__check_controller_button(lbl_8050E3B8 + 0x20, 2) != 0 ||
+                test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208 + 0x160, 2) != 0) {
+                free_menu_object(lbl_805D6CA0);
+                M2C_FIELD(arg0, s32 *, 0x38) = 0;
+                if (M2C_FIELD(arg0, u32 *, 0x2C) != 0) {
+                    set_active__22TAdEnterSerialAccessGCFPv(M2C_FIELD(arg0, s32 *, 0x2C));
+                }
+            } else if (forward_input__22TAdEnterSerialAccessGCFPv(arg0, 3, buf) == 0) {
+                free_menu_object(lbl_805D6CA0);
+                TBoss3Volopt__sub_8022675C(0x53F06, 0, 0, 0);
+            } else {
+                M2C_FIELD(arg0, s32 *, 0x38) = 1;
+                if (M2C_FIELD(arg0, u32 *, 0x2C) != 0) {
+                    set_state_3__22TAdEnterSerialAccessGCFPv(M2C_FIELD(arg0, s32 *, 0x2C));
+                }
+            }
+        } else {
+            M2C_FIELD(arg0, s32 *, 0x38) = 0;
+            if (M2C_FIELD(arg0, u32 *, 0x2C) != 0) {
+                set_active__22TAdEnterSerialAccessGCFPv(M2C_FIELD(arg0, s32 *, 0x2C));
+            }
+        }
+    }
+    if (M2C_FIELD(arg0, s32 *, 0x3C) != (cur = M2C_FIELD(arg0, s32 *, 0x38))) {
+        if (cur != 0) {
+            if (M2C_FIELD(arg0, u32 *, 0x2C) != 0) {
+                TAdEnterSerialAccessGC__sub_802AEBA8(M2C_FIELD(arg0, s32 *, 0x2C));
+                TLevelSelect__sub_802AEBE4(M2C_FIELD(arg0, s32 *, 0x2C), (u8 *)&lbl_80477C20.value + 0x18);
+            }
+        } else if (M2C_FIELD(arg0, u32 *, 0x2C) != 0) {
+            TAdEnterSerialAccessGC__sub_802AEBA8(M2C_FIELD(arg0, s32 *, 0x2C));
+            TLevelSelect__sub_802AEBE4(M2C_FIELD(arg0, s32 *, 0x2C), (u8 *)&lbl_80477C20.value + 0x10);
+        }
+    }
+    if (get_selected_slot__23TAdSinglePlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x2C)) == 1 &&
+        update_keyboard__17TWindowSubComCardFPv(lbl_805D6CA0) != 0) {
+        TAdEnterPPPPassGC__sub_80339480((s32)buf);
+        M2C_FIELD(arg0, s32 *, 0x20) = 3;
+        lbl_805D6CA4 = 4;
+    }
+    M2C_FIELD(arg0, s32 *, 0x40) = strlen(buf);
+    free__11TOBoss4RockFUi(buf);
+}
+
 void TAdEnterPPPPassGC__sub_803392F4(u8 *arg0) {
     u32 temp_r3;
     M2C_FIELD(arg0, s32 *, 0x30) = TAdEnterSerialAccessGC__sub_8032AE54((void *) (arg0), (int) (3));

@@ -70,6 +70,20 @@ struct Door_802A0670 {
     s32 fF8;
 };
 
+typedef s32 M2C_UNK;
+
+struct VBase_802A07E0 { char pad[0x18]; };
+
+struct VObj_802A07E0 : VBase_802A07E0 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual s32 m8(f32, f32);
+    virtual void m9(); virtual void m10(); virtual void m11(); virtual void m12();
+    virtual void m13(); virtual void m14(); virtual void m15(); virtual void m16();
+    virtual void m17(); virtual void m18(); virtual void m19();
+    virtual s32 m20();
+};
+
 extern "C" {
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
@@ -93,6 +107,20 @@ s32 TObjPlayer__sub_803D9B2C();
 s32 TObjPlayer__sub_803D9B78();
 f32 TOHangerMachine01__sub_803D9C00(void *);
 void TODoorFourLightBase__sub_802A0670(Door_802A0670 *self);
+M2C_UNK TObjPlayer__sub_80154954(void *, void *);
+s32 TLobby__sub_80156A80(void *, void *, int);
+M2C_UNK fn_8015D5D4(void *);
+u8 TODoorAncient08__sub_80229220(int);
+void TODoorFourLightBase__vt12(u8 *arg0);
+void TODoorFourLightBase__sub_802A0670(Door_802A0670 *self);
+s32 rotate_matrix_y(int, int);
+s32 TObjPlayer__sub_803D9B2C();
+s32 TObjPlayer__sub_803D9B78();
+f32 TOHangerMachine01__sub_803D9C00(void *);
+s32 set_global_param__8TObjFishFi(void *);
+M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
+M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
+void render__19TODoorFourLightBaseFv(u8 *arg0);
 }
 
 extern "C" {
@@ -133,6 +161,60 @@ void TODoorFourLightBase__vt4(void *arg0, s16 *arg1) {
 }
 
 extern M2C_UNK __vt__19TODoorFourLightBase[];
+
+void TODoorFourLightBase__vt12(u8 *arg0) {
+    s16 sp8;
+    switch (M2C_FIELD(arg0, s32 *, 0xCC)) {
+    case 1:
+        fn_8015D5D4(arg0);
+        M2C_FIELD(arg0, s32 *, 0xD0) |= 1;
+        break;
+    case 2: {
+        s32 found = 0;
+        s32 i;
+        for (i = 0; i < M2C_FIELD(arg0, s32 *, 0xF8); i++) {
+            if (((u8 (*)(u16))TODoorAncient08__sub_80229220)(M2C_FIELD(arg0, s32 *, 0xC8) + i) == 0) {
+                found = 1;
+            }
+        }
+        if (found != 0) {
+            M2C_FIELD(arg0, s32 *, 0xD0) &= ~1;
+        } else {
+            fn_8015D5D4(arg0);
+            M2C_FIELD(arg0, s32 *, 0xD0) |= 1;
+        }
+        break;
+    }
+    case 3: {
+        s32 found;
+        s32 i;
+        if (M2C_FIELD(arg0, s32 *, 0xD0) & 1) {
+            break;
+        }
+        found = 0;
+        for (i = 0; i < M2C_FIELD(arg0, s32 *, 0xF8); i++) {
+            if (((u8 (*)(u16))TODoorAncient08__sub_80229220)(M2C_FIELD(arg0, s32 *, 0xC8) + i) == 0) {
+                found = 1;
+            }
+        }
+        if (found != 0) {
+            M2C_FIELD(arg0, s32 *, 0xD0) &= ~1;
+        } else {
+            fn_8015D5D4(arg0);
+            M2C_FIELD(arg0, s32 *, 0xD0) |= 1;
+        }
+        if (found == 0 && M2C_FIELD(arg0, void **, 0x80) != NULL && TLobby__sub_80156A80(arg0, &sp8, 1) == 1) {
+            sp8 = 1;
+            TObjPlayer__sub_80154954(arg0, &sp8);
+            TLobby__sub_80156A80(arg0, &sp8, 0);
+        }
+        break;
+    }
+    default:
+        M2C_FIELD(arg0, s32 *, 0xD0) &= ~1;
+        break;
+    }
+}
 
 void TODoorFourLightBase__sub_802A0578(u8 *arg0, u8 *arg1) {
     s32 temp_r31;
@@ -212,6 +294,45 @@ void TODoorFourLightBase__sub_802A0670(Door_802A0670 *self) {
     TODoorFourLightBase__sub_802A0578((u8 *)self, self->fD4);
     TObjPlayer__sub_803D9B78();
     end_effect_render__13TParticleCtrlFv();
+}
+
+struct Door_802A0670;
+void render__19TODoorFourLightBaseFv(u8 *arg0) {
+    VObj_802A07E0 *self = (VObj_802A07E0 *)arg0;
+    if (self->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 1) {
+        return;
+    }
+    switch (M2C_FIELD(arg0, s32 *, 0xAC)) {
+    case 1:
+    case 3:
+        TObjPlayer__sub_803D9B2C();
+        set_global_param__8TObjFishFi((void *)self->m20());
+        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
+        TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0xD4), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB0));
+        TObjPlayer__sub_803D9B78();
+        break;
+    case 2:
+        TObjPlayer__sub_803D9B2C();
+        set_global_param__8TObjFishFi((void *)self->m20());
+        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
+        TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0xD4), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB4));
+        TObjPlayer__sub_803D9B78();
+        break;
+    case 0:
+        if (M2C_FIELD(arg0, s32 *, 0xCC) == 2 || M2C_FIELD(arg0, s32 *, 0xCC) == 3) {
+            TODoorFourLightBase__sub_802A0670((Door_802A0670 *)arg0);
+            break;
+        }
+        TObjPlayer__sub_803D9B2C();
+        set_global_param__8TObjFishFi((void *)self->m20());
+        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
+        TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0xD4));
+        TObjPlayer__sub_803D9B78();
+        break;
+    }
 }
 
 void *__dt__19TODoorFourLightBaseFv(void *arg0, s16 arg1) {

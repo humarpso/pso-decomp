@@ -211,6 +211,13 @@ struct Rec_8035F4B4 { u8 b[0x1C]; };
 
 struct Self_8035F4B4 { u8 pad[0x3C0]; Rec_8035F4B4 recs[4]; };
 
+typedef s32 M2C_UNK;
+struct VBase_8035F234 { char pad[0x18]; };
+
+struct VObj_8035F234 : VBase_8035F234 {
+    virtual void m0(int);
+};
+
 extern "C" {
 M2C_UNK handle_message__19TObjEneEpsilonGuardFPvi(void *, s32);
 M2C_UNK TObjEneEpsilonGuard__sub_8035E430(void *, s32);
@@ -241,6 +248,13 @@ M2C_UNK TObjEneEpsilon__ct();
 extern void *__vt__19TObjEneEpsilonGuard[];
 extern s32 lbl_805D4458;
 void *TObjEneEpsilonGuard__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5, void *arg6);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
+M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK __dl__7TObjectFPv(void *);
+M2C_UNK TObjEneEpsilon__vt0(void *, int);
+extern void *__vt__19TObjEneEpsilonGuard[];
+u8 *__dt__19TObjEneEpsilonGuardFv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -336,6 +350,31 @@ void * create__19TObjEneEpsilonGuardFPvPvPvPvPv(void *arg0, void *arg1, void *ar
     }
     return o;
 }
+
+u8 *__dt__19TObjEneEpsilonGuardFv(u8 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, void ***, 0x18) = __vt__19TObjEneEpsilonGuard;
+        if (M2C_FIELD(arg0, void **, 0x440) != NULL) {
+            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x440));
+            M2C_FIELD(arg0, void **, 0x440) = NULL;
+        }
+        if (M2C_FIELD(arg0, void **, 0x45C) != NULL) {
+            TObjEneGibbles__sub_80156720(M2C_FIELD(arg0, void **, 0x45C));
+            if (M2C_FIELD(arg0, VObj_8035F234 **, 0x45C) != NULL) {
+                M2C_FIELD(arg0, VObj_8035F234 **, 0x45C)->m0(1);
+            }
+            M2C_FIELD(arg0, void **, 0x45C) = NULL;
+        }
+        TObjEneGibbles__sub_80156720(arg0);
+        __dt__18TObjEneMe3SinowZoaFPvs(arg0 + 0x4BC, -1);
+        TObjEneEpsilon__vt0(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
 void *TObjEneEpsilonGuard__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5, void *arg6) {
     s32 var_r30;
     TObjEneEpsilon__ct();

@@ -42,6 +42,15 @@ struct E_8021E1FC { u8 pad0[8]; void (*fn)(void); u8 pad1[8]; };
 
 struct Tbl_8021E1FC { E_8021E1FC e[8]; };
 
+struct Ent_8021DDB8 {
+    void (*f0)(void);
+    void (*f4)(void);
+    void (*f8)(void);
+    void (*fc)(s32);
+    s32 (*f10)(u16);
+};
+
+typedef s32 M2C_UNK;
 extern "C" {
 s32 TShopGenerator__sub_80222DAC(s32);
 extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__data_80513ED0;
@@ -67,6 +76,35 @@ extern Tbl_8021E1FC TShopGenerator__data_804C9FA8;
 extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__data_80513ED0;
 void TMedicalCenterMes__sub_80216238(void);
 void TShopGenerator__sub_8021E1FC(void);
+s32 obj_getField1c(s32);
+s32 TShopGenerator__sub_80222DAC(s32);
+extern Tbl_8021E1FC TShopGenerator__data_804C9FA8;
+s32 TShopGenerator__sub_8021DD38(void *self, s32 player);
+s32 obj_getField1c(s32);
+s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv(void);
+s32 get_instance__15TAdPlayerLoadGCFv(void);
+s32 TWindowShortListCtrl__check_controller_button(void *, int);
+s32 get_map_id__13TRaderMapCoreFPv(s32);
+s32 is_flag_400_set__10TObjPlayerFPv(s32);
+s32 check_flag_100__10TObjPlayerFPv(s32);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 TAdPlayerLoadGC__sub_801E1B50(s32);
+s32 TMedicalCenterMes__sub_80216084(s32);
+bool TShopGenerator__sub_8021DC30(u8 *arg0, u8 *arg1, f32 farg0);
+s32 TShopGenerator__sub_8021DD38(void *self, s32 player);
+u8 TShopGenerator__sub_8021E110(s32 arg0);
+s32 TShopGenerator__sub_80222DAC(s32);
+s32 is_not_split_screen__13TRaderMapCoreFv(void);
+extern Tbl_8021E1FC TShopGenerator__data_804C9FA8;
+extern u8 lbl_8050E208[];
+extern s32 lbl_805D53A0;
+extern s32 lbl_805D55C0;
+extern const f32 lbl_805DC6EC;
+void run_task__14TShopGeneratorFv(u8 *self);
+void TMedicalCenterMes__sub_80216260(void);
+extern Tbl_8021E1FC TShopGenerator__data_804C9FA8;
+extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__data_80513ED0;
+void TShopGenerator__sub_8021E270(void);
 }
 
 extern "C" {
@@ -113,6 +151,69 @@ bool TShopGenerator__sub_8021DC30(u8 *arg0, u8 *arg1, f32 farg0) {
     return (TObjPlayer__sub_803D89C0((void *) (&stack.sp8), (void *) (&stack.sp14)) > lbl_805DC6E8) == 0;
 }
 #pragma pop
+
+s32 TShopGenerator__sub_8021DD38(void *self, s32 player) {
+    s32 i;
+    s32 (*fn)(u16);
+    for (i = 0; i < 7; i++) {
+        fn = M2C_FIELD(&TShopGenerator__data_804C9FA8.e[i], s32 (**)(u16), 0x10);
+        if (fn(TShopGenerator__sub_80222DAC(obj_getField1c(player))) == 1) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+void run_task__14TShopGeneratorFv(u8 *self) {
+    Ent_8021DDB8 *e;
+    s32 i;
+    s32 p;
+    s32 (*fn)(u16);
+    e = (Ent_8021DDB8 *)&TShopGenerator__data_804C9FA8.e[M2C_FIELD(self, s32 *, 0x84)];
+    if (M2C_FIELD(self, s32 *, 0x94) > 0) {
+        M2C_FIELD(self, s32 *, 0x94)--;
+        return;
+    }
+    if (lbl_805D55C0 != 0) {
+        return;
+    }
+    if (TAdPlayerLoadGC__sub_801E1B50(get_chr_select_state__23TAdSinglePlyChrSelectGCFv()) != 0) {
+        return;
+    }
+    if (get_instance__15TAdPlayerLoadGCFv() != 0) {
+        return;
+    }
+    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+        for (i = 0; i < 4; i++) {
+            p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+            if (p == 0) continue;
+            if (((s32 (*)(u8 *, u8 *, f32))TShopGenerator__sub_8021DC30)(self, (u8 *)p, lbl_805DC6EC) == 0) continue;
+            if (((s32 (*)(s32))TShopGenerator__sub_8021E110)(obj_getField1c(p)) == 1) continue;
+            if (TMedicalCenterMes__sub_80216084(obj_getField1c(p)) == 1) continue;
+            if (is_flag_400_set__10TObjPlayerFPv(p) == 1) continue;
+            if (check_flag_100__10TObjPlayerFPv(p) == 1) continue;
+            fn = e->f10;
+            if (fn(TShopGenerator__sub_80222DAC(obj_getField1c(p))) == 1) continue;
+            if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + get_map_id__13TRaderMapCoreFPv(p) * 0x50 + 0x20, 4) == 0) continue;
+            e->fc(p);
+        }
+    } else {
+        s32 q;
+        s32 (*fn2)(u16);
+        q = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+        if (q == 0) return;
+        if (((s32 (*)(s32))TShopGenerator__sub_8021E110)(obj_getField1c(q)) == 1) return;
+        if (TMedicalCenterMes__sub_80216084(obj_getField1c(q)) == 1) return;
+        if (is_flag_400_set__10TObjPlayerFPv(q) == 1) return;
+        if (check_flag_100__10TObjPlayerFPv(q) == 1) return;
+        if (TShopGenerator__sub_8021DD38(self, q) == 0) return;
+        fn2 = e->f10;
+        if (fn2(TShopGenerator__sub_80222DAC(obj_getField1c(q))) == 1) return;
+        if (((s32 (*)(u8 *, u8 *, f32))TShopGenerator__sub_8021DC30)(self, (u8 *)q, lbl_805DC6EC) == 0) return;
+        if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + get_map_id__13TRaderMapCoreFPv(q) * 0x50 + 0x20, 4) == 0) return;
+        e->fc(q);
+    }
+}
 
 void *__dt__14TShopGeneratorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -184,6 +285,21 @@ void TShopGenerator__sub_8021E1FC(void) {
         p--;
         f();
     } while (--n > 0);
+    for (i = 0; i < 4; i++) {
+        ((s32 *)&TShopGenerator__data_80513ED0)[i] = 0;
+    }
+}
+void TShopGenerator__sub_8021E270(void) {
+    E_8021E1FC *p;
+    s32 n;
+    s32 i;
+    n = 7;
+    p = &TShopGenerator__data_804C9FA8.e[0];
+    do {
+        M2C_FIELD(p, void (**)(void), 4)();
+        p++;
+    } while (--n > 0);
+    TMedicalCenterMes__sub_80216260();
     for (i = 0; i < 4; i++) {
         ((s32 *)&TShopGenerator__data_80513ED0)[i] = 0;
     }

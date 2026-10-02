@@ -34,6 +34,7 @@ struct Tbl_80289EE0 { s32 v[8]; };
 
 struct Door_80289EE0 { u8 pad[0xD8]; s32 sw[8]; };
 
+typedef s32 M2C_UNK;
 extern "C" {
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(int, int);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
@@ -50,6 +51,22 @@ extern s32 lbl_805D3B1C;
 extern const f32 lbl_805DD8F4;
 extern const f32 lbl_805DD8F8;
 u8 *TODoorFourLightSpace__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+void TObjPlayer__sub_80154954(void *, void *);
+s32 TLobby__sub_80156A80(void *, void *, s32);
+void fn_8015D5D4(void *);
+u8 TODoorAncient08__sub_80229220(u16);
+void TODoorFourLightSpace__vt12(u8 *arg0);
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK get_instance__12TBoss8DragonFv();
+M2C_UNK set_global_param__8TObjFishFi();
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+u8 TODoorAncient08__sub_80229220(u16);
+void TOSignCave03__sub_803DB510(s32);
+M2C_UNK TODoorFourLightSpace__sub_80289B4C(void *arg0);
 }
 
 extern "C" {
@@ -73,7 +90,6 @@ void *__dt__20TODoorFourLightSpaceFv(void *arg0, s16 arg1);
 void fn_802898E8(void);
 void fn_802898EC(void);
 void render__20TODoorFourLightSpaceFv(u8 *arg0);
-M2C_UNK TODoorFourLightSpace__sub_80289B4C(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
 M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
@@ -120,6 +136,124 @@ void TODoorFourLightSpace__vt4(void *arg0, s16 *arg1) {
 
 extern const f32 lbl_805DD8F0;
 
+void TODoorFourLightSpace__vt12(u8 *arg0) {
+    s16 sp8;
+    s32 fail;
+    s32 i;
+    switch (M2C_FIELD(arg0, s32 *, 0xCC)) {
+    case 1:
+        fn_8015D5D4(arg0);
+        M2C_FIELD(arg0, s32 *, 0xD0) |= 1;
+        break;
+    case 2:
+        fail = 0;
+        for (i = 0; i < M2C_FIELD(arg0, s32 *, 0x88); i++) {
+            if (TODoorAncient08__sub_80229220(M2C_FIELD(arg0, s32 *, 0xC8) + i) == 0) {
+                fail = 1;
+            }
+        }
+        if (fail != 0) {
+            M2C_FIELD(arg0, s32 *, 0xD0) &= ~1;
+        } else {
+            fn_8015D5D4(arg0);
+            M2C_FIELD(arg0, s32 *, 0xD0) |= 1;
+        }
+        break;
+    case 3:
+        if (!(M2C_FIELD(arg0, s32 *, 0xD0) & 1)) {
+            s32 bad;
+            s32 j;
+            bad = 0;
+            for (j = 0; j < M2C_FIELD(arg0, s32 *, 0x88); j++) {
+                if (TODoorAncient08__sub_80229220(M2C_FIELD(arg0, s32 *, 0xC8) + j) == 0) {
+                    bad = 1;
+                }
+            }
+            if (bad == 0) {
+                fn_8015D5D4(arg0);
+                M2C_FIELD(arg0, s32 *, 0xD0) |= 1;
+            } else {
+                M2C_FIELD(arg0, s32 *, 0xD0) &= ~1;
+            }
+            if (bad == 0 && M2C_FIELD(arg0, u32 *, 0x80) != 0 &&
+                TLobby__sub_80156A80(arg0, &sp8, 1) == 1) {
+                sp8 = 1;
+                TObjPlayer__sub_80154954(arg0, &sp8);
+                TLobby__sub_80156A80(arg0, &sp8, 0);
+            }
+        }
+        break;
+    default:
+        M2C_FIELD(arg0, s32 *, 0xD0) &= ~1;
+        break;
+    }
+}
+
+M2C_UNK TODoorFourLightSpace__sub_80289B4C(void *arg0) {
+    u8 *self = (u8 *)arg0;
+    s32 flags[4];
+    s32 i;
+    u8 *mdl;
+    u8 **pa;
+    u8 **pb;
+    for (i = 0; i < 4; i++) {
+        flags[i] = 1;
+    }
+    if (!(M2C_FIELD(self, s32 *, 0xD0) & 1)) {
+        s32 j;
+        for (j = 0; j < M2C_FIELD(self, s32 *, 0x88); j++) {
+            if (TODoorAncient08__sub_80229220(M2C_FIELD(self, s32 *, 0xC8) + j) == 1) {
+                flags[j] = 1;
+            } else {
+                flags[j] = 0;
+            }
+        }
+    }
+    mdl = M2C_FIELD(self, u8 **, 0xD4);
+    pa = (u8 **)(self + 0xD8);
+    pb = (u8 **)(self + 0xE8);
+    TObjPlayer__sub_803D9B2C();
+    ((void (*)(s32))set_global_param__8TObjFishFi)(M2C_FIELD(self, s32 *, 0x24));
+    TOHangerMachine01__sub_803D9C00(self + 0x38);
+    rotate_matrix_y(0, M2C_FIELD(self, s32 *, 0x60));
+    TOHangerMachine01__sub_803D9C00(mdl + 8);
+    TObjPlayer__sub_803D9B2C();
+    TOHangerMachine01__sub_803D9C00(M2C_FIELD(mdl, u8 **, 0x2C) + 8);
+    TOSignCave03__sub_803DB510(M2C_FIELD(M2C_FIELD(mdl, u8 **, 0x2C), s32 *, 4));
+    TObjPlayer__sub_803D9B78();
+    TOHangerMachine01__sub_803D9C00(M2C_FIELD(M2C_FIELD(mdl, u8 **, 0x2C), u8 **, 0x30) + 8);
+    TOSignCave03__sub_803DB510(M2C_FIELD(M2C_FIELD(M2C_FIELD(mdl, u8 **, 0x2C), u8 **, 0x30), s32 *, 4));
+    TOHangerMachine01__sub_803D9C00(M2C_FIELD(M2C_FIELD(M2C_FIELD(mdl, u8 **, 0x2C), u8 **, 0x30), u8 **, 0x2C) + 8);
+    TOSignCave03__sub_803DB510(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(mdl, u8 **, 0x2C), u8 **, 0x30), u8 **, 0x2C), s32 *, 4));
+    begin_effect_render__13TParticleCtrlFv();
+    i = 0;
+    do {
+        if (flags[i] == 1) {
+            get_instance__12TBoss8DragonFv();
+            set_global_param__8TObjFishFi();
+        } else {
+            ((void (*)(s32))set_global_param__8TObjFishFi)(M2C_FIELD(self, s32 *, 0x24));
+        }
+        if (*pa != NULL) {
+            TObjPlayer__sub_803D9B2C();
+            TOHangerMachine01__sub_803D9C00(*pa + 8);
+            TOSignCave03__sub_803DB510(M2C_FIELD(*pa, s32 *, 4));
+            TObjPlayer__sub_803D9B78();
+        }
+        if (*pb != NULL) {
+            TObjPlayer__sub_803D9B2C();
+            TOHangerMachine01__sub_803D9C00(*pb + 8);
+            TOSignCave03__sub_803DB510(M2C_FIELD(*pb, s32 *, 4));
+            TObjPlayer__sub_803D9B78();
+        }
+        i++;
+        pa++;
+        pb++;
+    } while (i < 4);
+    end_effect_render__13TParticleCtrlFv();
+    TObjPlayer__sub_803D9B78();
+}
+
 void render__20TODoorFourLightSpaceFv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
@@ -149,7 +283,7 @@ void render__20TODoorFourLightSpaceFv(u8 *arg0) {
         case 0:
             temp_r0_2 = M2C_FIELD(arg0, s32 *, 0xCC);
             if ((temp_r0_2 == 2) || (temp_r0_2 == 3)) {
-                TODoorFourLightSpace__sub_80289B4C(arg0);
+                TODoorFourLightSpace__sub_80289B4C((void *)(arg0));
                 return;
             }
             TObjPlayer__sub_803D9B2C();

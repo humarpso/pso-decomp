@@ -39,6 +39,24 @@ struct TChCrTagName_802A2500 : VBase_802A2500 {
     vec2f pos;
 };
 
+struct VBase_802A226C { char pad[0x18]; };
+
+struct TChCrTagName_802A226C : VBase_802A226C {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual s32 m4();
+    s32 f1c;
+    s32 f20;
+    f32 f24;
+    u8 pad28[0x3C - 0x28];
+    f32 f3c;
+    f32 f40;
+    s32 f44;
+    vec2f pos;
+};
+
 extern "C" {
 u8 * __ct__8TChCrTagFv(void *, s32);
 extern RecoveredGlobal_802A28C0___vt__12TChCrTagName __vt__12TChCrTagName;
@@ -81,6 +99,23 @@ extern const f32 lbl_805DDE50;
 extern const f32 lbl_805DDE54;
 extern const f32 lbl_805DDE64;
 void TChCrTagName__sub_802A2500(TChCrTagName_802A2500 *self);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+f32 TChCrTagName__sub_802A265C(Tag_802A265C *arg0);
+extern vec2f lbl_80466410[];
+extern vec2f lbl_80466418[];
+extern vec2f lbl_80466420[];
+extern vec2f lbl_80466428[];
+extern const f32 lbl_805DDE28;
+extern const f32 lbl_805DDE30;
+extern const f32 lbl_805DDE34;
+extern const f32 lbl_805DDE38;
+extern const f32 lbl_805DDE3C;
+extern const f32 lbl_805DDE50;
+extern const f32 lbl_805DDE54;
+extern const f32 lbl_805DDE58;
+extern const f32 lbl_805DDE5C;
+extern const f32 lbl_805DDE60;
+int TChCrTagName__sub_802A226C(TChCrTagName_802A226C *self);
 }
 
 extern "C" {
@@ -90,7 +125,7 @@ void create_all__12TChCrTagNameFv(void);
 void render__12TChCrTagNameFv(void* p);
 void run_task__12TChCrTagNameFv(void *arg0);
 int TChCrTagName__sub_802A208C(void*);
-int TChCrTagName__sub_802A226C(void*);
+struct TChCrTagName_802A226C; int TChCrTagName__sub_802A226C(TChCrTagName_802A226C *);
 M2C_UNK TChCrTag__sub_802A1A00();
 void *__nw__7TObjectFUl(int);
 
@@ -98,6 +133,62 @@ void *__nw__7TObjectFUl(int);
 #pragma fp_contract on
 void draw_ui_sprite_shaded(s32 sprite_id, const vec2f *position, const vec2f *scale,
                            f32 depth, f32 alpha, f32 brightness);
+
+#pragma push
+#pragma fp_contract on
+void draw_ui_sprite_shaded(s32 sprite_id, const vec2f *position, const vec2f *scale,
+                           f32 depth, f32 alpha, f32 brightness);
+int TChCrTagName__sub_802A226C(TChCrTagName_802A226C *self) {
+    f32 s;
+    f32 depth;
+    f32 t = lbl_805DDE28;
+    f32 bright;
+    if (self->f24 < self->f40) {
+        t = (self->f24 - self->f3c) / (self->f40 - self->f3c);
+    }
+    s = TChCrTagName__sub_802A265C((Tag_802A265C *)self);
+    if (self->m4() != 0) {
+        depth = lbl_805DDE30;
+    } else {
+        depth = lbl_805DDE34 * s + lbl_805DDE54;
+    }
+    bright = lbl_805DDE3C * (s * s) + lbl_805DDE38;
+    t = t * t;
+    {
+        vec2f scale = lbl_80466410[0];
+        vec2f pos;
+        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, &self->pos);
+        draw_ui_sprite_shaded(0x41, &pos, &scale, depth, t, bright);
+        pos.y += lbl_805DDE58;
+        draw_ui_sprite_shaded(0x42, &pos, &scale, depth, t, bright);
+    }
+    {
+        vec2f scale = lbl_80466418[0];
+        vec2f pos;
+        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, &self->pos);
+        pos.x += lbl_805DDE5C;
+        draw_ui_sprite_shaded(self->f20 == 0 ? 0x44 : 0x48, &pos, &scale, depth, t, bright);
+        pos.y += lbl_805DDE58;
+        draw_ui_sprite_shaded(self->f20 == 11 ? 0x46 : 0x4A, &pos, &scale, depth, t, bright);
+    }
+    {
+        vec2f scale = lbl_80466420[0];
+        vec2f pos;
+        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, &self->pos);
+        pos.x += lbl_805DDE5C;
+        pos.y += lbl_805DDE60;
+        draw_ui_sprite_shaded(0x40, &pos, &scale, depth, t, bright);
+    }
+    if (self->f24 < lbl_805DDE28) {
+        vec2f scale = lbl_80466428[0];
+        vec2f pos;
+        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, &self->pos);
+        pos.x -= lbl_805DDE50;
+        draw_ui_sprite_shaded(0x3F, &pos, &scale, depth, t, bright);
+    }
+}
+#pragma pop
+
 void TChCrTagName__sub_802A2500(TChCrTagName_802A2500 *self) {
     f32 s;
     f32 depth;
@@ -121,7 +212,7 @@ void TChCrTagName__sub_802A2500(TChCrTagName_802A2500 *self) {
 }
 #pragma pop
 
-void render__12TChCrTagNameFv(void* p) { TChCrTagName__sub_802A2500((TChCrTagName_802A2500 *)(p)); TChCrTagName__sub_802A226C(p); TChCrTagName__sub_802A208C(p); }
+void render__12TChCrTagNameFv(void* p) { TChCrTagName__sub_802A2500((TChCrTagName_802A2500 *)(p)); TChCrTagName__sub_802A226C((TChCrTagName_802A226C *)((TChCrTagName_802A226C *)(p))); TChCrTagName__sub_802A208C(p); }
 
 #pragma fp_contract on
 

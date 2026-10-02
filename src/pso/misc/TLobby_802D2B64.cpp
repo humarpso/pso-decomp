@@ -25,6 +25,7 @@ struct O_802D33C0 { u8 pad[5]; u8 state; };
 
 struct O_802D3384 { u8 pad[5]; u8 state; s16 h6; };
 
+typedef s32 M2C_UNK;
 extern "C" {
 M2C_UNK prepare_and_send_trade_packet__6TLobbyFPvPv(void *, void *);
 M2C_UNK build_6xA6_modify_trade_proposal(void *);
@@ -55,6 +56,15 @@ void TLobby__sub_802D33C0(O_802D33C0 *self);
 s32 update_sub_status_disp__6TLobbyFi(s32 arg0);
 void reset__6TLobbyFi(s32 arg0);
 void TLobby__sub_802D3384(O_802D3384 *self);
+s32 TWindowTradeRequest__sub_80249FCC();
+s32 update_sub_status_disp__6TLobbyFi(s32 arg0);
+M2C_UNK reset__6TLobbyFv();
+void reset__6TLobbyFi(s32 arg0);
+M2C_UNK prepare_and_send_trade_packet__6TLobbyFPvPv(void *, void *);
+M2C_UNK build_6xA6_modify_trade_proposal(void *);
+extern s8 TLobby__data_805D688A;
+extern s8 TLobby__data_805D688B;
+void TLobby__sub_802D3070(s32 arg0);
 }
 
 extern "C" {
@@ -86,6 +96,23 @@ void reset__6TLobbyFi(s32 arg0) {
             TLobby_802D2F7C__sub_80339910(temp_r3, arg0);
         }
     }
+}
+
+void TLobby__sub_802D3070(s32 arg0) {
+    G_ModifyTradeProposal_6xA6 packet;
+    s8 new_var;
+    build_6xA6_modify_trade_proposal(&packet.header);
+    new_var = (s8) ((*(u8 *)&TLobby__data_805D688A) & 0xFFFFFFFFFFFFFFFFu);
+    packet.what = 7;
+    packet.result = 0;
+    packet.unknown_a1 = arg0;
+    prepare_and_send_trade_packet__6TLobbyFPvPv(&packet.header, (void *)((s32) new_var));
+    if (TLobby__data_805D688B == 2) {
+        TWindowTradeRequest__sub_80249FCC();
+        reset__6TLobbyFv();
+        return;
+    }
+    reset__6TLobbyFi(update_sub_status_disp__6TLobbyFi(arg0));
 }
 
 void TLobby__sub_802D30E8(s32 arg0) {

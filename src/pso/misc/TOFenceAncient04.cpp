@@ -31,6 +31,89 @@ struct Big_8016775C { u8 pad[0x42C]; Inner_8016775C *p; };
 
 struct Buf_8016775C { s32 a; s32 b; s32 c; s32 d; };
 
+struct VBase_18_f90cfc { char pad[0x18]; };
+
+struct VObj_18_f90cfc : VBase_18_f90cfc {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual M2C_UNK m77();
+};
+
 extern "C" {
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
@@ -58,6 +141,25 @@ extern u8 lbl_804B1F70[];
 extern u32 lbl_805D59C8;
 extern void *lbl_805D59CC;
 void TOFenceAncient04__sub_8016775C(void);
+M2C_UNK advance_wrap_offset__25TOHangceilingCave01NormalFPv(void *);
+M2C_UNK fn_801682E4(void *, int);
+M2C_UNK fn_80168488(void *);
+u8 TODoorAncient08__sub_80229220(int);
+extern const f32 lbl_805DB650;
+extern const f32 lbl_805DB654;
+extern s32 lbl_805DB658;
+extern const f32 lbl_805DB65C;
+extern const f32 lbl_805DB660;
+extern const f32 lbl_805DB664;
+extern const f32 lbl_805DB668;
+extern const f32 lbl_805DB66C;
+extern const f32 lbl_805DB670;
+extern const f32 lbl_805DB674;
+extern const f32 lbl_805DB678;
+extern const f32 lbl_805DB67C;
+extern const f32 lbl_805DB680;
+extern const f32 lbl_805DB684;
+void TOHangceilingCave01KeyQuick__vt78(u8 *arg0);
 }
 
 extern "C" {
@@ -163,6 +265,59 @@ u8 *TOFenceAncient04__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB644;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB648;
     return arg0;
+}
+void TOHangceilingCave01KeyQuick__vt78(u8 *arg0) {
+    f32 temp_f1;
+    s16 temp_r0;
+    u8 *temp_r3;
+    u8 *temp_r4;
+    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+    switch (temp_r0) {
+    case 3:
+        if ((TODoorAncient08__sub_80229220((int) ((u16) M2C_FIELD(arg0, s32 *, 0x35C))) == 1) && (M2C_FIELD(arg0, f32 *, 0xC0) <= M2C_FIELD(arg0, f32 *, 0xC4))) {
+            fn_801682E4((void *) (arg0), (int) (2));
+        }
+        advance_wrap_offset__25TOHangceilingCave01NormalFPv((void *) (arg0));
+        return;
+    case 1:
+        advance_wrap_offset__25TOHangceilingCave01NormalFPv((void *) (arg0));
+        fn_80168488((void *) (arg0));
+        if (lbl_805DB65C < M2C_FIELD(arg0, f32 *, 0xC0)) {
+            temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
+            M2C_FIELD(temp_r3, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x18) & 0xFFFFFFF7);
+        }
+        if (lbl_805DB660 == M2C_FIELD(arg0, f32 *, 0xC0)) {
+            ((VObj_18_f90cfc *)(arg0))->m77();
+        }
+        break;
+    case 2:
+        if (TODoorAncient08__sub_80229220((int) ((u16) M2C_FIELD(arg0, s32 *, 0x35C))) == 1) {
+            if (lbl_805DB650 != M2C_FIELD(arg0, f32 *, 0xC0)) {
+                advance_wrap_offset__25TOHangceilingCave01NormalFPv((void *) (arg0));
+            }
+            if (lbl_805DB664 == M2C_FIELD(arg0, f32 *, 0xC0)) {
+                temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
+                M2C_FIELD(temp_r4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r4, s32 *, 0x18) | lbl_805DB658);
+                return;
+            }
+        } else {
+            if ((lbl_805DB668 <= M2C_FIELD(arg0, f32 *, 0xC0)) && (M2C_FIELD(arg0, f32 *, 0xC0) <= M2C_FIELD(arg0, f32 *, 0xC4))) {
+                M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB650;
+            } else if (lbl_805DB66C <= M2C_FIELD(arg0, f32 *, 0xC0)) {
+                M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB654;
+            } else if (lbl_805DB670 <= M2C_FIELD(arg0, f32 *, 0xC0)) {
+                M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB674;
+            } else if (lbl_805DB678 <= M2C_FIELD(arg0, f32 *, 0xC0)) {
+                M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB67C;
+            } else if (lbl_805DB680 <= M2C_FIELD(arg0, f32 *, 0xC0)) {
+                M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB65C;
+            } else {
+                M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB684;
+            }
+            fn_801682E4((void *) (arg0), (int) (1));
+        }
+        break;
+    }
 }
 
 }

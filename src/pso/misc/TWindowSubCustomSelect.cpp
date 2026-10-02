@@ -19,6 +19,14 @@ struct RecoveredGlobal_80277408_lbl_8050E208 {
     u8 remaining[0x1AC];
 };
 
+struct Ent_80277AEC { u16 id; u8 pad[0xA]; };
+
+struct Pos_80277AEC { f32 x; f32 y; };
+
+struct Sub_80277AEC { u8 pad[0x34]; s32 flags; };
+
+struct Big_80277AEC { u8 pad[0x85C]; Sub_80277AEC sub; };
+
 extern "C" {
 s32 TWindowSubStatusDisp__sub_80244364();
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
@@ -52,6 +60,22 @@ s32 is_player_input_active(int);
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
 extern RecoveredGlobal_80277928_lbl_8050E208 lbl_8050E208;
 void TWindowSubCustomSelect__sub_80277408(u8 *arg0);
+s32 get_message_10__20TWindowSubStatusDispFPv(int);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
+Big_80277AEC *TPlayerBattleCtrl4P__sub_801BA74C(int);
+s32 construct_with_parent__15TWindowAdditionFPvPv(void *, void *, s16, s32);
+s32 TWindowSubComCard__sub_8026CBB8(int);
+void *reset_selection__20TWindowSubStatusDispFPv(void *, Pos_80277AEC *);
+void *TWindowSubStatusDisp__sub_802880BC(void *, s32, s32);
+extern u8 lbl_8044F818[];
+extern u8 lbl_8044F8B8[];
+extern u8 lbl_804D153C[];
+extern M2C_UNK __vt__22TWindowSubCustomSelect[];
+extern s32 lbl_805D3A28;
+extern const f32 TWindowSubCustomSelect__data_805DD5B0;
+extern const f32 lbl_805DD5E8;
+extern const f32 lbl_805DD5EC;
+u8 *TWindowSubCustomSelect__ct(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -184,5 +208,56 @@ void *__dt__22TWindowSubCustomSelectFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+#pragma push
+#pragma fp_contract on
+#pragma fp_contract on
+u8 *TWindowSubCustomSelect__ct(u8 *arg0, s32 arg1) {
+    Pos_80277AEC pos;
+    Big_80277AEC *p;
+    Sub_80277AEC *q;
+    Ent_80277AEC *e;
+    void *o;
+    construct_with_parent__15TWindowAdditionFPvPv(arg0, lbl_804D153C, arg1, TWindowSubComCard__sub_8026CBB8(0x10));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TWindowSubCustomSelect;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3A28;
+    M2C_FIELD(arg0, s16 *, 0x20) = arg1;
+    p = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s16 *, 0x20));
+    if (p == NULL) {
+        return arg0;
+    }
+    q = &p->sub;
+    if (q == NULL) {
+        return arg0;
+    }
+    if (q->flags & 0x10) {
+        M2C_FIELD(arg0, u8 **, 0x78) = lbl_8044F8B8;
+    } else {
+        M2C_FIELD(arg0, u8 **, 0x78) = lbl_8044F818;
+    }
+    M2C_FIELD(arg0, s8 *, 0x73) = 0;
+    M2C_FIELD(arg0, s8 *, 0x70) = 0;
+    M2C_FIELD(arg0, s8 *, 0x71) = 0;
+    M2C_FIELD(arg0, s32 *, 0x74) = 0;
+    e = M2C_FIELD(arg0, Ent_80277AEC **, 0x78);
+    M2C_FIELD(arg0, u8 *, 0x72) = 0;
+    while (e->id != 8) {
+        e++;
+        M2C_FIELD(arg0, u8 *, 0x72)++;
+    }
+    o = alloc__23TAdSinglePlyChrSelectGCFPv(0x24);
+    if (o != NULL) {
+        o = TWindowSubStatusDisp__sub_802880BC(o, get_message_10__20TWindowSubStatusDispFPv(0x22), M2C_FIELD(arg0, s16 *, 0x20));
+    }
+    M2C_FIELD(arg0, void **, 0x7C) = o;
+    pos.x = lbl_805DD5E8;
+    pos.y = TWindowSubCustomSelect__data_805DD5B0 * (f32)(s8)M2C_FIELD(arg0, u8 *, 0x72) + lbl_805DD5EC;
+    o = alloc__23TAdSinglePlyChrSelectGCFPv(0xC);
+    if (o != NULL) {
+        o = reset_selection__20TWindowSubStatusDispFPv(o, &pos);
+    }
+    M2C_FIELD(arg0, void **, 0x80) = o;
+    return arg0;
+}
+#pragma pop
 
 }

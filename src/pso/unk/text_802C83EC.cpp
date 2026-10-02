@@ -60,6 +60,16 @@ s8 TObjPlayer__sub_800196EC(int);
 void finalize_and_send_60__6TLobbyFPv(void *);
 void init_6x05_switch_changed__6TLobbyFPv(void *);
 void TOTrapChainSawKey__vt16(S_802C86D4 *arg0);
+M2C_UNK TOTrapChainSaw__sub_802C9090();
+M2C_UNK set_global_count__12TObjNpcEnemyFi(M2C_UNK);
+void TObjEneBm5GibonU__sub_803D853C(s32, const char *, ...);
+extern char lbl_80471F88[];
+void TOTrapChainSawKey__vt12(void);
+M2C_UNK TOTrapChainSaw__sub_802C9600();
+s32 TOTrapAncient01__sub_80226578(void *, void *, void *, int, int);
+s32 TOTrapChainSawKey__sub_802C8F68(void *, int);
+extern const f32 lbl_805DE618;
+void TOTrapChainSawKey__vt22(u8 *arg0);
 }
 
 extern "C" {
@@ -118,6 +128,26 @@ void TOTrapChainSawKey__vt23(void *arg0) {
     TObjPlayer__sub_803D9B78();
     end_effect_render__13TParticleCtrlFv();
 }
+
+void TOTrapChainSawKey__vt12(void) {
+    TOTrapChainSaw__sub_802C9090();
+    set_global_count__12TObjNpcEnemyFi(0xFF00FF);
+    TObjEneBm5GibonU__sub_803D853C(0x13001E, lbl_80471F88);
+    set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+}
+
+void TOTrapChainSawKey__vt22(u8 *arg0) {
+    TOTrapChainSaw__sub_802C9600();
+    M2C_FIELD(arg0, f32 *, 0x104) = (f32) (M2C_FIELD(arg0, f32 *, 0x104) + M2C_FIELD(arg0, f32 *, 0x108));
+    if (M2C_FIELD(arg0, f32 *, 0x104) > (f32) (u32) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x100), s32 *, 4) - 1)) {
+        M2C_FIELD(arg0, f32 *, 0x104) = (f32) lbl_805DE618;
+    }
+    TOTrapAncient01__sub_80226578((void *) (TOTrapChainSawKey__sub_802C8F68((void *) (arg0), (int) (2))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    if ((s32) M2C_FIELD(arg0, s32 *, 0xF0) == 1) {
+        TOTrapAncient01__sub_80226578((void *) (TOTrapChainSawKey__sub_802C8F68((void *) (arg0), (int) (1))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    }
+}
+
 void TOTrapChainSawKey__vt16(S_802C86D4 *arg0) {
     P_802C86D4 p;
     init_6x05_switch_changed__6TLobbyFPv(&p);
