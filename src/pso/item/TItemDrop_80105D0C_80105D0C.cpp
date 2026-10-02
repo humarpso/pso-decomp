@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Item_80105EA4 { u8 type; u8 b1; u8 b2; };
+
 extern "C" {
 s32 TLobby__sub_8030A7B0();
 s32 get_instance__6TLobbyFv();
@@ -22,6 +24,21 @@ extern s32 lbl_805D2B78;
 extern s32 TItemDrop__data_805D5470;
 extern s32 TItemDrop__data_805D5474;
 void TItemDrop__sub_8010643C(void);
+u8 can_drop__9TItemDropFv(void);
+u8 get_bool_from_1d6ddc__9TItemDropFPv(void *);
+u8 TItemDrop__sub_80107B04(void *);
+s32 TItemData__sub_8010DF68(void *);
+M2C_UNK init__9TItemDataFv(void *);
+u8 TLobby__sub_801D6F94(void *);
+u8 TLobby__sub_801D6FFC(void *);
+u8 fn_801D7168(void *);
+u8 fn_801D719C(void *);
+u8 fn_801D71D0(void *);
+u8 fn_801D7204(void *);
+u8 TOMineTrap__sub_801D7238(void *);
+s32 TLobby__sub_8030A7B0();
+extern M2C_UNK lbl_8050EA40[];
+void TItemDrop__sub_80105EA4(M2C_UNK arg0, Item_80105EA4 *it);
 }
 
 extern "C" {
@@ -77,6 +94,81 @@ s32 calc_drop_offset__9TItemDropFi(s32 arg0) {
         var_r31 += 0x28;
     }
     return var_r31;
+}
+
+void TItemDrop__sub_80105EA4(M2C_UNK arg0, Item_80105EA4 *it) {
+    void *p;
+    u8 m;
+    u8 t;
+    if (it == NULL) {
+        return;
+    }
+    if (((s32 (*)(void))can_drop__9TItemDropFv)() == 0 && TItemData__sub_8010DF68(it) != 0) {
+        init__9TItemDataFv(it);
+        return;
+    }
+    if (TLobby__sub_8030A7B0() == 1) {
+        if (it->type == 1) {
+            if (it->b1 == 3) {
+                if ((u8)M2C_FIELD(it, s8 *, 2) >= 0x33 && (u8)M2C_FIELD(it, s8 *, 2) <= 0x38) {
+                    init__9TItemDataFv(it);
+                }
+            }
+        } else if (it->type == 4) {
+            init__9TItemDataFv(it);
+        }
+    }
+    p = lbl_8050EA40;
+    if (TOMineTrap__sub_801D7238(lbl_8050EA40) == TItemDrop__sub_80107B04(p)) {
+        return;
+    }
+    if (it->type == 0 || it->type == 1) {
+        switch (fn_801D71D0(p)) {
+        case 2:
+            init__9TItemDataFv(it);
+            return;
+        case 3:
+            if (TItemData__sub_8010DF68(it) == 1) {
+                init__9TItemDataFv(it);
+            }
+            return;
+        }
+    }
+    if (it->type == 2) {
+        if (fn_801D719C(p) == 1) {
+            init__9TItemDataFv(it);
+        }
+    } else if (it->type == 3) {
+        if (fn_801D7168(p) == 2) {
+            init__9TItemDataFv(it);
+        } else if (it->b1 == 2) {
+            switch (fn_801D7204(p)) {
+            case 0:
+                return;
+            case 1:
+                init__9TItemDataFv(it);
+                break;
+            default:
+                m = get_bool_from_1d6ddc__9TItemDropFPv(p);
+                if (m != 0) {
+                    it->b2 = it->b2 % m;
+                } else {
+                    it->b2 = 0;
+                }
+                break;
+            }
+        } else if (it->b1 == 9) {
+            if (TLobby__sub_801D6F94(p) == 1) {
+                init__9TItemDataFv(it);
+                return;
+            }
+            return;
+        }
+    } else if (it->type == 4) {
+        if (TLobby__sub_801D6FFC(p) == 1) {
+            init__9TItemDataFv(it);
+        }
+    }
 }
 
 u8 is_enabled__9TItemDropFv(void) {

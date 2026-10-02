@@ -328,6 +328,20 @@ extern "C" {
 
 void TLobby__sub_80135FFC(void);
 
+extern "C" {
+typedef struct { s32 a; s32 b; } Pair_80135E7C;
+typedef struct { u8 pad0[5]; u8 kind; u8 pad6[6]; u8 name[0x8C]; } Ent_80135E7C;
+void TLobby__sub_80266E34(void *);
+void add_list_entry__6TLobbyFPviii(void *, int, void *, int);
+void *open_default__23TShopJudgmentItemWindowFi(void *);
+extern Pair_80135E7C lbl_8043EE18[];
+extern u8 lbl_8043EEF8[];
+extern s32 TLobby__data_805D5594;
+extern s32 TLobby__data_805D55A4;
+extern void *TLobby__data_805D55CC;
+extern void *TLobby__data_805D55D0;
+}
+
 typedef struct {
     u32 kb;
     u8 pad[0x14];
@@ -712,6 +726,49 @@ void TLobby__sub_80135CD8(s32 arg0) {
         }
         free__11TOBoss4RockFUi((int)buf);
     }
+}
+
+void TLobby__sub_80135E7C(s32 arg0, Ent_80135E7C *arg1) {
+    static void *tbl = lbl_8043EEF8;
+    s32 i;
+    Ent_80135E7C *e;
+    void *w;
+
+    if (TLobby__data_805D55D0 != 0) {
+        queue_destruction__7TObjectFv(TLobby__data_805D55D0);
+        TLobby__data_805D55D0 = 0;
+    }
+    TLobby__data_805D55D0 = open_default__23TShopJudgmentItemWindowFi(tbl);
+    for (i = 0; i < arg0; i++) {
+        e = &arg1[i];
+        switch (e->kind) {
+        case 0:
+            add_list_entry__6TLobbyFPviii(TLobby__data_805D55D0, 0x2C, e->name, i);
+            break;
+        case 1:
+            add_list_entry__6TLobbyFPviii(TLobby__data_805D55D0, 0x17, e->name, i);
+            break;
+        case 2:
+            add_list_entry__6TLobbyFPviii(TLobby__data_805D55D0, 0x31, e->name, i);
+            break;
+        default:
+            add_list_entry__6TLobbyFPviii(TLobby__data_805D55D0, 0x2C, e->name, i);
+            break;
+        }
+    }
+    TLobby__sub_80266E34(TLobby__data_805D55D0);
+    if (TLobby__data_805D55CC != 0) {
+        queue_destruction__7TObjectFv(TLobby__data_805D55CC);
+        TLobby__data_805D55CC = 0;
+    }
+    {
+        Pair_80135E7C p = lbl_8043EE18[0];
+        w = get_window_layout_position(0xC7);
+        TLobby__data_805D55CC = set_window_mode_4__6TLobbyFPvii(w, &p, 1);
+        send_and_handle__6TLobbyFPvii(TLobby__data_805D55CC, (char *)arg1 + 0x2C, 3);
+    }
+    TLobby__data_805D55A4 = 0;
+    TLobby__data_805D5594 = 0x11;
 }
 
 void TLobby__sub_80135FFC(void) {  }

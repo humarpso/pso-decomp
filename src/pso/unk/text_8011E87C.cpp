@@ -10,6 +10,18 @@ struct Pl_8011E87C {
     s8 iconB[4];
 };
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct Pl_8011E950 {
+    u8 pad0[0x174];
+    u32 x174;
+    u8 pad178[0x18C - 0x178];
+    void *eff[4];
+    s8 kind[4];
+};
+
 extern "C" {
 s32 get_mode__11TCameraCtrlFPv(void *);
 s32 TLobby__sub_800822E8(void *, s32);
@@ -20,6 +32,12 @@ s32 is_flag_b0_4__10TObjPlayerFPv(void *);
 void TItemEffectWeapon__sub_803634A4(void *, Vec_8011E87C *, Vec_8011E87C *);
 extern u8 main_task[];
 void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot);
+s32 obj_testFlags30(void *, M2C_UNK);
+u32 TObjPlayer__sub_8011EA10(void *);
+M2C_UNK TObjPlayer__sub_80121228(void *, M2C_UNK);
+void *__ct__17TItemEffectWeaponFv(void *, u32, u32);
+void *alloc__13TItemProArmorFi(M2C_UNK);
+void TObjPlayer__sub_8011E950(Pl_8011E950 *arg0);
 }
 
 extern "C" {
@@ -35,6 +53,25 @@ void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot) {
             draw_icon__10TObjPlayerFPvii(self, self->iconA[slot], &a);
             draw_icon__10TObjPlayerFPvii(self, self->iconB[slot], &b);
             TItemEffectWeapon__sub_803634A4(self->trails[slot], &a, &b);
+        }
+    }
+}
+void TObjPlayer__sub_8011E950(Pl_8011E950 *arg0) {
+    u32 flags;
+    s32 i;
+    flags = TObjPlayer__sub_8011EA10(arg0) & 0x8FFFFFFF;
+    if (arg0->x174 != 0U) {
+        for (i = 0; i != 4; i++) {
+            if (arg0->kind[i] != -1) {
+                void *p = alloc__13TItemProArmorFi(0x2C);
+                if (p != NULL) {
+                    p = __ct__17TItemEffectWeaponFv(p, arg0->x174, flags);
+                }
+                arg0->eff[i] = p;
+            }
+            if (arg0->eff[i] != NULL && obj_testFlags30(arg0, 0x2000) != 0) {
+                TObjPlayer__sub_80121228(arg0->eff[i], 1);
+            }
         }
     }
 }

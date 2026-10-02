@@ -89,6 +89,36 @@ struct Smp_803D7D30 {
     s32 (*f3C)(void *);
 };
 
+struct Stack_803D6F20 {
+    u8 * sp8;
+    u8 * spC;
+    f32 sp10;
+};
+
+struct Stack_803D6FC8 {
+    u8 * sp8;
+    u8 * spC;
+    f32 sp10;
+};
+
+struct Stack_803D7128 {
+    u8 * sp8;
+    u8 * spC;
+    f32 sp10;
+};
+
+extern "C" {
+
+}
+
+extern "C" {
+
+}
+
+extern "C" {
+
+}
+
 extern "C" {
 void find_motion_key_interval(void *, s32, s32 count, f32 t, void *, void *, void *);
 void interpolate_motion_vector_keys(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
@@ -323,6 +353,66 @@ void TObjPlayer__sub_803D6E8C(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     temp_f2_2 = M2C_FIELD(stack.spC, f32 *, 8);
     M2C_FIELD(arg2, f32 *, 4) = (f32) (temp_f2_2 + (stack.sp10 * (M2C_FIELD(stack.sp8, f32 *, 8) - temp_f2_2)));
     M2C_FIELD(arg2, f32 *, 8) = (f32) lbl_805E0E50;
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+void TObjPlayer__sub_803D6F20(u8 *arg0, s32 arg1, s32 *arg2, f32 farg0) {
+    typedef char sp8_offset[(offsetof(Stack_803D6F20, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_803D6F20, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_803D6F20, sp10) == 0x8) ? 1 : -1];
+    Stack_803D6F20 stack;
+
+    s32 temp_r5;
+
+    find_motion_key_interval(arg0, 8, arg1, farg0, &stack.spC, &stack.sp8, &stack.sp10);
+    temp_r5 = M2C_FIELD(stack.spC, s32 *, 4);
+    *arg2 = (s32) ((f32) temp_r5 + (stack.sp10 * (f32) (s16) (M2C_FIELD(stack.sp8, s32 *, 4) - temp_r5)));
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+void TObjPlayer__sub_803D6FC8(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
+    typedef char sp8_offset[(offsetof(Stack_803D6FC8, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_803D6FC8, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_803D6FC8, sp10) == 0x8) ? 1 : -1];
+    Stack_803D6FC8 stack;
+
+    s32 temp_r5;
+    s32 temp_r5_2;
+    s32 temp_r5_3;
+
+    find_motion_key_interval(arg0, 0x10, arg1, farg0, &stack.spC, &stack.sp8, &stack.sp10);
+    temp_r5 = M2C_FIELD(stack.spC, s32 *, 4);
+    M2C_FIELD(arg2, s32 *, 0) = (s32) ((f32) temp_r5 + (stack.sp10 * (f32) (s16) (M2C_FIELD(stack.sp8, s32 *, 4) - temp_r5)));
+    temp_r5_2 = M2C_FIELD(stack.spC, s32 *, 8);
+    M2C_FIELD(arg2, s32 *, 4) = (s32) ((f32) temp_r5_2 + (stack.sp10 * (f32) (s16) (M2C_FIELD(stack.sp8, s32 *, 8) - temp_r5_2)));
+    temp_r5_3 = M2C_FIELD(stack.spC, s32 *, 0xC);
+    M2C_FIELD(arg2, s32 *, 8) = (s32) ((f32) temp_r5_3 + (stack.sp10 * (f32) (s16) (M2C_FIELD(stack.sp8, s32 *, 0xC) - temp_r5_3)));
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+void TObjPlayer__sub_803D7128(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
+    typedef char sp8_offset[(offsetof(Stack_803D7128, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_803D7128, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_803D7128, sp10) == 0x8) ? 1 : -1];
+    Stack_803D7128 stack;
+
+    s16 temp_r5;
+    s16 temp_r5_2;
+    s16 temp_r5_3;
+
+    TObjPlayer__sub_803D7940(arg0, 8, arg1, farg0, (u16 **)&stack.spC, (u16 **)&stack.sp8, &stack.sp10);
+    temp_r5 = M2C_FIELD(stack.spC, s16 *, 2);
+    M2C_FIELD(arg2, s32 *, 0) = (s32) ((f32) temp_r5 + (stack.sp10 * (f32) (s16) (M2C_FIELD(stack.sp8, s16 *, 2) - temp_r5)));
+    temp_r5_2 = M2C_FIELD(stack.spC, s16 *, 4);
+    M2C_FIELD(arg2, s32 *, 4) = (s32) ((f32) temp_r5_2 + (stack.sp10 * (f32) (s16) (M2C_FIELD(stack.sp8, s16 *, 4) - temp_r5_2)));
+    temp_r5_3 = M2C_FIELD(stack.spC, s16 *, 6);
+    M2C_FIELD(arg2, s32 *, 8) = (s32) ((f32) temp_r5_3 + (stack.sp10 * (f32) (s16) (M2C_FIELD(stack.sp8, s16 *, 6) - temp_r5_3)));
 }
 #pragma pop
 

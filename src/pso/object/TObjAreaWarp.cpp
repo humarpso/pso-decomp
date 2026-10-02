@@ -91,6 +91,38 @@ struct Data_8019D250 {
     void *win[4];
 };
 
+typedef s32 M2C_UNK;
+struct VBase_8019CAB0 { char pad[0x18]; };
+
+struct VObj_8019CAB0 : VBase_8019CAB0 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13(s32);
+    virtual s32 m14();
+    virtual void m15();
+    virtual s32 m16(s32);
+    virtual void m17(void *);
+};
+
+struct Data_8019CAB0 {
+    u8 pad0[0xAC];
+    f32 fAC;
+    void *fB0;
+    u8 padB4[0xC0 - 0xB4];
+    void *fC0;
+};
+
 extern "C" {
 s32 TObjMapWarp__ct(void *);
 s32 get_story_select__16TAdStorySelectGCFv();
@@ -147,6 +179,18 @@ void TWindow__close(void *);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern s32 lbl_805D53A0;
 void TObjPlayer__sub_8019D250(VObj_8019D250 *self);
+u16 obj_getField1c(void *);
+s32 is_split_screen();
+void allow_rendering__7TObjectFv(void *);
+void clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
+void *TObjWarpBase__sub_8019D9CC(void *, u16, f32);
+s32 get_map_id__13TRaderMapCoreFPv(void *);
+void TWindow__close(void *);
+s32 find_active_player__12TObjAreaWarpFPv(void *);
+s32 get_field_14__13TAdVIConfigGCFPv(void *);
+M2C_UNK TAdVIConfigGC__sub_80307DF4(void *);
+extern s32 lbl_805D53A0;
+void TObjAreaWarp__sub_8019CAB0(VObj_8019CAB0 *self);
 }
 
 extern "C" {
@@ -191,6 +235,63 @@ void TObjAreaWarp__sub_8019CA24(u8 *arg0, s32 arg1) {
     TNpcPlayer__sub_8034E7A0();
     TTecLuker__sub_801BAB1C((void *) (arg1), (void *) (get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0.value)));
     play_sound_effect(0x40003205, 0U, 0, 0);
+}
+
+void TObjAreaWarp__sub_8019CAB0(VObj_8019CAB0 *self) {
+    Data_8019CAB0 *d = (Data_8019CAB0 *)self;
+    s32 found;
+    s32 i;
+    void *t;
+    if (self->m14() == 0) {
+        if (d->fB0 != NULL) {
+            TWindow__close(d->fB0);
+            d->fB0 = NULL;
+        }
+    } else {
+        if (d->fB0 != NULL) {
+            clear_flag4_bit4__22TQuestVmDownLoadServerFPv(d->fB0);
+            allow_rendering__7TObjectFv(d->fB0);
+        }
+        if (is_split_screen() != 0) {
+            found = 0;
+            if (d->fC0 != NULL) {
+                TAdVIConfigGC__sub_80307DF4(d->fC0);
+                if (get_field_14__13TAdVIConfigGCFPv(d->fC0) == 0) {
+                    self->m12();
+                    return;
+                }
+            }
+            for (i = 0; i < 4; i++) {
+                t = TObjWarpBase__sub_8019D9CC(self, i, d->fAC);
+                if (t != NULL) {
+                    found = 1;
+                    if (d->fC0 != NULL) {
+                        self->m13(find_active_player__12TObjAreaWarpFPv(d->fC0));
+                    } else {
+                        self->m13(obj_getField1c(t));
+                    }
+                    if (self->m16(i) != 0) {
+                        self->m12();
+                        self->m17(t);
+                    }
+                }
+            }
+            if (found == 0) {
+                self->m12();
+            }
+        } else {
+            void *t2 = TObjWarpBase__sub_8019D9CC(self, lbl_805D53A0, d->fAC);
+            if (t2 != NULL) {
+                self->m13(lbl_805D53A0);
+                if (self->m16(get_map_id__13TRaderMapCoreFPv(t2)) != 0) {
+                    self->m12();
+                    self->m17(t2);
+                }
+            } else {
+                self->m12();
+            }
+        }
+    }
 }
 
 s32 is_warp_enabled__12TObjAreaWarpFi(s32 arg0) {

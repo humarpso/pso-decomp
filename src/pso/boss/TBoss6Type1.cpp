@@ -231,6 +231,38 @@ struct Boss_802B7B44 {
     s32 f4F4;
 };
 
+struct Vec_802B57D4;
+struct Player_802B6B34;
+
+extern "C" {
+struct V3_802B5AD4 { f32 x, y, z; };
+struct Boss_802B5AD4 {
+    u8 pad0[0x38];
+    V3_802B5AD4 pos;
+    u8 pad44[0x438 - 0x44];
+    s32 f438;
+};
+
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *, f32);
+f32 TBoss6Type1__sub_803D9370(void *, void *);
+Player_802B6B34 *get_player_data__10TObjPlayerFi(s32);
+s32 get_game_mode__6TLobbyFv();
+f32 get_random_float__8TObjFishFv(f32);
+s32 obj_getField1c(void *);
+s32 TBoss6Type1__sub_802B57D4(void *arg0, void *arg1, void *arg2, int arg3);
+extern Vec_802B57D4 TBoss6Type1__data_80470FB4;
+extern const f32 TBoss6Type1__data_805DE2D0;
+extern const f32 TBoss6Type1__data_805DE2E4;
+extern const f32 TBoss6Type1__data_805DE310;
+extern const f32 TBoss6Type1__data_805DE338;
+extern const float TBoss6Type1__data_805DE344;
+extern const f32 lbl_805DE330;
+extern const f32 lbl_805DE334;
+extern const f32 lbl_805DE33C;
+extern const f32 lbl_805DE340;
+}
+
 extern "C" {
 void TBoss6Type1__sub_802B4B04(u8 *arg0);
 u8 TBoss6Type1__sub_802B5D9C(u8 *arg0);
@@ -469,7 +501,8 @@ void set_flag_on_threshold__11TBoss6Type1FPv(void *arg0);
 void set_part_default_value__11TBoss6Type1FiPv(int a0, void* a1);
 s32 TBoss6PlotFalz__sub_802AAC74(s32);
 int TBoss6Type1__sub_802B4A9C(void*);
-M2C_UNK TBoss6Type1__sub_802B5AD4(f32);
+struct Boss_802B5AD4;
+void TBoss6Type1__sub_802B5AD4(Boss_802B5AD4 *, f32);
 int TBoss6Type1__sub_802B60E8(void*);
 s32 calc_field4b0_delta__11TBoss6Type1FPv(void *arg0);
 int release_object__11TBoss6Type1FPv(void*);
@@ -842,14 +875,75 @@ void TBoss6Type1__sub_802B5970(s32 arg0) {
 }
 
 void TBoss6Type1__sub_802B59A8(void) {
-    TBoss6Type1__sub_802B5AD4(TBoss6Type1__data_805DE2D0);
+    ((M2C_UNK (*)(f32))TBoss6Type1__sub_802B5AD4)(TBoss6Type1__data_805DE2D0);
 }
 
 extern const f32 TBoss6Type1__data_805DE32C;
 
 void TBoss6Type1__sub_802B5AB0(void) {
-    TBoss6Type1__sub_802B5AD4(TBoss6Type1__data_805DE32C);
+    ((M2C_UNK (*)(f32))TBoss6Type1__sub_802B5AD4)(TBoss6Type1__data_805DE32C);
 }
+
+#pragma push
+#pragma fp_contract on
+void TBoss6Type1__sub_802B5AD4(Boss_802B5AD4 *self, f32 dy) {
+    V3_802B5AD4 me;
+    V3_802B5AD4 pp;
+    V3_802B5AD4 ofs;
+    V3_802B5AD4 d;
+    V3_802B5AD4 out;
+    s32 n;
+    s32 i;
+    Player_802B6B34 *p;
+    f32 h;
+    f32 dist;
+    f32 a;
+    f32 b;
+    f32 c;
+
+    n = get_game_mode__6TLobbyFv();
+    VecCopy__FP3VecPC3Vec(&me, &self->pos);
+    if (self->f438 != 0) {
+        me.y -= dy;
+    } else {
+        me.y += dy;
+    }
+    for (i = 0; i < n; i++) {
+        p = get_player_data__10TObjPlayerFi(i);
+        VecCopy__FP3VecPC3Vec(&ofs, &TBoss6Type1__data_80470FB4);
+        if (p == 0) continue;
+        VecCopy__FP3VecPC3Vec(&pp, (u8 *)p + 0x38);
+        pp.y += ofs.y;
+        VecCopy__FP3VecPC3Vec(&d, &me);
+        TBoss6Type1__sub_803D9370(&d, &pp);
+        h = d.y;
+        d.y = 0.0f;
+        dist = ofs.z + ((f32 (*)(void *))TBoss6Kakusan__sub_803D8BD8)(&d);
+        if (dist <= 1.0f) dist = 1.0f;
+        out.x = 0.0f;
+        out.z = lbl_805DE330;
+        out.y = 25.43f - h * lbl_805DE330 / dist;
+        if (out.y < 5.0f) {
+            out.y = 5.0f;
+            if (h > 1e-5f) {
+                a = 14.799999f * dist;
+                out.z = a / h;
+                if (out.z < 35.42f) {
+                    b = 35.42f + dist;
+                    out.z = 35.42f;
+                    c = 35.42f * h - a;
+                    if (get_random_float__8TObjFishFv(b) > 1e-5f) {
+                        a = c / b;
+                        if (a > 10.0f) a = 10.0f;
+                        ofs.y += a;
+                    }
+                }
+            }
+        }
+        TBoss6Type1__sub_802B57D4(self, &ofs, &out, obj_getField1c(p));
+    }
+}
+#pragma pop
 
 void TBoss6Type1__sub_802B5CB4(u8 *arg0) {
     u32 temp_r0;

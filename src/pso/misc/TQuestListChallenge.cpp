@@ -54,6 +54,24 @@ struct RecoveredGlobal_80289200_lbl_80450A20 {
     u8 remaining[0x7C];
 };
 
+class QLC_802890AC {
+public:
+    u8 pad[0x20];
+    s32 state;
+    void m0();
+    void m1();
+    void m2();
+    void m3();
+    void m4();
+    void m5();
+};
+
+typedef void (QLC_802890AC::*Handler_802890AC)();
+
+extern "C" {
+
+}
+
 extern "C" {
 s32 TLobby__sub_80222C28(int, int, int);
 s32 select_cursor_entry__6TLobbyFPv(s32);
@@ -232,6 +250,18 @@ void TQuestListChallenge__sub_80288FDC(QLC_80288FDC *arg0) {
         TLobby__sub_80266E34(arg0->list);
         set_field_20__12TQuestListVMFPvi(arg0, 1);
     }
+}
+
+void TQuestListChallenge__vt9(QLC_802890AC *arg0) {
+    static Handler_802890AC tbl[] = {
+        &QLC_802890AC::m0,
+        &QLC_802890AC::m1,
+        &QLC_802890AC::m2,
+        &QLC_802890AC::m3,
+        &QLC_802890AC::m4,
+        &QLC_802890AC::m5,
+    };
+    (arg0->*tbl[arg0->state])();
 }
 
 void *__dt__19TQuestListChallengeFv(void *arg0, s16 arg1) {

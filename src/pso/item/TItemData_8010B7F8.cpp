@@ -23,6 +23,10 @@ struct Stats_8010BEC4 { s16 s0; s16 s2; s16 s4; s16 s6; s16 s8; s16 sA; s16 sC; 
 
 struct Stats2_8010BEC4 { s16 s0; s16 s2; };
 
+struct Bonus_8010BA9C { u8 kind; u8 pad; s16 val; };
+
+struct Stats_8010BA9C { u8 pad0[2]; s16 x2; u8 pad4[2]; s16 x6; u8 pad8[4]; s16 xC; };
+
 extern "C" {
 void TItemData__sub_8010B848(u8 *arg0, s32 arg1);
 s32 TItemData__sub_8010B8B0(u8 *arg0);
@@ -68,6 +72,18 @@ void TItemData__sub_8010EDC8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
 void add_quantity__9TItemDataFPvi(void *arg0, s32 arg1);
 void TItemData__sub_8010BEC4(void *self, s32 arg1, s32 arg2, void *res, Stats_8010BEC4 *st, Stats2_8010BEC4 *st2);
+void fn_8010B7D8(u8 *arg0, s32 arg1);
+void fn_8010B7E8(u8 *arg0, s32 arg1);
+void TItemData__sub_8010B7F8(s16 *arg0, s32 arg1);
+void TItemData__sub_8010B818(void *arg0, s32 arg1);
+void add_stat__9TItemDataFPvi(void *arg0, s32 arg1);
+void add_s16__9TItemDataFPvi(s16 *arg0, s32 arg1);
+void add_stat_ptr__9TItemDataFPvi(s16 *arg0, s32 arg1);
+void add_bonus__9TItemDataFPvs(void *arg0, s16 arg1);
+void TItemData__sub_8010EE1C(void *arg0, s16 arg1);
+void TItemData__sub_8010EE30(s16 *arg0, s32 arg1);
+Bonus_8010BA9C *TObjPlayer__sub_8011C4AC(u8, u8, u8);
+void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st);
 }
 
 extern "C" {
@@ -133,6 +149,82 @@ s32 TItemData__sub_8010B8B0(u8 *arg0) {
     default:
     case 2:
         return 0;
+    }
+}
+
+void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st) {
+    Bonus_8010BA9C *bn;
+    u8 t = item[0];
+    switch (t) {
+    case 0:
+    case 1:
+        bn = TObjPlayer__sub_8011C4AC(t, item[1], item[2]);
+        if (bn != NULL && a != NULL && b != NULL && st != NULL)
+        switch (bn->kind) {
+        case 1:
+            add_s16__9TItemDataFPvi((s16 *)a, bn->val);
+            add_stat__9TItemDataFPvi(a, bn->val);
+            break;
+        case 2:
+            TItemData__sub_8010B818(a, (s16)(bn->val * 10));
+            break;
+        case 3:
+            add_stat_ptr__9TItemDataFPvi((s16 *)b, bn->val);
+            break;
+        case 4:
+            add_bonus__9TItemDataFPvs(b, bn->val);
+            break;
+        case 5:
+            st->x2 += bn->val;
+            break;
+        case 6:
+            st->x6 += bn->val;
+            break;
+        case 7:
+            st->xC += bn->val;
+            break;
+        case 8:
+            add_s16__9TItemDataFPvi((s16 *)a, bn->val);
+            add_stat__9TItemDataFPvi(a, bn->val);
+            TItemData__sub_8010B818(a, (s16)(bn->val * 10));
+            add_stat_ptr__9TItemDataFPvi((s16 *)b, bn->val);
+            add_bonus__9TItemDataFPvs(b, bn->val);
+            st->x2 += bn->val;
+            st->xC += bn->val;
+            break;
+        case 9:
+            TItemData__sub_8010B7F8((s16 *)a, bn->val);
+            fn_8010B7E8(a, bn->val);
+            break;
+        case 10:
+            fn_8010B7D8(a, (s16)(bn->val * 10));
+            break;
+        case 11:
+            TItemData__sub_8010EE30((s16 *)b, bn->val);
+            break;
+        case 12:
+            TItemData__sub_8010EE1C(b, bn->val);
+            break;
+        case 13:
+            st->x2 -= bn->val;
+            break;
+        case 14:
+            st->x6 -= bn->val;
+            break;
+        case 15:
+            st->xC -= bn->val;
+            break;
+        case 16:
+            TItemData__sub_8010B7F8((s16 *)a, bn->val);
+            fn_8010B7E8(a, bn->val);
+            fn_8010B7D8(a, (s16)(bn->val * 10));
+            TItemData__sub_8010EE30((s16 *)b, bn->val);
+            TItemData__sub_8010EE1C(b, bn->val);
+            st->x2 -= bn->val;
+            st->xC -= bn->val;
+            break;
+        }
+        break;
     }
 }
 

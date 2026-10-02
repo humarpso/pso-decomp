@@ -8,6 +8,32 @@ struct P_802D4F2C { f32 x, y; };
 
 struct T_802D4F2C { P_802D4F2C p[3]; };
 
+class Self_802D4B6C {
+public:
+    void a0();
+    void a1();
+    void a2();
+    void a3();
+    void a4();
+    void a5();
+    void a6();
+    void a7();
+    void a8();
+    void a9();
+    void a10();
+    void a11();
+    void a12();
+    s32 pad[7];
+    s32 flag1c;
+    s32 state;
+    s32 prev;
+};
+typedef void (Self_802D4B6C::*Act_802D4B6C)();
+
+extern "C" {
+M2C_UNK TAdMultiChgGameModeGC__sub_8023E834(void *);
+}
+
 extern "C" {
 void *__nw__7TObjectFUl(u32);
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
@@ -99,6 +125,21 @@ void cleanup__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
         set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(M2C_FIELD(arg0, s32 *, 0x34), 1, &lbl_805DE784);
         M2C_FIELD(arg0, s32 *, 0x20) = 1;
     }
+}
+
+void run_task__23TAdSinglePlyChrSelectGCFv(Self_802D4B6C *self) {
+    TAdMultiChgGameModeGC__sub_8023E834(self);
+    static Act_802D4B6C tbl[13] = {
+        &Self_802D4B6C::a0, &Self_802D4B6C::a1, &Self_802D4B6C::a2, &Self_802D4B6C::a3,
+        &Self_802D4B6C::a4, &Self_802D4B6C::a5, &Self_802D4B6C::a6, &Self_802D4B6C::a7,
+        &Self_802D4B6C::a8, &Self_802D4B6C::a9, &Self_802D4B6C::a10, &Self_802D4B6C::a11,
+        &Self_802D4B6C::a12,
+    };
+    (self->*tbl[self->state])();
+    if (self->state != self->prev) {
+        self->flag1c = 0;
+    }
+    self->prev = self->state;
 }
 
 void reset__23TAdSinglePlyChrSelectGCFPv(void *arg0) {

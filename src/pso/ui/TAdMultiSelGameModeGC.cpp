@@ -8,6 +8,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Self_80300770 {
+    u8 pad0[0x1C];
+    s32 state;
+    void m0();
+    void m1();
+    void m2();
+    void m3();
+    void m4();
+};
+typedef void (Self_80300770::*Action_80300770)();
+
+extern "C" {
+s32 TAdMultiChgGameModeGC__sub_8023E834(void *);
+}
+
 typedef struct Pos_803001B4 { s32 x, y; } Pos_803001B4;
 
 typedef struct Pos3_803001B4 { Pos_803001B4 p[3]; } Pos3_803001B4;
@@ -106,5 +121,14 @@ void update_transition_state__21TAdMultiSelGameModeGCFPv(void *arg0) {
 }
 
 void TAdMultiSelGameModeGC__sub_80300764(void* p) { *(s32*)((char*)p + 0x1c) = 1; }
+
+void run_task__21TAdMultiSelGameModeGCFv(Self_80300770 *self) {
+    TAdMultiChgGameModeGC__sub_8023E834(self);
+    static Action_80300770 tbl[5] = {
+        &Self_80300770::m0, &Self_80300770::m1, &Self_80300770::m2,
+        &Self_80300770::m3, &Self_80300770::m4,
+    };
+    (self->*tbl[self->state])();
+}
 
 }

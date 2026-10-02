@@ -10,6 +10,21 @@ struct Obj_80323D20 {
 
 struct Vt_80323D20 { u8 pad[0x18]; void *vt; };
 
+class TBoss6GravBall_80323BBC {
+public:
+    u8 pad[0xB0];
+    s32 state;
+    u8 pad2[0xC];
+    s32 counter;
+    void s0(); void s1(); void s2();
+};
+typedef void (TBoss6GravBall_80323BBC::*Act_80323BBC)();
+
+extern "C" {
+s32 check_demo_mode__10TObjPlayerFv(void *);
+s32 query_teammate_state__9TObjEneDDFPv(void);
+}
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TObjPlayer__sub_801569F4(void *);
@@ -162,6 +177,23 @@ void TBoss6GravBall__sub_80323A78(u8 *arg0) {
             break;
         }
     }
+}
+
+void run_task__14TBoss6GravBallFv(TBoss6GravBall_80323BBC *arg0) {
+    if (check_demo_mode__10TObjPlayerFv(arg0) != 0) {
+        return;
+    }
+    if (query_teammate_state__9TObjEneDDFPv() != 0) {
+        return;
+    }
+    static Act_80323BBC tbl[3] = {
+        &TBoss6GravBall_80323BBC::s0, &TBoss6GravBall_80323BBC::s1, &TBoss6GravBall_80323BBC::s2,
+    };
+    Act_80323BBC a = tbl[arg0->state];
+    if (a) {
+        (arg0->*a)();
+    }
+    arg0->counter++;
 }
 
 void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1) {

@@ -5,6 +5,44 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+typedef struct { f32 x, y; } V2_8027831C;
+
+typedef struct {
+    f32 x;
+    f32 y;
+    u8 pad08[0x30 - 0x08];
+    s32 f30;
+    u8 pad34[0x38 - 0x34];
+    f32 f38;
+} Win_8027831C;
+
+typedef struct {
+    u8 pad00[0x80];
+    s32 f80;
+    u8 pad84[0x88 - 0x84];
+    s16 f88;
+    s16 f8A;
+} Disp_8027831C;
+
+s32 get_message_10__20TWindowSubStatusDispFPv(s32);
+u32 TWindowSubStatusDisp__sub_80144D68(void);
+void TWindowSubStatusDisp__sub_8024FD8C(V2_8027831C *, s32, u32, s32, f32);
+void TWindowSubStatusDisp__sub_802500F4(Win_8027831C *, s32, s32, f32, f32);
+f32 TWindowSubStatusDisp__sub_80287570(s32);
+void TWindowSubStatusDisp__sub_80287580(Win_8027831C *, V2_8027831C *, u8, f32);
+extern s32 lbl_8044F93C[];
+extern const u8 lbl_805DD5F8[4];
+extern const f32 lbl_805DD5FC;
+extern const f32 lbl_805DD600;
+extern const f32 lbl_805DD604;
+extern const f32 lbl_805DD608;
+extern const f32 lbl_805DD60C;
+extern const f32 lbl_805DD610;
+extern const f32 lbl_805DD614;
+extern const f32 lbl_805DD618;
+}
+
+extern "C" {
 
 void set_trade_state__19TWindowSubTradeMainFPvs(void *arg0, s16 arg1);
 
@@ -14,5 +52,36 @@ void set_trade_state__19TWindowSubTradeMainFPvs(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, s16 *, 0x8A) = 0x3C;
     }
 }
+
+#pragma push
+#pragma fp_contract on
+void TWindowSubStatusDisp__sub_8027831C(Disp_8027831C *self, Win_8027831C *win) {
+    V2_8027831C pos;
+    s32 msg;
+    s16 fl;
+    u8 col;
+
+    if (win->f30 >= 0) {
+        pos.x = win->x + TWindowSubStatusDisp__sub_80287570(self->f80);
+        pos.y = win->y - lbl_805DD5FC;
+        col = lbl_805DD5F8[self->f88];
+        fl = self->f8A;
+        if (fl != 0) {
+            if (fl & 4) {
+                col = 1;
+            } else {
+                col = 2;
+            }
+        }
+        TWindowSubStatusDisp__sub_80287580(win, &pos, col, lbl_805DD600);
+        pos.x += lbl_805DD604;
+        pos.y += lbl_805DD608;
+        TWindowSubStatusDisp__sub_802500F4(win, 0, 0, lbl_805DD60C / (lbl_805DD610 + win->f38), lbl_805DD614);
+        msg = get_message_10__20TWindowSubStatusDispFPv(lbl_8044F93C[self->f88]);
+        pos.x -= lbl_805DD618 * (f32)TWindowSubStatusDisp__sub_80144D68();
+        TWindowSubStatusDisp__sub_8024FD8C(&pos, msg, 0xFF000000, 0, lbl_805DD614);
+    }
+}
+#pragma pop
 
 }

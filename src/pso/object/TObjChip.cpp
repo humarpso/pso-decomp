@@ -141,6 +141,34 @@ struct Task_80180614 {
     Chip_80180614 chips[8];
 };
 
+struct Vec_8018019C { f32 x, y, z; };
+
+struct IVec_8018019C { s32 x, y, z; };
+
+struct Chip_8018019C {
+    Vec_8018019C pos;
+    Vec_8018019C vel;
+    IVec_8018019C rot;
+    IVec_8018019C angvel;
+    f32 alpha;
+    s32 life;
+};
+
+struct Task_8018019C {
+    u8 pad0[0x24];
+    f32 bounce;
+    f32 drag;
+    f32 gravity;
+    u8 pad30[0x54 - 0x30];
+    s32 count;
+    u8 pad58[0x5C - 0x58];
+    f32 floor;
+    u8 pad60[0x6C - 0x60];
+    u32 flags;
+    Chip_8018019C chips[8];
+    s32 active;
+};
+
 extern "C" {
 M2C_UNK set_global_param__8TObjFishFi(int);
 void TObjChip__sub_80180134(u8 *arg0);
@@ -197,6 +225,11 @@ extern const f32 TObjChip__data_805DBB84;
 extern const f32 lbl_805DBB88;
 extern const f32 lbl_805DBB8C;
 s32 TObjChip__sub_80180614(u8 *arg0);
+extern const f32 lbl_805DBB78;
+extern const f32 lbl_805DBB7C;
+extern const f32 lbl_805DBB80;
+extern const f32 TObjChip__data_805DBB84;
+void TObjChip__sub_8018019C(u8 *arg0);
 }
 
 extern "C" {
@@ -223,6 +256,53 @@ void TObjChip__sub_80180134(u8 *arg0) {
     }
     ((VObj_18 *)(arg0))->m11();
 }
+
+#pragma push
+#pragma fp_contract on
+void TObjChip__sub_8018019C(u8 *arg0) {
+    Task_8018019C *t = (Task_8018019C *)arg0;
+    s32 active;
+    Chip_8018019C *c;
+    s32 i;
+    c = t->chips;
+    active = 0;
+    for (i = 0; i < t->count; i++, c++) {
+        if (c->life == 0) {
+            if (!(t->flags & 4)) {
+                continue;
+            }
+            c->alpha -= lbl_805DBB78;
+            if (c->alpha > lbl_805DBB7C) {
+                active++;
+            }
+        } else {
+            c->life--;
+            active++;
+        }
+        c->vel.x = -c->vel.x * t->drag + c->vel.x;
+        c->vel.y = c->vel.y + (lbl_805DBB78 * -c->vel.y - t->gravity);
+        c->vel.z = -c->vel.z * t->drag + c->vel.z;
+        c->pos.x += c->vel.x;
+        c->pos.y += c->vel.y;
+        c->pos.z += c->vel.z;
+        c->rot.x += c->angvel.x;
+        c->rot.y += c->angvel.y;
+        c->rot.z += c->angvel.z;
+        if ((t->flags & 2) && c->pos.y < t->floor && c->vel.y < lbl_805DBB7C) {
+            c->pos.y = t->floor;
+            c->vel.x *= lbl_805DBB80;
+            c->vel.y *= -t->bounce;
+            c->vel.z *= lbl_805DBB80;
+            c->angvel.x = (s32)(TObjChip__data_805DBB84 * (f32)c->angvel.x);
+            c->angvel.y = (s32)(TObjChip__data_805DBB84 * (f32)c->angvel.y);
+            c->angvel.z = (s32)(TObjChip__data_805DBB84 * (f32)c->angvel.z);
+        }
+    }
+    if (active == 0) {
+        t->active = 0;
+    }
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on

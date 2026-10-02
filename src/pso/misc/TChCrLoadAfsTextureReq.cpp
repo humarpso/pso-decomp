@@ -30,6 +30,24 @@ struct Req_8028C1F0 {
     s32 mask;
 };
 
+class Req_8028C090 {
+public:
+    u8 pad[0x28];
+    s32 done;
+    s32 state;
+    u8 pad2[0x64 - 0x30];
+    s32 wait;
+    void m0();
+    void m1();
+    void m2();
+};
+
+typedef void (Req_8028C090::*Handler_8028C090)();
+
+extern "C" {
+
+}
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *, int, int);
 s32 TLobby__sub_8001ED88(int);
@@ -71,6 +89,25 @@ void *__nw__7TObjectFUl(int);
 f64 log();
 
 void try_begin_load__22TChCrLoadAfsTextureReqFPv(void* p) { if (try_acquire_load_slot__22TChCrLoadAfsTextureReqFPv((void *)(p)) != 0) { *(int*)((char*)p + 0x2c) = 1; } }
+
+void run_task__22TChCrLoadAfsTextureReqFv(Req_8028C090 *arg0) {
+    if (arg0->done == 1) {
+        return;
+    }
+    if (--arg0->wait <= 0) {
+        return;
+    }
+    static Handler_8028C090 tbl[] = {
+        &Req_8028C090::m0,
+        &Req_8028C090::m1,
+        &Req_8028C090::m2,
+    };
+    if (arg0->state < 0 || arg0->state >= 3) {
+        ((void (*)(void *))queue_destruction__7TObjectFv)(arg0);
+        return;
+    }
+    (arg0->*tbl[arg0->state])();
+}
 
 extern s32 lbl_805D64E0;
 

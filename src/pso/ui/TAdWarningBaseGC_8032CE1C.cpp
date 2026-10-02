@@ -4,6 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct TAdWarningBaseGC_8032CEB4 {
+    char pad0[0x1C];
+    s32 state;
+    void act0();
+    void act1();
+    void act2();
+    void act3();
+};
+typedef void (TAdWarningBaseGC_8032CEB4::*Act_8032CEB4)();
+
+extern "C" {
+
+}
+
 extern "C" {
 u8 * TQuestVmDownLoadServer__sub_801F84AC(void);
 void TAdWarningBaseGC__sub_8032CE3C(u8 *arg0);
@@ -71,6 +85,16 @@ void TAdWarningBaseGC__sub_8032CE3C(u8 *arg0) {
 void TAdWarningBaseGC__sub_8032CEA8(void* p) { *(s32*)((char*)p + 0x1c) = 1; }
 
     extern int lbl_805D6CEC;
+
+void TAdWarningBaseGC__sub_8032CEB4(TAdWarningBaseGC_8032CEB4 *self) {
+    static Act_8032CEB4 tbl[4] = {
+        &TAdWarningBaseGC_8032CEB4::act0,
+        &TAdWarningBaseGC_8032CEB4::act1,
+        &TAdWarningBaseGC_8032CEB4::act2,
+        &TAdWarningBaseGC_8032CEB4::act3,
+    };
+    (self->*tbl[self->state])();
+}
 
 s32 TAdWarningBaseGC__sub_8032CF70(s32 arg0) {
     u32 size;

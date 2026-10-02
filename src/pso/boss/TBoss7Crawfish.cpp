@@ -45,6 +45,53 @@ struct Slot_803086A8 { u32 a; s32 b; };
 
 struct Obj_803086A8 { u8 pad[0x3A4]; s32 count; Slot_803086A8 slots[4]; };
 
+struct VBase_18_405891 { char pad[0x18]; };
+struct VObj_18_405891 : VBase_18_405891 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual s32 m18(s32, f32);
+    virtual void m19();
+    virtual M2C_UNK m20(s32, f32);
+    virtual M2C_UNK m21(s32, s32 *, s32, M2C_UNK, M2C_UNK);
+};
+
+struct Pair_8030895C { s32 id; f32 v; };
+struct Stack_8030895C {
+    s32 sp8;
+    f32 spC;
+    s32 sp10;
+    f32 sp14;
+};
+
+extern "C" {
+s32 obj_isState2_324(int);
+s32 TBoss7Crawfish__sub_80308AA8(u8 *arg0);
+int rand(void);
+extern M2C_UNK lbl_804755A8;
+extern s32 lbl_805D5550;
+extern const f32 TBoss7Crawfish__data_805DF0DC;
+extern const f32 lbl_805DF0E0;
+extern const f32 lbl_805DF0E4;
+extern const f32 lbl_805DF0E8;
+
+}
+
 extern "C" {
 extern const f32 TBoss7Crawfish__data_805DF0D8;
 s32 TBoss7Crawfish__sub_80308AA8(u8 *arg0);
@@ -166,6 +213,40 @@ void TBoss7Crawfish__sub_80308910(u8 *arg0) {
     spawn_particle_effect((void *) (&position.x), (int) (0x20D));
     spawn_particle_effect((void *) (&position.x), (int) (0x20E));
 }
+
+#define arg0 ((s32)arg0_)
+#define arg1 ((u8 *)arg1_)
+M2C_UNK TBoss7Crawfish__sub_8030895C(void *arg0_, void *arg1_) {
+    Pair_8030895C p;
+
+    u8 *temp_r31;
+
+    if (arg1 != NULL) {
+        temp_r31 = (u8 *)(M2C_FIELD(arg1, u8 **, 0));
+        if (TBoss7Crawfish__sub_80308AA8((u8 *)arg0_) != 0) {
+            if (((VObj_18_405891 *)(temp_r31))->m18(arg0, TBoss7Crawfish__data_805DF0DC) != 0) {
+                ((VObj_18_405891 *)(temp_r31))->m20(arg0, TBoss7Crawfish__data_805DF0DC);
+            }
+        } else if (obj_isState2_324((int) (temp_r31)) == 0) {
+            if ((s32) lbl_805D5550 == 3) {
+                if ((lbl_805DF0E0 * (f32) rand()) <= lbl_805DF0E4) {
+                    p.id = 0x10;
+                } else {
+                    p.id = 0x10;
+                }
+            } else {
+                p.id = 0x12;
+            }
+            p.v = lbl_805DF0E8;
+            {
+                Pair_8030895C q = p;
+                ((VObj_18_405891 *)(temp_r31))->m21(arg0, (s32 *)&q, M2C_FIELD(M2C_FIELD(arg1, u8 **, 0), s32 *, 0xA4) + (M2C_FIELD(arg1, s32 *, 4) * 0x2C), -1, -1);
+            }
+        }
+    }
+}
+#undef arg0
+#undef arg1
 
 s32 TBoss7Crawfish__sub_80308AA8(u8 *arg0) {
     return TBoss7Crawfish__data_805DF0D8 == M2C_FIELD(arg0, f32 *, 0x354);

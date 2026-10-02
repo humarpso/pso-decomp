@@ -3,6 +3,16 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+typedef struct { f32 x, y, z, w; } Quat_803D8E0C;
+
+extern const f32 lbl_805E0EE8;
+extern const f32 lbl_805E0EEC;
+__declspec(section ".sdata2") extern const f64 lbl_805E0EF0;
+__declspec(section ".sdata2") extern const f64 lbl_805E0EF8;
+}
+
 extern "C" {
 extern s32 lbl_805D7774;
 M2C_UNK PSMTXMultVecArraySR(int);
@@ -31,6 +41,68 @@ void fn_803D8DE0(u32 arg0) {
 #pragma pop
 #pragma push
 #pragma scheduling off
+#pragma pop
+
+static inline f32 sqrtf_803D8E0C(f32 x) {
+    if (x > 0.0f) {
+        volatile f32 r;
+        f64 g = __frsqrte(x);
+        g = lbl_805E0EF0 * g * (lbl_805E0EF8 - x * (g * g));
+        g = lbl_805E0EF0 * g * (lbl_805E0EF8 - x * (g * g));
+        g = lbl_805E0EF0 * g * (lbl_805E0EF8 - x * (g * g));
+        r = (f32)(x * g);
+        return r;
+    }
+    return x;
+}
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+void fn_803D8E0C(Quat_803D8E0C *a, Quat_803D8E0C *b, Quat_803D8E0C *out, f32 t) {
+    f32 x, y, z, w;
+    f32 inv;
+    f32 ax, ay, az, aw, bx, by, bz, bw;
+    f32 s;
+    f32 mag;
+
+    ax = a->x;
+    ay = a->y;
+    az = a->z;
+    aw = a->w;
+    bx = b->x;
+    by = b->y;
+    bz = b->z;
+    bw = b->w;
+    s = lbl_805E0EE8 - t;
+
+    if (aw * bw + (az * bz + (ax * bx + ay * by)) > lbl_805E0EEC) {
+        x = ax * s + bx * t;
+        y = ay * s + by * t;
+        z = az * s + bz * t;
+        w = aw * s + bw * t;
+    } else {
+        x = ax * s - bx * t;
+        y = ay * s - by * t;
+        z = az * s - bz * t;
+        w = aw * s - bw * t;
+    }
+    mag = w * w + (z * z + (x * x + y * y));
+    if (mag > 0.0f) {
+        volatile f32 r;
+        f64 g = __frsqrte(mag);
+        g = lbl_805E0EF0 * g * (lbl_805E0EF8 - mag * (g * g));
+        g = lbl_805E0EF0 * g * (lbl_805E0EF8 - mag * (g * g));
+        g = lbl_805E0EF0 * g * (lbl_805E0EF8 - mag * (g * g));
+        r = (f32)(mag * g);
+        mag = r;
+    }
+    inv = lbl_805E0EE8 / mag;
+    out->x = x * inv;
+    out->y = y * inv;
+    out->z = z * inv;
+    out->w = w * inv;
+}
 #pragma pop
 
 }

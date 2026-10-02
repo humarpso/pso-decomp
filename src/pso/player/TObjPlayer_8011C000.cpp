@@ -58,6 +58,14 @@ struct RuleTbl_8011C0B8 { s32 count; Rule_8011C0B8 *rules; };
 
 struct Pmt_8011C0B8 { u8 pad[0x44]; RuleTbl_8011C0B8 *tbl; };
 
+typedef struct Sub_8011C59C { u8 pad[8]; s32 count; } Sub_8011C59C;
+
+typedef struct Ent_8011C59C { s32 a; s32 b; } Ent_8011C59C;
+
+typedef struct Pmt_8011C59C { u8 pad[4]; Sub_8011C59C *sub; u8 pad2[0x34]; Ent_8011C59C *tbl; } Pmt_8011C59C;
+
+typedef struct Obj_8011C59C { u8 pad0; u8 idx; u8 pad[2]; u8 *ptr; } Obj_8011C59C;
+
 extern "C" {
 M2C_UNK select_enemy_drop__9TItemDropFPviiPv(u32, s32, s32, s32);
 M2C_UNK TLobby__sub_801044B8(s32 *);
@@ -110,6 +118,10 @@ u8 get_field_ec__12TOSwitchItemFPv(void *p);
 u8 get_slot_count__14TItemProShieldFPv(void *p);
 extern void *item_pmt_tbl;
 Rule_8011C0B8 *TObjPlayer__sub_8011C0B8(u8 *id, void *item);
+void update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+s32 play_sound_effect(s32, void *, s32, s32);
+extern void *item_pmt_tbl;
+void TObjPlayer__sub_8011C59C(Obj_8011C59C *arg0);
 }
 
 extern "C" {
@@ -240,6 +252,27 @@ s32 get_unit_attribute_index__10TObjPlayerFUc(u8 arg0) {
         return TObjPlayer__sub_8011C914((s32)(arg0 + 0x1CB));
     }
     return 0;
+}
+
+void TObjPlayer__sub_8011C59C(Obj_8011C59C *arg0) {
+    Pmt_8011C59C *pmt = (Pmt_8011C59C *)item_pmt_tbl;
+    u8 idx = arg0->idx;
+    if (idx < pmt->sub->count) {
+        s32 off;
+        u8 *tbl;
+        s32 a;
+        u8 *pos;
+        tbl = (u8 *)pmt->tbl;
+        a = *(s32 *)(tbl + (idx & 0x7f) * 8);
+        off = ((idx & 0x7f) * 2 + 1) * 4;
+        pos = arg0->ptr + 0x38;
+        if (a != 0) {
+            s32 r = play_sound_effect(a, pos, 0, 0);
+            if (*(s32 *)(tbl + off) != 0) {
+                update_technique_slot__10TTecRaFoieFi(r, *(s32 *)(tbl + off), 0);
+            }
+        }
+    }
 }
 
 void play_weapon_owner_sounds(Ctx_8011C7C8 *c) {

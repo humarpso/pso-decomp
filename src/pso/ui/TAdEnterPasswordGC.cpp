@@ -45,6 +45,23 @@ struct Pw_8032B6A0
   s32 len;
 };
 
+struct TAdEnterPasswordGC_8032B984 {
+    virtual void m0();
+    char pad[0x18];
+    s32 state;
+    s32 f20;
+    s32 f24;
+    void s0(); void s1(); void s2(); void s3(); void s4();
+};
+typedef void (TAdEnterPasswordGC_8032B984::*Pmf_8032B984)();
+
+extern "C" {
+void fn_8032B318(void *, void *);
+extern u8 lbl_804ED9F0[];
+extern s32 lbl_805D6CA4;
+static char s_password_8032B984[9] = { 1 };
+}
+
 extern "C" {
 void TAdEnterPasswordGC__sub_8032BC94(u8 *arg0, s32 arg1);
 void queue_destruction__7TObjectFv(void *);
@@ -252,6 +269,20 @@ void TAdEnterPasswordGC__sub_8032B904(s32 arg0) {
     }
     (*(u32 *)&lbl_805D6CA0) = TAdEnterSerialAccessGC__sub_8032AD30(arg0, 2);
     lbl_805D6CA4 = 1;
+}
+
+void run_task__18TAdEnterPasswordGCFv(TAdEnterPasswordGC_8032B984 *self) {
+    fn_8032B318(self, lbl_804ED9F0);
+    self->state = lbl_805D6CA4;
+    static Pmf_8032B984 tbl[5] = {
+        &TAdEnterPasswordGC_8032B984::s0, &TAdEnterPasswordGC_8032B984::s1,
+        &TAdEnterPasswordGC_8032B984::s2, &TAdEnterPasswordGC_8032B984::s3,
+        &TAdEnterPasswordGC_8032B984::s4,
+    };
+    (self->*tbl[lbl_805D6CA4])();
+    if (self->state != lbl_805D6CA4) {
+        self->f24 = 0;
+    }
 }
 
 typedef char RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20_size[sizeof(RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20) == 0x84 ? 1 : -1];
