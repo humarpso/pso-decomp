@@ -14,6 +14,15 @@ struct Vec_803237A0 { f32 x, y, z; };
 
 struct Obj_803237A0 { u8 pad[0xC8]; Vec_803237A0 pos; };
 
+typedef s32 M2C_UNK;
+struct Vec_803233AC { f32 x, y, z; };
+
+struct PL_803233AC { u8 pad[0x30]; u32 flags; u8 pad34[4]; Vec_803233AC pos; };
+
+struct Vec_80323544 { f32 x, y, z; };
+
+struct PL_80323544 { u8 pad[0x30]; u32 flags; u8 pad34[4]; Vec_80323544 pos; };
+
 extern "C" {
 P_80323348 *get_player_data__10TObjPlayerFi(s32);
 s32 get_game_mode__6TLobbyFv();
@@ -32,6 +41,49 @@ s32 TObjPlayer__sub_80156844(void *, void *, int);
 extern const f32 TBoss6GravBall__data_805DF558;
 extern const f32 lbl_805DF574;
 s32 TBoss6GravBall__sub_803237A0(Obj_803237A0 *arg0);
+P_80323348 *get_player_data__10TObjPlayerFi(s32);
+s32 get_game_mode__6TLobbyFv();
+void VecCopy__FP3VecPC3Vec(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+void TBoss6Type1__sub_803D9370(void *, void *);
+void TNpcPlayer__sub_803D97B4(void *);
+s32 TObjPlayer__sub_80156844(void *, void *, int);
+int TBoss6GravBall__sub_803231D0(void*, void*);
+M2C_UNK TBoss6GravBall__sub_80323278(void *, int);
+u16 obj_getField1c(void *);
+s32 is_active__14TBoss6PlotFalzFPv(void *);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+void TBoss4Zako__sub_803D8910(void *, void *);
+void TBoss6PlotFalz__sub_802AC724(void *, void *);
+extern const f32 TBoss6GravBall__data_805DF550;
+extern const f32 lbl_805DF554;
+extern const f32 TBoss6GravBall__data_805DF558;
+extern const f32 lbl_805DF55C;
+extern const f32 lbl_805DF560;
+void TBoss6GravBall__sub_803233AC(u8 *self);
+P_80323348 *get_player_data__10TObjPlayerFi(s32);
+s32 get_game_mode__6TLobbyFv();
+void VecCopy__FP3VecPC3Vec(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+void TBoss6Type1__sub_803D9370(void *, void *);
+void TNpcPlayer__sub_803D97B4(void *);
+s32 TObjPlayer__sub_80156844(void *, void *, int);
+int TBoss6GravBall__sub_803231D0(void*, void*);
+M2C_UNK TBoss6GravBall__sub_80323278(void *, int);
+u16 obj_getField1c(void *);
+s32 is_active__14TBoss6PlotFalzFPv(void *);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+void TBoss4Zako__sub_803D8910(void *, void *);
+void TBoss6PlotFalz__sub_802AC724(void *, void *);
+extern const f32 TBoss6GravBall__data_805DF550;
+extern const f32 TBoss6GravBall__data_805DF558;
+extern const f32 lbl_805DF55C;
+extern const f32 lbl_805DF564;
+extern const f32 lbl_805DF568;
+extern const f32 lbl_805DF56C;
+void TBoss6GravBall__sub_80323544(u8 *self);
 }
 
 extern "C" {
@@ -51,6 +103,110 @@ void TBoss6GravBall__sub_80323348(void) {
         }
     }
 }
+
+#pragma push
+#pragma fp_contract on
+void TBoss6GravBall__sub_803233AC(u8 *self) {
+    Vec_803233AC v;
+    s32 n;
+    s32 i;
+    PL_803233AC *pl;
+    s32 id;
+    s32 flag;
+    f32 d;
+    n = get_game_mode__6TLobbyFv();
+    for (i = 0; i < n; i++) {
+        pl = (PL_803233AC *)get_player_data__10TObjPlayerFi(i);
+        id = obj_getField1c(pl) + 5;
+        if (is_active__14TBoss6PlotFalzFPv(pl) == 0) {
+            TBoss6GravBall__sub_803231D0(self, (void *)id);
+            continue;
+        }
+        flag = 0;
+        VecCopy__FP3VecPC3Vec(&v, self + 0xC8);
+        TBoss6Type1__sub_803D9370(&v, &pl->pos);
+        v.y = TBoss6GravBall__data_805DF550;
+        d = TBoss6Kakusan__sub_803D8BD8(&v);
+        if (d > lbl_805DF554) {
+            TBoss6GravBall__sub_803231D0(self, (void *)id);
+            continue;
+        }
+        if (d <= TBoss6GravBall__data_805DF558) {
+            s32 a = obj_getField1c(pl) << 14;
+            v.x = lbl_805DF55C * TBoss8Dragon__sub_803D64C0(a) + v.x;
+            v.z = lbl_805DF55C * TBoss8Dragon__sub_803D64DC(a) + v.z;
+            flag = 1;
+        } else {
+            f32 s = lbl_805DF560 + d;
+            TNpcPlayer__sub_803D97B4(&v);
+            v.x *= s;
+            v.z *= s;
+        }
+        TBoss4Zako__sub_803D8910(&v, &pl->pos);
+        TObjPlayer__sub_80156844(self, &v, 0);
+        TBoss6PlotFalz__sub_802AC724(pl, &v);
+        if (flag != 0) {
+            pl->flags |= 0x20000;
+            TBoss6GravBall__sub_80323278(self, id);
+        }
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+#pragma opt_common_subs off
+void TBoss6GravBall__sub_80323544(u8 *self) {
+    Vec_80323544 v;
+    s32 n;
+    s32 i;
+    PL_80323544 *pl;
+    s32 id;
+    s32 flag;
+    f32 d;
+    n = get_game_mode__6TLobbyFv();
+    for (i = 0; i < n; i++) {
+        pl = (PL_80323544 *)get_player_data__10TObjPlayerFi(i);
+        id = obj_getField1c(pl) + 5;
+        if (is_active__14TBoss6PlotFalzFPv(pl) == 0) {
+            TBoss6GravBall__sub_803231D0(self, (void *)id);
+            continue;
+        }
+        flag = 1;
+        VecCopy__FP3VecPC3Vec(&v, self + 0xC8);
+        {
+            s32 a = obj_getField1c(pl) << 14;
+            v.x = lbl_805DF55C * TBoss8Dragon__sub_803D64C0(a) + v.x;
+            v.z = lbl_805DF55C * TBoss8Dragon__sub_803D64DC(a) + v.z;
+        }
+        TBoss6Type1__sub_803D9370(&v, &pl->pos);
+        v.y = TBoss6GravBall__data_805DF550;
+        d = TBoss6Kakusan__sub_803D8BD8(&v);
+        if (d > TBoss6GravBall__data_805DF558) {
+            f32 s;
+            if (*(u32 *)(self + 0xC0) & 1) {
+                TBoss6GravBall__sub_803231D0(self, (void *)id);
+                continue;
+            }
+            s = lbl_805DF564 * (*(f32 *)(self + 0xBC) * (lbl_805DF568 - d / lbl_805DF56C));
+            if (s < lbl_805DF568) {
+                s = lbl_805DF568;
+            }
+            TNpcPlayer__sub_803D97B4(&v);
+            flag = 0;
+            v.x *= s;
+            v.z *= s;
+        }
+        TBoss4Zako__sub_803D8910(&v, &pl->pos);
+        TObjPlayer__sub_80156844(self, &v, 0);
+        TBoss6PlotFalz__sub_802AC724(pl, &v);
+        if (flag != 0) {
+            pl->flags |= 0x20000;
+            TBoss6GravBall__sub_80323278(self, id);
+        }
+    }
+}
+#pragma pop
 
 void TBoss6GravBall__sub_803236F8(Obj_803236F8 *arg0) {
     Vec_803236F8 v = arg0->pos;

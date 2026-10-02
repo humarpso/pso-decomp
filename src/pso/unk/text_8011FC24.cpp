@@ -63,6 +63,67 @@ struct VObj_18_4841bb : VBase_18_4841bb {
     virtual M2C_UNK m53();
 };
 
+struct VBase_18_8011FE04 { char pad[0x18]; };
+
+struct VObj_18_8011FE04 : VBase_18_8011FE04 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual M2C_UNK m53();
+};
+
+struct Trails_8011FE04 { u8 pad[0x18C]; void *trails[4]; };
+
 extern "C" {
 
 void TObjPlayer__sub_80100F34(void*);
@@ -90,6 +151,12 @@ u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
 M2C_UNK TObjPlayer__sub_80120908(void *);
 M2C_UNK TObjPlayer__sub_80120BBC(void *, int);
 void TObjPlayer__sub_8011FD38(u8 *arg0);
+M2C_UNK get_field_d8__10TObjPlayerFPv(void *);
+u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
+void TObjPlayer__sub_8011FC24(u8 *arg0);
+void render_trail__17TItemEffectWeaponFv(void *);
+void push_id_to_list__10TObjPlayerFi(M2C_UNK);
+void TObjPlayer__sub_8011FE04(u8 *arg0);
 }
 
 extern "C" {
@@ -126,6 +193,25 @@ void TObjPlayer__sub_8011FD38(u8 *arg0) {
         if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 1U) == 0U) {
             TObjPlayer__sub_80120908((void *) (arg0));
         }
+    }
+}
+void TObjPlayer__sub_8011FE04(u8 *arg0) {
+    s32 count;
+    if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x80U) == 0U)) {
+        if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x800U) != 0U) {
+            push_id_to_list__10TObjPlayerFi(get_field_d8__10TObjPlayerFPv(arg0));
+            return;
+        }
+        ((VObj_18_8011FE04 *)(arg0))->m53();
+        TObjPlayer__sub_8011FC24(arg0);
+        count = 0;
+        do {
+            void *trail = ((Trails_8011FE04 *)arg0)->trails[count];
+            if (trail) {
+                render_trail__17TItemEffectWeaponFv(trail);
+            }
+            count++;
+        } while (count != 4);
     }
 }
 

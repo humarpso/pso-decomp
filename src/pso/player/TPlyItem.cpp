@@ -1,6 +1,136 @@
 #include "pso/TPlyItem.h"
 
-extern "C" void TItemList__sub_801D5B10(void*, int);
+#include "types.h"
+typedef s32 M2C_UNK;
+struct VBase_801D5004 { char pad[0x18]; };
+
+struct VObj_801D5004 : VBase_801D5004 {
+    virtual void v00();
+    virtual void v01();
+    virtual void v02();
+    virtual void v03();
+    virtual void v04();
+    virtual void v05();
+    virtual void v06();
+    virtual void v07();
+    virtual void v08();
+    virtual void v09();
+    virtual void v10();
+    virtual void v11();
+    virtual void v12();
+    virtual void v13();
+    virtual void v14();
+    virtual void v15();
+    virtual void v16();
+    virtual void v17();
+    virtual void v18();
+    virtual void v19();
+    virtual void v20();
+    virtual void v21();
+    virtual void v22();
+    virtual void v23();
+    virtual void v24();
+    virtual void v25();
+    virtual void v26();
+    virtual void v27();
+    virtual void v28();
+    virtual void v29();
+    virtual void v30();
+    virtual void v31();
+    virtual void v32();
+    virtual void v33();
+    virtual s32 v34();
+};
+
+struct Item_801D5004 {
+    u8 pad0[0xC];
+    Item_801D5004 *next;
+    u8 pad10[0x4];
+    Item_801D5004 *child;
+};
+
+struct VBase_801D50E0 { char pad[0x18]; };
+
+struct VObj_801D50E0 : VBase_801D50E0 {
+    virtual void v00();
+    virtual void v01();
+    virtual void v02();
+    virtual void v03();
+    virtual void v04();
+    virtual void v05();
+    virtual void v06();
+    virtual void v07();
+    virtual void v08();
+    virtual void v09();
+    virtual void v10();
+    virtual void v11();
+    virtual void v12();
+    virtual void v13();
+    virtual void v14();
+    virtual void v15();
+    virtual void v16();
+    virtual void v17();
+    virtual void v18();
+    virtual void v19();
+    virtual void v20();
+    virtual void v21();
+    virtual void v22();
+    virtual void v23();
+    virtual void v24();
+    virtual void v25();
+    virtual void v26();
+    virtual void v27();
+    virtual void v28();
+    virtual void v29();
+    virtual void v30();
+    virtual void v31();
+    virtual void v32();
+    virtual void v33();
+    virtual s32 v34();
+};
+
+struct Item_801D50E0 {
+    u8 pad0[0xC];
+    Item_801D50E0 *next;
+    u8 pad10[0x4];
+    Item_801D50E0 *child;
+};
+
+struct Item_801D51A0 {
+    u8 pad0[0xC];
+    Item_801D51A0 *next;
+    u8 pad10[0x4];
+    Item_801D51A0 *child;
+};
+
+extern "C" {
+u8 get_field_ed__10TObjPlayerFPv(void *);
+u8 get_field_ec__12TOSwitchItemFPv(void *);
+M2C_UNK reduce_item_amount__6TLobbyFPviii(s32, void *, void *, s32);
+void *get_owner_if_alive__10TObjPlayerFPv(void *);
+s32 is_item_valid__9TItemListFi(void *);
+extern u8 *lbl_805D5DE0;
+extern u8 lbl_805D5E04;
+extern u8 lbl_805D5E05;
+void TLobby__sub_801D5004(void *arg0);
+u8 get_field_ec__12TOSwitchItemFPv(void *);
+M2C_UNK reduce_item_amount__6TLobbyFPviii(s32, void *, void *, s32);
+void *get_owner_if_alive__10TObjPlayerFPv(void *);
+s32 is_item_valid__9TItemListFi(void *);
+extern u8 *lbl_805D5DE0;
+extern u8 lbl_805D5E04;
+void TLobby__sub_801D50E0(void *arg0);
+s32 get_field_d8__10TObjPlayerFPv(void *);
+void *get_owner_if_alive__10TObjPlayerFPv(void *);
+s32 is_item_valid__9TItemListFi(void *);
+extern s32 *lbl_805D5DEC;
+extern s32 lbl_805D5DF4;
+void TObjPlayer__sub_801D51A0(void *arg0);
+}
+
+extern "C" {
+void TItemList__sub_801D5B10(void*, int);
+}
 
 TPlyItem::~TPlyItem() {
     TItemList__sub_801D5B10((char*)this + 0x20, -1);
@@ -27,6 +157,59 @@ void *TPlyItem__ct(void *arg0) {
     M2C_FIELD(arg0, u16 *, 0x1C) = 0;
     M2C_FIELD(arg0, u16 *, 0x1E) = 0;
     return arg0;
+}
+void TLobby__sub_801D5004(void *arg0) {
+    Item_801D5004 *self = (Item_801D5004 *)arg0;
+    VObj_801D5004 *owner;
+    Item_801D5004 *it;
+    u8 *lobby;
+    for (it = self->child; it != NULL; it = it->next) {
+        if (is_item_valid__9TItemListFi(it) != 0) {
+            owner = (VObj_801D5004 *)get_owner_if_alive__10TObjPlayerFPv(it);
+            if (owner != NULL && lbl_805D5E04 == get_field_ec__12TOSwitchItemFPv(owner) &&
+                lbl_805D5E05 == get_field_ed__10TObjPlayerFPv(owner)) {
+                if (lbl_805D5E04 == 3) {
+                    lobby = lbl_805D5DE0;
+                    reduce_item_amount__6TLobbyFPviii(*(s32 *)(lobby + 0xD00), lobby, it, owner->v34());
+                } else {
+                    reduce_item_amount__6TLobbyFPviii(*(s32 *)(lbl_805D5DE0 + 0xD00), lbl_805D5DE0, it, 1);
+                }
+            }
+        }
+        TLobby__sub_801D50E0((void *)(it));
+    }
+}
+void TLobby__sub_801D50E0(void *arg0) {
+    Item_801D50E0 *self = (Item_801D50E0 *)arg0;
+    VObj_801D50E0 *owner;
+    Item_801D50E0 *it;
+    u8 *lobby;
+    for (it = self->child; it != NULL; it = it->next) {
+        if (is_item_valid__9TItemListFi(it) != 0) {
+            owner = (VObj_801D50E0 *)get_owner_if_alive__10TObjPlayerFPv(it);
+            if (owner != NULL && lbl_805D5E04 == get_field_ec__12TOSwitchItemFPv(owner)) {
+                if (lbl_805D5E04 == 3) {
+                    lobby = lbl_805D5DE0;
+                    reduce_item_amount__6TLobbyFPviii(*(s32 *)(lobby + 0xD00), lobby, it, owner->v34());
+                } else {
+                    reduce_item_amount__6TLobbyFPviii(*(s32 *)(lbl_805D5DE0 + 0xD00), lbl_805D5DE0, it, 1);
+                }
+            }
+        }
+        TLobby__sub_801D50E0(it);
+    }
+}
+void TObjPlayer__sub_801D51A0(void *arg0) {
+    Item_801D51A0 *self = (Item_801D51A0 *)arg0;
+    Item_801D51A0 *it;
+    void *owner;
+    for (it = self->child; it != NULL; it = it->next) {
+        if (is_item_valid__9TItemListFi(it) != 0 && (owner = get_owner_if_alive__10TObjPlayerFPv(it)) != NULL) {
+            *lbl_805D5DEC++ = get_field_d8__10TObjPlayerFPv(owner);
+            lbl_805D5DF4++;
+        }
+        TObjPlayer__sub_801D51A0(it);
+    }
 }
 
 }

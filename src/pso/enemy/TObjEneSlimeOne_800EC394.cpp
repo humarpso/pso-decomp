@@ -8,6 +8,7 @@ struct O_800EC39C { u8 pad[0x384]; s32 state; };
 
 struct Obj_800EC6D0 { s32 f0; s32 state; u8 pad8[0x28 - 8]; f32 f28; f32 f2C; f32 f30; };
 
+typedef s32 M2C_UNK;
 extern "C" {
 s32 TObjPlayer__sub_800114D8(void *, void *, f32);
 int TObjEneSlimeOne__sub_800EC428(u8 *arg0, s32 arg1, f32 farg0);
@@ -19,6 +20,23 @@ extern s8 lbl_805D52C4;
 extern f32 lbl_805D52C0;
 extern f32 lbl_805DA760;
 void TObjEneSlimeOne__sub_800EC6D0(Obj_800EC6D0 *arg0);
+s32 TObjFish__sub_8001EDB0(s32, s32);
+s32 get_attack_target__15TObjEneSlimeOneFPv(void* p);
+int get_instance__15TObjEneSlimeOneFv(void);
+M2C_UNK set_cull_none__8TObjFishFv();
+M2C_UNK set_cull_mode_front__8TObjFishFv();
+M2C_UNK set_cull_back__8TObjFishFv();
+M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
+M2C_UNK set_global_param__8TObjFishFi(s32);
+M2C_UNK func_803e11e8__FUl(u32);
+M2C_UNK func_803e11f0__Fv();
+M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
+M2C_UNK TObjEneSlimeOne__sub_803E4B54(s32, s32, s32, f32);
+M2C_UNK set_global_flag__10TObjPlayerFv();
+M2C_UNK clear_global_state__10TObjPlayerFv();
+extern s32 lbl_80496CC8[];
+extern s32 some_id_805c6f74;
+void TObjEneSlimeOne__sub_800EC4A0(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -71,6 +89,76 @@ int check_player_field_7cc__15TObjEneSlimeOneFPv(void* p) { return TObjPlayer__s
 extern f32 lbl_805D52B8;
 extern u8 lbl_805D52BC;
 extern f32 lbl_805DA760;
+
+void TObjEneSlimeOne__sub_800EC4A0(u8 *arg0, s32 arg1) {
+    s32 state = M2C_FIELD(arg0, s32 *, 4);
+    if (state == -1) {
+        return;
+    }
+    if (state < 7) {
+        set_global_param__8TObjFishFi(TObjFish__sub_8001EDB0(get_instance__15TObjEneSlimeOneFv(), lbl_80496CC8[get_attack_target__15TObjEneSlimeOneFPv((void*)(M2C_FIELD(arg0, void **, 0)))]));
+        if (arg1 != 0) {
+            some_id_805c6f74 |= 0x400000;
+            func_803e11e8__FUl(1);
+            draw__16TObjEneRe7BeruraFPv(M2C_FIELD(arg0, void **, 0));
+            func_803e11f0__Fv();
+            some_id_805c6f74 &= ~0x400000;
+            return;
+        }
+        set_cull_back__8TObjFishFv();
+        func_803e11e8__FUl(2);
+        draw__16TObjEneRe7BeruraFPv(M2C_FIELD(arg0, void **, 0));
+        set_cull_mode_front__8TObjFishFv();
+        draw__16TObjEneRe7BeruraFPv(M2C_FIELD(arg0, void **, 0));
+        set_cull_none__8TObjFishFv();
+        func_803e11f0__Fv();
+        return;
+    }
+    if (state < 9) {
+        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xC));
+        if (arg1 != 0) {
+            some_id_805c6f74 |= 0x400000;
+            func_803e11e8__FUl(1);
+            TObjEneSlimeOne__sub_803E4B54(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 0x10), M2C_FIELD(arg0, s32 *, 0x14), M2C_FIELD(arg0, f32 *, 0x30));
+            func_803e11f0__Fv();
+            some_id_805c6f74 &= ~0x400000;
+            return;
+        }
+        func_803e11e8__FUl(2);
+        set_cull_back__8TObjFishFv();
+        TObjEneSlimeOne__sub_803E4B54(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 0x10), M2C_FIELD(arg0, s32 *, 0x14), M2C_FIELD(arg0, f32 *, 0x30));
+        set_cull_mode_front__8TObjFishFv();
+        TObjEneSlimeOne__sub_803E4B54(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 0x10), M2C_FIELD(arg0, s32 *, 0x14), M2C_FIELD(arg0, f32 *, 0x30));
+        set_cull_none__8TObjFishFv();
+        func_803e11f0__Fv();
+        return;
+    }
+    set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xC));
+    set_global_flag__10TObjPlayerFv();
+    if (arg1 != 0) {
+        some_id_805c6f74 |= 0x400000;
+        func_803e11e8__FUl(1);
+        TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 0x10), M2C_FIELD(arg0, f32 *, 0x30));
+        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x1C));
+        TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0x18), M2C_FIELD(arg0, s32 *, 0x20), M2C_FIELD(arg0, f32 *, 0x30));
+        func_803e11f0__Fv();
+        some_id_805c6f74 &= ~0x400000;
+    } else {
+        func_803e11e8__FUl(2);
+        set_cull_back__8TObjFishFv();
+        TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 0x10), M2C_FIELD(arg0, f32 *, 0x30));
+        set_cull_mode_front__8TObjFishFv();
+        TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 0x10), M2C_FIELD(arg0, f32 *, 0x30));
+        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x1C));
+        set_cull_back__8TObjFishFv();
+        TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0x18), M2C_FIELD(arg0, s32 *, 0x20), M2C_FIELD(arg0, f32 *, 0x30));
+        set_cull_mode_front__8TObjFishFv();
+        TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0x18), M2C_FIELD(arg0, s32 *, 0x20), M2C_FIELD(arg0, f32 *, 0x30));
+        set_cull_none__8TObjFishFv();
+        func_803e11f0__Fv();
+    }
+    clear_global_state__10TObjPlayerFv();
+}
 
 void TObjEneSlimeOne__sub_800EC6D0(Obj_800EC6D0 *arg0) {
     s32 s = arg0->state;

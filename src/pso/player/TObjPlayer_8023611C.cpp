@@ -44,9 +44,59 @@ struct List_80236378 {
     u32 reserved84;
 };
 
+struct Vec_802364D8 { f32 x, y, z; };
+
+struct Contact_802364D8 { u8 pad[0x18]; u32 flags; };
+
+struct PD_802364D8 { u8 pad[0x30]; u32 flags; };
+
+struct List_802364D8 {
+    PD_802364D8 *actors[16];
+    Contact_802364D8 *bodies[16];
+    s32 count;
+    u32 reserved84;
+};
+
+struct Vec_802367D8 { f32 x, y, z; };
+
+struct Contact_802367D8 { u8 pad[0x18]; u32 flags; };
+
+struct PD_802367D8 { u8 pad[0x30]; u32 flags; };
+
+struct List_802367D8 {
+    PD_802367D8 *actors[16];
+    Contact_802367D8 *bodies[16];
+    s32 count;
+    u32 reserved84;
+};
+
+struct Sub_802367D8 { u8 pad[0xC]; f32 fC; f32 f10; };
+
+struct Proxy_802367D8 { u8 pad[0xA4]; Sub_802367D8 *a4; };
+
+struct Self_802367D8 { u8 pad[0x128]; Proxy_802367D8 *proxy; f32 f12c; };
+
+struct Vec_80236A20 { f32 x, y, z; };
+
+struct Contact_80236A20 { u8 pad[0x18]; u32 flags; };
+
+struct PD_80236A20 { u8 pad[0x30]; u32 flags; };
+
+struct List_80236A20 {
+    PD_80236A20 *actors[16];
+    Contact_80236A20 *bodies[16];
+    s32 count;
+    u32 reserved84;
+};
+
+struct Sub_80236A20 { u8 pad[0xC]; f32 fC; f32 f10; };
+
+struct Proxy_80236A20 { u8 pad[0xA4]; Sub_80236A20 *a4; };
+
+struct Self_80236A20 { u8 pad[0x128]; Proxy_80236A20 *proxy; f32 f12c; };
+
 extern "C" {
 void TObjPlayer__sub_80236728(u8 *arg0, s32 arg1);
-s32 TObjPlayer__sub_802364D8(void *, int, void *, void *);
 void TObjPlayer__sub_80236754(u8 *arg0, s32 arg1);
 void TObjPlayer__sub_80236780(u8 *arg0, s32 arg1);
 void TObjPlayer__sub_802367AC(u8 *arg0, s32 arg1);
@@ -80,6 +130,50 @@ s32 get_global_state__14TOKeyMachine01Fv();
 extern const f32 lbl_805DC898;
 u16 obj_getField1c(void *);
 s32 TObjPlayer__sub_80236378(void *self, int target, void *_w2, void *arg3);
+extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
+extern const f32 lbl_805DC89C;
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+u32 find_actor_body_contact(void *, int, f32);
+void resetTechniqueContactQuery();
+u16 obj_getField1c(void *);
+s32 get_lobby_flag__6TLobbyFv();
+s32 get_field_3e4__10TObjPlayerFPv(void *);
+u8 *TPhotonMylla__sub_80154CB4(u16);
+PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
+s32 TObjPlayer__sub_802364D8(void *self, int target, void *_w2, void *arg3);
+extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
+extern const f32 lbl_805DC890;
+extern const f32 lbl_805DC898;
+extern const f32 lbl_805DC89C;
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+u32 find_actor_body_contact(void *, int, f32);
+void resetTechniqueContactQuery();
+u16 obj_getField1c(void *);
+s32 get_game_mode__6TLobbyFv();
+s32 get_lobby_flag__6TLobbyFv();
+s32 get_global_state__14TOKeyMachine01Fv();
+void* get_pos_ptr__10TObjPlayerFPv(void* p);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+void copy_xyz__10TObjPlayerFPvPv(void *, void *);
+PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
+u8 *TObjPlayer__sub_802367D8(void *self, s32 arg);
+extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
+extern const f32 lbl_805DC890;
+extern const f64 lbl_8044D8D0[];
+u8 *TPhotonMylla__sub_80154CB4(u16);
+extern const f32 lbl_805DC898;
+extern const f32 lbl_805DC89C;
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+u32 find_actor_body_contact(void *, int, f32);
+void resetTechniqueContactQuery();
+u16 obj_getField1c(void *);
+s32 get_lobby_flag__6TLobbyFv();
+s32 get_global_state__14TOKeyMachine01Fv();
+void* get_pos_ptr__10TObjPlayerFPv(void* p);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+void copy_xyz__10TObjPlayerFPvPv(void *, void *);
+PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
+u8 *TObjPlayer__sub_80236A20(void *self, s32 arg);
 }
 
 extern "C" {
@@ -195,12 +289,72 @@ s32 TObjPlayer__sub_80236378(void *self, int target, void *_w2, void *arg3) {
     return (s32)&lbl_80516150;
 }
 
+s32 TObjPlayer__sub_802364D8(void *self, int target, void *_w2, void *arg3) {
+    Vec_802364D8 pos;
+    PD_802364D8 *e;
+    PD_802364D8 *pd;
+    s32 i;
+    s32 n;
+    s32 ok;
+    Contact_802364D8 *c;
+    s32 j;
+    VecCopy__FP3VecPC3Vec(&pos, (u8 *)self + 0x20);
+    resetTechniqueContactQuery();
+    if ((u32)target == 0) {
+        return (s32)&lbl_80516150;
+    }
+    VecCopy__FP3VecPC3Vec((u8 *)target + 0x38, &pos);
+    if (obj_getField1c(arg3) < 4) {
+        n = get_lobby_flag__6TLobbyFv();
+        for (i = 0; i < n; i++) {
+            pd = (PD_802364D8 *)get_player_data__10TObjPlayerFi(i);
+            if (pd != 0 && obj_getField1c(pd) != obj_getField1c(arg3)) {
+                ok = 1;
+                if (obj_getField1c(pd) < 4) {
+                    if (get_field_3e4__10TObjPlayerFPv(arg3) == get_field_3e4__10TObjPlayerFPv(pd)) {
+                        ok = 1;
+                    } else {
+                        ok = 0;
+                    }
+                }
+                if (ok != 0 && ((pd->flags & 0x20000000) || (pd->flags & 0x10000000))) {
+                    c = (Contact_802364D8 *)find_actor_body_contact((void *)target, (int)pd, lbl_805DC89C);
+                    if (c != 0 && ((c->flags & 1) || !(c->flags & 0x02000000))) {
+                        ((List_802364D8 *)&lbl_80516150)->bodies[((List_802364D8 *)&lbl_80516150)->count] = c;
+                        ((List_802364D8 *)&lbl_80516150)->actors[((List_802364D8 *)&lbl_80516150)->count] = pd;
+                        if (++((List_802364D8 *)&lbl_80516150)->count >= 16) {
+                            ((List_802364D8 *)&lbl_80516150)->count = 15;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    } else {
+        for (j = 0; j < 4; j++) {
+            e = (PD_802364D8 *)TPhotonMylla__sub_80154CB4(j);
+            if (e != 0 && obj_getField1c(e) != obj_getField1c(arg3) && (e->flags & 0x10000000)) {
+                c = (Contact_802364D8 *)find_actor_body_contact((void *)target, (int)e, lbl_805DC89C);
+                if (c != 0) {
+                    ((List_802364D8 *)&lbl_80516150)->bodies[((List_802364D8 *)&lbl_80516150)->count] = c;
+                    ((List_802364D8 *)&lbl_80516150)->actors[((List_802364D8 *)&lbl_80516150)->count] = e;
+                    if (++((List_802364D8 *)&lbl_80516150)->count >= 16) {
+                        ((List_802364D8 *)&lbl_80516150)->count = 15;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    return (s32)&lbl_80516150;
+}
+
 void TObjPlayer__sub_80236728(u8 *arg0, s32 arg1) {
     TObjPlayer__sub_80236378((void *)((void *) (arg0)), (int)((int) (M2C_FIELD(arg0, s32 *, 0xE8))), (void *)((void *) (arg0 + 0xBC)), (void *)((void *) (arg1)));
 }
 
 void TObjPlayer__sub_80236754(u8 *arg0, s32 arg1) {
-    TObjPlayer__sub_802364D8((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0xE8)), (void *) (arg0 + 0xBC), (void *) (arg1));
+    TObjPlayer__sub_802364D8((void *)((void *) (arg0)), (int)((int) (M2C_FIELD(arg0, s32 *, 0xE8))), (void *)((void *) (arg0 + 0xBC)), (void *)((void *) (arg1)));
 }
 
 void TObjPlayer__sub_80236780(u8 *arg0, s32 arg1) {
@@ -209,6 +363,133 @@ void TObjPlayer__sub_80236780(u8 *arg0, s32 arg1) {
 
 void TObjPlayer__sub_802367AC(u8 *arg0, s32 arg1) {
     TObjPlayer__sub_80236290((s32)((void *) (arg0)), (u32)((int) (M2C_FIELD(arg0, s32 *, 0xdc))), (s32)((void *) (arg0 + 0xb0)), (s32)((void *) (arg1)));
+}
+
+u8 *TObjPlayer__sub_802367D8(void *self, s32 arg) {
+    Vec_802367D8 pos;
+    Vec_802367D8 d;
+    f32 range;
+    f32 *pp;
+    PD_802367D8 *pd;
+    s32 i;
+    Contact_802367D8 *c;
+    Self_802367D8 *s = (Self_802367D8 *)self;
+    if (get_global_state__14TOKeyMachine01Fv() == 0xE) {
+        range = lbl_805DC898;
+    } else {
+        range = lbl_805DC89C;
+    }
+    VecCopy__FP3VecPC3Vec(&pos, (u8 *)self + 0x20);
+    resetTechniqueContactQuery();
+    if (s->proxy == 0) {
+        return (u8 *)&lbl_80516150;
+    }
+    pp = (f32 *)((void *)get_pos_ptr__10TObjPlayerFPv((void*)(self)));
+    d.x = pos.x - pp[0];
+    d.y = pos.y - pp[1];
+    d.z = pos.z - pp[2];
+    {
+        f32 len = TBoss6Kakusan__sub_803D8BD8(&d);
+        s->proxy->a4->f10 = s->f12c;
+        s->proxy->a4->fC = lbl_805DC890 * len;
+    }
+    pos.x = lbl_805DC890 * (pos.x + pp[0]);
+    pos.y = lbl_805DC890 * (pos.y + pp[1]);
+    pos.z = lbl_805DC890 * (pos.z + pp[2]);
+    VecCopy__FP3VecPC3Vec((u8 *)s->proxy + 0x38, &pos);
+    copy_xyz__10TObjPlayerFPvPv((u8 *)s->proxy + 0x5C, (u8 *)self + 0x54);
+    for (i = get_game_mode__6TLobbyFv(); i < get_lobby_flag__6TLobbyFv(); i++) {
+        pd = (PD_802367D8 *)get_player_data__10TObjPlayerFi(i);
+        if (pd == 0) continue;
+        if (pd->flags & 0x20000000) {
+            if (obj_getField1c(pd) == obj_getField1c((void *)arg)) continue;
+            c = (Contact_802367D8 *)find_actor_body_contact(s->proxy, (int)pd, range);
+            if (c != 0 && ((c->flags & 1) || !(c->flags & 0x02000000))) {
+                ((List_802367D8 *)&lbl_80516150)->bodies[((List_802367D8 *)&lbl_80516150)->count] = c;
+                ((List_802367D8 *)&lbl_80516150)->actors[((List_802367D8 *)&lbl_80516150)->count] = pd;
+                if (++((List_802367D8 *)&lbl_80516150)->count >= 16) {
+                    ((List_802367D8 *)&lbl_80516150)->count = 15;
+                    break;
+                }
+            }
+        } else if ((pd->flags & 0x40000000) && !(pd->flags & 0x80000000)) {
+            if (find_actor_body_contact(s->proxy, (int)pd, lbl_805DC89C) != 0) {
+                return 0;
+            }
+        }
+    }
+    return (u8 *)&lbl_80516150;
+}
+
+u8 *TObjPlayer__sub_80236A20(void *self, s32 arg) {
+    Vec_80236A20 pos;
+    Vec_80236A20 d;
+    f32 range;
+    f32 *pp;
+    PD_80236A20 *e;
+    PD_80236A20 *pd;
+    s32 i;
+    s32 n;
+    Contact_80236A20 *c;
+    s32 j;
+    Self_80236A20 *s = (Self_80236A20 *)self;
+    if (get_global_state__14TOKeyMachine01Fv() == 0xE) {
+        range = lbl_805DC898;
+    } else {
+        range = lbl_805DC89C;
+    }
+    VecCopy__FP3VecPC3Vec(&pos, (u8 *)self + 0x20);
+    resetTechniqueContactQuery();
+    if (s->proxy == 0) {
+        return (u8 *)&lbl_80516150;
+    }
+    pp = (f32 *)((void *)get_pos_ptr__10TObjPlayerFPv((void*)(self)));
+    d.x = pos.x - pp[0];
+    d.y = pos.y - pp[1];
+    d.z = pos.z - pp[2];
+    {
+        f32 len = TBoss6Kakusan__sub_803D8BD8(&d);
+        s->proxy->a4->f10 = s->f12c;
+        s->proxy->a4->fC = lbl_8044D8D0[0] * len;
+    }
+    pos.x = lbl_805DC890 * (pos.x + pp[0]);
+    pos.y = lbl_805DC890 * (pos.y + pp[1]);
+    pos.z = lbl_805DC890 * (pos.z + pp[2]);
+    VecCopy__FP3VecPC3Vec((u8 *)s->proxy + 0x38, &pos);
+    copy_xyz__10TObjPlayerFPvPv((u8 *)s->proxy + 0x5C, (u8 *)self + 0x54);
+    if (obj_getField1c((void *)arg) < 4) {
+        n = get_lobby_flag__6TLobbyFv();
+        for (i = 0; i < n; i++) {
+            pd = (PD_80236A20 *)get_player_data__10TObjPlayerFi(i);
+            if (pd == 0) continue;
+            if (obj_getField1c(pd) == obj_getField1c((void *)arg)) continue;
+            c = (Contact_80236A20 *)find_actor_body_contact(s->proxy, (int)pd, range);
+            if (c != 0 && ((pd->flags & 0x20000000) || (pd->flags & 0x10000000)) && ((c->flags & 1) || !(c->flags & 0x02000000))) {
+                ((List_80236A20 *)&lbl_80516150)->bodies[((List_80236A20 *)&lbl_80516150)->count] = c;
+                ((List_80236A20 *)&lbl_80516150)->actors[((List_80236A20 *)&lbl_80516150)->count] = pd;
+                if (++((List_80236A20 *)&lbl_80516150)->count >= 16) {
+                    ((List_80236A20 *)&lbl_80516150)->count = 15;
+                    break;
+                }
+            }
+        }
+    } else {
+        for (j = 0; j < 4; j++) {
+            e = (PD_80236A20 *)TPhotonMylla__sub_80154CB4(j);
+            if (e == 0) continue;
+            if (obj_getField1c(e) == obj_getField1c((void *)arg)) continue;
+            c = (Contact_80236A20 *)find_actor_body_contact(s->proxy, (int)e, lbl_805DC89C);
+            if (c != 0 && (e->flags & 0x10000000)) {
+                ((List_80236A20 *)&lbl_80516150)->bodies[((List_80236A20 *)&lbl_80516150)->count] = c;
+                ((List_80236A20 *)&lbl_80516150)->actors[((List_80236A20 *)&lbl_80516150)->count] = e;
+                if (++((List_80236A20 *)&lbl_80516150)->count >= 16) {
+                    ((List_80236A20 *)&lbl_80516150)->count = 15;
+                    break;
+                }
+            }
+        }
+    }
+    return (u8 *)&lbl_80516150;
 }
 
 void resetTechniqueContactQuery() {

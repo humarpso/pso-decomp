@@ -6,8 +6,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 u8 * TQuestVmDownLoadServer__sub_801F84AC(void);
-s32 TAdWarningBaseGC__sub_8032D030(s32, s32);
 void TAdWarningBaseGC__sub_8032CE3C(u8 *arg0);
+void DCInvalidateRange(void *, u32);
+void run_frame__6TLobbyFv(void);
+void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void (*)(u32));
+void TAdWarningBaseGC__sub_8032D1E4(u32);
+extern u8 lbl_805434B0[];
+extern u32 lbl_805D6CE0;
+extern s32 lbl_805D6CE8;
+extern int lbl_805D6CEC;
+extern s32 lbl_805D6CF4;
+s32 TAdWarningBaseGC__sub_8032CF70(s32 arg0);
+void DCFlushRange(void *, u32);
+void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void (*)(u32));
+void TAdWarningBaseGC__sub_8032D1E4(u32);
+extern u8 lbl_805434B0[];
+extern u32 lbl_805D6CE0;
+extern u32 lbl_805D6CE4;
+extern int lbl_805D6CEC;
+extern s32 lbl_805D6CF4;
+s32 TAdWarningBaseGC__sub_8032D030(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -41,7 +59,7 @@ void TAdWarningBaseGC__sub_8032CE3C(u8 *arg0) {
         temp_r4 = M2C_FIELD(temp_r3, s32 *, 0x34);
         if (temp_r4 > 0) {
             temp_r3_2 = M2C_FIELD(temp_r3, u32 *, 0x38);
-            if ((temp_r3_2 != 0U) && (TAdWarningBaseGC__sub_8032D030((s32) temp_r3_2, temp_r4) != 0)) {
+            if ((temp_r3_2 != 0U) && (TAdWarningBaseGC__sub_8032D030((s32)((s32) temp_r3_2), (s32)(temp_r4)) != 0)) {
                 M2C_FIELD(arg0, s32 *, 0x1C) = 2;
                 return;
             }
@@ -53,12 +71,44 @@ void TAdWarningBaseGC__sub_8032CE3C(u8 *arg0) {
 void TAdWarningBaseGC__sub_8032CEA8(void* p) { *(s32*)((char*)p + 0x1c) = 1; }
 
     extern int lbl_805D6CEC;
+
+s32 TAdWarningBaseGC__sub_8032CF70(s32 arg0) {
+    u32 size;
+    if (lbl_805D6CE8 == 0) {
+        return 0;
+    }
+    size = ((*(s32 *)&lbl_805D6CEC) + 0x1F) & ~0x1F;
+    DCInvalidateRange((void *)arg0, size);
+    lbl_805D6CF4 = 1;
+    ARQPostRequest(lbl_805434B0, 4, 1, 1, lbl_805D6CE0, arg0, size, TAdWarningBaseGC__sub_8032D1E4);
+loop:
+    if (lbl_805D6CF4 != 0) {
+        run_frame__6TLobbyFv();
+        goto loop;
+    }
+    DCInvalidateRange((void *)arg0, size);
+    return 1;
+}
+
 int get_alloc_size__16TAdWarningBaseGCFv(void) {  return lbl_805D6CEC; }
 
     extern int lbl_805D6CEC;
 int TAdWarningBaseGC__sub_8032D020(void) {  return ((lbl_805D6CEC + 0x1f) & 0xffffffe0); }
 
 extern M2C_UNK lbl_804EDBD0[];
+
+s32 TAdWarningBaseGC__sub_8032D030(s32 arg0, s32 arg1) {
+    u32 size;
+    size = (arg1 + 0x1F) & ~0x1F;
+    (*(s32 *)&lbl_805D6CEC) = arg1;
+    if (size > lbl_805D6CE4) {
+        return 0;
+    }
+    DCFlushRange((void *)arg0, size);
+    lbl_805D6CF4 = 1;
+    ARQPostRequest(lbl_805434B0, 4, 0, 1, arg0, lbl_805D6CE0, size, TAdWarningBaseGC__sub_8032D1E4);
+    return 1;
+}
 
 void *TAdWarningBaseGC__sub_8032D0B8(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

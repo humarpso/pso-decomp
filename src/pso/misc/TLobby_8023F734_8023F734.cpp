@@ -12,6 +12,22 @@ struct RecoveredGlobal_8023F880_lbl_805162EC
 
 typedef s32 M2C_UNK;
 
+typedef struct Range_8023FBBC {
+    s32 start;
+    s32 end;
+} Range_8023FBBC;
+
+typedef struct Tables_8023FBBC {
+    u8 pad[0x728];
+    Range_8023FBBC *common[7];
+    Range_8023FBBC *tbl[3][22];
+} Tables_8023FBBC;
+
+typedef struct Owner_8023FBBC {
+    u8 pad[0x288];
+    s32 kind;
+} Owner_8023FBBC;
+
 extern "C" {
 extern RecoveredGlobal_8023F880_lbl_805162EC lbl_805162EC;
 s32 TLobby__sub_8023F880(s32 arg0);
@@ -24,6 +40,8 @@ void TLobby__sub_8023F8B0(s32 slot, s32 step);
 extern RecoveredGlobal_8023F880_lbl_805162EC lbl_805162EC;
 s32 TLobby__sub_80240B40(u8 *arg0, s32 arg1, s32 arg2);
 void TLobby__sub_8023F8F4(s32 slot, s32 pitch, s32 duration);
+extern Tables_8023FBBC lbl_804CCFB8;
+s32 TLobby__sub_8023FBBC(Owner_8023FBBC *owner, s32 kind, s32 bank, s32 index);
 }
 
 extern "C" {
@@ -117,5 +135,46 @@ void TLobby__sub_8023F8F4(s32 slot, s32 pitch, s32 duration) {
     }
     TLobby__sub_80240B40((u8 *)&lbl_805162EC.value + slot * 0xA0, (s32)((u32)pitch << 13) / 3072, duration);
 }
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+#pragma opt_dead_assignments off
+s32 TLobby__sub_8023FBBC(Owner_8023FBBC *owner, s32 kind, s32 bank, s32 index) {
+    u8 *t = (u8 *)&lbl_804CCFB8;
+    s32 result = -1;
+    Range_8023FBBC *r = NULL;
+    switch (kind) {
+    case 0:
+        switch (bank) {
+        case 0:
+        case 1:
+        case 2:
+        case 5:
+            { s32 off = bank * 4; u8 *a = t + 0x728; r = *(Range_8023FBBC **)(a + off); }
+            break;
+        case 3:
+            if (owner->kind >= 0 && owner->kind < 22) {
+                { s32 off = owner->kind * 4; u8 *a = t + 0x744; r = *(Range_8023FBBC **)(a + off); }
+            }
+            break;
+        case 4:
+            if (owner->kind >= 0 && owner->kind < 22) {
+                { s32 off = owner->kind * 4; u8 *a = t + 0x79C; r = *(Range_8023FBBC **)(a + off); }
+            }
+            break;
+        case 6:
+            if (owner->kind >= 0 && owner->kind < 22) {
+                { s32 off = owner->kind * 4; u8 *a = t + 0x7F4; r = *(Range_8023FBBC **)(a + off); }
+            }
+            break;
+        }
+        break;
+    }
+    if (r != NULL && index >= 0 && index <= r->end - r->start) {
+        result = index + r->start;
+    }
+    return result;
+}
+#pragma pop
 
 }

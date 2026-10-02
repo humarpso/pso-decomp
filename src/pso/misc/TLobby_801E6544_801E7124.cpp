@@ -27,6 +27,16 @@ void update_entries__18TChallenge4PResultFii(ItemData_801E72B4 *, s32);
 extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D5E78;
 void TLobby__sub_801E72B4(u8 i);
+void *get_player_data__10TObjPlayerFi(s32);
+u16 obj_getField1c(void *);
+s32 get_game_mode__6TLobbyFv(void);
+s32 get_lobby_flag__6TLobbyFv(void);
+s32 get_field_d4(void *);
+s32 fn_get_field_3ac(void *);
+void set_field28__11TWindowCtrlFs(u16);
+void open_default__11TWindowCtrlFPvi(u16, s32);
+extern Glob_801E75F0 TLobby__data_80512220;
+void TLobby__sub_801E7408(void);
 }
 
 extern "C" {
@@ -79,6 +89,41 @@ void TLobby__sub_801E73B4(s32 arg0) {
         return;
     }
 }
+
+void TLobby__sub_801E7408(void) {
+    s32 id = TLobby__data_80512220.f0;
+    s32 arg = TLobby__data_80512220.f4;
+    void *player;
+    s32 start;
+    s32 end;
+    s32 i;
+    s32 win;
+    s32 v;
+    if (id < 100) {
+        open_default__11TWindowCtrlFPvi(id, arg);
+        set_field28__11TWindowCtrlFs(id);
+        return;
+    }
+    start = get_game_mode__6TLobbyFv();
+    end = start + get_lobby_flag__6TLobbyFv();
+    for (i = start; i < end; i++) {
+        player = get_player_data__10TObjPlayerFi(i);
+        if (player != NULL) {
+            win = obj_getField1c(player);
+            if (win < 0x4000) {
+                v = fn_get_field_3ac(player);
+            } else {
+                v = get_field_d4(player);
+            }
+            if (v == id) {
+                open_default__11TWindowCtrlFPvi(win, arg);
+                set_field28__11TWindowCtrlFs(win);
+                return;
+            }
+        }
+    }
+}
+
 void TLobby__sub_801E75F0(void) {
     s32 a = TLobby__data_80512220.f0;
     s32 b = TLobby__data_80512220.f4;

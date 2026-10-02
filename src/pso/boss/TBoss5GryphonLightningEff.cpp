@@ -12,6 +12,24 @@ struct Ent_80325248 { u8 b[0xC]; };
 
 struct Obj_80325248 { u8 pad[0x38]; s32 n; u8 pad2[0xD8 - 0x3C]; Ent_80325248 ents[1]; };
 
+struct Vec_8032537C { f32 x, y, z; };
+
+struct Self_8032537C {
+    s32 f0;
+    char pad4[0x14];
+    void *vt;
+    Vec_8032537C v1c;
+    Vec_8032537C v28;
+    f32 f34;
+    s32 n;
+    Vec_8032537C pts[13];
+    Vec_8032537C pts2[13];
+    char pad174[0x25C - 0x174];
+    s16 f25c;
+    char pad25e[2];
+    u8 f260;
+};
+
 extern "C" {
 void TOSwitchAttack__sub_80087278(void *, s32, s32);
 void run_task__12TTecZondeEffFv(void *);
@@ -19,6 +37,17 @@ s32 rand(void);
 extern const f32 lbl_805DF5F4;
 extern const f32 lbl_805DF5F8;
 void run_task__25TBoss5GryphonLightningEffFv(Obj_80325248 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+f32 update_scale__15TObjBoss2TunnelFPv(void *);
+void TTecZondeEff__sub_8023D4A8(void *);
+void __ct__12TTecZondeEffFv(void *, void *, s32, s32, f32);
+void TBoss8Dragon__sub_8034D500(void *, void *, s32, void *, f32);
+void TBoss6Type1__sub_803D9370(void *, void *);
+extern M2C_UNK __vt__25TBoss5GryphonLightningEff[];
+extern s32 lbl_805D4188;
+extern const f32 lbl_805DF5E8;
+extern const f32 lbl_805DF5FC;
+Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *parent, void *a, void *b, f32 x0, f32 x1, f32 scale);
 }
 
 extern "C" {
@@ -77,5 +106,46 @@ void run_task__25TBoss5GryphonLightningEffFv(Obj_80325248 *arg0) {
     }
     (*(s16 *)((u8 *)arg0 + 0x25C))++;
 }
+#pragma push
+#pragma fp_contract on
+Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *parent, void *a, void *b, f32 x0, f32 x1, f32 scale) {
+    Vec_8032537C v;
+    f32 denom;
+    s32 i;
+    __ct__12TTecZondeEffFv(self, parent, 0x30000000, 4, scale);
+    self->vt = __vt__25TBoss5GryphonLightningEff;
+    self->f0 = lbl_805D4188;
+    self->f260 = 0;
+    self->f25c = 0;
+    TBoss8Dragon__sub_8034D500(a, b, 0, &self->v1c, x0);
+    TBoss8Dragon__sub_8034D500(a, b, 0, &self->v28, x1);
+    TBoss6Type1__sub_803D9370(&self->v28, &self->v1c);
+    self->f34 = update_scale__15TObjBoss2TunnelFPv(&self->v28);
+    self->n = self->f34 * lbl_805DF5FC;
+    self->n = self->n + 1;
+    if (self->n < 2) {
+        self->n = 2;
+    }
+    if (self->n > 13) {
+        self->n = 13;
+    }
+    denom = (f32)(self->n - 1);
+    x1 -= x0;
+    for (i = 0; i < self->n; i++) {
+        TBoss8Dragon__sub_8034D500(a, b, 0, &self->pts[i], x0 + x1 * ((f32)i / denom));
+    }
+    self->f34 = lbl_805DF5E8;
+    for (i = 0; (f32)i < denom; i++) {
+        VecCopy__FP3VecPC3Vec(&v, &self->pts[i]);
+        TBoss6Type1__sub_803D9370(&v, &self->pts[i + 1]);
+        self->f34 += update_scale__15TObjBoss2TunnelFPv(&v);
+    }
+    TTecZondeEff__sub_8023D4A8(self);
+    for (i = 0; i < self->n; i++) {
+        VecCopy__FP3VecPC3Vec(&self->pts2[i], &self->pts[i]);
+    }
+    return self;
+}
+#pragma pop
 
 }

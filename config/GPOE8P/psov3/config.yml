@@ -74,6 +74,7 @@ force_active:
   - TNpcPlayer__sub_80152CE8
   - TODragonfly__sub_80164764
   - TObjBagWarnWin__sub_8006EC20
+  - TObjEneBm3FlyNest__sub_800B2948
   - TObjEneDD__sub_800BB980
   - TObjEneMe1Canadin__sub_8009FB54
   - TObjFish__sub_800E2FFC
@@ -229,6 +230,7 @@ force_active:
   - __dt__21TItemReverseTechPart2Fv
   - __dt__21TODummyKeyCave01SoundFv
   - __dt__22TChallenge4PItemSelectFv
+  - __dt__25THunterGuildSeqOnlineTaskFv
   - __dt__26TBoss5GryphonLightningHornFv
   - __dt__26TBoss5GryphonLightningWingFv
   - __dt__26__partial_array_destructorFv
@@ -253,6 +255,7 @@ force_active:
   - advance_animation_state__10TEndingPicFPv
   - advance_bone_rotation__19TObjEZBoneRotPlayerFPv
   - bswap_guild_card_tag__17TWindowSubComCardFPv
+  - capture_attachment__17TObjEneBm3FlyNestFv
   - create__13TItemProArmorFiUi
   - create_icon__10TObjPlayerFiii
   - disable_stealth_suit_effect__15TFontSmallLobbyFi
@@ -333,6 +336,7 @@ force_active:
   - render__8TObjRainFv
   - render__9TAdBackGCFv
   - render_background_status__18TAdGameStartBackGCFPv
+  - resetTechniqueContactQuery
   - reset_and_invoke__6TLobbyFv
   - reset_state__13TObjWarnChimeFPv
   - run_task__10TAdADXlogoFv
@@ -399,6 +403,7 @@ force_active:
   - run_task__21TItemEffArmorParticleFv
   - run_task__21TODummyKeyCave01SoundFv
   - run_task__22TChallenge4PItemSelectFv
+  - run_task__25THunterGuildSeqOnlineTaskFv
   - run_task__26TBoss5GryphonLightningHornFv
   - run_task__26TBoss5GryphonLightningWingFv
   - run_task__7TEffHitFv

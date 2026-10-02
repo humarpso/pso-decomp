@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TObjPlayer__sub_80154954(void *, void *);
+s32 TLobby__sub_80156A80(void *, void *, int);
+M2C_UNK fn_8015D5D4(void *);
+u8 TODoorAncient08__sub_80229220(u16);
+void TODoorFourLightRuins__vt12(u8 *arg0);
+}
+
+extern "C" {
 
 struct Base_8028A030 { char pad[0x18]; };
 struct VObj_8028A030 : Base_8028A030 {
@@ -68,6 +76,59 @@ void TODoorFourLightRuins__vt4(void *arg0, s16 *arg1) {
 }
 
 extern const f32 lbl_805DD8F0;
+
+void TODoorFourLightRuins__vt12(u8 *arg0) {
+    s16 sp8;
+    s32 off;
+    s32 i;
+    s32 off2;
+    s32 j;
+    switch (M2C_FIELD(arg0, s32 *, 0xCC)) {
+    case 1:
+        fn_8015D5D4(arg0);
+        M2C_FIELD(arg0, s32 *, 0xD0) |= 1;
+        break;
+    case 2:
+        off = 0;
+        for (i = 0; i < M2C_FIELD(arg0, s32 *, 0x88); i++) {
+            if (TODoorAncient08__sub_80229220(M2C_FIELD(arg0, s32 *, 0xC8) + i) == 0) {
+                off = 1;
+            }
+        }
+        if (off != 0) {
+            M2C_FIELD(arg0, s32 *, 0xD0) &= ~1;
+        } else {
+            fn_8015D5D4(arg0);
+            M2C_FIELD(arg0, s32 *, 0xD0) |= 1;
+        }
+        break;
+    case 3:
+        if (M2C_FIELD(arg0, s32 *, 0xD0) & 1) {
+            break;
+        }
+        off2 = 0;
+        for (j = 0; j < M2C_FIELD(arg0, s32 *, 0x88); j++) {
+            if (TODoorAncient08__sub_80229220(M2C_FIELD(arg0, s32 *, 0xC8) + j) == 0) {
+                off2 = 1;
+            }
+        }
+        if (off2 != 0) {
+            M2C_FIELD(arg0, s32 *, 0xD0) &= ~1;
+        } else {
+            fn_8015D5D4(arg0);
+            M2C_FIELD(arg0, s32 *, 0xD0) |= 1;
+        }
+        if (off2 == 0 && M2C_FIELD(arg0, u32 *, 0x80) != 0 && TLobby__sub_80156A80(arg0, &sp8, 1) == 1) {
+            sp8 = 1;
+            TObjPlayer__sub_80154954(arg0, &sp8);
+            TLobby__sub_80156A80(arg0, &sp8, 0);
+        }
+        break;
+    default:
+        M2C_FIELD(arg0, s32 *, 0xD0) &= ~1;
+        break;
+    }
+}
 
 void render__20TODoorFourLightRuinsFv(u8 *arg0) {
     s32 temp_r0;

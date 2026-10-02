@@ -11,6 +11,8 @@ struct V3_80322644 { f32 x; f32 y; f32 z; };
 
 struct Obj_80322644 { u8 pad[0x30]; V3_80322644 pos; };
 
+struct Vec_803226C0 { f32 x, y, z; };
+
 extern "C" {
 u8 *__nw__7TObjectFUl(M2C_UNK);
 u8 *TBoss6Type1__sub_80322AE0(s32 arg0, u8 *arg1, u8 *arg2, s16 arg3, f32 farg0);
@@ -32,6 +34,29 @@ extern const f32 lbl_805DF52C;
 extern const f32 lbl_805DF530;
 extern const f32 lbl_805DF534;
 s32 TBoss6Kakusan__sub_80322644(Obj_80322644 *arg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+void queue_destruction__7TObjectFv(void *);
+s32 check_demo_mode__10TObjPlayerFv();
+void copy_vec3__11TBoss4Type2FPvPv(void *, void *);
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+s32 query_teammate_state__9TObjEneDDFPv();
+void TBoss1Dragon__sub_8014220C(void *, void *, void *);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 is_active__14TBoss6PlotFalzFPv();
+void TBoss6Kakusan__sub_80322438(u8 *arg0);
+int TBoss6Kakusan__sub_8032263C(void);
+void TBoss4Zako__sub_803D8910(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+void TBoss6Type1__sub_803D9370(void *, void *);
+f32 TNpcPlayer__sub_803D97B4(void *);
+extern s32 lbl_805D6C28;
+extern u8 lbl_805D6C2C;
+extern s32 lbl_805D6C30;
+extern u8 lbl_805D6C34;
+extern const f32 TBoss6Kakusan__data_805DF51C;
+extern const f32 lbl_805DF538;
+s32 TBoss6Kakusan__sub_80322644(Obj_80322644 *arg0);
+void run_task__13TBoss6KakusanFv(u8 *arg0);
 }
 
 extern "C" {
@@ -58,6 +83,68 @@ s32 TBoss6Kakusan__sub_80322644(Obj_80322644 *arg0) {
 void render__13TBoss6KakusanFv(void) {  }
 
 extern M2C_UNK __vt__13TBoss6Kakusan[];
+
+void run_task__13TBoss6KakusanFv(u8 *arg0) {
+    Vec_803226C0 v;
+    Vec_803226C0 w;
+    Vec_803226C0 b;
+    Vec_803226C0 a;
+    f32 speed;
+    u8 *pl;
+    if (check_demo_mode__10TObjPlayerFv() != 0) return;
+    if (query_teammate_state__9TObjEneDDFPv() != 0) return;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x48, arg0 + 0x30);
+    if ((s8)lbl_805D6C2C == 0) {
+        lbl_805D6C28 = 7;
+        lbl_805D6C2C = 1;
+    }
+    if ((s8)lbl_805D6C34 == 0) {
+        lbl_805D6C30 = 0x25;
+        lbl_805D6C34 = 1;
+    }
+    if (M2C_FIELD(arg0, s32 *, 0x2C) >= lbl_805D6C28 && M2C_FIELD(arg0, s32 *, 0x2C) <= lbl_805D6C30) {
+        speed = TBoss6Kakusan__sub_803D8BD8(arg0 + 0x3C);
+        if (!(speed <= TBoss6Kakusan__data_805DF51C)) {
+            pl = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x20));
+            if (is_active__14TBoss6PlotFalzFPv() != 0) {
+                VecCopy__FP3VecPC3Vec(&v, pl + 0x38);
+                v.y += lbl_805DF538;
+                TBoss6Type1__sub_803D9370(&v, arg0 + 0x30);
+                if (!(TBoss6Kakusan__sub_803D8BD8(&v) <= TBoss6Kakusan__data_805DF51C)) {
+                    TNpcPlayer__sub_803D97B4(&v);
+                    v.x *= M2C_FIELD(arg0, f32 *, 0x28);
+                    v.y *= M2C_FIELD(arg0, f32 *, 0x28);
+                    v.z *= M2C_FIELD(arg0, f32 *, 0x28);
+                    VecCopy__FP3VecPC3Vec(&w, arg0 + 0x3C);
+                    TNpcPlayer__sub_803D97B4(&w);
+                    TBoss4Zako__sub_803D8910(&v, &w);
+                    if (!(TBoss6Kakusan__sub_803D8BD8(&v) <= TBoss6Kakusan__data_805DF51C)) {
+                        TNpcPlayer__sub_803D97B4(&v);
+                        v.x *= speed;
+                        v.y *= speed;
+                        v.z *= speed;
+                        VecCopy__FP3VecPC3Vec(arg0 + 0x3C, &v);
+                    }
+                }
+            }
+        }
+    }
+    TBoss4Zako__sub_803D8910(arg0 + 0x30, arg0 + 0x3C);
+    if (M2C_FIELD(arg0, void **, 0x54) != NULL) {
+        copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0x54), arg0 + 0x30);
+        VecCopy__FP3VecPC3Vec(&a, arg0 + 0x30);
+        TBoss6Type1__sub_803D9370(&a, arg0 + 0x48);
+        TBoss1Dragon__sub_8014220C(&a, &b.x, &b.z);
+        *(s32 *)&b.y = 0;
+        copy_vec3__11TBoss4Type2FPvPv(M2C_FIELD(arg0, void **, 0x54), &b);
+    }
+    if (TBoss6Kakusan__sub_80322644((Obj_80322644 *)arg0) != 0 || ((int (*)(void *))TBoss6Kakusan__sub_8032263C)(arg0) != 0) {
+        queue_destruction__7TObjectFv(arg0);
+        return;
+    }
+    TBoss6Kakusan__sub_80322438(arg0);
+    M2C_FIELD(arg0, s32 *, 0x2C) += 1;
+}
 
 void *__dt__13TBoss6KakusanFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

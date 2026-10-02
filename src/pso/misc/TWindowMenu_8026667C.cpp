@@ -14,6 +14,13 @@ s32 TWindowMenu__sub_80266B18(u8 *arg0, s32 arg1);
 u8 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *);
 extern s8 lbl_8050E208[];
 u8 TWindowMenu__sub_80266B30(u8 *arg0);
+u8 *alloc_buffer__11TOBoss4RockFPv(s32);
+s32 construct_with_parent__15TWindowAdditionFPvPv(void *, void *, s16, s32);
+void reset_selection__17TWindowSubComCardFPv(void* p);
+extern u8 lbl_804D05CC[];
+extern M2C_UNK __vt__11TWindowMenu[];
+extern s32 lbl_805D3960;
+u8 *TWindowMenu__ct(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -69,6 +76,31 @@ void *__dt__11TWindowMenuFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+
+u8 *TWindowMenu__ct(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
+    u32 i;
+    u8 *p;
+    construct_with_parent__15TWindowAdditionFPvPv(arg0, lbl_804D05CC, arg2, arg3);
+    *(void **)(arg0 + 0x18) = ((s32 *)&__vt__11TWindowMenu);
+    *(s32 *)arg0 = lbl_805D3960;
+    *(s16 *)(arg0 + 0x72) = 0;
+    *(s16 *)(arg0 + 0x74) = 0;
+    *(u16 *)(arg0 + 0x76) = arg1;
+    *(s16 *)(arg0 + 0x78) = 0;
+    *(s16 *)(arg0 + 0x70) = 0;
+    *(s16 *)(arg0 + 0x20) = arg2;
+    reset_selection__17TWindowSubComCardFPv((void*)(arg0));
+    *(u8 **)(arg0 + 0x80) = alloc_buffer__11TOBoss4RockFPv(arg1 * 8);
+    p = *(u8 **)(arg0 + 0x80);
+    for (i = 0; i < arg1; i++) {
+        *(s32 *)p = 0;
+        *(s32 *)(p + 4) = 0;
+        p += 8;
+    }
+    *(s32 *)(arg0 + 0x88) = 0;
+    *(s32 *)(arg0 + 0x84) = 0;
     return arg0;
 }
 

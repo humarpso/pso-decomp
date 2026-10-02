@@ -24,6 +24,11 @@ extern RecoveredGlobal_800F8428_lbl_80499988 lbl_80499988;
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805DA8F8;
 u8 *TLobby__sub_800F8428(u8 *arg0, s16 arg1);
+void __ct__7TObjectFP7TObject(void *);
+u32 TWindowCtrlMain__sub_8024CD5C(s32);
+extern RecoveredGlobal_800F8428_lbl_80499988 lbl_80499988;
+extern s32 lbl_805D53A0;
+void *TLobby__sub_800F8498(void *arg0, void *arg1, s32 arg2, s32 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7);
 }
 
 extern "C" {
@@ -63,6 +68,25 @@ u8 *TLobby__sub_800F8428(u8 *arg0, s16 arg1) {
             __dl__7TObjectFPv((s32) arg0);
         }
     }
+    return arg0;
+}
+
+void *TLobby__sub_800F8498(void *arg0, void *arg1, s32 arg2, s32 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7) {
+    u32 c;
+    ((void (*)(void *, void *))__ct__7TObjectFP7TObject)(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_80499988.value;
+    M2C_FIELD(arg0, s32 *, 0x1C) = arg2;
+    M2C_FIELD(arg0, s32 *, 0x20) = 0;
+    M2C_FIELD(arg0, s32 *, 0x24) = arg3;
+    c = TWindowCtrlMain__sub_8024CD5C(lbl_805D53A0);
+    M2C_FIELD(arg0, u8 *, 0x2B) = c;
+    M2C_FIELD(arg0, u8 *, 0x2A) = c >> 8;
+    M2C_FIELD(arg0, u8 *, 0x29) = c >> 16;
+    M2C_FIELD(arg0, u8 *, 0x28) = c >> 24;
+    M2C_FIELD(arg0, u8 *, 0x2F) = arg4;
+    M2C_FIELD(arg0, u8 *, 0x2C) = arg5;
+    M2C_FIELD(arg0, u8 *, 0x2D) = arg6;
+    M2C_FIELD(arg0, u8 *, 0x2E) = arg7;
     return arg0;
 }
 

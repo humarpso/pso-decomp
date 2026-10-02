@@ -17,6 +17,19 @@ struct VObj_80243464 : Base_80243464 {
 };
 
 extern "C" {
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s8 clamp_char_at__10TObjPlayerFPvi(u32, s32);
+s32 get_help_value__15TWindowHelpItemFv(void);
+void clear_visible_flag__20TWindowSubStatusDispFPv(void *);
+void set_flag0_bit2__15TWindowHelpItemFPv(void *);
+void TWindowSubStatusDisp__sub_8025995C(void *);
+extern const f32 lbl_805DCA28;
+extern const f32 lbl_805DCA2C;
+extern const f32 lbl_805DCA30;
+void TWindowHelpItem__sub_80243544(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32 arg4);
+}
+
+extern "C" {
 
 void set_help_text__15TWindowHelpItemFii(s32 arg0, s32 arg1);
 s32 get_help_value__15TWindowHelpItemFv(void);
@@ -49,5 +62,36 @@ s32 get_help_value__15TWindowHelpItemFv(void) {
     }
     return o->m34();
 }
+#pragma push
+#pragma fp_contract on
+void TWindowHelpItem__sub_80243544(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32 arg4) {
+    s32 v;
+    u32 p;
+    if (arg2 != 4) {
+        set_flag0_bit2__15TWindowHelpItemFPv(arg0);
+        return;
+    }
+    if (arg3 >= 0xD) {
+        p = TPlayerBattleCtrl4P__sub_801BA74C(arg4);
+        if (p == 0) {
+            v = 0;
+        } else {
+            v = clamp_char_at__10TObjPlayerFPvi(p + 0x7C4, arg3 - 0xD);
+        }
+    } else {
+        v = ((s32 (*)(u16, s32))get_help_value__15TWindowHelpItemFv)(arg3, arg4);
+    }
+    if (v <= 0) {
+        set_flag0_bit2__15TWindowHelpItemFPv(arg0);
+        return;
+    }
+    clear_visible_flag__20TWindowSubStatusDispFPv(arg0);
+    M2C_FIELD(arg0, s32 *, 0x1C) = M2C_FIELD(arg1, s32 *, 0x2C);
+    M2C_FIELD(arg0, s32 *, 0x20) = v;
+    TWindowSubStatusDisp__sub_8025995C(arg0);
+    M2C_FIELD(arg0, f32 *, 8) = lbl_805DCA2C * M2C_FIELD(arg0, f32 *, 0x10) + (M2C_FIELD(arg1, f32 *, 8) - lbl_805DCA28);
+    M2C_FIELD(arg0, f32 *, 0xC) = M2C_FIELD(arg1, f32 *, 0xC) - lbl_805DCA30;
+}
+#pragma pop
 
 }

@@ -6,6 +6,8 @@
 class TAdGameStartLineGC : public TObject {
 public:
     virtual ~TAdGameStartLineGC();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

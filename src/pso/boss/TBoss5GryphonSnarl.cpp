@@ -6,11 +6,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct V_80066DC8 { f32 x, y, z; };
+
+struct Obj_80066DC8 { s32 f0; u8 pad4[0x14]; void *f18; s32 f1c; s32 c20[32]; s32 ca0[32]; V_80066DC8 pos; s32 f12c; };
+
+struct D_80066DC8 { s32 f0; s32 f4; s32 f8; s32 fc; };
+
 extern "C" {
 s32 TBoss8Dragon__sub_8005D700(void *self);
 extern u8 lbl_80437F70[];
 extern void *TBoss5GryphonSnarl__data_805D4DD0;
 void TBoss5GryphonSnarl__sub_80066E88(void *self);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void TOSwitchAttack__sub_80087278(void *, s32, s32);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern u8 __vt__18TBoss5GryphonSnarl[];
+extern s32 lbl_805D2820;
+extern void *TBoss5GryphonSnarl__data_805D4DD0;
+extern const f32 lbl_805D8F0C;
+Obj_80066DC8 *TBoss5GryphonSnarl__ct(Obj_80066DC8 *self, void *parent, void *arg2);
 }
 
 extern "C" {
@@ -41,6 +55,28 @@ TBoss5GryphonSnarl::~TBoss5GryphonSnarl() {
 }
 
 extern "C" {
+
+#pragma push
+#pragma opt_common_subs off
+Obj_80066DC8 *TBoss5GryphonSnarl__ct(Obj_80066DC8 *self, void *parent, void *arg2) {
+    s32 i;
+    __ct__7TObjectFP7TObject(self, parent);
+    self->f18 = __vt__18TBoss5GryphonSnarl;
+    self->f0 = lbl_805D2820;
+    VecCopy__FP3VecPC3Vec(&self->pos, arg2);
+    self->pos.y = lbl_805D8F0C;
+    self->f12c = 0;
+    self->f1c = 0;
+    TOSwitchAttack__sub_80087278(&self->pos, ((D_80066DC8 *)TBoss5GryphonSnarl__data_805D4DD0)->fc, 0x40);
+    TOSwitchAttack__sub_80087278(&self->pos, ((D_80066DC8 *)TBoss5GryphonSnarl__data_805D4DD0)->f8, 0x40);
+    for (i = 0; i < 32; i++) {
+        self->c20[i] = 0;
+        self->ca0[i] = 0;
+    }
+    return self;
+}
+#pragma pop
+
 void TBoss5GryphonSnarl__sub_80066E84(void) {  }
 
 extern s32 lbl_805D4DD8;

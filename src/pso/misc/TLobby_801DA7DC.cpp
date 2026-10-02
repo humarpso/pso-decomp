@@ -18,11 +18,110 @@ struct VObj_801DA7DC : Base_801DA7DC {
 
 struct Pkt_801DA848 { u8 hdr[4]; u8 body[0xD50]; };
 
+typedef s32 M2C_UNK;
+struct Base_801DA8C4 { char pad[0x18]; };
+
+struct VObj_801DA8C4 : Base_801DA8C4 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual M2C_UNK m_call(void *a1, M2C_UNK a2);
+};
+
+struct Pkt_801DA8C4 {
+    u8 cmd;
+    u8 flag;
+    u16 size;
+    u8 tag[8];
+    u8 smth[8];
+    u32 f14;
+    u8 pad18;
+    u8 f19;
+    u8 pad1A[2];
+    char name1[0x10];
+    char name2[0x10];
+    char name3[0x10];
+    char name4[0x10];
+    char desc1[0x30];
+    char desc2[0x30];
+    char name5[0x10];
+    u8 config[0x150 - 0xCC];
+};
+
+struct Base_801DAA70 { char pad[0x18]; };
+
+struct VObj_801DAA70 : Base_801DAA70 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual M2C_UNK m_call(void *a1, M2C_UNK a2);
+};
+
+struct Recv_801DAA70 {
+    u32 hdr;
+    char name[0x40];
+    u32 key1;
+    u32 key2;
+};
+
+struct Pkt_801DAA70 {
+    u8 cmd;
+    u8 flag;
+    u16 size;
+    u8 tag[8];
+    u8 smth[8];
+    u32 f14;
+    u8 f18;
+    u8 f19;
+    u8 pad1A[2];
+    char name1[0x10];
+    char name2[0x10];
+    char name3[0x10];
+    char name4[0x10];
+    char desc1[0x30];
+    char desc2[0x30];
+    char name5[0x10];
+    u8 config[0x20];
+    u8 ext[0x150 - 0xEC];
+};
+
 extern "C" {
 M2C_UNK bswap__13packet_headerFv(void *);
 void handle_cmd_9C(u8 *arg0, s32 *arg1);
 void bswap_cmd_c5(void *);
 void handle_cmd_C5(u8 *arg0, Pkt_801DA848 *arg1);
+M2C_UNK __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
+M2C_UNK __as__16TPlyClientConfigFRC16TPlyClientConfig(void *, void *);
+M2C_UNK bswap_guild_card_meet_user__6TLobbyFPv(void *);
+M2C_UNK __as__8TPlySmthFRC8TPlySmth(void *, void *);
+M2C_UNK construct__8TPlySmthFPv(void *);
+M2C_UNK strncpy(void *, void *, int);
+M2C_UNK memset(void *, int, int);
+s32 TLobby__sub_801DA8C4(u8 *arg0, u8 *arg1, s32 arg2);
+M2C_UNK __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
+M2C_UNK reset__18PSOV3EncryptionTCPFUl(void *, u32);
+M2C_UNK __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(void *, void *);
+M2C_UNK __as__16TPlyClientConfigFRC16TPlyClientConfig(void *, void *);
+M2C_UNK bswap_guild_card_meet_user__6TLobbyFPv(void *);
+M2C_UNK bswap__21TRecvPsoRegistConnectFv(void *);
+M2C_UNK __as__8TPlySmthFRC8TPlySmth(void *, void *);
+M2C_UNK construct__8TPlySmthFPv(void *);
+s32 strcmp(const char *, const char *);
+M2C_UNK strncpy(void *, void *, int);
+M2C_UNK memset(void *, int, int);
+extern u8 meet_user_settings[];
+extern char *lbl_805D3570;
+void handle_cmd_02(u8 *arg0, Recv_801DAA70 *arg1);
 }
 
 extern "C" {
@@ -49,6 +148,33 @@ void handle_cmd_C5(u8 *arg0, Pkt_801DA848 *arg1) {
     }
 }
 
+s32 TLobby__sub_801DA8C4(u8 *arg0, u8 *arg1, s32 arg2) {
+    Pkt_801DA8C4 pkt;
+    memset(arg0 + 0x3F7A, 0, 0x10);
+    strncpy(arg0 + 0x3F7A, arg1, 0x10);
+    *(s32 *)(arg0 + 0x1930) = arg2;
+    construct__8TPlySmthFPv(&pkt);
+    memset(&pkt, 0, 0x150);
+    pkt.cmd = 0x9E;
+    pkt.flag = *(s32 *)(arg0 + 0x1930);
+    pkt.size = 0x150;
+    __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(pkt.tag, arg0 + 0x1900);
+    __as__8TPlySmthFRC8TPlySmth(pkt.smth, arg0 + 0x18F8);
+    pkt.f14 = *(u16 *)(arg0 + 0x1908);
+    pkt.f19 = *(s32 *)(arg0 + 0x1934);
+    __as__16TPlyClientConfigFRC16TPlyClientConfig(pkt.config, arg0 + 0x3FAC);
+    strncpy(pkt.name1, arg0 + 0x3EB8, 0x10);
+    strncpy(pkt.name2, arg0 + 0x3EC9, 0x10);
+    strncpy(pkt.name3, arg0 + 0x3F8A, 0x10);
+    strncpy(pkt.name4, arg0 + 0x3F9B, 0x10);
+    strncpy(pkt.desc1, arg0 + 0x3EDA, 0x30);
+    strncpy(pkt.desc2, arg0 + 0x3F0A, 0x30);
+    strncpy(pkt.name5, arg0 + 0x3F7A, 0x10);
+    bswap_guild_card_meet_user__6TLobbyFPv(&pkt);
+    ((VObj_801DA8C4 *)arg0)->m_call(&pkt, 0x150);
+    return 0;
+}
+
 void handle_cmd_9C(u8 *arg0, s32 *arg1) {
     s32 sp8;
     M2C_UNK (*temp_r12)(u8);
@@ -59,6 +185,46 @@ void handle_cmd_9C(u8 *arg0, s32 *arg1) {
     if (temp_r12 != NULL) {
         temp_r12(M2C_FIELD(&sp8, u8 *, 0x1));
     }
+}
+void handle_cmd_02(u8 *arg0, Recv_801DAA70 *arg1) {
+    Recv_801DAA70 r = *arg1;
+    Pkt_801DAA70 pkt;
+    bswap__21TRecvPsoRegistConnectFv(&r);
+    if (strcmp(lbl_805D3570, r.name) == 0) {
+        reset__18PSOV3EncryptionTCPFUl(arg0 + 0x10BC, r.key1);
+        reset__18PSOV3EncryptionTCPFUl(arg0 + 0x884, r.key2);
+        *(s32 *)(arg0 + 0x18F4) = 1;
+        construct__8TPlySmthFPv(&pkt);
+        memset(&pkt, 0, 0x150);
+        pkt.cmd = 0x9E;
+        pkt.flag = *(s32 *)(arg0 + 0x1930);
+        __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(pkt.tag, arg0 + 0x1900);
+        __as__8TPlySmthFRC8TPlySmth(pkt.smth, arg0 + 0x18F8);
+        pkt.f14 = *(u16 *)(arg0 + 0x1908);
+        pkt.f19 = *(s32 *)(arg0 + 0x1934);
+        strncpy(pkt.name1, arg0 + 0x3EB8, 0x10);
+        strncpy(pkt.name2, arg0 + 0x3EC9, 0x10);
+        strncpy(pkt.name3, arg0 + 0x3F8A, 0x10);
+        strncpy(pkt.name4, arg0 + 0x3F9B, 0x10);
+        strncpy(pkt.desc1, arg0 + 0x3EDA, 0x30);
+        strncpy(pkt.desc2, arg0 + 0x3F0A, 0x30);
+        strncpy(pkt.name5, arg0 + 0x3F7A, 0x10);
+        __as__16TPlyClientConfigFRC16TPlyClientConfig(pkt.config, arg0 + 0x3FAC);
+        if (*(s32 *)(arg0 + 0x1918) != 0) {
+            pkt.f18 = 1;
+            __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(pkt.ext, meet_user_settings);
+            pkt.size = 0x150;
+            bswap_guild_card_meet_user__6TLobbyFPv(&pkt);
+            ((VObj_801DAA70 *)arg0)->m_call(&pkt, 0x150);
+        } else {
+            pkt.size = 0xEC;
+            bswap_guild_card_meet_user__6TLobbyFPv(&pkt);
+            ((VObj_801DAA70 *)arg0)->m_call(&pkt, 0xEC);
+        }
+    } else {
+        ((VObj_801DAA70 *)arg0)->m5();
+    }
+    *(s32 *)(arg0 + 0x1918) = 0;
 }
 
 }

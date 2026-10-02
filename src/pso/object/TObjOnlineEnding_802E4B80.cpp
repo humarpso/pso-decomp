@@ -26,6 +26,23 @@ struct Cam_802E4E44 {
     u8 pad34[0x8];
 };
 
+typedef s32 M2C_UNK;
+struct V2_802E4C70 { f32 x, y; };
+
+struct Ent_802E4C70 { s32 active; u16 id; u8 name[0x12]; void *f18; s32 f1C; f32 f20; s32 f24; };
+
+struct Obj_802E4C70 {
+    u8 pad0[0x90];
+    s32 f90;
+    s32 f94;
+    s32 f98;
+    u8 pad9C[0xA8 - 0x9C];
+    Ent_802E4C70 ent[4];
+    s32 count;
+    u8 pad14C[4];
+    f32 f150;
+};
+
 extern "C" {
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 M2C_UNK TCameraCtrl__sub_80069E7C(s32);
@@ -35,6 +52,32 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 extern Vec_802E4E44 lbl_80472B9C;
 extern Vec_802E4E44 lbl_80472BA8;
 void TObjOnlineEnding__sub_802E4E44(Obj_802E4E44 *arg0);
+M2C_UNK TObjPlayer__sub_80051BE0(int, int, f32, f32);
+u32 TWindowSubStatusDisp__sub_80144D68(void *);
+M2C_UNK render_status_line__15TAdSubPlyItemGCFPvi(void *, int, f32, f32, f32);
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
+extern f32 lbl_804E3A38[];
+extern V2_802E4C70 lbl_804E3A44[];
+extern const f32 lbl_805D3F94;
+extern f32 lbl_805D3F98;
+extern f32 lbl_805D68F0;
+extern s8 lbl_805D68F8;
+extern s8 lbl_805D68F9;
+extern const f32 lbl_805DE930;
+extern const f32 lbl_805DE934;
+extern const f32 lbl_805DE938;
+extern const f32 lbl_805DE93C;
+extern const f32 lbl_805DE940;
+extern const f32 lbl_805DE944;
+void TObjOnlineEnding__sub_802E4C70(Obj_802E4C70 *arg0);
 }
 
 extern "C" {
@@ -79,6 +122,49 @@ void create_result_window__16TObjOnlineEndingFPv(void *arg0) {
 }
 
 extern const M2C_UNK lbl_804E3A64[];
+
+void TObjOnlineEnding__sub_802E4C70(Obj_802E4C70 *arg0) {
+    s32 i;
+    Ent_802E4C70 *e;
+    if (lbl_805D68F8 == 0) {
+        lbl_804E3A38[2] = lbl_805DE930 + lbl_805D68F0;
+        lbl_805D68F8 = 1;
+    }
+    begin_effect_render__13TParticleCtrlFv();
+    TObjPlayer__sub_803D9B2C();
+    TOHangerMachine01__sub_803D9C00(lbl_804E3A38);
+    TOMonitorMachine01__sub_803D8B5C(0, lbl_805D3F94, lbl_805DE934, lbl_805DE934);
+    set_global_param__8TObjFishFi(arg0->f94);
+    TObjEneSlimeOne__sub_803E4AF4(arg0->f90, arg0->f98, arg0->f150);
+    TObjPlayer__sub_803D9B78();
+    for (i = 0; i < arg0->count; i++) {
+        e = &arg0->ent[i];
+        if (e->active != 0) {
+            if (lbl_805D68F9 == 0) {
+                lbl_804E3A44[0].y = lbl_805DE938 + lbl_805D3F98;
+                lbl_804E3A44[1].y = lbl_805DE93C + lbl_805D3F98;
+                lbl_804E3A44[2].y = lbl_805DE93C + lbl_805D3F98;
+                lbl_804E3A44[3].y = lbl_805DE938 + lbl_805D3F98;
+                lbl_805D68F9 = 1;
+            }
+            {
+                u8 *name = e->name;
+                u32 w = TWindowSubStatusDisp__sub_80144D68(name);
+                V2_802E4C70 v = lbl_804E3A44[i];
+                v.x -= (f32)(w >> 1);
+                render_status_line__15TAdSubPlyItemGCFPvi(name, -1, v.x, v.y, lbl_805DE940);
+            }
+            TObjPlayer__sub_803D9B2C();
+            TOHangerMachine01__sub_803D9C00(lbl_804E3A38);
+            TOHangerMachine01__sub_803D9C00(e->f18);
+            rotate_matrix_y(0, e->f1C);
+            TOMonitorMachine01__sub_803D8B5C(0, e->f20, e->f20, e->f20);
+            TObjPlayer__sub_80051BE0(e->id, e->f24, lbl_805DE944, lbl_805DE934);
+            TObjPlayer__sub_803D9B78();
+        }
+    }
+    end_effect_render__13TParticleCtrlFv();
+}
 
 void TObjOnlineEnding__sub_802E4E44(Obj_802E4E44 *arg0) {
     s32 i;

@@ -1,9 +1,155 @@
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+struct RecoveredGlobal_8023C558_lbl_804CC510
+{
+  M2C_UNK value;
+  u8 remaining[0x48];
+};
+
+struct RecoveredGlobal_8023C558_lbl_804CC55C
+{
+  M2C_UNK value;
+  u8 remaining[0x94];
+};
+
+struct RecoveredFields_8023C558_arg0
+{
+  u8 unknown_0[0xC4];
+  s16 field_C4;
+  u8 unknown_C6[0x6];
+  f32 field_CC;
+  u8 unknown_D0[0x20];
+  s16 field_F0;
+};
+
+extern "C" {
+s32 TTecCtrl__sub_8022DBC4(int, int, int);
+s32 is_technique_ready__8TTecCtrlFv();
+s32 TTecAnti__sub_8022B35C(void *, int);
+extern RecoveredGlobal_8023C558_lbl_804CC510 lbl_804CC510;
+extern RecoveredGlobal_8023C558_lbl_804CC55C lbl_804CC55C;
+void fn_8023C558(u8 *arg0);
+}
+
+extern "C" {
+
+typedef struct RecoveredFields_8023C558_arg0 RecoveredFields_8023C558_arg0;
+typedef struct RecoveredGlobal_8023C558_lbl_804CC510 RecoveredGlobal_8023C558_lbl_804CC510;
+typedef struct RecoveredGlobal_8023C558_lbl_804CC55C RecoveredGlobal_8023C558_lbl_804CC55C;
+typedef char RecoveredGlobal_8023C558_lbl_804CC510_size[((sizeof(RecoveredGlobal_8023C558_lbl_804CC510)) == 0x4C) ? (1) : (-1)];
+typedef char RecoveredGlobal_8023C558_lbl_804CC55C_size[((sizeof(RecoveredGlobal_8023C558_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
+void fn_8023C558(u8 *arg0) {
+  s32 new_var;
+  new_var = TTecCtrl__sub_8022DBC4((int) 6, (int) ((RecoveredFields_8023C558_arg0 *) arg0)->field_C4, (int) 0xFFFF);
+  TTecAnti__sub_8022B35C((void *) (arg0 + 0xCC), (int) new_var);
+  if ((((s16) ((RecoveredFields_8023C558_arg0 *) arg0)->field_C4) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
+  {
+    ((RecoveredFields_8023C558_arg0 *) arg0)->field_CC = (f32) ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0x18))) + ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0x1A))) * ((RecoveredFields_8023C558_arg0 *) arg0)->field_C4));
+    return;
+  }
+  ((RecoveredFields_8023C558_arg0 *) arg0)->field_CC = (f32) (((RecoveredFields_8023C558_arg0 *) arg0)->field_CC + ((f32) (((RecoveredFields_8023C558_arg0 *) arg0)->field_F0 * ((RecoveredFields_8023C558_arg0 *) arg0)->field_C4)));
+  if (is_technique_ready__8TTecCtrlFv())
+  {
+    ((RecoveredFields_8023C558_arg0 *) arg0)->field_CC = (f32) (((RecoveredFields_8023C558_arg0 *) arg0)->field_CC * (*((f32 *) (((s8 *) (&lbl_804CC55C.value)) + 0x30))));
+  }
+}
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+struct VBase_18_0c879f { char pad[0x18]; };
+
+struct HitInfo_8023C6B4 { s32 type; f32 power; };
+
+struct VObj_18_0c879f : VBase_18_0c879f {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21(void *, HitInfo_8023C6B4 *, void *, s32, s32);
+};
+
+struct Obj_8023C6B4 { u8 pad[0x1C]; void *source; u8 pad20[0xCC - 0x20]; f32 power; };
+
+extern "C" {
+s32 test_elt_flag__10TObjPlayerFPvii(void *, s32, s32);
+void TTecZonde__vt6(Obj_8023C6B4 *arg0, VObj_18_0c879f *arg1);
+}
+
+extern "C" {
+
+void create_tec_zonde__10TObjPlayerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
+u8 *TTecZonde__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4);
+void *__nw__7TObjectFUl(int);
+
+void create_tec_zonde__10TObjPlayerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
+    void *o;
+    o = __nw__7TObjectFUl(0x18C);
+    if (o != NULL) {
+        ((void *(*)(void *, void *, void *, void *, void *))TTecZonde__ct)(o, arg0, arg1, arg2, arg3);
+    }
+}
+void TTecZonde__vt6(Obj_8023C6B4 *arg0, VObj_18_0c879f *arg1) {
+    HitInfo_8023C6B4 h;
+    h.type = 3;
+    h.power = arg0->power;
+    if (test_elt_flag__10TObjPlayerFPvii(arg1, 0, 0x80) == 0) {
+        HitInfo_8023C6B4 c = h;
+        arg1->m21(arg0->source, &c, 0, 6, -1);
+    }
+}
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct Seg_8023C79C { f32 a[3]; f32 b[3]; f32 len; };
+struct VBase_8023C79C { char pad[0x18]; };
+struct VObj_8023C79C : VBase_8023C79C {
+    virtual void m0(); virtual void m1(); virtual void m2();
+    virtual void m3(); virtual void m4(); virtual void m5();
+    virtual void m6(void *);
+};
+struct Tgt_8023C79C { u8 pad[0x38]; f32 x, y, z; };
+struct Zonde_8023C79C {
+    u8 pad0[0x18];
+    void *vt;
+    void *target;
+    u8 pad20[0xC6 - 0x20];
+    s16 level;
+    u16 id;
+    u8 padca[0x130 - 0xCA];
+    s32 f130;
+    u16 f134;
+};
+
 struct RecoveredGlobal_8023CD48___vt__9TTecZonde { M2C_UNK value; u8 remaining[0x24]; };
 typedef char RecoveredGlobal_8023CD48___vt__9TTecZonde_size[sizeof(RecoveredGlobal_8023CD48___vt__9TTecZonde) == 0x28 ? 1 : -1];
 
@@ -12,7 +158,6 @@ u16 obj_getField1c(void *);
 s32 TObjPlayer__sub_8004433C(s32);
 void TTecAnti__sub_8022B3E8(void *, void *);
 u8 * TObjPlayer__sub_8023AA4C(void *, s32, void *, s32, s16);
-void fn_8023C558(void *);
 extern M2C_UNK __vt__9TTecZonde[];
 extern s32 lbl_805D3838;
 u8 *TTecZonde__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4);
@@ -39,6 +184,175 @@ void *__dt__9TTecZondeFv(void *arg0, s16 arg1) {
 }
 
 void render__9TTecZondeFv(void) {  }
+
+#pragma push
+#pragma fp_contract on
+
+M2C_UNK queue_destruction__7TObjectFv(void *);
+u8 *TPhotonMylla__sub_80154CB4(u16);
+void update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
+void *__nw__7TObjectFUl(int);
+s32 is_parents_unqueued__9TTecLukerFUi(u32);
+s32 is_valid_and_active__10TObjPlayerFUi(void *);
+u8 *TTecGiZonde__sub_8023CE54(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4);
+u8 *TTecZonde__sub_8023DA10(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
+s32 rand();
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+void TNpcPlayer__sub_803D97B4(void *);
+extern u8 *tl_07;
+extern const f32 lbl_805DC968;
+extern const f32 lbl_805DC96C;
+extern const f32 lbl_805DC970;
+extern const f32 lbl_805DC974;
+extern const f32 lbl_805DC978;
+extern const f32 lbl_805DC97C;
+extern const f32 lbl_805DC980;
+extern const f32 lbl_805DC984;
+extern const f32 lbl_805DC988;
+
+void run_task__9TTecZondeFv(Zonde_8023C79C *self) {
+    Seg_8023C79C segs[14];
+    Seg_8023C79C *s;
+    f32 *pb;
+    s32 i;
+    s32 j;
+    s32 k;
+    s32 l;
+    Tgt_8023C79C *t;
+    void *o;
+    f32 scale;
+
+    self->target = TPhotonMylla__sub_80154CB4(self->id);
+    if (self->target == NULL) {
+        queue_destruction__7TObjectFv(self);
+        return;
+    }
+    if (self->f130 == 0) {
+        queue_destruction__7TObjectFv(self);
+        return;
+    }
+    t = (Tgt_8023C79C *)TPhotonMylla__sub_80154CB4(self->f134);
+    if (is_parents_unqueued__9TTecLukerFUi((u32)t) != 0) {
+        for (i = 0; i < 14; i++) {
+            s = &segs[i];
+            s->a[1] = lbl_805DC968 + t->y;
+            if (self->level == 5 && i == 0) {
+                s->a[1] = lbl_805DC96C + t->y;
+            }
+            s->a[0] = lbl_805DC970 * ((f32)i * (lbl_805DC974 * (f32)rand())) + t->x;
+            s->a[2] = lbl_805DC970 * ((f32)i * (lbl_805DC974 * (f32)rand())) + t->z;
+            s->b[0] = t->x - s->a[0];
+            s->b[1] = t->y - s->a[1];
+            pb = s->b;
+            s->b[2] = t->z - s->a[2];
+            s->len = TBoss6Kakusan__sub_803D8BD8(pb);
+            if (lbl_805DC978 != s->len) {
+                TNpcPlayer__sub_803D97B4(pb);
+            }
+        }
+        scale = lbl_805DC97C;
+        switch (self->level) {
+        case 0:
+            o = __nw__7TObjectFUl(0x260);
+            if (o != NULL) {
+                TTecZonde__sub_8023DA10((u8 *)o, tl_07, (u8 *)segs[0].a, (u8 *)segs[0].b, 0x14000000, 0x14, segs[0].len, lbl_805DC97C);
+            }
+            break;
+        case 1:
+            scale *= lbl_805DC980;
+            o = __nw__7TObjectFUl(0x260);
+            if (o != NULL) {
+                TTecZonde__sub_8023DA10((u8 *)o, tl_07, (u8 *)segs[0].a, (u8 *)segs[0].b, 0x14000000, 0x14, segs[0].len, scale);
+            }
+            break;
+        case 2:
+            scale *= lbl_805DC984;
+            o = __nw__7TObjectFUl(0x260);
+            if (o != NULL) {
+                TTecZonde__sub_8023DA10((u8 *)o, tl_07, (u8 *)segs[0].a, (u8 *)segs[0].b, 0x14000000, 0x14, segs[0].len, scale);
+            }
+            break;
+        case 3:
+            for (j = 0; j < 3; j++) {
+                o = __nw__7TObjectFUl(0x260);
+                if (o != NULL) {
+                    TTecZonde__sub_8023DA10((u8 *)o, tl_07, (u8 *)segs[j].a, (u8 *)segs[j].b, 0x14000000, 0x14, segs[j].len, lbl_805DC97C);
+                }
+            }
+            break;
+        case 4:
+            scale *= lbl_805DC984;
+            for (k = 0; k < 3; k++) {
+                o = __nw__7TObjectFUl(0x260);
+                if (o != NULL) {
+                    TTecZonde__sub_8023DA10((u8 *)o, tl_07, (u8 *)segs[k].a, (u8 *)segs[k].b, 0x14000000, 0x14, segs[k].len, scale);
+                }
+            }
+            break;
+        case 5:
+            for (l = 0; l < 14; l++) {
+                if (l == 0) {
+                    o = __nw__7TObjectFUl(0x260);
+                    if (o != NULL) {
+                        TTecZonde__sub_8023DA10((u8 *)o, tl_07, (u8 *)segs[l].a, (u8 *)segs[l].b, 0x14000000, 0x14, segs[l].len, lbl_805DC988);
+                    }
+                } else {
+                    o = __nw__7TObjectFUl(0x260);
+                    if (o != NULL) {
+                        TTecZonde__sub_8023DA10((u8 *)o, tl_07, (u8 *)segs[l].a, (u8 *)segs[l].b, 0x14000000, 0x14, segs[l].len, lbl_805DC97C);
+                    }
+                }
+            }
+            break;
+        }
+        if (self->level != 5) {
+            o = __nw__7TObjectFUl(0x40);
+            if (o != NULL) {
+                TTecGiZonde__sub_8023CE54((u8 *)o, (u8 *)segs, (u8 *)&t->x, tl_07, 0x19F);
+            }
+        }
+        {
+            s32 h;
+            switch (self->level) {
+            case 0:
+                h = TBoss3Volopt__sub_8022675C(0x4002A408, &t->x, 0, 0);
+                if (h >= 0) {
+                    update_technique_slot__10TTecRaFoieFi(h, 0x100, 0);
+                }
+                break;
+            case 1:
+                TBoss3Volopt__sub_8022675C(0x4002A408, &t->x, 0, 0);
+                break;
+            case 2:
+            case 3:
+                h = TBoss3Volopt__sub_8022675C(0x4002A408, &t->x, 0, 0);
+                if (h >= 0) {
+                    update_technique_slot__10TTecRaFoieFi(h, -0x180, 0);
+                }
+                break;
+            case 4:
+                h = TBoss3Volopt__sub_8022675C(0x4002A408, &t->x, 0, 0);
+                if (h >= 0) {
+                    update_technique_slot__10TTecRaFoieFi(h, -0x250, 0);
+                }
+                break;
+            case 5:
+                h = TBoss3Volopt__sub_8022675C(0x4002A408, &t->x, 0, 0);
+                if (h >= 0) {
+                    update_technique_slot__10TTecRaFoieFi(h, -0x100, 0);
+                }
+                break;
+            }
+        }
+    }
+    if (t != NULL && is_parents_unqueued__9TTecLukerFUi((u32)t) != 0 && is_valid_and_active__10TObjPlayerFUi(t) != 0) {
+        ((VObj_8023C79C *)self)->m6(t);
+    }
+    queue_destruction__7TObjectFv(self);
+}
+
+#pragma pop
 u8 *TTecZonde__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4) {
     u8 *temp_r3;
     TObjPlayer__sub_8023AA4C(arg0, arg1, arg2, 0, arg4);

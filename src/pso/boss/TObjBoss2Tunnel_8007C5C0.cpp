@@ -34,6 +34,22 @@ struct Card_8007CCD0 {
     s32 size;
 };
 
+struct VBase_8007C5C0 { char pad[0x18]; };
+
+struct VObj_8007C5C0 : VBase_8007C5C0 {
+    virtual ~VObj_8007C5C0();
+    virtual void m1();
+    virtual void m2();
+};
+
+struct VBase_8007C8AC { char pad[0x18]; };
+
+struct VObj_8007C8AC : VBase_8007C8AC {
+    virtual ~VObj_8007C8AC();
+    virtual void m1();
+    virtual void m2();
+};
+
 extern "C" {
 M2C_UNK DCFlushRange(int, int);
 s32 TObjPlayer__sub_800845F8();
@@ -76,6 +92,71 @@ extern s16 TObjBoss2Tunnel__data_805D4E8A;
 extern s32 *lbl_805D4E8C;
 extern s32 TObjBoss2Tunnel__data_805D4E90;
 s32 TObjBoss2Tunnel__sub_8007CCD0(void);
+s32 get_main_phase(void);
+void TCameraCtrl__sub_8006AF9C(u32, s32);
+void TObjBoss2Tunnel__sub_8007D828(void);
+void set_graph_param__8TDLGraphFPvi(void *, s32);
+void TDLGraph__sub_8007F6F8(s32, s32);
+VObj_8007C5C0 *create__8TDLGraphFv(void);
+void wait_ready_loop__6TLobbyFv(void);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+void TLobby__sub_80137928(void);
+void reset_state_flags__6TLobbyFv(void);
+s8 func_801A5E54__Fv(void);
+void controller_stuff__Fv(void);
+s32 TWindowShortListCtrl__check_controller_button(void *, s32);
+void begin_effect_render__13TParticleCtrlFv(void);
+void end_effect_render__13TParticleCtrlFv(void);
+void render_tick__Fv(void);
+void render__9TMainTaskFv(void *);
+void set_field_1c__6TLobbyFPvf(void *, f32);
+void TLobby__sub_80269454(void *);
+void send_and_handle__6TLobbyFPvii(void *, s32, s32);
+void *TLobby__sub_80269CC0(f32 *, f32 *, s32, s32);
+void func_803DCDFC__Fv(void);
+extern f32 lbl_80438A78[];
+extern f32 lbl_80438A80[];
+extern f32 lbl_8048DF4C[];
+extern u8 lbl_8050E3B8[];
+extern u8 main_task[];
+extern u32 lbl_805D4DF0;
+extern s8 lbl_805D4EA1;
+extern f32 lbl_805D4EA4;
+extern s8 lbl_805D4EA8;
+extern const f32 TObjBoss2Tunnel__data_805D9210;
+extern const f32 lbl_805D9214;
+extern const f32 lbl_805D9218;
+extern const f32 lbl_805D921C;
+s32 TObjBoss2Tunnel__sub_8007C5C0(void);
+s32 get_main_phase(void);
+void TCameraCtrl__sub_8006AF9C(u32, s32);
+void wait_ready_loop__6TLobbyFv(void);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+void TLobby__sub_80137928(void);
+void reset_state_flags__6TLobbyFv(void);
+s8 func_801A5E54__Fv(void);
+void controller_stuff__Fv(void);
+void render_tick__Fv(void);
+void render__9TMainTaskFv(void *);
+void set_field_1c__6TLobbyFPvf(void *, f32);
+void TLobby__sub_80269454(void *);
+void send_and_handle__6TLobbyFPvii(void *, s32, s32);
+void *TLobby__sub_80269CC0(f32 *, f32 *, s32, s32);
+void func_803DCDFC__Fv(void);
+extern f32 lbl_80438A68[];
+extern f32 lbl_80438A70[];
+extern f32 lbl_8048DF44[];
+extern u8 main_task[];
+extern u32 lbl_805D4DF0;
+extern s8 lbl_805D4E98;
+extern f32 lbl_805D4E9C;
+extern s8 lbl_805D4EA0;
+extern const f32 TObjBoss2Tunnel__data_805D9210;
+extern const f32 lbl_805D9214;
+extern const f32 lbl_805D9218;
+extern const f32 lbl_805D921C;
+extern const f32 lbl_805D9220;
+void TObjBoss2Tunnel__sub_8007C8AC(s32 arg0);
 }
 
 extern "C" {
@@ -86,8 +167,142 @@ extern M2C_UNK TObjBoss2Tunnel__data_80438A08[];
 extern s16 TObjBoss2Tunnel__data_805D4E8A;
 extern s32 TObjBoss2Tunnel__data_805D4E90;
 
+s32 TObjBoss2Tunnel__sub_8007C5C0(void) {
+    s32 result;
+    u8 *pad;
+    VObj_8007C5C0 *win;
+    VObj_8007C5C0 *graph;
+    s32 frames;
+    result = 0;
+    if (lbl_805D4EA1 == 0) {
+        lbl_8048DF4C[0] = TObjBoss2Tunnel__data_805D9210 + lbl_80438A78[0];
+        lbl_8048DF4C[1] = lbl_805D9214 + (lbl_80438A78[1] + lbl_80438A80[1]);
+        lbl_805D4EA1 = 1;
+    }
+    if (lbl_805D4EA8 == 0) {
+        lbl_805D4EA4 = lbl_80438A80[0] - lbl_805D9218;
+        lbl_805D4EA8 = 1;
+    }
+    win = (VObj_8007C5C0 *)TLobby__sub_80269CC0(lbl_80438A78, lbl_80438A80, 1, 4);
+    if (win != NULL) {
+        send_and_handle__6TLobbyFPvii(win, TAdSinglePlyChrSelectGC__sub_80132F2C(0x24, 0xB), 3);
+        set_field_1c__6TLobbyFPvf(win, lbl_805D921C);
+    }
+    TLobby__sub_80269454(win);
+    graph = create__8TDLGraphFv();
+    if (graph != NULL) {
+        set_graph_param__8TDLGraphFPvi(graph, 2);
+    }
+    frames = 0;
+    if (get_main_phase() == 0xF) {
+        reset_state_flags__6TLobbyFv();
+    }
+    pad = lbl_8050E3B8 + 0x110;
+    for (;;) {
+        frames++;
+        func_803DCDFC__Fv();
+        controller_stuff__Fv();
+        if (lbl_805D4DF0 != 0U) {
+            TCameraCtrl__sub_8006AF9C(lbl_805D4DF0, 0);
+        }
+        render__9TMainTaskFv(main_task);
+        TObjBoss2Tunnel__sub_8007D828();
+        wait_ready_loop__6TLobbyFv();
+        if (func_801A5E54__Fv() != 0) {
+            break;
+        }
+        begin_effect_render__13TParticleCtrlFv();
+        if (graph != NULL) {
+            TDLGraph__sub_8007F6F8(frames, 0x78);
+            graph->m1();
+            graph->m2();
+        }
+        win->m2();
+        end_effect_render__13TParticleCtrlFv();
+        if (frames >= 6.0) {
+            if (TWindowShortListCtrl__check_controller_button(pad, 2) != 0 || frames >= 0x78) {
+                result = 0;
+                break;
+            }
+            if (TWindowShortListCtrl__check_controller_button(pad, 4) != 0) {
+                result = 1;
+                break;
+            }
+        }
+        render_tick__Fv();
+    }
+    if (graph != NULL) {
+        delete graph;
+    }
+    if (get_main_phase() == 0xF) {
+        TLobby__sub_80137928();
+    }
+    if (win != NULL) {
+        delete win;
+    }
+    return result;
+}
+
 void TObjBoss2Tunnel__sub_8007C880(void) {
     poll_load_status__15TAdPlayerLoadGCFi(1, ((u8 *)&TObjBoss2Tunnel__data_80438A08));
+}
+
+void TObjBoss2Tunnel__sub_8007C8AC(s32 arg0) {
+    VObj_8007C8AC *win;
+    s32 frames;
+    if (lbl_805D4E98 == 0) {
+        lbl_8048DF44[0] = TObjBoss2Tunnel__data_805D9210 + lbl_80438A68[0];
+        lbl_8048DF44[1] = lbl_805D9214 + (lbl_80438A68[1] + lbl_80438A70[1]);
+        lbl_805D4E98 = 1;
+    }
+    if (lbl_805D4EA0 == 0) {
+        lbl_805D4E9C = lbl_80438A70[0] - lbl_805D9218;
+        lbl_805D4EA0 = 1;
+    }
+    win = (VObj_8007C8AC *)TLobby__sub_80269CC0(lbl_80438A68, lbl_80438A70, 1, 4);
+    if (win != NULL) {
+        switch (arg0) {
+        case -2:
+        case -9:
+            send_and_handle__6TLobbyFPvii(win, TAdSinglePlyChrSelectGC__sub_80132F2C(0x24, 3), 3);
+            break;
+        case -4:
+            send_and_handle__6TLobbyFPvii(win, TAdSinglePlyChrSelectGC__sub_80132F2C(0x24, 0xD), 3);
+            break;
+        default:
+            send_and_handle__6TLobbyFPvii(win, TAdSinglePlyChrSelectGC__sub_80132F2C(0x24, 0xC), 3);
+            break;
+        }
+        set_field_1c__6TLobbyFPvf(win, lbl_805D921C);
+        TLobby__sub_80269454(win);
+    }
+    if (get_main_phase() == 0xF) {
+        reset_state_flags__6TLobbyFv();
+    }
+    frames = 0;
+    for (;;) {
+        frames++;
+        func_803DCDFC__Fv();
+        controller_stuff__Fv();
+        if (lbl_805D4DF0 != 0U) {
+            TCameraCtrl__sub_8006AF9C(lbl_805D4DF0, 0);
+        }
+        render__9TMainTaskFv(main_task);
+        if ((f32)frames >= lbl_805D9220) {
+            break;
+        }
+        wait_ready_loop__6TLobbyFv();
+        if (func_801A5E54__Fv() != 0) {
+            break;
+        }
+        render_tick__Fv();
+    }
+    if (get_main_phase() == 0xF) {
+        TLobby__sub_80137928();
+    }
+    if (win != NULL) {
+        delete win;
+    }
 }
 
 void TObjBoss2Tunnel__sub_8007CAE8(u32 arg0) {

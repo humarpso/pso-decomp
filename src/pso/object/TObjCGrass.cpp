@@ -8,6 +8,29 @@ struct Rec_800B8B08 { u8 vec[0x18]; s32 f18; u32 flags; };
 
 struct Obj_800B8B08 { u8 pad0[0x24]; s32 f24; u8 pad28[0x34 - 0x28]; s32 f34; u8 pad38[0xC0 - 0x38]; f32 fc0; u8 padc4[0xF8 - 0xC4]; s32 ff8; Rec_800B8B08 *recs; u8 pad100[4]; s32 count; };
 
+struct Vec_800B8BB4 { f32 x, y, z; };
+
+struct Rec_800B8BB4 { Vec_800B8BB4 pos; Vec_800B8BB4 v2; s32 f18; u32 flags; };
+
+struct Hit_800B8BB4 { u8 pad0[4]; Vec_800B8BB4 *pos; };
+
+struct Grass_800B8BB4 {
+    u8 pad0[0x3C];
+    f32 f3C;
+    u8 pad40[4];
+    Vec_800B8BB4 f44;
+    u8 pad50[0xC0 - 0x50];
+    f32 fC0;
+    u8 padC4[4];
+    f32 fC8;
+    u8 padCC[0xFC - 0xCC];
+    Rec_800B8BB4 *recs;
+    f32 f100;
+    s32 count;
+    s32 f108;
+    u8 f10C[4];
+};
+
 extern "C" {
 s32 reset_transform_state__10TObjPlayerFv();
 s32 set_position_vec3__10TObjPlayerFPvPv(int, void *);
@@ -17,6 +40,14 @@ s32 TCameraCtrl__sub_803D9858(int);
 s32 set_global_param__8TObjFishFi(int);
 s32 TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
 void render__10TObjCGrassFv(Obj_800B8B08 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+u8 *csnVectorUnder(void *, void *, int);
+M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+extern s32 lbl_805D53A4;
+extern const f32 lbl_805D9E60;
+extern const f32 TObjCGrass__data_805D9E64;
+void run_task__10TObjCGrassFv(u8 *arg0);
 }
 
 extern "C" {
@@ -79,6 +110,50 @@ void render__10TObjCGrassFv(Obj_800B8B08 *arg0) {
             reset_transform_state__10TObjPlayerFv();
             TCameraCtrl__sub_803D9858(1);
         }
+    }
+}
+
+void run_task__10TObjCGrassFv(u8 *arg0) {
+    s32 i;
+    Grass_800B8BB4 *self = (Grass_800B8BB4 *)arg0;
+    Vec_800B8BB4 a;
+    Vec_800B8BB4 b;
+    Hit_800B8BB4 *hit;
+    self->fC0 += self->fC8;
+    if (self->f100 < self->fC0) {
+        self->fC0 -= self->f100;
+    }
+    for (i = 0; i < self->count; i++) {
+        VecCopy__FP3VecPC3Vec(&a, &self->recs[i].pos);
+        VecCopy__FP3VecPC3Vec(&b, &self->recs[i].v2);
+        VecCopy__FP3VecPC3Vec(&self->f44, &a);
+        TBoss4Zako__sub_803D8910(&a, &b);
+        if (i == lbl_805D53A4 % self->count) {
+            hit = (Hit_800B8BB4 *)csnVectorUnder(&a, self->f10C, 1);
+            if (hit != NULL) {
+                VecCopy__FP3VecPC3Vec(&a, hit->pos);
+                b.y += lbl_805D9E60;
+                self->f44.y += b.y;
+                if (a.y < self->f44.y) {
+                    a.y = self->f44.y;
+                } else {
+                    b.y = TObjCGrass__data_805D9E64;
+                }
+                VecCopy__FP3VecPC3Vec(&self->recs[i].pos, &a);
+                VecCopy__FP3VecPC3Vec(&self->recs[i].v2, &b);
+            } else {
+                self->recs[i].flags |= 1;
+            }
+        } else if (self->f3C <= a.y) {
+            b.y = TObjCGrass__data_805D9E64;
+        } else {
+            b.y += lbl_805D9E60;
+        }
+        VecCopy__FP3VecPC3Vec(&self->recs[i].pos, &a);
+        VecCopy__FP3VecPC3Vec(&self->recs[i].v2, &b);
+    }
+    if (self->f108-- < 0) {
+        queue_destruction__7TObjectFv(self);
     }
 }
 

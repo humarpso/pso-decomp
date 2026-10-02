@@ -168,6 +168,7 @@ pso/boss/TBoss6EmptyWarp.cpp
 pso/boss/TBoss6EmptyWarp_802B0E2C.cpp
 pso/boss/TBoss6EmptyWarp_802B0E2C_802B0F3C.cpp
 pso/boss/TBoss6EmptyWarp_802B0E2C_802B0F8C.cpp
+pso/boss/TBoss6GravBall.cpp
 pso/boss/TBoss6GravBall_80323134.cpp
 pso/boss/TBoss6Mag.cpp
 pso/boss/TBoss6PlotFalz_802AB110.cpp
@@ -365,6 +366,7 @@ pso/enemy/TObjEneBalClawClaw_80090950.cpp
 pso/enemy/TObjEneBalClawClaw_80090D3C.cpp
 pso/enemy/TObjEneBalClawClaw_80090DD0.cpp
 pso/enemy/TObjEneBm3Fly.cpp
+pso/enemy/TObjEneBm3FlyNest_800B264C.cpp
 pso/enemy/TObjEneBm3FlyNest_800B2E8C.cpp
 pso/enemy/TObjEneBm3FlyNest_800B2FD0.cpp
 pso/enemy/TObjEneBm3FlyNest_800B4160.cpp
@@ -416,6 +418,7 @@ pso/enemy/TObjEneEpsilon_800B92AC_800B96D4.cpp
 pso/enemy/TObjEneEpsilon_800B92AC_800B9778.cpp
 pso/enemy/TObjEneEpsilon_800B92AC_800B97B4.cpp
 pso/enemy/TObjEneEpsilon_800B92AC_800B9848.cpp
+pso/enemy/TObjEneGibbles_800AFB28.cpp
 pso/enemy/TObjEneGyaranzo.cpp
 pso/enemy/TObjEneHoldEffect.cpp
 pso/enemy/TObjEneHoldEffect_800FD814.cpp
@@ -1179,6 +1182,7 @@ pso/misc/TLobby_801D6BF8.cpp
 pso/misc/TLobby_801D6DC4.cpp
 pso/misc/TLobby_801D726C.cpp
 pso/misc/TLobby_801D726C_801D76B0.cpp
+pso/misc/TLobby_801DA7DC.cpp
 pso/misc/TLobby_801DEFC4.cpp
 pso/misc/TLobby_801E43E4.cpp
 pso/misc/TLobby_801E6544_801E6544.cpp
@@ -1834,7 +1838,6 @@ pso/misc/TTecLuker_8022BEAC_8022C03C.cpp
 pso/misc/TTecLuker_802360E4.cpp
 pso/misc/TTecMegid_80235B24.cpp
 pso/misc/TTecRaBarta.cpp
-pso/misc/TTecRaFoie.cpp
 pso/misc/TTecResta.cpp
 pso/misc/TTecReverser.cpp
 pso/misc/TTecReverser_8034DED4.cpp
@@ -1842,9 +1845,11 @@ pso/misc/TTecSifta.cpp
 pso/misc/TTecSlicer.cpp
 pso/misc/TTecSlicer_8023B5C8.cpp
 pso/misc/TTecZarua.cpp
+pso/misc/TTecZonde.cpp
 pso/misc/TUdpSocket.cpp
 pso/misc/TUdpSocket_80078064.cpp
 pso/misc/TUserAns.cpp
+pso/misc/TWindow.cpp
 pso/misc/TWindowActionPalette_8013DF4C.cpp
 pso/misc/TWindowActionPalette_801C1890.cpp
 pso/misc/TWindowAddition.cpp
@@ -1893,6 +1898,7 @@ pso/misc/TWindowCtrl_8024B048.cpp
 pso/misc/TWindowCtrl_8024B054.cpp
 pso/misc/TWindowCtrl_8024B0E0.cpp
 pso/misc/TWindowCtrl_8024B1A0.cpp
+pso/misc/TWindowCtrl_8024B328.cpp
 pso/misc/TWindowCtrl_8024B558.cpp
 pso/misc/TWindowCtrl_8024B5E0.cpp
 pso/misc/TWindowCtrl_8024B604.cpp
@@ -2108,6 +2114,7 @@ pso/misc/TWindowSubComCard_8033BDB0.cpp
 pso/misc/TWindowSubComCard_8033C2E8.cpp
 pso/misc/TWindowSubComCard_8034CD98.cpp
 pso/misc/TWindowSubCustomEquip_802760AC.cpp
+pso/misc/TWindowSubCustomEquip_80276114.cpp
 pso/misc/TWindowSubCustomSelect_80275D84.cpp
 pso/misc/TWindowSubEquip.cpp
 pso/misc/TWindowSubEquipKind.cpp
@@ -2503,6 +2510,7 @@ pso/packages/player/TObjPlayer/80102CE0.cpp
 pso/packages/player/TObjPlayer/801BD424.cpp
 pso/packages/player/TObjPlayer/801D2058.cpp
 pso/player/NormalAttack.cpp
+pso/player/THunterGuildSeqOnlineTask.cpp
 pso/player/THunterGuildWarning.cpp
 pso/player/TObjPlayer.cpp
 pso/player/TObjPlayerSet.cpp
@@ -3103,8 +3111,8 @@ pso/player/TObjPlayer_802034EC.cpp
 pso/player/TObjPlayer_8022602C.cpp
 pso/player/TObjPlayer_8022A564.cpp
 pso/player/TObjPlayer_8023355C.cpp
+pso/player/TObjPlayer_8023611C.cpp
 pso/player/TObjPlayer_8023C024.cpp
-pso/player/TObjPlayer_8023C65C.cpp
 pso/player/TObjPlayer_8023E480.cpp
 pso/player/TObjPlayer_80278AB4.cpp
 pso/player/TObjPlayer_8029EE64.cpp
@@ -3190,6 +3198,7 @@ pso/player/TObjPlayer_803DC834.cpp
 pso/player/TObjPlayer_803E21B8.cpp
 pso/player/TObjPlayer_803E4954.cpp
 pso/player/TObjPlayer_803E5470.cpp
+pso/player/TPlyItem.cpp
 pso/protocol/subcommand_validation_actions.cpp
 pso/protocol/subcommand_validation_movement.cpp
 pso/protocol/subcommand_validation_photon_blast.cpp
@@ -3860,6 +3869,7 @@ pso/unk/text_8014AB24.cpp
 pso/unk/text_8014B8A4.cpp
 pso/unk/text_8014B904.cpp
 pso/unk/text_80153674.cpp
+pso/unk/text_80153A7C.cpp
 pso/unk/text_80153A7C_80153A7C.cpp
 pso/unk/text_80153A7C_80153AD4.cpp
 pso/unk/text_801582C4.cpp
@@ -4016,6 +4026,7 @@ pso/unk/text_801C97D0.cpp
 pso/unk/text_801C9ACC.cpp
 pso/unk/text_801CA0B4.cpp
 pso/unk/text_801CA35C.cpp
+pso/unk/text_801CA508.cpp
 pso/unk/text_801CAA5C.cpp
 pso/unk/text_801CAAF8.cpp
 pso/unk/text_801CB3A8.cpp

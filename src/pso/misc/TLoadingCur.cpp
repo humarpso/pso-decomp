@@ -21,6 +21,30 @@ struct RecoveredGlobal_8001D0A0_lbl_804FF5E8 {
     u8 remaining[0x24];
 };
 
+struct Pad_8001CD90 {
+    char pad0[0x20];
+    u32 f20;
+    char pad24[0x10];
+    s16 s34;
+    s16 s36;
+    s16 s38;
+    s16 s3A;
+    char pad3C[0x124];
+    u8 f160[0x20];
+};
+
+struct Self_8001CD90 {
+    char pad0[0x20];
+    f32 f20;
+    f32 f24;
+    f32 f28;
+    char pad2C[0xC];
+    f32 f38;
+    f32 f3C;
+    f32 f40;
+    u8 f44[0xC];
+};
+
 extern "C" {
 extern const f32 lbl_805D7E94;
 extern const f32 lbl_805D7E98;
@@ -37,6 +61,19 @@ extern s32 lbl_805D2638;
 extern const f32 lbl_805D7E90;
 extern const f32 TLoadingCur__data_805D7E9C;
 u8 *TLoadingCur__ct(u8 *arg0, s32 arg1);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 is_split_screen(void);
+void fn_8001CAD4(void *);
+void fn_8001CBC4(void *, void *);
+s32 is_flag_set__11TLoadingCurFPv(void *, s32);
+M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+extern Pad_8001CD90 lbl_8050E208;
+extern const f32 TLoadingCur__data_805D7E9C;
+extern const f32 lbl_805D7EB0;
+extern const f32 lbl_805D7EB4;
+extern const f32 lbl_805D7EB8;
+extern const f32 lbl_805D7EBC;
+void run_task__11TLoadingCurFv(void *arg0);
 }
 
 extern "C" {
@@ -77,6 +114,70 @@ s32 TLoadingCur__sub_8001CC28(M2C_UNK arg0, u8 *arg1, u8 *arg2) {
 int render__11TLoadingCurFv(void* p) { return TLoadingCur__sub_8001CCD4(p); }
 
 extern M2C_UNK __vt__11TLoadingCur[];
+
+#pragma push
+#pragma fp_contract on
+#pragma opt_propagation off
+void run_task__11TLoadingCurFv(void *arg0) {
+    Self_8001CD90 *self = (Self_8001CD90 *)arg0;
+    u8 sp8[0xC];
+    f32 x;
+    f32 y;
+    u32 flags;
+    void *p;
+    x = TLoadingCur__data_805D7E9C;
+    y = x;
+    x += lbl_805D7EB0 * (f32)lbl_8050E208.s34;
+    y -= lbl_805D7EB0 * (f32)lbl_8050E208.s36;
+    x += lbl_805D7EB0 * (f32)lbl_8050E208.s38;
+    y -= lbl_805D7EB0 * (f32)lbl_8050E208.s3A;
+    flags = lbl_8050E208.f20;
+    if (flags & 0x10) {
+        y += lbl_805D7EB4;
+    }
+    if (flags & 0x20) {
+        y -= lbl_805D7EB4;
+    }
+    if (flags & 0x80) {
+        x += lbl_805D7EB4;
+    }
+    if (flags & 0x40) {
+        x -= lbl_805D7EB4;
+    }
+    p = lbl_8050E208.f160;
+    if (is_flag_set__11TLoadingCurFPv(p, 0x10) != 0) {
+        y += lbl_805D7EB4;
+    }
+    if (is_flag_set__11TLoadingCurFPv(p, 0x20) != 0) {
+        y -= lbl_805D7EB4;
+    }
+    if (is_flag_set__11TLoadingCurFPv(p, 0x80) != 0) {
+        x += lbl_805D7EB4;
+    }
+    if (is_flag_set__11TLoadingCurFPv(p, 0x40) != 0) {
+        x -= lbl_805D7EB4;
+    }
+    self->f38 += lbl_805D7EB8 * x;
+    self->f3C += lbl_805D7EB8 * y;
+    self->f40 += TLoadingCur__data_805D7E9C;
+    self->f20 += self->f38;
+    self->f24 += self->f3C;
+    self->f28 += self->f40;
+    self->f38 *= lbl_805D7EBC;
+    self->f3C *= lbl_805D7EBC;
+    self->f40 *= lbl_805D7EBC;
+    fn_8001CBC4(sp8, arg0);
+    VecCopy__FP3VecPC3Vec(self->f44, sp8);
+    fn_8001CAD4(arg0);
+    if (TLoadingCur__data_805D7E9C != x || TLoadingCur__data_805D7E9C != y) {
+        if (is_split_screen() != 0) {
+            TOTrapAncient01__sub_80226578(0x53C10, arg0, (u8 *)arg0 + 0x2C, 0, 1);
+        } else {
+            TOTrapAncient01__sub_80226578(0x53C10, arg0, (u8 *)arg0 + 0x2C, 0, 0);
+        }
+    }
+}
+#pragma pop
 
 void *__dt__11TLoadingCurFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
