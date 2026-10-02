@@ -30,6 +30,74 @@ struct Self_801ABAA0 {
     s32 started;
 };
 
+typedef struct Vec_801AB6A0 {
+    f32 x, y, z;
+} Vec_801AB6A0;
+
+typedef struct Packet_801AB6A0 {
+    Vec_801AB6A0 origin;
+    Vec_801AB6A0 target;
+    Vec_801AB6A0 direction;
+    u8 pad24[0xC];
+    void *owner;
+    u32 angle;
+} Packet_801AB6A0;
+
+typedef struct Golla_801AB6A0 {
+    u8 pad0[0x38];
+    Vec_801AB6A0 pos;
+    u8 pad44[0x158 - 0x44];
+    u16 owner_id;
+    u8 pad15A[0x19C - 0x15A];
+    void *f19c;
+    u8 pad1A0[8];
+    u8 *f1a8;
+    Vec_801AB6A0 f1ac;
+} Golla_801AB6A0;
+
+typedef struct Owner_801AB6A0 {
+    u8 pad0[0x3C];
+    f32 y;
+    u8 pad40[0x20];
+    s32 rot;
+} Owner_801AB6A0;
+
+typedef struct Vec_801AB868 {
+    f32 x, y, z;
+} Vec_801AB868;
+
+typedef struct Target_801AB868 {
+    u8 pad0[0x2FC];
+    Vec_801AB868 pos;
+} Target_801AB868;
+
+typedef struct Owner_801AB868 {
+    u8 pad0[0x38];
+    Vec_801AB868 pos;
+    u8 pad44[0x60 - 0x44];
+    s32 rot;
+} Owner_801AB868;
+
+typedef struct Flags_801AB868 {
+    u8 pad0[0x18];
+    u32 flags;
+} Flags_801AB868;
+
+typedef struct Golla_801AB868 {
+    u8 pad0[0x38];
+    Vec_801AB868 pos;
+    u8 pad44[0xA4 - 0x44];
+    Flags_801AB868 *fa4;
+    u8 padA8[0x150 - 0xA8];
+    f32 f150;
+    u8 pad154[4];
+    u16 owner_id;
+    u8 pad15A[0x19C - 0x15A];
+    Target_801AB868 *f19c;
+    u8 pad1A0[8];
+    Target_801AB868 *f1a8;
+} Golla_801AB868;
+
 extern "C" {
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * alloc_tables__6TLobbyFPvii(void *, s32, s32);
@@ -45,7 +113,6 @@ s32 TCameraCtrl__sub_801A7310(void *, int);
 s32 TObjPlayer__sub_801A7680(void *);
 s32 TObjPlayer__sub_801A7748(void *, int);
 s32 update_state__10TSceneSoraFPv(void *);
-s32 TObjPlayer__sub_801AB6A0(void *);
 s32 TPhotonMagicSquare__ct(int, void *, int, void *, int, f32);
 s32 TOTrapAncient01__sub_80226578(int, void *, int, int, int);
 u32 __nw__7TObjectFUl(int);
@@ -79,6 +146,46 @@ extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 void TObjPlayer__sub_801ABAA0(Self_801ABAA0 *self);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 TPhotonMylla__sub_80154CB4(int);
+u32 __nw__7TObjectFUl(int);
+s32 rotate_matrix_y(int, int);
+void TPhotonConcentrate__ct(void *, void *, void *, int);
+u32 __cvt_fp2unsigned(f32);
+int rand(void);
+void TBoss4Zako__sub_803D8910(void *, void *);
+void TScene__sub_803D8DB4(int, void *, void *);
+void TBoss6Type1__sub_803D9370(void *, void *);
+void TNpcPlayer__sub_803D97B4(void *);
+void TObjPlayer__sub_803D97F0(void *);
+void TCameraCtrl__sub_803D9858(int);
+extern const Packet_801AB6A0 lbl_80446D68;
+extern u8 lbl_8058D490[];
+extern const float lbl_805DC188;
+extern const f32 lbl_805DC18C;
+extern const f32 lbl_805DC190;
+extern const f32 lbl_805DC194;
+extern const f32 lbl_805DC198;
+s32 TObjPlayer__sub_801AB6A0(void *arg0);
+s32 TPhotonMylla__sub_80154CB4(int);
+s32 rotate_matrix_y(int, int);
+void init_all_slots__10TObjPlayerFv(void);
+void TObjPlayer__sub_8015610C(void *);
+Target_801AB868 *get_battle_param__10TObjPlayerFi(s32);
+void TBoss6Type1__sub_803D9370(void *, void *);
+f32 TCameraCtrl__sub_803D8D00(void *);
+void TNpcPlayer__sub_803D97B4(void *);
+void TObjPlayer__sub_803D97F0(void *);
+void TScene__sub_803D8DB4(int, void *, void *);
+void TCameraCtrl__sub_803D9858(int);
+f32 TObjPlayer__sub_803D89C0(void *, void *);
+u16 obj_getField1c(void *);
+void TObjPlayer__sub_801A720C(u32, int, int, f32);
+extern u8 lbl_8058D490[];
+extern const float lbl_805DC188;
+extern const f32 lbl_805DC190;
+extern const f32 lbl_805DC19C;
+void TObjPlayer__sub_801AB868(void *arg0);
 }
 
 extern "C" {
@@ -110,6 +217,128 @@ void TObjPlayer__sub_801AB640(void) {
 }
 
 void TObjPlayer__sub_801AB688(void* a0) { *(float*)((char*)a0 + 0x15c) = lbl_805DC188; *(float*)((char*)a0 + 0x160) = lbl_805DC188; *(float*)((char*)a0 + 0x164) = lbl_805DC188; *(float*)((char*)a0 + 0x168) = lbl_805DC188; }
+
+#pragma push
+#pragma fp_contract on
+#pragma opt_common_subs off
+#define self ((Golla_801AB6A0 *)arg0)
+s32 TObjPlayer__sub_801AB6A0(void *arg0) {
+    Vec_801AB6A0 target;
+    Vec_801AB6A0 local;
+    Vec_801AB6A0 rotated;
+    Owner_801AB6A0 *owner;
+    f32 random;
+    u32 angle;
+    u32 beam;
+    if (self->f19c == NULL) {
+        owner = (Owner_801AB6A0 *)TPhotonMylla__sub_80154CB4(self->owner_id);
+        local.x = (*(const f32 *)&lbl_805DC188);
+        if (owner != NULL) {
+            local.y = owner->y;
+        }
+        local.z = lbl_805DC18C;
+        TObjPlayer__sub_803D97F0(lbl_8058D490);
+        if (owner != NULL) {
+            rotate_matrix_y(0, owner->rot);
+        }
+        TScene__sub_803D8DB4(0, &local, &rotated);
+        TCameraCtrl__sub_803D9858(1);
+        VecCopy__FP3VecPC3Vec(&target, &self->pos);
+        TBoss4Zako__sub_803D8910(&target, &rotated);
+    } else {
+        VecCopy__FP3VecPC3Vec(&target, self->f1a8 + 0x2FC);
+    }
+    Vec_801AB6A0 direction = target;
+    TBoss6Type1__sub_803D9370(&direction, &self->f1ac);
+    TNpcPlayer__sub_803D97B4(&direction);
+    random = lbl_805DC198 * (f32)rand();
+    angle = __cvt_fp2unsigned(lbl_805DC194 * random + lbl_805DC190);
+    Packet_801AB6A0 packet = lbl_80446D68;
+    packet.origin.x = self->f1ac.x;
+    packet.origin.y = self->f1ac.y;
+    packet.origin.z = self->f1ac.z;
+    packet.target.x = target.x;
+    packet.target.y = target.y;
+    packet.target.z = target.z;
+    packet.direction.x = direction.x;
+    packet.direction.y = direction.y;
+    packet.direction.z = direction.z;
+    packet.owner = self->f1a8;
+    packet.angle = angle;
+    beam = __nw__7TObjectFUl(0x10C);
+    if (beam != 0) {
+        TPhotonConcentrate__ct((void *)beam, &packet, self, self->owner_id);
+    }
+}
+#undef self
+#pragma pop
+
+#define self ((Golla_801AB868 *)arg0)
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_loop_invariants off
+void TObjPlayer__sub_801AB868(void *arg0) {
+    s32 i;
+    Target_801AB868 *candidate;
+    init_all_slots__10TObjPlayerFv();
+    TObjPlayer__sub_8015610C(self);
+    if (self->fa4->flags & 0x100000) {
+        for (i = 0; i < 16; i++) {
+            candidate = get_battle_param__10TObjPlayerFi(i);
+            if (candidate != NULL) {
+                if (self->f1a8 != NULL) {
+                    Vec_801AB868 selected_delta = self->f1a8->pos;
+                    Owner_801AB868 *owner;
+                    f32 selected_distance;
+                    TBoss6Type1__sub_803D9370(&selected_delta, &self->pos);
+                    Vec_801AB868 candidate_delta = candidate->pos;
+                    TBoss6Type1__sub_803D9370(&candidate_delta, &self->pos);
+                    selected_distance = TCameraCtrl__sub_803D8D00(&selected_delta);
+                    if (TCameraCtrl__sub_803D8D00(&candidate_delta) < selected_distance) {
+                        self->f1a8 = candidate;
+                    }
+                    owner = (Owner_801AB868 *)TPhotonMylla__sub_80154CB4(self->owner_id);
+                    Vec_801AB868 direction = self->f1a8->pos;
+                    Vec_801AB868 forward;
+                    Vec_801AB868 left;
+                    Vec_801AB868 right;
+                    if (owner != NULL) {
+                        TBoss6Type1__sub_803D9370(&direction, &owner->pos);
+                    }
+                    TNpcPlayer__sub_803D97B4(&direction);
+                    forward.y = forward.x = lbl_805DC188;
+                    forward.z = lbl_805DC190;
+                    TObjPlayer__sub_803D97F0(lbl_8058D490);
+                    if (owner != NULL) {
+                        rotate_matrix_y(0, owner->rot + 0x1555);
+                    }
+                    TScene__sub_803D8DB4(0, &forward, &left);
+                    TCameraCtrl__sub_803D9858(1);
+                    TObjPlayer__sub_803D97F0(lbl_8058D490);
+                    if (owner != NULL) {
+                        rotate_matrix_y(0, owner->rot - 0x1555);
+                    }
+                    TScene__sub_803D8DB4(0, &forward, &right);
+                    TCameraCtrl__sub_803D9858(1);
+                    TObjPlayer__sub_803D89C0(&direction, &left);
+                    TObjPlayer__sub_803D89C0(&direction, &right);
+                    if (!(TObjPlayer__sub_803D89C0(&direction, &left) > lbl_805DC19C) ||
+                        !(TObjPlayer__sub_803D89C0(&direction, &right) > lbl_805DC19C)) {
+                        self->f1a8 = NULL;
+                    }
+                } else {
+                    self->f1a8 = candidate;
+                }
+            }
+        }
+    }
+    if (self->f1a8 != NULL) {
+        TObjPlayer__sub_801A720C(obj_getField1c(self->f1a8), 2, 0, self->f150);
+    }
+    self->f19c = self->f1a8;
+}
+#pragma pop
+#undef self
 
 void TObjPlayer__sub_801ABAA0(Self_801ABAA0 *self) {
     if (self->started != 0) {
@@ -176,11 +405,11 @@ void TObjPlayer__sub_801ABBAC(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C8) == 0x50) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1AC), (void *) (M2C_FIELD(arg0, s32 *, 0x148) + 0x44));
         TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x1AC), (int) (0x133));
-        TObjPlayer__sub_801AB6A0((void *) (arg0));
+        TObjPlayer__sub_801AB6A0((void *)((void *) (arg0)));
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C8);
     if ((temp_r0 == 0x56) || (temp_r0 == 0x5C) || (temp_r0 == 0x62) || (temp_r0 == 0x68) || (temp_r0 == 0x6E) || (temp_r0 == 0x74)) {
-        TObjPlayer__sub_801AB6A0((void *) (arg0));
+        TObjPlayer__sub_801AB6A0((void *)((void *) (arg0)));
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C4) != 0) {
         TOTrapAncient01__sub_80226578((int) (0x4002462F), (void *) (arg0), (int) (0), (int) (0), (int) (0));

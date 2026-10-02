@@ -11,6 +11,10 @@ struct RecoveredGlobal_8028DE78_lbl_804D9164 {
     u8 remaining[0x410];
 };
 
+struct C_8028DCCC { u8 pad0[0x31]; s8 f31; u8 pad32[0x1a]; f32 f4c; };
+
+struct P_8028DCCC { f32 a; f32 b; };
+
 extern "C" {
 extern RecoveredGlobal_8028DE78_lbl_804D9164 lbl_804D9164;
 u8 *TCharaMaking__sub_8028DE78(s32 arg0);
@@ -25,6 +29,11 @@ extern s32 some_id_805c6f74;
 extern const f32 TCharaMaking__data_805DD92C;
 extern s32 lbl_805DD930;
 extern const f32 lbl_805DD934;
+s32 TCharaMaking__sub_8028DC74(s8 *arg0);
+extern P_8028DCCC lbl_804D398C[];
+extern const f32 lbl_805DD928;
+extern const f32 TCharaMaking__data_805DD92C;
+f32 TCharaMaking__sub_8028DCCC(void *p);
 }
 
 extern "C" {
@@ -33,7 +42,6 @@ void free_loaded_buffers__12TCharaMakingFPv(u8 *arg0);
 s32 query_state__12TCharaMakingFv(void);
 void setup_from_data__12TCharaMakingFii(M2C_UNK arg0, M2C_UNK arg1);
 void update_body_parts__12TCharaMakingFPv(u8 *arg0);
-f32 TCharaMaking__sub_8028DCCC(void *);
 M2C_UNK TCharaMaking__sub_8028DF98(void *);
 M2C_UNK TCharaMaking__bind_appearance_texture_lists(void *, void *, void *, void *);
 M2C_UNK TLobby__sub_803DA16C(void *);
@@ -50,6 +58,36 @@ s32 query_state__12TCharaMakingFv(void) {
 }
 
 extern const f32 TCharaMaking__data_805DD92C;
+
+s32 TCharaMaking__sub_8028DC74(s8 *arg0) {
+    s32 sum = 0;
+    s32 i;
+    s32 r;
+    for (i = 0; i < 12 && arg0[i] != 0; i++) {
+        sum += arg0[i];
+    }
+    sum %= 10;
+    if (sum < 0 || sum >= 10) sum = 0;
+    return sum;
+}
+
+#pragma push
+#pragma fp_contract on
+#pragma opt_common_subs off
+f32 TCharaMaking__sub_8028DCCC(void *p) {
+    C_8028DCCC *arg0 = (C_8028DCCC *)p;
+    f32 a;
+    f32 b;
+    f32 v = arg0->f4c;
+    s32 k = arg0->f31;
+    a = lbl_804D398C[k].a;
+    b = lbl_804D398C[k].b;
+    if (v < lbl_805DD928 || v > TCharaMaking__data_805DD92C) {
+        v = lbl_805DD928;
+    }
+    return v * (a - b) + b;
+}
+#pragma pop
 
 #pragma push
 #pragma opt_dead_assignments off
@@ -125,7 +163,7 @@ void free_loaded_buffers__12TCharaMakingFPv(u8 *arg0) {
 
 void update_body_parts__12TCharaMakingFPv(u8 *arg0) {
     TCharaMaking__sub_8028DF98(arg0 + 0x85C);
-    M2C_FIELD(arg0, f32 *, 0xD48) = TCharaMaking__sub_8028DCCC(arg0 + 0x85C);
+    M2C_FIELD(arg0, f32 *, 0xD48) = TCharaMaking__sub_8028DCCC((void *)(arg0 + 0x85C));
     TCharaMaking__bind_appearance_texture_lists(arg0 + 0x8B8, arg0 + 0xA24, arg0 + 0xB90, arg0 + 0x85C);
     create__12TChCrLoadReqFPv(arg0);
 }

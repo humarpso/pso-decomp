@@ -51,6 +51,16 @@ struct TAdPlyStatusGC_8033FC14 {
     s32 f6C;
 };
 
+struct Card_8033F6A8 {
+    u8 pad0[0x30];
+    s8 f30;
+    s8 f31;
+    s8 f32;
+    u8 pad33[0x1D];
+};
+
+struct Save_8033F6A8 { u8 pad[0xC]; u32 fC; };
+
 extern "C" {
 M2C_UNK allow_rendering__7TObjectFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
@@ -101,6 +111,23 @@ extern s32 TAdPlyStatusGC__data_805D6DB8;
 extern const f32 lbl_805DFAF0;
 extern const f32 lbl_805DFAF4;
 TAdPlyStatusGC_8033FC14 *TAdPlyStatusGC__ct(TAdPlyStatusGC_8033FC14 *self, void *parent, s32 arg2);
+u32 get_stat_table_entry__9TObjLukerFi(int);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+Save_8033F6A8 *TAdSinglePlyChrSelectGC__sub_801FE3E4(u32);
+u8 *get_entry__23TAdSinglePlyChrSelectGCFi(s32);
+s32 TAdSinglePlyChrSelectGC__sub_801FE800(s32);
+Save_8033F6A8 *get_card_window__17TWindowSubComCardFUi(u32);
+u8 *get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
+u32 TWindowComCard__sub_80249C28(int);
+s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
+s32 get_card_instance__22TAdMultiPlyChrSelectGCFv();
+int sprintf(char *, const char *, ...);
+void *memset(void *, int, u32);
+extern char lbl_80478408[];
+extern s32 TAdPlyStatusGC__data_805D6DB0;
+extern u32 lbl_805D6DB4;
+extern char lbl_805DFAE8[4];
+void TAdPlyStatusGC__sub_8033F6A8(char *buf);
 }
 
 extern "C" {
@@ -116,6 +143,71 @@ int get_state_flag__9TMainTaskFv(void*);
 void render__14TAdPlyStatusGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)10); abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)6); } }
 
 typedef char RecoveredGlobal_8033F93C_lbl_8050E3B8_size[sizeof(RecoveredGlobal_8033F93C_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
+
+void TAdPlyStatusGC__sub_8033F6A8(char *buf) {
+    u8 *c;
+    u32 time;
+    u32 mins;
+    s32 flags;
+    u32 hours;
+    s32 m;
+    Save_8033F6A8 *p;
+    u32 t;
+    memset(buf, 0, 0x10);
+    memset(buf + 0x10, 0, 0x10);
+    memset(buf + 0x20, 0, 0x10);
+    c = 0;
+    switch (TAdPlyStatusGC__data_805D6DB0) {
+    case 0:
+    case 2:
+        p = get_card_window__17TWindowSubComCardFUi(0xFFFF);
+        if (p != 0) {
+            time = p->fC;
+        }
+        c = get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF);
+        break;
+    case 1:
+        p = TAdSinglePlyChrSelectGC__sub_801FE3E4(lbl_805D6DB4);
+        if (p != 0) {
+            time = p->fC;
+        }
+        m = get_card_instance__22TAdMultiPlyChrSelectGCFv();
+        if (m != 0) {
+            if (TAdSinglePlyChrSelectGC__sub_801FE800(TAdMultiPlyChrSelectGC__sub_802DFFE8(m)) != 0) {
+                c = get_entry__23TAdSinglePlyChrSelectGCFi(TAdMultiPlyChrSelectGC__sub_802DFFE8(m));
+            }
+        }
+        if (c == 0) {
+            return;
+        }
+        break;
+    }
+    if (c != 0) {
+        Card_8033F6A8 card = *(Card_8033F6A8 *)(c + 0x370);
+        t = time / 60;
+        hours = t / 60;
+        mins = t % 60;
+        if (hours > 9999) {
+            hours = 9999;
+            mins = 59;
+        }
+        if (mins > 59) {
+            mins = 59;
+        }
+        flags = card.f32;
+        if (flags & 2) {
+            sprintf(buf, lbl_805DFAE8, TAdSinglePlyChrSelectGC__sub_80132F2C(0x26, 0));
+        } else {
+            sprintf(buf, lbl_805DFAE8, TWindowComCard__sub_80249C28(card.f31));
+        }
+        if (flags & 1) {
+            sprintf(buf + 0x10, lbl_805DFAE8, TAdSinglePlyChrSelectGC__sub_80132F2C(0x26, 0));
+        } else {
+            sprintf(buf + 0x10, lbl_805DFAE8, get_stat_table_entry__9TObjLukerFi(card.f30));
+        }
+        sprintf(buf + 0x20, lbl_80478408, hours, mins);
+    }
+}
 
 s32 TAdPlyStatusGC__sub_8033F8B0(void *arg0, void *arg1) {
     s32 r = create_callback__22TAdEnterSerialAccessGCFPvPvPv(arg1, lbl_804783D8, (void *)TAdPlyStatusGC__sub_8033F3D8);

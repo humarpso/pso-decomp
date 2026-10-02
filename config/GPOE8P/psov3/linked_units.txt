@@ -317,6 +317,7 @@ pso/boss/TObjBoss2Tunnel_802F1A58.cpp
 pso/boss/TObjBoss2Tunnel_8036EF0C.cpp
 pso/boss/TObjBoss2Tunnel_8036EF0C_8036EF0C.cpp
 pso/boss/TObjBoss2Tunnel_803E2BAC.cpp
+pso/boss/TObjBoss5Ctrl.cpp
 pso/boss/TObjBoss5Ctrl_80067124.cpp
 pso/boss/TObjBoss5Ctrl_800673D0.cpp
 pso/boss/TObjBoss5FloorGrass.cpp
@@ -2841,6 +2842,7 @@ pso/player/TObjPlayer_801AA5C0.cpp
 pso/player/TObjPlayer_801AA61C.cpp
 pso/player/TObjPlayer_801AA664.cpp
 pso/player/TObjPlayer_801AADE8.cpp
+pso/player/TObjPlayer_801AB608.cpp
 pso/player/TObjPlayer_801AC0D8.cpp
 pso/player/TObjPlayer_801ACA6C.cpp
 pso/player/TObjPlayer_801AD47C.cpp
@@ -3400,6 +3402,7 @@ pso/ui/TAdMultiChgGameModeGC.cpp
 pso/ui/TAdMultiChgGameModeGC_8023E7A8.cpp
 pso/ui/TAdMultiChgGameModeGC_8023F4E4.cpp
 pso/ui/TAdMultiChgGameModeGC_8036DE10.cpp
+pso/ui/TAdMultiConfirmGC.cpp
 pso/ui/TAdMultiConfirmGC_802E072C.cpp
 pso/ui/TAdMultiPlyChrSelectGC_801A6EA0.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802B1850.cpp

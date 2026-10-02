@@ -164,6 +164,7 @@ force_active:
   - __dt__13TItemAttackerFv
   - __dt__13TItemMenuCtrlFv
   - __dt__13TObjBoss2DustFv
+  - __dt__13TObjBoss5CtrlFv
   - __dt__13TObjBoss7DustFv
   - __dt__13TObjResultWinFv
   - __dt__13TPlyOnCreatedFv
@@ -351,6 +352,7 @@ force_active:
   - run_task__13TAdTitleTexGCFv
   - run_task__13TItemAttackerFv
   - run_task__13TObjBoss2DustFv
+  - run_task__13TObjBoss5CtrlFv
   - run_task__13TObjBoss7DustFv
   - run_task__13TObjResultWinFv
   - run_task__14TAdFloorLoadGCFv

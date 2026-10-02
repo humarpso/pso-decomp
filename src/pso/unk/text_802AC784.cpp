@@ -29,6 +29,10 @@ struct RecoveredFields_802AC904_arg0
   u32 field_380;
 };
 
+struct Msg_802AC7E4 { u8 pad[2]; u16 id; s8 phase; s8 mode; };
+
+struct Boss_802AC7E4 { u8 pad[0x37C]; u8 mode; };
+
 extern "C" {
 s32 query_teammate_state__9TObjEneDDFPv();
 M2C_UNK TBoss6PlotFalz__sub_802AB14C(void *);
@@ -63,6 +67,12 @@ extern f32 TBoss6PlotFalz__data_805D3E54;
 extern s32 TBoss6PlotFalz__data_805D66EC;
 extern const f32 TBoss6PlotFalz__data_805DE0BC;
 u8 *__dt__14TBoss6PlotFalzFv(u8 *arg0, s16 arg1);
+Boss_802AC7E4 *get_enemy_entity(u16);
+void TBoss6PlotFalz__sub_802AB2B8(u8 *arg0, s32 arg1);
+s32 get_phase__8TObjFishFPv(void* p);
+void fn_802ACD40();
+extern s32 TBoss6PlotFalz__data_805D66EC;
+void handle_6xA3_olga_flow_boss_actions(Msg_802AC7E4 *m);
 }
 
 extern "C" {
@@ -101,6 +111,25 @@ void TBoss6PlotFalz__vt61(void) {  }
 typedef struct RecoveredFields_802AC904_arg0 RecoveredFields_802AC904_arg0;
 typedef struct RecoveredGlobal_802AC904___vt__14TBoss6PlotFalz RecoveredGlobal_802AC904___vt__14TBoss6PlotFalz;
 typedef struct RecoveredGlobal_802AC904_lbl_804705E8 RecoveredGlobal_802AC904_lbl_804705E8;
+
+void handle_6xA3_olga_flow_boss_actions(Msg_802AC7E4 *m) {
+    Boss_802AC7E4 *b;
+    s8 ph;
+    s8 mode;
+    fn_802ACD40();
+    b = get_enemy_entity(m->id);
+    if (b != NULL && b == (Boss_802AC7E4 *)TBoss6PlotFalz__data_805D66EC) {
+        ph = m->phase;
+        if (ph >= 0 && ph < 9 && ph != get_phase__8TObjFishFPv(b)) {
+            TBoss6PlotFalz__sub_802AB2B8((u8 *)b, ph);
+        }
+        mode = m->mode;
+        if (mode >= 0) {
+            b->mode = mode;
+        }
+    }
+}
+
 u8 *__dt__14TBoss6PlotFalzFv(u8 *arg0, s16 arg1) {
   s32 *new_var;
   s32 temp_r0;

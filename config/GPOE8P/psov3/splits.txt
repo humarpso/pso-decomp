@@ -1219,6 +1219,7 @@ pso/boss/TObjBoss5Ctrl_80067124.cpp:
 pso/boss/TObjBoss5Ctrl.cpp:
 	.text       start:0x8006715C end:0x800673D0
 	.rodata     start:0x80438138 end:0x80438140
+	.data       start:0x80488778 end:0x80488790
 
 pso/boss/TObjBoss5Ctrl_800673D0.cpp:
 	.text       start:0x800673D0 end:0x80067410
@@ -13327,6 +13328,7 @@ pso/misc/TWindowSubTechnique.cpp:
 pso/misc/TWindowSubStatusDisp_80287570.cpp:
 	.text       start:0x80287570 end:0x80287AD8
 	.rodata     start:0x8044FCB0 end:0x8044FCB8
+	.sdata2     start:0x805DD844 end:0x805DD860
 
 pso/unk/text_80287AD8.cpp:
 	.text       start:0x80287AD8 end:0x80287C18
@@ -13912,7 +13914,8 @@ pso/unk/text_802A0A30.cpp:
 
 pso/ui/TAdTitleGC.cpp:
 	.text       start:0x802A0A60 end:0x802A0F3C
-	.rodata     start:0x80466238 end:0x80466240
+	.rodata     start:0x80466230 end:0x80466240
+	.sdata2     start:0x805DDDEC end:0x805DDDF0
 
 pso/misc/TLobby_802A0F3C.cpp:
 	.text       start:0x802A0F3C end:0x802A1020
@@ -16446,6 +16449,7 @@ pso/unk/text_803371C0.cpp:
 
 pso/player/TObjPlayer_80337348.cpp:
 	.text       start:0x80337348 end:0x803374F0
+	.data       start:0x804EF100 end:0x804EF130
 
 pso/unk/text_803374F0.cpp:
 	.text       start:0x803374F0 end:0x80337500

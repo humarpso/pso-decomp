@@ -16,6 +16,19 @@ struct RecoveredGlobal_8024F5B0_lbl_804CF020 {
 
 struct Win_8024EF40 { u8 pad[0x20]; s16 player; u8 pad22[2]; u8 sub[4]; };
 
+typedef struct Entry_8024F094 {
+    u16 id;
+    s16 rank;
+    s32 value;
+} Entry_8024F094;
+
+typedef struct Win_8024F094 {
+    u8 pad0[0x20];
+    s16 player;
+    u8 pad22[2];
+    u8 sub[4];
+} Win_8024F094;
+
 extern "C" {
 s32 TWindowSubComCard__sub_80244C0C(void *, void *);
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
@@ -43,6 +56,23 @@ void TWindowSubStatusDisp__sub_8025AC50(void *, void *, int);
 void set_default_status__17TWindowDuelResultFPvi(void *, int);
 extern u8 lbl_804CEDD0[];
 void TWindowDuelResult__vt1(Win_8024EF40 *arg0);
+s32 TLobby__sub_8001DC24(s32);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(int);
+Entry_8024F094 *TWindowDuelResult__sub_801C257C(void);
+u8 TLobby__sub_801D7064(void *);
+u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+void TWindowSubStatusDisp__sub_80228F5C(s32);
+s32 TWindowSubStatusDisp__sub_80229080(s32);
+void TWindowSubStatusDisp__sub_802290E0(void);
+void refresh_status_display__9TWindowDDFv(void *);
+void TWindowSubStatusDisp__sub_80257D44(void *, void *, int);
+void TWindowSubStatusDisp__sub_8025AC50(void *, void *, int);
+void set_default_status__17TWindowDuelResultFPvi(void *, int);
+extern u8 TWindowDuelResult__data_804CEBA0[];
+extern u8 lbl_8050EA40[];
+extern const f32 lbl_805DCCAC;
+void TWindowDuelResult__vt0(Win_8024F094 *self);
 }
 
 extern "C" {
@@ -91,6 +121,62 @@ void TWindowDuelResult__vt1(Win_8024EF40 *arg0) {
 }
 
 void TWindowDuelResult__vt2(void) {  }
+
+void TWindowDuelResult__vt0(Win_8024F094 *self) {
+    s32 i;
+    s32 none;
+    Entry_8024F094 *e;
+    u8 *p;
+    u8 *a;
+    u8 *b;
+    u8 *c;
+    u8 *d;
+    TWindowSubStatusDisp__sub_80257D44(self->sub, TWindowDuelResult__data_804CEBA0, self->player);
+    a = get_array_entry__20TWindowSubStatusDispFPvi(self, 0);
+    set_default_status__17TWindowDuelResultFPvi(a, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 0));
+    b = get_array_entry__20TWindowSubStatusDispFPvi(self, 0x12);
+    set_default_status__17TWindowDuelResultFPvi(b, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 5));
+    none = 1;
+    e = TWindowDuelResult__sub_801C257C();
+    for (i = 0; i < 4; i++, e++) {
+        p = (e->id == 0xFFFF) ? NULL : TPlayerBattleCtrl4P__sub_801BA74C(e->id);
+        if (p != NULL && e->rank != 0) {
+            none = 0;
+        }
+    }
+    e = TWindowDuelResult__sub_801C257C();
+    for (i = 0; i < 4; i++, e++) {
+        a = get_array_entry__20TWindowSubStatusDispFPvi(self, i * 4 + 1);
+        b = get_array_entry__20TWindowSubStatusDispFPvi(self, i * 4 + 2);
+        c = get_array_entry__20TWindowSubStatusDispFPvi(self, i * 4 + 3);
+        d = get_array_entry__20TWindowSubStatusDispFPvi(self, i * 4 + 4);
+        p = (e->id == 0xFFFF) ? NULL : TPlayerBattleCtrl4P__sub_801BA74C(e->id);
+        if (p == NULL) {
+            *(u16 *)a |= 2;
+            *(u16 *)b |= 2;
+            *(u16 *)c |= 2;
+            *(u16 *)d |= 2;
+        } else {
+            if (none) {
+                set_default_status__17TWindowDuelResultFPvi(a, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 0xA));
+            } else if (TLobby__sub_801D7064(lbl_8050EA40) == 1) {
+                if (e->rank == 0) {
+                    set_default_status__17TWindowDuelResultFPvi(a, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 0xB));
+                } else {
+                    set_default_status__17TWindowDuelResultFPvi(a, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 0xC));
+                }
+            } else {
+                set_default_status__17TWindowDuelResultFPvi(a, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, e->rank + 6));
+            }
+            TWindowSubStatusDisp__sub_8025AC50(c, p + 0x85C, 0x20);
+            TWindowSubStatusDisp__sub_802290E0();
+            TWindowSubStatusDisp__sub_80228F5C(e->value);
+            TWindowSubStatusDisp__sub_8025AC50(d, (void *)TLobby__sub_8001DC24(TWindowSubStatusDisp__sub_80229080(TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 0xD))), 0x20);
+            refresh_status_display__9TWindowDDFv(d);
+            *(f32 *)(d + 8) = lbl_805DCCAC - *(f32 *)(d + 0x10);
+        }
+    }
+}
 
 void TWindowDuelResult__sub_8024F478(u8 *arg0) {
     s32 temp_r3;

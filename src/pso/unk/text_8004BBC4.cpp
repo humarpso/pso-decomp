@@ -44,6 +44,20 @@ extern void *TBoss4DarkFalz__data_805D4D5C;
 extern void *TBoss4DarkFalz__data_805D4D60;
 extern void *TBoss4DarkFalz__data_805D4D64;
 void handle_6x19_dark_falz_actions(Msg_8004BFA4 *arg0);
+void queue_destruction__7TObjectFv(void *);
+s32 is_ending_or_split_screen__14TBoss4DarkFalzFv(void);
+u8 * __dt__9TObjEnemyFv(void *, s16);
+s32 send_entity_set_flags__6TLobbyFPv(void *);
+void __dl__7TObjectFPv(s32);
+M2C_UNK TBoss4DarkFalz__sub_8004BA18(void *);
+M2C_UNK TCameraCtrl__sub_80069DA8();
+M2C_UNK TLobby__sub_8022743C();
+extern M2C_UNK __vt__14TBoss4DarkFalz[];
+extern void *TBoss4DarkFalz__data_805D4D5C;
+extern void *TBoss4DarkFalz__data_805D4D60;
+extern void *TBoss4DarkFalz__data_805D4D64;
+extern s32 lbl_805D4D74;
+u8 *__dt__14TBoss4DarkFalzFv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -78,6 +92,49 @@ void run_task__14TBoss4DarkFalzFv(u8 *arg0) {
 void TBoss4DarkFalz__vt61(void) {  }
 
     extern int lbl_805D4D58;
+
+u8 *__dt__14TBoss4DarkFalzFv(u8 *arg0, s16 arg1) {
+    s32 temp_r0;
+    u8 *temp_r3;
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TBoss4DarkFalz;
+        switch (M2C_FIELD(arg0, s32 *, 0x37C)) {
+        case 10:
+        case 14:
+        case 15:
+            send_entity_set_flags__6TLobbyFPv(arg0);
+            break;
+        }
+        TBoss4DarkFalz__sub_8004BA18((void *) (arg0));
+        TCameraCtrl__sub_80069DA8();
+        if (is_ending_or_split_screen__14TBoss4DarkFalzFv() == 0) {
+            TLobby__sub_8022743C();
+        }
+        temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x398));
+        if (temp_r3 != NULL) {
+            queue_destruction__7TObjectFv(temp_r3);
+            M2C_FIELD(arg0, u8 **, 0x398) = NULL;
+        }
+        if ((void *) TBoss4DarkFalz__data_805D4D5C != NULL) {
+            queue_destruction__7TObjectFv(TBoss4DarkFalz__data_805D4D5C);
+            TBoss4DarkFalz__data_805D4D5C = NULL;
+        }
+        if ((void *) TBoss4DarkFalz__data_805D4D60 != NULL) {
+            queue_destruction__7TObjectFv(TBoss4DarkFalz__data_805D4D60);
+            TBoss4DarkFalz__data_805D4D60 = NULL;
+        }
+        if ((void *) TBoss4DarkFalz__data_805D4D64 != NULL) {
+            queue_destruction__7TObjectFv(TBoss4DarkFalz__data_805D4D64);
+            TBoss4DarkFalz__data_805D4D64 = NULL;
+        }
+        lbl_805D4D74 = 0;
+        __dt__9TObjEnemyFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((s32) arg0);
+        }
+    }
+    return arg0;
+}
 
 void handle_6x19_dark_falz_actions(Msg_8004BFA4 *arg0) {
     void *ent;

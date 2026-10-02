@@ -14,6 +14,20 @@ typedef struct Obj_802FF87C {
     s32 x48;
 } Obj_802FF87C;
 
+struct TAdMultiConfirmGC_802FFA3C {
+    s32 x0;
+    u8 pad4[0x14];
+    void *vt;
+    s32 state;
+    u32 count;
+    s32 ids[4];
+    void *players[4];
+    void *guide;
+    void *ok;
+};
+
+struct OkArg_802FFA3C { u32 count; u32 mask; };
+
 extern "C" {
 void set_state_0xc__21TAdMultiChgGameModeGCFv(void);
 void set_change_game_mode__21TAdMultiChgGameModeGCFv(void);
@@ -24,6 +38,24 @@ s32 fn_802E0454(void *);
 s32 TAdMultiConfirmGC__sub_80306ABC(s32);
 s32 fn_80306AC8(s32);
 void run_task__17TAdMultiConfirmGCFv(Obj_802FF87C *arg0);
+void *TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+void *__nw__7TObjectFUl(u32);
+void __ct__7TObjectFP7TObject(void *, void *);
+void __ct__9TAdBackGCFv(void *, void *);
+void __ct__12TAdBackTxtGCFv(void *, void *);
+void __ct__10TAdTitleGCFv(void *, void *, s32);
+void __ct__13TAdTitleTexGCFv(void *, void *);
+void set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(void *, s32, void *);
+void *__ct__13TAdGuideTxtGCFv(void *, void *);
+s32 TAdMultiPlyChrSelectGC__sub_802C64D0(u32);
+void *TAdMultiPlyChrSelectGC__sub_802E1024(void *, u32, u32, s32);
+void fn_802FF7EC(void *);
+void *__ct__12TAdMultiOkGCFv(void *, void *, OkArg_802FFA3C *);
+void __ct__18TAdMultiPlayerNoGCFv(void *, void *, u32, u32, s32);
+extern M2C_UNK __vt__17TAdMultiConfirmGC[];
+extern s32 lbl_805D4050;
+extern u8 lbl_805DEF30;
+TAdMultiConfirmGC_802FFA3C *TAdMultiConfirmGC__ct(TAdMultiConfirmGC_802FFA3C *self, void *parent);
 }
 
 extern "C" {
@@ -92,5 +124,68 @@ void *__dt__17TAdMultiConfirmGCFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+#pragma push
+#pragma opt_common_subs off
+TAdMultiConfirmGC_802FFA3C *TAdMultiConfirmGC__ct(TAdMultiConfirmGC_802FFA3C *self, void *parent) {
+    OkArg_802FFA3C arg;
+    u32 i;
+    u32 j;
+    u32 n;
+    void *p;
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vt = __vt__17TAdMultiConfirmGC;
+    self->x0 = lbl_805D4050;
+    self->state = 0;
+    self->guide = 0;
+    for (i = 0; i < 4; i++) {
+        self->players[i] = 0;
+    }
+    if ((p = __nw__7TObjectFUl(0x24)) != 0) {
+        __ct__9TAdBackGCFv(p, self);
+    }
+    if ((p = __nw__7TObjectFUl(0x28)) != 0) {
+        __ct__12TAdBackTxtGCFv(p, self);
+    }
+    if ((p = __nw__7TObjectFUl(0x138)) != 0) {
+        __ct__10TAdTitleGCFv(p, self, 0x10);
+    }
+    if ((p = __nw__7TObjectFUl(0x9C)) != 0) {
+        __ct__13TAdTitleTexGCFv(p, self);
+    }
+    self->count = 0;
+    for (i = 0; i < 4; i++) {
+        self->ids[i] = 0;
+    }
+    for (i = 0; i < 4; i++) {
+        if (TAdMultiPlyChrSelectGC__sub_802C64D0(i) != 0) {
+            self->ids[self->count] = i;
+            self->count++;
+        }
+    }
+    arg.count = self->count;
+    arg.mask = 0;
+    for (j = 0; j < (n = self->count); j++) {
+        self->players[j] = TAdMultiPlyChrSelectGC__sub_802E1024(self, n + 1, j, self->ids[j]);
+        if ((p = __nw__7TObjectFUl(0x48)) != 0) {
+            __ct__18TAdMultiPlayerNoGCFv(p, self, self->count, j, self->ids[j]);
+        }
+        arg.mask |= 1 << self->ids[j];
+    }
+    p = __nw__7TObjectFUl(0x984);
+    if (p != 0) {
+        p = __ct__12TAdMultiOkGCFv(p, self, &arg);
+    }
+    self->ok = p;
+    p = __nw__7TObjectFUl(0x44);
+    if (p != 0) {
+        p = __ct__13TAdGuideTxtGCFv(p, self);
+    }
+    self->guide = p;
+    set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(self->guide, 0, TAdSinglePlyChrSelectGC__sub_80132F2C(0x25, 0));
+    set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(self->guide, 1, &lbl_805DEF30);
+    fn_802FF7EC(self);
+    return self;
+}
+#pragma pop
 
 }
