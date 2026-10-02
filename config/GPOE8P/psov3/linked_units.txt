@@ -3,6 +3,7 @@ PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_fp.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/printf.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/string.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/strtoul.c
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/uart_console_io.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_acos.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_asin.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_atan2.c
@@ -34,10 +35,14 @@ PowerPC_EABI_Support/Runtime/Src/CPlusLibPPC.cp
 PowerPC_EABI_Support/Runtime/Src/NMWException.cp
 PowerPC_EABI_Support/Runtime/Src/ptmf.c
 TRK_MINNOW_DOLPHIN/flush_cache.c
+TRK_MINNOW_DOLPHIN/msgbuf.c
 TRK_MINNOW_DOLPHIN/notify.c
+TRK_MINNOW_DOLPHIN/nubinit.c
 TRK_MINNOW_DOLPHIN/support.c
+TRK_MINNOW_DOLPHIN/target_options.c
 ai/ai.c
 ar/arq.c
+card/CARDBios.c
 card/CARDBlock.c
 card/CARDCheck.c
 card/CARDCreate.c
@@ -60,6 +65,7 @@ dsp/dsp_task.c
 dvd/dvd.c
 dvd/dvdfs.c
 dvd/dvdlow.c
+exi/EXIBios.c
 gba/GBA.c
 gba/GBAGetProcessStatus.c
 gba/GBAJoyBoot.c
@@ -71,6 +77,7 @@ gx/GXAttr.c
 gx/GXBump.c
 gx/GXDisplayList.c
 gx/GXFifo.c
+gx/GXFrameBuf.c
 gx/GXInit.c
 gx/GXLight.c
 gx/GXMisc.c
@@ -82,6 +89,7 @@ mtx/mtx44.c
 mtx/mtxvec.c
 mtx/vec.c
 os/OSCache.c
+os/OSContext.c
 os/OSError.c
 os/OSMemory.c
 pad/Pad.c
@@ -1181,6 +1189,7 @@ pso/misc/TLobby_801F3A24_801F40E8.cpp
 pso/misc/TLobby_801F3A24_801F429C.cpp
 pso/misc/TLobby_801F3A24_801F42D4.cpp
 pso/misc/TLobby_801F487C.cpp
+pso/misc/TLobby_80207644.cpp
 pso/misc/TLobby_80207DA8.cpp
 pso/misc/TLobby_80207DA8_80207DA8.cpp
 pso/misc/TLobby_80207DA8_80207EF0.cpp
@@ -1629,6 +1638,7 @@ pso/misc/TPhotonRainbow.cpp
 pso/misc/TPhotonRainbow_801AE640.cpp
 pso/misc/TPhotonYoulla.cpp
 pso/misc/TPlayerBattleCtrl4P.cpp
+pso/misc/TPlayerBattleCtrl4P_80062718.cpp
 pso/misc/TPlayerBattleCtrl4P_801C4F70.cpp
 pso/misc/TPlayerBattleCtrl4P_80311800.cpp
 pso/misc/TPlayerBattleCtrl4P_80312BDC.cpp
@@ -1664,6 +1674,7 @@ pso/misc/TPlyOnCountOver_801C70BC.cpp
 pso/misc/TPlyOnCreated.cpp
 pso/misc/TPlyOnCreated_801C61D0.cpp
 pso/misc/TPlyOnCreated_801C7114.cpp
+pso/misc/TPlyPhotonChair.cpp
 pso/misc/TPlyPhotonChair_80142524.cpp
 pso/misc/TPlyPhotonChair_80143888.cpp
 pso/misc/TPlyPhotonChair_801BEC44.cpp
@@ -1949,6 +1960,7 @@ pso/misc/TWindowMainMenu_802AE928.cpp
 pso/misc/TWindowMakeTeam.cpp
 pso/misc/TWindowMakeTeam_80131A5C.cpp
 pso/misc/TWindowMakeTeam_80131B54.cpp
+pso/misc/TWindowMakeTeam_80264DF4.cpp
 pso/misc/TWindowMakeTeam_80265298.cpp
 pso/misc/TWindowMakeTeam_8026534C.cpp
 pso/misc/TWindowMenu.cpp
@@ -2138,6 +2150,7 @@ pso/misc/TWindowSubSymbolChatParts.cpp
 pso/misc/TWindowSubSymbolChat_80076F88.cpp
 pso/misc/TWindowSubSymbolChat_8007763C.cpp
 pso/misc/TWindowSubSymbolChat_802483F0.cpp
+pso/misc/TWindowSubSymbolChat_80281814.cpp
 pso/misc/TWindowSubSymbolChat_802838C4.cpp
 pso/misc/TWindowSubSymbolChat_80283954.cpp
 pso/misc/TWindowSubSymbolChat_802839C0.cpp
@@ -2324,6 +2337,7 @@ pso/object/TObjGbAdvance.cpp
 pso/object/TObjGbAdvance_80187D90.cpp
 pso/object/TObjGbAdvance_80187E18.cpp
 pso/object/TObjGoalWarpAncient.cpp
+pso/object/TObjGoalWarpAncient_8017CB60.cpp
 pso/object/TObjGrassWeb.cpp
 pso/object/TObjGyaranzoMissile.cpp
 pso/object/TObjGyaranzoMissile_80131100.cpp
@@ -4236,6 +4250,7 @@ pso/unk/text_80327844.cpp
 pso/unk/text_803278B0.cpp
 pso/unk/text_803279CC.cpp
 pso/unk/text_803281B8.cpp
+pso/unk/text_8032AACC.cpp
 pso/unk/text_8032AC9C.cpp
 pso/unk/text_8032D9BC.cpp
 pso/unk/text_8032DA60.cpp

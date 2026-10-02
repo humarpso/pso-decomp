@@ -29,6 +29,7 @@ force_active:
   - DVDGetCurrentDir
   - Dolphin_DVDCancelAsync
   - Dolphin_GXFlush
+  - EXIClearInterrupts
   - GXInitFifoLimits
   - GXInitFifoPtrs
   - GXSetTevIndirect
@@ -122,6 +123,8 @@ force_active:
   - __ARQInterruptServiceRoutine
   - __ARQServiceQueueLo
   - __CARDFormatRegionAsync
+  - __CARDSetDiskID
+  - __CARDTxHandler
   - __DSP_exec_task
   - __DSP_remove_task
   - __DSP_rude_task
@@ -259,6 +262,7 @@ force_active:
   - fn_80349C54
   - fn_803CBE00
   - free_item_pmt
+  - gTRKMsgBufs
   - has_serial_input__22TAdEnterSerialAccessGCFv
   - init__18TObjAreaWarpForestFPvPvPv
   - init_default_fields__6TLobbyFPv

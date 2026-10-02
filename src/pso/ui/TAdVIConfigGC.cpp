@@ -193,9 +193,9 @@ void set_field48_clear_global__13TAdVIConfigGCFPv(void *arg0) {
     lbl_805D4090 = 0;
 }
 
-    extern unsigned char lbl_804F4F98[];
+    extern unsigned char GXNtsc480Prog[];
     extern int lbl_805D7734;
-void enable_progressive_mode__13TAdVIConfigGCFv(void * _w0) { OSSetProgressiveMode((void*)1); lbl_805D7734 = (int)lbl_804F4F98; VIConfigure(lbl_804F4F98); VIFlush(); VIWaitForRetrace(); VIWaitForRetrace(); }
+void enable_progressive_mode__13TAdVIConfigGCFv(void * _w0) { OSSetProgressiveMode((void*)1); lbl_805D7734 = (int)GXNtsc480Prog; VIConfigure(GXNtsc480Prog); VIFlush(); VIWaitForRetrace(); VIWaitForRetrace(); }
 
 int disable_progressive_mode__13TAdVIConfigGCFv(void* _w0) { return OSSetProgressiveMode((void*)(0)); }
 void TAdVIConfigGC__vt8(void) { TAdSinglePlyChrSelectGC__sub_80132F2C((void*)29, (void*)0); }

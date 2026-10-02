@@ -543,6 +543,7 @@ pso/boss/TBoss2Mine.cpp:
 
 pso/boss/TBoss2PhotonBullet_80038DCC.cpp:
 	.text       start:0x80038DCC end:0x80039010
+	.sdata2     start:0x805D8510 end:0x805D8520
 
 pso/boss/TBoss2PhotonBullet.cpp:
 	.text       start:0x80039010 end:0x80039084
@@ -1173,6 +1174,7 @@ pso/boss/TBoss8Dragon_8005FB90.cpp:
 
 pso/misc/TPlayerBattleCtrl4P_80062718.cpp:
 	.text       start:0x80062718 end:0x80062BA0
+	.data       start:0x80488520 end:0x80488548
 
 pso/boss/TBoss8Dragon_80062BA0.cpp:
 	.text       start:0x80062BA0 end:0x80065BC0
@@ -12681,6 +12683,7 @@ pso/misc/TWindowMakeTeam.cpp:
 
 pso/misc/TWindowMakeTeam_80264DF4.cpp:
 	.text       start:0x80264DF4 end:0x80265298
+	.data       start:0x804D0578 end:0x804D05A8
 
 pso/misc/TWindowMakeTeam_80265298.cpp:
 	.text       start:0x80265298 end:0x8026534C
@@ -16636,6 +16639,7 @@ pso/player/TObjPlayer_8033D324.cpp:
 
 pso/unk/text_8033D6DC.cpp:
 	.text       start:0x8033D6DC end:0x8033DA94
+	.sdata2     start:0x805DFA80 end:0x805DFA90
 
 pso/unk/text_8033DA94.cpp:
 	.text       start:0x8033DA94 end:0x8033DD4C
@@ -17723,7 +17727,7 @@ dsp/dsp_task.c:
 	.sbss       start:0x805D72B0 end:0x805D72C8
 
 card/CARDBios.c:
-	.text       start:0x80380B78 end:0x80381F54
+	.text       start:0x80380B74 end:0x80381F54
 	.data       start:0x804F4C50 end:0x804F4C60
 	.bss        start:0x80544980 end:0x80544BC0
 
@@ -17804,6 +17808,7 @@ gx/GXGeometry.c:
 
 gx/GXFrameBuf.c:
 	.text       start:0x8038A7A8 end:0x8038B594
+	.data       start:0x804F4F20 end:0x804F5088
 	.sdata2     start:0x805E04A8 end:0x805E04B8
 
 gx/GXLight.c:
@@ -17849,12 +17854,16 @@ TRK_MINNOW_DOLPHIN/nubevent.c:
 
 TRK_MINNOW_DOLPHIN/nubinit.c:
 	.text       start:0x8038FAF8 end:0x8038FC78
+	.rodata     start:0x8047B8E8 end:0x8047B908
+	.bss        start:0x80545160 end:0x80545168
 
 TRK_MINNOW_DOLPHIN/msg.c:
 	.text       start:0x8038FC78 end:0x8038FE54
 
 TRK_MINNOW_DOLPHIN/msgbuf.c:
 	.text       start:0x8038FE54 end:0x80390880
+	.rodata     start:0x8047B908 end:0x8047B928
+	.bss        start:0x80545168 end:0x80546B18
 
 TRK_MINNOW_DOLPHIN/serpoll.c:
 	.text       start:0x80390880 end:0x80390C4C
@@ -17911,6 +17920,7 @@ TRK_MINNOW_DOLPHIN/targcont.c:
 
 TRK_MINNOW_DOLPHIN/target_options.c:
 	.text       start:0x8039630C end:0x80396328
+	.bss        start:0x805492F8 end:0x80549300
 
 pso/unk/text_80396328.cpp:
 	.text       start:0x80396328 end:0x803963AC

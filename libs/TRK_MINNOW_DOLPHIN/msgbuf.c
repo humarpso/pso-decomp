@@ -1,3 +1,4 @@
+#define _MATH_H_
 #include "PowerPC_EABI_Support/MetroTRK/trk.h"
 
 TRKBuffer gTRKMsgBufs[3];
