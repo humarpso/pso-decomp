@@ -12,6 +12,15 @@ extern "C" {
 s32 destroy_subobj__13TObjEneMe1GeeFPv(void *, void *);
 extern RecoveredGlobal_800CB764_lbl_8043BDD0 lbl_8043BDD0;
 void TObjEneMe1Gee__sub_800CB764(u8 *arg0, s32 arg1);
+void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+void TObjEneMe1Gee__sub_800CB69C(void *);
+extern u8 TObjEneMe1Gee__data_8043BDB0[];
+extern char *lbl_80493868[];
+extern const f32 TObjEneMe1Gee__data_805DA0B4;
+extern const f32 lbl_805DA0CC;
+extern const f32 TObjEneMe1Gee__data_805DA0EC;
+extern const f32 lbl_805DA130;
+void TObjEneMe1Gee__sub_800CB7BC(u8 *arg0);
 }
 
 extern "C" {
@@ -23,6 +32,49 @@ void TObjEneMe1Gee__sub_800CB764(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x480) = arg1;
     M2C_FIELD(arg0, s32 *, 0x484) = 2;
     M2C_FIELD(arg0, s32 *, 0x488) = 0;
+}
+void TObjEneMe1Gee__sub_800CB7BC(u8 *arg0) {
+    switch (M2C_FIELD(arg0, s32 *, 0x47C)) {
+    case 0:
+        break;
+    case 1:
+        if (M2C_FIELD(arg0, f32 *, 0x468) > TObjEneMe1Gee__data_805DA0B4) {
+            M2C_FIELD(arg0, f32 *, 0x468) = M2C_FIELD(arg0, f32 *, 0x468) - lbl_805DA130;
+        } else {
+            M2C_FIELD(arg0, f32 *, 0x468) = TObjEneMe1Gee__data_805DA0B4;
+            M2C_FIELD(arg0, s32 *, 0x47C) = 0;
+        }
+        TObjEneMe1Gee__sub_800CB69C(arg0);
+        break;
+    case 2:
+        if (M2C_FIELD(arg0, f32 *, 0x468) < TObjEneMe1Gee__data_805DA0EC) {
+            M2C_FIELD(arg0, f32 *, 0x468) = M2C_FIELD(arg0, f32 *, 0x468) + lbl_805DA130;
+        } else {
+            M2C_FIELD(arg0, f32 *, 0x468) = TObjEneMe1Gee__data_805DA0EC;
+            M2C_FIELD(arg0, s32 *, 0x47C) = 0;
+        }
+        TObjEneMe1Gee__sub_800CB69C(arg0);
+        break;
+    case 3:
+        M2C_FIELD(arg0, s32 *, 0x484)++;
+        if ((f32)M2C_FIELD(arg0, s32 *, 0x484) >= lbl_805DA0CC) {
+            M2C_FIELD(arg0, s32 *, 0x484) = 0;
+            switch (lbl_80493868[M2C_FIELD(arg0, s32 *, 0x480)][M2C_FIELD(arg0, s32 *, 0x488)++]) {
+            case 'b':
+                M2C_FIELD(arg0, f32 *, 0x468) = TObjEneMe1Gee__data_805DA0B4;
+                break;
+            case 'c':
+                M2C_FIELD(arg0, s32 *, 0x47C) = 0;
+                copy_vec4__13TRaderMapCoreFPvPv(arg0 + 0x468, TObjEneMe1Gee__data_8043BDB0);
+                break;
+            case 'a':
+                M2C_FIELD(arg0, f32 *, 0x468) = TObjEneMe1Gee__data_805DA0EC;
+                break;
+            }
+            TObjEneMe1Gee__sub_800CB69C(arg0);
+        }
+        break;
+    }
 }
 
 }

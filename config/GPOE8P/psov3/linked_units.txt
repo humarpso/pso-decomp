@@ -161,6 +161,7 @@ pso/boss/TBoss6Type1_80320AE0.cpp
 pso/boss/TBoss6Type1_80323DCC.cpp
 pso/boss/TBoss6Type2_802B97E0.cpp
 pso/boss/TBoss6Type2_802B9858.cpp
+pso/boss/TBoss6Type2_802BA20C.cpp
 pso/boss/TBoss6Type2_802BA4D8.cpp
 pso/boss/TBoss6Type2_802BA7B0.cpp
 pso/boss/TBoss6Type2_802BA860.cpp
@@ -510,6 +511,7 @@ pso/enemy/TObjEneMe3Stelth_800F4F98.cpp
 pso/enemy/TObjEneMe3Stelth_800F4FCC.cpp
 pso/enemy/TObjEneMe3Stelth_800F5084.cpp
 pso/enemy/TObjEneMe3Stelth_800F52B0.cpp
+pso/enemy/TObjEneMe3Stelth_800F52FC.cpp
 pso/enemy/TObjEneMe3Stelth_800F53C8.cpp
 pso/enemy/TObjEneMe3Stelth_800F5864.cpp
 pso/enemy/TObjEneMe3Stelth_802D70AC.cpp
@@ -553,6 +555,7 @@ pso/enemy/TObjEneRe7Berura_80094F64.cpp
 pso/enemy/TObjEneRe7Berura_800967C0.cpp
 pso/enemy/TObjEneRe7Berura_80143098.cpp
 pso/enemy/TObjEneRe7Berura_803E4CE0.cpp
+pso/enemy/TObjEneRecobox.cpp
 pso/enemy/TObjEneRecon.cpp
 pso/enemy/TObjEneRecon_8029E89C.cpp
 pso/enemy/TObjEneRecon_8029E89C_8029EB40.cpp
@@ -917,6 +920,7 @@ pso/misc/TCheckMemoryCard.cpp
 pso/misc/TCheckRoomSequence_8013AD28.cpp
 pso/misc/TCheckRoomSequence_80211614.cpp
 pso/misc/TCheckRoomSequence_8021E464.cpp
+pso/misc/TCheckRoomSequence_80222FC0.cpp
 pso/misc/TContainerAncient01_8018B79C.cpp
 pso/misc/TContainerAncient01_8018BAE0.cpp
 pso/misc/TDLGraph.cpp
@@ -2430,6 +2434,7 @@ pso/player/TObjPlayer_80040B28.cpp
 pso/player/TObjPlayer_80042D90.cpp
 pso/player/TObjPlayer_80048360.cpp
 pso/player/TObjPlayer_800495E0.cpp
+pso/player/TObjPlayer_80052374.cpp
 pso/player/TObjPlayer_80054664.cpp
 pso/player/TObjPlayer_80055678.cpp
 pso/player/TObjPlayer_800666B0.cpp
@@ -2769,6 +2774,7 @@ pso/player/TObjPlayer_801B3FD8_801B4BD8.cpp
 pso/player/TObjPlayer_801B3FD8_801B53BC.cpp
 pso/player/TObjPlayer_801B3FD8_801B5408.cpp
 pso/player/TObjPlayer_801B3FD8_801B78A8.cpp
+pso/player/TObjPlayer_801B8310.cpp
 pso/player/TObjPlayer_801B8C78.cpp
 pso/player/TObjPlayer_801B8D30.cpp
 pso/player/TObjPlayer_801B90C0.cpp
@@ -3340,6 +3346,7 @@ pso/ui/TAdSinglePlyChrSelectGC_802233A0.cpp
 pso/ui/TAdSinglePlyChrSelectGC_80242CFC.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802431D0.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8028C650.cpp
+pso/ui/TAdSinglePlyChrSelectGC_8028D5D4.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8028D5D4_8028D5D4.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8029A914.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8029BC4C.cpp

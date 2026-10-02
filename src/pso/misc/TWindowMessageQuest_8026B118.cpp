@@ -8,11 +8,32 @@ struct RecoveredGlobal_8026B118_lbl_8044F464 {
     u8 remaining[0x8];
 };
 
+struct Win_8026B148 {
+    u8 pad0[0x24];
+    u8 entries[0x5C - 0x24];
+    s32 opening;
+    u8 pad1[0x90 - 0x60];
+    s32 mode;
+};
+
+struct Ctx_8026B148 {
+    u8 pad0[0x28];
+    f32 scaleX;
+    f32 scaleY;
+    s32 reveal;
+};
+
 extern "C" {
 s32 fn_8026B0C4(int, void *);
 s32 TWindowSubComCard__sub_8026CBB8(int);
 extern RecoveredGlobal_8026B118_lbl_8044F464 lbl_8044F464;
 void fn_8026B118(void);
+Ctx_8026B148 *TWindowSubStatusDisp__sub_80244364(void *);
+void TWindowSubComCard__sub_80245808(void *, void *);
+void TWindowSubComCard__sub_80245F98(void *, void *);
+void TWindowSubStatusDisp__sub_80257BC0(void *, void *, void *);
+extern const f32 lbl_805DD260;
+void TWindowMessageQuest__sub_8026B148(Win_8026B148 *w);
 }
 
 extern "C" {
@@ -20,6 +41,25 @@ extern "C" {
 typedef char RecoveredGlobal_8026B118_lbl_8044F464_size[sizeof(RecoveredGlobal_8026B118_lbl_8044F464) == 0xC ? 1 : -1];
 void fn_8026B118(void) {
     fn_8026B0C4((int) (TWindowSubComCard__sub_8026CBB8((int) (0xAD))), (void *) (&lbl_8044F464.value));
+}
+void TWindowMessageQuest__sub_8026B148(Win_8026B148 *w) {
+    Ctx_8026B148 *c;
+    c = TWindowSubStatusDisp__sub_80244364(w);
+    switch (w->mode) {
+    case 0:
+        if (c->reveal < 0) {
+            c->scaleX = (f32)w->opening / lbl_805DD260;
+            c->scaleY = c->scaleX;
+        }
+        TWindowSubComCard__sub_80245808(w, c);
+        break;
+    case 1:
+        TWindowSubComCard__sub_80245F98(w, c);
+        break;
+    case 2:
+        break;
+    }
+    TWindowSubStatusDisp__sub_80257BC0(w, w->entries, c);
 }
 
 }

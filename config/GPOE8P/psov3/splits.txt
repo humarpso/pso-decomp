@@ -2777,6 +2777,7 @@ pso/enemy/TObjEneMe1Gee_800CB72C.cpp:
 
 pso/enemy/TObjEneMe1Gee_800CB764.cpp:
 	.text       start:0x800CB764 end:0x800CB948
+	.rodata     start:0x8043BE90 end:0x8043BE98
 
 pso/enemy/TObjEneMe1Gee_800CB948.cpp:
 	.text       start:0x800CB948 end:0x800CB968
@@ -12902,6 +12903,7 @@ pso/misc/TLobby_8026B06C.cpp:
 
 pso/misc/TWindowMessageQuest_8026B118.cpp:
 	.text       start:0x8026B118 end:0x8026B208
+	.rodata     start:0x8044F470 end:0x8044F478
 
 pso/misc/TWindowMessageQuest.cpp:
 	.text       start:0x8026B208 end:0x8026B260
@@ -18440,6 +18442,7 @@ pso/unk/text_803DAFA8.cpp:
 
 pso/unk/text_803DB23C.cpp:
 	.text       start:0x803DB23C end:0x803DB390
+	.sdata2     start:0x805E0F58 end:0x805E0F68
 
 pso/unk/text_803DB390.cpp:
 	.text       start:0x803DB390 end:0x803DB470
