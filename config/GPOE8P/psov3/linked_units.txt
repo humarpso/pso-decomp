@@ -290,6 +290,7 @@ pso/boss/TBoss8Dragon_802FCCD0.cpp
 pso/boss/TBoss8Dragon_802FCD10.cpp
 pso/boss/TBoss8Dragon_802FD9D0.cpp
 pso/boss/TBoss8Dragon_80324D3C.cpp
+pso/boss/TBoss8Dragon_80325D38.cpp
 pso/boss/TBoss8Dragon_80359A7C.cpp
 pso/boss/TObjBoss1Crater_8002C6B4.cpp
 pso/boss/TObjBoss1Floor.cpp
@@ -1880,6 +1881,7 @@ pso/misc/TWindowChat_80247534.cpp
 pso/misc/TWindowChat_80247D50.cpp
 pso/misc/TWindowChat_8025CB10.cpp
 pso/misc/TWindowCheckBox.cpp
+pso/misc/TWindowChoiceSetting.cpp
 pso/misc/TWindowChoiceSetting_801A6F38.cpp
 pso/misc/TWindowChoiceSetting_80249240.cpp
 pso/misc/TWindowChoiceSetting_80249610.cpp
@@ -2480,8 +2482,7 @@ pso/object/TObjRainCtrl_80197CE8.cpp
 pso/object/TObjResultWin.cpp
 pso/object/TObjRoomId_800FD8C8.cpp
 pso/object/TObjSeabedSuisoBrakable_801315D4.cpp
-pso/object/TObjSeabedSuisoBrakable_802A69BC.cpp
-pso/object/TObjSeabedSuisoBrakable_802A6A54.cpp
+pso/object/TObjSeabedSuisoBrakable_802A62E8.cpp
 pso/object/TObjSoloPlayWin.cpp
 pso/object/TObjSoloPlayWin_800747C4.cpp
 pso/object/TObjTailsTailsMove.cpp
@@ -3459,7 +3460,7 @@ pso/ui/TAdPlayerLoadGC_802D6488.cpp
 pso/ui/TAdPlayerLoadGC_802D64B4.cpp
 pso/ui/TAdPlayerLoadGC_8033BB14.cpp
 pso/ui/TAdPlyPltAnimCtrlGC.cpp
-pso/ui/TAdPlyPltAnimCtrlGC_80355D20.cpp
+pso/ui/TAdPlyPltAnimGC.cpp
 pso/ui/TAdPlyPltAnimGC_80356190.cpp
 pso/ui/TAdPlyStatusGC_802E1128.cpp
 pso/ui/TAdPlyStatusGC_8033FD48.cpp
@@ -4227,7 +4228,6 @@ pso/unk/text_80266388.cpp
 pso/unk/text_80267F38.cpp
 pso/unk/text_80267F9C.cpp
 pso/unk/text_80268384.cpp
-pso/unk/text_80268BE4.cpp
 pso/unk/text_80269004.cpp
 pso/unk/text_8026934C.cpp
 pso/unk/text_802693B4.cpp
@@ -4330,6 +4330,7 @@ pso/unk/text_802E3BA8.cpp
 pso/unk/text_802E4A4C.cpp
 pso/unk/text_802E79B0.cpp
 pso/unk/text_802EC52C.cpp
+pso/unk/text_802EDCF0.cpp
 pso/unk/text_802EED20.cpp
 pso/unk/text_802EEE24.cpp
 pso/unk/text_802EFEA8.cpp
@@ -4348,6 +4349,7 @@ pso/unk/text_802FE9E0.cpp
 pso/unk/text_802FEA38.cpp
 pso/unk/text_802FF028.cpp
 pso/unk/text_802FF760.cpp
+pso/unk/text_80302DC0.cpp
 pso/unk/text_80302F6C.cpp
 pso/unk/text_80302FD8.cpp
 pso/unk/text_80306A64.cpp
@@ -4360,6 +4362,7 @@ pso/unk/text_80312C50.cpp
 pso/unk/text_80320358.cpp
 pso/unk/text_80324E10.cpp
 pso/unk/text_80325660.cpp
+pso/unk/text_80325F7C.cpp
 pso/unk/text_80327338.cpp
 pso/unk/text_80327844.cpp
 pso/unk/text_803278B0.cpp

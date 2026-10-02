@@ -12718,18 +12718,9 @@ pso/misc/TWindowSubComCard_80268494.cpp:
 pso/misc/TWindowSubStatusDisp_80268738.cpp:
 	.text       start:0x80268738 end:0x80268794
 
-pso/misc/TWindowChoiceSetting_80268794.cpp:
-	.text       start:0x80268794 end:0x80268AD8
-
 pso/misc/TWindowChoiceSetting.cpp:
-	.text       start:0x80268AD8 end:0x80268BE4
-
-pso/unk/text_80268BE4.cpp:
-	.text       start:0x80268BE4 end:0x80268C80
-
-pso/misc/TWindowSubStatusDisp_80268C80.cpp:
-	.text       start:0x80268C80 end:0x80269004
-	.rodata     start:0x8044F3A8 end:0x8044F3B0
+	.text       start:0x80268794 end:0x80269004
+	.rodata     start:0x8044F3A8 end:0x8044F3B8
 
 pso/unk/text_80269004.cpp:
 	.text       start:0x80269004 end:0x80269064
@@ -14028,17 +14019,8 @@ pso/object/TObjSuisoChip.cpp:
 	.text       start:0x802A6168 end:0x802A62E8
 
 pso/object/TObjSeabedSuisoBrakable_802A62E8.cpp:
-	.text       start:0x802A62E8 end:0x802A69BC
-	.rodata     start:0x80466CD0 end:0x80466CD8
-
-pso/object/TObjSeabedSuisoBrakable_802A69BC.cpp:
-	.text       start:0x802A69BC end:0x802A6A54
-
-pso/object/TObjSeabedSuisoBrakable_802A6A54.cpp:
-	.text       start:0x802A6A54 end:0x802A6B4C
-
-pso/object/TObjSeabedSuisoBrakable_802A6B4C.cpp:
-	.text       start:0x802A6B4C end:0x802A6F40
+	.text       start:0x802A62E8 end:0x802A6F40
+	.rodata     start:0x80466CD0 end:0x80466CE0
 
 pso/object/TObjSeabedSuisoBrakable.cpp:
 	.text       start:0x802A6F40 end:0x802A7290
@@ -16914,15 +16896,9 @@ pso/player/TObjPlayer_80355A58.cpp:
 pso/unk/text_80355C1C.cpp:
 	.text       start:0x80355C1C end:0x80355C74
 
-pso/ui/TAdPlyPltAnimGC_80355C74.cpp:
-	.text       start:0x80355C74 end:0x80355D20
-	.rodata     start:0x80479368 end:0x80479370
-
-pso/ui/TAdPlyPltAnimCtrlGC_80355D20.cpp:
-	.text       start:0x80355D20 end:0x80355DE0
-
 pso/ui/TAdPlyPltAnimGC.cpp:
-	.text       start:0x80355DE0 end:0x80356190
+	.text       start:0x80355C74 end:0x80356190
+	.rodata     start:0x80479368 end:0x80479378
 
 pso/ui/TAdPlyPltAnimGC_80356190.cpp:
 	.text       start:0x80356190 end:0x803561C4

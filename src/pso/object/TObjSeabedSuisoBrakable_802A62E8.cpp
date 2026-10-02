@@ -3,6 +3,8 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" int get_instance__23TObjSeabedSuisoBrakableFv(void);
+extern "C" u8 * TObjSeabedSuisoBrakable__sub_802A6F04(s32 arg0);
 struct Base_802A63F8_802A62E8 { char pad[0x18]; };
 struct VObj_802A63F8_802A62E8 : Base_802A63F8_802A62E8 {
     virtual void m0();  virtual void m1();  virtual void m2();  virtual void m3();
@@ -77,8 +79,6 @@ typedef struct Obj_802A6490 {
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-s32 get_instance__23TObjSeabedSuisoBrakableFv(int);
-s32 TObjSeabedSuisoBrakable__sub_802A6F04(int);
 extern RecoveredGlobal_802A6438_lbl_804DD388 lbl_804DD388;
 extern const f32 lbl_805DDFFC;
 void TObjSeabedSuisoBrakable__sub_802A6438(u8 *arg0);
@@ -94,8 +94,6 @@ u8 *TObjSeabedSuisoBrakable__ct(u8 *arg0, s32 arg1);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 void *__nw__7TObjectFUl(int);
 void init__13TObjSuisoChipFPvPv(void *, void *, void *);
-s32 get_instance__23TObjSeabedSuisoBrakableFv(int);
-s32 TObjSeabedSuisoBrakable__sub_802A6F04(int);
 extern RecoveredGlobal_802A6438_lbl_804DD388 lbl_804DD388;
 extern const f32 lbl_805DE000;
 extern const f32 lbl_805DE004;
@@ -121,7 +119,7 @@ u8 TODoorAncient08__sub_80229220(u16);
 M2C_UNK TORockCave__sub_80175134(void *);
 void TObjEneGibbles__sub_80156720(void *);
 void TObjPlayer__sub_80154A00(void *);
-void *TObjSeabedSuisoBrakable__sub_802A6DA8(void *, void *, void *);
+struct Obj_802A6DA8; Obj_802A6DA8 *TObjSeabedSuisoBrakable__sub_802A6DA8(Obj_802A6DA8 *, s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__18TORockCaveBrakableFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -183,9 +181,9 @@ void TObjSeabedSuisoBrakable__sub_802A6438(u8 *arg0) {
     var_r3 = (M2C_UNK *)(&lbl_804DD388.value);
     var_r3 = (M2C_UNK *)(&lbl_804DD388.value);
     var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_804DD388.value, M2C_UNK *, (M2C_FIELD(var_r31, s32 *, 0xBC) * 0x120)));
-    M2C_FIELD(var_r31, s32 *, 0x34) = TObjSeabedSuisoBrakable__sub_802A6F04((int) (var_r3));
+    M2C_FIELD(var_r31, s32 *, 0x34) = ((s32 (*)(int))TObjSeabedSuisoBrakable__sub_802A6F04)((int) (var_r3));
     var_r3 = (M2C_UNK *)((u8 *)(NULL));
-    M2C_FIELD(var_r31, s32 *, 0x24) = get_instance__23TObjSeabedSuisoBrakableFv((int) (0));
+    M2C_FIELD(var_r31, s32 *, 0x24) = ((s32 (*)(int))get_instance__23TObjSeabedSuisoBrakableFv)((int) (0));
     var_f0 = lbl_805DDFFC;
     M2C_FIELD(var_r31, f32 *, 0xB0) = var_f0;
 }
@@ -210,12 +208,12 @@ void TObjSeabedSuisoBrakable__vt14(Obj_802A6490 *self) {
     p.f40 = self->pos.y;
     p.f44 = lbl_805DE014;
     p.i48 = 0;
-    p.i4c = get_instance__23TObjSeabedSuisoBrakableFv(0);
+    p.i4c = ((s32 (*)(int))get_instance__23TObjSeabedSuisoBrakableFv)(0);
     p.i50 = 17;
     rec = ((Set_802A6490 *)&lbl_804DD388)[self->kind].recs;
     for (i = 0; i < 17; i++, rec++) {
         if (rec->id >= 0) {
-            p.i48 = TObjSeabedSuisoBrakable__sub_802A6F04(rec->id);
+            p.i48 = ((s32 (*)(int))TObjSeabedSuisoBrakable__sub_802A6F04)(rec->id);
             p.pos.x = rec->pos.x;
             p.pos.y = rec->pos.y;
             p.pos.z = rec->pos.z;
@@ -291,7 +289,7 @@ extern void *tl_05;
 void *create__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xDC);
     if (o != NULL) {
-        o = TObjSeabedSuisoBrakable__sub_802A6DA8(o, tl_05, arg0);
+        o = ((void *(*)(void *, void *, void *))TObjSeabedSuisoBrakable__sub_802A6DA8)(o, tl_05, arg0);
     }
     return o;
 }
@@ -355,6 +353,263 @@ void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0) {
         }
         lbl_805D6678 = lbl_805D53A4;
     }
+}
+
+}
+
+extern "C" {
+
+void notify_break__23TObjSeabedSuisoBrakableFPv(void *arg0);
+s32 get_break_data__23TObjSeabedSuisoBrakableFi(M2C_UNK);
+void *count_linked_switches__23TObjSeabedSuisoBrakableFUii(s32, M2C_UNK);
+M2C_UNK set_npc_enemy_param(M2C_UNK *);
+
+extern s32 lbl_805D53A4;
+extern s32 lbl_805D6678;
+
+void notify_break__23TObjSeabedSuisoBrakableFPv(void *arg0) {
+    s32 temp_r3;
+    void *temp_r31;
+
+    temp_r31 = count_linked_switches__23TObjSeabedSuisoBrakableFUii(M2C_FIELD(arg0, s32 *, 0xD4), 4);
+    if ((s32) lbl_805D6678 != (s32) lbl_805D53A4) {
+        if ((temp_r31 != NULL) && ((u32) M2C_FIELD(temp_r31, u32 *, 4) != 0U)) {
+            temp_r3 = get_break_data__23TObjSeabedSuisoBrakableFi(0);
+            if (temp_r3 != -1) {
+                ((M2C_UNK (*)(u32, M2C_UNK, M2C_UNK, u16, M2C_UNK))TOComputerMachine01__sub_8023DDC8)(M2C_FIELD(temp_r31, u32 *, 4), 1, 0, (u16) temp_r3, 1);
+            }
+        }
+        lbl_805D6678 = lbl_805D53A4;
+    }
+    set_npc_enemy_param((M2C_UNK *)notify_break__23TObjSeabedSuisoBrakableFUi);
+}
+
+}
+
+struct Base18 { char pad[0x18]; };
+
+struct VObj : Base18 { virtual M2C_UNK m0(); virtual M2C_UNK m1(); virtual M2C_UNK m2(); virtual M2C_UNK m3(); virtual M2C_UNK m4(); virtual M2C_UNK m5(); virtual M2C_UNK m6(); virtual M2C_UNK m7(); virtual M2C_UNK m8(f32, f32); };
+
+extern "C" {
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK fn_801FBA6C(s32);
+void update_state__23TObjSeabedSuisoBrakableFPv(void *arg0);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi();
+M2C_UNK TObjDoor__sub_803DC894(s32, void *, f32);
+void TObjSeabedSuisoBrakable__sub_802A6AA4(u8 *arg0);
+}
+
+extern "C" {
+
+void update_state__23TObjSeabedSuisoBrakableFPv(void *arg0);
+
+void update_state__23TObjSeabedSuisoBrakableFPv(void *arg0) {
+    s32 temp_r0;
+
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0xC8);
+    switch (temp_r0) {
+    case 2:
+        ((M2C_UNK (*)(void))notify_break__23TObjSeabedSuisoBrakableFPv)();
+        return;
+    case 3:
+        ((M2C_UNK (*)(void))update_switch_lock__23TObjSeabedSuisoBrakableFPv)();
+    case 0:
+        return;
+    }
+}
+void TObjSeabedSuisoBrakable__sub_802A6AA4(u8 *arg0) {
+    void *p;
+    if (((VObj *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
+        end_effect_render__13TParticleCtrlFv();
+        update_state__23TObjSeabedSuisoBrakableFPv(arg0);
+        ((M2C_UNK (*)(M2C_UNK))get_instance__23TObjSeabedSuisoBrakableFv)(0);
+        set_global_param__8TObjFishFi();
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
+        p = M2C_FIELD(arg0, void **, 0xBC);
+        if (p != NULL) {
+            TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0xD4), p, M2C_FIELD(arg0, f32 *, 0xB0));
+        } else {
+            fn_801FBA6C(M2C_FIELD(arg0, s32 *, 0xD4));
+        }
+        TObjPlayer__sub_803D9B78();
+        ((M2C_UNK (*)(M2C_UNK))set_npc_enemy_param)(0);
+    }
+}
+
+}
+
+extern "C" {
+u8 * TObjFish__sub_8001ED9C(void *, int);
+extern u8 *TObjSeabedSuisoBrakable__data_805D6670;
+u8 *TObjSeabedSuisoBrakable__sub_802A6EC0(s32 arg0);
+u8 * TObjFish__sub_8001EDC4(void *, int);
+extern u8 *TObjSeabedSuisoBrakable__data_805D6670;
+u8 *TObjSeabedSuisoBrakable__sub_802A6F04(s32 arg0);
+}
+
+extern "C" {
+
+void *__dt__23TObjSeabedSuisoBrakableFPvs(void *arg0, s16 arg1);
+int get_instance__23TObjSeabedSuisoBrakableFv(void);
+void TObjEneGibbles__sub_80156720(void *);
+void TObjPlayer__sub_80154A00(void *);
+void __dl__7TObjectFPv(void *);
+void destroy_key_base__5TOKeyFPvs(void *, int);
+void queue_destruction__7TObjectFv(void *);
+
+extern M2C_UNK lbl_804DD7F4[];
+
+void *__dt__23TObjSeabedSuisoBrakableFPvs(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804DD7F4;
+        if (M2C_FIELD(arg0, void **, 0xD8) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xD8)); M2C_FIELD(arg0, M2C_UNK *, 0xD8) = 0; }
+        TObjPlayer__sub_80154A00(arg0);
+        TObjEneGibbles__sub_80156720(arg0);
+        destroy_key_base__5TOKeyFPvs(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+}
+struct Ent18_802A6BD0 {
+    s32 a;
+    s32 b;
+    f32 f8;
+    s32 id;
+    f32 f10;
+    f32 f14;
+};
+
+struct Snd_802A6BD0 {
+    u8 pad0[4];
+    u32 len;
+};
+
+struct Obj_802A6BD0 {
+    u8 pad0[0x84];
+    s32 f84;
+    u32 f88;
+    u8 pad8c[0xB4 - 0x8C];
+    f32 fb4;
+    f32 fb8;
+    Snd_802A6BD0 *fbc;
+    f32 fc0;
+    f32 fc4;
+    s32 kind;
+    u32 fcc;
+    s32 fd0;
+    u8 *fd4;
+};
+
+struct Ent2C_802A6DA8 { u8 pad[0x2C]; };
+
+struct VBase_802A6DA8 { char pad[0x18]; };
+struct Obj_802A6DA8 : VBase_802A6DA8 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5(s32);
+    u8 pad1c[0x38 - 0x1C];
+    u8 pos[0x84 - 0x38];
+    s32 f84;
+    u8 pad88[0xC8 - 0x88];
+    s32 kind;
+    u8 padcc[0xD8 - 0xCC];
+    s32 fd8;
+};
+
+extern "C" {
+s32 TBoss4Type2__sub_800874F4(void *, s32);
+void init_map_object_base(void *, s32, s32);
+extern Ent18_802A6BD0 lbl_804DD278[];
+extern Ent2C_802A6DA8 lbl_804DD2D8[];
+extern s32 lbl_805D3E00;
+extern const f32 lbl_805DDFF8;
+#pragma push
+#pragma opt_propagation off
+void TObjSeabedSuisoBrakable__sub_802A6BD0(void *arg0) {
+    Obj_802A6BD0 *self = (Obj_802A6BD0 *)arg0;
+    u32 v;
+
+    self->kind = (s32)get_random_float__8TObjFishFv((f32)self->f84);
+    if (self->kind > 3) {
+        self->kind = 3;
+    }
+    self->fd4 = TObjSeabedSuisoBrakable__sub_802A6F04(lbl_804DD278[self->kind].a);
+    if (lbl_804DD278[self->kind].b != -1) {
+        self->fbc = (Snd_802A6BD0 *)TObjSeabedSuisoBrakable__sub_802A6EC0(lbl_804DD278[self->kind].b);
+        self->fb8 = lbl_804DD278[self->kind].f8;
+    } else {
+        self->fbc = 0;
+        self->fb8 = lbl_805DDFF8;
+    }
+    if (self->fbc != 0) {
+        self->fb4 = (f32)self->fbc->len - lbl_805DE014;
+    }
+    self->fc0 = lbl_804DD278[self->kind].f10;
+    self->fc4 = lbl_804DD278[self->kind].f14;
+    if (self->kind == 3) {
+        v = self->f88;
+        self->fcc = v >> 16;
+        self->fcc = (s32)self->fcc < 0 ? 0 : (0xFF < (s32)self->fcc ? 0xFF : (s32)self->fcc);
+        self->fd0 = v & 0xFFFF;
+        self->fd0 = self->fd0 < 0 ? 0 : (0x100 - (s32)self->fcc < self->fd0 ? 0x100 - (s32)self->fcc : self->fd0);
+    } else {
+        self->fcc = 0;
+        self->fd0 = 0;
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma opt_propagation off
+Obj_802A6DA8 *TObjSeabedSuisoBrakable__sub_802A6DA8(Obj_802A6DA8 *self, s32 arg1, s32 arg2) {
+    init_map_object_base(self, arg1, arg2);
+    *(M2C_UNK **)((u8 *)self + 0x18) = lbl_804DD7F4;
+    *(s32 *)self = lbl_805D3E00;
+    self->m5(arg2);
+    TObjSeabedSuisoBrakable__sub_802A6BD0(self);
+    self->kind = (s32)get_random_float__8TObjFishFv((f32)self->f84);
+    if (self->kind > 3) {
+        self->kind = 3;
+    }
+    TObjEneGibbles__sub_80156780(self, (int)&lbl_804DD2D8[self->kind], 1);
+    reset_photon_effect__10TObjPlayerFPv(self);
+    if (lbl_804DD278[self->kind].id >= 0) {
+        self->fd8 = TBoss4Type2__sub_800874F4(self->pos, lbl_804DD278[self->kind].id);
+    } else {
+        self->fd8 = 0;
+    }
+    return self;
+}
+#pragma pop
+
+    extern int lbl_805D6674;
+
+u8 *TObjSeabedSuisoBrakable__sub_802A6EC0(s32 arg0) {
+    if ((void *) TObjSeabedSuisoBrakable__data_805D6670 != NULL) {
+        return TObjFish__sub_8001ED9C(TObjSeabedSuisoBrakable__data_805D6670, arg0);
+    }
+    return NULL;
+}
+
+int get_instance__23TObjSeabedSuisoBrakableFv(void) {  return lbl_805D6674; }
+u8 *TObjSeabedSuisoBrakable__sub_802A6F04(s32 arg0) {
+    if ((void *) TObjSeabedSuisoBrakable__data_805D6670 != NULL) {
+        return TObjFish__sub_8001EDC4(TObjSeabedSuisoBrakable__data_805D6670, arg0);
+    }
+    return NULL;
 }
 
 }
