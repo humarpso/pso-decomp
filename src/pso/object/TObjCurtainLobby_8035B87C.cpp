@@ -4,9 +4,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Curtain_8035B94C {
+    u8 pad[0xC8];
+    s32 state;
+    f32 pos;
+};
+
 extern "C" {
 s32 TLobby__sub_80351DFC(void);
 s32 TObjCurtainLobby__sub_8035B87C(void);
+s32 check_demo_mode__10TObjPlayerFv();
+s32 TObjCurtainLobby__sub_8035B87C(void);
+void TObjCurtainLobby__sub_8035B8B4(void);
+void run_task__16TObjCurtainLobbyFv(Curtain_8035B94C *self);
 }
 
 extern "C" {
@@ -59,6 +69,38 @@ void render__16TObjCurtainLobbyFv(u8 *arg0) {
         TObjBoss2Tunnel__sub_803DB470((int) (M2C_FIELD(arg0, s32 *, 0x34)));
         TObjPlayer__sub_803D9B78();
         end_effect_render__13TParticleCtrlFv();
+    }
+}
+void run_task__16TObjCurtainLobbyFv(Curtain_8035B94C *self) {
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
+        ((void (*)(void *))TObjCurtainLobby__sub_8035B8B4)(self);
+    }
+    switch (self->state) {
+    case 0:
+        if (((s32 (*)(void *))TObjCurtainLobby__sub_8035B87C)(self) == 0xC) {
+            self->state = 2;
+        }
+        break;
+    case 2:
+        self->pos += 0.1f;
+        if (self->pos >= 1.0f) {
+            self->pos = 1.0f;
+            self->state = 3;
+        }
+        break;
+    case 1:
+        self->pos = self->pos - 0.1f;
+        if (self->pos <= 0.0f) {
+            self->pos = 0.0f;
+            self->state = 0;
+        }
+        break;
+    case 3:
+    default:
+        if (((s32 (*)(void *))TObjCurtainLobby__sub_8035B87C)(self) != 0xC) {
+            self->state = 1;
+        }
+        break;
     }
 }
 

@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void free_children__12TObjDoorJungFPvPv(void *, u16);
+extern void *lbl_8050DDC8[];
+extern s32 lbl_805D5CBC;
+extern s32 lbl_805D5CC0;
+s32 TObjWarpJung__sub_801A0404(s32 arg0);
+}
+
+extern "C" {
 
 void render_warp__12TObjWarpJungFPv(void* a0);
 s32 update_warp_display__12TObjWarpJungFv(void);
@@ -19,6 +27,27 @@ extern s32 lbl_805D53A4;
 extern s32 lbl_805D5CB4;
 extern s32 lbl_805D5CB8;
 extern s32 lbl_805D5CC4;
+
+s32 TObjWarpJung__sub_801A0404(s32 arg0) {
+    s32 i;
+    switch (arg0) {
+    case 0:
+        if (lbl_805D5CBC >= 0) {
+            for (i = 0; i < 6; i++) {
+                free_children__12TObjDoorJungFPvPv(lbl_8050DDC8[i], lbl_805D5CBC);
+            }
+        }
+        break;
+    case 1:
+        if (lbl_805D5CC0 >= 0) {
+            for (i = 0; i < 6; i++) {
+                free_children__12TObjDoorJungFPvPv(lbl_8050DDC8[i], lbl_805D5CC0);
+            }
+        }
+        break;
+    }
+    return 1;
+}
 
 s32 update_warp_display__12TObjWarpJungFv(void) {
     if ((s32) lbl_805D53A4 != (s32) lbl_805D5CB4) {

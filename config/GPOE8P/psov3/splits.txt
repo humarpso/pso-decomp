@@ -7742,6 +7742,7 @@ pso/object/TObjCity_Season_Board.cpp:
 
 pso/unk/text_80183A38.cpp:
 	.text       start:0x80183A38 end:0x80183BFC
+	.sdata2     start:0x805DBC1C end:0x805DBC5C
 
 pso/unk/text_80183BFC.cpp:
 	.text       start:0x80183BFC end:0x80183C5C
@@ -16229,6 +16230,7 @@ pso/ui/TAdDialingGC_80328848.cpp:
 
 pso/ui/TAdDialingGC_80328904.cpp:
 	.text       start:0x80328904 end:0x80328A4C
+	.data       start:0x804ED648 end:0x804ED690
 
 pso/ui/TAdDialingGC_80328A4C.cpp:
 	.text       start:0x80328A4C end:0x80328A70
@@ -17178,6 +17180,7 @@ pso/unk/text_8035B788.cpp:
 
 pso/object/TObjCurtainLobby_8035B87C.cpp:
 	.text       start:0x8035B87C end:0x8035BA48
+	.sdata2     start:0x805E0148 end:0x805E0158
 
 pso/object/TObjCurtainLobby.cpp:
 	.text       start:0x8035BA48 end:0x8035BB24
@@ -18488,6 +18491,7 @@ pso/misc/TKeyBoardControl_803DD428.cpp:
 
 pso/unk/text_803DD430.cpp:
 	.text       start:0x803DD430 end:0x803DD5E0
+	.sdata2     start:0x805E0FA8 end:0x805E0FB0
 
 pso/unk/text_803DD5E0.cpp:
 	.text       start:0x803DD5E0 end:0x803DE778

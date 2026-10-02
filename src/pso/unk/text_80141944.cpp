@@ -14,6 +14,12 @@ void GXSetZCompLoc(s32);
 void set_current_scene__6TSceneFi(s32);
 extern RecoveredGlobal_80141944_lbl_8050C000 lbl_8050C000;
 void set_depth_buffer_settings_1__Fv(void);
+void GXSetAlphaCompare(s32, s32, s32, s32, s32);
+void GXSetZMode(u8, s32, s32);
+void GXSetZCompLoc(s32);
+void set_current_scene__6TSceneFi(s32);
+extern RecoveredGlobal_80141944_lbl_8050C000 lbl_8050C000;
+void set_depth_buffer_settings_3__Fv(void);
 }
 
 extern "C" {
@@ -28,6 +34,18 @@ void set_depth_buffer_settings_1__Fv(void) {
     GXSetZCompLoc(0);
     GXSetZMode(1U, 3, 0);
     set_current_scene__6TSceneFi(0);
+}
+void set_depth_buffer_settings_3__Fv(void) {
+    lbl_8050C000.value = 7;
+    M2C_FIELD(&lbl_8050C000.value, s8 *, 4) = 1;
+    M2C_FIELD(&lbl_8050C000.value, s8 *, 5) = 1;
+    M2C_FIELD(&lbl_8050C000.value, s32 *, 8) = 1;
+    M2C_FIELD(&lbl_8050C000.value, s8 *, 0xC) = 1;
+    M2C_FIELD(&lbl_8050C000.value, u8 *, 0xD) = 0xBF;
+    GXSetAlphaCompare(7, 0, 0, 7, 0);
+    GXSetZCompLoc(1);
+    GXSetZMode(1U, 1, 1);
+    set_current_scene__6TSceneFi(M2C_FIELD(&lbl_8050C000.value, u8 *, 0xD));
 }
 
 }

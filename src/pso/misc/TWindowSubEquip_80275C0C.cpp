@@ -2,6 +2,35 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK;
+struct Equip_80275CB0 {
+    u8 pad0[0x18];
+    M2C_UNK *vt;
+    s8 x1c;
+    u8 pad1d[3];
+    s32 x20;
+    void *parent;
+    void *custom;
+    s32 x2c;
+    void *list;
+    s16 x34;
+    s16 x36;
+};
+
+extern "C" {
+void *__nw__7TObjectFUl(u32);
+void __ct__7TObjectFP7TObject(void *, void *);
+void set_field_1c__6TLobbyFPvf(void *);
+void call_if_split_screen(void *, s32);
+void TWindowSubEquip__sub_80263AF8(void *, s32);
+void *TLobby__sub_80269CC0(void *, void *, s32, s32);
+void *TWindowSubComCard__sub_8026CBB8(s32);
+void *TWindowSubCustomEquip__ct(void *, s32);
+extern u8 lbl_8044F718[];
+extern M2C_UNK lbl_804D1160[];
+void *TWindowSubEquip__sub_80275CB0(void *arg0, void *arg1, s32 arg2);
+}
+
 extern "C" {
 
 void *destroy__15TWindowSubEquipFPvs(void *arg0, s16 arg1);
@@ -24,5 +53,30 @@ void *destroy__15TWindowSubEquipFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+#define self ((Equip_80275CB0 *)arg0)
+void *TWindowSubEquip__sub_80275CB0(void *arg0, void *arg1, s32 arg2) {
+    void *p;
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    self->vt = lbl_804D1160;
+    self->parent = arg1;
+    self->x20 = arg2;
+    p = __nw__7TObjectFUl(0x70);
+    if (p != NULL) {
+        p = TWindowSubCustomEquip__ct(p, self->x20);
+    }
+    self->custom = p;
+    TWindowSubEquip__sub_80263AF8(self->parent, 0);
+    set_field_1c__6TLobbyFPvf(self->custom);
+    self->list = TLobby__sub_80269CC0(TWindowSubComCard__sub_8026CBB8(0x11), lbl_8044F718, 1, self->x20);
+    TWindowSubEquip__sub_80263AF8(self->parent, 2);
+    set_field_1c__6TLobbyFPvf(self->list);
+    call_if_split_screen(self->list, self->x20);
+    self->x2c = 0;
+    self->x34 = 0;
+    self->x36 = 0;
+    self->x1c = 0;
+    return arg0;
+}
+#undef self
 
 }

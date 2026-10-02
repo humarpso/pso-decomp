@@ -25,6 +25,42 @@ VA
     virtual s32 m14();
 };
 
+struct ShopPlayerHeader { char taskHeader[0x18]; };
+
+struct ShopPlayerLevel : ShopPlayerHeader {
+    virtual void reserved0();
+    virtual void reserved1();
+    virtual void reserved2();
+    virtual void reserved3();
+    virtual void reserved4();
+    virtual void reserved5();
+    virtual void reserved6();
+    virtual void reserved7();
+    virtual void reserved8();
+    virtual void reserved9();
+    virtual void reserved10();
+    virtual void reserved11();
+    virtual void reserved12();
+    virtual void reserved13();
+    virtual s32 levelIndex();
+};
+
+extern "C" {
+s32 get_task_id__14TFontSmallTaskFPv(M2C_UNK *);
+void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+M2C_UNK TLobby__sub_8020ECA8();
+M2C_UNK TLobby__sub_802243D4();
+M2C_UNK TLobby__sub_8022559C();
+extern M2C_UNK TLobby__data_805011D8[];
+extern s32 lbl_805D53A0;
+extern s32 lbl_805D5550;
+extern s32 lbl_805D6238;
+extern s32 lbl_805D623C;
+extern s32 lbl_805D6240;
+extern s32 lbl_805D6244;
+void TLobby__sub_8021EF84(void);
+}
+
 extern "C" {
 
 void calc_item_count__18TShopGetItemWindowFPvPv(void *arg0, s32 *arg1);
@@ -57,5 +93,45 @@ void calc_item_count__18TShopGetItemWindowFPvPv(void *arg0, s32 *arg1) {
     }
     *arg1 = var_r31;
 }
+#pragma push
+#pragma opt_dead_code off
+void TLobby__sub_8021EF84(void) {
+    s32 temp_r3_2;
+    s32 temp_r3_3;
+    void *temp_r3;
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    if (temp_r3 != NULL) {
+        lbl_805D623C = ((ShopPlayerLevel*)temp_r3)->levelIndex();
+        lbl_805D623C++;
+    } else {
+        lbl_805D623C = 1;
+    }
+    if ((s32) lbl_805D623C < 1) {
+        lbl_805D623C = 1;
+    }
+    if ((s32) lbl_805D623C > 0xC7) {
+        lbl_805D623C = 0xC7;
+    }
+    temp_r3_3 = get_task_id__14TFontSmallTaskFPv(TLobby__data_805011D8);
+    lbl_805D6238 = temp_r3_3;
+    if (temp_r3_3 < 0) {
+        lbl_805D6238 = 0;
+    }
+    if ((s32) lbl_805D6238 > 9) {
+        lbl_805D6238 = 9;
+    }
+    lbl_805D6240 = lbl_805D5550;
+    if ((s32) lbl_805D5550 < 0) {
+        lbl_805D6240 = 0;
+    }
+    if ((s32) lbl_805D6240 > 3) {
+        lbl_805D6240 = 3;
+    }
+    TLobby__sub_8022559C();
+    TLobby__sub_8020ECA8();
+    TLobby__sub_802243D4();
+    lbl_805D6244 = 0;
+}
+#pragma pop
 
 }

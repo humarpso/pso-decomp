@@ -110,6 +110,7 @@ pso/boss/TBoss4Type1.cpp
 pso/boss/TBoss4Type2.cpp
 pso/boss/TBoss4Type2_8004A978.cpp
 pso/boss/TBoss4Type2_8005109C.cpp
+pso/boss/TBoss4Type2_80053504.cpp
 pso/boss/TBoss4Type2_800548AC.cpp
 pso/boss/TBoss4Type2_80086C44.cpp
 pso/boss/TBoss4Type2_800874F4.cpp
@@ -1702,6 +1703,7 @@ pso/misc/TShopEquipmentSellWindow_8026CE78.cpp
 pso/misc/TShopEquipmentSellWindow_803094E8.cpp
 pso/misc/TShopEquipmentSequence.cpp
 pso/misc/TShopEquipmentSequence_8021E2E4.cpp
+pso/misc/TShopGetItemWindow_8021EEE4.cpp
 pso/misc/TShopGetItemWindow_8021F074.cpp
 pso/misc/TShopGetItemWindow_8021F0A4.cpp
 pso/misc/TShopItemTecSequence.cpp
@@ -1750,6 +1752,7 @@ pso/misc/TWindowChat.cpp
 pso/misc/TWindowChatSymbol.cpp
 pso/misc/TWindowChatSymbol_802486A8.cpp
 pso/misc/TWindowChat_8024701C.cpp
+pso/misc/TWindowChat_802472A8.cpp
 pso/misc/TWindowChat_80247534.cpp
 pso/misc/TWindowChat_80247D50.cpp
 pso/misc/TWindowChat_8025CB10.cpp
@@ -1893,6 +1896,7 @@ pso/misc/TWindowMakeTeam_80265298.cpp
 pso/misc/TWindowMakeTeam_8026534C.cpp
 pso/misc/TWindowMenu.cpp
 pso/misc/TWindowMenuMainMenu.cpp
+pso/misc/TWindowMeseta.cpp
 pso/misc/TWindowMeseta_802690B4.cpp
 pso/misc/TWindowMessage.cpp
 pso/misc/TWindowMessageInfomation.cpp
@@ -1991,6 +1995,7 @@ pso/misc/TWindowSubEquip.cpp
 pso/misc/TWindowSubEquipKind.cpp
 pso/misc/TWindowSubEquipList.cpp
 pso/misc/TWindowSubEquip_80263AB0.cpp
+pso/misc/TWindowSubEquip_80275C0C.cpp
 pso/misc/TWindowSubEquip_80279044.cpp
 pso/misc/TWindowSubInformationBoard.cpp
 pso/misc/TWindowSubInformationBoard_8034C224.cpp
@@ -2356,6 +2361,7 @@ pso/object/TObjWarpBossMulti_8019E48C.cpp
 pso/object/TObjWarpBossMulti_8019E708.cpp
 pso/object/TObjWarpBossMulti_8019E97C.cpp
 pso/object/TObjWarpBossMulti_801B3514.cpp
+pso/object/TObjWarpJung_801A03D8.cpp
 pso/object/TObjWarpLobby.cpp
 pso/object/TObjWarpLobby_801A0A34.cpp
 pso/object/TObjWarpString.cpp
@@ -3214,6 +3220,7 @@ pso/ui/TAdChrSelPlyPlateGC.cpp
 pso/ui/TAdDialingGC.cpp
 pso/ui/TAdDialingGC_801A4C90.cpp
 pso/ui/TAdDialingGC_80328210.cpp
+pso/ui/TAdDialingGC_80328904.cpp
 pso/ui/TAdDialingGC_80328A4C.cpp
 pso/ui/TAdDialingGC_80328A70.cpp
 pso/ui/TAdDialingGC_80328DB0.cpp
@@ -3468,6 +3475,7 @@ pso/unk/text_800C3A60.cpp
 pso/unk/text_800C3B80.cpp
 pso/unk/text_800C9318.cpp
 pso/unk/text_800D3E54.cpp
+pso/unk/text_800D7824.cpp
 pso/unk/text_800D7950.cpp
 pso/unk/text_800D79A8.cpp
 pso/unk/text_800D97E8.cpp
@@ -3502,6 +3510,7 @@ pso/unk/text_80107C9C.cpp
 pso/unk/text_80107D4C.cpp
 pso/unk/text_80108020.cpp
 pso/unk/text_80108860.cpp
+pso/unk/text_80108F04.cpp
 pso/unk/text_801095EC.cpp
 pso/unk/text_80109710.cpp
 pso/unk/text_80109AE4.cpp
@@ -3675,6 +3684,7 @@ pso/unk/text_8013ADD0.cpp
 pso/unk/text_8013ADE4.cpp
 pso/unk/text_80140D50.cpp
 pso/unk/text_801418C4.cpp
+pso/unk/text_80141944.cpp
 pso/unk/text_80141A30.cpp
 pso/unk/text_801424DC.cpp
 pso/unk/text_80143818.cpp
@@ -3854,6 +3864,7 @@ pso/unk/text_801CFB80.cpp
 pso/unk/text_801CFD5C.cpp
 pso/unk/text_801CFDF8.cpp
 pso/unk/text_801D0000.cpp
+pso/unk/text_801D0634.cpp
 pso/unk/text_801D0B44.cpp
 pso/unk/text_801D1AC8.cpp
 pso/unk/text_801D5DDC_801D5DDC.cpp
@@ -3885,6 +3896,7 @@ pso/unk/text_801DBA58.cpp
 pso/unk/text_801DFC3C.cpp
 pso/unk/text_801E051C.cpp
 pso/unk/text_801E078C.cpp
+pso/unk/text_801E3F24.cpp
 pso/unk/text_801E416C.cpp
 pso/unk/text_801E4BCC.cpp
 pso/unk/text_801E4E4C.cpp
@@ -4175,6 +4187,7 @@ pso/unk/text_80362264.cpp
 pso/unk/text_803622B0.cpp
 pso/unk/text_80362638.cpp
 pso/unk/text_80364C40.cpp
+pso/unk/text_8036A3CC.cpp
 pso/unk/text_8036A5B4.cpp
 pso/unk/text_8036A620.cpp
 pso/unk/text_8036A894.cpp

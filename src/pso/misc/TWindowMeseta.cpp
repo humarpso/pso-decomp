@@ -4,6 +4,44 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+struct Sub_80269244 { u8 pad0[8]; f32 x8; };
+
+struct Meseta_80269244 {
+    s32 name;
+    u8 pad4[0x18 - 0x4];
+    M2C_UNK *vt;
+    u8 pad1c[0x38 - 0x1C];
+    f32 x38;
+    u8 pad3c[0x48 - 0x3C];
+    f32 x48;
+    u8 pad4c[0x60 - 0x4C];
+    f32 x60;
+    s32 x64;
+    s32 meseta;
+    f32 x6c;
+    f32 x70;
+};
+
+extern "C" {
+s32 get_camera_id__11TCameraCtrlFv();
+M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
+void save_position__17TWindowSubComCardFPv(void *);
+void TWindowDD__sub_802466E0(void *, M2C_UNK *, s16, s32);
+void TWindowSubStatusDisp__sub_80259DB0(void *, s32);
+void TWindowSubStatusDisp__sub_8025AC50(void *, s32, s32);
+s32 get_meseta_value__13TWindowMesetaFPv();
+f32 TWindowSubStatusDisp__sub_802877A4(f32);
+extern M2C_UNK lbl_804D06CC[];
+extern M2C_UNK __vt__13TWindowMeseta[];
+extern s32 lbl_805D3978;
+extern const f32 lbl_805DD204;
+extern const f32 lbl_805DD208;
+extern const f32 lbl_805DD20C;
+extern const f32 lbl_805DD210;
+void *TWindowMeseta__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+}
+
 extern "C" {
 
 void *__dt__13TWindowMesetaFv(void *arg0, s16 arg1);
@@ -42,5 +80,31 @@ void *__dt__13TWindowMesetaFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+#define self ((Meseta_80269244 *)arg0)
+void *TWindowMeseta__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+    Sub_80269244 *a;
+    Sub_80269244 *b;
+    TWindowDD__sub_802466E0(arg0, lbl_804D06CC, arg2, arg1);
+    self->vt = __vt__13TWindowMeseta;
+    self->name = lbl_805D3978;
+    self->x64 = arg2;
+    self->meseta = ((s32 (*)(void *))get_meseta_value__13TWindowMesetaFPv)(arg0);
+    a = (Sub_80269244 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
+    b = (Sub_80269244 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);
+    TWindowSubStatusDisp__sub_8025AC50(a, arg3, 0);
+    TWindowSubStatusDisp__sub_80259DB0(b, self->meseta);
+    self->x38 = lbl_805DD204 + b->x8;
+    save_position__17TWindowSubComCardFPv(arg0);
+    self->x60 = TWindowSubStatusDisp__sub_802877A4(self->x48 - lbl_805DD208);
+    if (get_camera_id__11TCameraCtrlFv() > 2) {
+        self->x6c = lbl_805DD20C;
+        self->x70 = lbl_805DD20C;
+    } else {
+        self->x6c = lbl_805DD210;
+        self->x70 = lbl_805DD210;
+    }
+    return arg0;
+}
+#undef self
 
 }

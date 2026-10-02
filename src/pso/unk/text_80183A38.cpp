@@ -19,6 +19,34 @@ struct RecoveredGlobal_80183A38_lbl_804B5C90 {
     u8 remaining[0x30];
 };
 
+struct Vec_80183AF0 { f32 x, y, z; };
+
+struct EntA_80183AF0 { u8 pad[8]; s32 v; u8 padc[4]; };
+
+struct EntB_80183AF0 { u8 pad[4]; s32 v; };
+
+struct Res_80183AF0 { u8 pad[0x42C]; EntA_80183AF0 *a; EntB_80183AF0 *b; };
+
+struct VBase_80183AF0 { u8 pad[0x18]; };
+
+struct Obj_80183AF0 : VBase_80183AF0 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+    u8 pad1c[0x38 - 0x1C];
+    Vec_80183AF0 pos;
+    u8 pad44[0x60 - 0x44];
+    s32 x60;
+    u8 pad64[0xB0 - 0x64];
+    f32 xb0;
+};
+
 extern "C" {
 s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
 extern RecoveredGlobal_80183A38_lbl_804B5C90 lbl_804B5C90;
@@ -29,6 +57,20 @@ void set_global_count__12TObjNpcEnemyFi(s32 arg0);
 void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
 extern const char lbl_80444250[];
 void fn_80183AA0(void *self);
+void VecCopy__FP3VecPC3Vec(Vec_80183AF0 *, const Vec_80183AF0 *);
+void TObjEneDD__sub_800B9D94(Vec_80183AF0 *, Vec_80183AF0 *, s32, Vec_80183AF0 *);
+s32 TObjCity_Season_SonicAdv2__sub_80183C38(void *arg0);
+Res_80183AF0 *get_anim_frame__25TObjCity_Season_EasterEggFPv(void *);
+void rotate_matrix_y(int, s32);
+void TObjPlayer__sub_803D9B2C();
+void TObjPlayer__sub_803D9B78();
+void TOHangerMachine01__sub_803D9C00(void *);
+void set_global_param__8TObjFishFi(s32);
+void TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
+extern s32 lbl_8050DC50[];
+extern const f32 lbl_805DBC44;
+extern const f32 lbl_805DBC4C;
+void fn_80183AF0(Obj_80183AF0 *self);
 }
 
 extern "C" {
@@ -47,6 +89,32 @@ void fn_80183AA0(void *self) {
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
     TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_80444250);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
+}
+void fn_80183AF0(Obj_80183AF0 *self) {
+    Res_80183AF0 *res;
+    s32 idx;
+    Vec_80183AF0 pos;
+    Vec_80183AF0 a;
+    Vec_80183AF0 b;
+    res = get_anim_frame__25TObjCity_Season_EasterEggFPv(self);
+    if (res != NULL && self->m8(lbl_805DBC44, lbl_805DBC4C) != 0) {
+        set_global_param__8TObjFishFi(lbl_8050DC50[5]);
+        idx = TObjCity_Season_SonicAdv2__sub_80183C38(self);
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(&self->pos);
+        rotate_matrix_y(0, self->x60);
+        TObjEneSlimeOne__sub_803E4AF4(res->a[idx].v, res->b[idx].v, self->xb0);
+        TObjPlayer__sub_803D9B78();
+        VecCopy__FP3VecPC3Vec(&pos, &self->pos);
+        pos.y += 0.037f;
+        a.x = 0.0f;
+        a.y = 1.0f;
+        a.z = 0.0f;
+        b.x = 1.0f;
+        b.y = 0.0f;
+        b.z = 1.3f;
+        TObjEneDD__sub_800B9D94(&pos, &a, self->x60, &b);
+    }
 }
 
 }

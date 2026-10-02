@@ -4,6 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Win_802473C8 { u8 pad0[0x1E]; u16 flags; };
+
+extern "C" {
+s32 fn_8002AE08(s32);
+void TWindowShortListCtrl__sub_80076D1C(s32);
+s32 TWindowShortListCtrl__check_controller_button(void *, s32);
+s32 is_on_current_screen__11TCameraCtrlFPv(void *, s32);
+s32 check_flag_100__10TObjPlayerFPv();
+s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+extern u8 lbl_8050E208[];
+extern s32 lbl_805D53A0;
+void TWindowShortListCtrl__sub_802473C8(Win_802473C8 *arg0);
+}
+
 extern "C" {
 
 void update__11TWindowChatFPv(void *arg0);
@@ -52,6 +66,49 @@ void open_input__11TWindowChatFPv(void *arg0) {
         M2C_FIELD(arg0, u16 *, 0x1E) = (u16) (M2C_FIELD(arg0, u16 *, 0x1E) | 2);
         clear_flag60_bit200__16TKeyBoardControlFPv(M2C_FIELD(arg0, s32 *, 0x28));
         TWindowChat__sub_8024792C(arg0);
+    }
+}
+void TWindowShortListCtrl__sub_802473C8(Win_802473C8 *arg0) {
+    void *pad;
+    if (arg0->flags & 8) {
+        return;
+    }
+    pad = lbl_8050E208 + 0x20;
+    if (TWindowShortListCtrl__check_controller_button(pad, 0xF0) == 0) {
+        return;
+    }
+    if (((void *(*)(s32))TPlayerBattleCtrl4P__sub_801BA74C)(lbl_805D53A0) == NULL) {
+        return;
+    }
+    if (check_flag_100__10TObjPlayerFPv() != 0) {
+        return;
+    }
+    if (is_on_current_screen__11TCameraCtrlFPv(pad, fn_8002AE08(lbl_805D53A0)) == 0) {
+        if (TWindowShortListCtrl__check_controller_button(pad, 0x10) != 0) {
+            TWindowShortListCtrl__sub_80076D1C(0);
+        }
+        if (TWindowShortListCtrl__check_controller_button(pad, 0x20) != 0) {
+            TWindowShortListCtrl__sub_80076D1C(3);
+        }
+        if (TWindowShortListCtrl__check_controller_button(pad, 0x80) != 0) {
+            TWindowShortListCtrl__sub_80076D1C(1);
+        }
+        if (TWindowShortListCtrl__check_controller_button(pad, 0x40) != 0) {
+            TWindowShortListCtrl__sub_80076D1C(2);
+        }
+    } else {
+        if (TWindowShortListCtrl__check_controller_button(pad, 0x10) != 0) {
+            TWindowShortListCtrl__sub_80076D1C(4);
+        }
+        if (TWindowShortListCtrl__check_controller_button(pad, 0x20) != 0) {
+            TWindowShortListCtrl__sub_80076D1C(7);
+        }
+        if (TWindowShortListCtrl__check_controller_button(pad, 0x80) != 0) {
+            TWindowShortListCtrl__sub_80076D1C(5);
+        }
+        if (TWindowShortListCtrl__check_controller_button(pad, 0x40) != 0) {
+            TWindowShortListCtrl__sub_80076D1C(6);
+        }
     }
 }
 
