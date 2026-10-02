@@ -1553,6 +1553,8 @@ pso/misc/TCameraCtrl_800766C4.cpp:
 
 pso/unk/text_80076760.cpp:
 	.text       start:0x80076760 end:0x80076964
+	.rodata     start:0x80438828 end:0x80438830
+	.sdata2     start:0x805D91C4 end:0x805D91C8
 
 pso/object/TObjWarnChime.cpp:
 	.text       start:0x80076964 end:0x80076B5C
@@ -16232,6 +16234,7 @@ pso/ui/TAdDialingGC_80328210.cpp:
 
 pso/ui/TAdDialingGC_80328848.cpp:
 	.text       start:0x80328848 end:0x80328904
+	.data       start:0x804ED628 end:0x804ED648
 
 pso/ui/TAdDialingGC_80328904.cpp:
 	.text       start:0x80328904 end:0x80328A4C

@@ -487,6 +487,7 @@ pso/enemy/TObjEneMe3SinowZoa_8031AC40.cpp
 pso/enemy/TObjEneMe3SinowZoa_8031AC74.cpp
 pso/enemy/TObjEneMe3SinowZoa_8031AEE8.cpp
 pso/enemy/TObjEneMe3SinowZoa_8031B124.cpp
+pso/enemy/TObjEneMe3SinowZoa_8031B170.cpp
 pso/enemy/TObjEneMe3Stelth.cpp
 pso/enemy/TObjEneMe3StelthReal.cpp
 pso/enemy/TObjEneMe3Stelth_800F0AE4.cpp
@@ -928,6 +929,7 @@ pso/misc/TDLGraph_8007F7DC.cpp
 pso/misc/TDLGraph_8007F85C.cpp
 pso/misc/TDuelEffectNumber_80080460.cpp
 pso/misc/TEffIndirectCtrl.cpp
+pso/misc/TEffIndirectCtrl_802A9284.cpp
 pso/misc/TEnding.cpp
 pso/misc/TEndingAB.cpp
 pso/misc/TEndingAB_8008C9FC.cpp
@@ -1253,6 +1255,7 @@ pso/misc/TLobby_80299A60_8029A304.cpp
 pso/misc/TLobby_80299A60_8029A398.cpp
 pso/misc/TLobby_8029FE94.cpp
 pso/misc/TLobby_802A018C.cpp
+pso/misc/TLobby_802A0F3C.cpp
 pso/misc/TLobby_802A6080.cpp
 pso/misc/TLobby_802A7848.cpp
 pso/misc/TLobby_802AF5FC.cpp
@@ -1281,6 +1284,7 @@ pso/misc/TLobby_80335E08.cpp
 pso/misc/TLobby_80336E00.cpp
 pso/misc/TLobby_803383FC.cpp
 pso/misc/TLobby_80338E9C.cpp
+pso/misc/TLobby_8033A810.cpp
 pso/misc/TLobby_8033ECB0.cpp
 pso/misc/TLobby_8033ECB0_8033EDF8.cpp
 pso/misc/TLobby_8034C18C.cpp
@@ -1343,7 +1347,9 @@ pso/misc/TLogo_8001C134.cpp
 pso/misc/TLogo_8030818C.cpp
 pso/misc/TMainCursor.cpp
 pso/misc/TMainCursor_8013AE18.cpp
+pso/misc/TMainCursor_8013AF0C.cpp
 pso/misc/TMainCursor_8013B018.cpp
+pso/misc/TMainCursor_8013B0AC.cpp
 pso/misc/TMainCursor_8013B1CC.cpp
 pso/misc/TMainCursor_8013B260.cpp
 pso/misc/TMainCursor_8013B4B8.cpp
@@ -1932,6 +1938,7 @@ pso/misc/TWindowOptionCtrl_80266160.cpp
 pso/misc/TWindowOptionCtrl_8026B2B4.cpp
 pso/misc/TWindowOptionCtrl_8026B2E4.cpp
 pso/misc/TWindowOptionCtrl_8026B4A4.cpp
+pso/misc/TWindowOptionCtrl_8026B4E0.cpp
 pso/misc/TWindowOptionCtrl_8026B6CC.cpp
 pso/misc/TWindowOptionCtrl_8026B774.cpp
 pso/misc/TWindowOptionCtrl_8026B828.cpp
@@ -2111,6 +2118,7 @@ pso/misc/TWindowSubTradeMain_80187C98.cpp
 pso/misc/TWindowSubTradeMain_80266C44.cpp
 pso/misc/TWindowSubTradeMain_80268468.cpp
 pso/misc/TWindowSubTradeMain_802785B0.cpp
+pso/misc/TWindowSubTradeMain_802D220C.cpp
 pso/misc/TWindowSubTradeMain_802D2808.cpp
 pso/misc/TWindowSubTradeMain_802D3924.cpp
 pso/misc/TWindowSubTradeMain_80332148.cpp
@@ -2224,6 +2232,7 @@ pso/object/TObjCHTimeWin_80074C94_80074DBC.cpp
 pso/object/TObjCMAutoMkData_80295948.cpp
 pso/object/TObjCMIcon.cpp
 pso/object/TObjCMMainMenu_8028D9A8.cpp
+pso/object/TObjCMMainMenu_8028EA88.cpp
 pso/object/TObjCMMainMenu_8029427C.cpp
 pso/object/TObjCMName_80294CA0.cpp
 pso/object/TObjCMProportion_802951EC.cpp
@@ -3242,6 +3251,7 @@ pso/ui/TAdChrSelPlyPlateGC.cpp
 pso/ui/TAdDialingGC.cpp
 pso/ui/TAdDialingGC_801A4C90.cpp
 pso/ui/TAdDialingGC_80328210.cpp
+pso/ui/TAdDialingGC_80328848.cpp
 pso/ui/TAdDialingGC_80328904.cpp
 pso/ui/TAdDialingGC_80328A4C.cpp
 pso/ui/TAdDialingGC_80328A70.cpp
@@ -3817,8 +3827,10 @@ pso/unk/text_8019AD50.cpp
 pso/unk/text_8019B0D4.cpp
 pso/unk/text_8019B480.cpp
 pso/unk/text_8019B8D8.cpp
+pso/unk/text_8019B944.cpp
 pso/unk/text_8019DBB4.cpp
 pso/unk/text_8019F9E4.cpp
+pso/unk/text_801A0520.cpp
 pso/unk/text_801A069C.cpp
 pso/unk/text_801A210C.cpp
 pso/unk/text_801A2124.cpp
