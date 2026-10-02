@@ -384,12 +384,34 @@ struct VObj_18_d4e8d1 : VBase_18_d4e8d1 {
 
 struct Vec_800C5900 { f32 x, y, z; };
 
+struct VBase_18 { char pad[0x18]; };
+
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual s32 m17(M2C_UNK);
+};
+
 extern "C" {
 M2C_UNK enemy_wander_home(void *, int, f32, f32, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_random_float__8TObjFishFv(f32);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-M2C_UNK TObjPlayer__sub_800C4E64(void *);
 M2C_UNK TObjPlayer__sub_800F6E2C(void *, void *, void *);
 M2C_UNK TObjPlayer__sub_800F7118(void *);
 s32 is_action_available__10TObjPlayerFv(void *);
@@ -499,7 +521,6 @@ M2C_UNK TObjPlayer__sub_80017700(void *, s32, void *, int, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_clearFlags30(void * a0, s32 a1);
 void TObjPlayer__sub_800C4E08(u8 *arg0);
-M2C_UNK TObjPlayer__sub_800C4E64(void *);
 f32 horizontal_distance_squared(void *, void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback();
@@ -510,6 +531,15 @@ extern const f32 lbl_805DA034;
 extern const f32 lbl_805DA044;
 extern const f32 lbl_805DA054;
 void TObjPlayer__sub_800C5900(u8 *arg0);
+s32 obj_testFlags30(void *, int);
+u16 obj_getField1c(void *);
+s32 obj_clearFlags30(void * a0, s32 a1);
+M2C_UNK obj_setFlags30(void *, M2C_UNK);
+f32 horizontal_distance_squared(void *, void *);
+extern const f32 lbl_805DA028;
+extern const f32 lbl_805DA02C;
+extern const f32 lbl_805DA030;
+M2C_UNK TObjPlayer__sub_800C4E64(void *arg0);
 }
 
 extern "C" {
@@ -652,6 +682,43 @@ void TObjPlayer__sub_800C4E08(u8 *arg0) {
     }
     M2C_FIELD(arg0, f32 *, 0x394) = (f32) M2C_FIELD(arg0, f32 *, 0x398);
     M2C_FIELD(arg0, f32 *, 0xC8) = (f32) M2C_FIELD(arg0, f32 *, 0x3A0);
+}
+
+M2C_UNK TObjPlayer__sub_800C4E64(void *arg0) {
+    f32 temp_f31;
+    u8 *temp_r0;
+    u8 *temp_r31;
+    temp_r0 = M2C_FIELD(arg0, u8 **, 0x2A8);
+    if (temp_r0 == NULL) {
+        obj_clearFlags30(arg0, 0x100000);
+        return;
+    }
+    if ((obj_getField1c(temp_r0) < 0x1000U) && (((VObj_18 *)(arg0))->m17(0x1E) != 0)) {
+        temp_r31 = M2C_FIELD(arg0, u8 **, 0x2A8);
+        temp_f31 = horizontal_distance_squared((void *) (temp_r31 + 0x38), (void *) ((u8 *)arg0 + 0x38));
+        switch (M2C_FIELD(temp_r31, s32 *, 0x890) & 0xE0) {
+        case 0x20:
+            if (obj_testFlags30(arg0, 0x100000) != 0) {
+                if (lbl_805DA028 < temp_f31) {
+                    obj_clearFlags30(arg0, 0x100000);
+                }
+            } else if (temp_f31 < lbl_805DA02C) {
+                obj_setFlags30(arg0, 0x100000);
+            }
+            break;
+        default:
+            if (obj_testFlags30(arg0, 0x100000) != 0) {
+                if (lbl_805DA030 < temp_f31) {
+                    obj_clearFlags30(arg0, 0x100000);
+                }
+            } else if (temp_f31 < lbl_805DA028) {
+                obj_setFlags30(arg0, 0x100000);
+            }
+            break;
+        }
+    } else {
+        obj_setFlags30(arg0, 0x100000);
+    }
 }
 
 int TObjPlayer__sub_800C4FB4(void* p) { return queue_destruction__7TObjectFv((void*)(p)); }
@@ -804,7 +871,7 @@ void TObjPlayer__sub_800C5900(u8 *arg0) {
                 M2C_FIELD(arg0, u32 *, 0x38C) = 0U;
                 VecCopy__FP3VecPC3Vec(&sp14, (void *) (M2C_FIELD(arg0, u32 *, 0x2A8) + 0x2FC));
             }
-            TObjPlayer__sub_800C4E64(arg0);
+            TObjPlayer__sub_800C4E64((void *)(arg0));
             TObjPlayer__sub_800C4E08(arg0);
             ((void (*)(void *))advance_animation_playback)(arg0);
             {
@@ -841,7 +908,7 @@ void beast_idle_update(u8 *arg0) {
     u8 *temp_r28;
     u8 *temp_r4;
 
-    TObjPlayer__sub_800C4E64(arg0);
+    TObjPlayer__sub_800C4E64((void *)(arg0));
     TObjPlayer__sub_800C4E08(arg0);
     ((void (*)(void*))advance_animation_playback)(arg0);
     if ((s16) M2C_FIELD(arg0, s16 *, 0x328) != 1) {

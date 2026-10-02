@@ -223,13 +223,39 @@ extern RecoveredGlobal_801A3540_lbl_80515BA0 lbl_80515BA0;
 extern RecoveredGlobal_801A3540_main_task main_task;
 extern void *tl_03;
 void TLobby__sub_801A31D8(void);
+s32 get_input__16TKeyBoardControlFv();
+M2C_UNK TKeyBoardControl__sub_8000F95C();
+s32 get_key_state__16TKeyBoardControlFv();
+M2C_UNK TKeyBoardControl__sub_8000F9A4();
+M2C_UNK TKeyBoardControl__sub_8000F9CC(M2C_UNK);
+s32 is_split_screen(void);
+M2C_UNK TObjBoss2Tunnel__sub_8007D1D0();
+void TLobby__sub_8007EB20(const char *, ...);
+s32 is_ready__22TQuestVmDownLoadServerFv();
+M2C_UNK TLobby__sub_800FA464();
+M2C_UNK shutdown_keyboard_control__6TLobbyFv();
+void TLobby__sub_801A3014(void);
+void TLobby__sub_801A33DC(void);
+void TLobby__sub_801A3770(void);
+M2C_UNK TLobby__sub_801A37D0();
+s8 func_801A5E54__Fv();
+M2C_UNK TKeyBoardControl__sub_801A5EC4();
+M2C_UNK controller_stuff__Fv();
+M2C_UNK render_tick__Fv();
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80201650();
+M2C_UNK TLobby__sub_802269B4();
+M2C_UNK func_803DCDFC__Fv();
+extern char lbl_804468F8[];
+extern char lbl_80446908[];
+extern s32 TLobby__data_805D6148;
+extern s32 TLobby__data_805D614C;
+void TLobby__sub_801A35C8(void);
 }
 
 extern "C" {
 
 void TLobby__sub_801A3988(void);
 s32 TCameraCtrl__sub_8006B368();
-M2C_UNK TLobby__sub_801A35C8();
 M2C_UNK TLobby__sub_801A3698();
 
 typedef char RecoveredGlobal_801A3540_lbl_804C1F68_size[sizeof(RecoveredGlobal_801A3540_lbl_804C1F68) == 0x180 ? 1 : -1];
@@ -448,6 +474,39 @@ void TLobby__sub_801A3540(void) {
 }
 
 typedef char RecoveredGlobal_801A3770_main_task_size[sizeof(RecoveredGlobal_801A3770_main_task) == 0x34 ? 1 : -1];
+
+void TLobby__sub_801A35C8(void) {
+    func_803DCDFC__Fv();
+    controller_stuff__Fv();
+    TKeyBoardControl__sub_801A5EC4();
+    TLobby__sub_8007EB20(lbl_804468F8, TLobby__data_805D614C * 0xC);
+    TLobby__sub_8007EB20(lbl_80446908, TLobby__data_805D6148 * 4);
+    if (is_split_screen() != 0) {
+        TLobby__sub_801A37D0();
+    } else {
+        TLobby__sub_801A3770();
+    }
+    TLobby__sub_800FA464();
+    TLobby__sub_802269B4();
+    TAdSinglePlyChrSelectGC__sub_80201650();
+    TObjBoss2Tunnel__sub_8007D1D0();
+    if (func_801A5E54__Fv() != 0) {
+        shutdown_keyboard_control__6TLobbyFv();
+    }
+    if (is_ready__22TQuestVmDownLoadServerFv() != 0) {
+        TKeyBoardControl__sub_8000F9CC(0);
+    }
+    if (get_key_state__16TKeyBoardControlFv() != 0) {
+        TLobby__sub_801A33DC();
+        TKeyBoardControl__sub_8000F9A4();
+    }
+    if (get_input__16TKeyBoardControlFv() != 0) {
+        TLobby__sub_801A3014();
+        TKeyBoardControl__sub_8000F95C();
+    }
+    render_tick__Fv();
+}
+
 void TLobby__sub_801A3770(void) {
     some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A3770_main_task *)&main_task).value));
     set_mode__11TCameraCtrlFi((int) (0));

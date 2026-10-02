@@ -46,6 +46,19 @@ s32 is_player_valid_target__10TObjPlayerFi(s32);
 void TObjPlayer__sub_80354BE4(s32);
 extern const f32 lbl_805DC290;
 s32 execute_palette_action__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2);
+s32 obj_getField1c(void *);
+u16 get_id__11TMainCursorFPv(void* p);
+s32 is_player_valid_target__10TObjPlayerFi(s32);
+int get_result_entry__18TChallenge4PResultFPv(void* p);
+s32 TObjPlayer__sub_801B58DC(void *);
+s32 TWindowActionPalette__sub_801C1C00(void *);
+s32 check_action_usable__10TObjPlayerFPvi(void *, s32);
+void TObjPlayer__sub_80354BE4(s32);
+s32 TObjPlayer__sub_80354D5C(s32);
+u8 *find_entity_by_id(u16);
+s32 execute_palette_action__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2);
+void dispatch_to_child__11TWindowCtrlFiPv(u16, s32);
+s32 TObjPlayer__sub_801B3C20(u8 *arg0);
 }
 
 extern "C" {
@@ -63,6 +76,39 @@ int get_result_entry__18TChallenge4PResultFPv(void* p) { return TObjPlayer__sub_
 int get_player_rank__18TChallenge4PResultFPv(void* p) { return TObjPlayer__sub_801BF47C((char*)p + 0x340); }
 int get_field_340__18TChallenge4PResultFPv(void* p) { return TObjPlayer__sub_801BF488((char*)p + 0x340); }
 int get_player_result__18TChallenge4PResultFPv(void* p) { return TObjPlayer__sub_801BF4A0((char*)p + 0x340); }
+
+s32 TObjPlayer__sub_801B3C20(u8 *arg0) {
+    if (check_action_usable__10TObjPlayerFPvi(arg0 + 0x550, 4) != 0 && ((int (*)(void *, s32))get_result_entry__18TChallenge4PResultFPv)(arg0, 1) != 0) {
+        s32 mode;
+        void *target;
+        if (TObjPlayer__sub_801B58DC(arg0) != 0) {
+            target = find_entity_by_id(get_id__11TMainCursorFPv(*(u8 **)(arg0 + 0x424) + 0x4F8));
+            mode = 0;
+        } else {
+            target = 0;
+            mode = 1;
+        }
+        if (execute_palette_action__10TObjPlayerFPviPv(arg0, mode, target) != 0) {
+            dispatch_to_child__11TWindowCtrlFiPv(obj_getField1c(arg0), 1);
+            return 1;
+        }
+    } else if (check_action_usable__10TObjPlayerFPvi(arg0 + 0x550, 0x400) != 0 && ((int (*)(void *, s32))get_result_entry__18TChallenge4PResultFPv)(arg0, 2) != 0) {
+        if (TObjPlayer__sub_80354D5C(obj_getField1c(arg0)) != 0 && TWindowActionPalette__sub_801C1C00(arg0 + 0x500) != 0) {
+            if (is_player_valid_target__10TObjPlayerFi(obj_getField1c(arg0)) != 0) {
+                TObjPlayer__sub_80354BE4(obj_getField1c(arg0));
+            }
+        } else if (execute_palette_action__10TObjPlayerFPviPv(arg0, 2, 0) != 0) {
+            dispatch_to_child__11TWindowCtrlFiPv(obj_getField1c(arg0), 2);
+            return 1;
+        }
+    } else if (check_action_usable__10TObjPlayerFPvi(arg0 + 0x550, 2) != 0 && ((int (*)(void *, s32))get_result_entry__18TChallenge4PResultFPv)(arg0, 3) != 0 &&
+               execute_palette_action__10TObjPlayerFPviPv(arg0, 3, 0) != 0) {
+        dispatch_to_child__11TWindowCtrlFiPv(obj_getField1c(arg0), 3);
+        return 1;
+    }
+    return 0;
+}
+
 s32 execute_palette_action__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2) {
     u8 *self = (u8 *)arg0;
     s16 kind;

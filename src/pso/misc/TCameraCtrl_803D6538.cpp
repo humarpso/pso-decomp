@@ -67,6 +67,28 @@ struct St_803D6C94 { u8 pad0[0xC]; u32 *keys; u32 *vals; f32 t; u8 pad18[4]; s32
 
 struct St_803D6D0C { u8 pad0[0xC]; u32 *keys; u32 *vals; f32 t; u8 pad18[4]; s32 idx; };
 
+struct Vec_803D7D30 { f32 x, y, z; };
+
+struct Vec4_803D7D30 { f32 w, x, y, z; };
+
+struct Key_803D7D30 {
+    u32 flags;
+    u8 pad4[4];
+    Vec_803D7D30 pos;
+    Vec_803D7D30 rot;
+    Vec_803D7D30 scl;
+    u8 pad2c[8];
+    f32 w;
+};
+
+struct Smp_803D7D30 {
+    u8 pad[0x30];
+    s32 (*f30)(void *);
+    s32 (*f34)(void *);
+    s32 (*f38)(void *);
+    s32 (*f3C)(void *);
+};
+
 extern "C" {
 void TObjPlayer__sub_803D7A54(void *, s32, s32 count, f32 t, void *, void *, void *);
 void TObjPlayer__sub_803D6DDC(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
@@ -76,7 +98,6 @@ void TObjPlayer__sub_803D6E8C(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
 void C_MTXLookAt(void *, void *, void *, void *);
 extern u8 *lbl_805D7774;
 void set_camera_look_at(u8 *arg0, u8 *arg1, u8 *arg2);
-M2C_UNK TObjPlayer__sub_803D7BB0(int, f32);
 extern f32 lbl_805D76B0;
 void TObjPlayer__sub_803D749C(u8 *arg0, f32 farg0);
 extern RecoveredGlobal_803D662C_lbl_8058D4D0 lbl_8058D4D0;
@@ -90,7 +111,6 @@ extern RecoveredGlobal_803D77C0_lbl_804FA51C lbl_804FA51C;
 extern u8 *lbl_805D76BC;
 extern s32 lbl_805D7808;
 void select_motion_sampler(M2C_UNK *arg0, f32 farg0);
-M2C_UNK TObjPlayer__sub_803D7BB0(int, f32);
 void TObjPlayer__sub_803D7B68(s32 arg0, f32 farg0);
 extern RecoveredGlobal_803D78A8_lbl_8058CAB8 lbl_8058CAB8;
 extern u8 *lbl_805D76BC;
@@ -103,7 +123,6 @@ u32 TObjPlayer__sub_803D78C0(u8 *base, u32 stride, u32 hi, u32 key);
 u32 TObjPlayer__sub_803D7900(u8 *base, u32 stride, u32 hi, u32 key);
 extern u8 *lbl_805D76BC;
 void TObjPlayer__sub_803D7740(s32 n);
-s32 TObjPlayer__sub_803D7D30(void *, void *, void *, void *, void *);
 void TObjPlayer__sub_803D98E4(void *);
 void TObjPlayer__sub_803D99F8(void *, int);
 void TBoss7Tentacle__sub_803D9BA0(void *);
@@ -134,6 +153,17 @@ extern u8 *lbl_805D76BC;
 s32 TObjPlayer__sub_803D6D0C(s32 arg0);
 u32 TObjPlayer__sub_803D7900(u8 *base, u32 stride, u32 hi, u32 key);
 void TObjPlayer__sub_803D7940(u8 *keys, u32 stride, u32 count, f32 t, u16 **k0, u16 **k1, f32 *frac);
+void select_motion_sampler(M2C_UNK *arg0, f32 farg0);
+s32 TObjPlayer__sub_803D6BA4(s32 arg0);
+s32 TObjPlayer__sub_803D6C94(s32 arg0);
+s32 TObjPlayer__sub_803D6D0C(s32 arg0);
+s32 TObjPlayer__sub_803D7FD0(void);
+s32 TObjPlayer__sub_803D7FD8(void);
+extern u8 *lbl_805D76BC;
+void TObjPlayer__sub_803D7BB0(int arg0, f32 farg0);
+void TObjPlayer__sub_803D7784(void);
+extern u8 *lbl_805D76BC;
+s32 TObjPlayer__sub_803D7D30(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 }
 
 extern "C" {
@@ -300,9 +330,9 @@ void TObjPlayer__sub_803D6E8C(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
 #pragma scheduling off
 void TObjPlayer__sub_803D749C(u8 *arg0, f32 farg0) {
     TBoss8Dragon__sub_803D78A8((s32)((int) (1)));
-    TObjPlayer__sub_803D7BB0((int) (M2C_FIELD(arg0, s32 *, 4)), (f32) (M2C_FIELD(arg0, f32 *, 0xC)));
+    TObjPlayer__sub_803D7BB0((int)((int) (M2C_FIELD(arg0, s32 *, 4))), (f32) (M2C_FIELD(arg0, f32 *, 0xC)));
     TBoss8Dragon__sub_803D78A8((s32)((int) (0)));
-    TObjPlayer__sub_803D7BB0((int) (M2C_FIELD(arg0, s32 *, 0)), (f32) (M2C_FIELD(arg0, f32 *, 8)));
+    TObjPlayer__sub_803D7BB0((int)((int) (M2C_FIELD(arg0, s32 *, 0))), (f32) (M2C_FIELD(arg0, f32 *, 8)));
     lbl_805D76B0 = farg0;
 }
 #pragma pop
@@ -483,9 +513,35 @@ void TObjPlayer__sub_803D7A54(void *keys, s32 stride, s32 count, f32 t, void *k0
 #pragma scheduling off
 void TObjPlayer__sub_803D7B68(s32 arg0, f32 farg0) {
     TBoss8Dragon__sub_803D78A8((s32)((int) (0)));
-    TObjPlayer__sub_803D7BB0((int)((void *) (arg0)), (f32) (farg0));
+    TObjPlayer__sub_803D7BB0((int)((int)((void *) (arg0))), (f32) (farg0));
 }
 #pragma pop
+
+void TObjPlayer__sub_803D7BB0(int arg0, f32 farg0) {
+    s32 temp_r5;
+    select_motion_sampler((M2C_UNK *)arg0, farg0);
+    temp_r5 = M2C_FIELD(lbl_805D76BC, s32 *, 0x20);
+    if ((u32) (temp_r5 & 1) != 0) {
+        M2C_FIELD(lbl_805D76BC, void **, 0x30) = (void *)TObjPlayer__sub_803D6BA4;
+    } else {
+        M2C_FIELD(lbl_805D76BC, void **, 0x30) = (void *)TObjPlayer__sub_803D7FD0;
+    }
+    if ((u32) (temp_r5 & 2) != 0) {
+        M2C_FIELD(lbl_805D76BC, void **, 0x34) = (void *)TObjPlayer__sub_803D6C94;
+        M2C_FIELD(lbl_805D76BC, void **, 0x3C) = NULL;
+    } else if ((u32) (temp_r5 & 0x2000) != 0) {
+        M2C_FIELD(lbl_805D76BC, void **, 0x34) = NULL;
+        M2C_FIELD(lbl_805D76BC, void **, 0x3C) = (void *)TObjPlayer__sub_803D6D0C;
+    } else {
+        M2C_FIELD(lbl_805D76BC, void **, 0x34) = (void *)TObjPlayer__sub_803D7FD8;
+        M2C_FIELD(lbl_805D76BC, void **, 0x3C) = NULL;
+    }
+    if ((u32) (temp_r5 & 4) != 0) {
+        M2C_FIELD(lbl_805D76BC, void **, 0x38) = (void *)TObjPlayer__sub_803D6BA4;
+        return;
+    }
+    M2C_FIELD(lbl_805D76BC, void **, 0x38) = (void *)TObjPlayer__sub_803D7FD0;
+}
 
 void TObjPlayer__sub_803D7CA4(void *arg0) {
     struct Vec_803D7CA4 trans;
@@ -493,7 +549,7 @@ void TObjPlayer__sub_803D7CA4(void *arg0) {
     struct Angles_803D7CA4 rot;
     struct Quat_803D7CA4 quat;
     s32 kind;
-    kind = TObjPlayer__sub_803D7D30(arg0, &trans, &rot, &scale, &quat);
+    kind = TObjPlayer__sub_803D7D30((void *)(arg0), (void *)(&trans), (void *)(&rot), (void *)(&scale), (void *)(&quat));
     TOHangerMachine01__sub_803D9C00(&trans);
     switch (kind) {
     case 0:
@@ -508,6 +564,90 @@ void TObjPlayer__sub_803D7CA4(void *arg0) {
     }
     TBoss7Tentacle__sub_803D9BA0(&scale);
 }
+
+#define G_803D7D30 ((Smp_803D7D30 *)lbl_805D76BC)
+#pragma push
+#pragma optimize_for_size off
+#pragma optimization_level 3
+#pragma peephole off
+#pragma scheduling off
+#pragma use_lmw_stmw off
+s32 TObjPlayer__sub_803D7D30(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
+#define kK ((Key_803D7D30 *)arg0)
+#define pP ((Vec_803D7D30 *)arg1)
+#define rR ((Vec_803D7D30 *)arg2)
+#define sS ((Vec_803D7D30 *)arg3)
+#define qQ ((Vec4_803D7D30 *)arg4)
+    s32 r;
+    if (!(kK->flags & 0x40)) {
+        if (G_803D7D30->f30(pP) == 0) {
+            pP->x = kK->pos.x;
+            pP->y = kK->pos.y;
+            pP->z = kK->pos.z;
+        }
+        if (G_803D7D30->f34 != NULL) {
+            if (G_803D7D30->f34(rR) != 0) {
+                r = (kK->flags & 0x20) ? 1 : 0;
+            } else if (kK->flags & 0x400) {
+                qQ->w = kK->w;
+                qQ->x = kK->rot.x;
+                qQ->y = kK->rot.y;
+                qQ->z = kK->rot.z;
+                r = 2;
+            } else {
+                ((u32 *)rR)[0] = ((u32 *)&kK->rot)[0];
+            ((u32 *)rR)[1] = ((u32 *)&kK->rot)[1];
+            ((u32 *)rR)[2] = ((u32 *)&kK->rot)[2];
+                r = (kK->flags & 0x20) ? 1 : 0;
+            }
+        } else if (G_803D7D30->f3C(qQ) != 0) {
+            r = 2;
+        } else if (kK->flags & 0x400) {
+            qQ->w = kK->w;
+            qQ->x = kK->rot.x;
+            qQ->y = kK->rot.y;
+            qQ->z = kK->rot.z;
+            r = 2;
+        } else {
+            ((u32 *)rR)[0] = ((u32 *)&kK->rot)[0];
+            ((u32 *)rR)[1] = ((u32 *)&kK->rot)[1];
+            ((u32 *)rR)[2] = ((u32 *)&kK->rot)[2];
+            r = (kK->flags & 0x20) ? 1 : 0;
+        }
+        if (G_803D7D30->f38(sS) == 0) {
+            sS->x = kK->scl.x;
+            sS->y = kK->scl.y;
+            sS->z = kK->scl.z;
+        }
+        TObjPlayer__sub_803D7784();
+    } else {
+        pP->x = kK->pos.x;
+        pP->y = kK->pos.y;
+        pP->z = kK->pos.z;
+        sS->x = kK->scl.x;
+        sS->y = kK->scl.y;
+        sS->z = kK->scl.z;
+        if (kK->flags & 0x400) {
+            qQ->w = kK->w;
+            qQ->x = kK->rot.x;
+            qQ->y = kK->rot.y;
+            qQ->z = kK->rot.z;
+            r = 2;
+        } else {
+            ((u32 *)rR)[0] = ((u32 *)&kK->rot)[0];
+            ((u32 *)rR)[1] = ((u32 *)&kK->rot)[1];
+            ((u32 *)rR)[2] = ((u32 *)&kK->rot)[2];
+            r = (kK->flags & 0x20) ? 1 : 0;
+        }
+    }
+    return r;
+#undef kK
+#undef pP
+#undef rR
+#undef sS
+#undef qQ
+}
+#pragma pop
 
 s32 TObjPlayer__sub_803D7FD0(void) {
     return 0;

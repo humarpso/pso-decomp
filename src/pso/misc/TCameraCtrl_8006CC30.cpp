@@ -232,6 +232,36 @@ struct Cam_8006E170 {
     f32 f108;
 };
 
+struct Vec_8006D9F0 { f32 x, y, z; };
+
+struct Ply_8006D9F0 { u8 pad[0x60]; s32 f60; };
+
+struct CamBase_8006D9F0 { u8 pad0[0x18]; };
+
+struct Cam_8006D9F0 : CamBase_8006D9F0 {
+    virtual void v0();
+    virtual void v1();
+    virtual void v2();
+    virtual void v3();
+    virtual void v4();
+    virtual void v5();
+    virtual void v6();
+    virtual void v7();
+    virtual void v8();
+    virtual void v9();
+    virtual void v10();
+    virtual void v11();
+    virtual void v12(s32);
+    Ply_8006D9F0 *ply;
+    u8 pad20[0xDC - 0x20];
+    Vec_8006D9F0 pos;
+    f32 fE8;
+    f32 fEC;
+    f32 fF0;
+    u8 padF4[0xFC - 0xF4];
+    u32 flags;
+};
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8 TCameraCtrl__data_80488DE8;
@@ -371,6 +401,20 @@ extern const f32 lbl_805D9094;
 extern const f32 lbl_805D90AC;
 extern const f32 lbl_805D90B0;
 void TCameraCtrl__sub_8006E170(Cam_8006E170 *self);
+s32 is_split_screen();
+void TBoss1Dragon__sub_8002AA0C(Vec_8006D9F0 *, Vec_8006D9F0 *);
+void TBoss8Dragon__sub_80065EA0(Vec_8006D9F0 *, Vec_8006D9F0 *);
+s32 get_camera_id__11TCameraCtrlFv();
+void TCameraCtrl__sub_8006D2B0(void *arg0, void *arg1, u16 arg2);
+s32 get_global_state__14TOKeyMachine01Fv();
+void TBoss8Dragon__sub_802FDC1C(Vec_8006D9F0 *, Vec_8006D9F0 *);
+extern Vec_8006D9F0 lbl_80488DD0;
+extern const f32 TCameraCtrl__data_805D9050;
+extern const float TCameraCtrl__data_805D905C;
+extern const f32 lbl_805D9090;
+extern const f32 lbl_805D9094;
+extern const f32 lbl_805D9098;
+void TCameraCtrl__sub_8006D9F0(Cam_8006D9F0 *arg0);
 }
 
 extern "C" {
@@ -631,6 +675,45 @@ void TCameraCtrl__sub_8006D95C(Cam_8006D95C *self) {
     self->pos.x = self->tgt->pos.x + v.x;
     self->pos.y = self->tgt->pos.y + v.y;
     self->pos.z = self->tgt->pos.z + v.z;
+}
+
+void TCameraCtrl__sub_8006D9F0(Cam_8006D9F0 *arg0) {
+    s32 state = get_global_state__14TOKeyMachine01Fv();
+    if (state == 11) {
+        Vec_8006D9F0 b0;
+        Vec_8006D9F0 a0;
+        Vec_8006D9F0 b1;
+        Vec_8006D9F0 a1;
+        TBoss1Dragon__sub_8002AA0C(&a0, &b0);
+        TCameraCtrl__sub_8006D2B0(&a0, &b0, 0xFFFF);
+        TBoss1Dragon__sub_8002AA0C(&a1, &b1);
+        TCameraCtrl__sub_8006D2B0(&a1, &b1, 0xFFFF);
+    } else if (state == 30) {
+        Vec_8006D9F0 b;
+        Vec_8006D9F0 a;
+        TBoss8Dragon__sub_80065EA0(&a, &b);
+        TCameraCtrl__sub_8006D2B0(&a, &b, 0xFFFF);
+    } else if (state == 33) {
+        Vec_8006D9F0 b;
+        Vec_8006D9F0 a;
+        TBoss8Dragon__sub_802FDC1C(&a, &b);
+        TCameraCtrl__sub_8006D2B0(&a, &b, 0xFFFF);
+    } else {
+        if (!(arg0->flags & 8)) {
+            arg0->v12(arg0->ply->f60 + 0x8000);
+            arg0->fE8 = TCameraCtrl__data_805D905C;
+            arg0->fEC = TCameraCtrl__data_805D9050;
+            arg0->fF0 = lbl_805D9090;
+            arg0->pos.x = lbl_80488DD0.x;
+            arg0->pos.y = lbl_80488DD0.y;
+            arg0->pos.z = lbl_80488DD0.z;
+            if (is_split_screen() != 0 && get_camera_id__11TCameraCtrlFv() == 2) {
+                arg0->pos.z *= lbl_805D9094;
+                arg0->pos.y *= lbl_805D9098;
+            }
+        }
+        arg0->flags &= ~8;
+    }
 }
 
 void TCameraCtrl__sub_8006DB68(Cam_8006DB68 *arg0) {

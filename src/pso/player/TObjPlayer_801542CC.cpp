@@ -96,6 +96,10 @@ struct Ent_80154E3C { u8 pad0[0x1C]; V3_80154E3C v; u8 pad[0x2C - 0x28]; };
 
 struct Obj_80154E3C { u8 pad0[0x38]; V3_80154E3C pos; u8 pad44[0x60 - 0x44]; s32 f60; u8 pad64[0xA4 - 0x64]; Ent_80154E3C *ents; s32 count; };
 
+struct Vec_80154EF8 { f32 x, y, z; };
+
+struct Box_80154EF8 { u8 pad[0xC]; f32 hx; f32 hz; u8 pad2[0x1C - 0x14]; Vec_80154EF8 pos; };
+
 extern "C" {
 s32 TObjPlayer__sub_801559D0(void *arg0, Obj_801559D0 *self, CollisionVector_80155FBC *pos, void *out);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -107,6 +111,15 @@ M2C_UNK TObjPlayer__sub_803D9990(void *, void *);
 M2C_UNK pop_matrix();
 extern f32 lbl_8058D490[12];
 void TObjPlayer__sub_80154E3C(Obj_80154E3C *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+u8 * TObjPlayer__sub_80155028(s32 arg0, s32 arg1);
+M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK TObjPlayer__sub_803D97F0(void *);
+M2C_UNK TObjPlayer__sub_803D9990(void *, void *);
+M2C_UNK pop_matrix();
+extern f32 lbl_8058D490[12];
+s32 TObjPlayer__sub_80154EF8(M2C_UNK arg0, s32 arg1, Box_80154EF8 *box, u32 out);
 }
 
 struct Obj_80156844 { u8 pad[0x1C]; u16 room; u8 pad2[0x90 - 0x1E]; void *f90; };
@@ -547,6 +560,57 @@ void TObjPlayer__sub_80154E3C(Obj_80154E3C *arg0) {
         }
         pop_matrix();
     }
+}
+
+s32 TObjPlayer__sub_80154EF8(M2C_UNK arg0, s32 arg1, Box_80154EF8 *box, u32 out) {
+    Vec_80154EF8 pos;
+    Vec_80154EF8 c[8];
+    s32 i;
+    f32 y, nx, nz, ny, x, z;
+    VecCopy__FP3VecPC3Vec(&pos, &box->pos);
+    y = 50.0f;
+    pos.y = 0.0f;
+    ny = -y;
+    x = box->hz;
+    z = box->hx;
+    nx = -x;
+    nz = -z;
+    c[0].x = nx;
+    c[0].y = y;
+    c[0].z = z;
+    c[1].x = nx;
+    c[1].y = y;
+    c[1].z = nz;
+    c[2].x = x;
+    c[2].y = y;
+    c[2].z = nz;
+    c[3].x = x;
+    c[3].y = y;
+    c[3].z = z;
+    c[4].x = nx;
+    c[4].y = ny;
+    c[4].z = z;
+    c[5].x = nx;
+    c[5].y = ny;
+    c[5].z = nz;
+    c[6].x = x;
+    c[6].y = ny;
+    c[6].z = nz;
+    c[7].x = x;
+    c[7].y = ny;
+    c[7].z = z;
+    TObjPlayer__sub_803D97F0(lbl_8058D490);
+    rotate_matrix_y(0, arg1);
+    for (i = 0; i < 8; i++) {
+        TObjPlayer__sub_803D9990(&c[i], &c[i]);
+        TBoss4Zako__sub_803D8910(&c[i], &pos);
+    }
+    pop_matrix();
+    if (out != 0) {
+        TObjPlayer__sub_80155028(out, (s32)c);
+        return 1;
+    }
+    return 0;
 }
 
 u8 * TObjPlayer__sub_80155028(s32 arg0, s32 arg1) {

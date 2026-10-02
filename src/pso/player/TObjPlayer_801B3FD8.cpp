@@ -150,6 +150,19 @@ struct Obj_801B6CE0 {
     Stats_801B6CE0 *stats;
 };
 
+struct Buf1C { u8 pad[0x1C]; };
+
+struct VBase { u8 pad[0x18]; };
+
+struct VObj : VBase {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(M2C_UNK); virtual void m21(M2C_UNK);
+};
+
 extern "C" {
 u8 *TObjPlayer__sub_801D8DCC();
 void TObjPlayer__sub_801B7248(u8 *arg0, s32 arg1);
@@ -191,6 +204,23 @@ u8 get_char_class__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_801C214C();
 s32 TObjPlayer__sub_801D9250(s32, s32);
 s32 TObjPlayer__sub_801B6CE0(Obj_801B6CE0 *self);
+s32 TObjPlayer__sub_80019248();
+u16 obj_getField1c(void *);
+s32 get_max_level__10TObjPlayerFv();
+s8 TObjPlayer__sub_801AFDB0();
+void TObjPlayer__sub_801B6C30(Player_801B6C30 *arg0);
+s32 TObjPlayer__sub_801B6CE0(Obj_801B6CE0 *self);
+s32 can_destroy_with_parents__10TObjPlayerFUi();
+s16 clamp_nested_index__10TObjPlayerFPv(void *, int);
+M2C_UNK reset_sub_status_disp__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_801C1A70(int);
+M2C_UNK calc_pos_delta__10TObjPlayerFPvPvPv(void *, void *, void *);
+M2C_UNK init_shield_params__10TObjPlayerFPvi(void *, void *, void *, int, int);
+u8 *get_slot_value__10TObjPlayerFPvi(void *, s32);
+s32 get_current_state_field__10TObjPlayerFv(void *, int);
+s32 reset_key_machine_state__10TObjPlayerFv();
+M2C_UNK create_level_up_window__11TWindowCtrlFii(void *, void *);
+void TObjPlayer__sub_801B6DF0(u8 *arg0);
 }
 
 extern "C" {
@@ -286,6 +316,51 @@ s32 TObjPlayer__sub_801B6CE0(Obj_801B6CE0 *self) {
         lvl++;
     }
     return 1;
+}
+
+struct Player_801B6C30;
+struct Obj_801B6CE0;
+void TObjPlayer__sub_801B6DF0(u8 *arg0) {
+    struct Buf1C sp40;
+    struct Buf1C sp24;
+    struct Buf1C sp8;
+    s32 var_r31;
+    u8 *temp_r31;
+    s32 var_r30;
+    s32 temp_r30;
+    u8 *temp_r30_2;
+    if ((TObjPlayer__sub_80019248() != 0) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
+        temp_r30 = ((s32 (*)(void *))clamp_nested_index__10TObjPlayerFPv)((void *) (arg0)) + 1;
+        if (temp_r30 <= get_max_level__10TObjPlayerFv()) {
+            if (get_current_state_field__10TObjPlayerFv((void *) (((s32 (*)(void *))TObjPlayer__sub_801AFDB0)((void *) (arg0))), (int) (temp_r30)) <= (s32) M2C_FIELD(M2C_FIELD(arg0, void **, 0x2B0), s32 *, 0x1C)) {
+                reset_sub_status_disp__10TObjPlayerFPv((void *) (&sp40));
+                reset_sub_status_disp__10TObjPlayerFPv((void *) (&sp24));
+                reset_sub_status_disp__10TObjPlayerFPv((void *) (&sp8));
+                var_r30 = 0;
+                do {
+                    temp_r31 = get_slot_value__10TObjPlayerFPvi(arg0 + 0xD04, var_r30);
+                    if ((can_destroy_with_parents__10TObjPlayerFUi() != 0) && (TObjPlayer__sub_801C1A70((int) (temp_r31)) != 0)) {
+                        ((VObj *)temp_r31)->m21(1);
+                    }
+                    var_r30 += 1;
+                } while (var_r30 < 0xD);
+                init_shield_params__10TObjPlayerFPvi((void *) (&sp40), (void *) (arg0), (void *) (M2C_FIELD(arg0, void **, 0x2B0)), (int) (M2C_FIELD(arg0, s32 *, 0x318)), (int) (M2C_FIELD(arg0, s32 *, 0x31C)));
+                TObjPlayer__sub_801B6CE0((Obj_801B6CE0 *)((struct Obj_801B6CE0 *) (arg0)));
+                init_shield_params__10TObjPlayerFPvi((void *) (&sp24), (void *) (arg0), (void *) (M2C_FIELD(arg0, void **, 0x2B0)), (int) (M2C_FIELD(arg0, s32 *, 0x318)), (int) (M2C_FIELD(arg0, s32 *, 0x31C)));
+                var_r31 = 0;
+                do {
+                    temp_r30_2 = get_slot_value__10TObjPlayerFPvi(arg0 + 0xD04, var_r31);
+                    if ((can_destroy_with_parents__10TObjPlayerFUi() != 0) && (TObjPlayer__sub_801C1A70((int) (temp_r30_2)) != 0)) {
+                        ((VObj *)temp_r30_2)->m20(1);
+                    }
+                    var_r31 += 1;
+                } while (var_r31 < 0xD);
+                calc_pos_delta__10TObjPlayerFPvPvPv((void *) (&sp40), (void *) (&sp24), (void *) (&sp8));
+                create_level_up_window__11TWindowCtrlFii((void *) (&sp8), (void *) (obj_getField1c((void *) (arg0))));
+                TObjPlayer__sub_801B6C30((Player_801B6C30 *)((struct Player_801B6C30 *) (arg0)));
+            }
+        }
+    }
 }
 
 void update_status_effects__10TObjPlayerFPv(u8 *arg0) {

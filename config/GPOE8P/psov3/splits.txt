@@ -3581,6 +3581,8 @@ pso/unk/text_800FC0F8.cpp:
 
 pso/misc/TWindowSubStatusDisp_800FC220.cpp:
 	.text       start:0x800FC220 end:0x800FC3CC
+	.rodata     start:0x8043DA78 end:0x8043DA80
+	.sdata2     start:0x805DA980 end:0x805DA984
 
 pso/misc/TLobby_800FC3CC.cpp:
 	.text       start:0x800FC3CC end:0x800FC3E0
@@ -6755,6 +6757,7 @@ pso/misc/TMainCursor_80154090_80154288.cpp:
 
 pso/player/TObjPlayer_801542CC.cpp:
 	.text       start:0x801542CC end:0x80156B18
+	.sdata2     start:0x805DB270 end:0x805DB27C
 
 pso/misc/TLobby_80156B18.cpp:
 	.text       start:0x80156B18 end:0x80156BBC

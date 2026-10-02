@@ -119,6 +119,15 @@ struct Radar_801FADF0 {
     u32 f184;
 };
 
+struct RecoveredGlobal_801F9B8C_TRaderMapCore__data_80512D08 {
+    M2C_UNK value;
+    u8 remaining[0x9FC];
+};
+
+struct Vec_801F9B8C { f32 x, y, z; };
+
+struct Dot_801F9B8C { f32 x, z, w; s16 c; s16 type; s32 color; };
+
 extern "C" {
 M2C_UNK TCameraCtrl__sub_80068EF0();
 M2C_UNK TCameraCtrl__sub_80069024();
@@ -206,6 +215,13 @@ extern u8 TCameraCtrl__data_804FF628[];
 extern s32 TRaderMapCore__data_805D5F3C;
 extern s32 TRaderMapCore__data_805D5F44;
 s32 TRaderMapCore__sub_801FADF0(void *arg0v, void *arg1);
+f32 xz_distance_squared(void *, void *);
+extern RecoveredGlobal_801F9B8C_TRaderMapCore__data_80512D08 TRaderMapCore__data_80512D08;
+extern RecoveredGlobal_801F9720_TRaderMapCore__data_80513708 TRaderMapCore__data_80513708;
+extern s32 TRaderMapCore__data_805D5F30;
+extern const f32 TRaderMapCore__data_805DC534;
+extern const f32 lbl_805DC564;
+s32 minimap_render_dot(Vec_801F9B8C *arg0, s32 arg1, s16 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -374,6 +390,34 @@ void TRaderMapCore__sub_801F9720(f32 farg0) {
 }
 
 #define MAP_801F9C54 ((struct Map_801F9C54 *) TRaderMapCore__data_805D5F28)
+
+typedef char RecoveredGlobal_801F9B8C_TRaderMapCore__data_80512D08_size[sizeof(RecoveredGlobal_801F9B8C_TRaderMapCore__data_80512D08) == 0xA00 ? 1 : -1];
+s32 minimap_render_dot(Vec_801F9B8C *arg0, s32 arg1, s16 arg2, s32 arg3) {
+    Vec_801F9B8C *cam = (Vec_801F9B8C *)&TRaderMapCore__data_80513708;
+    Vec_801F9B8C v;
+    u8 pad[0x10];
+    Dot_801F9B8C *d;
+    if (TRaderMapCore__data_805D5F30 > 0x7F) {
+        return 0;
+    }
+    if (!(arg3 & 1)) {
+        v.x = cam->x;
+        v.z = cam->z;
+        if (xz_distance_squared(arg0, &v) > lbl_805DC564) {
+            return 0;
+        }
+    }
+    ((Dot_801F9B8C *)&TRaderMapCore__data_80512D08)[TRaderMapCore__data_805D5F30].x = arg0->x;
+    d = &((Dot_801F9B8C *)&TRaderMapCore__data_80512D08)[TRaderMapCore__data_805D5F30];
+    d->z = arg0->z;
+    d->w = TRaderMapCore__data_805DC534;
+    d->color = arg1;
+    d->type = arg2;
+    d->c = 0;
+    TRaderMapCore__data_805D5F30++;
+    return 1;
+}
+
 s32 TRaderMapCore__sub_801F9C54(s16 id) {
     s32 i;
     if (MAP_801F9C54 == NULL) {
