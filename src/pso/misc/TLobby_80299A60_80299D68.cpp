@@ -17,7 +17,7 @@ M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(M2C_UNK);
 s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK TLobby__sub_80226E44(M2C_UNK);
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
-M2C_UNK TLobby__sub_80227FB4();
+M2C_UNK load_floor_sound_bank();
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK create_instance__10TSceneSoraFPv(s32, s32);
 extern M2C_UNK lbl_804651C8[];
@@ -28,7 +28,7 @@ s32 initialize_boss_scene(void) {
     u32 temp_new;
 
     get_global_state__14TOKeyMachine01Fv();
-    TLobby__sub_80227FB4();
+    load_floor_sound_bank();
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }

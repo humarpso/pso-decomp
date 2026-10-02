@@ -45,7 +45,7 @@ M2C_UNK TCameraCtrl__sub_800693F4();
 M2C_UNK TCameraCtrl__sub_8006A35C();
 M2C_UNK TCameraCtrl__ct(u8 *, s32);
 M2C_UNK TLoadCtrl__sub_80226DA0(int);
-s32 TLobby__sub_80228578(void *);
+s32 select_area_entrance(void *);
 s32 __nw__7TObjectFUl(int);
 M2C_UNK TAdLoadQuestGC__sub_80309850();
 M2C_UNK fn_8034AD2C();
@@ -233,7 +233,7 @@ void TLoadCtrl__sub_8001C978(u32 arg0) {
     TCameraCtrl__sub_8006A35C();
     TCameraCtrl__sub_800693F4();
     if (var_r31 == 2U) {
-        temp_r3 = TLobby__sub_80228578((void *) (lbl_80515BA0));
+        temp_r3 = select_area_entrance((void *) (lbl_80515BA0));
         if (temp_r3 == 0) {
             var_r31 = 3U;
         } else if (temp_r3 == 1) {

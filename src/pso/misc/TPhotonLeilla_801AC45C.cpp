@@ -37,9 +37,9 @@ s32 TOTrapAncient01__sub_80226578(s32, s32, u32, s16, s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 M2C_UNK advance_animation_playback(void *);
-M2C_UNK TObjPlayer__sub_801A720C(int, int, int, f32);
+M2C_UNK queue_photon_blast_hit(int, int, int, f32);
 M2C_UNK TCameraCtrl__sub_801A7310(void *, int);
-M2C_UNK TObjPlayer__sub_801A7680(void *);
+M2C_UNK update_photon_blast_attachments(void *);
 M2C_UNK TObjPlayer__sub_801A7748(void *, int);
 M2C_UNK update_state__10TSceneSoraFPv(void *);
 u8 *__nw__7TObjectFUl(M2C_UNK, f32);
@@ -142,13 +142,13 @@ void run_task__13TPhotonLeillaFv(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 0x190) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);
     update_state__10TSceneSoraFPv((void *) (arg0));
     advance_animation_playback((void *) (arg0));
-    TObjPlayer__sub_801A7680((void *) (arg0));
+    update_photon_blast_attachments((void *) (arg0));
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (M2C_FIELD(arg0, s16 *, 0x14C) + 0xF);
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (u8) M2C_FIELD(arg0, s16 *, 0x14C);
     if (lbl_805DC1CC == (f32) M2C_FIELD(arg0, s32 *, 0x1AC)) {
         temp_r3_3 = (u8 *)(find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x17C)));
         if (temp_r3_3 != NULL) {
-            TObjPlayer__sub_801A720C((int) (obj_getField1c(temp_r3_3)), (int) (4), (int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x150)));
+            queue_photon_blast_hit((int) (obj_getField1c(temp_r3_3)), (int) (4), (int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x150)));
         }
     }
     if ((f32) M2C_FIELD(arg0, s32 *, 0x1AC) > lbl_805DC1D0) {

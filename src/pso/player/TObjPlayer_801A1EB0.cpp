@@ -13,7 +13,7 @@ struct Dst_801A1F48 { u8 pad[0x1C]; u16 id; u8 pad1e[0xA]; s16 kind; u8 pad2a[0x
 extern "C" {
 Vec_801A1F48 *VecCopy__FP3VecPC3Vec(Vec_801A1F48 *, const Vec_801A1F48 *);
 void copy_xyz__10TObjPlayerFPvPv(void *, void *);
-void fn_801A1F48(Dst_801A1F48 *self, Src_801A1F48 *src);
+void apply_object_set_data(Dst_801A1F48 *self, Src_801A1F48 *src);
 extern u16 lbl_805D5CD4;
 extern u16 lbl_805D5CD6;
 u16 TLobby__sub_801A2078(s32 arg);
@@ -46,7 +46,7 @@ s16 get_stat_by_key_state__10TObjPlayerFPv(void *arg0) {
     return M2C_FIELD(arg0, s16 *, 0x28);
 }
 
-void fn_801A1F48(Dst_801A1F48 *self, Src_801A1F48 *src) {
+void apply_object_set_data(Dst_801A1F48 *self, Src_801A1F48 *src) {
     s32 i;
     self->id = src->id;
     VecCopy__FP3VecPC3Vec(&self->pos2, VecCopy__FP3VecPC3Vec(&self->pos, &src->pos));

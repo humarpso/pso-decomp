@@ -15,7 +15,7 @@ void dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
 void TLobby__sub_80226E44(s32);
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
-M2C_UNK TLobby__sub_80227FB4();
+M2C_UNK load_floor_sound_bank();
 void create_mist_ctrl__6TLobbyFPvPv(void *, void *);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern s32 lbl_804651C0[];
@@ -37,7 +37,7 @@ int TLobby__sub_8007BA20(void);
 M2C_UNK TLobby__sub_801403B4(M2C_UNK);
 int TLobby__sub_80227248(void);
 int TLobby__sub_8022743C(void);
-M2C_UNK TLobby__sub_80227FB4();
+M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
 M2C_UNK TObjLight__sub_80133D78();
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -64,7 +64,7 @@ extern s32 tl_particlemodel;
 s32 init_particle_model__6TLobbyFv(void) {
     void* obj;
     get_global_state__14TOKeyMachine01Fv();
-    TLobby__sub_80227FB4();
+    load_floor_sound_bank();
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
@@ -83,7 +83,7 @@ extern M2C_UNK lbl_804651A0[];
 
 s32 load_dragon2_scene(void) {
     get_global_state__14TOKeyMachine01Fv();
-    TLobby__sub_80227FB4();
+    load_floor_sound_bank();
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
@@ -103,7 +103,7 @@ extern s32 tl_particlemodel;
 s32 init_scene_delo2(void) {
     void *obj;
     get_global_state__14TOKeyMachine01Fv();
-    TLobby__sub_80227FB4();
+    load_floor_sound_bank();
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
@@ -123,7 +123,7 @@ void update_floor_state_deferred__6TLobbyFv(void) { refresh_render_state__6TLobb
 
 s32 TLobby__sub_80299C7C(void) {
     get_global_state__14TOKeyMachine01Fv();
-    TLobby__sub_80227FB4();
+    load_floor_sound_bank();
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }

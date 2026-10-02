@@ -146,7 +146,7 @@ extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 void TObjPlayer__sub_8002E3D4(Obj_8002E3D4 *self);
 f32 lerp__9TDeadSpotFff(f32, f32);
-f32 TTecZondeEff__sub_8002DF28();
+f32 rand_signed_unit();
 M2C_UNK init_base__10TObjPlayerFPv(void *);
 M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
 M2C_UNK TObjPlayer__sub_803D8CD4(int);
@@ -310,7 +310,7 @@ Obj_8002E62C *TObjPlayer__sub_8002E62C(Obj_8002E62C *self, M2C_UNK arg1, s32 arg
         p->f10 = lerp__9TDeadSpotFff(lbl_805D8234, lbl_805D8238);
         p->f14 -= lerp__9TDeadSpotFff(lbl_805D8228, lbl_805D823C);
         p->f18 = 0;
-        p->f1C = (s32)(lbl_805D8240 * TTecZondeEff__sub_8002DF28());
+        p->f1C = (s32)(lbl_805D8240 * rand_signed_unit());
         p->f20 = 0;
         p->f28 = 0;
         p->f24 = lbl_805D8228;

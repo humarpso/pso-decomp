@@ -15,8 +15,8 @@ extern "C" {
 M2C_UNK TObjPlayer__sub_803E20B0();
 M2C_UNK setup_render__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_803E2224();
-void TWindowSubStatusDisp__sub_803DEE6C(s32 arg0);
-s32 TObjPlayer__sub_803E1D90(void *, int, int, int);
+void begin_screen_draw(s32 arg0);
+s32 load_list_texture(void *, int, int, int);
 extern s32 lbl_805D77B0;
 void TWindowSubStatusDisp__sub_803DF160(s32 arg0, s32 arg1);
 void GXBegin(u32, u32, u16);
@@ -38,7 +38,7 @@ extern "C" {
 void get_player__20TWindowSubStatusDispFv(void);
 M2C_UNK TObjPlayer__sub_803E2248();
 
-void TWindowSubStatusDisp__sub_803DEE6C(s32 arg0) {
+void begin_screen_draw(s32 arg0) {
     TObjPlayer__sub_803E20B0();
     if (arg0 != 0) {
         TObjPlayer__sub_803E2224();
@@ -140,7 +140,7 @@ void DVDConvertEntrynumToPath(f32 *q) {
 #pragma scheduling off
 #pragma peephole off
 void TWindowSubStatusDisp__sub_803DF160(s32 arg0, s32 arg1) {
-    TObjPlayer__sub_803E1D90((void *) (arg0), (int) (0), (int) (0), (int) (0));
+    load_list_texture((void *) (arg0), (int) (0), (int) (0), (int) (0));
     lbl_805D77B0 = ((arg1 & 0xFFFFFF) << 8) | ((u32) (arg1 & 0xFF000000) >> 0x18U);
 }
 #pragma pop

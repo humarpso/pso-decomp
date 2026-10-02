@@ -10,7 +10,7 @@ extern "C" {
 s32 TObjPlayer__sub_80010C04(s32 id);
 s32 add_id_to_slots__10TObjPlayerFiUs(void *, s32);
 s32 is_split_screen();
-void TOMineTrap__sub_80010F54(Obj_80010F54 *self, s32 id);
+void record_attack_source(Obj_80010F54 *self, s32 id);
 }
 
 extern "C" {
@@ -48,7 +48,7 @@ void assign_slots_from_list(void *arg0, s32 arg1) {
     }
 }
 u16 fn_80010F4C(void* p) { return *(u16*)((char*)p + 0x2d6); }
-void TOMineTrap__sub_80010F54(Obj_80010F54 *self, s32 id) {
+void record_attack_source(Obj_80010F54 *self, s32 id) {
     if ((u16)id != 0xFFFF) {
         self->id = id;
         if (self->id < 0x1000 && TObjPlayer__sub_80010C04(self->id) != 0) {

@@ -15,7 +15,7 @@ M2C_UNK setup_control_role__10TObjPlayerFPvi(void *, void *);
 M2C_UNK TObjPlayer__sub_801BB8B0(void *, void *);
 M2C_UNK setup_fresh_player_state__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK TObjPlayer__sub_801BBB98(void *, void *);
-M2C_UNK TObjPlayer__sub_801BC6C4(void *);
+M2C_UNK init_action_provider__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801BC8F0(void *);
 M2C_UNK TObjPlayer__sub_801BCA14(void *, void *);
 M2C_UNK init_player_data__10TObjPlayerFPv(void *, void *);
@@ -113,7 +113,7 @@ u8 *construct_player_instance__10TObjPlayerFPvisiPv(u8 *arg0, s32 arg1, s16 arg2
     reset_and_return__10TObjPlayerFi((void *) (arg0 + 0xD04));
     clear_header_struct__10TObjPlayerFPv((void *) (arg0 + 0xDAC));
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3530;
-    TObjPlayer__sub_801BC6C4((void *) (arg0));
+    init_action_provider__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, s16 *, 0x1C) = arg2;
     setup_control_role__10TObjPlayerFPvi((void *) (arg0), (void *) (arg3));
     update_body_parts__10TObjPlayerFPv((void *) (arg0), (void *) (arg4 + 0x370));

@@ -39,7 +39,7 @@ extern "C" {
 s32 TLobby__sub_8001DC24();
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 u8 *get_player_by_client_id(s32);
-M2C_UNK TWindowSubStatusDisp__sub_80229080();
+M2C_UNK text_builder_append();
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 s32 get_window_layout_position(int);
 M2C_UNK notify_warp_flag70__19TWindowSubShortMailFPv(int);
@@ -50,7 +50,7 @@ extern const f32 lbl_805DE298;
 s32 fn_802B1AB4(u8 *arg0, s32 arg1);
 s32 TLobby__sub_8001DC24();
 u8 *get_player_by_client_id(s32);
-M2C_UNK TWindowSubStatusDisp__sub_80229080();
+M2C_UNK text_builder_append();
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 M2C_UNK send_and_handle__6TLobbyFPvii(int, int, int);
 s32 TLobby__sub_80269CC0(s32, void *, int, int);
@@ -68,10 +68,10 @@ s32 fn_802B1AB4(u8 *arg0, s32 arg1) {
     TWindowSubStatusDisp__sub_802290E0();
     if (temp_r29_2 != NULL) {
         ((VObj_18_f23ffb *)(temp_r29_2))->m10();
-        TWindowSubStatusDisp__sub_80229080();
+        text_builder_append();
     }
     get_message_10__20TWindowSubStatusDispFPv((int) (0xD6));
-    TWindowSubStatusDisp__sub_80229080();
+    text_builder_append();
     temp_r29 = TWindowMessageYesNo__sub_802A59D8((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x20)), (int) (0), (int) (0));
     TWindowSubShortMail__sub_802A58AC((int) (temp_r29), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x20))), (int) (TLobby__sub_8001DC24()), (int) (get_window_layout_position((int) (0x5B))), (f32) (lbl_805DE298));
     free_member__17TWindowSubComCardFPv((int) (temp_r29), (int) (1));
@@ -84,9 +84,9 @@ s32 fn_802B1B80(u8 *arg0, s32 arg1, s32 arg2) {
     p = (VObj_802B1B80 *)get_player_by_client_id(arg1);
     TWindowSubStatusDisp__sub_802290E0();
     if (p != NULL) {
-        ((M2C_UNK (*)(M2C_UNK))TWindowSubStatusDisp__sub_80229080)(p->m10());
+        ((M2C_UNK (*)(M2C_UNK))text_builder_append)(p->m10());
     }
-    ((M2C_UNK (*)(s32))TWindowSubStatusDisp__sub_80229080)(arg2);
+    ((M2C_UNK (*)(s32))text_builder_append)(arg2);
     r = TLobby__sub_80269CC0(get_window_layout_position(0x5B), lbl_80470AA8, 1, M2C_FIELD(arg0, s32 *, 0x20));
     send_and_handle__6TLobbyFPvii(r, TLobby__sub_8001DC24(), 0x82);
     return r;

@@ -15,7 +15,7 @@ void TObjPlayer__sub_801BB85C(void *, void *);
 void TObjPlayer__sub_801BBC2C(void *, void *);
 void update_position__10TObjPlayerFPvi(void *, void *);
 void init_from_data__10TObjPlayerFPvPv(void *, void *);
-void TObjPlayer__sub_801BC6C4(void *);
+void init_action_provider__10TObjPlayerFPv(void *);
 void init_battle__10TObjPlayerFi(void *, void *);
 void TObjPlayer__sub_801BC948(void *, void *);
 void TObjPlayer__sub_801BCAB0(void *, void *);
@@ -103,7 +103,7 @@ void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2) {
     reset_and_return__10TObjPlayerFi((void *)((char *)arg0 + 3332));
     clear_header_struct__10TObjPlayerFPv((void *)((char *)arg0 + 3500));
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3530;
-    TObjPlayer__sub_801BC6C4(arg0);
+    init_action_provider__10TObjPlayerFPv(arg0);
     M2C_FIELD(arg0, u16 *, 0x1C) = 0;
     setup_control_role__10TObjPlayerFPvi(arg0, 7);
     update_body_parts__10TObjPlayerFPv(arg0, arg2);

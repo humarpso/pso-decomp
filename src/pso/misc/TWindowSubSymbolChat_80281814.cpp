@@ -70,7 +70,7 @@ extern M2C_UNK TWindowSubSymbolChat__data_805D649C;
 void TWindowSubSymbolChat__sub_80281C60(void *arg0);
 f32 get_scale__15TWindowCtrlMainFv(s32);
 void set_global_param__8TObjFishFi(s32);
-void TWindowSubStatusDisp__sub_803DEE6C(s32);
+void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv(void);
 void draw_textured_quad_at_depth(void *, f32);
 void TWindowSubStatusDisp__sub_803DF160(s32, u32);
@@ -157,7 +157,7 @@ void TWindowSubSymbolChat__sub_80281840(Win_80281840 *arg0) {
             color = 0xFFFFFFFF;
         }
         scale = lbl_805DD714 / get_scale__15TWindowCtrlMainFv(arg0->ctrl);
-        TWindowSubStatusDisp__sub_803DEE6C(1);
+        begin_screen_draw(1);
         set_global_param__8TObjFishFi(lbl_805D63F0);
         TWindowSubStatusDisp__sub_803DF160(0, color);
         q.x = lbl_805DD718;

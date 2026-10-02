@@ -14,7 +14,7 @@ extern "C" {
 u8 * TWindowKeyBoardBase__sub_8008116C(void *);
 int alloc_buffer__11TOBoss4RockFPv(void *);
 u8 * get_window_layout_position(s32);
-M2C_UNK TWindowKeyBoardBase__sub_8008102C(void *, int, int);
+M2C_UNK init_keyboard_text_buffer(void *, int, int);
 M2C_UNK TWindowDD__sub_802466E0(void *, void *, int, int);
 M2C_UNK TWindowSubStatusDisp__sub_8025CD44(void *, int, int);
 extern RecoveredGlobal_8025E9E4_lbl_804CFA70 lbl_804CFA70;
@@ -88,7 +88,7 @@ u8 *TWindowKeyBoardBase__ct(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3920;
     temp_r31 = lbl_805D5544;
     TWindowSubStatusDisp__sub_8025CD44((void *) (arg0), (int) (0), (int) (0));
-    TWindowKeyBoardBase__sub_8008102C((void *) (arg0 + 0x84), (int) (0), (int) (0));
+    init_keyboard_text_buffer((void *) (arg0 + 0x84), (int) (0), (int) (0));
     M2C_FIELD(arg0, u8 **, 0x68) = (unsigned char *) ((void *) (arg0 + 0x6C));
     M2C_FIELD(arg0, s32 *, 0xB4) = 0;
     M2C_FIELD(arg0, s16 *, 0x62) = 0;
@@ -99,7 +99,7 @@ u8 *TWindowKeyBoardBase__ct(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xA8) = 0;
     M2C_FIELD(arg0, s32 *, 0xAC) = 0;
     if (temp_r31 == 0) {
-        TWindowKeyBoardBase__sub_8008102C((void *) (arg0 + 0x84), (int) (0x24), (int) (0));
+        init_keyboard_text_buffer((void *) (arg0 + 0x84), (int) (0x24), (int) (0));
         M2C_FIELD(arg0, s32 *, 0x9C) = alloc_buffer__11TOBoss4RockFPv((void *)0x194);
         M2C_FIELD(arg0, s32 *, 0xB0) = 0x94;
     }

@@ -22,7 +22,7 @@ void TLobby__sub_802081AC(void *arg0);
 void TLobby__sub_801F3AD8(struct QuestObjRow_801F3AD8 *rows, u32 byte_size);
 void TLobby__sub_802080C0(void*);
 void TLobby__sub_801F3A80(u8* arg0, u32 arg1);
-M2C_UNK TLobby__sub_801F3F40(s32);
+M2C_UNK load_quest_encounter_section(s32);
 s32 handle_msg_type2__6TLobbyFi(s32);
 M2C_UNK init_buffers__6TLobbyFii(s32, s32);
 extern s16 TLobby__data_805127D0[];
@@ -89,7 +89,7 @@ void TLobby__sub_801F3B30(void) {
                 ok = 1;
             }
             if (ok == 1) {
-                TLobby__sub_801F3F40(i);
+                load_quest_encounter_section(i);
             }
             break;
         case 1:

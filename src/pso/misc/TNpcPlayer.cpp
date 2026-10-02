@@ -56,7 +56,7 @@ u8 *get_position_ptr__10TObjPlayerFPv(s32);
 u8 *get_target_ptr__11TCameraCtrlFPv(s32);
 f32 TBoss6Kakusan__sub_803D8BD8(void *, f32);
 extern const f32 lbl_805DB230;
-s32 TNpcPlayer__sub_8014FEAC(u8 *arg0);
+s32 partner_view_check_moved(u8 *arg0);
 s16 obj_getS16_32E(void *);
 s16 obj_getS16_2BA(void *);
 s16 obj_getS16_32C(void *);
@@ -290,7 +290,7 @@ s32 try_attack__10TNpcPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
     return 0;
 }
 
-s32 TNpcPlayer__sub_8014FEAC(u8 *arg0) {
+s32 partner_view_check_moved(u8 *arg0) {
     Stack_8014FEAC stack;
     f32 temp_f1;
     u8 *temp_r31;

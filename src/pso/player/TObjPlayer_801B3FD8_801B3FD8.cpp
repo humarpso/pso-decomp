@@ -16,7 +16,7 @@ s32 TObjPlayer__sub_801BF548(void *);
 s32 TObjPlayer__sub_801C6E40(void *);
 void emit_footstep_effect__10TObjPlayerFiff(s32 arg0, f32 farg0, f32 farg1);
 s32 objInBand__FP7GameObjf(void *, f32);
-s32 TObjPlayer__sub_801B4118(u8 *arg0, f32 farg0, f32 farg1);
+s32 test_ordered_anim_markers__10TObjPlayerFPvff(u8 *arg0, f32 farg0, f32 farg1);
 }
 
 extern "C" {
@@ -68,7 +68,7 @@ int TObjPlayer__sub_801B40D0(void *arg0, int arg1) {
     }
 }
 
-s32 TObjPlayer__sub_801B4118(u8 *arg0, f32 farg0, f32 farg1) {
+s32 test_ordered_anim_markers__10TObjPlayerFPvff(u8 *arg0, f32 farg0, f32 farg1) {
     if (objInBand__FP7GameObjf(arg0, farg0) != 0) {
         return 1;
     }
@@ -78,7 +78,7 @@ s32 TObjPlayer__sub_801B4118(u8 *arg0, f32 farg0, f32 farg1) {
 void emit_footstep_effect__10TObjPlayerFiff(s32 arg0, f32 farg0, f32 farg1) {
     s32 temp_r3;
     s32 temp_r3_2;
-    if ((test_flag_2000000__10TObjPlayerFPv() == 0) && (temp_r3 = ((s32)TObjPlayer__sub_801B4118((u8 *)((void *)((void *) (arg0))), (f32) (farg0), (f32) (farg1))), ((temp_r3 == 0) == 0))) {
+    if ((test_flag_2000000__10TObjPlayerFPv() == 0) && (temp_r3 = ((s32)test_ordered_anim_markers__10TObjPlayerFPvff((u8 *)((void *)((void *) (arg0))), (f32) (farg0), (f32) (farg1))), ((temp_r3 == 0) == 0))) {
         temp_r3_2 = TObjPlayer__sub_801C6E40((void *) (arg0 + 0x360));
         switch (temp_r3_2) {
         case 1:

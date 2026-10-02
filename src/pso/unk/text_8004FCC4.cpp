@@ -26,7 +26,7 @@ extern const f32 lbl_805D8A14;
 extern const f32 lbl_805D8A18;
 void fn_8004FCC4(u8 *arg0);
 s32 is_ending_or_split_screen__14TBoss4DarkFalzFv();
-void TCameraCtrl__sub_80069DA8();
+void restore_player_cameras();
 void request_destroy__11TBoss4Type2FUi(void *);
 void init_state_1__8TObjFishFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, s16);
@@ -79,7 +79,7 @@ Obj_8004FD50 *fn_8004FD50(Obj_8004FD50 *arg0, s16 arg1) {
             }
         }
         if (is_ending_or_split_screen__14TBoss4DarkFalzFv() == 0) {
-            TCameraCtrl__sub_80069DA8();
+            restore_player_cameras();
         }
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {

@@ -226,7 +226,7 @@ s32 TObjPlayer__sub_8018A10C(u8 *arg0, s32 arg1);
 M2C_UNK TObjPlayer__sub_80154954(void *, void *);
 s32 TLobby__sub_80156A80(void *, void *, int);
 extern f32 lbl_805DBCF4;
-f32 TObjPlayer__sub_8018A038(u8 *arg0);
+f32 receive_physical_hit__17TObjContainerBaseFPv(u8 *arg0);
 s32 fn_80156BBC(void *, void *);
 s32 fn_80156C38(void *);
 void TObjPlayer__sub_80189F24(Obj_80189F24 *self);
@@ -234,7 +234,7 @@ void TObjPlayer__sub_80189F24(Obj_80189F24 *self);
 
 extern "C" {
 
-f32 TObjPlayer__sub_8018A0B4(void *arg0, s32 arg1, s32 *arg2);
+f32 receive_technique_hit__17TObjContainerBaseFPviPv(void *arg0, s32 arg1, s32 *arg2);
 
 extern f32 lbl_805DBCF0;
 extern f32 lbl_805DBCF4;
@@ -262,7 +262,7 @@ void TObjPlayer__sub_80189FEC(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x364) = 0;
 }
 
-f32 TObjPlayer__sub_8018A038(u8 *arg0) {
+f32 receive_physical_hit__17TObjContainerBaseFPv(u8 *arg0) {
     s16 sp8;
     if (((u16) M2C_FIELD(arg0, u16 *, 0x1C) >= 0x1000U) && ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
         sp8 = 1;
@@ -272,7 +272,7 @@ f32 TObjPlayer__sub_8018A038(u8 *arg0) {
     return (*(const f32 *)&lbl_805DBCF4);
 }
 
-f32 TObjPlayer__sub_8018A0B4(void *arg0, s32 arg1, s32 *arg2) {
+f32 receive_technique_hit__17TObjContainerBaseFPviPv(void *arg0, s32 arg1, s32 *arg2) {
     s32 temp_r4;
     struct VObj_8018A0B4 *o = (struct VObj_8018A0B4 *)arg0;
 

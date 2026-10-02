@@ -48,7 +48,7 @@ s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 is_player_input_active(int);
 extern RecoveredGlobal_80276D14_lbl_8050E208 lbl_8050E208;
-void TWindowSubCustomEquip__sub_80276D14(u8 *arg0);
+void handle_cursor_input__21TWindowSubCustomEquipFPv(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 initialize_subwindow__9TWindowDDFPv(void *);
@@ -59,7 +59,7 @@ void reset_selection__21TWindowSubCustomEquipFPv(void* p);
 void update_rotate_anim__21TWindowSubCustomEquipFPv(void *arg0);
 void handle_cancel__21TWindowSubCustomEquipFPv(void *arg0);
 void handle_decide__21TWindowSubCustomEquipFPv(void *arg0);
-void TWindowSubCustomEquip__sub_80276D14(u8 *arg0);
+void handle_cursor_input__21TWindowSubCustomEquipFPv(u8 *arg0);
 s32 update_subwindow__20TWindowSubStatusDispFPv(int);
 extern RecoveredGlobal_80276D14_lbl_8050E208 lbl_8050E208;
 extern const f32 lbl_805DD5A4;
@@ -243,7 +243,7 @@ void handle_decide__21TWindowSubCustomEquipFPv(void *arg0) {
 extern M2C_UNK __vt__21TWindowSubCustomEquip[];
 
 typedef char RecoveredGlobal_80276D14_lbl_8050E208_size[sizeof(RecoveredGlobal_80276D14_lbl_8050E208) == 0x1B0 ? 1 : -1];
-void TWindowSubCustomEquip__sub_80276D14(u8 *arg0) {
+void handle_cursor_input__21TWindowSubCustomEquipFPv(u8 *arg0) {
     s32 temp_r29;
     u8 temp_r3_2;
     u8 temp_r3_3;
@@ -308,7 +308,7 @@ void run_task__21TWindowSubCustomEquipFv(u8 *arg0) {
     u8 *temp_r30_2;
     temp_r30 = is_player_input_active((int) ((s32) M2C_FIELD(arg0, s16 *, 0x20)));
     if (is_selected__21TWindowSubCustomEquipFPv((void *)((void *) (arg0))) == 0) {
-        TWindowSubCustomEquip__sub_80276D14((u8 *)((void *) (arg0)));
+        handle_cursor_input__21TWindowSubCustomEquipFPv((u8 *)((void *) (arg0)));
         temp_r30_2 = (u8 *)&(*(RecoveredGlobal_80277014_lbl_8050E208 *)&lbl_8050E208).value + (temp_r30 * 0x50) + 0x20;
         if ((TWindowShortListCtrl__check_controller_button((int) (temp_r30_2), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&(*(RecoveredGlobal_80277014_lbl_8050E208 *)&lbl_8050E208).value + 0x160), (int) (4)) != 0)) {
             handle_decide__21TWindowSubCustomEquipFPv((void *) (arg0));

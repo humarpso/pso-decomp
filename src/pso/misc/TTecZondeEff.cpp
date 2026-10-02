@@ -98,7 +98,7 @@ extern char lbl_804CC8C8[];
 extern A_8023DBB4 *lbl_8048E5A0[];
 extern s32 TTecZondeEff__data_805D63B8;
 void TTecZondeEff__sub_8023DBB4(void);
-f32 TTecZondeEff__sub_8002DF28();
+f32 rand_signed_unit();
 void TTecZondeEff__sub_8023D294(void *, s32, void *);
 s32 calc_dominant_axis__12TTecZondeEffFPv(void *arg0);
 extern const f32 TTecZondeEff__data_805DC990;
@@ -155,7 +155,7 @@ void TTecZondeEff__sub_8023D4A8(Obj_8023D4A8 *arg0) {
     }
     k = lbl_805DC9A4;
     for (i = 1; i < arg0->count - 1; i++) {
-        arg0->w[i] = k * TTecZondeEff__sub_8002DF28();
+        arg0->w[i] = k * rand_signed_unit();
     }
     arg0->w[0] = TTecZondeEff__data_805DC990;
     arg0->w[arg0->count - 1] = TTecZondeEff__data_805DC990;

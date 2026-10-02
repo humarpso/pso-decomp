@@ -23,7 +23,7 @@ s32 request_destroy__11TBoss4Type2FUi(void *);
 s32 init_state_1__8TObjFishFPv(void *);
 s32 __dt__7TObjectFv(void *, int);
 s32 __dl__7TObjectFPv(void *);
-s32 TCameraCtrl__sub_80069DA8();
+s32 restore_player_cameras();
 s32 TBoss6PlotFalz__sub_802AC4D8();
 extern u8 lbl_804EFA1C[];
 O_8033D9E4 *fn_8033D9E4(O_8033D9E4 *arg0, s16 arg1);
@@ -128,7 +128,7 @@ O_8033D9E4 *fn_8033D9E4(O_8033D9E4 *arg0, s16 arg1) {
                 arg0->h[i] = 0;
             }
         }
-        TCameraCtrl__sub_80069DA8();
+        restore_player_cameras();
         TBoss6PlotFalz__sub_802AC4D8();
         if (arg0->f7c != 0) {
             init_state_1__8TObjFishFPv(arg0->f7c);

@@ -20,7 +20,7 @@ extern "C" {
 
 void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
 void update_camera_if_active__15TObjEnemyCustomFv(void);
-M2C_UNK TCameraCtrl__sub_80069DA8();
+M2C_UNK restore_player_cameras();
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
 
@@ -56,7 +56,7 @@ u8 *TObjEnemyCustom__ct(u8 *arg0) {
 
 void update_camera_if_active__15TObjEnemyCustomFv(void) {
     if ((s32) lbl_805D5198 != 0) {
-        TCameraCtrl__sub_80069DA8();
+        restore_player_cameras();
     }
 }
 

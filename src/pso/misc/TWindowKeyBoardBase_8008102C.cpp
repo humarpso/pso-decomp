@@ -15,7 +15,7 @@ f32 TWindowSubStatusDisp__sub_803D647C(f32);
 M2C_UNK free__11TOBoss4RockFUi(u32);
 s16 *alloc_buffer__11TOBoss4RockFPv(s32);
 u32 __cvt_fp2unsigned(f32);
-void TWindowKeyBoardBase__sub_8008102C(u8 *arg0, u32 arg1, u32 arg2);
+void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2);
 }
 
 extern "C" {
@@ -27,7 +27,7 @@ u32 get_player_by_client_id(s32);
 M2C_UNK __dl__FPv(u32 *);
 M2C_UNK free__11TOBoss4RockFUi(u32);
 
-void TWindowKeyBoardBase__sub_8008102C(u8 *arg0, u32 arg1, u32 arg2) {
+void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2) {
     s16 *temp_r3;
     u32 temp_r3_2;
     temp_r3 = (s16 *)(M2C_FIELD(arg0, s16 **, 0));
@@ -68,7 +68,7 @@ extern s32 lbl_805D53A0;
 
 s32 *TWindowKeyBoardBase__sub_8008116C(s32 *arg0) {
     *arg0 = 0;
-    TWindowKeyBoardBase__sub_8008102C((u8 *)(arg0), (u32)(0U), (u32)(0U));
+    init_keyboard_text_buffer((u8 *)(arg0), (u32)(0U), (u32)(0U));
     return arg0;
 }
 

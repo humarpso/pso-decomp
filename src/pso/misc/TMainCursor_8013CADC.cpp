@@ -42,7 +42,7 @@ s32 try_camera_action__10TObjPlayerFii(s32, u16);
 s32 check_mode_action__10TObjPlayerFii(s32, u16);
 s32 reset_key_machine_state__10TObjPlayerFv();
 extern u8 lbl_804A7150[];
-s32 TMainCursor__sub_8013CB3C(void *arg0, s32 arg1, s32 arg2);
+s32 get_action_cursor_priority__11TMainCursorFPvii(void *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -71,7 +71,7 @@ void set_cursor_pos__11TMainCursorFiUsi(s32 arg0, u16 arg1, s32 arg2) {
     TMainCursor__sub_8013E970(arg0 + 0x508, arg1, arg2, eq + 1);
 }
 
-s32 TMainCursor__sub_8013CB3C(void *arg0, s32 arg1, s32 arg2) {
+s32 get_action_cursor_priority__11TMainCursorFPvii(void *arg0, s32 arg1, s32 arg2) {
     u16 kind;
     u16 sub;
     kind = TObjPlayer__sub_801B5AF8(arg1, arg2);

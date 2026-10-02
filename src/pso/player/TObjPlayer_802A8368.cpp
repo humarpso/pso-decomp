@@ -55,7 +55,7 @@ void Dolphin_GXSetIndTexOrder(s32, s32, s32);
 void GXSetNumIndStages(s32);
 void GXSetTevIndWarp(s32, s32, s32, s32, s32);
 void set_global_param__8TObjFishFi(s32);
-void TObjPlayer__sub_803E1D90(s32, s32, s32, s32);
+void load_list_texture(s32, s32, s32, s32);
 extern Tbl5_802A85F0 lbl_8046FC0C;
 extern Tbl5_802A85F0 lbl_8046FC20;
 extern const f32 lbl_805DE020;
@@ -67,7 +67,7 @@ void Dolphin_GXSetIndTexOrder(s32, s32, s32);
 void GXSetNumIndStages(s32);
 void GXSetTevIndWarp(s32, s32, s32, s32, s32);
 void set_global_param__8TObjFishFi(s32);
-void TObjPlayer__sub_803E1D90(s32, s32, s32, s32);
+void load_list_texture(s32, s32, s32, s32);
 extern Tbl5_802A8448 lbl_8046FC34;
 extern const f32 lbl_805DE020;
 extern const f32 lbl_805DE024;
@@ -84,7 +84,7 @@ s32 TEffIndirectCtrl__sub_802A8CC0(s32, s32, s32, s32, s32, u8);
 s32 TEffIndirectCtrl__sub_802A8E4C(s32, s32, s32, s32, s32, u8);
 s32 TEffIndirectCtrl__sub_802A9234(u8);
 s32 copy_and_flush_texture__16TEffIndirectCtrlFPvi(void *, s32);
-s8 fn_802A82DC();
+s8 find_indirect_effect_ctrl();
 void render__16TEffIndirectCtrlFv(void);
 
 extern M2C_UNK lbl_80540B10[];
@@ -92,7 +92,7 @@ extern M2C_UNK lbl_80540B10[];
 void play_particle_at_active_slot__10TObjPlayerFiiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     s32 temp_r3;
 
-    temp_r3 = (s32)(s8) fn_802A82DC();
+    temp_r3 = (s32)(s8) find_indirect_effect_ctrl();
     if ((temp_r3 != -1) && ((u32) lbl_80540B10[temp_r3] != 0U)) {
         if (arg3 != 0) {
             TObjPlayer__sub_802A85F0((s32)(lbl_80540B10[temp_r3]), (s32)(arg4), (s32)(arg1), (s32)(arg2));
@@ -143,7 +143,7 @@ M2C_UNK TObjPlayer__sub_802A8448(s32 arg0, s32 sampler, s32 scale, s32 second) {
         GXSetIndTexMtx(1, m1, 1);
     }
     set_global_param__8TObjFishFi(((Owner_802A8448 *)arg0)->list);
-    TObjPlayer__sub_803E1D90(0, sampler, sampler, 5);
+    load_list_texture(0, sampler, sampler, 5);
 }
 
 s32 TObjPlayer__sub_802A85F0(s32 arg0, s32 unused, s32 sampler, s32 arg3) {
@@ -164,7 +164,7 @@ s32 TObjPlayer__sub_802A85F0(s32 arg0, s32 unused, s32 sampler, s32 arg3) {
         mtx[1][2] = lbl_805DE024;
         GXSetIndTexMtx(1, mtx, 1);
         set_global_param__8TObjFishFi(((Owner_802A85F0 *)arg0)->list);
-        TObjPlayer__sub_803E1D90(0, sampler, sampler, 5);
+        load_list_texture(0, sampler, sampler, 5);
     }
 }
 

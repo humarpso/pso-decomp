@@ -94,7 +94,7 @@ extern const f32 lbl_805D8260;
 void TObjPlayer__sub_8002ED48(Obj_8002ED48 *self, s32 n);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 lerp__9TDeadSpotFff(f32, f32);
-f32 TTecZondeEff__sub_8002DF28(void);
+f32 rand_signed_unit(void);
 void *init_base__10TObjPlayerFPv(void *arg0);
 s32 calc_random_scaled__10TObjPlayerFv(void);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
@@ -204,7 +204,7 @@ Obj_8002EA64 *TObjPlayer__sub_8002EA64(Obj_8002EA64 *arg0, void *arg1, Vec_8002E
         v->y = lerp__9TDeadSpotFff(lbl_805D8234, lbl_805D8238);
         v->z -= lerp__9TDeadSpotFff(lbl_805D8228, lbl_805D823C);
         p->unk18 = calc_random_scaled__10TObjPlayerFv();
-        p->unk1C = (s32)(scale * TTecZondeEff__sub_8002DF28());
+        p->unk1C = (s32)(scale * rand_signed_unit());
         p->unk20 = calc_random_scaled__10TObjPlayerFv();
         p->unk28 = 0;
         p->unk24 = zero;

@@ -79,7 +79,7 @@ extern s32 TLobby__data_805D6120;
 void TLobby__sub_8020D6F0(u8 *arg0);
 void *find_scene_room_by_id(s32 room);
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2);
-void TLobby__sub_8020D36C(SpawnRecord_8020D36C *rows, s32 count);
+void apply_room_transform_to_enemy_rows(SpawnRecord_8020D36C *rows, s32 count);
 void *find_scene_room_by_id(s32 room);
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2);
 void apply_room_transform_to_object_rows(Rec_8020D3F0 *arr, s32 n);
@@ -89,13 +89,13 @@ s32 get_instance__11TCameraCtrlFv();
 f32 xyz_distance_squared(void *, void *);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern Obj_8020D4E8 *lbl_805D4DF0;
-s32 TLobby__sub_8020D4E8(void *arg0, void *arg1, f32 farg0);
+s32 is_within_camera_distance(void *arg0, void *arg1, f32 farg0);
 s32 get_player_count__10TObjPlayerFv();
 s32 TCameraCtrl__sub_8006B368();
 s32 TLobby__sub_801C2614();
 s32 get_global_state__14TOKeyMachine01Fv();
 u8 *TLobby__sub_8020CFEC(void *, void *);
-s32 TLobby__sub_8020D4E8(void *arg0, void *arg1, f32 farg0);
+s32 is_within_camera_distance(void *arg0, void *arg1, f32 farg0);
 extern Ent_8020D5AC *TLobby__data_804C1ED8[];
 extern s32 TLobby__data_805D611C;
 extern s32 TLobby__data_805D6120;
@@ -119,7 +119,7 @@ void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2) {
     M2C_FIELD(arg1, s32 *, 8) = (s32) (M2C_FIELD(arg1, s32 *, 8) + M2C_FIELD(arg2, s32 *, 0x18));
 }
 
-void TLobby__sub_8020D36C(SpawnRecord_8020D36C *rows, s32 count) {
+void apply_room_transform_to_enemy_rows(SpawnRecord_8020D36C *rows, s32 count) {
     SpawnRecord_8020D36C *row;
     void *cached_room;
     s16 cached_id = -1;
@@ -173,7 +173,7 @@ s32 TLobby__sub_8020D474(void *arg0, int arg1, int arg2) {
     }
 }
 
-s32 TLobby__sub_8020D4E8(void *arg0, void *arg1, f32 farg0) {
+s32 is_within_camera_distance(void *arg0, void *arg1, f32 farg0) {
     s32 n;
     s32 i;
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
@@ -206,7 +206,7 @@ void spawn_decorations_in_range(void *arg0) {
     p = (Rec_8020D5AC *)TLobby__data_805D611C;
     for (i = 0; i < TLobby__data_805D6120; i++, p++) {
         if (p->id != -1 && !(p->flags & 2) && !(p->flags & 8)
-            && TLobby__sub_8020D4E8(arg0, p->data, tbl[p->id].range) == 1) {
+            && is_within_camera_distance(arg0, p->data, tbl[p->id].range) == 1) {
             p->s8 = 0xFFFF;
             p->s4 = -1;
             obj = TLobby__sub_8020CFEC(arg0, p);
@@ -239,7 +239,7 @@ void TLobby__sub_8020D6F0(u8 *arg0) {
         M2C_FIELD(temp_r30, s32 *, 8) = (s32) (M2C_FIELD(temp_r30, s32 *, 8) | 2);
     }
     if (!(M2C_FIELD(temp_r30, s32 *, 0xC) & 4)) {
-        TLobby__sub_8020D36C((SpawnRecord_8020D36C *)((int) (TLobby__data_805D6114)), (s32)((int) (M2C_FIELD(temp_r30, s32 *, 4))));
+        apply_room_transform_to_enemy_rows((SpawnRecord_8020D36C *)((int) (TLobby__data_805D6114)), (s32)((int) (M2C_FIELD(temp_r30, s32 *, 4))));
         M2C_FIELD(temp_r30, s32 *, 0xC) = (s32) (M2C_FIELD(temp_r30, s32 *, 0xC) | 4);
     }
     if (M2C_FIELD(temp_r30, s32 *, 8) & 2) {

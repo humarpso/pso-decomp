@@ -22,7 +22,7 @@ struct RecoveredGlobal_8002B744___vt__16TBoss1DragonDemo {
 
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TCameraCtrl__sub_80069DA8();
+M2C_UNK restore_player_cameras();
 u8 *get_scripted_camera_playback();
 s32 isV2Mode__12TBoss1DragonFv();
 s32 TCameraCtrl__sub_80069E7C(int);
@@ -47,7 +47,7 @@ void render__16TBoss1DragonDemoFv(void) {  }
 
 void run_task__16TBoss1DragonDemoFv(u8 *arg0) {
     if ((M2C_FIELD(get_scripted_camera_playback(), u16 *, 2) & 1) || ((s32) *M2C_FIELD(arg0, s32 **, 0x24) == 0)) {
-        TCameraCtrl__sub_80069DA8();
+        restore_player_cameras();
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }

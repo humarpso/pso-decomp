@@ -60,7 +60,7 @@ int set_stream_and_load_file__6TLobbyFi(char *);
 int free__11TOBoss4RockFUi(void*);
 int alloc_buffer__11TOBoss4RockFPv(u32);
 char *strncpy(char *, const char *, u32);
-void TLobby__sub_803DE084(int, int);
+void load_gvm_texture_archive(int, int);
 extern Name_8011A270 lbl_8043E714;
 extern int TItemReverseTech__data_805D54D0;
 extern int lbl_805D54D4;
@@ -148,7 +148,7 @@ void TItemReverseTech__sub_8011A270(void) {
     if (file != 0) {
         buf = alloc_buffer__11TOBoss4RockFPv(0x200000);
         if (buf != 0 && fn_800F7D30(file, buf, 0x200000) > 0) {
-            TLobby__sub_803DE084(buf, TItemReverseTech__data_805D54D0);
+            load_gvm_texture_archive(buf, TItemReverseTech__data_805D54D0);
         }
         free__11TOBoss4RockFUi((void *)buf);
     }

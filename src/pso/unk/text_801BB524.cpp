@@ -8,7 +8,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void TObjPlayer__sub_801BEB34(void *self, s32 role);
 void init_collision_body__10TObjPlayerFPv(void *self);
-s32 TObjPlayer__sub_801BA6BC(void *self);
+s32 register_player_slot__10TObjPlayerFPv(void *self);
 s32 setup_control_role__10TObjPlayerFPvi(Player_801BB524 *self, s32 role);
 M2C_UNK TObjPlayer__sub_80018F64(void *);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
@@ -79,7 +79,7 @@ s32 setup_control_role__10TObjPlayerFPvi(Player_801BB524 *self, s32 role) {
     }
     self->flags |= 0x10000000;
     init_collision_body__10TObjPlayerFPv(self);
-    return TObjPlayer__sub_801BA6BC(self) != 1 ? 1 : 0;
+    return register_player_slot__10TObjPlayerFPv(self) != 1 ? 1 : 0;
 }
 void TObjPlayer__vt6(s32 arg0) {
     s32 temp_r30;

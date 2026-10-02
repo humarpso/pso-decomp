@@ -1370,7 +1370,7 @@ extern s32 TBoss1Dragon__data_805D4B14;
 extern s32 TBoss1Dragon__data_805D4B18;
 extern s32 TBoss1Dragon__data_805D4B1C;
 extern s32 TBoss1Dragon__data_805D4B20;
-void TBoss1Dragon__sub_8002116C(void);
+void dragon_capture_node_points(void);
 s32 isV2Mode__12TBoss1DragonFv(void);
 M2C_UNK TBoss1Dragon__sub_80027590(void* object, void* action);
 M2C_UNK TBoss1Dragon__sub_8002878C();
@@ -1569,7 +1569,7 @@ M2C_UNK TObjEneDD__sub_800BA88C(void *);
 M2C_UNK update_local_colliders_from_world(void *, void *);
 extern RecoveredGlobal_80027634_TBoss1Dragon__data_804FE17C TBoss1Dragon__data_804FE17C;
 extern const f32 TBoss1Dragon__data_805D7FAC;
-void TBoss1Dragon__sub_80029408(u8 *arg0);
+void update_colliders__12TBoss1DragonFPv(u8 *arg0);
 void TBoss1Dragon__sub_800274A4(s32 arg0);
 extern const f32 TBoss1Dragon__data_805D7F90;
 M2C_UNK setState1__12TBoss1DragonFv(void *);
@@ -1757,7 +1757,7 @@ void draw__12TBoss1DragonFPv(u8 *arg0) {
 
     temp_r31 = M2C_FIELD(arg0, s32 *, 0x34);
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) TBoss1Dragon__data_805D4B28;
-    set_global_state__16TObjEneRe7BeruraFi(((M2C_UNK *)TBoss1Dragon__sub_8002116C));
+    set_global_state__16TObjEneRe7BeruraFi(((M2C_UNK *)dragon_capture_node_points));
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
     translate_matrix(0, TBoss1Dragon__data_805D7F28, M2C_FIELD(arg0, f32 *, 0x5DC), TBoss1Dragon__data_805D7F28);
@@ -1771,7 +1771,7 @@ void draw__12TBoss1DragonFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x34) = temp_r31;
 }
 
-void TBoss1Dragon__sub_8002116C(void) {
+void dragon_capture_node_points(void) {
     s32 temp_r0;
     s32 temp_r4;
     if ((s32) TBoss1Dragon__data_805D4B0C == (s32) lbl_805D4B10) {
@@ -4128,7 +4128,7 @@ void update_linked_epsilon_position__12TBoss1DragonFv(void) {
     update_linked_position__14TObjEneEpsilonFPv(lbl_805D7F30);
 }
 
-void TBoss1Dragon__sub_80029408(u8 *arg0) {
+void update_colliders__12TBoss1DragonFPv(u8 *arg0) {
     Vec_80029408 pts[7];
     Vec_80029408 *p;
     f32 lim;

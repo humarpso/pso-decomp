@@ -10,7 +10,7 @@ struct RecoveredGlobal_803281B8_lbl_804ED5B0 {
 
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
-void fn_802A8260(s32);
+void register_indirect_effect_ctrl(s32);
 extern RecoveredGlobal_803281B8_lbl_804ED5B0 lbl_804ED5B0;
 u8 *fn_803281B8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3);
 }
@@ -23,7 +23,7 @@ u8 *fn_803281B8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804ED5B0.value;
     M2C_FIELD(arg0, s8 *, 0x1C) = arg1;
     M2C_FIELD(arg0, s8 *, 0x1D) = arg2;
-    fn_802A8260((s32) arg1);
+    register_indirect_effect_ctrl((s32) arg1);
     return arg0;
 }
 

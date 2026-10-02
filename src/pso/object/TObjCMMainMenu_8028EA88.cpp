@@ -31,7 +31,7 @@ M2C_UNK update_keyboard_menu__6TLobbyFv();
 M2C_UNK TObjLight__sub_80133A04(M2C_UNK *, M2C_UNK);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(M2C_UNK);
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
-M2C_UNK TLobby__sub_80227FB4(M2C_UNK);
+M2C_UNK load_floor_sound_bank(M2C_UNK);
 void *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TWindowCtrlMain__ct(void *);
 M2C_UNK TWindowCtrlMain__sub_8024D7C0(M2C_UNK);
@@ -98,7 +98,7 @@ void TObjCMMainMenu__sub_8028EA88(void) {
     if (p != NULL) {
         fn_80291178();
         fn_8028D940();
-        TLobby__sub_80227FB4(0);
+        load_floor_sound_bank(0);
         TObjBgmColCtrl__sub_802274B8(lbl_80451290);
         if (get_current_char_flag__14TObjCMMainMenuFv() != 0) {
             TObjCMMainMenu__sub_8028EC34();

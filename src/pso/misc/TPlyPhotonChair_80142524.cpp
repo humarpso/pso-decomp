@@ -67,7 +67,7 @@ void TPlyPhotonChair__sub_80142734(s32 _w0);
 f32 get_float_c__15TPlyPhotonChairFPv(void *);
 s32 TPlyPhotonChair__sub_80143930(void *);
 int get_id__15TPlyPhotonChairFPv(void *);
-void TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
+void draw_model_motion(s32, s32, f32);
 void TPlyPhotonChair__sub_80142778(void *arg0);
 extern const f64 lbl_8043F298;
 extern const f64 lbl_8043F2A0;
@@ -144,7 +144,7 @@ void TPlyPhotonChair__sub_80142770(void) {  }
 void TPlyPhotonChair__sub_80142774(void) {  }
 
 void TPlyPhotonChair__sub_80142778(void *arg0) {
-    TObjEneSlimeOne__sub_803E4AF4(((s32)get_id__15TPlyPhotonChairFPv((void *)(arg0))), TPlyPhotonChair__sub_80143930(arg0), get_float_c__15TPlyPhotonChairFPv(arg0));
+    draw_model_motion(((s32)get_id__15TPlyPhotonChairFPv((void *)(arg0))), TPlyPhotonChair__sub_80143930(arg0), get_float_c__15TPlyPhotonChairFPv(arg0));
 }
 
 void TPlyPhotonChair__sub_801427D0(u8 *arg0) {

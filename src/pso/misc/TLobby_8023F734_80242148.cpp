@@ -19,7 +19,7 @@ void TLobby__sub_8024259C(s32 arg0);
 char *TLobby__sub_802424A4(char *s, s32 a, s32 b);
 char *TLobby__sub_8001DC24();
 void TWindowSubStatusDisp__sub_80228D4C();
-void TWindowSubStatusDisp__sub_80229080(char *);
+void text_builder_append(char *);
 void TWindowSubStatusDisp__sub_802290E0();
 char *TLobby__sub_802424A4(char *s, s32 a, s32 b);
 char *TLobby__sub_802424D8(char *list);
@@ -90,7 +90,7 @@ char *TLobby__sub_802424D8(char *list) {
             *d++ = *s++;
         }
         *d = '\0';
-        TWindowSubStatusDisp__sub_80229080(buf);
+        text_builder_append(buf);
     }
     return TLobby__sub_8001DC24();
 }

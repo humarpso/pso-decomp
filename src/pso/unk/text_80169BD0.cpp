@@ -45,12 +45,12 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjPlayer__sub_803E4684(s32);
 M2C_UNK draw_chunk_object(void *);
-M2C_UNK TObjEneSlimeOne__sub_803E4AF4(void *, void *, f32);
+M2C_UNK draw_model_motion(void *, void *, f32);
 void fn_80169E30(u8 *arg0);
 s32 submit_cursor_candidate(void *, int);
 s32 check_player_flag1__6TLobbyFPv();
-s32 TCameraCtrl__sub_8006D494();
-s32 TCameraCtrl__sub_8006D610();
+s32 end_conversation_camera();
+s32 begin_conversation_camera();
 s32 check_demo_mode__10TObjPlayerFv();
 s32 TODragonfly__sub_80158360(void *, f32);
 s32 send_code_45_1__10TObjPlayerFi(int);
@@ -100,7 +100,7 @@ void run_script_object_task(u8 *arg0) {
     case 2:
         if ((s32) M2C_FIELD(arg0, u16 *, 0x94) == (s32) lbl_805D53A0) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 3;
-            TCameraCtrl__sub_8006D610();
+            begin_conversation_camera();
             temp_r0_2 = M2C_FIELD(arg0, s32 *, 0xD4);
             if ((temp_r0_2 >= 0x64) && (temp_r0_2 < 0x3E8) && ((u32) lbl_805D5EE8 != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv((void *) (lbl_805D5EE8)) != 0)) {
                 temp_r3 = __nw__7TObjectFUl((int) (0x194));
@@ -135,7 +135,7 @@ void run_script_object_task(u8 *arg0) {
         if (((temp_r3_5 != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv((void *) (temp_r3_5)) == 0)) || ((u32) M2C_FIELD(arg0, u32 *, 0xDC) == 0U)) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 0;
             M2C_FIELD(arg0, u32 *, 0xDC) = 0U;
-            TCameraCtrl__sub_8006D494();
+            end_conversation_camera();
             if ((s32) M2C_FIELD(arg0, u16 *, 0x94) == (s32) lbl_805D53A0) {
                 temp_r3_6 = get_player_by_client_id((void *) (lbl_805D53A0));
                 if ((temp_r3_6 != 0) && (check_player_flag1__6TLobbyFPv() != 0)) {
@@ -166,7 +166,7 @@ void fn_80169E30(u8 *arg0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) == 1) {
             void *p = M2C_FIELD(arg0, void **, 0xBC);
             if (p != NULL) {
-                TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, void **, 0x34), p, M2C_FIELD(arg0, f32 *, 0xB0));
+                draw_model_motion(M2C_FIELD(arg0, void **, 0x34), p, M2C_FIELD(arg0, f32 *, 0xB0));
             } else {
                 draw_chunk_object(M2C_FIELD(arg0, void **, 0x34));
             }

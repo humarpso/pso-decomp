@@ -47,7 +47,7 @@ void TObjPlayer__sub_801BE9A8(s32);
 void set_flag_20000__10TObjPlayerFi(s32);
 void TObjPlayer__sub_801BF8EC(s32, s32, s32);
 s32 get_slot_value__10TObjPlayerFPvi(void *, s32);
-void TObjPlayer__sub_801B811C(u8 *arg0, u8 *arg1);
+void equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 s32 TObjPlayer__sub_801BF8F8(void *);
 u8 *TPlyItem__ct(void *, void *);
 u8 *__ct__9TItemListFv(void *, void *);
@@ -55,15 +55,15 @@ u8 *__nw__7TObjectFUl(s32);
 u8 *__ct__7TObjectFP7TObject(void *, void *);
 void TObjPlayer__sub_801B826C(u8 *arg0);
 void TKeyBoardControl__sub_801AFCF4(u8 *, s32);
-void TObjPlayer__sub_801B811C(u8 *arg0, u8 *arg1);
+void equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 s16 TObjPlayer__sub_801C2114(void);
 s32 reset_key_machine_state__10TObjPlayerFv(void);
-void TObjPlayer__sub_801B81E8(u8 *p, u8 *records, s32 count);
+void bind_saved_inventory_equipment__10TObjPlayerFPvPvi(u8 *p, u8 *records, s32 count);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_801B811C(u8 *arg0, u8 *arg1) {
+void equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     s32 temp_r3;
     temp_r3 = lookup_inventory_item__10TObjPlayerFPv(arg1 + 8);
     if ((temp_r3 != 0) && (TObjPlayer__sub_801B8E68(arg0, (void *) temp_r3) != 0) && (M2C_FIELD(arg1, s32 *, 4) & 8) && (get_slot_value__10TObjPlayerFPvi(arg0 + 0xD04, (s32) ((VObj_18_e9153c *)(temp_r3))->m31()) == 0U)) {
@@ -74,12 +74,12 @@ void TObjPlayer__sub_801B811C(u8 *arg0, u8 *arg1) {
     }
 }
 
-void TObjPlayer__sub_801B81E8(u8 *p, u8 *records, s32 count) {
+void bind_saved_inventory_equipment__10TObjPlayerFPvPvi(u8 *p, u8 *records, s32 count) {
     s32 i;
     if (records != NULL) {
         TKeyBoardControl__sub_801AFCF4(p, TObjPlayer__sub_801C2114());
         for (i = 0; i < count; i++) {
-            TObjPlayer__sub_801B811C(p, records);
+            equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(p, records);
             records += 0x1C;
         }
         if (reset_key_machine_state__10TObjPlayerFv() == 0) {

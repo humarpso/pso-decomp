@@ -51,7 +51,7 @@ int TOHangerMachine01__sub_803D9C00(void*);
 int spawn_particle_effect_with_flags(void*, void*, void*);
 s32 TObjControl__ct(s32, s32);
 void TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
+M2C_UNK draw_model_motion(s32, s32, f32);
 s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 s32 get_bml_model(s32, M2C_UNK);
@@ -97,7 +97,7 @@ void update_linked_state__13TBoss6MagMineFPv(void *arg0) {
     temp_r31_2 = TObjFish__sub_8001ED9C(M2C_FIELD(arg0, s32 *, 0x374), 0);
     set_global_param__8TObjFishFi(temp_r31);
     TBoss6PlotFalz__sub_802AC008(M2C_FIELD(arg0, f32 *, 0x3A8), TBoss6MagMine__data_805E0314);
-    TObjEneSlimeOne__sub_803E4AF4(temp_r30, temp_r31_2, M2C_FIELD(arg0, f32 *, 0x398));
+    draw_model_motion(temp_r30, temp_r31_2, M2C_FIELD(arg0, f32 *, 0x398));
     update_camera_target__14TBoss6PlotFalzFv();
     clear_global_state__10TObjPlayerFv();
 }

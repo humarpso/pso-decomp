@@ -71,7 +71,7 @@ s16 get_technique_level__9TItemDataFPv(void *);
 void TItemData__sub_8010E414(void *);
 s32 get_player_by_client_id(int);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
-void TWindowSubStatusDisp__sub_80229080();
+void text_builder_append();
 void TWindowSubStatusDisp__sub_802290E0();
 void set_flag0_bit2__15TWindowHelpItemFPv(void *);
 void TWindowHelpItem__sub_80255DC8(u8);
@@ -146,10 +146,10 @@ void TWindowHelpItem__sub_802532E8(u8 *arg0) {
         e0 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
         TWindowSubStatusDisp__sub_802290E0();
         TItemData__sub_8010E414(*(void **)(arg0 + 0x68));
-        TWindowSubStatusDisp__sub_80229080();
+        text_builder_append();
         if (lbl_805D5544 == 0) {
             TWindowHelpItem__sub_80255DC8(*(*(u8 **)(arg0 + 0x68) + 4));
-            TWindowSubStatusDisp__sub_80229080();
+            text_builder_append();
         }
         TWindowSubStatusDisp__sub_8025AC50(e0, (void *)TLobby__sub_8001DC24(), 0x20);
         reset_float_field__15TWindowHelpItemFPv(e0);

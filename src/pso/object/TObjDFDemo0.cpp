@@ -63,7 +63,7 @@ void TObjPlayer__sub_803D9B2C();
 void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(s32);
-void TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
+void draw_model_motion(s32, s32, f32);
 void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
 extern const f32 lbl_805D8988;
@@ -79,7 +79,7 @@ void TObjPlayer__sub_803D9B2C();
 void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(s32);
-void TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
+void draw_model_motion(s32, s32, f32);
 void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
 extern Tbl_8004E068 lbl_8048561C[];
@@ -181,7 +181,7 @@ void TObjPlayer__sub_8004E068(Self_8004E068 *self) {
   for (j = 0; j < 2; j++)
   {
     set_global_param__8TObjFishFi(self->recs[j].b);
-    TObjEneSlimeOne__sub_803E4AF4((*(&self->recs[j])).a, self->recs[j].c, self->f114);
+    draw_model_motion((*(&self->recs[j])).a, self->recs[j].c, self->f114);
   }
   clear_global_state__10TObjPlayerFv();
   pop_matrix();
@@ -223,7 +223,7 @@ void TObjPlayer__sub_8004E2C8(Obj_8004E2C8 *arg0) {
             }
             break;
         }
-        TObjEneSlimeOne__sub_803E4AF4(arg0->recs[i].a, arg0->recs[i].c, f);
+        draw_model_motion(arg0->recs[i].a, arg0->recs[i].c, f);
     }
     clear_global_state__10TObjPlayerFv();
     pop_matrix();

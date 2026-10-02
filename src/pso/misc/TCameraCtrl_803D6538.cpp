@@ -152,7 +152,7 @@ void TObjPlayer__sub_803D7784(void);
 u32 TObjPlayer__sub_803D78C0(u8 *base, u32 stride, u32 hi, u32 key);
 u32 TObjPlayer__sub_803D7900(u8 *base, u32 stride, u32 hi, u32 key);
 extern u8 *lbl_805D76BC;
-void TObjPlayer__sub_803D7740(s32 n);
+void set_motion_row_stride(s32 n);
 void TObjPlayer__sub_803D98E4(void *);
 void TObjPlayer__sub_803D99F8(void *, int);
 void TBoss7Tentacle__sub_803D9BA0(void *);
@@ -463,7 +463,7 @@ void TObjPlayer__sub_803D76B4(void *arg0) {
 }
 #pragma pop
 
-void TObjPlayer__sub_803D7740(s32 n) {
+void set_motion_row_stride(s32 n) {
     s32 w = n * 4;
     s32 a;
     *(s32 *)(lbl_805D76BC + 0x4) = w;
@@ -500,7 +500,7 @@ void select_motion_sampler(M2C_UNK *arg0, f32 farg0) {
     M2C_FIELD(lbl_805D76BC, s32 *, 0x20) = (s32) M2C_FIELD(var_r3, u16 *, 8);
     M2C_FIELD(lbl_805D76BC, f32 *, 0x14) = farg0;
     M2C_FIELD(lbl_805D76BC, s32 *, 0x1C) = 0;
-    TObjPlayer__sub_803D7740((s32)((int) (M2C_FIELD(var_r3, u16 *, 0xA) & 0xFFFFFF3F)));
+    set_motion_row_stride((s32)((int) (M2C_FIELD(var_r3, u16 *, 0xA) & 0xFFFFFF3F)));
     temp_r4 = temp_r31 * 4;
     M2C_FIELD(lbl_805D76BC, s32 *, 0x24) = (s32) M2C_FIELD(&lbl_804FA500.value, M2C_UNK *, temp_r4);
     if ((s32) lbl_805D7808 != 0) {

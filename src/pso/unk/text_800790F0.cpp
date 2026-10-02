@@ -120,11 +120,11 @@ extern E_80079580 *lbl_805D4E6C;
 extern f32 lbl_805D4E74;
 extern s32 lbl_805D4E7C;
 extern const f32 lbl_805D91F4;
-s32 TObjPlayer__sub_80079580(void *arg0, void *arg1, void *arg2, s32 arg3);
+s32 query_wall_segment(void *arg0, void *arg1, void *arg2, s32 arg3);
 f32 get_random_float__8TObjFishFv(f32);
-s32 TObjPlayer__sub_80079580(void *arg0, void *arg1, void *arg2, s32 arg3);
+s32 query_wall_segment(void *arg0, void *arg1, void *arg2, s32 arg3);
 extern const f32 lbl_805D9204;
-s32 TObjPlayer__sub_80079608(Query_80079608 *q, Result_80079608 *r);
+s32 select_deepest_wall_ray(Query_80079608 *q, Result_80079608 *r);
 void TObjPlayer__sub_80079124(void * _w0, void * _w1);
 s32 TObjPlayer__sub_800798A0(void *, void *, void *, E_80079580 *, u32, s32);
 void vsub(void *, void *, void *);
@@ -164,7 +164,7 @@ void TObjPlayer__sub_8007911C(void) {  }
 void TObjPlayer__sub_80079120(s32 _w0) {  }
 void TObjPlayer__sub_80079124(void * _w0, void * _w1) {  }
 
-s32 TObjPlayer__sub_80079580(void *arg0, void *arg1, void *arg2, s32 arg3) {
+s32 query_wall_segment(void *arg0, void *arg1, void *arg2, s32 arg3) {
     u8 sp8[12];
     s32 r;
     E_80079580 *p = lbl_805D4E6C;
@@ -182,7 +182,7 @@ s32 TObjPlayer__sub_80079580(void *arg0, void *arg1, void *arg2, s32 arg3) {
 
 #pragma push
 #pragma fp_contract on
-s32 TObjPlayer__sub_80079608(Query_80079608 *q, Result_80079608 *r) {
+s32 select_deepest_wall_ray(Query_80079608 *q, Result_80079608 *r) {
     Vec_80079608 end;
     s32 i;
     s32 n;
@@ -200,7 +200,7 @@ s32 TObjPlayer__sub_80079608(Query_80079608 *q, Result_80079608 *r) {
         end.x = q->origin.x + off->x;
         end.y = q->origin.y + off->y;
         end.z = q->origin.z + off->z;
-        if (TObjPlayer__sub_80079580(&q->origin, &end, q->flags, (s32)hit) != 0) {
+        if (query_wall_segment(&q->origin, &end, q->flags, (s32)hit) != 0) {
             f32 dz = end.z - hit->pos.z;
             f32 dx = end.x - hit->pos.x;
             d = get_random_float__8TObjFishFv(dx * hit->normal.x + dz * hit->normal.z);
@@ -280,7 +280,7 @@ void *TObjPlayer__sub_8007A2D0(void *self) {
     void *r;
     TObjPlayer__sub_8007911C();
     r = lbl_80500148;
-    if (TObjPlayer__sub_80079608((Query_80079608 *)(self), (Result_80079608 *)(r)) == 0) {
+    if (select_deepest_wall_ray((Query_80079608 *)(self), (Result_80079608 *)(r)) == 0) {
         r = 0;
     }
     TObjPlayer__sub_80079118((M2C_UNK *)(lbl_80438988));
@@ -293,7 +293,7 @@ void *TObjPlayer__sub_8007A32C(Obj_8007A32C *self) {
     r = lbl_80500148;
     if (TObjPlayer__sub_80079F58(self->fc, self->f4, self->f8) == 0) {
         r = 0;
-    } else if (TObjPlayer__sub_80079608((Query_80079608 *)(self), (Result_80079608 *)(r)) == 0) {
+    } else if (select_deepest_wall_ray((Query_80079608 *)(self), (Result_80079608 *)(r)) == 0) {
         r = 0;
     }
     TObjPlayer__sub_80079118((M2C_UNK *)(lbl_804389A8));

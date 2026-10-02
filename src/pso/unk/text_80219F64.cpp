@@ -3,7 +3,7 @@ struct Pair_80219F64 { s32 a; s32 b; };
 
 extern "C" {
 s32 get_instance__6TLobbyFv(void);
-s32 TODoorVoShip__sub_801F44BC(s32);
+s32 get_story_flag(s32);
 extern Pair_80219F64 lbl_8044BF58[];
 extern Pair_80219F64 lbl_8044C028[];
 s32 TLobby__sub_80219F64(void);
@@ -21,11 +21,11 @@ s32 TLobby__sub_80219F64(void) {
     }
     for (i = 0; i < n; i++) {
         if (get_instance__6TLobbyFv() == 0) {
-            if (TODoorVoShip__sub_801F44BC(lbl_8044BF58[i].b) == 0) {
+            if (get_story_flag(lbl_8044BF58[i].b) == 0) {
                 return 0;
             }
         } else {
-            if (TODoorVoShip__sub_801F44BC(lbl_8044C028[i].b) == 0) {
+            if (get_story_flag(lbl_8044C028[i].b) == 0) {
                 return 0;
             }
         }

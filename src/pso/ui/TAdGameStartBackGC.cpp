@@ -39,7 +39,7 @@ extern "C" {
 void render__18TAdGameStartBackGCFv(void* p);
 void render_background_status__18TAdGameStartBackGCFPv(u8 *arg0);
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
-M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
+M2C_UNK begin_screen_draw(int);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 int get_state_flag__9TMainTaskFv(void*);
@@ -51,7 +51,7 @@ extern s32 lbl_805D6A50;
 extern const f32 lbl_805DF078;
 
 void render_background_status__18TAdGameStartBackGCFPv(u8 *arg0) {
-    TWindowSubStatusDisp__sub_803DEE6C((int) (1));
+    begin_screen_draw((int) (1));
     set_global_param__8TObjFishFi((void *) (lbl_805D6A50));
     TWindowSubStatusDisp__sub_803DF160((int) (0), (int) ((M2C_FIELD(arg0, s32 *, 0x78) << 0x18) | 0xFF0000 | 0xFFFF));
     draw_textured_quad_at_depth((void *) (arg0 + 0x3C), (f32) (lbl_805DF078));

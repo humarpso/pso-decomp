@@ -11,7 +11,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
+M2C_UNK draw_model_motion(int, int, f32);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 void fn_8004F1FC(u8 *arg0);
@@ -36,7 +36,7 @@ void fn_8004F1FC(u8 *arg0) {
             if (var_r29 == 0) {
                 TObjFish__sub_800E3074((int) (M2C_FIELD(arg0, s32 *, 0x100)));
             }
-            TObjEneSlimeOne__sub_803E4AF4((int) (M2C_FIELD(temp_r30, s32 *, 0xC4)), (int) (M2C_FIELD(temp_r30, s32 *, 0xCC)), (f32) (M2C_FIELD(arg0, f32 *, 0xFC)));
+            draw_model_motion((int) (M2C_FIELD(temp_r30, s32 *, 0xC4)), (int) (M2C_FIELD(temp_r30, s32 *, 0xCC)), (f32) (M2C_FIELD(arg0, f32 *, 0xFC)));
             if (var_r29 == 0) {
                 clear_render_callback__8TObjFishFv((int) (M2C_FIELD(arg0, s32 *, 0x100)));
             }

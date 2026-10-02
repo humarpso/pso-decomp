@@ -476,7 +476,7 @@ extern RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 TCameraCtrl__data_804
 extern RecoveredGlobal_80069094_camera_controller_registry camera_controller_registry;
 extern s32 lbl_805D4E18;
 extern s32 lbl_805D53A0;
-s32 TCameraCtrl__sub_80069DA8(void);
+s32 restore_player_cameras(void);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u16 TCameraCtrl__sub_80068958(s32 n);
 extern u8 *lbl_805D4DF0;
@@ -1140,7 +1140,7 @@ typedef char RecoveredGlobal_80069E7C_camera_controller_registry_size[((sizeof(R
 typedef char RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628_size[((sizeof(RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628)) == 0xC) ? (1) : (-1)];
 #define PSO_VCALL_VObj_18_f8ef8c_m5(_self) (((VObj_18_f8ef8c *)(_self))->m5())
 
-s32 TCameraCtrl__sub_80069DA8(void) {
+s32 restore_player_cameras(void) {
     s32 identity;
     u8 *player;
     if (M2C_FIELD(&TCameraCtrl__data_804FF628, u32 *, 8) & 4) {

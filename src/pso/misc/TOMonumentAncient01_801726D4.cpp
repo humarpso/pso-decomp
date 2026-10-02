@@ -55,7 +55,7 @@ extern const f32 lbl_805DB918;
 extern const f32 lbl_805DB91C;
 u8 *TOMonumentAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 TLobby__sub_80156A80(void *, void *, int);
-s32 TODoorVoShip__sub_801F44BC(s32);
+s32 get_story_flag(s32);
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
 void TOMonumentAncient02__vt4(void *arg0, s16 *arg1);
 }
@@ -143,13 +143,13 @@ void TOMonumentAncient02__vt4(void *arg0, s16 *arg1) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 1;
         break;
     default:
-        if (TODoorVoShip__sub_801F44BC(M2C_FIELD(arg0, s32 *, 0xD0)) != 0) {
+        if (get_story_flag(M2C_FIELD(arg0, s32 *, 0xD0)) != 0) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 2;
             M2C_FIELD(arg0, s32 *, 0xC8) = 1;
         }
         break;
     }
-    if ((TODoorVoShip__sub_801F44BC(0x2C) != 0) && (TODoorVoShip__sub_801F44BC(0x2D) != 0) && (TODoorVoShip__sub_801F44BC(0x2E) != 0)) {
+    if ((get_story_flag(0x2C) != 0) && (get_story_flag(0x2D) != 0) && (get_story_flag(0x2E) != 0)) {
         dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x2F);
     }
     TLobby__sub_80156A80(arg0, arg1, 0);

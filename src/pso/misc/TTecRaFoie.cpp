@@ -392,7 +392,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 u32 find_entity_by_id(int);
 s32 is_parents_unqueued__9TTecLukerFUi();
 s32 is_valid_and_active__10TObjPlayerFUi(int);
-void TTecRaFoie__sub_80238828(void *, void *);
+void update_detonation__10TTecRaFoieFPvPv(void *, void *);
 void run_task__10TTecRaFoieFv(u8 *arg0);
 void update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
@@ -408,7 +408,7 @@ extern const f32 TTecRaFoie__data_805DC8CC;
 extern const f32 lbl_805DC8E4;
 extern const f32 lbl_805DC8E8;
 extern const f32 lbl_805DC8EC;
-u8 *TTecRaFoie__sub_802384E0(u8 *arg0, M2C_UNK *arg1, s16 arg2, s16 arg3, s32 arg4, f32 farg0);
+u8 *create_rafoie_explosion(u8 *arg0, M2C_UNK *arg1, s16 arg2, s16 arg3, s32 arg4, f32 farg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -455,7 +455,7 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_technique_base__9TTecLukerFPvs(void *, int);
 
-u8 *TTecRaFoie__sub_802384E0(u8 *arg0, M2C_UNK *arg1, s16 arg2, s16 arg3, s32 arg4, f32 farg0) {
+u8 *create_rafoie_explosion(u8 *arg0, M2C_UNK *arg1, s16 arg2, s16 arg3, s32 arg4, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_802384E0, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802384E0, spC) == 0x4) ? 1 : -1];
     Stack_802384E0 stack;
@@ -548,7 +548,7 @@ void run_task__10TTecRaFoieFv(u8 *arg0) {
         return;
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x148) == 1) {
-        TTecRaFoie__sub_80238828((void *) (arg0), (void *) (arg0 + 0x7C));
+        update_detonation__10TTecRaFoieFPvPv((void *) (arg0), (void *) (arg0 + 0x7C));
         return;
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0xEC) == 0) {
@@ -557,11 +557,11 @@ void run_task__10TTecRaFoieFv(u8 *arg0) {
     }
     temp_r31 = find_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0xF0)));
     if ((is_parents_unqueued__9TTecLukerFUi() != 0) && (is_valid_and_active__10TObjPlayerFUi((int) (temp_r31)) != 0)) {
-        TTecRaFoie__sub_80238828((void *) (arg0), (void *) (temp_r31 + 0x2FC));
+        update_detonation__10TTecRaFoieFPvPv((void *) (arg0), (void *) (temp_r31 + 0x2FC));
     }
 }
 
-void TTecRaFoie__sub_80238828(void *arg0, void *arg1) {
+void update_detonation__10TTecRaFoieFPvPv(void *arg0, void *arg1) {
     RaFoie_80238828 *self = (RaFoie_80238828 *)arg0;
     void *p;
     s32 h;
@@ -573,7 +573,7 @@ void TTecRaFoie__sub_80238828(void *arg0, void *arg1) {
     }
     p = __nw__7TObjectFUl(0x64);
     if (p != NULL) {
-        TTecRaFoie__sub_802384E0((u8 *)p, (M2C_UNK *)self->target, self->band, 10, tl_particle, (f32)self->level);
+        create_rafoie_explosion((u8 *)p, (M2C_UNK *)self->target, self->band, 10, tl_particle, (f32)self->level);
     }
     switch (self->band) {
     case 0:

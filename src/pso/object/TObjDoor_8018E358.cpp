@@ -145,7 +145,7 @@ extern s32 some_id_805c6f74;
 M2C_UNK TObjDoor__sub_8018E74C(Door_8018E74C *arg0);
 void VecCopy__FP3VecPC3Vec(f32*,const f32*);
 void TCameraCtrl__sub_80069C94(f32*,f32*);
-void TCameraCtrl__sub_80069DA8();
+void restore_player_cameras();
 s32 TCameraCtrl__sub_80069E7C(s32);
 void clear_player_status_flag__10TObjPlayerFPviUi(TObjDoor*,s32,u32);
 void set_indexed_flags(TObjDoor*,s32,u32);
@@ -164,7 +164,7 @@ extern const f32 lbl_805DBDC8,lbl_805DBDCC;
 
 void VecCopy__FP3VecPC3Vec(f32*,const f32*);
 void TCameraCtrl__sub_80069C94(f32*,f32*);
-void TCameraCtrl__sub_80069DA8();
+void restore_player_cameras();
 s32 TCameraCtrl__sub_80069E7C(s32);
 void clear_player_status_flag__10TObjPlayerFPviUi(TObjDoor*,s32,u32);
 void set_indexed_flags(TObjDoor*,s32,u32);
@@ -374,7 +374,7 @@ void TObjDoor__sub_8018EC84(TObjDoor* door) {
         }
         if(door->cameraMode==2) {
             s32 ticks=door->cameraTicks-1;door->cameraTicks=ticks;
-            if(ticks==0) {TCameraCtrl__sub_80069DA8();door->state=2;return;}
+            if(ticks==0) {restore_player_cameras();door->state=2;return;}
         }
         if(door->cameraTicks>60) {
             door->accentFrame+=lbl_805DBDD8;

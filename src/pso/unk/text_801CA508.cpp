@@ -33,7 +33,7 @@ extern const f32 lbl_805DC388;
 void TObjPlayer__sub_801CA8F0(u8 *arg0);
 s32 obj_testFlags30(void *, s32);
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, int, int);
-void TObjPlayer__sub_801CA940(u8 *arg0);
+void request_revival_if_not_dead__10TObjPlayerFPv(u8 *arg0);
 s32 get_main_phase();
 s32 obj_getField1c(void *);
 s32 check_value_equals__13TQuestColCtrlFPvi(int, void *);
@@ -251,7 +251,7 @@ void TObjPlayer__sub_801CA8F0(u8 *arg0) {
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0x24) = (f32) M2C_FIELD(arg0, f32 *, 0x40);
     obj_setFlags30(arg0, 0x800U);
 }
-void TObjPlayer__sub_801CA940(u8 *arg0) {
+void request_revival_if_not_dead__10TObjPlayerFPv(u8 *arg0) {
     if (obj_testFlags30(arg0, 0x800) == 0) {
         run_action_state_phase__10TObjPlayerFisi((void *) (arg0), (int) (0x12), (int) (5));
     }

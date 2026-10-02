@@ -8,12 +8,12 @@ extern void *lbl_805D7734;
 void VIConfigure(void *);
 void fn_803DD0D8(void);
 void fn_803DD294(void);
-void fn_803DCDB0(void *arg0);
+void init_video_and_gx(void *arg0);
 }
 
 extern "C" {
 
-void fn_803DCDB0(void *arg0) {
+void init_video_and_gx(void *arg0) {
     set_present_interval(M2C_FIELD(arg0, void **, 0x0), M2C_FIELD(arg0, void **, 0x4));
     init_locked_cache_heap(arg0);
     VIConfigure(lbl_805D7734);

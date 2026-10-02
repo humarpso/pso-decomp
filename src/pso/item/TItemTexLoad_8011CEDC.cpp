@@ -8,7 +8,7 @@ void TLobby__sub_8001EE48(void *);
 s32 TLobby__sub_8001EEFC(void *);
 void fn_800F7D30(int, int, int);
 void unload_texture__12TItemTexLoadFPv(void *);
-void TLobby__sub_803DE084(int, void *);
+void load_gvm_texture_archive(int, void *);
 extern Trip_8011CEDC lbl_8043E7F4[];
 void TItemTexLoad__sub_8011CEDC(Tex_8011CEDC *arg0);
 }
@@ -20,7 +20,7 @@ void TItemTexLoad__sub_8011CEDC(Tex_8011CEDC *arg0) {
     s32 r = TLobby__sub_8001EEFC(&t);
     if (r != 0) {
         fn_800F7D30(arg0->f1c, r, 0x40000);
-        TLobby__sub_803DE084(r, &arg0->f2c);
+        load_gvm_texture_archive(r, &arg0->f2c);
         TLobby__sub_8001EE48(&t);
         arg0->state = 2;
     } else {

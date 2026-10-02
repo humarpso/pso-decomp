@@ -30,7 +30,7 @@ void set_field_d8__10TObjPlayerFPvi(void *, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
 M2C_UNK TCameraCtrl__sub_801A7310(void *, int);
-M2C_UNK fn_801A7428(int, int);
+M2C_UNK spawn_photon_blast_opening_effects(int, int);
 M2C_UNK TObjPlayer__sub_801A7748(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801AA6F8(void *, int);
 M2C_UNK TPhotonMagicSquare__sub_801AD218(void *, void *, int, void *, int);
@@ -117,7 +117,7 @@ u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1) {
         TObjPlayer__sub_801A7748(arg0, 1);
         play_cue_stream_file(lbl_80446D10);
     } else {
-        fn_801A7428(1, M2C_FIELD(arg0, u16 *, 0x17C));
+        spawn_photon_blast_opening_effects(1, M2C_FIELD(arg0, u16 *, 0x17C));
         play_cue_stream_file(lbl_80446D1C);
     }
     return arg0;

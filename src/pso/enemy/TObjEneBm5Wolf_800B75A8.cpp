@@ -45,7 +45,7 @@ void *copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(int);
 extern const f32 TObjEneBm5Wolf__data_805D9DE8;
 extern const f32 TObjEneBm5Wolf__data_805D9DEC;
-void TObjEneBm5Wolf__sub_800B7794(u8 *arg0);
+void play_footsteps__14TObjEneBm5WolfFPv(u8 *arg0);
 f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 int get_flag_bit0__14TObjEneBm5WolfFPv(void* p);
@@ -152,7 +152,7 @@ void play_proximity_effect__14TObjEneBm5WolfFi(s32 arg0) {
 extern f32 lbl_805D9E4C;
 extern f32 lbl_805D9E50;
 
-void TObjEneBm5Wolf__sub_800B7794(u8 *arg0) {
+void play_footsteps__14TObjEneBm5WolfFPv(u8 *arg0) {
     if ((objInBand__FP7GameObjf(arg0, TObjEneBm5Wolf__data_805D9DEC) != 0) || (objInBand__FP7GameObjf(arg0, TObjEneBm5Wolf__data_805D9DE8) != 0)) {
         play_sound_effect((void *)(((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x3C618)))), (void *)((u32) (arg0 + 0x38)), (int)(0), (int)(0));
         play_effect_if_v2__10TObjPlayerFi((int) (-0x1000));

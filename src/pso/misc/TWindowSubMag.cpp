@@ -41,7 +41,7 @@ M2C_UNK TItemData__sub_8010D614(s32, M2C_UNK *);
 s32 TItemMag__sub_801143E8(M2C_UNK *, s32);
 s32 TWindowSubStatusDisp__sub_80144D68();
 M2C_UNK TWindowSubStatusDisp__sub_80228D80();
-M2C_UNK TWindowSubStatusDisp__sub_80229080();
+M2C_UNK text_builder_append();
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 M2C_UNK set_position_xy(void *, f32, f32);
 M2C_UNK set_field_1c__6TLobbyFPvf(void *);
@@ -170,12 +170,12 @@ void *TWindowSubMag__sub_8027B424(u8 *arg0) {
     }
     TWindowSubStatusDisp__sub_802290E0();
     get_message_10__20TWindowSubStatusDispFPv(0x64);
-    TWindowSubStatusDisp__sub_80229080();
+    text_builder_append();
     TWindowSubStatusDisp__sub_80228D80();
     TWindowSubMag__sub_8027C0B0(n);
-    TWindowSubStatusDisp__sub_80229080();
+    text_builder_append();
     get_message_10__20TWindowSubStatusDispFPv(0x4C);
-    TWindowSubStatusDisp__sub_80229080();
+    text_builder_append();
     TLobby__sub_8001DC24();
     n = TWindowSubStatusDisp__sub_80144D68();
     if (get_camera_id__11TCameraCtrlFv() > 2) {

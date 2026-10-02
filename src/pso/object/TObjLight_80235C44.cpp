@@ -69,7 +69,7 @@ u32 get_player_by_client_id(int);
 extern Base_80235C44 TObjLight__data_80506320;
 extern const f32 lbl_805DC890;
 extern const f32 lbl_805DC894;
-void TObjLight__sub_80235C44(Light_80235C44 *arg0);
+void update_actor_light_task(Light_80235C44 *arg0);
 }
 
 extern "C" {
@@ -82,7 +82,7 @@ extern M2C_UNK lbl_804CCAA8[];
 
 #pragma push
 #pragma fp_contract on
-void TObjLight__sub_80235C44(Light_80235C44 *arg0) {
+void update_actor_light_task(Light_80235C44 *arg0) {
     Vec_80235C44 baseDir;
     Col_80235C44 baseColor;
     Col_80235C44 unused;

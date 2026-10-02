@@ -18,7 +18,7 @@ extern "C" {
 void render__15TObjBoss8PillerFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
+M2C_UNK draw_model_motion(int, int, f32);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -42,7 +42,7 @@ void render__15TObjBoss8PillerFv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x1C));
         scale_matrix((int) (0), (f32) (lbl_805DF150), (f32) (lbl_805DF150), (f32) (lbl_805DF150));
-        TObjEneSlimeOne__sub_803E4AF4((int) (var_r31), (int) (M2C_FIELD(arg0, s32 *, 0x2C)), (f32) (M2C_FIELD(arg0, f32 *, 0x28)));
+        draw_model_motion((int) (var_r31), (int) (M2C_FIELD(arg0, s32 *, 0x2C)), (f32) (M2C_FIELD(arg0, f32 *, 0x28)));
         pop_matrix();
         reset_transform_state__10TObjPlayerFv();
     }

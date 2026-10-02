@@ -25,7 +25,7 @@ s32 rand();
 extern const f32 lbl_805D817C;
 extern const f32 lbl_805D8184;
 extern const f32 lbl_805D818C;
-f32 TTecZondeEff__sub_8002DF28(void);
+f32 rand_signed_unit(void);
 void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, int);
 void TObjPlayer__sub_803D9B2C();
@@ -54,7 +54,7 @@ extern const f32 lbl_805D818C;
 f32 lerp__9TDeadSpotFff(f32 farg0, f32 farg1) {
     return ((farg1 - farg0) * (lbl_805D818C * (f32) rand())) + farg0;
 }
-f32 TTecZondeEff__sub_8002DF28(void) {
+f32 rand_signed_unit(void) {
     return lbl_805D8184 * ((lbl_805D818C * (f32) rand()) - lbl_805D817C);
 }
 void TObjPlayer__sub_8002DF7C(Obj_8002DF7C *self) {

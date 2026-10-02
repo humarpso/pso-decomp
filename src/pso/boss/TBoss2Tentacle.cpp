@@ -44,7 +44,7 @@ M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK draw_chunk_object(void *);
-M2C_UNK TObjEneSlimeOne__sub_803E4AF4(void *, int, f32);
+M2C_UNK draw_model_motion(void *, int, f32);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 extern Node_8003933C lbl_804FE5D8[];
@@ -94,7 +94,7 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
     case 0:
         TObjPlayer__sub_803D9730((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x110)));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x11C)));
-        TObjEneSlimeOne__sub_803E4AF4((void *) (lbl_805D4BD0), (int) (TBoss2Tentacle__data_805D4BD4), (f32) (M2C_FIELD(arg0, f32 *, 0x114)));
+        draw_model_motion((void *) (lbl_805D4BD0), (int) (TBoss2Tentacle__data_805D4BD4), (f32) (M2C_FIELD(arg0, f32 *, 0x114)));
         break;
     case 1:
     case 4:
@@ -102,7 +102,7 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
         TObjPlayer__sub_803D9730((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x110)));
         rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x120)));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x11C)));
-        TObjEneSlimeOne__sub_803E4AF4((void *) (lbl_805D4BD0), (int) (TBoss2Tentacle__data_805D4BD4), (f32) (M2C_FIELD(arg0, f32 *, 0x114)));
+        draw_model_motion((void *) (lbl_805D4BD0), (int) (TBoss2Tentacle__data_805D4BD4), (f32) (M2C_FIELD(arg0, f32 *, 0x114)));
         break;
     case 2:
         TObjPlayer__sub_803D9730((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x110)));

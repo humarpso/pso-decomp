@@ -142,7 +142,7 @@ extern RecoveredGlobal_802ACBE4_lbl_804DE200 lbl_804DE200;
 extern int lbl_805D66E8;
 void TBoss6PlotFalz__sub_802ACBE4(void);
 s32 queue_destruction__7TObjectFv(int);
-s32 TCameraCtrl__sub_80069DA8();
+s32 restore_player_cameras();
 void __dt__9TObjEnemyFv(void *, int);
 s32 send_entity_set_flags__6TLobbyFPv(void *);
 s32 TLobby__sub_8022743C();
@@ -280,7 +280,7 @@ u8 *__dt__14TBoss6PlotFalzFv(u8 *arg0, s16 arg1) {
     }
     TBoss6PlotFalz__sub_802AC678();
     TBoss6PlotFalz__sub_802AC4D8();
-    TCameraCtrl__sub_80069DA8();
+    restore_player_cameras();
     queue_instance_destruction__14TBoss6PlotFalzFv((void *) arg0);
     destroy_static_instance__14TBoss6PlotFalzFv((void *) arg0);
     TBoss6PlotFalz__data_805D66EC = 0;

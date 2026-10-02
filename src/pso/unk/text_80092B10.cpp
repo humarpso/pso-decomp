@@ -53,7 +53,7 @@ void TObjPlayer__sub_803D9B2C(void);
 void pop_matrix(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(int);
-s32 TObjEneSlimeOne__sub_803E4AF4(int, Motion_80092B10 *, f32);
+s32 draw_model_motion(int, Motion_80092B10 *, f32);
 void set_global_flag__10TObjPlayerFv(void);
 void clear_global_state__10TObjPlayerFv(void);
 extern Vec_80092B10 lbl_80439ED0;
@@ -91,7 +91,7 @@ void TObjEneRe7Berura__vt104(Ene_80092B10 *self) {
             frame = (f32)mot->count;
         }
         set_global_flag__10TObjPlayerFv();
-        TObjEneSlimeOne__sub_803E4AF4(self->f34, mot, frame);
+        draw_model_motion(self->f34, mot, frame);
         clear_global_state__10TObjPlayerFv();
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();

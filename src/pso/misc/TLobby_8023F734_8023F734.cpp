@@ -41,7 +41,7 @@ extern RecoveredGlobal_8023F880_lbl_805162EC lbl_805162EC;
 s32 TLobby__sub_80240B40(u8 *arg0, s32 arg1, s32 arg2);
 void set_sound_slot_pitch(s32 slot, s32 pitch, s32 duration);
 extern Tables_8023FBBC lbl_804CCFB8;
-s32 TLobby__sub_8023FBBC(Owner_8023FBBC *owner, s32 kind, s32 bank, s32 index);
+s32 resolve_sound_effect_bank(Owner_8023FBBC *owner, s32 kind, s32 bank, s32 index);
 }
 
 extern "C" {
@@ -139,7 +139,7 @@ void set_sound_slot_pitch(s32 slot, s32 pitch, s32 duration) {
 #pragma opt_common_subs off
 #pragma opt_propagation off
 #pragma opt_dead_assignments off
-s32 TLobby__sub_8023FBBC(Owner_8023FBBC *owner, s32 kind, s32 bank, s32 index) {
+s32 resolve_sound_effect_bank(Owner_8023FBBC *owner, s32 kind, s32 bank, s32 index) {
     u8 *t = (u8 *)&lbl_804CCFB8;
     s32 result = -1;
     Range_8023FBBC *r = NULL;

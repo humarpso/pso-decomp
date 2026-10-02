@@ -80,7 +80,7 @@ s32 TWindowKeyBoardSoft__sub_803E67D4(void *, void *);
 void TWindowKeyBoardSoft__vt8(u8 *arg0);
 s32 TLobby__sub_8001DC24();
 M2C_UNK TWindowKeyBoardSoft__sub_80080798(void *, s32);
-M2C_UNK TWindowSubStatusDisp__sub_80229080(M2C_UNK *);
+M2C_UNK text_builder_append(M2C_UNK *);
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 M2C_UNK *TWindowCtrl__sub_8024B7D4(s32);
 M2C_UNK TWindowKeyBoardSoft__sub_8025C804(void *);
@@ -589,17 +589,17 @@ void TWindowKeyBoardSoft__sub_8025C51C(u8 *arg0, s32 arg1) {
         temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x70);
         if (temp_r3_2 != 0U) {
             if (temp_r3_2 == (u32) M2C_FIELD(arg0, u32 *, 0x7C)) {
-                TWindowSubStatusDisp__sub_80229080(&lbl_805DD030);
-                TWindowSubStatusDisp__sub_80229080(temp_r3);
+                text_builder_append(&lbl_805DD030);
+                text_builder_append(temp_r3);
             } else {
-                TWindowSubStatusDisp__sub_80229080(&lbl_805DD034);
-                TWindowSubStatusDisp__sub_80229080(temp_r3);
-                TWindowSubStatusDisp__sub_80229080(&lbl_805DD034);
+                text_builder_append(&lbl_805DD034);
+                text_builder_append(temp_r3);
+                text_builder_append(&lbl_805DD034);
             }
         } else {
-            TWindowSubStatusDisp__sub_80229080(temp_r3);
+            text_builder_append(temp_r3);
             if ((u32) M2C_FIELD(arg0, u32 *, 0x7C) != 0U) {
-                TWindowSubStatusDisp__sub_80229080(&lbl_805DD034);
+                text_builder_append(&lbl_805DD034);
             }
         }
         TWindowKeyBoardSoft__sub_80080798(arg0 + 0x6C, TLobby__sub_8001DC24());

@@ -18,9 +18,9 @@ void TBoss3VoloptCtrl__sub_80040B80(s32 arg0);
 s32 get_main_phase(void);
 M2C_UNK get_current_floor();
 void *init_object__16TBoss3VoloptCtrlFPv(void *arg0);
-s32 TCameraCtrl__sub_80069DA8(void);
+s32 restore_player_cameras(void);
 s32 TCameraCtrl__sub_80069E7C(s32);
-s32 TODoorVoShip__sub_801F44BC(s32);
+s32 get_story_flag(s32);
 M2C_UNK TLobby__sub_8020C9C8(M2C_UNK, M2C_UNK, M2C_UNK);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -137,7 +137,7 @@ void TBoss3VoloptCtrl::run_task() {
                 if (get_main_phase() != 0xF) {
                     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
                         TLobby__sub_8020C9C8((M2C_UNK)(((s32)get_current_floor())), (M2C_UNK)(0), (M2C_UNK)(1));
-                    } else if (TODoorVoShip__sub_801F44BC(0x2F) != 0) {
+                    } else if (get_story_flag(0x2F) != 0) {
                         dispatch_state__16TBoss3VoloptCtrlFi((s32)((int) (4)));
                     } else {
                         dispatch_state__16TBoss3VoloptCtrlFi((s32)((int) (3)));
@@ -158,7 +158,7 @@ void TBoss3VoloptCtrl::run_task() {
         }
         break;
     case 2:
-        TCameraCtrl__sub_80069DA8();
+        restore_player_cameras();
         TObjPlayer__sub_801BA42C();
         queue_destruction__7TObjectFv((void *) (this));
         break;

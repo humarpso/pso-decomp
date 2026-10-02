@@ -79,7 +79,7 @@ extern G_800845F8 lbl_8048E5B4;
 s32 TObjPlayer__sub_800845F8(void);
 extern G_800845F8 lbl_8048E5B4;
 M2C_UNK set_global_param__8TObjFishFi(M2C_UNK *);
-M2C_UNK TObjPlayer__sub_803E1D90(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK load_list_texture(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 void TObjPlayer__sub_80084500(void);
 extern M2C_UNK lbl_8048E5C8[];
 extern int lbl_805D4EE0;
@@ -110,7 +110,7 @@ M2C_UNK GXSetProjection(void *, int);
 M2C_UNK GXSetViewport(f32, f32, f32, f32, f32, f32);
 M2C_UNK GXSetScissor(int, int, int, int);
 M2C_UNK pop_matrix();
-M2C_UNK TObjPlayer__sub_803DD5E0(int);
+M2C_UNK set_ginja_draw_flags(int);
 M2C_UNK TObjLight__sub_803DF268(f32, f32, f32);
 M2C_UNK TObjLight__sub_803DF31C(int, int);
 M2C_UNK TObjLight__sub_803DF528(int);
@@ -136,7 +136,7 @@ M2C_UNK GXSetScissor(int, int, int, int);
 f32 TCameraCtrl__sub_803D8D00(void *);
 void TNpcPlayer__sub_803D97B4(void *);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803DD5E0(int);
+M2C_UNK set_ginja_draw_flags(int);
 M2C_UNK TObjLight__sub_803DF268(f32, f32, f32);
 M2C_UNK TObjLight__sub_803DF31C(int, int);
 M2C_UNK TObjLight__sub_803DF528(int);
@@ -162,7 +162,7 @@ extern "C" {
 int TObjPlayer__sub_80083F9C(void);
 void TObjPlayer__sub_80083FA4(void);
 void draw_if_all_ready__10TObjPlayerFv(void);
-M2C_UNK TObjPlayer__sub_803E1D90(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK load_list_texture(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 is_split_screen();
 M2C_UNK set_global_param__8TObjFishFi(M2C_UNK *);
 
@@ -171,7 +171,7 @@ extern M2C_UNK lbl_8048E5C8[];
 void draw_if_all_ready__10TObjPlayerFv(void) {
     if ((is_split_screen() == 0) && (check_all_players_ready__10TObjPlayerFv() != 0)) {
         set_global_param__8TObjFishFi(lbl_8048E5C8);
-        TObjPlayer__sub_803E1D90(0, 0, 0, 1);
+        load_list_texture(0, 0, 0, 1);
     }
 }
 
@@ -202,7 +202,7 @@ void func_80083a00__Fv(void) {
         TObjLight__sub_803DF268((f32) (lbl_805D9430), (f32) (lbl_805D9430), (f32) (lbl_805D9430));
         TObjLight__sub_803DF31C((int) (0), (int) (1));
         TObjLight__sub_803DF528((int) (0));
-        TObjPlayer__sub_803DD5E0((int) (0));
+        set_ginja_draw_flags((int) (0));
         TCameraCtrl__sub_80068EF0();
     }
 }
@@ -262,7 +262,7 @@ void camera_stuff__Fv(void) {
     TObjPlayer__sub_803E1C40(lbl_805D93D0, lbl_805D93D0, lbl_805D9418);
     TObjPlayer__sub_803E1CC4(0x3800);
     TObjPlayer__sub_803E1C40(-LIGHT.x, -LIGHT.y, -LIGHT.z);
-    TObjPlayer__sub_803DD5E0(2);
+    set_ginja_draw_flags(2);
 }
 #pragma pop
 
@@ -316,7 +316,7 @@ s32 check_all_players_ready__10TObjPlayerFv(void) {
 
 void TObjPlayer__sub_80084500(void) {
     set_global_param__8TObjFishFi((M2C_UNK *)(((u8 *)&lbl_8048E5B4)));
-    TObjPlayer__sub_803E1D90((M2C_UNK)(0), (M2C_UNK)(0), (M2C_UNK)(0), (M2C_UNK)(0));
+    load_list_texture((M2C_UNK)(0), (M2C_UNK)(0), (M2C_UNK)(0), (M2C_UNK)(0));
 }
 
 s32 TObjPlayer__sub_800845F8(void) {

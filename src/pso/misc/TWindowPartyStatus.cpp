@@ -32,7 +32,7 @@ s32 TWindowSubComCard__sub_802454E4(int);
 s32 TWindowSubComCard__sub_80245558(void *, void *, void *);
 s32 TWindowKeyBoardSoft__sub_8024E6D8(void *, void *);
 s32 set_global_param__8TObjFishFi(void *);
-s32 TWindowSubStatusDisp__sub_803DEE6C(int);
+s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 TWindowSubStatusDisp__sub_803DF160(int, int);
@@ -90,7 +90,7 @@ void TWindowPartyStatus__sub_8030C0C4(u8 *arg0, u8 *arg1) {
     f32 temp_f31;
     f32 temp_f6;
     temp_f31 = lbl_805DF1EC / M2C_FIELD(arg0, f32 *, 0x54);
-    TWindowSubStatusDisp__sub_803DEE6C((int) (1));
+    begin_screen_draw((int) (1));
     set_global_param__8TObjFishFi((void *) (lbl_805D63F0));
     TWindowSubStatusDisp__sub_803DF160((int) (0xB), (int) (M2C_FIELD(arg1, s32 *, 0x34)));
     temp_f2 = M2C_FIELD(arg1, f32 *, 0x10);

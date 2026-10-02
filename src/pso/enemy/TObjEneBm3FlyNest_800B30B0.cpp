@@ -625,7 +625,7 @@ void state_wait__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
 void update_state__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
 M2C_UNK TObjEneBm3FlyNest__sub_800B39CC(void *);
 s32 TObjEneBm3FlyNest__sub_800B3AC8();
-M2C_UNK TObjEneBm3FlyNest__sub_800B3ADC(void *);
+M2C_UNK update_replenish__17TObjEneBm3FlyNestFPv(void *);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
@@ -655,7 +655,7 @@ void update_state__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
         break;
     case 0:
         advance_animation_playback((void *)(arg0));
-        TObjEneBm3FlyNest__sub_800B3ADC(arg0);
+        update_replenish__17TObjEneBm3FlyNestFPv(arg0);
         ((VObj18_800b30b0 *) arg0)->vf198();
         break;
     }
@@ -760,7 +760,7 @@ void state_wait__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
         break;
     case 0:
         advance_animation_playback((void *)(arg0));
-        TObjEneBm3FlyNest__sub_800B3ADC(arg0);
+        update_replenish__17TObjEneBm3FlyNestFPv(arg0);
         ((struct VObj_800B3428_800B30B0 *)arg0)->m100();
         break;
     }

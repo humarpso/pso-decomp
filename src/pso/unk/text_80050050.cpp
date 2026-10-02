@@ -20,7 +20,7 @@ s32 pop_matrix();
 f32 TOHangerMachine01__sub_803D9C00(void *);
 s32 set_global_param__8TObjFishFi(int);
 s32 draw_chunk_object(int);
-s32 TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
+s32 draw_model_motion(int, int, f32);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
 extern RecoveredGlobal_80050050_lbl_80485864 lbl_80485864;
@@ -52,7 +52,7 @@ void fn_80050050(u8 *arg0) {
     }
     else
     {
-      TObjEneSlimeOne__sub_803E4AF4((int) (*((int *) (((s8 *) temp_r30) + 0x94))), (int) temp_r4, (f32) (*((f32 *) (((s8 *) arg0) + 0xB8))));
+      draw_model_motion((int) (*((int *) (((s8 *) temp_r30) + 0x94))), (int) temp_r4, (f32) (*((f32 *) (((s8 *) arg0) + 0xB8))));
     }
     var_r29 += 1;
     var_r31 += 4;

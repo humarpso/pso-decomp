@@ -66,7 +66,7 @@ s32 get_status_flag__17TWindowSubComCardFPv(int);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 s32 set_stack_count__24TShopEquipmentListWindowFPvc(void *, int);
 s32 fn_801B849C(int, void *);
-s32 TObjPlayer__sub_801B91F0(int, void *);
+s32 can_inventory_accept_item__10TObjPlayerFPvPv(int, void *);
 s32 TCheckRoomSequence__sub_80210904(int);
 s32 TCheckRoomSequence__sub_80210E28(int, int, int);
 s32 TCheckRoomSequence__sub_80211034(int, void *, int);
@@ -103,7 +103,7 @@ s32 select_cursor_entry__6TLobbyFPv(int);
 M2C_UNK get_window_layout_position(M2C_UNK);
 s32 is_camera_ctrl_active__6TLobbyFv(void);
 extern const f32 lbl_805DC6F0;
-s32 TShopGetItemWindow__sub_8021E870(void *p);
+s32 handle_withdraw_list_input__18TShopGetItemWindowFPv(void *p);
 }
 
 extern "C" {
@@ -154,7 +154,7 @@ void TShopGetItemWindow__sub_8021E5D8(u8 *arg0) {
         {
           set_stack_count__24TShopEquipmentListWindowFPvc((void *) (&stack.sp8), (int) ((s32) ((u8) ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_54)));
         }
-        if (TObjPlayer__sub_801B91F0((int) ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_24, (void *) (&stack.sp8)) == 0)
+        if (can_inventory_accept_item__10TObjPlayerFPvPv((int) ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_24, (void *) (&stack.sp8)) == 0)
         {
           PSO_VCALL_VObj_18_a93f07_m4(arg0, 0x4B, 1);
           set_field_20__12TQuestListVMFPvi((void *)((void *) arg0), (M2C_UNK)((int) 6));
@@ -218,7 +218,7 @@ void TShopGetItemWindow__sub_8021E76C(void *arg0) {
     }
 }
 
-s32 TShopGetItemWindow__sub_8021E870(void *p) {
+s32 handle_withdraw_list_input__18TShopGetItemWindowFPv(void *p) {
     s32 sel;
     s32 x;
     Win_8021E870 *arg0 = (Win_8021E870 *)p;
@@ -275,7 +275,7 @@ void TShopGetItemWindow__vt9(u8 *arg0) {
         TShopGetItemWindow__sub_8021EA48((void *) (arg0));
         return;
     case 1:
-        TShopGetItemWindow__sub_8021E870((void *)((void *) (arg0)));
+        handle_withdraw_list_input__18TShopGetItemWindowFPv((void *)((void *) (arg0)));
         return;
     case 2:
         TShopGetItemWindow__sub_8021E76C((void *) (arg0));

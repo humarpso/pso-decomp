@@ -219,7 +219,7 @@ void TLobby__sub_80227F54(void);
 M2C_UNK TLobby__sub_8023F780(s32, f32);
 s32 TLobby__sub_8023F944(s32, s32, s32, s32, s32);
 extern const f32 lbl_805DC768;
-s32 TLobby__sub_80227D5C(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+s32 normalize_sound_request(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 TLobby__sub_80227B18(u32 x);
 void TLobby__sub_80227F54(void);
 M2C_UNK TLobby__sub_8023F780(s32, f32);
@@ -348,7 +348,7 @@ typedef char RecoveredGlobal_80069D04_TCameraCtrl__data_804FF628_size[sizeof(Rec
 int TLobby__sub_80227D14(void* p) { return TLobby__sub_8023F8B0(p, 64); }
 int TLobby__sub_80227D38(void) { return TLobby__sub_8023FF64((void*)(0)); }
 
-s32 TLobby__sub_80227D5C(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+s32 normalize_sound_request(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     s32 r;
     s32 m;
     s32 flags;

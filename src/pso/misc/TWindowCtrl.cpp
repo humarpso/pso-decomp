@@ -405,7 +405,7 @@ extern "C" {
 
 s32 open__11TWindowCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 TWindowCtrl__sub_8024A928(u32, s32, s32, s32, s32);
-M2C_UNK TWindowFukidasi__sub_80251BA0(s32, s32, s32);
+M2C_UNK set_text__15TWindowFukidasiFPvii(s32, s32, s32);
 M2C_UNK fn_8026A93C();
 
 extern s32 lbl_805D53A0;
@@ -424,7 +424,7 @@ s32 open__11TWindowCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
     if (temp_r3 == 0) {
         return 0;
     }
-    TWindowFukidasi__sub_80251BA0(temp_r3, arg1, arg2);
+    set_text__15TWindowFukidasiFPvii(temp_r3, arg1, arg2);
     return temp_r3;
 }
 

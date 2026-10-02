@@ -662,7 +662,7 @@ int clear_player_status_flag__10TObjPlayerFPviUi(void*, void*, void*);
 extern const f32 lbl_805DA03C;
 void TObjPlayer__sub_800C55E0(Obj_800C55E0 *o);
 M2C_UNK apply_actor_gravity(void *, int, f32);
-M2C_UNK TObjPlayer__sub_80017700(void *, s32, void *, int, f32);
+M2C_UNK enemy_move_toward(void *, s32, void *, int, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_clearFlags30(void * a0, s32 a1);
 void TObjPlayer__sub_800C4E08(u8 *arg0);
@@ -700,7 +700,7 @@ extern const f32 lbl_805DA034;
 extern const f32 lbl_805DA048;
 extern const f32 lbl_805DA04C;
 extern const f32 lbl_805DA050;
-void TObjPlayer__sub_800C53DC(Self_800C53DC *arg0);
+void beast_update_attack(Self_800C53DC *arg0);
 }
 
 extern "C" {
@@ -915,7 +915,7 @@ void enter_state7__10TObjPlayerFPv(void *arg0) {
 void TObjPlayer__sub_800C53B4(void) {  }
 int clear_flag_0x100__10TObjPlayerFPv(void* p) { return obj_clearFlags30(p, 256); }
 
-void TObjPlayer__sub_800C53DC(Self_800C53DC *arg0) {
+void beast_update_attack(Self_800C53DC *arg0) {
     Tgt_800C53DC *p;
     if (arg0->f338 < 0x1000) {
         p = get_player_by_client_id(arg0->f338);
@@ -1085,7 +1085,7 @@ void beast_update_approach(u8 *arg0) {
             ((void (*)(void *))advance_animation_playback)(arg0);
             {
                 Vec_800C5900 sp8 = sp14;
-                TObjPlayer__sub_80017700(arg0, M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8), &sp8, 0, M2C_FIELD(arg0, f32 *, 0x394));
+                enemy_move_toward(arg0, M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8), &sp8, 0, M2C_FIELD(arg0, f32 *, 0x394));
             }
             if (M2C_FIELD(arg0, u16 *, 0x338) == 0xFFFF) {
                 if (horizontal_distance_squared(arg0 + 0x29C, arg0 + 0x38) < (r = M2C_FIELD(arg0, f32 *, 0x394) + M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC)) * r ||

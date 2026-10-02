@@ -187,7 +187,7 @@ void TItemMagSub__sub_80114C40(void *arg);
 void set_global_state__16TObjEneRe7BeruraFi(void (*)(void *));
 void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
-void TObjEneSlimeOne__sub_803E4AF4(void *, void *, f32);
+void draw_model_motion(void *, void *, f32);
 void run_with_transform_context__10TObjPlayerFiii(void *, void (*)(void *));
 u32 test_feed_flags__11TItemMagSubFPvUi(void *, u32);
 void end_effect_render__13TParticleCtrlFv();
@@ -221,7 +221,7 @@ void TObjPlayer__sub_803D9B2C();
 s32 pop_matrix();
 s32 draw_ginja_object(void *);
 void fn_803DC86C(s32, s32, s32, s32);
-void TObjEneSlimeOne__sub_803E4AF4(void *, void *, f32);
+void draw_model_motion(void *, void *, f32);
 void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
 void set_global_state__16TObjEneRe7BeruraFi(void (*)(void *));
@@ -371,7 +371,7 @@ void TItemMagSub__vt3(TItemMagSub_80114F0C *self) {
         if (self->animation) {
             set_global_state__16TObjEneRe7BeruraFi(TItemMagSub__sub_80114C40);
             set_global_flag__10TObjPlayerFv();
-            TObjEneSlimeOne__sub_803E4AF4(self->model, self->animation, self->animation_frame);
+            draw_model_motion(self->model, self->animation, self->animation_frame);
             clear_global_state__10TObjPlayerFv();
             set_global_state__16TObjEneRe7BeruraFi(0);
         } else {
@@ -409,7 +409,7 @@ void render_mag_child(TItemMagSub *self) {
         if (self->animation) {
             set_global_state__16TObjEneRe7BeruraFi(TItemMagSub__sub_80114C40);
             set_global_flag__10TObjPlayerFv();
-            TObjEneSlimeOne__sub_803E4AF4(self->model, self->animation, self->animation_frame);
+            draw_model_motion(self->model, self->animation, self->animation_frame);
             clear_global_state__10TObjPlayerFv();
             set_global_state__16TObjEneRe7BeruraFi(0);
         } else {

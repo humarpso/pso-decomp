@@ -8,12 +8,12 @@ void *destroy_photon_motion_object(void *arg0, s16 arg1);
 void *photon_base_ct(void *arg0);
 void update__11TCameraCtrlFv(void);
 int TCameraCtrl__sub_80069D7C(void);
-int TCameraCtrl__sub_80069DA8(void);
+int restore_player_cameras(void);
 void TObjMotion__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__10TObjMotionFv(void *, int);
 
-void update__11TCameraCtrlFv(void) { TCameraCtrl__sub_80069DA8(); TCameraCtrl__sub_80069D7C(); }
+void update__11TCameraCtrlFv(void) { restore_player_cameras(); TCameraCtrl__sub_80069D7C(); }
 
 extern M2C_UNK lbl_804C3248[];
 

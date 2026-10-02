@@ -31,7 +31,7 @@ struct MagData_80104DAC { u8 b[0x10]; };
 struct Rec_80104DAC { u8 pad0[6]; u8 b6; u8 b7; u8 b8; u8 b9; u8 bA; u8 bB; u8 bC; };
 
 extern "C" {
-s32 TLobby__sub_8007B844(void *);
+s32 get_actor_section_id(void *);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 void *find_unique_combination_target(void *, u8 *);
 s32 TWindowHelpItem__sub_80104FCC(void *, void *, int);
@@ -107,7 +107,7 @@ s32 TItemData__sub_80104DAC(s32 arg0, u8 *arg1) {
         }
         v = rec->bC;
         if (v != 0xFF) {
-            if (v != TLobby__sub_8007B844(o)) {
+            if (v != get_actor_section_id(o)) {
                 return 0;
             }
         }

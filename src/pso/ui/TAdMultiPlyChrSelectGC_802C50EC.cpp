@@ -142,7 +142,7 @@ s32 get_field_20__22TAdMultiPlyChrSelectGCFPv();
 M2C_UNK get_state__22TAdMultiPlyChrSelectGCFv();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK abs__4cXyzCFv(int, int);
-M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
+M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
@@ -215,7 +215,7 @@ void TAdMultiPlyChrSelectGC__sub_802C5314(S_802C5314 *self) {
                 self->r364[3] = self->e[i][j].w;
                 abs__4cXyzCFv(0, 8);
                 abs__4cXyzCFv(1, 0xA);
-                TWindowSubStatusDisp__sub_803DEE6C(1);
+                begin_screen_draw(1);
                 set_global_param__8TObjFishFi(lbl_805D67D4);
                 TWindowSubStatusDisp__sub_803DF160(0, self->sel[i][j]);
                 draw_textured_quad_at_depth(self->r324, lbl_805DE580);

@@ -78,7 +78,7 @@ extern s32 lbl_804FC610[];
 void GXSetVtxAttrFmt(s32, s32, s32, s32, u8);
 void TObjPlayer__sub_803DBBA8(u32 arg0);
 extern S_803DB560 lbl_8058CD80;
-void TObjPlayer__sub_803E1D90(u32, u32, u32, u32);
+void load_list_texture(u32, u32, u32, u32);
 void TObjPlayer__sub_803DBC1C(u32 arg0);
 extern s32 lbl_804FC56C[];
 void GXSetArray(s32, void *, u8);
@@ -285,7 +285,7 @@ void TObjPlayer__sub_803DBBA8(u32 arg0) {
 void TObjPlayer__sub_803DBC1C(u32 arg0) {
     (*(G_803DBC1C *)&lbl_8058CD80).f88 = arg0;
     (*(G_803DBC1C *)&lbl_8058CD80).f7c |= 2;
-    TObjPlayer__sub_803E1D90(arg0 & 0x1FFF, (arg0 & 0xC0000) >> 18, (arg0 & 0x30000) >> 16, (arg0 & 0x6000) >> 13);
+    load_list_texture(arg0 & 0x1FFF, (arg0 & 0xC0000) >> 18, (arg0 & 0x30000) >> 16, (arg0 & 0x6000) >> 13);
 }
 
 void set_ginja_tev_order(u32 parameter) {

@@ -267,12 +267,12 @@ void free_children__12TObjDoorJungFPvPv(s32, int);
 void TOHangerMachine01__sub_803D9C00(void *);
 void draw_ginja_model_with_motion(s32, s32, f32);
 extern u16 lbl_80445B7C[];
-void fn_80192B5C(Obj_80192B5C *arg0);
+void draw_animated_beam__18TObjLazerFenceNormFPv(Obj_80192B5C *arg0);
 }
 
 extern "C" {
 
-void fn_80192B5C(Obj_80192B5C *arg0) {
+void draw_animated_beam__18TObjLazerFenceNormFPv(Obj_80192B5C *arg0) {
     s32 i;
     for (i = 0; i < 4; i++) {
         free_children__12TObjDoorJungFPvPv(arg0->fC8[i], lbl_80445B7C[arg0->fAC]);
@@ -357,7 +357,7 @@ void render__18TObjLazerFenceNormFv(void *arg0) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0xB4);
         switch (temp_r0) {
         case 0:
-            fn_80192B5C((Obj_80192B5C *)arg0);
+            draw_animated_beam__18TObjLazerFenceNormFPv((Obj_80192B5C *)arg0);
             return;
         case 1:
             draw_model__18TObjLazerFenceNormFPv((void *)(arg0));

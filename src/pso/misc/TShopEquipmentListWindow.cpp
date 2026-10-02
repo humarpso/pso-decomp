@@ -109,7 +109,7 @@ s32 TShopEquipmentListWindow__sub_8021C160(void *);
 void TShopEquipmentListWindow__vt9(u8 *arg0);
 s32 obj_getPtr2B0_20(void *);
 s32 TWindowHelpItem__sub_80104FCC(void *, Rec_8021C33C *, u32 *);
-s32 TObjPlayer__sub_801B91F0(void *, Rec_8021C33C *);
+s32 can_inventory_accept_item__10TObjPlayerFPvPv(void *, Rec_8021C33C *);
 s32 select_cursor_entry__6TLobbyFPv(void *);
 s32 TShopEquipmentListWindow__sub_8021C33C(Win_8021C33C *w);
 s32 obj_getField1c(s32);
@@ -240,7 +240,7 @@ s32 TShopEquipmentListWindow__sub_8021C33C(Win_8021C33C *w) {
         return 0;
     }
     r = &w->recs[i];
-    if (TObjPlayer__sub_801B91F0(w->player, r) == 0) {
+    if (can_inventory_accept_item__10TObjPlayerFPvPv(w->player, r) == 0) {
         return 1;
     }
     if (TWindowHelpItem__sub_80104FCC(w->player, r, &res) == 0) {

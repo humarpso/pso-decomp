@@ -27,7 +27,7 @@ typedef struct {
 s32 get_message_10__20TWindowSubStatusDispFPv(s32);
 u32 TWindowSubStatusDisp__sub_80144D68(void);
 void TWindowSubStatusDisp__sub_8024FD8C(V2_8027831C *, s32, u32, s32, f32);
-void TWindowSubStatusDisp__sub_802500F4(Win_8027831C *, s32, s32, f32, f32);
+void set_text_draw_params(Win_8027831C *, s32, s32, f32, f32);
 f32 TWindowSubStatusDisp__sub_80287570(s32);
 void TWindowSubStatusDisp__sub_80287580(Win_8027831C *, V2_8027831C *, u8, f32);
 extern s32 lbl_8044F93C[];
@@ -76,7 +76,7 @@ void TWindowSubStatusDisp__sub_8027831C(Disp_8027831C *self, Win_8027831C *win) 
         TWindowSubStatusDisp__sub_80287580(win, &pos, col, lbl_805DD600);
         pos.x += lbl_805DD604;
         pos.y += lbl_805DD608;
-        TWindowSubStatusDisp__sub_802500F4(win, 0, 0, lbl_805DD60C / (lbl_805DD610 + win->f38), lbl_805DD614);
+        set_text_draw_params(win, 0, 0, lbl_805DD60C / (lbl_805DD610 + win->f38), lbl_805DD614);
         msg = get_message_10__20TWindowSubStatusDispFPv(lbl_8044F93C[self->f88]);
         pos.x -= lbl_805DD618 * (f32)TWindowSubStatusDisp__sub_80144D68();
         TWindowSubStatusDisp__sub_8024FD8C(&pos, msg, 0xFF000000, 0, lbl_805DD614);

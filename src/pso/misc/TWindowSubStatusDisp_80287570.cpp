@@ -42,7 +42,7 @@ typedef struct UV_80287580 {
 
 extern "C" {
 M2C_UNK TWindowSubStatusDisp__sub_8024FD8C(void *, int, int, int, f32);
-M2C_UNK TWindowSubStatusDisp__sub_802500F4(void *, int, int, f32, f32, f32, f32, f32, f32);
+M2C_UNK set_text_draw_params(void *, int, int, f32, f32, f32, f32, f32, f32);
 extern f32 lbl_805DD840;
 extern const f32 lbl_805DD844;
 extern const f32 lbl_805DD868;
@@ -66,7 +66,7 @@ void TWindowSubStatusDisp__sub_802877C8(void *arg0);
 void TWindowSubStatusDisp__sub_80287860(void *arg0, void *arg1);
 void TWindowKeyBoardSoft__sub_8024E6D8(void *, Rect_80287580 *);
 void set_global_param__8TObjFishFi(s32);
-void TWindowSubStatusDisp__sub_803DEE6C(int);
+void begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv(void);
 void draw_textured_quad_at_depth(Rect_80287580 *, f32);
 void TWindowSubStatusDisp__sub_803DF160(int, s32);
@@ -103,7 +103,7 @@ void TWindowSubStatusDisp__sub_80287580(Obj_80287580 *obj, f32 *pos, u8 idx, f32
     f32 w;
     scale = -1.0f / (0.0299f + obj->f38);
     w = width + lbl_805DD84C;
-    TWindowSubStatusDisp__sub_803DEE6C(1);
+    begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D63F0);
     TWindowSubStatusDisp__sub_803DF160(1, obj->f34);
     r1.x0 = pos[0];
@@ -207,7 +207,7 @@ void TWindowSubStatusDisp__sub_802878B8(u8 *arg0, u8 *arg1) {
     stack.sp8 = -((lbl_805DD868 * (*((f32 *) (((s8 *) arg0) + 0x10)))) - ((lbl_805DD868 * ((*(const f32 *)&lbl_805DD840) + (*((f32 *) (((s8 *) arg0) + 0xC))))) + ((*((f32 *) (((s8 *) arg1) + 0))) + (*((f32 *) (((s8 *) arg0) + 4))))));
     temp_f4 = *((f32 *) (((s8 *) arg1) + 4));
     stack.spC = lbl_805DD86C + (temp_f4 + (*((f32 *) (((s8 *) arg0) + 8))));
-    TWindowSubStatusDisp__sub_802500F4((void *) arg1, (int) 0, (int) 1, (f32) (lbl_805DD844 / (lbl_805DD870 + (*((f32 *) (((s8 *) arg1) + 0x38))))), (f32) lbl_805DD874, (f32) lbl_805DD844, (f32) temp_f4, (f32) lbl_805DD86C, (f32) lbl_805DD868);
+    set_text_draw_params((void *) arg1, (int) 0, (int) 1, (f32) (lbl_805DD844 / (lbl_805DD870 + (*((f32 *) (((s8 *) arg1) + 0x38))))), (f32) lbl_805DD874, (f32) lbl_805DD844, (f32) temp_f4, (f32) lbl_805DD86C, (f32) lbl_805DD868);
     new_var = *((f32 *) (((s8 *) arg0) + 0x1C));
     TWindowSubStatusDisp__sub_8024FD8C((void *) (&stack.sp8), (int) (*((s32 *) (((s8 *) arg0) + 0))), (int) (*((s32 *) (((s8 *) arg0) + 0x14))), (int) 1, (f32) new_var);
   }

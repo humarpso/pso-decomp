@@ -9,7 +9,7 @@ s32 TLobby__sub_8001DC24();
 M2C_UNK *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 TWindowSubStatusDisp__sub_80228D80();
 s32 TWindowChallengeResult__sub_80228DB4(void *, int);
-s32 TWindowSubStatusDisp__sub_80229080(void *);
+s32 text_builder_append(void *);
 s32 TWindowSubStatusDisp__sub_802290E0();
 s32 set_entry_display_value__20TWindowSubStatusDispFPvi(void *, int);
 extern s32 lbl_805D63E8;
@@ -49,10 +49,10 @@ void *construct_with_parent__15TWindowAdditionFPvPv(void *arg0, void *arg1) {
 }
 void TWindowSubStatusDisp__sub_80244494(s32 arg0, s32 arg1, s32 arg2) {
     TWindowSubStatusDisp__sub_802290E0();
-    TWindowSubStatusDisp__sub_80229080((void *) (TQuestVmDownLoadServer__sub_8006EF6C(0x67)));
+    text_builder_append((void *) (TQuestVmDownLoadServer__sub_8006EF6C(0x67)));
     TWindowSubStatusDisp__sub_80228D80();
     TWindowChallengeResult__sub_80228DB4((void *) (arg1), (int) (2U));
-    TWindowSubStatusDisp__sub_80229080((void *) (&lbl_805DCAB8));
+    text_builder_append((void *) (&lbl_805DCAB8));
     TWindowChallengeResult__sub_80228DB4((void *) (arg2), (int) (2U));
     set_entry_display_value__20TWindowSubStatusDispFPvi((void *) (arg0), (int) (TLobby__sub_8001DC24()));
     lbl_805D63E8 = arg1;

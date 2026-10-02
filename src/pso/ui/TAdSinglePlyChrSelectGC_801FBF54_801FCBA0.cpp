@@ -111,7 +111,7 @@ s32 __dl__FPv(s32);
 void TAdSinglePlyChrSelectGC__sub_801FCBA0(Obj_801FCBA0* arg0);
 extern Ent_801FD668 *lbl_805D5F58;
 s32 TAdSinglePlyChrSelectGC__sub_801FD668(void);
-void TObjPlayer__sub_802C367C(void *);
+void init_new_character_data(void *);
 void TAdSinglePlyChrSelectGC__sub_801FC0C8(void *);
 extern Ent_801FD668 *lbl_805D5F58;
 void TAdSinglePlyChrSelectGC__sub_801FD728(s32 arg0);
@@ -255,7 +255,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FD668(void) {
 }
 
 void TAdSinglePlyChrSelectGC__sub_801FD728(s32 arg0) {
-    TObjPlayer__sub_802C367C((*(Ent_801FD728 * *)&lbl_805D5F58)[arg0].a);
+    init_new_character_data((*(Ent_801FD728 * *)&lbl_805D5F58)[arg0].a);
     TAdSinglePlyChrSelectGC__sub_801FC0C8((*(Ent_801FD728 * *)&lbl_805D5F58)[arg0].b);
 }
 

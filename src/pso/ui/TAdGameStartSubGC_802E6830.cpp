@@ -17,7 +17,7 @@ extern "C" {
 #pragma fp_contract on
 
 M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
+M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, int, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
@@ -28,7 +28,7 @@ extern const f32 lbl_805DE99C;
 void TAdGameStartSubGC__sub_802E6864(u8 *arg0) {
     s32 temp_r4;
 
-    TWindowSubStatusDisp__sub_803DEE6C((int) (1));
+    begin_screen_draw((int) (1));
     set_global_param__8TObjFishFi((void *) (lbl_805D6908));
     TWindowSubStatusDisp__sub_803DF160((int) (0), (int) ((M2C_FIELD(arg0, s32 *, 0x80) << 0x18) | 0xFF0000 | 0xFFFF));
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x1C);

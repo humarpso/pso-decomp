@@ -165,7 +165,7 @@ struct VObj : VBase {
 
 extern "C" {
 u8 *TObjPlayer__sub_801D8DCC();
-void TObjPlayer__sub_801B7248(u8 *arg0, s32 arg1);
+void get_hand_joint_position__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 u16 obj_getField1c(void *);
 s32 get_mag_id__8TItemMagFPv(void *);
 s32 update_target_lock__10TObjPlayerFPv(void *);
@@ -431,7 +431,7 @@ void init_effect_5f0__10TObjPlayerFPv(u8 *arg0) {
     set_anim_state__10TObjPlayerFPvi(arg0 + 0x5F0, M2C_FIELD(arg0, s32 *, 0x60));
 }
 
-void TObjPlayer__sub_801B7248(u8 *arg0, s32 arg1) {
+void get_hand_joint_position__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     ((VObj_18 *)(arg0))->m63(M2C_FIELD(TObjPlayer__sub_801D8DCC(), s32 *, 0x10), arg1);
 }
 

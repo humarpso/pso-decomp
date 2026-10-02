@@ -25,7 +25,7 @@ int sprintf(char *, const char *, ...);
 extern char lbl_80449748[];
 extern u8 lbl_804C5260[];
 extern Ent_801E3FA4 lbl_804C5284[];
-void TLobby__sub_801E3FA4(Msg_801E3FA4 *arg0);
+void dispatch_6x_subcommand(Msg_801E3FA4 *arg0);
 }
 
 extern "C" {
@@ -70,7 +70,7 @@ void handle_6x04_legacy_activate_switch_by_token(void *arg0) {
 
 void handle_6x03(void) {  }
 void handle_6x02(void) {  }
-void TLobby__sub_801E3FA4(Msg_801E3FA4 *arg0) {
+void dispatch_6x_subcommand(Msg_801E3FA4 *arg0) {
     s32 i;
     char buf[0x80];
     s32 key = arg0->a;

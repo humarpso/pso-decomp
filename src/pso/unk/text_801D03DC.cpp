@@ -33,7 +33,7 @@ struct VObj_8_e57d67 : VBase_8_e57d67 {
 extern "C" {
 s32 get_idle_animation__10TObjPlayerFPv(u8 *arg0);
 s32 reset_and_flag__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_801CFDF8(void *);
+s32 update_walk_movement__10TObjPlayerFPv(void *);
 s32 set_attack_state__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801D00B0(void *);
 s32 handle_ring_hit__10TObjPlayerFi(void *);
@@ -70,7 +70,7 @@ void run_walk_state_phase__10TObjPlayerFis(s32 arg0, s16 arg1) {
         set_attack_state__10TObjPlayerFPv((void *) arg0);
         return;
       case 1:
-        TObjPlayer__sub_801CFDF8((void *) arg0);
+        update_walk_movement__10TObjPlayerFPv((void *) arg0);
         return;
       case 6:
         reset_and_flag__10TObjPlayerFPv((void *) arg0);

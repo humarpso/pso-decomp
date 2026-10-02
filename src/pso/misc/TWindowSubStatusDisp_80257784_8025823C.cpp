@@ -9,7 +9,7 @@ extern "C" {
 void update_stat_line__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1);
 s32 TLobby__sub_8001DC24();
 M2C_UNK TWindowSubStatusDisp__sub_80228F5C(s32);
-M2C_UNK TWindowSubStatusDisp__sub_80229080(M2C_UNK *);
+M2C_UNK text_builder_append(M2C_UNK *);
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 s32 TWindowSubStatusDisp__sub_80259268(void *, s32, s32, M2C_UNK, M2C_UNK);
 
@@ -17,7 +17,7 @@ extern M2C_UNK lbl_805DCF00;
 
 void update_stat_line__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
     TWindowSubStatusDisp__sub_802290E0();
-    TWindowSubStatusDisp__sub_80229080(&lbl_805DCF00);
+    text_builder_append(&lbl_805DCF00);
     TWindowSubStatusDisp__sub_80228F5C(arg1);
     M2C_FIELD(arg0, s32 *, 0x24) = TWindowSubStatusDisp__sub_80259268(arg0, TLobby__sub_8001DC24(), M2C_FIELD(arg0, s32 *, 0x24), 0x10, 1);
 }

@@ -93,7 +93,7 @@ s32 add_actor_hp(s32, s32);
 s32 add_actor_tp(s32, s32);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
-M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
+M2C_UNK begin_screen_draw(int);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
 s32 get_field_2b8__14TItemProShieldFPv(s32);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
@@ -167,7 +167,7 @@ extern s32 TEndingPic__data_805D6EE0;
 extern const f32 lbl_805DFEF0;
 
 void draw_current_pic__10TEndingPicFPv(u8 *arg0) {
-    TWindowSubStatusDisp__sub_803DEE6C((int) (1));
+    begin_screen_draw((int) (1));
     switch ((s32) TEndingPic__data_805D6EE0) {
     case 1:
     case 3:

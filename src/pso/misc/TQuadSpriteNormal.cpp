@@ -52,7 +52,7 @@ s32 end_effect_render__13TParticleCtrlFv(void);
 void fn_801E4EB0(void *);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
 s32 set_global_param__8TObjFishFi(void *);
-s32 TWindowSubStatusDisp__sub_803DEE6C(int);
+s32 begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv(void);
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 TWindowSubStatusDisp__sub_803DF160(int, int);
@@ -109,7 +109,7 @@ void render__17TQuadSpriteNormalFv(Self_801E5598 *self) {
     cy = lbl_8058D4F8.cy;
     sh = sw * (lbl_805DC460 / (lbl_805DC460 * lbl_8058D4F8.aspect));
     begin_effect_render__13TParticleCtrlFv();
-    TWindowSubStatusDisp__sub_803DEE6C(1);
+    begin_screen_draw(1);
     set_global_param__8TObjFishFi((void *)self->desc->param4);
     TWindowSubStatusDisp__sub_803DF160(self->desc->param8, self->desc->param1C);
     one = lbl_805DC464;

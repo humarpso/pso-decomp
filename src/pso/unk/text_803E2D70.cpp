@@ -95,9 +95,9 @@ M2C_UNK apply_scene_fog();
 extern s32 lbl_805D7788;
 extern M2C_UNK (*lbl_805D77DC)();
 void TObjPlayer__sub_803E4468(void);
-M2C_UNK TObjPlayer__sub_803E1D90(int, int, int, int);
+M2C_UNK load_list_texture(int, int, int, int);
 extern s32 lbl_805D77EC;
-void TObjPlayer__sub_803E3914(s32 arg0, s32 arg1);
+void apply_chunk_texture_command(s32 arg0, s32 arg1);
 void GXSetChanMatColor(s32, ByteColor);
 void TObjPlayer__sub_803D7FE0(const FloatColor*,ByteColor*);
 void TObjPlayer__sub_803D8008(const ByteColor*,FloatColor*);
@@ -311,7 +311,7 @@ void TObjPlayer__sub_803E38FC(u32 x) {
 #pragma opt_common_subs off
 #pragma scheduling off
 #pragma peephole off
-void TObjPlayer__sub_803E3914(s32 arg0, s32 arg1) {
+void apply_chunk_texture_command(s32 arg0, s32 arg1) {
     s32 var_r31;
     s32 var_r3;
     s32 var_r4;
@@ -333,7 +333,7 @@ void TObjPlayer__sub_803E3914(s32 arg0, s32 arg1) {
     var_r3 = var_r31;
     var_r4 = var_r6;
     var_r6 = 0;
-    TObjPlayer__sub_803E1D90((int) (var_r3), (int) (var_r4), (int) (var_r5), (int) (0));
+    load_list_texture((int) (var_r3), (int) (var_r4), (int) (var_r5), (int) (0));
     lbl_805D77EC = var_r31;
 }
 #pragma pop

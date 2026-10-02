@@ -38,7 +38,7 @@ M2C_UNK TObjPlayer__sub_801C5FCC(void *);
 s32 TObjPlayer__sub_801D8C3C(void *);
 u8 *TObjPlayer__sub_801D8C6C(void *);
 void *__nw__7TObjectFUl(u32);
-void *TTecLuker__sub_80233E78(u16, void *);
+void *consume_telepipe_arrival(u16, void *);
 extern Ent_801BC194 TObjPlayer__data_8050E920[];
 extern s32 lbl_805D53A0;
 extern s32 tl_02;
@@ -63,7 +63,7 @@ void TObjPlayer__sub_801BC194(u8 *arg0) {
             TForceOperate__ct(obj, tl_02, obj_getField1c(arg0));
         }
     } else if (obj_isState2_324(arg0) == 0) {
-        p = TTecLuker__sub_80233E78(obj_getField1c(arg0), arg0 + 0x60);
+        p = consume_telepipe_arrival(obj_getField1c(arg0), arg0 + 0x60);
         if (p != NULL) {
             TBoss4DarkFalz__sub_8004C220(arg0, p);
         } else {

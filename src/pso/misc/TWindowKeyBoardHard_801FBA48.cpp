@@ -25,7 +25,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FBEF4(s32 arg0);
 void TAdSinglePlyChrSelectGC__sub_8007C0CC(void *, void *, s32);
 void TAdSinglePlyChrSelectGC__sub_8007C134(void *, void *, void *, s32);
 void TAdSinglePlyChrSelectGC__sub_8007C264(void *);
-void TAdSinglePlyChrSelectGC__sub_8007C378(void *, void *, s32);
+void subtractive_rng_xor_buffer(void *, void *, s32);
 void TAdSinglePlyChrSelectGC__sub_8007C48C(void *, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 s32 TAdSinglePlyChrSelectGC__sub_80202A68(void *);
@@ -161,7 +161,7 @@ void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0) {
     TAdSinglePlyChrSelectGC__sub_8007C48C(lbl_8051381C, lbl_80513910[0]);
     TAdSinglePlyChrSelectGC__sub_8007C0CC(lbl_8051381C, arg0, 0x194B0);
     TAdSinglePlyChrSelectGC__sub_8007C48C(lbl_8051381C, TAdSinglePlyChrSelectGC__sub_80202A68(arg0));
-    TAdSinglePlyChrSelectGC__sub_8007C378(lbl_8051381C, arg0, 0x194AC);
+    subtractive_rng_xor_buffer(lbl_8051381C, arg0, 0x194AC);
 }
 
 u8 TAdSinglePlyChrSelectGC__sub_801FBD6C(char *name, char *desc) {

@@ -7,7 +7,7 @@ struct RecoveredGlobal_8003AFBC___vt__19TObjBoss2RaftSplash { M2C_UNK value; u8 
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
-f32 TTecZondeEff__sub_8002DF28(void);
+f32 rand_signed_unit(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
 extern RecoveredGlobal_8003AFBC___vt__19TObjBoss2RaftSplash __vt__19TObjBoss2RaftSplash;
@@ -24,7 +24,7 @@ u8 *TObjBoss2RaftSplash__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__19TObjBoss2RaftSplash.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2700;
-    M2C_FIELD(arg0, f32 *, 0x20) = (f32) (lbl_805D85B0 * (lbl_805D85D0 + TTecZondeEff__sub_8002DF28()));
+    M2C_FIELD(arg0, f32 *, 0x20) = (f32) (lbl_805D85B0 * (lbl_805D85D0 + rand_signed_unit()));
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) * (lbl_805D85D4 * (f32) rand()));
     VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg2);
     VecCopy__FP3VecPC3Vec(arg0 + 0x34, arg3);

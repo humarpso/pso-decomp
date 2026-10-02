@@ -188,7 +188,7 @@ extern RecoveredGlobal_80091E08_lbl_8058D490 lbl_8058D490;
 extern const f32 lbl_805D96D8;
 extern const f32 lbl_805D96DC;
 extern const f32 lbl_805D96E0;
-void TObjPlayer__sub_80091E08(u8 *arg0);
+void spawn_death_fire__12TObjEneBeastFPv(u8 *arg0);
 u8 * TObjEneBalClaw__ct(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TObjEneBalClawClaw__sub_80090798(void *);
@@ -582,7 +582,7 @@ void play_claw_effect__18TObjEneBalClawClawFi(s32 arg0) {
     play_effect_if_v2__10TObjPlayerFi(-0x200);
 }
 
-void TObjPlayer__sub_80091E08(u8 *arg0) {
+void spawn_death_fire__12TObjEneBeastFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_80091E08, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80091E08, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80091E08, sp10) == 0x8) ? 1 : -1];

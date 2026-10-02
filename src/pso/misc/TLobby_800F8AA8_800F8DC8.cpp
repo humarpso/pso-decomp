@@ -11,7 +11,7 @@ extern u8 lbl_80499AA0[];
 extern const char lbl_8043D9F4[];
 void *TLobby__sub_8001EEFC(const char *);
 s32 TLobby__sub_800F7DAC(void *, void *);
-s32 TLobby__sub_803DE084(void *, void *);
+s32 load_gvm_texture_archive(void *, void *);
 void TLobby__sub_8001EE48(const char *s);
 void TLobby__sub_800F8EB4(void);
 }
@@ -44,7 +44,7 @@ void TLobby__sub_800F8EB4(void) {
     if (file != 0) {
         s32 r;
         TLobby__sub_800F7DAC(lbl_80499AA0, file);
-        r = TLobby__sub_803DE084(file, lbl_8049C61C);
+        r = load_gvm_texture_archive(file, lbl_8049C61C);
         TLobby__sub_8001EE48(lbl_8043D9F4);
         lbl_805D533C = 1;
         if (r == -1) {

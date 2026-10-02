@@ -93,7 +93,7 @@ M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
 extern M2C_UNK lbl_8043B0B4[];
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-void TObjPlayer__sub_800AEE54(u8 *arg0);
+void acquire_target__11TObjEneMojaFPv(u8 *arg0);
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(int);
 M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
@@ -455,7 +455,7 @@ s32 TObjPlayer__sub_800AEDB4(void *arg0) {
     }
     return 0;
 }
-void TObjPlayer__sub_800AEE54(u8 *arg0) {
+void acquire_target__11TObjEneMojaFPv(u8 *arg0) {
     s32 best_id;
     s32 i;
     s32 id;

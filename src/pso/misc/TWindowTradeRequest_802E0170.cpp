@@ -53,7 +53,7 @@ s32 TWindowMessageYesNo__sub_802A59D8(s32, s32, s32, s32);
 char get_trade_mode__6TLobbyFv(void);
 M2C_UNK get_message_10__20TWindowSubStatusDispFPv(int);
 M2C_UNK reset_equip_slots__10TObjPlayerFPv();
-M2C_UNK TWindowSubStatusDisp__sub_80229080();
+M2C_UNK text_builder_append();
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 M2C_UNK __ct__7TObjectFP7TObject();
 M2C_UNK TObjPlayer__sub_8024ABDC(void *);
@@ -117,10 +117,10 @@ u8 *TWindowTradeRequest__ct(u8 *arg0) {
   if (new_var)
   {
     PSO_VCALL_VObj_18_f23ffb_m10(temp_r31);
-    TWindowSubStatusDisp__sub_80229080();
+    text_builder_append();
   }
   get_message_10__20TWindowSubStatusDispFPv((int) 0xD9);
-  TWindowSubStatusDisp__sub_80229080();
+  text_builder_append();
   *((s32 *) (((s8 *) arg0) + 0x20)) = TWindowMessageYesNo__sub_802A59D8((s32) arg0, lbl_805D53A0, 0, 0);
   temp_r31_2 = (u8 *) get_window_layout_position(0xB2);
   forward_slot_selection__16TAdChrSelASlotGCFPvPvPv((int) (*((s32 *) (((s8 *) arg0) + 0x20))), (int) TLobby__sub_8001DC24(), (int) temp_r31_2, (f32) lbl_805DE8A0);

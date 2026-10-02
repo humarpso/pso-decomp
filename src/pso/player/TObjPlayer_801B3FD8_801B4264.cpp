@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-int TObjPlayer__sub_801B4118(void);
+int test_ordered_anim_markers__10TObjPlayerFPvff(void);
 
 s8 TObjPlayer__sub_801AFDB0();
 s32 send_field_state_if_active__10TObjPlayerFii(s32, s32);
@@ -26,7 +26,7 @@ int reset_ring__10TObjPlayerFPv(void*);
 int clear_target_lock__10TObjPlayerFPv(void*);
 
 void play_footstep_sound__10TObjPlayerFi(s32 arg0) {
-    if (TObjPlayer__sub_801B4118() != 0) {
+    if (test_ordered_anim_markers__10TObjPlayerFPvff() != 0) {
         send_field_state_if_active__10TObjPlayerFii(arg0, TObjPlayer__sub_801D8E90(arg0));
     }
 }

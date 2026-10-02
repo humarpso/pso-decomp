@@ -147,7 +147,7 @@ extern Shape_801D3C38 lbl_804C43E8;
 extern Body_801D3E20 lbl_804C4414;
 extern const f32 lbl_805DC3C8;
 extern const f32 lbl_805DC3CC;
-s32 TItemList__sub_801D3C38(Search_801D3C38 *s);
+s32 step_placement_search(Search_801D3C38 *s);
 }
 
 extern "C" {
@@ -168,7 +168,7 @@ extern void *tl_07;
 void TItemList__sub_801D3780(u8 *arg0) {
     Req_801D3780 *r;
     void *player;
-    switch (TItemList__sub_801D3C38((Search_801D3C38 *)(arg0))) {
+    switch (step_placement_search((Search_801D3C38 *)(arg0))) {
     case 0:
         return;
     case 1:
@@ -251,7 +251,7 @@ block_5:
 }
 
 void TItemList__sub_801D3A80(u8 *arg0) {
-    switch (TItemList__sub_801D3C38((Search_801D3C38 *)(arg0))) {
+    switch (step_placement_search((Search_801D3C38 *)(arg0))) {
     case 0:
         return;
     case 1:
@@ -303,7 +303,7 @@ u8 *TItemList__sub_801D3BD4(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8
 
 #pragma push
 #pragma fp_contract on
-s32 TItemList__sub_801D3C38(Search_801D3C38 *s) {
+s32 step_placement_search(Search_801D3C38 *s) {
     Ground_801D3C38 *g;
     if (check_player_action_allowed() != 0 && s->online != 0 &&
         TAdPlayerLoadGC__sub_801E1E38(get_chr_select_state__23TAdSinglePlyChrSelectGCFv()) != 1) {

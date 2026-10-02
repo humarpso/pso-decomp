@@ -40,7 +40,7 @@ M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK draw_ginja_object(s32);
-M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, void *, f32);
+M2C_UNK draw_model_motion(s32, void *, f32);
 void TObjHashiBase__sub_80191A38(u8 *arg0);
 s32 get_state_flag__9TMainTaskFv();
 f32 xz_distance_squared(void *, void *);
@@ -129,7 +129,7 @@ void TObjHashiBase__sub_80191A38(u8 *arg0) {
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         p = M2C_FIELD(arg0, void **, 0xBC);
         if (p != NULL) {
-            TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0x34), p, M2C_FIELD(arg0, f32 *, 0xB0));
+            draw_model_motion(M2C_FIELD(arg0, s32 *, 0x34), p, M2C_FIELD(arg0, f32 *, 0xB0));
         } else {
             draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
         }

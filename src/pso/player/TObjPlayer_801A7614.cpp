@@ -40,7 +40,7 @@ int set_global_state__16TObjEneRe7BeruraFi(void*);
 void TObjPlayer__sub_801A7638(PhotonDrawOwner_801A7638 *self);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-void TObjPlayer__sub_801A7680(struct Self_801A7680 *self);
+void update_photon_blast_attachments(struct Self_801A7680 *self);
 }
 
 extern "C" {
@@ -63,7 +63,7 @@ void TObjPlayer__sub_801A7638(PhotonDrawOwner_801A7638 *self) {
     set_global_state__16TObjEneRe7BeruraFi((void*)fn_801A7578);
 }
 
-void TObjPlayer__sub_801A7680(struct Self_801A7680 *self) {
+void update_photon_blast_attachments(struct Self_801A7680 *self) {
     u32 i;
     struct Eff_801A7680 *e;
     for (i = 0; i < self->count; i++) {

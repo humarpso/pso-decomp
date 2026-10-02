@@ -21,7 +21,7 @@ s32 TObjPlayer__sub_803D9B2C();
 s32 pop_matrix();
 f32 TOHangerMachine01__sub_803D9C00(void *);
 s32 set_global_param__8TObjFishFi(void *);
-s32 TObjEneSlimeOne__sub_803E4AF4(void *, int, f32);
+s32 draw_model_motion(void *, int, f32);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
 extern int lbl_805D6858;
@@ -99,7 +99,7 @@ void render__22TObjEneMe1GiGueMissileFv(u8 *arg0) {
   set_global_param__8TObjFishFi((void *) (*((s32 *) (((s8 *) (*((u8 **) (((s8 *) (*(u8 * *)&lbl_805D6858)) + 0x42C)))) + 0x1C))));
   set_global_flag__10TObjPlayerFv();
   temp_r31 = TObjFish__sub_8001ED9C((void *) (*(u8 * *)&lbl_805D6858), (int) 5);
-  TObjEneSlimeOne__sub_803E4AF4((void *) get_bml_model((void *) (*(u8 * *)&lbl_805D6858), (int) 1), (int) temp_r31, (f32) (*((f32 *) (((s8 *) arg0) + 0xBC))));
+  draw_model_motion((void *) get_bml_model((void *) (*(u8 * *)&lbl_805D6858), (int) 1), (int) temp_r31, (f32) (*((f32 *) (((s8 *) arg0) + 0xBC))));
   clear_global_state__10TObjPlayerFv();
   end_effect_render__13TParticleCtrlFv();
   pop_matrix();

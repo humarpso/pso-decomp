@@ -8,7 +8,7 @@ extern "C" {
 void TObjPlayer__sub_800193FC(s32, s32, s32);
 void TObjPlayer__sub_8001940C(s32, s32, s32);
 void obj_setFlags30(void *, u32);
-void TObjPlayer__sub_8001489C(s32 arg0, f32 farg0);
+void apply_action_hold_status(s32 arg0, f32 farg0);
 }
 
 extern "C" {
@@ -25,7 +25,7 @@ void TObjPlayer__sub_80014890(void);
 void TObjPlayer__sub_80014894(void);
 void TObjPlayer__sub_80014898(void);
 
-void TObjPlayer__sub_8001489C(s32 arg0, f32 farg0) {
+void apply_action_hold_status(s32 arg0, f32 farg0) {
     TObjPlayer__sub_8001940C(arg0, 4, 0x14);
     TObjPlayer__sub_800193FC(arg0, 4, (s32) farg0);
     obj_setFlags30((void *) arg0, 0x4000U);

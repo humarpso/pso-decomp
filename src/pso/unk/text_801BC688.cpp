@@ -25,7 +25,7 @@ M2C_UNK set_vec3_const__10TObjPlayerFPv(void *);
 M2C_UNK fn_801C19F4(void *);
 u8 *heap_alloc__10TObjPlayerFPv(M2C_UNK);
 extern const f32 TObjPlayer__data_805DC278;
-void TObjPlayer__sub_801BC6C4(u8 *arg0);
+void init_action_provider__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -43,7 +43,7 @@ void TObjPlayer__sub_801BC688(void *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_801BC6C4(u8 *arg0) {
+void init_action_provider__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *temp_r3_2;
     u8 *var_r0;

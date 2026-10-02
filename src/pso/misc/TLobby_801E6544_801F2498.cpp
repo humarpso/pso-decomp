@@ -46,12 +46,12 @@ void qst_op_ret(void);
 void qst_op_sync(void);
 s32 TLobby__sub_801F2BCC();
 M2C_UNK TLobby__sub_801F45FC(s32);
-s32 TODoorVoShip__sub_801F44BC(s32);
+s32 get_story_flag(s32);
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
 
 void qst_op_grev(s32 arg0) {
     u16 v = arg0;
-    if (TODoorVoShip__sub_801F44BC(v) != 0) {
+    if (get_story_flag(v) != 0) {
         TLobby__sub_801F45FC(v);
         return;
     }

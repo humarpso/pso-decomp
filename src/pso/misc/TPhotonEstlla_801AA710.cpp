@@ -52,7 +52,7 @@ s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 s32 advance_animation_playback(void *);
 u8 *find_entity_by_id(u16);
 s32 TCameraCtrl__sub_801A7310(void *, int);
-s32 TObjPlayer__sub_801A7680(void *);
+s32 update_photon_blast_attachments(void *);
 s32 TObjPlayer__sub_801A7748(void *, int);
 s32 update_state__10TSceneSoraFPv(void *);
 s32 TPhotonMagicSquare__sub_801AD218(int, void *, int, void *, int);
@@ -193,7 +193,7 @@ void run_task__13TPhotonEstllaFv(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 0x190) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);
     update_state__10TSceneSoraFPv((void *) (arg0));
     advance_animation_playback((void *) (arg0));
-    TObjPlayer__sub_801A7680((void *) (arg0));
+    update_photon_blast_attachments((void *) (arg0));
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (M2C_FIELD(arg0, s16 *, 0x14C) + 0xF);
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (u8) M2C_FIELD(arg0, s16 *, 0x14C);
     if (lbl_805DC144 == (f32) M2C_FIELD(arg0, s32 *, 0x1A0)) {

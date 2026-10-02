@@ -50,7 +50,7 @@ void fn_800FCCC8(s32 arg0, s32 arg1);
 s32 fn_800FCCF4(void* p);
 s32 TLobby__sub_8001DC24();
 M2C_UNK TWindowSubStatusDisp__sub_80228F5C(s32);
-M2C_UNK TWindowSubStatusDisp__sub_80229080(M2C_UNK *);
+M2C_UNK text_builder_append(M2C_UNK *);
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 s32 __nw__7TObjectFUl(M2C_UNK);
 s32 set_card_window_flags__19TWindowKeyBoardHardFPvii(s32, s32, s32);
@@ -94,7 +94,7 @@ s32 get_screen_height__11TCameraCtrlFv(void);
 s32 get_screen_width__11TCameraCtrlFv(void);
 f32 get_fov__11TCameraCtrlFv(void);
 f32 get_scale__15TWindowCtrlMainFv(s32);
-void TWindowSubStatusDisp__sub_803DEE6C(int);
+void begin_screen_draw(int);
 void render_forward__20TWindowSubStatusDispFPv(void);
 void TWindowSubStatusDisp__sub_803DF160(int, u32);
 void build_small_font_glyph_quad(u8, Quad_800FCD40 *);
@@ -184,7 +184,7 @@ void TFontSmallTask::render() {
         fade = lbl_805DAA04;
     }
     scale = ((f32 (*)(void *))TFontSmallTask__sub_800FCCFC)(this);
-    TWindowSubStatusDisp__sub_803DEE6C(1);
+    begin_screen_draw(1);
     render_forward__20TWindowSubStatusDispFPv();
     while (*cursor != 0) {
         u8 c = *cursor++;
@@ -238,9 +238,9 @@ s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, M2C_UNK *arg4
     s32 var_r31;
 
     TWindowSubStatusDisp__sub_802290E0();
-    TWindowSubStatusDisp__sub_80229080(arg4);
+    text_builder_append(arg4);
     if (arg5 >= 0) {
-        TWindowSubStatusDisp__sub_80229080(&lbl_805DAA34);
+        text_builder_append(&lbl_805DAA34);
     }
     TWindowSubStatusDisp__sub_80228F5C(arg5);
     var_r31 = __nw__7TObjectFUl(0x58);
@@ -256,9 +256,9 @@ s32 create_font_small_task_default_color(s32 arg0, s32 arg1, s32 arg2, s32 arg3,
     s32 var_r31;
 
     TWindowSubStatusDisp__sub_802290E0();
-    TWindowSubStatusDisp__sub_80229080(arg4);
+    text_builder_append(arg4);
     if (arg5 >= 0) {
-        TWindowSubStatusDisp__sub_80229080(&lbl_805DAA34);
+        text_builder_append(&lbl_805DAA34);
     }
     TWindowSubStatusDisp__sub_80228F5C(arg5);
     var_r31 = __nw__7TObjectFUl(0x58);
@@ -318,7 +318,7 @@ s32 create_font__13TOCtrlDubchikFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 var_r31;
 
     TWindowSubStatusDisp__sub_802290E0();
-    ((M2C_UNK (*)(s32))TWindowSubStatusDisp__sub_80229080)(arg3);
+    ((M2C_UNK (*)(s32))text_builder_append)(arg3);
     var_r31 = __nw__7TObjectFUl(0x58);
     if (var_r31 != 0) {
         var_r31 = ((s32 (*)(s32, s32, s32, s32, s32, s32, s32))__ct__14TFontSmallTaskFv)(var_r31, arg0, arg1, arg2, 0, TLobby__sub_8001DC24(), 0xFFFF);
@@ -399,7 +399,7 @@ s32 TLobby__sub_800FD6F8(Ent_800FD6F8 *p, u32 size);
 void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c();
 s32 get_game_mode__6TLobbyFv();
-s32 TLobby__sub_8007B844(void *);
+s32 get_actor_section_id(void *);
 void TLobby__sub_800FD614(struct Out_800FD614 *out, s32 arg1);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 u32 fn_800FC0F8(char *);
@@ -460,7 +460,7 @@ void TLobby__sub_800FD614(struct Out_800FD614 *out, s32 arg1) {
         p = (VObj_800FD614 *)get_player_data__10TObjPlayerFi(i);
         if (p != NULL && arg1 == obj_getField1c()) {
             out->a = p->m14();
-            out->b = TLobby__sub_8007B844(p);
+            out->b = get_actor_section_id(p);
         }
     }
 }

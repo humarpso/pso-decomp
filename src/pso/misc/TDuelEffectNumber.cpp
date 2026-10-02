@@ -35,7 +35,7 @@ void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805D9304;
 void run_task__17TDuelEffectNumberFv(u8 *arg0);
 void render__17TDuelEffectNumberFv(void *arg0);
-M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(M2C_UNK);
+M2C_UNK begin_screen_draw(M2C_UNK);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(M2C_UNK, M2C_UNK);
 void fn_8007FFF4(Obj_8007FF28 *self, s32 arg1);
 extern const f32 lbl_805D92F8;
@@ -108,7 +108,7 @@ void render__17TDuelEffectNumberFv(void *arg0) {
 
     ((M2C_UNK (*)(void *, void *, s32))fn_800800EC)(arg0, &sp8, M2C_FIELD(arg0, s32 *, 0x24));
     init_xyz_limits__10TObjPlayerFv();
-    TWindowSubStatusDisp__sub_803DEE6C(1);
+    begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D63F0);
     TWindowSubStatusDisp__sub_803DF160(6, -1);
     ((M2C_UNK (*)(void *, M2C_UNK *))fn_8007FFF4)(arg0, (M2C_UNK *)&sp8);

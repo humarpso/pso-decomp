@@ -47,7 +47,7 @@ s8 TObjPlayer__sub_80102C30(void *);
 u8 *find_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 extern const f32 lbl_805DD100;
-void fn_80262C3C(u8 *arg0);
+void validate_target__13TWindowLockOnFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -55,7 +55,7 @@ extern "C" {
 typedef struct VBase_18_7b8813 VBase_18_7b8813;
 typedef struct VObj_18_7b8813 VObj_18_7b8813;
 #define PSO_VCALL_VObj_18_7b8813_m31(_self) (((VObj_18_7b8813 *)(_self))->m31())
-void fn_80262C3C(u8 *arg0) {
+void validate_target__13TWindowLockOnFPv(u8 *arg0) {
   u16 temp_r3;
   u8 *temp_r3_2;
   temp_r3 = *((u16 *) (((s8 *) arg0) + 0x60));

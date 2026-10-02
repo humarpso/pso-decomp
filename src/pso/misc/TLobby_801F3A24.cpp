@@ -19,14 +19,14 @@ void TLobby__sub_801F3DEC(void);
 s32 add_player__6TLobbyFiii(s32, s32, s32);
 M2C_UNK bswap_32__FPUl(void *);
 extern int TLobby__data_805D5EE0;
-bool TLobby__sub_801F3F40(s32 arg0);
+bool load_quest_encounter_section(s32 arg0);
 extern RecoveredGlobal_801F3DEC_TLobby__data_805127D0 TLobby__data_805127D0;
 extern u8 lbl_80449D08[];
 extern u8 lbl_80449D1C[];
 extern u8 lbl_80449D30[];
 void TItemDrop__sub_800FDDF4(void);
 void TItemDrop__sub_800FDE7C(void *);
-bool TLobby__sub_801F3F40(s32 arg0);
+bool load_quest_encounter_section(s32 arg0);
 s32 TLobby__sub_802077CC(s32, Sel_801F3E1C *);
 void TLobby__sub_80208E8C(s32, s32, s32, s32);
 void TLobby__sub_8020AB50(s32, s32, s32, s32);
@@ -40,7 +40,7 @@ int rebuild_entry__6TLobbyFPv(void);
 void TLobby__sub_801F3E1C(void);
 extern RecoveredGlobal_801F3DEC_TLobby__data_805127D0 TLobby__data_805127D0;
 void TLobby__sub_80207798(s32, s32, s32, s32);
-void TLobby__sub_801F3D3C(s16 mode, s32 floor, s32 terrain, s32 unused);
+void set_quest_floor_designation(s16 mode, s32 floor, s32 terrain, s32 unused);
 void TLobby__sub_80207798(s32, s32, s32, s32);
 extern RecoveredGlobal_801F3DEC_TLobby__data_805127D0 TLobby__data_805127D0;
 void TLobby__sub_801F3C70(s16 mode, s32 floor, s32 area, s32 layout, s32 entities);
@@ -84,7 +84,7 @@ void TLobby__sub_801F3C70(s16 mode, s32 floor, s32 area, s32 layout, s32 entitie
     }
 }
 
-void TLobby__sub_801F3D3C(s16 mode, s32 floor, s32 terrain, s32 unused) {
+void set_quest_floor_designation(s16 mode, s32 floor, s32 terrain, s32 unused) {
     if (floor > 17) {
         return;
     }
@@ -117,7 +117,7 @@ void TLobby__sub_801F3E1C(void) {
         case 0:
             handle_msg_type1__6TLobbyFi(i);
             handle_msg_type2__6TLobbyFi(i);
-            TLobby__sub_801F3F40(i);
+            load_quest_encounter_section(i);
             break;
         case 1:
         case 2:
@@ -142,7 +142,7 @@ void TLobby__sub_801F3E1C(void) {
     free_data_60F0__6TLobbyFv();
 }
 
-bool TLobby__sub_801F3F40(s32 arg0) {
+bool load_quest_encounter_section(s32 arg0) {
     s32 sp14;
     s32 sp10;
     s32 spC;

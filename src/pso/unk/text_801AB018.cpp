@@ -23,7 +23,7 @@ s32 spawn_particle_effect(void *, int);
 s32 advance_animation_playback(void *);
 s32 find_entity_by_id(int);
 s32 TCameraCtrl__sub_801A7310(void *, int);
-s32 TObjPlayer__sub_801A7680(void *);
+s32 update_photon_blast_attachments(void *);
 s32 TObjPlayer__sub_801A7748(void *, int);
 s32 update_state__10TSceneSoraFPv(void *);
 s32 update_all_slots__10TObjPlayerFPv(void *);
@@ -83,7 +83,7 @@ void fn_801AB018(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 0x194) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);
     update_state__10TSceneSoraFPv((void *) (arg0));
     advance_animation_playback((void *) (arg0));
-    TObjPlayer__sub_801A7680((void *) (arg0));
+    update_photon_blast_attachments((void *) (arg0));
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (M2C_FIELD(arg0, s16 *, 0x14C) + 0xF);
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (u8) M2C_FIELD(arg0, s16 *, 0x14C);
     if (lbl_805DC160 == (f32) M2C_FIELD(arg0, s32 *, 0x1A4)) {

@@ -16,7 +16,7 @@ s32 TObjPlayer__sub_803D9B2C();
 s32 pop_matrix();
 f32 TOHangerMachine01__sub_803D9C00(void *);
 s32 set_global_param__8TObjFishFi(int);
-s32 TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
+s32 draw_model_motion(int, int, f32);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
 extern const f32 lbl_805D8BA0;
@@ -45,7 +45,7 @@ void render__11TBoss4ZanzoFv(u8 *arg0) {
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x28)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x2C)));
         TObjPlayer__sub_80052390((f32) (temp_f31));
-        TObjEneSlimeOne__sub_803E4AF4((int) (M2C_FIELD(arg0, s32 *, 0x30)), (int) (M2C_FIELD(arg0, s32 *, 0x34)), (f32) (M2C_FIELD(arg0, f32 *, 0x38)));
+        draw_model_motion((int) (M2C_FIELD(arg0, s32 *, 0x30)), (int) (M2C_FIELD(arg0, s32 *, 0x34)), (f32) (M2C_FIELD(arg0, f32 *, 0x38)));
         sync_player_globals__10TObjPlayerFv();
         clear_global_state__10TObjPlayerFv();
         pop_matrix();

@@ -9,14 +9,14 @@ struct Crypt_8007C438 { s32 pos; u32 k[0x38]; };
 struct R_8007C48C { s32 f0; s32 tbl[55]; s32 fe0; s32 fe4; };
 
 extern "C" {
-s32 TAdSinglePlyChrSelectGC__sub_8007C3E0(s32 *arg0);
-s32 TAdSinglePlyChrSelectGC__sub_8007C3E0(s32 *arg0);
+s32 subtractive_rng_next(s32 *arg0);
+s32 subtractive_rng_next(s32 *arg0);
 void TAdSinglePlyChrSelectGC__sub_8007C0CC(s32 *self, u32 *data, s32 len);
-s32 TAdSinglePlyChrSelectGC__sub_8007C3E0(s32 *arg0);
+s32 subtractive_rng_next(s32 *arg0);
 int bswap_32__FPUl(void *);
 void TAdSinglePlyChrSelectGC__sub_8007C2FC(s32 *self, u32 *data, s32 len);
-s32 TAdSinglePlyChrSelectGC__sub_8007C3E0(s32 *arg0);
-void TAdSinglePlyChrSelectGC__sub_8007C378(s32 *self, u32 *data, s32 len);
+s32 subtractive_rng_next(s32 *arg0);
+void subtractive_rng_xor_buffer(s32 *self, u32 *data, s32 len);
 void TAdSinglePlyChrSelectGC__sub_8007C438(Crypt_8007C438 *c);
 void TAdSinglePlyChrSelectGC__sub_8007C438(Crypt_8007C438 *c);
 void TAdSinglePlyChrSelectGC__sub_8007C48C(R_8007C48C *arg0, s32 arg1);
@@ -28,7 +28,7 @@ void TAdSinglePlyChrSelectGC__sub_8007C0CC(s32 *self, u32 *data, s32 len) {
     s32 i;
     s32 n = (len + 3) / 4;
     for (i = 0; i < n; i++) {
-        data[i] = TAdSinglePlyChrSelectGC__sub_8007C3E0(self) - data[i];
+        data[i] = subtractive_rng_next(self) - data[i];
     }
 }
 
@@ -39,20 +39,20 @@ void TAdSinglePlyChrSelectGC__sub_8007C2FC(s32 *self, u32 *data, s32 len) {
     for (i = 0; i < n; i++) {
         p = &data[i];
         bswap_32__FPUl(p);
-        *p ^= TAdSinglePlyChrSelectGC__sub_8007C3E0(self);
+        *p ^= subtractive_rng_next(self);
         bswap_32__FPUl(p);
     }
 }
 
-void TAdSinglePlyChrSelectGC__sub_8007C378(s32 *self, u32 *data, s32 len) {
+void subtractive_rng_xor_buffer(s32 *self, u32 *data, s32 len) {
     s32 i;
     s32 n = (len + 3) / 4;
     for (i = 0; i < n; i++) {
-        data[i] ^= TAdSinglePlyChrSelectGC__sub_8007C3E0(self);
+        data[i] ^= subtractive_rng_next(self);
     }
 }
 
-s32 TAdSinglePlyChrSelectGC__sub_8007C3E0(s32 *arg0) {
+s32 subtractive_rng_next(s32 *arg0) {
     s32 temp_r4;
     temp_r4 = *arg0;
     *arg0 = temp_r4 + 1;

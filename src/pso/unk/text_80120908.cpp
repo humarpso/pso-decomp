@@ -48,7 +48,7 @@ M2C_UNK push_matrix_from();
 M2C_UNK pop_matrix();
 M2C_UNK fn_803DC86C(int, int, int, int);
 M2C_UNK draw_chunk_object(int);
-M2C_UNK TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
+M2C_UNK draw_model_motion(int, int, f32);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
@@ -109,7 +109,7 @@ s32 draw_weapon_model(void *arg0) {
                     }
                 } else {
                     set_global_flag__10TObjPlayerFv();
-                    TObjEneSlimeOne__sub_803E4AF4((int) (M2C_FIELD(arg0, u32 *, 0xF4)), (int) (M2C_FIELD(arg0, u32 *, 0x17C)), (f32) (M2C_FIELD(arg0, f32 *, 0x1D8)));
+                    draw_model_motion((int) (M2C_FIELD(arg0, u32 *, 0xF4)), (int) (M2C_FIELD(arg0, u32 *, 0x17C)), (f32) (M2C_FIELD(arg0, f32 *, 0x1D8)));
                     clear_global_state__10TObjPlayerFv();
                 }
                 some_id_805c6f74 &= 0xFFFF7FEE;
@@ -123,7 +123,7 @@ s32 draw_weapon_model(void *arg0) {
                 }
             } else {
                 set_global_flag__10TObjPlayerFv();
-                TObjEneSlimeOne__sub_803E4AF4((int) (M2C_FIELD(arg0, u32 *, 0xF4)), (int) (M2C_FIELD(arg0, u32 *, 0x17C)), (f32) (M2C_FIELD(arg0, f32 *, 0x1D8)));
+                draw_model_motion((int) (M2C_FIELD(arg0, u32 *, 0xF4)), (int) (M2C_FIELD(arg0, u32 *, 0x17C)), (f32) (M2C_FIELD(arg0, f32 *, 0x1D8)));
                 clear_global_state__10TObjPlayerFv();
             }
             TObjPlayer__sub_80101088();

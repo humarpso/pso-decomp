@@ -300,7 +300,7 @@ s32 check_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
 s32 can_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK fn_801A1F48();
+M2C_UNK apply_object_set_data();
 void TOMineTrap__sub_80170524(u8 *arg0);
 void TOMineTrap__sub_80170570(void);
 int get_localized_text_entry(void*, void*);
@@ -549,7 +549,7 @@ s32 can_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1) {
     return 0;
 }
 void TOMineTrap__sub_80170524(u8 *arg0) {
-    fn_801A1F48();
+    apply_object_set_data();
     ((VObj_18 *)(arg0))->m81();
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x334), (void *) (arg0 + 0x38));
 }

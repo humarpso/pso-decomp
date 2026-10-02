@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 typedef s32 M2C_UNK;
 extern "C" {
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
+M2C_UNK draw_model_motion(s32, s32, f32);
 M2C_UNK TObjFish__sub_800E3074(s32);
 M2C_UNK TObjPlayer__sub_80052390(f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -28,7 +28,7 @@ extern "C" {
 void release_subobjects__10TObjPlayerFPv(u8 *arg0);
 void update_both__10TObjPlayerFPv(void* p);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
+M2C_UNK draw_model_motion(s32, s32, f32);
 M2C_UNK TObjFish__sub_800E3074(s32);
 M2C_UNK TObjPlayer__sub_80052390(f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -51,7 +51,7 @@ void release_subobjects__10TObjPlayerFPv(u8 *arg0) {
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0xE0));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xCC));
         TObjFish__sub_800E3074(M2C_FIELD(arg0, s32 *, 0x108));
-        TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0xC8), M2C_FIELD(arg0, s32 *, 0xD0), M2C_FIELD(arg0, f32 *, 0xE8));
+        draw_model_motion(M2C_FIELD(arg0, s32 *, 0xC8), M2C_FIELD(arg0, s32 *, 0xD0), M2C_FIELD(arg0, f32 *, 0xE8));
         clear_render_callback__8TObjFishFv(M2C_FIELD(arg0, s32 *, 0x108));
         clear_global_state__10TObjPlayerFv();
         pop_matrix();
@@ -81,13 +81,13 @@ int TObjPlayer__sub_8004FB24(void *p) {
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0xE0));
     set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xA8));
     TObjFish__sub_800E3074(M2C_FIELD(arg0, s32 *, 0xEC));
-    TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0xA4), M2C_FIELD(arg0, s32 *, 0xAC), M2C_FIELD(arg0, f32 *, 0xE8));
+    draw_model_motion(M2C_FIELD(arg0, s32 *, 0xA4), M2C_FIELD(arg0, s32 *, 0xAC), M2C_FIELD(arg0, f32 *, 0xE8));
     clear_render_callback__8TObjFishFv(M2C_FIELD(arg0, s32 *, 0xEC));
     frac = (s32)M2C_FIELD(arg0, f32 *, 0xE8) % 30;
     set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xB4));
-    TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0xB0), M2C_FIELD(arg0, s32 *, 0xB8), frac);
+    draw_model_motion(M2C_FIELD(arg0, s32 *, 0xB0), M2C_FIELD(arg0, s32 *, 0xB8), frac);
     set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xC0));
-    TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, s32 *, 0xC4), frac);
+    draw_model_motion(M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, s32 *, 0xC4), frac);
     clear_global_state__10TObjPlayerFv();
     pop_matrix();
     if (alpha < 1.0f) {

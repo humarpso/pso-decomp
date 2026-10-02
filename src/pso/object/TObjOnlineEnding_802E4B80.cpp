@@ -63,7 +63,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
+M2C_UNK draw_model_motion(int, int, f32);
 extern f32 lbl_804E3A38[];
 extern V2_802E4C70 lbl_804E3A44[];
 extern const f32 lbl_805D3F94;
@@ -84,7 +84,7 @@ extern "C" {
 
 void create_result_window__16TObjOnlineEndingFPv(void *arg0);
 void *destroy__16TObjOnlineEndingFPvs(void *arg0, s16 arg1);
-M2C_UNK TCameraCtrl__sub_80069DA8();
+M2C_UNK restore_player_cameras();
 s32 TLobby__sub_8006F00C();
 s32 TLobby__sub_80070ACC();
 s32 TWindowChallengeResult__ct(s32, s32, s32, s32);
@@ -135,7 +135,7 @@ void TObjOnlineEnding__sub_802E4C70(Obj_802E4C70 *arg0) {
     TOHangerMachine01__sub_803D9C00(lbl_804E3A38);
     scale_matrix(0, lbl_805D3F94, lbl_805DE934, lbl_805DE934);
     set_global_param__8TObjFishFi(arg0->f94);
-    TObjEneSlimeOne__sub_803E4AF4(arg0->f90, arg0->f98, arg0->f150);
+    draw_model_motion(arg0->f90, arg0->f98, arg0->f150);
     pop_matrix();
     for (i = 0; i < arg0->count; i++) {
         e = &arg0->ent[i];
@@ -204,7 +204,7 @@ void *destroy__16TObjOnlineEndingFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, const M2C_UNK **, 0x18) = lbl_804E3A64;
         close_window__16TObjOnlineEndingFPv(arg0);
-        TCameraCtrl__sub_80069DA8();
+        restore_player_cameras();
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

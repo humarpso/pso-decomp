@@ -64,15 +64,15 @@ u8 fn_8035CAE0(void);
 void mark_done__12TBoss6ThanksFPv(void* p);
 void update_fade_out__12TBoss6ThanksFPv(void *arg0);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-s32 TODoorVoShip__sub_801F44BC(s32);
+s32 get_story_flag(s32);
 int dispatch_by_main_phase__14TBoss4DarkFalzFUs(void*);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 u8 fn_8035CAE0(void) {
-    return (u8) (TODoorVoShip__sub_801F44BC(0x9A) != 0);
+    return (u8) (get_story_flag(0x9A) != 0);
 }
 u8 check_ship_door__12TBoss6ThanksFv(void) {
-    return (u8) (TODoorVoShip__sub_801F44BC(0x98) != 0);
+    return (u8) (get_story_flag(0x98) != 0);
 }
 int TBoss6Thanks__sub_8035CB40(void) { return dispatch_by_main_phase__14TBoss4DarkFalzFUs((void*)(154)); }
 int dispatch_darkfalz_phase__12TBoss6ThanksFv(void) { return dispatch_by_main_phase__14TBoss4DarkFalzFUs((void*)(152)); }

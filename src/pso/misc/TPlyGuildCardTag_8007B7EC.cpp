@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #include "types.h"
 extern "C" {
 void* TObjPlayer__vt10(void* p);
-s8 TLobby__sub_8007B844(u8 *arg0);
+s8 get_actor_section_id(u8 *arg0);
 }
 
 extern "C" {
@@ -37,7 +37,7 @@ s32 TWindowSubShortMail__sub_8007B834(void* p) { return *(s32*)((char*)p + 0x0);
 
 void* fn_8007B83C(void* p) { return (char*)p + 0x8; }
 
-s8 TLobby__sub_8007B844(u8 *arg0) {
+s8 get_actor_section_id(u8 *arg0) {
   u8 *new_var;
   new_var = &(*((u8 *) (arg0 + 0x88C)));
   return ((s8) ((*new_var) & 0xFFFFFFFFFFFFFFFFu)) & 0xFFFF;

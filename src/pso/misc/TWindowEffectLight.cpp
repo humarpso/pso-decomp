@@ -32,7 +32,7 @@ s32 TWindowCtrlMain__sub_8024CE44(void);
 void TWindowEffectLight__sub_802AD040(void *, f32);
 void TWindowEffectLight__sub_802AD1CC(void *, s32);
 s32 set_global_param__8TObjFishFi(s32);
-void TWindowSubStatusDisp__sub_803DEE6C(s32);
+void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv(void);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DE0F4;
@@ -93,7 +93,7 @@ void render__18TWindowEffectLightFv(u8 *arg0) {
     begin_effect_render__13TParticleCtrlFv();
     TCameraCtrl__sub_80069024();
     init_xyz_limits__10TObjPlayerFv();
-    TWindowSubStatusDisp__sub_803DEE6C(1);
+    begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D63F0);
     temp_r0 = *((s16 *) (((s8 *) arg0) + 0x24));
     {

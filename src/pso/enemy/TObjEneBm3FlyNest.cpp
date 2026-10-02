@@ -116,14 +116,14 @@ struct Obj_800B3E40 { u8 pad[0x18]; void *vtbl; u8 pad2[0x440 - 0x1c]; u8 arr[4]
 
 extern "C" {
 s32 TObjEneBm3FlyNest__sub_800B3AC8(u8 *arg0);
-void TObjEneBm3FlyNest__sub_800B3ADC(u8 *arg0);
+void update_replenish__17TObjEneBm3FlyNestFPv(u8 *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
 void copy_pos__17TObjEneBm3FlyNestFPv(void* p);
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 s32 transition_enemy_state(void * a0, s32 a1);
 void run_task__17TObjEneBm3FlyNestFPv(u8 *arg0);
 s32 handle_state__17TObjEneBm3FlyNestFPvi(void *, void *);
-s32 TObjEneBm3FlyNest__sub_800B2C24(void *, void *);
+s32 state_dying__17TObjEneBm3FlyNestFPvi(void *, void *);
 s32 handle_motion_event__17TObjEneBm3FlyNestFPvi(void *, void *);
 s32 state_spawn__17TObjEneBm3FlyNestFPvi(void *, void *);
 s32 update_state__17TObjEneBm3FlyNestFPvi(void *, void *);
@@ -185,7 +185,7 @@ s32 TObjEneBm3FlyNest__sub_800B3AC8(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x4B8) > 0;
 }
 
-void TObjEneBm3FlyNest__sub_800B3ADC(u8 *arg0) {
+void update_replenish__17TObjEneBm3FlyNestFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
     s32 temp_r0_3;
@@ -282,7 +282,7 @@ void TObjEneBm3FlyNest__sub_800B3CC0(s32 arg0, u32 arg1, s32 arg2) {
         handle_motion_event__17TObjEneBm3FlyNestFPvi((void *) (arg0), (void *) (arg2));
         return;
     case 8:
-        TObjEneBm3FlyNest__sub_800B2C24((void *) (arg0), (void *) (arg2));
+        state_dying__17TObjEneBm3FlyNestFPvi((void *) (arg0), (void *) (arg2));
         return;
     case 9:
         handle_state__17TObjEneBm3FlyNestFPvi((void *) (arg0), (void *) (arg2));

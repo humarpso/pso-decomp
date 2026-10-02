@@ -5,7 +5,7 @@ s32 TObjPlayer__sub_801CA48C(void *);
 s32 TOMineTrap__sub_801CA508(void *);
 s32 prepare_death__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CA8F0(void *);
-s32 TObjPlayer__sub_801CA940(void *);
+s32 request_revival_if_not_dead__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CA988(void *);
 s32 TObjPlayer__sub_801CAA58();
 void TObjPlayer__sub_801CAA5C(s32 arg0, s16 arg1);
@@ -24,7 +24,7 @@ void TObjPlayer__sub_801CAA5C(s32 arg0, s16 arg1) {
         TObjPlayer__sub_801CA988((void *) arg0);
         return;
       case 3:
-        TObjPlayer__sub_801CA940((void *) arg0);
+        request_revival_if_not_dead__10TObjPlayerFPv((void *) arg0);
         return;
       case 8:
         TObjPlayer__sub_801CA8F0((void *) arg0);

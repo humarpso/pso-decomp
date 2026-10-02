@@ -382,7 +382,7 @@ extern const f32 lbl_805DA30C;
 extern const f32 lbl_805DA310;
 M2C_UNK TObjEneMerillLia__sub_800D57C8(void *p);
 M2C_UNK apply_actor_gravity(void *, int, f32);
-M2C_UNK TObjPlayer__sub_80017700(void *, s32, void *, int, f32);
+M2C_UNK enemy_move_toward(void *, s32, void *, int, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_800C4E08(void *);
@@ -796,7 +796,7 @@ void TObjEneMerillLia__sub_800D6618(u8 *arg0) {
             advance_animation_playback(arg0);
             {
                 Vec_800D6618 sp8 = sp14;
-                TObjPlayer__sub_80017700(arg0, M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8), &sp8, 0, M2C_FIELD(arg0, f32 *, 0x394));
+                enemy_move_toward(arg0, M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8), &sp8, 0, M2C_FIELD(arg0, f32 *, 0x394));
             }
             if (M2C_FIELD(arg0, u16 *, 0x338) == 0xFFFF) {
                 if (horizontal_distance_squared(arg0 + 0x29C, arg0 + 0x38) < (r = M2C_FIELD(arg0, f32 *, 0x394) + M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC)) * r ||

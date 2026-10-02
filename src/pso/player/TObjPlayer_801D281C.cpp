@@ -189,7 +189,7 @@ int TObjPlayer__sub_8001BEF8(void*, int);
 int TObjPlayer__sub_8011E204(void*, int);
 int TObjPlayer__sub_80121248(void*, int);
 int TObjPlayer__sub_8012ADD4(void*);
-f32 TObjPlayer__sub_801D9004(void *);
+f32 get_attack_recovery_count__10TObjPlayerFi(void *);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int clear_flags__11TAdRicoRingFPvUi(void*, int);
@@ -433,7 +433,7 @@ s32 tick_countdown_timer__10TObjPlayerFPv(u8 *arg0) {
 
 void apply_anim_action__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     set_flags__10TObjPlayerFPvUi((void*)((void *) (arg0 + 0xC)), (int)((int) (2)));
-    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) TObjPlayer__sub_801D9004((void *) (arg1));
+    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) get_attack_recovery_count__10TObjPlayerFi((void *) (arg1));
     check_status_flag_128__10TObjPlayerFPv((void*)((void *) (arg1)));
 }
 

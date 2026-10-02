@@ -50,7 +50,7 @@ extern f32 TObjPlayer__data_805DC360;
 extern f32 TObjPlayer__data_805DC36C;
 extern const f32 lbl_805DC398;
 extern f32 TObjPlayer__data_805DC39C;
-void TObjPlayer__sub_801CC34C(u8 *arg0);
+void update_photon_blast_action__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK obj_getField1c(void *);
 M2C_UNK obj_clearFlags30(void *, int);
 M2C_UNK reset_lobby_model__10TObjPlayerFPv(void *);
@@ -121,7 +121,7 @@ void exit_photon_blast_action__10TObjPlayerFPv(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_801CC34C(u8 *arg0) {
+void update_photon_blast_action__10TObjPlayerFPv(u8 *arg0) {
   s16 temp_r0;
   *((s32 *) (((s8 *) arg0) + 0x60)) = lerp_angle_half__10TObjPlayerFUsUs((int) (*((s32 *) (((s8 *) arg0) + 0x60))), (int) (*((s32 *) (((s8 *) arg0) + 0x3F0))));
   temp_r0 = *((s16 *) (((s8 *) arg0) + 0x328));

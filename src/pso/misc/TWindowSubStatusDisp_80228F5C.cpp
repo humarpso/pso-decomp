@@ -16,7 +16,7 @@ void TWindowSubStatusDisp__sub_80228F5C(s32 arg0);
 u32 strnlen__19TWindowKeyBoardSoftFPvUi(void *, u32);
 void strncpy(s32, s32, s32);
 extern u8 *lbl_805D6338;
-void TWindowSubStatusDisp__sub_80229080(u8 *arg0);
+void text_builder_append(u8 *arg0);
 extern RecoveredGlobal_802290E0_lbl_80515BC8 lbl_80515BC8;
 extern u8 *lbl_805D6338;
 void TWindowSubStatusDisp__sub_802290E0(void);
@@ -69,7 +69,7 @@ s8 *TWindowSubStatusDisp__sub_80228F84(s8 *s) {
     return s + 2;
 }
 
-void TWindowSubStatusDisp__sub_80229080(u8 *arg0) {
+void text_builder_append(u8 *arg0) {
   s32 temp_r3;
   temp_r3 = strnlen__19TWindowKeyBoardSoftFPvUi(arg0, 0xFFU);
   strncpy((*(s32 *)&lbl_805D6338), (s32) arg0, temp_r3);

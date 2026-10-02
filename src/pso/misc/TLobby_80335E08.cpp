@@ -76,7 +76,7 @@ s32 TCameraCtrl__sub_80068EF0();
 s32 TCameraCtrl__sub_80069024();
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
-s32 TWindowSubStatusDisp__sub_803DEE6C(int);
+s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 TWindowSubStatusDisp__sub_803DF160(int, int);
@@ -115,7 +115,7 @@ void TLobby__sub_80335E7C(void) {
   Stack_80335E7C stack;
   begin_effect_render__13TParticleCtrlFv();
   TCameraCtrl__sub_80069024();
-  TWindowSubStatusDisp__sub_803DEE6C((int) 1);
+  begin_screen_draw((int) 1);
   TLobby__sub_80336008();
   TWindowSubStatusDisp__sub_803DF160((int) 1, (int) (-1));
   stack.sp8 = lbl_805DF8C8;

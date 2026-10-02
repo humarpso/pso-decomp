@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 M2C_UNK TProtocol__send_60(int, int, int);
-M2C_UNK TLobby__sub_801E3FA4(void *);
+M2C_UNK dispatch_6x_subcommand(void *);
 extern u32 TLobby__data_805D5580;
 extern s32 lbl_805D5E50;
 void TLobby__send_and_handle_60(u8 *arg0);
@@ -14,7 +14,7 @@ M2C_UNK TProtocol__send_60(int, int, int);
 extern u32 TLobby__data_805D5580;
 void TLobby__sub_801E4534(u8 *arg0);
 M2C_UNK TProtocol__sub_801DC084(u32, s32, void *, s32);
-M2C_UNK TLobby__sub_801E3FA4(void *);
+M2C_UNK dispatch_6x_subcommand(void *);
 extern u32 lbl_805D53A0;
 extern u32 TLobby__data_805D5580;
 extern s32 lbl_805D5E50;
@@ -30,7 +30,7 @@ void debug_print__6TLobbyFii(const char *, ...);
 void TLobby__sub_8013189C(s32, char *, char *);
 s32 TLobby__sub_8013194C(char *, char *);
 char *strncpy(char *, const char *, u32);
-s32 TLobby__sub_803DE084(void *, s32);
+s32 load_gvm_texture_archive(void *, s32);
 extern char lbl_80449798[];
 extern char lbl_804497C4[];
 extern char lbl_804497D4[];
@@ -50,7 +50,7 @@ void bswap_switch_activate_token__6TLobbyFPv(void* p);
 void dispatch_packet__6TLobbyFPv(void *arg0);
 void send_command__6TLobbyFPvUi(void *arg0, u32 arg1);
 void update_players__6TLobbyFi(s32 arg0);
-M2C_UNK TLobby__sub_801E3FA4(void *);
+M2C_UNK dispatch_6x_subcommand(void *);
 M2C_UNK TProtocol__sub_801DC084(u32, s32, void *, s32);
 int bswap_16__FPUs(void*);
 M2C_UNK bswap_32__FPUl(s32 *);
@@ -70,7 +70,7 @@ void send_command__6TLobbyFPvUi(void *arg0, u32 arg1) {
     bswap_32__FPUl(&sp8);
     if ((u32) lbl_805D53A0 == arg1) {
         lbl_805D5E50 = 1;
-        TLobby__sub_801E3FA4((void *)(arg0));
+        dispatch_6x_subcommand((void *)(arg0));
         lbl_805D5E50 = 0;
         return;
     }
@@ -89,7 +89,7 @@ void dispatch_packet__6TLobbyFPv(void *arg0) {
     temp_r31 = M2C_FIELD(arg0, u8 *, 1) * 4;
     if (get_main_phase() == 0xE) {
         lbl_805D5E50 = 1;
-        TLobby__sub_801E3FA4((void *)(arg0));
+        dispatch_6x_subcommand((void *)(arg0));
         lbl_805D5E50 = 0;
         return;
     }
@@ -109,7 +109,7 @@ void TLobby__sub_801E44D8(void *arg0, u32 arg1) {
     size = M2C_FIELD(arg0, u8 *, 1) * 4;
     if ((u32) lbl_805D53A0 == arg1) {
         lbl_805D5E50 = 1;
-        TLobby__sub_801E3FA4(arg0);
+        dispatch_6x_subcommand(arg0);
         lbl_805D5E50 = 0;
         return;
     }
@@ -140,7 +140,7 @@ void TLobby__send_and_handle_60(u8 *arg0) {
     }
     var_r3 = (u8 *)(var_r31);
     lbl_805D5E50 = 1;
-    TLobby__sub_801E3FA4((void *)((int) (var_r3)));
+    dispatch_6x_subcommand((void *)((int) (var_r3)));
     lbl_805D5E50 = 0;
 }
 
@@ -159,7 +159,7 @@ void update_players__6TLobbyFi(s32 arg0) {
         }
     }
     lbl_805D5E50 = 1;
-    TLobby__sub_801E3FA4((void *)(arg0));
+    dispatch_6x_subcommand((void *)(arg0));
     lbl_805D5E50 = 0;
 }
 
@@ -191,7 +191,7 @@ s32 TLobby__sub_801E468C(const char *name, s32 arg1) {
         buf = TLobby__sub_8001EEFC(lbl_804497C4);
     }
     TGStream__sub_800FDBA8(path, buf);
-    ret = TLobby__sub_803DE084(buf, arg1);
+    ret = load_gvm_texture_archive(buf, arg1);
     if (allocated != 0) {
         safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
     } else {

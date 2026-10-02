@@ -83,7 +83,7 @@ void TCameraCtrl__sub_803D9858(s32);
 extern Group_801A7428 lbl_804C31D8[];
 extern u8 lbl_8058D490[];
 extern const f32 lbl_805DC0E0;
-void fn_801A7428(s32 arg0, s32 arg1);
+void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -98,7 +98,7 @@ void fn_801A73B0(struct PbCamera_801A73B0 *self) {
     TCameraCtrl__sub_80069D04(&parameters);
 }
 
-void fn_801A7428(s32 arg0, s32 arg1) {
+void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1) {
     Rec_801A7428 rec;
     Vec_801A7428 pos;
     Obj_801A7428 *obj;

@@ -4,7 +4,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-void TWindowKeyBoardBase__sub_8008102C(void *, u32, u32);
+void init_keyboard_text_buffer(void *, u32, u32);
 extern const f32 lbl_805DD038;
 extern const f32 lbl_805DD03C;
 extern const f32 lbl_805DD040;
@@ -25,7 +25,7 @@ void TWindowSubStatusDisp__sub_8025CD44(u8 *arg0, u32 arg1, u32 arg2) {
     }
     M2C_FIELD(arg0, f32 *, 0x48) = (f32) M2C_FIELD(arg0, f32 *, 0x38);
     M2C_FIELD(arg0, f32 *, 0x4C) = (f32) M2C_FIELD(arg0, f32 *, 0x3C);
-    TWindowKeyBoardBase__sub_8008102C(arg0 + 0x6C, arg1, arg2);
+    init_keyboard_text_buffer(arg0 + 0x6C, arg1, arg2);
     M2C_FIELD(arg0, u8 **, 0x68) = (unsigned char *) ((void *) (arg0 + 0x6C));
     M2C_FIELD(arg0, s16 *, 0x60) = 0;
 }

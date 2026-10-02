@@ -98,7 +98,7 @@ extern const f32 lbl_805D9A70;
 extern const f32 lbl_805D9A74;
 s32 TObjPlayer__sub_800A5BBC(u8 *arg0);
 M2C_UNK apply_actor_gravity(void *, int, f32);
-M2C_UNK TObjPlayer__sub_80017700(void *, s32, Vec_800A5DC4 *, int, f32 *, f32);
+M2C_UNK enemy_move_toward(void *, s32, Vec_800A5DC4 *, int, f32 *, f32);
 s32 select_enemy_destination(void *, Vec_800A5DC4 *, int);
 M2C_UNK copy_position_if_valid__10TObjPlayerFii(void *, Vec_800A5DC4 *);
 M2C_UNK TObjPlayer__sub_800A6B14(void *);
@@ -276,7 +276,7 @@ void TObjPlayer__sub_800A5DC4(u8 *arg0) {
         }
         case 1: {
             Vec_800A5DC4 v3 = *(Vec_800A5DC4 *)(temp_r8 + 0x2FC);
-            TObjPlayer__sub_80017700((void *) (arg0), M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8), &v3, 0, lbl_805D504C, lbl_805D504C[2]);
+            enemy_move_toward((void *) (arg0), M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8), &v3, 0, lbl_805D504C, lbl_805D504C[2]);
             temp_f1 = horizontal_distance_squared((int) (arg0 + 0x29C), (void *) (arg0 + 0x38));
             if (temp_f1 < lbl_805D9A78) {
                 M2C_FIELD(arg0, s32 *, 0x374) &= ~0x10;

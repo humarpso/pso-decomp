@@ -14,7 +14,7 @@ s32 TObjPlayer__sub_800111A8(u8 *arg0, s32 arg1);
 s32 TObjPlayer__sub_800111D8(u8 *arg0, s32 arg1);
 s32 add_actor_tp(u8 *arg0, s32 arg1);
 int TObjPlayer__sub_8001124C(u8 *arg0);
-s32 TObjPlayer__sub_80011210(u8 *arg0, s32 arg1);
+s32 add_actor_exp(u8 *arg0, s32 arg1);
 s32 TObjPlayer__sub_80011274(O_80011274 *self, s32 x);
 s32 TObjPlayer__sub_800112D4(O_800112D4 *self, s32 x);
 }
@@ -46,7 +46,7 @@ s32 TObjPlayer__sub_800111D8(u8 *arg0, s32 arg1) {
     return 1;
 }
 
-s32 TObjPlayer__sub_80011210(u8 *arg0, s32 arg1) {
+s32 add_actor_exp(u8 *arg0, s32 arg1) {
   u8 *temp_r3;
   int new_var;
   u8 *temp_r6;

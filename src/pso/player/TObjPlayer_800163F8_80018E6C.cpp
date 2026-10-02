@@ -20,7 +20,7 @@ extern "C" {
 u8 *csnVectorUnder(f32 *, void *, M2C_UNK, void *, f32);
 u8 *TObjPlayer__sub_80018E6C(u8 *arg0, u8 *arg1);
 u8 *csnVectorUnder(f32 *, void *, M2C_UNK, void *, f32);
-u8 *TObjPlayer__sub_80018EE4(u8 *arg0);
+u8 *update_actor_ground_y(u8 *arg0);
 }
 
 extern "C" {
@@ -44,7 +44,7 @@ u8 *TObjPlayer__sub_80018E6C(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, f32 *, 0x3C) = (f32) M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 4), f32 *, 4);
     return temp_r3;
 }
-u8 *TObjPlayer__sub_80018EE4(u8 *arg0) {
+u8 *update_actor_ground_y(u8 *arg0) {
     Stack_80018EE4 stack;
     f32 temp_f1;
     u8 *temp_r3;

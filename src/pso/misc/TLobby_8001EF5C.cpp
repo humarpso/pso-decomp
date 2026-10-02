@@ -89,11 +89,11 @@ void TLobby__sub_8001F8D8(Obj_8001F8D8 *self, void * _w1);
 s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
 extern M2C_UNK lbl_80434CC4[];
-s32 TLobby__sub_8001FB6C(struct Lobby_8001FB6C *self, s32 idx, void *bytes);
+s32 bind_bml_motion(struct Lobby_8001FB6C *self, s32 idx, void *bytes);
 s32 TGStream__sub_800FDBA8(void *, s32);
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
 M2C_UNK TLobby__sub_8013189C(void *, void *, void *);
-M2C_UNK TLobby__sub_803DE084(s32, s32);
+M2C_UNK load_gvm_texture_archive(s32, s32);
 extern M2C_UNK lbl_80434B04[];
 extern M2C_UNK lbl_80434B24[];
 extern s32 lbl_805D4ACC;
@@ -178,7 +178,7 @@ void TLobby__sub_8001F018(Lobby_8001F018 *arg0, void *arg1, s32 arg2) {
     if (size > 0x40000) {
         debug_print__6TLobbyFii(lbl_80434B04, buf);
     } else if (size > 0) {
-        TLobby__sub_803DE084(lbl_805D4ACC, arg0->entries[arg2].data);
+        load_gvm_texture_archive(lbl_805D4ACC, arg0->entries[arg2].data);
         arg0->entries[arg2].flags |= 1;
     } else {
         arg0->entries[arg2].flags |= 2;
@@ -292,7 +292,7 @@ void TLobby__sub_8001FA1C(Lobby_8001FA1C *self) {
     ((void (*)(void *))TLobby__sub_8001F8D8)(self->fC);
 }
 
-s32 TLobby__sub_8001FB6C(struct Lobby_8001FB6C *self, s32 idx, void *bytes) {
+s32 bind_bml_motion(struct Lobby_8001FB6C *self, s32 idx, void *bytes) {
     s32 spC;
     s32 sp8;
     u32 r;

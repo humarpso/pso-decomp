@@ -40,7 +40,7 @@ s32 get_item_use_result__9TItemDataFPv(u8 *);
 VObj_801B91F0 *get_owner_if_alive__10TObjPlayerFPv();
 s32 copy_and_register_item_data__11TItemObjectFPv(VObj_801B91F0 *);
 s32 get_item_type_or_default__9TItemListFPv(u8 *);
-s32 TObjPlayer__sub_801B91F0(Player_801B91F0 *self, u8 *item);
+s32 can_inventory_accept_item__10TObjPlayerFPvPv(Player_801B91F0 *self, u8 *item);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
@@ -53,7 +53,7 @@ bool TObjPlayer__sub_801B92EC(Obj_801B92EC *self, Vec_801B92EC *target);
 
 extern "C" {
 
-s32 TObjPlayer__sub_801B91F0(Player_801B91F0 *self, u8 *item) {
+s32 can_inventory_accept_item__10TObjPlayerFPvPv(Player_801B91F0 *self, u8 *item) {
     s32 max;
     s32 n;
     VObj_801B91F0 *owner;

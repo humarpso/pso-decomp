@@ -18,7 +18,7 @@ void reset_transform_state__10TObjPlayerFv(void);
 void init_xyz_limits__10TObjPlayerFv(void);
 s32 __cvt_fp2unsigned(f32);
 s32 set_global_param__8TObjFishFi(s32);
-void TWindowSubStatusDisp__sub_803DEE6C(s32);
+void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv(void);
 void TWindowSubStatusDisp__sub_803DF160(M2C_UNK, s32);
 extern s32 lbl_805D63F0;
@@ -85,7 +85,7 @@ void render__17TDuelEffectStringFv(u8 *arg0) {
     calc_digit_transform__17TDuelEffectNumberFiPvPvi((s32)((s32) arg0), (f32 *)(&spC), (f32 *)(&sp8), (s32)(M2C_FIELD(arg0, s32 *, 0x28)));
     temp_r31 = __cvt_fp2unsigned(lbl_805D932C * sp8) | 0xFF0000 | 0xFFFF;
     init_xyz_limits__10TObjPlayerFv();
-    TWindowSubStatusDisp__sub_803DEE6C(1);
+    begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D63F0);
     TWindowSubStatusDisp__sub_803DF160(6, temp_r31);
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x24);

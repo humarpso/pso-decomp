@@ -43,7 +43,7 @@ void invoke_callback_34_and_queue_destruction__16TQuestListOnlineFPv(void *arg0)
 s32 TLobby__sub_8001EEF4();
 s32 TLobby__sub_8001EEFC(M2C_UNK *);
 s32 TLobby__sub_80071698(M2C_UNK);
-s32 TODoorVoShip__sub_801F44BC(M2C_UNK);
+s32 get_story_flag(M2C_UNK);
 M2C_UNK TWindow__close(void *);
 s32 is_flag_set__6TLobbyFv();
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -111,16 +111,16 @@ u8 get_unlocked_tier__16TQuestListOnlineFv(void) {
             return 0U;
         }
     } else {
-        if (TODoorVoShip__sub_801F44BC(0x33) != 0) {
+        if (get_story_flag(0x33) != 0) {
             return 4U;
         }
-        if (TODoorVoShip__sub_801F44BC(0x2A) != 0) {
+        if (get_story_flag(0x2A) != 0) {
             return 3U;
         }
-        if (TODoorVoShip__sub_801F44BC(0x20) != 0) {
+        if (get_story_flag(0x20) != 0) {
             return 2U;
         }
-        return (u8) (TODoorVoShip__sub_801F44BC(0x17) != 0);
+        return (u8) (get_story_flag(0x17) != 0);
     }
 }
 

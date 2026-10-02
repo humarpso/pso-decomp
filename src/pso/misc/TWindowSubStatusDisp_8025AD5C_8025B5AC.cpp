@@ -12,7 +12,7 @@ struct Stack_8025B660 {
 
 extern "C" {
 s32 TWindowSubStatusDisp__sub_8024FD8C(void *, void *, s32, s32, f32);
-void TWindowSubStatusDisp__sub_802500F4(s32, s32, s32, f32, f32);
+void set_text_draw_params(s32, s32, s32, f32, f32);
 int is_flag_4_set__17TWindowSubComCardFPv(void *);
 extern const f32 lbl_805DD014;
 extern const f32 lbl_805DD018;
@@ -58,7 +58,7 @@ void TWindowSubStatusDisp__sub_8025B660(u8 *arg0, u8 *arg1) {
     if ((is_flag_4_set__17TWindowSubComCardFPv(arg0) != 0) && ((s32) M2C_FIELD(arg1, s32 *, 0x30) >= 0)) {
         stack.sp8 = M2C_FIELD(arg1, f32 *, 0x10) + M2C_FIELD(arg0, f32 *, 8);
         stack.spC = M2C_FIELD(arg1, f32 *, 0x14) + M2C_FIELD(arg0, f32 *, 0xC);
-        TWindowSubStatusDisp__sub_802500F4((s32) arg1, 1, 1, lbl_805DD014 / (lbl_805DD018 + M2C_FIELD(arg1, f32 *, 0x38)), lbl_805DD01C);
+        set_text_draw_params((s32) arg1, 1, 1, lbl_805DD014 / (lbl_805DD018 + M2C_FIELD(arg1, f32 *, 0x38)), lbl_805DD01C);
         TWindowSubStatusDisp__sub_8024FD8C(&stack.sp8, M2C_FIELD(arg0, u8 **, 0x1C), M2C_FIELD(arg0, s32 *, 0x24), 1, lbl_805DD01C);
         if (!(M2C_FIELD(arg0, u16 *, 0) & 0x10)) {
             stack.sp8 += lbl_805DD020;

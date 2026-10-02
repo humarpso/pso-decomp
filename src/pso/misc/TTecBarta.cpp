@@ -142,7 +142,7 @@ void attach_particle_model(TechniqueParticleEmitter *, s32, s32, s32, s32, f32);
 TechniqueParticleEmitter *create_timed_particle_emitter(f32 *, s32, s32, s32);
 void copy_pos__11TNowLoadingFPvPv(TechniqueParticleEmitter *, Vec_8022BA98 *);
 TechniqueHitRecipient *find_entity_by_id(u16);
-void TObjPlayer__sub_8023A244(TTecBarta *);
+void dispatch_all_technique_contacts(TTecBarta *);
 void advance_lifetime_or_destroy(TTecBarta *);
 void TTecBarta__sub_8023A674(TTecBarta *);
 extern s32 lbl_805D63AC;
@@ -362,7 +362,7 @@ void run_task__9TTecBartaFv(TTecBarta *self) {
     }
     TTecBarta__sub_8023A674(self);
     advance_lifetime_or_destroy(self);
-    TObjPlayer__sub_8023A244(self);
+    dispatch_all_technique_contacts(self);
 }
 
 void render__9TTecBartaFv(void) {  }

@@ -24,9 +24,9 @@ s32 get_player_count__10TObjPlayerFv(void);
 s32 get_type__10TObjPlayerFPv(void* p);
 int read_be16_field2__10TObjPlayerFPv(void* p);
 void send_head__10TObjPlayerFPv(void* p);
-u32 TAdSinglePlyChrSelectGC__sub_8007C3E0();
+u32 subtractive_rng_next();
 int TLobby__send_and_handle_60(void*);
-f64 TObjPlayer__sub_80019784(void);
+f64 fabs_double(void);
 int bswap_16__FPUs(void*);
 int get_slot_value__10TObjPlayerFPvi(void*, int);
 f64 atan2(void);
@@ -51,7 +51,7 @@ bool is_split_screen(void) {
 }
 
 f32 calc_random_ratio__10TObjPlayerFv(void) {
-    return (f32) (TAdSinglePlyChrSelectGC__sub_8007C3E0() >> 0x10U) / lbl_805D7D3C;
+    return (f32) (subtractive_rng_next() >> 0x10U) / lbl_805D7D3C;
 }
 
 extern s32 lbl_805D5FC0;

@@ -156,7 +156,7 @@ void* get_pos_ptr__10TObjPlayerFPv(void* p);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 void copy_xyz__10TObjPlayerFPvPv(void *, void *);
 PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
-u8 *TObjPlayer__sub_802367D8(void *self, s32 arg);
+u8 *query_technique_enemy_contacts(void *self, s32 arg);
 extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
 extern const f32 lbl_805DC890;
 extern const f64 lbl_8044D8D0[];
@@ -365,7 +365,7 @@ void TObjPlayer__sub_802367AC(u8 *arg0, s32 arg1) {
     TObjPlayer__sub_80236290((s32)((void *) (arg0)), (u32)((int) (M2C_FIELD(arg0, s32 *, 0xdc))), (s32)((void *) (arg0 + 0xb0)), (s32)((void *) (arg1)));
 }
 
-u8 *TObjPlayer__sub_802367D8(void *self, s32 arg) {
+u8 *query_technique_enemy_contacts(void *self, s32 arg) {
     Vec_802367D8 pos;
     Vec_802367D8 d;
     f32 range;

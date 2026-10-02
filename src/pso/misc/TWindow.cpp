@@ -122,7 +122,7 @@ extern const f32 lbl_805DC698;
 void TLobby__sub_80216CF8(Win_80216CF8 *self);
 u16 obj_getField1c(void *);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
-s32 TODoorVoShip__sub_801F44BC(s16);
+s32 get_story_flag(s16);
 s32 TLobby__sub_80219F64();
 M2C_UNK update_lobbies_and_events__6TLobbyFPv(void *);
 s32 TLobby__sub_80222C28(s32, s32);
@@ -135,7 +135,7 @@ M2C_UNK add_list_entry__6TLobbyFPviii(void *, s32, s32, s32);
 void *TShopJudgmentItemWindow__sub_8026DF00(void *, s32, s32);
 extern Pos_80216F50 lbl_8044BE9C[];
 extern void *lbl_805D61D8;
-void TLobby__sub_80216F50(Win_80216F50 *self);
+void init_quest_list_window__17TQuestListOfflineFPv(Win_80216F50 *self);
 }
 
 extern "C" {
@@ -259,7 +259,7 @@ void TLobby__sub_80216CF8(Win_80216CF8 *self) {
         }
     }
 }
-void TLobby__sub_80216F50(Win_80216F50 *self) {
+void init_quest_list_window__17TQuestListOfflineFPv(Win_80216F50 *self) {
     void *t;
     Entry_80216F50 *e;
     s32 i;
@@ -279,7 +279,7 @@ void TLobby__sub_80216F50(Win_80216F50 *self) {
             while (e->f4 != -1) {
                 if (e->f12 == -1) {
                     add_list_entry__6TLobbyFPviii(self->f3C, 0x2C, TLobby__sub_80222C28(0xE, e->f4), i);
-                } else if (TODoorVoShip__sub_801F44BC(e->f10) != 0) {
+                } else if (get_story_flag(e->f10) != 0) {
                     add_list_entry__6TLobbyFPviii(self->f3C, 0x16, TLobby__sub_80222C28(0xE, e->f4), i);
                 }
                 i++;
@@ -291,8 +291,8 @@ void TLobby__sub_80216F50(Win_80216F50 *self) {
             while (e2->f4 != -1) {
                 if (e2->f12 == -1) {
                     add_list_entry__6TLobbyFPviii(self->f3C, 0x2C, TLobby__sub_80222C28(0xE, e2->f4), i2);
-                } else if (TODoorVoShip__sub_801F44BC(e2->f10) != 0) {
-                    if (TODoorVoShip__sub_801F44BC(e2->f12) != 0) {
+                } else if (get_story_flag(e2->f10) != 0) {
+                    if (get_story_flag(e2->f12) != 0) {
                         add_list_entry__6TLobbyFPviii(self->f3C, 0x18, TLobby__sub_80222C28(0xE, e2->f4), i2);
                     } else {
                         add_list_entry__6TLobbyFPviii(self->f3C, 0x17, TLobby__sub_80222C28(0xE, e2->f4), i2);

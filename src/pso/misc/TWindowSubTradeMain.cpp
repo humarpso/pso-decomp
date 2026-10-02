@@ -56,7 +56,7 @@ void TObjPlayer__sub_803D9B2C(void);
 void pop_matrix(void);
 int TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(int);
-s32 TObjEneSlimeOne__sub_803E4AF4(int, Anim_803323D8 *, f32);
+s32 draw_model_motion(int, Anim_803323D8 *, f32);
 s32 set_global_flag__10TObjPlayerFv(void);
 void clear_global_state__10TObjPlayerFv(void);
 extern const V3_803323D8 lbl_804775F0;
@@ -111,7 +111,7 @@ void TObjEneMorfos__vt104(O_803323D8 *arg0) {
             frame = (f32)anim->count;
         }
         set_global_flag__10TObjPlayerFv();
-        TObjEneSlimeOne__sub_803E4AF4(arg0->f34, anim, frame);
+        draw_model_motion(arg0->f34, anim, frame);
         clear_global_state__10TObjPlayerFv();
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();

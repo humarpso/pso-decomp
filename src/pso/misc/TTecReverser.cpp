@@ -90,16 +90,16 @@ s32 obj_getField1c(int);
 s32 get_type__10TObjPlayerFPv(int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 is_valid_and_active__10TObjPlayerFUi(int);
-u8 *TObjPlayer__sub_802367D8(void *, s32);
+u8 *query_technique_enemy_contacts(void *, s32);
 u8 *query_technique_player_contacts(void *, s32);
 void dispatch_technique_contact(u8 *arg0);
 s32 obj_getField1c(int);
 s32 get_type__10TObjPlayerFPv(int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 is_valid_and_active__10TObjPlayerFUi(int);
-u8 *TObjPlayer__sub_802367D8(void *, s32);
+u8 *query_technique_enemy_contacts(void *, s32);
 u8 *query_technique_player_contacts(void *, s32);
-void TObjPlayer__sub_8023A244(u8 *arg0);
+void dispatch_all_technique_contacts(u8 *arg0);
 }
 
 extern "C" {
@@ -226,7 +226,7 @@ void dispatch_technique_contact(u8 *arg0) {
         if (get_type__10TObjPlayerFPv((int) (M2C_FIELD(arg0, s32 *, 0x1C) + 0x828)) != 0) {
             var_r31 = query_technique_player_contacts(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
         } else {
-            var_r31 = TObjPlayer__sub_802367D8(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
+            var_r31 = query_technique_enemy_contacts(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
         }
     } else {
         var_r31 = query_technique_player_contacts(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
@@ -245,7 +245,7 @@ void dispatch_technique_contact(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_8023A244(u8 *arg0) {
+void dispatch_all_technique_contacts(u8 *arg0) {
     List_8023A244 *list;
     s32 i;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x128) == 0U) {
@@ -256,7 +256,7 @@ void TObjPlayer__sub_8023A244(u8 *arg0) {
         if (get_type__10TObjPlayerFPv((int) (M2C_FIELD(arg0, s32 *, 0x1C) + 0x828)) != 0) {
             list = (List_8023A244 *) query_technique_player_contacts(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
         } else {
-            list = (List_8023A244 *) TObjPlayer__sub_802367D8(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
+            list = (List_8023A244 *) query_technique_enemy_contacts(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
         }
     } else {
         list = (List_8023A244 *) query_technique_player_contacts(arg0, M2C_FIELD(arg0, s32 *, 0x1C));

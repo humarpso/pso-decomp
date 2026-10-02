@@ -35,12 +35,12 @@ extern M2C_UNK lbl_804CFA28[];
 extern const f32 lbl_805DCFA8;
 extern const f32 lbl_805DCFAC;
 extern const f32 lbl_805DCFC4;
-u8 *TWindowSubStatusDisp__sub_8025AF90(u8 *arg0, u8 *arg1, s32 arg2);
+u8 *construct_text_entry(u8 *arg0, u8 *arg1, s32 arg2);
 extern const f32 lbl_805DCFA8;
-void TWindowSubStatusDisp__sub_8025AED8(u8 *arg0);
+void advance_text_entry_reveal(u8 *arg0);
 s32 TWindowSubStatusDisp__sub_8024FBB0(void *, void *, s32, f32);
 s32 TWindowSubStatusDisp__sub_8024FD8C(void *, void *, s32, s32, f32);
-void TWindowSubStatusDisp__sub_802500F4(void *, u8, s32, f32, f32);
+void set_text_draw_params(void *, u8, s32, f32, f32);
 extern const f32 lbl_805DCFB0;
 extern const f32 lbl_805DCFC8;
 extern const f32 lbl_805DCFCC;
@@ -53,7 +53,7 @@ void init_xyz_limits__10TObjPlayerFv(void);
 void TWindowKeyBoardSoft__sub_8024E6D8(void *, void *);
 s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
 void set_global_param__8TObjFishFi(s32);
-void TWindowSubStatusDisp__sub_803DEE6C(s32);
+void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv(void);
 void draw_textured_quad_at_depth(void *, f32);
 void TWindowSubStatusDisp__sub_803DF160(s32, s32);
@@ -108,7 +108,7 @@ void TWindowSubStatusDisp__sub_8025AD5C(Win_8025AD5C *arg0, Ref_8025AD5C *arg1) 
     if (len > arg0->f1C) {
         len = arg0->f1C;
     }
-    TWindowSubStatusDisp__sub_802500F4(arg1, !(arg0->flags & 0x100), arg0->flags & 0x80, scale, alpha);
+    set_text_draw_params(arg1, !(arg0->flags & 0x100), arg0->flags & 0x80, scale, alpha);
     if (arg0->flags & 4) {
         r = TWindowSubStatusDisp__sub_8024FBB0(&pt, arg0->text, arg0->i24, len);
     } else {
@@ -125,7 +125,7 @@ void TWindowSubStatusDisp__sub_8025AD5C(Win_8025AD5C *arg0, Ref_8025AD5C *arg1) 
 
 #pragma push
 #pragma opt_common_subs off
-void TWindowSubStatusDisp__sub_8025AED8(u8 *arg0) {
+void advance_text_entry_reveal(u8 *arg0) {
     if (!(M2C_FIELD(arg0, u16 *, 0) & 8)) {
         M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) + M2C_FIELD(arg0, f32 *, 0x28));
         if (M2C_FIELD(arg0, f32 *, 0x1C) > lbl_805DCFA8) {
@@ -155,7 +155,7 @@ void *TWindowSubStatusDisp__sub_8025AF0C(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TWindowSubStatusDisp__sub_8025AF90(u8 *arg0, u8 *arg1, s32 arg2) {
+u8 *construct_text_entry(u8 *arg0, u8 *arg1, s32 arg2) {
     reset_entry__20TWindowSubStatusDispFPv((void *) (arg0), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 4) = &(*(RecoveredGlobal_8025AF90_lbl_804CFA28 *)&lbl_804CFA28).value;
     M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 4);
@@ -234,9 +234,9 @@ void TWindowSubStatusDisp__sub_8025B0D0(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1) 
         init_xyz_limits__10TObjPlayerFv();
     }
     if (arg0->flags & 0xC) {
-        TWindowSubStatusDisp__sub_803DEE6C(1);
+        begin_screen_draw(1);
     } else {
-        TWindowSubStatusDisp__sub_803DEE6C(0);
+        begin_screen_draw(0);
     }
     set_global_param__8TObjFishFi(*arg0->p30);
     TWindowSubStatusDisp__sub_803DF160(arg0->i34, arg0->i2C);

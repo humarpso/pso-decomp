@@ -25,7 +25,7 @@ extern struct Rec_801AA17C lbl_8050E890[];
 s32 TObjPlayer__sub_801AA17C(struct Rec_801AA17C *output, s32 player);
 void __dt__7TObjectFv(void *, int);
 void TCameraCtrl__sub_80069D7C(void);
-void TCameraCtrl__sub_80069DA8(void);
+void restore_player_cameras(void);
 void reset_cameras_to_actor(void *, int);
 void TFogCtrl__sub_800FAC10(int, int);
 void *get_player_by_client_id(s32);
@@ -52,7 +52,7 @@ Obj_801A9CB8 *TObjPlayer__sub_801A9CB8(Obj_801A9CB8 *self, s16 flag) {
             if (get_player_by_client_id(lbl_805D53A0) != NULL) {
                 TLobby__sub_8024AC20(lbl_805D53A0);
                 TCameraCtrl__sub_80069D7C();
-                TCameraCtrl__sub_80069DA8();
+                restore_player_cameras();
                 reset_cameras_to_actor(get_player_by_client_id(lbl_805D53A0), 0);
             }
         } else {

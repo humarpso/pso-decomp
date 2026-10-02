@@ -53,7 +53,7 @@ struct L_8022884C { u8 pad[0x109c]; s32 count; s32 hi; s32 lo; };
 extern "C" {
 s32 get_instance__6TLobbyFv();
 s32 get_player_floor__6TLobbyFi(s32);
-s32 TLobby__sub_80228578(void *arg0);
+s32 select_area_entrance(void *arg0);
 s32 lookup_scene_object__6TLobbyFPv(s32, void *);
 extern RecoveredGlobal_80228634_lbl_804CBE98 lbl_804CBE98;
 void TLobby__sub_80228634(u8 *arg0);
@@ -109,7 +109,7 @@ M2C_UNK TLobby__sub_80226B64(int);
 s32 is_ready__6TLobbyFPv(void *);
 extern M2C_UNK lbl_8044C8D0[];
 extern M2C_UNK lbl_8044C960[];
-void TLobby__sub_80227FB4(s32 arg0);
+void load_floor_sound_bank(s32 arg0);
 void TLobby__sub_80228A74(O_80228A74 *self, const char *src);
 void clear_work_buffer(u8 *arg0);
 void TLobby__sub_80228990(O_80228A74 *self, char *s);
@@ -136,7 +136,7 @@ int render_tick__Fv(void);
     extern float lbl_805DC76C;
 void refresh_render_state__6TLobbyFv(void) { TLobby__sub_802405B0(lbl_80514F64, (void*)0); TLobby__sub_80227B48(lbl_805DC76C); render_tick__Fv(); }
 
-void TLobby__sub_80227FB4(s32 arg0) {
+void load_floor_sound_bank(s32 arg0) {
     s32 temp_r0;
     s32 temp_r31;
 
@@ -205,7 +205,7 @@ void set_area__6TLobbyFPvi(void *arg0, s32 arg1) {
 
 #pragma push
 #pragma fp_contract on
-s32 TLobby__sub_80228578(void *arg0) {
+s32 select_area_entrance(void *arg0) {
     s32 temp_r0;
     s32 temp_r3;
     if ((s32) M2C_FIELD(arg0, s32 *, 0) > 0x11) {

@@ -3,7 +3,7 @@
 struct O_80019828 { s32 arr[16]; };
 
 extern "C" {
-f64 TObjPlayer__sub_80019784(f64 x);
+f64 fabs_double(f64 x);
 void TObjPlayer__sub_80019828(O_80019828 *self);
 extern const f64 lbl_80434098;
 extern const f64 lbl_804340A0;
@@ -20,7 +20,7 @@ int get_slot_value__10TObjPlayerFPvi(void*, int);
 s32 get_type__10TObjPlayerFPv(void* p);
 f64 atan2(void);
 
-f64 TObjPlayer__sub_80019784(f64 x) { return __fabs(x); }
+f64 fabs_double(f64 x) { return __fabs(x); }
 
 #pragma push
 #pragma fp_contract on

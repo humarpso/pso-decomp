@@ -17,7 +17,7 @@ M2C_UNK push_matrix_from(void *);
 int pop_matrix(void);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK draw_chunk_object(int);
-M2C_UNK TObjEneSlimeOne__sub_803E4AF4(int, void *, f32);
+M2C_UNK draw_model_motion(int, void *, f32);
 extern M2C_UNK lbl_804FF240[];
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
@@ -65,7 +65,7 @@ void TObjPlayer__sub_80051BE0(u16 arg0, s32 arg1, f32 farg0, f32 farg1) {
     }
     set_global_param__8TObjFishFi(g);
     register_callback__16TObjDFTenchuFuruFv();
-    TObjEneSlimeOne__sub_803E4AF4(f, (void *)arg1, farg0);
+    draw_model_motion(f, (void *)arg1, farg0);
     TObjDFTenchuFuru__sub_80051A7C();
     if (d != 0) {
         push_matrix_from((u8 *)lbl_804FF240 + 0x30);

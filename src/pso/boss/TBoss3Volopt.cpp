@@ -178,7 +178,7 @@ void TBoss3Volopt__sub_8003EE10(void);
 void reset_vol_opt_state(void* a0);
 M2C_UNK set_player_flag_08000000__12TBoss3VoloptFPv();
 M2C_UNK set_flag_08000000__12TBoss3VoloptFPv();
-M2C_UNK TCameraCtrl__sub_80069DA8();
+M2C_UNK restore_player_cameras();
 M2C_UNK TCameraCtrl__sub_80069E7C(int);
 M2C_UNK cache_target_and_forward__11TCameraCtrlFii(void *, int);
 u8 *get_scripted_camera_playback();
@@ -297,7 +297,7 @@ void TBoss3Volopt__sub_8003DA78(u8 *arg0) {
             set_player_flag_08000000__12TBoss3VoloptFPv();
         }
         init_all_slots2__11TWindowCtrlFv();
-        TCameraCtrl__sub_80069DA8();
+        restore_player_cameras();
         TObjPlayer__sub_801BA42C();
         break;
     }

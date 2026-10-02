@@ -71,7 +71,7 @@ u8 *get_battle_param__10TObjPlayerFi(s32);
 s32 spawn_particle_effect(void *, s32);
 void init_all_slots__10TObjPlayerFv(void);
 void mark_enemy_body_contacts(void *);
-void TObjPlayer__sub_801A720C(s32, s32, s32, f32);
+void queue_photon_blast_hit(s32, s32, s32, f32);
 void TBoss4Zako__sub_803D8910(Vec_801ACD14 *, Vec_801ACD14 *);
 extern const f32 lbl_805DC1D8;
 void run_task__11TPhotonLineFv(Line_801ACB14 *self);
@@ -123,7 +123,7 @@ void run_task__11TPhotonLineFv(Line_801ACB14 *self) {
                 if ((s32)self->count >= 9) {
                     break;
                 }
-                TObjPlayer__sub_801A720C(obj_getField1c(p), 1, 0, self->f344);
+                queue_photon_blast_hit(obj_getField1c(p), 1, 0, self->f344);
                 spawn_particle_effect(p + 0x38, 0x162);
                 spawn_particle_effect(p + 0x38, 0x163);
             }

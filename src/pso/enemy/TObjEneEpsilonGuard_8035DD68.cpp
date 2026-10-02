@@ -566,7 +566,7 @@ M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilonGuard__sub_8035EFD8(void *, s32);
 s32 TObjEneEpsilonGuard__sub_8035F95C(u32);
 s32 TObjEneEpsilonGuard__sub_8035F968();
-M2C_UNK TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
+M2C_UNK draw_model_motion(int, int, f32);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -671,7 +671,7 @@ void render_guard_effect__19TObjEneEpsilonGuardFPv(u8 *arg0) {
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x458);
         scale_matrix((int) (0), (f32) (temp_f1), (f32) (temp_f1), (f32) (temp_f1));
         set_global_flag__10TObjPlayerFv();
-        TObjEneSlimeOne__sub_803E4AF4((int) (M2C_FIELD(arg0, s32 *, 0x444)), (int) (M2C_FIELD(arg0, s32 *, 0x448)), (f32) (M2C_FIELD(arg0, f32 *, 0x454)));
+        draw_model_motion((int) (M2C_FIELD(arg0, s32 *, 0x444)), (int) (M2C_FIELD(arg0, s32 *, 0x448)), (f32) (M2C_FIELD(arg0, f32 *, 0x454)));
         clear_global_state__10TObjPlayerFv();
         pop_matrix();
     }

@@ -27,7 +27,7 @@ s32 pop_matrix();
 f32 TOHangerMachine01__sub_803D9C00(void *);
 s32 set_global_param__8TObjFishFi(int);
 s32 draw_chunk_object(int);
-s32 TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
+s32 draw_model_motion(int, int, f32);
 extern const f32 lbl_805DB2E8;
 extern const f32 lbl_805DB2EC;
 void render__5TOKeyFv(u8 *arg0);
@@ -63,9 +63,9 @@ void render__5TOKeyFv(u8 *arg0) {
         temp_r4 = M2C_FIELD(arg0, u32 *, 0xBC);
         if (temp_r4 != 0U) {
             if (temp_r3 == 1) {
-                TObjEneSlimeOne__sub_803E4AF4((int) (M2C_FIELD(arg0, s32 *, 0x34)), (int) (temp_r4), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
+                draw_model_motion((int) (M2C_FIELD(arg0, s32 *, 0x34)), (int) (temp_r4), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
             } else {
-                TObjEneSlimeOne__sub_803E4AF4((int) (M2C_FIELD(arg0, s32 *, 0x34)), (int) (temp_r4), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
+                draw_model_motion((int) (M2C_FIELD(arg0, s32 *, 0x34)), (int) (temp_r4), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
             }
         } else if (temp_r3 == 1) {
             draw_chunk_object((int) (M2C_FIELD(arg0, s32 *, 0x34)));

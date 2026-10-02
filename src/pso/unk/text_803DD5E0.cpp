@@ -101,18 +101,18 @@ s32 TObjPlayer__sub_803DAC48(Obj_803DDA68 *, s32, s32, s32, Desc_803DDA68 *, s32
 s32 TObjPlayer__sub_803D9E04(void);
 s32 TObjPlayer__sub_803DAB9C(s32, u32);
 M2C_UNK TObjPlayer__sub_803DAC1C(s32);
-s32 TLobby__sub_803DE084(u32 *arg0, GvmTextureList_803DDDC8 *list);
+s32 load_gvm_texture_archive(u32 *arg0, GvmTextureList_803DDDC8 *list);
 }
 
 extern "C" {
 
 void TLobby__sub_803DDD20(s32 arg0);
 void TLobby__sub_803DDD40(s32 arg0, s32 arg1);
-void TObjPlayer__sub_803DD5E0(s32 arg0);
+void set_ginja_draw_flags(s32 arg0);
 
 extern s32 lbl_805D7788;
 
-void TObjPlayer__sub_803DD5E0(s32 arg0) {
+void set_ginja_draw_flags(s32 arg0) {
     lbl_805D7788 = arg0;
 }
 
@@ -416,7 +416,7 @@ void TLobby__sub_803DDF4C(void) {
 
 #pragma push
 #pragma use_lmw_stmw off
-s32 TLobby__sub_803DE084(u32 *arg0, GvmTextureList_803DDDC8 *list) {
+s32 load_gvm_texture_archive(u32 *arg0, GvmTextureList_803DDDC8 *list) {
     s32 id;
     s32 arg;
     s32 handle;

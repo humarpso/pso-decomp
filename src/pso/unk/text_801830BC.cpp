@@ -54,7 +54,7 @@ typedef struct Self_80183134 {
 
 void queue_destruction__7TObjectFv(void *);
 s32 calc_random_scaled__10TObjPlayerFv(void);
-void TBoss7LaserPtcl__sub_80086C6C(void *, void *, s32, s32);
+void create_oneshot_particle_emitter(void *, void *, s32, s32);
 void spawn_particle_effect_with_flags(void *, s32, s32);
 void *spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
@@ -122,7 +122,7 @@ void fn_80183134(Self_80183134 *self) {
             v.x = 0;
             v.y = calc_random_scaled__10TObjPlayerFv();
             v.z = calc_random_scaled__10TObjPlayerFv();
-            TBoss7LaserPtcl__sub_80086C6C(self->pos, &v, 0x89, 0x40);
+            create_oneshot_particle_emitter(self->pos, &v, 0x89, 0x40);
         }
         self->timer++;
         self->pos[1] -= lbl_805DBC2C;
@@ -245,7 +245,7 @@ struct V3_8018355C { f32 x; f32 y; f32 z; };
 struct V4_8018355C { s32 a; s32 b; s32 c; s32 d; };
 
 extern "C" {
-f32 TTecZondeEff__sub_8002DF28();
+f32 rand_signed_unit();
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
 s32 TLobby__sub_80184C54();
 u32 __nw__7TObjectFUl(int);
@@ -306,10 +306,10 @@ void fn_80183604(u8 *arg0) {
       TBoss6Type1__sub_803D9370((void *) (&stack.sp14), (void *) (lbl_805D4DF0 + 0x178));
       if ((update_scale__15TObjBoss2TunnelFPv((void *) (&stack.sp14)) < lbl_805DBC3C) && (TObjPlayer__sub_803D89C0((void *) (&stack.sp14), (void *) (((u8 *) (&lbl_804FF5E8.value)) + 0xC)) > lbl_805DBC1C))
       {
-        temp_f30 = TTecZondeEff__sub_8002DF28();
+        temp_f30 = rand_signed_unit();
         temp_f30 = (*((f32 *) (((s8 *) arg0) + 0x68))) * temp_f30;
         temp_f31 = temp_f30;
-        new_var = (*((f32 *) (((s8 *) arg0) + 0x70))) * TTecZondeEff__sub_8002DF28();
+        new_var = (*((f32 *) (((s8 *) arg0) + 0x70))) * rand_signed_unit();
         temp_f30 = new_var;
         temp_f29 = (lbl_805DBC40 * (lbl_805DBC20 * ((f32) rand()))) + (*((f32 *) (((s8 *) arg0) + 0x6C)));
         VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));

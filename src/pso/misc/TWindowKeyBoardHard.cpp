@@ -17,7 +17,7 @@ struct Win_80260020 { u8 pad0[0x70]; State_80260020 *state; };
 
 extern "C" {
 s32 TWindowSubStatusDisp__sub_8024FD8C(void *, void *, s32, s32, f32);
-void TWindowSubStatusDisp__sub_802500F4(void *, s32, s32, f32, f32);
+void set_text_draw_params(void *, s32, s32, f32, f32);
 extern M2C_UNK lbl_8044F0CC[];
 extern M2C_UNK lbl_8044F0D4[];
 extern M2C_UNK lbl_8044F0DC[];
@@ -48,7 +48,7 @@ void TWindowKeyBoardHard__sub_80260020(Win_80260020 *self, Ctx_80260020 *ctx) {
         Pt_80260020 pt;
         pt.x = ctx->pos.x;
         pt.y = ctx->pos.y;
-        TWindowSubStatusDisp__sub_802500F4(ctx, 0, 0, inv, lbl_805DD06C);
+        set_text_draw_params(ctx, 0, 0, inv, lbl_805DD06C);
         flags = self->state->flags;
         if (!(flags & 1)) {
             TWindowSubStatusDisp__sub_8024FD8C(&pt, lbl_8044F0CC, -1, 0, lbl_805DD070);

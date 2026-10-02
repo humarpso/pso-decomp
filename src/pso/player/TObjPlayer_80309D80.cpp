@@ -50,7 +50,7 @@ u16 get_lifetime__22TPlyFollowParticleCtrlFPv();
 s32 get_position_ptr__10TObjPlayerFPv(s32);
 extern M2C_UNK __vt__22TPlyPtclObjectLeftHand[];
 s32 TPlyPtclObjectRightHand__vt7(s32 arg0);
-s32 TBoss7LaserPtcl__sub_80086C6C(s32, s32, s32, s32);
+s32 create_oneshot_particle_emitter(s32, s32, s32, s32);
 M2C_UNK set_owner_id__13TParticleCtrlFPvUs(s32, s32);
 u32 find_entity_by_id(s32);
 s32 TObjPlayer__sub_8030A1E4(unsigned long long arg1, s32 arg2);
@@ -212,7 +212,7 @@ s32 TObjPlayer__sub_8030A1E4(unsigned long long arg1, s32 arg2) {
   stack.spC = 0;
   stack.sp8 = 0;
   stack.sp10 = -0x8000;
-  temp_r3 = TBoss7LaserPtcl__sub_80086C6C((s32) (temp_r3_2 + 0x74), (s32) (&stack.sp8), arg2, 0x50);
+  temp_r3 = create_oneshot_particle_emitter((s32) (temp_r3_2 + 0x74), (s32) (&stack.sp8), arg2, 0x50);
   if (temp_r3 != 0)
   {
     set_owner_id__13TParticleCtrlFPvUs((s32)((void *) temp_r3), (s32)(arg1));

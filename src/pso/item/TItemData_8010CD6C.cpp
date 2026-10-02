@@ -91,7 +91,7 @@ s32 TObjPlayer__sub_80117E50(s32);
 extern f32 TItemData__data_805DAB70;
 extern f32 TItemData__data_805DAB78;
 extern const f32 lbl_805DAB7C;
-f32 TItemData__sub_8010D8AC(u8 *arg0, u8 *arg1);
+f32 get_armor_set_multiplier__9TItemDataFPvPv(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -269,7 +269,7 @@ f32 TItemData__sub_8010D6CC(u8 *arg0, u8 *arg1) {
   return var_f31;
 }
 
-f32 TItemData__sub_8010D8AC(u8 *arg0, u8 *arg1) {
+f32 get_armor_set_multiplier__9TItemDataFPvPv(u8 *arg0, u8 *arg1) {
     f32 v;
     s32 b1;
     s32 a1;
@@ -431,7 +431,7 @@ f32 get_set_bonus_multiplier__9TItemDataFPvi(void *self, s32 player) {
     case 1:
         switch (item[1]) {
         case 1:
-            return TItemData__sub_8010D8AC((u8 *)(item), (u8 *)((u8 *)player));
+            return get_armor_set_multiplier__9TItemDataFPvPv((u8 *)(item), (u8 *)((u8 *)player));
         case 2:
             return TItemData__sub_8010D6CC(item, (u8 *)player);
         }

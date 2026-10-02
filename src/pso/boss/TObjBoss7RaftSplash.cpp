@@ -20,7 +20,7 @@ u16 TCameraCtrl__sub_8006A5DC();
 extern const f32 lbl_805DEC68;
 void run_task__19TObjBoss7RaftSplashFv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-f32 TTecZondeEff__sub_8002DF28(void);
+f32 rand_signed_unit(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
 extern RecoveredGlobal_802F16CC___vt__19TObjBoss7RaftSplash __vt__19TObjBoss7RaftSplash;
@@ -60,7 +60,7 @@ u8 *TObjBoss7RaftSplash__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__19TObjBoss7RaftSplash.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3FE8;
-    M2C_FIELD(arg0, f32 *, 0x20) = (f32) (lbl_805DEC68 * (lbl_805DEC88 + TTecZondeEff__sub_8002DF28()));
+    M2C_FIELD(arg0, f32 *, 0x20) = (f32) (lbl_805DEC68 * (lbl_805DEC88 + rand_signed_unit()));
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) * (lbl_805DEC8C * (f32) rand()));
     VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg2);
     VecCopy__FP3VecPC3Vec(arg0 + 0x34, arg3);

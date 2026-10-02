@@ -75,8 +75,8 @@ M2C_UNK advance_animation_playback(void *);
 M2C_UNK TCameraCtrl__sub_801A7310(void *, M2C_UNK);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK mark_enemy_body_contacts(void *);
-M2C_UNK TObjPlayer__sub_801A720C(u16, M2C_UNK, M2C_UNK, f32);
-M2C_UNK TObjPlayer__sub_801A7680(void *);
+M2C_UNK queue_photon_blast_hit(u16, M2C_UNK, M2C_UNK, f32);
+M2C_UNK update_photon_blast_attachments(void *);
 M2C_UNK TObjPlayer__sub_801A7748(void *, M2C_UNK);
 M2C_UNK TPhotonMagicSquare__ct(s32, void *, M2C_UNK, Vec3 *, M2C_UNK, f32);
 s32 find_entity_by_id(u16);
@@ -105,7 +105,7 @@ void apply_photon_blast_effects__10TObjPlayerFPv(void *arg0) {
         var_r31 = 0;
         do {
             if (get_battle_param__10TObjPlayerFi(var_r31) != 0U) {
-                TObjPlayer__sub_801A720C((u16) obj_getField1c(), 2, 0, M2C_FIELD(arg0, f32 *, 0x150));
+                queue_photon_blast_hit((u16) obj_getField1c(), 2, 0, M2C_FIELD(arg0, f32 *, 0x150));
             }
             var_r31 += 1;
         } while (var_r31 < 0x10);
@@ -199,7 +199,7 @@ void update_photon_blast(void *arg0) {
     M2C_FIELD(arg0, s16 *, 0x198) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);
     update_state__10TSceneSoraFPv(arg0);
     advance_animation_playback(arg0);
-    TObjPlayer__sub_801A7680(arg0);
+    update_photon_blast_attachments(arg0);
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (M2C_FIELD(arg0, s16 *, 0x14C) + 0xF);
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (u8) M2C_FIELD(arg0, s16 *, 0x14C);
     temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x1A8);

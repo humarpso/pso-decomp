@@ -17,7 +17,7 @@ M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(int);
 s32 alloc__22TQuestVmDownLoadServerFPv(int);
 M2C_UNK TLobby__sub_800F7DAC(int, int);
 M2C_UNK set_stream_state__6TLobbyFi(void *, int);
-M2C_UNK TLobby__sub_803DE084(int, void *);
+M2C_UNK load_gvm_texture_archive(int, void *);
 extern M2C_UNK lbl_80477BC4[];
 extern M2C_UNK lbl_804EF1DC[];
 extern s32 lbl_805D6D58;
@@ -83,7 +83,7 @@ void TLobby__sub_8033843C(void) {
         temp_r3 = alloc__22TQuestVmDownLoadServerFPv((int) (0x2000));
         set_stream_state__6TLobbyFi((void *) (lbl_80477BC4), (int) (temp_r3));
         TLobby__sub_800F7DAC((int) (temp_r3), (int) (temp_r31));
-        TLobby__sub_803DE084((int) (temp_r31), (void *) (lbl_804EF1DC));
+        load_gvm_texture_archive((int) (temp_r31), (void *) (lbl_804EF1DC));
         safe_free__23TAdSinglePlyChrSelectGCFUi((int) (temp_r3));
         safe_free__23TAdSinglePlyChrSelectGCFUi((int) (temp_r31));
         lbl_805D6D58 |= 2;

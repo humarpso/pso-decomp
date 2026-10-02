@@ -22,7 +22,7 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 void * fn_8033E8C0(void *arg0, void *arg1);
 M2C_UNK __dt__7TObjectFv(void *, int);
-M2C_UNK TCameraCtrl__sub_80069DA8();
+M2C_UNK restore_player_cameras();
 void request_destroy__11TBoss4Type2FUi(void *);
 void init_state_1__8TObjFishFPv(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -36,7 +36,7 @@ void TBoss6PlotFalz__sub_802ABF44(f32);
 void TObjPlayer__sub_803D9B2C();
 void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
-void TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
+void draw_model_motion(int, int, f32);
 void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
 void clear_render_callback__8TObjFishFv(int);
@@ -47,7 +47,7 @@ void TObjPlayer__sub_803D9B2C();
 void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 int set_global_param__8TObjFishFi(void);
-void TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
+void draw_model_motion(int, int, f32);
 void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
 void TObjFish__sub_8033DD4C(void *p);
@@ -85,7 +85,7 @@ void update__8TObjFishFPv(void* p);
 void TObjFish__sub_8033DE60(void*);
 int TObjFish__sub_8033DFB4(void*);
 int TObjPlayer__sub_803078B0(void);
-int TObjPlayer__sub_803E1D90(int, int, int, int);
+int load_list_texture(int, int, int, int);
 void init_particle_effect__10TObjPlayerFv(void);
 int render_effect__8TObjFishFPv(void*);
 int set_global_param__8TObjFishFi(void);
@@ -118,7 +118,7 @@ void TObjFish__sub_8033DD4C(void *p) {
         TOHangerMachine01__sub_803D9C00(arg0 + 0x58);
         ((void (*)(int)) set_global_param__8TObjFishFi)(*(s32 *)(arg0 + 0x38));
         TObjFish__sub_800E3074(*(s32 *)(arg0 + 0x80));
-        TObjEneSlimeOne__sub_803E4AF4(*(s32 *)(arg0 + 0x34), *(s32 *)(arg0 + 0x3C), *(f32 *)(arg0 + 0x4C));
+        draw_model_motion(*(s32 *)(arg0 + 0x34), *(s32 *)(arg0 + 0x3C), *(f32 *)(arg0 + 0x4C));
         clear_render_callback__8TObjFishFv(*(s32 *)(arg0 + 0x80));
         clear_global_state__10TObjPlayerFv();
         pop_matrix();
@@ -153,7 +153,7 @@ void TObjFish__sub_8033DE60(void *p) {
         TOHangerMachine01__sub_803D9C00(arg0 + 0x58);
         ((void (*)(int)) set_global_param__8TObjFishFi)(*(s32 *)(arg0 + 0x2C));
         TObjFish__sub_800E3074(*(s32 *)(arg0 + 0x70));
-        TObjEneSlimeOne__sub_803E4AF4(*(s32 *)(arg0 + 0x28), *(s32 *)(arg0 + 0x30), *(f32 *)(arg0 + 0x4C));
+        draw_model_motion(*(s32 *)(arg0 + 0x28), *(s32 *)(arg0 + 0x30), *(f32 *)(arg0 + 0x4C));
         clear_render_callback__8TObjFishFv(*(s32 *)(arg0 + 0x70));
         clear_global_state__10TObjPlayerFv();
         pop_matrix();
@@ -176,7 +176,7 @@ O_8033E5A8 *TObjFish__sub_8033E5A8(O_8033E5A8 *arg0, s16 arg1) {
                 arg0->fa0[i] = NULL;
             }
         }
-        TCameraCtrl__sub_80069DA8();
+        restore_player_cameras();
         TBoss6PlotFalz__sub_802AC4D8();
         if (arg0->f70 != NULL) {
             init_state_1__8TObjFishFPv(arg0->f70);

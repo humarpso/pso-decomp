@@ -68,7 +68,7 @@ s32 fn_800B91F4(void *);
 void TObjEneDD__sub_800BA438(void *, void *);
 s32 TObjEneMe3Stelth__sub_800F47D4(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
-void TObjPlayer__sub_801B7248(void *, void *);
+void get_hand_joint_position__10TObjPlayerFPvi(void *, void *);
 void send_6x26_unequip_item__10TObjPlayerFPvPv(void *, s32);
 void play_sound_effect(s32, void *, s32, s32);
 extern const f32 TObjEneMe3Stelth__data_805DA808;
@@ -95,7 +95,7 @@ void TObjEneMe3Stelth__sub_800F4A90(Stelth_800F4A90 *self) {
                 VObj_800F4A90 *t = self->target;
                 if (is_locally_controlled__10TObjPlayerFPv(t) != 0 && get_item_field_6__10TObjPlayerFPv(t) != 0) {
                     send_6x26_unequip_item__10TObjPlayerFPvPv(t, get_field_d8__10TObjPlayerFPv());
-                    TObjPlayer__sub_801B7248(t, self->f3F8);
+                    get_hand_joint_position__10TObjPlayerFPvi(t, self->f3F8);
                     spawn_particle_effect(self->f3F8, 0x1D0);
                 }
             } else if (near != 0 && calc_boss4_scale__10TObjPlayerFi(self) <= lbl_805DA8A0) {

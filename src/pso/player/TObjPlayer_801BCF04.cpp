@@ -12,7 +12,7 @@ s32 TObjPlayer__sub_801C2114();
 s32 get_ptr_4__10TObjPlayerFPv(u8 *);
 M2C_UNK TKeyBoardControl__sub_801AFCF4(void *, s16);
 M2C_UNK fn_801B80C0(void *, s32, u8);
-M2C_UNK TObjPlayer__sub_801B81E8(void *, s32, u8);
+M2C_UNK bind_saved_inventory_equipment__10TObjPlayerFPvPvi(void *, s32, u8);
 M2C_UNK TObjPlayer__sub_801B826C(void *);
 
 s32 obj_isState2_324(void *);
@@ -32,7 +32,7 @@ void load_character_state__10TObjPlayerFPvPv(void *arg0, u8 *arg1) {
         if (!(lbl_805D5D88 & 1)) {
             fn_801B80C0(arg0, temp_r30, temp_r31);
         }
-        TObjPlayer__sub_801B81E8(arg0, temp_r30, temp_r31);
+        bind_saved_inventory_equipment__10TObjPlayerFPvPvi(arg0, temp_r30, temp_r31);
     }
     M2C_FIELD(arg0, s32 *, 0xDB4) = (s32) (lbl_805D5D84 + (obj_getField1c(arg0) * 0x600));
 }

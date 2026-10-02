@@ -71,7 +71,7 @@ void GXLoadTexObj(TexObj_803E1D90 *, s32);
 extern s32 lbl_804FC7D0[];
 extern TexObj_803E1D90 lbl_8058DB90;
 extern Ctx_803E1D90 *lbl_805D774C;
-void TObjPlayer__sub_803E1D90(s32 idx, s32 wrapS, s32 wrapT, s32 map);
+void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map);
 }
 
 extern "C" {
@@ -281,7 +281,7 @@ void TObjPlayer__sub_803E1D54(s32 i) {
 
 
 
-void TObjPlayer__sub_803E1D90(s32 idx, s32 wrapS, s32 wrapT, s32 map) {
+void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map) {
     TexInfo_803E1D90 *info = lbl_805D774C->list->ents[idx].info;
     TexHdr_803E1D90 *hdr = info->hdr;
     u32 flags = hdr->flags;

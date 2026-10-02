@@ -28,7 +28,7 @@ s32 TWindowGetComCard__sub_8007B594();
 M2C_UNK reset_equip_slots__10TObjPlayerFPv();
 u32 get_player_by_client_id(s32);
 M2C_UNK get_com_card_list__6TLobbyFPv(int);
-M2C_UNK TWindowSubStatusDisp__sub_80229080();
+M2C_UNK text_builder_append();
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 M2C_UNK __ct__7TObjectFP7TObject();
 M2C_UNK TObjPlayer__sub_8024ABDC(void *);
@@ -207,9 +207,9 @@ u8 *TWindowGetComCard__ct(u8 *arg0) {
         temp_r31 = TWindowGetComCard__sub_8007B594();
         TWindowSubStatusDisp__sub_802290E0();
         get_com_card_list__6TLobbyFPv((int) (temp_r31));
-        TWindowSubStatusDisp__sub_80229080();
+        text_builder_append();
         get_message_10__20TWindowSubStatusDispFPv((int) (0x36));
-        TWindowSubStatusDisp__sub_80229080();
+        text_builder_append();
         send_and_handle__6TLobbyFPvii((int) (M2C_FIELD(arg0, s32 *, 0x1C)), (int) (TLobby__sub_8001DC24()), (int) (2));
         M2C_FIELD(arg0, s32 *, 0x28) = 0;
     } else {

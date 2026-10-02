@@ -73,7 +73,7 @@ s32 TBoss3Volopt__sub_8003DC34(void *);
 s32 set_player_view_flag__11TCameraCtrlFi();
 s32 set_flag_08000000__11TCameraCtrlFi();
 s32 TCameraCtrl__sub_80069C94(void *, void *);
-s32 TCameraCtrl__sub_80069DA8();
+s32 restore_player_cameras();
 s32 TCameraCtrl__sub_80069E7C(int);
 s32 set_scripted_camera_pose(int, int, void *);
 s32 cache_target_and_forward__11TCameraCtrlFii(void *, int);
@@ -235,7 +235,7 @@ void TCameraCtrl__sub_8003D648(u8 *arg0) {
         temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x384) - 1;
         M2C_FIELD(arg0, s32 *, 0x384) = temp_r0_2;
         if (temp_r0_2 <= 0) {
-            TCameraCtrl__sub_80069DA8();
+            restore_player_cameras();
             M2C_FIELD(arg0, s32 *, 0x37C) = 3;
             return;
         }
@@ -254,7 +254,7 @@ void TCameraCtrl__sub_8003D648(u8 *arg0) {
         return;
     case 4:
         if (M2C_FIELD(get_scripted_camera_playback(), u16 *, 2) & 1) {
-            TCameraCtrl__sub_80069DA8();
+            restore_player_cameras();
             M2C_FIELD(arg0, s32 *, 0x374) = 4;
             return;
         }

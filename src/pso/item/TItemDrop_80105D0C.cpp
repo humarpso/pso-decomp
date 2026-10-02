@@ -57,7 +57,7 @@ void TItemDrop__sub_8010738C(s32 arg0, s32 arg1, void *arg2);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 u8 *TItemDrop__sub_80107A68(s32 arg0);
-u32 TAdSinglePlyChrSelectGC__sub_8007C3E0(void *);
+u32 subtractive_rng_next(void *);
 s32 __cvt_fp2unsigned(f32);
 extern const f32 lbl_805DAAD8;
 M2C_UNK item_drop_rng_below(s32 arg0, u32 arg1);
@@ -638,7 +638,7 @@ u8 *TItemDrop__sub_80107A68(s32 arg0) {
 s8 get_bool_from_1d6ddc__9TItemDropFPv(void* p) { return (s8)(TLobby__sub_801D6DDC(p)); }
 int TItemDrop__sub_80107B04(void) { return 0; }
 M2C_UNK item_drop_rng_below(s32 arg0, u32 arg1) {
-    __cvt_fp2unsigned((f32) (((f32) arg1 * (f32) TAdSinglePlyChrSelectGC__sub_8007C3E0((void *) (arg0))) / lbl_805DAAD8));
+    __cvt_fp2unsigned((f32) (((f32) arg1 * (f32) subtractive_rng_next((void *) (arg0))) / lbl_805DAAD8));
 }
 
 }

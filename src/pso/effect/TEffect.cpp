@@ -29,7 +29,7 @@ struct A_80082CDC { u8 pad[0x8]; B_80082CDC *b; };
 
 extern "C" {
 s32 set_global_param__8TObjFishFi(void *);
-s32 TWindowSubStatusDisp__sub_803DEE6C(int);
+s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 TWindowSubStatusDisp__sub_803DF160(int, int);
@@ -117,7 +117,7 @@ void TObjPlayer__sub_80082C30(void) {
     Stack_80082C30 stack;
     set_global_param__8TObjFishFi((void *) (lbl_805D63F0));
     TWindowSubStatusDisp__sub_803DF160((int) (0), (int) (-1));
-    TWindowSubStatusDisp__sub_803DEE6C((int) (1));
+    begin_screen_draw((int) (1));
     stack.sp8 = lbl_805D93C0;
     stack.spC = lbl_805D93C4;
     stack.sp10 = lbl_805D93C8 + lbl_805D93C0;

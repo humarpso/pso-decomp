@@ -38,7 +38,7 @@ s32 get_player_by_client_id(int);
 s32 fn_801D9870(void *, int);
 s32 validate_and_clear_slot__10TObjPlayerFPv(void *, int);
 s32 TWindowSubStatusDisp__sub_80228F5C(void *);
-s32 TWindowSubStatusDisp__sub_80229080(int);
+s32 text_builder_append(int);
 s32 TWindowSubStatusDisp__sub_802290E0();
 s32 TWindowHelpItem__sub_80255DC8(int);
 s32 fn_80263A20(int, int);
@@ -151,12 +151,12 @@ void TWindowSubTechnique__sub_80286FA4(u8 *arg0, s32 arg1) {
       if ((((s16) var_r29) != 0x11) && (((s16) var_r29) != 0xE))
       {
         var_r30 = fn_801D9870((void *) (temp_r3 + 0x428), (int) var_r29);
-        TWindowSubStatusDisp__sub_80229080((int) TWindowSubTechnique__sub_8028753C((s32)((int) 0x13)));
+        text_builder_append((int) TWindowSubTechnique__sub_8028753C((s32)((int) 0x13)));
         TWindowSubStatusDisp__sub_80228F5C((void *) (((u8) var_r30) + 1));
       }
-      TWindowSubStatusDisp__sub_80229080((int) TWindowHelpItem__sub_80255DC8((int) 0x2E));
+      text_builder_append((int) TWindowHelpItem__sub_80255DC8((int) 0x2E));
       TWindowSubStatusDisp__sub_80228F5C((void *) ((s32) (*((s16 *) (((s8 *) TTecCtrl__sub_8022DBC4((s16) var_r29, (u8) var_r30, 0xFFFF)) + 0x10)))));
-      TWindowSubStatusDisp__sub_80229080((int) TWindowSubTechnique__sub_8028753C((s32)((int) ((s32) ((s16) var_r29)))));
+      text_builder_append((int) TWindowSubTechnique__sub_8028753C((s32)((int) ((s32) ((s16) var_r29)))));
       send_and_handle__6TLobbyFPvii((int) (*((s32 *) (((s8 *) arg0) + 0x3C))), (void *) TLobby__sub_8001DC24(), (int) 0x82);
     }
   }

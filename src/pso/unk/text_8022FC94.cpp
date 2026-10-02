@@ -116,7 +116,7 @@ s32 alloc_buffer__11TOBoss4RockFPv(s32);
 extern TTecFoieData_80230144 TTecFoie__data_8044D13C[];
 extern s32 lbl_805D63B0;
 extern const f32 lbl_805DC7F8;
-void TTecFoie__sub_8022FC94(Foie_8022FC94 *self);
+void create_particle_emitters__8TTecFoieFPv(Foie_8022FC94 *self);
 }
 
 extern "C" {
@@ -139,7 +139,7 @@ typedef struct Angles_8022FC94 Angles_8022FC94;
 typedef struct Binding_8022FC94 Binding_8022FC94;
 typedef struct Foie_8022FC94 Foie_8022FC94;
 typedef struct TTecFoieData_80230144 TTecFoieData_80230144;
-void TTecFoie__sub_8022FC94(Foie_8022FC94 *self) {
+void create_particle_emitters__8TTecFoieFPv(Foie_8022FC94 *self) {
   Angles_8022FC94 fwd;
   Angles_8022FC94 rev;
   u32 i;

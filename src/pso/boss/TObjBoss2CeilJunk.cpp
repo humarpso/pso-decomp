@@ -81,7 +81,7 @@ struct Obj_8003A1B4
 
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-f32 TTecZondeEff__sub_8002DF28();
+f32 rand_signed_unit();
 s32 calc_random_scaled__10TObjPlayerFv();
 s32 spawn_effect__15TObjBoss2TunnelFiPvPv(void *, void *, void *, f32, f32);
 M2C_UNK TPhotonMagicSquare__sub_801A2640();
@@ -197,7 +197,7 @@ u8 *TObjBoss2CeilJunk__ct(struct RecoveredFields_8003A6F4_arg0 *arg0, s32 arg1, 
         arg0->field_54 = arg0->field_48 + M2C_FIELD(((u8 *)(&lbl_80435BD8.value) + (arg0->field_AC * 4)), f32 *, 0);
     }
     arg0->field_60 = calc_random_scaled__10TObjPlayerFv();
-    arg0->field_5C = (s32) (lbl_805D85A8 * TTecZondeEff__sub_8002DF28());
+    arg0->field_5C = (s32) (lbl_805D85A8 * rand_signed_unit());
     arg0->field_90 = lbl_805D859C;
     arg0->field_94 = lbl_805D859C;
     arg0->field_98 = lbl_805D859C;

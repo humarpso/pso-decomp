@@ -481,7 +481,7 @@ extern const f32 lbl_805D9028;
 extern const f32 lbl_805D902C;
 extern const f32 lbl_805D9030;
 
-void TCameraCtrl__sub_8006C28C(Cam_8006C28C *s) {
+void update_scripted_camera(Cam_8006C28C *s) {
     Stack_8006C28C st;
     Vec_8006C28C tmp;
     Vec_8006C28C p2;

@@ -47,7 +47,7 @@ s32 TLevelSelect__sub_801F441C(s32 n, s32 flag) {
     return lbl_805127F8[n][byteIdx - 1] & 1;
 }
 
-s32 TODoorVoShip__sub_801F44BC(s32 flag) {
+s32 get_story_flag(s32 flag) {
     s32 v;
     s32 n;
     s32 byteIdx;

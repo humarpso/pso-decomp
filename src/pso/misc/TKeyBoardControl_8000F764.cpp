@@ -173,7 +173,7 @@ M2C_UNK fn_803D8064(int);
 M2C_UNK set_global_count__12TObjNpcEnemyFi(int);
 M2C_UNK TObjPlayer__sub_803D8CD4(int);
 M2C_UNK fn_803DA754(s32, int, s32, int);
-M2C_UNK fn_803DCDB0(void *);
+M2C_UNK init_video_and_gx(void *);
 M2C_UNK update_camera__16TKeyBoardControlFv();
 u32 fn_803DD3DC(int, void *);
 M2C_UNK set_key_state__16TKeyBoardControlFi(void (*)(void));
@@ -406,7 +406,7 @@ void init_game_systems(void) {
     cfg.heapsize = 0x518000;
     start = cfg.heap + 0x518000;
     fn_803DE804(start, hi - start);
-    fn_803DCDB0(&cfg);
+    init_video_and_gx(&cfg);
     OSSetArenaLo(hi);
     (*(s32 *)&lbl_805D49A0) = xmalloc__FUl(0x4560);
     (*(s32 *)&lbl_805D49A4) = xmalloc__FUl(0x73A0);

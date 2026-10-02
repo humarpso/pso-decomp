@@ -66,7 +66,7 @@ void TObjPlayer__sub_803D9B2C();
 void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(s32);
-void TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
+void draw_model_motion(s32, s32, f32);
 extern s32 lbl_8050DC50[];
 extern const f32 lbl_805DBC44;
 extern const f32 lbl_805DBC4C;
@@ -103,7 +103,7 @@ void fn_80183AF0(Obj_80183AF0 *self) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(&self->pos);
         rotate_matrix_y(0, self->x60);
-        TObjEneSlimeOne__sub_803E4AF4(res->a[idx].v, res->b[idx].v, self->xb0);
+        draw_model_motion(res->a[idx].v, res->b[idx].v, self->xb0);
         pop_matrix();
         VecCopy__FP3VecPC3Vec(&pos, &self->pos);
         pos.y += 0.037f;

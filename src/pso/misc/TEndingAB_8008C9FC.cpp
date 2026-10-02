@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 M2C_UNK set_depth_buffer_settings_2__Fv();
 M2C_UNK fn_80141A30();
-M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(M2C_UNK);
+M2C_UNK begin_screen_draw(M2C_UNK);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(s32, M2C_UNK);
@@ -95,11 +95,11 @@ void TEndingAB__sub_8008CB54(u8 *arg0) {
     case 3:
         break;
     case 2:
-        TWindowSubStatusDisp__sub_803DEE6C(1);
+        begin_screen_draw(1);
         TWindowSubStatusDisp__sub_803DF160((M2C_FIELD(arg0, s32 *, 0x28) * 2) + 2, -1);
         get_player__20TWindowSubStatusDispFv();
         set_depth_buffer_settings_2__Fv();
-        TWindowSubStatusDisp__sub_803DEE6C(1);
+        begin_screen_draw(1);
         TWindowSubStatusDisp__sub_803DF160(0, -1);
         draw_textured_quad_at_depth(arg0 + 0x2C, lbl_805D9580);
         draw_textured_quad_at_depth(arg0 + 0x4C, lbl_805D9580);
@@ -108,11 +108,11 @@ void TEndingAB__sub_8008CB54(u8 *arg0) {
         break;
     case 4:
     case 5:
-        TWindowSubStatusDisp__sub_803DEE6C(1);
+        begin_screen_draw(1);
         TWindowSubStatusDisp__sub_803DF160((M2C_FIELD(arg0, s32 *, 0x28) * 2) + 3, -1);
         get_player__20TWindowSubStatusDispFv();
         set_depth_buffer_settings_2__Fv();
-        TWindowSubStatusDisp__sub_803DEE6C(1);
+        begin_screen_draw(1);
         TWindowSubStatusDisp__sub_803DF160(1, -1);
         draw_textured_quad_at_depth(arg0 + 0x6C, lbl_805D9580);
         draw_textured_quad_at_depth(arg0 + 0x8C, lbl_805D9580);

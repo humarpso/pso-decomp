@@ -195,7 +195,7 @@ s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 M2C_UNK TObjEneBm3Fly__sub_800B1978(void *);
 M2C_UNK update_dd_flag__13TObjEneBm3FlyFPv(void *, f32, f32, f32);
-M2C_UNK TObjEneBm3FlyNest__sub_800B2A5C(u32, void *);
+M2C_UNK remove_child__17TObjEneBm3FlyNestFPvPv(u32, void *);
 M2C_UNK refresh_and_send_entity_flags__12TBoss8DragonFPv(void *, s32);
 M2C_UNK TBoss8Dragon__sub_800BB7DC(void *);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
@@ -324,7 +324,7 @@ M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TBoss8Dragon__sub_800BB7D8(void *, M2C_UNK, f32);
 M2C_UNK TBoss8Dragon__sub_800BB7DC(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjEneBm3FlyNest__sub_800B2A5C(u32, void *);
+M2C_UNK remove_child__17TObjEneBm3FlyNestFPvPv(u32, void *);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK draw_chunk_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -440,7 +440,7 @@ void TObjEneBm3Fly__sub_800AFDC8(u8 *arg0, s32 arg1) {
         ((M2C_UNK (*)(void *))refresh_and_send_entity_flags__12TBoss8DragonFPv)(arg0);
         temp_photon = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x418));
         if (temp_photon != 0U) {
-            TObjEneBm3FlyNest__sub_800B2A5C(temp_photon, arg0);
+            remove_child__17TObjEneBm3FlyNestFPvPv(temp_photon, arg0);
         }
         TBoss8Dragon__sub_800BB7DC(arg0);
         M2C_FIELD(arg0, s32 *, 0x3C0) = 0;
@@ -508,7 +508,7 @@ void action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
         refresh_and_send_entity_flags__12TBoss8DragonFPv(arg0, temp_r4);
         temp_ret = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x418));
         if (temp_ret != 0U) {
-            TObjEneBm3FlyNest__sub_800B2A5C(temp_ret, arg0);
+            remove_child__17TObjEneBm3FlyNestFPvPv(temp_ret, arg0);
         }
         TBoss8Dragon__sub_800BB7DC(arg0);
         TBoss8Dragon__sub_800BB7D8(arg0, 0xF1, TObjEneBm3Fly__data_805D9C88);

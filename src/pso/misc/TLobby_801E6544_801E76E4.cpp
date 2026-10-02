@@ -69,7 +69,7 @@ u8 *get_player_by_client_id(s32);
 extern struct Glob_80512220 TLobby__data_80512220;
 extern s32 TLobby__data_805D5E78;
 void TLobby__sub_801E7CFC(void);
-volatile unsigned long TLobby__sub_8007B844(int);
+volatile unsigned long get_actor_section_id(int);
 u8 *get_player_by_client_id(s32);
 extern struct Glob_80512220 TLobby__data_80512220;
 extern s32 TLobby__data_805D5E78;
@@ -260,7 +260,7 @@ void TLobby__sub_801E7C5C(void) {
   temp_r31 = (u8) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7C5C_TLobby__data_80512220 *)&TLobby__data_80512220).value)) + 4)));
   if (temp_r3 != 0U)
   {
-    *((s32 *) (((s8 *) (TLobby__data_805D5E78 + ((temp_r31 * 4) & 0x3FC))) + 0)) = TLobby__sub_8007B844((int) temp_r3);
+    *((s32 *) (((s8 *) (TLobby__data_805D5E78 + ((temp_r31 * 4) & 0x3FC))) + 0)) = get_actor_section_id((int) temp_r3);
     return;
   }
   *((s32 *) (((s8 *) (TLobby__data_805D5E78 + ((temp_r31 * 4) & 0x3FC))) + 0)) = -1;

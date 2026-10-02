@@ -315,7 +315,7 @@ s32 try_start_action__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 void update_angle__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2);
 s32 update_flag30_timer__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK TObjPlayer__sub_80010128(void *, M2C_UNK);
+M2C_UNK spawn_confusion_feedback_effect(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_800101B0(void *, M2C_UNK);
 M2C_UNK show_miss_for_collider__10TObjPlayerFi(void *, s32);
 M2C_UNK TObjPlayer__sub_800192DC(void *);
@@ -346,7 +346,7 @@ s32 update_flag30_timer__10TObjPlayerFPv(u8 *arg0) {
             obj_clearFlags30(arg0, 0x3C);
             obj_setFlags30(arg0, 0x10);
             if ((temp_ret % 45) == 0) {
-                TObjPlayer__sub_80010128(arg0, 1);
+                spawn_confusion_feedback_effect(arg0, 1);
             }
             return 1;
         }
@@ -379,7 +379,7 @@ block_7:
     return 0;
 }
 
-f32 TObjPlayer__sub_80017700(u8 *arg0, s32 arg1, Vec_800180E8 arg2, s32 arg3, f32 farg0) {
+f32 enemy_move_toward(u8 *arg0, s32 arg1, Vec_800180E8 arg2, s32 arg3, f32 farg0) {
     if (horizontal_distance_squared(arg0 + 0x29C, arg0 + 0x38) < TObjPlayer__data_805D7D80 || ((VObj_18_cc39a7 *)(arg0))->m17(0x1E) != 0) {
         if (((M2C_UNK (*)(void *, Vec_800180E8, int)) select_enemy_destination)(arg0, arg2, arg3) != 0) {
             ((s32 (*)(void *, Vec_800180E8)) copy_position_if_valid__10TObjPlayerFii)(arg0, *(Vec_800180E8 *)(arg0 + 0x2FC));

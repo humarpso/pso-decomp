@@ -19,7 +19,7 @@ extern f32 lbl_805D6434;
 extern f32 lbl_805D6438;
 extern s32 lbl_805D643C;
 extern s32 lbl_805D6440;
-void TWindowSubStatusDisp__sub_802500F4(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
+void set_text_draw_params(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
 u8 TWindowSubStatusDisp__sub_800FC220(s32);
 s32 TWindowSubStatusDisp__sub_800FC248(s32);
 void TWindowSubStatusDisp__sub_800FC24C(s32, void *);
@@ -27,7 +27,7 @@ void build_small_font_glyph_quad(s32, void *);
 void render_forward__20TWindowSubStatusDispFPv();
 void TWindowKeyBoardSoft__sub_8024E6D8(s32, void *);
 s32 TWindowKeyBoardSoft__sub_8024E8E8(s32, void *);
-void TWindowSubStatusDisp__sub_803DEE6C(s32);
+void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv();
 void draw_textured_quad_at_depth(void *, f32);
 void TWindowSubStatusDisp__sub_803DF160(s32, u32);
@@ -63,7 +63,7 @@ s32 TWindowSubStatusDisp__sub_8024FBB0(f32 *pos, const char *s, u32 color, f32 w
     }
     x = pos[0];
     y = pos[1];
-    TWindowSubStatusDisp__sub_803DEE6C(1);
+    begin_screen_draw(1);
     render_forward__20TWindowSubStatusDispFPv();
     TWindowSubStatusDisp__sub_803DF160(0, color);
     while (*s != 0) {
@@ -99,7 +99,7 @@ s32 TWindowSubStatusDisp__sub_8024FBB0(f32 *pos, const char *s, u32 color, f32 w
     return ok;
 }
 
-void TWindowSubStatusDisp__sub_802500F4(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
+void set_text_draw_params(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
     lbl_805D6430 = arg0;
     lbl_805D6434 = farg0;
     lbl_805D6438 = farg1;

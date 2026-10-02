@@ -165,7 +165,7 @@ s32 get_global_state__14TOKeyMachine01Fv(void);
 extern s32 lbl_8044D798[];
 extern Vec_80233E78 lbl_8044D738[];
 extern Vec_80233E78 lbl_8044D768[];
-Vec_80233E78 *TTecLuker__sub_80233E78(u16 slot, s32 *heading);
+Vec_80233E78 *consume_telepipe_arrival(u16 slot, s32 *heading);
 u32 get_player_by_client_id(s32);
 void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 s16 get_field_2__9TTecLukerFPv(void* p);
@@ -367,7 +367,7 @@ void TTecLuker__sub_80233E3C(u16 arg0) {
     }
 }
 
-Vec_80233E78 *TTecLuker__sub_80233E78(u16 slot, s32 *heading) {
+Vec_80233E78 *consume_telepipe_arrival(u16 slot, s32 *heading) {
     Player_80233E78 *p;
     u16 owner;
     if (slot >= 4) {

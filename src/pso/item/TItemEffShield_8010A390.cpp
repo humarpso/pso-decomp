@@ -97,7 +97,7 @@ struct Shield_8010A4C0 {
 };
 
 extern "C" {
-s32 TBoss7LaserPtcl__sub_80086C6C(void *, void *, int, int);
+s32 create_oneshot_particle_emitter(void *, void *, int, int);
 void TItemEffShield__sub_8010A460(u8 *arg0);
 s32 get_item_ctrl__10TObjPlayerFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -162,7 +162,7 @@ void TItemEffShield__sub_8010A460(u8 *arg0) {
     temp_r5 = *((M2C_UNK *) (((s8 *) (*((s32 *) (((s8 *) arg0) + 0x34)))) + var_r31));
     if (temp_r5 != (-1))
     {
-      TBoss7LaserPtcl__sub_80086C6C((void *) (arg0 + 0x1C), (void *) (arg0 + 0x28), (int) temp_r5, (int) 4);
+      create_oneshot_particle_emitter((void *) (arg0 + 0x1C), (void *) (arg0 + 0x28), (int) temp_r5, (int) 4);
     }
     var_r30 += 1;
     var_r31 += 4;

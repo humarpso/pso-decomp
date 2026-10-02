@@ -30,7 +30,7 @@ M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK func_803e11e8__FUl(u32);
 M2C_UNK func_803e11f0__Fv();
-M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
+M2C_UNK draw_model_motion(s32, s32, f32);
 M2C_UNK TObjEneSlimeOne__sub_803E4B54(s32, s32, s32, f32);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
@@ -138,22 +138,22 @@ void TObjEneSlimeOne__sub_800EC4A0(u8 *arg0, s32 arg1) {
     if (arg1 != 0) {
         some_id_805c6f74 |= 0x400000;
         func_803e11e8__FUl(1);
-        TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 0x10), M2C_FIELD(arg0, f32 *, 0x30));
+        draw_model_motion(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 0x10), M2C_FIELD(arg0, f32 *, 0x30));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x1C));
-        TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0x18), M2C_FIELD(arg0, s32 *, 0x20), M2C_FIELD(arg0, f32 *, 0x30));
+        draw_model_motion(M2C_FIELD(arg0, s32 *, 0x18), M2C_FIELD(arg0, s32 *, 0x20), M2C_FIELD(arg0, f32 *, 0x30));
         func_803e11f0__Fv();
         some_id_805c6f74 &= ~0x400000;
     } else {
         func_803e11e8__FUl(2);
         set_cull_back__8TObjFishFv();
-        TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 0x10), M2C_FIELD(arg0, f32 *, 0x30));
+        draw_model_motion(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 0x10), M2C_FIELD(arg0, f32 *, 0x30));
         set_cull_mode_front__8TObjFishFv();
-        TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 0x10), M2C_FIELD(arg0, f32 *, 0x30));
+        draw_model_motion(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 0x10), M2C_FIELD(arg0, f32 *, 0x30));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x1C));
         set_cull_back__8TObjFishFv();
-        TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0x18), M2C_FIELD(arg0, s32 *, 0x20), M2C_FIELD(arg0, f32 *, 0x30));
+        draw_model_motion(M2C_FIELD(arg0, s32 *, 0x18), M2C_FIELD(arg0, s32 *, 0x20), M2C_FIELD(arg0, f32 *, 0x30));
         set_cull_mode_front__8TObjFishFv();
-        TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0x18), M2C_FIELD(arg0, s32 *, 0x20), M2C_FIELD(arg0, f32 *, 0x30));
+        draw_model_motion(M2C_FIELD(arg0, s32 *, 0x18), M2C_FIELD(arg0, s32 *, 0x20), M2C_FIELD(arg0, f32 *, 0x30));
         set_cull_none__8TObjFishFv();
         func_803e11f0__Fv();
     }

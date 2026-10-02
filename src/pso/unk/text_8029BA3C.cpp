@@ -3,7 +3,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
+M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32, f32, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(void *, void *);
@@ -19,7 +19,7 @@ extern "C" {
 
 void draw_character_background_frame(u8 *arg0, s32 arg1, s32 arg2) {
   f32 buffer_8[8];
-  TWindowSubStatusDisp__sub_803DEE6C((int) 1);
+  begin_screen_draw((int) 1);
   set_global_param__8TObjFishFi((void *) lbl_805D65C0);
   TWindowSubStatusDisp__sub_803DF160((void *) arg1, (void *) arg2);
   buffer_8[0] = lbl_805DDCF8;

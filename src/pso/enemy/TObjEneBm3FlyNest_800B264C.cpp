@@ -287,7 +287,7 @@ extern NestAttachmentPoint *lbl_805D5110;
 extern void get_camera_ctrl__9TObjEneDDFPv(s32, s32);
 void capture_attachment__17TObjEneBm3FlyNestFv(void * _w0);
 u8 *find_entity_by_id(u16);
-void TObjEneBm3FlyNest__sub_800B2A5C(Obj_800B2A5C *self, u8 *child);
+void remove_child__17TObjEneBm3FlyNestFPvPv(Obj_800B2A5C *self, u8 *child);
 u8 *find_entity_by_id(u16);
 u16 get_active_id__13TObjEneBm3FlyFPv(void *);
 s32 check_v2_mode__9TObjEneDDFv();
@@ -364,7 +364,7 @@ extern const f32 lbl_805D9D20;
 extern const f32 lbl_805D9D24;
 extern const f32 lbl_805D9D28;
 extern const f32 lbl_805D9D2C;
-void TObjEneBm3FlyNest__sub_800B2C24(u8 *arg0, s32 arg1);
+void state_dying__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -521,7 +521,7 @@ int init__17TObjEneBm3FlyNestFPv(void* p) { return init_params__17TObjEneBm3FlyN
 int copy_target_state__17TObjEneBm3FlyNestFPv(void* p) { return copy_target_state__14TObjEnePanarmsFPvPv(p); }
 void* TObjEneBm3FlyNest__sub_800B2A54(void* p) { return (char*)p + 0x3d4; }
 
-void TObjEneBm3FlyNest__sub_800B2A5C(Obj_800B2A5C *self, u8 *child) {
+void remove_child__17TObjEneBm3FlyNestFPvPv(Obj_800B2A5C *self, u8 *child) {
     s32 i;
     for (i = 0; i < 6; i++) {
         if (find_entity_by_id(self->ids[i]) == child) {
@@ -565,7 +565,7 @@ void handle_state__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
 }
 #pragma push
 #pragma fp_contract on
-void TObjEneBm3FlyNest__sub_800B2C24(u8 *arg0, s32 arg1) {
+void state_dying__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1) {
     Vec_800B2C24 v;
     Vec_800B2C24 p;
     f32 r;

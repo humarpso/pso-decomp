@@ -64,7 +64,7 @@ extern void *lbl_8050EA10[];
 void *get_player_by_client_id(s32 i);
 s32 obj_getField1c(void *obj);
 u16 register_entity_by_id(void *obj);
-s32 TObjPlayer__sub_801BA6BC(void *self);
+s32 register_player_slot__10TObjPlayerFPv(void *self);
 void TBoss4DarkFalz__sub_8004C220(void *, void *);
 void *get_player_by_client_id(s32 i);
 void set_flag_400000__10TObjPlayerFi(void *);
@@ -112,7 +112,7 @@ void handle_6xAE_set_animation_state(void *arg0);
 
 extern "C" {
 
-s32 TObjPlayer__sub_801BA6BC(void *self) {
+s32 register_player_slot__10TObjPlayerFPv(void *self) {
     Ctrl_801BA6BC *c = (Ctrl_801BA6BC *)get_player_by_client_id((u16)obj_getField1c(self));
     if (c != 0) {
         delete c;

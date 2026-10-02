@@ -27,7 +27,7 @@ void handle_6x17_set_entity_position_and_angle(u8 *arg0);
 void update_phase__12TBoss3VoloptFv(void);
 void TCameraCtrl__sub_8003CFFC(int);
 M2C_UNK reset_cameras_to_actor(void *, M2C_UNK);
-s32 TODoorVoShip__sub_801F44BC(s32);
+s32 get_story_flag(s32);
 M2C_UNK refresh_collision_body_centers(void *);
 u8 *find_entity_by_id(u16);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -51,7 +51,7 @@ void update_phase__12TBoss3VoloptFv(void) {
         dispatch_state__16TBoss3VoloptCtrlFi(5);
         return;
     }
-    if (TODoorVoShip__sub_801F44BC(0x2F) != 0) {
+    if (get_story_flag(0x2F) != 0) {
         dispatch_state__16TBoss3VoloptCtrlFi(2);
         return;
     }

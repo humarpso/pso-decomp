@@ -55,7 +55,7 @@ u8 * find_entity_by_id(u16);
 u8 * photon_base_ct(void *);
 void TObjPlayer__sub_801AE72C(void *, u8);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK fn_801A7428(int, int);
+M2C_UNK spawn_photon_blast_opening_effects(int, int);
 M2C_UNK TObjPlayer__sub_801A7748(void *, M2C_UNK);
 extern u8 lbl_804C3B48[];
 extern M2C_UNK __vt__13TPhotonYoulla[];
@@ -74,7 +74,7 @@ M2C_UNK advance_animation_playback(void *);
 s32 TLobby__sub_800822E8(s32, s32);
 s32 TLobby__sub_8030A7B0();
 int is_locally_controlled__10TObjPlayerFPv(void*);
-M2C_UNK TObjPlayer__sub_801A7680(void *);
+M2C_UNK update_photon_blast_attachments(void *);
 M2C_UNK TObjPlayer__sub_801A7748(void *, M2C_UNK);
 s32 TObjPlayer__sub_801AF868(s32);
 int TObjPlayer__sub_801BEF60(void*, void*);
@@ -153,7 +153,7 @@ void run_task__13TPhotonYoullaFv(void *arg0) {
     }
     M2C_FIELD(arg0, s16 *, 0x194) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);
     advance_animation_playback(arg0);
-    TObjPlayer__sub_801A7680(arg0);
+    update_photon_blast_attachments(arg0);
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (M2C_FIELD(arg0, s16 *, 0x14C) + 0xF);
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (u8) M2C_FIELD(arg0, s16 *, 0x14C);
     M2C_FIELD(arg0, s32 *, 0x1A4) = (s32) (M2C_FIELD(arg0, s32 *, 0x1A4) + 1);
@@ -217,7 +217,7 @@ u8 *TPhotonYoulla__ct(u8 *arg0, u8 *arg1) {
         M2C_FIELD(arg0, s32 *, 0x1A0) = 1;
         TObjPlayer__sub_801A7748(arg0, 6);
     } else {
-        fn_801A7428((int) (6), (int) (M2C_FIELD(arg0, u16 *, 0x17C)));
+        spawn_photon_blast_opening_effects((int) (6), (int) (M2C_FIELD(arg0, u16 *, 0x17C)));
     }
     return arg0;
 }

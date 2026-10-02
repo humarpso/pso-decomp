@@ -44,7 +44,7 @@ extern const f64 lbl_80439358;
 extern s32 lbl_805D7774;
 extern const f32 lbl_805D93DC;
 extern const f32 lbl_805D9414;
-void TParticleCtrl__sub_800836E8(f32 farg0);
+void load_projected_texture_matrix(f32 farg0);
 }
 
 extern "C" {
@@ -55,7 +55,7 @@ M2C_UNK GXSetTevOp(M2C_UNK, M2C_UNK);
 M2C_UNK GXSetTevOrder(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_803DC83C(M2C_UNK);
 M2C_UNK TObjPlayer__sub_803DC850(M2C_UNK);
-M2C_UNK TObjPlayer__sub_803E1D90(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK load_list_texture(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 is_split_screen();
 M2C_UNK set_global_param__8TObjFishFi(M2C_UNK *);
 M2C_UNK set_tex_coord_gen__10TObjPlayerFiiii(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -69,7 +69,7 @@ void setup_tev_stage__10TObjPlayerFv(void) {
         GXSetTevOp(1, 2);
         set_tex_coord_gen__10TObjPlayerFiiii(1, 0, 0, 0x1E);
         set_global_param__8TObjFishFi(lbl_8048E5B4);
-        TObjPlayer__sub_803E1D90(0, 0, 0, 1);
+        load_list_texture(0, 0, 0, 1);
         some_id_805c6f74 |= 0x80000;
         TObjPlayer__sub_803DC850(1);
         TObjPlayer__sub_803DC83C(1);
@@ -89,14 +89,14 @@ void setup_particle_tev(s32 arg0) {
         }
         set_tex_coord_gen__10TObjPlayerFiiii(1, 0, 0, 0x1E);
         set_global_param__8TObjFishFi(lbl_8048E5B4);
-        TObjPlayer__sub_803E1D90(0, 0, 0, 1);
+        load_list_texture(0, 0, 0, 1);
         some_id_805c6f74 |= 0x80000;
         TObjPlayer__sub_803DC850(1);
         TObjPlayer__sub_803DC83C(1);
     }
 }
 
-void TParticleCtrl__sub_800836E8(f32 farg0) {
+void load_projected_texture_matrix(f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_800836E8, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800836E8, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800836E8, sp10) == 0x8) ? 1 : -1];

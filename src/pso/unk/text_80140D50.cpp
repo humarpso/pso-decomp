@@ -39,7 +39,7 @@ void dispatch_by_main_phase__14TBoss4DarkFalzFUs(u16);
 s32 get_global_state__14TOKeyMachine01Fv();
 void TLobby__sub_80226E44(int);
 void TObjBgmColCtrl__sub_802274B8(void *);
-void TLobby__sub_80227FB4();
+void load_floor_sound_bank();
 extern char lbl_8043F260[];
 s32 fn_80140D50(void);
 }
@@ -50,7 +50,7 @@ struct VOff_80309DD0_arg0_80309dd0_80309D80 { char pad_0[0x4]; char f_4[1]; };
 
 s32 fn_80140D50(void) {
     get_global_state__14TOKeyMachine01Fv();
-    TLobby__sub_80227FB4();
+    load_floor_sound_bank();
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }

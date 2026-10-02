@@ -31,7 +31,7 @@ struct Stack_8036D994 {
 
 extern "C" {
 M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
+M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
@@ -63,7 +63,7 @@ extern const f32 lbl_805E03F8;
 extern const f32 lbl_805E03FC;
 void TWindowSubStatusDisp__sub_8036D774(void);
 M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
+M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
@@ -72,7 +72,7 @@ void TWindowSubStatusDisp__sub_8036D88C(void);
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK init_xyz_limits__10TObjPlayerFv();
 M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
+M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
@@ -119,7 +119,7 @@ void TWindowSubStatusDisp__sub_8036D88C(void) {
     s32 i;
     s32 j;
     f32 buf[8];
-    TWindowSubStatusDisp__sub_803DEE6C((int) (1));
+    begin_screen_draw((int) (1));
     set_global_param__8TObjFishFi((void *) (lbl_805D7018));
     TWindowSubStatusDisp__sub_803DF160((int) (0), (int) (-1));
     i = 0;
@@ -153,7 +153,7 @@ void TWindowSubStatusDisp__sub_8036D994(void) {
     f32 buf[8];
     if (lbl_805D701C <= 0x1E) {
         init_xyz_limits__10TObjPlayerFv();
-        TWindowSubStatusDisp__sub_803DEE6C((int) (1));
+        begin_screen_draw((int) (1));
         set_global_param__8TObjFishFi((void *) (lbl_805D7018));
         TWindowSubStatusDisp__sub_803DF160((int) (0), (int) (-1));
         i = 0;
@@ -181,7 +181,7 @@ void TWindowSubStatusDisp__sub_8036DA94(void) {
   s32 var_r31;
   f32 buffer_8[8];
   f32 temp_f31;
-  TWindowSubStatusDisp__sub_803DEE6C((int) 1);
+  begin_screen_draw((int) 1);
   set_global_param__8TObjFishFi((void *) lbl_805D7018);
   TWindowSubStatusDisp__sub_803DF160((int) 0, (int) (-1));
   var_r31 = 0;

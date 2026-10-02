@@ -1,7 +1,7 @@
 #include "types.h"
 extern "C" {
 s32 apply_damage_and_reset__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_801CF56C(void *);
+s32 update_run_movement__10TObjPlayerFPv(void *);
 s32 start_action__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CF824(void *);
 s32 handle_ring_release__10TObjPlayerFi(void *);
@@ -36,7 +36,7 @@ void TObjPlayer__sub_801CFAC4(s32 arg0, s16 arg1) {
         start_action__10TObjPlayerFPv((void *) arg0);
         return;
       case 1:
-        TObjPlayer__sub_801CF56C((void *) arg0);
+        update_run_movement__10TObjPlayerFPv((void *) arg0);
         return;
       case 6:
         apply_damage_and_reset__10TObjPlayerFPv((void *) arg0);

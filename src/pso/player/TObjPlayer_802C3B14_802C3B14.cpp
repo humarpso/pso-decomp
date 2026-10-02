@@ -9,7 +9,7 @@ extern "C" {
 s32 begin_action_state__10TObjPlayerFPv(u8 *arg0);
 s32 get_ptr_4__10TObjPlayerFPv();
 s32 TObjPlayer__sub_801D8D8C(u8);
-M2C_UNK TObjPlayer__sub_802C3790(s32, s32);
+M2C_UNK init_technique_levels(s32, s32);
 M2C_UNK setup_effect_slots__10TObjPlayerFii(s32, void *);
 M2C_UNK set_action_state__10TObjPlayerFPvUc(void *, M2C_UNK);
 s32 get_action_data__10TObjPlayerFPv(void *);
@@ -31,7 +31,7 @@ s32 begin_action_state__10TObjPlayerFPv(u8 *arg0) {
     set_action_state__10TObjPlayerFPvUc(arg0, 1);
     TObjPlayer__sub_802C39CC(arg0);
     setup_effect_slots__10TObjPlayerFii(M2C_FIELD(arg0, s32 *, 0x3A4), arg0 + 0x3C0);
-    TObjPlayer__sub_802C3790(M2C_FIELD(arg0, s32 *, 0x3A4), get_action_data__10TObjPlayerFPv(arg0));
+    init_technique_levels(M2C_FIELD(arg0, s32 *, 0x3A4), get_action_data__10TObjPlayerFPv(arg0));
     M2C_FIELD(arg0, s8 *, 3) = (s8) lbl_805D5544;
     return 1;
 }

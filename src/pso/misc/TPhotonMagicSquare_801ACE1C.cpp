@@ -35,7 +35,7 @@ s32 TBoss7Tentacle__sub_803D9BA0(void *);
 s32 TOHangerMachine01__sub_803D9C00(void *);
 s32 set_global_param__8TObjFishFi(int);
 s32 set_chunk_material_color(void *);
-s32 TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
+s32 draw_model_motion(int, int, f32);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
 extern Color_801ACE1C lbl_804A7418;
@@ -67,7 +67,7 @@ void render__18TPhotonMagicSquareFv(Self_801ACE1C *self) {
     }
     set_chunk_material_color(&self->color);
     set_global_flag__10TObjPlayerFv();
-    TObjEneSlimeOne__sub_803E4AF4(self->f34, self->f90, self->f9C);
+    draw_model_motion(self->f34, self->f90, self->f9C);
     clear_global_state__10TObjPlayerFv();
     set_chunk_material_color(&lbl_804A7418);
     some_id_805c6f74 = lbl_805D5660;

@@ -151,7 +151,7 @@ void qst_op_div(s32 arg0, s32 arg1);
 void qst_op_mul(s32 arg0, s32 arg1);
 void qst_op_subi(s32 arg0, s32 arg1);
 void qst_op_add(s32 arg0, s32 arg1);
-s32 TODoorVoShip__sub_801F44BC(void *);
+s32 get_story_flag(void *);
 void qst_op_gget(u16 arg0, s32 arg1);
 M2C_UNK TLobby__sub_801F45FC(void *);
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(void *);
@@ -347,8 +347,8 @@ int qst_op_p_col(void* p);
 int qst_op_p_noncol(void* p);
 void set_slot__6TLobbyFi(int a0);
 int TCameraCtrl__sub_8006D460(void*);
-int TCameraCtrl__sub_8006D494(void*);
-int TCameraCtrl__sub_8006D610(void*);
+int end_conversation_camera(void*);
+int begin_conversation_camera(void*);
 int TLobby__sub_801F2BCC(void);
 int TLobby__sub_8020C118(void);
 int TNpcPlayer__sub_8034E420(void*);
@@ -519,8 +519,8 @@ int qst_op_cam_adj(void* p) { return TCameraCtrl__sub_8006D460(p); }
 
 void qst_op_game_lev_reset_nop_86(void) {  }
 void qst_op_game_lev_super_nop_85(void) {  }
-int qst_op_cam_zmout(void* p) { return TCameraCtrl__sub_8006D494(p); }
-int qst_op_cam_zmin(void* p) { return TCameraCtrl__sub_8006D610(p); }
+int qst_op_cam_zmout(void* p) { return end_conversation_camera(p); }
+int qst_op_cam_zmin(void* p) { return begin_conversation_camera(p); }
 int qst_op_cam_quake(void) { return set_shake_preset__11TCameraCtrlFi((void*)(2)); }
 
 extern u32 TLobby__data_805D5E80;
@@ -980,7 +980,7 @@ void qst_op_add(s32 arg0, s32 arg1) {
     M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, temp_r5) = M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, temp_r5) + M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC));
 }
 void qst_op_gget(u16 arg0, s32 arg1) {
-    if (TODoorVoShip__sub_801F44BC((void *) (arg0)) != 0) {
+    if (get_story_flag((void *) (arg0)) != 0) {
         M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = 1;
         return;
     }

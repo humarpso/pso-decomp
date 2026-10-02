@@ -53,7 +53,7 @@ s32 request_file_read__6TLobbyFiiPvPv(int, int, void *, int);
 s32 get_display_index__12TCharaMakingFPv(void *);
 extern s32 lbl_804D886C[];
 extern u32 lbl_805D6520;
-void TAdSinglePlyChrSelectGC__sub_80290250(W_80290250 *arg0);
+void load_creation_shape_rel(W_80290250 *arg0);
 extern Slot_8028F150 lbl_8051D288[];
 s32 TAdSinglePlyChrSelectGC__sub_8028F210();
 void TCharaMaking__sub_8028E3A0();
@@ -370,7 +370,7 @@ void free_field_FC__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
 
 typedef char RecoveredGlobal_8029057C_lbl_804D3F74_size[sizeof(RecoveredGlobal_8029057C_lbl_804D3F74) == 0x38 ? 1 : -1];
 
-void TAdSinglePlyChrSelectGC__sub_80290250(W_80290250 *arg0) {
+void load_creation_shape_rel(W_80290250 *arg0) {
     s32 rc;
     arg0->bufp = alloc__22TQuestVmDownLoadServerFPv(0x44000);
     rc = request_file_read__6TLobbyFiiPvPv(lbl_804D886C[get_display_index__12TCharaMakingFPv((*(void * *)&lbl_805D6520))], arg0->bufp, arg0->data, 0);

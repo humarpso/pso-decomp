@@ -49,7 +49,7 @@ void TWindow__close(void *);
 void update_fade__17TWindowSubComCardFPv(void *);
 void initialize_subwindow__9TWindowDDFPv(void *);
 void update_window_entry_list(void *, void *);
-void fn_80262C3C(void *);
+void validate_target__13TWindowLockOnFPv(void *);
 void run_task__13TWindowLockOnFv(Win_8026385C *w);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 void TWindowSubStatusDisp__sub_80257D44(void *, void *, int);
@@ -202,7 +202,7 @@ void run_task__13TWindowLockOnFv(Win_8026385C *w) {
     if (w->refresh) {
         (w->*w->refresh)();
     }
-    fn_80262C3C(w);
+    validate_target__13TWindowLockOnFPv(w);
     initialize_subwindow__9TWindowDDFPv(w);
     update_fade__17TWindowSubComCardFPv(w);
     update_window_entry_list(w, w->m24);

@@ -50,7 +50,7 @@ void TObjLight__sub_80133A04(void *, s32);
 void TKeyBoardControl__sub_801A66B8(void);
 void TLobby__sub_801E2F44(s32, s32, s32);
 void create_quad_sprites__13TParticleCtrlFv(void);
-void TLobby__sub_80227FB4(s32);
+void load_floor_sound_bank(s32);
 void *__nw__7TObjectFUl(u32);
 void TWindowCtrlMain__ct(void *);
 f32 TBoss8Dragon__sub_803D64C0(s32);
@@ -137,7 +137,7 @@ void TObjLight__sub_8023F22C(void) {
         TWindowCtrlMain__ct(p);
     }
     lbl_805D63CC = 0;
-    TLobby__sub_80227FB4(0);
+    load_floor_sound_bank(0);
 }
 
 }

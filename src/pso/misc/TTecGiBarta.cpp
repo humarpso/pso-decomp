@@ -144,7 +144,7 @@ void render__11TTecGiBartaFv(void);
 void run_task__11TTecGiBartaFv(void *arg0);
 void update_technique_by_phase__11TTecGiBartaFPv(u8 *arg0);
 s32 play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
-M2C_UNK TObjPlayer__sub_8023A244(void *);
+M2C_UNK dispatch_all_technique_contacts(void *);
 u32 find_entity_by_id(u16);
 void *__nw__7TObjectFUl(int);
 M2C_UNK advance_lifetime_or_destroy(void *);
@@ -274,7 +274,7 @@ void run_task__11TTecGiBartaFv(void *arg0) {
     }
     move_technique_projectile(arg0);
     advance_lifetime_or_destroy(arg0);
-    TObjPlayer__sub_8023A244(arg0);
+    dispatch_all_technique_contacts(arg0);
 }
 
 TTecGiBarta_80230C58 *TTecGiBarta__ct(TTecGiBarta_80230C58 *self, void * _w1, void * _w2, void * _w3, void * _w4) {

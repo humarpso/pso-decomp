@@ -41,7 +41,7 @@ s32 get_global_state__14TOKeyMachine01Fv();
 s32 measure_string_len__20TWindowSubStatusDispFPv(int);
 s32 TWindowSubStatusDisp__sub_80228D80();
 s32 TWindowChallengeResult__sub_80228DB4(int, int);
-s32 TWindowSubStatusDisp__sub_80229080(int);
+s32 text_builder_append(int);
 s32 TWindowSubStatusDisp__sub_802290E0();
 s32 TWindowDD__sub_802466E0(void *, void *, void *, int);
 s32 get_window_layout_position(int);
@@ -60,7 +60,7 @@ extern "C" {
 
 void TWindowKeyBoardSoft__sub_8024E6D8(void *, void *);
 s32 set_global_param__8TObjFishFi(s32);
-void TWindowSubStatusDisp__sub_803DEE6C(s32);
+void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv(void);
 void draw_textured_quad_at_depth(void *, f32);
 void TWindowSubStatusDisp__sub_803DF160(s32, s32);
@@ -96,7 +96,7 @@ struct Vec2_80271A6C {
 };
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 void TWindowSubStatusDisp__sub_8024FD8C(void *, s32, s32, s32, f32);
-void TWindowSubStatusDisp__sub_802500F4(void *, s32, s32, f32, f32);
+void set_text_draw_params(void *, s32, s32, f32, f32);
 extern const f32 lbl_805DD4DC;
 extern const f32 lbl_805DD4E0;
 extern const f32 lbl_805DD4E4;
@@ -120,7 +120,7 @@ void fn_80271848(M2C_UNK arg0, u8 *arg1) {
     } else {
         color = -1;
     }
-    TWindowSubStatusDisp__sub_803DEE6C(1);
+    begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D63F0);
     TWindowSubStatusDisp__sub_803DF160(0, color);
     {
@@ -197,7 +197,7 @@ void TWindowSubStatusDisp__sub_80271A6C(M2C_UNK arg0, u8 *arg1) {
     } else {
         color = -1;
     }
-    TWindowSubStatusDisp__sub_802500F4(arg1, 0, 0, scale, lbl_805DD4DC);
+    set_text_draw_params(arg1, 0, 0, scale, lbl_805DD4DC);
     pos.x = lbl_805DD4E0 + *(f32 *)(arg1 + 0x3C);
     pos.y = lbl_805DD4E4 + *(f32 *)(arg1 + 0x40);
     TWindowSubStatusDisp__sub_8024FD8C(&pos, get_message_10__20TWindowSubStatusDispFPv(0x11B), color, 0, lbl_805DD4E8);
@@ -256,7 +256,7 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3A08;
     if (TLobby__sub_8030A7B0() == 1) {
         TWindowSubStatusDisp__sub_802290E0();
-        TWindowSubStatusDisp__sub_80229080((int) (TQuestVmDownLoadServer__sub_8006EF6C((int) (0x67))));
+        text_builder_append((int) (TQuestVmDownLoadServer__sub_8006EF6C((int) (0x67))));
         TWindowSubStatusDisp__sub_80228D80();
         TWindowChallengeResult__sub_80228DB4((int) (fn_80271E40()), (int) (2U));
         var_r30 = (u8 *)(TLobby__sub_8001DC24());

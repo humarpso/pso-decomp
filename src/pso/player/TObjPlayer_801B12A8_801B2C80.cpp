@@ -86,7 +86,7 @@ struct Eff_801B2CE4 { u16 f0; u16 f2; u32 f4; u32 f8; };
 
 extern "C" {
 M2C_UNK set_params__10TObjPlayerFPvPvPviPv(void *, void *, void *, int, int);
-s32 TObjPlayer__sub_801D92F4(void *);
+s32 get_class_attack_template(void *);
 s32 get_class_defense_template();
 s32 TObjPlayer__sub_801D93C4(void *);
 s32 fn_801B2FC8(s32 arg0, s32 arg1);
@@ -259,7 +259,7 @@ s32 fn_801B2FC8(s32 arg0, s32 arg1) {
   new_var = (void *) arg0;
   temp_r30 = temp_r31;
   new_var2 = (int) temp_r30;
-  temp_r31 = TObjPlayer__sub_801D92F4(new_var);
+  temp_r31 = get_class_attack_template(new_var);
   set_params__10TObjPlayerFPvPvPviPv((void *) arg1, new_var, (void *) TObjPlayer__sub_801D93C4(new_var), (int) temp_r31, new_var2);
   return 1;
 }
@@ -267,7 +267,7 @@ s32 fn_801B2FC8(s32 arg0, s32 arg1) {
 #pragma scheduling on
 s32 TWindowHelpItem__sub_801B3038(void *self, void *arg1) {
     set_params__10TObjPlayerFPvPvPviPv(arg1, self, (void *) get_quest_id__12TQuestListVMFPv(self),
-                                       TObjPlayer__sub_801D92F4(self), get_class_defense_template());
+                                       get_class_attack_template(self), get_class_defense_template());
     return 1;
 }
 #pragma scheduling off

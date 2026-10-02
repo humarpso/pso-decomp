@@ -308,7 +308,7 @@ extern u8 TCameraCtrl__data_805D4E20;
 void TCameraCtrl__sub_8006CD2C(u8 *arg0, s16 arg1);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
 extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
-void TCameraCtrl__sub_8006D494(void);
+void end_conversation_camera(void);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
 extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
 void TCameraCtrl__sub_8006D460(void);
@@ -320,7 +320,7 @@ M2C_UNK set_field_100__11TCameraCtrlFPvi(void* p, s32 v);
 s32 angle_difference_abs(int, void *);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
 extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
-void TCameraCtrl__sub_8006D610(void);
+void begin_conversation_camera(void);
 extern u8 TCameraCtrl__data_805D4E20;
 extern u16 TCameraCtrl__data_805D2840;
 extern void *lbl_805D53A0;
@@ -351,7 +351,7 @@ void set_pos_target__11TCameraCtrlFPvPvPvi(void *arg0, void *arg1, void *arg2, s
 s32 get_player_by_client_id(u32);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
 extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
-void TCameraCtrl__sub_8006D344(void *arg0, void *arg1, s32 arg2, u16 arg3);
+void apply_follow_camera_offsets(void *arg0, void *arg1, s32 arg2, u16 arg3);
 void set_target__11TCameraCtrlFPvUi(void *, s32);
 int TCameraCtrl__sub_80068714(void);
 void TCameraCtrl__sub_8006E804(void* a0);
@@ -449,7 +449,7 @@ extern const f32 lbl_805D9080;
 extern const f32 lbl_805D9084;
 extern const f32 lbl_805D9088;
 extern const f32 lbl_805D908C;
-void TCameraCtrl__sub_8006D6DC(u8 *arg0);
+void update_follow_motion_state__11TCameraCtrlFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -592,11 +592,11 @@ void TCameraCtrl__sub_8006D2B0(void *arg0, void *arg1, u16 arg2) {
     if (p != NULL) {
         v = p->f60 + 0x8000;
     }
-    TCameraCtrl__sub_8006D344((void *)(arg0), (void *)(arg1), (s32)(v), arg2);
+    apply_follow_camera_offsets((void *)(arg0), (void *)(arg1), (s32)(v), arg2);
 }
 
 #define REG_8006D344 ((void **)&camera_controller_registry)
-void TCameraCtrl__sub_8006D344(void *arg0, void *arg1, s32 arg2, u16 arg3) {
+void apply_follow_camera_offsets(void *arg0, void *arg1, s32 arg2, u16 arg3) {
     void *cam;
     Ply_8006D344 *p;
     s32 i;
@@ -636,7 +636,7 @@ void TCameraCtrl__sub_8006D460(void) {
     }
 }
 
-void TCameraCtrl__sub_8006D494(void) {
+void end_conversation_camera(void) {
     u32 temp_r3;
     if ((u8) TCameraCtrl__data_804FF628.value == 0) {
         temp_r3 = M2C_FIELD(&camera_controller_registry.value, M2C_UNK *, ((TCameraCtrl__data_804FF628.value * 4) & 0x3FC));
@@ -673,7 +673,7 @@ s32 conversation_camera_obstructed(FollowController *self,s32 heading) {
     return ((u32)csnVector((void *)(&candidate), (void *)(&lbl_805D4DF0->target), (u32)(0x100))) ? 1 : 0;
 }
 
-void TCameraCtrl__sub_8006D610(void) {
+void begin_conversation_camera(void) {
     s32 temp_r30;
     s32 temp_r31;
     s32 var_r30;
@@ -701,7 +701,7 @@ void TCameraCtrl__sub_8006D610(void) {
 }
 #pragma pop
 
-void TCameraCtrl__sub_8006D6DC(u8 *arg0) {
+void update_follow_motion_state__11TCameraCtrlFPv(u8 *arg0) {
     FollowVector d;
     M2C_UNK var_r4;
     s32 temp_r0;

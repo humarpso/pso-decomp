@@ -115,7 +115,7 @@ s32 get_field_d8__10TObjPlayerFPv();
 s32 fn_800B91F4(void *);
 void TObjEneDD__sub_800BA438(void *, void *);
 s32 objInBand__FP7GameObjf(void *, f32);
-void TObjPlayer__sub_801B7248(void *, void *);
+void get_hand_joint_position__10TObjPlayerFPvi(void *, void *);
 void send_6x26_unequip_item__10TObjPlayerFPvPv(void *, s32);
 M2C_UNK play_sound_effect(int, void *, int, int);
 s32 TObjEneMe3SinowZoa__sub_8031A454(void *);
@@ -145,7 +145,7 @@ void TObjEneMe3SinowZoa__sub_8031A6A0(u8 *arg0) {
                         pl = M2C_FIELD(arg0, VObj_18_bd3b49 **, 0x390);
                         if (is_locally_controlled__10TObjPlayerFPv(pl) != 0 && get_item_field_6__10TObjPlayerFPv(pl) != 0) {
                             send_6x26_unequip_item__10TObjPlayerFPvPv(pl, get_field_d8__10TObjPlayerFPv());
-                            TObjPlayer__sub_801B7248(pl, arg0 + 0x408);
+                            get_hand_joint_position__10TObjPlayerFPvi(pl, arg0 + 0x408);
                             spawn_particle_effect(arg0 + 0x408, 0x1D0);
                         }
                     } else if (near != 0 && calc_boss4_scale__10TObjPlayerFi((s32) arg0) <= lbl_805DF384) {

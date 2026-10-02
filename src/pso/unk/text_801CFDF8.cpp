@@ -38,12 +38,12 @@ extern const f32 TObjPlayer__data_805DC360;
 extern const f32 TObjPlayer__data_805DC36C;
 extern const f32 lbl_805DC394;
 extern const f32 lbl_805DC3B4;
-void TObjPlayer__sub_801CFDF8(Plr_801CFDF8 *self);
+void update_walk_movement__10TObjPlayerFPv(Plr_801CFDF8 *self);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_801CFDF8(Plr_801CFDF8 *self) {
+void update_walk_movement__10TObjPlayerFPv(Plr_801CFDF8 *self) {
     s32 ang;
     f32 dist;
     self->target_rot = calc_angle_to__10TObjPlayerFPvPv(get_position_ptr__10TObjPlayerFPv(self), &self->tx);

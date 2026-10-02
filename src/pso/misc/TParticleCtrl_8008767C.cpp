@@ -90,7 +90,7 @@ struct Vec_8008A92C { f32 x, y, z; };
 extern "C" {
 void TParticleCtrl__sub_80088514(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *, void *);
-void TParticleCtrl__sub_80088548(u8 *arg0, void *arg1);
+void set_particle_tint_color(u8 *arg0, void *arg1);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TLobby__sub_803DA16C(void*);
 int free__11TOBoss4RockFUi(void*);
@@ -125,7 +125,7 @@ extern M2C_UNK TParticleCtrl__data_8048E778[];
 void *TParticleCtrl__sub_8008968C(void *arg0, s16 arg1);
 void *alloc_particle_memory(int);
 u8 * TParticleCtrl__sub_8008AC24(void *, void *, void *, void *, s32, u16, s16);
-u8 *TParticleCtrl__sub_80089F7C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
+u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 void *alloc_particle_memory(int);
 void *TParticleCtrl__sub_8008B060(void *, void *, void *, void *, void *);
 void *TParticleCtrl__sub_8008B060(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
@@ -197,7 +197,7 @@ void TParticleCtrl__sub_8008869C(void);
 s32 is_split_screen();
 M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
 M2C_UNK setup_particle_tev(M2C_UNK);
-M2C_UNK TParticleCtrl__sub_800836E8(f32);
+M2C_UNK load_projected_texture_matrix(f32);
 s32 TParticleCtrl__sub_800861F4(void *, s32);
 M2C_UNK TParticleCtrl__sub_80086248(void *);
 M2C_UNK apply_particle_model_fade_color(void *, M2C_UNK);
@@ -490,7 +490,7 @@ void TParticleCtrl__sub_80088514(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg
     M2C_FIELD(arg0, u16 *, 0x24) = (u16) (M2C_FIELD(arg0, u16 *, 0x24) | 0x200);
 }
 
-void TParticleCtrl__sub_80088548(u8 *arg0, void *arg1) {
+void set_particle_tint_color(u8 *arg0, void *arg1) {
     M2C_FIELD(arg0, u16 *, 0x24) = (u16) (M2C_FIELD(arg0, u16 *, 0x24) | 0x100);
     copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0x48), arg1, (void *) (arg0));
 }
@@ -596,7 +596,7 @@ void *TParticleCtrl__sub_8008968C(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TParticleCtrl__sub_80089F7C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5) {
+u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5) {
     u8 *temp_r3;
     u8 *var_r0;
     temp_r3 = (u8 *)(((u8 *)alloc_particle_memory((int)(0xE0))));
@@ -649,7 +649,7 @@ void draw_orbit_particle_sprite(u8 *arg0) {
                 lbl_805D5660 = some_id_805c6f74;
                 if (M2C_FIELD(arg0, u16 *, 0x24) & 0x400) {
                     begin_effect_render__13TParticleCtrlFv();
-                    TParticleCtrl__sub_800836E8(lbl_805D9540);
+                    load_projected_texture_matrix(lbl_805D9540);
                 }
                 rotate_matrix_y(0, (s32) M2C_FIELD(arg0, s16 *, 0x96));
                 if ((M2C_FIELD(arg0, u16 *, 0x24) & 0x1000) && ((void *) lbl_805D4DF0 != NULL)) {

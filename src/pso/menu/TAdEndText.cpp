@@ -112,7 +112,7 @@ M2C_UNK TAdEndText__sub_8001A998(s32, f32, f32, f32);
 M2C_UNK TLobby__sub_800FBFD8(s32, f32, f32, f32);
 u32 __cvt_fp2unsigned(f32);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
+M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
@@ -209,14 +209,14 @@ void render__10TAdEndTextFv(u8 *arg0) {
             break;
         case 0x21:
             set_global_param__8TObjFishFi(TAdEndText__data_805D49F4);
-            TWindowSubStatusDisp__sub_803DEE6C(1);
+            begin_screen_draw(1);
             TWindowSubStatusDisp__sub_803DF160(3, -1);
             draw_textured_quad_at_depth(&self->box1, lbl_805D7E18);
             get_player__20TWindowSubStatusDispFv();
             break;
         case 0x40:
             set_global_param__8TObjFishFi(TAdEndText__data_805D49F4);
-            TWindowSubStatusDisp__sub_803DEE6C(1);
+            begin_screen_draw(1);
             TWindowSubStatusDisp__sub_803DF160(4, -1);
             draw_textured_quad_at_depth(&self->box2, lbl_805D7E18);
             get_player__20TWindowSubStatusDispFv();

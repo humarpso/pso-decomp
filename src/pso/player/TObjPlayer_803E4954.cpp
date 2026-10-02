@@ -26,14 +26,14 @@ void TObjPlayer__sub_803D7B68(void *);
 extern s32 lbl_804FA50C[];
 extern A_803E4BDC *lbl_805D4698;
 extern B_803E4BDC *lbl_805D76BC;
-void TObjEneSlimeOne__sub_803E4AF4(void *arg0, void *arg1, f32 farg0);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 M2C_UNK TObjPlayer__sub_803E4354();
 M2C_UNK TObjPlayer__sub_803E4468();
 void TObjPlayer__sub_803E44D4();
 void TObjPlayer__sub_803E496C(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK TObjPlayer__sub_803D749C(void *);
 M2C_UNK TBoss8Dragon__sub_803D78A8(int);
-void TObjPlayer__sub_803E4A94(void *arg0, void *arg1, f32 farg0);
+void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0);
 M2C_UNK TObjPlayer__sub_803E4354();
 M2C_UNK TObjPlayer__sub_803E4468();
 void TObjPlayer__sub_803E44D4();
@@ -107,13 +107,13 @@ s32 TObjPlayer__sub_803E49FC(void *arg) {
     } while (arg0 != NULL);
 }
 
-void TObjPlayer__sub_803E4A94(void *arg0, void *arg1, f32 farg0) {
+void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0) {
     TObjPlayer__sub_803E4354();
     ((M2C_UNK (*)(void *, void *, f32, void (*)()))TObjPlayer__sub_803E496C)(arg0, arg1, farg0, TObjPlayer__sub_803E44D4);
     TObjPlayer__sub_803E4468();
 }
 
-void TObjEneSlimeOne__sub_803E4AF4(void *arg0, void *arg1, f32 farg0) {
+void draw_model_motion(void *arg0, void *arg1, f32 farg0) {
     TObjPlayer__sub_803E4354();
     ((M2C_UNK (*)(void *, void *, f32, void (*)()))TObjPlayer__sub_803E4BDC)(arg0, arg1, farg0, TObjPlayer__sub_803E44D4);
     TObjPlayer__sub_803E4468();

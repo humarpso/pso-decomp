@@ -45,7 +45,7 @@ extern Ports_80306DF4 lbl_80475410;
 extern Pad_80306DF4 lbl_8050E3B8[];
 void TAdMultiOkGC__sub_80306DF4(void *arg0, int arg1);
 M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
+M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, s32);
@@ -66,7 +66,7 @@ void TAdMultiOkGC__sub_80306B04(void *arg0, int arg1) {
     f32 base;
     e = (E_80306B04 *)arg0;
     if (e[arg1].flags & 2) {
-        TWindowSubStatusDisp__sub_803DEE6C(1);
+        begin_screen_draw(1);
         set_global_param__8TObjFishFi(lbl_805D6A48);
         e += arg1;
         base = lbl_805DF040 * (f32)arg1;

@@ -11,8 +11,8 @@ M2C_UNK set_global_state__16TObjEneRe7BeruraFi(s32);
 M2C_UNK TPlyPhotonChair__sub_80142770(s32);
 M2C_UNK TPlyPhotonChair__sub_80142774();
 M2C_UNK reset_transform_state__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_803E4A94(s32, void *, f32);
-M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
+M2C_UNK draw_model_blend_motion(s32, void *, f32);
+M2C_UNK draw_model_motion(s32, s32, f32);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 
@@ -22,10 +22,10 @@ void draw__16TObjEneRe7BeruraFPv(u8 *arg0) {
     set_global_flag__10TObjPlayerFv();
     TPlyPhotonChair__sub_80142774();
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 4) {
-        TObjPlayer__sub_803E4A94(M2C_FIELD(arg0, s32 *, 0x34), arg0 + 0xE4, M2C_FIELD(arg0, f32 *, 0xC0));
+        draw_model_blend_motion(M2C_FIELD(arg0, s32 *, 0x34), arg0 + 0xE4, M2C_FIELD(arg0, f32 *, 0xC0));
     } else {
         set_global_state__16TObjEneRe7BeruraFi(lbl_805D7810);
-        TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
+        draw_model_motion(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
         set_global_state__16TObjEneRe7BeruraFi(0);
     }
     reset_transform_state__10TObjPlayerFv();

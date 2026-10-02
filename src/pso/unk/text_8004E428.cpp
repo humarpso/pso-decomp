@@ -10,7 +10,7 @@ struct S_8004E634 {
 
 extern "C" {
 void fn_8004AA04(void *);
-void TCameraCtrl__sub_80069DA8();
+void restore_player_cameras();
 void request_destroy__11TBoss4Type2FUi(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, s32);
 void __dl__7TObjectFPv(void *);
@@ -31,7 +31,7 @@ S_8004E634 *fn_8004E634(S_8004E634 *o, s16 flag) {
                 o->ptr[i] = 0;
             }
         }
-        TCameraCtrl__sub_80069DA8();
+        restore_player_cameras();
         destroy_particle__13TParticleCtrlFPvs(o, 0);
         if (flag > 0) {
             __dl__7TObjectFPv(o);

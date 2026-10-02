@@ -79,7 +79,7 @@ s32 approach_camera_vector(void *, void *, f32);
 extern RecoveredGlobal_8006B4A0_lbl_804381E0 lbl_804381E0;
 extern s32 TCameraCtrl__data_805D4E10;
 extern const f32 lbl_805D8FF8;
-void TCameraCtrl__sub_8006B4A0(u8 *arg0);
+void update_fixed_npc_camera(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen(void);
 void TCameraCtrl__sub_80069C94(void *, void *);
@@ -118,7 +118,7 @@ void create__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
 void *destroy__11TCameraCtrlFPvs(void *arg0, s16 arg1);
 void update_active_player__11TCameraCtrlFv(void);
 void update_battle_camera__11TCameraCtrlFv(void);
-M2C_UNK TCameraCtrl__sub_80069DA8();
+M2C_UNK restore_player_cameras();
 void *TCameraCtrl__sub_8006BA68(void *);
 void TCameraCtrl__sub_8006CCEC();
 M2C_UNK TObjPlayer__sub_801B12CC();
@@ -165,7 +165,7 @@ u8 *TCameraCtrl__sub_8006B438(s32 arg0) {
 }
 
 typedef char RecoveredGlobal_8006B4A0_lbl_804381E0_size[sizeof(RecoveredGlobal_8006B4A0_lbl_804381E0) == 0x1E0 ? 1 : -1];
-void TCameraCtrl__sub_8006B4A0(u8 *arg0) {
+void update_fixed_npc_camera(u8 *arg0) {
     approach_camera_vector(arg0 + 0x1C, (u8 *)&lbl_804381E0.value + (M2C_FIELD(arg0, s32 *, 0x34) * 0x18), lbl_805D8FF8);
     approach_camera_vector(arg0 + 0x28, (u8 *)&lbl_804381E0.value + (M2C_FIELD(arg0, s32 *, 0x34) * 0x18) + 0xC, lbl_805D8FF8);
     TCameraCtrl__data_805D4E10 = 1;
@@ -175,7 +175,7 @@ void TCameraCtrl__sub_8006B4A0(u8 *arg0) {
 void *TCameraCtrl__sub_8006B520(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, const M2C_UNK **, 0x18) = lbl_80488AD8;
-        TCameraCtrl__sub_80069DA8();
+        restore_player_cameras();
         TCameraCtrl__data_805D4E10 = 0;
         __dt__7TObjectFv((void *)(arg0), (int)(0));
         if (arg1 > 0) {

@@ -38,7 +38,7 @@ void TWindowSubStatusDisp__sub_802589AC(u8 *arg0, s8 arg1, s8 arg2, u8 arg3, u32
 s32 TLobby__sub_8001DC24();
 s32 get_download_server__20TWindowSubStatusDispFv();
 s32 TWindowSubStatusDisp__sub_80228F5C(void *);
-s32 TWindowSubStatusDisp__sub_80229080(int);
+s32 text_builder_append(int);
 s32 TWindowSubStatusDisp__sub_802290E0();
 s32 TWindowSubStatusDisp__sub_80259268(void *, s32, s32, s32, s32);
 extern const f32 lbl_805DCF08;
@@ -46,7 +46,7 @@ void TWindowSubStatusDisp__sub_80258A28(u8 *arg0, s32 arg1, s32 arg2);
 void TWindowSubStatusDisp__sub_80258CB8(Obj_80258BB8 *o, s32 x);
 extern const f32 lbl_805DCF04;
 void TWindowSubStatusDisp__sub_80258BB8(Obj_80258BB8 *o, s32 x);
-void TWindowSubStatusDisp__sub_802586FC(void *arg0, s32 arg1, u8 arg2, u8 arg3, s32 arg4);
+void select_item_icon__20TWindowSubStatusDispFPviUcUci(void *arg0, s32 arg1, u8 arg2, u8 arg3, s32 arg4);
 }
 
 extern "C" {
@@ -218,7 +218,7 @@ void update_item_colors__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
 
 extern const f32 lbl_805DCF08;
 
-void TWindowSubStatusDisp__sub_802586FC(void *arg0, s32 arg1, u8 arg2, u8 arg3, s32 arg4) {
+void select_item_icon__20TWindowSubStatusDispFPviUcUci(void *arg0, s32 arg1, u8 arg2, u8 arg3, s32 arg4) {
     if (arg4 != 0) {
         M2C_FIELD(arg0, s8 *, 0x1D) = 8;
         return;
@@ -324,7 +324,7 @@ void TWindowSubStatusDisp__sub_80258A28(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s8 *, 0x1D) = 9;
     TWindowSubStatusDisp__sub_802290E0();
     TWindowSubStatusDisp__sub_80228F5C((void *) (arg1));
-    TWindowSubStatusDisp__sub_80229080((int) (get_download_server__20TWindowSubStatusDispFv()));
+    text_builder_append((int) (get_download_server__20TWindowSubStatusDispFv()));
     M2C_FIELD(arg0, s32 *, 0x24) = TWindowSubStatusDisp__sub_80259268((void *)((void *) (arg0)), (s32)((int) (TLobby__sub_8001DC24())), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x24))), (s32)((int) (0x10)), (s32)((int) (1)));
     M2C_FIELD(arg0, s32 *, 0x34) = -1;
     M2C_FIELD(arg0, s32 *, 0x18) = arg2;

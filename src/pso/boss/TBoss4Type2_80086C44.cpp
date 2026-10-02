@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 extern s32 lbl_805D2948;
 extern Ent_800868C4 *lbl_805D4EF8;
 extern Ent_800868C4 *lbl_805D4EFC;
-void *TBoss7LaserPtcl__sub_80086C6C(void *pos, void *dir, s32 id, s32 flags);
+void *create_oneshot_particle_emitter(void *pos, void *dir, s32 id, s32 flags);
 }
 
 extern "C" {
@@ -24,7 +24,7 @@ void request_destroy__11TBoss4Type2FUi(u32 arg0) {
 }
 #pragma push
 #pragma opt_propagation off
-void *TBoss7LaserPtcl__sub_80086C6C(void *pos, void *dir, s32 id, s32 flags) {
+void *create_oneshot_particle_emitter(void *pos, void *dir, s32 id, s32 flags) {
     void *p;
     s32 idx = id;
     if (lbl_805D2948 > idx) {

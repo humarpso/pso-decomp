@@ -30,7 +30,7 @@ u8 fn_801D9870(void *, s16);
 s32 validate_and_clear_slot__10TObjPlayerFPv(void *, s16);
 void TWindowSubStatusDisp__sub_80228D80();
 void TWindowSubStatusDisp__sub_80228F5C(s32);
-void TWindowSubStatusDisp__sub_80229080();
+void text_builder_append();
 void TWindowSubStatusDisp__sub_802290E0();
 u8 *TTecCtrl__sub_8022DBC4(u16, u8, s32);
 s32 TWindowHelpItem__sub_802434B8(u16, s32);
@@ -38,7 +38,7 @@ void TWindowHelpItem__sub_80255DC8(s32);
 void fn_80263A20(s32, s32);
 void send_and_handle__6TLobbyFPvii(s32, s32, s32);
 extern s32 lbl_805D5544;
-void TWindowSubStatusDisp__sub_802758C8(Win_802758C8 *self, Ev_802758C8 *ev);
+void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev);
 s32 TWindowSubComCard__sub_8007A8F8(M2C_UNK);
 s32 TWindowSubComCard__sub_8007AFB8(void);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
@@ -190,7 +190,7 @@ u8 *TWindowSubComCardList__sub_802757AC(u8 *arg0, void *arg1, s32 arg2, s32 arg3
     return arg0;
 }
 
-void TWindowSubStatusDisp__sub_802758C8(Win_802758C8 *self, Ev_802758C8 *ev) {
+void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev) {
     u8 *pl;
     s32 lvl;
     fn_80263A20(self->lobby, self->player);
@@ -215,35 +215,35 @@ void TWindowSubStatusDisp__sub_802758C8(Win_802758C8 *self, Ev_802758C8 *ev) {
             break;
         }
         TWindowHelpItem__sub_80255DC8(ev->id + 0x13);
-        TWindowSubStatusDisp__sub_80229080();
+        text_builder_append();
         break;
     case 3:
         if (validate_and_clear_slot__10TObjPlayerFPv(pl + 0x428, ev->id) != 0) {
             break;
         }
         TItemData__sub_80076E84(ev->id);
-        TWindowSubStatusDisp__sub_80229080();
+        text_builder_append();
         if (ev->id != 0x11 && ev->id != 0xE) {
             lvl = fn_801D9870(pl + 0x428, ev->id);
             if (lbl_805D5544 != 0) {
                 TWindowSubStatusDisp__sub_80228D80();
             }
             TWindowHelpItem__sub_80255DC8(0x2D);
-            TWindowSubStatusDisp__sub_80229080();
+            text_builder_append();
             TWindowSubStatusDisp__sub_80228F5C(lvl + 1);
         }
         TWindowHelpItem__sub_80255DC8(0x2E);
-        TWindowSubStatusDisp__sub_80229080();
+        text_builder_append();
         TWindowSubStatusDisp__sub_80228F5C(*(s16 *)(TTecCtrl__sub_8022DBC4(ev->id, lvl, 0xFFFF) + 0x10));
         TWindowHelpItem__sub_80255DC8(ev->id);
-        TWindowSubStatusDisp__sub_80229080();
+        text_builder_append();
         break;
     case 4:
         if (TWindowHelpItem__sub_802434B8(ev->id, self->player) == -1) {
             break;
         }
         TWindowHelpItem__sub_80255DC8(ev->id + 0x16);
-        TWindowSubStatusDisp__sub_80229080();
+        text_builder_append();
         break;
     case 7:
         break;

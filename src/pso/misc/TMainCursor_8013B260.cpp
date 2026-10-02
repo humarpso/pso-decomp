@@ -14,7 +14,7 @@ void set_type__11TMainCursorFPvi(void *, s32);
 extern const f32 TMainCursor__data_805DB0C0;
 void TMainCursor__sub_8013B3AC(u8 *arg0);
 s32 TMainCursor__sub_8013DF08(PaletteCursorOverride*);
-s32 TObjPlayer__sub_801CD078(TObjPlayer*, s32);
+s32 can_start_technique__10TObjPlayerFPvi(TObjPlayer*, s32);
 s32 canSetMenuCursorAction(PaletteCursorOverride* cursor, TObjPlayer* player, u8 kind, u8 parameter);
 void TMainCursor__sub_8013B398(void *arg0, void *arg1);
 s16 TMainCursor__sub_8013E298(Ent_8013B2C8 *);
@@ -97,7 +97,7 @@ s32 canSetMenuCursorAction(PaletteCursorOverride* cursor, TObjPlayer* player, u8
         default: return 0;
         }
     case 3:
-        return TObjPlayer__sub_801CD078(player, parameter);
+        return can_start_technique__10TObjPlayerFPvi(player, parameter);
     default:
         return 0;
     }

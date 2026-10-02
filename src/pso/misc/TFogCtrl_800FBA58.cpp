@@ -47,7 +47,7 @@ struct FogParam_800FBC5C {
 extern "C" {
 s32 render_forward__20TWindowSubStatusDispFPv();
 s32 reset_transform_state__10TObjPlayerFv();
-s32 TWindowSubStatusDisp__sub_803DEE6C(int);
+s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 TWindowSubStatusDisp__sub_803DF160(int, void *);
@@ -80,7 +80,7 @@ s32 TWindowSubStatusDisp__sub_800FC248(s32);
 void build_small_font_glyph_quad(s32, Pos_800FBEA8 *);
 s32 render_forward__20TWindowSubStatusDispFPv();
 s32 reset_transform_state__10TObjPlayerFv();
-s32 TWindowSubStatusDisp__sub_803DEE6C(int);
+s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 TWindowSubStatusDisp__sub_803DF160(int, void *);
@@ -90,7 +90,7 @@ s32 TWindowSubStatusDisp__sub_800FC248(s32);
 void build_small_font_glyph_quad(s32, Pos_800FBEA8 *);
 s32 render_forward__20TWindowSubStatusDispFPv();
 s32 reset_transform_state__10TObjPlayerFv();
-s32 TWindowSubStatusDisp__sub_803DEE6C(int);
+s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 TWindowSubStatusDisp__sub_803DF160(int, void *);
@@ -275,7 +275,7 @@ void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg
     f32 temp_f7;
     f32 temp_f8;
     reset_transform_state__10TObjPlayerFv();
-    TWindowSubStatusDisp__sub_803DEE6C((int) (1));
+    begin_screen_draw((int) (1));
     render_forward__20TWindowSubStatusDispFPv();
     TWindowSubStatusDisp__sub_803DF160((int) (0), (void *) (arg0));
     stack.sp8 = farg0;
@@ -306,7 +306,7 @@ void TWindowSubStatusDisp__sub_800FBEA8(void *color, s16 value, u16 digits, f32 
     s32 id;
     s32 i;
     reset_transform_state__10TObjPlayerFv();
-    TWindowSubStatusDisp__sub_803DEE6C(1);
+    begin_screen_draw(1);
     render_forward__20TWindowSubStatusDispFPv();
     TWindowSubStatusDisp__sub_803DF160(0, color);
     for (i = 0; i < digits; i++) {
@@ -325,7 +325,7 @@ void TLobby__sub_800FBFD8(void *color, const char *s, f32 x, f32 y, f32 scale) {
     Pos_800FBFD8 pos;
     s32 id;
     reset_transform_state__10TObjPlayerFv();
-    TWindowSubStatusDisp__sub_803DEE6C(1);
+    begin_screen_draw(1);
     render_forward__20TWindowSubStatusDispFPv();
     TWindowSubStatusDisp__sub_803DF160(0, color);
     while (*s != 0) {

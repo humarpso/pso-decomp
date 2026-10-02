@@ -12,7 +12,7 @@ struct Stack_80010A84 {
 
 extern "C" {
 s32 obj_getField1c(s32);
-s32 TBoss7LaserPtcl__sub_80086C6C(void *, void *, int, int);
+s32 create_oneshot_particle_emitter(void *, void *, int, int);
 s32 set_owner_id__13TParticleCtrlFPvUs(s32, s32);
 void enemy_spawn_zalure_effect(s32 arg0);
 }
@@ -35,7 +35,7 @@ void enemy_spawn_zalure_effect(s32 arg0) {
     stack.spC = 0;
     stack.sp8 = 0;
     stack.sp10 = -0x8000;
-    temp_r3 = TBoss7LaserPtcl__sub_80086C6C((void *) (arg0 + 0x2FC), (void *) (&stack.sp8), (int) (0x1FE), (int) (0x50));
+    temp_r3 = create_oneshot_particle_emitter((void *) (arg0 + 0x2FC), (void *) (&stack.sp8), (int) (0x1FE), (int) (0x50));
     if (temp_r3 != 0) {
         set_owner_id__13TParticleCtrlFPvUs((s32)((int) (temp_r3)), (s32)((void *) (obj_getField1c((s32)((void *) (arg0))))));
     }

@@ -76,7 +76,7 @@ s32 reset_volopt_state__10TObjPlayerFv(void *obj);
 s32 obj_getField1c(void *obj);
 u8 fn_801D9870(void *techs, s16 tech);
 Rec_801CD078 *TTecCtrl__sub_8022DBC4(s32 tech, s32 level, s32 id);
-s32 TObjPlayer__sub_801CD078(Player_801CD078 *self, s32 tech);
+s32 can_start_technique__10TObjPlayerFPvi(Player_801CD078 *self, s32 tech);
 void run_action_state_phase__10TObjPlayerFisi(void *obj, s16 a, s32 b);
 TechData_801CD424 *get_technique_data__10TObjPlayerFPv(void *techs);
 s32 obj_getField1c(void *obj);
@@ -92,7 +92,7 @@ s32 obj_isState2_324(void *obj);
 s16 ret_801D26AC();
 s16 get_status__10TObjPlayerFPv(void *obj);
 void set_action_state__10TObjPlayerFPvss(void *obj, s16 a, s16 b);
-void TObjPlayer__sub_801CD424(Player_801CD424 *self);
+void enter_technique_cast__10TObjPlayerFPv(Player_801CD424 *self);
 void TObjPlayer__sub_8011E204(void *obj, s32 v);
 void obj_clearFlags30(void *obj, u32 flags);
 void clear_status_bit6__10TObjPlayerFPv(void *obj);
@@ -151,7 +151,7 @@ void handle_6x8D_set_technique_level_override(void *arg0);
 
 extern "C" {
 
-s32 TObjPlayer__sub_801CD078(Player_801CD078 *self, s32 tech) {
+s32 can_start_technique__10TObjPlayerFPvi(Player_801CD078 *self, s32 tech) {
     if (test_bit1_at_10__10TObjPlayerFPv(self->techs) != 0 ||
         obj_testFlags30(self, 0x20006) != 0 ||
         obj_testFlags30(self, 0x2000000) != 0 ||
@@ -236,7 +236,7 @@ void update_technique_cast__10TObjPlayerFPv(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_801CD424(Player_801CD424 *self) {
+void enter_technique_cast__10TObjPlayerFPv(Player_801CD424 *self) {
     TechData_801CD424 *td;
     u16 target;
     Obj_801CD424 *o;

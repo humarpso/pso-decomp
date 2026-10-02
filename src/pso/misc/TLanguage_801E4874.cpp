@@ -32,7 +32,7 @@ void TGStream__sub_800FDBA8(s32, u32);
 void debug_print__6TLobbyFii(void *, ...);
 u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1);
 void read_into_buffer__9TLanguageFii(s32 arg0, s32 arg1);
-void TLobby__sub_803DE084(u32, u8 *);
+void load_gvm_texture_archive(u32, u8 *);
 extern u8 lbl_8044981C[];
 extern u8 lbl_8044983C[];
 extern s32 lbl_805D5E58;
@@ -115,7 +115,7 @@ u8 *TLanguage__sub_801E4874(s32 arg0) {
             lbl_805D5E58 += 4;
         }
     }
-    TLobby__sub_803DE084(buf, res);
+    load_gvm_texture_archive(buf, res);
     if (big != 0) {
         safe_free__23TAdSinglePlyChrSelectGCFUi(big);
     } else {

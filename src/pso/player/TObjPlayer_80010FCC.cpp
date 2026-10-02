@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-int TOMineTrap__sub_80010F54(void* a0 = 0, void* a1 = 0);
+int record_attack_source(void* a0 = 0, void* a1 = 0);
 
 s32 add_id_to_slots__10TObjPlayerFiUs(void *, s32);
 s32 obj_getArrU16_FC(s32, s32);
@@ -20,7 +20,7 @@ void TObjPlayer__sub_80011010(void);
 
 void attach_mine_trap__10TObjPlayerFiUi(s32 arg0, u32 arg1) {
     if (arg1 != 0U) {
-        TOMineTrap__sub_80010F54((void*)(arg0), (void*)(obj_getField1c(arg1)));
+        record_attack_source((void*)(arg0), (void*)(obj_getField1c(arg1)));
     }
 }
 

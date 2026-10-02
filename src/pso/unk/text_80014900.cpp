@@ -4,12 +4,12 @@ struct Obj_80014C1C { u8 pad0[0x30]; u32 f30; u8 pad34[0x254 - 0x34]; u8 f254[0x
 extern "C" {
 int obj_getArrWord_254(void *p, int i);
 void TObjPlayer__sub_800192DC(void *p);
-void TObjPlayer__sub_80014C1C(Obj_80014C1C *self);
+void cure_poison_ailment(Obj_80014C1C *self);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_80014C1C(Obj_80014C1C *self) {
+void cure_poison_ailment(Obj_80014C1C *self) {
     switch (obj_getArrWord_254(self, 0)) {
     case 0xf:
         self->f30 &= ~3;

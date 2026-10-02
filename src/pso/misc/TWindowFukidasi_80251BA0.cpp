@@ -24,14 +24,14 @@ extern const f32 lbl_805DCCEC;
 extern const f32 lbl_805DCCF0;
 extern const f32 TWindowFukidasi__data_805DCD30;
 extern const f32 lbl_805DCD50;
-void TWindowFukidasi__sub_80251BA0(u8 *arg0, s32 arg1, s32 arg2);
+void set_text__15TWindowFukidasiFPvii(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
 
 typedef struct RecoveredGlobal_80251BA0_lbl_804CF080 RecoveredGlobal_80251BA0_lbl_804CF080;
 #pragma fp_contract on
-void TWindowFukidasi__sub_80251BA0(u8 *arg0, s32 arg1, s32 arg2) {
+void set_text__15TWindowFukidasiFPvii(u8 *arg0, s32 arg1, s32 arg2) {
   u32 new_var;
   u8 *temp_r3;
   init_flags__15TWindowFukidasiFPvi((void *) arg0, (void *) arg2);

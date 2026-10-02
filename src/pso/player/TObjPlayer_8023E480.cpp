@@ -21,7 +21,7 @@ s32 alloc__22TQuestVmDownLoadServerFPv(s32);
 void TLobby__sub_800F7DAC(s32, s32);
 s32 set_stream_and_load_file__6TLobbyFi(void *);
 s32 sprintf(char *, const char *, ...);
-void TLobby__sub_803DE084(s32, s32);
+void load_gvm_texture_archive(s32, s32);
 extern char lbl_8044DCE0[];
 extern char lbl_80516260[];
 s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1);
@@ -32,7 +32,7 @@ s32 sprintf(char *, const char *, ...);
 s32 TLobby__sub_803CC53C();
 void TLobby__sub_803CCE9C(s32);
 s32 TLobby__sub_803CD3A8(void *, s32);
-void TLobby__sub_803DE084(s32, s32);
+void load_gvm_texture_archive(s32, s32);
 s32 xmalloc__FUl(M2C_UNK);
 void xfree__FPv(s32);
 extern char lbl_8044DCE0[];
@@ -77,7 +77,7 @@ s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1) {
     }
     buf = alloc__22TQuestVmDownLoadServerFPv(0x100000);
     TLobby__sub_800F7DAC(h, buf);
-    TLobby__sub_803DE084(buf, arg1);
+    load_gvm_texture_archive(buf, arg1);
     safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
     safe_free__23TAdSinglePlyChrSelectGCFUi(h);
     return 1;
@@ -96,7 +96,7 @@ s32 TLobby__sub_8023E554(s32 arg0, s32 arg1) {
         if (TLobby__sub_800F9DF4(lbl_805161E0, b) != -1) {
             c = xmalloc__FUl((M2C_UNK)(0x200000));
             TLobby__sub_800F7DAC(b, c);
-            TLobby__sub_803DE084(c, arg1);
+            load_gvm_texture_archive(c, arg1);
             xfree__FPv(c);
         }
         xfree__FPv(b);

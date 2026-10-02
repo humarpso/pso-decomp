@@ -35,7 +35,7 @@ VObj_18_7b3651 *get_player_by_client_id(s32);
 void TWindowSubStatusDisp__sub_80228D80(void);
 void TWindowChallengeResult__sub_80228DB4(s32, s32);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
-void TWindowSubStatusDisp__sub_80229080(void *);
+void text_builder_append(void *);
 void TWindowSubStatusDisp__sub_802290E0(void);
 extern char *lbl_8049CA40[];
 extern Ent_800FC968 lbl_80509D5C[];
@@ -85,28 +85,28 @@ s32 TWindowSubStatusDisp__sub_800FC968(s32 arg0) {
     TWindowSubStatusDisp__sub_802290E0();
     switch (mode) {
     case 0:
-        TWindowSubStatusDisp__sub_80229080(name);
+        text_builder_append(name);
         break;
     case 1:
-        TWindowSubStatusDisp__sub_80229080(name);
+        text_builder_append(name);
         TWindowSubStatusDisp__sub_80228D80();
-        TWindowSubStatusDisp__sub_80229080(lbl_8049CA40[idx]);
+        text_builder_append(lbl_8049CA40[idx]);
         TWindowChallengeResult__sub_80228DB4(lvl + 1, 3);
         break;
     case 2:
         if ((s8)info[0x33] < 2) {
             return 0;
         }
-        TWindowSubStatusDisp__sub_80229080(lbl_805DA9F4);
+        text_builder_append(lbl_805DA9F4);
         TWindowSubStatusDisp__sub_80228F5C(lbl_80509D5C[arg0].a);
-        TWindowSubStatusDisp__sub_80229080(lbl_805DA9F8);
+        text_builder_append(lbl_805DA9F8);
         TWindowSubStatusDisp__sub_80228F5C(lbl_80509D5C[arg0].b);
         break;
     case 3:
         if ((s8)info[0x33] < 2) {
             return 0;
         }
-        TWindowSubStatusDisp__sub_80229080(TWindowSubStatusDisp__sub_80071820(lbl_80509D5C[arg0].name));
+        text_builder_append(TWindowSubStatusDisp__sub_80071820(lbl_80509D5C[arg0].name));
         break;
     case 4:
         return 0;

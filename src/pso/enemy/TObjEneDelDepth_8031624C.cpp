@@ -30,7 +30,7 @@ M2C_UNK TObjFish__sub_8001EDB0(M2C_UNK, int);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(int);
 M2C_UNK get_data__15TObjEneDelDepthFv();
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
+M2C_UNK draw_model_motion(int, int, f32);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 void TObjEneDelDepth__sub_803162A8(u8 *arg0);
@@ -88,15 +88,15 @@ void TObjEneDelDepth__sub_803162A8(u8 *arg0) {
         if (temp_r0 < 0xA) {
             set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0xC)));
             set_global_flag__10TObjPlayerFv();
-            TObjEneSlimeOne__sub_803E4AF4((int) (M2C_FIELD(arg0, s32 *, 8)), (int) (M2C_FIELD(arg0, s32 *, 0x10)), (f32) (M2C_FIELD(arg0, f32 *, 0x28)));
+            draw_model_motion((int) (M2C_FIELD(arg0, s32 *, 8)), (int) (M2C_FIELD(arg0, s32 *, 0x10)), (f32) (M2C_FIELD(arg0, f32 *, 0x28)));
             clear_global_state__10TObjPlayerFv();
             return;
         }
         set_global_flag__10TObjPlayerFv();
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0xC)));
-        TObjEneSlimeOne__sub_803E4AF4((int) (M2C_FIELD(arg0, s32 *, 8)), (int) (M2C_FIELD(arg0, s32 *, 0x10)), (f32) (M2C_FIELD(arg0, f32 *, 0x28)));
+        draw_model_motion((int) (M2C_FIELD(arg0, s32 *, 8)), (int) (M2C_FIELD(arg0, s32 *, 0x10)), (f32) (M2C_FIELD(arg0, f32 *, 0x28)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x18)));
-        TObjEneSlimeOne__sub_803E4AF4((int) (M2C_FIELD(arg0, s32 *, 0x14)), (int) (M2C_FIELD(arg0, s32 *, 0x1C)), (f32) (M2C_FIELD(arg0, f32 *, 0x28)));
+        draw_model_motion((int) (M2C_FIELD(arg0, s32 *, 0x14)), (int) (M2C_FIELD(arg0, s32 *, 0x1C)), (f32) (M2C_FIELD(arg0, f32 *, 0x28)));
         clear_global_state__10TObjPlayerFv();
     }
 }

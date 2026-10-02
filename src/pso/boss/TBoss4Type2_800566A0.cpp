@@ -233,7 +233,7 @@ M2C_UNK TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
 M2C_UNK update_camera_target__14TBoss6PlotFalzFv();
 M2C_UNK TBoss6PlotFalz__sub_802AC008(f32, f32);
 M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
+M2C_UNK draw_model_motion(s32, s32, f32);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 extern s32 lbl_804867C0[];
@@ -536,7 +536,7 @@ void TBoss4Type2__sub_80057270(Obj_80057270 *arg0) {
             some_id_805c6f74 |= 0x20000;
             TObjEneRe4Sorcerer__sub_801E3F1C(TBoss4Type2__data_805D8BAC, arg0->f3c0);
             TObjFish__sub_800E3074(arg0->f44c);
-            TObjEneSlimeOne__sub_803E4AF4(get_bml_model(arg0->f390, lbl_804867C0[i]),
+            draw_model_motion(get_bml_model(arg0->f390, lbl_804867C0[i]),
                 TObjFish__sub_8001ED9C((s32)(arg0->f390), (s32)(((Row_80057270 *)&TBoss4Type2__data_804867C8)[arg0->f3c8].c[i])),
                 arg0->f3d0);
             clear_render_callback__8TObjFishFv(arg0->f44c);
@@ -544,7 +544,7 @@ void TBoss4Type2__sub_80057270(Obj_80057270 *arg0) {
             break;
         default:
             TBoss6PlotFalz__sub_802AC008(arg0->f3f0, arg0->f3f4);
-            TObjEneSlimeOne__sub_803E4AF4(get_bml_model(arg0->f390, lbl_804867C0[i]),
+            draw_model_motion(get_bml_model(arg0->f390, lbl_804867C0[i]),
                 TObjFish__sub_8001ED9C((s32)(arg0->f390), (s32)(((Row_80057270 *)&TBoss4Type2__data_804867C8)[arg0->f3c8].c[i])),
                 arg0->f3d0);
             update_camera_target__14TBoss6PlotFalzFv();

@@ -52,7 +52,7 @@ void TObjPlayer__sub_803D9B2C(void);
 void pop_matrix(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(s32);
-void TObjEneSlimeOne__sub_803E4AF4(s32, Anim_802F3D6C *, f32);
+void draw_model_motion(s32, Anim_802F3D6C *, f32);
 void set_global_flag__10TObjPlayerFv(void);
 void clear_global_state__10TObjPlayerFv(void);
 extern s32 lbl_805D5560;
@@ -131,7 +131,7 @@ void TBoss8Dragon__sub_802F3D6C(u8 *arg0) {
             f = anim->nframes;
         }
         set_global_flag__10TObjPlayerFv();
-        TObjEneSlimeOne__sub_803E4AF4(*(s32 *)(arg0 + 0x34), anim, f);
+        draw_model_motion(*(s32 *)(arg0 + 0x34), anim, f);
         clear_global_state__10TObjPlayerFv();
         TObjLight__sub_801337F8(lbl_805D5560);
         pop_matrix();

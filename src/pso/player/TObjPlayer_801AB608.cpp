@@ -110,7 +110,7 @@ s32 spawn_particle_effect(void *, int);
 s32 advance_animation_playback(void *);
 s32 find_entity_by_id(int);
 s32 TCameraCtrl__sub_801A7310(void *, int);
-s32 TObjPlayer__sub_801A7680(void *);
+s32 update_photon_blast_attachments(void *);
 s32 TObjPlayer__sub_801A7748(void *, int);
 s32 update_state__10TSceneSoraFPv(void *);
 s32 TPhotonMagicSquare__ct(int, void *, int, void *, int, f32);
@@ -180,12 +180,12 @@ void rotate_vector_by_matrix(int, void *, void *);
 void TCameraCtrl__sub_803D9858(int);
 f32 TObjPlayer__sub_803D89C0(void *, void *);
 u16 obj_getField1c(void *);
-void TObjPlayer__sub_801A720C(u32, int, int, f32);
+void queue_photon_blast_hit(u32, int, int, f32);
 extern u8 lbl_8058D490[];
 extern const float lbl_805DC188;
 extern const f32 lbl_805DC190;
 extern const f32 lbl_805DC19C;
-void TObjPlayer__sub_801AB868(void *arg0);
+void collect_hit_targets__12TPhotonGollaFPv(void *arg0);
 }
 
 extern "C" {
@@ -277,7 +277,7 @@ s32 TObjPlayer__sub_801AB6A0(void *arg0) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_loop_invariants off
-void TObjPlayer__sub_801AB868(void *arg0) {
+void collect_hit_targets__12TPhotonGollaFPv(void *arg0) {
     s32 i;
     Target_801AB868 *candidate;
     init_all_slots__10TObjPlayerFv();
@@ -333,7 +333,7 @@ void TObjPlayer__sub_801AB868(void *arg0) {
         }
     }
     if (self->f1a8 != NULL) {
-        TObjPlayer__sub_801A720C(obj_getField1c(self->f1a8), 2, 0, self->f150);
+        queue_photon_blast_hit(obj_getField1c(self->f1a8), 2, 0, self->f150);
     }
     self->f19c = self->f1a8;
 }
@@ -399,7 +399,7 @@ void TObjPlayer__sub_801ABBAC(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 0x1B8) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);
     update_state__10TSceneSoraFPv((void *) (arg0));
     advance_animation_playback((void *) (arg0));
-    TObjPlayer__sub_801A7680((void *) (arg0));
+    update_photon_blast_attachments((void *) (arg0));
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (M2C_FIELD(arg0, s16 *, 0x14C) + 0xF);
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (u8) M2C_FIELD(arg0, s16 *, 0x14C);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C8) == 0x50) {

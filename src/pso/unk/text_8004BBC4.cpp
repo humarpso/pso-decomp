@@ -50,7 +50,7 @@ u8 * __dt__9TObjEnemyFv(void *, s16);
 s32 send_entity_set_flags__6TLobbyFPv(void *);
 void __dl__7TObjectFPv(s32);
 M2C_UNK TBoss4DarkFalz__sub_8004BA18(void *);
-M2C_UNK TCameraCtrl__sub_80069DA8();
+M2C_UNK restore_player_cameras();
 M2C_UNK TLobby__sub_8022743C();
 extern M2C_UNK __vt__14TBoss4DarkFalz[];
 extern void *TBoss4DarkFalz__data_805D4D5C;
@@ -106,7 +106,7 @@ u8 *__dt__14TBoss4DarkFalzFv(u8 *arg0, s16 arg1) {
             break;
         }
         TBoss4DarkFalz__sub_8004BA18((void *) (arg0));
-        TCameraCtrl__sub_80069DA8();
+        restore_player_cameras();
         if (is_ending_or_split_screen__14TBoss4DarkFalzFv() == 0) {
             TLobby__sub_8022743C();
         }

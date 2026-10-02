@@ -17,7 +17,7 @@ M2C_UNK TObjPlayer__sub_800112D4(s32, s16);
 M2C_UNK add_actor_hp(s32, s16);
 M2C_UNK TObjectV8047c128_subtract_hp(s32, s16);
 M2C_UNK TObjPlayer__sub_80015C68(s32);
-M2C_UNK TObjPlayer__sub_80016018(s32, s32, M2C_UNK, s16);
+M2C_UNK show_meseta_label(s32, s32, M2C_UNK, s16);
 M2C_UNK show_tp_font(s32, s32, M2C_UNK, s16);
 M2C_UNK draw_hp_label(s32, s32, M2C_UNK, s16);
 M2C_UNK bswap_head16__10TObjPlayerFPv(void *);
@@ -66,7 +66,7 @@ void handle_6x9A_update_entity_stat(Pkt_80010C54 *pkt) {
     }
     case 2:
         try_spend_actor_meseta(player, amount);
-        TObjPlayer__sub_80016018(player, player + 0x2FC, 0xA, -amount);
+        show_meseta_label(player, player + 0x2FC, 0xA, -amount);
         break;
     case 3: {
         v = amount;
