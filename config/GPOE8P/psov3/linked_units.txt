@@ -163,6 +163,7 @@ pso/boss/TBoss6CrushPtcl.cpp
 pso/boss/TBoss6CrushRock.cpp
 pso/boss/TBoss6CrushRock_80359FC4.cpp
 pso/boss/TBoss6CrushRock_80359FEC.cpp
+pso/boss/TBoss6EffFlowSoul.cpp
 pso/boss/TBoss6EffHyoui.cpp
 pso/boss/TBoss6EmptyWarp.cpp
 pso/boss/TBoss6EmptyWarp_802B0E2C.cpp
@@ -677,6 +678,7 @@ pso/item/TItemEffCane.cpp
 pso/item/TItemEffEquip_801088D0.cpp
 pso/item/TItemEffEquip_801088F8.cpp
 pso/item/TItemEffEquip_80108920.cpp
+pso/item/TItemEffFlame.cpp
 pso/item/TItemEffLandHit.cpp
 pso/item/TItemEffLavis.cpp
 pso/item/TItemEffNeedleBase_80109D48.cpp
@@ -852,6 +854,7 @@ pso/item/TItemProShield_80116634_80116840.cpp
 pso/item/TItemProUnit.cpp
 pso/item/TItemReverseTech.cpp
 pso/item/TItemReverseTechBG.cpp
+pso/item/TItemReverseTechPart1.cpp
 pso/item/TItemReverseTechPart2.cpp
 pso/item/TItemReverseTechPart2_801198F8.cpp
 pso/item/TItemReverseTech_8011A1E8.cpp

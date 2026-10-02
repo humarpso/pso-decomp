@@ -163,6 +163,7 @@ force_active:
   - __dt__12TObjRainCtrlFv
   - __dt__13TAdTitleTexGCFv
   - __dt__13TItemAttackerFv
+  - __dt__13TItemEffFlameFv
   - __dt__13TItemMenuCtrlFv
   - __dt__13TObjBoss2DustFv
   - __dt__13TObjBoss5CtrlFv
@@ -202,6 +203,7 @@ force_active:
   - __dt__16TObjBagWarnWin4PFv
   - __dt__16TObjItemOKWindowFv
   - __dt__17TBoss5GryphonDemoFv
+  - __dt__17TBoss6EffFlowSoulFv
   - __dt__17TOSwitchAttackSubFv
   - __dt__17TObjBoss8DemoRoomFv
   - __dt__17TObjItemNameEntryFv
@@ -355,6 +357,7 @@ force_active:
   - run_task__12TObjRainCtrlFv
   - run_task__13TAdTitleTexGCFv
   - run_task__13TItemAttackerFv
+  - run_task__13TItemEffFlameFv
   - run_task__13TObjBoss2DustFv
   - run_task__13TObjBoss5CtrlFv
   - run_task__13TObjBoss7DustFv
@@ -383,6 +386,7 @@ force_active:
   - run_task__16TItemReverseTechFv
   - run_task__16TObjBagWarnWin4PFv
   - run_task__17TBoss5GryphonDemoFv
+  - run_task__17TBoss6EffFlowSoulFv
   - run_task__17TOSwitchAttackSubFv
   - run_task__17TObjBoss8DemoRoomFv
   - run_task__17TObjVoloptShutterFv

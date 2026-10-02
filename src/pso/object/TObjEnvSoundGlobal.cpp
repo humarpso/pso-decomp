@@ -24,6 +24,17 @@ struct RecoveredGlobal_801902D8_lbl_804B7A70 { M2C_UNK value; u8 remaining[0x8C]
 
 struct Obj_801903B4 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x90 - 0x44]; f32 param; s32 sound; s32 mode; };
 
+struct Env_80190624 {
+    u8 pad0[0x38];
+    u8 pos[0x90 - 0x38];
+    s32 f90;
+    f32 vol;
+    f32 step;
+    s32 f9C;
+    s32 mode;
+    f32 range;
+};
+
 extern "C" {
 s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
 extern M2C_UNK __vt__18TObjEnvSoundGlobal[];
@@ -40,6 +51,11 @@ extern const f32 lbl_805DBE1C;
 s32 TObjEnvSoundGlobal__sub_801902D8(u8 *arg0);
 void TOTrapAncient01__sub_80226578(s32, void *, f32 *, s32, s32);
 void run_task__18TObjEnvSoundGlobalFv(Obj_801903B4 *self);
+f32 fn_8013157C(void *, void *);
+void TOTrapAncient01__sub_80226578(s32, void *, f32 *, s32, s32);
+extern u8 *lbl_805D4DF0;
+extern const f32 lbl_805DBE10;
+void run_task__14TObjEnvSoundExFv(Env_80190624 *o);
 }
 
 extern "C" {
@@ -176,45 +192,47 @@ void render__14TObjEnvSoundExFv(void) {  }
 
 #define F(o) M2C_FIELD(self, f32 *, o)
 #define S(o) M2C_FIELD(self, s32 *, o)
-void run_task__14TObjEnvSoundExFv(u8 *self) {
-    if (fn_8013157C(lbl_805D4DF0 + 0x178, self + 0x38) < F(0xA4) * F(0xA4)) {
-        F(0x94) = F(0x94) + F(0x98);
-        if (F(0x94) > (f32)S(0x90)) {
-            F(0x94) = (f32)S(0x90);
+
+#undef F
+#undef S
+
+extern M2C_UNK __vt__14TObjEnvSoundEx[];
+
+void run_task__14TObjEnvSoundExFv(Env_80190624 *o) {
+    if (fn_8013157C(lbl_805D4DF0 + 0x178, o->pos) < o->range * o->range) {
+        o->vol += o->step;
+        if (o->vol > (f32)o->f90) {
+            o->vol = (f32)o->f90;
         }
-        switch (S(0xA0)) {
+        switch (o->mode) {
         case 0:
             break;
         case 1:
-            TOTrapAncient01__sub_80226578(S(0x9C), self, (f32 *)(self + 0x38), 0, 0);
+            TOTrapAncient01__sub_80226578((s32)(o->f9C), (void *)(o), (f32 *)(o->pos), (s32)(0), (s32)(0));
             break;
         case 2:
-            TOTrapAncient01__sub_80226578(S(0x9C), self, 0, (s32)F(0x94), 2);
+            TOTrapAncient01__sub_80226578((s32)(o->f9C), (void *)(o), (f32 *)(0), (s32)((s32)o->vol), (s32)(2));
             break;
         }
     } else {
-        F(0x94) = F(0x94) - F(0x98);
-        if (F(0x94) < -127.0f) {
-            F(0x94) = -127.0f;
+        o->vol -= o->step;
+        if (o->vol < -127.0f) {
+            o->vol = -127.0f;
         }
-        if (F(0x94) > -127.0f) {
-            switch (S(0xA0)) {
+        if (o->vol > lbl_805DBE10) {
+            switch (o->mode) {
             case 0:
                 break;
             case 1:
-                TOTrapAncient01__sub_80226578(S(0x9C), self, (f32 *)(self + 0x38), 0, 0);
+                TOTrapAncient01__sub_80226578((s32)(o->f9C), (void *)(o), (f32 *)(o->pos), (s32)(0), (s32)(0));
                 break;
             case 2:
-                TOTrapAncient01__sub_80226578(S(0x9C), self, 0, (s32)F(0x94), 2);
+                TOTrapAncient01__sub_80226578((s32)(o->f9C), (void *)(o), (f32 *)(0), (s32)((s32)o->vol), (s32)(2));
                 break;
             }
         }
     }
 }
-#undef F
-#undef S
-
-extern M2C_UNK __vt__14TObjEnvSoundEx[];
 
 void *__dt__14TObjEnvSoundExFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

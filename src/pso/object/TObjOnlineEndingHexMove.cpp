@@ -1,6 +1,103 @@
 #include "pso/TObjOnlineEndingHexMove.h"
 
-void TObjOnlineEndingHexMove::run_task() {}
+#include "types.h"
+
+extern "C" {
+
+struct Params_802E5EFC { f32 a; f32 b; u32 c; f32 d; };
+struct Pkt_802E5EFC { s32 hdr; s32 idx; f32 val; };
+struct Self_802E5EFC { u8 pad[0x1c]; s32 timer; };
+
+s32 is_on_current_screen__11TCameraCtrlFPv(void *, s32);
+void TObjOnlineEndingHexLine__sub_802E5CB0(void *);
+void send_6x92__14TAdGameStartGCFPv(Pkt_802E5EFC *);
+void TAdGameStartGC__sub_802E6368(Pkt_802E5EFC *);
+extern Params_802E5EFC TObjOnlineEndingHexLine__data_804E3AA8;
+extern u8 lbl_8050E208[];
+extern s32 lbl_805D53A0;
+extern const f32 lbl_805DE968;
+extern const f32 lbl_805DE96C;
+extern const f32 lbl_805DE970;
+extern const f32 lbl_805DE974;
+extern const f32 lbl_805DE978;
+extern const f32 lbl_805DE97C;
+extern const f32 lbl_805DE984;
+extern const f32 lbl_805DE988;
+extern const f32 lbl_805DE98C;
+
+void TObjOnlineEndingHexMove::run_task() {
+    Self_802E5EFC *self = (Self_802E5EFC *)this;
+    Pkt_802E5EFC pkt;
+    void *pad;
+    f32 v;
+    f32 step;
+    f32 max;
+    f32 min;
+    s32 ang;
+
+    if (--self->timer < 0) {
+        self->timer = 0;
+    }
+    if (self->timer == 0) {
+        pad = lbl_8050E208 + 0x20;
+        if (is_on_current_screen__11TCameraCtrlFPv(pad, 0x30000) != 0) {
+            TAdGameStartGC__sub_802E6368(&pkt);
+            pkt.idx = lbl_805D53A0 % 4;
+            switch (pkt.idx) {
+            case 0:
+            case 1:
+            case 3:
+                switch (pkt.idx) {
+                case 0:
+                    step = lbl_805DE984;
+                    max = lbl_805DE970;
+                    v = TObjOnlineEndingHexLine__data_804E3AA8.a;
+                    min = lbl_805DE96C;
+                    break;
+                case 1:
+                    step = lbl_805DE988;
+                    max = lbl_805DE974;
+                    v = TObjOnlineEndingHexLine__data_804E3AA8.b;
+                    min = lbl_805DE968;
+                    break;
+                case 3:
+                    step = lbl_805DE98C;
+                    max = lbl_805DE97C;
+                    v = TObjOnlineEndingHexLine__data_804E3AA8.d;
+                    min = lbl_805DE978;
+                    break;
+                }
+                if (is_on_current_screen__11TCameraCtrlFPv(pad, 0x10000) != 0) {
+                    v += step;
+                    if (v > max) {
+                        v = max;
+                    }
+                } else {
+                    v -= step;
+                    if (v < min) {
+                        v = min;
+                    }
+                }
+                pkt.val = v;
+                break;
+            case 2:
+                ang = TObjOnlineEndingHexLine__data_804E3AA8.c;
+                if (is_on_current_screen__11TCameraCtrlFPv(pad, 0x10000) != 0) {
+                    ang += 0x1999;
+                } else {
+                    ang -= 0x1999;
+                }
+                pkt.val = (s32)(u16)ang;
+                break;
+            }
+            send_6x92__14TAdGameStartGCFPv(&pkt);
+            self->timer = 0x1E;
+        }
+    }
+    TObjOnlineEndingHexLine__sub_802E5CB0(self);
+}
+
+}
 
 TObjOnlineEndingHexMove::~TObjOnlineEndingHexMove() {}
 

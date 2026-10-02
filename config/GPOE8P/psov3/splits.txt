@@ -936,6 +936,7 @@ pso/ui/TObjDFBeamCursor.cpp:
 pso/ui/TObjDFRecBall.cpp:
 	.text       start:0x8005123C end:0x80051580
 	.rodata     start:0x804374E8 end:0x804374F0
+	.sdata2     start:0x805D8AB0 end:0x805D8AB4
 
 pso/boss/TObjDFRecover.cpp:
 	.text       start:0x80051580 end:0x800517F8
@@ -3986,6 +3987,8 @@ pso/item/TItemEffEquip.cpp:
 
 pso/item/TItemEffFlame.cpp:
 	.text       start:0x80108D6C end:0x80108F04
+	.rodata     start:0x8043E1F0 end:0x8043E1F8
+	.data       start:0x8049F070 end:0x8049F088
 
 pso/unk/text_80108F04.cpp:
 	.text       start:0x80108F04 end:0x80108FEC
@@ -4350,6 +4353,8 @@ pso/item/TItemReverseTechPart2.cpp:
 
 pso/item/TItemReverseTechPart1.cpp:
 	.text       start:0x80119DA0 end:0x8011A00C
+	.rodata     start:0x8043E700 end:0x8043E708
+	.data       start:0x804A0410 end:0x804A0428
 
 pso/item/TItemReverseTech.cpp:
 	.text       start:0x8011A00C end:0x8011A1E8
@@ -7931,6 +7936,7 @@ pso/object/TObjDoorKey.cpp:
 pso/object/TObjEnvSoundGlobal.cpp:
 	.text       start:0x801902D8 end:0x80190884
 	.rodata     start:0x804458F0 end:0x804458F8
+	.sdata2     start:0x805DBE10 end:0x805DBE14
 
 pso/unk/text_80190884.cpp:
 	.text       start:0x80190884 end:0x80190940
@@ -14992,6 +14998,8 @@ pso/object/TObjOnlineEndingHexLine.cpp:
 
 pso/object/TObjOnlineEndingHexMove.cpp:
 	.text       start:0x802E5EFC end:0x802E6260
+	.rodata     start:0x80472C20 end:0x80472C28
+	.data       start:0x804E3B48 end:0x804E3B60
 
 pso/unk/text_802E6260.cpp:
 	.text       start:0x802E6260 end:0x802E62F8
@@ -17346,6 +17354,8 @@ pso/unk/text_8036A620.cpp:
 
 pso/boss/TBoss6EffFlowSoul.cpp:
 	.text       start:0x8036A6B0 end:0x8036A894
+	.rodata     start:0x8047AC58 end:0x8047AC60
+	.data       start:0x804F35E0 end:0x804F35F8
 
 pso/unk/text_8036A894.cpp:
 	.text       start:0x8036A894 end:0x8036A92C
