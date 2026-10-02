@@ -833,6 +833,7 @@ pso/item/TItemMagSub_801158F0.cpp
 pso/item/TItemMagSub_803642D8.cpp
 pso/item/TItemMag_80102C4C.cpp
 pso/item/TItemMag_80111828.cpp
+pso/item/TItemMag_80111D38.cpp
 pso/item/TItemMag_80114950.cpp
 pso/item/TItemMenuCtrl.cpp
 pso/item/TItemMenuCtrl_801059E8.cpp
@@ -4387,6 +4388,7 @@ pso/unk/text_8033F314.cpp
 pso/unk/text_8033FE30.cpp
 pso/unk/text_8033FF78.cpp
 pso/unk/text_80349B8C.cpp
+pso/unk/text_8034AD38.cpp
 pso/unk/text_8034CEDC.cpp
 pso/unk/text_8034DAA0.cpp
 pso/unk/text_803501BC.cpp
@@ -4414,6 +4416,7 @@ pso/unk/text_80357058.cpp
 pso/unk/text_80359420.cpp
 pso/unk/text_8035966C.cpp
 pso/unk/text_8035A860.cpp
+pso/unk/text_8035B00C.cpp
 pso/unk/text_8035B750.cpp
 pso/unk/text_8035B788.cpp
 pso/unk/text_8035BFF8.cpp

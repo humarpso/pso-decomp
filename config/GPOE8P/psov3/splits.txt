@@ -16607,6 +16607,7 @@ pso/misc/TWindowDD_80348D0C.cpp:
 
 pso/unk/text_80348E34.cpp:
 	.text       start:0x80348E34 end:0x80348FCC
+	.rodata     start:0x80478710 end:0x80478718
 
 pso/ui/TAdChrMoveEffectGC.cpp:
 	.text       start:0x80348FCC end:0x803495B4
@@ -17203,6 +17204,7 @@ pso/boss/TBoss6MagMine.cpp:
 
 pso/object/TObjParticleLobby.cpp:
 	.text       start:0x80369654 end:0x80369B5C
+	.data       start:0x804F33B0 end:0x804F33D8
 	.sdata2     start:0x805E0340 end:0x805E0350
 
 pso/object/TObjSuisouLobby.cpp:

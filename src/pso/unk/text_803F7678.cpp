@@ -210,6 +210,12 @@ s32 TLobby__sub_803F8470(u8 *data, s32 size);
 extern u8 lbl_805AEEB0[];
 extern T_803F86C0 lbl_805D7A50;
 void TLobby__sub_803F86C0(Cfg_803F86C0 *c);
+u32 TLobby__sub_803F9E84(int);
+s32 TAdSinglePlyChrSelectGC__sub_8042D49C(int);
+s32 TAdSinglePlyChrSelectGC__sub_8042E57C(int);
+s32 TAdSinglePlyChrSelectGC__sub_8042E628(int);
+s32 TAdSinglePlyChrSelectGC__sub_8042E6C4(int);
+s32 TLobby__sub_803F7E50(s32 arg0, s32 arg1, s32 arg2, s32 n, s32 p);
 }
 
 extern "C" {
@@ -499,6 +505,63 @@ s32 TLobby__sub_803F7DD8(s32 arg0, s16 arg1) {
     lbl_805D7A2C = 4;
     if (TAdSinglePlyChrSelectGC__sub_8042E320(arg0, v, (void *)TLobby__sub_803F7D54) != 1) {
         return -1;
+    }
+    return 0;
+}
+
+s32 TLobby__sub_803F7E50(s32 arg0, s32 arg1, s32 arg2, s32 n, s32 p) {
+    s32 v;
+    s32 ok;
+    u32 len;
+    s32 r;
+    ok = 1;
+    switch (arg0) {
+    case 1: v = 1; break;
+    case 2: v = 2; break;
+    case 3: v = 3; break;
+    case 4: v = 4; break;
+    case 5: v = 5; break;
+    case 0: v = 2; break;
+    default: ok = 0; break;
+    }
+    if (ok != 0 && TAdSinglePlyChrSelectGC__sub_8042E57C(v) != 1) {
+        return -1;
+    }
+    ok = 1;
+    switch (arg1) {
+    case 1: v = 1; break;
+    case 2: v = 2; break;
+    case 3: v = 3; break;
+    case 0:
+    default: ok = 0; break;
+    }
+    if (ok != 0 && TAdSinglePlyChrSelectGC__sub_8042E628(v) != 1) {
+        return -1;
+    }
+    ok = 1;
+    switch (arg2) {
+    case 1: v = 1; break;
+    case 2: v = 2; break;
+    case 3: v = 3; break;
+    case 4: v = 4; break;
+    case 0:
+    default: ok = 0; break;
+    }
+    if (ok != 0 && TAdSinglePlyChrSelectGC__sub_8042E6C4(v) != 1) {
+        return -1;
+    }
+    while (n != 0) {
+        len = TLobby__sub_803F9E84(p);
+        if (len > 0x3FU) {
+            return -1;
+        }
+        r = TAdSinglePlyChrSelectGC__sub_8042D49C(p);
+        if (r != 1 && r != -8) {
+            return -1;
+        }
+        p = len + p;
+        p++;
+        n--;
     }
     return 0;
 }

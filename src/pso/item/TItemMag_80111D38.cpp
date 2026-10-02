@@ -55,6 +55,12 @@ struct VObj_18_8b050c : VBase_18_8b050c {
     virtual M2C_UNK m45();
 };
 
+struct Self_801124C4
+{
+  u8 pad[0x198];
+  u8 data[1];
+};
+
 extern "C" {
 u8 get_field_ed__10TObjPlayerFPv(s32);
 s8 TObjPlayer__sub_80102C30(void *);
@@ -68,6 +74,16 @@ void TItemMag__sub_801123F8(u8 *arg0);
 s32 TItemMag__sub_80105348(void *, M2C_UNK);
 M2C_UNK try_add_action__8TItemMagFii(void *, M2C_UNK);
 void TItemMag__sub_80112360(u8 *arg0);
+u8 get_field_ed__10TObjPlayerFPv(s32);
+s8 TItemMag__sub_801117C0(void *);
+s32 TItemMag__sub_80111978(void *);
+void update_feed_anim__8TItemMagFPv(void *arg0);
+void do_action_by_class__8TItemMagFi(s32 arg0);
+void TItemMag__sub_80112360(u8 *arg0);
+void TItemMag__sub_801123F8(u8 *arg0);
+s16 TItemMagSub__sub_8011455C(void *);
+extern s32 lbl_8043E534[];
+void TItemMag__sub_801124C4(Self_801124C4 *self);
 }
 
 extern "C" {
@@ -348,6 +364,44 @@ void TItemMag__sub_801123F8(u8 *arg0) {
         TBoss3Volopt__sub_8022675C((int) (0x4000B20A), (int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x38), (int) (0), (int) (0));
     }
     copy_owner_data__8TItemMagFPv(arg0);
+}
+
+typedef struct Self_801124C4 Self_801124C4;
+void TItemMag__sub_801124C4(Self_801124C4 *self) {
+  unsigned int new_var;
+  s32 stage;
+  s16 level;
+  u8 before;
+  stage = TItemMag__sub_801117C0(self);
+  level = TItemMagSub__sub_8011455C(self->data);
+  before = get_field_ed__10TObjPlayerFPv((s32) self);
+  {
+    new_var = (s32) self;
+    if ((lbl_8043E534[0] <= level) && (level < lbl_8043E534[1]))
+    {
+      if (stage < 1)
+      {
+        TItemMag__sub_80112360((u8 *) self);
+      }
+    }
+    else
+      if ((lbl_8043E534[1] <= level) && (level < lbl_8043E534[2]))
+    {
+      if (stage < 2)
+      {
+        do_action_by_class__8TItemMagFi(new_var);
+      }
+    }
+    else
+      if ((((lbl_8043E534[2] <= level) && ((level % 5) == 0)) && (stage <= 3)) && (TItemMag__sub_80111978(self) == 0))
+    {
+      update_feed_anim__8TItemMagFPv(self);
+    }
+    if (before != get_field_ed__10TObjPlayerFPv(new_var))
+    {
+      TItemMag__sub_801123F8((u8 *) self);
+    }
+  }
 }
 
 void feed_by_item_flags__8TItemMagFPvc(void *arg0, s8 arg1) {

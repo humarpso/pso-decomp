@@ -60,6 +60,36 @@ struct Self_8001AF80 {
     s32 sizeIdx;
 };
 
+struct Box_8001B190
+{
+  f32 x0;
+  f32 y0;
+  f32 x1;
+  f32 y1;
+  f32 x2;
+  f32 y2;
+  f32 w;
+  f32 h;
+};
+
+struct Self_8001B190
+{
+  s32 name;
+  u8 pad4[0x18 - 0x4];
+  void *vtable;
+  s32 f1C;
+  u8 pad20[0x24 - 0x20];
+  f32 scroll;
+  u8 pos[0x1928 - 0x28];
+  u32 count;
+  Box_8001B190 box1;
+  Box_8001B190 box2;
+  f32 speed;
+  f32 height;
+  s32 sizeIdx;
+  f32 rate;
+};
+
 extern "C" {
 extern RecoveredGlobal_8001B3BC_lbl_804F5800 lbl_804F5800;
 s32 TAdEndText__sub_8001B3BC(u8 arg0);
@@ -109,6 +139,21 @@ extern const f32 lbl_805D7E34;
 extern const f32 lbl_805D7E38;
 extern const f32 lbl_805D7E3C;
 void run_task__10TAdEndTextFv(u8 *arg0);
+s32 TKeyBoardControl__sub_8000F828();
+s32 TAdEndText__sub_8001B41C(void);
+M2C_UNK __ct__7TObjectFP7TObject(void *);
+extern u8 __vt__10TAdEndText[];
+extern s32 lbl_805D2610;
+extern s32 TAdEndText__data_805D49F0;
+extern u32 TAdEndText__data_805D49F8;
+extern const f32 lbl_805D7DF0;
+extern const f32 TAdEndText__data_805D7DF8;
+extern const f32 lbl_805D7DFC;
+extern const f32 lbl_805D7E20;
+extern const f32 lbl_805D7E34;
+extern const f32 lbl_805D7E38;
+extern const f32 lbl_805D7E40;
+u8 *__ct__10TAdEndTextFv(u8 *arg0);
 }
 
 extern "C" {
@@ -230,6 +275,61 @@ void run_task__10TAdEndTextFv(u8 *arg0) {
     }
 }
 #pragma pop
+
+typedef struct Box_8001B190 Box_8001B190;
+typedef struct Self_8001B190 Self_8001B190;
+u8 *__ct__10TAdEndTextFv(u8 *arg0) {
+  Self_8001B190 *self = (Self_8001B190 *) arg0;
+  s32 c;
+  __ct__7TObjectFP7TObject(arg0);
+  self->vtable = __vt__10TAdEndText;
+  self->name = lbl_805D2610;
+  self->f1C = 0;
+  self->scroll = lbl_805D7DFC;
+  TAdEndText__data_805D49F0 = 0;
+  self->box1.x0 = lbl_805D7DFC;
+  self->box1.y0 = lbl_805D7DFC;
+  self->box1.x1 = lbl_805D7DFC;
+  self->box1.y1 = lbl_805D7DFC;
+  self->box1.x2 = lbl_805D7DFC;
+  self->box1.y2 = lbl_805D7DFC;
+  self->box1.w = lbl_805D7E20;
+  self->box1.h = lbl_805D7E20;
+  self->box2.x0 = lbl_805D7DFC;
+  self->box2.y0 = lbl_805D7DFC;
+  self->box2.x1 = lbl_805D7DFC;
+  self->box2.y1 = lbl_805D7DFC;
+  self->box2.x2 = lbl_805D7DFC;
+  self->box2.y2 = lbl_805D7DFC;
+  self->box2.w = lbl_805D7E20;
+  self->box2.h = lbl_805D7E20;
+  self->count = 0;
+  self->height = lbl_805D7DFC;
+  while (((char) (c = ((u8 **) TAdEndText__data_805D49F8)[self->count][0])) != 0x2A)
+  {
+    switch ((s8) c)
+    {
+      case 0x23:
+      case 0:
+        self->height = self->height + TAdEndText__data_805D7DF8;
+        break;
+      case 0x21:
+        self->height = self->height + lbl_805D7E34;
+        break;
+      case 0x40:
+        self->height = self->height + lbl_805D7E34;
+        break;
+      default:
+        self->height = self->height + lbl_805D7E38;
+        break;
+    }
+    self->count++;
+  }
+  self->rate = (TKeyBoardControl__sub_8000F828() == 0) ? (lbl_805D7E20) : (lbl_805D7E40);
+  self->speed = lbl_805D7DF0 * self->rate;
+  self->sizeIdx = (TAdEndText__sub_8001B41C() != 0) ? (1) : (0);
+  return arg0;
+}
 
 void free_resources__10TAdEndTextFv(void) {
     if ((u32) TAdEndText__data_805D49F4 != 0U) {

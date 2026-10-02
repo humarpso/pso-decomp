@@ -78,6 +78,32 @@ struct Gill_803683BC {
 
 struct Vec_80367860 { f32 x, y, z; };
 
+typedef s32 M2C_UNK;
+struct VBase_18_80367FDC { char pad[0x18]; };
+
+struct VObj_18_80367FDC : VBase_18_80367FDC {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16();
+    virtual s32 m17(s32);
+};
+
+struct Vec_80367FDC { f32 x, y, z; };
+
+struct Gill_80367FDC : VObj_18_80367FDC {
+    u16 f1C;
+    u8 pad1E[0x2A8 - 0x1E];
+    s32 f2A8;
+    u8 pad2AC[0x338 - 0x2AC];
+    u16 f338;
+    u8 pad33A[0x350 - 0x33A];
+    f32 *f350;
+    u8 pad354[0x390 - 0x354];
+    s32 f390;
+};
+
 extern "C" {
 int obj_clearFlags30(void*, int);
 void free_resources__14TObjEneIllGillFPv(void *arg0);
@@ -171,6 +197,24 @@ extern const f32 TObjEneIllGill__data_805E02BC;
 extern const f32 TObjEneIllGill__data_805E02C0;
 extern const f32 lbl_805E02E8;
 void TObjEneIllGill__sub_803667B8(u8 *arg0);
+u16 TObjPlayer__sub_800115C4(void *, int, f32 *, f32);
+s32 TObjPlayer__sub_80018428(void *, void *);
+void VecCopy__FP3VecPC3Vec(void *, const void *);
+s32 TObjPlayer__sub_80019570(void *);
+u8 *get_player_data__10TObjPlayerFi(s32);
+s32 obj_testFlags30(void *, int);
+u16 obj_getField1c(void *);
+int obj_clearFlags30(void*, int);
+M2C_UNK obj_setFlags30(void *, int);
+s32 TObjPlayer__sub_800196EC(void);
+s32 get_field_3e4__10TObjPlayerFPv(s32);
+s32 get_enemy_entity(u16);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+void TBoss6Type1__sub_803D9370(void *, void *);
+extern Vec_80367FDC lbl_8047A328;
+extern s32 lbl_805D586C;
+extern s32 lbl_805D5870;
+void TObjEneIllGill__vt26(Gill_80367FDC *self);
 }
 
 extern "C" {
@@ -539,6 +583,71 @@ s32 TObjEneIllGill__vt34(u8 *arg0) {
   }
   return 0;
 }
+
+#pragma push
+#pragma opt_loop_invariants off
+void TObjEneIllGill__vt26(Gill_80367FDC *self) {
+    u16 best;
+    s32 i;
+    u8 *pl;
+    u16 id;
+    f32 bestDist;
+    f32 d;
+    u16 t;
+    s32 ent;
+    s32 x;
+    if (self->m17(0x1E) != 0) {
+        if (self->f390 != 0) {
+            self->f338 = 0xFFFF;
+            self->f2A8 = 0;
+            return;
+        }
+        if (obj_testFlags30(self, 0x10) != 0) {
+            i = 0;
+            best = 0xFFFF;
+            Vec_80367FDC v = lbl_8047A328;
+            bestDist = *self->f350 * *self->f350;
+            for (; i < lbl_805D586C + lbl_805D5870; i++) {
+                pl = get_player_data__10TObjPlayerFi(i);
+                if (pl == NULL) break;
+                if (TObjPlayer__sub_80019570(pl) == 0) continue;
+                id = obj_getField1c(pl);
+                if (id >= 0x4000) continue;
+                if (id == self->f1C) continue;
+                if (M2C_FIELD(pl, s32 *, 0x30) & 0x02000800) continue;
+                VecCopy__FP3VecPC3Vec(&v, pl + 0x2FC);
+                TBoss6Type1__sub_803D9370(&v, (u8 *)self + 0x2FC);
+                d = v.x * v.x + v.z * v.z;
+                if (d < bestDist && TObjPlayer__sub_80018428(self, pl + 0x2FC) == 0) {
+                    best = id;
+                    bestDist = d;
+                }
+            }
+            self->f338 = best;
+        } else {
+            self->f338 = TObjPlayer__sub_800115C4(self, 0, self->f350, *self->f350);
+        }
+        t = self->f338;
+        if (t < 0x1000) {
+            ent = TPlayerBattleCtrl4P__sub_801BA74C(t);
+            if (ent != 0) {
+                if (get_field_3e4__10TObjPlayerFPv(ent) == TObjPlayer__sub_800196EC()) {
+                    self->f2A8 = ent;
+                    obj_clearFlags30((void*)(self), (int)(0x04040000));
+                    return;
+                }
+            }
+            self->f2A8 = 0;
+            obj_setFlags30(self, 0x04040000);
+            return;
+        }
+        if (t < 0x4000) {
+            self->f2A8 = get_enemy_entity(t);
+            obj_clearFlags30((void*)(self), (int)(0x04040000));
+        }
+    }
+}
+#pragma pop
 
 void run_task__14TObjEneIllGillFv(Gill_803683BC *o) {
     switch (o->x326) {

@@ -273,6 +273,8 @@ struct Ent_803E6970 {
     u8 pad[6];
 };
 
+struct R_803E77F0 { u8 a; u8 b; u16 c; s16 d; s16 e; };
+
 extern "C" {
 extern RecoveredGlobal_803EE2E4_lbl_8058DC98 lbl_8058DC98;
 void TQuestVmDownLoadServer__sub_803EE2E4(void);
@@ -557,7 +559,6 @@ char *strncpy(char *, const char *, u32);
 s32 TQuestVmDownLoadServer__sub_803F0138(const char *name, s16 len, Info_803F0138 *out);
 s32 TQuestVmDownLoadServer__sub_803E8B1C(const char *name, s16 len, Info_803F0138 *out);
 s32 TQuestVmDownLoadServer__sub_803F03B4(u8 *data, Ent_803F03B4 *ents, s32 n, s32 *max);
-u32 TQuestVmDownLoadServer__sub_803E77F0(s16, s16, s16, s32);
 extern s32 lbl_805D7904;
 s32 TQuestVmDownLoadServer__sub_803F0268(const char *name, s16 len, Out_803F0268 *out);
 u16 TQuestVmDownLoadServer__sub_803E721C(u16 arg0);
@@ -573,6 +574,8 @@ extern R_803E76A4 lbl_8058DE4C[];
 void TQuestVmDownLoadServer__sub_803E74AC(s32 id);
 extern R_803E76A4 lbl_8058DE4C[];
 void TQuestVmDownLoadServer__sub_803E7588(s32 id);
+extern R_803E76A4 lbl_8058DE4C[];
+u32 TQuestVmDownLoadServer__sub_803E77F0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -806,6 +809,34 @@ s32 TQuestVmDownLoadServer__sub_803E779C(u32 arg0, s32 *arg1, s32 *arg2, s32 *ar
     *arg2 = r->e;
     *arg3 = r->b;
     return r->c;
+}
+
+u32 TQuestVmDownLoadServer__sub_803E77F0(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+    s32 i;
+    R_803E77F0 *r;
+    s32 free_idx;
+    r = ((R_803E77F0 *)&lbl_8058DE4C);
+    free_idx = -1;
+    for (i = 0; i < 128; i++, r++) {
+        if (r->a == 0) {
+            if (free_idx == -1) {
+                free_idx = i;
+            }
+        } else if (r->c == arg0 && r->d == arg1 && r->e == arg2) {
+            r->a++;
+            return i;
+        }
+    }
+    if (free_idx == -1) {
+        return -1;
+    }
+    r = &((R_803E77F0 *)&lbl_8058DE4C)[free_idx];
+    r->a = 1;
+    r->c = arg0;
+    r->d = arg1;
+    r->e = arg2;
+    r->b = arg3;
+    return free_idx;
 }
 
 void set_active__22TQuestVmDownLoadServerFv(void) {
@@ -2112,7 +2143,7 @@ s32 TQuestVmDownLoadServer__sub_803F0268(const char *name, s16 len, Out_803F0268
     if (r2 == 1) {
         out->count = TQuestVmDownLoadServer__sub_803F03B4(i2.p, out->ents, out->count, &max);
     }
-    out->x4 = r = TQuestVmDownLoadServer__sub_803E77F0(i1.id, i1.off, i2.off, max);
+    out->x4 = r = TQuestVmDownLoadServer__sub_803E77F0((s32)(i1.id), (s32)(i1.off), (s32)(i2.off), (s32)(max));
     if (r == 0xFFFFFFFF) {
         return 0;
     }

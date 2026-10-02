@@ -17,9 +17,9 @@ struct O_8033E5A8 {
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 void *__nw__7TObjectFUl(int);
-void *TObjFish__sub_8033E688(void *, void *, void *);
 void * fn_8033E8C0(void *arg0, void *arg1);
 M2C_UNK __dt__7TObjectFv(void *, int);
 M2C_UNK TCameraCtrl__sub_80069DA8();
@@ -51,6 +51,32 @@ void TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
 void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
 void TObjFish__sub_8033DD4C(void *p);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 TObjFish__sub_8001ED9C(void *, int);
+s32 TObjFish__sub_8001EDB0(void *, int);
+s32 TObjFish__sub_8001EDC4(void *, int);
+void TCameraCtrl__sub_80069E7C(int);
+void set_scripted_camera_pose(void *, void *, void *);
+void cache_target_and_forward__11TCameraCtrlFii(void *, int);
+s32 TObjFish__sub_800E3124(void *, void *);
+void __ct__7TObjectFP7TObject(void *);
+void *get_fish_count__8TObjFishFv(void);
+s32 create_zanzo__11TBoss6Type1FPvPvPv(void *, int, int);
+void TBoss4Zako__sub_803D8910(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+void TBoss6Type1__sub_803D9370(void *, void *);
+void TNpcPlayer__sub_803D97B4(void *);
+extern u8 lbl_804780A0[];
+extern u8 lbl_804780C4[];
+extern u8 lbl_804780E4[];
+extern u8 lbl_80478104[];
+extern u8 lbl_80478134[];
+extern u8 lbl_80478140[];
+extern u8 lbl_804EFA38[];
+extern s32 lbl_805D42B0;
+extern const f32 lbl_805DFA98;
+extern const f32 lbl_805DFAB8;
+void *TObjFish__sub_8033E688(void *arg0p, void *arg1, void *arg2);
 }
 
 extern "C" {
@@ -172,11 +198,66 @@ O_8033E5A8 *TObjFish__sub_8033E5A8(O_8033E5A8 *arg0, s16 arg1) {
     return arg0;
 }
 
+#pragma push
+#pragma opt_common_subs off
+typedef struct { f32 x, y, z; } Vec_8033E688;
+typedef struct {
+    u8 pad[0xA0];
+    s32 arr[4];
+} Fish_8033E688;
+#define arg0 ((u8 *)arg0p)
+void *TObjFish__sub_8033E688(void *arg0p, void *arg1, void *arg2) {
+    Vec_8033E688 v;
+    s32 i;
+    __ct__7TObjectFP7TObject(arg0);
+    M2C_FIELD(arg0, u8 **, 0x18) = lbl_804EFA38;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D42B0;
+    M2C_FIELD(arg0, void **, 0x54) = arg1;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x58, lbl_804780A0);
+    VecCopy__FP3VecPC3Vec(&v, arg2);
+    TBoss6Type1__sub_803D9370(&v, lbl_804780A0);
+    v.y = lbl_805DFA98;
+    if (TBoss6Kakusan__sub_803D8BD8(&v) > lbl_805DFAB8) {
+        TNpcPlayer__sub_803D97B4(&v);
+        v.x *= lbl_805DFAB8;
+        v.z *= lbl_805DFAB8;
+    }
+    TBoss4Zako__sub_803D8910(arg0 + 0x58, &v);
+    void *count = get_fish_count__8TObjFishFv();
+    M2C_FIELD(arg0, s32 *, 0x1C) = TObjFish__sub_8001EDC4(count, 4);
+    M2C_FIELD(arg0, s32 *, 0x20) = TObjFish__sub_8001EDB0(count, 4);
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001ED9C(count, 7);
+    M2C_FIELD(arg0, s32 *, 0x28) = TObjFish__sub_8001EDC4(count, 5);
+    M2C_FIELD(arg0, s32 *, 0x2C) = TObjFish__sub_8001EDB0(count, 5);
+    M2C_FIELD(arg0, s32 *, 0x30) = TObjFish__sub_8001ED9C(count, 7);
+    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4(count, 8);
+    M2C_FIELD(arg0, s32 *, 0x38) = TObjFish__sub_8001EDB0(count, 8);
+    M2C_FIELD(arg0, s32 *, 0x3C) = TObjFish__sub_8001ED9C(count, 8);
+    M2C_FIELD(arg0, s32 *, 0x40) = TObjFish__sub_8001EDC4(count, 0xD);
+    M2C_FIELD(arg0, s32 *, 0x44) = TObjFish__sub_8001EDB0(count, 0xD);
+    M2C_FIELD(arg0, s32 *, 0x48) = TObjFish__sub_8001ED9C(count, 0x3D);
+    M2C_FIELD(arg0, s32 *, 0x70) = TObjFish__sub_800E3124(lbl_804780C4, arg0 + 0x64);
+    M2C_FIELD(arg0, s32 *, 0x80) = TObjFish__sub_800E3124(lbl_804780E4, arg0 + 0x74);
+    M2C_FIELD(arg0, s32 *, 0x9C) = TObjFish__sub_800E3124(lbl_80478104, arg0 + 0x84);
+    TCameraCtrl__sub_80069E7C(5);
+    set_scripted_camera_pose(arg0 + 0x58, arg0 + 0x58, lbl_80478134);
+    cache_target_and_forward__11TCameraCtrlFii(lbl_80478140, 0x416C);
+    for (i = 0; i < 4; i++) {
+        ((Fish_8033E688 *)arg0)->arr[i] = 0;
+    }
+    M2C_FIELD(arg0, s32 *, 0xB0) = create_zanzo__11TBoss6Type1FPvPvPv(arg0, 3, 0xF);
+    M2C_FIELD(arg0, f32 *, 0x4C) = lbl_805DFA98;
+    M2C_FIELD(arg0, s32 *, 0x50) = 0;
+    return arg0;
+}
+#undef arg0
+#pragma pop
+
 void * fn_8033E8C0(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0xB4);
     if (o != NULL) {
-        o = TObjFish__sub_8033E688(o, arg0, arg1);
+        o = TObjFish__sub_8033E688((void *)(o), (void *)(arg0), (void *)(arg1));
     }
     return o;
 }
