@@ -4,6 +4,31 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Vec_8022675C { f32 x, y, z; };
+
+struct SndEnt_8022675C {
+    s32 flags;
+    s32 id;
+    Vec_8022675C *src;
+    Vec_8022675C pos;
+    s16 prio;
+    s16 x1a;
+    s32 x1c;
+    u8 pad[8];
+};
+
+extern "C" {
+void VecCopy__FP3VecPC3Vec(Vec_8022675C *, Vec_8022675C *);
+s32 fn_802264B8(int, int);
+int TLobby__sub_80227AF8(void *p);
+s32 TLobby__sub_80227E5C(u32 arg0, s32 arg1, s32 arg2, s32 arg3);
+extern SndEnt_8022675C lbl_805145F0[40];
+extern s32 lbl_805D370C;
+extern s32 lbl_805D62B0;
+extern s32 lbl_805DC748;
+s32 TBoss3Volopt__sub_8022675C(s32 id, Vec_8022675C *src, s32 a2, s32 flags);
+}
+
 extern "C" {
 
 s32 check_trigger_flag__15TOTrapAncient01Fii(s32 arg0, s32 arg1);
@@ -21,6 +46,49 @@ s32 check_trigger_flag__15TOTrapAncient01Fii(s32 arg0, s32 arg1) {
         return 0;
     }
     return 1;
+}
+s32 TBoss3Volopt__sub_8022675C(s32 id, Vec_8022675C *src, s32 a2, s32 flags) {
+    s32 i;
+    s32 idx;
+    Vec_8022675C *pos;
+    lbl_805D370C = -1;
+    if (lbl_805D62B0 == 0) {
+        return -1;
+    }
+    if (id == 0xF0000) {
+        return -1;
+    }
+    idx = -1;
+    for (i = 0; i < 40; i++) {
+        if ((lbl_805145F0[i].flags & 0x400) && id == lbl_805145F0[i].id && lbl_805145F0[i].prio >= 0x94) {
+            return -1;
+        }
+    }
+    if (idx < 0) {
+        idx = TLobby__sub_80227E5C(id, (s32)src, a2, flags);
+    }
+    if (idx >= 0) {
+        if (src != NULL) {
+            pos = &lbl_805145F0[idx].pos;
+            VecCopy__FP3VecPC3Vec(pos, src);
+            ((void (*)(s32, Vec_8022675C *))TLobby__sub_80227AF8)(idx, pos);
+        }
+        lbl_805145F0[idx].flags &= lbl_805DC748;
+        if (flags & 1) {
+            lbl_805145F0[idx].flags |= 0x2000;
+        }
+        lbl_805145F0[idx].src = src;
+        lbl_805145F0[idx].prio = 0x96;
+        lbl_805145F0[idx].x1a = a2;
+        lbl_805145F0[idx].id = id;
+        lbl_805145F0[idx].x1c = 0;
+        if (fn_802264B8(idx, 0) == 1) {
+            lbl_805D370C = idx;
+            lbl_805145F0[idx].flags |= 0x600;
+            return idx;
+        }
+    }
+    return -1;
 }
 
 }

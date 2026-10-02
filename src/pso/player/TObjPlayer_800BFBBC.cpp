@@ -149,6 +149,7 @@ struct VObj_18_800C1224 : VBase_18_800C1224 {
     virtual s32 m17(s32);
 };
 
+#include "pso/enemy/TObjEneLappy.h"
 extern "C" {
 s32 TObjPlayer__sub_800F06B4(s32, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -260,6 +261,19 @@ extern const f32 lbl_805D9F4C;
 extern const f32 lbl_805D9F60;
 extern const f32 lbl_805D9F88;
 void TObjPlayer__sub_800C1224(u8 *arg0);
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+u32 csnVector(void *, void *, s32);
+M2C_UNK project_actor_to_ground(void *, void *, M2C_UNK);
+s32 TBoss4Zako__sub_803D8910(void *, void *);
+s32 TScene__sub_803D8DB4(s32, void *, void *);
+s32 rotate_matrix_y(int, int);
+M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+s32 TObjPlayer__sub_803D97F0(void *);
+s32 TCameraCtrl__sub_803D9858(s32);
+extern f32 lbl_8058D490[3][4];
+extern const f32 lbl_805D9F24;
+s32 TObjPlayer__sub_800BFD24(TObjEneLappy *arg0);
 }
 
 extern "C" {
@@ -320,6 +334,60 @@ void TObjPlayer__sub_800BFCD4(Obj_800BFCD4 *self) {
     p = lbl_80500BF8[self->f368];
     lbl_80492E18.f68 = p[1];
     lbl_80492E18.f88 = p[2];
+}
+
+s32 TObjPlayer__sub_800BFD24(TObjEneLappy *arg0) {
+    LappyVec sp20;
+    LappyVec sp14;
+    LappyVec sp8;
+    s32 var_r31;
+    s32 var_r30;
+    s32 var_r29;
+    VecCopy__FP3VecPC3Vec(&arg0->previous_position, &arg0->position);
+    VecCopy__FP3VecPC3Vec(&sp20, &arg0->center);
+    TBoss4Zako__sub_803D8910(&sp20, &arg0->velocity);
+    if (arg0->has_update_cadence(0x1E) != 0) {
+        if (csnVector(&arg0->center, &sp20, -1) != 0U) {
+            return 0;
+        }
+        if (calc_boss4_scale__10TObjPlayerFi(arg0) < lbl_805D9F24) {
+            var_r30 = -1;
+        } else {
+            var_r30 = 1;
+        }
+        var_r29 = 0;
+        var_r31 = 0;
+loop_7:
+        if (var_r29 == 0) {
+            VecCopy__FP3VecPC3Vec(&sp14, &arg0->velocity);
+        } else {
+            TObjPlayer__sub_803D97F0(&lbl_8058D490);
+            rotate_matrix_y((int)(0), (int)(var_r30 * var_r31));
+            TScene__sub_803D8DB4(0, &arg0->velocity, &sp14);
+            TCameraCtrl__sub_803D9858(1);
+        }
+        VecCopy__FP3VecPC3Vec(&sp8, &arg0->position);
+        TBoss4Zako__sub_803D8910(&sp8, &sp14);
+        if (((s32)project_actor_to_ground((void *)(arg0), (void *)(&sp8), (M2C_UNK)(0))) == 1) {
+            VecCopy__FP3VecPC3Vec(&arg0->position, &sp8);
+            VecCopy__FP3VecPC3Vec(&arg0->velocity, &arg0->position);
+            TBoss6Type1__sub_803D9370(&arg0->velocity, &arg0->previous_position);
+            return 1;
+        }
+        var_r29 += 1;
+        var_r31 += 0x1000;
+        if (var_r29 >= 0xF) {
+            return 0;
+        }
+        goto loop_7;
+    }
+    if (((s32)project_actor_to_ground((void *)(arg0), (void *)(&sp20), (M2C_UNK)(0))) == 1) {
+        VecCopy__FP3VecPC3Vec(&arg0->position, &sp20);
+        VecCopy__FP3VecPC3Vec(&arg0->velocity, &arg0->position);
+        TBoss6Type1__sub_803D9370(&arg0->velocity, &arg0->previous_position);
+        return 1;
+    }
+    return 0;
 }
 
 void TObjPlayer__sub_800BFEDC(u8 *arg0) {

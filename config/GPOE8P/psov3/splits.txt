@@ -118,6 +118,7 @@ pso/player/TObjPlayer_8001148C.cpp:
 
 pso/unk/text_800114D8.cpp:
 	.text       start:0x800114D8 end:0x80014830
+	.sdata2     start:0x805D7D24 end:0x805D7D74
 
 pso/player/TObjPlayer_80014830.cpp:
 	.text       start:0x80014830 end:0x8001489C

@@ -85,6 +85,8 @@ struct RecoveredGlobal_8008BF58_TParticleCtrl__data_80511F70 {
     u8 remaining[0x1AC];
 };
 
+struct Vec_8008A92C { f32 x, y, z; };
+
 extern "C" {
 void TParticleCtrl__sub_80088514(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *, void *);
@@ -192,6 +194,36 @@ extern s32 lbl_805D4EFC;
 extern u32 TParticleCtrl__data_805D4F00;
 extern u32 TParticleCtrl__data_805D4F04;
 void TParticleCtrl__sub_8008869C(void);
+s32 is_split_screen();
+M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
+M2C_UNK setup_particle_tev(M2C_UNK);
+M2C_UNK TParticleCtrl__sub_800836E8(f32);
+s32 TParticleCtrl__sub_800861F4(void *, s32);
+M2C_UNK TParticleCtrl__sub_80086248(void *);
+M2C_UNK TParticleCtrl__sub_80086418(void *, M2C_UNK);
+M2C_UNK set_depth_buffer_settings_id__FUl(M2C_UNK);
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK TParticleCtrl__sub_801E4E7C(s32, void *);
+s32 all_parents_unqueued_for_destruction__7TObjectFv();
+f32 TBoss8Dragon__sub_803D64DC(s32);
+M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
+M2C_UNK rotate_matrix_z(M2C_UNK, s32);
+M2C_UNK rotate_matrix_x(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C(f32);
+M2C_UNK pop_matrix();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(u32);
+M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
+M2C_UNK draw_ginja_model_with_motion(u32, u32, f32);
+extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
+extern u8 *lbl_805D4DF0;
+extern s32 lbl_805D5660;
+extern s32 some_id_805c6f74;
+extern const f32 TParticleCtrl__data_805D9528;
+extern const f32 lbl_805D9540;
+void TParticleCtrl__sub_8008A92C(u8 *arg0);
 }
 
 extern "C" {
@@ -587,6 +619,83 @@ void TParticleCtrl__sub_8008A04C(u8 *arg0) {
         queue_destruction__7TObjectFv((void *)(arg0));
     }
 }
+
+void TParticleCtrl__sub_8008A92C(u8 *arg0) {
+    Vec_8008A92C sp8;
+    f32 temp_f1;
+    f32 temp_f1_2;
+    f32 temp_f3;
+    s32 temp_r4;
+    u16 temp_r3;
+    if (all_parents_unqueued_for_destruction__7TObjectFv() != 0) {
+        temp_f3 = M2C_FIELD(M2C_FIELD(arg0, void **, 0x20), f32 *, 0x70) * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0xDC));
+        M2C_FIELD(arg0, f32 *, 0x88) = (f32) (M2C_FIELD(arg0, f32 *, 0x28) * (TParticleCtrl__data_805D9528 + temp_f3));
+        M2C_FIELD(arg0, f32 *, 0x8C) = (f32) (M2C_FIELD(arg0, f32 *, 0x2C) * (TParticleCtrl__data_805D9528 - temp_f3));
+        M2C_FIELD(arg0, f32 *, 0x88) = (f32) (M2C_FIELD(arg0, f32 *, 0x88) * M2C_FIELD(arg0, f32 *, 0xA4));
+        M2C_FIELD(arg0, f32 *, 0x8C) = (f32) (M2C_FIELD(arg0, f32 *, 0x8C) * M2C_FIELD(arg0, f32 *, 0xA8));
+        temp_r3 = M2C_FIELD(arg0, u16 *, 0x24);
+        if (temp_r3 & 0x200) {
+            if (((is_split_screen() == 0) || !(M2C_FIELD(arg0, u16 *, 0x24) & 0x400)) && ((u32) M2C_FIELD(arg0, u32 *, 0xB4) != 0U) && ((u32) M2C_FIELD(arg0, u32 *, 0xB0) != 0U)) {
+                sp8.x = M2C_FIELD(arg0, f32 *, 0x70) + M2C_FIELD(arg0, f32 *, 0x7C);
+                sp8.y = M2C_FIELD(arg0, f32 *, 0x74) + M2C_FIELD(arg0, f32 *, 0x80);
+                sp8.z = M2C_FIELD(arg0, f32 *, 0x78) + M2C_FIELD(arg0, f32 *, 0x84);
+                TObjPlayer__sub_803D9B2C(M2C_FIELD(arg0, f32 *, 0x78));
+                TOHangerMachine01__sub_803D9C00(&sp8);
+                temp_f1_2 = M2C_FIELD(arg0, f32 *, 0x88);
+                scale_matrix(0, temp_f1_2, temp_f1_2, temp_f1_2);
+                rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0xA0));
+                rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x98));
+                rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x9C));
+                lbl_805D5660 = some_id_805c6f74;
+                if (M2C_FIELD(arg0, u16 *, 0x24) & 0x400) {
+                    begin_effect_render__13TParticleCtrlFv();
+                    TParticleCtrl__sub_800836E8(lbl_805D9540);
+                }
+                rotate_matrix_y(0, (s32) M2C_FIELD(arg0, s16 *, 0x96));
+                if ((M2C_FIELD(arg0, u16 *, 0x24) & 0x1000) && ((void *) lbl_805D4DF0 != NULL)) {
+                    rotate_matrix_y(0, M2C_FIELD(lbl_805D4DF0, s32 *, 0x194));
+                }
+                end_effect_render__13TParticleCtrlFv();
+                if (M2C_FIELD(arg0, u16 *, 0x24) & 0x400) {
+                    setup_particle_tev(0);
+                } else {
+                    temp_r4 = some_id_805c6f74;
+                    lbl_805D5660 = temp_r4;
+                    some_id_805c6f74 = temp_r4 | 0x8021;
+                    if (TParticleCtrl__sub_800861F4(arg0, temp_r4) != 0) {
+                        TParticleCtrl__sub_80086418(arg0, 1);
+                    } else {
+                        TParticleCtrl__sub_80086418(arg0, 0);
+                    }
+                }
+                set_global_param__8TObjFishFi(M2C_FIELD(arg0, u32 *, 0xB4));
+                set_depth_buffer_settings_id__FUl(3);
+                if ((u32) M2C_FIELD(arg0, u32 *, 0xB8) != 0U) {
+                    draw_ginja_model_with_motion(M2C_FIELD(arg0, u32 *, 0xB0), M2C_FIELD(arg0, u32 *, 0xB8), M2C_FIELD(arg0, f32 *, 0xBC));
+                } else {
+                    TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, u32 *, 0xB0));
+                }
+                if (M2C_FIELD(arg0, u16 *, 0x24) & 0x400) {
+                    disable_if_single_screen__13TParticleCtrlFv();
+                }
+                some_id_805c6f74 = lbl_805D5660;
+                end_effect_render__13TParticleCtrlFv();
+                pop_matrix();
+            }
+        } else {
+            if (temp_r3 & 0x2000) {
+                TParticleCtrl__sub_80086248(arg0);
+                return;
+            }
+            if (M2C_FIELD(M2C_FIELD(arg0, void **, 0x20), u8 *, 0x88) & 0x20) {
+                TParticleCtrl__sub_801E4E7C(((s32 *)((u8 *)&TParticleCtrl__data_80511F70 + 0xD8))[M2C_FIELD(arg0, u16 *, 0x1C)], arg0 + 0x6C);
+                return;
+            }
+            TParticleCtrl__sub_801E4E7C(((s32 *)&TParticleCtrl__data_80511F70)[M2C_FIELD(arg0, u16 *, 0x1C)], arg0 + 0x6C);
+        }
+    }
+}
+
 void *TParticleCtrl__sub_8008ABCC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = TParticleCtrl__data_8048E790;

@@ -40,6 +40,22 @@ struct Obj_801B5DDC {
     Vec_801B5DDC f308;
 };
 
+struct Vec_801B5EA4 { f32 x, y, z; };
+
+struct Pad_801B5EA4 { u8 pad[0x18]; };
+
+struct Obj_801B5EA4 : Pad_801B5EA4 {
+    virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3();
+    virtual void v4(); virtual void v5(); virtual void v6(); virtual void v7();
+    virtual void v8(); virtual void v9(); virtual void v10(); virtual void v11();
+    virtual void v12(); virtual void v13(); virtual void v14(); virtual void v15();
+    virtual u32 v16(Vec_801B5EA4 *);
+    u8 pad1c[0x38 - 0x1C];
+    Vec_801B5EA4 pos;
+    u8 pad44[0x308 - 0x44];
+    Vec_801B5EA4 vel;
+};
+
 extern "C" {
 s32 TObjPlayer__sub_801B58DC(u8 *arg0);
 s32 is_flag_400_set__10TObjPlayerFPv();
@@ -80,6 +96,11 @@ s32 TObjPlayer__sub_801559D0(Obj_801B5DDC *, Obj_801B5DDC *, Vec_801B5DDC *, Hit
 f32 TObjPlayer__sub_803D89C0(Vec_801B5DDC *, Vec_801B5DDC *);
 extern const f32 TObjPlayer__data_805DC278;
 s32 TObjPlayer__sub_801B5DDC(Obj_801B5DDC *self);
+M2C_UNK TObjPlayer__sub_8001053C(void *);
+s32 TObjPlayer__sub_801B50C0(void *, f32 *);
+u32 TObjPlayer__sub_801B7298(void *);
+s32 TObjPlayer__sub_801BE8F4(void *, M2C_UNK, M2C_UNK);
+s32 TObjPlayer__sub_801B5EA4(Obj_801B5EA4 *arg0);
 }
 
 extern "C" {
@@ -277,6 +298,30 @@ s32 TObjPlayer__sub_801B5DDC(Obj_801B5DDC *self) {
         if (TObjPlayer__sub_803D89C0(&diff, &self->f308) < TObjPlayer__data_805DC278) {
             return 1;
         }
+    }
+    return 0;
+}
+
+s32 TObjPlayer__sub_801B5EA4(Obj_801B5EA4 *arg0) {
+    Vec_801B5EA4 p;
+    p.x = arg0->pos.x + arg0->vel.x;
+    p.y = arg0->pos.y + arg0->vel.y;
+    p.z = arg0->pos.z + arg0->vel.z;
+    if (arg0->v16(&p) == 0U) {
+        TObjPlayer__sub_8001053C(arg0);
+        return 1;
+    }
+    if (TObjPlayer__sub_801B7298(arg0) != 0U) {
+        TObjPlayer__sub_8001053C(arg0);
+        return 2;
+    }
+    if ((TObjPlayer__sub_801BE8F4(arg0, 0, 0x380000) != 0) && (TObjPlayer__sub_801BE8F4(arg0, 0, 0x01C00000) != 0)) {
+        TObjPlayer__sub_8001053C(arg0);
+        return 4;
+    }
+    if (TObjPlayer__sub_801B50C0(arg0, &p.x) != 0) {
+        TObjPlayer__sub_8001053C(arg0);
+        return 3;
     }
     return 0;
 }
