@@ -4,6 +4,27 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+typedef struct Pair_80316488 { s32 a; s32 b; } Pair_80316488;
+
+typedef struct E8_80316488 { s32 a; f32 f; } E8_80316488;
+
+typedef struct E14_80316488 { Pair_80316488 p0; Pair_80316488 p1; f32 f; } E14_80316488;
+
+typedef struct Self_80316488 {
+    void *obj;
+    s32 id;
+    s32 r8;
+    s32 rC;
+    u8 *r10;
+    s32 r14;
+    s32 r18;
+    u8 *r1C;
+    f32 f20;
+    f32 f24;
+    f32 f28;
+} Self_80316488;
+
 extern "C" {
 M2C_UNK TObjFish__sub_8001EDB0(M2C_UNK, int);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(int);
@@ -15,6 +36,16 @@ M2C_UNK clear_global_state__10TObjPlayerFv();
 void TObjEneDelDepth__sub_803162A8(u8 *arg0);
 s32 TObjPlayer__sub_800114D8(void *, void *, f32);
 int TObjEneDelDepth__sub_80316258(u8 *arg0, s32 arg1, f32 farg0);
+s32 TObjFish__sub_8001EDC4(M2C_UNK, s32);
+M2C_UNK TObjFish__sub_8001EDB0(M2C_UNK, int);
+u8 *TObjFish__sub_8001ED9C(M2C_UNK, s32);
+void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
+void init__14TObjEnePanarmsFPvPv(void *, s16);
+M2C_UNK get_data__15TObjEneDelDepthFv();
+extern E8_80316488 lbl_804E8760[];
+extern E14_80316488 lbl_804E8780[];
+extern const f32 lbl_805DF2EC;
+void TObjEneDelDepth__sub_80316488(Self_80316488 *self, s32 arg1);
 }
 
 extern "C" {
@@ -90,6 +121,48 @@ s32 is_state_complete__15TObjEneDelDepthFPv(void *arg0) {
         return 1;
     }
     return 0;
+}
+
+void TObjEneDelDepth__sub_80316488(Self_80316488 *self, s32 arg1) {
+    s32 flag;
+    s32 id;
+    flag = self->id;
+    self->id = arg1 & ~0x1000;
+    flag &= 0x1000;
+    id = self->id;
+    if (id == -1) {
+        return;
+    }
+    if (id < 6) {
+        if (flag != 0) {
+            init__14TObjEnePanarmsFPvPv(self->obj, (s16)id);
+        } else {
+            set_field_b8__14TObjEnePanarmsFPvs(self->obj, (s16)id);
+        }
+    } else if (id < 0xA) {
+        M2C_UNK data = get_data__15TObjEneDelDepthFv();
+        E8_80316488 *e = &lbl_804E8760[self->id] - 6;
+        self->r8 = TObjFish__sub_8001EDC4(data, 1);
+        self->rC = TObjFish__sub_8001EDB0(data, 1);
+        self->r10 = TObjFish__sub_8001ED9C(data, e->a);
+        self->f24 = *(u32 *)(self->r10 + 4);
+        self->f20 = e->f;
+        self->f28 = lbl_805DF2EC;
+    } else {
+        M2C_UNK data = get_data__15TObjEneDelDepthFv();
+        E14_80316488 *e = &lbl_804E8780[self->id] - 10;
+        Pair_80316488 *q;
+        self->r8 = TObjFish__sub_8001EDC4(data, e->p0.a);
+        self->rC = TObjFish__sub_8001EDB0(data, e->p0.a);
+        self->r10 = TObjFish__sub_8001ED9C(data, e->p0.b);
+        q = &e->p1;
+        self->r14 = TObjFish__sub_8001EDC4(data, q->a);
+        self->r18 = TObjFish__sub_8001EDB0(data, q->a);
+        self->r1C = TObjFish__sub_8001ED9C(data, q->b);
+        self->f24 = *(u32 *)(self->r1C + 4);
+        self->f20 = e->f;
+        self->f28 = lbl_805DF2EC;
+    }
 }
 
 s32 conditional_delete__15TObjEneDelDepthFis(s32 arg0, s16 arg1) {

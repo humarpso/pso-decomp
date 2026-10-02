@@ -120,6 +120,15 @@ struct RecoveredGlobal_80321B28_lbl_8050E3B8
 struct T_80321738 { s32 a; s32 b; s32 c; };
 
 struct RecoveredGlobal_80321B28_TAdEnterSerialAccessGC__data_804764E8;
+
+typedef struct Plate_803214C4 { u8 pad[0x3B4]; } Plate_803214C4;
+
+typedef struct Vec2_803214C4 { f32 x; f32 y; } Vec2_803214C4;
+
+typedef struct Rect_803214C4 { f32 x; f32 y; f32 w; f32 h; } Rect_803214C4;
+
+typedef struct Col_803214C4 { u32 v; } Col_803214C4;
+
 extern "C" {
 void strncpy(s32, s32, s32);
 M2C_UNK memset(void *, int, int);
@@ -228,6 +237,21 @@ extern s32 tl_clipout;
 extern u32 TAdEnterSerialAccessGC__data_805D6C20;
 extern s32 TAdEnterSerialAccessGC__data_805D6C24;
 u8 *TAdEnterSerialAccessGC__ct(u8 *arg0);
+void TAdEnterSerialAccessGC__sub_802C4B64(void *, void *, Col_803214C4, int);
+void __dt__19TAdPlyChrSelPlateGCFv(void *, int);
+void *__ct__19TAdPlyChrSelPlateGCFv(void *, s32, void *);
+void draw_serial_separators__22TAdEnterSerialAccessGCFv(void);
+extern Vec2_803214C4 lbl_80476548[];
+extern Vec2_803214C4 lbl_80476550[];
+extern s32 tl_clipout;
+extern s32 TAdEnterSerialAccessGC__data_805D6C24;
+extern Col_803214C4 lbl_805DF4D8;
+extern const f32 lbl_805DF4F4;
+extern const f32 lbl_805DF4F8;
+extern const f32 lbl_805DF4FC;
+extern const f32 lbl_805DF500;
+extern const f32 lbl_805DF504;
+void TAdEnterSerialAccessGC__sub_803214C4(void);
 }
 
 extern "C" {
@@ -263,6 +287,47 @@ void draw_serial_separators__22TAdEnterSerialAccessGCFv(void) {
 
 typedef char RecoveredGlobal_803216C0_lbl_8047653C_size[sizeof(RecoveredGlobal_803216C0_lbl_8047653C) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_803216C0_lbl_805430D0_size[sizeof(RecoveredGlobal_803216C0_lbl_805430D0) == 0x18 ? 1 : -1];
+
+#pragma push
+#pragma fp_contract on
+void TAdEnterSerialAccessGC__sub_803214C4(void) {
+    Plate_803214C4 a;
+    Plate_803214C4 b;
+    Rect_803214C4 pa;
+    Rect_803214C4 pb;
+    u32 i;
+    pa.x = lbl_805DF4F4;
+    pa.y = lbl_805DF4F8;
+    __ct__19TAdPlyChrSelPlateGCFv(&a, tl_clipout, &pa);
+    pb.x = lbl_805DF4FC;
+    pb.y = lbl_805DF4F8;
+    __ct__19TAdPlyChrSelPlateGCFv(&b, tl_clipout, &pb);
+    {
+        Vec2_803214C4 pos = lbl_80476548[0];
+        Col_803214C4 c = lbl_805DF4D8;
+        switch (TAdEnterSerialAccessGC__data_805D6C24) {
+        case 3:
+            break;
+        case 2:
+            TAdEnterSerialAccessGC__sub_802C4B64(&b, &lbl_80476550[0], c, 0);
+            for (i = 0; i < 2; i++) {
+                TAdEnterSerialAccessGC__sub_802C4B64(&a, &lbl_80476550[i + 1], c, 0);
+            }
+            draw_serial_separators__22TAdEnterSerialAccessGCFv();
+            break;
+        case 4:
+            for (i = 0; i < 3; i++) {
+                pos.x = lbl_805DF504 * (f32)i + lbl_805DF500;
+                TAdEnterSerialAccessGC__sub_802C4B64(&a, &pos, c, 0);
+            }
+            draw_serial_separators__22TAdEnterSerialAccessGCFv();
+            break;
+        }
+    }
+    __dt__19TAdPlyChrSelPlateGCFv(&b, -1);
+    __dt__19TAdPlyChrSelPlateGCFv(&a, -1);
+}
+#pragma pop
 
 void TAdEnterSerialAccessGC__sub_80321668(u8 *dst, u8 *src, u32 count, u32 *lens) {
     u32 i;

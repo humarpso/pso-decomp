@@ -15693,6 +15693,7 @@ pso/enemy/TObjEneDelDepthBomb_80316244.cpp:
 
 pso/enemy/TObjEneDelDepth_8031624C.cpp:
 	.text       start:0x8031624C end:0x80316690
+	.rodata     start:0x80475DE8 end:0x80475DF0
 
 pso/enemy/TObjEneMe3SinowZoa_80316690.cpp:
 	.text       start:0x80316690 end:0x80316898
@@ -15975,6 +15976,7 @@ pso/ui/TAdGameStartLineGC.cpp:
 
 pso/ui/TAdEnterSerialAccessGC.cpp:
 	.text       start:0x803212D4 end:0x80322438
+	.rodata     start:0x804765D0 end:0x804765D8
 
 pso/boss/TBoss6Kakusan.cpp:
 	.text       start:0x80322438 end:0x80322B50
@@ -16037,6 +16039,7 @@ pso/boss/TBoss8Dragon_80325D38.cpp:
 
 pso/unk/text_80325F7C.cpp:
 	.text       start:0x80325F7C end:0x8032627C
+	.rodata     start:0x80476758 end:0x80476760
 
 pso/boss/TBoss5GryphonLightningHorn.cpp:
 	.text       start:0x8032627C end:0x80326578

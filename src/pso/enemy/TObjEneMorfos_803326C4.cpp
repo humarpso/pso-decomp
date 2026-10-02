@@ -588,6 +588,25 @@ struct V3_80334588 { f32 x, y, z; };
 
 struct O_80334588 { u8 pad[0x60]; s32 f60; u8 pad2[0x2FC - 0x64]; V3_80334588 pos; };
 
+struct Part_803329E4 : VObj_14_fddec9 { u8 pad18[4]; };
+
+struct Self_803329E4 {
+    u8 pad0[0x24];
+    s32 f24;
+    u8 pad28[0x38 - 0x28];
+    u8 pos[0x60 - 0x38];
+    s32 f60;
+    u8 pad64[0x2FC - 0x64];
+    u8 cam[0x3C0 - 0x2FC];
+    s32 f3C0;
+    u8 pad3C4[0x3EC - 0x3C4];
+    VObj_14_fddec9 body;
+    u8 pad404[0x424 - 0x404];
+    Part_803329E4 parts[4];
+    u8 pad494[0x498 - 0x494];
+    u8 f498[4];
+};
+
 extern "C" {
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
 M2C_UNK clear_field_388__9TObjEneDDFPv(void *);
@@ -665,6 +684,25 @@ void TBoss6Type1__sub_803D9370(void *, void *);
 extern const f32 TObjEneMorfos__data_805DF86C;
 extern const f32 TObjEneMorfos__data_805DF874;
 s32 TObjEneMorfos__sub_80334588(O_80334588 *arg0);
+s32 get_mode__11TCameraCtrlFPv(void *);
+M2C_UNK update_primary_light__9TObjEneDDFPv(void *);
+s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
+M2C_UNK TObjPlayer__sub_800D7BB0(void *);
+M2C_UNK toggle_particle_effect__10TObjPlayerFv();
+M2C_UNK render_world_model__10TObjPlayerFPv(void *);
+M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *, int);
+void TObjEneMorfos__sub_80332B7C(void);
+extern M2C_UNK main_task[];
+extern s32 TObjEneMorfos__data_805D6D18;
+extern s32 TObjEneMorfos__data_805D6D1C;
+void TObjEneMorfos__sub_803329E4(Self_803329E4 *self, s32 idx, s32 mode);
 }
 
 extern "C" {
@@ -750,6 +788,48 @@ extern const f32 lbl_805DF878;
 typedef struct RecoveredGlobal_80332B7C_lbl_804775D8 RecoveredGlobal_80332B7C_lbl_804775D8;
 typedef struct Stack_80332B7C Stack_80332B7C;
 typedef char RecoveredGlobal_80332B7C_lbl_804775D8_size[((sizeof(RecoveredGlobal_80332B7C_lbl_804775D8)) == 0xC) ? (1) : (-1)];
+
+void TObjEneMorfos__sub_803329E4(Self_803329E4 *self, s32 idx, s32 mode) {
+    s32 vis;
+    Part_803329E4 *part;
+    part = &self->parts[idx];
+    TObjPlayer__sub_800D7BB0(part);
+    vis = updateFromCamera__15RenderFadeStateFPCf(part, self->cam);
+    set_global_param__8TObjFishFi(self->f24);
+    toggle_particle_effect__10TObjPlayerFv();
+    TObjPlayer__sub_803D9B2C();
+    TOHangerMachine01__sub_803D9C00(self->pos);
+    rotate_matrix_y(0, self->f60);
+    TObjEneMorfos__data_805D6D18 = 0;
+    TObjEneMorfos__data_805D6D1C = (s32)self->f498;
+    ((void (*)(void *))set_global_state__16TObjEneRe7BeruraFi)((void *)TObjEneMorfos__sub_80332B7C);
+    if (self->f3C0 & 2) {
+        if (self->body.m8() != 0) {
+            self->body.m6();
+            if (get_mode__11TCameraCtrlFPv(main_task) & 0x200) {
+                draw__16TObjEneRe7BeruraFPv(self);
+            }
+            self->body.m7();
+        }
+    } else if (vis != 0) {
+        part->m6();
+        if (get_mode__11TCameraCtrlFPv(main_task) & 0x200) {
+            draw__16TObjEneRe7BeruraFPv(self);
+        }
+        part->m7();
+    } else if (!(get_mode__11TCameraCtrlFPv(main_task) & 0x200)) {
+        if (mode == 1) {
+            draw__16TObjEneRe7BeruraFPv(self);
+        } else {
+            render_world_model__10TObjPlayerFPv(self);
+        }
+    }
+    ((void (*)(void *))set_global_state__16TObjEneRe7BeruraFi)(NULL);
+    TObjPlayer__sub_803D9B78();
+    update_primary_light__9TObjEneDDFPv(self);
+    end_effect_render__13TParticleCtrlFv();
+}
+
 void TObjEneMorfos__sub_80332B7C(void) {
   int new_var;
   Stack_80332B7C stack;
