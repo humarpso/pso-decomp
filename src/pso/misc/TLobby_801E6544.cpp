@@ -294,7 +294,6 @@ M2C_UNK free_luker_object__6TLobbyFv();
 s32 TNpcPlayer__sub_8034ECD0(s32, s32, s32);
 extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
 void qst_op_npc_crtpk(void);
-void qst_op_message();
 void send_and_handle__6TLobbyFPvii(void*, s32, s32);
 s32 fn_8026B074(int, int, int);
 extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
@@ -306,6 +305,22 @@ void qst_op_add_msg(void);
 int TLobby__sub_801F2BCC(void);
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801F1C38(s32 arg0, s32 arg1);
+void *get_player_data__10TObjPlayerFi(s32);
+u16 obj_getField1c(void *);
+s32 get_game_mode__6TLobbyFv(void);
+s32 get_lobby_flag__6TLobbyFv(void);
+s32 get_field_d4(void *);
+s32 fn_get_field_3ac(void *);
+s32 request_active_window_close();
+s32 set_close_flag__11TWindowCtrlFv();
+s32 close_window_if_active(void *);
+void set_field28__11TWindowCtrlFs(s32);
+void open__11TWindowCtrlFiii(s32, s32, s32);
+extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
+extern s32 lbl_805D53A0;
+extern int TLobby__data_805D5E98;
+extern s32 lbl_805D5EA0;
+void qst_op_message(void);
 }
 
 extern "C" {
@@ -643,6 +658,45 @@ void qst_op_list(void) {
     request_active_window_close();
     set_close_flag__11TWindowCtrlFv();
     delete list;
+}
+
+void qst_op_message(void) {
+    s32 speaker = ((s32 *)&TLobby__data_80512220)[0];
+    s32 text = ((s32 *)&TLobby__data_80512220)[1];
+    s32 first;
+    void *actor;
+    s32 end;
+    s32 i;
+    close_window_if_active((void *)lbl_805D53A0);
+    request_active_window_close();
+    set_close_flag__11TWindowCtrlFv();
+    lbl_805D5EA0 = speaker;
+    if (speaker < 100) {
+        open__11TWindowCtrlFiii(speaker & 0xFFFF, text, 0x2D);
+        set_field28__11TWindowCtrlFs((u16)speaker);
+        TLobby__data_805D5E98 = 4;
+    } else {
+        first = get_game_mode__6TLobbyFv();
+        end = first + get_lobby_flag__6TLobbyFv();
+        for (i = first; i < end; i++) {
+            actor = get_player_data__10TObjPlayerFi(i);
+            if (actor != NULL) {
+                s32 identity = obj_getField1c(actor);
+                s32 entity;
+                if (identity < 0x4000) {
+                    entity = fn_get_field_3ac(actor);
+                } else {
+                    entity = get_field_d4(actor);
+                }
+                if (entity == speaker) {
+                    open__11TWindowCtrlFiii(identity, text, 0x2D);
+                    set_field28__11TWindowCtrlFs(identity);
+                    TLobby__data_805D5E98 = 4;
+                    break;
+                }
+            }
+        }
+    }
 }
 
 void TLobby__sub_801F1C38(s32 arg0, s32 arg1) {

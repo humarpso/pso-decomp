@@ -31,6 +31,27 @@ struct Line_801ACD14 {
     s16 f368;
 };
 
+struct Flags_801ACB14 {
+    u8 pad0[0x18];
+    u32 f18;
+};
+
+struct Line_801ACB14 {
+    u8 pad0[0x38];
+    Vec_801ACD14 pos;
+    u8 pad44[0xA4 - 0x44];
+    Flags_801ACB14 *fA4;
+    u8 padA8[0x2FC - 0xA8];
+    Vec_801ACD14 f2FC;
+    u8 pad308[0x334 - 0x308];
+    Vec_801ACD14 vel;
+    u8 pad340[4];
+    f32 f344;
+    u8 pad348[0x354 - 0x348];
+    u16 ids[10];
+    u16 count;
+};
+
 extern "C" {
 void TObjPlayer__sub_80019038(void *, void *);
 Vec_801ACD14 *VecCopy__FP3VecPC3Vec(Vec_801ACD14 *, const Vec_801ACD14 *);
@@ -42,6 +63,18 @@ extern u8 lbl_804C37D8[];
 extern M2C_UNK __vt__11TPhotonLine[];
 extern s32 lbl_805D3500;
 Line_801ACD14 *TPhotonLine__ct(Line_801ACD14 *self, Params_801ACD14 *p, void *parent, u16 arg3);
+s32 check_path_obstructed(void *, Vec_801ACD14 *);
+Vec_801ACD14 *VecCopy__FP3VecPC3Vec(Vec_801ACD14 *, const Vec_801ACD14 *);
+u16 obj_getField1c(void *);
+void queue_destruction__7TObjectFv(void *);
+u8 *get_battle_param__10TObjPlayerFi(s32);
+s32 spawn_particle_effect(void *, s32);
+void init_all_slots__10TObjPlayerFv(void);
+void mark_enemy_body_contacts(void *);
+void TObjPlayer__sub_801A720C(s32, s32, s32, f32);
+void TBoss4Zako__sub_803D8910(Vec_801ACD14 *, Vec_801ACD14 *);
+extern const f32 lbl_805DC1D8;
+void run_task__11TPhotonLineFv(Line_801ACB14 *self);
 }
 
 extern "C" {
@@ -58,6 +91,47 @@ int end_effect_render__13TParticleCtrlFv(void);
 void render__11TPhotonLineFv(void) { begin_effect_render__13TParticleCtrlFv(); end_effect_render__13TParticleCtrlFv(); }
 
 extern M2C_UNK __vt__11TPhotonLine[];
+
+void run_task__11TPhotonLineFv(Line_801ACB14 *self) {
+    Vec_801ACD14 v = self->pos;
+    s32 i;
+    u8 *p;
+    s32 j;
+    TBoss4Zako__sub_803D8910(&v, &self->vel);
+    VecCopy__FP3VecPC3Vec(&self->f2FC, &self->pos);
+    self->f2FC.y += lbl_805DC1D8;
+    v.y += lbl_805DC1D8;
+    if (check_path_obstructed(self, &v) == 1) {
+        queue_destruction__7TObjectFv(self);
+        return;
+    }
+    init_all_slots__10TObjPlayerFv();
+    mark_enemy_body_contacts(self);
+    if (self->fA4->f18 & 0x100000) {
+        for (i = 0; i < 16; i++) {
+            p = get_battle_param__10TObjPlayerFi(i);
+            if (p == NULL) {
+                break;
+            }
+            for (j = 0; j < self->count; j++) {
+                if (self->ids[j] == obj_getField1c(p)) {
+                    break;
+                }
+            }
+            if (j == self->count) {
+                self->ids[self->count++] = obj_getField1c(p);
+                if ((s32)self->count >= 9) {
+                    break;
+                }
+                TObjPlayer__sub_801A720C(obj_getField1c(p), 1, 0, self->f344);
+                spawn_particle_effect(p + 0x38, 0x162);
+                spawn_particle_effect(p + 0x38, 0x163);
+            }
+        }
+    }
+    self->pos.x += self->vel.x;
+    self->pos.z += self->vel.z;
+}
 
 void *__dt__11TPhotonLineFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

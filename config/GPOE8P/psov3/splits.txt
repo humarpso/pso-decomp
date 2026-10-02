@@ -4064,6 +4064,7 @@ pso/item/TItemData_8010C940.cpp:
 
 pso/item/TItemData_8010CD6C.cpp:
 	.text       start:0x8010CD6C end:0x8010ECD0
+	.data       start:0x8049F344 end:0x8049F39C
 
 pso/player/TObjPlayer_8010ECD0.cpp:
 	.text       start:0x8010ECD0 end:0x8010ED0C

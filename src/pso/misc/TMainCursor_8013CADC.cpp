@@ -34,6 +34,15 @@ extern u8 lbl_8048E5A0[];
 extern RecoveredGlobal_8013D7E0_lbl_804A7164 lbl_804A7164;
 extern u8 *lbl_805D4DF0;
 extern const f32 TMainCursor__data_805DB0C0;
+s32 TLobby__sub_800822E8(s32, s32);
+s32 TObjPlayer__sub_801B5990(s32, s32);
+s32 TObjPlayer__sub_801B5AC4(s32, s32);
+s32 TObjPlayer__sub_801B5AF8(s32, s32);
+s32 try_camera_action__10TObjPlayerFii(s32, u16);
+s32 check_mode_action__10TObjPlayerFii(s32, u16);
+s32 reset_key_machine_state__10TObjPlayerFv();
+extern u8 lbl_804A7150[];
+s32 TMainCursor__sub_8013CB3C(void *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -60,6 +69,40 @@ M2C_UNK set_flags__11TMainCursorFPvi(s32, M2C_UNK);
 void set_cursor_pos__11TMainCursorFiUsi(s32 arg0, u16 arg1, s32 arg2) {
     u32 eq = (u32) __cntlzw((u32) ((u16) get_id__11TMainCursorFPv(arg0 + 0x4F8) - (u16) arg1)) >> 5;
     TMainCursor__sub_8013E970(arg0 + 0x508, arg1, arg2, eq + 1);
+}
+
+s32 TMainCursor__sub_8013CB3C(void *arg0, s32 arg1, s32 arg2) {
+    u16 kind;
+    u16 sub;
+    kind = TObjPlayer__sub_801B5AF8(arg1, arg2);
+    sub = TObjPlayer__sub_801B5AC4(arg1, arg2);
+    switch (kind) {
+    case 1:
+        if (TObjPlayer__sub_801B5990(arg1, 0) != 0) {
+            return 1;
+        }
+        break;
+    case 2:
+        if (check_mode_action__10TObjPlayerFii(arg1, sub) != 0) {
+            return 2;
+        }
+        break;
+    case 3:
+        if (try_camera_action__10TObjPlayerFii(arg1, sub) != 0) {
+            return lbl_804A7150[sub];
+        }
+        break;
+    case 4:
+        if (TObjPlayer__sub_801B5990(arg1, arg2) != 0 && reset_key_machine_state__10TObjPlayerFv() != 0 && TLobby__sub_800822E8(arg1, 0x43001E) != 0 && ((s32)sub == 0xA || (s32)sub == 9)) {
+            return 0xF;
+        }
+        break;
+    case 5:
+        return (s8)(sub + 3);
+    default:
+        return 0;
+    }
+    return 0;
 }
 
 void set_cursor_color__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {

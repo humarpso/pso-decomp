@@ -87,6 +87,21 @@ void TLobby__sub_803DDD94(S_803DDD94 *d, S_803DDD94 *s);
 void move_data__6TLobbyFv(void*, const void*, s32);
 s32 strlen(const char*);
 void TLobby__sub_803DDDC8(GvmTextureList_803DDDC8* list, s32 stride, const GvmTextureHeader_803DDDC8* header);
+s32 TLobby__sub_803DDD2C(s32 arg0);
+void TLobby__sub_803DDCE8(u32 *p);
+void TLobby__sub_803DDD20(s32 arg0);
+void TLobby__sub_803DDD40(s32 arg0, s32 arg1);
+void TLobby__sub_803DDF4C(void);
+s32 TLobby__sub_803DDEFC(u16 arg0);
+void TLobby__sub_803DDDC8(GvmTextureList_803DDDC8* list, s32 stride, const GvmTextureHeader_803DDDC8* header);
+extern S_803DA7E0 lbl_8058D470;
+s32 TObjPlayer__sub_803D9E38(Obj_803DDA68 *, s32, s32 *, s32 *);
+M2C_UNK TObjPlayer__sub_803DA7E0();
+s32 TObjPlayer__sub_803DAC48(Obj_803DDA68 *, s32, s32, s32, Desc_803DDA68 *, s32 *);
+s32 TObjPlayer__sub_803D9E04(void);
+s32 TObjPlayer__sub_803DAB9C(s32, u32);
+M2C_UNK TObjPlayer__sub_803DAC1C(s32);
+s32 TLobby__sub_803DE084(u32 *arg0, GvmTextureList_803DDDC8 *list);
 }
 
 extern "C" {
@@ -398,6 +413,77 @@ void TLobby__sub_803DDF4C(void) {
         }
     } while ((u32) (spC + 0xABAE0000) != 0x5647U);
 }
+
+#pragma push
+#pragma use_lmw_stmw off
+s32 TLobby__sub_803DE084(u32 *arg0, GvmTextureList_803DDDC8 *list) {
+    s32 id;
+    s32 arg;
+    s32 handle;
+    u32 *tex;
+    s32 r;
+    s32 i;
+    s32 k;
+    s32 data;
+    u32 *hdr;
+    s32 n;
+    arg = -1;
+    TObjPlayer__sub_803DA7E0();
+    if (arg0 == NULL) {
+        lbl_8058D470.c = 1;
+        return -1;
+    }
+    TLobby__sub_803DDD20((s32)arg0);
+    hdr = (u32 *)TLobby__sub_803DDD2C(0xC);
+    TLobby__sub_803DDCE8(hdr);
+    TLobby__sub_803DDCE8(hdr + 1);
+    if (hdr[0] != 0x484D5647) {
+        lbl_8058D470.c = 4;
+        return -1;
+    }
+    list->count = ((GvmTextureHeader_803DDDC8 *)hdr)->directoryCount;
+    TLobby__sub_803DDDC8(list, TLobby__sub_803DDEFC(((GvmTextureHeader_803DDDC8 *)hdr)->flags), (GvmTextureHeader_803DDDC8 *)hdr);
+    TLobby__sub_803DDD40(hdr[1] + 8, 0);
+    TLobby__sub_803DDF4C();
+    n = list->count;
+    for (i = 0; i < n; i++) {
+        for (k = 0; k < n; k++) {
+            if (i == (list->textures[k].attributes & 0xFFFF)) {
+                break;
+            }
+        }
+        r = TObjPlayer__sub_803D9E38((Obj_803DDA68 *)list, k, &id, &arg);
+        if (r == -1) {
+            lbl_8058D470.c = 7;
+            return -1;
+        }
+        tex = (u32 *)TLobby__sub_803DDD2C(0x10);
+        TLobby__sub_803DDCE8(tex);
+        TLobby__sub_803DDCE8(tex + 1);
+        if (tex[0] != 0x54525647) {
+            lbl_8058D470.c = 4;
+            return -1;
+        }
+        data = TLobby__sub_803DDD2C(tex[1] - 8);
+        if (r == 0) {
+            switch (TObjPlayer__sub_803DAC48((Obj_803DDA68 *)list, k, id, arg, (Desc_803DDA68 *)(tex + 2), &handle)) {
+            case -1:
+                lbl_8058D470.c = 6;
+                return -1;
+            case 0:
+                if (TObjPlayer__sub_803DAB9C(handle, data) == -1) {
+                    TObjPlayer__sub_803DAC1C(handle);
+                    return -1;
+                }
+                do {
+                } while (TObjPlayer__sub_803D9E04() != 1);
+                break;
+            }
+        }
+    }
+    return 1;
+}
+#pragma pop
 
 #pragma push
 #pragma scheduling off

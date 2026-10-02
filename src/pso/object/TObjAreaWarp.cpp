@@ -54,6 +54,43 @@ struct Warp_8019D0A8 {
     Vec_8019D0A8 ends[4];
 };
 
+struct VBase_8019D250 { char pad[0x18]; };
+
+struct VObj_8019D250 : VBase_8019D250 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13(s32);
+    virtual s32 m14();
+    virtual void m15();
+    virtual s32 m16(s32);
+    virtual void m17();
+    virtual void m18(u16);
+};
+
+struct Vec_8019D250 { f32 x, y, z; };
+
+struct Data_8019D250 {
+    u8 pad0[0x84];
+    s32 f84;
+    u8 pad88[0xAC - 0x88];
+    f32 fAC;
+    void *fB0;
+    u8 padB4[0xBC - 0xB4];
+    Vec_8019D250 ends[4];
+    void *win[4];
+};
+
 extern "C" {
 s32 TObjMapWarp__ct(void *);
 s32 get_story_select__16TAdStorySelectGCFv();
@@ -97,6 +134,19 @@ extern u8 lbl_8058D490[];
 extern const f32 lbl_805DBFF8;
 extern const f32 lbl_805DBFFC;
 void TObjMapWarp__sub_8019D0A8(u8 *arg0);
+u16 obj_getField1c(void *);
+void allow_rendering__7TObjectFv(void *);
+void clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
+s32 TObjPlayer__sub_80155B34(void *, void *, Vec_8019D250 *);
+s32 can_warp__11TObjMapWarpFiUs(void *, u16);
+void *TObjWarpBase__sub_8019D9CC(void *, u16, f32);
+s32 get_map_id__13TRaderMapCoreFPv(void *);
+s32 is_target_valid__10TObjPlayerFPv(void *);
+void TObjPlayer__sub_801C8CCC(u16, Vec_8019D250 *, s32);
+void TWindow__close(void *);
+s32 is_not_split_screen__13TRaderMapCoreFv();
+extern s32 lbl_805D53A0;
+void TObjPlayer__sub_8019D250(VObj_8019D250 *self);
 }
 
 extern "C" {
@@ -276,6 +326,67 @@ void TObjMapWarp__sub_8019D0A8(u8 *arg0) {
         a.y += lbl_805DBFF8;
         TObjMapWarp__sub_80141CB0(&b, &a, 0xFFFF0000, 0xFFFF0000);
         TObjMapWarp__sub_80141CB4(end, lbl_805DBFFC);
+    }
+}
+void TObjPlayer__sub_8019D250(VObj_8019D250 *self) {
+    Data_8019D250 *d = (Data_8019D250 *)self;
+    s32 i;
+    void *t;
+    s32 j;
+    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+        for (i = 0; i < 4; i++) {
+            if (can_warp__11TObjMapWarpFiUs(self, i) == 0) {
+                if (d->win[i] != NULL) {
+                    TWindow__close(d->win[i]);
+                    d->win[i] = NULL;
+                }
+            } else {
+                if (d->win[i] != NULL) {
+                    clear_flag4_bit4__22TQuestVmDownLoadServerFPv(d->win[i]);
+                    allow_rendering__7TObjectFv(d->win[i]);
+                }
+                t = TObjWarpBase__sub_8019D9CC(self, i, d->fAC);
+                if (t != NULL) {
+                    self->m13(obj_getField1c(t));
+                    if (is_target_valid__10TObjPlayerFPv(t) != 0 && self->m16(get_map_id__13TRaderMapCoreFPv(t)) != 0) {
+                        for (j = 0; j < 4; j++) {
+                            if (TObjPlayer__sub_80155B34(self, t, &d->ends[j]) == 0) {
+                                TObjPlayer__sub_801C8CCC(obj_getField1c(t), &d->ends[j], d->f84);
+                            }
+                        }
+                    }
+                } else {
+                    self->m18(i);
+                }
+            }
+        }
+        return;
+    }
+    if (self->m14() == 0) {
+        if (d->fB0 != NULL) {
+            TWindow__close(d->fB0);
+            d->fB0 = NULL;
+        }
+    } else {
+        void *t2;
+        s32 j2;
+        if (d->fB0 != NULL) {
+            clear_flag4_bit4__22TQuestVmDownLoadServerFPv(d->fB0);
+            allow_rendering__7TObjectFv(d->fB0);
+        }
+        t2 = TObjWarpBase__sub_8019D9CC(self, lbl_805D53A0, d->fAC);
+        if (t2 != NULL) {
+            self->m13(lbl_805D53A0);
+            if (is_target_valid__10TObjPlayerFPv(t2) != 0 && self->m16(get_map_id__13TRaderMapCoreFPv(t2)) != 0) {
+                for (j2 = 0; j2 < 4; j2++) {
+                    if (TObjPlayer__sub_80155B34(self, t2, &d->ends[j2]) == 0) {
+                        TObjPlayer__sub_801C8CCC(obj_getField1c(t2), &d->ends[j2], d->f84);
+                    }
+                }
+            }
+        } else {
+            self->m12();
+        }
     }
 }
 
