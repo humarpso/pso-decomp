@@ -8,6 +8,21 @@ struct Ctx_80244364 { u8 pad[0x10]; f32 x; f32 y; };
 
 struct Obj_80244364 { u8 pad[0x60]; f32 a[2]; f32 x; f32 y; };
 
+typedef struct Disp_80244238 {
+    u8 pad0[0x30];
+    f32 tx;
+    f32 ty;
+    f32 tz;
+    f32 tw;
+    f32 x;
+    f32 y;
+    f32 z;
+    f32 w;
+    u32 n;
+    u8 pad54[0x6C - 0x54];
+    f32 f6C;
+} Disp_80244238;
+
 extern "C" {
 M2C_UNK set_position_xy(f32, f32);
 extern s32 lbl_805D3878;
@@ -16,9 +31,32 @@ extern const f32 lbl_805DCAB0;
 void TWindowAddition__ct(u8 *arg0);
 Ctx_80244364 *TWindowSubComCard__sub_80244C0C(Obj_80244364 *self, f32 *p);
 Ctx_80244364 *TWindowSubStatusDisp__sub_80244364(Obj_80244364 *self);
+void save_position__17TWindowSubComCardFPv(void *p);
+extern const f32 lbl_805DCAA8;
+void TWindowSubStatusDisp__sub_80244238(Disp_80244238 *o);
 }
 
 extern "C" {
+
+#pragma push
+#pragma fp_contract on
+void TWindowSubStatusDisp__sub_80244238(Disp_80244238 *o) {
+    f32 d;
+    u32 n = o->n;
+    if (n == 0) {
+        d = o->tz - o->z;
+        save_position__17TWindowSubComCardFPv(o);
+    } else {
+        d = (o->tw - o->w) / n;
+        o->x += (o->tx - o->x) / n;
+        o->y += (o->ty - o->y) / o->n;
+        o->z += (o->tz - o->z) / o->n;
+        o->w += d;
+        o->n--;
+    }
+    o->f6C -= lbl_805DCAA8 * d;
+}
+#pragma pop
 
 Ctx_80244364 *TWindowSubStatusDisp__sub_80244364(Obj_80244364 *self) {
     Ctx_80244364 *c = TWindowSubComCard__sub_80244C0C(self, self->a);

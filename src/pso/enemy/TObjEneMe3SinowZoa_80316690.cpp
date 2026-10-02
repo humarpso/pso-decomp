@@ -4,33 +4,85 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct Vec_80316690 { f32 x, y, z; };
+
+struct Hit_80316690 { s32 flags; u8 *obj; };
+
 extern "C" {
 s32 objInBand__FP7GameObjf(void *, f32);
-s32 TObjEneMe3SinowZoa__sub_80316690(void *, void *);
 extern const f32 TObjEneMe3SinowZoa__data_805DF2FC;
 extern const f32 lbl_805DF300;
 void TObjEneMe3SinowZoa__sub_80316840(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void TObjFish__sub_800660D4(void *, s32, s32, s32, s32, f32);
+Hit_80316690 *csnVectorUnder(void *, void *, s32);
+s32 TParticleCtrl__sub_80086884(s32);
+int get_instance__13TParticleCtrlFv(void);
+void TObjEneDellBiter__sub_80087350(void *, int);
+void TObjEneGibbles__sub_800D8988(void *);
+extern const f32 TObjEneMe3SinowZoa__data_805DF2F0;
+extern const f32 TObjEneMe3SinowZoa__data_805DF2F4;
+s32 TObjEneMe3SinowZoa__sub_80316690(void *a0, void *arg1);
 }
 
 extern "C" {
 
 void check_and_notify__18TObjEneMe3SinowZoaFPv(void *arg0);
-s32 TObjEneMe3SinowZoa__sub_80316690(void *, void *);
 void TObjEneDellBiter__sub_80087350(void *, int);
 
 struct VOff_803167FC_arg0 { char pad_0[0x38]; char f_38[1]; };
 
+#define DELL ((void *(*)(void *, int))TObjEneDellBiter__sub_80087350)
+s32 TObjEneMe3SinowZoa__sub_80316690(void *a0, void *arg1) {
+    u8 *arg0 = (u8 *)a0;
+    Vec_80316690 v;
+    u8 pad[16];
+    Hit_80316690 *hit;
+    void *p;
+    VecCopy__FP3VecPC3Vec(&v, arg1);
+    v.y += TObjEneMe3SinowZoa__data_805DF2F0;
+    hit = csnVectorUnder(&v, arg0 + 0x120, 0x4007);
+    if (hit != NULL) {
+        *(s32 *)(arg0 + 0x3D0) = *(s32 *)(hit->obj + 0x18);
+        if (*(s32 *)(arg0 + 0x3D0) & 0x4000) {
+            VecCopy__FP3VecPC3Vec(arg0 + 0x3D4, hit->obj);
+        } else {
+            VecCopy__FP3VecPC3Vec(arg0 + 0x3D4, arg0 + 0x38);
+        }
+        if (hit->flags & 4) {
+            TObjEneGibbles__sub_800D8988(arg0 + 0x38);
+            p = DELL(hit->obj + 0x38, 0x49);
+            if (p != 0) {
+                TObjFish__sub_800660D4(p, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneMe3SinowZoa__data_805DF2F4);
+            }
+            TObjEneDellBiter__sub_80087350(hit->obj + 0x38, 0xA4);
+            return 1;
+        }
+        if (hit->flags & 2) {
+            TObjEneGibbles__sub_800D8988(arg0 + 0x38);
+            p = DELL(hit->obj + 0x54, 0x49);
+            if (p != 0) {
+                TObjFish__sub_800660D4(p, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneMe3SinowZoa__data_805DF2F4);
+            }
+            TObjEneDellBiter__sub_80087350(hit->obj + 0x54, 0xA4);
+            return 1;
+        }
+    }
+    return 0;
+}
+
 void check_and_notify__18TObjEneMe3SinowZoaFPv(void *arg0) {
     s32 x;
     struct VOff_803167FC_arg0 *self = (struct VOff_803167FC_arg0 *)arg0;
-    x = TObjEneMe3SinowZoa__sub_80316690(arg0, self->f_38);
+    x = TObjEneMe3SinowZoa__sub_80316690((void *)(arg0), (void *)(self->f_38));
     if (x == 0) {
         TObjEneDellBiter__sub_80087350(self->f_38, 243);
     }
 }
 void TObjEneMe3SinowZoa__sub_80316840(u8 *arg0) {
     if ((objInBand__FP7GameObjf(arg0, TObjEneMe3SinowZoa__data_805DF2FC) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805DF300) != 0)) {
-        TObjEneMe3SinowZoa__sub_80316690((void *) (arg0), (void *) (arg0 + 0x38));
+        TObjEneMe3SinowZoa__sub_80316690((void *)((void *) (arg0)), (void *)((void *) (arg0 + 0x38)));
     }
 }
 
