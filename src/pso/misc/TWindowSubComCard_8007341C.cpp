@@ -26,7 +26,7 @@ s32 get_camera_id__11TCameraCtrlFv();
 char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 get_layout_id__20TWindowSubStatusDispFv(void *);
 s32 fn_80071A9C(void *, void *, void *);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 void set_position_xy(void *, f32, f32);
 void set_field_1c__6TLobbyFPvf(void *, f32);
 void send_and_handle__6TLobbyFPvii(void *, char *, s32);
@@ -74,7 +74,7 @@ void TLobby__sub_80073738(void *arg0, void *arg1) {
     rec = CHAL->recs;
     for (i = 0; i < 4; i++, rec++) {
         if (rec->flag != 0) {
-            strcat(lbl_804FF838, (char *)(TPlayerBattleCtrl4P__sub_801BA74C(i) + 0x85C));
+            strcat(lbl_804FF838, (char *)(get_player_by_client_id(i) + 0x85C));
             strcat(lbl_804FF838, lbl_80438630);
             n = fn_80071A9C(arg0, rec->data, arg1);
             if (n >= get_layout_id__20TWindowSubStatusDispFv(arg1)) {

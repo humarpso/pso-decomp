@@ -79,12 +79,12 @@ void enable_first_time_flag__10TObjPlayerFi(s32 arg0);
 void TItemData__sub_8010CEF4(void *);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 void copy_item_data_to_icon__10TObjPlayerFPv(void *arg0);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+s32 get_player_by_client_id(u16);
 s16 *fn_8010A768();
 u32 get_equip_field_d04__10TObjPlayerFPv(s32, s32);
 s32 get_stat_bonus__10TObjPlayerFPv(s32);
 s16 calc_stat_bonus_sum__10TObjPlayerFUs(u16 arg0);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+s32 get_player_by_client_id(u16);
 s16 *fn_8010A768();
 u32 get_equip_field_d04__10TObjPlayerFPv(s32, s32);
 s32 get_stat__10TObjPlayerFPv(s32);
@@ -233,7 +233,7 @@ s16 calc_stat_bonus_sum__10TObjPlayerFUs(u16 arg0) {
     s32 temp_r3;
     s32 var_acc;
     s32 var_cnt;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16) arg0);
+    temp_r3 = get_player_by_client_id((u16) arg0);
     var_acc = 0;
     if (temp_r3 != 0) {
         var_cnt = 9;
@@ -251,7 +251,7 @@ s16 calc_equip_bonus__10TObjPlayerFUs(u16 arg0) {
     s32 temp_r3;
     s32 var_acc;
     s32 var_cnt;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16) arg0);
+    temp_r3 = get_player_by_client_id((u16) arg0);
     var_acc = 0;
     if (temp_r3 != 0) {
         var_cnt = 9;

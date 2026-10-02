@@ -56,7 +56,7 @@ s32 TCameraCtrl__sub_803D8934(int, int, int);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_x(int, int);
 s32 TObjPlayer__sub_803D97F0(void *);
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 extern RecoveredGlobal_80049E9C_lbl_80484AD0 lbl_80484AD0;
 extern M2C_UNK lbl_80484AFC[];
 extern RecoveredGlobal_80049E9C_lbl_8058D490 lbl_8058D490;
@@ -68,15 +68,15 @@ u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 TBoss3Volopt__sub_8004812C(int);
 void TBoss3Volopt__sub_80049A1C(void *);
-u32 TObjButterflyLobby__sub_8007A5D8(void *, void *, s32);
+u32 csnVector(void *, void *, s32);
 void copy_vec3__11TBoss4Type2FPvPv(void *, void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void scale_velocity__19TObjGyaranzoMissileFPvf(void *, f32);
 void TObjPlayer__sub_80142170(void *, void *, void *);
 void TObjPlayer__sub_801422A8(void *, void *, void *);
-void TObjPlayer__sub_801564A0(void *);
+void check_enemy_body_collisions(void *);
 void check_object_collisions__10TObjPlayerFPv(void *);
-Tgt_80049C10 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+Tgt_80049C10 *get_player_by_client_id(s32);
 void TOTrapAncient01__sub_80226578(s32, void *, void *, s32, s32);
 void TBoss4Zako__sub_803D8910(void *, void *);
 void TBoss6Type1__sub_803D9370(void *, void *);
@@ -98,7 +98,7 @@ extern M2C_UNK lbl_80484AFC[];
 
 void TBoss3Volopt__sub_80049C10(Self_80049C10 *self) {
     Tgt_80049C10 *t;
-    t = TPlayerBattleCtrl4P__sub_801BA74C(self->fcc);
+    t = get_player_by_client_id(self->fcc);
     if (t != NULL) {
         Vec_80049C10 d = t->pos;
         TBoss6Type1__sub_803D9370(&d, &self->pos);
@@ -121,7 +121,7 @@ void TBoss3Volopt__sub_80049C10(Self_80049C10 *self) {
         TBoss4Zako__sub_803D8910(&n, &self->pos);
         copy_pos__11TNowLoadingFPvPv(self->fe0, &n);
     }
-    if (TObjButterflyLobby__sub_8007A5D8(&self->prev, &self->pos, -1) != 0) {
+    if (csnVector(&self->prev, &self->pos, -1) != 0) {
         TBoss3Volopt__sub_80049A1C(self);
         return;
     }
@@ -132,7 +132,7 @@ void TBoss3Volopt__sub_80049C10(Self_80049C10 *self) {
         self->fa4->f18 |= 4;
     }
     check_object_collisions__10TObjPlayerFPv(self);
-    TObjPlayer__sub_801564A0(self);
+    check_enemy_body_collisions(self);
     if (self->fa4->f18 & 0x180000) {
         TBoss3Volopt__sub_80049A1C(self);
         return;
@@ -180,7 +180,7 @@ u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
     rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)));
     temp_r4 = (u8 *)(arg0 + 0xB4);
     TCameraCtrl__sub_803D8934((int) (0), (int) (temp_r4), (int) (temp_r4));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     M2C_FIELD(arg0, s32 *, 0xAC) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D4C10, u8 **, 0x42C), s32 *, 0x168);
     M2C_FIELD(arg0, s32 *, 0xB0) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D4C10, u8 **, 0x42C), s32 *, 0x16C);
     M2C_FIELD(arg0, s32 *, 0xD0) = 0;

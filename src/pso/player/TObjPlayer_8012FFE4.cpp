@@ -8,7 +8,7 @@ extern "C" {
 
 void update_shield_effect__10TObjPlayerFPv(void *arg0);
 u8 get_slot_count__14TItemProShieldFPv();
-M2C_UNK TOMonitorMachine01__sub_803D8B5C(M2C_UNK, f32, f32, f32);
+M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
 s32 get_player_list__10TObjPlayerFv();
 
 void update_shield_effect__10TObjPlayerFPv(void *arg0) {
@@ -18,7 +18,7 @@ void update_shield_effect__10TObjPlayerFPv(void *arg0) {
         switch (get_player_list__10TObjPlayerFv()) {
         case 1:
             temp_f1 = M2C_FIELD(arg0, f32 *, 0x1F8);
-            TOMonitorMachine01__sub_803D8B5C(0, temp_f1, temp_f1, temp_f1);
+            scale_matrix(0, temp_f1, temp_f1, temp_f1);
             break;
         }
     }

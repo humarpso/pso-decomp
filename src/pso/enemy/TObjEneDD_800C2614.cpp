@@ -159,17 +159,17 @@ struct Prm_800C2628 { f32 a, b, c, d, e; };
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(Vec_800C2628 *, void *);
-void TOSwitchAttack__sub_80087278(Vec_800C2628 *, s32, s32);
+void spawn_particle_effect_with_flags(Vec_800C2628 *, s32, s32);
 s32 check_v2_mode__9TObjEneDDFv();
 void TObjEneDD__sub_800BA5A4(void *, Prm_800C2628 *);
 void TBoss8Dragon__sub_800BB780(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK noop__9TObjEneDDFv(void *, s32);
 M2C_UNK fn_800C3A60(void *, M2C_UNK);
 s32 get_flag_11__16TObjEneRe2FlowerFPv(void *);
 M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
-M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK advance_animation_playback();
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern Prm_800C2628 lbl_8043BA68;
 extern Prm_800C2628 lbl_8043BBA0;
@@ -183,9 +183,9 @@ extern "C" {
 void TObjEneDD__sub_800C2614(void);
 void TObjEneDD__sub_800C2618(void* p);
 void handle_event__16TObjEneRe2FlowerFPvi(u8 *arg0, s32 arg1);
-M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK advance_animation_playback();
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
 M2C_UNK fn_800C3A60(void *, M2C_UNK);
 M2C_UNK noop__9TObjEneDDFv(void *, s32);
@@ -224,10 +224,10 @@ void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1) {
     case 3:
         if (F(s32, 0x410) > 0x1C2) {
             F(u32, 0x30) |= 0x800;
-            TObjEneDD__sub_800BBA18(arg0, 0xA);
+            transition_enemy_state(arg0, 0xA);
             VecCopy__FP3VecPC3Vec(&v, arg0 + 0x38);
             v.y += lbl_805D9FBC;
-            TOSwitchAttack__sub_80087278(&v, 0xD3, 0x40);
+            spawn_particle_effect_with_flags(&v, 0xD3, 0x40);
             {
                 Prm_800C2628 prm = lbl_8043BBA0;
                 prm.d = prm.b = *lbl_805D5170;
@@ -241,7 +241,7 @@ void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1) {
         }
         break;
     case 0:
-        TBoss1Dragon__sub_80143504();
+        advance_animation_playback();
         if (F(s32, 0x3D4) > 0) {
             F(s32, 0x3D4)--;
             if (F(s32, 0x3D4) == 0) {
@@ -307,13 +307,13 @@ void handle_event__16TObjEneRe2FlowerFPvi(u8 *arg0, s32 arg1) {
         return;
     case 3:
         if (objInBand__FP7GameObjf(M2C_FIELD(arg0, f32 *, 0xC4) - lbl_805D9FC0) != 0) {
-            TObjEneDD__sub_800BBA18(arg0, 3);
+            transition_enemy_state(arg0, 3);
         }
         ((V_A_800c294c_800C2614 *) arg0)->m100();
         ((V_A_800c294c_800C2614 *) arg0)->m86();
         return;
     case 0:
-        TBoss1Dragon__sub_80143504();
+        advance_animation_playback();
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x410);
         M2C_FIELD(arg0, s32 *, 0x410) = (s32) (temp_r4 + 1);
         noop__9TObjEneDDFv(arg0, temp_r4);

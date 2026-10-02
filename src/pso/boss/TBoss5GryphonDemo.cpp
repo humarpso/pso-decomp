@@ -53,7 +53,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void fn_8002B630(void *, void *);
 void TBoss5GryphonDemo__sub_80066304(O_80066304 *self);
 u8 *alloc_buffer__11TOBoss4RockFPv(s32);
-void TObjPlayer__sub_80154B60(void *);
+void register_entity_by_id(void *);
 int TObjPlayer__sub_80154E3C(void*);
 void TObjPlayer__sub_801569F4(void *);
 s16 TLobby__sub_801A2078(s32);
@@ -88,13 +88,13 @@ int TObjPlayer__sub_80154E3C(void*);
 int TObjPlayer__sub_803D8CD4(void*);
 int rotate_matrix_y(void*, void*);
 int TObjPlayer__sub_803D9B2C(void*);
-int TObjPlayer__sub_803D9B78(void);
+int pop_matrix(void);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
 
 void TBoss5GryphonDemo__sub_80066268(void) {  }
 void TBoss5GryphonDemo__sub_8006626C(void* p) { TBoss5GryphonDemo__sub_80066304((O_80066304 *)((void*)(p))); }
-void draw_model__17TBoss5GryphonDemoFPvPvPv(void* p, void* a1, void* a2) { TObjPlayer__sub_803D9B2C(p); TObjPlayer__sub_803D8CD4((void*)0); TOHangerMachine01__sub_803D9C00(a1); rotate_matrix_y((void*)0, a2); TCameraCtrl__sub_803D8934((void*)0, (char*)p + 0xac, (char*)p + 0x38); TObjPlayer__sub_803D9B78(); *(void**)((char*)p + 0x60) = a2; TObjPlayer__sub_80154E3C(p); TBoss5GryphonDemo__sub_8006633C((O_8006633C *)((void*)(p))); }
+void draw_model__17TBoss5GryphonDemoFPvPvPv(void* p, void* a1, void* a2) { TObjPlayer__sub_803D9B2C(p); TObjPlayer__sub_803D8CD4((void*)0); TOHangerMachine01__sub_803D9C00(a1); rotate_matrix_y((void*)0, a2); TCameraCtrl__sub_803D8934((void*)0, (char*)p + 0xac, (char*)p + 0x38); pop_matrix(); *(void**)((char*)p + 0x60) = a2; TObjPlayer__sub_80154E3C(p); TBoss5GryphonDemo__sub_8006633C((O_8006633C *)((void*)(p))); }
 
 void TBoss5GryphonDemo__sub_80066304(O_80066304 *self) {
     s32 i;
@@ -154,7 +154,7 @@ Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(Obj_800663DC *arg0, M2C_UNK arg1, 
         s++;
     }
     TObjPlayer__sub_80154E3C(arg0);
-    TObjPlayer__sub_80154B60(arg0);
+    register_entity_by_id(arg0);
     TBoss5GryphonDemo__sub_80066304((O_80066304 *)arg0);
     return arg0;
 }

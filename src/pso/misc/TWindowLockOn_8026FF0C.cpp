@@ -45,7 +45,7 @@ extern "C" {
 void update_for_player_index__13TWindowLockOnFPvi(u8 *arg0, s32 arg1);
 s32 strcmp(s32, s32);
 s32 is_inactive__10TObjPlayerFPv(void *);
-struct VObj_8026ff0c *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+struct VObj_8026ff0c *get_player_by_client_id(s32);
 u32 get_field_20__17TWindowSubComCardFPv(void *);
 M2C_UNK clear_visible_flag__20TWindowSubStatusDispFPv(void *);
 M2C_UNK TWindowSubStatusDisp__sub_8025AC50(void *, s32, M2C_UNK);
@@ -56,7 +56,7 @@ void update_for_player_index__13TWindowLockOnFPvi(u8 *arg0, s32 arg1) {
     struct VObj_8026ff0c *temp_r30;
     u8 *temp_r29;
 
-    temp_r30 = TPlayerBattleCtrl4P__sub_801BA74C(arg1);
+    temp_r30 = get_player_by_client_id(arg1);
     if (temp_r30 == NULL) {
         set_flag0_bit2__15TWindowHelpItemFPv(arg0);
         return;

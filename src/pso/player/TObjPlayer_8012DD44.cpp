@@ -11,7 +11,7 @@ u8 get_slot_count__14TItemProShieldFPv(void *);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 s32 get_player_list__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
+M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
 
 extern const f32 lbl_805DAF58;
 
@@ -22,7 +22,7 @@ void apply_frame_camera_shake__10TObjPlayerFPv(void *arg0) {
     temp_r31 = get_player_list__10TObjPlayerFv();
     if (get_slot_count__14TItemProShieldFPv(arg0) != 6) {
         if (temp_r31 == (s32) M2C_FIELD(arg0, s32 *, 0x21C)) {
-            TObjPlayer__sub_803D9624(0, lbl_805DAF58, M2C_FIELD(arg0, f32 *, 0x224), lbl_805DAF58);
+            translate_matrix(0, lbl_805DAF58, M2C_FIELD(arg0, f32 *, 0x224), lbl_805DAF58);
         }
         var_r30 = M2C_FIELD(arg0, s32 *, 0x220);
     } else {

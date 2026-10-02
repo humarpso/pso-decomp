@@ -10,14 +10,14 @@ void TObjPlayer__sub_80123F70(void* p);
 void TObjPlayer__sub_80123F7C(void* p);
 void refresh_inventory_slot__10TObjPlayerFPv(void *arg0);
 s32 submit_computer_command__10TObjPlayerFPv(s32, s32, s32, s32);
-s32 TObjPlayer__sub_8010069C();
+s32 refresh_owner_stats__5TItemFPv();
 
 void TObjPlayer__sub_80123F70(void* p) { *(s16*)((char*)p + 0x1fc) = -1; }
 void TObjPlayer__sub_80123F7C(void* p) { *(s16*)((char*)p + 0x1fc) = -1; }
 void refresh_inventory_slot__10TObjPlayerFPv(void *arg0) {
     void *temp_r3;
 
-    TObjPlayer__sub_8010069C();
+    refresh_owner_stats__5TItemFPv();
     temp_r3 = M2C_FIELD(arg0, void **, 0xF4);
     if (temp_r3 != NULL) {
         submit_computer_command__10TObjPlayerFPv(M2C_FIELD(temp_r3, s32 *, 0x2C), 2, 0, 1);

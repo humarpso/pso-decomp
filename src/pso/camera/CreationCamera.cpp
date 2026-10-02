@@ -23,7 +23,7 @@ extern s32 lbl_805D6570;
 extern const f32 lbl_805DD990;
 extern const f32 lbl_805DD994;
 void fn_80291538(void *arg0);
-f32 TCharaMaking__sub_8028DCCC(void *);
+f32 calc_character_height(void *);
 extern RecoveredGlobal_802916D4_lbl_804DAA18 lbl_804DAA18;
 extern u8 *lbl_805D6520;
 extern s32 lbl_805D6570;
@@ -35,7 +35,7 @@ f32 TBoss8Dragon__sub_803D64DC(s32);
 extern s32 lbl_805D6570;
 extern const f32 lbl_805DD96C,lbl_805DD978,lbl_805DD998;
 void advance_creation_review_camera(CreationCameraFields* camera);
-f32 TCharaMaking__sub_8028DCCC(void *);
+f32 calc_character_height(void *);
 void fn_802912C4(void *, int, int, f32, f32);
 u32 TObjCMMainMenu__sub_80291D44();
 extern u8 *lbl_805D6520;
@@ -110,7 +110,7 @@ void fn_802916D4(u8 *arg0) {
     f32 temp_f2;
     s32 temp_r7;
     if ((void *) lbl_805D6520 != NULL) {
-        M2C_FIELD(arg0, f32 *, 0x6C) = (f32) (lbl_805DD99C * TCharaMaking__sub_8028DCCC((void *) (lbl_805D6520)));
+        M2C_FIELD(arg0, f32 *, 0x6C) = (f32) (lbl_805DD99C * calc_character_height((void *) (lbl_805D6520)));
         M2C_FIELD(arg0, f32 *, 0x80) = (f32) M2C_FIELD(arg0, f32 *, 0x6C);
         temp_r7 = (s8) M2C_FIELD(lbl_805D6520, u8 *, 0x31) * 8;
         temp_f2 = M2C_FIELD(((u8 *)(&lbl_804DAA18.value) + temp_r7), f32 *, 0);
@@ -147,7 +147,7 @@ void fn_80291784(Cam_80291784 *arg0) {
         arg0->timer = 0;
     }
     if (lbl_805D6520 != NULL) {
-        f32 s = TCharaMaking__sub_8028DCCC(lbl_805D6520);
+        f32 s = calc_character_height(lbl_805D6520);
         switch (arg0->mode) {
         case 0:
             fn_802912C4(arg0, 0, 0, lbl_805DD96C * s, lbl_805DD9A4 * s);

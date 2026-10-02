@@ -34,12 +34,12 @@ extern RecoveredGlobal_80107DA4_lbl_8049EFB8 lbl_8049EFB8;
 u8 *fn_80107DA4(u8 *arg0, u8 *arg1, s16 arg2);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 notify_fish_if_valid__10TObjPlayerFUi(u32);
-M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjDoor__sub_803DC894(int, int, f32);
+M2C_UNK draw_ginja_model_with_motion(int, int, f32);
 M2C_UNK set_chunk_material_color(void *);
 extern RecoveredGlobal_80107DF0_lbl_8050BEC0 lbl_8050BEC0;
 extern RecoveredGlobal_80107DF0_lbl_8058D4C0 lbl_8058D4C0;
@@ -68,16 +68,16 @@ void render__13TItemEffArmorFv(u8 *arg0) {
     TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x2C));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x68)));
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x28);
-    TOMonitorMachine01__sub_803D8B5C((int) (0), (f32) (temp_f1), (f32) (TItemEffArmor__data_805DAAEC), (f32) (temp_f1));
+    scale_matrix((int) (0), (f32) (temp_f1), (f32) (TItemEffArmor__data_805DAAEC), (f32) (temp_f1));
     lbl_805D5660 = some_id_805c6f74;
     some_id_805c6f74 |= 0x10;
     copy_vec4__13TRaderMapCoreFPvPv(&lbl_8050BEC0.value, &lbl_8058D4C0.value);
     set_chunk_material_color((void *) ((u8 *)(arg0) + 0x38));
     notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, u32 *, 0x78));
-    TObjDoor__sub_803DC894((int) (M2C_FIELD(arg0, s32 *, 0x70)), (int) (M2C_FIELD(arg0, s32 *, 0x74)), (f32) (M2C_FIELD(arg0, f32 *, 0x24)));
+    draw_ginja_model_with_motion((int) (M2C_FIELD(arg0, s32 *, 0x70)), (int) (M2C_FIELD(arg0, s32 *, 0x74)), (f32) (M2C_FIELD(arg0, f32 *, 0x24)));
     copy_vec4__13TRaderMapCoreFPvPv(&lbl_8058D4C0.value, &lbl_8050BEC0.value);
     some_id_805c6f74 = lbl_805D5660;
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 void run_task__13TItemEffArmorFv(u8 *arg0) {

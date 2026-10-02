@@ -11,7 +11,7 @@ struct RecoveredGlobal_802A4CC4_lbl_804DCFF8 {
 
 extern "C" {
 M2C_UNK TObjPlayer__sub_802A445C(void *, M2C_UNK);
-u32 TPhotonMylla__sub_80154CB4(u16);
+u32 find_entity_by_id(u16);
 M2C_UNK TNeedleShoot__sub_802A4668(void *);
 M2C_UNK TNeedleShoot__sub_802A4694(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -39,7 +39,7 @@ M2C_UNK TObjFish__sub_8001EDC4(void *, int);
 M2C_UNK set_global_param__8TObjFishFi();
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 
@@ -60,10 +60,10 @@ void draw_model__13TObjEneMe1GeeFPv(u8 *arg0) {
     TObjFish__sub_8001EDC4((void *) (lbl_805D6660), (int) (1));
     TObjBoss2Tunnel__sub_803DB470();
     end_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 void update_missile__13TObjEneMe1GeeFPv(void *arg0) {
-    M2C_FIELD(arg0, u32 *, 0x1C) = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x34));
+    M2C_FIELD(arg0, u32 *, 0x1C) = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x34));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;

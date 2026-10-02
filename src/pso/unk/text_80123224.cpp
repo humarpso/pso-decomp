@@ -12,7 +12,7 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_80123224(u8 *arg0);
 void draw_icon__10TObjPlayerFPvii(void *self, s32 kind, Vec_8012327C *out);
-s32 TObjEneDellBiter__sub_80087350(Vec_8012327C *, s32);
+s32 spawn_particle_effect(Vec_8012327C *, s32);
 extern const f32 lbl_805DAD08;
 void TObjPlayer__sub_8012327C(void *self);
 }
@@ -36,7 +36,7 @@ void TObjPlayer__sub_8012327C(void *self) {
     Vec_8012327C v;
     draw_icon__10TObjPlayerFPvii(self, 2, &v);
     v.y -= lbl_805DAD08;
-    TObjEneDellBiter__sub_80087350(&v, 0x1d2);
+    spawn_particle_effect(&v, 0x1d2);
 }
 
 }

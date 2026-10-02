@@ -52,7 +52,7 @@ struct Ten_802EF898 { u8 pad[0x74]; f32 t; Cnt_802EF898 *c; };
 extern "C" {
 int queue_destruction__7TObjectFv(void*);
 M2C_UNK TObjFish__sub_800660D4(int, int, int, int, int, f32);
-s32 TObjEneDellBiter__sub_80087350(void *, int);
+s32 spawn_particle_effect(void *, int);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 s32 queue_boss_effect__10TObjPlayerFPv(int);
 s32 TObjPlayer__sub_802E80A0();
@@ -66,9 +66,9 @@ extern const f32 lbl_805DEC14;
 extern const f32 lbl_805DEC18;
 void TBoss7Tentacle__sub_802EFB1C(u8 *arg0);
 s32 obj_testFlags30(void *, s32);
-s32 TObjEneDellBiter__sub_80087350(void *, int);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+s32 spawn_particle_effect(void *, int);
+f32 horizontal_distance_squared(void *, void *);
+u8 *get_player_by_client_id(u16);
 extern RecoveredGlobal_802EFB1C_lbl_80541918 lbl_80541918;
 extern const f32 TBoss7Tentacle__data_805DEC00;
 extern const f32 TBoss7Tentacle__data_805DEC04;
@@ -99,7 +99,7 @@ void TBoss7Tentacle__sub_802EF800(u8 *arg0) {
     queue_destruction__7TObjectFv((void*)(*((void **) (((s8 *) arg0) + 0x40))));
     *((u32 *) (((s8 *) arg0) + 0x40)) = 0U;
   }
-  temp_r31 = TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x1C), (int) 0x215);
+  temp_r31 = spawn_particle_effect((void *) (arg0 + 0x1C), (int) 0x215);
   temp_r3 = temp_r31;
   if (temp_r3 != 0)
   {
@@ -140,8 +140,8 @@ void TBoss7Tentacle__sub_802EF99C(u8 *arg0) {
     u8 *p;
     TBoss7Tentacle__sub_802EF898((void *)(arg0), lbl_805DEC08);
     for (i = 0; (u16)i != 12; i++) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C((u16)i);
-        if (p != NULL && TObjPlayer__sub_80141CF8(p + 0x38, arg0 + 0x1C) < lbl_805DEC0C) {
+        p = get_player_by_client_id((u16)i);
+        if (p != NULL && horizontal_distance_squared(p + 0x38, arg0 + 0x1C) < lbl_805DEC0C) {
             if (*(s32 *)(arg0 + 0x3C) == 0 && ((VObj_18_9935f6 *)p)->m25(*(s32 *)(arg0 + 0x10), 0, lbl_805DEC10) != 0) {
                 ((VObj_18_9935f6 *)p)->m20(*(s32 *)(arg0 + 0x10), TBoss7Tentacle__data_805DEC00);
             }
@@ -152,7 +152,7 @@ void TBoss7Tentacle__sub_802EF99C(u8 *arg0) {
                 Hit_802EF99C a = b;
                 ((VObj_18_9935f6 *)p)->m21(*(s32 *)(arg0 + 0x10), &a, 0, -1, -1);
                 if (((Obj_802EF99C *)arg0)->flags[(u16)i] == 0) {
-                    TObjEneDellBiter__sub_80087350(p + 0x2FC, 0x214);
+                    spawn_particle_effect(p + 0x2FC, 0x214);
                     ((Obj_802EF99C *)arg0)->flags[(u16)i] = 1;
                 }
             }

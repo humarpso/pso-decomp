@@ -18,7 +18,7 @@ u32 TLobby__sub_80101AB0(int);
 s32 get_item_ctrl__10TObjPlayerFv();
 s8 TObjPlayer__sub_80102C30();
 s32 get_flag_40__8TItemMagFPv(int);
-void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+void *get_player_by_client_id(u16);
 }
 
 void TItemEffArmorParticle::run_task() {
@@ -31,7 +31,7 @@ void TItemEffArmorParticle::run_task() {
     }
     active = 0;
     if ((u32)m_20 != 0U) {
-        player = (u32)TPlayerBattleCtrl4P__sub_801BA74C(m_player_id);
+        player = (u32)get_player_by_client_id(m_player_id);
         item = TLobby__sub_80101AB0(m_item_id);
         if (player != 0U) {
             if (item != 0U) {
@@ -82,8 +82,8 @@ extern "C" {
 
 void *TItemEffArmorParticle__ct(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4);
 u32 TBoss8Dragon__sub_8008741C(M2C_UNK, s32, s32);
-M2C_UNK TObjPlayer__sub_80087638(u32, u16);
-void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+M2C_UNK set_owner_id__13TParticleCtrlFPvUs(u32, u16);
+void *get_player_by_client_id(u16);
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 M2C_UNK disallow_rendering__7TObjectFv(void *);
 s32 get_item_ctrl__10TObjPlayerFv();
@@ -102,12 +102,12 @@ void *TItemEffArmorParticle__ct(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 
     M2C_FIELD(arg0, s32 *, 0x1C) = arg2;
     M2C_FIELD(arg0, s16 *, 0x24) = (s16) arg3;
     M2C_FIELD(arg0, s32 *, 0x28) = get_item_ctrl__10TObjPlayerFv();
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16) arg3);
+    temp_r3 = get_player_by_client_id((u16) arg3);
     if (temp_r3 != NULL) {
         M2C_FIELD(arg0, u32 *, 0x20) = TBoss8Dragon__sub_8008741C(((V_A_80364364 *) temp_r3)->m7(), arg4, 0x10);
         p = M2C_FIELD(arg0, u32 *, 0x20);
         if (p != 0U) {
-            TObjPlayer__sub_80087638(p, M2C_FIELD(arg0, u16 *, 0x24));
+            set_owner_id__13TParticleCtrlFPvUs(p, M2C_FIELD(arg0, u16 *, 0x24));
         }
     } else {
         M2C_FIELD(arg0, u32 *, 0x20) = 0U;

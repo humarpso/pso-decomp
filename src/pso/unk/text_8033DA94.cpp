@@ -30,7 +30,7 @@ M2C_UNK TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
 M2C_UNK TObjFish__sub_800E3074(int);
 void *TObjFish__sub_8033DA94(void *, void *);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 void *__nw__7TObjectFUl(int);
 M2C_UNK clear_global_state__10TObjPlayerFv();
 M2C_UNK clear_render_callback__8TObjFishFv(int);
@@ -63,7 +63,7 @@ void render_effect__8TObjFishFPv(u8 *arg0) {
         TObjEneSlimeOne__sub_803E4AF4((int) (M2C_FIELD(arg0, s32 *, 0x40)), (int) (M2C_FIELD(arg0, s32 *, 0x48)), (f32) (M2C_FIELD(arg0, f32 *, 0x4C)));
         clear_render_callback__8TObjFishFv((int) (M2C_FIELD(arg0, s32 *, 0x9C)));
         clear_global_state__10TObjPlayerFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

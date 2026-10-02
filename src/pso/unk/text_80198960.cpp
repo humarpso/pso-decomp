@@ -15,10 +15,10 @@ struct RecoveredGlobal_80198960_lbl_8050DD58 {
 
 extern "C" {
 M2C_UNK TObjFish__sub_8001EDC4(void *, int);
-M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TObjFish__sub_803E46BC();
@@ -43,10 +43,10 @@ void fn_80198960(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x1C));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x34)));
-        TOMonitorMachine01__sub_803D8B5C((int) (0), (f32) (lbl_805DBF44), (f32) (lbl_805DBF44), (f32) (lbl_805DBF44));
+        scale_matrix((int) (0), (f32) (lbl_805DBF44), (f32) (lbl_805DBF44), (f32) (lbl_805DBF44));
         TObjFish__sub_8001EDC4((void *) (lbl_805D5C60), (int) (4));
         TObjFish__sub_803E46BC();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

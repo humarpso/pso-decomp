@@ -37,7 +37,7 @@ void *TObjAreaWarpEndingJung__ct(void *, void *, void *);
 M2C_UNK TObjAreaWarp__sub_8019CAB0(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TObjWarpJung__sub_801A0404(M2C_UNK);
 void *__nw__7TObjectFUl(int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -101,7 +101,7 @@ void render__22TObjAreaWarpEndingJungFv(u8 *arg0) {
         begin_effect_render__13TParticleCtrlFv();
         render_warp_effect__12TObjWarpJungFii(1, (s32) M2C_FIELD(arg0, f32 *, 0xC4));
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

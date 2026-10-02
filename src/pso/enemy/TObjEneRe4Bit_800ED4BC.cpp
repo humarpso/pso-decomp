@@ -221,9 +221,9 @@ struct Obj_800ED4BC { u8 pad0[0x38]; f32 f38; u8 pad3C[4]; f32 f40; u8 pad44[0x2
 
 extern "C" {
 M2C_UNK TBoss8Dragon__sub_800BB780();
-M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
+M2C_UNK transition_enemy_state(void *, int);
 void TObjEneRe4Bit__vt60(u8 *arg0);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
+M2C_UNK transition_enemy_state(void *, int);
 void TObjEneRe4Bit__vt61(u8 *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
@@ -300,7 +300,7 @@ void TObjEneRe4Bit__vt60(u8 *arg0) {
             TBoss8Dragon__sub_800BB780();
             return;
         }
-        TObjEneDD__sub_800BBA18((void *)(arg0), (int) (5));
+        transition_enemy_state((void *)(arg0), (int) (5));
     }
 }
 
@@ -309,11 +309,11 @@ void TObjEneRe4Bit__vt61(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
     if (temp_r0 != 6) {
         if (temp_r0 == 2) {
-            TObjEneDD__sub_800BBA18((void *)(arg0), (int) (6));
+            transition_enemy_state((void *)(arg0), (int) (6));
             M2C_FIELD(arg0, s32 *, 0x404) = 3;
             return;
         }
-        TObjEneDD__sub_800BBA18((void *)(arg0), (int) (6));
+        transition_enemy_state((void *)(arg0), (int) (6));
     }
 }
 

@@ -77,11 +77,11 @@ s32 obj_getField1c(void *obj);
 u8 fn_801D9870(void *techs, s16 tech);
 Rec_801CD078 *TTecCtrl__sub_8022DBC4(s32 tech, s32 level, s32 id);
 s32 TObjPlayer__sub_801CD078(Player_801CD078 *self, s32 tech);
-void TObjPlayer__sub_801D0BC0(void *obj, s16 a, s32 b);
+void run_action_state_phase__10TObjPlayerFisi(void *obj, s16 a, s32 b);
 TechData_801CD424 *get_technique_data__10TObjPlayerFPv(void *techs);
 s32 obj_getField1c(void *obj);
 s16 get_section_clamped__10TObjPlayerFPv(void *techs);
-Obj_801CD424 *TPhotonMylla__sub_80154CB4(u16 id);
+Obj_801CD424 *find_entity_by_id(u16 id);
 void copy_position__10TObjPlayerFPv(void *dst, void *src);
 void *get_field4_ptr__10TObjPlayerFPv(void *p);
 void *get_position_ptr__10TObjPlayerFPv(void *obj);
@@ -123,7 +123,7 @@ s32 lerp_angle_half__10TObjPlayerFUsUs(int, int);
 s32 objInBand__FP7GameObjf(void *, f32);
 u32 TObjPlayer__sub_801B5EA4(void *);
 M2C_UNK TObjPlayer__sub_801CCEDC(void *);
-s16 TObjPlayer__sub_801D0458(void *);
+s16 get_idle_animation__10TObjPlayerFPv(void *);
 M2C_UNK set_action_flag_40__10TObjPlayerFPv(void *);
 void clear_status_bit6__10TObjPlayerFPv(void *obj);
 M2C_UNK set_technique_state__10TObjPlayerFPvi(void *, int);
@@ -140,7 +140,7 @@ extern const f32 TObjPlayer__data_805DC39C;
 extern const f32 lbl_805DC3A0;
 extern const f32 lbl_805DC3A4;
 void TObjPlayer__sub_801CD1F0(u8 *arg0);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u8 *get_player_by_client_id(u16);
 void swap_field6__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801D2260(void *, void *);
 void TObjPlayer__sub_801D22AC(void *);
@@ -226,7 +226,7 @@ void TObjPlayer__sub_801CD1F0(u8 *arg0) {
         TObjPlayer__sub_801D2CAC((void *) (arg0 + 0x428));
         if (TObjPlayer__sub_80082300((void *) (arg0 + 0x428)) < 0) {
             M2C_FIELD(arg0, s16 *, 0x328) = 5;
-            M2C_FIELD(arg0, s16 *, 0xB8) = TObjPlayer__sub_801D0458((void *) (arg0));
+            M2C_FIELD(arg0, s16 *, 0xB8) = get_idle_animation__10TObjPlayerFPv((void *) (arg0));
             clear_status_bit6__10TObjPlayerFPv((void *) (arg0));
         }
         break;
@@ -241,14 +241,14 @@ void TObjPlayer__sub_801CD424(Player_801CD424 *self) {
     u16 target;
     Obj_801CD424 *o;
     self->f33c = 8;
-    TObjPlayer__sub_801D0BC0(self, self->f326, 6);
+    run_action_state_phase__10TObjPlayerFisi(self, self->f326, 6);
     td = get_technique_data__10TObjPlayerFPv(self->techs);
     target = td->target;
     if (target == 0xFFFF || target == (u16)obj_getField1c(self) ||
         get_section_clamped__10TObjPlayerFPv(self->techs) == 0) {
         self->f3f0 = self->f60;
     } else {
-        o = TPhotonMylla__sub_80154CB4(target);
+        o = find_entity_by_id(target);
         if (o == 0) {
             td->target = 0xFFFF;
         } else {
@@ -273,7 +273,7 @@ void handle_6x8D_set_technique_level_override(void *arg0) {
     TObjPlayer__sub_801D2260(&m, arg0);
     swap_field6__10TObjPlayerFPv(&m);
     if (validate_6x8D_set_technique_level_override(&m) != 0) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(m.id);
+        p = get_player_by_client_id(m.id);
         if (p != NULL) {
             set_tech_override__10TObjPlayerFPvUc(p + 0x428, m.level);
         }

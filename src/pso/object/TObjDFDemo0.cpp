@@ -60,7 +60,7 @@ void sync_player_globals__10TObjPlayerFv();
 void TObjPlayer__sub_80052390(f32);
 void rotate_matrix_y(s32, s32);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(s32);
 void TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
@@ -76,7 +76,7 @@ Outer_8004E068 *collect_and_count__12TBoss3VoloptFUii(s32, s32);
 void TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
 void rotate_matrix_y(s32, s32);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(s32);
 void TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
@@ -184,7 +184,7 @@ void TObjPlayer__sub_8004E068(Self_8004E068 *self) {
     TObjEneSlimeOne__sub_803E4AF4((*(&self->recs[j])).a, self->recs[j].c, self->f114);
   }
   clear_global_state__10TObjPlayerFv();
-  TObjPlayer__sub_803D9B78();
+  pop_matrix();
   some_id_805c6f74 &= ~0x20000;
   if (alpha < lbl_805D8988)
   {
@@ -226,7 +226,7 @@ void TObjPlayer__sub_8004E2C8(Obj_8004E2C8 *arg0) {
         TObjEneSlimeOne__sub_803E4AF4(arg0->recs[i].a, arg0->recs[i].c, f);
     }
     clear_global_state__10TObjPlayerFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     if (alpha < 1.0f) {
         sync_player_globals__10TObjPlayerFv();
     }

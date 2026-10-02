@@ -84,7 +84,7 @@ void rotate_matrix_y(int, s32);
 void rotate_matrix_x(int, s32);
 void rotate_matrix_z(int, s32);
 void TScene__sub_803D8DB4(int, Vec_800FCD40 *, Vec_800FCD40 *);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 s32 TObjPlayer__sub_80203418(void);
 f32 TObjPlayer__sub_803D89C0(Vec_800FCD40 *, Vec_800FCD40 *);
 void TObjPlayer__sub_803D9B2C(void);
@@ -146,7 +146,7 @@ void TFontSmallTask::render() {
     rotate_matrix_x(0, *(s32 *)(lbl_805D4DF0 + 0x190));
     rotate_matrix_z(0, *(s32 *)(lbl_805D4DF0 + 0x198));
     TScene__sub_803D8DB4(0, &forward, &forward);
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     diff.x = position[0] - *(f32 *)(lbl_805D4DF0 + 0x178);
     diff.y = position[1] - *(f32 *)(lbl_805D4DF0 + 0x17C);
     diff.z = position[2] - *(f32 *)(lbl_805D4DF0 + 0x180);
@@ -163,7 +163,7 @@ void TFontSmallTask::render() {
     }
     TObjPlayer__sub_803D9B2C();
     TParticleCtrl__sub_803D8D1C(0, position, screen);
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     if (is_split_screen() != 0) {
         screen[0] -= (f32)get_screen_height__11TCameraCtrlFv();
         screen[0] /= get_view_scale__11TCameraCtrlFv();

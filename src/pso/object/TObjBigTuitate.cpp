@@ -64,7 +64,7 @@ s32 is_not_split_screen__13TRaderMapCoreFv(void);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
 void rotate_matrix_y(int, int);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(void);
 void TObjBoss2Tunnel__sub_803DB470(void);
@@ -134,7 +134,7 @@ void render__14TObjBigTuitateFv(Obj_8019AA18 *self) {
     rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
     TObjFish__sub_8001EDC4((*(s32 *)&lbl_805D5C74), 0);
     TObjBoss2Tunnel__sub_803DB470();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     if (fading != 0) {
         ((Fade_8019AA18 *)(arg0 + 0xAC))->end();
     }

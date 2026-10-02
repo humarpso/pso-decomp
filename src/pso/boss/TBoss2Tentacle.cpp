@@ -34,13 +34,13 @@ extern s32 lbl_804FE990[];
 void TBoss2Tentacle__sub_80039DE0(Obj_80039DE0 *self);
 extern G_80039C44 *TBoss2Tentacle__data_805D4BD4;
 void TBoss2Tentacle__sub_80039C44(Obj_80039C44 *self);
-M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_803D9730(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK TObjFish__sub_803E46BC(void *);
@@ -112,7 +112,7 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
         break;
     case 3:
         TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x140));
-        TOMonitorMachine01__sub_803D8B5C((int) (0), (f32) (lbl_805D8528), (f32) (lbl_805D8528), (f32) (lbl_805D8528));
+        scale_matrix((int) (0), (f32) (lbl_805D8528), (f32) (lbl_805D8528), (f32) (lbl_805D8528));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x11C)));
         rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x120)));
         for (i = 0; i < 14; i++) {
@@ -124,7 +124,7 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
         TObjFish__sub_803E46BC((void *) (lbl_804FE5D8));
         break;
     }
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     clear_global_state__10TObjPlayerFv();
 }
 

@@ -616,7 +616,7 @@ void TBoss4DarkFalz__sub_8004D8C8(Obj_8004D8C8 *self, u16 *a, u16 *b, u16 *out);
 u16 obj_getArrU16_FC(void *obj, s32 i);
 void TBoss4DarkFalz__sub_8004D92C(Obj_8004D92C *self, u16 *a, u16 *b, u16 *out);
 void *get_player_data__10TObjPlayerFi(s32);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
 extern const f32 lbl_805D895C;
 extern const f32 lbl_805D8960;
@@ -679,7 +679,7 @@ void TBoss4DarkFalz__sub_8004D1E4(void *self) {
     lim = lbl_805D8964;
     for (i = 0; i < lbl_805D586C; i++) {
         p = get_player_data__10TObjPlayerFi(i);
-        if (p != 0 && TObjPlayer__sub_80141CF8(&v, (u8 *)p + 0x2FC) <= lim) {
+        if (p != 0 && horizontal_distance_squared(&v, (u8 *)p + 0x2FC) <= lim) {
             ((void (*)(void *, s32))TBoss4DarkFalz__sub_8004B1BC)(self, 2);
             return;
         }

@@ -46,10 +46,10 @@ extern RecoveredGlobal_802F3CA0_lbl_80474530 lbl_80474530;
 extern RecoveredGlobal_802F3CA0_lbl_80474558 lbl_80474558;
 void TBoss8Dragon__sub_802F3CA0(u8 *arg0, s8 arg1);
 void TObjLight__sub_801337F8(s32);
-void TOMonitorMachine01__sub_803D8B5C(s32, f32, f32, f32);
+void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(s32);
 void TObjEneSlimeOne__sub_803E4AF4(s32, Anim_802F3D6C *, f32);
@@ -113,9 +113,9 @@ void TBoss8Dragon__sub_802F3D6C(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         TObjPlayer__sub_803D9B2C();
-        TOMonitorMachine01__sub_803D8B5C(0, lbl_805DED5C, TBoss8Dragon__data_805DED60, lbl_805DED5C);
-        TObjPlayer__sub_803D9B78();
-        TOMonitorMachine01__sub_803D8B5C(0, TBoss8Dragon__data_805DED60, TBoss8Dragon__data_805DED60, TBoss8Dragon__data_805DED60);
+        scale_matrix(0, lbl_805DED5C, TBoss8Dragon__data_805DED60, lbl_805DED5C);
+        pop_matrix();
+        scale_matrix(0, TBoss8Dragon__data_805DED60, TBoss8Dragon__data_805DED60, TBoss8Dragon__data_805DED60);
         some_id_805c6f74 &= ~0x400;
         idx = *(f32 *)(arg0 + 0x354);
         if (idx < 0) {
@@ -134,7 +134,7 @@ void TBoss8Dragon__sub_802F3D6C(u8 *arg0) {
         TObjEneSlimeOne__sub_803E4AF4(*(s32 *)(arg0 + 0x34), anim, f);
         clear_global_state__10TObjPlayerFv();
         TObjLight__sub_801337F8(lbl_805D5560);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

@@ -12,7 +12,7 @@ void start_action_c__10TObjPlayerFPv(void *arg0);
 u32 TObjPlayer__sub_801B5EA4();
 s32 set_action_state__10TObjPlayerFPvss(void * a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 get_weapon_stat_c__10TObjPlayerFPv(void * a0 = 0);
-s32 TObjPlayer__sub_801D0BC0(void * a0 = 0, s16 a1 = 0, s32 a2 = 0);
+s32 run_action_state_phase__10TObjPlayerFisi(void * a0 = 0, s16 a1 = 0, s32 a2 = 0);
 s32 apply_velocity__10TObjPlayerFPv(s32);
 s32 obj_isState2_324(void * a0 = 0);
 s16 ret_801D26AC(void);
@@ -25,7 +25,7 @@ void apply_velocity_if_ready__10TObjPlayerFi(s32 arg0) {
 }
 void start_action_c__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x33C) = 0xC;
-    TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
+    run_action_state_phase__10TObjPlayerFisi(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
     if (obj_isState2_324(arg0) != 0) {
         M2C_FIELD(arg0, s16 *, 0xBA) = ret_801D26AC();
     }

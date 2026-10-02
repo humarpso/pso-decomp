@@ -355,7 +355,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK TObjEneRe4Sorcerer__sub_800EF95C(void *, f32);
 s32 try_attack__18TObjEneRe4SorcererFiff(void *, f32, f32);
 extern const f64 TObjEneRe4Sorcerer__data_8043D408;
@@ -369,7 +369,7 @@ s32 refresh_and_send_entity_flags__12TBoss8DragonFPv(void *);
 s32 request_two_effects__10TObjPlayerFPv(void *);
 s32 apply_effect_variant_b__10TObjPlayerFii(void *, int);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
-s32 TBoss1Dragon__sub_80143504(void *);
+s32 advance_animation_playback(void *);
 s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 extern const f32 TObjEneRe4Sorcerer__data_805DA790;
 void TObjEneRe4Sorcerer__sub_800EE01C(u8 *arg0, s32 arg1);
@@ -387,9 +387,9 @@ s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(Vec_800EE0F8 *);
 M2C_UNK TObjEneDD__sub_800BABCC(void *, f32, f32, f32);
 M2C_UNK TBoss8Dragon__sub_800BB780(void *);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void TObjEneRe4Sorcerer__sub_800EF214(s32 arg0);
-s32 TBoss1Dragon__sub_80143504(void *);
+s32 advance_animation_playback(void *);
 extern const f32 lbl_805DA79C;
 void TObjEneRe4Sorcerer__sub_800EE0F8(u8 *arg0, s32 arg1);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
@@ -398,8 +398,8 @@ M2C_UNK set_flag_and_notify__18TObjEneRe4SorcererFPv();
 void TObjEneRe4Sorcerer__sub_800EF214(s32 arg0);
 M2C_UNK TObjEneRe4Sorcerer__sub_800EF844(void *);
 M2C_UNK request_death_effect__18TObjEneRe4SorcererFPv(void *);
-s32 TBoss1Dragon__sub_80143504(void *);
-u32 TPhotonMylla__sub_80154CB4(u16);
+s32 advance_animation_playback(void *);
+u32 find_entity_by_id(u16);
 extern const f32 TObjEneRe4Sorcerer__data_805DA790;
 extern const f32 lbl_805DA7CC;
 extern const f32 TObjEneRe4Sorcerer__data_805DA7D0;
@@ -413,7 +413,7 @@ s32 clamp_frame_index__9TObjEneDDFi(s32);
 s32 check_v2_mode__9TObjEneDDFv();
 s32 transform_relative_position__9TObjEneDDFPvPv(void *, void *);
 u8 *get_spell_data__18TObjEneRe4SorcererFPv();
-u32 TPhotonMylla__sub_80154CB4(u16);
+u32 find_entity_by_id(u16);
 M2C_UNK create_ex__11TTecGiBartaFPvPvPvPv(void *, void *, s32, s32);
 M2C_UNK create__11TTecGiZondeFPvPvPvPv(void *, void *, void *, s32);
 M2C_UNK create__10TTecGrantsFPvPvPvPv(void *, void *, void *, s32);
@@ -438,10 +438,10 @@ void create_effect__18TObjEneRe4SorcererFPv(u8 *arg0);
 void state_wait__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1);
 void turn_to_target__18TObjEneRe4SorcererFPv(void *arg0);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK TObjEneRe4Sorcerer__sub_800EF95C(void *, f32);
 s32 TObjPlayer__sub_801423A4(s32, s32, M2C_UNK);
-u32 TPhotonMylla__sub_80154CB4(u16);
+u32 find_entity_by_id(u16);
 s32 clamp_frame_index__9TObjEneDDFi(s32);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 M2C_UNK create__9TTecRestaFPvPvPv(void *, void *, s32);
@@ -469,7 +469,7 @@ void TObjEneRe4Sorcerer__sub_800EE01C(u8 *arg0, s32 arg1) {
         TBoss3Volopt__sub_8022675C((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) (arg0)), (M2C_UNK)((int) (0x4003AD19))))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         return;
     case 0:
-        TBoss1Dragon__sub_80143504((void *) (arg0));
+        advance_animation_playback((void *) (arg0));
         if (((VObj_14_c1c33b *)((u8 *)(arg0) + (1020)))->m4() != 0) {
             apply_effect_variant_b__10TObjPlayerFii((void *) (arg0 + 0x38), (int) (0));
             queue_destruction__7TObjectFv((void *) (arg0));
@@ -486,15 +486,15 @@ void TObjEneRe4Sorcerer__sub_800EE0F8(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 5;
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         break;
     case 3:
         if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(arg0) != 0) {
-            TObjEneDD__sub_800BBA18(arg0, M2C_FIELD(arg0, s32 *, 0x378));
+            transition_enemy_state(arg0, M2C_FIELD(arg0, s32 *, 0x378));
         }
         break;
     case 0:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         VecCopy__FP3VecPC3Vec(&v, arg0 + 0x308);
         c = clamp_velocity__15TObjBoss2TunnelFPv(&v);
         TObjEneDD__sub_800BABCC(arg0, v.x, v.z, c);
@@ -524,11 +524,11 @@ void state_wait__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1) {
             } else {
                 TObjEneRe4Sorcerer__sub_800EF95C(arg0, lbl_805DA7C8);
             }
-            TObjEneDD__sub_800BBA18(arg0, 2);
+            transition_enemy_state(arg0, 2);
             return;
         }
         if ((s32) M2C_FIELD(arg0, s32 *, 0x4E4) > 0x5A) {
-            TObjEneDD__sub_800BBA18(arg0, 1);
+            transition_enemy_state(arg0, 1);
         }
     case 5:
         return;
@@ -556,7 +556,7 @@ s32 TObjEneRe4Sorcerer__sub_800EEC00(void *arg0p, void *arg1p) {
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) | 2);
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) & 0xFFFFFFF7);
         for (i = 0; i < 2; i++) {
-            if (TPhotonMylla__sub_80154CB4(((Sorc_800EEC00 *)arg0)->ids[i]) != 0U) {
+            if (find_entity_by_id(((Sorc_800EEC00 *)arg0)->ids[i]) != 0U) {
                 set_flag_and_notify__18TObjEneRe4SorcererFPv();
             }
         }
@@ -571,7 +571,7 @@ s32 TObjEneRe4Sorcerer__sub_800EEC00(void *arg0p, void *arg1p) {
         }
         break;
     case 0:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x4E8);
         switch (temp_r0) {
         case 0:
@@ -619,7 +619,7 @@ s32 TObjEneRe4Sorcerer__sub_800EEDE4(void *arg0p, void *arg1p) {
         TObjEneRe4Sorcerer__sub_800EF844(arg0);
         ((VObj_14_763762 *)(arg0 + 0x3FC))->m3();
         for (i = 0; i < 2; i++) {
-            if ((r = TPhotonMylla__sub_80154CB4(((Sorc_800EEDE4 *)arg0)->ids[i])) != 0) {
+            if ((r = find_entity_by_id(((Sorc_800EEDE4 *)arg0)->ids[i])) != 0) {
                 reset_transform__13TObjEneRe4BitFPv();
                 clear_state_flag_0x10__18TObjEneRe4SorcererFPv(r);
             }
@@ -636,7 +636,7 @@ s32 TObjEneRe4Sorcerer__sub_800EEDE4(void *arg0p, void *arg1p) {
         break;
     case 0:
         if (*TBoss3Volopt__sub_800F059C(arg0 + 0x3FC) >= lbl_805DA7D4) {
-            TBoss1Dragon__sub_80143504(arg0);
+            advance_animation_playback(arg0);
             turn_to_target__18TObjEneRe4SorcererFPv(arg0);
         }
         switch (M2C_FIELD(arg0, s32 *, 0x4E8)) {
@@ -687,7 +687,7 @@ void TObjEneRe4Sorcerer__sub_800EEFE4(u8 *arg0, s32 arg1) {
       update_velocity__9TObjEneDDFPv((void *) arg0);
       *((s32 *) (((s8 *) arg0) + 0x3F0)) = (s32) (TObjEneRe4Sorcerer__data_8043D408 * (get_ad_end_text_start__10TObjPlayerFv(-(*((f32 *) (((s8 *) arg0) + 0x3A0))), -(*((f32 *) (((s8 *) arg0) + 0x3A8))))));
       TObjEneRe4Sorcerer__sub_800EF95C((void *) arg0, (f32) lbl_805DA7DC);
-      TObjEneDD__sub_800BBA18((void *)((void *) arg0), (M2C_UNK)((int) 2));
+      transition_enemy_state((void *)((void *) arg0), (M2C_UNK)((int) 2));
     }
     case 5:
       return;
@@ -704,7 +704,7 @@ s32 handle_state__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1) {
         break;
     case 3:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x4E4) >= 2) {
-            TObjEneDD__sub_800BBA18(arg0, 1);
+            transition_enemy_state(arg0, 1);
         }
         break;
     case 5:
@@ -769,7 +769,7 @@ s32 cast_resta__18TObjEneRe4SorcererFPv(u8 *arg0) {
     u8 *var_r31;
 
     if (is_alive__9TObjEneDDFPv(M2C_FIELD(arg0, s32 *, 0x390)) != 0) {
-        if (TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x3E4)) != 0U) {
+        if (find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x3E4)) != 0U) {
             var_r31 = get_spell_data__18TObjEneRe4SorcererFPv();
         } else {
             var_r31 = arg0 + 0x38;
@@ -787,7 +787,7 @@ s32 TObjEneRe4Sorcerer__sub_800EF354(u8 *arg0) {
     s32 frame;
     u8 *src;
     if (transform_relative_position__9TObjEneDDFPvPv(arg0, M2C_FIELD(arg0, void **, 0x390)) != 0) {
-        if (TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x3E4)) != 0U) {
+        if (find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x3E4)) != 0U) {
             src = get_spell_data__18TObjEneRe4SorcererFPv();
         } else {
             src = arg0 + 0x38;

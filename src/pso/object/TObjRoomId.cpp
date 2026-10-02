@@ -58,8 +58,8 @@ extern s32 lbl_805D34B0;
 extern const f32 lbl_805DC094;
 u8 *TObjRoomId__ct(u8 *arg0, s32 arg1, s32 arg2);
 u16 TObjRoomId__sub_801A1DB8(u16 x);
-Obj_801A1888 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
-f32 TObjPlayer__sub_80141CF8(f32 *a, f32 *b);
+Obj_801A1888 *get_player_by_client_id(s32);
+f32 horizontal_distance_squared(f32 *a, f32 *b);
 s32 TObjRoomId__sub_801A1888(Obj_801A1888 *self, u16 id, f32 range);
 s32 check_demo_mode__10TObjPlayerFv();
 void draw_debug_line__10TObjRoomIdFUiiii(void *, int, int, void *);
@@ -107,11 +107,11 @@ M2C_UNK set_state_flags__10TObjPlayerFPvUi(void *, M2C_UNK);
 extern M2C_UNK __vt__10TObjRoomId[];
 
 s32 TObjRoomId__sub_801A1888(Obj_801A1888 *self, u16 id, f32 range) {
-    Obj_801A1888 *p = TPlayerBattleCtrl4P__sub_801BA74C(id);
+    Obj_801A1888 *p = get_player_by_client_id(id);
     if (p == 0) {
         return 0;
     }
-    return TObjPlayer__sub_80141CF8(p->pos, self->pos) < range;
+    return horizontal_distance_squared(p->pos, self->pos) < range;
 }
 
 #pragma push
@@ -153,7 +153,7 @@ void TObjRoomId::run_task() {
     absent = 1;
     if (check_demo_mode__10TObjPlayerFv() == 0) {
         for (s32 i = 0; i < 4; i++) {
-            if (TPlayerBattleCtrl4P__sub_801BA74C(i) != NULL) {
+            if (get_player_by_client_id(i) != NULL) {
                 r = lbl_805DC08C * o->radius + lbl_805DC090;
                 if (TObjRoomId__sub_801A1888((Obj_801A1888 *)o, i, r * r) != 0) {
                     absent = 0;
@@ -169,7 +169,7 @@ void TObjRoomId::run_task() {
     TCameraCtrl__sub_803D8934(0, &v, &o->normal);
     TCameraCtrl__sub_803D9858(1);
     for (s32 i = 0; i < 4; i++) {
-        Obj_801A1888 *p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        Obj_801A1888 *p = get_player_by_client_id(i);
         if (p == NULL) {
             continue;
         }

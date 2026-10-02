@@ -13,10 +13,10 @@ struct Obj_80186B34 { u8 pad[0x38]; u8 pos[0xAC - 0x38]; f32 range; };
 struct Bits_80186A3C { s32 v[36]; };
 
 extern "C" {
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(s32);
-f32 fn_8013157C(s32, s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+f32 xz_distance_squared(s32, s32);
+s32 get_player_by_client_id(s32);
 extern s32 lbl_805D53A0;
 s32 TObjCityMainWarp__sub_80186BBC(s32 arg0, f32 farg0);
 s32 get_main_phase();
@@ -167,9 +167,9 @@ s32 TObjCityMainWarp__sub_80186B34(Obj_80186B34 *arg0) {
     u8 *p;
     r = 1;
     for (i = 0; i < 4; i++) {
-        p = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(i);
+        p = (u8 *)get_player_by_client_id(i);
         if (p != 0) {
-            if (((s32 (*)(void *))get_field_3e4__10TObjPlayerFPv)(p) != TObjPlayer__sub_800196EC() || ((f32 (*)(void *, void *))fn_8013157C)(p + 0x38, arg0->pos) > arg0->range * arg0->range) {
+            if (((s32 (*)(void *))get_field_3e4__10TObjPlayerFPv)(p) != get_current_floor() || ((f32 (*)(void *, void *))xz_distance_squared)(p + 0x38, arg0->pos) > arg0->range * arg0->range) {
                 r = 0;
             }
         }
@@ -183,11 +183,11 @@ s32 TObjCityMainWarp__sub_80186BBC(s32 arg0, f32 farg0) {
     s32 temp_r3;
     s32 temp_r31;
     s32 temp_r3b;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(lbl_805D53A0);
     if (temp_r3 != 0) {
-        temp_r31 = TObjPlayer__sub_800196EC();
+        temp_r31 = get_current_floor();
         temp_r3b = get_field_3e4__10TObjPlayerFPv(temp_r3);
-        if ((temp_r3b == temp_r31) && (fn_8013157C(arg0 + 0x38, temp_r3 + 0x38) < (farg0 * farg0))) {
+        if ((temp_r3b == temp_r31) && (xz_distance_squared(arg0 + 0x38, temp_r3 + 0x38) < (farg0 * farg0))) {
             return temp_r3;
         }
     }

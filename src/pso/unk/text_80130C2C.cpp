@@ -20,7 +20,7 @@ extern const f32 lbl_805DB024;
 extern const f32 lbl_805DB028;
 extern const f32 lbl_805DB02C;
 void TObjPlayer__sub_80130CD8(Obj_80130CD8 *arg0);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
+M2C_UNK spawn_particle_effect(void *, M2C_UNK);
 M2C_UNK draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, void *);
 M2C_UNK TObjPlayer__sub_8012E284(s32, void *, M2C_UNK, struct Vec_80130C2C *, struct Ang_80130C2C *);
 f32 TBoss8Dragon__sub_803D64C0(s32);
@@ -47,7 +47,7 @@ void TObjPlayer__sub_80130C2C(struct Pl_80130C2C *arg0) {
     ang.z = 0;
     TObjPlayer__sub_8012E284(tl_05, arg0, 3, &pos, &ang);
     draw_icon__10TObjPlayerFPvii(arg0, 2, &sp8);
-    TObjEneDellBiter__sub_80087350(&sp8, 9);
+    spawn_particle_effect(&sp8, 9);
 }
 
 void TObjPlayer__sub_80130CD8(Obj_80130CD8 *arg0) {

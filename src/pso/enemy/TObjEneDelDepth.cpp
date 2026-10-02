@@ -239,7 +239,7 @@ struct Dep_8031551C {
 extern "C" {
 s32 add_flags_2e4__10TObjPlayerFPvUi(void *, int);
 s32 initialize__9TObjEnemyFPv(void *);
-s32 TObjPlayer__sub_80156844(void *, void *, int);
+s32 project_actor_to_ground(void *, void *, int);
 void TObjEneDelDepth__sub_803154A8(Ene_803154A8 *o, s32 i);
 extern Ent_803154A8 lbl_804E836C[];
 extern M2C_UNK __vt__15TObjEneDelDepth[];
@@ -259,7 +259,7 @@ M2C_UNK TObjEneDelDepth__sub_803162A8(s32);
 M2C_UNK set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
 M2C_UNK rotate_matrix_y(int, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 extern Vec_803155D4 lbl_80475DA4[];
 extern const f32 TObjEneDelDepth__data_805DF258;
@@ -296,7 +296,7 @@ M2C_UNK TObjEneDelDepth__sub_803162A8(s32);
 M2C_UNK set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
 M2C_UNK rotate_matrix_y(int, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 extern u8 main_task[];
 s32 TObjEneDelDepth__sub_8031551C(void *arg0);
@@ -343,7 +343,7 @@ s32 TObjEneDelDepth__sub_8031551C(void *arg0) {
             rotate_matrix_y(0, o->f60);
             set_monitor_position_vec3__10TObjPlayerFPvPv(0, o->f3A0);
             TObjEneDelDepth__sub_803162A8(o->f37C);
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             restore_render_scissor(1);
         }
         return 1;
@@ -376,7 +376,7 @@ void render__15TObjEneDelDepthFv(Dep_803155D4 *o) {
     rotate_matrix_y(0, o->f60);
     set_monitor_position_vec3__10TObjPlayerFPvPv(0, o->f3A0);
     TObjEneDelDepth__sub_803162A8(o->f37C);
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     end_effect_render__13TParticleCtrlFv();
     if (o->f398 < TObjEneDelDepth__data_805DF260) {
         reset_globals__15TObjEneDelDepthFv();
@@ -454,7 +454,7 @@ u8 *TObjEneDelDepth__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     TObjEneDelDepth__sub_80315888((u8 *)((void *) (arg0)));
     TObjEneDelDepth__sub_803158B0((u8 *)((void *) (arg0)));
-    TObjPlayer__sub_80156844((void *) (arg0), (void *) (arg0 + 0x38), (int) (0));
+    project_actor_to_ground((void *) (arg0), (void *) (arg0 + 0x38), (int) (0));
     TObjEneDelDepth__sub_803154A8((Ene_803154A8 *) (arg0), 0);
     return arg0;
 }

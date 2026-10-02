@@ -81,10 +81,10 @@ extern const f32 lbl_805DB370;
 void *TOCakeshopCave01__ct(void *arg0_, void *arg1);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TOSignCave03__sub_803DB510(int);
@@ -152,14 +152,14 @@ void render__16TOCakeshopCave01Fv(u8 *arg0) {
             if (((Obj_80159F78 *)arg0)->val[i] < TOCakeshopCave01__data_805DB360) {
                 TObjPlayer__sub_803D9B2C();
                 TOHangerMachine01__sub_803D9C00(m->m8);
-                TOMonitorMachine01__sub_803D8B5C(0, lbl_805DB368 - ((Obj_80159F78 *)arg0)->val[i], lbl_805DB368 - ((Obj_80159F78 *)arg0)->val[i], TOCakeshopCave01__data_805DB360);
+                scale_matrix(0, lbl_805DB368 - ((Obj_80159F78 *)arg0)->val[i], lbl_805DB368 - ((Obj_80159F78 *)arg0)->val[i], TOCakeshopCave01__data_805DB360);
                 TOSignCave03__sub_803DB510(m->m4);
-                TObjPlayer__sub_803D9B78();
+                pop_matrix();
             }
             m = m->next;
         }
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

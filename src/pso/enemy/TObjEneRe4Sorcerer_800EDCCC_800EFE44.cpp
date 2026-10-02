@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 M2C_UNK TBoss8Dragon__sub_800BB780();
-int TObjEneDD__sub_800BBA18(void*, void*);
+int transition_enemy_state(void*, void*);
 void TObjEneRe4Sorcerer__vt60(u8 *arg0);
 }
 
@@ -14,7 +14,7 @@ extern "C" {
 
 void TObjEneRe4Sorcerer__vt59(void);
 void update_collision_center__18TObjEneRe4SorcererFPv(u8 *arg0);
-int TObjEneDD__sub_800BBA18(void*, void*);
+int transition_enemy_state(void*, void*);
 void TObjEneRe4Sorcerer__vt26(void);
 void TObjEneRe4Sorcerer__vt61(void* p);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *, void *, f32);
@@ -32,7 +32,7 @@ void TObjEneRe4Sorcerer__vt59(void) {  }
 void TObjEneRe4Sorcerer__vt60(u8 *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 8) {
         if (!(M2C_FIELD(arg0, s32 *, 0x3C8) & 8)) {
-            TObjEneDD__sub_800BBA18((void*)((void *)(arg0)), (void*)((int) (8)));
+            transition_enemy_state((void*)((void *)(arg0)), (void*)((int) (8)));
             return;
         }
         TBoss8Dragon__sub_800BB780();

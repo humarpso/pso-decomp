@@ -22,7 +22,7 @@ struct RecoveredGlobal_802889A8_lbl_804D0530 { M2C_UNK value; u8 remaining[0x2C]
 typedef char RecoveredGlobal_802889A8_lbl_804D0530_size[sizeof(RecoveredGlobal_802889A8_lbl_804D0530) == 0x30 ? 1 : -1];
 
 extern "C" {
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 get_player_by_client_id(u32);
 s32 is_ready__10TObjPlayerFPv(void *);
 void open__15TWindowMainMenuFPvi(void *, s32);
 extern RecoveredGlobal_802889A8_lbl_804D04F8 lbl_804D04F8;
@@ -58,7 +58,7 @@ void TWindowMainMenu4P__vt6(void *arg0) {
 void TWindowMainMenu4P__vt4(u8 *arg0) {
     u8 *temp_r3;
     if (!(M2C_FIELD(arg0, s32 *, 0x4C) & 1)) {
-        temp_r3 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u32 *, 0x54)));
+        temp_r3 = (u8 *)(get_player_by_client_id(M2C_FIELD(arg0, u32 *, 0x54)));
         if (temp_r3 != NULL) {
             if (is_ready__10TObjPlayerFPv(temp_r3) != 0) {
                 open__15TWindowMainMenuFPvi(arg0, (s32) &lbl_804D0530.value);

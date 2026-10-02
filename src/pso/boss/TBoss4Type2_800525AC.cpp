@@ -93,14 +93,14 @@ void TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 void TBoss4DarkFalz__sub_8004D990(s32);
 M2C_UNK TBoss4Type2__sub_800542B0(void *, int);
 void *create__9TBoss4UroFi(Params_80052CDC *);
-void TObjEneDellBiter__sub_80087350(void *, s32);
+void spawn_particle_effect(void *, s32);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 extern u8 TBoss4DarkFalz__data_804FF1E8[];
 void TBoss4DarkFalz__sub_80052CDC(Obj_80052CDC *arg0);
 u8 *dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 M2C_UNK TBoss4Type2__sub_800542B0(void *, int);
 void request_destroy__11TBoss4Type2FUi(u32);
-void TObjEneDellBiter__sub_80087350(void *, s32);
+void spawn_particle_effect(void *, s32);
 u32 TBoss4Type2__sub_800874F4(int, int);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
@@ -319,7 +319,7 @@ void TBoss4Type2__sub_8005294C(u8 *arg0) {
         TOTrapAncient01__sub_80226578(0x4003B512, arg0, arg0 + 0x38, 0, 1);
     }
     if (M2C_FIELD(arg0, s32 *, 0x398) == 0x26) {
-        if ((r = ((u32 (*)(void *, s32))TObjEneDellBiter__sub_80087350)(ent, 0xFD)) != 0) {
+        if ((r = ((u32 (*)(void *, s32))spawn_particle_effect)(ent, 0xFD)) != 0) {
             set_flags__11TBoss4Type2FPvUi((void *)r, 0x40);
         }
         TBoss3Volopt__sub_8022675C(0x4003A813, arg0 + 0x38, 0, 1);
@@ -409,7 +409,7 @@ void TBoss4DarkFalz__sub_80052CDC(Obj_80052CDC *arg0) {
             p.c = 1;
             VecCopy__FP3VecPC3Vec(&p.pos, s);
             if (create__9TBoss4UroFi(&p) != NULL) {
-                TObjEneDellBiter__sub_80087350(s, 0x7D);
+                spawn_particle_effect(s, 0x7D);
                 TBoss3Volopt__sub_8022675C(0x4003A810, s, 0, 1);
                 arg0->count++;
             }

@@ -19,7 +19,7 @@ struct Item_801057A8 {
 };
 
 extern "C" {
-s8 TObjPlayer__sub_800196EC(void);
+s8 get_current_floor(void);
 s32 TItem__sub_80102424(Item_801057A8 *, s32, f32 *, s32);
 s32 is_active_battle_player__10TObjPlayerFv(void);
 Item_801057A8 *TLobby__sub_8010542C(void *);
@@ -36,7 +36,7 @@ Item_801057A8 *fn_801057A8(Msg_801057A8 *arg0, s32 arg1) {
     u8 ok;
     item = NULL;
     if (arg0 != NULL) {
-        me = TObjPlayer__sub_800196EC();
+        me = get_current_floor();
         act = is_active_battle_player__10TObjPlayerFv();
         ok = 0;
         if (arg0->client == me && act != 1) {

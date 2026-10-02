@@ -181,7 +181,7 @@ struct Vec_80048CDC { f32 x, y, z; };
 
 void queue_destruction__7TObjectFv(void *);
 void disallow_rendering__7TObjectFv(void *);
-s32 TObjEneDellBiter__sub_80087350(Vec_80048CDC *, s32);
+s32 spawn_particle_effect(Vec_80048CDC *, s32);
 void create_breakup_mdl__12TBoss3VoloptFiiiii(void *, void *, s32, void *, s32);
 void trigger_dell_biter_events__10TObjPlayerFPv(void *);
 s32 rand(void);
@@ -279,7 +279,7 @@ void update_capture__14TObjVoloptCageFPv(u8 *arg0);
 M2C_UNK TLobby__sub_80049568();
 s32 TObjPlayer__sub_80019248();
 M2C_UNK TObjPlayer__sub_801B5328(s32, void *, M2C_UNK, M2C_UNK, f32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+s32 get_player_by_client_id(u16);
 M2C_UNK obj_setFlags30(void *, M2C_UNK);
 M2C_UNK obj_set_flag_20000(s32);
 
@@ -290,7 +290,7 @@ void fn_80048C04(Self_80048C04 *self) {
     Target_80048C04 *t;
     Pair_80048C04 p = lbl_804366E8[0];
     p.val = (f32)TObjVoloptPillar__sub_80048118(2);
-    t = (Target_80048C04 *)TPlayerBattleCtrl4P__sub_801BA74C(f->target);
+    t = (Target_80048C04 *)get_player_by_client_id(f->target);
     if (t != NULL) {
         Pair_80048C04 q = p;
         t->m21(f->id, &q, 0, -1, -1);
@@ -324,7 +324,7 @@ void TObjVoloptCage__sub_80048CDC(u8 *arg0) {
             v.x = lbl_805D886C * TBoss8Dragon__sub_803D64DC(idx) + M2C_FIELD(arg0, f32 *, 0x2FC);
             v.y = lbl_805D886C * (lbl_805D8868 * (f32)rand()) + M2C_FIELD(arg0, f32 *, 0x300);
             v.z = lbl_805D886C * TBoss8Dragon__sub_803D64C0(idx) + M2C_FIELD(arg0, f32 *, 0x304);
-            TObjEneDellBiter__sub_80087350(&v, 0xFB);
+            spawn_particle_effect(&v, 0xFB);
         }
         if ((M2C_FIELD(arg0, s16 *, 0x33C) -= 1) <= 0) {
             queue_destruction__7TObjectFv(arg0);
@@ -372,7 +372,7 @@ void update_capture__14TObjVoloptCageFPv(u8 *arg0) {
     case -1:
         break;
     case 0:
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x338));
+        temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x338));
         if (temp_r3 != 0) {
             if (TObjPlayer__sub_80019248() != 0) {
                 TObjPlayer__sub_801B5328(temp_r3, arg0 + 0x38, -1, 0, lbl_805D8870);

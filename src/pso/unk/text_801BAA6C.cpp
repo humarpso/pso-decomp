@@ -43,7 +43,7 @@ u16 obj_getField1c(void *);
 void TObjPlayer__sub_801C1890(void *m);
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 void set_state_flags__10TObjPlayerFPvUi(void *, u32);
-void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+void *get_player_by_client_id(u16);
 void set_floor__10TObjPlayerFPvi(void *, s32);
 void set_floor_index__10TObjPlayerFPvi(void *, s32);
 void TObjPlayer__sub_801C1820(void *);
@@ -55,13 +55,13 @@ void TObjPlayer__sub_801C18AC(Msg_801BAB1C *m);
 void TTecLuker__sub_801BAB1C(void *obj, s32 value);
 void TObjPlayer__sub_800F09E8(s32);
 void TBoss1Dragon__sub_8014220C(void *, void *, void *);
-void TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+void scale_matrix(int, f32, f32, f32);
 void rotate_matrix_y(int, s32);
 void rotate_matrix_z(int, s32);
-void TObjPlayer__sub_803D9624(int, f32, f32, f32);
+void translate_matrix(int, f32, f32, f32);
 void rotate_matrix_x(int, s32);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 extern const f32 TObjPlayer__data_805DC294;
 extern const f32 lbl_805DC2C8;
 void TObjPlayer__sub_801BAB78(VObj_801BAB78 *self, f32 *pos, s32 arg2);
@@ -77,7 +77,7 @@ void handle_6x21_inter_level_warp(void *arg0) {
     copy_warp_target__10TObjPlayerFPvPv(&m, arg0);
     TObjPlayer__sub_801C1820(&m);
     if (validate_6x21_inter_level_warp(&m) != 0) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(m.slot);
+        p = get_player_by_client_id(m.slot);
         if (p != NULL) {
             if ((((s32 (*)(void))obj_isState2_324)() != 0) && (m.floor != get_field_3e4__10TObjPlayerFPv(p))) {
                 set_state_flags__10TObjPlayerFPvUi(p, 0x40000);
@@ -104,16 +104,16 @@ void TObjPlayer__sub_801BAB78(VObj_801BAB78 *self, f32 *pos, s32 arg2) {
     self->m63(1, &v);
     TObjPlayer__sub_803D9B2C();
     TBoss1Dragon__sub_8014220C(self->f248, &a, &b);
-    TObjPlayer__sub_803D9624(0, v.x, lbl_805DC2C8 + self->f3c, v.z);
+    translate_matrix(0, v.x, lbl_805DC2C8 + self->f3c, v.z);
     rotate_matrix_z(0, b);
     rotate_matrix_x(0, a);
     rotate_matrix_y(0, self->f60);
     rotate_matrix_x(0, -0x4000);
     if (pos != NULL) {
-        TOMonitorMachine01__sub_803D8B5C(0, pos[0], pos[2], TObjPlayer__data_805DC294);
+        scale_matrix(0, pos[0], pos[2], TObjPlayer__data_805DC294);
     }
     TObjPlayer__sub_800F09E8(arg2);
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 }

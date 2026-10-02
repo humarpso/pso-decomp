@@ -74,7 +74,7 @@ extern struct Reg_801A7578 lbl_8050E578[];
 extern s32 lbl_805D5D10;
 void fn_801A7578(void);
 void TLobby__sub_800869A4(Vec_801A7428 *, s32, s32, s32);
-Obj_801A7428 *TPhotonMylla__sub_80154CB4(u16);
+Obj_801A7428 *find_entity_by_id(u16);
 void fn_801A753C(u8 *arg0, u8 *arg1);
 void TCameraCtrl__sub_803D8934(s32, Vec_801A7428 *, Vec_801A7428 *);
 void rotate_matrix_y(s32, s32);
@@ -106,7 +106,7 @@ void fn_801A7428(s32 arg0, s32 arg1) {
     Entry_801A7428 *entries;
     s32 count;
     s32 i;
-    obj = TPhotonMylla__sub_80154CB4(arg1);
+    obj = find_entity_by_id(arg1);
     if (obj == NULL) {
         return;
     }

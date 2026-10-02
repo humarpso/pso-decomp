@@ -33,13 +33,13 @@ s32 TObjPlayer__sub_801CC9E4();
 s32 try_apply_status_action_default__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801CCA08(s32 arg0, s16 arg1);
 s32 obj_isState2_324();
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u8 *get_player_by_client_id(u16);
 void TObjPlayer__sub_801D209C(void *);
 void send_coords__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801CCB58(s32 arg0, s16 arg1);
 void TObjPlayer__sub_8004433C(void *);
 void *get_position_ptr__10TObjPlayerFPv(void *);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u8 *get_player_by_client_id(u16);
 s32 check_flag_4__10TObjPlayerFPv(void *);
 void bswap_coords__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801D2058(void *, void *);
@@ -99,9 +99,9 @@ void handle_6x33_revive_player(void *arg0) {
     TObjPlayer__sub_801D2058(&m, arg0);
     bswap_coords__10TObjPlayerFPv(&m);
     if (validate_6x33_revive_player(&m) != 0) {
-        p = (Player_801CCA84 *)TPlayerBattleCtrl4P__sub_801BA74C(m.id);
+        p = (Player_801CCA84 *)get_player_by_client_id(m.id);
         if (p != NULL) {
-            q = (Player_801CCA84 *)TPlayerBattleCtrl4P__sub_801BA74C(m.target);
+            q = (Player_801CCA84 *)get_player_by_client_id(m.target);
             if (q != NULL && check_flag_4__10TObjPlayerFPv(q) == 0 && q->list == tl_03) {
                 TObjPlayer__sub_8004433C(&t);
                 t.kind = 1;
@@ -116,7 +116,7 @@ void handle_6x33_revive_player(void *arg0) {
 
 void TObjPlayer__sub_801CCB58(s32 arg0, s16 arg1) {
     struct Pkt_801CCB58 pkt;
-    if (TPlayerBattleCtrl4P__sub_801BA74C(arg0) == NULL || obj_isState2_324() == 0) {
+    if (get_player_by_client_id(arg0) == NULL || obj_isState2_324() == 0) {
         TObjPlayer__sub_801D209C(&pkt);
         pkt.id = arg0;
         pkt.c = arg1;

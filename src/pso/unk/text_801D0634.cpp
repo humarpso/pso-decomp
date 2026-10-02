@@ -26,13 +26,13 @@ void obj_clearFlags30(void *, u32);
 void obj_setFlags30(void *, u32);
 void TBoss4DarkFalz__sub_8004C220(void *, void *);
 void set__10TObjRoomIdFPvs(void *, s16);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32 i);
+void *get_player_by_client_id(s32 i);
 void set_flag_400000__10TObjPlayerFi(void *);
 void set_floor__10TObjPlayerFPvi(void *, s32);
 void set_floor_index__10TObjPlayerFPvi(void *, s32);
 void TObjPlayer__sub_801C1914(void *);
 void TObjPlayer__sub_801C1978(void *);
-void TObjPlayer__sub_801D0BC0(void *, s32, s32);
+void run_action_state_phase__10TObjPlayerFisi(void *, s32, s32);
 void TObjPlayer__sub_801D2540(void *, void *);
 s32 get_player_floor__6TLobbyFi(s32);
 s32 validate_6x3F_set_position(void *);
@@ -45,10 +45,10 @@ void bswap_6x3E__10TNpcPlayerFi(void *);
 void init_6x3E_packet__10TNpcPlayerFPv(void *);
 void set__10TObjRoomIdFPvs(void *, s16);
 s32 is_in_tl03_state__10TObjPlayerFPv(void *);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32 i);
+void *get_player_by_client_id(s32 i);
 void set_floor__10TObjPlayerFPvi(void *, s32);
 void set_floor_index__10TObjPlayerFPvi(void *, s32);
-void TObjPlayer__sub_801D0BC0(void *, s32, s32);
+void run_action_state_phase__10TObjPlayerFisi(void *, s32, s32);
 void TObjPlayer__sub_801D25AC(void *, void *);
 s32 get_player_floor__6TLobbyFi(s32);
 s32 validate_6x3E_stop_at_position(void *);
@@ -64,7 +64,7 @@ void handle_6x3F_set_position(void *arg0) {
     TObjPlayer__sub_801D2540(&m, arg0);
     TObjPlayer__sub_801C1914(&m);
     if (validate_6x3F_set_position(&m) != 0) {
-        p = (Player_801D0634 *)TPlayerBattleCtrl4P__sub_801BA74C(m.id);
+        p = (Player_801D0634 *)get_player_by_client_id(m.id);
         if (p != NULL) {
             TBoss4DarkFalz__sub_8004C220(p, m.vec);
             set_flag_400000__10TObjPlayerFi(p);
@@ -81,7 +81,7 @@ void handle_6x3F_set_position(void *arg0) {
             } else {
                 obj_setFlags30(p, 0x100000);
             }
-            TObjPlayer__sub_801D0BC0(p, 1, 0);
+            run_action_state_phase__10TObjPlayerFisi(p, 1, 0);
         }
     }
 }
@@ -94,7 +94,7 @@ void handle_6x3E_stop_at_position(void *arg0) {
     if (validate_6x3E_stop_at_position(&m) == 0) {
         return;
     }
-    p = (Player_801D0724 *)TPlayerBattleCtrl4P__sub_801BA74C(m.id);
+    p = (Player_801D0724 *)get_player_by_client_id(m.id);
     if (p == NULL) {
         return;
     }
@@ -120,7 +120,7 @@ void handle_6x3E_stop_at_position(void *arg0) {
         obj_setFlags30(p, 0x100000);
         break;
     }
-    TObjPlayer__sub_801D0BC0(p, 1, 0);
+    run_action_state_phase__10TObjPlayerFisi(p, 1, 0);
 }
 
 }

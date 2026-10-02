@@ -36,7 +36,7 @@ M2C_UNK C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
 M2C_UNK GXSetTevOp(int, int);
 M2C_UNK GXSetTevOrder(int, int, int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 int set_global_effect_state__10TObjPlayerFi(void*);
 int TObjPlayer__sub_803DC83C(void*);
 int TObjPlayer__sub_803DC850(void*);
@@ -63,7 +63,7 @@ void reset_effects__10TObjPlayerFv(void);
 void TObjPlayer__sub_8033E988(void);
 M2C_UNK TObjPlayer__sub_803D99F8(void *, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 int set_global_param__8TObjFishFi(void);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
@@ -104,7 +104,7 @@ void TObjPlayer__sub_8033E988(void) {
         }
         PSMTXConcat((void *) (&sp10), (void *) (lbl_805D7774), (void *) (lbl_805D7774));
         TObjPlayer__sub_803E1D54((int) (2));
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         TObjPlayer__sub_803E1D1C((int) (2));
         GXSetTevOrder((int) (1), (int) (1), (int) (2), (int) (4));
         GXSetTevOp((int) (1), (int) (1));
@@ -149,7 +149,7 @@ void TObjPlayer__sub_8033EB4C(O_8033EB4C *self) {
         ((void (*)(void *))TObjPlayer__sub_8033E988)(self);
         ((void (*)(s32))set_global_param__8TObjFishFi)(self->items[i].p18);
         TObjBoss2Tunnel__sub_803DB470(self->items[i].p1C);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         set_tev_direct__13TParticleCtrlFi(1);
         ((void (*)(void *))reset_effects__10TObjPlayerFv)(self);
     }

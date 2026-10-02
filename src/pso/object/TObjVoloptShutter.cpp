@@ -39,9 +39,9 @@ extern "C" {
 
 void render__17TObjVoloptShutterFv(void *arg0);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
+M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TObjPlayer__sub_803E4684(s32);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK set_global_param__8TObjFishFi(s32);
@@ -111,12 +111,12 @@ void render__17TObjVoloptShutterFv(void *arg0) {
     some_id_805c6f74 &= 0xFFFFFBFF;
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x30));
     TObjPlayer__sub_803D9B2C();
-    TObjPlayer__sub_803D9624(0, TObjVoloptShutter__data_805D88F4, TObjVoloptShutter__data_805D88F4, M2C_FIELD(arg0, f32 *, 0x2C));
+    translate_matrix(0, TObjVoloptShutter__data_805D88F4, TObjVoloptShutter__data_805D88F4, M2C_FIELD(arg0, f32 *, 0x2C));
     TObjPlayer__sub_803E4684(lbl_805D4D4C);
-    TObjPlayer__sub_803D9624(0, TObjVoloptShutter__data_805D88F4, M2C_FIELD(arg0, f32 *, 0x28), TObjVoloptShutter__data_805D88F4);
+    translate_matrix(0, TObjVoloptShutter__data_805D88F4, M2C_FIELD(arg0, f32 *, 0x28), TObjVoloptShutter__data_805D88F4);
     TObjPlayer__sub_803E4684(lbl_805D4D48);
-    TObjPlayer__sub_803D9B78();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
+    pop_matrix();
     end_effect_render__13TParticleCtrlFv();
 }
 typedef char RecoveredGlobal_8004A86C___vt__17TObjVoloptShutter_size[sizeof(RecoveredGlobal_8004A86C___vt__17TObjVoloptShutter) == 0x18 ? 1 : -1];

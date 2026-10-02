@@ -127,7 +127,7 @@ struct TSlime_800EAE78 {
 extern "C" {
 M2C_UNK TObjEneSlimeOne__sub_800EB654(int, void *);
 s16 check_player_field_7cc__15TObjEneSlimeOneFPv();
-u32 TPlayerBattleCtrl4P__sub_801BA74C();
+u32 get_player_by_client_id();
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 extern s32 lbl_805D586C;
 void TObjEneSlimeOne__vt60(u8 *arg0);
@@ -144,7 +144,7 @@ s32 add_flags_2e4__10TObjPlayerFPvUi(void *, int);
 s32 TLobby__sub_8002AFD4(void *, void *, int);
 s32 TObjEneSlimeOne__sub_800EB1B4(void *);
 s32 initialize__9TObjEnemyFPv(void *);
-s32 TObjPlayer__sub_80156844(void *, void *, int);
+s32 project_actor_to_ground(void *, void *, int);
 extern M2C_UNK __vt__15TObjEneSlimeOne[];
 extern s32 lbl_805D2ADC;
 u8 *TObjEneSlimeOne__sub_800EB4A0(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
@@ -221,7 +221,7 @@ void TObjEneSlimeOne__vt59(u8 *arg0) {
 
 void TObjEneSlimeOne__vt60(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x384) != 0xC) {
-        if (((s32) M2C_FIELD(arg0, u16 *, 0x2D4) < (s32) lbl_805D586C) && (TPlayerBattleCtrl4P__sub_801BA74C() != 0U) && (check_player_field_7cc__15TObjEneSlimeOneFPv() == 2) && ((u32) M2C_FIELD(arg0, u32 *, 0x3F0) != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv((void *) M2C_FIELD(arg0, u32 *, 0x3F0)) != 0)) {
+        if (((s32) M2C_FIELD(arg0, u16 *, 0x2D4) < (s32) lbl_805D586C) && (get_player_by_client_id() != 0U) && (check_player_field_7cc__15TObjEneSlimeOneFPv() == 2) && ((u32) M2C_FIELD(arg0, u32 *, 0x3F0) != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv((void *) M2C_FIELD(arg0, u32 *, 0x3F0)) != 0)) {
             TObjEneSlimeOne__sub_800EB654((int) (M2C_FIELD(arg0, u32 *, 0x3F0)), (void *) (arg0 + 0x38));
         }
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFFDFF);
@@ -343,7 +343,7 @@ u8 *TObjEneSlimeOne__sub_800EB4A0(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     }
     M2C_FIELD(arg0, s32 *, 0x3F0) = arg2;
     TObjEneSlimeOne__sub_800EB1B4((void *) (arg0));
-    TObjPlayer__sub_80156844((void *) (arg0), (void *) (arg0 + 0x38), (int) (0));
+    project_actor_to_ground((void *) (arg0), (void *) (arg0 + 0x38), (int) (0));
     TObjEneSlimeOne__sub_800EAE78((TSlime_800EAE78 *)((void*)((void *) (arg0))), (s32)((void*)((int) (0))));
     return arg0;
 }

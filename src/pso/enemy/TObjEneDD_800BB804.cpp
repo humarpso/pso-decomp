@@ -358,7 +358,7 @@ s32 TObjEneDD__vt81(u8 *arg0);
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 TObjEneDD__sub_800BB9AC(u8 *arg0);
-void TObjEneDD__sub_800BBA18(V_800BBA18 *self, s16 state);
+void transition_enemy_state(V_800BBA18 *self, s16 state);
 s32 TObjEneDD__vt82(V_800BBB18 *self);
 extern const f32 TObjEneDD__data_805D9E8C;
 void TObjEneDD__sub_800BB88C(Obj_800BB88C *self);
@@ -459,7 +459,7 @@ void TObjEneDD__sub_800BBA0C(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x374) = (s32) M2C_FIELD(arg0, s16 *, 0x326);
 }
 
-void TObjEneDD__sub_800BBA18(V_800BBA18 *self, s16 state) {
+void transition_enemy_state(V_800BBA18 *self, s16 state) {
     self->m85(self->state, 5);
     self->m85(state, 4);
     self->state = state;

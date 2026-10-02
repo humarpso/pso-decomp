@@ -124,7 +124,7 @@ M2C_UNK get_field_d8__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_80100E38(void *);
 M2C_UNK update_timer__5TItemFPv(void *);
 u16 get_id__13TItemProArmorFPv(void *);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+u32 get_player_by_client_id(void *);
 M2C_UNK push_to_player_list__5TItemFPv();
 void TItem__sub_80102748(u8 *arg0);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
@@ -146,8 +146,8 @@ extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 void TItem__sub_8010255C(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TObjPlayer__sub_800196EC(void);
-void TObjEneDellBiter__sub_80087350(void *, s32);
+s32 get_current_floor(void);
+void spawn_particle_effect(void *, s32);
 void set_mode__5TItemFPvc(void *, s32);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 void TItem__sub_80101DBC(void *, f32);
@@ -179,7 +179,7 @@ void TItem__sub_80102424(TItem_80102424 *self, s16 client, f32 *pos, s32 quiet) 
         copy_to_item_data__5TItemFPvPv(self, &data);
         ((void (*)(f32, f32, s16, s16, void *))TLobby__sub_8011AED8)(self->x, self->z, client, self->area, &data);
     }
-    if (is_active_battle_player__10TObjPlayerFv() == 1 || client != TObjPlayer__sub_800196EC()) {
+    if (is_active_battle_player__10TObjPlayerFv() == 1 || client != get_current_floor()) {
         self->m27();
         return;
     }
@@ -190,7 +190,7 @@ void TItem__sub_80102424(TItem_80102424 *self, s16 client, f32 *pos, s32 quiet) 
     TItem__sub_80101DBC(self, r);
     TObjPlayer__sub_80154E3C(self);
     if (lbl_805D543C != 0) {
-        TObjEneDellBiter__sub_80087350(&self->x, 0x9B);
+        spawn_particle_effect(&self->x, 0x9B);
     }
 }
 
@@ -226,7 +226,7 @@ void TItem__sub_80102748(u8 *arg0) {
         update_timer__5TItemFPv((void *) (arg0));
         return;
     case 1:
-        M2C_FIELD(arg0, u32 *, 0xF0) = TPlayerBattleCtrl4P__sub_801BA74C((void *) (get_id__13TItemProArmorFPv((void *) (arg0))));
+        M2C_FIELD(arg0, u32 *, 0xF0) = get_player_by_client_id((void *) (get_id__13TItemProArmorFPv((void *) (arg0))));
         if ((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) {
             TObjPlayer__sub_80100E38((void *) (arg0));
             ((VObj_18 *)(arg0))->m12();
@@ -234,7 +234,7 @@ void TItem__sub_80102748(u8 *arg0) {
         }
         break;
     case 2:
-        M2C_FIELD(arg0, u32 *, 0xF0) = TPlayerBattleCtrl4P__sub_801BA74C((void *) (get_id__13TItemProArmorFPv((void *) (arg0))));
+        M2C_FIELD(arg0, u32 *, 0xF0) = get_player_by_client_id((void *) (get_id__13TItemProArmorFPv((void *) (arg0))));
         temp_r4 = M2C_FIELD(arg0, u32 *, 0xF0);
         if (temp_r4 != 0U) {
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (temp_r4 + 0x38));

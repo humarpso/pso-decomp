@@ -19,7 +19,7 @@ M2C_UNK TObjPlayer__sub_803D9730(int, int);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
 s32 is_in_camera_range__18TObjBoss7TunnelColFPv(void *);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 s32 set_global_param__8TObjFishFi(int);
 extern u8 *lbl_805D6950;
 extern u8 *lbl_805D6954;
@@ -52,7 +52,7 @@ void fn_802F1D1C(u8 *arg0) {
         var_r3 += var_r31 * 0x10;
         var_r3 = (u8 *)(M2C_FIELD(var_r3, u8 **, 8));
         TObjBoss2Tunnel__sub_803DB470((int) (var_r3));
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         end_effect_render__13TParticleCtrlFv();
         func_80141618__Fv();
     }

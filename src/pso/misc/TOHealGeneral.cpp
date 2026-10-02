@@ -88,7 +88,7 @@ TOHealGeneral_801697C0 *__dt__13TOHealGeneralFv(TOHealGeneral_801697C0 *self, s1
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 TBoss8Dragon__sub_8008741C(void *, s32, s32);
 u32 TBoss4Type2__sub_800874F4(void *, s32);
-void TObjPlayer__sub_80087638(u32, u16);
+void set_owner_id__13TParticleCtrlFPvUs(u32, u16);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_80154E3C(void *);
@@ -106,7 +106,7 @@ extern const f32 lbl_805DB6CC;
 extern const f32 lbl_805DB6D0;
 void *TOHealGeneral__ct(void *arg0, void *arg1);
 void play_effect_default__10TObjPlayerFii(void *, s32);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 extern s32 lbl_805D53A0;
 void TOHealGeneral__sub_80169A04(void *arg0, u16 arg1);
 }
@@ -131,9 +131,9 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOSignCave03__sub_803DB510(int);
 M2C_UNK TObjPlayer__sub_80169334(void *);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
+M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 void *__nw__7TObjectFUl(int);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK fn_8016916C(void *);
@@ -179,14 +179,14 @@ void render__13TOHealGeneralFv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00((void *) (temp_r31_2 + 8));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xCC)));
         TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         TObjPlayer__sub_803D9B2C();
         temp_r31_3 = (unsigned char *) (M2C_FIELD(temp_r31_2, void **, 0x30));
-        TObjPlayer__sub_803D9624((int) (0), (f32) (M2C_FIELD(temp_r31_3, f32 *, 8)), (f32) (M2C_FIELD(temp_r31_3, f32 *, 0xC) - M2C_FIELD(arg0, f32 *, 0xD0)), (f32) (M2C_FIELD(temp_r31_3, f32 *, 0x10)));
+        translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r31_3, f32 *, 8)), (f32) (M2C_FIELD(temp_r31_3, f32 *, 0xC) - M2C_FIELD(arg0, f32 *, 0xD0)), (f32) (M2C_FIELD(temp_r31_3, f32 *, 0x10)));
         rotate_matrix_y((int) (0), (int) (-M2C_FIELD(arg0, s32 *, 0xCC)));
         TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
-        TObjPlayer__sub_803D9B78();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
+        pop_matrix();
     }
 }
 
@@ -301,7 +301,7 @@ void *TOHealGeneral__ct(void *arg0, void *arg1) {
     }
     self->handles[1] = TBoss8Dragon__sub_8008741C(&self->pts[1], 0x63, 0x10);
     if (self->handles[1] != 0 && all_parents_unqueued_for_destruction__7TObjectFv(self->handles[1]) != 0) {
-        TObjPlayer__sub_80087638(self->handles[1], self->f1c);
+        set_owner_id__13TParticleCtrlFPvUs(self->handles[1], self->f1c);
     } else {
         self->handles[1] = 0;
     }
@@ -323,7 +323,7 @@ void TOHealGeneral__sub_80169A04(void *arg0, u16 arg1) {
     void *p;
     if (M2C_FIELD(arg0, s32 *, 0xD8) > 0) {
         if (arg1 == lbl_805D53A0) {
-            p = TPlayerBattleCtrl4P__sub_801BA74C(arg1);
+            p = get_player_by_client_id(arg1);
             if (p == NULL || M2C_FIELD(arg0, s32 *, 0xAC) != 1) {
                 return;
             }

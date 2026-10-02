@@ -292,7 +292,7 @@ int TOHangerMachine01__sub_803D9C00(void*);
 s32 TObjControl__ct(s32, s32);
 int rotate_matrix_y(void*, void*);
 int TObjPlayer__sub_803D9B2C(void);
-int TObjPlayer__sub_803D9B78(void);
+int pop_matrix(void);
 f32 TTecResta__sub_802394B0(s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 __nw__7TObjectFUl(M2C_UNK);
@@ -603,7 +603,7 @@ void TBoss4Type2__sub_800573D8(u8 *arg0) {
 }
 #pragma pop
 
-void init_hanger__11TBoss4Type2FPv(void* p) { toggle_particle_effect__10TObjPlayerFv(p); TObjPlayer__sub_803D9B2C(); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x60)); TBoss4Type2__sub_80057270((Obj_80057270 *)(p)); TObjPlayer__sub_803D9B78(); end_effect_render__13TParticleCtrlFv(); }
+void init_hanger__11TBoss4Type2FPv(void* p) { toggle_particle_effect__10TObjPlayerFv(p); TObjPlayer__sub_803D9B2C(); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x60)); TBoss4Type2__sub_80057270((Obj_80057270 *)(p)); pop_matrix(); end_effect_render__13TParticleCtrlFv(); }
 
 extern const f32 lbl_805D8C18;
 

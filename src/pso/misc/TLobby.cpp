@@ -101,7 +101,7 @@ void TLobby__sub_80134BC4(u8 *arg0, u8 *arg1) {
 
 struct Ent_80134C44 { u8 pad[4]; u32 key; u32 val; };
 struct Obj_80134C44 { u8 pad0; u8 count; u8 pad2[2]; Ent_80134C44 e[1]; };
-void* TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void* get_player_by_client_id(s32);
 void get_or_create_lobby_font__10TObjPlayerFPvi(void*, int);
 void TLobby__sub_80134C44(Obj_80134C44 *o) {
     Ent_80134C44 *e = o->e;
@@ -109,7 +109,7 @@ void TLobby__sub_80134C44(Obj_80134C44 *o) {
     for (i = 0; i < o->count; i++, e++) {
         s32 j;
         for (j = 0; j < 12; j++) {
-            u8 *p = (u8*)TPlayerBattleCtrl4P__sub_801BA74C(j);
+            u8 *p = (u8*)get_player_by_client_id(j);
             if (p != NULL && *(u32*)(p + 0xDB0) == e->key) {
                 get_or_create_lobby_font__10TObjPlayerFPvi(p, (u8)e->val);
             }
@@ -903,7 +903,7 @@ void bswap_4_words__6TLobbyFPv(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((cha
 extern "C" {
 
 void init_scene_objects__6TLobbyFv(void);
-int TObjPlayer__sub_800196EC(void);
+int get_current_floor(void);
 int TQuestThread__sub_801F5B5C(void);
 int TRaderMapCore__sub_801F9630(int);
 int TLobby__sub_802089B0(void);
@@ -913,7 +913,7 @@ int attach_objects_by_id__6TLobbyFi(void);
 int TLobby__sub_8020DBCC(void);
 int TSwitch__sub_8022945C(void);
 
-void init_scene_objects__6TLobbyFv(void) { init_sub_objects__6TLobbyFv(); TLobby__sub_8020DBCC(); TLobby__sub_802089B0(); TSwitch__sub_8022945C(); TRaderMapCore__sub_801F9630(1); TObjPlayer__sub_800196EC(); attach_objects_by_id__6TLobbyFi(); TObjPlayer__sub_800196EC(); create_objects__6TLobbyFi(); TQuestThread__sub_801F5B5C(); }
+void init_scene_objects__6TLobbyFv(void) { init_sub_objects__6TLobbyFv(); TLobby__sub_8020DBCC(); TLobby__sub_802089B0(); TSwitch__sub_8022945C(); TRaderMapCore__sub_801F9630(1); get_current_floor(); attach_objects_by_id__6TLobbyFi(); get_current_floor(); create_objects__6TLobbyFi(); TQuestThread__sub_801F5B5C(); }
 
 }
 #endif

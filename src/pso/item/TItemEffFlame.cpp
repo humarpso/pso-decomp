@@ -13,7 +13,7 @@ struct Photon_80108D6C { u8 pad0[0xA4]; Rec_80108D6C *recs; };
 struct Flame_80108D6C { u8 pad0[0x1C]; void *m_1c; u16 m_20; u8 pad22[2]; s32 m_24; };
 
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
-Photon_80108D6C *TPhotonMylla__sub_80154CB4(u16);
+Photon_80108D6C *find_entity_by_id(u16);
 s32 rand();
 extern const f32 lbl_805DAB20;
 extern const f32 lbl_805DAB24;
@@ -25,7 +25,7 @@ void TItemEffFlame::run_task() {
     if (self->m_1c == NULL) {
         return;
     }
-    p = TPhotonMylla__sub_80154CB4(self->m_20);
+    p = find_entity_by_id(self->m_20);
     if (p == NULL) {
         return;
     }

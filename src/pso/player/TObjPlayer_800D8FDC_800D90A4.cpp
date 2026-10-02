@@ -11,7 +11,7 @@ void request_two_effects__10TObjPlayerFPv(void* p);
 void spawn_ground_effect__10TObjPlayerFPvi(void *arg0, s32 arg1);
 void trigger_dell_biter_events__10TObjPlayerFPv(void* p);
 int TLobby__sub_800869A4(void*, void*, void*, void*);
-int TObjEneDellBiter__sub_80087350(void*, void*);
+int spawn_particle_effect(void*, void*);
 s32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK adjust_to_ground__15TObjBoss2TunnelFiPv(void *, M2C_UNK *);
 M2C_UNK init__9TDeadSpotFPv(s32, s32, s32, s32, f32);
@@ -29,7 +29,7 @@ void create_dead_spot__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0
 
 void request_two_effects__10TObjPlayerFPv(void* p) { TLobby__sub_800869A4((void*)(p), (void*)((void*)232), (void*)((void*)10), (void*)((void*)1)); TLobby__sub_800869A4((void*)(p), (void*)((void*)236), (void*)((void*)10), (void*)((void*)1)); }
 
-void trigger_dell_biter_events__10TObjPlayerFPv(void* p) { TObjEneDellBiter__sub_80087350(p, (void*)251); TObjEneDellBiter__sub_80087350(p, (void*)252); TObjEneDellBiter__sub_80087350(p, (void*)227); }
+void trigger_dell_biter_events__10TObjPlayerFPv(void* p) { spawn_particle_effect(p, (void*)251); spawn_particle_effect(p, (void*)252); spawn_particle_effect(p, (void*)227); }
 
 void spawn_ground_effect__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     M2C_UNK sp8;

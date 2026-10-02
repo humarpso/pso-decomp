@@ -31,14 +31,14 @@ extern "C" {
 
 s32 get_active_photon_object__17TWindowMessageLogFv(void);
 s32 TObjPlayer__sub_80019248(s32);
-s32 TPhotonMylla__sub_80154CB4();
+s32 find_entity_by_id();
 s32 obj_isState2_324();
 
 s32 get_active_photon_object__17TWindowMessageLogFv(void) {
     s32 temp_r3;
     s32 var_r3;
 
-    temp_r3 = TPhotonMylla__sub_80154CB4();
+    temp_r3 = find_entity_by_id();
     if (temp_r3 == 0) {
         return 0;
     }

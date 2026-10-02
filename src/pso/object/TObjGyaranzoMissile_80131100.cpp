@@ -50,7 +50,7 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjGyaranzoMissile__sub_80131430(u8 *arg0);
 f32 TCameraCtrl__sub_803D8D00();
-f32 TObjPlayer__sub_8001978C();
+f32 newton_sqrtf();
 extern f32 lbl_805DB068;
 extern f32 lbl_805DB06C;
 f32 scale_velocity__19TObjGyaranzoMissileFPvf(void *arg0, f32 farg0);
@@ -65,7 +65,7 @@ extern const f32 lbl_805DB058;
 extern const f32 lbl_805DB05C;
 void TObjGyaranzoMissile__sub_80131214(u8 *arg0);
 void draw_status_icon__10TObjPlayerFPvi(void *self, void *buf);
-void TObjEneDellBiter__sub_80087350(void *buf, s32 n);
+void spawn_particle_effect(void *buf, s32 n);
 void TObjGyaranzoMissile__sub_80131334(Obj_80131334 *self);
 extern u8 lbl_80506250[];
 void TObjGyaranzoMissile__sub_80131488(Obj_80131488 *self);
@@ -155,7 +155,7 @@ void TObjGyaranzoMissile__sub_80131334(Obj_80131334 *self) {
     u8 buf[0x18];
     self->state = 2;
     draw_status_icon__10TObjPlayerFPvi(self, buf);
-    TObjEneDellBiter__sub_80087350(buf, 9);
+    spawn_particle_effect(buf, 9);
 }
 
 void *TObjGyaranzoMissile__sub_8013136C(void *arg0, s16 arg1) {
@@ -194,7 +194,7 @@ f32 scale_velocity__19TObjGyaranzoMissileFPvf(void *arg0, f32 farg0) {
     f32 temp_f1;
     f32 temp_f2;
     if (TCameraCtrl__sub_803D8D00() > lbl_805DB068) {
-        temp_f1 = TObjPlayer__sub_8001978C();
+        temp_f1 = newton_sqrtf();
         temp_f2 = farg0 / temp_f1;
         M2C_FIELD(arg0, f32 *, 0) = (f32) (M2C_FIELD(arg0, f32 *, 0) * temp_f2);
         M2C_FIELD(arg0, f32 *, 4) = (f32) (M2C_FIELD(arg0, f32 *, 4) * temp_f2);
@@ -213,7 +213,7 @@ void TObjPlayer__sub_8013153C(u8 *arg0, u8 *arg1) {
     temp_f2 = M2C_FIELD(arg0, f32 *, 0);
     temp_f3 = M2C_FIELD(arg0, f32 *, 8) - M2C_FIELD(arg1, f32 *, 8);
     temp_f1 = temp_f2 - M2C_FIELD(arg1, f32 *, 0);
-    ((f32 (*)(f32, f32, f32))TObjPlayer__sub_8001978C)((temp_f1 * temp_f1) + (temp_f3 * temp_f3), temp_f2, temp_f3);
+    ((f32 (*)(f32, f32, f32))newton_sqrtf)((temp_f1 * temp_f1) + (temp_f3 * temp_f3), temp_f2, temp_f3);
 }
 #pragma pop
 

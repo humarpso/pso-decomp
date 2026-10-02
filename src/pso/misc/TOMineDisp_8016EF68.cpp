@@ -29,12 +29,12 @@ extern s32 lbl_805D3088;
 u8 *TOMineTrapDisp__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjPlayer__sub_80019248(void);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
 void *get_mine_data_ptr__10TOMineTrapFPv(void *);
 void get_player_state__6TOMineFPv(void *, u16);
 s32 fn_80171314(void *);
 s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u8 *get_player_by_client_id(u16);
 extern const f32 lbl_805DB850;
 void run_task__10TOMineDispFv(u8 *arg0);
 M2C_UNK get_camera_mode__11TCameraCtrlFv();
@@ -45,7 +45,7 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_chunk_material_color(void *, int);
 extern u8 lbl_804A7418[];
@@ -94,7 +94,7 @@ void TOMineDisp__sub_8016EFB4(u8 *arg0) {
     ((M2C_UNK (*)(void *))set_chunk_material_color)(lbl_804A7418);
     some_id_805c6f74 = lbl_805D5660;
     end_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 void run_task__10TOMineDispFv(u8 *arg0) {
@@ -102,9 +102,9 @@ void run_task__10TOMineDispFv(u8 *arg0) {
     u8 *p;
     switch (*(s32 *)(arg0 + 0xA4)) {
     case 0:
-        p = TPlayerBattleCtrl4P__sub_801BA74C(*(u16 *)(arg0 + 0xA8));
+        p = get_player_by_client_id(*(u16 *)(arg0 + 0xA8));
         if (p != NULL && TObjPlayer__sub_80019248() != 0 && fn_80171314(p) != 0) {
-            if (TObjPlayer__sub_80141CF8(arg0 + 0x38, p + 0x38) <= lbl_805DB850 ||
+            if (horizontal_distance_squared(arg0 + 0x38, p + 0x38) <= lbl_805DB850 ||
                 get_stat_by_key_state__10TObjPlayerFPv(p) == get_stat_by_key_state__10TObjPlayerFPv(arg0)) {
                 *(s32 *)(arg0 + 0xA4) = 2;
             }

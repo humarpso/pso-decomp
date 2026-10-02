@@ -12,7 +12,7 @@ struct RecoveredGlobal_801FB430___vt__13TRaderMapCore {
 
 extern "C" {
 u16 obj_getField1c(void *);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+s32 get_player_by_client_id(int);
 M2C_UNK TRaderMapCore__sub_801F9D84(void *, int, void *);
 M2C_UNK TRaderMapCore__sub_801F9E9C(void *);
 M2C_UNK TRaderMapCore__sub_801FA46C(void *, void *);
@@ -72,7 +72,7 @@ void run_task__13TRaderMapCoreFv(u8 *arg0) {
         if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
             var_r31 = 0;
             do {
-                temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int) (var_r31));
+                temp_r3 = get_player_by_client_id((int) (var_r31));
                 if (temp_r3 != 0) {
                     TRaderMapCore__sub_801F9D84((void *) (arg0), (int) (0), (void *) (temp_r3 + 0x38));
                 }

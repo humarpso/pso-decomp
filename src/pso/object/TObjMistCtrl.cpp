@@ -51,7 +51,7 @@ extern "C" {
 void *__dt__12TObjMistCtrlFv(void *arg0, s16 arg1);
 void render__16TPlayerFootStampFv(u8 *arg0);
 int run_task__12TObjMistCtrlFv(void* p);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
 M2C_UNK TParticleCtrl__sub_803DA7A8(int);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
@@ -98,7 +98,7 @@ u8 *TObjMistCtrl__ct(u8 *arg0, s32 arg1, u32 arg2) {
 }
 
 void render__16TPlayerFootStampFv(u8 *arg0) {
-    if (TObjPlayer__sub_80141CF8((void *) (arg0 + 0x7C), (void *) (lbl_805D4DF0 + 0x178)) < lbl_805DE1F8) {
+    if (horizontal_distance_squared((void *) (arg0 + 0x7C), (void *) (lbl_805D4DF0 + 0x178)) < lbl_805DE1F8) {
         lbl_805D5660 = some_id_805c6f74;
         reset_transform_state__10TObjPlayerFv();
         set_global_param__8TObjFishFi((void *) (lbl_805D6710));

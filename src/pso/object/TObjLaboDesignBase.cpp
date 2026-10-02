@@ -36,7 +36,7 @@ struct RecoveredGlobal_80365210___vt__18TObjLaboDesignBase {
 
 extern "C" {
 s16 TObjLaboDesignBase__vt8(u8 *arg0, f32 farg0, f32 farg1);
-f32 fn_8013157C(void *, s32);
+f32 xz_distance_squared(void *, s32);
 s16 fn_801A2340(void *, f32, f32);
 s32 get_state_flag__9TMainTaskFv();
 extern s32 lbl_805D4DF0;
@@ -48,7 +48,7 @@ s32 begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 f32 TObjPlayer__sub_803D99F8(void *, void *);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 s32 TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 s32 TOSignCave03__sub_803DB510(int);
@@ -89,7 +89,7 @@ s32 TObjFish__sub_8001EDC4(int, int);
 void TObjPlayer__sub_80154A00(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
@@ -161,7 +161,7 @@ s16 TObjLaboDesignBase__vt8(u8 *arg0, f32 farg0, f32 farg1) {
     if (get_state_flag__9TMainTaskFv() == 1) {
         return M2C_FIELD(arg0, s16 *, 0x1E);
     }
-    if (fn_8013157C(arg0 + 0x38, lbl_805D4DF0 + 0x178) < (farg1 * farg1)) {
+    if (xz_distance_squared(arg0 + 0x38, lbl_805D4DF0 + 0x178) < (farg1 * farg1)) {
         M2C_FIELD(arg0, s16 *, 0x1E) = 1;
         return M2C_FIELD(arg0, s16 *, 0x1E);
     }
@@ -199,7 +199,7 @@ void TObjLaboDesignBase__sub_80364F18(s32 arg0, u8 *arg1) {
                 TObjLaboDesignBase__sub_80364F18(arg0, temp_r4);
             }
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         var_r30 = (u8 *)(M2C_FIELD(var_r30, u8 **, 0x30));
     } while (var_r30 != NULL);
 }
@@ -211,7 +211,7 @@ void render__18TObjLaboDesignBaseFPv(u8 *arg0) {
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     TObjLaboDesignBase__sub_80364F18((s32)((void *) (arg0)), (u8 *)((int) (TObjFish__sub_8001EDC4((int) (M2C_FIELD(arg0, s32 *, 0xAC)), (int) (0)))));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     end_effect_render__13TParticleCtrlFv();
 }
 

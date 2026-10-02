@@ -41,11 +41,11 @@ void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(void *, int);
 void rotate_matrix_y(int, int);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(int);
 void TObjBoss2Tunnel__sub_803DB470(void *);
-void TObjDoor__sub_803DC894(int, int, void *, f32);
+void draw_ginja_model_with_motion(int, int, void *, f32);
 extern Glob_8018E358 TObjDoor__data_8050DC80[];
 void TObjDoor__sub_8018E8BC(void);
 f32 TBoss8Dragon__sub_803D64C0(s32);
@@ -84,11 +84,11 @@ void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(void *, int);
 void rotate_matrix_y(int, int);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(int);
 void TObjBoss2Tunnel__sub_803DB470(void *);
-void TObjDoor__sub_803DC894(int, int, void *, f32);
+void draw_ginja_model_with_motion(int, int, void *, f32);
 void set_chunk_material_color(Color_8018E40C *);
 extern Color_8018E40C TObjDoor__data_804B7678[];
 extern DoorMotionHeader* TObjDoor__data_8050DC78[];
@@ -102,7 +102,7 @@ void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(void *, int);
 void rotate_matrix_y(int, int);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(int);
 void TObjBoss2Tunnel__sub_803DB470(void *);
@@ -130,11 +130,11 @@ void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(void *, int);
 void rotate_matrix_y(int, int);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(int);
 void TObjBoss2Tunnel__sub_803DB470(void *);
-void TObjDoor__sub_803DC894(int, int, void *, f32);
+void draw_ginja_model_with_motion(int, int, void *, f32);
 void set_chunk_material_color(Color_8018E40C *);
 extern Color_8018E40C TObjDoor__data_804B7678[];
 extern Glob_8018E358 TObjDoor__data_8050DC80[];
@@ -171,7 +171,7 @@ void TObjDoor__sub_8018E358(Door_8018E358 *arg0) {
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(arg0->f38);
     rotate_matrix_y(0, arg0->f60);
-    TObjDoor__sub_803DC894(TObjDoor__data_8050DC80->f0, (int)TObjDoor__data_8050DC78[0], TObjDoor__data_8050DC80, arg0->fB4);
+    draw_ginja_model_with_motion(TObjDoor__data_8050DC80->f0, (int)TObjDoor__data_8050DC78[0], TObjDoor__data_8050DC80, arg0->fB4);
     begin_effect_render__13TParticleCtrlFv();
     Glob_8018E358 *g1 = TObjDoor__data_8050DC80;
     free_children__12TObjDoorJungFPvPv(g1->a->f4, 0xA);
@@ -180,7 +180,7 @@ void TObjDoor__sub_8018E358(Door_8018E358 *arg0) {
     TObjBoss2Tunnel__sub_803DB470(g1->a);
     TObjBoss2Tunnel__sub_803DB470(g2->b);
     end_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 void TObjDoor__sub_8018E40C(Door_8018E40C *arg0) {
@@ -188,7 +188,7 @@ void TObjDoor__sub_8018E40C(Door_8018E40C *arg0) {
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(arg0->f38);
     rotate_matrix_y(0, arg0->f60);
-    TObjDoor__sub_803DC894(((Glob_8018E40C *)&TObjDoor__data_8050DC80)->f0, (int)((DoorMotionHeader * *)&TObjDoor__data_8050DC78)[0], ((Glob_8018E40C *)&TObjDoor__data_8050DC80), arg0->fB4);
+    draw_ginja_model_with_motion(((Glob_8018E40C *)&TObjDoor__data_8050DC80)->f0, (int)((DoorMotionHeader * *)&TObjDoor__data_8050DC78)[0], ((Glob_8018E40C *)&TObjDoor__data_8050DC80), arg0->fB4);
     begin_effect_render__13TParticleCtrlFv();
     lbl_805D5660 = some_id_805c6f74;
     some_id_805c6f74 |= 0x10;
@@ -206,7 +206,7 @@ void TObjDoor__sub_8018E40C(Door_8018E40C *arg0) {
     TObjBoss2Tunnel__sub_803DB470(g1->a);
     TObjBoss2Tunnel__sub_803DB470(g2->b);
     end_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 void TObjDoor__sub_8018E540(Door_8018E358 *arg0) {
@@ -214,7 +214,7 @@ void TObjDoor__sub_8018E540(Door_8018E358 *arg0) {
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(arg0->f38);
     rotate_matrix_y(0, arg0->f60);
-    TObjDoor__sub_803DC894(TObjDoor__data_8050DC80->f0, (int)TObjDoor__data_8050DC78[0], TObjDoor__data_8050DC80, arg0->fB4);
+    draw_ginja_model_with_motion(TObjDoor__data_8050DC80->f0, (int)TObjDoor__data_8050DC78[0], TObjDoor__data_8050DC80, arg0->fB4);
     begin_effect_render__13TParticleCtrlFv();
     Glob_8018E358 *g1 = TObjDoor__data_8050DC80;
     free_children__12TObjDoorJungFPvPv(g1->a->f4, 0xA);
@@ -223,7 +223,7 @@ void TObjDoor__sub_8018E540(Door_8018E358 *arg0) {
     TObjBoss2Tunnel__sub_803DB470(g1->a);
     TObjBoss2Tunnel__sub_803DB470(g2->b);
     end_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 M2C_UNK TObjDoor__sub_8018E5F4(Door_8018E5F4 *arg0) {
@@ -249,7 +249,7 @@ M2C_UNK TObjDoor__sub_8018E5F4(Door_8018E5F4 *arg0) {
     TObjBoss2Tunnel__sub_803DB470(g1->a);
     TObjBoss2Tunnel__sub_803DB470(g2->b);
     end_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 void update_timer__8TObjDoorFPv(void *arg0) {
@@ -267,7 +267,7 @@ M2C_UNK TObjDoor__sub_8018E74C(Door_8018E74C *arg0) {
     rotate_matrix_y(0, arg0->f60);
     TObjBoss2Tunnel__sub_803DB470((void *)((Glob_8018E74C *)&TObjDoor__data_8050DC80)->f0);
     begin_effect_render__13TParticleCtrlFv();
-    TObjDoor__sub_803DC894(((Glob_8018E74C *)&TObjDoor__data_8050DC80)->f4, (int) ((DoorMotionHeader * *)&TObjDoor__data_8050DC78)[1], TObjDoor__data_8050DC80, arg0->fB8);
+    draw_ginja_model_with_motion(((Glob_8018E74C *)&TObjDoor__data_8050DC80)->f4, (int) ((DoorMotionHeader * *)&TObjDoor__data_8050DC78)[1], TObjDoor__data_8050DC80, arg0->fB8);
     lbl_805D5660 = some_id_805c6f74;
     some_id_805c6f74 |= 0x10;
     Color_8018E74C color = ((Color_8018E74C *)&TObjDoor__data_804B7678)[arg0->fD0];
@@ -284,7 +284,7 @@ M2C_UNK TObjDoor__sub_8018E74C(Door_8018E74C *arg0) {
     TObjBoss2Tunnel__sub_803DB470(g1->a);
     TObjBoss2Tunnel__sub_803DB470(g2->b);
     end_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 void TObjDoor__sub_8018E890(void) {  }

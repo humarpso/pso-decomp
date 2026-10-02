@@ -49,7 +49,7 @@ s32 TObjPlayer__sub_803D898C(void *);
 f32 TBoss6Type1__sub_803D9370(void *, void *);
 f32 TObjPlayer__sub_803D9884(void *, void *);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 extern RecoveredGlobal_802E8274_lbl_80472CB0 lbl_80472CB0;
 extern RecoveredGlobal_802E8274_lbl_804E3BFC lbl_804E3BFC;
 extern s32 lbl_805D691C;
@@ -74,7 +74,7 @@ void draw_effect__10TObjPlayerFv(void);
 u32 is_part_active__11TBoss7JointFPv(int);
 s32 draw_node_tree_if_visible__10TObjPlayerFPv(int);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 extern RecoveredGlobal_802E80F4_lbl_8050BEC0 lbl_8050BEC0;
 extern RecoveredGlobal_802E80F4_main_task main_task;
 extern RecoveredGlobal_802E80F4_lbl_805412C0 lbl_805412C0;
@@ -157,7 +157,7 @@ void TObjPlayer__sub_802E80F4(u8 *arg0) {
             draw_effect__10TObjPlayerFv();
             draw_node_tree_if_visible__10TObjPlayerFPv((int) (M2C_FIELD(arg0, u32 *, 0x7AC)));
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         end_effect_render__13TParticleCtrlFv();
         copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) (&lbl_8050BEC0.value));
         lbl_805D7784 = lbl_805D5664;
@@ -212,19 +212,19 @@ void TObjPlayer__sub_802E8274(void) {
     if ((s32) lbl_805D691C == 0x33) {
         TObjPlayer__sub_803D9B2C();
         TObjPlayer__sub_803D8960((int) (0), (void *) (&lbl_804E3BFC.value), (void *) (lbl_805D692C), (int) (4));
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         TBoss6Type1__sub_803D9370((void *) (lbl_805D692C + 0xC), (void *) (lbl_805D692C));
     }
     if ((lbl_805D6924 & 0x80) && ((s32) lbl_805D691C >= 0x4D) && ((s32) lbl_805D691C <= 0x58)) {
         TObjPlayer__sub_803D9B2C();
         TObjPlayer__sub_803D898C((void *) (lbl_805D6934));
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         lbl_805D6934 += 0x30;
     }
     if (((s32) lbl_805D691C >= 0x1D) && ((s32) lbl_805D691C <= 0x20)) {
         TObjPlayer__sub_803D9B2C();
         TObjPlayer__sub_803D898C((void *) (lbl_805D6930));
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         lbl_805D6930 += 0x30;
     }
     lbl_805D691C += 1;

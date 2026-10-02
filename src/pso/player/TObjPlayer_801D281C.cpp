@@ -102,7 +102,7 @@ s16 get_obj_id__10TObjPlayerFPv(void* p);
 void set_field_0__10TNpcPlayerFPvs(void* p, s16 v);
 void set_field2__10TNpcPlayerFPvs(void* p, s16 v);
 void set_cursor_pos__11TMainCursorFiUsi(void *arg0, u16 arg1, s32 arg2);
-void *TObjPlayer__sub_801D32A0(Self_801D32A0 *self, Pl_801D32A0 *player);
+void *capture_lockon_targets(Self_801D32A0 *self, Pl_801D32A0 *player);
 void bswap_u16_pair__10TObjPlayerFPv(void* p);
 int bswap_32__FPUl(void*);
 void TObjPlayer__sub_801D2B2C(Obj_801D2B2C *arg0);
@@ -124,7 +124,7 @@ void dispatch_to_child__11TWindowCtrlFiPv(u16, s32);
 void TObjPlayer__sub_801D2FB0(u8 *self, void *obj, s32 arg2, s16 arg3);
 void VecCopy__FP3VecPC3Vec(Vec_801D3224 *, Vec_801D3224 *);
 u16 get_uid__10TObjPlayerFPv(void *);
-Obj_801D3224 *TPhotonMylla__sub_80154CB4(u16);
+Obj_801D3224 *find_entity_by_id(u16);
 int TObjPlayer__sub_801D345C(void* p);
 s32 TObjPlayer__sub_801D3224(void *arg0, Vec_801D3224 *out);
 }
@@ -464,7 +464,7 @@ s32 TObjPlayer__sub_801D3224(void *arg0, Vec_801D3224 *out) {
     if (uid == 0xFFFF) {
         return 0;
     }
-    o = TPhotonMylla__sub_80154CB4(uid);
+    o = find_entity_by_id(uid);
     if (o == NULL) {
         return 0;
     }
@@ -472,7 +472,7 @@ s32 TObjPlayer__sub_801D3224(void *arg0, Vec_801D3224 *out) {
     return 1;
 }
 
-void *TObjPlayer__sub_801D32A0(Self_801D32A0 *self, Pl_801D32A0 *player) {
+void *capture_lockon_targets(Self_801D32A0 *self, Pl_801D32A0 *player) {
     Cur_801D32A0 *cur;
     s32 n;
     Ent_801D32A0 *e;

@@ -201,7 +201,7 @@ void TBoss8Dragon__sub_8005FA78(void *arg0, s32 arg1, f32 farg0);
 void TBoss8Dragon__sub_80063EF4(s32 arg0);
 void reset_float_3c__12TBoss8DragonFPv(void *a0);
 void set_flag_4e4__12TBoss8DragonFPv(void *p);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 extern const f64 lbl_80437EB0[];
 void TBoss8Dragon__sub_80062550(Obj_80062550 *arg0, s32 arg1);
 void update_periodic_effect__12TBoss8DragonFPv(void *arg0);
@@ -216,7 +216,7 @@ void TBoss8Dragon__sub_80064DB8(void *);
 void update_velocity__9TObjEneDDFPv(void *);
 f32 get_speed_or_default__10TObjPlayerFPv(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 extern const f32 lbl_805D8D5C;
 extern const f32 lbl_805D8D74;
 extern const f32 lbl_805D8D88;
@@ -294,7 +294,7 @@ void TBoss8Dragon__sub_80060F4C(Obj_80060F4C *arg0, s32 arg1) {
         update_periodic_effect__12TBoss8DragonFPv(arg0);
         return;
     case 0:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         TBoss8Dragon__sub_80064DB8(arg0);
         update_velocity__9TObjEneDDFPv(arg0);
         TBoss8Dragon__sub_8006426C(arg0);
@@ -350,7 +350,7 @@ void TBoss8Dragon__sub_80062550(Obj_80062550 *arg0, s32 arg1) {
         update_periodic_effect__12TBoss8DragonFPv(arg0);
         return;
     case 0:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         TBoss8Dragon__sub_80063EF4((s32)arg0);
         ofs = 0x4000;
         if (arg0->pos.x * arg0->pos.x + arg0->pos.z * arg0->pos.z > arg0->f4bc->f10 * arg0->f4bc->f10) {

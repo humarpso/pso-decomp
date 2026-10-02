@@ -29,16 +29,16 @@ void calc_move_state__10TObjPlayerFPv(void *arg0);
 void reset_effect_count__10TObjPlayerFv(void);
 void start_boss4_pose__10TObjPlayerFPv(void *arg0);
 void update_entry_motion__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK advance_animation_playback();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
-M2C_UNK TObjPlayer__sub_801564A0(void *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
+M2C_UNK check_enemy_body_collisions(void *);
+M2C_UNK submit_cursor_candidate(void *, int);
 M2C_UNK TObjPlayer__sub_803D8960(int, int, void *, int);
 M2C_UNK TObjPlayer__sub_803D8CD4(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 s32 lookup_entry_by_value__10TObjPlayerFPvf(void *, f32);
@@ -72,7 +72,7 @@ void apply_lookup_entry_effect__10TObjPlayerFPv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         TObjPlayer__sub_803D8960((int) (0), (int) (temp_r3), (void *) (&sp8), (int) (2));
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         temp_r3_2 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x3C0));
         if (temp_r3_2 != NULL) {
             ((struct VDisp_800a42c4_800A4288 *) temp_r3_2)->m4(&sp8, &sp8.d);
@@ -132,7 +132,7 @@ void update_entry_motion__10TObjPlayerFPv(u8 *arg0) {
     s16 temp_r0;
     u8 *temp_r3;
 
-    TBoss1Dragon__sub_80143504();
+    advance_animation_playback();
     step_angle_clamped__10TObjPlayerFPvi((void *) (arg0), (int) (0));
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x328);
     switch (temp_r0) {
@@ -159,9 +159,9 @@ void update_entry_motion__10TObjPlayerFPv(u8 *arg0) {
         break;
     }
     check_object_collisions__10TObjPlayerFPv((void *) (arg0));
-    TObjPlayer__sub_801564A0((void *) (arg0));
+    check_enemy_body_collisions((void *) (arg0));
     minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
-    TObjPlayer__sub_801B4A18((void *) (arg0), (int) (-1));
+    submit_cursor_candidate((void *) (arg0), (int) (-1));
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFDFFFFF);
 }
 

@@ -65,7 +65,7 @@ struct Model_800BF66C { s32 f0; s32 f4; s32 f8; s32 fC; };
 struct Data_800BF66C { u8 pad[0x42C]; Model_800BF66C *f42c; Ent8_800BF66C *f430; };
 
 extern "C" {
-s32 TObjEneDellBiter__sub_80087350(s32, s32);
+s32 spawn_particle_effect(s32, s32);
 void refresh_lobby_state__10TObjPlayerFPv(void *);
 s32 send_entity_set_flags__6TLobbyFPv(void *);
 void TObjGrass__vt61(u8 *arg0);
@@ -74,7 +74,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void obj_clearFlags30(void *, u32);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(void *, f32);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
@@ -96,7 +96,7 @@ M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
 f32 TObjPlayer__sub_80017804(void *, Vec_800BE75C, f32);
 M2C_UNK obj_setFlags30(void *, u32);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
@@ -109,16 +109,16 @@ extern u8 lbl_8058D490[];
 extern const f32 TObjGrass__data_805D9EB8;
 extern const f32 TObjGrass__data_805D9ED8;
 u16 TObjPlayer__sub_800115C4(void *, int, f32);
-s32 TObjPlayer__sub_80018428(void *, void *);
+s32 check_path_obstructed(void *, void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 obj_testFlags30(void *, int);
 s32 obj_getField1c(void *);
 void obj_clearFlags30(void *, u32);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(int);
 u8 *get_enemy_entity(u16);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u8 *get_player_by_client_id(u16);
 M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
 extern M2C_UNK lbl_8043B790[];
 extern s32 lbl_805D586C;
@@ -154,7 +154,7 @@ extern const f32 lbl_805D9EF8;
 extern const f32 lbl_805D9F00;
 extern const f32 lbl_805D9F1C;
 void TObjGrass__sub_800BF66C(void);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(int);
 M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -170,8 +170,8 @@ M2C_UNK TObjGrass__sub_800BE75C(Grass_800BE75C *o);
 M2C_UNK TObjGrass__sub_800BE8FC(void *);
 u8 *get_enemy_entity(u16);
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+M2C_UNK submit_cursor_candidate(void *, int);
+u8 *get_player_by_client_id(u16);
 extern const f32 TObjGrass__data_805D9EE8;
 void run_task__9TObjGrassFv(u8 *arg0);
 }
@@ -186,7 +186,7 @@ void TObjGrass__vt59(void *arg0);
 void TObjGrass__vt60(void *arg0);
 void * create__9TObjGrassFPv(void *arg0);
 void destroy_all__9TObjGrassFv(void);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 void *TObjControl__ct(void *, void *);
@@ -213,7 +213,7 @@ void TObjGrass__vt61(u8 *arg0) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 6;
         temp_r6 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
         M2C_FIELD(temp_r6, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r6, s32 *, 0x18) & 0xFFFF7FFE);
-        TObjEneDellBiter__sub_80087350((s32) (arg0 + 0x2FC), 0xF2);
+        spawn_particle_effect((s32) (arg0 + 0x2FC), 0xF2);
         refresh_lobby_state__10TObjPlayerFPv(arg0);
         send_entity_set_flags__6TLobbyFPv(arg0);
     }
@@ -223,7 +223,7 @@ void TObjGrass__vt61(u8 *arg0) {
 M2C_UNK TObjGrass__sub_800BCE44(u8 *arg0) {
   u8 *temp_r3;
   obj_clearFlags30((void *)((void *) arg0), (u32)((int) 0x04040000));
-  TBoss1Dragon__sub_80143504((void *) arg0);
+  advance_animation_playback((void *) arg0);
   *((f32 *) (((s8 *) arg0) + 0x310)) = (f32) TObjGrass__data_805D9EB8;
   *((f32 *) (((s8 *) arg0) + 0x308)) = (f32) TObjGrass__data_805D9EB8;
   TObjPlayer__sub_80011734((void *)((void *) arg0), (M2C_UNK)((int) 0), (f32) TObjGrass__data_805D9EB8);
@@ -269,7 +269,7 @@ M2C_UNK update__9TObjGrassFPv(u8 *arg0) {
     s16 temp_r4;
 
     obj_clearFlags30((void *)(arg0), (u32)(0x04040000));
-    TBoss1Dragon__sub_80143504(arg0);
+    advance_animation_playback(arg0);
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800000)) {
         TObjPlayer__sub_80011734(arg0, 0, TObjGrass__data_805D9EB8);
     }
@@ -327,7 +327,7 @@ M2C_UNK TObjGrass__sub_800BE75C(Grass_800BE75C *o) {
     f32 lo2;
     f32 hi2;
     obj_setFlags30(o, 0x04040000);
-    TBoss1Dragon__sub_80143504(o);
+    advance_animation_playback(o);
     v.y = TObjGrass__data_805D9EB8;
     v.x = TObjGrass__data_805D9EB8;
     v.z = o->f358;
@@ -457,7 +457,7 @@ void TObjGrass__vt26(u8 *arg0) {
                     xx = v.x * v.x;
                     zz = v.z * v.z;
                     d = xx + zz;
-                    if (d < best && TObjPlayer__sub_80018428((void *) (arg0), p + 0x2FC) != 1) {
+                    if (d < best && check_path_obstructed((void *) (arg0), p + 0x2FC) != 1) {
                         best_id = id;
                         best = d;
                     }
@@ -469,9 +469,9 @@ void TObjGrass__vt26(u8 *arg0) {
         }
         tid = M2C_FIELD(arg0, u16 *, 0x338);
         if (tid < 0x1000U) {
-            q = TPlayerBattleCtrl4P__sub_801BA74C(tid);
+            q = get_player_by_client_id(tid);
             if (q != NULL) {
-                if (get_field_3e4__10TObjPlayerFPv((int) (q)) == TObjPlayer__sub_800196EC()) {
+                if (get_field_3e4__10TObjPlayerFPv((int) (q)) == get_current_floor()) {
                     M2C_FIELD(arg0, u8 **, 0x2A8) = q;
                     obj_clearFlags30((void *) (arg0), 0x04040000);
                     return;
@@ -499,9 +499,9 @@ void run_task__9TObjGrassFv(u8 *arg0) {
     }
     temp_r3 = M2C_FIELD(arg0, u16 *, 0x338);
     if (temp_r3 < 0x1000U) {
-        temp_r3_2 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C(temp_r3));
+        temp_r3_2 = (u8 *)(get_player_by_client_id(temp_r3));
         if (temp_r3_2 != NULL) {
-            if (get_field_3e4__10TObjPlayerFPv((int) (temp_r3_2)) == TObjPlayer__sub_800196EC()) {
+            if (get_field_3e4__10TObjPlayerFPv((int) (temp_r3_2)) == get_current_floor()) {
                 M2C_FIELD(arg0, u8 **, 0x2A8) = temp_r3_2;
                 goto done;
             }
@@ -556,7 +556,7 @@ void run_task__9TObjGrassFv(u8 *arg0) {
     }
     update_prev_position__10TObjPlayerFPv((void *) (arg0));
     copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));
-    TObjPlayer__sub_801B4A18((void *) (arg0), (int) (-1));
+    submit_cursor_candidate((void *) (arg0), (int) (-1));
     M2C_FIELD(arg0, f32 *, 0x2B4) = (f32) (M2C_FIELD(arg0, f32 *, 0x2B4) + TObjGrass__data_805D9EE8);
 }
 

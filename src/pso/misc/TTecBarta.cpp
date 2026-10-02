@@ -141,7 +141,7 @@ s32 TObjFish__sub_8001EDC4(s32, s32);
 void TObjFish__sub_800660D4(TechniqueParticleEmitter *, s32, s32, s32, s32, f32);
 TechniqueParticleEmitter *TLobby__sub_800869A4(f32 *, s32, s32, s32);
 void copy_pos__11TNowLoadingFPvPv(TechniqueParticleEmitter *, Vec_8022BA98 *);
-TechniqueHitRecipient *TPhotonMylla__sub_80154CB4(u16);
+TechniqueHitRecipient *find_entity_by_id(u16);
 void TObjPlayer__sub_8023A244(TTecBarta *);
 void advance_lifetime_or_destroy(TTecBarta *);
 void TTecBarta__sub_8023A674(TTecBarta *);
@@ -337,7 +337,7 @@ TTecBarta* __dt__9TTecBartaFv(TTecBarta* self,s16 deleting) {
 
 void run_task__9TTecBartaFv(TTecBarta *self) {
     s32 i;
-    self->source = TPhotonMylla__sub_80154CB4(self->sourceId);
+    self->source = find_entity_by_id(self->sourceId);
     if (self->source == NULL) {
         queue_destruction__7TObjectFv((TechniqueParticleEmitter *)self);
         return;

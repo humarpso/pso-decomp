@@ -27,7 +27,7 @@ void request_state8__19TObjEneEpsilonGuardFPv(void *arg0);
 void set_action_9__19TObjEneEpsilonGuardFPv(void* p);
 void update_position__19TObjEneEpsilonGuardFPv(u8 *arg0);
 void update_step__19TObjEneEpsilonGuardFPv(void* p);
-int TObjEneDD__sub_800BBA18(void*, void*);
+int transition_enemy_state(void*, void*);
 int TObjEneDD__vt86(void*);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *, void *, f32);
 
@@ -50,11 +50,11 @@ void request_state8__19TObjEneEpsilonGuardFPv(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 8) {
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x438);
         if (!(temp_r4 & 2) && !(temp_r4 & 0x40)) {
-            TObjEneDD__sub_800BBA18((void*)(arg0), (void*)(8));
+            transition_enemy_state((void*)(arg0), (void*)(8));
         }
     }
 }
-void set_action_9__19TObjEneEpsilonGuardFPv(void* p) { if (*(short*)((char*)p + 0x326) != 9) { TObjEneDD__sub_800BBA18(p, (void*)9); } }
+void set_action_9__19TObjEneEpsilonGuardFPv(void* p) { if (*(short*)((char*)p + 0x326) != 9) { transition_enemy_state(p, (void*)9); } }
 void TObjEneEpsilonGuard__sub_803620B0(void) {  }
 void TObjEneEpsilonGuard__sub_803620B4(s32 arg0, u32 arg1, s32 arg2) {
     switch (arg1) {

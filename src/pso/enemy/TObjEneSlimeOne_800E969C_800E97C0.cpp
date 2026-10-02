@@ -25,13 +25,13 @@ typedef struct Self_800E984C {
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-u32 TObjPlayer__sub_8007A3AC(void *, void *);
+u32 csnLookAt(void *, void *);
 void create__22TObjEneSlimeTailAttackFiiii(void *, void *, s32, void *);
 int set_display_mode__15TObjEneSlimeOneFPvi(void*, void*);
 M2C_UNK TObjEneSlimeOne__sub_800EAE78(void *, s32);
 int TObjEneSlimeOne__sub_800EC7F4(void*, void*);
-s32 TObjPlayer__sub_80156844(void *, void *, int);
-Tgt_800E984C *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 project_actor_to_ground(void *, void *, int);
+Tgt_800E984C *get_player_by_client_id(s32);
 s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
@@ -77,7 +77,7 @@ void TObjEneSlimeOne__sub_800E984C(Self_800E984C *self) {
     s32 n;
     f32 len;
     Tgt_800E984C *t;
-    t = TPlayerBattleCtrl4P__sub_801BA74C(self->target);
+    t = get_player_by_client_id(self->target);
     if (t == NULL || (t->flags & 0x02000800)) {
         TObjEneSlimeOne__sub_800EAE78(self, 5);
         return;
@@ -108,7 +108,7 @@ void TObjEneSlimeOne__sub_800E984C(Self_800E984C *self) {
     pos.y += lbl_805DA6AC;
     while (n > 0) {
         Vec_800E984C tmp = pos;
-        if (TObjPlayer__sub_80156844(self, &tmp, 0) == 0 || TObjPlayer__sub_8007A3AC(&self->pos, &pos) != 0) {
+        if (project_actor_to_ground(self, &tmp, 0) == 0 || csnLookAt(&self->pos, &pos) != 0) {
             TObjEneSlimeOne__sub_800EAE78(self, 9);
             return;
         }

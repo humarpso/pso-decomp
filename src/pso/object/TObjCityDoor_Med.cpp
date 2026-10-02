@@ -59,11 +59,11 @@ void render_lobby_door__10TObjPlayerFPv(u8 *arg0);
 s32 TLobby__sub_801819CC(M2C_UNK);
 M2C_UNK TLobby__sub_801819E4(M2C_UNK);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjDoor__sub_803DC894(M2C_UNK, s32, f32);
+M2C_UNK draw_ginja_model_with_motion(M2C_UNK, s32, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
+M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
 extern s32 lbl_805D5B2C;
@@ -75,9 +75,9 @@ void render_lobby_door__10TObjPlayerFPv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjPlayer__sub_803D9624(0, 0.0f, 0.0f, lbl_805DBBF4);
-        TObjDoor__sub_803DC894(TLobby__sub_801819E4(0x14), TLobby__sub_801819CC(0xB), M2C_FIELD(arg0, f32 *, 0xB4));
-        TObjPlayer__sub_803D9B78();
+        translate_matrix(0, 0.0f, 0.0f, lbl_805DBBF4);
+        draw_ginja_model_with_motion(TLobby__sub_801819E4(0x14), TLobby__sub_801819CC(0xB), M2C_FIELD(arg0, f32 *, 0xB4));
+        pop_matrix();
     }
 }
 
@@ -212,22 +212,22 @@ extern "C" {
 
 void fn_801822D8(u8 *arg0);
 extern s32 lbl_805D5B2C;
-M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
+M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 void fn_80182234(void* o);
 }
 
 extern "C" {
 
 s32 TLobby__sub_801819CC(M2C_UNK);M2C_UNK TLobby__sub_801819E4(M2C_UNK);
-M2C_UNK set_global_param__8TObjFishFi(s32);M2C_UNK TObjPlayer__sub_803D9B2C();M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK set_global_param__8TObjFishFi(s32);M2C_UNK TObjPlayer__sub_803D9B2C();M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 void fn_80182234(void* o) {
  if(((CityDoorProbe*)o)->visible()!=0) {
   set_global_param__8TObjFishFi(lbl_805D5B2C);TObjPlayer__sub_803D9B2C();
   TOHangerMachine01__sub_803D9C00((u8*)o+0x38);rotate_matrix_y(0,F(o,s32,0x60));
-  TObjDoor__sub_803DC894(TLobby__sub_801819E4(9),TLobby__sub_801819CC(8),F(o,f32,0xB4));
-  TObjDoor__sub_803DC894(TLobby__sub_801819E4(10),TLobby__sub_801819CC(9),F(o,f32,0xB4));
-  TObjPlayer__sub_803D9B78();
+  draw_ginja_model_with_motion(TLobby__sub_801819E4(9),TLobby__sub_801819CC(8),F(o,f32,0xB4));
+  draw_ginja_model_with_motion(TLobby__sub_801819E4(10),TLobby__sub_801819CC(9),F(o,f32,0xB4));
+  pop_matrix();
  }
 }
 
@@ -361,11 +361,11 @@ s32 TLobby__sub_801819CC(M2C_UNK);
 M2C_UNK TLobby__sub_801819E4(M2C_UNK);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 void *TObjCityDoor_Warp__ct(void *, void *, void *);
-M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
+M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 void *TObjPlayer__sub_80182D24(void *, s16);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK set_global_param__8TObjFishFi(s32);
@@ -410,8 +410,8 @@ void teardown_door__17TObjCityDoor_WarpFPv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjDoor__sub_803DC894(TLobby__sub_801819E4(0x15), TLobby__sub_801819CC(0xC), M2C_FIELD(arg0, f32 *, 0xB4));
-        TObjPlayer__sub_803D9B78();
+        draw_ginja_model_with_motion(TLobby__sub_801819E4(0x15), TLobby__sub_801819CC(0xC), M2C_FIELD(arg0, f32 *, 0xB4));
+        pop_matrix();
     }
 }
 
@@ -463,11 +463,11 @@ void *dt__18TObjCityDoor_GuildFPvs(void *arg0, s16 arg1);
 void render_door__18TObjCityDoor_GuildFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 void *TObjCityDoor_Guild__ct(void *, void *, void *);
-M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
+M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 void *TObjPlayer__sub_80182D24(void *, s16);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK set_global_param__8TObjFishFi(s32);
@@ -512,8 +512,8 @@ void render_door__18TObjCityDoor_GuildFPv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjDoor__sub_803DC894(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 0xB8), M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), s32 *, 0x54), M2C_FIELD(arg0, f32 *, 0xB4));
-        TObjPlayer__sub_803D9B78();
+        draw_ginja_model_with_motion(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 0xB8), M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), s32 *, 0x54), M2C_FIELD(arg0, f32 *, 0xB4));
+        pop_matrix();
     }
 }
 
@@ -750,8 +750,8 @@ void begin_state_1__10TObjPlayerFPv(void *arg0);
 void check_ground_or_fall__10TObjPlayerFPv(void *arg0);
 void dispatch_state__10TObjPlayerFPv(void *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
-f32 TObjPlayer__sub_80141CF8(s32, s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+f32 horizontal_distance_squared(s32, s32);
+s32 get_player_by_client_id(s32);
 s32 get_field_3e0__12TBoss3VoloptFPv();
 
 void TObjPlayer__sub_8018291C(VObj_8018291C *arg0) {
@@ -842,8 +842,8 @@ s32 is_player_in_range__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0) {
 
     var_r30 = 0;
 loop_1:
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(var_r30);
-    if ((temp_r3 != 0) && ((temp_r3_2 = get_field_3e0__12TBoss3VoloptFPv(), ((temp_r3_2 == 0) != 0)) || (temp_r3_2 == 0x12)) && (TObjPlayer__sub_80141CF8(arg1, temp_r3 + 0x38) < farg0)) {
+    temp_r3 = get_player_by_client_id(var_r30);
+    if ((temp_r3 != 0) && ((temp_r3_2 = get_field_3e0__12TBoss3VoloptFPv(), ((temp_r3_2 == 0) != 0)) || (temp_r3_2 == 0x12)) && (horizontal_distance_squared(arg1, temp_r3 + 0x38) < farg0)) {
         return 1;
     }
     var_r30 += 1;

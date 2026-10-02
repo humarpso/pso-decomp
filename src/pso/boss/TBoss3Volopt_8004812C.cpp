@@ -49,7 +49,7 @@ void TObjPlayer__sub_803D8CD4(s32);
 void rotate_matrix_y(s32, s32);
 void rotate_matrix_x(s32, s32);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 extern Vec_80048260 lbl_804366B8;
 extern Color_80048260 lbl_80484828[];
 extern u8 lbl_80484830[];
@@ -108,7 +108,7 @@ void TObjPlayer__sub_80048260(Obj_80048260 *self) {
         TCameraCtrl__sub_803D8934(0, &v, &v);
         TBoss4Zako__sub_803D8910(dst, &v);
     }
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     init_xyz_limits__10TObjPlayerFv();
     TObjPlayer__sub_801E341C(lbl_80484830, 1, 5);
     reset_transform_state__10TObjPlayerFv();

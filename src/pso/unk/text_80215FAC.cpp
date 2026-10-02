@@ -71,7 +71,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 get_map_id__13TRaderMapCoreFPv(void *);
 void clear_lobby_flag__10TObjPlayerFPv(void *);
 void init_effect_5f0__10TObjPlayerFPv(void *);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 void TShopGenerator__sub_8021E14C(s32);
 void THunterGuildSeqOffline__sub_8021E180(s32);
 s32 poll_field_20c__22TQuestVmDownLoadServerFPv(void *);
@@ -130,7 +130,7 @@ void TMedicalCenterMes__vt1(Med_802160B4 *self) {
     switch (self->f230) {
     case 0: {
         if (self->f22c == NULL) {
-            self->f22c = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+            self->f22c = get_player_by_client_id(lbl_805D53A0);
         }
         THunterGuildSeqOffline__sub_8021E180((s32)obj_getField1c(self->f22c));
         TWindowCtrl__sub_8024AEAC((u16)(s32)obj_getField1c(self->f22c));

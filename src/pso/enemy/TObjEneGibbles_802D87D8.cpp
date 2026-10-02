@@ -62,12 +62,12 @@ extern "C" {
 f32 enemy_wander_home(void *, s32, f32, f32, f32);
 M2C_UNK minimap_render_dot(void *, int, int, int);
 M2C_UNK obj_clearFlags30(void *, int);
-M2C_UNK TBoss1Dragon__sub_80143504(int);
+M2C_UNK advance_animation_playback(int);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
 M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(int);
-M2C_UNK TObjPlayer__sub_801564A0(int);
+M2C_UNK check_enemy_body_collisions(int);
 M2C_UNK check_object_collisions__10TObjPlayerFPv(int);
-M2C_UNK TObjPlayer__sub_801B4A18(int, int);
+M2C_UNK submit_cursor_candidate(int, int);
 M2C_UNK TObjEneGibbles__sub_802D7DAC(int);
 extern f32 lbl_805DE878;
 void TObjEneGibbles__sub_802DA96C(u8 *arg0);
@@ -145,7 +145,7 @@ M2C_UNK TObjEneGibbles__sub_802D7F94(void *, int);
 s32 TObjEneGibbles__sub_802D9A04(void *);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
-f32 TObjPlayer__sub_80141CF8(int, void *);
+f32 horizontal_distance_squared(int, void *);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
 void *__nw__7TObjectFUl(int);
 void free__11TOBoss4RockFUi(void*);
@@ -252,7 +252,7 @@ void update_death_sequence__14TObjEneGibblesFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x06040000);
     temp_r4 = (unsigned char *) (M2C_FIELD(arg0, void **, 0xA4));
     M2C_FIELD(temp_r4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r4, s32 *, 0x18) & 0xFFFFFFFE);
-    TBoss1Dragon__sub_80143504((int)((int) (arg0)));
+    advance_animation_playback((int)((int) (arg0)));
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x328);
     switch (temp_r0) {
     case 2:
@@ -317,7 +317,7 @@ void update_spawn_state__14TObjEneGibblesFPv(u8 *arg0) {
         TObjPlayer__sub_80011734((void *) arg0, (int) (0), (f32) (TObjEneGibbles__data_805DE7E4));
         return;
     case 1:
-        if (TObjPlayer__sub_80141CF8((int) (M2C_FIELD(arg0, s32 *, 0x2A8) + 0x2FC), (void *) (arg0 + 0x2FC)) < lbl_805DE870) {
+        if (horizontal_distance_squared((int) (M2C_FIELD(arg0, s32 *, 0x2A8) + 0x2FC), (void *) (arg0 + 0x2FC)) < lbl_805DE870) {
             M2C_FIELD(arg0, s16 *, 0x328) = 3;
         }
     case 2:
@@ -407,7 +407,7 @@ void TObjEneGibbles__sub_802DA96C(u8 *arg0) {
     u8 *var_r3;
     u8 *var_r4;
     var_r31 = (u8 *)(arg0);
-    TBoss1Dragon__sub_80143504((int)(arg0));
+    advance_animation_playback((int)(arg0));
     if ((u32) M2C_FIELD(var_r31, u32 *, 0x2A8) != 0U) {
         var_r3 = (u8 *)((void *)3);
         M2C_FIELD(var_r31, s16 *, 0x326) = 3;
@@ -434,7 +434,7 @@ void TObjEneGibbles__sub_802DA96C(u8 *arg0) {
     var_r3 = (u8 *)(var_r31);
     check_object_collisions__10TObjPlayerFPv((int) (var_r3));
     var_r3 = (u8 *)(var_r31);
-    TObjPlayer__sub_801564A0((int) (var_r3));
+    check_enemy_body_collisions((int) (var_r3));
     var_r3 = (u8 *)(var_r31);
     update_enemy_collision_flags__10TObjPlayerFPv((int) (var_r3));
     var_r3 = (u8 *)(var_r31);
@@ -449,7 +449,7 @@ void TObjEneGibbles__sub_802DA96C(u8 *arg0) {
     minimap_render_dot((void *)(var_r3), (int)(-0x5DB4), (int)(1), (int)(0));
     var_r3 = (u8 *)(var_r31);
     var_r4 = (u8 *)((void *)-1);
-    TObjPlayer__sub_801B4A18((int) (var_r3), (int) (-1));
+    submit_cursor_candidate((int) (var_r3), (int) (-1));
 }
 
 void init_state__14TObjEneGibblesFPv(u8 *arg0) {

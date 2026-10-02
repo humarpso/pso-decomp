@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, s32);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
+u32 get_player_by_client_id(s16);
 s32 fn_801C5404(s32);
 s8 clamp_char_at__10TObjPlayerFPvi(s32, s32);
 s32 TObjPlayer__sub_80203418();
@@ -21,7 +21,7 @@ void add_battle_stat_entry(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 temp_r3;
 
     if ((s16) M2C_FIELD(arg0, s16 *, 0x72) < (s16) M2C_FIELD(arg0, s16 *, 0x76)) {
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s16 *, 0x20));
+        temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, s16 *, 0x20));
         if (temp_r3 != 0U) {
             if (arg1 == 4) {
                 var_r31 = fn_801C5404(temp_r3 + 0x7C8);

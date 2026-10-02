@@ -230,7 +230,7 @@ s32 refresh_and_send_entity_flags__12TBoss8DragonFPv(void *);
 s32 request_two_effects__10TObjPlayerFPv(void *);
 s32 apply_effect_variant_b__10TObjPlayerFii(void *, int);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 s32 play_effect_if_v2__10TObjPlayerFi(int);
 s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 void TObjEneDf2Bringer__sub_80097620(u8 *arg0, s32 arg1);
@@ -249,8 +249,8 @@ void clear_field_388__9TObjEneDDFPv(void *p);
 void set_active__9TObjEneDDFPv(void *p);
 void TObjEneDD__sub_800BACA4(void *arg0, f32 farg0, f32 farg1, f32 farg2);
 void TBoss8Dragon__sub_800BB780(void *);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
+M2C_UNK advance_animation_playback(void *);
 extern const f32 lbl_805D97E4;
 void TObjEneDf2Bringer__sub_80097714(Bringer_80097714 *obj, s32 mode);
 }
@@ -261,7 +261,7 @@ void action__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1);
 u32 TBoss4Type2__sub_800874F4(void *, M2C_UNK);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK enable__13TParticleCtrlFPv(void *);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
@@ -405,7 +405,7 @@ void TObjEneDf2Bringer__sub_80097620(u8 *arg0, s32 arg1) {
         play_effect_if_v2__10TObjPlayerFi((int) (-0x200));
         return;
     case 0:
-        ((s32)TBoss1Dragon__sub_80143504((void *)((void *) (arg0))));
+        ((s32)advance_animation_playback((void *)((void *) (arg0))));
         if (((VObj_14_c1c33b *)((u8 *)(arg0) + (964)))->m4() != 0) {
             apply_effect_variant_b__10TObjPlayerFii((void *) (arg0 + 0x38), (int) (0));
             queue_destruction__7TObjectFv((void *) (arg0));
@@ -423,17 +423,17 @@ void TObjEneDf2Bringer__sub_80097714(Bringer_80097714 *obj, s32 mode) {
     switch (mode) {
     case 4:
         self->fieldB8 = 6;
-        TBoss1Dragon__sub_80143504(self);
+        advance_animation_playback(self);
         set_active__9TObjEneDDFPv(self);
         break;
     case 3:
         if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(self) != 0 &&
             check_stage_advance__17TObjEneDf2BringerFPv(self) == 0) {
-            TObjEneDD__sub_800BBA18((void *)(self), (M2C_UNK)(self->field378));
+            transition_enemy_state((void *)(self), (M2C_UNK)(self->field378));
         }
         break;
     case 0:
-        ((s32)TBoss1Dragon__sub_80143504(self));
+        ((s32)advance_animation_playback(self));
         self->timer--;
         VecCopy__FP3VecPC3Vec(&v, &self->vel);
         speed = clamp_velocity__15TObjBoss2TunnelFPv(&v);
@@ -458,11 +458,11 @@ void action__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1) {
         return;
     case 3:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x484) <= 0) {
-            TObjEneDD__sub_800BBA18(arg0, 4);
+            transition_enemy_state(arg0, 4);
         }
         return;
     case 0:
-        TBoss1Dragon__sub_80143504((void *)(arg0));
+        advance_animation_playback((void *)(arg0));
         M2C_FIELD(arg0, s32 *, 0x484) = (s32) (M2C_FIELD(arg0, s32 *, 0x484) - 1);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x4C4) == 0U) {
             M2C_FIELD(arg0, u32 *, 0x4C4) = TBoss4Type2__sub_800874F4(arg0 + 0x450, 0x100);

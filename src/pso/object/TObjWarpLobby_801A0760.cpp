@@ -51,10 +51,10 @@ extern "C" {
 void *__dt__13TObjWarpLobbyFv(void *arg0, s16 arg1);
 void render__13TObjWarpLobbyFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
+M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void __dt__12TObjAreaWarpFv(void *, int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -88,9 +88,9 @@ void render__13TObjWarpLobbyFv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         begin_effect_render__13TParticleCtrlFv();
-        TObjDoor__sub_803DC894(M2C_FIELD(M2C_FIELD(TObjWarpLobby__data_805D5CC8, void **, 0x42C), s32 *, 8), M2C_FIELD(M2C_FIELD(TObjWarpLobby__data_805D5CC8, void **, 0x430), s32 *, 4), M2C_FIELD(arg0, f32 *, 0xC8));
+        draw_ginja_model_with_motion(M2C_FIELD(M2C_FIELD(TObjWarpLobby__data_805D5CC8, void **, 0x42C), s32 *, 8), M2C_FIELD(M2C_FIELD(TObjWarpLobby__data_805D5CC8, void **, 0x430), s32 *, 4), M2C_FIELD(arg0, f32 *, 0xC8));
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

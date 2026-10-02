@@ -20,7 +20,7 @@ extern "C" {
 s32 TLobby__sub_8006FBE4(void);
 s32 mix_seed__6TLobbyFUs(u16 arg0);
 s32 TLobby__sub_8006FAE4();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 
 s32 mix_seed__6TLobbyFUs(u16 arg0) {
     s32 temp_r3;
@@ -42,7 +42,7 @@ s32 TLobby__sub_8006FBE4(void) {
 
     count = 0;
     for (i = 0; i < 4; i += 1) {
-        if (TPlayerBattleCtrl4P__sub_801BA74C(i) != 0U) {
+        if (get_player_by_client_id(i) != 0U) {
             count += 1;
         }
     }

@@ -25,9 +25,9 @@ void TObjPlayer__sub_80129A14(u8 *arg0) {
     }
 }
 
-    extern unsigned char fn_8011B620[];
+    extern unsigned char create_gun_shot[];
     extern unsigned char lbl_804A444C[];
     extern const float lbl_805DAE40;
-void* init_dead_state__10TObjPlayerFPv(void* a0) { TObjPlayer__sub_8012A884(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A444C; *(int*)((char*)a0 + 0x200) = 8192; set_status_flags__10TObjPlayerFPvUi(a0, (void*)2); *(int*)((char*)a0 + 0x1f0) = (int)fn_8011B620; *(float*)((char*)a0 + 0x1e4) = lbl_805DAE40; return a0; }
+void* init_dead_state__10TObjPlayerFPv(void* a0) { TObjPlayer__sub_8012A884(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A444C; *(int*)((char*)a0 + 0x200) = 8192; set_status_flags__10TObjPlayerFPvUi(a0, (void*)2); *(int*)((char*)a0 + 0x1f0) = (int)create_gun_shot; *(float*)((char*)a0 + 0x1e4) = lbl_805DAE40; return a0; }
 
 }

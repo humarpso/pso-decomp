@@ -94,7 +94,7 @@ u32 TObjPlayer__sub_80079D20(s32, s32);
 extern M2C_UNK lbl_80500140[];
 extern u32 lbl_804FFD40[];
 extern s32 lbl_804389E8[];
-s32 *TBoss8Dragon__sub_8007A544(s32 arg0, s32 arg1);
+s32 *csnVecterUnder(s32 arg0, s32 arg1);
 void TObjPlayer__sub_8007911C(void);
 M2C_UNK TObjPlayer__sub_80079118(M2C_UNK * _w0);
 extern s32 lbl_80500148[];
@@ -113,7 +113,7 @@ u32 TObjPlayer__sub_80079DE0(void *, void *);
 extern M2C_UNK lbl_804389C0[];
 extern u32 lbl_804FFD40[];
 extern M2C_UNK lbl_80500140[];
-M2C_UNK *TObjPlayer__sub_8007A3AC(s32 arg0, s32 arg1);
+M2C_UNK *csnLookAt(s32 arg0, s32 arg1);
 void vsub(void *, void *, void *);
 s32 TObjPlayer__sub_800798A0(void *, void *, void *, E_80079580 *, u32, s32);
 extern E_80079580 *lbl_805D4E6C;
@@ -300,7 +300,7 @@ void *TObjPlayer__sub_8007A32C(Obj_8007A32C *self) {
     return r;
 }
 
-M2C_UNK *TObjPlayer__sub_8007A3AC(s32 arg0, s32 arg1) {
+M2C_UNK *csnLookAt(s32 arg0, s32 arg1) {
     M2C_UNK *var_r31;
     TObjPlayer__sub_8007911C();
     var_r31 = (M2C_UNK *)(lbl_80500140);
@@ -340,7 +340,7 @@ done:
     TObjPlayer__sub_80079118((M2C_UNK *)(lbl_804389CC));
     return var_r31;
 }
-s32 *TBoss8Dragon__sub_8007A544(s32 arg0, s32 arg1) {
+s32 *csnVecterUnder(s32 arg0, s32 arg1) {
     s32 *var_r31;
     TObjPlayer__sub_80079108();
     TObjPlayer__sub_8007911C();

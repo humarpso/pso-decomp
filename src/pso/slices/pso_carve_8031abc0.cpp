@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 void TBoss8Dragon__sub_800BB780(void *);
-int TObjEneDD__sub_800BBA18(void*, void*);
+int transition_enemy_state(void*, void*);
 void TObjEneMe3SinowZoa__vt60(u8 *arg0);
 }
 
 extern "C" {
 
-int TObjEneDD__sub_800BBA18(void*, void*);
+int transition_enemy_state(void*, void*);
 void TObjEneMe3SinowZoa__vt61(void* p);
 void TObjEneMe3SinowZoa__sub_8031ABBC(void);
 void TObjEneMe3SinowZoa__sub_8031AC70(void);
@@ -22,10 +22,10 @@ void TObjEneMe3SinowZoa__vt60(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x3CC) & 1) {
         TBoss8Dragon__sub_800BB780(arg0);
         if (((s32) M2C_FIELD(arg0, s32 *, 0x3C0) == 1) && (calc_boss4_scale__10TObjPlayerFi((s32) arg0) <= M2C_FIELD(arg0, f32 *, 0x3F0))) {
-            TObjEneDD__sub_800BBA18((void*)(arg0), (void*)(0x12));
+            transition_enemy_state((void*)(arg0), (void*)(0x12));
         }
     } else if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 0xE) {
-        TObjEneDD__sub_800BBA18((void*)(arg0), (void*)(0xE));
+        transition_enemy_state((void*)(arg0), (void*)(0xE));
     }
 }
 

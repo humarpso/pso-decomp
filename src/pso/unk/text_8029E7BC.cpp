@@ -10,7 +10,7 @@ struct Stack_8029E7BC
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u8 *TBoss8Dragon__sub_8007A544(M2C_UNK *, s32);
+u8 *csnVecterUnder(M2C_UNK *, s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern const f32 lbl_805DDD88;
 s32 fn_8029E7BC(s32 arg0, u8 *arg1);
@@ -33,7 +33,7 @@ s32 fn_8029E7BC(s32 arg0, u8 *arg1) {
   }
   VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) arg0);
   stack.spC += lbl_805DDD88;
-  temp_r3 = (u8 *) TBoss8Dragon__sub_8007A544(&stack.sp8, var_r31);
+  temp_r3 = (u8 *) csnVecterUnder(&stack.sp8, var_r31);
   if (temp_r3 != 0)
   {
     temp_r4 = (u8 *) (*((u8 **) (((s8 *) temp_r3) + 4)));

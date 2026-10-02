@@ -10,7 +10,7 @@ extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK __ct__18TItemEffNeedleBaseFv(void *, s32, s32);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 extern M2C_UNK __vt__14TItemEffNeedle[];
 extern s32 lbl_805D2BCC;
 void *__ct__14TItemEffNeedleFv(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
@@ -37,7 +37,7 @@ void *__ct__14TItemEffNeedleFv(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg
     M2C_FIELD(self, s32 *, 0) = (s32) lbl_805D2BCC;
     M2C_FIELD(self, u16 *, 0x50) = arg3;
     M2C_FIELD(self, s32 *, 0x54) = arg4;
-    temp_r3 = TPhotonMylla__sub_80154CB4(M2C_FIELD(self, u16 *, 0x50));
+    temp_r3 = find_entity_by_id(M2C_FIELD(self, u16 *, 0x50));
     if (temp_r3 != NULL) {
         temp_r5 = M2C_FIELD(temp_r3, Rec_80109B5C **, 0xA4);
         VecCopy__FP3VecPC3Vec(self + 0x30, temp_r5[M2C_FIELD(self, s32 *, 0x54)].pos);

@@ -5,7 +5,7 @@ s32 obj_isState2_324(void *);
 u8 *get_player_data__10TObjPlayerFi(int);
 s32 get_game_mode__6TLobbyFv();
 s32 is_valid_target__9TObjEneDDFPv(void *);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
 extern const f32 lbl_805D9FF4;
 u8 *TObjEneRe2Flower__sub_800C3BAC(u8 *arg0);
 }
@@ -30,7 +30,7 @@ u8 *TObjEneRe2Flower__sub_800C3BAC(u8 *arg0) {
             break;
         }
     }
-    if (is_valid_target__9TObjEneDDFPv(result) != 0 && TObjPlayer__sub_80141CF8(arg0 + 0x38, result + 0x38) < lbl_805D9FF4) {
+    if (is_valid_target__9TObjEneDDFPv(result) != 0 && horizontal_distance_squared(arg0 + 0x38, result + 0x38) < lbl_805D9FF4) {
         return result;
     }
     return NULL;

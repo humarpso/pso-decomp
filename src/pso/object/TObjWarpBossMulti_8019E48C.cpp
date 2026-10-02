@@ -11,10 +11,10 @@ struct Pkt_8019E6C0 { u8 cmd; u8 size; u16 id; u16 value; u16 pad; };
 struct Obj_8019E6C0 { u8 pad[0x1c]; u16 id; };
 
 extern "C" {
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(s32);
-f32 fn_8013157C(s32, s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+f32 xz_distance_squared(s32, s32);
+s32 get_player_by_client_id(s32);
 extern s32 lbl_805D53A0;
 s32 TObjWarpBossMulti__sub_8019E570(s32 arg0, f32 farg0);
 s32 TObjWarpBossMulti__sub_8019E4E8(Wb_8019E4E8 *arg0);
@@ -31,7 +31,7 @@ extern "C" {
 void close_windows__17TObjWarpBossMultiFPv(void *arg0);
 void handle_6x6A_set_boss_warp_flags(void *arg0);
 s32 is_lobby_active__17TObjWarpBossMultiFv(void);
-void *TPhotonMylla__sub_80154CB4(u16);
+void *find_entity_by_id(u16);
 M2C_UNK TWindowChat__sub_8024AD30(s32);
 M2C_UNK TWindowCtrl__sub_8024AEF0(s32);
 M2C_UNK TWindowSubTradeMain__sub_80187CCC();
@@ -54,9 +54,9 @@ s32 TObjWarpBossMulti__sub_8019E4E8(Wb_8019E4E8 *arg0) {
     s32 ok = 1;
     s32 i;
     for (i = 0; i < 4; i++) {
-        Pl_8019E4E8 *p = (Pl_8019E4E8 *)TPlayerBattleCtrl4P__sub_801BA74C(i);
+        Pl_8019E4E8 *p = (Pl_8019E4E8 *)get_player_by_client_id(i);
         if (p != 0) {
-            if (((s32 (*)(void *))get_field_3e4__10TObjPlayerFPv)(p) != TObjPlayer__sub_800196EC() || ((f32 (*)(void *, void *))fn_8013157C)(p->pos, arg0->pos) > arg0->fAC * arg0->fAC) {
+            if (((s32 (*)(void *))get_field_3e4__10TObjPlayerFPv)(p) != get_current_floor() || ((f32 (*)(void *, void *))xz_distance_squared)(p->pos, arg0->pos) > arg0->fAC * arg0->fAC) {
                 ok = 0;
             }
         }
@@ -70,11 +70,11 @@ s32 TObjWarpBossMulti__sub_8019E570(s32 arg0, f32 farg0) {
     s32 temp_r31;
     s32 temp_r3b;
     s32 temp_r3;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(lbl_805D53A0);
     if (temp_r3 != 0) {
-        temp_r31 = TObjPlayer__sub_800196EC();
+        temp_r31 = get_current_floor();
         temp_r3b = get_field_3e4__10TObjPlayerFPv(temp_r3);
-        if ((temp_r3b == temp_r31) && (fn_8013157C(arg0 + 0x38, temp_r3 + 0x38) < (farg0 * farg0))) {
+        if ((temp_r3b == temp_r31) && (xz_distance_squared(arg0 + 0x38, temp_r3 + 0x38) < (farg0 * farg0))) {
             return temp_r3;
         }
     }
@@ -104,7 +104,7 @@ void handle_6x6A_set_boss_warp_flags(void *arg0) {
     void *temp_r3;
 
     TWindowSubTradeMain__sub_80187CCC();
-    temp_r3 = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 2));
+    temp_r3 = find_entity_by_id(M2C_FIELD(arg0, u16 *, 2));
     if (temp_r3 != NULL) {
         M2C_FIELD(temp_r3, s16 *, 0xDC) = (s16) M2C_FIELD(arg0, s16 *, 4);
     }

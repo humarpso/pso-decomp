@@ -157,10 +157,10 @@ extern "C" {
 void dispatch_action__9TObjEneDDFPvi(void *arg0, s32 arg1);
 void handle_state__9TObjEneDDFPvi(u8 *arg0, s32 arg1);
 void noop__9TObjEneDDFv(void);
-M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK advance_animation_playback();
 M2C_UNK TBoss3Volopt__sub_800D8C48(void *);
 M2C_UNK TBoss3Volopt__sub_800D8E80(void *);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, s32);
+M2C_UNK transition_enemy_state(void *, s32);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
 M2C_UNK fn_800B98C0(void *);
@@ -185,12 +185,12 @@ void handle_state__9TObjEneDDFPvi(u8 *arg0, s32 arg1) {
         return;
     case 3:
         if (((V_Sub_800c38d0 *) (arg0 + 0x3F4))->m5() != 0) {
-            TObjEneDD__sub_800BBA18((void *)(arg0), (s32)(2));
+            transition_enemy_state((void *)(arg0), (s32)(2));
         }
     case 1:
         return;
     case 0:
-        TBoss1Dragon__sub_80143504();
+        advance_animation_playback();
         ((V_En_800c38d0 *) arg0)->m100();
         ((V_En_800c38d0 *) arg0)->m86();
         return;
@@ -206,7 +206,7 @@ void dispatch_action__9TObjEneDDFPvi(void *arg0, s32 arg1) {
         ((VObj_800C3A00_800C38D0 *)arg0)->m93();
         return;
     case 3:
-        TObjEneDD__sub_800BBA18((void *)(arg0), (s32)(1));
+        transition_enemy_state((void *)(arg0), (s32)(1));
     case 5:
     case 0:
         return;

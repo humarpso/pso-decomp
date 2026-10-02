@@ -21,7 +21,7 @@ M2C_UNK PSMTXConcat(void *, void *, void *);
 M2C_UNK C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, void *);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TObjPlayer__sub_803E1D1C(int);
 M2C_UNK TObjPlayer__sub_803E1D54(int);
 extern const f64 lbl_80439358;
@@ -37,7 +37,7 @@ M2C_UNK TCameraCtrl__sub_80082FCC(void *, void *);
 M2C_UNK PSMTXConcat(void *, void *, void *);
 M2C_UNK C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TObjPlayer__sub_803E1D1C(int);
 M2C_UNK TObjPlayer__sub_803E1D54(int);
 extern const f64 lbl_80439358;
@@ -113,7 +113,7 @@ void TParticleCtrl__sub_800836E8(f32 farg0) {
         }
         PSMTXConcat((void *) (&stack.sp10), (void *) (lbl_805D7774), (void *) (lbl_805D7774));
         TObjPlayer__sub_803E1D54((int) (0));
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         TObjPlayer__sub_803E1D1C((int) (0));
     }
 }
@@ -135,7 +135,7 @@ void TOTrapAncient02__sub_800837D4(s32 arg0) {
         }
         PSMTXConcat((void *) (sp10), (void *) (lbl_805D7774), (void *) (lbl_805D7774));
         TObjPlayer__sub_803E1D54((int) (0));
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         TObjPlayer__sub_803E1D1C((int) (0));
     }
 }

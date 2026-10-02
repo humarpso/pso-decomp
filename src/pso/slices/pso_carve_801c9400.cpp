@@ -15,7 +15,7 @@ typedef struct MsgB_801C9400 {
 
 extern "C" {
 s32 is_active__8TItemMagFPv();
-void TObjPlayer__sub_801D0BC0(void *, int, int);
+void run_action_state_phase__10TObjPlayerFisi(void *, int, int);
 void TObjPlayer__sub_801C94B8(u8 *arg0);
 s32 obj_isState2_324(void *);
 s32 obj_getS16_32C(void * a0);
@@ -65,7 +65,7 @@ void TObjPlayer__sub_801C94B8(u8 *arg0) {
     switch (*(s16 *)(arg0 + 0x328)) {
     case 1:
         if (is_active__8TItemMagFPv() == 0) {
-            TObjPlayer__sub_801D0BC0(arg0, 1, 0);
+            run_action_state_phase__10TObjPlayerFisi(arg0, 1, 0);
         }
         break;
     }

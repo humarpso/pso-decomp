@@ -60,10 +60,10 @@ extern RecoveredGlobal_80231638___vt__10TTecGiFoie __vt__10TTecGiFoie;
 u8 *__dt__10TTecGiFoieFv(u8 *arg0, s16 arg1);
 u16 obj_getField1c(void *);
 void TTecGiFoie__vt4(Obj_8023154C *self, VObj_8023154C *target);
-f32 TObjPlayer__sub_8001978C(f32);
+f32 newton_sqrtf(f32);
 M2C_UNK queue_destruction__7TObjectFv(int);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
-void *TPhotonMylla__sub_80154CB4(u16);
+f32 horizontal_distance_squared(void *, void *);
+void *find_entity_by_id(u16);
 void TObjPlayer__sub_8022BD74(void *);
 s32 is_parents_unqueued__9TTecLukerFUi(u32);
 extern const f32 TTecGiFoie__data_805DC81C;
@@ -146,13 +146,13 @@ void run_task__10TTecGiFoieFv(u8 *self) {
         queue_destruction__7TObjectFv((int) self);
         return;
     }
-    M2C_FIELD(self, void **, 0x1C) = TPhotonMylla__sub_80154CB4(M2C_FIELD(self, u16 *, 0xB4));
+    M2C_FIELD(self, void **, 0x1C) = find_entity_by_id(M2C_FIELD(self, u16 *, 0xB4));
     if (M2C_FIELD(self, void **, 0x1C) == NULL) {
         queue_destruction__7TObjectFv((int) self);
         return;
     }
     if (is_parents_unqueued__9TTecLukerFUi(M2C_FIELD(self, u32 *, 0xEC)) != 0) {
-        distance = TObjPlayer__sub_8001978C(TObjPlayer__sub_80141CF8(M2C_FIELD(self, u8 **, 0xEC) + 0x2C, self + 0x20));
+        distance = newton_sqrtf(horizontal_distance_squared(M2C_FIELD(self, u8 **, 0xEC) + 0x2C, self + 0x20));
         if (M2C_FIELD(self, u8 **, 0xE8) != NULL) {
             M2C_FIELD(M2C_FIELD(M2C_FIELD(self, u8 **, 0xE8), u8 **, 0xA4), f32 *, 0xC) = TTecGiFoie__data_805DC81C + distance;
         }

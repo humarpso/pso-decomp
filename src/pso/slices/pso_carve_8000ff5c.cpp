@@ -12,10 +12,10 @@ s32 TObjPlayer__sub_8000FF5C(s32 arg0);
 
 extern "C" {
 
-s32 TObjPlayer__sub_80087638(s32, s32);
+s32 set_owner_id__13TParticleCtrlFPvUs(s32, s32);
 s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
 s32 trigger_switch_attack__10TObjPlayerFPvi(s32, s32);
-s32 TOSwitchAttack__sub_80087278(s32, s32, s32);
+s32 spawn_particle_effect_with_flags(s32, s32, s32);
 s32 TObjPlayer__sub_80019248(s32);
 int test_flag_1000__10TObjPlayerFPv(void* p);
 int has_flag_0x800__10TObjPlayerFPv(void* p);

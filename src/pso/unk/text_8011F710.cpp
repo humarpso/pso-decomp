@@ -114,7 +114,7 @@ M2C_UNK TObjPlayer__sub_801CBF08(void *, int);
 extern s32 tl_05;
 extern const f32 lbl_805DAC94;
 extern const f32 lbl_805DAC98;
-void TObjPlayer__sub_8011F7CC(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0);
+void deliver_hit__11TItemWeaponFPviPviif(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0);
 s32 lookup_item_data__20TWindowSubStatusDispFPv(void *);
 Item_8011F760 *TObjPlayer__sub_8011CB18(void *, s32);
 u32 TObjPlayer__sub_8011F760(void *self);
@@ -135,7 +135,7 @@ void draw_status_icon__10TObjPlayerFPvi(void*,WeaponVector*);
 void TObjPlayer__sub_8011EB84(void*,WeaponVector*,s32,s32);
 void update_active_game_effect__10TObjPlayerFPv(void*);
 
-s32 TObjPlayer__sub_8010069C(Obj_8011F710 *arg0);
+s32 refresh_owner_stats__5TItemFPv(Obj_8011F710 *arg0);
 s32 TObjPlayer__sub_8011F710(Obj_8011F710 *arg0, s32 arg1);
 }
 
@@ -147,7 +147,7 @@ s32 TObjPlayer__sub_8011F710(Obj_8011F710 *arg0, s32 arg1) {
     } else {
         arg0->cur += arg1;
     }
-    TObjPlayer__sub_8010069C(arg0);
+    refresh_owner_stats__5TItemFPv(arg0);
     return 1;
 }
 
@@ -166,7 +166,7 @@ u32 TObjPlayer__sub_8011F760(void *self) {
     return flags;
 }
 
-void TObjPlayer__sub_8011F7CC(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0) {
+void deliver_hit__11TItemWeaponFPviPviif(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_8011F7CC, sp8) == 0x0) ? 1 : -1];
     typedef char sp9_offset[(offsetof(Stack_8011F7CC, sp9) == 0x1) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8011F7CC, spC) == 0x4) ? 1 : -1];

@@ -23,7 +23,7 @@ u32 set_window_mode_4__6TLobbyFPvii(M2C_UNK, M2C_UNK *, M2C_UNK);
 s32 TLobby__sub_80292F5C();
 s32 TLobby__sub_80292F7C();
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, M2C_UNK, M2C_UNK);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+s32 get_player_by_client_id(int);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 int TWindowCtrl__sub_8024AEAC(void*);
 M2C_UNK TWindowCtrl__sub_8024AEF0(int);
@@ -84,7 +84,7 @@ void send_giveup_to_all_players__6TLobbyFv(void) {
 
     var_r31 = 0;
     do {
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int)(var_r31));
+        temp_r3 = get_player_by_client_id((int)(var_r31));
         if ((temp_r3 != 0) && (check_player_flag1__6TLobbyFPv() != 0)) {
             send_code_45_1__10TObjPlayerFi(temp_r3);
         }
@@ -106,7 +106,7 @@ void play_effect_all_players__6TLobbyFPv(void*) {
 
     var_r31 = 0;
     do {
-        var_r30 = TPlayerBattleCtrl4P__sub_801BA74C((int)(var_r31));
+        var_r30 = get_player_by_client_id((int)(var_r31));
         if (var_r30 != 0) {
             if (check_player_flag1__6TLobbyFPv() == 0) {
                 play_effect_default__10TObjPlayerFii(var_r30, -1);

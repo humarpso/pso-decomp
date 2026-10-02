@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-s32 TPhotonMylla__sub_80154CB4(int);
+s32 find_entity_by_id(int);
 extern const f32 lbl_805DC844;
 void fn_80232AA4(u8 *arg0);
 }
@@ -15,7 +15,7 @@ extern "C" {
 
 void fn_80232AA4(u8 *arg0) {
     s32 temp_r3;
-    temp_r3 = TPhotonMylla__sub_80154CB4((int) (M2C_FIELD(arg0, u16 *, 0x1C)));
+    temp_r3 = find_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0x1C)));
     if (temp_r3 != 0) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x20), (void *) (temp_r3 + 0x38));
     }

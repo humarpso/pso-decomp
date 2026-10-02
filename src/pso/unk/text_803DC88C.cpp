@@ -50,7 +50,7 @@ extern u8 *lbl_805D774C;
 void TObjPlayer__sub_803DCBD8(s32 arg0);
 s32 TObjPlayer__sub_803D7CA4(int);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 s32 TObjPlayer__sub_803DB270(int, void *);
 extern s32 lbl_805D7710;
 extern s32 lbl_805D7774;
@@ -63,7 +63,7 @@ void TObjPlayer__sub_803DC904(u8 *arg0);
 void draw_ginja_model_lists(void);
 extern struct MotionCtx_803DC894 * const lbl_805D4698;
 extern RecoveredCallback_2be3cacebb2e lbl_805D76E4;
-void TObjDoor__sub_803DC894(void *arg0, void *arg1);
+void draw_ginja_model_with_motion(void *arg0, void *arg1);
 extern s32 lbl_805D7774;
 void TObjPlayer__sub_803DC994(struct Mtx_803DC994 *src);
 void GXSetBlendMode(int, int, int, int);
@@ -73,7 +73,7 @@ void TObjPlayer__sub_803DCD38(s32 arg0);
 void TObjPlayer__sub_803DCBF0(C_803DCBF0 *arg0);
 s32 TObjPlayer__sub_803D7CA4(int);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 extern struct MotionCtx_803DC894 * const lbl_805D4698;
 extern RecoveredCallback_1268626c296b lbl_805D76B8;
 void TObjPlayer__sub_803DCB40(struct Node_803DCB40 *arg0);
@@ -84,7 +84,7 @@ M2C_UNK TObjPlayer__sub_803D898C(void *);
 M2C_UNK TObjPlayer__sub_803D993C(void *, f32);
 M2C_UNK TObjPlayer__sub_803D99F8(void *, void *);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 void TObjPlayer__sub_803DC994(struct Mtx_803DC994 *src);
@@ -101,7 +101,7 @@ void set_npc_enemy_param(s32 arg0) {
 }
 typedef char RecoveredGlobal_803DCBD8_lbl_8058D380_size[sizeof(RecoveredGlobal_803DCBD8_lbl_8058D380) == 0xF0 ? 1 : -1];
 
-void TObjDoor__sub_803DC894(void *arg0, void *arg1) {
+void draw_ginja_model_with_motion(void *arg0, void *arg1) {
     TObjPlayer__sub_803D7B68(arg1);
     lbl_805D4698->fn = draw_ginja_model_lists;
     prepare_ginja_model(lbl_805D4698);
@@ -135,7 +135,7 @@ void TObjPlayer__sub_803DC904(u8 *arg0) {
         if (temp_r3_2 != NULL) {
             TObjPlayer__sub_803DC904(temp_r3_2);
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         var_r31 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0x30));
     } while (var_r31 != NULL);
 }
@@ -191,7 +191,7 @@ void TObjPlayer__sub_803DC9E4(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32)) {
             if (!(f & 0x10)) {
                 TObjPlayer__sub_803DC9E4(p->child, cb);
             }
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
         }
         p = p->next;
     } while (p != NULL);
@@ -212,7 +212,7 @@ void TObjPlayer__sub_803DCB40(struct Node_803DCB40 *arg0) {
         if (arg0->child != NULL) {
             TObjPlayer__sub_803DCB40(arg0->child);
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         arg0 = arg0->next;
     } while (arg0 != NULL);
 }

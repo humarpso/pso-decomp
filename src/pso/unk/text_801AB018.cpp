@@ -19,9 +19,9 @@ struct Stack_801AB018 {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
-s32 TObjEneDellBiter__sub_80087350(void *, int);
-s32 TBoss1Dragon__sub_80143504(void *);
-s32 TPhotonMylla__sub_80154CB4(int);
+s32 spawn_particle_effect(void *, int);
+s32 advance_animation_playback(void *);
+s32 find_entity_by_id(int);
 s32 TCameraCtrl__sub_801A7310(void *, int);
 s32 TObjPlayer__sub_801A7680(void *);
 s32 TObjPlayer__sub_801A7748(void *, int);
@@ -64,7 +64,7 @@ void fn_801AB018(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x1A4) = (s32) (M2C_FIELD(arg0, s32 *, 0x1A4) + 1);
     if (((s32) M2C_FIELD(arg0, s32 *, 0x1A4) == 0x32) && ((s32) M2C_FIELD(arg0, s32 *, 0x1A0) == 0)) {
         M2C_FIELD(arg0, s32 *, 0x1A0) = 1;
-        temp_r3 = TPhotonMylla__sub_80154CB4((int) ((s32) M2C_FIELD(arg0, u16 *, 0x17C)));
+        temp_r3 = find_entity_by_id((int) ((s32) M2C_FIELD(arg0, u16 *, 0x17C)));
         if (temp_r3 != 0) {
             VecCopy__FP3VecPC3Vec((void *) (&stack.sp20), (void *) (temp_r3 + 0x38));
             stack.sp24 += lbl_805DC15C;
@@ -82,7 +82,7 @@ void fn_801AB018(u8 *arg0) {
     }
     M2C_FIELD(arg0, s16 *, 0x194) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);
     update_state__10TSceneSoraFPv((void *) (arg0));
-    TBoss1Dragon__sub_80143504((void *) (arg0));
+    advance_animation_playback((void *) (arg0));
     TObjPlayer__sub_801A7680((void *) (arg0));
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (M2C_FIELD(arg0, s16 *, 0x14C) + 0xF);
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (u8) M2C_FIELD(arg0, s16 *, 0x14C);
@@ -90,23 +90,23 @@ void fn_801AB018(u8 *arg0) {
         update_all_slots__10TObjPlayerFPv((void *) (arg0));
     }
     if (lbl_805DC164 == (f32) M2C_FIELD(arg0, s32 *, 0x1A4)) {
-        temp_r3_3 = TPhotonMylla__sub_80154CB4((int) ((s32) M2C_FIELD(arg0, u16 *, 0x17C)));
+        temp_r3_3 = find_entity_by_id((int) ((s32) M2C_FIELD(arg0, u16 *, 0x17C)));
         if (temp_r3_3 != 0) {
             VecCopy__FP3VecPC3Vec((void *) (&stack.sp14), (void *) (temp_r3_3 + 0x38));
         }
         stack.sp18 += lbl_805DC168;
-        TObjEneDellBiter__sub_80087350((void *) (&stack.sp14), (int) (0x151));
+        spawn_particle_effect((void *) (&stack.sp14), (int) (0x151));
         stack.sp18 += lbl_805DC16C;
-        TObjEneDellBiter__sub_80087350((void *) (&stack.sp14), (int) (0x15F));
+        spawn_particle_effect((void *) (&stack.sp14), (int) (0x15F));
     }
     temp_r3_4 = M2C_FIELD(arg0, s32 *, 0x1A4);
     if ((lbl_805DC170 == (f32) temp_r3_4) || (lbl_805DC174 == (f32) temp_r3_4)) {
-        temp_r3_5 = TPhotonMylla__sub_80154CB4((int) ((s32) M2C_FIELD(arg0, u16 *, 0x17C)));
+        temp_r3_5 = find_entity_by_id((int) ((s32) M2C_FIELD(arg0, u16 *, 0x17C)));
         if (temp_r3_5 != 0) {
             VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (temp_r3_5 + 0x38));
             stack.spC += lbl_805DC168;
         }
-        TObjEneDellBiter__sub_80087350((void *) (&stack.sp8), (int) (0x151));
+        spawn_particle_effect((void *) (&stack.sp8), (int) (0x151));
     }
     if ((f32) M2C_FIELD(arg0, s32 *, 0x1A4) > lbl_805DC178) {
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x184);

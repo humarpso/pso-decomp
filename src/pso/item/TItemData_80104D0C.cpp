@@ -47,14 +47,14 @@ extern "C" {
 
 u8 is_item_usable__9TItemDataFiPv(s32 arg0, u8 *arg1);
 s32 TItemData__sub_8010C52C(u8 *);
-void *TItemData__sub_8010EA38(u8 *);
+void *lookup_item_pmt_record(u8 *);
 
 u8 is_item_usable__9TItemDataFiPv(s32 arg0, u8 *arg1) {
     if (TItemData__sub_8010C52C(arg1) != 0) {
         return 1U;
     }
     if ((u8) *arg1 == 3) {
-        if (M2C_FIELD(TItemData__sub_8010EA38(arg1), s32 *, 0x10) & 1) {
+        if (M2C_FIELD(lookup_item_pmt_record(arg1), s32 *, 0x10) & 1) {
             return 1U;
         }
         return (u8) (TItemData__sub_80104DAC((s32)(arg0), (u8 *)(arg1)) != 0);

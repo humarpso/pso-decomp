@@ -95,14 +95,14 @@ s8 TObjPlayer__sub_801AFDB0(void *);
 s32 get_current_state_field__10TObjPlayerFv(s8, s32);
 s32 TObjPlayer__sub_801B2E68(u8 *arg0);
 void TObjPlayer__sub_801B2AE8(u32, Pair_801B2D88 *);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 void TObjPlayer__sub_801C092C(void *, void *);
 void apply_status_effect__10TObjPlayerFPv(void *);
 M2C_UNK set_code_12_3__10TObjPlayerFPv(M2C_UNK *);
 s32 fn_8036B770(void *);
 void handle_6x0C_add_or_remove_status_effect(void *arg0);
 s32 clear_negative_status_effects__10TObjPlayerFi(s32 arg0);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 void TFontSmallLobby__sub_801C01BC(void *);
 void set_code_14_1__10TObjPlayerFPv(void *);
 s32 validate_6x0E_clear_negative_status_effects(void *);
@@ -166,7 +166,7 @@ void handle_6x0E_clear_negative_status_effects(s32 arg0) {
     ((void (*)(void *, s32))clear_negative_status_effects__10TObjPlayerFi)(&e, arg0);
     TFontSmallLobby__sub_801C01BC(&e);
     if (validate_6x0E_clear_negative_status_effects(&e) != 0) {
-        VObj_801B2CE4 *p = (VObj_801B2CE4 *)TPlayerBattleCtrl4P__sub_801BA74C(e.f2);
+        VObj_801B2CE4 *p = (VObj_801B2CE4 *)get_player_by_client_id(e.f2);
         if (p != 0) {
             p->m48();
         }
@@ -184,7 +184,7 @@ void handle_6x0C_add_or_remove_status_effect(void *arg0) {
     TObjPlayer__sub_801C092C(&e, arg0);
     apply_status_effect__10TObjPlayerFPv(&e);
     if (fn_8036B770(&e) != 0) {
-        u32 p = TPlayerBattleCtrl4P__sub_801BA74C(e.f2);
+        u32 p = get_player_by_client_id(e.f2);
         if (p != 0) {
             Pair_801B2D88 q;
             q.a = e.f4;

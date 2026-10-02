@@ -17,7 +17,7 @@ s32 TObjPlayer__sub_801AFF0C(void *);
 M2C_UNK revive_or_spawn_marker__10TObjPlayerFi(void *);
 M2C_UNK TObjPlayer__sub_801CA35C(void *);
 M2C_UNK update_position_from_target__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801D0BC0(void *, M2C_UNK, M2C_UNK);
+M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, M2C_UNK, M2C_UNK);
 
 s32 obj_isState2_324();
 s32 obj_testFlags30(void *, M2C_UNK);
@@ -31,7 +31,7 @@ void update_action_animation__10TObjPlayerFPv(u8 *arg0) {
     if (TObjPlayer__sub_801AFF0C(arg0) != 0) {
         TObjPlayer__sub_8011E204(arg0, 4);
         if (obj_testFlags30(arg0, 0x800) != 0) {
-            TObjPlayer__sub_801D0BC0(arg0, 0xF, 0);
+            run_action_state_phase__10TObjPlayerFisi(arg0, 0xF, 0);
             if (TObjPlayer__sub_8001BEF8(arg0 + 0x858, 1) != 0) {
                 M2C_FIELD(arg0, s16 *, 0xB8) = get_action_animation__10TObjPlayerFPv(arg0);
             } else {
@@ -42,10 +42,10 @@ void update_action_animation__10TObjPlayerFPv(u8 *arg0) {
             return;
         }
         if ((TFontSmallLobby__sub_801AFEE0() != 0) && (is_mounted__15TPlyPhotonChairFPv(arg0) != 0)) {
-            TObjPlayer__sub_801D0BC0(arg0, 0x18, 0);
+            run_action_state_phase__10TObjPlayerFisi(arg0, 0x18, 0);
             return;
         }
-        TObjPlayer__sub_801D0BC0(arg0, 1, 0);
+        run_action_state_phase__10TObjPlayerFisi(arg0, 1, 0);
     }
 }
 

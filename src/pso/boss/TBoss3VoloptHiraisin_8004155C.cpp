@@ -83,7 +83,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void dispatch_state__20TBoss3VoloptHiraisinFPv(void *arg0);
 M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
+M2C_UNK submit_cursor_candidate(void *, int);
 M2C_UNK minimap_render_dot(void *, int, int, int);
 extern u8 *lbl_805D4C84;
 extern const f32 lbl_805D8734;
@@ -163,7 +163,7 @@ void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0) {
       *((f32 *) (((s8 *) arg0) + 0x300)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x300))) - lbl_805D8734);
     }
     copy_position__20TBoss3VoloptHiraisinFi((void *) arg0);
-    TObjPlayer__sub_801B4A18((void *) arg0, (int) (-1));
+    submit_cursor_candidate((void *) arg0, (int) (-1));
     minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) 1, (int) 0);
     temp_r4 = *((s32 *) (((s8 *) lbl_805D4C84) + 0x18));
     new_var = lbl_805D4C84;

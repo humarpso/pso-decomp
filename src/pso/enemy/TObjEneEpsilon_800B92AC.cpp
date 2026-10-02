@@ -170,7 +170,7 @@ f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 s32 TObjEneDD__sub_800BA828(u16);
 M2C_UNK TObjEneDD__sub_800BAF1C(void *, s32, f32, f32, f32);
-M2C_UNK TObjEneDD__sub_800BB000(void *, s32, f32, f32, f32);
+M2C_UNK calc_wall_slide_destination(void *, s32, f32, f32, f32);
 int TObjEneEpsilon__sub_800B96FC(void*, void*, void*);
 s16 TObjPlayer__sub_801423A4(s32, s32, s32);
 int VecCopy__FP3VecPC3Vec(void*);
@@ -219,7 +219,7 @@ void fire_attack_b__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 f
     temp_f30 = farg0;
     update_angle__14TObjEneEpsilonFPvi((void *)(arg0), (s32)(arg2));
     temp_f31 = TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
-    TObjEneDD__sub_800BB000(arg0, arg1, TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60)), temp_f31, temp_f30);
+    calc_wall_slide_destination(arg0, arg1, TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60)), temp_f31, temp_f30);
 }
 
 void fire_attack_c__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0) {

@@ -35,7 +35,7 @@ extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 get_player_by_client_id(u32);
 s32 is_ready__10TObjPlayerFPv(void *);
 void open__15TWindowMainMenuFPvi(void *, s32);
 int create_char_select_slot__17TWindowMainMenu1PFPv(void*);
@@ -120,7 +120,7 @@ void TWindowMainMenu1P__vt6(void *arg0) {
 void TWindowMainMenu1P__vt4(u8 *arg0) {
     u8 *temp_r3;
     if (!(M2C_FIELD(arg0, s32 *, 0x4C) & 1)) {
-        temp_r3 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u32 *, 0x54)));
+        temp_r3 = (u8 *)(get_player_by_client_id(M2C_FIELD(arg0, u32 *, 0x54)));
         if (temp_r3 != NULL) {
             if (is_ready__10TObjPlayerFPv(temp_r3) != 0) {
                 open__15TWindowMainMenuFPvi(arg0, (s32) &lbl_804D04A0.value);

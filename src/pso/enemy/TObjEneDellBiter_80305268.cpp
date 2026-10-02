@@ -13,7 +13,7 @@ extern "C" {
 
 void handle_movement_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
+M2C_UNK transition_enemy_state(void *, int);
 M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -37,10 +37,10 @@ void handle_movement_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
             update_velocity__9TObjEneDDFPv((void *) (arg0));
             M2C_FIELD(arg0, s32 *, 0x60) = (s32) (TObjEneDellBiter__data_80475328 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8))));
             if ((s32) M2C_FIELD(arg0, s32 *, 0x4BC) == 1) {
-                TObjEneDD__sub_800BBA18((void *) (arg0), (int) (3));
+                transition_enemy_state((void *) (arg0), (int) (3));
                 return;
             }
-            TObjEneDD__sub_800BBA18((void *) (arg0), (int) (2));
+            transition_enemy_state((void *) (arg0), (int) (2));
         } else {
         case 5:
         case 0:

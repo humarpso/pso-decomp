@@ -15,7 +15,7 @@ int TObjEneSlimeOne__sub_800EC428(u8 *arg0, s32 arg1, f32 farg0);
 s32 TObjPlayer__sub_800114D8(void *, void *, f32);
 int TObjEneSlimeOne__sub_800EC3D0(u8 *arg0, f32 farg0);
 s32 TObjEneSlimeOne__sub_800EC39C(O_800EC39C *self);
-void TBoss1Dragon__sub_80143504(s32);
+void advance_animation_playback(s32);
 extern s8 lbl_805D52C4;
 extern f32 lbl_805D52C0;
 extern f32 lbl_805DA760;
@@ -166,7 +166,7 @@ void TObjEneSlimeOne__sub_800EC6D0(Obj_800EC6D0 *arg0) {
         return;
     }
     if (s < 7) {
-        TBoss1Dragon__sub_80143504(arg0->f0);
+        advance_animation_playback(arg0->f0);
     } else if (s < 9) {
         f32 v = arg0->f30 + arg0->f28;
         arg0->f30 = v;

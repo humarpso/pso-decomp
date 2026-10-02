@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void handle_motion_event__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1);
-M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK advance_animation_playback();
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TBoss8Dragon__sub_800BB780();
 M2C_UNK noop__12TBoss8DragonFv(void *);
 M2C_UNK TBoss8Dragon__sub_800BB7D4(void *, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, s32);
+M2C_UNK transition_enemy_state(void *, s32);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 
@@ -68,19 +68,19 @@ void handle_motion_event__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1) {
     case 3:
         if (get_flag_b4__21TObjEneMe3ShinowaRealFPv() != 0) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x3A8) != 0) {
-                TObjEneDD__sub_800BBA18(arg0, 5);
+                transition_enemy_state(arg0, 5);
                 return;
             }
             if ((s16) M2C_FIELD(arg0, s16 *, 0x32C) <= (s32) ((s16) M2C_FIELD(arg0, s16 *, 0x2B8) / 2)) {
-                TObjEneDD__sub_800BBA18(arg0, 4);
+                transition_enemy_state(arg0, 4);
                 return;
             }
-            TObjEneDD__sub_800BBA18(arg0, M2C_FIELD(arg0, s32 *, 0x378));
+            transition_enemy_state(arg0, M2C_FIELD(arg0, s32 *, 0x378));
             return;
         }
         break;
     case 0:
-        TBoss1Dragon__sub_80143504();
+        advance_animation_playback();
         ((VObj_800b2e8c*)arg0)->m198();
         return;
     case 5:

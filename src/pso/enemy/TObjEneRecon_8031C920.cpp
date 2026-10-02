@@ -115,8 +115,8 @@ struct VObj_18_83f71d : VBase_18_83f71d {
 extern "C" {
 s32 update_death_check__14TObjEneEpsilonFPv(void *);
 void update_velocity__9TObjEneDDFPv(void *);
-void TObjEneDD__sub_800BBA18(void *, s16);
-void TBoss1Dragon__sub_80143504(void *);
+void transition_enemy_state(void *, s16);
+void advance_animation_playback(void *);
 void spawn_trap_b__12TObjEneReconFi(s32);
 void sync_height__12TObjEneReconFPv(void *);
 extern const f32 TObjEneRecon__data_805DF3E4;
@@ -144,15 +144,15 @@ void TObjEneRecon__sub_8031D380(u8 *arg0, s32 arg1) {
     case 3:
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x3B0)))) >= 0x96)
     {
-      TObjEneDD__sub_800BBA18(arg0, 5);
+      transition_enemy_state(arg0, 5);
     }
     case 5:
       return;
     case 0:
-      TBoss1Dragon__sub_80143504(arg0);
+      advance_animation_playback(arg0);
       if ((update_death_check__14TObjEneEpsilonFPv(arg0) != 0) || (PSO_VCALL_VObj_18_83f71d_m102(arg0, TObjEneRecon__data_805DF3E4) != 0))
     {
-      TObjEneDD__sub_800BBA18(arg0, 4);
+      transition_enemy_state(arg0, 4);
     }
     else
     {

@@ -78,8 +78,8 @@ s32 isValidGroundDrop__9TItemDataFv(void *);
 void TLobby__sub_8011A7F8(s32);
 typedef s32 (*Fn_8010542C)(void *);
 extern Fn_8010542C lbl_8049EEE8[];
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
-s8 TObjPlayer__sub_800196EC();
+void *get_player_by_client_id(s32);
+s8 get_current_floor();
 s32 TObjPlayer__sub_80104840(s32);
 void build_6x06_guild_card_packet__6TLobbyFPv(void *);
 s32 get_field_3e4__10TObjPlayerFPv(void *);
@@ -90,11 +90,11 @@ extern Entry_8010567C *TLobby__data_805D6140;
 extern s32 lbl_805D53A0;
 void TLobby__sub_8010567C(Obj_8010567C *self, void *unused, s16 arg2);
 int TItemMag__sub_80105348(Player_80105348 *player, s32 perm);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
-s8 TObjPlayer__sub_800196EC();
+void *get_player_by_client_id(s32);
+s8 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
-u32 TBoss8Dragon__sub_8007A544(Vec_80105538 *, s32);
+u32 csnVecterUnder(Vec_80105538 *, s32);
 s32 TLobby__sub_80104820();
 void dispatch_packet_wrapper__6TLobbyFPv(void *);
 void build_6x06_send_guild_card(void *);
@@ -157,10 +157,10 @@ void TLobby__sub_80105538(Obj_80105538 *self) {
     void *p1;
     void *p2;
     if (self != 0) {
-        p1 = TPlayerBattleCtrl4P__sub_801BA74C(TLobby__data_805D53AC);
-        p2 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+        p1 = get_player_by_client_id(TLobby__data_805D53AC);
+        p2 = get_player_by_client_id(lbl_805D53A0);
         if (p1 != 0 && p2 != 0) {
-            TObjPlayer__sub_800196EC();
+            get_current_floor();
             if (TLobby__sub_80104820() != 0 &&
                 (get_field_3e4__10TObjPlayerFPv(p1) != get_field_3e4__10TObjPlayerFPv(p2) ||
                  TLobby__data_805D53AC == lbl_805D53A0)) {
@@ -169,7 +169,7 @@ void TLobby__sub_80105538(Obj_80105538 *self) {
                     if (e.b != 0xFFFF) {
                         Pkt_80105538 pkt;
                         build_6x06_send_guild_card(&pkt);
-                        pkt.f4 = TObjPlayer__sub_800196EC();
+                        pkt.f4 = get_current_floor();
                         pkt.f5 = self->f370;
                         pkt.f6 = self->f2c;
                         pkt.x = self->x;
@@ -180,7 +180,7 @@ void TLobby__sub_80105538(Obj_80105538 *self) {
                         v.x = pkt.x;
                         v.y = lbl_805DAAB4;
                         v.z = pkt.z;
-                        if (TBoss8Dragon__sub_8007A544(&v, 1) != 0) {
+                        if (csnVecterUnder(&v, 1) != 0) {
                             dispatch_packet_wrapper__6TLobbyFPv(&pkt);
                         }
                     }
@@ -194,8 +194,8 @@ void TLobby__sub_8010567C(Obj_8010567C *self, void *unused, s16 arg2) {
     void *p1;
     void *p2;
     if (self != 0) {
-        p1 = TPlayerBattleCtrl4P__sub_801BA74C(TLobby__data_805D53AC);
-        p2 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+        p1 = get_player_by_client_id(TLobby__data_805D53AC);
+        p2 = get_player_by_client_id(lbl_805D53A0);
         if (p1 != 0 && p2 != 0 && TObjPlayer__sub_80104840(get_global_state__14TOKeyMachine01Fv()) != 0 &&
             (get_field_3e4__10TObjPlayerFPv(p1) != get_field_3e4__10TObjPlayerFPv(p2) ||
              TLobby__data_805D53AC == lbl_805D53A0)) {
@@ -204,7 +204,7 @@ void TLobby__sub_8010567C(Obj_8010567C *self, void *unused, s16 arg2) {
                 if (e.b != 0xFFFF) {
                     Pkt_8010567C pkt;
                     build_6x06_guild_card_packet__6TLobbyFPv(&pkt);
-                    pkt.f4 = TObjPlayer__sub_800196EC();
+                    pkt.f4 = get_current_floor();
                     pkt.f5 = 0x30;
                     pkt.x = self->x;
                     pkt.z = self->z;

@@ -21,7 +21,7 @@ M2C_UNK TObjPlayer__sub_80364028();
 M2C_UNK TObjPlayer__sub_80364198();
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 alloc__13TItemProArmorFi(M2C_UNK);
@@ -57,8 +57,8 @@ void draw_held_item__10TObjPlayerFPv(void *arg0) {
             temp_r3 = M2C_FIELD(temp_r31, s32 *, 0);
             M2C_FIELD(temp_r31, s32 *, 0) = (s32) (temp_r3 & ~0x11);
             warn_if_gauge_low__10TObjPlayerFv(temp_r3);
-            TObjPlayer__sub_803D9B78();
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
+            pop_matrix();
         }
     }
 }

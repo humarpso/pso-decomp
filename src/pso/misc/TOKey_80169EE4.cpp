@@ -32,16 +32,16 @@ struct Obj_8016A280 { u8 pad[0x38]; u8 pos[0xCC - 0x38]; f32 radius; };
 extern "C" {
 void init_6x05_switch_changed__6TLobbyFPv(void*);
 void finalize_and_send_60__6TLobbyFPv(void*);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 void send_switch_on__5TOKeyFv(void* key);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
-s32 TObjPlayer__sub_800196EC();
+s32 get_player_by_client_id(u32);
+s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 f32 fn_801315A0(void *, void *);
 extern s32 lbl_805D53A0;
 s32 TOKey__sub_8016A310(Self_8016A310 *self);
 s32 get_player_data__10TObjPlayerFi(int);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 f32 fn_801315A0(void *, void *);
 extern s32 lbl_805D586C;
@@ -59,8 +59,8 @@ s32 is_confirm_pressed__5TOKeyFPv(void *arg0);
 s32 set_ready_if_pressed__5TOKeyFPv(void *arg0);
 void trigger_camera_pan__5TOKeyFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-s32 TObjPlayer__sub_800196EC();
-void *TPhotonMylla__sub_80154CB4(u16);
+s32 get_current_floor();
+void *find_entity_by_id(u16);
 M2C_UNK TSwitch__sub_80229258(u16, s32);
 M2C_UNK TSwitch__sub_802292E0(u16);
 M2C_UNK TSwitch__sub_80229318(u16, s32);
@@ -116,7 +116,7 @@ s32 set_ready_if_pressed__5TOKeyFPv(void *arg0) {
 void handle_switch_trigger__5TOKeyFPvPv(void *arg0, void *arg1) {
     s32 temp_r0;
 
-    if ((M2C_FIELD(arg1, u8 *, 0xB) & 2) && ((s8) M2C_FIELD(arg1, u8 *, 0xA) == TObjPlayer__sub_800196EC())) {
+    if ((M2C_FIELD(arg1, u8 *, 0xB) & 2) && ((s8) M2C_FIELD(arg1, u8 *, 0xA) == get_current_floor())) {
         TBoss3Volopt__sub_8022675C(0x4005281F, 0, 0, 0);
     }
     if (M2C_FIELD(arg1, u8 *, 0xB) & 1) {
@@ -141,12 +141,12 @@ void handle_6x05_write_switch_flag(void *arg0) {
     void *temp_r3;
 
     bswap_6x05_switch_flag__5TOKeyFPv();
-    temp_r3 = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 2));
+    temp_r3 = find_entity_by_id(M2C_FIELD(arg0, u16 *, 2));
     if (temp_r3 != NULL) {
         ((VObj_8016A0E0_80169EE4 *)temp_r3)->m25(arg0);
         return;
     }
-    if ((M2C_FIELD(arg0, u8 *, 0xB) & 2) && ((s8) M2C_FIELD(arg0, u8 *, 0xA) == TObjPlayer__sub_800196EC())) {
+    if ((M2C_FIELD(arg0, u8 *, 0xB) & 2) && ((s8) M2C_FIELD(arg0, u8 *, 0xA) == get_current_floor())) {
         TBoss3Volopt__sub_8022675C(0x4005281F, 0, 0, 0);
     }
     if (M2C_FIELD(arg0, u8 *, 0xB) & 1) {
@@ -162,7 +162,7 @@ void trigger_camera_pan__5TOKeyFPvi(u8 *arg0, s32 arg1) {
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xD0);
     if ((temp_r0 != 2) && ((temp_r0 != 0) || ((s32) M2C_FIELD(arg0, s32 *, 0xD4) != 1))) {
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16)((u16)arg1));
+        temp_r3 = get_player_by_client_id((u16)((u16)arg1));
         if (temp_r3 != 0) {
             start_camera_pan__10TObjPlayerFPvs(temp_r3, 0xC, calc_angle_to__10TObjPlayerFPvPv(temp_r3 + 0x38, arg0 + 0x38));
             M2C_FIELD(arg0, s32 *, 0xDC) = (s32) M2C_FIELD(arg0, s32 *, 0xD8);
@@ -179,7 +179,7 @@ void send_switch_on__5TOKeyFv(void* key) {
     packet.object=*(u16*)((u8*)key+0x1c);
     packet.zero=0;
     packet.switchId=*(s32*)((u8*)key+0xc8);
-    packet.area=((s8)TObjPlayer__sub_800196EC());
+    packet.area=((s8)get_current_floor());
     packet.flags=1;
     finalize_and_send_60__6TLobbyFPv(&packet);
 }
@@ -190,7 +190,7 @@ s32 TOKey__sub_8016A280(Obj_8016A280 *arg0) {
     for (i = 0; i < lbl_805D586C; i++) {
         p = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (p != 0) {
-            if (get_field_3e4__10TObjPlayerFPv(p) == TObjPlayer__sub_800196EC()) {
+            if (get_field_3e4__10TObjPlayerFPv(p) == get_current_floor()) {
                 if (fn_801315A0(p + 0x38, arg0->pos) < arg0->radius * arg0->radius) {
                     return 1;
                 }
@@ -201,9 +201,9 @@ s32 TOKey__sub_8016A280(Obj_8016A280 *arg0) {
 }
 
 s32 TOKey__sub_8016A310(Self_8016A310 *self) {
-    u8 *p = (u8 *)((void *)TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0));
+    u8 *p = (u8 *)((void *)get_player_by_client_id(lbl_805D53A0));
     if (p != 0) {
-        if (get_field_3e4__10TObjPlayerFPv(p) == TObjPlayer__sub_800196EC()) {
+        if (get_field_3e4__10TObjPlayerFPv(p) == get_current_floor()) {
             if (fn_801315A0(p + 0x38, self->pos) < self->range * self->range) {
                 return 1;
             }

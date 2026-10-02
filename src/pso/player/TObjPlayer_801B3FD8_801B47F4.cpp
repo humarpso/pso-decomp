@@ -20,10 +20,10 @@ extern "C" {
 s32 get_selected_entry__11TMainCursorFPv(void *c);
 void TMainCursor__sub_8013C288(void *c, void *self, void *owner, void *p);
 extern Owner_801B4A18 *lbl_8050EA10[];
-void TObjPlayer__sub_801B4A18(void *self);
+void submit_cursor_candidate(void *self);
 void TMainCursor__sub_8013C288(void *c, void *self, void *owner, void *p);
 s32 get_selected_entry__11TMainCursorFPv(void *c);
-void *TPlayerBattleCtrl4P__sub_801BA74C(u32);
+void *get_player_by_client_id(u32);
 void TObjPlayer__sub_801B4AC8(void *target, s32 id);
 }
 
@@ -44,7 +44,7 @@ s32 TObjPlayer__sub_801BF560(s32);
 s16 TObjPlayer__sub_801BF57C(s32);
 M2C_UNK TObjPlayer__sub_801BF584(void *);
 M2C_UNK update_player_scale_camera(s32);
-void *TPlayerBattleCtrl4P__sub_801BA74C(u32);
+void *get_player_by_client_id(u32);
 s32 can_use_action__10TObjPlayerFi(s32);
 s32 check_flag_0x40000000__10TObjPlayerFPv(void *);
 s32 check_flag_100__10TObjPlayerFPv();
@@ -107,7 +107,7 @@ s32 get_battle_ctrl_id__10TObjPlayerFUs(u16 arg0) {
     u32 temp_r3;
     void *temp_r3_2;
 
-    temp_r3_2 = TPlayerBattleCtrl4P__sub_801BA74C(arg0);
+    temp_r3_2 = get_player_by_client_id(arg0);
     if (temp_r3_2 == NULL) {
         return 0xFFFF;
     }
@@ -120,7 +120,7 @@ s32 get_battle_ctrl_id__10TObjPlayerFUs(u16 arg0) {
 
 extern const f32 TObjPlayer__data_805DC278;
 
-void TObjPlayer__sub_801B4A18(void *self) {
+void submit_cursor_candidate(void *self) {
     s32 j;
     s32 i;
     Owner_801B4A18 *o;
@@ -148,7 +148,7 @@ void TObjPlayer__sub_801B4AC8(void *target, s32 id) {
     if (target == NULL || (u16)id == 0xFFFF || (u16)id >= 0x1000) {
         return;
     }
-    player = ((Player_801B4AC8 *)TPlayerBattleCtrl4P__sub_801BA74C((u16)id));
+    player = ((Player_801B4AC8 *)get_player_by_client_id((u16)id));
     if (player != NULL && player->cursor != NULL) {
         for (i = 0; i < 4; i++) {
             entry = &player->cursor->slots[i];

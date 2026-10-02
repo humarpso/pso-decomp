@@ -30,7 +30,7 @@ M2C_UNK set_item_count__6TLobbyFPvs(void *, M2C_UNK);
 M2C_UNK TLobby__sub_80103B04();
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u8 *get_player_by_client_id(u16);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK clear_obj_links(void *);
 M2C_UNK obj_getField1c(void *);
@@ -122,7 +122,7 @@ struct VObj80108B5C_80108b5c : VBase0x18_80108b5c {
 u8 *notify_hit_and_get_pos__13TItemEffFlameFPv(u8 *arg0) {
     u8 *temp_r3;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0xAC));
+    temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0xAC));
     if (temp_r3 != NULL) {
         ((VObj80108B5C_80108b5c *)temp_r3)->m63(M2C_FIELD(arg0, s32 *, 0xB0), arg0 + 0x38);
     }
@@ -265,7 +265,7 @@ struct VObj80108BB0_80108bb0 : VBase0x18_2_80108bb0 {
 void notify_hit__13TItemEffFlameFPv(u8 *arg0) {
     u8 *temp_r3;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0xAC));
+    temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0xAC));
     if (temp_r3 != NULL) {
         ((VObj80108BB0_80108bb0 *)temp_r3)->m63(M2C_FIELD(arg0, s32 *, 0xB0), arg0 + 0x38);
     }
@@ -385,7 +385,7 @@ void create__13TItemEffEquipFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void
 void play_effect__13TItemEffFlameFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 void *TItemEffEquip__ct(void *, void *, void *, void *, void *, void *);
-M2C_UNK TObjEneDellBiter__sub_80087350(s32, M2C_UNK);
+M2C_UNK spawn_particle_effect(s32, M2C_UNK);
 void *__nw__7TObjectFUl(int);
 struct Equip_80108A20 { s32 x0; u8 pad4[0x18 - 4]; void *vt; void *src; s32 x20; void *x24; };
 void spawn_item_timer__13TItemAttackerFiii(void *, void *, s32);
@@ -431,7 +431,7 @@ void create__13TItemEffEquipFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void
 }
 
 void play_effect__13TItemEffFlameFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
-    TObjEneDellBiter__sub_80087350(arg3, 0x45);
+    spawn_particle_effect(arg3, 0x45);
     TBoss3Volopt__sub_8022675C(0x4001C112, 0, 0, 0);
 }
 

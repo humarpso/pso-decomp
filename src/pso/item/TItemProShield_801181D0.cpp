@@ -82,7 +82,7 @@ u8 *TItemProShield__sub_801187D0(s32 arg0);
 u8 * TItemEquipBase__ct(void *);
 s16 get_bswap16_field8__9TItemDataFPv(void *);
 s16 getS16_06__9TItemDataFPv(void *);
-s32 TItemData__sub_8010EA38(void *);
+s32 lookup_item_pmt_record(void *);
 s32 get_shield_pmt_entry__10TObjPlayerFUc(u8);
 M2C_UNK set_equip_flag__14TItemEquipBaseFPvUc(void *, int);
 M2C_UNK fn_80117FEC(void *);
@@ -103,12 +103,12 @@ M2C_UNK TItemEquipBase__sub_8010A78C(void *);
 int TItemEquipBase__sub_8010A82C(void*);
 M2C_UNK TItemEquipBase__sub_8010A89C(void *, s32);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
-M2C_UNK TObjPlayer__sub_8010069C(void *);
+M2C_UNK refresh_owner_stats__5TItemFPv(void *);
 M2C_UNK TObjPlayer__sub_80364028();
 M2C_UNK TObjPlayer__sub_8036414C();
 M2C_UNK TObjPlayer__sub_80364198();
 M2C_UNK TObjPlayer__sub_803D97F0();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK get_item_ptr__10TObjPlayerFPvi(u32, s32);
@@ -138,7 +138,7 @@ void deactivate_shield_effect__14TItemProShieldFPvi(void *arg0, s32 arg1) {
         }
         warn_if_gauge_low__10TObjPlayerFv();
         TObjPlayer__sub_8036414C();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 
@@ -162,7 +162,7 @@ void TItemProShield__vt14(void *arg0) {
     ((VObj_80118334_801181D0 *)arg0)->m51();
     TItemEquipBase__sub_8010A89C(arg0, M2C_FIELD(arg0, s32 *, 0x194));
     if (M2C_FIELD(arg0, s32 *, 0x19C) & 4) {
-        TObjPlayer__sub_8010069C(arg0);
+        refresh_owner_stats__5TItemFPv(arg0);
     }
     TItemEquipBase__sub_8010A78C(arg0);
 }
@@ -218,7 +218,7 @@ u8 *TItemProShield__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801186EC___vt__14TItemProShield *)&__vt__14TItemProShield).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2C38;
     ((VObj_18_1a8f71 *)(arg0))->m17(3);
-    M2C_FIELD(arg0, s32 *, 0x18C) = TItemData__sub_8010EA38(arg2);
+    M2C_FIELD(arg0, s32 *, 0x18C) = lookup_item_pmt_record(arg2);
     M2C_FIELD(arg0, s32 *, 0x190) = (s32) ((*(s32 *)&lbl_805D54C8) + ((s8) M2C_FIELD(M2C_FIELD(arg0, s32 *, 0x18C), u8 *, 0xD) * 0x2C));
     M2C_FIELD(arg0, s32 *, 0x194) = get_shield_pmt_entry__10TObjPlayerFUc(M2C_FIELD(M2C_FIELD(arg0, s32 *, 0x18C), u8 *, 0x19));
     M2C_FIELD(arg0, u8 *, 0x19A) = (u8) M2C_FIELD(M2C_FIELD(arg0, s32 *, 0x18C), u8 *, 0x17);

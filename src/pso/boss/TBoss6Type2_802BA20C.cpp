@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void copy_vec2__11TBoss6Type2FPvPv(void* p, void* q);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(int);
+u8 *get_player_by_client_id(int);
 s32 TBoss6Type2__sub_802BA220(u8 *arg0, u16 arg1);
 }
 
@@ -22,7 +22,7 @@ s32 TBoss6Type2__sub_802BA220(u8 *arg0, u16 arg1) {
     if ((arg1 == 0xFFFF) || (M2C_FIELD(arg0, u16 *, 0x55C) != 0xFFFF)) {
         return 0;
     }
-    temp_r3 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C(arg1));
+    temp_r3 = (u8 *)(get_player_by_client_id(arg1));
     if (temp_r3 == NULL) {
         return 0;
     }

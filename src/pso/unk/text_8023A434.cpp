@@ -26,7 +26,7 @@ struct Stack_8023A434 {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
-u8 *TObjButterflyLobby__sub_8007A5D8(f32 *, f32 *, s32);
+u8 *csnVector(f32 *, f32 *, s32);
 void fn_8023A434(u8 *arg0);
 }
 
@@ -49,7 +49,7 @@ void fn_8023A434(u8 *arg0) {
     stack.sp14 = M2C_FIELD(arg0, f32 *, 0x20);
     stack.sp18 = M2C_FIELD(arg0, f32 *, 0x24);
     stack.sp1C = M2C_FIELD(arg0, f32 *, 0x28);
-    temp_r3 = (u8 *)(TObjButterflyLobby__sub_8007A5D8(&stack.sp8, &stack.sp14, 0x100));
+    temp_r3 = (u8 *)(csnVector(&stack.sp8, &stack.sp14, 0x100));
     if (temp_r3 != NULL) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x20), (int) (M2C_FIELD(temp_r3, s32 *, 4)));
         ((VObj_18_df5984 *)(arg0))->m4();

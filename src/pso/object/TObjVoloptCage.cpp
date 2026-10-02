@@ -106,7 +106,7 @@ void update_state__14TObjVoloptCageFPv(void *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TObjVoloptCage__sub_800C76F0(void *);
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
+M2C_UNK submit_cursor_candidate(void *, int);
 void run_task__14TObjVoloptCageFv(u8 *arg0);
 s32 TObjPlayer__sub_80019248();
 M2C_UNK fn_8003F3BC();
@@ -115,7 +115,7 @@ s32 check_player_flag1__6TLobbyFPv(int);
 M2C_UNK __dt__15TObjEnemyCustomFv(void *, int);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK send_code_45_1__10TObjPlayerFi(int);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+s32 get_player_by_client_id(int);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8004938C___vt__14TObjVoloptCage __vt__14TObjVoloptCage;
 u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1);
@@ -126,7 +126,7 @@ void reset_photon_effect__12TBoss3VoloptFPv(void *);
 void TObjEnemyCustom__ct();
 void set_param__12TObjEneLappyFPvi(void *, int);
 void TObjEneGibbles__sub_80156780(void *, void *, int);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+s32 get_player_by_client_id(int);
 extern u8 lbl_804848D0[];
 extern RecoveredGlobal_8004938C___vt__14TObjVoloptCage __vt__14TObjVoloptCage;
 extern s32 lbl_805D2758;
@@ -196,14 +196,14 @@ void run_task__14TObjVoloptCageFv(u8 *arg0) {
     update_state__14TObjVoloptCageFPv((void *) (arg0));
     update_prev_position__10TObjPlayerFPv((void *) (arg0));
     copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));
-    TObjPlayer__sub_801B4A18((void *) (arg0), (int) (-1));
+    submit_cursor_candidate((void *) (arg0), (int) (-1));
 }
 
 u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1) {
     s32 temp_r3;
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__14TObjVoloptCage.value;
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int) (M2C_FIELD(arg0, u16 *, 0x338)));
+        temp_r3 = get_player_by_client_id((int) (M2C_FIELD(arg0, u16 *, 0x338)));
         if ((temp_r3 != 0) && (TObjPlayer__sub_80019248() != 0)) {
             if (check_player_flag1__6TLobbyFPv((int) (temp_r3)) != 0) {
                 send_code_45_1__10TObjPlayerFi((int) (temp_r3));
@@ -226,7 +226,7 @@ Obj_80049430 *TObjVoloptCage__ct(Obj_80049430 *arg0, Obj_80049430 *arg1, u16 arg
     arg0->vt = &__vt__14TObjVoloptCage.value;
     arg0->f0 = lbl_805D2758;
     arg0->f338 = arg2;
-    p = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(arg0->f338);
+    p = (u8 *)get_player_by_client_id(arg0->f338);
     if (p != NULL) {
         VecCopy__FP3VecPC3Vec(arg0->pos, p + 0x38);
     } else {

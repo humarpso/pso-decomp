@@ -40,21 +40,21 @@ struct VObj_18_ac8580 : VBase_18_ac8580 {
 extern "C" {
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjPlayer__sub_803E4684(s32);
 M2C_UNK TObjFish__sub_803E46BC(void *);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(void *, void *, f32);
 void fn_80169E30(u8 *arg0);
-s32 TObjPlayer__sub_801B4A18(void *, int);
+s32 submit_cursor_candidate(void *, int);
 s32 check_player_flag1__6TLobbyFPv();
 s32 TCameraCtrl__sub_8006D494();
 s32 TCameraCtrl__sub_8006D610();
 s32 check_demo_mode__10TObjPlayerFv();
 s32 TODragonfly__sub_80158360(void *, f32);
 s32 send_code_45_1__10TObjPlayerFi(int);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+s32 get_player_by_client_id(void *);
 u32 __ct__12TQuestThreadFv(int, void *, int);
 u32 __nw__7TObjectFUl(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
@@ -95,7 +95,7 @@ void fn_80169BD0(u8 *arg0) {
         }
         break;
     case 1:
-        TObjPlayer__sub_801B4A18((void *) (arg0), (int) (-1));
+        submit_cursor_candidate((void *) (arg0), (int) (-1));
         break;
     case 2:
         if ((s32) M2C_FIELD(arg0, u16 *, 0x94) == (s32) lbl_805D53A0) {
@@ -137,7 +137,7 @@ void fn_80169BD0(u8 *arg0) {
             M2C_FIELD(arg0, u32 *, 0xDC) = 0U;
             TCameraCtrl__sub_8006D494();
             if ((s32) M2C_FIELD(arg0, u16 *, 0x94) == (s32) lbl_805D53A0) {
-                temp_r3_6 = TPlayerBattleCtrl4P__sub_801BA74C((void *) (lbl_805D53A0));
+                temp_r3_6 = get_player_by_client_id((void *) (lbl_805D53A0));
                 if ((temp_r3_6 != 0) && (check_player_flag1__6TLobbyFPv() != 0)) {
                     send_code_45_1__10TObjPlayerFi((int) (temp_r3_6));
                 }
@@ -173,7 +173,7 @@ void fn_80169E30(u8 *arg0) {
         } else {
             TObjPlayer__sub_803E4684(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), s32 *, 4));
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 #pragma pop

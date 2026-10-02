@@ -17,7 +17,7 @@ M2C_UNK set_flag_400000__10TObjPlayerFi(void *);
 s32 check_flag_48__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801BF918(void *);
 M2C_UNK enter_battle_state__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
+M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, s16, M2C_UNK);
 extern s32 lbl_805D55C0;
 
 void handle_state2_transitions__10TObjPlayerFPv(u8 *arg0) {
@@ -31,33 +31,33 @@ void handle_state2_transitions__10TObjPlayerFPv(u8 *arg0) {
             goto call3;
         }
         TObjPlayer__sub_801B5BCC(arg0);
-        TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 7);
+        run_action_state_phase__10TObjPlayerFisi(arg0, M2C_FIELD(arg0, s16 *, 0x326), 7);
         if (check_flag_48__10TObjPlayerFPv(arg0) != 0) {
             break;
         }
-        TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 2);
+        run_action_state_phase__10TObjPlayerFisi(arg0, M2C_FIELD(arg0, s16 *, 0x326), 2);
         if (check_flag_48__10TObjPlayerFPv(arg0) != 0) {
             break;
         }
 call3:
-        TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 3);
+        run_action_state_phase__10TObjPlayerFisi(arg0, M2C_FIELD(arg0, s16 *, 0x326), 3);
         break;
     case 2:
         if ((TObjPlayer__sub_801AFF0C(arg0) == 0) && (check_flag_4__10TObjPlayerFPv(arg0) == 0)) {
-            TObjPlayer__sub_801D0BC0(arg0, 0x16, 0);
+            run_action_state_phase__10TObjPlayerFisi(arg0, 0x16, 0);
             return;
         }
         if ((TObjPlayer__sub_801BF918(arg0 + 0x634) != 0) && (test_flag_2000000__10TObjPlayerFPv(arg0) != 0) && (TLobby__sub_800822E8(arg0, 4) != 0)) {
             set_flag_400000__10TObjPlayerFi(arg0);
             enter_battle_state__10TObjPlayerFPv(arg0 + 0x634);
         }
-        TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 8);
+        run_action_state_phase__10TObjPlayerFisi(arg0, M2C_FIELD(arg0, s16 *, 0x326), 8);
         return;
     case 3:
     case 6:
-        TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 7);
+        run_action_state_phase__10TObjPlayerFisi(arg0, M2C_FIELD(arg0, s16 *, 0x326), 7);
         if (check_flag_48__10TObjPlayerFPv(arg0) == 0) {
-            TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 3);
+            run_action_state_phase__10TObjPlayerFisi(arg0, M2C_FIELD(arg0, s16 *, 0x326), 3);
         }
         break;
     }

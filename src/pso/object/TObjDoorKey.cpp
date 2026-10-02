@@ -77,7 +77,7 @@ void TOComputerMachine01__sub_8023DDC8(void *, int, int, int, int);
 void PPCSync();
 void rotate_matrix_y(int, int);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(int);
 void TObjBoss2Tunnel__sub_803DB470(void *);
@@ -96,7 +96,7 @@ void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(void *, int);
 void rotate_matrix_y(int, int);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(int);
 void TObjBoss2Tunnel__sub_803DB470(void *);
@@ -142,7 +142,7 @@ int TOKey__sub_8016A960(void*);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 void *TObjEnvSoundGlobal__ct(void *, void *, void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
-int TObjPlayer__sub_801B4A18(void*, int);
+int submit_cursor_candidate(void*, int);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__5TOKeyFv(void *, M2C_UNK);
 void *__nw__7TObjectFUl(int);
@@ -212,7 +212,7 @@ M2C_UNK TObjDoorKey__sub_8018FBB8(void *arg) {
     set_chunk_material_color(lbl_804A7418);
     some_id_805c6f74 = lbl_805D5660;
     end_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 M2C_UNK TObjDoorKey__sub_8018FCD8(void *arg) {
@@ -232,7 +232,7 @@ M2C_UNK TObjDoorKey__sub_8018FCD8(void *arg) {
     set_chunk_material_color(lbl_804A7418);
     some_id_805c6f74 = lbl_805D5660;
     end_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 void TObjDoorKey__vt24(Key_8018FD9C *arg0) {
@@ -279,7 +279,7 @@ void TObjDoorKey__vt14(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xF0) = (s32) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x200);
 }
 
-int TObjDoorKey__vt15(void* p) { return TObjPlayer__sub_801B4A18(p, -1); }
+int TObjDoorKey__vt15(void* p) { return submit_cursor_candidate(p, -1); }
 int TObjDoorKey__vt22(void* p) { return TOKey__sub_8016A960(p); }
 
 void run_task__11TObjDoorKeyFv(void *arg0) {

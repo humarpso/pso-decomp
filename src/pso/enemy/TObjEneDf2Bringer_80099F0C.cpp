@@ -51,7 +51,7 @@ extern const f32 lbl_805D9864;
 extern const f32 lbl_805D9868;
 void TObjEneDf2Bringer__sub_8009A2A4(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, const void *);
-void *TObjButterflyLobby__sub_8007A5D8(void *, void *, s32);
+void *csnVector(void *, void *, s32);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
 void TLobby__sub_800869A4(void *, s32, s32, s32);
 void TObjEneDf2Bringer__sub_8009A11C(void* p);
@@ -95,7 +95,7 @@ void TObjEneDf2Bringer__sub_80099F0C(Bringer_80099F0C *self) {
     step = lbl_805D9850;
     v.x = lbl_805D9850 * self->dirx + v.x;
     v.z = lbl_805D9850 * self->dirz + v.z;
-    void *res = TObjButterflyLobby__sub_8007A5D8(&self->pos, &v, 0x16EF);
+    void *res = csnVector(&self->pos, &v, 0x16EF);
     if (res != 0) {
         VecCopy__FP3VecPC3Vec(&v, *(void **)((u8 *)res + 4));
         VecCopy__FP3VecPC3Vec(&d, &self->pos);

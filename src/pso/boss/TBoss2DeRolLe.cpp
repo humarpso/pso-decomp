@@ -24,7 +24,7 @@ extern "C" {
 M2C_UNK TObjBoss2Tunnel__sub_8003B1D8(void *);
 void TBoss2DeRolLe__sub_80033A80(M2C_UNK arg0, s32 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
-s32 TOSwitchAttack__sub_80087278(void *, int, int);
+s32 spawn_particle_effect_with_flags(void *, int, int);
 extern RecoveredGlobal_800339BC_lbl_804FF5E8 lbl_804FF5E8;
 void TBoss2DeRolLe__sub_800339BC(s32 arg0, f32 farg0, f32 farg1);
 extern const f32 TBoss2DeRolLe__data_805D82A0;
@@ -50,7 +50,7 @@ void TBoss2DeRolLe__sub_8003344C(s32 arg0, u32 arg1, s32 arg2);
 void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
 void TBoss2DeRolLe__sub_80034034(Obj_80034034 *self);
 void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
-void TBoss1Dragon__sub_80143504(void *);
+void advance_animation_playback(void *);
 void TBoss2DeRolLe__sub_800333F4(Obj_800333F4 *self, u32 arg1);
 void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
 s32 check_v2_mode__9TObjEneDDFv(void);
@@ -78,7 +78,7 @@ M2C_UNK TBoss4Zako__sub_803D8910(int, void *);
 s32 TBoss8Dragon__sub_800B9958(void * a0 = 0, u16 a1 = 0);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
 M2C_UNK TObjEneDD__sub_800B9BEC(void *, void *, f32);
-s32 TObjEneDD__sub_800BBA18(void * a0 = 0, s16 a1 = 0);
+s32 transition_enemy_state(void * a0 = 0, s16 a1 = 0);
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
 M2C_UNK create_particle__17TObjBoss2CeilJunkFv(s32, M2C_UNK);
 void *get_enemy_entity(int);
@@ -90,7 +90,7 @@ void TBoss2DeRolLe__sub_800333F4(Obj_800333F4 *self, u32 arg1) {
     switch (arg1) {
     case 4: self->f_B8 = 1; return;
     case 2: TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)(self), (s32)(1)); return;
-    case 0: TBoss1Dragon__sub_80143504(self); return;
+    case 0: advance_animation_playback(self); return;
     case 1: return;
     case 3: return;
     case 5: return;
@@ -256,7 +256,7 @@ void TBoss2DeRolLe__sub_800339BC(s32 arg0, f32 farg0, f32 farg1) {
     stack.sp8 = -((M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0xC) * farg1) - stack.sp8);
     stack.spC -= (M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x10) * farg1) - farg0;
     stack.sp10 = -((M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x14) * farg1) - stack.sp10);
-    TOSwitchAttack__sub_80087278((void *) (&stack.sp8), (int) (0x127), (int) (0x40));
+    spawn_particle_effect_with_flags((void *) (&stack.sp8), (int) (0x127), (int) (0x40));
 }
 #pragma pop
 
@@ -363,11 +363,11 @@ void reset_fields_3d0__13TBoss2DeRolLeFPv(void* p) { *(s32*)((char*)p + 0x3d0) =
 void set_params__13TBoss2DeRolLeFPvPv(void *arg0, void *arg1) {
     TBoss8Dragon__sub_800B9958(arg0, (u16) M2C_FIELD(arg1, s32 *, 8));
     M2C_FIELD(arg0, s32 *, 0x3D4) = (s32) M2C_FIELD(arg1, s16 *, 6);
-    TObjEneDD__sub_800BBA18(arg0, M2C_FIELD(arg1, s16 *, 4));
+    transition_enemy_state(arg0, M2C_FIELD(arg1, s16 *, 4));
 }
 void init_from_param__13TBoss2DeRolLeFPvPv(void *arg0, void *arg1) {
     M2C_FIELD(arg0, s32 *, 0x3D4) = (s32) M2C_FIELD(arg1, s16 *, 6);
-    TObjEneDD__sub_800BBA18(arg0, M2C_FIELD(arg1, s16 *, 4));
+    transition_enemy_state(arg0, M2C_FIELD(arg1, s16 *, 4));
 }
 
 void handle_6x14_de_rol_le_boss_actions_with_target(void *arg0) {

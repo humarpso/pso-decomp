@@ -193,7 +193,7 @@ M2C_UNK TLobby__sub_80070EE4(int);
 M2C_UNK TLobby__sub_80292200(int);
 void TLobby__sub_801EB0A0(s32 arg0);
 void TLobby__sub_801EB0F8(s32 arg0);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(int, void *);
+s32 get_player_by_client_id(int, void *);
 s32 set_flag_80000__6TLobbyFi(int);
 s32 set_flag_40000__6TLobbyFPv(int);
 s32 TLobby__sub_801F3314(int);
@@ -399,7 +399,7 @@ void TLobby__sub_801EA274(void) {
 }
 
 void quest_set_player_shrink_size(s32 player_variable, s32 size_variable) {
-    TObjPlayer* player = ((TObjPlayer*)TPlayerBattleCtrl4P__sub_801BA74C((int)((*(s32* *)&TLobby__data_805D5E78)[(u8)player_variable]), (void *)(size_variable)));
+    TObjPlayer* player = ((TObjPlayer*)get_player_by_client_id((int)((*(s32* *)&TLobby__data_805D5E78)[(u8)player_variable]), (void *)(size_variable)));
     if (player && !obj_isState2_324(player)) {
         s32 whole = (*(s32* *)&TLobby__data_805D5E78)[(u8)size_variable++];
         s32 numerator = (*(s32* *)&TLobby__data_805D5E78)[(u8)size_variable++];
@@ -494,7 +494,7 @@ void apply_split_screen__6TLobbyFv(void) {
 
 void TLobby__sub_801EA7A0(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__data_805D5E78)));
+    temp_r3 = get_player_by_client_id((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__data_805D5E78)));
     if (temp_r3 != 0) {
         send_code_49_1__10TObjPlayerFi();
         send_code50_packet__10TObjPlayerFi((int) (temp_r3));
@@ -743,7 +743,7 @@ s32 init_guild_card_tag__6TLobbyFi(s32 arg0) {
 }
 void TLobby__sub_801EB25C(s32 arg0, s32 arg1) {
     s32 temp_r3;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)))), (void *)(arg1));
+    temp_r3 = get_player_by_client_id((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)))), (void *)(arg1));
     if (temp_r3 != 0) {
         if (TLobby__sub_801F345C() != 0) {
             M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = 1;
@@ -801,7 +801,7 @@ void TLobby__sub_801EB25C(s32 arg0, s32 arg1) {
 
 }
 
-#define TPlayerBattleCtrl4P__sub_801BA74C(a, b) ((u32 (*)(int, int))TPlayerBattleCtrl4P__sub_801BA74C)(a, b)
+#define get_player_by_client_id(a, b) ((u32 (*)(int, int))get_player_by_client_id)(a, b)
 #define get_indexed_offset__6TLobbyFi(a) ((u32 (*)(void *))get_indexed_offset__6TLobbyFi)(a)
 #define get_global_state__23TAdSinglePlyChrSelectGCFv() ((s32 (*)(void))get_global_state__23TAdSinglePlyChrSelectGCFv)()
 #define get_serial_access__22TQuestVmDownLoadServerFPv() ((s32 (*)(void))get_serial_access__22TQuestVmDownLoadServerFPv)()
@@ -1196,7 +1196,7 @@ void TLobby__sub_801EB5AC(void) {
 
 void TLobby__sub_801EB604(s32 arg0, s32 arg1) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(((s32)TPlayerBattleCtrl4P__sub_801BA74C((int)((int)((u32) (u16) M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)))), (int)((int)(arg1)))));
+    temp_r3 = (u8 *)(((s32)get_player_by_client_id((int)((int)((u32) (u16) M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)))), (int)((int)(arg1)))));
     if (temp_r3 != NULL) {
         M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = TLobby__sub_80142944(temp_r3);
     }
@@ -1217,7 +1217,7 @@ void TLobby__sub_801EB6B8(s32 arg0) {
     s32 temp_r31;
     u8 *temp_r3;
     temp_r31 = (arg0 * 4) & 0x3FC;
-    temp_r3 = (u8 *)(((u8 *)TPlayerBattleCtrl4P__sub_801BA74C((int)(M2C_FIELD(((*(s32 *)&TLobby__data_805D5E78) + temp_r31), s32 *, 0)), (int)((*(s32 *)&TLobby__data_805D5E78)))));
+    temp_r3 = (u8 *)(((u8 *)get_player_by_client_id((int)(M2C_FIELD(((*(s32 *)&TLobby__data_805D5E78) + temp_r31), s32 *, 0)), (int)((*(s32 *)&TLobby__data_805D5E78)))));
     if (temp_r3 != NULL) {
         strncpy((void *) (&lbl_80512350.value), (int) (select_download_type__6TLobbyFi((int) (M2C_FIELD(temp_r3, s32 *, 0x890)))), (int) (0xF));
         M2C_FIELD(&lbl_80512350.value, s8 *, 0xF) = 0;
@@ -1232,7 +1232,7 @@ void TLobby__sub_801EB73C(s32 arg0) {
     s32 temp_r31;
     u8 *temp_r3;
     temp_r31 = (arg0 * 4) & 0x3FC;
-    temp_r3 = (u8 *)(((u8 *)TPlayerBattleCtrl4P__sub_801BA74C((int)(M2C_FIELD(((*(s32 *)&TLobby__data_805D5E78) + temp_r31), s32 *, 0)), (int)((*(s32 *)&TLobby__data_805D5E78)))));
+    temp_r3 = (u8 *)(((u8 *)get_player_by_client_id((int)(M2C_FIELD(((*(s32 *)&TLobby__data_805D5E78) + temp_r31), s32 *, 0)), (int)((*(s32 *)&TLobby__data_805D5E78)))));
     if (temp_r3 != NULL) {
         strncpy((void *)((void *) (&lbl_80512340.value)), (int)((void *) (((VObj_18_26c590 *)(temp_r3))->m10())), (int)((int) (0xF)));
         M2C_FIELD(&lbl_80512340.value, s8 *, 0xF) = 0;
@@ -1276,7 +1276,7 @@ void TLobby__sub_801EB8C0(u8 arg0) {
 }
 
 void TLobby__sub_801EB914(s32 arg0) {
-    if (TPlayerBattleCtrl4P__sub_801BA74C((int)((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__data_805D5E78))))) != 0U) {
+    if (get_player_by_client_id((int)((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__data_805D5E78))))) != 0U) {
         TObjPlayer__sub_801AF904();
     }
 }
@@ -1294,7 +1294,7 @@ void TLobby__sub_801EB94C(s32 arg0) {
 void TLobby__sub_801EBB88(s32 arg0, s32 arg1) {
     s32 temp_r3_2;
     u8 *temp_r3;
-    temp_r3 = ((u8 *)TPlayerBattleCtrl4P__sub_801BA74C((int)((int)((int)(M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int)(arg1)))));
+    temp_r3 = ((u8 *)get_player_by_client_id((int)((int)((int)(M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int)(arg1)))));
     if (temp_r3 != NULL) {
         temp_r3_2 = M2C_FIELD(temp_r3, s32 *, 0x890);
         if (temp_r3_2 & 1) {
@@ -1313,7 +1313,7 @@ void TLobby__sub_801EBB88(s32 arg0, s32 arg1) {
 
 void TLobby__sub_801EBC28(s32 arg0) {
     u32 temp_r3;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int)((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__data_805D5E78)))));
+    temp_r3 = get_player_by_client_id((int)((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__data_805D5E78)))));
     if (temp_r3 != 0U) {
         TLobby__sub_801F3694((void *) (temp_r3 + 0x428));
     }
@@ -1321,7 +1321,7 @@ void TLobby__sub_801EBC28(s32 arg0) {
 
 void TLobby__sub_801EBC64(s32 arg0) {
     u32 temp_r3;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int)((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__data_805D5E78)))));
+    temp_r3 = get_player_by_client_id((int)((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__data_805D5E78)))));
     if (temp_r3 != 0U) {
         TFontSmallLobby__sub_801C013C((void *) (temp_r3 + 0x428));
     }
@@ -1329,7 +1329,7 @@ void TLobby__sub_801EBC64(s32 arg0) {
 
 void TLobby__sub_801EBCA0(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = ((s32)TPlayerBattleCtrl4P__sub_801BA74C((int)((int)((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)))))), (int)((int)((int)((int) ((*(s32 *)&TLobby__data_805D5E78)))))));
+    temp_r3 = ((s32)get_player_by_client_id((int)((int)((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)))))), (int)((int)((int)((int) ((*(s32 *)&TLobby__data_805D5E78)))))));
     if ((temp_r3 != 0) && (is_current_room__10TObjRoomIdFPv() != 0)) {
         draw_small_label__15TFontSmallLobbyFi((int) (temp_r3));
     }
@@ -1337,7 +1337,7 @@ void TLobby__sub_801EBCA0(s32 arg0) {
 
 void TLobby__sub_801EBCF0(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = ((s32)TPlayerBattleCtrl4P__sub_801BA74C((int)((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__data_805D5E78))))));
+    temp_r3 = ((s32)get_player_by_client_id((int)((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__data_805D5E78))))));
     if ((temp_r3 != 0) && (is_current_room__10TObjRoomIdFPv() != 0)) {
         TLobby__sub_801B1254((int) (temp_r3));
     }
@@ -1418,7 +1418,7 @@ void TLobby__sub_801EBF30(u8 arg0, u8 arg1) {
     }
 }
 
-s32 (TPlayerBattleCtrl4P__sub_801BA74C)(int, void *);
+s32 (get_player_by_client_id)(int, void *);
 
 void TLobby__sub_801EC050(u8 arg0, u8 arg1) {
     s32 r;
@@ -1463,12 +1463,12 @@ void TLobby__sub_801EC15C(u8 arg0, u8 arg1) {
     idx = (*(int * *)&TLobby__data_805D5E78)[arg0++];
     range = (*(int * *)&TLobby__data_805D5E78)[arg0];
     (*(int * *)&TLobby__data_805D5E78)[arg1] = 0;
-    self = (u8 *)((s32 (*)(int))TPlayerBattleCtrl4P__sub_801BA74C)(idx);
+    self = (u8 *)((s32 (*)(int))get_player_by_client_id)(idx);
     if (self != NULL) {
         field = get_field_3e4__10TObjPlayerFPv(self);
         for (i = 0; i < 12; i++) {
             if (i != idx) {
-                other = (u8 *)((s32 (*)(int))TPlayerBattleCtrl4P__sub_801BA74C)(i);
+                other = (u8 *)((s32 (*)(int))get_player_by_client_id)(i);
                 if (other != NULL && field == get_field_3e4__10TObjPlayerFPv(other) &&
                     fn_801315A0(self + 0x38, other + 0x38) < range * range) {
                     (*(int * *)&TLobby__data_805D5E78)[arg1]++;
@@ -1512,7 +1512,7 @@ void TLobby__sub_801EC494(s32 i);
 
 void TLobby__sub_801EC494(s32 i) {
     s32 r;
-    if (((u32 (*)(void *))TPlayerBattleCtrl4P__sub_801BA74C)((void *)lbl_805D53A0) != 0) {
+    if (((u32 (*)(void *))get_player_by_client_id)((void *)lbl_805D53A0) != 0) {
         r = activate_d04_slot__10TObjPlayerFPv();
         if (r != 0) {
             TLobby__data_805D5E78[(u8)i++] = get_mag_item_stat_percent();
@@ -1565,7 +1565,7 @@ typedef char RecoveredGlobal_801417B8_lbl_8050C028_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_801417E8_lbl_8050C028_size[sizeof(RecoveredGlobal_801417E8_lbl_8050C028) == 0x18 ? 1 : -1];
 
 void update_main_phase__6TLobbyFv(int _w0, int _w1) {
-    if (TPlayerBattleCtrl4P__sub_801BA74C((int)((int)((int)(lbl_805D53A0))), (int)((int)((int)(_w1)))) != 0U) {
+    if (get_player_by_client_id((int)((int)((int)(lbl_805D53A0))), (int)((int)((int)(_w1)))) != 0U) {
         handle_main_phase__6TLobbyFi();
     }
 }
@@ -1747,12 +1747,12 @@ void TLobby__sub_801ECF84(s32 arg0) {
 
 int TLobby__sub_801ECFBC(void* p) { return TNpcPlayer__sub_8014DC30(p); }
 
-s32 (TPlayerBattleCtrl4P__sub_801BA74C)(int, void *);
+s32 (get_player_by_client_id)(int, void *);
 void TLobby__sub_801ECFDC(u8 arg0) {
     Vec_801ECFDC pos;
     u8 *player;
     Vec_801ECFDC *cur;
-    player = (u8 *)((s32 (*)(int))TPlayerBattleCtrl4P__sub_801BA74C)((*(int * *)&TLobby__data_805D5E78)[arg0++]);
+    player = (u8 *)((s32 (*)(int))get_player_by_client_id)((*(int * *)&TLobby__data_805D5E78)[arg0++]);
     if (player != NULL) {
         cur = TObjPlayer__sub_801C6FDC(player + 0x5D4);
         if (cur != NULL) {
@@ -1764,12 +1764,12 @@ void TLobby__sub_801ECFDC(u8 arg0) {
     }
 }
 
-s32 (TPlayerBattleCtrl4P__sub_801BA74C)(int, void *);
+s32 (get_player_by_client_id)(int, void *);
 void TLobby__sub_801ED0CC(u8 arg0) {
     Vec_801ED0CC pos;
     u8 *player;
     Vec_801ED0CC *cur;
-    player = (u8 *)((s32 (*)(int))TPlayerBattleCtrl4P__sub_801BA74C)((*(int * *)&TLobby__data_805D5E78)[arg0++]);
+    player = (u8 *)((s32 (*)(int))get_player_by_client_id)((*(int * *)&TLobby__data_805D5E78)[arg0++]);
     if (player != NULL) {
         cur = ((Vec_801ED0CC *)TObjPlayer__sub_801C6FDC(player + 0x5C8));
         if (cur != NULL) {
@@ -1783,14 +1783,14 @@ void TLobby__sub_801ED0CC(u8 arg0) {
 
 void TLobby__sub_801ED1BC(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = ((s32)TPlayerBattleCtrl4P__sub_801BA74C((int)((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__data_805D5E78))))));
+    temp_r3 = ((s32)get_player_by_client_id((int)((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__data_805D5E78))))));
     if ((temp_r3 != 0) && (((s32 (*)(void))obj_isState2_324)() == 0)) {
         request_player_size_restore((void *) (temp_r3 + 0x5B0));
     }
 }
 void TLobby__sub_801ED20C(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = ((s32)TPlayerBattleCtrl4P__sub_801BA74C((int)((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__data_805D5E78))))));
+    temp_r3 = ((s32)get_player_by_client_id((int)((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__data_805D5E78))))));
     if ((temp_r3 != 0) && (((s32 (*)(void))obj_isState2_324)() == 0)) {
         request_player_shrink((void *) (temp_r3 + 0x5B0));
     }
@@ -1848,14 +1848,14 @@ void TLobby__sub_801ED360(void) {
 
 void TLobby__sub_801ED3C4(s32 arg0) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(((u8 *)TPlayerBattleCtrl4P__sub_801BA74C((int)((int)((int)(M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int)((*(s32 *)&TLobby__data_805D5E78)))))));
+    temp_r3 = (u8 *)(((u8 *)get_player_by_client_id((int)((int)((int)(M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int)((*(s32 *)&TLobby__data_805D5E78)))))));
     if (temp_r3 != NULL) {
         set_floor__6TLobbyFPvs(temp_r3, 0);
     }
 }
 void TLobby__sub_801ED400(s32 arg0, s32 arg1) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(((s32)TPlayerBattleCtrl4P__sub_801BA74C((int)(M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (int)(arg1))));
+    temp_r3 = (u8 *)(((s32)get_player_by_client_id((int)(M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (int)(arg1))));
     if (temp_r3 != NULL) {
         M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = (s32) get_kill_count__10TObjPlayerFPv(temp_r3);
         return;
@@ -1863,7 +1863,7 @@ void TLobby__sub_801ED400(s32 arg0, s32 arg1) {
     M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = 0;
 }
 void TLobby__sub_801ED468(s32 a, s32 b) {
-    u32 r = TPlayerBattleCtrl4P__sub_801BA74C((*(s32 * *)&TLobby__data_805D5E78)[(u8)a], b);
+    u32 r = get_player_by_client_id((*(s32 * *)&TLobby__data_805D5E78)[(u8)a], b);
     if (r != 0 && lbl_805D53A0 == (*(s32 * *)&TLobby__data_805D5E78)[(u8)a]) {
         set_area__6TLobbyFPvi(lbl_80515BA0, (*(s32 * *)&TLobby__data_805D5E78)[(u8)b], TLobby__sub_80207770((*(s32 * *)&TLobby__data_805D5E78)[(u8)b]));
         TKeyBoardControl__sub_8000F998();

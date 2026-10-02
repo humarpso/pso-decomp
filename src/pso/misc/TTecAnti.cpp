@@ -121,21 +121,21 @@ u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 S_8022B3E8 *TTecAnti__sub_8022B3E8(S_8022B3E8 *d, S_8022B3E8 *s);
 void VecCopy__FP3VecPC3Vec(Vec_8022AE10 *, const Vec_8022AE10 *);
 void *TObjPlayer__sub_800868C4(Vec_8022AE10 *, s32, s32, s32, s32);
-void TObjPlayer__sub_80087638(void *, s32);
+void set_owner_id__13TParticleCtrlFPvUs(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern AntiRow_8022AE10 lbl_804CC0A8[];
 extern M2C_UNK lbl_804CC0E8[];
 Obj_8022AE10 *TTecAnti__sub_8022AE10(Obj_8022AE10 *self, const Vec_8022AE10 *body, const Vec_8022AE10 *ground, s32 actor, void *parent);
 int queue_destruction__7TObjectFv(void*);
-u32 TPhotonMylla__sub_80154CB4(int);
+u32 find_entity_by_id(int);
 s32 is_parents_unqueued__9TTecLukerFUi();
 s32 is_valid_and_active__10TObjPlayerFUi(int);
 void fn_802370D8(void *);
 void run_task__8TTecAntiFv(Anti_8022B150 *self);
 s32 obj_getField1c(int);
 s32 is_split_screen();
-void *TOSwitchAttack__sub_80087278(void *, int, int);
-void TObjPlayer__sub_80087638(void *, s32);
+void *spawn_particle_effect_with_flags(void *, int, int);
+void set_owner_id__13TParticleCtrlFPvUs(void *, s32);
 s32 TWindowSubComCard__sub_801058F8(void *);
 void *__nw__7TObjectFUl(int);
 Obj_8022AE10 *TTecAnti__sub_8022AE10(Obj_8022AE10 *self, const Vec_8022AE10 *body, const Vec_8022AE10 *ground, s32 actor, void *parent);
@@ -189,12 +189,12 @@ Obj_8022AE10 *TTecAnti__sub_8022AE10(Obj_8022AE10 *self, const Vec_8022AE10 *bod
         if (row->flags & 1) {
             p = TObjPlayer__sub_800868C4(&self->ground, row->c, row->a, row->b, 0x10);
             if (p != NULL) {
-                TObjPlayer__sub_80087638(p, actor);
+                set_owner_id__13TParticleCtrlFPvUs(p, actor);
             }
         } else {
             p = TObjPlayer__sub_800868C4(&self->body, row->c, row->a, row->b, 0x10);
             if (p != NULL) {
-                TObjPlayer__sub_80087638(p, actor);
+                set_owner_id__13TParticleCtrlFPvUs(p, actor);
             }
         }
     }
@@ -221,13 +221,13 @@ void TTecAnti__vt5(Anti_8022AEF8 *self, Player_8022AEF8 *pl) {
             }
         }
     } else if (self->xAC != 0) {
-        o = TOSwitchAttack__sub_80087278(pl->x2FC, 0x1F8, 0x10);
+        o = spawn_particle_effect_with_flags(pl->x2FC, 0x1F8, 0x10);
         if (o != NULL) {
-            TObjPlayer__sub_80087638(o, obj_getField1c((int)pl));
+            set_owner_id__13TParticleCtrlFPvUs(o, obj_getField1c((int)pl));
         }
-        o = TOSwitchAttack__sub_80087278(pl->x2FC, 0x1FF, 0x10);
+        o = spawn_particle_effect_with_flags(pl->x2FC, 0x1FF, 0x10);
         if (o != NULL) {
-            TObjPlayer__sub_80087638(o, obj_getField1c((int)pl));
+            set_owner_id__13TParticleCtrlFPvUs(o, obj_getField1c((int)pl));
         }
     }
     if (self->xAC != 0) {
@@ -262,7 +262,7 @@ void *__dt__8TTecAntiFv(void *arg0, s16 arg1) {
 void run_task__8TTecAntiFv(Anti_8022B150 *self) {
     u32 target;
     s32 i;
-    self->source = TPhotonMylla__sub_80154CB4(self->source_id);
+    self->source = find_entity_by_id(self->source_id);
     if (self->source == 0) {
         queue_destruction__7TObjectFv((void*)(self));
         return;
@@ -274,7 +274,7 @@ void run_task__8TTecAntiFv(Anti_8022B150 *self) {
             ((VObj_8022B150 *)self)->m5(self->source);
             if (self->count != 0) {
                 for (i = 0; i < self->count; i++) {
-                    target = TPhotonMylla__sub_80154CB4(self->targets[i].id);
+                    target = find_entity_by_id(self->targets[i].id);
                     if ((is_parents_unqueued__9TTecLukerFUi() != 0) && (is_valid_and_active__10TObjPlayerFUi(target) != 0)) {
                         ((VObj_8022B150 *)self)->m5(target);
                     }

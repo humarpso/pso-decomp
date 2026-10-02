@@ -26,7 +26,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjFish__sub_803E46BC(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK, void *);
 s32 dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 s32 register_boss__6TLobbyFPv(M2C_UNK);
@@ -67,7 +67,7 @@ void render__14TObjVoloptCageFv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         TObjFish__sub_803E46BC(lbl_805D4D24);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

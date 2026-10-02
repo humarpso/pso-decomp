@@ -13,7 +13,7 @@ void TObjEneRecon__sub_8031DE88(u8 *arg0, s32 arg1);
 
 extern "C" {
 
-int TObjEneDD__sub_800BBA18(void*, void*);
+int transition_enemy_state(void*, void*);
 void TObjEneRecon__vt60(void* p);
 void TObjEneRecon__vt59(void);
 void TObjEneRecon__vt26(void);

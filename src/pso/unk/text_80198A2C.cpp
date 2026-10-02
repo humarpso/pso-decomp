@@ -28,8 +28,8 @@ extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 void *TObjParticle__sub_800870BC(void *, void *, int, int);
-M2C_UNK TOSwitchAttack__sub_80087278(void *, int, int);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
+M2C_UNK spawn_particle_effect(void *, int);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 extern Vec_80198A2C lbl_80446070;
@@ -48,8 +48,8 @@ void TBoss3Volopt__sub_80198A2C(u8 *arg0) {
     Obj_80198A2C *self = (Obj_80198A2C *)arg0;
     s32 state;
     if (self->counter++ >= self->limit) {
-        TOSwitchAttack__sub_80087278(&self->pos, 0x45, 0x40);
-        TOSwitchAttack__sub_80087278(&self->pos, 0x46, 0x40);
+        spawn_particle_effect_with_flags(&self->pos, 0x45, 0x40);
+        spawn_particle_effect_with_flags(&self->pos, 0x46, 0x40);
         queue_destruction__7TObjectFv(self);
         return;
     }
@@ -87,7 +87,7 @@ void TBoss3Volopt__sub_80198A2C(u8 *arg0) {
             Vec_80198A2C v;
             VecCopy__FP3VecPC3Vec(&v, &self->pos);
             v.y += lbl_805DBF48;
-            TObjEneDellBiter__sub_80087350(&v, 0x1DB);
+            spawn_particle_effect(&v, 0x1DB);
         }
         self->pos.y = lbl_805DBF4C * (f32)(self->timer * self->timer) + self->pos.y;
         if (self->effect != NULL) {

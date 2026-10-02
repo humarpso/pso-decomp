@@ -60,7 +60,7 @@ extern const f32 lbl_805DFF70;
 extern const f32 lbl_805DFF74;
 extern const f32 lbl_805DFF78;
 void TBoss6Rock__sub_80353FF0(u8 *arg0);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK spawn_particle_effect(void *, int);
 s32 TBoss3Volopt__sub_8022675C(s32, u32, int, s32);
 M2C_UNK TBoss6PlotFalz__sub_802ABE3C(void *, int, int, f32);
 M2C_UNK TBoss6Rock__sub_80353F5C(void *);
@@ -140,7 +140,7 @@ M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -176,7 +176,7 @@ void render_if_active__10TBoss6RockFPv(u8 *arg0) {
         TBoss6PlotFalz__sub_802ABF44((f32) (TBoss6Rock__data_805DFF4C));
         TObjBoss2Tunnel__sub_803DB470((int) (M2C_FIELD(arg0, s32 *, 0x40)));
         reset_fish_globals__8TObjFishFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 
@@ -451,8 +451,8 @@ void TBoss6Rock__sub_80354520(u8 *arg0) {
         TBoss6Rock__sub_803542E8((void *)((void *) (arg0)), (s32)((int) (1)));
         TBoss6Rock__sub_80353F5C((void *) (arg0));
         TBoss3Volopt__sub_8022675C((s32)((int) (0x4006B51E)), (u32)((void *) (arg0 + 0x38)), (int)((int) (0)), (s32)((int) (0)));
-        TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x38), (int) (0x220));
-        TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x38), (int) (0x222));
+        spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x220));
+        spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x222));
         TBoss6PlotFalz__sub_802ABE3C((void *) (arg0 + 0x38), (int) (0xC0), (int) (0xF), (f32) (lbl_805DFF54));
         M2C_FIELD(arg0, s32 *, 0xC4) = 2;
     }

@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 struct R_80207F30 { s16 a; s16 b; u16 c; };
 
 extern "C" {
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 void *memset(void *, int, unsigned long);
 int TLobby__sub_80207F30(R_80207F30 *arg0);
 }
@@ -37,7 +37,7 @@ int TLobby__sub_80207F30(R_80207F30 *arg0) {
     s32 r;
     memset(arg0, 0, 0x3C);
     arg0->a = -1;
-    r = TObjPlayer__sub_800196EC();
+    r = get_current_floor();
     arg0->b = r;
     arg0->c = 0xFFFF;
     return r;

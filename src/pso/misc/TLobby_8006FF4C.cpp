@@ -65,7 +65,7 @@ s32 get_main_phase(void);
 void queue_destruction__7TObjectFv(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 TLobby__sub_800704CC(void *self);
-s32 TObjPlayer__sub_800196EC(void);
+s32 get_current_floor(void);
 void create_time_window__6TLobbyFv(void *);
 void create_obj_tag_challenge(s32);
 M2C_UNK create_ch_time_win(s32);
@@ -91,7 +91,7 @@ M2C_UNK TLobby__sub_80072618();
 s32 TLobby__sub_800739BC(void *);
 M2C_UNK TLobby__sub_80074034(s32);
 s32 TLobby__sub_8026A328();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 s32 check_player_state_flag_2__6TLobbyFPv();
 M2C_UNK create_ch_time_win(s32);
 M2C_UNK create_solo_play_win__6TLobbyFPv(s32);
@@ -114,7 +114,7 @@ extern M2C_UNK lbl_8048C9D8[];
 extern s32 lbl_805D53A0;
 
 void update_battle_cleanup_flag__6TLobbyFPv(void *arg0) {
-    if (TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) == 0U) {
+    if (get_player_by_client_id(lbl_805D53A0) == 0U) {
         M2C_FIELD(arg0, s32 *, 0x28) = 0;
         return;
     }
@@ -163,7 +163,7 @@ void TLobby__sub_80070170(void *arg0) {
         lbl_8048C9D8[2] = -1;
         break;
     default:
-        v = TObjPlayer__sub_800196EC();
+        v = get_current_floor();
         if (lbl_8048C9D8[2] != v) {
             lbl_8048C9D8[2] = v;
             create_time_window__6TLobbyFv((void *)(arg0));

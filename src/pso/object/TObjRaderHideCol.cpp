@@ -31,7 +31,7 @@ extern M2C_UNK __vt__16TObjRaderHideCol[];
 extern s32 lbl_805D3414;
 u8 *TObjRaderHideCol__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 f32 fn_801315A0(void *, void *);
-Pl_801973B0 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+Pl_801973B0 *get_player_by_client_id(s32);
 void TRaderMapCore__sub_801F9110();
 void TRaderMapCore__sub_801F9144();
 extern s32 lbl_805D53A0;
@@ -50,7 +50,7 @@ void render__16TObjRaderHideColFv(void) {  }
 extern M2C_UNK __vt__16TObjRaderHideCol[];
 
 void run_task__16TObjRaderHideColFv(Hide_801973B0 *arg0) {
-    Pl_801973B0 *p = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    Pl_801973B0 *p = get_player_by_client_id(lbl_805D53A0);
     if (p != 0) {
         if (fn_801315A0(arg0->pos, p->pos) < arg0->f90 * arg0->f90) {
             if (!(arg0->f94 & 1)) {

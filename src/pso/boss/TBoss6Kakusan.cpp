@@ -41,7 +41,7 @@ void copy_vec3__11TBoss4Type2FPvPv(void *, void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 s32 query_teammate_state__9TObjEneDDFPv();
 void TBoss1Dragon__sub_8014220C(void *, void *, void *);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 s32 is_active__14TBoss6PlotFalzFPv();
 void TBoss6Kakusan__sub_80322438(u8 *arg0);
 int TBoss6Kakusan__sub_8032263C(void);
@@ -105,7 +105,7 @@ void run_task__13TBoss6KakusanFv(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x2C) >= lbl_805D6C28 && M2C_FIELD(arg0, s32 *, 0x2C) <= lbl_805D6C30) {
         speed = TBoss6Kakusan__sub_803D8BD8(arg0 + 0x3C);
         if (!(speed <= TBoss6Kakusan__data_805DF51C)) {
-            pl = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x20));
+            pl = (u8 *)get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x20));
             if (is_active__14TBoss6PlotFalzFPv() != 0) {
                 VecCopy__FP3VecPC3Vec(&v, pl + 0x38);
                 v.y += lbl_805DF538;

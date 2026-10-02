@@ -8,11 +8,11 @@ extern "C" {
 
 void apply_if_shield_type5__10TObjPlayerFi(s32 arg0);
 u8 get_slot_count__14TItemProShieldFPv();
-M2C_UNK TObjPlayer__sub_8010069C(s32);
+M2C_UNK refresh_owner_stats__5TItemFPv(s32);
 
 void apply_if_shield_type5__10TObjPlayerFi(s32 arg0) {
     if (get_slot_count__14TItemProShieldFPv() == 5) {
-        TObjPlayer__sub_8010069C(arg0);
+        refresh_owner_stats__5TItemFPv(arg0);
     }
 }
 

@@ -50,7 +50,7 @@ void TCameraCtrl__sub_803D8934(s32, void *, void *);
 void TObjPlayer__sub_803D89E8(s32);
 void TObjPlayer__sub_803D9730(s32, void *);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 extern u8 lbl_8049DD20[];
 void TObjPlayer__sub_800FEEA4(Self_800FEEA4 *self);
 }
@@ -76,11 +76,11 @@ void TObjPlayer__sub_800FEEA4(Self_800FEEA4 *self) {
             TObjPlayer__sub_803D9B2C();
             TObjPlayer__sub_803D9730(0, get_item_ptr__10TObjPlayerFPvi(self->model, rs->bone));
             TCameraCtrl__sub_803D8934(0, rs->data, rd->data);
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             rs++;
             rd++;
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
     TObjPlayer__sub_803D9B2C();
     TObjPlayer__sub_803D89E8(0);
@@ -91,11 +91,11 @@ void TObjPlayer__sub_800FEEA4(Self_800FEEA4 *self) {
         TObjPlayer__sub_803D9B2C();
         TObjPlayer__sub_803D9730(0, get_item_ptr__10TObjPlayerFPvi(self->model, ps->bone));
         TCameraCtrl__sub_803D8934(0, ps->data, pd->data);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         ps++;
         pd++;
     }
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     fn_800FF788(self, lbl_8049DD20);
 }
 

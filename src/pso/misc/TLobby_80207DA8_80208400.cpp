@@ -20,19 +20,19 @@ struct Pkt_8020851C {
 };
 
 extern "C" {
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 void byteswap_and_send__6TLobbyFi(void *);
 void init_packet_67_04__6TLobbyFPv(void *);
 void set_destroy_event__6TLobbyFi(int, int);
 extern s32 lbl_805D53A0;
 extern s32 lbl_805D6084;
 void TLobby__sub_802084B0(s32 arg0);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 void finalize_and_send_60__6TLobbyFPv(void *);
 void init_6x05_switch_changed__6TLobbyFPv(void *);
 extern s32 lbl_805D6088;
 void TLobby__sub_8020857C(s16 arg0);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 void finalize_and_send_60__6TLobbyFPv(void *);
 void init_6x05_switch_changed__6TLobbyFPv(void *);
 void TLobby__sub_8020851C(s32 arg0);
@@ -87,7 +87,7 @@ void TLobby__sub_802084B0(s32 arg0) {
     set_destroy_event__6TLobbyFi(1, t);
     init_packet_67_04__6TLobbyFPv(&pkt);
     pkt.a = 0xFFFF;
-    pkt.b = TObjPlayer__sub_800196EC();
+    pkt.b = get_current_floor();
     pkt.c = arg0;
     pkt.d = lbl_805D53A0;
     byteswap_and_send__6TLobbyFi(&pkt);
@@ -99,7 +99,7 @@ void TLobby__sub_8020851C(s32 arg0) {
     pkt.b = 0;
     pkt.a = 0xFFFF;
     pkt.c = arg0;
-    pkt.d = ((s32 (*)(s32))TObjPlayer__sub_800196EC)(0xFFFF);
+    pkt.d = ((s32 (*)(s32))get_current_floor)(0xFFFF);
     pkt.e = 0;
     finalize_and_send_60__6TLobbyFPv(&pkt);
 }
@@ -110,7 +110,7 @@ void TLobby__sub_8020857C(s16 arg0) {
     pkt.a = 0xFFFF;
     pkt.b = 0;
     pkt.c = arg0;
-    pkt.d = ((s8)TObjPlayer__sub_800196EC());
+    pkt.d = ((s8)get_current_floor());
     if (lbl_805D6088 != 0) {
         pkt.e = 3;
         lbl_805D6088 = 0;

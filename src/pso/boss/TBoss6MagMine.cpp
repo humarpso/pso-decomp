@@ -48,7 +48,7 @@ s32 TBoss6MagMine__ct(s32, s32, s32);
 M2C_UNK TBoss6PlotFalz__sub_802ABE3C(s32, M2C_UNK, M2C_UNK, f32);
 M2C_UNK TBoss6PlotFalz__sub_802AC008(f32, f32);
 int TOHangerMachine01__sub_803D9C00(void*);
-int TOSwitchAttack__sub_80087278(void*, void*, void*);
+int spawn_particle_effect_with_flags(void*, void*, void*);
 s32 TObjControl__ct(s32, s32);
 void TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
@@ -57,7 +57,7 @@ s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
 int rotate_matrix_y(void*, void*);
 int TObjPlayer__sub_803D9B2C(void*);
-int TObjPlayer__sub_803D9B78(void);
+int pop_matrix(void);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
@@ -102,7 +102,7 @@ void update_linked_state__13TBoss6MagMineFPv(void *arg0) {
     clear_global_state__10TObjPlayerFv();
 }
 
-void init__13TBoss6MagMineFPv(void* p) { TObjPlayer__sub_803D9B2C(p); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x3ac)); update_linked_state__13TBoss6MagMineFPv((void *)(p)); TObjPlayer__sub_803D9B78(); }
+void init__13TBoss6MagMineFPv(void* p) { TObjPlayer__sub_803D9B2C(p); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x3ac)); update_linked_state__13TBoss6MagMineFPv((void *)(p)); pop_matrix(); }
 
 void TBoss6MagMine__sub_80368C14(Mine_80368C14 *o) {
     s32 n = get_game_mode__6TLobbyFv();
@@ -121,14 +121,14 @@ void TBoss6MagMine__sub_80368C14(Mine_80368C14 *o) {
     TBoss3Volopt__sub_8022675C(0x4003BA1E, &o->pos, 0, 0);
 }
 
-void TBoss6MagMine__vt4(void* p) { TOSwitchAttack__sub_80087278((void*)((char*)p + 0x38), (void*)((void*)252), (void*)((void*)64)); queue_destruction__7TObjectFv((void*)(p)); }
+void TBoss6MagMine__vt4(void* p) { spawn_particle_effect_with_flags((void*)((char*)p + 0x38), (void*)((void*)252), (void*)((void*)64)); queue_destruction__7TObjectFv((void*)(p)); }
 
 extern f32 lbl_805E0320;
 
 void TBoss6MagMine__vt3(s32 arg0) {
     TBoss6MagMine__sub_80368C14((Mine_80368C14 *)(arg0));
-    TOSwitchAttack__sub_80087278((void*)(arg0 + 0x38), (void*)(0xFB), (void*)(0x40));
-    TOSwitchAttack__sub_80087278((void*)(arg0 + 0x38), (void*)(0xFC), (void*)(0x40));
+    spawn_particle_effect_with_flags((void*)(arg0 + 0x38), (void*)(0xFB), (void*)(0x40));
+    spawn_particle_effect_with_flags((void*)(arg0 + 0x38), (void*)(0xFC), (void*)(0x40));
     TBoss6PlotFalz__sub_802ABE3C(arg0 + 0x38, 0xC0, 0xF, lbl_805E0320);
     queue_destruction__7TObjectFv((void*)(arg0));
 }

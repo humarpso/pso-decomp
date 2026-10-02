@@ -136,7 +136,7 @@ M2C_UNK queue_destruction__7TObjectFv();
 M2C_UNK refresh_and_send_entity_flags__12TBoss8DragonFPv(void *);
 M2C_UNK create_breakup_mdl__12TBoss3VoloptFiiiii(void *, int, int, void *, int);
 M2C_UNK trigger_dell_biter_events__10TObjPlayerFPv(void *, f32);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 extern s32 lbl_805D4FE0;
 extern const f32 TObjEneMe1Canadin__data_805D98AC;
@@ -147,7 +147,7 @@ extern "C" {
 
 void update_by_state__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1);
 void update_walk_animation__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1);
-M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK advance_animation_playback();
 f32 TBoss8Dragon__sub_803D64C0(s32, f32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 M2C_UNK TObjEneDD__sub_800BAC14(void *, f32, f32, f32);
@@ -166,7 +166,7 @@ void update_by_state__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, f32 *, 0x488) = TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
         return;
     case 0:
-        TBoss1Dragon__sub_80143504();
+        advance_animation_playback();
         M2C_FIELD(arg0, f32 *, 0x3F8) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x3EC));
         M2C_FIELD(arg0, f32 *, 0x300) = (f32) M2C_FIELD(arg0, f32 *, 0x3F8);
         TObjEneDD__sub_800BAC14(arg0, M2C_FIELD(arg0, f32 *, 0x484), M2C_FIELD(arg0, f32 *, 0x488), lbl_805D98A8);
@@ -184,7 +184,7 @@ void update_walk_animation__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x470) = 0;
         return;
     case 0:
-        TBoss1Dragon__sub_80143504();
+        advance_animation_playback();
         M2C_FIELD(arg0, s32 *, 0x470) = (s32) (M2C_FIELD(arg0, s32 *, 0x470) + 1);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x470) > 0x5A) {
             M2C_FIELD(arg0, s32 *, 0x470) = 0;
@@ -206,7 +206,7 @@ void TObjEneMe1Canadin__vt110(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 1) {
-            M2C_FIELD(arg0, u8 **, 0x3C0) = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x4C8));
+            M2C_FIELD(arg0, u8 **, 0x3C0) = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x4C8));
             temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x3C0));
             ((VObj_18_0f49f2 *)(temp_r3))->m115(arg0);
         }

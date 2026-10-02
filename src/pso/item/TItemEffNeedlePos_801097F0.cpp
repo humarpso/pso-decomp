@@ -20,7 +20,7 @@ struct TItemEffNeedlePos_801097F0 {
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-f32 TObjPlayer__sub_8001978C(f32);
+f32 newton_sqrtf(f32);
 void __ct__18TItemEffNeedleBaseFv(void *, void *, void *);
 s32 rand();
 extern const f64 lbl_8043E260[];
@@ -45,7 +45,7 @@ TItemEffNeedlePos_801097F0 *__ct__17TItemEffNeedlePosFv(TItemEffNeedlePos_801097
     self->pos.z += lbl_805DAB48 * (f32)rand();
     self->yaw = lbl_8043E260[0] * get_ad_end_text_start__10TObjPlayerFv(dir->x, dir->z);
     if (lbl_805DAB4C != dir->y) {
-        self->pitch = lbl_8043E260[0] * get_ad_end_text_start__10TObjPlayerFv(dir->y, TObjPlayer__sub_8001978C(dir->x * dir->x + dir->z * dir->z));
+        self->pitch = lbl_8043E260[0] * get_ad_end_text_start__10TObjPlayerFv(dir->y, newton_sqrtf(dir->x * dir->x + dir->z * dir->z));
         self->roll = 0;
     } else {
         self->roll = 0;

@@ -64,7 +64,7 @@ struct RecoveredGlobal_80129878_lbl_804A4438 {
 };
 
 extern "C" {
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK spawn_particle_effect(void *, int);
 M2C_UNK draw_icon__10TObjPlayerFPvii(void *, int, void *);
 M2C_UNK TObjPlayer__sub_80128A70();
 extern RecoveredGlobal_80129878_lbl_804A4438 lbl_804A4438;
@@ -78,7 +78,7 @@ void TObjPlayer__sub_80129878(u8 *arg0) {
     M2C_UNK sp8;
     TObjPlayer__sub_80128A70();
     draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (7), (void *) (&sp8));
-    TObjEneDellBiter__sub_80087350((void *) (&sp8), (int) (9));
+    spawn_particle_effect((void *) (&sp8), (int) (9));
     ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 0, M2C_FIELD(&lbl_804A4438.value, s32 *, 0), 1);
     draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (3), (void *) (&sp8));
     ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 1, M2C_FIELD(&lbl_804A4438.value, s32 *, 4), 1);

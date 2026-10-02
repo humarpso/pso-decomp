@@ -347,7 +347,7 @@ extern const f32 lbl_805DE320;
 extern const f32 lbl_805DE324;
 void TBoss6Type1__sub_802B5648(Boss_802B5648 *o, Vec_802B5648 *out);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 s32 is_active__14TBoss6PlotFalzFPv();
 void create_grav_ball__11TBoss6Type1FPvPv(void *, void *);
 f32 TBoss8Dragon__sub_803D64C0(s32);
@@ -363,7 +363,7 @@ s32 TCameraCtrl__sub_803D8934(int, void *, void *);
 s32 TObjPlayer__sub_803D8CD4(int);
 s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 extern Tbl_802B79DC lbl_80470F28[];
 void TBoss6Type1__sub_802B79DC(Boss_802B79DC *arg0);
 void TBoss6Type1__sub_802B82B8(void *, s32);
@@ -1112,7 +1112,7 @@ void TBoss6Type1__sub_802B683C(Boss_802B683C *arg0) {
     s32 ang;
     f32 r;
     flag = 1;
-    pl = TPlayerBattleCtrl4P__sub_801BA74C(arg0->f41C & 3);
+    pl = get_player_by_client_id(arg0->f41C & 3);
     if (is_active__14TBoss6PlotFalzFPv() != 0) {
         VecCopy__FP3VecPC3Vec(&v, pl + 0x38);
         flag = 0;
@@ -1291,7 +1291,7 @@ void TBoss6Type1__sub_802B79DC(Boss_802B79DC *arg0) {
             TObjPlayer__sub_803D8CD4(0);
             rotate_matrix_y(0, -arg0->f60);
             TCameraCtrl__sub_803D8934(0, &v, e);
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             VecCopy__FP3VecPC3Vec(&e->n, e);
             TBoss4Zako__sub_803D8910(&e->n, &arg0->pos);
         }

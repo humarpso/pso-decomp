@@ -90,11 +90,11 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TOSignCave03__sub_803DB510(int);
-M2C_UNK TObjDoor__sub_803DC894(void *, int, f32);
+M2C_UNK draw_ginja_model_with_motion(void *, int, f32);
 extern void *TODoorAncient03__data_805D590C;
 extern const f32 lbl_805DB3F8;
 void render__15TODoorAncient03Fv(u8 *arg0);
@@ -184,23 +184,23 @@ void render__15TODoorAncient03Fv(u8 *arg0) {
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00((void *) (temp_r31_2 + 8));
             TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             begin_effect_render__13TParticleCtrlFv();
             temp_r31_3 = M2C_FIELD(temp_r31_2, u8 **, 0x30);
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00((void *) (temp_r31_3 + 8));
             TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             temp_r31_4 = M2C_FIELD(temp_r31_3, u8 **, 0x30);
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00((void *) (temp_r31_4 + 8));
             TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_4, s32 *, 4)));
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             end_effect_render__13TParticleCtrlFv();
         } else {
-            TObjDoor__sub_803DC894((void *) (M2C_FIELD(arg0, u8 **, 0x34)), (int) (M2C_FIELD(arg0, s32 *, 0xBC)), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
+            draw_ginja_model_with_motion((void *) (M2C_FIELD(arg0, u8 **, 0x34)), (int) (M2C_FIELD(arg0, s32 *, 0xBC)), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

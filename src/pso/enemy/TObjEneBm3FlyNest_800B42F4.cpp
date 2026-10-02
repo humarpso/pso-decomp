@@ -12,7 +12,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 M2C_UNK clear_global_state__10TObjPlayerFv();
@@ -34,7 +34,7 @@ void render_parts__17TObjEneBm3FlyNestFPv(u8 *arg0) {
     set_global_flag__10TObjPlayerFv();
     TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(M2C_FIELD(lbl_805D5108, void **, 0x42C), s32 *, 8), M2C_FIELD(arg0, s32 *, 0x48), M2C_FIELD(arg0, f32 *, 0x4C));
     clear_global_state__10TObjPlayerFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 extern M2C_UNK lbl_804920B4[];

@@ -14,7 +14,7 @@ extern "C" {
 
 s32 copy_target_state__14TObjEnePanarmsFPvPv();
 s32 get_global_state__14TOKeyMachine01Fv();
-s32 TObjEneDD__sub_800BBA18(void * a0 = 0, s32 a1 = 0);
+s32 transition_enemy_state(void * a0 = 0, s32 a1 = 0);
 void TObjEneMe1Gee__vt105(void);
 int TObjEneMe1Gee__vt102(void* p);
 int select_and_apply_target__14TObjEneEpsilonFPvf(void*);

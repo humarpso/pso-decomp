@@ -131,12 +131,12 @@ extern "C" {
 void TBoss2Mine__vt26(void);
 void TBoss2Mine__vt61(void* p);
 void TBoss2Mine__vt59(void);
-int TObjEneDD__sub_800BBA18(void*, void*);
+int transition_enemy_state(void*, void*);
 int VecCopy__FP3VecPC3Vec(void*, void*);
 
 int TBoss2Mine__vt60(void* p) { return TBoss8Dragon__sub_800BB780(p); }
 
-void TBoss2Mine__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 4) { TObjEneDD__sub_800BBA18(p, (void*)4); } }
+void TBoss2Mine__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 4) { transition_enemy_state(p, (void*)4); } }
 void TBoss2Mine__vt26(void) {  }
 void run_task__10TBoss2MineFv(u8 *arg0) {
     if (check_demo_mode__10TObjPlayerFv() != 0) {

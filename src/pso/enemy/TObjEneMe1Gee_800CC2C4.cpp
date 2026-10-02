@@ -127,7 +127,7 @@ s32 check_demo_mode__10TObjPlayerFv(void);
 int set_player_state_default__12TBoss8DragonFPv(void *);
 void TObjEneMe1Gee__sub_800CB7BC(void *);
 void copy_pos__13TObjEneMe1GeeFPv(void *);
-u8 * TPhotonMylla__sub_80154CB4(u16);
+u8 * find_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void run_task__13TObjEneMe1GeeFv(u8 *arg0);
 }
@@ -140,7 +140,7 @@ void run_task__13TObjEneMe1GeeFv(u8 *arg0) {
         ((VObj_18_7dcedb *)(arg0))->m112();
         return;
     }
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 1) && ((M2C_FIELD(arg0, u8 **, 0x3C0) = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x48C)), temp_r3 = M2C_FIELD(arg0, u8 **, 0x3C0), ((temp_r3 == NULL) != 0)) || (all_parents_unqueued_for_destruction__7TObjectFv(temp_r3) == 0))) {
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 1) && ((M2C_FIELD(arg0, u8 **, 0x3C0) = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x48C)), temp_r3 = M2C_FIELD(arg0, u8 **, 0x3C0), ((temp_r3 == NULL) != 0)) || (all_parents_unqueued_for_destruction__7TObjectFv(temp_r3) == 0))) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }

@@ -18,7 +18,7 @@ s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_x(int, int);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 f32 TOHangerMachine01__sub_803D9C00(void *);
 s32 set_global_param__8TObjFishFi(void *);
 s32 TObjEneSlimeOne__sub_803E4AF4(void *, int, f32);
@@ -34,7 +34,7 @@ extern s32 lbl_805D3F20;
 extern const f32 lbl_805DE6DC;
 u8 *TObjEneMe1GiGueMissile__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0, f32 farg1);
 int queue_destruction__7TObjectFv(void*);
-u32 TPhotonMylla__sub_80154CB4(int);
+u32 find_entity_by_id(int);
 M2C_UNK TObjPlayer__sub_802A445C(void *, int);
 M2C_UNK update_lifetime__22TObjEneMe1GiGueMissileFPv(void *);
 M2C_UNK TNeedleShoot__sub_802A4694(void *);
@@ -102,7 +102,7 @@ void render__22TObjEneMe1GiGueMissileFv(u8 *arg0) {
   TObjEneSlimeOne__sub_803E4AF4((void *) TObjFish__sub_8001EDC4((void *) (*(u8 * *)&lbl_805D6858), (int) 1), (int) temp_r31, (f32) (*((f32 *) (((s8 *) arg0) + 0xBC))));
   clear_global_state__10TObjPlayerFv();
   end_effect_render__13TParticleCtrlFv();
-  TObjPlayer__sub_803D9B78();
+  pop_matrix();
 }
 
 typedef char RecoveredGlobal_802CE428___vt__22TObjEneMe1GiGueMissile_size[sizeof(RecoveredGlobal_802CE428___vt__22TObjEneMe1GiGueMissile) == 0x28 ? 1 : -1];
@@ -111,7 +111,7 @@ typedef char RecoveredGlobal_802CE428___vt__22TObjEneMe1GiGueMissile_size[sizeof
 #pragma opt_common_subs off
 void run_task__22TObjEneMe1GiGueMissileFv(u8 *arg0) {
     f32 temp_f1;
-    M2C_FIELD(arg0, u32 *, 0x1C) = TPhotonMylla__sub_80154CB4((int) (M2C_FIELD(arg0, u16 *, 0x34)));
+    M2C_FIELD(arg0, u32 *, 0x1C) = find_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0x34)));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
         queue_destruction__7TObjectFv((void*)((void *) (arg0)));
         return;

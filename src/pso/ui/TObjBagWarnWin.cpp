@@ -25,7 +25,7 @@ M2C_UNK TWindow__close(int);
 s32 TWindowCtrlMain__sub_8024CE58();
 void run_task__14TObjBagWarnWinFv(u8 *arg0);
 s32 fn_8006EF80();
-Ctrl_8006EC20 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+Ctrl_8006EC20 *get_player_by_client_id(s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 TLobby__sub_80211C3C();
 extern s32 lbl_805D53A0;
@@ -58,7 +58,7 @@ s32 TObjBagWarnWin__sub_8006EC20(void *arg0) {
     if (fn_8006EF80() != 0) {
         return 0;
     }
-    ctrl = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    ctrl = get_player_by_client_id(lbl_805D53A0);
     if (ctrl == NULL) {
         return 0;
     }
@@ -74,7 +74,7 @@ s32 TObjBagWarnWin__sub_8006EC20(void *arg0) {
         }
         break;
     }
-    ctrl = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    ctrl = get_player_by_client_id(lbl_805D53A0);
     if (ctrl == NULL || ctrl->pD00->v1C < 30) {
         return 0;
     }

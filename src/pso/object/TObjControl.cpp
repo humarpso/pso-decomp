@@ -274,7 +274,7 @@ Ene_800F6464 *get_enemy_entity(u16);
 void handle_6x0A_update_enemy_state(Msg_800F6464 *arg0);
 s32 obj_testFlags30(void *, s32);
 void obj_setFlags30(void *, s32);
-Ene_800F62E0 *TNpcPlayer__sub_800D87EC(u16);
+Ene_800F62E0 *find_active_entity_by_id(u16);
 void bswap_field__6TLobbyFPv(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 extern s32 lbl_805D5550;
@@ -298,7 +298,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_flag_3__7TObjectFv(int);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK clear_flag_3__7TObjectFv(int);
-M2C_UNK TObjPlayer__sub_801B4A18(int, int);
+M2C_UNK submit_cursor_candidate(int, int);
 M2C_UNK minimap_render_dot(void *, int, int, int);
 extern const f32 lbl_805DA8C0;
 
@@ -325,7 +325,7 @@ void TObjControl::run_task() {
         if (((EnemyControlDispatch *)(enemy))->m41() == 0) {
             ((EnemyControlDispatch *)(enemy))->m36();
             if ((((EnemyControlDispatch *)(enemy))->m34() != 0) || (((EnemyControlDispatch *)(enemy))->m38() != 0) || (((EnemyControlDispatch *)(enemy))->m37() != 0)) {
-                TObjPlayer__sub_801B4A18((int) (enemy), (int) (-1));
+                submit_cursor_candidate((int) (enemy), (int) (-1));
                 minimap_render_dot((void *) (enemy + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
                 ((EnemyControlDispatch *)(enemy))->m26();
                 set_flag_3__7TObjectFv((int) (enemy));
@@ -419,7 +419,7 @@ void handle_6x9C_set_enemy_low_game_flags_ultimate(Msg_800F62E0 *arg0) {
     if (arg0->id >= 0x4000) {
         return;
     }
-    e = TNpcPlayer__sub_800D87EC(arg0->id);
+    e = find_active_entity_by_id(arg0->id);
     if (e == NULL) {
         return;
     }

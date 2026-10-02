@@ -66,7 +66,7 @@ void TWindowTimer__sub_8019A738(s32 i);
 extern int lbl_8050DD50[];
 void TWindowTimer__sub_8019A754(s32 i);
 void TNpcPlayer__sub_80152E74(void *cmd);
-Player_8019A098 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+Player_8019A098 *get_player_by_client_id(s32);
 void TObjPlayer__sub_801CFD5C(void *arg0, s32 arg1, f32 *arg2, f32 *arg3);
 void sync_from_lobby__10TNpcPlayerFPv(void *p);
 extern s32 lbl_805D53A0;
@@ -83,7 +83,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_getField1c(void *);
 void queue_destruction__7TObjectFv(void *);
 s32 TLobby__sub_8001E8FC();
-void TOSwitchAttack__sub_80087278(void *, int, int);
+void spawn_particle_effect_with_flags(void *, int, int);
 s32 fn_8019978C(void *, void *, void *);
 void update_best_time__12TWindowTimerFPv(void *arg0);
 void TWindowTimer__sub_8019A104(void *, u16);
@@ -133,8 +133,8 @@ void TWindowTimer__sub_80199F14(Timer_80199F14 *self) {
     if (self->time >= ((Tbl_80199F14 *)&lbl_8050DD58)->limit) {
         VecCopy__FP3VecPC3Vec(&p, &self->pos);
         p.y += ((Tbl_80199F14 *)&lbl_8050DD58)->yofs;
-        TOSwitchAttack__sub_80087278(&p, 0x45, 0x40);
-        TOSwitchAttack__sub_80087278(&p, 0x46, 0x40);
+        spawn_particle_effect_with_flags(&p, 0x45, 0x40);
+        spawn_particle_effect_with_flags(&p, 0x46, 0x40);
         open__11TWindowCtrlFiii(obj_getField1c(self), lbl_8044613C, 0x1B);
         queue_destruction__7TObjectFv(self);
         return;
@@ -164,7 +164,7 @@ void TWindowTimer__sub_8019A098(void) {
     f32 z;
     Player_8019A098 *p;
     TNpcPlayer__sub_80152E74(&pkt);
-    p = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    p = get_player_by_client_id(lbl_805D53A0);
     if (p != 0) {
         pkt.id = lbl_805D53A0;
         TObjPlayer__sub_801CFD5C(p, p->area, &x, &z);

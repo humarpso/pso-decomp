@@ -91,9 +91,9 @@ void* init_c2098_return_self__10TObjPlayerFPv(void*);
 void __construct_array(void*,void*(*)(void*),void*,u32,u32);
 extern DeathItemPosition lbl_8050BF60;
 extern const f32 TObjPlayer__data_805DC2BC;
-void TObjPlayer__sub_801B864C(TObjPlayer* player);
+void drop_items_on_death__10TObjPlayerFPv(TObjPlayer* player);
 s32 is_volopt_phase_final__10TObjPlayerFv();
-Player_801B87E4 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+Player_801B87E4 *get_player_by_client_id(u16);
 void bswap_fields__10TObjPlayerFi(void *);
 void TObjPlayer__sub_801C106C(void *, void *);
 void init_6x2A__10TObjPlayerFPv(void *);
@@ -141,7 +141,7 @@ s32 try_buy_item(s32 arg0, void *arg1) {
 typedef char DeathDropRecordSize[(sizeof(DeathDropRecord)==0x1C)?1:-1];
 typedef char DeathDropItemOffset[(offsetof(DeathDropRecord,item)==8)?1:-1];
 typedef char DeathPlayerInventoryOffset[(offsetof(PlayerDeathItemFields,inventory_owner)==0xD00)?1:-1];
-void TObjPlayer__sub_801B864C(TObjPlayer* player) {
+void drop_items_on_death__10TObjPlayerFPv(TObjPlayer* player) {
     DeathDropRecord records[9];
     DeathDropRecord* record;
     s32 count;
@@ -189,7 +189,7 @@ void handle_6x2A_drop_item(void *arg0) {
     TObjPlayer__sub_801C106C(&m, arg0);
     bswap_fields__10TObjPlayerFi(&m);
     if (validate_6x2A_drop_item(&m) != 0) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(m.slot);
+        p = get_player_by_client_id(m.slot);
         if ((p != NULL) && (is_volopt_phase_final__10TObjPlayerFv() == 0)) {
             update_inventory_item__10TObjPlayerFPviiiii(p->inv, p, m.c, m.d, m.a, m.b);
         }

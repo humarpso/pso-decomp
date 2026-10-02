@@ -61,7 +61,7 @@ s32 TScene__sub_803D8DB4(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 f32 TNpcPlayer__sub_803D97B4(void *);
 s32 TObjPlayer__sub_803D97F0(void *);
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 extern RecoveredGlobal_8021DC30_lbl_8044C140 lbl_8044C140;
 extern RecoveredGlobal_8021DC30_lbl_8058D490 lbl_8058D490;
 extern const f32 lbl_805DC6E8;
@@ -87,7 +87,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 get_map_id__13TRaderMapCoreFPv(s32);
 s32 is_flag_400_set__10TObjPlayerFPv(s32);
 s32 check_flag_100__10TObjPlayerFPv(s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TMedicalCenterMes__sub_80216084(s32);
 bool TShopGenerator__sub_8021DC30(u8 *arg0, u8 *arg1, f32 farg0);
@@ -143,7 +143,7 @@ bool TShopGenerator__sub_8021DC30(u8 *arg0, u8 *arg1, f32 farg0) {
     TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg1, s32 *, 0x60)));
     TScene__sub_803D8DB4((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     stack.sp14 = M2C_FIELD(arg0, f32 *, 0x38) - M2C_FIELD(arg1, f32 *, 0x38);
     stack.sp18 = M2C_FIELD(arg0, f32 *, 0x3C) - M2C_FIELD(arg1, f32 *, 0x3C);
     stack.sp1C = M2C_FIELD(arg0, f32 *, 0x40) - M2C_FIELD(arg1, f32 *, 0x40);
@@ -185,7 +185,7 @@ void run_task__14TShopGeneratorFv(u8 *self) {
     }
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         for (i = 0; i < 4; i++) {
-            p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+            p = get_player_by_client_id(i);
             if (p == 0) continue;
             if (((s32 (*)(u8 *, u8 *, f32))TShopGenerator__sub_8021DC30)(self, (u8 *)p, lbl_805DC6EC) == 0) continue;
             if (((s32 (*)(s32))TShopGenerator__sub_8021E110)(obj_getField1c(p)) == 1) continue;
@@ -200,7 +200,7 @@ void run_task__14TShopGeneratorFv(u8 *self) {
     } else {
         s32 q;
         s32 (*fn2)(u16);
-        q = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+        q = get_player_by_client_id(lbl_805D53A0);
         if (q == 0) return;
         if (((s32 (*)(s32))TShopGenerator__sub_8021E110)(obj_getField1c(q)) == 1) return;
         if (TMedicalCenterMes__sub_80216084(obj_getField1c(q)) == 1) return;

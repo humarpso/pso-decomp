@@ -107,7 +107,7 @@ void begin_effect_render__13TParticleCtrlFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
 void rotate_matrix_y(s32, s32);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(s32);
 void TOSignCave03__sub_803DB510(s32);
@@ -228,7 +228,7 @@ void render__12TODoorCave03Fv(u8 *arg0) {
         set_chunk_material_color(lbl_804A7418);
         some_id_805c6f74 = lbl_805D5660;
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

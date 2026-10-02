@@ -10,7 +10,7 @@ void *TFontSmallHelp__sub_800FCC20(void *arg0, s16 arg1);
 void *create__15TFontSmallLobbyFPv(void *arg0);
 void update_help_text__14TFontSmallHelpFPv(void *arg0);
 M2C_UNK TFontSmallHelp__sub_800FC424(void *, s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 u32 TWindowSubStatusDisp__sub_800FC968(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__14TFontSmallHelpFv(void *, int);
@@ -39,7 +39,7 @@ void update_help_text__14TFontSmallHelpFPv(void *arg0) {
     u32 temp_r3_3;
     s32 temp_r3;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x5C));
+    temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, s32 *, 0x5C));
     if (temp_r3 == 0) {
         queue_destruction__7TObjectFv(arg0);
         return;

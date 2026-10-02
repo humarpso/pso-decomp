@@ -54,7 +54,7 @@ s32 TObjPlayer__sub_801D2B08(s32, s32);
 void TFontSmallLobby__sub_801D63DC(s32, f32);
 s32 reset_key_machine_state__10TObjPlayerFv();
 void TObjPlayer__vt73(s32 arg0, f32 farg0);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+u32 get_player_by_client_id(u32);
 void clear_flag_200__10TObjPlayerFPv(u32);
 void TObjPlayer__sub_801CBFA4(u16 *p);
 u16 obj_getField1c(void *);
@@ -63,7 +63,7 @@ s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
 s32 is_single_screen__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_801AFF0C(void *);
 void TObjPlayer__sub_801D0F70(void *);
-void TObjPlayer__sub_801D0BC0(void *, s32, s32);
+void run_action_state_phase__10TObjPlayerFisi(void *, s32, s32);
 extern void *lbl_8050EA10[];
 void TObjPlayer__sub_801CC010(s16 arg0, u16 *arg1);
 }
@@ -95,7 +95,7 @@ void TObjPlayer__sub_801CBFA4(u16 *p) {
             if (id >= 12) {
                 break;
             }
-            obj = TPlayerBattleCtrl4P__sub_801BA74C(id);
+            obj = get_player_by_client_id(id);
             if (obj != 0) {
                 clear_flag_200__10TObjPlayerFPv(obj);
             }
@@ -122,7 +122,7 @@ void TObjPlayer__sub_801CC010(s16 arg0, u16 *arg1) {
                 *arg1 = obj_getField1c(obj);
                 arg1++;
             }
-            TObjPlayer__sub_801D0BC0(obj, 0x13, 0);
+            run_action_state_phase__10TObjPlayerFisi(obj, 0x13, 0);
         }
         i++;
         tbl++;

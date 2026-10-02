@@ -37,7 +37,7 @@ extern const f32 TBoss6GravBall__data_805DF550;
 extern const f32 lbl_805DF570;
 void TBoss6GravBall__sub_803236F8(Obj_803236F8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-s32 TObjPlayer__sub_80156844(void *, void *, int);
+s32 project_actor_to_ground(void *, void *, int);
 extern const f32 TBoss6GravBall__data_805DF558;
 extern const f32 lbl_805DF574;
 s32 TBoss6GravBall__sub_803237A0(Obj_803237A0 *arg0);
@@ -47,7 +47,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 void TBoss6Type1__sub_803D9370(void *, void *);
 void TNpcPlayer__sub_803D97B4(void *);
-s32 TObjPlayer__sub_80156844(void *, void *, int);
+s32 project_actor_to_ground(void *, void *, int);
 int TBoss6GravBall__sub_803231D0(void*, void*);
 M2C_UNK TBoss6GravBall__sub_80323278(void *, int);
 u16 obj_getField1c(void *);
@@ -68,7 +68,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 void TBoss6Type1__sub_803D9370(void *, void *);
 void TNpcPlayer__sub_803D97B4(void *);
-s32 TObjPlayer__sub_80156844(void *, void *, int);
+s32 project_actor_to_ground(void *, void *, int);
 int TBoss6GravBall__sub_803231D0(void*, void*);
 M2C_UNK TBoss6GravBall__sub_80323278(void *, int);
 u16 obj_getField1c(void *);
@@ -143,7 +143,7 @@ void TBoss6GravBall__sub_803233AC(u8 *self) {
             v.z *= s;
         }
         TBoss4Zako__sub_803D8910(&v, &pl->pos);
-        TObjPlayer__sub_80156844(self, &v, 0);
+        project_actor_to_ground(self, &v, 0);
         TBoss6PlotFalz__sub_802AC724(pl, &v);
         if (flag != 0) {
             pl->flags |= 0x20000;
@@ -198,7 +198,7 @@ void TBoss6GravBall__sub_80323544(u8 *self) {
             v.z *= s;
         }
         TBoss4Zako__sub_803D8910(&v, &pl->pos);
-        TObjPlayer__sub_80156844(self, &v, 0);
+        project_actor_to_ground(self, &v, 0);
         TBoss6PlotFalz__sub_802AC724(pl, &v);
         if (flag != 0) {
             pl->flags |= 0x20000;
@@ -224,7 +224,7 @@ void TBoss6GravBall__sub_803236F8(Obj_803236F8 *arg0) {
 
 s32 TBoss6GravBall__sub_803237A0(Obj_803237A0 *arg0) {
     Vec_803237A0 v = arg0->pos;
-    if (TObjPlayer__sub_80156844(arg0, &v, 0) == 0) {
+    if (project_actor_to_ground(arg0, &v, 0) == 0) {
         queue_destruction__7TObjectFv((void *)(arg0));
         return 1;
     }

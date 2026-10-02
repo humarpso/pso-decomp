@@ -114,7 +114,7 @@ void TBoss4DarkFalz__sub_8004BA70(void *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void *get_player_data__10TObjPlayerFi(s32 i);
 s32 get_field_3e0__12TBoss3VoloptFPv(void *p);
-void TObjEneDellBiter__sub_80087350(void *, s32);
+void spawn_particle_effect(void *, s32);
 void TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
 s32 TBoss4Thanks__sub_8035C96C();
 extern s32 lbl_805D586C;
@@ -353,7 +353,7 @@ void TBoss4DarkFalz__sub_8004B5A0(void) {
             if (p != 0 && get_field_3e0__12TBoss3VoloptFPv(p) == 0xE) {
                 VecCopy__FP3VecPC3Vec(&v, &p->pos);
                 v.y += k;
-                TObjEneDellBiter__sub_80087350(&v, 0x28);
+                spawn_particle_effect(&v, 0x28);
             }
         }
     }

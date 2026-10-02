@@ -8,7 +8,7 @@ extern "C" {
 
 void * create__13TPlyOnCreatedFPvPv(void *arg0, void *arg1);
 void invoke_callback_and_destroy__13TPlyOnCreatedFPv(void *arg0);
-void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+void *get_player_by_client_id(u16);
 void *__ct__13TPlyOnCreatedFv(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -26,7 +26,7 @@ void invoke_callback_and_destroy__13TPlyOnCreatedFPv(void *arg0) {
     M2C_UNK (*temp_r12)();
     void *temp_r3;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x1C));
+    temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x1C));
     if ((temp_r3 != NULL) && ((s32) M2C_FIELD(temp_r3, s32 *, 0xCFC) == 0)) {
         temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x20);
         if (temp_r12 != NULL) {

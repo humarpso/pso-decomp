@@ -21,7 +21,7 @@ s32 obj_getS16_32C();
 u16 get_id__13TItemProArmorFPv();
 M2C_UNK set_facing__10TObjPlayerFPvs(s32, s32);
 void *get_equip_field_d04__10TObjPlayerFPv(s32, s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 M2C_UNK TItemProUnit__sub_801D98F8(s32, s16, u8);
 void fn_80100BB0(void *arg0, s16 arg1, s16 arg2);
 }
@@ -38,7 +38,7 @@ void fn_80100BB0(void *arg0, s16 arg1, s16 arg2) {
     void *temp_r3;
     void *temp_r3_2;
     if ((arg1 >= 0) && (arg1 < 0x13) && (arg2 >= 0) && (arg2 <= 0x1D)) {
-        temp_r30 = TPlayerBattleCtrl4P__sub_801BA74C((u16) get_id__13TItemProArmorFPv());
+        temp_r30 = get_player_by_client_id((u16) get_id__13TItemProArmorFPv());
         if (temp_r30 != 0) {
             temp_r29 = obj_getS16_32C();
             temp_r28 = obj_getS16_32E(temp_r30);

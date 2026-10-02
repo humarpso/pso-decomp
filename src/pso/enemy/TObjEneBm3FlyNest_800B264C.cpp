@@ -286,9 +286,9 @@ extern s32 lbl_805D510C;
 extern NestAttachmentPoint *lbl_805D5110;
 extern void get_camera_ctrl__9TObjEneDDFPv(s32, s32);
 void capture_attachment__17TObjEneBm3FlyNestFv(void * _w0);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 void TObjEneBm3FlyNest__sub_800B2A5C(Obj_800B2A5C *self, u8 *child);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 u16 get_active_id__13TObjEneBm3FlyFPv(void *);
 s32 check_v2_mode__9TObjEneDDFv();
 s32 TObjEneBm3FlyNest__sub_800B2AF4(Obj_800B2AF4 *self, u16 id);
@@ -309,9 +309,9 @@ M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 toggle_flag_9__10TObjPlayerFPv(void *);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
+M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
@@ -343,15 +343,15 @@ void TObjEneBm3FlyNest__sub_800B264C(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 M2C_UNK TObjBoss2Tunnel__sub_8007E7D8(void *, void *, int);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK spawn_particle_effect(void *, int);
 s32 get_random_scaled__9TObjEneDDFv(void *);
 f32 rand_range__9TObjEneDDFff(void *, f32, f32);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
+M2C_UNK transition_enemy_state(void *, int);
 M2C_UNK set_field_e4__10TObjPlayerFii(void *, int, f32);
 M2C_UNK TObjPlayer__sub_800D9398(void *, int);
 int copy_target_state__14TObjEnePanarmsFPvPv(void*);
 M2C_UNK refresh_lobby_state__10TObjPlayerFPv(void *);
-M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK advance_animation_playback();
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 f32 TBoss8Dragon__sub_803D64C0(int);
 f32 TBoss8Dragon__sub_803D64DC(int);
@@ -465,7 +465,7 @@ void TObjEneBm3FlyNest__sub_800B264C(u8 *arg0) {
                 lbl_805D510C = 0;
                 lbl_805D5110 = (NestAttachmentPoint *)&self->f3C8;
                 TOHangerMachine01__sub_803D9C00(self->f38);
-                TObjPlayer__sub_803D9624(0, lbl_805D9CF8, self->f4B0, lbl_805D9CF8);
+                translate_matrix(0, lbl_805D9CF8, self->f4B0, lbl_805D9CF8);
                 if (self->f326 == 0) {
                     lbl_805D5118 = 0;
                     lbl_805D5114 = (s32)self->f3E0;
@@ -483,7 +483,7 @@ void TObjEneBm3FlyNest__sub_800B264C(u8 *arg0) {
                 }
                 end_effect_render__13TParticleCtrlFv();
                 set_global_state__16TObjEneRe7BeruraFi(NULL);
-                TObjPlayer__sub_803D9B78();
+                pop_matrix();
             }
             update_primary_light__9TObjEneDDFPv(arg0);
             if (updateFromCamera__15RenderFadeStateFPCf(cm, &self->f2FC) != 0) {
@@ -524,7 +524,7 @@ void* TObjEneBm3FlyNest__sub_800B2A54(void* p) { return (char*)p + 0x3d4; }
 void TObjEneBm3FlyNest__sub_800B2A5C(Obj_800B2A5C *self, u8 *child) {
     s32 i;
     for (i = 0; i < 6; i++) {
-        if (TPhotonMylla__sub_80154CB4(self->ids[i]) == child) {
+        if (find_entity_by_id(self->ids[i]) == child) {
             self->count--;
             self->ids[i] = self->ids[self->count];
             self->ids[self->count] = 0xFFFF;
@@ -537,7 +537,7 @@ s32 TObjEneBm3FlyNest__sub_800B2AF4(Obj_800B2AF4 *self, u16 id) {
     s32 n = 0;
     s32 i;
     for (i = 0; i < self->count; i++) {
-        u8 *p = TPhotonMylla__sub_80154CB4(self->ids[i]);
+        u8 *p = find_entity_by_id(self->ids[i]);
         if (p != 0 && id == get_active_id__13TObjEneBm3FlyFPv(p)) {
             n++;
         }
@@ -583,7 +583,7 @@ void TObjEneBm3FlyNest__sub_800B2C24(u8 *arg0, s32 arg1) {
         break;
     case 3:
         if (M2C_FIELD(arg0, f32 *, 0x4D8) >= lbl_805D9D20) {
-            TObjEneDD__sub_800BBA18(arg0, 9);
+            transition_enemy_state(arg0, 9);
         }
         break;
     case 5:
@@ -591,7 +591,7 @@ void TObjEneBm3FlyNest__sub_800B2C24(u8 *arg0, s32 arg1) {
     case 0:
         switch (M2C_FIELD(arg0, s32 *, 0x4D0)) {
         case 0:
-            TBoss1Dragon__sub_80143504();
+            advance_animation_playback();
             if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(arg0) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x4D0) = 1;
                 v.x = lbl_805D9D24;
@@ -611,7 +611,7 @@ void TObjEneBm3FlyNest__sub_800B2C24(u8 *arg0, s32 arg1) {
                     p.x = r * TBoss8Dragon__sub_803D64C0(a) + p.x;
                     p.y += lbl_805D9D1C;
                     p.z = r * TBoss8Dragon__sub_803D64DC(a) + p.z;
-                    TObjEneDellBiter__sub_80087350(&p, 0xF1);
+                    spawn_particle_effect(&p, 0xF1);
                     M2C_FIELD(arg0, s32 *, 0x4C8) = 0;
                 }
                 M2C_FIELD(arg0, s32 *, 0x4CC) += 1;

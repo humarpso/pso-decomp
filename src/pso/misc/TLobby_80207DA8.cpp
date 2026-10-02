@@ -37,7 +37,7 @@ struct Rec_802089B0 { u8 pad[4]; s16 f4; u8 pad2[0xE]; };
 struct Grp_802089B0 { u8 pad[8]; s32 count; s32 pad3; Rec_802089B0 recs[1]; };
 
 extern "C" {
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 extern Fn_80208BD8 lbl_804C9428[];
 void TLobby__sub_80208BD8(void);
 s32 TLobby__sub_80208C78(s32 idx, s32 id);
@@ -235,7 +235,7 @@ void TLobby__sub_80208BD8(void) {
     s32 n;
     Rec_80208BD8 *r;
     s32 i;
-    Grp_80208BD8 *g = ((Grp_80208BD8 **)&lbl_805139F8)[TObjPlayer__sub_800196EC()];
+    Grp_80208BD8 *g = ((Grp_80208BD8 **)&lbl_805139F8)[get_current_floor()];
     if (g != NULL) {
         n = g->count;
         r = g->recs;

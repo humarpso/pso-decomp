@@ -41,7 +41,7 @@ M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern const float TObjEnePanarms__data_805DA524;
 void TObjEnePanarms__sub_800E0344(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int, f32);
+M2C_UNK spawn_particle_effect(void *, int, f32);
 M2C_UNK spawn_ground_effect__10TObjPlayerFPvi(void *, int);
 M2C_UNK spawn_dead_spot_default__10TObjPlayerFii(void *, int);
 M2C_UNK TObjEnePanarms__sub_800E1C98(void *, s32);
@@ -112,7 +112,7 @@ M2C_UNK TObjEnePanarms__sub_800E1C98(void *, s32);
 M2C_UNK TObjEnePanarms__sub_800E2DE4(void *, M2C_UNK);
 void TObjEnePanarms__sub_800E2EF0(void*, s32, s32);
 s32 TObjPlayer__sub_801423A4(s32, s32, M2C_UNK);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32, f32);
 
@@ -219,7 +219,7 @@ void update_attack__14TObjEnePanarmsFPv(u8 *arg0) {
     s32 temp_r0;
     u8 *temp_r3;
 
-    temp_r3 = TPhotonMylla__sub_80154CB4((u16) M2C_FIELD(arg0, s32 *, 0x3B8));
+    temp_r3 = find_entity_by_id((u16) M2C_FIELD(arg0, s32 *, 0x3B8));
     if ((temp_r3 == NULL) || (M2C_FIELD(temp_r3, s32 *, 0x30) & 0x02000800)) {
         TObjEnePanarms__sub_800E1C98((void *)(arg0), (s32)(2));
         return;
@@ -299,7 +299,7 @@ void TObjEnePanarms__sub_800E0950(u8 *arg0) {
         VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x3A4));
         temp_f1 = stack.spC;
         stack.spC = temp_f1 + TObjEnePanarms__data_805DA544;
-        TObjEneDellBiter__sub_80087350((void *) (&stack.sp8), (int) (0xF3), (f32) (temp_f1));
+        spawn_particle_effect((void *) (&stack.sp8), (int) (0xF3), (f32) (temp_f1));
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x3B4);
     if (temp_r0 <= 0x78) {

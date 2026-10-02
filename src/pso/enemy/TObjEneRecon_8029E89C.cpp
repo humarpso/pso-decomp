@@ -41,8 +41,8 @@ void update_particle_if_active__12TObjEneReconFv(void);
 M2C_UNK GXSetScissor(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK reflect_matrix_in_plane(M2C_UNK, M2C_UNK *);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+M2C_UNK pop_matrix();
+u32 get_player_by_client_id(u32);
 s32 fn_8029E7BC(s32, M2C_UNK *);
 u32 get_state__10TSceneSoraFPv(void*);
 s32 is_state_active__14TOKeyMachine01Fv();
@@ -61,7 +61,7 @@ s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1) {
     if ((u16) lbl_805D65F8 == 0) {
         return 1;
     }
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(arg0);
+    temp_r3 = get_player_by_client_id(arg0);
     if (temp_r3 == 0U) {
         return 0;
     }
@@ -113,7 +113,7 @@ s32 TObjEneRecon__sub_8029E960(u8 *arg0) {
 
 void restore_render_scissor(s32 arg0) {
     if ((u16) lbl_805D65F8 != 0) {
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         if (arg0 != 0) {
             GXSetScissor(0, 0, 0x280, 0x1E0);
         }

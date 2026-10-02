@@ -61,7 +61,7 @@ M2C_UNK fn_80307BE8(void *);
 void TAdVIConfigGC__sub_80307DF4(u8 *arg0);
 void set_close_flag__19TWindowSubTradeMainFPv(u32);
 void set_visible__19TWindowSubTradeMainFPv(u32);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 s32 TWindow__close(u32);
 void dispatch_without_flags__20TWindowSubStatusDispFiii(u32, char *, s32);
 u32 draw_with_layer__13TAdVIConfigGCFiii(s32, void *, s32);
@@ -112,7 +112,7 @@ void TAdVIConfigGC__sub_80307D00(Cfg_80307D00 *arg0) {
         set_visible__19TWindowSubTradeMainFPv(arg0->win);
         set_close_flag__19TWindowSubTradeMainFPv(arg0->win);
         for (i = 0; i < 4; i++) {
-            p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+            p = get_player_by_client_id(i);
             if (p != 0) {
                 strncpy(arg0->names[i].s, (char *)(p + 0x85C), 0x17);
                 arg0->names[i].s[0x17] = 0;

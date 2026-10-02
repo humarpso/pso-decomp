@@ -26,7 +26,7 @@ void check_player_proximity__12TOChatSensorFPv(u8 *arg0);
 u8 TODoorAncient08__sub_80229220(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
 void run_task__12TOChatSensorFv(u8 *arg0);
-f32 TObjPlayer__sub_8001978C(f32);
+f32 newton_sqrtf(f32);
 s32 check_demo_mode__10TObjPlayerFv(void);
 M2C_UNK TObjRoomId__sub_80141CF4(void *, void *);
 extern const f32 lbl_805DB388;
@@ -34,7 +34,7 @@ extern const f32 lbl_805DB38C;
 void render__12TOChatSensorFv(u8 *arg0);
 void *strncpy(void *, void *, s32);
 void TOChatSensor__sub_8015ACE4(C_8015ACE4 *arg0, void *arg1);
-s16 TObjPlayer__sub_800196EC(void);
+s16 get_current_floor(void);
 void send_state__12TOChatSensorFPv(void *);
 void init_packet_type__12TOChatSensorFPv(void *);
 void *__ct__12TQuestThreadFv(void *, void *, u32);
@@ -51,17 +51,17 @@ extern "C" {
 
 void check_player_proximity__12TOChatSensorFPv(u8 *arg0);
 void init_params__12TOChatSensorFPv(void *arg0);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+f32 horizontal_distance_squared(void *, void *);
+u32 get_player_by_client_id(void *);
 
 extern s32 lbl_805D53A0;
 
 void check_player_proximity__12TOChatSensorFPv(u8 *arg0) {
     u32 temp_r3;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((void *) (lbl_805D53A0));
+    temp_r3 = get_player_by_client_id((void *) (lbl_805D53A0));
     if (temp_r3 != 0U) {
-        if (TObjPlayer__sub_80141CF8((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38)) < M2C_FIELD(arg0, f32 *, 0x9C)) {
+        if (horizontal_distance_squared((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38)) < M2C_FIELD(arg0, f32 *, 0x9C)) {
             M2C_FIELD(arg0, s32 *, 0xA0) = 1;
             return;
         }
@@ -112,7 +112,7 @@ void TOChatSensor__sub_8015AD54(u8 *arg0, void *arg1) {
                 }
             } else if (*(u16 *)(arg0 + 0x94) < 0x100) {
                 init_packet_type__12TOChatSensorFPv(&pkt);
-                pkt.a = TObjPlayer__sub_800196EC();
+                pkt.a = get_current_floor();
                 pkt.b = *(u16 *)(arg0 + 0x94);
                 pkt.c = 1;
                 send_state__12TOChatSensorFPv(&pkt);
@@ -159,7 +159,7 @@ void render__12TOChatSensorFv(u8 *arg0) {
     stack.sp8 = lbl_805DB388;
     stack.spC = lbl_805DB388;
     stack.sp14 = (stack.sp10 = lbl_805DB38C);
-    TObjPlayer__sub_8001978C(*((f32 *) (((s8 *) arg0) + 0x9C)));
+    newton_sqrtf(*((f32 *) (((s8 *) arg0) + 0x9C)));
     TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&stack.sp8));
   }
 }

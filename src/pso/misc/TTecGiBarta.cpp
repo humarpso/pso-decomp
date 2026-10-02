@@ -145,7 +145,7 @@ void run_task__11TTecGiBartaFv(void *arg0);
 void update_technique_by_phase__11TTecGiBartaFPv(u8 *arg0);
 s32 TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8023A244(void *);
-u32 TPhotonMylla__sub_80154CB4(u16);
+u32 find_entity_by_id(u16);
 void *__nw__7TObjectFUl(int);
 M2C_UNK advance_lifetime_or_destroy(void *);
 M2C_UNK fn_8023A694(void *);
@@ -267,7 +267,7 @@ TTecGiBarta_80230B48 *__dt__11TTecGiBartaFv(TTecGiBarta_80230B48 *self, s16 dele
 }
 
 void run_task__11TTecGiBartaFv(void *arg0) {
-    M2C_FIELD(arg0, u32 *, 0x1C) = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0xC8));
+    M2C_FIELD(arg0, u32 *, 0x1C) = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0xC8));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
         queue_destruction__7TObjectFv(arg0);
         return;

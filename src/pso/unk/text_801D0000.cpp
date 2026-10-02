@@ -27,11 +27,11 @@ void TNpcPlayer__sub_80152E74(void *cmd);
 void *TObjPlayer__sub_801D24F4(void *arg0, void *arg1);
 void swap_endian__10TNpcPlayerFPv(void *cmd);
 s32 validate_6x40_walk_to_position(void *cmd);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32 id);
+void *get_player_by_client_id(s32 id);
 s32 is_in_tl03_state__10TObjPlayerFPv(void *p);
 s32 TLobby__sub_800822E8(void *obj, s32 id);
 void set_state__9TTecLukerFPvi(void *p, s32 state);
-void TObjPlayer__sub_801D0BC0(void *obj, s16 a, s32 b);
+void run_action_state_phase__10TObjPlayerFisi(void *obj, s16 a, s32 b);
 void handle_6x40_walk_to_position(void *pkt);
 s32 obj_isState2_324(void *);
 s32 obj_testFlags30(void *, s32);
@@ -55,12 +55,12 @@ void handle_6x40_walk_to_position(void *pkt) {
     TObjPlayer__sub_801D24F4(&cmd, pkt);
     swap_endian__10TNpcPlayerFPv(&cmd);
     if (validate_6x40_walk_to_position(&cmd) != 0) {
-        p = (Player_801D0000 *)TPlayerBattleCtrl4P__sub_801BA74C(cmd.id);
+        p = (Player_801D0000 *)get_player_by_client_id(cmd.id);
         if (p != 0 && is_in_tl03_state__10TObjPlayerFPv(p) != 0 && TLobby__sub_800822E8(p, 0x1E) != 0) {
             p->x = cmd.x;
             p->z = cmd.z;
             set_state__9TTecLukerFPvi(p->luker, cmd.state);
-            TObjPlayer__sub_801D0BC0(p, 2, 0);
+            run_action_state_phase__10TObjPlayerFisi(p, 2, 0);
         }
     }
 }

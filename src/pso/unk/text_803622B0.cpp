@@ -13,7 +13,7 @@ struct Eps_803622B0 {
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void __dt__18TObjEneMe3SinowZoaFPvs(void *, s16);
-u32 TPhotonMylla__sub_80154CB4(s32);
+u32 find_entity_by_id(s32);
 void TObjEneGibbles__sub_80156720(void *);
 void __dl__7TObjectFPv(void *);
 void TObjEneEpsilon__vt0(void *, s16);
@@ -38,7 +38,7 @@ Eps_803622B0 *fn_803622B0(Eps_803622B0 *o, s16 arg1) {
         }
         for (i = 0; i < 4; i++) {
             if (o->h[i] != 0) {
-                u32 p = TPhotonMylla__sub_80154CB4(o->h[i]);
+                u32 p = find_entity_by_id(o->h[i]);
                 if (p != 0) {
                     queue_destruction__7TObjectFv((void *)p);
                 }

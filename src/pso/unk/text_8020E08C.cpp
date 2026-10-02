@@ -17,7 +17,7 @@ struct Floor_8020E08C {
 struct Archive_8020E08C { void *objects; void *enemies; };
 
 extern "C" {
-s32 TObjPlayer__sub_800196EC(void);
+s32 get_current_floor(void);
 void *alloc__22TQuestVmDownLoadServerFPv(s32);
 void send_or_handle_packet__6TLobbyFPvPvPvPvUi(void *, void *, void *, s32, u32);
 extern Floor_8020E08C TLobby__data_80513AD0[18];
@@ -46,7 +46,7 @@ void TLobby__sub_8020E08C(void) {
     TLobby__data_805D6114 = 0;
     TLobby__data_805D6110 = 0;
     TLobby__data_805D6118 = 0;
-    index = TObjPlayer__sub_800196EC();
+    index = get_current_floor();
     floor = &TLobby__data_80513AD0[index];
     bytes = floor->objects * 0x44;
     if (bytes > 0) {

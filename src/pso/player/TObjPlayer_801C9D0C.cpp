@@ -13,9 +13,9 @@ void update_timer_action__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TFontSmallLobby__sub_801C0228();
 M2C_UNK init__14TObjEnePanarmsFPvPv(void *, s32);
 M2C_UNK TObjPlayer__sub_801AF7E0(u32);
-s32 TObjPlayer__sub_801D0458();
+s32 get_idle_animation__10TObjPlayerFPv();
 M2C_UNK update_position_from_target__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801D0BC0(void *, M2C_UNK, M2C_UNK);
+M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, M2C_UNK, M2C_UNK);
 M2C_UNK set_revived_state__10TObjPlayerFPv(M2C_UNK *);
 M2C_UNK broadcast_lobby_display__10TObjPlayerFPv(M2C_UNK *);
 M2C_UNK set_action_flag_40__10TObjPlayerFPv(void *);
@@ -76,7 +76,7 @@ void update_timer_state__10TObjPlayerFPv(void *arg0) {
         M2C_FIELD(arg0, f32 *, 0x2B4) = temp_f1;
         if (temp_f1 < TObjPlayer__data_805DC36C) {
             M2C_FIELD(arg0, s16 *, 0x328) = 1;
-            init__14TObjEnePanarmsFPvPv(arg0, TObjPlayer__sub_801D0458());
+            init__14TObjEnePanarmsFPvPv(arg0, get_idle_animation__10TObjPlayerFPv());
             set_action_flag_40__10TObjPlayerFPv(arg0);
             M2C_FIELD(arg0, f32 *, 0x2B4) = (f32) TObjPlayer__data_805DC378;
         }
@@ -86,7 +86,7 @@ void update_timer_state__10TObjPlayerFPv(void *arg0) {
         M2C_FIELD(arg0, f32 *, 0x2B4) = temp_f1_2;
         if (temp_f1_2 < TObjPlayer__data_805DC36C) {
             clear_status_bit6__10TObjPlayerFPv();
-            TObjPlayer__sub_801D0BC0(arg0, 1, 0);
+            run_action_state_phase__10TObjPlayerFisi(arg0, 1, 0);
         }
         break;
     }
@@ -108,7 +108,7 @@ void update_timer_action__10TObjPlayerFPv(u8 *arg0) {
         M2C_FIELD(arg0, f32 *, 0x2B4) = temp_f1;
         if (temp_f1 < TObjPlayer__data_805DC36C) {
             M2C_FIELD(arg0, s16 *, 0x328) = 1;
-            init__14TObjEnePanarmsFPvPv(arg0, TObjPlayer__sub_801D0458());
+            init__14TObjEnePanarmsFPvPv(arg0, get_idle_animation__10TObjPlayerFPv());
             set_action_flag_40__10TObjPlayerFPv(arg0);
             M2C_FIELD(arg0, f32 *, 0x2B4) = (f32) TObjPlayer__data_805DC378;
         }

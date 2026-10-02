@@ -26,7 +26,7 @@ M2C_UNK init_slots__23TAdSinglePlyChrSelectGCFv();
 s32 try_assign_battle_ctrl__10TObjPlayerFiUs(s32, u16);
 s32 TLobby__sub_8030A770(void);
 M2C_UNK TCameraCtrl__sub_8006B324();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FF4F0(void);
 M2C_UNK TWindowSubComCard__sub_8007A9C0(int, int);
 s32 TAdSinglePlyChrSelectGC__sub_801FFCFC(s32 arg0, s32 arg1);
@@ -46,7 +46,7 @@ M2C_UNK TAdSinglePlyChrSelectGC__sub_80200470();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_802010E8();
 u32 TAdSinglePlyChrSelectGC__sub_80201204(u32 *, M2C_UNK);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8028DC14();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 M2C_UNK __dl__FPv(u32 *);
 u32 *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 M2C_UNK clear_flags__23TAdSinglePlyChrSelectGCFi(M2C_UNK);
@@ -69,7 +69,7 @@ extern u32 lbl_805D5F64;
 s32 init__23TAdSinglePlyChrSelectGCFv(void) {
     init_slots__23TAdSinglePlyChrSelectGCFv();
     if (((u32) lbl_805D5F60 != 0U) && ((u32) lbl_805D5F64 != 0U) && ((u32) lbl_805D5F58 != 0U)) {
-        if ((TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != 0U) && (is_technique_ready__8TTecCtrlFv() == 0) && (fn_80203284() != 1)) {
+        if ((get_player_by_client_id(lbl_805D53A0) != 0U) && (is_technique_ready__8TTecCtrlFv() == 0) && (fn_80203284() != 1)) {
             init_battle_selection__10TObjPlayerFv();
             TAdSinglePlyChrSelectGC__sub_8028DC14();
         }
@@ -94,7 +94,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FF4F0(void) {
   var_r31 = 0;
   do
   {
-    if (((TPlayerBattleCtrl4P__sub_801BA74C((s32)((int) var_r31)) != 0U) && (((volatile long)is_technique_ready__8TTecCtrlFv()) == 0)) && (TLobby__sub_8030A770() == 0))
+    if (((get_player_by_client_id((s32)((int) var_r31)) != 0U) && (((volatile long)is_technique_ready__8TTecCtrlFv()) == 0)) && (TLobby__sub_8030A770() == 0))
     {
       temp_r3 = get_char_index__23TAdSinglePlyChrSelectGCFUi(var_r31);
       if (temp_r3 != 0U)

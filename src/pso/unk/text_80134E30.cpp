@@ -141,7 +141,7 @@ s32 free__11TOBoss4RockFUi(int);
 u8 *alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
 s32 TObjPlayer__sub_801B4CE4(void *, void *);
 s32 TObjPlayer__sub_801B4FD8(void *);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+s32 get_player_by_client_id(void *);
 extern s32 lbl_805D53A0;
 void TLobby__sub_80135598(s32 arg0);
 s32 TLobby__sub_801A51C0(void *);
@@ -166,7 +166,7 @@ extern s32 TLobby__data_805D53AC;
 extern char lbl_8043EF04[];
 extern char TLobby__data_8050AAE8[][16];
 extern const char TLobby__data_805DB0B0[4];
-s32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+s32 get_player_by_client_id(void *);
 void TLobby__sub_8013A170(const char *fmt, ...);
 char *strncpy(char *, const char *, u32);
 void TLobby__sub_80136000(s32 idx, s32 v);
@@ -216,7 +216,7 @@ u16 obj_getField1c(void *);
 void TLobby__sub_80135208(s32 arg0);
 void TLobby__sub_8013A170(const char *fmt, ...);
 void TLobby__sub_8013A348(void *);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+s32 get_player_by_client_id(void *);
 Plr_801354AC *TObjPlayer__sub_801BDD8C(void *);
 char *strncpy(char *, const char *, u32);
 extern char lbl_8043EE7C[];
@@ -274,7 +274,7 @@ void copy_header_struct__6TLobbyFPvPv(void *, void *);
 void __dt__18TPlyJoinLobbyEntryFv(void *, s32);
 void TLobby__sub_8013A170(const char *fmt, ...);
 void TLobby__sub_8013AA64(void *, void *);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+s32 get_player_by_client_id(void *);
 u8 *TObjPlayer__sub_801BDEF8(s32, s32, void *);
 char *strncpy(char *, const char *, u32);
 extern char lbl_8043EE58[];
@@ -468,7 +468,7 @@ void handle_6x70_sync_player_disp_and_inventory(Pkt_801354AC *arg0) {
         disp = &arg0->disp;
         TLobby__sub_8013A348(disp);
         if (disp->id != lbl_805D53A0) {
-            p = (Obj_801354AC *)TPlayerBattleCtrl4P__sub_801BA74C((void *)disp->id);
+            p = (Obj_801354AC *)get_player_by_client_id((void *)disp->id);
             if (p != NULL) {
                 delete p;
             }
@@ -486,7 +486,7 @@ void TLobby__sub_80135598(s32 arg0) {
     TObjPlayer__sub_801B4FD8((void *) (&stack.sp8));
     temp_r3 = (u8 *)(alloc_buffer__11TOBoss4RockFPv(0x494));
     if (temp_r3 != NULL) {
-        TObjPlayer__sub_801B4CE4((void *) (TPlayerBattleCtrl4P__sub_801BA74C((void *) (lbl_805D53A0))), (void *) (temp_r3 + 8));
+        TObjPlayer__sub_801B4CE4((void *) (get_player_by_client_id((void *) (lbl_805D53A0))), (void *) (temp_r3 + 8));
         M2C_FIELD(temp_r3, s8 *, 0) = 0x70;
         M2C_FIELD(temp_r3, s8 *, 1) = 0;
         M2C_FIELD(temp_r3, s16 *, 2) = (s16) lbl_805D53A0;
@@ -718,7 +718,7 @@ void TLobby__sub_80135FFC(void) {  }
 void TLobby__sub_80136000(s32 idx, s32 v) {
     Obj_80136000 *p;
     TLobby__data_805D53AC = v;
-    p = (Obj_80136000 *)TPlayerBattleCtrl4P__sub_801BA74C((void *)idx);
+    p = (Obj_80136000 *)get_player_by_client_id((void *)idx);
     if (p) {
         delete p;
         TLobby__sub_8013A170(lbl_8043EF04, idx);
@@ -736,7 +736,7 @@ void TLobby__sub_80136080(s32 arg0, s32 arg1) {
         __dt__18TPlyJoinLobbyEntryFv(&e, -1);
         return;
     }
-    p = (Obj_80136080 *)TPlayerBattleCtrl4P__sub_801BA74C((void *)e.client_id);
+    p = (Obj_80136080 *)get_player_by_client_id((void *)e.client_id);
     if (p != NULL) {
         delete p;
         TLobby__sub_8013A170(TLobby__data_8043EF38, e.client_id);

@@ -23,17 +23,17 @@ u8 *TObjPlayer__sub_801C6FF8(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3);
 M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 M2C_UNK get_cursor_state__11TMainCursorFv();
 s32 test_flag_2000000__10TObjPlayerFPv(s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+s32 get_player_by_client_id(u16);
 s32 TObjPlayer__sub_801BF914(s32);
 u8 TObjPlayer__sub_801C6BEC(void *arg0);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-M2C_UNK TOMonitorMachine01__sub_803D8B5C(M2C_UNK, f32, f32, f32);
+M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK set_position_vec3__10TObjPlayerFPvPv(M2C_UNK, s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK set_chunk_material_color(void *);
 M2C_UNK TObjFish__sub_803E46BC();
@@ -46,7 +46,7 @@ extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DC358;
 void TObjPlayer__sub_801C6C08(void *arg0);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+s32 get_player_by_client_id(u16);
 u8 *TObjPlayer__sub_801C6FF8(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3);
 void *__nw__7TObjectFUl(u32);
 u8 *TObjPlayer__sub_801C6D40(s16 arg0, s8 arg1);
@@ -90,7 +90,7 @@ u8 TObjPlayer__sub_801C6BEC(void *arg0) {
 
 void TObjPlayer__sub_801C6C08(void *arg0) {
     s32 temp_r3;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x1E));
+    temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x1E));
     if ((temp_r3 != 0) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0) && (TObjPlayer__sub_801C6BEC(arg0) != 0) && (test_flag_2000000__10TObjPlayerFPv(temp_r3) == 0)) {
         TObjPlayer__sub_803D9B2C();
         begin_effect_render__13TParticleCtrlFv();
@@ -100,14 +100,14 @@ void TObjPlayer__sub_801C6C08(void *arg0) {
         some_id_805c6f74 |= 0x11;
         set_position_vec3__10TObjPlayerFPvPv(0, TObjPlayer__sub_801BF914(temp_r3 + 0x84C));
         rotate_matrix_y(0, M2C_FIELD(lbl_805D4DF0, s32 *, 0x194) + M2C_FIELD(arg0, s32 *, 0x20));
-        TOMonitorMachine01__sub_803D8B5C(0, lbl_805DC358, lbl_805DC358, lbl_805DC358);
+        scale_matrix(0, lbl_805DC358, lbl_805DC358, lbl_805DC358);
         set_chunk_material_color(lbl_80447020 + TObjPlayer__sub_801C6BEC(arg0) * 0x10);
         get_cursor_state__11TMainCursorFv();
         TObjFish__sub_803E46BC();
         copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);
         some_id_805c6f74 = lbl_805D5660;
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 
@@ -120,7 +120,7 @@ void TObjPlayer__sub_801C6D30(void *arg0) {
 u8 *TObjPlayer__sub_801C6D40(s16 arg0, s8 arg1) {
     u8 *e;
     u8 *p;
-    e = ((u8 *)TPlayerBattleCtrl4P__sub_801BA74C(arg0));
+    e = ((u8 *)get_player_by_client_id(arg0));
     if (e == NULL) {
         return NULL;
     }

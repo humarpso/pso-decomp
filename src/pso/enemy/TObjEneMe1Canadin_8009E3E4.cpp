@@ -176,20 +176,20 @@ struct Canadin_8009E860 {
 extern "C" {
 void TObjEneMe1Canadin__sub_8009E930(u8 *arg0);
 void TObjEneMe1Canadin__sub_8009E948(u8 *arg0);
-s32 TObjEneDD__sub_800BBA18(void * a0, s32 a1);
+s32 transition_enemy_state(void * a0, s32 a1);
 s32 TObjEneMe1Canadin__vt106(u8 *arg0);
-s32 TObjEneDD__sub_800BBA18(void * a0, s32 a1);
+s32 transition_enemy_state(void * a0, s32 a1);
 void TObjEneMe1Canadin__vt103(u8 *arg0);
 extern const f32 lbl_805D991C;
 s32 TObjEneMe1Canadin__sub_8009E76C(u8 *arg0);
 void reset_map_core__17TObjEneMe1CanadinFPv(void *, void *);
 extern RecoveredGlobal_8009E4AC_lbl_8043A2A0 lbl_8043A2A0;
 void TObjEneMe1CanadinLeader__sub_8009E4AC(u8 *arg0, s32 arg1);
-f32 TObjPlayer__sub_8001978C(f32);
+f32 newton_sqrtf(f32);
 void TBoss2DeRolLe__sub_800B98D8(void *, u32);
 s32 TObjEneDD__sub_800BB484(void *, Entry_8009E860 *);
-void *TPhotonMylla__sub_80154CB4(u16);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+void *find_entity_by_id(u16);
+u32 get_player_by_client_id(u16);
 extern const f32 lbl_805D98F4;
 s32 TObjEneMe1Canadin__sub_8009E860(Canadin_8009E860 *self, f32 *out, f32 _w2);
 }
@@ -205,11 +205,11 @@ void noop__17TObjEneMe1CanadinFv(void);
 int select_and_apply_target__17TObjEneMe1CanadinFPv(void* p);
 s32 try_trigger_action__17TObjEneMe1CanadinFPv(void *arg0);
 void update_move__17TObjEneMe1CanadinFPv(void* p);
-s32 TObjEneDD__sub_800BBA18(void * a0 = 0, s32 a1 = 0);
+s32 transition_enemy_state(void * a0 = 0, s32 a1 = 0);
 int TObjEneDD__vt86(void*);
 int TObjEneEpsilon__sub_800B96A4(void*);
 int TObjEneMe1Canadin__sub_8009E3E4(void*);
-void *TPhotonMylla__sub_80154CB4(u16);
+void *find_entity_by_id(u16);
 int copy_vec4__13TRaderMapCoreFPvPv(void*);
 int fn_800B9194(void*);
 int select_and_apply_target__14TObjEneEpsilonFPvf(void*);
@@ -232,7 +232,7 @@ int select_and_apply_target__17TObjEneMe1CanadinFPv(void* p) { return select_and
 void noop__17TObjEneMe1CanadinFv(void) {  }
 s32 try_trigger_action__17TObjEneMe1CanadinFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x390) == 0U) {
-        TObjEneDD__sub_800BBA18(arg0, 0xE);
+        transition_enemy_state(arg0, 0xE);
         return 1;
     }
     return 0;
@@ -243,13 +243,13 @@ s32 TObjEneMe1Canadin__vt106(u8 *arg0) {
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x3C8);
     if (temp_r4 & 0x20) {
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (temp_r4 & 0xFFFFFFDF);
-        TObjEneDD__sub_800BBA18((void *)((void *)(arg0)), (s32)((int) (0xA)));
+        transition_enemy_state((void *)((void *)(arg0)), (s32)((int) (0xA)));
         M2C_FIELD(arg0, s32 *, 0x40C) = 0;
         return 1;
     }
     if (temp_r4 & 0x40) {
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (temp_r4 & 0xFFFFFFBF);
-        TObjEneDD__sub_800BBA18((void *)((void *)(arg0)), (s32)((int) (0xB)));
+        transition_enemy_state((void *)((void *)(arg0)), (s32)((int) (0xB)));
         return 1;
     }
     return 0;
@@ -286,7 +286,7 @@ s32 check_target__17TObjEneMe1CanadinFPv(void *arg0) {
     var_r31 = 0;
     if (M2C_FIELD(arg0, f32 *, 0x3AC) < lbl_805D98E4) {
         var_r31 = 1;
-        M2C_FIELD(arg0, void **, 0x3C0) = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x4C8));
+        M2C_FIELD(arg0, void **, 0x3C0) = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x4C8));
         temp_r3 = M2C_FIELD(arg0, void **, 0x3C0);
         if ((((VObj_8009E7C4_8009E474 *)temp_r3)->m114(M2C_FIELD(arg0, s32 *, 0x390)) == 0) && (TObjEneMe1Canadin__sub_8009E860((Canadin_8009E860 *)(arg0), (f32 *)(&sp8), lbl_805D9920) != 0) && (sp8 > lbl_805D98E4)) {
             var_r31 = 0;
@@ -305,11 +305,11 @@ s32 TObjEneMe1Canadin__sub_8009E860(Canadin_8009E860 *self, f32 *out, f32 _w2) {
     *out = lbl_805D98F4;
     count = TObjEneDD__sub_800BB484(self, list);
     for (i = 0; i < count; i++) {
-        id = TPlayerBattleCtrl4P__sub_801BA74C(list[i].id);
+        id = get_player_by_client_id(list[i].id);
         if (id != self->owner) {
-            self->target = (Target_8009E860 *)TPhotonMylla__sub_80154CB4(self->target_id);
+            self->target = (Target_8009E860 *)find_entity_by_id(self->target_id);
             if (self->target->m114(id) != 0) {
-                *out = TObjPlayer__sub_8001978C(list[i].dist);
+                *out = newton_sqrtf(list[i].dist);
                 found = 1;
                 TBoss2DeRolLe__sub_800B98D8(self, id);
                 break;
@@ -335,20 +335,20 @@ int call_dd_vt86__17TObjEneMe1CanadinFPv(void* p) { return TObjEneDD__vt86(p); }
 
 void TObjEneMe1Canadin__vt103(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x3C8) & 0x100) {
-        TObjEneDD__sub_800BBA18((void *)((void *)(arg0)), (s32)((int) (7)));
+        transition_enemy_state((void *)((void *)(arg0)), (s32)((int) (7)));
         return;
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x46C) < 2) {
-            TObjEneDD__sub_800BBA18((void *)((void *)(arg0)), (s32)((int) (6)));
+            transition_enemy_state((void *)((void *)(arg0)), (s32)((int) (6)));
             M2C_FIELD(arg0, s32 *, 0x46C) = (s32) (M2C_FIELD(arg0, s32 *, 0x46C) + 1);
             return;
         }
-        TObjEneDD__sub_800BBA18((void *)((void *)(arg0)), (s32)((int) (7)));
+        transition_enemy_state((void *)((void *)(arg0)), (s32)((int) (7)));
         M2C_FIELD(arg0, s32 *, 0x46C) = 0;
         return;
     }
-    TObjEneDD__sub_800BBA18((void *)((void *)(arg0)), (s32)((int) (6)));
+    transition_enemy_state((void *)((void *)(arg0)), (s32)((int) (6)));
 }
 
 void update_move__17TObjEneMe1CanadinFPv(void* p) { if (fn_800B9194(p) != 0) { TObjEneEpsilon__sub_800B96A4(p); update_velocity__9TObjEneDDFPv(p); update_angle__17TObjEneMe1CanadinFPv(p); } }

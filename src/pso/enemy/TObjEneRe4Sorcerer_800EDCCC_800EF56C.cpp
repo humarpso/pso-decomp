@@ -162,13 +162,13 @@ void TObjEneRe4Sorcerer__vt99(u8 *arg0);
 s16 obj_getField1c(void *);
 s32 is_alive__9TObjEneDDFPv(void *);
 s32 check_shield__18TObjEneRe4SorcererFiPv(s32 arg0, void *arg1);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
 extern const f32 lbl_805DA7E4;
 s32 TObjEneRe4Sorcerer__sub_800EF6A4(u8 *arg0, s32 arg1, f32 *arg2);
-u32 TPhotonMylla__sub_80154CB4(u16);
+u32 find_entity_by_id(u16);
 void TObjEneRe4Sorcerer__sub_800ED268(u8 *arg0);
 void TObjEneRe4Sorcerer__sub_800EF7C8(Obj_800EF7C8 *self);
-u32 TPhotonMylla__sub_80154CB4(u16);
+u32 find_entity_by_id(u16);
 void TObjEneRe4Sorcerer__sub_800ED2B4(u8 *arg0);
 void TObjEneRe4Sorcerer__sub_800EF844(Obj_800EF844 *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -181,7 +181,7 @@ void TObjEneDD__sub_800BAF1C(void *, Vec_800EF95C *, f32, f32, f32);
 void reset_transform__13TObjEneRe4BitFPv(u32);
 void calc_orb_positions__18TObjEneRe4SorcererFPv(void *arg0);
 void update_collision_center__18TObjEneRe4SorcererFPv(void *);
-u32 TPhotonMylla__sub_80154CB4(u16);
+u32 find_entity_by_id(u16);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 void TBoss4Zako__sub_803D8910(void *, void *);
@@ -203,12 +203,12 @@ void set_photon_state__18TObjEneRe4SorcererFPv(void *arg0);
 s32 try_attack__18TObjEneRe4SorcererFiff(s32 arg0, f32 farg0, f32 farg1);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 s32 TObjEneEpsilon__sub_800BBE64(s32, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneRe4Sorcerer__sub_800ED428(u32, s32);
 s32 TObjEneRe4Sorcerer__sub_800EFB60(s32, f32, f32);
 void TObjEneRe4Sorcerer__sub_800EFE30(void);
-u32 TPhotonMylla__sub_80154CB4(u16);
+u32 find_entity_by_id(u16);
 s32 check_v2_mode__9TObjEneDDFv();
 s32 fn_800B9194(s32);
 M2C_UNK fn_800B98C0(s32);
@@ -233,7 +233,7 @@ void calc_orb_positions__18TObjEneRe4SorcererFPv(void *arg0) {
 
 void apply_mylla_effect__18TObjEneRe4SorcererFPv(void *arg0) {
     u32 temp_r3;
-    temp_r3 = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x3E6));
+    temp_r3 = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x3E6));
     if (temp_r3 != 0U) {
         TObjEneRe4Sorcerer__sub_800ED428((u32)(temp_r3), (s32)(2));
     }
@@ -242,12 +242,12 @@ void apply_mylla_effect__18TObjEneRe4SorcererFPv(void *arg0) {
 void set_photon_state__18TObjEneRe4SorcererFPv(void *arg0) {
     u32 temp_r3;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3E8) == 0) {
-        temp_r3 = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x3E4));
+        temp_r3 = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x3E4));
         if (temp_r3 != 0U) {
             TObjEneRe4Sorcerer__sub_800ED428((u32)(temp_r3), (s32)(0));
         }
     } else {
-        temp_r3 = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x3E4));
+        temp_r3 = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x3E4));
         if (temp_r3 != 0U) {
             TObjEneRe4Sorcerer__sub_800ED428((u32)(temp_r3), (s32)(1));
         }
@@ -257,7 +257,7 @@ void set_photon_state__18TObjEneRe4SorcererFPv(void *arg0) {
 s32 TObjEneRe4Sorcerer__sub_800EF6A4(u8 *arg0, s32 arg1, f32 *arg2) {
     f32 temp_f1;
     if ((is_alive__9TObjEneDDFPv((void *) (arg1)) != 0) && (check_shield__18TObjEneRe4SorcererFiPv((s32)((void *) (arg0)), (void *)((void *) (arg1))) != 0)) {
-        temp_f1 = TObjPlayer__sub_80141CF8((void *) (arg0 + 0x38), (void *) (arg1 + 0x38));
+        temp_f1 = horizontal_distance_squared((void *) (arg0 + 0x38), (void *) (arg1 + 0x38));
         if ((temp_f1 <= lbl_805DA7E4) && (temp_f1 > *arg2)) {
             *arg2 = temp_f1;
             M2C_FIELD(arg0, s16 *, 0x38C) = obj_getField1c((void *) (arg1));
@@ -280,7 +280,7 @@ void TObjEneRe4Sorcerer__sub_800EF7C8(Obj_800EF7C8 *self) {
     self->m90();
     self->m91();
     for (i = 0; i < 2; i++) {
-        u32 p = TPhotonMylla__sub_80154CB4(self->orbs[i]);
+        u32 p = find_entity_by_id(self->orbs[i]);
         if (p != 0) {
             TObjEneRe4Sorcerer__sub_800ED268((u8 *)p);
         }
@@ -292,7 +292,7 @@ void TObjEneRe4Sorcerer__sub_800EF844(Obj_800EF844 *self) {
     self->m89();
     self->m92();
     for (i = 0; i < 2; i++) {
-        u32 p = TPhotonMylla__sub_80154CB4(self->orbs[i]);
+        u32 p = find_entity_by_id(self->orbs[i]);
         if (p != 0) {
             TObjEneRe4Sorcerer__sub_800ED2B4((u8 *)p);
         }
@@ -308,18 +308,18 @@ void advance_anim_frame__18TObjEneRe4SorcererFPv(void *arg0) {
 
 void request_death_effect__18TObjEneRe4SorcererFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3E8) != 2) {
-        TObjEneDD__sub_800BBA18(arg0, 4);
+        transition_enemy_state(arg0, 4);
         return;
     }
-    TObjEneDD__sub_800BBA18(arg0, 6);
+    transition_enemy_state(arg0, 6);
 }
 
 void set_motion_by_state__18TObjEneRe4SorcererFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3E8) != 2) {
-        TObjEneDD__sub_800BBA18(arg0, 5);
+        transition_enemy_state(arg0, 5);
         return;
     }
-    TObjEneDD__sub_800BBA18(arg0, 7);
+    transition_enemy_state(arg0, 7);
 }
 
 void TObjEneRe4Sorcerer__sub_800EF95C(Obj_800EF95C *self, f32 speed) {
@@ -351,7 +351,7 @@ void TObjEneRe4Sorcerer__sub_800EF95C(Obj_800EF95C *self, f32 speed) {
     self->ang += 0x2AAA;
     TObjEneDD__sub_800BA934(self);
     for (i = 0; i < 2; i++) {
-        p = TPhotonMylla__sub_80154CB4(self->orbs[i]);
+        p = find_entity_by_id(self->orbs[i]);
         if (p != 0) {
             reset_transform__13TObjEneRe4BitFPv(p);
         }

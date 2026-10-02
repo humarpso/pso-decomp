@@ -34,7 +34,7 @@ void TObjFish__sub_800E3074(int);
 void reset_fish_globals__8TObjFishFv();
 void TBoss6PlotFalz__sub_802ABF44(f32);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
 void set_global_flag__10TObjPlayerFv();
@@ -44,7 +44,7 @@ void TObjFish__sub_800E3074(int);
 void reset_fish_globals__8TObjFishFv();
 void TBoss6PlotFalz__sub_802ABF44(f32);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 int set_global_param__8TObjFishFi(void);
 void TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
@@ -121,7 +121,7 @@ void TObjFish__sub_8033DD4C(void *p) {
         TObjEneSlimeOne__sub_803E4AF4(*(s32 *)(arg0 + 0x34), *(s32 *)(arg0 + 0x3C), *(f32 *)(arg0 + 0x4C));
         clear_render_callback__8TObjFishFv(*(s32 *)(arg0 + 0x80));
         clear_global_state__10TObjPlayerFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         if (f < 1.0f) {
             reset_fish_globals__8TObjFishFv();
         }
@@ -156,7 +156,7 @@ void TObjFish__sub_8033DE60(void *p) {
         TObjEneSlimeOne__sub_803E4AF4(*(s32 *)(arg0 + 0x28), *(s32 *)(arg0 + 0x30), *(f32 *)(arg0 + 0x4C));
         clear_render_callback__8TObjFishFv(*(s32 *)(arg0 + 0x70));
         clear_global_state__10TObjPlayerFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         if (f < 1.0f) {
             reset_fish_globals__8TObjFishFv();
         }

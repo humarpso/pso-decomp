@@ -10,9 +10,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 s32 is_patrol_active__21TObjEneRe7BeruraPunchFPv(void *);
-M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK advance_animation_playback();
 
 extern const f32 lbl_805D973C;
 }
@@ -142,11 +142,11 @@ extern "C" void state_patrol__16TObjEneRe7BeruraFPvi(void *arg0, s32 arg1) {
         break;
     case 3:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x60) >= (s32) M2C_FIELD(arg0, s32 *, 0x4C8)) {
-            TObjEneDD__sub_800BBA18(arg0, 5);
+            transition_enemy_state(arg0, 5);
         }
         break;
     case 0:
-        TBoss1Dragon__sub_80143504();
+        advance_animation_playback();
         if (is_patrol_active__21TObjEneRe7BeruraPunchFPv(arg0) == 0) {
             M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805D973C;
         }

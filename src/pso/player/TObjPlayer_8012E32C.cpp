@@ -16,7 +16,7 @@ M2C_UNK get_entity_id__10TObjPlayerFPv();
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi();
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 
 void notify_joined_game_entity__10TObjPlayerFPv(u8 *arg0) {
     u32 temp_r31;
@@ -34,7 +34,7 @@ void notify_joined_game_entity__10TObjPlayerFPv(u8 *arg0) {
             rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x38));
             rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x40));
             TObjBoss2Tunnel__sub_803DB470(temp_r31);
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
         }
     }
 }

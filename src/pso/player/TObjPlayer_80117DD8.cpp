@@ -8,8 +8,8 @@ extern "C" {
 s32 get_field_3e4__10TObjPlayerFPv(Pl_80117F14 *);
 u32 test_flag3__9TItemDataFPv(Pl_80117F14 *);
 u8 get_slot_count__14TItemProShieldFPv(void *);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
-Pl_80117F14 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+f32 horizontal_distance_squared(void *, void *);
+Pl_80117F14 *get_player_by_client_id(s32);
 extern const f64 lbl_8043E650[];
 s32 TObjPlayer__sub_80117F14(u16 idx, u8 *item);
 }
@@ -43,14 +43,14 @@ s32 TObjPlayer__sub_80117F14(u16 idx, u8 *item) {
     Pl_80117F14 *other;
     void *it;
     count = 0;
-    me = TPlayerBattleCtrl4P__sub_801BA74C(idx);
+    me = get_player_by_client_id(idx);
     if (me != NULL && item != NULL) {
         key = get_field_3e4__10TObjPlayerFPv(me);
         for (i = 0; i != 4; i++) {
             if (i != idx) {
-                other = TPlayerBattleCtrl4P__sub_801BA74C(i);
+                other = get_player_by_client_id(i);
                 if (other != NULL && key == get_field_3e4__10TObjPlayerFPv(other) &&
-                    TObjPlayer__sub_80141CF8(me->pos, other->pos) < lbl_8043E650[0] &&
+                    horizontal_distance_squared(me->pos, other->pos) < lbl_8043E650[0] &&
                     (it = (void *)test_flag3__9TItemDataFPv(other)) != NULL &&
                     item[2] == get_slot_count__14TItemProShieldFPv(it)) {
                     count++;

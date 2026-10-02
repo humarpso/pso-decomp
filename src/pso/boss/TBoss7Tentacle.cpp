@@ -43,7 +43,7 @@ M2C_UNK TBoss7Tentacle__sub_803D8A6C(int, int, int, int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9730(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjFish__sub_803E46BC(void *);
@@ -120,7 +120,7 @@ void render__14TBoss7TentacleFv(u8 *arg0) {
         TObjFish__sub_803E46BC((void *) (lbl_80541528));
         break;
     }
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 #pragma push

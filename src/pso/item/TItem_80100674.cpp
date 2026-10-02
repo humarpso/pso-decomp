@@ -172,7 +172,7 @@ struct TItemData
 extern "C" {
 u8 *lookup_inventory_item__10TObjPlayerFPv(s32);
 u32 TObjPlayer__sub_801B8E68(int, int);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+s32 get_player_by_client_id(void *);
 void TItem__sub_801007B4(s32 arg0, s32 arg1);
 s16 clamp_field_32E__10TObjPlayerFPv(void *);
 s16 clamp_value__10TObjPlayerFPv(void *);
@@ -180,13 +180,13 @@ void TObjPlayer__sub_800113E4(void *, s16);
 s16 obj_getS16_32E(void *);
 s16 obj_getS16_32C(void *);
 void set_facing__10TObjPlayerFPvs(void *, s16);
-void TObjPlayer__sub_8010069C(u8 *arg0);
+void refresh_owner_stats__5TItemFPv(u8 *arg0);
 int TObjPlayer__sub_80019248(void *);
 s32 get_field_d8__10TObjPlayerFPv(void *);
 u8 *TLobby__sub_80101AB0(s32);
 void dispatch_action__10TObjPlayerFPvii(void *, s32, s32);
 void TObjPlayer__sub_801B9634(u32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+s32 get_player_by_client_id(void *);
 u8 get_field_ed__10TObjPlayerFPv(u32);
 s32 get_field_d8__10TObjPlayerFPv(void *);
 void TItem__sub_801007B4(s32 arg0, s32 arg1);
@@ -241,7 +241,7 @@ typedef struct VObj_18_94668e VObj_18_94668e;
 #define PSO_VCALL_VObj_18_94668e_m21(_self, _arg0) (((VObj_18_94668e *)(_self))->m21((_arg0)))
 #define PSO_VCALL_VObj_18_94668e_m20(_self, _arg0) (((VObj_18_94668e *)(_self))->m20((_arg0)))
 #define PSO_VCALL_VObj_18_94668e_m71(_self) (((VObj_18_94668e *)(_self))->m71())
-void TObjPlayer__sub_8010069C(u8 *arg0) {
+void refresh_owner_stats__5TItemFPv(u8 *arg0) {
   s16 temp_r31;
   u8 *temp_r3;
   u8 *temp_r3_2;
@@ -278,7 +278,7 @@ void TItem__sub_801007B0(void) {  }
 void TItem__sub_801007B4(s32 arg0, s32 arg1) {
     s32 temp_r3;
     u8 *temp_r3_2;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((void *) (u16)arg0);
+    temp_r3 = get_player_by_client_id((void *) (u16)arg0);
     if (temp_r3 != 0) {
         temp_r3_2 = lookup_inventory_item__10TObjPlayerFPv(arg1);
         if ((temp_r3_2 != NULL) && (TObjPlayer__sub_801B8E68((int) (temp_r3), (int) (temp_r3_2)) == 0U)) {
@@ -300,7 +300,7 @@ s32 TItem__sub_80100824(s32 arg0) {
   {
     return 0;
   }
-  temp_r3_2 = TPlayerBattleCtrl4P__sub_801BA74C((void *)((u32) ((u16)get_id__13TItemProArmorFPv(temp_r3))));
+  temp_r3_2 = get_player_by_client_id((void *)((u32) ((u16)get_id__13TItemProArmorFPv(temp_r3))));
   if (temp_r3_2 == 0)
   {
     return 0;

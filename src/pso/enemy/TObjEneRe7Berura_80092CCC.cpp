@@ -138,10 +138,10 @@ void clear_field_388__9TObjEneDDFPv(void *p);
 void set_active__9TObjEneDDFPv(void *p);
 void TObjEneDD__sub_800BACA4(void *arg0, f32 farg0, f32 farg1, f32 farg2);
 void TBoss8Dragon__sub_800BB780(void *);
-s32 TObjEneDD__sub_800BBA18(void *, s32);
+s32 transition_enemy_state(void *, s32);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
-s32 TBoss1Dragon__sub_80143504(void *);
+s32 advance_animation_playback(void *);
 extern const f32 TObjEneRe7Berura__data_805D9738;
 void TObjEneRe7Berura__sub_80093470(Berura_80093470 *obj, s32 mode);
 }
@@ -223,17 +223,17 @@ void TObjEneRe7Berura__sub_80093470(Berura_80093470 *obj, s32 mode) {
         self->fieldB8 = 6;
         obj->m94();
         self->field3C0 &= ~7;
-        TBoss1Dragon__sub_80143504(self);
+        advance_animation_playback(self);
         TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv(self, 0x4003A826), &self->pos, 0, 0);
         set_active__9TObjEneDDFPv(self);
         break;
     case 3:
         if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(self) != 0) {
-            TObjEneDD__sub_800BBA18(self, self->field378);
+            transition_enemy_state(self, self->field378);
         }
         break;
     case 0:
-        TBoss1Dragon__sub_80143504(self);
+        advance_animation_playback(self);
         VecCopy__FP3VecPC3Vec(&v, &self->vel);
         speed = clamp_velocity__15TObjBoss2TunnelFPv(&v);
         TObjEneDD__sub_800BACA4(self, v.x, v.z, speed);

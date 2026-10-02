@@ -40,21 +40,21 @@ void TCameraCtrl__sub_803D8934(int, Vec3_80352240 *, Vec3_80352240 *);
 void TObjPlayer__sub_803D8CD4(int);
 void rotate_matrix_y(int, s32);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 extern Vec3_80352240 lbl_804790D0[];
 extern Vec3_80352240 lbl_804790DC[];
 void TObjLobbyMain__sub_80352240(u8 *arg0);
 s32 TObjFish__sub_8001ED9C(void *, s32);
 s32 TObjFish__sub_8001EDC4(void *, s32);
-M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+M2C_UNK scale_matrix(int, f32, f32, f32);
 void rotate_matrix_y(int, s32);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470();
-M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
+M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 extern s32 lbl_80479078[];
 extern void *TObjLobbyMain__data_805D6EC8;
 extern void *lbl_805D6ECC;
@@ -163,7 +163,7 @@ void TObjLobbyMain__sub_80352240(u8 *arg0) {
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         TCameraCtrl__sub_803D8934(0, &v, &v);
         copy_pos__11TNowLoadingFPvPv(*(void **)(arg0 + 0xD8), &v);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
     if (*(void **)(arg0 + 0xDC) != NULL) {
         Vec3_80352240 v = lbl_804790DC[0];
@@ -174,7 +174,7 @@ void TObjLobbyMain__sub_80352240(u8 *arg0) {
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         TCameraCtrl__sub_803D8934(0, &v, &v);
         copy_pos__11TNowLoadingFPvPv(*(void **)(arg0 + 0xDC), &v);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
         break;
     }
@@ -223,19 +223,19 @@ void render__13TObjLobbyMainFv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         if (M2C_FIELD(arg0, s32 *, 0xC8) != 2) {
-            TOMonitorMachine01__sub_803D8B5C(0, M2C_FIELD(arg0, f32 *, 0xD4), TObjLobbyMain__data_805DFEE0, M2C_FIELD(arg0, f32 *, 0xD4));
+            scale_matrix(0, M2C_FIELD(arg0, f32 *, 0xD4), TObjLobbyMain__data_805DFEE0, M2C_FIELD(arg0, f32 *, 0xD4));
         }
         set_global_param__8TObjFishFi(lbl_805D6ECC);
         idx = M2C_FIELD(arg0, s16 *, 0xD0);
         r = lbl_80479078[idx];
         if (r != 5) {
             r = TObjFish__sub_8001ED9C(TObjLobbyMain__data_805D6EC8, r);
-            TObjDoor__sub_803DC894(TObjFish__sub_8001EDC4(TObjLobbyMain__data_805D6EC8, M2C_FIELD(arg0, s16 *, 0xD0)), r, M2C_FIELD(arg0, f32 *, 0xB0));
+            draw_ginja_model_with_motion(TObjFish__sub_8001EDC4(TObjLobbyMain__data_805D6EC8, M2C_FIELD(arg0, s16 *, 0xD0)), r, M2C_FIELD(arg0, f32 *, 0xB0));
         } else {
             TObjFish__sub_8001EDC4(TObjLobbyMain__data_805D6EC8, idx);
             TObjBoss2Tunnel__sub_803DB470();
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

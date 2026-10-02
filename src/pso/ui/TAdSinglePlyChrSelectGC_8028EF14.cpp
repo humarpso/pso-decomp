@@ -72,7 +72,7 @@ extern Slot_8028F150 lbl_8051D288[];
 extern u32 lbl_805D6520;
 extern E_8028F210 *lbl_805D6540;
 s32 TAdSinglePlyChrSelectGC__sub_8028EF90(s32 arg0);
-void TBoss1Dragon__sub_80143504(s32);
+void advance_animation_playback(s32);
 s32 query_state__12TCharaMakingFv(void);
 void TAdSinglePlyChrSelectGC__sub_8028ED54(void);
 void TAdSinglePlyChrSelectGC__sub_8028F2A0(void *);
@@ -115,7 +115,7 @@ void set_position_vec3__10TObjPlayerFPvPv(int, void *);
 void rotate_matrix_y(int, u32);
 void TObjPlayer__sub_803D97F0();
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void set_global_param__8TObjFishFi(void *);
 extern Pair_802907E4 lbl_80540888[];
 extern Pair_802907E4 lbl_805408D8[];
@@ -299,7 +299,7 @@ void TAdSinglePlyChrSelectGC__sub_8028FD90(u8 *arg0) {
         TObjPlayer__sub_803D97F0();
         set_global_param__8TObjFishFi((u8 *)lbl_805D6540 + 0x2EC);
         play_phase_transition_sound__10TObjPlayerFi(lbl_80540928[M2C_FIELD(lbl_805D6540, s16 *, 0xA)].b);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         v = lbl_805408D8[M2C_FIELD(lbl_805D6540, s16 *, 0xC)].b;
         if (v != 0) {
             enable_making__12TCharaMakingFv();
@@ -307,7 +307,7 @@ void TAdSinglePlyChrSelectGC__sub_8028FD90(u8 *arg0) {
             TObjPlayer__sub_803D97F0();
             set_global_param__8TObjFishFi((u8 *)lbl_805D6540 + 0x178);
             play_phase_transition_sound__10TObjPlayerFi(v);
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             clear_flag_bit0__12TCharaMakingFv();
         }
         v = lbl_80540888[M2C_FIELD(lbl_805D6540, s16 *, 0xC)].b;
@@ -317,10 +317,10 @@ void TAdSinglePlyChrSelectGC__sub_8028FD90(u8 *arg0) {
             TObjPlayer__sub_803D97F0();
             set_global_param__8TObjFishFi((u8 *)lbl_805D6540 + 0x178);
             setup_from_data__12TCharaMakingFii(v, lbl_805D6520);
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             clear_flag_bit0__12TCharaMakingFv();
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         end_effect_render__13TParticleCtrlFv();
     }
 }
@@ -360,7 +360,7 @@ void TAdSinglePlyChrSelectGC__sub_8028FFC0(s32 arg0) {
     }
     }
     TAdSinglePlyChrSelectGC__sub_8028F2A0(&((CharacterAppearanceFields *)lbl_805D6520)->width);
-    TBoss1Dragon__sub_80143504(arg0);
+    advance_animation_playback(arg0);
 }
 
 void free_field_FC__23TAdSinglePlyChrSelectGCFPv(void *arg0) {

@@ -228,8 +228,8 @@ M2C_UNK handle_event__19TObjEneEpsilonGuardFPvi(void *, s32);
 void TObjEneEpsilonGuard__vt85(void *arg0, s32 arg1, s32 arg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
-s32 TPhotonMylla__sub_80154CB4(int);
+M2C_UNK transition_enemy_state(void *, int);
+s32 find_entity_by_id(int);
 M2C_UNK update_guard_state__19TObjEneEpsilonGuardFPv(void *);
 M2C_UNK update_center_position__19TObjEneEpsilonGuardFPv(void *);
 void run_task__19TObjEneEpsilonGuardFv(u8 *arg0);
@@ -331,13 +331,13 @@ void run_task__19TObjEneEpsilonGuardFv(u8 *arg0) {
             ((VObj_18 *)(arg0))->m98();
             return;
         }
-        temp_r3 = TPhotonMylla__sub_80154CB4((int) (M2C_FIELD(arg0, u16 *, 0x470)));
+        temp_r3 = find_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0x470)));
         if (temp_r3 != 0) {
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (temp_r3 + 0x38));
             update_center_position__19TObjEneEpsilonGuardFPv((void *) (arg0));
         }
     } else if (M2C_FIELD(arg0, s16 *, 0x326) == 0) {
-        TObjEneDD__sub_800BBA18((void *) (arg0), (int) (0));
+        transition_enemy_state((void *) (arg0), (int) (0));
     }
 }
 #pragma pop

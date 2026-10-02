@@ -11,10 +11,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 s32 get_main_phase(void);
-s32 TObjPlayer__sub_800196EC(void);
+s32 get_current_floor(void);
 s32 get_field_3e4__10TObjPlayerFPv(void *);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
-f32 fn_8013157C(void *, void *);
+s32 get_player_by_client_id(u32);
+f32 xz_distance_squared(void *, void *);
 bool fn_802C7ECC(u8 *arg0, u32 arg1);
 extern const f32 TAdFadeGC__data_805DE5E8;
 extern const f32 lbl_805DE604;
@@ -74,7 +74,7 @@ bool fn_802C7ECC(u8 *arg0, u32 arg1) {
     f32 temp_f31;
     s32 temp_r31;
     s32 temp_r3;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(arg1);
+    temp_r3 = get_player_by_client_id(arg1);
     if (temp_r3 == 0) {
         return 0;
     }
@@ -82,12 +82,12 @@ bool fn_802C7ECC(u8 *arg0, u32 arg1) {
         return 0;
     }
     temp_r31 = get_field_3e4__10TObjPlayerFPv((void *) temp_r3);
-    if (temp_r31 != TObjPlayer__sub_800196EC()) {
+    if (temp_r31 != get_current_floor()) {
         return 0;
     }
     temp_f0 = M2C_FIELD(arg0, f32 *, 0xAC);
     temp_f31 = temp_f0 * temp_f0;
-    return (fn_8013157C((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38)) < temp_f31) == 0;
+    return (xz_distance_squared((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38)) < temp_f31) == 0;
 }
 #pragma pop
 

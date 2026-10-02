@@ -67,7 +67,7 @@ extern RecoveredGlobal_80277928_lbl_8050E208 lbl_8050E208;
 void TWindowSubCustomSelect__sub_80277408(u8 *arg0);
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
-Big_80277AEC *TPlayerBattleCtrl4P__sub_801BA74C(int);
+Big_80277AEC *get_player_by_client_id(int);
 s32 construct_with_parent__15TWindowAdditionFPvPv(void *, void *, s16, s32);
 s32 TWindowSubComCard__sub_8026CBB8(int);
 void *reset_selection__20TWindowSubStatusDispFPv(void *, Pos_80277AEC *);
@@ -255,7 +255,7 @@ u8 *TWindowSubCustomSelect__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TWindowSubCustomSelect;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D3A28;
     M2C_FIELD(arg0, s16 *, 0x20) = arg1;
-    p = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s16 *, 0x20));
+    p = get_player_by_client_id(M2C_FIELD(arg0, s16 *, 0x20));
     if (p == NULL) {
         return arg0;
     }

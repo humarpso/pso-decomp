@@ -44,7 +44,7 @@ void TObjPlayer__sub_80052390(f32);
 void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, int);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(int);
 void TObjFish__sub_803E46BC(int);
@@ -152,7 +152,7 @@ void TObjPlayer__sub_8030A9B0() {
         col.g = lbl_805DF14C;
         set_chunk_material_color(&col);
         TObjPlayer__sub_803E4684(lbl_805D6A6C);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
     lbl_805D7784 = lbl_805D5664;
     lbl_805D7780 = lbl_805D5668;
@@ -175,7 +175,7 @@ void TObjPlayer__sub_8030AB48(void) {
         rotate_matrix_y(0, p->f10);
         rotate_matrix_x(0, p->f0c);
         TObjFish__sub_803E46BC(r31);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
     sync_player_globals__10TObjPlayerFv();
 }

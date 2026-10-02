@@ -168,8 +168,8 @@ void draw_icon__10TObjPlayerFPvii(void *, int, f32 *);
 u8 *create__10TTecSlicerFPUs(SlicerLaunchData_8012D9C8 *);
 extern const f32 lbl_805DFDF8;
 void TObjPlayer__sub_8034F268(u8 *weapon);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
-void *TPhotonMylla__sub_80154CB4(s32);
+M2C_UNK spawn_particle_effect(void *, M2C_UNK);
+void *find_entity_by_id(s32);
 void TObjPlayer__sub_8034F204(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
 M2C_UNK fill_status_info__10TObjPlayerFPvPv(u32, void *);
@@ -202,7 +202,7 @@ int shrink_field1f8__10TObjPlayerFPv(void* p);
 void spawn_effect__10TObjPlayerFPv(void *arg0);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
+M2C_UNK spawn_particle_effect(void *, M2C_UNK);
 int TObjPlayer__sub_80115BC0(void*, void*, void*);
 int TObjPlayer__sub_8011E87C(void*, void*);
 int TObjPlayer__sub_80120BBC(void*, void*);
@@ -218,7 +218,7 @@ void spawn_effect__10TObjPlayerFPv(void *arg0) {
     u8 sp8[0x18];
     struct VObj_8034EFDC *o = (struct VObj_8034EFDC *)M2C_FIELD(arg0, void **, 0xF0);
     o->m63(0x30, sp8);
-    TObjEneDellBiter__sub_80087350(sp8, 0x1D0);
+    spawn_particle_effect(sp8, 0x1D0);
 }
 
 void TObjPlayer__sub_8034F020(P_8034F020 *arg0) {
@@ -274,11 +274,11 @@ u8 *TObjPlayer__sub_8034F1AC(u8 *arg0) {
 void TObjPlayer__sub_8034F204(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 *temp_r5;
     void *temp_r3;
-    temp_r3 = TPhotonMylla__sub_80154CB4(arg2);
+    temp_r3 = find_entity_by_id(arg2);
     if (temp_r3 != NULL) {
         temp_r5 = M2C_FIELD(temp_r3, u8 **, 0xA4);
         if ((temp_r5 != NULL) && (arg3 < (s32) M2C_FIELD(temp_r3, s32 *, 0xA8))) {
-            TObjEneDellBiter__sub_80087350(&((Tbl_8034F204 *)temp_r5)->arr[arg3], 0x1BF);
+            spawn_particle_effect(&((Tbl_8034F204 *)temp_r5)->arr[arg3], 0x1BF);
         }
     }
 }

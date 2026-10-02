@@ -89,12 +89,12 @@ struct Self_80237BD8 {
 
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
-u32 TPhotonMylla__sub_80154CB4(int);
+u32 find_entity_by_id(int);
 M2C_UNK TObjPlayer__sub_8022BD74(void *, int);
 void run_task__11TTecRaBartaFv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(Vec_80237DAC *, const Vec_80237DAC *);
 void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
-void *TOSwitchAttack__sub_80087278(Vec_80237DAC *, s32, s32);
+void *spawn_particle_effect_with_flags(Vec_80237DAC *, s32, s32);
 extern RafoieBursts_80237DAC lbl_8044DAB4[];
 extern const f32 lbl_805DC8C8;
 void TTecRaFoie__sub_80237DAC(Obj_80237DAC *self);
@@ -107,8 +107,8 @@ void *TTecRaBarta__sub_80237CCC(void *self, void *source, void *origin, void *le
 s32 is_split_screen();
 void *TObjFish__sub_8001EDC4(void *, int);
 void TObjFish__sub_800660D4(void *, void *, void *, int, int, f32);
-void *TObjEneDellBiter__sub_80087350(Vec_80237FB8 *, int);
-u32 TPhotonMylla__sub_80154CB4(int);
+void *spawn_particle_effect(Vec_80237FB8 *, int);
+u32 find_entity_by_id(int);
 s32 is_parents_unqueued__9TTecLukerFUi();
 s32 is_valid_and_active__10TObjPlayerFUi(TObjPlayer_80237FB8 *);
 extern void *lbl_805D63AC;
@@ -197,7 +197,7 @@ void run_task__11TTecRaBartaFv(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    M2C_FIELD(arg0, u32 *, 0x1C) = TPhotonMylla__sub_80154CB4((int) (M2C_FIELD(arg0, u16 *, 0xB4)));
+    M2C_FIELD(arg0, u32 *, 0x1C) = find_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0xB4)));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
@@ -276,9 +276,9 @@ void TTecRaFoie__sub_80237DAC(Obj_80237DAC *self) {
             mode = 0x2000;
         }
         if (row->flags & 0x10) {
-            p = TOSwitchAttack__sub_80087278(&self->position, row->entry, mode);
+            p = spawn_particle_effect_with_flags(&self->position, row->entry, mode);
         } else {
-            p = TOSwitchAttack__sub_80087278(&higher, row->entry, mode);
+            p = spawn_particle_effect_with_flags(&higher, row->entry, mode);
         }
         if (p != NULL) {
             set_position_xy__10TObjPlayerFPvff(p, lbl_8044DAB4[self->band].entries[i].scale, lbl_8044DAB4[self->band].entries[i].scale);
@@ -327,23 +327,23 @@ void TTecRaFoie__vt6(TTecRaFoie_80237FB8 *self) {
     TObjPlayer_80237FB8 *target;
     if (self->explicit_position == 1) {
         if (is_split_screen() != 0) {
-            TObjEneDellBiter__sub_80087350(&self->target, 0x39);
+            spawn_particle_effect(&self->target, 0x39);
         } else {
-            emitter = TObjEneDellBiter__sub_80087350(&self->target, 0x1A);
+            emitter = spawn_particle_effect(&self->target, 0x1A);
             if (emitter != NULL) {
                 TObjFish__sub_800660D4(emitter, TObjFish__sub_8001EDC4(lbl_805D63AC, 9), lbl_805D63B0, 0, 1, TTecRaFoie__data_805DC8CC);
             }
         }
-        TObjEneDellBiter__sub_80087350(&self->target, 0x3A);
-        TObjEneDellBiter__sub_80087350(&self->target, 0x3B);
+        spawn_particle_effect(&self->target, 0x3A);
+        spawn_particle_effect(&self->target, 0x3B);
         return;
     }
     if (self->target_count != 0) {
-        target = (TObjPlayer_80237FB8 *) TPhotonMylla__sub_80154CB4(self->first_id);
+        target = (TObjPlayer_80237FB8 *) find_entity_by_id(self->first_id);
         if (is_parents_unqueued__9TTecLukerFUi() != 0 && is_valid_and_active__10TObjPlayerFUi(target) != 0) {
             Vec_80237FB8 point = target->pos;
-            TObjEneDellBiter__sub_80087350(&point, 0x39);
-            emitter = TObjEneDellBiter__sub_80087350(&point, 0x1A);
+            spawn_particle_effect(&point, 0x39);
+            emitter = spawn_particle_effect(&point, 0x1A);
             if (emitter != NULL) {
                 TObjFish__sub_800660D4(emitter, TObjFish__sub_8001EDC4(lbl_805D63AC, 9), lbl_805D63B0, 0, 1, TTecRaFoie__data_805DC8CC);
             }

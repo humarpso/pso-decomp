@@ -101,7 +101,7 @@ s32 check_boss2tunnel_field_f4__10TObjPlayerFPv(void *);
 s32 get_player_list__10TObjPlayerFv();
 s32 rotate_matrix_x(int, int);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 f32 TOHangerMachine01__sub_803D9C00(void *);
 extern RecoveredGlobal_80362FB4_lbl_80479FC8 lbl_80479FC8;
 void TObjPlayer__sub_80362FB4(u8 *arg0);
@@ -169,11 +169,11 @@ void TObjPlayer__sub_80362FB4(u8 *arg0) {
             TObjPlayer__sub_803D9B2C();
             rotate_matrix_x((int) (0), (int) (0x2AAA));
             check_boss2tunnel_field_f4__10TObjPlayerFPv((void *) (arg0));
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             TObjPlayer__sub_803D9B2C();
             rotate_matrix_x((int) (0), (int) (-0x2AAA));
             check_boss2tunnel_field_f4__10TObjPlayerFPv((void *) (arg0));
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
         }
     }
 }

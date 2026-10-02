@@ -29,7 +29,7 @@ void TCameraCtrl__sub_8003CFFC(int);
 M2C_UNK TCameraCtrl__sub_8006A410(void *, M2C_UNK);
 s32 TODoorVoShip__sub_801F44BC(s32);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 int alloc_event__12TBoss3VoloptFsi(void*, void*);
 M2C_UNK bswap_position__12TBoss3VoloptFPv();
@@ -70,7 +70,7 @@ void handle_6x17_set_entity_position_and_angle(u8 *arg0) {
     u8 *temp_r3;
 
     bswap_position__12TBoss3VoloptFPv();
-    temp_r3 = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 2));
+    temp_r3 = find_entity_by_id(M2C_FIELD(arg0, u16 *, 2));
     if (temp_r3 != NULL) {
         VecCopy__FP3VecPC3Vec(temp_r3 + 0x38, arg0 + 4);
         M2C_FIELD(temp_r3, s32 *, 0x60) = (s32) M2C_FIELD(arg0, s32 *, 0x10);

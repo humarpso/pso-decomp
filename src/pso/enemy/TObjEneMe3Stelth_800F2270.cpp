@@ -106,8 +106,8 @@ M2C_UNK clear_field_388__9TObjEneDDFPv(void *);
 M2C_UNK set_active__9TObjEneDDFPv(void *);
 M2C_UNK TObjEneDD__sub_800BACA4(void *, f32, f32, f32);
 M2C_UNK TBoss8Dragon__sub_800BB780(void *);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-M2C_UNK TBoss1Dragon__sub_80143504(void *, s32);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
+M2C_UNK advance_animation_playback(void *, s32);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805DA858;
 void TObjEneMe3Stelth__sub_800F290C(u8 *arg0, s32 arg1);
@@ -121,21 +121,21 @@ void TObjEneMe3Stelth__sub_800F290C(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 4;
-        TBoss1Dragon__sub_80143504(arg0, arg1);
+        advance_animation_playback(arg0, arg1);
         set_active__9TObjEneDDFPv(arg0);
         TBoss3Volopt__sub_8022675C(0x3A839, arg0 + 0x38, 0, 0);
         break;
     case 3:
         if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(arg0) != 0) {
             if (M2C_FIELD(arg0, s32 *, 0x3C0) == 1 && calc_boss4_scale__10TObjPlayerFi(arg0) <= M2C_FIELD(arg0, f32 *, 0x3E0)) {
-                TObjEneDD__sub_800BBA18(arg0, 0x12);
+                transition_enemy_state(arg0, 0x12);
             } else {
-                TObjEneDD__sub_800BBA18(arg0, M2C_FIELD(arg0, s32 *, 0x378));
+                transition_enemy_state(arg0, M2C_FIELD(arg0, s32 *, 0x378));
             }
         }
         break;
     case 0:
-        TBoss1Dragon__sub_80143504(arg0, arg1);
+        advance_animation_playback(arg0, arg1);
         VecCopy__FP3VecPC3Vec(&v, arg0 + 0x308);
         c = clamp_velocity__15TObjBoss2TunnelFPv(&v);
         TObjEneDD__sub_800BACA4(arg0, v.x, v.z, c);

@@ -196,7 +196,7 @@ extern s32 lbl_805D49AC;
 extern int lbl_805D49B0;
 extern int lbl_805D5678;
 extern int lbl_805D5680;
-void TKeyBoardControl__sub_8000FAE4(void);
+void init_game_systems(void);
 }
 
 extern "C" {
@@ -379,7 +379,7 @@ void TKeyBoardControl__sub_8000FA00(void) {
     GXCopyDisp(lbl_805D773C, 1);
     set_cull_none__8TObjFishFv();
 }
-void TKeyBoardControl__sub_8000FAE4(void) {
+void init_game_systems(void) {
     Cfg_8000FAE4 cfg;
     u32 lo;
     u32 hi;

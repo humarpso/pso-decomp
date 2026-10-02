@@ -106,9 +106,9 @@ extern u32 lbl_805D5D38;
 void TObjPlayer__sub_801AB640(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
-s32 TObjEneDellBiter__sub_80087350(void *, int);
-s32 TBoss1Dragon__sub_80143504(void *);
-s32 TPhotonMylla__sub_80154CB4(int);
+s32 spawn_particle_effect(void *, int);
+s32 advance_animation_playback(void *);
+s32 find_entity_by_id(int);
 s32 TCameraCtrl__sub_801A7310(void *, int);
 s32 TObjPlayer__sub_801A7680(void *);
 s32 TObjPlayer__sub_801A7748(void *, int);
@@ -129,7 +129,7 @@ s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 s32 TOHangerMachine01__sub_803D9C00(void *);
 s32 set_global_param__8TObjFishFi(int);
 s32 set_chunk_material_override_pair(int, int);
@@ -147,7 +147,7 @@ extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 void TObjPlayer__sub_801ABAA0(Self_801ABAA0 *self);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TPhotonMylla__sub_80154CB4(int);
+s32 find_entity_by_id(int);
 u32 __nw__7TObjectFUl(int);
 s32 rotate_matrix_y(int, int);
 void TPhotonConcentrate__ct(void *, void *, void *, int);
@@ -167,7 +167,7 @@ extern const f32 lbl_805DC190;
 extern const f32 lbl_805DC194;
 extern const f32 lbl_805DC198;
 s32 TObjPlayer__sub_801AB6A0(void *arg0);
-s32 TPhotonMylla__sub_80154CB4(int);
+s32 find_entity_by_id(int);
 s32 rotate_matrix_y(int, int);
 void init_all_slots__10TObjPlayerFv(void);
 void TObjPlayer__sub_8015610C(void *);
@@ -231,7 +231,7 @@ s32 TObjPlayer__sub_801AB6A0(void *arg0) {
     u32 angle;
     u32 beam;
     if (self->f19c == NULL) {
-        owner = (Owner_801AB6A0 *)TPhotonMylla__sub_80154CB4(self->owner_id);
+        owner = (Owner_801AB6A0 *)find_entity_by_id(self->owner_id);
         local.x = (*(const f32 *)&lbl_805DC188);
         if (owner != NULL) {
             local.y = owner->y;
@@ -297,7 +297,7 @@ void TObjPlayer__sub_801AB868(void *arg0) {
                     if (TCameraCtrl__sub_803D8D00(&candidate_delta) < selected_distance) {
                         self->f1a8 = candidate;
                     }
-                    owner = (Owner_801AB868 *)TPhotonMylla__sub_80154CB4(self->owner_id);
+                    owner = (Owner_801AB868 *)find_entity_by_id(self->owner_id);
                     Vec_801AB868 direction = self->f1a8->pos;
                     Vec_801AB868 forward;
                     Vec_801AB868 left;
@@ -364,7 +364,7 @@ void TObjPlayer__sub_801ABAA0(Self_801ABAA0 *self) {
         copy_vec4__13TRaderMapCoreFPvPv(&lbl_8058D4C0, &lbl_8050BEC0);
         some_id_805c6f74 = lbl_805D5660;
         clear_render_context__10TObjPlayerFv(self);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         end_effect_render__13TParticleCtrlFv();
     }
 }
@@ -380,7 +380,7 @@ void TObjPlayer__sub_801ABBAC(u8 *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x1C8) == 0x32) && ((s32) M2C_FIELD(arg0, s32 *, 0x1C4) == 0)) {
         M2C_FIELD(arg0, s32 *, 0x1C4) = 1;
         M2C_FIELD(arg0, s32 *, 0x1C8) = 0;
-        temp_r3 = TPhotonMylla__sub_80154CB4((int) (M2C_FIELD(arg0, u16 *, 0x158)));
+        temp_r3 = find_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0x158)));
         if (temp_r3 != 0) {
             VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (temp_r3 + 0x38));
         }
@@ -398,13 +398,13 @@ void TObjPlayer__sub_801ABBAC(u8 *arg0) {
     }
     M2C_FIELD(arg0, s16 *, 0x1B8) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);
     update_state__10TSceneSoraFPv((void *) (arg0));
-    TBoss1Dragon__sub_80143504((void *) (arg0));
+    advance_animation_playback((void *) (arg0));
     TObjPlayer__sub_801A7680((void *) (arg0));
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (M2C_FIELD(arg0, s16 *, 0x14C) + 0xF);
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (u8) M2C_FIELD(arg0, s16 *, 0x14C);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C8) == 0x50) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1AC), (void *) (M2C_FIELD(arg0, s32 *, 0x148) + 0x44));
-        TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x1AC), (int) (0x133));
+        spawn_particle_effect((void *) (arg0 + 0x1AC), (int) (0x133));
         TObjPlayer__sub_801AB6A0((void *)((void *) (arg0)));
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C8);

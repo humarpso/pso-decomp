@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #include "pso/effect/TechniqueChargeEmitter.h"
 extern "C" {
 extern u32 lbl_804CCAC0[];
-void* TObjEneDellBiter__sub_80087350(float*,u32);
+void* spawn_particle_effect(float*,u32);
 int check_flag_0x80__10TObjPlayerFPv(void*);
 void queue_destruction__7TObjectFv(void*);
 void TObjLight__updateSupportTechniqueCharge(TechniqueChargeEmitter* state);
@@ -29,7 +29,7 @@ extern M2C_UNK lbl_804CCAC8[];
 void TObjLight__updateSupportTechniqueCharge(TechniqueChargeEmitter* state) {
     ++state->age;
     if(state->age%10==0) {
-        for(int i=0;i<2;++i)TObjEneDellBiter__sub_80087350(state->position,lbl_804CCAC0[i]);
+        for(int i=0;i<2;++i)spawn_particle_effect(state->position,lbl_804CCAC0[i]);
     }
     if(!check_flag_0x80__10TObjPlayerFPv(state->actor))queue_destruction__7TObjectFv(state);
     else if(state->age>=180)queue_destruction__7TObjectFv(state);

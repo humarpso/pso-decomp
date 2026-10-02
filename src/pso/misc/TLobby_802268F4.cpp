@@ -102,7 +102,7 @@ extern s32 lbl_805D62E4;
 extern s32 lbl_805D62E8;
 void TLobby__sub_8022733C(void);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+u32 get_player_by_client_id(void *);
 M2C_UNK TLobby__sub_80226294(int);
 s32 fn_802264B8(int, int);
 M2C_UNK TLobby__sub_802275FC();
@@ -131,7 +131,7 @@ void TLobby__sub_802269B4(void) {
     Ent_802269B4 *e;
     s16 *t;
     if (lbl_805D62B0 != 0) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C((void *) (lbl_805D53A0));
+        p = get_player_by_client_id((void *) (lbl_805D53A0));
         if (p != 0U) {
             VecCopy__FP3VecPC3Vec(lbl_80514C50, (void *) (p + 0x38));
         } else if (lbl_805D4DF0 != 0U) {

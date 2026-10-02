@@ -18,7 +18,7 @@ extern u8 lbl_80437F70[];
 extern void *TBoss5GryphonSnarl__data_805D4DD0;
 void TBoss5GryphonSnarl__sub_80066E88(void *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void TOSwitchAttack__sub_80087278(void *, s32, s32);
+void spawn_particle_effect_with_flags(void *, s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__18TBoss5GryphonSnarl[];
 extern s32 lbl_805D2820;
@@ -67,8 +67,8 @@ Obj_80066DC8 *TBoss5GryphonSnarl__ct(Obj_80066DC8 *self, void *parent, void *arg
     self->pos.y = lbl_805D8F0C;
     self->f12c = 0;
     self->f1c = 0;
-    TOSwitchAttack__sub_80087278(&self->pos, ((D_80066DC8 *)TBoss5GryphonSnarl__data_805D4DD0)->fc, 0x40);
-    TOSwitchAttack__sub_80087278(&self->pos, ((D_80066DC8 *)TBoss5GryphonSnarl__data_805D4DD0)->f8, 0x40);
+    spawn_particle_effect_with_flags(&self->pos, ((D_80066DC8 *)TBoss5GryphonSnarl__data_805D4DD0)->fc, 0x40);
+    spawn_particle_effect_with_flags(&self->pos, ((D_80066DC8 *)TBoss5GryphonSnarl__data_805D4DD0)->f8, 0x40);
     for (i = 0; i < 32; i++) {
         self->c20[i] = 0;
         self->ca0[i] = 0;

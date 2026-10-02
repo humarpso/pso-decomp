@@ -26,7 +26,7 @@ void TItemData__sub_8010CCB4(void);
 u8 get_entry_field16__9TItemDataFv(void);
 s32 get_item_use_result__9TItemDataFPv(u8 *arg0);
 int register_drop__9TItemDataFPv(void* p);
-void *TItemData__sub_8010EA38();
+void *lookup_item_pmt_record();
 void *TTecCtrl__sub_8022DBC4(u8, u8, s32);
 s32 bswap_16__FPUs(s16 *);
 s32 fn_80101A48(u8, u8);
@@ -42,7 +42,7 @@ int TItemData::isValidGroundDrop() {
         switch ((s32)category) {
         case 3:
         case 0:
-            if (((u32 (*)(TItemData*))TItemData__sub_8010EA38)(this) == 0U) return 0;
+            if (((u32 (*)(TItemData*))lookup_item_pmt_record)(this) == 0U) return 0;
             break;
         case 1:
             group=data1.data_u8[1];
@@ -127,7 +127,7 @@ void TItemData__sub_8010CCB4(void) {  }
 u8 get_entry_field16__9TItemDataFv(void) {
     void *temp_r3;
 
-    temp_r3 = TItemData__sub_8010EA38();
+    temp_r3 = lookup_item_pmt_record();
     if (temp_r3 != NULL) {
         return M2C_FIELD(temp_r3, u8 *, 0x16);
     }

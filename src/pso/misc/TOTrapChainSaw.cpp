@@ -141,10 +141,10 @@ u16 obj_getField1c(void *);
 void TOTrapChainSaw__sub_802C9124(S_802C9124 *arg0, void *arg1);
 u16 obj_getField1c(void *);
 s32 TOTrapChainSaw__sub_802C9174(S_802C9174 *arg0, void *arg1);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(s32);
 u32 TObjPlayer__sub_80156268(void *, s32, f32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805DE634;
@@ -218,9 +218,9 @@ int TOTrapChainSaw__sub_802C91DC(void *arg0) {
 #define self ((VObj_802C91DC *)arg0)
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         for (i = 0; i < 4; i++) {
-            p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+            p = get_player_by_client_id(i);
             if (p != 0 && self->m17(p) == 0) {
-                if (get_field_3e4__10TObjPlayerFPv(p) == TObjPlayer__sub_800196EC()) {
+                if (get_field_3e4__10TObjPlayerFPv(p) == get_current_floor()) {
                     t = M2C_FIELD(self, s32 *, 0x60);
                     M2C_FIELD(self, s32 *, 0x60) = t + M2C_FIELD(self, s32 *, 0xD4);
                     if (TObjPlayer__sub_80156268(self, p, lbl_805DE634) != 0) {
@@ -234,9 +234,9 @@ int TOTrapChainSaw__sub_802C91DC(void *arg0) {
     } else {
         s32 q;
         s32 t2;
-        q = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+        q = get_player_by_client_id(lbl_805D53A0);
         if (q != 0 && self->m17(q) == 0) {
-            if (get_field_3e4__10TObjPlayerFPv(q) == TObjPlayer__sub_800196EC()) {
+            if (get_field_3e4__10TObjPlayerFPv(q) == get_current_floor()) {
                 t2 = M2C_FIELD(self, s32 *, 0x60);
                 M2C_FIELD(self, s32 *, 0x60) = t2 + M2C_FIELD(self, s32 *, 0xD4);
                 if (TObjPlayer__sub_80156268(self, q, lbl_805DE634) != 0) {

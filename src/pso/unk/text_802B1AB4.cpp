@@ -38,7 +38,7 @@ struct VObj_802B1B80 : VBase_802B1B80 {
 extern "C" {
 s32 TLobby__sub_8001DC24();
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 M2C_UNK TWindowSubStatusDisp__sub_80229080();
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 s32 TWindowSubComCard__sub_8026CBB8(int);
@@ -49,7 +49,7 @@ s32 TWindowMessageYesNo__sub_802A59D8(void *, int, int, int);
 extern const f32 lbl_805DE298;
 s32 fn_802B1AB4(u8 *arg0, s32 arg1);
 s32 TLobby__sub_8001DC24();
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 M2C_UNK TWindowSubStatusDisp__sub_80229080();
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 M2C_UNK send_and_handle__6TLobbyFPvii(int, int, int);
@@ -64,7 +64,7 @@ extern "C" {
 s32 fn_802B1AB4(u8 *arg0, s32 arg1) {
     s32 temp_r29;
     u8 *temp_r29_2;
-    temp_r29_2 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C(arg1));
+    temp_r29_2 = (u8 *)(get_player_by_client_id(arg1));
     TWindowSubStatusDisp__sub_802290E0();
     if (temp_r29_2 != NULL) {
         ((VObj_18_f23ffb *)(temp_r29_2))->m10();
@@ -81,7 +81,7 @@ s32 fn_802B1AB4(u8 *arg0, s32 arg1) {
 s32 fn_802B1B80(u8 *arg0, s32 arg1, s32 arg2) {
     s32 r;
     VObj_802B1B80 *p;
-    p = (VObj_802B1B80 *)TPlayerBattleCtrl4P__sub_801BA74C(arg1);
+    p = (VObj_802B1B80 *)get_player_by_client_id(arg1);
     TWindowSubStatusDisp__sub_802290E0();
     if (p != NULL) {
         ((M2C_UNK (*)(M2C_UNK))TWindowSubStatusDisp__sub_80229080)(p->m10());

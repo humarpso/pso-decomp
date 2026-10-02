@@ -11,7 +11,7 @@ struct Ent_8036DD30 { s32 active; u8 v0[8]; u8 v1[8]; u8 v2[8]; s32 a; s32 b; s3
 extern "C" {
 extern s8 lbl_804F36F8[];
 void TLobby__sub_8036DDE8(void);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
 M2C_UNK copy_vec2__11TBoss6Type2FPvPv(void *, void *);
 extern s8 lbl_804F36F8[];
@@ -56,7 +56,7 @@ void TBoss6Type2__sub_8036DD30(void) {
     for (i = 0; i < 4; i++) {
         e = &((Ent_8036DD30 *)lbl_804F36F8)[i];
         e->active = 0;
-        p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        p = get_player_by_client_id(i);
         if (p != NULL && is_state_1f__14TBoss6PlotFalzFUi(p) != 0) {
             copy_vec2__11TBoss6Type2FPvPv(e->v0, p + 0xCF4);
             copy_vec2__11TBoss6Type2FPvPv(e->v1, p + 0xA1C);

@@ -29,7 +29,7 @@ struct RecoveredGlobal_8026D40C___vt__17TWindowReturnCity
 
 extern "C" {
 s32 get_dest_area__17TObjAreaWarpQuestFPv(void *);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 s32 TLobby__sub_80207770(s32);
 M2C_UNK TKeyBoardControl__sub_8000F998();
 M2C_UNK TObjPlayer__sub_801B31D8();
@@ -92,7 +92,7 @@ void *__dt__17TWindowReturnCityFv(void *arg0, s16 arg1);
 void clear_flag_bit5__17TWindowReturnCityFv(void);
 s32 query_battle_state__17TWindowReturnCityFPv(void *arg0);
 void render__17TWindowReturnCityFv(void);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void close__17TWindowSubComCardFPv(void *);
@@ -100,7 +100,7 @@ void close__17TWindowSubComCardFPv(void *);
 typedef char RecoveredGlobal_8026D18C_lbl_80515BA0_size[sizeof(RecoveredGlobal_8026D18C_lbl_80515BA0) == 0x28 ? 1 : -1];
 void TWindowReturnCity__sub_8026D18C(void) {
     if (((s32) lbl_805D55C0 != 1) && ((s32) (*(s32 *)&TWindowReturnCity__data_805D6468) < 4)) {
-        if (((s32)TPlayerBattleCtrl4P__sub_801BA74C((s32)((u32) (*(s32 *)&TWindowReturnCity__data_805D6468)))) != 0U) {
+        if (((s32)get_player_by_client_id((s32)((u32) (*(s32 *)&TWindowReturnCity__data_805D6468)))) != 0U) {
             TObjPlayer__sub_801B31D8();
         }
         set_area__6TLobbyFPvi((void *) (&lbl_80515BA0.value), (int) (0), (int) (TLobby__sub_80207770(0)));
@@ -112,7 +112,7 @@ void TWindowReturnCity__sub_8026D18C(void) {
 }
 
 s32 query_battle_state__17TWindowReturnCityFPv(void *arg0) {
-    struct VObj_8026D208 *o = (struct VObj_8026D208 *)TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x24));
+    struct VObj_8026D208 *o = (struct VObj_8026D208 *)get_player_by_client_id(M2C_FIELD(arg0, s32 *, 0x24));
     if (o == NULL) {
         return 0;
     }

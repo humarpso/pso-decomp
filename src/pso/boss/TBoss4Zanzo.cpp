@@ -13,7 +13,7 @@ s32 sync_player_globals__10TObjPlayerFv();
 s32 TObjPlayer__sub_80052390(f32);
 s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 f32 TOHangerMachine01__sub_803D9C00(void *);
 s32 set_global_param__8TObjFishFi(int);
 s32 TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
@@ -48,7 +48,7 @@ void render__11TBoss4ZanzoFv(u8 *arg0) {
         TObjEneSlimeOne__sub_803E4AF4((int) (M2C_FIELD(arg0, s32 *, 0x30)), (int) (M2C_FIELD(arg0, s32 *, 0x34)), (f32) (M2C_FIELD(arg0, f32 *, 0x38)));
         sync_player_globals__10TObjPlayerFv();
         clear_global_state__10TObjPlayerFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 #pragma pop

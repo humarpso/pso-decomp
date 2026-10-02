@@ -30,7 +30,7 @@ s32 TObjPlayer__sub_801569F4(void *);
 extern M2C_UNK __vt__16TObjEvtCollision[];
 extern s32 lbl_805D3358;
 u8 *TObjEvtCollision__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 void byteswap_and_send__6TLobbyFi(void *);
 void init_packet_67_04__6TLobbyFPv(void *);
@@ -46,7 +46,7 @@ void *TObjEvtCollision__create(void *arg0);
 void *__dt__16TObjEvtCollisionFv(void *arg0, s16 arg1);
 s32 is_any_player_in_range__16TObjEvtCollisionFif(s32 arg0, f32 farg0);
 void render__16TObjEvtCollisionFv(void);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
@@ -62,14 +62,14 @@ s32 is_any_player_in_range__16TObjEvtCollisionFif(s32 arg0, f32 farg0) {
 
     if (is_split_screen() != 0) {
         for (var_r31 = 0; var_r31 < 4; var_r31 += 1) {
-            temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(var_r31);
+            temp_r3 = get_player_by_client_id(var_r31);
             if ((temp_r3 != 0U) && (fn_801315A0(temp_r3 + 0x38, arg0 + 0x38) < farg0)) {
                 return 1;
             }
         }
         goto block_10;
     }
-    temp_r3_2 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    temp_r3_2 = get_player_by_client_id(lbl_805D53A0);
     if ((temp_r3_2 != 0U) && (fn_801315A0(temp_r3_2 + 0x38, arg0 + 0x38) < farg0)) {
         return 1;
     }
@@ -97,7 +97,7 @@ void run_task__16TObjEvtCollisionFv(Obj_80190CFC *arg0) {
         if (is_any_player_in_range__16TObjEvtCollisionFif((s32)arg0, arg0->radius * arg0->radius) == 1) {
             init_packet_67_04__6TLobbyFPv(&pkt);
             pkt.id = arg0->id;
-            pkt.player = TObjPlayer__sub_800196EC();
+            pkt.player = get_current_floor();
             pkt.x10 = arg0->x84;
             pkt.x14 = lbl_805D53A0;
             byteswap_and_send__6TLobbyFi(&pkt);

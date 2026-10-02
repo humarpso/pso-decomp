@@ -28,7 +28,7 @@ struct VObj_18_ca64a0 : VBase_18_ca64a0 {
 extern "C" {
 void *__nw__7TObjectFUl(int);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 s32 TObjEneMe1GiGueBarrier__sub_802CAC04(int);
@@ -58,7 +58,7 @@ s32 get_global_state__14TOKeyMachine01Fv();
 s32 toggle_flag_9__10TObjPlayerFPv(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 extern s32 lbl_805D6C60;
@@ -103,7 +103,7 @@ block_6:
             set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
             end_effect_render__13TParticleCtrlFv();
             draw__16TObjEneRe7BeruraFPv((void *) (arg0));
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
         }
     }
 }
@@ -119,7 +119,7 @@ void run_task__22TObjEneMe1GiGueBarrierFv(u8 *arg0) {
     }
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (int) (update_and_get_pos__22TObjEneMe1GiGueBarrierFPv((int) (temp_r0))));
     M2C_FIELD(arg0, s32 *, 0x60) = get_timer__22TObjEneMe1GiGueBarrierFPv((int) (M2C_FIELD(arg0, u32 *, 0xFC)));
-    TBoss1Dragon__sub_80143504((void *) (arg0));
+    advance_animation_playback((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x108) = (s32) (M2C_FIELD(arg0, s32 *, 0x108) - 1);
     temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x104);
     switch (temp_r0_2) {

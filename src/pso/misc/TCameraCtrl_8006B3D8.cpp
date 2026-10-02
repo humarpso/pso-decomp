@@ -123,7 +123,7 @@ void *TCameraCtrl__sub_8006BA68(void *);
 void TCameraCtrl__sub_8006CCEC();
 M2C_UNK TObjPlayer__sub_801B12CC();
 M2C_UNK TObjPlayer__sub_801B130C();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -132,7 +132,7 @@ void *get_params__11TCameraCtrlFPv(u32);
 extern s32 lbl_805D53A0;
 
 void update_active_player__11TCameraCtrlFv(void) {
-    if (TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != 0U) {
+    if (get_player_by_client_id(lbl_805D53A0) != 0U) {
         TObjPlayer__sub_801B12CC();
     }
 }
@@ -140,7 +140,7 @@ void update_active_player__11TCameraCtrlFv(void) {
 extern s32 lbl_805D53A0;
 
 void update_battle_camera__11TCameraCtrlFv(void) {
-    if (TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != 0U) {
+    if (get_player_by_client_id(lbl_805D53A0) != 0U) {
         TObjPlayer__sub_801B130C();
     }
 }

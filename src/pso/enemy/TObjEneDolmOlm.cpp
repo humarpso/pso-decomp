@@ -299,13 +299,13 @@ f32 TBoss4Zako__sub_803D8910(void *, void *);
 s32 TScene__sub_803D8DB4(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D97F0(void *);
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 extern RecoveredGlobal_80300FC0_lbl_8058D490 lbl_8058D490;
 extern const f32 TObjEneDolmOlm__data_805DEF54;
 extern const f32 lbl_805DEF58;
 extern const f32 TObjEneDolmOlm__data_805DEF5C;
 void TObjEneDolmOlm__sub_80300FC0(u8 *arg0);
-s32 TObjPlayer__sub_80018428(void *, void *);
+s32 check_path_obstructed(void *, void *);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
 s32 TScene__sub_803D8DB4(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
@@ -317,7 +317,7 @@ extern const f32 TObjEneDolmOlm__data_805DEF68;
 void TObjEneDolmOlm__sub_80301264(u8 *arg0, s32 arg1, f32 farg0);
 M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
+M2C_UNK submit_cursor_candidate(void *, int);
 void init_body_sub__14TObjEneDolmOlmFPv(void *arg0);
 void advance_position__14TObjEneDolmOlmFPv(u8 *arg0);
 M2C_UNK TObjEneDolmOlm__sub_8030177C(void *);
@@ -327,7 +327,7 @@ extern const f32 TObjEneDolmOlm__data_805DEF50;
 void TObjEneDolmOlm__sub_8030247C(u8 *arg0);
 extern u32 TObjEneDolmOlm__data_805D6A10;
 void TObjEneDolmOlm__sub_80302D80(O_80302D80 *self, s32 i);
-void TBoss1Dragon__sub_80143504(void);
+void advance_animation_playback(void);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
 void TBoss3Volopt__sub_800D8E80(void *);
 void TObjEneDolmOlm__sub_80302004(Ene_80302004 *self);
@@ -344,7 +344,7 @@ M2C_UNK TObjPlayer__sub_803D8960(int, int, void *, int);
 M2C_UNK TObjPlayer__sub_803D8CD4(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 extern u32 TObjEneDolmOlm__data_805D6A14;
 extern u32 TObjEneDolmOlm__data_805D6A18;
@@ -355,7 +355,7 @@ void TObjFish__sub_800660D4(s32, s32, s32, s32, s32, f32);
 Hit_80300D00 *csnVectorUnder(void *, void *, s32, f32);
 s32 TParticleCtrl__sub_80086884(s32);
 s32 get_instance__13TParticleCtrlFv(void);
-s32 TObjEneDellBiter__sub_80087350(void *, int);
+s32 spawn_particle_effect(void *, int);
 void fn_800D88E4(void *);
 extern s32 lbl_805D53A4;
 extern const f32 lbl_805DEF4C;
@@ -393,7 +393,7 @@ void *TObjEneDolmOlm__ct(void *, void *, void *);
 s32 TObjEneRecon__sub_8029E960(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void __dt__11TBoss4Type3FPvs(void*, int);
 void *__nw__7TObjectFUl(int);
@@ -429,20 +429,20 @@ void TObjEneDolmOlm__sub_80300D00(u8 *arg0, Vec_80300D00 *arg1) {
             if (lbl_805D53A4 % 5 == 0) {
                 fn_800D88E4(arg0 + 0x38);
             }
-            e = TObjEneDellBiter__sub_80087350(hit->obj + 0x38, 0x49);
+            e = spawn_particle_effect(hit->obj + 0x38, 0x49);
             if (e != 0) {
                 TObjFish__sub_800660D4(e, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneDolmOlm__data_805DEF50);
             }
-            TObjEneDellBiter__sub_80087350(hit->obj + 0x38, 0xA4);
+            spawn_particle_effect(hit->obj + 0x38, 0xA4);
         } else if (hit->flags & 2) {
             if (lbl_805D53A4 % 10 == 0) {
                 fn_800D88E4(arg0 + 0x38);
             }
-            e = TObjEneDellBiter__sub_80087350(hit->obj + 0x54, 0x49);
+            e = spawn_particle_effect(hit->obj + 0x54, 0x49);
             if (e != 0) {
                 TObjFish__sub_800660D4(e, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneDolmOlm__data_805DEF50);
             }
-            TObjEneDellBiter__sub_80087350(hit->obj + 0x54, 0xA4);
+            spawn_particle_effect(hit->obj + 0x54, 0xA4);
         }
         *(s32 *)(arg0 + 0x3E4) = *(s32 *)(hit->obj + 0x18);
         if (*(s32 *)(arg0 + 0x3E4) & 0x4000) {
@@ -484,7 +484,7 @@ void TObjEneDolmOlm__sub_80300FC0(u8 *arg0) {
     TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     TScene__sub_803D8DB4((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x38));
     spawn_ground_effect__10TObjPlayerFPvi((void *) (&stack.sp8), (int) (0x23));
     TObjPlayer__sub_800D92BC((void *) (&stack.sp8), (int) (0xF));
@@ -520,7 +520,7 @@ void TObjEneDolmOlm__sub_8030105C(Obj_800A7A14 *o) {
     TOHangerMachine01__sub_803D9C00(&o->pos);
     rotate_matrix_y(0, o->f60);
     TObjPlayer__sub_803D8960(0, e, &a, 2);
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     eff = o->effs[idx];
     if (eff != NULL) {
         eff->m4(&a, &b);
@@ -565,7 +565,7 @@ void TObjEneDolmOlm__sub_80301264(u8 *arg0, s32 arg1, f32 farg0) {
     TScene__sub_803D8DB4((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
     TCameraCtrl__sub_803D9858((int) (1));
     TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x2FC));
-    TObjPlayer__sub_80018428((void *) (arg0), (void *) (&stack.sp8));
+    check_path_obstructed((void *) (arg0), (void *) (&stack.sp8));
 }
 #pragma pop
 
@@ -624,7 +624,7 @@ void check_scale_trigger__14TObjEneDolmOlmFPv(void *arg0) {
 extern M2C_UNK main_task[];
 
 void TObjEneDolmOlm__sub_80302004(Ene_80302004 *self) {
-    TBoss1Dragon__sub_80143504();
+    advance_animation_playback();
     switch (self->s328) {
     case 0:
     default:
@@ -671,7 +671,7 @@ s32 render_model_if_visible__14TObjEneDolmOlmFPv(u8 *arg0) {
             TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
             rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
             draw__16TObjEneRe7BeruraFPv((void *) (arg0));
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             restore_render_scissor((int) (1));
         }
         return 1;
@@ -750,7 +750,7 @@ void TObjEneDolmOlm__sub_8030247C(u8 *arg0) {
   }
   advance_position__14TObjEneDolmOlmFPv((u8 *)((void *) arg0));
   copy_position__20TBoss3VoloptHiraisinFi((void *) arg0);
-  TObjPlayer__sub_801B4A18((void *) arg0, (int) (-1));
+  submit_cursor_candidate((void *) arg0, (int) (-1));
   if (((RecoveredFields_8030247C_arg0 *) arg0)->field_3E4 & 0x4000)
   {
     set_active__12TObjEneReconFv();

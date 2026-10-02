@@ -96,7 +96,7 @@ extern s32 lbl_805D53A0;
 void handle_6x7C_set_challenge_records(Pkt7C_80072230 *pkt);
 s32 is_flag_set__6TLobbyFv();
 M2C_UNK bswap_challenge_dead_flag__6TLobbyFPv(void *);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 extern M2C_UNK lbl_8048C9D8[];
 void handle_6x9D_set_challenge_dead_flag(Pkt_80072230 *pkt);
 s32 check_challenge_time_range__6TLobbyFi(s32);
@@ -124,7 +124,7 @@ void handle_6x9D_set_challenge_dead_flag(Pkt_80072230 *pkt) {
     if (idx < 0 || idx >= 4) {
         return;
     }
-    if (TPlayerBattleCtrl4P__sub_801BA74C(idx) != NULL) {
+    if (get_player_by_client_id(idx) != NULL) {
         lbl_8048C9D8[idx + 0x38 / 4] = 1;
     }
 }

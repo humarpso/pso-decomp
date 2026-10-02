@@ -40,7 +40,7 @@ extern "C" {
 void TObjEneEpsilonGuard__sub_80361D4C(u8 *arg0, s32 arg1);
 void TObjEneEpsilonGuard__sub_80361E20(void);
 void update_guard_flag__19TObjEneEpsilonGuardFPv(u8 *arg0);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
+M2C_UNK transition_enemy_state(void *, int);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
 M2C_UNK set_guard_state__19TObjEneEpsilonGuardFPv(void *);
@@ -62,7 +62,7 @@ void TObjEneEpsilonGuard__sub_80361D4C(u8 *arg0, s32 arg1) {
         return;
     case 3:
         if (!(M2C_FIELD(arg0, s32 *, 0x438) & 0x80)) {
-            TObjEneDD__sub_800BBA18(arg0, 1);
+            transition_enemy_state(arg0, 1);
         }
     case 5:
     case 0:

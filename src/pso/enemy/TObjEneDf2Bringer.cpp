@@ -8,7 +8,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 M2C_UNK TObjEneDf2Bringer__sub_80098DEC();
 M2C_UNK TBoss8Dragon__sub_800BB780(void *);
-int TObjEneDD__sub_800BBA18(void*, void*);
+int transition_enemy_state(void*, void*);
 void TObjEneDf2Bringer__vt60(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D9840;
@@ -20,7 +20,7 @@ extern "C" {
 void TObjEneDf2Bringer__sub_800994F8(void);
 void TObjEneDf2Bringer__vt59(void);
 void TObjEneDf2Bringer__vt86(void);
-int TObjEneDD__sub_800BBA18(void*, void*);
+int transition_enemy_state(void*, void*);
 void TObjEneDf2Bringer__vt26(void);
 void TObjEneDf2Bringer__vt61(void* p);
 
@@ -46,7 +46,7 @@ void TObjEneDf2Bringer__vt60(u8 *arg0) {
         return;
     }
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 9) {
-        TObjEneDD__sub_800BBA18((void*)((void *) (arg0)), (void*)((int) (9)));
+        transition_enemy_state((void*)((void *) (arg0)), (void*)((int) (9)));
     }
 }
 

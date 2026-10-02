@@ -27,7 +27,7 @@ extern "C" {
 void TObjChip__sub_803D8AE4(s32, s32, s32, s32);
 void rotate_matrix_y(s32, s32);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void TObjBoss2Tunnel__sub_803DB470(s32);
 void TObjSuisoChip__vt10(O_802A60CC *arg0);
@@ -74,9 +74,9 @@ void TObjSuisoChip__vt10(O_802A60CC *arg0) {
             TOHangerMachine01__sub_803D9C00(p);
             TObjChip__sub_803D8AE4(0, p->f18, p->f1c, p->f20);
             TObjBoss2Tunnel__sub_803DB470(arg0->f64);
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

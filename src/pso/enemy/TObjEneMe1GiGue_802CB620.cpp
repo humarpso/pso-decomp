@@ -43,7 +43,7 @@ M2C_UNK set_state__15TObjEneMe1GiGueFPvi(void *, s32);
 void TObjEneMe1GiGue__sub_802CCE9C(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
-s32 TObjEneDellBiter__sub_80087350(void *, int);
+s32 spawn_particle_effect(void *, int);
 s32 create_breakup_mdl__12TBoss3VoloptFiiiii(int, int, int, void *, int);
 s32 refresh_lobby_state__10TObjPlayerFPv(void *);
 s32 send_entity_set_flags__6TLobbyFPv(void *);
@@ -53,11 +53,11 @@ extern s32 TObjEneMe1GiGue__data_805D683C;
 extern const f32 TObjEneMe1GiGue__data_805DE674;
 void TObjEneMe1GiGue__sub_802CB9E4(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-s32 TObjPlayer__sub_80017E6C(void *);
+s32 move_with_wall_slide(void *);
 s32 TObjPlayer__sub_8001806C(void *, f32, s32);
 s32 TObjPlayer__sub_80018660(void *, s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-f32 fn_8013157C(void *, void *);
+f32 xz_distance_squared(void *, void *);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 extern const f32 TObjEneMe1GiGue__data_805DE678;
@@ -76,8 +76,8 @@ void TObjEneMe1GiGue__sub_802CB6D4(u8 *arg0);
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, int);
 M2C_UNK TBoss3VoloptMonitor__sub_8004292C();
-s32 TObjEneDellBiter__sub_80087350(void *, int);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+s32 spawn_particle_effect(void *, int);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 M2C_UNK create__9TTecJelinFiiii(void *, void *, void *, s32);
@@ -97,20 +97,20 @@ extern "C" {
 void action__15TObjEneMe1GiGueFPv(void *arg0);
 void apply_hit_shake__15TObjEneMe1GiGueFPvUi(void *arg0, u32 arg1);
 void init_move__15TObjEneMe1GiGueFPv(u8 *arg0);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK TBoss3VoloptMonitor__sub_8004292C();
 M2C_UNK TObjEneMe1GiGueBarrier__sub_80325CC4(void *, void *);
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
 M2C_UNK enemy_wander_home(void *, s32, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(M2C_UNK);
+u32 get_player_by_client_id(M2C_UNK);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK set_shake_preset__11TCameraCtrlFi(M2C_UNK);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, int);
 
 void apply_hit_shake__15TObjEneMe1GiGueFPvUi(void *arg0, u32 arg1) {
-    if ((arg1 == TPlayerBattleCtrl4P__sub_801BA74C(0)) && ((s32) M2C_FIELD(arg0, s32 *, 0x3F4) <= 0)) {
+    if ((arg1 == get_player_by_client_id(0)) && ((s32) M2C_FIELD(arg0, s32 *, 0x3F4) <= 0)) {
         M2C_FIELD(arg0, s32 *, 0x3F4) = 0x1E;
         set_shake_preset__11TCameraCtrlFi(1);
     }
@@ -161,7 +161,7 @@ void TObjEneMe1GiGue__sub_802CB6D4(u8 *arg0) {
 }
 
 void TObjEneMe1GiGue__sub_802CB8F0(Obj_802CB8F0 *o, Vec_802CB8F0 *c, f32 r) {
-    if (fn_8013157C(&o->pos, &o->v390) < TObjEneMe1GiGue__data_805DE680) {
+    if (xz_distance_squared(&o->pos, &o->v390) < TObjEneMe1GiGue__data_805DE680) {
         f32 a = lbl_805DE688 * calc_boss4_scale__10TObjPlayerFi(o);
         s32 k = (s32)(lbl_805DE684 * a);
         f32 d = lbl_805DE68C * (r * (TObjEneMe1GiGue__data_805DE678 + calc_boss4_scale__10TObjPlayerFi(o)));
@@ -171,7 +171,7 @@ void TObjEneMe1GiGue__sub_802CB8F0(Obj_802CB8F0 *o, Vec_802CB8F0 *c, f32 r) {
     VecCopy__FP3VecPC3Vec(&o->v29C, &o->v390);
     TObjPlayer__sub_80018660(o, o->f350->f8);
     TObjPlayer__sub_8001806C(o, o->f3E4, o->f60);
-    TObjPlayer__sub_80017E6C(o);
+    move_with_wall_slide(o);
 }
 
 void TObjEneMe1GiGue__sub_802CB9E4(u8 *arg0) {
@@ -181,8 +181,8 @@ void TObjEneMe1GiGue__sub_802CB9E4(u8 *arg0) {
     create_breakup_mdl__12TBoss3VoloptFiiiii((int) (TObjEneMe1GiGue__data_805D683C), (int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x24)), (void *) (&position.x), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     refresh_lobby_state__10TObjPlayerFPv((void *) (arg0));
     send_entity_set_flags__6TLobbyFPv((void *) (arg0));
-    TObjEneDellBiter__sub_80087350((void *) (&position.x), (int) (0x205));
-    TObjEneDellBiter__sub_80087350((void *) (&position.x), (int) (0x206));
+    spawn_particle_effect((void *) (&position.x), (int) (0x205));
+    spawn_particle_effect((void *) (&position.x), (int) (0x206));
     TBoss3Volopt__sub_8022675C((void *) (TObjEneMe1GiGue__sub_802CB5A0((void *) (arg0), (int) (0x3AF1C))), (void *) (&position.x), (int) (0), (int) (0));
     queue_destruction__7TObjectFv((void *) (arg0));
 }
@@ -202,13 +202,13 @@ void action__15TObjEneMe1GiGueFPv(void *arg0) {
         TObjEneMe1GiGueBarrier__sub_80325CC4(arg0, arg0);
         M2C_FIELD(arg0, s32 *, 0x37C) = 2;
         M2C_FIELD(arg0, s32 *, 0x384) = 0x2D;
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         TObjPlayer__sub_80011734(arg0, 0, TObjEneMe1GiGue__data_805DE660);
         update_collisions__10TObjPlayerFPv(arg0);
         return;
     case 2:
         enemy_wander_home(arg0, M2C_FIELD(M2C_FIELD(arg0, void **, 0x350), s32 *, 8), M2C_FIELD(arg0, f32 *, 0x3E4), TObjEneMe1GiGue__data_805DE694, TObjEneMe1GiGue__data_805DE694);
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         TObjPlayer__sub_80011734(arg0, 0, TObjEneMe1GiGue__data_805DE660);
         update_collisions__10TObjPlayerFPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x384) = (s32) (M2C_FIELD(arg0, s32 *, 0x384) - 1);
@@ -248,7 +248,7 @@ void TObjEneMe1GiGue__sub_802CC45C(u8 *arg0) {
         case 1:
             if (M2C_FIELD(arg0, f32 *, 0xC0) >= TObjEneMe1GiGue__data_805DE6A8) {
                 TObjEneMe1GiGue__sub_802CB03C(arg0);
-                TObjEneDellBiter__sub_80087350(arg0 + 0x3A8, 0x204);
+                spawn_particle_effect(arg0 + 0x3A8, 0x204);
                 M2C_FIELD(arg0, s32 *, 0x37C) = 2;
             }
             break;
@@ -262,7 +262,7 @@ void TObjEneMe1GiGue__sub_802CC45C(u8 *arg0) {
             }
             break;
     }
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         TObjPlayer__sub_80011734(arg0, 0, TObjEneMe1GiGue__data_805DE660);
         update_collisions__10TObjPlayerFPv(arg0);
         if (M2C_FIELD(arg0, s16 *, 0xB8) != 3) {

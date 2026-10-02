@@ -134,7 +134,7 @@ typedef struct Pl_8012A470
 
 extern "C" {
 s8 TObjPlayer__sub_80102C30();
-M2C_UNK TObjPlayer__sub_8011F7CC(void *, u32, u32, s32, s32, f32);
+M2C_UNK deliver_hit__11TItemWeaponFPviPviif(void *, u32, u32, s32, s32, f32);
 void TObjPlayer__sub_8012A5E8(void *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0);
 u8 * TObjPlayer__sub_8012A3B4(void *, M2C_UNK, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
@@ -240,11 +240,11 @@ void TObjPlayer__sub_8012A5E8(void *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4
                 if (arg3 == 2) {
                     TObjPlayer__sub_8012A508((void *)(arg0), (u32)(arg2), (s32)(arg4));
                 } else {
-                    TObjPlayer__sub_8011F7CC(arg0, f, arg2, arg3, arg4, farg0);
+                    deliver_hit__11TItemWeaponFPviPviif(arg0, f, arg2, arg3, arg4, farg0);
                 }
                 break;
             default:
-                TObjPlayer__sub_8011F7CC(arg0, f, arg2, arg3, arg4, farg0);
+                deliver_hit__11TItemWeaponFPviPviif(arg0, f, arg2, arg3, arg4, farg0);
                 break;
             }
         }

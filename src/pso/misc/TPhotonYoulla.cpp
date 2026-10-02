@@ -30,7 +30,7 @@ s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 s32 TOHangerMachine01__sub_803D9C00(void *);
 s32 set_global_param__8TObjFishFi(int);
 s32 set_current_scene__6TSceneFi(int);
@@ -51,7 +51,7 @@ M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, M2C_UNK);
 void set_field_dc__10TObjPlayerFPvi(void *, s32);
 void set_field_d8__10TObjPlayerFPvi(void *, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
-u8 * TPhotonMylla__sub_80154CB4(u16);
+u8 * find_entity_by_id(u16);
 u8 * photon_base_ct(void *);
 void TObjPlayer__sub_801AE72C(void *, u8);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -70,7 +70,7 @@ void TObjPlayer__sub_801AEB74(void);
 void TObjPlayer__sub_801AEB80(void);
 void *__dt__13TPhotonYoullaFv(void *arg0, s16 arg1);
 void run_task__13TPhotonYoullaFv(void *arg0);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 s32 TLobby__sub_800822E8(s32, s32);
 s32 TLobby__sub_8030A7B0();
 int TObjPlayer__sub_80019248(void*);
@@ -84,7 +84,7 @@ s32 TObjPlayer__sub_801BF1DC(s32);
 s32 TObjPlayer__sub_801BF3E8(s32);
 s32 TObjPlayer__sub_80354C7C(s32);
 s32 TObjPlayer__sub_80354E3C();
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+s32 get_player_by_client_id(u16);
 void __dl__7TObjectFPv(void *);
 s32 check_camera_mode__10TObjPlayerFv();
 s32 check_flag_100__10TObjPlayerFPv(s32);
@@ -135,7 +135,7 @@ void render__13TPhotonYoullaFv(Self_801AE744 *self) {
         lbl_805D7780 = lbl_805D5668;
         copy_vec4__13TRaderMapCoreFPvPv(&lbl_8058D4C0, &lbl_8050BEC0);
         some_id_805c6f74 = lbl_805D5660;
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         end_effect_render__13TParticleCtrlFv();
     }
 }
@@ -152,7 +152,7 @@ void run_task__13TPhotonYoullaFv(void *arg0) {
         set_field_b8__14TObjEnePanarmsFPvs(arg0, 0);
     }
     M2C_FIELD(arg0, s16 *, 0x194) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);
-    TBoss1Dragon__sub_80143504(arg0);
+    advance_animation_playback(arg0);
     TObjPlayer__sub_801A7680(arg0);
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (M2C_FIELD(arg0, s16 *, 0x14C) + 0xF);
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (u8) M2C_FIELD(arg0, s16 *, 0x14C);
@@ -192,7 +192,7 @@ u8 *TPhotonYoulla__ct(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0x138) = 5;
     VecCopy__FP3VecPC3Vec((void *) ((u8 *)(arg0) + 0x38), (void *) (arg1));
     M2C_FIELD(arg0, u16 *, 0x17C) = (u16) M2C_FIELD(arg1, u16 *, 0xC);
-    M2C_FIELD(arg0, u8 **, 0x180) = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x17C));
+    M2C_FIELD(arg0, u8 **, 0x180) = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x17C));
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x180));
     if (temp_r3 != NULL) {
         M2C_FIELD(arg0, s32 *, 0x60) = (s32) M2C_FIELD(temp_r3, s32 *, 0x60);

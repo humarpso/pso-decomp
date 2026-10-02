@@ -7,11 +7,11 @@ void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(s32, int);
 void rotate_matrix_y(int, int);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(s32);
 void TObjBoss2Tunnel__sub_803DB470(s32);
-void TObjDoor__sub_803DC894(s32, s32, f32);
+void draw_ginja_model_with_motion(s32, s32, f32);
 extern u16 lbl_80445B7C[];
 extern s32 lbl_805D5C28;
 void fn_80192554(Obj_80192554 *arg0);
@@ -30,9 +30,9 @@ void fn_80192554(Obj_80192554 *arg0) {
     rotate_matrix_y(0, arg0->f60);
     TObjBoss2Tunnel__sub_803DB470(arg0->fBC);
     begin_effect_render__13TParticleCtrlFv();
-    TObjDoor__sub_803DC894(arg0->fC0, arg0->fC4, arg0->fB8);
+    draw_ginja_model_with_motion(arg0->fC0, arg0->fC4, arg0->fB8);
     end_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 }

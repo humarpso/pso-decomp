@@ -9,7 +9,7 @@ struct Win_80275F90 { u8 pad[0x66]; s16 f66; };
 extern "C" {
 void set_entry_state__20TWindowSubStatusDispFPvc(void *p, char c);
 void TWindowSubCustomEquip__sub_80275DB4(Obj_80275DB4 *o);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 s32 TObjPlayer__sub_801D8044(void *, u8, u8);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void TWindowHelpItem__sub_80243544(u8 *, u8 *, s32, s32, s32);
@@ -62,7 +62,7 @@ void TWindowSubCustomEquip__sub_80275FD8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3)
     void *pl;
     u8 *a;
     u8 *b;
-    pl = TPlayerBattleCtrl4P__sub_801BA74C(*(s16 *)(arg0 + 0x20));
+    pl = get_player_by_client_id(*(s16 *)(arg0 + 0x20));
     if (pl != NULL) {
         a = get_array_entry__20TWindowSubStatusDispFPvi(arg0, lbl_8044F738[arg1]);
         b = get_array_entry__20TWindowSubStatusDispFPvi(arg0, lbl_8044F740[arg1]);

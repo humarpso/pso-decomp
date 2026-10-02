@@ -61,7 +61,7 @@ M2C_UNK GXSetNumTevStages(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TParticleCtrl__sub_803DA7A8(int);
@@ -127,7 +127,7 @@ void TParticleCtrl__sub_80327D30(Obj_80327D30 *o) {
         reset_particles__13TParticleCtrlFv();
         disable_if_single_screen__13TParticleCtrlFv();
         reset_ind_tev_stages__13TParticleCtrlFv((void *)(o->f40));
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         end_effect_render__13TParticleCtrlFv();
     }
 }

@@ -8,7 +8,7 @@ extern "C" {
 
 void update_displayed_item__15TWindowSubEquipFPv(void *arg0);
 void update__15TWindowSubEquipFPv(void *arg0);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 s32 get_field_d8__10TObjPlayerFPv();
 u32 get_slot_value__10TObjPlayerFPvi(s32, s32);
 M2C_UNK TWindowHelpItem__set_displayed_item_by_id(s32, s32);
@@ -30,7 +30,7 @@ void update__15TWindowSubEquipFPv(void *arg0) {
     s32 var_r3;
     s32 temp_r0;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x28));
+    temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, s32 *, 0x28));
     if (temp_r3 != 0) {
         temp_r0 = select_cursor_entry__6TLobbyFPv(M2C_FIELD(arg0, s32 *, 0x34));
         if (get_slot_value__10TObjPlayerFPvi(temp_r3 + 0xD04, temp_r0) == 0U) {

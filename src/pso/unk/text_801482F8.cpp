@@ -98,7 +98,7 @@ extern "C" {
 
 void TObjPlayer__sub_80148D80(void);
 void handle_message_event__17TObjNpcFemaleBaseFPvUs(void *arg0, u16 arg1);
-u32 TPlayerBattleCtrl4P__sub_801BA74C();
+u32 get_player_by_client_id();
 M2C_UNK play_effect_default__10TObjPlayerFii(u32, s32);
 
 extern s32 lbl_805D53A0;
@@ -108,7 +108,7 @@ void handle_message_event__17TObjNpcFemaleBaseFPvUs(void *arg0, u16 arg1) {
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3A8) > 0) {
         if ((s32) arg1 == (s32) lbl_805D53A0) {
-            temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C();
+            temp_r3 = get_player_by_client_id();
             if ((temp_r3 != 0U) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 3)) {
                 M2C_FIELD(arg0, s16 *, 0x326) = 3;
                 M2C_FIELD(arg0, s16 *, 0x328) = 0;

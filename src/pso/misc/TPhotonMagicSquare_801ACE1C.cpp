@@ -30,7 +30,7 @@ s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 s32 TBoss7Tentacle__sub_803D9BA0(void *);
 s32 TOHangerMachine01__sub_803D9C00(void *);
 s32 set_global_param__8TObjFishFi(int);
@@ -72,7 +72,7 @@ void render__18TPhotonMagicSquareFv(Self_801ACE1C *self) {
     set_chunk_material_color(&lbl_804A7418);
     some_id_805c6f74 = lbl_805D5660;
     copy_vec4__13TRaderMapCoreFPvPv(&self->color, &saved);
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     end_effect_render__13TParticleCtrlFv();
 }
 
@@ -182,7 +182,7 @@ extern const f32 lbl_805DC1F4;
 u8 *TPhotonMagicSquare__sub_801AD218(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 TPhotonMylla__sub_80154CB4(void *);
+s32 find_entity_by_id(void *);
 s32 TPhotonMagicSquare__sub_801A2640(void *);
 s32 TBoss3Volopt__sub_8022675C(int, int, int, int);
 extern RecoveredGlobal_801AD0F0_TPhotonMagicSquare__data_804C3940 TPhotonMagicSquare__data_804C3940;
@@ -276,7 +276,7 @@ u8 *TPhotonMagicSquare__sub_801AD330(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3)
     M2C_FIELD(arg0, f32 *, 0x6C) = (f32) TPhotonMagicSquare__data_805DC1EC;
     M2C_FIELD(arg0, f32 *, 0x70) = (f32) TPhotonMagicSquare__data_805DC1EC;
     copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xA0), (void *) ((u8 *)&(*(RecoveredGlobal_801AD330_TPhotonMagicSquare__data_804C3940 *)&TPhotonMagicSquare__data_804C3940).value + (arg2 * 0x10)));
-    temp_r3 = TPhotonMylla__sub_80154CB4((void *) (arg3));
+    temp_r3 = find_entity_by_id((void *) (arg3));
     if (temp_r3 != 0) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB8), (void *) (temp_r3 + 0x38));
     }

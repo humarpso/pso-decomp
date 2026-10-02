@@ -13,7 +13,7 @@ u32 TLobby__sub_80071640(u32 c);
 s32 TLobby__sub_80071670(u32 x);
 s32 get_layout_id__20TWindowSubStatusDispFv();
 s32 TLobby__sub_80071B30(s32, s32);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 extern M2C_UNK lbl_8048C9D8[];
 s32 TLobby__sub_80071698(s32 arg0);
 }
@@ -73,7 +73,7 @@ s32 TLobby__sub_80071698(s32 arg0) {
     s32 t;
     best = get_layout_id__20TWindowSubStatusDispFv();
     for (i = 0; i < 4; i++) {
-        if (TPlayerBattleCtrl4P__sub_801BA74C(i) != 0U) {
+        if (get_player_by_client_id(i) != 0U) {
             if (((G_80071698 *)lbl_8048C9D8)->e[i].f0 == 0) {
                 return -1;
             }

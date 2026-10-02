@@ -23,10 +23,10 @@ M2C_UNK TObjPlayer__sub_800F09E8(int);
 M2C_UNK TBoss1Dragon__sub_8014220C(void *, void *, void *);
 M2C_UNK rotate_matrix_y(int, void *);
 M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
+M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 extern const f32 TObjEneDD__data_805D9E8C;
@@ -76,7 +76,7 @@ void TObjEneDD__sub_800B9D94(s32 arg0, s32 arg1, s32 arg2, u32 arg3) {
     TBoss1Dragon__sub_8014220C((void *) (arg1), (void *) (&stack.sp8), (void *) (&stack.sp10));
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *) (arg0));
-    TObjPlayer__sub_803D9624((int) (0), (f32) (TObjEneDD__data_805D9E8C), (f32) (lbl_805D9E90), (f32) (TObjEneDD__data_805D9E8C));
+    translate_matrix((int) (0), (f32) (TObjEneDD__data_805D9E8C), (f32) (lbl_805D9E90), (f32) (TObjEneDD__data_805D9E8C));
     rotate_matrix_z((int) (0), (int) (stack.sp10));
     rotate_matrix_x((int) (0), (int) (stack.sp8));
     rotate_matrix_y((int) (0), (void *) (arg2));
@@ -85,7 +85,7 @@ void TObjEneDD__sub_800B9D94(s32 arg0, s32 arg1, s32 arg2, u32 arg3) {
     }
     rotate_matrix_x((int) (0), (int) (-0x4000));
     TObjPlayer__sub_800F09E8((int) (0));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 int update_primary_light__9TObjEneDDFPv(void* p) { return TObjLight__sub_80134098(p); }

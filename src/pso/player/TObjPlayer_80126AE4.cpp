@@ -9,12 +9,12 @@ extern "C" {
 void apply_on_shield_state6__10TObjPlayerFi(s32 arg0);
 void *init_with_update_handler__10TObjPlayerFPv(void *arg0);
 u8 get_slot_count__14TItemProShieldFPv();
-M2C_UNK TObjPlayer__sub_8010069C(s32);
+M2C_UNK refresh_owner_stats__5TItemFPv(s32);
 void TObjPlayer__sub_80120D50(void *);
 
 void apply_on_shield_state6__10TObjPlayerFi(s32 arg0) {
     if (get_slot_count__14TItemProShieldFPv() == 6) {
-        TObjPlayer__sub_8010069C(arg0);
+        refresh_owner_stats__5TItemFPv(arg0);
     }
 }
 

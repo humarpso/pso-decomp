@@ -71,7 +71,7 @@ void begin_effect_render__13TParticleCtrlFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
 void rotate_matrix_y(s32, s32);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 void TBoss7Tentacle__sub_803D9BA0(void *);
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(s32);
@@ -93,8 +93,8 @@ void *create__15TORainbowCave01FPv(void *arg0);
 void free_static_data__15TORainbowCave01Fv(void);
 s32 is_player_in_range__15TORainbowCave01Fif(s32 arg0, f32 farg0);
 void TLobby__sub_8001FE7C(void*, int);
-f32 TObjPlayer__sub_80141CF8(s32, s32);
-s32 TPhotonMylla__sub_80154CB4(u16);
+f32 horizontal_distance_squared(s32, s32);
+s32 find_entity_by_id(u16);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_key_base__5TOKeyFPvs(void *, int);
@@ -104,8 +104,8 @@ extern s32 lbl_805D53A0;
 s32 is_player_in_range__15TORainbowCave01Fif(s32 arg0, f32 farg0) {
     s32 temp_r3;
 
-    temp_r3 = TPhotonMylla__sub_80154CB4((u16) lbl_805D53A0);
-    if ((temp_r3 != 0) && (TObjPlayer__sub_80141CF8(arg0 + 0x38, temp_r3 + 0x38) < farg0)) {
+    temp_r3 = find_entity_by_id((u16) lbl_805D53A0);
+    if ((temp_r3 != 0) && (horizontal_distance_squared(arg0 + 0x38, temp_r3 + 0x38) < farg0)) {
         return 1;
     }
     return 0;
@@ -143,7 +143,7 @@ void render__15TORainbowCave01Fv(Cave_8017310C *self) {
         rotate_matrix_y(0, self->f60);
         TBoss7Tentacle__sub_803D9BA0(self->fD4);
         TObjBoss2Tunnel__sub_803DB470(self->f34);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         set_chunk_material_color(lbl_804A7418);
         some_id_805c6f74 = lbl_805D5660;
         end_effect_render__13TParticleCtrlFv();

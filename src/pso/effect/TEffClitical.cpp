@@ -43,7 +43,7 @@ void TTecRaFoie__sub_80082688(u8 *arg0, u8 *arg1, f32 farg0);
 s32 queue_destruction__7TObjectFv(void *);
 s32 fn_8008271C(void *, void *, f32);
 s32 fn_80082764(void *, void *, f32);
-s32 TObjEneDellBiter__sub_80087350(void *, int);
+s32 spawn_particle_effect(void *, int);
 extern RecoveredGlobal_800823E0_lbl_80438EB8 lbl_80438EB8;
 extern RecoveredGlobal_800823E0_lbl_80438EC8 lbl_80438EC8;
 extern const f32 lbl_805D2900;
@@ -57,10 +57,10 @@ M2C_UNK set_depth_buffer_settings_1__Fv();
 M2C_UNK fn_80141A30();
 M2C_UNK begin_effect_render__13TParticleCtrlFv(int);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK set_chunk_material_color(void *);
@@ -108,9 +108,9 @@ void render__12TEffCliticalFv(u8 *arg0) {
     set_global_param__8TObjFishFi((void *) (lbl_8048E2E0));
     TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x20));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(lbl_805D4DF0, s32 *, 0x194)));
-    TOMonitorMachine01__sub_803D8B5C((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x3C)), (f32) (M2C_FIELD(arg0, f32 *, 0x40)), (f32) (M2C_FIELD(arg0, f32 *, 0x44)));
+    scale_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x3C)), (f32) (M2C_FIELD(arg0, f32 *, 0x40)), (f32) (M2C_FIELD(arg0, f32 *, 0x44)));
     TObjFish__sub_803E46BC((int) (M2C_FIELD(lbl_805D4ED8, s32 *, 0)));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     fn_80082954((void *) (&sp8));
     some_id_805c6f74 = lbl_805D5660;
     end_effect_render__13TParticleCtrlFv();
@@ -147,19 +147,19 @@ void run_task__12TEffCliticalFv(u8 *arg0) {
         do {
             switch (var_r30) {
             case 0:
-                TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x20), (int) (7));
+                spawn_particle_effect((void *) (arg0 + 0x20), (int) (7));
                 break;
             case 1:
-                TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x20), (int) (0xB));
+                spawn_particle_effect((void *) (arg0 + 0x20), (int) (0xB));
                 break;
             case 2:
                 stack.sp8 = M2C_FIELD(arg0, f32 *, 0x20);
                 stack.spC = M2C_FIELD(arg0, f32 *, 0x24) - lbl_805D93A8;
                 stack.sp10 = M2C_FIELD(arg0, f32 *, 0x28);
-                TObjEneDellBiter__sub_80087350((void *) (&stack.sp8), (int) (0xC));
+                spawn_particle_effect((void *) (&stack.sp8), (int) (0xC));
                 break;
             case 3:
-                TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x20), (int) (0xE));
+                spawn_particle_effect((void *) (arg0 + 0x20), (int) (0xE));
                 break;
             }
             var_r30 += 1;

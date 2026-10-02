@@ -20,7 +20,7 @@ struct Self_8012B9B4 {
 };
 
 extern "C" {
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(int);
 s32 reset_key_machine_state__10TObjPlayerFv();
 M2C_UNK create_ex__9TTecBartaFPvPvPvPv(int, void *, int, int);
@@ -69,7 +69,7 @@ void TObjPlayer__sub_8012B8F0(u8 *arg0, s32 arg1) {
     if (reset_key_machine_state__10TObjPlayerFv() != 0)
     {
       temp_r31 = get_field_3e4__10TObjPlayerFPv((int) (*((u32 *) (((s8 *) arg0) + 0xF0))));
-      new_var = TObjPlayer__sub_800196EC();
+      new_var = get_current_floor();
       if (new_var == temp_r31)
       {
         switch (arg1)

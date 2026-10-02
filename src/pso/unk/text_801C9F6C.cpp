@@ -12,7 +12,7 @@ s32 update_timer_action__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801C9F64();
 s32 TObjPlayer__sub_801C9F68(void *);
 void TObjPlayer__sub_801C9F6C(s32 arg0, s16 arg1);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u8 *get_player_by_client_id(u16);
 void bswap_fields__10TObjPlayerFPv(void *);
 void copy_head_fields__10TObjPlayerFPvPv(void *, void *);
 void TObjPlayer__sub_801D1888(void *);
@@ -64,7 +64,7 @@ void handle_6x89_set_killer_entity_id(void *arg0) {
     copy_head_fields__10TObjPlayerFPvPv(&pkt, arg0);
     bswap_fields__10TObjPlayerFPv(&pkt);
     if (validate_6x89_set_killer_entity_id(&pkt) != 0) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(pkt.id);
+        p = get_player_by_client_id(pkt.id);
         if (p != NULL) {
             *(u16 *)(p + 0x2D4) = pkt.c;
         }

@@ -157,7 +157,7 @@ u32 TObjFish__sub_8001ED9C(int, int);
 s32 TObjFish__sub_8001EDC4(int, int);
 M2C_UNK TContainerAncient01__sub_8018A688(void *);
 void TContainerAncient01__sub_8018A914(void *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, int, f32);
+M2C_UNK submit_cursor_candidate(void *, int, f32);
 M2C_UNK run_task__7TObjectFv(void *);
 extern s32 TContainerAncient01R__data_805D5B94;
 extern const f32 TContainerAncient01__data_805DBD10;
@@ -169,7 +169,7 @@ void TContainerAncient01__sub_8018ADAC(u8 *arg0);
 f32 fn_801315A0(void *, void *, void *);
 extern const f32 TContainerAncient01__data_805DBD44;
 s32 TContainerAncient01__sub_8018ACC8(s32 arg0, s32 arg1);
-void TBoss1Dragon__sub_80143504(void *);
+void advance_animation_playback(void *);
 void trigger_spawn__19TContainerAncient01FPvPvPv(void *, void *, void *);
 unsigned int __cvt_fp2unsigned(f32);
 extern const float TContainerAncient01__data_805DBD1C;
@@ -195,14 +195,14 @@ void set_flag8__6TLobbyFPv(void *);
 extern s32 lbl_8050DC70[];
 void TContainerAncient01__sub_8018AB44(Obj_8018AB44 *arg0);
 s32 obj_testFlags30(void *, s32);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
 
 extern const f32 lbl_805DBD18;
 void TContainerAncient01__sub_8018A584(Obj_8018A584 *self, f32 range);
 
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(int);
+u8 *get_player_by_client_id(int);
 s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 extern const f32 TContainerAncient01__data_805DBD20;
@@ -217,9 +217,9 @@ int get_table_entry__19TContainerAncient01Fi(int a0);
 void TContainerAncient01R__sub_8018AF80(void);
 
 void TContainerAncient01__sub_8018B158(void* p, void* a1, void* a2);
-int TObjEneDellBiter__sub_80087350(void*, void*);
+int spawn_particle_effect(void*, void*);
 void TContainerAncient01__sub_8018B158(void* p, void* a1, void* a2);
-void TBoss1Dragon__sub_80143504(void *);
+void advance_animation_playback(void *);
 void TContainerAncient01__sub_8018B158(void* p, void* a1, void* a2);
 extern const float TContainerAncient01__data_805DBD1C;
 extern const f32 TContainerAncient01__data_805DBD34;
@@ -231,9 +231,9 @@ extern const f32 lbl_805DBD40;
 extern const f32 TContainerAncient01__data_805DBD44;
 extern const f32 lbl_805DBD48;
 void TContainerAncient01__sub_8018B5D0(u8 *arg0);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
-void TBoss1Dragon__sub_80143504(void *);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(int);
+f32 horizontal_distance_squared(void *, void *);
+void advance_animation_playback(void *);
+u8 *get_player_by_client_id(int);
 extern const float TContainerAncient01__data_805DBD1C;
 extern const f32 lbl_805DBD38;
 void TContainerAncient01__sub_8018B510(Obj_8018B510 *arg0);
@@ -245,13 +245,13 @@ void set_flag8__6TLobbyFPv(void *);
 extern s32 lbl_8050DC68[];
 void TContainerAncient01__sub_8018B700(Obj_8018B700 *arg0);
 s32 obj_testFlags30(void *, s32);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(int);
+f32 horizontal_distance_squared(void *, void *);
+u8 *get_player_by_client_id(int);
 extern const f32 lbl_805DBD18;
 void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range);
-void TBoss1Dragon__sub_80143504(void *);
+void advance_animation_playback(void *);
 void TContainerAncient01__sub_8018B158(void* p, void* a1, void* a2);
 void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range);
 void reset_state__19TContainerAncient01FPv(void* a0);
@@ -277,10 +277,10 @@ void set_target_value__19TContainerAncient01FPvPvi(void *arg0, s16 *arg1, s32 ar
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
-M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
+M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
@@ -300,10 +300,10 @@ void TContainerAncient01__sub_8018A584(Obj_8018A584 *self, f32 range) {
     u16 i;
     Player_8018A584 *pl;
     for (i = 0; i < 4; i++) {
-        pl = (Player_8018A584 *)TPlayerBattleCtrl4P__sub_801BA74C(i);
+        pl = (Player_8018A584 *)get_player_by_client_id(i);
         if (pl != NULL) {
-            if (get_field_3e4__10TObjPlayerFPv(pl) == TObjPlayer__sub_800196EC() && obj_testFlags30(pl, 1) == 0 &&
-                TObjPlayer__sub_80141CF8(self->pos, pl->pos) < range) {
+            if (get_field_3e4__10TObjPlayerFPv(pl) == get_current_floor() && obj_testFlags30(pl, 1) == 0 &&
+                horizontal_distance_squared(self->pos, pl->pos) < range) {
                 Atk_8018A584 atk;
                 atk.type = 0xF;
                 atk.base = lbl_805DBD18;
@@ -323,7 +323,7 @@ M2C_UNK TContainerAncient01__sub_8018A688(void *arg0) {
     f32 t;
     u32 rem;
 
-    TBoss1Dragon__sub_80143504(self);
+    advance_animation_playback(self);
     if (TContainerAncient01__data_805DBD20 == self->x2b4) {
         switch (get_global_state__14TOKeyMachine01Fv()) {
         case 0x17:
@@ -366,7 +366,7 @@ M2C_UNK TContainerAncient01__sub_8018A688(void *arg0) {
 }
 
 void TContainerAncient01__sub_8018A890(u8 *arg0) {
-  TBoss1Dragon__sub_80143504(arg0);
+  advance_animation_playback(arg0);
   if ((__cvt_fp2unsigned(*((f32 *) (((s8 *) arg0) + 0x2B4))) % 15) == 0)
   {
     trigger_spawn__19TContainerAncient01FPvPvPv(arg0, arg0 + 0x348, (void *) 0x7D);
@@ -386,15 +386,15 @@ void TContainerAncient01__sub_8018A914(void *arg0) {
     Player_8018A914 *pl;
     f32 range;
 
-    TBoss1Dragon__sub_80143504(self);
+    advance_animation_playback(self);
     hit = 0;
     if (self->x33c <= self->x2b4) {
         hit = 1;
     } else {
         range = lbl_805DBD38;
         for (i = 0; i < lbl_805D586C; i++) {
-            pl = ((Player_8018A914 *(*)(s32))TPlayerBattleCtrl4P__sub_801BA74C)(i);
-            if (pl != NULL && TObjPlayer__sub_80141CF8(self->pos, pl->pos) < range) {
+            pl = ((Player_8018A914 *(*)(s32))get_player_by_client_id)(i);
+            if (pl != NULL && horizontal_distance_squared(self->pos, pl->pos) < range) {
                 hit = 1;
             }
         }
@@ -505,9 +505,9 @@ void draw__19TContainerAncient01FPv(u8 *arg0) {
         if (check_demo_mode__10TObjPlayerFv() == 1) {
             TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x34));
         } else {
-            TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
+            draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 void TContainerAncient01__sub_8018ADAC(u8 *arg0) {
@@ -536,7 +536,7 @@ void TContainerAncient01__sub_8018ADAC(u8 *arg0) {
             }
             temp_f1 = M2C_FIELD(arg0, f32 *, 0x2B4);
             M2C_FIELD(arg0, f32 *, 0x2B4) = (f32) (temp_f1 + (*(const f32 *)&TContainerAncient01__data_805DBD10));
-            TObjPlayer__sub_801B4A18((void *) (arg0), (int) (-1), (f32) (temp_f1));
+            submit_cursor_candidate((void *) (arg0), (int) (-1), (f32) (temp_f1));
         } else {
             temp_f1_2 = M2C_FIELD(arg0, f32 *, 0x368);
             if (temp_f1_2 <= lbl_805DBD50) {
@@ -596,16 +596,16 @@ void reset_state__19TContainerAncient01FPv(void* a0);
 
     extern const float TContainerAncient01__data_805DBD1C;
 
-void TContainerAncient01__sub_8018B158(void* p, void* a1, void* a2) { TObjEneDellBiter__sub_80087350(a1, a2); }
+void TContainerAncient01__sub_8018B158(void* p, void* a1, void* a2) { spawn_particle_effect(a1, a2); }
 
 void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range) {
     u16 i;
     Player_8018B180 *pl;
     for (i = 0; i < 4; i++) {
-        pl = (Player_8018B180 *)TPlayerBattleCtrl4P__sub_801BA74C(i);
+        pl = (Player_8018B180 *)get_player_by_client_id(i);
         if (pl != NULL) {
-            if (get_field_3e4__10TObjPlayerFPv(pl) == TObjPlayer__sub_800196EC() && obj_testFlags30(pl, 1) == 0 &&
-                TObjPlayer__sub_80141CF8(self->pos, pl->pos) < range) {
+            if (get_field_3e4__10TObjPlayerFPv(pl) == get_current_floor() && obj_testFlags30(pl, 1) == 0 &&
+                horizontal_distance_squared(self->pos, pl->pos) < range) {
                 Atk_8018B180 atk;
                 atk.type = 0xF;
                 atk.base = lbl_805DBD18;
@@ -623,7 +623,7 @@ void TContainerAncient01__sub_8018B284(Obj_8018B284 *self) {
     u32 period;
     u32 phase;
     f32 t;
-    TBoss1Dragon__sub_80143504(self);
+    advance_animation_playback(self);
     if (TContainerAncient01__data_805DBD20 == self->f2B4) {
         switch (get_global_state__14TOKeyMachine01Fv()) {
         case 0x17:
@@ -665,7 +665,7 @@ void TContainerAncient01__sub_8018B284(Obj_8018B284 *self) {
 }
 
 void TContainerAncient01__sub_8018B48C(u8 *arg0) {
-  TBoss1Dragon__sub_80143504(arg0);
+  advance_animation_playback(arg0);
   if (((__cvt_fp2unsigned(*((f32 *) (((s8 *) arg0) + 0x2B4))) & 0xFFFFFFFF) % 15) == 0)
   {
     TContainerAncient01__sub_8018B158((void*)(arg0), (void*)(arg0 + 0x344), (void*)((void *) 0x7D));
@@ -687,15 +687,15 @@ void TContainerAncient01__sub_8018B510(Obj_8018B510 *arg0) {
     u16 i;
     u8 *p;
     f32 c;
-    TBoss1Dragon__sub_80143504(arg0);
+    advance_animation_playback(arg0);
     flag = 0;
     if (arg0->f338 <= arg0->f2B4) {
         flag = 1;
     } else {
         c = lbl_805DBD38;
         for (i = 0; i < 4; i++) {
-            p = TPlayerBattleCtrl4P__sub_801BA74C(i);
-            if (p != 0 && TObjPlayer__sub_80141CF8(arg0->pos, p + 0x38) < c) {
+            p = get_player_by_client_id(i);
+            if (p != 0 && horizontal_distance_squared(arg0->pos, p + 0x38) < c) {
                 flag = 1;
             }
         }

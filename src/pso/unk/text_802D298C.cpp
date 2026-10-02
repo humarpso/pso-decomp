@@ -30,7 +30,7 @@ extern RecoveredGlobal_802D298C_TLobby__data_80540BD0 TLobby__data_80540BD0;
 M2C_UNK *TLobby__sub_802D29AC(void);
 M2C_UNK TObjPlayer__sub_80011138(s32, s32);
 M2C_UNK TObjPlayer__sub_801B8DE8(s32, s32, s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 s32 check_player_action_allowed();
 M2C_UNK fn_801D41B4(s32);
 s32 fn_801D4270(s32);
@@ -121,7 +121,7 @@ void TLobby__sub_802D2A70(void) {
     s32 count;
     s32 flag;
     if ((s32) TLobby__data_805D688B == 7) {
-        player = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+        player = get_player_by_client_id(lbl_805D53A0);
         if (player != 0) {
             list = (struct E_802D2A70 *)((s32 *)TLobby__sub_802D29AC());
             if (list != NULL) {

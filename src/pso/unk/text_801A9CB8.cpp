@@ -28,7 +28,7 @@ void TCameraCtrl__sub_80069D7C(void);
 void TCameraCtrl__sub_80069DA8(void);
 void TCameraCtrl__sub_8006A410(void *, int);
 void TFogCtrl__sub_800FAC10(int, int);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 void TObjPlayer__sub_801CBFA4(void *);
 void set_and_notify_default__6TLobbyFv(void);
 void __dl__7TObjectFPv(void *);
@@ -49,11 +49,11 @@ Obj_801A9CB8 *TObjPlayer__sub_801A9CB8(Obj_801A9CB8 *self, s16 flag) {
         if (self->active != 0) {
             set_and_notify_default__6TLobbyFv();
             TObjPlayer__sub_801CBFA4((u8 *)self + 0x90);
-            if (TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != NULL) {
+            if (get_player_by_client_id(lbl_805D53A0) != NULL) {
                 TLobby__sub_8024AC20(lbl_805D53A0);
                 TCameraCtrl__sub_80069D7C();
                 TCameraCtrl__sub_80069DA8();
-                TCameraCtrl__sub_8006A410(TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0), 0);
+                TCameraCtrl__sub_8006A410(get_player_by_client_id(lbl_805D53A0), 0);
             }
         } else {
             TFogCtrl__sub_800FAC10(self->id, 0);

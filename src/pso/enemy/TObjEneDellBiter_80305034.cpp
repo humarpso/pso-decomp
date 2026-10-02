@@ -25,11 +25,11 @@ struct WObj_80305034 : WBase_80305034 {
 extern "C" {
 
 void run_task__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1);
-M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK advance_animation_playback();
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 M2C_UNK TObjEneDD__sub_800BACE0(void *, f32, f32, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
+M2C_UNK transition_enemy_state(void *, int);
 M2C_UNK noop__16TObjEneDellBiterFv(void *);
 M2C_UNK TObjEneDellBiter__sub_803058DC(void *);
 M2C_UNK TObjEneDellBiter__sub_8030591C(void *);
@@ -63,11 +63,11 @@ void run_task__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
         return;
     case 3:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x4D0) == 2) {
-            TObjEneDD__sub_800BBA18((void *) (arg0), (int) (5));
+            transition_enemy_state((void *) (arg0), (int) (5));
         }
         return;
     case 0:
-        TBoss1Dragon__sub_80143504();
+        advance_animation_playback();
         update_linked_position__14TObjEneEpsilonFPv((void *) (arg0), (f32) (TObjEneDellBiter__data_805DF00C));
         M2C_FIELD(arg0, s32 *, 0x4CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x4CC) + 1);
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x4D0);

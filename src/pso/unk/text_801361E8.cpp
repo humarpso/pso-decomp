@@ -83,7 +83,7 @@ extern RecoveredGlobal_8013630C_main_task main_task;
 extern u32 TLobby__data_805D55D8;
 void handle_6x72_done_loading_into_game(void);
 void TLobby__sub_8013A170(const char *fmt, ...);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+s32 get_player_by_client_id(void *);
 s32 clear_flag3_all_tasks__9TMainTaskFv(void *);
 s32 TWindow__close(int);
 char *strncpy(char *, const char *, u32);
@@ -100,12 +100,12 @@ extern Mgr_801361E8 *lbl_805D5E48;
 extern s32 lbl_805D61AC;
 void TLobby__sub_801361E8(u32 arg0, s32 arg1, s32 arg2);
 void TKeyBoardControl__sub_8000F978();
-void *TObjPlayer__sub_800196EC();
+void *get_current_floor();
 void TLobby__sub_801378AC(Ent_801368B0 *, s32, s32, s32);
 void destroy_all_objects__6TLobbyFv();
 void TLobby__sub_8013A170(const char *fmt, ...);
 void set_player_count__6TLobbyFi(s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+s32 get_player_by_client_id(void *);
 void TLobby__sub_80207750(void *, s32);
 char *strncpy(char *, const char *, u32);
 extern u8 TLobby__sub_801371B0[];
@@ -153,7 +153,7 @@ void fn_8013ACE4(s32);
 void fn_8013ACEC(s32);
 void TObjCityMainWarp__sub_80186634();
 void set_flag_and_update__6TLobbyFv();
-s32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+s32 get_player_by_client_id(void *);
 void bswap_32__FPUl(u32 *);
 void TAdStorySelectGC__sub_80207D44(s32);
 void set_area__6TLobbyFPvi(void *, s32, s32);
@@ -181,7 +181,7 @@ void TLobby__sub_801361E8(u32 arg0, s32 arg1, s32 arg2) {
     Node_801361E8 *n;
     TLobby__data_805D53AC = arg1;
     TLobby__data_805D5598 = arg2;
-    p = (Obj_801361E8 *)TPlayerBattleCtrl4P__sub_801BA74C((void *)arg0);
+    p = (Obj_801361E8 *)get_player_by_client_id((void *)arg0);
     if (p != NULL) {
         for (n = lbl_805D5E48->head; n != NULL; n = n->next) {
             if (n->id == arg0) {
@@ -243,14 +243,14 @@ void TLobby__sub_801368B0(Ent_801368B0 *ents, s32 n, s32 client_id, s32 leader, 
         strncpy(TLobby__data_8050AAE8[ents[i].id], ents[i].name, 0x10);
     }
     for (i = 0; i < 12; i++) {
-        p = (Obj_801368B0 *)TPlayerBattleCtrl4P__sub_801BA74C((void *)i);
+        p = (Obj_801368B0 *)get_player_by_client_id((void *)i);
         if (p != NULL) {
             delete p;
             TLobby__sub_8013A170(TLobby__data_8043EF38, i);
         }
     }
     TLobby__sub_801378AC(ents, n, client_id, leader);
-    TLobby__sub_80207750(TObjPlayer__sub_800196EC(), v4);
+    TLobby__sub_80207750(get_current_floor(), v4);
     lbl_805D55A0 = arg7;
     TKeyBoardControl__sub_8000F978();
     *(u8 **)(TLobby__data_805D5580 + 0xBBF8) = TLobby__sub_801371B0;
@@ -321,7 +321,7 @@ void TLobby__sub_80136C94(Pkt_80136C94 *pkt) {
     }
     fn_8013ACE4(pkt->w10c);
     for (i = 0; i < 0xC; i++) {
-        p = (Obj_80136C94 *)TPlayerBattleCtrl4P__sub_801BA74C((void *)i);
+        p = (Obj_80136C94 *)get_player_by_client_id((void *)i);
         if (p != NULL) {
             delete p;
             TLobby__sub_8013A170(TLobby__data_8043EF38, i);

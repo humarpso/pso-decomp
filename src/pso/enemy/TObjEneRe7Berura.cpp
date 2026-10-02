@@ -10,7 +10,7 @@ void TObjEneRe7Berura__sub_80095328(void);
 void TObjEneRe7Berura__vt59(void);
 void TObjEneRe7Berura__vt86(void *arg0);
 void update_collision_center__16TObjEneRe7BeruraFPv(u8 *arg0);
-int TObjEneDD__sub_800BBA18(void*, void*);
+int transition_enemy_state(void*, void*);
 void TObjEneRe7Berura__vt26(void);
 void TObjEneRe7Berura__vt61(void* p);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *, void *, f32);

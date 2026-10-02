@@ -463,7 +463,7 @@ M2C_UNK set_flags__10TObjPlayerFPvUi(void *, void *);
 s32 TObjPlayer__sub_8001BEF8(void *, void *);
 s32 TItemEquipBase__sub_8010AC60(s32 arg0, M2C_UNK arg1, s32 arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TObjEneDellBiter__sub_80087350(void *, int);
+s32 spawn_particle_effect(void *, int);
 u8 *TObjPlayer__sub_80154804(s32, s32);
 void fn_8010A710(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s16 arg3);
 M2C_UNK set_flags__10TObjPlayerFPvUi(void *, void *);
@@ -590,7 +590,7 @@ void fn_8010A710(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s16 arg3) {
         VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (temp_r3 + 0x38));
         stack.spC = M2C_FIELD(temp_r3, f32 *, 0x300);
     }
-    TObjEneDellBiter__sub_80087350((void *) (&stack.sp8), (int) (0x45));
+    spawn_particle_effect((void *) (&stack.sp8), (int) (0x45));
 }
 
 void* fn_8010A768(void* p) { return (char*)p + 0x16c; }

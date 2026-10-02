@@ -36,7 +36,7 @@ struct V3_802532E8 { u8 bytes[0xc]; };
 extern "C" {
 M2C_UNK clear_fields__20TWindowSubStatusDispFPv(void *);
 s32 TWindowHelpItem__sub_801B3038(int, void *);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+s32 get_player_by_client_id(int);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 void TWindowHelpItem__sub_80253268(u8 *arg0);
 void initialize_mag_data__9TItemDataFPv(MagData_80253564 *);
@@ -69,7 +69,7 @@ s32 TLobby__sub_8001DC24();
 void TWindowHelpItem__sub_80104FCC(int, void *, void *);
 s16 get_technique_level__9TItemDataFPv(void *);
 void TItemData__sub_8010E414(void *);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+s32 get_player_by_client_id(int);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 void TWindowSubStatusDisp__sub_80229080();
 void TWindowSubStatusDisp__sub_802290E0();
@@ -117,7 +117,7 @@ void TWindowHelpItem__sub_80253268(u8 *arg0) {
     u8 *temp_r31;
     u8 *temp_r31_2;
     clear_fields__20TWindowSubStatusDispFPv((void *) (&stack.sp8));
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int) (M2C_FIELD(arg0, s16 *, 0x20)));
+    temp_r3 = get_player_by_client_id((int) (M2C_FIELD(arg0, s16 *, 0x20)));
     if (temp_r3 != 0) {
         temp_r31 = (u8 *)(temp_r3 + 0x85C);
         if (temp_r31 != NULL) {
@@ -139,7 +139,7 @@ void TWindowHelpItem__sub_802532E8(u8 *arg0) {
     u8 *e4;
     u8 *e5;
     u8 *e6;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(*(s16 *)(arg0 + 0x20));
+    temp_r3 = get_player_by_client_id(*(s16 *)(arg0 + 0x20));
     if (temp_r3 != 0) {
         TWindowSubStatusDisp__sub_80257D44(arg0 + 0x24, lbl_804CF5DC, *(s16 *)(arg0 + 0x20));
         *(V3_802532E8 *)(arg0 + 0xB0) = lbl_804CF898;

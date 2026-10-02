@@ -19,7 +19,7 @@ s32 TObjPlayer__sub_8011F63C();
 s32 get_player_list__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_8012B9B4(s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
+M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjectV8047c128_subtract_hp(s32, s16);
 s16 obj_getS16_32E(s32);
 
@@ -68,7 +68,7 @@ void play_action_sound__10TObjPlayerFPv(void *arg0) {
         rotate_matrix_z(0, -M2C_FIELD(arg0, s32 *, 0x278));
         return;
     case 1:
-        TObjPlayer__sub_803D9624(0, lbl_805DAEC8, lbl_805DAECC * M2C_FIELD(arg0, f32 *, 0x274), lbl_805DAEC8);
+        translate_matrix(0, lbl_805DAEC8, lbl_805DAECC * M2C_FIELD(arg0, f32 *, 0x274), lbl_805DAEC8);
         return;
     case 3:
     case 4:

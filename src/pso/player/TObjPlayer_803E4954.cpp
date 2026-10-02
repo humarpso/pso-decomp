@@ -41,13 +41,13 @@ void TObjPlayer__sub_803E4D8C(void *, void *, void *, f32, void (*)(void));
 void TObjEneSlimeOne__sub_803E4B54(void *arg0, void *arg1, void *arg2, f32 farg0);
 s32 TObjPlayer__sub_803D76B4(int);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 extern A_803E4BDC *lbl_805D4698;
 extern RecoveredCallback_1268626c296b lbl_805D7810;
 s32 TObjPlayer__sub_803E49FC(void *arg);
 s32 TObjPlayer__sub_803D7CA4(int);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 extern A_803E4BDC *lbl_805D4698;
 extern RecoveredCallback_1268626c296b lbl_805D7810;
 void TObjPlayer__sub_803E4C48(void *arg);
@@ -102,7 +102,7 @@ s32 TObjPlayer__sub_803E49FC(void *arg) {
         if (arg0->child != NULL) {
             TObjPlayer__sub_803E49FC((void *)arg0->child);
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         arg0 = arg0->next;
     } while (arg0 != NULL);
 }
@@ -158,7 +158,7 @@ void TObjPlayer__sub_803E4C48(void *arg) {
         if (arg0->child != NULL) {
             TObjPlayer__sub_803E4C48((void *)arg0->child);
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         arg0 = arg0->next;
     } while (arg0 != NULL);
 }

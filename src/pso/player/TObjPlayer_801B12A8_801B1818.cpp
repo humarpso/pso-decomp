@@ -19,7 +19,7 @@ s16 get_state__10TObjPlayerFPv(void *);
 s16 call_subobject_m15__10TObjPlayerFPv(void *);
 s16 get_vobj_state_28__10TObjPlayerFPv(void *);
 s16 TObjPlayer__sub_801CFBFC(void *);
-s16 TObjPlayer__sub_801D0458(void *);
+s16 get_idle_animation__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801B18C0(s32 arg0, u32 arg1);
 extern M2C_UNK lbl_8050EA10[];
 void TObjPlayer__sub_801B1A84(void (*arg0)(void *));
@@ -38,7 +38,7 @@ s32 TFontSmallLobby__sub_801AFEE0();
 int TFontSmallLobby__sub_801C0228(void*);
 s32 TObjFish__sub_803E46BC(s32);
 s32 TObjPlayer__sub_80019248(u32);
-int TObjPlayer__sub_802034B0(void);
+int is_item_area_enabled(void);
 M2C_UNK fn_801C05A0(M2C_UNK *);
 M2C_UNK fn_801C05B4(M2C_UNK *);
 int get_field_3e0__12TBoss3VoloptFPv(void);
@@ -62,7 +62,7 @@ int get_field_828__10TObjPlayerFPv(void* p) { return get_type__10TObjPlayerFPv((
 void TObjPlayer__sub_801B18C0(s32 arg0, u32 arg1) {
     switch (arg1) {
     default:
-        TObjPlayer__sub_801D0458((void *) (arg0));
+        get_idle_animation__10TObjPlayerFPv((void *) (arg0));
         return;
     case 2:
     case 3:
@@ -117,7 +117,7 @@ void play_phase_transition_sound__10TObjPlayerFi(s32 arg0) {
     }
     TObjFish__sub_803E46BC(arg0);
 }
-void reset_volopt_state__10TObjPlayerFv(void) { get_field_3e0__12TBoss3VoloptFPv(); TObjPlayer__sub_802034B0(); }
+void reset_volopt_state__10TObjPlayerFv(void) { get_field_3e0__12TBoss3VoloptFPv(); is_item_area_enabled(); }
 
 extern M2C_UNK lbl_8050EA10[];
 

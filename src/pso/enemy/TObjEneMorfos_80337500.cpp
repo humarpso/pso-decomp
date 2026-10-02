@@ -41,9 +41,9 @@ struct O_80337644 {
 
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
-u8 *TBoss8Dragon__sub_8007A544(s32, M2C_UNK);
+u8 *csnVecterUnder(s32, M2C_UNK);
 s32 TObjEneMorfos__sub_803375F0(M2C_UNK arg0, s32 arg1);
-f32 fn_8013157C(void *, void *);
+f32 xz_distance_squared(void *, void *);
 void TBoss6Type1__sub_803D9370(void *, void *);
 extern P_80337500 lbl_80477B70[];
 extern const f32 lbl_805D6D30;
@@ -66,9 +66,9 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u8 *get_player_data__10TObjPlayerFi(s32);
 f32 get_random_float__8TObjFishFv(f32);
 void queue_destruction__7TObjectFv(void *);
-u32 TObjButterflyLobby__sub_8007A5D8(void *, void *, int);
+u32 csnVector(void *, void *, int);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
-s32 TPhotonMylla__sub_80154CB4(u16);
+s32 find_entity_by_id(u16);
 s32 is_valid_and_active__10TObjPlayerFUi(void *);
 void TObjEneMorfos__sub_80337500(O_80337500 *arg0, V_80337500 *arg1, V_80337500 *arg2);
 s32 TObjEneMorfos__sub_803375F0(M2C_UNK arg0, s32 arg1);
@@ -93,7 +93,7 @@ void TObjEneMorfos__sub_80337500(O_80337500 *arg0, V_80337500 *arg1, V_80337500 
     Vec_80337500 v = arg0->pos;
     TBoss6Type1__sub_803D9370(&v, arg0->b8);
     if (arg1 != 0 && arg1 != arg2 && !(*(s32 *)((u8 *)arg1 + 0x30) & 0x04000A00)) {
-        if (!(fn_8013157C(&v, (u8 *)arg1 + 0x2FC) > (lbl_805DF988 * lbl_805D6D30) * (lbl_805DF988 * lbl_805D6D30))) {
+        if (!(xz_distance_squared(&v, (u8 *)arg1 + 0x2FC) > (lbl_805DF988 * lbl_805D6D30) * (lbl_805DF988 * lbl_805D6D30))) {
             P_80337500 tmp = lbl_80477B70[0];
             tmp.f = lbl_805D6D34;
             P_80337500 p = tmp;
@@ -104,7 +104,7 @@ void TObjEneMorfos__sub_80337500(O_80337500 *arg0, V_80337500 *arg1, V_80337500 
 
 s32 TObjEneMorfos__sub_803375F0(M2C_UNK arg0, s32 arg1) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(TBoss8Dragon__sub_8007A544(arg1, 0x16EF));
+    temp_r3 = (u8 *)(csnVecterUnder(arg1, 0x16EF));
     if (temp_r3 == NULL) {
         return 0;
     }
@@ -136,11 +136,11 @@ void TObjEneMorfos__sub_80337644(O_80337644 *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    if (TObjButterflyLobby__sub_8007A5D8(&v, &arg0->pos, -1) != 0) {
+    if (csnVector(&v, &arg0->pos, -1) != 0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    k = TPhotonMylla__sub_80154CB4(arg0->fF8);
+    k = find_entity_by_id(arg0->fF8);
     if (k != 0) {
         for (i = 0; i < lbl_805D586C; i++) {
             p = get_player_data__10TObjPlayerFi(i);

@@ -67,7 +67,7 @@ struct Missile_800D43B4 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TObjPlayer__sub_80156844(void *, void *, int);
+s32 project_actor_to_ground(void *, void *, int);
 extern const f32 lbl_805DA2A0;
 extern const f32 lbl_805DA2A4;
 void TObjGyaranzoMissile__sub_800D4110(u8 *arg0, M2C_UNK *arg1, f32 farg0);
@@ -78,12 +78,12 @@ s32 TObjGyaranzoMissile__sub_800D40FC(s32 i);
 s32 TObjPlayer__sub_80019570();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u8 *get_battle_param__10TObjPlayerFi(s32);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK spawn_particle_effect(void *, int);
 s32 TObjGyaranzoMissile__sub_800D40FC(s32 i);
 M2C_UNK TObjPlayer__sub_800F06B4(int, int);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 M2C_UNK init_all_slots__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_801564A0(void *);
+M2C_UNK check_enemy_body_collisions(void *);
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 extern Hit_800D4200 lbl_8043C440[];
@@ -92,12 +92,12 @@ void TObjGyaranzoMissile__sub_800D4200(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void TObjGyaranzoMissile__sub_800D4110(u8 *arg0, M2C_UNK *arg1, f32 farg0);
 void TObjGyaranzoMissile__sub_800D4200(u8 *arg0);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK spawn_particle_effect(void *, int);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 void TObjPlayer__sub_803D97F0(void *);
 void TScene__sub_803D8DB4(int, void *, void *);
-u32 TObjButterflyLobby__sub_8007A5D8(void *, void *, int);
+u32 csnVector(void *, void *, int);
 void update_collisions__10TObjPlayerFPv(void *);
 extern u8 lbl_8058D490[];
 extern const f32 lbl_805DA2A4;
@@ -119,7 +119,7 @@ M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 M2C_UNK TObjFish__sub_803E46BC(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
 void TObjGyaranzoMissile__sub_800D40D8(void) {  }
@@ -142,7 +142,7 @@ void TObjGyaranzoMissile__sub_800D4110(u8 *arg0, M2C_UNK *arg1, f32 farg0) {
     f32 temp_f1;
     s32 temp_r31;
     VecCopy__FP3VecPC3Vec((void *) (&position.x), (void *) (arg0 + 0x38));
-    temp_r31 = TObjPlayer__sub_80156844((void *) (arg0), (void *) (&position.x), (int) (0));
+    temp_r31 = project_actor_to_ground((void *) (arg0), (void *) (&position.x), (int) (0));
     if (arg1 != NULL) {
         VecCopy__FP3VecPC3Vec((void *) (arg1), (void *) (&position.x));
     }
@@ -167,11 +167,11 @@ void TObjGyaranzoMissile__sub_800D4200(u8 *arg0) {
     u8 *self;
     s32 i;
     u8 *t;
-    self = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0xD8));
+    self = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0xD8));
     M2C_FIELD(arg0, Info_800D4200 **, 0xA4)->xc = lbl_805DA2A8;
     init_all_slots__10TObjPlayerFv();
     check_object_collisions__10TObjPlayerFPv(arg0);
-    TObjPlayer__sub_801564A0(arg0);
+    check_enemy_body_collisions(arg0);
     if (M2C_FIELD(arg0, Info_800D4200 **, 0xA4)->flags & 0x180000) {
         for (i = 0; i < 0x10; i++) {
             t = get_battle_param__10TObjPlayerFi(i);
@@ -188,7 +188,7 @@ void TObjGyaranzoMissile__sub_800D4200(u8 *arg0) {
             }
         }
     }
-    TObjEneDellBiter__sub_80087350(arg0 + 0x38, 0xFB);
+    spawn_particle_effect(arg0 + 0x38, 0xFB);
     TBoss3Volopt__sub_8022675C((void *)TObjPlayer__sub_800F06B4(0x4003A80C, 0x19), arg0 + 0x38, 0, 0);
     queue_destruction__7TObjectFv(arg0);
 }
@@ -201,7 +201,7 @@ void draw__19TObjGyaranzoMissileFPv(u8 *arg0) {
     rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0xC0));
     some_id_805c6f74 &= 0xFFFFFBFF;
     TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0xC4));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 void TObjGyaranzoMissile__sub_800D43B4(Missile_800D43B4 *self) {
     self->timer++;
@@ -222,9 +222,9 @@ void TObjGyaranzoMissile__sub_800D43B4(Missile_800D43B4 *self) {
             self->angle += self->spin;
             rotate_matrix_y(0, self->angle);
             TScene__sub_803D8DB4(0, &self->vel, &self->vel);
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             self->fC0 = 0;
-            TObjEneDellBiter__sub_80087350(&self->pos, 0xF3);
+            spawn_particle_effect(&self->pos, 0xF3);
             self->state = 1;
         }
         break;
@@ -232,7 +232,7 @@ void TObjGyaranzoMissile__sub_800D43B4(Missile_800D43B4 *self) {
         Vec v = self->fE0;
         v.x += self->vel.x;
         v.z += self->vel.z;
-        if (TObjButterflyLobby__sub_8007A5D8(&self->fE0, &v, -1) == 0) {
+        if (csnVector(&self->fE0, &v, -1) == 0) {
             self->pos.x = v.x;
             self->pos.z = v.z;
         } else {

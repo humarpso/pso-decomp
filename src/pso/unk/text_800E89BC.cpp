@@ -39,8 +39,8 @@ u16 TObjPlayer__sub_800115C4(void *, s32, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjEneSlimeOne__sub_800EC3D0(void *, f32);
 Ent_800E8AD0 *get_enemy_entity(u16);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+f32 horizontal_distance_squared(void *, void *);
+s32 get_player_by_client_id(void *);
 extern Hit_800E8AD0 lbl_8043D260[];
 extern const f32 lbl_805DA6A8;
 extern const f32 lbl_805DA6B4;
@@ -61,8 +61,8 @@ s32 fn_800E8AD0(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     id = TObjPlayer__sub_800115C4(arg0, 0, lbl_805DA6A8);
     if (id != 0xFFFF) {
-        e = ((Ent_800E8AD0 *(*)(s32))TPlayerBattleCtrl4P__sub_801BA74C)(id);
-        if (e != NULL && !(TObjPlayer__sub_80141CF8(arg0 + 0x2FC, (u8 *)e + 0x2FC) > lbl_805DA6A8)) {
+        e = ((Ent_800E8AD0 *(*)(s32))get_player_by_client_id)(id);
+        if (e != NULL && !(horizontal_distance_squared(arg0 + 0x2FC, (u8 *)e + 0x2FC) > lbl_805DA6A8)) {
             if (lbl_805DA6B4 != e->m21(M2C_FIELD(arg0, s32 *, 0x38C), h, 0, -1, -1)) {
                 e->m23(arg0);
             }
@@ -72,7 +72,7 @@ s32 fn_800E8AD0(u8 *arg0) {
     id2 = TObjEneSlimeOne__sub_800EC3D0(arg0, lbl_805DA6A8);
     if (id2 != 0xFFFF) {
         e2 = get_enemy_entity(id2);
-        if (e2 != NULL && !(TObjPlayer__sub_80141CF8(arg0 + 0x2FC, (u8 *)e2 + 0x2FC) > lbl_805DA6A8)) {
+        if (e2 != NULL && !(horizontal_distance_squared(arg0 + 0x2FC, (u8 *)e2 + 0x2FC) > lbl_805DA6A8)) {
             if (lbl_805DA6B4 != e2->m21(M2C_FIELD(arg0, s32 *, 0x38C), h, 0, -1, -1)) {
                 e2->m23(arg0);
             }

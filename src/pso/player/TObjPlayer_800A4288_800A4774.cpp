@@ -36,7 +36,7 @@ extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 TObjPlayer__sub_80141F84(s32, s32);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
 extern const f64 lbl_8043A8D0[];
 void TObjPlayer__sub_800A48C4(Obj_800A48C4 *o);
@@ -45,12 +45,12 @@ void TObjPlayer__sub_800A48C4(Obj_800A48C4 *o);
 extern "C" {
 
 void update_knockback_state__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK advance_animation_playback();
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
-M2C_UNK TObjPlayer__sub_80017E6C(void *);
+M2C_UNK move_with_wall_slide(void *);
 M2C_UNK step_angle_clamped__10TObjPlayerFPvi(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_801564A0(void *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
+M2C_UNK check_enemy_body_collisions(void *);
+M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 
@@ -60,7 +60,7 @@ extern const f32 lbl_805D9A14;
 void update_knockback_state__10TObjPlayerFPv(u8 *arg0) {
     s16 temp_r0;
 
-    TBoss1Dragon__sub_80143504();
+    advance_animation_playback();
     step_angle_clamped__10TObjPlayerFPvi(arg0, 0);
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x328);
     switch (temp_r0) {
@@ -69,7 +69,7 @@ void update_knockback_state__10TObjPlayerFPv(u8 *arg0) {
         TObjPlayer__sub_80011734(arg0, 0, lbl_805D9A14);
         break;
     case 1:
-        TObjPlayer__sub_80017E6C(arg0);
+        move_with_wall_slide(arg0);
         M2C_FIELD(arg0, f32 *, 0x308) = (f32) (M2C_FIELD(arg0, f32 *, 0x308) * lbl_805D9A10);
         M2C_FIELD(arg0, f32 *, 0x310) = (f32) (M2C_FIELD(arg0, f32 *, 0x310) * lbl_805D9A10);
         if ((u32) M2C_FIELD(arg0, u32 *, 0xB4) != 8U) {
@@ -91,9 +91,9 @@ void update_knockback_state__10TObjPlayerFPv(u8 *arg0) {
         break;
     }
     check_object_collisions__10TObjPlayerFPv(arg0);
-    TObjPlayer__sub_801564A0(arg0);
+    check_enemy_body_collisions(arg0);
     minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
-    TObjPlayer__sub_801B4A18(arg0, -1);
+    submit_cursor_candidate(arg0, -1);
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFDFFFFF);
 }
 void TObjPlayer__sub_800A48C4(Obj_800A48C4 *o) {
@@ -101,7 +101,7 @@ void TObjPlayer__sub_800A48C4(Obj_800A48C4 *o) {
     u8 *e;
     s32 d;
     if (o->state >= 10 || o->state < 8) {
-        e = TPlayerBattleCtrl4P__sub_801BA74C(o->target);
+        e = get_player_by_client_id(o->target);
         if (e != NULL) {
             VecCopy__FP3VecPC3Vec(&v, e + 0x2FC);
             TBoss6Type1__sub_803D9370(&v, &o->pos);

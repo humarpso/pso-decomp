@@ -14,7 +14,7 @@ M2C_UNK TBoss6Type2__sub_802BCAB8(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK update_camera_target__14TBoss6PlotFalzFv();
@@ -41,7 +41,7 @@ void render_body_effects__11TBoss6Type2FPv(u8 *arg0) {
     if (var_r31 != 0) {
         update_camera_target__14TBoss6PlotFalzFv();
     }
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     end_effect_render__13TParticleCtrlFv();
     TBoss6Type2__sub_802B9EE4((void *) (arg0));
 }

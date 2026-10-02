@@ -33,7 +33,7 @@ s32 all_parents_unqueued_for_destruction__7TObjectFv();
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi();
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(int);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
@@ -179,7 +179,7 @@ void TObjPlayer__sub_8032DC94(u8 *arg0) {
         TBoss7Tentacle__sub_803D9BA0((int) var_r3);
         var_r3 = (M2C_UNK *) var_r30;
         TObjBoss2Tunnel__sub_803DB470((int) var_r3);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         var_r3 = (M2C_UNK *) (&lbl_8058D4C0.value);
         var_r4 = (M2C_UNK *) (&lbl_8050BEC0.value);
         var_r3 = (M2C_UNK *) (&lbl_8058D4C0.value);

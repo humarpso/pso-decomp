@@ -9,14 +9,14 @@ extern "C" {
 void update_linked_effect__14TObjEnePanarmsFPv(u8 *arg0);
 M2C_UNK TBoss1Dragon__sub_8014220C(void *, void *, void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *, f32);
-M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, void *);
 M2C_UNK TObjPlayer__sub_800F09E8(int);
-s32 TObjPlayer__sub_80156844(void *, void *, void *);
+s32 project_actor_to_ground(void *, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 
 extern const f32 TObjEnePanarms__data_805DA530;
@@ -31,7 +31,7 @@ void update_linked_effect__14TObjEnePanarmsFPv(u8 *arg0) {
     s32 temp_r0;
 
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x3A4), (void *) (arg0 + 0x3E0));
-    if (TObjPlayer__sub_80156844((void *) (arg0), (void *) (arg0 + 0x3A4), (void *) (&sp10)) != 0) {
+    if (project_actor_to_ground((void *) (arg0), (void *) (arg0 + 0x3A4), (void *) (&sp10)) != 0) {
         TObjPlayer__sub_803D9B2C();
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x3A8);
         M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) (temp_f1 + lbl_805DA58C);
@@ -40,12 +40,12 @@ void update_linked_effect__14TObjEnePanarmsFPv(u8 *arg0) {
         rotate_matrix_z((int) (0), (int) (sp8));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         rotate_matrix_x((int) (0), (void *) (spC + 0x4000));
-        TOMonitorMachine01__sub_803D8B5C((int) (0), (f32) (lbl_805DA590), (f32) (lbl_805DA590), (f32) (TObjEnePanarms__data_805DA530));
+        scale_matrix((int) (0), (f32) (lbl_805DA590), (f32) (lbl_805DA590), (f32) (TObjEnePanarms__data_805DA530));
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x378);
         if ((temp_r0 != 7) && (temp_r0 != 8)) {
             TObjPlayer__sub_800F09E8((int) (0));
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

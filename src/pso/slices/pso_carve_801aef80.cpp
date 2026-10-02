@@ -23,7 +23,7 @@ s32 get_main_phase();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 reset_volopt_state__10TObjPlayerFv(s32);
 s32 check_flag_100__10TObjPlayerFPv(s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+s32 get_player_by_client_id(u16);
 s32 TObjPlayer__sub_80354C7C(s32);
 s32 TObjPlayer__sub_80354E3C();
 s32 TLobby__sub_800822E8(s32, s32);

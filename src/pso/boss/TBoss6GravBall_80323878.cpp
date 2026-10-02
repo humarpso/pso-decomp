@@ -46,7 +46,7 @@ M2C_UNK TBoss6GravBall__sub_80323278(void *, int);
 void TBoss6GravBall__sub_80323348(void *);
 M2C_UNK TBoss6GravBall__sub_803233AC();
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK spawn_particle_effect(void *, int);
 void __dl__7TObjectFPv(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 s32 get_state__14TBoss6GravBallFPv(int);
@@ -91,8 +91,8 @@ void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
         return;
     case 31:
         if ((s32) M2C_FIELD(arg0, s32 *, 0xC4) == 0) {
-            TObjEneDellBiter__sub_80087350((void *) (arg0 + 0xC8), (int) (0x21C));
-            TObjEneDellBiter__sub_80087350((void *) (arg0 + 0xC8), (int) (0x21D));
+            spawn_particle_effect((void *) (arg0 + 0xC8), (int) (0x21C));
+            spawn_particle_effect((void *) (arg0 + 0xC8), (int) (0x21D));
             M2C_FIELD(arg0, s32 *, 0xC4) = 1;
         }
         TBoss6GravBall__sub_803231D0((void *) (arg0), (int) (5));

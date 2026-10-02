@@ -178,7 +178,7 @@ s32 TObjEneRe7Berura__sub_80094624(void *, void *);
 s32 TObjEneRe7Berura__sub_8009472C(void *, void *);
 void state_attack__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1);
 void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 arg2);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void TObjEneRe7Berura__sub_80094A9C(void *self, s32 msg);
 int TObjEneDD__sub_800B9E84(void *self, void *a, void *b, void *c);
 extern s32 TObjEneRe7Berura__data_80439DA8[];
@@ -197,7 +197,7 @@ extern "C" {
 s32 check_death_trigger__16TObjEneRe7BeruraFPv(void *arg0);
 void state_attack__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TBoss3Volopt__sub_800D8C48(void *);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_800A0554(void *);
 M2C_UNK init_fields4B8__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK, s32);
@@ -219,7 +219,7 @@ void state_attack__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1) {
         return;
     case 3:
         if (((V_Sub_80094994 *) (arg0 + 0x3D8))->m5() != 0) {
-            TObjEneDD__sub_800BBA18(arg0, 3);
+            transition_enemy_state(arg0, 3);
         }
         return;
     case 0:
@@ -237,7 +237,7 @@ void TObjEneRe7Berura__sub_80094A9C(void *self, s32 msg) {
     case 0:
         return;
     case 3:
-        TObjEneDD__sub_800BBA18((void *)(self), (M2C_UNK)(1));
+        transition_enemy_state((void *)(self), (M2C_UNK)(1));
         break;
     }
 }
@@ -287,7 +287,7 @@ void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 arg2) {
 s32 check_death_trigger__16TObjEneRe7BeruraFPv(void *arg0) {
     struct VObj_80094BA4_80094994 *o = (struct VObj_80094BA4_80094994 *)arg0;
     if (o->m97() != 0) {
-        TObjEneDD__sub_800BBA18(arg0, 9);
+        transition_enemy_state(arg0, 9);
         return 1;
     }
     return 0;

@@ -327,7 +327,7 @@ short get_state__10TObjPlayerFPv(void *arg0);
 short call_subobject_m15__10TObjPlayerFPv(void *arg0);
 short get_vobj_state_28__10TObjPlayerFPv(void *arg0);
 void update_battle_controller__10TObjPlayerFv(void);
-int TPlayerBattleCtrl4P__sub_801BA74C(void*);
+int get_player_by_client_id(void*);
 M2C_UNK TObjPlayer__sub_8011E204(void *, M2C_UNK);
 
 void set_flag_400000__10TObjPlayerFPv(void *arg0) {
@@ -395,6 +395,6 @@ short get_vobj_state_28__10TObjPlayerFPv(void *arg0) {
 }
 
     extern int lbl_805D53A0;
-void update_battle_controller__10TObjPlayerFv(void) { TPlayerBattleCtrl4P__sub_801BA74C((void*)(lbl_805D53A0)); }
+void update_battle_controller__10TObjPlayerFv(void) { get_player_by_client_id((void*)(lbl_805D53A0)); }
 
 }

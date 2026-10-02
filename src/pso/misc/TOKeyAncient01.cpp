@@ -80,11 +80,11 @@ M2C_UNK rotate_matrix_y(int, void *);
 M2C_UNK rotate_matrix_z(int, void *);
 M2C_UNK rotate_matrix_x(int, void *);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TOSignCave03__sub_803DB510(void *);
-M2C_UNK TObjDoor__sub_803DC894(void *, int, f32);
+M2C_UNK draw_ginja_model_with_motion(void *, int, f32);
 void render__14TOKeyAncient01Fv(u8 *arg0);
 u8 *TLobby__sub_8001FE7C(void *, s16);
 void free__11TOBoss4RockFUi(u32);
@@ -153,7 +153,7 @@ void render__14TOKeyAncient01Fv(u8 *arg0) {
         rotate_matrix_y((int) (0), (void *) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xD4) != 1) {
-            TObjDoor__sub_803DC894((void *) (M2C_FIELD(arg0, u8 **, 0x34)), (int) (M2C_FIELD(arg0, s32 *, 0xBC)), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
+            draw_ginja_model_with_motion((void *) (M2C_FIELD(arg0, u8 **, 0x34)), (int) (M2C_FIELD(arg0, s32 *, 0xBC)), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
         } else {
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00((void *) (M2C_FIELD(arg0, u8 **, 0x34) + 8));
@@ -161,9 +161,9 @@ void render__14TOKeyAncient01Fv(u8 *arg0) {
             rotate_matrix_x((int) (0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 0x14)));
             rotate_matrix_y((int) (0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 0x18)));
             TOSignCave03__sub_803DB510((void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 4)));
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

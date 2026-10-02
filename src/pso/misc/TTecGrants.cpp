@@ -88,7 +88,7 @@ struct VObj_802386F8 : VBase_802386F8 {
 };
 
 extern "C" {
-u8 * TPhotonMylla__sub_80154CB4(u16);
+u8 * find_entity_by_id(u16);
 u8 * TBoss3Volopt__sub_80232EC0(void *, s32, s32, s32);
 s32 is_parents_unqueued__9TTecLukerFUi(u32);
 s32 is_valid_and_active__10TObjPlayerFUi(u32);
@@ -145,7 +145,7 @@ extern M2C_UNK __vt__10TTecGrants[];
 void run_task__10TTecGrantsFv(u8 *arg0) {
     u32 temp_r3;
     u8 *temp_r3_2;
-    M2C_FIELD(arg0, u8 **, 0x1C) = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0xB4));
+    M2C_FIELD(arg0, u8 **, 0x1C) = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0xB4));
     if ((void *) M2C_FIELD(arg0, u8 **, 0x1C) == NULL) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
@@ -154,7 +154,7 @@ void run_task__10TTecGrantsFv(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    temp_r3 = (unsigned long) (TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0xF0)));
+    temp_r3 = (unsigned long) (find_entity_by_id(M2C_FIELD(arg0, u16 *, 0xF0)));
     if ((is_parents_unqueued__9TTecLukerFUi(temp_r3) != 0) && (is_valid_and_active__10TObjPlayerFUi(temp_r3) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x148) == 0)) {
         temp_r3_2 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x3C))));
         if (temp_r3_2 != NULL) {

@@ -78,7 +78,7 @@ extern "C" {
 
 void start_action_18__10TObjPlayerFPv(void *arg0);
 M2C_UNK set_action_state__10TObjPlayerFPvss(void *, M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
+M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, s16, M2C_UNK);
 M2C_UNK get_chair_state__10TObjPlayerFPv(void *, s32);
 s32 start_action18_sub__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801D0DF4(void *);
@@ -92,7 +92,7 @@ void start_action_18__10TObjPlayerFPv(void *arg0) {
     s16 var_r4;
 
     M2C_FIELD(arg0, s32 *, 0x33C) = 0x18;
-    TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
+    run_action_state_phase__10TObjPlayerFisi(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
     if (is_action_flag_28__10TObjPlayerFPv(arg0) != 0) {
         var_r4 = ((VObj8_801c7630 *) M2C_FIELD(arg0, void **, 0x380))->vf110();
     } else {

@@ -15,7 +15,7 @@ extern "C" {
 void fn_800B98A4(u8 *arg0, s32 arg1);
 s32 TObjEneEpsilon__sub_800B9848(void *self, u16 x);
 void fn_800B98C0(O_800B98C0 *self, u16 _w1);
-s32 TNpcPlayer__sub_800D87EC(u16);
+s32 find_active_entity_by_id(u16);
 void TBoss8Dragon__sub_800B9958(Obj_800B9958 *self, u16 id);
 s32 get_game_mode__6TLobbyFv(void);
 void *get_player_data__10TObjPlayerFi(s32);
@@ -67,7 +67,7 @@ void TBoss2DeRolLe__sub_800B98D8(Obj_800B98D8 *self, void *player) {
 void TBoss8Dragon__sub_800B9958(Obj_800B9958 *self, u16 id) {
     self->id = id;
     if (id != 0xFFFF) {
-        self->ptr = TNpcPlayer__sub_800D87EC(self->id);
+        self->ptr = find_active_entity_by_id(self->id);
     } else {
         self->id = 0xFFFF;
         self->ptr = 0;

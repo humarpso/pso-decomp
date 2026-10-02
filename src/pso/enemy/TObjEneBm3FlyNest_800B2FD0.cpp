@@ -111,10 +111,10 @@ struct VObj18_800b2fd0 : VBase18_800b2fd0 {
 extern "C" {
 
 void state_spawn__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK TObjEneBm3FlyNest__sub_800B39CC(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(f32);
 
 extern const f32 lbl_805D9CF8;
@@ -130,7 +130,7 @@ void state_spawn__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
         return;
     case 3:
         if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
-            TObjEneDD__sub_800BBA18(arg0, 5);
+            transition_enemy_state(arg0, 5);
         }
         break;
     case 5:
@@ -141,7 +141,7 @@ void state_spawn__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
             TObjEneBm3FlyNest__sub_800B39CC(arg0);
             M2C_FIELD(arg0, s32 *, 0x4B8) = (s32) (M2C_FIELD(arg0, s32 *, 0x4B8) - 1);
         }
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         ((VObj18_800b2fd0 *) arg0)->vf198();
         break;
     }

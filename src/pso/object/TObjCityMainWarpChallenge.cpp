@@ -21,7 +21,7 @@ extern const f32 lbl_805DBCC8;
 extern const f32 lbl_805DBCCC;
 void run_task__25TObjCityMainWarpChallengeFv(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TObjPlayer__sub_80154B60(void *, int, f32);
+M2C_UNK register_entity_by_id(void *, int, f32);
 M2C_UNK TObjAreaWarp__ct();
 s32 get_global_state__14TOKeyMachine01Fv();
 extern M2C_UNK __vt__25TObjCityMainWarpChallenge[];
@@ -49,17 +49,17 @@ M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
 M2C_UNK TObjCityMainWarp__sub_80186DA0();
 M2C_UNK TObjCityMainWarp__sub_8018709C();
 M2C_UNK TObjCityMainWarp__sub_801871D0();
-M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
+M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__12TObjAreaWarpFv(void *, M2C_UNK);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK close_windows__16TObjCityMainWarpFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-f32 fn_8013157C(s32, void *);
+f32 xz_distance_squared(s32, void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK update_challenge_warp_window();
 M2C_UNK update_state__16TObjCityMainWarpFPv();
@@ -110,7 +110,7 @@ void TObjCityMainWarpChallenge__vt18(void *arg0) {
 
 void render__25TObjCityMainWarpChallengeFv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xBC) == 0xE) {
-        if (fn_8013157C(lbl_805D4DF0 + 0x178, arg0 + 0x38) > lbl_805DBCB8) {
+        if (xz_distance_squared(lbl_805D4DF0 + 0x178, arg0 + 0x38) > lbl_805DBCB8) {
             return;
         }
         goto block_4;
@@ -123,9 +123,9 @@ block_4:
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 0xC8));
         begin_effect_render__13TParticleCtrlFv();
-        TObjDoor__sub_803DC894(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 8), M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), s32 *, 0x2C), M2C_FIELD(arg0, f32 *, 0xC4));
+        draw_ginja_model_with_motion(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 8), M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), s32 *, 0x2C), M2C_FIELD(arg0, f32 *, 0xC4));
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 
@@ -179,7 +179,7 @@ u8 *TObjCityMainWarpChallenge__ct(u8 *arg0) {
     temp_r4 = M2C_FIELD(arg0, s32 *, 0xBC);
     lbl_805D5B60 = temp_r4;
     M2C_FIELD(arg0, s32 *, 0xA4) = 0;
-    TObjPlayer__sub_80154B60((void *) (arg0), (int) (temp_r4), (f32) (lbl_805DBCCC));
+    register_entity_by_id((void *) (arg0), (int) (temp_r4), (f32) (lbl_805DBCCC));
     M2C_FIELD(arg0, s32 *, 0x164) = 0;
     M2C_FIELD(arg0, s32 *, 0x168) = 0;
     if (get_global_state__14TOKeyMachine01Fv() == 0) {

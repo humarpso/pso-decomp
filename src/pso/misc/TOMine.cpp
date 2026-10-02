@@ -64,7 +64,7 @@ extern u32 lbl_805D5A50;
 void TOMine__sub_801711D0(void);
 u16 TObjPlayer__sub_800115C4(void *, int, f32);
 s32 update_trigger__10TOMineTrapFPv(void *);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+s32 get_player_by_client_id(int);
 int TOMine__sub_80170F0C(u8 *arg0);
 void free_sub_objects__6TOMineFPv(void* p);
 void free_parts__6TOMineFPv(void* p);
@@ -72,7 +72,7 @@ void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void rotate_matrix_y(int, int);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_chunk_material_color(void *);
 extern u8 lbl_804A7418[];
@@ -104,7 +104,7 @@ M2C_UNK TOMineTrap__sub_80170CD4(void *);
 M2C_UNK TOMineTrap__sub_80170CF4(void *);
 M2C_UNK TOMineTrap__sub_80170DD8(void *);
 int TObjBoss2Tunnel__sub_803DB470(void*);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
+M2C_UNK submit_cursor_candidate(void *, int);
 int TObjPlayer__sub_801B4AC8(void*);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -123,7 +123,7 @@ int TOMine__sub_80170F0C(u8 *arg0) {
   new_var = -1;
   if (temp_r3 != new_var)
   {
-    ((RecoveredFields_80170F0C_arg0 *) arg0)->field_2A8 = TPlayerBattleCtrl4P__sub_801BA74C((int) temp_r3);
+    ((RecoveredFields_80170F0C_arg0 *) arg0)->field_2A8 = get_player_by_client_id((int) temp_r3);
     update_trigger__10TOMineTrapFPv((void *) arg0);
   }
   return ((RecoveredFields_80170F0C_arg0 *) arg0)->field_35C;
@@ -163,7 +163,7 @@ void run_task__6TOMineFPv(u8 *arg0) {
                 TOMineTrap__sub_80170AC8((void *) (arg0));
                 break;
             }
-            TObjPlayer__sub_801B4A18((void *) (arg0), (int) (-1));
+            submit_cursor_candidate((void *) (arg0), (int) (-1));
             return;
         case 4:
             TOMineTrap__sub_80170DD8((void *) (arg0));
@@ -194,7 +194,7 @@ void TOMine__sub_801710E4(VObj_801710E4 *arg0) {
         set_chunk_material_color(lbl_804A7418);
         some_id_805c6f74 = lbl_805D5660;
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

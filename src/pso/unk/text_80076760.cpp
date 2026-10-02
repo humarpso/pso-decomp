@@ -14,7 +14,7 @@ void fn_80076760(Obj_80076760 *self);
 s16 obj_getS16_32C(void *);
 s16 get_field_2b8__14TItemProShieldFPv(void *);
 u32 find_revival_item__10TObjPlayerFv(void *);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 extern const f32 lbl_805D91C0;
 extern const f32 lbl_805D91C8;
 void fn_800767D8(Obj_800767D8 *self);
@@ -41,7 +41,7 @@ void fn_800767D8(Obj_800767D8 *self) {
     min = lbl_805D91C0;
     changed = 0;
     for (i = 0; i < 4; i++) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        p = get_player_by_client_id(i);
         if (p == NULL || find_revival_item__10TObjPlayerFv(p) != 0) {
             self->ratio[i] = lbl_805D91C0;
             continue;

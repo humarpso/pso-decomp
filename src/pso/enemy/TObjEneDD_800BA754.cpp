@@ -35,7 +35,7 @@ struct O_800BA8A8 { u8 pad[0xa4]; E_800BA8A8 *entries; s32 count; };
 
 extern "C" {
 u32 TObjEneDD__sub_800BA828(u16 arg0);
-u32 TObjPlayer__sub_8007A3AC(void *, void *);
+u32 csnLookAt(void *, void *);
 s32 is_alive__9TObjEneDDFPv(void *arg0);
 s32 TObjEneDD__sub_800BA754(s32 arg0, s32 arg1);
 void TObjEneDD__sub_800BA870(u8 *arg0);
@@ -54,7 +54,7 @@ int TObjEneDD__sub_800BA6B8(void* p);
 int TObjEneDD__sub_800BA6C4(void* p);
 int TObjEneDD__sub_800BA934(void* a0 = 0);
 int TObjEneGibbles__sub_80156780(void*);
-M2C_UNK TObjPlayer__sub_801564A0(void *);
+M2C_UNK check_enemy_body_collisions(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 void clear_field_388__9TObjEneDDFPv(void* p);
@@ -63,7 +63,7 @@ void set_active__9TObjEneDDFPv(void* p);
 void transform_relative_position__9TObjEneDDFPvPv(void* p, void* a1);
 
 s32 TObjEneDD__sub_800BA754(s32 arg0, s32 arg1) {
-    if ((is_alive__9TObjEneDDFPv((void *)(arg0)) != 0) && (TObjPlayer__sub_8007A3AC((void *) (arg1), (void *) (arg0 + 0x2FC)) == 0U)) {
+    if ((is_alive__9TObjEneDDFPv((void *)(arg0)) != 0) && (csnLookAt((void *) (arg1), (void *) (arg0 + 0x2FC)) == 0U)) {
         return 1;
     }
     return 0;
@@ -124,7 +124,7 @@ void TObjEneDD__vt86(void *arg0) {
     struct VObj_800BA8E8_800BA754 *o = (struct VObj_800BA8E8_800BA754 *)arg0;
     o->m86();
     check_object_collisions__10TObjPlayerFPv(arg0);
-    TObjPlayer__sub_801564A0(arg0);
+    check_enemy_body_collisions(arg0);
 }
 
 void TObjEneDD__vt85(void) {  }

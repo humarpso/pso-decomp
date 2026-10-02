@@ -32,7 +32,7 @@ extern s32 tl_05;
 u8 *TObjPlayer__sub_80122388(s32 arg0);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 s32 get_player_list__10TObjPlayerFv();
-void TOMonitorMachine01__sub_803D8B5C(s32, f32, f32, f32);
+void scale_matrix(s32, f32, f32, f32);
 extern const f32 lbl_805DACE0;
 void TObjPlayer__sub_801223E0(Self_801223E0 *self);
 }
@@ -58,7 +58,7 @@ void TObjPlayer__sub_801223E0(Self_801223E0 *self) {
         switch (n) {
         case 3:
         case 4:
-            TOMonitorMachine01__sub_803D8B5C(0, lbl_805DACE0, self->f1f8, self->f1f8);
+            scale_matrix(0, lbl_805DACE0, self->f1f8, self->f1f8);
             break;
         }
     }

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void assign_shortcut__20TWindowShortListCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 s32 get_field_d8__10TObjPlayerFPv(u32);
 u32 TLobby__sub_80101AB0(s32);
 u32 test_item_flags__10TObjPlayerFPvUi(s32, s32);
@@ -21,7 +21,7 @@ void assign_shortcut__20TWindowShortListCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r0;
     u32 temp_r3b;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(arg2);
+    temp_r3 = get_player_by_client_id(arg2);
     if (temp_r3 != 0) {
         temp_r31 = get_slot_value__10TObjPlayerFPvi(temp_r3 + 0xD04, arg0);
         temp_r3b = TLobby__sub_80101AB0(arg1);

@@ -38,8 +38,8 @@ M2C_UNK TObjEneRe7BeruraPunch__sub_80096300(void *);
 extern const f32 lbl_805D979C;
 extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
 void TObjEneRe7BeruraPunch__sub_80095FAC(u8 *arg0);
-u8 * TObjButterflyLobby__sub_8007A5D8(s32, s32, s32);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 * csnVector(s32, s32, s32);
+u8 *find_entity_by_id(u16);
 M2C_UNK TObjEneRe7Berura__sub_80094D98();
 M2C_UNK TObjEneRe7BeruraPunch__sub_80096300(void *);
 extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
@@ -49,7 +49,7 @@ void TObjEneRe7BeruraPunch__sub_80096030(u8 *arg0);
 s32 TObjEneRe7Berura__sub_80094C68(u8 *);
 s32 TObjEneRe7Berura__sub_80094CD0(u8 *);
 s32 check_v2_mode__9TObjEneDDFv(void);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 s32 TObjPlayer__sub_80154E3C(void *, void *, f32, f32);
 s32 update_enemy_collision_flags__10TObjPlayerFPv(void *);
 extern Pair_80096150 lbl_80439F28[];
@@ -77,14 +77,14 @@ void render__21TObjEneRe7BeruraPunchFv(u8 *arg0);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TOMonitorMachine01__sub_803D8B5C(M2C_UNK, f32, f32, f32);
+M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjEneDD__sub_800B9D94(void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneRe7BeruraPunch__sub_80096300(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
+M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
-u8 *TPhotonMylla__sub_80154CB4(u16);
+M2C_UNK pop_matrix();
+u8 *find_entity_by_id(u16);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
 M2C_UNK clear_global_flag_400__9TObjEneDDFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -115,12 +115,12 @@ void render__21TObjEneRe7BeruraPunchFv(u8 *arg0) {
         toggle_particle_effect__10TObjPlayerFv();
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        TObjPlayer__sub_803D9624(0, lbl_805D9794, M2C_FIELD(arg0, f32 *, 0xCC), lbl_805D9794);
+        translate_matrix(0, lbl_805D9794, M2C_FIELD(arg0, f32 *, 0xCC), lbl_805D9794);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         temp_f1 = M2C_FIELD(arg0, f32 *, 0xF4);
-        TOMonitorMachine01__sub_803D8B5C(0, temp_f1, temp_f1, lbl_805D9798);
+        scale_matrix(0, temp_f1, temp_f1, lbl_805D9798);
         init_part__16TObjEneRe7BeruraFi(M2C_FIELD(arg0, s32 *, 0xB8));
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         if ((s32) M2C_FIELD(arg0, s32 *, 0xB4) == 2) {
             ((VObjHang_80095EA0 *)(arg0 + 0xF8))->m7();
         }
@@ -164,7 +164,7 @@ void TObjEneRe7BeruraPunch__sub_80096030(u8 *arg0) {
     stack.sp8 = (TObjEneRe7BeruraPunch__data_805D97A0 * M2C_FIELD(arg0, f32 *, 0xBC)) + M2C_FIELD(arg0, f32 *, 0x38);
     stack.spC = M2C_FIELD(arg0, f32 *, 0xE0);
     stack.sp10 = (TObjEneRe7BeruraPunch__data_805D97A0 * M2C_FIELD(arg0, f32 *, 0xC4)) + M2C_FIELD(arg0, f32 *, 0x40);
-    temp_r3 = (u8 *)(TObjButterflyLobby__sub_8007A5D8((s32) (arg0 + 0xDC), (s32) &stack.sp8, 0x88E0));
+    temp_r3 = (u8 *)(csnVector((s32) (arg0 + 0xDC), (s32) &stack.sp8, 0x88E0));
     if (temp_r3 != NULL) {
         var_r31 = 1;
         M2C_FIELD(arg0, f32 *, 0xDC) = (f32) *M2C_FIELD(temp_r3, f32 **, 4);
@@ -176,7 +176,7 @@ void TObjEneRe7BeruraPunch__sub_80096030(u8 *arg0) {
     TObjEneRe7BeruraPunch__sub_80096300((void *) (arg0));
     if ((var_r31 != 0) || (TObjEneRe7BeruraPunch__sub_80096150((void *)(arg0)) != 0) || (M2C_FIELD(arg0, f32 *, 0x114) > M2C_FIELD(arg0, f32 *, 0xC8))) {
         M2C_FIELD(arg0, s32 *, 0xB4) = 2;
-        if (TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0xB0)) != NULL) {
+        if (find_entity_by_id(M2C_FIELD(arg0, u16 *, 0xB0)) != NULL) {
             TObjEneRe7Berura__sub_80094D98();
         }
     }
@@ -186,7 +186,7 @@ void TObjEneRe7BeruraPunch__sub_80096030(u8 *arg0) {
 s32 TObjEneRe7BeruraPunch__sub_80096150(void *arg0) {
     u8 *temp_r31;
     void *temp_r4_2;
-    temp_r31 = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0xB0));
+    temp_r31 = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0xB0));
     M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 4) = M2C_FIELD(arg0, f32 *, 0xCC);
     M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 0x30) = M2C_FIELD(arg0, f32 *, 0xCC);
     temp_r4_2 = M2C_FIELD(arg0, void **, 0xA4);
@@ -217,7 +217,7 @@ void launch__21TObjEneRe7BeruraPunchFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0xB8) = arg1;
     VecCopy__FP3VecPC3Vec(arg0 + 0xDC, arg2);
     TObjEneRe7BeruraPunch__sub_80096300(arg0);
-    temp_r3 = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0xB0));
+    temp_r3 = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0xB0));
     if (temp_r3 != NULL) {
         M2C_FIELD(arg0, s32 *, 0x60) = (s32) M2C_FIELD(temp_r3, s32 *, 0x60);
     } else {

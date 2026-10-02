@@ -360,8 +360,8 @@ void TBoss8Dragon__sub_80063EF4(s32 arg0);
 void TBoss8Dragon__sub_80064B90(u8 *arg0, u8 *arg1);
 int VecCopy__FP3VecPC3Vec(void*, void*);
 void play_se__12TBoss8DragonFii(s32 arg0, s32 arg1);
-u8 *TBoss8Dragon__sub_8007A544(M2C_UNK *, M2C_UNK);
-s32 TOSwitchAttack__sub_80087278(void *, M2C_UNK, M2C_UNK);
+u8 *csnVecterUnder(M2C_UNK *, M2C_UNK);
+s32 spawn_particle_effect_with_flags(void *, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805D8D70;
 void TBoss8Dragon__sub_80063F34(u8 *arg0);
 int update_state_3__12TBoss8DragonFPv(void* p);
@@ -400,7 +400,7 @@ extern const f32 lbl_805D8EC0;
 void TBoss8Dragon__sub_80064E3C(u8 *arg0);
 int VecCopy__FP3VecPC3Vec(void*, void*);
 void TBoss8Dragon__sub_80064B90(u8 *arg0, u8 *arg1);
-s32 TObjEneDD__sub_800BBA18(void *, int);
+s32 transition_enemy_state(void *, int);
 f32 TBoss6Type1__sub_803D9370(void *, void *);
 void TBoss8Dragon__sub_80064B08(u8 *arg0, u8 *arg1);
 M2C_UNK TBoss1Dragon__sub_80027A80(void *, void *);
@@ -439,7 +439,7 @@ void TBoss8Dragon__sub_8006602C(void *);
 void TBoss8Dragon__sub_80064AB0(O_80064AB0 *self);
 void reset_angle__12TBoss8DragonFPv(void* a0);
 void clear_timer__12TBoss8DragonFPv(void* p);
-void TBoss1Dragon__sub_80143504(void *);
+void advance_animation_playback(void *);
 void TBoss8Dragon__sub_8006369C(Obj_8006369C *self, u32 arg1);
 M2C_UNK fn_8002B094(int);
 M2C_UNK reset_hp__9TObjEneDDFPv(void *, int, int, int);
@@ -451,7 +451,7 @@ void TBoss8Dragon__sub_800641A8(u8 *arg0);
 M2C_UNK fn_8002B094(int);
 void spawn_attack_effect__12TBoss8DragonFPv(void *arg0);
 M2C_UNK TBoss8Dragon__sub_80067074(void *, void *);
-s32 TOSwitchAttack__sub_80087278(void *, M2C_UNK, M2C_UNK);
+s32 spawn_particle_effect_with_flags(void *, M2C_UNK, M2C_UNK);
 M2C_UNK reset_hp__9TObjEneDDFPv(void *, int, int, int);
 M2C_UNK emit_enemy_effect__9TObjEneDDFiiPvi(void *, int, void *, int);
 extern s32 lbl_80437CCC[];
@@ -477,7 +477,7 @@ void TBoss8Dragon__sub_80064E3C(u8 *arg0);
 void TObjEneEpsilon__sub_800B9384(u8 *arg0, s32 arg1, f32 farg0);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 f32 get_speed_or_default__10TObjPlayerFPv(void *arg0);
-void TBoss1Dragon__sub_80143504(void *);
+void advance_animation_playback(void *);
 extern const f32 lbl_805D8DCC;
 extern const f32 lbl_805D8DF4;
 extern const f32 lbl_805D8E10;
@@ -521,7 +521,7 @@ M2C_UNK TBoss3Volopt__sub_8022675C(s32, s32, M2C_UNK, M2C_UNK);
 int TBoss8Dragon__sub_80065F4C(void*);
 void TBoss8Dragon__sub_80065F80(void *);
 M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
-s32 TOSwitchAttack__sub_80087278(void *, M2C_UNK, M2C_UNK);
+s32 spawn_particle_effect_with_flags(void *, M2C_UNK, M2C_UNK);
 M2C_UNK TOTrapAncient01__sub_80226578(s32, s32, s32, M2C_UNK, M2C_UNK);
 s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_800660D4(s32, s32, s32, M2C_UNK, M2C_UNK, f32);
@@ -546,7 +546,7 @@ void TBoss8Dragon__sub_80063570(Obj_80063570 *arg0, s32 arg1) {
         update_periodic_effect__12TBoss8DragonFPv(arg0);
         return;
     case 0:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         TBoss8Dragon__sub_80064E3C((u8 *)arg0);
         update_velocity__9TObjEneDDFPv(arg0);
         TBoss8Dragon__sub_800648C8((u8 *)arg0);
@@ -584,7 +584,7 @@ void TBoss8Dragon__sub_8006369C(Obj_8006369C *self, u32 arg1) {
         reset_angle__12TBoss8DragonFPv((void*)(self));
         return;
     case 0:
-        TBoss1Dragon__sub_80143504(self);
+        advance_animation_playback(self);
         return;
     case 1: return;
     case 2: return;
@@ -608,7 +608,7 @@ extern f32 lbl_805D8D88;
 void spawn_switch_attack__12TBoss8DragonFPv(void *arg0) {
     s32 temp_r3;
 
-    temp_r3 = TOSwitchAttack__sub_80087278(arg0, 0x211, 0x40);
+    temp_r3 = spawn_particle_effect_with_flags(arg0, 0x211, 0x40);
     if (temp_r3 != 0) {
         TObjFish__sub_800660D4(temp_r3, TObjFish__sub_8001EDC4(lbl_805D4DA4, 2), lbl_805D4DA8, 0, 0, lbl_805D8D88);
     }
@@ -621,7 +621,7 @@ extern f32 lbl_805D8D88;
 void spawn_attack_effect__12TBoss8DragonFPv(void *arg0) {
     s32 temp_r3;
 
-    temp_r3 = TOSwitchAttack__sub_80087278(arg0, 0x210, 0x40);
+    temp_r3 = spawn_particle_effect_with_flags(arg0, 0x210, 0x40);
     if (temp_r3 != 0) {
         TObjFish__sub_800660D4(temp_r3, TObjFish__sub_8001EDC4(lbl_805D4DA4, 1), lbl_805D4DA8, 0, 0, lbl_805D8D88);
     }
@@ -741,12 +741,12 @@ void TBoss8Dragon__sub_80063F34(u8 *arg0) {
     f32 temp_f1;
     u8 *temp_r3;
     VecCopy__FP3VecPC3Vec((void*)((void *) (&stack.sp8)), (void*)((void *) (arg0 + 0x38)));
-    temp_r3 = TBoss8Dragon__sub_8007A544(&stack.sp8, 0x16EF);
+    temp_r3 = csnVecterUnder(&stack.sp8, 0x16EF);
     if (temp_r3 != NULL) {
         temp_f1 = M2C_FIELD(M2C_FIELD(temp_r3, void **, 4), f32 *, 4);
         if (!(temp_f1 > lbl_805D8D70)) {
             stack.spC = temp_f1;
-            TOSwitchAttack__sub_80087278((void *)((void *) (&stack.sp8)), (M2C_UNK)((void *) (*M2C_FIELD(arg0, s32 **, 0x5F0))), (M2C_UNK)((int) (0x40)));
+            spawn_particle_effect_with_flags((void *)((void *) (&stack.sp8)), (M2C_UNK)((void *) (*M2C_FIELD(arg0, s32 **, 0x5F0))), (M2C_UNK)((int) (0x40)));
             play_se__12TBoss8DragonFii((s32)((void *) (arg0)), (s32)((int) (0x40032D01)));
         }
     }
@@ -882,7 +882,7 @@ int TBoss8Dragon__sub_80064968(void *arg0, int arg1) {
     TBoss8Dragon__sub_80067074(p, &prm);
     emit_enemy_effect__9TObjEneDDFiiPvi(arg0, (int)p, &prm, O_80064968->f578);
     reset_hp__9TObjEneDDFPv(arg0, 0, M2C_FIELD(&lbl_804FF5A0.value, s32 *, 0), 0);
-    TOSwitchAttack__sub_80087278(p, O_80064968->f5f0->f8, 0x40);
+    spawn_particle_effect_with_flags(p, O_80064968->f5f0->f8, 0x40);
     spawn_attack_effect__12TBoss8DragonFPv(p);
 }
 #undef O_80064968
@@ -908,7 +908,7 @@ void TBoss8Dragon__sub_80064B08(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s16 **, 0x4BC) = (s16 *) (arg0 + 0x494);
     temp_r4 = *M2C_FIELD(arg0, s16 **, 0x4BC);
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != temp_r4) {
-        TObjEneDD__sub_800BBA18((void *) (arg0), (int) (temp_r4));
+        transition_enemy_state((void *) (arg0), (int) (temp_r4));
     }
     M2C_FIELD(arg0, s32 *, 0x4C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x4C0) | 2);
 }

@@ -48,7 +48,7 @@ extern const f32 lbl_805DCCB0;
 extern const f32 lbl_805DCCB4;
 u8 *TWindowDuelResult__ct(u8 *arg0, s16 arg1);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(int);
+u8 *get_player_by_client_id(int);
 s32 TWindowDuelResult__sub_801C19AC(void *);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void TWindowSubStatusDisp__sub_80257D44(void *, void *, int);
@@ -58,7 +58,7 @@ extern u8 lbl_804CEDD0[];
 void TWindowDuelResult__vt1(Win_8024EF40 *arg0);
 s32 TLobby__sub_8001DC24(s32);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(int);
+u8 *get_player_by_client_id(int);
 Entry_8024F094 *TWindowDuelResult__sub_801C257C(void);
 u8 TLobby__sub_801D7064(void *);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
@@ -104,7 +104,7 @@ void TWindowDuelResult__vt1(Win_8024EF40 *arg0) {
     set_default_status__17TWindowDuelResultFPvi(a, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 0));
     c = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xF);
     set_default_status__17TWindowDuelResultFPvi(c, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 5));
-    pl = TPlayerBattleCtrl4P__sub_801BA74C(arg0->player);
+    pl = get_player_by_client_id(arg0->player);
     if (pl != 0) {
         TWindowSubStatusDisp__sub_8025AC50(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1), pl + 0x85C, 0x20);
         vals[0] = TWindowDuelResult__sub_801C19AC(pl + 0x75C);
@@ -139,7 +139,7 @@ void TWindowDuelResult__vt0(Win_8024F094 *self) {
     none = 1;
     e = TWindowDuelResult__sub_801C257C();
     for (i = 0; i < 4; i++, e++) {
-        p = (e->id == 0xFFFF) ? NULL : TPlayerBattleCtrl4P__sub_801BA74C(e->id);
+        p = (e->id == 0xFFFF) ? NULL : get_player_by_client_id(e->id);
         if (p != NULL && e->rank != 0) {
             none = 0;
         }
@@ -150,7 +150,7 @@ void TWindowDuelResult__vt0(Win_8024F094 *self) {
         b = get_array_entry__20TWindowSubStatusDispFPvi(self, i * 4 + 2);
         c = get_array_entry__20TWindowSubStatusDispFPvi(self, i * 4 + 3);
         d = get_array_entry__20TWindowSubStatusDispFPvi(self, i * 4 + 4);
-        p = (e->id == 0xFFFF) ? NULL : TPlayerBattleCtrl4P__sub_801BA74C(e->id);
+        p = (e->id == 0xFFFF) ? NULL : get_player_by_client_id(e->id);
         if (p == NULL) {
             *(u16 *)a |= 2;
             *(u16 *)b |= 2;

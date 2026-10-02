@@ -117,7 +117,7 @@ s32 TOHangerMachine01__sub_803D9C00(void *);
 s32 rotate_matrix_y(s32, s32);
 void dispatch_fish_event__6TLobbyFPv(void *a0);
 void fn_801FBA6C(void);
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 extern void *lbl_805D5B88;
 extern s32 lbl_805D5B8C;
 void TObjContainerBase__vt79(Obj_80188C8C *self);
@@ -131,7 +131,7 @@ void *__dt__21TObjContainerAbeEnemyFv(void *arg0, s16 arg1);
 void *TObjContainerBase__ct(void *, void *, void *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
+M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK destroy_container_object__10TObjPlayerFPvs(void *, M2C_UNK);
@@ -143,7 +143,7 @@ void TObjContainerAbeEnemy__vt78(void *arg0) {
     switch (temp_r0) {
     case 0:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x364) != 0) {
-            TObjPlayer__sub_801B4A18(arg0, -1);
+            submit_cursor_candidate(arg0, -1);
         }
     case 1:
         return;
@@ -215,7 +215,7 @@ void TObjContainerBase__vt79(Obj_80188C8C *self) {
             rotate_matrix_y(0, self->id);
             dispatch_fish_event__6TLobbyFPv((void *)2);
             fn_801FBA6C();
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             break;
         case 1:
             break;

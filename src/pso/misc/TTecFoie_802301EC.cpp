@@ -30,12 +30,12 @@ extern RecoveredGlobal_802302A0___vt__8TTecFoie __vt__8TTecFoie;
 extern s32 lbl_805D37B0;
 u8 *TTecFoie__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4);
 extern Band_802301EC TTecFoie__data_8044D13C[];
-u32 TPhotonMylla__sub_80154CB4(u16);
+u32 find_entity_by_id(u16);
 void queue_destruction__7TObjectFv(void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void fn_8023A694(u8 *arg0);
 void advance_lifetime_or_destroy(void *arg0);
-void TObjPlayer__sub_8023A148(void *, s32);
+void dispatch_technique_contact(void *, s32);
 void run_task__8TTecFoieFv(Foie_802301EC *self);
 }
 
@@ -43,7 +43,7 @@ extern "C" {
 
 void run_task__8TTecFoieFv(Foie_802301EC *self) {
     u32 i;
-    self->owner = TPhotonMylla__sub_80154CB4(self->ownerId);
+    self->owner = find_entity_by_id(self->ownerId);
     if (self->owner == 0) {
         queue_destruction__7TObjectFv(self);
         return;
@@ -55,7 +55,7 @@ void run_task__8TTecFoieFv(Foie_802301EC *self) {
     }
     fn_8023A694((u8 *)self);
     advance_lifetime_or_destroy(self);
-    TObjPlayer__sub_8023A148(self, 1);
+    dispatch_technique_contact(self, 1);
 }
 
 u8 *TTecFoie__sub_802302A0(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4) {

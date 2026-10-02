@@ -272,7 +272,7 @@ struct Bit_800ECA40 : VBase_800ECA40 {
 };
 
 extern "C" {
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK set_state_flags__18TObjEneRe4SorcererFPv(void *);
 M2C_UNK set_hold_flags__18TObjEneRe4SorcererFPv(void *);
 M2C_UNK TObjEneRe4Sorcerer__sub_800ED47C();
@@ -283,11 +283,11 @@ void TObjEneRe4Bit__sub_800ECC14(u8 *arg0, s32 arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 s32 TBoss8Dragon__sub_800BB780(void *);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1);
 void TObjEneRe4Bit__sub_800ED150(u8 *arg0);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK TObjEneRe4Bit__sub_800ED4BC(void *);
 void update_position_flag__13TObjEneRe4BitFPv(void *);
 extern const f32 lbl_805DA76C;
@@ -299,13 +299,13 @@ void TObjEneRe4Bit__sub_800ECED0(void *arg0, s32 arg1);
 s32 handle_event__13TObjEneRe4BitFPvi(void *arg0, s32 arg1);
 void TObjEneRe4Bit__vt85(s32 arg0, u32 arg1, s32 arg2);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK TObjEneRe4Bit__sub_800ED4BC(void *);
 void update_position_flag__13TObjEneRe4BitFPv(void *);
 extern const f32 TObjEneRe4Bit__data_805DA770;
 extern const f32 lbl_805DA778;
 void TObjEneRe4Bit__sub_800ECE04(u8 *arg0, s32 arg1);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void TObjEneRe4Bit__sub_800ED090(void *self, s32 msg);
 int render_with_position_override__10TObjPlayerFPvPvi(void *, void *, int);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -316,11 +316,11 @@ int update_secondary_light__9TObjEneDDFPv(void *);
 int toggle_particle_effect__10TObjPlayerFv();
 int end_effect_render__13TParticleCtrlFv();
 s32 toggle_flag_9__10TObjPlayerFPv(void *);
-int TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+int scale_matrix(int, f32, f32, f32);
 int rotate_matrix_y(int, int);
-int TObjPlayer__sub_803D9624(int, f32, f32, f32);
+int translate_matrix(int, f32, f32, f32);
 int TObjPlayer__sub_803D9B2C();
-int TObjPlayer__sub_803D9B78();
+int pop_matrix();
 int TOHangerMachine01__sub_803D9C00(void *);
 int set_global_param__8TObjFishFi(void *);
 int TObjFish__sub_803E46BC(void *);
@@ -339,7 +339,7 @@ extern "C" {
 
 void reset_transform__13TObjEneRe4BitFPv(void *arg0);
 void TObjEneDD__sub_800BA934(void *);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 void update_position_flag__13TObjEneRe4BitFPv(void *);
@@ -386,11 +386,11 @@ void render__13TObjEneRe4BitFv(Bit_800ECA40 *self) {
     if (draw != 0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(&self->pos);
-        TObjPlayer__sub_803D9624(0, TObjEneRe4Bit__data_805DA770, self->x300 - self->pos.y, TObjEneRe4Bit__data_805DA770);
+        translate_matrix(0, TObjEneRe4Bit__data_805DA770, self->x300 - self->pos.y, TObjEneRe4Bit__data_805DA770);
         rotate_matrix_y(0, self->x60);
-        TOMonitorMachine01__sub_803D8B5C(0, lbl_805DA774, lbl_805DA774, lbl_805DA774);
+        scale_matrix(0, lbl_805DA774, lbl_805DA774, lbl_805DA774);
         TObjFish__sub_803E46BC(self->x34);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
     self->light.l7();
     some_id_805c6f74 = lbl_805D5660;
@@ -413,7 +413,7 @@ void TObjEneRe4Bit__sub_800ECC14(u8 *arg0, s32 arg1) {
     case 3:
         if (M2C_FIELD(arg0, s32 *, 0x3CC) & 8) {
             TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003AD16)), (void *) (arg0 + 0x38), (int) (0), (int) (0));
-            TObjEneDD__sub_800BBA18((void *)((void *) (arg0)), (M2C_UNK)((int) (1)));
+            transition_enemy_state((void *)((void *) (arg0)), (M2C_UNK)((int) (1)));
         }
         break;
     case 0:
@@ -449,7 +449,7 @@ void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1) {
     case 3:
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x408)))) > 0xF)
     {
-      TObjEneDD__sub_800BBA18((void *)((void *) arg0), (M2C_UNK)((int) 1));
+      transition_enemy_state((void *)((void *) arg0), (M2C_UNK)((int) 1));
     }
       return;
     case 0:
@@ -478,7 +478,7 @@ void TObjEneRe4Bit__sub_800ECE04(u8 *arg0, s32 arg1) {
         break;
     case 3:
         if (M2C_FIELD(arg0, f32 *, 0x3D8) <= TObjEneRe4Bit__data_805DA770) {
-            TObjEneDD__sub_800BBA18((void *)(arg0), (M2C_UNK)(1));
+            transition_enemy_state((void *)(arg0), (M2C_UNK)(1));
             break;
         }
     case 5:
@@ -514,7 +514,7 @@ void TObjEneRe4Bit__sub_800ECED0(void *arg0, s32 arg1) {
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x3CC);
         if (temp_r4 & 2) {
             M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (temp_r4 & 0xFFFFFFFD);
-            TObjEneDD__sub_800BBA18(arg0, 3);
+            transition_enemy_state(arg0, 3);
         }
         return;
     case 0:
@@ -554,12 +554,12 @@ s32 handle_event__13TObjEneRe4BitFPvi(void *arg0, s32 arg1) {
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x3CC);
         if (temp_r4 & 1) {
             M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (temp_r4 & 0xFFFFFFFE);
-            TObjEneDD__sub_800BBA18(arg0, 2);
+            transition_enemy_state(arg0, 2);
             break;
         }
         if (temp_r4 & 2) {
             M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (temp_r4 & 0xFFFFFFFD);
-            TObjEneDD__sub_800BBA18(arg0, 3);
+            transition_enemy_state(arg0, 3);
         }
         break;
     case 5:
@@ -578,7 +578,7 @@ void TObjEneRe4Bit__sub_800ED090(void *self, s32 msg) {
     case 0:
         return;
     case 3:
-        TObjEneDD__sub_800BBA18((void *)(self), (M2C_UNK)(1));
+        transition_enemy_state((void *)(self), (M2C_UNK)(1));
         return;
     }
 }

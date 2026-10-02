@@ -116,8 +116,8 @@ f32 clamp_velocity__15TObjBoss2TunnelFPv(void *, s32);
 void TBoss8Dragon__sub_800BB780(void);
 void noop__12TBoss8DragonFv(void *);
 void set_field_378__9TObjEneDDFPvi(void *, s32);
-void TObjEneDD__sub_800BBA18(void *, s32);
-void TBoss1Dragon__sub_80143504(void *);
+void transition_enemy_state(void *, s32);
+void advance_animation_playback(void *);
 void TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
 void TObjEneRecon__sub_8031D994(void *, s32);
 void TObjEneRecon__sub_8031DD14(void *);
@@ -156,12 +156,12 @@ void TObjEneRecon__sub_8031C624(u8 *arg0, s32 arg1) {
             if (n == 2) {
                 TObjEneRecon__sub_8031D994(arg0, n);
             } else {
-                TObjEneDD__sub_800BBA18(arg0, n);
+                transition_enemy_state(arg0, n);
             }
         }
         break;
     case 0:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         n = M2C_FIELD(arg0, s32 *, 0x3C0);
         M2C_FIELD(arg0, s32 *, 0x3C0) = n + 1;
         M2C_FIELD(arg0, f32 *, 0x44C) = M2C_FIELD(arg0, f32 *, 0x308);

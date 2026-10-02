@@ -16,9 +16,9 @@ s32 TBoss8Dragon__sub_800BB688(u8 *arg0, f32 farg0);
 s32 get_player_data__10TObjPlayerFi(int);
 s32 obj_getField1c(void *);
 s32 get_game_mode__6TLobbyFv();
-u32 TObjPlayer__sub_8007A3AC(void *, void *);
+u32 csnLookAt(void *, void *);
 s32 is_alive__9TObjEneDDFPv(void *);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
 void TBoss8Dragon__sub_800BB664(f32 farg0);
 void TBoss8Dragon__sub_800BB780(Obj_800BB780 *self);
 }
@@ -33,7 +33,7 @@ int TObjEneBm3Fly__sub_800BB774(void* p);
 void noop__12TBoss8DragonFv(void);
 void refresh_and_send_entity_flags__12TBoss8DragonFPv(void* p);
 int set_player_state_default__12TBoss8DragonFPv(void* p);
-int TObjPlayer__sub_801B4A18(void*, int);
+int submit_cursor_candidate(void*, int);
 int refresh_lobby_state__10TObjPlayerFPv(void*);
 int send_entity_set_flags__6TLobbyFPv(void*);
 
@@ -56,8 +56,8 @@ s32 TBoss8Dragon__sub_800BB688(u8 *arg0, f32 farg0) {
     for (i = 0; i < n; i++) {
         p = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (is_alive__9TObjEneDDFPv(p) != 0) {
-            d = TObjPlayer__sub_80141CF8(arg0 + 0x2FC, p + 0x38);
-            if (d < best && TObjPlayer__sub_8007A3AC(arg0 + 0x2FC, p + 0x2FC) == 0) {
+            d = horizontal_distance_squared(arg0 + 0x2FC, p + 0x38);
+            if (d < best && csnLookAt(arg0 + 0x2FC, p + 0x2FC) == 0) {
                 result = obj_getField1c(p);
                 best = d;
             }
@@ -84,6 +84,6 @@ void noop__12TBoss8DragonFv(void) {  }
 void TBoss8Dragon__sub_800BB7D4(void) {  }
 void TBoss8Dragon__sub_800BB7D8(void) {  }
 void TBoss8Dragon__sub_800BB7DC(void) {  }
-int set_player_state_default__12TBoss8DragonFPv(void* p) { return TObjPlayer__sub_801B4A18(p, -1); }
+int set_player_state_default__12TBoss8DragonFPv(void* p) { return submit_cursor_candidate(p, -1); }
 
 }

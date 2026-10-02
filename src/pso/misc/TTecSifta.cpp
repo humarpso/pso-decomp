@@ -88,7 +88,7 @@ s32 TWindowSubComCard__sub_801058F8(void *);
 void show_party_effect__11TWindowCtrlFPvPvPv(s32, s32, s32);
 void TTecSifta__vt5(Obj_8023AE8C *arg0, VObj_18_b27ba1 *arg1);
 s32 queue_destruction__7TObjectFv();
-u32 TPhotonMylla__sub_80154CB4(int);
+u32 find_entity_by_id(int);
 s32 is_parents_unqueued__9TTecLukerFUi(u32);
 void fn_802370D8(void *);
 void run_task__9TTecSiftaFv(Sifta_8023AF94 *self);
@@ -203,7 +203,7 @@ typedef char RecoveredGlobal_8023B17C___vt__9TTecSifta_size[sizeof(RecoveredGlob
 void run_task__9TTecSiftaFv(Sifta_8023AF94 *self) {
     u32 target;
     s32 i;
-    self->source = TPhotonMylla__sub_80154CB4(self->source_id);
+    self->source = find_entity_by_id(self->source_id);
     if (self->source == 0) {
         ((void (*)(void *))queue_destruction__7TObjectFv)(self);
         return;
@@ -215,7 +215,7 @@ void run_task__9TTecSiftaFv(Sifta_8023AF94 *self) {
             ((VObj_8023AF94 *)self)->m5(self->source);
             if (self->count != 0) {
                 for (i = 0; i < self->count; i++) {
-                    target = TPhotonMylla__sub_80154CB4(self->targets[i].id);
+                    target = find_entity_by_id(self->targets[i].id);
                     if (is_parents_unqueued__9TTecLukerFUi(target) != 0) {
                         ((VObj_8023AF94 *)self)->m5(target);
                     }

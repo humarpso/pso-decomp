@@ -116,7 +116,7 @@ struct Obj_8031FE14 { u8 pad[0x18]; void *vt; };
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
+M2C_UNK transition_enemy_state(void *, int);
 M2C_UNK TObjEneRecon__sub_8031EE54(void *);
 M2C_UNK restore_position__12TObjEneReconFPv(void *);
 void fn_8031FD3C(u8 *arg0);
@@ -175,7 +175,7 @@ void fn_8031FD3C(u8 *arg0) {
     if (((VObj_18 *)(arg0))->m81() != 4) {
         ((VObj_18 *)(arg0))->m83();
     } else if ((s16) M2C_FIELD(arg0, s16 *, 0x326) == 1) {
-        TObjEneDD__sub_800BBA18((void *) (arg0), (int) (0));
+        transition_enemy_state((void *) (arg0), (int) (0));
     }
     ((VObj_18 *)(arg0))->m86();
     restore_position__12TObjEneReconFPv((void *) (arg0));

@@ -12,7 +12,7 @@ struct pkt_801B1674 {
 extern "C" {
 void revive__10TObjPlayerFPv(void *arg0);
 s32 revive_6xA1__10TObjPlayerFi(s32 arg0, void *arg1);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 void TFontSmallLobby__sub_801C01BC(void *);
 M2C_UNK set_code_161_1__10TObjPlayerFPv(void *);
 s32 validate_6xA1_revive_player_v3(void *);
@@ -110,7 +110,7 @@ void handle_6xA1_revive_player_v3(void *arg0) {
     revive_6xA1__10TObjPlayerFi((s32)((s32)((s32) &pkt)), (void *)((void *)(arg0)));
     TFontSmallLobby__sub_801C01BC(&pkt);
     if (validate_6xA1_revive_player_v3(&pkt) != 0) {
-        u8 *p = (u8 *) TPlayerBattleCtrl4P__sub_801BA74C(pkt.player_id);
+        u8 *p = (u8 *) get_player_by_client_id(pkt.player_id);
         if (p != NULL) {
             revive__10TObjPlayerFPv((void *)(p));
         }

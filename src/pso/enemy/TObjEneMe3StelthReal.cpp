@@ -120,7 +120,7 @@ int TObjEneMe3StelthReal__vt60(void* p);
 int TObjEneMe3StelthReal__vt61(void* p);
 void *__dt__20TObjEneMe3StelthRealFv(void *arg0, s16 arg1);
 void *create__20TObjEneMe3StelthRealFPv(void *arg0);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 int TObjEneMe3Stelth__vt60(void*);
 int TObjEneMe3Stelth__vt61(void*);
 void __dl__7TObjectFPv(void *);
@@ -136,10 +136,10 @@ void TObjEneMe3StelthReal__vt105(void *arg0) {
     EneStelth_800F0CE8 *self = (EneStelth_800F0CE8 *)arg0;
     M2C_FIELD(arg0, s32 *, 0x3EC) = M2C_FIELD(arg0, s32 *, 0x3EC) + 1;
     if ((M2C_FIELD(arg0, s32 *, 0x3EC) >= 2) || (calc_boss4_scale__10TObjPlayerFi() < lbl_805DA81C)) {
-        TObjEneDD__sub_800BBA18(self, 9);
+        transition_enemy_state(self, 9);
         return;
     }
-    TObjEneDD__sub_800BBA18(self, 6);
+    transition_enemy_state(self, 6);
 }
 
 int TObjEneMe3StelthReal__vt60(void* p) { return TObjEneMe3Stelth__vt60(p); }

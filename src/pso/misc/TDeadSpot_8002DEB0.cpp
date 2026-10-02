@@ -29,7 +29,7 @@ f32 TTecZondeEff__sub_8002DF28(void);
 void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, int);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(s32);
 void set_chunk_material_override_pair(s32, s32);
@@ -69,7 +69,7 @@ void TObjPlayer__sub_8002DF7C(Obj_8002DF7C *self) {
         rotate_matrix_y(0, self->ry);
         rotate_matrix_x(0, self->rx);
         TObjFish__sub_803E46BC(lbl_805D4B50->ents[self->idx].id);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         set_chunk_material_override_pair(0xFF00, 0);
         some_id_805c6f74 = lbl_805D5660;
     } else {
@@ -79,7 +79,7 @@ void TObjPlayer__sub_8002DF7C(Obj_8002DF7C *self) {
         rotate_matrix_y(0, self->ry);
         rotate_matrix_x(0, self->rx);
         TObjFish__sub_803E46BC(lbl_805D4B50->ents[self->idx].id);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

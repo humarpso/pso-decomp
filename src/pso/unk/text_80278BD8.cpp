@@ -7,7 +7,7 @@ struct Wn_80278DA4 { u8 pad0[0x20]; s16 f20; u8 pad22[0x50]; s16 f72; };
 
 extern "C" {
 u8 *TLobby__sub_80101AB0(int);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s16);
+u8 *get_player_by_client_id(s16);
 u32 run_and_get_result__10TObjPlayerFPvi(int, void *);
 void TLobby__sub_80266E34(void *);
 void add_list_entry__20TWindowSubStatusDispFPvi(void *, int);
@@ -23,7 +23,7 @@ void fn_80278DA4(Wn_80278DA4 *arg0) {
     u32 i;
     u32 count;
     u8 *p;
-    p = TPlayerBattleCtrl4P__sub_801BA74C(arg0->f20);
+    p = get_player_by_client_id(arg0->f20);
     if (p != NULL) {
         count = run_and_get_result__10TObjPlayerFPvi(*(s32 *)(p + 0xD00), list);
         for (i = 0; i < count; i++) {

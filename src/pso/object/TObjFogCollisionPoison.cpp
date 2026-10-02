@@ -66,7 +66,7 @@ s16 obj_getS16_32C(s32);
 s32 obj_getField1c(s32);
 s32 is_valid_target__9TObjEneDDFPv(s32);
 M2C_UNK TObjPlayer__sub_801B1E54(M2C_UNK, s32, s16);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+s32 get_player_by_client_id(u16);
 void TObjFogCollisionPoison__sub_8015346C(void *arg0, s32 arg1);
 s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, s32, s32, M2C_UNK, M2C_UNK);
@@ -254,7 +254,7 @@ u8 check_switch__22TObjFogCollisionPoisonFPv(void *arg0) {
 void TObjFogCollisionPoison__sub_8015346C(void *arg0, s32 arg1) {
     s32 p;
     s16 v;
-    p = TPlayerBattleCtrl4P__sub_801BA74C(arg1);
+    p = get_player_by_client_id(arg1);
     if (is_valid_target__9TObjEneDDFPv(p) != 0) {
         v = obj_getS16_32C(p) - M2C_FIELD(arg0, s32 *, 0x98);
         if (v < 0) {

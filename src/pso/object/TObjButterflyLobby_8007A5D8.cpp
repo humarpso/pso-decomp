@@ -17,7 +17,7 @@ u32 TObjPlayer__sub_8007A138(void *, void *, u32);
 extern char lbl_804389FC[];
 extern u8 lbl_804FFD40[];
 extern Hit_8007A5D8 lbl_80500140;
-Hit_8007A5D8 *TObjButterflyLobby__sub_8007A5D8(void *from, void *to, u32 mask);
+Hit_8007A5D8 *csnVector(void *from, void *to, u32 mask);
 }
 
 extern "C" {
@@ -27,7 +27,7 @@ void free__11TOBoss4RockFUi(void*);
 
 extern u32 lbl_805D4E6C;
 
-Hit_8007A5D8 *TObjButterflyLobby__sub_8007A5D8(void *from, void *to, u32 mask) {
+Hit_8007A5D8 *csnVector(void *from, void *to, u32 mask) {
     Hit_8007A5D8 *hit;
     TObjPlayer__sub_8007911C(from, to, mask);
     hit = &lbl_80500140;

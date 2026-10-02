@@ -8,15 +8,15 @@ struct DS_80142108 { u16 y; u8 b2; u8 b3; u8 b4; u8 b5; u8 b6; u8 b7; };
 
 extern "C" {
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-f32 TObjPlayer__sub_8001978C(f32);
+f32 newton_sqrtf(f32);
 extern const f64 lbl_8043F2C0;
 void TObjPlayer__sub_80142170(u8 *arg0, s32 *arg1, s32 *arg2);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-f32 TObjPlayer__sub_8001978C(f32);
+f32 newton_sqrtf(f32);
 extern const f64 lbl_8043F2C0;
 void TBoss1Dragon__sub_8014220C(u8 *arg0, s32 *arg1, s32 *arg2);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-f32 TObjPlayer__sub_8001978C(f32);
+f32 newton_sqrtf(f32);
 extern const f64 lbl_8043F2C0;
 void TObjPlayer__sub_801422A8(u8 *arg0, s32 *arg1, s32 *arg2);
 f32 TBoss8Dragon__sub_803D64C0();
@@ -151,7 +151,7 @@ void TObjPlayer__sub_80142170(u8 *arg0, s32 *arg1, s32 *arg2) {
     *arg1 = -(s32) (lbl_8043F2C0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 8)), (f32) (M2C_FIELD(arg0, f32 *, 0))));
     temp_f1 = M2C_FIELD(arg0, f32 *, 8);
     temp_f0 = M2C_FIELD(arg0, f32 *, 0);
-    *arg2 = (s32) (lbl_8043F2C0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 4)), (f32) (TObjPlayer__sub_8001978C((f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0))))));
+    *arg2 = (s32) (lbl_8043F2C0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 4)), (f32) (newton_sqrtf((f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0))))));
 }
 #pragma pop
 
@@ -163,7 +163,7 @@ void TBoss1Dragon__sub_8014220C(u8 *arg0, s32 *arg1, s32 *arg2) {
     *arg2 = -(s32) (lbl_8043F2C0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0)), (f32) (M2C_FIELD(arg0, f32 *, 4))));
     temp_f1 = M2C_FIELD(arg0, f32 *, 0);
     temp_f0 = M2C_FIELD(arg0, f32 *, 4);
-    *arg1 = (s32) (lbl_8043F2C0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 8)), (f32) (TObjPlayer__sub_8001978C((f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0))))));
+    *arg1 = (s32) (lbl_8043F2C0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 8)), (f32) (newton_sqrtf((f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0))))));
 }
 #pragma pop
 
@@ -175,7 +175,7 @@ void TObjPlayer__sub_801422A8(u8 *arg0, s32 *arg1, s32 *arg2) {
     *arg1 = -(s32) (lbl_8043F2C0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 4)), (f32) (M2C_FIELD(arg0, f32 *, 8))));
     temp_f1 = M2C_FIELD(arg0, f32 *, 4);
     temp_f0 = M2C_FIELD(arg0, f32 *, 8);
-    *arg2 = (s32) (lbl_8043F2C0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0)), (f32) (TObjPlayer__sub_8001978C((f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0))))));
+    *arg2 = (s32) (lbl_8043F2C0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0)), (f32) (newton_sqrtf((f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0))))));
 }
 #pragma pop
 

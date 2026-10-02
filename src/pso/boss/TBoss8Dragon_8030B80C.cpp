@@ -8,7 +8,7 @@ extern "C" {
 s32 TBoss4Type2__sub_80141FA8(int);
 extern const f32 lbl_805DF17C;
 u8 *get_enemy_entity(u16);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 u32 TBoss8Dragon__sub_802F3348(int);
 s32 TBoss8Dragon__sub_802FCCBC(int);
 void TBoss8Dragon__sub_8030B818(u8 *arg0, int);
@@ -27,7 +27,7 @@ extern const f32 lbl_805DF1D4;
 void TBoss8Dragon__sub_8030BB24(u8 *arg0);
 f32 calc_random_ratio__10TObjPlayerFv(void *);
 u8 *get_enemy_entity(u16);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 u16 call_null__12TBoss8DragonFv(void *);
 int TBoss8Dragon__sub_8030B80C(void);
 f32 TBoss8Dragon__sub_803D64C0(int);
@@ -116,7 +116,7 @@ void TBoss8Dragon__sub_8030B8A8(u8 *arg0) {
     case 2:
         M2C_FIELD(arg0, s16 *, 0x1E) = lbl_805DF18C * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF18C;
         M2C_FIELD(arg0, u16 *, 0x24) = ((int (*)(void *))TBoss8Dragon__sub_8030B80C)(arg0);
-        p = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x24));
+        p = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x24));
         if (p != NULL) {
             M2C_FIELD(arg0, s32 *, 0x28) = M2C_FIELD(p, s32 *, 0x60) - 0x8000;
         }
@@ -154,7 +154,7 @@ void TBoss8Dragon__sub_8030BB24(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x1C);
     switch (temp_r0) {
     case 1:
-        temp_r3 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C((s32) M2C_FIELD(arg0, u16 *, 0x24)));
+        temp_r3 = (u8 *)(get_player_by_client_id((s32) M2C_FIELD(arg0, u16 *, 0x24)));
         if (temp_r3 != NULL) {
             M2C_FIELD(arg0, f32 *, 0x34) = (f32) ((lbl_805DF1B8 * TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg0, s32 *, 0x28)))) + M2C_FIELD(temp_r3, f32 *, 0x38));
             M2C_FIELD(arg0, f32 *, 0x38) = (f32) (M2C_FIELD(temp_r3, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x30));
@@ -166,7 +166,7 @@ void TBoss8Dragon__sub_8030BB24(u8 *arg0) {
         }
         return;
     case 2:
-        temp_r3_2 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C((s32) M2C_FIELD(arg0, u16 *, 0x24)));
+        temp_r3_2 = (u8 *)(get_player_by_client_id((s32) M2C_FIELD(arg0, u16 *, 0x24)));
         if (temp_r3_2 != NULL) {
             M2C_FIELD(arg0, f32 *, 0x34) = (f32) ((lbl_805DF1BC * TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg0, s32 *, 0x28)))) + M2C_FIELD(temp_r3_2, f32 *, 0x38));
             M2C_FIELD(arg0, f32 *, 0x38) = (f32) (lbl_805DF1C0 + M2C_FIELD(temp_r3_2, f32 *, 0x3C));

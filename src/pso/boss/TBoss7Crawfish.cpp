@@ -48,13 +48,13 @@ struct Obj_803086A8 { u8 pad[0x3A4]; s32 count; Slot_803086A8 slots[4]; };
 extern "C" {
 extern const f32 TBoss7Crawfish__data_805DF0D8;
 s32 TBoss7Crawfish__sub_80308AA8(u8 *arg0);
-s32 TObjEneDellBiter__sub_80087350(void *, int);
+s32 spawn_particle_effect(void *, int);
 extern const f32 TBoss7Crawfish__data_805DF0D8;
 void TBoss7Crawfish__sub_80308910(u8 *arg0);
 s32 TLobby__sub_8002AFD4(void *, void *, int);
 void TBoss7Crawfish__sub_80308B38(s32 arg0);
 s32 get_mode__11TCameraCtrlFPv(void *);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
 extern RecoveredGlobal_80308840_lbl_8047559C lbl_8047559C;
 extern RecoveredGlobal_80308840_main_task main_task;
 extern const f32 lbl_805DF0CC;
@@ -87,7 +87,7 @@ int TOHangerMachine01__sub_803D9C00(void*);
 M2C_UNK TOTrapAncient01__sub_80226578(s32, s32, s32, M2C_UNK, M2C_UNK);
 int TObjChip__sub_803D8AE4(void*, void*, void*, void*);
 int TObjPlayer__sub_803D9B2C(void);
-int TObjPlayer__sub_803D9B78(void);
+int pop_matrix(void);
 int clear_global_state__10TObjPlayerFv(void);
 int draw__16TObjEneRe7BeruraFPv(void*);
 f32 get_health__14TBoss7CrawfishFPv(s32);
@@ -144,7 +144,7 @@ typedef char RecoveredGlobal_80308840_lbl_8047559C_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80308840_main_task_size[sizeof(RecoveredGlobal_80308840_main_task) == 0x34 ? 1 : -1];
 s32 TBoss7Crawfish__sub_80308840(u8 *arg0) {
     if (get_mode__11TCameraCtrlFPv(&main_task.value) & 0x20) {
-        if (lbl_805DF0CC < TObjPlayer__sub_80141CF8(&lbl_8047559C.value, arg0 + 0x38)) {
+        if (lbl_805DF0CC < horizontal_distance_squared(&lbl_8047559C.value, arg0 + 0x38)) {
             return 0;
         }
         goto block_5;
@@ -163,15 +163,15 @@ void TBoss7Crawfish__sub_80308910(u8 *arg0) {
     position.x = M2C_FIELD(arg0, f32 *, 0x38);
     position.y = TBoss7Crawfish__data_805DF0D8;
     position.z = M2C_FIELD(arg0, f32 *, 0x40);
-    TObjEneDellBiter__sub_80087350((void *) (&position.x), (int) (0x20D));
-    TObjEneDellBiter__sub_80087350((void *) (&position.x), (int) (0x20E));
+    spawn_particle_effect((void *) (&position.x), (int) (0x20D));
+    spawn_particle_effect((void *) (&position.x), (int) (0x20E));
 }
 
 s32 TBoss7Crawfish__sub_80308AA8(u8 *arg0) {
     return TBoss7Crawfish__data_805DF0D8 == M2C_FIELD(arg0, f32 *, 0x354);
 }
 
-void render__14TBoss7CrawfishFv(void* p) { if (TBoss7Crawfish__sub_80308840((u8 *)(p)) != 0) { notify_fish_if_valid__10TObjPlayerFUi(*(void**)((char*)p + 0x24)); set_global_flag__10TObjPlayerFv(); TObjPlayer__sub_803D9B2C(); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); TObjChip__sub_803D8AE4((void*)0, *(void**)((char*)p + 0x5c), *(void**)((char*)p + 0x60), *(void**)((char*)p + 0x64)); TBoss7Tentacle__sub_803D9BA0((char*)p + 0x68); draw__16TObjEneRe7BeruraFPv(p); TObjPlayer__sub_803D9B78(); clear_global_state__10TObjPlayerFv(); } }
+void render__14TBoss7CrawfishFv(void* p) { if (TBoss7Crawfish__sub_80308840((u8 *)(p)) != 0) { notify_fish_if_valid__10TObjPlayerFUi(*(void**)((char*)p + 0x24)); set_global_flag__10TObjPlayerFv(); TObjPlayer__sub_803D9B2C(); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); TObjChip__sub_803D8AE4((void*)0, *(void**)((char*)p + 0x5c), *(void**)((char*)p + 0x60), *(void**)((char*)p + 0x64)); TBoss7Tentacle__sub_803D9BA0((char*)p + 0x68); draw__16TObjEneRe7BeruraFPv(p); pop_matrix(); clear_global_state__10TObjPlayerFv(); } }
 
 extern const f32 TBoss7Crawfish__data_805DF0D8;
 extern const f32 lbl_805DF0EC;

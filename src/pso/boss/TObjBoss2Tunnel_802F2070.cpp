@@ -108,7 +108,7 @@ M2C_UNK fn_802F1DAC(int);
 M2C_UNK fn_802F1E54(int);
 void TObjBoss2Tunnel__sub_802F2348(u8 *arg0);
 s32 is_split_screen();
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 M2C_UNK reset_floats__15TObjBoss2TunnelFPv(void *);
 M2C_UNK reset_floats__15TObjBoss2TunnelFi(void *);
 s32 TLobby__sub_8020C1F0(s32, int);
@@ -393,7 +393,7 @@ void *TObjBoss2Tunnel__sub_802F2A2C(void *arg0p, s32 parent) {
         lbl_805D696C = 1;
         lbl_805D6970 = 1;
     }
-    if (TLobby__sub_8020C1F0(TObjPlayer__sub_800196EC(), 1) == 0) {
+    if (TLobby__sub_8020C1F0(get_current_floor(), 1) == 0) {
         TObjBoss2Tunnel__sub_802F2150(arg0);
         p = __nw__7TObjectFUl(0xD8);
         if (p != 0) {

@@ -148,14 +148,14 @@ void destroy_instance__14TBoss7CrawfishFv(void);
 f32 get_health__14TBoss7CrawfishFPv(void* p);
 void run_task__14TBoss7CrawfishFv(u8 *arg0);
 void set_anim_timer__14TBoss7CrawfishFPvs(void* p, s16 v);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK TBoss7Crawfish__sub_80308BEC(void *);
 M2C_UNK TBoss7Crawfish__sub_80308D1C(void *);
 M2C_UNK TBoss7Crawfish__sub_80308F8C(void *, int);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
+M2C_UNK submit_cursor_candidate(void *, int);
 M2C_UNK TRaderMapCore__sub_801F99EC(void *, int, int, int, f32);
 int TWindowSubStatusDisp__sub_80257C28(void*, void*);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -202,10 +202,10 @@ void run_task__14TBoss7CrawfishFv(u8 *arg0) {
     }
     TObjPlayer__sub_80154E3C((void *) (arg0));
     if (!(M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 0x02000000)) {
-        TObjPlayer__sub_801B4A18((void *) (arg0), (int) (-1));
+        submit_cursor_candidate((void *) (arg0), (int) (-1));
     }
     TRaderMapCore__sub_801F99EC((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805DF0FC));
-    TBoss1Dragon__sub_80143504((void *) (arg0));
+    advance_animation_playback((void *) (arg0));
 }
 
 extern M2C_UNK __vt__14TBoss7Crawfish[];

@@ -198,7 +198,7 @@ s32 TLobby__sub_80190FD0(int);
 extern RecoveredGlobal_80141730_lbl_8050C028 TLobby__data_80512220;
 s32 TLobby__sub_80190FD0(int);
 void qst_op_npc_talk_kill(void);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 M2C_UNK handle_main_phase__6TLobbyFi();
 extern RecoveredGlobal_80141730_lbl_8050C028 TLobby__data_80512220;
 void qst_op_p_talk_guild(void);
@@ -216,7 +216,7 @@ int THunterGuildSeqOffline__sub_801F3738(void*);
 int THunterGuildSeqOffline__sub_801F3748(void*);
 int TObjCityMainWarp__sub_80186634(void*);
 M2C_UNK TObjPlayer__sub_801B30BC(u32, M2C_UNK);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 
 int qst_op_clr_qt_cancel(void) { return THunterGuildSeqOffline__sub_801F3728((void*)(-1)); }
 int qst_op_clr_qt_success(void) { return THunterGuildSeqOffline__sub_801F3738((void*)(-1)); }
@@ -337,13 +337,13 @@ void qst_op_npc_talk_kill(void) {
 
 typedef char RecoveredGlobal_801EF4F4_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801EF4F4_TLobby__data_80512220) == 0x20 ? 1 : -1];
 void qst_op_p_talk_guild(void) {
-    if (TPlayerBattleCtrl4P__sub_801BA74C((s32)((int) ((*(RecoveredGlobal_801EF4F4_TLobby__data_80512220 *)&TLobby__data_80512220).value))) != 0U) {
+    if (get_player_by_client_id((s32)((int) ((*(RecoveredGlobal_801EF4F4_TLobby__data_80512220 *)&TLobby__data_80512220).value))) != 0U) {
         handle_main_phase__6TLobbyFi();
     }
 }
 
 void qst_op_p_return_guild(void) {
-    u32 player = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    u32 player = get_player_by_client_id(lbl_805D53A0);
     if (player != 0U) {
         TObjPlayer__sub_801B30BC(player, 0);
     }

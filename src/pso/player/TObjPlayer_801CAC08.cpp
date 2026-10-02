@@ -9,7 +9,7 @@ extern "C" {
 void start_action_0e__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK set_type__10TObjPlayerFPvi(void *, M2C_UNK);
 s32 get_action_animation__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
+M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, s16, M2C_UNK);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 s32 obj_isState2_324(void *);
@@ -44,7 +44,7 @@ void start_action_0e__10TObjPlayerFPv(u8 *arg0) {
 
     VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0x308);
     M2C_FIELD(arg0, s32 *, 0x33C) = 0xE;
-    TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
+    run_action_state_phase__10TObjPlayerFisi(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
     VecCopy__FP3VecPC3Vec(arg0 + 0x308, &sp8);
     set_type__10TObjPlayerFPvi(arg0 + 0x644, 0x12C);
     obj_clearFlags30(arg0, 0x10000);

@@ -51,7 +51,7 @@ extern const f32 lbl_805DBE1C;
 s32 TObjEnvSoundGlobal__sub_801902D8(u8 *arg0);
 void TOTrapAncient01__sub_80226578(s32, void *, f32 *, s32, s32);
 void run_task__18TObjEnvSoundGlobalFv(Obj_801903B4 *self);
-f32 fn_8013157C(void *, void *);
+f32 xz_distance_squared(void *, void *);
 void TOTrapAncient01__sub_80226578(s32, void *, f32 *, s32, s32);
 extern u8 *lbl_805D4DF0;
 extern const f32 lbl_805DBE10;
@@ -154,7 +154,7 @@ extern M2C_UNK __vt__14TObjEnvSoundEx[];
 extern s32 lbl_805D334C;
 void *__dt__14TObjEnvSoundExFv(void *arg0, s16 arg1);
 void render__14TObjEnvSoundExFv(void);
-f32 fn_8013157C(void *, void *);
+f32 xz_distance_squared(void *, void *);
 extern u8 *lbl_805D4DF0;
 struct RecoveredGlobal_8019080C___vt__14TObjEnvSoundEx {
     M2C_UNK value;
@@ -199,7 +199,7 @@ void render__14TObjEnvSoundExFv(void) {  }
 extern M2C_UNK __vt__14TObjEnvSoundEx[];
 
 void run_task__14TObjEnvSoundExFv(Env_80190624 *o) {
-    if (fn_8013157C(lbl_805D4DF0 + 0x178, o->pos) < o->range * o->range) {
+    if (xz_distance_squared(lbl_805D4DF0 + 0x178, o->pos) < o->range * o->range) {
         o->vol += o->step;
         if (o->vol > (f32)o->f90) {
             o->vol = (f32)o->f90;

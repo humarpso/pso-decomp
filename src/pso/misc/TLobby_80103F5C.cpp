@@ -83,7 +83,7 @@ void mark_selected__6TLobbyFv(void);
 void handle_select_confirm__6TLobbyFv(void);
 s32 TObjPlayer__sub_80019248();
 M2C_UNK TObjPlayer__sub_801BA0F0(s32, s32, M2C_UNK);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+s32 get_player_by_client_id(u16);
 s32 TWindowSubComCard__sub_801058F8(s32);
 M2C_UNK fn_801B849C(s32, void *);
 s32 obj_isState3_324(s32);
@@ -92,7 +92,7 @@ extern s32 TLobby__data_805D53AC;
 void forward_to_player__6TLobbyFiPv(int arg0, void *arg1);
 s32 TObjPlayer__sub_80019248();
 M2C_UNK TObjPlayer__sub_801B9EDC(s32, s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+s32 get_player_by_client_id(u16);
 s32 TWindowSubComCard__sub_801058F8(s32);
 u32 activate_d04_slot__10TObjPlayerFPv(s32);
 u32 get_equip_field_d04__10TObjPlayerFPv(s32, s32);
@@ -281,7 +281,7 @@ void TLobby__sub_801044B8(s32 *p) {
 void forward_to_player__6TLobbyFiPv(int arg0, void *arg1) {
     s32 temp_r3;
     if (arg1 != NULL) {
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(arg0);
+        temp_r3 = get_player_by_client_id(arg0);
         if ((temp_r3 != 0) && ((TObjPlayer__sub_80019248() == 1) || ((obj_isState3_324(temp_r3) == 1) && ((s32) lbl_805D53A0 == (s32) TLobby__data_805D53AC)) || ((TWindowSubComCard__sub_801058F8(temp_r3) == 1) && ((s32) lbl_805D53A0 == (s32) TLobby__data_805D53AC)))) {
             fn_801B849C(temp_r3, arg1);
             TObjPlayer__sub_801BA0F0(temp_r3, M2C_FIELD(arg1, s32 *, 0xC), 0);
@@ -291,7 +291,7 @@ void forward_to_player__6TLobbyFiPv(int arg0, void *arg1) {
 void handle_player_event__6TLobbyFii(s32 arg0, s32 arg1) {
     s32 temp_r3;
     u32 var_r3;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16)arg0);
+    temp_r3 = get_player_by_client_id((u16)arg0);
     if ((temp_r3 != 0) && ((TObjPlayer__sub_80019248() == 1) || ((obj_isState3_324(temp_r3) == 1) && ((s32) lbl_805D53A0 == (s32) TLobby__data_805D53AC)) || ((TWindowSubComCard__sub_801058F8(temp_r3) == 1) && ((s32) lbl_805D53A0 == (s32) TLobby__data_805D53AC)))) {
         var_r3 = 0U;
         switch (arg1) {

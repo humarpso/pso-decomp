@@ -48,12 +48,12 @@ s32 TObjPlayer__sub_803D97F0(void *);
 void TObjPlayer__sub_803D7B68(s32, f32);
 s32 TObjPlayer__sub_803D7CA4(void *);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 extern u8 lbl_8058D490[];
 extern const f32 TObjEneMe3Stelth__data_805DA840;
 f32 TObjEneMe3Stelth__sub_800F4D68(Obj_800F4D68 *self);
 void fn_8002B630(void *, void *, s32);
-void TObjPlayer__sub_801564A0(void *, s32, f32, f32);
+void check_enemy_body_collisions(void *, s32, f32, f32);
 extern u8 lbl_804976E4[];
 extern const f32 TObjEneMe3Stelth__data_805DA840;
 extern const f32 lbl_805DA81C;
@@ -62,7 +62,7 @@ u8 TObjEneMe3Stelth__sub_800F4CC8(Obj_800F4CC8 *arg0, s32 arg1, f32 farg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 TObjPlayer__sub_80019248(void *);
 u32 get_item_field_6__10TObjPlayerFPv(void *);
-void TObjEneDellBiter__sub_80087350(void *, s32);
+void spawn_particle_effect(void *, s32);
 s32 get_field_d8__10TObjPlayerFPv(void);
 s32 fn_800B91F4(void *);
 void TObjEneDD__sub_800BA438(void *, void *);
@@ -96,7 +96,7 @@ void TObjEneMe3Stelth__sub_800F4A90(Stelth_800F4A90 *self) {
                 if (TObjPlayer__sub_80019248(t) != 0 && get_item_field_6__10TObjPlayerFPv(t) != 0) {
                     TObjPlayer__sub_801B9EDC(t, get_field_d8__10TObjPlayerFPv());
                     TObjPlayer__sub_801B7248(t, self->f3F8);
-                    TObjEneDellBiter__sub_80087350(self->f3F8, 0x1D0);
+                    spawn_particle_effect(self->f3F8, 0x1D0);
                 }
             } else if (near != 0 && calc_boss4_scale__10TObjPlayerFi(self) <= lbl_805DA8A0) {
                 TObjEneDD__sub_800BA438(self, self->target);
@@ -136,7 +136,7 @@ u8 TObjEneMe3Stelth__sub_800F4CC8(Obj_800F4CC8 *arg0, s32 arg1, f32 farg0) {
     s->f14 = 1;
     s->f18 = 0x9D01;
     arg0->f60 = arg1;
-    TObjPlayer__sub_801564A0(arg0, arg1, TObjEneMe3Stelth__data_805DA840, f2);
+    check_enemy_body_collisions(arg0, arg1, TObjEneMe3Stelth__data_805DA840, f2);
     res = (s->f18 & 0x380000) != 0;
     fn_8002B630(s, lbl_804976E4, s->f18 & 0x380000);
     s->f18 = b;
@@ -156,7 +156,7 @@ f32 TObjEneMe3Stelth__sub_800F4D68(Obj_800F4D68 *self) {
     TObjPlayer__sub_803D7CA4(node);
     TObjPlayer__sub_803D7CA4(node->child);
     TCameraCtrl__sub_803D8934(0, &v, &v);
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     return v.y;
 }
 

@@ -27,7 +27,7 @@ void TOChatSensor__sub_801781D8(u8 *arg0);
 void TOChatSensor__sub_8015B274(void *);
 s32 TSwitch__sub_80229258(int, int);
 s32 TSwitch__sub_80229318(int, int);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 void handle_6x93_set_switch_flag_from_timer(Pkt_80178178 *p);
 }
 
@@ -49,7 +49,7 @@ void handle_6x93_set_switch_flag_from_timer(Pkt_80178178 *p) {
     TOChatSensor__sub_8015B274(p);
     if (p->mode == 1) {
         TSwitch__sub_80229318(p->id, p->area);
-    } else if (p->area != TObjPlayer__sub_800196EC()) {
+    } else if (p->area != get_current_floor()) {
         TSwitch__sub_80229258(p->id, p->area);
     }
 }

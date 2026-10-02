@@ -47,12 +47,12 @@ struct Obj_8017A988 : VBase_8017A988 {
 extern "C" {
 u16 TObjPlayer__sub_800115C4(void *, int, f32);
 void calc_attach_pos__10TObjPlayerFPv(void *);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, int, u32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 get_player_by_client_id(u32);
 u8 TODoorAncient08__sub_80229220(u16);
 void TOTrapAncient02R__vt77(Obj_8017A8B0 *self);
-s32 TObjEneDellBiter__sub_80087350(void *, int);
+s32 spawn_particle_effect(void *, int);
 s32 TObjPlayer__sub_80154954(void *, void *);
 s32 TLobby__sub_80156A80(void *, void *, int);
 extern const f32 lbl_805DBA80;
@@ -91,9 +91,9 @@ void TOTrapAncient02R__vt77(Obj_8017A8B0 *self) {
     if (self->switchId == -1 || TODoorAncient08__sub_80229220(self->switchId) == 1) {
         self->idx = TObjPlayer__sub_800115C4(self, 0, self->range);
         if (self->idx != 0xFFFF) {
-            self->target = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(self->idx);
+            self->target = (u8 *)get_player_by_client_id(self->idx);
             if (self->target != NULL) {
-                if (TObjPlayer__sub_80141CF8(self->target + 0x38, self->pos) < self->range * self->range) {
+                if (horizontal_distance_squared(self->target + 0x38, self->pos) < self->range * self->range) {
                     self->state = 2;
                 }
             } else {
@@ -110,8 +110,8 @@ f32 TOTrapAncient02R__vt20(Obj_8017A988 *self) {
     if (self->id >= 0x4000 && self->x80 != 0) {
         Vec_8017A988 v = self->pos;
         v.y += self->x344 + self->x348;
-        TObjEneDellBiter__sub_80087350(&v, 0x1D0);
-        TObjEneDellBiter__sub_80087350(&v, 1);
+        spawn_particle_effect(&v, 0x1D0);
+        spawn_particle_effect(&v, 1);
         if (--self->timer <= 0) {
             self->timer = 0;
             if (TLobby__sub_80156A80(self, &msg, 1) != 0) {

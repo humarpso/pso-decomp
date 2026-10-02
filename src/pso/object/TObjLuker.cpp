@@ -69,7 +69,7 @@ s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
 void set_flag_4__9TObjLukerFPv(void *w);
 void disallow_rendering__7TObjectFv(void *w);
 void TObjLuker__sub_801A0DB4(Obj_801A0DB4 *self);
-Ctrl_801A0E38 *TPlayerBattleCtrl4P__sub_801BA74C(u16 id);
+Ctrl_801A0E38 *get_player_by_client_id(u16 id);
 s32 is_split_screen(void);
 void *TWindowSubComCard__sub_8026CBB8(s32 a);
 void *TCheckRoomSequence__sub_802664A8(void *p, s32 a, s32 b);
@@ -83,7 +83,7 @@ void TWindowSubComCard__sub_80265C30(void *w);
 void set_flag_4__9TObjLukerFPv(void *w);
 void disallow_rendering__7TObjectFv(void *w);
 void TObjLuker__sub_801A0E38(Obj_801A0E38 *self);
-Ctrl_801A0E38 *TPlayerBattleCtrl4P__sub_801BA74C(u16 id);
+Ctrl_801A0E38 *get_player_by_client_id(u16 id);
 void TWindowSubComCard__sub_802655E4(void *w);
 s32 get_player_floor__6TLobbyFi(s32 p);
 s32 TObjLuker__sub_801329B0(s32 f);
@@ -104,10 +104,10 @@ extern u8 __vt__9TObjLuker[];
 extern s32 lbl_805D34A8;
 void *TObjLuker__ct(void *arg0, void *arg1, void *arg2);
 s32 is_split_screen(void);
-Ctrl_801A0E38 *TPlayerBattleCtrl4P__sub_801BA74C(u16 id);
+Ctrl_801A0E38 *get_player_by_client_id(u16 id);
 u16 TCameraCtrl__sub_80068958(s32);
 s32 get_instance__11TCameraCtrlFv(void);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 get_map_id__13TRaderMapCoreFPv(void *);
 s32 check_flag_100__10TObjPlayerFPv(void *);
@@ -115,7 +115,7 @@ extern Pad_801A0F34 lbl_8050E208[];
 s32 TObjLuker__sub_801A0F34(void *arg0, s32 *arg1, f32 range);
 s32 is_split_screen(void);
 void queue_destruction__7TObjectFv(void *);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK spawn_particle_effect(void *, int);
 void TObjLuker__sub_801A0CE8(Obj_801A0CE8 *self);
 void TObjLuker__sub_801A0DB4(Obj_801A0DB4 *self);
 void TObjLuker__sub_801A0E38(Obj_801A0E38 *self);
@@ -125,7 +125,7 @@ void TObjLuker__sub_801A1260(u8 *arg0);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 M2C_UNK play_effect_default__10TObjPlayerFii(void *, int);
 s32 check_flag_100__10TObjPlayerFPv(void *);
-Ctrl_801A0E38 *TPlayerBattleCtrl4P__sub_801BA74C(u16 id);
+Ctrl_801A0E38 *get_player_by_client_id(u16 id);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
 s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
 void *__nw__7TObjectFUl(int);
@@ -172,7 +172,7 @@ void TObjLuker__sub_801A0C7C(s32 arg0, s32 arg1) {
 #pragma pop
 
 void TObjLuker__sub_801A0CE8(Obj_801A0CE8 *self) {
-    s32 target = ((Ctrl_801A0CE8 *)TPlayerBattleCtrl4P__sub_801BA74C(self->id))->target;
+    s32 target = ((Ctrl_801A0CE8 *)get_player_by_client_id(self->id))->target;
     s32 i;
     for (i = 0; i < 4; i++) {
         if (self->wins[i] != 0 && target > 0) {
@@ -204,7 +204,7 @@ void TObjLuker__sub_801A0DB4(Obj_801A0DB4 *self) {
 }
 
 void TObjLuker__sub_801A0E38(Obj_801A0E38 *self) {
-    s32 target = TPlayerBattleCtrl4P__sub_801BA74C(self->id)->target;
+    s32 target = get_player_by_client_id(self->id)->target;
     s32 i;
     for (i = 0; i < 4; i++) {
         if (self->wins[i] == 0 && target > 0) {
@@ -240,14 +240,14 @@ s32 TObjLuker__sub_801A0F34(void *arg0, s32 *arg1, f32 range) {
     i = 0;
     range = range * range;
     do {
-        p = (Plr_801A0F34 *)((Ctrl_801A0E38 *(*)(s32))TPlayerBattleCtrl4P__sub_801BA74C)(i);
+        p = (Plr_801A0F34 *)((Ctrl_801A0E38 *(*)(s32))get_player_by_client_id)(i);
         if (p != NULL) {
             pos = p->pos;
             if (!(p->flags & 0x800)) {
                 if (check_flag_100__10TObjPlayerFPv(p) == 1) {
                     ret = 0;
                 }
-                if (TObjPlayer__sub_80141CF8(arg0, pos) > range) {
+                if (horizontal_distance_squared(arg0, pos) > range) {
                     ret = 0;
                 }
                 flag = 0;
@@ -264,7 +264,7 @@ s32 TObjLuker__sub_801A0F34(void *arg0, s32 *arg1, f32 range) {
         s32 found = 0;
         s32 j;
         for (j = 0; j < get_instance__11TCameraCtrlFv(); j++) {
-            p = (Plr_801A0F34 *)((Ctrl_801A0E38 *(*)(s32))TPlayerBattleCtrl4P__sub_801BA74C)(TCameraCtrl__sub_80068958(j));
+            p = (Plr_801A0F34 *)((Ctrl_801A0E38 *(*)(s32))get_player_by_client_id)(TCameraCtrl__sub_80068958(j));
             if (p != NULL &&
                 TWindowShortListCtrl__check_controller_button(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(p)].btn, 4) != 0) {
                 found = 1;
@@ -287,14 +287,14 @@ void render__9TObjLukerFv(void) {  }
 
 extern void *tl_05;
 
-#define PBC_801A1418(x) (((u8 *(*)(s32))TPlayerBattleCtrl4P__sub_801BA74C)(x))
+#define PBC_801A1418(x) (((u8 *(*)(s32))get_player_by_client_id)(x))
 void run_task__9TObjLukerFv(u8 *arg0) {
     s32 sp8;
     u8 spC[0xC];
     u8 *p;
     void *o;
     s32 flag;
-    p = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0xA8));
+    p = (u8 *)get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0xA8));
     if (p != NULL) {
         TObjLuker__sub_801A0CE8((Obj_801A0CE8 *) arg0);
         TObjLuker__sub_801A0E38((Obj_801A0E38 *) arg0);
@@ -340,7 +340,7 @@ void run_task__9TObjLukerFv(u8 *arg0) {
                     if (flag != 0) {
                         M2C_FIELD(arg0, s16 *, 0xB0) = 1;
                         fn_8023601C(arg0 + 0x38, spC, lbl_805DC080);
-                        TObjEneDellBiter__sub_80087350(spC, 0xB3);
+                        spawn_particle_effect(spC, 0xB3);
                         p = PBC_801A1418(lbl_805D53A0);
                         if (p != NULL) {
                             play_effect_default__10TObjPlayerFii(p, 0xA);

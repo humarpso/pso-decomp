@@ -42,7 +42,7 @@ void free__11TOBoss4RockFUi(void *);
 void clear_counter__6TLobbyFv();
 void TObjPlayer__sub_801B12CC(void *);
 void clear_lobby_flag__10TObjPlayerFPv(void *);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 void TQuestListOnline__sub_802176DC(void *, s32);
 void TQuestListOnline__sub_80217714(void *, s32);
 s32 init__16TQuestListOnlineFv();
@@ -228,7 +228,7 @@ void TQuestListOnline__sub_80214E08(void) {
     clear_flag3_all_tasks__9TMainTaskFv(&main_task);
     lbl_805D61AC = 0;
     for (i = 0; i < 4; i++) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        p = get_player_by_client_id(i);
         if (p != NULL) {
             clear_lobby_flag__10TObjPlayerFPv(p);
             TObjPlayer__sub_801B12CC(p);

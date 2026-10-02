@@ -79,12 +79,12 @@ s32 TObjPlayer__sub_803D97F0(void *);
 void TObjPlayer__sub_803D7B68(s32, f32);
 s32 TObjPlayer__sub_803D7CA4(void *);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 extern u8 lbl_8058D490[];
 extern const f32 TObjEneMe3ShinowaMirage__data_805DA5B8;
 f32 TObjEneMe3ShinowaMirage__sub_800E75AC(Obj_800E75AC *self);
 void fn_8002B630(void *, void *, s32);
-void TObjPlayer__sub_801564A0(void *, s32, f32, f32);
+void check_enemy_body_collisions(void *, s32, f32, f32);
 extern u8 lbl_80495BFC[];
 extern const f32 TObjEneMe3ShinowaMirage__data_805DA5B8;
 extern const f32 lbl_805DA64C;
@@ -188,7 +188,7 @@ u8 TObjEneMe3ShinowaMirage__sub_800E750C(Obj_800E750C *arg0, s32 arg1, f32 farg0
     s->f14 = 1;
     s->f18 = 0x9D01;
     arg0->f60 = arg1;
-    TObjPlayer__sub_801564A0(arg0, arg1, TObjEneMe3ShinowaMirage__data_805DA5B8, f2);
+    check_enemy_body_collisions(arg0, arg1, TObjEneMe3ShinowaMirage__data_805DA5B8, f2);
     res = (s->f18 & 0x380000) != 0;
     fn_8002B630(s, lbl_80495BFC, s->f18 & 0x380000);
     s->f18 = b;
@@ -208,7 +208,7 @@ f32 TObjEneMe3ShinowaMirage__sub_800E75AC(Obj_800E75AC *self) {
     TObjPlayer__sub_803D7CA4(node);
     TObjPlayer__sub_803D7CA4(node->child);
     TCameraCtrl__sub_803D8934(0, &v, &v);
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     return v.y;
 }
 

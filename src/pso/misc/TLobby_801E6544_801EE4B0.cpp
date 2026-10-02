@@ -36,7 +36,7 @@ M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_801EE5A4_TLobby__data_80512220 TLobby__data_80512220;
 extern RecoveredGlobal_801EE5A4_lbl_805129F8 lbl_805129F8;
 void TLobby__sub_801EE5A4(void);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 void byteswap_and_send__6TLobbyFi(s32 arg0);
 void init_packet_67_04__6TLobbyFPv(void* p);
 extern RecoveredGlobal_801EE5A4_TLobby__data_80512220 TLobby__data_80512220;
@@ -91,7 +91,7 @@ void TLobby__sub_801EE54C(void) {
     s32 x = ((s32 *)&TLobby__data_80512220)[0];
     init_packet_67_04__6TLobbyFPv(&pkt);
     pkt.a = 0;
-    pkt.b = TObjPlayer__sub_800196EC();
+    pkt.b = get_current_floor();
     pkt.c = x;
     pkt.d = 0;
     byteswap_and_send__6TLobbyFi((s32)&pkt);

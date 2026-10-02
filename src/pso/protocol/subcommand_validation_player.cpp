@@ -8,7 +8,7 @@ s32 is_camera_visible__17TObjEneHoldEffectFPv(s32);
 extern const f32 lbl_805E03A8;
 extern const f32 lbl_805E03AC;
 u16 TObjRoomId__sub_801A1DB8(u16);
-u32 TPhotonMylla__sub_80154CB4(u16);
+u32 find_entity_by_id(u16);
 
 s32 validate_attack_target_entry(void *parameters) {
     return ((u32) M2C_FIELD(parameters, s16 *, 2) >> 0x1FU) ^ 1;
@@ -205,7 +205,7 @@ s32 validate_6x2F_change_player_hp(G_ClientIDHeader *packet) {
     if (M2C_FIELD(packet, s16 *, 8) < 0) {
         return 0;
     }
-    if (TPhotonMylla__sub_80154CB4(M2C_FIELD(packet, u16 *, 0xA)) == 0U) {
+    if (find_entity_by_id(M2C_FIELD(packet, u16 *, 0xA)) == 0U) {
         return 0;
     }
     return (u32) __cntlzw((u32) TObjRoomId__sub_801A1DB8(M2C_FIELD(packet, u16 *, 0xA))) >> 5;

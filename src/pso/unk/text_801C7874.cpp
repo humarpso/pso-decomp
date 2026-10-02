@@ -13,7 +13,7 @@ s16 obj_getField1c(void *);
 s32 TKeyBoardControl__sub_801A58B0();
 s32 TKeyBoardControl__sub_801A5998(int);
 s32 check_flag_100__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801D0BC0(void *, int, int);
+M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, int, int);
 s32 is_action_flag_28__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801D104C(void *);
 M2C_UNK TObjPlayer__sub_801D1058(void *);
@@ -43,7 +43,7 @@ void TObjPlayer__sub_801C7874(u8 *arg0) {
         (check_action_usable__10TObjPlayerFPvi(arg0 + 0x550, 2) != 0 ||
          (is_action_flag_28__10TObjPlayerFPv(arg0) == 0 && TKeyBoardControl__sub_801A58B0() != 0 && TKeyBoardControl__sub_801A5998(0x24) != 0) ||
          (is_action_flag_28__10TObjPlayerFPv(arg0) != 0 && TKeyBoardControl__sub_801A58B0() != 0 && TKeyBoardControl__sub_801A5998(0x18) != 0))) {
-        TObjPlayer__sub_801D0BC0(arg0, 1, 5);
+        run_action_state_phase__10TObjPlayerFisi(arg0, 1, 5);
         return;
     }
     target = get_target_field_1c__10TObjPlayerFPv(arg0 + 0x550);

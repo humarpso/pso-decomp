@@ -21,7 +21,7 @@ s32 draw_icon__10TObjPlayerFPvii(void *, s32, s32 *);
 s32 get_tp__10TObjPlayerFPv(void *);
 s16 get_tech_level__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_80125AF8(u32 a0 = 0, s32 a1 = 0, u32 a2 = 0, s32 a3 = 0, s32 a4 = 0);
-s32 TObjPlayer__sub_802034B0(s32);
+s32 is_item_area_enabled(s32);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
 s32 alloc__13TItemProArmorFi(s32);
 s32 create__10TTecGiFoieFPvPvPv(s32, s32 *, s32);
@@ -68,7 +68,7 @@ void update_terminal_state__10TObjPlayerFPv(void *arg0) {
     temp_r3 = get_global_state__14TOKeyMachine01Fv();
     if ((temp_r3 != (s32) M2C_FIELD(arg0, s32 *, 0x1F8)) && (is_mag_active__10TObjPlayerFPv(arg0) != 0)) {
         M2C_FIELD(arg0, s32 *, 0x1F8) = temp_r3;
-        if (TObjPlayer__sub_802034B0(temp_r3) != 0) {
+        if (is_item_area_enabled(temp_r3) != 0) {
             spawn_effect__10TObjPlayerFiUiii((s32)(tl_05), (u32)(arg0), (s32)(1), (s32)(0x1AE));
             spawn_effect__10TObjPlayerFiUiii((s32)(tl_05), (u32)(arg0), (s32)(2), (s32)(0x1AE));
         }

@@ -31,15 +31,15 @@ void render__12TObjWarpBossFv(u8 *arg0);
 void update__12TObjWarpBossFPv(void *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
-M2C_UNK TObjDoor__sub_803DC894(u32, s32, f32);
+M2C_UNK draw_ginja_model_with_motion(u32, s32, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TObjWarpBossMulti__sub_8019E798(void *);
 M2C_UNK TObjWarpBossMulti__sub_8019EB94(void *);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-f32 fn_8013157C(s32, void *);
+f32 xz_distance_squared(s32, void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK update_state__17TObjWarpBossMultiFPv(void *);
 M2C_UNK update_warp_boss_visibility();
@@ -94,7 +94,7 @@ void TObjWarpBoss__vt18(Wb_8019F2C0 *arg0) {
 
 void render__12TObjWarpBossFv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xBC) == 0xE) {
-        if (fn_8013157C(lbl_805D4DF0 + 0x178, arg0 + 0x38) > lbl_805DC008) {
+        if (xz_distance_squared(lbl_805D4DF0 + 0x178, arg0 + 0x38) > lbl_805DC008) {
             return;
         }
         goto block_4;
@@ -109,10 +109,10 @@ block_4:
         if (M2C_FIELD(arg0, void **, 0xD0) != 0) {
             begin_effect_render__13TParticleCtrlFv();
             set_global_param__8TObjFishFi(lbl_805D5CA4);
-            TObjDoor__sub_803DC894(M2C_FIELD(arg0, u32 *, 0xD0), M2C_FIELD(arg0, s32 *, 0xD4), M2C_FIELD(arg0, f32 *, 0xC4));
+            draw_ginja_model_with_motion(M2C_FIELD(arg0, u32 *, 0xD0), M2C_FIELD(arg0, s32 *, 0xD4), M2C_FIELD(arg0, f32 *, 0xC4));
             end_effect_render__13TParticleCtrlFv();
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 void run_task__12TObjWarpBossFv(u8 *arg0) {

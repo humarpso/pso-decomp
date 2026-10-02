@@ -5,10 +5,10 @@ extern "C" {
 s32 TObjFish__sub_8001EDB0(u32, M2C_UNK);
 s32 TObjFish__sub_8001EDC4(u32, M2C_UNK);
 M2C_UNK TBoss7Tentacle__sub_803D8A6C(M2C_UNK, s32, s32, s32);
-M2C_UNK TOMonitorMachine01__sub_803D8B5C(M2C_UNK, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
+M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
+M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjFish__sub_803E46BC(s32);
 extern u32 TObjEneRecon__data_805D6B00;
@@ -26,12 +26,12 @@ void render_shadows__12TObjEneReconFv(void *arg0) {
     temp_r31 = TObjFish__sub_8001EDC4(TObjEneRecon__data_805D6B00, 2);
     temp_r30 = TObjFish__sub_8001EDB0(TObjEneRecon__data_805D6B00, 2);
     TObjPlayer__sub_803D9B2C();
-    TObjPlayer__sub_803D9624(0, *((f32 *) (((s8 *) arg0) + 0x38)), *((f32 *) (((s8 *) arg0) + 0x3C)), *((f32 *) (((s8 *) arg0) + 0x40)));
+    translate_matrix(0, *((f32 *) (((s8 *) arg0) + 0x38)), *((f32 *) (((s8 *) arg0) + 0x3C)), *((f32 *) (((s8 *) arg0) + 0x40)));
     TBoss7Tentacle__sub_803D8A6C(0, *((s32 *) (((s8 *) arg0) + 0x5C)), *((s32 *) (((s8 *) arg0) + 0x60)), *((s32 *) (((s8 *) arg0) + 0x64)));
-    TOMonitorMachine01__sub_803D8B5C(0, lbl_805DF3B8, lbl_805DF3B8, lbl_805DF3B8);
+    scale_matrix(0, lbl_805DF3B8, lbl_805DF3B8, lbl_805DF3B8);
     set_global_param__8TObjFishFi(temp_r30);
     TObjFish__sub_803E46BC(temp_r31);
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
   }
 }
 

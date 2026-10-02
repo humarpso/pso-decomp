@@ -10,7 +10,7 @@ struct Ent_800874F4 { u8 data[0x98]; };
 
 extern "C" {
 void TTecLuker__sub_8008764C(u8 *arg0, s32 arg1);
-void TObjPlayer__sub_80087638(O_80087638 *self, u16 x);
+void set_owner_id__13TParticleCtrlFPvUs(O_80087638 *self, u16 x);
 extern s32 lbl_805D2948;
 extern s32 lbl_805D4EF8;
 extern s32 lbl_805D4EFC;
@@ -65,7 +65,7 @@ void set_param_ptr__11TBoss4Type2FPvi(void *arg0, s32 arg1) {
 void copy_vec3__11TBoss4Type2FPvPv(void* p, void* q) { *(u32*)((char*)p + 0x6c) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x70) = *(u32*)((char*)q + 0x4); *(u32*)((char*)p + 0x74) = *(u32*)((char*)q + 0x8); }
 void set_flags__11TBoss4Type2FPvUi(void* p, u32 v) { *(u16*)((char*)p + 0x2c) |= v; }
 
-void TObjPlayer__sub_80087638(O_80087638 *self, u16 x) {
+void set_owner_id__13TParticleCtrlFPvUs(O_80087638 *self, u16 x) {
     if (x != 0xFFFF) {
         self->x2e = x;
     }

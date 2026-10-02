@@ -9,7 +9,7 @@ extern "C" {
 s32 choose_turn_motion__11TBoss6Type2FPv(void *arg0);
 s32 is_target_valid__11TBoss6Type2FPv(void *arg0);
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
-void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+void *get_player_by_client_id(u16);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32, f32);
 s32 is_split_screen();
 
@@ -23,7 +23,7 @@ s32 choose_turn_motion__11TBoss6Type2FPv(void *arg0) {
     void *temp_r3;
 
     var_r31_2 = 0xF;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x466));
+    temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x466));
     if (M2C_FIELD(arg0, u8 *, 0x478) & 1) {
         var_r31_2 = 0x10;
     }

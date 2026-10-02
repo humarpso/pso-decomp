@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 struct Obj_80196448 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0xac - 0x44]; f32 radius; };
 
 extern "C" {
-Obj_80196448 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+Obj_80196448 *get_player_by_client_id(s32);
 s32 obj_isState3_324(void *);
 f32 fn_801315A0(f32 *a, f32 *b);
 s32 TObjQuestColApc__vt13(Obj_80196448 *self);
@@ -28,7 +28,7 @@ s32 TObjQuestColApc__vt13(Obj_80196448 *self) {
     s32 i;
     Obj_80196448 *p;
     for (i = 0; i < 12; i++) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        p = get_player_by_client_id(i);
         if (p != 0 && obj_isState3_324(p) == 1) {
             if (fn_801315A0(p->pos, self->pos) < self->radius * self->radius) {
                 return 1;

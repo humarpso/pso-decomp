@@ -89,9 +89,9 @@ extern u8 lbl_805D77D9;
 void TObjPlayer__sub_803E39EC(void);
 M2C_UNK GXSetZMode(int, int, int);
 M2C_UNK GXSetZCompLoc(int);
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK set_effect_active__10TObjPlayerFv();
-M2C_UNK TParticleCtrl__sub_803E2010();
+M2C_UNK apply_scene_fog();
 extern s32 lbl_805D7788;
 extern M2C_UNK (*lbl_805D77DC)();
 void TObjPlayer__sub_803E4468(void);
@@ -390,9 +390,9 @@ s32 TObjPlayer__sub_803E3B38(int ref) {
 void TObjPlayer__sub_803E4468(void) {
     if ((u32) (lbl_805D7788 & 2) != 0) {
         set_effect_active__10TObjPlayerFv();
-        TParticleCtrl__sub_803E2010();
+        apply_scene_fog();
     }
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     GXSetZCompLoc((int) (1));
     GXSetZMode((int) (1), (int) (1), (int) (1));
     TObjPlayer__sub_803E3B38((int)((int) (0)));

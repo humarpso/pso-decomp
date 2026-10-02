@@ -42,7 +42,7 @@ void TBoss8Dragon__sub_802F4098(u8 *arg0, u8 *arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TCameraCtrl__sub_80069094(s32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
-u8 *TPhotonMylla__sub_80154CB4(void);
+u8 *find_entity_by_id(void);
 s32 TBoss8Dragon__sub_802F4760(void *, void *, f32);
 void TBoss6Type1__sub_803D9370(void *, void *);
 extern s32 lbl_80474AF4[];
@@ -69,7 +69,7 @@ M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
@@ -110,7 +110,7 @@ s32 TBoss8Dragon__sub_802F3F20(u8 *arg0) {
         return 0;
     }
     TCameraCtrl__sub_80069094(-1);
-    temp_r3 = TPhotonMylla__sub_80154CB4();
+    temp_r3 = find_entity_by_id();
     if (temp_r3 == 0) {
         return 0;
     }
@@ -172,7 +172,7 @@ void TBoss8Dragon__sub_802F4114(u8 *arg0, s32 arg1, s32 arg2) {
         setup_tev_swap__10TObjPlayerFv();
         end_effect_render__13TParticleCtrlFv();
         TObjLight__sub_801337F8((void *) (lbl_805D5560));
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         set_chunk_material_override_pair((int) (0xFF00), (int) (0));
         set_current_scene__6TSceneFi((int) (0xBF));
         some_id_805c6f74 = lbl_805D5660;

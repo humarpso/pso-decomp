@@ -33,7 +33,7 @@ s32 calc_angle_to__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK TObjPlayer__sub_80154954(void *, void *);
 s32 TLobby__sub_80156A80(void *, void *, int);
 M2C_UNK start_camera_pan__10TObjPlayerFPvs(int, int, void *);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+s32 get_player_by_client_id(void *);
 void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1);
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -160,7 +160,7 @@ void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1) {
     s32 temp_r3;
     switch (M2C_FIELD(arg0, s32 *, 0xAC)) {
     case 1:
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((void *) (arg1));
+        temp_r3 = get_player_by_client_id((void *) (arg1));
         if (temp_r3 != 0) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 2;
             start_camera_pan__10TObjPlayerFPvs((int) (temp_r3), (int) (0xC), (void *) (calc_angle_to__10TObjPlayerFPvPv((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38))));

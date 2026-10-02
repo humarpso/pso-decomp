@@ -50,18 +50,18 @@ extern "C" {
 s32 TWindowSubStatusDisp__sub_8006F190(int);
 void TLobby__sub_80074E48(void);
 void create__13TObjTombstoneFPvPvPv(void *, void *, void *);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 extern Table_8006FE7C lbl_8048C9D8;
 extern void *tl_07;
 void TLobby__sub_8006FE7C(void);
 s32 get_field_2d4__10TObjPlayerFPv(Ply_8006FC7C *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 TWindowSubStatusDisp__sub_8006F190(int);
 char *get_unit_list__6TLobbyFv(void);
 char *TLobby__sub_80070ACC(u8, u8, s32);
-Unit_8006FC7C *TPhotonMylla__sub_80154CB4(void);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+Unit_8006FC7C *find_entity_by_id(void);
+void *get_player_by_client_id(s32);
 void getDateStamp__FP9DateStamp(Date_8006FC7C *);
 Card_8006FC7C *get_card_window__17TWindowSubComCardFUi(u32);
 void fn_8026A1C4(char *, char *, s32);
@@ -105,13 +105,13 @@ void TLobby__sub_8006FC7C(void) {
         return;
     }
     card = get_card_window__17TWindowSubComCardFUi(0xFFFF);
-    ply = (Ply_8006FC7C *)TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    ply = (Ply_8006FC7C *)get_player_by_client_id(lbl_805D53A0);
     if (ply == NULL) {
         return;
     }
     card->f2224 = TWindowSubStatusDisp__sub_8006F190(-1);
     card->f2225 = lbl_8048C9D8.v0;
-    card->f2226 = TObjPlayer__sub_800196EC();
+    card->f2226 = get_current_floor();
     if (card->f2228 < 0) {
         card->f2228 = 0x270F;
     }
@@ -160,7 +160,7 @@ void TLobby__sub_8006FC7C(void) {
     }
     id = -1;
     if ((get_field_2d4__10TObjPlayerFPv(ply) & 0xF000) == 0x1000) {
-        u = TPhotonMylla__sub_80154CB4();
+        u = find_entity_by_id();
         if (u != NULL) {
             id = u->f370;
         }
@@ -175,7 +175,7 @@ void TLobby__sub_8006FE7C(void) {
     TLobby__sub_80074E48();
     for (i = 0; i < 4; i++) {
         rec = &lbl_8048C9D8.recs[i];
-        if (rec->active != 0 && TPlayerBattleCtrl4P__sub_801BA74C(i) != NULL) {
+        if (rec->active != 0 && get_player_by_client_id(i) != NULL) {
             info = &rec->info;
             if (info->d > 0 && info->a == TWindowSubStatusDisp__sub_8006F190(-1)
                 && info->b == lbl_8048C9D8.v0 && info->c == lbl_8048C9D8.v8) {

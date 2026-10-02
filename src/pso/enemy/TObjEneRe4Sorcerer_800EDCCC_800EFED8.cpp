@@ -124,7 +124,7 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 M2C_UNK TObjPlayer__sub_800A05B8(void *, int);
 M2C_UNK __dt__9TObjEneDDFv(void *, int);
-void *TPhotonMylla__sub_80154CB4(u16);
+void *find_entity_by_id(u16);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, u32, u32);
@@ -175,7 +175,7 @@ M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 M2C_UNK set_flag3cc_bit2000__18TObjEneRe4SorcererFPv(void *);
 M2C_UNK calc_orb_positions__18TObjEneRe4SorcererFPv(void *);
 M2C_UNK update_collision_center__18TObjEneRe4SorcererFPv(void *);
-void *TPhotonMylla__sub_80154CB4(u16);
+void *find_entity_by_id(u16);
 void run_task__18TObjEneRe4SorcererFv(u8 *arg0);
 }
 
@@ -188,7 +188,7 @@ void TObjEneRe4Sorcerer__vt61(void* p);
 void *create__18TObjEneRe4SorcererFPv(void *arg0);
 void free_bits__18TObjEneRe4SorcererFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-int TObjEneDD__sub_800BBA18(void*, void*);
+int transition_enemy_state(void*, void*);
 M2C_UNK TObjEneRe4Bit__sub_800EDAB0();
 void TObjEneRe4Sorcerer__sub_800EFE30(void *);
 void TObjEneRe4Sorcerer__sub_800F0118(void *);
@@ -201,7 +201,7 @@ void init_object__9TObjEneDDFPv(void *);
 void init_vtable_and_field18__10TObjPlayerFPv(void *);
 void invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
 
-void TObjEneRe4Sorcerer__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 9) { TObjEneDD__sub_800BBA18(p, (void*)9); } }
+void TObjEneRe4Sorcerer__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 9) { transition_enemy_state(p, (void*)9); } }
 void TObjEneRe4Sorcerer__vt26(void) {  }
 
 extern M2C_UNK __vt__18TObjEneRe4Sorcerer[];
@@ -217,7 +217,7 @@ void run_task__18TObjEneRe4SorcererFv(u8 *arg0) {
         return;
     }
     if (((VObj_18_6eb1ad *)(arg0))->m81() != 4) {
-        if (TObjEneDD__sub_800BA804(M2C_FIELD(arg0, u16 *, 0x38C)) != 0 && TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x38C)) == NULL) {
+        if (TObjEneDD__sub_800BA804(M2C_FIELD(arg0, u16 *, 0x38C)) != 0 && find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x38C)) == NULL) {
             fn_800B98C0(arg0);
         }
         ((VObj_18_6eb1ad *)(arg0))->m83();
@@ -230,7 +230,7 @@ void run_task__18TObjEneRe4SorcererFv(u8 *arg0) {
         }
     } else {
         for (i = 0; i < 2; i++) {
-            if ((p = TPhotonMylla__sub_80154CB4(((Obj_800F0054 *)arg0)->handles[i])) != NULL) {
+            if ((p = find_entity_by_id(((Obj_800F0054 *)arg0)->handles[i])) != NULL) {
                 set_flag3cc_bit2000__18TObjEneRe4SorcererFPv(p);
             }
         }
@@ -246,7 +246,7 @@ Obj_800F0054 *__dt__18TObjEneRe4SorcererFv(Obj_800F0054 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjEneRe4Sorcerer;
         for (i = 0; i < 2; i++) {
-            if ((p = TPhotonMylla__sub_80154CB4(arg0->handles[i])) != NULL) {
+            if ((p = find_entity_by_id(arg0->handles[i])) != NULL) {
                 queue_destruction__7TObjectFv(p);
             }
             arg0->handles[i] = 0xFFFF;

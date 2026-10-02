@@ -10,7 +10,7 @@ void TLobby__sub_8020BBA0(Obj_8020BBA0 *arg0, Obj_8020BBA0 *arg1);
 extern "C" {
 
 void init_scene_objects__6TLobbyFv(void);
-int TObjPlayer__sub_800196EC(void);
+int get_current_floor(void);
 int TQuestThread__sub_801F5B5C(void);
 int TRaderMapCore__sub_801F9630(int);
 int TLobby__sub_802089B0(void);

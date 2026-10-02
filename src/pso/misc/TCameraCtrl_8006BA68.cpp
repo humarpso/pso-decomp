@@ -240,7 +240,7 @@ f32 get_random_float__8TObjFishFv(f32);
 extern const f32 lbl_805D9018;
 s32 TCameraCtrl__sub_8006BCD8(f32 *arg0, f32 *arg1, f32 farg0);
 f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
-f32 TObjPlayer__sub_8001978C(f32);
+f32 newton_sqrtf(f32);
 extern const f64 lbl_804383D0;
 void TCameraCtrl__sub_8006BE00(u8 *arg0, s32 *arg1, s32 *arg2);
 }
@@ -295,7 +295,7 @@ void TCameraCtrl__sub_8006BE00(u8 *arg0, s32 *arg1, s32 *arg2) {
   *arg2 = (s32) (lbl_804383D0 * get_ad_end_text_start__10TObjPlayerFv(-(*((f32 *) (((s8 *) arg0) + 0))), -(*((f32 *) (((s8 *) arg0) + 8)))));
   temp_f1 = *((f32 *) (((s8 *) arg0) + 0));
   temp_f0 = *((f32 *) (((s8 *) arg0) + 8));
-  new_var = TObjPlayer__sub_8001978C((temp_f1 * temp_f1) + (temp_f0 * temp_f0));
+  new_var = newton_sqrtf((temp_f1 * temp_f1) + (temp_f0 * temp_f0));
   *arg1 = (s32) (lbl_804383D0 * get_ad_end_text_start__10TObjPlayerFv((f64) (*((f32 *) (((s8 *) arg0) + 4))), new_var));
 }
 

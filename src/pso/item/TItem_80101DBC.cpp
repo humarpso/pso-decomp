@@ -10,7 +10,7 @@ struct Stack_80101DBC {
 };
 
 extern "C" {
-void *TBoss8Dragon__sub_8007A544(f32 *, M2C_UNK, f32);
+void *csnVecterUnder(f32 *, M2C_UNK, f32);
 extern const f32 lbl_805DAA94;
 extern const f32 lbl_805DAA98;
 void TItem__sub_80101DBC(void *arg0);
@@ -24,7 +24,7 @@ void TItem__sub_80101DBC(void *arg0) {
     stack.sp8 = M2C_FIELD(arg0, f32 *, 0x38);
     stack.spC = lbl_805DAA94 + M2C_FIELD(arg0, f32 *, 0x3C);
     stack.sp10 = M2C_FIELD(arg0, f32 *, 0x40);
-    temp_r3 = TBoss8Dragon__sub_8007A544(&stack.sp8, 0x41, lbl_805DAA94);
+    temp_r3 = csnVecterUnder(&stack.sp8, 0x41, lbl_805DAA94);
     if (temp_r3 != NULL) {
         M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (lbl_805DAA98 + M2C_FIELD(M2C_FIELD(temp_r3, void **, 4), f32 *, 4));
     }

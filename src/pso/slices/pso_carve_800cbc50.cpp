@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
+M2C_UNK transition_enemy_state(void *, int);
 void TObjEneMe1Gee__vt103(u8 *arg0);
 }
 
@@ -21,20 +21,20 @@ int TObjEneDD__vt86(void*);
 
 void TObjEneMe1Gee__vt103(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x3C8) & 0x100) {
-        TObjEneDD__sub_800BBA18((void *)(arg0), (int) (8));
+        transition_enemy_state((void *)(arg0), (int) (8));
         return;
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x430) < 2) {
-            TObjEneDD__sub_800BBA18((void *)(arg0), (int) (7));
+            transition_enemy_state((void *)(arg0), (int) (7));
             M2C_FIELD(arg0, s32 *, 0x430) = (s32) (M2C_FIELD(arg0, s32 *, 0x430) + 1);
             return;
         }
-        TObjEneDD__sub_800BBA18((void *)(arg0), (int) (8));
+        transition_enemy_state((void *)(arg0), (int) (8));
         M2C_FIELD(arg0, s32 *, 0x430) = 0;
         return;
     }
-    TObjEneDD__sub_800BBA18((void *)(arg0), (int) (7));
+    transition_enemy_state((void *)(arg0), (int) (7));
 }
 
 }

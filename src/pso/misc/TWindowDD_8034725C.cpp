@@ -60,7 +60,7 @@ s32 classify_id__9TWindowDDFs(s16 arg0);
 s32 get_player_battle_flag_state__9TWindowDDFUs(u16 arg0);
 s32 is_state_zero_unless_0x2C8__9TWindowDDFs(s32 arg0);
 s32 setup_entry__9TWindowDDFPvi(void *arg0, s32 arg1);
-void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+void *get_player_by_client_id(u16);
 M2C_UNK TWindowDD__sub_803412A0(u32);
 M2C_UNK TWindowDD__sub_803412F0(u32, s32);
 s32 TWindowDD__sub_80347204(s16);
@@ -100,7 +100,7 @@ s32 get_player_battle_flag_state__9TWindowDDFUs(u16 arg0) {
     s32 temp_r3_2;
     void *temp_r3;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16) arg0);
+    temp_r3 = get_player_by_client_id((u16) arg0);
     if (temp_r3 != NULL) {
         temp_r3_2 = M2C_FIELD(temp_r3, s32 *, 0x890);
         if (temp_r3_2 & 1) {

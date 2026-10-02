@@ -30,7 +30,7 @@ s32 TObjPlayer__sub_801BF1DC(s32);
 s32 TObjPlayer__sub_801BF3E8(s32);
 s32 TObjPlayer__sub_80354C7C(s32);
 s32 TObjPlayer__sub_80354E3C();
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+s32 get_player_by_client_id(u16);
 M2C_UNK add_dfp__10TObjPlayerFPvi(void *, int);
 M2C_UNK add_evp__10TObjPlayerFPvi(void *, int);
 M2C_UNK add_item_count__10TObjPlayerFiii(void *, void *, int);

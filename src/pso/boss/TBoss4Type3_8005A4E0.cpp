@@ -70,7 +70,7 @@ s32 TObjControl__ct(s32, s32);
 void TObjPlayer__sub_80051E9C(int, f32);
 void rotate_matrix_y(int, void *);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 __nw__7TObjectFUl(M2C_UNK);
 void end_effect_render__13TParticleCtrlFv(void);
@@ -133,12 +133,12 @@ void draw__11TBoss4Type3FPv(void *arg0) {
     TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 56));
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
     TBoss4Type3__sub_8005A438(arg0);
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 1152));
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
     TObjPlayer__sub_80051E9C(M2C_FIELD(arg0, u16 *, 0x3BA), M2C_FIELD(arg0, f32 *, 0x3C8));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     end_effect_render__13TParticleCtrlFv();
 }
 

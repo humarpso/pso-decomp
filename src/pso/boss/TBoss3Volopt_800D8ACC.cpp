@@ -16,7 +16,7 @@ typedef struct Vec_800D8C48 {
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TLobby__sub_800869A4(void *, int, int, int);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int, f32);
+M2C_UNK spawn_particle_effect(void *, int, f32);
 extern const f32 lbl_805DA3C0;
 void TBoss3Volopt__sub_800D8F78(s32 arg0);
 s32 TObjPlayer__sub_800F06B4(int, int);
@@ -34,7 +34,7 @@ s32 get_global_state__14TOKeyMachine01Fv();
 s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
 void TBoss3Volopt__sub_800D8E80(s32 arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int, f32);
+M2C_UNK spawn_particle_effect(void *, int, f32);
 s32 TObjPlayer__sub_800F06B4(int, int);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
@@ -128,7 +128,7 @@ void TBoss3Volopt__sub_800D8C48(s32 arg0) {
     VecCopy__FP3VecPC3Vec(&v, (void *)arg0);
     y = v.y;
     v.y = y + lbl_805DA3C0;
-    TObjEneDellBiter__sub_80087350(&v, 0xE6, y);
+    spawn_particle_effect(&v, 0xE6, y);
 }
 
 void TBoss3Volopt__sub_800D8D88(s32 arg0) {
@@ -190,7 +190,7 @@ void TBoss3Volopt__sub_800D8F78(s32 arg0) {
     TLobby__sub_800869A4((void *) (arg0), (int) (0xEA), (int) (0xA), (int) (0x1E));
     temp_f1 = stack.spC;
     stack.spC = temp_f1 + lbl_805DA3C0;
-    TObjEneDellBiter__sub_80087350((void *) (&stack.sp8), (int) (0xE9), (f32) (temp_f1));
+    spawn_particle_effect((void *) (&stack.sp8), (int) (0xE9), (f32) (temp_f1));
 }
 
 }

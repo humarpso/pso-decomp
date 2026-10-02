@@ -12,7 +12,7 @@ M2C_UNK TObjPlayer__sub_800D35D4(void *);
 M2C_UNK TObjPlayer__sub_800D37F4(void *);
 M2C_UNK TObjPlayer__sub_800D39EC(void *);
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
+M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 
@@ -39,7 +39,7 @@ void update_main__10TObjPlayerFPv(u8 *arg0) {
     TObjPlayer__sub_800D39EC(arg0);
     update_prev_position__10TObjPlayerFPv(arg0);
     copy_position__20TBoss3VoloptHiraisinFi(arg0);
-    TObjPlayer__sub_801B4A18(arg0, -1);
+    submit_cursor_candidate(arg0, -1);
     minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
 }
 

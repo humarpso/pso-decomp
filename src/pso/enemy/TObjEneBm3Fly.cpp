@@ -142,8 +142,8 @@ void TObjEneBm3Fly__sub_800B1634(u8 *arg0);
 s32 TObjEneBm3FlyNest__sub_800B2AF4(void *, u16);
 M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
 s32 TObjEneDD__sub_800BB484(void *, Cand_800B1684 *, f32);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
-void *TPhotonMylla__sub_80154CB4(u16);
+M2C_UNK transition_enemy_state(void *, int);
+void *find_entity_by_id(u16);
 extern const f32 lbl_805D9CDC;
 void TObjEneBm3Fly__sub_800B1684(Fly_800B1684 *s);
 }
@@ -183,13 +183,13 @@ void TObjEneBm3Fly__sub_800B1684(Fly_800B1684 *s) {
     s32 count;
     u16 id;
     s32 i;
-    nest = TPhotonMylla__sub_80154CB4(s->nest);
+    nest = find_entity_by_id(s->nest);
     if (nest == NULL) {
-        TObjEneDD__sub_800BBA18(s, 4);
+        transition_enemy_state(s, 4);
         s->f454 = 0;
     }
     if (TObjEneBm3FlyNest__sub_800B2AF4(nest, s->f38C) != 0) {
-        TObjEneDD__sub_800BBA18(s, 3);
+        transition_enemy_state(s, 3);
         return;
     }
     count = TObjEneDD__sub_800BB484(s, players, lbl_805D9CDC);
@@ -197,11 +197,11 @@ void TObjEneBm3Fly__sub_800B1684(Fly_800B1684 *s) {
         id = players[i].id;
         if (id != s->f38C && TObjEneBm3FlyNest__sub_800B2AF4(nest, id) != 0) {
             TBoss8Dragon__sub_800B9958(s, id);
-            TObjEneDD__sub_800BBA18(s, 3);
+            transition_enemy_state(s, 3);
             return;
         }
     }
-    TObjEneDD__sub_800BBA18(s, 4);
+    transition_enemy_state(s, 4);
     s->f454 = 0;
 }
 

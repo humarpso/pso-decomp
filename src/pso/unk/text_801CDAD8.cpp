@@ -6,13 +6,13 @@ void TNpcPlayer__sub_80152B08(Pkt_801CDAD8 *);
 void TObjPlayer__sub_801D2304(Pkt_801CDAD8 *, void *);
 void TNpcPlayer__sub_80152ACC(Pkt_801CDAD8 *);
 s32 validate_6x45_attack(Pkt_801CDAD8 *);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u8 *get_player_by_client_id(u16);
 s32 is_in_tl03_state__10TObjPlayerFPv(void *);
 s32 reset_volopt_state__10TObjPlayerFv(void *);
 s32 TLobby__sub_800822E8(void *, s32);
 void set_action_type__10TObjPlayerFPvs(void *p, s16 v);
 void set_attack_target__10TObjPlayerFPvs(void *p, s16 v);
-void TObjPlayer__sub_801D0BC0(void *, s32, s32);
+void run_action_state_phase__10TObjPlayerFisi(void *, s32, s32);
 void handle_6x45_attack(void *src);
 }
 
@@ -25,7 +25,7 @@ void handle_6x45_attack(void *src) {
     TObjPlayer__sub_801D2304(&pkt, src);
     TNpcPlayer__sub_80152ACC(&pkt);
     if (validate_6x45_attack(&pkt) == 0) return;
-    player = TPlayerBattleCtrl4P__sub_801BA74C(pkt.player);
+    player = get_player_by_client_id(pkt.player);
     if (player == 0) return;
     if (is_in_tl03_state__10TObjPlayerFPv(player) == 0) return;
     if (reset_volopt_state__10TObjPlayerFv(player) == 0) return;
@@ -33,7 +33,7 @@ void handle_6x45_attack(void *src) {
     set_action_type__10TObjPlayerFPvs(player + 0x7CC, pkt.kind);
         set_attack_target__10TObjPlayerFPvs(player + 0x7CC, pkt.kind);
     *(s32 *)(player + 0x3F0) = pkt.heading;
-    TObjPlayer__sub_801D0BC0(player, 7, 0);
+    run_action_state_phase__10TObjPlayerFisi(player, 7, 0);
 }
 
 }

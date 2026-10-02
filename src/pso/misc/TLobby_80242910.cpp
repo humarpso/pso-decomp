@@ -32,7 +32,7 @@ extern const f32 lbl_805DCA04;
 extern const f32 lbl_805DCA08;
 s32 TAdSinglePlyChrSelectGC__sub_80242B30(Anim_80242B30 *o, s16 *arg1);
 f32 update_scale__15TObjBoss2TunnelFPv(void *, f32);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 s32 is_active__12TBoss3VoloptFPv(int);
 u8 *TAdSinglePlyChrSelectGC__sub_802430E8();
 extern const f32 lbl_805DCA00;
@@ -74,7 +74,7 @@ void TAdSinglePlyChrSelectGC__sub_80242938(s16 *arg0, s32 arg1) {
     u8 *temp_r3;
     u8 *var_r30;
     s32 var_r29;
-    temp_r3 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C(arg1));
+    temp_r3 = (u8 *)(get_player_by_client_id(arg1));
     if (temp_r3 != NULL) {
         var_r30 = (u8 *)(TAdSinglePlyChrSelectGC__sub_802430E8());
         var_r29 = 0;

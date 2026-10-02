@@ -15,7 +15,7 @@ void set_indexed_flags(void *, s32, s32);
 void TFontSmallLobby__sub_801B117C(u8 *arg0);
 void TFontSmallLobby__sub_801B117C(u8 *arg0);
 s32 TFontSmallLobby__sub_801B1224(s32 arg0, void *arg1);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 void TFontSmallLobby__sub_801C01BC(void *);
 M2C_UNK fn_801C0510(M2C_UNK *);
 s32 validate_6x7A_enable_stealth_suit_effect(void *);
@@ -56,7 +56,7 @@ void handle_6x7A_enable_stealth_suit_effect(void *arg0) {
     TFontSmallLobby__sub_801B1224((s32)((s32)((s32) &pkt)), (void *)((void *)(arg0)));
     TFontSmallLobby__sub_801C01BC(&pkt);
     if (validate_6x7A_enable_stealth_suit_effect(&pkt) != 0) {
-        u8 *p = (u8 *) TPlayerBattleCtrl4P__sub_801BA74C(pkt.player_id);
+        u8 *p = (u8 *) get_player_by_client_id(pkt.player_id);
         if (p != NULL) {
             TFontSmallLobby__sub_801B117C(p);
         }

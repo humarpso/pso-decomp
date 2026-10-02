@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void draw_icon_selected__10TObjPlayerFi(M2C_UNK arg0);
-M2C_UNK TObjEneDellBiter__sub_80087350(M2C_UNK *, M2C_UNK);
+M2C_UNK spawn_particle_effect(M2C_UNK *, M2C_UNK);
 M2C_UNK draw_icon__10TObjPlayerFPvii(M2C_UNK, M2C_UNK, M2C_UNK *);
 
 void draw_icon_selected__10TObjPlayerFi(M2C_UNK arg0) {
     M2C_UNK sp8[6];
 
     draw_icon__10TObjPlayerFPvii(arg0, 1, sp8);
-    TObjEneDellBiter__sub_80087350(sp8, 0xC1);
+    spawn_particle_effect(sp8, 0xC1);
 }
 
 }

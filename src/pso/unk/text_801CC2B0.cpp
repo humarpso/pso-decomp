@@ -60,14 +60,14 @@ M2C_UNK TObjPlayer__sub_801CBD38();
 M2C_UNK update_photon_blast_state__10TObjPlayerFv();
 M2C_UNK TFontSmallLobby__sub_801D6498(void *);
 void TObjPlayer__sub_801CC2B0(u8 *arg0);
-s32 TObjPlayer__sub_800196EC(void);
+s32 get_current_floor(void);
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 s32 TLobby__sub_800822E8(void *, s32);
-Player_801CC6B8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+Player_801CC6B8 *get_player_by_client_id(s32);
 void fn_801C1F14(void *, s32);
 void apply_photon_blast__10TObjPlayerFii(u16, s32);
 void copy_tech_params__10TObjPlayerFPvPv(u32 *, u32 *);
-void TObjPlayer__sub_801D0BC0(void *, s32, s32);
+void run_action_state_phase__10TObjPlayerFisi(void *, s32, s32);
 void set_float_param__10TObjPlayerFis(void *, s16);
 void TObjPlayer__sub_801D1DDC(void *);
 void TObjPlayer__sub_801D1E7C(void *, void *);
@@ -85,12 +85,12 @@ M2C_UNK obj_setFlags30(void *, s32);
 void *get_position_ptr__10TObjPlayerFPv(void *);
 M2C_UNK set_state_flags__10TObjPlayerFPvUi(void *, u32);
 s32 calc_angle_to__10TObjPlayerFPvPv(void *, void *);
-Mylla_801CC558 *TPhotonMylla__sub_80154CB4(u16);
+Mylla_801CC558 *find_entity_by_id(u16);
 M2C_UNK start_photon_blast__10TObjPlayerFiUs(s32, u16);
 M2C_UNK send_field_state_if_active__10TObjPlayerFii(void *, s32);
 M2C_UNK set_action_state__10TObjPlayerFPvss(void *, s32, s32);
 s32 query_equip__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_801D0BC0(void *, s32, s32);
+void run_action_state_phase__10TObjPlayerFisi(void *, s32, s32);
 void *get_field4_ptr__10TObjPlayerFPv(void *);
 M2C_UNK copy_position__10TObjPlayerFPv(void *, void *);
 u32 *TObjPlayer__sub_801D2AB0(void *, s32);
@@ -189,11 +189,11 @@ void TObjPlayer__sub_801CC558(u8 *arg0) {
     u16 id;
     Mylla_801CC558 *m;
     *(s32 *)(arg0 + 0x33C) = 9;
-    TObjPlayer__sub_801D0BC0(arg0, *(s16 *)(arg0 + 0x326), 6);
+    run_action_state_phase__10TObjPlayerFisi(arg0, *(s16 *)(arg0 + 0x326), 6);
     slot = (Slot_801CC558 *)TObjPlayer__sub_801D2AB0(arg0 + 0x4AC, 0);
     id = slot->id;
     if (id != 0xFFFF) {
-        m = TPhotonMylla__sub_80154CB4(id);
+        m = find_entity_by_id(id);
         if (m == NULL) {
             slot->id = id = 0xFFFF;
         } else {
@@ -227,9 +227,9 @@ void handle_6x49_execute_photon_blast(void *arg0) {
     TObjPlayer__sub_801D1E7C(&m, arg0);
     TObjPlayer__sub_801D1DDC(&m);
     if (TObjEneHoldEffect__sub_8036BBF4(&m) != 0) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(m.id);
+        p = get_player_by_client_id(m.id);
         if (p != NULL && TLobby__sub_800822E8(p, 0x8000) == 0 && reset_key_machine_state__10TObjPlayerFv() != 0) {
-            if (TObjPlayer__sub_800196EC() == get_field_3e4__10TObjPlayerFPv(p)) {
+            if (get_current_floor() == get_field_3e4__10TObjPlayerFPv(p)) {
                 s32 count;
                 u32 *dst;
                 u32 *src;
@@ -244,7 +244,7 @@ void handle_6x49_execute_photon_blast(void *arg0) {
                 for (i = 0; i < count; i++) {
                     copy_tech_params__10TObjPlayerFPvPv(dst++, src++);
                 }
-                TObjPlayer__sub_801D0BC0(p, 9, 0);
+                run_action_state_phase__10TObjPlayerFisi(p, 9, 0);
             }
         }
     }

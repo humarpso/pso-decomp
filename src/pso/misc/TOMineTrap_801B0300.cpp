@@ -16,11 +16,11 @@ s32 obj_isState2_324(u32);
 s32 obj_testFlags30(u32, M2C_UNK);
 u16 obj_getField1c(u32);
 s32 check_value_equals__13TQuestColCtrlFPvi(u32, s32);
-u32 TPhotonMylla__sub_80154CB4();
+u32 find_entity_by_id();
 u16 get_trap_type__10TOMineTrapFPv(u32);
 s32 is_final_phase__10TObjPlayerFv();
 s32 is_technique_ready__8TTecCtrlFv();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 M2C_UNK TFontSmallLobby__sub_801C0350(Pkt_801B0300 *);
 M2C_UNK TFontSmallLobby__sub_801C0378(Pkt_801B0300 *);
 int TOMineTrap__sub_801D6A44(void*);
@@ -43,7 +43,7 @@ void TOMineTrap__sub_801B0300(u32 arg0, u32 arg1, s16 arg2) {
     obj = arg1;
     if ((check_value_equals__13TQuestColCtrlFPvi(obj, TOMineTrap__data_805D3080) != 0) && (get_trap_type__10TOMineTrapFPv(obj) != 0xFFFF))
     {
-      obj = TPhotonMylla__sub_80154CB4();
+      obj = find_entity_by_id();
     }
     if (obj_testFlags30(obj, 0x10000000) == 0)
     {
@@ -58,7 +58,7 @@ void TOMineTrap__sub_801B0300(u32 arg0, u32 arg1, s16 arg2) {
       ((int (*)(u32, u32, s16)) TOMineTrap__sub_801D6A44)(arg0 + 0x77C, obj, arg2);
       if (obj_getField1c(obj) != obj_getField1c(arg0))
       {
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(obj_getField1c(obj));
+        temp_r3 = get_player_by_client_id(obj_getField1c(obj));
         if (temp_r3 != 0U)
         {
           ((int (*)(u32, u32, s16)) TOMineTrap__sub_801D6A44)(temp_r3 + 0x78C, arg0, arg2);

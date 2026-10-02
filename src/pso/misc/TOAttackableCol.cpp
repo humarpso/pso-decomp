@@ -82,7 +82,7 @@ void *__nw__7TObjectFUl(int);
 M2C_UNK set_parent__7TObjectFP7TObject(int, int);
 volatile int TObjPlayer__sub_80019248(void *);
 u16 obj_getField1c(void *);
-s32 TObjEneDellBiter__sub_80087350(void *, int);
+s32 spawn_particle_effect(void *, int);
 u32 __ct__12TQuestThreadFv(int, void *, int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 extern u32 lbl_805D5EE8;
@@ -104,7 +104,7 @@ extern s32 tl_05;
 extern const f32 lbl_805DB2CC;
 extern const f32 lbl_805DB2D0;
 u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1);
-s8 TObjPlayer__sub_800196EC();
+s8 get_current_floor();
 M2C_UNK TLobby__sub_80156A80(void *, void *, int);
 void broadcast_state__15TOAttackableColFPv(void* p);
 void *fn_80157CA8(void *arg0);
@@ -129,7 +129,7 @@ int TLobby__sub_80156BA8(void*);
 void TOBarrierEnergy01__vt18(void);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
-s32 TObjPlayer__sub_801B4A18(void *, s32);
+s32 submit_cursor_candidate(void *, s32);
 M2C_UNK __dl__7TObjectFPv(void *);
 int bswap_16__FPUs(void*);
 int bswap_header__6TLobbyFi(void*);
@@ -206,7 +206,7 @@ int TOAttackableCol__sub_801575AC(void *arg0, u16 state) {
             msg.flag = 0;
             msg.f10 = 0;
         }
-        msg.player = TObjPlayer__sub_800196EC();
+        msg.player = get_current_floor();
         broadcast_state__15TOAttackableColFPv((void*)(&msg));
     }
 }
@@ -298,8 +298,8 @@ f32 TOAttackableCol__sub_80157728(u8 *arg0, s32 arg1) {
     goto block_26;
   }
   block_26:
-  TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x38), (int) 0x1D0);
-  TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x38), (int) 1);
+  spawn_particle_effect((void *) (arg0 + 0x38), (int) 0x1D0);
+  spawn_particle_effect((void *) (arg0 + 0x38), (int) 1);
   return lbl_805DB2C8;
 }
 
@@ -309,7 +309,7 @@ void check_door_trigger__15TOAttackableColFPv(void *arg0) {
     s32 temp_r0_2;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x34C);
-    if (((temp_r0 < 0) || (temp_r0 >= 0x100) || (TODoorAncient08__sub_80229220((u16) temp_r0) == 1)) && ((TObjPlayer__sub_801B4A18(arg0, -1), (((s32) M2C_FIELD(arg0, s32 *, 0x33C) > 0) == 0)) || (((s32) M2C_FIELD(arg0, s32 *, 0x344) == 0) && (temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x348), ((temp_r0_2 < 0) == 0)) && (temp_r0_2 < 0x100) && (TODoorAncient08__sub_80229220((u16) temp_r0_2) == 1)))) {
+    if (((temp_r0 < 0) || (temp_r0 >= 0x100) || (TODoorAncient08__sub_80229220((u16) temp_r0) == 1)) && ((submit_cursor_candidate(arg0, -1), (((s32) M2C_FIELD(arg0, s32 *, 0x33C) > 0) == 0)) || (((s32) M2C_FIELD(arg0, s32 *, 0x344) == 0) && (temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x348), ((temp_r0_2 < 0) == 0)) && (temp_r0_2 < 0x100) && (TODoorAncient08__sub_80229220((u16) temp_r0_2) == 1)))) {
         M2C_FIELD(arg0, s32 *, 0x33C) = 0;
         TOAttackableCol__sub_801575AC((void *)((void *)(arg0)), (u16)((s32)(1)));
     }

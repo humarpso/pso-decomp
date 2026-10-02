@@ -22,7 +22,7 @@ extern "C" {
 s32 can_start_win_timer__15TObjSoloPlayWinFi(s32 arg0);
 void update_close_timer__15TObjSoloPlayWinFPv(void *arg0);
 M2C_UNK TLobby__sub_8006FBAC();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 s32 TWindowCtrlMain__sub_8024CE58();
 M2C_UNK TWindow__close(u32);
 s32 fn_80074758(s32);
@@ -34,7 +34,7 @@ extern s32 lbl_805D53A0;
 s32 can_start_win_timer__15TObjSoloPlayWinFi(s32 arg0) {
     u32 temp_r31;
 
-    temp_r31 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    temp_r31 = get_player_by_client_id(lbl_805D53A0);
     if ((TWindowCtrlMain__sub_8024CE58() == 1) && (fn_80074758(arg0) != 0) && (temp_r31 != 0U) && (obj_testFlags30(temp_r31, 0x02000000) == 0)) {
         return 1;
     }

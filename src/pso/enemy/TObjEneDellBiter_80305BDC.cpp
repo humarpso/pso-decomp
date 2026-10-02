@@ -313,7 +313,7 @@ struct Obj_80305C40 : VBase_18_257559 {
 
 extern "C" {
 M2C_UNK TBoss8Dragon__sub_800BB780(void *);
-int TObjEneDD__sub_800BBA18(void*, void*);
+int transition_enemy_state(void*, void*);
 M2C_UNK TObjEneDellBiter__sub_803055C8();
 void TObjEneDellBiter__vt60(u8 *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -382,7 +382,7 @@ void update_attack_effect__16TObjEneDellBiterFi(s32 arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(s32, s32, M2C_UNK, M2C_UNK);
 void TItemObject__ct(void *);
 void TLobby__sub_8001FE7C(void*, int);
-int TObjEneDD__sub_800BBA18(void*, void*);
+int transition_enemy_state(void*, void*);
 s32 TObjEneDellBiter__sub_803059BC(s32, s32);
 void TObjEneDellBiter__sub_80306468(void *);
 M2C_UNK TObjEneGibbles__sub_800D8988(s32);
@@ -556,11 +556,11 @@ void TObjEneDellBiter__vt60(u8 *arg0) {
             TBoss8Dragon__sub_800BB780((void *) (arg0));
             return;
         }
-        TObjEneDD__sub_800BBA18((void*)((void *) (arg0)), (void*)((int) (0xA)));
+        transition_enemy_state((void*)((void *) (arg0)), (void*)((int) (0xA)));
     }
 }
 
-void TObjEneDellBiter__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 11) { TObjEneDD__sub_800BBA18(p, (void*)11); } }
+void TObjEneDellBiter__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 11) { transition_enemy_state(p, (void*)11); } }
 void TObjEneDellBiter__vt26(void) {  }
 
 extern M2C_UNK __vt__16TObjEneDellBiter[];

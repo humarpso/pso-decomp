@@ -12,7 +12,7 @@ M2C_UNK update_camera__15TObjLiveMonitorFPv(int);
 s32 get_table_entry__18TObjLiveCameraCtrlFi(int);
 s32 TObjLiveMonitor__sub_8030C050();
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
 void render__15TObjLiveMonitorFv(u8 *arg0);
 }
@@ -34,7 +34,7 @@ void render__15TObjLiveMonitorFv(u8 *arg0) {
     }
     TObjPlayer__sub_803D9B2C();
     TObjBoss2Tunnel__sub_803DB470((int) (M2C_FIELD(arg0, s32 *, 0x1C)));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 }

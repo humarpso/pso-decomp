@@ -45,7 +45,7 @@ s32 get_flag_bit6__12TBoss8DragonFPv(s32);
 void TBoss8Dragon__sub_800640A4(s32, Vec_80355570 *);
 s32 get_instance_count__12TBoss8DragonFv();
 void TObjFish__sub_800660D4(void *, s32, s32, s32, s32, f32);
-Res_80355570 *TBoss8Dragon__sub_8007A544(Vec_80355570 *, s32);
+Res_80355570 *csnVecterUnder(Vec_80355570 *, s32);
 void *TBoss8Dragon__sub_8008741C(Vec_80355570 *, s32, s32);
 void copy_pos__11TNowLoadingFPvPv(void *, Vec_80355570 *);
 void enable__13TParticleCtrlFPv(void *);
@@ -91,7 +91,7 @@ void run_task__20TBoss5GryphonTornadoFv(Tornado_80355570 *o) {
         o->state = 1;
     case 1:
         o->pos.y = lbl_805D8D48;
-        r = TBoss8Dragon__sub_8007A544(&o->pos, 0x16EF);
+        r = csnVecterUnder(&o->pos, 0x16EF);
         if (r == NULL) {
             queue_destruction__7TObjectFv(o);
             return;

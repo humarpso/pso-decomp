@@ -21,16 +21,16 @@ typedef struct Player_800115C4 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TObjPlayer__sub_80156844(void *, void *, void *);
+s32 project_actor_to_ground(void *, void *, void *);
 extern const f32 TObjPlayer__data_805D7D24;
 extern const f32 lbl_805D7D48;
 void TObjPlayer__sub_80011734(u8 *arg0, M2C_UNK *arg1, f32 farg0);
 extern s32 lbl_805D53A4;
 s32 TObjPlayer__sub_80011704(O_80011704 *self, s32 x);
-s32 TObjPlayer__sub_80018428(void *, void *);
+s32 check_path_obstructed(void *, void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 Player_800115C4 *get_player_data__10TObjPlayerFi(s32);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(Player_800115C4 *);
 M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
 extern Vec_800115C4 lbl_80434074;
@@ -50,11 +50,11 @@ u16 TObjPlayer__sub_800115C4(u8 *arg0, Vec_800115C4 *arg1, f32 farg0) {
     for (i = 0; i < lbl_805D586C; i++) {
         player = get_player_data__10TObjPlayerFi(i);
         if (player != NULL && player->id < 0x1000 && !(player->flags & 0x02000800)) {
-            if (get_field_3e4__10TObjPlayerFPv(player) == TObjPlayer__sub_800196EC()) {
+            if (get_field_3e4__10TObjPlayerFPv(player) == get_current_floor()) {
                 VecCopy__FP3VecPC3Vec(&diff, &player->pos);
                 TBoss6Type1__sub_803D9370(&diff, arg0 + 0x2FC);
                 dist = (diff.x * diff.x) + (diff.z * diff.z);
-                if (dist < best && TObjPlayer__sub_80018428(arg0, &player->pos) == 0) {
+                if (dist < best && check_path_obstructed(arg0, &player->pos) == 0) {
                     best = dist;
                     result = player->id;
                     if (arg1 != NULL) {
@@ -80,7 +80,7 @@ void TObjPlayer__sub_80011734(u8 *arg0, M2C_UNK *arg1, f32 farg0) {
     f32 temp_f1;
     s32 temp_r31;
     VecCopy__FP3VecPC3Vec((void *) (&position.x), (void *) (arg0 + 0x38));
-    temp_r31 = TObjPlayer__sub_80156844((void *) (arg0), (void *) (&position.x), (void *) (arg0 + 0x248));
+    temp_r31 = project_actor_to_ground((void *) (arg0), (void *) (&position.x), (void *) (arg0 + 0x248));
     if (arg1 != NULL) {
         VecCopy__FP3VecPC3Vec((void *) (arg1), (void *) (&position.x));
     }

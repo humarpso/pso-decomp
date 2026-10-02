@@ -18,12 +18,12 @@ struct RecoveredGlobal_802EC468_lbl_804FF5E8 {
 
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
-s32 TOSwitchAttack__sub_80087278(void *, int, int);
+s32 spawn_particle_effect_with_flags(void *, int, int);
 extern RecoveredGlobal_802EC468_lbl_804FF5E8 lbl_804FF5E8;
 void TObjFish__sub_802EC468(s32 arg0, f32 farg0, f32 farg1);
 s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 s32 objInBand__FP7GameObjf(void *, f32);
-s32 TBoss1Dragon__sub_80143504(void *);
+s32 advance_animation_playback(void *);
 void set_effect_target_position__8TObjFishFPvPvPv(void* p, void* a1, void* a2);
 s32 TObjFish__sub_802EC7F0(void *);
 s32 TObjFish__sub_802ECBDC(void *);
@@ -72,7 +72,7 @@ void TObjFish__sub_802E8EEC(u8 *arg0, u32 arg1) {
         }
         break;
     case 0:
-        TBoss1Dragon__sub_80143504((void *) (arg0));
+        advance_animation_playback((void *) (arg0));
         if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805DEA48)) != 0) {
             set_effect_target_position__8TObjFishFPvPvPv((void*)((void *) (arg0)), (void*)((int) (0x39906)), (void*)((void *) ((u8 *)(arg0) + 0x50C)));
         }
@@ -130,7 +130,7 @@ void TObjFish__sub_802EC468(s32 arg0, f32 farg0, f32 farg1) {
     stack.sp8 = -((M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0xC) * farg1) - stack.sp8);
     stack.spC -= (M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x10) * farg1) - farg0;
     stack.sp10 = -((M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x14) * farg1) - stack.sp10);
-    TOSwitchAttack__sub_80087278((void *) (&stack.sp8), (int) (0x127), (int) (0x40));
+    spawn_particle_effect_with_flags((void *) (&stack.sp8), (int) (0x127), (int) (0x40));
 }
 #pragma pop
 

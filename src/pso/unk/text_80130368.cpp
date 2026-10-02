@@ -63,7 +63,7 @@ struct VObj_18_382324 : VBase_18_382324 {
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(int);
 s8 TObjPlayer__sub_80102C30(void *);
 s32 reset_key_machine_state__10TObjPlayerFv();
@@ -111,7 +111,7 @@ void TObjPlayer__sub_801303D8(u8 *arg0) {
   if ((((u32) (*((u32 *) (((s8 *) arg0) + 0xF0)))) != 0U) && (reset_key_machine_state__10TObjPlayerFv() != 0))
   {
     ;
-    if ((TObjPlayer__sub_800196EC() == get_field_3e4__10TObjPlayerFPv((int) (*((u32 *) (((s8 *) arg0) + 0xF0))))) && (TObjPlayer__sub_80102C30((void *) arg0) == 2))
+    if ((get_current_floor() == get_field_3e4__10TObjPlayerFPv((int) (*((u32 *) (((s8 *) arg0) + 0xF0))))) && (TObjPlayer__sub_80102C30((void *) arg0) == 2))
     {
       if (!arg0)
       {

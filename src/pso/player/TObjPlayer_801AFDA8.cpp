@@ -19,7 +19,7 @@ extern s32 lbl_805D5550;
 u8 TFontSmallLobby__sub_801AFEE0(void);
 s8 TObjPlayer__sub_801AFDB0(u8 *arg0);
 s8 TObjPlayer__sub_801AFDBC(s8 arg0);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 void TObjPlayer__sub_801AFF50(u8 *arg0);
 void TObjPlayer__sub_801AFF80(u8 *arg0);
 extern s32 lbl_805D49C0;
@@ -41,13 +41,13 @@ extern s32 lbl_805D62B0;
     extern int lbl_805D5678;
     extern int lbl_805D5680;
 int TObjPlayer__sub_801AFFB0(void* p);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(s32);
 u8 TObjPlayer__sub_801AFF0C(s32 arg0);
 s32 obj_testFlags30(s32, s32);
 s32 obj_getField1c(u8 *);
-u8 *TPhotonMylla__sub_80154CB4(u16);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u8 *find_entity_by_id(u16);
+u8 *get_player_by_client_id(u16);
 void TFontSmallLobby__sub_801C02D0(Pkt_801B01AC *);
 void TFontSmallLobby__sub_801C030C(Pkt_801B01AC *, s32);
 void TFontSmallLobby__sub_801C0350(Pkt_801B01AC *);
@@ -129,13 +129,13 @@ u8 TFontSmallLobby__sub_801AFEE0(void) {
 u8 TObjPlayer__sub_801AFF0C(s32 arg0) {
     s32 temp_r31;
     s32 temp_r3;
-    temp_r31 = TObjPlayer__sub_800196EC();
+    temp_r31 = get_current_floor();
     temp_r3 = get_field_3e4__10TObjPlayerFPv(arg0);
     return (u8) (temp_r3 == temp_r31);
 }
 
 void TObjPlayer__sub_801AFF50(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x3E4) = TObjPlayer__sub_800196EC();
+    M2C_FIELD(arg0, s32 *, 0x3E4) = get_current_floor();
 }
 
 void TObjPlayer__sub_801AFF80(u8 *arg0) {
@@ -155,11 +155,11 @@ void handle_6x8F_add_battle_damage_scores(s32 arg0) {
     if (validate_6x8F_add_battle_damage_scores(&pkt) == 0) {
         return;
     }
-    player = TPlayerBattleCtrl4P__sub_801BA74C(pkt.client);
+    player = get_player_by_client_id(pkt.client);
     if (player == NULL) {
         return;
     }
-    target = TPhotonMylla__sub_80154CB4(pkt.target);
+    target = find_entity_by_id(pkt.target);
     if (target == NULL) {
         return;
     }
@@ -169,7 +169,7 @@ void handle_6x8F_add_battle_damage_scores(s32 arg0) {
     if (obj_testFlags30((s32)target, 0x10000000) == 0) {
         return;
     }
-    other = TPlayerBattleCtrl4P__sub_801BA74C((u16)obj_getField1c(target));
+    other = get_player_by_client_id((u16)obj_getField1c(target));
     if (other != NULL) {
         TOMineTrap__sub_801D6A44((s32)(other + 0x77C), (s32)player, pkt.amount);
     }

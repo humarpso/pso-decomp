@@ -120,11 +120,11 @@ s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
 void TTecLuker__sub_80234FC4(void *arg0);
 int fn_80235078(void *arg0);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void TTecLuker__sub_80233E3C(u16 arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 void TTecLuker__sub_80234148(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TTecLuker__sub_80234F90(void* p);
@@ -146,7 +146,7 @@ extern M2C_UNK lbl_804CC9D4[];
 u8 *TTecLuker__sub_80233D18(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 bool TTecLuker__sub_8023401C(u8 *arg0);
 extern u32 lbl_804CC988[];
-void* TObjEneDellBiter__sub_80087350(float*,u32);
+void* spawn_particle_effect(float*,u32);
 int check_flag_0x80__10TObjPlayerFPv(void*);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 void TTecLuker__updateRecoveryTechniqueCharge(TechniqueChargeEmitter* state);
@@ -158,7 +158,7 @@ extern const f32 lbl_805DC85C;
 void TTecLuker__sub_802340A0(O_802340A0 *o);
 extern u8 TTecLuker__data_805D37E0[4];
 void TTecLuker__sub_80234F48(void);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 u32 TObjPlayer__sub_801BFFA0(void *p);
 void set_state__9TTecLukerFPvi(void *p, s32 v);
 s32 get_global_state__14TOKeyMachine01Fv(void);
@@ -166,11 +166,11 @@ extern s32 lbl_8044D798[];
 extern Vec_80233E78 lbl_8044D738[];
 extern Vec_80233E78 lbl_8044D768[];
 Vec_80233E78 *TTecLuker__sub_80233E78(u16 slot, s32 *heading);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 s16 get_field_2__9TTecLukerFPv(void* p);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-s32 TObjPlayer__sub_800196EC(void);
+s32 get_current_floor(void);
 void TTecLuker__sub_80233F8C(void);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 extern const f32 lbl_805DC85C;
@@ -179,7 +179,7 @@ s32 TTecLuker__sub_8023402C(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unu
 void *__nw__7TObjectFUl(int);
 s32 obj_getField1c(void *);
 s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_800196EC(void);
+s32 get_current_floor(void);
 void *TTecLuker__sub_8023453C(void *self, Vec_802347B4 *pos, u16 id, s32 res);
 u8 *TTecLuker__sub_80233D18(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void TBoss4DarkFalz__sub_8004C220(void *c, Vec_802347B4 *pos);
@@ -195,19 +195,19 @@ s32 is_parents_unqueued__9TTecLukerFUi(u32);
 extern u8 lbl_804CCA0C[];
 Obj_8023448C *TTecLuker__sub_8023448C(Obj_8023448C *arg0, s16 arg1);
 void TTecLuker__sub_80234FC4(void *arg0);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void TTecLuker__sub_80234148(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
 s32 TTecLuker__sub_8023402C(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unused);
 s32 is_split_screen();
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 s32 get_field_3e4__10TObjPlayerFPv(u32);
 extern s32 lbl_805D53A0;
 void handle_6x68_set_telepipe_state(Pkt_802341B0 *pkt);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_getField1c(void *);
 s32 is_split_screen();
-s32 TObjPlayer__sub_800196EC(void);
+s32 get_current_floor(void);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 M2C_UNK TTecLuker__sub_801D3728(void *, void *, void *);
 void *init_array__9TItemListFPv(void *);
@@ -244,8 +244,8 @@ void TLobby__sub_80226294(void *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 s32 TObjLuker__sub_801A0F34(void *, M2C_UNK, f32);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
+u32 get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -261,7 +261,7 @@ extern M2C_UNK lbl_804CC990[];
 void TTecLuker__updateRecoveryTechniqueCharge(TechniqueChargeEmitter* state) {
     ++state->age;
     if(state->age%10==0) {
-        for(int i=0;i<2;++i)TObjEneDellBiter__sub_80087350(state->position,lbl_804CC988[i]);
+        for(int i=0;i<2;++i)spawn_particle_effect(state->position,lbl_804CC988[i]);
     }
     if(!check_flag_0x80__10TObjPlayerFPv(state->actor))queue_destruction__7TObjectFv((void *)(state));
     else if(state->age>=180)queue_destruction__7TObjectFv((void *)(state));
@@ -296,14 +296,14 @@ extern const f32 lbl_805DC858;
 void update_player_target__9TTecLukerFPv(u8 *arg0) {
     if (is_split_screen() != 0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0xAC) != 0) {
-            TObjPlayer__sub_801B4A18(arg0, -1);
+            submit_cursor_candidate(arg0, -1);
             return;
         }
         if (TObjLuker__sub_801A0F34(arg0 + 0x38, 0, lbl_805DC858) != 0) {
-            TObjPlayer__sub_801B4A18(arg0, -1);
+            submit_cursor_candidate(arg0, -1);
         }
     } else {
-        TObjPlayer__sub_801B4A18(arg0, -1);
+        submit_cursor_candidate(arg0, -1);
     }
 }
 
@@ -344,7 +344,7 @@ void apply_all_players__9TTecLukerFv(void) {
 
     var_r31 = 0;
     do {
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((s32)(var_r31));
+        temp_r3 = get_player_by_client_id((s32)(var_r31));
         if (temp_r3 != 0U) {
             TTecLuker__sub_802340A0((O_802340A0 *)(temp_r3 + 0x830));
         }
@@ -353,7 +353,7 @@ void apply_all_players__9TTecLukerFv(void) {
 }
 
 void create_for_player__9TTecLukerFii(int arg0, s32 arg1) {
-    u32 r = TPlayerBattleCtrl4P__sub_801BA74C((s32)((u16)arg0));
+    u32 r = get_player_by_client_id((s32)((u16)arg0));
     if (r != 0U) {
         create__9TTecLukerFPvPvPvPv((void *)(r), (void *)(arg1), (void *)(arg1), (void *)(0xA));
     }
@@ -361,7 +361,7 @@ void create_for_player__9TTecLukerFii(int arg0, s32 arg1) {
 
 void TTecLuker__sub_80233E3C(u16 arg0) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(((s32)TPlayerBattleCtrl4P__sub_801BA74C((s32)((u32) arg0))));
+    temp_r3 = (u8 *)(((s32)get_player_by_client_id((s32)((u32) arg0))));
     if (temp_r3 != NULL) {
         create__9TTecLukerFPvPvPvPv(temp_r3, temp_r3 + 0x38, temp_r3 + 0x2FC, NULL);
     }
@@ -373,7 +373,7 @@ Vec_80233E78 *TTecLuker__sub_80233E78(u16 slot, s32 *heading) {
     if (slot >= 4) {
         return 0;
     }
-    p = (Player_80233E78 *)TPlayerBattleCtrl4P__sub_801BA74C(slot);
+    p = (Player_80233E78 *)get_player_by_client_id(slot);
     if (p != 0) {
         owner = TObjPlayer__sub_801BFFA0(p->arrival);
         if (owner == 0xffff) {
@@ -388,7 +388,7 @@ Vec_80233E78 *TTecLuker__sub_80233E78(u16 slot, s32 *heading) {
             *heading = lbl_8044D798[slot];
             return &lbl_8044D768[slot];
         }
-        p = (Player_80233E78 *)TPlayerBattleCtrl4P__sub_801BA74C(owner);
+        p = (Player_80233E78 *)get_player_by_client_id(owner);
         if (p == 0) {
             return 0;
         }
@@ -406,9 +406,9 @@ void TTecLuker__sub_80233F8C(void) {
         return;
     }
     for (i = 0; i < 4; i++) {
-        u8 *p = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(i);
+        u8 *p = (u8 *)get_player_by_client_id(i);
         if (p != 0) {
-            if (((GetField2_80233F8C)get_field_2__9TTecLukerFPv)(p + 0x830) == TObjPlayer__sub_800196EC()) {
+            if (((GetField2_80233F8C)get_field_2__9TTecLukerFPv)(p + 0x830) == get_current_floor()) {
                 create__9TTecLukerFPvPvPvPv(p, p + 0x38, p + 0x838, (void *)10);
             }
         }
@@ -466,7 +466,7 @@ void TTecLuker__sub_80234148(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4) {
     VecCopy__FP3VecPC3Vec(arg0 + 8, arg3);
     M2C_FIELD(arg0, s32 *, 4) = arg4;
     if (arg1 <= 4U) {
-        temp_r3 = (u8 *)(((s32)TPlayerBattleCtrl4P__sub_801BA74C((s32)((u32) arg1))));
+        temp_r3 = (u8 *)(((s32)get_player_by_client_id((s32)((u32) arg1))));
         if (temp_r3 != NULL) {
             M2C_FIELD(arg0, s32 *, 0x14) = (s32) M2C_FIELD(temp_r3, s32 *, 0x60);
         }
@@ -482,7 +482,7 @@ void handle_6x68_set_telepipe_state(Pkt_802341B0 *pkt) {
     if (pkt->rec.owner == 0xffff) {
         return;
     }
-    player = TPhotonMylla__sub_80154CB4(pkt->rec.owner);
+    player = find_entity_by_id(pkt->rec.owner);
     if (player == 0) {
         return;
     }
@@ -497,8 +497,8 @@ void handle_6x68_set_telepipe_state(Pkt_802341B0 *pkt) {
     if (is_split_screen() == 0 && pkt->rec.owner == lbl_805D53A0) {
         return;
     }
-    other = TPlayerBattleCtrl4P__sub_801BA74C(pkt->rec.owner);
-    local = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    other = get_player_by_client_id(pkt->rec.owner);
+    local = get_player_by_client_id(lbl_805D53A0);
     if (other != 0 && local != 0) {
         if (get_field_3e4__10TObjPlayerFPv(other) == get_field_3e4__10TObjPlayerFPv(local)) {
             create__9TTecLukerFPvPvPvPv(player, player + 0x38, player + 0x38, 0);
@@ -562,7 +562,7 @@ void TTecLuker__sub_802347B4(Pipe_802347B4 *s) {
     }
     if (s->traveller == (u16)obj_getField1c(s->player)) {
         s16 h;
-        s->floor = TObjPlayer__sub_800196EC();
+        s->floor = get_current_floor();
         h = get_stat_by_key_state__10TObjPlayerFPv(s->player);
         ((Write_802347B4)TTecLuker__sub_80234148)(s->player + 0x830, obj_getField1c(s->player), s->floor, (u8 *)&s->pos, h);
         TTecLuker__sub_802340E4(s->player + 0x830);
@@ -610,7 +610,7 @@ void *TTecLuker__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) 
     L->f10C = 0;
     L->fF0 = 0;
     L->fF8 = 0;
-    L->fF4 = TObjPlayer__sub_800196EC();
+    L->fF4 = get_current_floor();
     L->fx = NULL;
     if (L->owner != NULL) {
         L->owner_id = obj_getField1c(L->owner);

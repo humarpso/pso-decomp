@@ -33,14 +33,14 @@ void *create_named_object(const char *name);
 void TScene__sub_8023E638(const char *name, void *data);
 void fn_80082AA8(void);
 extern s32 lbl_80500620[];
-s32 fn_80082910(s32 id);
+s32 find_particle_texture_index(s32 id);
 void fn_80082954(struct Copy_80082954 *c);
 void fn_800829E0(struct Copy_800829E0 *c);
 }
 
 extern "C" {
 
-s32 fn_80082910(s32 id) {
+s32 find_particle_texture_index(s32 id) {
     s32 r = 0;
     s32 i;
     for (i = 0; i < 0x36; i++) {

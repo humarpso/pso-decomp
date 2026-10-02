@@ -52,7 +52,7 @@ void fn_800A0884(void *);
 void TObjEneDarkGunner__ct(void *);
 void TObjEneDarkGunCenter__sub_800A0B18(void);
 u8 *get_enemy_entity(u16);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 void send_entity_set_flags__6TLobbyFPv(void *);
 extern const f64 lbl_8043A488[];
 extern const f32 lbl_805D9970;
@@ -96,7 +96,7 @@ void run_task__20TObjEneDarkGunCenterFv(Gun_800A0B20 *self) {
         if (self->m17(0x1e) != 0) {
             id = TObjPlayer__sub_800115C4(self, 0, lbl_805D9970);
             if (id != 0xFFFF) {
-                self->target = TPlayerBattleCtrl4P__sub_801BA74C(id);
+                self->target = get_player_by_client_id(id);
                 ang = (s32)(lbl_8043A488[0] * get_ad_end_text_start__10TObjPlayerFv(*(f32 *)(self->target + 0x40) - self->f40, *(f32 *)(self->target + 0x38) - self->f38)) + 0x4000;
                 for (i = 0; i < self->count; i++) {
                     e = get_enemy_entity(self->ids[i]);

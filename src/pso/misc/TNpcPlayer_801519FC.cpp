@@ -106,7 +106,7 @@ u16 get_npc_type__10TNpcPlayerFPv(void* p);
 void send_item_pickup_request__10TObjPlayerFi(s32);
 void __dl__7TObjectFPv(s32);
 M2C_UNK __dt__7TObjectFv(void *, int);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 extern RecoveredGlobal_801520B8___vt__10TNpcPlayer __vt__10TNpcPlayer;
 u8 *__dt__10TNpcPlayerFv(u8 *arg0, s16 arg1);
 void TNpcPlayer__sub_801528A8(Obj_801528A8 *self, s16 i, u8 v);
@@ -185,7 +185,7 @@ u8 *__dt__10TNpcPlayerFv(u8 *arg0, s16 arg1) {
         }
         temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x78));
         if (temp_r3_2 != NULL) {
-            temp_r3_3 = TPlayerBattleCtrl4P__sub_801BA74C((int) (get_npc_type__10TNpcPlayerFPv((void*)(temp_r3_2))));
+            temp_r3_3 = get_player_by_client_id((int) (get_npc_type__10TNpcPlayerFPv((void*)(temp_r3_2))));
             if (temp_r3_3 != 0U) {
                 send_item_pickup_request__10TObjPlayerFi((s32) temp_r3_3);
             }

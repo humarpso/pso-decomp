@@ -17,7 +17,7 @@ void TObjPlayer__sub_801CB4D0(u8 *arg0);
 extern "C" {
 
 s16 ret_801D26AC(void);
-s32 TObjPlayer__sub_801D0BC0(void * a0 = 0, s16 a1 = 0, s32 a2 = 0);
+s32 run_action_state_phase__10TObjPlayerFisi(void * a0 = 0, s16 a1 = 0, s32 a2 = 0);
 s32 call_obj_vt26__10TObjPlayerFPv(void * a0 = 0);
 s32 set_action_state__10TObjPlayerFPvss(void * a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 apply_velocity__10TObjPlayerFPv(s32);

@@ -116,7 +116,7 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TOSignCave03__sub_803DB510(int);
@@ -129,12 +129,12 @@ s32 __nw__7TObjectFUl(int);
 s32 TLobby__sub_8030A7B0();
 extern s32 enable_v2_features;
 s32 TOContainerAncientItemCommon__sub_8015C108(s32 arg0);
-void TObjPlayer__sub_801B4A18(Obj_8015C48C *self, s32 x);
+void submit_cursor_candidate(Obj_8015C48C *self, s32 x);
 void TObjPlayer__sub_8015C48C(Obj_8015C48C *self);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 TObjFish__sub_8001EDC4(void *, s32);
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
-s32 TObjEneDellBiter__sub_80087350(void *, int);
+s32 spawn_particle_effect(void *, int);
 u8 *TObjChip__sub_80180BD4(u8 *arg0, u8 *arg1, u8 *arg2);
 void TBoss3Volopt__sub_80189CC0(s32 arg0);
 extern Desc_8015C234 lbl_80440700;
@@ -270,8 +270,8 @@ void TObjFish__sub_8015C234(Obj_8015C234 *self) {
             TObjChip__sub_80180BD4(o, tl_05, (u8 *)&b);
         }
     }
-    TObjEneDellBiter__sub_80087350(&self->x, 0x45);
-    TObjEneDellBiter__sub_80087350(&self->x, 0x46);
+    spawn_particle_effect(&self->x, 0x45);
+    spawn_particle_effect(&self->x, 0x46);
     TBoss3Volopt__sub_80189CC0((s32)self);
 }
 
@@ -295,16 +295,16 @@ void TObjPlayer__sub_8015C3C8(u8 *arg0) {
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00((void *) (temp_r31_2 + 8));
             TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             temp_r31_3 = (unsigned char *) (M2C_FIELD(temp_r31_2, void **, 0x30));
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00((void *) (temp_r31_3 + 8));
             begin_effect_render__13TParticleCtrlFv();
             TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
             end_effect_render__13TParticleCtrlFv();
-            TObjPlayer__sub_803D9B78();
-            TObjPlayer__sub_803D9B78();
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
+            pop_matrix();
+            pop_matrix();
             break;
         }
     }
@@ -313,7 +313,7 @@ void TObjPlayer__sub_8015C48C(Obj_8015C48C *self) {
     switch (self->a326) {
     case 0:
         if (self->a364 != 0) {
-            TObjPlayer__sub_801B4A18(self, -1);
+            submit_cursor_candidate(self, -1);
         }
         break;
     }

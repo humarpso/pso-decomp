@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 get_main_phase();
 s32 TCameraCtrl__sub_8006B368();
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 get_short_mail_ctrl__6TLobbyFv();
 s32 TWindowSubTradeMain__sub_802D3924(s32);
@@ -46,7 +46,7 @@ s32 TWindowMainMenu__sub_80263E40(u8 *arg0, s16 *arg1, s32 *arg2) {
     u8 *base;
     u8 *p;
     s32 st;
-    base = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x54));
+    base = get_player_by_client_id(M2C_FIELD(arg0, s32 *, 0x54));
     if (base == NULL) {
         return 0;
     }

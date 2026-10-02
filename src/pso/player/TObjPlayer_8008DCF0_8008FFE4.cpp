@@ -14,7 +14,7 @@ M2C_UNK TObjEneMe1GiGue__sub_8008FC0C(void *);
 M2C_UNK TObjEneMe1GiGue__sub_8008FC10(void *);
 M2C_UNK TObjPlayer__sub_8008FF50(void *);
 s32 get_flag_0x388_b24__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, int, int, f32, f32);
+M2C_UNK submit_cursor_candidate(void *, int, int, f32, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK minimap_render_dot(void *, int, int, int);
@@ -54,7 +54,7 @@ void update_control_state__10TObjPlayerFPv(u8 *arg0) {
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x3B4);
     temp_r5 = (unsigned char *) (M2C_FIELD(arg0, void **, 0xA4));
     M2C_FIELD(temp_r5, f32 *, 4) = (f32) (temp_f1 + M2C_FIELD(arg0, f32 *, 0x3BC));
-    TObjPlayer__sub_801B4A18((void *) (arg0), (int) (-1), (int) (temp_r5), (f32) (temp_f1), (f32) (temp_f2));
+    submit_cursor_candidate((void *) (arg0), (int) (-1), (int) (temp_r5), (f32) (temp_f1), (f32) (temp_f2));
     minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
 }
 

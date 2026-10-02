@@ -30,7 +30,7 @@ int rotate_matrix_y(void *, void *);
 int set_global_flag__10TObjPlayerFv(void);
 int TCameraCtrl__sub_803D8934(void *, void *, void *);
 void clear_global_state__10TObjPlayerFv(void);
-int TObjPlayer__sub_803D9B78(void);
+int pop_matrix(void);
 void TObjEneDD__sub_800BA934(Obj_800BA934 *self);
 void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
 void TObjBoss2Tunnel__sub_8007E7D8(f32 *x, f32 *z, s32 angle);
@@ -44,9 +44,9 @@ void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
 int TCameraCtrl__sub_803D8934(void *, void *, void *);
 int TObjPlayer__sub_803D8CD4(void *);
 int rotate_matrix_y(void *, void *);
-void TObjPlayer__sub_803D9624(int, f32, f32, f32);
+void translate_matrix(int, f32, f32, f32);
 int TObjPlayer__sub_803D9B2C(void);
-int TObjPlayer__sub_803D9B78(void);
+int pop_matrix(void);
 void TObjEneDD__sub_800BAA2C(Obj_800BAA2C *arg0, V3_800BAA2C *arg1);
 }
 
@@ -69,7 +69,7 @@ void TObjEneDD__sub_800BA934(Obj_800BA934 *self) {
         TCameraCtrl__sub_803D8934(0, &self->parts[i], self->parts[i].f1c);
     }
     clear_global_state__10TObjPlayerFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 void TObjEneDD__sub_800BA9BC(Obj_800BA9BC *self, Vec_800BA9BC *v, s32 i) {
@@ -86,13 +86,13 @@ void TObjEneDD__sub_800BAA2C(Obj_800BAA2C *arg0, V3_800BAA2C *arg1) {
     TObjPlayer__sub_803D9B2C();
     TObjPlayer__sub_803D8CD4((void *)(0));
     rotate_matrix_y((void *)(0), (void *)(-arg0->rot));
-    TObjPlayer__sub_803D9624(0, -arg0->x, -arg0->y, -arg0->z);
+    translate_matrix(0, -arg0->x, -arg0->y, -arg0->z);
     for (i = 0; i < arg0->count; i++) {
         VecCopy__FP3VecPC3Vec((Vec_800BAAE4 *)(&arg0->cols[i].pos), (const Vec_800BAAE4 *)(arg1));
         TCameraCtrl__sub_803D8934(0, arg1, &arg0->cols[i]);
         arg1++;
     }
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 void TObjEneDD__sub_800BAAE4(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s32 i) {

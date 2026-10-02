@@ -83,7 +83,7 @@ s32 obj_isState2_324(VObj_80052420 *);
 s16 obj_getS16_32C(VObj_80052420 *);
 s32 TBoss4Type3__sub_8005254C(s32);
 void TObjPlayer__sub_801B1E54(s32, s32, s16);
-VObj_80052420 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+VObj_80052420 *get_player_by_client_id(u16);
 void TObjPlayer__sub_801CBF08(VObj_80052420 *, u32);
 u32 fn_80052420(s32 arg0, u32 arg1);
 }
@@ -95,7 +95,7 @@ u32 fn_80052420(s32 arg0, u32 arg1) {
     VObj_80052420 *p;
     s32 v;
     n = arg1;
-    if ((u16)arg0 == 0xFFFF || (p = TPlayerBattleCtrl4P__sub_801BA74C(arg0)) == NULL ||
+    if ((u16)arg0 == 0xFFFF || (p = get_player_by_client_id(arg0)) == NULL ||
         TBoss4Type3__sub_8005254C(arg0) == 0) {
         return 0;
     }

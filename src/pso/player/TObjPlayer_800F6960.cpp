@@ -124,7 +124,7 @@ u16 obj_getArrU16_FC(void *, int);
 s32 is_split_screen();
 void TObjPlayer__sub_800F6BF0(void *, u16);
 s32 TLobby__sub_800F7A64(void *);
-void TObjPlayer__sub_800F6B68(TObjPlayer_800F6B68 *self);
+void distribute_experience(TObjPlayer_800F6B68 *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void copy_xyz__10TObjPlayerFPvPv(void *, void *);
 void TAdSinglePlyChrSelectGC__sub_8007C48C(void *, s32);
@@ -162,10 +162,10 @@ void TObjPlayer__sub_800F698C(A_800F698C *arg0, B_800F698C *arg1) {
     TAdSinglePlyChrSelectGC__sub_8007C48C(arg0->f160, arg0->f1C + lbl_805D5328);
 }
 
-void refresh_lobby_state__10TObjPlayerFPv(void* p) { TObjPlayer__sub_800F6B68((TObjPlayer_800F6B68 *)((void*)(p))); query_lobby_state__10TObjPlayerFPv((void*)(p)); }
+void refresh_lobby_state__10TObjPlayerFPv(void* p) { distribute_experience((TObjPlayer_800F6B68 *)((void*)(p))); query_lobby_state__10TObjPlayerFPv((void*)(p)); }
 int query_lobby_state__10TObjPlayerFPv(void* p) { return TLobby__sub_80105538(p); }
 
-void TObjPlayer__sub_800F6B68(TObjPlayer_800F6B68 *self) {
+void distribute_experience(TObjPlayer_800F6B68 *self) {
     s32 count;
     s32 i;
     u16 id;

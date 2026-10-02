@@ -11,7 +11,7 @@ struct RecoveredGlobal_8003AB00_lbl_804FEA80 {
 extern "C" {
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(int);
 M2C_UNK TObjPlayer__sub_803DF578(int, int, int);
 extern RecoveredGlobal_8003AB00_lbl_804FEA80 lbl_804FEA80;
@@ -39,7 +39,7 @@ void fn_8003AB00(M2C_UNK *arg0, s32 arg1) {
     var_r3 = (M2C_UNK *)((u8 *)&lbl_804FEA80.value + var_r5);
     var_r5 = 0;
     TObjPlayer__sub_803DF578((int) (var_r3), (int) (6), (int) (0));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 }

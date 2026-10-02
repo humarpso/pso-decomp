@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_ground_effect__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK advance_animation_playback();
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
 void * copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
@@ -20,7 +20,7 @@ extern const f32 lbl_805D9BD8;
 void update_ground_effect__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r4;
 
-    TBoss1Dragon__sub_80143504();
+    advance_animation_playback();
     if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D9BD8)) != 0) {
         TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x3A807)), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         play_effect_if_v2__10TObjPlayerFi((int) (-0x300));

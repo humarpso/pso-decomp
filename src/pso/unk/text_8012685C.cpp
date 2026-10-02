@@ -92,7 +92,7 @@ extern s32 lbl_805D5518;
 extern const f32 lbl_805DAD80;
 extern const f32 lbl_805DAD94;
 void TObjPlayer__sub_8012685C(s32 arg0);
-void TObjEneDellBiter__sub_80087350(void *, s32);
+void spawn_particle_effect(void *, s32);
 void spawn_cane_effects__10TObjPlayerFiUiii(s32, void *, s32, s32);
 u8 get_slot_count__14TItemProShieldFPv(s32);
 s32 TObjPlayer__sub_8011F63C(void *);
@@ -138,6 +138,6 @@ void TItemWeaponFist::emit_marker_effects() {
     index = stage;
     index += k;
     arg0->player->sample_joint_position(lbl_804A2B50[index], buf);
-    TObjEneDellBiter__sub_80087350(buf, 0x1D0);
+    spawn_particle_effect(buf, 0x1D0);
   }
 }

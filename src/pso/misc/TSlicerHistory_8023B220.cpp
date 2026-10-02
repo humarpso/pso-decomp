@@ -17,7 +17,7 @@ M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
@@ -60,7 +60,7 @@ void render__14TSlicerHistoryFv(u8 *arg0) {
             set_chunk_material_color((void *) (&lbl_804A7418));
             end_effect_render__13TParticleCtrlFv();
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         some_id_805c6f74 = lbl_805D5660;
     }
 }

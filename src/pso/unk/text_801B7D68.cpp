@@ -18,7 +18,7 @@ void TObjPlayer__sub_801C0D7C(void *);
 void TObjPlayer__sub_801C0D9C(void *);
 void fn_801B7E14(void *arg0, s32 arg1, s32 arg2);
 M2C_UNK TItem__sub_801005EC(s32, s32);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u8 *get_player_by_client_id(u16);
 M2C_UNK bswap_body_dwords2__10TObjPlayerFi(void *);
 M2C_UNK copy_pair_fields2__10TObjPlayerFPvPv(void *, void *);
 void TObjPlayer__sub_801C0D7C(void *);
@@ -39,7 +39,7 @@ void handle_6x28_feed_mag(s32 arg0) {
     copy_pair_fields2__10TObjPlayerFPvPv(&cmd, (void *)arg0);
     bswap_body_dwords2__10TObjPlayerFi(&cmd);
     if (validate_6x28_feed_mag(&cmd) != 0) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(cmd.client);
+        p = get_player_by_client_id(cmd.client);
         if (p != NULL && start_inventory_update__10TObjPlayerFPvi(M2C_FIELD(p, s32 *, 0xD00), cmd.item_a) != 0U) {
             a = get_owner_if_alive__10TObjPlayerFPv();
             if (a != 0 && start_inventory_update__10TObjPlayerFPvi(M2C_FIELD(p, s32 *, 0xD00), cmd.item_b) != 0U) {

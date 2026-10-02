@@ -82,7 +82,7 @@ s16 TObjPlayer__sub_80121238(void *);
 u16 get_uid__10TObjPlayerFPv(void *);
 void *TObjPlayer__sub_80121248(void *, s32);
 s32 TObjPlayer__sub_8012125C(void *);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
 Obj_8011F474 *TObjPlayer__sub_80154804(s32, s32);
 void TObjPlayer__sub_8011F474(PlSelf_8011F474 *self, f32 range);
 }
@@ -106,7 +106,7 @@ void TObjPlayer__sub_8011F474(PlSelf_8011F474 *self, f32 range) {
                 uid = get_uid__10TObjPlayerFPv(ent);
                 id = TObjPlayer__sub_80121238(ent);
                 obj = TObjPlayer__sub_80154804(uid, id);
-                if (obj != NULL && TObjPlayer__sub_80141CF8(self->owner->pos, obj->pos) < range) {
+                if (obj != NULL && horizontal_distance_squared(self->owner->pos, obj->pos) < range) {
                     ready = is_status_subsystem_ready__10TObjPlayerFPv(self->owner);
                     query_extended_state__10TObjPlayerFPv(self->owner);
                     self->on_near(self->owner, obj, ready, id);

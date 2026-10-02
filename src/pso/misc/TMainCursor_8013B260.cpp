@@ -29,7 +29,7 @@ extern "C" {
 void TMainCursor__sub_8013B2A4(u16 *arg0);
 void TMainCursor__sub_8013B398(void *arg0, void *arg1);
 void* init__11TMainCursorFPv(void* a0);
-M2C_UNK TPlayerBattleCtrl4P__sub_801BA74C(u16);
+M2C_UNK get_player_by_client_id(u16);
 int init__13TLockOnCursorFPvPvPv(void);
 
     extern unsigned char lbl_804A7290[];
@@ -37,7 +37,7 @@ int init__13TLockOnCursorFPvPvPv(void);
 void* init__11TMainCursorFPv(void* a0) { init__13TLockOnCursorFPvPvPv(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A7290; *(int*)((char*)a0 + 0x0) = lbl_805D2CBC; return a0; }
 
 void TMainCursor__sub_8013B2A4(u16 *arg0) {
-    TPlayerBattleCtrl4P__sub_801BA74C(*arg0);
+    get_player_by_client_id(*arg0);
 }
 
 s32 TMainCursor__sub_8013B2C8(void *arg0) {

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TOSwitchAttack__sub_80087278(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
+s32 spawn_particle_effect_with_flags(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 obj_testFlags30(void * a0 = 0, s32 a1 = 0);
 void copy_entry_bytes__10TObjPlayerFPvPv(void* p, void* q);
 

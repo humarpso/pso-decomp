@@ -239,7 +239,7 @@ extern RecoveredGlobal_8006CD78_lbl_80488DF4 lbl_80488DF4;
 extern u8 TCameraCtrl__data_805D4E20;
 void TCameraCtrl__sub_8006CD78(u8 *arg0, u8 *arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 get_player_by_client_id(u32);
 extern RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8 TCameraCtrl__data_80488DE8;
 extern RecoveredGlobal_8006CD78_lbl_80488DF4 lbl_80488DF4;
 extern u16 TCameraCtrl__data_805D2840;
@@ -258,7 +258,7 @@ extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_reg
 extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
 void TCameraCtrl__sub_8006D460(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-u8 * TObjButterflyLobby__sub_8007A5D8(void *, void *, u32);
+u8 * csnVector(void *, void *, u32);
 extern const f32 TCameraCtrl__data_805D9050;
 void TCameraCtrl__sub_8006DCD4(struct RecoveredFields_8006DCD4_arg0 *arg0, u8 *arg1, u8 *arg2);
 M2C_UNK set_field_100__11TCameraCtrlFPvi(void* p, s32 v);
@@ -269,7 +269,7 @@ void TCameraCtrl__sub_8006D610(void);
 extern u8 TCameraCtrl__data_805D4E20;
 extern u16 TCameraCtrl__data_805D2840;
 extern void *lbl_805D53A0;
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 get_player_by_client_id(u32);
 void TCameraCtrl__sub_8006A410(void *p, s32 x);
 void TCameraCtrl__sub_8006CCEC(void);
 extern O_8006CC7C *lbl_805005D0[];
@@ -277,7 +277,7 @@ extern const V_8006CC7C lbl_804384E8;
 extern s16 lbl_805D4EC8;
 V_8006CC7C TCameraCtrl__sub_8006CC7C(void);
 s32 is_split_screen();
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 get_player_by_client_id(u32);
 extern void *lbl_805D53A0;
 void TCameraCtrl__sub_8006D2B0(void *arg0, void *arg1, u16 arg2);
 void TObjPlayer__sub_803D97F0(void *);
@@ -293,14 +293,14 @@ s32 conversation_camera_obstructed(FollowController *self,s32 heading);
 s32 is_split_screen();
 u16 TCameraCtrl__sub_80068958(s32 n);
 void set_pos_target__11TCameraCtrlFPvPvPvi(void *arg0, void *arg1, void *arg2, s32 arg3);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 get_player_by_client_id(u32);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
 extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
 void TCameraCtrl__sub_8006D344(void *arg0, void *arg1, s32 arg2, u16 arg3);
 void set_target__11TCameraCtrlFPvUi(void *, s32);
 int TCameraCtrl__sub_80068714(void);
 void TCameraCtrl__sub_8006E804(void* a0);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 get_player_by_client_id(u32);
 extern M2C_UNK lbl_80488E00[];
 extern u16 TCameraCtrl__data_805D2840;
 extern u8 TCameraCtrl__data_805D4E20;
@@ -317,14 +317,14 @@ s32 is_split_screen();
 int get_camera_mode__11TCameraCtrlFv();
 s32 TCameraCtrl__sub_8006809C(void *);
 s32 get_camera_id__11TCameraCtrlFv();
-f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
 extern FollowView *lbl_805D4DF0;
 extern const f32 lbl_805D9088;
 extern const f32 lbl_805D909C;
 extern const f32 lbl_805D90A0;
 extern const f32 lbl_805D90A4;
 void TCameraCtrl__sub_8006DB68(Cam_8006DB68 *arg0);
-u8 * TObjButterflyLobby__sub_8007A5D8(void *, void *, u32);
+u8 * csnVector(void *, void *, u32);
 void TCameraCtrl__sub_803D8934(s32, void *, void *);
 f32 TCameraCtrl__sub_803D8D00(FollowVector *);
 void rotate_matrix_y(s32, s32);
@@ -341,7 +341,7 @@ void TCameraCtrl__sub_803D8934(s32, void *, void *);
 void rotate_matrix_y(s32, s32);
 void TObjPlayer__sub_803D97F0(void *);
 void TCameraCtrl__sub_803D9858(s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 get_player_by_client_id(u32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TCameraCtrl__sub_803D662C(f32, f32);
 void TCameraCtrl__sub_801E32E4(void *, s32);
@@ -412,7 +412,7 @@ V_8006CC7C TCameraCtrl__sub_8006CC7C(void) {
 void TCameraCtrl__sub_8006CCEC(void) {
     TCameraCtrl__data_805D4E20 = 0;
     TCameraCtrl__data_805D2840 = 0xFFFF;
-    TCameraCtrl__sub_8006A410(((void *)TPlayerBattleCtrl4P__sub_801BA74C((u32)(lbl_805D53A0))), 0);
+    TCameraCtrl__sub_8006A410(((void *)get_player_by_client_id((u32)(lbl_805D53A0))), 0);
 }
 
 void TCameraCtrl__sub_8006CD2C(u8 *arg0, s16 arg1) {
@@ -435,7 +435,7 @@ s32 TCameraCtrl__sub_8006CDD0(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x38) = 0;
         VecCopy__FP3VecPC3Vec(arg0 + 0x3C, &(*(RecoveredGlobal_8006CDD0_TCameraCtrl__data_80488DE8 *)&TCameraCtrl__data_80488DE8).value);
         if (TCameraCtrl__data_805D4E20 & 2) {
-            temp_r3 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C((u32) TCameraCtrl__data_805D2840));
+            temp_r3 = (u8 *)(get_player_by_client_id((u32) TCameraCtrl__data_805D2840));
             if (temp_r3 != NULL) {
                 M2C_FIELD(arg0, f32 *, 0x48) = (f32) M2C_FIELD(temp_r3, f32 *, 0x38);
                 M2C_FIELD(arg0, f32 *, 0x4C) = (f32) (TCameraCtrl__data_805D9050 + M2C_FIELD(temp_r3, f32 *, 0x3C));
@@ -505,10 +505,10 @@ void TCameraCtrl__sub_8006D2B0(void *arg0, void *arg1, u16 arg2) {
     p = NULL;
     if (is_split_screen() != 0) {
         if (arg2 != 0xFFFF) {
-            p = ((Ply_8006D2B0 *)TPlayerBattleCtrl4P__sub_801BA74C((u32)(arg2)));
+            p = ((Ply_8006D2B0 *)get_player_by_client_id((u32)(arg2)));
         }
     } else {
-        p = ((Ply_8006D2B0 *)TPlayerBattleCtrl4P__sub_801BA74C((u32)((*(s32 *)&lbl_805D53A0))));
+        p = ((Ply_8006D2B0 *)get_player_by_client_id((u32)((*(s32 *)&lbl_805D53A0))));
     }
     if (p != NULL) {
         v = p->f60 + 0x8000;
@@ -527,7 +527,7 @@ void TCameraCtrl__sub_8006D344(void *arg0, void *arg1, s32 arg2, u16 arg3) {
             if (arg3 == 0xFFFF) {
                 for (i = 0; i < 4; i++) {
                     cam = REG_8006D344[TCameraCtrl__data_804FF628.value + i];
-                    p = (Ply_8006D344 *)TPlayerBattleCtrl4P__sub_801BA74C(TCameraCtrl__sub_80068958(i));
+                    p = (Ply_8006D344 *)get_player_by_client_id(TCameraCtrl__sub_80068958(i));
                     v = arg2;
                     if (p != 0) {
                         v = p->f60 + arg2;
@@ -590,8 +590,8 @@ s32 conversation_camera_obstructed(FollowController *self,s32 heading) {
     candidate.x+=offset.x;
     candidate.y+=lbl_805D907C+offset.y;
     candidate.z+=offset.z;
-    if(((u32)TObjButterflyLobby__sub_8007A5D8((void *)(&eye), (void *)(&candidate), (u32)(0x100))))return 1;
-    return ((u32)TObjButterflyLobby__sub_8007A5D8((void *)(&candidate), (void *)(&lbl_805D4DF0->target), (u32)(0x100))) ? 1 : 0;
+    if(((u32)csnVector((void *)(&eye), (void *)(&candidate), (u32)(0x100))))return 1;
+    return ((u32)csnVector((void *)(&candidate), (void *)(&lbl_805D4DF0->target), (u32)(0x100))) ? 1 : 0;
 }
 
 void TCameraCtrl__sub_8006D610(void) {
@@ -646,7 +646,7 @@ void TCameraCtrl__sub_8006DB68(Cam_8006DB68 *arg0) {
     } else {
         src = &lbl_805D4DF0->position;
     }
-    if (TObjPlayer__sub_80141CF8(&lbl_805D4DF0->target, src) >= lbl_805D90A0) {
+    if (horizontal_distance_squared(&lbl_805D4DF0->target, src) >= lbl_805D90A0) {
         arg0->flags |= 4;
     } else {
         arg0->flags &= ~4;
@@ -657,7 +657,7 @@ void TCameraCtrl__sub_8006DB68(Cam_8006DB68 *arg0) {
         } else {
             src = &lbl_805D4DF0->position;
         }
-        if (TObjPlayer__sub_80141CF8(src, arg0->actor + 0x38) > lbl_805D90A4) {
+        if (horizontal_distance_squared(src, arg0->actor + 0x38) > lbl_805D90A4) {
             arg0->flags |= 1;
         } else {
             arg0->flags |= 1;
@@ -683,7 +683,7 @@ void TCameraCtrl__sub_8006DCD4(struct RecoveredFields_8006DCD4_arg0 *arg0, u8 *a
         arg0->field_40 = arg0->field_4C + M2C_FIELD(arg2, f32 *, 4);
         temp_f1 = arg0->field_50;
         arg0->field_44 = temp_f1 + M2C_FIELD(arg2, f32 *, 8);
-        temp_r3 = (u8 *)(TObjButterflyLobby__sub_8007A5D8(&arg0->field_48, &arg0->field_3C, 0x100));
+        temp_r3 = (u8 *)(csnVector(&arg0->field_48, &arg0->field_3C, 0x100));
         if (temp_r3 != NULL) {
             VecCopy__FP3VecPC3Vec((void *)(&arg0->field_3C), (void *)(M2C_FIELD(temp_r3, s32 *, 4)));
         }
@@ -706,7 +706,7 @@ void TCameraCtrl__sub_8006DD78(Cam_8006DD78 *arg0, Tgt_8006DD78 *arg1) {
         arg0->pos.x = arg0->target.x + v.x;
         arg0->pos.y = arg0->target.y + v.y;
         arg0->pos.z = arg0->target.z + v.z;
-        hit = (Hit_8006DD78 *)TObjButterflyLobby__sub_8007A5D8(&arg0->target, &arg0->pos, 0x100);
+        hit = (Hit_8006DD78 *)csnVector(&arg0->target, &arg0->pos, 0x100);
         if (hit != NULL) {
             d.x = arg0->pos.x - arg0->target.x;
             d.y = arg0->pos.y - arg0->target.y;
@@ -727,7 +727,7 @@ void TCameraCtrl__sub_8006DEF8(Cam_8006DEF8 *self) {
     FollowVector v = lbl_80438528;
     Tgt_8006DEF8 *p;
     s32 state;
-    p = (Tgt_8006DEF8 *)TPlayerBattleCtrl4P__sub_801BA74C((u32)lbl_805D53A0);
+    p = (Tgt_8006DEF8 *)get_player_by_client_id((u32)lbl_805D53A0);
     state = get_global_state__14TOKeyMachine01Fv();
     if (p != NULL) {
         self->angle = p->angle + 0x8000;
@@ -850,7 +850,7 @@ void *TCameraCtrl__sub_8006E714(void *arg0) {
     O_8006E714->fec = (*(const f32 *)&TCameraCtrl__data_805D905C);
     O_8006E714->ff0 = (*(const f32 *)&TCameraCtrl__data_805D905C);
     O_8006E714->f38 = 5;
-    set_target__11TCameraCtrlFPvUi(O_8006E714, TPlayerBattleCtrl4P__sub_801BA74C((u32)lbl_805D53A0));
+    set_target__11TCameraCtrlFPvUi(O_8006E714, get_player_by_client_id((u32)lbl_805D53A0));
     ((VObj_8006E714 *)O_8006E714)->m8();
     O_8006E714->f100 = 0;
     O_8006E714->f104 = 0;

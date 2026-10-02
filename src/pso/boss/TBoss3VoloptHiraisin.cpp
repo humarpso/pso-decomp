@@ -271,7 +271,7 @@ extern const f32 lbl_805D8700;
 void obj_setFlags30(void *, u32);
 void TBoss3VoloptHiraisin__sub_80041B64(u8 *arg0);
 s32 fn_80086D50(void *, void *, int);
-s32 TObjEneDellBiter__sub_80087350(void *, int);
+s32 spawn_particle_effect(void *, int);
 void TBoss3VoloptHiraisin__sub_80041BB4(u8 *arg0);
 s32 TObjEnemyCustom__ct(void *);
 extern M2C_UNK __vt__20TBoss3VoloptHiraisin[];
@@ -304,7 +304,7 @@ void TBoss3VoloptHiraisin__sub_800418C8(Hira_800418C8 *self);
 void TBoss3VoloptHiraisin__sub_80041B64(u8 *arg0);
 void TBoss3VoloptHiraisin__sub_80041BB4(u8 *arg0);
 void damage_player_if_aligned__20TBoss3VoloptHiraisinFPv(void *arg0);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 int TBoss3Volopt__sub_8022675C(int, void *, int, int);
 extern s8 lbl_804FEED0[];
 extern u16 lbl_805D4C18;
@@ -470,7 +470,7 @@ void TBoss3VoloptHiraisin__sub_80041BB4(u8 *arg0) {
     stack.spC = M2C_FIELD(arg0, s32 *, 0x60);
     stack.sp10 = 0;
     fn_80086D50((void *) (arg0 + 0x2FC), (void *) (&stack.sp8), (int) (((u32)__cntlzw(M2C_FIELD(arg0, s16 *, 0x38C) & 3) >> 5) + 0x61));
-    TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x2FC), (int) (0x45));
+    spawn_particle_effect((void *) (arg0 + 0x2FC), (int) (0x45));
 }
 
 void damage_player_if_aligned__20TBoss3VoloptHiraisinFPv(void *arg0) {
@@ -533,14 +533,14 @@ void TBoss3VoloptHiraisin__sub_80041D3C(Hira_80041D3C *self) {
                 }
             }
             if (all != 0) {
-                p = TPhotonMylla__sub_80154CB4(lbl_805D4C18 + base);
+                p = find_entity_by_id(lbl_805D4C18 + base);
                 if (p != NULL) {
                     TBoss3VoloptHiraisin__sub_80041B64(p);
                 }
             }
         } else {
             for (j = self->idx + 1; j < self->idx + 4; j++) {
-                p = TPhotonMylla__sub_80154CB4(lbl_805D4C18 + j);
+                p = find_entity_by_id(lbl_805D4C18 + j);
                 if (p != NULL) {
                     TBoss3VoloptHiraisin__sub_80041B64(p);
                 }

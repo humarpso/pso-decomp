@@ -44,12 +44,12 @@ s32 fn_801F4C98();
 extern char lbl_80449C88[];
 void TLobby__sub_801E6A04(void);
 s32 select_download_type__6TLobbyFi(s32);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 void append_string(s32 arg0);
 extern char lbl_80449C9C[];
 extern s32 lbl_805D53A0;
 void TLobby__sub_801E6B20(void);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 void append_string(s32 arg0);
 extern char lbl_80449CA8[];
 extern s32 lbl_805D53A0;
@@ -126,7 +126,7 @@ void TLobby__sub_801E6AE0(void) {
 }
 
 void TLobby__sub_801E6B20(void) {
-    Ctrl_801E6B20 *c = (Ctrl_801E6B20 *)TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    Ctrl_801E6B20 *c = (Ctrl_801E6B20 *)get_player_by_client_id(lbl_805D53A0);
     if (c != NULL) {
         append_string(select_download_type__6TLobbyFi(c->type));
     } else {
@@ -136,7 +136,7 @@ void TLobby__sub_801E6B20(void) {
 
 void TLobby__sub_801E6B68(void) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0));
+    temp_r3 = (u8 *)(get_player_by_client_id(lbl_805D53A0));
     if (temp_r3 != NULL) {
         append_string(((VObj_18_f23ffb *)(temp_r3))->m10());
     } else {

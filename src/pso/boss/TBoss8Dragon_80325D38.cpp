@@ -8,7 +8,7 @@ typedef struct Vec_80325D58 { f32 x; f32 y; f32 z; } Vec_80325D58;
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
-f32 TObjPlayer__sub_8001978C(f32);
+f32 newton_sqrtf(f32);
 f32 TObjPlayer__sub_803D89C0(void *, void *);
 void TNpcPlayer__sub_803D97B4(void *);
 extern const f32 lbl_805DF630;
@@ -29,7 +29,7 @@ int queue_destruction__12TBoss8DragonFPv(void* p) { return queue_destruction__7T
         f32 xx = d.x * d.x; \
         f32 yy = d.y * d.y; \
         f32 zz = d.z * d.z; \
-        if (TObjPlayer__sub_8001978C(zz + (xx + yy)) <= dist) { \
+        if (newton_sqrtf(zz + (xx + yy)) <= dist) { \
             return 0; \
         } \
         to->x = dir->x * dist + from->x; \

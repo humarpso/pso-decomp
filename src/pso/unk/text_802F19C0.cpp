@@ -6,7 +6,7 @@ extern "C" {
 
 void draw_particle_effect(void* a0);
 void fn_802F19C0(void);
-int TObjDoor__sub_803DC894(void*, void*, float);
+int draw_ginja_model_with_motion(void*, void*, float);
 void *__ct__7TObjectFP7TObject(void *, void *);
 void *__nw__7TObjectFUl(int);
 int begin_effect_render__13TParticleCtrlFv(void);
@@ -30,6 +30,6 @@ void fn_802F19C0(void) {
 }
 
     extern int lbl_805D6954;
-void draw_particle_effect(void* a0) { set_depth_buffer_settings_id__FUl((void*)3); begin_effect_render__13TParticleCtrlFv(); set_global_param__8TObjFishFi((void*)(lbl_805D6954)); set_global_flag__10TObjPlayerFv(); TObjDoor__sub_803DC894((void*)(*(int*)((char*)a0 + 0x1c)), (void*)(*(int*)((char*)a0 + 0x20)), *(float*)((char*)a0 + 0x28)); clear_global_state__10TObjPlayerFv(); end_effect_render__13TParticleCtrlFv(); func_80141618__Fv(); }
+void draw_particle_effect(void* a0) { set_depth_buffer_settings_id__FUl((void*)3); begin_effect_render__13TParticleCtrlFv(); set_global_param__8TObjFishFi((void*)(lbl_805D6954)); set_global_flag__10TObjPlayerFv(); draw_ginja_model_with_motion((void*)(*(int*)((char*)a0 + 0x1c)), (void*)(*(int*)((char*)a0 + 0x20)), *(float*)((char*)a0 + 0x28)); clear_global_state__10TObjPlayerFv(); end_effect_render__13TParticleCtrlFv(); func_80141618__Fv(); }
 
 }

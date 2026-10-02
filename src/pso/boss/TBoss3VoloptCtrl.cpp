@@ -10,13 +10,13 @@ struct RecoveredGlobal_80040D70_lbl_8043636C { M2C_UNK value; u8 remaining[0x9];
 
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 M2C_UNK TLobby__sub_80226E44(int);
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805D86F8;
 void TBoss3VoloptCtrl__sub_80040B80(s32 arg0);
 s32 get_main_phase(void);
-M2C_UNK TObjPlayer__sub_800196EC();
+M2C_UNK get_current_floor();
 void *init_object__16TBoss3VoloptCtrlFPv(void *arg0);
 s32 TCameraCtrl__sub_80069DA8(void);
 s32 TCameraCtrl__sub_80069E7C(s32);
@@ -42,7 +42,7 @@ void dispatch_state__16TBoss3VoloptCtrlFi(s32 arg0);
 void *init_object__16TBoss3VoloptCtrlFPv(void *arg0);
 M2C_UNK TLobby__sub_8020C07C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TLobby__sub_8020C9C8(M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TObjPlayer__sub_800196EC();
+M2C_UNK get_current_floor();
 void __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -62,7 +62,7 @@ extern void *lbl_805D2730;
 extern "C" {
 void TBoss3VoloptCtrl__sub_80040B80(s32 arg0) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0));
+    temp_r3 = (u8 *)(get_player_by_client_id(lbl_805D53A0));
     if ((temp_r3 != NULL) && (M2C_FIELD(temp_r3, f32 *, 0x40) >= lbl_805D86F8)) {
         TLobby__sub_80226E44((int) (3));
         queue_destruction__7TObjectFv((void *) (arg0));
@@ -96,23 +96,23 @@ extern "C" {
 void dispatch_state__16TBoss3VoloptCtrlFi(s32 arg0) {
     switch (arg0) {
     case 0:
-        TLobby__sub_8020C9C8(TObjPlayer__sub_800196EC(), 0, 1);
-        TLobby__sub_8020C9C8(TObjPlayer__sub_800196EC(), 0, 3);
+        TLobby__sub_8020C9C8(get_current_floor(), 0, 1);
+        TLobby__sub_8020C9C8(get_current_floor(), 0, 3);
         return;
     case 1:
-        TLobby__sub_8020C9C8(TObjPlayer__sub_800196EC(), 0, 3);
+        TLobby__sub_8020C9C8(get_current_floor(), 0, 3);
     case 3:
-        TLobby__sub_8020C9C8(TObjPlayer__sub_800196EC(), 0, 2);
-        TLobby__sub_8020C07C(TObjPlayer__sub_800196EC(), 0, 2, -0x11, 0);
+        TLobby__sub_8020C9C8(get_current_floor(), 0, 2);
+        TLobby__sub_8020C07C(get_current_floor(), 0, 2, -0x11, 0);
         return;
     case 2:
-        TLobby__sub_8020C9C8(TObjPlayer__sub_800196EC(), 0, 3);
+        TLobby__sub_8020C9C8(get_current_floor(), 0, 3);
     case 4:
-        TLobby__sub_8020C9C8(TObjPlayer__sub_800196EC(), 0, 2);
+        TLobby__sub_8020C9C8(get_current_floor(), 0, 2);
         return;
     case 5:
-        TLobby__sub_8020C9C8(TObjPlayer__sub_800196EC(), 0, 1);
-        TLobby__sub_8020C9C8(TObjPlayer__sub_800196EC(), 0, 3);
+        TLobby__sub_8020C9C8(get_current_floor(), 0, 1);
+        TLobby__sub_8020C9C8(get_current_floor(), 0, 3);
         return;
     }
 }
@@ -136,16 +136,16 @@ void TBoss3VoloptCtrl::run_task() {
                 TObjBgmColCtrl__sub_802274B8((void *) (&lbl_8043636C.value));
                 if (get_main_phase() != 0xF) {
                     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-                        TLobby__sub_8020C9C8((M2C_UNK)(((s32)TObjPlayer__sub_800196EC())), (M2C_UNK)(0), (M2C_UNK)(1));
+                        TLobby__sub_8020C9C8((M2C_UNK)(((s32)get_current_floor())), (M2C_UNK)(0), (M2C_UNK)(1));
                     } else if (TODoorVoShip__sub_801F44BC(0x2F) != 0) {
                         dispatch_state__16TBoss3VoloptCtrlFi((s32)((int) (4)));
                     } else {
                         dispatch_state__16TBoss3VoloptCtrlFi((s32)((int) (3)));
                     }
                 } else {
-                    TLobby__sub_8020C9C8((M2C_UNK)(((s32)TObjPlayer__sub_800196EC())), (M2C_UNK)(0), (M2C_UNK)(1));
+                    TLobby__sub_8020C9C8((M2C_UNK)(((s32)get_current_floor())), (M2C_UNK)(0), (M2C_UNK)(1));
                 }
-                TLobby__sub_8020C9C8((M2C_UNK)(((s32)TObjPlayer__sub_800196EC())), (M2C_UNK)(0), (M2C_UNK)(3));
+                TLobby__sub_8020C9C8((M2C_UNK)(((s32)get_current_floor())), (M2C_UNK)(0), (M2C_UNK)(3));
                 temp_r3 = (u8 *)(__nw__7TObjectFUl(0x1C));
                 if (temp_r3 != NULL) {
                     init_object__16TBoss3VoloptCtrlFPv(temp_r3);

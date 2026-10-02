@@ -3,12 +3,12 @@
 extern "C" {
 
 int check_flag30_bit20__10TObjPlayerFi(void*);
-int TObjPlayer__sub_801D0BC0(void*, void*, void*);
+int run_action_state_phase__10TObjPlayerFisi(void*, void*, void*);
 void check_and_trigger_19_5__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801CAEAC(void);
 void TObjPlayer__sub_801CAF6C(void);
 
 void TObjPlayer__sub_801CAF6C(void) {  }
-void check_and_trigger_19_5__10TObjPlayerFPv(void* p) { if (check_flag30_bit20__10TObjPlayerFi(p) != 0) { TObjPlayer__sub_801D0BC0(p, (void*)19, (void*)5); } }
+void check_and_trigger_19_5__10TObjPlayerFPv(void* p) { if (check_flag30_bit20__10TObjPlayerFi(p) != 0) { run_action_state_phase__10TObjPlayerFisi(p, (void*)19, (void*)5); } }
 
 }

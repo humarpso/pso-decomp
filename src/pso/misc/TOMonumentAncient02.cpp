@@ -93,11 +93,11 @@ void TOMonumentAncient02__sub_80172D50(void);
 s32 rand(void);
 int rotate_matrix_y(int, int);
 int TObjPlayer__sub_803D9B2C();
-int TObjPlayer__sub_803D9B78();
+int pop_matrix();
 int TOHangerMachine01__sub_803D9C00(void *);
 int set_global_param__8TObjFishFi(int);
 int TOSignCave03__sub_803DB510(int);
-void TObjPlayer__sub_803D9624(s32, f32, f32, f32);
+void translate_matrix(s32, f32, f32, f32);
 int begin_effect_render__13TParticleCtrlFv();
 int end_effect_render__13TParticleCtrlFv();
 void set_chunk_material_color(void *);
@@ -122,7 +122,7 @@ void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TOTrapAncient01__sub_80226578(s32, void *, void *, M2C_UNK, M2C_UNK);
 void TObjEneGibbles__sub_80156720(void *);
 void TObjPlayer__sub_80154A00(void *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
+M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_key_base__5TOKeyFPvs(void *, int);
@@ -143,7 +143,7 @@ void run_task__19TOMonumentAncient02Fv(u8 *arg0) {
         return;
     case 1:
         if ((is_not_split_screen__13TRaderMapCoreFv() != 1) && ((s32) M2C_FIELD(arg0, s32 *, 0xEC) == 1)) {
-            TObjPlayer__sub_801B4A18(arg0, -1);
+            submit_cursor_candidate(arg0, -1);
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0xE8) != 0U) {
             enable__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0xE8));
@@ -194,7 +194,7 @@ void render__19TOMonumentAncient02Fv(Mon_80172AE0 *self) {
             }
             n = m->child;
             TObjPlayer__sub_803D9B2C();
-            TObjPlayer__sub_803D9624(0, n->x, n->y, n->z);
+            translate_matrix(0, n->x, n->y, n->z);
             begin_effect_render__13TParticleCtrlFv();
             lbl_805D5660 = some_id_805c6f74;
             some_id_805c6f74 = some_id_805c6f74 | 0x20;
@@ -203,9 +203,9 @@ void render__19TOMonumentAncient02Fv(Mon_80172AE0 *self) {
             set_chunk_material_color(lbl_804A7418);
             some_id_805c6f74 = lbl_805D5660;
             end_effect_render__13TParticleCtrlFv();
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 #pragma pop

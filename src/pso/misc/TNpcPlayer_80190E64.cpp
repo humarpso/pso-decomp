@@ -57,17 +57,17 @@ Npc_80190F3C *TNpcPlayer__sub_80190F3C(Npc_80190F3C *arg0, void *arg1, s32 arg2,
 void TObjPlayer__sub_80154A00(void *);
 void TObjEneGibbles__sub_80156720(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
-Ctrl_801910F4 *TPlayerBattleCtrl4P__sub_801BA74C(u32);
+Ctrl_801910F4 *get_player_by_client_id(u32);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8019118C_lbl_804B7C1C lbl_804B7C1C;
 Obj_801910F4 *TLobby__sub_801910F4(Obj_801910F4 *arg0, s16 arg1);
 int queue_destruction__7TObjectFv(void*);
 s32 is_inactive__10TObjPlayerFPv(void *);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
 void set_indexed_flags(void *, s32, s32);
 Npc_80190F3C *TNpcPlayer__sub_80190F3C(Npc_80190F3C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, void *arg6);
-Ctrl_801910F4 *TPlayerBattleCtrl4P__sub_801BA74C(u32);
+Ctrl_801910F4 *get_player_by_client_id(u32);
 void *__nw__7TObjectFUl(int);
 extern int lbl_805D3360;
 extern s32 lbl_805D53A0;
@@ -145,11 +145,11 @@ void TLobby__sub_80190FDC(Npc_80190FDC *arg0) {
         queue_destruction__7TObjectFv((void*)(arg0));
         return;
     }
-    p = (Ply_80190FDC *)TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    p = (Ply_80190FDC *)get_player_by_client_id(lbl_805D53A0);
     if (p == 0) {
         return;
     }
-    if (TObjPlayer__sub_80141CF8(arg0->pos, p->pos) <= arg0->f68 * arg0->f68) {
+    if (horizontal_distance_squared(arg0->pos, p->pos) <= arg0->f68 * arg0->f68) {
         set_indexed_flags(arg0, 0, 1);
         if (arg0->fB4 == 0) {
             arg0->fB4 = 1;
@@ -159,11 +159,11 @@ void TLobby__sub_80190FDC(Npc_80190FDC *arg0) {
             }
         }
     } else {
-        p = (Ply_80190FDC *)TPlayerBattleCtrl4P__sub_801BA74C(arg0->fAC);
+        p = (Ply_80190FDC *)get_player_by_client_id(arg0->fAC);
         if (p != 0 && arg0->fB4 == 1 && is_inactive__10TObjPlayerFPv(p) == 1) {
             clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1);
             arg0->fB4 = 0;
-            p = (Ply_80190FDC *)TPlayerBattleCtrl4P__sub_801BA74C(arg0->fAC);
+            p = (Ply_80190FDC *)get_player_by_client_id(arg0->fAC);
             if (p != 0) {
                 queue_destruction__7TObjectFv((void*)(p));
             }
@@ -178,7 +178,7 @@ Obj_801910F4 *TLobby__sub_801910F4(Obj_801910F4 *arg0, s16 arg1) {
         TObjEneGibbles__sub_80156720(arg0);
         u32 id = arg0->fAC;
         if (id != 0xFFFF) {
-            Ctrl_801910F4 *c = TPlayerBattleCtrl4P__sub_801BA74C(id);
+            Ctrl_801910F4 *c = get_player_by_client_id(id);
             if (c != NULL && c != NULL) {
                 c->v0(1);
             }

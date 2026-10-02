@@ -8,7 +8,7 @@ extern "C" {
 
 void *__dt__19TWindowSubTradeMainFv(void *arg0, s16 arg1);
 M2C_UNK check_flags_and_proceed__6TLobbyFv();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 M2C_UNK TWindowCtrl__sub_8024ADF0(s32);
 M2C_UNK TWindowSubComCard__sub_8024AB98(s32);
 M2C_UNK close__17TWindowSubComCardFPv(void *);
@@ -27,7 +27,7 @@ void *__dt__19TWindowSubTradeMainFv(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, void **, 0x18) = (void *) __vt__19TWindowSubTradeMain;
         TLobby__sub_802D29E8(arg0);
         check_flags_and_proceed__6TLobbyFv();
-        if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x28)) != 0U) {
+        if (get_player_by_client_id(M2C_FIELD(arg0, s32 *, 0x28)) != 0U) {
             end_camera_pan__10TObjPlayerFPv();
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x50) != 0U) {

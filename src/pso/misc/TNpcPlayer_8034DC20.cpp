@@ -60,14 +60,14 @@ M2C_UNK __dt__7TObjectFv(void *, int);
 s32 obj_isState3_324(int);
 s32 TWindowSubComCard__sub_801058F8();
 u16 get_action_flags__10TNpcPlayerFPv(int);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8034DC24_lbl_804F07C8 lbl_804F07C8;
 u8 *TNpcPlayer__sub_8034DC24(u8 *arg0, s16 arg1);
 s32 obj_isState3_324(int);
 void TNpcPlayer__sub_80152330(void *, u16, u16, s32, void *);
 u16 get_action_flags__10TNpcPlayerFPv(int);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 get_field_67c__10TNpcPlayerFPv(u8 *);
@@ -100,7 +100,7 @@ u8 *TNpcPlayer__sub_8034DC24(u8 *arg0, s16 arg1) {
     *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = &lbl_804F07C8.value;
     do
     {
-      temp_r3 = (u8 *) TPlayerBattleCtrl4P__sub_801BA74C(var_r31);
+      temp_r3 = (u8 *) get_player_by_client_id(var_r31);
       if (temp_r3 != 0)
       {
         if (TWindowSubComCard__sub_801058F8() != 0)
@@ -136,7 +136,7 @@ u8 *TNpcPlayer__sub_8034DD14(u8 *self, void *parent) {
     M2C_FIELD(self, void **, 0x18) = &lbl_804F07C8;
     M2C_FIELD(self, s32 *, 0x1C) = 0;
     for (slot = 0; slot < 4; slot++) {
-        player = TPlayerBattleCtrl4P__sub_801BA74C(slot);
+        player = get_player_by_client_id(slot);
         if (player == NULL || ((s32 (*)(u8 *)) obj_isState3_324)(player) == 0 || ((u16 (*)(u8 *)) get_action_flags__10TNpcPlayerFPv)(player) == 0xFFFF) {
             continue;
         }

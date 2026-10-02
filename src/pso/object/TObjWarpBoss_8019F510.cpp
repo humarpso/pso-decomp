@@ -46,7 +46,7 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 extern s32 tl_05;
 s32 TObjWarpBossMulti__create(s32 arg0);
 void queue_destruction__7TObjectFv(void *);
-void TObjPlayer__sub_80154B60(void *);
+void register_entity_by_id(void *);
 void TObjAreaWarp__ct(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 TLobby__sub_8020765C(void);
@@ -100,7 +100,7 @@ Obj_8019F578 *TObjWarpBoss__ct(Obj_8019F578 *self, int _w1, void * _w2) {
     self->fAC = lbl_805DC018;
     self->fBC = TLobby__sub_8020765C();
     self->fA4 = 0;
-    TObjPlayer__sub_80154B60(self);
+    register_entity_by_id(self);
     self->f164 = 0;
     self->f168 = 0;
     self->f180 = 0;

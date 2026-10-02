@@ -34,7 +34,7 @@ M2C_UNK func_80141618__Fv();
 M2C_UNK set_depth_buffer_settings_id__FUl(int);
 M2C_UNK TObjChip__sub_803D8AE4(int, int, int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470();
 extern u32 lbl_805D5C40;
@@ -90,7 +90,7 @@ void render__11TMotorcycleFv(u8 *arg0) {
             TObjChip__sub_803D8AE4((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)), (int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
             TObjFish__sub_8001EDC4((void *) ((*(s32 *)&lbl_805D5C40)), (int) (M2C_FIELD(arg0, s32 *, 0xBC)));
             TObjBoss2Tunnel__sub_803DB470();
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
         }
         func_80141618__Fv();
     }

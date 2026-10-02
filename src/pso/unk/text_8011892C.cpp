@@ -110,7 +110,7 @@ struct VItemProUnit_8011892C {
 u8 *TItemProUnit__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 void TItemProUnit__vt43(void *arg0);
 void TItem__sub_8011892C(void);
-u8 *TItemData__sub_8010EA38(void *);
+u8 *lookup_item_pmt_record(void *);
 M2C_UNK TItemEquipBase__ct();
 s16 get_field6_bswap__9TItemDataFPv(void *);
 M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
@@ -284,7 +284,7 @@ u8 *TItemProUnit__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     ((VItemProUnit_8011892C *)arg0)->m17((s8) (M2C_FIELD(arg2, u8 *, 4) + 9));
     M2C_FIELD(arg0, s16 *, 0x190) = 0;
     M2C_FIELD(arg0, f32 *, 0x1B8) = (f32) TItemProUnit__data_805DABF8;
-    temp_r3 = TItemData__sub_8010EA38(arg2);
+    temp_r3 = lookup_item_pmt_record(arg2);
     if (temp_r3 != NULL) {
         M2C_FIELD(arg0, s16 *, 0x18C) = (s16) M2C_FIELD(temp_r3, s16 *, 8);
         M2C_FIELD(arg0, s16 *, 0x18E) = (s16) M2C_FIELD(temp_r3, s16 *, 0xA);

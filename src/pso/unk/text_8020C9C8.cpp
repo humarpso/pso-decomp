@@ -24,7 +24,7 @@ struct Obj_8020C9C8 : ObjBase_8020C9C8 {
 };
 
 extern "C" {
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 TLobby__sub_8020B260(s32, s32, s32, s32);
 Set_8020C9C8 *get_object_count__6TLobbyFPv(s32);
 s32 get_obj_table_entry__6TLobbyFi(s32);
@@ -44,7 +44,7 @@ s32 TLobby__sub_8020C9C8(s32 arg0, s32 arg1, s32 arg2) {
     Obj_8020C9C8 *obj;
     count = 0;
     local = 0;
-    if (arg0 == TObjPlayer__sub_800196EC()) {
+    if (arg0 == get_current_floor()) {
         local = 1;
     }
     if (local == 0) {

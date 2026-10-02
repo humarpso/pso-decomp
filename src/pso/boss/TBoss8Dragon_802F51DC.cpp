@@ -407,7 +407,7 @@ M2C_UNK set_action_state__12TBoss8DragonFPv(void *);
 extern const f32 TBoss8Dragon__data_805DED50;
 extern const f32 TBoss8Dragon__data_805DEDD8;
 void TBoss8Dragon__sub_802F57E4(u8 *arg0, u32 arg1);
-M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK advance_animation_playback();
 s32 mask_flags__12TBoss8DragonFiii(void *, void *, int);
 s32 check_attack_ready__12TBoss8DragonFPv(void *);
 M2C_UNK TBoss8Dragon__sub_802FB09C(void *);
@@ -420,7 +420,7 @@ M2C_UNK TBoss8Dragon__sub_802FC220(void *);
 extern const f32 TBoss8Dragon__data_805DEDD4;
 void TBoss8Dragon__sub_802F5F64(u8 *arg0, u32 arg1);
 s32 fn_8002AE08(int);
-M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK advance_animation_playback();
 s32 mask_flags__12TBoss8DragonFiii(void *, void *, int);
 s32 TBoss8Dragon__sub_802FABB4(void *);
 M2C_UNK copy_pos_to_field688__12TBoss8DragonFPv();
@@ -762,7 +762,7 @@ void TBoss8Dragon__sub_802F5F64(u8 *arg0, u32 arg1) {
         copy_pos_to_field688__12TBoss8DragonFPv();
         return;
     case 0:
-        TBoss1Dragon__sub_80143504();
+        advance_animation_playback();
         TBoss8Dragon__sub_802FC220((void *) (arg0));
         TBoss8Dragon__sub_802FB09C((void *) (arg0));
         break;
@@ -830,7 +830,7 @@ void TBoss8Dragon__sub_802F645C(u8 *arg0, u32 arg1) {
         copy_pos_to_field688__12TBoss8DragonFPv();
         return;
     case 0:
-        TBoss1Dragon__sub_80143504();
+        advance_animation_playback();
         break;
     }
 }

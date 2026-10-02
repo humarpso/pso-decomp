@@ -63,8 +63,8 @@ void run_task__15TBoss6SwordWaveFv(u8 *arg0);
 void TBoss6SwordWave__sub_80356CDC(s32 arg0, u8 v, void *a, void *b);
 void TBoss6SwordWave__sub_80356CDC(s32 arg0, u8 v, void *a, void *b);
 void TBoss6SwordWave__sub_80356D10(W_80356D10 *arg0, u8 arg1);
-void *TOSwitchAttack__sub_80087278(void *, int, int);
-void TObjEneDellBiter__sub_80087350(void *, int);
+void *spawn_particle_effect_with_flags(void *, int, int);
+void spawn_particle_effect(void *, int);
 s32 get_rotation_timer__11TBoss6Type2FPv(int);
 u8 TBoss6SwordWave__sub_80356C80(s32 arg0, u8 arg1);
 u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
@@ -254,10 +254,10 @@ u8 *TBoss6SwordShot__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
         if (self->speed > lbl_805DFFF4) {
             scale = self->speed / lbl_805DFFF4;
         }
-        if ((p = TOSwitchAttack__sub_80087278(&self->pos, 0x212, 0x40)) != NULL) {
+        if ((p = spawn_particle_effect_with_flags(&self->pos, 0x212, 0x40)) != NULL) {
             set_position_xy__10TObjPlayerFPvff(p, scale, lbl_805DFFF0);
         }
-        if ((p = TOSwitchAttack__sub_80087278(&self->pos, 0x213, 0x40)) != NULL) {
+        if ((p = spawn_particle_effect_with_flags(&self->pos, 0x213, 0x40)) != NULL) {
             set_position_xy__10TObjPlayerFPvff(p, scale, lbl_805DFFF0);
         }
     }
@@ -311,11 +311,11 @@ s32 TBoss6SwordWave__sub_803564F4(void *arg0) {
             v.x += o->radius * TBoss8Dragon__sub_803D64C0(ang);
             v.z += o->radius * TBoss8Dragon__sub_803D64DC(ang);
             if (!(TObjPlayer__sub_803E1A58(&v, lbl_80479388) > lbl_805E0008)) {
-                TOSwitchAttack__sub_80087278(&v, 0x212, 0x40);
+                spawn_particle_effect_with_flags(&v, 0x212, 0x40);
                 if (get_rotation_timer__11TBoss6Type2FPv(o->owner) == 0) {
-                    TObjEneDellBiter__sub_80087350(&v, 0x213);
+                    spawn_particle_effect(&v, 0x213);
                 } else {
-                    TOSwitchAttack__sub_80087278(&v, 0x229, 0x2000);
+                    spawn_particle_effect_with_flags(&v, 0x229, 0x2000);
                 }
             }
         }

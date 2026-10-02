@@ -51,7 +51,7 @@ struct Player_80050D74 : VObj_80050D74 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u32 TObjEneDellBiter__sub_80087350(void *, int);
+u32 spawn_particle_effect(void *, int);
 s32 set_flags__11TBoss4Type2FPvUi(int, int);
 extern const f32 lbl_805D8A90;
 void fn_80050E64(M2C_UNK arg0, s32 arg1);
@@ -95,7 +95,7 @@ void fn_80050E64(M2C_UNK arg0, s32 arg1) {
     u32 temp_r3;
     VecCopy__FP3VecPC3Vec((void *) (&position.x), (void *) (arg1));
     position.y += lbl_805D8A90;
-    temp_r3 = TObjEneDellBiter__sub_80087350((void *) (&position.x), (int) (0xF3));
+    temp_r3 = spawn_particle_effect((void *) (&position.x), (int) (0xF3));
     if (temp_r3 != 0U) {
         set_flags__11TBoss4Type2FPvUi((int) (temp_r3), (int) (0x40));
     }

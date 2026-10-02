@@ -724,18 +724,18 @@ extern "C" {
 void TObjEneEpsilon__sub_800B96A4(void *);
 void fn_800B98C0(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void play_sound_variant__16TObjEneBm5GibonUFPv(void *);
 void set_flag__16TObjEneBm5GibonUFPv(void *);
 void set_anim_by_state__16TObjEneBm5GibonUFPv(void *);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+M2C_UNK advance_animation_playback(void *);
+u8 *find_entity_by_id(u16);
 void TObjEneBm5GibonU__sub_800D01DC(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 void play_sound_variant__16TObjEneBm5GibonUFPv(void *);
 void set_anim_by_state__16TObjEneBm5GibonUFPv(void *);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 extern const f32 lbl_805DA1A8;
 void TObjEneBm5GibonU__sub_800D00F0(u8 *arg0, s32 arg1);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -755,19 +755,19 @@ s32 TObjEneEpsilon__sub_800B95E0(void *);
 void TObjEneEpsilon__sub_800B96A4(void *);
 s32 update_velocity__9TObjEneDDFPv(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void play_sound_variant__16TObjEneBm5GibonUFPv(void *);
 s32 TObjEneBm5GibonU__sub_800D0F44(void *);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(void *, f32);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
 extern const f32 TObjEneBm5GibonU__data_805DA184;
 void TObjEneBm5GibonU__sub_800CFFBC(u8 *arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_getField1c(int);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK TObjEneBm5GibonU__sub_800D17E8(s32);
 u8 *TObjEneBm5GibonU__sub_800D1D78(u32);
 void TObjEneBm5GibonU__sub_800D062C(u8 *arg0, s32 arg1);
@@ -790,10 +790,10 @@ void queue_destruction__7TObjectFv(void *self);
 void TObjEneBm5GibonU__sub_800CD5B8(void *self, s32 msg);
 extern s32 lbl_805D5550;
 s32 TObjEneBm5GibonU__sub_800CCB24(Obj_800CCB24 *self);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 extern const f32 TObjEneBm5GibonU__data_805DA16C;
 void TObjEneBm5GibonU__sub_800D086C(Obj_800D086C *self);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 extern const f32 TObjEneBm5GibonU__data_805DA16C;
 void TObjEneBm5GibonU__sub_800D08E4(Obj_800D08E4 *self);
 s32 fn_8002B630(Col_800CCB74 *, void *);
@@ -809,7 +809,7 @@ Hit_800CCC6C *csnVectorUnder(Vec_800CCC6C *, void *, s32);
 s32 set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
 s32 TParticleCtrl__sub_80086884(int);
 s32 get_instance__13TParticleCtrlFv();
-void *TObjEneDellBiter__sub_80087350(void *, s32);
+void *spawn_particle_effect(void *, s32);
 s32 fn_800D88E4(void *);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
@@ -820,11 +820,11 @@ int TObjEneBm5GibonU__sub_800CCC6C(Ene_800CCC6C *arg0, void *arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void fn_800B98C0(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 s32 update_target__16TObjEneBm5GibonUFPv(void *);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
 void TBoss3Volopt__sub_800D8E80(void *);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 void TObjEneBm5GibonU__sub_800D02F8(Gibon_800D02F8 *g, s32 arg1);
 void TObjEneBm5GibonU__sub_800D062C(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800D02F8(Gibon_800D02F8 *g, s32 arg1);
@@ -848,7 +848,7 @@ void TObjEneBm5GibonU__sub_800D0738(u8 *arg0, u32 arg1, s32 arg2);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
 s32 TObjEneEpsilon__sub_800B95E0(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void play_sound_variant__16TObjEneBm5GibonUFPv(void *);
 void set_flag__16TObjEneBm5GibonUFPv(void *);
 s32 TObjEneBm5GibonU__sub_800D0F44(void *);
@@ -856,7 +856,7 @@ void *update_photon_mylla__16TObjEneBm5GibonUFPv(void *);
 s32 TObjEneBm5GibonU__sub_800D1D70();
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(void *, f32);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
 extern List_800CFE34 TObjEneBm5GibonU__data_80500EC4;
 extern const f32 TObjEneBm5GibonU__data_805DA184;
@@ -868,12 +868,12 @@ M2C_UNK set_active__9TObjEneDDFPv(void *);
 M2C_UNK TObjEneDD__sub_800BACE0(void *, f32, f32, f32);
 M2C_UNK TBoss8Dragon__sub_800BB780(void *);
 M2C_UNK TBoss8Dragon__sub_800BB7D4(void *, int);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK TObjEneBm5GibonU__sub_800D0AE8(void *, void *);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 s32 TObjPlayer__sub_801423A4(s32, s32, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
 extern const f32 TObjEneBm5GibonU__data_805DA158;
@@ -884,12 +884,12 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
 void fn_800B98C0(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void TObjEneBm5GibonU__sub_800CCD8C(u8 *arg0);
 s32 update_target__16TObjEneBm5GibonUFPv(void *);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(void *, f32);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
 f32 TBoss8Dragon__sub_803D64C0(int);
 f32 TBoss8Dragon__sub_803D64DC(int);
@@ -909,14 +909,14 @@ void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1);
 void advance_anim_frame__16TObjEneBm5GibonUFv(void);
 int get_attack_state__16TObjEneBm5GibonUFPv(void* p, void * _w1);
 void update_state__16TObjEneBm5GibonUFPv(void *arg0);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneBm5GibonU__sub_800D0FDC(void *, s32);
 M2C_UNK TObjEneBm5GibonU__sub_800D10A0(void *);
 M2C_UNK TObjEneBm5GibonU__sub_800D17E8(s32);
 M2C_UNK TObjEneBm5GibonU__sub_800D184C(void *);
 M2C_UNK TObjEneBm5GibonU__sub_800D187C(void *);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
@@ -984,14 +984,14 @@ int TObjEneBm5GibonU__sub_800CCC6C(Ene_800CCC6C *arg0, void *arg1) {
     v.y += TObjEneBm5GibonU__data_805DA164;
     hit = csnVectorUnder(&v, arg0->f120, 5);
     if (hit != NULL && (hit->flags & 4)) {
-        p = TObjEneDellBiter__sub_80087350(hit->obj + 0x38, 0x49);
+        p = spawn_particle_effect(hit->obj + 0x38, 0x49);
         if (p != NULL) {
             TObjFish__sub_800660D4(p, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneBm5GibonU__data_805DA168);
             if (arg0->f464 == 1) {
                 set_position_xy__10TObjPlayerFPvff(p, TObjEneBm5GibonU__data_805DA16C, TObjEneBm5GibonU__data_805DA168);
             }
         }
-        p = TObjEneDellBiter__sub_80087350(hit->obj + 0x38, 0xA4);
+        p = spawn_particle_effect(hit->obj + 0x38, 0xA4);
         if (p != NULL && arg0->f464 == 1) {
             set_position_xy__10TObjPlayerFPvff(p, TObjEneBm5GibonU__data_805DA16C, TObjEneBm5GibonU__data_805DA168);
         }
@@ -1079,19 +1079,19 @@ void TObjEneBm5GibonU__sub_800CE370(u8 *arg0, s32 arg1) {
         if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
             switch (M2C_FIELD(arg0, s32 *, 0x378)) {
             case 12:
-                TObjEneDD__sub_800BBA18(arg0, 0xE);
+                transition_enemy_state(arg0, 0xE);
                 break;
             case 3:
-                TObjEneDD__sub_800BBA18(arg0, 8);
+                transition_enemy_state(arg0, 8);
                 break;
             default:
-                TObjEneDD__sub_800BBA18(arg0, M2C_FIELD(arg0, s32 *, 0x378));
+                transition_enemy_state(arg0, M2C_FIELD(arg0, s32 *, 0x378));
                 break;
             }
         }
         break;
     case 0:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0x308);
         {
             f32 v = clamp_velocity__15TObjBoss2TunnelFPv(&sp8);
@@ -1132,12 +1132,12 @@ void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1) {
         return;
     case 3:
         if (get_flag_b4__21TObjEneMe3ShinowaRealFPv() != 0) {
-            TObjEneDD__sub_800BBA18(arg0, 8);
+            transition_enemy_state(arg0, 8);
         }
     case 5:
         return;
     case 0:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         TObjEneBm5GibonU__sub_800D0FDC(arg0, M2C_FIELD(arg0, s32 *, 0x60));
         if (objInBand__FP7GameObjf(arg0, TObjEneBm5GibonU__data_805DA178) != 0) {
             TBoss3Volopt__sub_8022675C((void *)copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3AA22), arg0 + 0x38, 0, 0);
@@ -1185,13 +1185,13 @@ void TObjEneBm5GibonU__sub_800CFE34(u8 *arg0, s32 arg1) {
         break;
     case 3:
         if (get_flag_b4__21TObjEneMe3ShinowaRealFPv() != 0) {
-            TObjEneDD__sub_800BBA18(arg0, 8);
+            transition_enemy_state(arg0, 8);
         }
         break;
     case 5:
         break;
     case 0:
-        ((void (*)(void *, s32))TBoss1Dragon__sub_80143504)(arg0, M2C_FIELD(arg0, s32 *, 0x518)++);
+        ((void (*)(void *, s32))advance_animation_playback)(arg0, M2C_FIELD(arg0, s32 *, 0x518)++);
         if (objInBand__FP7GameObjf(arg0, TObjEneBm5GibonU__data_805DA184) != 0) {
             TBoss3Volopt__sub_8022675C((void *)copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3A523), arg0 + 0x38, 0, 0);
         }
@@ -1230,14 +1230,14 @@ void TObjEneBm5GibonU__sub_800CFFBC(u8 *arg0, s32 arg1) {
     case 3:
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x518)))) > 0x3C)
     {
-      TObjEneDD__sub_800BBA18((void *)((void *) arg0), (M2C_UNK)((int) 8));
+      transition_enemy_state((void *)((void *) arg0), (M2C_UNK)((int) 8));
     }
     case 5:
       return;
       return;
     case 0:
       *((s32 *) (((s8 *) arg0) + 0x518)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x518))) + 1);
-      TBoss1Dragon__sub_80143504((void *) arg0);
+      advance_animation_playback((void *) arg0);
       if (objInBand__FP7GameObjf((void *) arg0, (f32) TObjEneBm5GibonU__data_805DA184) != 0)
     {
       TBoss3Volopt__sub_8022675C((void *)((void *) ((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) arg0), (M2C_UNK)((int) 0x3A523)))), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) 0), (M2C_UNK)((int) 0));
@@ -1279,7 +1279,7 @@ void TObjEneBm5GibonU__sub_800D00F0(u8 *arg0, s32 arg1) {
     case 0:
       *((s32 *) (((s8 *) arg0) + 0x518)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x518))) - 1);
       play_sound_variant__16TObjEneBm5GibonUFPv(arg0);
-      TBoss1Dragon__sub_80143504((void *) arg0);
+      advance_animation_playback((void *) arg0);
       PSO_VCALL_VObj_18_7b3d65_m100(arg0);
       PSO_VCALL_VObj_18_7b3d65_m86(arg0);
       break;
@@ -1301,14 +1301,14 @@ void TObjEneBm5GibonU__sub_800D01DC(u8 *arg0, s32 arg1) {
     case 3:
       if ((*((s32 *) (((s8 *) arg0) + 0x4AC))) & 1)
     {
-      TObjEneDD__sub_800BBA18((void *)(arg0), (M2C_UNK)(5));
+      transition_enemy_state((void *)(arg0), (M2C_UNK)(5));
       return;
     }
       if (((u32) (*((u32 *) (((s8 *) arg0) + 0x390)))) != 0U)
     {
       TObjEneEpsilon__sub_800B96A4(arg0);
       set_anim_by_state__16TObjEneBm5GibonUFPv(arg0);
-      temp_r3 = (u8 *) TPhotonMylla__sub_80154CB4(*((u16 *) (((s8 *) arg0) + 0x474)));
+      temp_r3 = (u8 *) find_entity_by_id(*((u16 *) (((s8 *) arg0) + 0x474)));
       if (temp_r3 != 0)
       {
         set_flag__16TObjEneBm5GibonUFPv(temp_r3);
@@ -1317,7 +1317,7 @@ void TObjEneBm5GibonU__sub_800D01DC(u8 *arg0, s32 arg1) {
       return;
     case 0:
       play_sound_variant__16TObjEneBm5GibonUFPv(arg0);
-      TBoss1Dragon__sub_80143504(arg0);
+      advance_animation_playback(arg0);
       PSO_VCALL_VObj_18_9e83f9_m100(arg0);
       PSO_VCALL_VObj_18_9e83f9_m86(arg0);
       return;
@@ -1349,16 +1349,16 @@ void TObjEneBm5GibonU__sub_800D02F8(Gibon_800D02F8 *g, s32 arg1) {
     case 3:
         if (g->sub.m5() != 0) {
             if (update_target__16TObjEneBm5GibonUFPv(g) != 0) {
-                TObjEneDD__sub_800BBA18((void *)(g), (M2C_UNK)(8));
+                transition_enemy_state((void *)(g), (M2C_UNK)(8));
             } else {
-                TObjEneDD__sub_800BBA18((void *)(g), (M2C_UNK)(3));
+                transition_enemy_state((void *)(g), (M2C_UNK)(3));
             }
         }
         break;
     case 5:
         break;
     case 0:
-        ((s32)TBoss1Dragon__sub_80143504(g));
+        ((s32)advance_animation_playback(g));
         ((Ene_800D02F8 *)g)->m100();
         ((Ene_800D02F8 *)g)->m86();
         break;
@@ -1385,16 +1385,16 @@ void TObjEneBm5GibonU__sub_800D0420(u8 *arg0, s32 arg1) {
     case 3:
         if (get_flag_b4__21TObjEneMe3ShinowaRealFPv() != 0) {
             if (update_target__16TObjEneBm5GibonUFPv((void *) (arg0)) != 0) {
-                TObjEneDD__sub_800BBA18(arg0, 8);
+                transition_enemy_state(arg0, 8);
             } else {
-                TObjEneDD__sub_800BBA18(arg0, 3);
+                transition_enemy_state(arg0, 3);
             }
         }
         break;
     case 5:
         break;
     case 0:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         if (!(M2C_FIELD(arg0, s32 *, 0xB0) & 4)) {
             TObjEneBm5GibonU__sub_800CCD8C(arg0);
             if (objInBand__FP7GameObjf((void *) (arg0), TObjEneBm5GibonU__data_805DA160) != 0) {
@@ -1432,10 +1432,10 @@ void TObjEneBm5GibonU__sub_800D062C(u8 *arg0, s32 arg1) {
     {
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x470)))) < 1)
       {
-        TObjEneDD__sub_800BBA18((void *)((void *) arg0), (M2C_UNK)((int) 1));
+        transition_enemy_state((void *)((void *) arg0), (M2C_UNK)((int) 1));
         return;
       }
-      TObjEneDD__sub_800BBA18((void *)((void *) arg0), (M2C_UNK)((int) 2));
+      transition_enemy_state((void *)((void *) arg0), (M2C_UNK)((int) 2));
     }
     case 5:
       return;
@@ -1529,7 +1529,7 @@ void TObjEneBm5GibonU__sub_800D0738(u8 *arg0, u32 arg1, s32 arg2) {
 }
 
 void TObjEneBm5GibonU__sub_800D086C(Obj_800D086C *self) {
-    u8 *r = TPhotonMylla__sub_80154CB4(self->f474);
+    u8 *r = find_entity_by_id(self->f474);
     if (r != 0) {
         Dmg_800D086C d;
         d.kind = 9;
@@ -1539,7 +1539,7 @@ void TObjEneBm5GibonU__sub_800D086C(Obj_800D086C *self) {
 }
 
 void TObjEneBm5GibonU__sub_800D08E4(Obj_800D08E4 *self) {
-    u8 *r = TPhotonMylla__sub_80154CB4(self->f474);
+    u8 *r = find_entity_by_id(self->f474);
     if (r != 0) {
         Dmg_800D08E4 d;
         d.kind = 10;

@@ -15,7 +15,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 u8 * TObjEneMorfosArm__sub_803326B4(void *);
 s32 TObjEneMorfosArm__sub_803326BC(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
-M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK advance_animation_playback();
 void run_task__16TObjEneMorfosArmFv(u8 *arg0);
 u16 obj_getField1c(void *);
 u8 * TObjMotion__ct(void *);
@@ -40,7 +40,7 @@ void render__16TObjEneMorfosArmFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void __dt__10TObjMotionFv(void *, int);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
@@ -62,14 +62,14 @@ void render__16TObjEneMorfosArmFv(u8 *arg0) {
     toggle_particle_effect__10TObjPlayerFv();
     draw__16TObjEneRe7BeruraFPv((void *) (arg0));
     end_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 extern M2C_UNK __vt__16TObjEneMorfosArm[];
 
 void run_task__16TObjEneMorfosArmFv(u8 *arg0) {
     u8 *temp_r3;
-    TBoss1Dragon__sub_80143504();
+    advance_animation_playback();
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xFC));
     if (temp_r3 == NULL) {
         queue_destruction__7TObjectFv((void *)(arg0));

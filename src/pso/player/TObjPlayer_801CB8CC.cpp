@@ -14,7 +14,7 @@ u32 TObjPlayer__sub_801B5EA4(s32);
 M2C_UNK TObjPlayer__sub_801B5FB0();
 M2C_UNK use_current_item__10TObjPlayerFPv(void *);
 M2C_UNK set_action_state__10TObjPlayerFPvss(void *, M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
+M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, s16, M2C_UNK);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK apply_velocity__10TObjPlayerFPv(s32);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
@@ -37,7 +37,7 @@ void start_use_item_action__10TObjPlayerFPv(u8 *arg0) {
 
     VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0x308);
     M2C_FIELD(arg0, s32 *, 0x33C) = 0xA;
-    TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
+    run_action_state_phase__10TObjPlayerFisi(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
     VecCopy__FP3VecPC3Vec(arg0 + 0x308, &sp8);
     obj_clearFlags30(arg0, 0x10000);
     use_current_item__10TObjPlayerFPv(arg0);

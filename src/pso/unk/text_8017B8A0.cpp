@@ -62,7 +62,7 @@ void init__11TOVS2Wall01FPv(void *);
 void TOVS2Wall01__sub_8017BAFC(Obj_8017BAFC *arg0, u16 arg1);
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, int);
 void apply_table_entry__6TLobbyFs(s16, void *);
-VObj_8017B9B0 *TPhotonMylla__sub_80154CB4();
+VObj_8017B9B0 *find_entity_by_id();
 s32 TLobby__sub_80156A80(void *, void *, int);
 void init__11TOVS2Wall01Fi(void *);
 void TOVS2Wall01__sub_8017CA48(void *, s32);
@@ -138,7 +138,7 @@ void handle_6x86_hit_destructible_object(Pkt_8017B9B0 *arg0) {
     if (id < 0x4000) {
         return;
     }
-    o = ((VObj_8017B9B0 *(*)(u16))TPhotonMylla__sub_80154CB4)(id);
+    o = ((VObj_8017B9B0 *(*)(u16))find_entity_by_id)(id);
     if (o != NULL) {
         if (check_value_equals__13TQuestColCtrlFPvi(o, lbl_805D31E0) == 0) {
             return;

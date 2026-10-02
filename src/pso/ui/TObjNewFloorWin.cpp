@@ -10,7 +10,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 is_split_screen(void);
 void *__ct__15TObjNewFloorWinFv(void *arg0, void *arg1, void *arg2);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 get_player_by_client_id(u32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 u8 *TLobby__sub_80074034(s32 arg0);
 }
@@ -59,7 +59,7 @@ u8 *TLobby__sub_80074034(s32 arg0) {
   var_r30 = 0;
   do
   {
-    if (TPlayerBattleCtrl4P__sub_801BA74C(var_r30) != 0U)
+    if (get_player_by_client_id(var_r30) != 0U)
     {
       temp_r3_2 = (u8 *) __nw__7TObjectFUl(0x50);
       var_r0_2 = (u8 *) temp_r3_2;

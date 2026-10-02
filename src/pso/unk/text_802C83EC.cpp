@@ -44,9 +44,9 @@ void rotate_matrix_y(int, void *);
 void set_npc_enemy_param(void *);
 void TObjPlayer__sub_801E2DE4(void *, void *, f32);
 void begin_effect_render__13TParticleCtrlFv(void);
-void TObjDoor__sub_803DC894(void *, void *, f32);
+void draw_ginja_model_with_motion(void *, void *, f32);
 void end_effect_render__13TParticleCtrlFv(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 M2C_UNK TOTrapChainSaw__ct();
 extern M2C_UNK __vt__18TOTrapChainSawEdge[];
 extern s32 lbl_805D3F0C;
@@ -56,7 +56,7 @@ extern u32 lbl_80540B44[5];
 void begin_effect_render__13TParticleCtrlFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
 void TParticleCtrl__sub_802C8464(u32 arg0);
-s8 TObjPlayer__sub_800196EC(int);
+s8 get_current_floor(int);
 void finalize_and_send_60__6TLobbyFPv(void *);
 void init_6x05_switch_changed__6TLobbyFPv(void *);
 void TOTrapChainSawKey__vt16(S_802C86D4 *arg0);
@@ -121,11 +121,11 @@ void TOTrapChainSawKey__vt23(void *arg0) {
     ((void (*)(int))set_npc_enemy_param)(0);
     if (M2C_FIELD(arg0, s32 *, 0xF0) == 1) {
         begin_effect_render__13TParticleCtrlFv();
-        TObjDoor__sub_803DC894(M2C_FIELD(arg0, void **, 0xFC), M2C_FIELD(arg0, void **, 0x100), M2C_FIELD(arg0, f32 *, 0x104));
+        draw_ginja_model_with_motion(M2C_FIELD(arg0, void **, 0xFC), M2C_FIELD(arg0, void **, 0x100), M2C_FIELD(arg0, f32 *, 0x104));
         end_effect_render__13TParticleCtrlFv();
     }
-    TObjPlayer__sub_803D9B78();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
+    pop_matrix();
     end_effect_render__13TParticleCtrlFv();
 }
 
@@ -154,7 +154,7 @@ void TOTrapChainSawKey__vt16(S_802C86D4 *arg0) {
     p.sC = 0;
     p.sA = 0xFFFF;
     p.s10 = arg0->fE8;
-    p.b12 = TObjPlayer__sub_800196EC(0xFFFF);
+    p.b12 = get_current_floor(0xFFFF);
     p.b13 = 1;
     finalize_and_send_60__6TLobbyFPv(&p);
 }

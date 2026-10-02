@@ -25,15 +25,15 @@ extern "C" {
 
 void set_monitor_position_vec3__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 void set_position_vec3__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
-M2C_UNK TOMonitorMachine01__sub_803D8B5C(f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9624(f32, f32, f32);
+M2C_UNK scale_matrix(f32, f32, f32);
+M2C_UNK translate_matrix(f32, f32, f32);
 
 void set_monitor_position_vec3__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
-    TOMonitorMachine01__sub_803D8B5C((f32) (M2C_FIELD(arg1, f32 *, 0)), (f32) (M2C_FIELD(arg1, f32 *, 4)), (f32) (M2C_FIELD(arg1, f32 *, 8)));
+    scale_matrix((f32) (M2C_FIELD(arg1, f32 *, 0)), (f32) (M2C_FIELD(arg1, f32 *, 4)), (f32) (M2C_FIELD(arg1, f32 *, 8)));
 }
 
 void set_position_vec3__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
-    TObjPlayer__sub_803D9624((f32) (M2C_FIELD(arg1, f32 *, 0)), (f32) (M2C_FIELD(arg1, f32 *, 4)), (f32) (M2C_FIELD(arg1, f32 *, 8)));
+    translate_matrix((f32) (M2C_FIELD(arg1, f32 *, 0)), (f32) (M2C_FIELD(arg1, f32 *, 4)), (f32) (M2C_FIELD(arg1, f32 *, 8)));
 }
 
 #pragma push

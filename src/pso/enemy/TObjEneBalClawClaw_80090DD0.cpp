@@ -121,15 +121,15 @@ void TObjPlayer__sub_800A04F0(void *);
 void request_two_effects__10TObjPlayerFPv(void *);
 void apply_effect_variant_a__10TObjPlayerFii(void *, int);
 void refresh_lobby_state__10TObjPlayerFPv(void *);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 void send_entity_set_flags__6TLobbyFPv(void *);
 void TBoss3Volopt__sub_8022675C(int, void *, int, int);
 void TObjEneBalClawClaw__sub_80091134(Claw_80091134 *self);
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
-M2C_UNK TObjPlayer__sub_80017E6C(void *);
-s32 TObjPlayer__sub_80018428(void *, void *);
+M2C_UNK move_with_wall_slide(void *);
+s32 check_path_obstructed(void *, void *);
 M2C_UNK reset_active_state__18TObjEneBalClawClawFPv(void *, s32, s32);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
 extern const f32 TObjEneBalClawClaw__data_805D968C;
@@ -142,8 +142,8 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TBoss3VoloptMonitor__sub_8004292C(void *);
 M2C_UNK reset_active_state__18TObjEneBalClawClawFPv(void *, s32, s32);
 M2C_UNK find_target_in_range__10TObjPlayerFPvf(void *, f32);
-Claw_80091354 *TNpcPlayer__sub_800D87EC(u16);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+Claw_80091354 *find_active_entity_by_id(u16);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
 extern const f32 TObjEneBalClawClaw__data_805D968C;
@@ -157,7 +157,7 @@ M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, int);
 M2C_UNK clear_attack_flag__18TObjEneBalClawClawFPv(void *);
 M2C_UNK reset_active_state__18TObjEneBalClawClawFPv(void *, s32, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 void TBoss3Volopt__sub_8022675C(int, void *, int, int);
 extern const f32 TObjEneBalClawClaw__data_805D968C;
@@ -182,7 +182,7 @@ struct En0VObj_80090DD0 : En0Base_80090DD0 {
 
 void TObjEneBalClawClaw__sub_800914A4(void);
 void action__18TObjEneBalClawClawFPv(u8 *arg0);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK TBoss3Volopt__sub_800D8C48(void *, s32);
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
 M2C_UNK TObjPlayer__sub_800A0554(void *);
@@ -207,7 +207,7 @@ void action__18TObjEneBalClawClawFPv(u8 *arg0) {
         TObjPlayer__sub_800A0554(arg0 + 0x390);
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         TObjPlayer__sub_80011734(arg0, 0, TObjEneBalClawClaw__data_805D968C);
         if (((En0VObj_80090DD0*)(arg0 + 0x390))->m5() == 1) {
             temp_r5 = M2C_FIELD(arg0, s32 *, 0x388);
@@ -281,7 +281,7 @@ void TObjEneBalClawClaw__sub_80090ECC(Claw_80090ECC *self) {
         }
         break;
     }
-    TBoss1Dragon__sub_80143504(self);
+    advance_animation_playback(self);
     TObjPlayer__sub_80011734(self, 0, TObjEneBalClawClaw__data_805D968C);
     update_collisions__10TObjPlayerFPv(self);
 }
@@ -296,7 +296,7 @@ void TObjEneBalClawClaw__sub_80091134(Claw_80091134 *self) {
         TBoss3Volopt__sub_8022675C(0x4003AD37, self->pos, 0, 0);
         self->state = 1;
     case 1:
-        ((s32)TBoss1Dragon__sub_80143504(self));
+        ((s32)advance_animation_playback(self));
         if (self->motion.m4() == 1) {
             apply_effect_variant_a__10TObjPlayerFii(self->pos, 0);
             send_entity_set_flags__6TLobbyFPv(self);
@@ -315,12 +315,12 @@ void TObjEneBalClawClaw__sub_80091200(Claw_80091200 *self) {
         self->fB8 = 3;
         self->state = 1;
     case 1: {
-        TBoss1Dragon__sub_80143504(self);
+        advance_animation_playback(self);
         Vec_80091200 v = self->pos;
         v.x += self->vel.x;
         v.z += self->vel.z;
-        if (TObjPlayer__sub_80018428(self, &v) == 0) {
-            TObjPlayer__sub_80017E6C(self);
+        if (check_path_obstructed(self, &v) == 0) {
+            move_with_wall_slide(self);
         } else {
             self->vel.x = self->vel.z = TObjEneBalClawClaw__data_805D968C;
         }
@@ -354,7 +354,7 @@ void TObjEneBalClawClaw__sub_80091354(Claw_80091354 *self) {
         } else {
             RESET(self);
         }
-        self->target = TNpcPlayer__sub_800D87EC(self->targetId);
+        self->target = find_active_entity_by_id(self->targetId);
         if (self->target != NULL) {
             VecCopy__FP3VecPC3Vec(&self->f29C, &self->target->pos);
         }
@@ -368,7 +368,7 @@ void TObjEneBalClawClaw__sub_80091354(Claw_80091354 *self) {
         Vec_80091354 v = self->target->pos;
         TObjPlayer__sub_80017D68(self, &v, 1, self->info, self->info->f4);
         update_angle__10TObjPlayerFPviPv(self, self->info->f8, (u8 *)self + 0x308);
-        TBoss1Dragon__sub_80143504(self);
+        advance_animation_playback(self);
         TObjPlayer__sub_80011734(self, 0, TObjEneBalClawClaw__data_805D968C);
         update_collisions__10TObjPlayerFPv(self);
         break;

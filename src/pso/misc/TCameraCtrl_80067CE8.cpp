@@ -45,14 +45,14 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 void *TCameraCtrl__sub_80068018(void *);
 M2C_UNK set_target_pos__11TCameraCtrlFPvPv(void *, void *, f32);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(M2C_UNK);
+u8 *get_player_by_client_id(M2C_UNK);
 extern const f32 lbl_805D8F78;
 void TCameraCtrl__sub_80067EE0(s32 arg0);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(M2C_UNK);
+u8 *get_player_by_client_id(M2C_UNK);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D97F0(void *);
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 extern RecoveredGlobal_80067E30_lbl_8058D490 lbl_8058D490;
 extern const f32 lbl_805D8F74;
 void TCameraCtrl__sub_80067E30(u8 *arg0);
@@ -113,7 +113,7 @@ void TCameraCtrl__sub_80067E30(u8 *arg0) {
     typedef char sp10_offset[(offsetof(Stack_80067E30, sp10) == 0x8) ? 1 : -1];
     Stack_80067E30 stack;
     u8 *temp_r3;
-    temp_r3 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C((M2C_UNK)(0)));
+    temp_r3 = (u8 *)(get_player_by_client_id((M2C_UNK)(0)));
     if (temp_r3 != NULL) {
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) M2C_FIELD(temp_r3, s32 *, 0x60);
         stack.sp8 = lbl_805D8F74;
@@ -122,7 +122,7 @@ void TCameraCtrl__sub_80067E30(u8 *arg0) {
         TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x30)));
         TCameraCtrl__sub_803D8934((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x48) + stack.sp8);
         M2C_FIELD(arg0, f32 *, 0x40) = (f32) (M2C_FIELD(arg0, f32 *, 0x4C) + stack.spC);
         M2C_FIELD(arg0, f32 *, 0x44) = (f32) (M2C_FIELD(arg0, f32 *, 0x50) + stack.sp10);
@@ -132,7 +132,7 @@ void TCameraCtrl__sub_80067E30(u8 *arg0) {
 void TCameraCtrl__sub_80067EE0(s32 arg0) {
     Stack_80067EE0 stack;
     u8 *temp_r3;
-    temp_r3 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C(0));
+    temp_r3 = (u8 *)(get_player_by_client_id(0));
     if (temp_r3 != NULL) {
         stack.sp8 = M2C_FIELD(temp_r3, f32 *, 0x38);
         stack.spC = lbl_805D8F78 + M2C_FIELD(temp_r3, f32 *, 0x3C);

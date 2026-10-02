@@ -101,7 +101,7 @@ void TLobby__sub_801A3770(void);
 void __dt__7TObjectFv(void *, int);
 M2C_UNK update__16TKeyBoardControlFv();
 void *get_player_data__10TObjPlayerFi(s32);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 void cleanup_scene__9TLoadCtrlFv();
 void TLoadCtrl__sub_8001C978(int);
 s32 get_game_mode__6TLobbyFv();
@@ -406,7 +406,7 @@ void TLobby__sub_801A33DC(void) {
     TLoadCtrl__sub_8001C978(2);
     TLobby__sub_800FD614(TLobby__data_805011D8, TLobby__data_805D53AC);
     TLobby__sub_802286C4(&lbl_80515BA0.value);
-    TObjCityMainWarp__sub_801865B4(TObjPlayer__sub_800196EC());
+    TObjCityMainWarp__sub_801865B4(get_current_floor());
     cleanup_scene__9TLoadCtrlFv();
     some_empty_func__9TMainTaskFv(&main_task.value);
     run_task__9TMainTaskFv(&main_task.value);

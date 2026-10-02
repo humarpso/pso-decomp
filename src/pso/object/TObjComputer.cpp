@@ -149,7 +149,7 @@ s32 TOHangerMachine01__sub_803D9C00(void *);
 s32 rotate_matrix_y(s32, s32);
 void dispatch_fish_event__6TLobbyFPv(void *a0);
 void fn_801FBA6C(void);
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 extern void *lbl_805D5B88;
 extern s32 lbl_805D5B8C;
 void TObjContainerAbeEnemy__vt79(Obj_80188884 *self);
@@ -192,7 +192,7 @@ M2C_UNK PPCSync();
 s32 rotate_matrix_y(s32, s32);
 M2C_UNK TObjPlayer__sub_803D99F8(void *, u32);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 s32 TOHangerMachine01__sub_803D9C00(void *);
 s32 set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(void *);
@@ -202,7 +202,7 @@ extern s16 lbl_805D5B70;
 extern s16 TObjComputer__data_805DBCD8[2];
 extern const f32 lbl_805DBCE4;
 M2C_UNK TObjComputer__sub_8018807C(void *arg0);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 void TObjPlayer__sub_80154954(void *, void *);
 s32 TLobby__sub_80156A80(void *, void *, int);
 void byteswap_and_send__6TLobbyFi(void *);
@@ -225,7 +225,7 @@ M2C_UNK TLobby__sub_803DA16C(void*);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjMesBase__vt12();
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
+M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__11TObjMesBaseFv(void *, M2C_UNK);
 void *__nw__7TObjectFUl(int);
@@ -264,7 +264,7 @@ M2C_UNK TObjComputer__sub_8018807C(void *arg0) {
     } else {
         TObjBoss2Tunnel__sub_803DB470(self->model);
     }
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 void render__12TObjComputerFv(u8 *arg0) {
@@ -285,7 +285,7 @@ extern f32 lbl_805DBCE8;
 void TObjComputer__vt12(void *arg0) {
     TObjMesBase__vt12();
     if ((s32) M2C_FIELD(arg0, s32 *, 0xB4) != 0) {
-        TObjPlayer__sub_801B4A18(arg0, -1);
+        submit_cursor_candidate(arg0, -1);
     }
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) (M2C_FIELD(arg0, f32 *, 0xC0) + lbl_805DBCE8);
 }
@@ -405,7 +405,7 @@ f32 TObjContainerAbeEnemy__vt20(Obj_80188768 *arg0) {
         TObjPlayer__sub_80154954(arg0, &sp8);
         init_packet_67_04__6TLobbyFPv(&pkt);
         pkt.b = arg0->f1C;
-        pkt.c = TObjPlayer__sub_800196EC();
+        pkt.c = get_current_floor();
         pkt.d = arg0->f84;
         pkt.e = lbl_805D53A0;
         byteswap_and_send__6TLobbyFi(&pkt);
@@ -430,7 +430,7 @@ void TObjContainerAbeEnemy__vt79(Obj_80188884 *self) {
             rotate_matrix_y(0, self->id);
             dispatch_fish_event__6TLobbyFPv((void *)2);
             fn_801FBA6C();
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             break;
         case 1:
             break;

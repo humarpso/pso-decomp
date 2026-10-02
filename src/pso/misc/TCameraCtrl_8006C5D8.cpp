@@ -39,7 +39,7 @@ void* reset__11TCameraCtrlFPv(void* a0);
 void update__11TCameraCtrlFPv(void *arg0);
 void TCameraCtrl__sub_800686BC(void *, int);
 int TCameraCtrl__sub_80068714(void);
-void *TPlayerBattleCtrl4P__sub_801BA74C(M2C_UNK);
+void *get_player_by_client_id(M2C_UNK);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void *get_params__11TCameraCtrlFPv(u32);
@@ -108,7 +108,7 @@ void update__11TCameraCtrlFPv(void *arg0) {
 
     if ((u32) lbl_805D4DF0 != 0U) {
         temp_r31 = get_params__11TCameraCtrlFPv(lbl_805D4DF0);
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(0);
+        temp_r3 = get_player_by_client_id(0);
         if (temp_r3 != NULL) {
             M2C_FIELD(arg0, f32 *, 0x48) = (f32) M2C_FIELD(temp_r3, f32 *, 0x38);
             M2C_FIELD(arg0, f32 *, 0x4C) = (f32) (lbl_805D9038 + M2C_FIELD(temp_r3, f32 *, 0x3C));

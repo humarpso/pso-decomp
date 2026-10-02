@@ -8,7 +8,7 @@ extern "C" {
 
 void start_action__10TObjPlayerFPv(u8 *arg0);
 s32 get_vobj_state_28__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
+M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, s16, M2C_UNK);
 f32 TObjPlayer__sub_801D2640(void *);
 M2C_UNK set_action_flag__10TObjPlayerFPv(void *);
 f32 TObjPlayer__sub_801D2858(void *);
@@ -26,7 +26,7 @@ void start_action__10TObjPlayerFPv(u8 *arg0) {
     s16 temp_r3;
 
     M2C_FIELD(arg0, s32 *, 0x33C) = 4;
-    TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
+    run_action_state_phase__10TObjPlayerFisi(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
     clear_id__10TObjPlayerFPv(arg0 + 0x5EC);
     temp_r3 = get_vobj_state_28__10TObjPlayerFPv(arg0);
     if (is_matching_id__10TObjPlayerFPvs(arg0, temp_r3) != 0) {

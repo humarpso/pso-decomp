@@ -55,7 +55,7 @@ typedef struct Self_80183134 {
 void queue_destruction__7TObjectFv(void *);
 s32 calc_random_scaled__10TObjPlayerFv(void);
 void TBoss7LaserPtcl__sub_80086C6C(void *, void *, s32, s32);
-void TOSwitchAttack__sub_80087278(void *, s32, s32);
+void spawn_particle_effect_with_flags(void *, s32, s32);
 void *TBoss8Dragon__sub_8008741C(void *, s32, s32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 s32 rand(void);
@@ -88,8 +88,8 @@ void fn_80183134(Self_80183134 *self) {
         break;
     case 1:
         if (self->timer == 10) {
-            TOSwitchAttack__sub_80087278(self->pos, 0x85, 0x40);
-            TOSwitchAttack__sub_80087278(self->pos, 0x86, 0x40);
+            spawn_particle_effect_with_flags(self->pos, 0x85, 0x40);
+            spawn_particle_effect_with_flags(self->pos, 0x86, 0x40);
         }
         self->timer++;
         if (self->timer >= 15) {
@@ -108,7 +108,7 @@ void fn_80183134(Self_80183134 *self) {
         break;
     case 2:
         if (self->timer == 0 || self->timer == 4 || self->timer == 8) {
-            TOSwitchAttack__sub_80087278(self->pos, self->se, 0x40);
+            spawn_particle_effect_with_flags(self->pos, self->se, 0x40);
         }
         self->timer++;
         self->pos[1] -= lbl_805DBC2C;

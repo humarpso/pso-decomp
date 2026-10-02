@@ -54,7 +54,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 is_on_current_screen__11TCameraCtrlFPv(int, void *);
 M2C_UNK init_parts__10TObjPlayerFPv(s32);
 M2C_UNK reset_equip_slots__10TObjPlayerFPv(int);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 void close_all_children__11TWindowChatFPv(void *arg0);
 void TWindowChat__sub_8024792C(u8 *arg0);
 s32 is_mode_bit6__11TWindowChatFPv(void *);
@@ -74,7 +74,7 @@ void close_all_children__11TWindowChatFPv(void *arg0);
 void handle_input__11TWindowChatFPv(void *arg0);
 void render__11TWindowChatFv(void);
 M2C_UNK TKeyBoardControl__sub_8025EC04(s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 s32 TWindowChat__sub_80247080(void *);
 s32 TWindowChat__sub_80247128(void *);
 s32 TWindowChat__sub_802471AC(void *);
@@ -112,7 +112,7 @@ void handle_input__11TWindowChatFPv(void *arg0) {
     s32 temp_r3;
     u8 temp_r0;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(lbl_805D53A0);
     if (temp_r3 != 0) {
         if (M2C_FIELD(arg0, u16 *, 0x1E) & 2) {
             TWindowShortListCtrl__sub_802473C8(arg0);
@@ -175,7 +175,7 @@ void TWindowChat__sub_8024775C(u8 *arg0) {
   u8 temp_r3_2;
   u8 *temp_r30;
   s32 temp_r3;
-  temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((s32)((void *) lbl_805D53A0));
+  temp_r3 = get_player_by_client_id((s32)((void *) lbl_805D53A0));
   if (temp_r3 != 0)
   {
     if (((RecoveredFields_8024775C_arg0 *) arg0)->field_1E & 2)

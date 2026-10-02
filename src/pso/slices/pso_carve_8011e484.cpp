@@ -11,7 +11,7 @@ struct Stack_8011E56C {
 
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
-M2C_UNK TObjButterflyLobby__sub_8007A5D8(void *, void *, int);
+M2C_UNK csnVector(void *, void *, int);
 void TObjPlayer__sub_8011E56C(u8 *arg0, u8 *arg1);
 s32 test_flags_1b8__10TObjPlayerFPvUi(void *, s32);
 M2C_UNK clear_equip_flags__10TObjPlayerFPvUi(void *, int);
@@ -60,7 +60,7 @@ void TObjPlayer__sub_8011E56C(u8 *arg0, u8 *arg1) {
     Stack_8011E56C stack;
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x2FC));
     stack.spC = M2C_FIELD(arg1, f32 *, 4);
-    TObjButterflyLobby__sub_8007A5D8((void *) (&stack.sp8), (void *) (arg1), (int) (0x8100));
+    csnVector((void *) (&stack.sp8), (void *) (arg1), (int) (0x8100));
 }
 
 }

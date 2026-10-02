@@ -116,7 +116,7 @@ void *dt__13TItemProArmorFPvs(void *arg0, s16 arg1);
 void tick_lifetime__13TItemProArmorFPv(void *arg0);
 void TItemObject__ct(void *);
 M2C_UNK TItemTimerEvent__sub_8011E068(u16);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u32 get_player_by_client_id(u16);
 M2C_UNK __dl__7TObjectFPv(void *);
 void __dt__11TItemObjectFv(void *, int);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
@@ -149,7 +149,7 @@ u8 *TItemProArmor__sub_801173FC(u8 *arg0) {
 void tick_lifetime__13TItemProArmorFPv(void *arg0) {
     s32 temp_r3;
 
-    if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x1C)) == 0U) {
+    if (get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x1C)) == 0U) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }

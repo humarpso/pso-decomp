@@ -75,7 +75,7 @@ extern s32 lbl_805DD930;
 extern const f32 lbl_805DD934;
 s32 TCharaMaking__sub_8028DC74(s8 *arg0);
 extern P_8028DCCC lbl_804D398C[];
-f32 TCharaMaking__sub_8028DCCC(void *p);
+f32 calc_character_height(void *p);
 }
 
 extern "C" {
@@ -113,7 +113,7 @@ s32 TCharaMaking__sub_8028DC74(s8 *arg0) {
 #pragma push
 #pragma fp_contract on
 #pragma opt_common_subs off
-f32 TCharaMaking__sub_8028DCCC(void *p) {
+f32 calc_character_height(void *p) {
     C_8028DCCC *arg0 = (C_8028DCCC *)p;
     f32 a;
     f32 b;
@@ -202,7 +202,7 @@ void free_loaded_buffers__12TCharaMakingFPv(u8 *arg0) {
 
 void update_body_parts__12TCharaMakingFPv(u8 *arg0) {
     TCharaMaking__sub_8028DF98(arg0 + 0x85C);
-    M2C_FIELD(arg0, f32 *, 0xD48) = TCharaMaking__sub_8028DCCC((void *)(arg0 + 0x85C));
+    M2C_FIELD(arg0, f32 *, 0xD48) = calc_character_height((void *)(arg0 + 0x85C));
     ((M2C_UNK (*)(void *, void *, void *, void *))TCharaMaking__bind_appearance_texture_lists)(arg0 + 0x8B8, arg0 + 0xA24, arg0 + 0xB90, arg0 + 0x85C);
     create__12TChCrLoadReqFPv(arg0);
 }

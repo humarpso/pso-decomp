@@ -25,7 +25,7 @@ struct RecoveredGlobal_8011DC90___vt__15TItemTimerEvent {
 
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u32 get_player_by_client_id(u16);
 void TItemTimerEvent__vt1(void *arg0);
 void fn_8011085C(void *, s32);
 extern struct VObj_8011E140_8011DA9C *lbl_805D5508;
@@ -61,9 +61,9 @@ void notify_if_active__15TItemTimerEventFi(int arg0);
 void tick_hp_drain__15TItemTimerEventFPv(void *arg0);
 void update_timer__15TItemTimerEventFPv(void *arg0);
 s32 TLobby__sub_800822E8(s32, M2C_UNK);
-s32 TObjPlayer__sub_802034B0();
+s32 is_item_area_enabled();
 M2C_UNK TObjectV8047c128_subtract_hp(s32, M2C_UNK);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u32 get_player_by_client_id(u16);
 void destroy__11TItemMagSubFPvs(void *, int);
 M2C_UNK fn_8011E1D4();
 void free_to_heap__11TItemMagSubFPv(void *);
@@ -80,7 +80,7 @@ void TItemTimerEvent__sub_8011DA9C(void *arg0) {
 
 void tick_hp_drain__15TItemTimerEventFPv(void *arg0) {
     get_field_3e0__12TBoss3VoloptFPv(M2C_FIELD(arg0, s32 *, 0x28));
-    if ((TObjPlayer__sub_802034B0() == 1) && (obj_isState3_324(M2C_FIELD(arg0, s32 *, 0x28)) == 0) && (obj_testFlags30(M2C_FIELD(arg0, s32 *, 0x28), 0x800) == 0)) {
+    if ((is_item_area_enabled() == 1) && (obj_isState3_324(M2C_FIELD(arg0, s32 *, 0x28)) == 0) && (obj_testFlags30(M2C_FIELD(arg0, s32 *, 0x28), 0x800) == 0)) {
         TObjectV8047c128_subtract_hp(M2C_FIELD(arg0, s32 *, 0x28), 1);
     }
 }
@@ -98,7 +98,7 @@ void TItemTimerEvent__vt4(void *arg0) {
 extern M2C_UNK __vt__15TItemTimerEvent[];
 
 void TItemTimerEvent__vt1(void *arg0) {
-    M2C_FIELD(arg0, u32 *, 0x28) = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x1C));
+    M2C_FIELD(arg0, u32 *, 0x28) = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x1C));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x28) == 0U) {
         queue_destruction__7TObjectFv(arg0);
         return;
@@ -278,13 +278,13 @@ void TItemTimerEvent__sub_8011E0A4(u16 arg0) {
 }
 
 void check_battle_ctrl__15TItemTimerEventFi(int arg0) {
-    if (TPlayerBattleCtrl4P__sub_801BA74C(arg0) != 0U) {
+    if (get_player_by_client_id(arg0) != 0U) {
         fn_8011E1D4();
     }
 }
 
 void notify_if_active__15TItemTimerEventFi(int arg0) {
-    if (TPlayerBattleCtrl4P__sub_801BA74C(arg0) != 0U) {
+    if (get_player_by_client_id(arg0) != 0U) {
         set_flag_10000__10TObjPlayerFPv();
     }
 }

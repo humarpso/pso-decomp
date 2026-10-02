@@ -11,19 +11,19 @@ s32 get_type__10TObjPlayerFPv(void *);
 s32 check_flag__10TObjPlayerFPvi(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
 M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801564A0(void *);
+M2C_UNK check_enemy_body_collisions(void *);
 M2C_UNK update_movement_effects__10TObjPlayerFi(void *);
 M2C_UNK update_subsystems__10TObjPlayerFi(void *);
 M2C_UNK update_facing_vector__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801B6F8C(void *);
+M2C_UNK update_status_effects__10TObjPlayerFPv(void *);
 M2C_UNK update_position_history__10TObjPlayerFPv(void *);
 M2C_UNK calc_attach_pos__10TObjPlayerFPv(void *);
 M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 M2C_UNK handle_state2_transitions__10TObjPlayerFPv();
 M2C_UNK copy_offset_position__10TObjPlayerFPvPv(void *, void *);
-M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
+M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, s16, M2C_UNK);
 
 s32 obj_testFlags30(void *, M2C_UNK);
 
@@ -34,9 +34,9 @@ void run_task__10TObjPlayerFv(u8 *arg0) {
     handle_state2_transitions__10TObjPlayerFPv();
     update_subsystems__10TObjPlayerFi(arg0);
     update_position_history__10TObjPlayerFPv(arg0);
-    TObjPlayer__sub_801B6F8C(arg0);
-    TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 1);
-    TBoss1Dragon__sub_80143504(arg0);
+    update_status_effects__10TObjPlayerFPv(arg0);
+    run_action_state_phase__10TObjPlayerFisi(arg0, M2C_FIELD(arg0, s16 *, 0x326), 1);
+    advance_animation_playback(arg0);
     calc_attach_pos__10TObjPlayerFPv(arg0);
     copy_position__20TBoss3VoloptHiraisinFi(arg0);
     copy_offset_position__10TObjPlayerFPvPv(arg0 + 0x84C, arg0);
@@ -47,7 +47,7 @@ void run_task__10TObjPlayerFv(u8 *arg0) {
         switch (temp_r0) {
         case 1:
             TObjPlayer__sub_80154E3C(arg0);
-            TObjPlayer__sub_801564A0(arg0);
+            check_enemy_body_collisions(arg0);
             update_enemy_collision_flags__10TObjPlayerFPv(arg0);
             break;
         case 6:
@@ -56,7 +56,7 @@ void run_task__10TObjPlayerFv(u8 *arg0) {
             break;
         case 3:
             TObjPlayer__sub_80154E3C(arg0);
-            TObjPlayer__sub_801564A0(arg0);
+            check_enemy_body_collisions(arg0);
             update_enemy_collision_flags__10TObjPlayerFPv(arg0);
             break;
         }
@@ -66,7 +66,7 @@ void run_task__10TObjPlayerFv(u8 *arg0) {
         case 3:
         case 1:
             check_object_collisions__10TObjPlayerFPv(arg0);
-            TObjPlayer__sub_801564A0(arg0);
+            check_enemy_body_collisions(arg0);
             update_enemy_collision_flags__10TObjPlayerFPv(arg0);
             break;
         case 2:

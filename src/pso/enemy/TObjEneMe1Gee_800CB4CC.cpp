@@ -26,7 +26,7 @@ void set_flag3c8_bit8__13TObjEneMe1GeeFPv(void* p);
 void set_state_flag__13TObjEneMe1GeeFPvii(void *arg0, s32 arg1, s32 arg2);
 void update_photon_target__13TObjEneMe1GeeFPv(void *arg0);
 s32 TBoss2DeRolLe__sub_800B98D8();
-s32 TPhotonMylla__sub_80154CB4(u16);
+s32 find_entity_by_id(u16);
 
 void set_flag3c8_bit40__13TObjEneMe1GeeFPv(void* p) { *(u32*)((char*)p + 0x3c8) |= 0x40; }
 
@@ -85,7 +85,7 @@ void TObjEneMe1Gee__sub_800CB60C(u8 *arg0) {
 int TObjEneMe1Gee__sub_800CB628(void* p) { return (*(u32*)((char*)p + 0x3c8) >> 15) & 0x1; }
 void update_photon_target__13TObjEneMe1GeeFPv(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) == 3) {
-        M2C_FIELD(arg0, s32 *, 0x3C0) = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x48C));
+        M2C_FIELD(arg0, s32 *, 0x3C0) = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x48C));
         TObjEneMe1Gee__sub_800CB560((u8 *)((void*)(M2C_FIELD(arg0, s32 *, 0x3C0))));
     }
 }

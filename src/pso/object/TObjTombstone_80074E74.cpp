@@ -43,7 +43,7 @@ extern "C" {
 u16 TCameraCtrl__sub_80068958();
 M2C_UNK TObjTombstone__sub_800753DC(void *);
 M2C_UNK get_camera_no__11TCameraCtrlFv();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 f32 TObjPlayer__sub_803E1A58(void *, void *);
 extern f32 TObjTombstone__data_805D9174;
 extern f32 TObjTombstone__data_805D9178;
@@ -55,7 +55,7 @@ void copy_matrix__13TObjTombstoneFPvPv(void* p, void* q);
 extern RecoveredGlobal_80074FAC_lbl_8043878C lbl_8043878C;
 extern RecoveredGlobal_80074FAC_TObjTombstone__data_8048D250 TObjTombstone__data_8048D250;
 void TObjTombstone__sub_80074FAC(void);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 void TBoss6Type1__sub_803D9370(void *, void *);
 extern V_80075070 lbl_804FF938[];
@@ -79,7 +79,7 @@ void TBoss6Type1__sub_803D9370(void *, void *);
 void rotate_matrix_x(s32, s32);
 void TObjPlayer__sub_803D97F0(void *);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 extern V_800751BC lbl_80438780;
 extern u8 lbl_8058D490[];
 extern View_800751BC *lbl_805D4DF0;
@@ -93,7 +93,7 @@ s32 check_owner__13TObjTombstoneFPv(void *arg0);
 void copy_matrix__13TObjTombstoneFPvPv(void* p, void* q);
 void handle_6x96(void);
 s32 TLobby__sub_80293080();
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 is_flag_set__6TLobbyFv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
@@ -116,7 +116,7 @@ s32 check_owner__13TObjTombstoneFPv(void *arg0) {
     } else {
         var_r3 = is_flag_set__6TLobbyFv();
     }
-    if ((var_r3 == 0) || ((s8) M2C_FIELD(arg0, u8 *, 0xC2) != TObjPlayer__sub_800196EC())) {
+    if ((var_r3 == 0) || ((s8) M2C_FIELD(arg0, u8 *, 0xC2) != get_current_floor())) {
         return 1;
     }
     return 0;
@@ -129,7 +129,7 @@ s32 TObjTombstone__sub_80075070(Obj_80075070 *arg0) {
     void *ppos;
     s32 i;
     best = TObjTombstone__data_805D917C;
-    pl = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    pl = get_player_by_client_id(lbl_805D53A0);
     if (pl == 0) {
         return 0;
     }
@@ -166,7 +166,7 @@ s32 TObjTombstone__sub_800751BC(void *arg0, f32 *arg1, void *arg2) {
     rotate_matrix_x(0, lbl_805D4DF0->f190);
     rotate_matrix_z(0, lbl_805D4DF0->f198);
     TScene__sub_803D8DB4(0, &v, &v);
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     VecCopy__FP3VecPC3Vec(&d, arg2);
     TBoss6Type1__sub_803D9370(&d, &lbl_805D4DF0->pos);
     if (TObjPlayer__sub_803D89C0(&v, &d) <= TObjTombstone__data_805D9174) {
@@ -174,7 +174,7 @@ s32 TObjTombstone__sub_800751BC(void *arg0, f32 *arg1, void *arg2) {
     }
     TObjPlayer__sub_803D9B2C();
     TParticleCtrl__sub_803D8D1C(0, arg2, arg1);
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     if (is_split_screen() != 0) {
         arg1[0] -= (f32)get_screen_height__11TCameraCtrlFv();
         arg1[0] /= get_view_scale__11TCameraCtrlFv();
@@ -188,7 +188,7 @@ void TObjTombstone__sub_80075340(u8 *arg0) {
     f32 temp_f1;
     u32 temp_r3;
     get_camera_no__11TCameraCtrlFv();
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int) (TCameraCtrl__sub_80068958()));
+    temp_r3 = get_player_by_client_id((int) (TCameraCtrl__sub_80068958()));
     if (temp_r3 != 0U) {
         temp_f1 = TObjPlayer__sub_803E1A58((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38));
         if (temp_f1 <= lbl_805D9180) {

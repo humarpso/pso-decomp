@@ -64,8 +64,8 @@ void fn_8023A694(u8 *arg0);
 f32 get_random_float__8TObjFishFv(f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
-u8 *TBoss8Dragon__sub_8007A544(M2C_UNK *, s32);
-u8 *TObjButterflyLobby__sub_8007A5D8(f32 *, f32 *, s32);
+u8 *csnVecterUnder(M2C_UNK *, s32);
+u8 *csnVector(f32 *, f32 *, s32);
 s32 TObjPlayer__sub_80141F84(int, int);
 s32 TObjPlayer__sub_801422A8(void *, void *, void *);
 extern const f32 lbl_805DC918;
@@ -134,7 +134,7 @@ void TObjPlayer__sub_8023A510(RecoveredFields_8023A510_arg0 *arg0) {
     arg0->field_28 = (f32) ((arg0->field_50 * arg0->field_64) + arg0->field_28);
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp1C), (void *) (((u8 *)arg0) + 0x20));
     stack.sp20 += lbl_805DC918;
-    temp_r3 = (u8 *)(TBoss8Dragon__sub_8007A544(&stack.sp1C, 0x16EF));
+    temp_r3 = (u8 *)(csnVecterUnder(&stack.sp1C, 0x16EF));
     if (temp_r3 != NULL) {
         arg0->field_24 = (f32) (lbl_805DC91C + M2C_FIELD(((RecoveredFields_8023A510_temp_r3 *)temp_r3)->field_4, f32 *, 4));
     }
@@ -150,7 +150,7 @@ void TObjPlayer__sub_8023A510(RecoveredFields_8023A510_arg0 *arg0) {
     stack.sp34 = arg0->field_20;
     stack.sp38 = temp_f1;
     stack.sp3C = arg0->field_28;
-    temp_r3_2 = (u8 *)(TObjButterflyLobby__sub_8007A5D8(&stack.sp28, &stack.sp34, 0x100));
+    temp_r3_2 = (u8 *)(csnVector(&stack.sp28, &stack.sp34, 0x100));
     if (temp_r3_2 != NULL) {
         temp_r6 = (u8 *)(((RecoveredFields_8023A510_temp_r3_2 *)temp_r3_2)->field_4);
         stack.sp10 = ((RecoveredFields_8023A510_temp_r6 *)temp_r6)->field_C;

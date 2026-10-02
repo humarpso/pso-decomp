@@ -71,7 +71,7 @@ extern const f32 lbl_805DD570;
 extern const f32 lbl_805DD574;
 int TWindowSubCustomEquip__sub_8027654C(void *arg0, void *arg1);
 s32 select_action_palette__10TObjPlayerFi(u8 *, s32);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 s32 TWindowActionPalette__sub_801C1D7C(s32, s32, s32);
 s32 TWindowActionPalette__sub_801C1DE0(s32, s32, s32);
 s32 TWindowSubCustomEquip__sub_80275FD8(void *, s32, s32, s32);
@@ -141,7 +141,7 @@ void reset_selection__21TWindowSubCustomEquipFPv(void* p) { TWindowSubCustomEqui
 s32 TWindowSubCustomEquip__sub_80276870(void *arg0) {
     u8 *player;
     s32 pal;
-    player = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s16 *, 0x20));
+    player = get_player_by_client_id(M2C_FIELD(arg0, s16 *, 0x20));
     if (player == NULL || (pal = select_action_palette__10TObjPlayerFi(player, 0)) == 0) {
         return;
     }

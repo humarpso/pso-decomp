@@ -14,7 +14,7 @@ M2C_UNK update_camera_sequence__9TObjEneDDFPv();
 M2C_UNK TCameraCtrl__sub_803D8934(int, void *, int);
 M2C_UNK TScene__sub_803D8DB4(int, int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 extern RecoveredGlobal_8009BD00_lbl_80500960 lbl_80500960;
 extern u32 lbl_805D4FD4;
 extern s32 lbl_805D4FD8;
@@ -41,7 +41,7 @@ void fn_8009BD00(void) {
         temp_r5_2 = temp_r4;
         lbl_805D4FD8 = temp_r4 + 0xC;
         TScene__sub_803D8DB4((int) (0), (int) (temp_r4), (int) (temp_r5_2));
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         break;
     case 6:
     case 11:

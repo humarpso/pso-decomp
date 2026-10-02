@@ -59,7 +59,7 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK TOComputerMachine01__sub_8023DDC8(int, int, int, int, int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TOSignCave03__sub_803DB510(void *);
@@ -134,7 +134,7 @@ void render__19TOComputerMachine01Fv(u8 *arg0) {
         TOSignCave03__sub_803DB510((void *) (M2C_FIELD(temp_r31_4, s32 *, 4)));
         TOSignCave03__sub_803DB510((void *) (M2C_FIELD(M2C_FIELD(temp_r31_4, u8 **, 0x30), s32 *, 4)));
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

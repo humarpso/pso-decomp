@@ -22,8 +22,8 @@ struct Warp_8019DAC0 : Base_8019DAC0 {
 
 extern "C" {
 int check_flag_100__10TObjPlayerFPv(void *);
-f32 fn_8013157C(void *, void *);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+f32 xz_distance_squared(void *, void *);
+u32 get_player_by_client_id(u16);
 u8 *TObjWarpBase__sub_8019D9CC(s32 arg0, short arg1, f32 farg0);
 void TObjPlayer__sub_801569F4(Warp_8019DAC0 *, void *, void *);
 void *TTecLuker__sub_80233D18(void *, void *, Warp_8019DAC0 *, s32);
@@ -49,7 +49,7 @@ void TObjWarpBase__vt12(void *arg0);
 void free_globals__12TObjWarpBaseFv(void);
 M2C_UNK TLobby__sub_8001FE7C(s32, M2C_UNK);
 M2C_UNK TLobby__sub_803DA16C(void*);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u32 get_player_by_client_id(u16);
 M2C_UNK TWindow__close(u32);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
@@ -63,7 +63,7 @@ void TObjWarpBase__vt12(void *arg0) {
     if (temp_r3 != 0U) {
         TWindow__close(temp_r3);
         M2C_FIELD(arg0, u32 *, 0xB0) = 0U;
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0xB8));
+        temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0xB8));
         if (temp_r3 != 0U) {
             fn_8019DD24(temp_r3 + 0x550, 4);
         }
@@ -75,8 +75,8 @@ extern M2C_UNK __vt__12TObjWarpBase[];
 
 u8 *TObjWarpBase__sub_8019D9CC(s32 arg0, short arg1, f32 farg0) {
   u8 *temp_r3;
-  temp_r3 = (u8 *) ((u8 *)TPlayerBattleCtrl4P__sub_801BA74C(arg1));
-  if ((temp_r3 != 0) && (fn_8013157C((void *) (arg0 + 0x38), (void *) (temp_r3 + 0x38)) < (farg0 * farg0)))
+  temp_r3 = (u8 *) ((u8 *)get_player_by_client_id(arg1));
+  if ((temp_r3 != 0) && (xz_distance_squared((void *) (arg0 + 0x38), (void *) (temp_r3 + 0x38)) < (farg0 * farg0)))
   {
     if (check_flag_100__10TObjPlayerFPv(temp_r3) == 1)
     {

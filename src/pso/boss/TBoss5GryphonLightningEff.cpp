@@ -31,7 +31,7 @@ struct Self_8032537C {
 };
 
 extern "C" {
-void TOSwitchAttack__sub_80087278(void *, s32, s32);
+void spawn_particle_effect_with_flags(void *, s32, s32);
 void run_task__12TTecZondeEffFv(void *);
 s32 rand(void);
 extern const f32 lbl_805DF5F4;
@@ -102,7 +102,7 @@ void run_task__25TBoss5GryphonLightningEffFv(Obj_80325248 *arg0) {
     run_task__12TTecZondeEffFv(arg0);
     if (lbl_805DF5F4 * (f32)rand() > lbl_805DF5F8) {
         s32 i = (f32)arg0->n * (lbl_805DF5F4 * (f32)rand());
-        TOSwitchAttack__sub_80087278(&arg0->ents[i], 0x215, 0x40);
+        spawn_particle_effect_with_flags(&arg0->ents[i], 0x215, 0x40);
     }
     (*(s16 *)((u8 *)arg0 + 0x25C))++;
 }

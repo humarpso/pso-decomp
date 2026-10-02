@@ -130,7 +130,7 @@ struct Obj_80334A4C { u8 pad[0x60]; s32 f60; u8 pad1[0x2FC - 0x64]; Vec_80334A4C
 
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
-int TObjEneDD__sub_800BBA18(void*, void*);
+int transition_enemy_state(void*, void*);
 s32 TObjEneMorfos__sub_80334884(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 s32 TObjEneMorfos__sub_803348F0(u8 *arg0);
@@ -159,9 +159,9 @@ u8 *__dt__13TObjEneMorfosFv(u8 *arg0, s16 arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 void TBoss8Dragon__sub_800BB780(void *);
-int TObjEneDD__sub_800BBA18(void*, void*);
+int transition_enemy_state(void*, void*);
 s32 TObjPlayer__sub_80141F84(s32, s32);
-Pl_8033496C *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+Pl_8033496C *get_player_by_client_id(s32);
 s32 TObjEneMorfos__sub_80334884(u8 *arg0);
 s32 TObjEneMorfos__sub_803348F0(u8 *arg0);
 void TBoss6Type1__sub_803D9370(void *, void *);
@@ -170,7 +170,7 @@ void TObjEneMorfos__vt60(Obj_8033496C *arg0);
 f32 TObjPlayer__sub_80014108(void *, void *, f32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-void TObjEneDellBiter__sub_80087350(void *, int);
+void spawn_particle_effect(void *, int);
 s32 TObjPlayer__sub_80141F84(s32, s32);
 void TBoss6Type1__sub_803D9370(void *, void *);
 extern const f64 TObjEneMorfos__data_80477610;
@@ -189,7 +189,7 @@ void *create__13TObjEneMorfosFPv(void *arg0);
 void unload_static_data__13TObjEneMorfosFv(void);
 s32 TBoss4Type2__sub_80141FA8(s32);
 void TLobby__sub_8001FE7C(void*, int);
-int TObjEneDD__sub_800BBA18(void*, void*);
+int transition_enemy_state(void*, void*);
 M2C_UNK TObjEneMorfosArm__sub_8033542C();
 void TObjEneMorfos__sub_8033471C(void *);
 void TObjEneMorfos__sub_80334D74(void *);
@@ -219,7 +219,7 @@ s32 approach_value__13TObjEneMorfosFPvii(void *arg0, s32 arg1, s32 arg2) {
 
 s32 TObjEneMorfos__sub_80334884(u8 *arg0) {
     if (((s16) M2C_FIELD(arg0, s16 *, 0x32C) <= (s32) ((s16) M2C_FIELD(arg0, s16 *, 0x2B8) / 2)) && (calc_boss4_scale__10TObjPlayerFi((s32) arg0) <= M2C_FIELD(arg0, f32 *, 0x3E4))) {
-        TObjEneDD__sub_800BBA18((void*)((void *) (arg0)), (void*)((int) (9)));
+        transition_enemy_state((void*)((void *) (arg0)), (void*)((int) (9)));
         return 1;
     }
     return 0;
@@ -242,7 +242,7 @@ void TObjEneMorfos__vt60(Obj_8033496C *arg0) {
     if (arg0->f326 == 0xA) {
         return;
     }
-    pl = TPlayerBattleCtrl4P__sub_801BA74C(arg0->f2D4);
+    pl = get_player_by_client_id(arg0->f2D4);
     if (pl != 0) {
         VecCopy__FP3VecPC3Vec(&v, &pl->pos);
         TBoss6Type1__sub_803D9370(&v, &arg0->pos);
@@ -258,7 +258,7 @@ void TObjEneMorfos__vt60(Obj_8033496C *arg0) {
     } else if (arg0->f3C0 & 4) {
         TBoss8Dragon__sub_800BB780(arg0);
     } else {
-        TObjEneDD__sub_800BBA18(arg0, (void *)0xA);
+        transition_enemy_state(arg0, (void *)0xA);
     }
 }
 
@@ -275,8 +275,8 @@ f32 TObjEneMorfos__vt20(Obj_80334A4C *arg0, Obj_80334A4C *arg1, f32 farg0) {
     }
     if (arg0->f3C0 & 0x10) {
         if (d < 0x4000) {
-            TObjEneDellBiter__sub_80087350(arg0->snd, 0x214);
-            TObjEneDellBiter__sub_80087350(arg0->snd, 0x21A);
+            spawn_particle_effect(arg0->snd, 0x214);
+            spawn_particle_effect(arg0->snd, 0x21A);
         } else {
             arg0->f3C0 &= ~0x10;
             arg0->f3C0 |= 0x20;
@@ -288,7 +288,7 @@ f32 TObjEneMorfos__vt20(Obj_80334A4C *arg0, Obj_80334A4C *arg1, f32 farg0) {
     return ret;
 }
 
-void TObjEneMorfos__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 11) { TObjEneDD__sub_800BBA18(p, (void*)11); } }
+void TObjEneMorfos__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 11) { transition_enemy_state(p, (void*)11); } }
 void TObjEneMorfos__vt26(void) {  }
 
 extern M2C_UNK __vt__13TObjEneMorfos[];

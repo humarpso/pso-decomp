@@ -36,14 +36,14 @@ struct RecoveredGlobal_80191874_lbl_804FF610 {
 extern "C" {
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, void *, f32);
 void TObjHashiBase__sub_80191A38(u8 *arg0);
 s32 get_state_flag__9TMainTaskFv();
-f32 fn_8013157C(void *, void *);
+f32 xz_distance_squared(void *, void *);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
 s32 TParticleCtrl__sub_803D8D1C(int, void *, void *);
 extern RecoveredGlobal_80191874_lbl_804FF610 lbl_804FF610;
@@ -82,7 +82,7 @@ s16 TObjHashiBase__sub_80191874(u8 *arg0, f32 farg0, f32 farg1) {
     if (get_state_flag__9TMainTaskFv() == 1) {
         return M2C_FIELD(arg0, s16 *, 0x1E);
     }
-    if (fn_8013157C((void *) (lbl_805D4DF0 + 0x178), (void *) (arg0 + 0x38)) < (farg1 * farg1)) {
+    if (xz_distance_squared((void *) (lbl_805D4DF0 + 0x178), (void *) (arg0 + 0x38)) < (farg1 * farg1)) {
         M2C_FIELD(arg0, s16 *, 0x1E) = 1;
         return 1;
     }
@@ -133,7 +133,7 @@ void TObjHashiBase__sub_80191A38(u8 *arg0) {
         } else {
             TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x34));
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

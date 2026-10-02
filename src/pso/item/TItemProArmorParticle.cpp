@@ -35,7 +35,7 @@ M2C_UNK TItemEffArmorParticle__ct(u32, s32, s32, s32, s32);
 M2C_UNK TItemEquipBase__sub_8010A940();
 M2C_UNK TItemProArmor__vt42();
 void TItemTimerEvent__ct(void *);
-s32 TObjPlayer__sub_802034B0();
+s32 is_item_area_enabled();
 void __dt__13TItemProArmorFv(void *, int);
 u32 __nw__7TObjectFUl(M2C_UNK);
 s32 alloc__13TItemProArmorFi(M2C_UNK);
@@ -61,7 +61,7 @@ void TItemProArmorParticle__vt14(void *arg0) {
         temp_r3 = get_global_state__14TOKeyMachine01Fv();
         if (temp_r3 != (s32) M2C_FIELD(arg0, s32 *, 0x198)) {
             M2C_FIELD(arg0, s32 *, 0x198) = temp_r3;
-            if (TObjPlayer__sub_802034B0() != 0) {
+            if (is_item_area_enabled() != 0) {
                 create__21TItemProArmorParticleFiiii((s32)(tl_05), (s32)(get_field_d8__10TObjPlayerFPv(arg0)), (s32)(get_id__13TItemProArmorFPv(arg0)), (s32)(M2C_FIELD(arg0, s32 *, 0x19C)));
             }
         }

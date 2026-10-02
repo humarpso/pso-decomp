@@ -138,10 +138,10 @@ void destroy_instance__19TOHangceilingCave01Fv(void);
 void init_geometry__19TOHangceilingCave01FPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 bool TOHangceilingCave01__sub_801688C0(u8 *);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
+M2C_UNK spawn_particle_effect(void *, M2C_UNK);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK fn_80168398(void *);
-f32 fn_8013157C(void *, void *);
+f32 xz_distance_squared(void *, void *);
 M2C_UNK TObjPlayer__sub_803D9884(void *, void *);
 extern s32 lbl_805D4DF0;
 extern const f32 lbl_805DB664;
@@ -197,7 +197,7 @@ void check_player_trigger__19TOHangceilingCave01FPv(u8 *arg0) {
         ((VObj_80168834_80168588*)arg0)->m78();
         fn_80168398(arg0);
         if ((((s32 (*)(void *))TOHangceilingCave01__sub_801688C0)(arg0) != 0) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 3) && (objInBand__FP7GameObjf(arg0, lbl_805DB694) != 0)) {
-            TObjEneDellBiter__sub_80087350(arg0 + 0x38, 0x64);
+            spawn_particle_effect(arg0 + 0x38, 0x64);
         }
     }
 }
@@ -205,7 +205,7 @@ void check_player_trigger__19TOHangceilingCave01FPv(u8 *arg0) {
 bool TOHangceilingCave01__sub_801688C0(u8 *arg0) {
     f32 sp8[3];
 
-    if (fn_8013157C((void *) (arg0 + 0x38), (void *) (lbl_805D4DF0 + 0x178)) < lbl_805DB698) {
+    if (xz_distance_squared((void *) (arg0 + 0x38), (void *) (lbl_805D4DF0 + 0x178)) < lbl_805DB698) {
         M2C_FIELD(arg0, s16 *, 0x1E) = 1;
         return 1;
     }

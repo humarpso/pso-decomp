@@ -91,7 +91,7 @@ s32 rotate_matrix_y(int, void *);
 s32 rotate_matrix_x(int, void *);
 s32 TObjPlayer__sub_803D97F0(void *);
 f32 TObjPlayer__sub_803D9990(void *, void *);
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 extern RecoveredGlobal_8006ABAC_lbl_804381A4 lbl_804381A4;
 extern RecoveredGlobal_8006ABAC_lbl_804381B0 lbl_804381B0;
 extern RecoveredGlobal_8006ABAC_lbl_804FF610 lbl_804FF610;
@@ -102,7 +102,7 @@ s32 rotate_matrix_y(int, void *);
 s32 rotate_matrix_x(int, void *);
 s32 TObjPlayer__sub_803D97F0(void *);
 f32 TObjPlayer__sub_803D9990(void *, void *);
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 extern RecoveredGlobal_8006AC70_lbl_8043818C lbl_8043818C;
 extern RecoveredGlobal_8006AC70_lbl_80438198 lbl_80438198;
 extern RecoveredGlobal_8006ABAC_lbl_804FF610 lbl_804FF610;
@@ -166,11 +166,11 @@ void TCameraCtrl__sub_8006ABAC(M2C_UNK arg0, s32 arg1, s32 arg2) {
     TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
     rotate_matrix_y((int) (0), (void *) (arg2));
     TObjPlayer__sub_803D9990((void *) (&stack.sp14), (void *) (&lbl_804FF610.value));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
     rotate_matrix_x((int) (0), (void *) (arg1));
     TObjPlayer__sub_803D9990((void *) (&stack.sp8), (void *) (&lbl_804FF61C.value));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 #pragma pop
 
@@ -198,11 +198,11 @@ void TCameraCtrl__sub_8006AC70(u8 *arg0) {
     TObjPlayer__sub_803D97F0((void *) (&(*(RecoveredGlobal_8006AC70_lbl_8058D490 *)&lbl_8058D490).value));
     rotate_matrix_y((int)((int) (0)), (void *)((int) (M2C_FIELD(arg0, s32 *, 0x194))));
     TObjPlayer__sub_803D9990((void *) (&stack.sp14), (void *) (&(*(RecoveredGlobal_8006AC70_lbl_804FF610 *)&lbl_804FF610).value));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     TObjPlayer__sub_803D97F0((void *) (&(*(RecoveredGlobal_8006AC70_lbl_8058D490 *)&lbl_8058D490).value));
     rotate_matrix_x((int)((int) (0)), (void *)((int) (M2C_FIELD(arg0, s32 *, 0x190))));
     TObjPlayer__sub_803D9990((void *) (&stack.sp8), (void *) (&(*(RecoveredGlobal_8006AC70_lbl_804FF61C *)&lbl_804FF61C).value));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 #pragma pop
 

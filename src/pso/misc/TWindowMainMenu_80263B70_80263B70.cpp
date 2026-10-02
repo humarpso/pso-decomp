@@ -23,7 +23,7 @@ extern "C" {
 
 s32 close_active_submenu__15TWindowMainMenuFPv(void *arg0);
 void try_open_battle_menu__15TWindowMainMenuFPvs(void *arg0, s16 arg1);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 M2C_UNK TWindowMainMenu__sub_80263D7C(void *);
 M2C_UNK TWindowMainMenu__sub_80263DBC(void *);
 s32 TWindowMainMenu__sub_80263E40(void *, s16 *, s32 *);
@@ -39,7 +39,7 @@ void try_open_battle_menu__15TWindowMainMenuFPvs(void *arg0, s16 arg1) {
     s32 temp_r3;
 
     sp8 = arg1;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x54));
+    temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, s32 *, 0x54));
     if ((temp_r3 != 0) && !(M2C_FIELD(arg0, s32 *, 0x4C) & 1) && (TWindowMainMenu__sub_80263E40(arg0, &sp8, &spC) != 0) && (spC != 0)) {
         M2C_FIELD(arg0, s32 *, 0x4C) = (s32) (M2C_FIELD(arg0, s32 *, 0x4C) | 1);
         M2C_FIELD(arg0, s32 *, 0x5C) = 0;

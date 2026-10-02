@@ -151,11 +151,11 @@ void set_owner_flag_800__10TItemTimerFPv(void *arg0);
 void update__10TItemTimerFPv(void *arg0);
 void update_owner_state__10TItemTimerFPv(void *arg0);
 M2C_UNK TItemProShield__sub_8001140C(s32, M2C_UNK);
-s32 TOSwitchAttack__sub_80087278(s32, s32, M2C_UNK);
+s32 spawn_particle_effect_with_flags(s32, s32, M2C_UNK);
 M2C_UNK TObjPlayer__sub_800112A4(s32, M2C_UNK);
 M2C_UNK TObjPlayer__sub_800112D4(s32, M2C_UNK);
-M2C_UNK TObjPlayer__sub_80087638(s32, s32);
-s32 TObjPlayer__sub_802034B0();
+M2C_UNK set_owner_id__13TParticleCtrlFPvUs(s32, s32);
+s32 is_item_area_enabled();
 M2C_UNK __ct__7TObjectFP7TObject();
 M2C_UNK disallow_rendering__7TObjectFv(void *);
 M2C_UNK get_field_3e0__12TBoss3VoloptFPv(void *);
@@ -205,7 +205,7 @@ extern const f32 lbl_805DAC7C;
 void TItemTimer__sub_8011D5B4(Timer_8011D5B4 *arg0) {
     Rec_8011D5B4 a;
     get_field_3e0__12TBoss3VoloptFPv(arg0->obj);
-    if (TObjPlayer__sub_802034B0() == 1 && lbl_805DAC78 * (f32)rand() < arg0->f2c) {
+    if (is_item_area_enabled() == 1 && lbl_805DAC78 * (f32)rand() < arg0->f2c) {
         a.k1 = 0x10;
         a.v2 = lbl_805DAC7C;
         a.k2 = 0x10;
@@ -217,7 +217,7 @@ void TItemTimer__sub_8011D5B4(Timer_8011D5B4 *arg0) {
 void TItemTimer__sub_8011D66C(Timer_8011D5B4 *arg0) {
     Rec_8011D5B4 a;
     get_field_3e0__12TBoss3VoloptFPv(arg0->obj);
-    if (TObjPlayer__sub_802034B0() == 1 && lbl_805DAC78 * (f32)rand() < arg0->f2c) {
+    if (is_item_area_enabled() == 1 && lbl_805DAC78 * (f32)rand() < arg0->f2c) {
         a.k1 = 0x12;
         a.v2 = lbl_805DAC7C;
         a.k2 = 0x12;
@@ -229,7 +229,7 @@ void TItemTimer__sub_8011D66C(Timer_8011D5B4 *arg0) {
 void TItemTimer__sub_8011D724(Timer_8011D5B4 *arg0) {
     Rec_8011D5B4 a;
     get_field_3e0__12TBoss3VoloptFPv(arg0->obj);
-    if (TObjPlayer__sub_802034B0() == 1 && lbl_805DAC78 * (f32)rand() < arg0->f2c) {
+    if (is_item_area_enabled() == 1 && lbl_805DAC78 * (f32)rand() < arg0->f2c) {
         a.k1 = 0x11;
         a.v2 = lbl_805DAC7C;
         a.k2 = 0x11;
@@ -243,10 +243,10 @@ void TItemTimer__sub_8011D7DC(void *arg0) {
 
     if ((test_flag_2000000__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0x28)) == 0) && (is_flag_20000_set__10TObjPlayerFv(M2C_FIELD(arg0, s32 *, 0x28)) == 0)) {
         get_field_3e0__12TBoss3VoloptFPv((void *)((void *)(M2C_FIELD(arg0, s32 *, 0x28))));
-        if ((TObjPlayer__sub_802034B0() == 1) && (obj_testFlags30((void *)(M2C_FIELD(arg0, s32 *, 0x28)), (M2C_UNK)(0x800)) == 0)) {
-            temp_r3 = TOSwitchAttack__sub_80087278(M2C_FIELD(arg0, s32 *, 0x28) + 0x2FC, M2C_FIELD(arg0, s32 *, 0x2C), 0x10);
+        if ((is_item_area_enabled() == 1) && (obj_testFlags30((void *)(M2C_FIELD(arg0, s32 *, 0x28)), (M2C_UNK)(0x800)) == 0)) {
+            temp_r3 = spawn_particle_effect_with_flags(M2C_FIELD(arg0, s32 *, 0x28) + 0x2FC, M2C_FIELD(arg0, s32 *, 0x2C), 0x10);
             if (temp_r3 != 0) {
-                TObjPlayer__sub_80087638(temp_r3, obj_getField1c(M2C_FIELD(arg0, s32 *, 0x28)));
+                set_owner_id__13TParticleCtrlFPvUs(temp_r3, obj_getField1c(M2C_FIELD(arg0, s32 *, 0x28)));
             }
         }
     }
@@ -260,7 +260,7 @@ void update__10TItemTimerFPv(void *arg0) {
     if (obj_isState2_324(M2C_FIELD(arg0, void **, 0x28)) == 0) {
         if (((VObj18_8011d87c_8011D414 *) M2C_FIELD(arg0, void **, 0x28))->vf84() == 0) {
             get_field_3e0__12TBoss3VoloptFPv((void *)((void *)(M2C_FIELD(arg0, void **, 0x28))));
-            if ((TObjPlayer__sub_802034B0() == 1) && ((lbl_805DAC78 * (f32) rand()) < M2C_FIELD(arg0, f32 *, 0x2C))) {
+            if ((is_item_area_enabled() == 1) && ((lbl_805DAC78 * (f32) rand()) < M2C_FIELD(arg0, f32 *, 0x2C))) {
                 ((VObj18_8011d87c_8011D414 *) M2C_FIELD(arg0, void **, 0x28))->vfC0(0);
                 ((VObj18_8011d87c_8011D414 *) M2C_FIELD(arg0, void **, 0x28))->vf128(0);
             }
@@ -293,7 +293,7 @@ void set_owner_flag_800__10TItemTimerFPv(void *arg0) {
 
 void update_owner_state__10TItemTimerFPv(void *arg0) {
     get_field_3e0__12TBoss3VoloptFPv((void *)(M2C_FIELD(arg0, s32 *, 0x28)));
-    if ((TObjPlayer__sub_802034B0() == 1) && (obj_isState3_324(M2C_FIELD(arg0, s32 *, 0x28)) == 0) && (obj_testFlags30((void *)(M2C_FIELD(arg0, s32 *, 0x28)), (M2C_UNK)(0x800)) == 0)) {
+    if ((is_item_area_enabled() == 1) && (obj_isState3_324(M2C_FIELD(arg0, s32 *, 0x28)) == 0) && (obj_testFlags30((void *)(M2C_FIELD(arg0, s32 *, 0x28)), (M2C_UNK)(0x800)) == 0)) {
         TObjPlayer__sub_800112D4(M2C_FIELD(arg0, s32 *, 0x28), 1);
     }
 }

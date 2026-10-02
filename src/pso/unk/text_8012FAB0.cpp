@@ -102,7 +102,7 @@ void TObjPlayer__sub_8011EDFC(void *, void *, s32, f32);
 void TObjPlayer__sub_80124C78(void *);
 void TObjPlayer__sub_80109440(void);
 void fn_8011B328(void);
-void fn_8011B620(void);
+void create_gun_shot(void);
 extern const f32 lbl_805DAFC8;
 void TObjPlayer__sub_8012FB08(Self_8012FB08 *self);
 }
@@ -142,7 +142,7 @@ void TObjPlayer__sub_8012FB08(Self_8012FB08 *self) {
         TObjPlayer__sub_8011EDFC(self, self->f1F8, 1, lbl_805DAFC8);
         TObjPlayer__sub_8011EDFC(self, self->f204, 0, lbl_805DAFC8);
     } else {
-        self->f1F0 = (void *)fn_8011B620;
+        self->f1F0 = (void *)create_gun_shot;
         self->f1EC = (void *)TObjPlayer__sub_80109440;
         if (self->m49(self->f1F8, 0, 0, 1) != 0) {
             self->m49(self->f204, 0, 0, 0);

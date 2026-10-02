@@ -150,7 +150,7 @@ extern "C" {
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 s32 refresh_and_send_entity_flags__12TBoss8DragonFPv(void *);
 s32 TBoss8Dragon__sub_800BB7D4(void *, int);
-s32 TObjEneDD__sub_800BBA18(void *, int);
+s32 transition_enemy_state(void *, int);
 s32 fn_800C3A60(void *, int);
 s32 get_flag_11__16TObjEneRe2FlowerFPv(void *);
 s32 clear_child_flags__16TObjEneRe2FlowerFPv(void *);
@@ -159,7 +159,7 @@ s32 request_two_effects__10TObjPlayerFPv(void *);
 s32 spawn_ground_effect__10TObjPlayerFPvi(void *, int);
 s32 apply_effect_variant_a__10TObjPlayerFii(void *, int);
 s32 TObjPlayer__sub_800D9290(void *, int);
-s32 TBoss1Dragon__sub_80143504(void *);
+s32 advance_animation_playback(void *);
 s32 play_effect_if_v2__10TObjPlayerFi(int);
 s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 f32 TBoss8Dragon__sub_803D64C0(int);
@@ -218,7 +218,7 @@ void fn_800C2AC4(u8 *arg0, int arg1) {
     case 3:
       if (((int) ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_410) == 2)
     {
-      TObjEneDD__sub_800BBA18((void *) arg0, (int) 0xB);
+      transition_enemy_state((void *) arg0, (int) 0xB);
     }
     case 5:
       return;
@@ -227,7 +227,7 @@ void fn_800C2AC4(u8 *arg0, int arg1) {
       switch (temp_r0)
     {
       case 0:
-        TBoss1Dragon__sub_80143504((void *) arg0);
+        advance_animation_playback((void *) arg0);
         if (get_flag_b4__21TObjEneMe3ShinowaRealFPv((void *) arg0) != 0)
       {
         ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_410 = 1;

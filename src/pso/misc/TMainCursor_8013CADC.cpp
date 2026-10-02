@@ -19,15 +19,15 @@ M2C_UNK TLockOnCursor__sub_8013EB34();
 M2C_UNK play_sound_with_arg__15TPlyPhotonChairFPvPv(void *, void *);
 M2C_UNK update_parts__15TPlyPhotonChairFPv(void *);
 M2C_UNK update_parts2__15TPlyPhotonChairFPv(void *);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+u32 get_player_by_client_id(void *);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK fn_8023601C(void *, void *, f32);
 M2C_UNK set_position_vec3__10TObjPlayerFPvPv(int, void *);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
+M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK TObjFish__sub_803E46BC();
 extern u8 lbl_8048E5A0[];
@@ -116,7 +116,7 @@ void TLockOnCursor::renderSecondaryCursor(u8 *arg1, s32 arg2, s32 arg3) {
     s32 temp_r3_2;
     u32 temp_r3;
     if (is_inactive__13TLockOnCursorFPv(this) != 0) {
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((void *) (get_target_id__11TMainCursorFPv((void *) (this))));
+        temp_r3 = get_player_by_client_id((void *) (get_target_id__11TMainCursorFPv((void *) (this))));
         if (temp_r3 != 0U) {
             temp_r3_2 = check_visible__11TMainCursorFPv((void *) (temp_r3 + 0x500), (int) (temp_r3), (void *) (arg2), (void *) (arg3));
             if (temp_r3_2 != -1) {
@@ -128,7 +128,7 @@ void TLockOnCursor::renderSecondaryCursor(u8 *arg1, s32 arg2, s32 arg3) {
                 rotate_matrix_y((int) (0), (int) (M2C_FIELD(lbl_805D4DF0, s32 *, 0x194)));
                 begin_effect_render__13TParticleCtrlFv();
                 TObjPlayer__sub_803D9B2C();
-                TObjPlayer__sub_803D9624((int) (0), (f32) (TMainCursor__data_805DB0C0), (f32) (temp_f31), (f32) (TMainCursor__data_805DB0C0));
+                translate_matrix((int) (0), (f32) (TMainCursor__data_805DB0C0), (f32) (temp_f31), (f32) (TMainCursor__data_805DB0C0));
                 update_parts2__15TPlyPhotonChairFPv((void *) (arg0 + 0x48));
                 play_sound_with_arg__15TPlyPhotonChairFPvPv((void *) (arg0 + 0x48), (void *) ((u8 *)&lbl_804A7164.value + 0x50));
                 get_cursor_state__11TMainCursorFv();
@@ -137,9 +137,9 @@ void TLockOnCursor::renderSecondaryCursor(u8 *arg1, s32 arg2, s32 arg3) {
                 TLockOnCursor__sub_8013EB34();
                 TObjFish__sub_803E46BC();
                 update_parts__15TPlyPhotonChairFPv((void *) (arg0 + 0x48));
-                TObjPlayer__sub_803D9B78();
+                pop_matrix();
                 end_effect_render__13TParticleCtrlFv();
-                TObjPlayer__sub_803D9B78();
+                pop_matrix();
             }
         }
     }

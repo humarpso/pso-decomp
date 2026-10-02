@@ -25,7 +25,7 @@ u32 get_item_field_6__10TObjPlayerFPv(void *);
 s32 TLobby__sub_8001DC24();
 void TItemData__sub_80076E84(u16);
 s32 TObjPlayer__sub_8011E248();
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 u8 fn_801D9870(void *, s16);
 s32 validate_and_clear_slot__10TObjPlayerFPv(void *, s16);
 void TWindowSubStatusDisp__sub_80228D80();
@@ -197,7 +197,7 @@ void TWindowSubStatusDisp__sub_802758C8(Win_802758C8 *self, Ev_802758C8 *ev) {
     if (ev == NULL) {
         return;
     }
-    pl = TPlayerBattleCtrl4P__sub_801BA74C(self->player);
+    pl = get_player_by_client_id(self->player);
     if (pl == NULL) {
         return;
     }

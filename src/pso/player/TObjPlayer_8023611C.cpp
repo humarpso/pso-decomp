@@ -102,7 +102,7 @@ void TObjPlayer__sub_80236780(u8 *arg0, s32 arg1);
 void TObjPlayer__sub_802367AC(u8 *arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 find_actor_body_contact(void *, int, f32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+s32 get_player_by_client_id(int);
 extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
 extern const f32 lbl_805DC89C;
 M2C_UNK *TObjPlayer__sub_80236290(s32 arg0, u32 arg1, s32 _w2, s32 _w3);
@@ -138,7 +138,7 @@ void resetTechniqueContactQuery();
 u16 obj_getField1c(void *);
 s32 get_lobby_flag__6TLobbyFv();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
 s32 TObjPlayer__sub_802364D8(void *self, int target, void *_w2, void *arg3);
 extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
@@ -160,7 +160,7 @@ u8 *TObjPlayer__sub_802367D8(void *self, s32 arg);
 extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
 extern const f32 lbl_805DC890;
 extern const f64 lbl_8044D8D0[];
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 extern const f32 lbl_805DC898;
 extern const f32 lbl_805DC89C;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -243,7 +243,7 @@ M2C_UNK *TObjPlayer__sub_80236290(s32 arg0, u32 arg1, s32 _w2, s32 _w3) {
     VecCopy__FP3VecPC3Vec((void *) (arg1 + 0x38), (void *) (&stack.sp8));
     var_r29 = 0;
 loop_3:
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int) (var_r29));
+    temp_r3 = get_player_by_client_id((int) (var_r29));
     if ((temp_r3 != 0) && (temp_r3_2 = find_actor_body_contact((void *) (arg1), (int) (temp_r3), (f32) (lbl_805DC89C)), ((temp_r3_2 == 0U) == 0)) && (M2C_FIELD(((u8 *)&lbl_80516150.value + (M2C_FIELD(&lbl_80516150.value, s32 *, 0x80) * 4)), u32 *, 0x40) = temp_r3_2, M2C_FIELD(&lbl_80516150.value, M2C_UNK *, (M2C_FIELD(&lbl_80516150.value, s32 *, 0x80) * 4)) = temp_r3, temp_r0 = M2C_FIELD(&lbl_80516150.value, s32 *, 0x80) + 1, M2C_FIELD(&lbl_80516150.value, s32 *, 0x80) = temp_r0, ((temp_r0 < 0x10) == 0))) {
         M2C_FIELD(&lbl_80516150.value, s32 *, 0x80) = 0xF;
     } else {
@@ -332,7 +332,7 @@ s32 TObjPlayer__sub_802364D8(void *self, int target, void *_w2, void *arg3) {
         }
     } else {
         for (j = 0; j < 4; j++) {
-            e = (PD_802364D8 *)TPhotonMylla__sub_80154CB4(j);
+            e = (PD_802364D8 *)find_entity_by_id(j);
             if (e != 0 && obj_getField1c(e) != obj_getField1c(arg3) && (e->flags & 0x10000000)) {
                 c = (Contact_802364D8 *)find_actor_body_contact((void *)target, (int)e, lbl_805DC89C);
                 if (c != 0) {
@@ -475,7 +475,7 @@ u8 *TObjPlayer__sub_80236A20(void *self, s32 arg) {
         }
     } else {
         for (j = 0; j < 4; j++) {
-            e = (PD_80236A20 *)TPhotonMylla__sub_80154CB4(j);
+            e = (PD_80236A20 *)find_entity_by_id(j);
             if (e == 0) continue;
             if (obj_getField1c(e) == obj_getField1c((void *)arg)) continue;
             c = (Contact_80236A20 *)find_actor_body_contact(s->proxy, (int)e, lbl_805DC89C);

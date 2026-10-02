@@ -4,7 +4,7 @@ s32 get_main_phase();
 s32 TCameraCtrl__sub_80068958(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 get_map_id__13TRaderMapCoreFPv();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 void create_instance__19THunterGuildWarningFi(s32);
 s32 is_active__19THunterGuildWarningFv();
 s32 TPlayerBattleCtrl4P__sub_80211B10(s32);
@@ -37,7 +37,7 @@ s32 TLobby__sub_80211D58(s32 arg0) {
             }
             kind = TPlayerBattleCtrl4P__sub_80211B10(player);
             if (kind != 0) {
-                if (TPlayerBattleCtrl4P__sub_801BA74C((u16)player) != 0) {
+                if (get_player_by_client_id((u16)player) != 0) {
                     if (TWindowShortListCtrl__check_controller_button(&lbl_8050E208[get_map_id__13TRaderMapCoreFPv()][0x20], 4) != 0 &&
                         is_active__19THunterGuildWarningFv() == 0) {
                         switch (kind) {

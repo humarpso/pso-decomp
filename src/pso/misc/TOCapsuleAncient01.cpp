@@ -78,9 +78,9 @@ M2C_UNK TOSignCave03__sub_803DB510(int);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
+M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -99,19 +99,19 @@ void render__18TOCapsuleAncient01Fv(u8 *arg0) {
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         temp_r31 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x34));
-        TObjPlayer__sub_803D9624((int) (0), (f32) (M2C_FIELD(temp_r31, f32 *, 8)), (f32) (M2C_FIELD(temp_r31, f32 *, 0xC)), (f32) (M2C_FIELD(temp_r31, f32 *, 0x10)));
+        translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r31, f32 *, 8)), (f32) (M2C_FIELD(temp_r31, f32 *, 0xC)), (f32) (M2C_FIELD(temp_r31, f32 *, 0x10)));
         TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31, s32 *, 4)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) == 1) {
             begin_effect_render__13TParticleCtrlFv();
             temp_r31_2 = (unsigned char *) (M2C_FIELD(temp_r31, void **, 0x2C));
             TObjPlayer__sub_803D9B2C();
-            TObjPlayer__sub_803D9624((int) (0), (f32) (M2C_FIELD(temp_r31_2, f32 *, 8)), (f32) (M2C_FIELD(temp_r31_2, f32 *, 0xC)), (f32) (M2C_FIELD(temp_r31_2, f32 *, 0x10)));
+            translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r31_2, f32 *, 8)), (f32) (M2C_FIELD(temp_r31_2, f32 *, 0xC)), (f32) (M2C_FIELD(temp_r31_2, f32 *, 0x10)));
             rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xE4)));
             TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             end_effect_render__13TParticleCtrlFv();
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

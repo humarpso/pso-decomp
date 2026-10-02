@@ -72,7 +72,7 @@ struct Pos_80177E24 { f32 x, y, z; };
 struct Obj_80177E24 { u8 pad[0x38]; Pos_80177E24 pos; };
 
 extern "C" {
-M2C_UNK TObjPlayer__sub_8001978C(f32);
+M2C_UNK newton_sqrtf(f32);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TObjRoomId__sub_80141CF4(void *, void *);
 extern const f32 lbl_805DBA10;
@@ -89,7 +89,7 @@ u8 *fn_80101A98(s32);
 s32 fn_80101AA8();
 s8 TObjPlayer__sub_80102C30(u8 *);
 u8 get_field_ec__12TOSwitchItemFPv(int);
-f32 TObjPlayer__sub_80141CF8(Pos_80177E24 *, Pos_80177E24 *);
+f32 horizontal_distance_squared(Pos_80177E24 *, Pos_80177E24 *);
 s32 is_state_ec1_ed3__10TObjPlayerFPv(int);
 void run_task__12TOSwitchItemFv(u8 *arg0);
 }
@@ -127,7 +127,7 @@ void render__12TOSwitchItemFv(u8 *arg0) {
         stack.spC = lbl_805DBA10;
         stack.sp10 = lbl_805DBA10;
         stack.sp14 = lbl_805DBA14;
-        TObjPlayer__sub_8001978C((f32) (M2C_FIELD(arg0, f32 *, 0xE8)));
+        newton_sqrtf((f32) (M2C_FIELD(arg0, f32 *, 0xE8)));
         TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&stack.sp8));
     }
 }
@@ -149,7 +149,7 @@ void run_task__12TOSwitchItemFv(u8 *arg0) {
     var_r29 = 0;
     while (var_r29 != temp_r31) {
         temp_r27 = (u8 *)(fn_80101A98(var_r29));
-        if ((TObjPlayer__sub_80102C30(temp_r27) == 0) && (TObjPlayer__sub_80141CF8(&((Obj_80177E24 *)temp_r27)->pos, &((Obj_80177E24 *)arg0)->pos) < M2C_FIELD(arg0, f32 *, 0xE8))) {
+        if ((TObjPlayer__sub_80102C30(temp_r27) == 0) && (horizontal_distance_squared(&((Obj_80177E24 *)temp_r27)->pos, &((Obj_80177E24 *)arg0)->pos) < M2C_FIELD(arg0, f32 *, 0xE8))) {
             temp_r0 = M2C_FIELD(arg0, u32 *, 0xF0);
             switch (temp_r0) {
             case 0:

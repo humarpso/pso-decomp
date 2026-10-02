@@ -8,7 +8,7 @@ extern "C" {
 
 s32 check_all_players_active__13TObjTombstoneFv(void);
 s32 check_height_ready__13TObjTombstoneFPv(void *arg0);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 s32 TWindowCtrlMain__sub_8024CE58();
 
 s32 obj_testFlags30(u32, M2C_UNK);
@@ -22,7 +22,7 @@ s32 check_all_players_active__13TObjTombstoneFv(void) {
     }
     var_r31 = 0;
 loop_3:
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(var_r31);
+    temp_r3 = get_player_by_client_id(var_r31);
     if ((temp_r3 != 0U) && (obj_testFlags30(temp_r3, 0x02000000) != 0)) {
         return 0;
     }

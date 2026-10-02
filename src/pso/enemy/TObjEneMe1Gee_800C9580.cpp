@@ -151,7 +151,7 @@ struct RecoveredFields_800C9580_arg0 {
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void set_field_378__9TObjEneDDFPvi(void *, s32);
-u8 * TPhotonMylla__sub_80154CB4(u16);
+u8 * find_entity_by_id(u16);
 s32 send_entity_set_flags__6TLobbyFPv(void *);
 void TObjEneMe1Gee__sub_800C9580(u8 *arg0, s32 arg1);
 }
@@ -176,7 +176,7 @@ void TObjEneMe1Gee__sub_800C9580(u8 *arg0, s32 arg1) {
         ((RecoveredFields_800C9580_arg0 *)arg0)->field_3C8 = (s32) (((RecoveredFields_800C9580_arg0 *)arg0)->field_3C8 & 0xFFBFFFFF);
         ((RecoveredFields_800C9580_arg0 *)arg0)->field_30 = (s32) (((RecoveredFields_800C9580_arg0 *)arg0)->field_30 | 0x800);
         if ((s32) ((RecoveredFields_800C9580_arg0 *)arg0)->field_3C4 == 1) {
-            ((RecoveredFields_800C9580_arg0 *)arg0)->field_3C0 = TPhotonMylla__sub_80154CB4(((RecoveredFields_800C9580_arg0 *)arg0)->field_48C);
+            ((RecoveredFields_800C9580_arg0 *)arg0)->field_3C0 = find_entity_by_id(((RecoveredFields_800C9580_arg0 *)arg0)->field_48C);
             temp_r3 = (u8 *)(((RecoveredFields_800C9580_arg0 *)arg0)->field_3C0);
             ((VObj_18_455f6b *)(temp_r3))->m115(arg0);
         } else {

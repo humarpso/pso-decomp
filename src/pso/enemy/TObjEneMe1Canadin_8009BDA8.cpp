@@ -20,12 +20,12 @@ struct VObj_8009c7d8 : VBase_8009c7d8 {
 extern "C" {
 
 void run_task__17TObjEneMe1CanadinFPvi(u8 *arg0, s32 arg1);
-M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK advance_animation_playback();
 M2C_UNK TObjEneDD__sub_800BAC14(void *, f32, f32, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
+M2C_UNK transition_enemy_state(void *, int);
 M2C_UNK noop__17TObjEneMe1CanadinFv(void *);
-s32 TPhotonMylla__sub_80154CB4(int);
+s32 find_entity_by_id(int);
 M2C_UNK advance_state_5_to_4__17TObjEneMe1CanadinFPv();
 M2C_UNK copy_position__14TObjEneEpsilonFPv(void *, void *);
 M2C_UNK set_flag3c8_bit8__23TObjEneMe1CanadinLeaderFPv(int);
@@ -45,19 +45,19 @@ void run_task__17TObjEneMe1CanadinFPvi(u8 *arg0, s32 arg1) {
         ((VObj_8009c7d8 *) arg0)->m93();
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x01000000);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 1) {
-            M2C_FIELD(arg0, s32 *, 0x3C0) = TPhotonMylla__sub_80154CB4((int) (M2C_FIELD(arg0, u16 *, 0x4C8)));
+            M2C_FIELD(arg0, s32 *, 0x3C0) = find_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0x4C8)));
             set_flag3c8_bit8__23TObjEneMe1CanadinLeaderFPv((int) (M2C_FIELD(arg0, s32 *, 0x3C0)));
         }
         M2C_FIELD(arg0, s32 *, 0x404) = 0;
         return;
     case 3:
         if ((((VObj_8009c7d8 *) arg0)->m106() == 0) && (M2C_FIELD(arg0, f32 *, 0x3AC) < lbl_805D98D4)) {
-            TObjEneDD__sub_800BBA18((void *) (arg0), (int) (5));
+            transition_enemy_state((void *) (arg0), (int) (5));
         }
     case 5:
         return;
     case 0:
-        TBoss1Dragon__sub_80143504();
+        advance_animation_playback();
         copy_position__14TObjEneEpsilonFPv((void *) (arg0), (void *) (arg0 + 0x50));
         update_velocity__9TObjEneDDFPv((void *) (arg0));
         update_angle__17TObjEneMe1CanadinFPv((void *) (arg0));

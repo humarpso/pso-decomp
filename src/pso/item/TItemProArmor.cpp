@@ -149,12 +149,12 @@ u8 *TItemProArmor__sub_801177C4(u8 *arg0);
 u8 * TItemEquipBase__ct(void *);
 s16 get_bswap16_field8__9TItemDataFPv(void *);
 s16 getS16_06__9TItemDataFPv(void *);
-s32 TItemData__sub_8010EA38(void *);
+s32 lookup_item_pmt_record(void *);
 extern M2C_UNK __vt__13TItemProArmor[];
 extern s32 lbl_805D2C30;
 u8 *TItemProArmor__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
-s32 TItemData__sub_8010EA38(void *);
+s32 lookup_item_pmt_record(void *);
 u8 *TItemProArmor__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 s32 TItemProArmorParticle__ct(int, int, void *);
 extern s32 tl_05;
@@ -193,7 +193,7 @@ s32 TItemData__sub_8010CE70(void *, u8);
 void TItemObject__ct(void *);
 s32 TItemObject__sub_80115D84(void *);
 void TItemTimerEvent__ct(void *);
-M2C_UNK TObjPlayer__sub_8010069C();
+M2C_UNK refresh_owner_stats__5TItemFPv();
 int TObjPlayer__sub_80108164(void);
 M2C_UNK TObjPlayer__sub_8011F710(s32, s32);
 void __dt__11TItemObjectFv(void *, int);
@@ -376,7 +376,7 @@ void TItemProArmor__vt42(Armor_80117954 *self) {
 
 void TItemProArmor__vt14(void *arg0) {
     if (M2C_FIELD(arg0, u16 *, 0x190) & 1) {
-        TObjPlayer__sub_8010069C();
+        refresh_owner_stats__5TItemFPv();
     }
 }
 
@@ -392,7 +392,7 @@ u8 *TItemProArmor__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     M2C_FIELD(arg0, u8 *, 0x192) = (u8) M2C_FIELD(arg2, u8 *, 5);
     M2C_FIELD(arg0, s8 *, 0x193) = getS16_06__9TItemDataFPv(arg2);
     M2C_FIELD(arg0, s8 *, 0x194) = get_bswap16_field8__9TItemDataFPv(arg2);
-    M2C_FIELD(arg0, s32 *, 0x18C) = TItemData__sub_8010EA38(arg2);
+    M2C_FIELD(arg0, s32 *, 0x18C) = lookup_item_pmt_record(arg2);
     M2C_FIELD(arg0, u8 *, 0x195) = (u8) M2C_FIELD(M2C_FIELD(arg0, s32 *, 0x18C), u8 *, 0x16);
     M2C_FIELD(arg0, u8 *, 0x196) = (u8) M2C_FIELD(M2C_FIELD(arg0, s32 *, 0x18C), u8 *, 0x17);
     if ((u8) M2C_FIELD(arg0, u8 *, 0x192) > 4U) {
@@ -415,7 +415,7 @@ s32 TItemProArmor__sub_80117C60(s32 arg0) {
   u8 temp_r0;
   if (arg0 != 0)
   {
-    temp_r0 = *((u8 *) (((s8 *) ((u8 *)TItemData__sub_8010EA38((void *)(arg0)))) + 0x1A));
+    temp_r0 = *((u8 *) (((s8 *) ((u8 *)lookup_item_pmt_record((void *)(arg0)))) + 0x1A));
     if (((s32) temp_r0) != 2)
     {
       if (((s32) temp_r0) < 2)

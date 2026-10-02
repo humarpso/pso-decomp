@@ -14,7 +14,7 @@ void fn_8002C7EC(u8 *arg0, s32 arg1);
 extern s32 TObjBoss1Crater__data_805D4B58;
 extern s32 TObjBoss1Crater__data_804FE1E8[];
 void TObjBoss1Crater__sub_8002C7B8(void);
-f32 TObjPlayer__sub_8001978C(f32);
+f32 newton_sqrtf(f32);
 extern s32 TObjBoss1Crater__data_804FE1E8[];
 extern s32 TObjBoss1Crater__data_805D4B58;
 extern const f32 lbl_805D8168;
@@ -86,7 +86,7 @@ f32 TObjBoss1Crater__sub_8002C730(Obj_8002C730 *self) {
             best = d;
         }
     }
-    return TObjPlayer__sub_8001978C(best);
+    return newton_sqrtf(best);
 }
 #pragma pop
 

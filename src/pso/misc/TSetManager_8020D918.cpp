@@ -30,13 +30,13 @@ extern "C" {
 void TLobby__sub_8020D94C(void);
 extern s16 TLobby__data_805D6134;
 void TLobby__sub_8020DB08(void);
-s32 TObjPlayer__sub_800196EC(void);
+s32 get_current_floor(void);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(void *p);
 extern Area_8020DEE4 TLobby__data_80513AD0[];
 extern SrcA_8020DEE4 *TLobby__data_805D610C;
 extern SrcB_8020DEE4 *TLobby__data_805D6114;
 void TLobby__sub_8020DEE4(int unused);
-s32 TObjPlayer__sub_800196EC(void);
+s32 get_current_floor(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 lookup_scene_object__6TLobbyFPv(s32, void *);
 void TLobby__sub_8020E08C(void);
@@ -160,7 +160,7 @@ void TLobby__sub_8020DB44(void) {
     TLobby__data_805D6128 = 0;
     TLobby__data_805D6134 &= ~16;
     lbl_805D60F8 = get_global_state__14TOKeyMachine01Fv();
-    r = TObjPlayer__sub_800196EC();
+    r = get_current_floor();
     TLobby__data_805D60FC = r;
     if (lookup_scene_object__6TLobbyFPv(r, &v) != 0) {
         TLobby__sub_8020D9A0((s32)(v.a), (s32)(v.b), (s32)(v.c));
@@ -191,7 +191,7 @@ void TLobby__sub_8020DBCC(void) {
 }
 
 void TLobby__sub_8020DEE4(int unused) {
-    Area_8020DEE4 *area = &TLobby__data_80513AD0[TObjPlayer__sub_800196EC()];
+    Area_8020DEE4 *area = &TLobby__data_80513AD0[get_current_floor()];
     if (TLobby__data_805D610C != 0) {
         SrcA_8020DEE4 *s = TLobby__data_805D610C;
         Dst_8020DEE4 *d = area->a;

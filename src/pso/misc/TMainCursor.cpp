@@ -70,7 +70,7 @@ void *__dt__11TMainCursorFv(void *arg0, s16 arg1);
 void update_position__11TMainCursorFi(s32 arg0);
 s32 TMainCursor__sub_8013DF08();
 void TMainCursor__sub_8013E5E8(void *, int);
-void *TPhotonMylla__sub_80154CB4();
+void *find_entity_by_id();
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -83,7 +83,7 @@ void update_position__11TMainCursorFi(s32 arg0) {
     void *temp_r3;
 
     get_id__11TMainCursorFPv(arg0 + 0x60);
-    temp_r3 = TPhotonMylla__sub_80154CB4();
+    temp_r3 = find_entity_by_id();
     if (temp_r3 != NULL) {
         s32 base = M2C_FIELD(temp_r3, s32 *, 0xA4) + is_position_moved__11TMainCursorFPv(arg0) * 0x2C;
         VecCopy__FP3VecPC3Vec(arg0 + 0x40, base + 0x1C);

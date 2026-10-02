@@ -46,7 +46,7 @@ struct Pkt_801B7EB8 {
 };
 
 extern "C" {
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u8 *get_player_by_client_id(u16);
 M2C_UNK bswap_cmd_u32__10TObjPlayerFi(void *);
 M2C_UNK copy_field_4__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK TObjPlayer__sub_801C0E40(void *);
@@ -71,7 +71,7 @@ void handle_6x27_use_item(s32 arg0) {
     copy_field_4__10TObjPlayerFPvPv((void *) (&pkt), (void *) (arg0));
     bswap_cmd_u32__10TObjPlayerFi((void *) (&pkt));
     if (validate_6x27_use_item((void *) (&pkt)) != 0) {
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(pkt.client);
+        temp_r3 = get_player_by_client_id(pkt.client);
         if ((temp_r3 != NULL) && (start_inventory_update__10TObjPlayerFPvi((int) (M2C_FIELD(temp_r3, s32 *, 0xD00)), (int) (pkt.item)) != 0U)) {
             temp_r3_2 = get_owner_if_alive__10TObjPlayerFPv();
             if (temp_r3_2 != NULL) {

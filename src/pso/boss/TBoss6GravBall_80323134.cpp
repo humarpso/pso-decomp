@@ -35,7 +35,7 @@ void init_parts__14TBoss6GravBallFPv(s32 arg0);
 void TBoss6GravBall__sub_80323320(T_80323320 *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
-Ctl_80323134 *TPlayerBattleCtrl4P__sub_801BA74C(int);
+Ctl_80323134 *get_player_by_client_id(int);
 }
 
 extern "C" {
@@ -53,7 +53,7 @@ void fn_80323134(Obj_80323134 *arg0) {
         if (arg0->items[i] != 0) {
             switch (i) {
             case 5: case 6: case 7: case 8:
-                c = TPlayerBattleCtrl4P__sub_801BA74C((u16)(i - 5));
+                c = get_player_by_client_id((u16)(i - 5));
                 if (c != 0) {
                     VecCopy__FP3VecPC3Vec(&v, &c->pos);
                     copy_pos__11TNowLoadingFPvPv(arg0->items[i], &v);

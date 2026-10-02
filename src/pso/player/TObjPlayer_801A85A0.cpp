@@ -7,20 +7,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 is_any_teammate_in_state__10TObjPlayerFv(void);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv();
 s32 TObjPlayer__sub_801AA17C(void *, s32);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 
 s32 is_any_teammate_in_state__10TObjPlayerFv(void) {
     struct { u8 _pad[0x20]; } sp8;
     s32 temp_r31;
     s32 var_r30;
 
-    temp_r31 = TObjPlayer__sub_800196EC();
+    temp_r31 = get_current_floor();
     var_r30 = 0;
 loop_1:
-    if ((TPlayerBattleCtrl4P__sub_801BA74C(var_r30) != 0U) && (temp_r31 == get_field_3e4__10TObjPlayerFPv()) && (TObjPlayer__sub_801AA17C(&sp8, var_r30) == 2)) {
+    if ((get_player_by_client_id(var_r30) != 0U) && (temp_r31 == get_field_3e4__10TObjPlayerFPv()) && (TObjPlayer__sub_801AA17C(&sp8, var_r30) == 2)) {
         return 1;
     }
     var_r30 += 1;

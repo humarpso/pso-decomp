@@ -128,11 +128,11 @@ M2C_UNK create_particle__17TObjBoss2CeilJunkFv(void *, M2C_UNK);
 void TObjPlayer__sub_8002E53C(u8 *arg0);
 M2C_UNK TObjLight__sub_801337F8(s32);
 M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
+M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_803D9730(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK set_chunk_material_override_pair(int, int);
@@ -153,7 +153,7 @@ M2C_UNK TObjPlayer__sub_803D8CD4(int);
 M2C_UNK TScene__sub_803D8DB4(int, void *, void *);
 M2C_UNK TObjPlayer__sub_803D9730(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 extern M2C_UNK lbl_80482090[];
 extern Model_8002E62C *lbl_805D4B8C;
 extern const f32 lbl_805D8228;
@@ -227,7 +227,7 @@ void TObjPlayer__sub_8002E3D4(Obj_8002E3D4 *self) {
             TOHangerMachine01__sub_803D9C00(p);
             rotate_matrix_z(0, p->f20);
             rotate_matrix_x(0, p->f18);
-            TObjPlayer__sub_803D9624(0, -self->f4F4.x, -self->f4F4.y, -self->f4F4.z);
+            translate_matrix(0, -self->f4F4.x, -self->f4F4.y, -self->f4F4.z);
             TObjPlayer__sub_803D9730(0, self->f4F0);
             switch (p->f28) {
             case 0:
@@ -246,10 +246,10 @@ void TObjPlayer__sub_8002E3D4(Obj_8002E3D4 *self) {
                 some_id_805c6f74 = lbl_805D5660;
                 break;
             }
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
         }
     }
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     TObjLight__sub_801337F8(lbl_805D5560);
 }
 
@@ -315,7 +315,7 @@ Obj_8002E62C *TObjPlayer__sub_8002E62C(Obj_8002E62C *self, M2C_UNK arg1, s32 arg
         p->f28 = 0;
         p->f24 = lbl_805D8228;
     }
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     return self;
 }
 

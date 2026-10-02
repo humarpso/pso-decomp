@@ -12,7 +12,7 @@ s32 check_demo_mode__10TObjPlayerFv();
 s32 is_any_teammate_in_state__10TObjPlayerFv();
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjFish__sub_803E46BC(s32);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
@@ -46,7 +46,7 @@ void render__6TOTrapFv(u8 *arg0) {
             } else {
                 TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
             }
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
         }
     }
 }

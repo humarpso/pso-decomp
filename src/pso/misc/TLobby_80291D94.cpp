@@ -134,7 +134,7 @@ s32 get_card_window__17TWindowSubComCardFUi(s32);
 extern A_80291FC0 lbl_804DB1F0[];
 s32 TLobby__sub_802924B4(s32 arg0, u16 arg1);
 s32 mix_seed_checked__6TLobbyFi(s32);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 s32 is_value_out_of_range__6TLobbyFi(s32);
 s32 TLobby__sub_80293080();
 extern A_80291FC0 lbl_804DB1F0[];
@@ -152,7 +152,7 @@ s32 TLobby__sub_80293080();
 extern A_80291FC0 lbl_804DB1F0[];
 s32 TLobby__sub_80292270(s32 arg0, s32 arg1);
 s32 TLobby__sub_8006F994(s32);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 s32 get_clamped_time_limit__6TLobbyFv();
 s32 is_value_out_of_range__6TLobbyFi(s32);
 extern A_80291FC0 lbl_804DB1F0[];
@@ -238,7 +238,7 @@ s32 TLobby__sub_8029204C(void) {
         arr[i] = 0;
     }
     for (i = 0; i < 4; i++) {
-        if (TPlayerBattleCtrl4P__sub_801BA74C(i) != 0) {
+        if (get_player_by_client_id(i) != 0) {
             v = ((M2C_UNK *)lbl_804DB1F0)[i + 0x1A0];
             if (v == 0) {
                 return -1;
@@ -270,7 +270,7 @@ void TLobby__sub_80292164(s32 arg0) {
     s32 i;
     if (TLobby__sub_80293080() != 0) {
         for (i = 0; i < 4; i++) {
-            if (TPlayerBattleCtrl4P__sub_801BA74C(i) != 0) {
+            if (get_player_by_client_id(i) != 0) {
                 s32 v = mix_seed_checked__6TLobbyFi(arg0);
                 if (is_value_out_of_range__6TLobbyFi(arg0) != 0) {
                     v = mix_seed_checked__6TLobbyFi(0x8C9F);

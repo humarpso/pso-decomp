@@ -44,7 +44,7 @@ struct Obj_802E4C70 {
 };
 
 extern "C" {
-u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u32 get_player_by_client_id(u16);
 M2C_UNK TCameraCtrl__sub_80069E7C(s32);
 M2C_UNK TCameraCtrl__sub_80069D04(Cam_802E4E44 *);
 void VecCopy__FP3VecPC3Vec(Vec_802E4E44 *, const Vec_802E4E44 *);
@@ -57,10 +57,10 @@ u32 TWindowSubStatusDisp__sub_80144D68(void *);
 M2C_UNK render_status_line__15TAdSubPlyItemGCFPvi(void *, int, f32, f32, f32);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
@@ -133,10 +133,10 @@ void TObjOnlineEnding__sub_802E4C70(Obj_802E4C70 *arg0) {
     begin_effect_render__13TParticleCtrlFv();
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(lbl_804E3A38);
-    TOMonitorMachine01__sub_803D8B5C(0, lbl_805D3F94, lbl_805DE934, lbl_805DE934);
+    scale_matrix(0, lbl_805D3F94, lbl_805DE934, lbl_805DE934);
     set_global_param__8TObjFishFi(arg0->f94);
     TObjEneSlimeOne__sub_803E4AF4(arg0->f90, arg0->f98, arg0->f150);
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     for (i = 0; i < arg0->count; i++) {
         e = &arg0->ent[i];
         if (e->active != 0) {
@@ -158,9 +158,9 @@ void TObjOnlineEnding__sub_802E4C70(Obj_802E4C70 *arg0) {
             TOHangerMachine01__sub_803D9C00(lbl_804E3A38);
             TOHangerMachine01__sub_803D9C00(e->f18);
             rotate_matrix_y(0, e->f1C);
-            TOMonitorMachine01__sub_803D8B5C(0, e->f20, e->f20, e->f20);
+            scale_matrix(0, e->f20, e->f20, e->f20);
             TObjPlayer__sub_80051BE0(e->id, e->f24, lbl_805DE944, lbl_805DE934);
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
         }
     }
     end_effect_render__13TParticleCtrlFv();
@@ -169,7 +169,7 @@ void TObjOnlineEnding__sub_802E4C70(Obj_802E4C70 *arg0) {
 void TObjOnlineEnding__sub_802E4E44(Obj_802E4E44 *arg0) {
     s32 i;
     for (i = 0; i < arg0->count; i++) {
-        if (arg0->ent[i].active != 0 && TPlayerBattleCtrl4P__sub_801BA74C(arg0->ent[i].id) == 0) {
+        if (arg0->ent[i].active != 0 && get_player_by_client_id(arg0->ent[i].id) == 0) {
             arg0->ent[i].active = 0;
         }
     }

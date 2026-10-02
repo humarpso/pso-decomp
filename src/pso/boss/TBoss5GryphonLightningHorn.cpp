@@ -33,7 +33,7 @@ extern const f32 lbl_805DF644;
 extern const f32 lbl_805DF650;
 u8 *__ct__26TBoss5GryphonLightningHornFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u8 *TBoss8Dragon__sub_8007A544(M2C_UNK *, s32);
+u8 *csnVecterUnder(M2C_UNK *, s32);
 s32 __nw__7TObjectFUl(int);
 u8 *__ct__26TBoss5GryphonLightningHornFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 extern const f32 lbl_805D8D48;
@@ -88,7 +88,7 @@ s32 TBoss8Dragon__sub_803263A4(s32 arg0, s32 arg1, s32 arg2) {
     s32 effect;
     u8* collision;
     VecCopy__FP3VecPC3Vec(&position, (void*)arg1);
-    collision = TBoss8Dragon__sub_8007A544((M2C_UNK*)&position, 0x16EF);
+    collision = csnVecterUnder((M2C_UNK*)&position, 0x16EF);
     if (collision == NULL) {
         position.y = lbl_805D8D48;
     } else {

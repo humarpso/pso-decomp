@@ -12,7 +12,7 @@ s32 TCameraCtrl__sub_80069258();
 M2C_UNK TCameraCtrl__sub_803D8934(M2C_UNK, s32, s32);
 M2C_UNK TCameraCtrl__sub_803D976C(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 void TObjBoss2Tunnel__sub_8007E884(s32 arg0, s32 arg1, s32 arg2);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
@@ -34,7 +34,7 @@ s32 decrement_packed_timer__15TObjBoss2TunnelFPvi(u32 *arg0, s32 arg1);
 void init_zako__15TObjBoss2TunnelFPvPv(void* p, void* a1, s32 _w2);
 s32 spawn_effect__15TObjBoss2TunnelFiPvPv(s32 arg0, void *arg1, void *arg2);
 int TBoss4Zako__sub_803D8910(void*, void*);
-void *TBoss8Dragon__sub_8007A544(void *, M2C_UNK, f32);
+void *csnVecterUnder(void *, M2C_UNK, f32);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
 
@@ -59,7 +59,7 @@ s32 spawn_effect__15TObjBoss2TunnelFiPvPv(s32 arg0, void *arg1, void *arg2) {
     VecCopy__FP3VecPC3Vec(arg1, arg0);
     temp_f1 = M2C_FIELD(arg1, f32 *, 4);
     M2C_FIELD(arg1, f32 *, 4) = (f32) (temp_f1 + TObjBoss2Tunnel__data_805D9210);
-    temp_r3 = TBoss8Dragon__sub_8007A544(arg1, 0x16EF, temp_f1);
+    temp_r3 = csnVecterUnder(arg1, 0x16EF, temp_f1);
     if (temp_r3 != NULL) {
         VecCopy__FP3VecPC3Vec(arg1, M2C_FIELD(temp_r3, s32 *, 4));
         VecCopy__FP3VecPC3Vec(arg2, M2C_FIELD(temp_r3, s32 *, 4) + 0xC);
@@ -78,7 +78,7 @@ s32 adjust_to_ground__15TObjBoss2TunnelFiPv(s32 arg0, void *arg1) {
     VecCopy__FP3VecPC3Vec(arg1, arg0);
     temp_f1 = M2C_FIELD(arg1, f32 *, 4);
     M2C_FIELD(arg1, f32 *, 4) = (f32) (temp_f1 + TObjBoss2Tunnel__data_805D9210);
-    temp_r3 = TBoss8Dragon__sub_8007A544(arg1, 0x16EF, temp_f1);
+    temp_r3 = csnVecterUnder(arg1, 0x16EF, temp_f1);
     if (temp_r3 != NULL) {
         VecCopy__FP3VecPC3Vec(arg1, M2C_FIELD(temp_r3, s32 *, 4));
         return 1;
@@ -194,7 +194,7 @@ void TObjBoss2Tunnel__sub_8007E884(s32 arg0, s32 arg1, s32 arg2) {
     TObjPlayer__sub_803D9B2C();
     TCameraCtrl__sub_803D976C(0, TCameraCtrl__sub_80069258());
     TCameraCtrl__sub_803D8934(0, arg1, arg2);
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 #pragma pop
 

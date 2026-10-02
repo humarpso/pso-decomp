@@ -13,8 +13,8 @@ typedef char RecoveredGlobal_802A9880___vt__9TTecKafun_size[sizeof(RecoveredGlob
 
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
-u32 TPhotonMylla__sub_80154CB4(int);
+M2C_UNK spawn_particle_effect(void *, int);
+u32 find_entity_by_id(int);
 M2C_UNK TObjPlayer__sub_8022BD74(void *);
 void run_task__9TTecKafunFv(u8 *arg0);
 u16 obj_getField1c(void *);
@@ -57,14 +57,14 @@ void run_task__9TTecKafunFv(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    M2C_FIELD(arg0, u32 *, 0x1C) = TPhotonMylla__sub_80154CB4((int) (M2C_FIELD(arg0, u16 *, 0xB4)));
+    M2C_FIELD(arg0, u32 *, 0x1C) = find_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0xB4)));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x20), (int) (M2C_FIELD(arg0, s32 *, 0xF0)));
+    spawn_particle_effect((void *) (arg0 + 0x20), (int) (M2C_FIELD(arg0, s32 *, 0xF0)));
     if ((s32) M2C_FIELD(arg0, s32 *, 0xFC) == 1) {
-        TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x20), (int) (M2C_FIELD(arg0, s32 *, 0xF4)));
+        spawn_particle_effect((void *) (arg0 + 0x20), (int) (M2C_FIELD(arg0, s32 *, 0xF4)));
     }
     TObjPlayer__sub_8022BD74((void *) (arg0));
     queue_destruction__7TObjectFv((void *) (arg0));

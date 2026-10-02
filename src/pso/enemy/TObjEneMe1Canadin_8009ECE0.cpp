@@ -233,7 +233,7 @@ s32 check_demo_mode__10TObjPlayerFv(void);
 void TObjEneMe1CanadinLeader__sub_8009E504(void *);
 void copy_pos__17TObjEneMe1CanadinFPv(u8 *arg0);
 int set_player_state_default__12TBoss8DragonFPv(void *);
-u8 * TPhotonMylla__sub_80154CB4(u16);
+u8 * find_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void run_task__17TObjEneMe1CanadinFv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -259,7 +259,7 @@ void set_mode0xD_unless_0xBor0xD__17TObjEneMe1CanadinFPv(void *arg0);
 void set_state_12__17TObjEneMe1CanadinFPv(void* p);
 void update__17TObjEneMe1CanadinFPv(void *arg0);
 void update_by_field_0x354__17TObjEneMe1CanadinFPv(void *arg0);
-int TObjEneDD__sub_800BBA18(void*, void*);
+int transition_enemy_state(void*, void*);
 void TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjEneMe1CanadinLeader__sub_8009E334(void *);
 M2C_UNK TObjEneMe1CanadinLeader__sub_8009E350(void *);
@@ -314,13 +314,13 @@ void copy_pos__17TObjEneMe1CanadinFPv(u8 *arg0) {
 }
 
 void TObjEneMe1Canadin__sub_8009EE18(void) {  }
-void set_state_12__17TObjEneMe1CanadinFPv(void* p) { if (*(short*)((char*)p + 0x326) != 12) { TObjEneDD__sub_800BBA18(p, (void*)12); } }
+void set_state_12__17TObjEneMe1CanadinFPv(void* p) { if (*(short*)((char*)p + 0x326) != 12) { transition_enemy_state(p, (void*)12); } }
 void set_mode0xD_unless_0xBor0xD__17TObjEneMe1CanadinFPv(void *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
     if ((temp_r0 != 0xD) && (temp_r0 != 0xB)) {
-        TObjEneDD__sub_800BBA18((void*)(arg0), (void*)(0xD));
+        transition_enemy_state((void*)(arg0), (void*)(0xD));
     }
 }
 void TObjEneMe1Canadin__sub_8009EE84(void) {  }
@@ -333,7 +333,7 @@ void run_task__17TObjEneMe1CanadinFv(u8 *arg0) {
         ((VObj_18_7dcedb *)(arg0))->m112();
         return;
     }
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 1) && ((M2C_FIELD(arg0, u8 **, 0x3C0) = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x4C8)), temp_r3 = M2C_FIELD(arg0, u8 **, 0x3C0), ((temp_r3 == NULL) != 0)) || (all_parents_unqueued_for_destruction__7TObjectFv(temp_r3) == 0))) {
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 1) && ((M2C_FIELD(arg0, u8 **, 0x3C0) = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x4C8)), temp_r3 = M2C_FIELD(arg0, u8 **, 0x3C0), ((temp_r3 == NULL) != 0)) || (all_parents_unqueued_for_destruction__7TObjectFv(temp_r3) == 0))) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }

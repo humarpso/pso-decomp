@@ -41,7 +41,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjFish__sub_803E46BC(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_seasonal_object__25TObjCity_Season_EasterEggFPvs(void *, int);
@@ -104,7 +104,7 @@ void notify_fish_on_easter_egg(u8 *arg0) {
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         TObjFish__sub_803E46BC(M2C_FIELD(M2C_FIELD(temp_r3, void **, 0x42C), s32 *, 0x18));
         TObjFish__sub_803E46BC(M2C_FIELD(M2C_FIELD(temp_r3, void **, 0x42C), s32 *, 0x8));
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

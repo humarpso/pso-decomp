@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-s32 TObjEneDD__sub_800BBA18(void * a0, s32 a1);
+s32 transition_enemy_state(void * a0, s32 a1);
 s32 TObjEneMe1Gee__vt106(u8 *arg0);
 }
 
@@ -13,7 +13,7 @@ extern "C" {
 
 s32 copy_target_state__14TObjEnePanarmsFPvPv();
 s32 get_global_state__14TOKeyMachine01Fv();
-s32 TObjEneDD__sub_800BBA18(void * a0 = 0, s32 a1 = 0);
+s32 transition_enemy_state(void * a0 = 0, s32 a1 = 0);
 void TObjEneMe1Gee__vt105(void);
 int TObjEneMe1Gee__vt102(void* p);
 int select_and_apply_target__14TObjEneEpsilonFPvf(void*);
@@ -23,7 +23,7 @@ s32 TObjEneMe1Gee__vt106(u8 *arg0) {
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x3C8);
     if (temp_r4 & 0x40) {
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (temp_r4 & 0xFFFFFFBF);
-        TObjEneDD__sub_800BBA18((void *)(arg0), (s32)(0xC));
+        transition_enemy_state((void *)(arg0), (s32)(0xC));
         return 1;
     }
     return 0;

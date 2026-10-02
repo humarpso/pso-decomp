@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjEneBalClawClaw__sub_80090D3C(void *arg0);
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 
 extern f32 TObjEneBalClawClaw__data_805D968C;
 
@@ -22,7 +22,7 @@ void TObjEneBalClawClaw__sub_80090D3C(void *arg0) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         TObjPlayer__sub_80011734(arg0, 0, TObjEneBalClawClaw__data_805D968C);
         return;
     case -1:

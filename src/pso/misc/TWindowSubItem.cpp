@@ -63,7 +63,7 @@ s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 void draw_slot__14TWindowSubItemFiii(s32 arg1, s32 arg2, s32 arg3);
 void dispatch_warp_status__14TWindowSubItemFii(s32 arg0, s32 arg1);
 s32 TWindowSubItem__sub_80279F28(u8 *arg0, s32 arg1);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 M2C_UNK TObjPlayer__sub_801B7B58(int, int, int);
 s32 select_cursor_entry__6TLobbyFPv(int);
 s32 get_selected_entry__14TWindowSubItemFPv(void *arg0);
@@ -74,7 +74,7 @@ s32 get_item_info__10TObjPlayerFiiPv(int, int, void *);
 void *TLobby__sub_80101AB0(s32);
 u32 test_item_flags__10TObjPlayerFPvUi(int, int);
 u8 get_field_ec__12TOSwitchItemFPv(int);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(s32, s32, M2C_UNK, s32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, s32);
@@ -124,7 +124,7 @@ void *TLobby__sub_80101AB0(s32);
 M2C_UNK TObjPlayer__sub_801B9EDC(s32, s32);
 M2C_UNK TObjPlayer__sub_801BA0F0(s32, s32, M2C_UNK);
 s32 TObjPlayer__sub_80203418();
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 int TShopArmorListWindow__sub_80266CF8(void*);
 int TShopArmorListWindow__sub_80266DB0(void*);
 M2C_UNK TWindowHelpItem__set_displayed_item_by_id(u32);
@@ -168,7 +168,7 @@ void set_displayed_item__14TWindowSubItemFPvi(void *arg0, s32 arg1) {
 void TWindowSubItem__sub_802797FC(u8 *arg0) {
     s32 temp_r31;
     s32 temp_r3;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((s32)(M2C_FIELD(arg0, u32 *, 0x24)));
+    temp_r3 = get_player_by_client_id((s32)(M2C_FIELD(arg0, u32 *, 0x24)));
     if (temp_r3 != 0) {
         temp_r31 = get_selected_entry__14TWindowSubItemFPv((void *)((int) (M2C_FIELD(arg0, s32 *, 0x30))));
         TObjPlayer__sub_801B7B58((int) (temp_r3), (int) (select_cursor_entry__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 0x30)))), (int) (temp_r31));
@@ -177,7 +177,7 @@ void TWindowSubItem__sub_802797FC(u8 *arg0) {
 #pragma pop
 
 void close_windows__14TWindowSubItemFPvi(void *arg0, s32 arg1) {
-    if (TPlayerBattleCtrl4P__sub_801BA74C((s32)(M2C_FIELD(arg0, s32 *, 0x24))) != 0U) {
+    if (get_player_by_client_id((s32)(M2C_FIELD(arg0, s32 *, 0x24))) != 0U) {
         switch (arg1) {
         case 0:
             close_sub_window__10TObjPlayerFPv();
@@ -203,7 +203,7 @@ void exec_item_command__14TWindowSubItemFPvii(void *arg0, s32 arg1, s32 arg2) {
     void *temp_r3_2;
     s32 t;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((s32)(M2C_FIELD(arg0, s32 *, 0x24)));
+    temp_r3 = get_player_by_client_id((s32)(M2C_FIELD(arg0, s32 *, 0x24)));
     if ((temp_r3 != 0) && (temp_r3_2 = TLobby__sub_80101AB0(arg1), ((temp_r3_2 == NULL) == 0))) {
         switch (arg2) {
         case 3:
@@ -262,7 +262,7 @@ void TWindowSubItem__sub_80279A60(u8 *arg0, s32 arg1, s32 arg2) {
       }
       else
       {
-        temp_r3_2 = TPlayerBattleCtrl4P__sub_801BA74C((s32)((int) (*((s32 *) (((s8 *) arg0) + 0x24)))));
+        temp_r3_2 = get_player_by_client_id((s32)((int) (*((s32 *) (((s8 *) arg0) + 0x24)))));
         if (temp_r3_2 != 0)
         {
           if (((get_item_info__10TObjPlayerFiiPv((int) temp_r3, (int) temp_r3_2, (void *) (&sp8)) != 0) && (TWindowSubItem__sub_80279754((void *) arg0, (int) temp_r3) != 0)) && (get_global_state__14TOKeyMachine01Fv() != 0xF))
@@ -466,7 +466,7 @@ void fn_8027ABFC(Win_8027ABFC *arg0) {
     u32 i;
     void *it;
 
-    pl = (Player_8027ABFC *)TPlayerBattleCtrl4P__sub_801BA74C(arg0->id);
+    pl = (Player_8027ABFC *)get_player_by_client_id(arg0->id);
     if (pl != NULL) {
         arg0->n = run_and_get_result__10TObjPlayerFPvi(pl->inv, ids);
         for (i = 0; i < arg0->n; i++) {

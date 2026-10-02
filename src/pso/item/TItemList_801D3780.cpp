@@ -105,7 +105,7 @@ s32 get_lobby_flag__6TLobbyFv(void);
 s32 get_enemy_count__9TObjEneDDFv(void);
 s32 get_game_mode__6TLobbyFv(void);
 Actor_801D3E20 *get_player_data__10TObjPlayerFi(s32 i);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void *TObjPlayer__sub_80155C54(Body_801D3E20, Body_801D3E20);
 extern const f32 lbl_805DC3D0;
@@ -123,7 +123,7 @@ s32 get_item_type_or_default__9TItemListFPv(void *);
 void send_code_45_1__10TObjPlayerFi(void *);
 void TObjPlayer__sub_801B8870(void *, s32, void *, s32);
 void TObjPlayer__sub_801B8DE8(void *, s32, s32);
-void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+void *get_player_by_client_id(u16);
 void *get_ptr_0x44__9TItemListFPv(void *);
 void TItemList__sub_801D588C(void *, int);
 s32 TItemList__sub_801D58DC(void *);
@@ -134,7 +134,7 @@ void TItemList__sub_801D3780(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
-Ground_801D3C38 *TBoss8Dragon__sub_8007A544(Vec_801D3E20 *, s32);
+Ground_801D3C38 *csnVecterUnder(Vec_801D3E20 *, s32);
 M2C_UNK disconnect_protocol__6TLobbyFv();
 void *TItemList__sub_801D3E20(void *self, Body_801D3E20 *s);
 s32 TItemList__sub_801D3F3C(void *arg0);
@@ -175,7 +175,7 @@ void TItemList__sub_801D3780(u8 *arg0) {
         TItemList__sub_801D59A0(arg0, *(s32 *)(arg0 + 0x54));
         TItemList__sub_801D591C(arg0);
         r = (Req_801D3780 *)TItemList__sub_801D58E4(arg0);
-        player = TPlayerBattleCtrl4P__sub_801BA74C(TItemList__sub_801D58DC(arg0));
+        player = get_player_by_client_id(TItemList__sub_801D58DC(arg0));
         if (player != NULL) {
             if (r->id == -1) {
                 if (r->source == -1) {
@@ -323,7 +323,7 @@ s32 TItemList__sub_801D3C38(Search_801D3C38 *s) {
     s->candidate.x = s->radius * TBoss8Dragon__sub_803D64C0(s->angle) + s->origin.x;
     s->candidate.y = s->origin.y;
     s->candidate.z = s->radius * TBoss8Dragon__sub_803D64DC(s->angle) + s->origin.z;
-    g = TBoss8Dragon__sub_8007A544(&s->candidate, 0x41);
+    g = csnVecterUnder(&s->candidate, 0x41);
     if (g == NULL) {
         s->angle += s->step;
         s->sample++;
@@ -353,7 +353,7 @@ void *TItemList__sub_801D3E20(void *self, Body_801D3E20 *s) {
     for (i = get_game_mode__6TLobbyFv() + get_enemy_count__9TObjEneDDFv(); i < end; i++) {
         Actor_801D3E20 *a = get_player_data__10TObjPlayerFi(i);
         if (a != 0 && a->colliders != 0 && !(a->flags & 0x800)) {
-            if (lbl_805DC3D0 > TObjPlayer__sub_80141CF8(&s->position, &a->pos)) {
+            if (lbl_805DC3D0 > horizontal_distance_squared(&s->position, &a->pos)) {
                 Body_801D3E20 b;
                 void *r;
                 b.colliders = a->colliders;

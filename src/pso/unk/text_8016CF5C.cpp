@@ -57,7 +57,7 @@ extern const f32 lbl_805DB78C;
 void TOKeyMachine01__vt14(Obj_8016D428 *self);
 void init_6x05_switch_changed__6TLobbyFPv(void *);
 void finalize_and_send_60__6TLobbyFPv(void *);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 extern s32 lbl_805D53A0;
 void TOKeyMachine01__sub_8016D148(Self_8016D148 *self, s32 flags);
 void reset_photon_effect__10TObjPlayerFPv(void *);
@@ -145,7 +145,7 @@ void TOKeyMachine01__sub_8016D148(Self_8016D148 *self, s32 flags) {
     pkt.object = self->id;
     pkt.zero = lbl_805D53A0;
     pkt.switchId = self->switchId;
-    pkt.area = TObjPlayer__sub_800196EC();
+    pkt.area = get_current_floor();
     pkt.flags = flags;
     finalize_and_send_60__6TLobbyFPv(&pkt);
 }

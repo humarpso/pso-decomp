@@ -28,7 +28,7 @@ int is_flag_clear__17TObjWarpBossMultiFPv(void* p);
 s32 TObjPlayer__sub_801B4684(void *);
 u8 fn_801D7168(void *);
 extern u8 lbl_8050EA40[];
-s32 TObjPlayer__sub_801B3814(u8 *arg0, void *arg1);
+s32 can_use_item__10TObjPlayerFPvPv(u8 *arg0, void *arg1);
 }
 
 extern "C" {
@@ -114,7 +114,7 @@ s32 check_can_add_item__10TObjPlayerFPvcc(void *arg0, s8 arg1, s8 arg2) {
     return all_parents_unqueued_for_destruction__7TObjectFv() != 0 ? 1 : 0;
 }
 
-s32 TObjPlayer__sub_801B3814(u8 *arg0, void *arg1) {
+s32 can_use_item__10TObjPlayerFPvPv(u8 *arg0, void *arg1) {
     u32 p;
     if (is_technique_ready__8TTecCtrlFv() != 0 && fn_801D7168(lbl_8050EA40) == 2) {
         return 0;

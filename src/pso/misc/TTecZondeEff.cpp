@@ -105,7 +105,7 @@ extern const f32 TTecZondeEff__data_805DC990;
 extern const f32 lbl_805DC9A4;
 void TTecZondeEff__sub_8023D4A8(Obj_8023D4A8 *arg0);
 s32 is_split_screen(void);
-void TObjEneDellBiter__sub_80087350(Rec_8023D568 *, s32);
+void spawn_particle_effect(Rec_8023D568 *, s32);
 void TTecZondeEff__sub_8023D568(void *arg0);
 void queue_destruction__7TObjectFv(void *);
 extern P_8023DBB4 lbl_805161D8;
@@ -178,7 +178,7 @@ void TTecZondeEff__sub_8023D568(void *arg0) {
         o->pts[i].y = dy * t + y0;
         o->pts[i].z = dz * t + z0;
         if (is_split_screen() == 0) {
-            TObjEneDellBiter__sub_80087350(&o->pts[i], 0x1F0);
+            spawn_particle_effect(&o->pts[i], 0x1F0);
         }
     }
 }

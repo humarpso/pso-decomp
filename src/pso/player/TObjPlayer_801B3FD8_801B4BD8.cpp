@@ -149,7 +149,7 @@ f32 *TObjPlayer__sub_801BF6B8(void *);
 s32 TObjPlayer__sub_801B50C0(u8 *self, f32 *pos);
 void TObjPlayer__sub_8011E204(u8 *, int);
 s32 draw_small_font__10TObjPlayerFi(s32 arg0, void *arg1);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 void TFontSmallLobby__sub_801C01BC(void *);
 M2C_UNK set_code_45_1__10TObjPlayerFPv(void *);
 s32 validate_6x2D_release_hold(void *);
@@ -172,7 +172,7 @@ extern const f32 TObjPlayer__data_805DC278;
 Obj_801B4FD8 *TObjPlayer__sub_801B4FD8(Obj_801B4FD8 *self);
 void set_state_flags__10TObjPlayerFPvUi(s32, u32);
 s32 TObjPlayer__sub_801AFF0C();
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 s32 check_flag_4__10TObjPlayerFPv(s32);
 void TObjPlayer__sub_801BF6C0(s32, f32);
 void TObjPlayer__sub_801BF6C8(s32, f32, f32);
@@ -240,7 +240,7 @@ void send_code_45_1__10TObjPlayerFi(s32 arg0);
 M2C_UNK TFontSmallLobby__sub_801C0228();
 s32 TObjPlayer__sub_801AFF0C();
 s32 TObjPlayer__sub_801C2044(s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 M2C_UNK clear_flag_0x2__10TObjPlayerFPv(void *);
 u32 is_action_active__10TObjPlayerFPv(void *);
 s16 obj_getField1c(s32);
@@ -267,7 +267,7 @@ void TObjPlayer__sub_801B4C34(s32 arg0) {
 s32 get_battle_ctrl_flag__10TObjPlayerFUs(u16 arg0) {
     s32 temp_r3;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16)arg0);
+    temp_r3 = get_player_by_client_id((u16)arg0);
     if ((temp_r3 != 0) && (TObjPlayer__sub_801AFF0C() != 0)) {
         return temp_r3;
     }
@@ -393,7 +393,7 @@ void handle_6x2D_release_hold(void *arg0) {
     draw_small_font__10TObjPlayerFi((s32)((s32) &pkt), (void *)(arg0));
     TFontSmallLobby__sub_801C01BC(&pkt);
     if (validate_6x2D_release_hold(&pkt) != 0) {
-        u8 *p = (u8 *) TPlayerBattleCtrl4P__sub_801BA74C(pkt.player_id);
+        u8 *p = (u8 *) get_player_by_client_id(pkt.player_id);
         if (p != NULL) {
             TObjPlayer__sub_8011E204(p, 1);
         }
@@ -424,7 +424,7 @@ void handle_6x2C_impose_hold(s32 arg0) {
     if (validate_6x2C_impose_hold(&pkt) == 0) {
         return;
     }
-    player = TPlayerBattleCtrl4P__sub_801BA74C(pkt.client);
+    player = get_player_by_client_id(pkt.client);
     if (player == 0) {
         return;
     }

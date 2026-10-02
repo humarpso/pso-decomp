@@ -48,7 +48,7 @@ extern u8 lbl_8050EA40[];
 extern s32 TLobby__data_80511CA0[];
 extern s32 lbl_805D53A0;
 void TLobby__sub_801C29F0(void *self);
-VObj_801C2B04 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+VObj_801C2B04 *get_player_by_client_id(s32);
 void clear_counter__6TLobbyFPv(void *a0);
 void send_neg50__6TLobbyFPvPv(void *p, s32 a1);
 void TLobby__sub_801C343C(void *);
@@ -118,7 +118,7 @@ void TLobby__sub_801C2B04(void *self) {
     init_all_default__11TWindowCtrlFPv(lbl_80446FCC);
     for (i = 0; i < 4; i++) {
         e = &TLobby__data_80511C80[i];
-        p = TPlayerBattleCtrl4P__sub_801BA74C(e->id);
+        p = get_player_by_client_id(e->id);
         if (p != NULL) {
             sprintf(buf, lbl_80446FD4, lbl_804C3E78[e->name], p->m10());
             init_all_default__11TWindowCtrlFPv(buf);

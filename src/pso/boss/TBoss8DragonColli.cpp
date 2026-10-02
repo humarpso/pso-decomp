@@ -30,7 +30,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void TBoss8DragonColli__sub_802F310C(O_802F310C *self);
 void fn_8002B630(u8 *arg0, u8 *arg1);
 E_802F31E4 *alloc_buffer__11TOBoss4RockFPv(s32);
-M2C_UNK TObjPlayer__sub_80154B60(void *);
+M2C_UNK register_entity_by_id(void *);
 int TObjPlayer__sub_80154E3C(void*);
 M2C_UNK TObjPlayer__sub_801569F4(void *, void *);
 s16 TLobby__sub_801A2078(int);
@@ -99,7 +99,7 @@ int TObjPlayer__sub_80154E3C(void*);
 int TObjPlayer__sub_803D8CD4(void*);
 int rotate_matrix_y(void*, void*);
 int TObjPlayer__sub_803D9B2C(void*);
-int TObjPlayer__sub_803D9B78(void);
+int pop_matrix(void);
 void __dl__7TObjectFPv(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 
@@ -149,7 +149,7 @@ u8 *TBoss8DragonColli__ct(u8 *arg0, s32 arg1) {
 
 void TBoss8DragonColli__sub_802F3070(void) {  }
 void TBoss8DragonColli__sub_802F3074(void* p) { TBoss8DragonColli__sub_802F310C((O_802F310C *)((void*)(p))); }
-void init__17TBoss8DragonColliFPvPvPv(void* p, void* a1, void* a2) { TObjPlayer__sub_803D9B2C(p); TObjPlayer__sub_803D8CD4((void*)0); TOHangerMachine01__sub_803D9C00(a1); rotate_matrix_y((void*)0, a2); TCameraCtrl__sub_803D8934((void*)0, (char*)p + 0xac, (char*)p + 0x38); TObjPlayer__sub_803D9B78(); *(void**)((char*)p + 0x60) = a2; TObjPlayer__sub_80154E3C(p); TBoss8DragonColli__sub_802F3144((O_802F3144 *)((void*)(p))); }
+void init__17TBoss8DragonColliFPvPvPv(void* p, void* a1, void* a2) { TObjPlayer__sub_803D9B2C(p); TObjPlayer__sub_803D8CD4((void*)0); TOHangerMachine01__sub_803D9C00(a1); rotate_matrix_y((void*)0, a2); TCameraCtrl__sub_803D8934((void*)0, (char*)p + 0xac, (char*)p + 0x38); pop_matrix(); *(void**)((char*)p + 0x60) = a2; TObjPlayer__sub_80154E3C(p); TBoss8DragonColli__sub_802F3144((O_802F3144 *)((void*)(p))); }
 
 extern M2C_UNK lbl_804E4BB4[];
 
@@ -204,7 +204,7 @@ s32 TBoss8DragonColli__sub_802F31E4(int arg0, void *arg1, int arg2, void *arg3, 
         e++;
     }
     TObjPlayer__sub_80154E3C(self);
-    TObjPlayer__sub_80154B60(self);
+    register_entity_by_id(self);
     TBoss8DragonColli__sub_802F310C((O_802F310C *)self);
     return arg0;
 }

@@ -10,7 +10,7 @@ struct RecoveredFields_80141CF8_arg0
 struct Vec_80141CBC { f32 x, y, z; };
 
 extern "C" {
-f32 TObjPlayer__sub_80141CF8(struct RecoveredFields_80141CF8_arg0 *arg0, u8 *arg1);
+f32 horizontal_distance_squared(struct RecoveredFields_80141CF8_arg0 *arg0, u8 *arg1);
 void TOTrapAncient02R__sub_80141CF0(void *a, Vec_80141CBC *v, void *b);
 void fn_80141CBC(void *a, void *b, f32 s);
 }
@@ -51,7 +51,7 @@ void TOTrapAncient02R__sub_80141CF0(void * _w0, Vec_80141CBC * _w1, void * _w2) 
 void TObjRoomId__sub_80141CF4(void) {  }
 typedef struct RecoveredFields_80141CF8_arg0 RecoveredFields_80141CF8_arg0;
 #pragma fp_contract on
-f32 TObjPlayer__sub_80141CF8(struct RecoveredFields_80141CF8_arg0 *arg0, u8 *arg1) {
+f32 horizontal_distance_squared(struct RecoveredFields_80141CF8_arg0 *arg0, u8 *arg1) {
   f32 temp_f1;
   f32 temp_f3;
   temp_f1 = (*((f32 *) (((s8 *) arg1) + 0))) - arg0->field_0;

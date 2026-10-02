@@ -68,14 +68,14 @@ void init_battle_ctrl__6TLobbyFii(s32 arg0, s32 arg1);
 M2C_UNK send_set_battle_mode_data__6TLobbyFPv(void *);
 M2C_UNK build_6x7D_set_battle_mode_data(void *);
 void TLobby__sub_801C3CFC(s8 arg0, s32 arg1, s32 arg2);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u32 get_player_by_client_id(u16);
 M2C_UNK clear_flag__11TWindowCtrlFv();
 M2C_UNK TWindowCtrl__sub_8024AEF0(s32);
 M2C_UNK TWindowChat__sub_8024AD30(s32);
 M2C_UNK send_code_45_1__10TObjPlayerFi();
 extern s32 lbl_805D53A0;
 void handle_battle_result__6TLobbyFii(int arg0, s32 arg1);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u32 get_player_by_client_id(u16);
 M2C_UNK TWindowCtrl__sub_8024AEAC(s32);
 M2C_UNK fn_8024ACEC(s32);
 M2C_UNK play_effect_default__10TObjPlayerFii(u32, M2C_UNK);
@@ -111,7 +111,7 @@ extern Pair_801C3AF4 lbl_80446FB4[];
 extern Flags_801C3AF4 *lbl_8050E208[];
 extern s32 lbl_805D53A0;
 void TLobby__sub_801C3AF4(Lobby_801C3AF4 *self);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u32 get_player_by_client_id(u16);
 void set_flag_270__6TLobbyFPv(void *);
 M2C_UNK set_battle_mode__19TPlayerBattleCtrl4PFPvi(s32, s32);
 void bswap_set_battle_mode_data__6TLobbyFPv(Pkt_801C374C *);
@@ -229,7 +229,7 @@ void handle_6x7D_set_battle_mode_data(Pkt_801C374C *pkt) {
         lbl_805D5DA4 = 1;
         break;
     case 3:
-        p = ((u32 (*)(s32))TPlayerBattleCtrl4P__sub_801BA74C)(pkt->v[0]);
+        p = ((u32 (*)(s32))get_player_by_client_id)(pkt->v[0]);
         if (p != 0) {
             if (pkt->v[0] != lbl_805D53A0) {
                 set_battle_mode__19TPlayerBattleCtrl4PFPvi(p + 0x7AC, pkt->v[1]);
@@ -340,7 +340,7 @@ void TLobby__sub_801C3CFC(s8 arg0, s32 arg1, s32 arg2) {
     send_set_battle_mode_data__6TLobbyFPv(&stack.sp8);
 }
 void handle_battle_result__6TLobbyFii(int arg0, s32 arg1) {
-    if (TPlayerBattleCtrl4P__sub_801BA74C(arg0) != 0U) {
+    if (get_player_by_client_id(arg0) != 0U) {
         send_code_45_1__10TObjPlayerFi();
     }
     if (arg1 != 0) {
@@ -350,7 +350,7 @@ void handle_battle_result__6TLobbyFii(int arg0, s32 arg1) {
     }
 }
 void close_and_play_effect__6TLobbyFii(int arg0, s32 arg1) {
-    u32 temp = TPlayerBattleCtrl4P__sub_801BA74C(arg0);
+    u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
         play_effect_default__10TObjPlayerFii(temp, -1);
     }

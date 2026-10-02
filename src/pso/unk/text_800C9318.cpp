@@ -136,7 +136,7 @@ void queue_destruction__7TObjectFv(void *);
 void refresh_and_send_entity_flags__12TBoss8DragonFPv(void *);
 s32 handle_message__13TObjEneMe1GeeFii(M2C_UNK, s32);
 void create_breakup_mdl__12TBoss3VoloptFiiiii(s32, s32, s32, s32, s32);
-u8 * TPhotonMylla__sub_80154CB4(u16);
+u8 * find_entity_by_id(u16);
 s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
 extern s32 TObjEneMe1Gee__data_805D51C4;
 extern const f32 TObjEneMe1Gee__data_805DA0C8;
@@ -153,7 +153,7 @@ void TObjEneMe1Gee__vt110(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 1) {
-            M2C_FIELD(arg0, u8 **, 0x3C0) = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x48C));
+            M2C_FIELD(arg0, u8 **, 0x3C0) = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x48C));
             temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x3C0));
             ((VObj_18_0f49f2 *)(temp_r3))->m115(arg0);
         }

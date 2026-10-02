@@ -19,7 +19,7 @@ struct W_8024DCE8 : WBase_8024DCE8 {
 };
 
 extern "C" {
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 M2C_UNK TWindowSubTradeMain__sub_80244A4C(u32);
 M2C_UNK window_request_show(u32);
 s32 is_flag_2_set__11TWindowCtrlFPv(void *);
@@ -28,7 +28,7 @@ s32 is_visible__11TWindowCtrlFPv(void *);
 s32 get_active_menu__11TWindowCtrlFPv(void *arg0);
 void TWindowCtrl__sub_8024DF5C(u8 *arg0);
 s32 is_split_screen();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 M2C_UNK TWindowSubTradeMain__sub_80244A4C(u32);
 M2C_UNK window_request_show(u32);
 s32 is_flag_2_set__11TWindowCtrlFPv(void *);
@@ -60,7 +60,7 @@ void queue_destruction__7TObjectFv(void *);
 s32 fn_8002AE08(int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 is_on_current_screen__11TCameraCtrlFPv(void *, int);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 u16 get_current_target_id__10TObjPlayerFv();
 void *__nw__7TObjectFUl(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
@@ -77,7 +77,7 @@ void TWindowCtrl__sub_8024DAC4(void *arg0);
 void queue_destruction__7TObjectFv(void *);
 s32 is_inactive__10TObjPlayerFPv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 u32 is_action_active__10TObjPlayerFPv(void *);
 s32 is_player_input_active(s32);
 M2C_UNK update_focused__11TWindowCtrlFv();
@@ -177,7 +177,7 @@ void TWindowCtrl__sub_8024DAC4(void *arg0) {
         M2C_FIELD(arg0, void **, 0x3C) = NULL;
     }
     if (M2C_FIELD(arg0, void **, 0x34) != NULL && is_flag_2_set__11TWindowCtrlFPv(M2C_FIELD(arg0, void **, 0x34)) == 0) {
-        if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x24)) == 0) {
+        if (get_player_by_client_id(M2C_FIELD(arg0, s32 *, 0x24)) == 0) {
             if (M2C_FIELD(arg0, void **, 0x3C) != NULL) {
                 queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x3C));
                 M2C_FIELD(arg0, void **, 0x3C) = NULL;
@@ -227,7 +227,7 @@ void TWindowCtrl__sub_8024DCE8(void *arg0) {
     if (M2C_FIELD(arg0, void **, 0x28) == NULL) {
         return;
     }
-    p = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x24));
+    p = get_player_by_client_id(M2C_FIELD(arg0, s32 *, 0x24));
     if (p == 0) {
         return;
     }
@@ -298,7 +298,7 @@ void TWindowCtrl__sub_8024DE60(u8 *arg0) {
 void TWindowCtrl__sub_8024DF5C(u8 *arg0) {
     u32 temp_r31;
     if (((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) && (is_flag_2_set__11TWindowCtrlFPv((void *) M2C_FIELD(arg0, u32 *, 0x34)) == 0)) {
-        temp_r31 = TPlayerBattleCtrl4P__sub_801BA74C((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+        temp_r31 = get_player_by_client_id((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         if ((get_active_menu__11TWindowCtrlFPv((void *) (arg0)) != 0) || (is_visible__11TWindowCtrlFPv((void *)((void *) (arg0))) != 0) || (is_enabled__11TWindowCtrlFPv((void *) (arg0)) != 0) || (temp_r31 == 0U)) {
             TWindowSubTradeMain__sub_80244A4C((u32)((int) (M2C_FIELD(arg0, u32 *, 0x34))));
             return;
@@ -309,7 +309,7 @@ void TWindowCtrl__sub_8024DF5C(u8 *arg0) {
 
 void TWindowCtrl__sub_8024DFF4(u8 *arg0) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) && (is_flag_2_set__11TWindowCtrlFPv((void *) M2C_FIELD(arg0, u32 *, 0x30)) == 0)) {
-        if ((TPlayerBattleCtrl4P__sub_801BA74C((int) (M2C_FIELD(arg0, s32 *, 0x24))) == 0U) || (is_visible__11TWindowCtrlFPv((void *) (arg0)) != 0) || (TWindowCtrl__sub_8024C7F8((void *) (arg0)) != 0) || ((is_split_screen() != 0) && (get_active_menu__11TWindowCtrlFPv((void *) (arg0)) != 0))) {
+        if ((get_player_by_client_id((int) (M2C_FIELD(arg0, s32 *, 0x24))) == 0U) || (is_visible__11TWindowCtrlFPv((void *) (arg0)) != 0) || (TWindowCtrl__sub_8024C7F8((void *) (arg0)) != 0) || ((is_split_screen() != 0) && (get_active_menu__11TWindowCtrlFPv((void *) (arg0)) != 0))) {
             TWindowSubTradeMain__sub_80244A4C((u32)((int) (M2C_FIELD(arg0, u32 *, 0x30))));
             return;
         }

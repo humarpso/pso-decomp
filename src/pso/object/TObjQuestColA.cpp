@@ -13,7 +13,7 @@ M2C_UNK TObjPlayer__sub_801B35AC(s32);
 M2C_UNK TObjPlayer__sub_801B35E4(s32);
 s32 TObjPlayer__sub_801B5874(s32);
 void TObjQuestColBase__ct(void *);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 s32 check_flag_100__10TObjPlayerFPv();
 int create__12TQuestThreadFi(void*);
@@ -29,7 +29,7 @@ s32 TObjQuestColA__vt13(void *arg0) {
     s32 temp_r3;
     s32 temp_r3_2;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(lbl_805D53A0);
     if (temp_r3 != 0) {
         if (check_flag_100__10TObjPlayerFPv() != 0) {
             TObjPlayer__sub_801B35AC(temp_r3);

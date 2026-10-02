@@ -15,7 +15,7 @@ extern s32 lbl_805D355C;
 extern u8 *tl_06;
 u8 *__ct__15TPlyOnCountOverFv(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
 void queue_destruction__7TObjectFv(void *);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 void run_task__15TPlyOnCountOverFv(u8 *arg0);
 }
 
@@ -26,7 +26,7 @@ typedef char RecoveredGlobal_801C606C___vt__15TPlyOnCountOver_size[sizeof(Recove
 void run_task__15TPlyOnCountOverFv(u8 *arg0) {
     void (*cb)(u32);
     u32 p;
-    p = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x1C));
+    p = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x1C));
     if (p == 0U) {
         queue_destruction__7TObjectFv(arg0);
         return;

@@ -16,13 +16,13 @@ void init_params__18TObjButterflyLobbyFPv(u8 *arg0);
 void render__18TObjButterflyLobbyFPv(u8 *arg0);
 void render__18TObjButterflyLobbyFv(void *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK TObjDoor__sub_803DC894(int, void *, f32);
+M2C_UNK draw_ginja_model_with_motion(int, void *, f32);
 s32 TObjFish__sub_8001ED9C(void *, int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 rand();
 M2C_UNK set_global_param__8TObjFishFi(s32);
@@ -38,10 +38,10 @@ void render__18TObjButterflyLobbyFPv(u8 *arg0) {
     rotate_matrix_x((int) (0), (int) (-0x2000));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x90) != 3) {
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x94);
-        TOMonitorMachine01__sub_803D8B5C((int) (0), (f32) (temp_f1), (f32) (temp_f1), (f32) (temp_f1));
+        scale_matrix((int) (0), (f32) (temp_f1), (f32) (temp_f1), (f32) (temp_f1));
     }
-    TObjDoor__sub_803DC894((int) (M2C_FIELD(arg0, s32 *, 0xC4)), (void *) (TObjFish__sub_8001ED9C((void *) (lbl_805D6EB8), (int) (0))), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
-    TObjPlayer__sub_803D9B78();
+    draw_ginja_model_with_motion((int) (M2C_FIELD(arg0, s32 *, 0xC4)), (void *) (TObjFish__sub_8001ED9C((void *) (lbl_805D6EB8), (int) (0))), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
+    pop_matrix();
 }
 
 extern M2C_UNK lbl_80478DF0;

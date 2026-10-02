@@ -48,7 +48,7 @@ extern const f32 lbl_805E03E0;
 u8 *TBoss6RockChase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void queue_destruction__7TObjectFv(void *);
 s32 query_teammate_state__9TObjEneDDFPv(void);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK spawn_particle_effect(void *, int);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 M2C_UNK TBoss6PlotFalz__sub_802ABE3C(void *, int, int, f32);
 M2C_UNK TBoss6Rock__sub_8035A460(void *, int);
@@ -70,12 +70,12 @@ int TObjBoss2Tunnel__sub_803DB470(void*);
 int rotate_matrix_x(void*, void*);
 int rotate_matrix_y(void*, void*);
 int TObjPlayer__sub_803D9B2C(void*);
-int TObjPlayer__sub_803D9B78(void);
+int pop_matrix(void);
 void __dl__7TObjectFPv(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 int set_global_param__8TObjFishFi(void*);
 
-void render__15TBoss6RockChaseFv(void* p) { TObjPlayer__sub_803D9B2C(p); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x60)); rotate_matrix_x((void*)0, *(void**)((char*)p + 0x5c)); rotate_matrix_z((void*)0, *(void**)((char*)p + 0x64)); set_global_param__8TObjFishFi(*(void**)((char*)p + 0xc4)); TObjBoss2Tunnel__sub_803DB470(*(void**)((char*)p + 0xc0)); TObjPlayer__sub_803D9B78(); }
+void render__15TBoss6RockChaseFv(void* p) { TObjPlayer__sub_803D9B2C(p); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x60)); rotate_matrix_x((void*)0, *(void**)((char*)p + 0x5c)); rotate_matrix_z((void*)0, *(void**)((char*)p + 0x64)); set_global_param__8TObjFishFi(*(void**)((char*)p + 0xc4)); TObjBoss2Tunnel__sub_803DB470(*(void**)((char*)p + 0xc0)); pop_matrix(); }
 
 extern M2C_UNK __vt__15TBoss6RockChase[];
 
@@ -100,8 +100,8 @@ void run_task__15TBoss6RockChaseFv(u8 *arg0) {
             M2C_FIELD(arg0, f32 *, 0xB8) = (f32) TBoss6RockChase__data_805E03B8;
             TBoss6RockChase__sub_8036D1B4((void *) (arg0));
             TBoss3Volopt__sub_8022675C((int) (0x4006B51E), (void *) (arg0 + 0x38), (int) (0), (int) (0));
-            TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x38), (int) (0x220));
-            TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x38), (int) (0x222));
+            spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x220));
+            spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x222));
             TBoss6PlotFalz__sub_802ABE3C((void *) (arg0 + 0x38), (int) (0xC0), (int) (0xF), (f32) (lbl_805E03C8));
             TBoss6Rock__sub_8035A460((void *) (arg0 + 0x38), (int) (M2C_FIELD(arg0, s32 *, 0xB0)));
             TBoss3Volopt__sub_8022675C((int) (0x4006AB1F), (void *) (arg0 + 0x38), (int) (0), (int) (0));

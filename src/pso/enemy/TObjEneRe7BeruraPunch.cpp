@@ -26,7 +26,7 @@ struct Ang_8009640C { s32 x, y, z; };
 
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-u8 *TBoss8Dragon__sub_8007A544(M2C_UNK *, M2C_UNK);
+u8 *csnVecterUnder(M2C_UNK *, M2C_UNK);
 extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
 extern const f32 lbl_805D97B8;
 void TObjEneRe7BeruraPunch__sub_80096300(u8 *arg0);
@@ -46,7 +46,7 @@ void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void enable__13TParticleCtrlFPv(void *);
 void TObjEneRe7BeruraPunch__sub_80095FAC(void *);
 void TObjEneRe7BeruraPunch__sub_80096030(void *);
-u32 TPhotonMylla__sub_80154CB4(u16);
+u32 find_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
@@ -97,7 +97,7 @@ void TObjEneRe7BeruraPunch__sub_80096300(u8 *arg0) {
   u8 *temp_r3;
   VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0xDC));
   stack.spC = lbl_805D97B8;
-  temp_r3 = TBoss8Dragon__sub_8007A544(&stack.sp8, 0x16EF);
+  temp_r3 = csnVecterUnder(&stack.sp8, 0x16EF);
   if (temp_r3 != 0)
   {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (*((s32 *) (((s8 *) temp_r3) + 4))));
@@ -135,7 +135,7 @@ void run_task__21TObjEneRe7BeruraPunchFv(u8 *arg0) {
     Vec_8009640C v;
     f32 s;
     f32 c;
-    if (TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0xB0)) == 0U || all_parents_unqueued_for_destruction__7TObjectFv() == 0) {
+    if (find_entity_by_id(M2C_FIELD(arg0, u16 *, 0xB0)) == 0U || all_parents_unqueued_for_destruction__7TObjectFv() == 0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }

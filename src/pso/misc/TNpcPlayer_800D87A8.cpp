@@ -5,10 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-void *TNpcPlayer__sub_800D87EC(void);
-void *TPhotonMylla__sub_80154CB4();
+void *find_active_entity_by_id(void);
+void *find_entity_by_id();
 s32 is_valid_and_active__10TObjPlayerFUi();
-void *TNpcPlayer__sub_800D87EC(void);
+void *find_active_entity_by_id(void);
 }
 
 extern "C" {
@@ -27,9 +27,9 @@ void *get_valid_target_player__10TNpcPlayerFv(void) {
     return 0;
 }
 
-void *TNpcPlayer__sub_800D87EC(void) {
+void *find_active_entity_by_id(void) {
     void *temp_r31;
-    temp_r31 = TPhotonMylla__sub_80154CB4();
+    temp_r31 = find_entity_by_id();
     if (is_valid_and_active__10TObjPlayerFUi() != 0) {
         return temp_r31;
     }

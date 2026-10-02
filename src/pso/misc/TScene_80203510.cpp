@@ -71,11 +71,11 @@ f32 TNpcPlayer__sub_803E18C0(void *, void *, void *);
 extern Root_80204024 *lbl_805D4DF0;
 extern const f32 TScene__data_805DC5D8;
 s32 TScene__sub_80204024(f32 thr, s32 unused, void *a, void *b, Vec_80204024 *c);
-f32 fn_8013157C(void *, void *);
+f32 xz_distance_squared(void *, void *);
 bool TScene__sub_80204188(f32 farg0);
 extern Root_80204024 *lbl_805D4DF0;
 s32 TScene__sub_802040D4(void *arg0, Obj_802040D4 *o, f32 f0, f32 f1);
-f32 fn_8013157C(void *, void *);
+f32 xz_distance_squared(void *, void *);
 extern Root_80204024 *lbl_805D4DF0;
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern f32 TScene__data_805D5FE4;
@@ -96,7 +96,7 @@ void TNpcPlayer__sub_803D97B4(Vec_80204024 *);
 void TObjPlayer__sub_803D97F0(void *);
 void rotate_matrix_y(s32, s32);
 void TScene__sub_803D8DB4(s32, void *, Vec_80204024 *);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 s32 TScene__sub_80204B78(s32 arg0, Obj_80204B78 *obj, Vec_80204024 *pos, void *arg3, s32 arg4);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern RecoveredCallback_2be3cacebb2e TScene__data_805D5FF4;
@@ -107,7 +107,7 @@ void set_global_param__8TObjFishFi(void *);
 void prepare_ginja_model(void);
 void TObjPlayer__sub_803DC6F4(void);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 void TScene__sub_8020533C(void *, SceneMaterialSection *, s32);
 void TScene__sub_80205078(void *, SceneMaterialSection *, s32);
@@ -122,7 +122,7 @@ void TScene__sub_80203F0C(void);
 extern "C" {
 
 s32 get_player_ctrl_field__6TSceneFUs(u16 arg0);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+u32 get_player_by_client_id(void *);
 
 s32 TScene__sub_80203510(void *arg0) {
     Rec_80203510 *r;
@@ -149,7 +149,7 @@ s32 TScene__sub_80203510(void *arg0) {
 s32 get_player_ctrl_field__6TSceneFUs(u16 arg0) {
     u32 temp_r3;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((void *) (arg0));
+    temp_r3 = get_player_by_client_id((void *) (arg0));
     if (temp_r3 != 0U) {
         return TScene__sub_80203510((void *)((void *) (temp_r3 + 0x38)));
     }
@@ -284,7 +284,7 @@ s32 TScene__sub_80204024(f32 thr, s32 unused, void *a, void *b, Vec_80204024 *c)
 s32 TScene__sub_802040D4(void *arg0, Obj_802040D4 *o, f32 f0, f32 f1) {
     if (o->inner != NULL && (*(u8 * *)&lbl_805D4DF0) != NULL) {
         void *p = o->pos;
-        if (fn_8013157C((*(u8 * *)&lbl_805D4DF0) + 0x178, p) < o->inner->radius * o->inner->radius) {
+        if (xz_distance_squared((*(u8 * *)&lbl_805D4DF0) + 0x178, p) < o->inner->radius * o->inner->radius) {
             return 1;
         }
         return ((s32 (*)(void *, void *, f32, f32))TScene__sub_80204188)(arg0, p, f0, f1);
@@ -340,7 +340,7 @@ void TScene__sub_8020430C(void) {
     r2 = r * r;
     for (; i < (*(Root_8020430C * *)&TScene__data_805D5FCC)->count; i++, off += 0x34) {
         Rec_8020430C *rec = (Rec_8020430C *)((u8 *)(*(Root_8020430C * *)&TScene__data_805D5FCC)->recs + off);
-        if (fn_8013157C(&v, rec->pos) < r2) {
+        if (xz_distance_squared(&v, rec->pos) < r2) {
             rec->flags |= 0x10000;
         } else {
             rec->flags &= ~0x10000;
@@ -389,7 +389,7 @@ s32 TScene__sub_80204B78(s32 arg0, Obj_80204B78 *obj, Vec_80204024 *pos, void *a
         rotate_matrix_y(0, arg4);
         TScene__sub_803D8DB4(0, arg3, &c);
         TNpcPlayer__sub_803D97B4(&c);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         if (TScene__sub_80204024(obj->radius, arg0, &a, &b, &c) != 0) {
             obj->flags |= 0x10000;
             return 1;
@@ -398,7 +398,7 @@ s32 TScene__sub_80204B78(s32 arg0, Obj_80204B78 *obj, Vec_80204024 *pos, void *a
         rotate_matrix_y(0, -arg4);
         TScene__sub_803D8DB4(0, arg3, &c);
         TNpcPlayer__sub_803D97B4(&c);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         if (TScene__sub_80204024(obj->radius, arg0, &a, &b, &c) != 0) {
             obj->flags |= 0x10000;
             return 1;
@@ -440,21 +440,21 @@ void TScene__sub_802056C4(void *scene) {
                         TScene__sub_80205078(scene, sec, 1);
                         break;
                     }
-                    TObjPlayer__sub_803D9B78();
+                    pop_matrix();
                 } else if (sec->flags & 0x100000) {
                     TObjPlayer__sub_803D9B2C();
                     TOHangerMachine01__sub_803D9C00(sec->position);
                     TObjPlayer__sub_803D99F8(sec->angles, 1);
                     TScene__sub_8020533C(scene, sec, 1);
                     TScene__sub_80205078(scene, sec, 1);
-                    TObjPlayer__sub_803D9B78();
+                    pop_matrix();
                 } else {
                     TObjPlayer__sub_803D9B2C();
                     TOHangerMachine01__sub_803D9C00(sec->position);
                     TObjPlayer__sub_803D99F8(sec->angles, 1);
                     TScene__sub_8020533C(scene, sec, 0);
                     TScene__sub_80205078(scene, sec, 0);
-                    TObjPlayer__sub_803D9B78();
+                    pop_matrix();
                 }
             }
         }

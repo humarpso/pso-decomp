@@ -61,7 +61,7 @@ M2C_UNK TObjPlayer__sub_80141820(int);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK TObjFish__sub_803E46BC(int);
@@ -155,7 +155,7 @@ void TObjPlayer__sub_800C20D0(Obj_800C20D0 *o) {
     TObjFish__sub_803E46BC(o->f34);
     TObjPlayer__sub_801417E8();
     end_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     if (get_flag_11__16TObjEneRe2FlowerFPv(o) == 0 && TObjEneRe2Flower__sub_800C3B8C(o) != 0) {
         o->model->mat->f8 = save8;
         o->model->mat->f14 = save14;

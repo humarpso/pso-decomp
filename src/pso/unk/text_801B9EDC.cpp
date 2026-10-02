@@ -46,7 +46,7 @@ s32 check_switch_available__6TLobbyFPvi(void);
 void init_command__10TObjPlayerFPv(void *);
 void bswap_body_dwords5_and_send__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801BA0F0(void *arg0, s32 arg1, s32 arg2);
-Player_801BA060 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+Player_801BA060 *get_player_by_client_id(u16);
 void bswap_body_dwords5__10TObjPlayerFPv(void *);
 void copy_pair_fields4__10TObjPlayerFPvPv(void *, void *);
 void init_command__10TObjPlayerFPv(void *);
@@ -110,7 +110,7 @@ void handle_6x25_equip_item(void *arg0) {
     copy_pair_fields4__10TObjPlayerFPvPv(&m, arg0);
     bswap_body_dwords5__10TObjPlayerFPv(&m);
     if (validate_6x25_equip_item(&m) != 0) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(m.slot);
+        p = get_player_by_client_id(m.slot);
         if ((p != NULL) && (start_inventory_update__10TObjPlayerFPvi(p->inv, m.c) != 0U) && ((o = get_owner_if_alive__10TObjPlayerFPv()) != NULL)) {
             TObjPlayer__sub_801B9F40((void *)(p), (void *)(o), (s32)(m.d));
         }

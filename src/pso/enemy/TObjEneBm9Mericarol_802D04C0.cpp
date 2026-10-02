@@ -50,8 +50,8 @@ extern "C" {
 s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 M2C_UNK fn_800B98C0(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK, s32);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
+M2C_UNK advance_animation_playback();
 s32 try_set_mode8_if_flag2__19TObjEneBm9MericarolFPv();
 M2C_UNK TObjEneBm9Mericarol__sub_802D093C(void *);
 extern const f32 lbl_805DE73C;
@@ -71,13 +71,13 @@ void handle_event__19TObjEneBm9MericarolFPvi(void *arg0, s32 arg1) {
         return;
     case 3:
         if ((try_set_mode8_if_flag2__19TObjEneBm9MericarolFPv() == 0) && (update_linked_position__14TObjEneEpsilonFPv(arg0, lbl_805DE73C) != 0)) {
-            TObjEneDD__sub_800BBA18(arg0, 3);
+            transition_enemy_state(arg0, 3);
         }
     case 5:
     case 1:
         return;
     case 0:
-        TBoss1Dragon__sub_80143504();
+        advance_animation_playback();
         ((V_A *) arg0)->m100();
         ((V_A *) arg0)->m86();
         break;

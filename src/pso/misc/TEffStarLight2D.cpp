@@ -61,7 +61,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 f32 TEffStarLightChild__sub_80141FBC(void *, void *, void *, f32);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 M2C_UNK TNpcPlayer__sub_803D97B4(void *);
-f32 TObjPlayer__sub_8001978C(f32);
+f32 newton_sqrtf(f32);
 extern void *__vt__18TEffStarLightChild[];
 extern s32 lbl_805D2928;
 void run_task__15TEffStarLight2DFv(Star_800851B0 *self);
@@ -202,7 +202,7 @@ Star_800855F8 *__ct__18TEffStarLightChildFv(Star_800855F8 *self, Pt_800855F8 *a,
         self->y1 = t0;
         self->y0 = t1;
     }
-    self->angle = TObjPlayer__sub_8001978C((self->x0 - self->x1) * (self->x0 - self->x1) + (self->y0 - self->y1) * (self->y0 - self->y1)) / 2.0f / speed;
+    self->angle = newton_sqrtf((self->x0 - self->x1) * (self->x0 - self->x1) + (self->y0 - self->y1) * (self->y0 - self->y1)) / 2.0f / speed;
     return self;
 }
 #pragma pop

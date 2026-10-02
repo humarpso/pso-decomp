@@ -19,7 +19,7 @@ struct Msg_8035DD18 { s32 type; s32 value; };
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 int query_teammate_state__9TObjEneDDFPv(void *);
-s32 TOSwitchAttack__sub_80087278(void *, int, int);
+s32 spawn_particle_effect_with_flags(void *, int, int);
 void create_TDPBShower(int, void *);
 extern s32 tl_02;
 void fn_8035D8B0(W_8035D8B0 *arg0);
@@ -56,8 +56,8 @@ void render__9TBoss6DPBFv(void);
 void fn_8035D8B0(W_8035D8B0 *arg0) {
     V_8035D8B0 v = arg0->v;
     v.b = lbl_805E01C8;
-    TOSwitchAttack__sub_80087278(&v, 0x21C, 0x40);
-    TOSwitchAttack__sub_80087278(&v, 0x21D, 0x40);
+    spawn_particle_effect_with_flags(&v, 0x21C, 0x40);
+    spawn_particle_effect_with_flags(&v, 0x21D, 0x40);
     create_TDPBShower(tl_02, &arg0->v);
 }
 

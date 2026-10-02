@@ -22,7 +22,7 @@ extern "C" {
 void *item_equip_variant_deleting_dtor_802D5214(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_802D526C(void *arg0, s16 arg1);
 int do_action_447__10TObjPlayerFPv(void* p);
-int TObjEneDellBiter__sub_80087350(void*, int);
+int spawn_particle_effect(void*, int);
 void TObjPlayer__sub_80120D50(void *);
 void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
@@ -79,7 +79,7 @@ void *item_equip_variant_deleting_dtor_802D526C(void *arg0, s16 arg1) {
     return arg0;
 }
 
-int do_action_447__10TObjPlayerFPv(void* p) { return TObjEneDellBiter__sub_80087350(p, 447); }
+int do_action_447__10TObjPlayerFPv(void* p) { return spawn_particle_effect(p, 447); }
 void TObjPlayer__sub_802D52E8(void *self, void *arg) {
     Vec_802D52E8 v;
     TObjPlayer__sub_802D5B78(arg, &v);

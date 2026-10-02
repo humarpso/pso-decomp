@@ -26,7 +26,7 @@ u8 *TOMineDisp__ct(u8 *arg0, M2C_UNK arg1, s16 arg2);
 void *TLobby__sub_8001DC24(void);
 s32 get_trap_type__10TOMineTrapFPv(s32);
 s32 is_technique_ready__8TTecCtrlFv(void);
-VO_8016F320 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+VO_8016F320 *get_player_by_client_id(u16);
 void TWindowSubStatusDisp__sub_80229080(const char *);
 void TWindowSubStatusDisp__sub_802290E0(void);
 void init_all__11TWindowCtrlFPvPv(void *, s32);
@@ -91,7 +91,7 @@ s32 TOMineTrap__sub_8016F320(s32 arg0, u32 arg1) {
     char *name;
     VO_8016F320 *p;
     if ((arg1 != 0U) && (is_technique_ready__8TTecCtrlFv() != 0)) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(get_trap_type__10TOMineTrapFPv(arg0));
+        p = get_player_by_client_id(get_trap_type__10TOMineTrapFPv(arg0));
         if (p != NULL) {
             name = p->m10();
             if (name != NULL) {

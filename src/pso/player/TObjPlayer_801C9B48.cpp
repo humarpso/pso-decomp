@@ -10,7 +10,7 @@ void notify_lobby__10TObjPlayerFi(s32 arg0);
 void ensure_default__10TObjPlayerFPv(void *arg0);
 void init_action__10TObjPlayerFPv(u8 *arg0);
 void *TObjPlayer__sub_801B5EA4(void *);
-M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
+M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, s16, M2C_UNK);
 M2C_UNK clear_status_bit6__10TObjPlayerFPv();
 M2C_UNK TTecReverser__sub_80239E44(void *, void *, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -45,7 +45,7 @@ extern const f32 lbl_805DC374;
 
 void init_action__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x33C) = 0x12;
-    TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
+    run_action_state_phase__10TObjPlayerFisi(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
     TObjPlayer__sub_8001053C(arg0);
     set_type__10TObjPlayerFPvi(arg0 + 0x644, 0x12C);
     M2C_FIELD(arg0, s16 *, 0x328) = 0;

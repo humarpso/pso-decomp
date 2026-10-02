@@ -30,9 +30,9 @@ extern "C" {
 void start_action_21__10TObjPlayerFPv(void *arg0);
 s32 TObjPlayer__sub_80019248(void *);
 M2C_UNK TObjPlayer__sub_801B0FF4(void *);
-s32 TObjPlayer__sub_801D0458(void *);
+s32 get_idle_animation__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801D04B4(void *);
-M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
+M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, s16, M2C_UNK);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
 M2C_UNK set_action_state__10TObjPlayerFPvss(void *, M2C_UNK, s32);
 M2C_UNK send_field_state_if_active__10TObjPlayerFii(void *, M2C_UNK);
@@ -41,7 +41,7 @@ extern const f32 TObjPlayer__data_805DC36C;
 
 void start_action_21__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x33C) = 0x15;
-    TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
+    run_action_state_phase__10TObjPlayerFisi(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
     TObjPlayer__sub_801D04B4(arg0);
     clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1);
     M2C_FIELD(arg0, f32 *, 0x624) = (f32) TObjPlayer__data_805DC36C;
@@ -51,7 +51,7 @@ void start_action_21__10TObjPlayerFPv(void *arg0) {
         send_field_state_if_active__10TObjPlayerFii(arg0, 0x40003206);
     }
     M2C_FIELD(arg0, s16 *, 0x328) = 1;
-    set_action_state__10TObjPlayerFPvss(arg0, 0x15, TObjPlayer__sub_801D0458(arg0));
+    set_action_state__10TObjPlayerFPvss(arg0, 0x15, get_idle_animation__10TObjPlayerFPv(arg0));
 }
 
 }

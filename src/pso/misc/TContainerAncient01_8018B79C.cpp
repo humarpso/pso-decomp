@@ -42,7 +42,7 @@ s32 TObjFish__sub_8001EDC4(int, int);
 M2C_UNK TContainerAncient01__sub_8018B284(void *);
 M2C_UNK TContainerAncient01__sub_8018B48C(void *);
 M2C_UNK TContainerAncient01__sub_8018B510(void *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, int, f32);
+M2C_UNK submit_cursor_candidate(void *, int, f32);
 M2C_UNK run_task__7TObjectFv(void *);
 extern s32 TContainerAncient01__data_805D5B90;
 extern f32 TContainerAncient01__data_805DBD10;
@@ -66,11 +66,11 @@ M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 s32 TLobby__sub_80156A80(void *, s16 *, M2C_UNK);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
-M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
+M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 M2C_UNK TObjPlayer__sub_80154954(void *, s16 *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK reset_state__19TContainerAncient01FPv();
 M2C_UNK set_global_param__8TObjFishFi(s32);
@@ -126,9 +126,9 @@ void render__19TContainerAncient01Fv(u8 *arg0) {
         if (check_demo_mode__10TObjPlayerFv() == 1) {
             TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x34));
         } else {
-            TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
+            draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 void run_task__19TContainerAncient01Fv(u8 *arg0) {
@@ -157,7 +157,7 @@ void run_task__19TContainerAncient01Fv(u8 *arg0) {
             }
             temp_f1 = M2C_FIELD(arg0, f32 *, 0x2B4);
             M2C_FIELD(arg0, f32 *, 0x2B4) = (f32) (temp_f1 + (*(const f32 *)&TContainerAncient01__data_805DBD10));
-            TObjPlayer__sub_801B4A18((void *) (arg0), (int) (-1), (f32) (temp_f1));
+            submit_cursor_candidate((void *) (arg0), (int) (-1), (f32) (temp_f1));
         } else {
             temp_f1_2 = M2C_FIELD(arg0, f32 *, 0x364);
             if (temp_f1_2 <= lbl_805DBD50) {

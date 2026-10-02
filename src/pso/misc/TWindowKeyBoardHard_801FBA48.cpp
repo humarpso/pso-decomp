@@ -12,7 +12,7 @@ s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 f32 TObjPlayer__sub_803D99F8(void *, void *);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 s32 TBoss7Tentacle__sub_803D9BA0(void *);
 f32 TOHangerMachine01__sub_803D9C00(void *);
 s32 TOSignCave03__sub_803DB510(int);
@@ -105,7 +105,7 @@ void fn_801FBA6C(u8 *arg0) {
                 fn_801FBA6C(temp_r3);
             }
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         var_r30 = (u8 *)(M2C_FIELD(var_r30, u8 **, 0x30));
     } while (var_r30 != NULL);
 }

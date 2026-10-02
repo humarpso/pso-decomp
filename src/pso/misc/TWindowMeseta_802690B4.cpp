@@ -9,7 +9,7 @@ extern "C" {
 s32 TWindowSubComCard__sub_80244C0C(s32, s32);
 s32 TWindowSubStatusDisp__sub_80257BC0(s32, s32, s32);
 void *get_quest_id__12TQuestListVMFPv();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 void draw_value__13TWindowMesetaFPvi(void *arg0, s32 arg1);
 M2C_UNK TWindowSubStatusDisp__sub_80287580(s32, s32, M2C_UNK, f32);
 s32 get_entry_id__17TWindowSubComCardFPv(void* p);
@@ -18,7 +18,7 @@ int TWindowSubComCard__sub_8026906C(void* p);
 s32 get_meseta_value__13TWindowMesetaFPv(void *arg0) {
     void *temp_r3;
 
-    if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x64)) == 0U) {
+    if (get_player_by_client_id(M2C_FIELD(arg0, s32 *, 0x64)) == 0U) {
         return 0;
     }
     temp_r3 = get_quest_id__12TQuestListVMFPv();

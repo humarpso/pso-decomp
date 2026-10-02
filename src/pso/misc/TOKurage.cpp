@@ -34,7 +34,7 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 extern "C" {
 void TBoss7Tentacle__sub_803D8A6C(s32, s32, s32, s32);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(s32);
 s32 set_chunk_material_color(void *);
@@ -163,7 +163,7 @@ void render__8TOKurageFv(u8 *arg0) {
         TObjEneSlimeOne__sub_803E4B54(*(s32 *)(arg0 + 0x34), *(s32 *)(arg0 + 0xBC), *(s32 *)(arg0 + 0xC8), *(f32 *)(arg0 + 0xB0));
         set_chunk_material_color(lbl_804A7418);
         some_id_805c6f74 = lbl_805D5660;
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

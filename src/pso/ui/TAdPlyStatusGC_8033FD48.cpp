@@ -12,7 +12,7 @@ struct RecoveredGlobal_8033FDB0_lbl_80478430
 
 extern "C" {
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 f32 TOHangerMachine01__sub_803D9C00(void *);
 s32 set_global_param__8TObjFishFi(int);
 s32 TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
@@ -68,7 +68,7 @@ void TObjPlayer__sub_8033FDB0(s32 arg0) {
   }
   while (var_r29 < 2);
   clear_global_state__10TObjPlayerFv();
-  TObjPlayer__sub_803D9B78();
+  pop_matrix();
 }
 
 }

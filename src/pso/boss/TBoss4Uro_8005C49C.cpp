@@ -73,7 +73,7 @@ void *__dt__9TBoss4UroFv(void *arg0, s16 arg1);
 s32 create__9TBoss4UroFi(s32 arg0);
 int TBoss4Uro__sub_8005D6D4(void*);
 s32 TObjControl__ct(s32, s32);
-int TObjPlayer__sub_800F6B68(void*);
+int distribute_experience(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__10TBoss4ZakoFPvs(void *, int);
 s32 __nw__7TObjectFUl(M2C_UNK);
@@ -109,7 +109,7 @@ void TBoss4Uro__sub_8005C6E4(Obj_8005C6E4 *arg0) {
 }
 #pragma pop
 
-void TBoss4Uro__vt61(void* p) { if (*(int*)((char*)p + 0x374) != 3) { TObjPlayer__sub_800F6B68(p); TBoss4Uro__sub_8005D6D4(*(void**)((char*)p + 0x378)); *(int*)((char*)p + 0x374) = 3; } }
+void TBoss4Uro__vt61(void* p) { if (*(int*)((char*)p + 0x374) != 3) { distribute_experience(p); TBoss4Uro__sub_8005D6D4(*(void**)((char*)p + 0x378)); *(int*)((char*)p + 0x374) = 3; } }
 
 extern M2C_UNK __vt__9TBoss4Uro[];
 

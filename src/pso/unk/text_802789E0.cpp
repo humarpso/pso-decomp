@@ -2,7 +2,7 @@
 extern "C" {
 u32 TItem__sub_8010147C(void *, s32, s32);
 void *TLobby__sub_80101AB0(u32);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s16);
+u8 *get_player_by_client_id(s16);
 u32 run_and_get_result__10TObjPlayerFPvi(void *, u32 *);
 void TLobby__sub_80266E34(void *);
 void add_list_entry__20TWindowSubStatusDispFPvi(void *, s32);
@@ -18,7 +18,7 @@ void fn_802789E0(u8 *arg0) {
     u32 n;
     void *item;
     u32 i;
-    pl = TPlayerBattleCtrl4P__sub_801BA74C(*(s16 *)(arg0 + 0x20));
+    pl = get_player_by_client_id(*(s16 *)(arg0 + 0x20));
     if (pl != NULL) {
         n = run_and_get_result__10TObjPlayerFPvi(*(void **)(pl + 0xD00), ids);
         for (i = 0; i < n; i++) {

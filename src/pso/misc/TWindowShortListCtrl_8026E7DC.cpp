@@ -38,7 +38,7 @@ void TWindowShortListCtrl__sub_8026F66C(u8 *arg0);
 u8 * TLobby__sub_80101AB0(s32);
 u8 get_field_ec__12TOSwitchItemFPv(void *);
 s32 canSetMenuCursorAction(M2C_UNK, s32, u8, u8);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 u32 TItemObject__sub_80115DE8(int);
 M2C_UNK set_slot__20TWindowActionPaletteFPvUc(int, int);
 M2C_UNK set_mode__20TWindowActionPaletteFPvUc(int, int);
@@ -48,7 +48,7 @@ extern M2C_UNK lbl_805DD380;
 void TWindowShortListCtrl__sub_8026EA48(u8 *arg0);
 s32 fn_8002AE08(int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 s32 is_player_input_active(int);
 s32 is_technique_usable__20TWindowShortListCtrlFPv(u8 *arg0);
 void destroy_children__20TWindowShortListCtrlFPv(void *arg0);
@@ -80,7 +80,7 @@ void render__20TWindowShortListCtrlFv(void);
 void set_card_window_flags__20TWindowShortListCtrlFii(s32 arg0, s32 arg1);
 void set_displayed_item__20TWindowShortListCtrlFPvi(void *arg0, s32 arg1);
 void *TCheckRoomSequence__sub_802664A8(s32, s32, s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 M2C_UNK TWindowChat__sub_8024AD30(s32);
 s32 TWindowCtrl__sub_8024A1A8();
 s32 TWindowCtrl__sub_8024AF74(s32);
@@ -107,7 +107,7 @@ s32 is_technique_usable__20TWindowShortListCtrlFPv(u8 *arg0) {
     u32 temp_r3;
     u8 *temp_r31;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((s32)((int) (M2C_FIELD(arg0, s32 *, 0x24))));
+    temp_r3 = get_player_by_client_id((s32)((int) (M2C_FIELD(arg0, s32 *, 0x24))));
     if (temp_r3 == 0U) {
         return 0;
     }
@@ -139,7 +139,7 @@ void TWindowShortListCtrl__sub_8026E93C(u32 arg0, u32 arg1) {
     u8 var_r6;
     var_r31 = arg0;
     var_r3 = arg1;
-    var_r30 = TPlayerBattleCtrl4P__sub_801BA74C((s32)(var_r3));
+    var_r30 = get_player_by_client_id((s32)(var_r3));
     if (var_r30 != 0) {
         var_r29 = M2C_FIELD(var_r30, u32 *, 0x424);
         if (var_r29 != 0U) {
@@ -202,7 +202,7 @@ void TWindowShortListCtrl__sub_8026EA60(u8 *arg0) {
   if (TWindowShortListCtrl__check_controller_button((void *) ((((u8 *) (&lbl_8050E208.value)) + (temp_r31 * 0x50)) + 0x20), (int) fn_8002AE08((int) ((RecoveredFields_8026EA60_arg0 *) arg0)->field_24)) != 0)
   {
     temp_r31_2 = ((RecoveredFields_8026EA60_arg0 *) arg0)->field_1C;
-    temp_r3 = ((u32)TPlayerBattleCtrl4P__sub_801BA74C((s32)((int) ((RecoveredFields_8026EA60_arg0 *) arg0)->field_24)));
+    temp_r3 = ((u32)get_player_by_client_id((s32)((int) ((RecoveredFields_8026EA60_arg0 *) arg0)->field_24)));
     if (temp_r3 != 0U)
     {
       temp_r29 = (u8 *) (temp_r3 + 0x85C);
@@ -282,7 +282,7 @@ void *__dt__20TWindowShortListCtrlFv(void *arg0, s16 arg1) {
 
     if (arg0 != NULL) {
         M2C_FIELD(arg0, void **, 0x18) = __vt__20TWindowShortListCtrl;
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((s32)(M2C_FIELD(arg0, s32 *, 0x24)));
+        temp_r3 = get_player_by_client_id((s32)(M2C_FIELD(arg0, s32 *, 0x24)));
         if ((temp_r3 != 0) && (TWindowCtrl__sub_8024AF74(M2C_FIELD(arg0, s32 *, 0x24)) == 0) && (TWindowCtrl__sub_8024A1A8() == 0)) {
             init_parts__10TObjPlayerFPv(temp_r3);
         }

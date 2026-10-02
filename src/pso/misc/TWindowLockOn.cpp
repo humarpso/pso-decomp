@@ -174,7 +174,7 @@ void render__13TWindowLockOnFv(u8 *arg0) {
     }
 }
 
-s32 TPhotonMylla__sub_80154CB4(u16);
+s32 find_entity_by_id(u16);
 void *__nw__7TObjectFUl(u32);
 void *TWindowLockOn__ct(void *, s32, u16);
 void *TWindowLockOn__sub_80263748(s32 arg0, u16 arg1);
@@ -184,7 +184,7 @@ void *TWindowLockOn__sub_80263748(s32 arg0, u16 arg1) {
     if (arg1 == 0xFFFF) {
         return NULL;
     }
-    if (((s32 (*)(s32))TWindowLockOn__sub_80262DC4)(TPhotonMylla__sub_80154CB4(arg1)) == 0) {
+    if (((s32 (*)(s32))TWindowLockOn__sub_80262DC4)(find_entity_by_id(arg1)) == 0) {
         return NULL;
     }
     p = __nw__7TObjectFUl(0x7C);

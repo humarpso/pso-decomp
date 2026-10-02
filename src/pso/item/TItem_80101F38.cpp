@@ -30,13 +30,13 @@ s32 TItemData__sub_8010C740(void *, int);
 s32 TItemData__sub_8010CCB0(void *);
 s32 get_player_floor__6TLobbyFi(int);
 void handle_6x5D_drop_stacked_item(u8 *arg0);
-s16 TObjPlayer__sub_800196EC();
+s16 get_current_floor();
 s32 copy_item_data__6TLobbyFPvPv(void *, void *);
 void send_6x5D__6TLobbyFPv(void *);
 void init_fields__6TLobbyFPv(void *);
 void TItemData__sub_8010CCB4(void *);
 s16 get_stat_by_key_state__10TObjPlayerFPv(int);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+s32 get_player_by_client_id(u16);
 extern s32 lbl_805D5450;
 void TItem__sub_80101FEC(void *item, s32 id, Pos_80101FEC *pos);
 }
@@ -66,13 +66,13 @@ void TItem__sub_80101FEC(void *item, s32 id, Pos_80101FEC *pos) {
     Msg_80101FEC m;
     s32 h;
     init_fields__6TLobbyFPv(&m);
-    h = TPlayerBattleCtrl4P__sub_801BA74C(id);
+    h = get_player_by_client_id(id);
     if (h == 0) {
         lbl_805D5450 = 1;
         return;
     }
     m.id = id;
-    m.a = TObjPlayer__sub_800196EC();
+    m.a = get_current_floor();
     m.b = get_stat_by_key_state__10TObjPlayerFPv(h);
     m.x = pos->x;
     m.z = pos->z;

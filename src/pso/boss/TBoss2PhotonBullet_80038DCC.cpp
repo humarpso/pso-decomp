@@ -45,7 +45,7 @@ void queue_destruction__7TObjectFv(void *);
 f32 TBoss2DeRolLe__sub_80034CF8(void);
 u32 TBoss8Dragon__sub_8008741C(void *, int, int);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
-s32 TObjPlayer__sub_80156844(void *, void *, void *);
+s32 project_actor_to_ground(void *, void *, void *);
 extern M2C_UNK lbl_80435B40[];
 extern const f32 lbl_805D8268;
 extern const f32 lbl_805D826C;
@@ -101,7 +101,7 @@ void run_task__18TBoss2PhotonBulletFv(u8 *arg0) {
         copy_pos__11TNowLoadingFPvPv((void *)M2C_FIELD(arg0, u32 *, 0xE4), arg0 + 0xC0);
     }
     if (M2C_FIELD(arg0, s32 *, 0xD8) % 15 == 0) {
-        if (TObjPlayer__sub_80156844(arg0, arg0 + 0x38, arg0 + 0xCC) != 0) {
+        if (project_actor_to_ground(arg0, arg0 + 0x38, arg0 + 0xCC) != 0) {
             M2C_FIELD(arg0, s32 *, 0xDC) |= 1;
         } else {
             M2C_FIELD(arg0, s32 *, 0xDC) &= ~1;

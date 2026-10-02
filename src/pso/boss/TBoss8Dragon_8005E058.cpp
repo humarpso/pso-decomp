@@ -45,7 +45,7 @@ extern s32 lbl_805D4DB0;
 extern s32 lbl_805D4DB4;
 void TBoss8Dragon__sub_8005E17C(void);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *);
-f32 TObjPlayer__sub_8001978C(f32);
+f32 newton_sqrtf(f32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 f32 TObjPlayer__sub_803D89C0(void *, void *);
 M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
@@ -57,12 +57,12 @@ extern const f32 lbl_805D8D88;
 s32 TBoss8Dragon__sub_8005E1E8(f32 farg0);
 void get_speed_or_default__10TObjPlayerFPv(void *);
 void render_model_tree__12TBoss8DragonFPvPv(void* p, void* a1);
-void TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+void scale_matrix(int, f32, f32, f32);
 void rotate_matrix_y(int, int);
 void rotate_matrix_z(int, int);
 void rotate_matrix_x(int, int);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_flag__10TObjPlayerFv(void);
 void clear_global_state__10TObjPlayerFv(void);
@@ -101,11 +101,11 @@ void TBoss8Dragon__sub_8005E0C0(Obj_8005E0C0 *self) {
     rotate_matrix_y(0, self->f60);
     rotate_matrix_x(0, self->f5c);
     rotate_matrix_z(0, self->f64);
-    TOMonitorMachine01__sub_803D8B5C(0, lbl_805D8D58, lbl_805D8D58, lbl_805D8D58);
+    scale_matrix(0, lbl_805D8D58, lbl_805D8D58, lbl_805D8D58);
     get_speed_or_default__10TObjPlayerFPv(self);
     render_model_tree__12TBoss8DragonFPvPv((void *)self->f34, (void *)self->ff8);
     clear_global_state__10TObjPlayerFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     set_global_state__16TObjEneRe7BeruraFi(0);
 }
 
@@ -134,7 +134,7 @@ s32 TBoss8Dragon__sub_8005E1E8(f32 farg0) {
     TBoss6Type1__sub_803D9370((void *) (&stack.sp8), (void *) (&lbl_804FF5CC.value));
     temp_f1 = clamp_velocity__15TObjBoss2TunnelFPv((void *) (&stack.sp8));
     if ((temp_f1 + farg0) < lbl_805D4DC0) {
-        temp_f31 = temp_f1 * (lbl_805D8D88 / TObjPlayer__sub_8001978C((f32) ((temp_f1 * temp_f1) + (farg0 * farg0))));
+        temp_f31 = temp_f1 * (lbl_805D8D88 / newton_sqrtf((f32) ((temp_f1 * temp_f1) + (farg0 * farg0))));
         if (TObjPlayer__sub_803D89C0((void *) (&stack.sp8), (void *) (&lbl_804FF5D8.value)) >= temp_f31) {
             return 1;
         }

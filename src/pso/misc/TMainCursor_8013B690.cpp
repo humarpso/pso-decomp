@@ -58,7 +58,7 @@ s32 check_can_pickup__11TMainCursorFi(s32 arg0);
 void run_task__11TMainCursorFv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TMainCursor__sub_8013F180(void *);
-s32 TPhotonMylla__sub_80154CB4();
+s32 find_entity_by_id();
 s32 can_pickup_item_by_id__10TObjPlayerFii(u32, s32);
 u32 check_field_24__11TMainCursorFPv(s32);
 s32 check_flag_1__11TMainCursorFPv(void *);
@@ -74,7 +74,7 @@ s32 check_can_pickup__11TMainCursorFi(s32 arg0) {
     u32 temp_r3b;
 
     get_id__11TMainCursorFPv(arg0 + 0x60);
-    temp_r3 = TPhotonMylla__sub_80154CB4();
+    temp_r3 = find_entity_by_id();
     if ((temp_r3 != 0) && ((u32) (obj_testFlags30(temp_r3, 0x80000000) + 0x80000000) == 0U) && ((temp_r3b = check_field_24__11TMainCursorFPv(arg0)) != 0U) && (can_pickup_item_by_id__10TObjPlayerFii(temp_r3b, temp_r3) == 0)) {
         return 1;
     }

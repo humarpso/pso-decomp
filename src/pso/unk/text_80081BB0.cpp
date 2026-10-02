@@ -32,7 +32,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK disallow_rendering__7TObjectFv(void *);
 M2C_UNK queue_destruction__10TObjPlayerFPv(void *);
 M2C_UNK fn_80081B7C(void *);
-u32 TNpcPlayer__sub_800D87EC(u16);
+u32 find_active_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 void TObjPlayer__sub_80081DC8(void *arg0);
 s32 TLobby__sub_800869A4(void *, int, int, int);
@@ -40,7 +40,7 @@ f32 TBoss4Zako__sub_803D8910(void *, void *);
 s32 TScene__sub_803D8DB4(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D97F0(void *);
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 extern RecoveredGlobal_80081CD0_lbl_8058D490 lbl_8058D490;
 extern const f32 lbl_805D9378;
 extern const f32 lbl_805D9388;
@@ -52,8 +52,8 @@ s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_800660D4(s32, s32, s32, s32, M2C_UNK, f32);
 M2C_UNK set_position_xy__10TObjPlayerFPvff(s32, f32, f32);
-s32 TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
-u32 TNpcPlayer__sub_800D87EC(u16);
+s32 spawn_particle_effect(void *, M2C_UNK);
+u32 find_active_entity_by_id(u16);
 extern s32 lbl_805D4ED0;
 extern s32 lbl_805D63AC;
 extern s32 lbl_805D63B0;
@@ -61,11 +61,11 @@ extern const f32 lbl_805D9378;
 extern const f32 lbl_805D9384;
 M2C_UNK TObjFish__sub_80081BB0(void *arg0);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
-u32 TNpcPlayer__sub_800D87EC(u16);
+u32 find_active_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi();
@@ -85,7 +85,7 @@ extern "C" {
 
 M2C_UNK TObjFish__sub_80081BB0(void *arg0) {
     s32 p;
-    p = TNpcPlayer__sub_800D87EC(M2C_FIELD(arg0, u16 *, 0x358));
+    p = find_active_entity_by_id(M2C_FIELD(arg0, u16 *, 0x358));
     if (p == 0) {
         return;
     }
@@ -96,11 +96,11 @@ M2C_UNK TObjFish__sub_80081BB0(void *arg0) {
         }
     }
     M2C_FIELD(arg0, s32 *, 0x334) = 2;
-    p = TObjEneDellBiter__sub_80087350((u8 *)arg0 + 0x35C, 0x153);
+    p = spawn_particle_effect((u8 *)arg0 + 0x35C, 0x153);
     if (p != 0) {
         TObjFish__sub_800660D4(p, TObjFish__sub_8001EDC4(lbl_805D63AC, 5), lbl_805D63B0, 0, 0, lbl_805D9384);
     }
-    p = TObjEneDellBiter__sub_80087350((u8 *)arg0 + 0x38, 0x33);
+    p = spawn_particle_effect((u8 *)arg0 + 0x38, 0x33);
     if (p != 0) {
         TObjFish__sub_800660D4(p, TObjFish__sub_8001EDC4(lbl_805D4ED0, 0), TObjFish__sub_8001EDB0(lbl_805D4ED0, 1), TObjFish__sub_8001ED9C(lbl_805D4ED0, 0), 0, lbl_805D9384);
         set_position_xy__10TObjPlayerFPvff(p, M2C_FIELD(arg0, f32 *, 0x68), M2C_FIELD(arg0, f32 *, 0x6C));
@@ -130,7 +130,7 @@ void TObjPlayer__sub_80081CD0(u8 *arg0) {
         TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60) * 2));
         TScene__sub_803D8DB4((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x38));
         TLobby__sub_800869A4((void *) (&stack.sp8), (int) (0x12D), (int) (0), (int) (0xA));
     }
@@ -141,7 +141,7 @@ void TObjPlayer__sub_80081DC8(void *arg0) {
     u32 var_r3;
     u16 id = M2C_FIELD(arg0, u16 *, 0x358);
     if ((id != 0xffffU) && (id < 0x4000U)) {
-        var_r3 = TNpcPlayer__sub_800D87EC(id);
+        var_r3 = find_active_entity_by_id(id);
     } else {
         var_r3 = 0U;
     }
@@ -175,7 +175,7 @@ void TObjPlayer__sub_80081EA4(u8 *arg0) {
     s32 ok;
     VObj_80081EA4 *p;
     ok = 1;
-    p = (VObj_80081EA4 *)TNpcPlayer__sub_800D87EC(M2C_FIELD(arg0, u16 *, 0x358));
+    p = (VObj_80081EA4 *)find_active_entity_by_id(M2C_FIELD(arg0, u16 *, 0x358));
     if (p != NULL && all_parents_unqueued_for_destruction__7TObjectFv() != 0) {
         ok = p->m8(lbl_805D9390, lbl_805D9394);
     }
@@ -202,7 +202,7 @@ void TObjPlayer__sub_80081EA4(u8 *arg0) {
             some_id_805c6f74 = lbl_805D5660;
             break;
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

@@ -110,11 +110,11 @@ extern "C" {
 void spawn_mirages__21TObjEneMe3ShinowaRealFPv(void* p);
 M2C_UNK TObjEneMe3Shinowa__sub_800E7250();
 void TObjEneMe3ShinowaReal__sub_800E45D4(u8 *arg0);
-void TObjEneDD__sub_800BBA18(void *, s16);
+void transition_enemy_state(void *, s16);
 void TObjEneMe3ShinowaReal__sub_800E45D4(u8 *arg0);
 void TObjEneMe3ShinowaReal__vt105(u8 *arg0);
 s32 create__23TObjEneMe3ShinowaMirageFPvPvPv(void *, s32, s32, s32);
-s32 TPhotonMylla__sub_80154CB4(s32);
+s32 find_entity_by_id(s32);
 u16 obj_getField1c();
 s32 TObjEneMe3ShinowaReal__sub_800E4554(Obj_800E4554 *arg0, s32 arg1);
 void TObjEneMe3Shinowa__ct(void *, void *);
@@ -149,10 +149,10 @@ void TObjEneMe3ShinowaReal__vt105(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3D8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3D8) + 1);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3D8) >= 2) {
         TObjEneMe3ShinowaReal__sub_800E45D4((u8 *)(arg0));
-        TObjEneDD__sub_800BBA18(arg0, 7);
+        transition_enemy_state(arg0, 7);
         return;
     }
-    TObjEneDD__sub_800BBA18(arg0, 4);
+    transition_enemy_state(arg0, 4);
 }
 
 s32 TObjEneMe3ShinowaReal__sub_800E4554(Obj_800E4554 *arg0, s32 arg1) {
@@ -165,7 +165,7 @@ s32 TObjEneMe3ShinowaReal__sub_800E4554(Obj_800E4554 *arg0, s32 arg1) {
             arg0->slots[arg1] = obj_getField1c();
         }
     } else {
-        r = TPhotonMylla__sub_80154CB4(arg0->slots[arg1]);
+        r = find_entity_by_id(arg0->slots[arg1]);
     }
     return r;
 }

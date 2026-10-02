@@ -10,7 +10,7 @@ s32 is_valid_target__9TObjEneDDFPv(s32);
 s32 fn_800B91F4(void *arg0);
 M2C_UNK fn_800B98C0(void *);
 s32 is_alive__9TObjEneDDFPv(s32);
-u32 TPhotonMylla__sub_80154CB4(u32);
+u32 find_entity_by_id(u32);
 s32 fn_800B9194(void *arg0);
 }
 
@@ -23,7 +23,7 @@ s32 fn_800B9194(void *arg0) {
     if (id == 0xFFFF) {
         return 0;
     }
-    if (TPhotonMylla__sub_80154CB4(id) == 0U) {
+    if (find_entity_by_id(id) == 0U) {
         fn_800B98C0(arg0);
         return 0;
     }
@@ -36,7 +36,7 @@ s32 fn_800B91F4(void *arg0) {
     if (id == 0xFFFF) {
         return 0;
     }
-    if (TPhotonMylla__sub_80154CB4(id) == 0U) {
+    if (find_entity_by_id(id) == 0U) {
         fn_800B98C0(arg0);
         return 0;
     }

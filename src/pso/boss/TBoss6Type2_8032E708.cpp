@@ -220,7 +220,7 @@ s32 TBoss6Type2__sub_8032EF34(void *arg0, s32 *arg1, s32 *arg2, Vec_8032EF34 *ar
 void copy_entry__6TLobbyFPvPv(void *, void *);
 void update_segment_angles__11TBoss6Type2FPv(void *arg0);
 void TBoss6Type2__sub_8032FCA4(Obj_8032FCA4 *arg0);
-void TOSwitchAttack__sub_80087278(void *, s32, s32);
+void spawn_particle_effect_with_flags(void *, s32, s32);
 s32 get_state__11TBoss6Type2FPv(int);
 s32 is_active__11TBoss6Type2FPv(int);
 s32 TBoss6Type2__sub_8032E748(T_8032E748 *self);
@@ -236,7 +236,7 @@ void TBoss6Type2__sub_8032EBB4(O_8032EBB4 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 TObjPlayer__sub_80141F84(s32, s32);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 f32 TBoss8Dragon__sub_803D64C0(void *);
 f32 TBoss8Dragon__sub_803D64DC(void *);
 f32 TObjPlayer__sub_803E1A58(void *, void *);
@@ -254,8 +254,8 @@ extern const f32 lbl_805DF800;
 void TBoss6Type2__sub_8032ECE0(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjPlayer__sub_801423A4(s32, s32, s32);
-s32 TObjPlayer__sub_80156844(void *, void *, s32);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 project_actor_to_ground(void *, void *, s32);
+u8 *get_player_by_client_id(s32);
 s32 get_state__11TBoss6Type2FPv(int);
 s32 TBoss6Type2__sub_8032EA34(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 f32 apply_direction_sign__11TBoss6Type2FPvf(void *arg0, f32 farg0);
@@ -367,7 +367,7 @@ void TBoss6Type2__sub_8032E8DC(Obj_8032E8DC *arg0) {
         break;
     }
     if (!(arg0->f3C8 & 0x1F) && is_active__11TBoss6Type2FPv(arg0->f378) != 0) {
-        TOSwitchAttack__sub_80087278(arg0->sw, 0x224, 0x2040);
+        spawn_particle_effect_with_flags(arg0->sw, 0x224, 0x2040);
     }
 }
 
@@ -571,7 +571,7 @@ s32 TBoss6Type2__sub_8032EF34(void *arg0, s32 *arg1, s32 *arg2, Vec_8032EF34 *ar
 s32 TBoss6Type2__sub_8032F034(O_8032F034 *arg0) {
     u8 *p = 0;
     if (arg0->f408 != 0xFFFF) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(arg0->f408);
+        p = get_player_by_client_id(arg0->f408);
     }
     if (p == 0) {
         return 0;
@@ -708,7 +708,7 @@ void TBoss6Type2__sub_8032F690(u8 *arg0) {
     p = NULL;
     id = M2C_FIELD(arg0, u16 *, 0x408);
     if (id != 0xFFFF) {
-        p = ((u8 *(*)(u16))TPlayerBattleCtrl4P__sub_801BA74C)(id);
+        p = ((u8 *(*)(u16))get_player_by_client_id)(id);
     }
     if (p == NULL) {
         if (M2C_FIELD(arg0, u8 **, 0x378) == NULL) {
@@ -727,7 +727,7 @@ void TBoss6Type2__sub_8032F690(u8 *arg0) {
         VecCopy__FP3VecPC3Vec(&v, p + 0x38);
         v.y = lbl_805DF844;
     }
-    if (TObjPlayer__sub_80156844(arg0, &v, 0) != 0) {
+    if (project_actor_to_ground(arg0, &v, 0) != 0) {
         v.y += lbl_805DF844;
     }
     ((f32 (*)(void *, void *))TBoss6Type1__sub_803D9370)(&v, arg0 + 0x38);

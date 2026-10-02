@@ -93,7 +93,7 @@ extern u8 *lbl_805D4698;
 void TObjPlayer__sub_803E4D8C(s32 arg0, s32 arg1, u8 *arg2, f32 farg0, s32 arg3);
 void TObjPlayer__sub_803D7CA4(Node_803E4E20 *);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 void TObjPlayer__sub_803E53BC(void);
 void update_render_state__10TObjPlayerFv(s32 *, s32 *);
 extern u8 *lbl_805D4698;
@@ -153,7 +153,7 @@ void TObjPlayer__sub_803E4E20(s32 arg0) {
         if (n->child != NULL) {
             TObjPlayer__sub_803E4E20((s32)n->child);
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         n = n->next;
     } while (n != NULL);
 }

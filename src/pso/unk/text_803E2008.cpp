@@ -15,7 +15,7 @@ extern u32 lbl_805D77C4;
 extern s8 lbl_805D77C8;
 typedef struct { u8 r, g, b, a; } Col_803E2010;
 void Dolphin_GXSetFog(s32, f32, f32, f32, f32, Col_803E2010);
-void TParticleCtrl__sub_803E2010(void);
+void apply_scene_fog(void);
 
 extern s32 lbl_805D77B8;
 
@@ -23,7 +23,7 @@ void TParticleCtrl__sub_803E2008(s32 arg0) {
     lbl_805D77B8 = arg0;
 }
 
-void TParticleCtrl__sub_803E2010(void) {
+void apply_scene_fog(void) {
     s32 type;
     if (lbl_805D77C8 != 0) {
         type = lbl_805D77B8;

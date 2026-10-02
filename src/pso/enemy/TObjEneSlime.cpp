@@ -114,7 +114,7 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 toggle_flag_9__10TObjPlayerFPv();
 void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *, void *);
 M2C_UNK set_global_param__8TObjFishFi();
 M2C_UNK TObjFish__sub_803E46BC();
@@ -196,7 +196,7 @@ void render__12TObjEneSlimeFv(u8 *arg0) {
             set_cull_none__8TObjFishFv();
             func_803e11f0__Fv();
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         end_effect_render__13TParticleCtrlFv();
     }
 }

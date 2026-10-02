@@ -27,7 +27,7 @@ M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 extern s8 TLobby__data_805D688A;
 void TLobby__sub_802D268C(void);
 s32 get_quest_id__12TQuestListVMFPv(void *);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 get_player_by_client_id(u32);
 void prepare_and_send_trade_packet__6TLobbyFPvPv(s32, s32);
 void build_6xA6_modify_trade_proposal(void *);
 extern u32 lbl_805D53A0;
@@ -46,7 +46,7 @@ void TLobby__sub_802D23E0(void) {
   build_6xA6_modify_trade_proposal(&stack.sp8);
   if (((s32) TLobby__data_805D688B) == 2)
   {
-    temp_r3 = (u8 *) TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    temp_r3 = (u8 *) get_player_by_client_id(lbl_805D53A0);
     if (temp_r3)
     {
       temp_r3_2 = (u8 *) get_quest_id__12TQuestListVMFPv(temp_r3);

@@ -136,7 +136,7 @@ void TObjEneDf2Bringer__vt61(void* p);
 void *create__17TObjEneDf2BringerFPv(void *arg0);
 void free_resources__17TObjEneDf2BringerFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-int TObjEneDD__sub_800BBA18(void*, void*);
+int transition_enemy_state(void*, void*);
 void TObjEneDf2Bringer__sub_800994F8(void *);
 void TObjEneDf2Bringer__sub_80099800(void *);
 void TObjEneDf2Bringer__vt59(void);
@@ -149,7 +149,7 @@ void init_object__9TObjEneDDFPv(void *);
 void init_vtable_and_field18__10TObjPlayerFPv(void *);
 void invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
 
-void TObjEneDf2Bringer__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 10) { TObjEneDD__sub_800BBA18(p, (void*)10); } }
+void TObjEneDf2Bringer__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 10) { transition_enemy_state(p, (void*)10); } }
 void TObjEneDf2Bringer__vt26(void) {  }
 
 extern M2C_UNK __vt__17TObjEneDf2Bringer[];

@@ -65,7 +65,7 @@ extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
 M2C_UNK memset(void *, int, int);
 extern struct Ids_80207C60 lbl_8044B8E0;
 void TLobby__sub_80207BB0(void);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 get_instance__6TLobbyFv();
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 TLobby__sub_8030A7B0();
@@ -104,7 +104,7 @@ s32 TLobby__sub_8020765C(void) {
         return b.w[0][get_global_state__14TOKeyMachine01Fv()];
     }
     s32 i = get_instance__6TLobbyFv();
-    s32 p = TObjPlayer__sub_800196EC();
+    s32 p = get_current_floor();
     return a.w[i][p];
 }
 

@@ -9,8 +9,8 @@ typedef struct Vec_802BA3B4 { f32 x, y, z; } Vec_802BA3B4;
 
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, s32);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+M2C_UNK spawn_particle_effect(void *, s32);
+u8 *get_player_by_client_id(u16);
 M2C_UNK TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
 s32 is_active__14TBoss6PlotFalzFPv();
 int TBoss6Type2__sub_802BA180(void);
@@ -53,7 +53,7 @@ void TBoss6Type2__sub_802BA3B4(u8 *arg0) {
     id = M2C_FIELD(arg0, u16 *, 0x55C);
     if (id != 0xFFFF) {
         done = 0;
-        pl = TPlayerBattleCtrl4P__sub_801BA74C(id);
+        pl = get_player_by_client_id(id);
         if (pl == NULL) {
             done = 1;
         } else if (is_active__14TBoss6PlotFalzFPv() == 0) {
@@ -64,7 +64,7 @@ void TBoss6Type2__sub_802BA3B4(u8 *arg0) {
             if (is_target_valid__11TBoss6Type2FPv(arg0) == 0) {
                 TBoss3Volopt__sub_8022675C(0x40069E13, arg0 + 0x38, 0, 1);
             }
-            TObjEneDellBiter__sub_80087350(pl + 0x38, 0x36);
+            spawn_particle_effect(pl + 0x38, 0x36);
             done = 1;
         }
         if (done != 0) {

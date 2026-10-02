@@ -23,7 +23,7 @@ extern "C" {
 s32 fn_801582C4(void *, f32);
 s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 f32 TOHangerMachine01__sub_803D9C00(void *);
 s32 set_global_param__8TObjFishFi(int);
 s32 TObjFish__sub_803E46BC(int);
@@ -72,7 +72,7 @@ void render__5TOKeyFv(u8 *arg0) {
         } else {
             TObjFish__sub_803E46BC((int) (M2C_FIELD(arg0, s32 *, 0x34)));
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

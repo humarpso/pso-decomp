@@ -19,7 +19,7 @@ struct Matrix34 { f32 elements[3][4]; };
 extern "C" {
 extern u32 lbl_805D7770;
 extern u32 lbl_805D7774;
-s32 TObjPlayer__sub_803D9B78(void);
+s32 pop_matrix(void);
 extern u32 lbl_805D7770;
 extern u32 lbl_805D7774;
 s32 TCameraCtrl__sub_803D9858(s32 arg0);
@@ -153,7 +153,7 @@ void TObjPlayer__sub_803D993C(f32 *arg0, f32 farg0) {
 
 #pragma push
 #pragma scheduling off
-s32 TObjPlayer__sub_803D9B78(void) {
+s32 pop_matrix(void) {
     u32 temp_r3;
     temp_r3 = lbl_805D7774 - 0x30;
     if (temp_r3 < (u32) lbl_805D7770) {

@@ -16,7 +16,7 @@ typedef struct SceneState_8000FD54 {
 } SceneState_8000FD54;
 
 void shutdown_and_reset_system(void);
-void TKeyBoardControl__sub_8000FAE4(void);
+void init_game_systems(void);
 extern SceneEntry_8000FD54 lbl_804805E0[];
 extern SceneState_8000FD54 lbl_804FE120;
 extern s32 lbl_805D53A4;
@@ -25,7 +25,7 @@ void main(void) {
     SceneFn_8000FD54 fn;
     SceneFn_8000FD54 update;
 
-    TKeyBoardControl__sub_8000FAE4();
+    init_game_systems();
     while (lbl_804FE120.cur != 0) {
         lbl_804FE120.result = 0;
         fn = lbl_804805E0[lbl_804FE120.cur].init;

@@ -13,7 +13,7 @@ typedef struct Player_801B9E0C {
 extern "C" {
 void unequip_item__10TObjPlayerFiPv(void *, void *);
 void copy_unequip_fields__10TObjPlayerFPvPv(void *, void *);
-Player_801B9E0C *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+Player_801B9E0C *get_player_by_client_id(u16);
 void bswap_body_dwords4__10TObjPlayerFPv(void *);
 void init_cmd_6x26__10TObjPlayerFPv(void *);
 u32 start_inventory_update__10TObjPlayerFPvi(void *, s32);
@@ -32,7 +32,7 @@ void handle_6x26_unequip_item(void *arg0) {
     copy_unequip_fields__10TObjPlayerFPvPv(&m, arg0);
     bswap_body_dwords4__10TObjPlayerFPv(&m);
     if (validate_6x26_unequip_item(&m) != 0) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(m.slot);
+        p = get_player_by_client_id(m.slot);
         if ((p != NULL) && (start_inventory_update__10TObjPlayerFPvi(p->inv, m.c) != 0U) && ((o = get_owner_if_alive__10TObjPlayerFPv()) != NULL)) {
             unequip_item__10TObjPlayerFiPv(p, o);
         }

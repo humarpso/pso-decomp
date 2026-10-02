@@ -92,7 +92,7 @@ void create_dead_spot__10TObjPlayerFiif(void *, s32, f32);
 void trigger_dell_biter_events__10TObjPlayerFPv(void *);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 void refresh_lobby_state__10TObjPlayerFPv(void *);
-s32 TBoss1Dragon__sub_80143504(void *);
+s32 advance_animation_playback(void *);
 void send_entity_set_flags__6TLobbyFPv(void *);
 s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 extern u8 lbl_8049426C[];
@@ -115,7 +115,7 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 toggle_flag_9__10TObjPlayerFPv(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TObjFish__sub_803E46BC(int);
@@ -159,7 +159,7 @@ void TObjPlayer__sub_800D2F6C(Ene_800D2F6C *arg0) {
         create_dead_spot__10TObjPlayerFiif(arg0->v2FC, 0x5A, lbl_805DA27C);
         arg0->state = 1;
     case 1:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         arg0->timer--;
         if (arg0->timer < 0) {
             create_breakup_mdl__12TBoss3VoloptFiiiii(lbl_805D5208, lbl_8049426C, arg0->f24, arg0->v2FC, arg0->f60);
@@ -269,7 +269,7 @@ void TObjPlayer__sub_800D35D8(u8 *arg0) {
             } else {
                 render_world_model__10TObjPlayerFPv((void *) (arg0));
             }
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             TObjLight__sub_80134098();
             end_effect_render__13TParticleCtrlFv();
             if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800) && (var_r29 != 0)) {

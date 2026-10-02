@@ -58,7 +58,7 @@ s8 get_type__20TWindowSubStatusDispFPv(int);
 s32 TWindowSubStatusDisp__sub_8027FD9C(Win_8027FD9C *arg0);
 Q_80280F14 *get_quest_id__12TQuestListVMFPv();
 s32 TObjPlayer__sub_801B2E68(void *);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
+s32 get_player_by_client_id(s16);
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 void TWindowSubStatusDisp__vt11(Wn_80280F14 *arg0);
 }
@@ -72,7 +72,7 @@ void TWindowSubStatusDisp__vt16(void);
 void TWindowSubStatusDisp__vt18(void);
 void fn_8027FD88(void* p, f32 a, f32 b);
 void fn_8027FD94(void* p, s16 v);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
+s32 get_player_by_client_id(s16);
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 s16 get_class_id__10TObjPlayerFPv(s32);
 s16 get_field_2F8__20TWindowSubStatusDispFPv(s32);
@@ -144,7 +144,7 @@ void TWindowSubStatusDisp__vt13(void *arg0) {
     void *temp_r31_4;
     void *temp_r31_5;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s16 *, 0x20));
+    temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, s16 *, 0x20));
     if (temp_r3 != 0) {
         temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 2);
         M2C_FIELD(temp_r31, s32 *, 0x20) = (s32) get_stat__20TWindowSubStatusDispFPv(temp_r3);
@@ -179,7 +179,7 @@ void TWindowSubStatusDisp__vt11(Wn_80280F14 *arg0) {
     VObj_18_eecf68 *p;
     Q_80280F14 *q;
     En_80280F14 *e;
-    p = ((VObj_18_eecf68 *)TPlayerBattleCtrl4P__sub_801BA74C(arg0->f20));
+    p = ((VObj_18_eecf68 *)get_player_by_client_id(arg0->f20));
     if (p != NULL) {
         q = get_quest_id__12TQuestListVMFPv();
         if (q != NULL) {

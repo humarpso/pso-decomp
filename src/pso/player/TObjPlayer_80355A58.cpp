@@ -28,7 +28,7 @@ extern "C" {
 
 void *item_equip_variant_deleting_dtor_80355B48(void *arg0, s16 arg1);
 void apply_mag_effect_if_active__10TObjPlayerFPvi(void *arg0, s32 arg1);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s8 TObjPlayer__sub_80102C30(void *);
 M2C_UNK TObjPlayer__sub_8011EAB8(void *, s32, s32, f32);
 void free_obj_heap__10TObjPlayerFPv(void *);
@@ -43,7 +43,7 @@ void apply_mag_effect_if_active__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
         temp_r31 = get_field_3e4__10TObjPlayerFPv(M2C_FIELD(arg0, u32 *, 0xF0));
         {
-        s32 t = TObjPlayer__sub_800196EC();
+        s32 t = get_current_floor();
         if ((t == temp_r31) && (TObjPlayer__sub_80102C30(arg0) == 2)) {
             TObjPlayer__sub_8011EAB8(arg0, M2C_FIELD(arg0, u32 *, 0xF0) + 0x2FC, arg1, M2C_FIELD(arg0, f32 *, 0x1F8));
         }

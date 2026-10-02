@@ -121,7 +121,7 @@ s32 check_v2_mode__9TObjEneDDFv(void);
 int set_player_state_default__12TBoss8DragonFPv(void *);
 M2C_UNK TObjPlayer__sub_800113E4(void *, int);
 u8 *TBoss4Type2__sub_800874F4(void *, M2C_UNK);
-s32 TPhotonMylla__sub_80154CB4(int);
+s32 find_entity_by_id(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 M2C_UNK TObjEneRecon__sub_8031C190(void *);
 M2C_UNK update_position_from_offsets__12TObjEneReconFPv(void *);
@@ -193,7 +193,7 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
         ((VObj_18_825e13 *)(arg0))->m103();
         return;
     }
-    temp_r3 = TPhotonMylla__sub_80154CB4((int) (M2C_FIELD(arg0, u16 *, 0x434)));
+    temp_r3 = find_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0x434)));
     if ((temp_r3 == 0) || (all_parents_unqueued_for_destruction__7TObjectFv() == 0)) {
         queue_destruction__7TObjectFv(arg0);
         return;

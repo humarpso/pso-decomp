@@ -16,7 +16,7 @@ s32 is_owner_alive__10TObjPlayerFPv();
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(u32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 void __ct__15TItemShootModelFPvPC3VecPC3Vecf(void *);
 
 void draw_textured_model__10TObjPlayerFPv(u8 *arg0) {
@@ -27,7 +27,7 @@ void draw_textured_model__10TObjPlayerFPv(u8 *arg0) {
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x2C));
         rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x28));
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, u32 *, 0x58));
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

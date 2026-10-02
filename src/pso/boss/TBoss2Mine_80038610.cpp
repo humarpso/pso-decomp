@@ -194,7 +194,7 @@ void set_state_by_distance__10TBoss2MineFPvi(void *arg0, s32 arg1);
 void update_move_flag__10TBoss2MineFPv(void *arg0);
 void TBoss2Mine__vt26(void);
 void TBoss2Mine__vt61(void* p);
-int TObjEneDD__sub_800BBA18(void*, void*);
+int transition_enemy_state(void*, void*);
 int VecCopy__FP3VecPC3Vec(void*, void*);
 
 void TBoss2Mine__vt102(void *arg0, s32 arg1) {
@@ -210,7 +210,7 @@ void TBoss2Mine__vt102(void *arg0, s32 arg1) {
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x38C);
         if (temp_r4 & 0x100) {
             M2C_FIELD(arg0, s32 *, 0x38C) = (s32) (temp_r4 & 0xFFFFFEFF);
-            TObjEneDD__sub_800BBA18((void*)((s32)arg0), (void*)(1));
+            transition_enemy_state((void*)((s32)arg0), (void*)(1));
         }
     case 5:
     case 0:

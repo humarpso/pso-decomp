@@ -94,7 +94,7 @@ void begin_effect_render__13TParticleCtrlFv(void *);
 void end_effect_render__13TParticleCtrlFv();
 void rotate_matrix_y(int, int);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(int);
 void TOSignCave03__sub_803DB510(int);
@@ -165,13 +165,13 @@ void render__16TOSparkMachine01Fv(Obj_801771F4 *self) {
                 TObjPlayer__sub_803D9B2C();
                 TOHangerMachine01__sub_803D9C00(n->m);
                 TOSignCave03__sub_803DB510(n->f4);
-                TObjPlayer__sub_803D9B78();
+                pop_matrix();
                 break;
             }
             n = n->next;
         }
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

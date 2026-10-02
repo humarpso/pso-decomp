@@ -9,7 +9,7 @@ extern "C" {
 s32 obj_testFlags30(s32, s32);
 s32 check_flag30_bit20__10TObjPlayerFi();
 s32 is_status_flag_200__10TObjPlayerFPv(s32);
-s32 TObjPlayer__sub_801D0BC0(s32, s32, s32);
+s32 run_action_state_phase__10TObjPlayerFisi(s32, s32, s32);
 void send_object_id_packet__10TObjPlayerFi(s32 arg0);
 s32 obj_isState2_324();
 s16 obj_getField1c(s32);

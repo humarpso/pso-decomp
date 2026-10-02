@@ -3,15 +3,34 @@
 
 #include "types.h"
 
-struct TObjEneLappy
+struct LappyVec { f32 x, y, z; };
+struct LappyObjectHeader { u8 object_header[0x18]; };
+
+struct TObjEneLappy : LappyObjectHeader
 {
+    virtual void virtual_00();
+    virtual void virtual_01();
+    virtual void virtual_02();
+    virtual void virtual_03();
+    virtual void virtual_04();
+    virtual void virtual_05();
+    virtual void virtual_06();
+    virtual void virtual_07();
+    virtual void virtual_08();
+    virtual void virtual_09();
+    virtual void virtual_10();
+    virtual void virtual_11();
+    virtual void virtual_12();
+    virtual void virtual_13();
+    virtual void virtual_14();
+    virtual void virtual_15();
+    virtual void virtual_16();
+    virtual s32 has_update_cadence(s32 period);
     u8 _pad1C[0x14];
     u32 m_30;
     u8 _pad34[0x4];
-    void* m_38;
-    u8 _pad3C[0x8];
-    void* m_44;
-    u8 _pad48[0x8];
+    LappyVec position;
+    LappyVec previous_position;
     void* m_50;
     u8 _pad54[0x8];
     void* m_5c;
@@ -29,7 +48,10 @@ struct TObjEneLappy
     u8 _pad2A0[0x18];
     s16 m_2b8;
     s16 m_2ba;
-    u8 _pad2BC[0x70];
+    u8 _pad2BC[0x40];
+    LappyVec center;
+    LappyVec velocity;
+    u8 _pad314[0x18];
     s16 m_32c;
     u16 m_32e;
     u8 _pad330[0xA];

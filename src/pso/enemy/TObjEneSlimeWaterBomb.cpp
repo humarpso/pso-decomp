@@ -54,8 +54,8 @@ extern const f32 lbl_805DA6E0;
 extern const f32 lbl_805DA6E4;
 void *TObjEneSlimeWaterBomb__ct(void *arg0, void *arg1, void *arg2);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
-s32 TObjPlayer__sub_80156844(void *, void *, void *);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+s32 project_actor_to_ground(void *, void *, void *);
+M2C_UNK spawn_particle_effect(void *, int);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 s32 TObjEneSlimeOne__sub_800EC39C(s32);
 s32 fn_800E8AD0(void *);
@@ -69,10 +69,10 @@ void run_task__21TObjEneSlimeWaterBombFv(Bomb_800E8D4C *arg0);
 M2C_UNK TObjPlayer__sub_800F09E8(int);
 M2C_UNK TBoss1Dragon__sub_8014220C(void *, s32 *, s32 *);
 M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
+M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_x(int, int);
 int TObjPlayer__sub_803D9B2C(void*);
-int TObjPlayer__sub_803D9B78(void);
+int pop_matrix(void);
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(Vec_800E8C6C *);
 extern const f32 lbl_805DA670;
 extern const f32 lbl_805DA67C;
@@ -92,7 +92,7 @@ void set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 M2C_UNK rotate_matrix_y(int, int);
 int TObjPlayer__sub_803D9B2C(void*);
-int TObjPlayer__sub_803D9B78(void);
+int pop_matrix(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 void TObjFish__sub_803E46BC(s32);
@@ -129,7 +129,7 @@ void render__21TObjEneSlimeWaterBombFv(u8 *arg0) {
     f32 d;
     f32 k;
     TObjPlayer__sub_803D9B2C(arg0);
-    TObjPlayer__sub_803D9624(0, M2C_FIELD(arg0, f32 *, 0x38), lbl_805DA670 + M2C_FIELD(arg0, f32 *, 0x380), M2C_FIELD(arg0, f32 *, 0x40));
+    translate_matrix(0, M2C_FIELD(arg0, f32 *, 0x38), lbl_805DA670 + M2C_FIELD(arg0, f32 *, 0x380), M2C_FIELD(arg0, f32 *, 0x40));
     TBoss1Dragon__sub_8014220C(arg0 + 0x248, &spC, &sp8);
     rotate_matrix_z(0, sp8);
     rotate_matrix_x(0, spC + 0x4000);
@@ -144,7 +144,7 @@ void render__21TObjEneSlimeWaterBombFv(u8 *arg0) {
     v.z = lbl_805DA67C;
     TBoss7Tentacle__sub_803D9BA0(&v);
     TObjPlayer__sub_800F09E8(0);
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 #pragma pop
 
@@ -158,12 +158,12 @@ void run_task__21TObjEneSlimeWaterBombFv(Bomb_800E8D4C *arg0) {
     {
         Vec_800E8D4C p = arg0->pos;
         p.y += lbl_805DA6AC;
-        if (TObjPlayer__sub_80156844(arg0, &p, arg0->hit) != 0) {
+        if (project_actor_to_ground(arg0, &p, arg0->hit) != 0) {
             arg0->ground = p.y;
             if (arg0->pos.y <= arg0->ground) {
                 arg0->pos.y = arg0->ground;
                 arg0->vel.y *= lbl_805DA6D4;
-                TObjEneDellBiter__sub_80087350(&arg0->pos, 0xE2);
+                spawn_particle_effect(&arg0->pos, 0xE2);
             }
         } else {
             die = 1;
@@ -179,7 +179,7 @@ void run_task__21TObjEneSlimeWaterBombFv(Bomb_800E8D4C *arg0) {
         f32 t = arg0->life + lbl_805DA6D8;
         arg0->life = t;
         if (t >= lbl_805DA6DC || die != 0) {
-            TObjEneDellBiter__sub_80087350(&arg0->pos, 0xE2);
+            spawn_particle_effect(&arg0->pos, 0xE2);
             queue_destruction__7TObjectFv(arg0);
         }
     }
@@ -273,7 +273,7 @@ void TObjPlayer__sub_800E9090(Bomb_800E9090 *self) {
     t = lbl_804966E4[self->f3F4];
     set_global_param__8TObjFishFi(TObjFish__sub_8001EDB0(self->f380, t));
     TObjFish__sub_803E46BC(TObjFish__sub_8001EDC4(self->f380, t));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     init_render_globals__10TObjPlayerFv();
 }
 

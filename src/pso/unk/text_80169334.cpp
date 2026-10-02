@@ -67,7 +67,7 @@ extern "C" {
 void *get_player_data__10TObjPlayerFi(s32);
 s32 obj_getField1c(void *obj);
 f32 TObjPlayer__sub_801547E0(void *, s32);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
 s16 get_field_2b8__14TItemProShieldFPv(void *);
 s16 obj_getS16_32C(void *);
 s16 obj_getS16_2BA(void *);
@@ -78,8 +78,8 @@ s32 TObjPlayer__sub_801AF734(void *);
 s32 is_valid_slot__17TOHangerMachine01FiUs(void *, u16);
 void TObjPlayer__sub_801B5328(void *, void *, s32, s32, f32);
 void TObjPlayer__sub_801AF7E0(void *);
-void *TOSwitchAttack__sub_80087278(void *, s32, s32);
-void TObjPlayer__sub_80087638(void *, u16);
+void *spawn_particle_effect_with_flags(void *, s32, s32);
+void set_owner_id__13TParticleCtrlFPvUs(void *, u16);
 s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
 extern s32 lbl_805D586C;
 extern const f32 lbl_805DB6C8;
@@ -107,7 +107,7 @@ void TObjPlayer__sub_80169334(Ring_80169334 *self) {
             continue;
         }
         r = lbl_805DB6C8 - TObjPlayer__sub_801547E0(actor, 0);
-        if (!(TObjPlayer__sub_80141CF8((u8 *)actor + 0x38, self->pos) < r * r)) {
+        if (!(horizontal_distance_squared((u8 *)actor + 0x38, self->pos) < r * r)) {
             continue;
         }
         self->fF4 = id;
@@ -124,13 +124,13 @@ void TObjPlayer__sub_80169334(Ring_80169334 *self) {
             if (is_alive_and_ready__10TObjPlayerFi(actor) != 0) {
                 TObjPlayer__sub_801AF7E0(actor);
             }
-            e = TOSwitchAttack__sub_80087278((u8 *)actor + 0x2FC, 0x1F6, 0x10);
+            e = spawn_particle_effect_with_flags((u8 *)actor + 0x2FC, 0x1F6, 0x10);
             if (e != 0) {
-                TObjPlayer__sub_80087638(e, self->fF4);
+                set_owner_id__13TParticleCtrlFPvUs(e, self->fF4);
             }
-            e = TOSwitchAttack__sub_80087278((u8 *)actor + 0x2FC, 0x1F7, 0x10);
+            e = spawn_particle_effect_with_flags((u8 *)actor + 0x2FC, 0x1F7, 0x10);
             if (e != 0) {
-                TObjPlayer__sub_80087638(e, self->fF4);
+                set_owner_id__13TParticleCtrlFPvUs(e, self->fF4);
             }
             TBoss3Volopt__sub_8022675C(0x4002AB0E, self->pos, 0, 0);
             break;

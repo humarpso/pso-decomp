@@ -169,7 +169,7 @@ void *TObjFish__sub_8001ED9C(void *, int);
 void *TObjFish__sub_8001EDC4(void *, int);
 void TObjFish__sub_800660D4(void *, void *, void *, void *, int, f32);
 void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
-void *TObjEneDellBiter__sub_80087350(void *, int);
+void *spawn_particle_effect(void *, int);
 void *TBoss4Type2__sub_800874F4(void *, int);
 void **alloc_buffer__11TOBoss4RockFPv(int);
 extern Profile_80237494 lbl_8044D9F8[];
@@ -341,7 +341,7 @@ void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos) {
       VecCopy__FP3VecPC3Vec(&point2, self->source + 0x38);
     }
     point2.y += dy;
-    emitter = TObjEneDellBiter__sub_80087350(&point2, b2->entry);
+    emitter = spawn_particle_effect(&point2, b2->entry);
     id = b2->flags >> 16;
     if (emitter != 0)
     {

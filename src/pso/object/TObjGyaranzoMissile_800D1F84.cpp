@@ -26,7 +26,7 @@ extern "C" {
 
 void copy_from__19TObjGyaranzoMissileFPvPv(void* p, void* q);
 void update__19TObjGyaranzoMissileFPv(u8 *arg0);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK TBoss3Volopt__sub_800D8D88(void *, s32);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK, s32);
@@ -54,7 +54,7 @@ void update__19TObjGyaranzoMissileFPv(u8 *arg0) {
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3D0);
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         if (((V_Sub_800D1F84 *) (arg0 + 0x3D0))->m5() == 1) {
             M2C_FIELD(arg0, s32 *, 0x37C) = -1;
         }

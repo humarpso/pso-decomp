@@ -14,7 +14,7 @@ M2C_UNK create__9TItemLoadFv();
 M2C_UNK TLobby__sub_80103B70(s32);
 M2C_UNK clear_object_count__6TLobbyFv();
 s32 get_global_state__14TOKeyMachine01Fv();
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK set_flags__10TObjPlayerFPvUi(M2C_UNK *, M2C_UNK);
 s32 TLobby__sub_8030A7B0();
@@ -38,7 +38,7 @@ void cleanup_game_objects__9TMainTaskFv(void) {
     create_cleanup_object__10TObjPlayerFPv(tl_item_equip);
     temp_r30 = get_main_phase();
     temp_r31 = get_global_state__14TOKeyMachine01Fv();
-    temp_r29 = TObjPlayer__sub_800196EC();
+    temp_r29 = get_current_floor();
     lbl_805D543C = 0;
     clear_object_count__6TLobbyFv();
     TLobby__sub_80103B70(temp_r29);

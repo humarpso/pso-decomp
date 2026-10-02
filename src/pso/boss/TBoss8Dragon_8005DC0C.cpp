@@ -36,7 +36,7 @@ s32 get_flag_bit6__12TBoss8DragonFPv();
 s32 TBoss8Dragon__sub_8005E1E8(void *, void *, f32);
 void TCameraCtrl__sub_80069094(s32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
-u8 *TPhotonMylla__sub_80154CB4();
+u8 *find_entity_by_id();
 void TBoss6Type1__sub_803D9370(void *, void *);
 extern s32 lbl_80437E94[];
 extern u8 lbl_804FF5CC[];
@@ -55,12 +55,12 @@ M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK TObjLight__sub_801337F8(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK set_current_scene__6TSceneFi(int);
@@ -93,7 +93,7 @@ s32 TBoss8Dragon__sub_8005DC0C(Obj_8005DC0C *arg0) {
         return 0;
     }
     TCameraCtrl__sub_80069094(-1);
-    pl = TPhotonMylla__sub_80154CB4();
+    pl = find_entity_by_id();
     if (pl == 0) {
         return 0;
     }
@@ -133,12 +133,12 @@ void TBoss8Dragon__sub_8005DD68(u8 *arg0, s32 arg1) {
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)));
     rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
-    TOMonitorMachine01__sub_803D8B5C((int) (0), (f32) (lbl_805D8D58), (f32) (lbl_805D8D58), (f32) (lbl_805D8D58));
+    scale_matrix((int) (0), (f32) (lbl_805D8D58), (f32) (lbl_805D8D58), (f32) (lbl_805D8D58));
     toggle_particle_effect__10TObjPlayerFv();
     draw__16TObjEneRe7BeruraFPv((void *) (arg0));
     end_effect_render__13TParticleCtrlFv();
     TObjLight__sub_801337F8((void *) (lbl_805D5560));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     set_chunk_material_override_pair((int) (0xFF00), (int) (0));
     set_current_scene__6TSceneFi((int) (0xBF));
     some_id_805c6f74 = lbl_805D5660;

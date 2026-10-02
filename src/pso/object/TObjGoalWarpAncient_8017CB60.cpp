@@ -76,10 +76,10 @@ void *__dt__19TObjGoalWarpAncientFv(void *arg0, s16 arg1);
 void render__19TObjGoalWarpAncientFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
-M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
+M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void __dt__12TObjAreaWarpFv(void *, int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -96,13 +96,13 @@ void render__19TObjGoalWarpAncientFv(u8 *arg0) {
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         begin_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xD8));
-        TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0xCC), M2C_FIELD(arg0, s32 *, 0xE4), M2C_FIELD(arg0, f32 *, 0xC4));
+        draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0xCC), M2C_FIELD(arg0, s32 *, 0xE4), M2C_FIELD(arg0, f32 *, 0xC4));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xE0));
-        TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0xD4), M2C_FIELD(arg0, s32 *, 0xE8), M2C_FIELD(arg0, f32 *, 0xC8));
+        draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0xD4), M2C_FIELD(arg0, s32 *, 0xE8), M2C_FIELD(arg0, f32 *, 0xC8));
         end_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xDC));
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0xD0));
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 
@@ -186,11 +186,11 @@ void *TObjMapWarpAncient__create(void *arg0);
 void render__18TObjMapWarpAncientFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
-M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
+M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 void *TObjMapWarpAncient__ct(void *, void *, void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 void *__nw__7TObjectFUl(int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -254,14 +254,14 @@ void render__18TObjMapWarpAncientFv(u8 *arg0) {
         begin_effect_render__13TParticleCtrlFv();
         if ((s32) M2C_FIELD(arg0, s32 *, 0x88) >= 0) {
             set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x10C));
-            TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0x100), M2C_FIELD(arg0, s32 *, 0x118), M2C_FIELD(arg0, f32 *, 0xFC));
+            draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0x100), M2C_FIELD(arg0, s32 *, 0x118), M2C_FIELD(arg0, f32 *, 0xFC));
         }
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x110));
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x104));
         end_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x114));
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x108));
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

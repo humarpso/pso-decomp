@@ -12,7 +12,7 @@ struct Stack_80355970 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u8 *TBoss8Dragon__sub_8007A544(M2C_UNK *, s32);
+u8 *csnVecterUnder(M2C_UNK *, s32);
 s32 __nw__7TObjectFUl(int);
 s32 TBoss5GryphonTornado__ct(int, void *, void *, void *, void *);
 extern const f32 lbl_805D8D48;
@@ -31,7 +31,7 @@ s32 fn_80355970(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 *temp_r3;
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg2));
     stack.spC = lbl_805D8D48;
-    temp_r3 = (u8 *)(TBoss8Dragon__sub_8007A544(&stack.sp8, 0x16EF));
+    temp_r3 = (u8 *)(csnVecterUnder(&stack.sp8, 0x16EF));
     if (temp_r3 == NULL) {
         return 0;
     }

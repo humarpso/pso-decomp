@@ -9,7 +9,7 @@ extern "C" {
 void update_boss2tunnel__10TObjPlayerFPv(void *arg0);
 void apply_on_shield_state5__10TObjPlayerFi(s32 arg0);
 u8 get_slot_count__14TItemProShieldFPv();
-M2C_UNK TObjPlayer__sub_8010069C(s32);
+M2C_UNK refresh_owner_stats__5TItemFPv(s32);
 M2C_UNK TObjPlayer__sub_80100EB4(void *, M2C_UNK);
 M2C_UNK setup_particle_once__10TObjPlayerFPv(void *);
 s32 get_player_list__10TObjPlayerFv();
@@ -23,7 +23,7 @@ void update_boss2tunnel__10TObjPlayerFPv(void *arg0) {
 
 void apply_on_shield_state5__10TObjPlayerFi(s32 arg0) {
     if (get_slot_count__14TItemProShieldFPv() == 5) {
-        TObjPlayer__sub_8010069C(arg0);
+        refresh_owner_stats__5TItemFPv(arg0);
     }
 }
 

@@ -57,10 +57,10 @@ u8 *TObjContainerJung__ct(u8 *arg0, s32 arg1, s32 _w2);
 u8 * TObjFish__sub_8001EDC4(void *, int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TOMonitorMachine01__sub_803D8B5C(M2C_UNK, f32, f32, f32);
+M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470();
@@ -80,7 +80,7 @@ void release__17TObjContainerJungFv(void);
 M2C_UNK TLobby__sub_8001FE7C(s32, M2C_UNK);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
+M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK destroy_container_object__10TObjPlayerFPvs(void *, M2C_UNK);
@@ -155,14 +155,14 @@ void TObjContainerJung__vt79(u8 *arg0) {
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-            TOMonitorMachine01__sub_803D8B5C(0, lbl_805DBD9C, lbl_805DBD9C, lbl_805DBD9C);
+            scale_matrix(0, lbl_805DBD9C, lbl_805DBD9C, lbl_805DBD9C);
             TObjFish__sub_8001EDC4(*(u8 **)&TObjContainerJung__data_805D5BA0, 0);
             TObjBoss2Tunnel__sub_803DB470();
             begin_effect_render__13TParticleCtrlFv();
             TObjFish__sub_8001EDC4(*(u8 **)&TObjContainerJung__data_805D5BA0, 3);
             TObjBoss2Tunnel__sub_803DB470();
             end_effect_render__13TParticleCtrlFv();
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             break;
         case 1:
             break;
@@ -177,7 +177,7 @@ void TObjContainerJung__vt78(void *arg0) {
     switch (temp_r0) {
     case 0:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x364) != 0) {
-            TObjPlayer__sub_801B4A18(arg0, -1);
+            submit_cursor_candidate(arg0, -1);
         }
     case 1:
         return;

@@ -50,12 +50,12 @@ struct Stack_8003D648 {
 struct RecoveredGlobal_8003D648_lbl_8048377C { M2C_UNK value; u8 remaining[0x2C]; };
 
 extern "C" {
-void *TPhotonMylla__sub_80154CB4(u16);
+void *find_entity_by_id(u16);
 s32 is_photon_blast_active__11TCameraCtrlFPv();
 extern u16 lbl_80483770[];
 extern u16 lbl_805D271C;
 s32 is_photon_blast_active__11TCameraCtrlFv(void);
-void *TPhotonMylla__sub_80154CB4(u16);
+void *find_entity_by_id(u16);
 extern u16 lbl_805D2718;
 s32 fn_8003F3F8();
 s32 is_photon_ready__11TCameraCtrlFv(void);
@@ -78,7 +78,7 @@ s32 TCameraCtrl__sub_80069E7C(int);
 s32 set_scripted_camera_pose(int, int, void *);
 s32 cache_target_and_forward__11TCameraCtrlFii(void *, int);
 u8 *get_scripted_camera_playback();
-void *TPhotonMylla__sub_80154CB4(u16);
+void *find_entity_by_id(u16);
 s32 TObjPlayer__sub_801BA42C();
 s32 TObjPlayer__sub_801BA494();
 s32 init_all_slots__11TWindowCtrlFv();
@@ -89,12 +89,12 @@ extern s32 lbl_805D4D14;
 extern const f32 lbl_805D8660;
 extern const f32 lbl_805D8678;
 void TCameraCtrl__sub_8003D648(u8 *arg0);
-void *TPhotonMylla__sub_80154CB4(u16);
+void *find_entity_by_id(u16);
 s32 is_photon_blast_active__11TCameraCtrlFPv();
 s32 TObjPlayer__sub_80042EC0(void *);
 extern u16 lbl_80483770[];
 s32 TCameraCtrl__sub_8003D2C4(void);
-void *TPhotonMylla__sub_80154CB4(u16);
+void *find_entity_by_id(u16);
 void set_target_id__10TObjPlayerFPvi(void *, s32);
 extern u16 lbl_80483770[];
 extern s8 lbl_804FEE74[];
@@ -121,14 +121,14 @@ void TCameraCtrl__sub_8003CFFC(s32 n) {
   {
     return;
   }
-  p = TPhotonMylla__sub_80154CB4(((volatile unsigned short *)&lbl_80483770)[lbl_804FEE74[0]]);
+  p = find_entity_by_id(((volatile unsigned short *)&lbl_80483770)[lbl_804FEE74[0]]);
   if (p != 0)
   {
     set_target_id__10TObjPlayerFPvi(p, 1);
   }
   for (i = 1; i < n; i++)
   {
-    p = TPhotonMylla__sub_80154CB4(((volatile unsigned short *)&lbl_80483770)[lbl_804FEE74[i]]);
+    p = find_entity_by_id(((volatile unsigned short *)&lbl_80483770)[lbl_804FEE74[i]]);
     if (p != 0)
     {
       set_target_id__10TObjPlayerFPvi(p, 0);
@@ -141,19 +141,19 @@ s32 is_photon_blast_active__11TCameraCtrlFv(void) {
     s32 var_r29;
     s32 var_r31;
     void *temp_r3;
-    temp_r3 = TPhotonMylla__sub_80154CB4(lbl_805D271C);
+    temp_r3 = find_entity_by_id(lbl_805D271C);
     if ((temp_r3 != NULL) && (M2C_FIELD(temp_r3, s32 *, 0x30) & 0x800)) {
         return 1;
     }
     for (var_r29 = 0; var_r29 < 6; var_r29 += 1) {
-        if ((TPhotonMylla__sub_80154CB4(lbl_80483770[var_r29]) != NULL) && (is_photon_blast_active__11TCameraCtrlFPv() == 0)) {
+        if ((find_entity_by_id(lbl_80483770[var_r29]) != NULL) && (is_photon_blast_active__11TCameraCtrlFPv() == 0)) {
             return 0;
         }
     }
     return 1;
 }
 s32 is_photon_ready__11TCameraCtrlFv(void) {
-    if ((((u32)TPhotonMylla__sub_80154CB4(lbl_805D2718)) != 0U) && (fn_8003F3F8() != 0)) {
+    if ((((u32)find_entity_by_id(lbl_805D2718)) != 0U) && (fn_8003F3F8() != 0)) {
         return 1;
     }
     return 0;
@@ -163,7 +163,7 @@ s32 TCameraCtrl__sub_8003D2C4(void) {
     s32 i;
     void *p;
     for (i = 0; i < 6; i++) {
-        p = TPhotonMylla__sub_80154CB4(lbl_80483770[i]);
+        p = find_entity_by_id(lbl_80483770[i]);
         if (p != 0 && is_photon_blast_active__11TCameraCtrlFPv() == 0 && TObjPlayer__sub_80042EC0(p) == 0) {
             return 0;
         }
@@ -220,7 +220,7 @@ void TCameraCtrl__sub_8003D648(u8 *arg0) {
         TCameraCtrl__sub_80069C94((void *) (&lbl_8048377C.value), (void *) ((u8 *)&lbl_8048377C.value + 0xC));
         TObjPlayer__sub_801BA494();
         init_all_slots__11TWindowCtrlFv();
-        if (((u32)TPhotonMylla__sub_80154CB4((u16)((void *) (lbl_805D2718)))) != 0U) {
+        if (((u32)find_entity_by_id((u16)((void *) (lbl_805D2718)))) != 0U) {
             set_flag_08000000__11TCameraCtrlFi();
         }
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
@@ -260,7 +260,7 @@ void TCameraCtrl__sub_8003D648(u8 *arg0) {
         }
         break;
     case -1:
-        if (((u32)TPhotonMylla__sub_80154CB4((u16)((void *) (lbl_805D2718)))) != 0U) {
+        if (((u32)find_entity_by_id((u16)((void *) (lbl_805D2718)))) != 0U) {
             set_player_view_flag__11TCameraCtrlFi();
         }
         init_all_slots2__11TWindowCtrlFv();

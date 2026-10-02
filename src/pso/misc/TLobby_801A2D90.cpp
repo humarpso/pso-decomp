@@ -35,7 +35,7 @@ M2C_UNK queue_destruction__7TObjectFv(u32);
 extern u32 lbl_805D5EE8;
 void reset_quest_state__6TLobbyFv(void);
 void apply_char_to_players__6TLobbyFv(void);
-Ctrl_801A2E00 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+Ctrl_801A2E00 *get_player_by_client_id(s32);
 s32 TLobby__sub_8030A7B0();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 void TLobby__sub_801A2E00(void);
@@ -67,7 +67,7 @@ void TLobby__sub_801A2E00(void) {
         case 2: {
             s32 i;
             for (i = 0; i < 4; i++) {
-                Ctrl_801A2E00 *c = TPlayerBattleCtrl4P__sub_801BA74C(i);
+                Ctrl_801A2E00 *c = get_player_by_client_id(i);
                 if (c != NULL && c != NULL) {
                     c->v0(1);
                 }

@@ -18,12 +18,12 @@ VV(31)VV(32)VV(33)
 extern "C" {
 
 void get_selection__19TWindowSubTechniqueFPvPvi(s16 *arg0, s32 *arg1, s32 arg2);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 
 void get_selection__19TWindowSubTechniqueFPvPvi(s16 *arg0, s32 *arg1, s32 arg2) {
     void *temp_r3;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(arg2);
+    temp_r3 = get_player_by_client_id(arg2);
     if (temp_r3 != NULL) {
         *arg0 = M2C_FIELD(temp_r3, s16 *, 0x32E);
         *arg1 = ((VObj_80286B0C *)temp_r3)->v36();

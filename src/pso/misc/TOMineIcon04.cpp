@@ -74,7 +74,7 @@ int TOMineIcon04__vt80(void* p);
 void TOMineIcon04__vt82(void);
 void *__dt__12TOMineIcon04Fv(void *arg0, s16 arg1);
 void *create__12TOMineIcon04FPv(void *arg0);
-int TObjEneDellBiter__sub_80087350(void*, int);
+int spawn_particle_effect(void*, int);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -82,7 +82,7 @@ M2C_UNK __dt__6TOMineFv(void *, M2C_UNK);
 void *__nw__7TObjectFUl(int);
 
 void TOMineIcon04__vt82(void) {  }
-int TOMineIcon04__vt80(void* p) { return TObjEneDellBiter__sub_80087350((char*)p + 0x2fc, 140); }
+int TOMineIcon04__vt80(void* p) { return spawn_particle_effect((char*)p + 0x2fc, 140); }
 
 extern void *tl_05;
 

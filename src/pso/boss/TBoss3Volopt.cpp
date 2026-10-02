@@ -112,7 +112,7 @@ M2C_UNK obj_clearFlags30(void *, int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TBoss3Volopt__sub_8003EB34(void *);
 void run_task__12TBoss3VoloptFv(u8 *arg0);
-u8 * TPhotonMylla__sub_80154CB4(u16);
+u8 * find_entity_by_id(u16);
 M2C_UNK *VecCopy__FP3VecPC3Vec(void *, M2C_UNK *);
 int TBoss3Volopt__sub_8003EA2C(void*);
 M2C_UNK fn_8003F3BC();
@@ -185,7 +185,7 @@ u8 *get_scripted_camera_playback();
 M2C_UNK TObjEnemyCustom__sub_800C7860();
 M2C_UNK apply_all__8TFogCtrlFii(int, int);
 M2C_UNK update_all__8TFogCtrlFi(int);
-u8 * TPhotonMylla__sub_80154CB4(u16);
+u8 * find_entity_by_id(u16);
 M2C_UNK TObjPlayer__sub_801BA42C();
 M2C_UNK TObjPlayer__sub_801BA494();
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, int, int, int);
@@ -250,7 +250,7 @@ void TBoss3Volopt__sub_8003DA78(u8 *arg0) {
         reset_vol_opt_state((void*)(arg0));
         TObjPlayer__sub_801BA494();
         init_all_slots__11TWindowCtrlFv();
-        if (TPhotonMylla__sub_80154CB4(lbl_805D271A) != NULL) {
+        if (find_entity_by_id(lbl_805D271A) != NULL) {
             set_flag_08000000__12TBoss3VoloptFPv();
         }
         M2C_FIELD(arg0, s32 *, 0x384) = 0xD2;
@@ -280,7 +280,7 @@ void TBoss3Volopt__sub_8003DA78(u8 *arg0) {
         break;
     case 2:
         if (M2C_FIELD(get_scripted_camera_playback(), u16 *, 2) & 1) {
-            if (TPhotonMylla__sub_80154CB4(lbl_805D271C) != NULL) {
+            if (find_entity_by_id(lbl_805D271C) != NULL) {
                 TObjEnemyCustom__sub_800C7860();
             }
             M2C_FIELD(arg0, s32 *, 0x384) = 0x5A;
@@ -293,7 +293,7 @@ void TBoss3Volopt__sub_8003DA78(u8 *arg0) {
         }
         break;
     case -1:
-        if (TPhotonMylla__sub_80154CB4(lbl_805D271A) != NULL) {
+        if (find_entity_by_id(lbl_805D271A) != NULL) {
             set_player_flag_08000000__12TBoss3VoloptFPv();
         }
         init_all_slots2__11TWindowCtrlFv();
@@ -305,7 +305,7 @@ void TBoss3Volopt__sub_8003DA78(u8 *arg0) {
 
 void TBoss3Volopt__sub_8003DC34(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3A8) = 1;
-    if (TPhotonMylla__sub_80154CB4(lbl_805D2718) != NULL) {
+    if (find_entity_by_id(lbl_805D2718) != NULL) {
         TObjEnemyCustom__sub_800C7860();
     }
     TBoss3Volopt__sub_8003EA2C((void*)((int) (1)));

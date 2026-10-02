@@ -37,7 +37,7 @@ struct RecoveredGlobal_802E02D4___vt__19TWindowTradeRequest
 extern "C" {
 M2C_UNK __dt__7TObjectFv(void *, int);
 M2C_UNK init_parts__10TObjPlayerFPv();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+u32 get_player_by_client_id(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK fn_8024AADC(void *, int);
 M2C_UNK TLobby__sub_8024AC20(void *);
@@ -47,7 +47,7 @@ extern RecoveredGlobal_802E0224___vt__19TWindowTradeRequest __vt__19TWindowTrade
 extern s32 lbl_805D53A0;
 u8 *__dt__19TWindowTradeRequestFv(u8 *arg0, s16 arg1);
 u8 *TLobby__sub_8001DC24(void);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+u32 get_player_by_client_id(void *);
 u8 *TWindowSubComCard__sub_8026CBB8(s32);
 s32 TWindowMessageYesNo__sub_802A59D8(s32, s32, s32, s32);
 char get_trade_mode__6TLobbyFv(void);
@@ -85,7 +85,7 @@ u8 *__dt__19TWindowTradeRequestFv(u8 *arg0, s16 arg1) {
         }
         TWindowReturnCity__sub_8024ACA8((void *) (lbl_805D53A0));
         TLobby__sub_8024AC20((void *) (lbl_805D53A0));
-        if (TPlayerBattleCtrl4P__sub_801BA74C((void *) (lbl_805D53A0)) != 0U) {
+        if (get_player_by_client_id((void *) (lbl_805D53A0)) != 0U) {
             init_parts__10TObjPlayerFPv();
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 2U) {
@@ -111,7 +111,7 @@ u8 *TWindowTradeRequest__ct(u8 *arg0) {
   __ct__7TObjectFP7TObject();
   *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_802E02D4___vt__19TWindowTradeRequest *)&__vt__19TWindowTradeRequest).value;
   *((s32 *) (((s8 *) arg0) + 0)) = (s32) lbl_805D3F70;
-  temp_r31 = ((s32)TPlayerBattleCtrl4P__sub_801BA74C((void *)((u32) get_trade_mode__6TLobbyFv())));
+  temp_r31 = ((s32)get_player_by_client_id((void *)((u32) get_trade_mode__6TLobbyFv())));
   TWindowSubStatusDisp__sub_802290E0();
   new_var = (u32) temp_r31;
   if (new_var)
@@ -126,7 +126,7 @@ u8 *TWindowTradeRequest__ct(u8 *arg0) {
   forward_slot_selection__16TAdChrSelASlotGCFPvPvPv((int) (*((s32 *) (((s8 *) arg0) + 0x20))), (int) TLobby__sub_8001DC24(), (int) temp_r31_2, (f32) lbl_805DE8A0);
   new_var2 = ((s8 *) arg0) + 0x1C;
   notify_warp_flag70__19TWindowSubShortMailFPv((int) (*((s32 *) (((s8 *) arg0) + 0x20))));
-  if (((s32)TPlayerBattleCtrl4P__sub_801BA74C((void *)((u32) lbl_805D53A0))) != 0U)
+  if (((s32)get_player_by_client_id((void *)((u32) lbl_805D53A0))) != 0U)
   {
     reset_equip_slots__10TObjPlayerFPv();
   }

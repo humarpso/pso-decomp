@@ -17,8 +17,8 @@ u32 TObjPlayer__sub_801B5EA4();
 s32 TObjPlayer__sub_801B6024(s32);
 s32 TObjPlayer__sub_801BE2D0(s32);
 int TObjPlayer__sub_801BF964(void*);
-s32 TObjPlayer__sub_801D0458(void *);
-s32 TObjPlayer__sub_801D0BC0(void *, s16, s32);
+s32 get_idle_animation__10TObjPlayerFPv(void *);
+s32 run_action_state_phase__10TObjPlayerFisi(void *, s16, s32);
 s32 TObjPlayer__sub_801D1018(s32);
 int clear_status_bit6__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_8001053C(void*);
@@ -50,9 +50,9 @@ void update_action__10TObjPlayerFi(s32 arg0) {
 }
 void start_animation__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x33C) = 1;
-    TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
+    run_action_state_phase__10TObjPlayerFisi(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
     TObjPlayer__sub_801D04B4((void*)(arg0));
-    set_action_state__10TObjPlayerFPvss(arg0, 1, TObjPlayer__sub_801D0458(arg0));
+    set_action_state__10TObjPlayerFPvss(arg0, 1, get_idle_animation__10TObjPlayerFPv(arg0));
 }
 
 }

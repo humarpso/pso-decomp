@@ -23,7 +23,7 @@ void sync_player_globals__10TObjPlayerFv();
 void TObjPlayer__sub_80052390(f32);
 void rotate_matrix_y(s32, s32);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(s32);
 void TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
@@ -76,7 +76,7 @@ void TObjPlayer__sub_8004E918(Obj_8004E918 *arg0) {
         TObjEneSlimeOne__sub_803E4AF4(arg0->recs[i].a, arg0->recs[i].c, arg0->fc0);
     }
     clear_global_state__10TObjPlayerFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     if (alpha < 1.0f) {
         sync_player_globals__10TObjPlayerFv();
     }

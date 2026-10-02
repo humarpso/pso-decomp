@@ -65,7 +65,7 @@ s32 TObjLight__sub_801344A4(void *, void *, int);
 M2C_UNK TObjLight__sub_80134548(int, f32, f32);
 M2C_UNK TObjLight__sub_801345F8(int, void *, void *);
 M2C_UNK TEffStarLightChild__sub_80141FBC(void *, void *, void *, f32);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 extern Base_80235C44 TObjLight__data_80506320;
 extern const f32 lbl_805DC890;
 extern const f32 lbl_805DC894;
@@ -88,7 +88,7 @@ void TObjLight__sub_80235C44(Light_80235C44 *arg0) {
     Col_80235C44 unused;
     f32 mid;
     f32 frac;
-    if (TPlayerBattleCtrl4P__sub_801BA74C(arg0->actor) == 0) {
+    if (get_player_by_client_id(arg0->actor) == 0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }

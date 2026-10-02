@@ -60,15 +60,15 @@ struct Boss_802B9C80 {
 };
 
 extern "C" {
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(u32);
+u8 *get_player_by_client_id(u32);
 void copy_vec2__11TBoss6Type2FPvPv(void* p, void* q);
 void TBoss6Type2__sub_802BA180(u8 *arg0);
 s32 request_destroy__11TBoss4Type2FUi(int);
 void TBoss6Type2__sub_802B9BBC(s32 arg0, s32 arg1);
 void TBoss6Type2__sub_802B9BBC(s32 arg0, s32 arg1);
 void init_parts__11TBoss6Type2FPv(s32 arg0);
-s32 TOSwitchAttack__sub_80087278(s32, s32, s32);
-s32 TObjEneDellBiter__sub_80087350(s32, s32);
+s32 spawn_particle_effect_with_flags(s32, s32, s32);
+s32 spawn_particle_effect(s32, s32);
 s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
 void TBoss6PlotFalz__sub_802ABE3C(s32, s16, s32, f32);
 extern f32 lbl_805D6740;
@@ -86,7 +86,7 @@ void set_flags__11TBoss4Type2FPvUi(u32, int);
 extern Tbl_802B9C00 lbl_804710CC[];
 void TBoss6Type2__sub_802B9C00(u8 *arg0, s32 arg1);
 void VecCopy__FP3VecPC3Vec(Vec_802B9A68 *, Vec_802B9A68 *);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(u32);
+u8 *get_player_by_client_id(u32);
 s32 TBoss6Rock__sub_80353A14(int, Vec_802B9A68 *, f32 *);
 f32 TBoss6Kakusan__sub_803D8BD8(Vec_802B9A68 *);
 void TBoss6Type1__sub_803D9370(Vec_802B9A68 *, Vec_802B9A68 *);
@@ -98,8 +98,8 @@ s32 TObjPlayer__sub_801423A4(s32, s32, s32);
 void TBoss6Type1__sub_803D9370(Vec_802B9A68 *, Vec_802B9A68 *);
 extern const f64 TBoss6Type2__data_804713C0;
 void TBoss6Type2__sub_802B9F3C(Boss_802B9F3C *arg0, Vec_802B9A68 *arg1);
-s32 TOSwitchAttack__sub_80087278(s32, s32, s32);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 spawn_particle_effect_with_flags(s32, s32, s32);
+u8 *get_player_by_client_id(u32);
 s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
 void TBoss6PlotFalz__sub_802AAD84(s32, s32);
 s32 is_active__14TBoss6PlotFalzFPv();
@@ -108,7 +108,7 @@ s32 is_target_valid__11TBoss6Type2FPv(void *);
 extern const f32 TBoss6Type2__data_805DE430;
 extern const f32 TBoss6Type2__data_805DE434;
 void TBoss6Type2__sub_802BA078(Boss_802BA078 *arg0);
-s32 TObjEneDellBiter__sub_80087350(s32, s32);
+s32 spawn_particle_effect(s32, s32);
 extern s32 lbl_804713A8[];
 void TBoss6Type2__sub_802B9B20(Boss_802B9B20 *o);
 void VecCopy__FP3VecPC3Vec(Vec_802B9A68 *, Vec_802B9A68 *);
@@ -151,7 +151,7 @@ s32 TBoss6Type2__sub_802B9A68(s32 id) {
     Player_802B9A68 *p;
     s32 i;
     f32 k;
-    p = ((Player_802B9A68 *)TPlayerBattleCtrl4P__sub_801BA74C((u32)((u16)id)));
+    p = ((Player_802B9A68 *)get_player_by_client_id((u32)((u16)id)));
     if (p == NULL) {
         return 0;
     }
@@ -180,13 +180,13 @@ void TBoss6Type2__sub_802B9B20(Boss_802B9B20 *o) {
         e = t;
         for (i = 0; i < 3; i++, e++) {
             if (e->flags & 0x04000000) {
-                TObjEneDellBiter__sub_80087350((s32)((u8 *)o + lbl_804713A8[i] * 0xC + 0x59C), 0x223);
+                spawn_particle_effect((s32)((u8 *)o + lbl_804713A8[i] * 0xC + 0x59C), 0x223);
                 found = 1;
             }
         }
     }
     if (found == 0) {
-        TObjEneDellBiter__sub_80087350((s32)((u8 *)o + 0x2FC), 0x223);
+        spawn_particle_effect((s32)((u8 *)o + 0x2FC), 0x223);
     }
 }
 
@@ -287,14 +287,14 @@ void TBoss6Type2__sub_802B9D90(u8 *arg0) {
       {
         *((s32 *) (((s8 *) (((u8 *) arg0) + temp_r4)) + 0)) = 1;
         TBoss3Volopt__sub_8022675C(0x4006A300, (u32) temp_r29, 0, 0);
-        TOSwitchAttack__sub_80087278((s32) temp_r29, 0x220, 0x40);
+        spawn_particle_effect_with_flags((s32) temp_r29, 0x220, 0x40);
         if (((s32) (*((s32 *) (((s8 *) arg0) + 0x418)))) == 0)
         {
-          TObjEneDellBiter__sub_80087350((s32) temp_r29, 0x222);
+          spawn_particle_effect((s32) temp_r29, 0x222);
         }
         else
         {
-          TOSwitchAttack__sub_80087278((s32) temp_r29, 0x229, 0x2000);
+          spawn_particle_effect_with_flags((s32) temp_r29, 0x229, 0x2000);
         }
         TBoss6PlotFalz__sub_802ABE3C((s32) temp_r29, 0xC0, 0xF, lbl_805DE42C);
       }
@@ -357,16 +357,16 @@ void TBoss6Type2__sub_802BA000(T2_802BA000 *arg0) {
 void TBoss6Type2__sub_802BA078(Boss_802BA078 *arg0) {
     Player_802BA078 *p;
     if (arg0->f55C != 0xFFFF) {
-        p = (Player_802BA078 *)TPlayerBattleCtrl4P__sub_801BA74C(arg0->f55C);
+        p = (Player_802BA078 *)get_player_by_client_id(arg0->f55C);
         if (is_active__14TBoss6PlotFalzFPv() != 0) {
             s32 r = TBoss6PlotFalz__sub_802AB5B4(arg0->f4B8, TBoss6Type2__data_805DE430);
             TBoss6PlotFalz__sub_802AAD84(arg0->f55C, r);
             p->f30 |= 0x200;
-            TOSwitchAttack__sub_80087278((s32)&p->pos, 0x212, 0x40);
+            spawn_particle_effect_with_flags((s32)&p->pos, 0x212, 0x40);
             {
                 V3_802BA078 v = p->pos;
                 v.y = v.y + TBoss6Type2__data_805DE434;
-                TOSwitchAttack__sub_80087278((s32)&v, 0x223, 0x40);
+                spawn_particle_effect_with_flags((s32)&v, 0x223, 0x40);
             }
             if (is_target_valid__11TBoss6Type2FPv(arg0) == 0) {
                 TBoss3Volopt__sub_8022675C(0x4000AD13, 0, 0, 0);
@@ -388,7 +388,7 @@ void TBoss6Type2__sub_802BA180(u8 *arg0) {
     u8 *temp_r3;
     u32 id = M2C_FIELD(arg0, u16 *, 0x55C);
     if (id != 0xFFFF) {
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(id);
+        temp_r3 = get_player_by_client_id(id);
         if (temp_r3 == NULL) {
             TBoss6Type2__sub_802BA158((Obj_802BA158 *)((void *)((void *) (arg0))));
             return;

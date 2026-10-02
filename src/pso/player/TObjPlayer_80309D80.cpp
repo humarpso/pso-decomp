@@ -38,23 +38,23 @@ struct V_80309E9C { f32 x, y, z; };
 struct Fol_80309E9C { u16 a; u16 b; u8 pad[0x8]; V_80309E9C v[3]; };
 
 extern "C" {
-int TObjEneDellBiter__sub_80087350(void*, void*);
+int spawn_particle_effect(void*, void*);
 void *__nw__7TObjectFUl(int);
 void *TPlyPtclObjectRightHand__ct(void *, void *);
 void TObjPlayer__sub_8030A030(void *arg0, void *arg1);
 void *__nw__7TObjectFUl(int);
 void *TPlyPtclObjectLeftHand__ct(void *, void *);
 void TObjPlayer__sub_8030A07C(void *arg0, void *arg1);
-void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+void *get_player_by_client_id(u16);
 u16 get_lifetime__22TPlyFollowParticleCtrlFPv();
 s32 get_position_ptr__10TObjPlayerFPv(s32);
 extern M2C_UNK __vt__22TPlyPtclObjectLeftHand[];
 s32 TPlyPtclObjectRightHand__vt7(s32 arg0);
 s32 TBoss7LaserPtcl__sub_80086C6C(s32, s32, s32, s32);
-M2C_UNK TObjPlayer__sub_80087638(s32, s32);
-u32 TPhotonMylla__sub_80154CB4(s32);
+M2C_UNK set_owner_id__13TParticleCtrlFPvUs(s32, s32);
+u32 find_entity_by_id(s32);
 s32 TObjPlayer__sub_8030A1E4(unsigned long long arg1, s32 arg2);
-s32 TOSwitchAttack__sub_80087278(s32, s32, M2C_UNK);
+s32 spawn_particle_effect_with_flags(s32, s32, M2C_UNK);
 void TObjPlayer__sub_8030A150(M2C_UNK arg0, s32 arg1, s32 arg2);
 void TObjPlayer__sub_80309F78(s32 arg0, s32 arg1);
 void TObjPlayer__sub_80309FD4(s32 arg0, s32 arg1);
@@ -84,9 +84,9 @@ void enable_foot_stamp__10TObjPlayerFii(s32 arg1, s32 arg2);
 void* init_follow_particle_ctrl__10TObjPlayerFPv(void* p);
 void update_child__10TObjPlayerFPvPv(void *arg0, void *arg1);
 void update_follow_particle__10TObjPlayerFii(s32 arg0, s32 arg1);
-s32 TOSwitchAttack__sub_80087278(s32, s32, M2C_UNK);
-M2C_UNK TObjPlayer__sub_80087638(s32, s32);
-u32 TPhotonMylla__sub_80154CB4(s32);
+s32 spawn_particle_effect_with_flags(s32, s32, M2C_UNK);
+M2C_UNK set_owner_id__13TParticleCtrlFPvUs(s32, s32);
+u32 find_entity_by_id(s32);
 int TPlyFollowParticleCtrl__sub_8030A694(void*);
 s32 __dl__FPv(s32 a0 = 0);
 s32 __dt__22TPlyFollowParticleCtrlFis(s32 a0 = 0, s32 a1 = 0);
@@ -188,7 +188,7 @@ void* init_follow_particle_ctrl__10TObjPlayerFPv(void* p) { TPlyFollowParticleCt
 typedef struct Stack_8030A1E4 Stack_8030A1E4;
 
 void TObjPlayer__sub_8030A150(M2C_UNK arg0, s32 arg1, s32 arg2) {
-    TOSwitchAttack__sub_80087278((s32)((void *) (arg1)), (s32)((void *) (arg2)), (M2C_UNK)((int) (0x2000)));
+    spawn_particle_effect_with_flags((s32)((void *) (arg1)), (s32)((void *) (arg2)), (M2C_UNK)((int) (0x2000)));
 }
 
 s32 emit_player_model_particle(s32 owner, s32 position, s32 entry, s32 model) {
@@ -204,7 +204,7 @@ s32 TObjPlayer__sub_8030A1E4(unsigned long long arg1, s32 arg2) {
   Stack_8030A1E4 stack;
   s32 temp_r3;
   u8 *temp_r3_2;
-  temp_r3_2 = (u8 *) ((u8 *)TPhotonMylla__sub_80154CB4((s32)(arg1)));
+  temp_r3_2 = (u8 *) ((u8 *)find_entity_by_id((s32)(arg1)));
   if (temp_r3_2 == 0)
   {
     return 0;
@@ -215,7 +215,7 @@ s32 TObjPlayer__sub_8030A1E4(unsigned long long arg1, s32 arg2) {
   temp_r3 = TBoss7LaserPtcl__sub_80086C6C((s32) (temp_r3_2 + 0x74), (s32) (&stack.sp8), arg2, 0x50);
   if (temp_r3 != 0)
   {
-    TObjPlayer__sub_80087638((s32)((void *) temp_r3), (s32)(arg1));
+    set_owner_id__13TParticleCtrlFPvUs((s32)((void *) temp_r3), (s32)(arg1));
   }
   return temp_r3;
 }
@@ -224,21 +224,21 @@ s32 check_hit_by_id__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
     u32 temp_r3_2;
 
-    temp_r3_2 = TPhotonMylla__sub_80154CB4(arg1);
+    temp_r3_2 = find_entity_by_id(arg1);
     if (temp_r3_2 == 0U) {
         return 0;
     }
-    temp_r3 = TOSwitchAttack__sub_80087278(temp_r3_2 + 0x74, arg2, 0x50);
+    temp_r3 = spawn_particle_effect_with_flags(temp_r3_2 + 0x74, arg2, 0x50);
     if (temp_r3 != 0) {
-        TObjPlayer__sub_80087638(temp_r3, arg1);
+        set_owner_id__13TParticleCtrlFPvUs(temp_r3, arg1);
     }
     return temp_r3;
 }
 
-s32 TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2) { return TObjEneDellBiter__sub_80087350(a1, a2); }
+s32 TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2) { return spawn_particle_effect(a1, a2); }
 s32 TPlyPtclObjectRightHand__vt7(s32 arg0) {
     void *temp_r3;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16) get_lifetime__22TPlyFollowParticleCtrlFPv());
+    temp_r3 = get_player_by_client_id((u16) get_lifetime__22TPlyFollowParticleCtrlFPv());
     if (temp_r3 == NULL) {
         return 0;
     }

@@ -12,16 +12,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Obj_8031F070 { u8 pad[0x410]; s32 count; u8 pad2[4]; u16 ids[6]; };
 
 extern "C" {
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 void TObjEneRecon__sub_8031EF14(Obj_8031EF14 *arg0, u8 *arg1);
 s32 check_v2_mode__9TObjEneDDFv();
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 u16 TObjEneRecon__sub_8031D878();
 s32 TObjEneRecon__sub_8031F0F0(Obj_8031F0F0 *arg0, u16 arg1);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 void TObjEneRecon__sub_8031EDBC(void *, u16);
 void TObjEneRecon__sub_8031EFAC(Obj_8031EFAC *o, u8 *target);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 s32 is_anim_5__12TObjEneReconFPv();
 s32 TObjEneRecon__sub_8031F070(Obj_8031F070 *arg0);
 }
@@ -31,7 +31,7 @@ extern "C" {
 void TObjEneRecon__sub_8031EF14(Obj_8031EF14 *arg0, u8 *arg1) {
     s32 i;
     for (i = 0; i < 6; i++) {
-        if (TPhotonMylla__sub_80154CB4(arg0->ids[i]) == arg1) {
+        if (find_entity_by_id(arg0->ids[i]) == arg1) {
             arg0->count--;
             arg0->ids[i] = arg0->ids[arg0->count];
             arg0->ids[arg0->count] = 0xFFFF;
@@ -43,7 +43,7 @@ void TObjEneRecon__sub_8031EF14(Obj_8031EF14 *arg0, u8 *arg1) {
 void TObjEneRecon__sub_8031EFAC(Obj_8031EFAC *o, u8 *target) {
     s32 i;
     for (i = 0; i < 6; i++) {
-        if (TPhotonMylla__sub_80154CB4(o->ids[i]) == target) {
+        if (find_entity_by_id(o->ids[i]) == target) {
             TObjEneRecon__sub_8031EDBC(o, o->ids[i]);
             o->count--;
             o->ids[i] = o->ids[o->count];
@@ -63,7 +63,7 @@ s32 TObjEneRecon__sub_8031F070(Obj_8031F070 *arg0) {
         return 0;
     }
     for (i = 0; i < 6; i++) {
-        if (TPhotonMylla__sub_80154CB4(arg0->ids[i]) != NULL && is_anim_5__12TObjEneReconFPv() == 1) {
+        if (find_entity_by_id(arg0->ids[i]) != NULL && is_anim_5__12TObjEneReconFPv() == 1) {
             return 1;
         }
     }
@@ -74,7 +74,7 @@ s32 TObjEneRecon__sub_8031F0F0(Obj_8031F0F0 *arg0, u16 arg1) {
     s32 n = 0;
     s32 i;
     for (i = 0; i < arg0->count; i++) {
-        if (TPhotonMylla__sub_80154CB4(arg0->ids[i]) != NULL && arg1 == TObjEneRecon__sub_8031D878()) {
+        if (find_entity_by_id(arg0->ids[i]) != NULL && arg1 == TObjEneRecon__sub_8031D878()) {
             n++;
         }
     }

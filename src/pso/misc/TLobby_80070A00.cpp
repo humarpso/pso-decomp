@@ -60,12 +60,12 @@ struct Tbl_80070DCC { u8 pad[0x680]; s32 f680[4]; };
 
 extern "C" {
 int check_player_state_flag_2__6TLobbyFPv(void *);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 get_player_by_client_id(u32);
 extern M2C_UNK lbl_8048C9D8[];
 extern u32 lbl_805D4E28;
 s32 TLobby__sub_80070F4C(void);
 int check_player_state_flag_2__6TLobbyFPv(void *);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 get_player_by_client_id(u32);
 extern M2C_UNK lbl_8048C9D8[];
 extern u32 lbl_805D4E28;
 s32 TLobby__sub_80070FD8(void);
@@ -105,7 +105,7 @@ s32 TLobby__sub_800712D8(s32 idx, s32 value, s32 arg);
 s32 calc_challenge_time_limit__6TLobbyFv();
 s32 check_challenge_time_range__6TLobbyFi(s32);
 s32 TLobby__sub_8006F994(s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 get_player_by_client_id(u32);
 extern M2C_UNK lbl_8048C9D8[];
 extern s32 lbl_805D4E38;
 extern s8 lbl_805D4E3C;
@@ -173,7 +173,7 @@ s32 TLobby__sub_80070DCC(void) {
         times[i] = 0;
     }
     for (i = 0; i < 4; i++) {
-        if (((u32 (*)(u32))TPlayerBattleCtrl4P__sub_801BA74C)(i) != 0) {
+        if (((u32 (*)(u32))get_player_by_client_id)(i) != 0) {
             s32 v = ((Tbl_80070DCC *)lbl_8048C9D8)->f680[i];
             if (v == 0) {
                 return -1;
@@ -215,7 +215,7 @@ s32 TLobby__sub_80070F4C(void) {
     }
     var_r31 = 0;
 loop_4:
-    temp_r3 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C(var_r31));
+    temp_r3 = (u8 *)(get_player_by_client_id(var_r31));
     if ((temp_r3 != NULL) && (check_player_state_flag_2__6TLobbyFPv(temp_r3) != 0)) {
         M2C_FIELD(&(*(RecoveredGlobal_80070F4C_lbl_8048C9D8 *)&lbl_8048C9D8).value, s32 *, 0x20) = 1;
         return 1;
@@ -235,7 +235,7 @@ s32 TLobby__sub_80070FD8(void) {
     }
     var_r31 = 0;
 loop_4:
-    temp_r3 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C(var_r31));
+    temp_r3 = (u8 *)(get_player_by_client_id(var_r31));
     if ((temp_r3 != NULL) && (check_player_state_flag_2__6TLobbyFPv(temp_r3) == 0)) {
         return 0;
     }

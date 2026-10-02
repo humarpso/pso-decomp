@@ -13,7 +13,7 @@ extern "C" {
 void queue_destruction__7TObjectFv(TObject *);
 void disallow_rendering__7TObjectFv(TObject *);
 TObject *get_instance__15TWindowCtrlMainFv();
-HelpTextPlayerState *TPlayerBattleCtrl4P__sub_801BA74C(u32);
+HelpTextPlayerState *get_player_by_client_id(u32);
 void VecCopy__FP3VecPC3Vec(Vec *, const Vec *);
 void TFontSmallHelp__sub_800FC424(TFontSmallHelp *, u32);
 void set_help_text__14TFontSmallHelpFPvUi(TFontSmallHelp *, u32);
@@ -21,7 +21,7 @@ extern const char *lbl_805D2B20;
 }
 
 void TFontSmallHelp::run_task() {
-    HelpTextPlayerState *player = TPlayerBattleCtrl4P__sub_801BA74C(player_id);
+    HelpTextPlayerState *player = get_player_by_client_id(player_id);
     if (player == NULL) {
         queue_destruction__7TObjectFv(this);
         return;
@@ -44,7 +44,7 @@ TFontSmallHelp::~TFontSmallHelp() {}
 TFontSmallHelp::TFontSmallHelp(u32 player, u32 text_color, s32 lifetime, u32 text_id)
     : TObject(get_instance__15TWindowCtrlMainFv()) {
     m_name = lbl_805D2B20;
-    HelpTextPlayerState *owner = TPlayerBattleCtrl4P__sub_801BA74C(player);
+    HelpTextPlayerState *owner = get_player_by_client_id(player);
     if (owner == NULL) {
         disallow_rendering__7TObjectFv(this);
         queue_destruction__7TObjectFv(this);

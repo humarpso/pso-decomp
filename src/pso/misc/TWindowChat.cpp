@@ -21,7 +21,7 @@ void TWindowChat__sub_80247D2C(void* p);
 void *__dt__11TWindowChatFv(void *arg0, s16 arg1);
 int get_flag__11TWindowChatFPv(void* p);
 u8 get_input_mode__11TWindowChatFPv(void* p);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 void TWindowChat__sub_8024792C(void *);
 int TWindowChat__sub_80247DAC(void* p);
 M2C_UNK TWindowChat__sub_8024AD30(s32);
@@ -69,7 +69,7 @@ void *__dt__11TWindowChatFv(void *arg0, s16 arg1) {
 
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TWindowChat;
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+        temp_r3 = get_player_by_client_id(lbl_805D53A0);
         if (temp_r3 != 0) {
             if (!(M2C_FIELD(arg0, u16 *, 0x1E) & 2)) {
                 if (is_mode_bit6__11TWindowChatFPv((void *)(arg0)) != 0) {

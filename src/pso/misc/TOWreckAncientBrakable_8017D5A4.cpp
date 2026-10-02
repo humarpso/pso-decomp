@@ -9,7 +9,7 @@ extern "C" {
 void update_break_state__22TOWreckAncientBrakableFPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 u8 TODoorAncient08__sub_80229220(u16);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
+M2C_UNK spawn_particle_effect(void *, M2C_UNK);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TOWreckAncientBrakable__sub_8017D444(void *);
 M2C_UNK TOWreckAncientBrakable__sub_8017D448(void *);
@@ -33,8 +33,8 @@ void update_break_state__22TOWreckAncientBrakableFPv(u8 *arg0) {
         if ((temp_r0_2 >= 0) && (temp_r0_2 < 0x100) && (TODoorAncient08__sub_80229220((u16) temp_r0_2) == 1)) {
             M2C_FIELD(arg0, s32 *, 0xB4) = 1;
             TBoss3Volopt__sub_8022675C(0x43C11, arg0 + 0x38, 0, 0);
-            TObjEneDellBiter__sub_80087350(arg0 + 0x38, 0x45);
-            TObjEneDellBiter__sub_80087350(arg0 + 0x38, 0x46);
+            spawn_particle_effect(arg0 + 0x38, 0x45);
+            spawn_particle_effect(arg0 + 0x38, 0x46);
             TOWreckAncientBrakable__sub_8017D448(arg0);
         }
         return;

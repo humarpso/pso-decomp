@@ -9,7 +9,7 @@ struct Cmd_801B0690 { u16 hdr; u16 client; s32 team; };
 extern "C" {
 M2C_UNK TMainCursor__sub_80154098(int, int, int);
 M2C_UNK TMainCursor__sub_801540B8(int, int, int);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u8 *get_player_by_client_id(u16);
 M2C_UNK TFontSmallLobby__sub_801C03AC(void *);
 M2C_UNK TFontSmallLobby__sub_801C03E0(void *, void *);
 M2C_UNK TFontSmallLobby__sub_801C041C(void *);
@@ -52,7 +52,7 @@ void handle_6x90_set_player_battle_team(s32 arg0) {
     if (validate_6x90_set_player_battle_team(&cmd) == 0) {
         return;
     }
-    p = TPlayerBattleCtrl4P__sub_801BA74C(cmd.client);
+    p = get_player_by_client_id(cmd.client);
     if (p == NULL) {
         return;
     }

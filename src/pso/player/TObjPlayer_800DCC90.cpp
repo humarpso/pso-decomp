@@ -25,14 +25,14 @@ extern "C" {
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 TObjParticle__sub_800870BC(Vec_800DCD04 *, s32 *, s32, s32);
 f32 TObjPlayer__sub_8013153C(Vec_800DCD04 *, Vec_800DCD04 *);
-f32 fn_8013157C(Vec_800DCD04 *, Vec_800DCD04 *);
-u8 *TPhotonMylla__sub_80154CB4(s16);
+f32 xz_distance_squared(Vec_800DCD04 *, Vec_800DCD04 *);
+u8 *find_entity_by_id(s16);
 void TObjPlayer__sub_801569F4(void *, void *);
 void TCameraCtrl__sub_803D8934(s32, Vec_800DCD04 *, Vec_800DCD04 *);
 void rotate_matrix_y(s32, s32);
 void rotate_matrix_x(s32, s32);
 void TObjPlayer__sub_803D97F0(void *);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 extern Vec_800DCD04 lbl_8043C920;
 extern const f64 lbl_8043C940[];
 extern M2C_UNK lbl_80494E48[];
@@ -82,16 +82,16 @@ Obj_800DCD04 *TObjPlayer__sub_800DCD04(Obj_800DCD04 *self, Vec_800DCD04 *pos, s1
         rotate_matrix_y(0, rot[1]);
         rotate_matrix_x(0, rot[0]);
         TCameraCtrl__sub_803D8934(0, &v, &self->fc4);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         self->fec = arg4;
-        pp = (Vec_800DCD04 *)(TPhotonMylla__sub_80154CB4(id) + 0x2fc);
+        pp = (Vec_800DCD04 *)(find_entity_by_id(id) + 0x2fc);
         ang[0] = 0;
         ang[1] = (s32)(lbl_8043C940[0] * get_ad_end_text_start__10TObjPlayerFv(pp->x - pos->x, pp->z - pos->z)) + 0x4000;
         ang[2] = 0x4000 - (s32)(lbl_8043C940[0] * get_ad_end_text_start__10TObjPlayerFv(pp->y - pos->y, TObjPlayer__sub_8013153C(pp, pos)));
         self->ff8 = TObjParticle__sub_800870BC(pos, ang, 0xf4, 2);
     }
     self->ff4 = lbl_805D5264;
-    if (fn_8013157C(pp, pos) < lbl_805DA484) {
+    if (xz_distance_squared(pp, pos) < lbl_805DA484) {
         self->ff4 *= lbl_805DA488;
     }
     self->ffc = 0;

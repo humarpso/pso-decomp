@@ -68,7 +68,7 @@ M2C_UNK TObjPlayer__sub_800F5E08();
 extern const f32 TBoss6Mine__data_805DF580;
 void TBoss6Mine__sub_80323E1C(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
-s32 TObjPlayer__sub_80156844(void *, void *, int);
+s32 project_actor_to_ground(void *, void *, int);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 f32 TBoss6Type1__sub_803D9370(void *, void *);
@@ -124,7 +124,7 @@ M2C_UNK TBoss6PlotFalz__sub_802ABE3C(s32, M2C_UNK, M2C_UNK, f32);
 M2C_UNK TBoss6PlotFalz__sub_802AC008(f32, f32);
 void TBoss6Type1__sub_802B5DD4(void *);
 int TOHangerMachine01__sub_803D9C00(void*);
-int TOSwitchAttack__sub_80087278(void*, void*, void*);
+int spawn_particle_effect_with_flags(void*, void*, void*);
 int rotate_matrix_x(void*, void*);
 s32 TObjControl__ct(s32, s32);
 void TObjEneGibbles__sub_80156720(void *);
@@ -134,7 +134,7 @@ s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
 int rotate_matrix_y(void*, void*);
 int TObjPlayer__sub_803D9B2C(void*);
-int TObjPlayer__sub_803D9B78(void);
+int pop_matrix(void);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
@@ -183,7 +183,7 @@ void draw__10TBoss6MineFPv(void *arg0) {
     clear_global_state__10TObjPlayerFv();
 }
 
-void draw_parts__10TBoss6MineFPv(void* p) { TObjPlayer__sub_803D9B2C(p); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x390)); rotate_matrix_x((void*)0, *(void**)((char*)p + 0x394)); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x398)); draw__10TBoss6MineFPv((void *)(p)); TObjPlayer__sub_803D9B78(); }
+void draw_parts__10TBoss6MineFPv(void* p) { TObjPlayer__sub_803D9B2C(p); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x390)); rotate_matrix_x((void*)0, *(void**)((char*)p + 0x394)); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x398)); draw__10TBoss6MineFPv((void *)(p)); pop_matrix(); }
 
 void TBoss6Mine__sub_80323FA4(u8 *arg0) {
     Vec_80323FA4 v;
@@ -243,14 +243,14 @@ void TBoss6Mine__sub_803240F8(u8 *arg0) {
     TBoss3Volopt__sub_8022675C(0x4003BA1E, arg0 + 0x38, 0, 0);
 }
 
-void TBoss6Mine__vt7(void* p) { TOSwitchAttack__sub_80087278((void*)((char*)p + 0x38), (void*)((void*)252), (void*)((void*)64)); queue_destruction__7TObjectFv((void*)(p)); }
+void TBoss6Mine__vt7(void* p) { spawn_particle_effect_with_flags((void*)((char*)p + 0x38), (void*)((void*)252), (void*)((void*)64)); queue_destruction__7TObjectFv((void*)(p)); }
 
 extern f32 lbl_805DF598;
 
 void TBoss6Mine__vt6(s32 arg0) {
     TBoss6Mine__sub_803240F8((u8 *)(arg0));
-    TOSwitchAttack__sub_80087278((void*)(arg0 + 0x38), (void*)(0xFB), (void*)(0x40));
-    TOSwitchAttack__sub_80087278((void*)(arg0 + 0x38), (void*)(0xFC), (void*)(0x40));
+    spawn_particle_effect_with_flags((void*)(arg0 + 0x38), (void*)(0xFB), (void*)(0x40));
+    spawn_particle_effect_with_flags((void*)(arg0 + 0x38), (void*)(0xFC), (void*)(0x40));
     TBoss6PlotFalz__sub_802ABE3C(arg0 + 0x38, 0xC0, 0xF, lbl_805DF598);
     queue_destruction__7TObjectFv((void*)(arg0));
 }
@@ -280,7 +280,7 @@ void TBoss6Mine__vt5(u8 *arg0) {
     VecCopy__FP3VecPC3Vec((s32)((void *) (&stack.sp8)), (s32)((void *) (arg0 + 0x38)));
     temp_f31 = stack.spC - lbl_805DF5A0;
     stack.spC = temp_f31;
-    if ((TObjPlayer__sub_80156844((void *) (arg0), (void *) (&stack.sp8), (int) (0)) != 0) && (temp_f31 < stack.spC)) {
+    if ((project_actor_to_ground((void *) (arg0), (void *) (&stack.sp8), (int) (0)) != 0) && (temp_f31 < stack.spC)) {
         stack.spC += lbl_805DF5A0;
         VecCopy__FP3VecPC3Vec((s32)((void *) (arg0 + 0x38)), (s32)((void *) (&stack.sp8)));
         M2C_FIELD(arg0, s32 *, 0x38C) = 0;

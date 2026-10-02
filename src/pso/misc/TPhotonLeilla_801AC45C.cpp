@@ -31,12 +31,12 @@ struct Self_801AC45C {
 
 extern "C" {
 u16 obj_getField1c(void *);
-u8 * TPhotonMylla__sub_80154CB4(u16);
+u8 * find_entity_by_id(u16);
 u8 * TPhotonMagicSquare__sub_801AD218(void *, M2C_UNK, s32, s32, s32);
 s32 TOTrapAncient01__sub_80226578(s32, s32, u32, s16, s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, int);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK TObjPlayer__sub_801A720C(int, int, int, f32);
 M2C_UNK TCameraCtrl__sub_801A7310(void *, int);
 M2C_UNK TObjPlayer__sub_801A7680(void *);
@@ -59,8 +59,8 @@ s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
-s32 TObjPlayer__sub_803D9624(int, f32, f32, f32);
+s32 pop_matrix();
+s32 translate_matrix(int, f32, f32, f32);
 s32 set_global_param__8TObjFishFi(int);
 s32 set_chunk_material_override_pair(int, int);
 s32 set_chunk_material_color(void *);
@@ -86,7 +86,7 @@ void render__13TPhotonLeillaFv(Self_801AC45C *self) {
         begin_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi(self->f24);
         TObjPlayer__sub_803D9B2C();
-        TObjPlayer__sub_803D9624(0, self->pos.x, self->pos.y, self->pos.z);
+        translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
         rotate_matrix_y(0, self->f60);
         lbl_805D5660 = some_id_805c6f74;
         copy_vec4__13TRaderMapCoreFPvPv(&lbl_8050BEC0, &lbl_8058D4C0);
@@ -104,7 +104,7 @@ void render__13TPhotonLeillaFv(Self_801AC45C *self) {
         lbl_805D7780 = lbl_805D5668;
         copy_vec4__13TRaderMapCoreFPvPv(&lbl_8058D4C0, &lbl_8050BEC0);
         some_id_805c6f74 = lbl_805D5660;
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         end_effect_render__13TParticleCtrlFv();
     }
 }
@@ -122,7 +122,7 @@ void run_task__13TPhotonLeillaFv(u8 *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x1AC) == 0x32) && ((s32) M2C_FIELD(arg0, s32 *, 0x19C) == 0)) {
         M2C_FIELD(arg0, s32 *, 0x19C) = 1;
         M2C_FIELD(arg0, s32 *, 0x1AC) = 0;
-        temp_r3 = (u8 *)(TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x17C)));
+        temp_r3 = (u8 *)(find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x17C)));
         if (temp_r3 != NULL) {
             VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (temp_r3 + 0x38));
         }
@@ -141,12 +141,12 @@ void run_task__13TPhotonLeillaFv(u8 *arg0) {
     }
     M2C_FIELD(arg0, s16 *, 0x190) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);
     update_state__10TSceneSoraFPv((void *) (arg0));
-    TBoss1Dragon__sub_80143504((void *) (arg0));
+    advance_animation_playback((void *) (arg0));
     TObjPlayer__sub_801A7680((void *) (arg0));
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (M2C_FIELD(arg0, s16 *, 0x14C) + 0xF);
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (u8) M2C_FIELD(arg0, s16 *, 0x14C);
     if (lbl_805DC1CC == (f32) M2C_FIELD(arg0, s32 *, 0x1AC)) {
-        temp_r3_3 = (u8 *)(TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x17C)));
+        temp_r3_3 = (u8 *)(find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x17C)));
         if (temp_r3_3 != NULL) {
             TObjPlayer__sub_801A720C((int) (obj_getField1c(temp_r3_3)), (int) (4), (int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x150)));
         }

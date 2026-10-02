@@ -17,20 +17,20 @@ extern Data_8008741C *lbl_805D4EF8;
 extern Data_8008741C *lbl_805D4EFC;
 void *__nw__7TObjectFUl(u32);
 void *initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(void *, void *, void *, s32, s32, s32, s32, s32);
-void *TOSwitchAttack__sub_80087278(void *pos, s32 id, s32 flags);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 extern s32 lbl_805D2948;
 extern Data_8008741C *lbl_805D4EF8;
 extern Data_8008741C *lbl_805D4EFC;
 void *__nw__7TObjectFUl(u32);
 void *initialize__13TParticleCtrlFPvPviiiii(void *self, void *owner, void *entry, s32 a, s32 b, s32 c, s32 d);
-void *TObjEneDellBiter__sub_80087350(void *pos, s32 id);
+void *spawn_particle_effect(void *pos, s32 id);
 }
 
 extern "C" {
 
 #pragma push
 #pragma opt_propagation off
-void *TOSwitchAttack__sub_80087278(void *pos, s32 id, s32 flags) {
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags) {
     void *p;
     s32 idx = id;
     if (lbl_805D2948 > idx) {
@@ -52,7 +52,7 @@ void *TOSwitchAttack__sub_80087278(void *pos, s32 id, s32 flags) {
 }
 #pragma pop
 
-void *TObjEneDellBiter__sub_80087350(void *pos, s32 id) {
+void *spawn_particle_effect(void *pos, s32 id) {
     void *p;
     if (lbl_805D2948 > id) {
         p = __nw__7TObjectFUl((u32)(0x78));

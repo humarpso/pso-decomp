@@ -8,7 +8,7 @@ void TObjPlayer__sub_80019828(O_80019828 *self);
 extern const f64 lbl_80434098;
 extern const f64 lbl_804340A0;
 extern const f32 TObjPlayer__data_805D7D24;
-f32 TObjPlayer__sub_8001978C(f32 x);
+f32 newton_sqrtf(f32 x);
 }
 
 extern "C" {
@@ -24,7 +24,7 @@ f64 TObjPlayer__sub_80019784(f64 x) { return __fabs(x); }
 
 #pragma push
 #pragma fp_contract on
-f32 TObjPlayer__sub_8001978C(f32 x) {
+f32 newton_sqrtf(f32 x) {
     volatile f32 y;
     if (x > TObjPlayer__data_805D7D24) {
         f64 guess = __frsqrte(x);

@@ -215,29 +215,29 @@ s32 check_player_flag1__6TLobbyFPv(s32);
 s32 TObjPlayer__sub_80154954(void *, void *);
 s32 TLobby__sub_80156A80(void *, void *, int);
 M2C_UNK send_code_45_1__10TObjPlayerFi(s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 get_player_by_client_id(u32);
 extern const f32 TOTrap__data_805DBA3C;
 f32 TOTrap__sub_80178F54(u8 *arg0, u32 arg1);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
+M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 void TOTrap__sub_80178DCC(u8 *arg0);
 extern u32 lbl_80442CD0[];
 extern s32 lbl_805D5550;
 f32 TOTrap__sub_80178B78(f32 farg0);
 s32 fn_80171314(void *);
 s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 get_player_by_client_id(u32);
 s32 TOTrap__sub_80178BC4(void *arg0);
 u16 TObjPlayer__sub_800115C4(void *, int, f32);
 M2C_UNK calc_attach_pos__10TObjPlayerFPv();
 s32 TObjPlayer__sub_80019248(int);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
 void TObjPlayer__sub_801B5328(void *, void *, s32, int, f32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 get_player_by_client_id(u32);
 void TOTrap__vt79(Obj_80178CF8 *self);
 M2C_UNK calc_attach_pos__10TObjPlayerFPv();
 u16 TObjPlayer__sub_800115C4(void *, int, f32);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+f32 horizontal_distance_squared(void *, void *);
+s32 get_player_by_client_id(u32);
 void TOTrap__sub_80178E10(Obj_80178E10 *arg0);
 }
 
@@ -263,10 +263,10 @@ void TOTrap__sub_80178BC0(void);
 void TOTrap__vt80(void *arg0);
 void play_sounds__6TOTrapFi(s32 arg0);
 void trigger__6TOTrapFPvPvi(void *arg0, s16 *arg1, s32 arg2);
-M2C_UNK TObjEneDellBiter__sub_80087350(s32, M2C_UNK);
+M2C_UNK spawn_particle_effect(s32, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
+s32 get_player_by_client_id(u32);
 M2C_UNK calc_attach_pos__10TObjPlayerFPv();
 s32 check_player_flag1__6TLobbyFPv(s32);
 s32 obj_getField1c(u32);
@@ -291,7 +291,7 @@ s32 TOTrap__sub_80178BC4(void *arg0) {
     s32 i;
     void *p;
     for (i = 0; i < 4; i++) {
-        p = ((void *)TPlayerBattleCtrl4P__sub_801BA74C((u32)(i)));
+        p = ((void *)get_player_by_client_id((u32)(i)));
         if (p != 0) {
             if (((s16)get_stat_by_key_state__10TObjPlayerFPv(p) == (s16)get_stat_by_key_state__10TObjPlayerFPv(arg0)) && (fn_80171314(p) != 0)) {
                 return 1;
@@ -313,14 +313,14 @@ void TOTrap__vt80(void *arg0) {
         if (p != 0U) {
             u32 v = (u16) obj_getField1c(p);
             if (v < 0x1000U) {
-                temp_r31 = TPlayerBattleCtrl4P__sub_801BA74C(v);
+                temp_r31 = get_player_by_client_id(v);
                 if ((TObjPlayer__sub_80019248(temp_r31) != 0) && (check_player_flag1__6TLobbyFPv(temp_r31) != 0)) {
                     send_code_45_1__10TObjPlayerFi(temp_r31);
                 }
             }
         }
     }
-    TObjPlayer__sub_801B4A18(arg0, -1);
+    submit_cursor_candidate(arg0, -1);
 }
 
 void TOTrap__vt79(Obj_80178CF8 *self) {
@@ -328,10 +328,10 @@ void TOTrap__vt79(Obj_80178CF8 *self) {
     calc_attach_pos__10TObjPlayerFPv();
     self->idx = TObjPlayer__sub_800115C4(self, 0, self->x334);
     if (self->idx != 0xFFFF) {
-        pl = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(self->idx);
+        pl = (u8 *)get_player_by_client_id(self->idx);
         self->target = pl;
         if (self->target != 0) {
-            if (TObjPlayer__sub_80141CF8(self->target + 0x38, self->pos) < self->range * self->range) {
+            if (horizontal_distance_squared(self->target + 0x38, self->pos) < self->range * self->range) {
                 self->state = 3;
                 if (TObjPlayer__sub_80019248((int)pl) != 0) {
                     ((void (*)(f32, void *, void *, s32, int))TObjPlayer__sub_801B5328)(self->range, pl, self->pos, self->x84, 0);
@@ -347,7 +347,7 @@ void TOTrap__vt79(Obj_80178CF8 *self) {
 }
 
 void TOTrap__sub_80178DCC(u8 *arg0) {
-    TObjPlayer__sub_801B4A18((void *)((void *) (arg0)), (M2C_UNK)((int) (-1)));
+    submit_cursor_candidate((void *)((void *) (arg0)), (M2C_UNK)((int) (-1)));
     ((VObj_18_f90cfc *)(arg0))->m77();
 }
 
@@ -355,9 +355,9 @@ void TOTrap__sub_80178E10(Obj_80178E10 *arg0) {
     calc_attach_pos__10TObjPlayerFPv();
     arg0->idx = TObjPlayer__sub_800115C4(arg0, 0, arg0->range);
     if (arg0->idx != (u16)0xFFFF) {
-        arg0->target = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(arg0->idx);
+        arg0->target = (u8 *)get_player_by_client_id(arg0->idx);
         if (arg0->target != 0) {
-            if (TObjPlayer__sub_80141CF8(arg0->target + 0x38, (u8 *)arg0 + 0x38) < arg0->range * arg0->range) {
+            if (horizontal_distance_squared(arg0->target + 0x38, (u8 *)arg0 + 0x38) < arg0->range * arg0->range) {
                 arg0->state = 2;
             }
         } else {
@@ -370,8 +370,8 @@ void TOTrap__sub_80178E10(Obj_80178E10 *arg0) {
 }
 
 void play_sounds__6TOTrapFi(s32 arg0) {
-    TObjEneDellBiter__sub_80087350(arg0 + 0x2FC, 0x45);
-    TObjEneDellBiter__sub_80087350(arg0 + 0x2FC, 0x46);
+    spawn_particle_effect(arg0 + 0x2FC, 0x45);
+    spawn_particle_effect(arg0 + 0x2FC, 0x46);
 }
 
 void trigger__6TOTrapFPvPvi(void *arg0, s16 *arg1, s32 arg2) {
@@ -399,7 +399,7 @@ f32 TOTrap__sub_80178F54(u8 *arg0, u32 arg1) {
       temp_r3 = obj_getField1c((u32)((void *) arg1));
       if (temp_r3 < 0x1000U)
       {
-        temp_r3_2 = TPlayerBattleCtrl4P__sub_801BA74C((u32)((int) ((s32) temp_r3)));
+        temp_r3_2 = get_player_by_client_id((u32)((int) ((s32) temp_r3)));
         if (((temp_r3_2 != 0) && (TObjPlayer__sub_80019248((int)((int) temp_r3_2)) != 0)) && (check_player_flag1__6TLobbyFPv((s32)((int) ((long long) temp_r3_2))) != 0))
         {
           send_code_45_1__10TObjPlayerFi((s32)((int) temp_r3_2));

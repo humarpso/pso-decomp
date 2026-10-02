@@ -73,7 +73,7 @@ void dispatch_by_index__6TLobbyFi(s32 arg0);
 s32 get_option_state__6TLobbyFv(void);
 void reset_state__6TLobbyFv(s32);
 void TLobby__sub_8013A170(const char *fmt, ...);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 M2C_UNK TLobby__sub_801DA8C4(int, void *, int);
 void *get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
 extern char lbl_8043F038[];
@@ -205,7 +205,7 @@ void TLobby__sub_80137608(s32 arg0) {
     s32 opt;
     if (arg0 != 0) {
         TLobby__sub_8013A170(lbl_8043F038);
-        TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+        get_player_by_client_id(lbl_805D53A0);
         opt = get_option_state__6TLobbyFv();
         TLobby__sub_801DA8C4((int)TLobby__data_805D5580, (u8 *)get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF) + 0x370, opt);
         dispatch_by_index__6TLobbyFi(1);

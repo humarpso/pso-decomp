@@ -86,7 +86,7 @@ void *TDeadSpot__sub_800D808C(void *arg0, s16 arg1);
 void *init__9TDeadSpotFPv(void *arg0, u8 * _w1, u8 * _w2, s32 _w3, f32 _w4);
 void render__9TDeadSpotFv(u8 *arg0);
 void update_lifetime__9TDeadSpotFPv(void *arg0);
-f32 TObjPlayer__sub_80141CF8(void *, s32);
+f32 horizontal_distance_squared(void *, s32);
 M2C_UNK TParticleCtrl__sub_803DA7A8(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -266,7 +266,7 @@ Obj_800D80E4 *TDeadSpot__sub_800D80E4(Obj_800D80E4 *arg0) {
 #pragma pop
 
 void render__9TDeadSpotFv(u8 *arg0) {
-    if ((get_state_flag__9TMainTaskFv() != 1) && (M2C_FIELD(arg0, f32 *, 0xC4) > TDeadSpot__data_805DA38C) && (TObjPlayer__sub_80141CF8(arg0 + 0x7C, lbl_805D4DF0 + 0x178) < lbl_805DA39C)) {
+    if ((get_state_flag__9TMainTaskFv() != 1) && (M2C_FIELD(arg0, f32 *, 0xC4) > TDeadSpot__data_805DA38C) && (horizontal_distance_squared(arg0 + 0x7C, lbl_805D4DF0 + 0x178) < lbl_805DA39C)) {
         lbl_805D5660 = some_id_805c6f74;
         reset_transform_state__10TObjPlayerFv();
         fn_801418C4(0x8F);

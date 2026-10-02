@@ -10,7 +10,7 @@ M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
 M2C_UNK TBoss3VoloptMonitor__sub_8004292C(void *);
 M2C_UNK TObjPlayer__sub_800DA508(void *, void *, f32);
 s32 objInBand__FP7GameObjf(void *, f32);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
 extern const f32 lbl_805DA3F8;
@@ -43,7 +43,7 @@ void TObjPlayer__sub_800DB970(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x384) = 0x96;
         TBoss3VoloptMonitor__sub_8004292C(arg0);
     case 1:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         TObjPlayer__sub_800DA508(arg0, arg0 + 0x50, M2C_FIELD(arg0, f32 *, 0x358));
         if (objInBand__FP7GameObjf(arg0, lbl_805DA464) != 0 || objInBand__FP7GameObjf(arg0, lbl_805DA3FC) != 0) {
             TBoss3Volopt__sub_8022675C(0x4003AD23, arg0 + 0x38, 0, 0);
@@ -58,7 +58,7 @@ void TObjPlayer__sub_800DB970(u8 *arg0) {
         TObjPlayer__sub_80011734(arg0, 0, lbl_805DA3F8);
         break;
     case 2:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         check_object_collisions__10TObjPlayerFPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x384) = M2C_FIELD(arg0, s32 *, 0x384) - 1;
         if (M2C_FIELD(arg0, s32 *, 0x384) <= 0) {

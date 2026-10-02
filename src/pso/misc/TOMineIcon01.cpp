@@ -43,7 +43,7 @@ struct Icon_801714E8 {
 };
 
 extern "C" {
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK spawn_particle_effect(void *, int);
 void calc_attach_pos__10TObjPlayerFPv(void *);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 TObjFish__sub_8001EDC4(void *, s32);
@@ -149,8 +149,8 @@ void *TOMineIcon01__ct(void *arg0, void *arg1, void *arg2) {
 void TOMineIcon02__vt82(void) {  }
 
 void TOMineIcon02__vt80(s32 arg0) {
-    TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x2FC), (int) (0x8E));
-    TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x2FC), (int) (0x8E));
+    spawn_particle_effect((void *) (arg0 + 0x2FC), (int) (0x8E));
+    spawn_particle_effect((void *) (arg0 + 0x2FC), (int) (0x8E));
 }
 
 }

@@ -138,7 +138,7 @@ s32 TObjEneMe3SinowZoa__sub_800D72A4(void *);
 M2C_UNK set_active__12TObjEneReconFv();
 M2C_UNK TObjEneMe3SinowZoa__sub_8031AB64(void *);
 void TObjEneMe3SinowZoa__sub_8031ADE8(u8 *arg0);
-s32 TObjEneDD__sub_800BBA18(void *, int);
+s32 transition_enemy_state(void *, int);
 s32 TObjEneMe3SinowZoa__sub_800D72A4(void *);
 s32 clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
 s32 set_indexed_flags(void *, int, int);
@@ -161,7 +161,7 @@ void TObjEneMe3SinowZoa__sub_8031AC74(u8 *arg0) {
             }
         }
         if ((s16) M2C_FIELD(arg0, s16 *, 0x326) == 0x11) {
-            TObjEneDD__sub_800BBA18((void *) (arg0), (int) (0x12));
+            transition_enemy_state((void *) (arg0), (int) (0x12));
         }
     } else {
         temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x3CC);

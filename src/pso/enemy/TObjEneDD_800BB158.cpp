@@ -17,7 +17,7 @@ struct Stack_800BB218
 
 extern "C" {
 f32 get_random_float__8TObjFishFv(f32);
-s32 TObjButterflyLobby__sub_8007A5D8(void *, void *, int);
+s32 csnVector(void *, void *, int);
 extern const f32 lbl_805D9EA4;
 s32 TObjEneDD__sub_800BB218(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 u8 *csnVectorUnder(f32 *, void *, s32);
@@ -58,7 +58,7 @@ s32 TObjEneDD__sub_800BB218(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
   stack.sp8 = (*((f32 *) (((s8 *) arg0) + 0x38))) + temp_f30;
   stack.spC = *((f32 *) (((s8 *) arg0) + 0x300));
   stack.sp10 = (*((f32 *) (((s8 *) arg0) + 0x40))) + temp_f31;
-  return TObjButterflyLobby__sub_8007A5D8((void *) (arg0 + 0x2FC), (void *) (&stack.sp8), (int) 0x88E0);
+  return csnVector((void *) (arg0 + 0x2FC), (void *) (&stack.sp8), (int) 0x88E0);
 }
 u8 *TObjEneDD__vt100(u8 *arg0, u8 *arg1) {
     Vec position;

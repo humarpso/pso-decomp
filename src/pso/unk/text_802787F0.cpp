@@ -12,7 +12,7 @@ struct Ent_802787F0 { u32 id; s32 count; };
 extern "C" {
 u32 TItem__sub_8010147C(void *, int, int);
 u8 *TLobby__sub_80101AB0(int);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s16);
+u8 *get_player_by_client_id(s16);
 u32 run_and_get_result__10TObjPlayerFPvi(int, void *);
 void TLobby__sub_80266E34(void *);
 void add_list_entry__20TWindowSubStatusDispFPvi(void *, int);
@@ -67,7 +67,7 @@ void fn_802788A8(Wn_802788A8 *arg0) {
     u32 i;
     u32 count;
     u8 *p;
-    p = TPlayerBattleCtrl4P__sub_801BA74C(arg0->f20);
+    p = get_player_by_client_id(arg0->f20);
     if (p != NULL) {
         count = run_and_get_result__10TObjPlayerFPvi(*(s32 *)(p + 0xD00), list);
         for (i = 0; i < count; i++) {

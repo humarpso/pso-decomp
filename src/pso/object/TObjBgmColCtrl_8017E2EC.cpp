@@ -29,7 +29,7 @@ void run_task__14TObjBgmColCtrlFv(void *arg0);
 s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK TObjBgmColCtrl__sub_8017E1E4();
 s32 is_active__14TObjBgmColCtrlFv();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 get_bgm_object__13TQuestBgmCtrlFv();
 M2C_UNK run_tasks__7TObjectFv(void *);
@@ -45,7 +45,7 @@ void run_task__14TObjBgmColCtrlFv(void *arg0) {
 
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x1C);
     M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (temp_r4 - 1);
-    if ((temp_r4 <= 0) && ((get_global_state__14TOKeyMachine01Fv() == 0xF) || (TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != 0U)) && (get_bgm_object__13TQuestBgmCtrlFv() == 0)) {
+    if ((temp_r4 <= 0) && ((get_global_state__14TOKeyMachine01Fv() == 0xF) || (get_player_by_client_id(lbl_805D53A0) != 0U)) && (get_bgm_object__13TQuestBgmCtrlFv() == 0)) {
         if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
             if (is_active__14TObjBgmColCtrlFv() == 0) {
                 TObjBgmColCtrl__sub_8017E1E4();

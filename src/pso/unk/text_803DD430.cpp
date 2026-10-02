@@ -26,7 +26,7 @@ f64 sin(f64);
 extern SinCos_803DD4EC *lbl_805D7748;
 extern const f32 lbl_805E0F9C;
 extern const f32 lbl_805E0FA0;
-void fn_803DD4EC(void);
+void init_sin_cos_table(void);
 }
 
 extern "C" {
@@ -54,7 +54,7 @@ void fn_803DD430(GXRenderModeObj_803DD430 *rmode, GXRenderModeObj_803DD430 *out)
 #pragma push
 #pragma optimize_for_size on
 #pragma use_lmw_stmw off
-void fn_803DD4EC(void) {
+void init_sin_cos_table(void) {
     s32 j;
     SinCos_803DD4EC *p;
     s32 i;

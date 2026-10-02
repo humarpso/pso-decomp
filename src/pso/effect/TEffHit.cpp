@@ -1,7 +1,7 @@
 #include "pso/effect/TEffHit.h"
 extern "C" {
 void queue_destruction__7TObjectFv(void*);
-s32 TObjEneDellBiter__sub_80087350(const Vec*, s32);
+s32 spawn_particle_effect(const Vec*, s32);
 void VecCopy__FP3VecPC3Vec(Vec*, const Vec*);
 extern const f32 lbl_805D9448;
 extern const char* lbl_805D2920;
@@ -19,11 +19,11 @@ void TEffHit::run_task() {
                 shifted_position.x = position.x;
                 shifted_position.y = position.y - lbl_805D9448;
                 shifted_position.z = position.z;
-                TObjEneDellBiter__sub_80087350(&shifted_position, particle + 4);
+                spawn_particle_effect(&shifted_position, particle + 4);
             } else if (particle == 3) {
-                TObjEneDellBiter__sub_80087350(&position, 0xD);
+                spawn_particle_effect(&position, 0xD);
             } else {
-                TObjEneDellBiter__sub_80087350(&position, particle + 4);
+                spawn_particle_effect(&position, particle + 4);
             }
             particle++;
         } while (particle < 4);

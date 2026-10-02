@@ -57,7 +57,7 @@ M2C_UNK TItemData__sub_8010C740(void *, int);
 M2C_UNK TItemData__sub_8010CCB0(void *);
 s32 is_volopt_phase_final__10TObjPlayerFv();
 u32 TObjPlayer__sub_801B8E68(int, int);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+s32 get_player_by_client_id(int);
 M2C_UNK TObjPlayer__sub_801BE9A8(int);
 M2C_UNK set_flag_20000__10TObjPlayerFi(int);
 M2C_UNK TObjPlayer__sub_801BF8EC(void *, void *, int);
@@ -90,7 +90,7 @@ void handle_6x2B_create_inventory_item(s32 arg0) {
     copy__10TObjPlayerFPvPv(&pkt, (void *)arg0);
     bswap_cmd_item_data__10TObjPlayerFi(&pkt);
     if (validate_6x2B_create_inventory_item(&pkt) != 0) {
-        player = TPlayerBattleCtrl4P__sub_801BA74C(pkt.client);
+        player = get_player_by_client_id(pkt.client);
         if ((player != 0) && (is_volopt_phase_final__10TObjPlayerFv() == 0)) {
             if ((u32)(pkt.size * 4) == 0x18) {
                 kind = 0;

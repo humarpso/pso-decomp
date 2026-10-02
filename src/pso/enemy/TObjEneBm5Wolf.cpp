@@ -40,7 +40,7 @@ void reset_fields__14TObjEneBm5WolfFPv(void* p);
 void set_field8_from_obj__14TObjEneBm5WolfFPvi(void *arg0, s32 arg1);
 void update__14TObjEneBm5WolfFPvPv(void* p, void* a1);
 void *TObjEneBm5Wolf__ct(void *, void *, void *);
-s32 TPhotonMylla__sub_80154CB4(u16);
+s32 find_entity_by_id(u16);
 int __dl__FPv();
 void *__nw__7TObjectFUl(int);
 void* fn_800B8B00(void* p);
@@ -67,7 +67,7 @@ s32 __dt__14TObjEneBm5WolfFis(s32 arg0, s16 arg1) {
 }
 void* reset__14TObjEneBm5WolfFPv(void* p) { reset_fields__14TObjEneBm5WolfFPv((void*)(p)); return p; }
 void play_sound__14TObjEneBm5WolfFPv(void *arg0) {
-    TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 8));
+    find_entity_by_id(M2C_FIELD(arg0, u16 *, 8));
 }
 void set_field8_from_obj__14TObjEneBm5WolfFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s16 *, 8) = obj_getField1c(arg1);

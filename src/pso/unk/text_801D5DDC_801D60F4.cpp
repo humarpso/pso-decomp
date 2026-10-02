@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Cmd_801D61A0 { u8 hdr[2]; u16 client; u8 body[8]; };
 
 extern "C" {
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(int);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+s32 get_player_by_client_id(int);
 M2C_UNK TObjPlayer__sub_801CBC90(int);
 M2C_UNK bswap_fields__15TFontSmallLobbyFPv(void *);
 M2C_UNK TFontSmallLobby__sub_801D6948(void *, void *);
@@ -50,9 +50,9 @@ void handle_6x38_donate_to_photon_blast(s32 arg0) {
     TFontSmallLobby__sub_801D6948((void *) (&cmd), (void *) (arg0));
     bswap_fields__15TFontSmallLobbyFPv((void *) (&cmd));
     if (validate_6x38_donate_to_photon_blast((void *) (&cmd)) != 0) {
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(cmd.client);
+        temp_r3 = get_player_by_client_id(cmd.client);
         if ((temp_r3 != 0) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
-            if (TObjPlayer__sub_800196EC() == get_field_3e4__10TObjPlayerFPv((int) (temp_r3))) {
+            if (get_current_floor() == get_field_3e4__10TObjPlayerFPv((int) (temp_r3))) {
                 TObjPlayer__sub_801CBC90(cmd.client);
             }
         }

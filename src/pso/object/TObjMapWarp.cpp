@@ -63,7 +63,7 @@ u8 TWindowShortListCtrl__check_controller_button(void *, int);
 extern RecoveredGlobal_8019D850_lbl_8050E208 lbl_8050E208;
 void TObjWarpBase__vt15(M2C_UNK arg0, s32 arg1);
 s32 fn_8019DD24(void *, int);
-void *TPlayerBattleCtrl4P__sub_801BA74C(u32);
+void *get_player_by_client_id(u32);
 s32 TWindow__close(int);
 void TObjMapWarp__sub_8019D644(s32 arg0, u16 arg1);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
@@ -80,7 +80,7 @@ int TObjPlayer__sub_803D97F0(void *);
 void TOHangerMachine01__sub_803D9C00(void *);
 void rotate_matrix_y(void *, s32);
 void TCameraCtrl__sub_803D8934(void *, void *, void *);
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 extern M2C_UNK __vt__11TObjMapWarp[];
 extern u8 lbl_8058D490[];
 extern V3_8019D764 lbl_804B910C[];
@@ -102,7 +102,7 @@ u8 TObjWarpBase__vt13(void *arg0);
 void *__dt__11TObjMapWarpFv(void *arg0, s16 arg1);
 u8 can_warp__11TObjMapWarpFiUs(s32 arg0, u16 arg1);
 M2C_UNK TObjWarpBase__vt0(void *, M2C_UNK);
-void *TPlayerBattleCtrl4P__sub_801BA74C(u32);
+void *get_player_by_client_id(u32);
 M2C_UNK __dl__7TObjectFPv(void *);
 s32 check_flag_100__10TObjPlayerFPv();
 s32 is_flag_400_set__10TObjPlayerFPv(void *);
@@ -117,7 +117,7 @@ u8 can_warp__11TObjMapWarpFiUs(s32 arg0, u16 arg1) {
 
     id = arg1;
     var_r31 = NULL;
-    if ((id != 0xFFFF) &&((var_r31 = TPlayerBattleCtrl4P__sub_801BA74C(id), ((var_r31 == NULL) != 0)) || (check_flag_100__10TObjPlayerFPv() != 0))) {
+    if ((id != 0xFFFF) &&((var_r31 = get_player_by_client_id(id), ((var_r31 == NULL) != 0)) || (check_flag_100__10TObjPlayerFPv() != 0))) {
         return 0U;
     }
     if ((s32) lbl_805D3458 == 0) {
@@ -164,7 +164,7 @@ void TObjMapWarp__sub_8019D644(s32 arg0, u16 arg1) {
     if (temp_r3 != 0U) {
         TWindow__close((int) (temp_r3));
         M2C_FIELD(temp_r31, u32 *, 0xEC) = 0U;
-        temp_r3_2 = ((u32)TPlayerBattleCtrl4P__sub_801BA74C((u32)((void *) ((s32) arg1))));
+        temp_r3_2 = ((u32)get_player_by_client_id((u32)((void *) ((s32) arg1))));
         if (temp_r3_2 != 0U) {
             fn_8019DD24((void *) (temp_r3_2 + 0x550), (int) (4));
         }
@@ -206,7 +206,7 @@ void *TObjMapWarp__ct(W_8019D764 *self, void *parent, void *set) {
         TOHangerMachine01__sub_803D9C00(self->destination);
         rotate_matrix_y(0, self->sourceYaw);
         TCameraCtrl__sub_803D8934(0, &lbl_804B910C[i], &self->destinations[i]);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         self->playerPopups[i] = 0;
     }
     return self;
@@ -225,7 +225,7 @@ u8 TObjWarpBase__vt13(void *arg0) {
     u32 id = M2C_FIELD(arg0, u16 *, 0xB8);
 
     var_r31 = NULL;
-    if ((id != 0xFFFF) && ((var_r31 = TPlayerBattleCtrl4P__sub_801BA74C(id), ((var_r31 == NULL) != 0)) || (check_flag_100__10TObjPlayerFPv() != 0))) {
+    if ((id != 0xFFFF) && ((var_r31 = get_player_by_client_id(id), ((var_r31 == NULL) != 0)) || (check_flag_100__10TObjPlayerFPv() != 0))) {
         return 0U;
     }
     if ((s32) lbl_805D3458 == 0) {

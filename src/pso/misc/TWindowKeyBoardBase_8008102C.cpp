@@ -22,8 +22,8 @@ extern "C" {
 
 u32 *destroy__19TWindowKeyBoardBaseFPvs(u32 *arg0, s16 arg1);
 int is_player_near__13TEF_LensFlareFif(s32 arg0, f32 farg0);
-f32 TObjPlayer__sub_80141CF8(s32, s32);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+f32 horizontal_distance_squared(s32, s32);
+u32 get_player_by_client_id(s32);
 M2C_UNK __dl__FPv(u32 *);
 M2C_UNK free__11TOBoss4RockFUi(u32);
 
@@ -75,11 +75,11 @@ s32 *TWindowKeyBoardBase__sub_8008116C(s32 *arg0) {
 int is_player_near__13TEF_LensFlareFif(s32 arg0, f32 farg0) {
     u32 temp_r3;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(lbl_805D53A0);
     if (temp_r3 == 0U) {
         return 0;
     }
-    return (u32) __cntlzw(TObjPlayer__sub_80141CF8(temp_r3 + 0x38, arg0 + 0x38) < farg0) >> 5;
+    return (u32) __cntlzw(horizontal_distance_squared(temp_r3 + 0x38, arg0 + 0x38) < farg0) >> 5;
 }
 u8 *TEF_LensFlare__create(s32 arg0) {
     u8 *temp_r3;

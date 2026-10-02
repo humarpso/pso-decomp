@@ -85,7 +85,7 @@ M2C_UNK TObjEneBm5GibonU__sub_803D853C(s32, const char *, ...);
 M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D97F0(void *);
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 extern Vec_8019D0A8 lbl_804462FC;
 extern char lbl_80446430[];
@@ -110,15 +110,15 @@ s32 TLobby__sub_8030A7B0();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
 s32 TObjCityMainWarp__sub_80186AF4();
-M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
+M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 s32 TObjLuker__sub_801329B0();
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TObjWarpBase__ct();
 s32 TObjWarpBase__vt13(s32);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 M2C_UNK TWindowSubComCard__sub_80265C30(u32);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
@@ -149,7 +149,7 @@ s32 is_warp_enabled__12TObjAreaWarpFi(s32 arg0) {
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         var_r31 = 0;
 loop_2:
-        if ((TPlayerBattleCtrl4P__sub_801BA74C((s32)(var_r31)) != 0U) && (check_flag_100__10TObjPlayerFPv() != 0)) {
+        if ((get_player_by_client_id((s32)(var_r31)) != 0U) && (check_flag_100__10TObjPlayerFPv() != 0)) {
             return 0;
         }
         var_r31 += 1;
@@ -178,7 +178,7 @@ void open_confirm_window__12TObjAreaWarpFPvUs(void *arg0, u16 arg1) {
         set_flag70_bit10__16TObjCityMainWarpFPv(M2C_FIELD(arg0, u32 *, 0xB0));
         set_flag_40__16TAdChrSelASlotGCFPv(M2C_FIELD(arg0, u32 *, 0xB0));
         M2C_FIELD(arg0, u16 *, 0xB8) = arg1;
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((s32)(M2C_FIELD(arg0, u16 *, 0xB8)));
+        temp_r3 = get_player_by_client_id((s32)(M2C_FIELD(arg0, u16 *, 0xB8)));
         if (temp_r3 != 0U) {
             fn_8019DD14(temp_r3 + 0x550, 4);
         }
@@ -214,7 +214,7 @@ void *TObjAreaWarp__ct(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3468;
     M2C_FIELD(arg0, s32 *, 0xBC) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
     if ((s32) lbl_805D5C80 != 0) {
-        M2C_FIELD(arg0, s32 *, 0xBC) = (s32) (TObjPlayer__sub_800196EC() + 1);
+        M2C_FIELD(arg0, s32 *, 0xBC) = (s32) (get_current_floor() + 1);
     }
     M2C_FIELD(arg0, s32 *, 0xC0) = 0;
     return arg0;
@@ -231,9 +231,9 @@ void render__17TObjMapWarpForestFv(u8 *arg0) {
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x100));
         begin_effect_render__13TParticleCtrlFv();
-        TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0x104), M2C_FIELD(arg0, s32 *, 0x108), M2C_FIELD(arg0, f32 *, 0xFC));
+        draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0x104), M2C_FIELD(arg0, s32 *, 0x108), M2C_FIELD(arg0, f32 *, 0xFC));
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 u8 *TObjMapWarpForest__ct(u8 *arg0) {
@@ -265,12 +265,12 @@ void TObjMapWarp__sub_8019D0A8(u8 *arg0) {
         rotate_matrix_y((M2C_UNK)(0), (s32)(self->yaw));
         end = &self->ends[i];
         TCameraCtrl__sub_803D8934(0, &lbl_804B910C[i], end);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         TObjPlayer__sub_803D97F0(lbl_8058D490);
         TOHangerMachine01__sub_803D9C00(end);
         rotate_matrix_y((M2C_UNK)(0), (s32)(self->yaw2));
         TCameraCtrl__sub_803D8934(0, &a, &a);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         VecCopy__FP3VecPC3Vec(&b, end);
         b.y += lbl_805DBFF8;
         a.y += lbl_805DBFF8;

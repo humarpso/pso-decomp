@@ -38,7 +38,7 @@ void spawn_item__17TObjContainerItemFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TLobby__sub_8010567C(s32, void *, s32, void *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
+M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK destroy_container_object__10TObjPlayerFPvs(void *, M2C_UNK);
@@ -50,7 +50,7 @@ void TObjContainerItem__vt78(void *arg0) {
     switch (temp_r0) {
     case 0:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x364) != 0) {
-            TObjPlayer__sub_801B4A18(arg0, -1);
+            submit_cursor_candidate(arg0, -1);
         }
     case 1:
         return;

@@ -7,16 +7,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update__10TObjPlayerFPv(u8 *arg0);
-s32 TNpcPlayer__sub_800D87EC(int);
+s32 find_active_entity_by_id(int);
 M2C_UNK TObjPlayer__sub_800C6A18(void *);
 M2C_UNK TObjPlayer__sub_800D9E08(void *);
 M2C_UNK TObjPlayer__sub_800DA2A0(void *);
 M2C_UNK TObjPlayer__sub_800DBAB8(void *);
 M2C_UNK TObjPlayer__sub_800DBD38(void *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
+M2C_UNK submit_cursor_candidate(void *, int);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_demo_mode__10TObjPlayerFv();
-f32 fn_8013157C(void *, void *);
+f32 xz_distance_squared(void *, void *);
 M2C_UNK minimap_render_dot(void *, int, int, int);
 
 extern const f32 lbl_805DA448;
@@ -34,7 +34,7 @@ void update__10TObjPlayerFPv(u8 *arg0) {
         TObjPlayer__sub_800DBAB8((void *) (arg0));
         return;
     }
-    M2C_FIELD(arg0, s32 *, 0x2A8) = TNpcPlayer__sub_800D87EC((int) (M2C_FIELD(arg0, u16 *, 0x338)));
+    M2C_FIELD(arg0, s32 *, 0x2A8) = find_active_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0x338)));
     TObjPlayer__sub_800C6A18((void *) (arg0));
     TObjPlayer__sub_800DA2A0((void *) (arg0));
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != (s32) M2C_FIELD(arg0, s32 *, 0x374)) {
@@ -56,7 +56,7 @@ void update__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x300) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) + (lbl_805DA448 + M2C_FIELD(arg0, f32 *, 0x404)));
     M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 4) = (f32) (lbl_805DA448 + M2C_FIELD(arg0, f32 *, 0x404));
     if (!(M2C_FIELD(arg0, s32 *, 0x388) & 0x40000)) {
-        TObjPlayer__sub_801B4A18((void *) (arg0), (int) (-1));
+        submit_cursor_candidate((void *) (arg0), (int) (-1));
         minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
     }
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x3DC);
@@ -72,7 +72,7 @@ void update__10TObjPlayerFPv(u8 *arg0) {
         temp_r3_4 = (unsigned char *) (M2C_FIELD(arg0, void **, 0xA4));
         M2C_FIELD(temp_r3_4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3_4, s32 *, 0x18) | 2);
     }
-    if (fn_8013157C((void *) (arg0 + 0x38), (void *) (arg0 + 0x44)) > lbl_805DA470) {
+    if (xz_distance_squared((void *) (arg0 + 0x38), (void *) (arg0 + 0x44)) > lbl_805DA470) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg0 + 0x44));
     }
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));

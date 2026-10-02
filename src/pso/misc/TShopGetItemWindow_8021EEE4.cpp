@@ -47,7 +47,7 @@ struct ShopPlayerLevel : ShopPlayerHeader {
 
 extern "C" {
 s32 get_task_id__14TFontSmallTaskFPv(M2C_UNK *);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 M2C_UNK TLobby__sub_8020ECA8();
 M2C_UNK TLobby__sub_802243D4();
 M2C_UNK TLobby__sub_8022559C();
@@ -65,7 +65,7 @@ extern "C" {
 
 void calc_item_count__18TShopGetItemWindowFPvPv(void *arg0, s32 *arg1);
 s16 get_cursor_index__18TShopGetItemWindowFPv(void* p);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
 s16 get_cursor_index__18TShopGetItemWindowFPv(void* p) { return *(s16*)((char*)p + 0x74); }
@@ -80,7 +80,7 @@ void calc_item_count__18TShopGetItemWindowFPvPv(void *arg0, s32 *arg1) {
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         var_r31 = ((VObj_8021EEEC_8021EEE4 *)arg0)->m14() + 1;
     } else {
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+        temp_r3 = get_player_by_client_id(lbl_805D53A0);
         if (temp_r3 != NULL) {
             var_r31 = ((VObj_8021EEEC_8021EEE4 *)temp_r3)->m14() + 1;
         }
@@ -99,7 +99,7 @@ void TLobby__sub_8021EF84(void) {
     s32 temp_r3_2;
     s32 temp_r3_3;
     void *temp_r3;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(lbl_805D53A0);
     if (temp_r3 != NULL) {
         lbl_805D623C = ((ShopPlayerLevel*)temp_r3)->levelIndex();
         lbl_805D623C++;

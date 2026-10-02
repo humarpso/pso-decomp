@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Trap_8016F704 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x84 - 0x44]; s32 delay; u8 pad88[0x2A8 - 0x88]; void *target; u8 pad2AC[0x34C - 0x2AC]; f32 range; u8 pad350[0x35C - 0x350]; u16 targetId; };
 extern "C" {
 s32 obj_testFlags30(void *, u32);
-s32 TObjPlayer__sub_800196EC(void);
+s32 get_current_floor(void);
 s32 get_field_3e4__10TObjPlayerFPv(void *);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
 u16 get_trap_type__10TOMineTrapFPv(void *);
 s32 get_trap_count__10TOMineTrapFv(void);
 u8 TOMineTrap__sub_801D7238(void *);
@@ -315,11 +315,11 @@ M2C_UNK TBoss3Volopt__sub_8022675C(s32, s32, M2C_UNK, M2C_UNK);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern s8 lbl_80442018[];
 void attach_to_keymachine__10TOMineTrapFi(s32 arg0);
-u32 TObjEneDellBiter__sub_80087350(s32, M2C_UNK);
+u32 spawn_particle_effect(s32, M2C_UNK);
 M2C_UNK set_position_xy__10TObjPlayerFPvff(f32, f32);
 extern f32 lbl_805DB864;
 void detonate_if_triggered__10TOMineTrapFi(s32 arg0);
-u32 TObjEneDellBiter__sub_80087350(s32, M2C_UNK);
+u32 spawn_particle_effect(s32, M2C_UNK);
 void TOMineTrap__sub_8017070C(u8 *arg0);
 s32 TLobby__sub_80156A80(void*, s16 *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80154954(void *, s16 *);
@@ -400,7 +400,7 @@ u8 *get_battle_param__10TObjPlayerFi(s32);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
 void set_indexed_flags(void *, s32, s32);
 void init_all_slots__10TObjPlayerFv(void);
-void TObjPlayer__sub_801564A0(void *);
+void check_enemy_body_collisions(void *);
 void check_object_collisions__10TObjPlayerFPv(void *);
 s32 is_valid_and_active__10TObjPlayerFUi(void *);
 extern const f32 TOMineTrap__data_805DB868;
@@ -446,16 +446,16 @@ s32 TOMineTrap__sub_8016F704(Trap_8016F704 *self) {
             continue;
         }
         if (id < 0x1000) {
-            if (get_field_3e4__10TObjPlayerFPv(p) != TObjPlayer__sub_800196EC()) {
+            if (get_field_3e4__10TObjPlayerFPv(p) != get_current_floor()) {
                 continue;
             }
-            if (TObjPlayer__sub_80141CF8(self->pos, p + 0x38) < self->range * self->range) {
+            if (horizontal_distance_squared(self->pos, p + 0x38) < self->range * self->range) {
                 self->targetId = id;
                 self->target = p;
                 return 1;
             }
         } else if (id < 0x4000) {
-            if (TObjPlayer__sub_80141CF8(self->pos, p + 0x38) < self->range * self->range) {
+            if (horizontal_distance_squared(self->pos, p + 0x38) < self->range * self->range) {
                 self->targetId = id;
                 self->target = p;
                 return 1;
@@ -589,12 +589,12 @@ void attach_to_keymachine__10TOMineTrapFi(s32 arg0) {
     }
 }
 void detonate_if_triggered__10TOMineTrapFi(s32 arg0) {
-    if (TObjEneDellBiter__sub_80087350(arg0 + 0x2FC, 0x45) != 0U) {
+    if (spawn_particle_effect(arg0 + 0x2FC, 0x45) != 0U) {
         set_position_xy__10TObjPlayerFPvff(lbl_805DB864, lbl_805DB864);
     }
 }
 void TOMineTrap__sub_8017070C(u8 *arg0) {
-    TObjEneDellBiter__sub_80087350((s32)((void *) (arg0 + 0x2FC)), (M2C_UNK)((int) (0x47)));
+    spawn_particle_effect((s32)((void *) (arg0 + 0x2FC)), (M2C_UNK)((int) (0x47)));
     ((VObj_18 *)(arg0))->m80();
     ((VObj_18 *)(arg0))->m78();
 }
@@ -789,7 +789,7 @@ void TOMineTrap__sub_80170DD8(u8 *arg0) {
     *(f32 *)(*(u8 **)(arg0 + 0xA4) + 0xC) = *(f32 *)(arg0 + 0x350);
     init_all_slots__10TObjPlayerFv();
     check_object_collisions__10TObjPlayerFPv(arg0);
-    TObjPlayer__sub_801564A0(arg0);
+    check_enemy_body_collisions(arg0);
     for (i = 0; i < 0x10; i++) {
         obj = get_battle_param__10TObjPlayerFi(i);
         if (is_valid_and_active__10TObjPlayerFUi(obj) != 0) {

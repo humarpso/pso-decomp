@@ -61,13 +61,13 @@ extern const f32 lbl_805D8CC8;
 extern const f32 lbl_805D8CE4;
 void TBoss4Zako__vt6(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK spawn_particle_effect(void *, int);
 extern const f32 lbl_805D8CB8;
 extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC0;
 void TBoss4Bishi__vt2(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK spawn_particle_effect(void *, int);
 extern const f32 lbl_805D8CB8;
 extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC0;
@@ -94,7 +94,7 @@ void TBoss4Bishi__vt1(Obj_8005BB5C *self);
 u16 TObjPlayer__sub_800115C4(void *, M2C_UNK, f32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TBoss4Zako__ct(s32, s32, s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 get_player_by_client_id(u32);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 void TBoss6Type1__sub_803D9370(void *, void *);
 void TNpcPlayer__sub_803D97B4(void *);
@@ -108,7 +108,7 @@ extern const f32 lbl_805D8CE0;
 s32 TBoss4Bishi__ct(s32 arg0, s32 arg1, s32 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TBoss4Uro__sub_8005C6E4(void *);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 get_player_by_client_id(u32);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
@@ -140,7 +140,7 @@ void try_enter_state_3__11TBoss4BishiFPv(void* p);
 int TBoss4Uro__sub_8005D6D4(void*);
 void TBoss4Zako__sub_803D8910(void *, void *);
 s32 TObjControl__ct(s32, s32);
-int TObjPlayer__sub_800F6B68(void*);
+int distribute_experience(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__10TBoss4ZakoFPvs(void *, int);
 s32 __nw__7TObjectFUl(M2C_UNK);
@@ -161,7 +161,7 @@ void TBoss4Bishi__vt2(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + lbl_805D8CB8);
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x3C);
     if ((temp_f1 < lbl_805D8CBC) && (temp_f1 >= lbl_805D8CB8)) {
-        TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x38), (int) (0xF3));
+        spawn_particle_effect((void *) (arg0 + 0x38), (int) (0xF3));
     }
     M2C_FIELD(arg0, s32 *, 0x5C) = (s32) (M2C_FIELD(arg0, s32 *, 0x5C) + 0x111);
     if (M2C_FIELD(arg0, f32 *, 0x3C) < lbl_805D8CC0) {
@@ -197,7 +197,7 @@ void TBoss4Bishi__vt0(u8 *arg0) {
 
 void enter_state_3__11TBoss4BishiFPv(void* p) { if (*(int*)((char*)p + 0x374) != 3) { TBoss4Uro__sub_8005D6D4(*(void**)((char*)p + 0x378)); *(int*)((char*)p + 0x374) = 3; } }
 
-void try_enter_state_3__11TBoss4BishiFPv(void* p) { if (*(int*)((char*)p + 0x374) != 3) { TObjPlayer__sub_800F6B68(p); enter_state_3__11TBoss4BishiFPv((void*)(p)); } }
+void try_enter_state_3__11TBoss4BishiFPv(void* p) { if (*(int*)((char*)p + 0x374) != 3) { distribute_experience(p); enter_state_3__11TBoss4BishiFPv((void*)(p)); } }
 
 extern M2C_UNK lbl_80487460[];
 
@@ -224,7 +224,7 @@ s32 TBoss4Bishi__ct(s32 arg0, s32 arg1, s32 arg2) {
     o->vt = lbl_80487460;
     o->f0 = lbl_805D27F0;
     if ((id = TObjPlayer__sub_800115C4(o, 0, lbl_805D8CDC)) == 0xFFFF ||
-        (pl = TPlayerBattleCtrl4P__sub_801BA74C(id)) == 0) {
+        (pl = get_player_by_client_id(id)) == 0) {
         o->vel.x = o->vel.z = lbl_805D8CBC;
     } else {
         VecCopy__FP3VecPC3Vec(&o->vel, (void *)(pl + 0x38));
@@ -285,7 +285,7 @@ void TBoss4Zako__vt5(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + lbl_805D8CB8);
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x3C);
     if ((temp_f1 < lbl_805D8CBC) && (temp_f1 >= lbl_805D8CB8)) {
-        TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x38), (int) (0xF3));
+        spawn_particle_effect((void *) (arg0 + 0x38), (int) (0xF3));
     }
     M2C_FIELD(arg0, s32 *, 0x5C) = (s32) (M2C_FIELD(arg0, s32 *, 0x5C) + 0x111);
     if (M2C_FIELD(arg0, f32 *, 0x3C) < lbl_805D8CC0) {
@@ -303,7 +303,7 @@ void TBoss4Zako__sub_8005C218(void *p) {
     s32 ang;
     s32 pl;
     if (o->f388 != 0xFFFF) {
-        pl = TPlayerBattleCtrl4P__sub_801BA74C(o->f388);
+        pl = get_player_by_client_id(o->f388);
         if (pl != 0) {
             VecCopy__FP3VecPC3Vec(&o->home, (void *)(pl + 0x38));
         }

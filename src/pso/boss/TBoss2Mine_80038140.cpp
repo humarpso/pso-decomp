@@ -186,9 +186,9 @@ struct Mine_80038200 : Base_80038200 {
 extern "C" {
 f32 TBoss2DeRolLe__sub_80034CEC(void);
 s32 TLobby__sub_800869A4(s32, s32, s32, s32);
-s32 TOSwitchAttack__sub_80087278(s32, s32, s32);
+s32 spawn_particle_effect_with_flags(s32, s32, s32);
 void TObjEneDD__sub_800BA5A4(s32, s32);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
 extern RecoveredGlobal_800384C8_lbl_80435AB0 lbl_80435AB0;
 void TBoss2Mine__vt105(u8 *arg0, s32 arg1);
@@ -198,12 +198,12 @@ s32 check_demo_mode__10TObjPlayerFv(void);
 void clear_global_flag_400__9TObjEneDDFv(void);
 void toggle_particle_effect__10TObjPlayerFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
-void TOMonitorMachine01__sub_803D8B5C(s32, f32, f32, f32);
+void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
-void TObjPlayer__sub_803D9624(s32, f32, f32, f32);
+void translate_matrix(s32, f32, f32, f32);
 void rotate_matrix_x(s32, s32);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(void *);
 void set_chunk_material_color(void *);
@@ -234,7 +234,7 @@ void TBoss2Mine__vt107(void);
 void TBoss2Mine__vt108(void);
 void *deleting_dtor__10TBoss2MineFPvs(void *arg0, s16 arg1);
 void *TBoss2Mine__ct(void *arg0, s32 arg1, s16 arg2, s16 arg3, s32 arg4);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void __dl__7TObjectFPv(void *);
 void __dt__10TBoss2MineFv(void *, int);
 
@@ -290,11 +290,11 @@ void render__10TBoss2MineFv(Mine_80038200 *self) {
     TBoss2Mine__sub_80038908(self);
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(&self->pos);
-    TObjPlayer__sub_803D9624(0, TBoss2Mine__data_805D84D4, self->f300 - self->pos.y, TBoss2Mine__data_805D84D4);
+    translate_matrix(0, TBoss2Mine__data_805D84D4, self->f300 - self->pos.y, TBoss2Mine__data_805D84D4);
     rotate_matrix_y(0, self->f60);
     rotate_matrix_x(0, self->f5C);
     rotate_matrix_y(0, self->f64);
-    TObjPlayer__sub_803D9624(0, TBoss2Mine__data_805D84D4, lbl_805D8504, TBoss2Mine__data_805D84D4);
+    translate_matrix(0, TBoss2Mine__data_805D84D4, lbl_805D8504, TBoss2Mine__data_805D84D4);
     if (self->flags & 4) {
         some_id_805c6f74 |= 0x20;
         Col_80038200 c = lbl_80435ADC;
@@ -307,14 +307,14 @@ void render__10TBoss2MineFv(Mine_80038200 *self) {
     } else {
         TObjFish__sub_803E46BC(self->model);
     }
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     if (self->f326 == 3) {
         TObjPlayer__sub_803D9B2C();
         f32 s = lbl_805D850C * self->f3AC;
         TOHangerMachine01__sub_803D9C00(&self->pos);
-        TOMonitorMachine01__sub_803D8B5C(0, s, TBoss2Mine__data_805D84D8, s);
+        scale_matrix(0, s, TBoss2Mine__data_805D84D8, s);
         TObjFish__sub_803E46BC(lbl_805D28BC);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
     some_id_805c6f74 = lbl_805D5660;
     end_effect_render__13TParticleCtrlFv();
@@ -327,7 +327,7 @@ void TBoss2Mine__vt106(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x38C) = (s32) (M2C_FIELD(arg0, s32 *, 0x38C) & 0xFFFFFFF8);
         return;
     case 3:
-        TObjEneDD__sub_800BBA18(arg0, 0);
+        transition_enemy_state(arg0, 0);
         return;
     case 5:
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFF7FF);
@@ -368,7 +368,7 @@ void TBoss2Mine__vt105(u8 *arg0, s32 arg1) {
     case 3:
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x3CC)))) == 2)
     {
-      TObjEneDD__sub_800BBA18((void *)(arg0), (M2C_UNK)(0));
+      transition_enemy_state((void *)(arg0), (M2C_UNK)(0));
     }
     case 5:
       return;
@@ -381,7 +381,7 @@ void TBoss2Mine__vt105(u8 *arg0, s32 arg1) {
       *((M2CCopy_14 *) (((s32) (copy_storage_800384C8.bytes - 0x4)) + 4)) = *((const M2CCopy_14 *) (((s32) temp_r4) + 4));
       *((f32 *) (copy_storage_800384C8.bytes + 0x4)) = TBoss2DeRolLe__sub_80034CEC();
       TObjEneDD__sub_800BA5A4((s32) arg0, (s32) copy_storage_800384C8.bytes);
-      TOSwitchAttack__sub_80087278((*((s32 *) (((s8 *) arg0) + 0xA4))) + 0x1C, 0x16B, 0x40);
+      spawn_particle_effect_with_flags((*((s32 *) (((s8 *) arg0) + 0xA4))) + 0x1C, 0x16B, 0x40);
       *((s32 *) (((s8 *) arg0) + 0x3CC)) = 2;
       TBoss3Volopt__sub_8022675C(0x4003AD05, (u32) (arg0 + 0x2FC), 0, 0);
     }

@@ -32,11 +32,11 @@ M2C_UNK TTecLuker__sub_8008764C(u32, int);
 void TObjPlayer__sub_8032E058(u8 *arg0);
 M2C_UNK set_position_xy__10TObjPlayerFPvff(u32, f32, f32);
 u32 TObjParticle__sub_800870BC(void *, void *, int, int);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK spawn_particle_effect(void *, int);
 M2C_UNK TTecLuker__sub_8008764C(u32, int);
 extern const f32 lbl_805DF7E8;
 void TObjPlayer__sub_8032E0A4(u8 *arg0);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 void TObjPlayer__sub_8032DF74(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 void TObjPlayer__sub_8032DFF8(O_8032DFF8 *arg0);
@@ -59,7 +59,7 @@ void TObjPlayer__sub_8032DF74(u8 *arg0) {
   temp_r3 = *((u16 *) (((s8 *) arg0) + 0x34));
   if (temp_r3 != ((-1U) & 0xFFFFu))
   {
-    if (TPhotonMylla__sub_80154CB4(temp_r3) != 0)
+    if (find_entity_by_id(temp_r3) != 0)
     {
       temp_r3_2 = (u8 *) ((*((s32 *) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x28)))) + 0xA4))) + ((*((s32 *) (((s8 *) arg0) + 0x2C))) * 0x2C));
       *((f32 *) (((s8 *) arg0) + 0x64)) = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x1C))) - (*((f32 *) (((s8 *) arg0) + 0x44))));
@@ -104,7 +104,7 @@ void TObjPlayer__sub_8032E0A4(u8 *arg0) {
             TTecLuker__sub_8008764C((u32)(M2C_FIELD(arg0, u32 *, 0x1C)), (int)(q));
         }
     }
-    TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x64), (int) (0x30));
+    spawn_particle_effect((void *) (arg0 + 0x64), (int) (0x30));
 }
 #pragma pop
 

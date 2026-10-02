@@ -12,7 +12,7 @@ s16 *TObjPlayer__sub_80015DC4(O_80015DC4 *self, s32 i);
 
 extern "C" {
 
-s32 TOSwitchAttack__sub_80087278(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
+s32 spawn_particle_effect_with_flags(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 obj_testFlags30(void * a0 = 0, s32 a1 = 0);
 void copy_entry_bytes__10TObjPlayerFPvPv(void* p, void* q);
 

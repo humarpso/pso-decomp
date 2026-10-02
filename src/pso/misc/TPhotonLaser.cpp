@@ -58,9 +58,9 @@ extern M2C_UNK __vt__12TPhotonLaser[];
 extern s32 lbl_805D34F0;
 Laser_801AC36C *TPhotonLaser__ct(Laser_801AC36C *self, Params_801AC36C *p, void *parent, s16 arg3);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-void TObjEneDellBiter__sub_80087350(void *, s32);
+void spawn_particle_effect(void *, s32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
-void *TPhotonMylla__sub_80154CB4(u16);
+void *find_entity_by_id(u16);
 void TBoss4Zako__sub_803D8910(void *, void *);
 void TScene__sub_803D8DB4(int, void *, void *);
 void rotate_matrix_y(int, int);
@@ -110,7 +110,7 @@ void run_task__12TPhotonLaserFv(Laser_801AC17C *o) {
     if (o->f364 != 0) {
         copy_pos__11TNowLoadingFPvPv(o->f364, &o->f340);
     }
-    owner = TPhotonMylla__sub_80154CB4(o->f370);
+    owner = find_entity_by_id(o->f370);
     if (owner == 0) {
         if (o->f364 != 0) {
             queue_destruction__7TObjectFv(o->f364);
@@ -127,7 +127,7 @@ void run_task__12TPhotonLaserFv(Laser_801AC17C *o) {
         o->f34C.x = lbl_805DC1B4;
         o->f34C.y = lbl_805DC1B4;
         o->f34C.z = lbl_805DC1B4;
-        TObjEneDellBiter__sub_80087350(&o->f340, 0x13D);
+        spawn_particle_effect(&o->f340, 0x13D);
         queue_destruction__7TObjectFv(o);
     }
 }

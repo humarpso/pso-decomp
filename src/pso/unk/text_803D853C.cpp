@@ -28,7 +28,7 @@ void TObjChip__sub_803D8AE4(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 extern s32 lbl_805D7774;
 void PSMTXScale(f32 (*m)[4], f32 sx, f32 sy, f32 sz);
 void PSMTXConcat(f32 (*a)[4], f32 (*b)[4], f32 (*ab)[4]);
-void TOMonitorMachine01__sub_803D8B5C(f32 (*m)[4], f32 sx, f32 sy, f32 sz);
+void scale_matrix(f32 (*m)[4], f32 sx, f32 sy, f32 sz);
 }
 
 extern "C" {
@@ -113,7 +113,7 @@ void TObjChip__sub_803D8AE4(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
 }
 typedef f32 Mtx_803D8B5C[3][4];
-void TOMonitorMachine01__sub_803D8B5C(f32 (*m)[4], f32 sx, f32 sy, f32 sz) {
+void scale_matrix(f32 (*m)[4], f32 sx, f32 sy, f32 sz) {
     Mtx_803D8B5C tmp;
     f32 (*t)[4];
     if (m == NULL) t = (f32 (*)[4])lbl_805D7774;

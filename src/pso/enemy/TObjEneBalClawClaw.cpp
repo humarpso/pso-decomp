@@ -133,14 +133,14 @@ struct Obj_80091EA4 {
 
 extern "C" {
 void set_param__12TObjEneLappyFPvi(void *, s32);
-void TObjPlayer__sub_80091F90(u8 *arg0);
+void select_subtype__12TObjEneBeastFPv(u8 *arg0);
 s32 spawn_effect_at_ground__10TObjPlayerFPvi(void *, int);
 s32 spawn_dead_spot_type2__10TObjPlayerFii(void *, int);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
 s32 TScene__sub_803D8DB4(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D97F0(void *);
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 extern RecoveredGlobal_80091E08_lbl_8058D490 lbl_8058D490;
 extern const f32 lbl_805D96D8;
 extern const f32 lbl_805D96DC;
@@ -174,7 +174,7 @@ void TObjPlayer__sub_803D8960(int, u32, void *, int);
 void TObjPlayer__sub_803D8CD4(void *);
 s32 rotate_matrix_y(int, int);
 void TObjPlayer__sub_803D9B2C(void);
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 f32 TOHangerMachine01__sub_803D9C00(void *);
 extern void *lbl_805D4F4C;
 extern void *lbl_805D4F50;
@@ -211,7 +211,7 @@ void __dt__14TObjEneBalClawFv(void *, int);
 void *__nw__7TObjectFUl(int);
 M2C_UNK clear_attack_flag__18TObjEneBalClawClawFPv(void *);
 M2C_UNK find_target_in_range__10TObjPlayerFPvf(void *, f32);
-f32 fn_8013157C(void *, void *);
+f32 xz_distance_squared(void *, void *);
 s32 play_effect_if_v2__10TObjPlayerFi(s32);
 M2C_UNK reset_active_state__18TObjEneBalClawClawFPv(void *);
 M2C_UNK set_attack_distance_flag__10TObjPlayerFPv(void *);
@@ -244,7 +244,7 @@ void update_attack_distance_state__18TObjEneBalClawClawFPv(u8 *arg0) {
                 M2C_FIELD(arg0, s32 *, 0x38C) = 2;
                 return;
             }
-            if (fn_8013157C((void *) (arg0 + 0x38), (void *) (arg0 + 0x50)) > lbl_805D96BC) {
+            if (xz_distance_squared((void *) (arg0 + 0x38), (void *) (arg0 + 0x50)) > lbl_805D96BC) {
                 update_if_active__15TObjEneMe1GiGueFPv((void *) (arg0), (int) (8));
                 return;
             }
@@ -254,7 +254,7 @@ void update_attack_distance_state__18TObjEneBalClawClawFPv(u8 *arg0) {
     case 1:
         temp_r3 = M2C_FIELD(arg0, u32 *, 0x2A8);
         if (temp_r3 != 0U) {
-            temp_f1 = fn_8013157C((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38));
+            temp_f1 = xz_distance_squared((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38));
             temp_r31 = M2C_FIELD(arg0, s32 *, 0x38C);
             switch (temp_r31) {
             case 0:
@@ -457,7 +457,7 @@ void TObjPlayer__sub_80091E08(u8 *arg0) {
     TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     TScene__sub_803D8DB4((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x38));
     spawn_effect_at_ground__10TObjPlayerFPvi((void *) (&stack.sp8), (int) (0x23));
     spawn_dead_spot_type2__10TObjPlayerFii((void *) (&stack.sp8), (int) (0xF));
@@ -489,7 +489,7 @@ void TObjPlayer__sub_80091EA4(Obj_80091EA4 *self) {
             TOHangerMachine01__sub_803D9C00(&self->pos);
             rotate_matrix_y(0, self->angle);
             TObjPlayer__sub_803D8960(0, entry, &pos, 2);
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             eff = self->effects[idx];
             if (eff != NULL) {
                 eff->m4(&pos, &dir);
@@ -498,7 +498,7 @@ void TObjPlayer__sub_80091EA4(Obj_80091EA4 *self) {
     }
 }
 
-void TObjPlayer__sub_80091F90(u8 *arg0) {
+void select_subtype__12TObjEneBeastFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x334);

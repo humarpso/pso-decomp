@@ -108,7 +108,7 @@ s32 TObjPlayer__sub_801AFF0C(int);
 M2C_UNK TObjPlayer__sub_801B0FF4(int);
 M2C_UNK TObjPlayer__sub_801B12CC(int);
 s32 check_flag_40000__10TObjPlayerFPv(int);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u8 *get_player_by_client_id(u16);
 M2C_UNK set_flag_2000000_alt__10TObjPlayerFPv();
 s32 check_flag_04000000__10TObjPlayerFPv(int);
 void TObjPlayer__sub_801C5968(u8 *arg0);
@@ -123,7 +123,7 @@ void TObjPlayer__sub_801C5954(void *arg0);
 void run_task__13TForceOperateFv(s32 arg0);
 s32 TObjPlayer__sub_801B58DC(void *);
 s32 TObjPlayer__sub_801C6DAC(s32);
-void *TPhotonMylla__sub_80154CB4();
+void *find_entity_by_id();
 void __ct__7TObjectFP7TObject(void *);
 void fn_8013E020(void *);
 M2C_UNK get_id__11TMainCursorFPv(s32);
@@ -141,7 +141,7 @@ void run_task__13TForceOperateFv(s32 arg0) {
         temp_r31 = get_state__11TMainCursorFPv(arg0 + 0x1C);
         if ((is_target_valid__10TObjPlayerFPv() != 0) && (TObjPlayer__sub_801B58DC(temp_r31) != 0)) {
             get_id__11TMainCursorFPv(M2C_FIELD(temp_r31, s32 *, 0x424) + 0x4F8);
-            temp_r3 = TPhotonMylla__sub_80154CB4();
+            temp_r3 = find_entity_by_id();
             if (temp_r3 != NULL) {
                 ((VObj_801C57D0 *)temp_r3)->m11(obj_getField1c(temp_r31));
                 queue_destruction__7TObjectFv(arg0);
@@ -183,7 +183,7 @@ void TObjPlayer__sub_801C5968(u8 *arg0) {
     s16 temp_r3_2;
     s32 temp_r0;
     u8 *temp_r3;
-    temp_r3 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0)));
+    temp_r3 = (u8 *)(get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0)));
     if (temp_r3 != NULL) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 4);
         switch (temp_r0) {
@@ -258,7 +258,7 @@ void reset_ring__10TObjPlayerFPv(void* p);
 void set_vec4_const__10TObjPlayerFPv(void* a0);
 void update_target_lock__10TObjPlayerFii(s32 arg0, s32 arg1);
 void write_ids__10TObjPlayerFPv(void* p);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 M2C_UNK TObjPlayer__sub_801B130C(s32);
 s32 TObjPlayer__sub_801C6F90();
 int set_chunk_material_color(void*);
@@ -277,7 +277,7 @@ int set_target_id__6TLobbyFi(void*);
 void enter_battle_state__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
-    temp_r3 = ((s32 (*)(u16))TPlayerBattleCtrl4P__sub_801BA74C)(M2C_FIELD(arg0, u16 *, 0));
+    temp_r3 = ((s32 (*)(u16))get_player_by_client_id)(M2C_FIELD(arg0, u16 *, 0));
     if ((temp_r3 != 0) && (fn_801C6F2C(arg0) == 0)) {
         M2C_FIELD(arg0, s32 *, 4) = 0;
         TObjPlayer__sub_801B130C(temp_r3);
@@ -315,7 +315,7 @@ void update_target_lock__10TObjPlayerFii(s32 arg0, s32 arg1) {
 
     if (TObjPlayer__sub_801C6F90() == 0) {
         temp_r31 = get_stat_by_key_state__10TObjPlayerFPv(arg1);
-        if (fn_8020C354(TObjPlayer__sub_800196EC(), temp_r31) != 0) {
+        if (fn_8020C354(get_current_floor(), temp_r31) != 0) {
             if (set_lock_flag__10TObjPlayerFPv(arg0) != 0) {
                 clear_target_lock_flag__10TObjPlayerFPv(arg0);
                 set_lock_timer__10TObjPlayerFPvi((void*)(arg0), (void*)(0x5A));

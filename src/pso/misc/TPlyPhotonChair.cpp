@@ -119,7 +119,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TPlyPhotonChair__sub_801427D0(void *);
 M2C_UNK TPlyPhotonChair__sub_80142874(void *);
 f32 get_float_c__15TPlyPhotonChairFPv(void *);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 s32 is_mounted__15TPlyPhotonChairFPv();
 u16 TPlyPhotonChair__sub_8035B530(void* p);
 void TPlyPhotonChair__sub_8035B56C(void* p, f32 v);
@@ -143,7 +143,7 @@ s32 TLobby__sub_8007B844(int);
 s32 get_rader_map__11TMainCursorFPv(void *, void *);
 s32 TMainCursor__sub_8013F1F0(void *);
 s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 void set_field90__15TPlyPhotonChairFPvs(void* p, s32 v);
 void TPlyPhotonChair__sub_8035B56C(void* p, f32 v);
 void set_state_ready__15TPlyPhotonChairFPv(void* p);
@@ -163,12 +163,12 @@ s32 is_inactive__10TObjPlayerFPv(void *);
 int play_sound_with_arg__15TPlyPhotonChairFPvPv(void *, void *);
 int update_parts__15TPlyPhotonChairFPv(void *);
 int update_parts2__15TPlyPhotonChairFPv(void *);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 u16 TPlyPhotonChair__sub_8035B530(void* p);
 void render__15TPlyPhotonChairFPvPv(void* p, void* a1);
 int rotate_matrix_y(int, int);
 int TObjPlayer__sub_803D9B2C();
-int TObjPlayer__sub_803D9B78();
+int pop_matrix();
 int TBoss7Tentacle__sub_803D9BA0(void *);
 int TOHangerMachine01__sub_803D9C00(void *);
 int set_global_param__8TObjFishFi(int);
@@ -205,7 +205,7 @@ void render__15TPlyPhotonChairFv(Chair_8035B058 *self) {
     Quat_8035B058 q;
     Quat_8035B058 q2;
     Player_8035B058 *pl;
-    pl = (Player_8035B058 *)TPlayerBattleCtrl4P__sub_801BA74C(TPlyPhotonChair__sub_8035B530(self));
+    pl = (Player_8035B058 *)get_player_by_client_id(TPlyPhotonChair__sub_8035B530(self));
     if (pl != NULL) {
         render__15TPlyPhotonChairFPvPv(self->parts, &q);
         {
@@ -233,7 +233,7 @@ void render__15TPlyPhotonChairFv(Chair_8035B058 *self) {
                 play_sound_with_arg__15TPlyPhotonChairFPvPv(self->parts, &q2);
                 self->b.s1();
             }
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             update_parts__15TPlyPhotonChairFPv(self->parts);
         }
     }
@@ -241,7 +241,7 @@ void render__15TPlyPhotonChairFv(Chair_8035B058 *self) {
 
 void run_task__15TPlyPhotonChairFv(u8 *arg0) {
     u32 temp_r0;
-    if (TPlayerBattleCtrl4P__sub_801BA74C((int) (TPlyPhotonChair__sub_8035B530((void*)(arg0)))) == 0U) {
+    if (get_player_by_client_id((int) (TPlyPhotonChair__sub_8035B530((void*)(arg0)))) == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
@@ -317,7 +317,7 @@ u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 arg2) {
     set_field90__15TPlyPhotonChairFPvs((void*)((void *) (arg0)), (s32)((void *) (arg1)));
     M2C_FIELD(arg0, s16 *, 0x92) = 0;
     M2C_FIELD(arg0, s32 *, 0x94) = 0;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int)((void *) ((s32) (u16) arg1)));
+    temp_r3 = get_player_by_client_id((int)((void *) ((s32) (u16) arg1)));
     if (temp_r3 == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return arg0;

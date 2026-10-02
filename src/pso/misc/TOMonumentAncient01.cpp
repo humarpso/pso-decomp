@@ -16,7 +16,7 @@ M2C_UNK TObjBoss2Tunnel__sub_803DB470();
 M2C_UNK TObjFish__sub_8001EDC4(s32, M2C_UNK);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK set_global_param__8TObjFishFi(s32);
@@ -39,7 +39,7 @@ void render__19TOMonumentAncient01Fv(u8 *arg0) {
         TObjFish__sub_8001EDC4(TOMonumentAncient01__data_805D5A60, 0);
         TObjBoss2Tunnel__sub_803DB470();
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

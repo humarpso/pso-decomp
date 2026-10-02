@@ -19,7 +19,7 @@ void TObjFish__sub_800660D4(void *, s32, s32, s32, s32, f32);
 Hit_80316690 *csnVectorUnder(void *, void *, s32);
 s32 TParticleCtrl__sub_80086884(s32);
 int get_instance__13TParticleCtrlFv(void);
-void TObjEneDellBiter__sub_80087350(void *, int);
+void spawn_particle_effect(void *, int);
 void TObjEneGibbles__sub_800D8988(void *);
 extern const f32 TObjEneMe3SinowZoa__data_805DF2F0;
 extern const f32 TObjEneMe3SinowZoa__data_805DF2F4;
@@ -29,11 +29,11 @@ s32 TObjEneMe3SinowZoa__sub_80316690(void *a0, void *arg1);
 extern "C" {
 
 void check_and_notify__18TObjEneMe3SinowZoaFPv(void *arg0);
-void TObjEneDellBiter__sub_80087350(void *, int);
+void spawn_particle_effect(void *, int);
 
 struct VOff_803167FC_arg0 { char pad_0[0x38]; char f_38[1]; };
 
-#define DELL ((void *(*)(void *, int))TObjEneDellBiter__sub_80087350)
+#define DELL ((void *(*)(void *, int))spawn_particle_effect)
 s32 TObjEneMe3SinowZoa__sub_80316690(void *a0, void *arg1) {
     u8 *arg0 = (u8 *)a0;
     Vec_80316690 v;
@@ -56,7 +56,7 @@ s32 TObjEneMe3SinowZoa__sub_80316690(void *a0, void *arg1) {
             if (p != 0) {
                 TObjFish__sub_800660D4(p, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneMe3SinowZoa__data_805DF2F4);
             }
-            TObjEneDellBiter__sub_80087350(hit->obj + 0x38, 0xA4);
+            spawn_particle_effect(hit->obj + 0x38, 0xA4);
             return 1;
         }
         if (hit->flags & 2) {
@@ -65,7 +65,7 @@ s32 TObjEneMe3SinowZoa__sub_80316690(void *a0, void *arg1) {
             if (p != 0) {
                 TObjFish__sub_800660D4(p, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneMe3SinowZoa__data_805DF2F4);
             }
-            TObjEneDellBiter__sub_80087350(hit->obj + 0x54, 0xA4);
+            spawn_particle_effect(hit->obj + 0x54, 0xA4);
             return 1;
         }
     }
@@ -77,7 +77,7 @@ void check_and_notify__18TObjEneMe3SinowZoaFPv(void *arg0) {
     struct VOff_803167FC_arg0 *self = (struct VOff_803167FC_arg0 *)arg0;
     x = TObjEneMe3SinowZoa__sub_80316690((void *)(arg0), (void *)(self->f_38));
     if (x == 0) {
-        TObjEneDellBiter__sub_80087350(self->f_38, 243);
+        spawn_particle_effect(self->f_38, 243);
     }
 }
 void TObjEneMe3SinowZoa__sub_80316840(u8 *arg0) {

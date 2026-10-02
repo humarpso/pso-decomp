@@ -35,12 +35,12 @@ s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 TOTrapAncient01__sub_80226578(s32, void *, void *, s32, s32);
 void fn_80168398(u8 *arg0);
 M2C_UNK obj_setFlags30(void *, M2C_UNK);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 u32 TObjPlayer__sub_80156268(void *, void *, f32);
 s32 fn_80168244(void *, void *);
 M2C_UNK fn_80168280(void *, void *);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 extern const f32 lbl_805DB688;
 void fn_80168488(VO_80168488 *arg0);
 }
@@ -94,9 +94,9 @@ void fn_80168488(VO_80168488 *arg0) {
     VO_80168488 *temp_r3;
     var_r30 = 0;
     do {
-        temp_r3 = (VO_80168488 *)TPlayerBattleCtrl4P__sub_801BA74C(var_r30);
+        temp_r3 = (VO_80168488 *)get_player_by_client_id(var_r30);
         if ((temp_r3 != NULL) && (fn_80168244(arg0, temp_r3) == 0)) {
-            if ((get_field_3e4__10TObjPlayerFPv(temp_r3) == TObjPlayer__sub_800196EC()) && (TObjPlayer__sub_80156268(arg0, temp_r3, lbl_805DB688) != 0U)) {
+            if ((get_field_3e4__10TObjPlayerFPv(temp_r3) == get_current_floor()) && (TObjPlayer__sub_80156268(arg0, temp_r3, lbl_805DB688) != 0U)) {
                 Pair_80168488 t;
                 t.a = 0;
                 t.b = arg0->m79(M2C_FIELD(arg0, f32 *, 0x338));

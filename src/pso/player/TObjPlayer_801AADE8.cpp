@@ -38,8 +38,8 @@ s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
-s32 TObjPlayer__sub_803D9624(int, f32, f32, f32);
+s32 pop_matrix();
+s32 translate_matrix(int, f32, f32, f32);
 s32 set_global_param__8TObjFishFi(int);
 s32 set_chunk_material_override_pair(int, int);
 s32 set_chunk_material_color(void *);
@@ -114,7 +114,7 @@ void TObjPlayer__sub_801AAF00(Self_801AAF00 *self) {
         begin_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi(self->f24);
         TObjPlayer__sub_803D9B2C();
-        TObjPlayer__sub_803D9624(0, self->pos.x, self->pos.y, self->pos.z);
+        translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
         rotate_matrix_y(0, self->f60);
         TObjPlayer__sub_801A7638(self);
         lbl_805D5660 = some_id_805c6f74;
@@ -132,7 +132,7 @@ void TObjPlayer__sub_801AAF00(Self_801AAF00 *self) {
         copy_vec4__13TRaderMapCoreFPvPv(&lbl_8058D4C0, &lbl_8050BEC0);
         some_id_805c6f74 = lbl_805D5660;
         clear_render_context__10TObjPlayerFv(self);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         end_effect_render__13TParticleCtrlFv();
     }
 }

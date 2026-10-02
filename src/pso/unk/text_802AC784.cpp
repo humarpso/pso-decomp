@@ -173,7 +173,7 @@ s32 TLobby__sub_8002AFD4(void *, void *, int);
 M2C_UNK TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 M2C_UNK TObjPlayer__sub_800F7478(void *, int, int, int);
 M2C_UNK initialize__9TObjEnemyFPv();
-M2C_UNK TObjPlayer__sub_80154B60(void *);
+M2C_UNK register_entity_by_id(void *);
 M2C_UNK TBoss6PlotFalz__sub_802AAC98(void *);
 M2C_UNK ensure_field384__14TBoss6PlotFalzFPv(void *);
 M2C_UNK update_active_flag__14TBoss6PlotFalzFv();
@@ -326,7 +326,7 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     temp_r29 = dispatch_shared_handler_b__6TLobbyFPv((int) (0x2C));
     temp_r6 = register_object__6TLobbyFPv((int) (0x2C));
     TObjPlayer__sub_800F7478((void *) (arg0), (int) (temp_r30), (int) (temp_r29), (int) (temp_r6));
-    TObjPlayer__sub_80154B60((void *) (arg0));
+    register_entity_by_id((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x02000000);
     set_visible_flag__14TBoss6PlotFalzFPv((void *) (arg0));
     update_active_flag__14TBoss6PlotFalzFv();

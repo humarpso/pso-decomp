@@ -9,9 +9,9 @@ struct Pkt_801D60B4 { s16 a; u16 b; };
 struct Pkt_801D5FC0 { u16 hdr; u16 id; };
 
 extern "C" {
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(int);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+s32 get_player_by_client_id(int);
 M2C_UNK TFontSmallLobby__sub_801C01BC(void *);
 M2C_UNK send_photon_blast_ready__15TFontSmallLobbyFv(void *);
 M2C_UNK update_ready__15TFontSmallLobbyFPv(void *);
@@ -24,12 +24,12 @@ M2C_UNK init_6x39_packet__15TFontSmallLobbyFPv(void *);
 void update_and_send_60__15TFontSmallLobbyFPv(void *p);
 void TFontSmallLobby__sub_801D60B4(u16 *p);
 s32 obj_isState2_324();
-s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+s32 get_player_by_client_id(int);
 void init_6x3A_packet__15TFontSmallLobbyFPv(void *);
 void draw_and_send__15TFontSmallLobbyFPv(void *);
 void TFontSmallLobby__sub_801D5FC0(u16 *arg0);
 s32 TObjPlayer__sub_80019248(int);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+s32 get_player_by_client_id(int);
 M2C_UNK TFontSmallLobby__sub_801C01BC(void *);
 M2C_UNK update_photon_blast_state__10TObjPlayerFv();
 M2C_UNK clear_photon_blast_state__10TObjPlayerFPv(void *);
@@ -42,7 +42,7 @@ M2C_UNK reset_fields__15TFontSmallLobbyFPv(void *);
 M2C_UNK init_pkt_cmd_3B__15TFontSmallLobbyFPv(void *);
 M2C_UNK update_and_send__15TFontSmallLobbyFPv(void *);
 void TFontSmallLobby__sub_801D5F08(u16 *arg0);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+s32 get_player_by_client_id(int);
 M2C_UNK TFontSmallLobby__sub_801C01BC(void *);
 M2C_UNK set_bit1_at_40__15TFontSmallLobbyFPv(void *);
 M2C_UNK clear_photon_blast_ready_flag__15TFontSmallLobbyFPv(void *, void *);
@@ -72,7 +72,7 @@ void handle_6x3B_clear_temporary_photon_blast_state_flags(s32 arg0) {
     TFontSmallLobby__sub_801D6804((void *) (&sp8), (void *) (arg0));
     TFontSmallLobby__sub_801C01BC((void *) (&sp8));
     if (validate_6x3B_clear_temporary_photon_blast_state_flags((void *) (&sp8)) != 0) {
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int) (sp8.b));
+        temp_r3 = get_player_by_client_id((int) (sp8.b));
         if (temp_r3 != 0) {
             clear_photon_blast_state__10TObjPlayerFPv((void *) (temp_r3 + 0x4AC));
             if (TObjPlayer__sub_80019248((int) (temp_r3)) != 0) {
@@ -98,7 +98,7 @@ void handle_6x3A_clear_photon_blast_ready_flag(s32 arg0) {
     clear_photon_blast_ready_flag__15TFontSmallLobbyFPv((void *) (&sp8), (void *) (arg0));
     TFontSmallLobby__sub_801C01BC((void *) (&sp8));
     if (validate_6x3A_clear_photon_blast_ready_flag((void *) (&sp8)) != 0) {
-        temp_r3 = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C((int) (sp8.b));
+        temp_r3 = (u8 *)get_player_by_client_id((int) (sp8.b));
         if (temp_r3 != 0) {
             set_bit1_at_40__15TFontSmallLobbyFPv((void *) (temp_r3 + 0x4AC));
         }
@@ -107,7 +107,7 @@ void handle_6x3A_clear_photon_blast_ready_flag(s32 arg0) {
 
 void TFontSmallLobby__sub_801D5FC0(u16 *arg0) {
     struct Pkt_801D5FC0 pkt;
-    if (((u8 *)TPlayerBattleCtrl4P__sub_801BA74C((int)(*arg0))) == NULL || obj_isState2_324() == 0) {
+    if (((u8 *)get_player_by_client_id((int)(*arg0))) == NULL || obj_isState2_324() == 0) {
         init_6x3A_packet__15TFontSmallLobbyFPv(&pkt);
         pkt.id = *arg0;
         draw_and_send__15TFontSmallLobbyFPv(&pkt);
@@ -123,10 +123,10 @@ void handle_6x39_set_photon_blast_ready_flag(s32 arg0) {
     handle_photon_blast_ready__15TFontSmallLobbyFPv((void *) (&sp8), (void *) (arg0));
     TFontSmallLobby__sub_801C01BC((void *) (&sp8));
     if (validate_6x39_set_photon_blast_ready_flag((void *) (&sp8)) != 0) {
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int) (sp8.b));
+        temp_r3 = get_player_by_client_id((int) (sp8.b));
         if ((temp_r3 != 0) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
             temp_r31 = get_field_3e4__10TObjPlayerFPv((int) (temp_r3));
-            v = TObjPlayer__sub_800196EC();
+            v = get_current_floor();
             if (v == temp_r31) {
                 update_ready__15TFontSmallLobbyFPv((void *) (temp_r3 + 0x4AC));
                 send_photon_blast_ready__15TFontSmallLobbyFv((void *) (temp_r3 + 0x4AC));

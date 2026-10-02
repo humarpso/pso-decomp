@@ -24,11 +24,11 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK free_children__12TObjDoorJungFPvPv(s32, u16);
 void rotate_matrix_y(int, void *);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(void *);
 void TObjBoss2Tunnel__sub_803DB470(void *);
-M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
+M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 extern void *lbl_805D5C28;
 void TObjLazerFence4__sub_801932E4(u8 *arg0);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
@@ -52,8 +52,8 @@ void TOHangerMachine01__sub_803D9C00(void *);
 void TObjBoss2Tunnel__sub_803DB470(void *);
 void rotate_matrix_y(int, void *);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
-f32 fn_8013157C(void *, s32);
+void pop_matrix(void);
+f32 xz_distance_squared(void *, s32);
 s16 fn_801A2340(void *, f32, f32);
 s32 get_state_flag__9TMainTaskFv();
 void set_global_param__8TObjFishFi(void *);
@@ -65,7 +65,7 @@ s16 TObjLazerFence4__vt8(u8 *arg0, f32 farg0, f32 farg1) {
     if (get_state_flag__9TMainTaskFv() == 1) {
         return M2C_FIELD(arg0, s16 *, 0x1E);
     }
-    if (fn_8013157C(arg0 + 0x38, lbl_805D4DF0 + 0x178) < (farg1 * farg1)) {
+    if (xz_distance_squared(arg0 + 0x38, lbl_805D4DF0 + 0x178) < (farg1 * farg1)) {
         M2C_FIELD(arg0, s16 *, 0x1E) = 1;
         return M2C_FIELD(arg0, s16 *, 0x1E);
     }
@@ -106,7 +106,7 @@ void draw__15TObjLazerFence4FPv(void *arg0) {
     TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 56));
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
     TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, void **, 0xC0));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 void TObjLazerFence4__sub_801932E4(u8 *arg0) {
@@ -131,9 +131,9 @@ void TObjLazerFence4__sub_801932E4(u8 *arg0) {
   TObjBoss2Tunnel__sub_803DB470((void *)(*((s32 *) (((s8 *) arg0) + 0xC0))));
   begin_effect_render__13TParticleCtrlFv();
   new_var = (s32 *) (((s8 *) arg0) + 0xC4);
-  TObjDoor__sub_803DC894(*((s32 *) (((s8 *) arg0) + 0xBC)), *new_var, *((f32 *) (((s8 *) arg0) + 0xB0)));
+  draw_ginja_model_with_motion(*((s32 *) (((s8 *) arg0) + 0xBC)), *new_var, *((f32 *) (((s8 *) arg0) + 0xB0)));
   end_effect_render__13TParticleCtrlFv();
-  TObjPlayer__sub_803D9B78();
+  pop_matrix();
 }
 
 void reset_if_door_closed__15TObjLazerFence4FPv(void *arg0) {

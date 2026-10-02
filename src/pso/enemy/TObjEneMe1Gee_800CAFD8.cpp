@@ -138,12 +138,12 @@ struct RecoveredFields_800CAFD8_arg0 {
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void set_field_378__9TObjEneDDFPvi(void *, s32);
-void TObjEneDD__sub_800BBA18(void *, s16);
+void transition_enemy_state(void *, s16);
 void TObjEneMe1Gee__sub_800CB968(s32);
 void update_from_float_sum__13TObjEneMe1GeeFPv(void *);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
 void TBoss3Volopt__sub_800D8D88(s32);
-void TBoss1Dragon__sub_80143504(void *);
+void advance_animation_playback(void *);
 extern const f32 lbl_805DA128;
 void TObjEneMe1Gee__sub_800CAFD8(u8 *arg0, s32 arg1);
 }
@@ -180,12 +180,12 @@ void TObjEneMe1Gee__sub_800CAFD8(u8 *arg0, s32 arg1) {
         return;
     case 3:
         if (((RecoveredFields_800CAFD8_arg0 *)arg0)->field_3C8 & 0x80000) {
-            TObjEneDD__sub_800BBA18(arg0, 3);
+            transition_enemy_state(arg0, 3);
             ((VObj_18_c3f20f *)(arg0))->m90();
         }
         return;
     case 0:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         temp_r0 = ((RecoveredFields_800CAFD8_arg0 *)arg0)->field_434;
         switch (temp_r0) {
         case 0:

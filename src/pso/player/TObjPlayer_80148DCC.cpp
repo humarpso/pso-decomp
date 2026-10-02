@@ -132,8 +132,8 @@ void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
 void set_indexed_flags(void *, s32, s32);
 s32 TQuestThread__sub_801F5EAC(void *, s32);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
+M2C_UNK advance_animation_playback(void *);
+M2C_UNK submit_cursor_candidate(void *, int);
 extern u8 *lbl_805D5EE8;
 extern u8 *lbl_805D5EEC;
 void TObjPlayer__sub_80148F30(u8 *arg0);
@@ -152,10 +152,10 @@ u16 TObjPlayer__sub_800115C4(void *, M2C_UNK, f32 *, f32);
 M2C_UNK set_position_vec3__10TObjPlayerFPvPv(M2C_UNK, void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D97F0(M2C_UNK);
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 get_player_by_client_id(u32);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 
 void update_battle_target__10TObjPlayerFPv(void *arg0) {
@@ -168,7 +168,7 @@ void update_battle_target__10TObjPlayerFPv(void *arg0) {
             {
                 u32 tmp338 = (u32) M2C_FIELD(arg0, u16 *, 0x338);
                 if (tmp338 != 0xFFFF) {
-                    M2C_FIELD(arg0, s32 *, 0x2A8) = TPlayerBattleCtrl4P__sub_801BA74C(tmp338);
+                    M2C_FIELD(arg0, s32 *, 0x2A8) = get_player_by_client_id(tmp338);
                 } else {
                     M2C_FIELD(arg0, s32 *, 0x2A8) = 0;
                 }
@@ -195,7 +195,7 @@ void draw_model__10TObjPlayerFPv(u8 *arg0) {
             draw__16TObjEneRe7BeruraFPv(arg0);
         }
         clear_global_state__10TObjPlayerFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         some_id_805c6f74 &= 0xFFFFFFFE;
         TObjLight__sub_80134098();
         render_with_position_override__10TObjPlayerFPvPvi(arg0, 0, 0);
@@ -265,13 +265,13 @@ void TObjPlayer__sub_80148F30(u8 *arg0) {
       PSO_VCALL_VObj_18_3eea3b_m84(arg0);
       break;
   }
-  TBoss1Dragon__sub_80143504((void *) arg0);
+  advance_animation_playback((void *) arg0);
   update_prev_position__10TObjPlayerFPv(arg0);
   new_var = arg0;
   copy_position__20TBoss3VoloptHiraisinFi((s32) new_var);
   if ((((s32) (*((s32 *) (((s8 *) arg0) + 0x3A8)))) > 0) && (is_not_split_screen__13TRaderMapCoreFv() == 0))
   {
-    TObjPlayer__sub_801B4A18((void *) arg0, (int) (-1));
+    submit_cursor_candidate((void *) arg0, (int) (-1));
   }
   obj_clearFlags30(arg0, 0x1B3FU);
 }

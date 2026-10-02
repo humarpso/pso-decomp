@@ -11,7 +11,7 @@ struct RecoveredGlobal_8023CE54_lbl_804CCD78 {
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TOSwitchAttack__sub_80087278(s32, s32, s32);
+s32 spawn_particle_effect_with_flags(s32, s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_804CCD78[];
 u8 *TTecGiZonde__sub_8023CE54(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4);
@@ -52,7 +52,7 @@ u8 *TTecGiZonde__sub_8023CE54(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4) 
     VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg2);
     M2C_FIELD(arg0, s32 *, 0x3C) = arg4;
     M2C_FIELD(arg0, s32 *, 0x38) = 0;
-    TOSwitchAttack__sub_80087278((s32) (arg0 + 0x1C), M2C_FIELD(arg0, s32 *, 0x3C), 0x40);
+    spawn_particle_effect_with_flags((s32) (arg0 + 0x1C), M2C_FIELD(arg0, s32 *, 0x3C), 0x40);
     return arg0;
 }
 

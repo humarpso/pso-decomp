@@ -303,11 +303,11 @@ void update_spin__13TOCtrlDubchikFPv(u8 *arg0);
 void TOCtrlDubchik__sub_8015CCF4(u8 *arg0);
 void TOCtrlDubchik__sub_8015CDCC(u8 *arg0);
 void TOCtrlDubchik__sub_8015CE80(u8 *arg0);
-void TObjPlayer__sub_801B4A18(void *, s32);
+void submit_cursor_candidate(void *, s32);
 void run_task__13TOCtrlDubchikFv(u8 *arg0);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
-void TObjEneDellBiter__sub_80087350(void *, s32);
+void spawn_particle_effect(void *, s32);
 void TObjPlayer__sub_800A8C1C(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
@@ -343,8 +343,8 @@ void TOCtrlDubchik__sub_8015CA74(void *arg0_) {
     s32 state;
     s32 i;
     u8 *p;
-    TObjEneDellBiter__sub_80087350(arg0 + 0x38, 0x45);
-    TObjEneDellBiter__sub_80087350(arg0 + 0x38, 0x46);
+    spawn_particle_effect(arg0 + 0x38, 0x45);
+    spawn_particle_effect(arg0 + 0x38, 0x46);
     state = get_global_state__14TOKeyMachine01Fv();
     if (state >= 0x17 || state < 0x13) {
         TBoss3Volopt__sub_8022675C(0x4003AD16, arg0 + 0x38, 0, 0);
@@ -476,7 +476,7 @@ void run_task__13TOCtrlDubchikFv(u8 *arg0) {
         *(s16 *)(arg0 + 0x326) = 6;
     } else if (((VObj_18_9ebd6c *)(arg0))->m37() != 0) {
         TObjPlayer__sub_80154E3C(arg0);
-        TObjPlayer__sub_801B4A18(arg0, -1);
+        submit_cursor_candidate(arg0, -1);
         return;
     }
     switch (*(s16 *)(arg0 + 0x326)) {
@@ -504,7 +504,7 @@ void run_task__13TOCtrlDubchikFv(u8 *arg0) {
     }
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     TObjPlayer__sub_80154E3C(arg0);
-    TObjPlayer__sub_801B4A18(arg0, -1);
+    submit_cursor_candidate(arg0, -1);
 }
 
 void *create__13TOCtrlDubchikFPv(void *arg0) {

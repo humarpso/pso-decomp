@@ -25,7 +25,7 @@ M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_8001EDC4(s32, M2C_UNK);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi();
 
 extern s32 TObjGbAdvance__data_805D5B74;
@@ -47,7 +47,7 @@ void render__13TObjGbAdvanceFv(u8 *arg0) {
         TObjBoss2Tunnel__sub_803DB470();
         TObjFish__sub_8001EDC4(TObjGbAdvance__data_805D5B74, 3);
         TObjBoss2Tunnel__sub_803DB470();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

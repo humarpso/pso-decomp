@@ -278,14 +278,14 @@ void TObjEneDD__sub_800BACA4(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 u8 *TObjEneDD__sub_800BAE74(u8 *arg0, u8 *arg1);
 void TObjEneDD__sub_800BACE0(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 int TObjEneDD__sub_800BABA4(u8 *arg0, s32 arg1);
-f32 TObjPlayer__sub_8001978C(f32);
+f32 newton_sqrtf(f32);
 s32 TObjEneDD__sub_800BB218(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 void TObjEneDD__sub_800BAF1C(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 s32 TObjEneDD__sub_800BB218(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 extern const f32 TObjEneDD__data_805D9E8C;
-void TObjEneDD__sub_800BB000(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist);
+void calc_wall_slide_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist);
 }
 
 extern "C" {
@@ -314,7 +314,7 @@ void TObjEneDD__sub_800BABCC(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
 
 void TObjEneDD__sub_800BAC14(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
     M2C_UNK sp8;
-    TObjEneDD__sub_800BB000((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
+    calc_wall_slide_destination((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
     ((VObj_18_807e53 *)(arg0))->m99(&sp8);
 }
 
@@ -332,7 +332,7 @@ void TObjEneDD__sub_800BACA4(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
 
 void TObjEneDD__sub_800BACE0(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
     M2C_UNK sp8;
-    TObjEneDD__sub_800BB000((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
+    calc_wall_slide_destination((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
     TObjEneDD__sub_800BAE74((u8 *)(arg0), (u8 *)(&sp8));
 }
 
@@ -408,7 +408,7 @@ void TObjEneDD__sub_800BAF1C(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist) {
         px = p->x;
         ddz = p->z - e->pos.z;
         ddx = px - e->pos.x;
-        dist = ((f32 (*)(f32, f32, f32))TObjPlayer__sub_8001978C)(ddx * ddx + ddz * ddz, px, ddz) - e->reach;
+        dist = ((f32 (*)(f32, f32, f32))newton_sqrtf)(ddx * ddx + ddz * ddz, px, ddz) - e->reach;
     }
     out->x = dx * dist + e->pos.x;
     out->y = e->pos.y;
@@ -420,7 +420,7 @@ void TObjEneDD__sub_800BAF1C(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist) {
 #pragma fp_contract on
 #define e ((Ene_800BB000 *)arg0)
 #define out ((Vec_800BB000 *)arg1)
-void TObjEneDD__sub_800BB000(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist) {
+void calc_wall_slide_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist) {
     Node_800BB000 *n;
     Vec_800BB000 v;
     n = (Node_800BB000 *)TObjEneDD__sub_800BB218((u8 *)e, dx, dz, dist + e->reach);

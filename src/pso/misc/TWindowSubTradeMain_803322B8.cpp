@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *TWindowSubTradeMain__ct(void *arg0, void *arg1, void *arg2);
-void *TPlayerBattleCtrl4P__sub_801BA74C(void *);
+void *get_player_by_client_id(void *);
 void *TWindowChat__ct(void *, void *, void *);
 void TWindowCtrl__sub_8024ADAC(void *);
 void TWindowSubTradeMain__sub_802D2870(void);
@@ -51,7 +51,7 @@ void *TWindowSubTradeMain__ct(void *arg0, void *arg1, void *arg2) {
     }
     M2C_FIELD(arg0, void **, 0x50) = o;
     fn_8027B2A8(M2C_FIELD(arg0, void **, 0x50));
-    x = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, void **, 0x28));
+    x = get_player_by_client_id(M2C_FIELD(arg0, void **, 0x28));
     if (x != NULL) {
         start_freeze__10TObjPlayerFPv(x);
     }

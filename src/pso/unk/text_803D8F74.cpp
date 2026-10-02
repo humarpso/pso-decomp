@@ -10,7 +10,7 @@ struct ReflectionPlane { f32 origin[3]; f32 normal[3]; };
 extern "C" {
 M2C_UNK fn_803D9650(int, f32, f32, f32);
 extern u32 lbl_805D7774;
-void TObjPlayer__sub_803D9624(u32 arg0, f32 x, f32 y, f32 z);
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 M2C_UNK PSMTXCopy(int, int);
 extern u32 lbl_805D7774;
 void TObjPlayer__sub_803D9324(u32 arg0, u32 arg1);
@@ -26,7 +26,7 @@ extern u32 lbl_805D7774;
 void rotate_matrix_y(Matrix34* matrix, s32 angle);
 
 f64 acos(f32);
-void TOMonitorMachine01__sub_803D8B5C(u32, f32, f32, f32);
+void scale_matrix(u32, f32, f32, f32);
 
 void rotate_matrix_x(u32, s32);
 extern const f32 lbl_805E0F00;
@@ -97,13 +97,13 @@ void reflect_matrix_in_plane(u32 arg0, const ReflectionPlane *arg1)
   {
     var_r30 = -((s32) (lbl_805E0F18 * ((f64) ((f32) acos(arg1->normal[2] / var_f31)))));
   }
-  TObjPlayer__sub_803D9624(arg0, arg1->origin[0], arg1->origin[1], arg1->origin[2]);
+  translate_matrix(arg0, arg1->origin[0], arg1->origin[1], arg1->origin[2]);
   rotate_matrix_y((Matrix34*)arg0, var_r30);
   rotate_matrix_x(arg0, var_r31);
-  TOMonitorMachine01__sub_803D8B5C(arg0, lbl_805E0F20, lbl_805E0F20, lbl_805E0F24);
+  scale_matrix(arg0, lbl_805E0F20, lbl_805E0F20, lbl_805E0F24);
   rotate_matrix_x(arg0, -var_r31);
   rotate_matrix_y((Matrix34*)arg0, -var_r30);
-  TObjPlayer__sub_803D9624(arg0, -arg1->origin[0], -arg1->origin[1], -arg1->origin[2]);
+  translate_matrix(arg0, -arg1->origin[0], -arg1->origin[1], -arg1->origin[2]);
 }
 
 __declspec(section ".sdata2") extern const f64 lbl_805E0F28;
@@ -189,7 +189,7 @@ void TBoss8Dragon__sub_803D94DC(u8 *arg0, u8 *arg1) {
 
 #pragma push
 #pragma scheduling off
-void TObjPlayer__sub_803D9624(u32 arg0, f32 x, f32 y, f32 z) {
+void translate_matrix(u32 arg0, f32 x, f32 y, f32 z) {
     u32 var_r3;
     u32 var_r3_2;
     u32 phi_r3;

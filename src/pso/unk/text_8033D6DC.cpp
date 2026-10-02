@@ -29,7 +29,7 @@ extern u8 lbl_804EFA1C[];
 O_8033D9E4 *fn_8033D9E4(O_8033D9E4 *arg0, s16 arg1);
 void queue_destruction__7TObjectFv(void *);
 s32 request_destroy__11TBoss4Type2FUi(void *);
-void TOSwitchAttack__sub_80087278(void *, int, int);
+void spawn_particle_effect_with_flags(void *, int, int);
 void *TBoss4Type2__sub_800874F4(void *, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
@@ -71,12 +71,12 @@ void fn_8033D6DC(O_8033D6DC *self) {
     TOTrapAncient01__sub_80226578(0x4003C627, self, 0, 0, 0);
     switch (self->frame) {
     case 0xB9:
-        TOSwitchAttack__sub_80087278(self->obj40, 0x220, 0x40);
-        TOSwitchAttack__sub_80087278(self->obj70, 0x220, 0x40);
+        spawn_particle_effect_with_flags(self->obj40, 0x220, 0x40);
+        spawn_particle_effect_with_flags(self->obj70, 0x220, 0x40);
         break;
     case 0xED:
-        TOSwitchAttack__sub_80087278(lbl_80477F2C, 0x221, 0x40);
-        TOSwitchAttack__sub_80087278(lbl_80477F2C, 0x225, 0x40);
+        spawn_particle_effect_with_flags(lbl_80477F2C, 0x221, 0x40);
+        spawn_particle_effect_with_flags(lbl_80477F2C, 0x225, 0x40);
         break;
     }
     for (i = 0; i < 9; i++) {

@@ -103,7 +103,7 @@ void TObjPlayer__sub_80018570(void *);
 void clear_attack_flag__18TObjEneBalClawClawFPv(void *);
 void clear_flag__18TObjEneBalClawClawFPv(void *arg0);
 Ent_80090A70 *get_enemy_entity(u16);
-void TBoss1Dragon__sub_80143504(void *);
+void advance_animation_playback(void *);
 void check_object_collisions__10TObjPlayerFPv(void *);
 extern const f32 TObjEneBalClawClaw__data_805D968C;
 void TObjEneBalClawClaw__sub_80090A70(Obj_80090A70 *arg0);
@@ -121,9 +121,9 @@ M2C_UNK TObjFish__sub_803E46BC(s32);
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
+M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -189,7 +189,7 @@ void TObjEneBalClawClaw__sub_80090A70(Obj_80090A70 *arg0) {
         Vec_80090A70 b = e->pos;
         arg0->f3C0 = TObjPlayer__sub_80017D68(arg0, &b, 1, arg0->f350, arg0->f350->f4);
         TObjPlayer__sub_80018570(arg0);
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         TObjPlayer__sub_80011734(arg0, 0, TObjEneBalClawClaw__data_805D968C);
         check_object_collisions__10TObjPlayerFPv(arg0);
         break;
@@ -217,7 +217,7 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0) {
                 rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
                 TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
             } else {
-                TObjPlayer__sub_803D9624(0, TObjEneBalClawClaw__data_805D968C, M2C_FIELD(arg0, f32 *, 0x3B4) + M2C_FIELD(arg0, f32 *, 0x3BC), TObjEneBalClawClaw__data_805D968C);
+                translate_matrix(0, TObjEneBalClawClaw__data_805D968C, M2C_FIELD(arg0, f32 *, 0x3B4) + M2C_FIELD(arg0, f32 *, 0x3BC), TObjEneBalClawClaw__data_805D968C);
                 TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
                 rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
                 rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
@@ -245,7 +245,7 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0) {
                     render_world_model__10TObjPlayerFPv(arg0);
                 }
             }
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             TObjLight__sub_80134098();
             end_effect_render__13TParticleCtrlFv();
             TObjEneBalClaw__sub_8008D700(arg0, var_r30);

@@ -65,7 +65,7 @@ u32 create_menu__15TWindowMainMenuFPvPv(void *, int);
 void TWindowMainMenu__sub_80264674(u8 *arg0, s16 arg1);
 u8 * __dt__7TObjectFv(void *, s16);
 void init_parts__10TObjPlayerFPv(s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 get_player_by_client_id(u32);
 void __dl__7TObjectFPv(s32);
 void close_child_window__15TWindowMainMenuFPv(void *);
 void destroy_submenu__15TWindowMainMenuFPv(void *);
@@ -229,7 +229,7 @@ u8 *__dt__15TWindowMainMenuFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__15TWindowMainMenu.value;
         if (M2C_FIELD(arg0, s32 *, 0x4C) & 1) {
-            temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u32 *, 0x54));
+            temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, u32 *, 0x54));
             if (temp_r3 != 0U) {
                 init_parts__10TObjPlayerFPv((s32) temp_r3);
             }

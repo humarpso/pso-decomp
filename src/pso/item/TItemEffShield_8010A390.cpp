@@ -111,7 +111,7 @@ u8 *__ct__14TItemEffShieldFv(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3);
 void queue_destruction__7TObjectFv(void *);
 void copy_xyz__10TObjPlayerFPvPv(void *, void *);
 void TItemEffShield__sub_8010A460(u8 *arg0);
-Player_8010A4C0 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+Player_8010A4C0 *get_player_by_client_id(u16);
 void TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
 void run_task__14TItemEffShieldFv(Shield_8010A4C0 *self);
 }
@@ -172,7 +172,7 @@ void TItemEffShield__sub_8010A460(u8 *arg0) {
 typedef char RecoveredGlobal_8010A5E0___vt__14TItemEffShield_size[sizeof(RecoveredGlobal_8010A5E0___vt__14TItemEffShield) == 0x18 ? 1 : -1];
 
 void run_task__14TItemEffShieldFv(Shield_8010A4C0 *self) {
-    Player_8010A4C0 *p = TPlayerBattleCtrl4P__sub_801BA74C(self->m_44);
+    Player_8010A4C0 *p = get_player_by_client_id(self->m_44);
     Recipe_8010A4C0 *r;
     if (p != NULL) {
         p->get_joint_pos(self->m_40, self->m_1c);

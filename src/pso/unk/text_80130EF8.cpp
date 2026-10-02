@@ -21,7 +21,7 @@ extern const f32 lbl_805DB044;
 extern const f32 lbl_805DB048;
 void fn_80130F50(u8 *arg0);
 void draw_status_icon__10TObjPlayerFPvi(void *self, void *buf);
-void TObjEneDellBiter__sub_80087350(void *buf, s32 n);
+void spawn_particle_effect(void *buf, s32 n);
 void fn_80131070(Obj_80131070 *self);
 }
 
@@ -91,7 +91,7 @@ void fn_80131070(Obj_80131070 *self) {
     u8 buf[0x18];
     self->state = 2;
     draw_status_icon__10TObjPlayerFPvi(self, buf);
-    TObjEneDellBiter__sub_80087350(buf, 9);
+    spawn_particle_effect(buf, 9);
 }
 
 }

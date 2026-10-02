@@ -33,7 +33,7 @@ M2C_UNK TBoss2Mine__sub_80038760(void *);
 M2C_UNK set_state_by_distance__10TBoss2MineFPvi(void *, int);
 M2C_UNK init_params__10TBoss2MineFPvif(void *, int, f32);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *, int, int);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
+M2C_UNK transition_enemy_state(void *, int);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int, int);
 extern const f32 lbl_805D84BC;
 extern const f32 lbl_805D84F0;
@@ -43,10 +43,10 @@ extern const f32 TBoss2Mine__data_805D84EC;
 void TBoss2Mine__sub_800380B8(u8 *arg0, u8 *arg1, u8 *arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-f32 TObjPlayer__sub_8001978C(s32, f32, f32, f32);
+f32 newton_sqrtf(s32, f32, f32, f32);
 void update_move_flag__10TBoss2MineFPv(void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
+M2C_UNK transition_enemy_state(void *, int);
 M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
 extern const f64 lbl_80435AF8;
 extern const f32 TBoss2Mine__data_805D84C8;
@@ -89,10 +89,10 @@ void TBoss2Mine__sub_80037D4C(u8 *arg0, s32 arg1) {
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x38C);
         if (temp_r4 & 0x100) {
             M2C_FIELD(arg0, s32 *, 0x38C) = (s32) (temp_r4 & 0xFFFFFEFF);
-            TObjEneDD__sub_800BBA18((void *) (arg0), (int) (1));
+            transition_enemy_state((void *) (arg0), (int) (1));
         }
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3C8) == 2) {
-            TObjEneDD__sub_800BBA18((void *) (arg0), (int) (3));
+            transition_enemy_state((void *) (arg0), (int) (3));
         }
         break;
     case 5:
@@ -139,7 +139,7 @@ void TBoss2Mine__sub_80037EE0(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x60) = temp_r3;
         M2C_FIELD(arg0, s32 *, 0x5C) = 0x4000;
         temp_f2 = M2C_FIELD(arg0, f32 *, 0x300);
-        M2C_FIELD(arg0, f32 *, 0x3E4) = (f32) (lbl_805D84F8 * TObjPlayer__sub_8001978C(temp_r3, (lbl_805D84F4 * (temp_f2 - M2C_FIELD(arg0, f32 *, 0x394))) / TBoss2Mine__data_805D84C8, temp_f2, lbl_805D84F4));
+        M2C_FIELD(arg0, f32 *, 0x3E4) = (f32) (lbl_805D84F8 * newton_sqrtf(temp_r3, (lbl_805D84F4 * (temp_f2 - M2C_FIELD(arg0, f32 *, 0x394))) / TBoss2Mine__data_805D84C8, temp_f2, lbl_805D84F4));
         M2C_FIELD(arg0, f32 *, 0x3EC) = (f32) lbl_805D84F8;
         M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) (*(const f32 *)&TBoss2Mine__data_805D84D4);
         M2C_FIELD(arg0, s32 *, 0x3D8) = 0;
@@ -148,7 +148,7 @@ void TBoss2Mine__sub_80037EE0(u8 *arg0, s32 arg1) {
     case 3:
         if (M2C_FIELD(arg0, f32 *, 0x300) < M2C_FIELD(arg0, f32 *, 0x394)) {
             M2C_FIELD(arg0, f32 *, 0x300) = M2C_FIELD(arg0, f32 *, 0x394);
-            TObjEneDD__sub_800BBA18(arg0, 2);
+            transition_enemy_state(arg0, 2);
         }
         break;
     case 5:

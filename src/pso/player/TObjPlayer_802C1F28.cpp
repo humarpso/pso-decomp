@@ -16,7 +16,7 @@ s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK draw_line_strip__10TObjPlayerFPviif(void *, s32, s32, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 
 extern s32 lbl_805D67AC;
 extern const f32 lbl_805DE4FC;
@@ -33,7 +33,7 @@ void draw_demo_lines_and_meshes__10TObjPlayerFPv(u8 *arg0) {
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0xB8));
     rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0xC0));
     TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0x98), M2C_FIELD(arg0, s32 *, 0x9C), M2C_FIELD(arg0, f32 *, 0xA8));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 }

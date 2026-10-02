@@ -41,7 +41,7 @@ void sync_player_globals__10TObjPlayerFv();
 void TObjPlayer__sub_80052390(f32);
 void rotate_matrix_y(s32, s32);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(s32);
 void TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
@@ -55,7 +55,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 void TBoss4Type2__sub_8004A98C(void *);
 void set_scripted_camera_pose(void *, void *, void *);
-u32 TObjEneDellBiter__sub_80087350(void *, s32);
+u32 spawn_particle_effect(void *, s32);
 u32 TBoss4Type2__sub_800874F4(void *, s32);
 void set_flags__11TBoss4Type2FPvUi(u32, u32);
 void copy_pos__11TNowLoadingFPvPv(u32, void *);
@@ -95,7 +95,7 @@ void TObjPlayer__sub_8004F2A8(Obj_8004F2A8 *arg0) {
         TObjEneSlimeOne__sub_803E4AF4(arg0->recs[i].a, arg0->recs[i].c, lbl_805D89F8);
     }
     clear_global_state__10TObjPlayerFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     if (alpha < 1.0f) {
         sync_player_globals__10TObjPlayerFv();
     }
@@ -113,24 +113,24 @@ void TBoss4Type2__sub_8004F3D4(Self_8004F3D4 *self) {
   u32 r;
   u32 *p;
   s32 i;
-  if ((self->fF8 <= 0x3C) && ((r = TObjEneDellBiter__sub_80087350(&self->pos, 0x14E)) != 0))
+  if ((self->fF8 <= 0x3C) && ((r = spawn_particle_effect(&self->pos, 0x14E)) != 0))
   {
     set_flags__11TBoss4Type2FPvUi(r, 0x40);
   }
   if (self->fF8 == 0x44)
   {
-    if ((r = TObjEneDellBiter__sub_80087350(&self->pos, 0x17B)) != 0)
+    if ((r = spawn_particle_effect(&self->pos, 0x17B)) != 0)
     {
       set_flags__11TBoss4Type2FPvUi(r, 0x40);
     }
-    if ((r = TObjEneDellBiter__sub_80087350(&self->pos, 0x17C)) != 0)
+    if ((r = spawn_particle_effect(&self->pos, 0x17C)) != 0)
     {
       set_flags__11TBoss4Type2FPvUi(r, 0x40);
     }
   }
   if (self->fF8 == 0x48)
   {
-    if ((r = TObjEneDellBiter__sub_80087350(&self->pos, 0x17A)) != 0)
+    if ((r = spawn_particle_effect(&self->pos, 0x17A)) != 0)
     {
       set_flags__11TBoss4Type2FPvUi(r, 0x40);
     }

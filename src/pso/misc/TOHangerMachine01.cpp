@@ -44,7 +44,7 @@ M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TOSignCave03__sub_803DB510(int);
@@ -122,7 +122,7 @@ void render__17TOHangerMachine01Fv(u8 *arg0) {
         begin_effect_render__13TParticleCtrlFv();
         TOSignCave03__sub_803DB510((int) (M2C_FIELD(p, s32 *, 4)));
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         p = (u8 *)(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 0x2C), void **, 0x30), void **, 0x30), void **, 0x30));
         TOHangerMachine01__sub_803D9C00((void *) (p + 8));
         TOSignCave03__sub_803DB510((int) (M2C_FIELD(p, s32 *, 4)));
@@ -135,13 +135,13 @@ void render__17TOHangerMachine01Fv(u8 *arg0) {
         begin_effect_render__13TParticleCtrlFv();
         TOSignCave03__sub_803DB510((int) (M2C_FIELD(p, s32 *, 4)));
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         p = (u8 *)(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 0x2C), void **, 0x30), void **, 0x30), void **, 0x30), void **, 0x30));
         if (lbl_805DB6A8 < M2C_FIELD(arg0, f32 *, 0x68)) {
             TOHangerMachine01__sub_803D9C00((void *) (p + 8));
             TOSignCave03__sub_803DB510((int) (M2C_FIELD(p, s32 *, 4)));
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 #pragma pop

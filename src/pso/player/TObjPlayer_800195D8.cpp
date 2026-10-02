@@ -14,7 +14,7 @@ void TObjPlayer__sub_80019664(O_80019664 *self);
 
 extern "C" {
 
-s32 TObjPlayer__sub_800196EC(void);
+s32 get_current_floor(void);
 void bswap_head16__10TObjPlayerFPv(void* p);
 f32 calc_random_ratio__10TObjPlayerFv(void);
 s32 get_field_3e4__10TObjPlayerFPv(void* p);
@@ -56,7 +56,7 @@ f32 calc_random_ratio__10TObjPlayerFv(void) {
 
 extern s32 lbl_805D5FC0;
 
-s32 TObjPlayer__sub_800196EC(void) {
+s32 get_current_floor(void) {
     return lbl_805D5FC0;
 }
 

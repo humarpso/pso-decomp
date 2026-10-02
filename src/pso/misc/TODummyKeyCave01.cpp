@@ -46,7 +46,7 @@ M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(u32);
 M2C_UNK TBoss7Tentacle__sub_803D8A6C(s32, s32, s32, s32);
 M2C_UNK rotate_matrix_y(s32, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOSignCave03__sub_803DB510(s32);
@@ -107,7 +107,7 @@ void render__16TODummyKeyCave01Fv(u8 *arg0) {
             some_id_805c6f74 = lbl_805D5660;
         }
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

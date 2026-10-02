@@ -28,7 +28,7 @@ extern s16 lbl_80511CB0[];
 extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D53AC;
 void TLobby__sub_801C2898(Lobby_801C2898 *self, s32 t);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 s32 TLobby__sub_801C19D0(void *);
 s32 get_state__19TPlayerBattleCtrl4PFPv(void *);
 u8 TLobby__sub_801D7064(void *);
@@ -36,7 +36,7 @@ u8 TLobby__sub_801D7100(void *);
 extern u8 lbl_8050EA40[];
 extern s32 TLobby__data_80511CA0[];
 u8 TLobby__sub_801C271C(void);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 extern Ent_801C26A8 TLobby__data_80511C80[];
 s32 TLobby__sub_801C26A8(void);
 }
@@ -47,7 +47,7 @@ struct S801C295C_801C25B4 { M2C_UNK f0; s8 f4; s8 pad[0x13]; };
 
 s32 check_all_battle_flags__6TLobbyFv(void);
 void clear_counter__6TLobbyFPv(void* a0);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 M2C_UNK build_6x7D_set_battle_mode_data(void *);
 s32 obj_testFlags30(u32, M2C_UNK);
 M2C_UNK send_set_battle_mode_data__6TLobbyFPv(void *);
@@ -58,7 +58,7 @@ s32 check_all_battle_flags__6TLobbyFv(void) {
 
     var_r31 = 0;
 loop_1:
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(var_r31);
+    temp_r3 = get_player_by_client_id(var_r31);
     if ((temp_r3 != 0U) && (obj_testFlags30(temp_r3, 0x02000000) != 0)) {
         return 0;
     }
@@ -106,7 +106,7 @@ s32 TLobby__sub_801C26A8(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
         e = &TLobby__data_80511C80[i];
-        if (TPlayerBattleCtrl4P__sub_801BA74C(e->id) != 0 && e->active != 0) {
+        if (get_player_by_client_id(e->id) != 0 && e->active != 0) {
             result = 0;
             break;
         }
@@ -123,7 +123,7 @@ u8 TLobby__sub_801C271C(void) {
     s32 seen[2] = {0, 0};
     cnt = 0;
     for (i = 0; i < 4; i++) {
-        p = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(i);
+        p = (u8 *)get_player_by_client_id(i);
         if (p != NULL) {
             ok = 1;
             if (TLobby__data_80511CA0[i] == 0) {

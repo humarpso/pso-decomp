@@ -93,7 +93,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjFish__sub_803E46BC(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
@@ -111,7 +111,7 @@ void render__15TObjBoss1CraterFv(u8 *arg0) {
     some_id_805c6f74 |= 0x01000000;
     TObjFish__sub_803E46BC((void *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), s32 *, 8)));
     some_id_805c6f74 &= 0xFEFFFFFF;
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 extern M2C_UNK __vt__15TObjBoss1Crater[];

@@ -39,7 +39,7 @@ M2C_UNK build_6xA6_modify_trade_proposal(void *);
 extern s8 TLobby__data_805D688A;
 char TLobby__sub_802D3228(s8 arg0, s32 arg1, s32 arg2);
 u8 *get_quest_id__12TQuestListVMFPv(u32);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+u32 get_player_by_client_id(void *);
 s32 TWindowTradeRequest__sub_80249FCC();
 M2C_UNK TLobby__sub_8024AAA0(s32, M2C_UNK);
 s32 TLobby__sub_802D23E0();
@@ -153,7 +153,7 @@ void TLobby__sub_802D32D0(s32 arg0) {
     u32 temp_r3;
     u8 *temp_r3_2;
     build_6xA6_modify_trade_proposal((void *) (&packet.header));
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((void *) (lbl_805D53A0));
+    temp_r3 = get_player_by_client_id((void *) (lbl_805D53A0));
     if ((temp_r3 != 0U) && (temp_r3_2 = get_quest_id__12TQuestListVMFPv(temp_r3), ((temp_r3_2 == NULL) == 0))) {
         if ((s32) (*(u8 *)&TLobby__data_805D688A) != 4) {
             TWindowTradeRequest__sub_80249FCC();

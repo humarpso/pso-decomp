@@ -31,7 +31,7 @@ extern const f32 TBoss6PlotFalz__data_805DE098;
 void TBoss6PlotFalz__sub_802AB684(s32 arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 Player_802AB3E0 *get_player_data__10TObjPlayerFi(int);
-int TObjEneDellBiter__sub_80087350(void *, int);
+int spawn_particle_effect(void *, int);
 int TBoss3Volopt__sub_8022675C(int, int, int, int);
 int is_state_1f__14TBoss6PlotFalzFUi(Player_802AB3E0 *);
 int TBoss6Thanks__sub_8035D270();
@@ -67,7 +67,7 @@ void TBoss6PlotFalz__sub_802AB3E0(void) {
             if (is_state_1f__14TBoss6PlotFalzFUi(p) != 0) {
                 VecCopy__FP3VecPC3Vec((void *)(&v), (void *)(&p->pos));
                 v.y += k;
-                TObjEneDellBiter__sub_80087350(&v, 0x29);
+                spawn_particle_effect(&v, 0x29);
             }
         }
     }

@@ -31,7 +31,7 @@ struct VObj_8_e57d67 : VBase_8_e57d67 {
 };
 
 extern "C" {
-s32 TObjPlayer__sub_801D0458(u8 *arg0);
+s32 get_idle_animation__10TObjPlayerFPv(u8 *arg0);
 s32 reset_and_flag__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CFDF8(void *);
 s32 set_attack_state__10TObjPlayerFPv(void *);
@@ -79,7 +79,7 @@ void TObjPlayer__sub_801D03DC(s32 arg0, s16 arg1) {
   }
 }
 
-s32 TObjPlayer__sub_801D0458(u8 *arg0) {
+s32 get_idle_animation__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *temp_r3_2;
     if (M2C_FIELD(arg0, s32 *, 0x30) & 0x100000) {

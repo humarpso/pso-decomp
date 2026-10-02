@@ -14,7 +14,7 @@ extern "C" {
 void TObjPlayer__sub_803D7CA4(Node_800D97E8 *);
 void TCameraCtrl__sub_803D8934(int, void *, void *);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 extern Vec_800D97E8 lbl_80500F80;
 extern Vec_800D97E8 *lbl_805D5230;
 extern s32 lbl_805D5234;
@@ -45,7 +45,7 @@ s32 fn_800D97E8(s32 arg0, Node_800D97E8 *node, s32 idx) {
         if (!(flags & 0x10)) {
             idx = fn_800D97E8(arg0, node->child, idx);
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         node = node->next;
     } while (node != NULL && lbl_805D5238 < lbl_805D5234);
     return idx;

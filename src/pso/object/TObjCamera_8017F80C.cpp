@@ -90,11 +90,11 @@ s32 TObjFish__sub_8001EDC4(u32, int);
 void copy_position__15TEffStarLight2DFPv(void *, Vec_8017F80C *);
 void rotate_matrix_y(int, s32);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi();
 void set_npc_enemy_param(void *);
-void TObjDoor__sub_803DC894(s32, s32, f32);
+void draw_ginja_model_with_motion(s32, s32, f32);
 void TObjCamera__sub_8017F624(void);
 extern Vec_8017F80C lbl_8050DB80[];
 extern u32 TObjCamera__data_805D5B18;
@@ -107,7 +107,7 @@ void disallow_rendering__7TObjectFv(void *);
 void queue_target_destruction__10TObjCameraFPv(void *);
 void fn_8017F4AC(void *);
 void fn_8017F52C();
-Obj_8017F910 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+Obj_8017F910 *get_player_by_client_id(s32);
 f32 TCameraCtrl__sub_803D8D00(Vec_8017F910 *);
 extern s32 lbl_805D53A0;
 extern const f32 TObjCamera__data_805DBB58;
@@ -115,9 +115,9 @@ extern const f32 lbl_805DBB68;
 extern const f32 lbl_805DBB6C;
 void run_task__10TObjCameraFv(Obj_8017F910 *self);
 void TObjChip__sub_803D8AE4(int, int, int, int);
-void TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+void scale_matrix(int, f32, f32, f32);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void TObjBoss2Tunnel__sub_803DB470(int);
 void fn_803DC86C(int, int, int, int, s32, s32);
@@ -168,10 +168,10 @@ void render__10TObjCameraFv(Obj_8017F80C *self) {
         rotate_matrix_y(0, self->x60);
         TObjCamera__data_805D5B1C = 0;
         set_npc_enemy_param((void *)TObjCamera__sub_8017F624);
-        TObjDoor__sub_803DC894(TObjFish__sub_8001EDC4(TObjCamera__data_805D5B18, 0),
+        draw_ginja_model_with_motion(TObjFish__sub_8001EDC4(TObjCamera__data_805D5B18, 0),
                                TObjFish__sub_8001ED9C(TObjCamera__data_805D5B18, 0), self->xb0);
         set_npc_enemy_param(NULL);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         if (self->count != 0) {
             for (i = 0; i < 8; i++) {
                 if (self->lights[i] != NULL) {
@@ -195,7 +195,7 @@ void run_task__10TObjCameraFv(Obj_8017F910 *self) {
     if (self->visible != 0) {
         fn_8017F4AC(self);
     }
-    pl = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    pl = get_player_by_client_id(lbl_805D53A0);
     if (pl != NULL) {
         d.x = pl->pos.x - self->pos.x;
         d.z = pl->pos.z - self->pos.z;
@@ -305,9 +305,9 @@ void TObjChip__vt10(u8 *arg0) {
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(p);
             TObjChip__sub_803D8AE4(0, p->x18, p->x1c, p->x20);
-            TOMonitorMachine01__sub_803D8B5C(0, *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60));
+            scale_matrix(0, *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60));
             TObjBoss2Tunnel__sub_803DB470(*(s32 *)(arg0 + 0x64));
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             set_chunk_material_color(lbl_804A7418);
         }
         some_id_805c6f74 = lbl_805D5660;
@@ -318,9 +318,9 @@ void TObjChip__vt10(u8 *arg0) {
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(p);
             TObjChip__sub_803D8AE4(0, p->x18, p->x1c, p->x20);
-            TOMonitorMachine01__sub_803D8B5C(0, *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60));
+            scale_matrix(0, *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60));
             TObjBoss2Tunnel__sub_803DB470(*(s32 *)(arg0 + 0x64));
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
         }
     }
 }

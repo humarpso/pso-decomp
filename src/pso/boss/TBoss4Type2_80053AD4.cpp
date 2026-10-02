@@ -120,7 +120,7 @@ void TBoss6Type1__sub_803D9370(Vec_80053D4C *, Vec_80053D4C *);
 void fn_80053D4C(Obj_80053D4C *arg0);
 void TBoss4Type2__sub_800542B0(Boss_800542B0 *arg0, s32 arg1);
 int TObjPlayer__sub_803D9B2C(void);
-int TObjPlayer__sub_803D9B78(void);
+int pop_matrix(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 int rotate_matrix_y(void *, void *);
 void TObjPlayer__sub_803D8CD4(int);
@@ -131,7 +131,7 @@ s32 get_field_3e0__12TBoss3VoloptFPv(void *);
 Vec_80053E40 *get_position_ptr__10TObjPlayerFPv(void *);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 void TNpcPlayer__sub_803D97B4(void *);
-s32 TObjPlayer__sub_80156844(void *, void *, int);
+s32 project_actor_to_ground(void *, void *, int);
 f32 TObjPlayer__sub_803E1A58(void *, void *);
 void TBoss4DarkFalz__sub_8004C220(void *, void *);
 void save_position__14TBoss4DarkFalzFi(void *);
@@ -178,7 +178,7 @@ s32 is_field378_zero__14TBoss4DarkFalzFPv(s32);
 M2C_UNK fn_80053440(void *);
 M2C_UNK TRaderMapCore__sub_80053670(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
+M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 extern const f32 lbl_805D8B80;
 
 void calc_scaled_field__11TBoss4Type2FPvii(void *arg0, s32 arg1, s32 arg2);
@@ -297,7 +297,7 @@ void TObjPlayer__sub_80053E40(Obj_80053E40 *o) {
         pts[i].x = out.x;
         pts[i].z = out.z;
     }
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     for (p = 0; p < lbl_805D586C; p++) {
         pl = get_player_data__10TObjPlayerFi(p);
         if (pl != NULL && get_field_3e0__12TBoss3VoloptFPv(pl) == 0xE) {
@@ -334,7 +334,7 @@ void TObjPlayer__sub_80053E40(Obj_80053E40 *o) {
                     for (;;) {
                         f32 m;
                         q.y += lbl_805D8B44;
-                        if (TObjPlayer__sub_80156844(o, &q, 0) != 0) {
+                        if (project_actor_to_ground(o, &q, 0) != 0) {
                             break;
                         }
                         q.y = lbl_805D8B20;
@@ -490,7 +490,7 @@ void fn_8005455C(u8 *arg0) {
 }
 #pragma pop
 
-void render_effects__10TObjPlayerFPv(void* p) { toggle_particle_effect__10TObjPlayerFv(p); TObjPlayer__sub_803D9B2C(); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x60)); ((int (*)(void*))TObjFish__sub_800543A4)(p); TObjPlayer__sub_803D9B78(); end_effect_render__13TParticleCtrlFv(); }
+void render_effects__10TObjPlayerFPv(void* p) { toggle_particle_effect__10TObjPlayerFv(p); TObjPlayer__sub_803D9B2C(); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x60)); ((int (*)(void*))TObjFish__sub_800543A4)(p); pop_matrix(); end_effect_render__13TParticleCtrlFv(); }
 
 extern const f32 lbl_805D8B24;
 
@@ -519,7 +519,7 @@ void fn_80054738(Obj_80054738 *self) {
     ((M2C_UNK (*)(void *))snapshot_position__10TObjPlayerFPv)(self);
     ((M2C_UNK (*)(void *))fn_80053D4C)(self);
     update_collisions__10TObjPlayerFPv(self);
-    TObjPlayer__sub_801B4A18(self, -1);
+    submit_cursor_candidate(self, -1);
     TRaderMapCore__sub_80053670(self);
     fn_80053440(self);
     {

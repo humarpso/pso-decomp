@@ -99,12 +99,12 @@ void TObjPlayer__sub_800F09E8(s32);
 void TObjLight__sub_80134098();
 void TObjLight__sub_80134194(void *);
 void end_effect_render__13TParticleCtrlFv();
-void TOMonitorMachine01__sub_803D8B5C(s32, f32, f32, f32);
+void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
-void TObjPlayer__sub_803D9624(s32, f32, f32, f32);
+void translate_matrix(s32, f32, f32, f32);
 void rotate_matrix_x(s32, s32);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(s32);
 void TObjFish__sub_803E46BC(s32);
@@ -136,7 +136,7 @@ void TCameraCtrl__sub_803D8934(s32, void *, void *);
 void rotate_matrix_y(s32, s32);
 void TBoss6Type1__sub_803D9370(void *, void *);
 void TObjPlayer__sub_803D97F0(void *);
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 extern Pair_8004A1CC lbl_80436734[];
 extern Vec_8004A1CC lbl_8043673C[];
 extern const f64 lbl_80436798[];
@@ -176,22 +176,22 @@ void render__16TObjVoloptPillarFv(Obj_8004A0AC *arg0) {
         TOHangerMachine01__sub_803D9C00(&arg0->f38);
         set_global_param__8TObjFishFi(lbl_805D4D40);
         TObjFish__sub_803E46BC(lbl_805D4D38);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         TObjPlayer__sub_803D9B2C();
-        TObjPlayer__sub_803D9624(0, arg0->f38, arg0->fb8, arg0->f40);
+        translate_matrix(0, arg0->f38, arg0->fb8, arg0->f40);
         set_global_param__8TObjFishFi(lbl_805D4D44);
         TObjFish__sub_803E46BC(lbl_805D4D3C);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         TObjLight__sub_80134098();
         end_effect_render__13TParticleCtrlFv();
         s = lbl_805D88C4 * (TObjVoloptPillar__data_805D88C8 - arg0->f3c) + lbl_805D88C0;
         TObjPlayer__sub_803D9B2C();
-        TObjPlayer__sub_803D9624(0, arg0->f38, lbl_805D88CC, arg0->f40);
+        translate_matrix(0, arg0->f38, lbl_805D88CC, arg0->f40);
         rotate_matrix_y(0, arg0->f60);
         rotate_matrix_x(0, -0x4000);
-        TOMonitorMachine01__sub_803D8B5C(0, s, s, s);
+        scale_matrix(0, s, s, s);
         TObjPlayer__sub_800F09E8(0);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 
@@ -247,7 +247,7 @@ void run_task__16TObjVoloptPillarFv(Self_8004A1CC *self) {
                                     TCameraCtrl__sub_803D8934(0, &w, bp->f308);
                                 }
                             }
-                            TObjPlayer__sub_803D9B78();
+                            pop_matrix();
                         }
                     }
                 }

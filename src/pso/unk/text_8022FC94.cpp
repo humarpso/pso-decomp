@@ -124,7 +124,7 @@ extern "C" {
 void TTecFoie__vt4(s32 arg0);
 void create__8TTecFoieFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void create_ex__8TTecFoieFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
-M2C_UNK TObjEneDellBiter__sub_80087350(s32, M2C_UNK);
+M2C_UNK spawn_particle_effect(s32, M2C_UNK);
 void *TTecFoie__ct(void *, void *, void *, void *, void *);
 void *TTecFoie__sub_802302A0(void *, void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
@@ -201,8 +201,8 @@ void TTecFoie__sub_8022FE84(u8 *arg0) {
 }
 
 void TTecFoie__vt4(s32 arg0) {
-    TObjEneDellBiter__sub_80087350(arg0 + 0x20, 0x1DC);
-    TObjEneDellBiter__sub_80087350(arg0 + 0x20, 0x1DD);
+    spawn_particle_effect(arg0 + 0x20, 0x1DC);
+    spawn_particle_effect(arg0 + 0x20, 0x1DD);
 }
 
 void TTecFoie__vt6(Tec_80230004 *self, Target_80230004 *target) {

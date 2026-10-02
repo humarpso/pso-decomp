@@ -51,11 +51,11 @@ typedef struct Gee_800CBB34 {
 } Gee_800CBB34;
 
 extern "C" {
-f32 TObjPlayer__sub_8001978C(f32);
+f32 newton_sqrtf(f32);
 void TBoss2DeRolLe__sub_800B98D8(void *, void *);
 s32 TObjEneDD__sub_800BB484(void *, Rec_800CBB34 *);
-Obj_800CBB34 *TPhotonMylla__sub_80154CB4(u16);
-void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+Obj_800CBB34 *find_entity_by_id(u16);
+void *get_player_by_client_id(u16);
 extern const f32 lbl_805DA110;
 s32 TObjEneMe1Gee__sub_800CBB34(Gee_800CBB34 *arg0, f32 *out);
 }
@@ -72,11 +72,11 @@ s32 TObjEneMe1Gee__sub_800CBB34(Gee_800CBB34 *arg0, f32 *out) {
     *out = lbl_805DA110;
     n = TObjEneDD__sub_800BB484(arg0, recs);
     for (i = 0; i < n; i++) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(recs[i].id);
+        p = get_player_by_client_id(recs[i].id);
         if (p != arg0->target) {
-            arg0->owner = TPhotonMylla__sub_80154CB4(arg0->ownerIdx);
+            arg0->owner = find_entity_by_id(arg0->ownerIdx);
             if (arg0->owner->v114(p) != 0) {
-                *out = TObjPlayer__sub_8001978C(recs[i].dist);
+                *out = newton_sqrtf(recs[i].dist);
                 found = 1;
                 TBoss2DeRolLe__sub_800B98D8(arg0, p);
                 break;

@@ -35,7 +35,7 @@ s32 check_mode_action__10TObjPlayerFii(void *, s16);
 f32 get_attached_float_24__10TObjPlayerFPv(void *);
 s32 get_target_field_1c__10TObjPlayerFPv(void *);
 s32 calc_scaled_value__10TObjPlayerFii(void *, s32);
-void TObjPlayer__sub_801D0BC0(void *, s32, s32);
+void run_action_state_phase__10TObjPlayerFisi(void *, s32, s32);
 s32 try_camera_action__10TObjPlayerFii(void *, s16);
 void set_technique_id__10TObjPlayerFPvs(void *, s16);
 s32 can_use_camera_field__10TObjPlayerFi(void *);
@@ -45,7 +45,7 @@ void fn_801C1F14(void *, s16);
 s32 is_player_valid_target__10TObjPlayerFi(s32);
 void TObjPlayer__sub_80354BE4(s32);
 extern const f32 lbl_805DC290;
-s32 TObjPlayer__sub_801B3DD4(void *arg0, s32 arg1, void *arg2);
+s32 execute_palette_action__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2);
 }
 
 extern "C" {
@@ -63,7 +63,7 @@ int get_result_entry__18TChallenge4PResultFPv(void* p) { return TObjPlayer__sub_
 int get_player_rank__18TChallenge4PResultFPv(void* p) { return TObjPlayer__sub_801BF47C((char*)p + 0x340); }
 int get_field_340__18TChallenge4PResultFPv(void* p) { return TObjPlayer__sub_801BF488((char*)p + 0x340); }
 int get_player_result__18TChallenge4PResultFPv(void* p) { return TObjPlayer__sub_801BF4A0((char*)p + 0x340); }
-s32 TObjPlayer__sub_801B3DD4(void *arg0, s32 arg1, void *arg2) {
+s32 execute_palette_action__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2) {
     u8 *self = (u8 *)arg0;
     s16 kind;
     s16 act;
@@ -89,14 +89,14 @@ s32 TObjPlayer__sub_801B3DD4(void *arg0, s32 arg1, void *arg2) {
             if (get_attached_float_24__10TObjPlayerFPv(self + 0x550) >= lbl_805DC290) {
                 ((Player_801B3DD4 *)arg0)->f60 = calc_scaled_value__10TObjPlayerFii(arg0, get_target_field_1c__10TObjPlayerFPv(self + 0x550));
             }
-            TObjPlayer__sub_801D0BC0(arg0, 5, 5);
+            run_action_state_phase__10TObjPlayerFisi(arg0, 5, 5);
             return 1;
         }
         break;
     case 3:
         if (try_camera_action__10TObjPlayerFii(arg0, act) != 0) {
             set_technique_id__10TObjPlayerFPvs(self + 0x428, act);
-            TObjPlayer__sub_801D0BC0(arg0, 8, 5);
+            run_action_state_phase__10TObjPlayerFisi(arg0, 8, 5);
             return 1;
         }
         break;
@@ -108,7 +108,7 @@ s32 TObjPlayer__sub_801B3DD4(void *arg0, s32 arg1, void *arg2) {
     case 5:
         if (check_conditions__10TObjPlayerFi(arg0, act) != 0) {
             fn_801C1F14(self + 0x4AC, act);
-            TObjPlayer__sub_801D0BC0(arg0, 9, 5);
+            run_action_state_phase__10TObjPlayerFisi(arg0, 9, 5);
             return 1;
         }
         break;

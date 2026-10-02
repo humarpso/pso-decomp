@@ -22,10 +22,10 @@ M2C_UNK TNpcPlayer__sub_80152900(void *, M2C_UNK, M2C_UNK);
 M2C_UNK TNpcPlayer__sub_8015296C(void *, M2C_UNK, M2C_UNK);
 u32 TNpcPlayer__sub_80152978(s32);
 void TNpcPlayer__sub_8014DF0C(u8 *arg0);
-u8 *TNpcPlayer__sub_800D87EC(s32);
+u8 *find_active_entity_by_id(s32);
 u8 *get_state_ptr__10TObjPlayerFPv(void *);
 s16 calc_angle_to__10TObjPlayerFPvPv(void *, void *);
-void TNpcPlayer__sub_8014E33C(void *, s32);
+void request_chatter__10TNpcPlayerFPvUi(void *, s32);
 void TNpcPlayer__sub_801528B8(void *, s32);
 void TNpcPlayer__sub_801528C8(void *, s32);
 s16 TNpcPlayer__sub_801528DC(void *);
@@ -99,7 +99,7 @@ void TNpcPlayer__sub_8014DC5C(Self_8014DC5C *self) {
         if (self->npc != NULL) {
             m0.type = get_npc_type__10TNpcPlayerFPv(self->npc);
             m0.flag = 0;
-            tgt = TNpcPlayer__sub_800D87EC(((GetState_8014DC5C)get_npc_state__10TNpcPlayerFPv)(self->npc));
+            tgt = find_active_entity_by_id(((GetState_8014DC5C)get_npc_state__10TNpcPlayerFPv)(self->npc));
             if (tgt != NULL) {
                 m0.angle = calc_angle_to__10TObjPlayerFPvPv(self->npc->pl->pos, tgt + 0x38);
                 pl = self->npc->pl;
@@ -116,7 +116,7 @@ void TNpcPlayer__sub_8014DC5C(Self_8014DC5C *self) {
         if (self->npc != NULL) {
             m1.type = get_npc_type__10TNpcPlayerFPv(self->npc);
             m1.flag = 1;
-            tgt = TNpcPlayer__sub_800D87EC(((GetState_8014DC5C)get_npc_state__10TNpcPlayerFPv)(self->npc));
+            tgt = find_active_entity_by_id(((GetState_8014DC5C)get_npc_state__10TNpcPlayerFPv)(self->npc));
             if (tgt != NULL) {
                 m1.angle = calc_angle_to__10TObjPlayerFPvPv(self->npc->pl->pos, tgt + 0x38);
                 pl = self->npc->pl;
@@ -133,7 +133,7 @@ void TNpcPlayer__sub_8014DC5C(Self_8014DC5C *self) {
         if (self->npc != NULL) {
             m2.type = get_npc_type__10TNpcPlayerFPv(self->npc);
             m2.flag = 1;
-            tgt = TNpcPlayer__sub_800D87EC(((GetState_8014DC5C)get_npc_state__10TNpcPlayerFPv)(self->npc));
+            tgt = find_active_entity_by_id(((GetState_8014DC5C)get_npc_state__10TNpcPlayerFPv)(self->npc));
             if (tgt != NULL) {
                 m2.angle = calc_angle_to__10TObjPlayerFPvPv(self->npc->pl->pos, tgt + 0x38);
                 pl = self->npc->pl;
@@ -142,7 +142,7 @@ void TNpcPlayer__sub_8014DC5C(Self_8014DC5C *self) {
                 set_field2__10TNpcPlayerFPvs(get_state_ptr__10TObjPlayerFPv(pl->state) + 4, TNpcPlayer__sub_801528DC(self->npc));
                 update__10TNpcPlayerFPv(&m2);
                 TNpcPlayer__sub_801528B8(self->f5C, 1);
-                TNpcPlayer__sub_8014E33C(self, 0xD);
+                request_chatter__10TNpcPlayerFPvUi(self, 0xD);
             }
         }
         break;

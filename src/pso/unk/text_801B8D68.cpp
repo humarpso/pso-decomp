@@ -13,7 +13,7 @@ void TObjPlayer__sub_801B9634(void *obj);
 void TObjPlayer__sub_801B8DE8(void *obj, s32 a, s32 b);
 s32 is_volopt_phase_final__10TObjPlayerFv(void);
 void dispatch_action__10TObjPlayerFPvii(void *, s32, s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 void bswap_body_dwords3__10TObjPlayerFPv(void *);
 void copy_pair_fields3__10TObjPlayerFPvPv(void *, void *);
 void init_cmd_6x29__10TObjPlayerFPv(void *cmd);
@@ -29,7 +29,7 @@ void handle_6x29_delete_inventory_item(void *arg0) {
     copy_pair_fields3__10TObjPlayerFPvPv(&sp8, arg0);
     bswap_body_dwords3__10TObjPlayerFPv(&sp8);
     if (validate_6x29_delete_inventory_item(&sp8) != 0) {
-        s32 p = TPlayerBattleCtrl4P__sub_801BA74C(sp8.f2);
+        s32 p = get_player_by_client_id(sp8.f2);
         if (p != 0 && is_volopt_phase_final__10TObjPlayerFv() == 0) {
             dispatch_action__10TObjPlayerFPvii((void *)p, sp8.f4, sp8.f8);
         }

@@ -9,7 +9,7 @@ extern "C" {
 
 void TODoorJungleMain__vt4(void *arg0, s16 *arg1, s32 arg2);
 s32 TODoorJungleMain__vt8(s32 arg0, f32 farg0, f32 farg1);
-f32 fn_8013157C(s32, s32);
+f32 xz_distance_squared(s32, s32);
 s32 fn_801A2340(s32, f32, f32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_indexed_flags(M2C_UNK, M2C_UNK, M2C_UNK);
@@ -17,7 +17,7 @@ M2C_UNK set_indexed_flags(M2C_UNK, M2C_UNK, M2C_UNK);
 extern s32 lbl_805D4DF0;
 
 s32 TODoorJungleMain__vt8(s32 arg0, f32 farg0, f32 farg1) {
-    if (fn_8013157C(arg0 + 0x38, lbl_805D4DF0 + 0x178) < (farg1 * farg1)) {
+    if (xz_distance_squared(arg0 + 0x38, lbl_805D4DF0 + 0x178) < (farg1 * farg1)) {
         return 1;
     }
     return fn_801A2340(arg0, farg0, farg1);
@@ -42,9 +42,9 @@ void TODoorJungleMain__vt4(void *arg0, s16 *arg1, s32 arg2) {
 }
 
 extern "C" {
-s32 TObjPlayer__sub_800196EC(void);
+s32 get_current_floor(void);
 s32 get_field_3e4__10TObjPlayerFPv(void *);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 extern const f32 lbl_805DDCD0;
 s32 fn_8029B214(s32 arg0);
 }
@@ -60,12 +60,12 @@ s32 fn_8029B214(s32 arg0) {
   temp_f31 = lbl_805DDCD0;
   var_r29 = 0;
   loop_1:
-  temp_r3 = (u8 *) TPlayerBattleCtrl4P__sub_801BA74C(var_r29);
+  temp_r3 = (u8 *) get_player_by_client_id(var_r29);
   if (temp_r3 != 0)
   {
     temp_r31 = get_field_3e4__10TObjPlayerFPv(temp_r3);
-    new_var = TObjPlayer__sub_800196EC();
-    if ((new_var == temp_r31) && (((f32 (*)(void *, void *))fn_8013157C)((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38)) < temp_f31))
+    new_var = get_current_floor();
+    if ((new_var == temp_r31) && (((f32 (*)(void *, void *))xz_distance_squared)((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38)) < temp_f31))
     {
       return 1;
     }
@@ -242,11 +242,11 @@ u8 *TODoorJungleMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void *TObjFish__sub_8001EDC4(u32, int);
 M2C_UNK rotate_matrix_y(int, int);
 int TObjPlayer__sub_803D9B2C(void *);
-int TObjPlayer__sub_803D9B78(void);
+int pop_matrix(void);
 int TOHangerMachine01__sub_803D9C00(void *);
 void *set_global_param__8TObjFishFi(void *);
 int TObjBoss2Tunnel__sub_803DB470(void *);
-M2C_UNK TObjDoor__sub_803DC894(void *, int, f32);
+M2C_UNK draw_ginja_model_with_motion(void *, int, f32);
 extern Ids_8029B428 lbl_80465400;
 extern u32 TODoorJungleMain__data_805D65B8;
 extern u32 lbl_805D65BC;
@@ -294,7 +294,7 @@ s32 TLevelSelect__sub_801F441C(s32, s32);
 s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
 extern s32 TOKeyJungleMain__data_804653C8[3];
 extern s32 lbl_805D5550;
-M2C_UNK TOSwitchAttack__sub_80087278(void *, int, int);
+M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
 M2C_UNK TRaderMapCore__sub_801F9AC4(void *, u32, u16, s32, s32);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
@@ -358,14 +358,14 @@ void render__16TODoorJungleMainFv(Door_8029B428 *self) {
         TOHangerMachine01__sub_803D9C00(self->xf);
         rotate_matrix_y(0, self->f60);
         if (self->flags & 1) {
-            TObjDoor__sub_803DC894(TObjFish__sub_8001EDC4(TODoorJungleMain__data_805D65B8, 3), self->fbc, self->fb4);
+            draw_ginja_model_with_motion(TObjFish__sub_8001EDC4(TODoorJungleMain__data_805D65B8, 3), self->fbc, self->fb4);
         } else {
             TObjBoss2Tunnel__sub_803DB470(TObjFish__sub_8001EDC4(TODoorJungleMain__data_805D65B8, 3));
             for (i = 0; i < 3 - self->count; i++) {
                 TObjBoss2Tunnel__sub_803DB470(TObjFish__sub_8001EDC4(TODoorJungleMain__data_805D65B8, ids.v[i]));
             }
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 
@@ -435,8 +435,8 @@ void run_task__16TODoorJungleMainFv(u8 *arg0) {
                 rotate_matrix_y((int)&mtx, M2C_FIELD(arg0, s32 *, 0x60));
                 TCameraCtrl__sub_803D8934(&mtx, &a, &a);
                 TCameraCtrl__sub_803D8934(&mtx, &b, &b);
-                TOSwitchAttack__sub_80087278(&a, 0x229, 0x800);
-                TOSwitchAttack__sub_80087278(&b, 0x229, 0x800);
+                spawn_particle_effect_with_flags(&a, 0x229, 0x800);
+                spawn_particle_effect_with_flags(&b, 0x229, 0x800);
             }
         }
         TRaderMapCore__sub_801F9AC4(arg0 + 0x38, 0xFF00FF00, M2C_FIELD(arg0, s32 *, 0x60), 0, 0);

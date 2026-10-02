@@ -40,12 +40,12 @@ int TBoss7Tentacle__sub_803D8A6C(void*, void*, void*, void*);
 int TOHangerMachine01__sub_803D9C00(void*);
 int TObjFish__sub_803E46BC(void*);
 int TObjPlayer__sub_803D9B2C(void*);
-int TObjPlayer__sub_803D9B78(void);
+int pop_matrix(void);
 int func_803e11e8__FUl(void*);
 int func_803e11f0__Fv(void);
 int set_global_param__8TObjFishFi(void*);
 
-void render__11TAdRicoRingFv(void* p) { TObjPlayer__sub_803D9B2C(p); set_global_param__8TObjFishFi(*(void**)((char*)p + 0x50)); TOHangerMachine01__sub_803D9C00((char*)p + 0x58); TBoss7Tentacle__sub_803D8A6C((void*)0, *(void**)((char*)p + 0x64), *(void**)((char*)p + 0x68), *(void**)((char*)p + 0x6c)); func_803e11e8__FUl((void*)1); TObjFish__sub_803E46BC(*(void**)((char*)p + 0x4c)); func_803e11e8__FUl((void*)2); TObjFish__sub_803E46BC(*(void**)((char*)p + 0x4c)); func_803e11f0__Fv(); TObjPlayer__sub_803D9B78(); }
+void render__11TAdRicoRingFv(void* p) { TObjPlayer__sub_803D9B2C(p); set_global_param__8TObjFishFi(*(void**)((char*)p + 0x50)); TOHangerMachine01__sub_803D9C00((char*)p + 0x58); TBoss7Tentacle__sub_803D8A6C((void*)0, *(void**)((char*)p + 0x64), *(void**)((char*)p + 0x68), *(void**)((char*)p + 0x6c)); func_803e11e8__FUl((void*)1); TObjFish__sub_803E46BC(*(void**)((char*)p + 0x4c)); func_803e11e8__FUl((void*)2); TObjFish__sub_803E46BC(*(void**)((char*)p + 0x4c)); func_803e11f0__Fv(); pop_matrix(); }
 
 void set_scale4__15TAdRicoRingCtrlFPvf(void *arg0, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 0x1C) = farg0;

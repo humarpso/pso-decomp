@@ -127,12 +127,12 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TLobby__sub_8029359C(void *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TWindowSubStatusDisp__sub_8006F190(s32);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+u32 get_player_by_client_id(u32);
 u8 *get_card_window__17TWindowSubComCardFUi(s32);
 void TLobby__sub_802932B0(u8 *arg0, u8 *arg1);
 extern M2C_UNK lbl_804DB1F0[];
 void TLobby__sub_80293218(s32 arg0);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+u32 get_player_by_client_id(u32);
 u8 *get_card_window__17TWindowSubComCardFUi(s32);
 void TLobby__sub_800703D0(void *, void *);
 void TLobby__sub_802934E0(void);
@@ -142,7 +142,7 @@ extern M2C_UNK lbl_804DB1F0[];
 s32 get_global_state__14TOKeyMachine01Fv(void);
 void create_obj_tag_challenge(s32);
 extern s32 tl_07;
-s32 TObjPlayer__sub_800196EC(void);
+s32 get_current_floor(void);
 void create_time_window2__6TLobbyFv(void *);
 M2C_UNK create_ch_time_win(s32);
 void create_time_window2__6TLobbyFv(void * _w0);
@@ -150,7 +150,7 @@ void TLobby__sub_802933FC(void *arg0);
 s32 TWindowSubStatusDisp__sub_8006F190(s32);
 void TLobby__sub_80074E48(void);
 void create_tombstone__6TLobbyFPvPvPv(s32, s32, Tag_802932EC *);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+u32 get_player_by_client_id(u32);
 extern M2C_UNK lbl_804DB1F0[];
 extern s32 tl_07;
 void TLobby__sub_802932EC();
@@ -165,7 +165,7 @@ s32 TAdPlayerLoadGC__sub_801E1510();
 M2C_UNK TLobby__sub_80074034(s32);
 M2C_UNK TLobby__sub_802925C4(void *);
 M2C_UNK TObjPlayer__sub_802C3D38(u32, u32);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+u32 get_player_by_client_id(u32);
 M2C_UNK create_ch_time_win(s32);
 u32 create_challenge4p__6TLobbyFv();
 M2C_UNK create_solo_play_win__6TLobbyFPv(s32);
@@ -200,7 +200,7 @@ void setup_split_screen(void) {
         TLobby__sub_802925C4(lbl_80464E58);
         var_r31 = 0U;
         do {
-            temp_r30 = TPlayerBattleCtrl4P__sub_801BA74C(var_r31);
+            temp_r30 = get_player_by_client_id(var_r31);
             temp_r4 = get_char_index__23TAdSinglePlyChrSelectGCFUi(var_r31);
             if ((temp_r30 != 0U) && (temp_r4 != 0U)) {
                 TObjPlayer__sub_802C3D38(temp_r30, temp_r4);
@@ -214,7 +214,7 @@ extern M2C_UNK lbl_804DB1F0[];
 extern s32 tl_07;
 
 void TLobby__sub_80293218(s32 arg0) {
-    u8 *p = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(arg0);
+    u8 *p = (u8 *)get_player_by_client_id(arg0);
     if (p != NULL) {
         Rec_80293218 *r = &(*(G_80293218 *)&lbl_804DB1F0).r[arg0];
         if (r->f0 != 0) {
@@ -244,7 +244,7 @@ void TLobby__sub_802932EC() {
     TLobby__sub_80074E48();
     for (i = 0; i < 4; i++) {
         r = &((G_802932EC *)lbl_804DB1F0)->recs[i];
-        if (r->active != 0 && TPlayerBattleCtrl4P__sub_801BA74C(i) != 0) {
+        if (r->active != 0 && get_player_by_client_id(i) != 0) {
             t = &r->tag;
             if (t->phase == TWindowSubStatusDisp__sub_8006F190(-1) &&
                 t->layout == ((G_802932EC *)lbl_804DB1F0)->layout &&
@@ -288,7 +288,7 @@ void TLobby__sub_802933FC(void *arg0) {
         lbl_804DB1F0[2] = -1;
         break;
     default:
-        v = TObjPlayer__sub_800196EC();
+        v = get_current_floor();
         if (lbl_804DB1F0[2] != v) {
             lbl_804DB1F0[2] = v;
             create_time_window2__6TLobbyFv((void *)((void *)(arg0)));
@@ -306,7 +306,7 @@ void TLobby__sub_8029350C(void) {
     s32 i;
     TLobby__sub_802934E0();
     for (i = 0; i < 4; i++) {
-        if (TPlayerBattleCtrl4P__sub_801BA74C(i) != 0 && get_card_window__17TWindowSubComCardFUi(i) != NULL) {
+        if (get_player_by_client_id(i) != 0 && get_card_window__17TWindowSubComCardFUi(i) != NULL) {
             Rec_8029350C *r = &(*(G_8029350C *)&lbl_804DB1F0).r[i];
             r->f0 = 1;
             TLobby__sub_800703D0((u8 *)r + 4, get_card_window__17TWindowSubComCardFUi(i) + 0x21C4);

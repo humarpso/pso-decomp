@@ -32,13 +32,13 @@ struct Player_8019EE14 {
 };
 
 extern "C" {
-s32 TObjPlayer__sub_800196EC(void);
+s32 get_current_floor(void);
 s32 get_field_3e4__10TObjPlayerFPv(void *);
-f32 fn_8013157C(void *, void *);
+f32 xz_distance_squared(void *, void *);
 s32 is_flag_clear__17TObjWarpBossMultiFPv(void *);
 M2C_UNK has_item_flag_4096__10TObjPlayerFPv(void *);
 M2C_UNK check_technique_flag__10TObjPlayerFPv(void *);
-Player_8019EE14 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+Player_8019EE14 *get_player_by_client_id(s32);
 M2C_UNK TWindow__close(u32);
 char *strcpy(char *, const char *);
 extern s32 lbl_805D53A0;
@@ -116,15 +116,15 @@ void TObjPlayer__sub_8019EE14(u8 *arg0) {
     self->n_inside = 0;
     self->f15c = 0;
     for (i = 0; i < 4; i++) {
-        pl = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        pl = get_player_by_client_id(i);
         if (pl != NULL) {
             room = get_field_3e4__10TObjPlayerFPv(pl);
             if (room == self->fbc) {
                 self->f15c = 1;
             }
             inside = 0;
-            if (room == TObjPlayer__sub_800196EC()) {
-                if (fn_8013157C(pl->pos, self->pos) <= self->radius * self->radius) {
+            if (room == get_current_floor()) {
+                if (xz_distance_squared(pl->pos, self->pos) <= self->radius * self->radius) {
                     inside = 1;
                     self->n_inside++;
                 }
@@ -141,9 +141,9 @@ void TObjPlayer__sub_8019EE14(u8 *arg0) {
         TWindow__close(self->window);
         self->window = 0;
     }
-    pl2 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
-    if (pl2 != NULL && get_field_3e4__10TObjPlayerFPv(pl2) == TObjPlayer__sub_800196EC()) {
-        if (fn_8013157C(pl2->pos, self->pos) <= (lbl_805DC014 + self->radius) * (lbl_805DC014 + self->radius)) {
+    pl2 = get_player_by_client_id(lbl_805D53A0);
+    if (pl2 != NULL && get_field_3e4__10TObjPlayerFPv(pl2) == get_current_floor()) {
+        if (xz_distance_squared(pl2->pos, self->pos) <= (lbl_805DC014 + self->radius) * (lbl_805DC014 + self->radius)) {
             if (is_flag_clear__17TObjWarpBossMultiFPv(pl2) != 0) {
                 self->warping = 1;
                 check_technique_flag__10TObjPlayerFPv(pl2);

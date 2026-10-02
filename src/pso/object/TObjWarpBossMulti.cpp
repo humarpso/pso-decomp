@@ -83,7 +83,7 @@ extern u8 lbl_8044663C[];
 extern u8 lbl_80446650[];
 void TObjWarpBossMulti__vt18(Wb_8019DE74 *arg0);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-void TObjPlayer__sub_80154B60(void *);
+void register_entity_by_id(void *);
 void TObjAreaWarp__ct(void *);
 void init_warp_params__17TObjWarpBossMultiFPv(void* a0);
 void update__17TObjWarpBossMultiFPv(void *arg0);
@@ -106,12 +106,12 @@ void update__17TObjWarpBossMultiFPv(void *arg0);
 void update_warp_boss_visibility(void *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
-M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
+M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 void TObjPlayer__sub_80154A00(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+M2C_UNK pop_matrix();
+void *get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__12TObjAreaWarpFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -121,7 +121,7 @@ s32 check_flag_100__10TObjPlayerFPv(void *);
 M2C_UNK clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
 M2C_UNK disallow_rendering__7TObjectFv(u32);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-f32 fn_8013157C(s32, void *);
+f32 xz_distance_squared(s32, void *);
 int fn_8019F9AC(void);
 int fn_8019F9B4(void);
 int fn_8019F9BC(void);
@@ -186,7 +186,7 @@ void render__17TObjWarpBossMultiFv(u8 *arg0) {
     s32 temp_r0;
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0xBC) == 0xE) {
-        if (fn_8013157C(lbl_805D4DF0 + 0x178, arg0 + 0x38) > lbl_805DC008) {
+        if (xz_distance_squared(lbl_805D4DF0 + 0x178, arg0 + 0x38) > lbl_805DC008) {
             return;
         }
         goto block_4;
@@ -203,14 +203,14 @@ block_4:
         temp_r0 = M2C_FIELD(arg0, s32 *, 0xF0);
         switch (temp_r0) {
         case 0:
-            TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0xD8), M2C_FIELD(arg0, s32 *, 0xE0), M2C_FIELD(arg0, f32 *, 0xF8));
+            draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0xD8), M2C_FIELD(arg0, s32 *, 0xE0), M2C_FIELD(arg0, f32 *, 0xF8));
             break;
         case 1:
-            TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0xDC), M2C_FIELD(arg0, s32 *, 0xE4), M2C_FIELD(arg0, f32 *, 0xF8));
+            draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0xDC), M2C_FIELD(arg0, s32 *, 0xE4), M2C_FIELD(arg0, f32 *, 0xF8));
             break;
         }
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 
@@ -237,7 +237,7 @@ Obj_8019E238 *TObjWarpBossMulti__ct(Obj_8019E238 *self, void * _w1, void * _w2) 
     self->f0 = lbl_805D348C;
     self->fBC = TLobby__sub_8020765C();
     self->fA4 = 0;
-    TObjPlayer__sub_80154B60(self);
+    register_entity_by_id(self);
     update__17TObjWarpBossMultiFPv(self);
     init_warp_params__17TObjWarpBossMultiFPv((void*)(self));
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
@@ -260,7 +260,7 @@ void update_warp_boss_visibility(void *arg0) {
     void *temp_r3;
     s32 var_r30;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(lbl_805D53A0);
     var_r30 = 1;
     if ((temp_r3 != NULL) && (((P_V_8019DD34 *) temp_r3)->m31() != 0)) {
         var_r30 = 0;

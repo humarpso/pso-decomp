@@ -8,7 +8,7 @@ M2C_UNK clear_render_callback__8TObjFishFv(int);
 M2C_UNK TObjFish__sub_800E3074(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
@@ -44,7 +44,7 @@ void fn_8004F1FC(u8 *arg0) {
             var_r31 += 0xC;
         } while (var_r29 < 3);
         clear_global_state__10TObjPlayerFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

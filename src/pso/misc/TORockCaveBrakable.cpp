@@ -40,7 +40,7 @@ void TBoss4Zako__sub_803D8910(void *, void *);
 void TScene__sub_803D8DB4(int, void *, void *);
 void rotate_matrix_y(int, s32);
 void TObjPlayer__sub_803D97F0(void *);
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 extern Offs_80174CFC lbl_804428DC;
 extern Init_80174CFC lbl_80442924;
 extern u8 lbl_8058D490[];
@@ -81,7 +81,7 @@ void update_break_state__18TORockCaveBrakableFPv(void *arg0);
 int TBoss3Volopt__sub_8022675C(void*, void*, void*, void*);
 u8 TODoorAncient08__sub_80229220(u16);
 void TORockCave__ct(void *);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
+M2C_UNK spawn_particle_effect(void *, M2C_UNK);
 void __dl__7TObjectFPv(void *);
 void __dt__10TORockCaveFv(void *, int);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -108,7 +108,7 @@ void TORockCaveBrakable__sub_80174CFC(u8 *arg0) {
         TObjPlayer__sub_803D97F0(lbl_8058D490);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         TScene__sub_803D8DB4(0, &v, &v);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         VecCopy__FP3VecPC3Vec(&init.b[0xC], arg0 + 0x38);
         TBoss4Zako__sub_803D8910(&init.b[0xC], &v);
         M2C_FIELD(&init, s32 *, 0x40) = TObjFish__sub_8001EDC4(lbl_805D5A84, i);
@@ -122,8 +122,8 @@ void TORockCaveBrakable__sub_80174CFC(u8 *arg0) {
 
 void spawn_break_effect__18TORockCaveBrakableFPv(u8 *arg0) {
     ((E4E50Obj_80174e50_80174CC0*)arg0)->m16();
-    TObjEneDellBiter__sub_80087350(arg0 + 0x38, 0x45);
-    TObjEneDellBiter__sub_80087350(arg0 + 0x38, 0x46);
+    spawn_particle_effect(arg0 + 0x38, 0x45);
+    spawn_particle_effect(arg0 + 0x38, 0x46);
 }
 
 void update_break_state__18TORockCaveBrakableFPv(void *arg0) {

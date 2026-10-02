@@ -28,7 +28,7 @@ typedef struct Arg_80302DC0 { s32 id; f32 val; } Arg_80302DC0;
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-u32 TObjButterflyLobby__sub_8007A5D8(void *, void *, int);
+u32 csnVector(void *, void *, int);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
 extern u8 lbl_8047511C[];
@@ -65,7 +65,7 @@ void fn_80302DC0(u8 *arg0) {
         }
         M2C_FIELD(arg0, f32 *, 0xC4) -= lbl_805DEFA0;
         M2C_FIELD(arg0, f32 *, 0xC0) -= lbl_805DEFA0;
-        if (TObjButterflyLobby__sub_8007A5D8(arg0 + 0x38, &a, 0x1EFF) != 0) {
+        if (csnVector(arg0 + 0x38, &a, 0x1EFF) != 0) {
             queue_destruction__7TObjectFv(arg0);
             return;
         }

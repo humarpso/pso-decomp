@@ -30,7 +30,7 @@ extern "C" {
 void TBoss8Dragon__sub_80063FB8(s32, void *, f32);
 s32 get_instance_count__12TBoss8DragonFv(void);
 void update_scale__15TObjBoss2TunnelFPv(void *);
-Ctl_80325F7C *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+Ctl_80325F7C *get_player_by_client_id(s32);
 void get_wing_position__26TBoss5GryphonLightningWingFii(void *, void *);
 void copy_position__12TBoss8DragonFii(void *, void *);
 void TObjPlayer__sub_80325D58(void *, void *, void *, void *);
@@ -39,7 +39,7 @@ extern const f32 lbl_805DF630;
 extern const f32 lbl_805DF638;
 void fn_80325F7C(void *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-Hit_80326074 *TBoss8Dragon__sub_8007A544(void *, s32);
+Hit_80326074 *csnVecterUnder(void *, s32);
 void update_scale__15TObjBoss2TunnelFPv(void *);
 void get_wing_position__26TBoss5GryphonLightningWingFii(void *, void *);
 void copy_position__12TBoss8DragonFii(void *, void *);
@@ -71,7 +71,7 @@ void fn_80325F7C(void *arg0) {
     if (inst != 0) {
         i = 0;
         do {
-            c = TPlayerBattleCtrl4P__sub_801BA74C(i);
+            c = get_player_by_client_id(i);
             if (c != 0) {
                 copy_position__12TBoss8DragonFii(arg0, &pos);
                 get_wing_position__26TBoss5GryphonLightningWingFii(arg0, &wing);
@@ -109,7 +109,7 @@ void fn_80326074(Wing_80326074 *self) {
     p.y += self->vel.y;
     p.z += self->vel.z;
     p.y = lbl_805DF63C;
-    hit = TBoss8Dragon__sub_8007A544(&p, 0x16EF);
+    hit = csnVecterUnder(&p, 0x16EF);
     if (hit == NULL || (h = hit->pos[1]) > lbl_805D8D48) {
         get_wing_position__26TBoss5GryphonLightningWingFii(self, &p);
         self->vel.x *= lbl_805DF640;

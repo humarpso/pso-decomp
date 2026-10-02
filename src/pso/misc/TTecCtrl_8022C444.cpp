@@ -23,9 +23,9 @@ void TTecCtrl__sub_8022C444(void);
 void TTecCtrl__sub_8022C448(void);
 void TTecCtrl__sub_8022C44C(void);
 s32 classify_distance_band__8TTecCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
-f32 TTecCtrl__sub_8022C5CC(s32, u16);
+f32 calc_technique_boost(s32, u16);
 f32 get_battle_value__10TObjPlayerFiii(void *, s32, s16);
-void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+void *get_player_by_client_id(u16);
 extern const f32 lbl_805DC7D8;
 M2C_UNK TTecCtrl__sub_8022DBC4();
 
@@ -43,7 +43,7 @@ s32 classify_distance_band__8TTecCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
     if ((arg1 == 0) || (arg1 == 1)) {
         return 0;
     }
-    temp_f1 = ((f32 (*)(s32, s32))TTecCtrl__sub_8022C5CC)(arg0, arg2);
+    temp_f1 = ((f32 (*)(s32, s32))calc_technique_boost)(arg0, arg2);
     if (temp_f1 < lbl_805DC7D0) {
         return 1;
     }
@@ -52,7 +52,7 @@ s32 classify_distance_band__8TTecCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
     }
     return 3;
 }
-f32 TTecCtrl__sub_8022C5CC(s32 technique, u16 actor) {
+f32 calc_technique_boost(s32 technique, u16 actor) {
     f32 sum;
     void *player;
     s32 i;
@@ -66,7 +66,7 @@ f32 TTecCtrl__sub_8022C5CC(s32 technique, u16 actor) {
             sum += ((struct Slot_8022C5CC (*)[6])&lbl_80515FBC)[actor][i].amount;
         }
     }
-    player = ((void *(*)(s32))TPlayerBattleCtrl4P__sub_801BA74C)(actor);
+    player = ((void *(*)(s32))get_player_by_client_id)(actor);
     if (player != NULL) {
         sum += ((f32 (*)(void *, u16, s16))get_battle_value__10TObjPlayerFiii)(player, actor, technique);
     }

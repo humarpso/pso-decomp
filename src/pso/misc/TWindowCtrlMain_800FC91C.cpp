@@ -31,7 +31,7 @@ s32 TLobby__sub_8001DC24(void);
 char *TWindowSubStatusDisp__sub_80071820(char *);
 s32 get_card_status_bits__20TWindowShortListCtrlFv();
 s32 TObjPlayer__sub_801AFD8C(void *);
-VObj_18_7b3651 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+VObj_18_7b3651 *get_player_by_client_id(s32);
 void TWindowSubStatusDisp__sub_80228D80(void);
 void TWindowChallengeResult__sub_80228DB4(s32, s32);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
@@ -71,7 +71,7 @@ s32 TWindowSubStatusDisp__sub_800FC968(s32 arg0) {
     s32 lvl;
     VObj_18_7b3651 *p;
     mode = get_card_status_bits__20TWindowShortListCtrlFv();
-    p = TPlayerBattleCtrl4P__sub_801BA74C(arg0);
+    p = get_player_by_client_id(arg0);
     if (p == NULL) {
         return 0;
     }

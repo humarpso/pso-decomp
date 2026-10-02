@@ -54,7 +54,7 @@ s32 get_sub_value__8TItemMagFi(void *);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void update_status_entry__20TWindowSubStatusDispFi(void *);
 s32 update_hp_gauge__20TWindowSubStatusDispFi(void *);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C();
+u8 *get_player_by_client_id();
 M2C_UNK get_width__11TWindowCtrlFPv();
 M2C_UNK TWindowSubStatusDisp__sub_8025995C(void *);
 M2C_UNK TWindowSubStatusDisp__sub_80259EB8(void *, s32);
@@ -192,7 +192,7 @@ void TWindowSubStatusDisp__sub_80270F14(u8 *arg0) {
     u8 *d;
     s32 v;
     get_width__11TWindowCtrlFPv();
-    pl = TPlayerBattleCtrl4P__sub_801BA74C();
+    pl = get_player_by_client_id();
     if (pl != NULL) {
         a = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 7);
         b = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 9);

@@ -9,7 +9,7 @@ M2C_UNK apply_single_screen_state__6TSceneFv();
 M2C_UNK TObjPlayer__sub_80083914(void *, void *);
 M2C_UNK TObjPlayer__sub_803D99F8(void *, int);
 int TObjPlayer__sub_803D9B2C(void);
-int TObjPlayer__sub_803D9B78(void);
+int pop_matrix(void);
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOSignCave03__sub_803DB510(int);
@@ -21,7 +21,7 @@ extern "C" {
 void render_impl__19TObjBoss5FloorStoneFPvPv(void* p, void* a1);
 int draw_if_all_ready__10TObjPlayerFv(void*);
 int TObjPlayer__sub_803D9B2C(void);
-int TObjPlayer__sub_803D9B78(void);
+int pop_matrix(void);
 int set_global_param__8TObjFishFi(void*);
 
 void TObjPlayer__sub_80066F5C(u8 *arg0) {
@@ -36,11 +36,11 @@ void TObjPlayer__sub_80066F5C(u8 *arg0) {
             apply_single_screen_state__6TSceneFv();
         }
         TObjPlayer__sub_80066F5C(M2C_FIELD(arg0, u8 **, 0x2C));
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         TObjPlayer__sub_80066F5C(M2C_FIELD(arg0, u8 **, 0x30));
     }
 }
 
-void render_impl__19TObjBoss5FloorStoneFPvPv(void* p, void* a1) { draw_if_all_ready__10TObjPlayerFv(p); set_global_param__8TObjFishFi(p); TObjPlayer__sub_803D9B2C(); TObjPlayer__sub_80066F5C((u8 *)(a1)); TObjPlayer__sub_803D9B78(); }
+void render_impl__19TObjBoss5FloorStoneFPvPv(void* p, void* a1) { draw_if_all_ready__10TObjPlayerFv(p); set_global_param__8TObjFishFi(p); TObjPlayer__sub_803D9B2C(); TObjPlayer__sub_80066F5C((u8 *)(a1)); pop_matrix(); }
 
 }

@@ -15,7 +15,7 @@ M2C_UNK TCameraCtrl__sub_803D976C(M2C_UNK, s32);
 s32 TObjPlayer__sub_80121160(void *, s32);
 M2C_UNK TObjPlayer__sub_803D9884(f32 *, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TObjPlayer__sub_803D9324(M2C_UNK, s32);
 
 extern const f32 lbl_805DAC98;
@@ -42,7 +42,7 @@ s32 draw_icon__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
         TObjPlayer__sub_803D9324(0, TObjPlayer__sub_80121160(M2C_FIELD(arg0, void **, 0xF0), arg1));
         TCameraCtrl__sub_803D976C(0, TCameraCtrl__sub_80069258());
         TObjPlayer__sub_803D9884(&floats.sp8, arg2);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     } else {
         ((VObj_104_801207e8 *)temp_r3)->m63(0x30);
     }

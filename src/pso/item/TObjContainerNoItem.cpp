@@ -172,7 +172,7 @@ extern char lbl_80444EF4[];
 extern u8 lbl_804A7448[];
 extern const f32 lbl_805DBCF8;
 void TObjContainerEnemy__vt80(Obj_801895A4 *self);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 void TObjPlayer__sub_80154954(void *, void *);
 s32 TLobby__sub_80156A80(void *, void *, int);
 void byteswap_and_send__6TLobbyFi(void *);
@@ -183,7 +183,7 @@ f32 TObjContainerEnemy__vt20(Obj_801894F8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_container_param(int);
 extern s32 lbl_805D5B7C;
-M2C_UNK TOSwitchAttack__sub_80087278(void *, int, int);
+M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
 M2C_UNK TObjChip__sub_80180BD4(void *, void *, void *);
 M2C_UNK TBoss3Volopt__sub_80189CC0(void *);
 void *__nw__7TObjectFUl(int);
@@ -192,10 +192,10 @@ extern Spawn_8018990C *const lbl_805D5B84;
 extern void *tl_05;
 void TObjContainerEnemy__vt77(Obj_8018990C *self);
 void fn_801FBA6C(s32);
-void TOMonitorMachine01__sub_803D8B5C(s32, f32, f32, f32);
+void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(s32);
 extern u32 lbl_805D5B78;
@@ -211,7 +211,7 @@ void *__dt__19TObjContainerNoItemFv(void *arg0, s16 arg1);
 void *create__19TObjContainerNoItemFPv(void *arg0);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
+M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK destroy_container_object__10TObjPlayerFPvs(void *, M2C_UNK);
@@ -223,7 +223,7 @@ void TObjContainerNoItem__vt78(void *arg0) {
     switch (temp_r0) {
     case 0:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x364) != 0) {
-            TObjPlayer__sub_801B4A18(arg0, -1);
+            submit_cursor_candidate(arg0, -1);
         }
     case 1:
         return;
@@ -304,8 +304,8 @@ void TObjContainerEnemy__vt77(Obj_8018990C *self) {
         b.f38 = self->y;
         b.f40 = get_container_param(0);
         b.f44 = lbl_805D5B7C;
-        TOSwitchAttack__sub_80087278(&self->x, 0x45, 0x40);
-        TOSwitchAttack__sub_80087278(&self->x, 0x46, 0x40);
+        spawn_particle_effect_with_flags(&self->x, 0x45, 0x40);
+        spawn_particle_effect_with_flags(&self->x, 0x46, 0x40);
         o = __nw__7TObjectFUl(0x234);
         if (o != NULL) {
             TObjChip__sub_80180BD4(o, tl_05, &a);
@@ -327,7 +327,7 @@ f32 TObjContainerEnemy__vt20(Obj_801894F8 *arg0) {
         TObjPlayer__sub_80154954(arg0, &sp8);
         init_packet_67_04__6TLobbyFPv(&pkt);
         pkt.b = arg0->f1C;
-        pkt.c = TObjPlayer__sub_800196EC();
+        pkt.c = get_current_floor();
         pkt.d = arg0->f84;
         pkt.e = lbl_805D53A0;
         byteswap_and_send__6TLobbyFi(&pkt);
@@ -351,9 +351,9 @@ void TObjContainerEnemy__vt79(CE_80189614 *self) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(self->f38);
         rotate_matrix_y(0, self->f60);
-        TOMonitorMachine01__sub_803D8B5C(0, lbl_805DBCFC, lbl_805DBCFC, lbl_805DBCFC);
+        scale_matrix(0, lbl_805DBCFC, lbl_805DBCFC, lbl_805DBCFC);
         fn_801FBA6C(self->f34);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         break;
     case 1:
         break;

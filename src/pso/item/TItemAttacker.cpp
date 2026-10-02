@@ -22,7 +22,7 @@ extern s32 lbl_805D5414;
 void TItemBuff__ct(void);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void copy_from__13TItemAttackerFPvPv(void *arg0, void *arg1);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 M2C_UNK __ct__7TObjectFP7TObject(void*,s32);
 extern M2C_UNK __vt__13TItemAttacker[];
 extern s32 lbl_805D2B68;
@@ -54,7 +54,7 @@ u8 *__ct__13TItemAttackerFv(u8 *arg0, M2C_UNK arg1, s32 arg2, M2C_UNK arg3, s32 
     copy_from__13TItemAttackerFPvPv((void *) (arg0 + 0x1C), (void *) (arg4));
     M2C_FIELD(arg0, s32 *, 0x34) = 0;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg2));
-    temp_r3 = (u8 *)(TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x2A)));
+    temp_r3 = (u8 *)(find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x2A)));
     if (temp_r3 != NULL) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), ((M_80103368 *)temp_r3)->recs[M2C_FIELD(arg0, s16 *, 0x2C)].v);
     } else {

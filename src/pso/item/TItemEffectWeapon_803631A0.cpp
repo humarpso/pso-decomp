@@ -22,10 +22,10 @@ extern "C" {
 
 void play_effect_sound__17TItemEffectWeaponFPv(void *arg0);
 void send_player_load__17TItemEffectWeaponFi(s32 arg0);
-M2C_UNK TObjEneDellBiter__sub_80087350(M2C_UNK *, M2C_UNK);
+M2C_UNK spawn_particle_effect(M2C_UNK *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8011E3E8(s32);
 M2C_UNK TObjPlayer__sub_8011EB84(s32, M2C_UNK *, M2C_UNK, M2C_UNK);
-M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
+M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK draw_status_icon__10TObjPlayerFPvi(s32, M2C_UNK *);
 s32 get_player_list__10TObjPlayerFv();
 
@@ -33,7 +33,7 @@ extern f32 lbl_805E0268;
 
 void play_effect_sound__17TItemEffectWeaponFPv(void *arg0) {
     if (get_player_list__10TObjPlayerFv() == 1) {
-        TObjPlayer__sub_803D9624(0, lbl_805E0268, M2C_FIELD(arg0, f32 *, 0x1FC), lbl_805E0268);
+        translate_matrix(0, lbl_805E0268, M2C_FIELD(arg0, f32 *, 0x1FC), lbl_805E0268);
     }
 }
 
@@ -52,7 +52,7 @@ void send_player_load__17TItemEffectWeaponFi(s32 arg0) {
     M2C_UNK sp8;
 
     draw_status_icon__10TObjPlayerFPvi(arg0, &sp8);
-    TObjEneDellBiter__sub_80087350(&sp8, 9);
+    spawn_particle_effect(&sp8, 9);
     TObjPlayer__sub_8011E3E8(arg0);
     TObjPlayer__sub_8011EB84(arg0, &sp8, 0, 0);
 }

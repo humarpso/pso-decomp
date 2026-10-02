@@ -60,12 +60,12 @@ void *TObjPlayer__sub_8011CD48(int type, int id);
 void *get_pmt_record_by_index__10TObjPlayerFi(int i);
 void *get_pmt_record__10TObjPlayerFi(int i);
 void *get_pmt_record_by_type_id__10TObjPlayerFii(int type, int id);
-void *TItemData__sub_8010EA38(u8 *item);
+void *lookup_item_pmt_record(u8 *item);
 void copy_item_data__6TLobbyFPvPv(void *, void *);
 void bswap_fields__9TItemDataFPv(void* p);
 u8 TItemMagSub__sub_8011455C(const void *);
 void TItemData__sub_8010D510(Item_8010D510 *item, const Mag_8010D510 *mag);
-void *TItemData__sub_8010EA38(u8 *item);
+void *lookup_item_pmt_record(u8 *item);
 s32 TObjPlayer__sub_8011C914(s32);
 s32 TItemData__sub_8010EBD8(u8 *item);
 s32 TItemData__sub_8010EBD8(u8 *item);
@@ -75,7 +75,7 @@ s32 TItemData__sub_8010C52C();
 u16 get_packed_value__9TItemDataFPv(void *);
 s16 get_field6_bswap__9TItemDataFPv(void *arg0);
 s32 TItemData__sub_8010DF68(u8 *item);
-void *TItemData__sub_8010EA38(u8 *item);
+void *lookup_item_pmt_record(u8 *item);
 s32 check_item_flags__9TItemDataFPv(void *arg0);
 s32 TItemData__sub_8010EEC8(s32);
 int sprintf(char *, const char *, ...);
@@ -107,7 +107,7 @@ M2C_UNK TItemData__sub_8010C5DC(void *, s32);
 void TItemData__sub_8010CCB0(void);
 void TItemData__sub_8010CCB4(void);
 s32 TItemData__sub_8010EEC8(s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 void *TTecCtrl__sub_8022DBC4(u8, u8, s32);
 M2C_UNK apply_bonuses(void *, s32, s32, s32, s32, s32);
 int bswap_16__FPUs(void*);
@@ -337,7 +337,7 @@ void apply_equip_effects__9TItemDataFPviiiii(void *arg0, s32 arg1, s32 arg2, s32
     u8 temp_r0;
     u8 temp_r0_2;
 
-    if ((arg1 != 0) || (arg1 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0), ((arg1 == 0) == 0))) {
+    if ((arg1 != 0) || (arg1 = get_player_by_client_id(lbl_805D53A0), ((arg1 == 0) == 0))) {
         TItemData__sub_8010DD6C((void *)(arg0), (s32)(arg1));
         TItemData__sub_8010C5DC(arg0, arg1);
         temp_r0 = M2C_FIELD(arg0, u8 *, 0);
@@ -410,7 +410,7 @@ s32 TItemData__sub_8010E414(u8 *item) {
     Params_8010E414 *p;
     char *out;
     s32 name;
-    p = (Params_8010E414 *)TItemData__sub_8010EA38(item);
+    p = (Params_8010E414 *)lookup_item_pmt_record(item);
     out = TItemAttacker__sub_80103548(0);
     if (p != NULL && out != NULL) {
         format = NULL;
@@ -448,7 +448,7 @@ s32 TItemData__sub_8010E414(u8 *item) {
     return lbl_805D2B10;
 }
 
-void *TItemData__sub_8010EA38(u8 *item) {
+void *lookup_item_pmt_record(u8 *item) {
     void *r = 0;
     switch (item[0]) {
     case 0:
@@ -520,13 +520,13 @@ s32 TItemData__sub_8010EBD8(u8 *item) {
     switch (item[0]) {
     case 0:
     case 1:
-        p = (struct Parm_8010EBD8 *)TItemData__sub_8010EA38(item);
+        p = (struct Parm_8010EBD8 *)lookup_item_pmt_record(item);
         if (p != NULL) {
             return TObjPlayer__sub_8011C914(p->name);
         }
         break;
     case 3:
-        p = (struct Parm_8010EBD8 *)TItemData__sub_8010EA38(item);
+        p = (struct Parm_8010EBD8 *)lookup_item_pmt_record(item);
         if (p != NULL && (p->flags & 0x80)) {
             return 0xC;
         }

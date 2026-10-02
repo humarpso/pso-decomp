@@ -103,7 +103,7 @@ void end_effect_render__13TParticleCtrlFv();
 u8 TODoorAncient08__sub_80229220(int);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 int TOSignCave03__sub_803DB510(void *);
@@ -130,12 +130,12 @@ void render__15TODoorAncient09Fv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 void *TODoorAncient09__ct(void *, void *, void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
+M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK destroy_ancient_door_base__15TODoorAncient01FPvs(void *, M2C_UNK);
@@ -285,14 +285,14 @@ void TODoorAncient09__sub_80160BA8(Door_80160BA8 *self) {
         pp = pairs[i];
         TOHangerMachine01__sub_803D9C00(pp[0]->pos);
         TOSignCave03__sub_803DB510(pp[0]->model);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(pp[1]->pos);
         TOSignCave03__sub_803DB510(pp[1]->model);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
     end_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 void render__15TODoorAncient09Fv(u8 *arg0) {
@@ -307,16 +307,16 @@ void render__15TODoorAncient09Fv(u8 *arg0) {
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
             set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-            TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB0));
-            TObjPlayer__sub_803D9B78();
+            draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB0));
+            pop_matrix();
             return;
         case 2:
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
             set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-            TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB4) - lbl_805DB484);
-            TObjPlayer__sub_803D9B78();
+            draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB4) - lbl_805DB484);
+            pop_matrix();
             return;
         case 0:
             TODoorAncient09__sub_80160BA8((Door_80160BA8 *)(arg0));

@@ -116,7 +116,7 @@ extern Vec_800E1A44 lbl_8043CD40[];
 extern s32 lbl_8043CD58[];
 void TObjEnePanarms__sub_800E1B50(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TObjEneDellBiter__sub_80087350(void *, int);
+s32 spawn_particle_effect(void *, int);
 extern const f32 TObjEnePanarms__data_805DA544;
 void TObjEnePanarms__sub_800E15B4(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -127,17 +127,17 @@ extern s32 lbl_8043CD78[];
 void TObjEnePanarms__sub_800E1A44(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 Prm_800E1608 *dispatch_shared_handler_a__6TLobbyFPv(s32);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 M2C_UNK create__9TTecJelinFiiii(void *, void *, void *, s32);
 M2C_UNK create_instance__9TTecZaruaFiiii(void *, void *, void *, s32);
 extern Hit_800E1608 lbl_8043CD88[];
 extern Hit_800E1608 lbl_8043CD90[];
 void TObjEnePanarms__sub_800E1608(u8 *arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u32 TObjPlayer__sub_8007A3AC(void *, void *);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
+u32 csnLookAt(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
 s32 update_collisions__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_80156844(void *, void *, int);
+s32 project_actor_to_ground(void *, void *, int);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 s32 TBoss4Zako__sub_803D8910(void *, void *);
@@ -168,7 +168,7 @@ void TObjEnePanarms__sub_800E15B4(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x45C) & 7)) {
         VecCopy__FP3VecPC3Vec((void *) (&position.x), (void *) (arg0 + 0x3A4));
         position.y += TObjEnePanarms__data_805DA544;
-        TObjEneDellBiter__sub_80087350((void *) (&position.x), (int) (0xF3));
+        spawn_particle_effect((void *) (&position.x), (int) (0xF3));
     }
 }
 
@@ -176,7 +176,7 @@ void TObjEnePanarms__sub_800E1608(u8 *arg0, s32 arg1) {
     u8 *t;
     f32 sc;
     s32 lv;
-    t = TPlayerBattleCtrl4P__sub_801BA74C(arg1);
+    t = get_player_by_client_id(arg1);
     if (t != NULL) {
         if (M2C_FIELD(arg0, s32 *, 0x380) == 0) {
             Hit_800E1608 tmp = lbl_8043CD88[0];
@@ -229,14 +229,14 @@ s32 TObjEnePanarms__sub_800E18B0(u8 *arg0, Vec_800E18B0 *arg1) {
     }
     VecCopy__FP3VecPC3Vec(&t, arg0 + 0x38);
     TBoss4Zako__sub_803D8910(&t, arg1);
-    if (TObjPlayer__sub_80141CF8(&t, arg0 + 0x50) > lbl_805DA584) {
+    if (horizontal_distance_squared(&t, arg0 + 0x50) > lbl_805DA584) {
         return 0;
     }
     for (i = 1; i < 16; i++) {
         VecCopy__FP3VecPC3Vec(&p, arg0 + 0x38);
         TBoss4Zako__sub_803D8910(&p, &dir);
         p.y += lbl_805DA588;
-        if (TObjPlayer__sub_80156844(arg0, &p, 0) != 0 && TObjPlayer__sub_8007A3AC(arg0 + 0x38, &p) == 0) {
+        if (project_actor_to_ground(arg0, &p, 0) != 0 && csnLookAt(arg0 + 0x38, &p) == 0) {
             VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
             VecCopy__FP3VecPC3Vec(arg0 + 0x38, &p);
             update_collisions__10TObjPlayerFPv(arg0);

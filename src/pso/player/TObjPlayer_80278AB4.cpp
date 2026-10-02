@@ -16,7 +16,7 @@ s32 get_item_info__10TObjPlayerFiiPv(s32, void *, M2C_UNK *);
 u32 test_item_flags__10TObjPlayerFPvUi(s32, M2C_UNK);
 s32 get_slot_value__10TObjPlayerFPvi(void *, M2C_UNK);
 u32 run_and_get_result__10TObjPlayerFPvi(s32, M2C_UNK *);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s16);
+u8 *get_player_by_client_id(s16);
 M2C_UNK add_list_entry__23TShopJudgmentItemWindowFPvii(void *, s32, s32);
 M2C_UNK add_list_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 
@@ -30,7 +30,7 @@ void build_shop_item_list__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r3_2;
     u32 i;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s16 *, 0x20));
+    temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, s16 *, 0x20));
     if (temp_r3 != NULL) {
         temp_r30 = run_and_get_result__10TObjPlayerFPvi(M2C_FIELD(temp_r3, s32 *, 0xD00), spC);
         for (i = 0; i < temp_r30; i++) {

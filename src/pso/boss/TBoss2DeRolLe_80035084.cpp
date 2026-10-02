@@ -245,7 +245,7 @@ void TBoss2DeRolLe__sub_800361E8(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D8458;
 void TBoss2Fin__sub_80036620(u8 *arg0);
-f32 TObjPlayer__sub_8001978C(f32);
+f32 newton_sqrtf(f32);
 extern const f32 TBoss2DeRolLe__data_805D8288;
 extern const f32 TBoss2DeRolLe__data_805D82A0;
 extern const f32 TBoss2DeRolLe__data_805D82BC;
@@ -585,7 +585,7 @@ void TBoss2DeRolLe__sub_800360A8(void *arg0) {
   temp_f1 = (*((f32 *) (((s8 *) arg0) + 0x14))) + (temp_f5 / (lbl_805D844C * temp_f31));
   if ((((TBoss2DeRolLe__data_805D82BC / (*((f32 *) (((s8 *) arg0) + 4)))) - (TBoss2DeRolLe__data_805D82BC / temp_f31)) * (TBoss2DeRolLe__data_805D8288 * temp_f5)) > temp_f1)
   {
-    *((f32 *) new_var) = TObjPlayer__sub_8001978C((TBoss2DeRolLe__data_805D82A0 * temp_f1) / temp_f3);
+    *((f32 *) new_var) = newton_sqrtf((TBoss2DeRolLe__data_805D82A0 * temp_f1) / temp_f3);
     temp_f3 = (TBoss2DeRolLe__data_805D82BC / (*((f32 *) (((s8 *) arg0) + 4)))) - (TBoss2DeRolLe__data_805D82BC / temp_f31);
   }
   temp_f0 = *((f32 *) new_var);

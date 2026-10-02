@@ -35,7 +35,7 @@ void TObjPlayer__sub_801AF7E0(Plr_801B6A5C *);
 s32 reset_volopt_state__10TObjPlayerFv(Plr_801B6A5C *);
 void TObjPlayer__sub_801B6964(Plr_801B6A5C *, void *);
 void copy_fields__10TObjPlayerFPvPv(Pkt_801B6A5C *, void *);
-Plr_801B6A5C *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+Plr_801B6A5C *get_player_by_client_id(u16);
 s32 check_flag_4__10TObjPlayerFPv(Plr_801B6A5C *);
 void swap_endian__10TObjPlayerFi(Pkt_801B6A5C *);
 void TObjPlayer__sub_801C0CC4(Pkt_801B6A5C *);
@@ -171,7 +171,7 @@ void handle_6x30_change_player_level(void *arg0) {
     if (validate_6x30_change_player_level(&pkt) == 0) {
         return;
     }
-    p = TPlayerBattleCtrl4P__sub_801BA74C(pkt.id);
+    p = get_player_by_client_id(pkt.id);
     if (p == NULL) {
         return;
     }

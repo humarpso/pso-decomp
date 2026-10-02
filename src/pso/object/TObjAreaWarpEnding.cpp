@@ -202,10 +202,10 @@ void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
 extern char lbl_8044641C[];
 void TObjAreaWarp__sub_8019C924(Obj_8019C924 *self);
 void TKeyBoardControl__sub_8000F998();
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 void *get_dest_area__17TObjAreaWarpQuestFPv(void *);
 void bswap_6x94_inter_level_warp(void *);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 void TTecLuker__sub_801BAB1C(void *, void *);
 s32 TLobby__sub_80207770(s32);
 void set_area__6TLobbyFPvi(void *, int, int);
@@ -221,11 +221,11 @@ void TBoss7Tentacle__sub_803D8A6C(int, s32, s32, s32);
 void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, s32);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(int);
 void TOSignCave03__sub_803DB510(void *);
-void TObjDoor__sub_803DC894(s32, s32, f32);
+void draw_ginja_model_with_motion(s32, s32, f32);
 extern Ids_8019BD84 lbl_805DBFD0;
 extern const f32 lbl_805DBFD4;
 extern const f32 lbl_805DBFD8;
@@ -235,7 +235,7 @@ s32 obj_isState3_324(void *);
 s32 get_action_flags__10TNpcPlayerFPv(void *);
 void *get_dest_area__17TObjAreaWarpQuestFPv(void *);
 void TObjAreaWarpQuest__sub_8019DCD8(void *, s32);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 void TTecLuker__sub_801BAB1C(void *, void *);
 s32 TLobby__sub_80207770(s32);
 void set_area__6TLobbyFPvi(void *, int, int);
@@ -249,11 +249,11 @@ void TBoss7Tentacle__sub_803D8A6C(int, s32, s32, s32);
 void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, s32);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(int);
 void TOSignCave03__sub_803DB510(void *);
-void TObjDoor__sub_803DC894(s32, s32, f32);
+void draw_ginja_model_with_motion(s32, s32, f32);
 extern Colors_8019C250 lbl_805DBFCC;
 extern const f32 lbl_805DBFD4;
 extern const f32 lbl_805DBFD8;
@@ -265,11 +265,11 @@ void TBoss7Tentacle__sub_803D8A6C(int, s32, s32, s32);
 void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, s32);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(int);
 void TOSignCave03__sub_803DB510(void *);
-void TObjDoor__sub_803DC894(s32, s32, f32);
+void draw_ginja_model_with_motion(s32, s32, f32);
 extern Colors_8019C604 lbl_805DBFC8;
 extern const f32 lbl_805DBFD4;
 extern const f32 lbl_805DBFD8;
@@ -389,14 +389,14 @@ void render__18TObjAreaWarpEndingFv(Obj_8019BD84 *self) {
         TBoss7Tentacle__sub_803D8A6C(0, root->ang[0], root->ang[1], root->ang[2]);
         rotate_matrix_x(0, arg0->fC8);
         TOSignCave03__sub_803DB510(root->model);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
     end_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     begin_effect_render__13TParticleCtrlFv();
-    TObjDoor__sub_803DC894((s32)arg0->fD0, arg0->fD4, arg0->fC4);
+    draw_ginja_model_with_motion((s32)arg0->fD0, arg0->fD4, arg0->fC4);
     end_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 void run_task__18TObjAreaWarpEndingFv(u8 *arg0) {
@@ -480,7 +480,7 @@ void TObjAreaWarpQuest__vt17(Warp_8019C05C *arg0, void *arg1) {
     }
     if (arg0->fC4 > 1) {
         for (i = 0; i < 4; i++) {
-            p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+            p = get_player_by_client_id(i);
             if (p != 0 && obj_isState3_324(p) != 0 && (u16)get_action_flags__10TNpcPlayerFPv(p) != 0xFFFF) {
                 TObjAreaWarpQuest__sub_8019DCD8(p, arg0->fC4);
             }
@@ -541,15 +541,15 @@ void render__17TObjAreaWarpQuestFv(Obj_8019C250 *self) {
             TBoss7Tentacle__sub_803D8A6C((int)(0), (s32)(m->f14), (s32)(m->f18), (s32)(m->f1C));
             rotate_matrix_x((int)(0), (s32)(self->fCC));
             TOSignCave03__sub_803DB510(m->f4);
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             m = m->next30;
         }
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         begin_effect_render__13TParticleCtrlFv();
-        TObjDoor__sub_803DC894((s32)(self->fD4), (s32)(self->fD8), self->fC8);
+        draw_ginja_model_with_motion((s32)(self->fD4), (s32)(self->fD8), self->fC8);
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 
@@ -668,15 +668,15 @@ void render__18TObjAreaWarpForestFv(Obj_8019C604 *self) {
             TBoss7Tentacle__sub_803D8A6C((int)(0), (s32)(m->f14), (s32)(m->f18), (s32)(m->f1C));
             rotate_matrix_x((int)(0), (s32)(self->fCC));
             TOSignCave03__sub_803DB510(m->f4);
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             m = m->next30;
         }
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         begin_effect_render__13TParticleCtrlFv();
-        TObjDoor__sub_803DC894((s32)(self->fD4), (s32)(self->fD8), self->fC8);
+        draw_ginja_model_with_motion((s32)(self->fD4), (s32)(self->fD8), self->fC8);
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 
@@ -745,13 +745,13 @@ void TObjAreaWarp__sub_8019C924(Obj_8019C924 *self) {
 }
 void handle_6x94_inter_level_warp(Pkt_8019C988 *arg0) {
     bswap_6x94_inter_level_warp(arg0);
-    if (arg0->f4 != TObjPlayer__sub_800196EC()) {
+    if (arg0->f4 != get_current_floor()) {
         set_area__6TLobbyFPvi(lbl_80515BA0, arg0->f4, TLobby__sub_80207770(arg0->f4));
         TKeyBoardControl__sub_8000F998();
         TWindowCtrl__sub_8024AEAC(lbl_805D53A0);
         get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0);
         TNpcPlayer__sub_8034E7A0();
-        void *p = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+        void *p = get_player_by_client_id(lbl_805D53A0);
         if (p != 0) {
             TTecLuker__sub_801BAB1C(p, get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0));
         }

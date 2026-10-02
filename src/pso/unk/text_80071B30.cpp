@@ -48,7 +48,7 @@ void TBoss4DarkFalz__sub_8004C220(Plr_80071BC0 *, Vec_80071BC0 *);
 void copy_header_struct__6TLobbyFPvPv(void *, void *);
 void TNpcPlayer__sub_8007206C(Chr_80071BC0 *, void *);
 void clear_header_struct__10TObjPlayerFPv(Hdr_80071BC0 *);
-Plr_80071BC0 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+Plr_80071BC0 *get_player_by_client_id(s32);
 Plr_80071BC0 *TObjPlayer__sub_801BDEF8(s32, s32, TPlyCharData *);
 void clamp_and_set_unit_value__10TObjPlayerFiUci(Plr_80071BC0 *, u8, s16);
 void TObjPlayer__sub_801D9B38(void *, s32);
@@ -93,7 +93,7 @@ void TObjPlayer__sub_80071BC0(s32 arg0) {
     }
     {
         for (i = 0; i < 4; i++) {
-            p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+            p = get_player_by_client_id(i);
             clear_header_struct__10TObjPlayerFPv(&hdr);
             if (p == NULL) {
                 continue;

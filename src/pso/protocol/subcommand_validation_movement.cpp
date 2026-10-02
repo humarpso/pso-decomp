@@ -4,7 +4,7 @@
 
 extern "C" {
 s32 is_in_view__17TObjEneHoldEffectFPv(s32);
-u32 TPhotonMylla__sub_80154CB4(u16);
+u32 find_entity_by_id(u16);
 s32 is_matching_id__6TLobbyFiUs(void *, u16);
 
 s32 validate_6x21_inter_level_warp(G_ClientIDHeader *packet) {
@@ -72,7 +72,7 @@ s32 validate_6x90_set_player_battle_team(G_ClientIDHeader *packet) {
 }
 
 s32 validate_6x8F_add_battle_damage_scores(G_ClientIDHeader *packet) {
-    if (TPhotonMylla__sub_80154CB4(M2C_FIELD(packet, u16 *, 4)) == 0U) {
+    if (find_entity_by_id(M2C_FIELD(packet, u16 *, 4)) == 0U) {
         return 0;
     }
     return ((u32) M2C_FIELD(packet, s16 *, 6) >> 0x1FU) ^ 1;
@@ -94,7 +94,7 @@ s32 validate_6x9B_level_up_all_techniques(G_ClientIDHeader *packet) {
 }
 
 s32 validate_subcommand_client(G_ClientIDHeader *packet) {
-    if (TPhotonMylla__sub_80154CB4(packet->client_id) == 0U) {
+    if (find_entity_by_id(packet->client_id) == 0U) {
         return 0;
     }
     return (u32) __cntlzw(is_matching_id__6TLobbyFiUs(packet, packet->client_id)) >> 5;

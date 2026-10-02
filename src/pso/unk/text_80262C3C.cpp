@@ -44,7 +44,7 @@ struct VObj_18_7b8813 : VBase_18_7b8813 {
 extern "C" {
 s32 obj_testFlags30(void *, s32);
 s8 TObjPlayer__sub_80102C30(void *);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 extern const f32 lbl_805DD100;
 void fn_80262C3C(u8 *arg0);
@@ -61,7 +61,7 @@ void fn_80262C3C(u8 *arg0) {
   temp_r3 = *((u16 *) (((s8 *) arg0) + 0x60));
   if (temp_r3 != ((-1U) & 0xFFFFu))
   {
-    temp_r3_2 = (u8 *) TPhotonMylla__sub_80154CB4(temp_r3);
+    temp_r3_2 = (u8 *) find_entity_by_id(temp_r3);
     if ((temp_r3_2 == 0) || (all_parents_unqueued_for_destruction__7TObjectFv(temp_r3_2) == 0))
     {
       *((u16 *) (((s8 *) arg0) + 0x60)) = 0xFFFFU;

@@ -94,7 +94,7 @@ extern Pair_800E3374 lbl_8043CDF0[];
 void fn_800E3374(Obj_800E3374 *arg0, V_800E3374 *arg1);
 Player_800E35C8 *get_player_data__10TObjPlayerFi(s32);
 void fn_800E3374(Obj_800E3374 *arg0, V_800E3374 *arg1);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
 void fn_800E35C8(Obj_800E35C8 *arg0);
 u16 TObjPlayer__sub_800114D8(void *, s32, f32);
@@ -189,7 +189,7 @@ void fn_800E3428(Obj_800E3428 *self) {
         if (p != NULL && !(p->f30 & 0x02000A00)) {
             Vec_800E3428 v = self->pos;
             for (dist = 0.0f; dist < len; ) {
-                if (!(TObjPlayer__sub_80141CF8(&v, (u8 *)p + 0x2FC) > lim)) {
+                if (!(horizontal_distance_squared(&v, (u8 *)p + 0x2FC) > lim)) {
                     fn_800E3374((Obj_800E3374 *)self, (V_800E3374 *)p);
                     break;
                 }
@@ -217,7 +217,7 @@ void fn_800E35C8(Obj_800E35C8 *arg0) {
     f32 lim = arg0->f378 * arg0->f378;
     for (i = 0; i < lbl_805D586C; i++) {
         p = get_player_data__10TObjPlayerFi(i);
-        if (p != NULL && !(p->f30 & 0x02000A00) && !(TObjPlayer__sub_80141CF8(&arg0->pos, (u8 *) p + 0x2FC) > lim)) {
+        if (p != NULL && !(p->f30 & 0x02000A00) && !(horizontal_distance_squared(&arg0->pos, (u8 *) p + 0x2FC) > lim)) {
             fn_800E3374((Obj_800E3374 *)(arg0), (V_800E3374 *)(p));
         }
     }

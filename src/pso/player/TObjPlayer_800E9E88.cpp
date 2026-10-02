@@ -73,7 +73,7 @@ extern const f32 lbl_805DA750;
 void TObjPlayer__sub_800EA820(u8 *arg0);
 u16 TObjPlayer__sub_800115C4(void *, void *, f32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-u32 TObjPlayer__sub_8007A3AC(void *, void *);
+u32 csnLookAt(void *, void *);
 s32 TObjEneSlimeOne__sub_800EAD84(void *);
 M2C_UNK TObjEneSlimeOne__sub_800EAE78(void *, M2C_UNK);
 f32 TBoss8Dragon__sub_803D64C0(s32);
@@ -95,7 +95,7 @@ void init_slime_state__10TObjPlayerFPv(void *arg0);
 void update_dive_timer__10TObjPlayerFPv(u8 *arg0);
 void update_slime_timer__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
+M2C_UNK spawn_particle_effect(void *, M2C_UNK);
 M2C_UNK TObjEneSlimeOne__sub_800EAE78(void *, M2C_UNK);
 int TObjEneSlimeOne__sub_800EC7F4(void*, void*);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
@@ -137,7 +137,7 @@ void update_dive_timer__10TObjPlayerFPv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x394) - 1;
     M2C_FIELD(arg0, s32 *, 0x394) = temp_r0;
     if (temp_r0 == 0) {
-        TObjEneDellBiter__sub_80087350(arg0 + 0x2FC, 0xCD);
+        spawn_particle_effect(arg0 + 0x2FC, 0xCD);
     }
     if (is_reached_target_depth__15TObjEneSlimeOneFPv(M2C_FIELD(arg0, s32 *, 0x388)) == 1) {
         TObjEneSlimeOne__sub_800EAE78(arg0, 3);
@@ -157,7 +157,7 @@ void update_slime_timer__10TObjPlayerFPv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x394) - 1;
     M2C_FIELD(arg0, s32 *, 0x394) = temp_r0;
     if (temp_r0 == 0) {
-        TObjEneDellBiter__sub_80087350(arg0 + 0x2FC, 0xCD);
+        spawn_particle_effect(arg0 + 0x2FC, 0xCD);
     }
     if (is_reached_target_depth__15TObjEneSlimeOneFPv(M2C_FIELD(arg0, s32 *, 0x388)) == 1) {
         if (is_timer_active__15TObjEneSlimeOneFPv(arg0) != 0) {
@@ -215,7 +215,7 @@ void TObjPlayer__sub_800EA364(u8 *arg0) {
         M2C_FIELD(arg0, f32 *, 0x38) += M2C_FIELD(arg0, f32 *, 0x3B4) * M2C_FIELD(arg0, f32 *, 0x3B8);
         M2C_FIELD(arg0, f32 *, 0x3C) += M2C_FIELD(arg0, f32 *, 0x3B4) * M2C_FIELD(arg0, f32 *, 0x3BC);
         M2C_FIELD(arg0, f32 *, 0x40) += M2C_FIELD(arg0, f32 *, 0x3B4) * M2C_FIELD(arg0, f32 *, 0x3C0);
-        if (TObjEneSlimeOne__sub_800EAD84(arg0) != 0 && TObjPlayer__sub_8007A3AC(arg0 + 0x44, arg0 + 0x38) == 0) {
+        if (TObjEneSlimeOne__sub_800EAD84(arg0) != 0 && csnLookAt(arg0 + 0x44, arg0 + 0x38) == 0) {
             break;
         }
         ang = i << 12;

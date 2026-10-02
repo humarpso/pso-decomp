@@ -54,9 +54,9 @@ void copy_vec3__11TBoss4Type2FPvPv(void *, void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 f32 scale_velocity__19TObjGyaranzoMissileFPvf(void *, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-u32 TObjButterflyLobby__sub_8007A5D8(void *, void *, int);
+u32 csnVector(void *, void *, int);
 M2C_UNK TObjPlayer__sub_80142170(void *, void *, void *);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
 M2C_UNK TBoss6Type1__sub_803D9370(void *, void *, int);
@@ -74,7 +74,7 @@ void TObjPlayer__sub_801569F4();
 void TScene__sub_803D8DB4(int, void *, void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 void TObjPlayer__sub_803D97F0(void *);
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 extern Vec_800498E8 lbl_804366F8;
 extern u8 lbl_80484A68[];
 extern M2C_UNK lbl_80484A94[];
@@ -85,7 +85,7 @@ void queue_destruction__7TObjectFv(void *);
 s32 TBoss3Volopt__sub_8003F398();
 VObj_80049A1C *get_battle_param__10TObjPlayerFi(s32);
 s32 TObjVoloptPillar__sub_80048118(s32);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, s32);
+M2C_UNK spawn_particle_effect(void *, s32);
 M2C_UNK init_all_slots__10TObjPlayerFv();
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 M2C_UNK TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
@@ -118,7 +118,7 @@ void TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjFish__sub_803E46BC(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
@@ -167,7 +167,7 @@ void TObjPlayer__sub_800496D8(u8 *arg0) {
   s32 new_var;
   u8 *temp_r3_2;
   u8 *temp_r3_3;
-  temp_r3 = (u8 *) TPlayerBattleCtrl4P__sub_801BA74C(*((s32 *) (((s8 *) arg0) + 0xCC)));
+  temp_r3 = (u8 *) get_player_by_client_id(*((s32 *) (((s8 *) arg0) + 0xCC)));
   if (temp_r3)
   {
     temp_r5 = *((s32 *) (((s8 *) temp_r3) + 0x2FC));
@@ -196,7 +196,7 @@ void TObjPlayer__sub_800496D8(u8 *arg0) {
     copy_pos__11TNowLoadingFPvPv(temp_r3_3, arg0 + 0x38);
     copy_vec3__11TBoss4Type2FPvPv(*((u8 **) (((s8 *) arg0) + 0xD8)), arg0 + 0x5C);
   }
-  if (TObjButterflyLobby__sub_8007A5D8((void *) (arg0 + 0x44), (void *) (arg0 + 0x38), (int) (-1)) != 0U)
+  if (csnVector((void *) (arg0 + 0x44), (void *) (arg0 + 0x38), (int) (-1)) != 0U)
   {
     queue_destruction__7TObjectFv(arg0);
     return;
@@ -245,7 +245,7 @@ Obj_800498E8 *TObjPlayer__sub_800498E8(Obj_800498E8 *arg0, Obj_800498E8 *arg1, v
     v.z = TObjPlayer__sub_800499FC(0);
     rotate_matrix_y(0, arg1->f60);
     TScene__sub_803D8DB4(0, &v, &arg0->fb4);
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     arg0->fd0 = TBoss3Volopt__sub_8004816C(0);
     return arg0;
 }
@@ -283,7 +283,7 @@ void TBoss3Volopt__sub_80049A1C(u8 *arg0) {
             }
         }
     }
-    TObjEneDellBiter__sub_80087350(arg0 + 0x38, 0xFB);
+    spawn_particle_effect(arg0 + 0x38, 0xFB);
     queue_destruction__7TObjectFv(arg0);
 }
 
@@ -295,7 +295,7 @@ void draw_obj_model(u8 *arg0) {
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
     some_id_805c6f74 &= 0xFFFFFBFF;
     TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0xAC));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 }

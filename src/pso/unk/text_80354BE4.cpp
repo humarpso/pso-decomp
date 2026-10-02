@@ -71,7 +71,7 @@ M2C_UNK set_flag1__10TObjPlayerFPv(void *, int);
 extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
 void TObjPlayer__sub_80354DF4(s32 arg0);
 s32 TObjPlayer__sub_80019248();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u32 get_player_by_client_id(u16);
 s32 TObjPlayer__sub_80354E3C(s32 arg0);
 M2C_UNK reset_field4__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
@@ -147,7 +147,7 @@ void TObjPlayer__sub_80354DF4(s32 arg0) {
     }
 }
 s32 TObjPlayer__sub_80354E3C(s32 arg0) {
-    if (TPlayerBattleCtrl4P__sub_801BA74C((u16)arg0) == 0U) {
+    if (get_player_by_client_id((u16)arg0) == 0U) {
         return 0;
     }
     if (TObjPlayer__sub_80019248() != 0) {

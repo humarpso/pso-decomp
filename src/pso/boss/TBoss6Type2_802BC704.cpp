@@ -140,7 +140,7 @@ extern const RecoveredGlobal_802BC754_lbl_80471080 lbl_80471080;
 extern const f32 TBoss6Type2__data_805DE410;
 void TBoss6Type2__sub_802BC754(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(s32 a0, s32 a1);
-M2C_UNK TPlayerBattleCtrl4P__sub_801BA74C(int);
+M2C_UNK get_player_by_client_id(int);
 s32 TBoss6Type2__sub_802B9938(void *, void *, void *);
 s32 rand(void);
 f32 TBoss8Dragon__sub_803D64C0(int);
@@ -541,7 +541,7 @@ void TBoss6Type2__sub_802BD938(u8 *arg0, u8 *arg1) {
     s32 temp_r29;
     s32 temp_r29_2;
     s32 temp_r3;
-    temp_r3 = ((s32)TPlayerBattleCtrl4P__sub_801BA74C((int) ((s32) M2C_FIELD(arg0, u16 *, 0x466))));
+    temp_r3 = ((s32)get_player_by_client_id((int) ((s32) M2C_FIELD(arg0, u16 *, 0x466))));
     if (temp_r3 != 0) {
         VecCopy__FP3VecPC3Vec((s32)((void *) (&stack.sp18)), (s32)((void *) (temp_r3 + 0x38)));
     } else {
@@ -605,7 +605,7 @@ void update_attack_target__11TBoss6Type2FPv(void *arg0) {
         temp_r3 = TBoss6Type2__sub_802BB694(arg0);
         var_r30 = temp_r3;
         if ((u16) temp_r3 == 0xFFFF) {
-            TPlayerBattleCtrl4P__sub_801BA74C(temp_r31);
+            get_player_by_client_id(temp_r31);
             if (is_active__14TBoss6PlotFalzFPv() != 0) {
                 var_r30 = temp_r31;
             }

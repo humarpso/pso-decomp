@@ -91,22 +91,22 @@ extern void *TPlayerBattleCtrl4P__data_805D6AA8;
 u8 TPlayerBattleCtrl4P__sub_803102C8(void);
 void TWindow__close(void *);
 void TPlayerBattleCtrl4P__sub_803101D4(Ctl_803101D4 *o);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 void *__nw__7TObjectFUl(u32);
 void *TWindowDuelResult__ct(void *, int);
 void TPlayerBattleCtrl4P__sub_80310230(Ctl_80310230 *o);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 get_map_id__13TRaderMapCoreFPv();
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 void TWindow__close(void *);
 extern MapEnt_8031012C lbl_8050E208[];
 s32 TPlayerBattleCtrl4P__sub_8031012C(Ctl_8031012C *self);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 s32 get_state__19TPlayerBattleCtrl4PFPv(void *);
 u8 TLobby__sub_801D7100(void *);
 extern u8 lbl_8050EA40[];
 void TPlayerBattleCtrl4P__sub_803104CC(Ctl_803104CC *self);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 void init_all__11TWindowCtrlFPvPv(void *, s32);
 void notify_lobby__19TPlayerBattleCtrl4PFPvPvPv(void* p, void* a1, void* a2);
 void reset_score_counters__19TPlayerBattleCtrl4PFPv(void* p);
@@ -125,7 +125,7 @@ extern s16 lbl_80511CB0[];
 extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D53AC;
 void TPlayerBattleCtrl4P__sub_80310910(Ctl_80310910 *o, s32 frames);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 s32 TLobby__sub_801C19D0(void *);
 s32 get_state__19TPlayerBattleCtrl4PFPv(void *);
 u8 TLobby__sub_801D7064(void *);
@@ -133,10 +133,10 @@ u8 TLobby__sub_801D7100(void *);
 extern P_803109D4 lbl_80475B80[];
 extern u8 lbl_8050EA40[];
 u8 TPlayerBattleCtrl4P__sub_803109D4(O_803109D4 *o);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 TPlayerBattleCtrl4P__data_80542E90;
 s32 TPlayerBattleCtrl4P__sub_8031030C(void);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FCE6C();
 void *get_card_window__17TWindowSubComCardFUi(u16);
 s32 TPlayerBattleCtrl4P__sub_8031030C(void);
@@ -206,7 +206,7 @@ s32 set_state__19TPlayerBattleCtrl4PFPv(void *arg0);
 void update_players__19TPlayerBattleCtrl4PFv(void);
 M2C_UNK TLobby__sub_801B09A4();
 int TLobby__sub_8022727C(void*);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 int fn_801C23A8(void*, void*);
 M2C_UNK inc_player_count__10TObjPlayerFv();
 
@@ -241,7 +241,7 @@ s32 TPlayerBattleCtrl4P__sub_8031012C(Ctl_8031012C *self) {
     s32 r = 1;
     s32 i;
     for (i = 0; i < 4; i++) {
-        if (TPlayerBattleCtrl4P__sub_801BA74C(i) != 0) {
+        if (get_player_by_client_id(i) != 0) {
             if (self->win[i] != NULL) {
                 if (TWindowShortListCtrl__check_controller_button(lbl_8050E208[get_map_id__13TRaderMapCoreFPv()].sub, 2) != 0) {
                     TWindow__close(self->win[i]);
@@ -269,7 +269,7 @@ void TPlayerBattleCtrl4P__sub_80310230(Ctl_80310230 *o) {
     s32 i;
     void *w;
     for (i = 0; i < 4; i++) {
-        if (TPlayerBattleCtrl4P__sub_801BA74C(i) != 0) {
+        if (get_player_by_client_id(i) != 0) {
             w = __nw__7TObjectFUl(0x6C);
             if (w != 0) {
                 w = TWindowDuelResult__ct(w, i);
@@ -305,7 +305,7 @@ s32 TPlayerBattleCtrl4P__sub_8031030C(void) {
     result = 1;
     for (i = 0; i < 4; i++) {
         e = &((Ent_8031030C *)&TPlayerBattleCtrl4P__data_80542E90)[i];
-        if (TPlayerBattleCtrl4P__sub_801BA74C(e->id) != NULL && e->idx != 0) {
+        if (get_player_by_client_id(e->id) != NULL && e->idx != 0) {
             result = 0;
             break;
         }
@@ -332,7 +332,7 @@ void TPlayerBattleCtrl4P__sub_803104CC(Ctl_803104CC *self) {
     Ent_803104CC *e;
     s32 v;
     for (i = 0; i < 4; i++) {
-        e = (Ent_803104CC *)TPlayerBattleCtrl4P__sub_801BA74C(i);
+        e = (Ent_803104CC *)get_player_by_client_id(i);
         if (e != NULL) {
             ((s32 (*)(void *, void *))TPlayerBattleCtrl4P__sub_80310380)(self, e);
             v = 1;
@@ -383,7 +383,7 @@ void TPlayerBattleCtrl4P__sub_80310674(void) {
     off = 0;
     do {
         entry = base + off;
-        if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(entry, u16 *, 0)) != NULL) {
+        if (get_player_by_client_id(M2C_FIELD(entry, u16 *, 0)) != NULL) {
             obj = get_card_window__17TWindowSubComCardFUi(M2C_FIELD(entry, u16 *, 0));
             if (obj != NULL) {
                 s16 field2 = M2C_FIELD(entry, s16 *, 2);
@@ -446,7 +446,7 @@ void update_players__19TPlayerBattleCtrl4PFv(void) {
 
     var_r31 = 0;
     do {
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(var_r31);
+        temp_r3 = get_player_by_client_id(var_r31);
         if ((temp_r3 != NULL) && (M2C_FIELD(temp_r3, s32 *, 0x30) & 0x800)) {
             ((VObj_803107D0_8031058C *)temp_r3)->v64();
         }
@@ -464,7 +464,7 @@ void TPlayerBattleCtrl4P__sub_80310830(void *arg0) {
     init_all__11TWindowCtrlFPvPv(lbl_80475B90, 0x200);
     for (i = 0; i < 4; i++) {
         e = &((Ent_80310830 *)&TPlayerBattleCtrl4P__data_80542E90)[i];
-        p = (VObj_80310830 *)TPlayerBattleCtrl4P__sub_801BA74C(e->id);
+        p = (VObj_80310830 *)get_player_by_client_id(e->id);
         if (p != 0) {
             sprintf(buf, lbl_80475B98, lbl_804E8098[e->idx], p->v10());
             init_all__11TWindowCtrlFPvPv(buf, 0x200);
@@ -503,7 +503,7 @@ u8 TPlayerBattleCtrl4P__sub_803109D4(O_803109D4 *o) {
     u8 *p;
     P_803109D4 seen = lbl_80475B80[0];
     do {
-        p = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(i);
+        p = (u8 *)get_player_by_client_id(i);
         if (p != NULL) {
             ok = 1;
             if (o->active[i] == 0) {
@@ -533,14 +533,14 @@ u8 TPlayerBattleCtrl4P__sub_803109D4(O_803109D4 *o) {
     return count <= 1;
 }
 
-#define TPlayerBattleCtrl4P__sub_801BA74C ((u32 (*)(s32))TPlayerBattleCtrl4P__sub_801BA74C)
+#define get_player_by_client_id ((u32 (*)(s32))get_player_by_client_id)
 void send_code_45_to_window__19TPlayerBattleCtrl4PFPvii(void *arg0, s32 arg1, s32 arg2) {
     u16 temp_r31;
     s32 temp_r30;
 
     temp_r31 = (u16)arg1;
     temp_r30 = arg2;
-    if (TPlayerBattleCtrl4P__sub_801BA74C((s32)((s32)(temp_r31))) != 0U) {
+    if (get_player_by_client_id((s32)((s32)(temp_r31))) != 0U) {
         send_code_45_1__10TObjPlayerFi();
     }
     if (temp_r30 != 0) {
@@ -556,7 +556,7 @@ s32 check_all_players_flag__19TPlayerBattleCtrl4PFv(void) {
 
     var_r31 = 0;
 loop_1:
-    var_r3 = TPlayerBattleCtrl4P__sub_801BA74C((s32)((s32)(var_r31)));
+    var_r3 = get_player_by_client_id((s32)((s32)(var_r31)));
     if ((var_r3 != 0U) && (obj_testFlags30(var_r3, 0x02000000) != 0)) {
         return 0;
     }
@@ -572,7 +572,7 @@ void remove_player__19TPlayerBattleCtrl4PFPvUsi(void *arg0, u16 arg1, s32 arg2) 
     u32 temp;
 
     id = arg1;
-    temp = TPlayerBattleCtrl4P__sub_801BA74C((s32)(id));
+    temp = get_player_by_client_id((s32)(id));
     if (temp != 0U) {
         play_effect_default__10TObjPlayerFii(temp, -1);
     }
@@ -599,7 +599,7 @@ void update_all_players__19TPlayerBattleCtrl4PFv(void) {
 
     var_r31 = 0;
     do {
-        if (TPlayerBattleCtrl4P__sub_801BA74C((s32)(var_r31)) != 0U) {
+        if (get_player_by_client_id((s32)(var_r31)) != 0U) {
             release_attached_resource__10TObjPlayerFPv();
         }
         var_r31 += 1;
@@ -628,7 +628,7 @@ void TPlayerBattleCtrl4P__sub_80311380(Ctl_80311380 *o) {
     void *p;
     init_scene_objects__6TLobbyFv();
     for (i = 0; i < 4; i++) {
-        p = (void *)TPlayerBattleCtrl4P__sub_801BA74C(i);
+        p = (void *)get_player_by_client_id(i);
         if (p != 0) {
             TObjPlayer__sub_801BC068(p, o->tbl[(u16)obj_getField1c()]);
             TCameraCtrl__sub_8006A410(p, 0);
@@ -679,7 +679,7 @@ void update__19TPlayerBattleCtrl4PFv(void) {
     ((M2C_UNK (*)())TPlayerBattleCtrl4P__sub_8031058C)();
     var_r31 = 0;
     do {
-        if (TPlayerBattleCtrl4P__sub_801BA74C((s32)(var_r31)) != 0U) {
+        if (get_player_by_client_id((s32)(var_r31)) != 0U) {
             obj_set_flag_20000();
         }
         var_r31 += 1;
@@ -690,7 +690,7 @@ void update__19TPlayerBattleCtrl4PFv(void) {
     TLobby__sub_8020BB18();
     var_r31_2 = 0;
     do {
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((s32)(var_r31_2));
+        temp_r3 = get_player_by_client_id((s32)(var_r31_2));
         if (temp_r3 != 0U) {
             fn_801C5454(temp_r3 + 0x7C4);
         }
@@ -710,7 +710,7 @@ void TPlayerBattleCtrl4P__sub_80311618(O_80311618 *o) {
     o->time = OSGetTime();
     for (i = 0; i < 4; i++) {
         ((void (*)(void *, u16, s32))send_code_45_to_window__19TPlayerBattleCtrl4PFPvii)(o, i, 1);
-        p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        p = get_player_by_client_id(i);
         if (p != 0) {
             obj_clear_flag30_20000(p);
         }
@@ -741,7 +741,7 @@ void TPlayerBattleCtrl4P__sub_8031171C(Ctl_8031171C *o) {
     TPlayerBattleCtrl4P__sub_80310F10(o, 1);
     for (i = 0; i < 4; i++) {
         remove_player__19TPlayerBattleCtrl4PFPvUsi(o, i, 1);
-        p = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(i);
+        p = (u8 *)get_player_by_client_id(i);
         if (p != 0) {
             obj_set_flag_20000();
             update_child_player__6TLobbyFi(p + 0x78C);
@@ -759,5 +759,5 @@ void TPlayerBattleCtrl4P__sub_8031171C(Ctl_8031171C *o) {
     }
 }
 
-#undef TPlayerBattleCtrl4P__sub_801BA74C
+#undef get_player_by_client_id
 }

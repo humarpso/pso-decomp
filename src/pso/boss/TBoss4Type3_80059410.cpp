@@ -107,7 +107,7 @@ void TBoss4Type3__sub_8005A2A4(Obj_8005A2A4 *self);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 void calc_grid_index__11TBoss4Type3FPv(void *arg0);
 s32 TObjPlayer__sub_801423A4(s32, s32, s32);
-Ply_80059ABC *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+Ply_80059ABC *get_player_by_client_id(u16);
 extern const f64 lbl_80437890[];
 extern const f32 lbl_805D8C7C;
 void TBoss4Type3__sub_80059ABC(Obj_80059ABC *self, s32 arg1);
@@ -129,9 +129,9 @@ void TBoss4Type3__sub_8005A438(Obj_8005A438 *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK create_yutai__11TBoss4Type3FPvPvPv(void *, s32, u16);
 M2C_UNK fn_80052420(u16, s32);
-u32 TObjEneDellBiter__sub_80087350(void *, s32);
+u32 spawn_particle_effect(void *, s32);
 void set_flags__11TBoss4Type2FPvUi(u32, u32);
-Ply_80059ABC *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+Ply_80059ABC *get_player_by_client_id(u16);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
@@ -242,7 +242,7 @@ void TBoss4Type3__sub_80059618(O_80059618 *o) {
     s32 i;
     u32 e;
     if (o->f3ba == 0xFFFF || o->f374 == 2 || o->f374 == 3 || o->f32c >= o->f3e4 ||
-        (p = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(o->f3ba)) == NULL) {
+        (p = (u8 *)get_player_by_client_id(o->f3ba)) == NULL) {
         o->f3e4 = o->f32c;
         return;
     }
@@ -262,7 +262,7 @@ void TBoss4Type3__sub_80059618(O_80059618 *o) {
     dir.y *= lbl_805D8C68;
     dir.z *= lbl_805D8C68;
     for (i = 0; i < 8; i++) {
-        e = TObjEneDellBiter__sub_80087350(&pos, 0x38);
+        e = spawn_particle_effect(&pos, 0x38);
         if (e != 0) {
             set_flags__11TBoss4Type2FPvUi(e, 0x40);
         }
@@ -283,7 +283,7 @@ extern f32 lbl_805D8C80;
 void TBoss4Type3__sub_80059ABC(Obj_80059ABC *self, s32 arg1) {
     Ply_80059ABC *p;
     if ((u16)arg1 != 0xFFFF) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C((u16)arg1);
+        p = get_player_by_client_id((u16)arg1);
         if (p != NULL) {
             self->f60 = TObjPlayer__sub_801423A4(self->f60, (s32)(lbl_80437890[0] * get_ad_end_text_start__10TObjPlayerFv(p->f38 - lbl_805D8C7C, p->f40)), 0x888);
             calc_grid_index__11TBoss4Type3FPv(self);

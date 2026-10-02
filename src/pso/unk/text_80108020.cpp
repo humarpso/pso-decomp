@@ -100,7 +100,7 @@ struct Self_80108020 {
 extern "C" {
 void TBoss3Volopt__sub_8022675C(u32, void *, s32, s32);
 f32 TObjPlayer__sub_803E1A58(Vec_80108164 *, Vec_80108164 *);
-Player_80108164 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+Player_80108164 *get_player_by_client_id(u16);
 void *__nw__7TObjectFUl(u32);
 Quest_80108164 *get_quest_id__12TQuestListVMFPv(Player_80108164 *);
 extern const f32 lbl_805DAB04;
@@ -154,7 +154,7 @@ Self_80108020 *TItemEffArmor__ct(Self_80108020 *self, u8 *obj, f32 a, f32 b) {
 }
 
 void TObjPlayer__sub_80108164(s32 idx) {
-    Player_80108164 *p = TPlayerBattleCtrl4P__sub_801BA74C(idx);
+    Player_80108164 *p = get_player_by_client_id(idx);
     if (p != 0) {
         Quest_80108164 *q = get_quest_id__12TQuestListVMFPv(p);
         if (q != 0) {

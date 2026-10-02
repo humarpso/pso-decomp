@@ -199,7 +199,7 @@ s32 TRaderMapCore__sub_801F9228(void *self, int mode, void *arg2);
 s32 TCameraCtrl__sub_80069304();
 s32 test_flag_2000000__10TObjPlayerFPv(u32);
 s32 check_flag_100__10TObjPlayerFPv(u32);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 s32 get_flag_bit0__11TWindowCtrlFv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 extern u8 TCameraCtrl__data_804FF628[];
@@ -216,7 +216,7 @@ s32 is_active__13TRaderMapCoreFv(void);
 void reset_counter__13TRaderMapCoreFPv(void* p);
 s32 should_show_map__13TRaderMapCoreFv(void);
 void update_target__13TRaderMapCoreFPv(void *arg0);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 int __dt__5THeapFv(void*, void*);
 s32 is_card_flag_set__19TWindowKeyBoardHardFPv(u16);
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -537,7 +537,7 @@ s32 TRaderMapCore__sub_801FADF0(void *arg0v, void *arg1) {
         return 0;
     }
     for (i = 0; i < 4; i++) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        p = get_player_by_client_id(i);
         if (p != 0 && check_flag_100__10TObjPlayerFPv(p) != 0 && (s32)arg1 == 2) {
             return 0;
         }
@@ -548,7 +548,7 @@ s32 TRaderMapCore__sub_801FADF0(void *arg0v, void *arg1) {
 void update_target__13TRaderMapCoreFPv(void *arg0) {
     u32 temp_r3;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(lbl_805D53A0);
     if (temp_r3 != 0U) {
         M2C_FIELD(arg0, u32 *, 0x184) = temp_r3;
     }

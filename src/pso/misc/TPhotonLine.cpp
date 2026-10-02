@@ -35,7 +35,7 @@ extern "C" {
 void TObjPlayer__sub_80019038(void *, void *);
 Vec_801ACD14 *VecCopy__FP3VecPC3Vec(Vec_801ACD14 *, const Vec_801ACD14 *);
 void reset_photon_effect__10TObjPlayerFPv(void *);
-void *TPhotonMylla__sub_80154CB4(u16);
+void *find_entity_by_id(u16);
 void TObjPlayer__sub_80154E3C(void *);
 void TObjEneGibbles__sub_80156780(void *, void *, s32);
 extern u8 lbl_804C37D8[];
@@ -82,7 +82,7 @@ Line_801ACD14 *TPhotonLine__ct(Line_801ACD14 *self, Params_801ACD14 *p, void *pa
     self->f334.y *= p->scale;
     self->f334.z *= p->scale;
     self->f344 = p->f1C;
-    self->f350 = TPhotonMylla__sub_80154CB4(arg3);
+    self->f350 = find_entity_by_id(arg3);
     TObjEneGibbles__sub_80156780(self, lbl_804C37D8, 1);
     TObjPlayer__sub_80154E3C(self);
     reset_photon_effect__10TObjPlayerFPv(self);

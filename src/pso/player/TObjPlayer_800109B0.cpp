@@ -5,8 +5,8 @@ extern "C" {
 s32 obj_setArrS16_FC(s32, s32, u16);
 u16 obj_getArrU16_FC(s32, s32);
 s32 obj_getField1c(s32);
-s32 TOSwitchAttack__sub_80087278(s32, s32, s32);
-s32 TObjPlayer__sub_80087638(s32, s32);
+s32 spawn_particle_effect_with_flags(s32, s32, s32);
+s32 set_owner_id__13TParticleCtrlFPvUs(s32, s32);
 int obj_clearArrS16_FC(void*, void*);
 void clear_s16_arrays__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_80010A78(void);

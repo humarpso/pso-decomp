@@ -64,8 +64,8 @@ Obj_80232B7C *fn_80232B7C(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C
 void queue_destruction__7TObjectFv(void *);
 s32 TObjFish__sub_8001EDC4(s32, u32);
 M2C_UNK TObjFish__sub_800660D4(s32, s32, s32, int, int, f32);
-s32 TObjEneDellBiter__sub_80087350(void *, s32);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+s32 spawn_particle_effect(void *, s32);
+u8 *find_entity_by_id(u16);
 void *__nw__7TObjectFUl(u32);
 Obj_80232B7C *fn_80232B7C(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale);
 M2C_UNK TOSwitchAttack__sub_80235A8C(void *, void *, int, int, int, void *);
@@ -120,16 +120,16 @@ void fn_80232C50(Ctl_80232C50 *arg0) {
     }
     if (arg0->timer >= 30) {
         for (i = 0; i < lbl_8044D56C[arg0->kind].count; i++) {
-            obj = TPhotonMylla__sub_80154CB4(arg0->id);
+            obj = find_entity_by_id(arg0->id);
             if (obj != 0) {
                 SEnt_80232C50 *e = &lbl_8044D56C[arg0->kind].ents[i];
                 if (e->flags & 0x20) {
-                    r = TObjEneDellBiter__sub_80087350(obj + 0x38, e->a);
+                    r = spawn_particle_effect(obj + 0x38, e->a);
                     if (r != 0) {
                         TObjFish__sub_800660D4(r, TObjFish__sub_8001EDC4(lbl_805D63AC, lbl_8044D56C[arg0->kind].ents[i].flags >> 16), lbl_805D63B0, 0, 1, lbl_805DC854);
                     }
                 } else {
-                    TObjEneDellBiter__sub_80087350(obj + 0x38, e->a);
+                    spawn_particle_effect(obj + 0x38, e->a);
                 }
             }
         }

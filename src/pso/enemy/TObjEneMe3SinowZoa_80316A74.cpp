@@ -133,15 +133,15 @@ struct VObj_14_0b0741 : VBase_14_0b0741 {
 extern "C" {
 int get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 void set_field_378__9TObjEneDDFPvi(void *, s32);
-void TObjEneDD__sub_800BBA18(void *, s16);
-void TBoss1Dragon__sub_80143504(void *);
+void transition_enemy_state(void *, s16);
+void advance_animation_playback(void *);
 void set_indexed_flags(void *, s32, s32);
 s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
 void TObjEneMe3SinowZoa__sub_80317254(u8 *arg0, s32 arg1);
 int get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 void set_field_378__9TObjEneDDFPvi(void *, s32);
-void TObjEneDD__sub_800BBA18(void *, s16);
-void TBoss1Dragon__sub_80143504(void *);
+void transition_enemy_state(void *, s16);
+void advance_animation_playback(void *);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
 void TObjEneMe3SinowZoa__sub_803170F0(u8 *arg0, s32 arg1);
 }
@@ -164,14 +164,14 @@ void TObjEneMe3SinowZoa__sub_803170F0(u8 *arg0, s32 arg1) {
         break;
     case 3:
         if (((s32) M2C_FIELD(arg0, s32 *, 0x434) == 1) && (((VObj_14_0b0741 *)((u8 *)(arg0) + (1044)))->m5() != 0)) {
-            TObjEneDD__sub_800BBA18(arg0, 6);
+            transition_enemy_state(arg0, 6);
             M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & ~5);
             break;
         }
     case 5:
         break;
     case 0:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(arg0) != 0) {
             M2C_FIELD(arg0, s32 *, 0x434) = 1;
         }
@@ -196,7 +196,7 @@ void TObjEneMe3SinowZoa__sub_80317254(u8 *arg0, s32 arg1) {
     case 3:
         if (((s32) M2C_FIELD(arg0, s32 *, 0x434) == 1) && (((VObj_14_c5778e *)((u8 *)(arg0) + (1044)))->m4() != 0)) {
             M2C_FIELD(arg0, s32 *, 0x3C0) = 1;
-            TObjEneDD__sub_800BBA18(arg0, 6);
+            transition_enemy_state(arg0, 6);
             M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & ~5);
             M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) | 0x40000);
             set_indexed_flags(arg0, 0, 0x08000000);
@@ -205,7 +205,7 @@ void TObjEneMe3SinowZoa__sub_80317254(u8 *arg0, s32 arg1) {
     case 5:
         break;
     case 0:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(arg0) != 0) {
             M2C_FIELD(arg0, s32 *, 0x434) = 1;
         }

@@ -276,7 +276,7 @@ s32 TTecCtrl__sub_8022C4D4(s32, u16);
 void TTecMegid__vt6(Obj_80235490 *self, VObj_80235490 *target);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 extern TTecGiBartaData_80230B48 TTecMegid__data_8044D874[];
-void *TPhotonMylla__sub_80154CB4(u16);
+void *find_entity_by_id(u16);
 void TObjPlayer__sub_803D97F0(void *);
 void rotate_matrix_y(s32, s32);
 void TCameraCtrl__sub_803D8934(s32, Vec_80235740 *, Vec_80235740 *);
@@ -284,7 +284,7 @@ void TCameraCtrl__sub_803D9858(s32);
 void copy_pos__11TNowLoadingFPvPv(void *, Vec_80235740 *);
 void fn_8023A694(Obj_80235740 *);
 void advance_lifetime_or_destroy(Obj_80235740 *);
-void TObjPlayer__sub_8023A148(Obj_80235740 *, s32);
+void dispatch_technique_contact(Obj_80235740 *, s32);
 extern Vec_80235740 lbl_8044D8B0;
 extern u8 lbl_8058D490[];
 void run_task__9TTecMegidFv(Obj_80235740 *self);
@@ -497,7 +497,7 @@ TTecGiBarta_80230B48 *__dt__9TTecMegidFv(TTecGiBarta_80230B48 *self, s16 deletin
 
 void run_task__9TTecMegidFv(Obj_80235740 *self) {
     u32 i;
-    self->source = TPhotonMylla__sub_80154CB4(self->sourceId);
+    self->source = find_entity_by_id(self->sourceId);
     if (self->source == NULL) {
         queue_destruction__7TObjectFv(self);
         return;
@@ -520,7 +520,7 @@ void run_task__9TTecMegidFv(Obj_80235740 *self) {
     }
     fn_8023A694(self);
     advance_lifetime_or_destroy(self);
-    TObjPlayer__sub_8023A148(self, 1);
+    dispatch_technique_contact(self, 1);
 }
 
 u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {

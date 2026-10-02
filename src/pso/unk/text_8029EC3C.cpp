@@ -12,14 +12,14 @@ struct Hit_8029EC3C {
 };
 
 extern "C" {
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 f32 TCameraCtrl__sub_803D8D00(void *);
 void reflect_matrix_in_plane(s32, void *);
-Hit_8029EC3C *TBoss8Dragon__sub_8007A544(void *, s32);
-Hit_8029EC3C *TObjButterflyLobby__sub_8007A5D8(void *, void *, s32);
+Hit_8029EC3C *csnVecterUnder(void *, s32);
+Hit_8029EC3C *csnVector(void *, void *, s32);
 extern s32 lbl_805D53A0;
 extern Vec_8029EC3C lbl_804DC7B8;
 extern const f32 lbl_805DDD88;
@@ -42,7 +42,7 @@ s32 fn_8029EC3C(Vec_8029EC3C *pos, s32 arg1) {
     Hit_8029EC3C *r;
     Hit_8029EC3C::HitE_8029EC3C *e;
     f32 scale;
-    p = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    p = get_player_by_client_id(lbl_805D53A0);
     if (p == 0) return 0;
     scale = lbl_805DDD98;
     if (get_global_state__14TOKeyMachine01Fv() == 0x1C) {
@@ -70,9 +70,9 @@ s32 fn_8029EC3C(Vec_8029EC3C *pos, s32 arg1) {
         return 1;
     }
     if (lbl_805DDD8C == lbl_804DC7B8.x && lbl_805DDD8C == lbl_804DC7B8.z) {
-        r = TBoss8Dragon__sub_8007A544(&a, arg1);
+        r = csnVecterUnder(&a, arg1);
     } else {
-        r = TObjButterflyLobby__sub_8007A5D8(&a, &b, arg1);
+        r = csnVector(&a, &b, arg1);
     }
     if (r != 0) {
         e = r->e;

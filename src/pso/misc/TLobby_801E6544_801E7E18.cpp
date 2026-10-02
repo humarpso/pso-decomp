@@ -135,11 +135,11 @@ extern s32 lbl_805D5544;
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801E7EB0(void);
 M2C_UNK TObjPlayer__sub_801AEFAC();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 extern s32 TLobby__data_80512220[];
 void TLobby__sub_801E8288(void);
 M2C_UNK stop_force_if_alive__10TObjPlayerFPv();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 extern s32 TLobby__data_80512220[];
 void TLobby__sub_801E82C0(void);
 extern s32 TLobby__data_80512220[];
@@ -169,7 +169,7 @@ int init_graph__6TLobbyFPv(void* p);
 void notify_player_battle__6TLobbyFv(void);
 void set_handler_entry__6TLobbyFi(int a0);
 M2C_UNK TObjPlayer__sub_801B8DE8(u32, s32, s32);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 int TWindowSubComCard__sub_8007AFB8(void);
 int destroy_singleton__6TLobbyFv(void*);
 int get_selected_slot__6TLobbyFv(void*);
@@ -226,7 +226,7 @@ void notify_player_battle__6TLobbyFv(void) {
     u32 ret;
 
     temp_r31 = TLobby__data_80512220[0];
-    ret = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    ret = get_player_by_client_id(lbl_805D53A0);
     if (ret != 0U) {
         TObjPlayer__sub_801B8DE8(ret, temp_r31, 1);
     }
@@ -237,13 +237,13 @@ int destroy__6TLobbyFPv(void* p) { return destroy_singleton__6TLobbyFv(p); }
 int init_graph__6TLobbyFPv(void* p) { return init_graph__6TLobbyFv(p); }
 typedef char RecoveredGlobal_801E8288_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801E8288_TLobby__data_80512220) == 0x20 ? 1 : -1];
 void TLobby__sub_801E8288(void) {
-    if (TPlayerBattleCtrl4P__sub_801BA74C((s32)((int) ((u16) (*(RecoveredGlobal_801E8288_TLobby__data_80512220 *)&TLobby__data_80512220).value))) != 0U) {
+    if (get_player_by_client_id((s32)((int) ((u16) (*(RecoveredGlobal_801E8288_TLobby__data_80512220 *)&TLobby__data_80512220).value))) != 0U) {
         TObjPlayer__sub_801AEFAC();
     }
 }
 typedef char RecoveredGlobal_801E82C0_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801E82C0_TLobby__data_80512220) == 0x20 ? 1 : -1];
 void TLobby__sub_801E82C0(void) {
-    if (TPlayerBattleCtrl4P__sub_801BA74C((s32)((int) ((u16) (*(RecoveredGlobal_801E82C0_TLobby__data_80512220 *)&TLobby__data_80512220).value))) != 0U) {
+    if (get_player_by_client_id((s32)((int) ((u16) (*(RecoveredGlobal_801E82C0_TLobby__data_80512220 *)&TLobby__data_80512220).value))) != 0U) {
         stop_force_if_alive__10TObjPlayerFPv();
     }
 }

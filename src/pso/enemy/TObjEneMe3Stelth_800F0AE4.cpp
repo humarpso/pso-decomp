@@ -21,12 +21,12 @@ s32 TObjFish__sub_800660D4(int, int, int, int, int, f32);
 u8 *csnVectorUnder(M2C_UNK *, s32, s32);
 s32 TParticleCtrl__sub_80086884(int);
 s32 get_instance__13TParticleCtrlFv();
-M2C_UNK TObjEneDellBiter__sub_80087350(s32, M2C_UNK);
+M2C_UNK spawn_particle_effect(s32, M2C_UNK);
 s32 TObjEneGibbles__sub_800D8988(void *);
 extern const f32 TObjEneMe3Stelth__data_805DA808;
 extern const f32 TObjEneMe3Stelth__data_805DA80C;
 s32 TObjEneMe3Stelth__sub_800F0B4C(s32 arg0, s32 arg1);
-M2C_UNK TObjEneDellBiter__sub_80087350(s32, M2C_UNK);
+M2C_UNK spawn_particle_effect(s32, M2C_UNK);
 s32 TObjEneMe3Stelth__sub_800F0B4C(s32 arg0, s32 arg1);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 void play_hit_effect__16TObjEneMe3StelthFi(s32 arg0);
@@ -63,13 +63,13 @@ s32 TObjEneMe3Stelth__sub_800F0B4C(s32 arg0, s32 arg1) {
   temp_r3 = (u8 *) csnVectorUnder(&stack.sp8, arg0 + 0x120, 0x15);
   if ((temp_r3 != 0) && ((*((s32 *) (((s8 *) temp_r3) + 0))) & 4))
   {
-    temp_r3_2 = ((s32)TObjEneDellBiter__sub_80087350((s32)((int) ((*((s32 *) (((s8 *) temp_r3) + 4))) + 0x38)), (M2C_UNK)((int) 0x49)));
+    temp_r3_2 = ((s32)spawn_particle_effect((s32)((int) ((*((s32 *) (((s8 *) temp_r3) + 4))) + 0x38)), (M2C_UNK)((int) 0x49)));
     if (temp_r3_2 != 0)
     {
       ;
       TObjFish__sub_800660D4((int) temp_r3_2, (int) TParticleCtrl__sub_80086884((int) 2), (int) get_instance__13TParticleCtrlFv(), (int) 0, (int) 1, (f32) TObjEneMe3Stelth__data_805DA80C);
     }
-    TObjEneDellBiter__sub_80087350((s32)((int) ((*((s32 *) (((s8 *) temp_r3) + 4))) + 0x38)), (M2C_UNK)((int) 0xA4));
+    spawn_particle_effect((s32)((int) ((*((s32 *) (((s8 *) temp_r3) + 4))) + 0x38)), (M2C_UNK)((int) 0xA4));
     TObjEneGibbles__sub_800D8988((void *) (arg0 + 0x38));
     return 1;
   }
@@ -80,7 +80,7 @@ void play_hit_effect__16TObjEneMe3StelthFi(s32 arg0) {
         TBoss3Volopt__sub_8022675C(0x3A836, arg0 + 0x38, 0, 0);
         return;
     }
-    TObjEneDellBiter__sub_80087350(arg0 + 0x38, 0xF3);
+    spawn_particle_effect(arg0 + 0x38, 0xF3);
     TBoss3Volopt__sub_8022675C(0x3A836, arg0 + 0x38, 0, 0);
 }
 void TObjEneMe3Stelth__sub_800F0C90(u8 *arg0) {

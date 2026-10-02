@@ -13,7 +13,7 @@ extern const f32 lbl_805DD388;
 extern const f32 lbl_805DD38C;
 void TWindowSubStatusDisp__sub_8026F6DC(u8 *arg0);
 s16 get_field_2b8__14TItemProShieldFPv(int);
-void *TPlayerBattleCtrl4P__sub_801BA74C();
+void *get_player_by_client_id();
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 M2C_UNK get_width__11TWindowCtrlFPv();
 M2C_UNK TWindowSubStatusDisp__sub_802575C0(void *, M2C_UNK, f32);
@@ -28,7 +28,7 @@ extern "C" {
 void init_gauge_entry__20TWindowSubStatusDispFPv(void *arg0);
 s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0);
 void update_status_entry__20TWindowSubStatusDispFi(s32 arg0);
-void *TPlayerBattleCtrl4P__sub_801BA74C();
+void *get_player_by_client_id();
 M2C_UNK get_width__11TWindowCtrlFPv();
 M2C_UNK TWindowSubStatusDisp__sub_802575C0(void *, M2C_UNK, f32);
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
@@ -74,7 +74,7 @@ void update_status_entry__20TWindowSubStatusDispFi(s32 arg0) {
     VObj_8026F77C_more_8026f8cc_0 *temp_r3;
 
     get_width__11TWindowCtrlFPv();
-    temp_r3 = (VObj_8026F77C_more_8026f8cc_0 *) TPlayerBattleCtrl4P__sub_801BA74C();
+    temp_r3 = (VObj_8026F77C_more_8026f8cc_0 *) get_player_by_client_id();
     if (temp_r3 != NULL) {
         temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(2));
         M2C_FIELD(temp_r31, s32 *, 0x20) = temp_r3->m14() + 1;
@@ -92,7 +92,7 @@ s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0) {
     void *temp_r3;
 
     get_width__11TWindowCtrlFPv();
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C();
+    temp_r3 = get_player_by_client_id();
     if (temp_r3 == NULL) {
         TWindowSubStatusDisp__sub_8026F6DC((u8 *)(arg0));
         return 0xFF008CFC;
@@ -116,7 +116,7 @@ s32 fn_8026F8CC(u8 *arg0) {
     u8 *temp_r31;
     u8 *temp_r3;
     get_width__11TWindowCtrlFPv();
-    temp_r3 = (u8 *)(((u8 *)TPlayerBattleCtrl4P__sub_801BA74C()));
+    temp_r3 = (u8 *)(((u8 *)get_player_by_client_id()));
     if (temp_r3 == NULL) {
         init_gauge_entry__20TWindowSubStatusDispFPv((void *) (arg0));
         return 0xFF00FF15;

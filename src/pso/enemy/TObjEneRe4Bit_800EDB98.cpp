@@ -15,9 +15,9 @@ M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_800F5BC0(s32, s16, M2C_UNK);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
+M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjFish__sub_803E46BC(s32);
 
@@ -49,7 +49,7 @@ void TObjEneRe4Sorcerer__vt104(u8 *arg0) {
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        TObjPlayer__sub_803D9624(0, TObjEneRe4Sorcerer__data_805DA790, TObjEneRe4Sorcerer__data_805DA794, TObjEneRe4Sorcerer__data_805DA790);
+        translate_matrix(0, TObjEneRe4Sorcerer__data_805DA790, TObjEneRe4Sorcerer__data_805DA794, TObjEneRe4Sorcerer__data_805DA790);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         M2C_FIELD(arg0, s16 *, 0x3C0) = (s16) (M2C_FIELD(arg0, s16 *, 0x3C0) + 5);
         TObjPlayer__sub_800F5BC0(TObjEneRe4Sorcerer__data_805D52F4, M2C_FIELD(arg0, s16 *, 0x3C0), 0);
@@ -60,7 +60,7 @@ void TObjEneRe4Sorcerer__vt104(u8 *arg0) {
         TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
         end_effect_render__13TParticleCtrlFv();
         some_id_805c6f74 &= 0xFFFDFFFF;
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

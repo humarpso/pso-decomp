@@ -39,7 +39,7 @@ void TNpcPlayer__sub_8007206C(void *, void *);
 void __ct__12TPlyCharDataFv(void *);
 void clear_header_struct__10TObjPlayerFPv(void *);
 s32 get_map_id__13TRaderMapCoreFPv(void *);
-Pl_80292730 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+Pl_80292730 *get_player_by_client_id(s32);
 Pl_80292730 *TObjPlayer__sub_801BDEF8(s32, s32, void *);
 void clamp_and_set_unit_value__10TObjPlayerFiUci(void *, u8, s16);
 void TObjPlayer__sub_801D9B38(void *, int);
@@ -92,7 +92,7 @@ void TLobby__sub_80292730(s32 arg0) {
         return;
     }
     for (i = 0; i < 4; i++) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        p = get_player_by_client_id(i);
         clear_header_struct__10TObjPlayerFPv(&hdr);
         if (p != NULL) {
             VecCopy__FP3VecPC3Vec(&pos, (u8 *)p + 0x38);

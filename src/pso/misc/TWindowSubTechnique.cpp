@@ -34,7 +34,7 @@ extern u8 *lbl_805D553C;
 s32 TWindowSubTechnique__sub_8028753C(s32 arg0);
 u8 *TTecCtrl__sub_8022DBC4(s16, u8, M2C_UNK);
 M2C_UNK *TLobby__sub_8001DC24();
-s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+s32 get_player_by_client_id(int);
 s32 fn_801D9870(void *, int);
 s32 validate_and_clear_slot__10TObjPlayerFPv(void *, int);
 s32 TWindowSubStatusDisp__sub_80228F5C(void *);
@@ -51,7 +51,7 @@ s32 get_status_flag__17TWindowSubComCardFPv(void *);
 void set_flag_40__16TAdChrSelASlotGCFPv(void *);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+s32 get_player_by_client_id(int);
 void update_cursor__10TObjPlayerFPvi(s32, s32);
 s32 try_equip_item__10TObjPlayerFii(s32, s32);
 void set_status_flag_80__12TQuestThreadFPv(void *);
@@ -131,7 +131,7 @@ void TWindowSubTechnique__sub_80286FA4(u8 *arg0, s32 arg1) {
   s32 var_r30;
   var_r29 = arg1;
   fn_80263A20((int) (*((s32 *) (((s8 *) arg0) + 0x3C))), (int) (*((s32 *) (((s8 *) arg0) + 0x28))));
-  temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int) (*((s32 *) (((s8 *) arg0) + 0x28))));
+  temp_r3 = get_player_by_client_id((int) (*((s32 *) (((s8 *) arg0) + 0x28))));
   if (temp_r3 != 0)
   {
     if (validate_and_clear_slot__10TObjPlayerFPv((void *) (temp_r3 + 0x428), (int) var_r29) != 0)
@@ -168,7 +168,7 @@ extern M2C_UNK __vt__19TWindowSubTechnique[];
 
 void run_task__19TWindowSubTechniqueFv(Tech_802870C4 *self) {
     s32 port = is_player_input_active(self->player);
-    s32 ply = TPlayerBattleCtrl4P__sub_801BA74C(self->player);
+    s32 ply = get_player_by_client_id(self->player);
     switch (self->state) {
     case 0:
     case 1:

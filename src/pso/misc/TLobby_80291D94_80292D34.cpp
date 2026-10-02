@@ -28,7 +28,7 @@ extern "C" {
 
 s32 calc_min_challenge_progress__6TLobbyFv(void);
 s32 TLobby__sub_80292CA4(s32);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 s32 get_layout_id__20TWindowSubStatusDispFv();
 M2C_UNK TWindowSubStatusDisp__sub_8006F190(M2C_UNK);
 
@@ -41,7 +41,7 @@ s32 calc_min_challenge_progress__6TLobbyFv(void) {
     var_r31 = get_layout_id__20TWindowSubStatusDispFv();
     var_r30 = 0;
     do {
-        if (TPlayerBattleCtrl4P__sub_801BA74C(var_r30) != 0U) {
+        if (get_player_by_client_id(var_r30) != 0U) {
             temp_r3 = TLobby__sub_80292CA4(var_r30);
             if (var_r31 > temp_r3) {
                 var_r31 = temp_r3;

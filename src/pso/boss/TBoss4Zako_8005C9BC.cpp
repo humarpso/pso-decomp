@@ -26,12 +26,12 @@ struct Obj_8005CBA4 {
 
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK spawn_particle_effect(void *, int);
 extern const f32 lbl_805D8CB8;
 extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC0;
 void TBoss4Zako__vt3(u8 *arg0);
-Pl_8005CBA4 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+Pl_8005CBA4 *get_player_by_client_id(s32);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 void TBoss4Zako__sub_803D8910(void *, void *);
@@ -63,7 +63,7 @@ void TBoss4Zako__vt3(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + lbl_805D8CB8);
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x3C);
     if ((temp_f1 < lbl_805D8CBC) && (temp_f1 >= lbl_805D8CB8)) {
-        TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x38), (int) (0xF3));
+        spawn_particle_effect((void *) (arg0 + 0x38), (int) (0xF3));
     }
     M2C_FIELD(arg0, s32 *, 0x5C) = (s32) (M2C_FIELD(arg0, s32 *, 0x5C) + 0x111);
     if (M2C_FIELD(arg0, f32 *, 0x3C) < lbl_805D8CC0) {
@@ -78,7 +78,7 @@ void TBoss4Zako__vt2(u8 *p) {
 #define o ((Obj_8005CBA4 *)p)
     Pl_8005CBA4 *pl;
     s32 ang;
-    pl = TPlayerBattleCtrl4P__sub_801BA74C(o->f388);
+    pl = get_player_by_client_id(o->f388);
     if (pl == NULL) {
         o->f3a4 = 0x3C;
         o->f374 = 1;

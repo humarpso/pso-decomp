@@ -21,7 +21,7 @@ extern "C" {
 void add_menu_entry__15TWindowMainMenuFPvs(u8 *arg0, s16 arg1);
 void close_and_clear_flags__15TWindowMainMenuFPv(void *arg0);
 void open__15TWindowMainMenuFPvi(void *arg0, s32 arg1);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 M2C_UNK TWindowMainMenu__sub_802646E4(void *, s32);
 M2C_UNK close__15TWindowMainMenuFPv(void *);
 M2C_UNK close_child_window__15TWindowMainMenuFPv(void *, s32);
@@ -38,7 +38,7 @@ void close_and_clear_flags__15TWindowMainMenuFPv(void *arg0) {
     close_child_window__15TWindowMainMenuFPv(arg0, temp_r4);
     destroy_submenu__15TWindowMainMenuFPv(arg0);
     close__15TWindowMainMenuFPv(arg0);
-    if (TPlayerBattleCtrl4P__sub_801BA74C((s32)(M2C_FIELD(arg0, s32 *, 0x54))) != 0U) {
+    if (get_player_by_client_id((s32)(M2C_FIELD(arg0, s32 *, 0x54))) != 0U) {
         init_parts__10TObjPlayerFPv();
     }
 }
@@ -47,7 +47,7 @@ void open__15TWindowMainMenuFPvi(void *arg0, s32 arg1) {
     s32 temp_r3;
     s32 temp_r4;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((s32)(M2C_FIELD(arg0, s32 *, 0x54)));
+    temp_r3 = get_player_by_client_id((s32)(M2C_FIELD(arg0, s32 *, 0x54)));
     if (temp_r3 != 0) {
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x4C) | 1;
         M2C_FIELD(arg0, s32 *, 0x4C) = temp_r4;

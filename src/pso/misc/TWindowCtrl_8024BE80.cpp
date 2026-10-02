@@ -16,7 +16,7 @@ s32 obj_isState3_324(void *);
 s32 TWindowSubComCard__sub_801058F8(void *);
 u16 get_action_flags__10TNpcPlayerFPv(void *);
 s32 get_field_828__10TObjPlayerFPv(void *);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 void TWindowSubTradeMain__sub_80244A4C(void *);
 void window_request_show(void *);
 s32 TWindowCtrl__sub_8024AF74(s32);
@@ -41,7 +41,7 @@ void TWindowCtrl__sub_8024BE80(Ctrl_8024BE80 *self) {
     for (i = 0; i < 3; i++) {
         w = self->slots[i];
         if (w != NULL && is_flag_2_set__11TWindowCtrlFPv(w) == 0) {
-            pl = TPlayerBattleCtrl4P__sub_801BA74C(get_width__11TWindowCtrlFPv(w));
+            pl = get_player_by_client_id(get_width__11TWindowCtrlFPv(w));
             if (pl == NULL || TWindowCtrl__sub_8024AF74(lbl_805D53A0) != 0 ||
                 TWindowCtrl__sub_8024B054(lbl_805D53A0) != 0 || TWindowCtrl__sub_8024B048(self) != 0 ||
                 TWindowSubComCard__sub_801058F8(pl) != 0 ||

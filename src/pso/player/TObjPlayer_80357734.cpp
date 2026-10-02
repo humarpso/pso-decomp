@@ -167,7 +167,7 @@ u32 get_player_list__10TObjPlayerFv();
 M2C_UNK rotate_matrix_z(int, int);
 void TObjPlayer__sub_80357954(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK TObjEneDellBiter__sub_80087350(M2C_UNK *, M2C_UNK);
+M2C_UNK spawn_particle_effect(M2C_UNK *, M2C_UNK);
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TTecZonde__sub_8023DA10(u32, s32, void *, void *, s32, s32, f32, f32);
 extern Trip_8035862C lbl_804793D8;
@@ -228,8 +228,8 @@ void spawn_mirror_pair__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s32 a
 void trigger_biter_effect__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void update_battle_control_on_unlock__10TObjPlayerFPvPvPvi(void *arg0, void *arg1, void *arg2, s32 arg3);
 s32 TLobby__sub_800869A4(s32, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TOSwitchAttack__sub_80087278(s32, M2C_UNK, M2C_UNK);
-M2C_UNK TObjEneDellBiter__sub_80087350(M2C_UNK *, M2C_UNK);
+M2C_UNK spawn_particle_effect_with_flags(s32, M2C_UNK, M2C_UNK);
+M2C_UNK spawn_particle_effect(M2C_UNK *, M2C_UNK);
 s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_800660D4(s32, s32, s32, s32, M2C_UNK, f32);
@@ -402,7 +402,7 @@ void TObjPlayer__sub_8035814C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
         update_battle_control_if_unlocked__10TObjPlayerFPv();
     }
     if (arg3 == 1) {
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xA8));
+        spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xA8));
     }
 }
 
@@ -413,7 +413,7 @@ void handle_action__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         update_battle_control_if_unlocked__10TObjPlayerFPv();
     }
-    if ((arg3 == 1) && (TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xA8)) != 0U)) {
+    if ((arg3 == 1) && (spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xA8)) != 0U)) {
         set_position_xy__10TObjPlayerFPvff(lbl_805E0074, lbl_805E0078);
     }
 }
@@ -423,7 +423,7 @@ void dispatch_effect_by_type__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s3
         update_battle_control_if_unlocked__10TObjPlayerFPv();
     }
     if (arg3 == 1) {
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0x10A));
+        spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0x10A));
     }
 }
 
@@ -432,7 +432,7 @@ void weapon_fractional_hp_effect(void *arg0, void *arg1, s32 arg2, s32 arg3) {
         update_battle_control_if_unlocked__10TObjPlayerFPv();
     }
     if (arg3 == 1) {
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg2), (M2C_UNK)(0x1AC));
+        spawn_particle_effect((M2C_UNK *)(arg2), (M2C_UNK)(0x1AC));
     }
 }
 
@@ -443,7 +443,7 @@ void handle_symbol_chat_action__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, 
     if (arg3 == 0) {
         update_battle_control_if_unlocked__10TObjPlayerFPv();
     }
-    if ((arg3 == 1) && (TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0x67)) != 0U)) {
+    if ((arg3 == 1) && (spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0x67)) != 0U)) {
         set_position_xy__10TObjPlayerFPvff(lbl_805E0074, lbl_805E0078);
     }
 }
@@ -453,7 +453,7 @@ void handle_action_by_type__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 
         update_battle_control_if_unlocked__10TObjPlayerFPv();
     }
     if (arg3 == 1) {
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0x67));
+        spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0x67));
     }
 }
 
@@ -462,7 +462,7 @@ void handle_stage_event__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg
         update_battle_control_if_unlocked__10TObjPlayerFPv();
     }
     if (arg3 == 1) {
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0x66));
+        spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0x66));
     }
 }
 
@@ -472,7 +472,7 @@ void trigger_biter_effect__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s3
     if (arg3 == 0) {
         struct VObj_8035836C_80357734 *o = (struct VObj_8035836C_80357734 *)arg0;
         o->m63(0x30, &sp8);
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)((M2C_UNK *) &sp8), (M2C_UNK)(0x1AB));
+        spawn_particle_effect((M2C_UNK *)((M2C_UNK *) &sp8), (M2C_UNK)(0x1AB));
     }
 }
 
@@ -482,7 +482,7 @@ void TObjPlayer__sub_803583B4(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         struct VObj_803583B4_80357734 *o = (struct VObj_803583B4_80357734 *)arg0;
         o->m63(0x30, &sp8);
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)((M2C_UNK *) &sp8), (M2C_UNK)(0x1AA));
+        spawn_particle_effect((M2C_UNK *)((M2C_UNK *) &sp8), (M2C_UNK)(0x1AA));
     }
 }
 
@@ -490,14 +490,14 @@ extern f32 lbl_805E007C;
 
 void weapon_hell_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xC6));
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xC9));
+        spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xC6));
+        spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xC9));
     }
     if (arg3 == 1) {
-        if (TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg2), (M2C_UNK)(0x1C5)) != 0U) {
+        if (spawn_particle_effect((M2C_UNK *)(arg2), (M2C_UNK)(0x1C5)) != 0U) {
             set_position_xy__10TObjPlayerFPvff(lbl_805E007C, lbl_805E007C);
         }
-        if (TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg2), (M2C_UNK)(0x1C8)) != 0U) {
+        if (spawn_particle_effect((M2C_UNK *)(arg2), (M2C_UNK)(0x1C8)) != 0U) {
             set_position_xy__10TObjPlayerFPvff(lbl_805E007C, lbl_805E007C);
         }
     }
@@ -505,12 +505,12 @@ void weapon_hell_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 
 void weapon_dark_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xC6));
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xC9));
+        spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xC6));
+        spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xC9));
     }
     if (arg3 == 1) {
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg2), (M2C_UNK)(0x1C5));
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg2), (M2C_UNK)(0x1C8));
+        spawn_particle_effect((M2C_UNK *)(arg2), (M2C_UNK)(0x1C5));
+        spawn_particle_effect((M2C_UNK *)(arg2), (M2C_UNK)(0x1C8));
     }
 }
 
@@ -519,18 +519,18 @@ void weapon_dim_shadow_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
 
     if (arg3 == 0) {
         ((VObj_803584FC_80357734 *)arg0)->m63(0x30, &sp8);
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)(&sp8), (M2C_UNK)(0x1A8));
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)(&sp8), (M2C_UNK)(0x1A9));
+        spawn_particle_effect((M2C_UNK *)(&sp8), (M2C_UNK)(0x1A8));
+        spawn_particle_effect((M2C_UNK *)(&sp8), (M2C_UNK)(0x1A9));
     }
     if (arg3 == 1) {
-        TOSwitchAttack__sub_80087278(arg2, 0xC8, 0x40);
+        spawn_particle_effect_with_flags(arg2, 0xC8, 0x40);
         TObjPlayer__sub_800868C4(arg2, 0x101, 0, 0x1E, 0x40);
     }
 }
 
 void dispatch_attack_event__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xA0));
+        spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xA0));
     }
     if (arg3 == 1) {
         TObjPlayer__sub_80357B2C(arg2, 4);
@@ -539,7 +539,7 @@ void dispatch_attack_event__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s
 
 void dispatch_by_type__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xA0));
+        spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xA0));
     }
     if (arg3 == 1) {
         TObjPlayer__sub_80357B2C(arg2, 4);
@@ -556,7 +556,7 @@ void TObjPlayer__sub_8035862C(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 obj;
     if (arg3 == 0) {
         ((VObj_8035862C *)arg0)->m63(0x30, &sp20);
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)&sp20, 0xBE);
+        spawn_particle_effect((M2C_UNK *)&sp20, 0xBE);
     }
     if (arg3 == 1) {
         VecCopy__FP3VecPC3Vec(&v, (void *)arg2);
@@ -575,7 +575,7 @@ void spawn_effect_by_type__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 a
     s32 temp_a;
 
     if (arg3 == 0) {
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xBD));
+        spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xBD));
     }
     if (arg3 == 1) {
         temp_a = TLobby__sub_800869A4(arg2, 0xBF, 0, 0xF);
@@ -593,7 +593,7 @@ void spawn_hit_effect__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3)
     s32 temp_r30;
 
     if (arg3 == 0) {
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xBD));
+        spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xBD));
     }
     if (arg3 == 1) {
         temp_r30 = TLobby__sub_800869A4(arg2, 0x9A, 0, 0xF);
@@ -609,7 +609,7 @@ void TObjPlayer__sub_80358824(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         struct VObj_80358824_80357734 *o = (struct VObj_80358824_80357734 *)arg0;
         o->m63(0x30, &sp8);
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)((M2C_UNK *) &sp8), (M2C_UNK)(0x6A));
+        spawn_particle_effect((M2C_UNK *)((M2C_UNK *) &sp8), (M2C_UNK)(0x6A));
     }
 }
 
@@ -618,7 +618,7 @@ extern s32 tl_05;
 void spawn_mirror_pair__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s32 arg3) {
     u32 obj;
     if (arg3 == 0) {
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0x69));
+        spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0x69));
     }
     if (arg3 == 1) {
         obj = __nw__7TObjectFUl(0x50);
@@ -637,7 +637,7 @@ void handle_hit_effect__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32 a
 
     if (arg3 == 0) {
         ((VObj_80358984_80357734 *)arg0)->m63(0x30, &sp8);
-        TObjEneDellBiter__sub_80087350((M2C_UNK *)(&sp8), (M2C_UNK)(0x68));
+        spawn_particle_effect((M2C_UNK *)(&sp8), (M2C_UNK)(0x68));
     }
     if (arg3 == 1) {
         TObjPlayer__sub_800868C4(arg2, 0x18, 0, 5, 0x40);

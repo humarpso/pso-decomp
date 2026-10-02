@@ -75,7 +75,7 @@ extern "C" {
 
 void update_indicator_particle__10TObjPlayerFPv(void *arg0);
 u32 TBoss4Type2__sub_800874F4(M2C_UNK *, M2C_UNK);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 u32 get_item_field_6__10TObjPlayerFPv(void *);
 u8 get_field_ed__10TObjPlayerFPv();
@@ -83,7 +83,7 @@ u32 get_item_ctrl__10TObjPlayerFv();
 s32 reset_key_machine_state__10TObjPlayerFv();
 M2C_UNK clear_active_flag__13TParticleCtrlFPv(u32);
 M2C_UNK enable__13TParticleCtrlFPv(u32);
-VObj_8010A26C *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+VObj_8010A26C *get_player_by_client_id(u16);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(u32, M2C_UNK *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -97,10 +97,10 @@ void update_indicator_particle__10TObjPlayerFPv(void *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x24));
+    temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x24));
     if (temp_r3 != NULL) {
         temp_r3->m63(0x24, sp8);
-        temp_r3_2 = TObjPlayer__sub_800196EC();
+        temp_r3_2 = get_current_floor();
         if (temp_r3_2 != (s32) M2C_FIELD(arg0, s32 *, 0x20)) {
             M2C_FIELD(arg0, s32 *, 0x20) = temp_r3_2;
             if ((reset_key_machine_state__10TObjPlayerFv() != 0) && (temp_r3_2 == get_field_3e4__10TObjPlayerFPv(temp_r3))) {

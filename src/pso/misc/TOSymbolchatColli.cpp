@@ -25,7 +25,7 @@ struct Obj_80178890 { u8 pad[0x38]; f32 pos[3]; u8 pad44[0x334 - 0x44]; f32 radi
 struct Player_80178890 { u8 pad[0x38]; f32 pos[3]; };
 
 extern "C" {
-M2C_UNK TObjPlayer__sub_8001978C(f32);
+M2C_UNK newton_sqrtf(f32);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TObjRoomId__sub_80141CF4(void *, void *);
 extern const f32 lbl_805DBA2C;
@@ -40,8 +40,8 @@ extern M2C_UNK __vt__17TOSymbolchatColli[];
 extern s32 lbl_805D3194;
 Obj_80178AD4 *TOSymbolchatColli__ct(Obj_80178AD4 *arg0, void *arg1, s32 arg2);
 s32 TObjPlayer__sub_80019248();
-f32 TObjPlayer__sub_80141CF8(void *, void *);
-Player_80178890 *TPhotonMylla__sub_80154CB4(u16);
+f32 horizontal_distance_squared(void *, void *);
+Player_80178890 *find_entity_by_id(u16);
 void fn_8017866C(void *, s32, u16);
 s32 get_state__17TOSymbolchatColliFPv(void *arg0);
 void run_task__17TOSymbolchatColliFv(Obj_80178890 *self);
@@ -89,7 +89,7 @@ void render__17TOSymbolchatColliFv(u8 *arg0) {
         stack.spC = lbl_805DBA30;
         stack.sp10 = lbl_805DBA2C;
         stack.sp14 = lbl_805DBA2C;
-        TObjPlayer__sub_8001978C((f32) (M2C_FIELD(arg0, f32 *, 0x334)));
+        newton_sqrtf((f32) (M2C_FIELD(arg0, f32 *, 0x334)));
         TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&stack.sp8));
     }
 }
@@ -98,9 +98,9 @@ void run_task__17TOSymbolchatColliFv(Obj_80178890 *self) {
     u16 i;
     Player_80178890 *pl;
     for (i = 0; i != 4; i++) {
-        pl = TPhotonMylla__sub_80154CB4(i);
+        pl = find_entity_by_id(i);
         if (pl != NULL && TObjPlayer__sub_80019248() != 0) {
-            if (TObjPlayer__sub_80141CF8(pl->pos, self->pos) < self->radiusSq) {
+            if (horizontal_distance_squared(pl->pos, self->pos) < self->radiusSq) {
                 if (self->inside[i] == 0) {
                     self->inside[i] = 1;
                     s32 st = get_state__17TOSymbolchatColliFPv(self);

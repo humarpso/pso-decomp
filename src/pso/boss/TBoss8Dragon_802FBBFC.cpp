@@ -97,7 +97,7 @@ struct VObj_18_be4a70 : VBase_18_be4a70 {
 
 extern "C" {
 void TBoss8Dragon__sub_800B9958(void *, u16);
-void TObjEneDD__sub_800BBA18(void *, s16);
+void transition_enemy_state(void *, s16);
 void TBoss8Dragon__sub_802F3CA0(void *, unsigned char);
 void TBoss8Dragon__sub_802FBD68(u8 *arg0, u8 *arg1);
 }
@@ -122,7 +122,7 @@ void TBoss8Dragon__sub_802FBD68(u8 *arg0, u8 *arg1) {
   temp_r4 = *((s16 *) (((s8 *) arg1) + 4));
   if (((s16) (*((s16 *) (((s8 *) arg0) + 0x326)))) != temp_r4)
   {
-    TObjEneDD__sub_800BBA18(arg0, temp_r4);
+    transition_enemy_state(arg0, temp_r4);
   }
 }
 

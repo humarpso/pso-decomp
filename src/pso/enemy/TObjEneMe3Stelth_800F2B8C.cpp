@@ -10,9 +10,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 s32 update_linked_position__14TObjEneEpsilonFPv(f32);
-M2C_UNK TBoss1Dragon__sub_80143504(void *, s32);
+M2C_UNK advance_animation_playback(void *, s32);
 
 extern const f32 TObjEneMe3Stelth__data_805DA848;
 }
@@ -136,9 +136,9 @@ extern "C" void handle_message__16TObjEneMe3StelthFPvi(void *arg0, s32 arg1) {
         break;
     case 3:
         if (update_linked_position__14TObjEneEpsilonFPv(TObjEneMe3Stelth__data_805DA848) != 0) {
-            TObjEneDD__sub_800BBA18(arg0, 6);
+            transition_enemy_state(arg0, 6);
         } else if ((s32) M2C_FIELD(arg0, s32 *, 0x424) >= 0x5A) {
-            TObjEneDD__sub_800BBA18(arg0, 0xA);
+            transition_enemy_state(arg0, 0xA);
         }
         break;
     case 5:
@@ -146,7 +146,7 @@ extern "C" void handle_message__16TObjEneMe3StelthFPvi(void *arg0, s32 arg1) {
     case 0:
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x424);
         M2C_FIELD(arg0, s32 *, 0x424) = (s32) (temp_r4 + 1);
-        TBoss1Dragon__sub_80143504(arg0, temp_r4);
+        advance_animation_playback(arg0, temp_r4);
         ((V_A *) arg0)->m100();
         ((V_A *) arg0)->m87();
         break;

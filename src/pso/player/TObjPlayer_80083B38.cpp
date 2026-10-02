@@ -44,7 +44,7 @@ extern "C" {
 extern int lbl_805D4EE0;
 void TObjPlayer__sub_80083FB0(void);
 int TObjPlayer__sub_80083F9C(void);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 s32 get_main_phase();
 s32 is_inactive__10TObjPlayerFPv();
 s32 check_all_players_ready__10TObjPlayerFv(void);
@@ -70,7 +70,7 @@ void TObjPlayer__sub_80084790(void);
 void **TLobby__sub_803DA16C();
 extern M2C_UNK lbl_8048E5C8[];
 void **TObjPlayer__sub_80083F04(void);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
 extern RecoveredGlobal_80083CEC_lbl_8048E5D0 lbl_8048E5D0;
 extern u32 lbl_805D4DF0;
 extern const f32 lbl_805D9434;
@@ -109,7 +109,7 @@ M2C_UNK GXCopyTex(void *, int);
 M2C_UNK GXSetProjection(void *, int);
 M2C_UNK GXSetViewport(f32, f32, f32, f32, f32, f32);
 M2C_UNK GXSetScissor(int, int, int, int);
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TObjPlayer__sub_803DD5E0(int);
 M2C_UNK TObjLight__sub_803DF268(f32, f32, f32);
 M2C_UNK TObjLight__sub_803DF31C(int, int);
@@ -184,8 +184,8 @@ typedef char RecoveredGlobal_80083CEC_lbl_8048E5D0_size[sizeof(RecoveredGlobal_8
 void func_80083a00__Fv(void) {
     u8 *temp_r31;
     if ((is_split_screen() == 0) && (check_all_players_ready__10TObjPlayerFv() != 0) && ((u32) lbl_805D4DF0 != 0U)) {
-        TObjPlayer__sub_803D9B78();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
+        pop_matrix();
         GXColor_80083B8C c = lbl_805E120C;
         Dolphin_GXSetCopyFilter((int) (0U), (void *) (NULL), (int) (0U), (void *) (NULL));
         set_cull_none__8TObjFishFv();
@@ -208,7 +208,7 @@ void func_80083a00__Fv(void) {
 }
 
 s32 TObjPlayer__sub_80083CEC(u8 *arg0, f32 farg0) {
-    if (((u32) lbl_805D4DF0 != 0U) && (((farg0 * farg0) + TObjPlayer__sub_80141CF8(arg0, &lbl_8048E5D0.value)) <= lbl_805D9434)) {
+    if (((u32) lbl_805D4DF0 != 0U) && (((farg0 * farg0) + horizontal_distance_squared(arg0, &lbl_8048E5D0.value)) <= lbl_805D9434)) {
         return 1;
     }
     return 0;
@@ -305,7 +305,7 @@ s32 check_all_players_ready__10TObjPlayerFv(void) {
     if (get_main_phase() == 0xF) {
         counter = 0;
         do {
-            if ((TPlayerBattleCtrl4P__sub_801BA74C(counter) != 0U) && (is_inactive__10TObjPlayerFPv() == 0)) {
+            if ((get_player_by_client_id(counter) != 0U) && (is_inactive__10TObjPlayerFPv() == 0)) {
                 flag = 0;
             }
             counter += 1;

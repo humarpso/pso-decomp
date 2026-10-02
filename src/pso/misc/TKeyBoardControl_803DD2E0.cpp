@@ -27,7 +27,7 @@ typedef struct {
 
 void TObjPlayer__sub_803DCBD8(s32);
 void TObjPlayer__sub_803DCBF0(Elem_803DD300 *);
-void fn_803DD4EC(void);
+void init_sin_cos_table(void);
 extern Elem_803DD300 lbl_8058D380[6];
 extern f32 lbl_8058D4D0[];
 extern Cam_803DD300 lbl_8058D4F8;
@@ -63,7 +63,7 @@ s32 TCameraCtrl__sub_803DD300() {
     some_id_805c6f74 = 0;
     lbl_805D76B8 = 0;
     lbl_805D777C = lbl_805E0F98;
-    fn_803DD4EC();
+    init_sin_cos_table();
     for (i = 0; i < 6; i++) {
         TObjPlayer__sub_803DCBF0(&lbl_8058D380[i]);
     }

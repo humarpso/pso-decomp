@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-s32 TObjEneDellBiter__sub_80087350(s32, s32);
+s32 spawn_particle_effect(s32, s32);
 void set_display_mode__15TObjEneSlimeOneFPvi(void *, s32);
 void fn_800EB778(void *, s32);
 void TObjEneSlimeOne__sub_800EC7F4(void *, s32);
@@ -70,7 +70,7 @@ void fn_800E95F4(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x390) = 5;
     refresh_lobby_state__10TObjPlayerFPv(arg0);
     TBoss3Volopt__sub_8022675C(0x4003A81B, (u32) (arg0 + 0x38), 0, 0);
-    TObjEneDellBiter__sub_80087350((s32) (arg0 + 0x2FC), 0xFE);
+    spawn_particle_effect((s32) (arg0 + 0x2FC), 0xFE);
     TObjEneSlimeOne__sub_800EC7F4(M2C_FIELD(arg0, u8 **, 0x388), 5);
     set_display_mode__15TObjEneSlimeOneFPvi(arg0, 0);
 }

@@ -32,7 +32,7 @@ extern s32 lbl_805D3178;
 u8 *TOSwitchAttack__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void init_6x05_switch_changed__6TLobbyFPv(void *);
 void finalize_and_send_60__6TLobbyFPv(void *);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 u16 obj_getField1c(void *);
 void TOSwitchItem__vt19(Self_80177CF4 *self);
 }
@@ -92,7 +92,7 @@ void TOSwitchItem__vt19(Self_80177CF4 *self) {
     pkt.object = obj_getField1c(self);
     pkt.zero = 0;
     pkt.switchId = self->switchId;
-    pkt.area = TObjPlayer__sub_800196EC();
+    pkt.area = get_current_floor();
     pkt.flags = self->on != 0;
     finalize_and_send_60__6TLobbyFPv(&pkt);
 }

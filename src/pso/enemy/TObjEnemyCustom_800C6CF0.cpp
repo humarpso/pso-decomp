@@ -36,8 +36,8 @@ typedef struct Obj_800C6FFC {
 extern "C" {
 u8 *get_player_data__10TObjPlayerFi(int);
 s32 obj_testFlags30(void *, int);
-u8 *TNpcPlayer__sub_800D87EC(int);
-f32 fn_8013157C(void *, void *);
+u8 *find_active_entity_by_id(int);
+f32 xz_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 void TObjPlayer__sub_800C6E34(Plr_800C6E34 *arg0, f32 radius);
@@ -51,15 +51,15 @@ u16 TObjPlayer__sub_800C6EF8(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 u8 *get_player_data__10TObjPlayerFi(int);
 s32 obj_testFlags30(void *, int);
-f32 fn_8013157C(void *, void *);
+f32 xz_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 u16 TObjPlayer__sub_800C6D24(u8 *arg0, f32 radius);
 s32 TObjPlayer__sub_800115C4(void *, void *, f32);
 u16 TObjPlayer__sub_800C6EF8(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius);
-u8 *TNpcPlayer__sub_800D87EC(int);
-f32 fn_8013157C(void *, void *);
-Obj_800C6FFC *TPhotonMylla__sub_80154CB4(int);
+u8 *find_active_entity_by_id(int);
+f32 xz_distance_squared(void *, void *);
+Obj_800C6FFC *find_entity_by_id(int);
 BOOL TObjPlayer__sub_800C6FFC(Obj_800C6FFC *arg0, f32 radius);
 }
 
@@ -98,7 +98,7 @@ u16 TObjPlayer__sub_800C6D24(u8 *arg0, f32 radius) {
         if (p == NULL) {
             break;
         }
-        if (fn_8013157C(p + 0x2FC, arg0 + 0x2FC) < r2) {
+        if (xz_distance_squared(p + 0x2FC, arg0 + 0x2FC) < r2) {
             list[count++] = i;
             if (count >= 0x20) {
                 break;
@@ -128,7 +128,7 @@ void TObjPlayer__sub_800C6E34(Plr_800C6E34 *arg0, f32 radius) {
     for (i = 0; i < n; i++) {
         p = (Plr_800C6E34 *)get_player_data__10TObjPlayerFi(i);
         if (p != arg0 && p != NULL && arg0->target != (u8 *)p) {
-            d = fn_8013157C(p->pos, arg0->pos);
+            d = xz_distance_squared(p->pos, arg0->pos);
             if (d < bestDist) {
                 bestDist = d;
                 best = i;
@@ -136,7 +136,7 @@ void TObjPlayer__sub_800C6E34(Plr_800C6E34 *arg0, f32 radius) {
         }
     }
     arg0->targetIdx = best;
-    arg0->target = TNpcPlayer__sub_800D87EC(arg0->targetIdx);
+    arg0->target = find_active_entity_by_id(arg0->targetIdx);
 }
 u16 TObjPlayer__sub_800C6EF8(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius) {
     Vec_800C6EF8 v;
@@ -187,10 +187,10 @@ BOOL TObjPlayer__sub_800C6FFC(Obj_800C6FFC *arg0, f32 radius) {
     } else if ((u16)b == 0xFFFF) {
         arg0->targetIdx = a;
     } else {
-        da = fn_8013157C(arg0->pos, TPhotonMylla__sub_80154CB4(a)->pos);
-        arg0->targetIdx = da < fn_8013157C(arg0->pos, TPhotonMylla__sub_80154CB4(b)->pos) ? a : b;
+        da = xz_distance_squared(arg0->pos, find_entity_by_id(a)->pos);
+        arg0->targetIdx = da < xz_distance_squared(arg0->pos, find_entity_by_id(b)->pos) ? a : b;
     }
-    arg0->target = TNpcPlayer__sub_800D87EC(arg0->targetIdx);
+    arg0->target = find_active_entity_by_id(arg0->targetIdx);
     if (arg0->target != NULL) {
         return 1;
     }
@@ -267,7 +267,7 @@ struct VObj_18 : VBase_18 {
 };
 extern "C" {
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, int);
-f32 fn_8013157C(void *, void *);
+f32 xz_distance_squared(void *, void *);
 extern const f32 lbl_805DA080;
 void TObjEneMe1GiGue__sub_800C73F4(u8 *arg0);
 }
@@ -275,18 +275,18 @@ void TObjEneMe1GiGue__sub_800C73F4(u8 *arg0);
 extern "C" {
 
 u8 find_target_in_range__10TObjPlayerFPvf(void *arg0, f32 farg0);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+s32 get_player_by_client_id(u16);
 
 u8 find_target_in_range__10TObjPlayerFPvf(void *arg0, f32 farg0) {
     if (obj_testFlags30(arg0, 0x10) != 0) {
         return ((u8 (*)(void *, f32))TObjPlayer__sub_800C6FFC)(arg0, farg0);
     }
     M2C_FIELD(arg0, u16 *, 0x338) = ((u16 (*)(void *, M2C_UNK, f32))TObjPlayer__sub_800115C4)(arg0, 0, farg0);
-    M2C_FIELD(arg0, s32 *, 0x2A8) = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x338));
+    M2C_FIELD(arg0, s32 *, 0x2A8) = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x338));
     return (u8) (M2C_FIELD(arg0, s32 *, 0x2A8) != 0);
 }
 void TObjEneMe1GiGue__sub_800C73F4(u8 *arg0) {
-    if (fn_8013157C((void *) (arg0 + 0x38), (void *) (arg0 + 0x50)) > lbl_805DA080) {
+    if (xz_distance_squared((void *) (arg0 + 0x38), (void *) (arg0 + 0x50)) > lbl_805DA080) {
         update_if_active__15TObjEneMe1GiGueFPv((void *) (arg0), (int) (8));
         return;
     }

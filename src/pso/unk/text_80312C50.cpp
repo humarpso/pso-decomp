@@ -20,7 +20,7 @@ void set_type__10TObjPlayerFPvs(void *, s16);
 u8 *TObjPlayer__sub_80312FB0(u8 *arg0);
 int check_flag_at_4__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_80312F5C(s32 arg0, s16 arg1, s16 arg2);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 void trigger_photon_blast__10TObjPlayerFPv(void *);
 void check_photon_blast_flag__10TObjPlayerFPv(void *);
 u8 * get_element__10TObjPlayerFPvi(void *, int);
@@ -37,7 +37,7 @@ void TObjPlayer__sub_80313250(void *arg0, s32 arg1);
 int get_max_children__10TObjPlayerFPv(void* a0);
 void TObjPlayer__sub_80313010(void *o, s32 id);
 s32 get_section_id__10TObjPlayerFPv(void *);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 u8 * get_element__10TObjPlayerFPvi(void *, int);
 void create_party_effect__11TWindowCtrlFPvPv(s32, s32);
 void TObjPlayer__sub_80313010(void *o, s32 id);
@@ -46,7 +46,7 @@ int TObjPlayer__sub_803131AC(void* a0);
 extern const f32 lbl_805DF248;
 void TObjPlayer__sub_80312D4C(void *o, s32 id);
 s32 get_section_id__10TObjPlayerFPv(void *);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 u8 * get_element__10TObjPlayerFPvi(void *, int);
 int query_field40__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_803131AC(void* a0);
@@ -81,7 +81,7 @@ void TObjPlayer__sub_80312C50(void *registry) {
     for (i = 0; i < count; i++) {
         u16 player = ((u16)get_section_id__10TObjPlayerFPv(get_element__10TObjPlayerFPvi(registry, i)));
         if (player != 0xFFFF) {
-            owner = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(player);
+            owner = (u8 *)get_player_by_client_id(player);
             if (owner != NULL) {
                 check_photon_blast_flag__10TObjPlayerFPv(owner + 0x4AC);
                 trigger_photon_blast__10TObjPlayerFPv(owner + 0x4AC);
@@ -114,7 +114,7 @@ void TObjPlayer__sub_80312D4C(void *o, s32 id) {
     for (i = 0; i < n; i++) {
         e = get_element__10TObjPlayerFPvi(o, i);
         sec = get_section_id__10TObjPlayerFPv(e);
-        ent = (Ply_80312D4C *)TPlayerBattleCtrl4P__sub_801BA74C((u16)sec);
+        ent = (Ply_80312D4C *)get_player_by_client_id((u16)sec);
         if (ent != NULL && (u16)id != (u16)sec && query_field40__10TObjPlayerFPv((void*)((u8 *)ent + 0x4AC)) != 0) {
             create_party_effect__11TWindowCtrlFPvPv(id, sec);
             TObjPlayer__sub_80313010(e, id);
@@ -132,7 +132,7 @@ u16 TObjPlayer__sub_80312E0C(void *o) {
     n = TObjPlayer__sub_803131AC((void*)(o));
     for (i = 0; i < n; i++) {
         e = get_element__10TObjPlayerFPvi(o, i);
-        ent = (u8 *)TPlayerBattleCtrl4P__sub_801BA74C(((SectionFn_80312E0C)get_section_id__10TObjPlayerFPv)(e));
+        ent = (u8 *)get_player_by_client_id(((SectionFn_80312E0C)get_section_id__10TObjPlayerFPv)(e));
         if (ent != NULL && query_field40__10TObjPlayerFPv((void*)(ent + 0x4AC)) != 0) {
             return ((SectionFn_80312E0C)get_section_id__10TObjPlayerFPv)(e);
         }

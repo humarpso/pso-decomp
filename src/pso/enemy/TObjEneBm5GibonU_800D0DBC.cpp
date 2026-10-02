@@ -38,7 +38,7 @@ extern const f32 TObjEneBm5GibonU__data_805DA194;
 extern const f32 lbl_805DA254;
 void TObjEneBm5GibonU__sub_800D10A0(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-Hit_800D0E14 *TObjButterflyLobby__sub_8007A5D8(void *, void *, s32);
+Hit_800D0E14 *csnVector(void *, void *, s32);
 void TObjBoss2Tunnel__sub_8007E7D8(f32 *, f32 *, s32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(Vec_800D0E14 *);
 f32 rand_range__9TObjEneDDFff(void *, f32, f32);
@@ -95,7 +95,7 @@ void TObjEneBm5GibonU__sub_800D0E14(Ene_800D0E14 *arg0) {
     d = lbl_805DA214 * rand_range__9TObjEneDDFff(arg0, TObjEneBm5GibonU__data_805DA194, TObjEneBm5GibonU__data_805DA168);
     arg0->dest.x = v.x * d + arg0->home.x;
     arg0->dest.z = v.z * d + arg0->home.z;
-    hit = TObjButterflyLobby__sub_8007A5D8(arg0->f2FC, &arg0->dest, 0x88E0);
+    hit = csnVector(arg0->f2FC, &arg0->dest, 0x88E0);
     if (hit != NULL) {
         v.x = hit->pos->x - arg0->pos.x;
         v.z = hit->pos->z - arg0->pos.z;

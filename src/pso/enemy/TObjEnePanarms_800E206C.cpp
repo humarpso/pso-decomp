@@ -88,8 +88,8 @@ s32 check_demo_mode__10TObjPlayerFv(void);
 void TObjEnePanarms__sub_800E1B78(void *, void *, s32, f32);
 void TObjEnePanarms__sub_800E1C98(void *, s32);
 void update_prev_position__10TObjPlayerFPv(void *);
-void TBoss1Dragon__sub_80143504(void *);
-void TObjPlayer__sub_801B4A18(void *, s32);
+void advance_animation_playback(void *);
+void submit_cursor_candidate(void *, s32);
 void minimap_render_dot(void *, s32, s32, s32);
 void TBoss4Zako__sub_803D8910(void *, void *);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
@@ -110,10 +110,10 @@ int clear_render_callback__8TObjFishFv(void*);
 int TObjFish__sub_800E3074(void*);
 int rotate_matrix_y(void*, void*);
 int TObjPlayer__sub_803D9B2C(void*);
-int TObjPlayer__sub_803D9B78(void);
+int pop_matrix(void);
 int set_global_param__8TObjFishFi(void*);
 
-void draw__14TObjEnePanarmsFPv(void* p) { TObjPlayer__sub_803D9B2C(p); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x60)); set_global_param__8TObjFishFi(*(void**)((char*)p + 0x24)); TObjFish__sub_800E3074(*(void**)((char*)p + 0x3dc)); draw__16TObjEneRe7BeruraFPv(p); clear_render_callback__8TObjFishFv(*(void**)((char*)p + 0x3dc)); TObjPlayer__sub_803D9B78(); }
+void draw__14TObjEnePanarmsFPv(void* p) { TObjPlayer__sub_803D9B2C(p); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x60)); set_global_param__8TObjFishFi(*(void**)((char*)p + 0x24)); TObjFish__sub_800E3074(*(void**)((char*)p + 0x3dc)); draw__16TObjEneRe7BeruraFPv(p); clear_render_callback__8TObjFishFv(*(void**)((char*)p + 0x3dc)); pop_matrix(); }
 void TObjEnePanarms__sub_800E20D0(u8 *arg0) {
     s32 temp_r4;
     s32 var_r31;
@@ -183,9 +183,9 @@ void TObjEnePanarms__sub_800E2200(Panarms_800E2200 *self) {
     }
     if (self->f384 != 0) {
         if (self->state != 7) {
-            TObjPlayer__sub_801B4A18(self, -1);
+            submit_cursor_candidate(self, -1);
         }
-        TBoss1Dragon__sub_80143504(self);
+        advance_animation_playback(self);
         switch (self->state) {
         case 7:
             break;

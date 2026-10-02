@@ -92,7 +92,7 @@ extern void *TWindowCtrl__data_805D63F8;
 bool TWindowCtrl__sub_8024A1A8(void);
 extern void *TWindowCtrl__data_805D63F8;
 bool TWindowCtrl__sub_8024A26C(void);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 extern const f32 lbl_805DCBE0;
 f32 TWindowCtrl__sub_8024A688(M2C_UNK arg0, RecoveredFields_8024A688_arg1 *arg1, u16 arg2);
 void TWindowFukidasi__sub_802501F4(void *, s32);
@@ -103,7 +103,7 @@ extern void *TWindowCtrl__data_805D63F8;
 void *TWindowCtrl__sub_8024A928(Ctrl_8024A928 *self, s32 player, s32 flags, void *text, void *local);
 char *TWindowCtrl__sub_8024A570(void *self, char *s);
 s32 TWindowCtrl__sub_8024A7CC(Obj_8024A7CC *self);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 extern s32 lbl_805D53A0;
 s32 TWindowCtrl__sub_8024A714(Ctrl_8024A714 *ctrl, u16 speaker);
 void *__nw__7TObjectFUl(u32);
@@ -118,12 +118,12 @@ s32 TObjPlayer__sub_80019248(u8 *);
 s32 obj_isState2_324(u8 *);
 s32 TObjPlayer__sub_80019570();
 void *get_quest_id__12TQuestListVMFPv(u8 *);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 extern const f32 lbl_805DCBD8;
 extern const f32 lbl_805DCBDC;
 void TWindowCtrl__sub_8024A5AC(Ctrl_8024A928 *arg0, s32 arg1, f32 *arg2, s32 *arg3);
 void TOChatSensorCapture__sub_8015A99C(u16 arg0, const char *arg1);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void *get_player_by_client_id(s32);
 char *TWindowCtrl__sub_8024A570(void *self, char *s);
 s32 open__11TWindowCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
 extern void *TWindowCtrl__data_805D63F8;
@@ -311,7 +311,7 @@ char *TWindowCtrl__sub_8024A570(void *self, char *s) {
 #pragma dont_inline off
 #pragma inline_depth(4)
 inline u8 *get_obj_8024A5AC(s32 id) {
-    u8 *o = ((u8 *(*)(s32))TPhotonMylla__sub_80154CB4)(id);
+    u8 *o = ((u8 *(*)(s32))find_entity_by_id)(id);
     if (o != NULL && TObjPlayer__sub_80019570() == 1) {
         return o;
     }
@@ -354,7 +354,7 @@ f32 TWindowCtrl__sub_8024A688(M2C_UNK arg0, RecoveredFields_8024A688_arg1 *arg1,
   {
     return lbl_805DCBE0;
   }
-  temp_r3 = (u8 *) TPhotonMylla__sub_80154CB4(arg2);
+  temp_r3 = (u8 *) find_entity_by_id(arg2);
   if (temp_r3 == 0)
   {
     return lbl_805DCBE0;
@@ -374,7 +374,7 @@ s32 TWindowCtrl__sub_8024A714(Ctrl_8024A714 *ctrl, u16 speaker) {
     void *b;
     u16 id;
 
-    local = (RecoveredFields_8024A688_arg1 *)TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    local = (RecoveredFields_8024A688_arg1 *)get_player_by_client_id(lbl_805D53A0);
     if (local == NULL) {
         return 4;
     }
@@ -468,7 +468,7 @@ void TWindowCtrl__sub_8024AA08(Obj_8024AA08 *arg0, char *arg1) {
         v = TWindowCtrl__sub_8024A570(TWindowCtrl__data_805D63F8, arg1);
         key = arg0->f4;
         for (i = 0; i < 12; i++) {
-            p = (Ply_8024AA08 *)TPlayerBattleCtrl4P__sub_801BA74C(i);
+            p = (Ply_8024AA08 *)get_player_by_client_id(i);
             if (p != NULL && p->f == key) {
                 break;
             }

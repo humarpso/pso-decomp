@@ -19,12 +19,12 @@ void TObjEneEpsilonGuard__vt87(void *arg0);
 void update_center_position__19TObjEneEpsilonGuardFPv(u8 *arg0);
 void update_guard_state__19TObjEneEpsilonGuardFPv(u8 *arg0);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
+M2C_UNK transition_enemy_state(void *, int);
 M2C_UNK TObjEneDD__vt86();
 M2C_UNK TObjEneEpsilonGuard__sub_8035EA90(void *);
 s32 TObjEneEpsilonGuard__sub_8035F950();
 M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
-s32 TPhotonMylla__sub_80154CB4(int);
+s32 find_entity_by_id(int);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *, void *, f32);
 s16 obj_getField1c(int);
 
@@ -33,12 +33,12 @@ void update_guard_state__19TObjEneEpsilonGuardFPv(u8 *arg0) {
     s32 temp_r3;
 
     if (!(M2C_FIELD(arg0, s32 *, 0x46C) & 0x40)) {
-        temp_r3 = TPhotonMylla__sub_80154CB4((int) (M2C_FIELD(arg0, u16 *, 0x470)));
+        temp_r3 = find_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0x470)));
         if ((temp_r3 == 0) || (TObjEneEpsilonGuard__sub_8035F950() == 1)) {
             if (M2C_FIELD(arg0, s32 *, 0x46C) & 0x10) {
-                TObjEneDD__sub_800BBA18((void *) (arg0), (int) (5));
+                transition_enemy_state((void *) (arg0), (int) (5));
             } else {
-                TObjEneDD__sub_800BBA18((void *) (arg0), (int) (4));
+                transition_enemy_state((void *) (arg0), (int) (4));
             }
         } else {
             M2C_FIELD(arg0, s32 *, 0x390) = temp_r3;

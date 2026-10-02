@@ -8,7 +8,7 @@ extern "C" {
 
 void* init_vtable_and_field200__10TObjPlayerFPv(void* a0);
 void spawn_item__10TObjPlayerFi(s32 arg0);
-s32 TObjEneDellBiter__sub_80087350(M2C_UNK, s32);
+s32 spawn_particle_effect(M2C_UNK, s32);
 M2C_UNK TObjFish__sub_800660D4(s32, s32, s32, M2C_UNK, M2C_UNK, f32);
 M2C_UNK get_data_entry__9TItemLoadFiPv(M2C_UNK, s32 *);
 int init_state_445__10TObjPlayerFPv(void);
@@ -27,7 +27,7 @@ void spawn_item__10TObjPlayerFi(s32 arg0) {
     s32 sp8;
     s32 temp_r3;
 
-    temp_r3 = TObjEneDellBiter__sub_80087350(arg0, 0x1BF);
+    temp_r3 = spawn_particle_effect(arg0, 0x1BF);
     if (temp_r3 != 0) {
         lookup_item_data__9TItemLoadFiPv(0xD, &spC);
         get_data_entry__9TItemLoadFiPv(0xD, &sp8);

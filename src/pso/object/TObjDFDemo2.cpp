@@ -8,7 +8,7 @@ typedef s32 M2C_UNK;
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK request_destroy__11TBoss4Type2FUi(void *);
-u32 TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
+u32 spawn_particle_effect(void *, M2C_UNK);
 u32 TBoss4Type2__sub_800874F4(void *, M2C_UNK);
 M2C_UNK set_flags__11TBoss4Type2FPvUi(void *, M2C_UNK);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
@@ -22,7 +22,7 @@ M2C_UNK clear_render_callback__8TObjFishFv(s32);
 M2C_UNK TObjFish__sub_800E3074(s32);
 M2C_UNK rotate_matrix_y(s32, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK func_803e11e8__FUl(u32);
@@ -91,7 +91,7 @@ void TObjPlayer__sub_8004ED28(u8 *arg0) {
     TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0x94), M2C_FIELD(arg0, s32 *, 0x9C), M2C_FIELD(arg0, f32 *, 0xB4));
     func_803e11f0__Fv();
     clear_global_state__10TObjPlayerFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     if (a < 1.0f) {
         sync_player_globals__10TObjPlayerFv();
     }
@@ -122,7 +122,7 @@ void TBoss4Type2__sub_8004EE74(u8 *arg0) {
         }
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0xB0) == 0x86) {
-        temp_r3 = TObjEneDellBiter__sub_80087350(arg0 + 0xA0, 0x9B);
+        temp_r3 = spawn_particle_effect(arg0 + 0xA0, 0x9B);
         if (temp_r3 != 0U) {
             set_flags__11TBoss4Type2FPvUi((void *) temp_r3, 0x40);
         }

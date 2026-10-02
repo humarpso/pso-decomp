@@ -26,7 +26,7 @@ extern const f32 TObjEneBm5Wolf__data_805D9D8C;
 void TObjEneBm5Wolf__sub_800B7EA0(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *actor);
 f32 rand_range__9TObjEneDDFff(void *actor, f32 low, f32 high);
-void *TObjButterflyLobby__sub_8007A5D8(void *from, void *to, u32 flags);
+void *csnVector(void *from, void *to, u32 flags);
 void TObjBoss2Tunnel__sub_8007E7D8(f32 *x, f32 *z, s32 angle);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(f32 *vector);
 extern const f32 TObjEneBm5Wolf__data_805D9D78;
@@ -89,7 +89,7 @@ void TObjEneBm5Wolf::choose_roaming_destination() {
     temp_f3 = lbl_805D9E18 * rand_range__9TObjEneDDFff(this, TObjEneBm5Wolf__data_805D9D84, TObjEneBm5Wolf__data_805D9D8C);
     this->destination[0] = (f32) ((stack.sp8 * temp_f3) + this->groupAnchor[0]);
     this->destination[2] = (f32) ((stack.sp10 * temp_f3) + this->groupAnchor[2]);
-    temp_r3 = (u8 *)(TObjButterflyLobby__sub_8007A5D8((u8 *)(this) + 0x2FC, (u8 *)(this) + 0x394, 0x88E0U));
+    temp_r3 = (u8 *)(csnVector((u8 *)(this) + 0x2FC, (u8 *)(this) + 0x394, 0x88E0U));
     if (temp_r3 != NULL) {
         temp_r4 = (u8 *)(M2C_FIELD(temp_r3, u8 **, 4));
         stack.sp8 = M2C_FIELD(temp_r4, f32 *, 0) - this->position[0];

@@ -76,11 +76,11 @@ s32 TObjLight__sub_80134194(void *);
 s32 draw__16TObjEneRe7BeruraFPv(void *);
 s32 end_effect_render__13TParticleCtrlFv();
 f32 TBoss8Dragon__sub_803D64C0(int);
-s32 TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
-s32 TObjPlayer__sub_803D9624(int, f32, f32, f32);
+s32 translate_matrix(int, f32, f32, f32);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 f32 TOHangerMachine01__sub_803D9C00(void *);
 s32 set_global_param__8TObjFishFi(int);
 s32 TObjFish__sub_803E46BC(int);
@@ -99,10 +99,10 @@ extern const f32 lbl_805D8730;
 void render__20TBoss3VoloptHiraisinFv(u8 *arg0);
 s32 TObjPlayer__sub_80154E3C(void *);
 void TBoss3VoloptHiraisin__sub_8004118C(Obj_8004118C *self);
-void TBoss1Dragon__sub_80143504(void *);
+void advance_animation_playback(void *);
 s32 TObjPlayer__sub_80154E3C(void *);
 void TBoss3VoloptHiraisin__sub_80041314(void *arg0);
-void TBoss1Dragon__sub_80143504(void *);
+void advance_animation_playback(void *);
 void update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805D870C;
@@ -174,7 +174,7 @@ void TBoss3VoloptHiraisin__sub_800411F0(Hira_800411F0 *self) {
         self->unk38C = 0;
         break;
     case 1:
-        TBoss1Dragon__sub_80143504(self);
+        advance_animation_playback(self);
         self->y = self->y + self->speed;
         if (self->y <= 4.6f) {
             self->y = 4.6f;
@@ -185,7 +185,7 @@ void TBoss3VoloptHiraisin__sub_800411F0(Hira_800411F0 *self) {
         }
         break;
     case 2:
-        TBoss1Dragon__sub_80143504(self);
+        advance_animation_playback(self);
         if (self->unkC0 >= self->unkC4 - lbl_805D8714) {
             self->state = 3;
         }
@@ -209,7 +209,7 @@ void TBoss3VoloptHiraisin__sub_80041314(void *arg0) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 3;
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         if ((u32) M2C_FIELD(arg0, u32 *, 0xB4) != 8U) {
             M2C_FIELD(arg0, s16 *, 0x33E) = (s16) M2C_FIELD(arg0, s16 *, 0x32C);
             M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFFDFF);
@@ -233,27 +233,27 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
         some_id_805c6f74 &= 0xFFFFFBFF;
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
         if ((u32) ((RecoveredFields_800413C8_arg0 *)arg0)->field_B4 == 8U) {
-            TObjPlayer__sub_803D9624((int) (0), (f32) (lbl_805D8720), (f32) (lbl_805D8724), (f32) (lbl_805D8720));
+            translate_matrix((int) (0), (f32) (lbl_805D8720), (f32) (lbl_805D8724), (f32) (lbl_805D8720));
         }
-        TObjPlayer__sub_803D9624((int) (0), (f32) (lbl_805D8720), (f32) (TBoss8Dragon__sub_803D64C0((int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38C))), (f32) (lbl_805D8720));
+        translate_matrix((int) (0), (f32) (lbl_805D8720), (f32) (TBoss8Dragon__sub_803D64C0((int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38C))), (f32) (lbl_805D8720));
         rotate_matrix_y((int) (0), (int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_60));
         if (check_demo_mode__10TObjPlayerFv() == 1) {
             TObjFish__sub_803E46BC((int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_34));
         } else {
             draw__16TObjEneRe7BeruraFPv((void *) (arg0));
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         TObjLight__sub_80134098();
         end_effect_render__13TParticleCtrlFv();
         some_id_805c6f74 = lbl_805D5660;
         if (((RecoveredFields_800413C8_arg0 *)arg0)->field_3C < lbl_805D8708) {
             TObjPlayer__sub_803D9B2C();
             temp_f31 = -((lbl_805D872C * (((RecoveredFields_800413C8_arg0 *)arg0)->field_3C - lbl_805D8710)) - lbl_805D8728);
-            TObjPlayer__sub_803D9624((int) (0), (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38), (f32) (lbl_805D8730), (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_40));
-            TOMonitorMachine01__sub_803D8B5C((int) (0), (f32) (temp_f31), (f32) (temp_f31), (f32) (temp_f31));
+            translate_matrix((int) (0), (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38), (f32) (lbl_805D8730), (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_40));
+            scale_matrix((int) (0), (f32) (temp_f31), (f32) (temp_f31), (f32) (temp_f31));
             set_global_param__8TObjFishFi((int) (TObjFish__sub_8001EDB0((s32)((int) (TBoss3VoloptHiraisin__data_805D4C80)), (M2C_UNK)((int) (0)))));
             TObjFish__sub_803E46BC((int) (TObjFish__sub_8001EDC4((int) (TBoss3VoloptHiraisin__data_805D4C80), (int) (0))));
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
         }
     }
 }

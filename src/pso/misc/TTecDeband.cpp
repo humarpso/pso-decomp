@@ -83,7 +83,7 @@ extern s32 lbl_805D37A8;
 extern const f32 lbl_805DC7F0;
 u8 *TTecDeband__sub_8022F948(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-u32 TPhotonMylla__sub_80154CB4(int);
+u32 find_entity_by_id(int);
 s32 is_parents_unqueued__9TTecLukerFUi();
 s32 is_valid_and_active__10TObjPlayerFUi(int);
 M2C_UNK fn_802370D8(void *);
@@ -182,7 +182,7 @@ void run_task__10TTecDebandFv(Deband_8022F73C *self) {
         queue_destruction__7TObjectFv(self);
         return;
     }
-    self->source = TPhotonMylla__sub_80154CB4(self->source_id);
+    self->source = find_entity_by_id(self->source_id);
     if (self->source == 0) {
         queue_destruction__7TObjectFv(self);
         return;
@@ -194,7 +194,7 @@ void run_task__10TTecDebandFv(Deband_8022F73C *self) {
             ((VObj_8022F73C *)self)->m5(self->source);
             if (self->count != 0) {
                 for (i = 0; i < self->count; i++) {
-                    target = TPhotonMylla__sub_80154CB4(self->targets[i].id);
+                    target = find_entity_by_id(self->targets[i].id);
                     if ((is_parents_unqueued__9TTecLukerFUi() != 0) && (is_valid_and_active__10TObjPlayerFUi(target) != 0)) {
                         ((VObj_8022F73C *)self)->m5(target);
                     }

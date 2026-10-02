@@ -189,7 +189,7 @@ void render__9TTecZondeFv(void) {  }
 #pragma fp_contract on
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+u8 *find_entity_by_id(u16);
 void update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 s32 TBoss3Volopt__sub_8022675C(s32, void *, s32, s32);
 void *__nw__7TObjectFUl(int);
@@ -223,7 +223,7 @@ void run_task__9TTecZondeFv(Zonde_8023C79C *self) {
     void *o;
     f32 scale;
 
-    self->target = TPhotonMylla__sub_80154CB4(self->id);
+    self->target = find_entity_by_id(self->id);
     if (self->target == NULL) {
         queue_destruction__7TObjectFv(self);
         return;
@@ -232,7 +232,7 @@ void run_task__9TTecZondeFv(Zonde_8023C79C *self) {
         queue_destruction__7TObjectFv(self);
         return;
     }
-    t = (Tgt_8023C79C *)TPhotonMylla__sub_80154CB4(self->f134);
+    t = (Tgt_8023C79C *)find_entity_by_id(self->f134);
     if (is_parents_unqueued__9TTecLukerFUi((u32)t) != 0) {
         for (i = 0; i < 14; i++) {
             s = &segs[i];

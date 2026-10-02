@@ -34,7 +34,7 @@ void update_input__18TChallenge4PResultFPv(void *arg0);
 
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
 s32 get_map_id__13TRaderMapCoreFPv();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 extern u8 lbl_8050E208[];
 void TChallenge4PResult__sub_8034BA68(TChallenge4PResult *arg0);
 extern M2C_UNK TChallenge4PResult__data_805436A8[];
@@ -93,7 +93,7 @@ extern s32 tl_01;
 void create__18TChallenge4PResultFii(int arg0, s32 arg1) {
     void *temp;
 
-    if (TPlayerBattleCtrl4P__sub_801BA74C((u16)(arg0)) != 0U) {
+    if (get_player_by_client_id((u16)(arg0)) != 0U) {
         temp = (void *) __nw__7TObjectFUl(0x7C);
         if (temp != NULL) {
             TChallenge4PResult__ct(temp, tl_01, arg0, arg1);
@@ -164,7 +164,7 @@ extern u8 lbl_8050E208[];
 typedef char RecoveredGlobal_8034BA68_lbl_8050E208_size[sizeof(RecoveredGlobal_8034BA68_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TChallenge4PResult__sub_8034BA68(TChallenge4PResult *arg0) {
     s32 temp_r5;
-    if (TPlayerBattleCtrl4P__sub_801BA74C((int) (arg0->slot_index)) != 0U) {
+    if (get_player_by_client_id((int) (arg0->slot_index)) != 0U) {
         temp_r5 = get_map_id__13TRaderMapCoreFPv() * 0x50;
         if (TWindowShortListCtrl__check_controller_button((void *)((void *) ((u8 *)&(*(RecoveredGlobal_8034BA68_lbl_8050E208 *)&lbl_8050E208).value + temp_r5 + 0x20)), (M2C_UNK)((int) (4)), (s32)((int) (temp_r5))) != 0) {
             arg0->state_1c = 3;
@@ -189,7 +189,7 @@ void update_input__18TChallenge4PResultFPv(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x20) = (s32) (temp_r3 - 1);
             return;
         }
-        if (TPlayerBattleCtrl4P__sub_801BA74C((u16)(M2C_FIELD(arg0, u16 *, 0x24))) != 0U) {
+        if (get_player_by_client_id((u16)(M2C_FIELD(arg0, u16 *, 0x24))) != 0U) {
             temp_r5 = get_map_id__13TRaderMapCoreFPv() * 0x50;
             if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + temp_r5 + 0x20, 4, temp_r5) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x1C) = 1;

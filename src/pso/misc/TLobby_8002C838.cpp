@@ -32,7 +32,7 @@ void queue_destruction__7TObjectFv(void *);
 void *TBoss4Type2__sub_800874F4(Vec_8002C968 *, s32);
 void copy_pos__11TNowLoadingFPvPv(void *, Vec_8002C968 *);
 s32 check_v2_mode__9TObjEneDDFv();
-Player_8002C968 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+Player_8002C968 *get_player_by_client_id(s32);
 extern const f32 lbl_805D8170;
 void run_task__14TObjBoss1FloorFv(Floor_8002C968 *self);
 void *__dt__7TObjectFv(void *, int);
@@ -59,7 +59,7 @@ int TObjBoss1Rock__sub_8002E3CC(void);
 int TObjBoss1Rock__sub_8002E3D0(void);
 M2C_UNK TObjPlayer__sub_80083914(void *, void *);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK apply_single_screen_state__6TSceneFv();
 s32 check_v2_mode__9TObjEneDDFv();
 int create_instance__14TObjBoss1FloorFv(void*);
@@ -102,7 +102,7 @@ void render__14TObjBoss1FloorFv(void) {
         TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31, s32 *, 4)));
         apply_single_screen_state__6TSceneFv();
         func_80141618__Fv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         some_id_805c6f74 = lbl_805D5660;
     }
 }
@@ -112,7 +112,7 @@ void run_task__14TObjBoss1FloorFv(Floor_8002C968 *self) {
     Player_8002C968 *pl;
     if (check_v2_mode__9TObjEneDDFv() != 0) {
         for (i = 0; i < 4; i++) {
-            pl = TPlayerBattleCtrl4P__sub_801BA74C(i);
+            pl = get_player_by_client_id(i);
             if (pl != NULL) {
                 Vec_8002C968 pos = pl->pos;
                 pos.y -= lbl_805D8170;

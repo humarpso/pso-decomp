@@ -59,7 +59,7 @@ struct Ang_800DC83C { s32 x, y, z; };
 extern "C" {
 s32 TObjPlayer__sub_800DC478(u8 *arg0, s32 arg1, f32 farg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
-u8 *TBoss8Dragon__sub_8007A544(s32, M2C_UNK);
+u8 *csnVecterUnder(s32, M2C_UNK);
 s32 TObjPlayer__sub_800DC5F4(M2C_UNK arg0, s32 arg1);
 extern s32 lbl_805D5254;
 f32 TObjPlayer__sub_800DC434(M2C_UNK arg0, s32 arg1);
@@ -69,7 +69,7 @@ extern D_800DC448 *lbl_805D5258;
 void TObjPlayer__sub_800DC448(O_800DC448 *self, s32 i);
 u16 obj_getField1c(void *);
 s32 is_split_screen();
-s32 TObjEneDellBiter__sub_80087350(void *, int);
+s32 spawn_particle_effect(void *, int);
 void trigger_hit_camera_shake__10TObjPlayerFPvUi(void *, void *);
 void set_flag_20000__10TObjPlayerFPv(void *);
 f32 fn_801315A0(void *, void *);
@@ -81,11 +81,11 @@ void TObjPlayer__sub_800DC4B4(Src_800DC4B4 *arg0, Obj_800DC4B4 *obj, void *attac
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 void *get_player_data__10TObjPlayerFi(s32);
 void queue_destruction__7TObjectFv(void *);
-u32 TObjButterflyLobby__sub_8007A5D8(void *, void *, int);
+u32 csnVector(void *, void *, int);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 void TObjPlayer__sub_800DC4B4(Src_800DC4B4 *arg0, Obj_800DC4B4 *obj, void *attacker);
 s32 TObjPlayer__sub_800DC5F4(M2C_UNK arg0, s32 arg1);
-void *TPhotonMylla__sub_80154CB4(u16);
+void *find_entity_by_id(u16);
 s32 is_valid_and_active__10TObjPlayerFUi();
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
 extern const f32 lbl_805D525C;
@@ -171,13 +171,13 @@ void TObjPlayer__sub_800DC4B4(Src_800DC4B4 *arg0, Obj_800DC4B4 *obj, void *attac
             trigger_hit_camera_shake__10TObjPlayerFPvUi(attacker, obj);
         }
     }
-    TObjEneDellBiter__sub_80087350(obj->pos, 0xFB);
-    TObjEneDellBiter__sub_80087350(obj->pos, 0xFC);
+    spawn_particle_effect(obj->pos, 0xFB);
+    spawn_particle_effect(obj->pos, 0xFC);
 }
 
 s32 TObjPlayer__sub_800DC5F4(M2C_UNK arg0, s32 arg1) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(TBoss8Dragon__sub_8007A544(arg1, 0x16EF));
+    temp_r3 = (u8 *)(csnVecterUnder(arg1, 0x16EF));
     if (temp_r3 == NULL) {
         return 0;
     }
@@ -210,11 +210,11 @@ void TObjPlayer__sub_800DC648(Me_800DC648 *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    if (TObjButterflyLobby__sub_8007A5D8(&old, &arg0->pos, -1) != 0) {
+    if (csnVector(&old, &arg0->pos, -1) != 0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    att = TPhotonMylla__sub_80154CB4(arg0->owner);
+    att = find_entity_by_id(arg0->owner);
     if (att != NULL) {
         for (i = 0; i < lbl_805D586C + lbl_805D5870; i++) {
             pl = get_player_data__10TObjPlayerFi(i);

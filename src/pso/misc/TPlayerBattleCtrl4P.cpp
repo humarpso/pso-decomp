@@ -48,7 +48,7 @@ void TPlayerBattleCtrl4P__sub_80310910(void *, s32);
 void TPlayerBattleCtrl4P__sub_803104CC(void *);
 void TPlayerBattleCtrl4P__sub_80310C08(void *);
 void TPlayerBattleCtrl4P__vt16(Ctl_80311FA0 *o);
-VObj_18_26c590 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+VObj_18_26c590 *get_player_by_client_id(s32);
 M2C_UNK send_and_handle__6TLobbyFPvii(s32, void *, int);
 int set_score__19TPlayerBattleCtrl4PFPvi(void*, void*);
 int sprintf(char *, const char *, ...);
@@ -61,7 +61,7 @@ M2C_UNK __ct__15TDuelEffectCtrlFP7TObjectUc(void *, void *, M2C_UNK);
 void *__nw__7TObjectFUl(M2C_UNK);
 void TWindowCtrl__sub_8024A4EC(void);
 void remove_player__19TPlayerBattleCtrl4PFPvUsi(void *, u16, s32);
-VObj_18_26c590 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+VObj_18_26c590 *get_player_by_client_id(s32);
 void set_type__10TObjPlayerFPvi(void *, s32);
 int set_score__19TPlayerBattleCtrl4PFPvi(void*, void*);
 M2C_UNK update_all_players__19TPlayerBattleCtrl4PFv();
@@ -128,7 +128,7 @@ void TPlayerBattleCtrl4P__vt17(void *arg0) {
         remove_player__19TPlayerBattleCtrl4PFPvUsi(arg0, i, 1);
     }
     for (i = 0; i < 4; i++) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        p = get_player_by_client_id(i);
         if (p != 0) {
             set_type__10TObjPlayerFPvi((u8 *)p + 0x644, 0xE10);
         }
@@ -229,7 +229,7 @@ void TPlayerBattleCtrl4P__vt9(O_8031224C *o) {
         names[i][0] = 0;
     }
     for (i = 0; i < 4; i++) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        p = get_player_by_client_id(i);
         if (p != NULL) {
             team = o->team[i] != 1 ? 1 : 0;
             if (cnt.n[team] < 2) {

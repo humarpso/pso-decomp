@@ -8,7 +8,7 @@ extern "C" {
 
 void cast_foie__10TObjPlayerFPv(void *arg0);
 void *TObjPlayer__sub_80122BE4(void *arg0);
-M2C_UNK TObjEneDellBiter__sub_80087350(M2C_UNK *, M2C_UNK);
+M2C_UNK spawn_particle_effect(M2C_UNK *, M2C_UNK);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
 M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
 M2C_UNK draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK *);
@@ -21,7 +21,7 @@ void cast_foie__10TObjPlayerFPv(void *arg0) {
     void *temp_r3;
 
     draw_icon__10TObjPlayerFPvii(arg0, 2, &sp8);
-    TObjEneDellBiter__sub_80087350(&sp8, 0x1BF);
+    spawn_particle_effect(&sp8, 0x1BF);
     if (is_mode_two_and_ready__10TObjPlayerFPv(arg0) != 0) {
         temp_r3 = M2C_FIELD(arg0, void **, 0xF0);
         create__8TTecFoieFPvPvPvPv(temp_r3, &sp8, M2C_FIELD(temp_r3, s32 *, 0x60), 3);

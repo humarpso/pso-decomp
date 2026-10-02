@@ -171,7 +171,7 @@ u8 get_slot_count__14TItemProShieldFPv(int);
 s32 TObjPlayer__sub_8011C620(void *);
 s32 reset_status_block__10TObjPlayerFPv(void *);
 s32 apply_camera_shake__10TObjPlayerFiii(int, int, int);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 f32 TObjPlayer__sub_801CBF08(int, int);
 extern const f32 lbl_805DE914;
 extern const f32 lbl_805DE928;
@@ -180,7 +180,7 @@ extern const f32 lbl_805DE914;
 extern const float lbl_805DE918;
 extern const f32 lbl_805DE924;
 void TObjPlayer__sub_802E451C(S_802E451C *arg0);
-Hit_802E3D8C *TObjButterflyLobby__sub_8007A5D8(void *, void *, s32);
+Hit_802E3D8C *csnVector(void *, void *, s32);
 void set_flags__10TObjPlayerFPvUi(void *, u32);
 M2C_UNK VecCopy__FP3VecPC3Vec(M2C_UNK *, s32);
 void TItemAttackCol__sub_802E3D8C(u8 *arg0, void *arg1);
@@ -229,7 +229,7 @@ void TItemAttackCol__vt4(Obj_802E3C4C *o, s32 *a) {
         }
         if (o->fE4 & 0x200) {
             VObj_802E3C4C *p = (VObj_802E3C4C *)TLobby__sub_80101AB0(o->fAC);
-            u8 *b = TPlayerBattleCtrl4P__sub_801BA74C(o->fA8);
+            u8 *b = get_player_by_client_id(o->fA8);
             if (p != NULL) {
                 p->m59(b, a[0], o->fB8, o->fB4, a[1]);
             }
@@ -251,7 +251,7 @@ typedef void (*Cb_802E3D8C)(s32, void *, void *);
 void TItemAttackCol__sub_802E3D8C(u8 *arg0, void *arg1) {
     Hit_802E3D8C *hit;
     Cb_802E3D8C cb;
-    hit = TObjButterflyLobby__sub_8007A5D8(arg0 + 0x24, arg1, 0x8100);
+    hit = csnVector(arg0 + 0x24, arg1, 0x8100);
     if (hit != NULL) {
         set_flags__10TObjPlayerFPvUi(arg0 + 0xE0, 1);
         VecCopy__FP3VecPC3Vec((M2C_UNK *)(arg0 + 0x24), (s32)(hit->pos));
@@ -359,7 +359,7 @@ s32 TObjPlayer__sub_802E456C(u8 *arg0, u8 *arg1) {
     s32 temp_r0;
     f32 var_f31;
     temp_r30 = (u8 *)(M2C_FIELD(arg1, u8 **, 0));
-    temp_r29 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C((s32) M2C_FIELD(arg0, u16 *, 0xA8)));
+    temp_r29 = (u8 *)(get_player_by_client_id((s32) M2C_FIELD(arg0, u16 *, 0xA8)));
     temp_r28 = TLobby__sub_80101AB0((int) (M2C_FIELD(arg0, s32 *, 0xAC)));
     temp_r31 = M2C_FIELD(M2C_FIELD(arg1, u8 **, 0), s32 *, 0xA4) + (M2C_FIELD(arg1, s32 *, 4) * 0x2C);
     if ((temp_r29 != NULL) && (temp_r28 != 0U) && (((VObj_18_f2ea1e *)(temp_r30))->m19(temp_r29, temp_r31, 0, M2C_FIELD(arg0, f32 *, 0xB0)) != 0)) {

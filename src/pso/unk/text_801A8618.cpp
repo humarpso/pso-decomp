@@ -10,7 +10,7 @@ s32 is_split_screen();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
 u16 get_section_id__10TObjPlayerFPv(void *);
-void *TPlayerBattleCtrl4P__sub_801BA74C(u32);
+void *get_player_by_client_id(u32);
 extern s32 lbl_805D53A0;
 s32 TObjPlayer__sub_801A8618(u32 owner_id, void *records);
 }
@@ -27,12 +27,12 @@ s32 TObjPlayer__sub_801A8618(u32 owner_id, void *records) {
     if (lbl_805D53A0 == get_section_id__10TObjPlayerFPv(records)) {
         return 1;
     }
-    local = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    local = get_player_by_client_id(lbl_805D53A0);
     if (local == NULL) {
         return 0;
     }
     group = get_stat_by_key_state__10TObjPlayerFPv(local);
-    owner = TPlayerBattleCtrl4P__sub_801BA74C(owner_id);
+    owner = get_player_by_client_id(owner_id);
     if (owner != NULL) {
         if (get_field_3e4__10TObjPlayerFPv(local) == get_field_3e4__10TObjPlayerFPv(owner) && group == (s16) get_stat_by_key_state__10TObjPlayerFPv(owner)) {
             return 1;

@@ -188,7 +188,7 @@ void qst_op_switch_call(s32 arg0, u8 arg1, s32 arg2);
 s32 obj_isState3_324(int);
 s32 TWindowSubComCard__sub_801058F8();
 s32 check_player_state_flag_2__6TLobbyFPv(int);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
 extern int* TLobby__data_805D5E78;
 void qst_op_p_dead(void);
@@ -342,7 +342,7 @@ int TObjHashiVersus2__sub_801912A4(void*);
 int TObjHashiVersus2__sub_801912B0(void*);
 M2C_UNK TObjPlayer__sub_801B35AC();
 M2C_UNK TObjPlayer__sub_801B3620();
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 M2C_UNK TWindow__close(void*);
 M2C_UNK action_enable_if_present__10TObjPlayerFPv(s32);
 int fn_8019608C(void*);
@@ -392,7 +392,7 @@ void qst_op_if_zone_clear(s32 arg0, s32 arg1) {
 void qst_op_p_action_enable(void) {
     s32 temp_r3;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(lbl_805D53A0);
     if (temp_r3 != 0) {
         TObjPlayer__sub_801B35AC();
         action_enable_if_present__10TObjPlayerFPv(temp_r3);
@@ -404,7 +404,7 @@ extern s32 lbl_805D53A0;
 void qst_op_p_action_disable(void) {
     s32 temp_r3;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(lbl_805D53A0);
     if (temp_r3 != 0) {
         TObjPlayer__sub_801B3620();
         release_attached_resource__10TObjPlayerFPv(temp_r3);
@@ -437,7 +437,7 @@ void qst_op_p_dead(void) {
     s32 temp_r31;
     u8 *temp_r3;
     temp_r31 = M2C_FIELD(&TLobby__data_80512220.value, s32 *, 0);
-    temp_r3 = (u8 *)(((u8 *)TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(&TLobby__data_80512220.value, s32 *, 4))));
+    temp_r3 = (u8 *)(((u8 *)get_player_by_client_id(M2C_FIELD(&TLobby__data_80512220.value, s32 *, 4))));
     if ((temp_r3 != NULL) && (TWindowSubComCard__sub_801058F8() == 0)) {
         if (obj_isState3_324((int) (temp_r3)) != 0) {
             if (M2C_FIELD(temp_r3, s32 *, 0x30) & 0x800) {

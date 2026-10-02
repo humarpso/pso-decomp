@@ -11,7 +11,7 @@ void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1);
 void render__18TPhotonConcentrateFv(void);
 s32 TBoss4Type2__sub_800874F4(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801569F4(s32, s32);
-s32 TPhotonMylla__sub_80154CB4(s32, f32);
+s32 find_entity_by_id(s32, f32);
 u8 *VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 int begin_effect_render__13TParticleCtrlFv(void);
@@ -55,7 +55,7 @@ u8 *TPhotonConcentrate__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     M2C_FIELD(arg0, f32 *, 0xE8) = (f32) M2C_FIELD(arg1, f32 *, 0x2C);
     M2C_FIELD(arg0, s32 *, 0xF0) = (s32) M2C_FIELD(arg1, s32 *, 0x30);
     M2C_FIELD(arg0, s32 *, 0xEC) = (s32) M2C_FIELD(arg1, s32 *, 0x34);
-    M2C_FIELD(arg0, s32 *, 0xFC) = TPhotonMylla__sub_80154CB4(arg3, temp_f1);
+    M2C_FIELD(arg0, s32 *, 0xFC) = find_entity_by_id(arg3, temp_f1);
     M2C_FIELD(arg0, s32 *, 0xF8) = TBoss4Type2__sub_800874F4(arg0 + 0xB8, 0x135);
     return arg0;
 }

@@ -66,8 +66,8 @@ struct View_8014F57C { s32 count; Cand_8014F424 c[10]; u8 pad[0x94 - 0x7C]; void
 
 extern "C" {
 s32 is_alive__9TObjEneDDFPv(void *);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
-Actor_8014F424 *TPhotonMylla__sub_80154CB4(s32);
+f32 horizontal_distance_squared(void *, void *);
+Actor_8014F424 *find_entity_by_id(s32);
 s32 TNpcPlayer__sub_8014F424(View_8014F424 *view, void *pos, s32 id, f32 range);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 void rotate_matrix_y(s32, s32);
@@ -82,13 +82,13 @@ s32 get_game_mode__6TLobbyFv(void);
 s32 get_enemy_count__9TObjEneDDFv(void);
 Actor_8014F140 *get_player_data__10TObjPlayerFi(s32);
 s32 is_active__12TTecReverserFPv(void *);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 horizontal_distance_squared(void *, void *);
 s32 obj_getField1c(void *obj);
 void quick_sort__10TNpcPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 extern const f32 TNpcPlayer__data_805DB1F0;
 s32 TNpcPlayer__sub_8014F57C(View_8014F57C *view, void *pos, f32 range);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
-u8 *TObjButterflyLobby__sub_8007A5D8(s32, s32, M2C_UNK);
+u8 *csnVector(s32, s32, M2C_UNK);
 extern const f32 TNpcPlayer__data_805DB1F0;
 extern const f32 TNpcPlayer__data_805DB204;
 extern const f32 lbl_805DB208;
@@ -99,15 +99,15 @@ typedef struct Vec_8014E3B0 { f32 x, y, z; } Vec_8014E3B0;
 
 extern "C" {
 void TNpcPlayer__sub_801528B8(s32, s32);
-void TNpcPlayer__sub_8014E33C(u8 *arg0, u32 arg1);
+void request_chatter__10TNpcPlayerFPvUi(u8 *arg0, u32 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
-u8 *TObjButterflyLobby__sub_8007A5D8(s32, s32, M2C_UNK);
+u8 *csnVector(s32, s32, M2C_UNK);
 s32 TNpcPlayer__sub_8014F0D4(M2C_UNK arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 void TNpcPlayer__sub_8014E090(u8 *arg0, u32 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
-u8 *TObjButterflyLobby__sub_8007A5D8(s32, s32, M2C_UNK);
-s32 TNpcPlayer__sub_800D87EC(void *);
+u8 *csnVector(s32, s32, M2C_UNK);
+s32 find_active_entity_by_id(void *);
 bool TNpcPlayer__sub_8014F728(u8 *arg0, u16 arg1);
 s32 is_any_teammate_in_state__10TObjPlayerFv(void *self);
 s32 obj_getField1c(void *obj);
@@ -126,7 +126,7 @@ Contact_8014F140 *find_actor_body_contact(void *, void *, f32);
 extern const f32 lbl_805DB210;
 s32 TNpcPlayer__sub_8014F140(View_8014F140 *view);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
-u8 *TObjButterflyLobby__sub_8007A5D8(s32, s32, M2C_UNK);
+u8 *csnVector(s32, s32, M2C_UNK);
 f32 TBoss6Kakusan__sub_803D8BD8(Vec_8014E3B0 *);
 void TNpcPlayer__sub_803D97B4(Vec_8014E3B0 *);
 extern const f32 TNpcPlayer__data_805DB1F0;
@@ -186,7 +186,7 @@ void dispatch_action__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
             TNpcPlayer__sub_80150A34(arg0, 0xF);
         }
         if (M2C_FIELD(arg0, s32 *, 0x80) & 0x200) {
-            TNpcPlayer__sub_8014E33C((u8 *)(arg0), (u32)(0x13));
+            request_chatter__10TNpcPlayerFPvUi((u8 *)(arg0), (u32)(0x13));
         }
         return;
     case 1:
@@ -303,7 +303,7 @@ void TNpcPlayer__sub_8014E250(Npc_8014E250 *self) {
     }
 }
 
-void TNpcPlayer__sub_8014E33C(u8 *arg0, u32 arg1) {
+void request_chatter__10TNpcPlayerFPvUi(u8 *arg0, u32 arg1) {
   u32 *new_var;
   int new_var2;
   new_var = (u32 *) (((s8 *) arg0) + 0x24);
@@ -336,7 +336,7 @@ void TNpcPlayer__sub_8014E33C(u8 *arg0, u32 arg1) {
 s32 TNpcPlayer__sub_8014E3B0(void *self, f32 *from, f32 *to, f32 *out) {
     Vec_8014E3B0 dir;
     u8 *contact;
-    contact = TObjButterflyLobby__sub_8007A5D8((s32) from, (s32) to, 0x2100);
+    contact = csnVector((s32) from, (s32) to, 0x2100);
     if (contact != NULL) {
         dir.x = to[0] - from[0];
         dir.y = TNpcPlayer__data_805DB1F0;
@@ -441,7 +441,7 @@ s32 TNpcPlayer__sub_8014EE98(Self_8014EE98 *self, Vec_8014E3B0 *from, Vec_8014E3
     out->y = from->y;
     out->z = perp.z * s + from->z;
     VecCopy__FP3VecPC3Vec(&tmp, (int)&self->f74->obj->pos);
-    if (TObjButterflyLobby__sub_8007A5D8((s32)((s32)&tmp), (s32)((s32)&hit), (M2C_UNK)(0x2100)) != 0) {
+    if (csnVector((s32)((s32)&tmp), (s32)((s32)&hit), (M2C_UNK)(0x2100)) != 0) {
         hit.x = TNpcPlayer__data_805DB20C * perp.x + hit.x;
         hit.z = TNpcPlayer__data_805DB20C * perp.z + hit.z;
         return 0;
@@ -461,7 +461,7 @@ s32 TNpcPlayer__sub_8014EE98(Self_8014EE98 *self, Vec_8014E3B0 *from, Vec_8014E3
 
 s32 TNpcPlayer__sub_8014F0D4(M2C_UNK arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(TObjButterflyLobby__sub_8007A5D8(arg1, arg2, 0x2100));
+    temp_r3 = (u8 *)(csnVector(arg1, arg2, 0x2100));
     if (temp_r3 != NULL) {
         VecCopy__FP3VecPC3Vec((void *) (arg3), (int) (M2C_FIELD(temp_r3, s32 *, 4)));
         VecCopy__FP3VecPC3Vec((void *) (arg4), (int) (M2C_FIELD(temp_r3, s32 *, 4) + 0xC));
@@ -554,14 +554,14 @@ s32 TNpcPlayer__sub_8014F424(View_8014F424 *view, void *pos, s32 id, f32 range) 
         view->c[j].id = 0xFFFF;
         view->c[j].dist = TNpcPlayer__data_805DB1F0;
     }
-    actor = TPhotonMylla__sub_80154CB4(id);
+    actor = find_entity_by_id(id);
     if (is_alive__9TObjEneDDFPv(actor) != 0) {
         range = range * range;
         for (i = 0; i < actor->ncols; i++) {
             if (actor->cols == 0) {
                 break;
             }
-            d = TObjPlayer__sub_80141CF8(pos, actor->cols + i * 0x2C + 0x1C);
+            d = horizontal_distance_squared(pos, actor->cols + i * 0x2C + 0x1C);
             if (d < range) {
                 found = 1;
                 view->c[view->count].id = (u16)obj_getField1c(actor);
@@ -608,7 +608,7 @@ s32 TNpcPlayer__sub_8014F57C(View_8014F57C *view, void *pos, f32 range) {
             if (!(actor->cols[c].flags & 0x8000)) {
                 continue;
             }
-            d = TObjPlayer__sub_80141CF8(origin, actor->cols[c].pos);
+            d = horizontal_distance_squared(origin, actor->cols[c].pos);
             if (d < range) {
                 found = 1;
                 view->c[view->count].id = (u16)obj_getField1c(actor);
@@ -628,10 +628,10 @@ s32 TNpcPlayer__sub_8014F57C(View_8014F57C *view, void *pos, f32 range) {
 bool TNpcPlayer__sub_8014F728(u8 *arg0, u16 arg1) {
     Stack_8014F728 stack;
     u8 *temp_r3;
-    VecCopy__FP3VecPC3Vec((void *)((void *) (&stack.sp8)), (int)((void *) (TNpcPlayer__sub_800D87EC((void *) (arg1)) + 0x2FC)));
+    VecCopy__FP3VecPC3Vec((void *)((void *) (&stack.sp8)), (int)((void *) (find_active_entity_by_id((void *) (arg1)) + 0x2FC)));
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x94));
     stack.spC = M2C_FIELD(temp_r3, f32 *, 0x300);
-    return ((s32)TObjButterflyLobby__sub_8007A5D8((s32)((void *) (temp_r3 + 0x2FC)), (s32)((void *) (&stack.sp8)), (M2C_UNK)((int) (0x2100)))) == 0;
+    return ((s32)csnVector((s32)((void *) (temp_r3 + 0x2FC)), (s32)((void *) (&stack.sp8)), (M2C_UNK)((int) (0x2100)))) == 0;
 }
 
 }

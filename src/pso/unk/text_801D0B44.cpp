@@ -33,7 +33,7 @@ void TObjPlayer__sub_801C8C50(s32, s32);
 void TObjPlayer__sub_801C8A28(s32, s32);
 void TObjPlayer__sub_801C869C(s32, s32);
 void TObjPlayer__sub_801C7A6C(s32, s32);
-void TObjPlayer__sub_801D0BC0(s32 arg0, s16 arg1, s32 arg2);
+void run_action_state_phase__10TObjPlayerFisi(s32 arg0, s16 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -71,7 +71,7 @@ void TObjPlayer__sub_801D0B44(s32 arg0, s16 arg1) {
     }
   }
 }
-void TObjPlayer__sub_801D0BC0(s32 arg0, s16 arg1, s32 arg2) {
+void run_action_state_phase__10TObjPlayerFisi(s32 arg0, s16 arg1, s32 arg2) {
     switch (arg1) {
     case 1:
         ((void (*)(s32, s32))TObjPlayer__sub_801D0B44)(arg0, arg2);

@@ -40,7 +40,7 @@ M2C_UNK C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
 M2C_UNK GXSetTevOp(int, int);
 M2C_UNK GXSetTevOrder(int, int, int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK set_global_effect_state__10TObjPlayerFi(M2C_UNK);
 M2C_UNK TObjPlayer__sub_803DC83C(M2C_UNK);
 M2C_UNK TObjPlayer__sub_803DC850(M2C_UNK);
@@ -63,7 +63,7 @@ int set_instance__6TSceneFi(void *f);
 int TScene__sub_8029F3E8(void);
 void VecCopy__FP3VecPC3Vec(Vec_8029EFFC *, Vec_8029EFFC *);
 f32 get_random_float__8TObjFishFv(f32);
-Pl_8029EFFC *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+Pl_8029EFFC *get_player_by_client_id(s32);
 s32 TObjPlayer__sub_80203418();
 s32 get_global_state__14TOKeyMachine01Fv();
 void render_task_layer_02__9TMainTaskFv(void *);
@@ -80,7 +80,7 @@ f32 TCameraCtrl__sub_803D8D00(Vec_8029EFFC *);
 void reflect_matrix_in_plane(s32, Cam_8029EFFC *);
 void TNpcPlayer__sub_803D97B4(Vec_8029EFFC *);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 extern Vec_8029EFFC lbl_80465E08;
 extern u8 main_task[];
 extern s32 TSceneSora__data_805D3620;
@@ -132,7 +132,7 @@ void TObjPlayer__sub_8029EEAC(s32 arg0, s32 arg1, s32 arg2) {
             }
             PSMTXConcat((void *) (&sp10), (void *) (lbl_805D7774), (void *) (lbl_805D7774));
             TObjPlayer__sub_803E1D54((int) (2));
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             TObjPlayer__sub_803E1D1C((int) (2));
             GXSetTevOrder((int) (1), (int) (1), (int) (2), (int) (4));
             GXSetTevOp((int) (1), (int) (2));
@@ -159,7 +159,7 @@ void TSceneSora__sub_8029EFFC(Sora_8029EFFC *o) {
     if (lbl_805D4DF0 == 0 || o->f1C == 0) {
         return;
     }
-    p = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    p = get_player_by_client_id(lbl_805D53A0);
     if (p == NULL) {
         return;
     }
@@ -193,7 +193,7 @@ void TSceneSora__sub_8029EFFC(Sora_8029EFFC *o) {
                     TObjPlayer__sub_803D9B2C();
                     reflect_matrix_in_plane(0, &c3);
                     render_object_layers__9TMainTaskFi(main_task, 3);
-                    TObjPlayer__sub_803D9B78();
+                    pop_matrix();
                 }
             }
         } else if (p != NULL) {
@@ -207,7 +207,7 @@ void TSceneSora__sub_8029EFFC(Sora_8029EFFC *o) {
             TObjPlayer__sub_803D9B2C();
             reflect_matrix_in_plane(0, &c2);
             render_object_layers__9TMainTaskFi(main_task, 4);
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
         }
     }
     render_task_layer_02__9TMainTaskFv(main_task);
@@ -221,7 +221,7 @@ void TSceneSora__sub_8029EFFC(Sora_8029EFFC *o) {
         TObjPlayer__sub_803D9B2C();
         reflect_matrix_in_plane(0, &c1);
         render_object_layers__9TMainTaskFi(main_task, 5);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
     k = lbl_805DDD8C;
     lbl_805D65F8 = 0;
@@ -256,8 +256,8 @@ void TSceneSora__sub_8029EFFC(Sora_8029EFFC *o) {
             if (r == 1) {
                 render_object_layers__9TMainTaskFi(main_task, 0);
             }
-            TObjPlayer__sub_803D9B78();
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
+            pop_matrix();
         }
         if (r != 0) {
             break;

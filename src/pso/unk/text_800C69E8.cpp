@@ -14,13 +14,13 @@ extern "C" {
 void TObjPlayer__sub_800C6A18(O_800C6A18 *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-void *TObjButterflyLobby__sub_8007A5D8(void *, void *, s32);
+void *csnVector(void *, void *, s32);
 f32 TObjPlayer__sub_8013153C(void *, s32);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
 M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D97F0(void *);
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 extern Vec_800C6A48 lbl_8043BCAC;
 extern Vec_800C6A48 lbl_8043BCB8;
 extern const f64 lbl_8043BCC8[];
@@ -81,9 +81,9 @@ void TObjPlayer__sub_800C6A48(u8 *self, f32 *dir, f32 a, f32 b) {
         for (i = 0; i < 3; i++) {
             TCameraCtrl__sub_803D8934(0, &sp14, self + 0x29C);
             TBoss4Zako__sub_803D8910(self + 0x29C, &sp20);
-            p = TObjButterflyLobby__sub_8007A5D8(&sp20, self + 0x29C, -1);
+            p = csnVector(&sp20, self + 0x29C, -1);
             if (p == NULL) {
-                TObjPlayer__sub_803D9B78();
+                pop_matrix();
                 return;
             }
             d = TObjPlayer__sub_8013153C(self + 0x38, M2C_FIELD(p, s32 *, 4)) - b;
@@ -95,7 +95,7 @@ void TObjPlayer__sub_800C6A48(u8 *self, f32 *dir, f32 a, f32 b) {
             ang += 0x5555;
         }
     }
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     TObjPlayer__sub_803D97F0(lbl_8058D490);
     {
         Vec_800C6A48 sp8 = lbl_8043BCB8;
@@ -104,7 +104,7 @@ void TObjPlayer__sub_800C6A48(u8 *self, f32 *dir, f32 a, f32 b) {
         TCameraCtrl__sub_803D8934(0, &sp8, self + 0x29C);
     }
     TBoss4Zako__sub_803D8910(self + 0x29C, &sp20);
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 }

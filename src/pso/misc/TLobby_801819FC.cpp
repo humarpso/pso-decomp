@@ -67,7 +67,7 @@ M2C_UNK TObjBoss2Tunnel__sub_803DB470();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 extern u32 lbl_805D5B2C;
 extern const f32 lbl_805DBBE0;
 extern const f32 lbl_805DBBE4;
@@ -117,7 +117,7 @@ void process_lobby_action_14__6TLobbyFPv(u8 *arg0) {
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         TLobby__sub_801819E4(0xE);
         TObjBoss2Tunnel__sub_803DB470();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

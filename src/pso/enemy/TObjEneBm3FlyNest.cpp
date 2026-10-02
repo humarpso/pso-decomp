@@ -120,7 +120,7 @@ void TObjEneBm3FlyNest__sub_800B3ADC(u8 *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
 void copy_pos__17TObjEneBm3FlyNestFPv(void* p);
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
-s32 TObjEneDD__sub_800BBA18(void * a0, s32 a1);
+s32 transition_enemy_state(void * a0, s32 a1);
 void TObjEneBm3FlyNest__sub_800B3D70(u8 *arg0);
 s32 handle_state__17TObjEneBm3FlyNestFPvi(void *, void *);
 s32 TObjEneBm3FlyNest__sub_800B2C24(void *, void *);
@@ -154,7 +154,7 @@ void update_state__17TObjEneBm3FlyNestFPv(void *arg0);
 void update_state_action__17TObjEneBm3FlyNestFPv(void *arg0);
 s32 TBoss8Dragon__sub_800BB780(void *);
 int TObjEneDD__sub_800BAAE4(void*, void*, void*);
-s32 TObjEneDD__sub_800BBA18(void * a0 = 0, s32 a1 = 0);
+s32 transition_enemy_state(void * a0 = 0, s32 a1 = 0);
 int VecCopy__FP3VecPC3Vec(void*, void*);
 s32 check_v2_mode__9TObjEneDDFv();
 
@@ -236,7 +236,7 @@ void update_state__17TObjEneBm3FlyNestFPv(void *arg0) {
         return;
     }
     if (temp_r0 != 7) {
-        TObjEneDD__sub_800BBA18(arg0, 7);
+        transition_enemy_state(arg0, 7);
     }
 }
 void update_state_action__17TObjEneBm3FlyNestFPv(void *arg0) {
@@ -245,10 +245,10 @@ void update_state_action__17TObjEneBm3FlyNestFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
     if ((temp_r0 != 9) && (temp_r0 != 8) && (temp_r0 != 4)) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3A8) == 0) {
-            TObjEneDD__sub_800BBA18(arg0, 4);
+            transition_enemy_state(arg0, 4);
             return;
         }
-        TObjEneDD__sub_800BBA18(arg0, 8);
+        transition_enemy_state(arg0, 8);
     }
 }
 void TObjEneBm3FlyNest__sub_800B3CBC(void) {  }
@@ -301,7 +301,7 @@ void TObjEneBm3FlyNest__sub_800B3D70(u8 *arg0) {
     if (((VObj_18 *)(arg0))->m81() != 4) {
         ((VObj_18 *)(arg0))->m83();
     } else if (M2C_FIELD(arg0, s16 *, 0x326) == 0) {
-        TObjEneDD__sub_800BBA18((void *)((void *) (arg0)), (s32)((int) (1)));
+        transition_enemy_state((void *)((void *) (arg0)), (s32)((int) (1)));
     }
     ((VObj_18 *)(arg0))->m86();
     copy_pos__17TObjEneBm3FlyNestFPv((void*)((void *) (arg0)));

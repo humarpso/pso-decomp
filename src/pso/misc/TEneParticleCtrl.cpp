@@ -21,7 +21,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 s32 TBoss4DarkFalz__sub_8004C220(void *, void *);
 u32 TBoss8Dragon__sub_8008741C(void *, int, int);
-s32 TObjPlayer__sub_80087638(int, int);
+s32 set_owner_id__13TParticleCtrlFPvUs(int, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 TObjEneGibbles__sub_80156780(void *, void *, int);
 s32 TObjPlayer__sub_801569F4(void *, void *);
@@ -87,7 +87,7 @@ u8 *TEneParticleCtrl__ct(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, u32 *, 0xC0) = TBoss8Dragon__sub_8008741C((void *) (arg0 + 0xB4), (int) (M2C_FIELD(arg0, s32 *, 0xB0)), (int) (0x10));
     temp_r3 = M2C_FIELD(arg0, u32 *, 0xC0);
     if (temp_r3 != 0U) {
-        TObjPlayer__sub_80087638((int) (temp_r3), (int) (M2C_FIELD(arg0, u16 *, 0x1C)));
+        set_owner_id__13TParticleCtrlFPvUs((int) (temp_r3), (int) (M2C_FIELD(arg0, u16 *, 0x1C)));
     }
     return arg0;
 }

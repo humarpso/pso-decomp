@@ -125,7 +125,7 @@ u8 *dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 s32 get_game_mode__6TLobbyFv();
 s32 TBoss4Type3__sub_8005254C(u16);
 M2C_UNK TBoss4Type3__sub_8005A398(void *, M2C_UNK);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 M2C_UNK create__9TTecMegidFiiii(void *, Vec_80058848 *, u8 *, s32);
 M2C_UNK queue_event_1D__12TBoss3VoloptFss(s32, s32);
 s32 rand();
@@ -145,7 +145,7 @@ M2C_UNK TObjPlayer__sub_8004433C(void *);
 s32 TBoss4Type3__sub_8005254C(u16);
 M2C_UNK TBoss4Type3__sub_8005A398(void *, M2C_UNK);
 M2C_UNK TBoss4Type3__sub_8005A678(void *, int);
-void *TObjEneDellBiter__sub_80087350(void *, int);
+void *spawn_particle_effect(void *, int);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 M2C_UNK create__10TTecGrantsFPvPvPvPv(void *, void *, void *, s32);
 M2C_UNK queue_event_1D__12TBoss3VoloptFss(s32, s32);
@@ -170,7 +170,7 @@ M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
 M2C_UNK TObjPlayer__sub_803D8CD4(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 extern const f32 TBoss4Type3__data_805D8C34;
 extern const f32 lbl_805D8C54;
@@ -233,7 +233,7 @@ void TBoss4Type3__vt36(O_80058848 *o) {
     if (o->f398 == 0x46) {
         r30 = *(s32 *)(dispatch_shared_handler_a__6TLobbyFPv(0x38) + 0x1C);
         for (i = 0; i < get_game_mode__6TLobbyFv(); i++) {
-            p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+            p = get_player_by_client_id(i);
             if (TBoss4Type3__sub_8005254C(i) != 0) {
                 Vec_80058848 v = o->pos;
                 p += 0x2FC;
@@ -281,7 +281,7 @@ void TBoss4Type3__vt33(u8 *arg0) {
         TBoss4Type3__sub_8005A678(arg0, 7);
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x398) == 0x49) {
-        p = TObjEneDellBiter__sub_80087350(sub, 0x133);
+        p = spawn_particle_effect(sub, 0x133);
         if (p != 0) {
             set_flags__11TBoss4Type2FPvUi(p, 0x40);
         }
@@ -507,7 +507,7 @@ void TBoss4Type3__vt9(O_800590F4 *o) {
       TCameraCtrl__sub_803D8934(0, e, &a);
       pb = (0, (s32) (&b));
       TCameraCtrl__sub_803D8934(0, e + 0xC, (void *) pb);
-      TObjPlayer__sub_803D9B78();
+      pop_matrix();
       o->f524[idx]->m4(&a, (Vec_800590F4 *) pb);
     }
   }

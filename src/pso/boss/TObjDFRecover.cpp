@@ -9,7 +9,7 @@ void request_destroy__11TBoss4Type2FUi(void *);
 u32 TBoss4Type2__sub_800874F4(void *, int);
 s32 set_flags__11TBoss4Type2FPvUi(int, int);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+s32 get_player_by_client_id(u16);
 s32 TBoss3Volopt__sub_8022675C(int, int, int, int);
 s32 spawn_effect__11TBoss4Type3Fsss(int, int, int);
 }
@@ -27,7 +27,7 @@ void TObjDFRecover::run_task() {
         return;
     }
     id = target_id;
-    if ((id == 0xFFFF) || ((target_address = TPlayerBattleCtrl4P__sub_801BA74C(id)) == 0)) {
+    if ((id == 0xFFFF) || ((target_address = get_player_by_client_id(id)) == 0)) {
         queue_destruction__7TObjectFv(this);
         return;
     }

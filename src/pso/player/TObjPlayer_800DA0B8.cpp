@@ -44,15 +44,15 @@ void TObjPlayer__sub_800DB8D4(u8 *arg0);
 void *fn_80086D50(void *pos, void *dir, s32 id);
 void TObjPlayer__sub_800DA4B4(Obj_800DA4B4 *self, s32 i);
 void TObjPlayer__sub_800DCD04(void *, void *, int, void *, s32, int);
-u32 TPhotonMylla__sub_80154CB4(int);
+u32 find_entity_by_id(int);
 u32 __nw__7TObjectFUl(u32);
 void TObjPlayer__sub_800DA414(Obj_800DA414 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-void TObjPlayer__sub_80017E6C(void *);
+void move_with_wall_slide(void *);
 void TObjPlayer__sub_8001806C(void *, f32, s32);
 void TObjPlayer__sub_80018660(void *, s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f32 fn_8013157C(void *, void *);
+f32 xz_distance_squared(void *, void *);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 extern const f32 lbl_805DA40C;
@@ -66,11 +66,11 @@ M2C_UNK TObjPlayer__sub_80018570(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK);
 M2C_UNK TBoss3VoloptMonitor__sub_8004292C();
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK spawn_particle_effect(void *, int);
 M2C_UNK TObjPlayer__sub_800D9E8C(void *);
 void TObjPlayer__sub_800DA4B4(Obj_800DA4B4 *self, s32 i);
 M2C_UNK TObjPlayer__sub_800DC83C(u32, void *, void *, u8, void *);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
@@ -98,7 +98,7 @@ void TObjPlayer__sub_800DA414(Obj_800DA414 *arg0, s32 arg1) {
     s32 t;
     s32 off;
     void *o;
-    if (TPhotonMylla__sub_80154CB4(arg0->ids[arg1]) != 0) {
+    if (find_entity_by_id(arg0->ids[arg1]) != 0) {
         t = arg1 & 1;
         s.a = 0;
         off = 0x2000;
@@ -127,7 +127,7 @@ void TObjPlayer__sub_800DA4B4(Obj_800DA4B4 *self, s32 i) {
 void TObjPlayer__sub_800DA508(Ene_800DA508 *arg0, Vec_800DA508 *center, f32 radius) {
     s32 ang;
     f32 r;
-    if (fn_8013157C(&arg0->pos, &arg0->dest) < lbl_805DA40C) {
+    if (xz_distance_squared(&arg0->pos, &arg0->dest) < lbl_805DA40C) {
         ang = (s32)(lbl_805DA410 * (lbl_805DA414 * calc_boss4_scale__10TObjPlayerFi(arg0)));
         r = lbl_805DA418 * (radius * (lbl_805DA41C + calc_boss4_scale__10TObjPlayerFi(arg0)));
         arg0->dest.x = r * TBoss8Dragon__sub_803D64DC(ang) + center->x;
@@ -136,7 +136,7 @@ void TObjPlayer__sub_800DA508(Ene_800DA508 *arg0, Vec_800DA508 *center, f32 radi
     VecCopy__FP3VecPC3Vec(&arg0->v29C, &arg0->dest);
     TObjPlayer__sub_80018660(arg0, arg0->param->turn);
     TObjPlayer__sub_8001806C(arg0, arg0->speed, arg0->angle);
-    TObjPlayer__sub_80017E6C(arg0);
+    move_with_wall_slide(arg0);
 }
 #pragma pop
 
@@ -157,7 +157,7 @@ void TObjPlayer__sub_800DB390(u8 *arg0) {
             M2C_FIELD(arg0, s16 *, 0xB8) = 9;
         }
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
-        TBoss1Dragon__sub_80143504((void *) (arg0));
+        advance_animation_playback((void *) (arg0));
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFBFFFF);
         break;
     case 3:
@@ -171,7 +171,7 @@ void TObjPlayer__sub_800DB390(u8 *arg0) {
         case 1:
             if (M2C_FIELD(arg0, f32 *, 0xC0) >= lbl_805DA45C) {
                 TObjPlayer__sub_800D9E8C((void *) (arg0));
-                TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x39C), (int) (0xF7));
+                spawn_particle_effect((void *) (arg0 + 0x39C), (int) (0xF7));
                 M2C_FIELD(arg0, s32 *, 0x37C) = 2;
             }
             break;
@@ -191,7 +191,7 @@ void TObjPlayer__sub_800DB390(u8 *arg0) {
         }
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x29C), (void *) (M2C_FIELD(arg0, u32 *, 0x2A8) + 0x2FC));
         TObjPlayer__sub_80018570((void *) (arg0));
-        TBoss1Dragon__sub_80143504((void *) (arg0));
+        advance_animation_playback((void *) (arg0));
         if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x01000000)) {
             TObjPlayer__sub_80011734((void *) (arg0), (int) (0), (f32) (lbl_805DA3F8));
         }

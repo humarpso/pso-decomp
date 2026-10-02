@@ -32,7 +32,7 @@ void TObjPlayer__sub_80143198(void *, s16);
 s32 TBoss1Dragon__sub_80143960(void *, int);
 extern const f32 lbl_805DB168;
 extern const f32 lbl_805DB16C;
-void TBoss1Dragon__sub_80143504(Anim_80143504 *a);
+void advance_animation_playback(Anim_80143504 *a);
 }
 
 extern "C" {
@@ -69,7 +69,7 @@ void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1) {
         TObjPlayer__sub_8014394C(arg0, conv);
     }
 }
-void TBoss1Dragon__sub_80143504(Anim_80143504 *a) {
+void advance_animation_playback(Anim_80143504 *a) {
     f32 last;
     if (a->flags & 0x40) {
         return;

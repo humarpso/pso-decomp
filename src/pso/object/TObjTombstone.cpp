@@ -67,7 +67,7 @@ const char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 int sprintf(char *, const char *, ...);
 extern char lbl_80438808[];
 void TObjTombstone__sub_80075C60(Obj_80075C60 *self);
-Ply_8007598C * TPlayerBattleCtrl4P__sub_801BA74C(s32, void *);
+Ply_8007598C * get_player_by_client_id(s32, void *);
 int sprintf(char *, const char *, ...);
 char *strncpy(char *, const char *, unsigned long);
 unsigned long strlen(const char *);
@@ -114,7 +114,7 @@ void render__13TObjTombstoneFv(s32 arg0) {
 }
 
 f32 TObjTombstone__sub_8007598C(Obj_8007598C *self, void * _w1) {
-    Ply_8007598C *p = TPlayerBattleCtrl4P__sub_801BA74C((s32)(lbl_805D53A0), (void *)(_w1));
+    Ply_8007598C *p = get_player_by_client_id((s32)(lbl_805D53A0), (void *)(_w1));
     if (p == 0) {
         return lbl_805D91A8;
     }
@@ -203,7 +203,7 @@ void TObjTombstone__sub_80075CB4(Obj_80075CB4 *self) {
     char *p;
     Ply_80075CB4 *ply;
     char *dst = self->name;
-    ply = ((Ply_80075CB4 *)TPlayerBattleCtrl4P__sub_801BA74C((s32)(self->fac), (void *)(self)));
+    ply = ((Ply_80075CB4 *)get_player_by_client_id((s32)(self->fac), (void *)(self)));
     dst[0] = 0;
     if (ply != NULL) {
         strncpy(buf, ply->name, 0x2F);

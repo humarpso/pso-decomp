@@ -14,7 +14,7 @@ void send_state__12TOChatSensorFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 int bswap_16__FPUs(void* a0 = 0);
 int fn_800F9990(void*);
-f32 fn_8013157C(s32, s32);
+f32 xz_distance_squared(s32, s32);
 s32 fn_801A2340(s32, f32, f32);
 int read_be16_field2__10TObjPlayerFPv(void* a0 = 0);
 
@@ -31,7 +31,7 @@ void init_packet_type__12TOChatSensorFPv(void* p) { *(u8*)((char*)p + 0x0) = 147
 extern s32 lbl_805D4DF0;
 
 s32 TOComputerMachine01__vt8(s32 arg0, f32 farg0, f32 farg1) {
-    if (fn_8013157C(arg0 + 0x38, lbl_805D4DF0 + 0x178) < (farg1 * farg1)) {
+    if (xz_distance_squared(arg0 + 0x38, lbl_805D4DF0 + 0x178) < (farg1 * farg1)) {
         M2C_FIELD(arg0, s16 *, 0x1e) = 1;
         return M2C_FIELD(arg0, s16 *, 0x1e);
     }

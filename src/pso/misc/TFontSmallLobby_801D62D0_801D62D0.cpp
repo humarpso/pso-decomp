@@ -61,7 +61,7 @@ extern "C" {
 void send_photon_blast_ready__15TFontSmallLobbyFv(void);
 void update_if_ready__15TFontSmallLobbyFPv(void* p);
 int TFontSmallLobby__sub_801D67AC(void*);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 u16 get_type__15TFontSmallLobbyFPv();
 M2C_UNK send_field_state__10TObjPlayerFPv();
 
@@ -126,7 +126,7 @@ void TFontSmallLobby__sub_801D63DC(u8 *arg0, f32 farg0) {
 }
 
 void send_photon_blast_ready__15TFontSmallLobbyFv(void) {
-    if (TPlayerBattleCtrl4P__sub_801BA74C(get_type__15TFontSmallLobbyFPv()) != 0U) {
+    if (get_player_by_client_id(get_type__15TFontSmallLobbyFPv()) != 0U) {
         send_field_state__10TObjPlayerFPv();
     }
 }

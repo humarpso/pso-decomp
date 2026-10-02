@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void attach_battle_ctrl__6TLobbyFv(void);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 M2C_UNK attach_battle_ctrl_sub__10TObjPlayerFPv(s32);
 M2C_UNK TObjPlayer__sub_801B4044();
 
@@ -16,7 +16,7 @@ extern s32 lbl_805D53A0;
 void attach_battle_ctrl__6TLobbyFv(void) {
     s32 temp_r3;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    temp_r3 = get_player_by_client_id(lbl_805D53A0);
     if (temp_r3 != 0) {
         TObjPlayer__sub_801B4044();
         attach_battle_ctrl_sub__10TObjPlayerFPv(temp_r3);

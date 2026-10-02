@@ -27,7 +27,7 @@ extern const f32 lbl_805DA240;
 void TObjEneBm5GibonU__sub_800D0AE8(Obj_800D0AE8 *self, Vec_800D0AE8 *dir);
 extern const f32 TObjEneBm5GibonU__data_805DA174;
 f32 TObjEneBm5GibonU__sub_800D0A94(Obj_800D0A94 *arg0, f32 farg0);
-f32 TObjPlayer__sub_8001978C(f32);
+f32 newton_sqrtf(f32);
 extern const f32 TObjEneBm5GibonU__data_805DA15C;
 extern const f32 TObjEneBm5GibonU__data_805DA168;
 f32 TObjEneBm5GibonU__sub_800D0BD8(Obj_800D0BD8 *arg0, Vec_800D0BD8 *arg1, Vec_800D0BD8 *arg2);
@@ -40,7 +40,7 @@ void play_sound_variant__16TObjEneBm5GibonUFPv(void *arg0);
 void set_anim_by_state__16TObjEneBm5GibonUFPv(void *arg0);
 void set_flag__16TObjEneBm5GibonUFPv(void* p);
 void update_target__16TObjEneBm5GibonUFPv(void *arg0);
-M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK select_and_apply_target__14TObjEneEpsilonFPvf(f32);
 M2C_UNK update_linked_position__14TObjEneEpsilonFPv(f32);
 
@@ -93,7 +93,7 @@ f32 TObjEneBm5GibonU__sub_800D0BD8(Obj_800D0BD8 *arg0, Vec_800D0BD8 *arg1, Vec_8
     dx = arg0->pos.x - arg1->x;
     dz = arg0->pos.z - arg1->z;
     f32 d = dx * dx + dz * dz;
-    f32 inv = TObjEneBm5GibonU__data_805DA168 / TObjPlayer__sub_8001978C(d);
+    f32 inv = TObjEneBm5GibonU__data_805DA168 / newton_sqrtf(d);
     arg2->x = dx * inv;
     arg2->y = TObjEneBm5GibonU__data_805DA15C;
     arg2->z = dz * inv;
@@ -103,10 +103,10 @@ f32 TObjEneBm5GibonU__sub_800D0BD8(Obj_800D0BD8 *arg0, Vec_800D0BD8 *arg1, Vec_8
 
 void set_anim_by_state__16TObjEneBm5GibonUFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x464) != 0) {
-        TObjEneDD__sub_800BBA18(arg0, 7);
+        transition_enemy_state(arg0, 7);
         return;
     }
-    TObjEneDD__sub_800BBA18(arg0, 6);
+    transition_enemy_state(arg0, 6);
 }
 
 }

@@ -76,7 +76,7 @@ s32 copy_entry__6TLobbyFPvPv(void *, void *);
 void update_segments__11TBoss6Type2FPv(void *arg0);
 void TBoss6Type2__sub_802BC050(Obj_802BC050 *o);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TObjPlayer__sub_80156844(void *, void *, int);
+s32 project_actor_to_ground(void *, void *, int);
 f32 TNpcPlayer__sub_803D97B4(void *);
 extern const f32 TBoss6Type2__data_805DE410;
 extern const f32 TBoss6Type2__data_805DE434;
@@ -88,7 +88,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 s32 get_game_mode__6TLobbyFv();
-s32 TObjPlayer__sub_80156844(void *, void *, int);
+s32 project_actor_to_ground(void *, void *, int);
 s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
 void TBoss6PlotFalz__sub_802AC724(void *, void *);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
@@ -116,7 +116,7 @@ void update_parts_flags__11TBoss6Type2FPv(void *arg0);
 void update_segments__11TBoss6Type2FPv(void *arg0);
 int TBoss6Type2__sub_802B9F3C(void*, int);
 M2C_UNK TBoss6Type2__sub_802BB1E0(f32, f32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+s32 get_player_by_client_id(u16);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK set_screen_pos__11TBoss6Type2FPv();
 
@@ -139,7 +139,7 @@ s32 TBoss6Type2__sub_802BAB80(Obj_802BAB80 *self) {
     f32 t;
     VecCopy__FP3VecPC3Vec(&p, &self->pos);
     p.y += TBoss6Type2__data_805DE434;
-    if (TObjPlayer__sub_80156844(self, &p, 0) != 0) {
+    if (project_actor_to_ground(self, &p, 0) != 0) {
         VecCopy__FP3VecPC3Vec(&self->pos, &p);
         self->pos.y = TBoss6Type2__data_805DE410;
         return 0;
@@ -155,7 +155,7 @@ s32 TBoss6Type2__sub_802BAB80(Obj_802BAB80 *self) {
             p.x = t * d.x + lbl_805DE450;
             p.y = TBoss6Type2__data_805DE434 + self->pos.y;
             p.z = t * d.z;
-            if (TObjPlayer__sub_80156844(self, &p, 0) != 0) {
+            if (project_actor_to_ground(self, &p, 0) != 0) {
                 break;
             }
         }
@@ -206,7 +206,7 @@ int TBoss6Type2__sub_802BB4DC(void* p) { return TBoss6Type2__sub_802B9F3C(p, 0);
 void update_target__11TBoss6Type2FPv(void *arg0) {
     s32 temp_r3;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x466));
+    temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x466));
     if (temp_r3 != 0) {
         TBoss6Type2__sub_802B9F3C(arg0, temp_r3 + 0x38);
         return;
@@ -280,7 +280,7 @@ s32 TBoss6Type2__sub_802BB920(void *self, void *target, f32 range) {
             off.z = dir.z * t;
             VecCopy__FP3VecPC3Vec(&pos, target);
             TBoss4Zako__sub_803D8910(&pos, &off);
-            if (TObjPlayer__sub_80156844(self, &pos, 0) != 0) {
+            if (project_actor_to_ground(self, &pos, 0) != 0) {
                 TBoss6PlotFalz__sub_802AC724(pl, &pos);
                 break;
             }

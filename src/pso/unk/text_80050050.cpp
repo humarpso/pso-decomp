@@ -16,7 +16,7 @@ extern const f32 lbl_805D8A20;
 extern const f32 lbl_805D8A24;
 void fn_800500DC(u8 *arg0);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 f32 TOHangerMachine01__sub_803D9C00(void *);
 s32 set_global_param__8TObjFishFi(int);
 s32 TObjFish__sub_803E46BC(int);
@@ -59,7 +59,7 @@ void fn_80050050(u8 *arg0) {
   }
   while (var_r29 < 3);
   clear_global_state__10TObjPlayerFv();
-  TObjPlayer__sub_803D9B78();
+  pop_matrix();
 }
 
 #pragma push

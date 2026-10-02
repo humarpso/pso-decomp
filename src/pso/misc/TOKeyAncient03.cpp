@@ -133,14 +133,14 @@ extern const f32 lbl_805DB724;
 void TOKeyAncient03__vt14(Obj_8016B9A4 *self);
 void init_6x05_switch_changed__6TLobbyFPv(void *);
 void finalize_and_send_60__6TLobbyFPv(void *);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 extern s32 lbl_805D53A0;
 void TOKeyCave01__sub_8016BF08(Self_8016BF08 *self, s32 flags);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TOSignCave03__sub_803DB510(int);
@@ -252,13 +252,13 @@ void render__14TOKeyAncient03Fv(u8 *arg0) {
         begin_effect_render__13TParticleCtrlFv();
         TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
+        pop_matrix();
         if ((s32) M2C_FIELD(arg0, s32 *, 0xD4) != 1) {
             set_chunk_material_color(lbl_804A7418);
             some_id_805c6f74 = lbl_805D5660;
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 
@@ -390,7 +390,7 @@ void TOKeyCave01__sub_8016BF08(Self_8016BF08 *self, s32 flags) {
     pkt.object = self->id;
     pkt.zero = lbl_805D53A0;
     pkt.switchId = self->switchId;
-    pkt.area = TObjPlayer__sub_800196EC();
+    pkt.area = get_current_floor();
     pkt.flags = flags;
     finalize_and_send_60__6TLobbyFPv(&pkt);
 }

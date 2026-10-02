@@ -21,17 +21,17 @@ struct Win_80292AB4 { u8 pad[0x21C4]; u8 sub; };
 struct Ent_80292AB4 { s32 id; s32 mask; u8 pad[0x14]; };
 
 extern "C" {
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 extern s32 lbl_804DB1F0[];
 extern u32 lbl_805D6580;
 s32 check_player_state_flag_2__6TLobbyFPv(void *);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 void TLobby__sub_80293218(s32);
 extern s32 lbl_804DB1F0[];
 extern u32 lbl_805D6580;
 s32 TLobby__sub_8029299C(void);
 s32 check_player_state_flag_2__6TLobbyFPv(void *);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 extern s32 lbl_804DB1F0[];
 extern u32 lbl_805D6580;
 s32 TLobby__sub_80292A34(void);
@@ -87,7 +87,7 @@ s32 TLobby__sub_8029299C(void) {
     var_r31 = 0;
     var_r30 = 0;
     do {
-        temp_r3 = (u8 *)(((s32)TPlayerBattleCtrl4P__sub_801BA74C((int)(var_r30))));
+        temp_r3 = (u8 *)(((s32)get_player_by_client_id((int)(var_r30))));
         if ((temp_r3 != NULL) && (((int)check_player_state_flag_2__6TLobbyFPv((void *)(temp_r3))) != 0)) {
             TLobby__sub_80293218((s32) var_r30);
             var_r31 = 1;
@@ -108,7 +108,7 @@ s32 TLobby__sub_80292A34(void) {
     }
     var_r31 = 0;
 loop_3:
-    temp_r3 = (u8 *)(((u8 *)TPlayerBattleCtrl4P__sub_801BA74C((int)(var_r31))));
+    temp_r3 = (u8 *)(((u8 *)get_player_by_client_id((int)(var_r31))));
     if ((temp_r3 != NULL) && (((int)check_player_state_flag_2__6TLobbyFPv(temp_r3)) == 0)) {
         return 0;
     }

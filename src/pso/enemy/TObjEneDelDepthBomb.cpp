@@ -39,7 +39,7 @@ extern s32 lbl_805D411C;
 u8 *TObjEneDelDepthBomb__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
-s32 TObjPlayer__sub_80156844(void *, void *, void *);
+s32 project_actor_to_ground(void *, void *, void *);
 int TObjEneDelDepthBomb__sub_80313268(void);
 s32 create__11TTecRaBartaFPvPvPvPv(s32, void *, void *, s32);
 void queue_destruction__7TObjectFv(void *);
@@ -81,7 +81,7 @@ void run_task__19TObjEneDelDepthBombFv(Bomb_803133BC *o) {
     }
     Vec_803133BC v = o->pos;
     v.y += TObjEneDelDepth__data_805DF268;
-    if (TObjPlayer__sub_80156844(o, &v, o->col) != 0) {
+    if (project_actor_to_ground(o, &v, o->col) != 0) {
         o->f340 = v.y;
         if (o->pos.y <= o->f340) {
             done = 1;
@@ -326,7 +326,7 @@ void TObjEneDelDepth__sub_80313740(Ene_80313740 *o) {
         TBoss4Zako__sub_803D8910(&a, &o->f3D4);
         VecCopy__FP3VecPC3Vec(&b, &a);
         b.y += k + get_random_float__8TObjFishFv(o->f3D8);
-        if (TObjPlayer__sub_80156844(o, &b, 0) != 0) {
+        if (project_actor_to_ground(o, &b, 0) != 0) {
             VecCopy__FP3VecPC3Vec(&o->pos, &a);
             if (!(o->pos.y > b.y)) {
                 o->pos.y = b.y;
@@ -344,7 +344,7 @@ void TObjEneDelDepth__sub_80313740(Ene_80313740 *o) {
         o->f3D4 = o->f3DC = TObjEneDelDepth__data_805DF258;
         VecCopy__FP3VecPC3Vec(&c, &o->pos);
         c.y += TObjEneDelDepth__data_805DF268 + get_random_float__8TObjFishFv(o->f3D8);
-        if (TObjPlayer__sub_80156844(o, &c, 0) != 0) {
+        if (project_actor_to_ground(o, &c, 0) != 0) {
             if (!(o->pos.y > c.y)) {
                 o->pos.y = c.y;
                 done = 1;

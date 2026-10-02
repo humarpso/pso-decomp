@@ -7,20 +7,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-TObjPlayer* TPlayerBattleCtrl4P__sub_801BA74C(int);
+TObjPlayer* get_player_by_client_id(int);
 int obj_isState2_324(TObjPlayer*);
 u16 get_obj_type__10TObjPlayerFPv(PlayerScaleState*);
 void init_shrink_effect__10TObjPlayerFPv(PlayerShrinkPacket*);
 void update_and_send_60__10TObjPlayerFPv(PlayerShrinkPacket*);
 extern s32 lbl_805D53A0;
 void request_player_shrink(PlayerScaleState* state);
-TObjPlayer* TPlayerBattleCtrl4P__sub_801BA74C(int);
+TObjPlayer* get_player_by_client_id(int);
 int obj_isState2_324(TObjPlayer*);
 u16 get_obj_type__10TObjPlayerFPv(PlayerScaleState*);
 void init_6x88_packet__10TObjPlayerFPv(PlayerRestoreSizePacket*);
 void send_font_update_60__10TObjPlayerFPv(PlayerRestoreSizePacket*);
 void request_player_size_restore(PlayerScaleState* state);
-TObjPlayer* TPlayerBattleCtrl4P__sub_801BA74C(int);
+TObjPlayer* get_player_by_client_id(int);
 int check_camera_mode__10TObjPlayerFv();
 void init_shrink_effect__10TObjPlayerFPv(PlayerShrinkPacket*);
 void TObjPlayer__sub_801C7360(PlayerShrinkPacket*, const PlayerShrinkPacket*);
@@ -28,7 +28,7 @@ void bswap_shrink__10TObjPlayerFPv(PlayerShrinkPacket*);
 int validate_6x87_shrink_player(PlayerShrinkPacket*);
 void handle_6x87_shrink__10TObjPlayerFPvf(u8 *arg0, f32 farg0);
 void handle_6x87_shrink_player(const PlayerShrinkPacket* input);
-TObjPlayer* TPlayerBattleCtrl4P__sub_801BA74C(int);
+TObjPlayer* get_player_by_client_id(int);
 int check_camera_mode__10TObjPlayerFv();
 void init_6x88_packet__10TObjPlayerFPv(PlayerRestoreSizePacket*);
 void restore_shrunken_font__10TObjPlayerFPv(PlayerRestoreSizePacket*, const PlayerRestoreSizePacket*);
@@ -82,7 +82,7 @@ void handle_6x88_restore_shrunken_player(const PlayerRestoreSizePacket* input) {
     restore_shrunken_font__10TObjPlayerFPv(&packet, input);
     TFontSmallLobby__sub_801C01BC(&packet);
     if (validate_6x88_restore_shrunken_player(&packet)) {
-        TObjPlayer* player = TPlayerBattleCtrl4P__sub_801BA74C(packet.actor_id);
+        TObjPlayer* player = get_player_by_client_id(packet.actor_id);
         if (player && check_camera_mode__10TObjPlayerFv())
             clear_shrink_flag__10TObjPlayerFPv((void*)(&player->scale_state));
     }
@@ -91,7 +91,7 @@ void handle_6x88_restore_shrunken_player(const PlayerRestoreSizePacket* input) {
 int clear_shrink_flag__10TObjPlayerFPv(void* p) { return clear_flags__11TAdRicoRingFPvUi((char*)p + 0x4, 1); }
 
 void request_player_size_restore(PlayerScaleState* state) {
-    TObjPlayer* player = TPlayerBattleCtrl4P__sub_801BA74C(get_obj_type__10TObjPlayerFPv(state));
+    TObjPlayer* player = get_player_by_client_id(get_obj_type__10TObjPlayerFPv(state));
     if (!player || !obj_isState2_324(player)) {
         PlayerRestoreSizePacket packet;
         init_6x88_packet__10TObjPlayerFPv(&packet);
@@ -106,7 +106,7 @@ void handle_6x87_shrink_player(const PlayerShrinkPacket* input) {
     TObjPlayer__sub_801C7360(&packet, input);
     bswap_shrink__10TObjPlayerFPv(&packet);
     if (validate_6x87_shrink_player(&packet)) {
-        TObjPlayer* player = TPlayerBattleCtrl4P__sub_801BA74C(packet.actor_id);
+        TObjPlayer* player = get_player_by_client_id(packet.actor_id);
         if (player && check_camera_mode__10TObjPlayerFv())
             handle_6x87_shrink__10TObjPlayerFPvf((u8 *)(&player->scale_state), packet.scalar);
     }
@@ -117,7 +117,7 @@ void handle_6x87_shrink__10TObjPlayerFPvf(u8 *arg0, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 8) = farg0;
 }
 void request_player_shrink(PlayerScaleState* state) {
-    TObjPlayer* player = TPlayerBattleCtrl4P__sub_801BA74C(get_obj_type__10TObjPlayerFPv(state));
+    TObjPlayer* player = get_player_by_client_id(get_obj_type__10TObjPlayerFPv(state));
     if (!player || !obj_isState2_324(player)) {
         if (lbl_805D53A0 == get_obj_type__10TObjPlayerFPv(state))
             update_player_scale_camera((PlayerScaleState *)(state));

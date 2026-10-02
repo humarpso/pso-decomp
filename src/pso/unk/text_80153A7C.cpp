@@ -45,9 +45,9 @@ int TObjFogCollision__sub_80153F68(void *);
 int TObjFogCollision__sub_80153F70(void);
 void TObjFogCollision__sub_80153D2C(u8 *arg0);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_chunk_material_override_pair(int, int);
 void set_chunk_material_color(void *);
@@ -88,8 +88,8 @@ int TObjFogCollision__sub_80153F70(void);
 void TObjFogCollision__vt11(u8 *arg0);
 s32 check_collision__16TObjFogCollisionFPvUs(u8 *arg0, u16 arg1);
 void *TObjFogCollisionSwitch__ct(void *, void *, void *);
-f32 TObjPlayer__sub_80141CF8(void *, s32);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+f32 horizontal_distance_squared(void *, s32);
+s32 get_player_by_client_id(u16);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
@@ -133,9 +133,9 @@ void TObjFogCollision__sub_80153B64(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         s = lbl_805DB264 * M2C_FIELD(arg0, f32 *, 0x68);
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        TOMonitorMachine01__sub_803D8B5C(0, s, lbl_805DB258, s);
+        scale_matrix(0, s, lbl_805DB258, s);
         TObjFish__sub_803E46BC(lbl_805D28BC);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         lbl_805D7784 = lbl_805D5664;
         lbl_805D7780 = lbl_805D5668;
         copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);
@@ -179,11 +179,11 @@ s32 check_collision__16TObjFogCollisionFPvUs(u8 *arg0, u16 arg1) {
     f32 temp_f31;
     s32 temp_r3;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16)arg1);
+    temp_r3 = get_player_by_client_id((u16)arg1);
     if (temp_r3 != 0) {
         temp_f0 = M2C_FIELD(arg0, f32 *, 0x68);
         temp_f31 = temp_f0 * temp_f0;
-        temp_f1 = TObjPlayer__sub_80141CF8(arg0 + 0x38, temp_r3 + 0x38);
+        temp_f1 = horizontal_distance_squared(arg0 + 0x38, temp_r3 + 0x38);
         if (temp_f31 > temp_f1) {
             return 1;
         }

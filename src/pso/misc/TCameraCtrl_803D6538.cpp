@@ -89,13 +89,13 @@ extern RecoveredGlobal_803D77C0_lbl_804FA50C lbl_804FA50C;
 extern RecoveredGlobal_803D77C0_lbl_804FA51C lbl_804FA51C;
 extern u8 *lbl_805D76BC;
 extern s32 lbl_805D7808;
-void TObjPlayer__sub_803D77C0(M2C_UNK *arg0, f32 farg0);
+void select_motion_sampler(M2C_UNK *arg0, f32 farg0);
 M2C_UNK TObjPlayer__sub_803D7BB0(int, f32);
 void TObjPlayer__sub_803D7B68(s32 arg0, f32 farg0);
 extern RecoveredGlobal_803D78A8_lbl_8058CAB8 lbl_8058CAB8;
 extern u8 *lbl_805D76BC;
 void TBoss8Dragon__sub_803D78A8(s32 arg0);
-s32 TObjPlayer__sub_803D9624(s32, f32, f32, f32);
+s32 translate_matrix(s32, f32, f32, f32);
 s32 TCameraCtrl__sub_803D65C8(f32 x, f32 y, f32 z);
 extern u8 *lbl_805D76BC;
 void TObjPlayer__sub_803D7784(void);
@@ -160,7 +160,7 @@ void TCameraCtrl__sub_803D6558(f32 farg0, f32 farg1, f32 farg2) {
 #pragma push
 #pragma scheduling off
 s32 TCameraCtrl__sub_803D65C8(f32 x, f32 y, f32 z) {
-    return TObjPlayer__sub_803D9624(0, -x, -y, -z);
+    return translate_matrix(0, -x, -y, -z);
 }
 #pragma pop
 
@@ -366,7 +366,7 @@ void TObjPlayer__sub_803D7784(void) {
 }
 #pragma pop
 
-void TObjPlayer__sub_803D77C0(M2C_UNK *arg0, f32 farg0) {
+void select_motion_sampler(M2C_UNK *arg0, f32 farg0) {
     M2C_UNK *var_r3;
     s32 temp_r31;
     s32 temp_r4;

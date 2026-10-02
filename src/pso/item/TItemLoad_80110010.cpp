@@ -32,7 +32,7 @@ s32 TItemLoad__sub_801107E4(void *p);
 void *TItemLoad__sub_801107EC(void *p);
 extern u32 TItemLoad__data_805D5488;
 void *TItemLoad__sub_8011038C(s32 id);
-Parm_8011029C *TItemData__sub_8010EA38(void *);
+Parm_8011029C *lookup_item_pmt_record(void *);
 void init__9TItemLoadFPvPvPvPvPv(void *, void *, s32, s32, s32);
 void *__nw__7TObjectFUl(u32);
 extern s16 lbl_8043E4C0[];
@@ -152,7 +152,7 @@ s32 TItemLoad__sub_8011029C(u8 *item) {
     s32 i;
     void *obj;
     if (item != NULL) {
-        parm = TItemData__sub_8010EA38(item);
+        parm = lookup_item_pmt_record(item);
         if (parm != NULL) {
             a = parm->a;
             b = parm->b;

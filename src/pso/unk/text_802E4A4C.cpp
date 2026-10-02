@@ -10,7 +10,7 @@ extern "C" {
 M2C_UNK memset(void *, int, int);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_type__10TObjPlayerFPv(void *);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_802E4A4C_lbl_804E355C lbl_804E355C;
 extern const f32 lbl_805DE914;
@@ -47,7 +47,7 @@ u8 *fn_802E4A4C(u8 *arg0, s32 arg1, u8 *arg2) {
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) M2C_FIELD(arg2, f32 *, 0x20);
     M2C_FIELD(arg0, s32 *, 0xB8) = (s32) M2C_FIELD(arg2, s32 *, 0x24);
     M2C_FIELD(arg0, s32 *, 0xC0) = 1;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int) ((s32) M2C_FIELD(arg2, u16 *, 0x14)));
+    temp_r3 = get_player_by_client_id((int) ((s32) M2C_FIELD(arg2, u16 *, 0x14)));
     if (temp_r3 != 0U) {
         if (get_type__10TObjPlayerFPv((void *) (temp_r3 + 0x828)) != 0) {
             M2C_FIELD(arg0, s32 *, 0xBC) = 1;

@@ -39,7 +39,7 @@ void fn_800D97E8(void *, s32, M2C_UNK);
 void TObjPlayer__sub_803D7B68(s32, f32);
 void TObjPlayer__sub_803D8CD4(M2C_UNK);
 void TObjPlayer__sub_803D9B2C(Vec_800D9994 *);
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
 extern Vec_800D9994 lbl_80500F80;
@@ -85,7 +85,7 @@ void TBoss4Type3__sub_800D9994(Arg_800D9994 *arg0, s32 arg1, s32 arg2, s32 arg3,
         fn_800D97E8(arg0, arg1, 0);
         f += arg0->step;
     }
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     clear_global_state__10TObjPlayerFv();
 }
 

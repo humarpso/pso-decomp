@@ -49,10 +49,10 @@ void *TObjTradeCollision__create(void *arg0);
 void *__dt__18TObjTradeCollisionFv(void *arg0, s16 arg1);
 void render__18TObjTradeCollisionFv(void);
 void TOHangerMachine01__sub_803D9C00(void *);
-void TObjDoor__sub_803DC894(void *, void *, f32);
+void draw_ginja_model_with_motion(void *, void *, f32);
 void rotate_matrix_y(int, void *);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
@@ -128,9 +128,9 @@ void TOTrapChainSawEdge__vt23(void *arg0) {
     TObjPlayer__sub_803D9B2C();
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0xD4));
-    TObjDoor__sub_803DC894(M2C_FIELD(arg0, void **, 0xC8), M2C_FIELD(arg0, void **, 0xBC), M2C_FIELD(arg0, f32 *, 0xB4));
-    TObjPlayer__sub_803D9B78();
-    TObjPlayer__sub_803D9B78();
+    draw_ginja_model_with_motion(M2C_FIELD(arg0, void **, 0xC8), M2C_FIELD(arg0, void **, 0xBC), M2C_FIELD(arg0, f32 *, 0xB4));
+    pop_matrix();
+    pop_matrix();
 }
 
 }

@@ -29,8 +29,8 @@ void TBoss6Type2__sub_802BE8B8(u8 *arg0);
 M2C_UNK TBoss6Type2__sub_802B9BBC(void *, M2C_UNK);
 M2C_UNK copy_anim_state__11TBoss6Type2FPv(void *);
 s32 TBoss6Type2__sub_802BD014(void * a0, s32 a1);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+M2C_UNK spawn_particle_effect(void *, int);
+u32 get_player_by_client_id(int);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 s32 check_target__11TBoss6Type2FPv(void *);
@@ -81,8 +81,8 @@ void TBoss6Type2__vt46(void);
 void TBoss6Type2__vt47(void);
 void TBoss6Type2__vt48(void);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+M2C_UNK spawn_particle_effect(void *, int);
+u32 get_player_by_client_id(int);
 void check_state_0x460_eq0__11TBoss6Type2FPv(void* p);
 s32 check_target__11TBoss6Type2FPv(void *);
 s32 get_phase__11TBoss6Type2FPv();
@@ -234,9 +234,9 @@ void update_attack_timer__11TBoss6Type2FPv(u8 *arg0) {
             if (is_target_valid__11TBoss6Type2FPv((void *) (arg0)) == 0) {
                 TBoss3Volopt__sub_8022675C((int) (0x40069E13), (void *) (arg0 + 0x38), (int) (0), (int) (1));
             }
-            temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int) (M2C_FIELD(arg0, u16 *, 0x55C)));
+            temp_r3 = get_player_by_client_id((int) (M2C_FIELD(arg0, u16 *, 0x55C)));
             if (temp_r3 != 0U) {
-                TObjEneDellBiter__sub_80087350((void *) (temp_r3 + 0x38), (int) (0x36));
+                spawn_particle_effect((void *) (temp_r3 + 0x38), (int) (0x36));
             }
         }
         TBoss6Type2__sub_802BD014((void *)((void *) (arg0)), (s32)((int) (0x1B)));
@@ -267,9 +267,9 @@ void TBoss6Type2__sub_802BEC28(u8 *arg0) {
             if (is_target_valid__11TBoss6Type2FPv((void *) (arg0)) == 0) {
                 TBoss3Volopt__sub_8022675C((int) (0x40069E13), (void *) (arg0 + 0x38), (int) (0), (int) (1));
             }
-            temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int) ((s32) M2C_FIELD(arg0, u16 *, 0x55C)));
+            temp_r3 = get_player_by_client_id((int) ((s32) M2C_FIELD(arg0, u16 *, 0x55C)));
             if (temp_r3 != 0U) {
-                TObjEneDellBiter__sub_80087350((void *) (temp_r3 + 0x38), (int) (0x36));
+                spawn_particle_effect((void *) (temp_r3 + 0x38), (int) (0x36));
             }
         }
         copy_anim_state__11TBoss6Type2FPv((void *) (arg0));

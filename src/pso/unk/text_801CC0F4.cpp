@@ -23,7 +23,7 @@ void TObjPlayer__sub_801D1D88(struct PbPacket37_801CC194 *);
 void update_and_send4__10TObjPlayerFPv(struct PbPacket37_801CC194 *);
 void TObjPlayer__sub_801CC194(void *self);
 s32 reset_volopt_state__10TObjPlayerFv(int);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u8 *get_player_by_client_id(u16);
 s32 check_flag_4__10TObjPlayerFPv();
 M2C_UNK swap_endian16__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801D1D44(void *, void *);
@@ -44,7 +44,7 @@ void handle_6x37_photon_blast(s32 arg0) {
     TObjPlayer__sub_801D1D44((void *) (&pkt), (void *) (arg0));
     swap_endian16__10TObjPlayerFPv((void *) (&pkt));
     if (validate_6x37_photon_blast((void *) (&pkt)) != 0) {
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(pkt.player);
+        temp_r3 = get_player_by_client_id(pkt.player);
         if ((temp_r3 != NULL) && (check_flag_4__10TObjPlayerFPv() == 0) && ((u32) M2C_FIELD(temp_r3, u32 *, 0x10) == (u32) tl_03) && (reset_volopt_state__10TObjPlayerFv((int) (temp_r3)) != 0)) {
             check_photon_blast_flag__10TObjPlayerFPv((void *) (temp_r3 + 0x4AC));
             trigger_photon_blast__10TObjPlayerFPv((void *) (temp_r3 + 0x4AC));

@@ -15,7 +15,7 @@ typedef struct S_802BF6CC {
 } S_802BF6CC;
 
 extern "C" {
-M2C_UNK TOSwitchAttack__sub_80087278(void *, int, int);
+M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 s32 TBoss6Type2__sub_802BD014(void * a0, s32 a1);
 void TBoss6Type2__sub_802BF834(u8 *arg0);
@@ -194,7 +194,7 @@ void TBoss6Type2__sub_802BF834(u8 *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x460) == (s32) (M2C_FIELD(arg0, s32 *, 0x45C) - 0x1E)) && ((u16) M2C_FIELD(arg0, u16 *, 0x466) != 0xFFFF)) {
         TBoss3Volopt__sub_8022675C((int) (0x4006A10A), (void *) (arg0 + 0x38), (int) (0), (int) (1));
         TBoss3Volopt__sub_8022675C((int) (0x69E27), (void *) (arg0 + 0x38), (int) (0), (int) (1));
-        TOSwitchAttack__sub_80087278((void *) (arg0 + 0x62C), (int) (0x223), (int) (0x40));
+        spawn_particle_effect_with_flags((void *) (arg0 + 0x62C), (int) (0x223), (int) (0x40));
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x460) - 1;
     M2C_FIELD(arg0, s32 *, 0x460) = temp_r0;

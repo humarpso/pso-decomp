@@ -133,7 +133,7 @@ extern "C" {
 void fn_80095DD0(u8 *arg0);
 void fn_80095DF4(u8 *arg0);
 M2C_UNK TBoss8Dragon__sub_800BB780();
-int TObjEneDD__sub_800BBA18(void*, void*);
+int transition_enemy_state(void*, void*);
 void TObjEneRe7Berura__vt60(u8 *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK update_collision_center__16TObjEneRe7BeruraFPv(void *);
@@ -159,7 +159,7 @@ void TObjEneRe7Berura__vt61(void* p);
 void *create__16TObjEneRe7BeruraFPv(void *arg0);
 void destroy_children__16TObjEneRe7BeruraFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-int TObjEneDD__sub_800BBA18(void*, void*);
+int transition_enemy_state(void*, void*);
 void TObjEneRe7Berura__sub_80095328(void *);
 void TObjEneRe7Berura__sub_800955E0(void *);
 void TObjEneRe7Berura__vt59(void);
@@ -179,11 +179,11 @@ void TObjEneRe7Berura__vt60(u8 *arg0) {
         return;
     }
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 0xA) {
-        TObjEneDD__sub_800BBA18((void*)((void *)(arg0)), (void*)((int) (0xA)));
+        transition_enemy_state((void*)((void *)(arg0)), (void*)((int) (0xA)));
     }
 }
 
-void TObjEneRe7Berura__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 11) { TObjEneDD__sub_800BBA18(p, (void*)11); } }
+void TObjEneRe7Berura__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 11) { transition_enemy_state(p, (void*)11); } }
 void TObjEneRe7Berura__vt26(void) {  }
 
 extern M2C_UNK __vt__16TObjEneRe7Berura[];

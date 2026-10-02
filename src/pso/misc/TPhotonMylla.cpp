@@ -97,13 +97,13 @@ struct Game_801AD970 { u8 pad[0x42C]; Res_801AD970 *res; s32 f430; };
 
 extern "C" {
 u16 obj_getField1c(void *);
-s32 TObjEneDellBiter__sub_80087350(s32, s32);
-u8 * TPhotonMylla__sub_80154CB4(u16);
+s32 spawn_particle_effect(s32, s32);
+u8 * find_entity_by_id(u16);
 u8 * TPhotonMagicSquare__ct(void *, M2C_UNK, s32, s32, s32, f32);
 s32 TOTrapAncient01__sub_80226578(s32, s32, u32, s16, s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, int);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK TObjPlayer__sub_801A720C(int, int, int, f32);
 M2C_UNK TCameraCtrl__sub_801A7310(void *, int);
 M2C_UNK TObjPlayer__sub_801A7680(void *);
@@ -129,8 +129,8 @@ s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
-s32 TObjPlayer__sub_803D9624(int, f32, f32, f32);
+s32 pop_matrix();
+s32 translate_matrix(int, f32, f32, f32);
 s32 set_current_scene__6TSceneFi(int);
 s32 set_global_param__8TObjFishFi(int);
 s32 set_chunk_material_override_pair(int, int);
@@ -151,7 +151,7 @@ M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 void set_field_dc__10TObjPlayerFPvi(void *, s32);
 void set_field_d8__10TObjPlayerFPvi(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
-u8 * TPhotonMylla__sub_80154CB4(u16);
+u8 * find_entity_by_id(u16);
 M2C_UNK TCameraCtrl__sub_801A7310(void *, int);
 void fn_801A7428(s32, u16);
 M2C_UNK TObjPlayer__sub_801A7748(void *, int);
@@ -211,7 +211,7 @@ void render__12TPhotonMyllaFv(Self_801AD4C0 *self) {
         begin_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi(self->f24);
         TObjPlayer__sub_803D9B2C();
-        TObjPlayer__sub_803D9624(0, self->pos.x, self->pos.y, self->pos.z);
+        translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
         rotate_matrix_y(0, self->f60);
         lbl_805D5660 = some_id_805c6f74;
         copy_vec4__13TRaderMapCoreFPvPv(&lbl_8050BEC0, &lbl_8058D4C0);
@@ -231,7 +231,7 @@ void render__12TPhotonMyllaFv(Self_801AD4C0 *self) {
         copy_vec4__13TRaderMapCoreFPvPv(&lbl_8058D4C0, &lbl_8050BEC0);
         some_id_805c6f74 = lbl_805D5660;
         clear_render_context__10TObjPlayerFv(self);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         end_effect_render__13TParticleCtrlFv();
     }
 }
@@ -255,7 +255,7 @@ void run_task__12TPhotonMyllaFv(u8 *arg0) {
     u8 *temp_r3_5;
     if (((s32) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4 == 0x32) && ((s32) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A0 == 0)) {
         ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A0 = 1;
-        temp_r3 = (u8 *)(TPhotonMylla__sub_80154CB4(((RecoveredFields_801AD5D8_arg0 *)arg0)->field_17C));
+        temp_r3 = (u8 *)(find_entity_by_id(((RecoveredFields_801AD5D8_arg0 *)arg0)->field_17C));
         if (temp_r3 != NULL) {
             VecCopy__FP3VecPC3Vec((void *) (&stack.sp2C), (void *) (temp_r3 + 0x38));
         }
@@ -274,35 +274,35 @@ void run_task__12TPhotonMyllaFv(u8 *arg0) {
     }
     ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_194 = (s16) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_B8;
     update_state__10TSceneSoraFPv((void *) (arg0));
-    TBoss1Dragon__sub_80143504((void *) (arg0));
+    advance_animation_playback((void *) (arg0));
     TObjPlayer__sub_801A7680((void *) (arg0));
     ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_14C = (s16) (((RecoveredFields_801AD5D8_arg0 *)arg0)->field_14C + 0xF);
     ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_14C = (s16) (u8) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_14C;
     ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4 = (s32) (((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4 + 1);
     if (lbl_805DC208 == (f32) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4) {
-        temp_r3_3 = (u8 *)(TPhotonMylla__sub_80154CB4(((RecoveredFields_801AD5D8_arg0 *)arg0)->field_17C));
+        temp_r3_3 = (u8 *)(find_entity_by_id(((RecoveredFields_801AD5D8_arg0 *)arg0)->field_17C));
         if (temp_r3_3 != NULL) {
             VecCopy__FP3VecPC3Vec((void *) (&stack.sp20), (void *) (temp_r3_3 + 0x38));
         }
         stack.sp24 += lbl_805DC20C;
-        TObjEneDellBiter__sub_80087350((s32) &stack.sp20, 0x174);
-        TObjEneDellBiter__sub_80087350((s32) &stack.sp20, 0x175);
+        spawn_particle_effect((s32) &stack.sp20, 0x174);
+        spawn_particle_effect((s32) &stack.sp20, 0x175);
     }
     if (lbl_805DC210 == (f32) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4) {
-        temp_r3_4 = (u8 *)(TPhotonMylla__sub_80154CB4(((RecoveredFields_801AD5D8_arg0 *)arg0)->field_17C));
+        temp_r3_4 = (u8 *)(find_entity_by_id(((RecoveredFields_801AD5D8_arg0 *)arg0)->field_17C));
         if (temp_r3_4 != NULL) {
             VecCopy__FP3VecPC3Vec((void *) (&stack.sp14), (void *) (temp_r3_4 + 0x38));
         }
         stack.sp18 += lbl_805DC20C;
-        TObjEneDellBiter__sub_80087350((s32) &stack.sp14, 0x169);
+        spawn_particle_effect((s32) &stack.sp14, 0x169);
     }
     if (lbl_805DC214 == (f32) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4) {
-        temp_r3_5 = (u8 *)(TPhotonMylla__sub_80154CB4(((RecoveredFields_801AD5D8_arg0 *)arg0)->field_17C));
+        temp_r3_5 = (u8 *)(find_entity_by_id(((RecoveredFields_801AD5D8_arg0 *)arg0)->field_17C));
         if (temp_r3_5 != NULL) {
             VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (temp_r3_5 + 0x38));
         }
         stack.spC += lbl_805DC20C;
-        TObjEneDellBiter__sub_80087350((s32) &stack.sp8, 0x169);
+        spawn_particle_effect((s32) &stack.sp8, 0x169);
         if (temp_r3_5 != NULL) {
             TObjPlayer__sub_801A720C((int) (obj_getField1c(temp_r3_5)), (int) (5), (int) (0), (f32) (((RecoveredFields_801AD5D8_arg0 *)arg0)->field_150));
         }
@@ -342,7 +342,7 @@ void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt) {
     F_801AD970(self, s32, 0x138) = 5;
     VecCopy__FP3VecPC3Vec(&self->pos, pkt);
     F_801AD970(self, u16, 0x17C) = pkt->owner;
-    F_801AD970(self, u8 *, 0x180) = TPhotonMylla__sub_80154CB4(F_801AD970(self, u16, 0x17C));
+    F_801AD970(self, u8 *, 0x180) = find_entity_by_id(F_801AD970(self, u16, 0x17C));
     if (F_801AD970(self, u8 *, 0x180) != NULL) {
         F_801AD970(self, s32, 0x60) = F_801AD970(F_801AD970(self, u8 *, 0x180), s32, 0x60);
     }
@@ -405,7 +405,7 @@ void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt) {
         F_801AD970(self, s32, 0x198) = 1;
         F_801AD970(self, s16, 0x194) = 0;
         F_801AD970(self, s32, 0x1A0) = 1;
-        owner = TPhotonMylla__sub_80154CB4(F_801AD970(self, u16, 0x17C));
+        owner = find_entity_by_id(F_801AD970(self, u16, 0x17C));
         if (owner != NULL) {
             VecCopy__FP3VecPC3Vec(&v, owner + 0x38);
         }

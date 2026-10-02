@@ -35,7 +35,7 @@ void *TPlyPtclObjectLeftHand__ct(void *arg0, u8 * _w1);
 void *__dt__22TPlyFollowParticleCtrlFv(void *arg0, s16 arg1);
 void destroy_if_inactive__22TPlyFollowParticleCtrlFi(s32 arg0);
 void TObjPlayer__sub_80154A00(void *);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u32 get_player_by_client_id(u16);
 void __dl__7TObjectFPv(void *);
 void clear_obj_links(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
@@ -53,7 +53,7 @@ void *TPlyPtclObjectLeftHand__ct(void *arg0, u8 * _w1) {
 }
 
 void destroy_if_inactive__22TPlyFollowParticleCtrlFi(s32 arg0) {
-    if (TPlayerBattleCtrl4P__sub_801BA74C((u16) get_lifetime__22TPlyFollowParticleCtrlFPv()) == 0U) {
+    if (get_player_by_client_id((u16) get_lifetime__22TPlyFollowParticleCtrlFPv()) == 0U) {
         queue_destruction__7TObjectFv(arg0);
     }
 }

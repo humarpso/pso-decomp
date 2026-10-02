@@ -34,13 +34,13 @@ void TLobby__sub_801EE674(s32 arg0);
 M2C_UNK TQuestColCtrl__sub_80195DE0(int, void *);
 void qst_op_del_obj_param(s32 arg0);
 M2C_UNK TObjPlayer__sub_80011160(s32, s32);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 extern s32 TLobby__data_80512220[];
 void qst_op_pl_add_meseta(void);
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801F3D3C(s16, s32, s32, s32);
 void TLobby__sub_801EE728(u32 first);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 void init__9TItemDataFv(Item_801EE77C *);
 void *set_mode_and_refresh_object__10TObjPlayerFPvi(void *, Item_801EE77C *);
 void *get_owner_if_alive__10TObjPlayerFPv(void *);
@@ -48,7 +48,7 @@ s32 get_field_d8__10TObjPlayerFPv(void *);
 extern s32 lbl_805D53A0;
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801EE77C(u8 arg0, u8 arg1);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 void init__9TItemDataFv(Item_801EE77C *);
 s32 TLobby__sub_8011AF58(u16);
 s32 TObjPlayer__sub_801B91F0(void *, Item_801EEE68 *);
@@ -56,7 +56,7 @@ void fn_801B849C(void *, Item_801EEE68 *);
 extern s32 lbl_805D53A0;
 extern int* TLobby__data_805D5E78;
 void qst_op_item_create(u8 arg0, u8 arg1);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 void init__9TItemDataFv(Item_801EE77C *);
 s32 TLobby__sub_8011AF58(u16);
 s32 TObjPlayer__sub_801B91F0(void *, Item_801EEE68 *);
@@ -64,7 +64,7 @@ void fn_801B849C(void *, Item_801EEE68 *);
 extern s32 lbl_805D53A0;
 extern int* TLobby__data_805D5E78;
 void qst_op_item_create2(u8 arg0, u8 arg1);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 void init__9TItemDataFv(Item_801EE77C *);
 void *set_mode_and_refresh_object__10TObjPlayerFPvi(void *, Item_801EE77C *);
 void *get_owner_if_alive__10TObjPlayerFPv(void *);
@@ -72,7 +72,7 @@ s32 get_field_d8__10TObjPlayerFPv(void *);
 extern s32 lbl_805D53A0;
 extern int* TLobby__data_805D5E78;
 void qst_op_item_check(u32 first, u32 destination);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 void init__9TItemDataFv(Item_801EE77C *);
 void *set_mode_and_refresh_object__10TObjPlayerFPvi(void *, Item_801EE77C *);
 void *get_owner_if_alive__10TObjPlayerFPv(void *);
@@ -81,7 +81,7 @@ void get_item_record__23TShopJudgmentItemWindowFPv(void *, s32, s32);
 extern s32 lbl_805D53A0;
 extern int* TLobby__data_805D5E78;
 void qst_op_item_delete2(u32 src, u32 dst);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 void *start_inventory_update__10TObjPlayerFPvi(void *, s32);
 void *get_owner_if_alive__10TObjPlayerFPv(void *);
 void copy_to_item_data__5TItemFPvPv(void *, Item_801EE77C *);
@@ -103,7 +103,7 @@ int TLobby__sub_803DF1CC(void);
 int TObjDoor__sub_801F3754(void);
 int TObjDoor__sub_801F3760(void);
 M2C_UNK TObjPlayer__sub_80011160(s32, s32);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 int TWindowCtrl__sub_8024A4EC(void*);
 int create_alt_timer__11TWindowCtrlFv(void*);
 int reset_door_state__6TLobbyFv(void);
@@ -137,7 +137,7 @@ void TLobby__sub_801EE77C(u8 arg0, u8 arg1) {
     Item_801EE77C item;
     Player_801EE77C *player;
     void *obj;
-    player = (Player_801EE77C *)TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    player = (Player_801EE77C *)get_player_by_client_id(lbl_805D53A0);
     if (player != NULL) {
         init__9TItemDataFv(&item);
         item.data[0] = (*(int * *)&TLobby__data_805D5E78)[(u8)arg0++];
@@ -165,7 +165,7 @@ void qst_op_item_check(u32 first, u32 destination) {
     u32 player;
     void *slot;
     void *owner;
-    player = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    player = get_player_by_client_id(lbl_805D53A0);
     if (player != 0) {
         init__9TItemDataFv(&item);
         item.data[0] = TLobby__data_805D5E78[(u8)first++];
@@ -195,7 +195,7 @@ void qst_op_item_delete2(u32 src, u32 dst) {
     if ((u8)dst > 0xF4) {
         return;
     }
-    player = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    player = get_player_by_client_id(lbl_805D53A0);
     if (player != 0) {
         init__9TItemDataFv(&item);
         item.data[0] = TLobby__data_805D5E78[(u8)src++];
@@ -238,7 +238,7 @@ void qst_op_item_delete(u32 src, u32 dst) {
     if ((u8)dst > 0xF4) {
         return;
     }
-    player = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    player = get_player_by_client_id(lbl_805D53A0);
     if (player != 0) {
         slot = start_inventory_update__10TObjPlayerFPvi(M2C_FIELD(player, void **, 0xD00), TLobby__data_805D5E78[(u8)src]);
         if (slot != 0) {
@@ -272,7 +272,7 @@ void qst_op_item_delete(u32 src, u32 dst) {
 void qst_op_item_create2(u8 arg0, u8 arg1) {
     Item_801EEE68 item;
     void *player;
-    player = (void *)TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    player = (void *)get_player_by_client_id(lbl_805D53A0);
     if (player != NULL) {
         init__9TItemDataFv((Item_801EE77C *)(&item));
         item.data[0] = TLobby__data_805D5E78[arg0++];
@@ -302,7 +302,7 @@ void qst_op_item_create2(u8 arg0, u8 arg1) {
 void qst_op_item_create(u8 arg0, u8 arg1) {
     Item_801EEE68 item;
     void *player;
-    player = (void *)TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    player = (void *)get_player_by_client_id(lbl_805D53A0);
     if (player != NULL) {
         init__9TItemDataFv((Item_801EE77C *)(&item));
         item.data[0] = (*(int * *)&TLobby__data_805D5E78)[(u8)arg0++];
@@ -329,7 +329,7 @@ void notify_battle_ctrl_player__6TLobbyFv(void) {
     u32 ret;
 
     temp_r31 = TLobby__data_80512220[0];
-    ret = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    ret = get_player_by_client_id(lbl_805D53A0);
     if (ret != 0U) {
         TObjPlayer__sub_80011160(ret, temp_r31);
     }
@@ -339,7 +339,7 @@ void qst_op_pl_add_meseta(void) {
     s32 temp_r31;
     u32 temp_r3;
     temp_r31 = M2C_FIELD(&(*(RecoveredGlobal_801EEFB4_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 4);
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((s32)((int) (M2C_FIELD(&(*(RecoveredGlobal_801EEFB4_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 0))));
+    temp_r3 = get_player_by_client_id((s32)((int) (M2C_FIELD(&(*(RecoveredGlobal_801EEFB4_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 0))));
     if (temp_r3 != 0U) {
         TObjPlayer__sub_80011160((s32)((int) (temp_r3)), (s32)((int) (temp_r31)));
     }

@@ -191,7 +191,7 @@ s32 is_mode_two_and_ready__10TObjPlayerFPv();
 M2C_UNK draw_status_icon__10TObjPlayerFPvi(void *, void *);
 s32 get_extended_state__10TObjPlayerFPv(int);
 void TObjPlayer__sub_8012AD24(u8 *arg0);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(int);
 s32 reset_key_machine_state__10TObjPlayerFv();
 void TObjPlayer__sub_8012ABCC(u8 *arg0, s32 arg1);
@@ -217,7 +217,7 @@ void TObjPlayer__sub_8012ABCC(u8 *arg0, s32 arg1) {
   {
     if (reset_key_machine_state__10TObjPlayerFv() != 0)
     {
-      if (TObjPlayer__sub_800196EC() == get_field_3e4__10TObjPlayerFPv((int) ((RecoveredFields_8012ABCC_arg0 *) arg0)->field_F0))
+      if (get_current_floor() == get_field_3e4__10TObjPlayerFPv((int) ((RecoveredFields_8012ABCC_arg0 *) arg0)->field_F0))
       {
         if (arg1 == 0)
         {

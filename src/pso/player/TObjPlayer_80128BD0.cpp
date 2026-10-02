@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 TObjEneDellBiter__sub_80087350(u32, s32);
+s32 spawn_particle_effect(u32, s32);
 s32 clear_rico_ring_flag__10TObjPlayerFUi(u32);
 s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
 void TObjPlayer__sub_80128A70(void);

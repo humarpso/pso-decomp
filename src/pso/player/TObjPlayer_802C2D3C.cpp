@@ -15,7 +15,7 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 M2C_UNK draw_line_strip__10TObjPlayerFPviif(void *, s32, s32, f32);
@@ -37,7 +37,7 @@ void draw_model_parts__10TObjPlayerFPv(u8 *arg0) {
     set_global_flag__10TObjPlayerFv();
     TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0x98), M2C_FIELD(arg0, s32 *, 0x9C), M2C_FIELD(arg0, f32 *, 0xA8));
     clear_global_state__10TObjPlayerFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 }

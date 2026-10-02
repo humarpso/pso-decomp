@@ -37,7 +37,7 @@ extern "C" {
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
 f32 TObjPlayer__sub_80017D68(void *, void *, int, int, f32);
 M2C_UNK update_angle__10TObjPlayerFPviPv(void *, void *, void *);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 extern const f32 lbl_805DA070;
 void TObjEnemyCustom__sub_800C7C30(u8 *arg0);
@@ -49,7 +49,7 @@ void update_state_machine__15TObjEnemyCustomFPv(void *arg0);
 void TObjEnemyCustom__sub_800C7AE0(void);
 void update__15TObjEnemyCustomFPv(void *arg0);
 int update_gigue__15TObjEnemyCustomFPv(void* p);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 int update_if_active__15TObjEneMe1GiGueFPv(void*, int);
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
 M2C_UNK TObjPlayer__sub_80018660(void *, s32);
@@ -69,7 +69,7 @@ void update_state_machine__15TObjEnemyCustomFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFF9FFFFF);
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800000)) {
             TObjPlayer__sub_80011734(arg0, 0, lbl_805DA070);
         }
@@ -109,7 +109,7 @@ void update__15TObjEnemyCustomFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
         TObjPlayer__sub_80018660(arg0, M2C_FIELD(M2C_FIELD(arg0, void **, 0x350), s32 *, 8));
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         if (objInBand__FP7GameObjf(arg0, lbl_805DA068) != 0) {
             temp_r3 = M2C_FIELD(arg0, Obj2A8_800c7ae4 **, 0x2A8);
             if (temp_r3->v18(arg0, lbl_805DA074) != 0) {
@@ -146,7 +146,7 @@ void TObjEnemyCustom__sub_800C7C30(u8 *arg0) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 1;
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
-        TBoss1Dragon__sub_80143504((void *) (arg0));
+        advance_animation_playback((void *) (arg0));
         temp_r7 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x2A8));
         if (temp_r7 != NULL) {
             Vec_800C7C30 v = *(Vec_800C7C30 *)(temp_r7 + 0x2FC);

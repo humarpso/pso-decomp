@@ -28,7 +28,7 @@ extern "C" {
 
 void *__dt__22TPlyPtclObjectLeftHandFv(void *arg0, s16 arg1);
 s32 update_attachment__22TPlyPtclObjectLeftHandFi(s32 arg0);
-void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+void *get_player_by_client_id(u16);
 void __dl__7TObjectFPv(void *);
 void __dt__22TPlyFollowParticleCtrlFv(void *, int);
 u16 get_lifetime__22TPlyFollowParticleCtrlFPv();
@@ -37,7 +37,7 @@ s32 get_position_ptr__10TObjPlayerFPv(s32);
 s32 update_attachment__22TPlyPtclObjectLeftHandFi(s32 arg0) {
     void *temp_r3;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16) get_lifetime__22TPlyFollowParticleCtrlFPv());
+    temp_r3 = get_player_by_client_id((u16) get_lifetime__22TPlyFollowParticleCtrlFPv());
     if (temp_r3 == NULL) {
         return 0;
     }

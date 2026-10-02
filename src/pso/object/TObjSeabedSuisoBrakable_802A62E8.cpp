@@ -396,10 +396,10 @@ M2C_UNK fn_801FBA6C(s32);
 void update_state__23TObjSeabedSuisoBrakableFPv(void *arg0);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi();
-M2C_UNK TObjDoor__sub_803DC894(s32, void *, f32);
+M2C_UNK draw_ginja_model_with_motion(s32, void *, f32);
 void TObjSeabedSuisoBrakable__sub_802A6AA4(u8 *arg0);
 }
 
@@ -433,11 +433,11 @@ void TObjSeabedSuisoBrakable__sub_802A6AA4(u8 *arg0) {
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         p = M2C_FIELD(arg0, void **, 0xBC);
         if (p != NULL) {
-            TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0xD4), p, M2C_FIELD(arg0, f32 *, 0xB0));
+            draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0xD4), p, M2C_FIELD(arg0, f32 *, 0xB0));
         } else {
             fn_801FBA6C(M2C_FIELD(arg0, s32 *, 0xD4));
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         ((M2C_UNK (*)(M2C_UNK))set_npc_enemy_param)(0);
     }
 }

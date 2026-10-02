@@ -73,7 +73,7 @@ extern const f32 lbl_805DB008;
 extern const f32 lbl_805DB00C;
 extern const f32 lbl_805DB010;
 void TObjPlayer__sub_80130898(u8 *arg0);
-void TObjEneDellBiter__sub_80087350(void *, s32);
+void spawn_particle_effect(void *, s32);
 void TObjPlayer__sub_80130974(Pl2_80130974 *arg0);
 }
 
@@ -117,8 +117,8 @@ void TObjPlayer__sub_80130974(Pl2_80130974 *arg0) {
     } else {
         arg0->m49(arg0->f214, 0, 0, 1);
     }
-    TObjEneDellBiter__sub_80087350(arg0->f208, 9);
-    TObjEneDellBiter__sub_80087350(arg0->f214, 9);
+    spawn_particle_effect(arg0->f208, 9);
+    spawn_particle_effect(arg0->f214, 9);
 }
 
 void TObjPlayer__sub_80130A30(u8 *arg0, s32 arg1, s32 arg2) {

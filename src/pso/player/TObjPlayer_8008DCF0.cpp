@@ -24,12 +24,12 @@ extern "C" {
 extern Row_8008ED48 lbl_805006F8[];
 void TObjPlayer__sub_8008ED48(void *arg0, s32 arg1);
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
-M2C_UNK TObjPlayer__sub_80017E6C(void *);
-s32 TObjPlayer__sub_80018428(void *, Vec_8008F910 *);
+M2C_UNK move_with_wall_slide(void *);
+s32 check_path_obstructed(void *, Vec_8008F910 *);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, int);
 s32 get_flag_0x388_b24__10TObjPlayerFPv(void *);
 s32 fn_80090464(void *, int);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 extern const f32 lbl_805D9620;
 extern const f32 lbl_805D966C;
@@ -40,8 +40,8 @@ M2C_UNK TObjPlayer__sub_800A04F0(void *);
 M2C_UNK request_two_effects__10TObjPlayerFPv(void *);
 M2C_UNK apply_effect_variant_a__10TObjPlayerFii(void *, int);
 M2C_UNK refresh_lobby_state__10TObjPlayerFPv(void *);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
-u8 *TPhotonMylla__sub_80154CB4(u16);
+M2C_UNK advance_animation_playback(void *);
+u8 *find_entity_by_id(u16);
 M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 extern const f32 lbl_805D964C;
@@ -53,7 +53,7 @@ void TObjPlayer__sub_8008F730(u8 *arg0);
 extern "C" {
 
 void update_dragon_boss_state__10TObjPlayerFPv(void *arg0);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK advance_animation_playback(void *);
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
 
 extern const f32 lbl_805D9620;
@@ -68,7 +68,7 @@ void update_dragon_boss_state__10TObjPlayerFPv(void *arg0) {
         M2C_FIELD(arg0, s16 *, 0xB8) = (s16) ((((u32) M2C_FIELD(arg0, u32 *, 0x388) >> 0x18U) & 1) ? 0 : 5);
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         TObjPlayer__sub_80011734(arg0, 0, lbl_805D9620);
         return;
     case -1:
@@ -103,7 +103,7 @@ void TObjPlayer__sub_8008F730(u8 *arg0) {
             M2C_FIELD(arg0, s16 *, 0xB8) = 4;
             M2C_FIELD(arg0, s32 *, 0x37C) = 1;
             for (i = 0; i < ((P_8008F730 *)arg0)->n; i++) {
-                p = TPhotonMylla__sub_80154CB4(((P_8008F730 *)arg0)->ids[i]);
+                p = find_entity_by_id(((P_8008F730 *)arg0)->ids[i]);
                 if (p != NULL) {
                     send_entity_set_flags__6TLobbyFPv(p);
                     queue_destruction__7TObjectFv(p);
@@ -117,13 +117,13 @@ void TObjPlayer__sub_8008F730(u8 *arg0) {
         TBoss3Volopt__sub_8022675C(0x4003AD37, arg0 + 0x38, 0, 0);
         break;
     case 1:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         if (M2C_FIELD(arg0, f32 *, 0xC0) >= lbl_805D9668) {
             M2C_FIELD(arg0, s32 *, 0x37C) = 3;
         }
         break;
     case 2:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         if (M2C_FIELD(arg0, f32 *, 0xC0) >= lbl_805D964C) {
             M2C_FIELD(arg0, f32 *, 0x3B4) -= M2C_FIELD(arg0, f32 *, 0x30C);
             if (M2C_FIELD(arg0, f32 *, 0x3B4) <= 0.0f) {
@@ -138,7 +138,7 @@ void TObjPlayer__sub_8008F730(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x388) |= 4;
         M2C_FIELD(arg0, s32 *, 0x37C) = 4;
     case 4:
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         if (((VObj_14_c1c33b *)(arg0 + 0x390))->m4() == 1) {
             apply_effect_variant_a__10TObjPlayerFii(arg0 + 0x38, 0);
             send_entity_set_flags__6TLobbyFPv(arg0);
@@ -159,13 +159,13 @@ void TObjPlayer__sub_8008F910(u8 *arg0) {
         M2C_FIELD(arg0, s16 *, 0xB8) = get_flag_0x388_b24__10TObjPlayerFPv(arg0) != 0 ? 3 : 8;
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1: {
-        TBoss1Dragon__sub_80143504(arg0);
+        advance_animation_playback(arg0);
         M2C_FIELD(arg0, f32 *, 0x30C) = lbl_805D9620;
         Vec_8008F910 v = M2C_FIELD(arg0, Vec_8008F910 *, 0x2FC);
         v.x += M2C_FIELD(arg0, f32 *, 0x308);
         v.z += M2C_FIELD(arg0, f32 *, 0x310);
-        if (TObjPlayer__sub_80018428(arg0, &v) == 0) {
-            TObjPlayer__sub_80017E6C(arg0);
+        if (check_path_obstructed(arg0, &v) == 0) {
+            move_with_wall_slide(arg0);
         } else {
             M2C_FIELD(arg0, f32 *, 0x308) = M2C_FIELD(arg0, f32 *, 0x310) = lbl_805D9620;
         }

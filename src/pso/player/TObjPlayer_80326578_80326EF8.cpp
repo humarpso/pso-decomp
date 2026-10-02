@@ -13,7 +13,7 @@ extern s32 tl_05;
 u8 *TObjPlayer__sub_80326F44(u8 *arg0);
 void play_particle_effect_once__10TObjPlayerFv();
 s32 get_player_list__10TObjPlayerFv();
-void TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+void scale_matrix(int, f32, f32, f32);
 extern const f32 lbl_805DF680;
 void TObjPlayer__sub_80326F9C(O_80326F9C *arg0);
 }
@@ -57,7 +57,7 @@ void TObjPlayer__sub_80326F9C(O_80326F9C *arg0) {
     case 1:
     case 2: {
         f32 f = arg0->f;
-        TOMonitorMachine01__sub_803D8B5C(0, lbl_805DF680, f, f);
+        scale_matrix(0, lbl_805DF680, f, f);
         play_particle_effect_once__10TObjPlayerFv();
         break;
     }

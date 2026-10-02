@@ -53,7 +53,7 @@ extern s32 TOMineTrap__data_805D3080;
 extern const f32 lbl_805DB85C;
 f32 TOMineTrap__vt20(Obj_8016F5B4 *arg0, u32 arg1);
 void set_position_xy__10TObjPlayerFPvff(u32, f32, f32);
-u32 TObjEneDellBiter__sub_80087350(void *, int);
+u32 spawn_particle_effect(void *, int);
 extern const f32 lbl_805DB864;
 void TOMineTrap__vt80(Obj_8016F64C *arg0);
 VObj_8016F418 *get_player_data__10TObjPlayerFi(s32);
@@ -74,7 +74,7 @@ extern "C" {
 
 s32 TOMineTrap__vt10(void);
 u16 get_trap_type__10TOMineTrapFPv();
-void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+void *get_player_by_client_id(u16);
 
 struct VObj8016F3C4Base { char pad[0x18]; };
 struct VObj8016F3C4 : VObj8016F3C4Base { virtual s32 m0(); virtual s32 m1(); virtual s32 m2(); virtual s32 m3(); virtual s32 m4(); virtual s32 m5(); virtual s32 m6(); virtual s32 m7(); virtual s32 m8(); virtual s32 m9(); virtual s32 m10(); virtual s32 m11(); };
@@ -84,7 +84,7 @@ s32 TOMineTrap__vt10(void) {
     void *temp_r3;
 
     var_r31 = 0;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16) get_trap_type__10TOMineTrapFPv());
+    temp_r3 = get_player_by_client_id((u16) get_trap_type__10TOMineTrapFPv());
     if (temp_r3 != NULL) {
         var_r31 = ((VObj8016F3C4 *)temp_r3)->m10();
     }
@@ -175,7 +175,7 @@ void TOMineTrap__vt80(Obj_8016F64C *arg0) {
     u32 r;
     switch (arg0->state) {
     default:
-        r = TObjEneDellBiter__sub_80087350(arg0->sub, 0x45);
+        r = spawn_particle_effect(arg0->sub, 0x45);
         if (r != 0U) {
             set_position_xy__10TObjPlayerFPvff(r, lbl_805DB864, lbl_805DB864);
         }
@@ -184,13 +184,13 @@ void TOMineTrap__vt80(Obj_8016F64C *arg0) {
     case 16:
     case 17:
     case 18:
-        TObjEneDellBiter__sub_80087350(arg0->sub, 0x8E);
-        TObjEneDellBiter__sub_80087350(arg0->sub, 0x8E);
+        spawn_particle_effect(arg0->sub, 0x8E);
+        spawn_particle_effect(arg0->sub, 0x8E);
         break;
     case 6:
     case 7:
-        TObjEneDellBiter__sub_80087350(arg0->sub, 0x8D);
-        TObjEneDellBiter__sub_80087350(arg0->sub, 0x8D);
+        spawn_particle_effect(arg0->sub, 0x8D);
+        spawn_particle_effect(arg0->sub, 0x8D);
         break;
     }
 }

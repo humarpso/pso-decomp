@@ -29,7 +29,7 @@ void TObjPlayer__sub_803D89E8(s32);
 void TBoss6Type1__sub_803D9370(Vec*, Vec*);
 void TObjPlayer__sub_803D9884(void *, void *);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 extern const f64 lbl_8043E188[];
 extern void *__vt__15TItemEffBringer[];
 extern s32 lbl_805D2B90;
@@ -41,7 +41,7 @@ void *__ct__15TItemEffBringerFv(Bringer_8010834C *self, u32 arg1, Vec_8010834C *
 }
 
 extern "C" {
-void TObjEneDellBiter__sub_80087350(Vec*, int);
+void spawn_particle_effect(Vec*, int);
 }
 extern "C" {
 void TBoss6Type1__sub_803D9370(Vec*, Vec*);
@@ -53,7 +53,7 @@ void request_destroy__11TBoss4Type2FUi(s32);
 void TItemEffBringer::hook() {
     Vec work = this->m_pos;
     for (int i = 0; i != this->m_particle_count; i++) {
-        TObjEneDellBiter__sub_80087350(&work, 0x9C);
+        spawn_particle_effect(&work, 0x9C);
         TBoss6Type1__sub_803D9370(&work, &this->m_84);
     }
 }
@@ -95,7 +95,7 @@ void *__ct__15TItemEffBringerFv(Bringer_8010834C *self, u32 arg1, Vec_8010834C *
     TObjPlayer__sub_803D9884(&z, &out);
     VecCopy__FP3VecPC3Vec(&w, src);
     TBoss6Type1__sub_803D9370((Vec*)((Vec *)&w), (Vec*)((Vec *)&out));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     r = TBoss8Dragon__sub_803D64C0(self->f2C - (s32)(lbl_8043E188[0] * get_ad_end_text_start__10TObjPlayerFv(w.x, w.z)));
     if (r < lbl_805DAB10) {
         r *= lbl_805DAB14;

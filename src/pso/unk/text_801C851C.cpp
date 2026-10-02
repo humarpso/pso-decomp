@@ -12,8 +12,8 @@ typedef struct Player_801C851C {
 
 extern "C" {
 s32 is_in_tl03_state__10TObjPlayerFPv();
-Player_801C851C *TPlayerBattleCtrl4P__sub_801BA74C(u16);
-void TObjPlayer__sub_801D0BC0(void *, s32, s32);
+Player_801C851C *get_player_by_client_id(u16);
+void run_action_state_phase__10TObjPlayerFisi(void *, s32, s32);
 void set_anim_flag__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801D1360(void *);
 void bswap_packet__10TObjPlayerFPv(void *);
@@ -32,13 +32,13 @@ void handle_6x58_lobby_animation(void *arg0) {
     TObjPlayer__sub_801D13A8(&m, arg0);
     bswap_packet__10TObjPlayerFPv(&m);
     if (validate_6x58_lobby_animation(&m) != 0) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(m.slot);
+        p = get_player_by_client_id(m.slot);
         if ((p != NULL) && (is_in_tl03_state__10TObjPlayerFPv() != 0)) {
             p->anim = m.c;
             if (TObjPlayer__sub_801D1360(&m) != 0) {
                 set_anim_flag__10TObjPlayerFPv(p);
             }
-            TObjPlayer__sub_801D0BC0(p, 0x17, 0);
+            run_action_state_phase__10TObjPlayerFisi(p, 0x17, 0);
         }
     }
 }

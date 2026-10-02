@@ -31,9 +31,9 @@ extern M2C_UNK __vt__12TObjRaderCol[];
 extern s32 lbl_805D3410;
 u8 *TObjRaderCol__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void queue_destruction__7TObjectFv(void *);
-f32 fn_8013157C(void *, void *);
+f32 xz_distance_squared(void *, void *);
 int test_flag_2000000__10TObjPlayerFPv(void *);
-Ply_8019750C *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+Ply_8019750C *get_player_by_client_id(s32);
 void TRaderMapCore__sub_801F9CB8(s16);
 void TObjRaderCol__sub_8019750C(Col_8019750C *arg0);
 extern s32 lbl_805D53A0;
@@ -59,7 +59,7 @@ void TObjRaderCol__sub_8019750C(Col_8019750C *arg0) {
     Ply_8019750C *p;
     found = 0;
     for (i = 0; i < 4; i++) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        p = get_player_by_client_id(i);
         if (p != 0 && test_flag_2000000__10TObjPlayerFPv(p) != 0) {
             found = 1;
         }
@@ -69,8 +69,8 @@ void TObjRaderCol__sub_8019750C(Col_8019750C *arg0) {
             arg0->f9C--;
         } else {
             for (j = 0; j < 4; j++) {
-                p = TPlayerBattleCtrl4P__sub_801BA74C(j);
-                if (p != 0 && fn_8013157C(p->pos, arg0->pos) < arg0->f90 * arg0->f90) {
+                p = get_player_by_client_id(j);
+                if (p != 0 && xz_distance_squared(p->pos, arg0->pos) < arg0->f90 * arg0->f90) {
                     TRaderMapCore__sub_801F9CB8(arg0->f94);
                     queue_destruction__7TObjectFv(arg0);
                     return;
@@ -82,7 +82,7 @@ void TObjRaderCol__sub_8019750C(Col_8019750C *arg0) {
 
 #define arg0 ((Col_8019750C *)arg0_)
 void TObjRaderCol__sub_801975DC(void *arg0_) {
-    Ply_8019750C *p = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    Ply_8019750C *p = get_player_by_client_id(lbl_805D53A0);
     if (p != 0) {
         if (test_flag_2000000__10TObjPlayerFPv(p) != 0) {
             return;
@@ -96,7 +96,7 @@ void TObjRaderCol__sub_801975DC(void *arg0_) {
         return;
     }
     if (p != 0) {
-        if (fn_8013157C(p->pos, arg0->pos) < arg0->f90 * arg0->f90) {
+        if (xz_distance_squared(p->pos, arg0->pos) < arg0->f90 * arg0->f90) {
             TRaderMapCore__sub_801F9CB8((s16)arg0->f94);
             queue_destruction__7TObjectFv(arg0);
         }

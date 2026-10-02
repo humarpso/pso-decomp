@@ -69,7 +69,7 @@ s32 obj_getS16_2BA(Player_8034DAA0 *);
 void obj_setFlags30(void *, u32);
 s32 get_field_2b8__14TItemProShieldFPv(Player_8034DAA0 *);
 void set_facing__10TObjPlayerFPvs(Player_8034DAA0 *, s32);
-Player_8034DAA0 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+Player_8034DAA0 *get_player_by_client_id(s32);
 extern Vec2i_8034DAA0 lbl_80478C90[];
 extern Vec2i_8034DAA0 lbl_80478C98[];
 extern Vec2i_8034DAA0 lbl_80478CA0[];
@@ -81,7 +81,7 @@ extern "C" {
 
 void TLobby__sub_8034DAA0(s32 arg0, u32 arg1) {
     Player_8034DAA0 *p;
-    p = TPlayerBattleCtrl4P__sub_801BA74C(arg0);
+    p = get_player_by_client_id(arg0);
     if (p == NULL) {
         return;
     }

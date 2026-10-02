@@ -40,7 +40,7 @@ s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void notify_fish_if_valid__10TObjPlayerFUi(u32);
 void TObjPlayer__sub_803D99F8(void *, s32);
 void TObjPlayer__sub_803D9B2C();
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void TObjBoss2Tunnel__sub_803DB470(void *);
 void set_chunk_material_color(void *);
@@ -77,7 +77,7 @@ void TItemEffNeedleBase__sub_80109D48(Needle_80109D48 *self) {
         TOHangerMachine01__sub_803D9C00(self->m_30);
         TObjPlayer__sub_803D99F8(self->m_44, 1);
         TObjBoss2Tunnel__sub_803DB470(self->m_3c);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         end_effect_render__13TParticleCtrlFv();
         copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);
         some_id_805c6f74 = lbl_805D5660;

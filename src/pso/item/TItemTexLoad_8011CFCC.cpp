@@ -10,7 +10,7 @@ s32 TLobby__sub_803CC53C(int);
 M2C_UNK TLobby__sub_803CCB5C(int, int, int);
 u32 TLobby__sub_803CD16C(int, int);
 s32 TItemTexLoad__sub_8011CFCC(u8 *arg0, s32 arg1);
-s32 *TItemData__sub_8010EA38(void *);
+s32 *lookup_item_pmt_record(void *);
 s32 TItemTexLoad__sub_8011CFCC(u8 *arg0, s32 arg1);
 s32 TItemTexLoad__sub_8011D098(u8 *arg0, u8 *arg1);
 }
@@ -46,7 +46,7 @@ s32 TItemTexLoad__sub_8011D098(u8 *arg0, u8 *arg1) {
     s32 *rec;
     s32 id;
     if (arg1 != NULL) {
-        rec = TItemData__sub_8010EA38(arg1);
+        rec = lookup_item_pmt_record(arg1);
         id = *rec;
         if (rec != NULL) {
             switch (arg1[0]) {

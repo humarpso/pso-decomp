@@ -70,7 +70,7 @@ M2C_UNK TObjPlayer__sub_801BE918(void *, s32, M2C_UNK *, M2C_UNK *);
 void TObjPlayer__sub_801B6024(u8 *arg0);
 s32 TObjPlayer__sub_801B5AC4(s32 arg0, s32 arg1);
 s32 TObjPlayer__sub_801B5874(u8 *arg0);
-Player_801B6110 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+Player_801B6110 *get_player_by_client_id(s32);
 void bswap_body_dwords__10TObjPlayerFi(void *);
 void copy_pair_fields__10TObjPlayerFPvPv(void *, void *);
 void TObjPlayer__sub_801C0C04(void *);
@@ -313,7 +313,7 @@ void handle_6x2E_set_or_clear_player_flags(void *arg0) {
     copy_pair_fields__10TObjPlayerFPvPv(&m, arg0);
     bswap_body_dwords__10TObjPlayerFi(&m);
     if (validate_6x2E_set_or_clear_player_flags(&m) != 0) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(m.slot);
+        p = get_player_by_client_id(m.slot);
         if (p != NULL) {
             p->flags = p->flags & m.andMask;
             p->flags = p->flags | m.orMask;

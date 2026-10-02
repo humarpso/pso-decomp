@@ -67,7 +67,7 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TOSignCave03__sub_803DB510(int);
@@ -103,7 +103,7 @@ extern const f32 lbl_805DB714;
 u8 *TOKeyAncient02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void init_6x05_switch_changed__6TLobbyFPv(void *);
 void finalize_and_send_60__6TLobbyFPv(void *);
-s32 TObjPlayer__sub_800196EC();
+s32 get_current_floor();
 extern s32 lbl_805D53A0;
 void TOKeyAncient03__sub_8016B84C(Self_8016B84C *self, s32 flags);
 extern const f32 lbl_805DB700;
@@ -160,13 +160,13 @@ void render__14TOKeyAncient02Fv(u8 *arg0) {
         begin_effect_render__13TParticleCtrlFv();
         TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         temp_r31_3 = M2C_FIELD(temp_r31_2, u8 **, 0x30);
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (temp_r31_3 + 8));
         TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
-        TObjPlayer__sub_803D9B78();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
+        pop_matrix();
         set_global_param__8TObjFishFi((int) (M2C_FIELD((*(s32 *)&lbl_805D5A08), M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0xD4) * 4))));
         begin_effect_render__13TParticleCtrlFv();
         temp_r31_4 = (u8 *)((*(u8 * *)&lbl_805D5A04));
@@ -178,10 +178,10 @@ void render__14TOKeyAncient02Fv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00((void *) (temp_r31_5 + 8));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xEC)));
         TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_5, s32 *, 4)));
-        TObjPlayer__sub_803D9B78();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
+        pop_matrix();
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 
@@ -340,7 +340,7 @@ void TOKeyAncient03__sub_8016B84C(Self_8016B84C *self, s32 flags) {
     pkt.object = self->id;
     pkt.zero = lbl_805D53A0;
     pkt.switchId = self->switchId;
-    pkt.area = TObjPlayer__sub_800196EC();
+    pkt.area = get_current_floor();
     pkt.flags = flags;
     finalize_and_send_60__6TLobbyFPv(&pkt);
 }

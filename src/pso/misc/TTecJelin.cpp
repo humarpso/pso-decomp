@@ -149,7 +149,7 @@ struct Jelin_80233808 {
 extern "C" {
 void TTecJelin__vt4(u8 *self, u8 *target);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-u32 TPhotonMylla__sub_80154CB4(int);
+u32 find_entity_by_id(int);
 M2C_UNK TObjPlayer__sub_8022BD74(void *);
 s32 is_parents_unqueued__9TTecLukerFUi(u32);
 void run_task__9TTecJelinFv(struct Self_802336F0 *self);
@@ -225,14 +225,14 @@ extern M2C_UNK __vt__9TTecJelin[];
 void run_task__9TTecJelinFv(struct Self_802336F0 *self) {
     s32 i;
     u32 id;
-    self->target = TPhotonMylla__sub_80154CB4(self->owner);
+    self->target = find_entity_by_id(self->owner);
     if (self->target == 0) {
         queue_destruction__7TObjectFv((void *) (self));
         return;
     }
     if (self->flag != 0) {
         for (i = 0; i < self->count; i++) {
-            id = TPhotonMylla__sub_80154CB4(self->entries[i].id);
+            id = find_entity_by_id(self->entries[i].id);
             if (is_parents_unqueued__9TTecLukerFUi(id) != 0) {
                 ((VObj_18_4560ce *)(self))->m4(id);
             }

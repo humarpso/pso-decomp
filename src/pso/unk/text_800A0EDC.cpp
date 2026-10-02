@@ -157,12 +157,12 @@ extern M2C_UNK __vt__20TObjEneDarkGunCenter[];
 extern s32 lbl_805D29C8;
 u8 *TObjEneDarkGunCenter__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
-M2C_UNK TObjPlayer__sub_80017E6C(void *);
+M2C_UNK move_with_wall_slide(void *);
 void TObjPlayer__sub_800180E8(void *, Vec_800A12C0, Vec_800A12C0, f32);
 void apply_fall_damage_flag__10TObjPlayerFi(void *);
 f32 TObjPlayer__sub_800A3200(int);
-f32 fn_8013157C(void *, void *);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
+f32 xz_distance_squared(void *, void *);
+M2C_UNK advance_animation_playback(void *);
 extern const f32 lbl_805D9984;
 extern const f32 lbl_805D9988;
 void TObjPlayer__sub_800A12C0(Obj_800A12C0 *o);
@@ -231,13 +231,13 @@ void TObjPlayer__sub_800A12C0(Obj_800A12C0 *o) {
         o->fB8 = 0;
         o->state = 1;
     case 1: {
-        TBoss1Dragon__sub_80143504(o);
+        advance_animation_playback(o);
         if (!(o->flags30 & 0x800000)) {
             TObjPlayer__sub_80011734(o, 0, lbl_805D9984);
         }
         TObjPlayer__sub_800180E8(o, o->pos, o->dest, TObjPlayer__sub_800A3200(0));
-        TObjPlayer__sub_80017E6C(o);
-        if (fn_8013157C(&o->pos, &o->dest) <= lbl_805D9988) {
+        move_with_wall_slide(o);
+        if (xz_distance_squared(&o->pos, &o->dest) <= lbl_805D9988) {
             o->flags388 &= ~0x80000;
             apply_fall_damage_flag__10TObjPlayerFi(o);
         }

@@ -17,7 +17,7 @@ struct VObj_80243464 : Base_80243464 {
 };
 
 extern "C" {
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 s8 clamp_char_at__10TObjPlayerFPvi(u32, s32);
 s32 get_help_value__15TWindowHelpItemFv(void);
 void clear_visible_flag__20TWindowSubStatusDispFPv(void *);
@@ -72,7 +72,7 @@ void TWindowHelpItem__sub_80243544(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32 a
         return;
     }
     if (arg3 >= 0xD) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(arg4);
+        p = get_player_by_client_id(arg4);
         if (p == 0) {
             v = 0;
         } else {

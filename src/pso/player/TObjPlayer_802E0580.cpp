@@ -10,7 +10,7 @@ void TObjPlayer__sub_802E0580(void *, int, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D97F0();
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK clear_flag_bit0__12TCharaMakingFv();
 void draw_model_with_arg__10TObjPlayerFPvPv(void* p, void* a1);
 M2C_UNK enable_making__12TCharaMakingFv();
@@ -56,7 +56,7 @@ void update_chara_making__10TObjPlayerFPv(u8 *arg0) {
     set_global_param__8TObjFishFi();
     get_field_4a0__14TAdPlyStatusGCFPv((int) (M2C_FIELD(arg0, s32 *, 0x170)));
     play_phase_transition_sound__10TObjPlayerFi();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     if (get_field_49c__14TAdPlyStatusGCFPv((int) (M2C_FIELD(arg0, s32 *, 0x170))) != 0U) {
         get_item_ptr__10TObjPlayerFPvi((void *) (arg0), (int) (0x3B));
         TObjPlayer__sub_803D97F0();
@@ -66,7 +66,7 @@ void update_chara_making__10TObjPlayerFPv(u8 *arg0) {
         get_field_49c__14TAdPlyStatusGCFPv((int) (M2C_FIELD(arg0, s32 *, 0x170)));
         play_phase_transition_sound__10TObjPlayerFi();
         clear_flag_bit0__12TCharaMakingFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
     if (get_field_498__14TAdPlyStatusGCFPv((int) (M2C_FIELD(arg0, s32 *, 0x170))) != 0U) {
         get_item_ptr__10TObjPlayerFPvi((void *) (arg0), (int) (0x3B));
@@ -76,9 +76,9 @@ void update_chara_making__10TObjPlayerFPv(u8 *arg0) {
         enable_making__12TCharaMakingFv();
         TObjPlayer__sub_802E0580((void *)((void *) (arg0)), (int)((int) (get_field_498__14TAdPlyStatusGCFPv((int) (M2C_FIELD(arg0, s32 *, 0x170))))), (void *)((void *) (arg0 + 0x120)));
         clear_flag_bit0__12TCharaMakingFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 void update_chara_making_if_state3__10TObjPlayerFPv(void* p) { if (*(int*)((char*)p + 0xfc) == 3) { update_chara_making__10TObjPlayerFPv((u8 *)(p)); } }
 

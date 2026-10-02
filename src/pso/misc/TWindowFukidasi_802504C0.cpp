@@ -97,7 +97,7 @@ void rotate_matrix_y(s32, s32);
 void rotate_matrix_x(s32, s32);
 void rotate_matrix_z(s32, s32);
 void TObjPlayer__sub_803D97F0(void *);
-void TObjPlayer__sub_803D9B78();
+void pop_matrix();
 extern Vec_80251380 lbl_8044ED58;
 extern u8 lbl_8058D490[];
 extern Cam_80251380 *lbl_805D4DF0;
@@ -245,7 +245,7 @@ s32 TWindowFukidasi__sub_80251380(Fuki_802504C0 *arg0) {
     rotate_matrix_x(0, lbl_805D4DF0->rx);
     rotate_matrix_z(0, lbl_805D4DF0->rz);
     TScene__sub_803D8DB4(0, &v, &v);
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     d[0] = pos[0] - lbl_805D4DF0->pos[0];
     d[1] = pos[1] - lbl_805D4DF0->pos[1];
     d[2] = pos[2] - lbl_805D4DF0->pos[2];

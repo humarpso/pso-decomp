@@ -29,7 +29,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void TBoss6Type1__sub_803D9370(void *, void *);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 s32 check_all_players_active__13TObjTombstoneFv(void *);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u8 *get_player_by_client_id(s32);
 extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D53AC;
 extern const f32 TObjTombstone__data_805D9184;
@@ -77,7 +77,7 @@ s32 TObjTombstone__sub_80076098(void *arg0) {
     }
     best = TObjTombstone__data_805D9184;
     for (i = 0; i < 4; i++) {
-        player = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        player = get_player_by_client_id(i);
         if (player != NULL) {
             VecCopy__FP3VecPC3Vec(&d, player + 0x38);
             TBoss6Type1__sub_803D9370(&d, &self->pos);

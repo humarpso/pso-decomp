@@ -36,7 +36,7 @@ extern "C" {
 void TObjEneBalClawClaw__sub_8008DC90(void);
 void check_claw_distance__18TObjEneBalClawClawFi(s32 arg0);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(s32, M2C_UNK);
-f32 fn_8013157C(s32, s32);
+f32 xz_distance_squared(s32, s32);
 
 typedef char RecoveredGlobal_8008DC18_lbl_80439B5C_size[sizeof(RecoveredGlobal_8008DC18_lbl_80439B5C) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_8008DC18_lbl_8048EEE0_size[sizeof(RecoveredGlobal_8008DC18_lbl_8048EEE0) == 0x2C ? 1 : -1];
@@ -61,7 +61,7 @@ void TObjEneBalClawClaw__sub_8008DC90(void) {  }
 extern f32 lbl_805D961C;
 
 void check_claw_distance__18TObjEneBalClawClawFi(s32 arg0) {
-    if (fn_8013157C(arg0 + 0x38, arg0 + 0x50) > lbl_805D961C) {
+    if (xz_distance_squared(arg0 + 0x38, arg0 + 0x50) > lbl_805D961C) {
         update_if_active__15TObjEneMe1GiGueFPv(arg0, 8);
         return;
     }

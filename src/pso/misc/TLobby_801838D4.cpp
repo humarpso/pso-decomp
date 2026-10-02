@@ -19,7 +19,7 @@ M2C_UNK TObjFish__sub_803E46BC(s32);
 M2C_UNK TObjPlayer__sub_800F5BC0(s32, s16, M2C_UNK);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
 extern u32 lbl_805D5B38;
@@ -39,7 +39,7 @@ void draw_model__6TLobbyFPv(u8 *arg0) {
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         TObjFish__sub_803E46BC(lbl_805D5B3C);
         TObjFish__sub_803E46BC(lbl_805D5B40);
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

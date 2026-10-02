@@ -8,14 +8,14 @@ extern "C" {
 
 void update_scaled_effect__10TObjPlayerFPv(void *arg0);
 s32 get_player_list__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
+M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
 
 extern f32 lbl_805DAE48;
 extern f32 lbl_805DAE4C;
 
 void update_scaled_effect__10TObjPlayerFPv(void *arg0) {
     if (get_player_list__10TObjPlayerFv() == 1) {
-        TObjPlayer__sub_803D9624(0, lbl_805DAE48, lbl_805DAE4C * M2C_FIELD(arg0, f32 *, 0x1FC), lbl_805DAE48);
+        translate_matrix(0, lbl_805DAE48, lbl_805DAE4C * M2C_FIELD(arg0, f32 *, 0x1FC), lbl_805DAE48);
     }
 }
 

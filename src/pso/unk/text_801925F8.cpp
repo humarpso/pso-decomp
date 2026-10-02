@@ -32,7 +32,7 @@ void TOHangerMachine01__sub_803D9C00(void *);
 void TObjBoss2Tunnel__sub_803DB470(void *);
 void rotate_matrix_y(int, void *);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 M2C_UNK fn_80192554(void *);
 void set_global_param__8TObjFishFi(void *);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
@@ -45,7 +45,7 @@ void render_lazer_fence_model(void *arg0) {
     TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 56));
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
     TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, void **, 0xBC));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 extern const f32 lbl_805DBE5C;
@@ -265,7 +265,7 @@ void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(s32, int);
 void TOHangerMachine01__sub_803D9C00(void *);
-void TObjDoor__sub_803DC894(s32, s32, f32);
+void draw_ginja_model_with_motion(s32, s32, f32);
 extern u16 lbl_80445B7C[];
 void fn_80192B5C(Obj_80192B5C *arg0);
 }
@@ -283,9 +283,9 @@ void fn_80192B5C(Obj_80192B5C *arg0) {
     rotate_matrix_y(0, (void *)arg0->f60);
     TObjBoss2Tunnel__sub_803DB470((void *)arg0->fBC);
     begin_effect_render__13TParticleCtrlFv();
-    TObjDoor__sub_803DC894(arg0->fC0, arg0->fC4, arg0->fB8);
+    draw_ginja_model_with_motion(arg0->fC0, arg0->fC4, arg0->fB8);
     end_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 }
@@ -332,7 +332,7 @@ void TOHangerMachine01__sub_803D9C00(void *);
 void TObjBoss2Tunnel__sub_803DB470(void *);
 void rotate_matrix_y(int, void *);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 void set_global_param__8TObjFishFi(void *);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 
@@ -344,7 +344,7 @@ void draw_model__18TObjLazerFenceNormFPv(void *arg0) {
     TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 56));
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
     TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, void **, 0xBC));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
 }
 
 extern const f32 lbl_805DBE5C;

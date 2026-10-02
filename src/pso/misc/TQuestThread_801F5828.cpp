@@ -33,7 +33,7 @@ u8 *TQuestThread__sub_801F5C50(s32 arg0);
 M2C_UNK bswap_header__6TLobbyFPv();
 extern u32 lbl_805D5EE8;
 void handle_6x77_sync_quest_register(u8 *arg0);
-s32 TObjPlayer__sub_800196EC(void);
+s32 get_current_floor(void);
 u32 __nw__7TObjectFUl(M2C_UNK);
 extern RecoveredGlobal_801F5B5C_TQuestThread__data_80512AD0 TQuestThread__data_80512AD0;
 extern u32 lbl_805D5EE8;
@@ -75,7 +75,7 @@ u8 *TQuestThread__sub_801F5B5C(void) {
     s32 temp_r30;
     u8 *temp_r3;
     u8 *var_r0;
-    temp_r30 = TObjPlayer__sub_800196EC() * 4;
+    temp_r30 = get_current_floor() * 4;
     if (((s32) M2C_FIELD(&TQuestThread__data_80512AD0.value, M2C_UNK *, temp_r30) != -1) && ((u32) lbl_805D5EE8 != 0U)) {
         temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x194)));
         var_r0 = (u8 *)(temp_r3);

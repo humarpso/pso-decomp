@@ -346,10 +346,10 @@ extern M2C_UNK lbl_8048FE94[];
 extern s32 lbl_805D29A8;
 extern const f32 lbl_805D9860;
 u8 *TObjEneMe1CanadinLeader__sub_8009AA64(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
-s32 TObjEneDD__sub_800BBA18(void *, s16);
+s32 transition_enemy_state(void *, s16);
 void set_flag3c8_bit40__23TObjEneMe1CanadinLeaderFPv(void *);
 s32 TObjEneMe1CanadinLeader__vt106(Obj_8009B3C0 *self);
-s32 TObjEneDD__sub_800BBA18(void *, s16);
+s32 transition_enemy_state(void *, s16);
 void TObjEneMe1CanadinLeader__vt103(Obj_8009B638 *self);
 s32 fn_8009E300(u8 *);
 s32 check_v2_mode__9TObjEneDDFv();
@@ -364,7 +364,7 @@ extern void *lbl_805D4FDC;
 void TObjEneMe1CanadinLeader__vt110(Leader_8009AB4C *obj, s32 mode);
 f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
 M2C_UNK set_flag3c8_bit8__23TObjEneMe1CanadinLeaderFPv(s32);
-s32 TPhotonMylla__sub_80154CB4(u16);
+s32 find_entity_by_id(u16);
 void TObjEneMe1CanadinLeader__vt115(Leader_8009B274 *self, u32 id);
 f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
 M2C_UNK TObjEneMe1CanadinLeader__sub_8009E334(void *);
@@ -611,7 +611,7 @@ void TObjEneMe1CanadinLeader__vt115(Leader_8009B274 *self, u32 id) {
     if (self->mode == 3) {
         s32 k = get_status_value_f32__23TObjEneMe1CanadinLeaderFv((f32)self->max / (f32)self->info->f2C);
         if (self->count <= self->max - k) {
-            self->f3C0 = TPhotonMylla__sub_80154CB4(self->f4C8);
+            self->f3C0 = find_entity_by_id(self->f4C8);
             set_flag3c8_bit8__23TObjEneMe1CanadinLeaderFPv(self->f3C0);
         }
     }
@@ -627,7 +627,7 @@ s32 TObjEneMe1CanadinLeader__vt106(Obj_8009B3C0 *self) {
     s32 i;
     if (self->flags & 0x40) {
         self->flags &= ~0x40;
-        TObjEneDD__sub_800BBA18(self, 0xb);
+        transition_enemy_state(self, 0xb);
         for (i = 0; i < self->count; i++) {
             set_flag3c8_bit40__23TObjEneMe1CanadinLeaderFPv(self->members[i]);
         }
@@ -678,11 +678,11 @@ void TObjEneMe1CanadinLeader__vt103(Obj_8009B638 *self) {
     case 0:
     case 1:
         self->step++;
-        TObjEneDD__sub_800BBA18(self, 6);
+        transition_enemy_state(self, 6);
         break;
     case 2:
         self->step = 0;
-        TObjEneDD__sub_800BBA18(self, 7);
+        transition_enemy_state(self, 7);
         break;
     }
 }

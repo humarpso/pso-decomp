@@ -54,10 +54,10 @@ s32 TOHangerMachine01__sub_803D9C00(void *);
 s32 rotate_matrix_y(s32, s32);
 s32 set_global_param__8TObjFishFi(s32);
 s32 TObjBoss2Tunnel__sub_803DB470(s32);
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
-s32 TObjDoor__sub_803DC894(s32, s32, f32);
+s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern s32 *TOKeyGenericSw__data_805D5A28;
 extern Map_8016CA64 *TOKeyGenericSw__data_8050DB60[];
 void render__14TOKeyGenericSwFv(Obj_8016CA64 *self);
@@ -107,7 +107,7 @@ void render__14TOKeyGenericSwFv(Obj_8016CA64 *self) {
     rotate_matrix_y(0, self->x60);
     set_global_param__8TObjFishFi(self->x24);
     TObjBoss2Tunnel__sub_803DB470(self->x34);
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     begin_effect_render__13TParticleCtrlFv();
     TObjPlayer__sub_803D9B2C();
     switch (self->xd4) {
@@ -122,8 +122,8 @@ void render__14TOKeyGenericSwFv(Obj_8016CA64 *self) {
     TOHangerMachine01__sub_803D9C00(self->x38);
     rotate_matrix_y(0, self->x60);
     set_global_param__8TObjFishFi(self->x24);
-    TObjDoor__sub_803DC894(self->x34, self->xbc, self->xb0);
-    TObjPlayer__sub_803D9B78();
+    draw_ginja_model_with_motion(self->x34, self->xbc, self->xb0);
+    pop_matrix();
     end_effect_render__13TParticleCtrlFv();
 }
 

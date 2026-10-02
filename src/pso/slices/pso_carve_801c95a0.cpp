@@ -8,7 +8,7 @@ void clear_flags__11TAdRicoRingFPvUi(void *, s32);
 s32 is_active__8TItemMagFPv(void *);
 s32 check_flag30_bit20__10TObjPlayerFi(s32);
 void update_position_from_target__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801D0BC0(void *, int, int);
+M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, int, int);
 void TObjPlayer__sub_801C95A0(u8 *arg0);
 }
 
@@ -29,7 +29,7 @@ void TObjPlayer__sub_801C95A0(u8 *arg0) {
   if (obj_testFlags30(arg0, 0x800) != 0)
   {
     clear_flags__11TAdRicoRingFPvUi(arg0 + 0x858, 1);
-    TObjPlayer__sub_801D0BC0((void *) arg0, (int) 0xF, (int) 5);
+    run_action_state_phase__10TObjPlayerFisi((void *) arg0, (int) 0xF, (int) 5);
     return;
   }
   ;

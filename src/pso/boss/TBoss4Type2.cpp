@@ -17,10 +17,10 @@ s32 get_position_ptr__10TObjPlayerFPv(int);
 s32 apply_resta_heal__11TBoss4Type2FPv(void *);
 s32 TBoss4Type2__sub_80057048(void *, int);
 s32 request_destroy__11TBoss4Type2FUi(int);
-u32 TObjEneDellBiter__sub_80087350(void *, int);
+u32 spawn_particle_effect(void *, int);
 u32 TBoss4Type2__sub_800874F4(void *, int);
 s32 set_flags__11TBoss4Type2FPvUi(int, int);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+u32 get_player_by_client_id(int);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 s32 create__9TTecRestaFPvPvPv(void *, void *, int);
 extern const f32 lbl_805D8BA4;
@@ -79,7 +79,7 @@ void TBoss4Type2__vt36(u8 *arg0) {
   }
   if ((*((int *) (((s8 *) arg0) + 0x398))) == 0x46)
   {
-    temp_r3_3 = TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x468), (int) 0x13E);
+    temp_r3_3 = spawn_particle_effect((void *) (arg0 + 0x468), (int) 0x13E);
     if (temp_r3_3 != 0)
     {
       set_flags__11TBoss4Type2FPvUi((int) temp_r3_3, (int) 0x40);
@@ -87,12 +87,12 @@ void TBoss4Type2__vt36(u8 *arg0) {
     temp_r3_4 = *((u16 *) (((s8 *) arg0) + 0x3C4));
     if (temp_r3_4 != ((unsigned short) (-1)))
     {
-      temp_r3_5 = TPlayerBattleCtrl4P__sub_801BA74C((int) temp_r3_4);
+      temp_r3_5 = get_player_by_client_id((int) temp_r3_4);
       if (temp_r3_5 != 0)
       {
         VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (int) get_position_ptr__10TObjPlayerFPv((int) temp_r3_5));
         stack.spC += lbl_805D8BA8;
-        temp_r3_6 = TObjEneDellBiter__sub_80087350((void *) (&stack.sp8), (int) 0x38);
+        temp_r3_6 = spawn_particle_effect((void *) (&stack.sp8), (int) 0x38);
         if (temp_r3_6 != 0)
         {
           set_flags__11TBoss4Type2FPvUi((int) temp_r3_6, (int) 0x40);

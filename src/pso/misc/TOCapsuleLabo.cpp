@@ -84,7 +84,7 @@ void TObjEneGibbles__sub_80156720(void *);
 void TObjPlayer__sub_80154A00(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 void destroy_key_object__5TOKeyFPvs(void *, int);
@@ -149,8 +149,8 @@ void render__13TOCapsuleLaboFv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00((void *) (temp_r31_3 + 8));
         TObjBoss2Tunnel__sub_803DB470((int) (temp_r31_3));
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
+        pop_matrix();
     }
 }
 

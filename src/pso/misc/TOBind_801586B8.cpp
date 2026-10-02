@@ -75,12 +75,12 @@ void render__6TOBindFv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
-M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
+M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -98,10 +98,10 @@ void render__6TOBindFv(u8 *arg0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0xB0) != 1) {
             set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xC8));
             begin_effect_render__13TParticleCtrlFv();
-            TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0xC4), M2C_FIELD(arg0, s32 *, 0xCC), M2C_FIELD(arg0, f32 *, 0xB8));
+            draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0xC4), M2C_FIELD(arg0, s32 *, 0xCC), M2C_FIELD(arg0, f32 *, 0xB8));
             end_effect_render__13TParticleCtrlFv();
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

@@ -60,7 +60,7 @@ struct Self_8012DE24 {
 };
 
 extern "C" {
-s32 TObjEneDellBiter__sub_80087350(void *, int);
+s32 spawn_particle_effect(void *, int);
 s32 draw_icon__10TObjPlayerFPvii(void *, int, void *);
 extern s32 lbl_8043E9A0[];
 void TObjPlayer__sub_8012DE24(u8 *self);
@@ -75,7 +75,7 @@ void TObjPlayer__sub_8012DE24(u8 *self) {
         draw_icon__10TObjPlayerFPvii(self, ((struct Self_8012DE24 *)self)->icons[i], sp8);
         ((VObj_8012DE24 *)self)->m49(sp8, i, lbl_8043E9A0[i], 1);
         if (i == 0) {
-            TObjEneDellBiter__sub_80087350(sp8, 9);
+            spawn_particle_effect(sp8, 9);
         }
     }
 }

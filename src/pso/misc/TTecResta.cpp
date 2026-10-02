@@ -136,17 +136,17 @@ void __ct__7TObjectFP7TObject(void *, void *);
 Vec_8023967C *VecCopy__FP3VecPC3Vec(Vec_8023967C *, const Vec_8023967C *);
 void *TObjPlayer__sub_800868C4(void *pos, s32 id, s32 a, s32 b, s32 c);
 s32 obj_getField1c(int);
-void TObjPlayer__sub_80087638(void *, s32);
+void set_owner_id__13TParticleCtrlFPvUs(void *, s32);
 Resta_8023967C *TTecResta__sub_8023967C(Resta_8023967C *self, Vec_8023967C *pos, s32 owner, void *parent);
 M2C_UNK queue_destruction__7TObjectFv();
-u32 TPhotonMylla__sub_80154CB4(int);
+u32 find_entity_by_id(int);
 s32 is_parents_unqueued__9TTecLukerFUi(u32);
 void fn_802370D8(void *);
 void run_task__9TTecRestaFv(Resta_802399F8 *self);
 s32 obj_getField1c(int);
 s32 is_split_screen(void);
-void *TOSwitchAttack__sub_80087278(void *, s32, s32);
-void TObjPlayer__sub_80087638(void *, s32);
+void *spawn_particle_effect_with_flags(void *, s32, s32);
+void set_owner_id__13TParticleCtrlFPvUs(void *, s32);
 s32 TWindowSubComCard__sub_801058F8(void *);
 void *__nw__7TObjectFUl(int);
 void fn_80235BDC(void *, void *, s32, s32, s32);
@@ -263,7 +263,7 @@ Resta_8023967C *TTecResta__sub_8023967C(Resta_8023967C *self, Vec_8023967C *pos,
             self->emitters[i] = TObjPlayer__sub_800868C4(&v, row->entry, row->delay, row->duration, 0x10);
         }
         if (self->emitters[i] != 0) {
-            TObjPlayer__sub_80087638(self->emitters[i], obj_getField1c(self->owner));
+            set_owner_id__13TParticleCtrlFPvUs(self->emitters[i], obj_getField1c(self->owner));
         }
     }
     return self;
@@ -308,13 +308,13 @@ void TTecResta__vt5(Obj_8023985C *arg0, VObj_8023985C *arg1) {
             }
         }
     } else if (arg0->active != 0) {
-        void *e = TOSwitchAttack__sub_80087278((u8 *)arg1 + 0x2FC, 0x1F6, 0x10);
+        void *e = spawn_particle_effect_with_flags((u8 *)arg1 + 0x2FC, 0x1F6, 0x10);
         if (e != NULL) {
-            TObjPlayer__sub_80087638(e, obj_getField1c((int)arg1));
+            set_owner_id__13TParticleCtrlFPvUs(e, obj_getField1c((int)arg1));
         }
-        e = TOSwitchAttack__sub_80087278((u8 *)arg1 + 0x2FC, 0x1F7, 0x10);
+        e = spawn_particle_effect_with_flags((u8 *)arg1 + 0x2FC, 0x1F7, 0x10);
         if (e != NULL) {
-            TObjPlayer__sub_80087638(e, obj_getField1c((int)arg1));
+            set_owner_id__13TParticleCtrlFPvUs(e, obj_getField1c((int)arg1));
         }
     }
     if (arg0->active != 0) {
@@ -333,7 +333,7 @@ extern M2C_UNK __vt__9TTecResta[];
 void run_task__9TTecRestaFv(Resta_802399F8 *self) {
     u32 target;
     s32 i;
-    self->source = TPhotonMylla__sub_80154CB4(self->source_id);
+    self->source = find_entity_by_id(self->source_id);
     if (is_parents_unqueued__9TTecLukerFUi(self->source) == 0) {
         ((void (*)(void *))queue_destruction__7TObjectFv)(self);
         return;
@@ -345,7 +345,7 @@ void run_task__9TTecRestaFv(Resta_802399F8 *self) {
             ((VObj_802399F8 *)self)->m5(self->source);
             if (self->count != 0) {
                 for (i = 0; i < self->count; i++) {
-                    target = TPhotonMylla__sub_80154CB4(self->targets[i].id);
+                    target = find_entity_by_id(self->targets[i].id);
                     if (is_parents_unqueued__9TTecLukerFUi(target) != 0) {
                         ((VObj_802399F8 *)self)->m5(target);
                     }

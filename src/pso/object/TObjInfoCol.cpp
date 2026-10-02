@@ -32,7 +32,7 @@ M2C_UNK open_lobby_warp_menu__6TLobbyFv();
 s32 is_idle__6TLobbyFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 check_flag_100__10TObjPlayerFPv();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 extern RecoveredGlobal_80191E28_lbl_8050E208 lbl_8050E208;
 extern s32 lbl_805D53A0;
 s32 TObjPlayer__sub_801569F4(void *, void *);
@@ -45,7 +45,7 @@ extern "C" {
 
 void *__dt__11TObjInfoColFv(void *arg0, s16 arg1);
 void bswap_6x78__11TObjInfoColFPv(void* p);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
@@ -60,7 +60,7 @@ extern s32 lbl_805D53A0;
 }
 
 s32 TObjInfoCol::is_target_in_range(f32 radius_squared) {
-    u32 player = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    u32 player = get_player_by_client_id(lbl_805D53A0);
     if (player != 0 &&
         fn_801315A0((const Vec *) (player + 0x38), &position) < radius_squared) {
         return 1;
@@ -80,7 +80,7 @@ void TObjInfoCol::run_task() {
     u32 player;
     if (is_target_in_range(radius * radius) == 1 &&
         TWindowShortListCtrl__check_controller_button((u8 *) &lbl_8050E208.value + 0x20, 4) != 0 &&
-        ((player = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0), player == 0) ||
+        ((player = get_player_by_client_id(lbl_805D53A0), player == 0) ||
          check_flag_100__10TObjPlayerFPv() == 0) &&
         (player == 0 || is_inactive__10TObjPlayerFPv((int) player) != 0) &&
         is_idle__6TLobbyFv() != 0) {

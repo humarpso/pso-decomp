@@ -56,7 +56,7 @@ struct List_8023A244 { u32 objs[16]; s32 vals[16]; s32 count; };
 
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
-u32 TPhotonMylla__sub_80154CB4(int);
+u32 find_entity_by_id(int);
 s32 is_valid_and_active__10TObjPlayerFUi(int);
 s32 is_active__12TTecReverserFPv();
 void run_task__12TTecReverserFv(u8 *arg0);
@@ -92,7 +92,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 is_valid_and_active__10TObjPlayerFUi(int);
 u8 *TObjPlayer__sub_802367D8(void *, s32);
 u8 *TObjPlayer__sub_80236A20(void *, s32);
-void TObjPlayer__sub_8023A148(u8 *arg0);
+void dispatch_technique_contact(u8 *arg0);
 s32 obj_getField1c(int);
 s32 get_type__10TObjPlayerFPv(int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -109,7 +109,7 @@ void *__dt__12TTecReverserFv(void *arg0, s16 arg1);
 void create__12TTecReverserFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void render__12TTecReverserFv(void);
 void update__12TTecReverserFPv(u8 *arg0);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
+M2C_UNK spawn_particle_effect(void *, M2C_UNK);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -132,7 +132,7 @@ void *__dt__12TTecReverserFPvs(void *arg0, s16 arg1) {
 void update__12TTecReverserFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x28) = (s32) (M2C_FIELD(arg0, s32 *, 0x28) + 1);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x28) == 0xA) {
-        TObjEneDellBiter__sub_80087350(arg0 + 0x2C, 0x38);
+        spawn_particle_effect(arg0 + 0x2C, 0x38);
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x28) > 0xC8) {
         queue_destruction__7TObjectFv(arg0);
@@ -163,7 +163,7 @@ void render__12TTecReverserFv(void) {  }
 
 void run_task__12TTecReverserFv(u8 *arg0) {
     u32 temp_r31;
-    M2C_FIELD(arg0, u32 *, 0x1C) = TPhotonMylla__sub_80154CB4((int) (M2C_FIELD(arg0, u16 *, 0xB4)));
+    M2C_FIELD(arg0, u32 *, 0x1C) = find_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0xB4)));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
@@ -172,7 +172,7 @@ void run_task__12TTecReverserFv(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    temp_r31 = TPhotonMylla__sub_80154CB4((int) (M2C_FIELD(arg0, u16 *, 0xF0)));
+    temp_r31 = find_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0xF0)));
     if ((is_active__12TTecReverserFPv() == 0) && (is_valid_and_active__10TObjPlayerFUi((int) (temp_r31)) != 0)) {
         ((VObj_18 *)(arg0))->m4(temp_r31);
     }
@@ -216,7 +216,7 @@ u8 *TTecReverser__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     return arg0;
 }
 
-void TObjPlayer__sub_8023A148(u8 *arg0) {
+void dispatch_technique_contact(u8 *arg0) {
     u8 *var_r31;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x128) == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));

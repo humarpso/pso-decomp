@@ -8,7 +8,7 @@ extern "C" {
 
 void notify_all_battle_players__10TObjPlayerFv(void);
 void update_4p_battle_ctrls__10TObjPlayerFv(void);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 M2C_UNK notify_field1c__10TObjPlayerFi();
 M2C_UNK send_item_pickup_request__10TObjPlayerFi();
 
@@ -17,7 +17,7 @@ void notify_all_battle_players__10TObjPlayerFv(void) {
 
     var_r31 = 0;
     do {
-        if (TPlayerBattleCtrl4P__sub_801BA74C(var_r31) != 0U) {
+        if (get_player_by_client_id(var_r31) != 0U) {
             notify_field1c__10TObjPlayerFi();
         }
         var_r31 += 1;
@@ -29,7 +29,7 @@ void update_4p_battle_ctrls__10TObjPlayerFv(void) {
 
     var_r31 = 0;
     do {
-        if (TPlayerBattleCtrl4P__sub_801BA74C(var_r31) != 0U) {
+        if (get_player_by_client_id(var_r31) != 0U) {
             send_item_pickup_request__10TObjPlayerFi();
         }
         var_r31 += 1;

@@ -26,7 +26,7 @@ struct Pl_801B0B88 {
 extern "C" {
 extern void *lbl_8050EA10[];
 s32 TLobby__sub_801B0974(void);
-VObj_801B09A4 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+VObj_801B09A4 *get_player_by_client_id(s32);
 void TObjPlayer__sub_801BDE60(u16, Rec_801B09A4 *);
 void TLobby__sub_8024AC20(s32);
 extern s32 lbl_805D5D88;
@@ -43,7 +43,7 @@ void check_technique_flag__10TObjPlayerFPv(Pl_801B0B88 *);
 void recover_full__10TObjPlayerFPv(Pl_801B0B88 *);
 void TObjPlayer__sub_801B6488(Pl_801B0B88 *, s32);
 void unequip_item__10TObjPlayerFiPv(Pl_801B0B88 *, s32);
-VObj_801B09A4 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+VObj_801B09A4 *get_player_by_client_id(s32);
 void TObjPlayer__sub_801BEE18(Pl_801B0B88 *, s32);
 void TObjPlayer__sub_801BEE24(Pl_801B0B88 *, s32);
 void TObjPlayer__sub_801BEE2C(Pl_801B0B88 *, s32);
@@ -131,7 +131,7 @@ void TLobby__sub_801B09A4(void) {
         players[i] = NULL;
     }
     for (i = 0; i < 12; i++) {
-        p = TPlayerBattleCtrl4P__sub_801BA74C(i);
+        p = get_player_by_client_id(i);
         if (p != NULL) {
             players[i] = p;
             if (p != NULL) {
@@ -188,7 +188,7 @@ void TLobby__sub_801B0B88(void) {
     s32 lv;
     q = lbl_8050EA40;
     for (i = 0; i < 0xC; i++) {
-        p = (Pl_801B0B88 *)TPlayerBattleCtrl4P__sub_801BA74C(i);
+        p = (Pl_801B0B88 *)get_player_by_client_id(i);
         if (p == NULL) {
             continue;
         }

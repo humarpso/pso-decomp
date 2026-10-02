@@ -40,7 +40,7 @@ M2C_UNK TKeyBoardControl__sub_8000F7FC();
 M2C_UNK TObjPlayer__sub_803D7CA4(void *);
 M2C_UNK TObjPlayer__sub_803D85D8(s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK fn_803DCEC8();
@@ -61,7 +61,7 @@ void render_tree__10TObjPlayerFPv(void *arg0) {
         if ((u32) M2C_FIELD(var_r31, u32 *, 0x2C) != 0U) {
             render_tree__10TObjPlayerFPv((void *)(M2C_FIELD(var_r31, void **, 0x2C)));
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         var_r31 = M2C_FIELD(var_r31, void **, 0x30);
     } while (var_r31 != NULL);
 }

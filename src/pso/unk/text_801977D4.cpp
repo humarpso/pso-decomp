@@ -34,7 +34,7 @@ void queue_destruction__7TObjectFv(void *);
 void TBoss4Zako__sub_803D8910(void *, void *);
 void fn_80197904(struct Rain_80197904 *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-f32 fn_8013157C(void *, void *);
+f32 xz_distance_squared(void *, void *);
 void reset_transform_state__10TObjPlayerFv(void);
 void init_xyz_limits__10TObjPlayerFv(void);
 void TObjPlayer__sub_801E341C(void *, int, int);
@@ -61,7 +61,7 @@ void fn_801977D4(struct Rain_801977D4 *self) {
             fn_801E3524(5);
             VecCopy__FP3VecPC3Vec(lbl_804B8998[0], &drop->position);
             struct Vec_801977D4 pos = drop->position;
-            if (fn_8013157C(lbl_805D4DF0 + 0x178, &pos) < lbl_805DBF10) {
+            if (xz_distance_squared(lbl_805D4DF0 + 0x178, &pos) < lbl_805DBF10) {
                 struct Vec_801977D4 dir = drop->velocity;
                 TNpcPlayer__sub_803D97B4(&dir);
                 dir.x *= lbl_805DBF14;

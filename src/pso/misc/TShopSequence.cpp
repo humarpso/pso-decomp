@@ -42,7 +42,7 @@ s32 update_download_server__13TShopSequenceFPv(void *arg0);
 s32 TAdSinglePlyChrSelectGC__sub_801FF5E4(s32);
 s32 TObjPlayer__sub_801B12CC();
 s32 TObjPlayer__sub_801B130C();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 s32 TWindowCtrl__sub_8024AEAC(u16);
 s32 TWindowCtrl__sub_8024AEF0(u16);
 s32 clear_lobby_flag__10TObjPlayerFPv(u32);
@@ -110,7 +110,7 @@ void close_window__13TShopSequenceFPv(void *arg0) {
         if (is_not_split_screen__13TRaderMapCoreFv() != 1) {
             var_r31 = 0;
             do {
-                if (TPlayerBattleCtrl4P__sub_801BA74C(var_r31) != 0U) {
+                if (get_player_by_client_id(var_r31) != 0U) {
                     TObjPlayer__sub_801B12CC();
                 }
                 var_r31 += 1;
@@ -127,7 +127,7 @@ void restore_player_state__13TShopSequenceFPv(void *arg0) {
         if (is_not_split_screen__13TRaderMapCoreFv() != 1) {
             var_r31 = 0;
             do {
-                if (TPlayerBattleCtrl4P__sub_801BA74C(var_r31) != 0U) {
+                if (get_player_by_client_id(var_r31) != 0U) {
                     TObjPlayer__sub_801B130C();
                 }
                 var_r31 += 1;

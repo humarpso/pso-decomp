@@ -47,7 +47,7 @@ s32 is_level_capped__23TAdSinglePlyChrSelectGCFPv();
 s32 is_active__19THunterGuildWarningFv();
 s32 TLobby__sub_8030A770();
 s32 TLobby__sub_8030A7B0();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 s32 TWindowCtrl__sub_8024AF74(u16);
 s32 TWindowCtrl__sub_8024B054(u16);
 int check_flag__10TObjPlayerFPvi(void*, int);
@@ -695,7 +695,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_window_visibility__11TWindowCtrlFPv(u8 *arg0);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 s32 TWindowCtrl__sub_8024AF74(s32);
 s32 TWindowCtrl__sub_8024AFB8(void *, s32);
 s32 TWindowCtrl__sub_8024B054(s32);
@@ -720,7 +720,7 @@ void update_window_visibility__11TWindowCtrlFPv(u8 *arg0) {
         if (temp_r3 > 0) {
             M2C_FIELD(arg0, s16 *, 0x22) = (s16) (temp_r3 - 1);
         }
-        if (TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) == 0U) {
+        if (get_player_by_client_id(lbl_805D53A0) == 0U) {
             update__11TWindowChatFPv(M2C_FIELD(arg0, u32 *, 0x38));
             return;
         }

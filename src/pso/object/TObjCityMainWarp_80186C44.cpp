@@ -32,7 +32,7 @@ extern "C" {
 void close_windows__16TObjCityMainWarpFPv(void *arg0);
 void notify_player_warp__16TObjCityMainWarpFPvi(void *arg0, s32 arg1);
 void trigger_warp_effect__16TObjCityMainWarpFPvi(void *arg0, s32 arg1);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 M2C_UNK TWindowChat__sub_8024AD30(s32);
 M2C_UNK TWindowCtrl__sub_8024AEF0(s32);
 M2C_UNK TWindow__close(void *);
@@ -74,7 +74,7 @@ void TObjCityMainWarp__sub_80186CC8(Obj_80186CC8 *self, u16 value) {
 void notify_player_warp__16TObjCityMainWarpFPvi(void *arg0, s32 arg1) {
     s32 temp_r3;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(arg1);
+    temp_r3 = get_player_by_client_id(arg1);
     if (temp_r3 != 0) {
         send_code_45_1__10TObjPlayerFi();
         obj_clear_flag30_20000(temp_r3);
@@ -84,7 +84,7 @@ void notify_player_warp__16TObjCityMainWarpFPvi(void *arg0, s32 arg1) {
 void trigger_warp_effect__16TObjCityMainWarpFPvi(void *arg0, s32 arg1) {
     s32 temp_r3;
 
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(arg1);
+    temp_r3 = get_player_by_client_id(arg1);
     if (temp_r3 != 0) {
         play_effect_default__10TObjPlayerFii(temp_r3, -1);
         obj_set_flag_20000(temp_r3);

@@ -9,7 +9,7 @@ extern "C" {
 void revive_or_spawn_marker__10TObjPlayerFi(s32 arg0);
 void update_battle_ctrl_field1c__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_801C6518(s32, s32, s32);
-M2C_UNK TPlayerBattleCtrl4P__sub_801BA74C(u16);
+M2C_UNK get_player_by_client_id(u16);
 s32 TWindowSubComCard__sub_801058F8(s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 s32 check_flag_0x8000__10TObjPlayerFPv();
@@ -33,7 +33,7 @@ void revive_or_spawn_marker__10TObjPlayerFi(s32 arg0) {
 }
 
 void update_battle_ctrl_field1c__10TObjPlayerFPv(void *arg0) {
-    TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x1C));
+    get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x1C));
 }
 
 }

@@ -79,10 +79,10 @@ void end_effect_render__13TParticleCtrlFv(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 void set_indirect_tev__6TSceneFii(void *, s32);
 void draw_field_1c__6TSceneFPviii(void *, s32, s32, s32);
-void TOMonitorMachine01__sub_803D8B5C(s32, f32, f32, f32);
+void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void TObjPlayer__sub_803D9B2C(void);
-void TObjPlayer__sub_803D9B78(void);
+void pop_matrix(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 void set_global_param__8TObjFishFi(void *);
 void TObjBoss2Tunnel__sub_803DB470(void);
@@ -151,7 +151,7 @@ void TTecRaFoie__sub_802381F8(RaFoie_802381F8 *o) {
     }
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(o->m28);
-    TOMonitorMachine01__sub_803D8B5C(0, x, y, z);
+    scale_matrix(0, x, y, z);
     rotate_matrix_y(0, *(s32 *)(lbl_805D4DF0 + 0x194));
     set_global_param__8TObjFishFi(lbl_805D63B0);
     set_cull_back__8TObjFishFv();
@@ -160,7 +160,7 @@ void TTecRaFoie__sub_802381F8(RaFoie_802381F8 *o) {
     TObjBoss2Tunnel__sub_803DB470();
     func_80141618__Fv();
     set_cull_none__8TObjFishFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     some_id_805c6f74 = lbl_805D5660;
     if (o->tev != 0) {
         set_indirect_tev__6TSceneFii(o->tev, 0);
@@ -389,7 +389,7 @@ struct VObj_18_9c98dd : VBase_18_9c98dd {
 
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
-u32 TPhotonMylla__sub_80154CB4(int);
+u32 find_entity_by_id(int);
 s32 is_parents_unqueued__9TTecLukerFUi();
 s32 is_valid_and_active__10TObjPlayerFUi(int);
 void TTecRaFoie__sub_80238828(void *, void *);
@@ -542,7 +542,7 @@ void run_task__10TTecRaFoieFv(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    M2C_FIELD(arg0, u32 *, 0x1C) = TPhotonMylla__sub_80154CB4((int) (M2C_FIELD(arg0, u16 *, 0xB4)));
+    M2C_FIELD(arg0, u32 *, 0x1C) = find_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0xB4)));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
@@ -555,7 +555,7 @@ void run_task__10TTecRaFoieFv(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    temp_r31 = TPhotonMylla__sub_80154CB4((int) (M2C_FIELD(arg0, u16 *, 0xF0)));
+    temp_r31 = find_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0xF0)));
     if ((is_parents_unqueued__9TTecLukerFUi() != 0) && (is_valid_and_active__10TObjPlayerFUi((int) (temp_r31)) != 0)) {
         TTecRaFoie__sub_80238828((void *) (arg0), (void *) (temp_r31 + 0x2FC));
     }
@@ -742,7 +742,7 @@ s32 TBoss3Volopt__sub_8022675C(s32 id, void *pos, s32 a, s32 b);
 void update_technique_slot__10TTecRaFoieFi(s32 handle, s32 pitch, s32 c);
 void fn_802393D0(Tec_802393D0 *self);
 void TLobby__sub_800869A4(void *, s32, s32, s32, void *);
-void TObjEneDellBiter__sub_80087350(void *, s32, void *);
+void spawn_particle_effect(void *, s32, void *);
 void TObjPlayer__sub_8022BD74(void *);
 void run_task__11TTecRaZondeFv(Obj_80238F84 *self);
 }
@@ -804,7 +804,7 @@ void run_task__11TTecRaZondeFv(Obj_80238F84 *self) {
         ((void (*)(void *))queue_destruction__7TObjectFv)(self);
         return;
     }
-    self->source = ((void * (*)(u16))TPhotonMylla__sub_80154CB4)(self->sourceId);
+    self->source = ((void * (*)(u16))find_entity_by_id)(self->sourceId);
     if (self->source == NULL) {
         ((void (*)(void *))queue_destruction__7TObjectFv)(self);
         return;
@@ -814,7 +814,7 @@ void run_task__11TTecRaZondeFv(Obj_80238F84 *self) {
             if (i == 1) {
                 TLobby__sub_800869A4((u8 *)self->source + 0x2FC, ((RProfile_80238F84 *)TTecRaZonde__data_8044DB44)[self->band].entries[i].entry, 0, 60, self->source);
             } else {
-                TObjEneDellBiter__sub_80087350((u8 *)self->source + 0x2FC, ((RProfile_80238F84 *)TTecRaZonde__data_8044DB44)[self->band].entries[i].entry, self->source);
+                spawn_particle_effect((u8 *)self->source + 0x2FC, ((RProfile_80238F84 *)TTecRaZonde__data_8044DB44)[self->band].entries[i].entry, self->source);
             }
         }
     }

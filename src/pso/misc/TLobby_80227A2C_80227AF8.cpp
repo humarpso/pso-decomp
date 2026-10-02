@@ -241,7 +241,7 @@ u16 TCameraCtrl__sub_8006A5DC();
 int TLobby__sub_8023F754(void*);
 int TLobby__sub_8023F8B0(void*, int);
 int TLobby__sub_8023FF64(void*);
-s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 get_player_by_client_id(s32);
 M2C_UNK bswap_6xB2_play_sound();
 s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK on_set_mode__6TLobbyFv(M2C_UNK);
@@ -282,7 +282,7 @@ void handle_6xB2_play_sound_from_player(void *arg0) {
             TBoss3Volopt__sub_8022675C(M2C_FIELD(arg0, s32 *, 8), 0, 0, 0);
             return;
         }
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+        temp_r3 = get_player_by_client_id(lbl_805D53A0);
         if (temp_r3 != 0) {
             TBoss3Volopt__sub_8022675C(M2C_FIELD(arg0, s32 *, 8), temp_r3 + 0x38, 0, 0);
         }

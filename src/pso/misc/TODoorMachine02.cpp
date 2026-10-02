@@ -105,11 +105,11 @@ u8 *TODoorMachine02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 fn_801582C4(void *, f32);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TOSignCave03__sub_803DB510(int);
-M2C_UNK TObjDoor__sub_803DC894(void *, int, f32);
+M2C_UNK draw_ginja_model_with_motion(void *, int, f32);
 M2C_UNK set_chunk_material_color(void *);
 extern char lbl_804A7418[];
 extern s32 lbl_805D5660;
@@ -207,12 +207,12 @@ void render__15TODoorMachine02Fv(Door_80163408 *arg0) {
             n = n->next2C;
             TOHangerMachine01__sub_803D9C00(n->f8);
             TOSignCave03__sub_803DB510(n->f4);
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             TObjPlayer__sub_803D9B2C();
             n = n->next30;
             TOHangerMachine01__sub_803D9C00(n->f8);
             TOSignCave03__sub_803DB510(n->f4);
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
             if (flag != 1) {
                 set_chunk_material_color(lbl_804A7418);
                 some_id_805c6f74 = lbl_805D5660;
@@ -221,9 +221,9 @@ void render__15TODoorMachine02Fv(Door_80163408 *arg0) {
             TOHangerMachine01__sub_803D9C00(n->f8);
             TOSignCave03__sub_803DB510(n->f4);
         } else {
-            TObjDoor__sub_803DC894(arg0->model, arg0->fBC, arg0->fB0);
+            draw_ginja_model_with_motion(arg0->model, arg0->fBC, arg0->fB0);
         }
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
     }
 }
 

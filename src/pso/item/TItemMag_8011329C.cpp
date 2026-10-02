@@ -153,7 +153,7 @@ int is_feed_empty__8TItemMagFPv(void* p);
 f32 get_stat_f32__8TItemMagFPv(void *);
 s32 check_state_flag_1__8TItemMagFPv(void *);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 extern const f32 TItemMag__data_805DABA8;
 void TItemMag__vt25(Self_801134CC *self);
 s32 TItemEquipBase__sub_8010A78C(void *);
@@ -179,7 +179,7 @@ int is_feed_empty__8TItemMagFPv(void* p);
 f32 get_stat_f32__8TItemMagFPv(void *);
 s32 check_state_flag_1__8TItemMagFPv(void *);
 s32 TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 void TObjPlayer__sub_80364198();
 f32 get_mag_scale__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_80364028(f32);
@@ -334,7 +334,7 @@ void TItemMag__vt25(Self_801134CC *self) {
             }
         }
     }
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     }
 }
 
@@ -363,7 +363,7 @@ void TItemMag__vt24(Self_801135E0 *self) {
     }
     warn_if_gauge_low__10TObjPlayerFv();
     TObjPlayer__sub_8036414C();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     }
 }
 

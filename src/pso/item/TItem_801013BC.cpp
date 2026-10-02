@@ -10,7 +10,7 @@ extern "C" {
 M2C_UNK TObjPlayer__sub_803D898C(void *);
 M2C_UNK TObjPlayer__sub_803D99F8(void *, void *);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 extern M2C_UNK (*lbl_805D53F8)(s32);
@@ -170,7 +170,7 @@ void TObjPlayer__sub_801016D0(u8 *arg0) {
             if (!(temp_r30 & 0x10)) {
                 TObjPlayer__sub_801016D0(M2C_FIELD(var_r31, u8 **, 0x2C));
             }
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
         } else {
             TObjPlayer__sub_803D9B2C();
             if (!(temp_r30 & 1)) {
@@ -195,7 +195,7 @@ void TObjPlayer__sub_801016D0(u8 *arg0) {
             if (!(temp_r30 & 0x10)) {
                 TObjPlayer__sub_801016D0(M2C_FIELD(var_r31, u8 **, 0x2C));
             }
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
         }
         var_r31 = M2C_FIELD(var_r31, u8 **, 0x30);
     } while (var_r31 != NULL);

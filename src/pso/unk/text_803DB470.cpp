@@ -45,7 +45,7 @@ void TObjPlayer__sub_803DB59C(s32 arg0);
 void GXSetZMode(u8, s32, s32);
 void GXSetZCompLoc(s32);
 void set_effect_active__10TObjPlayerFv(void);
-void TParticleCtrl__sub_803E2010(void);
+void apply_scene_fog(void);
 extern RecoveredCallback_d26337a2813d lbl_805D76E4;
 extern s32 lbl_805D7788;
 extern s32 some_id_805c6f74;
@@ -94,7 +94,7 @@ extern s32 lbl_805D7788;
 extern s32 some_id_805c6f74;
 extern S_803DB560 lbl_8058CD80;
 void reset_particle_counter__10TObjPlayerFv(void);
-void TParticleCtrl__sub_803E2010(void);
+void apply_scene_fog(void);
 void prepare_ginja_model(void);
 void GXSetTexCoordGen2(s32 dst, u32 func, u32 src, s32 mtx, s32 normalize, s32 pt);
 extern s32 lbl_804FC5A4[];
@@ -123,11 +123,41 @@ extern S_803DB560 lbl_8058CD80;
 extern s32 lbl_805D7788;
 extern s32 some_id_805c6f74;
 void TObjPlayer__sub_803DB9A0(u32 v);
+void TObjPlayer__sub_803DB24C(void *);
+void fn_803DB390(void);
+void prepare_ginja_model(void);
+void TObjPlayer__sub_803DC9E4(void *, void *);
+void set_effect_active__10TObjPlayerFv(void);
+void apply_scene_fog(void);
+s32 TObjPlayer__sub_803DB4E8(s32 arg0);
+s32 draw_ginja_model_lists(GinjaModel *model);
+extern RecoveredCallback_d26337a2813d lbl_805D76E4;
+extern s32 lbl_805D7788;
+void TObjBoss2Tunnel__sub_803DB470(void *arg0);
+void GXSetChanCtrl(s32,s32,s32,s32,s32,s32,s32);
+extern s32 lbl_805D7788;
+extern s32 some_id_805c6f74;
+extern s32 lbl_805D7794;
+void TObjPlayer__sub_803DB628(s32 channel,s32 flags);
 }
 
 extern "C" {
 
 s32 TObjPlayer__sub_803DB550(u32 arg0, s32 arg1);
+
+void TObjBoss2Tunnel__sub_803DB470(void *arg0) {
+    prepare_ginja_model();
+    TObjPlayer__sub_803DB24C((void *) draw_ginja_model_lists);
+    TObjPlayer__sub_803DC9E4(arg0, (void *) TObjPlayer__sub_803DB4E8);
+    fn_803DB390();
+    if (lbl_805D76E4 != NULL) {
+        lbl_805D76E4();
+    }
+    if ((u32) (lbl_805D7788 & 2) != 0U) {
+        set_effect_active__10TObjPlayerFv();
+        apply_scene_fog();
+    }
+}
 
 #pragma push
 #pragma scheduling off
@@ -166,6 +196,20 @@ void TObjPlayer__sub_803DB59C(s32 arg0) {
     Dolphin_GXSetVtxDesc((int) (0xA), (void *) (TObjPlayer__sub_803DB550((u32)((void *) (arg0)), (s32)((int) (2)))));
     Dolphin_GXSetVtxDesc((int) (0xB), (void *) (TObjPlayer__sub_803DB550((u32)((void *) (arg0)), (s32)((int) (3)))));
     Dolphin_GXSetVtxDesc((int) (0xD), (void *) (TObjPlayer__sub_803DB550((u32)((void *) (arg0)), (s32)((int) (5)))));
+}
+
+void TObjPlayer__sub_803DB628(s32 channel,s32 flags) {
+    s32 ambientSource,materialSource,enabled;
+    if((u32)(flags&0x100)!=0)enabled=0;else enabled=1;
+    if((u32)(flags&0x1000)!=0)ambientSource=1;else ambientSource=0;
+    if((u32)(lbl_805D7788&2)!=0) {
+        GXSetChanCtrl(4,0,0,0,0,2,2);return;
+    }
+    if((u32)(some_id_805c6f74&0x30)!=0)materialSource=0;
+    else if((u32)(flags&0x800)!=0)materialSource=1;
+    else materialSource=0;
+    GXSetChanCtrl(channel,enabled,ambientSource,materialSource,lbl_805D7794,2,2);
+    GXSetChanCtrl(channel+2,0,ambientSource,materialSource,lbl_805D7794,2,2);
 }
 
 #pragma push
@@ -370,7 +414,7 @@ s32 draw_ginja_model_lists(GinjaModel *model) {
 void prepare_ginja_model(void) {
     if ((*(u32 *)&lbl_805D7788) & 2) {
         reset_particle_counter__10TObjPlayerFv();
-        TParticleCtrl__sub_803E2010();
+        apply_scene_fog();
     }
     for (s32 i = 0; i < 11; ++i) {
         (*(GinjaMaterialCache *)&lbl_8058CD80).parameters[i] = 0;
@@ -388,7 +432,7 @@ void prepare_ginja_model(void) {
 void TObjPlayer__sub_803DC6F4(void) {
     if ((u32) (lbl_805D7788 & 2) != 0) {
         set_effect_active__10TObjPlayerFv();
-        TParticleCtrl__sub_803E2010();
+        apply_scene_fog();
     }
     if ((u32) (some_id_805c6f74 & 1) == 0) {
         GXSetZCompLoc(1);

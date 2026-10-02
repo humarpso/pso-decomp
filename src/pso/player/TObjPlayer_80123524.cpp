@@ -24,7 +24,7 @@ M2C_UNK TObjPlayer__sub_8036414C();
 M2C_UNK TObjPlayer__sub_80364198();
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK pop_matrix();
 
 extern s32 some_id_805c6f74;
 
@@ -64,7 +64,7 @@ void draw_mag__10TObjPlayerFPv(void *arg0) {
             TOHangerMachine01__sub_803D9C00(&sp8);
             rotate_matrix_y(0, M2C_FIELD(M2C_FIELD(arg0, void **, 0xF0), s32 *, 0x60));
             TObjBoss2Tunnel__sub_803DB470(temp_r31);
-            TObjPlayer__sub_803D9B78();
+            pop_matrix();
         }
         M2C_FIELD(temp_r31, s32 *, 0) = (s32) (M2C_FIELD(temp_r31, s32 *, 0) & 0xFFFFFFFE);
         M2C_FIELD(temp_r30, s32 *, 0) = (s32) (M2C_FIELD(temp_r30, s32 *, 0) | 2);

@@ -14,7 +14,7 @@ extern "C" {
 
 int TWindowSubComCard__sub_8026906C(void* p);
 s32 get_entry_id__17TWindowSubComCardFPv(void* p);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 get_player_by_client_id(s32);
 s32 TWindowSubComCard__sub_80244C0C(s32, s32);
 s32 TWindowSubStatusDisp__sub_80257BC0(s32, s32, s32);
 M2C_UNK TWindowSubStatusDisp__sub_80287580(s32, s32, M2C_UNK, f32);

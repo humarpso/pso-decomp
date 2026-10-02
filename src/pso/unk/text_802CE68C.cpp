@@ -35,7 +35,7 @@ s32 render_anim_model__10TObjPlayerFPvf(void *, f32);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D97F0(void *);
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 f32 TOHangerMachine01__sub_803D9C00(void *);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
@@ -51,7 +51,7 @@ M2C_UNK TObjPlayer__sub_80141820(int);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
-s32 TObjPlayer__sub_803D9B78();
+s32 pop_matrix();
 f32 TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK TObjFish__sub_803E46BC(s32);
@@ -77,13 +77,13 @@ void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2) {
     set_global_flag__10TObjPlayerFv();
     render_anim_model__10TObjPlayerFPvf((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));
     clear_global_state__10TObjPlayerFv();
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     TObjPlayer__sub_803D97F0((void *) (lbl_805D5678 + (arg2 * 0x30)));
     stack.sp8 = M2C_FIELD(&lbl_804724A8.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_804724A8.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_804724A8.value, s32 *, 8);
     TCameraCtrl__sub_803D8934((int) (0), (void *) (&stack.sp8), (void *) (arg1));
-    TObjPlayer__sub_803D9B78();
+    pop_matrix();
     clear_global_state__10TObjPlayerFv();
 }
 void TObjPlayer__sub_802CE740(u8 *arg0) {
@@ -121,7 +121,7 @@ void TObjPlayer__sub_802CE740(u8 *arg0) {
         TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
         TObjPlayer__sub_801417E8();
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B78();
+        pop_matrix();
         if (M2C_FIELD(arg0, s32 *, 0x368) == 1 || M2C_FIELD(arg0, s32 *, 0x368) == 2) {
             (*M2C_FIELD(arg0, s32 ***, 0x24))[2] = s0;
             (*M2C_FIELD(arg0, s32 ***, 0x24))[5] = s1;
