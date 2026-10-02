@@ -129,6 +129,39 @@ typedef struct Cfg_803CBBD8 {
     s32 prio;
 } Cfg_803CBBD8;
 
+struct VObj_803C9E38;
+struct VT_803C9E38 {
+    void *pad[3];
+    void (*fc)(VObj_803C9E38 *);
+    void *pad10;
+    void (*f14)(VObj_803C9E38 *);
+};
+
+struct VObj_803C9E38 { VT_803C9E38 *vt; };
+
+struct Obj_803C9E38 {
+    u8 f0; s8 f1; u8 f2; s8 f3; void *f4; void *f8; s32 fc; u8 pad_10[4];
+    VObj_803C9E38 *f14; VObj_803C9E38 *objs[13]; s32 f4c; u8 pad_50[0x94 - 0x50];
+    s32 f94; s8 f98; u8 pad_99[3]; s32 f9c; s32 fa0;
+};
+
+struct VObj_803CA194;
+typedef void (*RecoveredCallback_2be3cacebb2e)(void);
+struct VT_803CA194 {
+    void *pad[3];
+    void (*fc)(VObj_803CA194 *);
+    void *pad10;
+    void (*f14)(VObj_803CA194 *);
+};
+
+struct VObj_803CA194 { VT_803CA194 *vt; };
+
+struct Obj_803CA194 {
+    u8 f0; s8 f1; u8 f2; s8 f3; void *f4; void *f8; void *fc; VObj_803CA194 *f10;
+    VObj_803CA194 *f14; VObj_803CA194 *objs[23]; void *f74; VObj_803CA194 *objs2[2]; VObj_803CA194 *objs3[4]; u8 pad_90[4];
+    void *f94; s8 f98; u8 pad_99[3]; s32 f9c; s32 fa0;
+};
+
 extern "C" {
 M2C_UNK reset_flag__6TLobbyFPv(int);
 M2C_UNK release_ref__6TLobbyFv();
@@ -257,6 +290,33 @@ extern s32 lbl_805D7540;
 extern s32 lbl_805D7560;
 extern s32 lbl_805D7570;
 void TLobby__sub_803C94DC(u8 *arg0, s32 arg1);
+M2C_UNK reset_flag__6TLobbyFPv(int);
+M2C_UNK release_ref__6TLobbyFv();
+M2C_UNK init_once__6TLobbyFv();
+M2C_UNK TLobby__sub_803CC030(int, int);
+M2C_UNK dispatch_packet__6TLobbyFv(int, int);
+M2C_UNK TLobby__sub_803C89C4(void *);
+M2C_UNK TLobby__sub_803C8B38(int);
+M2C_UNK DVDReadAbsAsyncPrio(int);
+extern s32 lbl_805D7540;
+void set_param_and_notify__6TLobbyFPvi(void *, int);
+void TLobby__sub_803C0758(void *);
+void TLobby__sub_803C9E38(Obj_803C9E38 *arg0, VObj_803C9E38 *arg1);
+M2C_UNK reset_flag__6TLobbyFPv(int);
+M2C_UNK release_ref__6TLobbyFv();
+M2C_UNK init_once__6TLobbyFv();
+M2C_UNK TLobby__sub_803CC030(int, int);
+M2C_UNK dispatch_packet__6TLobbyFv(int, int);
+M2C_UNK TLobby__sub_803C89C4(void *);
+M2C_UNK TLobby__sub_803C8B38(int);
+M2C_UNK DVDReadAbsAsyncPrio(int);
+M2C_UNK memset(void *, int, int);
+M2C_UNK TLobby__sub_803C07F4(void *);
+M2C_UNK clear_entry__6TLobbyFi(void *);
+M2C_UNK TLobby__sub_803CC070(void *);
+M2C_UNK TLobby__sub_803D198C(void *);
+extern RecoveredCallback_2be3cacebb2e lbl_805D7574;
+void TLobby__sub_803CA194(Obj_803CA194 *arg0);
 }
 
 extern "C" {
@@ -539,6 +599,52 @@ void TLobby__sub_803C9DB4(u8 *arg0) {
     release_ref__6TLobbyFv();
 }
 
+void TLobby__sub_803C9E38(Obj_803C9E38 *arg0, VObj_803C9E38 *arg1) {
+    s32 i;
+    if (arg0->f8 != NULL) {
+        TLobby__sub_803C89C4(arg0->f8);
+        TLobby__sub_803C8B38((int)arg0->f8);
+        if (arg0->f14 != NULL) {
+            arg0->f14->vt->f14(arg0->f14);
+        }
+        arg0->f8 = NULL;
+    }
+    init_once__6TLobbyFv();
+    if ((s32)arg0->f2 == 4) {
+        DVDReadAbsAsyncPrio(arg0->f94);
+        if (arg0->f14 != NULL) {
+            arg0->f14->vt->f14(arg0->f14);
+        }
+    }
+    init_once__6TLobbyFv();
+    dispatch_packet__6TLobbyFv(arg0->fc, 0);
+    TLobby__sub_803CC030(arg0->fc, 0);
+    reset_flag__6TLobbyFPv((int)arg0->f4);
+    if ((s32)arg0->f2 == 2) {
+        if (arg0->f14 != NULL) {
+            arg0->f14->vt->fc(arg0->f14);
+        }
+    }
+    arg0->f14 = NULL;
+    arg0->f1 = 0;
+    release_ref__6TLobbyFv();
+    release_ref__6TLobbyFv();
+    init_once__6TLobbyFv();
+    for (i = 0; i < arg0->f3; i++) {
+        arg0->objs[i]->vt->f14(arg0->objs[i]);
+    }
+    set_param_and_notify__6TLobbyFPvi(arg0->f4, (int)arg1);
+    arg0->f14 = arg1;
+    TLobby__sub_803C0758(arg0->f4);
+    arg0->f1 = 1;
+    arg0->f2 = 3;
+    arg0->f4c = 0;
+    arg0->f98 = 1;
+    arg0->f9c = 0;
+    arg0->fa0 = lbl_805D7540;
+    release_ref__6TLobbyFv();
+}
+
 void TLobby__sub_803C9FCC(Stream_803C9FCC *self) {
     s32 i;
     s32 v;
@@ -584,6 +690,79 @@ void TLobby__sub_803CA0C8(Stream_803CA0C8 *self, s32 arg1) {
     self->f9c = 0;
     self->fa4 = 0;
     self->fa0 = lbl_805D7540;
+}
+
+void TLobby__sub_803CA194(Obj_803CA194 *arg0) {
+    s32 i;
+    if (arg0 == NULL) {
+        return;
+    }
+    if (lbl_805D7574 != NULL) {
+        lbl_805D7574();
+    }
+    if ((s32)arg0->f0 == 1) {
+        if (arg0->f8 != NULL) {
+            TLobby__sub_803C89C4(arg0->f8);
+            TLobby__sub_803C8B38((int)arg0->f8);
+            if (arg0->f14 != NULL) {
+                arg0->f14->vt->f14(arg0->f14);
+            }
+            arg0->f8 = NULL;
+        }
+        init_once__6TLobbyFv();
+        if ((s32)arg0->f2 == 4) {
+            DVDReadAbsAsyncPrio((int)arg0->f94);
+            if (arg0->f14 != NULL) {
+                arg0->f14->vt->f14(arg0->f14);
+            }
+        }
+        init_once__6TLobbyFv();
+        dispatch_packet__6TLobbyFv((int)arg0->fc, 0);
+        TLobby__sub_803CC030((int)arg0->fc, 0);
+        reset_flag__6TLobbyFPv((int)arg0->f4);
+        if ((s32)arg0->f2 == 2) {
+            if (arg0->f14 != NULL) {
+                arg0->f14->vt->fc(arg0->f14);
+            }
+        }
+        arg0->f14 = NULL;
+        arg0->f1 = 0;
+        release_ref__6TLobbyFv();
+        release_ref__6TLobbyFv();
+    }
+    if (arg0->fc != NULL) {
+        TLobby__sub_803CC070(arg0->fc);
+    }
+    if (arg0->f4 != NULL) {
+        TLobby__sub_803C07F4(arg0->f4);
+    }
+    if (arg0->f8 != NULL) {
+        TLobby__sub_803C8B38((int)arg0->f8);
+    }
+    if (arg0->f94 != NULL) {
+        TLobby__sub_803D198C(arg0->f94);
+    }
+    init_once__6TLobbyFv();
+    if (arg0->f10 != NULL) {
+        arg0->f10->vt->fc(arg0->f10);
+    }
+    for (i = 0; i < arg0->f3; i++) {
+        if (arg0->objs[i] != NULL) {
+            arg0->objs[i]->vt->fc(arg0->objs[i]);
+        }
+        if (arg0->objs2[i] != NULL) {
+            arg0->objs2[i]->vt->fc(arg0->objs2[i]);
+        }
+        if (arg0->objs3[i] != NULL) {
+            arg0->objs3[i]->vt->fc(arg0->objs3[i]);
+        }
+    }
+    if (arg0->f74 != NULL) {
+        clear_entry__6TLobbyFi(arg0->f74);
+    }
+    memset(arg0, 0, 0xA8);
+    arg0->f0 = 0;
+    release_ref__6TLobbyFv();
 }
 
 void TLobby__sub_803CA774(u8 *arg0, u8 *arg1, s32 arg2) {

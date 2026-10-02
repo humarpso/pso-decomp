@@ -271,6 +271,32 @@ struct Hdr_803BD93C { u32 f0; u32 info; };
 
 typedef u8 * (*RecoveredCallback_fa840eeea008)(u8 *, u32);
 
+#define SLOTS_803BCD1C (*(Slot_803BCD1C **)&lbl_805D748C)
+struct Blk_803BCD1C { s32 w[8]; };
+
+struct Slot_803BCD1C {
+    u8 pad_0[0x18]; s32 f18; s32 f1c; u8 pad_20[4]; s32 f24[19]; s16 f70; u8 pad_72[2];
+    Blk_803BCD1C f74; u8 pad_94[0xA4 - 0x94]; s8 fa4; u8 pad_a5[0xB8 - 0xA5];
+    s32 fb8; s32 fbc; s16 fc0; u8 pad_c2[2]; s32 fc4; u8 pad_c8[0xE4 - 0xC8];
+    u8 fe4; u8 fe5; u8 fe6; u8 fe7; u8 pad_e8[0xF0 - 0xE8]; s32 ff0;
+};
+
+#define SLOTS_803BCF18 (*(Slot_803BCF18 **)&lbl_805D748C)
+struct Slot_803BCF18 {
+    u8 pad_0[0x24]; s32 f24; u8 pad_28[0xA4 - 0x28]; s8 fa4; u8 pad_a5[0xB8 - 0xA5];
+    s32 fb8; s32 fbc; u16 fc0; u8 pad_c2[2]; s32 fc4; s8 fc8; s8 fc9; s8 fca; u8 pad_cb[0xF4 - 0xCB];
+};
+
+struct ArgA_803BCF18 { u16 f0; u16 f2; u16 f4; u16 f6; };
+
+struct ArgB_803BCF18 { s32 f0; s32 f4; u16 f8; u16 fa; };
+
+struct Req_803BDAE4 {
+    void *next; s32 owner; s32 type; s32 prio; u8 *src; u32 dst; u32 len; void *cb; void *f20; void *f24;
+};
+
+struct Q_803BDAE4 { Req_803BDAE4 reqs[16]; volatile u8 wp; volatile u8 count; };
+
 extern "C" {
 extern s8 lbl_805D74B8;
 void set_global_flag__6TLobbyFc(s8 arg0);
@@ -507,7 +533,6 @@ extern s32 lbl_805D748C;
 u32 TLobby__sub_803BD694(s32 arg0);
 void DCStoreRange(void *addr, u32 nBytes);
 u32 TLobby__sub_803BE1EC(u8 i, u32 *out);
-void TLobby__sub_803BDAE4(u8 *src, u32 dst, u32 len, s32 dir, void *cb, void *arg);
 void TLobby__sub_803BD738(u8 *base, u32 offset, u32 len, u8 i, void *cb, void *arg);
 void TLobby__sub_803BD8A8(Hdr_803BD8A8 **arg0, u32 *arg1);
 void TLobby__sub_803BE000(s32 arg0, s32 arg1);
@@ -524,7 +549,6 @@ extern s8 lbl_805D74C6;
 extern s8 lbl_805D74C7;
 s32 TLobby__sub_803BCC0C(u32 arg0, s32 arg1, s32 arg2, u32 arg3);
 void DCFlushRange(void *addr, u32 nBytes);
-void TLobby__sub_803BDAE4(u8 *src, u32 dst, u32 len, s32 dir, void *cb, void *arg);
 extern s32 lbl_805D74CC;
 extern RecoveredCallback_fa840eeea008 lbl_805D74D4;
 extern u32 lbl_805D74D8;
@@ -536,6 +560,21 @@ extern Rec_803BE1EC *lbl_805D74DC;
 extern Rec_803BE1EC *lbl_805D74E0;
 extern Rec_803BE1EC *lbl_805D74E4;
 void *TLobby__sub_803BE0E0(u32 arg0);
+void TLobby__sub_803BD214(s32 index, u8 entry);
+void TLobby__sub_803BD240(s32 index, u8 entry);
+void TLobby__sub_803BD26C(s32 i, u8 mode);
+extern s8 lbl_805D74B8;
+void TLobby__sub_803BCD1C(s32 n, s16 arg1, Blk_803BCD1C *arg2, u32 arg3, s32 arg4, s32 arg5, u32 arg6, u8 arg7);
+u16 TLobby__sub_803B3ED8(s32);
+extern u8 lbl_804F68DC[];
+void TLobby__sub_803BCF18(s32 n, void *arg1, u8 mode);
+s32 OSDisableInterrupts(void);
+s32 OSRestoreInterrupts(s32 level);
+M2C_UNK ARQPostRequest(Req_803BDAE4 *, s32, s32, s32, u8 *, u32, u32, void *);
+void TLobby__sub_803BDA4C(void);
+extern Obj_803BDCB8 lbl_8056E158;
+extern Obj_803BDCB8 lbl_8056E3DC;
+void TLobby__sub_803BDAE4(u8 *src, u32 dst, u32 len, s32 dir, void *cb, void *arg);
 }
 
 extern "C" {
@@ -837,12 +876,82 @@ void TLobby__sub_803BCD08(s32 i, s32 v) {
     (*(Slot_803BCD08 * *)&lbl_805D748C)[i].f1c = v;
 }
 
+void TLobby__sub_803BCD1C(s32 n, s16 arg1, Blk_803BCD1C *arg2, u32 arg3, s32 arg4, s32 arg5, u32 arg6, u8 arg7) {
+    u8 i;
+    s32 flags = 0;
+    for (i = 0; i <= (u8)lbl_805D74B8; i++) {
+        flags |= SLOTS_803BCD1C[n].f24[i] & 0x20;
+        SLOTS_803BCD1C[n].f24[i] = 0;
+    }
+    SLOTS_803BCD1C[n].f24[0] = flags;
+    SLOTS_803BCD1C[n].f1c = arg4;
+    SLOTS_803BCD1C[n].f18 = arg5;
+    SLOTS_803BCD1C[n].ff0 = 0;
+    SLOTS_803BCD1C[n].f70 = arg1;
+    SLOTS_803BCD1C[n].f74 = *arg2;
+    if (arg3 != 0) {
+        SLOTS_803BCD1C[n].fa4 = 0;
+        SLOTS_803BCD1C[n].fb8 = 0;
+        SLOTS_803BCD1C[n].fbc = 0;
+        SLOTS_803BCD1C[n].fc0 = 0x7FFF;
+        SLOTS_803BCD1C[n].fc4 = 0;
+    }
+    SLOTS_803BCD1C[n].fe4 = 0xFF;
+    SLOTS_803BCD1C[n].fe5 = 0xFF;
+    SLOTS_803BCD1C[n].fe6 = 0xFF;
+    SLOTS_803BCD1C[n].fe7 = 0xFF;
+    if (arg6 != 0) {
+        TLobby__sub_803BD214(n, 0);
+        TLobby__sub_803BD240(n, 1);
+    }
+    TLobby__sub_803BD26C(n, arg7);
+}
+
 void TLobby__sub_803BCEC8(s32 i) {
     Slot_803BCEC8 *s = &(*(Slot_803BCEC8 **)&lbl_805D748C)[i];
     if (s->fec == 1 && (u8)lbl_805D74B8 == 0) {
         s->fee = 1;
     }
     (*(Slot_803BCEC8 **)&lbl_805D748C)[i].f24[(u8)lbl_805D74B8] |= 0x20;
+}
+
+void TLobby__sub_803BCF18(s32 n, void *arg1, u8 mode) {
+    u32 v;
+    switch (mode) {
+    case 0: {
+        ArgA_803BCF18 *a = (ArgA_803BCF18 *)arg1;
+        SLOTS_803BCF18[n].fa4 = 0;
+        SLOTS_803BCF18[n].fb8 = a->f0;
+        SLOTS_803BCF18[n].fbc = a->f2;
+        if ((v = a->f4 << 3) > 0x7FFF) {
+            v = 0x7FFF;
+        }
+        SLOTS_803BCF18[n].fc0 = v;
+        SLOTS_803BCF18[n].fc4 = a->f6;
+        break;
+    }
+    case 1:
+    case 2: {
+        ArgB_803BCF18 *b = (ArgB_803BCF18 *)arg1;
+        SLOTS_803BCF18[n].fa4 = 1;
+        SLOTS_803BCF18[n].fca = 0;
+        if (mode == 1) {
+            SLOTS_803BCF18[n].fb8 = TLobby__sub_803B3ED8(b->f0);
+            SLOTS_803BCF18[n].fbc = TLobby__sub_803B3ED8(b->f4);
+            if ((v = b->f8 >> 2) > 0x3FF) {
+                v = 0x3FF;
+            }
+            SLOTS_803BCF18[n].fc0 = 0xC1 - lbl_804F68DC[v];
+        } else {
+            SLOTS_803BCF18[n].fb8 = (u16)b->f0;
+            SLOTS_803BCF18[n].fbc = (u16)b->f4;
+            SLOTS_803BCF18[n].fc0 = b->f8;
+        }
+        SLOTS_803BCF18[n].fc4 = b->fa;
+        break;
+    }
+    }
+    SLOTS_803BCF18[n].f24 |= 0x10;
 }
 
 void TLobby__sub_803BD0C8(s32 i, s32 a, s32 b) {
@@ -977,7 +1086,7 @@ void TLobby__sub_803BD738(u8 *base, u32 offset, u32 len, u8 i, void *cb, void *a
     len = (len + 0x1F) & ~0x1F;
     p = base + offset;
     DCStoreRange(p, len);
-    TLobby__sub_803BDAE4(p, addr + offset, len, 1, cb, arg);
+    TLobby__sub_803BDAE4((u8 *)(p), (u32)(addr + offset), (u32)(len), (s32)(1), (void *)(cb), (void *)(arg));
 }
 
 void *TLobby__sub_803BD7C0(u32 size) {
@@ -1063,6 +1172,33 @@ bool TLobby__sub_803BDA2C(s32 i) {
     return (*(Slot_803BDA2C * *)&lbl_805D748C)[i].fec == 1;
 }
 
+void TLobby__sub_803BDAE4(u8 *src, u32 dst, u32 len, s32 dir, void *cb, void *arg) {
+    Q_803BDAE4 *q;
+    s32 lvl;
+    q = (u32)dir != 0 ? (Q_803BDAE4 *)&lbl_8056E3DC : (Q_803BDAE4 *)&lbl_8056E158;
+    while (1) {
+        lvl = OSDisableInterrupts();
+        if (q->count < 16) {
+            q->reqs[q->wp].owner = 0x2A;
+            q->reqs[q->wp].type = 0;
+            q->reqs[q->wp].prio = (u32)dir != 0 ? 1 : 0;
+            q->reqs[q->wp].src = src;
+            q->reqs[q->wp].dst = dst;
+            q->reqs[q->wp].len = len;
+            q->reqs[q->wp].cb = (void *)TLobby__sub_803BDA4C;
+            q->reqs[q->wp].f20 = cb;
+            q->reqs[q->wp].f24 = arg;
+            ARQPostRequest(&q->reqs[q->wp], q->reqs[q->wp].owner, q->reqs[q->wp].type, q->reqs[q->wp].prio,
+                           q->reqs[q->wp].src, q->reqs[q->wp].dst, q->reqs[q->wp].len, q->reqs[q->wp].cb);
+            q->count++;
+            q->wp = (q->wp + 1) % 16;
+            OSRestoreInterrupts(lvl);
+            return;
+        }
+        OSRestoreInterrupts(lvl);
+    }
+}
+
 void TLobby__sub_803BDCB8(void) {
     while (lbl_8056E158.busy != 0) {
     }
@@ -1081,7 +1217,7 @@ s32 TLobby__sub_803BDF10(u8 *src, u32 size) {
     start = lbl_805D74CC;
     if (lbl_805D74D4 == 0) {
         DCFlushRange(src, len);
-        TLobby__sub_803BDAE4(src, lbl_805D74CC, len, 0, 0, 0);
+        TLobby__sub_803BDAE4((u8 *)(src), (u32)(lbl_805D74CC), (u32)(len), (s32)(0), (void *)(0), (void *)(0));
         lbl_805D74CC += len;
         return start;
     } else {
@@ -1089,7 +1225,7 @@ s32 TLobby__sub_803BDF10(u8 *src, u32 size) {
             chunk = len >= lbl_805D74D8 ? lbl_805D74D8 : len;
             buf = lbl_805D74D4(src, chunk);
             DCFlushRange(buf, chunk);
-            TLobby__sub_803BDAE4(buf, lbl_805D74CC, chunk, 0, 0, 0);
+            TLobby__sub_803BDAE4((u8 *)(buf), (u32)(lbl_805D74CC), (u32)(chunk), (s32)(0), (void *)(0), (void *)(0));
             len -= chunk;
             src += chunk;
             lbl_805D74CC += chunk;

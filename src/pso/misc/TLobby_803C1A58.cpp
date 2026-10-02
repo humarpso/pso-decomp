@@ -42,6 +42,40 @@ struct Ent_803C8BAC {
     u8 pad34[0xC];
 };
 
+struct Strm_803C5B50;
+struct S_803C6138;
+struct Buf_803C5B50 { void *data; s32 size; };
+
+struct VT_803C5B50 {
+    void *pad[3];
+    void (*dtor)(Strm_803C5B50 *);
+    void *pad10[2];
+    void (*lock)(Strm_803C5B50 *, s32, s32, Buf_803C5B50 *);
+    void (*unlock)(Strm_803C5B50 *, s32, Buf_803C5B50 *);
+    void (*commit)(Strm_803C5B50 *, s32, Buf_803C5B50 *);
+};
+
+struct Strm_803C5B50 { VT_803C5B50 *vt; };
+
+struct Obj_803C5B50 { u8 pad_0[0x14]; Strm_803C5B50 *f14; };
+
+struct Strm_803C7C10;
+struct Buf_803C7C10 { void *data; s32 size; };
+
+struct VT_803C7C10 {
+    void *pad[6];
+    void (*lock)(Strm_803C7C10 *, s32, s32, Buf_803C7C10 *);
+    void (*unlock)(Strm_803C7C10 *, s32, Buf_803C7C10 *);
+    void (*commit)(Strm_803C7C10 *, s32, Buf_803C7C10 *);
+};
+
+struct Strm_803C7C10 { VT_803C7C10 *vt; };
+
+struct Obj_803C7C10 {
+    u8 pad_0[0xC]; Strm_803C7C10 *fc; u8 pad_10[0x58 - 0x10]; s32 f58; u8 pad_5c[0x290 - 0x5C];
+    s16 f290[12]; u8 f2a8[1][16];
+};
+
 extern "C" {
 void release_ref__6TLobbyFv(void);
 void init_once__6TLobbyFv(void);
@@ -125,6 +159,21 @@ extern RecoveredGlobal_803C90B0_lbl_80575140 lbl_80575140;
 extern s32 lbl_805D4670;
 extern s32 lbl_805D466C;
 Ent_803C8BAC *TLobby__sub_803C8F5C(const char *name, s32 mode, s32 off, s32 nsect, s32 arg);
+void TLobby__sub_803C6830(void);
+void TLobby__sub_803C6800(void);
+void TLobby__sub_803C6138(S_803C6138 *arg0);
+void TLobby__sub_803C60F0(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+M2C_UNK TLobby__sub_803C5E78();
+void TLobby__sub_803C610C(u8 *arg0);
+void TLobby__sub_803C6118(u8 *arg0);
+u8 *TLobby__sub_803C61C4(s32, Strm_803C5B50 **, Strm_803C5B50 *);
+Strm_803C5B50 *TLobby__sub_803D2C84(void *, s32, s32);
+void *memcpy(void *, const void *, u32);
+extern u8 lbl_80572BA0[];
+extern u8 lbl_80572BE0[];
+void TLobby__sub_803C5B50(Obj_803C5B50 *arg0, s32 arg1, s32 arg2, s32 arg3);
+void *memcpy(void *, const void *, u32);
+s32 TRKRequestSend(Obj_803C7C10 *arg0);
 }
 
 extern "C" {
@@ -186,6 +235,43 @@ s32 process_connection_state__6TLobbyFv(void) {
 
 void TLobby__sub_803C5B2C(M2C_UNK arg0, s32 arg1) {
     TLobby__sub_803C57C8((void *) (arg1));
+}
+
+void TLobby__sub_803C5B50(Obj_803C5B50 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+    Strm_803C5B50 *arr[2];
+    Buf_803C5B50 b1;
+    Buf_803C5B50 b2;
+    Strm_803C5B50 *src;
+    Strm_803C5B50 *dst;
+    u8 *ctx;
+    TLobby__sub_803C6830();
+    src = TLobby__sub_803D2C84(lbl_80572BE0, 0x400, 0);
+    arr[0] = TLobby__sub_803D2C84(lbl_80572BA0, 0x400, 0);
+    arr[1] = TLobby__sub_803D2C84(lbl_80572BA0 + 0x20, 0x400, 0);
+    dst = arg0->f14;
+    ctx = TLobby__sub_803C61C4(2, arr, src);
+    TLobby__sub_803C60F0(ctx, arg1, arg2, arg3);
+    TLobby__sub_803C6118(ctx);
+    TLobby__sub_803C5E78();
+    src->vt->lock(src, 1, 0x400, &b1);
+    if (b1.size == 0) {
+        for (;;) {
+        }
+    }
+    dst->vt->lock(dst, 0, b1.size, &b2);
+    if (b2.size < b1.size) {
+        for (;;) {
+        }
+    }
+    memcpy(b2.data, b1.data, b1.size);
+    src->vt->commit(src, 0, &b1);
+    dst->vt->commit(dst, 1, &b2);
+    TLobby__sub_803C610C(ctx);
+    TLobby__sub_803C6138((S_803C6138 *)ctx);
+    src->vt->dtor(src);
+    arr[1]->vt->dtor(arr[1]);
+    arr[0]->vt->dtor(arr[0]);
+    TLobby__sub_803C6800();
 }
 
 void TLobby__sub_803C5D00(u8 *arg0) {
@@ -293,6 +379,39 @@ void TLobby__sub_803C6800(void) {
 void TLobby__sub_803C6830(void) {
     memset((void *) (&lbl_80573AC0.value), (int) (0), (int) (0x1680));
 }
+
+#pragma push
+#pragma inline_depth(4)
+#pragma dont_inline off
+inline void put_803C7C10(Strm_803C7C10 *s, void *src, s32 n) {
+    Buf_803C7C10 b;
+    s->vt->lock(s, 0, n, &b);
+    if (b.size < n) {
+        s->vt->unlock(s, 0, &b);
+    } else {
+        memcpy(b.data, src, n);
+        s->vt->commit(s, 1, &b);
+    }
+}
+s32 TRKRequestSend(Obj_803C7C10 *arg0) {
+    s32 i;
+    s32 total;
+    u8 c;
+    Strm_803C7C10 *s = arg0->fc;
+    i = 0;
+    total = 0;
+    for (; i < arg0->f58; i++) {
+        s16 v = arg0->f290[i] - 1;
+        c = v >> 8;
+        put_803C7C10(s, &c, 1);
+        c = v;
+        put_803C7C10(s, &c, 1);
+        put_803C7C10(s, arg0->f2a8[i], 16);
+        total += 0x12;
+    }
+    return total;
+}
+#pragma pop
 
 void set_field_10_and_notify__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x10) = arg1;
