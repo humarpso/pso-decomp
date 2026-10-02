@@ -620,6 +620,37 @@ void TObjLight__sub_801344A4(f32 *dir, f32 *color, u32 id) {
     VecCopy__FP3VecPC3Vec((int)dir, (*(LightDefault_801344A4 *)&TObjLight__data_80506320).dir);
 }
 
+void TObjLight__sub_80134548(u32 arg0, f32 farg0, f32 farg1) {
+    s32 cnt = TObjLight__data_805D5570;
+    s32 found;
+    s32 n;
+    Light_801347A4 *q;
+    found = 1;
+    if (cnt < 8) {
+        for (n = 0; n < 8; n++) {
+            if (arg0 == TObjLight__data_805068FC[n].id) {
+                found = 0;
+                TObjLight__data_805068FC[n].id = arg0;
+                TObjLight__data_805068FC[n].f1C = farg0;
+                TObjLight__data_805068FC[n].f20 = farg1;
+                TObjLight__data_805068FC[n].f24 |= 1;
+                break;
+            }
+            if (TObjLight__data_805068FC[n].id == 0xFFFF) {
+                break;
+            }
+        }
+        if (found != 0) {
+            q = &TObjLight__data_805068FC[cnt];
+            q->id = arg0;
+            q->f1C = farg0;
+            q->f20 = farg1;
+            q->f24 |= 1;
+            TObjLight__data_805D5570++;
+        }
+    }
+}
+
 void TObjLight__sub_80134724(s32 arg0, s32 arg1) {
     u8 *temp_r5;
     if ((s32) TObjLight__data_805D556C < 0x20) {

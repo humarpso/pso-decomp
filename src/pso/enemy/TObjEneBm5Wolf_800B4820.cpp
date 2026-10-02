@@ -465,6 +465,29 @@ struct VObj_800B4AD4 : VBase_800B4AD4 {
     virtual void v103();
     virtual void m104();
 };
+struct Vec_800B7018 { f32 x, y, z; };
+struct Obj_800B7018 {
+    u8 pad0[0x38];
+    Vec_800B7018 pos;
+    u8 pad44[0x60 - 0x44];
+    s32 angle;
+    u8 pad64[0xB0 - 0x64];
+    s32 fB0;
+    u8 padB4[0xB8 - 0xB4];
+    s16 fB8;
+    u8 padBA[0xC0 - 0xBA];
+    f32 fC0;
+    u8 padC4[0x3E4 - 0xC4];
+    s32 f3E4;
+    u8 pad3E8[0x408 - 0x3E8];
+    u32 f408;
+    f32 f40C;
+    u8 pad410[0x434 - 0x410];
+    f32 f434;
+    f32 f438;
+    u8 pad43C[0x444 - 0x43C];
+    Vec_800B7018 f444;
+};
 
 extern "C" {
 void TObjEneBm5Wolf__sub_800B7D44(void *);
@@ -556,7 +579,7 @@ u8 *find_entity_by_id(u16);
 extern const f32 TObjEneBm5Wolf__data_805D9D8C;
 void TObjEneBm5Wolf__sub_800B74B8(Obj_800B74B8 *self);
 void anchor_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
-void TObjEneBm5Wolf__sub_800B7018(u8 *arg0, s32 arg1);
+void TObjEneBm5Wolf__sub_800B7018(Obj_800B7018 *o, s32 arg1);
 void sleeping_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 void TObjEneBm5Wolf__sub_800B6B4C(void);
 void TObjEneBm5Wolf__sub_800B6E10(u8 *arg0, s32 arg1);
@@ -1304,6 +1327,77 @@ void sleeping_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
   }
 }
 
+s32 select_target__14TObjEneBm5WolfFPv(void *);
+extern const f32 lbl_805D9DDC;
+extern const f32 lbl_805D9DE4;
+extern const f32 TObjEneBm5Wolf__data_805D9DE8;
+extern const f32 TObjEneBm5Wolf__data_805D9DF0;
+extern const f32 lbl_805D9E3C;
+extern const f32 lbl_805D9E40;
+#pragma push
+#pragma fp_contract on
+void TObjEneBm5Wolf__sub_800B7018(Obj_800B7018 *o, s32 arg1) {
+    Vec_800B7018 *home = &o->f444;
+    f32 t;
+
+    switch (arg1) {
+    case 4:
+        o->fB8 = 0x11;
+        set_field_378__9TObjEneDDFPvi(o, 7);
+        ((VObj_18_7b3d65 *)o)->m93();
+        o->f408 &= ~3;
+        o->f408 |= 4;
+        enemy_clear_target(o);
+        o->f3E4 = 0;
+        VecCopy__FP3VecPC3Vec(home, &o->pos);
+        o->pos.x -= lbl_805D9E3C * TBoss8Dragon__sub_803D64C0(o->angle);
+        o->pos.z -= lbl_805D9E3C * TBoss8Dragon__sub_803D64DC(o->angle);
+        o->f434 = lbl_805D9E40;
+        o->f40C = TObjEneBm5Wolf__data_805D9D78;
+        o->f438 = o->pos.y;
+        break;
+    case 3:
+        if (get_flag_b4__21TObjEneMe3ShinowaRealFPv() != 0) {
+            if (select_target__14TObjEneBm5WolfFPv(o) != 0) {
+                transition_enemy_state(o, 7);
+            } else {
+                transition_enemy_state(o, 2);
+            }
+        }
+        break;
+    case 0:
+        ((M2C_UNK (*)())advance_animation_playback)();
+        if (!(o->fB0 & 4)) {
+            if (objInBand__FP7GameObjf(o, TObjEneBm5Wolf__data_805D9DE0) != 0 ||
+                objInBand__FP7GameObjf(o, TObjEneBm5Wolf__data_805D9DF0) != 0) {
+                spawn_particle_effect((s32)&o->pos, 0xF3);
+            }
+            if (objInBand__FP7GameObjf(o, lbl_805D9DE4) != 0) {
+                play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(o, 0x3E420), &o->pos, 0, 0);
+            }
+            if (objInBand__FP7GameObjf(o, TObjEneBm5Wolf__data_805D9DE8) != 0) {
+                play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(o, 0x4003A821), &o->pos, 0, 0);
+                play_effect_if_v2__10TObjPlayerFi(-0x500);
+            }
+            if (o->fC0 <= TObjEneBm5Wolf__data_805D9DF0) {
+                t = o->fC0 - TObjEneBm5Wolf__data_805D9DF4;
+                o->f40C = (o->f438 + (lbl_805D9DDC * (t * t) + TObjEneBm5Wolf__data_805D9D74)) - o->pos.y;
+            } else {
+                o->f434 *= TObjEneBm5Wolf__data_805D9DA4;
+            }
+            o->pos.x += o->f434 * TBoss8Dragon__sub_803D64C0(o->angle);
+            o->pos.z += o->f434 * TBoss8Dragon__sub_803D64DC(o->angle);
+        }
+        ((VObj_18_7b3d65 *)o)->m100();
+        ((VObj_18_7b3d65 *)o)->m86();
+        break;
+    case 5:
+        o->f40C = TObjEneBm5Wolf__data_805D9D78;
+        break;
+    }
+}
+
+#pragma pop
 void anchor_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
     u32 temp_r3;
 
@@ -1342,7 +1436,7 @@ void dispatch_state__14TObjEneBm5WolfFPvUii(u8 *arg0, u32 state, s32 event) {
         anchor_state__14TObjEneBm5WolfFPvi(arg0, event);
         break;
     case 1:
-        TObjEneBm5Wolf__sub_800B7018(arg0, event);
+        TObjEneBm5Wolf__sub_800B7018((Obj_800B7018 *)arg0, event);
         break;
     case 2:
         sleeping_state__14TObjEneBm5WolfFPvi(arg0, event);

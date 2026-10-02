@@ -22,6 +22,7 @@ void VecCopy__FP3VecPC3Vec(Vec_8022675C *, Vec_8022675C *);
 s32 fn_802264B8(int, int);
 int TLobby__sub_80227AF8(void *p);
 s32 TLobby__sub_80227E5C(u32 arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 TLobby__sub_80227D5C(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 extern SndEnt_8022675C lbl_805145F0[40];
 extern s32 lbl_805D370C;
 extern s32 lbl_805D62B0;
@@ -46,6 +47,61 @@ s32 check_trigger_flag__15TOTrapAncient01Fii(s32 arg0, s32 arg1) {
         return 0;
     }
     return 1;
+}
+s32 TOTrapAncient01__sub_80226578(s32 id, s32 a1, u32 src, s32 a3, s32 flags) {
+    s32 idx = -1;
+    s32 i;
+    s32 ok;
+    SndEnt_8022675C *e;
+
+    lbl_805D370C = -1;
+    if (lbl_805D62B0 == 0) {
+        return -1;
+    }
+    if (id == 0xF0000) {
+        return -1;
+    }
+    for (i = 0; i < 40; i++) {
+        if ((lbl_805145F0[i].flags & 0x400) && id == lbl_805145F0[i].id) {
+            idx = i;
+            break;
+        }
+    }
+    if (idx >= 0) {
+        if (src != 0) {
+            ok = check_trigger_flag__15TOTrapAncient01Fii(src, lbl_805145F0[idx].flags);
+        } else {
+            ok = fn_802264B8(idx, 1);
+        }
+        lbl_805D370C = idx;
+        if (ok != 0) {
+            e = &lbl_805145F0[idx];
+            e->src = (Vec_8022675C *)src;
+            e->x1a = a3;
+            e->prio = 5;
+            idx = TLobby__sub_80227D5C(id, e->x1c, (s32)e->src, e->x1a, flags);
+        }
+        return idx;
+    }
+    if (check_trigger_flag__15TOTrapAncient01Fii(src, flags) != 0) {
+        idx = TLobby__sub_80227D5C(id, a1, src, a3, flags);
+        lbl_805D370C = idx;
+        if (idx >= 0) {
+            lbl_805145F0[idx].flags &= lbl_805DC748;
+            if (flags & 1) {
+                lbl_805145F0[idx].flags |= 0x2000;
+            }
+            lbl_805145F0[idx].src = (Vec_8022675C *)src;
+            lbl_805145F0[idx].x1a = a3;
+            lbl_805145F0[idx].id = id;
+            lbl_805145F0[idx].x1c = a1;
+            lbl_805145F0[idx].prio = 5;
+            lbl_805145F0[idx].flags |= 0x1600;
+        } else {
+            return -1;
+        }
+    }
+    return idx;
 }
 s32 play_sound_effect(s32 id, Vec_8022675C *src, s32 a2, s32 flags) {
     s32 i;

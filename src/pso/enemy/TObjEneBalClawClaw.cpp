@@ -131,6 +131,49 @@ struct Obj_80091EA4 {
     VObj_80091EA4 *effects[2];
 };
 
+struct VBase_14 { char pad[0x14]; };
+struct VObj_14 : VBase_14 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual M2C_UNK m6();
+    virtual M2C_UNK m7();
+    u32 pad18;
+};
+struct VBase_18 { char pad[0x18]; };
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual s32 m9(f32, f32, f32);
+};
+struct Vec_8009211C { f32 x, y, z; };
+struct Obj_8009211C : VObj_18 {
+    u8 pad1C[0x24 - 0x1C];
+    s32 f24;
+    u8 pad28[0x34 - 0x28];
+    s32 f34;
+    u8 f38[0x60 - 0x38];
+    s32 f60;
+    u8 pad64[0x2FC - 0x64];
+    Vec_8009211C f2FC;
+    u8 pad308[0x326 - 0x308];
+    s16 f326;
+    u8 pad328[0x380 - 0x328];
+    f32 f380;
+    u8 pad384[0x3B0 - 0x384];
+    VObj_14 fades[4];
+};
+
 extern "C" {
 void set_param__12TObjEneLappyFPvi(void *, s32);
 void select_subtype__12TObjEneBeastFPv(u8 *arg0);
@@ -187,6 +230,32 @@ M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, u32);
 M2C_UNK set_indexed_flags(void *, int, int);
 s32 play_sound_effect(s32, s32, s32, s32);
 void TObjPlayer__sub_80092028(u8 *arg0);
+M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, void *, int);
+s32 is_split_screen();
+s32 get_camera_mode__11TCameraCtrlFv();
+s32 check_demo_mode__10TObjPlayerFv();
+s32 check_v2_mode__9TObjEneDDFv();
+s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
+M2C_UNK TObjPlayer__sub_800D7BB0(void *);
+M2C_UNK toggle_particle_effect__10TObjPlayerFv();
+M2C_UNK TObjLight__sub_80134098();
+M2C_UNK TObjLight__sub_80134194(void *);
+M2C_UNK render_world_model__10TObjPlayerFPv(void *);
+M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+s32 toggle_flag_9__10TObjPlayerFPv(void *);
+M2C_UNK translate_matrix(int, f32, f32, f32);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK draw_chunk_object(int);
+extern s32 lbl_805D5660;
+extern s32 some_id_805c6f74;
+extern const f32 lbl_805D96E8;
+extern const f32 lbl_805D96EC;
+extern const f32 lbl_805D96F0;
+extern const f32 lbl_805D96F4;
+extern const f32 lbl_805D96F8;
+extern const f32 lbl_805D96FC;
+
 }
 
 extern "C" {
@@ -435,6 +504,66 @@ u8 *TObjEneBalClawClaw__sub_80091C58(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
 void TObjEneBalClawClaw__sub_80091CCC(void) {  }
 void TObjEneBalClawClaw__sub_80091CD0(s32 arg0) {
     play_sound_effect(0x4003E431, arg0 + 0x38, 0, 0);
+}
+void TObjPlayer__sub_8009211C(Obj_8009211C *o) {
+    s32 drawMode;
+    s32 fade;
+    s32 cam;
+    s32 doDraw;
+
+    cam = 0;
+    if (is_split_screen() != 0) {
+        cam = get_camera_mode__11TCameraCtrlFv();
+    }
+    drawMode = o->m9(lbl_805D96E8, lbl_805D96EC, lbl_805D96F0);
+    if (drawMode == 0) {
+        return;
+    }
+    fade = 0;
+    if (check_v2_mode__9TObjEneDDFv() != 0) {
+        fade = (s32)&o->fades[cam];
+        TObjPlayer__sub_800D7BB0((void *)fade);
+        fade = updateFromCamera__15RenderFadeStateFPCf((void *)fade, &o->f2FC);
+    }
+    lbl_805D5660 = some_id_805c6f74;
+    TObjLight__sub_80134194(o);
+    set_global_param__8TObjFishFi(o->f24);
+    TObjPlayer__sub_803D9B2C();
+    translate_matrix(0, lbl_805D96D8, o->f380, lbl_805D96D8);
+    TOHangerMachine01__sub_803D9C00(o->f38);
+    rotate_matrix_y(0, o->f60);
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
+        draw_chunk_object(o->f34);
+    } else {
+        toggle_particle_effect__10TObjPlayerFv();
+        doDraw = 1;
+        if (fade != 0) {
+            o->fades[cam].m6();
+            if (toggle_flag_9__10TObjPlayerFPv(o) != 0) {
+                doDraw = 0;
+            }
+        }
+        if (doDraw != 0) {
+            if (drawMode == 1) {
+                draw__16TObjEneRe7BeruraFPv(o);
+            } else {
+                render_world_model__10TObjPlayerFPv(o);
+            }
+        }
+        end_effect_render__13TParticleCtrlFv();
+        if (fade != 0) {
+            o->fades[cam].m7();
+        }
+    }
+    pop_matrix();
+    TObjLight__sub_80134098();
+    if (o->f326 >= 10 || o->f326 < 8) {
+        Vec_8009211C v;
+        v.x = lbl_805D96F4;
+        v.y = lbl_805D96F8;
+        v.z = lbl_805D96FC;
+        render_with_position_override__10TObjPlayerFPvPvi(o, &v, 0);
+    }
 }
 void play_hit_effect__18TObjEneBalClawClawFi(s32 arg0) {
     play_sound_effect(0x4003AB2D, arg0 + 0x38, 0, 0);

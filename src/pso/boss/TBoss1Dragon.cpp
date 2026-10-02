@@ -820,6 +820,20 @@ struct Locals_800278A8 { Params_800278A8 params; u8 *pts[8]; };
 struct Vec_80029408 { f32 x, y, z; };
 
 struct Coll_80029408 { Vec_80029408 local; f32 radius; u32 type, attribute, flags; Vec_80029408 world; f32 defense; };
+struct VBase_14_8d1630 { char pad[0x14]; };
+struct VObj_14_8d1630 : VBase_14_8d1630 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8();
+    u32 x18;
+};
+struct Owner_80020A54 { u8 pad[0x6E8]; VObj_14_8d1630 e[4]; };
 
 extern "C" {
 f32 newton_sqrtf(f32);
@@ -1215,6 +1229,9 @@ extern u16 TBoss1Dragon__data_805D4B3C;
 extern u32 TBoss1Dragon__data_805D4B08;
 extern s32 TBoss1Dragon__data_805D4B2C;
 extern M2C_UNK lbl_80481B34[];
+s32 is_split_screen();
+s32 get_camera_mode__11TCameraCtrlFv();
+extern const f32 lbl_805D7F2C;
 }
 
 bool TBoss1Dragon::isV2Mode() {
@@ -1436,6 +1453,34 @@ void TBoss1Dragon::handleFallState(u32 reason) {
 }
 
 extern "C" {
+
+void TBoss1Dragon__sub_80020A54(u8 *arg0) {
+    s32 temp_r31;
+    s32 var_r31;
+    u8 *temp_r3;
+    u8 *temp_r4;
+
+    var_r31 = 0;
+    if (check_demo_mode__10TObjPlayerFv() == 0) {
+        if (is_split_screen() != 0) {
+            var_r31 = get_camera_mode__11TCameraCtrlFv();
+        }
+        if ((((Owner_80020A54 *)arg0)->e[var_r31].m8() != 0) && ((M2C_FIELD(arg0, f32 *, 0x5DC) - M2C_FIELD(arg0, f32 *, 0x5E0)) >= lbl_805D7F2C) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 0x16)) {
+            TObjPlayer__sub_803D9B2C();
+            TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+            rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+            scale_matrix((int) (0), (f32) (TBoss1Dragon__data_805D7F24), (f32) (TBoss1Dragon__data_805D7F24), (f32) (TBoss1Dragon__data_805D7F24));
+            rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)));
+            rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
+            temp_r31 = M2C_FIELD(arg0, s32 *, 0x34);
+            temp_r4 = (u8 *)(M2C_FIELD(TBoss1Dragon__data_805D4B08, u8 **, 0x42C));
+            M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(temp_r4, s32 *, 0x18);
+            draw__16TObjEneRe7BeruraFPv((void *) (arg0));
+            M2C_FIELD(arg0, s32 *, 0x34) = temp_r31;
+            pop_matrix();
+        }
+    }
+}
 
 struct Rec_80021260 { u8 pad0[0xC]; f32 f0C; u8 pad10[0xC]; u8 b1C[0x10]; };
 struct Obj_80021260 { u8 pad0[0xA4]; Rec_80021260 *recs; s32 count; };
