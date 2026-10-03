@@ -18244,7 +18244,7 @@ pso/unk/text_803D64F8.cpp:
 
 pso/misc/TCameraCtrl_803D6538.cpp:
 	.text       start:0x803D6538 end:0x803D8030
-	.sdata2     start:0x805E0E58 end:0x805E0EA0
+	.sdata2     start:0x805E0E40 end:0x805E0EA0
 
 pso/unk/text_803D8030.cpp:
 	.text       start:0x803D8030 end:0x803D8090

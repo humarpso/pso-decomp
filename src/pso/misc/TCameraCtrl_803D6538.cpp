@@ -107,6 +107,10 @@ struct Stack_803D7128 {
     f32 sp10;
 };
 
+struct Proj_803D676C { f32 m[4][4]; s32 f40; f32 f44, f48, f4C, f50, f54; };
+
+struct Disp_803D676C { u8 pad[6]; u16 h; };
+
 extern "C" {
 
 s32 TObjPlayer__sub_803D6BA4(s32 arg0);
@@ -115,6 +119,22 @@ void select_motion_sampler(M2C_UNK *arg0, f32 farg0);
 void TBoss8Dragon__sub_803D78A8(s32 arg0);
 extern u8 *lbl_805D76BC;
 void TObjPlayer__sub_803D6960(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
+M2C_UNK C_MTXPerspective(void *, f32, f32, f32, f32);
+M2C_UNK GXSetProjection(void *, int);
+f64 atan(f32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+extern Proj_803D676C lbl_8058CA60;
+extern RecoveredGlobal_803D662C_lbl_8058D4D0 lbl_8058D4D0;
+extern G_803D6688 lbl_8058D4F8;
+extern Disp_803D676C *lbl_805D7734;
+extern const f32 lbl_805E0E18;
+extern const f64 lbl_805E0E20;
+extern const f64 lbl_805E0E28;
+extern const f32 lbl_805E0E30;
+extern const f32 lbl_805E0E34;
+extern const f32 lbl_805E0E38;
+void set_perspective_projection_from_fov(s32 arg0, f32 farg0, f32 farg1, f32 farg2);
 }
 
 extern "C" {
@@ -284,6 +304,44 @@ void TCameraCtrl__sub_803D6688(f32 farg0, f32 farg1) {
 
 #pragma push
 #pragma use_lmw_stmw off
+
+void set_perspective_projection_from_fov(s32 arg0, f32 farg0, f32 farg1, f32 farg2) {
+    s32 h;
+    f32 c;
+    f32 r;
+    f32 x;
+    f32 sc;
+    f32 b;
+    f32 a;
+    f32 one;
+    h = (s32)((f32)arg0 * lbl_805E0E18) / 2;
+    c = cos_table_lookup(h);
+    r = atan((sin_table_lookup(h) / c) / farg0);
+    C_MTXPerspective(&lbl_8058CA60, lbl_805E0E20 * ((s32)(lbl_805E0E28 * r) * 2), farg0, farg1, farg2);
+    GXSetProjection(&lbl_8058CA60, 0);
+    lbl_8058CA60.f40 = 0;
+    lbl_8058CA60.f44 = farg1;
+    lbl_8058CA60.f48 = farg2;
+    lbl_8058CA60.f4C = farg0;
+    sc = lbl_805E0E30 * ((f32)lbl_805D7734->h * lbl_8058CA60.m[1][1]);
+    lbl_8058CA60.f50 = sc;
+    one = lbl_805E0E34;
+    lbl_8058CA60.f54 = one / sc;
+    lbl_8058D4F8.f18 = sc;
+    x = farg0 / lbl_805E0E38;
+    lbl_8058D4F8.f1c = x;
+    lbl_8058D4F8.f20 = one;
+    lbl_8058D4F8.f24 = one / farg0;
+    a = x * (f32)(f64)lbl_8058D4F8.f18;
+    lbl_8058D4F8.f0 = a;
+    b = -(one * (f32)(f64)lbl_8058D4F8.f18);
+    lbl_8058D4F8.f4 = b;
+    lbl_8058D4F8.f10 = one / a;
+    lbl_8058D4F8.f14 = one / (f32)(f64)b;
+    M2C_FIELD(&lbl_8058D4D0.value, f32 *, 0) = farg2;
+    M2C_FIELD(&lbl_8058D4D0.value, f32 *, 4) = farg1;
+}
+
 void TObjPlayer__sub_803D6960(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     s32 temp_r31;
     s32 *temp_r30;

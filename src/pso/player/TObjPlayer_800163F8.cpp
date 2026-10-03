@@ -160,6 +160,35 @@ struct Obj_80017E6C
 
 struct Vec_80017BA8 { f32 x, y, z; };
 
+struct Vec_80016454 { f32 x, y, z; };
+
+struct Body_80016454 {
+    Vec_80016454 local;
+    f32 radius;
+    u8 pad10[0x8];
+    u32 flags;
+    u8 pad1c[0x10];
+};
+
+struct Base_80016454 { u8 pad[0x18]; };
+
+struct Actor_80016454 : Base_80016454 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
+    virtual s32 m24(Actor_80016454 *, s32, f32);
+    u8 pad1c[0x38 - 0x1c];
+    Vec_80016454 pos;
+    u8 pad44[0x60 - 0x44];
+    s32 yaw;
+    u8 pad64[0xa4 - 0x64];
+    Body_80016454 *bodies;
+    s32 bodyCount;
+};
+
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 f32 horizontal_distance_squared(void *, void *);
@@ -306,6 +335,21 @@ extern const f32 TObjPlayer__data_805D7D44;
 extern const f32 lbl_805D7DB8;
 extern const f32 lbl_805D7DBC;
 f32 enemy_wander_home(u8 *arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2);
+M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
+void subtract_vector(void *a, void *b);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+M2C_UNK angle_difference_abs(s32, s32);
+extern const f64 TObjPlayer__data_804340B8;
+s32 pop_matrix();
+void push_matrix(void);
+void TObjPlayer__sub_803D8CD4(s32);
+void translate_matrix(s32, f32, f32, f32);
+void post_translate_matrix(void *);
+s32 rotate_matrix_y(int, void *);
+void TCameraCtrl__sub_803D8934(s32, void *, void *);
+f32 get_target_value__10TObjPlayerFPv(void *);
+s32 update_field_318__10TObjPlayerFPv(void *);
+s32 select_melee_contact_body__10TObjPlayerFv(Actor_80016454 *target, Actor_80016454 *source, f32 factor);
 }
 
 extern "C" {
@@ -334,6 +378,58 @@ s32 try_start_action__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
         return 1;
     }
     show_miss_for_collider__10TObjPlayerFi(arg0, arg2);
+    return 0;
+}
+
+typedef M2C_UNK (*VecCopyFn_80016454)(void *, void *);
+s32 select_melee_contact_body__10TObjPlayerFv(Actor_80016454 *target, Actor_80016454 *source, f32 factor) {
+    s32 selected = -1;
+    Vec_80016454 point;
+    s32 i;
+    s32 diff;
+    f32 dist2;
+    f32 r2;
+    f32 dist;
+    f32 r;
+    if (source != NULL) {
+    if (target->bodies != NULL) {
+        push_matrix();
+        TObjPlayer__sub_803D8CD4(0);
+        translate_matrix(0, -source->pos.x, -source->pos.y, -source->pos.z);
+        post_translate_matrix(&target->pos);
+        rotate_matrix_y(0, (void *)target->yaw);
+        for (i = 0; i < target->bodyCount; i++) {
+            if (!(target->bodies[i].flags & 0x02000000)) {
+                ((VecCopyFn_80016454)VecCopy__FP3VecPC3Vec)(&point, &target->bodies[i]);
+                TCameraCtrl__sub_803D8934(0, &point, &point);
+            }
+            dist = point.x * point.x + point.z * point.z;
+            r = (target->bodies[i].radius + get_target_value__10TObjPlayerFPv(source)) * (target->bodies[i].radius + get_target_value__10TObjPlayerFPv(source));
+            diff = angle_difference_abs(source->yaw, (s32)(TObjPlayer__data_804340B8 * get_ad_end_text_start__10TObjPlayerFv(point.x, point.z)));
+            if (dist < r && diff < update_field_318__10TObjPlayerFPv(source)) {
+                selected = i;
+                break;
+            }
+        }
+        pop_matrix();
+        if (selected == -1) {
+            return 0;
+        }
+    } else {
+        ((VecCopyFn_80016454)VecCopy__FP3VecPC3Vec)(&point, &target->pos);
+        subtract_vector(&point, &source->pos);
+        dist2 = point.x * point.x + point.z * point.z;
+        r2 = get_target_value__10TObjPlayerFPv(source) * get_target_value__10TObjPlayerFPv(source);
+        r2 = r2 * r2;
+        diff = angle_difference_abs(source->yaw, (s32)(TObjPlayer__data_804340B8 * get_ad_end_text_start__10TObjPlayerFv(point.x, point.z)));
+        if (r2 < dist2 || update_field_318__10TObjPlayerFPv(source) < diff) {
+            return 0;
+        }
+    }
+    if (target->m24(source, selected, factor) != 0) {
+        return 1;
+    }
+    }
     return 0;
 }
 
