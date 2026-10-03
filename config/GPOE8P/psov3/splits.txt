@@ -7641,6 +7641,7 @@ pso/unk/text_8018130C.cpp:
 
 pso/unk/text_80181310.cpp:
 	.text       start:0x80181310 end:0x801815A0
+	.rodata     start:0x80443B98 end:0x80443BA0
 
 pso/unk/text_801815A0.cpp:
 	.text       start:0x801815A0 end:0x801815F8
@@ -7895,7 +7896,7 @@ pso/unk/text_8018E258.cpp:
 pso/object/TObjDoor_8018E358.cpp:
 	.text       start:0x8018E358 end:0x8018F458
 	.rodata     start:0x80445580 end:0x80445588
-	.sdata2     start:0x805DBDC4 end:0x805DBDF0
+	.sdata2     start:0x805DBDC0 end:0x805DBDF0
 
 pso/object/TObjDoorJung.cpp:
 	.text       start:0x8018F458 end:0x8018FA6C

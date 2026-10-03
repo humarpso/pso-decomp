@@ -35,6 +35,42 @@ struct Glob_8018E74C { s32 f0; s32 f4; Node_8018E74C *c; Node_8018E74C *a; Node_
 
 struct Door_8018E74C { u8 pad0[0x38]; u8 f38[0x28]; s32 f60; u8 pad64[0x50]; f32 fB4; f32 fB8; u8 padBC[0x8]; f32 fC4; u8 padC8[8]; s32 fD0; };
 
+struct Door_8018F15C;
+struct DoorVB_8018F15C { char pad[0x18]; };
+
+struct DoorVt_8018F15C : DoorVB_8018F15C {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5(void *);
+};
+
+struct Door_8018F15C {
+    s32 f0;
+    u8 pad4[0x18 - 0x4];
+    void *vt;
+    u8 pad1c[0x30 - 0x1C];
+    u32 f30;
+    u8 pad34[0x84 - 0x34];
+    u32 f84;
+    u8 pad88[4];
+    s32 f8C;
+    u8 pad90[0xAC - 0x90];
+    s32 fAC;
+    s32 fB0;
+    f32 fB4;
+    f32 fB8;
+    s8 fBC;
+    u8 padbd[3];
+    s32 fC0;
+    f32 fC4;
+    s32 fC8;
+    s32 fCC;
+    s32 fD0;
+};
+
 extern "C" {
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
@@ -63,7 +99,6 @@ M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
 extern M2C_UNK __vt__8TObjDoor[];
 void *__dt__8TObjDoorFv(void *arg0, s16 arg1);
-void *TObjDoor__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 extern void *tl_05;
 void *TObjDoor__create(void *arg0);
@@ -155,6 +190,16 @@ u8 is_current_floor_switch_set(u16);
 extern s32 TObjDoor__data_805D5BC8;
 extern const f32 TObjDoor__data_805DBDC4,lbl_805DBDD8,lbl_805DBDE8,lbl_805DBDEC,lbl_805DBDF0;
 void update_state__8TObjDoorFPv(TObjDoor* door);
+M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
+M2C_UNK init_collision_body_parts(void *, void *, M2C_UNK);
+M2C_UNK TObjPlayer__sub_801569F4(void *, void *);
+extern u8 lbl_804B764C[];
+extern M2C_UNK __vt__8TObjDoor[];
+extern s32 lbl_805D3330;
+extern const f32 TObjDoor__data_805DBDC4;
+void *TObjDoor__ct(void *arg0, void *arg1, void *arg2);
+extern const f32 lbl_805DBDC8,lbl_805DBDC0,lbl_805DBDCC,TObjDoor__data_805DBDC4,lbl_805DBDD8,lbl_805DBDD4,lbl_805DBDD0;
+void draw_closed_glow__8TObjDoorFPv(TObjDoor* door);
 }
 
 extern "C" {
@@ -177,6 +222,10 @@ extern const f32 TObjDoor__data_805DBDC4,lbl_805DBDD8,lbl_805DBDE8,lbl_805DBDEC,
 
 void TObjDoor__sub_8018E890(void);
 void update_timer__8TObjDoorFPv(void *arg0);
+
+extern "C" {
+extern DoorMotionHeader* TObjDoor__data_8050DC78[];
+}
 
 extern "C" {
 extern DoorMotionHeader* TObjDoor__data_8050DC78[];
@@ -316,11 +365,12 @@ void TObjDoor__sub_8018E894(u8 *arg0) {
 #pragma pop
 
 void TObjDoor__sub_8018E8BC(void) {  }
+
 void draw_closed_glow__8TObjDoorFPv(TObjDoor* door) {
     door->frame+=lbl_805DBDC8;
     if(door->frame>(f32)(TObjDoor__data_8050DC78[0]->frameCount-1))door->frame=TObjDoor__data_805DBDC4;
-    door->glow+=lbl_805DBDC0;
-    if(door->glow>lbl_805DBDCC)door->glow=lbl_805DBDCC;
+    door->glow+=0.05f;
+    if(door->glow>0.5f)door->glow=0.5f;
 }
 
 #pragma push
@@ -418,10 +468,39 @@ void *__dt__8TObjDoorFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+#define d ((Door_8018F15C *)arg0)
+void *TObjDoor__ct(void *arg0, void *arg1, void *arg2) {
+    TObjPlayer__sub_801569F4(arg0, arg1);
+    d->vt = __vt__8TObjDoor;
+    d->f0 = lbl_805D3330;
+    ((DoorVt_8018F15C *)d)->m5(arg2);
+    d->fAC = 0;
+    d->fB8 = TObjDoor__data_805DBDC4;
+    d->fB4 = TObjDoor__data_805DBDC4;
+    d->fB0 = 1;
+    d->fBC = d->f8C % 2;
+    d->fC0 = 0x50;
+    d->fC4 = TObjDoor__data_805DBDC4;
+    d->fC8 = 0;
+    d->fCC = (u8)d->f84;
+    d->fD0 = (u8)(d->f84 >> 8) % 10;
+    if (d->fBC < 0) {
+        d->fBC = 0;
+    }
+    if (d->fBC > 1) {
+        d->fBC = 1;
+    }
+    init_collision_body_parts(d, lbl_804B764C, 1);
+    d->f30 |= 0x40000000;
+    reset_photon_effect__10TObjPlayerFPv(d);
+    return d;
+}
+
 void *TObjDoor__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD4);
     if (o != NULL) {
-        o = TObjDoor__ct(o, tl_05, arg0);
+        o = TObjDoor__ct((void *)(o), (void *)(tl_05), (void *)(arg0));
     }
     return o;
 }
