@@ -19,6 +19,16 @@ struct Self_80300770 {
 };
 typedef void (Self_80300770::*Action_80300770)();
 
+struct Ent_80300850 { u8 pad[0x364]; s32 f364; };
+
+extern "C" {
+extern s32 TAdMultiSelGameModeGC__data_805D69F0;
+s32 TObjEneDolmOlm__sub_80300CF0(void);
+s32 TAdMultiPlyChrSelectGC__sub_802C64D0(u32);
+Ent_80300850 *get_char_table_entry__23TAdSinglePlyChrSelectGCFi(int);
+s32 TAdMultiSelGameModeGC__sub_80300850(void);
+}
+
 extern "C" {
 s32 TAdMultiChgGameModeGC__sub_8023E834(void *);
 }
@@ -31,7 +41,6 @@ typedef struct Arr3_803001B4 { s32 v[3]; } Arr3_803001B4;
 
 extern "C" {
 extern s32 TAdMultiSelGameModeGC__data_805D69F0;
-s32 TAdMultiSelGameModeGC__sub_80300850(void);
 s32 TAdMultiSelGameModeGC__sub_80300124(void *self, s32 mode, u32 idx);
 s32 get_localized_text_entry(s32, s32);
 void set_selected_index__17TWindowSubComCardFPvs(s32, s16);
@@ -129,6 +138,29 @@ void run_task__21TAdMultiSelGameModeGCFv(Self_80300770 *self) {
         &Self_80300770::m3, &Self_80300770::m4,
     };
     (self->*tbl[self->state])();
+}
+s32 TAdMultiSelGameModeGC__sub_80300850(void) {
+    s32 m;
+    s32 i;
+    if (TAdMultiSelGameModeGC__data_805D69F0 == 2) {
+        return 0;
+    }
+    m = TObjEneDolmOlm__sub_80300CF0();
+    for (i = 0; i < 4; i++) {
+        if (TAdMultiPlyChrSelectGC__sub_802C64D0(i) != 0) {
+            s32 t = get_char_table_entry__23TAdSinglePlyChrSelectGCFi(i)->f364 + 1;
+            if ((u32)t < (u32)m) {
+                m = t;
+            }
+        }
+    }
+    if (m < 20) {
+        return 0;
+    }
+    if (m < 40) {
+        return 1;
+    }
+    return (m < 80 ? -1 : 0) + 3;
 }
 
 }
