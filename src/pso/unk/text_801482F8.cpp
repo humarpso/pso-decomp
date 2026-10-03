@@ -190,6 +190,104 @@ struct VObj18_801489B8 : VBase18_801489B8 {
 
 typedef struct Vec_801489B8 { f32 x, y, z; } Vec_801489B8;
 
+struct VBase_18_f3aa6a { char pad[0x18]; };
+
+struct VObj_18_f3aa6a : VBase_18_f3aa6a {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual M2C_UNK m86(M2C_UNK);
+};
+
+struct Vec_8014854C { f32 x, y, z; };
+
+struct Pkt_8014854C { u16 h0; u16 id; u16 h4; s16 ang; u8 pad8[4]; Vec_8014854C pos; };
+
+struct Lim_8014854C { u8 pad0[8]; s32 lim; };
+
 extern "C" {
 s32 approach_angle_limited(s32, s32, s32);
 void update_standing__11TObjNpcBaseFPv(u8 *arg0);
@@ -216,6 +314,33 @@ extern const f32 lbl_805DB1D4;
 extern const f32 lbl_805DB1D8;
 extern const f32 lbl_805DB1DC;
 void update_wandering__11TObjNpcBaseFPv(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+u16 obj_getField1c(void *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 check_player_flag1__6TLobbyFPv(void *);
+M2C_UNK update_active_player__11TCameraCtrlFv(void);
+M2C_UNK update_battle_camera__11TCameraCtrlFv(void);
+u32 create_conversation_camera(int);
+M2C_UNK end_conversation_camera(void);
+M2C_UNK begin_conversation_camera(void);
+s32 angle_difference_abs(s32, s32);
+s32 approach_angle_limited(s32, s32, s32);
+M2C_UNK send_6x3E__10TNpcPlayerFi(void *);
+M2C_UNK init_6x3E_packet__10TNpcPlayerFPv(void *);
+void update_collisions__10TObjPlayerFPv(void *);
+M2C_UNK send_code_45_1__10TObjPlayerFi(void *);
+u32 get_player_by_client_id();
+void *__ct__12TQuestThreadFv(void *, u32, s32);
+void *__nw__7TObjectFUl(u32);
+s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
+s32 is_not_split_screen__13TRaderMapCoreFv(void);
+M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+extern const f64 lbl_8043F550[];
+extern s32 lbl_805D53A0;
+extern u32 lbl_805D5EE8;
+extern u32 lbl_805D5EEC;
+void TCameraCtrl__sub_8014854C(u8 *arg0);
 }
 
 extern "C" {
@@ -250,6 +375,141 @@ void handle_message_event__17TObjNpcFemaleBaseFPvUs(void *arg0, u16 arg1) {
             M2C_FIELD(arg0, u16 *, 0x338) = 0xFFFFU;
         }
     }
+}
+
+#define F(T, o) M2C_FIELD(arg0, T *, o)
+void TCameraCtrl__sub_8014854C(u8 *arg0) {
+    Pkt_8014854C pkt1;
+    Pkt_8014854C pkt2;
+    Vec_8014854C d;
+    s32 ang;
+    void *m;
+    u32 p;
+    if (F(u16, 0x94) != lbl_805D53A0 || F(void *, 0x2A8) == 0 || F(s32, 0x3A8) <= 0) {
+        F(s16, 0x328) = 3;
+    }
+    switch (F(s16, 0x328)) {
+    case 0:
+        VecCopy__FP3VecPC3Vec(&d, F(u8 *, 0x2A8) + 0x38);
+        TBoss6Type1__sub_803D9370(&d, arg0 + 0x38);
+        ang = lbl_8043F550[0] * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z);
+        switch (F(s32, 0x3AC)) {
+        case 0x3E9:
+        case 0x3EA:
+        case 0x3EB:
+        case 0x41A:
+        case 0x41B:
+        case 0x41F:
+            F(s16, 0x328) = 1;
+            ((VObj_18_f3aa6a *)arg0)->m86(0);
+            init_6x3E_packet__10TNpcPlayerFPv(&pkt1);
+            pkt1.id = obj_getField1c(F(void *, 0x2A8));
+            VecCopy__FP3VecPC3Vec(&pkt1.pos, F(u8 *, 0x2A8) + 0x38);
+            pkt1.ang = ang + 0x8000;
+            send_6x3E__10TNpcPlayerFi(&pkt1);
+            break;
+        default:
+            if (angle_difference_abs(F(s32, 0x60), ang) < F(Lim_8014854C *, 0x350)->lim) {
+                F(s16, 0x328) = 1;
+                F(s32, 0x60) = ang;
+                ((VObj_18_f3aa6a *)arg0)->m86(0);
+                init_6x3E_packet__10TNpcPlayerFPv(&pkt2);
+                pkt2.id = obj_getField1c(F(void *, 0x2A8));
+                VecCopy__FP3VecPC3Vec(&pkt2.pos, F(u8 *, 0x2A8) + 0x38);
+                pkt2.ang = F(s32, 0x60) + 0x8000;
+                send_6x3E__10TNpcPlayerFi(&pkt2);
+            } else {
+                F(s32, 0x60) = approach_angle_limited(F(s32, 0x60), ang, F(Lim_8014854C *, 0x350)->lim);
+            }
+            break;
+        }
+        break;
+    case 1:
+        F(s16, 0x328) = 2;
+        if (is_not_split_screen__13TRaderMapCoreFv() == 0) {
+            switch (F(s32, 0x3AC)) {
+            case 0x3E9:
+                F(u32, 0x3B4) = create_conversation_camera(7);
+                update_battle_camera__11TCameraCtrlFv();
+                break;
+            case 0x3EA:
+                F(u32, 0x3B4) = create_conversation_camera(9);
+                update_battle_camera__11TCameraCtrlFv();
+                break;
+            case 0x3EB:
+                F(u32, 0x3B4) = create_conversation_camera(8);
+                update_battle_camera__11TCameraCtrlFv();
+                break;
+            case 0x41A:
+                F(u32, 0x3B4) = create_conversation_camera(0x11);
+                update_battle_camera__11TCameraCtrlFv();
+                break;
+            case 0x41B:
+                F(u32, 0x3B4) = create_conversation_camera(0x12);
+                update_battle_camera__11TCameraCtrlFv();
+                break;
+            case 0x41F:
+                F(u32, 0x3B4) = create_conversation_camera(0x13);
+                update_battle_camera__11TCameraCtrlFv();
+                break;
+            default:
+                begin_conversation_camera();
+                break;
+            }
+        }
+        if (F(s32, 0x3AC) >= 100 && F(s32, 0x3AC) < 1000 && lbl_805D5EE8 != 0 && all_parents_unqueued_for_destruction__7TObjectFv(lbl_805D5EE8) != 0) {
+            m = __nw__7TObjectFUl(0x194);
+            if (m != 0) {
+                m = __ct__12TQuestThreadFv(m, lbl_805D5EE8, F(s32, 0x3A8));
+            }
+            F(void *, 0x3B0) = m;
+        } else if (F(s32, 0x3AC) >= 1000 && lbl_805D5EEC != 0 && all_parents_unqueued_for_destruction__7TObjectFv(lbl_805D5EEC) != 0) {
+            m = __nw__7TObjectFUl(0x194);
+            if (m != 0) {
+                m = __ct__12TQuestThreadFv(m, lbl_805D5EEC, F(s32, 0x3A8));
+            }
+            F(void *, 0x3B0) = m;
+        }
+        break;
+    case 2:
+        if ((F(u32, 0x3B0) != 0 && all_parents_unqueued_for_destruction__7TObjectFv(F(u32, 0x3B0)) == 0) || F(u32, 0x3B0) == 0) {
+            F(s16, 0x328) = 3;
+            F(s32, 0x2AC) = 0;
+            switch (F(s32, 0x3AC)) {
+            case 0x3E9:
+            case 0x3EA:
+            case 0x3EB:
+            case 0x41A:
+            case 0x41B:
+            case 0x41F:
+                update_active_player__11TCameraCtrlFv();
+                if (F(void *, 0x3B4) != 0) {
+                    queue_destruction__7TObjectFv(F(void *, 0x3B4));
+                    F(void *, 0x3B4) = 0;
+                }
+                break;
+            default:
+                end_conversation_camera();
+                break;
+            }
+            if (F(void *, 0x2A8) != 0 && lbl_805D53A0 == obj_getField1c(F(void *, 0x2A8))) {
+                p = ((u32 (*)(s32))get_player_by_client_id)(lbl_805D53A0);
+                if (p != 0 && check_player_flag1__6TLobbyFPv((void *)p) != 0) {
+                    send_code_45_1__10TObjPlayerFi((void *)p);
+                }
+            }
+        }
+        break;
+    case 3:
+        F(s16, 0x326) = 0;
+        F(s16, 0x328) = 0;
+        F(u16, 0x338) = 0xFFFF;
+        F(u16, 0x94) = 0xFFFF;
+        F(void *, 0x2A8) = 0;
+        F(void *, 0x3B0) = 0;
+        break;
+    }
+    update_collisions__10TObjPlayerFPv(arg0);
 }
 
 void update_wandering__11TObjNpcBaseFPv(u8 *arg0) {

@@ -31,6 +31,39 @@ struct Pad_801A5C4C {
 
 struct Masks_801A5C4C { u32 m[4]; };
 
+struct Src_801A5F1C {
+    u8 pad0[8];
+    u32 b0, b1, b2, b3;
+    u16 trig_l;
+    u16 trig_r;
+    s16 sx, sy, cx, cy;
+};
+
+struct Pad_801A5F1C {
+    u32 hold;
+    u32 rel;
+    u32 press;
+    u32 up;
+    u16 trig_l;
+    u16 trig_r;
+    s16 sx, sy, cx, cy;
+    s32 ang0;
+    s32 ang1;
+    f32 mag0;
+    f32 mag1;
+    s16 rep[14];
+    u32 prev_hold;
+    u32 prev_press;
+};
+
+struct Set_801A5F1C {
+    Src_801A5F1C *src[4];
+    s32 status[4];
+    Pad_801A5F1C pads[4];
+};
+
+struct Obj_801A5F1C { u8 pad0[0x94]; s32 base[4]; };
+
 extern "C" {
 M2C_UNK check_and_read__16TKeyBoardControlFi(void *);
 void TKeyBoardControl__sub_801A5EA0(u8 arg0);
@@ -62,6 +95,26 @@ extern u8 lbl_805D5D09;
 extern s8 lbl_805D5D0C[4];
 extern const f32 lbl_805DC0B4;
 void TKeyBoardControl__sub_801A5C4C(void);
+s32 is_split_screen();
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 newton_sqrtf(f32);
+void TKeyBoardControl__sub_801A5C4C(void);
+void TKeyBoardControl__sub_801A6510(void);
+void fn_801A6A5C(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
+void fn_801A6AF4(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
+M2C_UNK update_button_hold_counters(int);
+extern const f64 lbl_80446A00[];
+extern Src_801A5F1C lbl_804C2308;
+extern RecoveredGlobal_801A5EC4_lbl_8050E208 lbl_8050E208;
+extern u8 lbl_8050E3B8[];
+extern s32 lbl_805D34C8;
+extern u8 *lbl_805D4DF0;
+extern const f32 lbl_805DC0B8;
+extern const f32 lbl_805DC0BC;
+extern const f32 lbl_805DC0C0;
+extern const f32 lbl_805DC0C4;
+extern const f32 lbl_805DC0C8;
+void controller_stuff__Fv(void);
 }
 
 extern "C" {
@@ -207,5 +260,156 @@ void TKeyBoardControl__sub_801A5EC4(void) {
         update_button_hold_counters((int) (temp_r31));
     }
 }
+#pragma push
+#pragma fp_contract on
+void controller_stuff__Fv(void) {
+    s32 i;
+    Src_801A5F1C **pp;
+    Set_801A5F1C *set;
+    Pad_801A5F1C *pad;
+    u32 old;
+    s32 k;
+    s32 j;
+    Src_801A5F1C *src;
+    s32 a;
+    s32 b;
+    f32 fx;
+    f32 fy;
+    f32 gx;
+    f32 gy;
+    f32 m;
+    if (lbl_805D34C8 != 0) {
+        TKeyBoardControl__sub_801A6510();
+        for (k = 0; k < 2; k++) {
+            if (k == 0) {
+                pad = ((Set_801A5F1C *)&lbl_8050E208)->pads;
+                pp = (Src_801A5F1C **)&lbl_8050E208;
+                set = (Set_801A5F1C *)&lbl_8050E208;
+            } else {
+                pad = ((Set_801A5F1C *)lbl_8050E3B8)->pads;
+                pp = (Src_801A5F1C **)lbl_8050E3B8;
+                set = (Set_801A5F1C *)lbl_8050E3B8;
+            }
+            for (i = 0; i < 4; pad++, i++) {
+                src = *pp++;
+                if (set->status[i] == 1) {
+                    old = pad->hold;
+                    pad->hold = src->b0;
+                    pad->rel = src->b1;
+                    pad->press = src->b2;
+                    pad->up = src->b3;
+                    pad->trig_r = src->trig_r;
+                    pad->trig_l = src->trig_l;
+                    fx = src->sx;
+                    pad->sx = fx;
+                    fy = src->sy;
+                    pad->sy = fy;
+                    gx = src->cx;
+                    pad->cx = gx;
+                    gy = -src->cy;
+                    pad->cy = gy;
+                    if (lbl_805DC0B8 < fx && fx <= lbl_805DC0BC) {
+                        fx = lbl_805DC0C0;
+                        pad->sx = 0;
+                    }
+                    if (lbl_805DC0B8 < fy && fy <= lbl_805DC0BC) {
+                        fy = lbl_805DC0C0;
+                        pad->sy = 0;
+                    }
+                    if (lbl_805DC0B8 < gx && gx <= lbl_805DC0BC) {
+                        gx = lbl_805DC0C0;
+                        pad->cx = 0;
+                    }
+                    if (lbl_805DC0B8 < gy && gy <= lbl_805DC0BC) {
+                        gy = lbl_805DC0C0;
+                        pad->cy = 0;
+                    }
+                    m = newton_sqrtf(fx * fx + fy * fy);
+                    if (lbl_805DC0C0 != m) {
+                        m *= lbl_805DC0C4;
+                    }
+                    if (m > lbl_805DC0C8) {
+                        m = lbl_805DC0C8;
+                    }
+                    pad->mag0 = m;
+                    m = newton_sqrtf(gx * gx + gy * gy);
+                    if (lbl_805DC0C0 != m) {
+                        m *= lbl_805DC0C4;
+                    }
+                    if (m > lbl_805DC0C8) {
+                        m = lbl_805DC0C8;
+                    }
+                    pad->mag1 = m;
+                    pad->hold &= ~0x30000;
+                    pad->rel &= ~0x30000;
+                    pad->press &= ~0x30000;
+                    pad->up &= ~0x30000;
+                    if (pad->trig_l > 0x70) {
+                        pad->hold |= 0x10000;
+                        if (!(old & 0x10000)) {
+                            pad->press |= 0x10000;
+                        }
+                    } else {
+                        pad->rel |= 0x10000;
+                        if (old & 0x10000) {
+                            pad->up |= 0x10000;
+                        }
+                    }
+                    if (pad->trig_r > 0x70) {
+                        pad->hold |= 0x20000;
+                        if (!(old & 0x20000)) {
+                            pad->press |= 0x20000;
+                        }
+                    } else {
+                        pad->rel |= 0x20000;
+                        if (old & 0x20000) {
+                            pad->up |= 0x20000;
+                        }
+                    }
+                    old = pad->prev_hold;
+                    pad->prev_hold = pad->hold &= 0xC30FFFFF;
+                    pad->prev_press = pad->press &= 0xC30FFFFF;
+                    fn_801A6AF4((u8 *)pad, pad->sx, pad->sy, old);
+                    fn_801A6A5C((u8 *)pad, pad->cx, pad->cy, old);
+                    if (lbl_805D4DF0 != NULL) {
+                        if (is_split_screen() != 0) {
+                            a = ((Obj_801A5F1C *)lbl_805D4DF0)->base[i] + (s32)(lbl_80446A00[0] * get_ad_end_text_start__10TObjPlayerFv(fx, fy));
+                            b = ((Obj_801A5F1C *)lbl_805D4DF0)->base[i] + (s32)(lbl_80446A00[0] * get_ad_end_text_start__10TObjPlayerFv(gx, gy));
+                        } else {
+                            a = *(s32 *)(lbl_805D4DF0 + 0x94) + (s32)(lbl_80446A00[0] * get_ad_end_text_start__10TObjPlayerFv(fx, fy));
+                            b = *(s32 *)(lbl_805D4DF0 + 0x94) + (s32)(lbl_80446A00[0] * get_ad_end_text_start__10TObjPlayerFv(gx, gy));
+                        }
+                    } else {
+                        a = (s32)(lbl_80446A00[0] * get_ad_end_text_start__10TObjPlayerFv(fx, fy));
+                        b = (s32)(lbl_80446A00[0] * get_ad_end_text_start__10TObjPlayerFv(gx, gy));
+                    }
+                    pad->ang0 = (u16)a;
+                    pad->ang1 = (u16)b;
+                    update_button_hold_counters((int)pad);
+                } else {
+                    pad->hold = lbl_804C2308.b0;
+                    pad->rel = lbl_804C2308.b1;
+                    pad->press = lbl_804C2308.b2;
+                    pad->up = lbl_804C2308.b3;
+                    pad->trig_r = lbl_804C2308.trig_r;
+                    pad->trig_l = lbl_804C2308.trig_l;
+                    pad->sx = lbl_804C2308.sx;
+                    pad->sy = lbl_804C2308.sy;
+                    pad->cx = lbl_804C2308.cx;
+                    pad->cy = lbl_804C2308.cy;
+                    pad->ang0 = 0;
+                    pad->mag0 = lbl_805DC0C0;
+                    for (j = 0; j < 14; j++) {
+                        pad->rep[j] = 0;
+                    }
+                    pad->prev_hold = 0;
+                    pad->prev_press = 0;
+                }
+            }
+        }
+        TKeyBoardControl__sub_801A5C4C();
+    }
+}
+#pragma pop
 
 }
