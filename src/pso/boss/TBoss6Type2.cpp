@@ -1705,6 +1705,64 @@ void TBoss6Type2__sub_802BC754(u8 *arg0) {
 extern int fold_flush_13;
 #pragma pop
 
+struct Anim_802BCD2C { u8 pad[4]; u32 n; };
+struct Trk_802BCD2C { Anim_802BCD2C *anim; f32 t; f32 dt; f32 a; f32 da; u8 pad[0x8]; };
+struct Obj_802BCD2C {
+    u8 pad0[0x490];
+    s32 f490;
+    s32 f494;
+    Trk_802BCD2C trk[1];
+};
+extern const s32 TBoss6Type2__data_805DE4B8;
+extern const s32 lbl_805DE4BC;
+
+void TBoss6Type2__sub_802BCD2C(Obj_802BCD2C *self) {
+    s32 i;
+    Trk_802BCD2C *e;
+    f32 n;
+    f32 lim;
+
+    for (i = 0; i < TBoss6Type2__data_805DE4B8; i++) {
+        if (i != lbl_805DE4BC) {
+            e = &self->trk[i];
+            n = (f32)e->anim->n;
+            e->t += e->dt;
+            if (e->t >= n) {
+                e->t -= n;
+            }
+            if (TBoss6Type2__data_805DE410 != e->a) {
+                if ((e->a += e->da) >= TBoss6Type2__data_805DE40C) {
+                    e->a = TBoss6Type2__data_805DE410;
+                }
+            }
+        }
+    }
+    e = &self->trk[lbl_805DE4BC];
+    n = (f32)e->anim->n;
+    e->t += e->dt;
+    switch (self->f494) {
+    case 0:
+        if (e->t >= n) {
+            e->t -= n;
+        }
+        break;
+    case 1:
+        break;
+    case 2:
+        lim = n - TBoss6Type2__data_805DE40C;
+        if (e->t >= lim) {
+            e->t = lim;
+            TBoss6Type2__sub_802BCC54(self, TBoss6Type2__data_804DF9D4[self->f490 * 4 + 1]);
+        }
+        break;
+    }
+    if (TBoss6Type2__data_805DE410 != e->a) {
+        if ((e->a += e->da) >= TBoss6Type2__data_805DE40C) {
+            e->a = TBoss6Type2__data_805DE410;
+        }
+    }
+}
+
 #pragma push
 #pragma inline_depth(1)
 #pragma auto_inline off

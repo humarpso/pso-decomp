@@ -19,16 +19,41 @@ extern "C" {
 
 s32 TLobby__sub_8006FBE4(void);
 s32 mix_seed__6TLobbyFUs(u16 arg0);
-s32 TLobby__sub_8006FAE4();
+u16 TLobby__sub_8006FAE4(void);
 u32 get_player_by_client_id(s32);
 
 s32 mix_seed__6TLobbyFUs(u16 arg0) {
     s32 temp_r3;
 
-    temp_r3 = TLobby__sub_8006FAE4();
+    temp_r3 = ((s32 (*)(void))TLobby__sub_8006FAE4)();
     return (temp_r3 << 0x10) | (temp_r3 ^ arg0);
 }
 
+s32 TLobby__sub_80071670(u16);
+s32 rand();
+extern const f32 lbl_805D9100;
+extern const f32 lbl_805D9104;
+
+u16 TLobby__sub_8006FAE4(void) {
+    f32 temp_f31;
+    f32 temp_f30;
+    s32 temp_r3;
+    u16 var_r30;
+    s32 var_r29;
+
+    var_r29 = 0;
+loop_1:
+    var_r30 = (u16) (s32) (lbl_805D9100 * (lbl_805D9104 * (f32) rand()));
+    temp_r3 = TLobby__sub_80071670(var_r30);
+    if ((temp_r3 < 4) || (temp_r3 > 0xC)) {
+        var_r29 += 1;
+        var_r30 = 0x3938;
+        if (var_r29 < 8) {
+            goto loop_1;
+        }
+    }
+    return var_r30;
+}
 typedef char RecoveredGlobal_8006FBAC_lbl_8048C9D8_size[sizeof(RecoveredGlobal_8006FBAC_lbl_8048C9D8) == 0x748 ? 1 : -1];
 void TLobby__sub_8006FBAC(void) {
     if (is_flag_set__6TLobbyFv() != 0) {

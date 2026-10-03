@@ -156,7 +156,7 @@ void validate_target__13TWindowLockOnFPv(u8 *arg0);
 bool TWindowLockOn__sub_80262DC4(s32 arg0);
 void refresh_ground_item__13TWindowLockOnFv(void);
 void TWindowLockOn__sub_80262FDC(u8 *arg0);
-M2C_UNK TWindowLockOn__update_for_enemy(s32, s32);
+void TWindowLockOn__update_for_enemy(s32, s32);
 M2C_UNK TWindowLockOn__update_for_item(s32 a0, s32 a1);
 M2C_UNK TWindowLockOn__update_for_other_player(s32, s32);
 void update_for_target__13TWindowLockOnFii(s32 arg0, s32 arg1);
@@ -266,6 +266,115 @@ void refresh_ground_item__13TWindowLockOnFv(void) {  }
 void TWindowLockOn__sub_80262FDC(u8 *arg0) {
     update_photon_blast_player_marker(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0), (u32) M2C_FIELD(arg0, u16 *, 0x60));
 }
+
+struct Obj_80263014;
+typedef void (Obj_80263014::*Cb_80263014)();
+struct Lock_80263014 {
+    u8 pad0[0x20];
+    s16 player;
+    u8 pad22[2];
+    u8 sub[0x34 - 0x24];
+    f32 dist;
+    f32 w;
+    f32 h;
+    u8 pad40[0x50 - 0x40];
+    s32 i50;
+    u8 pad54[0x6C - 0x54];
+    f32 scale;
+    Cb_80263014 cb;
+};
+struct Ent_80263014 { u8 pad0[8]; f32 y; u8 padc[0x14 - 0xC]; f32 x14; u8 pad18[8]; f32 x20; f32 x24; };
+struct Ent2_80263014 { u8 pad0[0x24]; s32 color; };
+struct Data_80263014 {
+    u8 pad0[0x6C];
+    u8 m6c[0x20C - 0x6C];
+    s32 names[5];
+    s32 colors[5];
+    Cb_80263014 cb;
+};
+
+s32 obj_testFlag_2E4(void *, int);
+s32 is_split_screen(void);
+s32 get_message_10__20TWindowSubStatusDispFPv(int);
+s32 enemy_name_for_rt_index(int);
+u32 calc_text_width(int);
+int get_field_20__17TWindowSubComCardFPv(int);
+M2C_UNK reset_float_field__15TWindowHelpItemFPv(int);
+M2C_UNK set_default_status__17TWindowDuelResultFPvi(void *, int);
+extern Data_80263014 lbl_804D0088;
+extern const f32 lbl_805DD104;
+extern const f32 lbl_805DD108;
+extern const f32 lbl_805DD10C;
+
+#pragma push
+#pragma fp_contract on
+#pragma opt_propagation off
+#define arg0 ((Lock_80263014 *)a0)
+#define obj ((void *)a1)
+void TWindowLockOn__update_for_enemy(s32 a0, s32 a1) {
+    Data_80263014 *d = &lbl_804D0088;
+    u32 width;
+    s32 e;
+    s32 kind;
+    s32 idx;
+    Ent_80263014 *p;
+    u32 w2;
+    s32 *np;
+
+    init_window_layout_entries(arg0->sub, d->m6c, arg0->player);
+    arg0->cb = d->cb;
+    e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);
+    set_default_status__17TWindowDuelResultFPvi((void *)e, get_message_10__20TWindowSubStatusDispFPv(0xA5));
+    reset_float_field__15TWindowHelpItemFPv(e);
+    width = calc_text_width(get_field_20__17TWindowSubComCardFPv(e));
+    e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
+    set_default_status__17TWindowDuelResultFPvi((void *)e, enemy_name_for_rt_index(get_target_id__13TWindowLockOnFPv(obj)));
+    reset_float_field__15TWindowHelpItemFPv(e);
+    arg0->w = (f32)calc_text_width(get_field_20__17TWindowSubComCardFPv(e));
+    arg0->h = lbl_805DD104;
+    if (is_split_screen() == 0) {
+        arg0->h += lbl_805DD108;
+    }
+    if (obj_testFlag_2E4(obj, 0x40) != 0) {
+        kind = 4;
+    } else if (obj_testFlag_2E4(obj, 1) != 0) {
+        kind = 0;
+    } else if (obj_testFlag_2E4(obj, 2) != 0) {
+        kind = 1;
+    } else if (obj_testFlag_2E4(obj, 4) != 0) {
+        kind = 2;
+    } else if (obj_testFlag_2E4(obj, 8) != 0) {
+        kind = 3;
+    } else {
+        kind = 4;
+    }
+    e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 2);
+    np = d->names;
+    set_default_status__17TWindowDuelResultFPvi((void *)e, np[kind]);
+    reset_float_field__15TWindowHelpItemFPv(e);
+    ((Ent_80263014 *)e)->y = lbl_805DD10C + (f32)width;
+    np = d->colors;
+    ((Ent2_80263014 *)e)->color = np[kind];
+    w2 = calc_text_width(get_field_20__17TWindowSubComCardFPv(e));
+    w2 += width;
+    if ((f32)w2 > arg0->w) {
+        arg0->w = (f32)w2;
+    }
+    arg0->w += TWindowLockOn__data_805DD110;
+    arg0->dist = get_target_distance__13TWindowLockOnFv(0x1E) - arg0->h * arg0->scale;
+    arg0->i50 = 0;
+    p = (Ent_80263014 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 7);
+    p->x14 = arg0->w - TWindowLockOn__data_805DD110;
+    p->x20 = (f32)get_field_2b8__14TItemProShieldFPv((Ent_80262E90 *)obj);
+    p->x24 = (f32)*(s16 *)((u8 *)obj + 0x32C);
+    p = (Ent_80263014 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 8);
+    p->x14 = arg0->w - TWindowLockOn__data_805DD110;
+    p->x20 = (f32)obj_getS16_2BA((Ent_80262E90 *)obj);
+    p->x24 = (f32)*(s16 *)((u8 *)obj + 0x32E);
+}
+#undef arg0
+#undef obj
+#pragma pop
 
 #pragma push
 #pragma fp_contract on

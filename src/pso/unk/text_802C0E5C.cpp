@@ -42,7 +42,7 @@ struct VObj : Base {
 
 struct Vec_802C1660 { f32 x, y, z; };
 
-struct Entry_802C1660 { s32 a; s32 b; s32 c; f32 d; s32 e; };
+struct Entry_802C1660 { s32 a; f32 b; f32 c; f32 d; s32 e; };
 
 struct Obj_802C1660 {
     u8 pad0[0x98];
@@ -546,11 +546,11 @@ void TObjPlayer__sub_802C17FC(u8 *arg0) {
     Mtx_802C17FC m;
     s32 temp_r0;
 
-    M2C_FIELD(arg0, f32 *, 0xA4) += ((Ent_802C17FC *)&lbl_804718CC)[M2C_FIELD(arg0, s32 *, 0xC8)].f4;
+    M2C_FIELD(arg0, f32 *, 0xA4) += lbl_804718CC[M2C_FIELD(arg0, s32 *, 0xC8)].b;
     if (((s32 (*)(void *))TObjPlayer__sub_802C1428)(arg0) == 0) {
         M2C_FIELD(arg0, f32 *, 0xA4) = lbl_805DE4F8;
     }
-    M2C_FIELD(arg0, f32 *, 0xA8) += ((Ent_802C17FC *)&lbl_804718CC)[M2C_FIELD(arg0, s32 *, 0xC8)].f8;
+    M2C_FIELD(arg0, f32 *, 0xA8) += lbl_804718CC[M2C_FIELD(arg0, s32 *, 0xC8)].c;
     if (M2C_FIELD(arg0, f32 *, 0xA8) > (f32) (M2C_FIELD(arg0, Anim_802C17FC **, 0x9C)->n - 1)) {
         M2C_FIELD(arg0, f32 *, 0xA8) = lbl_805DE4F8;
     }

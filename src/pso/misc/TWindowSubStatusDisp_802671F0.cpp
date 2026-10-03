@@ -305,6 +305,33 @@ void add_status_entry__20TWindowSubStatusDispFPvcii(void *arg0, s8 arg1, s32 arg
     }
 }
 
+void TWindowSubStatusDisp__sub_80258BB8(void *, s32, s32, s32);
+extern const f32 lbl_805DD198;
+void TWindowSubStatusDisp__sub_802673A8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
+    u16 *e;
+    s32 i;
+    f32 k;
+    u8 *p;
+
+    if (*(s16 *)(arg0 + 0x72) < *(s16 *)(arg0 + 0x76)) {
+        e = (u16 *)((void *(*)(void *, s32))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, *(s16 *)(arg0 + 0x72));
+        TWindowSubStatusDisp__sub_80258BB8(e, arg1, arg2, arg3);
+        if (arg4 != 0) {
+            *e |= 0x400;
+        }
+        if (arg5 != 0) {
+            k = lbl_805DD198;
+            i = 0;
+            *e |= 0x1000;
+            while (i < *(s16 *)(arg0 + 0x76)) {
+                p = (u8 *)((void *(*)(void *, s32))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, i);
+                *(f32 *)(p + 0xC) = k * (f32)i++;
+            }
+        }
+        (*(s16 *)(arg0 + 0x72))++;
+    }
+}
+
 void add_inventory_item__20TWindowSubStatusDispFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s16 temp_r4;
     if (arg1 != 0) {

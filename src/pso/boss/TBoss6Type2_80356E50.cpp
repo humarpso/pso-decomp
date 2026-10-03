@@ -13,4 +13,34 @@ void TBoss6Type2__sub_80356E50(s32 arg0, s32 arg1, s32 arg2) {
     TBoss6Type2__sub_80356F28(0, arg0, arg1, arg2, arg0);
 }
 
+struct Pkt_80356F28 { u8 b[0x40]; };
+
+void send_6xAD_olga_flow_subordinate_boss_actions(void *);
+void TBoss6Type2__sub_803570C8(void *);
+s32 rand(void);
+extern const u8 lbl_805E0018;
+extern const u8 lbl_805E0019;
+extern const f32 lbl_805E001C;
+extern const f32 lbl_805E0020;
+extern const f32 lbl_805E0024;
+
+s32 TBoss6Type2__sub_80356F28(s32 kind, s32 ids, s32 n, s32 force, s32 unused) {
+    Pkt_80356F28 pkt;
+    s32 i;
+
+    TBoss6Type2__sub_803570C8(&pkt);
+    for (i = 0; i < n; i++) {
+        s32 off = ((s32 *)ids)[i] + 7;
+        u8 flags = 0;
+        if (lbl_805E001C * (f32)rand() > lbl_805E0020) {
+            flags = lbl_805E0018;
+        }
+        if (force != 0 || lbl_805E001C * (f32)rand() < lbl_805E0024) {
+            flags |= lbl_805E0019;
+        }
+        pkt.b[off] = flags | (s8)kind;
+    }
+    send_6xAD_olga_flow_subordinate_boss_actions(&pkt);
+}
+
 }

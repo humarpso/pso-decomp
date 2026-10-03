@@ -951,6 +951,7 @@ pso/misc/TLobby_8006F278_8006FA54.cpp:
 
 pso/misc/TLobby_8006F278_8006FAA8.cpp:
 	.text       start:0x8006FAA8 end:0x8006FC34
+	.rodata     start:0x804385A8 end:0x804385B0
 
 pso/misc/TQuestVmDownLoadServer_8006FC34.cpp:
 	.text       start:0x8006FC34 end:0x8006FF4C
@@ -14408,6 +14409,7 @@ pso/unk/text_80356E30.cpp:
 
 pso/boss/TBoss6Type2_80356E50.cpp:
 	.text       start:0x80356E50 end:0x80357058
+	.rodata     start:0x804793B8 end:0x804793C0
 
 pso/unk/text_80357058.cpp:
 	.text       start:0x80357058 end:0x80357734

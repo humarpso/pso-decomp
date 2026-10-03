@@ -744,5 +744,73 @@ s16 TWindowDD__sub_80346434(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     }
     return v;
 }
+s32 TWindowDD__sub_80346640(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
+    s32 var_r31;
+    s16 temp_r31;
+
+    switch (arg1) {
+    case 0:
+        var_r31 = ((s16 (*)(s32, s32))TWindowDD_read_indexed_value)(TWindowDD__sub_80346DB8((s32) arg0), arg3);
+        if (var_r31 == -0x1E) {
+            switch (((int (*)(u8 *)) TWindowDD__sub_80348398)(arg0)) {
+            case 1:
+                var_r31 = 0x10;
+                break;
+            case 0:
+                var_r31 = 0xF;
+                break;
+            case 3:
+                var_r31 = 0x12;
+                break;
+            case 2:
+                var_r31 = 0x11;
+                break;
+            case 4:
+                var_r31 = 0x13;
+                break;
+            case 5:
+                var_r31 = 0x14;
+                break;
+            }
+        }
+        break;
+    case 1:
+    case 2:
+    case 6:
+        var_r31 = -0x3C;
+        break;
+    case 3:
+        temp_r31 = TWindowDD_read_resolved_value(arg2, arg3);
+        if (((s32 (*)(s16)) TWindowDD__sub_80347858)(temp_r31) != 0) {
+            var_r31 = ((s16 (*)(s32, s32))TWindowDD_read_indexed_value)(0xF, temp_r31 - 0x37);
+        } else {
+            var_r31 = -0x3C;
+        }
+        break;
+    case 5:
+        var_r31 = ((s16 (*)(s32, s32))TWindowDD_read_indexed_value)(0xE, arg3);
+        break;
+    case 7:
+        var_r31 = ((s16 (*)(s32, s32))TWindowDD_read_indexed_value)(0xF, arg3);
+        break;
+    case 8:
+        var_r31 = ((s16 (*)(s32, s32))TWindowDD_read_indexed_value)(0x10, *(s16 *)(arg0 + 0xFC) - 0x37);
+        break;
+    case 9:
+        var_r31 = -0x32;
+        break;
+    case 10:
+        if (TWindowDD_read_resolved_value(0x118, arg3) == 0x685) {
+            var_r31 = -0x3C;
+        } else {
+            var_r31 = -1;
+        }
+        break;
+    default:
+        var_r31 = -1;
+        break;
+    }
+    return var_r31;
+}
 
 }
