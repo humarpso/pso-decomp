@@ -1308,7 +1308,6 @@ pso/misc/TLobby_80242910.cpp
 pso/misc/TLobby_80243370.cpp
 pso/misc/TLobby_80244D2C.cpp
 pso/misc/TLobby_8024A148.cpp
-pso/misc/TLobby_802676A8.cpp
 pso/misc/TLobby_80269C6C.cpp
 pso/misc/TLobby_8026B06C.cpp
 pso/misc/TLobby_8026DE30.cpp
@@ -1828,7 +1827,6 @@ pso/misc/TShopEquipmentListWindow.cpp
 pso/misc/TShopEquipmentListWindow_8010ED54.cpp
 pso/misc/TShopEquipmentSellWindow_801047B4.cpp
 pso/misc/TShopEquipmentSellWindow_802115F4.cpp
-pso/misc/TShopEquipmentSellWindow_80267518.cpp
 pso/misc/TShopEquipmentSellWindow_8026CE78.cpp
 pso/misc/TShopEquipmentSellWindow_803094E8.cpp
 pso/misc/TShopEquipmentSequence.cpp
@@ -1839,7 +1837,6 @@ pso/misc/TShopGetItemWindow_8021F074.cpp
 pso/misc/TShopGetItemWindow_8021F0A4.cpp
 pso/misc/TShopItemTecSequence.cpp
 pso/misc/TShopJudgmentItemWindow_801B853C.cpp
-pso/misc/TShopJudgmentItemWindow_80267580.cpp
 pso/misc/TShopJudgmentItemWindow_8026DF00.cpp
 pso/misc/TShopSequence.cpp
 pso/misc/TShopWindowBase_80213FD0.cpp
@@ -2172,7 +2169,6 @@ pso/misc/TWindowSubMag_801B7E78.cpp
 pso/misc/TWindowSubMag_802559F8.cpp
 pso/misc/TWindowSubMag_80255E14.cpp
 pso/misc/TWindowSubMag_802627D8.cpp
-pso/misc/TWindowSubMag_80267BF8.cpp
 pso/misc/TWindowSubMag_80278760.cpp
 pso/misc/TWindowSubQuestBoard.cpp
 pso/misc/TWindowSubQuestBoardSelect.cpp
@@ -2182,11 +2178,7 @@ pso/misc/TWindowSubQuestBoard_8027D148.cpp
 pso/misc/TWindowSubQuestBoard_8027D1E8.cpp
 pso/misc/TWindowSubShortCut.cpp
 pso/misc/TWindowSubShortCutList.cpp
-pso/misc/TWindowSubShortCutList_80267020.cpp
-pso/misc/TWindowSubShortCutList_80267020_80267020.cpp
-pso/misc/TWindowSubShortCutList_80267020_802670A8.cpp
 pso/misc/TWindowSubShortCut_80246FB0.cpp
-pso/misc/TWindowSubShortMail.cpp
 pso/misc/TWindowSubShortMail_80131998.cpp
 pso/misc/TWindowSubShortMail_80131AA4.cpp
 pso/misc/TWindowSubShortMail_80246CB8.cpp
@@ -2227,10 +2219,6 @@ pso/misc/TWindowSubStatusDisp_8025AD5C_8025B334.cpp
 pso/misc/TWindowSubStatusDisp_8025AD5C_8025B514.cpp
 pso/misc/TWindowSubStatusDisp_8025AD5C_8025B5AC.cpp
 pso/misc/TWindowSubStatusDisp_8025AD5C_8025B784.cpp
-pso/misc/TWindowSubStatusDisp_80266FCC.cpp
-pso/misc/TWindowSubStatusDisp_802671F0_802671F0.cpp
-pso/misc/TWindowSubStatusDisp_802671F0_802674B0.cpp
-pso/misc/TWindowSubStatusDisp_802675E0.cpp
 pso/misc/TWindowSubStatusDisp_80268488.cpp
 pso/misc/TWindowSubStatusDisp_80268738.cpp
 pso/misc/TWindowSubStatusDisp_8026CE3C.cpp
@@ -4275,8 +4263,6 @@ pso/unk/text_8025CD10.cpp
 pso/unk/text_80263A20.cpp
 pso/unk/text_80266378.cpp
 pso/unk/text_80266388.cpp
-pso/unk/text_80267F38.cpp
-pso/unk/text_80267F9C.cpp
 pso/unk/text_80268384.cpp
 pso/unk/text_80269004.cpp
 pso/unk/text_8026934C.cpp
