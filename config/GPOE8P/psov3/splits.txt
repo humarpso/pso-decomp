@@ -5322,15 +5322,9 @@ pso/misc/TLobby_80134D74.cpp:
 pso/misc/TLobby_80134DA0.cpp:
 	.text       start:0x80134DA0 end:0x80134E30
 
-pso/unk/text_80134E30.cpp:
-	.text       start:0x80134E30 end:0x80136198
-	.sbss       start:0x805D5634 end:0x805D5640
-
 pso/misc/TPlyJoinLobbyEntry.cpp:
-	.text       start:0x80136198 end:0x801361E8
-
-pso/unk/text_801361E8.cpp:
-	.text       start:0x801361E8 end:0x80137188
+	.text       start:0x80134E30 end:0x80137188
+	.sbss       start:0x805D561C end:0x805D5640
 
 pso/misc/TLobby_80137188_80137188.cpp:
 	.text       start:0x80137188 end:0x8013731C
@@ -10800,12 +10794,9 @@ pso/misc/TWindowReturnCity.cpp:
 pso/misc/TWindowRoom.cpp:
 	.text       start:0x8026D504 end:0x8026D790
 
-pso/misc/TWindowSubStatusDisp_8026D790.cpp:
-	.text       start:0x8026D790 end:0x8026DCE0
-
 pso/misc/TWindowSetLevelUp.cpp:
-	.text       start:0x8026DCE0 end:0x8026DE30
-	.data       start:0x804D0908 end:0x804D0920
+	.text       start:0x8026D790 end:0x8026DE30
+	.data       start:0x804D0908 end:0x804D0948
 
 pso/misc/TLobby_8026DE30.cpp:
 	.text       start:0x8026DE30 end:0x8026DE94
