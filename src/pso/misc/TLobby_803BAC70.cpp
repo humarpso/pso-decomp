@@ -337,6 +337,8 @@ struct Info_803BF884 {
     s32 *surround;
 };
 
+struct Pair_803BD9E4 { s32 a; s32 b; };
+
 extern "C" {
 extern s8 lbl_805D74B8;
 void set_global_flag__6TLobbyFc(s8 arg0);
@@ -628,6 +630,8 @@ void TLobby__sub_803BF884(u8 reason, Info_803BF884 *info, Work_803BF884 *c);
 extern u32 lbl_80557348[];
 extern const f32 lbl_805E0C48;
 u32 TLobby__sub_803BD828(u32 arg0);
+extern RecoveredCallback_d26337a2813d lbl_805D74BC;
+void TLobby__sub_803BD9E4(Pair_803BD9E4 *arg0);
 }
 
 extern "C" {
@@ -1260,6 +1264,11 @@ void TLobby__sub_803BD9C0(void) {
 
 void TLobby__sub_803BD9E0(void) {
 }
+
+void TLobby__sub_803BD9E4(Pair_803BD9E4 *arg0) {
+    (*(Pair_803BD9E4 *)&lbl_805D74BC) = *arg0;
+}
+
 void TLobby__sub_803BD9F8(void) {
     lbl_805D747C = 0;
 }

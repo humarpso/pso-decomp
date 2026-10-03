@@ -150,6 +150,32 @@ typedef struct Help_80254CE4 {
     s32 item;
 } Help_80254CE4;
 
+typedef struct Stats_802549B0 {
+    s16 atp;
+    s16 ata;
+    s16 hp;
+    s16 dfp;
+    s16 evp;
+    s16 lck;
+    u8 padC[0xC];
+} Stats_802549B0;
+
+typedef struct Quest_802549B0 {
+    u8 pad0[2];
+    s16 f2;
+    u8 pad4[8];
+    s16 fc;
+} Quest_802549B0;
+
+typedef struct Help_802549B0 {
+    u8 pad0[0x20];
+    s16 client;
+    u8 pad22[0x4E];
+    u32 item;
+    u8 pad74[0x30];
+    s32 slot;
+} Help_802549B0;
+
 extern "C" {
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 M2C_UNK set_flag0_bit2__15TWindowHelpItemFPv(int);
@@ -169,7 +195,6 @@ s32 check_equip_requirements(s32, M2C_UNK, M2C_UNK *);
 u8 *lookup_item_pmt_record(s32);
 s32 get_player_by_client_id(s16);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
-M2C_UNK update_stat_comparison__15TWindowHelpItemFv(void *);
 void update_level_requirement__15TWindowHelpItemFPv(u8 *arg0);
 u8 * find_item_by_id(s32);
 s32 copy_to_item_data__5TItemFPvPv(void *, void *);
@@ -226,8 +251,25 @@ u8 *lookup_item_pmt_record(s32);
 s32 build_player_equipment_requirement_stats(s32, Stats_80254CE4 *);
 s32 get_player_by_client_id(s16);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
-M2C_UNK update_stat_comparison__15TWindowHelpItemFv(void *);
 void update_requirements__15TWindowHelpItemFv(Help_80254CE4 *self);
+void clear_fields__20TWindowSubStatusDispFPv(Stats_802541E0 *);
+s32 get_player_by_client_id(s16);
+u32 get_quest_id__12TQuestListVMFPv();
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
+s16 get_model_animation_id__10TObjPlayerFPv(s32);
+s16 get_field_2c8__10TObjPlayerFPv(s32);
+s16 TObjPlayer__sub_800A776C(s32);
+s16 get_ata__10TObjPlayerFPv(s32);
+s16 get_value__20TWindowSubStatusDispFPv(s32);
+s16 get_hp__10TObjPlayerFPv(s32);
+void set_flag4_and_field1c__15TWindowHelpItemFPvi(s32, s32);
+s32 is_item_already_equipped__15TWindowHelpItemFPv(void *);
+void preview_unequip_stats__10TObjPlayerFv(s32, Stats_802541E0 *, s32);
+void preview_equip_stats__10TObjPlayerFv(s32, Stats_802541E0 *, u32);
+void set_flag8_and_field20__15TWindowHelpItemFPvi(s32, s32);
+M2C_UNK set_flag_0x10__15TWindowHelpItemFPvi(s32, M2C_UNK);
+s32 check_equip_requirements(s32, M2C_UNK, M2C_UNK *);
+void update_stat_comparison__15TWindowHelpItemFv(Help_802549B0 *self);
 }
 
 extern "C" {
@@ -401,6 +443,70 @@ void update_stat_disp2__15TWindowHelpItemFPv(void *arg0) {
         set_flag_0x10__15TWindowHelpItemFPvi(temp_r27, 0);
     }
 }
+
+void update_stat_comparison__15TWindowHelpItemFv(Help_802549B0 *self) {
+    s32 flags;
+    Stats_802549B0 st;
+    s32 e0;
+    s32 e3;
+    s32 e1;
+    s32 e4;
+    s32 e2;
+    s32 e5;
+    Quest_802549B0 *q;
+    s32 pl;
+    clear_fields__20TWindowSubStatusDispFPv((Stats_802541E0 *)((struct Stats_802541E0 *)&st));
+    pl = get_player_by_client_id(self->client);
+    if (pl == 0) {
+        return;
+    }
+    q = (Quest_802549B0 *)get_quest_id__12TQuestListVMFPv();
+    if (q == NULL) {
+        return;
+    }
+    e0 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(self), (M2C_UNK)(0));
+    e3 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(self), (M2C_UNK)(3));
+    e1 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(self), (M2C_UNK)(1));
+    e4 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(self), (M2C_UNK)(4));
+    e2 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(self), (M2C_UNK)(2));
+    e5 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(self), (M2C_UNK)(5));
+    set_flag4_and_field1c__15TWindowHelpItemFPvi(e0, get_field_2c8__10TObjPlayerFPv(pl) + get_model_animation_id__10TObjPlayerFPv(pl) + TObjPlayer__sub_800A776C(pl));
+    set_flag4_and_field1c__15TWindowHelpItemFPvi(e3, get_ata__10TObjPlayerFPv(pl));
+    set_flag4_and_field1c__15TWindowHelpItemFPvi(e1, get_value__20TWindowSubStatusDispFPv(pl));
+    set_flag4_and_field1c__15TWindowHelpItemFPvi(e4, get_hp__10TObjPlayerFPv(pl));
+    set_flag4_and_field1c__15TWindowHelpItemFPvi(e2, q->f2);
+    set_flag4_and_field1c__15TWindowHelpItemFPvi(e5, q->fc);
+    if (self->item == 0) {
+        return;
+    }
+    if (is_item_already_equipped__15TWindowHelpItemFPv(self) != 0) {
+        preview_unequip_stats__10TObjPlayerFv((s32)(pl), (Stats_802541E0 *)((struct Stats_802541E0 *)&st), (s32)(self->slot));
+    } else {
+        preview_equip_stats__10TObjPlayerFv((s32)(pl), (Stats_802541E0 *)((struct Stats_802541E0 *)&st), (u32)(self->item));
+    }
+    set_flag8_and_field20__15TWindowHelpItemFPvi(e0, st.atp);
+    set_flag8_and_field20__15TWindowHelpItemFPvi(e3, st.dfp);
+    set_flag8_and_field20__15TWindowHelpItemFPvi(e1, st.ata);
+    set_flag8_and_field20__15TWindowHelpItemFPvi(e4, st.evp);
+    set_flag8_and_field20__15TWindowHelpItemFPvi(e2, st.hp);
+    set_flag8_and_field20__15TWindowHelpItemFPvi(e5, st.lck);
+    if (check_equip_requirements((s32)(pl), (M2C_UNK)(self->item), (M2C_UNK *)(&flags)) != 0) {
+        set_flag_0x10__15TWindowHelpItemFPvi((s32)(e0), (M2C_UNK)(1));
+        set_flag_0x10__15TWindowHelpItemFPvi((s32)(e3), (M2C_UNK)(1));
+        set_flag_0x10__15TWindowHelpItemFPvi((s32)(e1), (M2C_UNK)(1));
+        set_flag_0x10__15TWindowHelpItemFPvi((s32)(e4), (M2C_UNK)(1));
+        set_flag_0x10__15TWindowHelpItemFPvi((s32)(e2), (M2C_UNK)(1));
+        set_flag_0x10__15TWindowHelpItemFPvi((s32)(e5), (M2C_UNK)(1));
+    } else {
+        set_flag_0x10__15TWindowHelpItemFPvi((s32)(e0), (M2C_UNK)(0));
+        set_flag_0x10__15TWindowHelpItemFPvi((s32)(e3), (M2C_UNK)(0));
+        set_flag_0x10__15TWindowHelpItemFPvi((s32)(e1), (M2C_UNK)(0));
+        set_flag_0x10__15TWindowHelpItemFPvi((s32)(e4), (M2C_UNK)(0));
+        set_flag_0x10__15TWindowHelpItemFPvi((s32)(e2), (M2C_UNK)(0));
+        set_flag_0x10__15TWindowHelpItemFPvi((s32)(e5), (M2C_UNK)(0));
+    }
+}
+
 void update_level_requirement__15TWindowHelpItemFPv(u8 *arg0) {
     s32 sp8;
     u8 *temp_r30;
@@ -409,7 +515,7 @@ void update_level_requirement__15TWindowHelpItemFPv(u8 *arg0) {
     temp_r3 = (u8 *)(((u8 *)get_player_by_client_id(M2C_FIELD(arg0, s16 *, 0x20))));
     if (temp_r3 != NULL) {
         if (get_quest_id__12TQuestListVMFPv() != 0U) {
-            update_stat_comparison__15TWindowHelpItemFv((void *) (arg0));
+            update_stat_comparison__15TWindowHelpItemFv((Help_802549B0 *)((void *) (arg0)));
             temp_r30 = (u8 *)(((u8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xA)));
             temp_r31 = (u8 *)(lookup_item_pmt_record(M2C_FIELD(arg0, s32 *, 0x68)));
             if (check_equip_requirements((s32)((s32)((int) (temp_r3))), (M2C_UNK)((s32)((int) (M2C_FIELD(arg0, s32 *, 0x68)))), (M2C_UNK *)((M2C_UNK *)((void *) (&sp8)))) == 0) {
@@ -438,7 +544,7 @@ void update_requirements__15TWindowHelpItemFv(Help_80254CE4 *self) {
     if (pl == 0) {
         return;
     }
-    update_stat_comparison__15TWindowHelpItemFv(self);
+    update_stat_comparison__15TWindowHelpItemFv((Help_802549B0 *)(self));
     entry = (u8 *)get_array_entry__20TWindowSubStatusDispFPvi((void *)(self), (M2C_UNK)(10));
     pmt = (Pmt_80254CE4 *)lookup_item_pmt_record(self->item);
     if (check_equip_requirements((s32)(pl), (M2C_UNK)(self->item), (M2C_UNK *)(&flags)) == 0 && (flags & 1)) {

@@ -37,7 +37,7 @@ s32 get_help_text_string(s32 arg0);
 extern void *__vt__15TWindowHelpItem[];
 extern M2C_UNK lbl_804CF8B0[];
 extern u32 lbl_805D3910;
-extern V3_80255CCC lbl_8047B9F8;
+extern V3_80255CCC __ptmf_null;
 extern const f32 lbl_805DCE10;
 void TWindowDD__sub_802466E0(void *self, void *vt, s16 idx, void *pos);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *dst, void *src);
@@ -167,7 +167,7 @@ THelp_80255CCC *TWindowHelpItem__ct(THelp_80255CCC *self, void *pos, s32 idx) {
     self->w9c = -1;
     self->wa0 = -1;
     self->wa4 = -1;
-    self->vb0 = lbl_8047B9F8;
+    self->vb0 = __ptmf_null;
     self->fa8 = lbl_805DCE10;
     self->fac = lbl_805DCE10;
     dispatch_item_help__15TWindowHelpItemFv(self);
