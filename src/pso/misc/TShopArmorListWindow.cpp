@@ -117,6 +117,55 @@ struct Win_8021AB4C : VObj_18 {
     Rec_8021AB4C recs[1];
 };
 
+struct VBase_18_b34251 { char pad[0x18]; };
+
+struct VObj_18_b34251 : VBase_18_b34251 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual s8 m31();
+};
+
+struct Rec_8021A634 { s32 w[3]; s32 id; s32 price; };
+
+struct Win_8021A634 {
+    u8 pad0[0x24];
+    s32 player;
+    u8 pad28[0x2C - 0x28];
+    void *list;
+    void *card;
+    u8 pad34[0x4C - 0x34];
+    Rec_8021A634 recs[16];
+};
+
 extern "C" {
 s32 set_shop_armor_list_flag__6TLobbyFii(void *, int);
 s32 calc_item_count__18TShopGetItemWindowFPvPv(int, void *);
@@ -127,7 +176,6 @@ extern s32 lbl_805D3698;
 u8 *TShopArmorListWindow__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
 s32 queue_destruction__7TObjectFv(void *);
 int set_field_20__12TQuestListVMFPvi(void*, int);
-s32 handle_buy_confirm__20TShopArmorListWindowFv(void *);
 s32 open_menu_window__20TShopArmorListWindowFPv(void *arg0);
 int advance_to_preparation_phase__20TShopArmorListWindowFPv(void* p);
 s32 update__20TShopArmorListWindowFPv(void *arg0);
@@ -168,6 +216,26 @@ M2C_UNK play_sound_effect(int, int, int, int);
 M2C_UNK set_displayed_item_colored__15TWindowHelpItemFPvUi(int, void *);
 s32 select_cursor_entry__6TLobbyFPv(void *);
 void handle_selection__20TShopArmorListWindowFv(Win_8021AB4C *w);
+s32 is_visible__17TWindowSubComCardFPv(void *);
+s32 get_status_flag__17TWindowSubComCardFPv(void *);
+int set_field_20__12TQuestListVMFPvi(void*, int);
+s32 get_field_d8__10TObjPlayerFPv(u32);
+VObj_18_b34251 *find_item_by_id(s32);
+u32 get_equip_field_d04__10TObjPlayerFPv(s32, s32);
+s32 advance_item_id_counter(u16);
+M2C_UNK try_buy_item(int, void *);
+void send_6x26_unequip_item__10TObjPlayerFPvPv(s32, s32);
+void send_6x25_equip_item(s32, s32, s32);
+M2C_UNK TLobby__sub_8020EC68(int, void *);
+void update_selection__20TShopArmorListWindowFPvPv(void *arg0, void *arg1);
+s32 is_single_purchase_shop_item(void *);
+s32 TShopWindowBase__sub_8022397C(void *);
+void TWindow__close(void *);
+s32 get_selected_menu_value(void *);
+M2C_UNK save_cursor_selection__20TShopArmorListWindowFPv(void *);
+s32 select_cursor_entry__6TLobbyFPv(void *);
+extern const s32 lbl_805D53A0;
+void handle_buy_confirm__20TShopArmorListWindowFv(Win_8021A634 *w);
 }
 
 extern "C" {
@@ -260,6 +328,69 @@ void handle_equip_offer__20TShopArmorListWindowFv(void *p) {
         TWindow__close(w->win);
         w->win = NULL;
         set_field_20__12TQuestListVMFPvi(w, 0);
+    }
+}
+
+void handle_buy_confirm__20TShopArmorListWindowFv(Win_8021A634 *w) {
+    s32 base = TShopWindowBase__sub_8022397C(w);
+    s32 r;
+    if (w->card != NULL && is_visible__17TWindowSubComCardFPv(w->card) != 0) {
+        r = get_selected_menu_value(w->card);
+        if (r == 0) {
+            if (w->list != NULL) {
+                s32 i = select_cursor_entry__6TLobbyFPv(w->list);
+                Rec_8021A634 it = w->recs[i];
+                VObj_18_b34251 *item;
+                u32 e;
+                it.id = advance_item_id_counter(lbl_805D53A0);
+                try_buy_item(w->player, &it);
+                item = find_item_by_id(it.id);
+                if (item != NULL && (e = get_equip_field_d04__10TObjPlayerFPv(w->player, item->m31())) != 0) {
+                    send_6x26_unequip_item__10TObjPlayerFPvPv(w->player, get_field_d8__10TObjPlayerFPv(e));
+                }
+                send_6x25_equip_item(w->player, it.id, 0);
+                update_selection__20TShopArmorListWindowFPvPv(w, &w->recs[i]);
+                if (is_single_purchase_shop_item(&w->recs[i]) != 0) {
+                    TLobby__sub_8020EC68(i, (void *)base);
+                }
+                save_cursor_selection__20TShopArmorListWindowFPv(w->list);
+            }
+            TWindow__close(w->card);
+            w->card = NULL;
+            set_field_20__12TQuestListVMFPvi((void*)(w), (int)(0));
+        }
+        if (r == 1) {
+            if (w->list != NULL) {
+                s32 i = select_cursor_entry__6TLobbyFPv(w->list);
+                Rec_8021A634 it = w->recs[i];
+                it.id = advance_item_id_counter(lbl_805D53A0);
+                try_buy_item(w->player, &it);
+                update_selection__20TShopArmorListWindowFPvPv(w, &w->recs[i]);
+                if (is_single_purchase_shop_item(&w->recs[i]) != 0) {
+                    TLobby__sub_8020EC68(i, (void *)base);
+                }
+                save_cursor_selection__20TShopArmorListWindowFPv(w->list);
+            }
+            TWindow__close(w->card);
+            w->card = NULL;
+            set_field_20__12TQuestListVMFPvi((void*)(w), (int)(0));
+        }
+    }
+    if (w->card != NULL && get_status_flag__17TWindowSubComCardFPv(w->card) != 0) {
+        if (w->list != NULL) {
+            s32 i = select_cursor_entry__6TLobbyFPv(w->list);
+            Rec_8021A634 it = w->recs[i];
+            it.id = advance_item_id_counter(lbl_805D53A0);
+            try_buy_item(w->player, &it);
+            update_selection__20TShopArmorListWindowFPvPv(w, &w->recs[i]);
+            if (is_single_purchase_shop_item(&w->recs[i]) != 0) {
+                TLobby__sub_8020EC68(i, (void *)base);
+            }
+            save_cursor_selection__20TShopArmorListWindowFPv(w->list);
+        }
+        TWindow__close(w->card);
+        w->card = NULL;
+        set_field_20__12TQuestListVMFPvi((void*)(w), (int)(0));
     }
 }
 
@@ -407,7 +538,7 @@ void TShopArmorListWindow__vt9(u8 *arg0) {
         open_menu_window__20TShopArmorListWindowFPv((void *) (arg0));
         return;
     case 9:
-        handle_buy_confirm__20TShopArmorListWindowFv((void *) (arg0));
+        handle_buy_confirm__20TShopArmorListWindowFv((Win_8021A634 *)((void *) (arg0)));
     default:
         return;
     }

@@ -127,6 +127,12 @@ struct Light_801347A4 {
     u32 id;
 };
 
+struct Light_80133C1C {
+    f32 f0, f4, f8, fC, f10, f14, f18, f1C, f20;
+    s32 f24;
+    s32 f28;
+};
+
 extern "C" {
 M2C_UNK set_light_ambient_color(f32, f32, f32);
 extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
@@ -246,6 +252,11 @@ extern s32 TObjLight__data_805D556C;
 extern s32 TObjLight__data_805D5570;
 extern const float TObjLight__data_805DB088;
 void TObjLight__sub_801347A4(void);
+extern RecoveredGlobal_80134724_TObjLight__data_8050637C TObjLight__data_8050637C;
+extern Light_801347A4 TObjLight__data_805068FC[];
+extern s32 TObjLight__data_805D556C;
+extern s32 TObjLight__data_805D5570;
+void reset_actor_light_registries(void);
 }
 
 extern "C" {
@@ -483,6 +494,39 @@ void init_map_lights(u8 *arg0) {
     if (temp_r3_3 != 0U) {
         TObjLight__sub_80133718((int) (temp_r3_3), (int) (tl_02));
     }
+}
+
+void reset_actor_light_registries(void) {
+    s32 i;
+    s32 j;
+    for (i = 0; i < 32; i++) {
+        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f28 = 0xFFFF;
+        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f0 = 0.0f;
+        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f4 = 0.0f;
+        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f8 = 0.0f;
+        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].fC = 0.0f;
+        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f10 = 0.0f;
+        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f14 = 0.0f;
+        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f18 = 0.0f;
+        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f20 = 0.0f;
+        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f1C = 0.0f;
+        ((Light_80133C1C *)&TObjLight__data_8050637C)[i].f24 = 0;
+    }
+    for (j = 0; j < 8; j++) {
+        ((Light_80133C1C *)&TObjLight__data_805068FC)[j].f28 = 0xFFFF;
+        ((Light_80133C1C *)&TObjLight__data_805068FC)[j].f0 = 0.0f;
+        ((Light_80133C1C *)&TObjLight__data_805068FC)[j].f4 = 0.0f;
+        ((Light_80133C1C *)&TObjLight__data_805068FC)[j].f8 = 0.0f;
+        ((Light_80133C1C *)&TObjLight__data_805068FC)[j].fC = 0.0f;
+        ((Light_80133C1C *)&TObjLight__data_805068FC)[j].f10 = 0.0f;
+        ((Light_80133C1C *)&TObjLight__data_805068FC)[j].f14 = 0.0f;
+        ((Light_80133C1C *)&TObjLight__data_805068FC)[j].f18 = 0.0f;
+        ((Light_80133C1C *)&TObjLight__data_805068FC)[j].f20 = 0.0f;
+        ((Light_80133C1C *)&TObjLight__data_805068FC)[j].f1C = 0.0f;
+        ((Light_80133C1C *)&TObjLight__data_805068FC)[j].f24 = 0;
+    }
+    TObjLight__data_805D5570 = 0;
+    TObjLight__data_805D556C = 0;
 }
 
 void *dt__9TObjLightFPvs(void *arg0, s16 arg1) {

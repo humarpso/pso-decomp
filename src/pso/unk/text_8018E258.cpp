@@ -6,54 +6,47 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 get_current_floor();
+s32 get_field_3e4__10TObjPlayerFPv(int);
+s32 get_player_by_client_id(int);
+f32 xyz_distance(void *, void *);
+s32 check_player_door_proximity(s32 arg0, s32 arg1, f32 farg0);
+}
+
+extern "C" {
 
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(int);
 s32 get_player_by_client_id(int);
 f32 xyz_distance(void *, void *);
 
-s32 check_player_door_proximity(TObjDoor* arg0, s32 arg1, f32 farg0) {
-    s32 temp_r31;
-    s32 temp_r31_2;
-    s32 temp_r3;
-    s32 temp_r3_2;
-    s32 var_r29;
-    s32 var_r29_2;
-
-    switch (arg1) {
-    case 1:
-        var_r29 = 0;
-loop_2:
-        temp_r3 = get_player_by_client_id((int) (var_r29));
-        if (temp_r3 != 0) {
-            temp_r31 = get_current_floor();
-            if ((get_field_3e4__10TObjPlayerFPv((int) (temp_r3)) == temp_r31) && (xyz_distance(arg0->position, (void *) (temp_r3 + 0x38)) < farg0)) {
-                return 0;
+s32 check_player_door_proximity(s32 arg0, s32 arg1, f32 farg0) {
+    s32 p;
+    s32 i;
+    s32 j;
+    s32 q;
+    if (arg1 == 1) {
+        for (i = 0; i < 0xC; i++) {
+            p = get_player_by_client_id(i);
+            if (p != 0) {
+                if (get_field_3e4__10TObjPlayerFPv(p) == get_current_floor() && xyz_distance((void *)(arg0 + 0x38), (void *)(p + 0x38)) < farg0) {
+                    return 0;
+                }
             }
         }
-        var_r29 += 1;
-        if (var_r29 >= 0xC) {
-            return 1;
-        }
-        goto loop_2;
-    case 0:
-        var_r29_2 = 0;
-loop_10:
-        temp_r3_2 = get_player_by_client_id((int) (var_r29_2));
-        if (temp_r3_2 != 0) {
-            temp_r31_2 = get_current_floor();
-            if ((get_field_3e4__10TObjPlayerFPv((int) (temp_r3_2)) == temp_r31_2) && (xyz_distance(arg0->position, (void *) (temp_r3_2 + 0x38)) < farg0)) {
-                return 1;
+        return 1;
+    } else if (arg1 == 0) {
+        for (j = 0; j < 0xC; j++) {
+            q = get_player_by_client_id(j);
+            if (q != 0) {
+                if (get_field_3e4__10TObjPlayerFPv(q) == get_current_floor() && xyz_distance((void *)(arg0 + 0x38), (void *)(q + 0x38)) < farg0) {
+                    return 1;
+                }
             }
         }
-        var_r29_2 += 1;
-        if (var_r29_2 >= 0xC) {
-            return 0;
-        }
-        goto loop_10;
-    default:
         return 0;
     }
+    return 0;
 }
 
 }

@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Item_80105EA4 { u8 type; u8 b1; u8 b2; };
 
+struct Names_80105DB0 { char *n[4]; };
+
 extern "C" {
 s32 get_game_play_mode();
 s32 get_instance__6TLobbyFv();
@@ -39,6 +41,16 @@ u8 get_rule_field_0__6TLobbyFPv(void *);
 s32 get_game_play_mode();
 extern M2C_UNK lbl_8050EA40[];
 void apply_drop_restrictions(M2C_UNK arg0, Item_80105EA4 *it);
+s32 sprintf(void *, void *, ...);
+extern Names_80105DB0 lbl_8043E0D4;
+extern char lbl_8043E0E4[];
+extern s32 TItemDrop__data_805D5470;
+extern s32 TItemDrop__data_805D5474;
+extern s32 lbl_805D5550;
+extern char lbl_805DAAC8;
+extern char lbl_805DAACC;
+extern char lbl_805DAAD0;
+void format_drop_table_filename(void *out, s32 arg1);
 }
 
 extern "C" {
@@ -82,6 +94,21 @@ s32 get_drop_table_mode_flags(void) {
         f &= ~2;
     }
     return f;
+}
+
+void format_drop_table_filename(void *out, s32 arg1) {
+    Names_80105DB0 names = lbl_8043E0D4;
+    char *s1;
+    char *s2;
+    s32 n;
+    if (TItemDrop__data_805D5470 & 1) {
+        s1 = &lbl_805DAAC8;
+        n = 0;
+    } else {
+        s1 = &lbl_805DAACC;
+        n = TItemDrop__data_805D5474;
+    }
+    sprintf(out, lbl_8043E0E4, arg1, s1, (TItemDrop__data_805D5470 & 2) ? &lbl_805DAAD0 : &lbl_805DAACC, names.n[lbl_805D5550], n);
 }
 
 s32 calc_drop_offset__9TItemDropFi(s32 arg0) {

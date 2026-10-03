@@ -132,6 +132,119 @@ struct VObj_18_b7c757 : VBase_18_b7c757 {
     virtual M2C_UNK m94();
 };
 
+typedef s32 M2C_UNK;
+struct Base_800B012C { u8 pad[0x18]; };
+
+struct Ene_800B012C : Base_800B012C {
+    virtual void v0();
+    virtual void v1();
+    virtual void v2();
+    virtual void v3();
+    virtual void v4();
+    virtual void v5();
+    virtual void v6();
+    virtual void v7();
+    virtual void v8();
+    virtual void v9();
+    virtual void v10();
+    virtual void v11();
+    virtual void v12();
+    virtual void v13();
+    virtual void v14();
+    virtual void v15();
+    virtual void v16();
+    virtual void v17();
+    virtual void v18();
+    virtual void v19();
+    virtual void v20();
+    virtual void v21();
+    virtual void v22();
+    virtual void v23();
+    virtual void v24();
+    virtual void v25();
+    virtual void v26();
+    virtual void v27();
+    virtual void v28();
+    virtual void v29();
+    virtual void v30();
+    virtual void v31();
+    virtual void v32();
+    virtual void v33();
+    virtual void v34();
+    virtual void v35();
+    virtual void v36();
+    virtual void v37();
+    virtual void v38();
+    virtual void v39();
+    virtual void v40();
+    virtual void v41();
+    virtual void v42();
+    virtual void v43();
+    virtual void v44();
+    virtual void v45();
+    virtual void v46();
+    virtual void v47();
+    virtual void v48();
+    virtual void v49();
+    virtual void v50();
+    virtual void v51();
+    virtual void v52();
+    virtual void v53();
+    virtual void v54();
+    virtual void v55();
+    virtual void v56();
+    virtual void v57();
+    virtual void v58();
+    virtual void v59();
+    virtual void v60();
+    virtual void v61();
+    virtual void v62();
+    virtual void v63();
+    virtual void v64();
+    virtual void v65();
+    virtual void v66();
+    virtual void v67();
+    virtual void v68();
+    virtual void v69();
+    virtual void v70();
+    virtual void v71();
+    virtual void v72();
+    virtual void v73();
+    virtual void v74();
+    virtual void v75();
+    virtual void v76();
+    virtual void v77();
+    virtual void v78();
+    virtual void v79();
+    virtual void v80();
+    virtual void v81();
+    virtual void v82();
+    virtual void v83();
+    virtual void v84();
+    virtual void v85();
+    virtual void v86();
+    virtual void m87();
+    virtual void v88();
+    virtual void v89();
+    virtual void v90();
+    virtual void v91();
+    virtual void v92();
+    virtual void v93();
+    virtual void m94();
+    virtual void v95();
+    virtual void v96();
+    virtual s32 m97();
+    virtual void v98();
+    virtual void v99();
+    virtual void v100();
+    virtual void v101();
+    virtual void m102(f32);
+};
+
+struct V3_800B012C { f32 x, y, z; };
+
+struct P_800B012C { u8 pad[0x430]; V3_800B012C v; };
+
 extern "C" {
 void *copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(int);
@@ -158,6 +271,20 @@ extern const f32 TObjEneBm3Fly__data_805D9C8C;
 extern const f32 TObjEneBm3Fly__data_805D9C90;
 extern const f32 TObjEneBm3Fly__data_805D9C94;
 void TObjEneBm3Fly__sub_800B02C8(u8 *arg0, s32 arg1);
+f32 clamp_velocity__15TObjBoss2TunnelFPv(void *, s32);
+M2C_UNK choose_attack__13TObjEneBm3FlyFPv(void *);
+M2C_UNK clamp_flight_height__13TObjEneBm3FlyFPv(void *);
+M2C_UNK update_dd_flag__13TObjEneBm3FlyFPv(void *, f32, f32, f32);
+M2C_UNK clear_attack_receipts();
+M2C_UNK noop__12TBoss8DragonFv(void *);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, s16);
+M2C_UNK transition_enemy_state(void *, int);
+void *copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+M2C_UNK advance_animation_playback();
+M2C_UNK play_sound_effect(void *, void *, int, int);
+extern const f32 TObjEneBm3Fly__data_805D9C80;
+extern const f32 TObjEneBm3Fly__data_805D9C8C;
+void update_recoil_state__13TObjEneBm3FlyFv(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -223,6 +350,58 @@ extern const f32 lbl_805D9CAC;
 extern const f32 lbl_805D9CB0;
 extern const f32 lbl_805D9CB4;
 extern const f32 lbl_805D9CB8;
+
+#pragma push
+#pragma opt_common_subs off
+typedef void (*Fv_800B012C)(void *);
+typedef s32 (*Fi_800B012C)(void *);
+typedef void (*Ff_800B012C)(void *, f32);
+#define VT(o, off, T) (*(T *)(*(u8 **)((u8 *)(o) + 0x18) + (off)))
+void update_recoil_state__13TObjEneBm3FlyFv(u8 *arg0, s32 arg1) {
+    s32 t;
+    f32 v;
+    switch (arg1) {
+    case 4:
+        M2C_FIELD(arg0, s16 *, 0xB8) = 3;
+        ((Ene_800B012C *)arg0)->m94();
+        M2C_FIELD(arg0, u32 *, 0x428) &= ~1;
+        M2C_FIELD(arg0, u32 *, 0x428) |= 2;
+        set_field_378__9TObjEneDDFPvi(arg0, M2C_FIELD(arg0, s16 *, 0x326));
+        noop__12TBoss8DragonFv(arg0);
+        play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003E425), arg0 + 0x38, 0, 0);
+        M2C_FIELD(arg0, s32 *, 0x3C0) = 0;
+        break;
+    case 3:
+        if (M2C_FIELD(arg0, u32 *, 0xB0) & 0x10) {
+            if (((Ene_800B012C *)arg0)->m97() != 0) {
+                ((Ene_800B012C *)arg0)->m102(TObjEneBm3Fly__data_805D9C8C);
+            }
+            if (M2C_FIELD(arg0, s32 *, 0x378) == 3) {
+                choose_attack__13TObjEneBm3FlyFPv(arg0);
+            } else {
+                transition_enemy_state(arg0, M2C_FIELD(arg0, s32 *, 0x378));
+            }
+        }
+        break;
+    case 0:
+        advance_animation_playback();
+        t = M2C_FIELD(arg0, s32 *, 0x3C0);
+        M2C_FIELD(arg0, s32 *, 0x3C0) = t + 1;
+        ((P_800B012C *)arg0)->v.x = M2C_FIELD(arg0, f32 *, 0x308);
+        ((P_800B012C *)arg0)->v.z = M2C_FIELD(arg0, f32 *, 0x310);
+        v = clamp_velocity__15TObjBoss2TunnelFPv(&((P_800B012C *)arg0)->v, t);
+        update_dd_flag__13TObjEneBm3FlyFPv(arg0, ((P_800B012C *)arg0)->v.x, ((P_800B012C *)arg0)->v.z, v);
+        clamp_flight_height__13TObjEneBm3FlyFPv(arg0);
+        M2C_FIELD(arg0, f32 *, 0x308) *= TObjEneBm3Fly__data_805D9C80;
+        M2C_FIELD(arg0, f32 *, 0x310) *= TObjEneBm3Fly__data_805D9C80;
+        ((Ene_800B012C *)arg0)->m87();
+        break;
+    case 5:
+        clear_attack_receipts();
+        break;
+    }
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on

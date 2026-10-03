@@ -59,6 +59,22 @@ struct Tbl_80225064 { u8 pad[0x18]; Range_80225064 *lo; Range_80225064 *hi; };
 
 struct Item_80225064 { u8 f0; u8 f1; u8 f2; u8 f3; };
 
+struct Ent_80224C68 { s32 id; s32 n; };
+
+struct Rng_80224C68 { s32 lo; s32 hi; };
+
+struct Hdr_80224C68 { u8 pad[8]; Ent_80224C68 *ents; u8 pad2[4]; Rng_80224C68 *rng; };
+
+struct Obj_80224C68 { u8 pad[6]; u8 b6; u8 b7; u8 b8; u8 b9; };
+
+struct Ent_80224DF0 { s32 id; s32 n; };
+
+struct Rng_80224DF0 { s32 lo; s32 hi; };
+
+struct Hdr_80224DF0 { u8 pad[4]; Ent_80224DF0 *ents; u8 pad2[4]; Rng_80224DF0 *rng; };
+
+struct Obj_80224DF0 { u8 pad[6]; u8 b6; u8 b7; };
+
 extern "C" {
 extern unsigned char lbl_80513F70[];
 void *TLobby__sub_8022598C(int a0);
@@ -148,6 +164,26 @@ extern u32 lbl_805D6268;
 extern int lbl_805D626C;
 extern const f32 lbl_805DC738;
 void roll_shop_weapon_grind(Item_80225064 *it);
+s32 pop_byte__6TLobbyFPv(void *);
+void shuffle_shop_pool_n_times(void *, s32);
+void push_shop_pool_entry(void *, u8);
+void reset_counter_64__6TLobbyFPv(void *);
+s32 classify_level_bracket_wide__6TLobbyFi(s32 arg0);
+s32 rand();
+extern u32 lbl_805D6268;
+extern int lbl_805D626C;
+extern s32 lbl_8044C768[];
+void roll_shop_weapon_second_bonus(Obj_80224C68 *obj);
+s32 pop_byte__6TLobbyFPv(void *);
+void shuffle_shop_pool_n_times(void *, s32);
+void push_shop_pool_entry(void *, u8);
+void reset_counter_64__6TLobbyFPv(void *);
+s32 get_level_bracket__6TLobbyFi(s32 arg0);
+s32 rand();
+extern u32 lbl_805D6268;
+extern int lbl_805D626C;
+extern s32 lbl_8044C768[];
+void roll_shop_weapon_first_bonus(Obj_80224DF0 *obj);
 }
 
 extern "C" {
@@ -433,6 +469,114 @@ s32 is_duplicate_shop_weapon(C14_80224B7C *item, s32 tbl) {
         }
     }
     return (n <= 1) ? 1 : 0;
+}
+#pragma pop
+
+#pragma push
+#pragma optimization_level 1
+void roll_shop_weapon_second_bonus(Obj_80224C68 *obj) {
+    u8 buf[0x68];
+    Ent_80224C68 *e;
+    Rng_80224C68 *r;
+    s32 idx;
+    s32 i;
+    s32 n;
+    s32 v;
+    s32 x;
+    s32 hi;
+    s32 lo;
+    reset_counter_64__6TLobbyFPv(buf);
+    e = ((Hdr_80224C68 *)lbl_805D6268)->ents;
+    r = ((Hdr_80224C68 *)lbl_805D6268)->rng;
+    idx = classify_level_bracket_wide__6TLobbyFi(lbl_805D626C);
+    lo = r[idx].lo;
+    hi = r[idx].hi;
+    i = 0;
+    idx *= 6;
+    while (i++ < 6) {
+        n = e[idx].n;
+        while (n != 0) {
+            push_shop_pool_entry(buf, e[idx].id);
+            n--;
+        }
+        idx++;
+    }
+    shuffle_shop_pool_n_times(buf, 3);
+    do {
+        v = pop_byte__6TLobbyFPv(buf);
+        if (v < 0) {
+            v = 0;
+            break;
+        }
+    } while (v == obj->b6);
+    obj->b8 = v;
+    obj->b9 = 0;
+    switch (v) {
+    case 0:
+        obj->b9 = 0;
+        break;
+    default:
+        x = (s32)((f32)(hi + 1) * ((1.0f / 32768.0f) * (f32)rand()));
+        if (x < lo) {
+            x = lo;
+        }
+        obj->b9 = lbl_8044C768[x];
+        break;
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma optimization_level 1
+void roll_shop_weapon_first_bonus(Obj_80224DF0 *obj) {
+    u8 buf[0x68];
+    Ent_80224DF0 *e;
+    Rng_80224DF0 *r;
+    s32 idx;
+    s32 i;
+    s32 n;
+    s32 v;
+    s32 x;
+    s32 lo;
+    s32 hi;
+    reset_counter_64__6TLobbyFPv(buf);
+    e = ((Hdr_80224DF0 *)lbl_805D6268)->ents;
+    r = ((Hdr_80224DF0 *)lbl_805D6268)->rng;
+    idx = get_level_bracket__6TLobbyFi(lbl_805D626C);
+    lo = r[idx].lo;
+    hi = r[idx].hi;
+    i = 0;
+    idx *= 6;
+    while (i++ < 6) {
+        n = e[idx].n;
+        while (n != 0) {
+            push_shop_pool_entry(buf, e[idx].id);
+            n--;
+        }
+        idx++;
+    }
+    shuffle_shop_pool_n_times(buf, 3);
+    v = pop_byte__6TLobbyFPv(buf);
+    if (v != -1) {
+        obj->b6 = v;
+        obj->b7 = 0;
+    } else {
+        obj->b6 = 0;
+        obj->b7 = 0;
+        v = 0;
+    }
+    switch (v) {
+    case 0:
+        obj->b7 = 0;
+        break;
+    default:
+        x = (s32)((f32)(hi + 1) * ((1.0f / 32768.0f) * (f32)rand()));
+        if (x < lo) {
+            x = lo;
+        }
+        obj->b7 = lbl_8044C768[x];
+        break;
+    }
 }
 #pragma pop
 

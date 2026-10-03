@@ -63,6 +63,34 @@ struct Crater_8002C544 {
 
 struct V3_8002C544 { f32 x, y, z; };
 
+struct Arg_8002C288 { s32 a; f32 b; s32 c[3]; };
+
+struct VBase_8002C288 { u8 pad[0x18]; };
+
+struct Crater_8002C288 : VBase_8002C288 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual s32 m12(void *, Arg_8002C288 *, void *);
+    u8 pad1c[0xAC - 0x1C];
+    u32 fAC;
+    u8 padB0[0xB4 - 0xB0];
+    void *fB4;
+    s32 fB8[4];
+    s32 fC8;
+};
+
+struct V3_8002C288 { f32 x, y, z; };
+
 extern "C" {
 M2C_UNK TBoss1Dragon__sub_8002AB6C(void *);
 void TObjBoss1Crater__vt19(Src_8002C3FC *arg0, VObj_18_5c1903 *self, M2C_UNK arg2, s32 *arg3);
@@ -81,6 +109,12 @@ extern s32 TObjBoss1Crater__data_805D4B58;
 extern const f32 lbl_805D8160;
 extern const f32 lbl_805D8164;
 Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *arg2, void *arg3);
+f32 TBoss1Dragon__sub_80027634(u32);
+s32 TObjBoss1Crater__sub_8002C7E4(void *);
+void attack_target_list_remove(void *, s32);
+s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
+extern const V3_8002C544 lbl_80435560;
+void run_task__15TObjBoss1CraterFv(Crater_8002C288 *self);
 }
 
 extern "C" {
@@ -115,6 +149,43 @@ void render__15TObjBoss1CraterFv(u8 *arg0) {
 }
 
 extern M2C_UNK __vt__15TObjBoss1Crater[];
+
+void run_task__15TObjBoss1CraterFv(Crater_8002C288 *self) {
+    s32 n;
+    if (self->fAC == 0) {
+        return;
+    }
+    if (all_parents_unqueued_for_destruction__7TObjectFv((void *)self->fAC) == 0) {
+        self->fAC = 0;
+        return;
+    }
+    {
+        Arg_8002C288 arg = *(Arg_8002C288 *)&lbl_80435560;
+        arg.b = TBoss1Dragon__sub_80027634(self->fAC);
+        arg.a = self->fC8;
+        n = TObjBoss1Crater__sub_8002C7E4(self->fB4);
+        if (self->m12((u8 *)&lbl_80435560 + 0xC, &arg, self->fB4) != 0) {
+            s32 m = TObjBoss1Crater__sub_8002C7E4(self->fB4);
+            for (s32 j = n; j < m; j++) {
+                self->fB8[j] = 0x3C;
+            }
+        }
+    }
+    {
+        n = TObjBoss1Crater__sub_8002C7E4(self->fB4);
+        for (s32 i = 0; i < n; i++) {
+            if (self->fB8[i] <= 0) {
+                attack_target_list_remove(self->fB4, i);
+                self->fB8[i] = self->fB8[n - 1];
+                self->fB8[n - 1] = 0;
+                i--;
+                n--;
+            } else {
+                self->fB8[i]--;
+            }
+        }
+    }
+}
 
 void TObjBoss1Crater__vt19(Src_8002C3FC *arg0, VObj_18_5c1903 *self, M2C_UNK arg2, s32 *arg3) {
     s32 off;

@@ -16,8 +16,22 @@ typedef struct Curve_8007E16C {
     f32 dist;
 } Curve_8007E16C;
 
+typedef struct Curve_8007E210 {
+    f32 accel;
+    f32 decel;
+    f32 peak;
+    f32 accelEnd;
+    f32 decelStart;
+    f32 end;
+    f32 accelDist;
+    f32 decelPos;
+    f32 dist;
+} Curve_8007E210;
+
 extern "C" {
 f32 sample_acceleration_curve(Curve_8007E16C *c, f32 t);
+f32 newton_sqrtf(f32);
+void init_acceleration_curve(Curve_8007E210 *c, f32 a, f32 d, f32 length, f32 speed);
 }
 
 extern "C" {
@@ -63,6 +77,38 @@ f32 sample_acceleration_curve(Curve_8007E16C *c, f32 t) {
 
 int check_param_threshold__15TObjBoss2TunnelFPvf(void *arg0, f32 arg1) {
     return arg1 >= *(f32 *)((u8 *)arg0 + 20);
+}
+void init_acceleration_curve(Curve_8007E210 *c, f32 a, f32 d, f32 length, f32 speed) {
+    f32 sq;
+    f32 up;
+    f32 down;
+    f32 p;
+    c->accel = a;
+    if (c->accel <= 0.0f) {
+        c->accel = 0.1f;
+    }
+    c->decel = d;
+    if (c->decel >= 0.0f) {
+        c->decel = -0.1f;
+    }
+    sq = speed * speed;
+    c->dist = length;
+    c->peak = speed;
+    up = (0.5f * sq) / c->accel;
+    down = (0.5f * -sq) / c->decel;
+    if (up + down >= c->dist) {
+        c->peak = newton_sqrtf((c->dist * (2.0f * c->accel * c->decel)) / (c->decel - c->accel));
+        sq = c->peak * c->peak;
+        c->accelEnd = c->decelStart = c->peak / c->accel;
+        c->accelDist = c->decelPos = (0.5f * sq) / c->accel;
+        c->end = c->decelStart + (-c->peak / c->decel);
+        return;
+    }
+    c->accelDist = up;
+    c->accelEnd = c->peak / c->accel;
+    c->decelPos = c->dist - down;
+    c->decelStart = c->accelEnd + (c->decelPos - up) / c->peak;
+    c->end = c->decelStart + (-c->peak / c->decel);
 }
 
 }

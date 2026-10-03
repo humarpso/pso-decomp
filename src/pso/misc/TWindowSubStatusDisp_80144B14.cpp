@@ -50,8 +50,16 @@ struct RecoveredGlobal_80144FCC_lbl_804A74F0
   u8 remaining[0x2F8];
 };
 
+struct Glyph_80145190 {
+    u16 code;
+    u8 width;
+    u8 f3;
+    u8 page;
+    u8 x;
+    u8 y;
+};
+
 extern "C" {
-void upload_font_glyph(u16, void *);
 extern u8 lbl_805D56C0;
 s32 TWindowSubStatusDisp__sub_80145278(u16 arg0, u8 *arg1, void **arg2);
 M2C_UNK set_global_param__8TObjFishFi(M2C_UNK *);
@@ -67,6 +75,14 @@ u16 map_char_to_font_code(u16 c);
 s32 get_field24__11TWindowCtrlFv();
 extern s32 lbl_8043F390[];
 char *parse_text_control_codes(char *p, s32 *a, s32 *b);
+u32 get_font_char_advance(u16 arg0);
+void pack_status_flags__20TWindowSubStatusDispFPvUi(void *arg0, u32 arg1);
+s32 calc_ci4_tile_offset(u32, u32);
+void DCStoreRange(void *, u32);
+extern u8 *lbl_8050C040[];
+extern u8 *lbl_805D56B0;
+extern u32 lbl_805D56B8;
+void upload_font_glyph(u16 c, void *arg1);
 }
 
 extern "C" {
@@ -192,6 +208,36 @@ extern M2C_UNK lbl_8043F3D0;
 extern u8 lbl_805D56C0;
 extern const f32 lbl_805DB194;
 
+#define g ((Glyph_80145190 *)arg1)
+void upload_font_glyph(u16 c, void *arg1) {
+    u8 *tex;
+    u32 i;
+    u32 j;
+    u8 *src;
+    u8 x;
+    u8 y;
+    g->code = c;
+    if (c >= 0xE000) {
+        c -= 0xDF20;
+    }
+    g->width = get_font_char_advance(c);
+    tex = lbl_8050C040[g->page];
+    y = g->y;
+    x = g->x;
+    src = lbl_805D56B0 + (u16)(c - 0x20) * 0x5A;
+    for (j = 0; j < 0x12; j++) {
+        for (i = 0; i < 5; i++) {
+            u8 b = *src;
+            u8 *dst = tex + calc_ci4_tile_offset(x + i * 4, y + j);
+            pack_status_flags__20TWindowSubStatusDispFPvUi(dst, b);
+            src++;
+        }
+    }
+    DCStoreRange(tex, 0x8000);
+    lbl_805D56B8 |= 1;
+}
+#undef g
+
 s32 TWindowSubStatusDisp__sub_80145278(u16 arg0, u8 *arg1, void **arg2) {
     u8 temp_r7;
     temp_r7 = M2C_FIELD(arg1, u8 *, 3);
@@ -199,7 +245,7 @@ s32 TWindowSubStatusDisp__sub_80145278(u16 arg0, u8 *arg1, void **arg2) {
         return 0;
     }
     if (temp_r7 != (u8) (lbl_805D56C0 - 1)) {
-        upload_font_glyph(arg0, arg1);
+        upload_font_glyph(arg0, (void *)(arg1));
         return 1;
     }
     if ((void *) *arg2 == NULL) {

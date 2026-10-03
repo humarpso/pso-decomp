@@ -1,14 +1,34 @@
 #include "types.h"
+
+struct Deck_8020EF40 {
+    u8 buf[0x64];
+    s32 n;
+};
+
 extern "C" {
-void shuffle_shop_pool(void *);
 void shuffle_shop_pool_n_times(void *arg0, s32 arg1);
+s32 rand();
+extern const f32 lbl_805DC628;
+void shuffle_shop_pool(void *arg0_);
 }
 
 extern "C" {
 
 void shuffle_shop_pool_n_times(void *arg0, s32 arg1) {
     while (arg1-- > 0) {
-        shuffle_shop_pool(arg0);
+        shuffle_shop_pool((void *)(arg0));
+    }
+}
+void shuffle_shop_pool(void *arg0_) {
+    Deck_8020EF40 *arg0 = (Deck_8020EF40 *)arg0_;
+    s32 i;
+    s32 k;
+    u8 t;
+    for (i = 0; i < arg0->n; i++) {
+        k = (s32)((f32)arg0->n * (lbl_805DC628 * (f32)rand()));
+        t = arg0->buf[i];
+        arg0->buf[i] = arg0->buf[k];
+        arg0->buf[k] = t;
     }
 }
 

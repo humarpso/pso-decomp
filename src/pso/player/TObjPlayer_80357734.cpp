@@ -131,6 +131,14 @@ struct Vec_8035862C { f32 x, y, z; };
 
 struct Trip_8035862C { s32 a, b, c; };
 
+struct Vec_80357B2C { f32 x, y, z; };
+
+struct Strike_80357B2C {
+    Vec_80357B2C pos;
+    Vec_80357B2C dir;
+    f32 len;
+};
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
@@ -183,6 +191,22 @@ extern const f32 lbl_805E0088;
 extern const f32 lbl_805E008C;
 extern const f32 lbl_805E0090;
 void weapon_fire_explosion_effect(s32 arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
+u32 __nw__7TObjectFUl(M2C_UNK);
+M2C_UNK TTecZonde__sub_8023DA10(u32, s32, void *, void *, s32, s32, f32, f32);
+int rand(void);
+f32 vector_length(void *);
+M2C_UNK normalize_vector(void *);
+extern s32 tl_07;
+extern const f32 lbl_805E0048;
+extern const f32 lbl_805E004C;
+extern const f32 lbl_805E0050;
+extern const f32 lbl_805E0054;
+extern const f32 lbl_805E0058;
+extern const f32 lbl_805E005C;
+extern const f32 lbl_805E0060;
+extern const f32 lbl_805E0064;
+extern const f32 lbl_805E0068;
+void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -245,7 +269,6 @@ M2C_UNK create_timed_particle_emitter_with_flags(s32, M2C_UNK, M2C_UNK, M2C_UNK,
 int TObjPlayer__sub_80115BC0(void*, int, int);
 void TItemWeapon__ct(void *);
 M2C_UNK TObjPlayer__sub_802E451C();
-M2C_UNK spawn_scattered_lightning_strikes(s32, M2C_UNK);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -328,6 +351,94 @@ u8 *TObjPlayer__sub_80357AD4(u8 *arg0) {
     }
     return NULL;
 }
+
+#pragma push
+#pragma fp_contract on
+void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1) {
+    Vec_80357B2C *p = (Vec_80357B2C *)arg0;
+    Strike_80357B2C strikes[14];
+    Strike_80357B2C *s;
+    Vec_80357B2C *d;
+    s32 i;
+    u32 obj;
+    f32 scale;
+    s32 j;
+    s32 k;
+    s32 m;
+    for (i = 0; i < 14; i++) {
+        s = &strikes[i];
+        s->pos.y = lbl_805E0048 + p->y;
+        if (arg1 == 5 && i == 0) {
+            s->pos.y = lbl_805E004C + p->y;
+        }
+        s->pos.x = lbl_805E0050 * ((f32) i * (lbl_805E0054 * (f32) rand())) + p->x;
+        s->pos.z = lbl_805E0050 * ((f32) i * (lbl_805E0054 * (f32) rand())) + p->z;
+        d = &s->dir;
+        s->dir.x = p->x - s->pos.x;
+        s->dir.y = p->y - s->pos.y;
+        s->dir.z = p->z - s->pos.z;
+        s->len = vector_length(d);
+        if (lbl_805E0058 != s->len) {
+            normalize_vector(d);
+        }
+    }
+    scale = lbl_805E005C;
+    switch (arg1) {
+    case 0:
+        obj = __nw__7TObjectFUl(0x260);
+        if (obj != 0) {
+            TTecZonde__sub_8023DA10(obj, tl_07, &strikes[0].pos, &strikes[0].dir, 0x14000000, 0x14, strikes[0].len, lbl_805E005C);
+        }
+        break;
+    case 1:
+        scale *= lbl_805E0060;
+        obj = __nw__7TObjectFUl(0x260);
+        if (obj != 0) {
+            TTecZonde__sub_8023DA10(obj, tl_07, &strikes[0].pos, &strikes[0].dir, 0x14000000, 0x14, strikes[0].len, scale);
+        }
+        break;
+    case 2:
+        scale *= lbl_805E0064;
+        obj = __nw__7TObjectFUl(0x260);
+        if (obj != 0) {
+            TTecZonde__sub_8023DA10(obj, tl_07, &strikes[0].pos, &strikes[0].dir, 0x14000000, 0x14, strikes[0].len, scale);
+        }
+        break;
+    case 3:
+        for (j = 0; j < 3; j++) {
+            obj = __nw__7TObjectFUl(0x260);
+            if (obj != 0) {
+                TTecZonde__sub_8023DA10(obj, tl_07, &strikes[j].pos, &strikes[j].dir, 0x14000000, 0x14, strikes[j].len, lbl_805E005C);
+            }
+        }
+        break;
+    case 4:
+        scale *= lbl_805E0064;
+        for (k = 0; k < 3; k++) {
+            obj = __nw__7TObjectFUl(0x260);
+            if (obj != 0) {
+                TTecZonde__sub_8023DA10(obj, tl_07, &strikes[k].pos, &strikes[k].dir, 0x14000000, 0x14, strikes[k].len, scale);
+            }
+        }
+        break;
+    case 5:
+        for (m = 0; m < 14; m++) {
+            if (m == 0) {
+                obj = __nw__7TObjectFUl(0x260);
+                if (obj != 0) {
+                    TTecZonde__sub_8023DA10(obj, tl_07, &strikes[m].pos, &strikes[m].dir, 0x14000000, 0x14, strikes[m].len, lbl_805E0068);
+                }
+            } else {
+                obj = __nw__7TObjectFUl(0x260);
+                if (obj != 0) {
+                    TTecZonde__sub_8023DA10(obj, tl_07, &strikes[m].pos, &strikes[m].dir, 0x14000000, 0x14, strikes[m].len, lbl_805E005C);
+                }
+            }
+        }
+        break;
+    }
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on
@@ -541,7 +652,7 @@ void dispatch_attack_event__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s
         spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xA0));
     }
     if (arg3 == 1) {
-        spawn_scattered_lightning_strikes(arg2, 4);
+        spawn_scattered_lightning_strikes((u8 *)(arg2), (s32)(4));
     }
 }
 
@@ -550,7 +661,7 @@ void dispatch_by_type__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s32 ar
         spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xA0));
     }
     if (arg3 == 1) {
-        spawn_scattered_lightning_strikes(arg2, 4);
+        spawn_scattered_lightning_strikes((u8 *)(arg2), (s32)(4));
     }
 }
 

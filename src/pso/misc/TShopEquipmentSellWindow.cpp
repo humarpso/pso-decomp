@@ -109,10 +109,33 @@ struct Win_8021CC44 {
     void *cost_win;
 };
 
+struct VBase_8021C968 { char pad[0x18]; };
+
+struct VObj_8021C968 : VBase_8021C968 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual s32 m4(s32, s32);
+};
+
+struct Rec_8021C968 { s32 item; s32 w[4]; s32 price; s32 w18; };
+
+struct Win_8021C968 : VObj_8021C968 {
+    u8 pad1c[0x24 - 0x1C];
+    s32 player;
+    Rec_8021C968 recs[30];
+    u8 pad370[0x37C - 0x370];
+    s32 count;
+    s32 sel;
+    u8 pad384[0x38C - 0x384];
+    void *list;
+    void *card;
+};
+
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 update__24TShopEquipmentSellWindowFPv(void *arg0);
-s32 handle_sell_confirm__24TShopEquipmentSellWindowFv(void *);
 void handle_input_window_result__24TShopEquipmentSellWindowFPv(void *arg0);
 s32 close__24TShopEquipmentSellWindowFPv(void *arg0);
 void TShopEquipmentSellWindow__vt9(u8 *arg0);
@@ -172,6 +195,15 @@ s32 is_camera_ctrl_active__6TLobbyFv();
 s32 obj_getField1c(s32);
 extern const f32 lbl_805DC6D8;
 void handle_selection__24TShopEquipmentSellWindowFv(Win_8021CC44 *w);
+s32 is_visible__17TWindowSubComCardFPv(void *);
+s32 get_status_flag__17TWindowSubComCardFPv(void *);
+int set_field_20__12TQuestListVMFPvi(void *, int);
+s32 get_field_d8__10TObjPlayerFPv(s32);
+s32 try_add_sale_meseta__10TObjPlayerFv(s32, s32, s32, s32);
+void TWindow__close(void *);
+s32 get_selected_menu_value(void *);
+s32 select_cursor_entry__6TLobbyFPv(void *);
+void handle_sell_confirm__24TShopEquipmentSellWindowFv(Win_8021C968 *w);
 }
 
 extern "C" {
@@ -223,6 +255,39 @@ s32 update__24TShopEquipmentSellWindowFPv(void *arg0) {
     if (o->m8() != 0 && (TShopWindowBase__sub_80223A48(arg0) != 0 || TShopWindowBase__sub_802239EC(arg0) != 0)) {
         o->m4(0xc, 1);
         set_field_20__12TQuestListVMFPvi((void *)(arg0), (int)(5));
+    }
+}
+
+void handle_sell_confirm__24TShopEquipmentSellWindowFv(Win_8021C968 *w) {
+    s32 r;
+    if (w->card != NULL && is_visible__17TWindowSubComCardFPv(w->card) != 0) {
+        r = get_selected_menu_value(w->card);
+        if (r == 0) {
+            s32 i = select_cursor_entry__6TLobbyFPv(w->list);
+            if (try_add_sale_meseta__10TObjPlayerFv(w->player, get_field_d8__10TObjPlayerFPv(w->recs[i].item), w->recs[i].price * w->count, w->count) != 0) {
+                TWindow__close(w->card);
+                w->card = NULL;
+                w->sel = i;
+                set_field_20__12TQuestListVMFPvi(w, 0);
+                return;
+            }
+            w->m4(0x1C, 1);
+            TWindow__close(w->card);
+            w->card = NULL;
+            set_field_20__12TQuestListVMFPvi(w, 4);
+            return;
+        }
+        if (r == 1) {
+            TWindow__close(w->card);
+            w->card = NULL;
+            set_field_20__12TQuestListVMFPvi(w, 5);
+            return;
+        }
+    }
+    if (w->card != NULL && get_status_flag__17TWindowSubComCardFPv(w->card) != 0) {
+        TWindow__close(w->card);
+        w->card = NULL;
+        set_field_20__12TQuestListVMFPvi(w, 5);
     }
 }
 
@@ -422,7 +487,7 @@ void TShopEquipmentSellWindow__vt9(u8 *arg0) {
         handle_selection__24TShopEquipmentSellWindowFv((Win_8021CC44 *)((void *) (arg0)));
         return;
     case 2:
-        handle_sell_confirm__24TShopEquipmentSellWindowFv((void *) (arg0));
+        handle_sell_confirm__24TShopEquipmentSellWindowFv((Win_8021C968 *)((void *) (arg0)));
         return;
     case 3:
         handle_input_window_result__24TShopEquipmentSellWindowFPv((void *) (arg0));

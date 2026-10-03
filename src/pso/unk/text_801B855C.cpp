@@ -77,6 +77,10 @@ typedef struct Cmd_801B8870 {
     Vec_801B8870 pos;
 } Cmd_801B8870;
 
+struct Data_801B855C { u8 pad[0x20]; s32 meseta; };
+
+struct Player_801B855C { u8 pad[0x2B0]; Data_801B855C *data; };
+
 extern "C" {
 s32 init__9TItemDataFv(void *);
 s32 count_items_by_id__10TObjPlayerFPvi(int, void *);
@@ -135,6 +139,9 @@ void TObjPlayer__sub_801B9634(void *);
 void init_6x2A__10TObjPlayerFPv(void *);
 void bswap_fields_and_send__10TObjPlayerFPv(Cmd_801B8870 *);
 void send_6x2A_drop_item__10TObjPlayerFv(void *arg0, s32 arg1, void *arg2, s32 arg3);
+s32 add_meseta__10TObjPlayerFl(void *, s32);
+int send_6x29_delete_item__10TObjPlayerFPvii(void*);
+s32 try_add_sale_meseta__10TObjPlayerFv(Player_801B855C *arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -147,7 +154,19 @@ s32 can_pickup_item__10TObjPlayerFPvPv();
 int get_item_record__23TShopJudgmentItemWindowFPv(void* p);
 int send_6x29_delete_item__10TObjPlayerFPvii(void*);
 
-int try_add_sale_meseta__10TObjPlayerFv(void) { return 0; }
+#pragma push
+#pragma opt_propagation off
+s32 try_add_sale_meseta__10TObjPlayerFv(Player_801B855C *arg0, s32 arg1, s32 arg2, s32 arg3) {
+    s32 max = 999999;
+    if (max < arg0->data->meseta + arg2) {
+        return 0;
+    }
+    add_meseta__10TObjPlayerFl(arg0, arg2);
+    ((void (*)(void *, s32, s32))send_6x29_delete_item__10TObjPlayerFPvii)(arg0, arg1, arg3);
+    return 1;
+}
+#pragma pop
+
 s32 try_buy_item(s32 arg0, void *arg1) {
     if (can_pickup_item__10TObjPlayerFPvPv() == 0) {
         return 1;
