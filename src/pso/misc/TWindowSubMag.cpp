@@ -11,6 +11,42 @@ struct Vec2_8027B424 { f32 x; f32 y; };
 
 struct Item_8027B424 { u8 b[0x10]; };
 
+struct TWindowSubMag_8027B62C;
+struct VBase_8027B888 { u8 pad[0x18]; };
+
+struct VObj_8027B888 : VBase_8027B888 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+};
+
+struct Pad_8027B888 { u8 pad[0x20]; u8 sub[0x30]; };
+
+struct TWindowSubMag_8027B888 {
+    u8 pad0[0x1C];
+    u8 state;
+    s8 f1d;
+    s8 slots;
+    u8 pad1f;
+    s16 timer;
+    u8 pad22[6];
+    s32 client_id;
+    s32 mag_state;
+    VObj_8027B888 *parent;
+    void *list;
+    void *list2;
+    void *card;
+    void *help;
+    void *slotwin;
+    void *photon;
+    void *effect;
+};
+
 extern "C" {
 extern u8 *lbl_805D553C;
 s32 TWindowSubMag__sub_8027C0B0(s32 arg0);
@@ -51,6 +87,64 @@ void *TLobby__sub_80269CC0(M2C_UNK, M2C_UNK *, s32, M2C_UNK);
 s32 get_window_layout_position(M2C_UNK);
 s32 TWindowSubMag__sub_8027C0B0(s32 arg0);
 void *TWindowSubMag__sub_8027B424(u8 *arg0);
+void *get_player_by_client_id(s32);
+s32 is_player_input_active(s32);
+M2C_UNK TWindow__close(void *);
+void *__nw__7TObjectFUl(u32);
+s32 get_window_layout_position(M2C_UNK);
+void *TWindowHelpItem__ct(void *, s32, s32);
+M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
+M2C_UNK set_field_1c__6TLobbyFPvf(void *);
+void *fn_802628C0(s32, void *, s32);
+M2C_UNK TWindowSubMag__sub_80255E24(void *);
+M2C_UNK init_and_setup__13TWindowSubMagFPvPv(s32, M2C_UNK);
+M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
+M2C_UNK start_scroll__13TWindowSubMagFPvf(void *, f32);
+void update_displayed_item__13TWindowSubMagFPv(void *arg0);
+s32 get_mag_state__13TWindowSubMagFPv(void* p);
+M2C_UNK set_mag_slot_state__13TWindowSubMagFPvi(void *, s32);
+s32 get_flag_bit2__6TLobbyFPv(void *);
+s32 get_status_flag__6TLobbyFPv(void *);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK window_request_show(void *);
+void clear_flag60_bit8__13TWindowSubMagFPv(void* p);
+M2C_UNK call_if_split_screen(void *, s32);
+s32 select_cursor_entry__6TLobbyFPv(s32);
+M2C_UNK clear_flag_and_release__17TWindowSubComCardFPv(void *);
+s32 get_status_flag__17TWindowSubComCardFPv(void *);
+s32 is_visible__17TWindowSubComCardFPv(void *);
+s32 TWindowSubComCard__sub_80265BF8(void *);
+void set_mag_mode__13TWindowSubMagFPvi(void *arg0, s32 arg1);
+M2C_UNK init_scroll_pos__20TWindowSubStatusDispFPv(void *);
+M2C_UNK update_help_item__13TWindowSubMagFPv(void *, s32);
+M2C_UNK set_flag60_bit4__13TWindowSubMagFPv(void *);
+s32 create_list__13TWindowSubMagFPv(void *arg0);
+s32 TWindowShortListCtrl__check_controller_button(void *, int);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
+M2C_UNK play_sound_effect(s32, s32, s32, s32);
+s32 is_usable__14TWindowSubItemFi(void *);
+s32 count_slots__13TWindowSubMagFPv(void *arg0);
+M2C_UNK feed_mag__13TWindowSubMagFPvPvPv(void *, s32, s32);
+M2C_UNK TWindowSubComCard__sub_80244B1C(void *);
+void set_flag60_bit8__13TWindowSubMagFPv(void* p);
+M2C_UNK refresh_copied_items__15TWindowHelpItemFPv(void *);
+s32 TItemData__sub_80253974(void *);
+s32 TWindowSubMag__sub_80253698(void *);
+s32 fn_8025373C(void *);
+void *TWindowSubMag__sub_8027B424(u8 *arg0);
+M2C_UNK TWindowSubTradeMain__sub_80244A4C(void *);
+void *TWindowSubMagPhoton__ct(void *, s32, s32, s32);
+void *create__13TWindowSubMagFPv(void *arg0);
+void update_mag_help__13TWindowSubMagFPv(void *arg0);
+int TWindowSubMag__sub_8027C0E8(void* p);
+int get_active_flag__13TWindowSubMagFPv(void* p);
+u32 is_action_active__10TObjPlayerFPv(void *);
+extern u8 lbl_8044F9E8[];
+extern Pad_8027B888 lbl_8050E208[];
+extern const f32 lbl_805DD66C;
+extern const f32 lbl_805DD670;
+extern const f32 lbl_805DD674;
+void run_task__13TWindowSubMagFv(void *arg0);
 }
 
 extern "C" {
@@ -96,6 +190,10 @@ M2C_UNK set_field_1c__6TLobbyFPvf(void *);
 M2C_UNK set_flag70_bit10__20TWindowShortListCtrlFPv(s32);
 
 extern M2C_UNK lbl_805DD648;
+
+extern "C" {
+void *TWindowSubMag__sub_8027B62C(TWindowSubMag_8027B62C *menu, s32 id);
+}
 
 void update_mag_help__13TWindowSubMagFPv(void *arg0) {
     s32 temp_r3;
@@ -269,6 +367,203 @@ s32 setup_list__13TWindowSubMagFPv(void *arg0) {
 void render__13TWindowSubMagFv(void) {  }
 
 extern M2C_UNK __vt__13TWindowSubMag[];
+
+#define self ((TWindowSubMag_8027B888 *)arg0)
+void run_task__13TWindowSubMagFv(void *arg0) {
+    void *w;
+    void *player;
+    s32 port;
+    player = get_player_by_client_id(self->client_id);
+    if (player == NULL) {
+        return;
+    }
+    port = is_player_input_active(self->client_id);
+    switch (self->state) {
+    case 0:
+    case 1:
+        if (self->card != NULL) {
+            TWindow__close(self->card);
+            self->card = NULL;
+        }
+        if (self->help == NULL) {
+            w = __nw__7TObjectFUl(0xBC);
+            if (w != NULL) {
+                w = TWindowHelpItem__ct(w, get_window_layout_position(9), self->client_id);
+            }
+            self->help = w;
+            TWindowSubEquip__sub_80263AF8((s32)self->parent, 5);
+            set_field_1c__6TLobbyFPvf(self->help);
+        }
+        if (self->slotwin == NULL) {
+            self->slotwin = fn_802628C0(get_window_layout_position(0xC), lbl_8044F9E8, self->client_id);
+        }
+        TWindowSubMag__sub_80255E24(self->help);
+        init_and_setup__13TWindowSubMagFPvPv((s32)self->list, 2);
+        clear_selected_and_update_entry__14TWindowSubItemFPv(self->list);
+        start_scroll__13TWindowSubMagFPvf(self->list, lbl_805DD66C);
+        self->state = 2;
+    case 2:
+        update_displayed_item__13TWindowSubMagFPv(self);
+        self->mag_state = get_mag_state__13TWindowSubMagFPv((void*)(self->help));
+        set_mag_slot_state__13TWindowSubMagFPvi(self->slotwin, get_mag_state__13TWindowSubMagFPv((void*)(self->help)));
+        if (get_flag_bit2__6TLobbyFPv(self->list) != 0) {
+            self->parent->m7();
+            self->state = 0x11;
+        } else if (get_status_flag__6TLobbyFPv(self->list) != 0) {
+            self->state = 3;
+        }
+        break;
+    case 3:
+        if (self->effect != NULL) {
+            queue_destruction__7TObjectFv(self->effect);
+            self->effect = NULL;
+        }
+        if (self->photon != NULL) {
+            TWindow__close(self->photon);
+            self->photon = NULL;
+        }
+        if (self->list2 != NULL) {
+            TWindow__close(self->list2);
+            self->list2 = NULL;
+        }
+        if (self->help != NULL) {
+            window_request_show(self->help);
+            TWindowSubMag__sub_80255E24(self->help);
+            clear_flag60_bit8__13TWindowSubMagFPv((void*)(self->help));
+            call_if_split_screen(self->help, self->client_id);
+        }
+        start_scroll__13TWindowSubMagFPvf(self->list, lbl_805DD66C);
+        if (self->card == NULL) {
+            self->card = TWindowSubMag__sub_8027B62C((TWindowSubMag_8027B62C *)self, select_cursor_entry__6TLobbyFPv((s32)self->list));
+        }
+        clear_flag_and_release__17TWindowSubComCardFPv(self->card);
+        self->state = 4;
+    case 4:
+        if (get_status_flag__17TWindowSubComCardFPv(self->card) != 0) {
+            self->state = 1;
+        } else if (is_visible__17TWindowSubComCardFPv(self->card) != 0) {
+            set_mag_mode__13TWindowSubMagFPvi(self, TWindowSubComCard__sub_80265BF8(self->card));
+        }
+        break;
+    case 5:
+        if (self->card != NULL) {
+            TWindow__close(self->card);
+            self->card = NULL;
+        }
+        init_scroll_pos__20TWindowSubStatusDispFPv(self->list);
+        update_help_item__13TWindowSubMagFPv(self->help, 1);
+        set_flag60_bit4__13TWindowSubMagFPv(self->help);
+        if (self->list2 == NULL) {
+            self->list2 = (void *)create_list__13TWindowSubMagFPv(self);
+        }
+        clear_selected_and_update_entry__14TWindowSubItemFPv(self->list2);
+        self->state = 6;
+    case 6:
+        if (get_flag_bit2__6TLobbyFPv(self->list2) != 0) {
+            self->state = 3;
+        } else if (get_status_flag__6TLobbyFPv(self->list2) != 0) {
+            self->state = 7;
+        }
+        break;
+    case 7:
+        if (TWindowShortListCtrl__check_controller_button(lbl_8050E208[port].sub, 2) != 0 ||
+            test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208[4].sub, 2) != 0) {
+            play_sound_effect(0x52F16, 0, 0, 0);
+            self->state = 5;
+        } else if (is_usable__14TWindowSubItemFi(player) != 0) {
+            self->slots = count_slots__13TWindowSubMagFPv(self);
+            feed_mag__13TWindowSubMagFPvPvPv(player, select_cursor_entry__6TLobbyFPv((s32)self->list),
+                                             select_cursor_entry__6TLobbyFPv((s32)self->list2));
+            self->state = 8;
+        }
+        break;
+    case 8:
+        window_request_show(self->help);
+        TWindowSubComCard__sub_80244B1C(self->help);
+        set_flag60_bit8__13TWindowSubMagFPv((void*)(self->help));
+        refresh_copied_items__15TWindowHelpItemFPv(self->help);
+        init_and_setup__13TWindowSubMagFPvPv((s32)self->list, 2);
+        set_mag_slot_state__13TWindowSubMagFPvi(self->slotwin, get_mag_state__13TWindowSubMagFPv((void*)(self->help)));
+        if (TItemData__sub_80253974(self->help) != 0) {
+            self->state = 9;
+        } else {
+            self->state = 3;
+        }
+        break;
+    case 9:
+        if (TWindowSubMag__sub_80253698(self->help) != 0) {
+            self->state = 10;
+        }
+        break;
+    case 10:
+        if (fn_8025373C(self->help) != 0) {
+            play_sound_effect(0x4002A80F, 0, 0, 0);
+            self->timer = 0;
+            self->state = 11;
+        } else {
+            self->state = 12;
+            break;
+        }
+    case 11:
+        if ((f32)self->timer++ > lbl_805DD670 && TWindowSubMag__sub_80253698(self->help) != 0) {
+            self->state = 10;
+        }
+        break;
+    case 12:
+        if (self->slots != count_slots__13TWindowSubMagFPv(self)) {
+            self->timer = 0;
+            update_help_item__13TWindowSubMagFPv(self->help, 2);
+            self->effect = TWindowSubMag__sub_8027B424((u8 *)self);
+            self->state = 13;
+        } else {
+            self->state = 3;
+            break;
+        }
+    case 13:
+        if ((f32)self->timer++ > lbl_805DD674 && self->effect != NULL) {
+            TWindow__close(self->effect);
+            self->effect = NULL;
+            self->state = 3;
+        }
+        break;
+    case 14:
+        if (self->card != NULL) {
+            TWindow__close(self->card);
+            self->card = NULL;
+        }
+        if (self->help != NULL) {
+            TWindowSubTradeMain__sub_80244A4C(self->help);
+            set_flag60_bit8__13TWindowSubMagFPv((void*)(self->help));
+            set_flag60_bit4__13TWindowSubMagFPv(self->help);
+        }
+        w = __nw__7TObjectFUl(0x74);
+        if (w != NULL) {
+            w = TWindowSubMagPhoton__ct(w, get_window_layout_position(0xA), self->mag_state, self->client_id);
+        }
+        self->photon = w;
+        TWindowSubEquip__sub_80263AF8((s32)self->parent, 3);
+        set_field_1c__6TLobbyFPvf(self->photon);
+        self->effect = create__13TWindowSubMagFPv(self);
+        self->f1d = -1;
+        self->state = 15;
+    case 15:
+        update_mag_help__13TWindowSubMagFPv(self);
+        if (TWindowSubMag__sub_8027C0E8((void*)(self->photon)) != 0) {
+            self->state = 3;
+        } else if (get_active_flag__13TWindowSubMagFPv((void*)(self->photon)) != 0) {
+            self->state = 3;
+        }
+        break;
+    case 16:
+        if (is_action_active__10TObjPlayerFPv(player) == 0) {
+            self->state = 1;
+        }
+        break;
+    case 17:
+        break;
+    }
+}
+#undef self
 
 void *__dt__13TWindowSubMagFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

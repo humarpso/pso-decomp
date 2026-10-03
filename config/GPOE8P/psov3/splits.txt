@@ -13146,6 +13146,7 @@ pso/misc/TWindowSubLog.cpp:
 pso/misc/TWindowSubMag.cpp:
 	.text       start:0x8027B2B8 end:0x8027C13C
 	.rodata     start:0x8044FA08 end:0x8044FA10
+	.data       start:0x804D16D8 end:0x804D1720
 	.sdata2     start:0x805DD64C end:0x805DD664
 
 pso/unk/text_8027C13C.cpp:
