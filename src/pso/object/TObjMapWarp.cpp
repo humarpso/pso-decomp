@@ -79,7 +79,7 @@ void *TObjWarpBase__ct(void *, void *, void *);
 int push_matrix_from(void *);
 void post_translate_matrix(void *);
 void rotate_matrix_y(void *, s32);
-void TCameraCtrl__sub_803D8934(void *, void *, void *);
+void matrix_mult_vec(void *, void *, void *);
 void pop_matrix();
 extern M2C_UNK __vt__11TObjMapWarp[];
 extern u8 lbl_8058D490[];
@@ -205,7 +205,7 @@ void *TObjMapWarp__ct(W_8019D764 *self, void *parent, void *set) {
         push_matrix_from(lbl_8058D490);
         post_translate_matrix(self->destination);
         rotate_matrix_y(0, self->sourceYaw);
-        TCameraCtrl__sub_803D8934(0, &lbl_804B910C[i], &self->destinations[i]);
+        matrix_mult_vec(0, &lbl_804B910C[i], &self->destinations[i]);
         pop_matrix();
         self->playerPopups[i] = 0;
     }

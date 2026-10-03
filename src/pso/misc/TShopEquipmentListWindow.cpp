@@ -237,7 +237,7 @@ s32 is_single_purchase_shop_item(void *);
 s32 TShopWindowBase__sub_8022397C(void *);
 void TLobby__sub_802255CC(s32, s32);
 void TWindow__close(void *);
-s32 TWindowSubComCard__sub_80265BF8(void *);
+s32 get_selected_menu_value(void *);
 M2C_UNK save_cursor_selection__20TShopArmorListWindowFPv(void *);
 s32 select_cursor_entry__6TLobbyFPv(void *);
 extern const s32 lbl_805D53A0;
@@ -256,7 +256,7 @@ s32 TShopWindowBase__sub_8022397C(void *);
 void TLobby__sub_802255CC(s32, s32);
 s32 set_position_xy(u32, f32, f32);
 void TWindow__close(void *);
-s32 TWindowSubComCard__sub_80265BF8(void *);
+s32 get_selected_menu_value(void *);
 u32 create_yes_no_window(int, u16, int, int);
 s32 select_cursor_entry__6TLobbyFPv(void *);
 s32 get_window_layout_position(s32);
@@ -329,7 +329,7 @@ void handle_equip_offer__24TShopEquipmentListWindowFv(void *p) {
     s32 i;
     f32 sc;
     if (w->win != NULL && is_visible__17TWindowSubComCardFPv(w->win) != 0) {
-        r = TWindowSubComCard__sub_80265BF8(w->win);
+        r = get_selected_menu_value(w->win);
         if (r == 0 && w->list != NULL) {
             if (w->flag != 0) {
                 w->base.m4(0x18, 1);
@@ -370,7 +370,7 @@ void handle_equip_offer__24TShopEquipmentListWindowFv(void *p) {
 void handle_buy_confirm__24TShopEquipmentListWindowFPv(Win_8021BC18 *w) {
     s32 r;
     if (w->card != NULL && is_visible__17TWindowSubComCardFPv(w->card) != 0) {
-        r = TWindowSubComCard__sub_80265BF8(w->card);
+        r = get_selected_menu_value(w->card);
         if (r == 0) {
             if (w->list != NULL) {
                 s32 i = select_cursor_entry__6TLobbyFPv(w->list);

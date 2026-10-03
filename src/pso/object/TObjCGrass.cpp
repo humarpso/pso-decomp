@@ -36,7 +36,7 @@ s32 reset_transform_state__10TObjPlayerFv();
 s32 set_position_vec3__10TObjPlayerFPvPv(int, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(int);
-s32 TCameraCtrl__sub_803D9858(int);
+s32 pop_matrices(int);
 s32 set_global_param__8TObjFishFi(int);
 s32 draw_model_motion(int, int, f32);
 void render__10TObjCGrassFv(Obj_800B8B08 *arg0);
@@ -108,7 +108,7 @@ void render__10TObjCGrassFv(Obj_800B8B08 *arg0) {
             rotate_matrix_y(0, arg0->recs[i].f18);
             draw_model_motion(arg0->f34, arg0->ff8, arg0->fc0);
             reset_transform_state__10TObjPlayerFv();
-            TCameraCtrl__sub_803D9858(1);
+            pop_matrices(1);
         }
     }
 }

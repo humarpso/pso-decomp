@@ -54,7 +54,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void clear_flag_and_release__17TWindowSubComCardFPv(void *);
 void play_sound_effect(s32, s32, s32, s32);
 s32 is_player_input_active(s32);
-s32 TWindowSubComCard__sub_80265BF8(void *);
+s32 get_selected_menu_value(void *);
 void *init_shop_judgment_window(void *);
 s32 TMCFormatSequence__sub_802693B4(void *);
 void complete_reveal__14TWindowMessageFPv(void *);
@@ -136,7 +136,7 @@ void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self) {
             queue_destruction__7TObjectFv(self);
             self->state = 6;
         } else if (is_visible__17TWindowSubComCardFPv(self->win) != 0) {
-            s32 r = TWindowSubComCard__sub_80265BF8(self->win);
+            s32 r = get_selected_menu_value(self->win);
             if (r == 0) {
                 self->state = 4;
             }

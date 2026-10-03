@@ -13,7 +13,7 @@ M2C_UNK send_giveup_to_all_players__6TLobbyFv(void *);
 M2C_UNK close_giveup_window__6TLobbyFPv();
 M2C_UNK play_effect_all_players__6TLobbyFPv(void *);
 s32 is_visible__17TWindowSubComCardFPv(u32);
-s32 TWindowSubComCard__sub_80265BF8(u32);
+s32 get_selected_menu_value(u32);
 
 extern M2C_UNK lbl_804DBE90[];
 
@@ -25,7 +25,7 @@ void handle_retry_menu_select__6TLobbyFPv(void *arg0) {
         open_giveup_window__6TLobbyFPv(arg0);
     }
     if (is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x2C)) != 0) {
-        temp_r3 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u32 *, 0x2C));
+        temp_r3 = get_selected_menu_value(M2C_FIELD(arg0, u32 *, 0x2C));
         if (temp_r3 != 2) {
             set_retry_selection__6TLobbyFi(lbl_804DBE90[temp_r3]);
             send_giveup_to_all_players__6TLobbyFv(arg0);

@@ -148,7 +148,7 @@ void TObjPlayer__sub_8002E3D4(Obj_8002E3D4 *self);
 f32 lerp__9TDeadSpotFff(f32, f32);
 f32 rand_signed_unit();
 M2C_UNK init_base__10TObjPlayerFPv(void *);
-M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
+M2C_UNK matrix_mult_vec(int, void *, void *);
 M2C_UNK TObjPlayer__sub_803D8CD4(int);
 M2C_UNK rotate_vector_by_matrix(int, void *, void *);
 M2C_UNK TObjPlayer__sub_803D9730(int, int);
@@ -303,9 +303,9 @@ Obj_8002E62C *TObjPlayer__sub_8002E62C(Obj_8002E62C *self, M2C_UNK arg1, s32 arg
     v->x = lbl_805D822C;
     v->y = lbl_805D822C;
     v->z = lbl_805D822C;
-    TCameraCtrl__sub_803D8934(0, v, v);
+    matrix_mult_vec(0, v, v);
     for (i = 0; i < 0x1C; i++, p++) {
-        TCameraCtrl__sub_803D8934(0, &lbl_805D4B8C->ents[i].a, &p->pos);
+        matrix_mult_vec(0, &lbl_805D4B8C->ents[i].a, &p->pos);
         rotate_vector_by_matrix(0, &lbl_805D4B8C->ents[i].b, &p->fC);
         p->f10 = lerp__9TDeadSpotFff(lbl_805D8234, lbl_805D8238);
         p->f14 -= lerp__9TDeadSpotFff(lbl_805D8228, lbl_805D823C);

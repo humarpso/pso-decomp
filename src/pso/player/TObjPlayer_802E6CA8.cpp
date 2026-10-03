@@ -124,7 +124,7 @@ f32 rand_signed_unit();
 void alloc_breakup_model__10TObjPlayerFPvi(void *arg0, s32 arg1);
 void *init_zeroed_object__10TObjPlayerFPv(void *arg0);
 u8 *queue_boss_effect__10TObjPlayerFPv(s32);
-M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
+M2C_UNK matrix_mult_vec(int, void *, void *);
 M2C_UNK TObjPlayer__sub_803D8CD4(int);
 M2C_UNK rotate_vector_by_matrix(int, void *, void *);
 M2C_UNK TObjPlayer__sub_803D9730(int, s32);
@@ -269,9 +269,9 @@ u8 *TObjPlayer__sub_802E6F10(u8 *arg0, void *arg1, s32 arg2) {
     TObjPlayer__sub_803D8CD4(0);
     TObjPlayer__sub_803D9730(0, M2C_FIELD(arg0, s32 *, 0x2C));
     M2C_FIELD(arg0, Vec_802E6F10 *, 0x30).z = M2C_FIELD(arg0, Vec_802E6F10 *, 0x30).y = M2C_FIELD(arg0, Vec_802E6F10 *, 0x30).x = lbl_805DE9CC;
-    TCameraCtrl__sub_803D8934(0, arg0 + 0x30, arg0 + 0x30);
+    matrix_mult_vec(0, arg0 + 0x30, arg0 + 0x30);
     for (i = 0; i < M2C_FIELD(arg0, s32 *, 0x24); i++) {
-        TCameraCtrl__sub_803D8934(0, &M2C_FIELD(arg0, Model_802E6F10 **, 0x1C)->bones[i].pos, &part->pos);
+        matrix_mult_vec(0, &M2C_FIELD(arg0, Model_802E6F10 **, 0x1C)->bones[i].pos, &part->pos);
         rotate_vector_by_matrix(0, &M2C_FIELD(arg0, Model_802E6F10 **, 0x1C)->bones[i].rot, &part->rot);
         part->rot.y = lerp__9TDeadSpotFff(lbl_805DE9D4, lbl_805DE9D8);
         part->rot.z -= lerp__9TDeadSpotFff(lbl_805DE9C8, lbl_805DE9DC);

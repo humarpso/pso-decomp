@@ -15,7 +15,7 @@ s32 TAdSinglePlyChrSelectGC__sub_802E1DF8(void *, s32);
 extern RecoveredGlobal_802E2BD4_lbl_804C88C0 lbl_804C88C0;
 void TAdSinglePlyChrSelectGC__sub_802E2BD4(s32 arg0);
 s32 is_visible__17TWindowSubComCardFPv(void *);
-s32 TWindowSubComCard__sub_80265BF8(void *);
+s32 get_selected_menu_value(void *);
 s32 TAdSinglePlyChrSelectGC__sub_802E1DF8(void *, s32);
 void TAdSinglePlyChrSelectGC__sub_802E2DD8(u8 *arg0);
 int close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void*, int, int, int, int);
@@ -137,7 +137,7 @@ void TAdSinglePlyChrSelectGC__sub_802E2DD8(u8 *arg0) {
     if (M2C_FIELD(arg0, void **, 0x54) == 0 || is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x54)) == 0) {
         return;
     }
-    switch (TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, void **, 0x54))) {
+    switch (get_selected_menu_value(M2C_FIELD(arg0, void **, 0x54))) {
     case 0:
         TAdSinglePlyChrSelectGC__sub_802E1DF8(arg0, 6);
         break;

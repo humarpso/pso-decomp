@@ -87,7 +87,7 @@ extern const f32 TContainerAncient01__data_805DBD10;
 extern const f32 TContainerAncient01__data_805DBD14;
 f32 TContainerAncient01__vt22(V_8018BE98 *self);
 f32 xyz_distance_squared(void *, void *);
-void TCameraCtrl__sub_803D8934(int, void *, void *);
+void matrix_mult_vec(int, void *, void *);
 void project_world_to_screen(int, void *, void *, void *);
 extern Vec_8018BEE4 lbl_804FF610;
 extern u8 *lbl_805D4DF0;
@@ -188,7 +188,7 @@ int TContainerAncient01__vt25(void) { return 1; }
 s32 TObjContainerIdo__vt8(u8 *arg0, f32 farg0, f32 farg1) {
     Vec_8018BEE4 p;
     f32 out[2];
-    TCameraCtrl__sub_803D8934(0, arg0 + 0xC0, &p);
+    matrix_mult_vec(0, arg0 + 0xC0, &p);
     if (xyz_distance_squared(arg0 + 0x38, lbl_805D4DF0 + 0x178) < farg1 * farg1) {
         return 1;
     }
@@ -434,9 +434,9 @@ void run_task__16TObjContainerIdoFv(Ido_8018C18C *self) {
             post_translate_matrix(&self->pos);
             rotate_matrix_y(0, self->f60);
             rotate_matrix_x(0, self->f5c);
-            TCameraCtrl__sub_803D8934(0, &a, &out);
+            matrix_mult_vec(0, &a, &out);
             spawn_particle_effect(&out, 0x42);
-            TCameraCtrl__sub_803D8934(0, &b, &out);
+            matrix_mult_vec(0, &b, &out);
             spawn_particle_effect(&out, 0x42);
             pop_matrix();
         }

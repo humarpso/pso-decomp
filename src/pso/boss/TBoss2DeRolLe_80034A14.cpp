@@ -174,7 +174,7 @@ extern RecoveredGlobal_80034C90_lbl_8043567C lbl_8043567C;
 void TBoss2DeRolLe__sub_80034C2C(u8 *arg0, s32 arg1);
 s32 TObjPlayer__sub_803D7B68(int, f32);
 s32 compose_motion_node_matrix(int);
-s32 TCameraCtrl__sub_803D8934(int, void *, void *);
+s32 matrix_mult_vec(int, void *, void *);
 s32 TObjPlayer__sub_803D8CD4(int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -184,7 +184,7 @@ extern const f32 TBoss2DeRolLe__data_805D827C;
 void TBoss2DeRolLe__sub_80034AC8(u8 *arg0, u8 *arg1);
 s32 TObjPlayer__sub_803D7B68(int, f32);
 s32 compose_motion_node_matrix(int);
-s32 TCameraCtrl__sub_803D8934(int, void *, void *);
+s32 matrix_mult_vec(int, void *, void *);
 s32 scale_matrix(int, f32, f32, f32);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
@@ -270,7 +270,7 @@ void TBoss2DeRolLe__sub_80034AC8(u8 *arg0, u8 *arg1) {
     scale_current_matrix((void *) (&stack.sp8));
     TObjPlayer__sub_803D7B68((int) (M2C_FIELD(arg0, s32 *, 0xF8)), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));
     compose_motion_node_matrix((int) (M2C_FIELD(arg0, s32 *, 0x34)));
-    TCameraCtrl__sub_803D8934((int) (0), (void *) (arg1), (void *) (arg1));
+    matrix_mult_vec((int) (0), (void *) (arg1), (void *) (arg1));
     pop_matrix();
 }
 
@@ -283,7 +283,7 @@ f32 TBoss2DeRolLe__sub_80034B60(Obj_80034B60 *self) {
     scale_matrix(0, TBoss2DeRolLe__data_805D82A0, TBoss2DeRolLe__data_805D82A0, TBoss2DeRolLe__data_805D82A0);
     TObjPlayer__sub_803D7B68(self->fF8, self->fC0);
     compose_motion_node_matrix(self->f34);
-    TCameraCtrl__sub_803D8934(0, &v, &v);
+    matrix_mult_vec(0, &v, &v);
     pop_matrix();
     return v.y;
 }

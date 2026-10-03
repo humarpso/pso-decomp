@@ -42,7 +42,7 @@ extern const f32 lbl_805DD150;
 extern const f32 lbl_805DD154;
 extern const f32 lbl_805DD158;
 void TWindowSubComCard__sub_80265A38(u8 *arg0);
-u32 TWindowSubComCard__sub_80265BF8(Obj_80265BF8 *o);
+u32 get_selected_menu_value(Obj_80265BF8 *o);
 Ent_80265C30 *get_array_entry__20TWindowSubStatusDispFPvi(void *w, s32 i);
 void *get_field_20__17TWindowSubComCardFPv(void *e);
 void measure_message_text_width(Ent_80265C30 *e, f32 x);
@@ -130,7 +130,7 @@ void advance_past_disabled_menu_rows(Card_80265AA4 *arg0) {
     }
 }
 
-u32 TWindowSubComCard__sub_80265BF8(Obj_80265BF8 *o) {
+u32 get_selected_menu_value(Obj_80265BF8 *o) {
     return o->entries[o->f78].b;
 }
 

@@ -67,7 +67,7 @@ void close_window__21TAdMultiChgGameModeGCFPv(void* p);
 s32 is_visible__17TWindowSubComCardFPv(void *);
 void close_window_30__21TAdMultiChgGameModeGCFPv(void *arg0);
 void close_window__21TAdMultiChgGameModeGCFPv(void* p);
-s32 TWindowSubComCard__sub_80265BF8(void *);
+s32 get_selected_menu_value(void *);
 void TAdMultiChgGameModeGC__sub_8036E3D4(u8 *arg0);
 void *__nw__7TObjectFUl(int);
 void *__ct__9TAdBackGCFv(void *, void *);
@@ -169,7 +169,7 @@ void close_windows_and_reopen__21TAdMultiChgGameModeGCFPv(void *arg0);
 void close_windows_on_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 void update_card_confirm_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 void update_confirm_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
-s32 TWindowSubComCard__sub_80265BF8(void *);
+s32 get_selected_menu_value(void *);
 M2C_UNK TWindow__close(void *);
 s32 is_visible__17TWindowSubComCardFPv(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -218,7 +218,7 @@ void update_confirm_selection__21TAdMultiChgGameModeGCFPv(void *arg0) {
         temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x34);
         if (temp_r3_2 != 0U) {
             if (is_visible__17TWindowSubComCardFPv((void *)(temp_r3_2)) != 0) {
-                temp_r3 = TWindowSubComCard__sub_80265BF8((void *)(M2C_FIELD(arg0, u32 *, 0x34)));
+                temp_r3 = get_selected_menu_value((void *)(M2C_FIELD(arg0, u32 *, 0x34)));
                 switch (temp_r3) {
                 case 0:
                     TAdMultiChgGameModeGC__sub_8036E858((u8 *)(arg0), (s32)(6));
@@ -259,7 +259,7 @@ void update_card_confirm_selection__21TAdMultiChgGameModeGCFPv(void *arg0) {
     if (handle_mode_selection__21TAdMultiChgGameModeGCFPv((void *)((void *)((void *)((void *)(arg0))))) == 0) {
         if (M2C_FIELD(arg0, void **, 0x34) != 0) {
             if (is_visible__17TWindowSubComCardFPv((void *)(M2C_FIELD(arg0, void **, 0x34))) != 0) {
-                temp_r3 = TWindowSubComCard__sub_80265BF8((void *)(M2C_FIELD(arg0, void **, 0x34)));
+                temp_r3 = get_selected_menu_value((void *)(M2C_FIELD(arg0, void **, 0x34)));
                 switch (temp_r3) {
                 case 0:
                     close_window_30__21TAdMultiChgGameModeGCFPv((void *)(arg0));
@@ -349,7 +349,7 @@ void TAdMultiChgGameModeGC__sub_8036E3D4(u8 *arg0) {
         temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x34));
         if (temp_r3 != NULL) {
             if (((int)is_visible__17TWindowSubComCardFPv(temp_r3)) != 0) {
-                temp_r3_2 = TWindowSubComCard__sub_80265BF8((void *) (M2C_FIELD(arg0, u8 **, 0x34)));
+                temp_r3_2 = get_selected_menu_value((void *) (M2C_FIELD(arg0, u8 **, 0x34)));
                 switch (temp_r3_2) {
                 case 0:
                     close_window_30__21TAdMultiChgGameModeGCFPv(arg0);

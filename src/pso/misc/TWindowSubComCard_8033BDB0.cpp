@@ -51,7 +51,7 @@ extern M2C_UNK lbl_804EF8D8[];
 extern const f32 lbl_805D6D98;
 void TWindowSubComCard__sub_8033BDB0(void *arg0, u32 arg1, s32 arg2, u32 arg3, u32 arg4);
 s32 is_visible__17TWindowSubComCardFPv(void *);
-s32 TWindowSubComCard__sub_80265BF8(void *);
+s32 get_selected_menu_value(void *);
 void TWindowSubComCard__sub_8033C1CC(O_8033C1CC *arg0);
 }
 
@@ -204,7 +204,7 @@ void TWindowSubComCard__sub_8033C1CC(O_8033C1CC *arg0) {
     if (arg0->p == 0 || is_visible__17TWindowSubComCardFPv(arg0->p) == 0) {
         return;
     }
-    switch (TWindowSubComCard__sub_80265BF8(arg0->p)) {
+    switch (get_selected_menu_value(arg0->p)) {
     case 0:
         arg0->f44 = 1;
         break;

@@ -48,7 +48,7 @@ M2C_UNK TAdSinglePlyChrSelectGC__sub_801FDAAC();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8020051C();
 void *__nw__7TObjectFUl(u32);
 M2C_UNK TWindow__close(void *);
-s32 TWindowSubComCard__sub_80265BF8(int);
+s32 get_selected_menu_value(int);
 s32 TAdMultiSaveGC__sub_802FF170(void);
 s32 TAdMultiSaveGC__sub_802FF1F4(void);
 s32 TAdMultiSaveGC__sub_802FF254(void);
@@ -160,7 +160,7 @@ void run_task__14TAdMultiSaveGCFv(u8 *arg0) {
         return;
     case 3:
         if (is_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x30))) != 0) {
-            temp_r3 = TWindowSubComCard__sub_80265BF8((int) (M2C_FIELD(arg0, u32 *, 0x30)));
+            temp_r3 = get_selected_menu_value((int) (M2C_FIELD(arg0, u32 *, 0x30)));
             switch (temp_r3) {
             case 1:
                 M2C_FIELD(arg0, u32 *, 0x1C) = 8U;

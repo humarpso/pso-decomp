@@ -171,7 +171,7 @@ M2C_UNK copy_transform__8TObjChipFPvPv(void *, void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK __ct__13TObjSuisoChipFv(void *, void *, void *);
 M2C_UNK fn_802C9C18(void *, int);
-M2C_UNK TCameraCtrl__sub_803D8934(void *, void *, void *);
+M2C_UNK matrix_mult_vec(void *, void *, void *);
 M2C_UNK set_position_vec3__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK TObjPlayer__sub_803D8CD4(void *);
 M2C_UNK rotate_matrix_y(void *, int);
@@ -230,7 +230,7 @@ void TOTrapSeabed01__vt83(Trap_802C9E3C *self) {
         TObjPlayer__sub_803D8CD4(&m);
         set_position_vec3__10TObjPlayerFPvPv(&m, &self->pos);
         rotate_matrix_y(&m, self->rotY);
-        TCameraCtrl__sub_803D8934(&m, &v, &v);
+        matrix_mult_vec(&m, &v, &v);
         if (spawn_particle_effect(&v, 0x8B) != 0) {
             set_position_xy__10TObjPlayerFPvff(lbl_805DE648, lbl_805DE648);
         }

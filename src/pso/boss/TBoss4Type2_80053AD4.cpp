@@ -125,7 +125,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 int rotate_matrix_y(void *, void *);
 void TObjPlayer__sub_803D8CD4(int);
 void set_position_vec3__10TObjPlayerFPvPv(int, void *);
-void TCameraCtrl__sub_803D8934(int, void *, void *);
+void matrix_mult_vec(int, void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 get_field_3e0__12TBoss3VoloptFPv(void *);
 Vec_80053E40 *get_position_ptr__10TObjPlayerFPv(void *);
@@ -293,7 +293,7 @@ void TObjPlayer__sub_80053E40(Obj_80053E40 *o) {
         in.x = lbl_804860C0[i].x;
         in.y = lbl_805D8B20;
         in.z = lbl_804860C0[i].z;
-        TCameraCtrl__sub_803D8934(0, &in, &out);
+        matrix_mult_vec(0, &in, &out);
         pts[i].x = out.x;
         pts[i].z = out.z;
     }

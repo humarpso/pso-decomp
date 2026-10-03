@@ -66,7 +66,7 @@ M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(void *, s32, s32, s32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, s32, s32);
 void *create_titled_window_menu(s32, s32, s32, M2C_UNK);
 extern const f32 lbl_805DD664;
-void *TWindowSubMag__sub_8027B62C(TWindowSubMag_8027B62C *menu, s32 id);
+void *create_action_menu__13TWindowSubMagFPvi(TWindowSubMag_8027B62C *menu, s32 id);
 s32 get_selected_blast__13TWindowSubMagFPv(Obj_8027C0C4 *o);
 s32 get_shared_text_buffer();
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, s32);
@@ -86,7 +86,7 @@ M2C_UNK send_and_handle__6TLobbyFPvii(s32, M2C_UNK *, M2C_UNK);
 void *TLobby__sub_80269CC0(M2C_UNK, M2C_UNK *, s32, M2C_UNK);
 s32 get_window_layout_position(M2C_UNK);
 s32 TWindowSubMag__sub_8027C0B0(s32 arg0);
-void *TWindowSubMag__sub_8027B424(u8 *arg0);
+void *create_learned_blast_toast__13TWindowSubMagFPv(u8 *arg0);
 void *get_player_by_client_id(s32);
 s32 is_player_input_active(s32);
 M2C_UNK TWindow__close(void *);
@@ -113,7 +113,7 @@ s32 select_cursor_entry__6TLobbyFPv(s32);
 M2C_UNK clear_flag_and_release__17TWindowSubComCardFPv(void *);
 s32 get_status_flag__17TWindowSubComCardFPv(void *);
 s32 is_visible__17TWindowSubComCardFPv(void *);
-s32 TWindowSubComCard__sub_80265BF8(void *);
+s32 get_selected_menu_value(void *);
 void set_mag_mode__13TWindowSubMagFPvi(void *arg0, s32 arg1);
 M2C_UNK init_scroll_pos__20TWindowSubStatusDispFPv(void *);
 M2C_UNK update_help_item__13TWindowSubMagFPv(void *, s32);
@@ -131,7 +131,7 @@ M2C_UNK refresh_copied_items__15TWindowHelpItemFPv(void *);
 s32 TItemData__sub_80253974(void *);
 s32 TWindowSubMag__sub_80253698(void *);
 s32 fn_8025373C(void *);
-void *TWindowSubMag__sub_8027B424(u8 *arg0);
+void *create_learned_blast_toast__13TWindowSubMagFPv(u8 *arg0);
 M2C_UNK TWindowSubTradeMain__sub_80244A4C(void *);
 void *TWindowSubMagPhoton__ct(void *, s32, s32, s32);
 void *create__13TWindowSubMagFPv(void *arg0);
@@ -192,7 +192,7 @@ M2C_UNK set_flag70_bit10__20TWindowShortListCtrlFPv(s32);
 extern M2C_UNK lbl_805DD648;
 
 extern "C" {
-void *TWindowSubMag__sub_8027B62C(TWindowSubMag_8027B62C *menu, s32 id);
+void *create_action_menu__13TWindowSubMagFPvi(TWindowSubMag_8027B62C *menu, s32 id);
 }
 
 void update_mag_help__13TWindowSubMagFPv(void *arg0) {
@@ -253,7 +253,7 @@ extern M2C_UNK lbl_8044FA00[];
 
 #pragma push
 #pragma fp_contract on
-void *TWindowSubMag__sub_8027B424(u8 *arg0) {
+void *create_learned_blast_toast__13TWindowSubMagFPv(u8 *arg0) {
     Item_8027B424 item;
     Vec2_8027B424 pos;
     Vec2_8027B424 size;
@@ -309,7 +309,7 @@ void *create__13TWindowSubMagFPv(void *arg0) {
 
 extern M2C_UNK lbl_8044F9F8[];
 
-void *TWindowSubMag__sub_8027B62C(TWindowSubMag_8027B62C *menu, s32 id) {
+void *create_action_menu__13TWindowSubMagFPvi(TWindowSubMag_8027B62C *menu, s32 id) {
     M2C_UNK mag[4];
     void *window;
     u8 *item;
@@ -434,7 +434,7 @@ void run_task__13TWindowSubMagFv(void *arg0) {
         }
         start_scroll__13TWindowSubMagFPvf(self->list, lbl_805DD66C);
         if (self->card == NULL) {
-            self->card = TWindowSubMag__sub_8027B62C((TWindowSubMag_8027B62C *)self, select_cursor_entry__6TLobbyFPv((s32)self->list));
+            self->card = create_action_menu__13TWindowSubMagFPvi((TWindowSubMag_8027B62C *)self, select_cursor_entry__6TLobbyFPv((s32)self->list));
         }
         clear_flag_and_release__17TWindowSubComCardFPv(self->card);
         self->state = 4;
@@ -442,7 +442,7 @@ void run_task__13TWindowSubMagFv(void *arg0) {
         if (get_status_flag__17TWindowSubComCardFPv(self->card) != 0) {
             self->state = 1;
         } else if (is_visible__17TWindowSubComCardFPv(self->card) != 0) {
-            set_mag_mode__13TWindowSubMagFPvi(self, TWindowSubComCard__sub_80265BF8(self->card));
+            set_mag_mode__13TWindowSubMagFPvi(self, get_selected_menu_value(self->card));
         }
         break;
     case 5:
@@ -513,7 +513,7 @@ void run_task__13TWindowSubMagFv(void *arg0) {
         if (self->slots != count_slots__13TWindowSubMagFPv(self)) {
             self->timer = 0;
             update_help_item__13TWindowSubMagFPv(self->help, 2);
-            self->effect = TWindowSubMag__sub_8027B424((u8 *)self);
+            self->effect = create_learned_blast_toast__13TWindowSubMagFPv((u8 *)self);
             self->state = 13;
         } else {
             self->state = 3;

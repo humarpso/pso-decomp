@@ -81,7 +81,7 @@ extern const f32 lbl_805DE804;
 extern const f32 lbl_805DE808;
 void TObjEneGibbles__sub_802D7DAC(s32 arg0);
 s32 render_anim_model__10TObjPlayerFPvf(void *, f32);
-s32 TCameraCtrl__sub_803D8934(int, void *, void *);
+s32 matrix_mult_vec(int, void *, void *);
 s32 set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
@@ -256,7 +256,7 @@ void TObjEneGibbles__sub_802D7ED4(u8 *arg0, s32 arg1, s32 arg2) {
     stack.sp8 = M2C_FIELD(&lbl_80472780.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_80472780.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_80472780.value, s32 *, 8);
-    TCameraCtrl__sub_803D8934((int) (0), (void *) (&stack.sp8), (void *) (arg1));
+    matrix_mult_vec((int) (0), (void *) (&stack.sp8), (void *) (arg1));
     pop_matrix();
     clear_global_state__10TObjPlayerFv();
 }

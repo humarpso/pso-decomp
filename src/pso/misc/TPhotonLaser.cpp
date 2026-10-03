@@ -65,7 +65,7 @@ void vec3_add_to(void *, void *);
 void rotate_vector_by_matrix(int, void *, void *);
 void rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
-void TCameraCtrl__sub_803D9858(int);
+void pop_matrices(int);
 extern u8 lbl_8058D490[];
 extern const f32 lbl_805DC1B0;
 extern const f32 lbl_805DC1B4;
@@ -103,7 +103,7 @@ void run_task__12TPhotonLaserFv(Laser_801AC17C *o) {
     push_matrix_from(lbl_8058D490);
     rotate_matrix_y(0, (s32)(lbl_805DC1BC * (f32)o->f36C));
     rotate_vector_by_matrix(0, &in, &out);
-    TCameraCtrl__sub_803D9858(1);
+    pop_matrices(1);
     vec3_add_to(&o->f340, &out);
     o->f36C += 0x24;
     vec3_add_to(&o->f340, &o->f34C);

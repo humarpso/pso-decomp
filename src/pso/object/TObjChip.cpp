@@ -209,7 +209,7 @@ extern void **lbl_805D5B2C;
 extern const f32 lbl_805DBBA0;
 extern const f32 lbl_805DBBA4;
 void render__18TObjCityAirCar_CarFPv(u8 *arg0);
-void TCameraCtrl__sub_803D8934(int, Vec_8018085C *, Vec_8018085C *);
+void matrix_mult_vec(int, Vec_8018085C *, Vec_8018085C *);
 void project_world_to_screen(int, Vec_8018085C *, Out_8018085C *, Vec_8018085C *);
 extern Vec_8018085C lbl_804FF610;
 s32 TObjChip__vt8(s32 arg0, Vec_8018085C *arg1, f32 farg0, f32 farg1);
@@ -371,7 +371,7 @@ s32 TObjChip__vt8(s32 arg0, Vec_8018085C *arg1, f32 farg0, f32 farg1) {
     Vec_8018085C v;
     Out_8018085C o1;
     Out_8018085C o2;
-    TCameraCtrl__sub_803D8934(0, arg1, &v);
+    matrix_mult_vec(0, arg1, &v);
     if (v.z > 0.0f) {
         return 0;
     }

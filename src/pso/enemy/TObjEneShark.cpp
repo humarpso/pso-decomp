@@ -25,7 +25,7 @@ extern "C" {
 extern u32 lbl_805D50B8;
 void TObjPlayer__sub_800AC9DC(O_800AC9DC *self, s32 i);
 extern s32 lbl_805D5550;
-s32 TObjPlayer__sub_800ACA10(Obj_800ACA10 *self);
+s32 calc_technique_level__11TObjEneMojaFPv(Obj_800ACA10 *self);
 void queue_destruction__7TObjectFv(void *);
 void TObjPlayer__sub_800C68FC(void *, int);
 void unlink_enemy_group_relations(void *);
@@ -136,7 +136,7 @@ void TObjPlayer__sub_800AC9DC(O_800AC9DC *self, s32 i) {
 }
 
 void TObjPlayer__sub_800ACA0C(void) {  }
-s32 TObjPlayer__sub_800ACA10(Obj_800ACA10 *self) {
+s32 calc_technique_level__11TObjEneMojaFPv(Obj_800ACA10 *self) {
     Sub_800ACA10 *p = self->sub;
     s32 v = 0;
     if (p != 0) {

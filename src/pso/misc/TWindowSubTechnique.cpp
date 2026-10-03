@@ -62,7 +62,7 @@ M2C_UNK set_field_1c__6TLobbyFPvf(s32);
 s32 is_player_input_active(s32);
 void call_if_split_screen(void *, s32);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
-s16 TWindowSubComCard__sub_80265BF8(void *);
+s16 get_selected_menu_value(void *);
 void set_selected_index__17TWindowSubComCardFPvs(void *, s16);
 void *TLobby__sub_80269CC0(s32, void *, s32, s32);
 void clear_flag70_bit4__17TWindowOptionCtrlFPv(void *);
@@ -178,7 +178,7 @@ void run_task__19TWindowSubTechniqueFv(Tech_802870C4 *self) {
             self->f1E = 0x13;
         }
         if (self->sel == 0) {
-            self->sel = TWindowSubTechnique__sub_80286E0C(self, TWindowSubComCard__sub_80265BF8(self->list));
+            self->sel = TWindowSubTechnique__sub_80286E0C(self, get_selected_menu_value(self->list));
         }
         set_flag_40__16TAdChrSelASlotGCFPv(self->sel);
         set_status_flag_80__12TQuestThreadFPv(self->sel);
@@ -188,7 +188,7 @@ void run_task__19TWindowSubTechniqueFv(Tech_802870C4 *self) {
     case 2: {
         s32 r = fn_80286AA8(self);
         if (r == 1 || update_selection__19TWindowSubTechniqueFPvPv(self->f20, self->f24, self->player) != 0) {
-            rebuildTechniqueList__19TWindowSubTechniqueFll(self, self->sel, TWindowSubComCard__sub_80265BF8(self->list));
+            rebuildTechniqueList__19TWindowSubTechniqueFll(self, self->sel, get_selected_menu_value(self->list));
             if (r != 0) {
                 set_selected_index__17TWindowSubComCardFPvs(self->sel, 0);
             }
@@ -212,11 +212,11 @@ void run_task__19TWindowSubTechniqueFv(Tech_802870C4 *self) {
         clear_flag70_bit4__17TWindowOptionCtrlFPv(self->sel);
         self->state = 4;
     case 4:
-        update_cursor__10TObjPlayerFPvi(ply, TWindowSubComCard__sub_80265BF8(self->sel));
+        update_cursor__10TObjPlayerFPvi(ply, get_selected_menu_value(self->sel));
         if (update_selection__19TWindowSubTechniqueFPvPv(self->f20, self->f24, self->player) != 0) {
-            rebuildTechniqueList__19TWindowSubTechniqueFll(self, self->sel, TWindowSubComCard__sub_80265BF8(self->list));
+            rebuildTechniqueList__19TWindowSubTechniqueFll(self, self->sel, get_selected_menu_value(self->list));
         }
-        update_selected_help__19TWindowSubTechniqueFPvi((u8 *)self, TWindowSubComCard__sub_80265BF8(self->sel));
+        update_selected_help__19TWindowSubTechniqueFPvi((u8 *)self, get_selected_menu_value(self->sel));
         if (get_status_flag__17TWindowSubComCardFPv(self->sel) != 0) {
             self->state = 1;
         }
@@ -225,14 +225,14 @@ void run_task__19TWindowSubTechniqueFv(Tech_802870C4 *self) {
         }
         break;
     case 5:
-        update_cursor__10TObjPlayerFPvi(ply, TWindowSubComCard__sub_80265BF8(self->sel));
-        if (TWindowSubTechnique__sub_80286BF4(TWindowSubComCard__sub_80265BF8(self->sel), self->player) == 0 ||
+        update_cursor__10TObjPlayerFPvi(ply, get_selected_menu_value(self->sel));
+        if (TWindowSubTechnique__sub_80286BF4(get_selected_menu_value(self->sel), self->player) == 0 ||
             TWindowShortListCtrl__check_controller_button(lbl_8050E208[port].m20, 2) != 0 ||
             test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208[4].m20, 2) != 0) {
             play_sound_effect(0x52F16, 0, 0, 0);
-            rebuildTechniqueList__19TWindowSubTechniqueFll(self, self->sel, TWindowSubComCard__sub_80265BF8(self->list));
+            rebuildTechniqueList__19TWindowSubTechniqueFll(self, self->sel, get_selected_menu_value(self->list));
             self->state = 1;
-        } else if (try_equip_item__10TObjPlayerFii(ply, TWindowSubComCard__sub_80265BF8(self->sel)) != 0) {
+        } else if (try_equip_item__10TObjPlayerFii(ply, get_selected_menu_value(self->sel)) != 0) {
             self->state = 1;
         }
         break;

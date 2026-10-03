@@ -607,7 +607,7 @@ M2C_UNK rotate_vector_by_matrix(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK subtract_vector(void *, void *);
 M2C_UNK push_matrix_from(void *);
-M2C_UNK TCameraCtrl__sub_803D9858(int);
+M2C_UNK pop_matrices(int);
 extern const f64 lbl_8043BC88;
 extern M2C_UNK lbl_8050BEE0;
 extern M2C_UNK lbl_8050BF00;
@@ -1266,7 +1266,7 @@ void beast_idle_update(u8 *arg0) {
         push_matrix_from(&lbl_8058D490);
         rotate_matrix_y((int) (0), (int) (temp_r30));
         rotate_vector_by_matrix((int) (0), (void *) (&lbl_8050BF00), (void *) (&lbl_8050BF00));
-        TCameraCtrl__sub_803D9858((int) (1));
+        pop_matrices((int) (1));
         vec3_add_to((void *) (&lbl_8050BF00), (void *) (arg0 + 0x38));
         if (project_actor_to_ground((void *) (arg0), (void *) (&lbl_8050BF00), (int) (0)) == 1) {
             M2C_FIELD(arg0, s16 *, 0xB8) = 2;
@@ -1285,7 +1285,7 @@ void beast_idle_update(u8 *arg0) {
             push_matrix_from(&lbl_8058D490);
             rotate_matrix_y((int) (0), (int) (var_r30));
             rotate_vector_by_matrix((int) (0), (void *) (&lbl_8050BF00), (void *) (&lbl_8050BF00));
-            TCameraCtrl__sub_803D9858((int) (1));
+            pop_matrices((int) (1));
             vec3_add_to((void *) (&lbl_8050BF00), (void *) (arg0 + 0x38));
             if (project_actor_to_ground((void *) (arg0), (void *) (&lbl_8050BF00), (int) (0)) == 1) {
                 M2C_FIELD(arg0, s16 *, 0xB8) = 2;
@@ -1304,7 +1304,7 @@ void beast_idle_update(u8 *arg0) {
                 push_matrix_from(&lbl_8058D490);
                 rotate_matrix_y((int) (0), (int) (var_r28));
                 rotate_vector_by_matrix((int) (0), (void *) (&lbl_8050BF00), (void *) (&lbl_8050BF00));
-                TCameraCtrl__sub_803D9858((int) (1));
+                pop_matrices((int) (1));
                 vec3_add_to((void *) (&lbl_8050BF00), (void *) (arg0 + 0x38));
                 if (project_actor_to_ground((void *) (arg0), (void *) (&lbl_8050BF00), (int) (0)) == 1) {
                     M2C_FIELD(arg0, s16 *, 0xB8) = 2;

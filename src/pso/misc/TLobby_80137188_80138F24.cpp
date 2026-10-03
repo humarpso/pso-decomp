@@ -89,7 +89,7 @@ s32 TMCFormatSequence__sub_802693B4(u32);
 s32 TWindowMakeTeam__sub_80264B24(u32);
 s32 TWindowMakeTeam__sub_80264B38(u32);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
-s32 TWindowSubComCard__sub_80265BF8(u32);
+s32 get_selected_menu_value(u32);
 M2C_UNK TWindow__close(u32);
 M2C_UNK close_all_windows__6TLobbyFv();
 M2C_UNK close_com_card_window__6TLobbyFv();
@@ -211,7 +211,7 @@ void handle_com_card__6TLobbyFv(void) {
     if ((u32) lbl_805D55E4 != 0U) {
         if (is_visible__17TWindowSubComCardFPv((void*)lbl_805D55E4) != 0) {
             close_com_card_window__6TLobbyFv();
-            temp_r3 = TWindowSubComCard__sub_80265BF8(lbl_805D55E4);
+            temp_r3 = get_selected_menu_value(lbl_805D55E4);
             switch (temp_r3) {
             case 0:
                 return_to_main_menu__6TLobbyFv();

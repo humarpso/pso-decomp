@@ -132,7 +132,7 @@ void init_all_slots__10TObjPlayerFv(void *);
 void check_object_collisions__10TObjPlayerFPv(void *);
 void play_sound_effect(s32, void *, s32, s32);
 void *__nw__7TObjectFUl(u32);
-void TCameraCtrl__sub_803D8934(s32, void *, void *);
+void matrix_mult_vec(s32, void *, void *);
 void rotate_matrix_y(s32, s32);
 void subtract_vector(void *, void *);
 void push_matrix_from(void *);
@@ -244,7 +244,7 @@ void run_task__16TObjVoloptPillarFv(Self_8004A1CC *self) {
                                     Vec_8004A1CC w = lbl_8043673C[0];
                                     w.x = TBoss3Volopt__sub_8004812C(2);
                                     rotate_matrix_y(0, ang);
-                                    TCameraCtrl__sub_803D8934(0, &w, bp->f308);
+                                    matrix_mult_vec(0, &w, bp->f308);
                                 }
                             }
                             pop_matrix();

@@ -12,7 +12,7 @@ M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK create__19TObjEneDelDepthBombFPvPvPvPv(void *, void *, void *, int);
 M2C_UNK TObjEneDelDepth__sub_803154A8(void *, int);
 s32 get_flag_bit4__15TObjEneDelDepthFPv(void *);
-M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
+M2C_UNK matrix_mult_vec(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix_from(void *);
 M2C_UNK pop_matrix();
@@ -82,7 +82,7 @@ void TObjEneDelDepth__sub_80313E34(u8 *arg0) {
         push_matrix_from((void *) (lbl_805D5678 + 0x450));
         {
         V3_80313E34 v = lbl_80475DB0;
-        TCameraCtrl__sub_803D8934(0, &v, &out);
+        matrix_mult_vec(0, &v, &out);
         }
         pop_matrix();
         clear_global_state__10TObjPlayerFv();

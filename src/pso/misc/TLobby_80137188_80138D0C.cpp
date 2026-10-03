@@ -14,7 +14,7 @@ M2C_UNK close_all_windows__6TLobbyFv();
 void close_com_card_window__6TLobbyFv(void);
 void TLobby__sub_8013990C(s32);
 M2C_UNK TWindow__close(s32);
-s32 TWindowSubComCard__sub_80265BF8(void *);
+s32 get_selected_menu_value(void *);
 extern u8 *lbl_805D55E0;
 extern u8 *lbl_805D55E4;
 extern u8 *lbl_805D55E8;
@@ -78,7 +78,7 @@ void TLobby__sub_80138DFC(void) {
         lbl_805D5610 = 1;
     }
     if ((void *) lbl_805D55E8 != NULL) {
-        temp_r3 = TWindowSubComCard__sub_80265BF8(lbl_805D55E8);
+        temp_r3 = get_selected_menu_value(lbl_805D55E8);
         if ((s32) lbl_805D560C != temp_r3) {
             lbl_805D560C = temp_r3;
             switch (temp_r3) {

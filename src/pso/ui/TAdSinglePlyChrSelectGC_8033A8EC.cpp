@@ -90,7 +90,7 @@ void init_warps__23TAdSinglePlyChrSelectGCFPv(void* a0);
 s32 is_visible__17TWindowSubComCardFPv(int);
 s32 init__22THunterGuildSeqOfflineFPvPvPv(u32, int, void *);
 u32 __nw__7TObjectFUl(int);
-s32 TWindowSubComCard__sub_80265BF8(int);
+s32 get_selected_menu_value(int);
 void close_window__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8033B5F0(void *);
 int TAdSinglePlyChrSelectGC__sub_8033B244(void* p);
@@ -248,7 +248,7 @@ int queue_destruction__23TAdSinglePlyChrSelectGCFPv(void* p) { return queue_dest
 
 void TAdSinglePlyChrSelectGC__sub_8033AA64(O_8033AA64 *arg0) {
     if (is_visible__17TWindowSubComCardFPv(arg0->f3c) != 0) {
-        switch (TWindowSubComCard__sub_80265BF8(arg0->f3c)) {
+        switch (get_selected_menu_value(arg0->f3c)) {
         case 0:
             arg0->f2c = 0;
             TAdSinglePlyChrSelectGC__sub_8033B5F0(arg0);

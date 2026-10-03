@@ -365,7 +365,7 @@ s32 rotate_vector_by_matrix(s32, void *, void *);
 s32 rotate_matrix_y(int, int);
 M2C_UNK subtract_vector(void *, void *);
 s32 push_matrix_from(void *);
-s32 TCameraCtrl__sub_803D9858(s32);
+s32 pop_matrices(s32);
 extern f32 lbl_8058D490[3][4];
 extern const f32 lbl_805D9F24;
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
@@ -517,7 +517,7 @@ loop_7:
             push_matrix_from(&lbl_8058D490);
             rotate_matrix_y((int)(0), (int)(var_r30 * var_r31));
             rotate_vector_by_matrix(0, &arg0->velocity, &sp14);
-            TCameraCtrl__sub_803D9858(1);
+            pop_matrices(1);
         }
         VecCopy__FP3VecPC3Vec(&sp8, &arg0->position);
         vec3_add_to(&sp8, &sp14);

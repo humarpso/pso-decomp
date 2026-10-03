@@ -30,7 +30,7 @@ typedef struct Obj_80042DE8 {
 
 extern "C" {
 void render_anim_model__10TObjPlayerFPvf(void *, f32);
-void TCameraCtrl__sub_803D8934(s32, void *, s32);
+void matrix_mult_vec(s32, void *, s32);
 void rotate_matrix_y(s32, s32);
 void translate_matrix(s32, f32, f32, f32);
 void push_matrix_from(void *);
@@ -99,7 +99,7 @@ void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2) {
     pop_matrix();
     V_80042ED0 v = lbl_80436630;
     push_matrix_from(&lbl_805D5678[idx]);
-    TCameraCtrl__sub_803D8934(0, &v, arg2);
+    matrix_mult_vec(0, &v, arg2);
     pop_matrix();
 }
 

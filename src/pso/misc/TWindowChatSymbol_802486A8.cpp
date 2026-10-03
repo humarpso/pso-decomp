@@ -29,7 +29,7 @@ void TWindowChatSymbol__sub_80248774(void);
 void *__dt__17TWindowChatSymbolFv(void *arg0, s16 arg1);
 void apply_symbol_from_card__17TWindowChatSymbolFPv(void *arg0);
 void *destroy__17TWindowChatSymbolFPvs(void *arg0, s16 arg1);
-s32 TWindowSubComCard__sub_80265BF8(s32);
+s32 get_selected_menu_value(s32);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -63,7 +63,7 @@ u8 *TWindowChatSymbol__ct(u8 *arg0, s32 arg1, s32 arg2) {
 
 void TWindowChatSymbol__sub_80248774(void) {  }
 void apply_symbol_from_card__17TWindowChatSymbolFPv(void *arg0) {
-    set_from_key__20TWindowSubSymbolChatFii(M2C_FIELD(arg0, s32 *, 0x20), TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, s32 *, 0x1C)));
+    set_from_key__20TWindowSubSymbolChatFii(M2C_FIELD(arg0, s32 *, 0x20), get_selected_menu_value(M2C_FIELD(arg0, s32 *, 0x1C)));
 }
 
 extern M2C_UNK lbl_804CE7D0[];

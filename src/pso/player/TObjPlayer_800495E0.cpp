@@ -55,7 +55,7 @@ void copy_pos__11TNowLoadingFPvPv(void *, void *);
 f32 scale_velocity__19TObjGyaranzoMissileFPvf(void *, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u32 csnVector(void *, void *, int);
-M2C_UNK TObjPlayer__sub_80142170(void *, void *, void *);
+M2C_UNK direction_to_rotation_yx(void *, void *, void *);
 u8 *get_player_by_client_id(s32);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 M2C_UNK vec3_add_to(void *, void *);
@@ -182,7 +182,7 @@ void TObjPlayer__sub_800496D8(u8 *arg0) {
   }
   VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
   vec3_add_to((void *) (arg0 + 0x38), (void *) (arg0 + 0xB4));
-  TObjPlayer__sub_80142170((void *) (arg0 + 0xB4), (void *) (arg0 + 0x60), (void *) (arg0 + 0x64));
+  direction_to_rotation_yx((void *) (arg0 + 0xB4), (void *) (arg0 + 0x60), (void *) (arg0 + 0x64));
   *((s32 *) (((s8 *) arg0) + 0x64)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x64))) - 0x4000);
   temp_r3_2 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0xD4)));
   if (temp_r3_2 != 0)

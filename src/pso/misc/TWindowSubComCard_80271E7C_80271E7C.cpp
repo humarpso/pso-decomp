@@ -55,7 +55,7 @@ s32 TWindowComCard__sub_80249980(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 TWindowSubComCard__sub_8007A860(s32);
 int TWindowSubComCard__sub_8007A8F8(void);
 s32 TWindowSubComCard__sub_8007BC04(s32 a0 = 0);
-int TWindowSubComCard__sub_80265BF8(void*);
+int get_selected_menu_value(void*);
 s32 get_window_layout_position(s32 a0 = 0);
 s32 create__14TWindowComCardFPvPv(s32 a0 = 0, s32 a1 = 0);
 s32 create_card_list__17TWindowSubComCardFiiii(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
@@ -139,7 +139,7 @@ void init_layout__17TWindowSubComCardFv(void) {
     create_card_list__17TWindowSubComCardFiiii(get_window_layout_position(0x91), temp_r31, 0x1C, 1);
 }
 void send_cmd_133__17TWindowSubComCardFv(void) { get_window_layout_position(133); fn_802754EC(); }
-void cleanup__17TWindowSubComCardFPv(void* p) { TWindowSubComCard__sub_80265BF8(*(void**)((char*)p + 0x84)); TWindowSubComCard__sub_8007A8F8(); get_card_id__17TWindowSubComCardFPv(); TLobby__sub_802421C4(); }
+void cleanup__17TWindowSubComCardFPv(void* p) { get_selected_menu_value(*(void**)((char*)p + 0x84)); TWindowSubComCard__sub_8007A8F8(); get_card_id__17TWindowSubComCardFPv(); TLobby__sub_802421C4(); }
 #pragma scheduling off
 void TWindowSubComCard__sub_802721D8(u8 *arg0) {
   u8 *new_var;

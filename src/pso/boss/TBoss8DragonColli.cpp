@@ -91,7 +91,7 @@ void TBoss8DragonColli__sub_802F3070(void);
 void TBoss8DragonColli__sub_802F3074(void* p);
 void *destroy__17TBoss8DragonColliFPvs(void *arg0, s16 arg1);
 void init__17TBoss8DragonColliFPvPvPv(void* p, void* a1, void* a2);
-int TCameraCtrl__sub_803D8934(void*, void*, void*);
+int matrix_mult_vec(void*, void*, void*);
 int post_translate_matrix(void*);
 void free_collision_body_parts(void *);
 void unregister_object_by_id(void *);
@@ -149,7 +149,7 @@ u8 *TBoss8DragonColli__ct(u8 *arg0, s32 arg1) {
 
 void TBoss8DragonColli__sub_802F3070(void) {  }
 void TBoss8DragonColli__sub_802F3074(void* p) { TBoss8DragonColli__sub_802F310C((O_802F310C *)((void*)(p))); }
-void init__17TBoss8DragonColliFPvPvPv(void* p, void* a1, void* a2) { push_matrix(p); TObjPlayer__sub_803D8CD4((void*)0); post_translate_matrix(a1); rotate_matrix_y((void*)0, a2); TCameraCtrl__sub_803D8934((void*)0, (char*)p + 0xac, (char*)p + 0x38); pop_matrix(); *(void**)((char*)p + 0x60) = a2; refresh_collision_body_centers(p); TBoss8DragonColli__sub_802F3144((O_802F3144 *)((void*)(p))); }
+void init__17TBoss8DragonColliFPvPvPv(void* p, void* a1, void* a2) { push_matrix(p); TObjPlayer__sub_803D8CD4((void*)0); post_translate_matrix(a1); rotate_matrix_y((void*)0, a2); matrix_mult_vec((void*)0, (char*)p + 0xac, (char*)p + 0x38); pop_matrix(); *(void**)((char*)p + 0x60) = a2; refresh_collision_body_centers(p); TBoss8DragonColli__sub_802F3144((O_802F3144 *)((void*)(p))); }
 
 extern M2C_UNK lbl_804E4BB4[];
 

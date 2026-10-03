@@ -76,7 +76,7 @@ s32 get_status_flag__17TWindowSubComCardFPv(void *);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 s32 create_quest_thread(s32);
 void TWindow__close(void *);
-s32 TWindowSubComCard__sub_80265BF8(void *);
+s32 get_selected_menu_value(void *);
 extern RecoveredGlobal_802128B0_THunterGuildSeqOffline__data_80513DC8 THunterGuildSeqOffline__data_80513DC8;
 void handle_cancel_choice__22THunterGuildSeqOfflineFPv(u8 *arg0);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
@@ -154,7 +154,7 @@ void handle_cancel_choice__22THunterGuildSeqOfflineFPv(u8 *arg0) {
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x2C));
     if (temp_r3 != NULL) {
         if (is_visible__17TWindowSubComCardFPv(temp_r3) != 0) {
-            temp_r3_2 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u8 **, 0x2C));
+            temp_r3_2 = get_selected_menu_value(M2C_FIELD(arg0, u8 **, 0x2C));
             if (temp_r3_2 == 0) {
                 TWindow__close(M2C_FIELD(arg0, u8 **, 0x2C));
                 M2C_FIELD(arg0, u8 **, 0x2C) = NULL;

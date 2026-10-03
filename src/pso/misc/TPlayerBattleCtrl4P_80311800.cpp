@@ -46,7 +46,7 @@ s32 is_visible__17TWindowSubComCardFPv(void *);
 M2C_UNK get_status_flag__17TWindowSubComCardFPv(void *);
 M2C_UNK set_ready_flag__18TCheckRoomSequenceFPv(void *);
 s32 has_player_active_menu__11TWindowCtrlFi(s32);
-s32 TWindowSubComCard__sub_80265BF8(void *);
+s32 get_selected_menu_value(void *);
 M2C_UNK TWindowSubComCard__sub_80265C30(void *);
 M2C_UNK TWindowSubComCard__sub_80265F60(void *);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, int, int);
@@ -260,7 +260,7 @@ void TPlayerBattleCtrl4P__vt22(O_80311C2C *o) {
         }
         if (o->w1 != NULL) {
             if (is_visible__17TWindowSubComCardFPv(o->w1) != 0) {
-                switch (TWindowSubComCard__sub_80265BF8(o->w1)) {
+                switch (get_selected_menu_value(o->w1)) {
                 case 1:
                     TPlayerBattleCtrl4P__sub_80311400(o);
                     break;

@@ -30,7 +30,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 M2C_UNK clear_flag_and_release__17TWindowSubComCardFPv(int);
 M2C_UNK play_sound_effect(int, int, int, int);
 void TWindow__close(void *);
-s32 TWindowSubComCard__sub_80265BF8(int);
+s32 get_selected_menu_value(int);
 s32 get_cursor_pos__20TWindowShortListCtrlFPv(int);
 u32 TLobby__sub_8034C1FC();
 void clear_if_current__26TWindowSubInformationBoardFUi(void *);
@@ -91,7 +91,7 @@ void run_task__26TWindowSubInformationBoardFv(u8 *arg0) {
                 TWindow__close(M2C_FIELD(arg0, void **, 0x34));
                 M2C_FIELD(arg0, u32 *, 0x34) = 0U;
             }
-            M2C_FIELD(arg0, u8 *, 0x1C) = TWindowSubComCard__sub_80265BF8((int) (M2C_FIELD(arg0, u32 *, 0x2C)));
+            M2C_FIELD(arg0, u8 *, 0x1C) = get_selected_menu_value((int) (M2C_FIELD(arg0, u32 *, 0x2C)));
         }
         break;
     case 3:
@@ -120,7 +120,7 @@ void run_task__26TWindowSubInformationBoardFv(u8 *arg0) {
         }
         M2C_FIELD(arg0, u8 *, 0x1C) = 7U;
     case 7:
-        set_page__26TWindowSubInformationBoardFPvi((void *) (arg0), (int) (TWindowSubComCard__sub_80265BF8((int) (M2C_FIELD(arg0, u32 *, 0x30)))));
+        set_page__26TWindowSubInformationBoardFPvi((void *) (arg0), (int) (get_selected_menu_value((int) (M2C_FIELD(arg0, u32 *, 0x30)))));
         if (get_status_flag__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x30))) != 0) {
             M2C_FIELD(arg0, u8 *, 0x1C) = 8U;
             break;

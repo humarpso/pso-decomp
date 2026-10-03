@@ -9,7 +9,7 @@ extern "C" {
 void process_callback_list__10TObjPlayerFi(s32 arg0);
 void draw_node_tree__10TObjPlayerFPvPv(void *arg0, void *arg1);
 extern M2C_UNK (*lbl_805D6F3C)(s32);
-M2C_UNK TObjPlayer__sub_803D898C(s32);
+M2C_UNK get_current_matrix(s32);
 M2C_UNK TObjPlayer__sub_803D9730(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -21,7 +21,7 @@ extern s32 lbl_805D6F38;
 
 void process_callback_list__10TObjPlayerFi(s32 arg0) {
     if ((s32) lbl_805D6F30 < (s32) lbl_805D6F34) {
-        TObjPlayer__sub_803D898C(lbl_805D6F38 + (lbl_805D6F30 * 0x30));
+        get_current_matrix(lbl_805D6F38 + (lbl_805D6F30 * 0x30));
     }
     if (((M2C_UNK (*)(s32)) lbl_805D6F3C) != NULL) {
         lbl_805D6F3C(arg0);

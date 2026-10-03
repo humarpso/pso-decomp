@@ -380,7 +380,7 @@ void TObjPlayer__sub_803D8CD4(s32);
 void translate_matrix(s32, f32, f32, f32);
 void post_translate_matrix(void *);
 s32 rotate_matrix_y(int, void *);
-void TCameraCtrl__sub_803D8934(s32, void *, void *);
+void matrix_mult_vec(s32, void *, void *);
 f32 get_target_value__10TObjPlayerFPv(void *);
 s32 update_field_318__10TObjPlayerFPv(void *);
 s32 select_melee_contact_body__10TObjPlayerFv(Actor_80016454 *target, Actor_80016454 *source, f32 factor);
@@ -453,7 +453,7 @@ s32 select_melee_contact_body__10TObjPlayerFv(Actor_80016454 *target, Actor_8001
         for (i = 0; i < target->bodyCount; i++) {
             if (!(target->bodies[i].flags & 0x02000000)) {
                 ((VecCopyFn_80016454)VecCopy__FP3VecPC3Vec)(&point, &target->bodies[i]);
-                TCameraCtrl__sub_803D8934(0, &point, &point);
+                matrix_mult_vec(0, &point, &point);
             }
             dist = point.x * point.x + point.z * point.z;
             r = (target->bodies[i].radius + get_target_value__10TObjPlayerFPv(source)) * (target->bodies[i].radius + get_target_value__10TObjPlayerFPv(source));

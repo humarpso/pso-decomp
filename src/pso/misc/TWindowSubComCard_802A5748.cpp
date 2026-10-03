@@ -28,7 +28,7 @@ void initialize_option_dialog(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 create_window_menu(s32, s32, s32);
 int confirm_selection__11TWindowMenuFPv(void*);
 s32 TWindowSubComCard__sub_80244888(void *);
-s32 TWindowSubComCard__sub_80265BF8(s32);
+s32 get_selected_menu_value(s32);
 s32 TWindowSubComCard__sub_80265CFC(s32, f32);
 int clear_trade_flag__19TWindowSubTradeMainFPv(void*);
 void forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(void* p, void* a1, void* a2);
@@ -51,7 +51,7 @@ s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *arg0) {
     if ((u32) v == 0U) {
         return -1;
     }
-    return TWindowSubComCard__sub_80265BF8(v);
+    return get_selected_menu_value(v);
 }
 s32 get_card_data__17TWindowSubComCardFPv(void *arg0) {
     s32 v = M2C_FIELD(arg0, u32 *, 0x2C);

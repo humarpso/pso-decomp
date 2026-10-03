@@ -27,7 +27,7 @@ int TWindowChat__sub_80247DAC(void* p);
 M2C_UNK TWindowChat__sub_8024AD30(s32);
 void *TWindowKeyBoardBase__ct(void *);
 void *TWindowKeyBoardHard__ct(void *, void *);
-int TWindowSubComCard__sub_80265BF8(void*);
+int get_selected_menu_value(void*);
 void init_keyboard_text_field(void *, int, int);
 M2C_UNK TWindow__close(void *);
 void __ct__7TObjectFP7TObject(void *);

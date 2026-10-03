@@ -43,7 +43,7 @@ void restore__15RenderFadeStateFv(void *);
 void fadeOut__15RenderFadeStateFv(void *);
 void set_cull_back__8TObjFishFv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
-void TCameraCtrl__sub_803D8934(s32, void *, void *);
+void matrix_mult_vec(s32, void *, void *);
 extern const f32 lbl_805DDD18;
 void TBoss8Dragon__sub_8029C094(Rd_8029C094 *arg0);
 }
@@ -66,7 +66,7 @@ void TAdRayGC__sub_8029C054(u8 *arg0) {
 void TBoss8Dragon__sub_8029C094(Rd_8029C094 *arg0) {
     Vec_8029C094 v;
     set_cull_back__8TObjFishFv();
-    TCameraCtrl__sub_803D8934(0, arg0->pos, &v);
+    matrix_mult_vec(0, arg0->pos, &v);
     if (-v.z < lbl_805DDD18) {
         fadeOut__15RenderFadeStateFv(&arg0->fade);
     } else {

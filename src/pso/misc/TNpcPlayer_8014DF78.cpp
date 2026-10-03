@@ -72,7 +72,7 @@ s32 TNpcPlayer__sub_8014F424(View_8014F424 *view, void *pos, s32 id, f32 range);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 void rotate_matrix_y(s32, s32);
 void push_matrix_from(void *);
-void TCameraCtrl__sub_803D9858(s32);
+void pop_matrices(s32);
 extern u8 lbl_8058D490[];
 extern const f32 TNpcPlayer__data_805DB1F0;
 extern const f32 TNpcPlayer__data_805DB204;
@@ -148,7 +148,7 @@ M2C_UNK try_send_6x27_use_item(s32, s32, void *);
 s32 get_condition__10TNpcPlayerFPv(s32);
 
 extern "C" {
-void TCameraCtrl__sub_803D8934(s32, Vec_8014E3B0 *, Vec_8014E3B0 *);
+void matrix_mult_vec(s32, Vec_8014E3B0 *, Vec_8014E3B0 *);
 f32 vec3_dot(Vec_8014E3B0 *, Vec_8014E3B0 *);
 f32 vector_length(Vec_8014E3B0 *);
 void normalize_vector(Vec_8014E3B0 *);
@@ -371,12 +371,12 @@ void partner_compute_stalled_detour(u8 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *
     VecCopy__FP3VecPC3Vec(&save, (int)&dir);
     push_matrix_from(lbl_8058D490);
     rotate_matrix_y(0, 0x4000);
-    TCameraCtrl__sub_803D8934(0, &dir, &a);
-    TCameraCtrl__sub_803D9858(1);
+    matrix_mult_vec(0, &dir, &a);
+    pop_matrices(1);
     push_matrix_from(lbl_8058D490);
     rotate_matrix_y(0, -0x4000);
-    TCameraCtrl__sub_803D8934(0, &dir, &b);
-    TCameraCtrl__sub_803D9858(1);
+    matrix_mult_vec(0, &dir, &b);
+    pop_matrices(1);
     diff.x = to->x - from->x;
     diff.y = TNpcPlayer__data_805DB1F0;
     diff.z = to->z - from->z;

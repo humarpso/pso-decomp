@@ -12,7 +12,7 @@ struct TObjPlayer_801AF7E0 : Base_801AF7E0 {
 };
 
 extern "C" {
-s32 TObjPlayer__sub_801AFDB0();
+s32 get_class_index__10TObjPlayerFPv();
 M2C_UNK refill_trap_counts(void *, s32, s32);
 void refill_traps__10TObjPlayerFPv(TObjPlayer_801AF7E0 *self);
 }
@@ -20,7 +20,7 @@ void refill_traps__10TObjPlayerFPv(TObjPlayer_801AF7E0 *self);
 extern "C" {
 
 void refill_traps__10TObjPlayerFPv(TObjPlayer_801AF7E0 *self) {
-    refill_trap_counts(self->slot, self->v14(), TObjPlayer__sub_801AFDB0());
+    refill_trap_counts(self->slot, self->v14(), get_class_index__10TObjPlayerFPv());
 }
 
 }

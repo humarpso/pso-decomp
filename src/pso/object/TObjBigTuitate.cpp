@@ -61,7 +61,7 @@ void fadeOut__15RenderFadeStateFv(void *);
 void set_cull_none__8TObjFishFv(void);
 void set_cull_back__8TObjFishFv(void);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
-s32 TCameraCtrl__sub_803D8934(int, void *, void *);
+s32 matrix_mult_vec(int, void *, void *);
 void rotate_matrix_y(int, int);
 void push_matrix(void);
 void pop_matrix(void);
@@ -112,7 +112,7 @@ void render__14TObjBigTuitateFv(Obj_8019AA18 *self) {
     if (self->is_visible(lbl_805DBFA8, lbl_805DBFAC) == 0) {
         return;
     }
-    TCameraCtrl__sub_803D8934(0, arg0 + 0x38, &v);
+    matrix_mult_vec(0, arg0 + 0x38, &v);
     if (-v.z < lbl_805DBFB0) {
         fadeOut__15RenderFadeStateFv(arg0 + 0xAC);
     } else {

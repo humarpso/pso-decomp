@@ -10,7 +10,7 @@ extern "C" {
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 newton_sqrtf(f32);
 extern const f64 lbl_8043F2C0;
-void TObjPlayer__sub_80142170(u8 *arg0, s32 *arg1, s32 *arg2);
+void direction_to_rotation_yx(u8 *arg0, s32 *arg1, s32 *arg2);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 newton_sqrtf(f32);
 extern const f64 lbl_8043F2C0;
@@ -145,7 +145,7 @@ void TAdSinglePlyChrSelectGC__sub_80142108(DS_80142108 *arg0) {
 
 #pragma push
 #pragma scheduling on
-void TObjPlayer__sub_80142170(u8 *arg0, s32 *arg1, s32 *arg2) {
+void direction_to_rotation_yx(u8 *arg0, s32 *arg1, s32 *arg2) {
     f32 temp_f0;
     f32 temp_f1;
     *arg1 = -(s32) (lbl_8043F2C0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 8)), (f32) (M2C_FIELD(arg0, f32 *, 0))));

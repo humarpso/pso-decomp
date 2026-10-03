@@ -36,7 +36,7 @@ void TObjLobbyMain__sub_803520DC(u8 *arg0);
 void TObjLobbyMain__sub_803521A4(u8 *arg0);
 void set_param_ptr__11TBoss4Type2FPvi(void *, int);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
-void TCameraCtrl__sub_803D8934(int, Vec3_80352240 *, Vec3_80352240 *);
+void matrix_mult_vec(int, Vec3_80352240 *, Vec3_80352240 *);
 void TObjPlayer__sub_803D8CD4(int);
 void rotate_matrix_y(int, s32);
 void push_matrix();
@@ -161,7 +161,7 @@ void TObjLobbyMain__sub_80352240(u8 *arg0) {
         TObjPlayer__sub_803D8CD4(0);
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
-        TCameraCtrl__sub_803D8934(0, &v, &v);
+        matrix_mult_vec(0, &v, &v);
         copy_pos__11TNowLoadingFPvPv(*(void **)(arg0 + 0xD8), &v);
         pop_matrix();
     }
@@ -172,7 +172,7 @@ void TObjLobbyMain__sub_80352240(u8 *arg0) {
         TObjPlayer__sub_803D8CD4(0);
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
-        TCameraCtrl__sub_803D8934(0, &v, &v);
+        matrix_mult_vec(0, &v, &v);
         copy_pos__11TNowLoadingFPvPv(*(void **)(arg0 + 0xDC), &v);
         pop_matrix();
     }

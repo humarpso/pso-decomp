@@ -32,7 +32,7 @@ f32 TObjPlayer__sub_8013153C(Vec_802CDEB4 *, Vec_802CDEB4 *);
 f32 xz_distance_squared(Vec_802CDEB4 *, Vec_802CDEB4 *);
 u8 *find_entity_by_id(s16);
 M2C_UNK TObjPlayer__sub_801569F4(void *, s32);
-M2C_UNK TCameraCtrl__sub_803D8934(void *, Vec_802CDEB4 *, void *);
+M2C_UNK matrix_mult_vec(void *, Vec_802CDEB4 *, void *);
 M2C_UNK rotate_matrix_y(void *, s32);
 M2C_UNK rotate_matrix_x(void *, s32);
 M2C_UNK push_matrix_from(void *);
@@ -132,7 +132,7 @@ u8 *TObjPlayer__sub_802CDEB4(u8 *arg0, Vec_802CDEB4 *arg1, s16 arg2, Rot_802CDEB
         v.z = lbl_805D6844;
         rotate_matrix_y(0, arg3->b);
         rotate_matrix_x(0, arg3->a);
-        TCameraCtrl__sub_803D8934(0, &v, arg0 + 0xC4);
+        matrix_mult_vec(0, &v, arg0 + 0xC4);
     }
     pop_matrix();
     M2C_FIELD(arg0, s32 *, 0xEC) = arg4;

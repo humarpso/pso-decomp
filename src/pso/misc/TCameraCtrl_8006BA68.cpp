@@ -474,8 +474,8 @@ f32 vec_squared_length(Vec_8006C28C *);
 void normalize_vector(Vec_8006C28C *);
 void push_matrix_from(void *);
 void rotate_matrix_y(int, s32);
-void TCameraCtrl__sub_803D8934(int, Vec_8006C28C *, Vec_8006C28C *);
-void TCameraCtrl__sub_803D9858(int);
+void matrix_mult_vec(int, Vec_8006C28C *, Vec_8006C28C *);
+void pop_matrices(int);
 extern u8 lbl_8058D490[];
 extern const f32 lbl_805D9028;
 extern const f32 lbl_805D902C;
@@ -529,9 +529,9 @@ void update_scripted_camera(Cam_8006C28C *s) {
         }
         push_matrix_from(lbl_8058D490);
         rotate_matrix_y(0, s->yaw);
-        TCameraCtrl__sub_803D8934(0, &p2, &p2);
-        TCameraCtrl__sub_803D8934(0, &v2, &v2);
-        TCameraCtrl__sub_803D9858(1);
+        matrix_mult_vec(0, &p2, &p2);
+        matrix_mult_vec(0, &v2, &v2);
+        pop_matrices(1);
         s->position.x = p2.x + s->position_origin.x;
         s->position.y = p2.y + s->position_origin.y;
         s->position.z = p2.z + s->position_origin.z;

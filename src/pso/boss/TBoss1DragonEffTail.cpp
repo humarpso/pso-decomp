@@ -92,7 +92,7 @@ M2C_UNK update_collider_contact_by_height(void *, f32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 M2C_UNK vec3_add_to(s32, s32, s32);
-M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
+M2C_UNK matrix_mult_vec(int, void *, void *);
 M2C_UNK TObjPlayer__sub_803D8CD4(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
@@ -141,7 +141,7 @@ void run_task__19TBoss1DragonEffTailFv(u8 *arg0) {
     for (i = 0; i < 0x11; i++) {
         p = M2C_FIELD(arg0, u8 **, 0xA4) + i * 0x2C;
         VecCopy__FP3VecPC3Vec(p + 0x1C, src);
-        TCameraCtrl__sub_803D8934(0, src++, p);
+        matrix_mult_vec(0, src++, p);
         update_collider_contact_by_height(p, lbl_805D814C);
     }
     pop_matrix();

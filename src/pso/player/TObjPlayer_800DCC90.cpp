@@ -28,7 +28,7 @@ f32 TObjPlayer__sub_8013153C(Vec_800DCD04 *, Vec_800DCD04 *);
 f32 xz_distance_squared(Vec_800DCD04 *, Vec_800DCD04 *);
 u8 *find_entity_by_id(s16);
 void TObjPlayer__sub_801569F4(void *, void *);
-void TCameraCtrl__sub_803D8934(s32, Vec_800DCD04 *, Vec_800DCD04 *);
+void matrix_mult_vec(s32, Vec_800DCD04 *, Vec_800DCD04 *);
 void rotate_matrix_y(s32, s32);
 void rotate_matrix_x(s32, s32);
 void push_matrix_from(void *);
@@ -81,7 +81,7 @@ Obj_800DCD04 *TObjPlayer__sub_800DCD04(Obj_800DCD04 *self, Vec_800DCD04 *pos, s1
         v.z = lbl_805D5260;
         rotate_matrix_y(0, rot[1]);
         rotate_matrix_x(0, rot[0]);
-        TCameraCtrl__sub_803D8934(0, &v, &self->fc4);
+        matrix_mult_vec(0, &v, &self->fc4);
         pop_matrix();
         self->fec = arg4;
         pp = (Vec_800DCD04 *)(find_entity_by_id(id) + 0x2fc);

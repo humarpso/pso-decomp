@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TWindowSubComCard__sub_80244888(void *);
-s32 TWindowSubComCard__sub_80265BF8(s32);
+s32 get_selected_menu_value(s32);
 s32 get_status_flag__17TWindowSubComCardFPv(s32);
 s32 set_status_flag_80__12TQuestThreadFPv(s32);
 s32 TWindowSubComCard__sub_80265CFC(s32, f32);

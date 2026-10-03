@@ -46,7 +46,7 @@ struct Self_800FEEA4 {
 extern "C" {
 void fn_800FF788(void *, void *);
 void *get_item_ptr__10TObjPlayerFPvi(void *, s32);
-void TCameraCtrl__sub_803D8934(s32, void *, void *);
+void matrix_mult_vec(s32, void *, void *);
 void TObjPlayer__sub_803D89E8(s32);
 void TObjPlayer__sub_803D9730(s32, void *);
 void push_matrix(void);
@@ -75,7 +75,7 @@ void TObjPlayer__sub_800FEEA4(Self_800FEEA4 *self) {
             rd->angle = rs->angle;
             push_matrix();
             TObjPlayer__sub_803D9730(0, get_item_ptr__10TObjPlayerFPvi(self->model, rs->bone));
-            TCameraCtrl__sub_803D8934(0, rs->data, rd->data);
+            matrix_mult_vec(0, rs->data, rd->data);
             pop_matrix();
             rs++;
             rd++;
@@ -90,7 +90,7 @@ void TObjPlayer__sub_800FEEA4(Self_800FEEA4 *self) {
         pd->val = self->model->base + ps->ofs;
         push_matrix();
         TObjPlayer__sub_803D9730(0, get_item_ptr__10TObjPlayerFPvi(self->model, ps->bone));
-        TCameraCtrl__sub_803D8934(0, ps->data, pd->data);
+        matrix_mult_vec(0, ps->data, pd->data);
         pop_matrix();
         ps++;
         pd++;

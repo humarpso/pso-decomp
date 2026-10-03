@@ -80,7 +80,7 @@ void TObjPlayer__sub_803DCB40(struct Node_803DCB40 *arg0);
 extern const Tbl_803DCC34 lbl_8047E3D8;
 extern u8 *lbl_805D774C;
 void abs__4cXyzCFv(s32 arg0, s32 arg1);
-M2C_UNK TObjPlayer__sub_803D898C(void *);
+M2C_UNK get_current_matrix(void *);
 M2C_UNK TObjPlayer__sub_803D993C(void *, f32);
 M2C_UNK TObjPlayer__sub_803D99F8(void *, void *);
 s32 push_matrix();
@@ -159,7 +159,7 @@ void TObjPlayer__sub_803DC9E4(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32)) {
     do {
         u32 f = p->flags;
         if (f & 0x800) {
-            TObjPlayer__sub_803D898C((void *) (lbl_8058CE10));
+            get_current_matrix((void *) (lbl_8058CE10));
         }
         if ((f & 7) == 7) {
             if (!(f & 8)) {

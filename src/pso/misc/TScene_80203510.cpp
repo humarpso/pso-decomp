@@ -59,7 +59,7 @@ struct Root_80203F0C { u8 pad[8]; s16 count; u8 pad2[6]; Group_80203F0C *groups;
 extern "C" {
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 SceneMaterialSection *find_scene_room_by_id(s32 id);
-void TCameraCtrl__sub_803D8934(int, void *, void *);
+void matrix_mult_vec(int, void *, void *);
 extern const f32 TScene__data_805DC5D8;
 bool TScene__sub_80204188(f32 farg0);
 f32 xyz_distance_squared(void *, void *);
@@ -458,7 +458,7 @@ s32 TScene__sub_802040D4(void *arg0, Obj_802040D4 *o, f32 f0, f32 f1) {
 bool TScene__sub_80204188(f32 farg0) {
     f32 sp[6];
     void *unused;
-    TCameraCtrl__sub_803D8934(0, unused, &sp[0]);
+    matrix_mult_vec(0, unused, &sp[0]);
     if (sp[2] > TScene__data_805DC5D8) {
         return 0;
     }

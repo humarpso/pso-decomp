@@ -27,7 +27,7 @@ s32 get_status_flag__17TWindowSubComCardFPv(void *);
 void set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 create_quest_thread(s32);
 void TWindow__close(void *);
-s32 TWindowSubComCard__sub_80265BF8(void *);
+s32 get_selected_menu_value(void *);
 extern RecoveredGlobal_80214254_THunterGuildSeqOffline__data_80513DC8 THunterGuildSeqOffline__data_80513DC8;
 void fn_80214254(u8 *arg0);
 }
@@ -41,7 +41,7 @@ void fn_80214254(u8 *arg0) {
     u8 *temp_r3_3;
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x38));
     if ((temp_r3 != NULL) && (is_visible__17TWindowSubComCardFPv(temp_r3) != 0)) {
-        temp_r3_2 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u8 **, 0x38));
+        temp_r3_2 = get_selected_menu_value(M2C_FIELD(arg0, u8 **, 0x38));
         switch (temp_r3_2) {
         case 0:
             TWindow__close(M2C_FIELD(arg0, u8 **, 0x38));

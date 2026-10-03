@@ -50,7 +50,7 @@ s32 enable__13TParticleCtrlFPv(void *);
 s32 init_map_object_base(void *, void *);
 s32 is_lobby_event_active(void);
 void TObjSuisouLobby__sub_80369D68(void);
-s32 TCameraCtrl__sub_803D8934(int, void *, void *);
+s32 matrix_mult_vec(int, void *, void *);
 s32 TObjPlayer__sub_803D8CD4(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
@@ -227,7 +227,7 @@ void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2) {
         TObjPlayer__sub_803D8CD4(0);
         post_translate_matrix(self->x38);
         rotate_matrix_y(0, self->x60);
-        TCameraCtrl__sub_803D8934(0, &v, &v);
+        matrix_mult_vec(0, &v, &v);
         self->p1 = (void *)create_particle_emitter(&v, 0x222);
         pop_matrix();
         if (self->p1 != NULL) {
@@ -240,7 +240,7 @@ void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2) {
         TObjPlayer__sub_803D8CD4(0);
         post_translate_matrix(self->x38);
         rotate_matrix_y(0, self->x60);
-        TCameraCtrl__sub_803D8934(0, &v, &v);
+        matrix_mult_vec(0, &v, &v);
         self->p2 = (void *)create_particle_emitter(&v, 0x222);
         pop_matrix();
         if (self->p2 != NULL) {

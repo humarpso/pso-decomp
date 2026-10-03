@@ -262,7 +262,7 @@ s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 M2C_UNK TQuestVmDownLoadServer__sub_801F6E08(void *, s32, M2C_UNK);
-s32 TWindowSubComCard__sub_80265BF8(u32);
+s32 get_selected_menu_value(u32);
 M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
@@ -533,7 +533,7 @@ void handle_confirm_window__22TQuestVmDownLoadServerFPv(void *arg0) {
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x290) != 0U) {
         if (is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x290)) != 0) {
-            temp_r3 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u32 *, 0x290));
+            temp_r3 = get_selected_menu_value(M2C_FIELD(arg0, u32 *, 0x290));
             if (temp_r3 == 0) {
                 if ((u32) M2C_FIELD(arg0, u32 *, 0x290) != 0U) {
                     TWindow__close((void *)(M2C_FIELD(arg0, void **, 0x290)));

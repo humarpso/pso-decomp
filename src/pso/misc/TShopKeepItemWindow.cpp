@@ -80,7 +80,7 @@ M2C_UNK TCheckRoomSequence__sub_8021118C(s32);
 M2C_UNK TShopWindowBase__sub_8022397C(void *);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 void TWindow__close(void *);
-s32 TWindowSubComCard__sub_80265BF8(void *);
+s32 get_selected_menu_value(void *);
 s32 select_cursor_entry__6TLobbyFPv(s32);
 void handle_deposit_confirm__19TShopKeepItemWindowFv(void *arg0);
 }
@@ -163,7 +163,7 @@ void handle_deposit_confirm__19TShopKeepItemWindowFv(void *arg0) {
     win = self->f388;
     if (win != NULL && is_visible__17TWindowSubComCardFPv(win) != 0) {
         base = TShopWindowBase__sub_8022397C(arg0);
-        r = TWindowSubComCard__sub_80265BF8(self->f388);
+        r = get_selected_menu_value(self->f388);
         if (r == 0) {
             i = select_cursor_entry__6TLobbyFPv(self->f384);
             if (store_item_in_bank(&self->ents[i].f4, self->f378, base) != 0) {

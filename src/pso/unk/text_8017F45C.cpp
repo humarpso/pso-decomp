@@ -36,7 +36,7 @@ M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 void fn_8017F4AC(Self_8017F4AC *self);
 void fn_8017F5F0(u8 *arg0, u8 *arg1);
 void vec3_add_to(void *, void *);
-void TCameraCtrl__sub_803D8934(int, void *, void *);
+void matrix_mult_vec(int, void *, void *);
 void rotate_matrix_y(int, s32);
 void push_matrix_from(void *);
 void pop_matrix();
@@ -81,7 +81,7 @@ void fn_8017F550(Obj_8017F550 *arg0) {
         fn_8017F5F0((u8 *)(&arg0->recs[i]), (u8 *)(&lbl_804439D8[i]));
         push_matrix_from(lbl_8058D490);
         rotate_matrix_y(0, arg0->f60);
-        TCameraCtrl__sub_803D8934(0, &arg0->recs[i], &arg0->recs[i]);
+        matrix_mult_vec(0, &arg0->recs[i], &arg0->recs[i]);
         pop_matrix();
         vec3_add_to(&arg0->recs[i], arg0->pos);
         arg0->recs[i].f14 = 0;

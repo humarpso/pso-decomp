@@ -45,7 +45,7 @@ void render__19TWindowSubShortMailFv(void);
 void update__19TWindowSubShortMailFPv(void *arg0);
 M2C_UNK TLobby__sub_8001DA00();
 M2C_UNK TLobby__sub_802258C8();
-s32 TWindowSubComCard__sub_80265BF8(s32);
+s32 get_selected_menu_value(s32);
 void TWindow__close(void *);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
@@ -178,7 +178,7 @@ void update__19TWindowSubShortMailFPv(void *arg0) {
     if (get_status_flag__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x24)) != 0) {
         ((VObj_8027FBF0_8027E620 *) M2C_FIELD(arg0, void **, 0x20))->m7();
     }
-    fn_8027FD94(M2C_FIELD(arg0, s32 *, 0x28), TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, s32 *, 0x24)));
+    fn_8027FD94(M2C_FIELD(arg0, s32 *, 0x28), get_selected_menu_value(M2C_FIELD(arg0, s32 *, 0x24)));
 }
 
 extern M2C_UNK lbl_804D1AD0[];

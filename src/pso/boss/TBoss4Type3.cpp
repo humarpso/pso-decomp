@@ -166,7 +166,7 @@ M2C_UNK TBoss4Type3__sub_8005A398(void *, M2C_UNK);
 M2C_UNK create__13TObjBs4CutAtkFPvPvPv(void *, s32, s32);
 u8 *lookup_entry_by_value__10TObjPlayerFPvf(s32);
 M2C_UNK play_sound_effect(int, void *, int, int);
-M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
+M2C_UNK matrix_mult_vec(int, void *, void *);
 M2C_UNK TObjPlayer__sub_803D8CD4(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
@@ -504,9 +504,9 @@ void TBoss4Type3__vt9(O_800590F4 *o) {
       TObjPlayer__sub_803D8CD4(0);
       post_translate_matrix(o->f38);
       rotate_matrix_y(0, o->f60);
-      TCameraCtrl__sub_803D8934(0, e, &a);
+      matrix_mult_vec(0, e, &a);
       pb = (0, (s32) (&b));
-      TCameraCtrl__sub_803D8934(0, e + 0xC, (void *) pb);
+      matrix_mult_vec(0, e + 0xC, (void *) pb);
       pop_matrix();
       o->f524[idx]->m4(&a, (Vec_800590F4 *) pb);
     }

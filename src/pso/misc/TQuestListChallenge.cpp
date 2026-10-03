@@ -125,7 +125,7 @@ void reset_globals__19TQuestListChallengeFv(void);
 M2C_UNK prepare_offline_quest_filenames(s32, s32);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcKenkyu__ct(void *, void *, void *);
-s32 TWindowSubComCard__sub_80265BF8(u32);
+s32 get_selected_menu_value(u32);
 s32 TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__15TShopWindowBaseFv(void *, M2C_UNK);
@@ -201,7 +201,7 @@ void handle_confirm_select__19TQuestListChallengeFPv(void *arg0) {
     temp_r3 = M2C_FIELD(arg0, VObj_80288C78_80288B5C **, 0x30);
     if (temp_r3->m8() != 0) {
         if ((M2C_FIELD(arg0, void **, 0x34) != NULL) && (is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x34)) == 1)) {
-            temp_r3_2 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u32 *, 0x34));
+            temp_r3_2 = get_selected_menu_value(M2C_FIELD(arg0, u32 *, 0x34));
             if (temp_r3_2 == 0) {
                 temp_r0 = select_cursor_entry__6TLobbyFPv(M2C_FIELD(arg0, s32 *, 0x38));
                 temp_r4 = M2C_FIELD(arg0, Entry_80288C78_80288B5C **, 0x58);

@@ -158,8 +158,8 @@ s32 clamp_index_to_max__10TObjPlayerFi(s32);
 extern int lbl_805D5E10;
 s32 get_ply_level_table_row(s8 arg0, s32 arg1);
 s32 get_current_state_field__10TObjPlayerFv(s8 _w0, s32 _w1);
-s8 TObjPlayer__sub_801AFDB0(s32);
-s8 TObjPlayer__sub_801AFDB0(s32 _w0);
+s8 get_class_index__10TObjPlayerFPv(s32);
+s8 get_class_index__10TObjPlayerFPv(s32 _w0);
 s32 TObjPlayer__sub_801D921C(s32 arg0, s32 arg1);
 s16 get_tech_level__10TObjPlayerFPv(void *);
 s32 get_move_mode__10TObjPlayerFPv(void *);
@@ -194,7 +194,7 @@ extern RecoveredGlobal_801D8D8C_lbl_804C49B0 lbl_804C49B0;
 s32 get_class_starting_inventory(s8 arg0);
 extern RecoveredGlobal_801D8E60_lbl_804C4980 lbl_804C4980;
 s32 TObjPlayer__sub_801D8E60(u8 *arg0);
-s8 TObjPlayer__sub_801AFDB0(s32 _w0);
+s8 get_class_index__10TObjPlayerFPv(s32 _w0);
 extern RecoveredGlobal_801D9328_lbl_80447430 lbl_80447430;
 u8 *get_class_defense_template(u8 *arg0);
 s32 get_instance__6TLobbyFv(void);
@@ -209,13 +209,13 @@ s32 get_hospital_yaw__10TObjPlayerFv(void);
 s8 TObjPlayer__sub_801AFDBC(s8);
 extern RecoveredGlobal_801D9390_lbl_804471C0 lbl_804471C0;
 u8 *get_class_stat_caps(s8 arg0);
-s8 TObjPlayer__sub_801AFDB0(s32 _w0);
+s8 get_class_index__10TObjPlayerFPv(s32 _w0);
 extern RecoveredGlobal_801D92F4_lbl_804475B0 lbl_804475B0;
 u8 *get_class_attack_template(u8 *arg0);
 s8 TObjPlayer__sub_801AFDBC(s8);
 extern RecoveredGlobal_801D935C_lbl_804C4680 lbl_804C4680;
 s32 get_class_base_stats(s8 arg0);
-s8 TObjPlayer__sub_801AFDB0(s32 _w0);
+s8 get_class_index__10TObjPlayerFPv(s32 _w0);
 extern RecoveredGlobal_801D9390_lbl_804471C0 lbl_804471C0;
 u8 *TObjPlayer__sub_801D93C4(u8 *arg0);
 extern RecoveredGlobal_801D93F8_lbl_804471A8 lbl_804471A8;
@@ -243,7 +243,7 @@ extern u8 *lbl_804C49E0[];
 u8 *get_hospital_position__10TObjPlayerFPv(void *player);
 s32 get_max_level__10TObjPlayerFv(s32);
 s32 get_current_state_field__10TObjPlayerFv(s8 _w0, s32 _w1);
-s8 TObjPlayer__sub_801AFDB0(s32 _w0);
+s8 get_class_index__10TObjPlayerFPv(s32 _w0);
 s32 TObjPlayer__sub_801D91B8(s32 arg0);
 u16 obj_getField1c(void *);
 s32 get_instance__6TLobbyFv(void);
@@ -532,7 +532,7 @@ f32 lookup_attack_marker(s32 arg0, s16 arg1, s16 arg2, s32 arg3) {
 }
 
 s32 TObjPlayer__sub_801D91B8(s32 arg0) {
-    return get_current_state_field__10TObjPlayerFv(TObjPlayer__sub_801AFDB0(arg0), get_max_level__10TObjPlayerFv(arg0));
+    return get_current_state_field__10TObjPlayerFv(get_class_index__10TObjPlayerFPv(arg0), get_max_level__10TObjPlayerFv(arg0));
 }
 
 s32 get_current_state_field__10TObjPlayerFv(s8 _w0, s32 _w1) {
@@ -541,7 +541,7 @@ s32 get_current_state_field__10TObjPlayerFv(s8 _w0, s32 _w1) {
 
     extern int lbl_805D5E10;
 
-s32 TObjPlayer__sub_801D921C(s32 arg0, s32 arg1) { return get_current_state_field__10TObjPlayerFv(TObjPlayer__sub_801AFDB0(arg0), arg1); }
+s32 TObjPlayer__sub_801D921C(s32 arg0, s32 arg1) { return get_current_state_field__10TObjPlayerFv(get_class_index__10TObjPlayerFPv(arg0), arg1); }
 
 s32 get_ply_level_table_row(s8 arg0, s32 arg1) {
   s32 temp_r30;
@@ -561,11 +561,11 @@ typedef char RecoveredGlobal_801D9328_lbl_80447430_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_801D92F4_lbl_804475B0_size[sizeof(RecoveredGlobal_801D92F4_lbl_804475B0) == 0x240 ? 1 : -1];
 u8 *get_class_attack_template(u8 *arg0) {
-    return (u8 *)&lbl_804475B0.value + (TObjPlayer__sub_801AFDB0((s32)(arg0)) * 0x30);
+    return (u8 *)&lbl_804475B0.value + (get_class_index__10TObjPlayerFPv((s32)(arg0)) * 0x30);
 }
 
 u8 *get_class_defense_template(u8 *arg0) {
-    return (u8 *)&lbl_80447430.value + (TObjPlayer__sub_801AFDB0((s32)(arg0)) << 5);
+    return (u8 *)&lbl_80447430.value + (get_class_index__10TObjPlayerFPv((s32)(arg0)) << 5);
 }
 
 typedef char RecoveredGlobal_801D9390_lbl_804471C0_size[sizeof(RecoveredGlobal_801D9390_lbl_804471C0) == 0x1B0 ? 1 : -1];
@@ -581,7 +581,7 @@ u8 *get_class_stat_caps(s8 arg0) {
 
 typedef char RecoveredGlobal_801D93C4_lbl_804471C0_size[sizeof(RecoveredGlobal_801D93C4_lbl_804471C0) == 0x1B0 ? 1 : -1];
 u8 *TObjPlayer__sub_801D93C4(u8 *arg0) {
-    return (u8 *)&(*(RecoveredGlobal_801D93C4_lbl_804471C0 *)&lbl_804471C0).value + (TObjPlayer__sub_801AFDB0((s32)(arg0)) * 0x24);
+    return (u8 *)&(*(RecoveredGlobal_801D93C4_lbl_804471C0 *)&lbl_804471C0).value + (get_class_index__10TObjPlayerFPv((s32)(arg0)) * 0x24);
 }
 
 typedef char RecoveredGlobal_801D93F8_lbl_804471A8_size[sizeof(RecoveredGlobal_801D93F8_lbl_804471A8) == 0x18 ? 1 : -1];

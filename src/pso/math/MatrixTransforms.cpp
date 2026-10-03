@@ -16,10 +16,10 @@ extern u32 lbl_805D7774;
 void TObjPlayer__sub_803D9324(u32 arg0, u32 arg1);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
-void TBoss8Dragon__sub_803D9394(u8 *arg0, u8 *arg1);
+void euler_zyx_to_quaternion(u8 *arg0, u8 *arg1);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
-void TBoss8Dragon__sub_803D94DC(u8 *arg0, u8 *arg1);
+void euler_yxz_to_quaternion(u8 *arg0, u8 *arg1);
 extern u32 lbl_805D7774;
 void rotate_matrix_y(Matrix34* matrix, s32 angle);
 
@@ -69,7 +69,7 @@ void TObjPlayer__sub_803D9324(u32 arg0, u32 arg1) {
 }
 #pragma pop
 
-void TBoss8Dragon__sub_803D9394(u8 *arg0, u8 *arg1) {
+void euler_zyx_to_quaternion(u8 *arg0, u8 *arg1) {
     f32 temp_f1;
     f32 temp_f27;
     f32 temp_f28;
@@ -88,7 +88,7 @@ void TBoss8Dragon__sub_803D9394(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg1, f32 *, 0xC) = (f32) ((temp_f29 * (-temp_f1 * temp_f27)) + (temp_f30 * (temp_f31 * temp_f28)));
 }
 
-void TBoss8Dragon__sub_803D94DC(u8 *arg0, u8 *arg1) {
+void euler_yxz_to_quaternion(u8 *arg0, u8 *arg1) {
     f32 temp_f1;
     f32 temp_f27;
     f32 temp_f28;

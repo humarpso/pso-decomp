@@ -8,12 +8,12 @@ extern "C" {
 
 s32 update_com_card__12TQuestThreadFPv(void *arg0);
 s32 is_visible__17TWindowSubComCardFPv(void *);
-s32 TWindowSubComCard__sub_80265BF8(u32);
+s32 get_selected_menu_value(u32);
 
 s32 update_com_card__12TQuestThreadFPv(void *arg0) {
     if (M2C_FIELD(arg0, void **, 0x1C) != NULL) {
         if (is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x1C)) != 0) {
-            return TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u32 *, 0x1C));
+            return get_selected_menu_value(M2C_FIELD(arg0, u32 *, 0x1C));
         }
     }
     return -1;

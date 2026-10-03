@@ -54,7 +54,7 @@ s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E1E38(s32);
 s32 TAdPlayerLoadGC__sub_801E24F8(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
-s32 TWindowSubComCard__sub_80265BF8(u32);
+s32 get_selected_menu_value(u32);
 int TWindow__close(void*);
 s32 check_memcard_status__15TAdPlayerLoadGCFi(s32);
 s32 get_status_flag__17TWindowSubComCardFPv(u32);
@@ -132,7 +132,7 @@ void process_format_result__17TMCFormatSequenceFPv(void *arg0) {
         return;
     }
     if (((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) && (is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x38)) != 0)) {
-        temp_r3 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u32 *, 0x38));
+        temp_r3 = get_selected_menu_value(M2C_FIELD(arg0, u32 *, 0x38));
         if (temp_r3 == 0) {
             if (TAdPlayerLoadGC__sub_801E24F8(M2C_FIELD(arg0, s32 *, 0x28), 0, 0, 0, 0) == 0) {
                 M2C_FIELD(arg0, s32 *, 0x24) = 2;

@@ -117,7 +117,7 @@ u16 obj_getField1c(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 TObjPlayer__sub_801569F4(void *, int);
 s32 rand();
-s32 TCameraCtrl__sub_803D8934(int, int, int);
+s32 matrix_mult_vec(int, int, int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 s32 push_matrix_from(void *);
@@ -373,7 +373,7 @@ u8 *TObjGyaranzoMissile__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)));
     temp_r4 = (u8 *)(arg0 + 0xAC);
-    TCameraCtrl__sub_803D8934((int) (0), (int) (temp_r4), (int) (temp_r4));
+    matrix_mult_vec((int) (0), (int) (temp_r4), (int) (temp_r4));
     pop_matrix();
     M2C_FIELD(arg0, s32 *, 0xC8) = 0;
     return arg0;

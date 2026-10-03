@@ -45,7 +45,7 @@ void *TWindowMakeTeam__sub_80264D3C(void *);
 void *TWindowMakeTeam__sub_80264C54(void *);
 s32 get_status_flag__17TWindowSubComCardFPv(void *);
 s32 is_visible__17TWindowSubComCardFPv(void *);
-u8 TWindowSubComCard__sub_80265BF8(void *);
+u8 get_selected_menu_value(void *);
 char *draw_entry_0x110__15TWindowMakeTeamFc(u8);
 char *init_status_disp__15TWindowMakeTeamFc(u8);
 void send_state__15TWindowMakeTeamFPv(void *);
@@ -160,7 +160,7 @@ void run_task__15TWindowMakeTeamFv(Self_80264EB8 *self) {
         if (get_status_flag__17TWindowSubComCardFPv(self->window) != 0) {
             self->state = 1;
         } else if (is_visible__17TWindowSubComCardFPv(self->window) != 0) {
-            self->sel1E = TWindowSubComCard__sub_80265BF8(self->window);
+            self->sel1E = get_selected_menu_value(self->window);
             TWindowMakeTeam__sub_80268650(self->menu, draw_entry_0x110__15TWindowMakeTeamFc(self->sel1E), 2);
             send_state__15TWindowMakeTeamFPv(self);
             self->state = 1;
@@ -173,7 +173,7 @@ void run_task__15TWindowMakeTeamFv(Self_80264EB8 *self) {
         if (get_status_flag__17TWindowSubComCardFPv(self->window) != 0) {
             self->state = 1;
         } else if (is_visible__17TWindowSubComCardFPv(self->window) != 0) {
-            self->sel1F = TWindowSubComCard__sub_80265BF8(self->window);
+            self->sel1F = get_selected_menu_value(self->window);
             TWindowMakeTeam__sub_80268650(self->menu, init_status_disp__15TWindowMakeTeamFc(self->sel1F), 3);
             self->state = 1;
         }

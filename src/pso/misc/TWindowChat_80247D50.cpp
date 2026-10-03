@@ -31,7 +31,7 @@ int is_visible__11TWindowChatFPv(void* p);
 void set_active_flag__11TWindowChatFPv(void* p);
 void set_input_active__11TWindowChatFPv(void* p);
 void TWindowChat__sub_80247D2C(void* p);
-int TWindowSubComCard__sub_80265BF8(void*);
+int get_selected_menu_value(void*);
 int get_flag__11TWindowChatFPv(void* p);
 u8 get_input_mode__11TWindowChatFPv(void* p);
 int get_status_flag__17TWindowSubComCardFPv(void*);
@@ -41,7 +41,7 @@ s32 TWindowChat__sub_80247D50(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x68) > 0;
 }
 
-int forward_card_at_1c__11TWindowChatFPv(void* p) { return TWindowSubComCard__sub_80265BF8(*(void**)((char*)p + 0x1c)); }
+int forward_card_at_1c__11TWindowChatFPv(void* p) { return get_selected_menu_value(*(void**)((char*)p + 0x1c)); }
 int get_subcard_field1c__11TWindowChatFPv(void* p) { return is_visible__17TWindowSubComCardFPv(*(void**)((char*)p + 0x1c)); }
 int TWindowChat__sub_80247DAC(void* p) { return get_status_flag__17TWindowSubComCardFPv(*(void**)((char*)p + 0x1c)); }
 void set_active_flag__11TWindowChatFPv(void* p) { *(u16*)((char*)p + 0x1e) |= 0x10; }

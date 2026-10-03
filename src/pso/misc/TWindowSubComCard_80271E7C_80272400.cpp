@@ -51,7 +51,7 @@ s32 TKeyBoardControl__ct(s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, s32);
 s32 TWindowSubComCard__sub_8007A860(s32);
 s32 TWindowSubComCard__sub_8007A8F8(M2C_UNK);
 s32 TWindowSubComCard__sub_8007BC04(M2C_UNK);
-s32 TWindowSubComCard__sub_80265BF8(u32);
+s32 get_selected_menu_value(u32);
 s32 get_window_layout_position(M2C_UNK);
 s32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK destroy_keyboard__17TWindowSubComCardFPv(s32);
@@ -76,7 +76,7 @@ void update_display_value__17TWindowSubComCardFUiUiPv(u32 arg0, u32 arg1, s32 *a
 
     temp_r31 = TWindowSubComCard__sub_8007A8F8(0);
     if ((arg0 != 0U) && (arg1 != 0U)) {
-        temp_r3 = TWindowSubComCard__sub_80265BF8(arg0);
+        temp_r3 = get_selected_menu_value(arg0);
         if (temp_r3 != (s32) *arg2) {
             *arg2 = temp_r3;
             set_display_value__14TWindowComCardFiii(arg1, temp_r3, temp_r31);

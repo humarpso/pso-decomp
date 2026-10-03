@@ -32,7 +32,7 @@ struct VObj_802CE740 : VBase_802CE740 {
 
 extern "C" {
 s32 render_anim_model__10TObjPlayerFPvf(void *, f32);
-s32 TCameraCtrl__sub_803D8934(int, void *, void *);
+s32 matrix_mult_vec(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
@@ -82,7 +82,7 @@ void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2) {
     stack.sp8 = M2C_FIELD(&lbl_804724A8.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_804724A8.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_804724A8.value, s32 *, 8);
-    TCameraCtrl__sub_803D8934((int) (0), (void *) (&stack.sp8), (void *) (arg1));
+    matrix_mult_vec((int) (0), (void *) (&stack.sp8), (void *) (arg1));
     pop_matrix();
     clear_global_state__10TObjPlayerFv();
 }

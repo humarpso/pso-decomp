@@ -108,7 +108,7 @@ s32 create_titled_window_menu(int, int, int, int);
 s32 get_window_layout_position(M2C_UNK);
 void draw_slot__14TWindowSubItemFiii(s32 arg1, s32 arg2, s32 arg3);
 void dispatch_warp_status__14TWindowSubItemFii(s32 arg0, s32 arg1);
-s32 TWindowSubItem__sub_80279F28(u8 *arg0, s32 arg1);
+s32 open_purpose_window__14TWindowSubItemFPvi(u8 *arg0, s32 arg1);
 s32 get_player_by_client_id(s32);
 M2C_UNK TObjPlayer__sub_801B7B58(int, int, int);
 s32 select_cursor_entry__6TLobbyFPv(int);
@@ -181,7 +181,7 @@ s32 is_player_input_active(s32);
 s32 TWindowCtrl__sub_8024A228(s32);
 u32 TWindowHelpItem__ct(s32, s32, s32);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
-s32 TWindowSubComCard__sub_80265BF8(u32);
+s32 get_selected_menu_value(u32);
 void clear_transition_flag__17TWindowSubComCardFPv(u32);
 void open__17TWindowOptionCtrlFPv(u32);
 s32 select_cursor_entry__6TLobbyFPv(int);
@@ -194,7 +194,7 @@ void exec_item_command__14TWindowSubItemFPvii(void *arg0, s32 arg1, s32 arg2);
 void TWindowSubItem__sub_802799E4(void *, s32);
 s32 create_count_input__14TWindowSubItemFPvi(void *arg0, s32 arg1);
 s32 TWindowSubItem__sub_80279E68(u8 *arg0);
-s32 TWindowSubItem__sub_80279F28(u8 *arg0, s32 arg1);
+s32 open_purpose_window__14TWindowSubItemFPvi(u8 *arg0, s32 arg1);
 void clear_flag_and_release__14TWindowSubItemFPv(void *arg0);
 void TWindowSubItem__sub_8027AA30(u8 *arg0);
 void reset_selected__14TWindowSubItemFPv(void* p);
@@ -473,7 +473,7 @@ s32 TWindowSubItem__sub_80279E68(u8 *arg0) {
     return temp_r31;
 }
 
-s32 TWindowSubItem__sub_80279F28(u8 *arg0, s32 arg1) {
+s32 open_purpose_window__14TWindowSubItemFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r31;
     temp_r31 = create_titled_window_menu(((int)get_window_layout_position((M2C_UNK)((int) (4)))), (int) (3), get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)((int) (0x26))), (int) (M2C_FIELD(arg0, s32 *, 0x24)));
     if (arg1 == -0xFF) {
@@ -559,20 +559,20 @@ void run_task__14TWindowSubItemFv(u8 *arg0) {
                 F(u32, 0x40) = 0;
             }
             if (F(u32, 0x34) == 0) {
-                F(u32, 0x34) = TWindowSubItem__sub_80279F28(arg0, select_cursor_entry__6TLobbyFPv(LIST));
+                F(u32, 0x34) = open_purpose_window__14TWindowSubItemFPvi(arg0, select_cursor_entry__6TLobbyFPv(LIST));
             }
             clear_flag_and_release__17TWindowSubComCardFPv(F(u32, 0x34));
             clear_transition_flag__17TWindowSubComCardFPv(F(u32, 0x34));
             F(u8, 0x1C) = 4;
         case 4:
-            if (TWindowSubComCard__sub_80265BF8(F(u32, 0x34)) == 0) {
+            if (get_selected_menu_value(F(u32, 0x34)) == 0) {
                 TWindowShortListCtrl__sub_8026E93C(select_cursor_entry__6TLobbyFPv(LIST), F(s32, 0x24));
             }
             if (get_status_flag__17TWindowSubComCardFPv(F(u32, 0x34)) != 0) {
                 F(u8, 0x1C) = 1;
             }
             if (is_visible__17TWindowSubComCardFPv(F(u32, 0x34)) != 0) {
-                TWindowSubItem__sub_802799E4(arg0, TWindowSubComCard__sub_80265BF8(F(u32, 0x34)));
+                TWindowSubItem__sub_802799E4(arg0, get_selected_menu_value(F(u32, 0x34)));
                 return;
             }
             break;
@@ -582,7 +582,7 @@ void run_task__14TWindowSubItemFv(u8 *arg0) {
                 F(u8, 0x1C) = 3;
             }
             if (is_usable__14TWindowSubItemFi(p) != 0) {
-                exec_item_command__14TWindowSubItemFPvii(arg0, select_cursor_entry__6TLobbyFPv(LIST), TWindowSubComCard__sub_80265BF8(F(u32, 0x34)));
+                exec_item_command__14TWindowSubItemFPvii(arg0, select_cursor_entry__6TLobbyFPv(LIST), get_selected_menu_value(F(u32, 0x34)));
                 return;
             }
             break;
@@ -595,7 +595,7 @@ void run_task__14TWindowSubItemFv(u8 *arg0) {
                 F(u8, 0x1C) = 3;
             }
             if (is_visible__17TWindowSubComCardFPv(F(u32, 0x38)) != 0) {
-                close_windows__14TWindowSubItemFPvi(arg0, TWindowSubComCard__sub_80265BF8(F(u32, 0x38)));
+                close_windows__14TWindowSubItemFPvi(arg0, get_selected_menu_value(F(u32, 0x38)));
                 return;
             }
             break;

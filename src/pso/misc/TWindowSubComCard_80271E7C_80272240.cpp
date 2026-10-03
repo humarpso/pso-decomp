@@ -42,7 +42,7 @@ int get_message_10__20TWindowSubStatusDispFPv(void*);
 int TWindowSubComCard__sub_8007A8F8(void);
 int get_card_id__17TWindowSubComCardFPv(void);
 int TLobby__sub_802421C4(void);
-int TWindowSubComCard__sub_80265BF8(void*);
+int get_selected_menu_value(void*);
 void send_cmd_133__17TWindowSubComCardFv(void);
 s32 get_window_layout_position(s32 a0 = 0);
 int fn_802754EC(void);

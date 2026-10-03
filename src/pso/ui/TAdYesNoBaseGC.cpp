@@ -53,7 +53,7 @@ void *TAdYesNoBaseGC__vt0(void *arg0, s16 arg1);
 void TAdYesNoBaseGC__vt6(void *arg0);
 void init_parts__14TAdYesNoBaseGCFPvPvPv(void *arg0, void *arg1, void *arg2);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
-s32 TWindowSubComCard__sub_80265BF8(u32);
+s32 get_selected_menu_value(u32);
 M2C_UNK TWindow__close(void *);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
@@ -107,7 +107,7 @@ void TAdYesNoBaseGC__vt6(void *arg0) {
         break;
     case 1:
         if (is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x44)) != 0) {
-            temp_r3 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u32 *, 0x44));
+            temp_r3 = get_selected_menu_value(M2C_FIELD(arg0, u32 *, 0x44));
             switch (temp_r3) {
             case 0:
                 ((VtObj8032C1C8_8032C188*)arg0)->m6();

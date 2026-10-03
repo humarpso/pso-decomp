@@ -93,7 +93,7 @@ extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 s32 TObjPlayer__sub_8008E098(Obj_8008E098 *self);
 void vec3_add_to(Vec_8008E18C *, Vec_8008E18C *);
-void TCameraCtrl__sub_803D8934(void *, Vec_8008E18C *, Vec_8008E18C *);
+void matrix_mult_vec(void *, Vec_8008E18C *, Vec_8008E18C *);
 void TObjPlayer__sub_803D8CD4(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
@@ -285,7 +285,7 @@ void TObjPlayer__sub_8008E18C(Obj_8008E18C *self, s32 slot, Vec_8008E18C *out, s
     out->z = lbl_805D9630;
     TObjPlayer__sub_803D8CD4(0);
     rotate_matrix_y((M2C_UNK)(0), (s32)(angle));
-    TCameraCtrl__sub_803D8934(0, out, out);
+    matrix_mult_vec(0, out, out);
     vec3_add_to(out, &self->pos);
     pop_matrix();
 }

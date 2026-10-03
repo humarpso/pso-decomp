@@ -24,7 +24,7 @@ void update_card_slot__17TWindowSubComCardFPv(void* p);
 s32 create_window_menu(s32, s32, s32);
 int confirm_selection__11TWindowMenuFPv(void*);
 s32 TWindowSubComCard__sub_80244888(void *);
-s32 TWindowSubComCard__sub_80265BF8(s32);
+s32 get_selected_menu_value(s32);
 s32 TWindowSubComCard__sub_80265CFC(s32, f32);
 int TWindowSubComCard__sub_802A57FC(void* a0 = 0);
 int open_yes_no_prompt(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);

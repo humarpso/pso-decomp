@@ -49,7 +49,7 @@ u8 *get_player_by_client_id(M2C_UNK);
 extern const f32 lbl_805D8F78;
 void TCameraCtrl__sub_80067EE0(s32 arg0);
 u8 *get_player_by_client_id(M2C_UNK);
-s32 TCameraCtrl__sub_803D8934(int, void *, void *);
+s32 matrix_mult_vec(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
@@ -121,7 +121,7 @@ void TCameraCtrl__sub_80067E30(u8 *arg0) {
         stack.sp10 = M2C_FIELD(arg0, f32 *, 0x70);
         push_matrix_from((void *) (&lbl_8058D490.value));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x30)));
-        TCameraCtrl__sub_803D8934((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
+        matrix_mult_vec((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
         pop_matrix();
         M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x48) + stack.sp8);
         M2C_FIELD(arg0, f32 *, 0x40) = (f32) (M2C_FIELD(arg0, f32 *, 0x4C) + stack.spC);

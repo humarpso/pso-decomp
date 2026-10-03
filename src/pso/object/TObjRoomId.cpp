@@ -75,8 +75,8 @@ extern const f32 lbl_805DC08C;
 void render__10TObjRoomIdFv(RoomId_801A18EC *self);
 s32 push_matrix_from(void *);
 void rotate_matrix_y(int, s32);
-s32 TCameraCtrl__sub_803D8934(int, void *, void *);
-M2C_UNK TCameraCtrl__sub_803D9858(int);
+s32 matrix_mult_vec(int, void *, void *);
+M2C_UNK pop_matrices(int);
 f32 vec3_dot(Vec_801A1A60 *, Vec_801A1A60 *);
 extern Vec_801A1A60 lbl_8044688C[];
 extern u8 lbl_8058D490[];
@@ -166,8 +166,8 @@ void TObjRoomId::run_task() {
     }
     push_matrix_from(lbl_8058D490);
     rotate_matrix_y(0, o->yaw);
-    TCameraCtrl__sub_803D8934(0, &v, &o->normal);
-    TCameraCtrl__sub_803D9858(1);
+    matrix_mult_vec(0, &v, &o->normal);
+    pop_matrices(1);
     for (s32 i = 0; i < 4; i++) {
         Obj_801A1888 *p = get_player_by_client_id(i);
         if (p == NULL) {

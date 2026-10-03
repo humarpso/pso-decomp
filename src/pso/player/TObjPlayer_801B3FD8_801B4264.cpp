@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 int test_ordered_anim_markers__10TObjPlayerFPvff(void);
 
-s8 TObjPlayer__sub_801AFDB0();
+s8 get_class_index__10TObjPlayerFPv();
 s32 send_field_state_if_active__10TObjPlayerFii(s32, s32);
 s32 get_footstep_floor_index__10TObjPlayerFv(s32);
 s32 set_hp_clamped__10TObjPlayerFPvs(void *, s16);

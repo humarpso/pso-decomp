@@ -27,7 +27,7 @@ int attach_battle_ctrl_sub__10TObjPlayerFPv(void* p);
 s32 classify_action_state__10TObjPlayerFv(void);
 int forward_1BF500_at_63c__10TObjPlayerFPv(void* p);
 s32 set_hp_clamped__10TObjPlayerFPvs(void *, s16);
-s8 TObjPlayer__sub_801AFDB0();
+s8 get_class_index__10TObjPlayerFPv();
 s32 get_footstep_floor_index__10TObjPlayerFv(s32);
 s32 check_camera_mode__10TObjPlayerFv();
 int clear_flag0_bit1__10TObjPlayerFPv(void*);
@@ -47,7 +47,7 @@ int TObjPlayer__sub_801B4044(void* p) { return set_flag_2__10TObjPlayerFPv((char
 s32 classify_action_state__10TObjPlayerFv(void) {
     s8 temp_r3;
 
-    temp_r3 = TObjPlayer__sub_801AFDB0();
+    temp_r3 = get_class_index__10TObjPlayerFPv();
     switch (temp_r3) {
     case 5:
     case 9:

@@ -391,7 +391,7 @@ void TBoss6Type1__sub_802B683C(Boss_802B683C *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 vec3_add_to(void *, void *);
 f32 subtract_vector(void *, void *);
-s32 TCameraCtrl__sub_803D8934(int, void *, void *);
+s32 matrix_mult_vec(int, void *, void *);
 s32 TObjPlayer__sub_803D8CD4(int);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
@@ -1384,7 +1384,7 @@ void TBoss6Type1__sub_802B79DC(Boss_802B79DC *arg0) {
             push_matrix();
             TObjPlayer__sub_803D8CD4(0);
             rotate_matrix_y(0, -arg0->f60);
-            TCameraCtrl__sub_803D8934(0, &v, e);
+            matrix_mult_vec(0, &v, e);
             pop_matrix();
             VecCopy__FP3VecPC3Vec(&e->n, e);
             vec3_add_to(&e->n, &arg0->pos);

@@ -50,7 +50,7 @@ void init_xyz_limits__10TObjPlayerFv(void);
 s32 begin_effect_render__13TParticleCtrlFv(void);
 s32 end_effect_render__13TParticleCtrlFv(void);
 void fn_801E4EB0(void *);
-s32 TCameraCtrl__sub_803D8934(int, void *, void *);
+s32 matrix_mult_vec(int, void *, void *);
 s32 set_global_param__8TObjFishFi(void *);
 s32 begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv(void);
@@ -126,7 +126,7 @@ void render__17TQuadSpriteNormalFv(Self_801E5598 *self) {
             pos.y = n->pos.y + n->ofs.y;
             pos.z = n->pos.z + n->ofs.z;
             if ((s32)n->type != 1) {
-                TCameraCtrl__sub_803D8934(0, &pos, &out);
+                matrix_mult_vec(0, &pos, &out);
                 out.y = -out.y;
             } else {
                 VecCopy__FP3VecPC3Vec(&out, &pos);

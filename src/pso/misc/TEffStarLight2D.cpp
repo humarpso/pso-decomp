@@ -51,7 +51,7 @@ struct Star_800855F8 {
 
 extern "C" {
 void *__nw__7TObjectFUl(u32);
-void TCameraCtrl__sub_803D8934(int, void *, void *);
+void matrix_mult_vec(int, void *, void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 void project_world_to_screen(int, void *, void *);
@@ -82,7 +82,7 @@ void run_task__15TEffStarLight2DFv(Star_800851B0 *self) {
     f32 dz;
     void *child;
 
-    TCameraCtrl__sub_803D8934(0, &self->pos, &view);
+    matrix_mult_vec(0, &self->pos, &view);
     if (view.z > 0.0f) {
         return;
     }

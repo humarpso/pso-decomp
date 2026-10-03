@@ -11,7 +11,7 @@ struct RecoveredGlobal_8009BD00_lbl_80500960 {
 extern "C" {
 M2C_UNK get_camera_ctrl__9TObjEneDDFPv(void *, int);
 M2C_UNK update_camera_sequence__9TObjEneDDFPv();
-M2C_UNK TCameraCtrl__sub_803D8934(int, void *, int);
+M2C_UNK matrix_mult_vec(int, void *, int);
 M2C_UNK rotate_vector_by_matrix(int, int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -36,7 +36,7 @@ void fn_8009BD00(void) {
         update_camera_sequence__9TObjEneDDFPv();
         temp_r5 = lbl_805D4FD8;
         lbl_805D4FD8 = temp_r5 + 0xC;
-        TCameraCtrl__sub_803D8934((int) (0), (void *) (&lbl_80500960.value), (int) (temp_r5));
+        matrix_mult_vec((int) (0), (void *) (&lbl_80500960.value), (int) (temp_r5));
         temp_r4 = lbl_805D4FD8;
         temp_r5_2 = temp_r4;
         lbl_805D4FD8 = temp_r4 + 0xC;

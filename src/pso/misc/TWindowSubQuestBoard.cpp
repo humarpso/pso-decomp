@@ -44,7 +44,7 @@ s32 get_status_flag__17TWindowSubComCardFPv(s32);
 s32 get_flag_bit2__6TLobbyFPv(u32);
 M2C_UNK clear_flag_and_release__17TWindowSubComCardFPv(s32);
 void TWindow__close(void *);
-s32 TWindowSubComCard__sub_80265BF8(s32);
+s32 get_selected_menu_value(s32);
 M2C_UNK update_photon_selection__19TWindowSubMagPhotonFPv(void *);
 M2C_UNK update_quest_board_card_flags(void *);
 u32 TWindowSubStatusDisp__sub_8027C884(void *, s32);
@@ -101,7 +101,7 @@ void TWindowSubQuestBoard__sub_8027CCCC(void *arg0) {
         }
         break;
     case 3:
-        t = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, s32 *, 0x28));
+        t = get_selected_menu_value(M2C_FIELD(arg0, s32 *, 0x28));
         M2C_FIELD(arg0, u32 *, 0x2C) = TWindowSubStatusDisp__sub_8027C884(arg0, t);
         M2C_FIELD(arg0, u8 *, 0x1C) = 4;
     case 4:

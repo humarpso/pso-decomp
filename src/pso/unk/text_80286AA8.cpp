@@ -4,7 +4,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-s32 TWindowSubComCard__sub_80265BF8(int);
+s32 get_selected_menu_value(int);
 s32 fn_80286AA8(u8 *arg0);
 }
 
@@ -14,10 +14,10 @@ s32 fn_80286AA8(u8 *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x34) == 0U) {
         return 0;
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x2C) == TWindowSubComCard__sub_80265BF8((int) (M2C_FIELD(arg0, u32 *, 0x34)))) {
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x2C) == get_selected_menu_value((int) (M2C_FIELD(arg0, u32 *, 0x34)))) {
         return 0;
     }
-    M2C_FIELD(arg0, s32 *, 0x2C) = TWindowSubComCard__sub_80265BF8((int) (M2C_FIELD(arg0, u32 *, 0x34)));
+    M2C_FIELD(arg0, s32 *, 0x2C) = get_selected_menu_value((int) (M2C_FIELD(arg0, u32 *, 0x34)));
     return 1;
 }
 

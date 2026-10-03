@@ -26,7 +26,7 @@ s16 get_stat_percent__9TItemDataFPv(void *arg0);
 s16 get_level__9TItemDataFPv(void *arg0);
 s16 get_percent__9TItemDataFPv(void *arg0);
 void update_player_field__9TItemDataFi(s32 arg0);
-s32 TObjPlayer__sub_801AFDB0();
+s32 get_class_index__10TObjPlayerFPv();
 M2C_UNK can_use_more_materials__10TObjPlayerFv(s32, s32);
 
 void TItemData__sub_8010EDA8(void *arg0, s32 arg1) {
@@ -82,7 +82,7 @@ s16 get_percent__9TItemDataFPv(void *arg0) {
 }
 
 void update_player_field__9TItemDataFi(s32 arg0) {
-    can_use_more_materials__10TObjPlayerFv(arg0 + 0x374, TObjPlayer__sub_801AFDB0());
+    can_use_more_materials__10TObjPlayerFv(arg0 + 0x374, get_class_index__10TObjPlayerFPv());
 }
 s32 get_item_description_text(s32 arg0) {
     return M2C_FIELD(M2C_FIELD(lbl_805D553C, s32 *, 4), M2C_UNK *, (arg0 * 4));

@@ -40,7 +40,7 @@ s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_x(int, int);
 s32 push_matrix_from(void *);
-s32 TCameraCtrl__sub_803D9858(int);
+s32 pop_matrices(int);
 extern RecoveredGlobal_8001CAD4_lbl_804349FC lbl_804349FC;
 extern RecoveredGlobal_8001CAD4_lbl_804FF5E8 lbl_804FF5E8;
 extern RecoveredGlobal_8001CAD4_lbl_8058D490 lbl_8058D490;
@@ -74,7 +74,7 @@ void fn_8001CAD4(u8 *arg0) {
         rotate_matrix_y((int) (0), (int) (stack.spC));
         rotate_matrix_x((int) (0), (int) (stack.sp8));
         rotate_vector_by_matrix((int) (0), (void *) (arg0 + 0x20), (void *) (arg0 + 0x2C));
-        TCameraCtrl__sub_803D9858((int) (1));
+        pop_matrices((int) (1));
         vec3_add_to((void *) (arg0 + 0x2C), (void *) (arg0 + 0x44));
         copy_pos__11TNowLoadingFPvPv((int) (M2C_FIELD(arg0, u32 *, 0x1C)), (void *) (arg0 + 0x2C));
     }

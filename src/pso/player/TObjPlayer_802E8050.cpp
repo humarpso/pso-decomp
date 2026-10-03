@@ -45,7 +45,7 @@ struct RecoveredGlobal_802E80F4_lbl_8058D4C0 {
 
 extern "C" {
 s32 TObjPlayer__sub_803D8960(int, void *, void *, int);
-s32 TObjPlayer__sub_803D898C(void *);
+s32 get_current_matrix(void *);
 f32 subtract_vector(void *, void *);
 f32 transform_point_by_current_matrix(void *, void *);
 s32 push_matrix();
@@ -217,13 +217,13 @@ void TObjPlayer__sub_802E8274(void) {
     }
     if ((lbl_805D6924 & 0x80) && ((s32) lbl_805D691C >= 0x4D) && ((s32) lbl_805D691C <= 0x58)) {
         push_matrix();
-        TObjPlayer__sub_803D898C((void *) (lbl_805D6934));
+        get_current_matrix((void *) (lbl_805D6934));
         pop_matrix();
         lbl_805D6934 += 0x30;
     }
     if (((s32) lbl_805D691C >= 0x1D) && ((s32) lbl_805D691C <= 0x20)) {
         push_matrix();
-        TObjPlayer__sub_803D898C((void *) (lbl_805D6930));
+        get_current_matrix((void *) (lbl_805D6930));
         pop_matrix();
         lbl_805D6930 += 0x30;
     }

@@ -64,7 +64,7 @@ s32 TCheckRoomSequence__sub_80211034(int, void *, int);
 s32 TCheckRoomSequence__sub_8021118C(int);
 s32 TShopWindowBase__sub_8022397C(void *);
 void TWindow__close(void *);
-s32 TWindowSubComCard__sub_80265BF8(int);
+s32 get_selected_menu_value(int);
 s32 select_cursor_entry__6TLobbyFPv(int);
 void TShopDeleteItemWindow__sub_803379E0(u8 *arg0);
 s32 queue_destruction__7TObjectFv(void *);
@@ -163,7 +163,7 @@ void TShopDeleteItemWindow__sub_803379E0(u8 *arg0) {
     temp_r3 = M2C_FIELD(arg0, u32 *, 0x34);
     if ((temp_r3 != 0U) && (is_visible__17TWindowSubComCardFPv((int) (temp_r3)) != 0)) {
         temp_r30 = TShopWindowBase__sub_8022397C((void *) (arg0));
-        temp_r3_2 = TWindowSubComCard__sub_80265BF8((int) (M2C_FIELD(arg0, u32 *, 0x34)));
+        temp_r3_2 = get_selected_menu_value((int) (M2C_FIELD(arg0, u32 *, 0x34)));
         if (temp_r3_2 == 0) {
             temp_r3_3 = select_cursor_entry__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 0x30)));
             if (TCheckRoomSequence__sub_80211034((int) (temp_r3_3), (void *) (&stack.sp8), (int) (temp_r30)) != 0) {

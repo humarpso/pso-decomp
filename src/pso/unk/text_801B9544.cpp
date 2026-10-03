@@ -12,7 +12,7 @@ struct Stack_801B9544 {
 extern "C" {
 s32 TCameraCtrl__sub_80069258();
 s32 get_item_ptr__10TObjPlayerFPvi(void *, void *);
-M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
+M2C_UNK matrix_mult_vec(int, void *, void *);
 M2C_UNK TObjPlayer__sub_803D9324(int, void *);
 M2C_UNK TCameraCtrl__sub_803D976C(int, int);
 M2C_UNK push_matrix_from(int);
@@ -31,7 +31,7 @@ void TObjPlayer__vt63(s32 arg0, s32 arg1, s32 arg2) {
     push_matrix_from((int) (0));
     TObjPlayer__sub_803D9324((int) (0), (void *) (get_item_ptr__10TObjPlayerFPvi((void *) (arg0), (void *) (arg1))));
     TCameraCtrl__sub_803D976C((int) (0), (int) (TCameraCtrl__sub_80069258()));
-    TCameraCtrl__sub_803D8934((int) (0), (void *) (&stack.sp8), (void *) (arg2));
+    matrix_mult_vec((int) (0), (void *) (&stack.sp8), (void *) (arg2));
     pop_matrix();
 }
 

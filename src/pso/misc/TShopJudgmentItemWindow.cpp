@@ -65,7 +65,7 @@ M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(int);
 M2C_UNK update_all__6TLobbyFi(void *);
 M2C_UNK play_cue_stream_file(void *);
 void TWindow__close(void *);
-s32 TWindowSubComCard__sub_80265BF8(int);
+s32 get_selected_menu_value(int);
 s32 select_cursor_entry__6TLobbyFPv(int);
 extern M2C_UNK lbl_8044C1D4[];
 void TShopJudgmentItemWindow__sub_80221134(u8 *arg0);
@@ -176,7 +176,7 @@ void TShopJudgmentItemWindow__sub_80221134(u8 *arg0) {
     u8 *temp_r31;
     if (((VObj_18 *) arg0)->m8() != 0) {
         if ((M2C_FIELD(arg0, void **, 0x158) != NULL) && (is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x158)) != 0)) {
-            temp_r3 = TWindowSubComCard__sub_80265BF8((int) (M2C_FIELD(arg0, u32 *, 0x158)));
+            temp_r3 = get_selected_menu_value((int) (M2C_FIELD(arg0, u32 *, 0x158)));
             if ((temp_r3 == 0) && ((u32) M2C_FIELD(arg0, u32 *, 0x154) != 0U)) {
                 if (obj_getPtr2B0_20((int) (M2C_FIELD(arg0, s32 *, 0x24))) < 0x64) {
                     TWindow__close(M2C_FIELD(arg0, void **, 0x158));

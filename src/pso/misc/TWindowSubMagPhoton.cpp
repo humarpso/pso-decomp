@@ -88,7 +88,7 @@ void play_open_sound__19TWindowSubMagPhotonFPv(void *arg0);
 void update_photon_selection__19TWindowSubMagPhotonFPv(void *arg0);
 void update_quest_board_card_flags(void *arg0);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-s32 TWindowSubComCard__sub_80265BF8(s32);
+s32 get_selected_menu_value(s32);
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
 M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
 M2C_UNK get_window_layout_position(M2C_UNK);
@@ -223,7 +223,7 @@ void update_photon_selection__19TWindowSubMagPhotonFPv(void *arg0) {
     s32 temp_r31;
     s32 temp_r3;
 
-    temp_r31 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, s32 *, 0x28));
+    temp_r31 = get_selected_menu_value(M2C_FIELD(arg0, s32 *, 0x28));
     temp_r3 = update_selected_item__17TWindowOptionCtrlFPv(M2C_FIELD(arg0, s32 *, 0x2C));
     if ((temp_r31 == 4) && ((s8) M2C_FIELD(arg0, u8 *, 0x1D) != temp_r3)) {
         M2C_FIELD(arg0, u8 *, 0x1D) = (u8) temp_r3;
@@ -237,7 +237,7 @@ void update_quest_board_card_flags(void *arg0) {
     s32 temp_r31;
     s32 temp_r4;
 
-    temp_r31 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, s32 *, 0x28));
+    temp_r31 = get_selected_menu_value(M2C_FIELD(arg0, s32 *, 0x28));
     temp_r4 = update_selected_item__17TWindowOptionCtrlFPv(M2C_FIELD(arg0, s32 *, 0x2C));
     switch (temp_r31) {
     case 0:

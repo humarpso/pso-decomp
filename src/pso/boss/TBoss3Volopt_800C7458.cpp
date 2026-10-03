@@ -29,7 +29,7 @@ s32 pop_matrix();
 f32 post_translate_matrix(void *);
 extern RecoveredGlobal_800C7698_lbl_8058D490 lbl_8058D490;
 void TBoss3Volopt__sub_800C7698(u8 *arg0);
-s32 TCameraCtrl__sub_803D8934(int, void *, void *);
+s32 matrix_mult_vec(int, void *, void *);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
 extern RecoveredGlobal_800C762C_lbl_8043BCA0 lbl_8043BCA0;
@@ -77,7 +77,7 @@ void TBoss3Volopt__sub_800C762C(M2C_UNK arg0, s32 arg1, s32 arg2) {
     stack.spC = M2C_FIELD(&lbl_8043BCA0.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_8043BCA0.value, s32 *, 8);
     push_matrix_from((void *) (lbl_805D5678 + (arg1 * 0x30)));
-    TCameraCtrl__sub_803D8934((int) (0), (void *) (&stack.sp8), (void *) (arg2));
+    matrix_mult_vec((int) (0), (void *) (&stack.sp8), (void *) (arg2));
     pop_matrix();
 }
 

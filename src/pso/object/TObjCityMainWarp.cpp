@@ -53,7 +53,7 @@ struct Obj_801864B4 {
 extern "C" {
 s32 get_instance__6TLobbyFv(void);
 s32 is_visible__17TWindowSubComCardFPv(void *);
-s32 TWindowSubComCard__sub_80265BF8(void *);
+s32 get_selected_menu_value(void *);
 extern RecoveredGlobal_8018605C_lbl_804447F4 lbl_804447F4;
 extern RecoveredGlobal_8018605C_lbl_80444834 lbl_80444834;
 s32 TObjCityMainWarp__vt15(u8 *arg0);
@@ -143,7 +143,7 @@ s32 TObjCityMainWarp__vt15(u8 *arg0) {
         if ((var_r3 != NULL) && (is_visible__17TWindowSubComCardFPv(var_r3) != 0)) {
             var_r3 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0xB0));
             var_r4 = (M2C_UNK *)(&lbl_804447F4.value);
-            var_r5 = (u8 *)(var_r31 + (TWindowSubComCard__sub_80265BF8(var_r3) * 4));
+            var_r5 = (u8 *)(var_r31 + (get_selected_menu_value(var_r3) * 4));
             var_r3 = (u8 *)((void *)1U);
             var_r4 = (M2C_UNK *)(&lbl_804447F4.value);
             M2C_FIELD(var_r31, s32 *, 0xBC) = (s32) M2C_FIELD(&lbl_804447F4.value, M2C_UNK *, (M2C_FIELD(var_r5, s32 *, 0xC8) * 4));
@@ -156,7 +156,7 @@ s32 TObjCityMainWarp__vt15(u8 *arg0) {
     if ((var_r3 != NULL) && (is_visible__17TWindowSubComCardFPv(var_r3) != 0)) {
         var_r3 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0xB0));
         var_r4 = (M2C_UNK *)(&lbl_80444834.value);
-        var_r5 = (u8 *)(var_r31 + (TWindowSubComCard__sub_80265BF8(var_r3) * 4));
+        var_r5 = (u8 *)(var_r31 + (get_selected_menu_value(var_r3) * 4));
         var_r3 = (u8 *)((void *)1U);
         var_r4 = (M2C_UNK *)(&lbl_80444834.value);
         M2C_FIELD(var_r31, s32 *, 0xBC) = (s32) M2C_FIELD(&lbl_80444834.value, M2C_UNK *, (M2C_FIELD(var_r5, s32 *, 0x10C) * 4));

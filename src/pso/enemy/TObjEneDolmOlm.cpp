@@ -310,7 +310,7 @@ f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
-s32 TCameraCtrl__sub_803D9858(int);
+s32 pop_matrices(int);
 extern RecoveredGlobal_80300FC0_lbl_8058D490 lbl_8058D490;
 extern const f32 TObjEneDolmOlm__data_805DEF54;
 extern const f32 TObjEneDolmOlm__data_805DEF68;
@@ -563,7 +563,7 @@ void TObjEneDolmOlm__sub_80301264(u8 *arg0, s32 arg1, f32 farg0) {
     push_matrix_from((void *) (&(*(RecoveredGlobal_80301264_lbl_8058D490 *)&lbl_8058D490).value));
     rotate_matrix_y((int)((int) (0)), (int)((void *) (arg1)));
     rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
-    TCameraCtrl__sub_803D9858((int) (1));
+    pop_matrices((int) (1));
     vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x2FC));
     check_path_obstructed((void *) (arg0), (void *) (&stack.sp8));
 }

@@ -259,7 +259,7 @@ s32 get_shop_text(int);
 f32 get_scale__15TShopWindowBaseFv(void *);
 M2C_UNK set_position_xy(int, f32, f32);
 void TWindow__close(TWin_8020F070 *);
-s32 TWindowSubComCard__sub_80265BF8(int);
+s32 get_selected_menu_value(int);
 M2C_UNK TWindowSubComCard__sub_80265C30(int);
 M2C_UNK TWindowSubComCard__sub_80265F60(int);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
@@ -287,7 +287,7 @@ s32 get_shop_text(int);
 f32 get_scale__15TShopWindowBaseFv(void *);
 M2C_UNK set_position_xy(int, f32, f32);
 void TWindow__close(TWin_8020F070 *);
-s32 TWindowSubComCard__sub_80265BF8(int);
+s32 get_selected_menu_value(int);
 M2C_UNK TWindowSubComCard__sub_80265C30(int);
 M2C_UNK TWindowSubComCard__sub_80265F60(int);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
@@ -303,7 +303,7 @@ s32 get_shop_text(int);
 f32 get_scale__15TShopWindowBaseFv(void *);
 M2C_UNK set_position_xy(int, f32, f32);
 void TWindow__close(TWin_8020F070 *);
-s32 TWindowSubComCard__sub_80265BF8(int);
+s32 get_selected_menu_value(int);
 M2C_UNK TWindowSubComCard__sub_80265C30(int);
 M2C_UNK TWindowSubComCard__sub_80265F60(int);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
@@ -647,7 +647,7 @@ void handle_withdraw_choice__18TCheckRoomSequenceFv(u8 *arg0) {
         return;
     case 1:
         if (((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) && (is_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x3C))) != 0)) {
-            temp_r3 = TWindowSubComCard__sub_80265BF8((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
+            temp_r3 = get_selected_menu_value((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
             if (temp_r3 == 0) {
                 set_field_20__12TQuestListVMFPvi((void *) (arg0), (void *) (7));
                 TWindow__close((TWin_8020F070 *) (M2C_FIELD(arg0, u32 *, 0x3C)));
@@ -694,7 +694,7 @@ void handle_deposit_choice__18TCheckRoomSequenceFv(u8 *arg0) {
         return;
     case 1:
         if (((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) && (is_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x3C))) != 0)) {
-            temp_r3 = TWindowSubComCard__sub_80265BF8((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
+            temp_r3 = get_selected_menu_value((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
             if (temp_r3 == 0) {
                 set_field_20__12TQuestListVMFPvi((void *) (arg0), (void *) (6));
                 TWindow__close((TWin_8020F070 *) (M2C_FIELD(arg0, u32 *, 0x3C)));
@@ -748,7 +748,7 @@ void handle_root_choice__18TCheckRoomSequenceFv(u8 *arg0) {
             return;
         case 1:
             if (((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) && (is_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x3C))) != 0)) {
-                temp_r3 = TWindowSubComCard__sub_80265BF8((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
+                temp_r3 = get_selected_menu_value((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
                 if (temp_r3 == 0) {
                     set_field_20__12TQuestListVMFPvi((void *) (arg0), (void *) (3));
                     TWindow__close((TWin_8020F070 *) (M2C_FIELD(arg0, u32 *, 0x3C)));
@@ -788,7 +788,7 @@ void handle_root_choice__18TCheckRoomSequenceFv(u8 *arg0) {
             return;
         case 1:
             if (((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) && (is_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x3C))) != 0)) {
-                temp_r3_2 = TWindowSubComCard__sub_80265BF8((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
+                temp_r3_2 = get_selected_menu_value((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
                 if (temp_r3_2 == 0) {
                     set_field_20__12TQuestListVMFPvi((void *) (arg0), (void *) (0xA));
                     TWindow__close((TWin_8020F070 *) (M2C_FIELD(arg0, u32 *, 0x3C)));

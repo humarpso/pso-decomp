@@ -22,7 +22,7 @@ extern "C" {
 void get_camera_ctrl__9TObjEneDDFPv(s32, s32);
 void update_camera_sequence__9TObjEneDDFPv(void);
 M2C_UNK TObjPlayer__sub_803D8960(int, void *, void *, int);
-M2C_UNK TObjPlayer__sub_803D898C(void *);
+M2C_UNK get_current_matrix(void *);
 M2C_UNK subtract_vector(void *, void *);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -60,14 +60,14 @@ void TObjPlayer__sub_8002F61C(void) {
     if ((lbl_805D4BB0 & 0x80) && ((s32) lbl_805D4BA8 >= 0x4D) && ((s32) lbl_805D4BA8 <= 0x58)) {
         push_matrix();
         update_camera_sequence__9TObjEneDDFPv();
-        TObjPlayer__sub_803D898C((void *) (lbl_805D4BC0));
+        get_current_matrix((void *) (lbl_805D4BC0));
         pop_matrix();
         lbl_805D4BC0 += 0x30;
     }
     if (((s32) lbl_805D4BA8 >= 0x1D) && ((s32) lbl_805D4BA8 <= 0x20)) {
         push_matrix();
         update_camera_sequence__9TObjEneDDFPv();
-        TObjPlayer__sub_803D898C((void *) (lbl_805D4BBC));
+        get_current_matrix((void *) (lbl_805D4BBC));
         pop_matrix();
         lbl_805D4BBC += 0x30;
     }

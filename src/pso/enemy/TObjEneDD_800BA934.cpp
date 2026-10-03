@@ -28,7 +28,7 @@ int TObjPlayer__sub_803D8CD4(void *);
 f32 post_translate_matrix(void *);
 int rotate_matrix_y(void *, void *);
 int set_global_flag__10TObjPlayerFv(void);
-int TCameraCtrl__sub_803D8934(void *, void *, void *);
+int matrix_mult_vec(void *, void *, void *);
 void clear_global_state__10TObjPlayerFv(void);
 int pop_matrix(void);
 void TObjEneDD__sub_800BA934(Obj_800BA934 *self);
@@ -41,7 +41,7 @@ void rotate_xz_pair_by_angle(f32 *x, f32 *z, s32 angle);
 void vec3_add_to(Vec_800BA9BC *a, Vec_800BA9BC *b);
 void TObjEneDD__sub_800BA9BC(Obj_800BA9BC *self, Vec_800BA9BC *v, s32 i);
 void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
-int TCameraCtrl__sub_803D8934(void *, void *, void *);
+int matrix_mult_vec(void *, void *, void *);
 int TObjPlayer__sub_803D8CD4(void *);
 int rotate_matrix_y(void *, void *);
 void translate_matrix(int, f32, f32, f32);
@@ -66,7 +66,7 @@ void TObjEneDD__sub_800BA934(Obj_800BA934 *self) {
     rotate_matrix_y(0, self->f60);
     set_global_flag__10TObjPlayerFv();
     for (i = 0; i < self->count; i++) {
-        TCameraCtrl__sub_803D8934(0, &self->parts[i], self->parts[i].f1c);
+        matrix_mult_vec(0, &self->parts[i], self->parts[i].f1c);
     }
     clear_global_state__10TObjPlayerFv();
     pop_matrix();
@@ -89,7 +89,7 @@ void update_local_colliders_from_world(Obj_800BAA2C *arg0, V3_800BAA2C *arg1) {
     translate_matrix(0, -arg0->x, -arg0->y, -arg0->z);
     for (i = 0; i < arg0->count; i++) {
         VecCopy__FP3VecPC3Vec((Vec_800BAAE4 *)(&arg0->cols[i].pos), (const Vec_800BAAE4 *)(arg1));
-        TCameraCtrl__sub_803D8934(0, arg1, &arg0->cols[i]);
+        matrix_mult_vec(0, arg1, &arg0->cols[i]);
         arg1++;
     }
     pop_matrix();

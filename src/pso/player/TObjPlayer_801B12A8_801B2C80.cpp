@@ -92,7 +92,7 @@ s32 get_class_defense_template();
 s32 TObjPlayer__sub_801D93C4(void *);
 s32 build_player_class_stat_template(s32 arg0, s32 arg1);
 int get_max_level__10TObjPlayerFv(void);
-s8 TObjPlayer__sub_801AFDB0(void *);
+s8 get_class_index__10TObjPlayerFPv(void *);
 s32 get_current_state_field__10TObjPlayerFv(s8, s32);
 s32 get_next_level_exp__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_801B2AE8(u32, Pair_801B2D88 *);
@@ -220,7 +220,7 @@ s32 get_next_level_exp__10TObjPlayerFPv(u8 *arg0) {
         return 0;
     }
     temp_r31 = ((VObj_18_eecf68 *)(arg0))->m14();
-    return get_current_state_field__10TObjPlayerFv(TObjPlayer__sub_801AFDB0(arg0), temp_r31 + 1);
+    return get_current_state_field__10TObjPlayerFv(get_class_index__10TObjPlayerFPv(arg0), temp_r31 + 1);
 }
 
 s32 calc_scaled_value__10TObjPlayerFii(s32 arg0, s32 arg1) {

@@ -44,7 +44,7 @@ M2C_UNK draw_model_motion(s32, void *, f32);
 void render__13TObjHashiBaseFPv(u8 *arg0);
 s32 get_state_flag__9TMainTaskFv();
 f32 xz_distance_squared(void *, void *);
-s32 TCameraCtrl__sub_803D8934(int, void *, void *);
+s32 matrix_mult_vec(int, void *, void *);
 s32 project_world_to_screen(int, void *, void *);
 extern RecoveredGlobal_80191874_lbl_804FF610 lbl_804FF610;
 extern s32 lbl_805D4DF0;
@@ -86,7 +86,7 @@ s16 TObjHashiBase__sub_80191874(u8 *arg0, f32 farg0, f32 farg1) {
         M2C_FIELD(arg0, s16 *, 0x1E) = 1;
         return 1;
     }
-    TCameraCtrl__sub_803D8934((int) (0), (void *) (arg0 + 0x38), (void *) (&stack.sp10));
+    matrix_mult_vec((int) (0), (void *) (arg0 + 0x38), (void *) (&stack.sp10));
     if (stack.sp18 > lbl_805DBE2C) {
         M2C_FIELD(arg0, s16 *, 0x1E) = 0;
         return 0;

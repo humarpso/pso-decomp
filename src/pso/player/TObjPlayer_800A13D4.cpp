@@ -166,7 +166,7 @@ M2C_UNK free_collision_body_parts(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern u8 lbl_804907EC[];
 Obj_800A2EDC *TObjPlayer__sub_800A2EDC(Obj_800A2EDC *arg0, s16 arg1);
-s32 TCameraCtrl__sub_803D8934(int, void *, void *);
+s32 matrix_mult_vec(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK push_matrix_from(void *);
@@ -338,10 +338,10 @@ void TObjPlayer__sub_800A159C(Obj_800A159C *o) {
     Vec_800A159C t = lbl_8043A6A4;
     lo = lbl_805D9994 + o->f390;
     t.y = lo + o->f38C;
-    TCameraCtrl__sub_803D8934(0, &t, o->mtx3B4);
+    matrix_mult_vec(0, &t, o->mtx3B4);
     if (o->f326 == 2) {
         for (i = 0; i < 4; i++) {
-            TCameraCtrl__sub_803D8934(0, &lbl_804907BC[i], &o->v3C0[i]);
+            matrix_mult_vec(0, &lbl_804907BC[i], &o->v3C0[i]);
         }
     }
     pop_matrix();

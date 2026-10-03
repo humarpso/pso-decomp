@@ -104,7 +104,7 @@ f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, s32);
 s32 push_matrix_from(void *);
-M2C_UNK TCameraCtrl__sub_803D9858(int);
+M2C_UNK pop_matrices(int);
 extern u8 lbl_8058D490[];
 extern const f32 TObjGrass__data_805D9EB8;
 extern const f32 TObjGrass__data_805D9ED8;
@@ -334,7 +334,7 @@ M2C_UNK TObjGrass__sub_800BE75C(Grass_800BE75C *o) {
     push_matrix_from(lbl_8058D490);
     rotate_matrix_y(0, o->f60);
     rotate_vector_by_matrix(0, &v, &v);
-    TCameraCtrl__sub_803D9858(1);
+    pop_matrices(1);
     vec3_add_to(&v, o->mtx50);
     d = TObjPlayer__sub_80017804(o, v, TObjGrass__data_805D9ED8 * o->range->hi);
     lo2 = o->range->lo * o->range->lo;

@@ -39,10 +39,10 @@ int objInBand(GameObj* obj, f32 v) {
 extern "C" {
 
 void save_joint_matrix_callback(void);
-int TObjPlayer__sub_803D898C(void*);
+int get_current_matrix(void*);
 
     extern int lbl_805D567C;
-void save_joint_matrix_callback(void) { TObjPlayer__sub_803D898C((void*)(lbl_805D567C)); lbl_805D567C = (lbl_805D567C + 0x30); }
+void save_joint_matrix_callback(void) { get_current_matrix((void*)(lbl_805D567C)); lbl_805D567C = (lbl_805D567C + 0x30); }
 void TObjPlayer__sub_80142F1C(u8 *arg0) {
     s32 temp_r3;
     lbl_805D567C = M2C_FIELD(arg0, s32 *, 0xE0);

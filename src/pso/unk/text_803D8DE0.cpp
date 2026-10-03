@@ -59,7 +59,7 @@ static inline f32 sqrtf_803D8E0C(f32 x) {
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
-void fn_803D8E0C(Quat_803D8E0C *a, Quat_803D8E0C *b, Quat_803D8E0C *out, f32 t) {
+void blend_quaternions_nlerp(Quat_803D8E0C *a, Quat_803D8E0C *b, Quat_803D8E0C *out, f32 t) {
     f32 x, y, z, w;
     f32 inv;
     f32 ax, ay, az, aw, bx, by, bz, bw;

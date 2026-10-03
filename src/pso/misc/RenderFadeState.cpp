@@ -1,14 +1,14 @@
 #include "pso/misc/RenderFadeState.h"
 
 extern "C" {
-void TCameraCtrl__sub_803D8934(int, const f32*, f32*);
+void matrix_mult_vec(int, const f32*, f32*);
 extern const f32 lbl_805DA370;
 extern const f32 lbl_805DA374;
 }
 
 s32 RenderFadeState::updateFromCamera(const f32* position) {
     f32 cameraPosition[3];
-    TCameraCtrl__sub_803D8934(0, position, cameraPosition);
+    matrix_mult_vec(0, position, cameraPosition);
     if (-cameraPosition[2] < lbl_805DA374) {
         fadeOut();
     } else {

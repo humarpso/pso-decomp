@@ -71,7 +71,7 @@ M2C_UNK set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(s32, M2C_UNK, M2C_UNK *);
 s32 TAdMultiPlyChrSelectGC__sub_802DBCE8(void *);
 s32 is_visible__17TWindowSubComCardFPv(s32);
 s32 get_status_flag__17TWindowSubComCardFPv(s32);
-s32 TWindowSubComCard__sub_80265BF8(s32);
+s32 get_selected_menu_value(s32);
 M2C_UNK close__17TWindowSubComCardFPv(void *);
 s32 get_card_data__17TWindowSubComCardFPv(s32);
 s32 TWindowSubComCard__sub_802A57FC(s32);
@@ -262,7 +262,7 @@ void update_state_option__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         return;
     }
     if (is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x7C)) != 0) {
-        temp_r3 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, s32 *, 0x7C));
+        temp_r3 = get_selected_menu_value(M2C_FIELD(arg0, s32 *, 0x7C));
         switch (temp_r3) {
         case 0:
             play_sound_effect(0x52D01, 0, 0, 0);

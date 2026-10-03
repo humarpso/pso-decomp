@@ -354,7 +354,7 @@ extern Ent_803ADD18 lbl_80564070[];
 extern u16 lbl_805D73DA;
 s32 TLobby__sub_803ADD18(u16 id);
 u16 TLobby__sub_803BC91C(void);
-u32 TLobby__sub_803BCCE0(s32 i);
+u32 is_sound_hw_voice_active(s32 i);
 void TLobby__sub_803AEC00(Obj_803AEC00 *o, Op_803AEC00 *op);
 void shift_left_8__6TLobbyFPv(void *);
 void TLobby__sub_803BCA50(void *, void *);
@@ -903,7 +903,7 @@ void TLobby__sub_803A6F4C(Obj_803A6F4C *arg0) {
 void TLobby__sub_803A897C(s32 arg0) {
     Ch_803A897C *o = (Ch_803A897C *)&lbl_805D73B0[arg0];
 
-    if (TLobby__sub_803BCCE0(arg0) != 0 || o->f34 != 0) {
+    if (is_sound_hw_voice_active(arg0) != 0 || o->f34 != 0) {
         TLobby__sub_803B1C98((Voice_803B1C98 *)o, (u32)(0x1F80 - TLobby__sub_803BC168(o)) >> 31);
         if ((o->flags & 0x20) != 0) {
             o->flags &= ~0x20ULL;
@@ -1415,7 +1415,7 @@ body:
         o->cnt = 0;
         return;
     }
-    if (((w >> 24) & 1) && (FLAGS & 0x20ULL) == 0 && TLobby__sub_803BCCE0((u8)o->iF4) == 0) {
+    if (((w >> 24) & 1) && (FLAGS & 0x20ULL) == 0 && is_sound_hw_voice_active((u8)o->iF4) == 0) {
         o->cnt = 0;
         return;
     }

@@ -60,7 +60,7 @@ struct Rec_8020D5AC {
 extern "C" {
 s32 push_matrix_from(u32);
 s32 pop_matrix(void);
-M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
+M2C_UNK matrix_mult_vec(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
@@ -112,7 +112,7 @@ void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2) {
     rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg2, s32 *, 0x18)));
     rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg2, s32 *, 0x10)));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg2, s32 *, 0x14)));
-    TCameraCtrl__sub_803D8934((int) (0), (void *) (arg0), (void *) (arg0));
+    matrix_mult_vec((int) (0), (void *) (arg0), (void *) (arg0));
     pop_matrix();
     M2C_FIELD(arg1, s32 *, 0) = (s32) (M2C_FIELD(arg1, s32 *, 0) + M2C_FIELD(arg2, s32 *, 0x10));
     M2C_FIELD(arg1, s32 *, 4) = (s32) (M2C_FIELD(arg1, s32 *, 4) + M2C_FIELD(arg2, s32 *, 0x14));

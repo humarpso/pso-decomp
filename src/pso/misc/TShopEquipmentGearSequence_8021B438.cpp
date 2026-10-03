@@ -172,7 +172,7 @@ s32 get_shop_text(s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
 M2C_UNK set_position_xy(void *, f32, f32);
 M2C_UNK TWindow__close(void *);
-s32 TWindowSubComCard__sub_80265BF8(void *);
+s32 get_selected_menu_value(void *);
 M2C_UNK TWindowSubComCard__sub_80265C30(void *);
 M2C_UNK TWindowSubComCard__sub_80265F60(void *);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, s32, s32);
@@ -224,7 +224,7 @@ void update_buy_sell_choice__26TShopEquipmentGearSequenceFPv(void *self) {
         set_position_xy(arg0->win, get_scale__15TShopWindowBaseFv(arg0), get_scale__15TShopWindowBaseFv(arg0));
     }
     if (arg0->win != NULL && is_visible__17TWindowSubComCardFPv(arg0->win) != 0) {
-        r = TWindowSubComCard__sub_80265BF8(arg0->win);
+        r = get_selected_menu_value(arg0->win);
         if (r == 0) {
             set_field_20__12TQuestListVMFPvi(arg0, 3);
             TWindow__close(arg0->win);

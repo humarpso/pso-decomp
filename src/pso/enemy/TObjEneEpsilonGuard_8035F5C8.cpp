@@ -646,7 +646,7 @@ struct W_80361508 : VObj_18_80361508 {
 extern "C" {
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 M2C_UNK render_anim_model__10TObjPlayerFPvf(void *, f32);
-s32 TCameraCtrl__sub_803D8934(int, void *, void *);
+s32 matrix_mult_vec(int, void *, void *);
 M2C_UNK push_matrix_from(void *);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
@@ -1065,7 +1065,7 @@ void TObjEneEpsilonGuard__sub_803606A0(Obj_803606A0 *g6, s32 i) {
     push_matrix_from(lbl_805D5678 + t.v[i] * 0x30);
     {
         Vec_803606A0 v = lbl_80479D10;
-        TCameraCtrl__sub_803D8934(0, &v, &g6->pts[i]);
+        matrix_mult_vec(0, &v, &g6->pts[i]);
     }
     pop_matrix();
     g6->ang[i] = (s32)(lbl_80479E90[0] * get_ad_end_text_start__10TObjPlayerFv(g6->pts[i].x - g6->pos.x, g6->pts[i].z - g6->pos.z));

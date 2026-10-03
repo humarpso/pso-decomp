@@ -8,7 +8,7 @@ extern "C" {
 M2C_UNK add_flags_2e4__10TObjPlayerFPvUi(void *, int);
 s32 get_move_mode__10TObjPlayerFPv(void *);
 void init_trait_flags__10TObjPlayerFPv(u8 *arg0);
-s8 TObjPlayer__sub_801AFDB0(void *);
+s8 get_class_index__10TObjPlayerFPv(void *);
 s32 forward_801C210C__10TObjPlayerFPv(int, int);
 void select_class_action_provider__10TObjPlayerFPv(u8 *arg0);
 }
@@ -83,7 +83,7 @@ void apply_input_mode__10TObjPlayerFi(s32 arg0) {
 }
 void select_class_action_provider__10TObjPlayerFPv(u8 *arg0) {
   s8 temp_r3;
-  temp_r3 = TObjPlayer__sub_801AFDB0((void *) arg0);
+  temp_r3 = get_class_index__10TObjPlayerFPv((void *) arg0);
   {
     switch (temp_r3)
     {

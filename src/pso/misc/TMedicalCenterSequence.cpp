@@ -184,7 +184,7 @@ M2C_UNK refill_traps__10TObjPlayerFPv(s32);
 u32 get_recovery_need_flags__10TObjPlayerFPv(s32);
 int TShopWindowBase__sub_802239EC(void *);
 int TShopWindowBase__sub_80223A48(void *);
-s32 TWindowSubComCard__sub_80265BF8(u32);
+s32 get_selected_menu_value(u32);
 M2C_UNK TWindow__close(u32);
 M2C_UNK close_window__13TShopSequenceFPv(void *);
 s32 get_status_flag__17TWindowSubComCardFPv(u32);
@@ -254,7 +254,7 @@ void handle_window_result__22TMedicalCenterSequenceFPv(void *arg0) {
     s32 temp_r3;
 
     if (((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) && (is_visible__17TWindowSubComCardFPv((u32) M2C_FIELD(arg0, u32 *, 0x30)) != 0)) {
-        temp_r3 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u32 *, 0x30));
+        temp_r3 = get_selected_menu_value(M2C_FIELD(arg0, u32 *, 0x30));
         if (temp_r3 == 0) {
             TWindow__close(M2C_FIELD(arg0, u32 *, 0x30));
             M2C_FIELD(arg0, u32 *, 0x30) = 0U;

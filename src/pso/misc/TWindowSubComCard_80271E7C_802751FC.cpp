@@ -26,7 +26,7 @@ void set_com_param__17TWindowSubComCardFii(s32 arg0, s32 arg1);
 void set_display_page__17TWindowSubComCardFi(s32 arg0);
 void set_flag_10__17TWindowSubComCardFPv(void* p);
 void set_page__17TWindowSubComCardFPvs(void* p, s16 v);
-s16 TWindowSubComCard__sub_80265BF8();
+s16 get_selected_menu_value();
 int fn_80247ED8(void*);
 M2C_UNK set_card_window_flags__19TWindowKeyBoardHardFPvii(s32, s32, s32);
 
@@ -56,7 +56,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void set_display_page__17TWindowSubComCardFi(s32 arg0) {
-    set_page__17TWindowSubComCardFPvs((void*)((void *) (arg0)), (s16)((int) (TWindowSubComCard__sub_80265BF8())));
+    set_page__17TWindowSubComCardFPvs((void*)((void *) (arg0)), (s16)((int) (get_selected_menu_value())));
 }
 
 }

@@ -17,7 +17,7 @@ u8 TFontSmallLobby__sub_801AFEE0(void);
 extern s32 enable_v2_features;
 extern s32 lbl_805D5550;
 u8 TFontSmallLobby__sub_801AFEE0(void);
-s8 TObjPlayer__sub_801AFDB0(u8 *arg0);
+s8 get_class_index__10TObjPlayerFPv(u8 *arg0);
 s8 TObjPlayer__sub_801AFDBC(s8 arg0);
 s32 get_current_floor();
 void sync_current_floor__10TObjPlayerFPv(u8 *arg0);
@@ -77,7 +77,7 @@ s32 obj_testFlags30(s32, s32);
 
 s32 get_move_mode__10TObjPlayerFPv(void* p) { return *(s32*)((char*)p + 0x890); }
 
-s8 TObjPlayer__sub_801AFDB0(u8 *arg0) {
+s8 get_class_index__10TObjPlayerFPv(u8 *arg0) {
     return (s8) M2C_FIELD(arg0, u8 *, 0x88D);
 }
 

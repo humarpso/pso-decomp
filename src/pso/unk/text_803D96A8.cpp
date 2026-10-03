@@ -22,7 +22,7 @@ extern u32 lbl_805D7774;
 s32 pop_matrix(void);
 extern u32 lbl_805D7770;
 extern u32 lbl_805D7774;
-s32 TCameraCtrl__sub_803D9858(s32 arg0);
+s32 pop_matrices(s32 arg0);
 f32 PSMTXConcat(int, int, int);
 extern u32 lbl_805D7774;
 void TObjPlayer__sub_803D9730(u32 arg0, u32 arg1);
@@ -122,7 +122,7 @@ s32 push_matrix_from(void *src) {
 
 #pragma push
 #pragma scheduling off
-s32 TCameraCtrl__sub_803D9858(s32 arg0) {
+s32 pop_matrices(s32 arg0) {
     u32 temp_r3;
     temp_r3 = lbl_805D7774 - (arg0 * 0x30);
     if (temp_r3 < (u32) lbl_805D7770) {

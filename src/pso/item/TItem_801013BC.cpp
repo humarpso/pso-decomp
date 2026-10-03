@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Player_8010147C { u8 pad[0xF0]; u32 f_F0; };
 
 extern "C" {
-M2C_UNK TObjPlayer__sub_803D898C(void *);
+M2C_UNK get_current_matrix(void *);
 M2C_UNK TObjPlayer__sub_803D99F8(void *, void *);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -158,7 +158,7 @@ void draw_model_node_tree(u8 *arg0) {
         if ((u32) (temp_r30 & 7) == 7) {
             push_matrix();
             if (lbl_805D5404 != NULL) {
-                TObjPlayer__sub_803D898C(lbl_805D5404);
+                get_current_matrix(lbl_805D5404);
                 lbl_805D5404 += 0x30;
             }
             if (((M2C_UNK (*)(void *)) lbl_805D53FC) != NULL) {
@@ -186,7 +186,7 @@ void draw_model_node_tree(u8 *arg0) {
                 lbl_805D53FC(var_r31);
             }
             if (lbl_805D5404 != NULL) {
-                TObjPlayer__sub_803D898C(lbl_805D5404);
+                get_current_matrix(lbl_805D5404);
                 lbl_805D5404 += 0x30;
             }
             if (!(temp_r30 & 8) && (((M2C_UNK (*)(s32)) lbl_805D53F8) != NULL)) {

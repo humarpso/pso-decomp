@@ -10,7 +10,7 @@ struct Arg_803E4CE8 {
 };
 
 extern "C" {
-void TCameraCtrl__sub_803D8934(s32, Src_803E4CE8 *, Dst_803E4CE8 *);
+void matrix_mult_vec(s32, Src_803E4CE8 *, Dst_803E4CE8 *);
 extern const f32 lbl_805E10B0;
 extern const f32 lbl_805E10B4;
 void cache_chunk_vertex_colors(Arg_803E4CE8 *arg0);
@@ -27,7 +27,7 @@ void cache_chunk_vertex_colors(Arg_803E4CE8 *arg0) {
     a = lbl_805E10B0;
     b = lbl_805E10B4;
     while (n-- > 0) {
-        TCameraCtrl__sub_803D8934(0, src, dst);
+        matrix_mult_vec(0, src, dst);
         dst->x18 = src->xc;
         src++;
         dst->xc = a;

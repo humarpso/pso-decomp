@@ -47,11 +47,11 @@ extern RecoveredGlobal_80051938___vt__16TObjDFTenchuFuru __vt__16TObjDFTenchuFur
 extern s32 lbl_805D27B4;
 extern const f32 lbl_805D8AA0;
 u8 *TObjDFTenchuFuru__ct(u8 *arg0, u8 *arg1, u8 *arg2);
-M2C_UNK TObjPlayer__sub_803D898C(void *);
+M2C_UNK get_current_matrix(void *);
 extern RecoveredGlobal_80051A18_lbl_804FF240 lbl_804FF240;
 extern int lbl_805D4D78;
 void TObjDFTenchuFuru__sub_80051A18(void);
-s32 TCameraCtrl__sub_803D8934(int, void *, void *);
+s32 matrix_mult_vec(int, void *, void *);
 f32 TObjPlayer__sub_803D99F8(void *, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -141,10 +141,10 @@ typedef char RecoveredGlobal_80051A18_lbl_804FF240_size[sizeof(RecoveredGlobal_8
 void TObjDFTenchuFuru__sub_80051A18(void) {
     switch ((s32) (*(s32 *)&lbl_805D4D78)) {
     case 0x3B:
-        TObjPlayer__sub_803D898C((void *) (&lbl_804FF240.value));
+        get_current_matrix((void *) (&lbl_804FF240.value));
         break;
     case 0x3A:
-        TObjPlayer__sub_803D898C((void *) ((u8 *)&lbl_804FF240.value + 0x30));
+        get_current_matrix((void *) ((u8 *)&lbl_804FF240.value + 0x30));
         break;
     }
     (*(s32 *)&lbl_805D4D78) += 1;
@@ -171,10 +171,10 @@ void TObjDFTenchuFuru__sub_80051AD0(u8 *arg0) {
         scale_current_matrix((void *) (var_r31 + 0x20));
         switch ((s32) (*(s32 *)&lbl_805D4D78)) {
         case 0x3B:
-            TCameraCtrl__sub_803D8934((int) (0), (void *) (&lbl_804858B4.value), (void *) (&lbl_804FF228.value));
+            matrix_mult_vec((int) (0), (void *) (&lbl_804858B4.value), (void *) (&lbl_804FF228.value));
             break;
         case 0x3A:
-            TCameraCtrl__sub_803D8934((int) (0), (void *) (&lbl_804858B4.value), (void *) (&lbl_804FF234.value));
+            matrix_mult_vec((int) (0), (void *) (&lbl_804858B4.value), (void *) (&lbl_804FF234.value));
             break;
         }
         (*(s32 *)&lbl_805D4D78) += 1;

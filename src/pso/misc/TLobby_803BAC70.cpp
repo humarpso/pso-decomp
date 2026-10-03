@@ -416,7 +416,7 @@ u8 *TLobby__sub_803BB870(u8 a, u8 b);
 extern u32 lbl_8056DE98[][16];
 void TLobby__sub_803BADD0(u8 a, u8 b, u32 v);
 extern s32 lbl_805D748C;
-bool TLobby__sub_803BCCE0(s32 i);
+bool is_sound_hw_voice_active(s32 i);
 extern s32 lbl_805D748C;
 u16 TLobby__sub_803BD110(s32 i);
 extern s32 lbl_805D748C;
@@ -426,7 +426,7 @@ u16 TLobby__sub_803BC91C(void);
 extern s32 lbl_805D748C;
 u8 TLobby__sub_803BD0FC(s32 i);
 extern s32 lbl_805D748C;
-void TLobby__sub_803BCD08(s32 i, s32 v);
+void set_sound_hw_voice_priority(s32 i, s32 v);
 extern s32 lbl_805D748C;
 void TLobby__sub_803BD0C8(s32 i, s32 a, s32 b);
 extern s32 lbl_805D748C;
@@ -879,7 +879,7 @@ u8 TLobby__sub_803BCCD8(void) {
     return (*(u8 *)&lbl_805D74B8);
 }
 
-bool TLobby__sub_803BCCE0(s32 i) {
+bool is_sound_hw_voice_active(s32 i) {
     return (*(Slot_803BCCE0 * *)&lbl_805D748C)[i].fec != 0;
 }
 
@@ -887,7 +887,7 @@ void set_global_7490__6TLobbyFi(s32 arg0) {
     lbl_805D7490 = arg0;
 }
 
-void TLobby__sub_803BCD08(s32 i, s32 v) {
+void set_sound_hw_voice_priority(s32 i, s32 v) {
     (*(Slot_803BCD08 * *)&lbl_805D748C)[i].f1c = v;
 }
 

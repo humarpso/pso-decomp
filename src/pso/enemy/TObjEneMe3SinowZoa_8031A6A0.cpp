@@ -95,7 +95,7 @@ bool TObjEneMe3SinowZoa__sub_8031A820(u8 *arg0);
 s32 push_matrix_from(void *);
 void TObjPlayer__sub_803D7B68(s32, f32);
 s32 compose_motion_node_matrix(void *);
-s32 TCameraCtrl__sub_803D8934(int, void *, void *);
+s32 matrix_mult_vec(int, void *, void *);
 s32 pop_matrix();
 extern u8 lbl_8058D490[];
 extern const f32 TObjEneMe3SinowZoa__data_805DF31C;
@@ -219,7 +219,7 @@ f32 TObjEneMe3SinowZoa__sub_8031A9A0(Obj_800E75AC *self) {
     node = self->node;
     compose_motion_node_matrix(node);
     compose_motion_node_matrix(node->child);
-    TCameraCtrl__sub_803D8934(0, &v, &v);
+    matrix_mult_vec(0, &v, &v);
     pop_matrix();
     return v.y;
 }

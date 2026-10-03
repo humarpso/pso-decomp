@@ -12,7 +12,7 @@ typedef struct Node_800D97E8 {
 
 extern "C" {
 void compose_motion_node_matrix(Node_800D97E8 *);
-void TCameraCtrl__sub_803D8934(int, void *, void *);
+void matrix_mult_vec(int, void *, void *);
 void push_matrix(void);
 void pop_matrix(void);
 extern Vec_800D97E8 lbl_80500F80;
@@ -34,9 +34,9 @@ s32 fn_800D97E8(s32 arg0, Node_800D97E8 *node, s32 idx) {
         flags = node->flags;
         while (idx == lbl_805D523C[lbl_805D5238]) {
             if (lbl_805D5240 == NULL) {
-                TCameraCtrl__sub_803D8934(0, &lbl_80500F80, lbl_805D5230);
+                matrix_mult_vec(0, &lbl_80500F80, lbl_805D5230);
             } else {
-                TCameraCtrl__sub_803D8934(0, &lbl_805D5240[lbl_805D5238], lbl_805D5230);
+                matrix_mult_vec(0, &lbl_805D5240[lbl_805D5238], lbl_805D5230);
             }
             lbl_805D5230++;
             lbl_805D5238++;

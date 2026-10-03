@@ -88,7 +88,7 @@ struct RecoveredGlobal_8008BF58_TParticleCtrl__data_80511F70 {
 struct Vec_8008A92C { f32 x, y, z; };
 
 extern "C" {
-void TParticleCtrl__sub_80088514(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
+void attach_model__13TParticleCtrlFPviiiif(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *, void *);
 void set_particle_tint_color(u8 *arg0, void *arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -118,7 +118,7 @@ int queue_destruction__7TObjectFv(void *);
 f32 vec_squared_length(void *);
 extern const f32 TParticleCtrl__data_805D94F8;
 extern const f32 TParticleCtrl__data_805D94FC;
-void TParticleCtrl__sub_80088844(u8 *arg0);
+void retire_ballistic_particle_if_done(u8 *arg0);
 void TParticleCtrl__sub_8008655C(void *, int);
 void free_from_heap__13TParticleCtrlFPv(void *);
 extern M2C_UNK TParticleCtrl__data_8048E778[];
@@ -132,7 +132,7 @@ void *TParticleCtrl__sub_8008B060(void *arg0, void *arg1, void *arg2, void *arg3
 void * TParticleCtrl__sub_80089FEC(void *arg0, void *arg1, void *arg2, void *arg3);
 extern const f32 TParticleCtrl__data_805D9528;
 int queue_destruction__7TObjectFv(void *);
-void TParticleCtrl__sub_8008A04C(u8 *arg0);
+void retire_orbit_particle(u8 *arg0);
 void TParticleCtrl__sub_8008655C(void *, int);
 void free_from_heap__13TParticleCtrlFPv(void *);
 extern M2C_UNK TParticleCtrl__data_8048E790[];
@@ -467,7 +467,7 @@ void *initialize__13TParticleCtrlFPvPviiiii(
 extern "C" {
 
 int TParticleCtrl__sub_800884F0(void* p);
-void TParticleCtrl__sub_8008857C(void* p, f32 a, f32 b);
+void set_particle_draw_scale(void* p, f32 a, f32 b);
 void clear_active_flag__13TParticleCtrlFPv(void* p);
 void enable__13TParticleCtrlFPv(void* p);
 void free_system__13TParticleCtrlFv(void);
@@ -479,7 +479,7 @@ void enable__13TParticleCtrlFPv(void* p) { *(u16*)((char*)p + 0x2c) |= 0x1; }
 
 int TParticleCtrl__sub_800884F0(void* p) { return copy_xyz__10TObjPlayerFPvPv((char*)p + 0x98); }
 
-void TParticleCtrl__sub_80088514(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0) {
+void attach_model__13TParticleCtrlFPviiiif(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0) {
     M2C_FIELD(arg0, s32 *, 0xB0) = arg1;
     M2C_FIELD(arg0, s32 *, 0xB4) = arg2;
     M2C_FIELD(arg0, s32 *, 0xB8) = arg3;
@@ -495,7 +495,7 @@ void set_particle_tint_color(u8 *arg0, void *arg1) {
     copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0x48), arg1, (void *) (arg0));
 }
 
-void TParticleCtrl__sub_8008857C(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0xa4) = a; *(f32*)((char*)p + 0xa8) = b; }
+void set_particle_draw_scale(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0xa4) = a; *(f32*)((char*)p + 0xa8) = b; }
 
     extern int lbl_805D4EF8;
 void free_system__13TParticleCtrlFv(void) { free__11TOBoss4RockFUi((void*)(lbl_805D4EF8)); lbl_805D4EF8 = 0; }
@@ -569,7 +569,7 @@ void * TParticleCtrl__sub_800887EC(void *arg0, void *arg1, void *arg2) {
     }
     return o;
 }
-void TParticleCtrl__sub_80088844(u8 *arg0) {
+void retire_ballistic_particle_if_done(u8 *arg0) {
     Stack_80088844 stack;
     f32 temp_f1;
     if (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), u8 *, 0x88) & 8) {
@@ -614,7 +614,7 @@ void * TParticleCtrl__sub_80089FEC(void *arg0, void *arg1, void *arg2, void *arg
     }
     return o;
 }
-void TParticleCtrl__sub_8008A04C(u8 *arg0) {
+void retire_orbit_particle(u8 *arg0) {
     if (M2C_FIELD(arg0, f32 *, 0x58) >= TParticleCtrl__data_805D9528) {
         queue_destruction__7TObjectFv((void *)(arg0));
     }

@@ -369,7 +369,7 @@ M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK minimap_render_dot(void *, int, int, int);
 M2C_UNK create__9TTecKafunFiiiiiff(void *, void *, int, int, int, f32, f32);
-M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
+M2C_UNK matrix_mult_vec(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
@@ -697,7 +697,7 @@ M2C_UNK TObjEneMerillLia__sub_800D57C8(void *p) {
             push_matrix_from((void *) (lbl_805D5678 + 0x450));
             {
                 Vec_800D57C8 sp8 = lbl_8043C6D0;
-                TCameraCtrl__sub_803D8934(0, &sp8, &sp14);
+                matrix_mult_vec(0, &sp8, &sp14);
             }
             pop_matrix();
             create__9TTecKafunFiiiiiff((void *) (arg0), &sp14, 0xF, 0xD3, TObjEneMerillLia__sub_800D5100((Obj_800D5100 *) (arg0)), M2C_FIELD(((void **) TObjEneMerillLia__data_805D521C)[M2C_FIELD(arg0, s32 *, 0x334)], f32 *, 0x10), lbl_805DA310);

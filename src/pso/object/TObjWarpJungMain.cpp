@@ -32,7 +32,7 @@ extern const f32 lbl_805DC048;
 extern const f32 lbl_805DC04C;
 void run_task__16TObjWarpJungMainFv(u8 *arg0);
 s32 is_visible__17TWindowSubComCardFPv(void *);
-s32 TWindowSubComCard__sub_80265BF8(void *);
+s32 get_selected_menu_value(void *);
 extern RecoveredGlobal_8019FCFC_lbl_804B9658 lbl_804B9658;
 s32 TObjWarpJungMain__vt16(u8 *arg0);
 }
@@ -56,7 +56,7 @@ s32 TObjWarpJungMain__vt16(u8 *arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xB0));
     if ((temp_r3 != NULL) && (is_visible__17TWindowSubComCardFPv(temp_r3) != 0)) {
-        M2C_FIELD(arg0, s32 *, 0xBC) = (s32) M2C_FIELD(&lbl_804B9658.value, M2C_UNK *, (TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u8 **, 0xB0)) * 4));
+        M2C_FIELD(arg0, s32 *, 0xBC) = (s32) M2C_FIELD(&lbl_804B9658.value, M2C_UNK *, (get_selected_menu_value(M2C_FIELD(arg0, u8 **, 0xB0)) * 4));
         return 1;
     }
     return 0;

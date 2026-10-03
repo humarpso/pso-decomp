@@ -143,7 +143,7 @@ f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 u8 *csnVector(void *, void *, s32);
 f32 TObjPlayer__sub_8013153C(void *, s32);
 void vec3_add_to(void *, void *);
-void TCameraCtrl__sub_803D8934(int, Vec_802CAD98 *, void *);
+void matrix_mult_vec(int, Vec_802CAD98 *, void *);
 M2C_UNK rotate_matrix_y(int, int);
 s32 push_matrix_from(u32);
 s32 pop_matrix(void);
@@ -228,7 +228,7 @@ void TObjEneMe1GiGue__sub_802CAD98(u8 *arg0, Vec_802CAD98 *arg1) {
     Vec_802CAD98 v = lbl_80472280;
     rotate_matrix_y(0, ang);
     for (i = 0; i < 3; i++) {
-        TCameraCtrl__sub_803D8934(0, &v, arg0 + 0x390);
+        matrix_mult_vec(0, &v, arg0 + 0x390);
         vec3_add_to(arg0 + 0x390, arg0 + 0x2FC);
         hit = csnVector(arg0 + 0x2FC, arg0 + 0x390, -1);
         if (hit == NULL) {
@@ -248,7 +248,7 @@ void TObjEneMe1GiGue__sub_802CAD98(u8 *arg0, Vec_802CAD98 *arg1) {
     Vec_802CAD98 w = lbl_8047228C;
     w.x = best;
     rotate_matrix_y(0, bestAng);
-    TCameraCtrl__sub_803D8934(0, &w, arg0 + 0x390);
+    matrix_mult_vec(0, &w, arg0 + 0x390);
     vec3_add_to(arg0 + 0x390, arg0 + 0x2FC);
     pop_matrix();
 }

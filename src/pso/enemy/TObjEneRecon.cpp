@@ -301,7 +301,7 @@ extern "C" {
 void advance_intro_stage__12TObjEneReconFv(void);
 M2C_UNK update_camera_sequence__9TObjEneDDFPv();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK TCameraCtrl__sub_803D8934(M2C_UNK, s32, s32);
+M2C_UNK matrix_mult_vec(M2C_UNK, s32, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 
@@ -313,7 +313,7 @@ void advance_intro_stage__12TObjEneReconFv(void) {
     case 0:
         push_matrix();
         update_camera_sequence__9TObjEneDDFPv();
-        TCameraCtrl__sub_803D8934(0, lbl_805D6B0C, lbl_805D6B0C);
+        matrix_mult_vec(0, lbl_805D6B0C, lbl_805D6B0C);
         pop_matrix();
         break;
     case 10:

@@ -22,7 +22,7 @@ void TObjPlayer__sub_801AEB80(void);
 void stop_force_if_alive__10TObjPlayerFPv(void* p);
 int get_max_level__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_801AF868(s32);
-s32 TObjPlayer__sub_801AFDB0(void *);
+s32 get_class_index__10TObjPlayerFPv(void *);
 int TObjPlayer__sub_801BEF60(void*, void*);
 int TObjPlayer__sub_801BEF68(void*);
 s32 emit_idle_water_effect(s32);
@@ -80,7 +80,7 @@ void apply_luck_reward__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
         var_r31 *= 5;
     }
     add_lck__10TObjPlayerFPvi((void *) (arg0), (int) (var_r31));
-    add_item_count_kind4__10TObjPlayerFiii((void *) (arg0 + 0x374), (void *) (TObjPlayer__sub_801AFDB0((void *) (arg0))), (int) (1));
+    add_item_count_kind4__10TObjPlayerFiii((void *) (arg0 + 0x374), (void *) (get_class_index__10TObjPlayerFPv((void *) (arg0))), (int) (1));
 }
 
 }
@@ -92,7 +92,7 @@ void add_dfp_material__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
         var_r31 *= 5;
     }
     add_dfp__10TObjPlayerFPvi((void *) (arg0), (int) (var_r31));
-    try_add_item_count_kind3__10TObjPlayerFiii((void *) (arg0 + 0x374), (void *) (TObjPlayer__sub_801AFDB0((void *) (arg0))), (int) (1));
+    try_add_item_count_kind3__10TObjPlayerFiii((void *) (arg0 + 0x374), (void *) (get_class_index__10TObjPlayerFPv((void *) (arg0))), (int) (1));
 }
 
 }
@@ -104,7 +104,7 @@ void add_evp_material__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
         var_r31 *= 5;
     }
     add_evp__10TObjPlayerFPvi((void *) (arg0), (int) (var_r31));
-    try_add_item_count_type2__10TObjPlayerFiii((void *) (arg0 + 0x374), (void *) (TObjPlayer__sub_801AFDB0((void *) (arg0))), (int) (1));
+    try_add_item_count_type2__10TObjPlayerFiii((void *) (arg0 + 0x374), (void *) (get_class_index__10TObjPlayerFPv((void *) (arg0))), (int) (1));
 }
 
 }
@@ -116,7 +116,7 @@ void add_mst_and_item__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
         var_r31 *= 5;
     }
     add_mst__10TObjPlayerFPvi((void *) (arg0), (int) (var_r31));
-    add_item_count__10TObjPlayerFiii((void *) (arg0 + 0x374), (void *) (TObjPlayer__sub_801AFDB0((void *) (arg0))), (int) (1));
+    add_item_count__10TObjPlayerFiii((void *) (arg0 + 0x374), (void *) (get_class_index__10TObjPlayerFPv((void *) (arg0))), (int) (1));
 }
 
 }
@@ -128,7 +128,7 @@ void add_stat_and_item__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
         var_r31 *= 5;
     }
     add_stat__10TObjPlayerFPvi((void *) (arg0), (int) (var_r31));
-    try_add_item__10TObjPlayerFiii((void *) (arg0 + 0x374), (void *) (TObjPlayer__sub_801AFDB0((void *) (arg0))), (int) (1));
+    try_add_item__10TObjPlayerFiii((void *) (arg0 + 0x374), (void *) (get_class_index__10TObjPlayerFPv((void *) (arg0))), (int) (1));
 }
 
 }

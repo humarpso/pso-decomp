@@ -187,7 +187,7 @@ void TObjPlayer__sub_801C0C24(void *);
 void TObjPlayer__sub_801C0CC4(void *);
 void send_6x30_change_player_level(Player_801B6C30 *arg0);
 s32 get_max_level__10TObjPlayerFv();
-s8 TObjPlayer__sub_801AFDB0();
+s8 get_class_index__10TObjPlayerFPv();
 void add_evp__10TObjPlayerFPvi(void *, s32);
 void add_ata__10TObjPlayerFPvi(void *, s32);
 void add_mst__10TObjPlayerFPvi(void *, s32);
@@ -207,7 +207,7 @@ s32 apply_exp_level_growth__10TObjPlayerFPv(Obj_801B6CE0 *self);
 s32 is_locally_controlled__10TObjPlayerFPv();
 u16 obj_getField1c(void *);
 s32 get_max_level__10TObjPlayerFv();
-s8 TObjPlayer__sub_801AFDB0();
+s8 get_class_index__10TObjPlayerFPv();
 void send_6x30_change_player_level(Player_801B6C30 *arg0);
 s32 apply_exp_level_growth__10TObjPlayerFPv(Obj_801B6CE0 *self);
 s32 can_destroy_with_parents__10TObjPlayerFUi();
@@ -293,7 +293,7 @@ s32 apply_exp_level_growth__10TObjPlayerFPv(Obj_801B6CE0 *self) {
     s32 lvl;
     s32 cls;
     s32 e;
-    cls = TObjPlayer__sub_801AFDB0();
+    cls = get_class_index__10TObjPlayerFPv();
     lvl = ((s32 (*)(void *))clamp_nested_index__10TObjPlayerFPv)(self) + 1;
     for (i = 0; i < get_max_level__10TObjPlayerFv(); i++) {
         if (lvl > get_max_level__10TObjPlayerFv()) {
@@ -332,7 +332,7 @@ void check_level_up__10TObjPlayerFPv(u8 *arg0) {
     if ((is_locally_controlled__10TObjPlayerFPv() != 0) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
         temp_r30 = ((s32 (*)(void *))clamp_nested_index__10TObjPlayerFPv)((void *) (arg0)) + 1;
         if (temp_r30 <= get_max_level__10TObjPlayerFv()) {
-            if (get_current_state_field__10TObjPlayerFv((void *) (((s32 (*)(void *))TObjPlayer__sub_801AFDB0)((void *) (arg0))), (int) (temp_r30)) <= (s32) M2C_FIELD(M2C_FIELD(arg0, void **, 0x2B0), s32 *, 0x1C)) {
+            if (get_current_state_field__10TObjPlayerFv((void *) (((s32 (*)(void *))get_class_index__10TObjPlayerFPv)((void *) (arg0))), (int) (temp_r30)) <= (s32) M2C_FIELD(M2C_FIELD(arg0, void **, 0x2B0), s32 *, 0x1C)) {
                 reset_sub_status_disp__10TObjPlayerFPv((void *) (&sp40));
                 reset_sub_status_disp__10TObjPlayerFPv((void *) (&sp24));
                 reset_sub_status_disp__10TObjPlayerFPv((void *) (&sp8));

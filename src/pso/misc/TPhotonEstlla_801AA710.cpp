@@ -70,7 +70,7 @@ u32 __nw__7TObjectFUl(int);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
-s32 TCameraCtrl__sub_803D9858(int);
+s32 pop_matrices(int);
 extern const Packet_801AA710 lbl_80446CE8;
 extern u8 lbl_8058D490[];
 extern const f32 lbl_805DC138;
@@ -120,7 +120,7 @@ void spawn_line__13TPhotonEstllaFPv(Self_801AA710 *self) {
         rotate_matrix_y(0, owner->f60);
     }
     rotate_vector_by_matrix(0, &forward, &direction);
-    TCameraCtrl__sub_803D9858(1);
+    pop_matrices(1);
     {
         Packet_801AA710 packet = lbl_80446CE8;
         *(Vec_801AA710 *)&packet.w[0] = self->pos;

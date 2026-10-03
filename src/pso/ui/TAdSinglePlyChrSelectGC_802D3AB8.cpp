@@ -73,7 +73,7 @@ s32 get_state_flag__9TMainTaskFv(void);
 void render__23TAdSinglePlyChrSelectGCFv(void *self);
 s32 is_visible__17TWindowSubComCardFPv(int);
 s32 get_status_flag__17TWindowSubComCardFPv(int);
-s32 TWindowSubComCard__sub_80265BF8(int);
+s32 get_selected_menu_value(int);
 M2C_UNK open__17TWindowOptionCtrlFPv(int);
 M2C_UNK set_selection_state__21TAdMultiSelGameModeGCFPvi(s32, M2C_UNK);
 s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(s32);
@@ -363,7 +363,7 @@ void TAdSinglePlyChrSelectGC__sub_802D4168(u8 *arg0) {
         return;
     }
     if (is_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, s32 *, 0x38))) != 0) {
-        M2C_FIELD(arg0, s32 *, 0x5C) = TWindowSubComCard__sub_80265BF8((int) (M2C_FIELD(arg0, s32 *, 0x38)));
+        M2C_FIELD(arg0, s32 *, 0x5C) = get_selected_menu_value((int) (M2C_FIELD(arg0, s32 *, 0x38)));
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x5C);
         switch (temp_r0) {
         case 0:

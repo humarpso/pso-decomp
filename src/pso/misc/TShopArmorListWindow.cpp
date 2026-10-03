@@ -152,7 +152,7 @@ f32 get_scale__15TShopWindowBaseFv(void *);
 s32 TShopWindowBase__sub_8022397C(void *);
 s32 set_position_xy(u32, f32, f32);
 void TWindow__close(void *);
-s32 TWindowSubComCard__sub_80265BF8(void *);
+s32 get_selected_menu_value(void *);
 u32 create_yes_no_window(int, u16, int, int);
 M2C_UNK save_cursor_selection__20TShopArmorListWindowFPv(void *);
 s32 select_cursor_entry__6TLobbyFPv(void *);
@@ -225,7 +225,7 @@ void handle_equip_offer__20TShopArmorListWindowFv(void *p) {
     s32 r;
     f32 sc;
     if (w->win != NULL && is_visible__17TWindowSubComCardFPv(w->win) != 0) {
-        r = TWindowSubComCard__sub_80265BF8(w->win);
+        r = get_selected_menu_value(w->win);
         if (r == 0 && w->list != NULL) {
             if (w->flag != 0) {
                 w->base.m4(0x18, 1);

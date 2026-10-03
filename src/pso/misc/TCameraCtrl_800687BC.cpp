@@ -353,7 +353,7 @@ extern RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 TCameraCtrl__data_804
 void TCameraCtrl__sub_800687E4(u8 *arg0);
 s32 is_split_screen();
 s32 get_camera_no__11TCameraCtrlFv();
-s32 TCameraCtrl__sub_803D8934(int, void *, void *);
+s32 matrix_mult_vec(int, void *, void *);
 void TCameraCtrl__sub_803D976C(u32, u32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -716,7 +716,7 @@ void TCameraCtrl__sub_80069148(s32 arg0, s32 arg1) {
     } else {
         TCameraCtrl__sub_803D976C((u32)((int) (0)), (u32)((void *) (&(*(RecoveredGlobal_80069148_TCameraCtrl__data_804FF6D0 *)&TCameraCtrl__data_804FF6D0).value)));
     }
-    TCameraCtrl__sub_803D8934((int) (0), (void *) (arg0), (void *) (arg1));
+    matrix_mult_vec((int) (0), (void *) (arg0), (void *) (arg1));
     pop_matrix();
 }
 

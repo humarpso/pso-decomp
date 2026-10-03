@@ -2,7 +2,7 @@
 
 extern "C" {
 s32 obj_getField1c();
-s32 TObjPlayer__sub_801AFDB0(void *);
+s32 get_class_index__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801C1F78(void *, s32);
 s32 TObjPlayer__sub_801C21C4(void *, s32);
 s32 TObjPlayer__sub_801C21D4(void *, s32);
@@ -36,7 +36,7 @@ int check_technique_castable__10TObjPlayerFi(void*);
 void TObjPlayer__sub_801BCA14(u8 *arg0, void *arg1) {
     s32 i;
     TObjPlayer__sub_801C1F78(arg0 + 0x4AC, obj_getField1c());
-    TObjPlayer__sub_801D955C(arg0 + 0x428, TObjPlayer__sub_801AFDB0(arg0));
+    TObjPlayer__sub_801D955C(arg0 + 0x428, get_class_index__10TObjPlayerFPv(arg0));
     TObjPlayer__sub_801D9B90(arg0 + 0x428, 0x1D);
     i = 0;
     do {

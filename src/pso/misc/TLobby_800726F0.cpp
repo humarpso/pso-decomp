@@ -100,7 +100,7 @@ void show_ctrl_and_play_effect__6TLobbyFPv(void* a0);
 void play_player_default_effect__6TLobbyFv(s32 _w0);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 s32 is_visible__17TWindowSubComCardFPv(u32);
-s32 TWindowSubComCard__sub_80265BF8(u32);
+s32 get_selected_menu_value(u32);
 extern M2C_UNK lbl_8048D120[];
 extern s8 lbl_8050E208[];
 void update_challenge_retry__6TLobbyFPv(void *arg0);
@@ -371,7 +371,7 @@ void update_challenge_retry__6TLobbyFPv(void *arg0) {
     }
     var_r31 = 0;
     if (is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x2C)) != 0) {
-        temp_r3 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u32 *, 0x2C));
+        temp_r3 = get_selected_menu_value(M2C_FIELD(arg0, u32 *, 0x2C));
         if (temp_r3 == 2) {
             var_r31 = 1;
             goto block_6;

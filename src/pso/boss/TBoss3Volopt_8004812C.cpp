@@ -44,7 +44,7 @@ void reset_transform_state__10TObjPlayerFv(void);
 void init_xyz_limits__10TObjPlayerFv(void);
 void draw_line_list(void *, s32, s32);
 void vec3_add_to(void *, void *);
-void TCameraCtrl__sub_803D8934(s32, void *, void *);
+void matrix_mult_vec(s32, void *, void *);
 void TObjPlayer__sub_803D8CD4(s32);
 void rotate_matrix_y(s32, s32);
 void rotate_matrix_x(s32, s32);
@@ -105,7 +105,7 @@ void TObjPlayer__sub_80048260(Obj_80048260 *self) {
         v.z = self->unk40;
         rotate_matrix_x(0, self->rotY);
         rotate_matrix_y(0, self->rotZ);
-        TCameraCtrl__sub_803D8934(0, &v, &v);
+        matrix_mult_vec(0, &v, &v);
         vec3_add_to(dst, &v);
     }
     pop_matrix();

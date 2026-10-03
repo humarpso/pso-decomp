@@ -35,8 +35,8 @@ struct Berura_800951AC {
 extern "C" {
 u8 TObjEneRe7Berura__sub_8009518C(O_8009518C *self);
 s32 compose_motion_node_matrix(int);
-s32 TCameraCtrl__sub_803D8934(int, void *, void *);
-void TObjPlayer__sub_803D898C(void *);
+s32 matrix_mult_vec(int, void *, void *);
+void get_current_matrix(void *);
 void TObjPlayer__sub_803D9324(int, void *);
 void translate_matrix(s32, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9730(M2C_UNK, s32);
@@ -139,21 +139,21 @@ M2C_UNK TObjEneRe7Berura__sub_8009503C(void *arg0, int idx) {
             V[0] = TObjEneRe7Berura__data_805D972C;
             V[1] = TObjEneRe7Berura__data_805D972C;
             V[2] = TObjEneRe7Berura__data_805D972C;
-            TCameraCtrl__sub_803D8934(0, V, V);
+            matrix_mult_vec(0, V, V);
             V[1] = V[1] + lbl_805D9774;
             V[2] = V[2] + TObjEneRe7Berura__data_805D9764;
-            TObjPlayer__sub_803D898C(&m);
+            get_current_matrix(&m);
             ((M2C_UNK (*)(void *))push_matrix_from)(lbl_8058D490);
             translate_matrix(0, -V[0], -V[1], -V[2]);
             ((M2C_UNK (*)(M2C_UNK, void *))TObjPlayer__sub_803D9730)(0, &m);
-            TObjPlayer__sub_803D898C(&m);
+            get_current_matrix(&m);
             pop_matrix();
             TObjPlayer__sub_803D9324(0, &m);
         }
         if (idx >= lbl_805D4F90 && idx <= lbl_805D4F94) {
             s32 p = TObjEneRe7Berura__data_805D4F98;
             TObjEneRe7Berura__data_805D4F98 = p + 0x30;
-            TObjPlayer__sub_803D898C((void *)p);
+            get_current_matrix((void *)p);
         }
         idx++;
         if (!(flags & 0x10)) {

@@ -18,7 +18,7 @@ extern V3_8017F624 lbl_80443AB8[];
 extern V3_8017F624 lbl_8050DB80[];
 extern s32 TObjCamera__data_805D5B1C;
 void TObjCamera__sub_8017F624(void);
-void TCameraCtrl__sub_803D8934(s32, Vec_8017F6C0 *, Vec_8017F6C0 *);
+void matrix_mult_vec(s32, Vec_8017F6C0 *, Vec_8017F6C0 *);
 void project_world_to_screen(s32, Vec_8017F6C0 *, Out_8017F6C0 *);
 extern Vec_8017F6C0 lbl_804FF610;
 extern const f32 TObjCamera__data_805DBB58;
@@ -44,7 +44,7 @@ void TObjCamera__sub_8017F624(void) {
 s32 TObjCamera__vt8(Obj_8017F6C0 *o, f32 r, f32 d) {
     Vec_8017F6C0 v;
     Out_8017F6C0 out;
-    TCameraCtrl__sub_803D8934(0, &o->pos, &v);
+    matrix_mult_vec(0, &o->pos, &v);
     if (v.z < -r) {
         return 0;
     }

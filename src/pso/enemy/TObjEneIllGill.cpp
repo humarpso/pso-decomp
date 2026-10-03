@@ -142,7 +142,7 @@ f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, void *);
 s32 push_matrix_from(void *);
-s32 TCameraCtrl__sub_803D9858(int);
+s32 pop_matrices(int);
 extern RecoveredGlobal_80367DC8_lbl_8050BF00 lbl_8050BF00;
 extern RecoveredGlobal_80367DC8_lbl_8058D490 lbl_8058D490;
 extern const f32 TObjEneIllGill__data_805E02BC;
@@ -178,7 +178,7 @@ f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, void *);
 s32 push_matrix_from(void *);
-s32 TCameraCtrl__sub_803D9858(int);
+s32 pop_matrices(int);
 extern RecoveredGlobal_80367DC8_lbl_8058D490 lbl_8058D490;
 extern const f32 lbl_805E02B8;
 extern const f32 TObjEneIllGill__data_805E02BC;
@@ -457,7 +457,7 @@ void TObjEneIllGill__sub_80367860(u8 *arg0) {
     push_matrix_from(&lbl_8058D490);
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
     rotate_vector_by_matrix(0, &v, &v);
-    TCameraCtrl__sub_803D9858(1);
+    pop_matrices(1);
     vec3_add_to(&v, arg0 + 0x50);
     M2C_FIELD(arg0, f32 *, 0x300) += TObjEneIllGill__data_805E02DC;
     d = TObjPlayer__sub_80017804(arg0, v, lbl_805E02B8 * M2C_FIELD(arg0, f32 **, 0x350)[1]);
@@ -535,7 +535,7 @@ void TObjEneIllGill__sub_80367DC8(u8 *arg0, s32 arg1) {
     push_matrix_from((void *) (&lbl_8058D490.value));
     rotate_matrix_y((int) (0), (void *) (arg1));
     rotate_vector_by_matrix((int) (0), (void *) (&lbl_8050BF00.value), (void *) (&lbl_8050BF00.value));
-    TCameraCtrl__sub_803D9858((int) (1));
+    pop_matrices((int) (1));
     vec3_add_to((void *) (&lbl_8050BF00.value), (void *) (arg0 + 0x38));
     project_actor_to_ground((void *) (arg0), (void *) (&lbl_8050BF00.value), (int) (0));
 }

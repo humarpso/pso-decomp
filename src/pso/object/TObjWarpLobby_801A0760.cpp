@@ -38,7 +38,7 @@ u32 find_warp_player_in_range(void *, u16, f32);
 void TObjWarpLobby__sub_801A0760(void *arg0);
 M2C_UNK TWindow__close(void *);
 M2C_UNK clear_flag__11TWindowCtrlFv();
-s32 TWindowSubComCard__sub_80265BF8(u32);
+s32 get_selected_menu_value(u32);
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805DC068;
 extern const f32 lbl_805DC06C;
@@ -108,7 +108,7 @@ void run_task__13TObjWarpLobbyFv(VO_801A0894 *arg0) {
             TObjWarpLobby__sub_801A0760(arg0);
         }
         if (((u32) M2C_FIELD(arg0, u32 *, 0xB0) != 0U) && (is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0xB0)) != 0)) {
-            temp_r31 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u32 *, 0xB0));
+            temp_r31 = get_selected_menu_value(M2C_FIELD(arg0, u32 *, 0xB0));
             if (M2C_FIELD(arg0, u32 *, 0xB0) != 0U) {
                 queue_destruction__7TObjectFv(M2C_FIELD(arg0, u32 *, 0xB0));
                 M2C_FIELD(arg0, u32 *, 0xB0) = 0U;

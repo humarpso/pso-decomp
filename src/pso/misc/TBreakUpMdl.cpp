@@ -100,13 +100,13 @@ extern "C" {
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK compose_motion_node_matrix(int);
-M2C_UNK TCameraCtrl__sub_803D8934(int, int, int);
+M2C_UNK matrix_mult_vec(int, int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 s32 TBreakUpMdl__sub_80096CE0(u8 *arg0, u8 *arg1, s32 arg2);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK TCameraCtrl__sub_803D8934(int, int, int);
+M2C_UNK matrix_mult_vec(int, int, int);
 M2C_UNK TObjPlayer__sub_803D99F8(void *, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -163,7 +163,7 @@ void copy__11TBreakUpMdlFPvPv(void* p, void* q);
 void *alloc_buffer__11TOBoss4RockFPv(int);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
-M2C_UNK TCameraCtrl__sub_803D8934(int, int, int);
+M2C_UNK matrix_mult_vec(int, int, int);
 void rotate_vector_by_matrix(s32, void *, void *);
 void rotate_matrix_y(s32, s32);
 s32 push_matrix_from(u32);
@@ -296,7 +296,7 @@ u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 
     rotate_matrix_y(0, arg6);
     for (i = 0; i < self->count; i++) {
         part = &self->parts[i];
-        TCameraCtrl__sub_803D8934(0, (int)self->model->segs[i].a, (int)part);
+        matrix_mult_vec(0, (int)self->model->segs[i].a, (int)part);
         rotate_vector_by_matrix(0, self->model->segs[i].b, part->vel);
         clamp_velocity__15TObjBoss2TunnelFPv(part->vel);
         part->vel[1] = scale * (lbl_805D97D0 * (f32)rand()) + base;
@@ -329,7 +329,7 @@ s32 TBreakUpMdl__sub_80096CE0(u8 *arg0, u8 *arg1, s32 arg2) {
         if (!(temp_r30 & 8)) {
             temp_r31 = (u8 *)(M2C_FIELD(arg0, s32 *, 4) + (var_r29 * 0x1C));
             temp_r4 = (long) (temp_r31 + 4);
-            TCameraCtrl__sub_803D8934((int) (0), (int) (temp_r4), (int) (temp_r4));
+            matrix_mult_vec((int) (0), (int) (temp_r4), (int) (temp_r4));
             VecCopy__FP3VecPC3Vec((void *) (temp_r31 + 0x10), (void *) (temp_r31 + 4));
             clamp_velocity__15TObjBoss2TunnelFPv(temp_r31 + 0x10);
             var_r29 += 1;
@@ -364,7 +364,7 @@ s32 build_node_records__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
         if (!(temp_r30 & 8)) {
             temp_r31 = (u8 *)(M2C_FIELD(arg0, s32 *, 4) + (var_r29 * 0x1C));
             temp_r4 = (long) (temp_r31 + 4);
-            TCameraCtrl__sub_803D8934((int) (0), (int) (temp_r4), (int) (temp_r4));
+            matrix_mult_vec((int) (0), (int) (temp_r4), (int) (temp_r4));
             VecCopy__FP3VecPC3Vec((void *) (temp_r31 + 0x10), (void *) (temp_r31 + 4));
             clamp_velocity__15TObjBoss2TunnelFPv(temp_r31 + 0x10);
             var_r29 += 1;

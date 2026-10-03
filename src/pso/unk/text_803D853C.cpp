@@ -14,14 +14,14 @@ extern s32 lbl_805D7774;
 void TObjPlayer__sub_803D89E8(u32 arg0);
 M2C_UNK PSMTXMultVec(int);
 extern s32 lbl_805D7774;
-void TCameraCtrl__sub_803D8934(u32 arg0);
+void matrix_mult_vec(u32 arg0);
 void rotate_matrix_z(void *, s32);
 void rotate_matrix_x(void *, s32);
 void rotate_matrix_y(void *, s32);
 void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z);
 extern s32 lbl_805D7774;
 void PSMTXCopy(void *src, void *dst);
-void TObjPlayer__sub_803D898C(void *m);
+void get_current_matrix(void *m);
 void rotate_matrix_y(void *, s32);
 void rotate_matrix_z(void *, s32);
 void rotate_matrix_x(void *, s32);
@@ -47,7 +47,7 @@ void TObjEneBm5GibonU__sub_803D853C(s32 arg0, const char *fmt, ...) {
 
 #pragma push
 #pragma scheduling off
-void TCameraCtrl__sub_803D8934(u32 arg0) {
+void matrix_mult_vec(u32 arg0) {
     u32 var_r3;
     u32 var_r3_2;
     u32 phi_r3;
@@ -76,7 +76,7 @@ void TObjPlayer__sub_803D8960(u32 arg0, s32 arg1) {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-void TObjPlayer__sub_803D898C(void *m) {
+void get_current_matrix(void *m) {
     void *src = (*(void * *)&lbl_805D7774);
     if (m == 0) {
         m = src;

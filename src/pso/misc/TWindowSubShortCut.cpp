@@ -43,7 +43,7 @@ M2C_UNK free_icon__18TWindowSubShortCutFPv(int);
 void *TWindowChat__ct(void *, void *, void *);
 s32 is_visible__11TWindowChatFPv(int);
 s32 is_mode_bit4__11TWindowChatFPv(int);
-u8 TWindowSubComCard__sub_80265BF8(int);
+u8 get_selected_menu_value(int);
 M2C_UNK clear_transition_flag__17TWindowSubComCardFPv(int);
 M2C_UNK open__17TWindowOptionCtrlFPv(int);
 M2C_UNK select_cursor_entry__6TLobbyFPv(s32);
@@ -204,7 +204,7 @@ void run_task__18TWindowSubShortCutFv(u8 *arg0) {
             return;
         }
         if (is_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x30))) != 0) {
-            M2C_FIELD(arg0, u8 *, 0x1C) = TWindowSubComCard__sub_80265BF8((int) (M2C_FIELD(arg0, u32 *, 0x30)));
+            M2C_FIELD(arg0, u8 *, 0x1C) = get_selected_menu_value((int) (M2C_FIELD(arg0, u32 *, 0x30)));
             return;
         }
         break;

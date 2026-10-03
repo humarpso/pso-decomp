@@ -298,7 +298,7 @@ M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
 M2C_UNK minimap_render_gate(void *, u32, u16, s32, s32);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
-M2C_UNK TCameraCtrl__sub_803D8934(void *, void *, void *);
+M2C_UNK matrix_mult_vec(void *, void *, void *);
 M2C_UNK set_position_vec3__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK TObjPlayer__sub_803D8CD4(void *);
 extern Vec_8029B640 lbl_804653E8;
@@ -433,8 +433,8 @@ void run_task__16TODoorJungleMainFv(u8 *arg0) {
                 TObjPlayer__sub_803D8CD4(&mtx);
                 set_position_vec3__10TObjPlayerFPvPv(&mtx, arg0 + 0x38);
                 rotate_matrix_y((int)&mtx, M2C_FIELD(arg0, s32 *, 0x60));
-                TCameraCtrl__sub_803D8934(&mtx, &a, &a);
-                TCameraCtrl__sub_803D8934(&mtx, &b, &b);
+                matrix_mult_vec(&mtx, &a, &a);
+                matrix_mult_vec(&mtx, &b, &b);
                 spawn_particle_effect_with_flags(&a, 0x229, 0x800);
                 spawn_particle_effect_with_flags(&b, 0x229, 0x800);
             }

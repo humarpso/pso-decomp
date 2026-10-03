@@ -13,7 +13,7 @@ M2C_UNK check_flag_at_41c__10TObjPlayerFPv(s32);
 M2C_UNK set_flag_41c_bit1__10TObjPlayerFPv(s32);
 M2C_UNK clamp_stat_41c__10TObjPlayerFPv(s32);
 void *get_quest_id__12TQuestListVMFPv();
-M2C_UNK TObjPlayer__sub_801AFDB0(s32);
+M2C_UNK get_class_index__10TObjPlayerFPv(s32);
 s32 get_current_state_field__10TObjPlayerFv(s32, s32);
 void *get_class_stat_caps();
 
@@ -42,7 +42,7 @@ void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1) {
     void *temp_r31;
 
     temp_r31 = get_quest_id__12TQuestListVMFPv();
-    TObjPlayer__sub_801AFDB0(arg0);
+    get_class_index__10TObjPlayerFPv(arg0);
     temp_r28 = get_class_stat_caps();
     temp_r4 = M2C_FIELD(temp_r31, s16 *, 0);
     if (temp_r4 < 0) {
@@ -155,7 +155,7 @@ void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1) {
         M2C_FIELD(arg1, s32 *, 0x18) = temp_r28_2;
     }
     temp_r28_2 = M2C_FIELD(temp_r31, s32 *, 0x1C);
-    temp_r3_8 = get_current_state_field__10TObjPlayerFv(TObjPlayer__sub_801AFDB0(arg0), temp_r27);
+    temp_r3_8 = get_current_state_field__10TObjPlayerFv(get_class_index__10TObjPlayerFPv(arg0), temp_r27);
     if (temp_r28_2 < 0) {
         M2C_FIELD(arg1, s32 *, 0x1C) = 0;
         check_flag_at_41c__10TObjPlayerFPv(arg0);

@@ -9,13 +9,13 @@ extern "C" {
 void apply_conveyor_effect__10TObjPlayerFPv(void *arg0);
 M2C_UNK play_particle_effect_once__10TObjPlayerFv();
 s32 get_player_list__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_803D898C(s32);
+M2C_UNK get_current_matrix(s32);
 
 void apply_conveyor_effect__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = get_player_list__10TObjPlayerFv();
-    TObjPlayer__sub_803D898C(M2C_FIELD(M2C_FIELD(arg0, void **, 0xF0), s32 *, 0xDB4) + (temp_r3 * 0x30));
+    get_current_matrix(M2C_FIELD(M2C_FIELD(arg0, void **, 0xF0), s32 *, 0xDB4) + (temp_r3 * 0x30));
     if (temp_r3 == 9) {
         play_particle_effect_once__10TObjPlayerFv();
     }

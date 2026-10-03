@@ -21,7 +21,7 @@ struct RecoveredGlobal_8034B158_lbl_804F00C8 {
 extern "C" {
 int is_visible__17TWindowSubComCardFPv(void *);
 void init__9TItemDataFv(void *);
-s32 TWindowSubComCard__sub_80265BF8(void *);
+s32 get_selected_menu_value(void *);
 void TChallenge4PResult__sub_8034B694(s32, M2C_UNK, s32);
 extern RecoveredGlobal_8034B158_lbl_804F00C8 lbl_804F00C8;
 void TChallenge4PItemSelect__sub_8034B158(u8 *arg0);
@@ -88,7 +88,7 @@ void TChallenge4PItemSelect__sub_8034B158(u8 *arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x2C));
     if ((temp_r3 != NULL) && (is_visible__17TWindowSubComCardFPv(temp_r3) != 0)) {
-        temp_r31 = (u8 *)&lbl_804F00C8.value + (TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u8 **, 0x2C)) * 0xC);
+        temp_r31 = (u8 *)&lbl_804F00C8.value + (get_selected_menu_value(M2C_FIELD(arg0, u8 **, 0x2C)) * 0xC);
         init__9TItemDataFv(&stack.sp8);
         stack.sp8 = (s8) M2C_FIELD(temp_r31, s32 *, 0);
         stack.sp9 = (s8) M2C_FIELD(temp_r31, s32 *, 4);

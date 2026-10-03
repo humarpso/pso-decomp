@@ -158,7 +158,7 @@ void rotate_vector_by_matrix(int, void *, void *);
 void subtract_vector(void *, void *);
 void normalize_vector(void *);
 void push_matrix_from(void *);
-void TCameraCtrl__sub_803D9858(int);
+void pop_matrices(int);
 extern const Packet_801AB6A0 lbl_80446D68;
 extern u8 lbl_8058D490[];
 extern const float lbl_805DC188;
@@ -177,7 +177,7 @@ f32 vec_squared_length(void *);
 void normalize_vector(void *);
 void push_matrix_from(void *);
 void rotate_vector_by_matrix(int, void *, void *);
-void TCameraCtrl__sub_803D9858(int);
+void pop_matrices(int);
 f32 vec3_dot(void *, void *);
 u16 obj_getField1c(void *);
 void queue_photon_blast_hit(u32, int, int, f32);
@@ -242,7 +242,7 @@ s32 spawn_concentrate__12TPhotonGollaFPv(void *arg0) {
             rotate_matrix_y(0, owner->rot);
         }
         rotate_vector_by_matrix(0, &local, &rotated);
-        TCameraCtrl__sub_803D9858(1);
+        pop_matrices(1);
         VecCopy__FP3VecPC3Vec(&target, &self->pos);
         vec3_add_to(&target, &rotated);
     } else {
@@ -313,13 +313,13 @@ void collect_hit_targets__12TPhotonGollaFPv(void *arg0) {
                         rotate_matrix_y(0, owner->rot + 0x1555);
                     }
                     rotate_vector_by_matrix(0, &forward, &left);
-                    TCameraCtrl__sub_803D9858(1);
+                    pop_matrices(1);
                     push_matrix_from(lbl_8058D490);
                     if (owner != NULL) {
                         rotate_matrix_y(0, owner->rot - 0x1555);
                     }
                     rotate_vector_by_matrix(0, &forward, &right);
-                    TCameraCtrl__sub_803D9858(1);
+                    pop_matrices(1);
                     vec3_dot(&direction, &left);
                     vec3_dot(&direction, &right);
                     if (!(vec3_dot(&direction, &left) > lbl_805DC19C) ||

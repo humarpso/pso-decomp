@@ -104,7 +104,7 @@ void close_com_card_window__6TLobbyFv(void);
 void handle_game_list_select__6TLobbyFv(void);
 void handle_warp_menu_input__6TLobbyFv(void);
 void update_menu_window__6TLobbyFv(void);
-s32 TWindowSubComCard__sub_80265BF8(void*);
+s32 get_selected_menu_value(void*);
 void TWindow__close(void*);
 M2C_UNK close_all_windows__6TLobbyFPv();
 M2C_UNK close_all_windows__6TLobbyFv();
@@ -128,7 +128,7 @@ void update_menu_window__6TLobbyFv(void) {
     s32 temp_r31;
 
     if ((u32) lbl_805D55E4 != 0U) {
-        temp_r31 = TWindowSubComCard__sub_80265BF8((void*)((void*)lbl_805D55E4));
+        temp_r31 = get_selected_menu_value((void*)((void*)lbl_805D55E4));
         if (is_visible__17TWindowSubComCardFPv((void*)(lbl_805D55E4)) != 0) {
             switch (temp_r31) {
             case 0:
@@ -156,7 +156,7 @@ void handle_warp_menu_input__6TLobbyFv(void) {
 
     if ((u32) lbl_805D55E0 != 0U) {
         if (is_visible__17TWindowSubComCardFPv((void*)((void*)lbl_805D55E0)) != 0) {
-            temp_r3 = TWindowSubComCard__sub_80265BF8((void*)(lbl_805D55E0));
+            temp_r3 = get_selected_menu_value((void*)(lbl_805D55E0));
             switch (temp_r3) {
             case 0:
                 create_warp_menu__6TLobbyFv();

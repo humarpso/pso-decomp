@@ -103,7 +103,7 @@ void update_state__20TWindowSubSymbolChatFPv(void *arg0);
 s32 TKeyBoardControl__ct(s32, void *, M2C_UNK, M2C_UNK, M2C_UNK, s32);
 M2C_UNK TWindowSubComCard__sub_802655E4(s32);
 s32 TWindowSubComCard__sub_80265660(s32, s32);
-s32 TWindowSubComCard__sub_80265BF8(s32);
+s32 get_selected_menu_value(s32);
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
 s32 get_window_layout_position(M2C_UNK);
 s32 TWindowSubSymbolChatPartsSet__ct(s32, s32, s16, M2C_UNK *, M2C_UNK *);
@@ -174,7 +174,7 @@ void TWindowSubSymbolChat__sub_80281840(Win_80281840 *arg0) {
 }
 
 s32 is_card_confirmed__20TWindowSubSymbolChatFPv(void *arg0) {
-    if (TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, s32 *, 0x38)) != 0x20) {
+    if (get_selected_menu_value(M2C_FIELD(arg0, s32 *, 0x38)) != 0x20) {
         return 0;
     }
     s32 temp;
@@ -210,7 +210,7 @@ void TWindowSubSymbolChat__sub_802819BC(u8 *arg0) {
 void update_state__20TWindowSubSymbolChatFPv(void *arg0) {
     s32 temp_r3;
 
-    temp_r3 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, s32 *, 0x38));
+    temp_r3 = get_selected_menu_value(M2C_FIELD(arg0, s32 *, 0x38));
     switch (temp_r3) {
     case 22:
         M2C_FIELD(arg0, s8 *, 0x1C) = 0x18;
