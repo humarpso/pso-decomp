@@ -77,6 +77,13 @@ struct Zonde_8023D7A0 {
     s16 active;
 };
 
+struct Zonde_8023D6B0 {
+    u8 pad[0x38];
+    s32 count;
+    u8 pad3c[0x25e - 0x3c];
+    s16 active;
+};
+
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8023D988___vt__12TTecZondeEff __vt__12TTecZondeEff;
@@ -112,6 +119,23 @@ extern P_8023DBB4 lbl_805161D8;
 extern s32 TTecZondeEff__data_805D63B8;
 extern const f32 TTecZondeEff__data_805DC990;
 void run_task__12TTecZondeEffFv(Zonde_8023D7A0 *arg0);
+void set_depth_buffer_settings_1__Fv();
+void restore_saved_depth_alpha_state();
+void reset_transform_state__10TObjPlayerFv();
+void init_xyz_limits__10TObjPlayerFv();
+void begin_effect_render__13TParticleCtrlFv();
+void end_effect_render__13TParticleCtrlFv();
+void draw_transformed_primitive__9TWindowDDFPvPvPvPv(void *, s32, s32, s32);
+s32 get_global_state__14TOKeyMachine01Fv();
+s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
+s32 build_lightning_strip(void *, void *, void *, void *, void *);
+s32 project_lightning_points(void *, void *, void *, void *);
+void set_chunk_material_color(f32 *argb);
+extern f32 lbl_804A7418[];
+extern u32 lbl_805D5660;
+extern s32 TTecZondeEff__data_805D63B8;
+extern u32 some_id_805c6f74;
+void render__12TTecZondeEffFv(Zonde_8023D6B0 *self);
 }
 
 extern "C" {
@@ -183,6 +207,34 @@ void TTecZondeEff__sub_8023D568(void *arg0) {
     }
 }
 #pragma pop
+
+void render__12TTecZondeEffFv(Zonde_8023D6B0 *self) {
+    u32 verts[0x270 / 4];
+    u32 m70[0x9c / 4];
+    u32 m3c[0x34 / 4];
+    u32 m8[0x34 / 4];
+    u32 id;
+    if (self->active == 0 || get_global_state__14TOKeyMachine01Fv() == 0 || get_global_state__14TOKeyMachine01Fv() == 0xF) {
+        return;
+    }
+    if (all_parents_unqueued_for_destruction__7TObjectFv(self) == 0) {
+        return;
+    }
+    id = some_id_805c6f74;
+    lbl_805D5660 = id;
+    some_id_805c6f74 = id | 0x10;
+    begin_effect_render__13TParticleCtrlFv();
+    set_depth_buffer_settings_1__Fv();
+    if (project_lightning_points(self, m70, m3c, m8) != 0 && build_lightning_strip(self, verts, m70, m3c, m8) != 0) {
+        init_xyz_limits__10TObjPlayerFv();
+        draw_transformed_primitive__9TWindowDDFPvPvPvPv(verts, self->count * 2, TTecZondeEff__data_805D63B8, 1);
+        reset_transform_state__10TObjPlayerFv();
+    }
+    end_effect_render__13TParticleCtrlFv();
+    set_chunk_material_color(lbl_804A7418);
+    some_id_805c6f74 = lbl_805D5660;
+    restore_saved_depth_alpha_state();
+}
 
 #pragma push
 #pragma fp_contract on
