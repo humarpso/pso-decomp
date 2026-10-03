@@ -4,6 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+extern "C" {
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+M2C_UNK fn_8002B630(void *, void *);
+s32 partner_clip_path_point(void *self, f32 *from, f32 *to, f32 *out);
+void rotate_matrix_y(s32, s32);
+void push_matrix_from(void *);
+void pop_matrices(s32);
+extern u8 lbl_8058D490[];
+extern const f32 TNpcPlayer__data_805DB1F0;
+extern const f32 lbl_805DB1FC;
+extern const f32 TNpcPlayer__data_805DB204;
+}
+
 extern "C" {
 
 struct Stack_8014F728 {
@@ -409,7 +423,6 @@ void handle_action__10TNpcPlayerFPvi(void *arg0, s32 arg1);
 void deliver_partner_chatter(Npc_8014E250 *self);
 void request_chatter__10TNpcPlayerFPvUi(u8 *arg0, u32 arg1);
 s32 partner_clip_path_point(void *self, f32 *from, f32 *to, f32 *out);
-s32 route_around_object__10TNpcPlayerFv(void *, Vec_801501A0 *);
 void partner_compute_stalled_detour(u8 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out);
 s32 partner_route_around_wall(Self_8014EE98 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out, Vec_8014E3B0 *out2);
 s32 partner_find_wall_segment(M2C_UNK arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
@@ -588,6 +601,40 @@ extern const f32 lbl_805DB244;
 extern const f32 lbl_805DB248;
 extern const f32 lbl_805DB24C;
 extern void *tl_05;
+
+struct Info_8014E7A0 {
+    u8 pad0[0xC];
+    f32 w;
+    f32 h;
+    s32 type;
+    u8 pad18[4];
+    Vec_8014E3B0 pos;
+};
+
+struct Target_8014E7A0 { u8 pad0[0x38]; Vec_8014E3B0 pos; u8 pad44[0x2FC - 0x44]; Vec_8014E3B0 wpos; };
+
+struct Owner_8014E7A0 { u8 pad0[0x94]; Target_8014E7A0 *obj; u8 pad98[0xD8 - 0x98]; u8 shape[0x104 - 0xD8]; s32 rot_y; };
+
+struct Self_8014E7A0 {
+    u8 pad0[0x74];
+    Owner_8014E7A0 *f74;
+    Owner_8014E7A0 *f78;
+    u8 pad7C[0x8C - 0x7C];
+    s8 level;
+    u8 pad8D[0xDC - 0x8D];
+    Vec_8014E3B0 pos;
+};
+
+extern "C" {
+void calc_box_escape_axis__10TNpcPlayerFv(void *, Vec_8014E3B0 *, Vec_8014E3B0 *, Vec_8014E3B0 *, Vec_8014E3B0 *, Vec_8014E3B0 *, Vec_8014E3B0 *, f32 *);
+void matrix_mult_vec(s32, Vec_8014E3B0 *, Vec_8014E3B0 *);
+f32 vec3_dot(Vec_8014E3B0 *, Vec_8014E3B0 *);
+f32 vector_length(Vec_8014E3B0 *);
+void normalize_vector(Vec_8014E3B0 *);
+extern Vec_8014E3B0 lbl_8043FFB8;
+extern Vec_8014E3B0 lbl_8043FFC4;
+s32 route_around_object__10TNpcPlayerFv(Self_8014E7A0 *self, Vec_8014E3B0 *out);
+}
 
 void dispatch_action__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
@@ -839,6 +886,125 @@ void calc_box_escape_axis__10TNpcPlayerFv(void *self, Vec_8014E3B0 *a, Vec_8014E
         ((M2C_UNK (*)(void *, void *))VecCopy__FP3VecPC3Vec)(axis, &second);
     }
 }
+
+#pragma push
+#pragma fp_contract on
+s32 route_around_object__10TNpcPlayerFv(Self_8014E7A0 *self, Vec_8014E3B0 *out) {
+    Info_8014E7A0 info;
+    Vec_8014E3B0 perp;
+    Vec_8014E3B0 to;
+    Vec_8014E3B0 toSelf;
+    f32 r;
+    fn_8002B630(&info, self->f78->shape);
+    if (info.type == 0 || info.type == 0 ||
+        (info.h <= lbl_805DB1FC && info.type == 1 && info.h == info.w)) {
+        Target_8014E7A0 *t = self->f78->obj;
+        r = TNpcPlayer__data_805DB204 + info.w;
+        to.x = t->pos.x - info.pos.x;
+        to.y = 0.0f;
+        to.z = t->pos.z - info.pos.z;
+        perp.x = to.z;
+        perp.y = 0.0f;
+        perp.z = -to.x;
+        if (TNpcPlayer__data_805DB1F0 != vector_length(&perp)) {
+            normalize_vector(&perp);
+        }
+        toSelf.x = self->pos.x - info.pos.x;
+        toSelf.y = TNpcPlayer__data_805DB1F0;
+        toSelf.z = self->pos.z - info.pos.z;
+        if (TNpcPlayer__data_805DB1F0 != vector_length(&toSelf)) {
+            normalize_vector(&toSelf);
+        }
+        if (vec3_dot(&perp, &toSelf) < TNpcPlayer__data_805DB1F0) {
+            perp.x = -perp.x;
+            perp.z = -perp.z;
+        }
+        if (TNpcPlayer__data_805DB1F0 != vector_length(&to)) {
+            normalize_vector(&to);
+        }
+        perp.x += to.x;
+        perp.y += to.y;
+        perp.z += to.z;
+        if (TNpcPlayer__data_805DB1F0 != vector_length(&perp)) {
+            normalize_vector(&perp);
+        }
+        out->x = r * perp.x + info.pos.x;
+        out->y = r * perp.y + info.pos.y;
+        out->z = r * perp.z + info.pos.z;
+        if (self->level > 10) {
+            out->x = info.pos.x - r * perp.x;
+            out->y = info.pos.y - r * perp.y;
+            out->z = info.pos.z - r * perp.z;
+        }
+    } else {
+        Vec_8014E3B0 a = lbl_8043FFB8;
+        Vec_8014E3B0 b = lbl_8043FFC4;
+        Vec_8014E3B0 c0;
+        Vec_8014E3B0 c2;
+        Vec_8014E3B0 c1;
+        Vec_8014E3B0 c3;
+        Vec_8014E3B0 esc;
+        Vec_8014E3B0 dir;
+        Vec_8014E3B0 axis;
+        Vec_8014E3B0 clip;
+        Vec_8014E3B0 alt;
+        f32 dist;
+        a.x *= info.w;
+        b.z *= info.h;
+        push_matrix_from(lbl_8058D490);
+        rotate_matrix_y(0, self->f78->rot_y + 0x4000);
+        matrix_mult_vec(0, &a, &a);
+        matrix_mult_vec(0, &b, &b);
+        pop_matrices(1);
+        c0.x = info.pos.x + a.x;
+        c0.y = info.pos.y + a.y;
+        c0.z = info.pos.z + a.z;
+        c1.x = info.pos.x - a.x;
+        c1.y = info.pos.y - a.y;
+        c1.z = info.pos.z - a.z;
+        c2.x = info.pos.x + b.x;
+        c2.y = info.pos.y + b.y;
+        c2.z = info.pos.z + b.z;
+        c3.x = info.pos.x - b.x;
+        c3.y = info.pos.y - b.y;
+        c3.z = info.pos.z - b.z;
+        dir.x = self->f74->obj->pos.x - info.pos.x;
+        dir.y = self->f74->obj->pos.y - info.pos.y;
+        dir.z = self->f74->obj->pos.z - info.pos.z;
+        if (TNpcPlayer__data_805DB1F0 != vector_length(&dir)) {
+            normalize_vector(&dir);
+        }
+        calc_box_escape_axis__10TNpcPlayerFv(self, &c0, &c1, &c2, &c3, &self->f78->obj->pos, &axis, &dist);
+        VecCopy__FP3VecPC3Vec(&esc, (int) &axis);
+        if (vec3_dot(&dir, &esc) < TNpcPlayer__data_805DB1F0) {
+            esc.x = -esc.x;
+            esc.z = -esc.z;
+        }
+        r = dist;
+        out->x = r * esc.x + self->f78->obj->pos.x;
+        out->y = r * esc.y + self->f78->obj->wpos.y;
+        out->z = r * esc.z + self->f78->obj->pos.z;
+        if (partner_clip_path_point(self, &self->f78->obj->wpos.x, &out->x, &clip.x) != 0) {
+            out->x = clip.x;
+            out->y = clip.y;
+            out->z = clip.z;
+        }
+        if (self->level > 15) {
+            alt.x = esc.z;
+            alt.y = TNpcPlayer__data_805DB1F0;
+            alt.z = esc.x;
+            if (vec3_dot(&dir, &alt) < TNpcPlayer__data_805DB1F0) {
+                alt.x = -alt.x;
+                alt.z = -alt.z;
+            }
+            out->x = r * alt.x + self->f78->obj->pos.x;
+            out->y = self->f78->obj->wpos.y;
+            out->z = r * alt.z + self->f78->obj->pos.z;
+        }
+    }
+    return 1;
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on
@@ -1507,7 +1673,7 @@ void select_path_waypoint__10TNpcPlayerFv(Self_801501A0 *self) {
         return;
     }
     if (get_action_state__10TNpcPlayerFPv(self->view) & 0x20) {
-        if (route_around_object__10TNpcPlayerFv(self, &route) != 0 && self->s8c < 30) {
+        if (route_around_object__10TNpcPlayerFv((Self_8014E7A0 *)(self), (Vec_8014E3B0 *)(&route)) != 0 && self->s8c < 30) {
             ((M2C_UNK (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&self->target, &route);
         } else {
             if (self->s8d > 15) {

@@ -82,6 +82,26 @@ struct Particle_800865BC {
     f32 fBC;
 };
 
+struct Vec_80086248 { f32 x, y, z; };
+
+struct Vtx_80086248 { f32 x, y, z, u, v; u32 color; };
+
+struct UV_80086248 { f32 u0, v0, u1, v1; };
+
+struct Tex_80086248 { u8 pad0[0x10]; UV_80086248 *uvs; u8 pad14[0x28 - 0x14]; };
+
+struct Ctrl_80086248 {
+    u8 pad0[0x1C];
+    u16 tex;
+    u8 pad1E[0x70 - 0x1E];
+    Vec_80086248 pos;
+    Vec_80086248 ofs;
+    f32 w;
+    f32 h;
+    u32 color;
+    s8 frame;
+};
+
 extern "C" {
 s32 is_split_screen(void);
 u8 *__nw__7TObjectFUl(M2C_UNK);
@@ -119,6 +139,31 @@ extern RecoveredGlobal_8008655C_lbl_8048E728 lbl_8048E728;
 extern const f32 TParticleCtrl__data_805D94C4;
 extern const f32 TParticleCtrl__data_805D94CC;
 void *init_particle_base(void *arg0, void *arg1, s32 arg2);
+s32 is_split_screen(void);
+M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
+M2C_UNK setup_tev_stage__10TObjPlayerFv();
+M2C_UNK load_projected_texture_matrix(f32);
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK set_tev_direct__13TParticleCtrlFi(int);
+M2C_UNK play_indirect_effect_recipe(int, int, int);
+M2C_UNK GXSetNumTexGens(int);
+M2C_UNK GXSetTevOp(int, int);
+M2C_UNK GXSetNumTevStages(int);
+M2C_UNK rotate_matrix_y(int, s32);
+M2C_UNK rotate_matrix_x(int, s32);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK post_translate_matrix(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK set_texture_num(int);
+M2C_UNK reset_particles__13TParticleCtrlFv();
+M2C_UNK TParticleCtrl__sub_803E2A1C(void *, int);
+M2C_UNK TParticleCtrl__sub_803E2B68(int);
+extern Tex_80086248 lbl_804C5820[];
+extern u8 *lbl_805D4DF0;
+extern const f32 lbl_805D94D8;
+void draw_particle_refraction_quad(Ctrl_80086248 *self);
 }
 
 extern "C" {
@@ -241,6 +286,45 @@ void mark_active__13TParticleCtrlFPv(void *arg0) {
     get_object__13TParticleCtrlFPv(0x1F);
 }
 typedef char RecoveredGlobal_8008655C_lbl_8048E728_size[sizeof(RecoveredGlobal_8008655C_lbl_8048E728) == 0x18 ? 1 : -1];
+
+void draw_particle_refraction_quad(Ctrl_80086248 *self) {
+    Vec_80086248 p;
+    Vtx_80086248 v[4];
+    s32 frame;
+    UV_80086248 *uv;
+    frame = self->frame;
+    if (is_split_screen() != 0) {
+        return;
+    }
+    begin_effect_render__13TParticleCtrlFv();
+    uv = &lbl_804C5820[self->tex].uvs[frame];
+    p.x = self->pos.x + self->ofs.x;
+    p.y = self->pos.y + self->ofs.y;
+    p.z = self->pos.z + self->ofs.z;
+    v[0].x = 10.0f * self->w; v[0].y = 10.0f * self->h; v[0].z = 0.0f; v[0].u = uv->u0; v[0].v = uv->v0; v[0].color = self->color;
+    v[1].x = 10.0f * self->w; v[1].y = -10.0f * self->h; v[1].z = 0.0f; v[1].u = uv->u1; v[1].v = uv->v0; v[1].color = self->color;
+    v[2].x = -10.0f * self->w; v[2].y = 10.0f * self->h; v[2].z = 0.0f; v[2].u = uv->u0; v[2].v = uv->v1; v[2].color = self->color;
+    v[3].x = -10.0f * self->w; v[3].y = -10.0f * self->h; v[3].z = 0.0f; v[3].u = uv->u1; v[3].v = uv->v1; v[3].color = self->color;
+    push_matrix();
+    post_translate_matrix(&p);
+    rotate_matrix_y(0, *(s32 *)(lbl_805D4DF0 + 0x194));
+    rotate_matrix_x(0, *(s32 *)(lbl_805D4DF0 + 0x190));
+    load_projected_texture_matrix(lbl_805D94D8);
+    set_global_param__8TObjFishFi(*(s32 *)((u8 *)lbl_804C5820 + 0x16C));
+    set_texture_num(self->tex);
+    TParticleCtrl__sub_803E2B68(1);
+    GXSetNumTevStages(2);
+    GXSetNumTexGens(2);
+    GXSetTevOp(0, 0);
+    play_indirect_effect_recipe(0x1F, 0, 1);
+    setup_tev_stage__10TObjPlayerFv();
+    TParticleCtrl__sub_803E2A1C(v, 4);
+    reset_particles__13TParticleCtrlFv();
+    disable_if_single_screen__13TParticleCtrlFv();
+    set_tev_direct__13TParticleCtrlFi(1);
+    pop_matrix();
+    end_effect_render__13TParticleCtrlFv();
+}
 
 void apply_particle_model_fade_color(Ctrl_80086418 *self, s32 mode) {
     FCol_80086418 f;
