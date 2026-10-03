@@ -1389,6 +1389,15 @@ struct Obj_800288EC {
     f32 f664, f668, f66C, f670, f674, f678;
 };
 
+struct Stack_802FB0DC {
+    M2C_UNK sp8;
+    f32 spC;
+};
+
+struct V3_802FAC08 { f32 x, y, z; };
+
+struct Obj_802FAC08 { u8 pad0[0x38]; f32 x; u8 pad1[4]; f32 z; };
+
 extern "C" {
 extern f32 lbl_805D4AF8;
 extern f32 lbl_805D4AFC;
@@ -1419,6 +1428,11 @@ void TBoss1Dragon__sub_80028E28(u8 *arg0);
 extern u8 TBoss1Dragon__data_80434E80[0xC];
 extern const f32 lbl_805D800C;
 s32 advance_air_turn__12TBoss1DragonFv(Obj_800288EC *self);
+s32 get_current_floor();
+s32 get_field_3e4__10TObjPlayerFPv(void *);
+u32 get_player_by_client_id(s32);
+extern s32 TLobby__data_805D53AC;
+u16 TBoss1Dragon__sub_800273E0(void *arg0);
 }
 struct G_80025C68 { u8 *value; u8 remaining[0x8]; };
 struct Vec_80024314 { f32 x, y, z; };
@@ -1557,7 +1571,6 @@ extern const f32 lbl_805D80BC;
 void TBoss1Dragon__sub_80029328(u8 *arg0, f32 *arg1, f32 *arg2);
 struct Obj_80027320;
 void TBoss1Dragon__sub_80027320(Obj_80027320 *);
-u16 TBoss1Dragon__sub_800273E0(void *);
 extern u8 lbl_8050E208[];
 extern u8 TBoss1Dragon__data_80434EA0[];
 M2C_UNK TBoss1Dragon__sub_800284B4(void *, s16);
@@ -4062,7 +4075,7 @@ void TBoss1Dragon__sub_80027320(Obj_80027320 *self) {
     self->f6e4 = lbl_8050E208 + 0x20;
     if (((s32 (*)(void *))is_main_phase_15__9TObjEneDDFv)(lbl_8050E208) != 0) {
         if (TBoss1Dragon__data_805D4B3C == 0xFFFF) {
-            id = TBoss1Dragon__sub_800273E0(self);
+            id = TBoss1Dragon__sub_800273E0((void *)(self));
         } else {
             id = TBoss1Dragon__data_805D4B3C;
         }
@@ -4077,6 +4090,31 @@ void TBoss1Dragon__sub_80027320(Obj_80027320 *self) {
     }
     self->f764 = id;
 }
+
+#pragma push
+#pragma fp_contract on
+u16 TBoss1Dragon__sub_800273E0(void *arg0) {
+    u8 *p;
+    u16 idx;
+    u16 i;
+    p = ((u8 *)get_player_by_client_id(TLobby__data_805D53AC));
+    if (p != NULL) {
+        if (get_field_3e4__10TObjPlayerFPv((void *)((int)p)) == get_current_floor()) {
+            return TLobby__data_805D53AC;
+        }
+    }
+    for (i = 0; i < 4; i++) {
+        idx = (TLobby__data_805D53AC + i + 1) % 4;
+        p = ((u8 *)get_player_by_client_id(idx));
+        if (p != NULL) {
+            if (get_field_3e4__10TObjPlayerFPv((void *)((int)p)) == get_current_floor()) {
+                break;
+            }
+        }
+    }
+    return idx;
+}
+#pragma pop
 
 void update_switch_attack__12TBoss1DragonFPv(u8 *arg0) {
     spawn_particle_effect_with_flags(arg0 + 0x38, M2C_FIELD(M2C_FIELD(arg0, void **, 0x778), s32 *, 4), 0x40);
